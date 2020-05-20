@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 86f4eab266aabccd25e1269e1942e535f6af5436
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6d8088f537c4148f780c5f250eda3dcd5198f67f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591844"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683906"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Wzorce poprawiają dokładność przewidywania
 Wzorce zostały zaprojektowane w celu poprawy dokładności, gdy kilka wyrażenia długości jest bardzo podobne.  Wzorzec umożliwia uzyskanie większej dokładności dla zamiaru bez udostępniania wielu wyrażenia długości.
@@ -36,16 +36,16 @@ Jeśli aplikacja ma od 10 do 20 wyrażenia długości z różnymi długościami 
 Wzorce rozwiązują następujące sytuacje:
 
 * Wynik przeznaczenie jest niski
-* Poprawna wartość nie jest najważniejszym wynikiem, ale zbyt blisko najwyższego wyniku. 
+* Poprawna wartość nie jest najważniejszym wynikiem, ale zbyt blisko najwyższego wyniku.
 
 ## <a name="patterns-are-not-a-guarantee-of-intent"></a>Wzorce nie są gwarancją zamiaru
 Wzorce korzystają z różnych technologii przewidywania. Ustawienie zamiaru dla szablonu wypowiedź w wzorcu nie jest gwarancją przewidywania intencji, ale jest to silny sygnał.
 
 <a name="patterns-do-not-improve-entity-detection"/></a>
 
-## <a name="patterns-do-not-improve-machine-learned-entity-detection"></a>Wzorce nie poprawiają wykrywania jednostek wykrywanych przez maszynę
+## <a name="patterns-do-not-improve-machine-learning-entity-detection"></a>Wzorce nie poprawiają wykrywania jednostek uczenia maszynowego
 
-Wzorzec jest głównie przeznaczony do przewidywania intencji i ról. _Wzorzec. Każda_ jednostka służy do wyodrębniania jednostek o dowolnej postaci. Podczas gdy wzorce używają jednostek, wzorzec nie pomaga wykrywać jednostki obsługiwanej przez maszynę.
+Wzorzec jest głównie przeznaczony do przewidywania intencji i ról. _Wzorzec. Każda_ jednostka służy do wyodrębniania jednostek o dowolnej postaci. Podczas gdy wzorce używają jednostek, wzorzec nie pomaga wykrywać jednostki uczenia maszynowego.
 
 Nie oczekuje się, że w przypadku zwinięcia wielu wyrażenia długości do jednego wzorca nie widzisz ulepszonej przewidywania jednostek. Aby proste jednostki były wyzwalane, należy dodać wyrażenia długości lub użyć jednostek listy, ponieważ wzorzec nie zostanie uruchomiony.
 
@@ -59,7 +59,7 @@ Mając wystarczająco dużo przykład wyrażenia długości, LUIS może zwiększ
 Wzorzec jest dopasowywany w oparciu o najpierw wykrywanie jednostek wewnątrz wzorca, a następnie sprawdzanie pozostałej części wyrazów i kolejności wyrazów wzorca. Jednostki są wymagane we wzorcu do dopasowania do wzorca. Wzorzec jest stosowany na poziomie tokenu, a nie na poziomie znaku.
 
 ## <a name="pattern-only-apps"></a>Aplikacje tylko dla wzorców
-Możesz utworzyć aplikację z intencjami, które nie mają przykładowej wyrażenia długości, o ile istnieje wzorzec dla każdego zamiaru. W przypadku aplikacji tylko dla wzorców wzorzec nie powinien zawierać jednostek maszynowych, ponieważ wymagają one przykładowej wyrażenia długości.
+Możesz utworzyć aplikację z intencjami, które nie mają przykładowej wyrażenia długości, o ile istnieje wzorzec dla każdego zamiaru. W przypadku aplikacji tylko do wzorca wzorzec nie powinien zawierać jednostek uczenia maszynowego, ponieważ wymagają one przykładowego wyrażenia długości.
 
 ## <a name="patternany-entity"></a>Jednostka Pattern.any
 

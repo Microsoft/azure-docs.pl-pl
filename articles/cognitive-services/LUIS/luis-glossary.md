@@ -3,12 +3,12 @@ title: Słownik — LUIS
 description: Słownik objaśnia warunki, które mogą wystąpić podczas pracy z usługą interfejsu API LUIS.
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: eb823e65acc55dd9d739b31e506ad27f6af9095a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 1513099decc21a7d219bfcb84563619640028550
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589673"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681619"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Słownik dotyczący typowego słownictwa i koncepcji
 W słowniku Language Understanding (LUIS) objaśniono warunki, które mogą wystąpić podczas pracy z usługą LUIS.
@@ -139,9 +139,9 @@ Schemat jednostki to struktura zdefiniowana dla maszyn z obiektami podobiektami.
 
 ### <a name="entitys-subentity"></a>Podjednostka jednostki
 
-Podjednostka jest jednostką podrzędną jednostki, która jest poznania maszyny.
+Podjednostka jest jednostką podrzędną jednostki uczenia maszynowego.
 
-### <a name="non-machine-learned-entity"></a>Jednostka nieoparta na maszynie
+### <a name="non-machine-learning-entity"></a>Jednostka niebędąca maszyną szkoleniową
 
 Jednostka, która używa dopasowywania tekstu do wyodrębniania danych:
 * Jednostka listy
@@ -199,6 +199,10 @@ Model (z maszyną) to funkcja, która wykonuje prognozowanie danych wejściowych
 ## <a name="normalized-value"></a>Znormalizowana wartość
 
 Dodaj wartości do jednostek [listy](#list-entity) . Każda z tych wartości może zawierać listę jednego lub kilku synonimów. W odpowiedzi jest zwracana tylko znormalizowana wartość.
+
+## <a name="overfitting"></a>Nadmierne dopasowanie
+
+Przemontowanie następuje, gdy model jest odwzoruje się w określonych przykładach i nie jest w stanie uogólniać się prawidłowo.
 
 ## <a name="owner"></a>Właściciel
 
@@ -260,7 +264,7 @@ Limit przydziału LUIS to ograniczenie warstwy subskrypcji platformy Azure. Limi
 
 ## <a name="schema"></a>Schemat
 
-Schemat zawiera twoje intencje i jednostki wraz z podjednostkami. Schemat jest początkowo planowany, a następnie powtarzany w miarę upływu czasu. Schemat nie obejmuje ustawień aplikacji, funkcji ani przykładu wyrażenia długości. 
+Schemat zawiera twoje intencje i jednostki wraz z podjednostkami. Schemat jest początkowo planowany, a następnie powtarzany w miarę upływu czasu. Schemat nie obejmuje ustawień aplikacji, funkcji ani przykładu wyrażenia długości.
 
 ## <a name="sentiment-analysis"></a>Analiza tonacji
 Tonacji Analysis zawiera wartości dodatnie lub ujemne wyrażenia długości dostarczone przez [Analiza tekstu](../text-analytics/overview.md).

@@ -3,12 +3,12 @@ title: Elementy webhook odpowiadające na akcje rejestru
 description: Dowiedz się, jak używać elementów webhook do wyzwalania zdarzeń w przypadku akcji wypychania lub ściągania w repozytoriach rejestru.
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: 5e6fd2d9f4c7727365a8e2fe3893aafebfeb7bd4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3d0a12b6e742b0209cbb746a70686423f2fb5627
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74454375"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685035"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Używanie Azure Container Registry elementów webhook
 
@@ -18,7 +18,7 @@ Aby uzyskać szczegółowe informacje o żądaniach elementu webhook, zobacz [Az
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Usługa Azure Container Registry — Tworzy rejestr kontenera w subskrypcji platformy Azure. Na przykład użyj [Azure Portal](container-registry-get-started-portal.md) lub [interfejsu wiersza polecenia platformy Azure](container-registry-get-started-azure-cli.md). [Jednostki sku Azure Container Registry](container-registry-skus.md) mają różne przydziały elementów webhook.
+* Usługa Azure Container Registry — Tworzy rejestr kontenera w subskrypcji platformy Azure. Na przykład użyj [Azure Portal](container-registry-get-started-portal.md) lub [interfejsu wiersza polecenia platformy Azure](container-registry-get-started-azure-cli.md). [Warstwy usługi Azure Container Registry](container-registry-skus.md) mają różne przydziały elementów webhook.
 * Interfejs wiersza polecenia platformy Docker — Aby skonfigurować lokalny komputer jako hosta platformy Docker i uzyskać dostęp do poleceń interfejsu wiersza polecenia platformy Docker, zainstaluj [aparat platformy Docker](https://docs.docker.com/engine/installation/).
 
 ## <a name="create-webhook---azure-portal"></a>Utwórz element webhook — Azure Portal

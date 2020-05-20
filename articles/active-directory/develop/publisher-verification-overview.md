@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/08/2020
+ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: d050efe1224e2783cdad52a12c842f7abe44b7af
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 73a96f295d5dfa74130927e5096e9278a0e348e8
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597702"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682427"
 ---
 # <a name="publisher-verification-preview"></a>Weryfikacja wydawcy (wersja zapoznawcza)
 
-Weryfikacja wydawcy (wersja zapoznawcza) pomaga administratorom i użytkownikom końcowym zrozumieć autentyczność deweloperów aplikacji integrujących się z platformą tożsamości firmy Microsoft. Innymi słowy, czy Wydawca jest znanym źródłem lub złym aktorem udającym się jako dobrze znany Wydawca? Gdy aplikacja zostanie oznaczona jako zweryfikowana przez wydawcę, oznacza to, że Wydawca zweryfikował swoją tożsamość przy użyciu konta [Microsoft Partner Network](https://partner.microsoft.com/membership) , które ukończyło proces [weryfikacji](/partner-center/verification-responses) i skojarzył to konto MPN z rejestracją aplikacji. 
+Weryfikacja wydawcy (wersja zapoznawcza) pomaga administratorom i użytkownikom końcowym zrozumieć autentyczność deweloperów aplikacji integrujących się z platformą tożsamości firmy Microsoft. Gdy aplikacja zostanie oznaczona jako zweryfikowana przez wydawcę, oznacza to, że Wydawca zweryfikował swoją tożsamość przy użyciu konta [Microsoft Partner Network](https://partner.microsoft.com/membership) , które ukończyło proces [weryfikacji](/partner-center/verification-responses) i skojarzył to konto MPN z rejestracją aplikacji. 
 
 Niebieski wskaźnik "sprawdzony" pojawia się w monicie o zgodę usługi Azure AD i innych ekranach: ![ monit o zgodę](./media/publisher-verification-overview/consent-prompt.png)
 

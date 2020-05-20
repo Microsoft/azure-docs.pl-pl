@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 7a6540b5784a76acfc248fb15feb1aaf39420845
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2143546e10b413d1492b8734d2594de42fd37cf3
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80546945"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684406"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Przetwarzanie zestawów danych na dużą skalę przy użyciu Data Factory i usługi Batch
 > [!NOTE]
@@ -130,9 +130,9 @@ Aby sprawdzić i zmienić dane w projektach magazynu, należy użyć [Eksplorato
 
    ![Struktura folderów i podfolderów](./media/data-factory-data-processing-using-batch/image3.png)
 
-   `Inputfolder`i `outputfolder` to foldery najwyższego poziomu `mycontainer`w programie. `inputfolder` Folder zawiera podfoldery z sygnaturami daty i godziny (rrrr-mm-dd-hh).
+   `Inputfolder`i `outputfolder` to foldery najwyższego poziomu w programie `mycontainer` . `inputfolder`Folder zawiera podfoldery z sygnaturami daty i godziny (rrrr-mm-dd-hh).
 
-   Jeśli używasz Eksplorator usługi Storage, w następnym kroku przekażesz pliki o następujących nazwach: `inputfolder/2015-11-16-00/file.txt`, `inputfolder/2015-11-16-01/file.txt`i tak dalej. Ten krok powoduje automatyczne utworzenie folderów.
+   Jeśli używasz Eksplorator usługi Storage, w następnym kroku przekażesz pliki o następujących nazwach: `inputfolder/2015-11-16-00/file.txt` , `inputfolder/2015-11-16-01/file.txt` i tak dalej. Ten krok powoduje automatyczne utworzenie folderów.
 
 1. Utwórz plik tekstowy **. txt** na maszynie z zawartością, która ma słowo kluczowe **Microsoft**. Przykładem jest "testowanie niestandardowego działania testowego firmy Microsoft testowego firmy Microsoft".
 
@@ -140,9 +140,9 @@ Aby sprawdzić i zmienić dane w projektach magazynu, należy użyć [Eksplorato
 
    ![Foldery wejściowe](./media/data-factory-data-processing-using-batch/image4.png)
 
-   Jeśli używasz Eksplorator usługi Storage, Przekaż plik **plik. txt** do **programu.** Wybierz pozycję **Kopiuj** na pasku narzędzi, aby utworzyć kopię obiektu BLOB. W oknie dialogowym **Kopiowanie obiektu BLOB** Zmień **nazwę docelowego obiektu BLOB** na `inputfolder/2015-11-16-00/file.txt`. Powtórz ten krok, aby `inputfolder/2015-11-16-01/file.txt`utworzyć `inputfolder/2015-11-16-02/file.txt`, `inputfolder/2015-11-16-03/file.txt`, `inputfolder/2015-11-16-04/file.txt`, i tak dalej. Ta akcja powoduje automatyczne utworzenie folderów.
+   Jeśli używasz Eksplorator usługi Storage, Przekaż plik **plik. txt** do **programu.** Wybierz pozycję **Kopiuj** na pasku narzędzi, aby utworzyć kopię obiektu BLOB. W oknie dialogowym **Kopiowanie obiektu BLOB** Zmień **nazwę docelowego obiektu BLOB** na `inputfolder/2015-11-16-00/file.txt` . Powtórz ten krok, aby utworzyć `inputfolder/2015-11-16-01/file.txt` , `inputfolder/2015-11-16-02/file.txt` , `inputfolder/2015-11-16-03/file.txt` , `inputfolder/2015-11-16-04/file.txt` i tak dalej. Ta akcja powoduje automatyczne utworzenie folderów.
 
-1. Utwórz inny kontener o `customactivitycontainer`nazwie. Przekaż niestandardowy plik zip działania do tego kontenera.
+1. Utwórz inny kontener o nazwie `customactivitycontainer` . Przekaż niestandardowy plik zip działania do tego kontenera.
 
 #### <a name="visual-studio"></a>Visual Studio
 Zainstaluj program Visual Studio 2012 lub nowszy, aby utworzyć niestandardową aktywność wsadową, która będzie używana w rozwiązaniu fabryki danych.
@@ -180,19 +180,19 @@ Metoda zawiera kilka najważniejszych składników, które należy zrozumieć:
 
    a. Uruchom program Visual Studio 2012/2013/2015.
 
-   b. Wybierz pozycję **plik** > **Nowy** > **projekt**.
+   b. Wybierz pozycję **plik**  >  **Nowy**  >  **projekt**.
 
-   c. Rozwiń węzeł **Szablony**, a następnie wybierz pozycję **Visual C\#**. W tym instruktażu należy użyć języka\#C, ale do opracowania niestandardowego działania można użyć dowolnych języków platformy .NET.
+   c. Rozwiń węzeł **Szablony**, a następnie wybierz pozycję **Visual C \# **. W tym instruktażu należy użyć \# języka C, ale do opracowania niestandardowego działania można użyć dowolnych języków platformy .NET.
 
    d. Wybierz pozycję **Biblioteka klas** z listy typów projektów po prawej stronie.
 
    e. Wprowadź **wartość** w polu **Nazwa**.
 
-   f. Wybierz pozycję **C\\: ADF** dla **lokalizacji**. Utwórz plik **ADF** folderu, jeśli nie istnieje.
+   f. Wybierz pozycję **C: \\ ADF** dla **lokalizacji**. Utwórz plik **ADF** folderu, jeśli nie istnieje.
 
    g. Wybierz przycisk **OK**, aby utworzyć projekt.
 
-1. Wybierz kolejno pozycje **Narzędzia** > **Menedżer pakietów** > NuGet**konsola Menedżera pakietów**.
+1. Wybierz kolejno pozycje **Narzędzia**Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera pakietów**.
 
 1. W konsoli Menedżera pakietów wykonaj następujące polecenie, aby zaimportować pakiet Microsoft. Azure. Management. datafactors:
 
@@ -396,13 +396,13 @@ Metoda zawiera kilka najważniejszych składników, które należy zrozumieć:
 
 1. Kompiluj projekt. Wybierz z menu pozycję **kompilacja** , a następnie wybierz pozycję **Kompiluj rozwiązanie**.
 
-1. Uruchom Eksploratora Windows i przejdź do folderu **bin\\Debug** lub **bin\\Release** . Wybór folderu zależy od typu kompilacji.
+1. Uruchom Eksploratora Windows i przejdź do folderu **bin \\ Debug** lub **bin \\ Release** . Wybór folderu zależy od typu kompilacji.
 
-1. Utwórz plik zip pliku **. zip** , który zawiera wszystkie pliki binarne w folderze ** \\debugowania bin\\** . Może być konieczne dołączenie. plik **PDB** , aby uzyskać dodatkowe szczegóły, takie jak numer wiersza w kodzie źródłowym, który spowodował problem w przypadku wystąpienia błędu.
+1. Utwórz plik zip pliku **. zip** , który zawiera wszystkie pliki binarne w folderze ** \\ \\ debugowania bin** . Może być konieczne dołączenie. plik **PDB** , aby uzyskać dodatkowe szczegóły, takie jak numer wiersza w kodzie źródłowym, który spowodował problem w przypadku wystąpienia błędu.
 
    ![Lista folderów bin\Debug](./media/data-factory-data-processing-using-batch/image5.png)
 
-1. Przekaż plik **. zip** jako obiekt BLOB do kontenera `customactivitycontainer` obiektów BLOB w magazynie obiektów blob, który używa połączonej usługi StorageLinkedService w ADFTutorialDataFactory. Utwórz kontener `customactivitycontainer` obiektów blob, jeśli jeszcze nie istnieje.
+1. Przekaż plik **. zip** jako obiekt BLOB do kontenera obiektów BLOB `customactivitycontainer` w magazynie obiektów blob, który używa połączonej usługi StorageLinkedService w ADFTutorialDataFactory. Utwórz kontener obiektów blob, `customactivitycontainer` Jeśli jeszcze nie istnieje.
 
 #### <a name="execute-method"></a>Execute — Metoda
 Ta sekcja zawiera więcej szczegółów o kodzie w metodzie Execute.
@@ -482,7 +482,7 @@ Ta sekcja zawiera więcej szczegółów o kodzie w metodzie Execute.
 ### <a name="create-the-data-factory"></a>Tworzenie fabryki danych
 W sekcji [Tworzenie niestandardowego działania](#create-the-custom-activity) utworzono działanie niestandardowe i przekazano plik zip z danymi binarnymi i plikiem PDB do kontenera obiektów BLOB. W tej sekcji utworzysz fabrykę danych z potokiem korzystającym z działania niestandardowego.
 
-Wejściowy zestaw danych dla działania niestandardowego reprezentuje obiekty blob (pliki) w folderze wejściowym (`mycontainer\\inputfolder`) w usłudze BLOB Storage. Wyjściowy zestaw danych dla działania reprezentuje wyjściowe obiekty blob w folderze wyjściowym (`mycontainer\\outputfolder`) w usłudze BLOB Storage.
+Wejściowy zestaw danych dla działania niestandardowego reprezentuje obiekty blob (pliki) w folderze wejściowym ( `mycontainer\\inputfolder` ) w usłudze BLOB Storage. Wyjściowy zestaw danych dla działania reprezentuje wyjściowe obiekty blob w folderze wyjściowym ( `mycontainer\\outputfolder` ) w usłudze BLOB Storage.
 
 Upuść jeden lub więcej plików do folderów wejściowych:
 
@@ -578,7 +578,7 @@ W tym kroku utworzysz połączoną usługę dla konta usługi Batch, która jest
    d. Wprowadź identyfikator URI usługi Batch dla właściwości JSON **batchUri** .
 
       > [!IMPORTANT]
-      > Adres URL w bloku **konta usługi Batch** ma następujący format: \<AccountName.\> \<region\>. Batch.Azure.com. Dla właściwości **batchUri** w skrypcie JSON należy usunąć A88 "AccountName". * * w adresie URL. Może to być na przykład `"batchUri": "https://eastus.batch.azure.com"`.
+      > Adres URL w bloku **konta usługi Batch** ma następujący format: \< AccountName \> . \< Region \> . Batch.Azure.com. Dla właściwości **batchUri** w skrypcie JSON należy usunąć A88 "AccountName". * * w adresie URL. Może to być na przykład `"batchUri": "https://eastus.batch.azure.com"`.
       >
       >
 
@@ -659,7 +659,7 @@ W tym kroku utworzysz zestawy danych reprezentujące dane wejściowe i wyjściow
     }
     ```
 
-    Potok można utworzyć w dalszej części tego przewodnika z upływem czasu rozpoczęcia 2015-11-16T00:00:00Z i czasu zakończenia 2015-11-16T05:00:00Z. Zaplanowano tworzenie danych co godzinę, więc istnieje pięć wycinków danych wejściowych/wyjściowych (od **00**: 00:00\> – **05**: 00:00).
+    Potok można utworzyć w dalszej części tego przewodnika z upływem czasu rozpoczęcia 2015-11-16T00:00:00Z i czasu zakończenia 2015-11-16T05:00:00Z. Zaplanowano tworzenie danych co godzinę, więc istnieje pięć wycinków danych wejściowych/wyjściowych (od **00**: 00:00 – \> **05**: 00:00).
 
     **Częstotliwość** i **Interwał** dla wejściowego zestawu danych są ustawione na wartość **Hour** i **1**, co oznacza, że wycinek danych wejściowych jest dostępny co godzinę.
 
@@ -720,7 +720,7 @@ W tym kroku utworzysz kolejny zestaw danych typu AzureBlob do reprezentowania da
     }
     ```
 
-    Wyjściowy obiekt BLOB/plik jest generowany dla każdego wycinka danych wejściowych. Poniżej przedstawiono sposób, w jaki plik wyjściowy jest nazwany dla każdego wycinka. Wszystkie pliki wyjściowe są generowane w jednym folderze wyjściowym, `mycontainer\\outputfolder`.
+    Wyjściowy obiekt BLOB/plik jest generowany dla każdego wycinka danych wejściowych. Poniżej przedstawiono sposób, w jaki plik wyjściowy jest nazwany dla każdego wycinka. Wszystkie pliki wyjściowe są generowane w jednym folderze wyjściowym, `mycontainer\\outputfolder` .
 
     | **Cinek** | **Godzina rozpoczęcia**          | **Plik wyjściowy**       |
     |-----------|-------------------------|-----------------------|
@@ -793,9 +793,9 @@ W tym kroku utworzysz potok z jednym działaniem, utworzonym wcześniej działan
 
    * W potoku jest tylko jedno działanie i jest ono typu **dotnet**.
    * Nazwa **AssemblyName** jest ustawiona na nazwę pliku DLL **. dll**.
-   * **Punkt wejścia** jest ustawiony na **MyDotNetActivityNS..** Jest to zasadniczo \<przestrzeń\>nazw. \<ClassName\> w kodzie.
+   * **Punkt wejścia** jest ustawiony na **MyDotNetActivityNS..** Jest to zasadniczo \< przestrzeń nazw \> . \< ClassName \> w kodzie.
    * **PackageLinkedService** jest ustawiona na **StorageLinkedService**, która wskazuje na magazyn obiektów blob, który zawiera plik zip działania niestandardowego. Jeśli używasz innych kont magazynu dla plików wejściowych/wyjściowych i pliku zip działania niestandardowego, musisz utworzyć kolejną połączoną usługę Storage. W tym artykule przyjęto założenie, że jest używane to samo konto magazynu.
-   * **PackageFile** jest ustawiona na **Customactivitycontainer/mój dotnet. zip**. \<Jest to format containerforthezip\>/\<nameofthezip. zip\>.
+   * **PackageFile** jest ustawiona na **Customactivitycontainer/mój dotnet. zip**. Jest to format \< containerforthezip \> / \< nameofthezip. zip \> .
    * Działanie niestandardowe przyjmuje **InputDataset** jako dane wejściowe i **OutputDataset** jako dane wyjściowe.
    * Właściwość **linkedServiceName** niestandardowego działania wskazuje wartość **AzureBatchLinkedService**, która informuje Data Factory, że działanie niestandardowe musi być uruchamiane w usłudze Batch.
    * Ustawienie **współbieżności** jest ważne. Jeśli zostanie użyta wartość domyślna, która jest równa 1, nawet jeśli w puli wsadowej znajdują się co najmniej dwa węzły obliczeniowe, wycinki są przetwarzane jeden po drugim. W związku z tym nie jest możliwe korzystanie z możliwości przetwarzania równoległego w usłudze Batch. Jeśli ustawisz **współbieżność** na wyższą wartość, powiedzmy 2, co oznacza, że dwa wycinki (odnoszą się do dwóch zadań w partii) mogą być przetwarzane w tym samym czasie. W takim przypadku wykorzystywane są zarówno maszyny wirtualne w puli usługi Batch. Ustaw odpowiednio Właściwość współbieżności.
@@ -828,7 +828,7 @@ Ten krok polega na przetestowaniu potoku przez upuszczenie plików do folderów 
 
 1. Użyj portalu, aby wyświetlić zadania skojarzone z wycinkami i sprawdzić, w jaki sposób ma być uruchomiona maszyna wirtualna. Aby uzyskać więcej informacji, zobacz sekcję [Data Factory i integrację usługi Batch](#data-factory-and-batch-integration) .
 
-1. Pliki wyjściowe są wyświetlane w `mycontainer` obszarze `outputfolder` w obszarze programu w magazynie obiektów BLOB.
+1. Pliki wyjściowe są wyświetlane w obszarze w obszarze programu `mycontainer` `outputfolder` w magazynie obiektów BLOB.
 
    ![Pliki wyjściowe w magazynie](./media/data-factory-data-processing-using-batch/image15.png)
 
@@ -847,9 +847,9 @@ Ten krok polega na przetestowaniu potoku przez upuszczenie plików do folderów 
 
 1. W bloku **OutputDataset** kliknij prawym przyciskiem myszy wycinek z ustawionym **czasem rozpoczęcia wycinka** na **11/16/2015 01:00:00 am**. Wybierz pozycję **Uruchom** , aby ponownie uruchomić/przetworzyć wycinek. Plasterek ma teraz pięć plików, a nie jeden plik.
 
-    ![Run](./media/data-factory-data-processing-using-batch/image17.png)
+    ![Uruchom](./media/data-factory-data-processing-using-batch/image17.png)
 
-1. Po uruchomieniu wycinka, gdy jego stan jest **gotowy**, sprawdź zawartość pliku wyjściowego dla tego wycinka (**2015-11-16 -01. txt**). Plik wyjściowy jest wyświetlany w `mycontainer` obszarze `outputfolder` w programie w magazynie obiektów BLOB. Powinien istnieć wiersz dla każdego pliku wycinka.
+1. Po uruchomieniu wycinka, gdy jego stan jest **gotowy**, sprawdź zawartość pliku wyjściowego dla tego wycinka (**2015-11-16 -01. txt**). Plik wyjściowy jest wyświetlany w obszarze `mycontainer` w programie `outputfolder` w magazynie obiektów BLOB. Powinien istnieć wiersz dla każdego pliku wycinka.
 
     ```
     2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file.txt.
@@ -865,7 +865,7 @@ Ten krok polega na przetestowaniu potoku przez upuszczenie plików do folderów 
 >
 
 #### <a name="data-factory-and-batch-integration"></a>Integracja Data Factory i partii
-Usługa Data Factory tworzy zadanie w usłudze Batch z nazwą `adf-poolname:job-xxx`.
+Usługa Data Factory tworzy zadanie w usłudze Batch z nazwą `adf-poolname:job-xxx` .
 
 ![Zadania wsadowe](media/data-factory-data-processing-using-batch/data-factory-batch-jobs.png)
 
@@ -884,11 +884,11 @@ Debugowanie składa się z kilku podstawowych technik.
 
    ![Struktura folderu wejściowego](./media/data-factory-data-processing-using-batch/image3.png)
 
-1. W metodzie **Execute** niestandardowego działania Użyj obiektu **IActivityLogger** , aby rejestrować informacje pomagające w rozwiązywaniu problemów. Zarejestrowane komunikaty pojawiają się w pliku dziennika\_użytkownika 0. log.
+1. W metodzie **Execute** niestandardowego działania Użyj obiektu **IActivityLogger** , aby rejestrować informacje pomagające w rozwiązywaniu problemów. Zarejestrowane komunikaty pojawiają się w \_ pliku dziennika użytkownika 0. log.
 
    W bloku **OutputDataset** Wybierz wycinek, aby wyświetlić blok **wycinka danych** dla tego wycinka. W obszarze **uruchomienia działania**zobaczysz jedno uruchomienie działania dla wycinka. Jeśli wybierzesz pozycję **Uruchom** na pasku poleceń, możesz uruchomić kolejne uruchomienie działania dla tego samego wycinka.
 
-   Po wybraniu uruchomienia działania zostanie wyświetlony blok **szczegóły uruchomienia działania** z listą plików dziennika. W pliku dziennika użytkownika\_0. log są wyświetlane zarejestrowane komunikaty. Gdy wystąpi błąd, zobaczysz trzy uruchomienia działania, ponieważ liczba ponownych prób jest ustawiona na 3 w formacie JSON potoku/działania. Po wybraniu uruchomienia działania zobaczysz pliki dziennika, które można przejrzeć, aby rozwiązać problem.
+   Po wybraniu uruchomienia działania zostanie wyświetlony blok **szczegóły uruchomienia działania** z listą plików dziennika. W \_ pliku dziennika użytkownika 0. log są wyświetlane zarejestrowane komunikaty. Gdy wystąpi błąd, zobaczysz trzy uruchomienia działania, ponieważ liczba ponownych prób jest ustawiona na 3 w formacie JSON potoku/działania. Po wybraniu uruchomienia działania zobaczysz pliki dziennika, które można przejrzeć, aby rozwiązać problem.
 
    ![OutputDataset i bloki wycinków danych](./media/data-factory-data-processing-using-batch/image18.png)
 
@@ -920,7 +920,7 @@ Debugowanie składa się z kilku podstawowych technik.
    ![OutputDataset — opcja uruchamiania bloku](./media/data-factory-data-processing-using-batch/image21.png)
 
    > [!NOTE]
-   > Kontener znajduje się w magazynie obiektów BLOB o `adfjobs`nazwie. Ten kontener nie jest automatycznie usuwany, ale można go bezpiecznie usunąć po zakończeniu testowania rozwiązania. Podobnie rozwiązanie fabryki danych tworzy zadanie wsadowe o nazwie `adf-\<pool ID/name\>:job-0000000001`. To zadanie można usunąć po przetestowaniu rozwiązania.
+   > Kontener znajduje się w magazynie obiektów BLOB o nazwie `adfjobs` . Ten kontener nie jest automatycznie usuwany, ale można go bezpiecznie usunąć po zakończeniu testowania rozwiązania. Podobnie rozwiązanie fabryki danych tworzy zadanie wsadowe o nazwie `adf-\<pool ID/name\>:job-0000000001` . To zadanie można usunąć po przetestowaniu rozwiązania.
    >
    >
 1. Działanie niestandardowe nie korzysta z pliku **App. config** z pakietu. W związku z tym, jeśli kod odczytuje wszystkie parametry połączenia z pliku konfiguracji, nie działa w czasie wykonywania. Najlepszym rozwiązaniem w przypadku korzystania z programu Batch jest przechowywanie wszelkich wpisów tajnych w Azure Key Vault. Następnie należy użyć nazwy głównej usługi opartej na certyfikatach w celu ochrony magazynu kluczy i dystrybucji certyfikatu do puli usługi Batch. Niestandardowe działanie programu .NET ma dostęp do wpisów tajnych z magazynu kluczy w czasie wykonywania. To rozwiązanie generyczne może być skalowane do dowolnego typu wpisu tajnego, a nie tylko parametrów połączenia.
@@ -930,7 +930,7 @@ Debugowanie składa się z kilku podstawowych technik.
 #### <a name="extend-the-sample"></a>Zwiększ przykład
 Możesz zwiększyć ten przykład, aby dowiedzieć się więcej o funkcjach Data Factory i Batch. Na przykład, aby przetworzyć wycinków w innym zakresie czasu, wykonaj następujące czynności:
 
-1. Dodaj następujące podfoldery `inputfolder`w: 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08 i 2015-11-16-09. Umieść pliki wejściowe w tych folderach. Zmień godzinę zakończenia potoku z `2015-11-16T05:00:00Z` na. `2015-11-16T10:00:00Z` W widoku **diagramu** kliknij dwukrotnie pozycję **InputDataset** i upewnij się, że wycinki wejściowe są gotowe. Kliknij dwukrotnie pozycję **OutputDataset** , aby wyświetlić stan wycinków danych wyjściowych. Jeśli są w stanie **gotowe** , sprawdź folder wyjściowy dla plików wyjściowych.
+1. Dodaj następujące podfoldery w `inputfolder` : 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08 i 2015-11-16-09. Umieść pliki wejściowe w tych folderach. Zmień godzinę zakończenia potoku z `2015-11-16T05:00:00Z` na `2015-11-16T10:00:00Z` . W widoku **diagramu** kliknij dwukrotnie pozycję **InputDataset** i upewnij się, że wycinki wejściowe są gotowe. Kliknij dwukrotnie pozycję **OutputDataset** , aby wyświetlić stan wycinków danych wyjściowych. Jeśli są w stanie **gotowe** , sprawdź folder wyjściowy dla plików wyjściowych.
 
 1. Zwiększ lub Zmniejsz ustawienie **współbieżności** , aby zrozumieć, jak ma to wpływ na wydajność rozwiązania, szczególnie przetwarzanie wykonywane w ramach partii. Aby uzyskać więcej informacji na temat ustawienia **współbieżności** , zobacz "krok 4: Tworzenie i uruchamianie potoku za pomocą działania niestandardowego".
 
@@ -960,11 +960,11 @@ Możesz zwiększyć ten przykład, aby dowiedzieć się więcej o funkcjach Data
 Po przeprowadzeniu danych można korzystać z nich za pomocą narzędzi online, takich jak Power BI. Poniżej znajdują się linki ułatwiające zrozumienie Power BI i sposobu korzystania z niego na platformie Azure:
 
 * [Eksplorowanie zestawu danych w Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)
-* [Wprowadzenie do programu Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)
+* [Wprowadzenie do programu Power BI Desktop](https://docs.microsoft.com/power-bi/fundamentals/desktop-getting-started)
 * [Odśwież dane w Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
 * [Azure i Power BI: omówienie podstawowe](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
 * [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 
   * [Wprowadzenie do usługi Data Factory](data-factory-introduction.md)

@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
-ms.date: 03/24/2020
-ms.openlocfilehash: 57ca594dd067d15009de5e3abf7276fae48720d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/19/2020
+ms.openlocfilehash: f259d423f465d93031c3a72855fd7aac4e320573
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80238661"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684960"
 ---
 # <a name="accelerated-database-recovery"></a>Szybsze odzyskiwanie bazy danych
 
@@ -33,7 +33,7 @@ ms.locfileid: "80238661"
 
   W przypadku korzystania z reguły ADR dziennik transakcji jest agresywnie obcinany, nawet w obecności aktywnych długotrwałych transakcji, które uniemożliwiają przeprowadzenie kontroli.
 
-## <a name="the-current-database-recovery-process"></a>Bieżący proces odzyskiwania bazy danych
+## <a name="standard-database-recovery-process"></a>Standardowy proces odzyskiwania bazy danych
 
 Odzyskiwanie bazy danych w SQL Server jest zgodne z modelem odzyskiwania [Aries](https://people.eecs.berkeley.edu/~brewer/cs262/Aries.pdf) i składa się z trzech faz, które przedstawiono na poniższym diagramie i wyjaśniono bardziej szczegółowo po diagramie.
 

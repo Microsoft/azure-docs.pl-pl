@@ -10,12 +10,12 @@ ms.reviewer: trbye, jmartens, larryfr, vaidyas
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 01/15/2020
-ms.openlocfilehash: ca50d70965d5edc4e31606e542ddf163fe3b0741
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b5431ae574f40c29368848808004a53abe43c3a8
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76122966"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680973"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>Debugowanie i rozwiązywanie problemów z ParallelRunStep
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -28,32 +28,37 @@ Zobacz [sekcję testowanie skryptów lokalnie](how-to-debug-pipelines.md#testing
 
 ## <a name="debugging-scripts-from-remote-context"></a>Debugowanie skryptów z kontekstu zdalnego
 
-Przejście od debugowania skryptu oceniania lokalnie w celu debugowania skryptu oceniania w rzeczywistym potoku może być trudne. Aby uzyskać informacje na temat wyszukiwania dzienników w portalu, należy zapoznać się z [sekcją potoki uczenia maszynowego w przypadku debugowania skryptów z kontekstu zdalnego](how-to-debug-pipelines.md#debugging-scripts-from-remote-context). Informacje zawarte w tej sekcji dotyczą również przebiegu równoległego kroku.
+Przejście od debugowania skryptu oceniania lokalnie w celu debugowania skryptu oceniania w rzeczywistym potoku może być trudne. Aby uzyskać informacje na temat wyszukiwania dzienników w portalu, należy zapoznać się z [sekcją potoki uczenia maszynowego w przypadku debugowania skryptów z kontekstu zdalnego](how-to-debug-pipelines.md#debugging-scripts-from-remote-context). Informacje zawarte w tej sekcji dotyczą również ParallelRunStep.
 
-Na przykład plik `70_driver_log.txt` dziennika zawiera informacje z kontrolera, który uruchamia kod kroku przebiegu równoległego.
+Na przykład plik dziennika `70_driver_log.txt` zawiera informacje z kontrolera, który uruchamia kod ParallelRunStep.
 
-Ze względu na rozproszony charakter zadań przebiegów równoległych istnieją dzienniki z kilku różnych źródeł. Jednak tworzone są dwa skonsolidowane pliki, które udostępniają informacje wysokiego poziomu:
+Ze względu na dystrybuowany charakter zadań ParallelRunStep istnieją dzienniki z kilku różnych źródeł. Jednak tworzone są dwa skonsolidowane pliki, które udostępniają informacje wysokiego poziomu:
 
 - `~/logs/overview.txt`: Ten plik zawiera ogólne informacje o liczbie pośrednich partii (nazywanych również zadaniami) utworzonych do tej pory oraz liczbę partii, które zostały przetworzone do tej pory. Na tym końcu zostanie wyświetlony wynik zadania. Jeśli zadanie nie powiodło się, zostanie wyświetlony komunikat o błędzie i miejsce, w którym należy rozpocząć rozwiązywanie problemów.
 
 - `~/logs/sys/master.txt`: Ten plik zawiera widok węzła głównego (znanego również jako koordynator) uruchomionego zadania. Obejmuje tworzenie zadań, monitorowanie postępu, wynik uruchomienia.
 
-Dzienniki wygenerowane na podstawie skryptu wprowadzania przy użyciu instrukcji EntryScript. rejestratora i drukowania będą znajdować się w następujących plikach:
+Dzienniki wygenerowane ze skryptu wprowadzania przy użyciu pomocnika EntryScript i instrukcje Print są dostępne w następujących plikach:
 
-- `~/logs/user/<ip_address>/Process-*.txt`: Ten plik zawiera dzienniki zapisane na podstawie entry_script przy użyciu EntryScript. rejestratora. Zawiera również instrukcję Print Statement (stdout) z entry_script.
+- `~/logs/user/<node_name>.log.txt`: Te dzienniki zostały zapisane na podstawie entry_script przy użyciu pomocnika EntryScript. Zawiera również instrukcję Print Statement (stdout) z entry_script.
 
-Jeśli potrzebujesz pełnego zrozumieć, jak każdy węzeł wykonał skrypt wynikowy, sprawdź poszczególne dzienniki procesów dla każdego węzła. Dzienniki procesów można znaleźć w `sys/worker` folderze pogrupowanym według węzłów procesu roboczego:
+Zwięzłe zrozumienie błędów w skrypcie:
 
-- `~/logs/sys/worker/<ip_address>/Process-*.txt`: Ten plik zawiera szczegółowe informacje o każdej z grup minimalnej, które są pobierane lub wykonywane przez proces roboczy. Dla każdej grupy mini-Batch ten plik zawiera:
+- `~/logs/user/error.txt`: Ten plik podejmie próbę podsumowania błędów w skrypcie.
+
+Aby uzyskać więcej informacji o błędach w skrypcie, istnieje:
+
+- `~/logs/user/error/`: Zawiera wszystkie zgłoszone błędy i pełne ślady stosu uporządkowane według węzła.
+
+Jeśli potrzebujesz pełnego zrozumieć, jak każdy węzeł wykonał skrypt wynikowy, sprawdź poszczególne dzienniki procesów dla każdego węzła. Dzienniki procesów można znaleźć w `sys/node` folderze pogrupowanym według węzłów procesu roboczego:
+
+- `~/logs/sys/node/<node_name>.txt`: Ten plik zawiera szczegółowe informacje o każdej z grup minimalnej, które są pobierane lub wykonywane przez proces roboczy. Dla każdej grupy mini-Batch ten plik zawiera:
 
     - Adres IP i Identyfikator PID procesu roboczego. 
     - Całkowita liczba elementów, liczba pomyślnie przetworzonych elementów i liczba elementów zakończonych niepowodzeniem.
     - Czas rozpoczęcia, czas trwania, czas procesu i Metoda uruchomienia.
 
-Możesz również znaleźć informacje o użyciu zasobów procesów dla każdego pracownika. Te informacje są w formacie CSV i znajdują się `~/logs/sys/perf/<ip_address>/`w lokalizacji. W przypadku jednego węzła pliki zadań będą dostępne w ramach `~logs/sys/perf`programu. Na przykład podczas sprawdzania wykorzystania zasobów zapoznaj się z następującymi plikami:
-
-- `Process-*.csv`: Za użycie zasobów procesu roboczego. 
-- `sys.csv`: Dziennik na węzeł.
+Możesz również znaleźć informacje o użyciu zasobów procesów dla każdego pracownika. Te informacje są w formacie CSV i znajdują się w lokalizacji `~/logs/sys/perf/overview.csv` . Informacje o każdym procesie można znaleźć w sekcji `~logs/sys/processes.csv` .
 
 ### <a name="how-do-i-log-from-my-user-script-from-a-remote-context"></a>Jak mogę dziennika ze skryptu użytkownika ze zdalnego kontekstu?
 Możesz uzyskać Rejestrator z EntryScript, jak pokazano poniżej przykładowego kodu, aby dzienniki były wyświetlane w **dzienniku/folderze użytkownika** w portalu.
@@ -82,19 +87,32 @@ def run(mini_batch):
 
 ### <a name="how-could-i-pass-a-side-input-such-as-a-file-or-files-containing-a-lookup-table-to-all-my-workers"></a>Jak można przekazać dane wejściowe po stronie, takie jak plik lub pliki zawierające tabelę odnośników, do wszystkich pracowników?
 
-Utwórz obiekt [DataSet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) zawierający dane wejściowe i zarejestruj się w obszarze roboczym. Po uzyskaniu dostępu do niego w skrypcie wnioskowania (na przykład w metodzie init ()) w następujący sposób:
+Utwórz [zestaw danych](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) zawierający dane wejściowe boczne i zarejestruj go w obszarze roboczym. Przekaż go do `side_input` parametru `ParallelRunStep` . Ponadto można dodać ścieżkę `arguments` do tej sekcji, aby łatwo uzyskać dostęp do jej ścieżki zainstalowanej:
 
 ```python
-from azureml.core.run import Run
-from azureml.core.dataset import Dataset
+label_config = label_ds.as_named_input("labels_input")
+batch_score_step = ParallelRunStep(
+    name=parallel_step_name,
+    inputs=[input_images.as_named_input("input_images")],
+    output=output_dir,
+    arguments=["--labels_dir", label_config],
+    side_inputs=[label_config],
+    parallel_run_config=parallel_run_config,
+)
+```
 
-ws = Run.get_context().experiment.workspace
-lookup_ds = Dataset.get_by_name(ws, "<registered-name>")
-lookup_ds.download(target_path='.', overwrite=True)
+Po uzyskaniu dostępu do niego w skrypcie wnioskowania (na przykład w metodzie init ()) w następujący sposób:
+
+```python
+parser = argparse.ArgumentParser()
+parser.add_argument('--labels_dir', dest="labels_dir", required=True)
+args, _ = parser.parse_known_args()
+
+labels_path = args.labels_dir
 ```
 
 ## <a name="next-steps"></a>Następne kroki
 
 * Zobacz odwołanie do zestawu SDK, aby uzyskać pomoc dotyczącą pakietu [Azure-contrib-Pipeline-Step](https://docs.microsoft.com/python/api/azureml-contrib-pipeline-steps/azureml.contrib.pipeline.steps?view=azure-ml-py) i [dokumentacji](https://docs.microsoft.com/python/api/azureml-contrib-pipeline-steps/azureml.contrib.pipeline.steps.parallelrunstep?view=azure-ml-py) klasy ParallelRunStep.
 
-* Postępuj zgodnie z [zaawansowanym samouczkiem](tutorial-pipeline-batch-scoring-classification.md) dotyczącym używania potoków z etapem uruchamiania równoległego.
+* Postępuj zgodnie z [zaawansowanym samouczkiem](tutorial-pipeline-batch-scoring-classification.md) dotyczącym używania potoków z ParallelRunStep i na przykład przekazywania kolejnego pliku jako danych wejściowych. 

@@ -8,12 +8,12 @@ author: ms-jasondel
 ms.author: jasondel
 keywords: ARO, OpenShift, AZ ARO, Red Hat, CLI
 ms.custom: mvc
-ms.openlocfilehash: cfc28577f089ef22457e9f66ff08106969a5a4b2
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 581587382c3bfd03ed329672e5c6ca065554d1c7
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857394"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681420"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Tworzenie klastra prywatnego usługi Azure Red Hat OpenShift 4
 
@@ -28,7 +28,7 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 ### <a name="install-the-az-aro-extension"></a>Zainstaluj rozszerzenie "AZ ARO"
-`az aro` Rozszerzenie umożliwia tworzenie i usuwanie klastrów usługi Azure Red Hat OpenShift oraz uzyskiwanie do nich dostępu bezpośrednio z wiersza polecenia przy użyciu interfejsu użytkownika platformy Azure.
+`az aro`Rozszerzenie umożliwia tworzenie i usuwanie klastrów usługi Azure Red Hat OpenShift oraz uzyskiwanie do nich dostępu bezpośrednio z wiersza polecenia przy użyciu interfejsu użytkownika platformy Azure.
 
 Uruchom następujące polecenie, aby zainstalować `az aro` rozszerzenie.
 
@@ -44,7 +44,7 @@ az extension update -n aro --index https://az.aroapp.io/stable
 
 ### <a name="register-the-resource-provider"></a>Rejestrowanie dostawcy zasobów
 
-Następnie musisz zarejestrować dostawcę `Microsoft.RedHatOpenShift` zasobów w ramach subskrypcji.
+Następnie musisz zarejestrować `Microsoft.RedHatOpenShift` dostawcę zasobów w ramach subskrypcji.
 
 ```azurecli-interactive
 az provider register -n Microsoft.RedHatOpenShift --wait
@@ -77,7 +77,7 @@ Klucz tajny w systemie Red Hat umożliwia klastrowi dostęp do rejestrów konten
 
 Przechowuj zapisany `pull-secret.txt` plik w bezpiecznym miejscu — będzie on używany podczas tworzenia klastra.
 
-Po uruchomieniu `az aro create` polecenia można odwoływać się `--pull-secret @pull-secret.txt` do klucza tajnego ściągnięcia przy użyciu parametru. Wykonaj `az aro create` z katalogu, w którym zapisano `pull-secret.txt` plik. W przeciwnym razie `@pull-secret.txt` Zamień `@<path-to-my-pull-secret-file`na.
+Po uruchomieniu `az aro create` polecenia można odwoływać się do klucza tajnego ściągnięcia przy użyciu `--pull-secret @pull-secret.txt` parametru. Wykonaj `az aro create` z katalogu, w którym zapisano `pull-secret.txt` plik. W przeciwnym razie Zamień `@pull-secret.txt` na `@<path-to-my-pull-secret-file` .
 
 Jeśli kopiujesz klucz tajny ściągania lub odwołujesz się do niego w innych skryptach, klucz tajny ściągania powinien być sformatowany jako prawidłowy ciąg JSON.
 
@@ -194,7 +194,9 @@ az aro create \
   --name $CLUSTER \
   --vnet aro-vnet \
   --master-subnet master-subnet \
-  --worker-subnet worker-subnet
+  --worker-subnet worker-subnet \
+  --apiserver-visibility Private \
+  --ingress-visibility Private
   # --domain foo.example.com # [OPTIONAL] custom domain
   # --pull-secret @pull-secret.txt # [OPTIONAL]
 ```
@@ -202,9 +204,9 @@ az aro create \
 Po wykonaniu `az aro create` polecenia zwykle trwa około 35 minut na utworzenie klastra.
 
 >[!IMPORTANT]
-> Jeśli zdecydujesz się określić domenę niestandardową, na przykład **foo.example.com**, konsola OpenShift będzie dostępna pod adresem URL, takim jak `https://console-openshift-console.apps.foo.example.com`, a nie wbudowaną domeną. `https://console-openshift-console.apps.<random>.<location>.aroapp.io`
+> Jeśli zdecydujesz się określić domenę niestandardową, na przykład **foo.example.com**, konsola OpenShift będzie dostępna pod adresem URL, takim jak `https://console-openshift-console.apps.foo.example.com` , a nie wbudowaną domeną `https://console-openshift-console.apps.<random>.<location>.aroapp.io` .
 >
-> Domyślnie OpenShift używa certyfikatów z podpisem własnym dla wszystkich tras utworzonych w usłudze `*.apps.<random>.<location>.aroapp.io`.  W przypadku wybrania opcji niestandardowy serwer DNS po nawiązaniu połączenia z klastrem należy skorzystać z dokumentacji OpenShift w celu [skonfigurowania niestandardowego urzędu certyfikacji dla kontrolera](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) usług przychodzących i [niestandardowego urzędu certyfikacji dla serwera interfejsu API](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
+> Domyślnie OpenShift używa certyfikatów z podpisem własnym dla wszystkich tras utworzonych w usłudze `*.apps.<random>.<location>.aroapp.io` .  W przypadku wybrania opcji niestandardowy serwer DNS po nawiązaniu połączenia z klastrem należy skorzystać z dokumentacji OpenShift w celu [skonfigurowania niestandardowego urzędu certyfikacji dla kontrolera](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) usług przychodzących i [niestandardowego urzędu certyfikacji dla serwera interfejsu API](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
 
 ## <a name="connect-to-the-private-cluster"></a>Nawiązywanie połączenia z klastrem prywatnym
 
@@ -216,7 +218,7 @@ az aro list-credentials \
   --resource-group $RESOURCEGROUP
 ```
 
-Następujące przykładowe dane wyjściowe pokazują, że hasło będzie w `kubeadminPassword`.
+Następujące przykładowe dane wyjściowe pokazują, że hasło będzie w `kubeadminPassword` .
 
 ```json
 {
@@ -237,7 +239,7 @@ Adres URL konsoli klastra można znaleźć, uruchamiając następujące poleceni
 >[!IMPORTANT]
 > Aby można było nawiązać połączenie z prywatnym klastrem Red Hat OpenShift platformy Azure, należy wykonać następujący krok z hosta, który znajduje się w utworzonym Virtual Network lub w Virtual Network połączonym z Virtual Networkm, w [którym został](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) wdrożony klaster.
 
-Uruchom w przeglądarce adres URL konsoli i zaloguj się `kubeadmin` przy użyciu poświadczeń.
+Uruchom w przeglądarce adres URL konsoli i zaloguj się przy użyciu `kubeadmin` poświadczeń.
 
 ![Ekran logowania OpenShift na platformie Azure Red Hat](media/aro4-login.png)
 
@@ -247,7 +249,7 @@ Po zalogowaniu się do konsoli sieci Web OpenShift kliknij pozycję **?** w praw
 
 ![Ekran logowania OpenShift na platformie Azure Red Hat](media/aro4-download-cli.png)
 
-Możesz również pobrać najnowszą wersję interfejsu wiersza polecenia odpowiednią dla komputera z programu <https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/>.
+Możesz również pobrać najnowszą wersję interfejsu wiersza polecenia odpowiednią dla komputera z programu <https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/> .
 
 ## <a name="connect-using-the-openshift-cli"></a>Nawiązywanie połączenia przy użyciu interfejsu wiersza polecenia OpenShift
 
@@ -260,7 +262,7 @@ apiServer=$(az aro show -g $RESOURCEGROUP -n $CLUSTER --query apiserverProfile.u
 >[!IMPORTANT]
 > Aby można było nawiązać połączenie z prywatnym klastrem Red Hat OpenShift platformy Azure, należy wykonać następujący krok z hosta, który znajduje się w utworzonym Virtual Network lub w Virtual Network połączonym z Virtual Networkm, w [którym został](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) wdrożony klaster.
 
-Zaloguj się do serwera interfejsu API klastra OpenShift przy użyciu następującego polecenia. Zastąp ** \<hasło kubeadmin>** hasłem, które właśnie zostało pobrane.
+Zaloguj się do serwera interfejsu API klastra OpenShift przy użyciu następującego polecenia. Zastąp ** \< hasło kubeadmin>** hasłem, które właśnie zostało pobrane.
 
 ```azurecli-interactive
 oc login $apiServer -u kubeadmin -p <kubeadmin password>
@@ -273,7 +275,7 @@ W tym artykule został wdrożony klaster Red Hat OpenShift systemu Azure z syste
 > [!div class="checklist"]
 > * Skonfiguruj wymagania wstępne i utwórz wymaganą sieć wirtualną i podsieci
 > * Wdrażanie klastra
-> * Nawiązywanie połączenia z klastrem `kubeadmin` przy użyciu użytkownika
+> * Nawiązywanie połączenia z klastrem przy użyciu `kubeadmin` użytkownika
 
 Przejdź do następnego artykułu, aby dowiedzieć się, jak skonfigurować klaster pod kątem uwierzytelniania przy użyciu Azure Active Directory.
 

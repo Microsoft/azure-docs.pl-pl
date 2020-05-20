@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 4b02039c86f43e6bebed58dfff475816f09a3da1
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 00cf806bf6575fd96af435abf8d0b3dd8734338a
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890141"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83679657"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Podobieństwo i ocenianie na platformie Azure Wyszukiwanie poznawcze
 
@@ -25,7 +25,7 @@ Wynik wyszukiwania jest obliczany na podstawie właściwości statystycznych dan
 
 Wartości wyniku wyszukiwania można powtarzać w zestawie wyników. Gdy wiele trafień ma ten sam wynik wyszukiwania, kolejność tych samych elementów oceny nie jest zdefiniowana i nie jest stabilna. Uruchom ponownie zapytanie i możesz zobaczyć pozycje zmiany położenia, zwłaszcza jeśli używasz bezpłatnej usługi lub płatnej usługi z wieloma replikami. W przypadku dwóch elementów o identycznym wyniku nie ma gwarancji, która jest wyświetlana w pierwszej kolejności.
 
-Jeśli chcesz przerwać powiązanie między powtarzanymi wynikami, możesz dodać klauzulę **$OrderBy** do pierwszej kolejności według wyniku, a następnie zamówić według innego pola do sortowania (na przykład `$orderby=search.score() desc,Rating desc`). Aby uzyskać więcej informacji, zobacz [$OrderBy](https://docs.microsoft.com/azure/search/search-query-odata-orderby).
+Jeśli chcesz przerwać powiązanie między powtarzanymi wynikami, możesz dodać klauzulę **$OrderBy** do pierwszej kolejności według wyniku, a następnie zamówić według innego pola do sortowania (na przykład `$orderby=search.score() desc,Rating desc` ). Aby uzyskać więcej informacji, zobacz [$OrderBy](https://docs.microsoft.com/azure/search/search-query-odata-orderby).
 
 > [!NOTE]
 > A `@search.score = 1.00` wskazuje zestaw wyników z niewskaźnikiem oceny lub bez rangi. Wynik jest jednolity dla wszystkich wyników. Wyniki nieoceniane pojawiają się, gdy formularz kwerendy jest wyszukiwaniem rozmytym, symbolami wieloznacznymi lub kwerendami regularnymi lub wyrażeniem **$Filter** . 
@@ -36,7 +36,9 @@ Można dostosować sposób, w jaki różne pola są klasyfikowane przez definiow
 
 Profil oceniania jest częścią definicji indeksu składającą się z pól ważonych, funkcji i parametrów. Aby uzyskać więcej informacji o definiowaniu tego elementu, zobacz [Profile oceniania](index-add-scoring-profiles.md).
 
-## <a name="scoring-statistics"></a>Statystyki oceniania
+<a name="scoring-statistics"></a>
+
+## <a name="scoring-statistics-and-sticky-sessions-preview"></a>Statystyki oceniania i sesje programu Sticky Notes (wersja zapoznawcza)
 
 W celu zapewnienia skalowalności usługa Azure Wyszukiwanie poznawcze dystrybuuje każdy indeks w poziomie za pomocą procesu fragmentowania, co oznacza, że fragmenty indeksu są fizycznie oddzielone.
 
@@ -45,13 +47,21 @@ Domyślnie wynik dokumentu jest obliczany na podstawie właściwości statystycz
 Jeśli wolisz obliczyć wynik na podstawie właściwości statystycznych we wszystkich fragmentów, możesz to zrobić przez dodanie *scoringStatistics = Global* jako [parametru zapytania](https://docs.microsoft.com/rest/api/searchservice/search-documents) (lub dodać *"scoringStatistics": "Global"* jako parametr treści [żądania zapytania](https://docs.microsoft.com/rest/api/searchservice/search-documents)).
 
 ```http
-GET https://[service name].search.windows.net/indexes/[index name]/docs?scoringStatistics=global
+GET https://[service name].search.windows.net/indexes/[index name]/docs?scoringStatistics=global&api-version=2019-05-06-Preview&search=[search term]
   Content-Type: application/json
-  api-key: [admin key]  
+  api-key: [admin or query key]  
 ```
+Użycie scoringStatistics gwarantuje, że wszystkie fragmentów w tej samej replice będą mieć te same wyniki. Oznacza to, że różne repliki mogą się nieco różnić od siebie, ponieważ zawsze są aktualizowane przy użyciu najnowszych zmian wprowadzonych w indeksie. W niektórych scenariuszach można chcieć, aby użytkownicy mieli bardziej spójne wyniki w trakcie "sesji zapytań". W takich scenariuszach można podać `sessionId` jako część zapytań. `sessionId`Jest to unikatowy ciąg tworzony w celu odwoływania się do unikatowej sesji użytkownika.
+
+```http
+GET https://[service name].search.windows.net/indexes/[index name]/docs?sessionId=[string]&api-version=2019-05-06-Preview&search=[search term]
+  Content-Type: application/json
+  api-key: [admin or query key]  
+```
+Tak długo, jak `sessionId` to samo jest używane, nastąpi próba uzyskania najlepszego nakładu pracy na tę samą replikę, co zwiększa spójność wyników widocznych dla użytkowników. 
 
 > [!NOTE]
-> Dla tego `scoringStatistics` parametru wymagany jest klucz API-Key administratora.
+> Wielokrotne użycie tych samych `sessionId` wartości może zakłócać Równoważenie obciążenia żądań w replikach i niekorzystnie wpłynąć na wydajność usługi wyszukiwania. Wartość użyta jako identyfikator sesji nie może rozpoczynać się od znaku "_".
 
 ## <a name="similarity-ranking-algorithms"></a>Algorytmy klasyfikacji podobieństwa
 
@@ -63,7 +73,7 @@ Poniższy segment wideo szybko przekazuje do wyjaśnień dotyczących algorytmó
 
 > [!VIDEO https://www.youtube.com/embed/Y_X6USgvB1g?version=3&start=322&end=643]
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
  [Dokumentacja interfejsu API REST](https://docs.microsoft.com/rest/api/searchservice/) [profilów oceniania](index-add-scoring-profiles.md)   
  [Interfejs API dokumentów wyszukiwania](https://docs.microsoft.com/rest/api/searchservice/search-documents)   

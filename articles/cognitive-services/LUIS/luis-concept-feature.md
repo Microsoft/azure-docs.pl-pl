@@ -2,13 +2,13 @@
 title: Funkcje — LUIS
 description: Dodaj funkcje do modelu języka, aby przedstawić wskazówki dotyczące sposobu rozpoznawania danych wejściowych, które mają być oznaczone etykietami lub klasyfikacją.
 ms.topic: conceptual
-ms.date: 04/23/2020
-ms.openlocfilehash: 906876e39eb7ff31c2e6b954d1514d8afc50bf3a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/14/2020
+ms.openlocfilehash: e0fd4470c9e1c2a56562b3783010ff1ef87ff466
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591900"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682163"
 ---
 # <a name="machine-learning-ml-features"></a>Funkcje uczenia maszynowego (ML)
 
@@ -54,7 +54,7 @@ Przykład słów, które mogą potrzebować listy frazy, aby zwiększyć ich zna
 Jeśli chcesz wyodrębnić warunki medyczne:
 * Najpierw utwórz przykład wyrażenia długości i Oznacz warunki medyczne w tych wyrażenia długości.
 * Następnie utwórz listę fraz z przykładami warunków w domenie podmiotu. Ta lista wyrażeń powinna zawierać rzeczywisty termin oznaczony etykietą i inne terminy opisujące te same koncepcje.
-* Dodaj listę fraz do jednostki lub podjednostki, która wyodrębnia koncepcję używaną na liście fraz. Najbardziej typowym scenariuszem jest składnik (podrzędny) jednostki, która jest obsługiwana przez maszynę. Jeśli lista fraz powinna być stosowana dla wszystkich intencji lub jednostek, Oznacz listę fraz jako globalną listę fraz. `enabledForAllModels`Flaga steruje zakresem tego modelu w interfejsie API.
+* Dodaj listę fraz do jednostki lub podjednostki, która wyodrębnia koncepcję używaną na liście fraz. Najbardziej typowym scenariuszem jest składnik (podrzędny) jednostki uczenia maszynowego. Jeśli lista fraz powinna być stosowana dla wszystkich intencji lub jednostek, Oznacz listę fraz jako globalną listę fraz. `enabledForAllModels`Flaga steruje zakresem tego modelu w interfejsie API.
 
 <a name="how-to-use-phrase-lists"></a>
 <a name="how-to-use-a-phrase-lists"></a>
@@ -88,9 +88,21 @@ Na przykład, jeśli n jednostka adresu wysyłkowego zawiera podjednostkę adres
     * Kraj (podjednostka)
     * Kod pocztowy (podjednostka)
 
+## <a name="nested-subentities-with-features"></a>Zagnieżdżone podjednostki z funkcjami
+
+Podjednostka uczenia maszynowego wskazuje, że koncepcja jest obecna dla jednostki nadrzędnej, niezależnie od tego, czy jest to inna podjednostka lub jednostka Top. Wartość podjednostki działa jako funkcja do jej elementu nadrzędnego.
+
+Podjednostka może mieć zarówno listę fraz jako funkcję, jak i model (inną jednostkę) jako funkcję.
+
+Gdy podjednostka ma listę fraz, spowoduje to zwiększenie słownictwa koncepcji, ale nie doda żadnych informacji do odpowiedzi JSON w ramach przewidywania.
+
+Gdy podjednostka ma funkcję innej jednostki, odpowiedź JSON zawiera wyodrębnione dane tej jednostki.
+
 ## <a name="required-features"></a>Wymagane funkcje
 
 Aby można było zwrócić model z punktu końcowego przewidywania, należy znaleźć wymaganą funkcję. Użyj wymaganej funkcji, gdy wiesz, że dane przychodzące muszą być zgodne z funkcją.
+
+Jeśli tekst wypowiedź nie jest zgodny z wymaganą funkcją, nie zostanie wyodrębniony.
 
 **Wymagana funkcja używa jednostki, która nie jest zastosowana przez maszynę**:
 * Jednostka wyrażenia regularnego

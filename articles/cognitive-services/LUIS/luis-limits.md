@@ -3,12 +3,12 @@ title: Limity — LUIS
 description: Ten artykuł zawiera znane limity usługi Azure Cognitive Services Language Understanding (LUIS). LUIS ma kilka obszarów ograniczeń. Limit modelu kontroluje intencje, jednostki i funkcje w LUIS. Limity przydziału na podstawie typu klucza. Kombinacja klawiatury kontroluje witrynę sieci Web LUIS.
 ms.topic: reference
 ms.date: 05/06/2020
-ms.openlocfilehash: 71f6126cbf9615d7f808f098202f29094a913982
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d4a6162758fab7e5c9592b98974620bbf06ba978
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593243"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684604"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Limity dotyczące modelu i kluczy LUIS
 LUIS ma kilka obszarów ograniczeń. Pierwszy to [Limit modelu](#model-limits), który steruje intencjami, jednostkami i funkcjami w Luis. Drugi obszar ma [limity przydziału](#key-limits) na podstawie typu klucza. Trzeci obszar limitów jest [kombinacją klawiatury](#keyboard-controls) służącą do kontrolowania witryny sieci Web Luis. Czwarty obszar to [Mapowanie regionów świata](luis-reference-regions.md) między witryną sieci Web Luis Authoring a interfejsem API Luis [Endpoint](luis-glossary.md#endpoint) .
@@ -28,7 +28,7 @@ Jeśli Twoja aplikacja przekracza limity modelu LUIS, rozważ użycie aplikacji 
 | Jednostki zewnętrzne | Brak limitów |
 | [Intencje][intents]|500 na aplikację: 499 niestandardowe intencje i wymagane opcje _none_ .<br>Aplikacja [oparta na wysyłce](https://aka.ms/dispatch-tool) ma odpowiednie źródła wysyłania 500.|
 | [Lista jednostek](./luis-concept-entity-types.md) | Element nadrzędny: 50, element podrzędny: 20 000 elementów. Nazwa kanoniczna to * domyślny znak maksymalny. Wartości synonimów nie mają ograniczenia długości. |
-| Jednostki, które zostały [wyznanie maszyn i role](./luis-concept-entity-types.md):<br> złożone<br>ułatwia<br>rola jednostki|Limit 100 jednostek nadrzędnych lub 330 jednostek, w zależności od liczby trafień użytkownika. Rola jest traktowana jako jednostka na potrzeby tego limitu. Przykładem jest kompozyt z prostą jednostką, która ma 2 role: 1 złożona + 1 prosta + 2 role = 4 jednostek 330.<br>Podjednostki można zagnieżdżać do 5 poziomów.|
+| [jednostki uczenia maszynowego + role](./luis-concept-entity-types.md):<br> złożone<br>ułatwia<br>rola jednostki|Limit 100 jednostek nadrzędnych lub 330 jednostek, w zależności od liczby trafień użytkownika. Rola jest traktowana jako jednostka na potrzeby tego limitu. Przykładem jest kompozyt z prostą jednostką, która ma 2 role: 1 złożona + 1 prosta + 2 role = 4 jednostek 330.<br>Podjednostki można zagnieżdżać do 5 poziomów.|
 |Model jako funkcja| Maksymalna liczba modeli, które mogą być używane jako funkcja do określonego modelu do 10 modeli. Maksymalna liczba list fraz używanych jako funkcja dla określonego modelu do 10 list fraz.|
 | [Wersja zapoznawcza — jednostki listy dynamicznej](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 listy ~ 1K na żądanie punktu końcowego przewidywania zapytań|
 | [Wzorce](luis-concept-patterns.md)|500 wzorców na aplikację.<br>Maksymalna długość wzorca to 400 znaków.<br>3 wzorzec. wszystkie jednostki na wzorzec<br>Maksymalnie 2 zagnieżdżonych dodatkowych tekstów w wzorcu|
@@ -53,7 +53,7 @@ Nazwy obiektów muszą być unikatowe w porównaniu z innymi obiektami tego same
 |Obiekty|Ograniczenia|
 |--|--|
 |Cel, jednostka|Wszystkie nazwy zamierzeń i jednostek muszą być unikatowe w wersji aplikacji.|
-|Składniki jednostki ML|Wszystkie składniki jednostki, które są związane z maszyną (jednostki podrzędne), muszą być unikatowe w tej jednostce dla składników na tym samym poziomie.|
+|Składniki jednostki ML|Wszystkie składniki jednostki uczenia maszynowego (jednostki podrzędne) muszą być unikatowe w tej jednostce dla składników na tym samym poziomie.|
 |Funkcje | Wszystkie nazwane funkcje, takie jak listy fraz, muszą być unikatowe w ramach wersji aplikacji.|
 |Role jednostki|Wszystkie role w jednostce lub składniku jednostki muszą być unikatowe, gdy znajdują się na tym samym poziomie jednostki (element nadrzędny, podrzędny, grandchild itp.).|
 

@@ -1,14 +1,14 @@
 ---
 title: Tworzenie zasad dla właściwości tablicy zasobów
 description: Dowiedz się, jak korzystać z parametrów tablicy i wyrażeń języka tablicowego, oszacować alias [*] i dołączać elementy z regułami definicji Azure Policy.
-ms.date: 11/26/2019
+ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 991d159f6444133d902382bc9ca43bc2acd201e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f3d30f76d555386e5ab8041a0b8cc82b5b60e28e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79280666"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684257"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Tworzenie zasad dla właściwości tablicy zasobów platformy Azure
 
@@ -103,8 +103,8 @@ Aby użyć tego ciągu z każdym zestawem SDK, użyj następujących poleceń:
 
 ### <a name="array-conditions"></a>Warunki tablicy
 
-[Warunki](../concepts/definition-structure.md#conditions) reguły zasad, które mogą być używane z**typem** `in` _tablicy_
-parametru, są ograniczone do i `notIn`. Skorzystaj z następującej definicji zasad z warunkiem `equals` jako przykładu:
+[Warunki](../concepts/definition-structure.md#conditions) reguły zasad, które _array_ 
+ mogą być używane z**typem** tablicy parametru, są ograniczone do `in` i `notIn` . Skorzystaj z następującej definicji zasad z warunkiem `equals` jako przykładu:
 
 ```json
 {
@@ -136,14 +136,14 @@ Próba utworzenia tej definicji zasad za pomocą Azure Portal prowadzi do błęd
 
 - "Zasad" {GUID} "nie można sparametryzowane z powodu błędów walidacji. Sprawdź, czy parametry zasad są prawidłowo zdefiniowane. Wynik oceny wyjątku wewnętrznego "[Parameters (" allowedLocations ")]" jest typem "Array", oczekiwano typu "String". "."
 
-Oczekiwanym **typem** warunku `equals` jest _ciąg_. Ponieważ **allowedLocations** jest zdefiniowany jako **type** _Tablica_typów, aparat zasad szacuje wyrażenie języka i zgłosi błąd. W przypadku `in` warunku i `notIn` aparat zasad oczekuje _tablicy_ **typów** w wyrażeniu języka. Aby rozwiązać ten komunikat o błędzie, `equals` Zmień wartość `in` na `notIn`lub.
+Oczekiwanym **typem** warunku `equals` jest _ciąg_. Ponieważ **allowedLocations** jest zdefiniowany jako **type** _Tablica_typów, aparat zasad szacuje wyrażenie języka i zgłosi błąd. W przypadku `in` `notIn` warunku i aparat zasad oczekuje _tablicy_ **typów** w wyrażeniu języka. Aby rozwiązać ten komunikat o błędzie, Zmień `equals` wartość na `in` lub `notIn` .
 
 ### <a name="evaluating-the--alias"></a>Ocenianie aliasu [*]
 
-Aliasy, ** \[ \* ** które zostały dołączone do ich nazwy wskazują, że **Typ** jest _tablicą_. Zamiast oceniać wartość całej tablicy, ** \[ \* ** umożliwia ocenę każdego elementu tablicy indywidualnie, z logicznym i między nimi. Istnieją trzy standardowe scenariusze, które dla każdej oceny elementu są użyteczne w: _Brak_, _dowolne_lub _wszystkie_ elementy są zgodne. W przypadku złożonych scenariuszy należy użyć [Count](../concepts/definition-structure.md#count).
+Aliasy, które zostały **\[\*\]** dołączone do ich nazwy wskazują, że **Typ** jest _tablicą_. Zamiast oceniać wartość całej tablicy, **\[\*\]** umożliwia ocenę każdego elementu tablicy indywidualnie, z logicznym i między nimi. Istnieją trzy standardowe scenariusze, które dla każdej oceny elementu są użyteczne w: _Brak_, _dowolne_lub _wszystkie_ elementy są zgodne. W przypadku złożonych scenariuszy należy użyć [Count](../concepts/definition-structure.md#count).
 
 Aparat zasad wyzwala **efekt** w **then** tylko wtedy, gdy reguła **if** ma wartość true.
-Ten fakt jest ważne, aby zrozumieć w kontekście sposobu, ** \[ \* ** w jaki szacuje każdy pojedynczy element tablicy.
+Ten fakt jest ważne, aby zrozumieć w kontekście sposobu, w jaki **\[\*\]** szacuje każdy pojedynczy element tablicy.
 
 Przykładowa reguła zasad dla poniższej tabeli scenariusza:
 
@@ -179,7 +179,7 @@ Tablica **ipRules** jest następująca dla poniższej tabeli scenariusza:
 ]
 ```
 
-Dla każdego poniższego przykładu warunku `"field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value"`Zastąp ciąg wyrażeniem `<field>` .
+Dla każdego poniższego przykładu warunku Zastąp ciąg wyrażeniem `<field>` `"field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value"` .
 
 Poniższe wyniki są wynikiem kombinacji warunku i przykładową regułę zasad i tablicę istniejących wartości powyżej:
 
@@ -196,10 +196,10 @@ Poniższe wyniki są wynikiem kombinacji warunku i przykładową regułę zasad 
 
 ## <a name="the-append-effect-and-arrays"></a>Efekt dołączania i tablice
 
-[Efekt dołączania](../concepts/effects.md#append) zachowuje się inaczej w zależności od tego, czy **pole Details** jest ** \[ \* ** aliasem, czy nie.
+[Efekt dołączania](../concepts/effects.md#append) zachowuje się inaczej w zależności od tego, czy **pole Details** jest **\[\*\]** aliasem, czy nie.
 
-- Gdy nie jest ** \[ \* ** alias, Dołącz zastępuje całą tablicę właściwością **Value**
-- Gdy alias, Append dodaje właściwość Value do istniejącej tablicy lub tworzy nową tablicę **value** ** \[ \* **
+- Gdy nie jest **\[\*\]** alias, Dołącz zastępuje całą tablicę właściwością **Value**
+- Gdy **\[\*\]** alias, Append dodaje właściwość **Value** do istniejącej tablicy lub tworzy nową tablicę
 
 Aby uzyskać więcej informacji, zobacz [przykłady dołączania](../concepts/effects.md#append-examples).
 

@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/02/2020
-ms.openlocfilehash: 9b720470ac406ed0730e6243262dcf33d2df169a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/15/2020
+ms.openlocfilehash: f95f35fe0d17afdeec864674d3360fc3b172cad1
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82233429"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683373"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Przekształcenie łączenia w przepływie danych mapowania
 
@@ -48,9 +48,9 @@ Pełne sprzężenie zewnętrzne wyprowadza wszystkie kolumny i wiersze z obu str
 
 Sprzężenie krzyżowe wyprowadza iloczyn między dwoma strumieniami w oparciu o warunek. Jeśli używasz warunku, który nie jest równy, Określ wyrażenie niestandardowe jako warunek sprzężenia krzyżowego. Strumień wyjściowy będzie zawierać wszystkie wiersze, które spełniają warunek sprzężenia.
 
-Tego typu sprzężenia można użyć dla sprzężeń i ```OR``` warunków innych niż Equi.
+Tego typu sprzężenia można użyć dla sprzężeń i warunków innych niż Equi ```OR``` .
 
-Jeśli chcesz jawnie utworzyć pełny produkt kartezjańskiego, użyj przekształcenia kolumn pochodnych w każdym z dwóch niezależnych strumieni przed przyłączeniem, aby utworzyć klucz syntetyczny do dopasowania. Na przykład utwórz nową kolumnę w kolumnie pochodnej w każdym wywołanym ```SyntheticKey``` strumieniu i ustaw ją jako równą. ```1``` Następnie użyj ```a.SyntheticKey == b.SyntheticKey``` jako wyrażenia sprzężenia niestandardowego.
+Jeśli chcesz jawnie utworzyć pełny produkt kartezjańskiego, użyj przekształcenia kolumn pochodnych w każdym z dwóch niezależnych strumieni przed przyłączeniem, aby utworzyć klucz syntetyczny do dopasowania. Na przykład utwórz nową kolumnę w kolumnie pochodnej w każdym wywołanym strumieniu ```SyntheticKey``` i ustaw ją jako równą ```1``` . Następnie użyj ```a.SyntheticKey == b.SyntheticKey``` jako wyrażenia sprzężenia niestandardowego.
 
 > [!NOTE]
 > Pamiętaj o uwzględnieniu co najmniej jednej kolumny z każdej strony lewej i prawej relacji w przypadku niestandardowego sprzężenia krzyżowego. Wykonywanie sprzężenia krzyżowego z wartościami statycznymi zamiast kolumn z każdego z nich skutkuje pełnymi skanami całego zestawu danych, co sprawia, że przepływ danych jest niewłaściwie wykonywany.
@@ -61,7 +61,13 @@ Jeśli chcesz jawnie utworzyć pełny produkt kartezjańskiego, użyj przekszta�
 1. Wybierz **Typ sprzężenia**
 1. Wybierz kolumny klucza, dla których chcesz dopasować warunek sprzężenia. Domyślnie przepływ danych wyszukuje równość między jedną kolumną w każdym strumieniu. Aby porównać przez obliczoną wartość, umieść kursor na liście rozwijanej kolumny i wybierz **kolumnę obliczaną**.
 
-![Przekształcanie sprzężenia](media/data-flow/join.png "Join")
+![Przekształcanie sprzężenia](media/data-flow/join.png "Dołączanie")
+
+### <a name="non-equi-joins"></a>Sprzężenia inne niż Equi
+
+Aby użyć warunkowego operatora, takiego jak not Equals (! =) lub większe niż (>) w warunkach sprzężenia, Zmień listę rozwijaną operatora między dwiema kolumnami. Sprzężenia inne niż Equi wymagają, aby co najmniej jeden z dwóch strumieni był emitowany przy użyciu **stałej** emisji na karcie **Optymalizacja** .
+
+![Sprzężenie inne niż Equi](media/data-flow/non-equi-join.png "Sprzężenie inne niż Equi")
 
 ## <a name="optimizing-join-performance"></a>Optymalizowanie wydajności dołączania
 
@@ -98,7 +104,7 @@ Podczas testowania transformacji sprzężenia z podglądem danych w trybie debug
 
 ### <a name="inner-join-example"></a>Przykład sprzężenia wewnętrznego
 
-Poniższy przykład to transformacja sprzężenia o nazwie `JoinMatchedData` , która pobiera strumień `TripData` strumienia i właściwy `TripFare`strumień.  Warunek sprzężenia jest wyrażeniem `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}` zwracającym wartość true `hack_license`, jeśli `medallion`kolumny `vendor_id`,, `pickup_datetime` i w każdym dopasowaniu strumienia. `joinType` Ma `'inner'`wartość. Włączamy emisję tylko w lewym strumieniu, więc `broadcast` ma wartość `'left'`.
+Poniższy przykład to transformacja sprzężenia o nazwie `JoinMatchedData` , która pobiera strumień strumienia `TripData` i właściwy strumień `TripFare` .  Warunek sprzężenia jest wyrażeniem `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}` zwracającym wartość true `hack_license` , jeśli `medallion` kolumny,, `vendor_id` i `pickup_datetime` w każdym dopasowaniu strumienia. `joinType`Ma wartość `'inner'` . Włączamy emisję tylko w lewym strumieniu, więc `broadcast` ma wartość `'left'` .
 
 W Data Factory środowisku użytkownika Ta transformacja wygląda jak na poniższym obrazie:
 
@@ -120,7 +126,7 @@ TripData, TripFare
 
 ### <a name="custom-cross-join-example"></a>Przykład niestandardowego sprzężenia krzyżowego
 
-Poniższy przykład to transformacja sprzężenia o nazwie `JoiningColumns` , która pobiera strumień `LeftStream` strumienia i właściwy `RightStream`strumień. Ta transformacja wykonuje dwa strumienie i łączy ze sobą wszystkie wiersze, `leftstreamcolumn` w których kolumna jest `rightstreamcolumn`większa niż kolumna. `joinType` Ma `cross`wartość. Emisja nie jest włączona `broadcast` , ma `'none'`wartość.
+Poniższy przykład to transformacja sprzężenia o nazwie `JoiningColumns` , która pobiera strumień strumienia `LeftStream` i właściwy strumień `RightStream` . Ta transformacja wykonuje dwa strumienie i łączy ze sobą wszystkie wiersze, w których kolumna `leftstreamcolumn` jest większa niż kolumna `rightstreamcolumn` . `joinType`Ma wartość `cross` . Emisja nie jest włączona, `broadcast` ma wartość `'none'` .
 
 W Data Factory środowisku użytkownika Ta transformacja wygląda jak na poniższym obrazie:
 

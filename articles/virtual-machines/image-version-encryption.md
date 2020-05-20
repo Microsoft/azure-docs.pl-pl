@@ -7,16 +7,16 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: cynthn
-ms.openlocfilehash: aeacfdc07e5349dfce45b209da1d78bddf870f33
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 3d55efb15454f0b1dfe5ac1101a8a53eb1c9aa8f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83269584"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683941"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Wersja zapoznawcza: Używanie kluczy zarządzanych przez klienta do szyfrowania obrazów
 
-Obrazy z galerii są przechowywane jako dyski zarządzane, dzięki czemu są one automatycznie szyfrowane za pomocą szyfrowania po stronie serwera. Szyfrowanie po stronie serwera używa 256-bitowego [szyfrowania AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), jednego z najsilniejszych szyfrów blokowych i jest zgodne ze standardem FIPS 140-2. Aby uzyskać więcej informacji na temat modułów kryptograficznych związanych z dyskami zarządzanymi platformy Azure, zobacz [interfejs API kryptografii: Kolejna generacja](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)
+Obrazy z galerii są przechowywane jako dyski zarządzane, dzięki czemu są one automatycznie szyfrowane za pomocą szyfrowania po stronie serwera. Szyfrowanie po stronie serwera używa 256-bitowego [szyfrowania AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), jednego z najsilniejszych szyfrów blokowych i jest zgodne ze standardem FIPS 140-2. Aby uzyskać więcej informacji na temat modułów kryptograficznych związanych z dyskami zarządzanymi platformy Azure, zobacz [interfejs API kryptografii: Kolejna generacja](/windows/desktop/seccng/cng-portal)
 
 Możesz polegać na kluczach zarządzanych przez platformę do szyfrowania obrazów lub można zarządzać szyfrowaniem przy użyciu własnych kluczy. Jeśli zdecydujesz się na zarządzanie szyfrowaniem przy użyciu własnych kluczy, możesz określić *klucz zarządzany przez klienta* , który będzie używany do szyfrowania i odszyfrowywania wszystkich dysków w obrazie. 
 
@@ -24,7 +24,7 @@ Szyfrowanie po stronie serwera przy użyciu kluczy zarządzanych przez klienta u
 
 Aby używać kluczy zarządzanych przez klienta dla obrazów, najpierw musisz mieć Azure Key Vault. Następnie utworzysz zestaw szyfrowania dysku. Zestaw szyfrowania dysków jest używany podczas tworzenia wersji obrazu.
 
-Aby uzyskać więcej informacji na temat tworzenia i używania zestawów szyfrowania dysków, zobacz [klucze zarządzane przez klienta](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys).
+Aby uzyskać więcej informacji na temat tworzenia i używania zestawów szyfrowania dysków, zobacz [klucze zarządzane przez klienta](./windows/disk-encryption.md#customer-managed-keys).
 
 ## <a name="limitations"></a>Ograniczenia
 
@@ -72,7 +72,7 @@ Jeśli nie zwróci tego `Registered` , użyj następującej czynności, aby zare
 Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 
-Aby określić szyfrowanie dysku ustawione dla wersji obrazu, użyj polecenie [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion) z `-TargetRegion` parametrem. 
+Aby określić szyfrowanie dysku ustawione dla wersji obrazu, użyj polecenie [New-AzGalleryImageDefinition](/powershell/module/az.compute/new-azgalleryimageversion) z `-TargetRegion` parametrem. 
 
 ```azurepowershell-interactive
 
@@ -194,4 +194,4 @@ Możesz utworzyć maszynę wirtualną na podstawie udostępnionej galerii obraz�
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o [szyfrowaniu dysków po stronie serwera](/windows/disk-encryption.md)).
+Dowiedz się więcej o [szyfrowaniu dysków po stronie serwera](./windows/disk-encryption.md).

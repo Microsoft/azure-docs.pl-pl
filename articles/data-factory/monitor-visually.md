@@ -9,13 +9,13 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/19/2018
-ms.openlocfilehash: 40b1b8d040c4b3ea76372920f88551fba35c5f26
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/15/2020
+ms.openlocfilehash: 01a4cd172b699cef009197d1fce1d5bae62f2925
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81419446"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680627"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Wizualnie Monitoruj Azure Data Factory
 
@@ -39,7 +39,7 @@ Domyślny widok monitorowania to lista uruchomień potoku w wybranym okresie. Wy
 | Stan | **Zakończone niepowodzeniem**, **zakończone powodzeniem**, **w toku**, **anulowane**lub **umieszczone w kolejce** |
 | Adnotacje | Tagi z możliwością filtrowania skojarzone z potokiem  |
 | Parametry | Parametry uruchomienia potoku (pary nazwa/wartość) |
-| Error | Jeśli potok nie powiódł się, błąd przebiegu |
+| Błąd | Jeśli potok nie powiódł się, błąd przebiegu |
 | Identyfikator przebiegu | Identyfikator uruchomienia potoku |
 
 ![Widok listy na potrzeby monitorowania przebiegów potoku](media/monitor-visually/pipeline-runs.png)
@@ -62,7 +62,7 @@ Aby wyświetlić uruchomienia działań dla każdego uruchomienia potoku, wybier
 | Stan | **Zakończone niepowodzeniem**, **zakończone powodzeniem**, **w toku**lub **anulowane** |
 | Integration Runtime | Integration Runtime działanie zostało uruchomione |
 | Właściwości użytkownika | Właściwości działania zdefiniowane przez użytkownika |
-| Error | Jeśli działanie nie powiodło się, błąd przebiegu |
+| Błąd | Jeśli działanie nie powiodło się, błąd przebiegu |
 | Identyfikator przebiegu | Identyfikator uruchomienia działania |
 
 ![Widok listy dla uruchomionych działań monitorowania](media/monitor-visually/activity-runs.png)
@@ -132,6 +132,21 @@ Możesz również wyświetlić historię ponownego uruchamiania dla określonego
 
 ![Wyświetl historię uruchomienia potoku](media/monitor-visually/rerun-history-image2.png)
 
+## <a name="monitor-consumption"></a>Monitorowanie użycia
+
+Możesz zobaczyć zasoby używane przez uruchomienie potoku, klikając ikonę użycie obok przebiegu. 
+
+![Monitorowanie użycia](media/monitor-visually/monitor-consumption-1.png)
+
+Kliknięcie ikony powoduje otwarcie raportu o zużyciu zasobów używanych przez to uruchomienie potoku. 
+
+![Monitorowanie użycia](media/monitor-visually/monitor-consumption-2.png)
+
+Te wartości można podłączyć do przebiegu potoku [Cennik usługi Azure calcula. Hat. Aby uzyskać więcej informacji na Azure Data Factory cenach, zobacz temat [Omówienie cen](pricing-concepts.md).
+
+> [!NOTE]
+> Te wartości zwracane przez kalkulator cen są szacowane. Nie odzwierciedla dokładnej kwoty, która będzie rozliczana Azure Data Factory 
+
 ## <a name="gantt-views"></a>Widoki wykresu Gantta
 
 Użyj widoków wykresu Gantta, aby szybko wizualizować potoki i uruchomienia działania.
@@ -151,9 +166,9 @@ Wybierz ikonę **informacji** w lewym dolnym rogu. Następnie wybierz przewodnik
 
 ![Przewodniki](media/monitor-visually/guided-tours.png)
 
-## <a name="alerts"></a>Alerty
+## <a name="alerts"></a>Alerts (Alerty)
 
-Alerty dla obsługiwanych metryk można zgłaszać w Data Factory. Wybierz pozycję **Monitoruj** > **alerty & metryki** na stronie monitorowanie Data Factory, aby rozpocząć pracę.
+Alerty dla obsługiwanych metryk można zgłaszać w Data Factory. Wybierz pozycję **Monitoruj**  >  **alerty & metryki** na stronie monitorowanie Data Factory, aby rozpocząć pracę.
 
 ![Strona monitora fabryki danych](media/monitor-visually/alerts01.png)
 

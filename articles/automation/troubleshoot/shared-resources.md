@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie problemów z zasobami udostępnionymi w Azure Automation
-description: Dowiedz się, jak rozwiązywać problemy z zasobami udostępnionymi Azure Automation.
+title: Rozwiązywanie problemów z zasobami udostępnionymi Azure Automation
+description: W tym artykule opisano sposób rozwiązywania problemów z zasobami udostępnionymi Azure Automation.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -8,19 +8,16 @@ ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: c59e8ec67777a9cfebc12508b197e1237a61df4a
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: 5b87a98ed38e3af315789adffc11824f2522b802
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864202"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680887"
 ---
-# <a name="troubleshoot-shared-resources-in-azure-automation"></a>Rozwiązywanie problemów z zasobami udostępnionymi w Azure Automation
+# <a name="troubleshoot-shared-resource-issues"></a>Rozwiązywanie problemów z zasobami udostępnionymi
 
-W tym artykule omówiono rozwiązania problemów, które mogą wystąpić w przypadku korzystania z [udostępnionych zasobów](../automation-intro.md#shared-resources) w programie Azure Automation.
-
->[!NOTE]
->Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal można używać modułu AzureRM w obecnym czasie. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Instrukcje dotyczące instalacji polecenia AZ module w hybrydowym procesie roboczym elementu Runbook znajdują się w temacie [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). W przypadku konta usługi Automation można zaktualizować moduły do najnowszej wersji za pomocą [sposobu aktualizowania modułów Azure PowerShell w programie Azure Automation](../automation-update-azure-modules.md).
+W tym artykule omówiono problemy, które mogą wystąpić w przypadku korzystania z [udostępnionych zasobów](../automation-intro.md#shared-resources) w programie Azure Automation.
 
 ## <a name="modules"></a>Moduły
 
@@ -170,6 +167,6 @@ Connect-AzAccount -ServicePrincipal -Tenant $connection.TenantID `
 Jeśli ten artykuł nie rozwiąże problemu, wypróbuj jeden z następujących kanałów, aby uzyskać dodatkową pomoc techniczną:
 
 * Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [forów platformy Azure](https://azure.microsoft.com/support/forums/).
-* Połącz się [@AzureSupport](https://twitter.com/azuresupport)z. To oficjalne konto Microsoft Azure do łączenia społeczności platformy Azure z właściwymi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
+* Połącz się z [@AzureSupport](https://twitter.com/azuresupport) . To oficjalne konto Microsoft Azure do łączenia społeczności platformy Azure z właściwymi zasobami: odpowiedziami, pomocą techniczną i ekspertami.
 * Zaplikowanie zdarzenia pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/)i wybierz pozycję **Uzyskaj pomoc techniczną**.
 

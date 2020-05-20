@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/05/2020
+ms.date: 05/19/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: 568bcdcfd8ae50fff58964ecc74176b151db22a4
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: eae10b7ae8cd14fd120e969c39c05a8ba2525003
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121324"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681543"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Użyj szablonu Azure Resource Manager, aby utworzyć obszar roboczy dla Azure Machine Learning
 
@@ -91,7 +91,6 @@ Aby uzyskać więcej informacji, zobacz [szyfrowanie w spoczynku](concept-enterp
 > * Musisz mieć istniejące Azure Key Vault, które zawierają klucz szyfrowania.
 > * Musisz mieć zasady dostępu w Azure Key Vault, które będą udzielać dostępu do __Azure Cosmos DB__ aplikacji __Get__, __zawijania__i __odwinięcia__ .
 > * Azure Key Vault musi znajdować się w tym samym regionie, w którym planujesz utworzyć obszar roboczy Azure Machine Learning.
-> * Twoja subskrypcja musi obsługiwać __klucze zarządzane przez klienta__ w celu Azure Cosmos DB.
 
 __Aby dodać aplikację Azure Machine Learning jako współautor__, użyj następujących poleceń:
 
@@ -134,8 +133,6 @@ __Aby dodać zasady dostępu do magazynu kluczy, użyj następujących poleceń_
     ```azurecli-interactive
     az keyvault set-policy --name <keyvault-name> --object-id <object-ID> --key-permissions get unwrapKey wrapKey
     ```
-
-__Aby włączyć klucze zarządzane przez klienta Azure Cosmos DB__, Wyślij wiadomość E-mail azurecosmosdbcmk@service.microsoft.com z identyfikatorem subskrypcji platformy Azure. Aby uzyskać więcej informacji, zobacz [Konfigurowanie kluczy zarządzanych przez klienta dla konta usługi Azure Cosmos](..//cosmos-db/how-to-setup-cmk.md).
 
 __Aby uzyskać wartości__ dla `cmk_keyvault` (identyfikatora Key Vault) i `resource_cmk_uri` parametrów (identyfikator URI klucza) wymaganych przez ten szablon, wykonaj następujące czynności:
 

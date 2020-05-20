@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 03/13/2020
-ms.openlocfilehash: 3aecaf45a04c1428968791a71abece783c7eb7c0
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.date: 05/19/2020
+ms.openlocfilehash: 36012801a2d36b75a0683db6f029a4560150ac2b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891316"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683058"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Zabezpieczenia przedsiębiorstwa dla Azure Machine Learning
 
@@ -99,7 +99,7 @@ Aby uzyskać więcej informacji o tożsamościach zarządzanych, zobacz [zarząd
 
 Nie zaleca się, aby administratorzy mogli odwołać dostęp do tożsamości zarządzanej do zasobów wymienionych w powyższej tabeli. Dostęp można przywrócić przy użyciu operacji ponowna synchronizacja kluczy.
 
-Azure Machine Learning tworzy dodatkową aplikację (nazwa rozpoczyna się od `aml-` lub `Microsoft-AzureML-Support-App-`) z dostępem na poziomie współautora w ramach subskrypcji dla każdego regionu obszaru roboczego. Jeśli na przykład masz jeden obszar roboczy w regionie Wschodnie stany USA i jeden w Europie Północnej w tej samej subskrypcji, zobaczysz dwie z tych aplikacji. Te aplikacje umożliwiają Azure Machine Learning ułatwiające zarządzanie zasobami obliczeniowymi.
+Azure Machine Learning tworzy dodatkową aplikację (nazwa rozpoczyna się od `aml-` lub `Microsoft-AzureML-Support-App-` ) z dostępem na poziomie współautora w ramach subskrypcji dla każdego regionu obszaru roboczego. Jeśli na przykład masz jeden obszar roboczy w regionie Wschodnie stany USA i jeden w Europie Północnej w tej samej subskrypcji, zobaczysz dwie z tych aplikacji. Te aplikacje umożliwiają Azure Machine Learning ułatwiające zarządzanie zasobami obliczeniowymi.
 
 ## <a name="network-security"></a>Bezpieczeństwo sieci
 
@@ -116,7 +116,7 @@ Możesz również włączyć prywatne łącze platformy Azure dla Twojego obszar
 > [!IMPORTANT]
 > Jeśli obszar roboczy zawiera dane poufne, zalecamy ustawienie [flagi hbi_workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) podczas tworzenia obszaru roboczego. 
 
-`hbi_workspace` Flaga kontroluje ilość danych zbieranych przez firmę Microsoft do celów diagnostycznych i umożliwia dodatkowe szyfrowanie w środowiskach zarządzanych przez firmę Microsoft. Ponadto oferuje następujące elementy:
+`hbi_workspace`Flaga kontroluje ilość danych zbieranych przez firmę Microsoft do celów diagnostycznych i umożliwia dodatkowe szyfrowanie w środowiskach zarządzanych przez firmę Microsoft. Ponadto oferuje następujące elementy:
 
 * Program uruchamia szyfrowanie lokalnego dysku magazynującego w klastrze Amlcompute, pod warunkiem że nie utworzono żadnych wcześniejszych klastrów w tej subskrypcji. W przeciwnym razie musisz zgłosić bilet pomocy technicznej, aby umożliwić szyfrowanie dysku magazynującego klastrów obliczeniowych 
 * Czyści lokalny dysk magazynujący między przebiegami
@@ -146,8 +146,6 @@ Aby użyć własnych kluczy (zarządzanych przez klienta) do zaszyfrowania wyst�
 
 Aby włączyć obsługę administracyjną wystąpienia Cosmos DB w ramach subskrypcji z kluczami zarządzanymi przez klienta, wykonaj następujące czynności:
 
-* Włącz funkcje klucza zarządzanego przez klienta dla Cosmos DB. W tej chwili należy zażądać dostępu do korzystania z tej funkcji. Aby to zrobić, skontaktuj się [cosmosdbpm@microsoft.com](mailto:cosmosdbpm@microsoft.com)z firmą.
-
 * Zarejestruj Azure Machine Learning i Azure Cosmos DB dostawców zasobów w subskrypcji, jeśli jeszcze nie zostało to zrobione.
 
 * Autoryzuj aplikację Machine Learning (w temacie Zarządzanie tożsamościami i dostępem) z uprawnieniami współautora w ramach subskrypcji.
@@ -163,7 +161,7 @@ Aby włączyć obsługę administracyjną wystąpienia Cosmos DB w ramach subskr
         > [!NOTE]
         > To wystąpienie magazynu kluczy może być inne niż magazyn kluczy tworzony przez Azure Machine Learning podczas aprowizacji obszaru roboczego. Jeśli chcesz użyć tego samego wystąpienia magazynu kluczy dla obszaru roboczego, Przekaż ten sam magazyn kluczy podczas aprowizacji obszaru roboczego za pomocą [parametru key_vault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
 
-To wystąpienie Cosmos DB jest tworzone w grupie zasobów zarządzanej przez firmę Microsoft w ramach Twojej subskrypcji. Zarządzana Grupa zasobów ma nazwę w formacie `<AML Workspace Resource Group Name><GUID>`.
+To wystąpienie Cosmos DB jest tworzone w grupie zasobów zarządzanej przez firmę Microsoft w ramach Twojej subskrypcji. Zarządzana Grupa zasobów ma nazwę w formacie `<AML Workspace Resource Group Name><GUID>` .
 
 > [!IMPORTANT]
 > * Jeśli musisz usunąć to wystąpienie Cosmos DB, musisz usunąć obszar roboczy Azure Machine Learning, który go używa. 
@@ -188,7 +186,7 @@ Przykład tworzenia obszaru roboczego przy użyciu istniejącego Azure Container
 
 Wdrożony zasób wystąpienia kontenera platformy Azure (ACI) można zaszyfrować przy użyciu kluczy zarządzanych przez klienta. Klucz zarządzany przez klienta używany przez ACI może być przechowywany w Azure Key Vault dla obszaru roboczego. Aby uzyskać informacje na temat generowania klucza, zobacz [szyfrowanie danych za pomocą klucza zarządzanego przez klienta](../container-instances/container-instances-encrypt-data.md#generate-a-new-key).
 
-Aby użyć klucza podczas wdrażania modelu w usłudze Azure Container instance, Utwórz nową konfigurację wdrożenia przy użyciu programu `AciWebservice.deploy_configuration()`. Podaj informacje o kluczu przy użyciu następujących parametrów:
+Aby użyć klucza podczas wdrażania modelu w usłudze Azure Container instance, Utwórz nową konfigurację wdrożenia przy użyciu programu `AciWebservice.deploy_configuration()` . Podaj informacje o kluczu przy użyciu następujących parametrów:
 
 * `cmk_vault_base_url`: Adres URL magazynu kluczy, który zawiera klucz.
 * `cmk_key_name`: Nazwa klucza.
@@ -215,7 +213,7 @@ Ten proces umożliwia zaszyfrowanie zarówno danych, jak i dysku systemu operacy
 
 Dysk systemu operacyjnego dla każdego węzła obliczeniowego przechowywanego w usłudze Azure Storage jest szyfrowany przy użyciu kluczy zarządzanych przez firmę Microsoft w ramach kont magazynu Azure Machine Learning. Ten obiekt docelowy obliczeń jest nieulotny, a klastry są zwykle skalowane w dół, gdy żadne przebiegi nie są umieszczane w kolejce. Podstawowa maszyna wirtualna jest nieobsługiwana i dysk systemu operacyjnego zostanie usunięty. Azure Disk Encryption nie jest obsługiwana w przypadku dysku systemu operacyjnego.
 
-Każda maszyna wirtualna ma także lokalny dysk tymczasowy dla operacji systemu operacyjnego. Jeśli chcesz, możesz użyć dysku do przygotowania danych szkoleniowych. Dysk jest domyślnie szyfrowany dla obszarów roboczych z `hbi_workspace` parametrem ustawionym na. `TRUE` To środowisko jest krótko w czasie trwania uruchomienia, a obsługa szyfrowania jest ograniczona tylko do kluczy zarządzanych przez system.
+Każda maszyna wirtualna ma także lokalny dysk tymczasowy dla operacji systemu operacyjnego. Jeśli chcesz, możesz użyć dysku do przygotowania danych szkoleniowych. Dysk jest domyślnie szyfrowany dla obszarów roboczych z `hbi_workspace` parametrem ustawionym na `TRUE` . To środowisko jest krótko w czasie trwania uruchomienia, a obsługa szyfrowania jest ograniczona tylko do kluczy zarządzanych przez system.
 
 #### <a name="azure-databricks"></a>Azure Databricks
 
@@ -319,7 +317,7 @@ Skojarzona z obszarem roboczym Azure Machine Learning to katalogi (eksperymenty)
 
 [![Przepływ pracy migawek kodu](media/concept-enterprise-security/code-snapshot.png)](media/concept-enterprise-security/code-snapshot-expanded.png#lightbox)
 
-### <a name="training"></a>Szkolenia
+### <a name="training"></a>Szkolenie
 
 Na poniższym diagramie przedstawiono przepływ pracy szkoleniowej.
 

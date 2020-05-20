@@ -8,14 +8,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 8be5dac2d1d5e8a5a3ceafff6b51b2d89e03993f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: fa7e2321d61721e370ef6b5924dc6f820dd1f724
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593289"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685281"
 ---
 # <a name="add-entities-to-extract-data"></a>Dodawanie jednostek do wyodrębniania danych
 
@@ -25,24 +25,28 @@ Jednostka reprezentuje słowo lub frazę w wypowiedź, które mają zostać wyod
 
 ## <a name="plan-entities-then-create-and-label"></a>Planowanie jednostek, a następnie Tworzenie i etykietowanie
 
-Jednostki z możliwością uczenia maszynowego można utworzyć na podstawie przykładu wyrażenia długości lub utworzyć na stronie **jednostki** .
+jednostki uczenia maszynowego można tworzyć na podstawie przykładu wyrażenia długości lub z poziomu strony **jednostki** .
 
-Ogólnie rzecz biorąc, najlepszym rozwiązaniem jest poświęcanie czasu na planowanie jednostek przed utworzeniem jednostki, która jest wyszukiwana przez maszynę w portalu. Następnie utwórz jednostkę uczenia maszynowego z przykładu wypowiedź z jak najwięcej szczegółów w podjednostkach i funkcjach, które znasz w danym momencie. [Samouczek dotyczący tworzenia jednostki](tutorial-machine-learned-entity.md) pokazuje, jak używać tej metody.
+Ogólnie rzecz biorąc, najlepszym rozwiązaniem jest poświęcanie czasu na planowanie jednostek przed utworzeniem jednostki uczenia maszynowego w portalu. Następnie utwórz jednostkę uczenia maszynowego z przykładu wypowiedź z jak najwięcej szczegółów w podjednostkach i funkcjach, które znasz w danym momencie. [Samouczek dotyczący tworzenia jednostki](tutorial-machine-learned-entity.md) pokazuje, jak używać tej metody.
 
 W ramach planowania jednostek, możesz mieć pewność, że potrzebujesz obiektów pasujących do tekstu (takich jak wstępnie skompilowane jednostki, jednostki wyrażeń regularnych lub jednostki listy). Można je utworzyć na podstawie strony **jednostki** , zanim zostaną one oznaczone jako przykładowe wyrażenia długości.
 
-Podczas etykietowania można oznaczyć poszczególne jednostki, a następnie skompilować do jednostki nadrzędnej. Można też rozpocząć od nadrzędnej maszyny i rozłożyć na jednostki podrzędne.
+Podczas etykietowania można oznaczyć poszczególne jednostki, a następnie skompilować do nadrzędnej jednostki uczenia maszynowego. Można też rozpocząć od nadrzędnej jednostki uczenia maszynowego i rozłożyć na jednostki podrzędne.
 
 > [!TIP]
 >Oznacz wszystkie słowa, które mogą wskazywać na jednostkę, nawet jeśli wyrazy nie są używane podczas wyodrębniania w aplikacji klienckiej.
 
-## <a name="creating-an-entity-before-or-with-labeling"></a>Tworzenie jednostki przed lub z etykietami
+## <a name="when-to-create-an-entity"></a>Kiedy należy utworzyć jednostkę
 
-W poniższej tabeli przedstawiono jednostki, w których można utworzyć lub dodać każdą jednostkę do aplikacji.
+Po zaplanowaniu jednostek należy utworzyć jednostki uczenia maszynowego i podjednostki. Może to wymagać dodania wstępnie utworzonych jednostek lub jednostek dopasowania tekstu w celu udostępnienia funkcji dla jednostek uczenia maszynowego. Wszystkie te czynności należy wykonać przed etykietami.
+
+Po rozpoczęciu etykietowania przykładu wyrażenia długości można utworzyć jednostki, które są pouczenie maszynowe lub rozszerzając jednostki listy.
+
+Skorzystaj z poniższej tabeli, aby zrozumieć, gdzie utworzyć lub dodać każdy typ jednostki do aplikacji.
 
 |Typ jednostki|Gdzie można utworzyć jednostkę w portalu LUIS|
 |--|--|
-|Jednostka nauczona maszynowo|Szczegóły jednostek lub zamiaru|
+|Jednostka uczenia maszynowego|Szczegóły jednostek lub zamiaru|
 |Jednostka listy|Szczegóły jednostek lub zamiaru|
 |Jednostka wyrażenia regularnego|Jednostki|
 |Jednostka Pattern.any|Jednostki|
@@ -51,27 +55,11 @@ W poniższej tabeli przedstawiono jednostki, w których można utworzyć lub dod
 
 Wszystkie jednostki można utworzyć ze strony **jednostki** lub można utworzyć kilka jednostek w ramach etykietowania jednostki w przykładowym wypowiedź na stronie **szczegółów** elementu. Można _oznaczyć_ tylko jednostkę w przykładowym wypowiedź na stronie **szczegółów zamierzenia** .
 
-## <a name="create-a-machine-learned-entity"></a>Tworzenie jednostki o Poznaniu maszynowym
 
-[!INCLUDE [Create and label entities in machine-learned tutorial](includes/decomposable-tutorial-links.md)]
 
-## <a name="create-a-text-matching-entity"></a>Tworzenie jednostki dopasowania tekstu
+## <a name="how-to-create-a-new-custom-entity"></a>Jak utworzyć nową jednostkę niestandardową
 
-Użycie jednostek dopasowania tekstu zapewnia kilka sposobów wyodrębnienia danych:
-
-|Jednostki pasujące do tekstu|Przeznaczenie|
-|--|--|
-|[Jednostka listy](reference-entity-list.md)|Lista nazw kanonicznych wraz z synonimami jako alternatywnymi formularzami|
-|Jednostka wyrażenia regularnego|dopasowanie tekstu przy użyciu jednostki wyrażenia regularnego|
-|[Wstępnie utworzona jednostka](luis-reference-prebuilt-entities.md)|dopasowuje typowe typy danych, takie jak Number, email, Date|
-|Prebudowana jednostka domeny|Dopasuj przy użyciu wybranych domen podmiotu|
-|[Wzorzec. any](reference-entity-pattern-any.md)| Aby dopasować jednostki, które można łatwo pomylić z otaczającym tekstem|
-
-Wstępnie utworzone jednostki działają bez udostępniania niestandardowych danych szkoleniowych. Inne jednostki muszą podawać dane szkolenia klienta (takie jak elementy jednostki listy) lub wyrażenie (takie jak wyrażenie regularne lub wzorzec. any).
-
-<a name="add-list-entities"></a>
-
-### <a name="how-to-create-a-new-custom-entity"></a>Jak utworzyć nową jednostkę niestandardową
+Ten proces działa w przypadku obiektów, które są obsługiwane przez maszynę, listy i jednostek wyrażeń regularnych.
 
 1. Zaloguj się do [portalu Luis](https://www.luis.ai)i wybierz swoją **subskrypcję** i **zasób tworzenia** , aby wyświetlić aplikacje przypisane do tego zasobu.
 1. Otwórz aplikację, wybierając jej nazwę na stronie **Moje aplikacje** .
@@ -79,7 +67,50 @@ Wstępnie utworzone jednostki działają bez udostępniania niestandardowych dan
 1. Wybierz pozycję **+ Utwórz**, a następnie wybierz typ jednostki.
 1. Kontynuuj Konfigurowanie jednostki, a następnie wybierz pozycję **Utwórz** po zakończeniu.
 
-### <a name="add-list-entities-for-exact-matches"></a>Dodaj jednostki listy dla dokładnych dopasowań
+## <a name="create-a-machine-learned-entity"></a>Tworzenie jednostki o Poznaniu maszynowym
+
+1. Zaloguj się do [portalu Luis](https://www.luis.ai)i wybierz swoją **subskrypcję** i **zasób tworzenia** , aby wyświetlić aplikacje przypisane do tego zasobu.
+1. Otwórz aplikację, wybierając jej nazwę na stronie **Moje aplikacje** .
+1. W sekcji **kompilacja** wybierz pozycję **jednostki** w lewym panelu, a następnie wybierz pozycję **+ Utwórz**.
+1. W oknie dialogowym **Tworzenie typu jednostki** wprowadź nazwę jednostki, a następnie wybierz opcję **Machined**, a następnie wybierz opcję. Aby dodać podjednostki, wybierz pozycję **Dodaj strukturę**. Wybierz przycisk **Utwórz**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu przedstawiający tworzenie jednostki uzyskanej na maszynie.](media/add-entities/machine-learned-entity-with-structure.png)
+
+1. W obszarze **Dodawanie podjednostek**Dodaj podjednostkę, wybierając ją **+** w wierszu jednostki nadrzędnej.
+
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu przedstawiający Dodawanie podjednostek.](media/add-entities/machine-learned-entity-with-subentities.png)
+
+1. Wybierz pozycję **Utwórz** , aby zakończyć proces tworzenia.
+
+## <a name="add-a-feature-to-a-machine-learned-entity"></a>Dodaj funkcję do jednostki, której dotyczy dana maszyna
+
+1. Zaloguj się do [portalu Luis](https://www.luis.ai)i wybierz swoją **subskrypcję** i **zasób tworzenia** , aby wyświetlić aplikacje przypisane do tego zasobu.
+1. Otwórz aplikację, wybierając jej nazwę na stronie **Moje aplikacje** .
+1. W sekcji **kompilacja** wybierz pozycję **jednostki** w lewym panelu, a następnie wybierz jednostkę, którą pouczysz się.
+1. Dodaj funkcję, wybierając pozycję **+ Dodaj funkcję** w wierszu jednostki lub podjednostki.
+1. Wybierz z listy istniejące jednostki i frazy.
+1. Jeśli jednostka powinna zostać wyodrębniona tylko wtedy, gdy funkcja zostanie znaleziona, wybierz gwiazdkę `*` dla tej funkcji.
+
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu przedstawiający Dodawanie funkcji do jednostki.](media/add-entities/machine-learned-entity-schema-with-features.png)
+
+## <a name="create-a-regular-expression-entity"></a>Tworzenie jednostki wyrażenia regularnego
+
+1. Zaloguj się do [portalu Luis](https://www.luis.ai)i wybierz swoją **subskrypcję** i **zasób tworzenia** , aby wyświetlić aplikacje przypisane do tego zasobu.
+1. Otwórz aplikację, wybierając jej nazwę na stronie **Moje aplikacje** .
+1. W sekcji **kompilacja** wybierz pozycję **jednostki** w lewym panelu, a następnie wybierz pozycję **+ Utwórz**.
+
+1. W oknie dialogowym **Tworzenie typu jednostki** wprowadź nazwę jednostki i wybierz opcję wyrażenie **regularne**, wprowadź wyrażenie regularne w polu **wyrażeń** regularnych i wybierz pozycję **Utwórz**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu przedstawiający tworzenie jednostki wyrażenia regularnego.](media/add-entities/add-regular-expression-entity.png)
+
+
+<a name="add-list-entities"></a>
+
+## <a name="create-a-list-entity"></a>Tworzenie jednostki listy
 
 Jednostki listy reprezentują usunięty, zamknięty zestaw powiązanych wyrazów. Chociaż autor może zmienić listę, LUIS nie zostanie powiększony ani zmniejszony. Można również zaimportować do istniejącej jednostki listy przy użyciu [formatu Entity. JSON](reference-entity-list.md#example-json-to-import-into-list-entity).
 
@@ -88,7 +119,7 @@ Na poniższej liście pokazano kanoniczną nazwę i synonimy.
 |Nazwa elementu listy kolorów|Kolory — synonimy|
 |--|--|
 |Red|Użycie Crismon, krew, Apple, ogień|
-|Blue|, platforma Azure, kobalt|
+|Blue|, kobalt|
 |Zielony|Kelly, limonowa|
 
 Użyj procedury, aby utworzyć jednostkę listy. Po utworzeniu jednostki listy nie musisz oznaczać przykładu wyrażenia długości w zamiarze. Elementy listy i synonimy są dopasowywane przy użyciu dokładnego tekstu.
@@ -138,47 +169,38 @@ W tej procedurze Dodaj `origin` role i `destination` do wstępnie skompilowanej 
     Rola jest dodawana do wstępnie skompilowanej jednostki, ale nie jest dodawana do żadnych wyrażenia długości przy użyciu tej jednostki.
 
 ### <a name="label-text-with-a-role-in-an-example-utterance"></a>Etykieta tekstu z rolą w przykładzie wypowiedź
+
+> [!TIP]
+> Role mogą zostać zastąpione etykietami z podjednostkami jednostek uczenia maszynowego.
+
 1. Zaloguj się do [portalu Luis](https://www.luis.ai)i wybierz swoją **subskrypcję** i **zasób tworzenia** , aby wyświetlić aplikacje przypisane do tego zasobu.
 1. Otwórz aplikację, wybierając jej nazwę na stronie **Moje aplikacje** .
 1. Przejdź do strony szczegółów intencji, która ma przykład wyrażenia długości, który korzysta z roli.
-1. Aby oznaczyć rolę, wybierz etykietę jednostki (linię ciągłą w obszarze tekst) w przykładzie wypowiedź, a następnie wybierz pozycję **Wyświetl w palecie jednostek** z listy rozwijanej.
+1. Aby oznaczyć rolę, wybierz etykietę jednostki (linię ciągłą w obszarze tekst) w przykładzie wypowiedź, a następnie wybierz pozycję **Wyświetl w okienku jednostki** z listy rozwijanej.
 
     > [!div class="mx-imgBorder"]
-    > ![Zrzut ekranu przedstawiający Wybieranie widoku w palecie jednostek](media/how-to-add-entities/select-text-label-with-entity-palette-for-role.png)
+    > ![Zrzut ekranu przedstawiający Wybieranie widoku w palecie jednostek](media/add-entities/view-in-entity-pane.png)
 
     Paleta jednostek zostanie otwarta po prawej stronie.
 
 1. Wybierz jednostkę, a następnie przejdź do dolnej części palety i wybierz rolę.
 
     > [!div class="mx-imgBorder"]
-    > ![Zrzut ekranu przedstawiający Wybieranie widoku w palecie jednostek](media/how-to-add-entities/select-role-from-entity-palette-entity-inspector.png)
+    > ![Zrzut ekranu przedstawiający Wybieranie widoku w palecie jednostek](media/add-entities/select-role-in-entity-palette.png)
 
 <a name="add-pattern-any-entities"></a>
+<a name="add-a-patternany-entity"></a>
+<a name="create-a-pattern-from-an-utterance"></a>
 
-## <a name="add-a-patternany-entity"></a>Dodaj wzorzec. dowolna jednostka
+## <a name="create-a-patternany-entity"></a>Tworzenie wzorca. dowolna jednostka
 
-[Wzorzec. wszystkie](luis-concept-entity-types.md) jednostki są prawidłowe tylko w [wzorcach](luis-how-to-model-intent-pattern.md), a nie na przykład wyrażenia długości. Ten typ jednostki ułatwia LUIS znalezienie końca jednostek o różnej długości i wyborze wyrazu. Ponieważ ta jednostka jest używana we wzorcu, LUIS wie, gdzie koniec jednostki znajduje się w szablonie wypowiedź.
+**Wzorzec. Każda** jednostka jest dostępna [tylko ze](luis-how-to-model-intent-pattern.md)wzorcami.
 
-### <a name="steps-to-create-a-patternany-entity"></a>Procedura tworzenia wzorca. dowolna jednostka
-1. Zaloguj się do [portalu Luis](https://www.luis.ai)i wybierz swoją **subskrypcję** i **zasób tworzenia** , aby wyświetlić aplikacje przypisane do tego zasobu.
-1. Otwórz aplikację, wybierając jej nazwę na stronie **Moje aplikacje** .
-1. W sekcji **kompilacja** wybierz pozycję **jednostki** w lewym panelu, a następnie wybierz pozycję **+ Utwórz**.
-
-1. W oknie dialogowym **Wybierz typ jednostki** wprowadź nazwę jednostki w polu **Nazwa** , a następnie wybierz pozycję **wzorzec. dowolny** **Typ** , a następnie wybierz pozycję **Utwórz**.
-
-    Po [utworzeniu wypowiedź wzorca](luis-how-to-model-intent-pattern.md) przy użyciu tej jednostki jednostka jest wyodrębniana z połączonym algorytmem zgodnym z maszyną i tekstem.
-
-### <a name="create-a-pattern-template-utterance-to-use-patternany-entity"></a>Utwórz szablon wzorca wypowiedź, aby użyć wzorca. dowolna jednostka
-
-Aby użyć wzorca. dowolna jednostka, Dodaj wzorzec na stronie **wzorce** , w sekcji **Poprawianie wydajności aplikacji** z poprawną składnią nawiasów klamrowych, taką jak `Where is **{HumanResourcesFormTitle}** on the server?` .
-
-Jeśli zauważysz, że Twój wzorzec, gdy zawiera jednostkę Pattern.any, niepoprawnie wyodrębnia jednostki, użyj elementu [explicit list](reference-pattern-syntax.md#explicit-lists) (listy jawnej), aby rozwiązać ten problem.
 
 ## <a name="do-not-change-entity-type"></a>Nie zmieniaj typu jednostki
 
 LUIS nie pozwala na zmianę typu jednostki, ponieważ nie wie, co należy dodać lub usunąć, aby utworzyć tę jednostkę. Aby zmienić typ, lepiej jest utworzyć nową jednostkę poprawnego typu przy użyciu nieco innej nazwy. Po utworzeniu jednostki w każdym wypowiedź Usuń starą nazwę jednostki oznaczonej etykietą i Dodaj nową nazwę jednostki. Gdy wszystkie wyrażenia długości zostały ponownie oznaczone etykietami, usuń starą jednostkę.
 
-<a name="create-a-pattern-from-an-utterance"></a>
 
 ## <a name="next-steps"></a>Następne kroki
 

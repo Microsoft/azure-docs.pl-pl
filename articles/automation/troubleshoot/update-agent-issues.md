@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie problemów z usługą Windows Update Agent w Azure Automation Update Management
-description: Informacje na temat rozwiązywania problemów z usługą Windows Update Agent przy użyciu rozwiązania Update Management.
+title: Rozwiązywanie problemów z usługą Windows Update Agent w Azure Automation
+description: W tym artykule opisano sposób rozwiązywania problemów z usługą Windows Update Agent podczas Update Management.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -9,20 +9,20 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: e9af9c6472f49ebccd36e8d73688636c98918ff1
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: ff996227e23836bf85cc3885d9184ae6d7d6c61d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996434"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680827"
 ---
 # <a name="troubleshoot-windows-update-agent-issues"></a>Rozwiązywanie problemów z usługą Windows Update Agent
 
-Może istnieć wiele przyczyn, dla których Twoja maszyna nie jest wyświetlana jako gotowa (dobra kondycja) w Update Management. Aby określić podstawowy problem, można sprawdzić kondycję agenta hybrydowego procesu roboczego elementu Runbook systemu Windows. Poniżej przedstawiono trzy Stany gotowości dla maszyny:
+Może istnieć wiele przyczyn, dla których Twoja maszyna nie jest wyświetlana jako gotowa (dobra kondycja) podczas wdrażania Update Management. Aby określić podstawowy problem, można sprawdzić kondycję agenta hybrydowego procesu roboczego elementu Runbook systemu Windows. Poniżej przedstawiono trzy Stany gotowości dla maszyny:
 
 * Gotowe: hybrydowy proces roboczy elementu Runbook został wdrożony i ostatnio pojawił się mniej niż jedna godzina temu.
 * Rozłączono: hybrydowy proces roboczy elementu Runbook został wdrożony i ostatnio pojawił się ponad godzinę temu.
-* Nieskonfigurowane: nie można odnaleźć hybrydowego procesu roboczego elementu Runbook lub nie zakończono dołączania.
+* Nieskonfigurowane: nie można odnaleźć hybrydowego procesu roboczego elementu Runbook lub nie zakończył wdrożenia.
 
 > [!NOTE]
 > Może istnieć niewielkie opóźnienie między elementami Azure Portal a bieżącym stanem maszyny.
@@ -34,7 +34,7 @@ W tym artykule omówiono sposób uruchamiania narzędzia do rozwiązywania probl
 
 ## <a name="start-the-troubleshooter"></a>Uruchom narzędzie do rozwiązywania problemów
 
-W przypadku maszyn platformy Azure można uruchomić stronę Rozwiązywanie problemów z agentem aktualizacji, wybierając link **Rozwiązywanie problemów** w kolumnie **gotowość agenta aktualizacji** w portalu. W przypadku maszyn spoza platformy Azure Link umożliwia przełączenie do tego artykułu. Zapoznaj się z [instrukcjami w trybie offline](#troubleshoot-offline) , aby rozwiązać problem z maszyną spoza platformy Azure.
+W przypadku maszyn platformy Azure można uruchomić stronę Rozwiązywanie problemów z agentem aktualizacji, wybierając link **Rozwiązywanie problemów** w kolumnie **gotowość agenta aktualizacji** w portalu. W przypadku maszyn spoza platformy Azure Link umożliwia przełączenie do tego artykułu. Zobacz [Rozwiązywanie problemów w trybie offline](#troubleshoot-offline) , aby rozwiązać problem z maszyną spoza platformy Azure.
 
 ![Zrzut ekranu przedstawiający listę Update Management maszyn wirtualnych](../media/update-agent-issues/vm-list.png)
 
@@ -89,7 +89,7 @@ Konfiguracje serwera proxy i zapory muszą zezwalać agentowi hybrydowego proces
 
 ### <a name="monitoring-agent-service-status"></a>Stan usługi Monitoring Agent
 
-Ta kontrola określa, czy Agent Log Analytics dla systemu Windows`healthservice`() jest uruchomiony na komputerze. Aby dowiedzieć się więcej o rozwiązywaniu problemów z usługą, zobacz [agent log Analytics dla systemu Windows nie jest uruchomiony](hybrid-runbook-worker.md#mma-not-running).
+Ta kontrola określa, czy Agent Log Analytics dla systemu Windows ( `healthservice` ) jest uruchomiony na komputerze. Aby dowiedzieć się więcej o rozwiązywaniu problemów z usługą, zobacz [agent log Analytics dla systemu Windows nie jest uruchomiony](hybrid-runbook-worker.md#mma-not-running).
 
 Aby ponownie zainstalować agenta Log Analytics dla systemu Windows, zobacz [Instalowanie agenta dla systemu Windows](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows).
 
@@ -110,7 +110,7 @@ Sprawdzanie dostępu do folderu kryptograficznego określa, czy konto systemu lo
 
 ## <a name="troubleshoot-offline"></a><a name="troubleshoot-offline"></a>Rozwiązywanie problemów w trybie offline
 
-Narzędzia do rozwiązywania problemów można użyć w trybie offline w hybrydowym procesie roboczym elementu Runbook, uruchamiając skrypt lokalnie. Pobierz następujący skrypt z Galeria programu PowerShell: [Rozwiązywanie problemów — WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration). Aby uruchomić skrypt, musisz mieć zainstalowany program WMF 4,0 lub nowszy. Aby pobrać najnowszą wersję programu PowerShell, zobacz [Instalowanie różnych wersji programu PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell).
+Aby użyć narzędzia do rozwiązywania problemów z hybrydowym procesem roboczym elementu Runbook, należy uruchomić skrypt lokalnie. Pobierz następujący skrypt z Galeria programu PowerShell: [Rozwiązywanie problemów — WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration). Aby uruchomić skrypt, musisz mieć zainstalowany program WMF 4,0 lub nowszy. Aby pobrać najnowszą wersję programu PowerShell, zobacz [Instalowanie różnych wersji programu PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell).
 
 Dane wyjściowe tego skryptu wyglądają podobnie jak w poniższym przykładzie:
 
@@ -208,4 +208,4 @@ CheckResultMessageArguments : {}
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Rozwiązywanie problemów dotyczących hybrydowych procesów roboczych elementów Runbook](hybrid-runbook-worker.md)
+[Rozwiązywanie problemów z hybrydowym procesem roboczym elementu Runbook](hybrid-runbook-worker.md).

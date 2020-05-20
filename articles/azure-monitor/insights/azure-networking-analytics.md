@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 1045f86db5e1a9ed1979a266937974045e401e27
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1084be9a63e023257326de824ea200dcc1be74d9
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275570"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684649"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Rozwiązania do monitorowania sieci platformy Azure w Azure Monitor
 
@@ -150,7 +150,7 @@ Następujące dzienniki są obsługiwane dla sieciowych grup zabezpieczeń:
 ### <a name="install-and-configure-the-solution"></a>Instalowanie i Konfigurowanie rozwiązania
 Skorzystaj z poniższych instrukcji, aby zainstalować i skonfigurować rozwiązanie do analizy sieci Azure:
 
-1. Włącz rozwiązanie do analizy grup zabezpieczeń sieci Azure z [witryny Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureNSGAnalyticsOMS?tab=Overview) lub przy użyciu procesu opisanego w temacie [Dodawanie rozwiązań Azure monitor z Galeria rozwiązań](../../azure-monitor/insights/solutions.md).
+1. Aby włączyć rozwiązanie do analizy grup zabezpieczeń sieci platformy Azure, Użyj procesu opisanego w temacie [Dodawanie rozwiązań Azure monitor z Galeria rozwiązań](../../azure-monitor/insights/solutions.md).
 2. Włącz rejestrowanie diagnostyczne dla zasobów [sieciowej grupy zabezpieczeń](../../virtual-network/virtual-network-nsg-manage-log.md) , które chcesz monitorować.
 
 ### <a name="enable-azure-network-security-group-diagnostics-in-the-portal"></a>Włączanie diagnostyki grup zabezpieczeń sieci platformy Azure w portalu
@@ -218,8 +218,8 @@ Aby korzystać z zaktualizowanych rozwiązań:
      | NetworkApplicationgateways &#124; gdzie OperationName = = "ApplicationGatewayPerformance" | AzureDiagnostics &#124;, gdzie ResourceType = = "APPLICATIONGATEWAYS" i OperationName = = "ApplicationGatewayPerformance" |
      | NetworkSecuritygroups | AzureDiagnostics &#124;, gdzie ResourceType = = "NETWORKSECURITYGROUPS" |
 
-   + Dla każdego pola, które ma sufiks \_s, \_d lub \_g w nazwie, Zmień pierwszy znak na małe litery
-   + Dla każdego pola, które ma sufiks o \_wartości w nazwie, dane są dzielone na poszczególne pola na podstawie zagnieżdżonych nazw pól.
+   + Dla każdego pola, które ma sufiks \_ s, \_ d lub \_ g w nazwie, Zmień pierwszy znak na małe litery
+   + Dla każdego pola, które ma sufiks \_ o wartości w nazwie, dane są dzielone na poszczególne pola na podstawie zagnieżdżonych nazw pól.
 4. Usuń rozwiązanie *Azure Networking Analytics (przestarzałe)* .
    + Jeśli używasz programu PowerShell, użyj polecenia`Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "AzureNetwork" -Enabled $false`
 

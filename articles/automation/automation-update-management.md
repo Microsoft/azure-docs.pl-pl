@@ -1,18 +1,18 @@
 ---
-title: Update Management w Azure Automation
-description: W tym artykule opisano funkcję Update Management, która zarządza aktualizacjami dla maszyn z systemami Windows i Linux.
+title: Omówienie Update Management Azure Automation
+description: Omówienie funkcji Update Management, która zarządza aktualizacjami dla maszyn z systemami Windows i Linux
 services: automation
 ms.subservice: update-management
 ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: ca5d8c35aea06143e058aade473282a038212605
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: d3a3a19673ecb6edb82f0512f318298865c8ed24
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872169"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681290"
 ---
-# <a name="update-management-in-azure-automation"></a>Update Management w Azure Automation
+# <a name="update-management-overview"></a>Omówienie rozwiązania Update Management
 
 Update Management w Azure Automation służy do zarządzania aktualizacjami systemu operacyjnego dla maszyn z systemami Windows i Linux na platformie Azure, w środowiskach lokalnych i w innych środowiskach w chmurze. Można szybko ocenić stan dostępnych aktualizacji na wszystkich komputerach agentów i zarządzać procesem instalowania wymaganych aktualizacji dla serwerów.
 
@@ -83,7 +83,7 @@ W poniższej tabeli wymieniono systemy operacyjne obsługiwane w przypadku ocen 
 |---------|---------|
 |Windows Server 2019 (Datacenter/Datacenter/standard)<br><br>Windows Server 2016 (Datacenter/Datacenter/standard)<br><br>Windows Server 2012 R2 (Datacenter/standard)<br><br>Windows Server 2012 || 
 |Windows Server 2008 R2 (wersja RTM i SP1 standard)| Update Management obsługuje tylko oceny dla tego systemu operacyjnego. Stosowanie poprawek nie jest obsługiwane, ponieważ [hybrydowy proces roboczy elementu Runbook](automation-windows-hrw-install.md) nie jest obsługiwany w przypadku systemu Windows Server 2008 R2. |
-|CentOS 6 (x86/x64) i 7 (x64)      | Agenci systemu Linux wymagają dostępu do repozytorium aktualizacji. Stosowanie poprawek opartych na klasyfikacji `yum` wymaga zwrócenia danych zabezpieczeń, które nie są dostępne w wersjach RTM CentOS. Aby uzyskać więcej informacji na temat stosowania poprawek opartych na klasyfikacji na CentOS, zobacz [Aktualizacja klasyfikacji w systemie Linux](automation-view-update-assessments.md#linux-2).          |
+|CentOS 6 (x86/x64) i 7 (x64)      | Agenci systemu Linux wymagają dostępu do repozytorium aktualizacji. Stosowanie poprawek opartych na klasyfikacji wymaga `yum` zwrócenia danych zabezpieczeń, które nie są dostępne w wersjach RTM CentOS. Aby uzyskać więcej informacji na temat stosowania poprawek opartych na klasyfikacji na CentOS, zobacz [Aktualizacja klasyfikacji w systemie Linux](automation-view-update-assessments.md#linux-2).          |
 |Red Hat Enterprise 6 (x86/x64) i 7 (x64)     | Agenci systemu Linux wymagają dostępu do repozytorium aktualizacji.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) i 12 (x64)     | Agenci systemu Linux wymagają dostępu do repozytorium aktualizacji.        |
 |Ubuntu 14,04 LTS, 16,04 LTS i 18,04 (x86/x64)      |Agenci systemu Linux wymagają dostępu do repozytorium aktualizacji.         |
@@ -140,7 +140,7 @@ Update Management używa zasobów opisanych w tej sekcji. Te zasoby są automaty
 
 Po włączeniu Update Management każda maszyna z systemem Windows, która jest bezpośrednio połączona z obszarem roboczym Log Analytics, zostanie automatycznie skonfigurowana jako hybrydowy proces roboczy elementu Runbook w celu obsługi elementów Runbook, które obsługują Update Management.
 
-Każda maszyna z systemem Windows zarządzana przez Update Management jest wymieniona w okienku grupy hybrydowych procesów roboczych jako Grupa hybrydowych procesów roboczych systemu dla konta usługi Automation. Grupy używają Konwencji `Hostname FQDN_GUID` nazewnictwa. Nie można kierować tymi grupami do elementów Runbook na Twoim koncie. Jeśli spróbujesz, próba zakończy się niepowodzeniem. Te grupy są przeznaczone do obsługi tylko Update Management.
+Każda maszyna z systemem Windows zarządzana przez Update Management jest wymieniona w okienku grupy hybrydowych procesów roboczych jako Grupa hybrydowych procesów roboczych systemu dla konta usługi Automation. Grupy używają `Hostname FQDN_GUID` konwencji nazewnictwa. Nie można kierować tymi grupami do elementów Runbook na Twoim koncie. Jeśli spróbujesz, próba zakończy się niepowodzeniem. Te grupy są przeznaczone do obsługi tylko Update Management.
 
 Możesz dodać maszynę z systemem Windows do grupy hybrydowych procesów roboczych elementu Runbook na koncie usługi Automation w celu obsługi elementów Runbook usługi Automation, jeśli używasz tego samego konta dla Update Management i członkostwa w grupie hybrydowych procesów roboczych elementu Runbook. Ta funkcja została dodana w wersji 7.2.12024.0 hybrydowego procesu roboczego elementu Runbook.
 
@@ -153,7 +153,7 @@ Jeśli grupa zarządzania Operations Manager jest [połączona z obszarem robocz
 * Pakiet administracyjny wdrożenia aktualizacji
 
 > [!NOTE]
-> Jeśli grupa zarządzania programu Operations Manager 1807 lub 2019 jest połączona z obszarem roboczym Log Analytics z agentami skonfigurowanymi w grupie zarządzania w celu zbierania danych dziennika, należy zastąpić `IsAutoRegistrationEnabled` parametr i ustawić go na wartość true w regule **Microsoft. IntelligencePacks. AzureAutomation. HybridAgent. init** .
+> Jeśli grupa zarządzania programu Operations Manager 1807 lub 2019 jest połączona z obszarem roboczym Log Analytics z agentami skonfigurowanymi w grupie zarządzania w celu zbierania danych dziennika, należy zastąpić parametr `IsAutoRegistrationEnabled` i ustawić go na wartość true w regule **Microsoft. IntelligencePacks. AzureAutomation. HybridAgent. init** .
 
 Aby uzyskać więcej informacji o aktualizacjach pakietów administracyjnych, zobacz [Connect Operations Manager to Azure monitor Logs](../azure-monitor/platform/om-agents.md).
 
@@ -168,9 +168,9 @@ W poniższej tabeli opisano połączone źródła obsługiwane przez Update Mana
 
 | Połączone źródło | Obsługiwane | Opis |
 | --- | --- | --- |
-| Agenci dla systemu Windows |Tak |Update Management zbiera informacje o aktualizacjach systemu z agentów systemu Windows, a następnie uruchamia instalację wymaganych aktualizacji. |
-| Agenci dla systemu Linux |Tak |Update Management zbiera informacje o aktualizacjach systemu z agentów z systemem Linux, a następnie uruchamia instalację wymaganych aktualizacji w obsługiwanych dystrybucjach. |
-| Grupa zarządzania programu Operations Manager |Tak |Update Management zbiera informacje o aktualizacjach systemu z agentów w połączonej grupie zarządzania.<br/><br/>Bezpośrednie połączenie z agentem Operations Manager do Azure Monitor dzienników nie jest wymagane. Dane są przekazywane z grupy zarządzania do obszaru roboczego Log Analytics. |
+| Agenci dla systemu Windows |Yes |Update Management zbiera informacje o aktualizacjach systemu z agentów systemu Windows, a następnie uruchamia instalację wymaganych aktualizacji. |
+| Agenci dla systemu Linux |Yes |Update Management zbiera informacje o aktualizacjach systemu z agentów z systemem Linux, a następnie uruchamia instalację wymaganych aktualizacji w obsługiwanych dystrybucjach. |
+| Grupa zarządzania programu Operations Manager |Yes |Update Management zbiera informacje o aktualizacjach systemu z agentów w połączonej grupie zarządzania.<br/><br/>Bezpośrednie połączenie z agentem Operations Manager do Azure Monitor dzienników nie jest wymagane. Dane są przekazywane z grupy zarządzania do obszaru roboczego Log Analytics. |
 
 ### <a name="collection-frequency"></a>Częstotliwość zbierania
 
@@ -215,7 +215,7 @@ W poniższej tabeli zdefiniowano klasyfikacje, które Update Management obsługi
 |Pakiety funkcji     | Nowe funkcje produktu dystrybuowane poza wydaniem produktu.        |
 |Dodatki Service Pack     | Zbiorczy zestaw poprawek, które są stosowane do aplikacji.        |
 |Aktualizacje definicji     | Aktualizacja dla wirusów lub innych plików definicji.        |
-|Narzędzia     | Narzędzie lub funkcja, która pomaga wykonać jedno lub więcej zadań.        |
+|narzędzia     | Narzędzie lub funkcja, która pomaga wykonać jedno lub więcej zadań.        |
 |Aktualizacje     | Aktualizacja aplikacji lub pliku, który jest aktualnie zainstalowany.        |
 
 W następnej tabeli zdefiniowano obsługiwane klasyfikacje aktualizacji systemu Linux.

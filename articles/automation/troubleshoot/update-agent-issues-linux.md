@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie problemów z usługą Linux Update Agent w Azure Automation Update Management
-description: Informacje na temat rozwiązywania problemów z usługą Windows Update Agent przy użyciu rozwiązania Update Management.
+title: Rozwiązywanie problemów z usługą Linux Update Agent w Azure Automation
+description: W tym artykule opisano sposób rozwiązywania problemów z usługą Windows Update Agent i rozwiązywania z nią problemu w Update Management.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: a4082ddfd8c092a6f9223a0894f21bc734b6efb6
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: f1351b29a0102a374b75d832687d66c3b5572c75
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82997015"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680860"
 ---
 # <a name="troubleshoot-linux-update-agent-issues"></a>Rozwiązywanie problemów z usługą Linux Update Agent
 
@@ -22,7 +22,7 @@ Może istnieć wiele przyczyn, dla których Twoja maszyna nie jest wyświetlana 
 
 * Gotowe: hybrydowy proces roboczy elementu Runbook został wdrożony i ostatnio pojawił się mniej niż jedna godzina temu.
 * Rozłączono: hybrydowy proces roboczy elementu Runbook został wdrożony i ostatnio pojawił się ponad godzinę temu.
-* Nieskonfigurowane: nie można odnaleźć hybrydowego procesu roboczego elementu Runbook lub nie zakończono dołączania.
+* Nieskonfigurowane: nie znaleziono hybrydowego procesu roboczego elementu Runbook lub nie zakończono wdrożenia.
 
 > [!NOTE]
 > Może istnieć niewielkie opóźnienie między elementami Azure Portal a bieżącym stanem maszyny.
@@ -70,7 +70,7 @@ Ten test zapewnia, że Agent Log Analytics dla systemu Linux jest zainstalowany.
 
 ### <a name="log-analytics-agent-status"></a>Stan agenta Log Analytics
 
-Ten test zapewnia, że Agent Log Analytics dla systemu Linux jest uruchomiony. Jeśli Agent nie jest uruchomiony, możesz uruchomić następujące polecenie, aby spróbować uruchomić go ponownie. Aby uzyskać więcej informacji na temat rozwiązywania problemów z agentem, zobacz temat [Rozwiązywanie problemów z hybrydowym procesem roboczym](hybrid-runbook-worker.md#linux)
+Ten test zapewnia, że Agent Log Analytics dla systemu Linux jest uruchomiony. Jeśli Agent nie jest uruchomiony, możesz uruchomić następujące polecenie, aby spróbować uruchomić go ponownie. Aby uzyskać więcej informacji o rozwiązywaniu problemów z agentem, zobacz [Linux — Rozwiązywanie problemów z hybrydowym procesem roboczym elementu Runbook](hybrid-runbook-worker.md#linux).
 
 ```bash
 sudo /opt/microsoft/omsagent/bin/service_control restart
@@ -78,13 +78,13 @@ sudo /opt/microsoft/omsagent/bin/service_control restart
 
 ### <a name="multihoming"></a>Wieloadresowości
 
-Ta kontrola określa, czy Agent wysyła raporty do wielu obszarów roboczych. Wieloadresowości nie jest obsługiwane przez Update Management.
+Ta kontrola określa, czy Agent wysyła raporty do wielu obszarów roboczych. Update Management nie obsługuje wieloadresowości.
 
 ### <a name="hybrid-runbook-worker"></a>Hybrydowy proces roboczy elementu Runbook
 
-Ten test sprawdza, czy Agent Log Analytics dla systemu Linux ma pakiet hybrydowego procesu roboczego elementu Runbook. Ten pakiet jest wymagany do pracy Update Management. Aby dowiedzieć się więcej, zobacz [agent log Analytics dla systemu Linux nie jest uruchomiony](hybrid-runbook-worker.md#oms-agent-not-running).
+Ten test sprawdza, czy Agent Log Analytics dla systemu Linux ma pakiet hybrydowego procesu roboczego elementu Runbook. Ten pakiet jest wymagany do pracy Update Management. Aby dowiedzieć się więcej, zobacz [log Analytics Agent dla systemu Linux nie jest uruchomiony](hybrid-runbook-worker.md#oms-agent-not-running).
 
-Update Management pobiera hybrydowe pakiety procesów roboczych elementu Runbook z punktu końcowego operacji. W związku z tym, jeśli hybrydowy proces roboczy elementu Runbook nie jest uruchomiony, a [punkt końcowy operacji](#operations-endpoint) zakończy się niepowodzeniem, aktualizacja może zakończyć się niepowodzeniem.
+Update Management pobiera hybrydowe pakiety procesów roboczych elementu Runbook z punktu końcowego operacji. W związku z tym, jeśli hybrydowy proces roboczy elementu Runbook nie jest uruchomiony i sprawdzanie [punktu końcowego operacji](#operations-endpoint) zakończy się niepowodzeniem, aktualizacja może zakończyć się niepowodzeniem.
 
 ### <a name="hybrid-runbook-worker-status"></a>Stan hybrydowego procesu roboczego elementu Runbook
 
@@ -184,4 +184,4 @@ Passed: TCP test for {ods.systemcenteradvisor.com} (port 443) succeeded
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby rozwiązać dodatkowe problemy dotyczące hybrydowych procesów roboczych elementów Runbook, zobacz [Rozwiązywanie problemów hybrydowych procesów roboczych elementów Runbook](hybrid-runbook-worker.md).
+[Rozwiązywanie problemów z hybrydowym procesem roboczym elementu Runbook](hybrid-runbook-worker.md).

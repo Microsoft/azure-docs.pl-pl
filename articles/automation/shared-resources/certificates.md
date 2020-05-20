@@ -1,6 +1,6 @@
 ---
 title: Zarządzanie certyfikatami w Azure Automation
-description: Azure Automation bezpiecznie przechowywać certyfikaty, dzięki czemu elementy Runbook lub konfiguracje DSC mogą uzyskiwać do nich dostęp w celu uwierzytelniania na platformie Azure i w zasobach innych firm. W tym artykule opisano szczegóły certyfikatów oraz sposób pracy z nimi zarówno w tworzeniu tekstu, jak i w formie graficznej.
+description: W tym artykule opisano sposób pracy z certyfikatami w celu uzyskania dostępu przez elementy Runbook i konfiguracje DSC.
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2793679fb4588d00ea4e37340b19183398cb9d90
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: bf7e6d0ed8d6e318e6a78d25bcc7764f6302ef22
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864321"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685372"
 ---
 # <a name="manage-certificates-in-azure-automation"></a>Zarządzanie certyfikatami w Azure Automation
 
@@ -22,9 +22,6 @@ Azure Automation przechowuje certyfikaty bezpiecznie na potrzeby dostępu przez 
 
 >[!NOTE]
 >Zabezpieczanie zasobów w Azure Automation obejmuje poświadczenia, certyfikaty, połączenia i zmienne zaszyfrowane. Te zasoby są szyfrowane i przechowywane w usłudze Automation przy użyciu unikatowego klucza wygenerowanego dla każdego konta usługi Automation. Usługa Automation przechowuje klucz w usłudze Key Vault zarządzanej przez system. Przed zapisaniem bezpiecznego elementu zawartości Usługa Automation ładuje klucz z Key Vault, a następnie używa go do zaszyfrowania elementu zawartości. 
-
->[!NOTE]
->W tym artykule pokazano, jak używać Azure PowerShell AZ module. Nadal możesz użyć modułu AzureRM. Aby dowiedzieć się więcej na temat zgodności AZ module i AzureRM, zobacz [wprowadzenie do nowego Azure PowerShell AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Instrukcje dotyczące instalacji polecenia AZ module w hybrydowym procesie roboczym elementu Runbook znajdują się w temacie [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). W przypadku konta usługi Automation można zaktualizować moduły do najnowszej wersji za pomocą [sposobu aktualizowania modułów Azure PowerShell w programie Azure Automation](../automation-update-azure-modules.md).
 
 ## <a name="powershell-cmdlets-to-access-certificates"></a>Polecenia cmdlet programu PowerShell do uzyskiwania dostępu do certyfikatów
 
@@ -41,7 +38,7 @@ Za pomocą polecenia cmdlet [Add-AzureCertificate](/powershell/module/serviceman
 
 ## <a name="internal-cmdlets-to-access-certificates"></a>Wewnętrzne polecenia cmdlet do uzyskiwania dostępu do certyfikatów
 
-Wewnętrzne polecenie cmdlet w poniższej tabeli służy do uzyskiwania dostępu do certyfikatów w elementach Runbook. To polecenie cmdlet jest dołączone do modułu `Orchestrator.AssetManagement.Cmdlets`globalnego. Aby uzyskać więcej informacji, zobacz [wewnętrzne polecenia cmdlet](modules.md#internal-cmdlets).
+Wewnętrzne polecenie cmdlet w poniższej tabeli służy do uzyskiwania dostępu do certyfikatów w elementach Runbook. To polecenie cmdlet jest dołączone do modułu globalnego `Orchestrator.AssetManagement.Cmdlets` . Aby uzyskać więcej informacji, zobacz [wewnętrzne polecenia cmdlet](modules.md#internal-cmdlets).
 
 | Wewnętrzne polecenie cmdlet | Opis |
 |:---|:---|
@@ -59,7 +56,7 @@ Użyj funkcji z poniższej tabeli, aby uzyskać dostęp do certyfikatów w eleme
 | `automationassets.get_automation_certificate` | Pobiera informacje o zasobach certyfikatu. |
 
 > [!NOTE]
-> Aby uzyskać dostęp do `automationassets` funkcji zasobów, należy zaimportować moduł na początku elementu Runbook języka Python.
+> `automationassets`Aby uzyskać dostęp do funkcji zasobów, należy zaimportować moduł na początku elementu Runbook języka Python.
 
 ## <a name="create-a-new-certificate"></a>Utwórz nowy certyfikat
 
@@ -67,7 +64,7 @@ Podczas tworzenia nowego certyfikatu przekazuje plik cer lub PFX do automatyzacj
 
 ### <a name="create-a-new-certificate-with-the-azure-portal"></a>Utwórz nowy certyfikat z Azure Portal
 
-1. Na koncie usługi Automation wybierz pozycję **Assets** > **Certyfikaty** > zasobów**Dodaj certyfikat**.
+1. Na koncie usługi Automation wybierz pozycję **Assets**  >  **Certyfikaty**zasobów  >  **Dodaj certyfikat**.
 1. W polu **Nazwa** wpisz nazwę certyfikatu.
 1. Aby wyszukać plik **CER** lub **PFX** , w obszarze **Przekaż plik certyfikatu**wybierz **pozycję Wybierz plik**. W przypadku wybrania pliku **PFX** określ hasło i wskaż, czy można je wyeksportować.
 1. Wybierz pozycję **Utwórz** , aby zapisać nowy zasób certyfikatu.

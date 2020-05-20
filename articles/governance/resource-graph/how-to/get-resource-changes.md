@@ -1,14 +1,14 @@
 ---
 title: Uzyskiwanie zmian zasobów
 description: Dowiedz się, jak znaleźć, kiedy zasób został zmieniony, uzyskać listę właściwości, które uległy zmianie, i Oceń różnice.
-ms.date: 10/09/2019
+ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 9504ac77fc4a3b03434912cc65284e2001df6e03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d53148f302d82a7563520036f327406ca4a86040
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74873033"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681050"
 ---
 # <a name="get-resource-changes"></a>Uzyskiwanie zmian zasobów
 
@@ -40,8 +40,8 @@ Pierwszym krokiem w przypadku wyświetlenia zmiany w zasobie jest znalezienie zd
 
 Punkt końcowy **resourceChanges** akceptuje następujące parametry w treści żądania:
 
-- \[wymagany\] **Identyfikator zasobu:** zasób platformy Azure, w którym mają zostać wyszukane zmiany.
-- **interval** \[wymagany\]interwał: Właściwość z datą _początkową_ i _końcową_ dla sytuacji, w której należy wyszukać zdarzenie zmiany przy użyciu **strefy czasowej Zulu (Z)**.
+- Identyfikator **zasobu** \[ wymagane \] : zasób platformy Azure, w którym mają zostać wyszukane zmiany.
+- **Interwał** \[ wymagane \] : Właściwość z datą _początkową_ i _końcową_ , kiedy należy wyszukać zdarzenie zmiany przy użyciu **strefy czasowej Zulu (Z)**.
 - **fetchPropertyChanges** (opcjonalnie): właściwość logiczna, która ustawia, czy obiekt odpowiedzi zawiera zmiany właściwości.
 
 Przykład treści żądania:
@@ -289,3 +289,4 @@ Aby porównać wyniki, należy użyć właściwości **zmiany** w **resourceChan
 - Zobacz język używany w [zapytaniach początkowych](../samples/starter.md).
 - Zobacz zaawansowane zastosowania w [zaawansowanych zapytaniach](../samples/advanced.md).
 - Dowiedz się więcej o sposobach [eksplorowania zasobów](../concepts/explore-resources.md).
+- Aby uzyskać wskazówki dotyczące pracy z kwerendami z dużą częstotliwością, zobacz [wskazówki dotyczące żądań ograniczających](../concepts/guidance-for-throttled-requests.md).

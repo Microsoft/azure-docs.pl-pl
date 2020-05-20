@@ -2,28 +2,72 @@
 title: Przykład wypowiedź jednostki etykiety
 description: Dowiedz się, jak dodać etykietę do jednostki uczenia maszynowego za pomocą podskładników w przykładowej wypowiedź na stronie szczegółów obiektu w portalu LUIS.
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.openlocfilehash: ea5fbea902c9694d9a8a6a8a5bffcf5e7234bbbd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/17/2020
+ms.openlocfilehash: 0181057bd693280223806e9b5b7cd8c7f7345f79
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382399"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683779"
 ---
-# <a name="label-machine-learned-entity-in-an-example-utterance"></a>Etykieta jednostki doznanej przez maszynę w przykładzie wypowiedź
+# <a name="label-machine-learning-entity-in-an-example-utterance"></a>Etykieta jednostki uczenia maszynowego w przykładzie wypowiedź
 
 Etykietowanie jednostki w przykładzie wypowiedź daje LUIS przykład obiektu i miejsce, w którym jednostka może być wyświetlana w wypowiedź.
 
-## <a name="labeling-machine-learned-entity"></a>Etykieta jednostki uczenia maszynowego
+## <a name="label-example-utterances-from-the-intent-detail-page"></a>Etykieta przykład wyrażenia długości na stronie szczegółów zamiaru
 
-Rozważ wyrażenie `hi, please I want a cheese pizza in 20 minutes`.
+1. Zaloguj się do [portalu Luis](https://www.luis.ai)i wybierz swoją **subskrypcję** i **zasób tworzenia** , aby wyświetlić aplikacje przypisane do tego zasobu.
+1. Otwórz aplikację, wybierając jej nazwę na stronie **Moje aplikacje** .
+1. Wybierz zamiar, która ma przykład wyrażenia długości, którą chcesz oznaczyć do wyodrębnienia z jednostką.
+1. Zaznacz tekst, który chcesz oznaczyć etykietą, a następnie wybierz jednostkę.
 
-1. Zaznacz tekst z lewej strony, a następnie wybierz prawym przyciskiem myszy tekst jednostki, a następnie zaznacz jednostkę, do której chcesz dodać etykietę, w tym przypadku kompletnej kolejności. _Pełna kolejność_ jest oznaczona na poniższej ilustracji.
+## <a name="label-with-the-entity-palette-visible"></a>Etykieta z widoczną paletą jednostek
+
+Po zaplanowaniu schematu z jednostkami pozostaw **paletę jednostki** widoczną podczas etykietowania. **Paleta jednostek** to przypomnienie dotyczące tego, jakie jednostki zaplanowano do wyodrębnienia.
+
+Aby uzyskać dostęp do **palety Entity**, zaznacz **@** symbol na pasku narzędzi kontekstowych powyżej przykładowej listy wypowiedź.
+
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu przedstawiający paletę jednostek na stronie Szczegóły intencji.](media/label-utterances/entity-palette-from-tool-bar.png)
+
+## <a name="label-entity-from-in-place-menu"></a>Etykieta jednostki z menu w miejscu
+
+Rozważmy przykład wypowiedź, `hi, please I want a cheese pizza in 20 minutes` .
+
+1. Wybierz tekst z lewej strony, a następnie wybierz prawym przyciskiem myszy tekst jednostki, a następnie z menu w miejscu wybierz jednostkę, z którą chcesz dodać etykietę.
 
     > [!div class="mx-imgBorder"]
-    > ![Oznacz kompletną jednostkę podaną przez maszynę](media/label-utterances/example-1-label-machine-learned-entity-complete-order.png)
+    > ![Oznacz kompletną jednostkę uczenia maszynowego](media/label-utterances/label-steps-in-place-menu.png)
 
-1. Wybierz jednostkę z okna podręcznego. Jednostka etykiety pełna kolejność Pizza obejmuje wszystkie słowa (od lewej do prawej w języku angielskim), które są oznaczone etykietami.
+
+## <a name="label-entity-from-entity-palette"></a>Etykieta jednostki z palety jednostek
+
+Paleta jednostek oferuje alternatywę dla poprzedniego środowiska etykietowania. Umożliwia malowanie tekstu, aby natychmiast oznaczyć go jednostką.
+
+1. Otwórz paletę jednostki, wybierając **@** symbol w prawym górnym rogu tabeli wypowiedź.
+
+2. Wybierz jednostkę z palety, która ma być oznaczona etykietą. Ta akcja jest wskazywana wizualnie z nowym kursorem. Kursor jest podążany podczas przenoszenia w portalu LUIS.
+
+3. W przykładzie wypowiedź, _maluj_ jednostki za pomocą kursora.
+
+    > [!div class="mx-imgBorder"]
+    > ![Paleta jednostek dla jednostki uczenia maszynowego](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
+
+## <a name="adding-entity-as-a-feature-from-the-entity-palette"></a>Dodawanie jednostki jako funkcji z palety Entity
+
+Dolna sekcja palety jednostek umożliwia dodanie funkcji do aktualnie wybranej jednostki. Możesz wybrać wszystkie istniejące listy jednostek i fraz lub utworzyć nową listę fraz.
+
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu przedstawiający paletę jednostek z jednostką jako funkcją](media/label-utterances/entity-palette-entity-as-a-feature.png)
+
+## <a name="labeling-entity-roles"></a>Etykietowanie ról jednostek
+
+Role jednostek są oznaczone etykietami przy użyciu **palety Entity**.
+
+1. Na stronie Szczegóły zamiaru wybierz **paletę jednostki** z poziomu paska narzędzi kontekstu.
+1. Po otwarciu palety jednostki wybierz jednostkę z listy jednostek.
+1. Wybierz istniejącą rolę poniżej listy jednostek.
+1. W przykładowym tekście wypowiedź etykieta tekst z rolą jednostki.
 
 ## <a name="review-labeled-text"></a>Przejrzyj tekst z etykietą
 
@@ -34,87 +78,42 @@ Po etykietowaniu Sprawdź przykład wypowiedź i upewnij się, że wybrany zakre
 
 ## <a name="confirm-predicted-entity"></a>Potwierdź jednostkę predykcyjną
 
-Jeśli pole ma Kropkowane obramowanie wokół zakresu tekstu, a nazwa jednostki znajduje się powyżej wypowiedź, oznacza to, że tekst jest przewidywany, ale _nie jest jeszcze oznaczony etykietą_. Aby włączyć prognozowanie do etykiety, zaznacz wiersz wypowiedź, a następnie wybierz pozycję **Potwierdź przewidywania jednostek**.
+Jeśli pole ma Kropkowane obramowanie wokół zakresu tekstu, oznacza to, że tekst jest przewidywany, ale _nie jest jeszcze oznaczony etykietą_. Aby włączyć prognozowanie do etykiety, zaznacz wiersz wypowiedź, a następnie wybierz pozycję **Potwierdź jednostki** na podstawie kontekstowego paska narzędzi.
 
-> [!div class="mx-imgBorder"]
-> ![Przewidywanie kompletnej jednostki uczenia maszynowego](media/label-utterances/example-1-label-machine-learned-entity-complete-order-predicted.png)
+## <a name="relabeling-over-existing-entities"></a>Etykietowanie istniejących jednostek
 
-Alternatywnie można wybrać nazwę jednostki powyżej tekstu, a następnie wybrać pozycję **Potwierdź prognozę** z wyświetlonego menu.
-
-> [!div class="mx-imgBorder"]
-> ![Przewidywanie kompletnej jednostki zdobytej na maszynie z menu](media/label-utterances/example-1-label-machine-learned-entity-complete-order-predicted-menu.png)
-
-## <a name="label-entity-by-painting-with-entity-palette-cursor"></a>Etykieta jednostki przez malowanie przy użyciu kursora palety jednostek
-
-Paleta jednostek oferuje alternatywę dla poprzedniego środowiska etykietowania. Umożliwia malowanie tekstu, aby natychmiast oznaczyć go jednostką.
-
-1. Otwórz paletę Entity, wybierając ikonę wyróżnienia w prawym górnym rogu tabeli wypowiedź.
-
-    > [!div class="mx-imgBorder"]
-    > ![Paleta jednostek dla jednostki o Poznaniu maszynowym](media/label-utterances/example-1-label-machine-learned-entity-palette.png)
-
-2. Wybierz składnik jednostki. Ta akcja jest wskazywana wizualnie z nowym kursorem. Kursor jest podążany podczas przenoszenia w portalu.
-
-    > [!div class="mx-imgBorder"]
-    > ![Paleta jednostek dla jednostki o Poznaniu maszynowym](media/label-utterances/example-1-label-machine-learned-entity-palette-menu.png)
-
-3. W przykładzie wypowiedź, _maluj_ jednostki za pomocą kursora.
-
-    > [!div class="mx-imgBorder"]
-    > ![Paleta jednostek dla jednostki o Poznaniu maszynowym](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
-
-## <a name="labeling-subcomponents-of-a-machine-learned-entity"></a>Etykietowanie podskładników maszyny, którą pouczył się
-
-Podskładniki w jednostkach są oznaczone etykietą dokładnie tak samo jak jednostki najwyższego poziomu. Gdy zaznaczasz tekst, jednostki dostępne w oknie podręcznym są względem kontekstu, w którym pojawia się tekst. Na przykład jeśli masz zainstalowaną maszynę 5-poziomą jednostkę i wybierasz tekst, który ma etykietę 1 i 2 (wskazywane przez nazwę jednostki oznaczonej etykietą w przykładzie wypowiedź), jednostki dostępne w oknie podręcznym są ograniczone do kontekstu składników poziomu trzeciego. Aby oznaczyć tekst innymi jednostkami, wybierz pozycję **etykieta jako inną opcję jednostki** .
-
-> [!div class="mx-imgBorder"]
-> ![Paleta jednostek dla jednostki o Poznaniu maszynowym](media/label-utterances/example-1-label-machine-learned-entity-subcomponent.png)
-
-Podskładniki można etykietować tylko wtedy, gdy element nadrzędny jest również oznaczony etykietą.
-
-## <a name="labeling-entity-roles"></a>Etykietowanie ról jednostek
-
-Role jednostek są oznaczone etykietami przy użyciu palety Entity.
-
-1. Na stronie Szczegóły zamiaru wybierz **paletę jednostki** z poziomu paska narzędzi kontekstu.
-1. Po otwarciu palety jednostki wybierz jednostkę z listy jednostek.
-1. Przejdź do **inspektora jednostek**i wybierz istniejącą rolę lub Utwórz nową rolę.
-1. W przykładowym tekście wypowiedź etykieta tekst z rolą jednostki.
+W przypadku przetworzenia etykiety tekstu, który jest już oznaczony etykietą, LUIS może podzielić lub scalić istniejące etykiety.
 
 ## <a name="labeling-for-punctuation"></a>Etykietowanie interpunkcji
 
-Nie ma potrzeby etykietowania interpunkcji. Użyj [ustawień aplikacji](luis-reference-application-settings.md) , aby określić, czy interpunkcja ma wpływ na przewidywania wypowiedź.
+Nie ma potrzeby etykietowania interpunkcji. Za pomocą _formularzy_ [ustawień aplikacji](luis-reference-application-settings.md) można kontrolować, czy interpunkcja ma wpływ na przewidywania wypowiedź.
 
 ## <a name="unlabel-entities"></a>Nie etykieta jednostek
 
-Aby usunąć etykietę jednostki, wybierz nazwę jednostki pod tekstem i wybierz pozycję Usuń **etykietę**. Jeśli jednostka, którą próbujesz wyrównać, ma etykietę podskładniki, wówczas podskładniki nie muszą mieć najpierw etykiety.
+> [!NOTE]
+> Tylko jednostki, na które nauczyne maszynowe, mogą być bez etykiet.
 
-## <a name="editing-labels-using-the-entity-palette"></a>Edytowanie etykiet przy użyciu palety Entity
+Aby usunąć etykietę jednostki, wybierz jednostkę i wybierz pozycję Usuń **etykietę** z menu w miejscu.
 
-Jeśli wystąpi błąd podczas etykietowania, paleta jednostek jest łatwym narzędziem umożliwiającym szybkie edycję. Na przykład, jeśli etykieta jednostki obejmuje dodatkowe słowo przez pomyłkę i ma już etykietę podskładniki, można użyć palety Entity do pędzla nad wymaganym krótszym zakresem wyrazów.
+> [!div class="mx-imgBorder"]
+> ![Zrzut ekranu przedstawiający jednostkę bez etykietowania](media/label-utterances/unlabel-entity-using-in-place-menu.png)
 
-Przykład:
+## <a name="automatic-labeling-for-parent-and-child-entities"></a>Automatyczne etykietowanie dla jednostek nadrzędnych i podrzędnych
 
-1. Podskładnik typu Pizza składa się z "sera Pizza with", co obejmuje bardzo niepoprawną literę wyrazu "z"
+W przypadku etykietowania jednostki nadrzędnej każda podjednostka, która może być przewidywalna na podstawie aktualnie przeszkolonej wersji, będzie oznaczona jako etykieta.
 
-    > [!div class="mx-imgBorder"]
-    > ![Paleta jednostek dla jednostki o Poznaniu maszynowym](media/label-utterances/edit-label-with-palette-1.png)
+Jeśli jest oznaczona etykietami dla podjednostki, obiekt nadrzędny zostanie oznaczony automatycznie.
 
-2. Użyj palety Entity, aby wybrać typ Pizza i Pędzel na "ser Pizza". Wynikiem jest to, że tylko Pizza sera jest oznaczona jako Pizza.
+## <a name="automatic-labeling-for-non-machine-learned-entities"></a>Automatyczne etykietowanie jednostek nieprzeznaczonych dla maszyn
 
-    > [!div class="mx-imgBorder"]
-    > ![Paleta jednostek dla jednostki o Poznaniu maszynowym](media/label-utterances/edit-label-with-palette-2.png)
-
-## <a name="labels-for-matching-text-entities"></a>Etykiety dla jednostek dopasowywania tekstu
-
-Jednostki dopasowywania tekstu obejmują wstępnie utworzone jednostki, jednostki wyrażeń regularnych, jednostki listy oraz wzorzec. wszystkie jednostki. Są one automatycznie oznaczone jako LUIS, więc użytkownicy nie muszą mieć do nich ręcznego etykiet.
+Jednostki, które nie są poznanie maszynowe, obejmują wstępnie utworzone jednostki, jednostki wyrażeń regularnych, jednostki listy i wzorzec. wszystkie jednostki. Są one automatycznie oznaczone jako LUIS, więc użytkownicy nie muszą mieć do nich ręcznego etykiet.
 
 ## <a name="entity-prediction-errors"></a>Błędy przewidywania jednostek
 
 Błędy przewidywania jednostek wskazują, że przewidywana jednostka nie jest zgodna z oznaczona jednostką. Jest to Wizualizacja ze wskaźnikiem ostrożności obok wypowiedź.
 
 > [!div class="mx-imgBorder"]
-> ![Paleta jednostek dla jednostki o Poznaniu maszynowym](media/label-utterances/example-utterance-indicates-prediction-error.png)
+> ![Paleta jednostek dla jednostki uczenia maszynowego](media/label-utterances/example-utterance-indicates-prediction-error.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

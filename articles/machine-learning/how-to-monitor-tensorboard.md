@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: maxluk
 ms.author: maxluk
 ms.date: 02/27/2020
-ms.openlocfilehash: b6b7e47acdbc5bd059e17e512731bd09c8580798
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3df37126281a6654a6113f31895ddee276784c1c
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78195383"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681467"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Wizualizuj przebiegi eksperymentu i metryki za pomocą TensorBoard i Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -87,7 +87,7 @@ tf_code = requests.get("https://raw.githubusercontent.com/tensorflow/tensorflow/
 with open(os.path.join(exp_dir, "mnist_with_summaries.py"), "w") as file:
     file.write(tf_code.text)
 ```
-W pliku kodu mnist ręcznie mnist_with_summaries. PR należy zauważyć, że istnieją linie, które wywołują `tf.summary.scalar()`, `tf.summary.histogram()` `tf.summary.FileWriter()` itp. Te metody grupują i rejestrują kluczowe metryki dotyczące eksperymentów w historii uruchamiania. `tf.summary.FileWriter()` Jest to szczególnie ważne podczas serializacji danych z zarejestrowanych metryk eksperymentów, co umożliwia TensorBoard wygenerowanie wizualizacji z nich.
+W pliku kodu mnist ręcznie mnist_with_summaries. PR należy zauważyć, że istnieją linie, które wywołują `tf.summary.scalar()` , `tf.summary.histogram()` `tf.summary.FileWriter()` itp. Te metody grupują i rejestrują kluczowe metryki dotyczące eksperymentów w historii uruchamiania. `tf.summary.FileWriter()`Jest to szczególnie ważne podczas serializacji danych z zarejestrowanych metryk eksperymentów, co umożliwia TensorBoard wygenerowanie wizualizacji z nich.
 
  ### <a name="configure-experiment"></a>Konfigurowanie eksperymentu
 
@@ -166,7 +166,7 @@ run = exp.submit(tf_estimator)
 
 ### <a name="launch-tensorboard"></a>Uruchom TensorBoard
 
-TensorBoard można uruchomić w trakcie działania lub po jego zakończeniu. W poniższej tabeli utworzysz wystąpienie `tb`obiektu TensorBoard, które przyjmuje historię uruchamiania eksperymentu załadowanej w `run`, a następnie uruchamia TensorBoard z `start()` metodą. 
+TensorBoard można uruchomić w trakcie działania lub po jego zakończeniu. W poniższej tabeli utworzysz wystąpienie obiektu TensorBoard, `tb` które przyjmuje historię uruchamiania eksperymentu załadowanej w `run` , a następnie uruchamia TensorBoard z `start()` metodą. 
   
 [Konstruktor TensorBoard](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py) pobiera tablicę przebiegów, więc upewnij się, że jest ona przekazana jako tablica jednoelementowa.
 
@@ -194,11 +194,11 @@ Poniższy kod umożliwia skonfigurowanie przykładowego eksperymentu, rozpoczęc
 
 ### <a name="set-up-experiment"></a>Konfigurowanie eksperymentu
 
-Poniższy kod konfiguruje nowy eksperyment i nazywa katalog `root_run`uruchamiania. 
+Poniższy kod konfiguruje nowy eksperyment i nazywa katalog uruchamiania `root_run` . 
 
 ```python
 from azureml.core import Workspace, Experiment
-import azuremml.core
+import azureml.core
 
 # set experiment name and run name
 ws = Workspace.from_config()
@@ -225,7 +225,7 @@ data = {
 
 ### <a name="run-experiment-and-log-metrics"></a>Uruchom eksperymenty i Rejestruj metryki
 
-W przypadku tego kodu nauczymy model regresji liniowej i metryki klucza dziennika, współczynnik `alpha`alfa, i średni błąd `mse`kwadratowy, w historii uruchamiania.
+W przypadku tego kodu nauczymy model regresji liniowej i metryki klucza dziennika, współczynnik alfa, `alpha` i średni błąd kwadratowy, `mse` w historii uruchamiania.
 
 ```Python
 from tqdm import tqdm
@@ -233,7 +233,7 @@ alphas = [.1, .2, .3, .4, .5, .6 , .7]
 # try a bunch of alpha values in a Linear Regression (aka Ridge regression) mode
 for alpha in tqdm(alphas):
   # create child runs and fit lines for the resulting models
-  with root_run.child_run("alpha" + str(alpha)) as run
+  with root_run.child_run("alpha" + str(alpha)) as run:
  
    reg = Ridge(alpha=alpha)
    reg.fit(data["train"]["x"], data["train"]["y"])    

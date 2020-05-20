@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie problemów dotyczących uruchamiania/zatrzymywania maszyn wirtualnych poza godzinami
-description: Ten artykuł zawiera informacje dotyczące rozwiązywania problemów z uruchamianiem/zatrzymywaniem maszyny wirtualnej w rozwiązaniu czasowym.
+title: Rozwiązywanie problemów z wdrażaniem Start/Stop VMs during off-hours Azure Automation
+description: W tym artykule opisano sposób rozwiązywania problemów związanych z wdrażaniem i rozwiązywania w nich funkcji Start/Stop VMs during off-hours.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,25 +9,22 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 611e8441fab56114ca010d0b555c9ed156ae9d40
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: bd537fd943e9a13a59c2fa630235130ce9ccfe2d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82855064"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680849"
 ---
-# <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Rozwiązywanie problemów dotyczących uruchamiania/zatrzymywania maszyn wirtualnych poza godzinami
+# <a name="troubleshoot-startstop-vms-during-off-hours-deployment-issues"></a>Rozwiązywanie problemów z wdrażaniem Start/Stop VMs during off-hours
 
-Ten artykuł zawiera informacje dotyczące rozwiązywania problemów występujących podczas pracy z Azure Automation uruchamiania/zatrzymywania maszyn wirtualnych poza godzinami.
+Ten artykuł zawiera informacje dotyczące rozwiązywania problemów, które pojawiają się podczas wdrażania funkcji Start/Stop VMs during off-hours Azure Automation na maszynach wirtualnych. 
 
->[!NOTE]
->Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Instrukcje dotyczące instalacji polecenia AZ module w hybrydowym procesie roboczym elementu Runbook znajdują się w temacie [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). W przypadku konta Azure Automation można zaktualizować moduły do najnowszej wersji za pomocą [sposobu aktualizowania modułów Azure PowerShell w Azure Automation](../automation-update-azure-modules.md).
-
-## <a name="scenario-the-startstop-vms-during-off-hours-solution-fails-to-properly-deploy"></a><a name="deployment-failure"></a>Scenariusz: rozwiązanie uruchamiania/zatrzymywania maszyn wirtualnych poza godzinami nie powiodło się.
+## <a name="scenario-startstop-vms-during-off-hours-fails-to-properly-deploy"></a><a name="deployment-failure"></a>Scenariusz: nie można poprawnie wdrożyć Start/Stop VMs during off-hours
 
 ### <a name="issue"></a>Problem
 
-Podczas wdrażania [maszyny wirtualnej uruchamiania/zatrzymywania w trakcie pracy](../automation-solution-vm-management.md)w trybie offline występuje jeden z następujących błędów:
+Podczas wdrażania [Start/Stop VMS during off-hours](../automation-solution-vm-management.md)zostanie wyświetlony jeden z następujących błędów:
 
 ```error
 Account already exists in another resourcegroup in a subscription. ResourceGroupName: [MyResourceGroup].
@@ -62,18 +59,18 @@ Start-AzureRmVm : Run Login-AzureRmAccount to login
 Wdrożenia mogą zakończyć się niepowodzeniem z jednego z następujących powodów:
 
 - W wybranym regionie istnieje już konto usługi Automation o tej samej nazwie.
-- Zasady nie zezwalają na wdrożenie maszyn wirtualnych Start/Stop w trakcie pracy.
-- Typ `Microsoft.OperationsManagement`zasobu `Microsoft.Insights`, lub `Microsoft.Automation` nie jest zarejestrowany.
+- Zasady nie zezwalają na wdrożenie Start/Stop VMs during off-hours.
+- `Microsoft.OperationsManagement` `Microsoft.Insights` Typ zasobu, lub `Microsoft.Automation` nie jest zarejestrowany.
 - Obszar roboczy Log Analytics jest zablokowany.
-- Istnieje nieaktualna wersja modułów AzureRM lub uruchamiania/zatrzymywania maszyn wirtualnych poza godzinami.
+- Masz nieaktualną wersję modułów AzureRM lub funkcję Start/Stop VMs during off-hours.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Zapoznaj się z następującymi poprawkami, aby zapoznać się z potencjalnymi rozwiązaniami problemu:
+Zapoznaj się z następującymi poprawkami, aby uzyskać potencjalne rozwiązania:
 
 * Konta usługi Automation muszą być unikatowe w obrębie regionu świadczenia usługi Azure, nawet jeśli znajdują się w różnych grupach zasobów. Sprawdź istniejące konta usługi Automation w regionie docelowym.
-* Istniejące zasady uniemożliwiają wdrożenie zasobu, który jest wymagany dla maszyn wirtualnych Start/Stop poza godziną. Przejdź do przypisań zasad w Azure Portal i sprawdź, czy masz przypisanie zasad, które uniemożliwia wdrożenie tego zasobu. Aby dowiedzieć się więcej, zobacz [błąd RequestDisallowedByPolicy](../../azure-resource-manager/templates/error-policy-requestdisallowedbypolicy.md).
-* Aby wdrożyć rozwiązanie do uruchamiania/zatrzymywania maszyn wirtualnych, należy zarejestrować subskrypcję w następujących przestrzeniach nazw zasobów platformy Azure:
+* Istniejące zasady uniemożliwiają wdrożenie zasobu wymaganego do wdrożenia Start/Stop VMs during off-hours. Przejdź do przypisań zasad w Azure Portal i sprawdź, czy masz przypisanie zasad, które uniemożliwia wdrożenie tego zasobu. Aby dowiedzieć się więcej, zobacz [błąd RequestDisallowedByPolicy](../../azure-resource-manager/templates/error-policy-requestdisallowedbypolicy.md).
+* Aby wdrożyć Start/Stop VMs during off-hours, Twoja subskrypcja musi być zarejestrowana w następujących przestrzeniach nazw zasobów platformy Azure:
 
     * `Microsoft.OperationsManagement`
     * `Microsoft.Insights`
@@ -81,13 +78,13 @@ Zapoznaj się z następującymi poprawkami, aby zapoznać się z potencjalnymi r
 
    Aby dowiedzieć się więcej o błędach podczas rejestrowania dostawców, zobacz [Rozwiązywanie problemów dotyczących rejestracji dostawcy zasobów](../../azure-resource-manager/templates/error-register-resource-provider.md).
 * Jeśli masz blokadę obszaru roboczego Log Analytics, przejdź do obszaru roboczego w obszarze Azure Portal i Usuń wszystkie blokady zasobu.
-* Jeśli te rozwiązania nie rozwiążą problemu, postępuj zgodnie z instrukcjami w sekcji [Aktualizowanie rozwiązania](../automation-solution-vm-management.md#update-the-solution) , aby ponownie wdrożyć maszynę wirtualną uruchamiania/zatrzymywania w trakcie pracy.
+* Jeśli te rozwiązania nie rozwiążą problemu, postępuj zgodnie z instrukcjami w sekcji [aktualizowanie funkcji](../automation-solution-vm-management.md#update-the-feature) w celu ponownego wdrożenia Start/Stop VMS during off-Hours.
 
 ## <a name="scenario-all-vms-fail-to-start-or-stop"></a><a name="all-vms-fail-to-startstop"></a>Scenariusz: uruchamianie lub zatrzymywanie wszystkich maszyn wirtualnych nie powiodło się
 
 ### <a name="issue"></a>Problem
 
-Skonfigurowano Uruchamianie/zatrzymywanie maszyn wirtualnych poza godzinami pracy, ale nie uruchamia ani nie zatrzymuje wszystkich maszyn wirtualnych.
+Skonfigurowano Start/Stop VMs during off-hours, ale nie uruchomiono ani nie zatrzymasz wszystkich maszyn wirtualnych.
 
 ### <a name="cause"></a>Przyczyna
 
@@ -100,9 +97,9 @@ Ten błąd może być spowodowany jedną z następujących przyczyn:
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Zapoznaj się z poniższą listą, aby uzyskać potencjalne rozwiązania problemu:
+Zapoznaj się z poniższą listą, aby uzyskać potencjalne rozwiązania:
 
-* Sprawdź, czy masz prawidłowo skonfigurowany harmonogram dla maszyny wirtualnej uruchamiania/zatrzymywania w trakcie pracy. Aby dowiedzieć się, jak skonfigurować harmonogram, zobacz [harmonogramy](../automation-schedules.md).
+* Sprawdź, czy harmonogram dla Start/Stop VMs during off-hours został prawidłowo skonfigurowany. Aby dowiedzieć się, jak skonfigurować harmonogram, zobacz [harmonogramy](../automation-schedules.md).
 
 * Sprawdź [strumienie zadań](../automation-runbook-execution.md#job-statuses) , aby wyszukać błędy. Wyszukaj zadania z jednego z następujących elementów Runbook:
 
@@ -118,7 +115,7 @@ Zapoznaj się z poniższą listą, aby uzyskać potencjalne rozwiązania problem
 
 * Sprawdź, czy [konto Uruchom jako](../manage-runas-account.md) ma odpowiednie uprawnienia do maszyn wirtualnych, które próbujesz uruchomić lub zatrzymać. Aby dowiedzieć się, jak sprawdzić uprawnienia do zasobu, zobacz [Szybki Start: Wyświetlanie ról przypisanych do użytkownika przy użyciu Azure Portal](../../role-based-access-control/check-access.md). Należy podać identyfikator aplikacji dla jednostki usługi używanej przez konto Uruchom jako. Możesz pobrać tę wartość, przechodząc do konta usługi Automation w Azure Portal. Wybierz pozycję **konta Uruchom jako** w obszarze **Ustawienia konta**, a następnie wybierz odpowiednie konto Uruchom jako.
 
-* Maszyny wirtualne mogą nie zostać uruchomione lub zatrzymane, jeśli są jawnie wykluczone. Wykluczone maszyny wirtualne są ustawiane w `External_ExcludeVMNames` zmiennej na koncie usługi Automation, na którym wdrożono rozwiązanie. Poniższy przykład pokazuje, jak można zbadać tę wartość za pomocą programu PowerShell.
+* Maszyny wirtualne mogą nie zostać uruchomione lub zatrzymane, jeśli są jawnie wykluczone. Wykluczone maszyny wirtualne są ustawiane w `External_ExcludeVMNames` zmiennej na koncie usługi Automation, na którym wdrożono funkcję. Poniższy przykład pokazuje, jak można zbadać tę wartość za pomocą programu PowerShell.
 
   ```powershell-interactive
   Get-AzAutomationVariable -Name External_ExcludeVMNames -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName> | Select-Object Value
@@ -128,7 +125,7 @@ Zapoznaj się z poniższą listą, aby uzyskać potencjalne rozwiązania problem
 
 ### <a name="issue"></a>Problem
 
-Skonfigurowano Uruchamianie/zatrzymywanie maszyn wirtualnych poza godzinami pracy, ale nie uruchamia ani nie zatrzymuje niektórych skonfigurowanych maszyn wirtualnych.
+Skonfigurowano Start/Stop VMs during off-hours, ale nie uruchomiono ani nie zatrzymano niektórych skonfigurowanych maszyn wirtualnych.
 
 ### <a name="cause"></a>Przyczyna
 
@@ -141,15 +138,15 @@ Ten błąd może być spowodowany jedną z następujących przyczyn:
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Zapoznaj się z poniższą listą, aby zapoznać się z potencjalnymi rozwiązaniami problemu lub miejscami, aby
+Zapoznaj się z poniższą listą, aby uzyskać potencjalne rozwiązania:
 
-* W przypadku użycia [scenariusza sekwencji](../automation-solution-vm-management.md) dla maszyn wirtualnych Start/Stop w trakcie pracy z rozwiązaniem należy upewnić się, że każda maszyna wirtualna, która ma zostać uruchomiona lub zatrzymana, ma odpowiedni tag. Upewnij się, że maszyny wirtualne, które chcesz uruchomić, `sequencestart` mają tag i maszyny wirtualne, które mają zostać zatrzymane, `sequencestop` mają tag. Oba Tagi wymagają dodatniej wartości całkowitej. Można użyć zapytania podobnego do poniższego przykładu, aby wyszukać wszystkie maszyny wirtualne ze znacznikami i ich wartościami.
+* W przypadku korzystania z [scenariusza sekwencji](../automation-solution-vm-management.md) Start/Stop VMS during off-hours należy upewnić się, że każda maszyna wirtualna, która ma zostać uruchomiona lub zatrzymana, ma odpowiedni tag. Upewnij się, że maszyny wirtualne, które chcesz uruchomić, mają `sequencestart` tag i maszyny wirtualne, które mają zostać zatrzymane, mają `sequencestop` tag. Oba Tagi wymagają dodatniej wartości całkowitej. Można użyć zapytania podobnego do poniższego przykładu, aby wyszukać wszystkie maszyny wirtualne ze znacznikami i ich wartościami.
 
   ```powershell-interactive
   Get-AzResource | ? {$_.Tags.Keys -contains "SequenceStart" -or $_.Tags.Keys -contains "SequenceStop"} | ft Name,Tags
   ```
 
-* Maszyny wirtualne mogą nie zostać uruchomione lub zatrzymane, jeśli są jawnie wykluczone. Wykluczone maszyny wirtualne są ustawiane w `External_ExcludeVMNames` zmiennej na koncie usługi Automation, na którym wdrożono rozwiązanie. Poniższy przykład pokazuje, jak można zbadać tę wartość za pomocą programu PowerShell.
+* Maszyny wirtualne mogą nie zostać uruchomione lub zatrzymane, jeśli są jawnie wykluczone. Wykluczone maszyny wirtualne są ustawiane w `External_ExcludeVMNames` zmiennej na koncie usługi Automation, na którym wdrożono funkcję. Poniższy przykład pokazuje, jak można zbadać tę wartość za pomocą programu PowerShell.
 
   ```powershell-interactive
   Get-AzAutomationVariable -Name External_ExcludeVMNames -AutomationAccountName <automationAccountName> -ResourceGroupName <resourceGroupName> | Select-Object Value
@@ -173,14 +170,14 @@ Przyczyną błędu może być wiele przyczyn. Przejdź do konta usługi Automati
 
 Zalecamy wykonanie następujących czynności:
 
-* Aby uruchamiać i zatrzymywać maszyny wirtualne w Azure Automation, użyj [rozwiązania Start/zatrzymywanie maszyn wirtualnych poza godzinami](../automation-solution-vm-management.md) . To rozwiązanie jest tworzone przez firmę Microsoft. 
-* Należy pamiętać, że firma Microsoft nie obsługuje niestandardowych elementów Runbook. Rozwiązanie dla niestandardowego elementu Runbook można znaleźć na ekranie [Rozwiązywanie problemów](runbooks.md)z elementem Runbook. Sprawdź [strumienie zadań](../automation-runbook-execution.md#job-statuses) , aby wyszukać błędy. 
+* Użyj [Start/Stop VMS during off-hours](../automation-solution-vm-management.md) , aby uruchamiać i zatrzymywać maszyny wirtualne w Azure Automation. 
+* Należy pamiętać, że firma Microsoft nie obsługuje niestandardowych elementów Runbook. Rozwiązanie dotyczące niestandardowego elementu Runbook można znaleźć w temacie [Rozwiązywanie problemów z elementem Runbook](runbooks.md). Sprawdź [strumienie zadań](../automation-runbook-execution.md#job-statuses) , aby wyszukać błędy. 
 
 ## <a name="scenario-vms-dont-start-or-stop-in-the-correct-sequence"></a><a name="dont-start-stop-in-sequence"></a>Scenariusz: maszyny wirtualne nie uruchamiają się lub nie zatrzymują w poprawnej kolejności
 
 ### <a name="issue"></a>Problem
 
-Maszyny wirtualne, które zostały skonfigurowane w rozwiązaniu, nie zaczynają się ani nie są zatrzymane w poprawnej kolejności.
+Maszyny wirtualne, które zostały włączone dla funkcji, nie uruchamiają się lub nie zatrzymują w poprawnej kolejności.
 
 ### <a name="cause"></a>Przyczyna
 
@@ -188,19 +185,17 @@ Ten problem jest spowodowany przez nieprawidłowe znakowanie na maszynach wirtua
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Wykonaj następujące kroki, aby upewnić się, że rozwiązanie jest prawidłowo skonfigurowane.
+Wykonaj następujące kroki, aby upewnić się, że funkcja jest włączona prawidłowo:
 
-1. Upewnij się, że wszystkie maszyny wirtualne, które mają `sequencestart` zostać `sequencestop` uruchomione lub zatrzymane, mają tag lub, w zależności od sytuacji. Tagi te wymagają dodatniej liczby całkowitej jako wartości. Maszyny wirtualne są przetwarzane w kolejności rosnącej na podstawie tej wartości.
-1. Upewnij się, że grupy zasobów dla maszyn wirtualnych, które mają być uruchomione lub zatrzymane, znajdują się w zmiennych `External_Start_ResourceGroupNames` lub `External_Stop_ResourceGroupNames` , w zależności od sytuacji.
-1. Przetestuj zmiany, wykonując `SequencedStartStop_Parent` element Runbook z `WHATIF` parametrem ustawionym na wartość true, aby wyświetlić podgląd zmian.
+1. Upewnij się, że wszystkie maszyny wirtualne, które mają być uruchomione lub zatrzymane `sequencestart` `sequencestop` , mają tag lub, w zależności od sytuacji. Tagi te wymagają dodatniej liczby całkowitej jako wartości. Maszyny wirtualne są przetwarzane w kolejności rosnącej na podstawie tej wartości.
+1. Upewnij się, że grupy zasobów dla maszyn wirtualnych, które mają być uruchomione lub zatrzymane, znajdują się w `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupNames` zmiennych lub, w zależności od sytuacji.
+1. Przetestuj zmiany, wykonując **SequencedStartStop_Parent** element Runbook z `WHATIF` parametrem ustawionym na wartość true, aby wyświetlić podgląd zmian.
 
-Aby uzyskać więcej informacji na temat używania rozwiązania do uruchamiania i zatrzymywania maszyn wirtualnych w sekwencji, zobacz [Uruchamianie/zatrzymywanie maszyn wirtualnych w sekwencji](../automation-solution-vm-management.md).
-
-## <a name="scenario-startstop-vms-during-off-hours-job-fails-with-403-forbidden-error"></a><a name="403"></a>Scenariusz: zadanie uruchamiania/zatrzymywania maszyn wirtualnych poza godzinami kończy się niepowodzeniem z powodu błędu niedozwolonego 403
+## <a name="scenario-startstop-vms-during-off-hours-job-fails-with-403-forbidden-error"></a><a name="403"></a>Scenariusz: zadanie Start/Stop VMs during off-hours kończy się niepowodzeniem z powodu błędu niedozwolonego 403
 
 ### <a name="issue"></a>Problem
 
-Możesz znaleźć zadania, które nie powiodły `403 forbidden` się z powodu błędu dotyczącego uruchamiania/zatrzymywania maszyn wirtualnych poza godzinami elementów Runbook rozwiązania.
+Znajdziesz zadania, które nie powiodły się z `403 forbidden` powodu błędu dla Start/Stop VMS during off-hours elementów Runbook.
 
 ### <a name="cause"></a>Przyczyna
 
@@ -220,23 +215,23 @@ Jeśli brakuje uprawnień, zobacz [Szybki Start: Wyświetlanie ról przypisanych
 
 ### <a name="issue"></a>Problem
 
-Wystąpił problem lub nieoczekiwany wynik w przypadku korzystania z maszyn wirtualnych Start/Stop w nieprawidłowym czasie, które nie znajdują się na tej stronie.
+Wystąpił problem lub nieoczekiwany wynik w przypadku użycia Start/Stop VMs during off-hours, który nie znajduje się na tej stronie.
 
 ### <a name="cause"></a>Przyczyna
 
-Wiele błędów może być spowodowanych przez użycie starej i nieaktualnej wersji rozwiązania.
+Wiele błędów może być spowodowanych przez użycie starej i nieaktualnej wersji funkcji.
 
 > [!NOTE]
-> Rozwiązanie do uruchamiania/zatrzymywania maszyn wirtualnych poza godzinami zostało przetestowane z modułami platformy Azure, które zostały zaimportowane do konta usługi Automation podczas wdrażania rozwiązania. Obecnie rozwiązanie nie działa w przypadku nowszych wersji modułu platformy Azure. To ograniczenie ma wpływ tylko na konto usługi Automation, którego używasz do uruchamiania maszyn wirtualnych Start/Stop w niegodzinach. Nadal można używać nowszych wersji modułu platformy Azure na innych kontach usługi Automation, zgodnie z opisem w artykule [jak zaktualizować moduły Azure PowerShell w Azure Automation](../automation-update-azure-modules.md).
+> Funkcja Start/Stop VMs during off-hours została przetestowana z modułami platformy Azure, które są importowane do konta usługi Automation podczas wdrażania funkcji na maszynach wirtualnych. Funkcja aktualnie nie działa w nowszych wersjach modułu platformy Azure. To ograniczenie ma wpływ tylko na konto usługi Automation używane do uruchamiania Start/Stop VMs during off-hours. Nadal można używać nowszych wersji modułu platformy Azure na innych kontach usługi Automation, zgodnie z opisem w temacie [Update Azure PowerShell modules](../automation-update-azure-modules.md).
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Aby rozwiązać wiele błędów, Usuń i [zaktualizuj maszyny wirtualne uruchamiania/zatrzymywania podczas pracy z rozwiązaniem](../automation-solution-vm-management.md#update-the-solution). Możesz również sprawdzić [strumienie zadań](../automation-runbook-execution.md#job-statuses) , aby wyszukać błędy. 
+Aby rozwiązać wiele błędów, Usuń i [zaktualizuj Start/Stop VMS during off-hours](../automation-solution-vm-management.md#update-the-feature). Możesz również sprawdzić [strumienie zadań](../automation-runbook-execution.md#job-statuses) , aby wyszukać błędy. 
 
 ## <a name="next-steps"></a>Następne kroki
 
 Jeśli nie widzisz tutaj problemu lub nie możesz rozwiązać problemu, wypróbuj jeden z następujących kanałów, aby uzyskać dodatkową pomoc techniczną:
 
 * Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [forów platformy Azure](https://azure.microsoft.com/support/forums/).
-* Nawiąż [@AzureSupport](https://twitter.com/azuresupport)połączenie z kontem oficjalnego Microsoft Azure, aby zwiększyć komfort obsługi klienta. Pomoc techniczna systemu Azure łączy społeczność platformy Azure z odpowiedziami, wsparciem i ekspertami.
+* Nawiąż połączenie z [@AzureSupport](https://twitter.com/azuresupport) kontem oficjalnego Microsoft Azure, aby zwiększyć komfort obsługi klienta. Pomoc techniczna systemu Azure łączy społeczność platformy Azure z odpowiedziami, wsparciem i ekspertami.
 * Zaplikowanie zdarzenia pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/)i wybierz pozycję **Uzyskaj pomoc techniczną**.

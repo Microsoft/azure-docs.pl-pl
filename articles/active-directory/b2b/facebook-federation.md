@@ -12,16 +12,18 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a92fbd254f223e2c7eb70a4e86bb7e904294395e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8ff291592efc73415cce74ff666117851bb53e8a
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597709"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681021"
 ---
 # <a name="add-facebook-as-an-identity-provider-for-external-identities"></a>Dodawanie usługi Facebook jako dostawcy tożsamości dla tożsamości zewnętrznych
 
 Możesz dodać usługę Facebook do swoich przepływów użytkownika samoobsługowego rejestrowania (wersja zapoznawcza), aby użytkownicy mogli logować się do aplikacji przy użyciu własnych kont w serwisie Facebook. Aby umożliwić użytkownikom logowanie się przy użyciu usługi Facebook, należy najpierw włączyć samoobsługowe [Rejestrowanie](self-service-sign-up-user-flow.md) w dzierżawie. Po dodaniu usługi Facebook jako dostawcy tożsamości Skonfiguruj przepływ użytkownika dla aplikacji i wybierz pozycję Facebook jako jedną z opcji logowania.
+> [!NOTE]
+> Użytkownicy mogą korzystać tylko z kont w serwisie Facebook, aby zarejestrować się w aplikacjach za pomocą rejestracji samoobsługowej i przepływów użytkowników. Użytkownicy nie mogą zostać zaproszeni i korzystać z zaproszenia przy użyciu konta w serwisie Facebook.
 
 ## <a name="create-an-app-in-the-facebook-developers-console"></a>Tworzenie aplikacji w konsoli deweloperów usługi Facebook
 
@@ -53,7 +55,9 @@ Aby użyć konta w serwisie Facebook jako [dostawcy tożsamości](identity-provi
 18. Aby udostępnić aplikację Facebook do usługi Azure AD, wybierz selektor stanu w prawym górnym rogu strony i włącz go, aby udostępnić **aplikację jako** publiczną, a następnie wybierz pozycję **Przełącz tryb**. W tym momencie stan powinien ulec zmianie z **opracowywania** na na **żywo**.
     
 ## <a name="configure-a-facebook-account-as-an-identity-provider"></a>Konfigurowanie konta w serwisie Facebook jako dostawcy tożsamości
+Teraz ustawisz identyfikator klienta i klucz tajny klienta w serwisie Facebook, wprowadzając go w portalu usługi Azure AD lub przy użyciu programu PowerShell. Konfigurację w serwisie Facebook można przetestować, rejestrując się w ramach przepływu użytkownika w aplikacji z włączoną obsługą rejestracji samoobsługowej.
 
+### <a name="to-configure-facebook-federation-in-the-azure-ad-portal"></a>Aby skonfigurować Federacji w serwisie Facebook w portalu usługi Azure AD
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako Administrator globalny dzierżawy usługi Azure AD.
 2. W obszarze **usługi platformy Azure**wybierz pozycję **Azure Active Directory**.
 3. W menu po lewej stronie wybierz pozycję **tożsamości zewnętrzne**.
@@ -64,8 +68,38 @@ Aby użyć konta w serwisie Facebook jako [dostawcy tożsamości](identity-provi
    ![Zrzut ekranu przedstawiający stronę Dodawanie dostawcy tożsamości społecznościowej](media/facebook-federation/add-social-identity-provider-page.png)
 
 7. Wybierz pozycję **Zapisz**.
+### <a name="to-configure-facebook-federation-by-using-powershell"></a>Aby skonfigurować Federacji Facebook przy użyciu programu PowerShell
+1. Zainstaluj najnowszą wersję modułu PowerShell usługi Azure AD dla programu Graph ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
+2. Uruchom następujące polecenie: `Connect-AzureAD` .
+3. W wierszu logowania zaloguj się przy użyciu zarządzanego konta administratora globalnego.  
+4. Uruchom następujące polecenie: 
+   
+   `New-AzureADMSIdentityProvider -Type Facebook -Name Facebook -ClientId [Client ID] -ClientSecret [Client secret]`
+ 
+   > [!NOTE]
+   > Użyj identyfikatora klienta i klucza tajnego klienta z utworzonej wcześniej aplikacji w konsoli dewelopera serwisu Facebook. Aby uzyskać więcej informacji, zobacz artykuł [New-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview) . 
+
+## <a name="how-do-i-remove-facebook-federation"></a>Jak mogę usunąć Federacji Facebook?
+Możesz usunąć konfigurację Federacji w serwisie Facebook. Jeśli to zrobisz, wszyscy użytkownicy, którzy zarejestrowali się w przepływach użytkowników przy użyciu ich kont w serwisie Facebook, nie będą już mogli się zalogować. 
+
+### <a name="to-delete-facebook-federation-in-the-azure-ad-portal"></a>Aby usunąć Federację w serwisie Facebook w portalu usługi Azure AD: 
+1. Przejdź do [Azure Portal](https://portal.azure.com). W lewym okienku wybierz pozycję **Azure Active Directory**. 
+2. Wybierz **tożsamości zewnętrzne**.
+3. Wybierz pozycję **Wszyscy dostawcy tożsamości**.
+4. W wierszu w **serwisie Facebook** wybierz menu kontekstowe (**...**), a następnie wybierz pozycję **Usuń**. 
+5. Wybierz pozycję **tak** , aby potwierdzić usunięcie.
+
+### <a name="to-delete-facebook-federation-by-using-powershell"></a>Aby usunąć Federacji Facebook przy użyciu programu PowerShell: 
+1. Zainstaluj najnowszą wersję modułu PowerShell usługi Azure AD dla programu Graph ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
+2. Uruchom polecenie `Connect-AzureAD`.  
+4. W wierszu logowania zaloguj się przy użyciu zarządzanego konta administratora globalnego.  
+5. Wprowadź następujące polecenie:
+
+    `Remove-AzureADMSIdentityProvider -Id Facebook-OAUTH`
+
+   > [!NOTE]
+   > Aby uzyskać więcej informacji, zobacz [Remove-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview). 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Zapraszanie użytkowników zewnętrznych do współpracy](add-users-administrator.md)
 - [Dodawanie funkcji samoobsługowego rejestrowania do aplikacji](self-service-sign-up-user-flow.md)

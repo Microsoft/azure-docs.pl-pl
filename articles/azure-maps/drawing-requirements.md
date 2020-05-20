@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: dad9bb40161a2adc8654f50de5c1d876e3344e59
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: c0c81f529dfc959916ff7c102b2b903a808b9672
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598801"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681907"
 ---
 # <a name="drawing-package-requirements"></a>Wymagania dotyczące pakietu rysowania
 
-[Usługa konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion) pozwala skonwertować przekazane pakiety rysowania na dane mapy. W tym artykule opisano wymagania dotyczące pakietu rysowania dla interfejsu API konwersji. Aby wyświetlić przykładowy pakiet, można pobrać przykładowy [pakiet do rysowania](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+[Usługa konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) pozwala skonwertować przekazane pakiety rysowania na dane mapy. W tym artykule opisano wymagania dotyczące pakietu rysowania dla interfejsu API konwersji. Aby wyświetlić przykładowy pakiet, można pobrać przykładowy [pakiet do rysowania](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -25,7 +25,7 @@ Pakiet rysowania zawiera rysunki zapisane w formacie DWG, który jest natywnym f
 
 Możesz wybrać każde oprogramowanie CAD, aby utworzyć rysunki w pakiecie rysunku.  
 
-[Usługa konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion) konwertuje pakiet rysowania na dane mapy.  Usługa konwersji została opracowana i przetestowana przy użyciu formatu pliku programu AutoCAD DWG. `AC1032`to wewnętrzna wersja formatu dla plików DWG. Zalecamy wybranie `AC1032` wersji pliku w formacie wewnętrznym.  
+[Usługa konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) konwertuje pakiet rysowania na dane mapy.  Usługa konwersji została opracowana i przetestowana przy użyciu formatu pliku programu AutoCAD DWG. `AC1032`to wewnętrzna wersja formatu dla plików DWG. Zalecamy wybranie `AC1032` wersji pliku w formacie wewnętrznym.  
 
 Słownik terminów użytych w tym dokumencie.
 
@@ -54,7 +54,7 @@ Dla każdego poziomu funkcji wymagany jest pojedynczy plik DWG. Dane poziomu mus
 * Nie może zawierać funkcji z wielu poziomów.
 * Nie może zawierać funkcji z wielu obiektów.
 
-[Usługa konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion) może wyodrębnić następujące klasy funkcji z pliku DWG:
+[Usługa konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) może wyodrębnić następujące klasy funkcji z pliku DWG:
 
 * Poziomy
 * Lekcji
@@ -71,11 +71,11 @@ Warstwy DWG muszą również spełniać następujące kryteria:
 
 * Źródła rysunków dla wszystkich plików DWG muszą być wyrównane do tej samej szerokości i długości geograficznej.
 * Każdy poziom musi być w tej samej orientacji co inne poziomy.
-* Wielokąty samodzielne zostaną automatycznie naprawione, a [Usługa konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion) zwróci ostrzeżenie. Zalecane jest ręczne sprawdzenie naprawionych wyników, ponieważ mogą one być niezgodne z oczekiwanymi wynikami.
+* Wielokąty samodzielne zostaną automatycznie naprawione, a [Usługa konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) zwróci ostrzeżenie. Zalecane jest ręczne sprawdzenie naprawionych wyników, ponieważ mogą one być niezgodne z oczekiwanymi wynikami.
 
 Wszystkie jednostki warstwy muszą być jednym z następujących typów: liniowy, łamaną, Wielokąt, łuk okręgu, okrąg, tekst (pojedynczy wiersz). Wszystkie inne typy jednostek zostaną zignorowane.
 
-W poniższej tabeli przedstawiono obsługiwane typy jednostek i obsługiwane funkcje dla każdej warstwy. Jeśli warstwa zawiera nieobsługiwane typy jednostek, [Usługa konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion) będzie ignorować te jednostki.  
+W poniższej tabeli przedstawiono obsługiwane typy jednostek i obsługiwane funkcje dla każdej warstwy. Jeśli warstwa zawiera nieobsługiwane typy jednostek, [Usługa konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) będzie ignorować te jednostki.  
 
 | Warstwa | Typy jednostek | Funkcje |
 | :----- | :-------------------| :-------
@@ -167,11 +167,11 @@ Przykład warstwy Zonelabel może być traktowany jako warstwa ZONELABELS w [prz
 
 ## <a name="manifest-file-requirements"></a>Wymagania dotyczące pliku manifestu
 
-Folder zip musi zawierać plik manifestu na poziomie głównym katalogu, a plik musi mieć nazwę **manifest. JSON**. Opisano w nim pliki DWG umożliwiające przeanalizowanie zawartości przez [usługę konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion) . Zostaną pozyskane tylko pliki zidentyfikowane przez manifest. Pliki znajdujące się w folderze ZIP, ale nie są poprawnie wymienione w manifeście, zostaną zignorowane.
+Folder zip musi zawierać plik manifestu na poziomie głównym katalogu, a plik musi mieć nazwę **manifest. JSON**. Opisano w nim pliki DWG umożliwiające przeanalizowanie zawartości przez [usługę konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) . Zostaną pozyskane tylko pliki zidentyfikowane przez manifest. Pliki znajdujące się w folderze ZIP, ale nie są poprawnie wymienione w manifeście, zostaną zignorowane.
 
 Ścieżki plików w obiekcie **buildingLevels** pliku manifestu muszą być względne względem katalogu głównego folderu zip. Nazwa pliku DWG musi być dokładnie zgodna z nazwą poziomu funkcji. Na przykład plik DWG dla poziomu "Basement" ma wartość "Basement. dwg". Plik DWG dla poziomu 2 zostałby nazwany jako "level_2. dwg". Jeśli nazwa poziomu zawiera spację, użyj znaku podkreślenia. 
 
-Chociaż istnieją wymagania dotyczące korzystania z obiektów manifestu, nie wszystkie obiekty są wymagane. W poniższej tabeli przedstawiono wymagane i opcjonalne obiekty w wersji 1,1 [usługi konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion).
+Chociaż istnieją wymagania dotyczące korzystania z obiektów manifestu, nie wszystkie obiekty są wymagane. W poniższej tabeli przedstawiono wymagane i opcjonalne obiekty w wersji 1,1 [usługi konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion).
 
 | Obiekt | Wymagane | Opis |
 | :----- | :------- | :------- |
@@ -402,7 +402,7 @@ Poniżej znajduje się przykładowy plik manifestu dla przykładowego pakietu do
 
 ## <a name="next-steps"></a>Następne kroki
 
-Gdy pakiet rysowania spełnia wymagania, możesz użyć [usługi konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion) , aby skonwertować pakiet do zestawu danych mapy. Następnie można użyć zestawu danych, aby wygenerować mapę pomieszczeń przy użyciu modułu Maps. Dowiedz się więcej o korzystaniu z modułu Maps (mapy wewnętrzne), czytając następujące artykuły:
+Gdy pakiet rysowania spełnia wymagania, możesz użyć [usługi konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) , aby skonwertować pakiet do zestawu danych mapy. Następnie można użyć zestawu danych, aby wygenerować mapę pomieszczeń przy użyciu modułu Maps. Dowiedz się więcej o korzystaniu z modułu Maps (mapy wewnętrzne), czytając następujące artykuły:
 
 > [!div class="nextstepaction"]
 >[Kreator dla map pomieszczeń](creator-indoor-maps.md)

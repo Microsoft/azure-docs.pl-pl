@@ -4,19 +4,19 @@ description: Utwórz jednostki, aby wyodrębnić dane z wyrażenia długości u�
 ms.topic: reference
 ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: 1665f1ef8a868b011e9e4de8562aeda9edef5ce2
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a0139cf5ef424288c41c436fb63313494404f841
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585576"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684548"
 ---
 # <a name="pattern-syntax"></a>Składnia wzorca
 
 Składnia wzorca jest szablonem dla elementu wypowiedź. Szablon powinien zawierać słowa i jednostki, które mają być dopasowane, a także słowa i [znaki interpunkcyjne](luis-reference-application-settings.md#punctuation-normalization) , które mają być ignorowane. To **nie** jest wyrażenie regularne.
 
 > [!CAUTION]
-> Wzorce zawierają tylko obiekty nadrzędne, które są obsługiwane przez maszynę, a nie podjednostki.
+> Wzorce obejmują tylko nadrzędne jednostki uczenia maszynowego, a nie podjednostki.
 
 Jednostki we wzorcu są ujęte w nawiasy klamrowe `{}` . Wzorce mogą obejmować jednostki i jednostki z rolami. [Wzorzec. any](luis-concept-entity-types.md#patternany-entity) jest jednostką używaną tylko w wzorcach.
 
@@ -56,7 +56,7 @@ Kombinacja **grupowania** z **opcjonalną** składnią ma limit 3 poziomów zagn
 
 |Dozwolone|Przykład|
 |--|--|
-|Tak|([(TEST1 &#x7c; TEST2)] &#x7c; test3)|
+|Yes|([(TEST1 &#x7c; TEST2)] &#x7c; test3)|
 |Nie|([([TEST1] &#x7c; TEST2)] &#x7c; test3)|
 
 ## <a name="nesting-limits-for-groups-with-or-ing-syntax"></a>Limity zagnieżdżania dla grup ze składnią lub-w
@@ -65,7 +65,7 @@ Kombinacja **grupowania** z składnią **lub-** w ma limit 2 pionowych słupków
 
 |Dozwolone|Przykład|
 |--|--|
-|Tak|(TEST1 &#x7c; TEST2 &#x7c; (test3 &#x7c; test4))|
+|Yes|(TEST1 &#x7c; TEST2 &#x7c; (test3 &#x7c; test4))|
 |Nie|(TEST1 &#x7c; TEST2 &#x7c; test3 &#x7c; (test4 &#x7c; test5)) |
 
 ## <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Składnia służąca do dodawania jednostki do szablonu wzorca

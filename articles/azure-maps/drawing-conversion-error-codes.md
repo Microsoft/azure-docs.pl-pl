@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 0d73d0b395547c281a2dbbe6a6ac5e8dc6dfd849
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d79c42f3bdf84efcdf2187741ac270087be05272
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598899"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682011"
 ---
 # <a name="drawing-conversion-errors-and-warnings"></a>Rysowanie błędów i ostrzeżeń konwersji
 
-[Usługa konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion) pozwala skonwertować przekazane pakiety rysowania na dane mapy. Pakiety rysowania muszą być zgodne z [wymaganiami dotyczącymi pakietów rysowania](drawing-requirements.md). Jeśli co najmniej jedno wymaganie nie jest spełnione, usługa konwersji zwróci błędy lub ostrzeżenia. Ten artykuł zawiera informacje o błędach konwersji i kodach ostrzeżeń wraz z zaleceniami dotyczącymi ich rozwiązywania. Zawiera również przykłady rysunków, które mogą spowodować zwrócenie tych kodów przez usługę konwersji.
+[Usługa konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) pozwala skonwertować przekazane pakiety rysowania na dane mapy. Pakiety rysowania muszą być zgodne z [wymaganiami dotyczącymi pakietów rysowania](drawing-requirements.md). Jeśli co najmniej jedno wymaganie nie jest spełnione, usługa konwersji zwróci błędy lub ostrzeżenia. Ten artykuł zawiera informacje o błędach konwersji i kodach ostrzeżeń wraz z zaleceniami dotyczącymi ich rozwiązywania. Zawiera również przykłady rysunków, które mogą spowodować zwrócenie tych kodów przez usługę konwersji.
 
 Usługa konwersji powiedzie się, jeśli wystąpią jakieś ostrzeżenia dotyczące konwersji. Zaleca się jednak przejrzenie i rozwiązanie wszystkich ostrzeżeń. Ostrzeżenie oznacza, że część konwersji została zignorowana lub automatycznie naprawiona. Niepowodzenie rozpoznania ostrzeżeń może spowodować błędy w ostatnim procesie.
 
@@ -73,7 +73,7 @@ Ostrzeżenie **unsupportedFeatureRepresentation** występuje, gdy rysunek zawier
 
 Poniższy obraz przedstawia nieobsługiwany typ jednostki jako obiekt tekstu wielowierszowego w warstwie etykiet.
   
-![Przykładowy obiekt tekstu wielowierszowego w warstwie etykiet](./media/drawing-conversion-error-codes/multiline.png)
+![Przykładowy obiekt tekstu wielowierszowego w warstwie etykiet](./media/drawing-conversion-error-codes/multi-line.png)
 
 #### <a name="how-to-fix-unsupportedfeaturerepresentation"></a>*Jak naprawić unsupportedFeatureRepresentation*
 
@@ -494,7 +494,7 @@ Poniższy obraz pokazuje pionowy obszar penetracji bez nakładających się obsz
 
 Na poniższej ilustracji przedstawiono pionowy obszar penetracji, który nakłada się na więcej niż jeden pionowy obszar penetracji na sąsiednim poziomie.
 
-![Przykład penetracji pionowej 2](./media/drawing-conversion-error-codes/vrt.png)
+![Przykład penetracji pionowej 2](./media/drawing-conversion-error-codes/vrt-1.png)
 
 #### <a name="how-to-fix-verticalpenetrationerror"></a>Jak naprawić verticalPenetrationError
 

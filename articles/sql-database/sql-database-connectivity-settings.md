@@ -9,16 +9,16 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: d18fdee85bd0fbabe68fe9890c4a2dc74366041d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ef846b23bf6c9da2b7dd64927eac7cc1a1704dae
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79366091"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684935"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Ustawienia łączności z usługą Azure SQL
 > [!NOTE]
-> Ten artykuł ma zastosowanie do programu Azure SQL Server oraz do baz danych SQL Database i SQL Data Warehouse utworzonych na serwerze SQL platformy Azure. Dla uproszczenia usługi SQL Database i SQL Data Warehouse są łącznie nazywane usługą SQL Database.
+> Ten artykuł ma zastosowanie do serwera logicznego SQL na platformie Azure używanego zarówno dla baz danych Azure SQL Database, jak i SQL Data Warehouse utworzonych na serwerze logicznym. Dla uproszczenia usługi SQL Database i SQL Data Warehouse są łącznie nazywane usługą SQL Database.
 
 > [!IMPORTANT]
 > Ten artykuł *nie* dotyczy **Azure SQL Database wystąpienia zarządzanego**
@@ -28,27 +28,31 @@ W tym artykule wprowadzono ustawienia kontrolujące łączność Azure SQL Datab
 > [!NOTE]
 > Po zastosowaniu tych ustawień **zaczną obowiązywać od razu** i mogą spowodować utratę połączenia dla klientów, jeśli nie spełnią wymagań dla poszczególnych ustawień.
 
-Ustawienia łączności są dostępne z poziomu bloku **zapory i sieci wirtualne** , jak pokazano na poniższym zrzucie ekranu:
+Ustawienia łączności są dostępne z ekranu **zapory i sieci wirtualne** , jak pokazano na poniższym zrzucie ekranu:
 
  ![Zrzut ekranu ustawień łączności][1]
 
 
 ## <a name="deny-public-network-access"></a>Odmów dostępu do sieci publicznej
-W Azure Portal, gdy ustawienie **Odmów dostępu do sieci publicznej** ma wartość **tak**, dozwolone są tylko połączenia za pośrednictwem prywatnych punktów końcowych. Jeśli to ustawienie ma wartość **nie**, klienci mogą łączyć się przy użyciu prywatnego lub publicznego punktu końcowego.
 
-Po ustawieniu opcji **Odmów dostępu do sieci publicznej** **wartość tak**, próby logowania z klientów korzystających z publicznego punktu końcowego zakończą się niepowodzeniem z powodu następującego błędu:
+Klienci mogą łączyć się z SQL Database przy użyciu publicznych punktów końcowych (reguł zapory opartych na protokole IP, reguł zapory opartych na sieci wirtualnej) lub prywatnych punktów końcowych (przy użyciu prywatnego linku), jak opisano w temacie [dostęp](sql-database-networkaccess-overview.md)do zasobów. 
+
+Gdy ustawienie **Odmów dostępu do sieci publicznej** ma wartość **tak**, dozwolone są tylko połączenia za pośrednictwem prywatnych punktów końcowych, a wszystkie połączenia za pośrednictwem publicznych punktów końcowych są odrzucane z komunikatem o błędzie podobnym do:  
 
 ```output
 Error 47073
-An instance-specific error occurred while establishing a connection to SQL Server. The public network interface on this server is not accessible. To connect to this server, use the Private Endpoint from inside your virtual network.
+An instance-specific error occurred while establishing a connection to SQL Server. 
+The public network interface on this server is not accessible. 
+To connect to this server, use the Private Endpoint from inside your virtual network.
 ```
 
 ## <a name="change-public-network-access-via-powershell"></a>Zmień dostęp do sieci publicznej za pomocą programu PowerShell
+
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
 > Moduł Azure Resource Manager programu PowerShell jest nadal obsługiwany przez Azure SQL Database, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. W przypadku tych poleceń cmdlet zobacz [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenty poleceń polecenia AZ module i w modułach AzureRm są zasadniczo identyczne. Poniższy skrypt wymaga [modułu Azure PowerShell](/powershell/azure/install-az-ps).
 
-Poniższy skrypt programu PowerShell przedstawia sposób i `Get` `Set` Właściwość **publicznego dostępu do sieci** na poziomie serwera logicznego:
+Poniższy skrypt programu PowerShell przedstawia sposób `Get` i `Set` Właściwość **publicznego dostępu do sieci** na poziomie serwera logicznego:
 
 ```powershell
 #Get the Public Network Access property
@@ -61,10 +65,12 @@ Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group 
 ```
 
 ## <a name="change-public-network-access-via-cli"></a>Zmień dostęp do sieci publicznej za pomocą interfejsu wiersza polecenia
+
 > [!IMPORTANT]
 > Wszystkie skrypty w tej sekcji wymagają [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ### <a name="azure-cli-in-a-bash-shell"></a>Interfejs wiersza polecenia platformy Azure w powłoce bash
+
 Poniższy skrypt interfejsu wiersza polecenia przedstawia sposób zmiany **dostępu do sieci publicznej** w bash Shell:
 
 ```azurecli-interactive
@@ -77,11 +83,64 @@ az sql server update -n sql-server-name -g sql-server-group --set publicNetworkA
 
 ```
 
+## <a name="minimal-tls-version"></a>Minimalna wersja protokołu TLS 
+
+Ustawienie wersji minimalnej [Transport Layer Security (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) umożliwia klientom kontrolowanie wersji protokołu TLS używanej przez ich Azure SQL Database.
+
+Obecnie obsługujemy protokoły TLS 1,0, 1,1 i 1,2. Ustawienie minimalnej wersji protokołu TLS zapewnia, że są obsługiwane kolejne nowsze wersje protokołu TLS. Na przykład wybranie wersji TLS większej niż 1,1. oznacza, że akceptowane są tylko połączenia z protokołem TLS 1,1 i 1,2, a protokół TLS 1,0 jest odrzucany. Po przetestowaniu do sprawdzenia, czy aplikacje obsługują tę funkcję, zalecamy ustawienie minimalnej wersji protokołu TLS na 1,2, ponieważ zawiera ona poprawki dla luk w zabezpieczeniach znalezionych w poprzednich wersjach i stanowi najwyższą wersję protokołu TLS obsługiwaną w Azure SQL Database.
+
+W przypadku klientów mających aplikacje korzystające ze starszych wersji protokołu TLS zalecamy ustawienie minimalnej wersji protokołu TLS zgodnie z wymaganiami aplikacji. W przypadku klientów korzystających z aplikacji do łączenia się z nieszyfrowanym połączeniem nie zaleca się stosowania żadnej minimalnej wersji protokołu TLS. 
+
+Aby uzyskać więcej informacji, zobacz [zagadnienia dotyczące protokołu TLS dotyczące SQL Database łączności](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity).
+
+Po ustawieniu minimalnej wersji protokołu TLS próby logowania z klientów korzystających ze starszej wersji protokołu TLS niż minimalna wersja protokołu TLS serwera zakończą się niepowodzeniem z powodu następującego błędu:
+
+```output
+Error 47072
+Login failed with invalid TLS version
+```
+
+## <a name="set-minimal-tls-version-via-powershell"></a>Ustawianie minimalnej wersji protokołu TLS za pośrednictwem programu PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Moduł Azure Resource Manager programu PowerShell jest nadal obsługiwany przez Azure SQL Database, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. W przypadku tych poleceń cmdlet zobacz [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenty poleceń polecenia AZ module i w modułach AzureRm są zasadniczo identyczne. Poniższy skrypt wymaga [modułu Azure PowerShell](/powershell/azure/install-az-ps).
+
+Poniższy skrypt programu PowerShell przedstawia sposób `Get` i `Set` Właściwość **minimalnej wersji protokołu TLS** na poziomie serwera logicznego:
+
+```powershell
+#Get the Public Network Access property
+(Get-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).PublicNetworkAccess
+
+# Update Public Network Access to Disabled
+$SecureString = ConvertTo-SecureString "password" -AsPlainText -Force
+
+Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group -SqlAdministratorPassword $SecureString  -MinimalTlsVersion "1.2"
+```
+
+## <a name="set-minimal-tls-version-via-azure-cli"></a>Ustawianie minimalnej wersji protokołu TLS za pośrednictwem interfejsu wiersza polecenia platformy Azure
+
+> [!IMPORTANT]
+> Wszystkie skrypty w tej sekcji wymagają [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+
+### <a name="azure-cli-in-a-bash-shell"></a>Interfejs wiersza polecenia platformy Azure w powłoce bash
+
+Poniższy skrypt interfejsu wiersza polecenia przedstawia sposób zmiany ustawienia **minimalnej wersji protokołu TLS** w bash Shell:
+
+```azurecli-interactive
+# Get current setting for Minimal TLS Version
+az sql server show -n sql-server-name -g sql-server-group --query "minimalTlsVersion"
+
+# Update setting for Minimal TLS Version
+az sql server update -n sql-server-name -g sql-server-group --set minimalTlsVersion="1.2"
+```
 
 ## <a name="connection-policy"></a>Zasady połączenia
+
 [Zasady połączeń](sql-database-connectivity-architecture.md#connection-policy) określają, jak klienci nawiązują połączenie z usługą Azure SQL Server. 
 
 ## <a name="change-connection-policy-via-powershell"></a>Zmiana zasad połączenia za pomocą programu PowerShell
+
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
 > Moduł Azure Resource Manager programu PowerShell jest nadal obsługiwany przez Azure SQL Database, ale wszystkie przyszłe Programowanie dla modułu AZ. SQL. W przypadku tych poleceń cmdlet zobacz [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenty poleceń polecenia AZ module i w modułach AzureRm są zasadniczo identyczne. Poniższy skrypt wymaga [modułu Azure PowerShell](/powershell/azure/install-az-ps).
@@ -103,6 +162,7 @@ Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 ```
 
 ## <a name="change-connection-policy-via-azure-cli"></a>Zmiana zasad połączenia za pomocą interfejsu wiersza polecenia platformy Azure
+
 > [!IMPORTANT]
 > Wszystkie skrypty w tej sekcji wymagają [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
@@ -124,6 +184,7 @@ az resource update --ids $ids --set properties.connectionType=Proxy
 ```
 
 ### <a name="azure-cli-from-a-windows-command-prompt"></a>Interfejs wiersza polecenia platformy Azure z wiersza poleceń systemu Windows
+
 Poniższy skrypt interfejsu wiersza polecenia pokazuje, w jaki sposób zmienić zasady połączenia z wiersza poleceń systemu Windows (z zainstalowanym interfejsem CLI platformy Azure).
 
 ```azurecli
@@ -138,6 +199,7 @@ az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 ```
 
 ## <a name="next-steps"></a>Następne kroki
+
 - Aby uzyskać informacje na temat sposobu działania łączności w Azure SQL Database, zobacz [Architektura łączności usługi Azure SQL](sql-database-connectivity-architecture.md) .
 - Aby uzyskać informacje na temat zmiany Azure SQL Database zasad połączenia dla serwera Azure SQL Database, zobacz Connection [-Policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
 

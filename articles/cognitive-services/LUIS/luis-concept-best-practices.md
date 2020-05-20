@@ -2,14 +2,14 @@
 title: Najlepsze rozwiązania dotyczące tworzenia aplikacji LUIS
 description: Poznaj najlepsze rozwiązania, aby uzyskać najlepsze wyniki z modelu aplikacji LUIS.
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 43ca033c98d9997aecaf919b994a89d4e618d49b
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 9c22256f6fac3647108b7078b774338d7f22d29a
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589809"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683763"
 ---
 # <a name="best-practices-for-building-a-language-understanding-luis-app"></a>Najlepsze rozwiązania dotyczące tworzenia aplikacji do interpretacji języka (LUIS)
 Tworzenie aplikacji LUIS za pomocą procesu tworzenia aplikacji:
@@ -31,13 +31,27 @@ Poniższa lista zawiera najlepsze rozwiązania dotyczące aplikacji LUIS:
 
 |Zalecenia|Zakazy|
 |--|--|
-|[Definiowanie unikatowych intencji](#do-define-distinct-intents)<br>[Dodawanie funkcji do intencji](#do-add-features-to-intents) |[Dodaj wiele przykładowych wyrażenia długości do intencji](#dont-add-many-example-utterances-to-intents)<br>[Użyj kilku lub prostych jednostek](#dont-use-few-or-simple-entities) |
+|[Planowanie schematu](#do-plan-your-schema)|[Kompiluj i Publikuj bez planu](#dont-publish-too-quickly)|
+|[Definiowanie unikatowych intencji](#do-define-distinct-intents)<br>[Dodawanie funkcji do intencji](#do-add-features-to-intents)<br>
+[Użyj zastosowanych jednostek maszyn](#do-use-machine-learned-entities) |[Dodaj wiele przykładowych wyrażenia długości do intencji](#dont-add-many-example-utterances-to-intents)<br>[Użyj kilku lub prostych jednostek](#dont-use-few-or-simple-entities) |
 |[Znajdź słodkie miejsce między ogólnym i zbyt specyficzne dla każdego zamiaru](#do-find-sweet-spot-for-intents)|[Korzystanie z LUIS jako platformy szkoleniowej](#dont-use-luis-as-a-training-platform)|
 |[Iteracyjne Kompilowanie aplikacji przy użyciu wersji](#do-build-your-app-iteratively-with-versions)<br>[Kompiluj jednostki na potrzeby dekompozycji modelu](#do-build-for-model-decomposition)|[Dodaj wiele przykładowych wyrażenia długości tego samego formatu, ignorując inne formaty](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
 |[Dodaj wzorce w późniejszych iteracjach](#do-add-patterns-in-later-iterations)|[Mieszanie definicji intencji i jednostek](#dont-mix-the-definition-of-intents-and-entities)|
 |[Zrównoważ swój wyrażenia długości we wszystkich intencjach](#balance-your-utterances-across-all-intents) , z wyjątkiem intencji none.<br>[Dodaj przykład wyrażenia długości do opcji none](#do-add-example-utterances-to-none-intent)|[Tworzenie list fraz ze wszystkimi możliwymi wartościami](#dont-create-phrase-lists-with-all-the-possible-values)|
 |[Korzystanie z funkcji Sugeruj w przypadku aktywnego uczenia](#do-leverage-the-suggest-feature-for-active-learning)|[Dodaj zbyt wiele wzorców](#dont-add-many-patterns)|
 |[Monitorowanie wydajności aplikacji za pomocą testów wsadowych](#do-monitor-the-performance-of-your-app)|[Uczenie i publikowanie za pomocą każdego pojedynczego przykładu wypowiedź dodanego](#dont-train-and-publish-with-every-single-example-utterance)|
+
+## <a name="do-plan-your-schema"></a>Zaplanuj schemat
+
+Przed rozpoczęciem tworzenia schematu aplikacji należy określić, co i gdzie planujesz korzystać z tej aplikacji. Im bardziej szczegółowe i konkretne planowanie, tym lepiej Twoja aplikacja.
+
+* Zbadaj użytkowników skierowanych
+* Definiowanie kompleksowej osób do reprezentowania aplikacji — głosu, awatara, obsługi problemu (proaktywna, reaktywna)
+* Identyfikuj Interakcje użytkownika (tekst, mowę), za pomocą których kanałów, które są przekazywane do istniejących rozwiązań lub tworzenia nowego rozwiązania dla tej aplikacji
+* Kompleksowa podróż z użytkownikami
+    * Co należy oczekiwać do wykonania tej aplikacji, a nie do wykonania? * Jakie są priorytety czynności, jakie powinien wykonać?
+    * Jakie są główne przypadki użycia?
+* Zbieranie danych — [informacje](data-collection.md) o zbieraniu i przygotowywaniu danych
 
 ## <a name="do-define-distinct-intents"></a>Definiuj różne intencje
 Upewnij się, że słownictwo dla każdego zamiaru dotyczy tego zamiaru i nie nakłada się na inny cel. Na przykład jeśli chcesz mieć aplikację, która obsługuje układy podróży, takie jak loty lotnicze i Hotele, możesz wybierać te obszary tematyczne jako osobne intencje lub te same cele z jednostkami dla określonych danych wewnątrz wypowiedź.
@@ -60,6 +74,14 @@ Funkcje opisują koncepcje dotyczące zamiaru. Funkcja może być listą fraz wy
 ## <a name="do-find-sweet-spot-for-intents"></a>Znajdź słodycze dla intencji
 Użyj danych przewidywania z LUIS, aby określić, czy twoje intencje są nakładane. Nakładające się intencje odmylić LUIS. Wynika to z tego, że największe zamiar oceniania jest zbyt blisko innego celu. Ponieważ LUIS nie używa dokładnie tej samej ścieżki za pomocą danych do szkolenia za każdym razem, nakładające się przeznaczenie ma szansę na pierwsze lub drugie szkolenie. Chcesz, aby wyniki wypowiedź dla każdego zamiaru były od siebie oddzielone, aby nie nastąpiło Przerzucanie/flop. Dobre rozróżnienie w przypadku intencji powinno spowodować, że oczekiwane jest najlepsze zamierzone za każdym razem.
 
+## <a name="do-use-machine-learned-entities"></a>Użyj obiektów, na które nauczysz się
+
+Jednostki, na które nauczyno się maszyny, są dostosowane do Twojej aplikacji i wymagają pomyślnego etykietowania. Jeśli nie używasz jednostek obsługiwanych przez maszynę, być może używasz niewłaściwego narzędzia.
+
+Jednostki, na których nauczyne maszyny, mogą używać innych jednostek jako funkcji. Te inne jednostki mogą być jednostkami niestandardowymi, takimi jak jednostki wyrażenia regularnego lub jednostki listy, lub można użyć wstępnie utworzonych jednostek jako funkcji.
+
+Dowiedz się więcej o [obowiązujących jednostkach maszyn](luis-concept-entity-types.md#effective-machine-learned-entities).
+
 <a name="#do-build-the-app-iteratively"></a>
 
 ## <a name="do-build-your-app-iteratively-with-versions"></a>Wykonaj iteracyjne Kompilowanie aplikacji przy użyciu wersji
@@ -79,9 +101,9 @@ Dekompozycja modelu ma typowy proces:
 
 Po utworzeniu zamiaru i dodaniu przykładu wyrażenia długości, w poniższym przykładzie opisano dekompozycję jednostki.
 
-Zacznij od zidentyfikowania kompletnych koncepcji dotyczących danych, które mają zostać wyodrębnione w wypowiedź. To jest jednostka, którą uczysz. Następnie rozłożyć frazę na części. Obejmuje to identyfikowanie podjednostek i funkcji.
+Zacznij od zidentyfikowania kompletnych koncepcji dotyczących danych, które mają zostać wyodrębnione w wypowiedź. To jest Twoja jednostka uczenia maszynowego. Następnie rozłożyć frazę na części. Obejmuje to identyfikowanie podjednostek i funkcji.
 
-Na przykład jeśli chcesz wyodrębnić adres, można wywołać największą jednostkę polecaną maszynowo `Address` . Podczas tworzenia adresu Zidentyfikuj niektóre jego podjednostki, takie jak adres ulicy, miasto, Województwo i kod pocztowy.
+Na przykład jeśli chcesz wyodrębnić adres, można wywołać najważniejsze jednostki uczenia maszynowego `Address` . Podczas tworzenia adresu Zidentyfikuj niektóre jego podjednostki, takie jak adres ulicy, miasto, Województwo i kod pocztowy.
 
 Kontynuuj tworzenie tych elementów według:
 * Dodawanie wymaganej funkcji kodu pocztowego jako jednostki wyrażenia regularnego.
@@ -122,13 +144,21 @@ Monitoruj dokładność przewidywania przy użyciu zestawu [testów wsadowych](l
 
 Przechowuj oddzielny zestaw wyrażenia długości, które nie są używane jako [przykład wyrażenia długości](luis-concept-utterance.md) lub Endpoint wyrażenia długości. Kontynuuj ulepszanie aplikacji dla zestawu testowego. Dostosuj zestaw testów, aby odzwierciedlał rzeczywiste wyrażenia długości użytkownika. Ten zestaw testów służy do obliczania każdej iteracji lub wersji aplikacji.
 
+## <a name="dont-publish-too-quickly"></a>Nie Publikuj zbyt szybko
+
+Publikowanie aplikacji za szybko, bez konieczności [planowania](#do-plan-your-schema), może prowadzić do kilku problemów, takich jak:
+
+* Twoja aplikacja nie będzie działała w Twoim rzeczywistym scenariuszu na akceptowalnym poziomie wydajności.
+* Schemat (intencje i jednostki) nie będzie odpowiedni i jeśli opracowano logikę aplikacji klienta po schemacie, może być konieczne ponowne zapisanie go od podstaw. Może to spowodować nieoczekiwane opóźnienia i dodatkowy koszt projektu, nad którym pracujesz.
+* Wyrażenia długości dodawane do modelu może spowodować odliczenie się do przykładowego zestawu wypowiedź, który trudno jest debugować i identyfikować. Spowoduje to również usunięcie niejednoznaczności po zatwierdzeniu do określonego schematu.
+
 ## <a name="dont-add-many-example-utterances-to-intents"></a>Nie dodawaj wielu przykładowych wyrażenia długości do intencji
 
 Po opublikowaniu aplikacji należy dodać tylko wyrażenia długości z aktywnego uczenia w procesie cyklu życia projektu. Jeśli wyrażenia długości są zbyt podobne, Dodaj wzorzec.
 
 ## <a name="dont-use-few-or-simple-entities"></a>Nie używaj kilku lub prostych jednostek
 
-Jednostki są kompilowane do wyodrębniania i przewidywania danych. Należy pamiętać, że każdy z zamiarów ma jednostki, które opisują dane w zamiarach. Pozwala to LUIS na przewidywalność celu, nawet jeśli aplikacja kliencka nie musi używać wyodrębnionej jednostki.
+Jednostki są kompilowane do wyodrębniania i przewidywania danych. Należy pamiętać, że każdy z zamiarów ma jednostki uczenia maszynowego, które opisują dane w zamiarach. Pozwala to LUIS na przewidywalność celu, nawet jeśli aplikacja kliencka nie musi używać wyodrębnionej jednostki.
 
 ## <a name="dont-use-luis-as-a-training-platform"></a>Nie używaj LUIS jako platformy szkoleniowej
 

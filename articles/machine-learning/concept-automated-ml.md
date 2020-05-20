@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: ce51a1b25453a5bbacbd268b37f2bd21cfe37fea
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: f328b86d07a997ea761b4381f1d6a2f8a1dae269
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983469"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683080"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Co to jest automatyczne Uczenie maszynowe (AutoML)?
 
@@ -46,7 +46,7 @@ Podobnie jak w przypadku klasyfikacji, zadania regresji są również typowym na
 
 Różni się od klasyfikacji, w której przewidywane wartości wyjściowe to kategorii, modele regresji przewidywania liczbowych wartości wyjściowych na podstawie niezależnych predykcyjnych. W regresji celem jest pomoc w ustaleniu relacji między niezależnymi zmiennymi predykcyjnymi przez oszacowanie wpływu jednej zmiennej na inne. Na przykład cena na urządzeniach przenośnych oparta na funkcjach takich jak, kilometry gazu, Ocena bezpieczeństwa itp. Dowiedz się więcej i zobacz przykład [regresji przy użyciu automatycznej uczenia maszynowego](tutorial-auto-train-models.md).
 
-Zobacz przykłady regresji i zautomatyzowane Uczenie maszynowe na potrzeby prognoz w tych notesach języka Python: [Prognoza wydajności procesora CPU](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-hardware-performance-explanation-and-featurization/auto-ml-regression-hardware-performance-explanation-and-featurization.ipynb), 
+Zobacz przykłady regresji i zautomatyzowane Uczenie maszynowe na potrzeby prognoz w tych notesach języka Python: [Prognoza wydajności procesora CPU](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-explanation-featurization/auto-ml-regression-explanation-featurization.ipynb), 
 
 ### <a name="time-series-forecasting"></a>Prognozowanie szeregów czasowych
 
@@ -93,7 +93,7 @@ Na poniższym diagramie przedstawiono ten proces.
 ![Automatyczne Uczenie maszynowe](./media/concept-automated-ml/automl-concept-diagram2.png)
 
 
-Możesz również sprawdzić zarejestrowane informacje o uruchomieniu, które [zawierają metryki](how-to-understand-automated-ml.md) zebrane podczas uruchamiania. Uruchomienie szkoleniowe powoduje utworzenie serializowanego obiektu języka`.pkl` Python (plik) zawierającego model i przetwarzanie wstępne przetwarzania danych.
+Możesz również sprawdzić zarejestrowane informacje o uruchomieniu, które [zawierają metryki](how-to-understand-automated-ml.md) zebrane podczas uruchamiania. Uruchomienie szkoleniowe powoduje utworzenie serializowanego obiektu języka Python ( `.pkl` plik) zawierającego model i przetwarzanie wstępne przetwarzania danych.
 
 Chociaż Kompilowanie modelu jest zautomatyzowane, można również [dowiedzieć się, jak ważne lub istotne funkcje są](how-to-configure-auto-train.md#explain) wygenerowane modele.
 
@@ -110,9 +110,9 @@ W każdym automatycznym doświadczeniu uczenia maszynowego Twoje dane są wstęp
 
 ### <a name="automatic-preprocessing-standard"></a>Automatyczne przetwarzanie wstępne (standard)
 
-W każdym automatycznym doświadczeniu uczenia maszynowego Twoje dane są automatycznie skalowane lub znormalizowane w celu zapewnienia prawidłowego wykonywania algorytmów.  Podczas uczenia modelu jedna z następujących technik skalowania lub normalizacji zostanie zastosowana do każdego modelu.
+W każdym automatycznym doświadczeniu uczenia maszynowego Twoje dane są automatycznie skalowane lub znormalizowane w celu zapewnienia prawidłowego wykonywania algorytmów.  Podczas uczenia modelu jedna z następujących technik skalowania lub normalizacji zostanie zastosowana do każdego modelu. Dowiedz się, w jaki sposób usługa autoML pomaga [zapobiegać nadmiernemu dopasowywaniu i niezrównoważonym danych](concept-manage-ml-pitfalls.md) w modelach.
 
-|Normalizacja skalowania&nbsp;&&nbsp;| Opis |
+|&nbsp; & &nbsp; Normalizacja skalowania| Opis |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Ujednolicenie funkcji przez usunięcie średniej i skalowania do wariancji jednostek  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Przekształca funkcje, przeskalowane każdą funkcję według minimalnej i maksymalnej wartości tej kolumny  |
@@ -128,7 +128,7 @@ Dostępne są również dodatkowe zaawansowane procesy przetwarzania wstępnego 
 
 + Azure Machine Learning Studio: Włącz **Automatyczne cechowania** w sekcji **Wyświetl dodatkową konfigurację** , [wykonując następujące kroki](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
 
-+ Zestaw SDK języka Python `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` : Określanie dla [ `AutoMLConfig` klasy](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
++ Zestaw SDK języka Python: Określanie `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` dla [ `AutoMLConfig` klasy](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
 
 
@@ -154,7 +154,7 @@ Interfejs sieci Web dla zautomatyzowanej ML zawsze używa zdalnego [miejsca doce
 Należy wziąć pod uwagę te czynniki podczas wybierania obiektu docelowego obliczeń:
 
  * **Wybierz lokalne obliczenie**: Jeśli Twój scenariusz dotyczy wstępnych eksploracji lub pokazów przy użyciu małych danych i krótkich pociągów (tj. sekund lub kilku minut na uruchomienie podrzędne), szkolenie na komputerze lokalnym może być lepszym wyborem.  Nie ma czasu instalacji, zasoby infrastruktury (komputer lub maszyna wirtualna) są dostępne bezpośrednio.
- * **Wybierz klaster obliczeniowy zdalnego ml**: w przypadku szkoleń z większymi zestawami danych, takimi jak w szkoleniu produkcyjnym tworzenie modeli, które wymagają dłuższych pociągów, usługa zdalne obliczenia zapewnia `AutoML` znacznie lepszą wydajność, ponieważ zrównoleglanie pociąga w węzłach klastra. W przypadku zdalnego obliczenia czas rozpoczęcia dla infrastruktury wewnętrznej zostanie dodany około 1,5 minut na uruchomienie podrzędne, a także dodatkowe minuty dla infrastruktury klastra, jeśli maszyny wirtualne nie są jeszcze uruchomione.
+ * **Wybierz klaster obliczeniowy zdalnego ml**: w przypadku szkoleń z większymi zestawami danych, takimi jak w szkoleniu produkcyjnym tworzenie modeli, które wymagają dłuższych pociągów, usługa zdalne obliczenia zapewnia znacznie lepszą wydajność, ponieważ `AutoML` zrównoleglanie pociąga w węzłach klastra. W przypadku zdalnego obliczenia czas rozpoczęcia dla infrastruktury wewnętrznej zostanie dodany około 1,5 minut na uruchomienie podrzędne, a także dodatkowe minuty dla infrastruktury klastra, jeśli maszyny wirtualne nie są jeszcze uruchomione.
 
 ### <a name="pros-and-cons"></a>Specjaliści i wady
 Należy wziąć pod uwagę te zalety i wady, gdy wybierzesz opcję używania lokalnego i zdalnego.
@@ -168,7 +168,7 @@ Należy wziąć pod uwagę te zalety i wady, gdy wybierzesz opcję używania lok
 
  Więcej funkcji jest dostępnych w przypadku korzystania ze zdalnych obliczeń, jak pokazano w poniższej tabeli. Niektóre z tych funkcji są dostępne tylko w obszarze roboczym przedsiębiorstwa.
 
-| Funkcja                                                    | Remote | Lokalny | KONIECZN <br>Obszar roboczy przedsiębiorstwa |
+| Cechy                                                    | Remote | Lokalny | KONIECZN <br>Obszar roboczy przedsiębiorstwa |
 |------------------------------------------------------------|--------|-------|-------------------------------|
 | Przesyłanie strumieniowe danych (obsługa dużej ilości danych, do 100 GB)          | ✓      |       | ✓                             |
 | DNN BERT tekstu cechowania i szkolenia             | ✓      |       | ✓                             |
@@ -186,8 +186,19 @@ Należy wziąć pod uwagę te zalety i wady, gdy wybierzesz opcję używania lok
 | Zarejestruj i Wizualizuj informacje i metryki eksperymentu w interfejsie użytkownika | ✓      | ✓     |                               |
 | Guardrails danych                                            | ✓      | ✓     |                               |
 
+## <a name="many-models"></a>Wiele modeli 
 
-## <a name="automated-ml-in-azure-machine-learning"></a>Automatyczna ML w Azure Machine Learning
+[Akcelerator rozwiązań wielu modeli](https://aka.ms/many-models) (wersja zapoznawcza) jest oparty na Azure Machine Learning i umożliwia korzystanie z zautomatyzowanej ml do uczenia i obsługi setek, a nawet tysięcy modeli uczenia maszynowego.
+
+Na przykład Kompilowanie modelu __dla każdego wystąpienia lub poszczególnych osób__ w następujących scenariuszach może prowadzić do udoskonalonych wyników:
+
+* Przewidywanie sprzedaży dla poszczególnych magazynów
+* Konserwacja predykcyjna dla setek ropy naftowej
+* Dostosowanie środowiska dla poszczególnych użytkowników.
+
+Aby uzyskać więcej informacji, zobacz [Akcelerator rozwiązania wielu modeli](https://aka.ms/many-models) w serwisie GitHub.
+
+## <a name="automl-in-azure-machine-learning"></a>AutoML w Azure Machine Learning
 
 Azure Machine Learning oferuje dwa środowiska do pracy z automatycznymi ML
 

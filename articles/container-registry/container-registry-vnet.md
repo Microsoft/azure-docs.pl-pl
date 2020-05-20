@@ -3,12 +3,12 @@ title: Ograniczanie dostępu przy użyciu punktu końcowego usługi
 description: Ograniczanie dostępu do rejestru kontenerów platformy Azure przy użyciu punktu końcowego usługi w sieci wirtualnej platformy Azure
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: da5ab67d6658d8760565353e2a690c53d862d0ed
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 5a3cc9638fb12853e0e26f3806c17dc47f522249
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982585"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685054"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Ograniczanie dostępu do rejestru kontenerów przy użyciu punktu końcowego usługi w sieci wirtualnej platformy Azure
 
@@ -19,7 +19,7 @@ W tym artykule pokazano, jak skonfigurować punkt końcowy usługi rejestru kont
 > [!IMPORTANT]
 > Azure Container Registry teraz obsługuje [łącze prywatne platformy Azure](container-registry-private-link.md), umożliwiając prywatne punkty końcowe z sieci wirtualnej, która ma zostać umieszczona w rejestrze. Prywatne punkty końcowe są dostępne z poziomu sieci wirtualnej przy użyciu prywatnych adresów IP. Zalecamy używanie prywatnych punktów końcowych zamiast punktów końcowych usługi w większości scenariuszy sieciowych.
 
-Konfigurowanie punktu końcowego usługi Registry Service jest dostępne w warstwie usługi Registry Container — wersja **Premium** . Aby uzyskać informacje o warstwach i ograniczeniach usługi Registry, zobacz [Azure Container Registry warstw](container-registry-skus.md).
+Konfigurowanie punktu końcowego usługi Registry Service jest dostępne w warstwie usługi Registry Container — wersja **Premium** . Aby uzyskać informacje o warstwach i ograniczeniach usługi Registry, zobacz [Azure Container Registry warstwy usług](container-registry-skus.md).
 
 ## <a name="preview-limitations"></a>Ograniczenia wersji zapoznawczej
 
@@ -32,9 +32,9 @@ Konfigurowanie punktu końcowego usługi Registry Service jest dostępne w warst
 
 * Aby skorzystać z kroków interfejsu wiersza polecenia platformy Azure w tym artykule, wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.58 lub nowszej. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli].
 
-* Jeśli nie masz jeszcze rejestru kontenerów, utwórz go (wymagana jednostka SKU Premium) i wypchnij przykładowy obraz, taki `hello-world` jak z usługi Docker Hub. Na przykład użyj [Azure Portal][quickstart-portal] lub [interfejsu wiersza polecenia platformy Azure][quickstart-cli] , aby utworzyć rejestr. 
+* Jeśli nie masz jeszcze rejestru kontenerów, utwórz go (wymagana warstwa Premium) i wypchnij przykładowy obraz, taki jak `hello-world` z usługi Docker Hub. Na przykład użyj [Azure Portal][quickstart-portal] lub [interfejsu wiersza polecenia platformy Azure][quickstart-cli] , aby utworzyć rejestr. 
 
-* Jeśli chcesz ograniczyć dostęp do rejestru przy użyciu punktu końcowego usługi w innej subskrypcji platformy Azure, zarejestruj dostawcę zasobów dla Azure Container Registry w tej subskrypcji. Przykład:
+* Jeśli chcesz ograniczyć dostęp do rejestru przy użyciu punktu końcowego usługi w innej subskrypcji platformy Azure, zarejestruj dostawcę zasobów dla Azure Container Registry w tej subskrypcji. Na przykład:
 
   ```azurecli
   az account set --subscription <Name or ID of subscription of virtual network>
@@ -124,7 +124,7 @@ Po odczekaniu kilku minut na aktualizację konfiguracji Sprawdź, czy maszyna wi
 az acr login --name mycontainerregistry
 ```
 
-Można wykonać operacje rejestru, takie jak Uruchom `docker pull` , aby ściągnąć przykładowy obraz z rejestru. Zastąp wartość obrazu i tagu odpowiednią dla rejestru poprzedzoną prefiksem nazwy serwera logowania rejestru (wszystkie małe litery):
+Można wykonać operacje rejestru, takie jak Uruchom, `docker pull` Aby ściągnąć przykładowy obraz z rejestru. Zastąp wartość obrazu i tagu odpowiednią dla rejestru poprzedzoną prefiksem nazwy serwera logowania rejestru (wszystkie małe litery):
 
 ```bash
 docker pull mycontainerregistry.azurecr.io/hello-world:v1
@@ -132,7 +132,7 @@ docker pull mycontainerregistry.azurecr.io/hello-world:v1
 
 Platforma Docker pomyślnie ściąga obraz do maszyny wirtualnej.
 
-Ten przykład pokazuje, że można uzyskać dostęp do prywatnego rejestru kontenerów za pomocą reguły dostępu do sieci. Nie można jednak uzyskać dostępu do rejestru z hosta logowania, który nie ma skonfigurowanej reguły dostępu do sieci. W przypadku próby zalogowania się z innego hosta za `az acr login` pomocą polecenia `docker login` lub polecenia dane wyjściowe są podobne do następujących:
+Ten przykład pokazuje, że można uzyskać dostęp do prywatnego rejestru kontenerów za pomocą reguły dostępu do sieci. Nie można jednak uzyskać dostępu do rejestru z hosta logowania, który nie ma skonfigurowanej reguły dostępu do sieci. W przypadku próby zalogowania się z innego hosta za pomocą `az acr login` polecenia lub `docker login` polecenia dane wyjściowe są podobne do następujących:
 
 ```Console
 Error response from daemon: login attempt to https://xxxxxxx.azurecr.io/v2/ failed with status: 403 Forbidden
@@ -152,7 +152,7 @@ Aby wyświetlić listę reguł sieci skonfigurowanych dla rejestru, uruchom nast
 az acr network-rule list --name mycontainerregistry 
 ```
 
-Dla każdej skonfigurowanej reguły Uruchom polecenie [AZ ACR Network-Rule Remove][az-acr-network-rule-remove] , aby je usunąć. Przykład:
+Dla każdej skonfigurowanej reguły Uruchom polecenie [AZ ACR Network-Rule Remove][az-acr-network-rule-remove] , aby je usunąć. Na przykład:
 
 ```azurecli
 # Remove a rule that allows access for a subnet. Substitute the subnet resource ID.
@@ -170,7 +170,7 @@ Zastąp nazwę rejestru następującym poleceniem [AZ ACR Update][az-acr-update]
 az acr update --name myContainerRegistry --default-action Allow
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli wszystkie zasoby platformy Azure zostały utworzone w tej samej grupie zasobów i nie będą już potrzebne, możesz opcjonalnie usunąć zasoby za pomocą jednego polecenia [AZ Group Delete](/cli/azure/group) :
 

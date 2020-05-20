@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 04/02/2020
-ms.openlocfilehash: 38088503fee016651a8c1c9a1f57ad4bbe102456
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dec9d7d6f4676c3550bb6c0be79e25d907e5b3da
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81257151"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682482"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Nauka danych przy użyciu Data Science Virtual Machine systemu Linux na platformie Azure
 
@@ -29,9 +29,9 @@ W tym instruktażu analizujemy zestaw danych [spambase](https://archive.ics.uci.
 Przed użyciem DSVM systemu Linux należy spełnić następujące wymagania wstępne:
 
 * **Subskrypcja platformy Azure**. Aby uzyskać subskrypcję platformy Azure, zobacz artykuł [Tworzenie bezpłatnego konta platformy Azure już dzisiaj](https://azure.microsoft.com/free/).
-* [**Data Science Virtual Machine systemu Linux**](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Informacje o aprowizacji maszyny wirtualnej można znaleźć w temacie [Inicjowanie obsługi Data Science Virtual Machine systemu Linux](linux-dsvm-intro.md).
+* [**Data Science Virtual Machine systemu Linux**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804). Informacje o aprowizacji maszyny wirtualnej można znaleźć w temacie [Inicjowanie obsługi Data Science Virtual Machine systemu Linux](linux-dsvm-intro.md).
 * [**X2go**](https://wiki.x2go.org/doku.php) zainstalowane na komputerze z otwartą sesją pulpit Xfce. Aby uzyskać więcej informacji, zobacz [Instalowanie i Konfigurowanie klienta x2go](linux-dsvm-intro.md#x2go).
-* Aby usprawnić przewijanie w przeglądarce sieci Web w programie DSVM, przełącz `gfx.xrender.enabled` flagę w. `about:config` [Dowiedz się więcej](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Należy również rozważyć `mousewheel.enable_pixel_scrolling` ustawienie `False`. [Dowiedz się więcej](https://support.mozilla.org/questions/981140).
+* Aby usprawnić przewijanie w przeglądarce sieci Web w programie DSVM, przełącz `gfx.xrender.enabled` flagę w `about:config` . [Dowiedz się więcej](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Należy również rozważyć `mousewheel.enable_pixel_scrolling` ustawienie `False` . [Dowiedz się więcej](https://support.mozilla.org/questions/981140).
 * **Konto Azure Machine Learning**. Jeśli jeszcze tego nie zrobiono, Utwórz nowe konto na [stronie głównej Azure Machine Learning](https://azure.microsoft.com/free/services/machine-learning//).
 
 ## <a name="download-the-spambase-dataset"></a>Pobierz zestaw danych spambase
@@ -64,11 +64,11 @@ mv headers spambaseHeaders.data
 
 Zestaw danych zawiera kilka typów statystyk dla każdej wiadomości e-mail:
 
-* Kolumny, **takie\_jak\_Word FREQ Word** , wskazują procent słów w wiadomości e-mail pasującej do *wyrazu*. Jeśli na przykład **słowo\_\_FREQ** ma wartość **1**, *nastąpiło*1% wszystkich wyrazów w wiadomości e-mail.
-* Kolumny, **takie\_jak\_char FREQ char** wskazują procent wszystkich znaków w wiadomości e-mail, które są *znakami*.
-* **\_długość\_uruchomienia\_w Wielkiej** litery jest najdłuższym długością sekwencji wielkich liter.
-* **średnia\_\_długość\_uruchomienia kapitału** to średnia długość wszystkich sekwencji wielkich liter.
-* **całkowita\_\_długość\_uruchomienia kapitału** to łączna długość wszystkich sekwencji wielkich liter.
+* Kolumny, takie jak **Word \_ FREQ \_ _Word_ ** , wskazują procent słów w wiadomości e-mail pasującej do *wyrazu*. Jeśli na przykład **słowo \_ FREQ \_ ** ma wartość **1**, *nastąpiło*1% wszystkich wyrazów w wiadomości e-mail.
+* Kolumny, takie jak **char \_ FREQ \_ _char_ ** wskazują procent wszystkich znaków w wiadomości e-mail, które są *znakami*.
+* ** \_ Długość uruchomienia \_ w \_ Wielkiej** litery jest najdłuższym długością sekwencji wielkich liter.
+* ** \_ \_ \_ średnia długość uruchomienia kapitału** to średnia długość wszystkich sekwencji wielkich liter.
+* ** \_ \_ \_ całkowita długość uruchomienia kapitału** to łączna długość wszystkich sekwencji wielkich liter.
 * **spam** wskazuje, czy wiadomość e-mail została uznana za spam, czy nie (1 = spam, 0 = nie spam).
 
 ## <a name="explore-the-dataset-by-using-r-open"></a>Eksplorowanie zestawu danych przy użyciu języka R Open
@@ -313,7 +313,7 @@ predictSpam.service(1, 1, 1)
 
 ### <a name="jupyterhub"></a>JupyterHub
 
-Rozkład Anaconda w DSVM zawiera Jupyter Notebook, czyli środowisko Międzyplatformowe do udostępniania kodu Python, R lub Julia i analizy. Dostęp do Jupyter Notebook można uzyskać za pomocą JupyterHub. Użytkownik loguje się przy użyciu nazwy użytkownika i hasła lokalnego systemu Linux pod\<nazwą DNS https://DSVM lub adresem\>IP: 8000/. Wszystkie pliki konfiguracji dla JupyterHub znajdują się w/etc/jupyterhub.
+Rozkład Anaconda w DSVM zawiera Jupyter Notebook, czyli środowisko Międzyplatformowe do udostępniania kodu Python, R lub Julia i analizy. Dostęp do Jupyter Notebook można uzyskać za pomocą JupyterHub. Użytkownik loguje się przy użyciu nazwy użytkownika i hasła lokalnego systemu Linux pod \< nazwą DNS https://DSVM lub adresem IP \> : 8000/. Wszystkie pliki konfiguracji dla JupyterHub znajdują się w/etc/jupyterhub.
 
 > [!NOTE]
 > Aby użyć Menedżera pakietów języka Python (za pośrednictwem `pip` polecenia) z Jupyter notebook w bieżącym jądrze, użyj tego polecenia w komórce kodu:
@@ -368,7 +368,7 @@ Aby załadować i skonfigurować zestaw danych:
 Aby eksplorować dane:
 
 1. Wybierz kartę **Eksploruj** .
-1. Aby wyświetlić informacje o typach zmiennych i niektórych statystykach podsumowujących, wybierz opcję**wykonywanie** **podsumowania** > .
+1. Aby wyświetlić informacje o typach zmiennych i niektórych statystykach podsumowujących, wybierz opcję wykonywanie **podsumowania**  >  **Execute**.
 1. Aby wyświetlić inne typy statystyk dla każdej zmiennej, wybierz inne opcje, takie jak **opisywanie** lub **podstawy**.
 
 Karta **Eksplorowanie** umożliwia również generowanie szczegółowych wykresów. Aby wykreślić histogram dotyczący danych:
@@ -492,17 +492,17 @@ Teraz eksplorujmy dane i uruchamiasz niektóre zapytania za pomocą SQuirreL SQL
 
 Aby rozpocząć, w menu **aplikacje** Otwórz SQuirreL SQL. Aby skonfigurować sterownik:
 
-1. Wybierz pozycję**sterowniki widoku** **systemu Windows** > .
+1. Wybierz **Windows**pozycję  >  **sterowniki widoku**systemu Windows.
 1. Kliknij prawym przyciskiem myszy pozycję **PostgreSQL** i wybierz pozycję **Modyfikuj sterownik**.
-1. Wybierz pozycję **dodatkowa ścieżka** > klasy**Dodaj**.
+1. Wybierz pozycję **dodatkowa ścieżka klasy**  >  **Dodaj**.
 1. W obszarze **Nazwa pliku**wprowadź **/usr/share/Java/jdbcdrivers/PostgreSQL-9.4.1208.jre6.jar**.
-1. Wybierz pozycję **Otwórz**.
+1. Wybierz pozycję **Open** (Otwórz).
 1. Wybierz pozycję **Wyświetl sterowniki**. W obszarze **Nazwa klasy**wybierz pozycję **org. PostgreSQL. Driver**, a następnie wybierz przycisk **OK**.
 
 Aby skonfigurować połączenie z serwerem lokalnym:
 
-1. Wybierz pozycję **Windows** > **View aliasy.**
-1. Wybierz przycisk **+** , aby utworzyć nowy alias. Dla nowej nazwy aliasu wprowadź **bazę danych spamu**. 
+1. Wybierz pozycję **Windows**  >  **View aliasy.**
+1. Wybierz **+** przycisk, aby utworzyć nowy alias. Dla nowej nazwy aliasu wprowadź **bazę danych spamu**. 
 1. W obszarze **Sterownik**wybierz pozycję **PostgreSQL**.
 1. Ustaw adres URL **JDBC: PostgreSQL://localhost/spam**.
 1. Wprowadź nazwę użytkownika i hasło.
@@ -513,7 +513,7 @@ Aby skonfigurować połączenie z serwerem lokalnym:
 Aby uruchomić niektóre zapytania:
 
 1. Wybierz kartę **SQL** .
-1. W polu zapytania w górnej części karty **SQL** wprowadź zapytanie podstawowe, takie jak `SELECT * from data;`.
+1. W polu zapytania w górnej części karty **SQL** wprowadź zapytanie podstawowe, takie jak `SELECT * from data;` .
 1. Naciśnij klawisze CTRL + ENTER, aby uruchomić zapytanie. Domyślnie SQuirreL SQL zwraca pierwsze 100 wierszy z zapytania.
 
 Istnieje wiele zapytań, które można uruchomić, aby eksplorować te dane. Na przykład, w jaki sposób *częstotliwość wyrazów* różni się między spamem a Ham?

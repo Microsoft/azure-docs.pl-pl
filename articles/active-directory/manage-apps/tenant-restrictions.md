@@ -15,12 +15,12 @@ ms.date: 03/28/2019
 ms.author: mimart
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecd49b340810f92727f0fc98f84031c8cbf68179
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7c43a1250f4d2be956b028689ee10eb4b968701f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481181"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680142"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Używanie ograniczeń dzierżawy do zarządzania dostępem do aplikacji w chmurze SaaS
 
@@ -30,7 +30,7 @@ Rozwiązanie Azure Active Directory (Azure AD) do tego wezwania jest funkcją z 
 
 W przypadku ograniczeń dzierżawy organizacje mogą określić listę dzierżawców, do których użytkownicy mają prawo dostępu. Usługa Azure AD udziela dostępu tylko do tych dozwolonych dzierżawców.
 
-Ten artykuł koncentruje się na ograniczeniach dzierżawy dla pakietu Office 365, ale ta funkcja powinna współpracować z dowolną aplikacją SaaS w chmurze, która korzysta z nowoczesnego protokołu uwierzytelniania z usługą Azure AD w celu logowania jednokrotnego. Jeśli używasz aplikacji SaaS z inną dzierżawą usługi Azure AD z dzierżawy używanej przez pakiet Office 365, upewnij się, że wszystkie wymagane dzierżawy są dozwolone. Aby uzyskać więcej informacji na temat aplikacji w chmurze SaaS, zobacz Portal [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
+Ten artykuł koncentruje się na ograniczeniach dzierżawy dla pakietu Office 365, ale ta funkcja powinna współpracować z dowolną aplikacją SaaS w chmurze, która korzysta z nowoczesnego protokołu uwierzytelniania z usługą Azure AD w celu logowania jednokrotnego. Jeśli używasz aplikacji SaaS z inną dzierżawą usługi Azure AD z dzierżawy używanej przez pakiet Office 365, upewnij się, że wszystkie wymagane dzierżawy są dozwolone. Aby uzyskać więcej informacji na temat aplikacji w chmurze SaaS, zobacz Portal [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory).
 
 ## <a name="how-it-works"></a>Jak to działa
 
@@ -74,7 +74,7 @@ Dla każdego żądania przychodzącego do login.microsoftonline.com, login.micro
 
 Nagłówki powinny zawierać następujące elementy:
 
-- W przypadku *ograniczania dostępu do dzierżawców*Użyj wartości \<dozwolonej listy\>dzierżawców, która jest rozdzielaną przecinkami listą dzierżawców, dla których chcesz zezwolić użytkownikom na dostęp. Wszystkie domeny zarejestrowane za pomocą dzierżawy mogą służyć do identyfikowania dzierżawy na tej liście. Na przykład, aby zezwolić na dostęp zarówno do dzierżaw firmy Contoso, jak i Fabrikam, para nazwa/wartość wygląda następująco: `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com`
+- W przypadku *ograniczania dostępu do dzierżawców*Użyj wartości \< dozwolonej listy dzierżawców \> , która jest rozdzielaną przecinkami listą dzierżawców, dla których chcesz zezwolić użytkownikom na dostęp. Wszystkie domeny zarejestrowane za pomocą dzierżawy mogą służyć do identyfikowania dzierżawy na tej liście. Na przykład, aby zezwolić na dostęp zarówno do dzierżaw firmy Contoso, jak i Fabrikam, para nazwa/wartość wygląda następująco: `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com`
 
 - Aby *ograniczyć dostęp do kontekstu*, użyj wartości identyfikatora pojedynczego katalogu, deklarując, który dzierżawca ustawia ograniczenia dzierżawy. Na przykład, aby zadeklarować contoso jako dzierżawcę, który ustawił zasady ograniczeń dzierżawy, para nazwa/wartość będzie wyglądać następująco: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
 
@@ -113,7 +113,7 @@ Podobnie jak w przypadku innych raportów w Azure Portal, można użyć filtrów
 - **Użytkownik**
 - **Aplikacja**
 - **Stan**
-- **Date**
+- **Dniu**
 - **Data (UTC)** (gdzie UTC jest uniwersalnym czasem koordynowanym)
 - **Metoda auth uwierzytelniania MFA (metoda uwierzytelniania wieloskładnikowego** )
 - **Szczegóły uwierzytelniania MFA (szczegóły uwierzytelniania wieloskładnikowego** )
@@ -155,7 +155,7 @@ Programu Fiddler to bezpłatny serwer proxy debugowania sieci Web, który może 
 
    1. W narzędziu Web Debugger programu Fiddler wybierz menu **reguły** i wybierz polecenie **Dostosuj reguły...** Aby otworzyć plik CustomRules.
 
-   2. Dodaj następujące wiersze na początku `OnBeforeRequest` funkcji. Zastąp \<domenę\> dzierżawy domeną zarejestrowaną w dzierżawie (na przykład `contoso.onmicrosoft.com`). Zastąp \<identyfikator\> katalogu identyfikatorem GUID usługi Azure AD Twojej dzierżawy.
+   2. Dodaj następujące wiersze na początku `OnBeforeRequest` funkcji. Zastąp \< domenę dzierżawy \> domeną zarejestrowaną w dzierżawie (na przykład `contoso.onmicrosoft.com` ). Zastąp \< Identyfikator katalogu identyfikatorem \> GUID usługi Azure AD Twojej dzierżawy.
 
       ```JScript.NET
       if (
@@ -169,7 +169,7 @@ Programu Fiddler to bezpłatny serwer proxy debugowania sieci Web, który może 
       }
       ```
 
-      Jeśli musisz zezwolić na wiele dzierżawców, użyj przecinka do oddzielenia nazw dzierżawców. Przykład:
+      Jeśli musisz zezwolić na wiele dzierżawców, użyj przecinka do oddzielenia nazw dzierżawców. Na przykład:
 
       `oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";`
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2694e0c1536064267faad10517ae58d0709ad1c8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 62b3445ba841a87f04dbe8c867411814b849be07
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231768"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682450"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Korzystanie z udziału plików platformy Azure w systemie Windows
 [Azure Files](storage-files-introduction.md) to łatwy w użyciu system plików w chmurze firmy Microsoft. Udziałów plików platformy Azure można bezproblemowo używać w systemach Windows i Windows Server. W tym artykule omówiono zagadnienia dotyczące korzystania z udziału plików platformy Azure w systemach Windows i Windows Server.
@@ -23,15 +23,15 @@ Z udziałów plików platformy Azure można korzystać w instalacji systemu Wind
 
 | Wersja systemu Windows        | Wersja protokołu SMB | Możliwa instalacja na maszynie wirtualnej platformy Azure | Instalacja lokalna |
 |------------------------|-------------|-----------------------|-----------------------|
-| Windows Server 2019 | SMB 3.0 | Tak | Tak |
-| Windows 10<sup>1</sup> | SMB 3.0 | Tak | Tak |
-| Windows Server semi-annual channel<sup>2</sup> | SMB 3.0 | Tak | Tak |
-| Windows Server 2016 | SMB 3.0 | Tak | Tak |
-| Windows 8.1 | SMB 3.0 | Tak | Tak |
-| Windows Server 2012 R2 | SMB 3.0 | Tak | Tak |
-| Windows Server 2012 | SMB 3.0 | Tak | Tak |
-| Windows 7<sup>3</sup> | SMB 2.1 | Tak | Nie |
-| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Tak | Nie |
+| Windows Server 2019 | SMB 3.0 | Tak | Yes |
+| Windows 10<sup>1</sup> | SMB 3.0 | Tak | Yes |
+| Windows Server semi-annual channel<sup>2</sup> | SMB 3.0 | Tak | Yes |
+| Windows Server 2016 | SMB 3.0 | Tak | Yes |
+| Windows 8.1 | SMB 3.0 | Tak | Yes |
+| Windows Server 2012 R2 | SMB 3.0 | Tak | Yes |
+| Windows Server 2012 | SMB 3.0 | Tak | Yes |
+| Windows 7<sup>3</sup> | SMB 2.1 | Yes | Nie |
+| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Yes | Nie |
 
 <sup>1</sup> Windows 10, wersje 1507, 1607, 1709, 1803, 1809, 1903 i 1909.  
 <sup>2</sup> System Windows Server, wersje 1809, 1903 i 1909.  
@@ -80,7 +80,7 @@ Z udziałów plików platformy Azure można korzystać w instalacji systemu Wind
 ## <a name="using-an-azure-file-share-with-windows"></a>Korzystanie z udziału plików platformy Azure w systemie Windows
 Aby używać udziału plików platformy Azure w systemie Windows, musisz go zainstalować, czyli przypisać do niego literę dysku bądź ścieżkę do punktu instalacji, lub uzyskiwać do niego dostęp za pośrednictwem jego [ścieżki UNC](https://msdn.microsoft.com/library/windows/desktop/aa365247.aspx). 
 
-W przeciwieństwie do innych udziałów SMB, z którymi możesz wchodzić w interakcje, na przykład takich jak te hostowane w systemie Windows Server, na serwerze Samba w systemie Linux lub na urządzeniu NAS, udziały plików platformy Azure aktualnie nie obsługują uwierzytelniania Kerberos za pomocą tożsamości usługi Active Directory (AD) lub Azure Active Directory (AAD), ale [pracujemy nad](https://feedback.azure.com/forums/217298-storage/suggestions/6078420-acl-s-for-azurefiles) włączeniem takiej możliwości. Zamiast tego dostęp do udziału plików platformy Azure musi być uzyskiwany przy użyciu klucza konta magazynu zawierającego ten udział plików platformy Azure. Klucz konta magazynu to klucz administratora dla konta magazynu, w tym uprawnienia administratora do wszystkich plików i folderów w udziale plików, do którego uzyskujesz dostęp, a także dla wszystkich udziałów plików i innych zasobów magazynu (obiektów blob, kolejek, tabel itp.) zawartych w ramach konta magazynu. Jeśli te uprawnienia nie są wystarczające na potrzeby danego obciążenia, [usługa Azure File Sync](storage-sync-files-planning.md) może tymczasowo zastąpić brak obsługi uwierzytelniania Kerberos i list kontroli dostępu, dopóki obsługa uwierzytelniania Kerberos opartego na usłudze AAD i list kontroli dostępu zostanie publicznie udostępniona.
+W tym artykule jest wykorzystywany klucz konta magazynu w celu uzyskania dostępu do udziału plików. Klucz konta magazynu to klucz administratora dla konta magazynu, w tym uprawnienia administratora do wszystkich plików i folderów w udziale plików, do którego uzyskujesz dostęp, a także dla wszystkich udziałów plików i innych zasobów magazynu (obiektów blob, kolejek, tabel itp.) zawartych w ramach konta magazynu. Jeśli nie jest to wystarczające dla obciążenia, [Azure File Sync](storage-sync-files-planning.md) mogą być używane lub można użyć [uwierzytelniania opartego na tożsamościach za pośrednictwem protokołu SMB](storage-files-active-directory-overview.md).
 
 Typowym sposobem na przeniesienie na platformę Azure aplikacji biznesowych (LOB), które oczekują obsługi udziału plików SMB, jest użycie udziału plików platformy Azure jako alternatywy do uruchamiania dedykowanego serwera plików Windows na maszynie wirtualnej platformy Azure. Ważnym zagadnieniem warunkującym pomyślną migrację aplikacji biznesowej do korzystania z udziału plików platformy Azure jest to, że wiele aplikacji biznesowych działa w kontekście dedykowanego konta usługi z ograniczonymi uprawnieniami systemowymi, a nie w kontekście konta administracyjnego maszyny wirtualnej. W związku z tym należy się upewnić, że poświadczenia dla udziału plików platformy Azure zostały zainstalowane/zapisane w kontekście konta usługi, a nie konta administracyjnego.
 
@@ -186,7 +186,7 @@ Remove-PSDrive -Name <desired-drive-letter>
     
     ![Zrzut ekranu przedstawiający menu rozwijane „Mapuj dysk sieciowy”](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-1. Wybierz literę dysku, a następnie wprowadź ścieżkę UNC Format ścieżki UNC `<storageAccountName>.file.core.windows.net/<fileShareName>`. Na przykład: `anexampleaccountname.file.core.windows.net/example-share-name`.
+1. Wybierz literę dysku, a następnie wprowadź ścieżkę UNC Format ścieżki UNC `<storageAccountName>.file.core.windows.net/<fileShareName>` . Na przykład: `anexampleaccountname.file.core.windows.net/example-share-name`.
     
     ![Zrzut ekranu przedstawiający okno dialogowe „Mapowanie dysku sieciowego”](./media/storage-how-to-use-files-windows/2_MountOnWindows10.png)
 
@@ -300,5 +300,5 @@ Po utworzeniu tego klucza rejestru należy ponownie uruchomić serwer, aby wył�
 ## <a name="next-steps"></a>Następne kroki
 Poniższe linki umożliwiają uzyskanie dodatkowych informacji na temat usługi Azure Files:
 - [Planowanie wdrażania usługi Pliki Azure](storage-files-planning.md)
-- [Najczęściej zadawane pytania](../storage-files-faq.md)
+- [Często zadawane pytania](../storage-files-faq.md)
 - [Rozwiązywanie problemów w systemie Windows](storage-troubleshoot-windows-file-connection-problems.md)      

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 987c3ee7c90eb0bb793b96eb2771efbb258f16a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 37935d229f62028e074f92bb6f8b70b9eebd87dc
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77565506"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685208"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Udostępnianie kont za pomocą usługi Azure AD
 
@@ -62,13 +62,13 @@ Funkcje usługi Azure AD, które umożliwiają udostępnianie kont, obejmują:
 * [Pulpit nawigacyjny/raporty użycia aplikacji](../active-directory-passwords-get-insights.md)
 * Portale dostępu użytkowników końcowych
 * [Serwer proxy aplikacji](../manage-apps/application-proxy.md)
-* [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/all/)
+* [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory)
 
 ## <a name="sharing-an-account"></a>Udostępnianie konta
 
 Aby używać usługi Azure AD do udostępniania konta, musisz:
 
-* Dodawanie [galerii](https://azure.microsoft.com/marketplace/active-directory/) aplikacji aplikacji lub [aplikacji niestandardowej](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)
+* Dodawanie [galerii](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory) aplikacji aplikacji lub [aplikacji niestandardowej](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)
 * Konfigurowanie aplikacji do logowania jednokrotnego (SSO) hasła
 * Użyj [przypisania opartego na grupach](groups-saasapps.md) i wybierz opcję, aby wprowadzić poświadczenia udostępnione
 

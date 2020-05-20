@@ -1,14 +1,14 @@
 ---
 title: Informacje o działaniu efektów
 description: Definicje Azure Policy mają różne skutki, które określają sposób zarządzania i zgłaszania zgodności.
-ms.date: 03/23/2020
+ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0330cb5c732921efda3627dec92e486657097d82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 80c69ec38a364238eb03e786c23cc927d6181062
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80422452"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684322"
 ---
 # <a name="understand-azure-policy-effects"></a>Zrozumienie efektów Azure Policy
 
@@ -21,7 +21,7 @@ Te efekty są obecnie obsługiwane w definicji zasad:
 - [AuditIfNotExists](#auditifnotexists)
 - [Zablokuj](#deny)
 - [DeployIfNotExists](#deployifnotexists)
-- [Wyłączony](#disabled)
+- [Wyłączone](#disabled)
 - [EnforceOPAConstraint](#enforceopaconstraint) (wersja zapoznawcza)
 - [EnforceRegoPolicy](#enforceregopolicy) (wersja zapoznawcza)
 - [Modyfikuj](#modify)
@@ -55,7 +55,7 @@ Dołączanie służy do dodawania dodatkowych pól do żądanego zasobu podczas 
 
 ### <a name="append-evaluation"></a>Dołączanie oceny
 
-Dołączanie daje ocenę przed przetworzeniem żądania przez dostawcę zasobów podczas tworzenia lub aktualizowania zasobu. Dołącz dodaje pola do zasobu, gdy spełniony **jest warunek reguły** zasad. Jeśli efekt dołączania spowodowałoby zmianę wartości w oryginalnym żądaniu z inną wartością, działa jako efekt odmowy i odrzuca żądanie. Aby dołączyć nową wartość do istniejącej tablicy, użyj wersji **[\*]** aliasu.
+Dołączanie daje ocenę przed przetworzeniem żądania przez dostawcę zasobów podczas tworzenia lub aktualizowania zasobu. Dołącz dodaje pola do zasobu, gdy spełniony **jest warunek reguły** zasad. Jeśli efekt dołączania spowodowałoby zmianę wartości w oryginalnym żądaniu z inną wartością, działa jako efekt odmowy i odrzuca żądanie. Aby dołączyć nową wartość do istniejącej tablicy, użyj wersji **[ \* ]** aliasu.
 
 Gdy definicja zasad używająca efektu dołączania jest uruchamiana w ramach cyklu oceny, nie wprowadza zmian do już istniejących zasobów. Zamiast tego oznacza wszelkie zasoby, które spełniają warunek **if** jako niezgodne.
 
@@ -65,7 +65,7 @@ Efekt dołączania zawiera tylko tablicę **szczegółów** , która jest wymaga
 
 ### <a name="append-examples"></a>Dołącz przykłady
 
-Przykład 1: pojedyncze pary **pól/wartości** używające [aliasu](definition-structure.md#aliases) innego niż **[\*]** z **wartością** tablicy do ustawiania reguł IP na koncie magazynu. Gdy alias "non **-\*[]** " jest tablicą, efekt dodaje **wartość** jako całą tablicę. Jeśli tablica już istnieje, zdarzenie odmowy występuje z powodu konfliktu.
+Przykład 1: pojedyncze pary **pól/wartości** używające [aliasu](definition-structure.md#aliases) innego niż **[ \* ]** z **wartością** tablicy do ustawiania reguł IP na koncie magazynu. Gdy alias "non-**[ \* ]** " jest tablicą, efekt dodaje **wartość** jako całą tablicę. Jeśli tablica już istnieje, zdarzenie odmowy występuje z powodu konfliktu.
 
 ```json
 "then": {
@@ -80,7 +80,7 @@ Przykład 1: pojedyncze pary **pól/wartości** używające [aliasu](definition-
 }
 ```
 
-Przykład 2: pojedyncze pary **pól/wartości** przy użyciu [aliasu](definition-structure.md#aliases) **[\*]** z **wartością** tablicy, aby ustawić reguły adresów IP na koncie magazynu. Korzystając z aliasu **\*[]** , efekt dołącza **wartość** do potencjalnie istniejącej tablicy. Jeśli tablica jeszcze nie istnieje, zostanie utworzona.
+Przykład 2: pojedyncze pary **pól/wartości** przy użyciu [aliasu](definition-structure.md#aliases) **[ \* ]** z **wartością** tablicy, aby ustawić reguły adresów IP na koncie magazynu. Korzystając z aliasu **[ \* ]** , efekt dołącza **wartość** do potencjalnie istniejącej tablicy. Jeśli tablica jeszcze nie istnieje, zostanie utworzona.
 
 ```json
 "then": {
@@ -131,7 +131,7 @@ Właściwość **Details** efektu Modyfikuj ma wszystkie właściwości, które 
 Tablica właściwości **operacji** umożliwia zmianę kilku tagów na różne sposoby z jednej definicji zasad. Każda operacja składa się z właściwości **operacji**, **pola**i **wartości** . Operacja określa, jakie działanie ma wykonać zadanie korygowania tagów, pole określa, który znacznik jest modyfikowany, a wartość definiuje nowe ustawienie dla tego tagu. Poniższy przykład powoduje zmianę następujących tagów:
 
 - Ustawia `environment` tag na "test", nawet jeśli istnieje już z inną wartością.
-- Usuwa tag `TempResource`.
+- Usuwa tag `TempResource` .
 - Ustawia `Dept` tag dla parametru zasad _deptname_ skonfigurowany w przypisaniu zasad.
 
 ```json
@@ -162,11 +162,11 @@ Właściwość **Operation** ma następujące opcje:
 |-|-|
 |addOrReplace |Dodaje zdefiniowany tag i wartość do zasobu, nawet jeśli tag już istnieje z inną wartością. |
 |Dodaj |Dodaje zdefiniowany tag i wartość do zasobu. |
-|Remove |Usuwa zdefiniowany tag z zasobu. |
+|Usuń |Usuwa zdefiniowany tag z zasobu. |
 
 ### <a name="modify-examples"></a>Modyfikuj przykłady
 
-Przykład 1: Dodaj `environment` tag i Zastąp istniejące `environment` Tagi "test":
+Przykład 1: Dodaj `environment` tag i Zastąp istniejące `environment` tagi "test":
 
 ```json
 "then": {
@@ -216,7 +216,7 @@ Odmów służy do zapobiegania żądaniu zasobu, który nie jest zgodny ze zdefi
 
 ### <a name="deny-evaluation"></a>Odmowa oceny
 
-Podczas tworzenia lub aktualizowania dopasowanego zasobu Odmów uniemożliwia żądanie przed wysłaniem do dostawcy zasobów. Żądanie jest zwracane jako `403 (Forbidden)`. W portalu dostęp zabroniony może być wyświetlany jako stan wdrożenia, które zostało uniemożliwione przez przypisanie zasad.
+Podczas tworzenia lub aktualizowania dopasowanego zasobu Odmów uniemożliwia żądanie przed wysłaniem do dostawcy zasobów. Żądanie jest zwracane jako `403 (Forbidden)` . W portalu dostęp zabroniony może być wyświetlany jako stan wdrożenia, które zostało uniemożliwione przez przypisanie zasad.
 
 W trakcie obliczania istniejących zasobów zasoby zgodne z definicją zasad Odmów są oznaczane jako niezgodne.
 
@@ -273,7 +273,7 @@ Właściwość **Details** efektów AuditIfNotExists ma wszystkie właściwości
   - Jeśli **details. Type** jest typem zasobu poniżej zasobu warunku **if** , zasady zapytania dotyczące zasobów tego **typu** w zakresie szacowanego zasobu. W przeciwnym razie zapytania zasad w ramach tej samej grupy zasobów co obliczony zasób.
 - **Nazwa** (opcjonalnie)
   - Określa dokładną nazwę zasobu do dopasowania i powoduje, że zasady umożliwiają pobranie jednego określonego zasobu zamiast wszystkich zasobów określonego typu.
-  - Gdy wartości warunku dla opcji **IF. Field. Type** i **then. details. Type** są zgodne, a następnie **Nazwa** stanie się _wymagana_ i musi być `[field('name')]`. Jednak zamiast tego należy rozważyć efekt [inspekcji](#audit) .
+  - Gdy wartości warunku dla opcji **IF. Field. Type** i **then. details. Type** są zgodne, a następnie **Nazwa** stanie się _wymagana_ i musi być `[field('name')]` . Jednak zamiast tego należy rozważyć efekt [inspekcji](#audit) .
 - **ResourceGroupName** (opcjonalnie)
   - Umożliwia dopasowanie powiązanego zasobu do pochodzącego z innej grupy zasobów.
   - Nie ma zastosowania, jeśli **Typ** jest zasobem, który byłby poniżej zasobu warunku **if** .
@@ -345,7 +345,7 @@ Właściwość **Details** efektu DeployIfNotExists ma wszystkie właściwości,
   - Uruchamia się, próbując pobrać zasób poniżej zasobu warunku **if** , a następnie wykonać zapytania w tej samej grupie zasobów co zasób warunku **if** .
 - **Nazwa** (opcjonalnie)
   - Określa dokładną nazwę zasobu do dopasowania i powoduje, że zasady umożliwiają pobranie jednego określonego zasobu zamiast wszystkich zasobów określonego typu.
-  - Gdy wartości warunku dla opcji **IF. Field. Type** i **then. details. Type** są zgodne, a następnie **Nazwa** stanie się _wymagana_ i musi być `[field('name')]`.
+  - Gdy wartości warunku dla opcji **IF. Field. Type** i **then. details. Type** są zgodne, a następnie **Nazwa** stanie się _wymagana_ i musi być `[field('name')]` .
 - **ResourceGroupName** (opcjonalnie)
   - Umożliwia dopasowanie powiązanego zasobu do pochodzącego z innej grupy zasobów.
   - Nie ma zastosowania, jeśli **Typ** jest zasobem, który byłby poniżej zasobu warunku **if** .
@@ -372,7 +372,7 @@ Właściwość **Details** efektu DeployIfNotExists ma wszystkie właściwości,
   - W przypadku korzystania z wdrożeń na poziomie subskrypcji należy określić właściwość _Location_ we _wdrożeniu_ .
   - Wartość domyślna to _resourceName_.
 - **Wdrożenie** [wymagane]
-  - Ta właściwość powinna obejmować pełne wdrożenie szablonu, ponieważ zostanie przesłane do interfejsu API `Microsoft.Resources/deployments` Put. Aby uzyskać więcej informacji, zobacz [interfejs API REST wdrożeń](/rest/api/resources/deployments).
+  - Ta właściwość powinna obejmować pełne wdrożenie szablonu, ponieważ zostanie przesłane do `Microsoft.Resources/deployments` interfejsu API Put. Aby uzyskać więcej informacji, zobacz [interfejs API REST wdrożeń](/rest/api/resources/deployments).
 
   > [!NOTE]
   > Wszystkie funkcje wewnątrz właściwości **wdrożenia** są oceniane jako składniki szablonu, a nie zasady. Wyjątkiem jest właściwość **Parameters** , która przekazuje wartości z zasad do szablonu. **Wartość** w tej sekcji w kolumnie Nazwa parametru szablonu służy do przekazywania tej wartości (zobacz _FullDbName_ w przykładzie DeployIfNotExists).
@@ -432,15 +432,15 @@ Przykład: oblicza SQL Server baz danych, aby określić, czy transparentDataEnc
 
 ## <a name="enforceopaconstraint"></a>EnforceOPAConstraint
 
-Ten efekt jest używany z *trybem* definicji zasad `Microsoft.Kubernetes.Data`. Jest on używany do przekazywania reguł kontroli przyjęcia strażnika v3 zdefiniowanych za pomocą [Nieprzez ograniczenia środowiska](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework) , aby [otworzyć agenta zasad](https://www.openpolicyagent.org/) (nieprzez) do samozarządzanej klastrów Kubernetes na platformie Azure.
+Ten efekt jest używany z *trybem* definicji zasad `Microsoft.Kubernetes.Data` . Jest on używany do przekazywania reguł kontroli przyjęcia strażnika v3 zdefiniowanych za pomocą [platformy ograniczeń nieprzez](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework) , aby [otworzyć agenta zasad](https://www.openpolicyagent.org/) (Nieprzez) do klastrów Kubernetes na platformie Azure.
 
 > [!NOTE]
-> [Azure Policy aparatu AKS](aks-engine.md) jest w publicznej wersji zapoznawczej i obsługuje tylko wbudowane definicje zasad.
+> [Azure Policy dla Kubernetes](./policy-for-kubernetes.md) jest w wersji zapoznawczej i obsługuje tylko pule węzłów systemu Linux i wbudowane definicje zasad.
 
 ### <a name="enforceopaconstraint-evaluation"></a>Ocena EnforceOPAConstraint
 
 Otwarty kontroler przyjmowania agentów zasad umożliwia ocenę każdego nowego żądania w klastrze w czasie rzeczywistym.
-Co 5 minut jest wykonywane pełne skanowanie klastra i wyniki zgłoszone do Azure Policy.
+Co 15 minut ukończono pełne skanowanie klastra i wyniki zgłoszone do Azure Policy.
 
 ### <a name="enforceopaconstraint-properties"></a>Właściwości EnforceOPAConstraint
 
@@ -449,13 +449,13 @@ Właściwość **Details** efektu EnforceOPAConstraint ma właściwości SubProp
 - **constraintTemplate** [wymagane]
   - Szablon ograniczenia CustomResourceDefinition (CRD), który definiuje nowe ograniczenia. Szablon definiuje logikę rego, schemat ograniczenia i parametry ograniczenia, które są przesyłane za pośrednictwem **wartości** z Azure Policy.
 - **ograniczenie** [wymagane]
-  - Implementacja CRD szablonu ograniczenia. Używa parametrów przesyłanych za pośrednictwem **wartości** jako `{{ .Values.<valuename> }}`. W poniższym przykładzie jest `{{ .Values.cpuLimit }}` to i. `{{ .Values.memoryLimit }}`
+  - Implementacja CRD szablonu ograniczenia. Używa parametrów przesyłanych za pośrednictwem **wartości** jako `{{ .Values.<valuename> }}` . W poniższym przykładzie jest to `{{ .Values.cpuLimit }}` i `{{ .Values.memoryLimit }}` .
 - **wartości** [opcjonalne]
   - Definiuje wszelkie parametry i wartości, które mają zostać przekazane do ograniczenia. Każda wartość musi istnieć w szablonie ograniczenia CRD.
 
 ### <a name="enforceopaconstraint-example"></a>Przykład EnforceOPAConstraint
 
-Przykład: strażnik v3 reguła kontroli w celu ustawienia limitów zasobów procesora i pamięci kontenera w aparacie AKS.
+Przykład: strażnik v3 reguła kontroli w celu ustawienia limitów zasobów procesora i pamięci kontenera w Kubernetes.
 
 ```json
 "if": {
@@ -488,15 +488,15 @@ Przykład: strażnik v3 reguła kontroli w celu ustawienia limitów zasobów pro
 
 ## <a name="enforceregopolicy"></a>EnforceRegoPolicy
 
-Ten efekt jest używany z *trybem* definicji zasad `Microsoft.ContainerService.Data`. Służy do przekazywania reguł kontroli wpływu strażnika v2 zdefiniowanych za pomocą [rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) , aby [otworzyć agenta zasad](https://www.openpolicyagent.org/) (Nieprzez) w [usłudze Azure Kubernetes](../../../aks/intro-kubernetes.md).
+Ten efekt jest używany z _trybem_ definicji zasad `Microsoft.ContainerService.Data` . Służy do przekazywania reguł kontroli wpływu strażnika v2 zdefiniowanych za pomocą [rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) , aby [otworzyć agenta zasad](https://www.openpolicyagent.org/) (Nieprzez) w [usłudze Azure Kubernetes](../../../aks/intro-kubernetes.md).
 
 > [!NOTE]
-> [Azure Policy dla AKS](rego-for-aks.md) jest w ograniczonej wersji zapoznawczej i obsługuje tylko wbudowane definicje zasad
+> [Azure Policy dla Kubernetes](./policy-for-kubernetes.md) jest w wersji zapoznawczej i obsługuje tylko pule węzłów systemu Linux i wbudowane definicje zasad. Wbudowane definicje zasad znajdują się w kategorii **Kubernetes** . Definicje zasad z ograniczeniami w wersji zapoznawczej z efektem **EnforceRegoPolicy** i pokrewną kategorią **usługi Kubernetes** są _przestarzałe_. Zamiast tego należy użyć zaktualizowanego efektu [EnforceOPAConstraint](#enforceopaconstraint) .
 
 ### <a name="enforceregopolicy-evaluation"></a>Ocena EnforceRegoPolicy
 
 Otwarty kontroler przyjmowania agentów zasad umożliwia ocenę każdego nowego żądania w klastrze w czasie rzeczywistym.
-Co 5 minut jest wykonywane pełne skanowanie klastra i wyniki zgłoszone do Azure Policy.
+Co 15 minut ukończono pełne skanowanie klastra i wyniki zgłoszone do Azure Policy.
 
 ### <a name="enforceregopolicy-properties"></a>Właściwości EnforceRegoPolicy
 
@@ -538,9 +538,9 @@ Przykład: strażnika v2 reguła kontroli, aby zezwalać tylko na określone obr
 }
 ```
 
-## <a name="layering-policies"></a>Zasady dotyczące warstw
+## <a name="layering-policy-definitions"></a>Definicje zasad dotyczących warstw
 
-Na zasób może mieć wpływ kilka przypisań. Te przydziały mogą znajdować się w tym samym zakresie lub w różnych zakresach. Każdy z tych przypisań jest również prawdopodobnie zdefiniowanym innym efektem. Warunek i wpływ dla każdej zasady są oceniane niezależnie. Przykład:
+Na zasób może mieć wpływ kilka przypisań. Te przydziały mogą znajdować się w tym samym zakresie lub w różnych zakresach. Każdy z tych przypisań jest również prawdopodobnie zdefiniowanym innym efektem. Warunek i wpływ dla każdej zasady są oceniane niezależnie. Na przykład:
 
 - Zasady 1
   - Ogranicza lokalizację zasobu do "zachodnie"
@@ -565,7 +565,7 @@ Jeśli zasada 1 i zasady 2 miały wpływ na odmowę, sytuacja zmieni się na:
 - Wszystkie nowe zasoby w subskrypcji A nie w "zachodnich" są odrzucane przez zasady 1
 - Odmówiono wszelkich nowych zasobów w grupie zasobów B subskrypcji A
 
-Każde przypisanie jest oceniane indywidualnie. W związku z tym nie istnieje możliwość poślizgania zasobu przez przerwę od różnic między zakresami. Wynik sieci zasad dotyczących warstw lub zasad nakładania się na siebie jest traktowany jako **skumulowany najbardziej restrykcyjny**. Jeśli na przykład zasady 1 i 2 mają skutek odmowy, zasób zostałby zablokowany przez zasady nakładające się i powodujące konflikt. Jeśli nadal potrzebujesz zasobu, który ma zostać utworzony w zakresie docelowym, przejrzyj wykluczenia poszczególnych przypisań, aby sprawdzić, czy odpowiednie zasady mają wpływ na właściwe zakresy.
+Każde przypisanie jest oceniane indywidualnie. W związku z tym nie istnieje możliwość poślizgania zasobu przez przerwę od różnic między zakresami. Wynik sieci definicji zasad warstw jest traktowany jako **skumulowany najbardziej restrykcyjny**. Jeśli na przykład zasady 1 i 2 mają skutek odmowy, zasób zostałby zablokowany przez nakładające się i sprzeczne definicje zasad. Jeśli nadal potrzebujesz zasobu, który ma zostać utworzony w zakresie docelowym, przejrzyj wykluczenia poszczególnych przypisań, aby sprawdzić, czy odpowiednie przypisania zasad mają wpływ na właściwe zakresy.
 
 ## <a name="next-steps"></a>Następne kroki
 

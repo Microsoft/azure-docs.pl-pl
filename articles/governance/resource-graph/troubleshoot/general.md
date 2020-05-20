@@ -1,14 +1,14 @@
 ---
 title: Rozwiązywanie typowych problemów
 description: Dowiedz się, jak rozwiązywać problemy z różnymi zestawami SDK podczas badania zasobów platformy Azure za pomocą usługi Azure Resource Graph.
-ms.date: 10/18/2019
+ms.date: 05/20/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: f881db4f75bcee8c13221717596442ac29a4b1ac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e1b3758e52641bc27341c5da0ced9e811263c02b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74303897"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683240"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Rozwiązywanie problemów z błędami przy użyciu grafu zasobów platformy Azure
 
@@ -19,6 +19,25 @@ Podczas wykonywania zapytania dotyczącego zasobów platformy Azure za pomocą u
 Większość błędów jest wynikiem problemu podczas wykonywania zapytania przy użyciu grafu zasobów platformy Azure. Gdy zapytanie nie powiedzie się, zestaw SDK zawiera szczegółowe informacje o zapytaniu zakończonym niepowodzeniem. Te informacje wskazują, że problem może zostać naprawiony, a późniejsza kwerenda powiedzie się.
 
 ## <a name="general-errors"></a>Błędy ogólne
+
+### <a name="scenario-throttled-requests"></a><a name="throttled"></a>Scenariusz: ograniczone żądania
+
+#### <a name="issue"></a>Problem
+
+Klienci tworzący duże lub częste zapytania o zasoby mają ograniczone żądania.
+
+#### <a name="cause"></a>Przyczyna
+
+Wykres zasobów platformy Azure przydziela numer przydziału dla każdego użytkownika na podstawie przedziału czasu. Na przykład użytkownik może wysyłać maksymalnie 15 zapytań w każdym 5-drugim oknie bez ograniczania przepustowości. Wartość przydziału jest określana na podstawie wielu czynników i może ulec zmianie. Aby uzyskać więcej informacji, zobacz [ograniczanie przepływności na wykresie zasobów platformy Azure](../overview.md#throttling).
+
+#### <a name="resolution"></a>Rozwiązanie
+
+Istnieje kilka metod postępowania z ograniczonymi żądaniami:
+
+- [Grupowanie zapytań](../concepts/guidance-for-throttled-requests.md#grouping-queries)
+- [Rozkładanie zapytań](../concepts/guidance-for-throttled-requests.md#staggering-queries)
+- [Równoległe zapytanie](../concepts/guidance-for-throttled-requests.md#query-in-parallel)
+- [Dzielenia na strony](../concepts/guidance-for-throttled-requests.md#pagination)
 
 ### <a name="scenario-too-many-subscriptions"></a><a name="toomanysubscription"></a>Scenariusz: zbyt wiele subskrypcji
 
@@ -69,7 +88,7 @@ Interfejs API REST usługi Azure Resource Graph obsługuje tylko `Content-Type` 
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Sprawdź, czy narzędzie lub Agent używany do wysyłania zapytań do grafu zasobów platformy Azure ma nagłówek `Content-Type` interfejsu API REST skonfigurowany dla **aplikacji/JSON**.
+Sprawdź, czy narzędzie lub Agent używany do wysyłania zapytań do grafu zasobów platformy Azure ma nagłówek interfejsu API REST `Content-Type` skonfigurowany dla **aplikacji/JSON**.
 
 ### <a name="scenario-no-read-permission-to-all-subscriptions-in-list"></a><a name="rest-403"></a>Scenariusz: Brak uprawnień do odczytu do wszystkich subskrypcji na liście
 
@@ -79,7 +98,7 @@ Klienci, którzy jawnie przekazują listę subskrypcji za pomocą zapytania graf
 
 #### <a name="cause"></a>Przyczyna
 
-Jeśli klient nie ma uprawnienia do odczytu wszystkich podanych subskrypcji, żądanie zostanie odrzucone z powodu braku odpowiednich praw zabezpieczeń.
+Jeśli klient nie ma uprawnienia do odczytu wszystkich podanych subskrypcji, żądanie jest odrzucane z powodu braku odpowiednich praw zabezpieczeń.
 
 #### <a name="resolution"></a>Rozwiązanie
 

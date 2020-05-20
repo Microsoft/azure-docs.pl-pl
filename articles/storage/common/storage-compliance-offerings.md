@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 1ad41b0b7391236a15b7c1be7d42ed81aaf5b51a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f711d0dbc2df2a5ab102b520fb0d166a459383c1
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "61483438"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684451"
 ---
 # <a name="azure-storage-compliance-offerings"></a>Oferty zgodności usługi Azure Storage
 
@@ -21,7 +21,7 @@ Aby pomóc organizacjom w zgodności z krajowymi, regionalnymi i branżowymi wym
 
 Możesz znaleźć poniżej oferty zgodności w usłudze Azure Storage, aby upewnić się, że usługa została uregulowana przy użyciu usługi Azure Storage. Dotyczą one następujących ofert usługi Azure Storage: obiektów blob, plików, kolejek, tabel, dysków, chłodnego magazynu i Premium Storage.
 
-## <a name="global"></a>Globalny
+## <a name="global"></a>Globalnie
 
 * [CSA-GWIAZDka — zaświadczanie](https://www.microsoft.com/trustcenter/compliance/csa-star-attestation)
 * [CSA-gwiazdka-certyfikacja](https://www.microsoft.com/trustcenter/compliance/csa-star-certification)
@@ -37,7 +37,7 @@ Możesz znaleźć poniżej oferty zgodności w usłudze Azure Storage, aby upewn
 ## <a name="us-government"></a>US Government
 
 * [DoD DISA L2, P4, P5](https://www.microsoft.com/trustcenter/compliance/disa)
-* [Nowak 10 CFR część 810](https://aka.ms/AzureCompliance)
+* [DoE 10 CFR Part 810](https://aka.ms/AzureCompliance)
 * [KOLCZYK (przepisy dotyczące administracji eksportem USA)](https://aka.ms/AzureCompliance)
 * [FDA CFR tytuł 21 część 11](https://aka.ms/AzureCompliance)
 * [FedRAMP](https://www.microsoft.com/trustcenter/compliance/fedramp)
@@ -51,8 +51,8 @@ Możesz znaleźć poniżej oferty zgodności w usłudze Azure Storage, aby upewn
 * [23 NYCRR część 500](https://www.microsoft.com/trustcenter/compliance/NYCRR)
 * [APRA (Australia)](https://aka.ms/AzureCompliance)
 * [CDSA](https://www.microsoft.com/trustcenter/compliance/cdsa)
-* [DPP (WIELKA BRYTANIA)](https://aka.ms/AzureCompliance)
-* [FAKT (WIELKA BRYTANIA)](https://www.microsoft.com/trustcenter/compliance/fact)
+* [DPP (Zjednoczone Królestwo)](https://aka.ms/AzureCompliance)
+* [FACT (Zjednoczone Królestwo)](https://www.microsoft.com/trustcenter/compliance/fact)
 * [FCA (WIELKA BRYTANIA)](https://aka.ms/AzureCompliance)
 * [FFIEC](https://www.microsoft.com/trustcenter/compliance/FFIEC)
 * [FISC (Japonia)](https://www.microsoft.com/trustcenter/compliance/fisc)
@@ -64,30 +64,29 @@ Możesz znaleźć poniżej oferty zgodności w usłudze Azure Storage, aby upewn
 * [MAS + ABS (Singapur)](https://aka.ms/AzureCompliance)
 * [MPAA](https://www.microsoft.com/trustcenter/compliance/mpaa)
 * [NEN-7510 (Holandia)](https://www.microsoft.com/trustcenter/compliance/nen-7510)
-* [Zestaw narzędzi NHS IG (UK)](https://www.microsoft.com/trustcenter/Compliance/NHS)
 * [PCI DSS](https://www.microsoft.com/trustcenter/compliance/pci)
-* [Udostępnione oceny](https://aka.ms/AzureCompliance)
+* [Shared Assessments](https://aka.ms/AzureCompliance)
 * [SOX](https://www.microsoft.com/trustcenter/compliance/SOX)
 
-## <a name="regional"></a>Regionalny
+## <a name="regional"></a>Regionalne
 
 * [BIR 2012 (Holandia)](https://www.microsoft.com/TrustCenter/Compliance/bir-2012)
 * [C5 (Niemcy)](https://www.microsoft.com/TrustCenter/Compliance/C5)
 * [CCSL/IRAP (Australia)](https://www.microsoft.com/trustcenter/compliance/ccsl)
-* [Towar CS Gold (Japonia)](https://www.microsoft.com/trustcenter/compliance/cloud-security-mark)
+* [CS Gold Mark (Japonia)](https://www.microsoft.com/trustcenter/compliance/cloud-security-mark)
 * [DJCP (Chiny)](https://www.trustcenter.cn/compliance/default.html#DJCP)
 * [ENISA IAF (UE)](https://aka.ms/AzureCompliance)
 * [ENS (Hiszpania)](https://www.microsoft.com/trustcenter/compliance/spainens)
 * [EU-model — klauzule](https://www.microsoft.com/trustcenter/compliance/eu-model-clauses)
 * [Ochrona prywatności w EU-U. S](https://privacy.microsoft.com/en-US/microsoft-eu-us-privacy-shield)
 * [GB 18030 (Chiny)](https://www.trustcenter.cn/compliance/default.html#GB18030)
-* [RODO (UE)](https://www.microsoft.com/trustcenter/privacy/gdpr)
+* [GDPR (UE)](https://www.microsoft.com/trustcenter/privacy/gdpr)
 * [Skoroszyt IT Grundschutz (Niemcy)](https://www.microsoft.com/TrustCenter/Compliance/IT-Grundschutz)
 * [LOPD (Hiszpania)](https://aka.ms/AzureCompliance)
 * [MTCS (Singapur)](https://www.microsoft.com/trustcenter/compliance/mtcs)
-* [Mój numer (Japonia)](https://www.microsoft.com/trustcenter/privacy/we-set-and-adhere-to-stringent-standards#my_number)
+* [My Number (Japonia)](https://www.microsoft.com/trustcenter/privacy/we-set-and-adhere-to-stringent-standards#my_number)
 * [NZ CC Framework (Nowa Zelandia)](https://www.microsoft.com/trustcenter/compliance/nzcc)
-* [PASF (WIELKA BRYTANIA)](https://aka.ms/AzureCompliance)
+* [PASF (Zjednoczone Królestwo)](https://aka.ms/AzureCompliance)
 * [PDPA (Argentyna)](https://www.microsoft.com/trustcenter/privacy/we-set-and-adhere-to-stringent-standards#argentina)
 * [PIPEDA (Kanada)](https://www.microsoft.com/trustcenter/privacy/we-set-and-adhere-to-stringent-standards#canadian_privacy_laws)
 * [TRUCS (Chiny)](https://www.trustcenter.cn/compliance/default.html#TCS)

@@ -8,12 +8,13 @@ ms.date: 01/09/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 43955950b2fc0544b149c67e3f8df7ca905fafed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: monitoring
+ms.openlocfilehash: 6f53d5ec2d73c9edbb7e24c24107b2a6d6deb167
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79268290"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684679"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorowanie konta magazynu w witrynie Azure Portal
 
@@ -111,10 +112,10 @@ Można utworzyć alerty powiadamiające o osiągnięciu progów dla metryk zasob
 Wykresy metryk usługi Azure Storage można dodać do pulpitu nawigacyjnego portalu na dowolnym koncie magazynu.
 
 1. Wybierz pozycję **Edytuj pulpit nawigacyjny** podczas wyświetlania pulpitu nawigacyjnego w [Azure Portal](https://portal.azure.com).
-1. W **galerii kafelków**wybierz pozycję **Znajdź kafelki według** > **typu**.
-1. Wybierz pozycję **Typ** > **konta magazynu**.
+1. W **galerii kafelków**wybierz pozycję **Znajdź kafelki według**  >  **typu**.
+1. Wybierz pozycję **Typ**  >  **konta magazynu**.
 1. W obszarze **zasoby**wybierz konto magazynu, którego metryki chcesz dodać do pulpitu nawigacyjnego.
-1. Wybierz pozycję **Kategorie** > **monitorowanie**.
+1. Wybierz pozycję **Kategorie**  >  **monitorowanie**.
 1. Przeciągnij i upuść kafelek wykresu na pulpicie nawigacyjnym dla metryki, która ma być wyświetlana. Powtórz te czynności dla wszystkich metryk, które mają być wyświetlane na pulpicie nawigacyjnym. Na poniższej ilustracji wykres "obiekty blob — łączna liczba żądań" został wyróżniony jako przykład, ale wszystkie wykresy są dostępne do umieszczenia na pulpicie nawigacyjnym.
 
    ![Galeria kafelków w Azure Portal](./media/storage-monitor-storage-account/storage-customize-dashboard.png)

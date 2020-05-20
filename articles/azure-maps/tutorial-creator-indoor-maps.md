@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 5a7f64ead6d2e19242950002feed1cd1491dbacc
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a49661ca8776f04d98cc04bbe7a07b8c388f91ee
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598766"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681676"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Tworzenie map wewnętrznych przy użyciu kreatora
 
@@ -57,7 +57,7 @@ Interfejs API przekazywania danych to długotrwała transakcja implementująca w
 
 4. Na karcie **nagłówki** Określ wartość `Content-Type` klucza. Pakiet rysowania jest folderem spakowanym, więc Użyj `application/octet-stream` wartości. Na karcie **treść** wybierz pozycję dane **binarne**. Kliknij pozycję **Wybierz plik** i wybierz pakiet rysowania.
 
-     ![Zarządzanie danymi](./media/tutorial-creator-indoor-maps/enter-content-type.png)
+     ![Zarządzanie danymi](./media/tutorial-creator-indoor-maps/enter-content-type-dialog.png)
 
 5. Kliknij niebieski przycisk **Wyślij** i poczekaj na przetworzenie żądania. Po zakończeniu żądania przejdź na kartę **nagłówki** odpowiedzi. Skopiuj wartość klucza **lokalizacji** , czyli `status URL` .
 

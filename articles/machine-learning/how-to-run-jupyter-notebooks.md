@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 04/21/2020
-ms.openlocfilehash: 67da2cb31d59838bb3ad2b964530d85d8be9be4c
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 96e37afd8bf7d59eef4a4c0c831f535faa36d34d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82783658"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681443"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Jak uruchamiać notesy Jupyter w obszarze roboczym
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,7 +31,7 @@ Zobacz, jak to zrobić:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://aka.ms/AMLFree) .
+* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://aka.ms/AMLFree).
 * Obszar roboczy Machine Learning. Zobacz [Tworzenie obszaru roboczego Azure Machine Learning](how-to-manage-workspace.md).
 
 ## <a name="create-notebooks"></a><a name="create"></a>Tworzenie notesów
@@ -62,7 +62,7 @@ Obszar roboczy zawiera folder **Samples** z notesami, które ułatwiają zapozna
 
 Aby zapoznać się z przykładem, zobacz [Samouczek: Tworzenie pierwszego eksperymentu z](tutorial-1st-experiment-sdk-setup.md#azure)tablicą.
 
-### <a name="a-nameterminal-use-files-from-git-and-version-my-files"></a><a name="terminal">Używaj plików z narzędzia Git i wersji plików my
+### <a name="use-files-from-git-and-version-my-files"></a><a name="terminal"></a>Używaj plików z narzędzia Git i wersji plików my
 
 Dostęp do wszystkich operacji git można uzyskać przy użyciu okna terminalu. Wszystkie pliki i foldery git będą przechowywane w systemie plików obszaru roboczego.
 
@@ -161,7 +161,7 @@ W notesie zostaną automatycznie znalezione wszystkie jądra Jupyter zainstalowa
 
 1. Wybierz pozycję [**Otwórz Terminal**](#terminal) na pasku narzędzi notesu.
 1. Użyj okna terminalu, aby utworzyć nowe środowisko.
-1. Aktywuj środowisko.  Na przykład po utworzeniu `newenv`:
+1. Aktywuj środowisko.  Na przykład po utworzeniu `newenv` :
 
     ```shell
     source activate newenv

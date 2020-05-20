@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.subservice: ''
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/19/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5d73ba8f21fe7731fb751d42a8497ff8e1ebba7d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f0cc0cd7233d0c16cae8389fcddd50a16cf96bd2
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81383621"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683645"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>Konwertowanie klas zasobów na grupy obciążeń
 
@@ -27,7 +27,7 @@ Grupy obciążeń zapewniają mechanizm izolowania i zawierania zasobów systemo
 
 ## <a name="understanding-the-existing-resource-class-configuration"></a>Zrozumienie istniejącej konfiguracji klasy zasobów
 
-Grupy obciążeń wymagają parametru o nazwie `REQUEST_MIN_RESOURCE_GRANT_PERCENT` , który określa procent łącznych zasobów systemowych przyznanych na żądanie.  Alokacja zasobów jest wykonywana dla [klas zasobów](resource-classes-for-workload-management.md#what-are-resource-classes) przez alokowanie miejsc współbieżności.  Aby określić wartość do określenia `REQUEST_MIN_RESOURCE_GRANT_PERCENT`, użyj wykazu sys. dm_workload_management_workload_groups_stats <link tbd> DMV.  Na przykład poniższe zapytanie zapytania zwraca wartość, która może być użyta dla `REQUEST_MIN_RESOURCE_GRANT_PERCENT` parametru w celu utworzenia grupy obciążeń podobnej do staticrc40.
+Grupy obciążeń wymagają parametru o nazwie `REQUEST_MIN_RESOURCE_GRANT_PERCENT` , który określa procent łącznych zasobów systemowych przyznanych na żądanie.  Alokacja zasobów jest wykonywana dla [klas zasobów](resource-classes-for-workload-management.md#what-are-resource-classes) przez alokowanie miejsc współbieżności.  Aby określić wartość do określenia `REQUEST_MIN_RESOURCE_GRANT_PERCENT` , użyj wykazu sys. dm_workload_management_workload_groups_stats <link tbd> DMV.  Na przykład poniższe zapytanie zapytania zwraca wartość, która może być użyta dla `REQUEST_MIN_RESOURCE_GRANT_PERCENT` parametru w celu utworzenia grupy obciążeń podobnej do staticrc40.
 
 ```sql
 SELECT Request_min_resource_grant_percent = Effective_request_min_resource_grant_percent
@@ -38,11 +38,11 @@ SELECT Request_min_resource_grant_percent = Effective_request_min_resource_grant
 > [!NOTE]
 > Grupy obciążeń działają na podstawie wartości procentowej ogólnych zasobów systemowych.  
 
-Ponieważ grupy obciążeń działają na podstawie wartości procentowej ogólnych zasobów systemowych, podczas skalowania w górę i w dół, procent zasobów przypisywanych do klas zasobów statycznych względem ogólnych zmian zasobów systemu.  Na przykład staticrc40 w DW1000c przydziela 9,6% ogólnych zasobów systemowych.  O godzinie DW2000c przydzielono 19,2%.  Ten model jest podobny, jeśli chcesz skalować w górę w celu zapewnienia współbieżności i przydzielania większej liczby zasobów na żądanie.
+Ponieważ grupy obciążeń działają na podstawie wartości procentowej ogólnych zasobów systemowych, podczas skalowania w górę i w dół, procent zasobów przypisywanych do klas zasobów statycznych względem ogólnych zmian zasobów systemu.  Na przykład staticrc40 w DW1000c przydziela 19,2% ogólnych zasobów systemowych.  O godzinie DW2000c przydzielono 9,6%.  Ten model jest podobny, jeśli chcesz skalować w górę w celu zapewnienia współbieżności i przydzielania większej liczby zasobów na żądanie.
 
 ## <a name="create-workload-group"></a>Utwórz grupę obciążeń
 
-Ze znanymi `REQUEST_MIN_RESOURCE_GRANT_PERCENT`, można użyć SKŁADNI Utwórz grupę <link> obciążeń, aby utworzyć grupę obciążeń.  Opcjonalnie możesz określić `MIN_PERCENTAGE_RESOURCE` , że jest większy niż zero, aby izolować zasoby dla grupy obciążenia.  Ponadto można opcjonalnie określić `CAP_PERCENTAGE_RESOURCE` mniej niż 100, aby ograniczyć ilość zasobów, które może zużywać Grupa obciążeń.  
+Ze znanymi `REQUEST_MIN_RESOURCE_GRANT_PERCENT` , można użyć SKŁADNI Utwórz grupę obciążeń, <link> Aby utworzyć grupę obciążeń.  Opcjonalnie możesz określić `MIN_PERCENTAGE_RESOURCE` , że jest większy niż zero, aby izolować zasoby dla grupy obciążenia.  Ponadto można opcjonalnie określić `CAP_PERCENTAGE_RESOURCE` mniej niż 100, aby ograniczyć ilość zasobów, które może zużywać Grupa obciążeń.  
 
 Poniższy przykład ustawia `MIN_PERCENTAGE_RESOURCE` do dedykowania 9,6% zasobów systemowych `wgDataLoads` i gwarantuje, że jedno zapytanie będzie mogło działać przez cały czas.  Ponadto `CAP_PERCENTAGE_RESOURCE` jest ustawiony na 38,4% i ogranicza tę grupę obciążeń do czterech współbieżnych żądań.  Ustawienie `QUERY_EXECUTION_TIMEOUT_SEC` parametru na 3600 spowoduje automatyczne anulowanie wszystkich zapytań, które są uruchamiane przez więcej niż 1 godzinę.
 
@@ -59,7 +59,7 @@ CREATE WORKLOAD GROUP wgDataLoads WITH
 Poprzednio mapowanie zapytań do klas zasobów zostało wykonane z [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Aby osiągnąć te same funkcje i mapować żądania do grup obciążeń, użyj składni [KLASYFIKATORA obciążeń](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .  Za pomocą sp_addrolemember można mapować zasoby na żądanie na podstawie nazwy logowania.  Klasyfikator zapewnia dodatkowe opcje oprócz logowania, takie jak:
     - label
     - sesja
-    - czas w poniższym przykładzie przypisuje zapytania z `AdfLogin` nazwy logowania, które również mają ustawioną `factloads` `wgDataLoads` [etykietę opcji](sql-data-warehouse-develop-label.md) na grupę obciążeń utworzoną powyżej.
+    - czas w poniższym przykładzie przypisuje zapytania z `AdfLogin` nazwy logowania, które również mają ustawioną [etykietę opcji](sql-data-warehouse-develop-label.md) na `factloads` grupę obciążeń `wgDataLoads` utworzoną powyżej.
 
 ```sql
 CREATE WORKLOAD CLASSIFIER wcDataLoads WITH  

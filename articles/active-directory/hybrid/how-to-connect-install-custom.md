@@ -14,12 +14,12 @@ ms.date: 11/14/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5f83fa040de501adf3afa523086e100244fa619
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f96e70c6699fb7ce85bd1c01f72028f537f994f2
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80331787"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680303"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Niestandardowa instalacja programu Azure AD Connect
 Opcja **Ustawienia niestandardowe** programu Azure AD Connect umożliwia skorzystanie z większej liczby opcji instalacji. Jest używana w przypadku występowania wielu lasów lub w celu skonfigurowania funkcji opcjonalnych, których nie obejmuje instalacja ekspresowa. Jest przydatna w każdej sytuacji, gdy opcja [**instalacji ekspresowej**](how-to-connect-install-express.md) nie zaspokaja potrzeb związanych z wdrożeniem lub topologią.
@@ -89,7 +89,7 @@ Po wprowadzeniu nazwy lasu i kliknięciu pozycji **Dodaj katalog** zostanie wyś
 #### <a name="enterprise-admin-and-domain-admin-accounts-not-supported"></a>Konta administratorów przedsiębiorstwa i administratorów domeny nie są obsługiwane
 W przypadku kompilacji 1.4.18.0 nie jest już obsługiwane używanie konta administratora przedsiębiorstwa lub administratora domeny jako konta łącznika AD DS.  Jeśli podczas określania **użycia istniejącego konta**zostanie podjęta próba wprowadzenia konta administratora przedsiębiorstwa lub administratora domeny, zostanie wyświetlony następujący błąd:
 
-  **"Korzystanie z konta administratora przedsiębiorstwa lub domeny dla konta lasu usługi AD jest niedozwolone.  Zezwól Azure AD Connect utworzyć konta lub określ konto synchronizacji z odpowiednimi uprawnieniami.  &lt;Dowiedz&gt;się więcej "**
+  **"Korzystanie z konta administratora przedsiębiorstwa lub domeny dla konta lasu usługi AD jest niedozwolone.  Zezwól Azure AD Connect utworzyć konta lub określ konto synchronizacji z odpowiednimi uprawnieniami.  &lt;Dowiedz się więcej &gt; "**
 
 ### <a name="azure-ad-sign-in-configuration"></a>Konfiguracja logowania się w usłudze Azure AD
 Ta strona umożliwia przeglądanie domen UPN obecnych w lokalnych usługach AD DS oraz tych, które zostały zweryfikowane w usłudze Azure AD. Umożliwia również skonfigurowanie atrybutu dla właściwości userPrincipalName.
@@ -181,7 +181,7 @@ Na tym ekranie można wybrać funkcje opcjonalne dla określonych scenariuszy.
 | Filtrowanie atrybutów i aplikacji usługi Azure AD |Przez włączenie filtrowania atrybutów i aplikacji usługi Azure AD można dostosować zestaw synchronizowanych atrybutów. Ta opcja dodaje do kreatora dwie dodatkowe strony konfiguracji. Więcej informacji znajduje się w temacie [Filtrowanie atrybutów i aplikacji usługi Azure AD](#azure-ad-app-and-attribute-filtering). |
 | Synchronizacja skrótów haseł |Te opcję można włączyć, jeśli jako metodę logowania wybrano federację. Synchronizacja skrótów haseł może być następnie użyta jako opcja tworzenia kopii zapasowych. Dodatkowe informacje znajdują się w temacie [Synchronizacja skrótów haseł](how-to-connect-password-hash-synchronization.md). </br></br>W przypadku wybrania uwierzytelniania przekazywanego tę opcję można również włączyć, aby zapewnić obsługę starszych klientów i opcję tworzenia kopii zapasowych. Dodatkowe informacje znajdują się w temacie [Synchronizacja skrótów haseł](how-to-connect-password-hash-synchronization.md).|
 | Zapisywanie zwrotne haseł |Po włączeniu zapisywania zwrotnego haseł zmiany hasła, które pochodzą z usługi Azure AD, są ponownie zapisywane w katalogu lokalnym. Więcej informacji można znaleźć w temacie [Wprowadzenie do zarządzania hasłami](../authentication/quickstart-sspr.md) |
-| Zapisywanie zwrotne grup |Jeśli używana jest funkcja **Grupy usługi Office 365**, grupy te mogą być reprezentowane w lokalnej usłudze Active Directory. Ta opcja jest dostępna tylko, jeśli w lokalnej usłudze Active Directory jest dostępny program Exchange. Więcej informacji znajduje się w temacie [Zapisywanie zwrotne grup](how-to-connect-preview.md#group-writeback). |
+| Zapisywanie zwrotne grup |Jeśli używana jest funkcja **Grupy usługi Office 365**, grupy te mogą być reprezentowane w lokalnej usłudze Active Directory. Ta opcja jest dostępna tylko, jeśli w lokalnej usłudze Active Directory jest dostępny program Exchange. |
 | Zapisywanie zwrotne urządzeń |Umożliwia zapisywanie zwrotne obiektów urządzenia w usłudze Azure AD do Active Directory lokalnych dla scenariuszy dostępu warunkowego. Więcej informacji znajduje się w temacie [Włączanie zapisywania zwrotnego urządzeń w programie Azure AD Connect](how-to-connect-device-writeback.md). |
 | Synchronizacja atrybutów rozszerzeń katalogów |Po włączeniu synchronizacji atrybutów rozszerzeń katalogów określone atrybuty są synchronizowane z usługą Azure AD. Więcej informacji znajduje się w temacie [Rozszerzenia katalogów](how-to-connect-sync-feature-directory-extensions.md). |
 
@@ -382,7 +382,7 @@ Po kliknięciu przycisku Weryfikuj program Azure AD Connect sprawdza ustawienia 
 
 * Rozpoznawanie federacyjnej nazwy FQDN: program Azure AD Connect sprawdza, czy federacyjna nazwa FQDN może zostać rozpoznana przez serwer DNS w celu zapewnienia łączności.
 
-![Complete](./media/how-to-connect-install-custom/completed.png)
+![Ukończ](./media/how-to-connect-install-custom/completed.png)
 
 ![Weryfikuj](./media/how-to-connect-install-custom/adfs7.png)
 
@@ -399,7 +399,7 @@ Poniższa sekcja obejmuje rozwiązywanie problemów i informacje, z których mo�
 ### <a name="the-adsync-database-already-contains-data-and-cannot-be-overwritten"></a>„Baza danych ADSync już zawiera dane i nie można jej zastąpić”
 W przypadku niestandardowej instalacji Azure AD Connect i wybrania opcji **Użyj istniejącego serwera SQL** na stronie **Instalowanie wymaganych składników** może wystąpić błąd informujący o tym, że **baza danych ADSync zawiera już dane i nie można jej zastąpić. Usuń istniejącą bazę danych i spróbuj ponownie.**
 
-![Error](./media/how-to-connect-install-custom/error1.png)
+![Błąd](./media/how-to-connect-install-custom/error1.png)
 
 Dzieje się tak, ponieważ na wystąpieniu SQL serwera SQL istnieje już baza danych o nazwie **ADSync**, którą określono w powyższych polach tekstowych.
 
@@ -411,7 +411,7 @@ Następnie zaleca się utworzenie kopii zapasowej bazy danych przed jej usunięc
 
 Na koniec należy usunąć bazę danych.  Możesz to zrobić, używając programu **Microsoft SQL Server Management Studio** i nawiązując połączenie z wystąpieniem SQL. Znajdź bazę danych **ADSync**, kliknij ją prawym przyciskiem myszy, a następnie wybierz polecenie **Usuń** z menu kontekstowego.  Następnie kliknij przycisk **OK**, aby usunąć bazę danych.
 
-![Error](./media/how-to-connect-install-custom/error2.png)
+![Błąd](./media/how-to-connect-install-custom/error2.png)
 
 Po usunięciu bazy danych **ADSync** możesz kliknąć przycisk **Zainstaluj**, aby ponowić próbę instalacji.
 

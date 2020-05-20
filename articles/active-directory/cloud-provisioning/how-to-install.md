@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4581ab89f74425682f569425f62714ead2c27c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 764071eeaf368ecf78679632cffbd6964db40aa5
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79263350"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681037"
 ---
 # <a name="install-the-azure-ad-connect-cloud-provisioning-agent"></a>Instalowanie agenta aprowizacji w chmurze programu Azure AD Connect
 Ten dokument przeprowadzi Cię przez proces instalacji Azure Active Directory (Azure AD) Połącz agenta aprowizacji i sposób jego początkowego skonfigurowania w Azure Portal.
@@ -35,7 +35,7 @@ Aby zainstalować agenta, wykonaj następujące kroki.
 
 1. Zaloguj się na serwerze, który będzie używany z uprawnieniami administratora przedsiębiorstwa.
 1. Przejdź do witryny Azure Portal. Po lewej stronie wybierz pozycję **Azure Active Directory**.
-1. Wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)** > **Przejrzyj wszystkich agentów**.
+1. Wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**  >  **Przejrzyj wszystkich agentów**.
 1. Pobierz Azure AD Connect agenta aprowizacji z Azure Portal.
 
    ![Pobierz agenta lokalnego](media/how-to-install/install9.png)</br>
@@ -64,8 +64,8 @@ Weryfikacja agenta odbywa się w Azure Portal i na serwerze lokalnym, na którym
 ### <a name="azure-portal-agent-verification"></a>Weryfikacja agenta Azure Portal
 Aby sprawdzić, czy Agent jest widziany przez platformę Azure, wykonaj następujące kroki.
 
-1. Zaloguj się do witryny Azure Portal.
-1. Po lewej stronie wybierz pozycję **Azure Active Directory** > **Azure AD Connect**. W centrum wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**.
+1. Zaloguj się do Portalu Azure.
+1. Po lewej stronie wybierz pozycję **Azure Active Directory**  >  **Azure AD Connect**. W centrum wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**.
 
    ![Azure Portal](media/how-to-install/install6.png)</br>
 
@@ -77,20 +77,13 @@ Aby sprawdzić, czy Agent jest widziany przez platformę Azure, wykonaj następu
 
    ![Ekran lokalnych agentów aprowizacji](media/how-to-install/verify1.png)</br>
 
-### <a name="verify-the-port"></a>Weryfikowanie portu
-Aby sprawdzić, czy platforma Azure nasłuchuje na porcie 443 i czy Agent może się z nim komunikować, wykonaj następujące kroki.
 
-https://aadap-portcheck.connectorporttest.msappproxy.net/ 
-
-Ten test sprawdza, czy agenci mogą komunikować się z platformą Azure przez port 443. Otwórz przeglądarkę i przejdź do poprzedniego adresu URL z serwera, na którym zainstalowano agenta.
-
-![Weryfikacja osiągalności portów](media/how-to-install/verify2.png)
 
 ### <a name="on-the-local-server"></a>Na serwerze lokalnym
 Aby sprawdzić, czy agent działa, wykonaj następujące kroki.
 
 1.  Zaloguj się na serwerze przy użyciu konta administratora.
-1.  Otwórz **usługi** , przechodząc do niej lub**Run** > naciskając **Start** > pozycję Uruchom**Services. msc**.
+1.  Otwórz **usługi** , przechodząc do niej lub naciskając **pozycję Uruchom**  >  **Run**  >  **Services. msc**.
 1.  W obszarze **usługi**upewnij się, że **Microsoft Azure AD Connect agent Aktualizator** i **Microsoft Azure AD Connect Agent aprowizacji** jest tam i ich stan jest *uruchomiony*.
 
     ![Ekran usług](media/how-to-troubleshoot/troubleshoot1.png)

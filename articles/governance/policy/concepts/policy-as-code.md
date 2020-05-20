@@ -1,14 +1,14 @@
 ---
 title: Projektowanie przepływów pracy typu zasady jako kod
 description: Dowiedz się, jak projektować przepływy pracy, aby wdrożyć definicje Azure Policy jako kod i automatycznie sprawdzać poprawność zasobów.
-ms.date: 11/04/2019
+ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: fd77fdd4011c3e1e83f8dfa9f30045bb72881c25
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 972ec40609c340b159d21dde2bf18ab3330bf8cd
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187736"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684267"
 ---
 # <a name="design-policy-as-code-workflows"></a>Projektowanie przepływów pracy typu zasady jako kod
 
@@ -17,7 +17,7 @@ W miarę postępów związanych z zarządzaniem chmurą należy zmienić ręczn�
 - Infrastruktura jako kod: praktyczne traktowanie zawartości definiującej Twoje środowiska, wszystko to z szablonów Menedżer zasobów, aby Azure Policy definicje do planów platformy Azure, jako kod źródłowy.
 - DevOps: związek osób, procesów i produktów, aby umożliwić ciągłe dostarczanie wartości naszym użytkownikom końcowym.
 
-Zasady jako kod to kombinacja tych pomysłów. Zasadniczo należy zachować definicje zasad w kontroli źródła i za każdym razem, gdy zmiana została wprowadzona, przetestować i zweryfikować tę zmianę. Jednak nie powinno to być stopień zaangażowania zasad z infrastrukturą jako kodem lub DevOps.
+Zasady jako kod to kombinacja tych pomysłów. Zasadniczo należy zachować definicje zasad w kontroli źródła oraz za każdym razem, gdy zmiana została wprowadzona, przetestować i zweryfikować tę zmianę. Jednak nie powinno to być stopień zaangażowania zasad z infrastrukturą jako kodem lub DevOps.
 
 Krok walidacji powinien również być składnikiem innych przepływów pracy ciągłej integracji i ciągłego wdrażania. Przykłady obejmują wdrażanie środowiska aplikacji lub infrastruktury wirtualnej. Dzięki wykorzystaniu Azure Policy sprawdzać poprawność wczesnego składnika procesu kompilacji i wdrożenia, zespoły aplikacji i operacji wykrywają, czy ich zmiany nie są reklamacją, długo przed upływem zbyt późno i podejmują próbę wdrożenia w środowisku produkcyjnym.
 
@@ -87,10 +87,10 @@ Podobnie jak w przypadku definicji zasad, podczas dodawania lub aktualizowania i
 
 Gdy usługa Automation przestała nowo utworzone lub zaktualizowane definicje zasad lub inicjatyw i wykona aktualizację obiektu na platformie Azure, czas na przetestowanie wprowadzonych zmian zostanie przeprowadzony. Zasady lub inicjatywy, które są częścią, powinny następnie być przypisane do zasobów w środowisku najdalej z produkcji. To środowisko jest zwykle _deweloperskie_.
 
-Przypisanie powinno używać [wymuszania](./assignment-structure.md#enforcement-mode) _wyłączone_ , tak aby tworzenie i aktualizowanie zasobów nie było blokowane, ale istniejące zasoby nadal są poddawane inspekcji pod kątem zgodności ze zaktualizowaną definicją zasad. Nawet w przypadku wymuszania, zaleca się, aby zakres przypisania był grupą zasobów lub subskrypcją, która jest używana do sprawdzania poprawności zasad.
+Przypisanie powinno używać [wymuszania](./assignment-structure.md#enforcement-mode) _wyłączone_ , tak aby tworzenie i aktualizowanie zasobów nie było blokowane, ale istniejące zasoby nadal są poddawane inspekcji pod kątem zgodności ze zaktualizowaną definicją zasad. Nawet w przypadku wymuszania, zaleca się, aby zakres przypisania był grupą zasobów lub subskrypcją, która jest przeznaczona do sprawdzania poprawności zasad.
 
 > [!NOTE]
-> Tryb wymuszania jest przydatny, ale nie zastępuje dokładnego testowania definicji zasad w różnych warunkach. Definicja zasad powinna być testowana przy użyciu `PUT` wywołań `PATCH` interfejsu API REST, zgodnych i niezgodnych zasobów oraz przypadków brzegowych, takich jak brak właściwości w zasobie.
+> Tryb wymuszania jest przydatny, ale nie zastępuje dokładnego testowania definicji zasad w różnych warunkach. Definicja zasad powinna być testowana przy użyciu `PUT` `PATCH` wywołań interfejsu API REST, zgodnych i niezgodnych zasobów oraz przypadków brzegowych, takich jak brak właściwości w zasobie.
 
 Po wdrożeniu przypisania Użyj zestawu SDK zasad, aby [uzyskać dane zgodności](../how-to/get-compliance-data.md) dla nowego przypisania. Środowisko używane do testowania zasad i przypisań powinno mieć zarówno zgodne, jak i niezgodne zasoby. Podobnie jak w przypadku dobrego testu jednostkowego dla kodu, należy przetestować, czy zasoby są zgodne z oczekiwaniami, a także nie mają fałszywych wartości fałszywie dodatnich lub fałszywych. W przypadku testowania i weryfikowania tylko tego, czego oczekujesz, może wystąpić nieoczekiwany i niezidentyfikowany wpływ zasad. Aby uzyskać więcej informacji, zobacz [ocenę wpływu nowej definicji Azure Policy](./evaluate-impact.md).
 
@@ -99,7 +99,7 @@ Po wdrożeniu przypisania Użyj zestawu SDK zasad, aby [uzyskać dane zgodności
 Jeśli walidacja przypisania spełnia oczekiwania, następnym krokiem jest zweryfikowanie korekty.
 Zasady korzystające z usługi [deployIfNotExists](./effects.md#deployifnotexists) lub [Modify](./effects.md#modify) mogą być uwzględniane w zadaniu korygowania i poprawiać zasoby z niezgodnego stanu.
 
-Pierwszym krokiem do wykonania tej czynności jest przyznanie przypisania zasad zdefiniowanego w definicji zasad. To przypisanie roli umożliwia zarządzanie tożsamością przez przypisanie zasad wystarczających uprawnień, aby wprowadzić wymagane zmiany w celu uzyskania zgodności zasobów.
+Pierwszym krokiem korygowaniem zasobów jest przyznanie przypisania zasad zdefiniowanego w definicji zasad. To przypisanie roli umożliwia zarządzanie tożsamością przez przypisanie zasad wystarczających uprawnień, aby wprowadzić wymagane zmiany w celu uzyskania zgodności zasobów.
 
 Gdy przypisanie zasad ma odpowiednie prawa, użyj zestawu SDK zasad, aby wyzwolić zadanie korygowania względem zestawu zasobów, które są znane jako niezgodne. Przed kontynuowaniem należy wykonać trzy testy w odniesieniu do tych skorygowanych zadań:
 
@@ -111,7 +111,7 @@ Testowanie zarówno zaktualizowanych wyników oceny zasad, jak i środowiska bez
 
 ### <a name="update-to-enforced-assignments"></a>Aktualizuj, aby wymuszać przypisania
 
-Po zakończeniu wszystkich bram walidacji zaktualizuj przypisanie, aby używać _włączonego_elementu **wymuszania** . Ta zmiana powinna zostać początkowo wprowadzona w tym samym środowisku poza środowiskiem produkcyjnym. Po sprawdzeniu poprawności tego środowiska zgodnie z oczekiwaniami należy zmienić zakres, aby uwzględnić następne środowisko i tak dalej, dopóki zasady nie zostaną wdrożone w zasobach produkcyjnych.
+Po zakończeniu wszystkich bram walidacji zaktualizuj przypisanie, aby używać _włączonego_elementu **wymuszania** . Zaleca się, aby ta zmiana była początkowo w tym samym środowisku, daleko od środowiska produkcyjnego. Po sprawdzeniu poprawności tego środowiska zgodnie z oczekiwaniami należy zmienić zakres, aby uwzględnić następne środowisko itd., dopóki zasady nie zostaną wdrożone w zasobach produkcyjnych.
 
 ## <a name="process-integrated-evaluations"></a>Przetwarzaj zintegrowane oceny
 

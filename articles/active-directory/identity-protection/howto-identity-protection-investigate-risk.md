@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5191f05752c177aa29d121abe9d1aa29fde265a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 23105a78e2ba34cf6a45f749ebfdd6b034ebf0dc
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253483"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680148"
 ---
 # <a name="how-to-investigate-risk"></a>Instrukcje: badanie ryzyka
 
@@ -26,7 +26,7 @@ Wszystkie trzy raporty umożliwiają pobieranie zdarzeń w programie. Format CSV
 
 Organizacje mogą wykorzystać integracje interfejsów API Microsoft Graph do agregowania danych z innymi źródłami, do których mogą mieć dostęp jako organizacja.
 
-Trzy raporty są dostępne w **Azure Portal** > **Azure Active Directory** > **zabezpieczenia**.
+Trzy raporty są dostępne w **Azure Portal**  >  **Azure Active Directory**  >  **zabezpieczenia**.
 
 ## <a name="navigating-the-reports"></a>Nawigowanie po raportach
 
@@ -74,6 +74,9 @@ Administratorzy mogą następnie podjąć odpowiednie działania dotyczące tych
 
 - Potwierdź naruszenie logowania
 - Potwierdź bezpieczne logowanie
+
+> [!NOTE] 
+> Program Identity Protection szacuje ryzyko dla wszystkich przepływów uwierzytelniania, niezależnie od tego, czy jest on interaktywny, czy nieinteraktywny. Jednak raport logowania zawiera tylko logowania interaktywne. Mogą pojawić się ryzykowne logowania, które wystąpiły w przypadku logowania nieinterakcyjnego, ale logowanie nie będzie widoczne w raporcie logowania usługi Azure AD.
 
 ## <a name="risk-detections"></a>Wykrycia ryzyka
 

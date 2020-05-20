@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/10/2020
+ms.date: 05/19/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b0d8228586c0e20e4314331339aa2f2c46a38c9a
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: aa3096f43952c047620b310412b27c434fc5fb06
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792160"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682608"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Konfiguracje magazynu maszyn wirtualnych platformy Azure SAP HANA
 
@@ -55,6 +55,9 @@ W lokalnym świecie rzadko trzeba zadbać o podsystemy we/wy i możliwości. Prz
 - Włącz działanie zapisu przez co najmniej 250 MB/s dla **/Hana/Data** z 16 mb i 64 MB we/wy
 
 Uwzględniając, że niskie opóźnienie magazynu ma krytyczne znaczenie dla systemów DBMS, nawet jako DBMS, takie jak SAP HANA, Zachowaj dane w pamięci. Ścieżka krytyczna w magazynie jest zwykle wokół zapisów w dzienniku transakcji w systemach DBMS. Ale również operacje, takie jak zapisywanie punktów zapisu lub ładowanie danych w pamięci po awarii, mogą być krytyczne. W związku z tym, **obowiązkowe** jest korzystanie z dysków Azure Premium dla woluminów **/Hana/Data** i **/Hana/log** . Aby zapewnić minimalną przepływność **/Hana/log** i **/Hana/Data** zgodnie z wymaganiami SAP, należy skompilować RAID 0 za pomocą MDADM lub LVM na wielu dyskach Premium Storage platformy Azure. I używaj woluminów RAID jako woluminów **/Hana/Data** i **/Hana/log** . 
+
+> [!IMPORTANT]
+>Trzy SAP HANA systemy plików/Data,/log i/Shared nie mogą być umieszczane w domyślnej lub głównej grupie woluminów.  Zdecydowanie zaleca się przestrzeganie wskazówek dotyczących dostawców systemu Linux, które zwykle umożliwiają tworzenie pojedynczych grup woluminów dla/Data,/log i/Shared.
 
 **Zalecenie: jako rozmiary rozłożenia dla RAID 0 zaleca się użycie:**
 
@@ -264,7 +267,7 @@ Rozważając Azure NetApp Files dla oprogramowania SAP NetWeaver i SAP HANA, nal
 > W przypadku obciążeń SAP HANA małe opóźnienia są krytyczne. Skontaktuj się z przedstawicielem firmy Microsoft, aby upewnić się, że maszyny wirtualne i woluminy Azure NetApp Files są wdrożone w bliskiej bliskości.  
 
 > [!IMPORTANT]
-> Jeśli istnieje niezgodność między IDENTYFIKATORem użytkownika dla identyfikatora <b>SID</b>adm a identyfikatorem grupy `sapsys` między maszyną wirtualną a konfiguracją usługi Azure NetApp, uprawnienia do plików na woluminach NetApp platformy Azure, zainstalowane na maszynach wirtualnych, będą `nobody`wyświetlane jako. Upewnij się, że określisz prawidłowy identyfikator użytkownika dla <b>identyfikatora SID</b>adm i identyfikator grupy `sapsys`dla, podczas gdy [Nowy system](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) ma Azure NetApp Files.
+> Jeśli istnieje niezgodność między IDENTYFIKATORem użytkownika dla identyfikatora <b>SID</b>adm a identyfikatorem grupy `sapsys` między maszyną wirtualną a konfiguracją usługi Azure NetApp, uprawnienia do plików na woluminach NetApp platformy Azure, zainstalowane na maszynach wirtualnych, będą wyświetlane jako `nobody` . Upewnij się, że określisz prawidłowy identyfikator użytkownika dla <b>identyfikatora SID</b>adm i identyfikator grupy dla `sapsys` , podczas gdy [Nowy system](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) ma Azure NetApp Files.
 
 ### <a name="sizing-for-hana-database-on-azure-netapp-files"></a>Ustalanie wielkości dla bazy danych HANA na Azure NetApp Files
 
@@ -283,7 +286,7 @@ Podczas projektowania infrastruktury dla oprogramowania SAP na platformie Azure 
 > [!IMPORTANT]
 > Niezależna od pojemności wdrożonej na pojedynczym woluminie systemu plików NFS przepływność oczekuje na Plateau w zakresie przepustowości 1,2-1.4 GB/s wykorzystanej przez odbiorcę na maszynie wirtualnej. Należy to zrobić z podstawową architekturą oferty ANF i powiązanymi limitami sesji systemu Linux w systemie plików NFS. Numery wydajności i przepływności zgodnie z opisem w artykule [wyniki testów porównawczych wydajności artykułu dla Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/performance-benchmarks-linux) zostały wykonane na jednym udostępnionym woluminie NFS z wieloma maszynami wirtualnymi klienta i w wyniku wielu sesji. Ten scenariusz jest różny dla scenariusza, który mierzę w oprogramowaniu SAP. Gdzie mierzy przepływność z pojedynczej maszyny wirtualnej do woluminu systemu plików NFS. hostowane w witrynie ANF.
 
-W celu spełnienia minimalnych wymagań dotyczących przepływności SAP dla danych i dziennika, a zgodnie z wytycznymi dla `/hana/shared`, zalecane rozmiary będą wyglądać następująco:
+W celu spełnienia minimalnych wymagań dotyczących przepływności SAP dla danych i dziennika, a zgodnie z wytycznymi dla `/hana/shared` , zalecane rozmiary będą wyglądać następująco:
 
 | Wolumin | Rozmiar<br /> Warstwa Premium Storage | Rozmiar<br /> Warstwa Ultra Storage | Obsługiwany protokół NFS |
 | --- | --- | --- |

@@ -8,12 +8,13 @@ ms.date: 09/23/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 0bbffacc0a8c47950b8637e826d1d5db9fbdb234
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: monitoring
+ms.openlocfilehash: 71f2acfc7c1d227d89f96f753572f4631f4cad65
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605064"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684659"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorowanie, diagnozowanie i rozwiązywanie problemów z usługą Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -75,7 +76,7 @@ Aby uzyskać szczegółowe informacje na temat kompleksowego rozwiązywania prob
   * [Dodatek 4: używanie programu Excel do wyświetlania metryk i danych dzienników]
   * [Dodatek 5: monitorowanie za pomocą Application Insights platformy Azure DevOps]
 
-## <a name="introduction"></a><a name="introduction"></a>Wprowadzenie
+## <a name="introduction"></a><a name="introduction"></a>Początk
 W tym przewodniku pokazano, jak za pomocą funkcji, takich jak analityka magazynu platformy Azure, rejestrowanie po stronie klienta w bibliotece klienta usługi Azure Storage oraz inne narzędzia innych firm do identyfikowania, diagnozowania i rozwiązywania problemów związanych z usługą Azure Storage.
 
 ![][1]
@@ -359,7 +360,7 @@ Usługa magazynu oblicza tylko **niską averagee2elatency** metryk dla pomyślny
 #### <a name="investigating-client-performance-issues"></a>Badanie problemów z wydajnością klienta
 Możliwe przyczyny, dla których klient odpowie wolno, obejmują ograniczoną liczbę dostępnych połączeń lub wątków lub niską ilość zasobów, takich jak procesor CPU, pamięć lub przepustowość sieci. Można rozwiązać ten problem, modyfikując kod klienta, aby był bardziej wydajny (na przykład za pomocą wywołań asynchronicznych usługi Storage) lub przy użyciu większej maszyny wirtualnej (z większą liczbą rdzeni i więcej pamięci).
 
-W przypadku usług tabel i kolejek algorytm nagle może również spowodować duże **niską averagee2elatency** w porównaniu z **wartość averageserverlatency**: Aby uzyskać więcej informacji, zobacz Algorytm post [nagle nie jest przyjazny do małych żądań](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx). Algorytm nagle można wyłączyć w kodzie przy użyciu klasy **ServicePointManager** w przestrzeni nazw **System.NET** . Należy to zrobić przed wprowadzeniem jakichkolwiek wywołań do usług Table lub Queue w aplikacji, ponieważ nie ma to wpływu na połączenia, które są już otwarte. Poniższy przykład pochodzi z metody **Application_Start** w roli procesu roboczego.
+W przypadku usług tabel i kolejek algorytm nagle może również spowodować duże **niską averagee2elatency** w porównaniu z **wartość averageserverlatency**: Aby uzyskać więcej informacji, zobacz Algorytm post [nagle nie jest przyjazny do małych żądań](https://docs.microsoft.com/archive/blogs/windowsazurestorage/nagles-algorithm-is-not-friendly-towards-small-requests). Algorytm nagle można wyłączyć w kodzie przy użyciu klasy **ServicePointManager** w przestrzeni nazw **System.NET** . Należy to zrobić przed wprowadzeniem jakichkolwiek wywołań do usług Table lub Queue w aplikacji, ponieważ nie ma to wpływu na połączenia, które są już otwarte. Poniższy przykład pochodzi z metody **Application_Start** w roli procesu roboczego.
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);
@@ -478,7 +479,7 @@ Jeśli aplikacja kliencka zgłasza błędy HTTP 403 (zabronione), prawdopodobną
 | Microsoft. Azure. Storage |Ostrzeżenie |2 |85d077ab-... |Zgłoszono wyjątek podczas operacji: serwer zdalny zwrócił błąd: (403) zabronione.. |
 | Microsoft. Azure. Storage |Informacje |3 |85d077ab-... |Sprawdzanie, czy operacja powinna być ponowiona. Liczba ponownych prób = 0, kod stanu HTTP = 403, wyjątek = serwer zdalny zwrócił błąd: (403) jest zabroniony. |
 | Microsoft. Azure. Storage |Informacje |3 |85d077ab-... |W następnej lokalizacji ustawiono wartość podstawowa, na podstawie trybu lokalizacji. |
-| Microsoft. Azure. Storage |Error |1 |85d077ab-... |Zasady ponawiania nie umożliwiały ponowienia próby. Niepowodzenie z serwerem zdalnym zwróciło błąd: (403) zabronione. |
+| Microsoft. Azure. Storage |Błąd |1 |85d077ab-... |Zasady ponawiania nie umożliwiały ponowienia próby. Niepowodzenie z serwerem zdalnym zwróciło błąd: (403) zabronione. |
 
 W tym scenariuszu należy zbadać, dlaczego token sygnatury dostępu współdzielonego upływa przed wysłaniem przez klienta tokenu do serwera:
 
@@ -516,24 +517,24 @@ Wpisy dziennika:
 
 | Identyfikator żądania | Tekst operacji |
 | --- | --- |
-| 07b26a5d-... |Uruchamianie żądania synchronicznego `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`do. |
+| 07b26a5d-... |Uruchamianie żądania synchronicznego do `https://domemaildist.blob.core.windows.net/azuremmblobcontainer` . |
 | 07b26a5d-... |StringToSign = główna................ x-MS-Client-Request-ID: 07b26a5d-.... x-MS-Date: WT, 03 Jun 2014 10:33:11 GMT. x-MS-Version: 2014-02-14./domemaildist/azuremmblobcontainer. restype: Container. |
 | 07b26a5d-... |Oczekiwanie na odpowiedź. |
-| 07b26a5d-... |Odebrano odpowiedź. Kod stanu = 200, identyfikator żądania = eeead849-... Content-MD5 =, ETag = &quot;0x8D14D2DC63D059B&quot;. |
+| 07b26a5d-... |Odebrano odpowiedź. Kod stanu = 200, identyfikator żądania = eeead849-... Content-MD5 =, ETag = &quot; 0x8D14D2DC63D059B &quot; . |
 | 07b26a5d-... |Nagłówki odpowiedzi zostały pomyślnie przetworzone, podczas gdy pozostała część operacji. |
 | 07b26a5d-... |Pobieranie treści odpowiedzi. |
 | 07b26a5d-... |Operacja została ukończona pomyślnie. |
-| 07b26a5d-... |Uruchamianie żądania synchronicznego `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`do. |
+| 07b26a5d-... |Uruchamianie żądania synchronicznego do `https://domemaildist.blob.core.windows.net/azuremmblobcontainer` . |
 | 07b26a5d-... |StringToSign = Usuń............. x-MS-Client-Request-ID: 07b26a5d-.... x-MS-Date: WT, 03 Jun 2014 10:33:12 GMT. x-MS-Version: 2014-02-14./domemaildist/azuremmblobcontainer. restype: Container. |
 | 07b26a5d-... |Oczekiwanie na odpowiedź. |
 | 07b26a5d-... |Odebrano odpowiedź. Kod stanu = 202, identyfikator żądania = 6ab2a4cf-..., Content-MD5 =, ETag =. |
 | 07b26a5d-... |Nagłówki odpowiedzi zostały pomyślnie przetworzone, podczas gdy pozostała część operacji. |
 | 07b26a5d-... |Pobieranie treści odpowiedzi. |
 | 07b26a5d-... |Operacja została ukończona pomyślnie. |
-| e2d06d78-... |Uruchamianie żądania asynchronicznego do `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`.</td> |
+| e2d06d78-... |Uruchamianie żądania asynchronicznego do `https://domemaildist.blob.core.windows.net/azuremmblobcontainer` .</td> |
 | e2d06d78-... |StringToSign = główna................ x-MS-Client-Request-ID: e2d06d78-.... x-MS-Date: WT, 03 Jun 2014 10:33:12 GMT. x-MS-Version: 2014-02-14./domemaildist/azuremmblobcontainer. restype: Container. |
 | e2d06d78-... |Oczekiwanie na odpowiedź. |
-| de8b1c3c-... |Uruchamianie żądania synchronicznego `https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt`do. |
+| de8b1c3c-... |Uruchamianie żądania synchronicznego do `https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt` . |
 | de8b1c3c-... |StringToSign = PUT... 64. qCmF + TQLPhq/YYK50mP9ZQ = =......... x-MS-BLOB-Type: BlockBlob. x-MS-Client-Request-ID: de8b1c3c-.... x-MS-Date: WT, 03 Jun 2014 10:33:12 GMT. x-MS-Version: 2014-02-14./domemaildist/azuremmblobcontainer/blobCreated. txt. |
 | de8b1c3c-... |Przygotowywanie do zapisu danych żądania. |
 | e2d06d78-... |Zgłoszono wyjątek podczas oczekiwania na odpowiedź: serwer zdalny zwrócił błąd: nie znaleziono (404). |
@@ -541,7 +542,7 @@ Wpisy dziennika:
 | e2d06d78-... |Nagłówki odpowiedzi zostały pomyślnie przetworzone, podczas gdy pozostała część operacji. |
 | e2d06d78-... |Pobieranie treści odpowiedzi. |
 | e2d06d78-... |Operacja została ukończona pomyślnie. |
-| e2d06d78-... |Uruchamianie żądania asynchronicznego do `https://domemaildist.blob.core.windows.net/azuremmblobcontainer`. |
+| e2d06d78-... |Uruchamianie żądania asynchronicznego do `https://domemaildist.blob.core.windows.net/azuremmblobcontainer` . |
 | e2d06d78-... |StringToSign = PUT... 0....... x-MS-Client-Request-ID: e2d06d78-.... x-MS-Date: WT, 03 Jun 2014 10:33:12 GMT. x-MS-Version: 2014-02-14./domemaildist/azuremmblobcontainer. restype: Container. |
 | e2d06d78-... |Oczekiwanie na odpowiedź. |
 | de8b1c3c-... |Zapisywanie danych żądania. |
@@ -571,7 +572,7 @@ W poniższej tabeli przedstawiono przykładowy komunikat dziennika po stronie se
 | Typ uwierzytelniania| Sygnatur                          |
 | Typ usługi       | Obiekt blob                         |
 | Adres URL żądania         | `https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt` |
-| &nbsp;                 |   ? OHR = 2014-02-14&SR = c&si = moje zasady&SIG = XXXXX&;API-Version = 2014-02-14 |
+| &nbsp;                 |   ? OHR = 2014-02-14&SR = c&si = moje zasady&SIG = XXXXX &; API-Version = 2014-02-14 |
 | Nagłówek identyfikatora żądania  | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | Identyfikator żądania klienta  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 
@@ -814,7 +815,7 @@ Więcej informacji można znaleźć na [Application Insights](../../azure-monito
 Aby uzyskać więcej informacji na temat analiz w usłudze Azure Storage, zobacz następujące zasoby:
 
 * [Monitorowanie konta magazynu w witrynie Azure Portal](storage-monitor-storage-account.md)
-* [Analityka magazynu](storage-analytics.md)
+* [Analiza magazynu](storage-analytics.md)
 * [Metryki analizy magazynu](storage-analytics-metrics.md)
 * [Schemat tabeli metryk usługi Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema)
 * [Dzienniki analityki magazynu](storage-analytics-logging.md)

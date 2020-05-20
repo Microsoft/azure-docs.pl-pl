@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11f35c7615135f5aa6c63d5d05898d139df61d0d
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 1db23bb1176a41b4b9bac548b737fbd13fbe82c4
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203310"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685252"
 ---
 # <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>Przywracanie zbiorcze usuniętych użytkowników w Azure Active Directory
 
@@ -35,7 +35,7 @@ Pobierz i wypełnij szablon CSV, aby ułatwić pomyślne przywrócenie użytkown
 Wiersze pobranego szablonu CSV są następujące:
 
 - **Numer wersji**: pierwszy wiersz zawierający numer wersji musi być uwzględniony w pliku CSV przekazywania.
-- **Nagłówki kolumn**: format nagłówków *kolumn jest* &gt; &lt; &lt; *wymagany lub pusty*&gt;. Na przykład `Object ID [objectId] Required`. Niektóre starsze wersje szablonu mogą mieć niewielkie wahania.
+- **Nagłówki kolumn**: format nagłówków kolumn jest &lt; *Item name* &gt; &lt; *wymagany lub pusty* &gt; . Na przykład `Object ID [objectId] Required`. Niektóre starsze wersje szablonu mogą mieć niewielkie wahania.
 - **Przykład wiersza**: w szablonie zamieszczono wiersz przykładów dopuszczalnych wartości dla każdej kolumny. Musisz usunąć wiersz przykładów i zastąpić go własnymi wpisami.
 
 ### <a name="additional-guidance"></a>Dodatkowe wskazówki
@@ -48,14 +48,14 @@ Wiersze pobranego szablonu CSV są następujące:
 ## <a name="to-bulk-restore-users"></a>Do przywracania zbiorczego użytkowników
 
 1. [Zaloguj się do swojej organizacji usługi Azure AD](https://aad.portal.azure.com) przy użyciu konta, które jest administratorem użytkownika w organizacji usługi Azure AD.
-1. W usłudze Azure AD wybierz pozycję **Użytkownicy** > **usunięci**.
+1. W usłudze Azure AD wybierz pozycję **Użytkownicy**  >  **usunięci**.
 1. Na stronie **usunięci użytkownicy** wybierz pozycję **przywracanie zbiorcze** , aby przekazać prawidłowy plik CSV właściwości użytkowników do przywrócenia.
 
-   ![Wybierz polecenie Zbiorcza przywracanie na stronie usunięci użytkownicy](./media/users-bulk-restore/bulk-restore.png)
+    ![Wybierz polecenie Zbiorcza przywracanie na stronie usunięci użytkownicy](./media/users-bulk-restore/bulk-restore.png)
 
 1. Otwórz szablon CSV i Dodaj wiersz dla każdego użytkownika, który ma zostać przywrócony. Jedyną wymaganą wartością jest **objectid**. Następnie zapisz plik.
 
-   ![Wybierz lokalny plik CSV, w którym chcesz wyświetlić listę użytkowników, których chcesz dodać](./media/users-bulk-restore/upload-button.png)
+    :::image type="content" source="./media/users-bulk-restore/upload-button.png" alt-text="Wybierz lokalny plik CSV, w którym chcesz wyświetlić listę użytkowników, których chcesz dodać":::
 
 1. Na stronie **przywracanie zbiorcze** w obszarze **Przekaż plik CSV**przejdź do pliku. Po wybraniu pliku i kliknięciu przycisku **Prześlij**zostanie uruchomiony Walidacja pliku CSV.
 1. Gdy zawartość pliku zostanie sprawdzona, zostanie wyświetlony **plik przekazany pomyślnie**. Jeśli występują błędy, należy je usunąć przed przesłaniem zadania.

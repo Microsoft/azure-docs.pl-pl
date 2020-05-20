@@ -4,17 +4,17 @@ description: Wyodrębnij dane z wypowiedź tekstu z intencjami i jednostkami. Do
 author: diberry
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 3b6b09fd1066a9caa745cddf30d76e2843c3f56c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 35f015691b15c6451a66509671c7dc2fc72f38e4
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589724"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682192"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Wyodrębnij dane z wypowiedź tekstu z intencjami i jednostkami
 LUIS daje możliwość uzyskiwania informacji z wyrażenia długości języka naturalnego użytkownika. Informacje są wyodrębniane w taki sposób, aby mogły być używane przez program, aplikację lub czat bot. W poniższych sekcjach dowiesz się, jakie dane są zwracane z intencji i jednostek z przykładami JSON.
 
-Najtrudniejsze dane do wyodrębnienia to dane zdobyte na maszynie, ponieważ nie jest to dokładne dopasowanie tekstu. Wyodrębnianie danych [jednostek](luis-concept-entity-types.md) , które są poznanie maszynowe, musi być częścią [cyklu tworzenia](luis-concept-app-iteration.md) , dopóki nie uzyskasz pewności, że otrzymasz oczekiwane dane.
+Najtrudniejsze dane do wyodrębnienia to dane uczenia maszynowego, ponieważ nie jest to dokładne dopasowanie tekstu. Wyodrębnianie danych [jednostek](luis-concept-entity-types.md) uczenia maszynowego musi być częścią [cyklu tworzenia](luis-concept-app-iteration.md) , dopóki nie uzyskasz pewności, że otrzymasz oczekiwane dane.
 
 ## <a name="data-location-and-key-usage"></a>Lokalizacja danych i użycie klucza
 LUIS wyodrębnia dane z wypowiedź użytkownika w opublikowanym [punkcie końcowym](luis-glossary.md#endpoint). **Żądanie https** (post lub Get) zawiera wypowiedź, a także niektóre opcjonalne konfiguracje, takie jak środowiska przejściowe lub produkcyjne.
@@ -245,7 +245,7 @@ Niektóre aplikacje muszą być w stanie znaleźć nowe i pojawiające się nazw
 
 ## <a name="patternany-entity-data"></a>Wzorzec. wszystkie dane jednostki
 
-[Wzorzec. any](reference-entity-pattern-any.md) jest symbolem zastępczym o zmiennej długości używanym tylko w szablonie wzorca wypowiedź, aby oznaczyć, gdzie rozpoczyna się i kończą. Aby można było zastosować wzorzec, należy znaleźć jednostkę używaną we wzorcu. 
+[Wzorzec. any](reference-entity-pattern-any.md) jest symbolem zastępczym o zmiennej długości używanym tylko w szablonie wzorca wypowiedź, aby oznaczyć, gdzie rozpoczyna się i kończą. Aby można było zastosować wzorzec, należy znaleźć jednostkę używaną we wzorcu.
 
 ## <a name="sentiment-analysis"></a>Analiza tonacji
 Jeśli podczas [publikowania](luis-how-to-publish-app.md#sentiment-analysis)tonacji analiza jest skonfigurowana, odpowiedź JSON Luis zawiera analizę tonacji. Dowiedz się więcej o analizie tonacji w dokumentacji [Analiza tekstu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) .

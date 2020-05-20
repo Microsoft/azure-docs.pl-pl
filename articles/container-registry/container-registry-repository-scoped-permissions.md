@@ -3,12 +3,12 @@ title: Uprawnienia do repozytoriów w Azure Container Registry
 description: Utwórz token z uprawnieniami ograniczonymi do określonych repozytoriów w rejestrze w celu ściągania lub wypychania obrazów lub wykonywania innych akcji
 ms.topic: article
 ms.date: 02/13/2020
-ms.openlocfilehash: 9004c45401833d3070266055dd7eb99a2bb43bde
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eeb2155e035dd4a3a7aa09f634c229676cd87db3
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80618825"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683468"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>Tworzenie tokenu z uprawnieniami do zakresu repozytorium
 
@@ -25,7 +25,7 @@ Scenariusze tworzenia tokenu obejmują:
 
 ## <a name="preview-limitations"></a>Ograniczenia wersji zapoznawczej
 
-* Ta funkcja jest dostępna tylko w rejestrze kontenera w **warstwie Premium** . Aby uzyskać informacje o warstwach i ograniczeniach usługi Registry, zobacz [Azure Container Registry SKU](container-registry-skus.md).
+* Ta funkcja jest dostępna w rejestrach kontenerów w **warstwie Premium** . Aby uzyskać informacje o warstwach i ograniczeniach usługi Registry, zobacz [Azure Container Registry warstwy usług](container-registry-skus.md).
 * Obecnie nie można przypisać uprawnień o zakresie repozytorium do tożsamości Azure Active Directory, takiej jak nazwa główna usługi lub tożsamość zarządzana.
 * Nie można utworzyć mapy zakresu w rejestrze z włączonym [dostępem do ściągania](container-registry-faq.md#how-do-i-enable-anonymous-pull-access).
 
@@ -41,7 +41,7 @@ Aby skonfigurować uprawnienia do zakresu repozytorium, należy utworzyć *token
   |---------|---------|--------|
   |`content/delete`    | Usuwanie danych z repozytorium  | Usuwanie repozytorium lub manifestu |
   |`content/read`     |  Odczytaj dane z repozytorium |  Ściąganie artefaktu |
-  |`content/write`     |  Zapisywanie danych w repozytorium     | Używanie z `content/read` programem w celu wypchnięcia artefaktu |
+  |`content/write`     |  Zapisywanie danych w repozytorium     | Używanie z programem w `content/read` celu wypchnięcia artefaktu |
   |`metadata/read`    | Odczytaj metadane z repozytorium   | Wyświetlanie listy tagów lub manifestów |
   |`metadata/write`     |  Zapisz metadane w repozytorium  | Włączanie lub wyłączanie operacji odczytu, zapisu lub usuwania |
 
@@ -70,7 +70,7 @@ Na poniższej ilustracji przedstawiono relacje między tokenami i mapami zakres�
 
 Utwórz token za pomocą polecenia [AZ ACR token Create][az-acr-token-create] . Podczas tworzenia tokenu można określić jeden lub więcej repozytoriów i skojarzonych akcji w każdym repozytorium. Repozytoria nie muszą jeszcze znajdować się w rejestrze. Aby utworzyć token przez określenie istniejącej mapy zakresu, zobacz następną sekcję.
 
-Poniższy przykład tworzy token *w rejestrze rejestru z następującymi* uprawnieniami w `samples/hello-world` repozytorium: `content/write` i. `content/read` Domyślnie polecenie ustawia domyślny stan tokenu na `enabled`, ale w dowolnym momencie można zaktualizować stan. `disabled`
+Poniższy przykład tworzy token *w rejestrze rejestru z następującymi* uprawnieniami w `samples/hello-world` repozytorium: `content/write` i `content/read` . Domyślnie polecenie ustawia domyślny stan tokenu na `enabled` , ale w dowolnym momencie można zaktualizować stan `disabled` .
 
 ```azurecli
 az acr token create --name MyToken --registry myregistry \
@@ -111,13 +111,13 @@ W danych wyjściowych znajdują się szczegółowe informacje o tokenie, w tym d
   "type": "Microsoft.ContainerRegistry/registries/tokens"
 ```
 
-Dane wyjściowe zawierają szczegóły dotyczące zakresu mapowania utworzonego polecenia. Można użyć mapy zakresu, tutaj o nazwie `MyToken-scope-map`, aby zastosować te same akcje repozytorium do innych tokenów. Można też zaktualizować mapowanie zakresu później, aby zmienić uprawnienia skojarzonych tokenów.
+Dane wyjściowe zawierają szczegóły dotyczące zakresu mapowania utworzonego polecenia. Można użyć mapy zakresu, tutaj o nazwie `MyToken-scope-map` , aby zastosować te same akcje repozytorium do innych tokenów. Można też zaktualizować mapowanie zakresu później, aby zmienić uprawnienia skojarzonych tokenów.
 
 ### <a name="create-token-and-specify-scope-map"></a>Tworzenie tokenu i określanie mapy zakresu
 
 Alternatywnym sposobem utworzenia tokenu jest określenie istniejącej mapy zakresu. Jeśli nie masz jeszcze mapy zakresu, najpierw utwórz ją, określając repozytoria i skojarzone akcje. Następnie określ mapę zakresu podczas tworzenia tokenu. 
 
-Aby utworzyć mapę zakresu, użyj polecenia [AZ ACR Scope-map Create][az-acr-scope-map-create] . Następujące polecenie tworzy mapę zakresu z tymi samymi uprawnieniami w używanym `samples/hello-world` wcześniej repozytorium. 
+Aby utworzyć mapę zakresu, użyj polecenia [AZ ACR Scope-map Create][az-acr-scope-map-create] . Następujące polecenie tworzy mapę zakresu z tymi samymi uprawnieniami w `samples/hello-world` używanym wcześniej repozytorium. 
 
 ```azurecli
 az acr scope-map create --name MyScopeMap --registry myregistry \
@@ -126,7 +126,7 @@ az acr scope-map create --name MyScopeMap --registry myregistry \
   --description "Sample scope map"
 ```
 
-Uruchom polecenie [AZ ACR token Create][az-acr-token-create] , aby utworzyć token, określając mapę zakresu *MyScopeMap* . Jak w poprzednim przykładzie polecenie ustawia domyślny stan tokenu na `enabled`.
+Uruchom polecenie [AZ ACR token Create][az-acr-token-create] , aby utworzyć token, określając mapę zakresu *MyScopeMap* . Jak w poprzednim przykładzie polecenie ustawia domyślny stan tokenu na `enabled` .
 
 ```azurecli
 az acr token create --name MyToken \
@@ -138,9 +138,9 @@ W danych wyjściowych znajdują się szczegółowe informacje o tokenie, w tym d
 
 ## <a name="create-token---portal"></a>Tworzenie tokenu — Portal
 
-Za pomocą Azure Portal można tworzyć tokeny i mapy zakresów. Podobnie jak w `az acr token create` przypadku polecenia CLI, można zastosować istniejącą mapę zakresu lub utworzyć mapę zakresu podczas tworzenia tokenu przez określenie co najmniej jednego repozytoria i skojarzonych akcji. Repozytoria nie muszą jeszcze znajdować się w rejestrze. 
+Za pomocą Azure Portal można tworzyć tokeny i mapy zakresów. Podobnie jak w przypadku `az acr token create` polecenia CLI, można zastosować istniejącą mapę zakresu lub utworzyć mapę zakresu podczas tworzenia tokenu przez określenie co najmniej jednego repozytoria i skojarzonych akcji. Repozytoria nie muszą jeszcze znajdować się w rejestrze. 
 
-Poniższy przykład tworzy token i tworzy mapę zakresu z następującymi uprawnieniami w `samples/hello-world` repozytorium: `content/write` i. `content/read`
+Poniższy przykład tworzy token i tworzy mapę zakresu z następującymi uprawnieniami w `samples/hello-world` repozytorium: `content/write` i `content/read` .
 
 1. W portalu przejdź do rejestru kontenerów.
 1. W obszarze **usługi**wybierz pozycję **tokeny (wersja zapoznawcza) > + Dodaj**.
@@ -149,7 +149,7 @@ Poniższy przykład tworzy token i tworzy mapę zakresu z następującymi uprawn
 1. W obszarze **Mapa zakresu**wybierz pozycję **Utwórz nowy**.
 1. Skonfiguruj mapę zakresu:
     1. Wprowadź nazwę i opis mapy zakresu. 
-    1. W obszarze **repozytoria**wprowadź `samples/hello-world`i w obszarze **uprawnienia**wybierz `content/read` pozycję i `content/write`. Następnie wybierz pozycję **+ Dodaj**.  
+    1. W obszarze **repozytoria**wprowadź i `samples/hello-world` w obszarze **uprawnienia**wybierz pozycję `content/read` i `content/write` . Następnie wybierz pozycję **+ Dodaj**.  
     ![Tworzenie mapy zakresu w portalu](media/container-registry-repository-scoped-permissions/portal-scope-map-add.png)
 
     1. Po dodaniu repozytoriów i uprawnień wybierz pozycję **Dodaj** , aby dodać mapę zakresu.
@@ -185,11 +185,11 @@ Gdy użytkownik lub usługa używa tokenu do uwierzytelniania w rejestrze docelo
 
 ## <a name="examples-use-token"></a>Przykłady: Użyj tokenu
 
-W poniższych przykładach użyto tokenu utworzonego wcześniej w tym artykule, aby wykonać typowe operacje na repozytorium: wypychanie i ściąganie obrazów, usuwanie obrazów i wyświetlanie listy tagów repozytorium. Token został początkowo skonfigurowany z uprawnieniami wypychania (`content/write` i `content/read` akcjami) w `samples/hello-world` repozytorium.
+W poniższych przykładach użyto tokenu utworzonego wcześniej w tym artykule, aby wykonać typowe operacje na repozytorium: wypychanie i ściąganie obrazów, usuwanie obrazów i wyświetlanie listy tagów repozytorium. Token został początkowo skonfigurowany z uprawnieniami wypychania ( `content/write` i `content/read` akcjami) w `samples/hello-world` repozytorium.
 
 ### <a name="pull-and-tag-test-images"></a>Obrazy testów ściągania i tagów
 
-W poniższych przykładach można ściągnąć `hello-world` i `alpine` pobrać obrazy z usługi Docker Hub i oznaczyć je jako rejestr i repozytorium.
+W poniższych przykładach można ściągnąć `hello-world` i pobrać `alpine` obrazy z usługi Docker Hub i oznaczyć je jako rejestr i repozytorium.
 
 ```bash
 docker pull hello-world
@@ -225,7 +225,7 @@ Po pomyślnym zalogowaniu się spróbuj wypchnąć otagowane obrazy do rejestru.
 docker push myregistry.azurecr.io/samples/hello-world:v1
 ```
 
-Token nie ma uprawnień do `samples/alpine` repozytorium, więc następująca próba wypychania kończy się niepowodzeniem z powodu błędu podobnego `requested access to the resource is denied`do:
+Token nie ma uprawnień do `samples/alpine` repozytorium, więc następująca próba wypychania kończy się niepowodzeniem z powodu błędu podobnego do `requested access to the resource is denied` :
 
 ```bash
 docker push myregistry.azurecr.io/samples/alpine:v1
@@ -235,7 +235,7 @@ docker push myregistry.azurecr.io/samples/alpine:v1
 
 Aby zaktualizować uprawnienia tokenu, zaktualizuj uprawnienia w skojarzonej mapie zakresów. Zaktualizowana Mapa zakresu jest stosowana natychmiast do wszystkich skojarzonych tokenów. 
 
-Na przykład zaktualizuj `MyToken-scope-map` program `content/write` i `content/read` akcje w `samples/alpine` repozytorium i Usuń `content/write` akcję z `samples/hello-world` repozytorium.  
+Na przykład zaktualizuj program `MyToken-scope-map` `content/write` i `content/read` Akcje w `samples/alpine` repozytorium i Usuń `content/write` akcję z `samples/hello-world` repozytorium.  
 
 Aby użyć interfejsu wiersza polecenia platformy Azure, uruchom polecenie [AZ ACR Scope-map Update][az-acr-scope-map-update] w celu zaktualizowania mapowania zakresu:
 
@@ -251,8 +251,8 @@ W witrynie Azure Portal:
 
 1. Przejdź do rejestru kontenerów.
 1. W obszarze **usługi**wybierz pozycję **mapy zakresu (wersja zapoznawcza)**, a następnie wybierz mapę zakresu do zaktualizowania.
-1. W obszarze **repozytoria**wprowadź `samples/alpine`i w obszarze **uprawnienia**wybierz `content/read` pozycję i `content/write`. Następnie wybierz pozycję **+ Dodaj**.
-1. W obszarze **repozytoria**wybierz `samples/hello-world` pozycję i w obszarze **uprawnienia**Usuń `content/write`zaznaczenie. Następnie wybierz pozycję **Zapisz**.
+1. W obszarze **repozytoria**wprowadź i `samples/alpine` w obszarze **uprawnienia**wybierz pozycję `content/read` i `content/write` . Następnie wybierz pozycję **+ Dodaj**.
+1. W obszarze **repozytoria**wybierz pozycję `samples/hello-world` i w obszarze **uprawnienia**Usuń zaznaczenie `content/write` . Następnie wybierz pozycję **Zapisz**.
 
 Po zaktualizowaniu mapy zakresu następujące wypychanie zakończy się pomyślnie:
 
@@ -260,13 +260,13 @@ Po zaktualizowaniu mapy zakresu następujące wypychanie zakończy się pomyśln
 docker push myregistry.azurecr.io/samples/alpine:v1
 ```
 
-Ponieważ Mapa zakresu ma `content/read` uprawnienia tylko do `samples/hello-world` repozytorium, próba wypychania do `samples/hello-world` repozytorium kończy się niepowodzeniem:
+Ponieważ Mapa zakresu ma uprawnienia tylko do `content/read` `samples/hello-world` repozytorium, próba wypychania do `samples/hello-world` repozytorium kończy się niepowodzeniem:
  
 ```bash
 docker push myregistry.azurecr.io/samples/hello-world:v1
 ```
 
-Ściąganie obrazów z obu repozytoriów powiedzie się, ponieważ Mapa zakresu `content/read` zapewnia uprawnienia zarówno dla repozytoriów:
+Ściąganie obrazów z obu repozytoriów powiedzie się, ponieważ Mapa zakresu zapewnia `content/read` uprawnienia zarówno dla repozytoriów:
 
 ```bash
 docker pull myregistry.azurecr.io/samples/alpine:v1
@@ -287,7 +287,7 @@ az acr scope-map update \
 
 Aby zaktualizować mapę zakresu przy użyciu portalu, zobacz poprzednią sekcję.
 
-Aby usunąć repozytorium, `samples/alpine` Użyj następującego polecenia [AZ ACR Repository Delete][az-acr-repository-delete] . Aby usunąć obrazy lub repozytoria, token nie jest uwierzytelniany `docker login`przez. Zamiast tego należy przekazać nazwę i hasło tokenu do polecenia. W poniższym przykładzie zastosowano zmienne środowiskowe utworzone wcześniej w artykule:
+Aby usunąć repozytorium, użyj następującego polecenia [AZ ACR Repository Delete][az-acr-repository-delete] `samples/alpine` . Aby usunąć obrazy lub repozytoria, token nie jest uwierzytelniany przez `docker login` . Zamiast tego należy przekazać nazwę i hasło tokenu do polecenia. W poniższym przykładzie zastosowano zmienne środowiskowe utworzone wcześniej w artykule:
 
 ```azurecli
 az acr repository delete \
@@ -312,7 +312,7 @@ Aby zaktualizować mapę zakresu przy użyciu portalu, zobacz poprzednią sekcj�
 
 Aby odczytać metadane w `samples/hello-world` repozytorium, uruchom polecenie [AZ ACR Repository show-Manifests][az-acr-repository-show-manifests] lub [AZ ACR Repository show-Tags][az-acr-repository-show-tags] . 
 
-Do odczytu metadanych token nie jest uwierzytelniany przez `docker login`. Zamiast tego należy przekazać nazwę i hasło tokenu do dowolnego polecenia. W poniższym przykładzie zastosowano zmienne środowiskowe utworzone wcześniej w artykule:
+Do odczytu metadanych token nie jest uwierzytelniany przez `docker login` . Zamiast tego należy przekazać nazwę i hasło tokenu do dowolnego polecenia. W poniższym przykładzie zastosowano zmienne środowiskowe utworzone wcześniej w artykule:
 
 ```azurecli
 az acr repository show-tags \
@@ -331,7 +331,7 @@ Przykładowe dane wyjściowe:
 
 ### <a name="list-scope-maps"></a>Mapowanie listy zakresów
 
-Aby wyświetlić listę wszystkich map zakresu skonfigurowanych w rejestrze, użyj polecenia [AZ ACR Scope-map list][az-acr-scope-map-list] lub okna **map zakresu (wersja zapoznawcza)** w portalu. Przykład:
+Aby wyświetlić listę wszystkich map zakresu skonfigurowanych w rejestrze, użyj polecenia [AZ ACR Scope-map list][az-acr-scope-map-list] lub okna **map zakresu (wersja zapoznawcza)** w portalu. Na przykład:
 
 ```azurecli
 az acr scope-map list \
@@ -351,14 +351,14 @@ MyScopeMap           UserDefined    2019-11-15T21:17:34Z  Sample scope map
 
 ### <a name="show-token-details"></a>Pokaż szczegóły tokenu
 
-Aby wyświetlić szczegóły tokenu, takie jak jego stan i daty wygaśnięcia hasła, uruchom polecenie [AZ ACR token show][az-acr-token-show] lub wybierz token na ekranie **tokeny (wersja zapoznawcza)** w portalu. Przykład:
+Aby wyświetlić szczegóły tokenu, takie jak jego stan i daty wygaśnięcia hasła, uruchom polecenie [AZ ACR token show][az-acr-token-show] lub wybierz token na ekranie **tokeny (wersja zapoznawcza)** w portalu. Na przykład:
 
 ```azurecli
 az acr scope-map show \
   --name MyScopeMap --registry myregistry
 ```
 
-Użyj polecenia [AZ ACR token list][az-acr-token-list] lub ekranu **tokenów (wersja zapoznawcza)** w portalu, aby wyświetlić listę wszystkich tokenów skonfigurowanych w rejestrze. Przykład:
+Użyj polecenia [AZ ACR token list][az-acr-token-list] lub ekranu **tokenów (wersja zapoznawcza)** w portalu, aby wyświetlić listę wszystkich tokenów skonfigurowanych w rejestrze. Na przykład:
 
 ```azurecli
 az acr token list --registry myregistry --output table
@@ -368,7 +368,7 @@ az acr token list --registry myregistry --output table
 
 Jeśli nie masz hasła do tokenu lub chcesz wygenerować nowe hasła, uruchom polecenie [AZ ACR token Credential Generate][az-acr-token-credential-generate] . 
 
-Poniższy przykład generuje nową wartość dla *password1 tokena tokena* z okresem ważności wynoszącym 30 dni. Hasło jest przechowywane w zmiennej `TOKEN_PWD`środowiskowej. Ten przykład jest sformatowany dla powłoki bash.
+Poniższy przykład generuje nową wartość dla *password1 tokena tokena* z okresem ważności wynoszącym 30 dni. Hasło jest przechowywane w zmiennej środowiskowej `TOKEN_PWD` . Ten przykład jest sformatowany dla powłoki bash.
 
 ```azurecli
 TOKEN_PWD=$(az acr token credential generate \
@@ -380,7 +380,7 @@ Aby użyć Azure Portal do wygenerowania hasła tokenu, zapoznaj się z instrukc
 
 ### <a name="update-token-with-new-scope-map"></a>Aktualizowanie tokenu przy użyciu nowej mapy zakresu
 
-Jeśli chcesz zaktualizować token z inną mapą zakresu, uruchom polecenie [AZ ACR token Update][az-acr-token-update] i określ nową mapę zakresu. Przykład:
+Jeśli chcesz zaktualizować token z inną mapą zakresu, uruchom polecenie [AZ ACR token Update][az-acr-token-update] i określ nową mapę zakresu. Na przykład:
 
 ```azurecli
 az acr token update --name MyToken --registry myregistry \
@@ -396,7 +396,7 @@ W portalu na ekranie **tokeny (wersja zapoznawcza)** wybierz token i w obszarze 
 
 Może być konieczne tymczasowe wyłączenie poświadczeń tokenu dla użytkownika lub usługi. 
 
-Korzystając z interfejsu wiersza polecenia platformy Azure, uruchom polecenie [AZ ACR token Update][az-acr-token-update] , `status` aby `disabled`ustawić:
+Korzystając z interfejsu wiersza polecenia platformy Azure, uruchom polecenie [AZ ACR token Update][az-acr-token-update] , aby ustawić `status` `disabled` :
 
 ```azurecli
 az acr token update --name MyToken --registry myregistry \

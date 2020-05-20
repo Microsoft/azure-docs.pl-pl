@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2020
+ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae0632fbc3208befe197c15ffdbf2d9a4e7b2d7a
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: a05de8bf6a6e4ab79e63d6634ddb1b79fae6045f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926480"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680218"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: automatyczne uaktualnianie
 Ta funkcja została wprowadzona w programie Build [1.1.105.0 (wydano luty 2016)](reference-connect-version-history.md#111050).  Ta funkcja została zaktualizowana w usłudze [build 1.1.561](reference-connect-version-history.md#115610) i obsługuje teraz dodatkowe scenariusze, które wcześniej nie były obsługiwane.
@@ -35,7 +35,7 @@ Automatyczne uaktualnianie jest domyślnie włączone dla następujących:
 * Konto usługi AD jest domyślnym kontem MSOL_ utworzonym za pomocą ustawień ekspresowych i narzędzia DirSync.
 * Ma mniej niż 100 000 obiektów w magazynie Metaverse.
 
-Bieżący stan uaktualniania automatycznego można wyświetlić za pomocą polecenia cmdlet `Get-ADSyncAutoUpgrade`programu PowerShell. Ma następujące stany:
+Bieżący stan uaktualniania automatycznego można wyświetlić za pomocą polecenia cmdlet programu PowerShell `Get-ADSyncAutoUpgrade` . Ma następujące stany:
 
 | Stan | Komentarz |
 | --- | --- |
@@ -43,7 +43,7 @@ Bieżący stan uaktualniania automatycznego można wyświetlić za pomocą polec
 | Suspended |Ustawiane tylko przez system. System nie kwalifikuje się **obecnie** do otrzymywania automatycznych uaktualnień. |
 | Disabled (Wyłączony) |Automatyczne uaktualnianie jest wyłączone. |
 
-Można zmienić między **włączonym** i **wyłączonym** programem `Set-ADSyncAutoUpgrade`. Tylko system powinien ustawić stan **wstrzymane**.  Przed 1.1.750.0 polecenie cmdlet Set-ADSyncAutoUpgrade blokuje autouaktualnienie, jeśli stan autouaktualniania został ustawiony na zawieszone. Ta funkcja została zmieniona, więc nie blokuje autouaktualniania.
+Można zmienić między **włączonym** i **wyłączonym** programem `Set-ADSyncAutoUpgrade` . Tylko system powinien ustawić stan **wstrzymane**.  Przed 1.1.750.0 polecenie cmdlet Set-ADSyncAutoUpgrade blokuje autouaktualnienie, jeśli stan autouaktualniania został ustawiony na zawieszone. Ta funkcja została zmieniona, więc nie blokuje autouaktualniania.
 
 Automatyczne uaktualnianie korzysta z Azure AD Connect Health dla infrastruktury uaktualniania. Aby automatyczne uaktualnianie działało, upewnij się, że na serwerze proxy zostały otwarte adresy URL **Azure AD Connect Health** zgodnie z opisem w temacie [adresy URL i zakresy adresów IP pakietu Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
@@ -55,7 +55,7 @@ Jeśli instalacja programu Connect nie zostanie uaktualniona zgodnie z oczekiwan
 
 Najpierw nie należy oczekiwać, że automatyczne uaktualnienie ma być podejmowane jako pierwszy dzień wydania nowej wersji. Przed próbą uaktualnienia należy zamierzać celową losowość, dlatego nie zostanie on zaktualizowany, jeśli instalacja nie zostanie natychmiast uaktualniona.
 
-Jeśli uważasz, że coś nie jest właściwe, najpierw uruchom `Get-ADSyncAutoUpgrade` polecenie, aby zapewnić włączenie automatycznego uaktualniania.
+Jeśli uważasz, że coś nie jest właściwe, najpierw uruchom polecenie, `Get-ADSyncAutoUpgrade` Aby zapewnić włączenie automatycznego uaktualniania.
 
 Upewnij się, że zostały otwarte wymagane adresy URL na serwerze proxy lub zaporze. Aktualizacja automatyczna korzysta z Azure AD Connect Health zgodnie z opisem w temacie [Omówienie](#overview). Jeśli używasz serwera proxy, upewnij się, że kondycja została skonfigurowana do korzystania z [serwera proxy](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). Przetestuj także [połączenie kondycji](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) z usługą Azure AD.
 
@@ -92,7 +92,7 @@ Poniżej znajduje się lista najczęściej spotykanych komunikatów. Nie zawiera
 | UpgradeNotSupportedAdfsSignInMethod | Wybrano usługi ADFS jako metodę logowania. |
 | UpgradeNotSupportedCustomizedSyncRules |Do konfiguracji dodano własne reguły niestandardowe. |
 | UpgradeNotSupportedDeviceWritebackEnabled |Włączono funkcję [zapisywania zwrotnego urządzeń](how-to-connect-device-writeback.md) . |
-| UpgradeNotSupportedGroupWritebackEnabled |Włączono funkcję [zapisywania zwrotnego grup](how-to-connect-preview.md#group-writeback) . |
+| UpgradeNotSupportedGroupWritebackEnabled |Włączono funkcję zapisywania zwrotnego grup. |
 | UpgradeNotSupportedInvalidPersistedState |Instalacja nie jest ustawieniami ekspresowymi ani uaktualnieniem narzędzia DirSync. |
 | UpgradeNotSupportedMetaverseSizeExceeeded |W magazynie Metaverse znajduje się więcej niż 100 000 obiektów. |
 | UpgradeNotSupportedMultiForestSetup |Nawiązujesz połączenie z więcej niż jednym lasem. Instalacja ekspresowa nawiązuje połączenie tylko z jednym lasem. |

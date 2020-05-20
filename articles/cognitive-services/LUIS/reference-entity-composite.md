@@ -10,19 +10,19 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
 ms.author: diberry
-ms.openlocfilehash: bac37e91933d16f36f2d8917760968122a4f5619
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 81299751affe5f59e1132950ccb80844fcc1fae3
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588908"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681396"
 ---
 # <a name="composite-entity"></a>Jednostka złożona
 
 Jednostka złożona składa się z innych jednostek, takich jak wstępnie zbudowane jednostki, proste, wyrażenie regularne i jednostki listy. Oddzielne jednostki tworzą całość jednostki.
 
 > [!CAUTION]
-> Ta jednostka jest **przestarzała**. Przeprowadź migrację do jednostki podanej na [maszynie](reference-entity-machine-learned-entity.md).
+> Ta jednostka jest **przestarzała**. Przeprowadź migrację do [jednostki uczenie maszynowego](reference-entity-machine-learned-entity.md).
 
 **Ta jednostka jest przydatna, gdy dane:**
 

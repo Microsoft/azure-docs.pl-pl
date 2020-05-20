@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 5e0043ebba1a317dcc6798d6be74aac051d97012
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 7db7f9548a3daa86a53dd37fbe088661e8b7b17e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597926"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685174"
 ---
 # <a name="create-stream-analytics-job-in-azure-sql-edge-preview"></a>Tworzenie zadania Stream Analytics w usłudze Azure SQL Edge (wersja zapoznawcza) 
 
@@ -22,6 +22,9 @@ W tym artykule wyjaśniono, jak utworzyć zadanie przesyłania strumieniowego T-
 
 1. Tworzenie zewnętrznych obiektów wejściowych i wyjściowych strumienia strumieniowego
 2. Zdefiniuj kwerendę zadania przesyłania strumieniowego w ramach tworzenia zadania przesyłania strumieniowego.
+
+> [!NOTE]
+> Aby włączyć funkcję przesyłania strumieniowego T-SQL w usłudze Azure SQL Edge, należy włączyć TF 11515 jako opcję uruchamiania lub użyć polecenia [DBCC TRACEON]( https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) . Aby uzyskać więcej informacji na temat włączania flag śledzenia przy użyciu pliku MSSQL. conf, zobacz [Konfigurowanie przy użyciu pliku MSSQL. conf](configure.md#configure-using-mssqlconf-file). Ten wymóg zostanie usunięty w przyszłych aktualizacjach usługi Azure SQL Edge (wersja zapoznawcza).
 
 ## <a name="configure-an-external-stream-input-and-output-object"></a>Skonfiguruj zewnętrzny obiekt danych wejściowych i wyjściowych strumienia
 

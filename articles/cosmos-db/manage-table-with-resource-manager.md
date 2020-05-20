@@ -4,14 +4,14 @@ description: Utwórz i skonfiguruj Azure Cosmos DB interfejs API tabel za pomoc�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: d1675e6827f3684785d11ef6b081f166267a8283
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 5e4e514a8d39679e5a1d07b0ea7100cf4837072e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791191"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684763"
 ---
 # <a name="manage-azure-cosmos-db-table-api-resources-using-azure-resource-manager-templates"></a>Zarządzanie zasobami interfejs API tabel Azure Cosmos DB przy użyciu szablonów Azure Resource Manager
 
@@ -36,17 +36,17 @@ Aby utworzyć dowolny z poniższych zasobów Azure Cosmos DB, Skopiuj poniższy 
 
 Ten szablon utworzy konto usługi Azure Cosmos dla interfejs API tabel z jedną tabelą o przepływności skalowania automatycznego. Ten szablon jest również dostępny dla jednego kliknięcia przycisku Wdróż z galerii szablonów szybkiego startu platformy Azure.
 
-[![Wdrażanie na platformie Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-table-autoscale%2Fazuredeploy.json)
+[![Wdróż na platformie Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-table-autoscale%2Fazuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-table-autoscale/azuredeploy.json":::
 
 <a id="create-manual"></a>
 
-## <a name="azure-cosmos-account-for-table-with-standard-manual-throughput"></a>Konto usługi Azure Cosmos dla tabeli z standardową (ręczną) przepływności
+## <a name="azure-cosmos-account-for-table-with-standard-provisioned-throughput"></a>Konto usługi Azure Cosmos dla tabeli z zainicjowaną przepustowością standardowa
 
 Ten szablon utworzy konto usługi Azure Cosmos dla interfejs API tabel z jedną tabelą ze standardową przepływność. Ten szablon jest również dostępny dla jednego kliknięcia przycisku Wdróż z galerii szablonów szybkiego startu platformy Azure.
 
-[![Wdrażanie na platformie Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-table%2Fazuredeploy.json)
+[![Wdróż na platformie Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-table%2Fazuredeploy.json)
 
 :::code language="json" source="~/quickstart-templates/101-cosmosdb-table/azuredeploy.json":::
 

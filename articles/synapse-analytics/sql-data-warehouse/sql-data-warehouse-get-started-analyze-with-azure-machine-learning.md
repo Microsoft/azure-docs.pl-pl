@@ -12,12 +12,12 @@ ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-Synapse
-ms.openlocfilehash: 74a6d1aecfc83ea68b9e30453056d231f4bf3e65
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: daaa5e3a075eee19ab473818ae3bd84d4bd3b32b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416187"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683666"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analizowanie danych przy użyciu usługi Azure Machine Learning
 > [!div class="op_single_selector"]
@@ -132,4 +132,4 @@ Zostaną wyświetlone dwie kolumny dodane do zestawu danych testowych.
 Porównując wartości w kolumnach BikeBuyer (Nabywca roweru) (rzeczywiste) oraz Scored Labels (Sklasyfikowane etykiety) (prognozowane), można określić prawidłowość działania modelu. Następnie możesz użyć tego modelu, aby dokonać prognoz dla nowych klientów i opublikować ten model jako usługę sieci Web lub zapisać wyniki z powrotem do usługi Azure Synapse.
 
 ## <a name="next-steps"></a>Następne kroki
-Aby dowiedzieć się więcej o tworzeniu predykcyjnych modeli uczenia maszynowego, zapoznaj się z artykułem [Wprowadzenie do usługi Machine Learning na platformie Azure](https://azure.microsoft.com/documentation/articles/machine-learning-what-is-machine-learning/).
+Aby dowiedzieć się więcej o tworzeniu predykcyjnych modeli uczenia maszynowego, zapoznaj się z artykułem [Wprowadzenie do usługi Machine Learning na platformie Azure](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml).

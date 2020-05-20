@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: ryanwi
 ms.reviewer: jeedes
-ms.openlocfilehash: 90f4d22ba782fd71460595f69a52e70be87a3047
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b8d998d40b9920ccbdaf0079c32a0feb84bba87b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80883257"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680266"
 ---
 # <a name="add-a-multitenant-application-to-the-azure-ad-application-gallery"></a>Dodawanie aplikacji wielodostępnej do galerii aplikacji usługi Azure AD
 
 ## <a name="what-is-the-azure-ad-application-gallery"></a>Co to jest Galeria aplikacji usługi Azure AD?
 
-Azure Active Directory (Azure AD) to oparta na chmurze usługa tożsamości. [Galeria aplikacji usługi Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/) znajduje się w sklepie z aplikacjami w portalu Azure Marketplace, w którym wszystkie łączniki aplikacji są publikowane pod kątem logowania jednokrotnego i aprowizacji użytkowników. Klienci korzystający z usługi Azure AD jako dostawcy tożsamości mogą znaleźć różne łączniki aplikacji SaaS opublikowane w tym miejscu. Administratorzy IT mogą dodawać łączniki z galerii aplikacji, a następnie konfigurować i używać łączników do logowania jednokrotnego i inicjowania obsługi. Usługa Azure AD obsługuje wszystkie główne protokoły federacyjne, w tym SAML 2,0, OpenID Connect Connect, OAuth i WS-karmione do logowania jednokrotnego. 
+Azure Active Directory (Azure AD) to oparta na chmurze usługa tożsamości. [Galeria aplikacji usługi Azure AD](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory) znajduje się w sklepie z aplikacjami w portalu Azure Marketplace, w którym wszystkie łączniki aplikacji są publikowane pod kątem logowania jednokrotnego i aprowizacji użytkowników. Klienci korzystający z usługi Azure AD jako dostawcy tożsamości mogą znaleźć różne łączniki aplikacji SaaS opublikowane w tym miejscu. Administratorzy IT mogą dodawać łączniki z galerii aplikacji, a następnie konfigurować i używać łączników do logowania jednokrotnego i inicjowania obsługi. Usługa Azure AD obsługuje wszystkie główne protokoły federacyjne, w tym SAML 2,0, OpenID Connect Connect, OAuth i WS-karmione do logowania jednokrotnego. 
 
 ## <a name="if-your-application-supports-saml-or-openidconnect"></a>Jeśli aplikacja obsługuje protokół SAML lub OpenIDConnect
 Jeśli masz aplikację wielodostępną, którą chcesz znaleźć w galerii aplikacji usługi Azure AD, musisz najpierw upewnić się, że aplikacja obsługuje jedną z następujących technologii logowania jednokrotnego:

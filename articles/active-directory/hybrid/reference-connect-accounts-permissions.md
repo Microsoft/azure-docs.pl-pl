@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 10/03/2019
+ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6071e6553fb1275fea63a37b4897aef2685bd509
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 23508535c1853cd056bb162c254cda5f7f86d7fe
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253769"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681752"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Accounts and permissions (Azure AD Connect: konta i uprawnienia)
 
@@ -141,7 +141,7 @@ Musi także mieć przyznane wymagane uprawnienia. Kreator instalacji nie weryfik
 
 Wymagane uprawnienia są zależne od funkcji opcjonalnych, które można włączyć. Jeśli masz wiele domen, uprawnienia muszą zostać przyznane dla wszystkich domen w lesie. Jeśli nie włączysz żadnej z tych funkcji, uprawnienia **użytkownika domeny** domyślnej są wystarczające.
 
-| Funkcja | Uprawnienia |
+| Cechy | Uprawnienia |
 | --- | --- |
 | Funkcja MS-DS-ConsistencyGuid |Uprawnienia do zapisu w atrybucie MS-DS-ConsistencyGuid udokumentowanym w [koncepcji projektowania — przy użyciu MS-ds-ConsistencyGuid jako sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
 | Synchronizacja skrótów haseł |<li>Replikowanie zmian w katalogu</li>  <li>Replikuj wszystkie zmiany katalogu |
@@ -149,9 +149,9 @@ Wymagane uprawnienia są zależne od funkcji opcjonalnych, które można włącz
 | Folder publiczny poczty programu Exchange |Uprawnienia Odczyt do atrybutów przedstawionych w [folderze publicznym poczty programu Exchange](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) dla folderów publicznych. | 
 | Zapisywanie zwrotne haseł |Uprawnienia do zapisu w odniesieniu do atrybutów opisanych w temacie [wprowadzenie do zarządzania hasłami](../authentication/howto-sspr-writeback.md) dla użytkowników. |
 | Zapisywanie zwrotne urządzeń |Uprawnienia przyznane za pomocą skryptu programu PowerShell zgodnie z opisem w funkcji [zapisywania zwrotnego urządzeń](how-to-connect-device-writeback.md). |
-| Zapisywanie zwrotne grup |Umożliwia Stornowanie **grup pakietu Office 365** do lasu z zainstalowanym programem Exchange.  Aby uzyskać więcej informacji, zobacz [zapisywanie zwrotne grup](how-to-connect-preview.md#group-writeback).|
+| Zapisywanie zwrotne grup |Umożliwia Stornowanie **grup pakietu Office 365** do lasu z zainstalowanym programem Exchange.|
 
-## <a name="upgrade"></a>Uaktualnienie
+## <a name="upgrade"></a>Upgrade
 W przypadku uaktualniania z jednej wersji Azure AD Connect do nowej wersji wymagane są następujące uprawnienia:
 
 >[!IMPORTANT]
@@ -260,7 +260,7 @@ Aby uzyskać dodatkowe informacje na temat sposobu zarządzania lub resetowania 
 ## <a name="related-documentation"></a>Dokumentacja pokrewna
 Jeśli nie odczytano dokumentacji dotyczącej [integrowania tożsamości lokalnych z Azure Active Directory](whatis-hybrid-identity.md), Poniższa tabela zawiera linki do powiązanych tematów.
 
-|Temat |Łącze|  
+|Temat |Link|  
 | --- | --- |
 |Pobieranie programu Azure AD Connect | [Pobieranie programu Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |Instalowanie przy użyciu ustawień ekspresowych | [Ekspresowa instalacja programu Azure AD Connect](how-to-connect-install-express.md)|

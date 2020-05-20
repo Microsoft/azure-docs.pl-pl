@@ -3,12 +3,12 @@ title: Projektowanie przy użyciu modeli — LUIS
 description: Informacje o języku zawierają kilka typów modeli. Niektóre modele mogą być używane w więcej niż jeden sposób.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 933588f96570e931cdc627aaae82bee1037bbdaa
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: bbb1f0d43b2a3fd2e8a2dff2201a09622ecaf977
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591883"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683931"
 ---
 # <a name="design-with-intent-and-entity-models"></a>Projektowanie przy użyciu modeli zamierzeń i jednostek
 
@@ -36,7 +36,7 @@ Następujący wypowiedź to **pozytywny przykład** dla `OrderBook` zamiaru i **
 
 ## <a name="entities-extract-data"></a>Jednostki wyodrębniające dane
 
-Jednostka reprezentuje jednostkę danych, które mają zostać wyodrębnione z wypowiedź. Jednostka uczenia maszynowego jest jednostką najwyższego poziomu zawierającą podjednostki, które są również jednostkami polecanymi przez maszynę.
+Jednostka reprezentuje jednostkę danych, które mają zostać wyodrębnione z wypowiedź. Jednostka uczenia maszynowego jest jednostką najwyższego poziomu zawierającą podjednostki, które są również jednostkami uczenia maszynowego.
 
 Przykładem jednostki uczenia maszynowego jest zamówienie dla biletu płaszczyzny. Koncepcyjnie jest to pojedyncza transakcja z wieloma mniejszymi jednostkami danych, takimi jak data, godzina, liczba siedzeń, typ stanowiska, taki jak pierwsza klasa lub autokar, lokalizacja pochodzenia, lokalizacja docelowa i wybór posiłku.
 
@@ -65,11 +65,11 @@ Dekompozycja modelu ma następujące części:
 
 * [intencji](#intents-classify-utterances)
     * [oferowanych](#features)
-* [jednostki poznanie maszyn](reference-entity-machine-learned-entity.md)
-    * podjednostki (również jednostki wyznaniowe maszynowo)
+* [jednostki uczenia maszynowego](reference-entity-machine-learned-entity.md)
+    * podjednostki (również jednostki uczenia maszynowego)
         * [oferowanych](#features)
             * [Lista fraz](luis-concept-feature.md)
-            * [jednostki nieprzeznaczone do uczenia maszynowego](luis-concept-feature.md) , takie jak [wyrażenia regularne](reference-entity-regular-expression.md), [listy](reference-entity-list.md)i [wstępnie zbudowane jednostki](luis-reference-prebuilt-entities.md)
+            * [jednostki niezwiązane z uczeniem maszynowym](luis-concept-feature.md) , takie jak [wyrażenia regularne](reference-entity-regular-expression.md), [listy](reference-entity-list.md)i [wstępnie zbudowane jednostki](luis-reference-prebuilt-entities.md)
 
 <a name="entities-extract-data"></a>
 <a name="machine-learned-entities"></a>

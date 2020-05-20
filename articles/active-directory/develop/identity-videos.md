@@ -8,24 +8,72 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/08/2020
+ms.date: 05/19/2020
 ms.author: marsma
 ms.custom: aaddev
 ms.reviewer: celested
-ms.openlocfilehash: e8c7ec6cf1d15e414a6db54d5bc2ad7e4994cd82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 346d5560d8388c8958e94efd4e149f54eb0235b7
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80991300"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681790"
 ---
 # <a name="microsoft-identity-platform-videos"></a>Wideo poświęcone platformie tożsamości firmy Microsoft
 
 Poznaj podstawy nowoczesnego uwierzytelniania, platformy tożsamości firmy Microsoft i bibliotek uwierzytelniania firmy Microsoft (MSAL).
 
+## <a name="microsoft-identity-platform-for-developers"></a>Platforma tożsamości firmy Microsoft dla deweloperów
+
+*Tożsamość dla deweloperów* filmów wideo koncentruje się na tym, co musisz wiedzieć, aby rozpocząć dodawanie obsługi tożsamości do aplikacji. Dostrojenie w celu szybkiego dostarczania podstawowych aspektów platformy i korzystania z jej bibliotek uwierzytelniania jest dobrym miejscem do uruchomienia dla każdego dewelopera.
+___
+
+:::row:::
+    :::column:::
+        1 — omówienie platformy tożsamości firmy Microsoft dla deweloperów (33:55)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/zjezqZPPOfc]
+    :::column-end:::
+     :::column:::
+        2 — jak uwierzytelniać użytkowników aplikacji za pomocą platformy tożsamości firmy Microsoft (29:09)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/Mtpx_lpfRLs]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        3 — uprawnienia platformy tożsamości firmy Microsoft i struktura wyrażania zgody (45:08)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/toAWRNqqDL4]
+    :::column-end:::
+    :::column:::
+        4 — jak chronić interfejsy API przy użyciu platformy tożsamości firmy Microsoft (33:17)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/IIQ7QW4bYqA]
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        5 — role aplikacji i grupy zabezpieczeń na platformie tożsamości firmy Microsoft (15:52)
+    :::column-end:::
+    :::column:::
+        > [!VIDEO https://www.youtube.com/embed/-BK2iBDrmNo]
+    :::column-end:::
+    :::column:::
+        <!-- BLANK TITLE CELL -->
+    :::column-end:::
+    :::column:::
+        <!-- BLANK VIDEO CELL -->
+    :::column-end:::
+:::row-end:::
+
 ## <a name="authentication-fundamentals"></a>Podstawowe informacje uwierzytelniania
 
-W przypadku nowych koncepcji, takich jak dostawcy tożsamości, tokeny zabezpieczające, oświadczenia i odbiorcy, ta seria wideo jest dobrym miejscem do uruchomienia.
+Jeśli jesteś nowym zagadnieniami, takimi jak dostawcy tożsamości, tokeny zabezpieczające, oświadczenia i odbiorcy, ta seria filmów może pomóc w wyczyszczeniu koncepcji i składników w nowoczesnej uwierzytelnianiu.
 ___
 
 :::row:::

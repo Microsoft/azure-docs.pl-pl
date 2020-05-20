@@ -1,5 +1,5 @@
 ---
-title: Typ jednostki o Poznaniu maszyn — LUIS
+title: Typ jednostki uczenia maszynowego — LUIS
 titleSuffix: Azure Cognitive Services
 description: Jednostka uczenia maszynowego jest preferowaną jednostką do kompilowania aplikacji LUIS.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/30/2020
 ms.author: diberry
-ms.openlocfilehash: 5f663379939f24d16fb63e8e5b002fe088a2d9f8
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: ddaf5c921f92aeaefd8a8b0cb13602bc70a4dd5d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585593"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684583"
 ---
-# <a name="machine-learned-entity"></a>Jednostka nauczona maszynowo
+# <a name="machine-learning-entity"></a>Jednostka uczenia maszynowego
 
 Jednostka uczenia maszynowego jest preferowaną jednostką do kompilowania aplikacji LUIS.
 
@@ -38,7 +38,7 @@ Przykładowe wypowiedzi mogą być następujące:
 
 #### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v3](#tab/V3)
 
-Ponieważ jednostka poznania maszyn może mieć wiele podjednostek z wymaganymi funkcjami, jest to tylko przykład. Powinien być uważany za przewodnik dotyczący tego, co jednostka zwróci.
+Ponieważ jednostka uczenia maszynowego może mieć wiele podjednostek z wymaganymi funkcjami, jest to tylko przykład. Powinien być uważany za przewodnik dotyczący tego, co jednostka zwróci.
 
 Rozważmy zapytanie:
 
@@ -348,6 +348,6 @@ Ta jednostka nie jest dostępna w środowisku uruchomieniowym przewidywania v2.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej na temat jednostki, w tym [samouczka](tutorial-machine-learned-entity.md), [koncepcji](luis-concept-entity-types.md#design-entities-for-decomposition)i [przewodnika](luis-how-to-add-entities.md#create-a-machine-learned-entity).
+Dowiedz się więcej na temat jednostki uczenia maszynowego, w tym [samouczka](tutorial-machine-learned-entity.md), [koncepcji](luis-concept-entity-types.md#design-entities-for-decomposition)i [przewodnika](luis-how-to-add-entities.md#create-a-machine-learned-entity).
 
 Dowiedz się więcej na temat jednostki [listy](reference-entity-list.md) i jednostki [wyrażenia regularnego](reference-entity-regular-expression.md) .

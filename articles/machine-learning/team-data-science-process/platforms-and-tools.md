@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3f3f06bd5a9b6a78b45a63de0684b580e662075b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 88e9cdfa8ea4554a44ddfc25cde2b0eb2aed7a57
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81256522"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682700"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Platformy i narzędzia dla projektów do nauki o danych
 
@@ -49,7 +49,7 @@ Obejmuje to również **Narzędzia ml i AI** , takie jak xgboost, Mxnet i Vowpal
 
 Obecnie DSVM jest dostępna w systemach operacyjnych **Windows** i **Linux CentOS** . Wybierz rozmiar DSVM (liczbę rdzeni procesora CPU i ilość pamięci) w zależności od potrzeb projektów analizy danych, które planujesz wykonać. 
 
-Aby uzyskać więcej informacji na temat wersji systemu Windows DSVM, zobacz [Microsoft Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) w witrynie Azure Marketplace. W przypadku wersji systemu Linux DSVM należy zapoznać się z tematem [linux Data Science Virtual Machine](https://azure.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804).
+Aby uzyskać więcej informacji na temat wersji systemu Windows DSVM, zobacz [Microsoft Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) w witrynie Azure Marketplace. W przypadku wersji systemu Linux DSVM należy zapoznać się z tematem [linux Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804).
 
 Aby dowiedzieć się, jak wykonywać niektóre typowe zadania analizy danych na DSVM wydajnie, zobacz [10 rzeczy, które możesz wykonać na maszynie wirtualnej do analizy danych](../data-science-virtual-machine/vm-do-ten-things.md)
 
@@ -136,7 +136,7 @@ Jeśli używasz maszyn z systemem Linux (CentOS) do uruchamiania poleceń git, m
 
 1. Skopiuj cały klucz SSH, w tym *SSH-RSA*. 
 1. Zaloguj się do Azure DevOps Services. 
-1. Kliknij **<swoją nazwę\> ** w prawym górnym rogu strony, a następnie kliknij pozycję **zabezpieczenia**. 
+1. Kliknij **<swoją nazwę \> ** w prawym górnym rogu strony, a następnie kliknij pozycję **zabezpieczenia**. 
     
    ![Kliknij swoją nazwę, a następnie kliknij pozycję Zabezpieczenia.](./media/platforms-and-tools/resources-2-user-setting.png)
 

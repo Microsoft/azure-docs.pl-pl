@@ -10,16 +10,16 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
-ms.openlocfilehash: 8b92aa6057c81ec9442372c5b85918cb92196d61
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1b5754be3c9941101a53f332841ace93caf9acdd
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74894758"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684554"
 ---
 # <a name="simple-entity"></a>Prosta jednostka
 
-Prosta jednostka to ogólna jednostka, która opisuje pojedyncze koncepcje i jest poznania z kontekstu wykorzystanego przez maszynę. Ponieważ proste jednostki są zazwyczaj nazwami, takimi jak nazwy firmowe, nazwy produktów lub inne kategorie nazw, Dodaj [listę fraz](luis-concept-feature.md) przy użyciu prostej jednostki, aby zwiększyć sygnał użytych nazw.
+Prosta jednostka to ogólna jednostka, która opisuje pojedyncze koncepcje i jest poznania z kontekstu uczenia maszynowego. Ponieważ proste jednostki są zazwyczaj nazwami, takimi jak nazwy firmowe, nazwy produktów lub inne kategorie nazw, Dodaj [listę fraz](luis-concept-feature.md) przy użyciu prostej jednostki, aby zwiększyć sygnał użytych nazw.
 
 **Jednostka jest dobrym dopasowaniem w przypadku:**
 
@@ -51,7 +51,7 @@ Dane zwrócone z punktu końcowego zawierają nazwę jednostki, odnaleziony teks
 
 #### <a name="v3-prediction-endpoint-response"></a>[Odpowiedź punktu końcowego przewidywania v3](#tab/V3)
 
-Jest to kod JSON, `verbose=false` jeśli jest ustawiony w ciągu zapytania:
+Jest to kod JSON, jeśli `verbose=false` jest ustawiony w ciągu zapytania:
 
 ```json
 "entities": {

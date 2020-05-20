@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 7c843b45b5a398aaaa1aab66f80961560477cf18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 794c88556fb69aae11c582afd03f548480469e34
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128061"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684714"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>Zbieraj dane telemetryczne dla analizy ruchu wyszukiwania
 
@@ -48,9 +48,9 @@ Gdy masz zasób Application Insights, możesz wykonać [instrukcje dotyczące ob
 
 Skrót, który działa dla niektórych typów projektów programu Visual Studio, jest uwzględniony w poniższych krokach. Tworzy zasób i rejestruje aplikację w zaledwie kilka kliknięć.
 
-1. W przypadku programów Visual Studio i ASP.NET Development Otwórz rozwiązanie i wybierz pozycję **Project** > **Add Telemetria usługi Application Insights**.
+1. W przypadku programów Visual Studio i ASP.NET Development Otwórz rozwiązanie i wybierz pozycję **Project**  >  **Add Telemetria usługi Application Insights**.
 
-1. Kliknij pozycję **Wprowadzenie**.
+1. Kliknij pozycję **Rozpocznij**.
 
 1. Zarejestruj swoją aplikację, podając konto Microsoft, subskrypcję platformy Azure i zasób Application Insights (domyślnie jest to nowy zasób). Kliknij pozycję **zarejestruj**.
 
@@ -236,4 +236,4 @@ Instrumentacja aplikacji wyszukiwania pozwala uzyskać zaawansowane i szczegół
 
 Więcej informacji na temat [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) można znaleźć na [stronie cennika](https://azure.microsoft.com/pricing/details/application-insights/) , aby dowiedzieć się więcej o różnych warstwach usług.
 
-Dowiedz się więcej na temat tworzenia niezwykłych raportów. Aby uzyskać szczegółowe informacje, zobacz [wprowadzenie do Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/) .
+Dowiedz się więcej na temat tworzenia niezwykłych raportów. Aby uzyskać szczegółowe informacje, zobacz [wprowadzenie do Power BI Desktop](https://docs.microsoft.com/power-bi/fundamentals/desktop-getting-started) .

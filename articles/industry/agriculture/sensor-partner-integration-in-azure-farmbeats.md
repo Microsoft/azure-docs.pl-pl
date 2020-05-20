@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 3431576acbb01a0cc3a5f372460b28be05bf7ce7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 37a387b93f1c6b3796b66993405787cf43990bc4
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80437464"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684017"
 ---
 # <a name="sensor-partner-integration"></a>Integracja z partnerami obsługującymi czujniki
 
@@ -44,7 +44,7 @@ Dane telemetryczne są mapowane na komunikat kanoniczny, który jest publikowany
 
 Interfejsy API zawierają dokumentację techniczną struktury Swagger. Aby uzyskać więcej informacji na temat interfejsów API i odpowiadających im żądań lub odpowiedzi, zobacz [Swagger](https://aka.ms/FarmBeatsSwagger).
 
-**Uwierzytelnianie**
+**Authentication**
 
 FarmBeats używa uwierzytelniania Microsoft Azure Active Directory.Azure App Service zapewnia wbudowaną obsługę uwierzytelniania i autoryzacji.
 
@@ -64,22 +64,27 @@ headers = {"Authorization": "Bearer " + access_token, …} 
 Następujący przykładowy kod w języku Python daje token dostępu, który może być używany do kolejnych wywołań interfejsu API do FarmBeats.
 
 ```python
-import azure 
+import requests
+import json
+import msal
 
-from azure.common.credentials import ServicePrincipalCredentials 
-import adal 
-#FarmBeats API Endpoint 
-ENDPOINT = "https://<yourdatahub>.azurewebsites.net" [Azure website](https://<yourdatahub>.azurewebsites.net)
-CLIENT_ID = "<Your Client ID>"   
-CLIENT_SECRET = "<Your Client Secret>"   
-TENANT_ID = "<Your Tenant ID>" 
-AUTHORITY_HOST = 'https://login.microsoftonline.com' 
-AUTHORITY = AUTHORITY_HOST + '/' + TENANT_ID 
-#Authenticating with the credentials 
-context = adal.AuthenticationContext(AUTHORITY) 
-token_response = context.acquire_token_with_client_credentials(ENDPOINT, CLIENT_ID, CLIENT_SECRET) 
-#Should get an access token here 
-access_token = token_response.get('accessToken') 
+# Your service principal App ID
+CLIENT_ID = "<CLIENT_ID>"
+# Your service principal password
+CLIENT_SECRET = "<CLIENT_SECRET>"
+# Tenant ID for your Azure subscription
+TENANT_ID = "<TENANT_ID>"
+
+AUTHORITY_HOST = 'https://login.microsoftonline.com'
+AUTHORITY = AUTHORITY_HOST + '/' + TENANT_ID
+
+ENDPOINT = "https://<yourfarmbeatswebsitename-api>.azurewebsites.net"
+SCOPE = ENDPOINT + "/.default"
+
+context = msal.ConfidentialClientApplication(CLIENT_ID, authority=AUTHORITY, client_credential=CLIENT_SECRET)
+token_response = context.acquire_token_for_client(SCOPE)
+# We should get an access token here
+access_token = token_response.get('access_token')
 ```
 
 
@@ -90,13 +95,13 @@ Poniżej znajdują się najczęstsze nagłówki żądań, które należy określ
 
 **Nagłówki** | **Opis i przykład**
 --- | ---
-Content-Type | Format żądania (Content-Type: Application/<format>). W przypadku interfejsów API FarmBeats Datahub format jest JSON. Content-Type: Application/JSON
+Content-Type | Format żądania (Content-Type: Application/ <format> ). W przypadku interfejsów API FarmBeats Datahub format jest JSON. Content-Type: Application/JSON
 Autoryzacja | Określa token dostępu wymagany do wywołania interfejsu API. Autoryzacja: <tokenu dostępu>
 Zaakceptuj | Format odpowiedzi. W przypadku interfejsów API FarmBeats Datahub format jest JSON. Akceptuj: Application/JSON
 
 **Żądania interfejsu API**
 
-Aby wykonać żądanie interfejsu API REST, należy połączyć metodę HTTP (GET, POST lub PUT), adres URL usługi interfejsu API, Uniform Resource Identifier (URI) do zasobu, aby wykonać zapytanie, przesłać dane do, zaktualizować lub usunąć oraz co najmniej jeden nagłówek żądania HTTP. Adres URL usługi API Service to punkt końcowy interfejsu API, który jest udostępniany. Oto przykład: https://\<yourdatahub-Website-Name>. azurewebsites.NET
+Aby wykonać żądanie interfejsu API REST, należy połączyć metodę HTTP (GET, POST lub PUT), adres URL usługi interfejsu API, Uniform Resource Identifier (URI) do zasobu, aby wykonać zapytanie, przesłać dane do, zaktualizować lub usunąć oraz co najmniej jeden nagłówek żądania HTTP. Adres URL usługi API Service to punkt końcowy interfejsu API, który jest udostępniany. Oto przykład: https:// \< yourdatahub-Website-name>. azurewebsites.NET
 
 Opcjonalnie można uwzględnić parametry zapytania dla wywołań GET do filtrowania, ograniczyć rozmiar i sortować dane w odpowiedziach.
 

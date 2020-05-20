@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1869fac973cd4cd68e1e91be89c25fdf1427f6a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e8b7d3945adaf75949ef36b50a5e56a02fde1548
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80653210"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680922"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portal użytkowników serwera usługi Azure Multi-Factor Authentication
 
@@ -69,7 +69,7 @@ Aby wdrożyć portal użytkowników, wykonaj następujące czynności:
    > [!NOTE]
    > Ten certyfikat TLS/SSL jest zazwyczaj podpisanym publicznie certyfikatem TLS/SSL.
 
-4. Otwórz przeglądarkę sieci Web z dowolnego komputera i przejdź do adresu URL, pod którym zainstalowano Portal użytkowników ( `https://mfa.contoso.com/MultiFactorAuth`na przykład:). Upewnij się, że nie są wyświetlane żadne ostrzeżenia ani błędy dotyczące certyfikatów.
+4. Otwórz przeglądarkę sieci Web z dowolnego komputera i przejdź do adresu URL, pod którym zainstalowano Portal użytkowników (na przykład: `https://mfa.contoso.com/MultiFactorAuth` ). Upewnij się, że nie są wyświetlane żadne ostrzeżenia ani błędy dotyczące certyfikatów.
 
 ![Instalacja portalu użytkowników serwera usługi MFA](./media/howto-mfaserver-deploy-userportal/install.png)
 
@@ -105,10 +105,10 @@ Zainstalowanie portalu użytkowników na serwerze innym niż serwer usługi Azur
     * Znajdź klucz **"USE_WEB_SERVICE_SDK"** i zmień wartość **value="false"** na **value="true"**
     * Znajdź klucz **"WEB_SERVICE_SDK_AUTHENTICATION_USERNAME"** i zmień wartość **value=""** na **value="DOMAIN\User"**, gdzie DOMAIN\User to konto usługi będące częścią grupy „PhoneFactor Admins”.
     * Znajdź klucz **"WEB_SERVICE_SDK_AUTHENTICATION_PASSWORD"** i zmień wartość **value=""** na **value="Password"**, gdzie Password to hasło konta usługi wprowadzonego w poprzednim wierszu.
-    * Znajdź wartość **https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx** i Zmień ten symbol zastępczy URL na adres URL zestawu SDK usługi sieci Web, który został zainstalowany w kroku 2.
+    * Znajdź wartość `https://www.contoso.com/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx` i zmień ten zastępczy adres URL na adres URL zestawu SDK usługi internetowej zainstalowanej w kroku 2.
     * Zapisz plik Web.Config i zamknij Notatnik.
 
-6. Otwórz przeglądarkę sieci Web z dowolnego komputera i przejdź do adresu URL, pod którym zainstalowano Portal użytkowników ( `https://mfa.contoso.com/MultiFactorAuth`na przykład:). Upewnij się, że nie są wyświetlane żadne ostrzeżenia ani błędy dotyczące certyfikatów.
+6. Otwórz przeglądarkę sieci Web z dowolnego komputera i przejdź do adresu URL, pod którym zainstalowano Portal użytkowników (na przykład: `https://mfa.contoso.com/MultiFactorAuth` ). Upewnij się, że nie są wyświetlane żadne ostrzeżenia ani błędy dotyczące certyfikatów.
 
 Jeśli masz pytania dotyczące konfigurowania certyfikatu TLS/SSL na serwerze IIS, zobacz artykuł [jak skonfigurować protokół SSL w usługach IIS](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis).
 

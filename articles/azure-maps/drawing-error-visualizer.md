@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e1b5b16d5522285f2d028303f3295cc1fb740330
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 01d131833f36c1b46eea1b9c08339b067fb9e937
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598815"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681957"
 ---
 # <a name="using-the-azure-maps-drawing-error-visualizer"></a>Korzystanie z Azure Maps wizualizatora błędów rysowania
 
-Wizualizator błędu rysowania to autonomiczna aplikacja sieci Web, która wyświetla [ostrzeżenia i błędy pakietu rysowania](drawing-conversion-error-codes.md) wykryte podczas procesu konwersji. Aplikacja sieci Web wizualizatora błędów składa się ze strony statycznej, której można użyć bez łączenia się z Internetem.  Możesz użyć wizualizatora błędów, aby naprawić błędy i ostrzeżenia zgodnie z [wymaganiami dotyczącymi pakietów rysowania](drawing-requirements.md). [Interfejs API konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion) zwraca tylko odpowiedź z linkiem do wizualizatora błędu tylko w przypadku wykrycia błędu.
+Wizualizator błędu rysowania to autonomiczna aplikacja sieci Web, która wyświetla [ostrzeżenia i błędy pakietu rysowania](drawing-conversion-error-codes.md) wykryte podczas procesu konwersji. Aplikacja sieci Web wizualizatora błędów składa się ze strony statycznej, której można użyć bez łączenia się z Internetem.  Możesz użyć wizualizatora błędów, aby naprawić błędy i ostrzeżenia zgodnie z [wymaganiami dotyczącymi pakietów rysowania](drawing-requirements.md). [Interfejs API konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) zwraca tylko odpowiedź z linkiem do wizualizatora błędu tylko w przypadku wykrycia błędu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -90,7 +90,7 @@ Po załadowaniu pliku _ConversionWarningsAndErrors. JSON_ zostanie wyświetlona 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Gdy [pakiet rysowania spełnia wymagania](drawing-requirements.md), możesz użyć [usługi Azure Maps DataSet](https://docs.microsoft.com/rest/api/maps/data/conversion) , aby skonwertować pakiet rysowania do zestawu danych. Następnie możesz użyć modułu sieci Web Maps (mapy wewnętrzne) do tworzenia aplikacji. Dowiedz się więcej, czytając następujące artykuły:
+Gdy [pakiet rysowania spełnia wymagania](drawing-requirements.md), możesz użyć [usługi Azure Maps DataSet](https://docs.microsoft.com/rest/api/maps/conversion) , aby skonwertować pakiet rysowania do zestawu danych. Następnie możesz użyć modułu sieci Web Maps (mapy wewnętrzne) do tworzenia aplikacji. Dowiedz się więcej, czytając następujące artykuły:
 
 > [!div class="nextstepaction"]
 > [Kody błędów konwersji rysowania](drawing-conversion-error-codes.md)

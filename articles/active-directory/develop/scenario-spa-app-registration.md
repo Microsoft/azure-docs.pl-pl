@@ -1,48 +1,81 @@
 ---
-title: Rejestrowanie aplikacji jednostronicowych — platforma tożsamości firmy Microsoft | Azure
+title: Rejestrowanie aplikacji jednostronicowych (SPA) | Azure
+titleSuffix: Microsoft identity platform
 description: Dowiedz się, jak utworzyć aplikację jednostronicową (Rejestracja aplikacji)
 services: active-directory
-author: navyasric
+author: hahamil
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
-ms.author: nacanuma
+ms.date: 05/19/2020
+ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 6f690a8b3436a45d434ccad2bbaa7d2a1b0b76aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9dc5b446e2ab26ca43c2a300e1af1237353325a3
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80882152"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682396"
 ---
 # <a name="single-page-application-app-registration"></a>Aplikacja jednostronicowa: Rejestracja aplikacji
 
-Ta strona zawiera wyjaśnienia dotyczące rejestracji aplikacji dla aplikacji jednostronicowej (SPA).
+Aby zarejestrować aplikację jednostronicową (SPA) na platformie tożsamości firmy Microsoft, wykonaj następujące czynności. Kroki rejestracji różnią się w zależności od MSAL. js 1,0, która obsługuje przepływ niejawnego przydzielenia oraz MSAL. js 2,0, który obsługuje przepływ kodu autoryzacji z PKCE.
 
-Postępuj zgodnie z instrukcjami, aby [zarejestrować nową aplikację na platformie tożsamości firmy Microsoft](quickstart-register-app.md), a następnie wybierz obsługiwane konta aplikacji. Scenariusz SPA może obsługiwać uwierzytelnianie z kontami w organizacji lub dowolną organizację i osobiste konta Microsoft.
+## <a name="create-the-app-registration"></a>Utwórz rejestrację aplikacji
 
-Następnie zapoznaj się z określonymi aspektami rejestracji aplikacji, które mają zastosowanie do aplikacji jednostronicowych.
+W przypadku aplikacji opartych na MSAL. js 1,0 i 2,0 Zacznij od wykonania poniższych kroków, aby utworzyć początkową rejestrację aplikacji.
 
-## <a name="register-a-redirect-uri"></a>Rejestrowanie identyfikatora URI przekierowania
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Jeśli Twoje konto ma dostęp do wielu dzierżawców, wybierz filtr **katalogów i subskrypcji** w górnym menu, a następnie wybierz dzierżawcę, który powinien zawierać rejestrację aplikacji, którą chcesz utworzyć.
+1. Wyszukaj i wybierz pozycję **Azure Active Directory**.
+1. W obszarze **Zarządzaj**wybierz pozycję **rejestracje aplikacji**.
+1. Wybierz pozycję **Nowa rejestracja**, wprowadź **nazwę** aplikacji i wybierz **obsługiwane typy kont** dla aplikacji. **Nie** należy wprowadzać **identyfikatora URI przekierowania**. Aby uzyskać opis różnych typów kont, zobacz [Rejestrowanie nowej aplikacji przy użyciu Azure Portal](quickstart-register-app.md#register-a-new-application-using-the-azure-portal).
+1. Wybierz pozycję **zarejestruj** , aby utworzyć rejestrację aplikacji.
 
-Przepływ niejawny wysyła tokeny w przekierowaniu do aplikacji jednostronicowej działającej w przeglądarce sieci Web. Ważne jest, aby zarejestrować identyfikator URI przekierowania, w którym aplikacja może odbierać tokeny. Upewnij się, że identyfikator URI przekierowania dokładnie odpowiada identyfikatorowi URI aplikacji.
+Następnie skonfiguruj rejestrację aplikacji za pomocą **identyfikatora URI przekierowania** , aby określić, gdzie platforma tożsamości firmy Microsoft powinna przekierować klienta wraz z wszelkimi tokenami zabezpieczeń. Wykonaj kroki odpowiednie dla używanej wersji MSAL. js w aplikacji:
 
-W [Azure Portal](https://go.microsoft.com/fwlink/?linkid=2083908)przejdź do swojej zarejestrowanej aplikacji. Na stronie **uwierzytelnianie** w aplikacji wybierz platformę **sieci Web** . Wprowadź wartość identyfikatora URI przekierowania dla aplikacji w polu **Identyfikator URI przekierowania** .
+- [MSAL. js 2,0 z przepływem kodu uwierzytelniania](#redirect-uri-msaljs-20-with-auth-code-flow) (zalecane)
+- [MSAL. js 1,0 z niejawnym przepływem](#redirect-uri-msaljs-10-with-implicit-flow)
 
-## <a name="enable-the-implicit-flow"></a>Włącz przepływ niejawny
+## <a name="redirect-uri-msaljs-20-with-auth-code-flow"></a>Identyfikator URI przekierowania: MSAL. js 2,0 z przepływem kodu uwierzytelniania
 
-Na tej samej stronie **uwierzytelniania** w obszarze **Ustawienia zaawansowane**należy również włączyć **niejawny**przydział. Jeśli aplikacja loguje się tylko do użytkowników i otrzymuje tokeny identyfikatora, wystarczy zaznaczyć pole wyboru **tokeny identyfikatorów** .
+Wykonaj następujące kroki, aby dodać identyfikator URI przekierowania dla aplikacji korzystającej z MSAL. js 2,0 lub nowszej. MSAL. js 2.0 + obsługuje przepływ kodu autoryzacji z PKCE i CORS w odpowiedzi na [ograniczenia plików cookie](reference-third-party-cookies-spas.md)innych firm. Niejawny przepływ grantu nie jest obsługiwany w MSAL. js 2.0 +.
 
-Jeśli aplikacja wymaga również uzyskania tokenów dostępu do wywoływania interfejsów API, pamiętaj o zaznaczeniu pola wyboru **tokeny dostępu** . Aby uzyskać więcej informacji, zobacz [identyfikatory tokenów](./id-tokens.md) i [tokeny dostępu](./access-tokens.md).
+1. W Azure Portal wybierz rejestrację aplikacji utworzoną wcześniej w temacie [Tworzenie rejestracji aplikacji](#create-the-app-registration).
+1. W obszarze **Zarządzaj**wybierz pozycję **uwierzytelnianie**, a następnie wybierz pozycję **Dodaj platformę**.
+1. W obszarze **aplikacje sieci Web**wybierz kafelek **aplikacji jednostronicowej** .
+1. W obszarze **identyfikatory URI przekierowania**wprowadź [Identyfikator URI przekierowania](reply-url.md). **Nie** zaznaczaj żadnych pól wyboru w obszarze **niejawne przyznanie**.
+1. Wybierz pozycję **Konfiguruj** , aby zakończyć dodawanie identyfikatora URI przekierowania.
 
-## <a name="api-permissions"></a>Uprawnienia aplikacji
+Zakończono rejestrację aplikacji jednostronicowej (SPA) i skonfigurowano identyfikator URI przekierowania, do którego zostanie przekierowany klient, i zostaną wysłane wszystkie tokeny zabezpieczające. Konfigurując identyfikator URI przekierowania przy użyciu kafelka **aplikacji jednostronicowej** w okienku **Dodaj platformę** , Rejestracja aplikacji jest skonfigurowana do obsługi przepływu kodu autoryzacji za pomocą PKCE i mechanizmu CORS.
 
-Aplikacje jednostronicowe mogą wywoływać interfejsy API w imieniu zalogowanego użytkownika. Muszą oni zażądać uprawnień delegowanych. Aby uzyskać szczegółowe informacje, zobacz [Dodawanie uprawnień dostępu do interfejsów API sieci Web](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+## <a name="redirect-uri-msaljs-10-with-implicit-flow"></a>Identyfikator URI przekierowania: MSAL. js 1,0 z niejawnym przepływem
+
+Wykonaj następujące kroki, aby dodać identyfikator URI przekierowania dla jednostronicowej aplikacji korzystającej z MSAL. js 1,3 lub starszej i niejawnego przepływu dotacji. Aplikacje korzystające z MSAL. js 1,3 lub starszej nie obsługują przepływu kodu uwierzytelniania.
+
+1. W Azure Portal wybierz rejestrację aplikacji utworzoną wcześniej w temacie [Tworzenie rejestracji aplikacji](#create-the-app-registration).
+1. W obszarze **Zarządzaj**wybierz pozycję **uwierzytelnianie**, a następnie wybierz pozycję **Dodaj platformę**.
+1. W obszarze **aplikacje sieci Web**wybierz kafelek **aplikacji jednostronicowej** .
+1. W obszarze **identyfikatory URI przekierowania**wprowadź [Identyfikator URI przekierowania](reply-url.md).
+1. Włącz **przepływ niejawny**:
+    - Jeśli aplikacja loguje się do użytkowników, wybierz pozycję **identyfikatory tokenów**.
+    - Jeśli aplikacja wymaga również wywołania chronionego internetowego interfejsu API, wybierz pozycję **tokeny dostępu**. Aby uzyskać więcej informacji na temat tych typów tokenów, zobacz [identyfikatory tokenów](id-tokens.md) i [tokeny dostępu](access-tokens.md).
+1. Wybierz pozycję **Konfiguruj** , aby zakończyć dodawanie identyfikatora URI przekierowania.
+
+Zakończono rejestrację aplikacji jednostronicowej (SPA) i skonfigurowano identyfikator URI przekierowania, do którego zostanie przekierowany klient, i zostaną wysłane wszystkie tokeny zabezpieczające. Wybranie jednego lub obu **tokenów identyfikatorów** i **tokenów dostępu**umożliwiło włączenie niejawnego przepływu dotacji.
+
+## <a name="note-about-authorization-flows"></a>Uwaga dotycząca przepływów autoryzacji
+
+Domyślnie Rejestracja aplikacji utworzona przy użyciu konfiguracji platformy aplikacji jednostronicowej umożliwia przepływ kodu autoryzacji. Aby skorzystać z tego przepływu, aplikacja musi używać MSAL. js 2,0 lub nowszego.
+
+Jak wspomniano wcześniej, aplikacje jednostronicowe używające MSAL. js 1,3 są ograniczone do niejawnego przepływu dotacji. Bieżące [najlepsze rozwiązania związane z uwierzytelnianiem OAuth 2,0](v2-oauth2-auth-code-flow.md) zaleca się użycie przepływu kodu autoryzacji zamiast niejawnego przepływu dla aplikacji jednostronicowych. Posiadanie tokenów odświeżania o ograniczonym okresie istnienia ułatwia również aplikacji dostosowanie do [nowoczesnej ochrony plików cookie w przeglądarce](reference-third-party-cookies-spas.md), takich jak Safari itp.
+
+Jeśli wszystkie produkcyjne aplikacje jednostronicowe reprezentowane przez rejestrację aplikacji używają MSAL. js 2,0 i przepływu kodu autoryzacji, usuń zaznaczenie pola wyboru niejawne ustawienie w okienku **uwierzytelnianie** aplikacji w Azure Portal. Aplikacje korzystające z MSAL. js 1. x i niejawnego przepływu mogą jednak nadal działać, ale w przypadku pozostawienia niejawnego przepływu włączonego (zaznaczone).
 
 ## <a name="next-steps"></a>Następne kroki
+
+Następnie skonfiguruj kod aplikacji w taki sposób, aby korzystał z rejestracji aplikacji utworzonej w poprzednich krokach:.
 
 > [!div class="nextstepaction"]
 > [Konfiguracja kodu aplikacji](scenario-spa-app-configuration.md)

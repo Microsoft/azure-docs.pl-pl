@@ -7,21 +7,21 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: conceptual
-ms.date: 01/10/2019
+ms.topic: how-to
+ms.date: 05/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 71858755fe31823d4d7ef8623b915db851530116
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 081f512fd421bf46a86f3789eadd75e178e1b6f5
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72755233"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685311"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Analizowanie zawartości wideo dla nieistotnego materiału w języku C #
 
 Ten artykuł zawiera informacje i przykłady kodu ułatwiające rozpoczęcie korzystania z [zestawu Content moderator SDK dla platformy .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) w celu skanowania zawartości wideo dla dorosłych lub erotycznej zawartości.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) . 
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 - Dowolna wersja programu [Visual Studio 2015 lub 2017](https://www.visualstudio.com/downloads/)
@@ -40,7 +40,7 @@ Przejdź do nowej subskrypcji usługi AMS w Azure Portal i wybierz pozycję **do
 
 W sekcji **aplikacja usługi Azure AD** wybierz pozycję **Utwórz nową** i nadaj nazwę nowej rejestracji aplikacji usługi Azure AD (na przykład "VideoModADApp"). Kliknij przycisk **Zapisz** i odczekaj kilka minut, gdy aplikacja jest skonfigurowana. Następnie w sekcji **aplikacji usługi Azure AD** na stronie powinna zostać wyświetlona nowa Rejestracja aplikacji.
 
-Wybierz swoją rejestrację aplikacji, a następnie kliknij przycisk **Zarządzaj aplikacjami** poniżej. Zanotuj wartość w polu **Identyfikator aplikacji** ; będzie on potrzebny później. Wybierz pozycję **Ustawienia** > **klucze**i wprowadź opis nowego klucza (na przykład "VideoModKey"). Kliknij przycisk **Zapisz**, a następnie Zwróć uwagę na nową wartość klucza. Skopiuj ten ciąg i Zapisz go w bezpiecznym miejscu.
+Wybierz swoją rejestrację aplikacji, a następnie kliknij przycisk **Zarządzaj aplikacjami** poniżej. Zanotuj wartość w polu **Identyfikator aplikacji** ; będzie on potrzebny później. Wybierz pozycję **Ustawienia**  >  **klucze**i wprowadź opis nowego klucza (na przykład "VideoModKey"). Kliknij przycisk **Zapisz**, a następnie Zwróć uwagę na nową wartość klucza. Skopiuj ten ciąg i Zapisz go w bezpiecznym miejscu.
 
 Dokładniejszy Przewodnik dotyczący powyższego procesu znajduje się w temacie [Rozpoczynanie pracy z uwierzytelnianiem w usłudze Azure AD](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad).
 
@@ -83,7 +83,7 @@ using System.Collections.Generic;
 
 ### <a name="set-up-resource-references"></a>Konfigurowanie odwołań zasobów
 
-Dodaj następujące pola statyczne do klasy **program** w _program.cs_. Te pola zawierają informacje niezbędne do nawiązania połączenia z subskrypcją usługi AMS. Wypełnij je wartościami, które zostały podane w powyższych krokach. Zwróć uwagę `CLIENT_ID` , że jest to wartość **identyfikatora aplikacji** dla aplikacji usługi Azure AD `CLIENT_SECRET` . jest to wartość "VideoModKey", która została utworzona dla tej aplikacji.
+Dodaj następujące pola statyczne do klasy **program** w _program.cs_. Te pola zawierają informacje niezbędne do nawiązania połączenia z subskrypcją usługi AMS. Wypełnij je wartościami, które zostały podane w powyższych krokach. Zwróć uwagę, że `CLIENT_ID` jest to wartość **identyfikatora aplikacji** dla aplikacji usługi Azure AD `CLIENT_SECRET` . jest to wartość "VideoModKey", która została utworzona dla tej aplikacji.
 
 ```csharp
 // declare constants and globals
@@ -120,7 +120,7 @@ private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
 
 Jeśli chcesz użyć lokalnego pliku wideo (najprostszy przypadek), Dodaj go do projektu i wprowadź ścieżkę jako `INPUT_FILE` wartość (ścieżki względne są względne dla katalogu wykonywania).
 
-Należy również utworzyć _predefiniowany plik JSON_ w bieżącym katalogu i użyć go do określenia numeru wersji. Przykład:
+Należy również utworzyć _predefiniowany plik JSON_ w bieżącym katalogu i użyć go do określenia numeru wersji. Na przykład:
 
 ```JSON
 {

@@ -3,12 +3,12 @@ title: Praca z dużymi zestawami danych
 description: Informacje na temat pobierania, formatowania, wyświetlania i pomijania rekordów w dużych zestawach danych podczas pracy z wykresem zasobów platformy Azure.
 ms.date: 03/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: be15a6234935627ca748276e6330c50c3ee5a775
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4b45a28a5dbd2ebc233bcf9a6808cb7d7cd6d8c8
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80064740"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681074"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Praca z dużymi zestawami danych zasobów platformy Azure
 
@@ -21,7 +21,7 @@ Aby uzyskać wskazówki dotyczące pracy z kwerendami z dużą częstotliwości�
 Domyślnie wykres zasobów ogranicza wszelkie zapytania, aby zwracać tylko **100** rekordów. Ta kontrolka chroni zarówno użytkownika, jak i usługę przed niezamierzonymi zapytaniami, które spowodują powstanie dużych zestawów danych. To zdarzenie najczęściej występuje, gdy klient próbuje znaleźć i filtrować zasoby w taki sposób, aby odpowiadały one konkretnym potrzebom. Ta kontrolka różni się od użycia [górnego](/azure/kusto/query/topoperator) lub [ograniczającego](/azure/kusto/query/limitoperator) operatory języka Azure Eksplorator danych, aby ograniczyć wyniki.
 
 > [!NOTE]
-> Przy **pierwszym**użyciu zaleca się kolejność wyników według co najmniej jednej kolumny z `asc` lub. `desc` Bez sortowania, zwracane wyniki są losowe i nie można ich powtarzać.
+> Przy **pierwszym**użyciu zaleca się kolejność wyników według co najmniej jednej kolumny z `asc` lub `desc` . Bez sortowania, zwracane wyniki są losowe i nie można ich powtarzać.
 
 Domyślny limit można zastąpić wszystkimi metodami współpracy z wykresem zasobów. W poniższych przykładach pokazano, jak zmienić limit rozmiaru zestawu danych na _200_:
 
@@ -37,14 +37,17 @@ W [interfejsie API REST](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-p
 
 Formant, który jest _najbardziej restrykcyjny_ , zostanie wygrany. Na przykład jeśli w zapytaniu jest używany operator **Top** lub **Limit** , a wynikiem będzie więcej rekordów niż **pierwsze**, Maksymalna liczba zwracanych rekordów będzie równa **pierwsze**. Podobnie, jeśli **górny** lub **Limit** jest mniejszy niż **pierwszy**, zwracany zestaw rekordów będzie mniejszą wartością skonfigurowaną przez wartość **Top** lub **Limit**.
 
-**Pierwszy** obecnie ma maksymalną dozwoloną wartość _5000_.
+**Pierwszy** obecnie ma maksymalną dozwoloną wartość _5000_, która osiąga przez [stronicowanie wyników](#paging-results) _1000_ rekordów jednocześnie.
+
+> [!IMPORTANT]
+> Gdy **Pierwsza** wartość jest skonfigurowana tak, aby była większa niż _1000_ rekordów, **zapytanie musi zawierać** wartość pola **ID** , aby podział na strony ma działać. Jeśli brakuje tego zapytania, odpowiedź nie zostanie [stronicowana](#paging-results) i wyniki są ograniczone do _1000_ rekordów.
 
 ## <a name="skipping-records"></a>Pomijanie rekordów
 
 Następną opcją pracy z dużymi zestawami danych jest kontrolka **pomijania** . Ta kontrolka umożliwia kwerendy przeskoczenie lub pominięcie zdefiniowanej liczby rekordów przed zwróceniem wyników. **Pomijanie** jest przydatne w przypadku zapytań, które sortują wyniki w zrozumiały sposób, gdy celem jest uzyskanie rekordów w środku zestawu wyników. Jeśli wyniki są konieczne na końcu zwracanego zestawu danych, bardziej wydajne jest użycie innej konfiguracji sortowania i pobranie wyników z góry zestawu danych.
 
 > [!NOTE]
-> W przypadku korzystania z funkcji **Skip**zaleca się kolejność wyników według co najmniej jednej kolumny z `asc` lub. `desc` Bez sortowania, zwracane wyniki są losowe i nie można ich powtarzać.
+> W przypadku korzystania z funkcji **Skip**zaleca się kolejność wyników według co najmniej jednej kolumny z `asc` lub `desc` . Bez sortowania, zwracane wyniki są losowe i nie można ich powtarzać.
 
 W poniższych przykładach pokazano, jak pominąć pierwsze _10_ rekordów, a zamiast tego zostanie wyświetlony zwrócony zestaw wyników z 11 rekordu:
 

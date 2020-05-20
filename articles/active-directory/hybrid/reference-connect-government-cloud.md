@@ -11,12 +11,12 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acdc99ca50255bd9b75828f0a051f364c5218471
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 217cf8822fcd8ef515ac9ce2dacdac3682e5fd12
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83115493"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680163"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Zagadnienia dotyczące tożsamości hybrydowej w chmurze Azure Government
 
@@ -41,7 +41,7 @@ Przed wdrożeniem agenta uwierzytelniania przekazywanego Sprawdź, czy istnieje 
 |Adres URL |Zastosowanie|
 |-----|-----|
 |&#42;. msappproxy.us</br>&#42;.servicebus.usgovcloudapi.net|Agent używa tych adresów URL do komunikowania się z usługą w chmurze usługi Azure AD. |
-|mscrl.microsoft.us:80 </br>crl.microsoft.us:80 </br>ocsp.msocsp.us:80 </br>www.microsoft.us:80| Agent używa tych adresów URL do weryfikowania certyfikatów.|
+|`mscrl.microsoft.us:80` </br>`crl.microsoft.us:80` </br>`ocsp.msocsp.us:80` </br>`www.microsoft.us:80`| Agent używa tych adresów URL do weryfikowania certyfikatów.|
 |login.windows.us </br>secure.aadcdn.microsoftonline-p.com </br>&#42;. microsoftonline.us </br>&#42;. microsoftonline-p.us </br>&#42;. msauth.net </br>&#42;. msauthimages.net </br>&#42;. msecnd.net</br>&#42;. msftauth.net </br>&#42;. msftauthimages.net</br>&#42;. phonefactor.net </br>enterpriseregistration.windows.net</br>management.azure.com </br>policykeyservice.dc.ad.msft.net</br>ctdl.windowsupdate.us:80| Agent używa tych adresów URL podczas procesu rejestracji.
 
 ### <a name="install-the-agent-for-the-azure-government-cloud"></a>Zainstaluj agenta dla chmury Azure Government
@@ -76,7 +76,7 @@ Jeśli używasz uwierzytelniania przekazywanego jako metody logowania, nie jest 
 
 ### <a name="roll-out-seamless-single-sign-on"></a>Wycofaj bezproblemowe logowanie jednokrotne
 
-Możesz stopniowo wdrażać bezproblemowe logowanie jednokrotne w usłudze Azure AD dla użytkowników, wykonując poniższe instrukcje. Zacznij od dodania adresu URL usługi Azure AD [https://autologon.microsoft.us](https://autologon.microsoft.us) do wszystkich ustawień strefy intranetowej lub wybranych użytkowników za pomocą zasady grupy w Active Directory.
+Możesz stopniowo wdrażać bezproblemowe logowanie jednokrotne w usłudze Azure AD dla użytkowników, wykonując poniższe instrukcje. Zacznij od dodania adresu URL usługi Azure AD `https://autologon.microsoft.us` do wszystkich ustawień strefy intranetowej lub wybranych użytkowników za pomocą zasady grupy w Active Directory.
 
 Należy również włączyć ustawienie zasad strefy intranet **Zezwalaj na aktualizacje paska stanu za pośrednictwem skryptu za pośrednictwem zasady grupy**.
 
@@ -89,16 +89,16 @@ Mozilla Firefox nie korzysta automatycznie z uwierzytelniania Kerberos. Każdy u
 1. Uruchom przeglądarkę Firefox i wpisz **about: config**   na pasku adresu. Odrzuć wszystkie powiadomienia, które mogą zostać wyświetlone.
 1. Wyszukaj preferencje **Network. Negocjuj-auth. Trusted-URI**   . To preferencje zawiera listę witryn zaufanych przez przeglądarkę Firefox na potrzeby uwierzytelniania Kerberos.
 1. Kliknij prawym przyciskiem myszy nazwę preferencji, a następnie wybierz polecenie **Modyfikuj**.
-1. Wprowadź  [**https://autologon.microsoft.us**](https://autologon.microsoft.us**)   w polu.
+1. Wprowadź `https://autologon.microsoft.us` w polu.
 1. Wybierz przycisk **OK**   , a następnie ponownie otwórz przeglądarkę.
 
 ### <a name="microsoft-edge-based-on-chromium-all-platforms"></a>Microsoft Edge oparta na chromie (wszystkie platformy)
 
-Jeśli ustawienia zasad zostały zastąpione  `AuthNegotiateDelegateAllowlist`   `AuthServerAllowlist`   w środowisku programu, upewnij się, że do nich dodano adres URL usługi Azure AD [https://autologon.microsoft.us](https://autologon.microsoft.us) .
+Jeśli ustawienia zasad zostały zastąpione  `AuthNegotiateDelegateAllowlist`   `AuthServerAllowlist`   w środowisku programu, upewnij się, że do nich dodano adres URL usługi Azure AD `https://autologon.microsoft.us` .
 
 ### <a name="google-chrome-all-platforms"></a>Google Chrome (wszystkie platformy)
 
-Jeśli ustawienia zasad zostały zastąpione  `AuthNegotiateDelegateWhitelist`   `AuthServerWhitelist`   w środowisku programu, upewnij się, że do nich dodano adres URL usługi Azure AD [https://autologon.microsoft.us](https://autologon.microsoft.us) .
+Jeśli ustawienia zasad zostały zastąpione  `AuthNegotiateDelegateWhitelist`   `AuthServerWhitelist`   w środowisku programu, upewnij się, że do nich dodano adres URL usługi Azure AD `https://autologon.microsoft.us` .
 
 ## <a name="next-steps"></a>Następne kroki
 

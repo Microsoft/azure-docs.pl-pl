@@ -3,12 +3,12 @@ title: Szczegóły struktury definicji zasad
 description: Opisuje, w jaki sposób definicje zasad są używane do ustanawiania Konwencji dla zasobów platformy Azure w organizacji.
 ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: f396f46fa77f75452ac8ac3cd98bccd58fe0dfe4
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 3852644e888fd4a7cef1d84cc4008d106a8c7910
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82613306"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684332"
 ---
 # <a name="azure-policy-definition-structure"></a>Struktura definicji zasad platformy Azure
 
@@ -24,7 +24,7 @@ Aby utworzyć definicję zasad, należy użyć formatu JSON. Definicja zasad zaw
 - tryb
 - parameters
 - Nazwa wyświetlana
-- description
+- description (opis)
 - Reguła zasad
   - Ocena logiczna
   - skuteczność
@@ -76,19 +76,18 @@ Wszystkie przykłady Azure Policy znajdują się na [Azure Policy próbkach](../
 - `all`: Oceń grupy zasobów, subskrypcje i wszystkie typy zasobów
 - `indexed`: Szacuj tylko typy zasobów obsługujące Tagi i lokalizację
 
-Na przykład zasób `Microsoft.Network/routeTables` obsługuje znaczniki i lokalizację i jest oceniany w obu trybach. Nie można jednak `Microsoft.Network/routeTables/routes` oznaczyć zasobu i nie jest on oceniany w `Indexed` trybie.
+Na przykład zasób `Microsoft.Network/routeTables` obsługuje znaczniki i lokalizację i jest oceniany w obu trybach. `Microsoft.Network/routeTables/routes`Nie można jednak oznaczyć zasobu i nie jest on oceniany w `Indexed` trybie.
 
-Zaleca się, aby `all` w większości przypadków ustawić **tryb** . Wszystkie definicje zasad utworzone za pomocą portalu używają `all` trybu. Jeśli używasz programu PowerShell lub interfejsu wiersza polecenia platformy Azure, możesz określić parametr **mode** ręcznie. Jeśli definicja zasad nie zawiera wartości **trybu** , jest ona domyślnie ustawiona `all` w Azure PowerShell i `null` w interfejsie wiersza polecenia platformy Azure. `null` Tryb jest taki sam jak w przypadku `indexed` korzystania z programu w celu zapewnienia zgodności z poprzednimi wersjami.
+Zaleca się, aby **mode** `all` w większości przypadków ustawić tryb. Wszystkie definicje zasad utworzone za pomocą portalu używają `all` trybu. Jeśli używasz programu PowerShell lub interfejsu wiersza polecenia platformy Azure, możesz określić parametr **mode** ręcznie. Jeśli definicja zasad nie zawiera wartości **trybu** , jest ona domyślnie ustawiona `all` w Azure PowerShell i `null` w interfejsie wiersza polecenia platformy Azure. `null`Tryb jest taki sam jak w przypadku korzystania `indexed` z programu w celu zapewnienia zgodności z poprzednimi wersjami.
 
-`indexed`należy używać podczas tworzenia zasad, które wymuszają Tagi lub lokalizacje. Chociaż nie jest to wymagane, uniemożliwiają one nie obsługujące tagów i lokalizacji, ponieważ nie są one zgodne z wynikami sprawdzania zgodności. Wyjątkiem są **grupy zasobów** i **subskrypcje**. Zasady, które wymuszają lokalizację lub Tagi w grupie zasobów lub subskrypcji, **mode** powinny ustawiać `all` tryb na i przeznaczony `Microsoft.Resources/subscriptions/resourceGroups` dla `Microsoft.Resources/subscriptions` tego typu. Aby zapoznać się z przykładem, zobacz [Wymuszaj Tagi grupy zasobów](../samples/enforce-tag-rg.md). Aby uzyskać listę zasobów, które obsługują Tagi, zobacz [obsługa tagów dla zasobów platformy Azure](../../../azure-resource-manager/management/tag-support.md).
+`indexed`należy używać podczas tworzenia zasad, które wymuszają Tagi lub lokalizacje. Chociaż nie jest to wymagane, uniemożliwiają one nie obsługujące tagów i lokalizacji, ponieważ nie są one zgodne z wynikami sprawdzania zgodności. Wyjątkiem są **grupy zasobów** i **subskrypcje**. Zasady, które wymuszają lokalizację lub Tagi w grupie zasobów lub subskrypcji, powinny ustawiać **tryb** na `all` i przeznaczony dla tego `Microsoft.Resources/subscriptions/resourceGroups` `Microsoft.Resources/subscriptions` typu. Aby zapoznać się z przykładem, zobacz [Wymuszaj Tagi grupy zasobów](../samples/enforce-tag-rg.md). Aby uzyskać listę zasobów, które obsługują Tagi, zobacz [obsługa tagów dla zasobów platformy Azure](../../../azure-resource-manager/management/tag-support.md).
 
 ### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes" />Tryby dostawcy zasobów (wersja zapoznawcza)
 
 Następujące tryby dostawcy zasobów są obecnie obsługiwane w wersji zapoznawczej:
 
-- `Microsoft.ContainerService.Data`Aby zarządzać regułami kontrolera przyjmowania w [usłudze Azure Kubernetes](../../../aks/intro-kubernetes.md). Zasady korzystające z tego trybu dostawcy zasobów **muszą** używać efektu [EnforceRegoPolicy](./effects.md#enforceregopolicy) .
-- `Microsoft.Kubernetes.Data`do zarządzania samozarządzanymi klastrami Kubernetes Engine AKS na platformie Azure.
-  Zasady korzystające z tego trybu dostawcy zasobów **muszą** używać efektu [EnforceOPAConstraint](./effects.md#enforceopaconstraint) .
+- `Microsoft.ContainerService.Data`Aby zarządzać regułami kontrolera przyjmowania w [usłudze Azure Kubernetes](../../../aks/intro-kubernetes.md). Zasady korzystające z tego trybu dostawcy zasobów **muszą** używać efektu [EnforceRegoPolicy](./effects.md#enforceregopolicy) . Ten tryb jest _przestarzały_.
+- `Microsoft.Kubernetes.Data`do zarządzania klastrami Kubernetes na platformie Azure lub w niej. Zasady korzystające z tego trybu dostawcy zasobów **muszą** używać efektu [EnforceOPAConstraint](./effects.md#enforceopaconstraint) .
 - `Microsoft.KeyVault.Data`Zarządzanie magazynami i certyfikatami w [Azure Key Vault](../../../key-vault/general/overview.md).
 
 > [!NOTE]
@@ -96,7 +95,7 @@ Następujące tryby dostawcy zasobów są obecnie obsługiwane w wersji zapoznaw
 
 ## <a name="parameters"></a>Parametry
 
-Parametry pomagają uprościć zarządzanie zasadami przez zmniejszenie liczby definicji zasad. Pomyśl o parametrach, takich jak pola w formularzu `name`— `address`, `city`, `state`,. Te parametry zawsze pozostają takie same, ale ich wartości zmieniają się w zależności od poszczególnych wypełniania formularza.
+Parametry pomagają uprościć zarządzanie zasadami przez zmniejszenie liczby definicji zasad. Pomyśl o parametrach, takich jak pola w formularzu —, `name` `address` , `city` , `state` . Te parametry zawsze pozostają takie same, ale ich wartości zmieniają się w zależności od poszczególnych wypełniania formularza.
 Parametry działają w ten sam sposób podczas kompilowania zasad. Dzięki dołączeniu parametrów w definicji zasad można ponownie użyć tych zasad dla różnych scenariuszy przy użyciu różnych wartości.
 
 > [!NOTE]
@@ -106,7 +105,7 @@ Parametry działają w ten sam sposób podczas kompilowania zasad. Dzięki doł�
 
 Parametr ma następujące właściwości, które są używane w definicji zasad:
 
-- **name**: Nazwa parametru. Używane przez funkcję `parameters` wdrażania w ramach reguły zasad. Aby uzyskać więcej informacji, zobacz [Używanie wartości parametru](#using-a-parameter-value).
+- **name**: Nazwa parametru. Używane przez `parameters` funkcję wdrażania w ramach reguły zasad. Aby uzyskać więcej informacji, zobacz [Używanie wartości parametru](#using-a-parameter-value).
 - `type`: Określa, czy parametr jest **ciągiem**, **tablicą**, **obiektem**, **wartością logiczną**, **liczbą całkowitą**, **zmiennoprzecinkową**lub **DateTime**.
 - `metadata`: Definiuje podwłaściwości używane głównie przez Azure Portal do wyświetlania informacji przyjaznych dla użytkownika:
   - `description`: Wyjaśnienie, do czego służy parametr. Może służyć do podania przykładów akceptowalnych wartości.
@@ -114,7 +113,7 @@ Parametr ma następujące właściwości, które są używane w definicji zasad:
   - `version`: (Opcjonalnie) śledzi szczegółowe informacje o wersji zawartości definicji zasad.
 
     > [!NOTE]
-    > Usługa Azure Policy używa `version`, `preview`i `deprecated` właściwości do przekazywania poziomu zmiany do wbudowanej definicji zasad lub inicjatywy i stanu. Format `version` to: `{Major}.{Minor}.{Patch}`. Określone Stany, takie jak _przestarzałe_ lub _Podgląd_, są dołączane do `version` właściwości lub w innej właściwości jako **wartość logiczna**.
+    > Usługa Azure Policy używa `version` , `preview` i `deprecated` właściwości do przekazywania poziomu zmiany do wbudowanej definicji zasad lub inicjatywy i stanu. Format `version` to: `{Major}.{Minor}.{Patch}` . Określone Stany, takie jak _przestarzałe_ lub _Podgląd_, są dołączane do `version` właściwości lub w innej właściwości jako **wartość logiczna**.
 
   - `category`: (Opcjonalnie) określa, w której kategorii Azure Portal zostanie wyświetlona definicja zasad.
   - `strongType`: (Opcjonalnie) używany podczas przypisywania definicji zasad za pomocą portalu. Zawiera listę kontekstową. Aby uzyskać więcej informacji, zobacz [strongtype](#strongtype).
@@ -146,7 +145,7 @@ Można na przykład zdefiniować definicję zasad, aby ograniczyć lokalizacje, 
 
 ### <a name="using-a-parameter-value"></a>Używanie wartości parametru
 
-W regule zasad, należy odwołać się do parametrów `parameters` za pomocą następującej składni funkcji:
+W regule zasad, należy odwołać się do parametrów za pomocą następującej `parameters` składni funkcji:
 
 ```json
 {
@@ -258,14 +257,14 @@ Warunek oblicza, czy **pole** lub metoda dostępu do **wartości** spełniają o
 - `"greaterOrEquals": "dateValue"` | `"greaterOrEquals": "stringValue"` | `"greaterOrEquals": intValue`
 - `"exists": "bool"`
 
-W przypadku **mniej**, **lessOrEquals**, **większych**i **greaterOrEquals**, jeśli typ właściwości nie jest zgodny z typem warunku, zostanie zgłoszony błąd. Porównania ciągów są wykonywane przy `InvariantCultureIgnoreCase`użyciu.
+W przypadku **mniej**, **lessOrEquals**, **większych**i **greaterOrEquals**, jeśli typ właściwości nie jest zgodny z typem warunku, zostanie zgłoszony błąd. Porównania ciągów są wykonywane przy użyciu `InvariantCultureIgnoreCase` .
 
-W przypadku używania warunków **like** i **notLike** , w wartości można podać `*` symbol wieloznaczny.
-Wartość nie może mieć więcej niż jednego symbolu `*`wieloznacznego.
+W przypadku używania warunków **like** i **notLike** , w wartości można podać symbol wieloznaczny `*` .
+Wartość nie może mieć więcej niż jednego symbolu wieloznacznego `*` .
 
-W przypadku używania warunków **Match** i **notMatch** , podaj `#` , aby dopasować cyfrę `?` do litery, `.` aby dopasować dowolny znak, i dowolny inny znak, aby dopasować go do rzeczywistego znaku. While, **Match** i **notMatch** uwzględnia wielkość liter, a wszystkie inne warunki, które szacują _stringValue_ , nie uwzględniają wielkości liter. Alternatywy bez uwzględniania wielkości liter są dostępne w **matchInsensitively** i **notMatchInsensitively**.
+W przypadku używania warunków **Match** i **notMatch** , podaj, `#` Aby dopasować cyfrę do `?` litery, `.` Aby dopasować dowolny znak, i dowolny inny znak, aby dopasować go do rzeczywistego znaku. While, **Match** i **notMatch** uwzględnia wielkość liter, a wszystkie inne warunki, które szacują _stringValue_ , nie uwzględniają wielkości liter. Alternatywy bez uwzględniania wielkości liter są dostępne w **matchInsensitively** i **notMatchInsensitively**.
 
-W wartości pola **and** tablicy ** \] aliasu każdy element w tablicy jest obliczany indywidualnie przy użyciu koniunkcji logicznej i między \[ \* ** elementami. Aby uzyskać więcej informacji, zobacz [ocenianie \[ \* \] aliasu](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
+W wartości pola tablicy ** \[ \* \] aliasu** każdy element w tablicy jest obliczany indywidualnie przy użyciu koniunkcji logicznej **i** między elementami. Aby uzyskać więcej informacji, zobacz [ocenianie \[ \* \] aliasu](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
 ### <a name="fields"></a>Pola
 
@@ -285,22 +284,22 @@ Obsługiwane są następujące pola:
 - `tags`
 - `tags['<tagName>']`
   - Ta składnia nawiasów umożliwia obsługę nazw tagów, które mają znaki interpunkcyjne, takie jak łącznik, kropka lub spacja.
-  - Gdzie ** \<TagName\> ** jest nazwą tagu, aby zweryfikować warunek.
+  - Gdzie ** \< TagName \> ** jest nazwą tagu, aby zweryfikować warunek.
   - Przykłady: `tags['Acct.CostCenter']` gdzie **ACCT. CostCenter** jest nazwą tagu.
 - `tags['''<tagName>''']`
   - Ta składnia nawiasów umożliwia obsługę nazw tagów, które zawierają apostrofy przez ucieczki z podwójnym apostrofem.
-  - Gdzie **"\<TagName\>"** jest nazwą tagu, aby zweryfikować warunek.
+  - Gdzie **" \< TagName \> "** jest nazwą tagu, aby zweryfikować warunek.
   - Przykład: `tags['''My.Apostrophe.Tag''']` gdzie **"My. apostrof. tag"** jest nazwą tagu.
 - Aliasy właściwości — Aby uzyskać listę, zobacz [aliasy](#aliases).
 
 > [!NOTE]
-> `tags.<tagName>`, `tags[tagName]`i `tags[tag.with.dots]` są nadal akceptowalnymi sposobami deklarowania pola Tagi. Jednak preferowane wyrażenia są wymienione powyżej.
+> `tags.<tagName>`, `tags[tagName]` i `tags[tag.with.dots]` są nadal akceptowalnymi sposobami deklarowania pola Tagi. Jednak preferowane wyrażenia są wymienione powyżej.
 
 #### <a name="use-tags-with-parameters"></a>Używanie tagów z parametrami
 
 Wartość parametru może być przekazanie do pola tagu. Przekazywanie parametru do pola tagu zwiększa elastyczność definicji zasad podczas przypisywania zasad.
 
-W poniższym przykładzie `concat` jest używany do tworzenia wyszukiwania pól tagów dla tagu o nazwie **TagName** parametru. Jeśli ten tag nie istnieje, efekt **modyfikacji** jest używany do dodawania znacznika przy użyciu wartości tego samego nazwanego tagu ustawionego w nadrzędnej grupie zasobów poddane inspekcji przy użyciu funkcji `resourcegroup()` wyszukiwania.
+W poniższym przykładzie `concat` jest używany do tworzenia wyszukiwania pól tagów dla tagu o nazwie **TagName** parametru. Jeśli ten tag nie istnieje, efekt **modyfikacji** jest używany do dodawania znacznika przy użyciu wartości tego samego nazwanego tagu ustawionego w nadrzędnej grupie zasobów poddane inspekcji przy użyciu `resourcegroup()` funkcji wyszukiwania.
 
 ```json
 {
@@ -334,7 +333,7 @@ Warunki mogą być również tworzone przy użyciu **wartości**. **wartość** 
 
 #### <a name="value-examples"></a>Przykłady wartości
 
-Ta reguła zasad używa tego przykładu **wartości** do porównania wyniku `resourceGroup()` funkcji i zwróconej właściwości **name** do warunku **like** `*netrg`. Reguła odmówi dowolnego zasobu, którego typ nie `Microsoft.Network/*` jest **typem** w żadnej grupie zasobów, której nazwy `*netrg`kończą się.
+Ta reguła zasad używa tego przykładu **wartości** do porównania wyniku `resourceGroup()` funkcji i zwróconej właściwości **name** do warunku **like** `*netrg` . Reguła odmówi dowolnego zasobu, którego typ nie jest `Microsoft.Network/*` **typem** w żadnej grupie zasobów, której nazwy kończą się `*netrg` .
 
 ```json
 {
@@ -355,7 +354,7 @@ Ta reguła zasad używa tego przykładu **wartości** do porównania wyniku `res
 }
 ```
 
-Ta reguła zasad używa tego przykładu **wartości** do sprawdzenia, czy wynik wielu zagnieżdżonych funkcji **równa** `true`się. Reguła odmówi wszelkich zasobów, które nie mają co najmniej trzech tagów.
+Ta reguła zasad używa tego przykładu **wartości** do sprawdzenia, czy wynik wielu zagnieżdżonych funkcji **równa** się `true` . Reguła odmówi wszelkich zasobów, które nie mają co najmniej trzech tagów.
 
 ```json
 {
@@ -412,7 +411,7 @@ Po zmodyfikowaniu reguły zasad `if()` Sprawdź długość **nazwy** przed prób
 
 ### <a name="count"></a>Liczba
 
-Warunki określające, ile elementów członkowskich tablicy w ładunku zasobów spełnia wyrażenie warunku, można utworzyć za pomocą wyrażenia **Count** . Typowe scenariusze sprawdzają, czy "co najmniej jeden z", "dokładnie jeden z", "All" lub "none" elementów członkowskich tablicy spełnia warunek. **licznik** oblicza każdy _true_ [ \[ \* \] ](#understanding-the--alias) element członkowski tablicy aliasów dla wyrażenia warunku i sumuje prawdziwe wyniki, które są następnie porównywane z operatorem wyrażenia. Wyrażenia **Count** mogą być dodawane do jednej definicji **Klasa policyrule** do 3 razy.
+Warunki określające, ile elementów członkowskich tablicy w ładunku zasobów spełnia wyrażenie warunku, można utworzyć za pomocą wyrażenia **Count** . Typowe scenariusze sprawdzają, czy "co najmniej jeden z", "dokładnie jeden z", "All" lub "none" elementów członkowskich tablicy spełnia warunek. **licznik** oblicza każdy element członkowski tablicy [ \[ \* \] aliasów](#understanding-the--alias) dla wyrażenia warunku i sumuje _prawdziwe_ wyniki, które są następnie porównywane z operatorem wyrażenia. Wyrażenia **Count** mogą być dodawane do jednej definicji **Klasa policyrule** do 3 razy.
 
 Struktura wyrażenia **Count** jest:
 
@@ -431,9 +430,9 @@ Struktura wyrażenia **Count** jest:
 Następujące właściwości są używane z funkcją **Count**:
 
 - **Count. pole** (wymagane): zawiera ścieżkę do tablicy i musi być aliasem tablicy. Jeśli brakuje tablicy, wyrażenie jest oceniane na _wartość false_ bez uwzględniania wyrażenia warunku.
-- **Count. WHERE** (opcjonalnie): wyrażenie warunku do pojedynczej ocenia każdego [ \[ \* \] ](#understanding-the--alias) elementu członkowskiego tablicy aliasów w **polu Count.** Jeśli ta właściwość nie jest określona, wszystkie elementy członkowskie tablicy ze ścieżką "pole" są oceniane na _wartość true_. Dowolny [warunek](../concepts/definition-structure.md#conditions) może być używany wewnątrz tej właściwości.
+- **Count. WHERE** (opcjonalnie): wyrażenie warunku do pojedynczej ocenia każdego elementu członkowskiego tablicy [ \[ \* \] aliasów](#understanding-the--alias) w **polu Count.** Jeśli ta właściwość nie jest określona, wszystkie elementy członkowskie tablicy ze ścieżką "pole" są oceniane na _wartość true_. Dowolny [warunek](../concepts/definition-structure.md#conditions) może być używany wewnątrz tej właściwości.
   [Operatory logiczne](#logical-operators) mogą być używane wewnątrz tej właściwości, aby utworzyć złożone wymagania dotyczące oceny.
-- warunek (wymagany): wartość jest porównywana z liczbą elementów, które osiągnęły liczbę **.** wyrażenie warunku WHERE. **\> \<** Należy użyć [warunku](../concepts/definition-structure.md#conditions) liczbowego.
+- ** \< warunek \> ** (wymagany): wartość jest porównywana z liczbą elementów, które osiągnęły liczbę **.** wyrażenie warunku WHERE. Należy użyć [warunku](../concepts/definition-structure.md#conditions) liczbowego.
 
 #### <a name="count-examples"></a>Liczba przykładów
 
@@ -598,12 +597,12 @@ Następujące funkcje są dostępne tylko w regułach zasad:
   - Zwraca wartość tego pola z zasobu, który jest obliczany przez warunek if
   - `field`jest używany głównie z **AuditIfNotExists** i **DeployIfNotExists** do odwołań do pól w analizowanym zasobie. Przykład tego zastosowania można zobaczyć w [przykładzie DeployIfNotExists](effects.md#deployifnotexists-example).
 - `requestContext().apiVersion`
-  - Zwraca wersję interfejsu API żądania, które spowodowało wyzwolenie oceny zasad ( `2019-09-01`przykład:).
+  - Zwraca wersję interfejsu API żądania, które spowodowało wyzwolenie oceny zasad (przykład: `2019-09-01` ).
     Będzie to wersja interfejsu API, która została użyta w żądaniu PUT/PATCH do oceny przy tworzeniu/aktualizowaniu zasobów. Najnowsza wersja interfejsu API jest zawsze używana podczas oceny zgodności dla istniejących zasobów.
   
 #### <a name="policy-function-example"></a>Przykład funkcji zasad
 
-Ten przykład `resourceGroup` reguły używa funkcji zasobów, aby uzyskać Właściwość **name** połączonej z funkcją `concat` Array i Object, aby skompilować `like` warunek, który wymusza nazwę zasobu, aby rozpocząć od nazwy grupy zasobów.
+Ten przykład reguły używa `resourceGroup` funkcji zasobów, aby uzyskać Właściwość **name** połączonej z `concat` funkcją Array i Object, aby skompilować `like` warunek, który wymusza nazwę zasobu, aby rozpocząć od nazwy grupy zasobów.
 
 ```json
 {
@@ -633,7 +632,7 @@ Lista aliasów zawsze rośnie. Aby dowiedzieć się, jakie aliasy są obecnie ob
 
 - Azure Resource Graph
 
-  Użyj operatora `project` , aby wyświetlić **alias** zasobu.
+  Użyj `project` operatora, aby wyświetlić **alias** zasobu.
 
   ```kusto
   Resources
@@ -682,15 +681,15 @@ Lista aliasów zawsze rośnie. Aby dowiedzieć się, jakie aliasy są obecnie ob
 
 ### <a name="understanding-the--alias"></a>Informacje o aliasie [*]
 
-Kilka dostępnych aliasów ma wersję, która jest wyświetlana jako nazwa "normal" i inna, która została ** \[ \* ** do niej dołączona. Przykład:
+Kilka dostępnych aliasów ma wersję, która jest wyświetlana jako nazwa "normal" i inna, która została **\[\*\]** do niej dołączona. Na przykład:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
 Alias "normal" reprezentuje pole jako pojedynczą wartość. To pole jest przeznaczone do dokładnego dopasowania scenariuszy porównywania, gdy cały zestaw wartości musi być dokładnie zdefiniowany, nie więcej i nie rzadziej.
 
-** \[ Alias umożliwia porównanie wartości poszczególnych elementów w tablicy i określonych właściwości \* ** każdego elementu. Takie podejście umożliwia porównanie właściwości elementów dla elementu "If None of", "if any" lub "If all of". W przypadku bardziej złożonych scenariuszy Użyj wyrażenia warunku [Count](#count) . Za **pomocą\[\*ipRules**, przykładem będzie sprawdzanie, czy każda _Akcja_ jest _odrzucana_, ale nie martw się o liczbę istniejących reguł lub _wartość_ IP.
-Ta przykładowa reguła sprawdza, czy dla dowolnych dopasowań **\[\*\]ipRules. Value** do **10.0.4.1** i stosuje wartość **effecttype** tylko wtedy, gdy nie znajdzie co najmniej jednego dopasowania:
+**\[\*\]** Alias umożliwia porównanie wartości poszczególnych elementów w tablicy i określonych właściwości każdego elementu. Takie podejście umożliwia porównanie właściwości elementów dla elementu "If None of", "if any" lub "If all of". W przypadku bardziej złożonych scenariuszy Użyj wyrażenia warunku [Count](#count) . Za **pomocą \[ \* \] ipRules**, przykładem będzie sprawdzanie, czy każda _Akcja_ jest _odrzucana_, ale nie martw się o liczbę istniejących reguł lub _wartość_ IP.
+Ta przykładowa reguła sprawdza, czy dla dowolnych dopasowań **ipRules \[ \* \] . Value** do **10.0.4.1** i stosuje wartość **effecttype** tylko wtedy, gdy nie znajdzie co najmniej jednego dopasowania:
 
 ```json
 "policyRule": {
@@ -712,7 +711,7 @@ Ta przykładowa reguła sprawdza, czy dla dowolnych dopasowań **\[\*\]ipRules. 
 }
 ```
 
-Aby uzyskać więcej informacji, zobacz [ocenianie aliasu\*[]](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
+Aby uzyskać więcej informacji, zobacz [ocenianie \* aliasu []](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
 ## <a name="initiatives"></a>Inicjatyw
 
@@ -721,7 +720,7 @@ Inicjatywy umożliwiają grupowanie kilku powiązanych definicji zasad w celu up
 > [!NOTE]
 > Po przypisaniu inicjatywy nie można zmienić parametrów poziomu inicjatywy. Ze względu na to zalecenie polega na ustawieniu elementu **DefaultValue** podczas definiowania parametru.
 
-Poniższy przykład ilustruje sposób tworzenia inicjatywy do obsługi dwóch tagów: `costCenter` i. `productName` Używa dwóch wbudowanych zasad, aby zastosować domyślną wartość tagu.
+Poniższy przykład ilustruje sposób tworzenia inicjatywy do obsługi dwóch tagów: `costCenter` i `productName` . Używa dwóch wbudowanych zasad, aby zastosować domyślną wartość tagu.
 
 ```json
 {

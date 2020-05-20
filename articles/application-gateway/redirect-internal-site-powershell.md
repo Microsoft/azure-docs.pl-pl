@@ -8,16 +8,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/03/2020
 ms.author: victorh
-ms.openlocfilehash: 92fed35c828398c048d704e1ec9b537904939967
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 56c7ddd6eda021c802eb256c62fcae680d573b69
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78272940"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681365"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Tworzenie bramy aplikacji z przekierowaniami wewnętrznymi przy użyciu Azure PowerShell
 
-Za pomocą programu Azure PowerShell można skonfigurować [przekierowywanie ruchu internetowego](multiple-site-overview.md) podczas tworzenia [bramy aplikacji](overview.md). W tym samouczku zdefiniujesz pulę zaplecza przy użyciu zestawu skalowania maszyn wirtualnych. Następnie należy skonfigurować detektory i reguły oparte na domenach, aby upewnić się, że ruch internetowy dociera do odpowiedniej puli. W tym samouczku przyjęto założenie, że posiadasz wiele domen i używasz przykładowych *contoso.com www\.* i *www\.contoso.org*.
+Za pomocą programu Azure PowerShell można skonfigurować [przekierowywanie ruchu internetowego](multiple-site-overview.md) podczas tworzenia [bramy aplikacji](overview.md). W tym samouczku zdefiniujesz pulę zaplecza przy użyciu zestawu skalowania maszyn wirtualnych. Następnie należy skonfigurować detektory i reguły oparte na domenach, aby upewnić się, że ruch internetowy dociera do odpowiedniej puli. W tym samouczku przyjęto założenie, że posiadasz wiele domen i używasz przykładowych * \. contoso.com www* i *www \. contoso.org*.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 
@@ -28,7 +28,7 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 > * Tworzenie zestawu skalowania maszyn wirtualnych z pulą zaplecza
 > * Tworzenie rekordu CNAME w domenie
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -107,7 +107,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-first-listener-and-rule"></a>Tworzenie pierwszego odbiornika i reguły
 
-Odbiornik jest wymagany, aby brama aplikacji mogła właściwie kierować ruch do puli zaplecza. W tym samouczku utworzysz dwa odbiorniki dla swoich dwóch domen. W tym przykładzie są tworzone odbiorniki dla domen *contoso.com www\.* i *www\.contoso.org*.
+Odbiornik jest wymagany, aby brama aplikacji mogła właściwie kierować ruch do puli zaplecza. W tym samouczku utworzysz dwa odbiorniki dla swoich dwóch domen. W tym przykładzie są tworzone odbiorniki dla domen * \. contoso.com www* i *www \. contoso.org*.
 
 Utwórz pierwszy odbiornik o nazwie *contosoComListener* przy użyciu polecenia [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) z konfiguracją frontonu i wcześniej utworzonym portem frontonu. Reguła jest wymagana, aby odbiornik wiedział, której puli zaplecza używać dla ruchu przychodzącego. Utwórz podstawową regułę o nazwie *contosoComRule* przy użyciu polecenia [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
@@ -292,11 +292,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## <a name="test-the-application-gateway"></a>Testowanie bramy aplikacji
 
-Wpisz nazwę swojej domeny na pasku adresu przeglądarki. Takie jak, [https://www.contoso.com](https://www.contoso.com).
+Wpisz nazwę swojej domeny na pasku adresu przeglądarki. Na przykład `https://www.contoso.com`.
 
 ![Testowanie witryny contoso w bramie aplikacji](./media/redirect-internal-site-powershell/application-gateway-iistest.png)
 
-Zmień adres na inną domenę, na przykład https://www.contoso.org i sprawdź, czy ruch został przekierowany z powrotem do odbiornika contoso.com www.\.
+Zmień adres na inną domenę, na przykład `https://www.contoso.org` i sprawdź, czy ruch został przekierowany z powrotem do odbiornika \. contoso.com www.
 
 ## <a name="next-steps"></a>Następne kroki
 

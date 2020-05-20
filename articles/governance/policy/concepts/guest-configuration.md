@@ -1,14 +1,14 @@
 ---
 title: Dowiedz się, jak przeprowadzić inspekcję zawartości maszyn wirtualnych
 description: Dowiedz się, w jaki sposób Azure Policy używa agenta konfiguracji gościa do inspekcji ustawień wewnątrz maszyn wirtualnych.
-ms.date: 11/04/2019
+ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 89f7cc3931971d70b441490f77b67ace89434c2b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6ff24f14281712497798f2c5231a8d98d7d89055
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82025224"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684280"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Opis konfiguracji gościa Azure Policy
 
@@ -18,7 +18,8 @@ Poza inspekcją i [korygowaniem](../how-to/remediate-resources.md) zasobów plat
 - Konfiguracja lub obecność aplikacji
 - Ustawienia środowiska
 
-W tej chwili większość Azure Policy zasad konfiguracji gościa tylko ustawienia inspekcji na tym komputerze. Nie dotyczą one konfiguracji. Wyjątek jest jedną z wbudowanych zasad, [do których odwołuje się poniżej](#applying-configurations-using-guest-configuration).
+W tej chwili większość Azure Policy zasad konfiguracji gościa tylko ustawienia inspekcji na tym komputerze.
+Nie dotyczą one konfiguracji. Wyjątek jest jedną z wbudowanych zasad, [do których odwołuje się poniżej](#applying-configurations-using-guest-configuration).
 
 ## <a name="resource-provider"></a>Dostawca zasobów
 
@@ -28,11 +29,10 @@ Aby można było korzystać z konfiguracji gościa, należy zarejestrować dosta
 
 Aby przeprowadzić inspekcję ustawień wewnątrz maszyny, [rozszerzenie maszyny wirtualnej](../../../virtual-machines/extensions/overview.md) jest włączone. Rozszerzenie pobiera odpowiednie przypisanie zasad i odpowiednią definicję konfiguracji.
 
-> [!Important]
-> Do przeprowadzania inspekcji w usłudze Azure Virtual Machines jest wymagane rozszerzenie konfiguracji gościa.
-> Aby wdrożyć rozszerzenie w odpowiedniej skali, przypisz następujące definicje zasad:
->   - [Wdróż wymagania wstępne, aby włączyć zasady konfiguracji gościa na maszynach wirtualnych z systemem Windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
->   - [Wdróż wymagania wstępne, aby włączyć zasady konfiguracji gościa na maszynach wirtualnych z systemem Linux.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
+> [!IMPORTANT]
+> Do przeprowadzania inspekcji w usłudze Azure Virtual Machines jest wymagane rozszerzenie konfiguracji gościa. Aby wdrożyć rozszerzenie w odpowiedniej skali, przypisz następujące definicje zasad: 
+>  - [Wdróż wymagania wstępne, aby włączyć zasady konfiguracji gościa na maszynach wirtualnych z systemem Windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+>  - [Wdróż wymagania wstępne, aby włączyć zasady konfiguracji gościa na maszynach wirtualnych z systemem Linux.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
 
 ### <a name="limits-set-on-the-extension"></a>Limity ustawione dla rozszerzenia
 
@@ -51,14 +51,14 @@ W poniższej tabeli przedstawiono listę narzędzi lokalnych używanych w poszcz
 
 ### <a name="validation-frequency"></a>Częstotliwość walidacji
 
-Klient konfiguracji gościa sprawdza nową zawartość co 5 minut. Po odebraniu przypisania gościa ustawienia tej konfiguracji są ponownie sprawdzane w przedziale 15-minutowym.
-Gdy inspekcja zostanie zakończona, wyniki są wysyłane do dostawcy zasobów konfiguracji gościa. Po wystąpieniu [wyzwalacza oceny](../how-to/get-compliance-data.md#evaluation-triggers) zasad stan maszyny jest zapisywana w dostawcy zasobów konfiguracji gościa. Ta aktualizacja powoduje, że Azure Policy ocen Azure Resource Manager właściwości. Ocena Azure Policy na żądanie Pobiera najnowszą wartość z dostawcy zasobów konfiguracji gościa. Jednak nie wyzwala on nowej inspekcji konfiguracji w ramach maszyny.
+Klient konfiguracji gościa sprawdza nową zawartość co 5 minut. Po odebraniu przypisania gościa ustawienia tej konfiguracji są ponownie sprawdzane w przedziale 15-minutowym. Gdy inspekcja zostanie zakończona, wyniki są wysyłane do dostawcy zasobów konfiguracji gościa. Po wystąpieniu [wyzwalacza oceny](../how-to/get-compliance-data.md#evaluation-triggers) zasad stan maszyny jest zapisywana w dostawcy zasobów konfiguracji gościa. Ta aktualizacja powoduje, że Azure Policy ocen Azure Resource Manager właściwości. Ocena Azure Policy na żądanie Pobiera najnowszą wartość z dostawcy zasobów konfiguracji gościa. Jednak nie wyzwala on nowej inspekcji konfiguracji w ramach maszyny.
 
 ## <a name="supported-client-types"></a>Obsługiwane typy klientów
 
-Zasady konfiguracji gościa obejmują nowe wersje. Starsze wersje systemów operacyjnych dostępnych w portalu Azure Marketplace są wykluczone, jeśli Agent konfiguracji gościa nie jest zgodny. W poniższej tabeli przedstawiono listę obsługiwanych systemów operacyjnych w usłudze Azure images:
+Zasady konfiguracji gościa obejmują nowe wersje. Starsze wersje systemów operacyjnych dostępnych w portalu Azure Marketplace są wykluczone, jeśli Agent konfiguracji gościa nie jest zgodny.
+W poniższej tabeli przedstawiono listę obsługiwanych systemów operacyjnych w usłudze Azure images:
 
-|Wydawca|Nazwa|Wersje|
+|Publisher|Nazwa|Wersje|
 |-|-|-|
 |Canonical|Ubuntu Server|14,04 i nowsze|
 |Credativ|Debian|8 i nowsze|
@@ -76,19 +76,18 @@ System Windows Server nano Server nie jest obsługiwany w żadnej wersji.
 
 ## <a name="guest-configuration-extension-network-requirements"></a>Wymagania dotyczące sieci rozszerzenia konfiguracji gościa
 
-Aby komunikować się z dostawcą zasobów konfiguracji gościa na platformie Azure, maszyny wymagają dostępu wychodzącego do centrów danych platformy Azure na porcie **443**. Jeśli sieć na platformie Azure nie zezwala na ruch wychodzący, skonfiguruj wyjątki z regułami [sieciowych grup zabezpieczeń](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) .
-[Tag usługi](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" może służyć do odwoływania się do usługi konfiguracji gościa.
+Aby komunikować się z dostawcą zasobów konfiguracji gościa na platformie Azure, maszyny wymagają dostępu wychodzącego do centrów danych platformy Azure na porcie **443**. Jeśli sieć na platformie Azure nie zezwala na ruch wychodzący, skonfiguruj wyjątki z regułami [sieciowych grup zabezpieczeń](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) . [Tag usługi](../../../virtual-network/service-tags-overview.md) "GuestAndHybridManagement" może służyć do odwoływania się do usługi konfiguracji gościa.
 
-## <a name="azure-managed-identity-requirements"></a>Wymagania dotyczące tożsamości zarządzanej przez platformę Azure
+## <a name="managed-identity-requirements"></a>Wymagania dotyczące tożsamości zarządzanej
 
 Zasady **DeployIfNotExists** , które dodają rozszerzenie do maszyn wirtualnych, również umożliwiają tożsamość zarządzaną przypisaną przez system, jeśli taka nie istnieje.
 
 > [!WARNING]
-> Unikaj włączania tożsamości zarządzanej przypisanej przez użytkownika do maszyn wirtualnych w zakresie dla zasad, które umożliwiają identyfikację zarządzaną przez system. Tożsamość przypisanego użytkownika zostanie zastąpiona, a komputer nie odpowiada.
+> Unikaj włączania tożsamości zarządzanej przypisanej przez użytkownika do maszyn wirtualnych w zakresie dla zasad, które umożliwiają identyfikację zarządzaną przez system. Tożsamość przypisana przez użytkownika jest zastępowana, a komputer może przestać odpowiadać.
 
 ## <a name="guest-configuration-definition-requirements"></a>Wymagania definicji konfiguracji gościa
 
-Każde uruchomienie inspekcji według konfiguracji gościa wymaga dwóch definicji zasad, definicji **DeployIfNotExists** i definicji **AuditIfNotExists** . 
+Każde uruchomienie inspekcji według konfiguracji gościa wymaga dwóch definicji zasad, definicji **DeployIfNotExists** i definicji **AuditIfNotExists** .
 
 Definicja zasad **DeployIfNotExists** weryfikuje i koryguje następujące elementy:
 
@@ -106,13 +105,14 @@ Azure Policy używa właściwości **complianceStatus** dostawcy zasobów konfig
 > [!NOTE]
 > Zasady **DeployIfNotExists** są wymagane do zwracania wyników przez zasady **AuditIfNotExists** . Bez **DeployIfNotExists**zasady **AuditIfNotExists** są wyświetlane jako stan zasobów "0 z 0".
 
-Wszystkie wbudowane zasady konfiguracji gościa są zawarte w inicjatywie do grupowania definicji do użycia w przypisaniach. Wbudowana inicjatywa o nazwie _ \[wersja\]zapoznawcza: Inspekcja zabezpieczeń haseł w systemach Linux i Windows_ zawiera 18 zasad. Istnieje sześć par **DeployIfNotExists** i **AuditIfNotExists** dla systemu Windows i trzech par w systemie Linux. Logika [definicji zasad](definition-structure.md#policy-rule) sprawdza, czy jest oceniany tylko docelowy system operacyjny.
+Wszystkie wbudowane zasady konfiguracji gościa są zawarte w inicjatywie do grupowania definicji do użycia w przypisaniach. Wbudowana inicjatywa o nazwie _ \[ wersja zapoznawcza \] : Inspekcja zabezpieczeń haseł w systemach Linux i Windows_ zawiera 18 zasad. Istnieje sześć par **DeployIfNotExists** i **AuditIfNotExists** dla systemu Windows i trzech par w systemie Linux. Logika [definicji zasad](definition-structure.md#policy-rule) sprawdza, czy jest oceniany tylko docelowy system operacyjny.
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Inspekcja ustawień systemu operacyjnego po liniach bazowych branżowych
 
-Jedna z inicjatyw w Azure Policy umożliwia przeprowadzenie inspekcji ustawień systemu operacyjnego po "linii bazowej". Definicja, _ \[wersja zapoznawcza\]: Inspekcja maszyn wirtualnych z systemem Windows, które nie są zgodne z ustawieniami linii bazowej zabezpieczeń platformy Azure,_ obejmuje zestaw reguł opartych na zasady grupy Active Directory.
+Jedna z inicjatyw w Azure Policy umożliwia przeprowadzenie inspekcji ustawień systemu operacyjnego po "linii bazowej". Definicja, _ \[ wersja zapoznawcza \] : Inspekcja maszyn wirtualnych z systemem Windows, które nie są zgodne z ustawieniami linii bazowej zabezpieczeń platformy Azure,_ obejmuje zestaw reguł opartych na zasady grupy Active Directory.
 
-Większość ustawień jest dostępnych jako parametry. Parametry umożliwiają dostosowanie elementów podlegających inspekcji. Dopasuj zasady do swoich wymagań lub zamapuj zasady na informacje innych firm, takie jak standardy branżowe.
+Większość ustawień jest dostępnych jako parametry. Parametry umożliwiają dostosowanie elementów podlegających inspekcji.
+Dopasuj zasady do swoich wymagań lub zamapuj zasady na informacje innych firm, takie jak standardy branżowe.
 
 Niektóre parametry obsługują zakres wartości całkowitych. Na przykład ustawienie maksymalnego wieku hasła może prowadzić inspekcję obowiązującego ustawienia zasady grupy. Zakres "1, 70" potwierdzi, że użytkownicy muszą zmieniać hasła co najmniej co 70 dni, ale nie mniej niż jeden dzień.
 
@@ -144,7 +144,7 @@ Gdzie `<version>` odwołuje się do bieżącego numeru wersji.
 
 ### <a name="collecting-logs-remotely"></a>Zdalne zbieranie dzienników
 
-Pierwszym krokiem w rozwiązywaniu problemów z konfiguracjami lub modułami konfiguracji gościa `Test-GuestConfigurationPackage` jest użycie polecenia cmdlet zgodnie z instrukcjami [dotyczącymi tworzenia niestandardowych zasad inspekcji konfiguracji Gości dla systemu Windows](../how-to/guest-configuration-create.md#step-by-step-creating-a-custom-guest-configuration-audit-policy-for-windows).
+Pierwszym krokiem w rozwiązywaniu problemów z konfiguracjami lub modułami konfiguracji gościa jest użycie `Test-GuestConfigurationPackage` polecenia cmdlet zgodnie z instrukcjami [dotyczącymi tworzenia niestandardowych zasad inspekcji konfiguracji Gości dla systemu Windows](../how-to/guest-configuration-create.md#step-by-step-creating-a-custom-guest-configuration-audit-policy-for-windows).
 Jeśli to nie powiodło się, zbieranie dzienników klienta może pomóc zdiagnozować problemy.
 
 #### <a name="windows"></a>Windows

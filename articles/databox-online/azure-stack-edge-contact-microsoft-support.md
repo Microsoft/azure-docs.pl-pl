@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 3839fb325b1ed0c052f7a4e8955e9a9fda51fc5f
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 291dbdd874e3d657ff171d7e08ea6a1ee7e5999f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82569656"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683102"
 ---
 # <a name="open-a-support-ticket-for-azure-stack-edge-and-azure-data-box-gateway"></a>Otwórz bilet pomocy technicznej dla Azure Stack Edge i Azure Data Box Gateway
 
@@ -27,9 +27,9 @@ Ten artykuł ma zastosowanie do Azure Stack Edge i Azure Data Box Gateway obu ty
 Wykonaj następujące kroki, aby utworzyć żądanie obsługi:
 
 1. Przejdź do Azure Stack krawędź lub Data Box Gateway. Przejdź do sekcji **Obsługa i rozwiązywanie problemów** , a następnie wybierz pozycję **nowe żądanie obsługi**.
-   
+
 2. W obszarze **nowe żądanie obsługi**na karcie **podstawowe** wykonaj następujące czynności:
-    
+
     1. Z listy rozwijanej **typ problemu** wybierz pozycję **techniczne**.
     2. Wybierz **subskrypcję**.
     3. W obszarze **Usługa**Sprawdź pozycję **Moje usługi**. Z listy rozwijanej wybierz pozycję **Azure Stack krawędź i Data Box Gateway**.
@@ -42,7 +42,7 @@ Wykonaj następujące kroki, aby utworzyć żądanie obsługi:
         ![Podstawy](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-support-request-1.png)
 
 3. Na karcie **szczegóły** wykonaj następujące czynności:
-    
+
     1. Podaj datę i godzinę rozpoczęcia problemu.
     2. Podaj **Opis** problemu.
     3. W polu **przekazywanie pliku**wybierz ikonę folderu, aby przeglądać wszystkie inne pliki, które chcesz przekazać.
@@ -67,16 +67,16 @@ Wykonaj następujące kroki, aby utworzyć żądanie obsługi:
 
 Te informacje dotyczą tylko Azure Stack urządzenia. Proces zgłaszania problemów ze sprzętem jest następujący:
 
-1. Aby uzyskać problem ze sprzętem, Otwórz bilet pomocy technicznej z Azure Portal. W obszarze **typ problemu**wybierz pozycję **Azure Stack sprzęt**. Wybierz **podtyp problemu** jako **awaria sprzętu**. 
+1. Aby uzyskać problem ze sprzętem, Otwórz bilet pomocy technicznej z Azure Portal. W obszarze **typ problemu**wybierz pozycję **Azure Stack sprzęt**. Wybierz **podtyp problemu** jako **awaria sprzętu**.
 
     ![Problem ze sprzętem](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-hardware-issue-1.png)
 
-    Po utworzeniu biletu pomocy technicznej skontaktuje się z Tobą, gdy tylko będzie to możliwe, aby kontynuować żądanie. 
+    Po utworzeniu biletu pomocy technicznej skontaktuje się z Tobą, gdy tylko będzie to możliwe, aby kontynuować żądanie.
 
-2. Jeśli pomoc techniczna firmy Microsoft określa, że jest to problem sprzętowy, wykonywana jest jedna z następujących akcji: 
+2. Jeśli pomoc techniczna firmy Microsoft określa, że jest to problem sprzętowy, wykonywana jest jedna z następujących akcji:
 
-    - Wysłano jednostkę wymiany pola (FRU) dla uszkodzonej części sprzętowej. Obecnie jednostka miary zasilacza jest jedyną obsługiwaną jednostką FRU. 
-    - W przypadku każdej innej awarii firma Microsoft wykonuje pełne zastąpienie systemu (FRS) lub wymianę urządzeń.
+    * Wysłano jednostkę wymiany pola (FRU) dla uszkodzonej części sprzętowej. Obecnie jedynymi obsługiwanymi FRUs są jednostki zasilacza i dyski twarde.
+    * Tylko FRUs są zastępowane w następnym dniu roboczym. wszystko inne wymaga, aby wszystkie inne elementy wymagały pełnego zastąpienia systemu (FRS).
 
 3. Jeśli bilet pomocy technicznej zostanie zgłoszony przed upływem 4:30 czasu lokalnego (od poniedziałku do piątku), technika Onsite zostanie wysłany do lokalizacji następnego dnia roboczego w celu przeprowadzenia jednostki FRU lub pełnego zastępowania urządzeń.
 
@@ -84,11 +84,11 @@ Te informacje dotyczą tylko Azure Stack urządzenia. Proces zgłaszania problem
 
 Po utworzeniu biletu pomocy technicznej możesz zarządzać jego cyklem życia z poziomu portalu.
 
-#### <a name="to-manage-your-support-requests"></a>Aby zarządzać żądaniami pomocy technicznej
+### <a name="to-manage-your-support-requests"></a>Aby zarządzać żądaniami pomocy technicznej
 
 1. Aby przejść do strony pomoc i obsługa techniczna, przejdź do okna **przeglądaj > pomoc i obsługa techniczna**.
 
-    ![Zarządzanie żądaniami obsługi](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-manage-support-request-1.png)   
+    ![Zarządzanie żądaniami obsługi](./media/azure-stack-edge-contact-microsoft-support/data-box-edge-manage-support-request-1.png)
 
 2. W **oknie Pomoc i obsługa techniczna**jest wyświetlana tabelaryczna lista **najnowszych żądań obsługi** .
 
@@ -96,7 +96,6 @@ Po utworzeniu biletu pomocy technicznej możesz zarządzać jego cyklem życia z
 
 3. Wybierz i kliknij żądanie pomocy technicznej. Możesz wyświetlić stan i szczegóły tego żądania. Kliknij pozycję **+ Nowy komunikat** , jeśli chcesz kontynuować na tym żądaniu.
 
-   
 ## <a name="next-steps"></a>Następne kroki
 
 Dowiedz się, jak [rozwiązywać problemy związane z Azure Stack Edge](azure-stack-edge-troubleshoot.md).

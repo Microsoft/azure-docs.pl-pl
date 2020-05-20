@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 02/25/2020
-ms.openlocfilehash: b2871ec87e4d7f337c26b3ff3de83c1c3c88aea2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 49a9355d0e5653ac453493a1808ab95136410d19
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80365391"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680478"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Przegląd Azure SQL Database limitów zasobów wystąpienia zarządzanego
 
@@ -63,7 +63,7 @@ Wystąpienie zarządzane ma dwie warstwy usług: [ogólnego przeznaczenia](sql-d
 > [!Important]
 > Krytyczne dla działania firmy warstwa usługi oferuje dodatkową wbudowaną kopię wystąpienia (replikę pomocniczą), która może być używana do obsługi obciążeń tylko do odczytu. Jeśli możesz oddzielić zapytania odczytu i zapisu oraz zapytania tylko do odczytu/analizy/raportowania, otrzymujesz dwa razy rdzeni wirtualnych i pamięć za tę samą cenę. Replika pomocnicza może potrwać kilka sekund za wystąpieniem podstawowym, więc jest przeznaczona do odciążania obciążeń raportowanie/analitycznych, które nie wymagają dokładnego stanu danych. W poniższej tabeli **zapytania tylko do odczytu** są zapytania, które są wykonywane w replice pomocniczej.
 
-| **Funkcja** | **Ogólnego przeznaczenia** | **Krytyczne dla działania firmy** |
+| **Cechy** | **Ogólnego przeznaczenia** | **Krytyczne dla działania firmy** |
 | --- | --- | --- |
 | Liczba rdzeni wirtualnych\* | Obliczenia: 8, 16, 24<br/>5 rdzeń: 4, 8, 16, 24, 32, 40, 64, 80 | Obliczenia: 8, 16, 24 <br/> 5 rdzeń: 4, 8, 16, 24, 32, 40, 64, 80 <br/>\*Ta sama liczba rdzeni wirtualnych jest przeznaczona dla zapytań tylko do odczytu. |
 | Maksymalna pamięć | Obliczenia: 56 GB – 168 GB (7GB/rdzeń wirtualny)<br/>5 rdzeń: 20,4 GB – 408 GB (5.1 GB/rdzeń wirtualny)<br/>Aby uzyskać więcej pamięci, Dodaj więcej rdzeni wirtualnych. | Obliczenia: 56 GB – 168 GB (7GB/rdzeń wirtualny)<br/>5 rdzeń: 20,4 GB-408 GB (5.1 GB/rdzeń wirtualny) dla zapytań do odczytu i zapisu<br/>+ dodatkowe 20,4 GB – 408 GB (5.1 GB/rdzeń wirtualny) dla zapytań tylko do odczytu.<br/>Aby uzyskać więcej pamięci, Dodaj więcej rdzeni wirtualnych. |
@@ -81,6 +81,7 @@ Wystąpienie zarządzane ma dwie warstwy usług: [ogólnego przeznaczenia](sql-d
 | Przetwarzanie OLTP w pamięci | Nieobsługiwane | Dostępne, [rozmiar zależy od liczby rdzeń wirtualny](#in-memory-oltp-available-space) |
 | Maksymalna liczba sesji | 30000 | 30000 |
 | [Repliki tylko do odczytu](sql-database-read-scale-out.md) | 0 | 1 (wliczone w cenę) |
+| Izolacja obliczeniowa | 5 rdzeń<br/>-obsługiwane przez 80 rdzeni wirtualnych<br/>-nieobsługiwane w przypadku innych rozmiarów<br/><br/>Obliczenia nie jest obsługiwana z powodu wycofania|5 rdzeń<br/>-obsługiwane przez 60, 64, 80 rdzeni wirtualnych<br/>-nieobsługiwane w przypadku innych rozmiarów<br/><br/>Obliczenia nie jest obsługiwana z powodu wycofania|
 
 > [!NOTE]
 > - **Obecnie dostępny rozmiar magazynu wystąpienia** to różnica między zarezerwowanym rozmiarem wystąpienia i ilością miejsca do magazynowania.

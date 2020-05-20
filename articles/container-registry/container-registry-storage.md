@@ -3,12 +3,12 @@ title: Magazyn obrazów kontenerów
 description: Szczegółowe informacje na temat sposobu przechowywania obrazów kontenerów platformy Docker w Azure Container Registry, w tym zabezpieczeń, nadmiarowości i pojemności.
 ms.topic: article
 ms.date: 03/21/2018
-ms.openlocfilehash: f66c3dd95edfe5035c46857cb6f9aa59d8a6a0e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b738556e5a4f764cd47c72d964ee188d1344b336
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74456206"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683407"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Magazyn obrazów kontenerów w Azure Container Registry
 
@@ -46,7 +46,7 @@ Aby uzyskać szczegółowe informacje o cenach, zobacz [Cennik usługi Azure Con
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat różnych jednostek SKU Azure Container Registry (podstawowa, standardowa, Premium), zobacz [Azure Container Registry jednostek SKU](container-registry-skus.md).
+Aby uzyskać więcej informacji na temat rejestrów kontenerów Basic, standard i Premium, zobacz [Azure Container Registry warstwy usług](container-registry-skus.md).
 
 <!-- IMAGES -->
 

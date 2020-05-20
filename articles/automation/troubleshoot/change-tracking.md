@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie problemów dotyczących Change Tracking i spisu
-description: Informacje na temat rozwiązywania problemów z Azure Automation Change Tracking i rozwiązania spisu.
+title: Rozwiązywanie problemów z Azure Automation Change Tracking i spisu
+description: W tym artykule opisano sposób rozwiązywania problemów z Azure Automation Change Tracking i funkcji spisu.
 services: automation
 ms.service: automation
 ms.subservice: change-inventory-management
@@ -9,19 +9,16 @@ ms.author: magoedte
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4f230cd0965d58f690d333cd62f2c7c1d499e8d1
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 3fe28ba0871009785b1bb8b263b42f453c2918be
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582149"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684872"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory-issues"></a>Rozwiązywanie problemów dotyczących Change Tracking i spisu
 
-W tym artykule opisano sposób rozwiązywania problemów z Azure Automation Change Tracking i spisu.
-
->[!NOTE]
->Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Instrukcje dotyczące instalacji polecenia AZ module w hybrydowym procesie roboczym elementu Runbook znajdują się w temacie [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). W przypadku konta usługi Automation można zaktualizować moduły do najnowszej wersji za pomocą [sposobu aktualizowania modułów Azure PowerShell w programie Azure Automation](../automation-update-azure-modules.md).
+W tym artykule opisano sposób rozwiązywania problemów i rozwiązywania problemów z Azure Automation Change Tracking i spisu. Aby uzyskać ogólne informacje na temat Change Tracking i spisu, zobacz [omówienie Change Tracking i spisu](../change-tracking.md).
 
 ## <a name="windows"></a>Windows
 
@@ -29,7 +26,7 @@ W tym artykule opisano sposób rozwiązywania problemów z Azure Automation Chan
 
 #### <a name="issue"></a>Problem
 
-Nie widzisz żadnych Change Tracking i wyników spisu dla maszyn z systemem Windows, które są dołączane.
+Nie widzisz żadnych Change Tracking i wyników spisu dla maszyn z systemem Windows, dla których włączono obsługę tej funkcji.
 
 #### <a name="cause"></a>Przyczyna
 
@@ -38,7 +35,7 @@ Ten błąd może mieć następujące przyczyny:
 * Agent Log Analytics platformy Azure dla systemu Windows nie jest uruchomiony.
 * Trwa blokowanie komunikacji z powrotem do konta usługi Automation.
 * Nie pobrano pakietów administracyjnych Change Tracking i spisu.
-* Dołączanie maszyny wirtualnej może pochodzić ze sklonowanego komputera, który nie był Sysprep z zainstalowanym agentem Log Analytics dla systemu Windows.
+* Włączona maszyna wirtualna może pochodzić z sklonowanego komputera, który nie został przygotowany przy użyciu przygotowania systemu (Sysprep) z zainstalowanym agentem Log Analytics dla systemu Windows.
 
 #### <a name="resolution"></a>Rozwiązanie
 
@@ -54,7 +51,7 @@ net start healthservice
 Jeśli nadal potrzebujesz pomocy, możesz zebrać informacje diagnostyczne i skontaktować się z pomocą techniczną.
 
 > [!NOTE]
-> Agent Log Analytics domyślnie włącza śledzenie błędów. Aby włączyć pełne komunikaty o błędach tak jak w poprzednim przykładzie, użyj `VER` parametru. Aby uzyskać informacje na temat `INF` śladów, `StartTracing.cmd`Użyj po wywołaniu.
+> Agent Log Analytics domyślnie włącza śledzenie błędów. Aby włączyć pełne komunikaty o błędach tak jak w poprzednim przykładzie, użyj `VER` parametru. Aby uzyskać informacje na temat śladów, użyj `INF` po wywołaniu `StartTracing.cmd` .
 
 ##### <a name="log-analytics-agent-for-windows-not-running"></a>Agent Log Analytics dla systemu Windows nie działa
 
@@ -62,9 +59,9 @@ Sprawdź, czy na maszynie jest uruchomiony agent Log Analytics dla systemu Windo
 
 ##### <a name="communication-to-automation-account-blocked"></a>Zablokowano komunikację z kontem usługi Automation
 
-Sprawdź Podgląd zdarzeń na maszynie i Wyszukaj wszystkie zdarzenia, które mają w nich słowo `changetracking` .
+Sprawdź Podgląd zdarzeń na maszynie i Wyszukaj wszystkie zdarzenia, które mają `changetracking` w nich słowo.
 
-Aby dowiedzieć się więcej o adresach i portach, które muszą być dozwolone do pracy Change Tracking i spisu, zobacz [Automatyzowanie zasobów w centrum danych lub w chmurze przy użyciu hybrydowego procesu roboczego elementu Runbook](../automation-hybrid-runbook-worker.md#network-planning).
+Aby dowiedzieć się więcej o adresach i portach, które muszą być dozwolone do pracy Change Tracking i spisu, zobacz [Planowanie sieci](../automation-hybrid-runbook-worker.md#network-planning).
 
 ##### <a name="management-packs-not-downloaded"></a>Nie pobrano pakietów administracyjnych
 
@@ -84,7 +81,7 @@ W przypadku korzystania z sklonowanego obrazu najpierw należy zainstalować obr
 
 #### <a name="issue"></a>Problem
 
-Nie widzisz żadnych Change Tracking i wyników spisu dla maszyn z systemem Linux, które zostały dołączone do rozwiązania. 
+Nie widzisz żadnych Change Tracking i wyników spisu dla maszyn z systemem Linux, dla których włączono obsługę tej funkcji. 
 
 #### <a name="cause"></a>Przyczyna
 Poniżej przedstawiono możliwe przyczyny tego problemu:
@@ -111,16 +108,16 @@ Aby uzyskać więcej informacji na temat tego problemu, zobacz [problem: nie wid
 
 ##### <a name="log-analytics-agent-for-linux-not-configured-correctly"></a>Agent Log Analytics dla systemu Linux nie został poprawnie skonfigurowany
 
-Agent Log Analytics dla systemu Linux może nie być prawidłowo skonfigurowany do zbierania danych wyjściowych dziennika i wiersza polecenia za pomocą narzędzia zbierającego dzienniki OMS. Zobacz [śledzenie zmian w środowisku przy użyciu rozwiązania Change Tracking i spisu](../change-tracking.md).
+Agent Log Analytics dla systemu Linux może nie być prawidłowo skonfigurowany do zbierania danych wyjściowych dziennika i wiersza polecenia za pomocą narzędzia zbierającego dzienniki OMS. Zobacz [przegląd Change Tracking i spisu](../change-tracking.md).
 
 ##### <a name="fim-conflicts"></a>Konflikty programu FIM
 
-Funkcja FIM Azure Security Center może nieprawidłowo sprawdzać integralność plików systemu Linux. Sprawdź, czy kod FIM działa i poprawnie skonfigurowany do monitorowania plików systemu Linux. Zobacz [śledzenie zmian w środowisku przy użyciu rozwiązania Change Tracking i spisu](../change-tracking.md).
+Funkcja FIM Azure Security Center może nieprawidłowo sprawdzać integralność plików systemu Linux. Sprawdź, czy kod FIM działa i poprawnie skonfigurowany do monitorowania plików systemu Linux. Zobacz [przegląd Change Tracking i spisu](../change-tracking.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
 Jeśli nie widzisz tutaj problemu lub nie możesz rozwiązać problemu, wypróbuj jeden z następujących kanałów, aby uzyskać dodatkową pomoc techniczną:
 
 * Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [forów platformy Azure](https://azure.microsoft.com/support/forums/).
-* Nawiąż [@AzureSupport](https://twitter.com/azuresupport)połączenie z kontem oficjalnego Microsoft Azure, aby zwiększyć komfort obsługi klienta. Pomoc techniczna systemu Azure łączy społeczność platformy Azure z odpowiedziami, wsparciem i ekspertami.
+* Nawiąż połączenie z [@AzureSupport](https://twitter.com/azuresupport) kontem oficjalnego Microsoft Azure, aby zwiększyć komfort obsługi klienta. Pomoc techniczna systemu Azure łączy społeczność platformy Azure z odpowiedziami, wsparciem i ekspertami.
 * Zaplikowanie zdarzenia pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/)i wybierz pozycję **Uzyskaj pomoc techniczną**.

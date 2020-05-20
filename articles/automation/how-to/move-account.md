@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bfb2f2d1d0f6a0d11784847344cd3dbcafdb0959
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: 5ba3ff2cc98e505486de9cf2337fe19024f97c62
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900994"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680461"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Przenoszenie konta Azure Automation do innej subskrypcji
 
@@ -22,29 +22,26 @@ Azure Automation umożliwia przeniesienie niektórych zasobów do nowej grupy za
 
 Konto usługi Automation jest jednym z zasobów, które można przenieść. Ten artykuł zawiera informacje na temat przenoszenia kont usługi Automation do innego zasobu lub subskrypcji. Poniżej przedstawiono ogólne kroki służące do przeniesienia konta usługi Automation:
 
-1. Usuwanie rozwiązań.
+1. Wyłącz funkcje.
 2. Odłącz obszar roboczy.
 3. Przenieś konto usługi Automation.
 4. Usuń i ponownie Utwórz konta Uruchom jako.
-5. Ponownie Włącz swoje rozwiązania.
+5. Włącz ponownie funkcje.
 
->[!NOTE]
->W tym artykule opisano sposób pracy z Azure PowerShell AZ module. Nadal możesz użyć modułu AzureRM. Aby dowiedzieć się więcej o zgodności AZ module i AzureRM, zobacz [wprowadzenie do nowego Azure PowerShell AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Instrukcje dotyczące instalacji polecenia AZ module w hybrydowym procesie roboczym elementu Runbook znajdują się w temacie [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). W przypadku konta usługi Automation można zaktualizować moduły do najnowszej wersji za pomocą [sposobu aktualizowania modułów Azure PowerShell w programie Azure Automation](../automation-update-azure-modules.md).
+## <a name="disable-features"></a>Wyłącz funkcje
 
-## <a name="remove-solutions"></a>Usuwanie rozwiązań
-
-Aby odłączyć obszar roboczy od konta usługi Automation, musisz usunąć te rozwiązania z obszaru roboczego:
+Aby odłączyć obszar roboczy od konta usługi Automation, musisz wyłączyć zasoby funkcji w obszarze roboczym:
 
 - Śledzenie zmian i spis
 - Zarządzanie aktualizacjami
 - Uruchamianie lub zatrzymywanie maszyn wirtualnych po godzinach pracy
 
 1. Znajdź grupę zasobów w witrynie Azure Portal.
-2. Znajdź każde rozwiązanie, a następnie wybierz pozycję **Usuń** na stronie **usuwanie zasobów** .
+2. Znajdź każdą funkcję i wybierz pozycję **Usuń** na stronie usuwanie zasobów.
 
-    ![Zrzut ekranu przedstawiający usuwanie rozwiązań z Azure Portal](../media/move-account/delete-solutions.png)
+    ![Zrzut ekranu przedstawiający usuwanie zasobów funkcji z Azure Portal](../media/move-account/delete-solutions.png)
 
-Jeśli wolisz, możesz usunąć rozwiązania za pomocą polecenia cmdlet [Remove-AzResource](https://docs.microsoft.com/powershell/module/Az.Resources/Remove-AzResource?view=azps-3.7.0) :
+Jeśli wolisz, możesz usunąć zasoby za pomocą polecenia cmdlet [Remove-AzResource](https://docs.microsoft.com/powershell/module/Az.Resources/Remove-AzResource?view=azps-3.7.0) :
 
 ```azurepowershell-interactive
 $workspaceName = <myWorkspaceName>
@@ -54,15 +51,15 @@ Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -Reso
 Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "Start-Stop-VM($workspaceName)" -ResourceGroupName $resourceGroupName
 ```
 
-### <a name="remove-alert-rules-for-the-startstop-vms-during-off-hours-solution"></a>Usuń reguły alertów w rozwiązaniu "Uruchamianie/zatrzymywanie maszyn wirtualnych poza godzinami"
+### <a name="remove-alert-rules-for-startstop-vms-during-off-hours"></a>Usuń reguły alertów dla Start/Stop VMs during off-hours
 
-W przypadku tego rozwiązania należy również usunąć reguły alertów utworzone przez rozwiązanie.
+W przypadku Start/Stop VMs during off-hours należy również usunąć reguły alertów utworzone przez funkcję.
 
-1. W Azure Portal przejdź do grupy zasobów, a następnie wybierz pozycję **monitorowanie** > **alertów** > **Zarządzaj regułami alertów**.
+1. W Azure Portal przejdź do grupy zasobów, a następnie wybierz pozycję **monitorowanie**  >  **alertów**  >  **Zarządzaj regułami alertów**.
 
    ![Zrzut ekranu przedstawiający stronę alertów z możliwością wyboru opcji Zarządzaj regułami alertów](../media/move-account/alert-rules.png)
 
-2. Na stronie **reguły** powinna zostać wyświetlona lista alertów skonfigurowanych w tej grupie zasobów. Rozwiązanie tworzy następujące reguły:
+2. Na stronie reguły powinna zostać wyświetlona lista alertów skonfigurowanych w tej grupie zasobów. Ta funkcja tworzy następujące reguły:
 
     * AutoStop_VM_Child
     * ScheduledStartStop_Parent
@@ -70,12 +67,12 @@ W przypadku tego rozwiązania należy również usunąć reguły alertów utworz
 
 3. Zaznacz pojedyncze reguły, a następnie wybierz pozycję **Usuń** , aby je usunąć.
 
-    ![Zrzut ekranu strony reguły, żądanie potwierdzenia usunięcia dla wybranych reguł](../media/move-account/delete-rules.png)
+    ![Zrzut ekranu strony reguł, żądanie potwierdzenia usunięcia dla wybranych reguł](../media/move-account/delete-rules.png)
 
     > [!NOTE]
-    > Jeśli nie widzisz żadnych reguł alertów na stronie **reguły** , Zmień wartość pola **stan** na **wyłączone** , aby wyświetlić wyłączone alerty. Być może zostały wyłączone.
+    > Jeśli nie widzisz żadnych reguł alertów na stronie reguły, Zmień wartość pola **stan** na **wyłączone** , aby wyświetlić wyłączone alerty. 
 
-4. Po usunięciu reguł alertów należy usunąć grupę akcji utworzoną dla powiadomień o rozwiązaniu "Uruchamianie/zatrzymywanie maszyn wirtualnych poza godzinami". W Azure Portal wybierz kolejno pozycje **Monitoruj** > **alerty** > **Zarządzaj grupami akcji**.
+4. Po usunięciu reguł alertów należy usunąć grupę akcji utworzoną dla Start/Stop VMs during off-hours powiadomień. W Azure Portal wybierz kolejno pozycje **Monitoruj**  >  **alerty**  >  **Zarządzaj grupami akcji**.
 
 5. Wybierz **StartStop_VM_Notification**. 
 
@@ -93,7 +90,7 @@ Remove-AzActionGroup -ResourceGroupName <myResourceGroup> -Name StartStop_VM_Not
 
 Teraz możesz odłączyć obszar roboczy:
 
-1. W Azure Portal wybierz opcję**połączony obszar roboczy** > **zasoby powiązane z** >  **kontem usługi Automation**. 
+1. W Azure Portal wybierz opcję **Automation account**  >  **Related Resources**  >  **połączony obszar roboczy**zasoby powiązane z kontem usługi Automation. 
 
 2. Wybierz opcję **Odłącz obszar roboczy** , aby odłączyć obszar roboczy od konta usługi Automation.
 
@@ -103,7 +100,7 @@ Teraz możesz odłączyć obszar roboczy:
 
 Teraz można przenieść konto usługi Automation i jego elementy Runbook. 
 
-1. W Azure Portal przejdź do grupy zasobów konta usługi Automation. Wybierz pozycję **Przenieś** > **Przenieś do innej subskrypcji**.
+1. W Azure Portal przejdź do grupy zasobów konta usługi Automation. Wybierz pozycję **Przenieś**  >  **Przenieś do innej subskrypcji**.
 
     ![Zrzut ekranu strony grupy zasobów, Przenieś do innej subskrypcji](../media/move-account/move-resources.png)
 
@@ -124,27 +121,27 @@ Teraz można przenieść konto usługi Automation i jego elementy Runbook.
 
 3. Po usunięciu kont Uruchom jako wybierz pozycję **Utwórz** w obszarze **konto Uruchom jako platformy Azure**. 
 
-4. Na stronie **Dodawanie konta Uruchom jako platformy Azure** wybierz pozycję **Utwórz** , aby utworzyć konto Uruchom jako i nazwę główną usługi. 
+4. Na stronie Dodawanie konta Uruchom jako platformy Azure wybierz pozycję **Utwórz** , aby utworzyć konto Uruchom jako i nazwę główną usługi. 
 
 5. Powtórz powyższe kroki przy użyciu klasycznego konta Uruchom jako platformy Azure.
 
-## <a name="enable-solutions"></a>Włączanie rozwiązań
+## <a name="enable-features"></a>Włącz funkcje
 
-Po ponownym utworzeniu kont Uruchom jako należy ponownie włączyć rozwiązania, które zostały usunięte przed przeniesieniem: 
+Po ponownym utworzeniu kont Uruchom jako należy ponownie włączyć funkcje, które zostały wyłączone przed przeniesieniem: 
 
-1. Aby włączyć rozwiązanie "Change Tracking i spis", wybierz pozycję **Change Tracking i spis** na koncie usługi Automation. Wybierz obszar roboczy Log Analytics przesunięty, a następnie wybierz pozycję **Włącz**.
+1. Aby włączyć Change Tracking i spis, wybierz pozycję **Change Tracking i spis** na koncie usługi Automation. Wybierz obszar roboczy Log Analytics przesunięty, a następnie wybierz pozycję **Włącz**.
 
-2. Powtórz krok 1 dla rozwiązania "Update Management".
+2. Powtórz krok 1 dla Update Management.
 
-    ![Zrzut ekranu przedstawiający ponowne Włączanie rozwiązań na przenoszonym koncie usługi Automation](../media/move-account/reenable-solutions.png)
+    ![Zrzut ekranu przedstawiający funkcje ponownego włączania w przenoszonym koncie usługi Automation](../media/move-account/reenable-solutions.png)
 
-3. Maszyny, które są dołączone do Twoich rozwiązań, są widoczne po połączeniu istniejącego obszaru roboczego Log Analytics. Aby włączyć rozwiązanie "Uruchamianie/zatrzymywanie maszyn wirtualnych poza godzinami", należy ponownie wdrożyć rozwiązanie. W obszarze **pokrewne zasoby**wybierz kolejno pozycje **Start/zatrzymywanie maszyn wirtualnych** > **Dowiedz się więcej na temat i Włącz** > **Tworzenie** rozwiązania, aby rozpocząć wdrażanie.
+3. Maszyny z włączonymi funkcjami są widoczne po połączeniu istniejącego obszaru roboczego Log Analytics. Aby włączyć funkcję Start/Stop VMs during off-hours, należy ją ponownie włączyć. W obszarze **pokrewne zasoby**wybierz kolejno pozycje **Start/zatrzymywanie maszyn wirtualnych**  >  **Dowiedz się więcej na temat i Włącz**  >  **Tworzenie** rozwiązania, aby rozpocząć wdrażanie.
 
-4. Na stronie **Dodawanie rozwiązania** wybierz obszar roboczy log Analytics i konto usługi Automation.
+4. Na stronie Dodawanie rozwiązania wybierz obszar roboczy Log Analytics i konto usługi Automation.
 
     ![Zrzut ekranu przedstawiający menu Dodaj rozwiązanie](../media/move-account/add-solution-vm.png)
 
-5. Skonfiguruj rozwiązanie zgodnie z opisem w artykule [Uruchamianie/zatrzymywanie maszyn wirtualnych poza godzinami w Azure Automation](../automation-solution-vm-management.md).
+5. Skonfiguruj funkcję zgodnie z opisem w [Start/Stop VMS during off-hours Omówienie](../automation-solution-vm-management.md).
 
 ## <a name="verify-the-move"></a>Weryfikowanie przenoszenia
 

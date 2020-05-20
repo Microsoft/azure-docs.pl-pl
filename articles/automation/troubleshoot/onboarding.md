@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie problemów z dołączaniem rozwiązań do zarządzania Azure Automationmi
-description: Dowiedz się, jak rozwiązywać problemy z błędami dołączania rozwiązań Azure Automation.
+title: Rozwiązywanie problemów z wdrażaniem funkcji Azure Automation
+description: W tym artykule opisano sposób rozwiązywania problemów, które powstają podczas wdrażania Azure Automation funkcji.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -8,16 +8,16 @@ ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 371094ecba5168fd32a7af9fb81a71eb722efc91
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 27b93e77e7b813e73496d15c4003e999daff10d5
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836533"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681268"
 ---
-# <a name="troubleshoot-solution-onboarding"></a>Rozwiązywanie problemów z dołączaniem rozwiązania
+# <a name="troubleshoot-feature-deployment-issues"></a>Rozwiązywanie problemów z wdrażaniem funkcji
 
-Podczas dołączania rozwiązania Azure Automation Update Management lub rozwiązania Change Tracking i spisu mogą pojawić się komunikaty o błędach. W tym artykule opisano różne błędy, które mogą wystąpić i sposoby ich rozwiązywania.
+Podczas wdrażania funkcji Azure Automation Update Management lub funkcji Change Tracking i spisu na maszynach wirtualnych mogą pojawić się komunikaty o błędach. W tym artykule opisano błędy, które mogą wystąpić i sposoby ich rozwiązywania.
 
 ## <a name="known-issues"></a>Znane problemy
 
@@ -39,7 +39,7 @@ Wyrejestruj węzeł z konfiguracji stanu Azure Automation, a następnie zarejest
 
 #### <a name="issue"></a>Problem
 
-Podczas łączenia się za pośrednictwem rozwiązania serwera proxy, które kończy ruch HTTPS, a następnie ponownie szyfruje ruch przy użyciu nowego certyfikatu, usługa nie zezwala na połączenie.
+Po nawiązaniu połączenia za pośrednictwem serwera proxy, który kończy ruch HTTPS, a następnie ponownie szyfruje ruch przy użyciu nowego certyfikatu, usługa nie zezwala na połączenie.
 
 #### <a name="cause"></a>Przyczyna
 
@@ -51,11 +51,11 @@ Obecnie nie istnieje obejście tego problemu.
 
 ## <a name="general-errors"></a>Błędy ogólne
 
-### <a name="scenario-onboarding-fails-with-the-message-the-solution-cannot-be-enabled"></a><a name="missing-write-permissions"></a>Scenariusz: dołączanie kończy się niepowodzeniem z komunikatem "nie można włączyć rozwiązania"
+### <a name="scenario-feature-deployment-fails-with-the-message-the-solution-cannot-be-enabled"></a><a name="missing-write-permissions"></a>Scenariusz: Wdrażanie funkcji kończy się niepowodzeniem z komunikatem "nie można włączyć rozwiązania"
 
 #### <a name="issue"></a>Problem
 
-Podczas próby dołączenia maszyny wirtualnej do rozwiązania zostanie wyświetlony jeden z następujących komunikatów:
+Podczas próby włączenia funkcji na maszynie wirtualnej zostanie wyświetlony jeden z następujących komunikatów:
 
 ```error
 The solution cannot be enabled due to missing permissions for the virtual machine or deployments
@@ -71,13 +71,13 @@ Ten błąd jest spowodowany przez nieprawidłowe lub brakujące uprawnienia do m
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Upewnij się, że masz odpowiednie [uprawnienia potrzebne do](../automation-role-based-access-control.md#onboarding-permissions)dołączenia maszyn, a następnie spróbuj ponownie dołączyć rozwiązanie. Jeśli zostanie wyświetlony komunikat `The solution cannot be enabled on this VM because the permission to read the workspace is missing`o błędzie, upewnij się, że masz `Microsoft.OperationalInsights/workspaces/read` uprawnienia do sprawdzenia, czy maszyna wirtualna została dołączona do obszaru roboczego.
+Upewnij się, że masz poprawne [uprawnienia wdrażania funkcji](../automation-role-based-access-control.md#onboarding-permissions), a następnie spróbuj ponownie wdrożyć tę funkcję. Jeśli zostanie wyświetlony komunikat o błędzie `The solution cannot be enabled on this VM because the permission to read the workspace is missing` , upewnij się, że masz `Microsoft.OperationalInsights/workspaces/read` uprawnienia do sprawdzenia, czy maszyna wirtualna jest włączona dla obszaru roboczego.
 
-### <a name="scenario-onboarding-fails-with-the-message-failed-to-configure-automation-account-for-diagnostic-logging"></a><a name="diagnostic-logging"></a>Scenariusz: dołączanie kończy się niepowodzeniem z komunikatem "nie można skonfigurować konta automatyzacji dla rejestrowania diagnostycznego"
+### <a name="scenario-feature-deployment-fails-with-the-message-failed-to-configure-automation-account-for-diagnostic-logging"></a><a name="diagnostic-logging"></a>Scenariusz: Wdrażanie funkcji kończy się niepowodzeniem z komunikatem "nie można skonfigurować konta automatyzacji dla rejestrowania diagnostycznego"
 
 #### <a name="issue"></a>Problem
 
-Podczas próby dołączenia maszyny wirtualnej do rozwiązania zostanie wyświetlony następujący komunikat:
+Podczas próby włączenia funkcji na maszynie wirtualnej zostanie wyświetlony następujący komunikat:
 
 ```error
 Failed to configure automation account for diagnostic logging
@@ -89,13 +89,13 @@ Ten błąd może być spowodowany tym, że warstwa cenowa nie jest zgodna z mode
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Utwórz ręcznie obszar roboczy Log Analytics i powtórz proces dołączania w celu wybrania utworzonego obszaru roboczego.
+Utwórz ręcznie obszar roboczy Log Analytics i powtórz proces wdrażania funkcji w celu wybrania utworzonego obszaru roboczego.
 
 ### <a name="scenario-computergroupqueryformaterror"></a><a name="computer-group-query-format-error"></a>Scenariusz: ComputerGroupQueryFormatError
 
 #### <a name="issue"></a>Problem
 
-Ten kod błędu oznacza, że zapisane zapytanie grupy komputerów wyszukiwania używane jako docelowe rozwiązania nie jest prawidłowo sformatowane. 
+Ten kod błędu oznacza, że zapisane zapytanie grupy komputerów wyszukiwania używane jako docelowe funkcji nie jest prawidłowo sformatowane. 
 
 #### <a name="cause"></a>Przyczyna
 
@@ -103,7 +103,7 @@ Być może zmieniono zapytanie lub system mógł go zmienić.
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Możesz usunąć zapytanie dla rozwiązania, a następnie ponownie dołączyć rozwiązanie, co spowoduje ponowne utworzenie zapytania. Zapytanie można znaleźć w obszarze roboczym w obszarze **zapisane wyszukiwania**. Nazwa zapytania to **MicrosoftDefaultComputerGroup**, a kategoria zapytania to nazwa skojarzonego rozwiązania. Jeśli włączono wiele rozwiązań, zapytanie **MicrosoftDefaultComputerGroup** wyświetla wiele razy w obszarze **zapisane wyszukiwania**.
+Możesz usunąć zapytanie dla tej funkcji, a następnie ponownie włączyć tę funkcję, co spowoduje ponowne utworzenie zapytania. Zapytanie można znaleźć w obszarze roboczym w obszarze **zapisane wyszukiwania**. Nazwa zapytania to **MicrosoftDefaultComputerGroup**, a kategoria zapytania to nazwa skojarzonej funkcji. Jeśli włączono wiele funkcji, zapytanie **MicrosoftDefaultComputerGroup** wyświetla wiele razy w obszarze **zapisane wyszukiwania**.
 
 ### <a name="scenario-policyviolation"></a><a name="policy-violation"></a>Scenariusz: PolicyViolation
 
@@ -117,10 +117,10 @@ Zasady blokują wykonywanie operacji.
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Aby pomyślnie wdrożyć rozwiązanie, należy rozważyć zmianę wskazanych zasad. Ponieważ istnieje wiele różnych typów zasad, które można zdefiniować, wymagane zmiany są zależne od zasad, które zostały naruszone. Na przykład jeśli zasady są zdefiniowane w grupie zasobów, która nie zezwala na zmianę zawartości niektórych zawartych zasobów, można wybrać jedną z następujących poprawek:
+Aby pomyślnie wdrożyć tę funkcję, należy rozważyć zmianę wskazanych zasad. Ponieważ istnieje wiele różnych typów zasad, które można zdefiniować, wymagane zmiany są zależne od zasad, które zostały naruszone. Na przykład jeśli zasady są zdefiniowane w grupie zasobów, która nie zezwala na zmianę zawartości niektórych zawartych zasobów, można wybrać jedną z następujących poprawek:
 
 * Usuń zasady całkowicie.
-* Spróbuj dołączyć rozwiązanie do innej grupy zasobów.
+* Spróbuj włączyć funkcję dla innej grupy zasobów.
 * Przekieruj zasady do określonego zasobu, na przykład konto usługi Automation.
 * Popraw zestaw zasobów, dla których zasady są skonfigurowane do odrzucania.
 
@@ -138,26 +138,26 @@ The link cannot be updated or deleted because it is linked to Update Management 
 
 #### <a name="cause"></a>Przyczyna
 
-Ten błąd występuje, gdy nadal masz aktywne rozwiązania w obszarze roboczym Log Analytics, które zależą od konta usługi Automation i połączonego obszaru roboczego Log Analytics.
+Ten błąd występuje, gdy nadal masz aktywne funkcje w obszarze roboczym Log Analytics, które zależą od konta usługi Automation i połączonego obszaru roboczego Log Analytics.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Jeśli są używane, Usuń następujące rozwiązania z obszaru roboczego:
+Usuń zasoby dla następujących funkcji z obszaru roboczego, jeśli są używane:
 
 * Zarządzanie aktualizacjami
 * Śledzenie zmian i spis
 * Uruchamianie lub zatrzymywanie maszyn wirtualnych po godzinach pracy
 
-Po usunięciu rozwiązań możesz odłączyć obszar roboczy. Ważne jest, aby wyczyścić wszystkie istniejące artefakty z tych rozwiązań z obszaru roboczego i konta usługi Automation:
+Po usunięciu zasobów funkcji można odłączyć obszar roboczy. Ważne jest, aby wyczyścić wszystkie istniejące artefakty z tych funkcji z obszaru roboczego i konta usługi Automation:
 
 * W przypadku Update Management Usuń **wdrożenia aktualizacji (harmonogramy)** z konta usługi Automation.
-* Aby uzyskać Start/Stop VMS during off-hours, Usuń wszelkie blokady składników rozwiązania na koncie usługi Automation w obszarze **Ustawienia** > **blokady**. Aby uzyskać więcej informacji, zobacz [usuwanie rozwiązania Start/Stop VMS during off-hours](../automation-solution-vm-management.md#remove-the-solution).
+* W przypadku Start/Stop VMS during off-hours Usuń wszystkie blokady składników funkcji na koncie usługi Automation w obszarze **Ustawienia**  >  **blokady**. Aby uzyskać więcej informacji, zobacz [usuwanie funkcji](../automation-solution-vm-management.md#remove-the-feature).
 
 ## <a name="log-analytics-for-windows-extension-failures"></a><a name="mma-extension-failures"></a>Log Analytics błędów rozszerzenia systemu Windows
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
-Instalacja agenta Log Analytics dla rozszerzenia systemu Windows może zakończyć się niepowodzeniem z różnych powodów. W poniższej sekcji opisano problemy związane z dołączaniem, które mogą powodować błędy podczas wdrażania rozszerzenia Agent Log Analytics dla systemu Windows.
+Instalacja agenta Log Analytics dla rozszerzenia systemu Windows może zakończyć się niepowodzeniem z różnych powodów. W poniższej sekcji opisano problemy dotyczące wdrażania funkcji, które mogą powodować błędy podczas wdrażania rozszerzenia Agent Log Analytics dla systemu Windows.
 
 >[!NOTE]
 >Agent Log Analytics dla systemu Windows to nazwa używana obecnie w Azure Automation dla Microsoft Monitoring Agent (MMA).
@@ -245,5 +245,5 @@ Spróbuj zainstalować rozszerzenie Agent Log Analytics dla systemu Windows, gdy
 Jeśli nie widzisz tutaj problemu lub nie możesz rozwiązać problemu, wypróbuj jeden z następujących kanałów, aby uzyskać dodatkową pomoc techniczną:
 
 * Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [forów platformy Azure](https://azure.microsoft.com/support/forums/).
-* Nawiąż [@AzureSupport](https://twitter.com/azuresupport)połączenie z kontem oficjalnego Microsoft Azure, aby zwiększyć komfort obsługi klienta. Pomoc techniczna systemu Azure łączy społeczność platformy Azure z odpowiedziami, wsparciem i ekspertami.
+* Nawiąż połączenie z [@AzureSupport](https://twitter.com/azuresupport) kontem oficjalnego Microsoft Azure, aby zwiększyć komfort obsługi klienta. Pomoc techniczna systemu Azure łączy społeczność platformy Azure z odpowiedziami, wsparciem i ekspertami.
 * Zaplikowanie zdarzenia pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/)i wybierz pozycję **Uzyskaj pomoc techniczną**.

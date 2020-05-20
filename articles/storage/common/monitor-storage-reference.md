@@ -8,12 +8,13 @@ ms.topic: reference
 ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
-ms.openlocfilehash: 7ba66441a87e3e02483ae27400f9900d2d052af4
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.custom: monitoring
+ms.openlocfilehash: e9abb2ded5465d4b245f4c9bcfab921444d41fa2
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83118162"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684907"
 ---
 # <a name="azure-storage-monitoring-data-reference"></a>Informacje o monitorowaniu usługi Azure Storage
 
@@ -31,13 +32,13 @@ Usługa Azure Storage udostępnia następujące metryki wydajności w Azure Moni
 
 #### <a name="account-level"></a>Poziom konta
 
-| Metryka | Opis |
+| Metric | Opis |
 | ------------------- | ----------------- |
 | UsedCapacity | Ilość miejsca do magazynowania używanego przez konto magazynu. W przypadku kont magazynu w warstwie Standardowa jest to suma pojemności używanej przez obiekt blob, tabelę, plik i kolejkę. W przypadku kont w warstwie Premium i kont usługi Blob Storage wartość jest taka sama jak BlobCapacity. <br/><br/> Jednostka: bajty <br/> Typ agregacji: Średnia <br/> Przykład wartości: 1024 |
 
 #### <a name="blob-storage"></a>Blob Storage
 
-| Metryka | Opis |
+| Metric | Opis |
 | ------------------- | ----------------- |
 | BlobCapacity | Łączna liczba magazynów obiektów BLOB używanych na koncie magazynu. <br/><br/> Jednostka: bajty <br/> Typ agregacji: Średnia <br/> Przykład wartości: 1024 <br/> Dimensions: **blobtype**i **BlobTier** ([Definicja](#metrics-dimensions)) |
 | BlobCount    | Liczba obiektów BLOB przechowywanych na koncie magazynu. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Średnia <br/> Przykład wartości: 1024 <br/> Dimensions: **blobtype**i **BlobTier** ([Definicja](#metrics-dimensions)) |
@@ -46,7 +47,7 @@ Usługa Azure Storage udostępnia następujące metryki wydajności w Azure Moni
 
 #### <a name="table-storage"></a>Table Storage
 
-| Metryka | Opis |
+| Metric | Opis |
 | ------------------- | ----------------- |
 | TableCapacity | Ilość magazynu tabel używanego przez konto magazynu. <br/><br/> Jednostka: bajty <br/> Typ agregacji: Średnia <br/> Przykład wartości: 1024 |
 | TableCount   | Liczba tabel na koncie magazynu. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Średnia <br/> Przykład wartości: 1024 |
@@ -54,7 +55,7 @@ Usługa Azure Storage udostępnia następujące metryki wydajności w Azure Moni
 
 #### <a name="queue-storage"></a>Queue Storage
 
-| Metryka | Opis |
+| Metric | Opis |
 | ------------------- | ----------------- |
 | QueueCapacity | Ilość magazynu kolejki używanego przez konto magazynu. <br/><br/> Jednostka: bajty <br/> Typ agregacji: Średnia <br/> Przykład wartości: 1024 |
 | QueueCount   | Liczba kolejek na koncie magazynu. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Średnia <br/> Przykład wartości: 1024 |
@@ -62,7 +63,7 @@ Usługa Azure Storage udostępnia następujące metryki wydajności w Azure Moni
 
 #### <a name="file-storage"></a>File Storage
 
-| Metryka | Opis |
+| Metric | Opis |
 | ------------------- | ----------------- |
 | FileCapacity | Ilość miejsca w magazynie plików używanego przez konto magazynu. <br/><br/> Jednostka: bajty <br/> Typ agregacji: Średnia <br/> Przykład wartości: 1024 |
 | FileCount   | Liczba plików na koncie magazynu. <br/><br/> Jednostka: liczba <br/> Typ agregacji: Średnia <br/> Przykład wartości: 1024 |
@@ -74,7 +75,7 @@ Metryki transakcji są emitowane dla każdego żądania do konta magazynu z usł
 
 Usługa Azure Storage udostępnia następujące metryki transakcji w Azure Monitor.
 
-| Metryka | Opis |
+| Metric | Opis |
 | ------------------- | ----------------- |
 | Transakcje | Liczba żądań wysyłanych do usługi magazynu lub określonej operacji interfejsu API. Liczba ta obejmuje żądania zakończone zarówno powodzeniem, jak i niepowodzeniem, a także żądania, które wywołały błędy. <br/><br/> Jednostka: liczba <br/> Typ agregacji: łącznie <br/> Odpowiednie wymiary: responsetype, geotype, ApiName i Authentication ([Definicja](#metrics-dimensions))<br/> Przykład wartości: 1024 |
 | Ruch przychodzący | Ilość danych przychodzących. Ta liczba obejmuje dane przychodzące z klienta zewnętrznego do usługi Azure Storage, a także dane przychodzące w obrębie platformy Azure. <br/><br/> Jednostka: bajty <br/> Typ agregacji: łącznie <br/> Odpowiednie wymiary: geotype, ApiName i Authentication ([Definicja](#metrics-dimensions)) <br/> Przykład wartości: 1024 |
@@ -95,7 +96,7 @@ Usługa Azure Storage obsługuje następujące wymiary dla metryk w Azure Monito
 | **BlobTier** | Usługa Azure Storage oferuje różne warstwy dostępu, dzięki którym można przechowywać dane obiektów BLOB w najbardziej opłacalny sposób. Zobacz więcej w [warstwie obiektów BLOB usługi Azure Storage](../blobs/storage-blob-storage-tiers.md). Obsługiwane są następujące wartości: <br/> <li>**Gorąca**: warstwa gorąca</li> <li>**Chłodna**: warstwa chłodna</li> <li>**Archiwum**: warstwa Archiwum</li> <li>**Premium**: warstwa Premium dla blokowego obiektu BLOB</li> <li>**P4/P6/P10/P15/P20**/P30/P40/P50/P60: typy warstw dla obiektów BLOB na stronie Premium</li> <li>**Standardowa**: typ warstwy dla standardowego obiektu BLOB strony</li> <li>**Niewarstwowy**: typ warstwy dla konta magazynu ogólnego przeznaczenia w wersji 1</li> |
 | **Typ geotype** | Transakcja z klastra podstawowego lub pomocniczego. Dostępne wartości to **podstawowy** i **pomocniczy**. Dotyczy on dostępu do odczytu geograficznie nadmiarowego magazynu (RA-GRS) podczas odczytywania obiektów z pomocniczej dzierżawy. |
 | **Responsetype** | Typ odpowiedzi transakcji. Dostępne wartości obejmują: <br/><br/> <li>**ServerOtherError**: wszystkie inne błędy po stronie serwera, z wyjątkiem opisanych </li> <li>**ServerBusyError**: uwierzytelnione żądanie, które zwróciło kod stanu HTTP 503. </li> <li>**ServerTimeoutError**: upłynął limit czasu uwierzytelnionego żądania, które zwróciło kod stanu HTTP 500. Przekroczenie limitu czasu wystąpiło z powodu błędu serwera. </li> <li>**AuthorizationError**: uwierzytelnione żądanie, które nie powiodło się z powodu nieautoryzowanego dostępu do danych lub niepowodzenia autoryzacji. </li> <li>**NetworkError**: uwierzytelnione żądanie, które nie powiodło się z powodu błędów sieci. Najczęściej występuje, gdy klient przedwcześnie zamyka połączenie przed wygaśnięciem limitu czasu. </li><li>**ClientAccountBandwidthThrottlingError**: żądanie jest ograniczane na przepustowość, aby przekroczyć [limity skalowalności konta magazynu](scalability-targets-standard-account.md).</li><li>**ClientAccountRequestThrottlingError**: żądanie jest ograniczone przy częstotliwości żądania w przypadku przekroczenia [limitów skalowalności konta magazynu](scalability-targets-standard-account.md).<li>**ClientThrottlingError**: inne błędy ograniczania po stronie klienta. ClientAccountBandwidthThrottlingError i ClientAccountRequestThrottlingError są wykluczone.</li> <li>**ClientTimeoutError**: upłynął limit czasu uwierzytelnionego żądania, które zwróciło kod stanu HTTP 500. Jeśli limit czasu sieci klienta lub limit czasu żądania jest ustawiony na mniejszą wartość niż oczekiwana przez usługę magazynu, jest to oczekiwany limit czasu. W przeciwnym razie zostanie zgłoszone jako ServerTimeoutError. </li> <li>**ClientOtherError**: wszystkie inne błędy po stronie klienta, z wyjątkiem opisanych. </li> <li>**Sukces**: pomyślne żądanie</li> <li> **SuccessWithThrottling**: pomyślne żądanie, gdy klient SMB zostanie w pierwszej kolejności określony, ale po ponownych próbach zakończy się pomyślnie.</li> |
-| **ApiName** | Nazwa operacji. Przykład: <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> W przypadku wszystkich nazw operacji zobacz [dokument](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
+| **ApiName** | Nazwa operacji. Na przykład: <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> W przypadku wszystkich nazw operacji zobacz [dokument](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
 | **Authentication** | Typ uwierzytelniania używany w transakcjach. Dostępne wartości obejmują: <br/> <li>**AccountKey**: transakcja jest uwierzytelniana przy użyciu klucza konta magazynu.</li> <li>**SAS**: transakcja jest uwierzytelniana za pomocą sygnatur dostępu współdzielonego.</li> <li>**OAuth**: transakcja jest uwierzytelniana przy użyciu tokenów dostępu OAuth.</li> <li>**Anonimowe**: transakcja jest wymagana anonimowo. Nie obejmuje to żądań inspekcji wstępnej.</li> <li>**AnonymousPreflight**: transakcja jest żądaniem wstępnym.</li> |
 
 W przypadku wymiarów pomocniczych metryk należy określić wartość wymiaru, aby wyświetlić odpowiednie wartości metryk. Jeśli na przykład przeszukiwane są wartości **transakcji** dla udanych odpowiedzi, należy filtrować wymiar **responsetype** z **sukcesem**. Lub Jeśli zobaczysz wartość **BlobCount** dla blokowych obiektów blob, musisz filtrować wymiar **blobtype** z **BlockBlob**.
@@ -262,7 +263,7 @@ W poniższej tabeli wymieniono właściwości dzienników zasobów usługi Azure
 |**smbCommandMajor UInt32** | Wartość w **SMB2_HEADER. Command**. Obecnie jest to liczba z przedziału od 0 do 18 włącznie. Na przykład: `0x6` |
 |**smbCommandMinor** | Podklasa elementu **SmbCommandMajor**, gdzie to konieczne. Na przykład: `DirectoryCloseAndDelete` |
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - Zobacz [monitorowanie usługi Azure Storage](monitor-storage.md) , aby zapoznać się z opisem monitorowania usługi Azure Storage.
 - Aby uzyskać szczegółowe informacje na temat monitorowania zasobów platformy Azure, zobacz [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../../azure-monitor/insights/monitor-azure-resource.md) .

@@ -15,12 +15,12 @@ ms.date: 05/04/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: b5ba4b84fcd9c1722e8ab2f4031ec1551357e406
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 0a574ba281a037a06ddda1981ae6fa35b905bca1
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82869992"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683651"
 ---
 # <a name="azure-built-in-roles"></a>Wbudowane role platformy Azure
 
@@ -28,9 +28,9 @@ ms.locfileid: "82869992"
 
 Ten artykuł zawiera listę wbudowanych ról platformy Azure, które są zawsze rozwijane. Aby uzyskać najnowsze role, użyj funkcji [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) lub [AZ role Definition list](/cli/azure/role/definition#az-role-definition-list). Jeśli szukasz ról administratorów dla Azure Active Directory (Azure AD), zobacz [uprawnienia roli administratora w programie Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
-## <a name="all"></a>Wszyscy
+## <a name="all"></a>Wszystko
 
-W poniższej tabeli przedstawiono krótki opis i unikatowy identyfikator każdej wbudowanej roli. `Actions`Wybierz nazwę roli, aby wyświetlić listę `NotActions`,, `DataActions`i `NotDataActions` dla każdej roli. Aby uzyskać informacje o tym, co oznaczają te działania oraz o sposobie ich zastosowania do płaszczyzny zarządzania i danych, zobacz [Opis ról roli platformy Azure](role-definitions.md).
+W poniższej tabeli przedstawiono krótki opis i unikatowy identyfikator każdej wbudowanej roli. Wybierz nazwę roli, aby wyświetlić listę `Actions` , `NotActions` , `DataActions` i `NotDataActions` dla każdej roli. Aby uzyskać informacje o tym, co oznaczają te działania oraz o sposobie ich zastosowania do płaszczyzny zarządzania i danych, zobacz [Opis ról roli platformy Azure](role-definitions.md).
 
 
 > [!div class="mx-tableFixed"]
@@ -142,7 +142,7 @@ W poniższej tabeli przedstawiono krótki opis i unikatowy identyfikator każdej
 > | **Tożsamość** |  |  |
 > | [Współautor tożsamości zarządzanej](#managed-identity-contributor) | Tworzenie, odczytywanie, aktualizowanie i usuwanie tożsamości przypisanej przez użytkownika | e40ec5ca-96e0-45a2-b4ff-59039f2c2b59 |
 > | [Operator tożsamości zarządzanej](#managed-identity-operator) | Odczytaj i przypisz tożsamość przypisaną przez użytkownika | f1a07417-d97a-45cb-824c-7a7467783830 |
-> | **Bezpieczeństwo** |  |  |
+> | **Zabezpieczenia** |  |  |
 > | [Współautor wskaźnikowego platformy Azure](#azure-sentinel-contributor) | Współautor wskaźnikowego platformy Azure | ab8e14d6-4a74-4a29-9ba8-549422addade |
 > | [Czytnik wskaźnikowy platformy Azure](#azure-sentinel-reader) | Czytnik wskaźnikowy platformy Azure | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
 > | [Obiekt odpowiadający wskaźnikowi platformy Azure](#azure-sentinel-responder) | Obiekt odpowiadający wskaźnikowi platformy Azure | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
@@ -173,6 +173,7 @@ W poniższej tabeli przedstawiono krótki opis i unikatowy identyfikator każdej
 > | [Operator planu](#blueprint-operator) | Może przypisywać istniejące opublikowane plany, ale nie może tworzyć nowych planów. Należy zauważyć, że to działanie działa tylko wtedy, gdy przypisanie zostało wykonane przy użyciu tożsamości zarządzanej przypisanej przez użytkownika. | 437d2ced-4a38-4302-8479-ed2bcb43d090 |
 > | [Współautor Cost Management](#cost-management-contributor) | Umożliwia wyświetlanie kosztów i zarządzanie konfiguracją kosztów (np. budżetów, eksportów) | 434105ed-43f6-45c7-a02f-909b2ba83430 |
 > | [Cost Management czytelnik](#cost-management-reader) | Może wyświetlać dane i konfigurację kosztów (np. budżetów, eksportów) | 72fafb9e-0641-4937-9268-a91bfd8191a3 |
+> | [Administrator ustawień hierarchii](#hierarchy-settings-administrator) | Umożliwia użytkownikom edytowanie i usuwanie ustawień hierarchii | 350f8d15-c687-4448-8ae1-157740a3936d |
 > | [Rola współautora aplikacji zarządzanej](#managed-application-contributor-role) | Umożliwia tworzenie zasobów aplikacji zarządzanej. | 641177b8-a67a-45b9-a033-47bc880bb21e |
 > | [Rola operatora aplikacji zarządzanej](#managed-application-operator-role) | Umożliwia odczytywanie i wykonywanie akcji dotyczących zasobów aplikacji zarządzanej | c7393b34-138c-406f-901b-d8cf2b17e6ae |
 > | [Czytnik aplikacji zarządzanych](#managed-applications-reader) | Umożliwia odczytanie zasobów w zarządzanej aplikacji i zażądanie dostępu JIT. | b9331d33-8a36-4f8c-b097-4f54124fdb44 |
@@ -7012,6 +7013,48 @@ Może wyświetlać dane i konfigurację kosztów (np. budżetów, eksportów)
     }
   ],
   "roleName": "Cost Management Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="hierarchy-settings-administrator"></a>Administrator ustawień hierarchii
+
+Umożliwia użytkownikom edytowanie i usuwanie ustawień hierarchii
+
+> [!div class="mx-tableFixed"]
+> |  |  |
+> | --- | --- |
+> | **Akcje** |  |
+> | Microsoft. Management/managementGroups/Settings/Write | Tworzy lub aktualizuje ustawienia hierarchii grup zarządzania. |
+> | Microsoft. Management/managementGroups/Settings/Delete | Usuwa ustawienia hierarchii grupy zarządzania. |
+> | **NotActions** |  |
+> | *brak* |  |
+> | **Akcje dataactions** |  |
+> | *brak* |  |
+> | **NotDataActions** |  |
+> | *brak* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows users to edit and delete Hierarchy Settings",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/350f8d15-c687-4448-8ae1-157740a3936d",
+  "name": "350f8d15-c687-4448-8ae1-157740a3936d",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Management/managementGroups/settings/write",
+        "Microsoft.Management/managementGroups/settings/delete"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Hierarchy Settings Administrator",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

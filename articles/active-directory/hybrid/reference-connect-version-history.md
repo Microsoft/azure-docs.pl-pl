@@ -8,17 +8,16 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 04/23/2020
+ms.date: 05/07/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
-ms.openlocfilehash: bc3c572aeb72328bc4708d27052756623ccd7701
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 7b75f03afc587d9616997b1df48b9c5c5166cb89
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83200970"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681724"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: historia wersji
 Zespół Azure Active Directory (Azure AD) regularnie aktualizuje Azure AD Connect za pomocą nowych funkcji i funkcji. Nie wszystkie dodatki są stosowane dla wszystkich odbiorców.
@@ -31,7 +30,7 @@ Temat |  Szczegóły
 --------- | --------- |
 Procedura uaktualniania z programu Azure AD Connect | Różne metody [uaktualniania z poprzedniej wersji do najnowszego](how-to-upgrade-previous-version.md) wydania Azure AD Connect.
 Wymagane uprawnienia | Aby uzyskać uprawnienia wymagane do zastosowania aktualizacji, zobacz [konta i uprawnienia](reference-connect-accounts-permissions.md#upgrade).
-Pliki do pobrania| [Pobierz Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
+Pobierz| [Pobierz Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 >[!NOTE]
 >Wydanie nowej wersji Azure AD Connect to proces, który wymaga kilku kroków kontroli jakości, aby zapewnić działanie usługi i przechodząc przez ten proces, numer wersji nowej wersji, a także stan wydania zostanie zaktualizowany w celu odzwierciedlenia najnowszego stanu.
@@ -55,10 +54,12 @@ Nie wszystkie wersje Azure AD Connect będą udostępniane do autouaktualniania.
 05/07/2020: wydano do pobrania
 
 ### <a name="fixed-issues"></a>Rozwiązane problemy
-- Rozwiązano problem polegający na tym, że usunięto niewybrane domeny z interfejsu użytkownika kreatora.
-- Rozwiązano problem w module ADSyncConfig PowerShell, gdzie Wywoływanie polecenia DSACLS użytego we wszystkich poleceniach cmdlet Set-ADSync * spowoduje wystąpienie jednego z następujących błędów:
-     - `GrantAclsNoInheritance : The parameter is incorrect.   The command failed to complete successfully.`
-     - `GrantAcls : No GUID Found for computer …`
+Ta kompilacja poprawek rozwiązuje problem polegający na tym, że w interfejsie użytkownika kreatora wybrano niepoprawną niewybrane domeny, jeśli tylko kontenery grandchild zostały wybrane.
+
+
+>[!NOTE]
+>Ta wersja jest wymagana do korzystania z nowego interfejsu API punktu końcowego Azure AD Connect synchronizacji w wersji 2.  Aby uzyskać więcej informacji, zobacz [Azure AD Connect Sync v2 Endpoint API (publiczna wersja zapoznawcza)](how-to-connect-sync-endpoint-api-v2.md).
+
 
 ## <a name="15290"></a>1.5.29.0
 
@@ -82,7 +83,10 @@ Ta kompilacja poprawek rozwiązuje problem w 1.5.20.0 kompilacji, jeśli Sklonow
 04/09/2020: wydano do pobrania
 
 ### <a name="fixed-issues"></a>Rozwiązane problemy
-Ta kompilacja poprawek rozwiązuje problem z kompilacją 1.5.18.0, jeśli włączono funkcję filtrowania grup i używasz usługi mS-DS-ConsistencyGuid jako kotwicy źródłowej.
+- Ta kompilacja poprawek rozwiązuje problem z kompilacją 1.5.18.0, jeśli włączono funkcję filtrowania grup i używasz usługi mS-DS-ConsistencyGuid jako kotwicy źródłowej.
+- Rozwiązano problem w module ADSyncConfig PowerShell, gdzie Wywoływanie polecenia DSACLS użytego we wszystkich poleceniach cmdlet Set-ADSync * spowoduje wystąpienie jednego z następujących błędów:
+     - `GrantAclsNoInheritance : The parameter is incorrect.   The command failed to complete successfully.`
+     - `GrantAcls : No GUID Found for computer …`
 
 > [!IMPORTANT]
 > Jeśli Sklonowano z reguły synchronizacji **dołączania do grupy w usłudze AD** i nie zostały sklonowane **w ramach typowej reguły synchronizacji usługi AD-Group** i planujesz uaktualnienie, wykonaj następujące czynności w ramach uaktualnienia:
@@ -117,7 +121,6 @@ Ta kompilacja poprawek rozwiązuje problem z kompilacją 1.5.18.0, jeśli włąc
 - Rozwiązano problem polegający na utworzeniu konta synchronizacji Azure Active Directory, w którym włączenie rozszerzeń katalogów lub PHS może się nie powieść, ponieważ konto nie zostało propagowane we wszystkich replikach usługi przed próbą użycia. 
 - Rozwiązano błąd w narzędziu kompresji błędy synchronizacji, które nie obsługują poprawnie znaków dwuskładnikowych. 
 - Rozwiązano błąd w ramach autouaktualnienia, który opuścił serwer w stanie wstrzymania usługi Scheduler. 
-- Naprawiono usterkę na stronie filtrowania domeny/jednostki organizacyjnej, która usunie profile przebiegu domeny, tylko częściowo rozszerzając drzewo domeny bez wprowadzania żadnych zmian.
 
 ## <a name="14380"></a>1.4.38.0
 ### <a name="release-status"></a>Stan wydania
@@ -910,7 +913,7 @@ CBool(
     |CertFriendlyName|CertThumbprint|CertExtensionOids|
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
-    |CertVersion|CertSignatureAlgorithmOid|Wybierz pozycję|
+    |CertVersion|CertSignatureAlgorithmOid|Wybierz|
     |CertKeyAlgorithmParams|CertHashString|Lokalizacja|
     |||With|
 
@@ -1337,7 +1340,6 @@ Zmieniono nazwę z Azure AD Sync na Azure AD Connect.
 **Nowe funkcje w wersji zapoznawczej:**
 
 * [Zapisywanie zwrotne użytkownika](how-to-connect-preview.md#user-writeback)
-* [Zapisywanie zwrotne grup](how-to-connect-preview.md#group-writeback)
 * [Zapisywanie zwrotne urządzeń](how-to-connect-device-writeback.md)
 * [Rozszerzenia katalogów](how-to-connect-preview.md)
 

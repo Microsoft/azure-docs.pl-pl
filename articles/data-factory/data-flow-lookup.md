@@ -7,13 +7,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/23/2020
-ms.openlocfilehash: 672fecc7487a73909efa5b4247f4889bb47b7b7e
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.date: 05/15/2020
+ms.openlocfilehash: 59c7a34e975a53226b032827feae436202c8fa30
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594325"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683331"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Transformacja wyszukiwania w przepływie danych mapowania
 
@@ -23,7 +23,7 @@ Użyj transformacji wyszukiwania, aby odwoływać się do danych z innego źród
 
 Transformacja wyszukiwania jest podobna do lewego sprzężenia zewnętrznego. Wszystkie wiersze ze strumienia podstawowego będą znajdować się w strumieniu wyjściowym z dodatkowymi kolumnami ze strumienia wyszukiwania. 
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 ![Transformacja wyszukiwania](media/data-flow/lookup1.png "Wyszukiwanie")
 
@@ -41,13 +41,19 @@ Transformacja wyszukiwania obsługuje tylko dopasowania równości. Aby dostosow
 
 Wszystkie kolumny z obu strumieni są zawarte w danych wyjściowych. Aby usunąć zduplikowane lub niepożądane kolumny, Dodaj [wybór transformacji](data-flow-select.md) po przekształceniu wyszukiwania. W transformację ujścia można również porzucić kolumny lub zmienić ich nazwy.
 
+### <a name="non-equi-joins"></a>Sprzężenia inne niż Equi
+
+Aby użyć warunkowego operatora, takiego jak not Equals (! =) lub większe niż (>) w warunkach wyszukiwania, Zmień listę rozwijaną operatora między dwiema kolumnami. Sprzężenia inne niż Equi wymagają, aby co najmniej jeden z dwóch strumieni był emitowany przy użyciu **stałej** emisji na karcie **Optymalizacja** .
+
+![Wyszukiwanie inne niż Equi](media/data-flow/non-equi-lookup.png "Wyszukiwanie inne niż Equi")
+
 ## <a name="analyzing-matched-rows"></a>Analizowanie dopasowanych wierszy
 
 Po przekształceniu wyszukiwania funkcja `isMatch()` może być używana do sprawdzenia, czy wyszukiwanie pasuje do poszczególnych wierszy.
 
 ![Wzorzec wyszukiwania](media/data-flow/lookup111.png "Wzorzec wyszukiwania")
 
-Przykładem tego wzorca jest użycie transformacji podziału warunkowego do podziału na `isMatch()` funkcję. W powyższym przykładzie pasujące wiersze przechodzą przez strumień najwyższego strumienia i niezgodnych ```NoMatch``` wierszy.
+Przykładem tego wzorca jest użycie transformacji podziału warunkowego do podziału na `isMatch()` funkcję. W powyższym przykładzie pasujące wiersze przechodzą przez strumień najwyższego strumienia i niezgodnych wierszy ```NoMatch``` .
 
 ## <a name="testing-lookup-conditions"></a>Testowanie warunków wyszukiwania
 

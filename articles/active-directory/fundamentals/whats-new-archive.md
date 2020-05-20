@@ -13,12 +13,12 @@ ms.author: mimart
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b117309a3ccc9893890d82c2d0b0d2cb0c6e7bca
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 56acddfd534ab640d4ea7ac54db6c11d98e680da
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197886"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680259"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Co nowego w Azure Active Directory?
 
@@ -34,7 +34,7 @@ Co nowego w Azure Active Directory? Informacje o wersji zawierają:
 
 ---
 
-## <a name="october-2019"></a>Październik 2019 r.
+## <a name="october-2019"></a>Październik 2019 r.
 
 ### <a name="deprecation-of-the-identityriskevent-api-for-azure-ad-identity-protection-risk-detections"></a>Wycofanie interfejsu API identityRiskEvent na potrzeby wykrywania ryzyka Azure AD Identity Protection
 
@@ -214,7 +214,7 @@ Aby uzyskać więcej informacji, zobacz [Samouczek: Tworzenie i Konfigurowanie w
 
 ---
 
-## <a name="september-2019"></a>Wrzesień 2019 r.
+## <a name="september-2019"></a>Wrzesień 2019
 
 ### <a name="plan-for-change-deprecation-of-the-power-bi-content-packs"></a>Zaplanuj zmianę: zaniechanie Power BI pakietów zawartości
 
@@ -346,7 +346,7 @@ Od 1 lipca 2019 firma Microsoft zatrzymała ofertę serwera usługi MFA dla nowy
 
 ---
 
-## <a name="august-2019"></a>Sierpień 2019 r.
+## <a name="august-2019"></a>Sierpień 2019 r.
 
 ### <a name="enhanced-search-filtering-and-sorting-for-groups-is-available-in-the-azure-ad-portal-public-preview"></a>Ulepszone wyszukiwanie, filtrowanie i sortowanie dla grup jest dostępne w portalu usługi Azure AD (publiczna wersja zapoznawcza)
 
@@ -531,7 +531,7 @@ Aby uzyskać więcej informacji, zobacz [powiadomienia o zmianach w usłudze Azu
 
 ---
 
-## <a name="july-2019"></a>Lipiec 2019 r.
+## <a name="july-2019"></a>Lipiec 2019
 
 ### <a name="plan-for-change-application-proxy-service-update-to-support-only-tls-12"></a>Zaplanuj zmianę: Aktualizacja usługi proxy aplikacji do obsługi tylko protokołu TLS 1,2
 
@@ -1112,7 +1112,7 @@ Aby uzyskać więcej informacji na temat konfigurowania urządzeń i aplikacji o
 
 ---
 
-## <a name="march-2019"></a>Marzec 2019 r.
+## <a name="march-2019"></a>Marzec 2019
 
 ### <a name="identity-experience-framework-and-custom-policy-support-in-azure-active-directory-b2c-is-now-available-ga"></a>Platforma obsługi tożsamości i obsługa zasad niestandardowych w programie Azure Active Directory B2C jest teraz dostępna (GA)
 
@@ -1250,7 +1250,7 @@ Jeśli te warunki zostały wcześniej użyte w zasadach dostępu warunkowego, na
 
 ---
 
-## <a name="february-2019"></a>Luty 2019 r.
+## <a name="february-2019"></a>Luty 2019
 
 ### <a name="configurable-azure-ad-saml-token-encryption-public-preview"></a>Konfigurowalne szyfrowanie tokenów SAML usługi Azure AD (publiczna wersja zapoznawcza)
 
@@ -1352,7 +1352,7 @@ Aby uzyskać więcej informacji o korzystaniu z szablonów, zobacz [Azure AD B2C
 
 ---
 
-## <a name="january-2019"></a>Styczeń 2019 r.
+## <a name="january-2019"></a>Styczeń 2019
 
 ### <a name="active-directory-b2b-collaboration-using-one-time-passcode-authentication-public-preview"></a>Active Directory współpracy B2B przy użyciu jednorazowego uwierzytelniania kodu dostępu (publiczna wersja zapoznawcza)
 
@@ -1471,7 +1471,7 @@ Następujące pola są zmieniane w schemacie inspekcji:
 |----------|------------|----------|----------|
 |Kategoria|To jest pole **nazwa usługi** . Jest teraz polem **kategorie inspekcji** . **Nazwa usługi** została zmieniona na pole **loggedByService** .|<ul><li>Aprowizacja kont</li><li>Katalog podstawowy</li><li>Samoobsługowe resetowanie hasła</li></ul>|<ul><li>Zarządzanie użytkownikami</li><li>Zarządzanie grupami</li><li>Zarządzanie aplikacjami</li></ul>|
 |targetResources|Obejmuje **TargetResourceType** na najwyższego poziomu.|&nbsp;|<ul><li>Zasady</li><li>Aplikacja</li><li>Użytkownik</li><li>Grupa</li></ul>|
-|loggedByService|Zawiera nazwę usługi, która wygenerowała dziennik inspekcji.|Zero|<ul><li>Aprowizacja kont</li><li>Katalog podstawowy</li><li>Samoobsługowe resetowanie hasła</li></ul>|
+|loggedByService|Zawiera nazwę usługi, która wygenerowała dziennik inspekcji.|Zero|<ul><li>Aprowizacja kont</li><li>Katalog podstawowy</li><li>Samoobsługowe resetowanie haseł</li></ul>|
 |Wynik|Zawiera wyniki dzienników inspekcji. Wcześniej było to wyliczone, ale teraz pokazywane są rzeczywiste wartości.|<ul><li>0</li><li>1</li></ul>|<ul><li>Powodzenie</li><li>Niepowodzenie</li></ul>|
 
 #### <a name="changed-fields-in-the-sign-in-schema"></a>Zmieniono pola w schemacie logowania
@@ -1507,7 +1507,7 @@ Administratorzy usługi Azure AD mogą teraz resetować swoje hasła przy użyci
 
 - Inna aplikacja/token sprzętowy do uwierzytelniania mobilnego
 
-- Adres e-mail
+- E-mail
 
 - Połączenie telefoniczne
 
@@ -1604,13 +1604,13 @@ Aby uzyskać więcej informacji na temat licencjonowania opartego na grupach, zo
 
 W listopadzie 2018 dodaliśmy następujące 26 nowych aplikacji z obsługą Federacji do galerii aplikacji:
 
-[CoreStack](https://cloud.corestack.io/site/login), [HubSpot](https://docs.microsoft.com/azure/active-directory/saas-apps/HubSpot-tutorial), [GetThere](https://docs.microsoft.com/azure/active-directory/saas-apps/getthere-tutorial)Getin, [gra-PE](https://docs.microsoft.com/azure/active-directory/saas-apps/grape-tutorial), [eHour](https://getehour.com/try-now), [Consent2Go](https://docs.microsoft.com/azure/active-directory/saas-apps/Consent2Go-tutorial), [Appinux](https://docs.microsoft.com/azure/active-directory/saas-apps/appinux-tutorial), [DriveDollar](https://azuremarketplace.microsoft.com/marketplace/apps/savitas.drivedollar-azuread?tab=Overview), [Useall](https://docs.microsoft.com/azure/active-directory/saas-apps/useall-tutorial), [nieskończony](https://docs.microsoft.com/azure/active-directory/saas-apps/infinitecampus-tutorial), [Alaya](https://alayagood.com/en/demo/), [HEYBUDDY](https://docs.microsoft.com/azure/active-directory/saas-apps/heybuddy-tutorial), [Wrike SAML](https://docs.microsoft.com/azure/active-directory/saas-apps/wrike-tutorial), [dryf](https://docs.microsoft.com/azure/active-directory/saas-apps/drift-tutorial), [Zenegy for Business Central 365](https://accounting.zenegy.com/), [EverBridge — Portal członkowski](https://docs.microsoft.com/azure/active-directory/saas-apps/everbridge-tutorial), [ideo](https://profile.ideo.com/users/sign_up), [Ivanti Service Manager (ISM)](https://docs.microsoft.com/azure/active-directory/saas-apps/ivanti-service-manager-tutorial), [Peakon](https://docs.microsoft.com/azure/active-directory/saas-apps/peakon-tutorial), [Allbound SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/allbound-sso-tutorial), [aplikacje typu](https://cloud.plex.com/sso) [Plex](https://getcrafts.ca/craftsregistration) — [test klasyczny,](https://test.plexonline.com/signon)aplikacje dla [obiektów typu plex](https://accounts.plex.com/)— klasyczne [,](https://www.plexonline.com/signon)aplikacje [typu plex — test środowiska &](https://test.cloud.plex.com/sso)
+[CoreStack](https://cloud.corestack.io/site/login), [HubSpot](https://docs.microsoft.com/azure/active-directory/saas-apps/HubSpot-tutorial), [GetThere](https://docs.microsoft.com/azure/active-directory/saas-apps/getthere-tutorial)Getin, [gra-PE](https://docs.microsoft.com/azure/active-directory/saas-apps/grape-tutorial), [eHour](https://getehour.com/try-now), [Consent2Go](https://docs.microsoft.com/azure/active-directory/saas-apps/Consent2Go-tutorial), [Appinux](https://docs.microsoft.com/azure/active-directory/saas-apps/appinux-tutorial), [DriveDollar](https://azuremarketplace.microsoft.com/marketplace/apps/savitas.drivedollar-azuread?tab=Overview), [Useall](https://docs.microsoft.com/azure/active-directory/saas-apps/useall-tutorial), [nieskończony](https://docs.microsoft.com/azure/active-directory/saas-apps/infinitecampus-tutorial), [Alaya](https://alayagood.com), [HEYBUDDY](https://docs.microsoft.com/azure/active-directory/saas-apps/heybuddy-tutorial), [Wrike SAML](https://docs.microsoft.com/azure/active-directory/saas-apps/wrike-tutorial), [dryf](https://docs.microsoft.com/azure/active-directory/saas-apps/drift-tutorial), [Zenegy for Business Central 365](https://accounting.zenegy.com/), [EverBridge — Portal członkowski](https://docs.microsoft.com/azure/active-directory/saas-apps/everbridge-tutorial), [ideo](https://profile.ideo.com/users/sign_up), [Ivanti Service Manager (ISM)](https://docs.microsoft.com/azure/active-directory/saas-apps/ivanti-service-manager-tutorial), [Peakon](https://docs.microsoft.com/azure/active-directory/saas-apps/peakon-tutorial), [Allbound SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/allbound-sso-tutorial), [aplikacje typu](https://cloud.plex.com/sso) [Plex](https://getcrafts.ca/craftsregistration) — [test klasyczny,](https://test.plexonline.com/signon)aplikacje dla [obiektów typu plex](https://accounts.plex.com/)— klasyczne [,](https://www.plexonline.com/signon)aplikacje [typu plex — test środowiska &](https://test.cloud.plex.com/sso)
 
 Aby uzyskać więcej informacji na temat aplikacji, zobacz [SaaS Application Integration with Azure Active Directory](https://aka.ms/appstutorial). Aby uzyskać więcej informacji na temat tworzenia listy aplikacji w galerii aplikacji usługi Azure AD, zobacz [Wyświetlanie listy aplikacji w galerii aplikacji Azure Active Directory](https://aka.ms/azureadapprequest).
 
 ---
 
-## <a name="october-2018"></a>Październik 2018 r.
+## <a name="october-2018"></a>Październik 2018
 
 ### <a name="azure-ad-logs-now-work-with-azure-log-analytics-public-preview"></a>Dzienniki usługi Azure AD teraz pracują z usługą Azure Log Analytics (publiczna wersja zapoznawcza)
 
@@ -1656,7 +1656,7 @@ Aby uzyskać więcej informacji, zobacz [usuwanie niestandardowej nazwy domeny](
 
 ---
 
-## <a name="september-2018"></a>Wrzesień 2018 r.
+## <a name="september-2018"></a>Wrzesień 2018
 
 ### <a name="updated-administrator-role-permissions-for-dynamic-groups"></a>Zaktualizowano uprawnienia roli administratora dla grup dynamicznych
 
@@ -1815,7 +1815,7 @@ Aby włączyć ten zaktualizowany widok, kliknij link **Wypróbuj nowe środowis
 
 ---
 
-## <a name="august-2018"></a>Sierpień 2018 r.
+## <a name="august-2018"></a>Sierpień 2018 r.
 
 ### <a name="changes-to-azure-active-directory-ip-address-ranges"></a>Zmiany w zakresach adresów IP Azure Active Directory
 
@@ -2095,7 +2095,7 @@ Powiadomienie aplikacji mobilnej można włączyć tylko w ramach zasad, które 
 
 ---
 
-## <a name="june-2018"></a>Czerwiec 2018 r.
+## <a name="june-2018"></a>Czerwiec 2018
 
 ### <a name="change-notice-security-fix-to-the-delegated-authorization-flow-for-apps-using-azure-ad-activity-logs-api"></a>Zmiana powiadomienia: Poprawka zabezpieczeń do delegowanego przepływu autoryzacji dla aplikacji korzystających z interfejsu API dzienników aktywności usługi Azure AD
 
@@ -2239,7 +2239,7 @@ Aby uzyskać więcej informacji na temat publicznej wersji zapoznawczej, zobacz 
 
 ---
 
-## <a name="may-2018"></a>Maj 2018 r.
+## <a name="may-2018"></a>Maj 2018
 
 ### <a name="expressroute-support-changes"></a>ExpressRoute zmiany obsługi
 
@@ -2391,7 +2391,7 @@ Aplikacje utworzone w dniu lub po 25 kwietnia 2018 nie będą już mogły żąda
 
 ---
 
-## <a name="april-2018"></a>Kwiecień 2018 r.
+## <a name="april-2018"></a>Kwiecień 2018
 
 ### <a name="azure-ad-b2c-access-token-are-ga"></a>Token dostępu Azure AD B2C to GA
 
@@ -2534,7 +2534,7 @@ Aby uzyskać więcej informacji, zobacz [Resetowanie hasła usługi Azure AD na 
 
 ---
 
-## <a name="march-2018"></a>Marzec 2018 r.
+## <a name="march-2018"></a>Marzec 2018
 
 ### <a name="certificate-expire-notification"></a>Powiadomienie o wygaśnięciu certyfikatu
 
@@ -2711,7 +2711,7 @@ Aby uzyskać więcej informacji, zobacz [Omówienie łączników usługi Azure s
 
 ---
 
-## <a name="february-2018"></a>Luty 2018 r.
+## <a name="february-2018"></a>Luty 2018
 
 ### <a name="improved-navigation-for-managing-users-and-groups"></a>Ulepszona nawigacja w celu zarządzania użytkownikami i grupami
 
@@ -2905,7 +2905,7 @@ Kiedy są wyświetlane warunki użytkowania, możesz teraz kliknąć problemy z 
 
 ---
 
-## <a name="january-2018"></a>Styczeń 2018 r.
+## <a name="january-2018"></a>Styczeń 2018
 
 ### <a name="new-federated-apps-available-in-azure-ad-app-gallery"></a>Nowe aplikacje federacyjne dostępne w galerii aplikacji usługi Azure AD
 

@@ -1,14 +1,14 @@
 ---
 title: Ustalanie przyczyn niezgodności
 description: Jeśli zasób nie jest zgodny, istnieje wiele możliwych przyczyn. Dowiedz się, co spowodowało niezgodność.
-ms.date: 04/26/2019
+ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 395c70309ceca6e38f9f62522d80fb588821b886
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2b26357e9957259470049209913501cc024caeaa
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82182586"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684231"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Ustalanie przyczyn niezgodności
 
@@ -115,11 +115,11 @@ Użytkownik może również nie mieć dostępu do bezpośredniego logowania się
 
 Zacznij od wykonania tych samych kroków w powyższej sekcji, aby wyświetlić szczegóły zgodności zasad.
 
-W okienku **szczegóły zgodności** kliknij pozycję Połącz **ostatnio obliczony zasób**.
+W widoku Szczegóły zgodności kliknij pozycję Połącz **ostatnio obliczony zasób**.
 
 :::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="Wyświetl szczegóły definicji auditIfNotExists" border="false":::
 
-Na stronie **przypisanie gościa** są wyświetlane wszystkie dostępne szczegóły zgodności. Każdy wiersz w widoku reprezentuje ocenę, która została wykonana w ramach maszyny. W kolumnie **Przyczyna** jest wyświetlana fraza opisująca dlaczego przypisanie gościa jest _niezgodne_ . Na przykład w przypadku inspekcji zasad haseł w kolumnie **Przyczyna** zostanie wyświetlony tekst zawierający bieżącą wartość dla każdego ustawienia.
+Na stronie **przypisanie gościa** są wyświetlane wszystkie dostępne szczegóły zgodności. Każdy wiersz w widoku reprezentuje ocenę, która została wykonana w ramach maszyny. W kolumnie **Przyczyna** zostanie wyświetlona fraza opisująca, dlaczego przypisanie gościa _nie jest zgodne_. Na przykład w przypadku inspekcji zasad haseł w kolumnie **Przyczyna** zostanie wyświetlony tekst zawierający bieżącą wartość dla każdego ustawienia.
 
 :::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Wyświetl szczegóły zgodności" border="false":::
 

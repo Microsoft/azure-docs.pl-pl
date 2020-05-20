@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 03/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 39b543c5f886b22d488198873b75cf76555692fa
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 005c035468a4225f96e8ef69b2ef31a82bf7eedb
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731648"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682813"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Często zadawane pytania dotyczące Azure Container Registry
 
@@ -51,7 +51,7 @@ Aby uzyskać poświadczenia przy użyciu interfejsu wiersza polecenia platformy 
 az acr credential show -n myRegistry
 ```
 
-Przy użyciu programu Azure PowerShell:
+Używanie Azure PowerShell:
 
 ```powershell
 Invoke-AzureRmResourceAction -Action listCredentials -ResourceType Microsoft.ContainerRegistry/registries -ResourceGroupName myResourceGroup -ResourceName myRegistry
@@ -109,7 +109,7 @@ Propagowanie zmian reguł zapory zajmuje trochę czasu. Po zmianie ustawień zap
 
 ### <a name="how-do-i-access-docker-registry-http-api-v2"></a>Jak mogę dostęp do usługi Docker Registry HTTP API v2?
 
-ACR obsługuje protokół HTTP API v2 usługi Docker. Dostęp do interfejsów API można uzyskać `https://<your registry login server>/v2/`pod adresem. Przykład: `https://mycontainerregistry.azurecr.io/v2/`
+ACR obsługuje protokół HTTP API v2 usługi Docker. Dostęp do interfejsów API można uzyskać pod adresem `https://<your registry login server>/v2/` . Przykład: `https://mycontainerregistry.azurecr.io/v2/`
 
 ### <a name="how-do-i-delete-all-manifests-that-are-not-referenced-by-any-tag-in-a-repository"></a>Jak mogę usunąć wszystkie manifesty, do których nie odwołują się żadne Tagi w repozytorium?
 
@@ -125,7 +125,7 @@ Dla programu PowerShell:
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv | %{ az acr repository delete -n myRegistry -t myRepository@$_ }
 ```
 
-Uwaga: aby pominąć potwierdzenie `-y` , można dodać w poleceniu Delete.
+Uwaga: `-y` Aby pominąć potwierdzenie, można dodać w poleceniu Delete.
 
 Aby uzyskać więcej informacji, zobacz [usuwanie obrazów kontenerów w Azure Container Registry](container-registry-delete.md).
 
@@ -170,7 +170,7 @@ Musisz uruchomić kontener interfejsu wiersza polecenia platformy Azure, instalu
 docker run -it -v /var/run/docker.sock:/var/run/docker.sock azuresdk/azure-cli-python:dev
 ```
 
-W kontenerze zainstaluj `docker`:
+W kontenerze zainstaluj `docker` :
 
 ```bash
 apk --update add docker
@@ -196,16 +196,16 @@ Tak, możesz używać zaufanych obrazów w Azure Container Registry, ponieważ [
 
 ####  <a name="where-is-the-file-for-the-thumbprint-located"></a>Gdzie znajduje się plik dla odcisku palca?
 
-W `~/.docker/trust/tuf/myregistry.azurecr.io/myrepository/metadata`obszarze:
+W obszarze `~/.docker/trust/tuf/myregistry.azurecr.io/myrepository/metadata` :
 
-* Klucze publiczne i certyfikaty wszystkich ról (z wyjątkiem ról delegowania) są przechowywane w `root.json`.
+* Klucze publiczne i certyfikaty wszystkich ról (z wyjątkiem ról delegowania) są przechowywane w `root.json` .
 * Klucze publiczne i certyfikaty roli delegowania są przechowywane w pliku JSON jego roli nadrzędnej (na przykład `targets.json` dla `targets/releases` roli).
 
 Zalecane jest zweryfikowanie tych kluczy publicznych i certyfikatów po ogólnej weryfikacji TUF wykonywanej przez klienta platformy Docker i notariusza.
 
 ### <a name="how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource"></a>Jak mogę udzielić dostępu do obrazów ściągania lub wypychania bez zezwolenia na zarządzanie zasobem rejestru?
 
-Program ACR obsługuje [role niestandardowe](container-registry-roles.md) , które zapewniają różne poziomy uprawnień. W szczególnych `AcrPull` przypadkach `AcrPush` i role umożliwiają użytkownikom ściąganie i/lub wypychanie obrazów bez uprawnień do zarządzania zasobami rejestru na platformie Azure.
+Program ACR obsługuje [role niestandardowe](container-registry-roles.md) , które zapewniają różne poziomy uprawnień. W szczególnych przypadkach `AcrPull` i `AcrPush` role umożliwiają użytkownikom ściąganie i/lub wypychanie obrazów bez uprawnień do zarządzania zasobami rejestru na platformie Azure.
 
 * Azure Portal: > rejestru Access Control (IAM) — > Dodaj (wybierz `AcrPull` lub `AcrPush` dla roli).
 * Interfejs wiersza polecenia platformy Azure: Znajdź identyfikator zasobu rejestru, uruchamiając następujące polecenie:
@@ -214,7 +214,7 @@ Program ACR obsługuje [role niestandardowe](container-registry-roles.md) , któ
   az acr show -n myRegistry
   ```
   
-  Następnie można przypisać rolę `AcrPull` lub `AcrPush` do użytkownika (Poniższy przykład używa `AcrPull`):
+  Następnie można przypisać `AcrPull` `AcrPush` rolę lub do użytkownika (Poniższy przykład używa `AcrPull` ):
 
   ```azurecli
   az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
@@ -246,7 +246,7 @@ Przystawka jest następnie w stanie uwierzytelniać obrazy w rejestrze i uzyskiw
   docker pull myregistry.azurecr.io/hello-world
   ```
 
-Korzystając z tylko roli `AcrPull` lub `AcrPush` , osoba przydzielona nie ma uprawnień do zarządzania zasobem rejestru na platformie Azure. Na przykład `az acr list` `az acr show -n myRegistry` nie zostanie wyświetlony rejestr.
+Korzystając z tylko `AcrPull` `AcrPush` roli lub, osoba przydzielona nie ma uprawnień do zarządzania zasobem rejestru na platformie Azure. Na przykład `az acr list` `az acr show -n myRegistry` nie zostanie wyświetlony rejestr.
 
 ### <a name="how-do-i-enable-automatic-image-quarantine-for-a-registry"></a>Jak mogę włączyć automatyczne kwarantanny obrazu dla rejestru?
 
@@ -254,7 +254,7 @@ Kwarantanna obrazu jest obecnie funkcją w wersji zapoznawczej ACR. Można włą
 
 ### <a name="how-do-i-enable-anonymous-pull-access"></a>Jak mogę włączyć anonimowy dostęp do ściągania?
 
-Skonfigurowanie usługi Azure Container Registry do anonimowego (publicznego) dostępu do ściągania jest obecnie funkcją w wersji zapoznawczej. Aby włączyć dostęp publiczny, należy otworzyć bilet pomocy technicznej pod https://aka.ms/acr/support/create-ticketadresem. Aby uzyskać szczegółowe informacje, zobacz [forum opinii na platformie Azure](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
+Skonfigurowanie usługi Azure Container Registry do anonimowego (publicznego) dostępu do ściągania jest obecnie funkcją w wersji zapoznawczej. Aby włączyć dostęp publiczny, należy otworzyć bilet pomocy technicznej pod adresem https://aka.ms/acr/support/create-ticket . Aby uzyskać szczegółowe informacje, zobacz [forum opinii na platformie Azure](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
 
 
 ## <a name="diagnostics-and-health-checks"></a>Testy diagnostyczne i kondycji
@@ -313,7 +313,7 @@ unauthorized: authentication required
 ```
 
 Aby rozwiązać ten problem:
-1. Dodaj opcję `--signature-verification=false` do pliku `/etc/sysconfig/docker`konfiguracji demona platformy Docker. Przykład:
+1. Dodaj opcję `--signature-verification=false` do pliku konfiguracji demona platformy Docker `/etc/sysconfig/docker` . Na przykład:
    
    `OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'`
    
@@ -323,15 +323,15 @@ Aby rozwiązać ten problem:
    sudo systemctl restart docker.service
    ```
 
-Szczegóły `--signature-verification` można znaleźć, uruchamiając `man dockerd`.
+Szczegóły `--signature-verification` można znaleźć, uruchamiając `man dockerd` .
 
 ### <a name="az-acr-login-succeeds-but-docker-fails-with-error-unauthorized-authentication-required"></a>Operacja AZ ACR login powiedzie się, ale program Docker kończy się niepowodzeniem z powodu błędu: Brak autoryzacji: wymagane jest uwierzytelnianie
 
-Upewnij się, że używasz adresu URL wszystkich małych liter, na przykład `docker push myregistry.azurecr.io/myimage:latest`, nawet jeśli nazwa zasobu rejestru ma wielkie litery lub małe litery, np `myRegistry`..
+Upewnij się, że używasz adresu URL wszystkich małych liter, na przykład, `docker push myregistry.azurecr.io/myimage:latest` nawet jeśli nazwa zasobu rejestru ma wielkie litery lub małe litery, np `myRegistry` ..
 
 ### <a name="enable-and-get-the-debug-logs-of-the-docker-daemon"></a>Włączanie i pobieranie dzienników debugowania demona platformy Docker    
 
-Zacznij `dockerd` od `debug` opcji. Najpierw utwórz plik konfiguracji demona platformy Docker (`/etc/docker/daemon.json`), jeśli nie istnieje, i Dodaj `debug` opcję:
+Zacznij `dockerd` od `debug` opcji. Najpierw utwórz plik konfiguracji demona platformy Docker ( `/etc/docker/daemon.json` ), jeśli nie istnieje, i Dodaj `debug` opcję:
 
 ```json
 {    
@@ -347,7 +347,7 @@ sudo service docker restart
 
 Szczegółowe informacje znajdują się w [dokumentacji platformy Docker](https://docs.docker.com/engine/admin/#enable-debugging).    
 
- * Dzienniki mogą być generowane w różnych lokalizacjach, w zależności od systemu. Na przykład dla Ubuntu 14,04 `/var/log/upstart/docker.log`.    
+ * Dzienniki mogą być generowane w różnych lokalizacjach, w zależności od systemu. Na przykład dla Ubuntu 14,04 `/var/log/upstart/docker.log` .    
 Szczegóły można znaleźć w [dokumentacji platformy Docker](https://docs.docker.com/engine/admin/#read-the-logs) .    
 
  * W przypadku Docker for Windows dzienniki są generowane w lokalizacji% LOCALAPPDATA%/Docker/. Jednak może nie zawierać jeszcze wszystkich informacji o debugowaniu.    
@@ -360,7 +360,7 @@ Szczegóły można znaleźć w [dokumentacji platformy Docker](https://docs.dock
     docker run --net=host --ipc=host --uts=host --pid=host -it --security-opt=seccomp=unconfined --privileged --rm -v /:/host alpine /bin/sh
     chroot /host
     ```
-    Teraz masz dostęp do wszystkich plików maszyny wirtualnej z systemem `dockerd`. Dziennik jest o godzinie `/var/log/docker.log`.
+    Teraz masz dostęp do wszystkich plików maszyny wirtualnej z systemem `dockerd` . Dziennik jest o godzinie `/var/log/docker.log` .
 
 ### <a name="new-user-permissions-may-not-be-effective-immediately-after-updating"></a>Nowe uprawnienia użytkownika mogą nie obowiązywać natychmiast po aktualizacji
 
@@ -374,7 +374,7 @@ Gdy przyznasz nowe uprawnienia (nowe role) do jednostki usługi, zmiana może ni
   docker login myregistry.azurecr.io
   ```
 
-Obecnie ACR nie obsługuje usuwania replikacji domowej przez użytkowników. Obejście polega na uwzględnieniu tworzenia w szablonie replikacji domowej, ale pominięcia jej tworzenia `"condition": false` przez dodanie, jak pokazano poniżej:
+Obecnie ACR nie obsługuje usuwania replikacji domowej przez użytkowników. Obejście polega na uwzględnieniu tworzenia w szablonie replikacji domowej, ale pominięcia jej tworzenia przez dodanie `"condition": false` , jak pokazano poniżej:
 
 ```json
 {
@@ -408,9 +408,9 @@ RequestId:00000000-0000-0000-0000-000000000000
 Time:2019-01-01T00:00:00.0000000Z</Message></Error>
 ```
 
-Główną przyczyną jest to, że `curl` niektóre implementacje są zgodne z nagłówkami z oryginalnego żądania.
+Główną przyczyną jest to, że niektóre `curl` implementacje są zgodne z nagłówkami z oryginalnego żądania.
 
-Aby rozwiązać ten problem, należy ponownie wykonać przekierowania ręcznie bez nagłówków. Wydrukuj nagłówki odpowiedzi z `-D -` opcją `curl` , a następnie wyodrębnij: `Location` nagłówek:
+Aby rozwiązać ten problem, należy ponownie wykonać przekierowania ręcznie bez nagłówków. Wydrukuj nagłówki odpowiedzi z `-D -` opcją `curl` , a następnie wyodrębnij: `Location` Nagłówek:
 
 ```bash
 redirect_url=$(curl -s -D - -H "Authorization: basic $credential" https://$registry.azurecr.io/v2/$repository/blobs/$digest | grep "^Location: " | cut -d " " -f2 | tr -d '\r')
@@ -426,16 +426,16 @@ Jeśli używasz przeglądarki Microsoft Edge/IE, możesz zobaczyć maksymalnie 1
 Przeglądarka może nie być w stanie wysłać żądania pobrania repozytoriów lub tagów na serwer. Mogą istnieć różne przyczyny, takie jak:
 
 * Brak łączności sieciowej
-* Zapora
+* Firewall
 * Bloki usługi AD
 * Błędy DNS
 
-Skontaktuj się z administratorem sieci lub Sprawdź konfigurację sieci i łączność. Spróbuj uruchomić `az acr check-health -n yourRegistry` program przy użyciu interfejsu wiersza polecenia platformy Azure, aby sprawdzić, czy środowisko jest w stanie połączyć się z Container Registry. Ponadto można również wypróbować sesję incognito lub prywatną w przeglądarce, aby uniknąć nieodświeżonej pamięci podręcznej lub plików cookie przeglądarki.
+Skontaktuj się z administratorem sieci lub Sprawdź konfigurację sieci i łączność. Spróbuj uruchomić program `az acr check-health -n yourRegistry` przy użyciu interfejsu wiersza polecenia platformy Azure, aby sprawdzić, czy środowisko jest w stanie połączyć się z Container Registry. Ponadto można również wypróbować sesję incognito lub prywatną w przeglądarce, aby uniknąć nieodświeżonej pamięci podręcznej lub plików cookie przeglądarki.
 
 ### <a name="why-does-my-pull-or-push-request-fail-with-disallowed-operation"></a>Dlaczego moje żądanie ściągnięcia lub wypychania zakończy się niepowodzeniem z niedozwoloną operacją?
 
 Poniżej przedstawiono kilka scenariuszy, w których operacje mogą być niedozwolone:
-* Klasyczne rejestry nie są już obsługiwane. Przeprowadź uaktualnienie do obsługiwanych [jednostek SKU](https://aka.ms/acr/skus) przy użyciu polecenia [AZ acr Update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) lub Azure Portal.
+* Klasyczne rejestry nie są już obsługiwane. Przeprowadź uaktualnienie do obsługiwanej [warstwy usług](https://aka.ms/acr/skus) za pomocą polecenia [AZ acr Update](https://docs.microsoft.com/cli/azure/acr?view=azure-cli-latest#az-acr-update) lub Azure Portal.
 * Obraz lub repozytorium może być zablokowane, aby nie można go było usunąć ani zaktualizować. Aby wyświetlić bieżące atrybuty, można użyć polecenia [AZ ACR show Repository](https://docs.microsoft.com/azure/container-registry/container-registry-image-lock) .
 * Niektóre operacje są niedozwolone, jeśli obraz jest objęty kwarantanną. Dowiedz się więcej o [kwarantannie](https://github.com/Azure/acr/tree/master/docs/preview/quarantine).
 
@@ -479,7 +479,7 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 
 ### <a name="how-do-i-include-the-git-folder-in-az-acr-build-command"></a>Jak mogę uwzględnić folder. git w polecenia AZ ACR Build?
 
-Jeśli do `az acr build` polecenia zostanie przekazany lokalny folder źródłowy, `.git` folder zostanie domyślnie wykluczony z przekazanego pakietu. Można utworzyć `.dockerignore` plik z następującym ustawieniem. Instruuje polecenie, aby przywrócić wszystkie pliki w `.git` ramach przekazanego pakietu. 
+Jeśli do polecenia zostanie przekazany lokalny folder źródłowy `az acr build` , `.git` folder zostanie domyślnie wykluczony z przekazanego pakietu. Można utworzyć `.dockerignore` plik z następującym ustawieniem. Instruuje polecenie, aby przywrócić wszystkie pliki w ramach `.git` przekazanego pakietu. 
 
 `!.git/**`
 
@@ -493,8 +493,8 @@ Obecnie nie obsługujemy GitLab dla wyzwalaczy źródłowych.
 
 | Usługa git | Kontekst źródła | Kompilacja ręczna | Automatycznie Kompiluj przez wyzwalacz zatwierdzania |
 |---|---|---|---|
-| GitHub | `https://github.com/user/myapp-repo.git#mybranch:myfolder` | Tak | Tak |
-| Azure Repos | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` | Tak | Tak |
+| GitHub | `https://github.com/user/myapp-repo.git#mybranch:myfolder` | Tak | Yes |
+| Azure Repos | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` | Tak | Yes |
 | GitLab | `https://gitlab.com/user/myapp-repo.git#mybranch:myfolder` | Yes | Nie |
 | BitBucket | `https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder` | Yes | Nie |
 

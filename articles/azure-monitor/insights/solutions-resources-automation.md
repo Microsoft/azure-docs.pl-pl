@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 05/24/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8ef9f27546e9db95d5a41769e1b5bc7bc0c2f851
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a3b1b134afbc4a13d7888281a82609d444cee377
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77663066"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682874"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>Dodawanie Azure Automation zasobów do rozwiązania do zarządzania (wersja zapoznawcza)
 > [!NOTE]
@@ -33,7 +33,7 @@ W tym artykule założono, że znasz już poniższe informacje.
 - Jak [tworzyć szablony Menedżer zasobów](../../azure-resource-manager/templates/template-syntax.md)
 
 ## <a name="automation-account"></a>Konto usługi Automation
-Wszystkie zasoby w Azure Automation są zawarte na [koncie usługi Automation](../../automation/automation-security-overview.md#automation-account-overview).  Zgodnie z opisem w [obszarze roboczym log Analytics i koncie usługi Automation]( solutions.md#log-analytics-workspace-and-automation-account) konto usługi Automation nie jest dołączone do rozwiązania do zarządzania, ale musi istnieć przed zainstalowaniem rozwiązania.  Jeśli nie jest dostępny, instalacja rozwiązania zakończy się niepowodzeniem.
+Wszystkie zasoby w Azure Automation są zawarte na [koncie usługi Automation](../../automation/automation-security-overview.md).  Zgodnie z opisem w [obszarze roboczym log Analytics i koncie usługi Automation]( solutions.md#log-analytics-workspace-and-automation-account) konto usługi Automation nie jest dołączone do rozwiązania do zarządzania, ale musi istnieć przed zainstalowaniem rozwiązania.  Jeśli nie jest dostępny, instalacja rozwiązania zakończy się niepowodzeniem.
 
 Nazwa każdego zasobu usługi Automation obejmuje nazwę konta usługi Automation.  Jest to realizowane w rozwiązaniu z parametrem **AccountName** , jak w poniższym przykładzie zasobu elementu Runbook.
 
@@ -73,7 +73,7 @@ Właściwości elementów Runbook są opisane w poniższej tabeli.
 | runbookType |Określa typy elementów Runbook. <br><br> Skrypt — skrypt programu PowerShell <br>PowerShell — przepływ pracy programu PowerShell <br> GraphPowerShell — element Runbook skryptu programu PowerShell <br> GraphPowerShellWorkflow — element Runbook przepływu pracy programu PowerShell |
 | logProgress |Określa, czy [rekordy postępu](../../automation/automation-runbook-output-and-messages.md) mają być generowane dla elementu Runbook. |
 | logVerbose |Określa, czy dla elementu Runbook mają być generowane [pełne rekordy](../../automation/automation-runbook-output-and-messages.md) . |
-| description |Opcjonalny opis elementu Runbook. |
+| description (opis) |Opcjonalny opis elementu Runbook. |
 | publishContentLink |Określa zawartość elementu Runbook. <br><br>Identyfikator URI-URI do zawartości elementu Runbook.  Będzie to plik. ps1 dla programu PowerShell i elementów Runbook skryptów oraz wyeksportowany plik graficzny elementu Runbook dla elementu Runbook programu Graph.  <br> wersja elementu Runbook dla własnego śledzenia. |
 
 
@@ -192,7 +192,7 @@ Właściwości zasobów harmonogramu są opisane w poniższej tabeli.
 
 | Właściwość | Opis |
 |:--- |:--- |
-| description |Opcjonalny opis harmonogramu. |
+| description (opis) |Opcjonalny opis harmonogramu. |
 | startTime |Określa godzinę rozpoczęcia harmonogramu jako obiekt DateTime. Ciąg można podać, jeśli można go przekonwertować na prawidłową datę i godzinę. |
 | isEnabled |Określa, czy harmonogram jest włączony. |
 | interval |Typ interwału harmonogramu.<br><br>dzień<br>godzina |
@@ -262,22 +262,22 @@ Właściwości zasobów zmiennych są opisane w poniższej tabeli.
 
 | Właściwość | Opis |
 |:--- |:--- |
-| description | Opcjonalny opis zmiennej. |
+| description (opis) | Opcjonalny opis zmiennej. |
 | isEncrypted | Określa, czy zmienna powinna być szyfrowana. |
-| type | Ta właściwość obecnie nie ma żadnego wpływu.  Typ danych zmiennej zostanie określony przez wartość początkową. |
+| typ | Ta właściwość obecnie nie ma żadnego wpływu.  Typ danych zmiennej zostanie określony przez wartość początkową. |
 | value | Wartość dla zmiennej. |
 
 > [!NOTE]
 > Właściwość **Type** nie ma obecnie wpływu na utworzoną zmienną.  Typ danych dla zmiennej zostanie określony przez wartość.  
 
-Jeśli ustawisz początkową wartość dla zmiennej, należy ją skonfigurować jako prawidłowy typ danych.  W poniższej tabeli przedstawiono różne typy danych, które są dozwolone i ich składni.  Należy pamiętać, że wartości w formacie JSON powinny być zawsze ujęte w cudzysłowy ze wszystkimi znakami specjalnymi w cudzysłowie.  Na przykład wartość ciągu może być określona przez cudzysłowy wokół ciągu (przy użyciu znaku ucieczki (\\)), podczas gdy wartość liczbowa zostanie określona z jednym zestawem cudzysłowów.
+Jeśli ustawisz początkową wartość dla zmiennej, należy ją skonfigurować jako prawidłowy typ danych.  W poniższej tabeli przedstawiono różne typy danych, które są dozwolone i ich składni.  Należy pamiętać, że wartości w formacie JSON powinny być zawsze ujęte w cudzysłowy ze wszystkimi znakami specjalnymi w cudzysłowie.  Na przykład wartość ciągu może być określona przez cudzysłowy wokół ciągu (przy użyciu znaku ucieczki ( \\ )), podczas gdy wartość liczbowa zostanie określona z jednym zestawem cudzysłowów.
 
 | Typ danych | Opis | Przykład | Jest rozpoznawana jako |
 |:--|:--|:--|:--|
-| ciąg   | Ujmij wartość w podwójne cudzysłowy.  | "\"Hello World\"" | "Hello World" |
+| ciąg   | Ujmij wartość w podwójne cudzysłowy.  | " \" Hello World \" " | "Hello World" |
 | numeryczne  | Wartość liczbowa z pojedynczymi cudzysłowami.| "64" | 64 |
 | wartość logiczna  | **wartość true** lub **false** w cudzysłowie.  Należy pamiętać, że ta wartość musi być małymi literami. | oznacza | true |
-| datetime | Serializowana wartość daty.<br>Aby wygenerować tę wartość dla konkretnej daty, można użyć polecenia cmdlet ConvertTo-JSON w programie PowerShell.<br>Przykład: Get-Date "5/24/2017 13:14:57" \| ConvertTo-JSON | "\\/Date (1495656897378)\\/" | 2017-05-24 13:14:57 |
+| datetime | Serializowana wartość daty.<br>Aby wygenerować tę wartość dla konkretnej daty, można użyć polecenia cmdlet ConvertTo-JSON w programie PowerShell.<br>Przykład: Get-Date "5/24/2017 13:14:57" \| ConvertTo-JSON | " \\ /Date (1495656897378) \\ /" | 2017-05-24 13:14:57 |
 
 ## <a name="modules"></a>Moduły
 Twoje rozwiązanie do zarządzania nie musi definiować [modułów globalnych](../../automation/automation-integration-modules.md) używanych przez elementy Runbook, ponieważ będą zawsze dostępne na koncie usługi Automation.  Musisz dołączyć zasób dla dowolnego innego modułu używanego przez elementy Runbook.

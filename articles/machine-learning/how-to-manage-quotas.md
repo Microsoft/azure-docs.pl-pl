@@ -11,12 +11,12 @@ author: nishankgu
 ms.author: nigup
 ms.date: 05/08/2020
 ms.custom: contperfq4
-ms.openlocfilehash: b8af654e14d8a5fa48c60ae62c590c4c99e66edb
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: c5862ee90a12240e7293647fae6af4f18f30c164
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891517"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680393"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Zarządzanie & zwiększenie limitów przydziału dla zasobów z Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -114,15 +114,9 @@ Aby ustawić przydziały na poziomie obszaru roboczego, przejdź do dowolnego ob
 
 ## <a name="view-your-usage-and-quotas"></a>Wyświetlanie użycia i przydziałów
 
-Wyświetlanie przydziału dla różnych zasobów, takich jak Virtual Machines, Storage i Network, jest proste przez Azure Portal.
+Obliczenia Azure Machine Learning są zarządzane oddzielnie od innych przydziałów zasobów platformy Azure w ramach subskrypcji. Aby wyświetlić ten limit przydziału, należy przejść do szczegółów usług Machine Learning.  
 
-1. W okienku po lewej stronie wybierz pozycję **wszystkie usługi** , a następnie wybierz pozycję **subskrypcje** w kategorii Ogólne.
-
-1. Z listy subskrypcji wybierz subskrypcję, której chcesz wyszukać.
-
-   **Istnieje zastrzeżenie**dotyczące wyświetlania Azure Machine Learning przydziału obliczeń. Jak wspomniano powyżej, ten limit przydziału jest oddzielony od przydziału obliczeń w ramach subskrypcji.
-
-1. W okienku po lewej stronie wybierz pozycję **usługa Machine Learning** a następnie wybierz dowolny obszar roboczy z wyświetlonej listy
+1. W okienku po lewej stronie wybierz pozycję **usługa Machine Learning** a następnie wybierz dowolny obszar roboczy z wyświetlonej listy.
 
 1. W następnym bloku w **sekcji Pomoc techniczna i rozwiązywanie problemów** wybierz pozycję **użycie + przydziały** , aby wyświetlić bieżące limity przydziału i użycie.
 
@@ -132,6 +126,12 @@ Wyświetlanie przydziału dla różnych zasobów, takich jak Virtual Machines, S
     + **Widok subskrypcji:** Pozwala to na wyświetlenie użycia przydziału rdzeni przez rodzinę maszyn wirtualnych, rozwinięcie go według obszaru roboczego i dalsze rozszerzenie go o rzeczywiste nazwy klastra. Ten widok jest optymalny, aby szybko zapoznać się ze szczegółami dotyczącymi użycia podstawowego dla danej rodziny maszyn wirtualnych, aby zobaczyć podziały przez obszary robocze i inne klastry dla każdego z tych obszarów roboczych. Ogólna Konwencja w tym widoku to (użycie/przydział), gdzie użycie jest bieżącą liczbą skalowalnych rdzeni, a limit przydziału to logiczna Maksymalna liczba rdzeni, do których można skalować zasób. Dla każdego **obszaru roboczego**przydział będzie przydziałem na poziomie obszaru roboczego (jak wyjaśniono powyżej), co oznacza maksymalną liczbę rdzeni, które można skalować do określonej rodziny maszyn wirtualnych. W przypadku **klastra** w podobny sposób przydziały są w rzeczywistości rdzeniami odpowiadającymi maksymalnej liczbie węzłów, które klaster może skalować do określonych przez właściwość max_nodes.
 
     + **Widok obszaru roboczego:** Pozwala to na wyświetlenie użycia zasobów podstawowych według obszaru roboczego, rozszerzenie go przez rodzinę maszyn wirtualnych i dalsze rozszerzenie go o rzeczywiste nazwy klastra. Ten widok jest optymalny, aby szybko zapoznać się ze szczegółami dotyczącymi podstawowego użycia określonego obszaru roboczego, aby zobaczyć podział przez rodziny maszyn wirtualnych i inne klastry dla każdej z tych rodzin.
+
+Wyświetlanie przydziału dla różnych innych zasobów platformy Azure, takich jak Virtual Machines, Storage i Network, jest proste przez Azure Portal.
+
+1. W okienku po lewej stronie wybierz pozycję **wszystkie usługi** , a następnie wybierz pozycję **subskrypcje** w kategorii Ogólne.
+
+1. Z listy subskrypcji wybierz subskrypcję, której chcesz wyszukać.
 
 ## <a name="request-quota-increases"></a>Prośba o zwiększenie limitów przydziałów
 

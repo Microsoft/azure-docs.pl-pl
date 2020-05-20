@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/25/2018
+ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3f6b698922440c6e3e9b488cca93ca8d98d9c59
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b23c2b81d281f787914e32818d768d2d531537f4
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80983079"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682232"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Funkcje usługi synchronizacji programu Azure AD Connect
 
@@ -34,12 +34,12 @@ W tym temacie wyjaśniono, jak działa następujące funkcje **usługi synchroni
 
 Te ustawienia są konfigurowane przez [moduł Azure Active Directory dla środowiska Windows PowerShell](https://aka.ms/aadposh). Pobierz i zainstaluj go niezależnie od Azure AD Connect. Polecenia cmdlet udokumentowane w tym temacie zostały wprowadzone w [wersji 2016 marca (kompilacja 9031,1)](https://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). Jeśli nie masz poleceń cmdlet opisanych w tym temacie lub nie generują one tego samego wyniku, upewnij się, że uruchamiasz najnowszą wersję.
 
-Aby wyświetlić konfigurację w katalogu usługi Azure AD, uruchom `Get-MsolDirSyncFeatures`polecenie.  
+Aby wyświetlić konfigurację w katalogu usługi Azure AD, uruchom polecenie `Get-MsolDirSyncFeatures` .  
 ![Wynik Get-MsolDirSyncFeatures](./media/how-to-connect-syncservice-features/getmsoldirsyncfeatures.png)
 
 Wiele z tych ustawień można zmienić tylko przez Azure AD Connect.
 
-Następujące ustawienia można skonfigurować przez `Set-MsolDirSyncFeature`:
+Następujące ustawienia można skonfigurować przez `Set-MsolDirSyncFeature` :
 
 | DirSyncFeature | Komentarz |
 | --- | --- |
@@ -53,16 +53,16 @@ Po włączeniu funkcji nie można jej ponownie wyłączyć.
 > 
 > 
 
-Następujące ustawienia są konfigurowane przez Azure AD Connect i nie mogą być modyfikowane `Set-MsolDirSyncFeature`przez:
+Następujące ustawienia są konfigurowane przez Azure AD Connect i nie mogą być modyfikowane przez `Set-MsolDirSyncFeature` :
 
 | DirSyncFeature | Komentarz |
 | --- | --- |
 | DeviceWriteback |[Azure AD Connect: Włączanie zapisywania zwrotnego urządzeń](how-to-connect-device-writeback.md) |
 | DirectoryExtensions |[Azure AD Connect Synchronize: rozszerzenia katalogów](how-to-connect-sync-feature-directory-extensions.md) |
-| [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Zezwala atrybutowi na poddawanie kwarantannie, gdy jest to duplikat innego obiektu, a nie niepowodzenie całego obiektu podczas eksportowania. |
+| [DuplicateProxyAddressResiliency <br/> DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Zezwala atrybutowi na poddawanie kwarantannie, gdy jest to duplikat innego obiektu, a nie niepowodzenie całego obiektu podczas eksportowania. |
 | Synchronizacja skrótów haseł |[Implementowanie synchronizacji skrótów haseł z synchronizacją Azure AD Connect](how-to-connect-password-hash-synchronization.md) |
 |Uwierzytelnianie przekazywane|[Logowanie użytkownika przy użyciu uwierzytelniania przekazywanego usługi Azure Active Directory](how-to-connect-pta.md)|
-| UnifiedGroupWriteback |[Wersja zapoznawcza: zapisywanie zwrotne grup](how-to-connect-preview.md#group-writeback) |
+| UnifiedGroupWriteback |Zapisywanie zwrotne grup|
 | UserWriteback |Obecnie nie jest obsługiwane. |
 
 ## <a name="duplicate-attribute-resiliency"></a>Odporność na zduplikowane atrybuty

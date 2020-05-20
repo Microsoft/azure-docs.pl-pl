@@ -2,13 +2,13 @@
 title: Typy jednostek — LUIS
 description: Jednostka wyodrębnia dane z wypowiedź użytkownika w środowisku uruchomieniowym przewidywania. _Opcjonalne_, pomocnicze przeznaczenie ma na celu zwiększenie przewidywania zamiaru lub innych jednostek przy użyciu jednostki jako funkcji.
 ms.topic: conceptual
-ms.date: 04/30/2020
-ms.openlocfilehash: 9d8afd5a660b3af5556256835486e984d7d657bc
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/17/2020
+ms.openlocfilehash: a5e4812eab84650401dd19b0f8d7b361a5135dd3
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585644"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682173"
 ---
 # <a name="extract-data-with-entities"></a>Wyodrębnij dane przy użyciu jednostek
 
@@ -16,11 +16,11 @@ Jednostka wyodrębnia dane z wypowiedź użytkownika w środowisku uruchomieniow
 
 Istnieje kilka typów jednostek:
 
-* [Jednostka nauczona maszynowo](reference-entity-machine-learned-entity.md)
-* Nieprzygotowane do użycia przez maszynę jako wymagana [Funkcja](luis-concept-feature.md) — dla dokładnego dopasowania tekstu, dopasowania wzorców lub wykrycia przez wstępnie utworzone jednostki
+* [Jednostka uczenia maszynowego](reference-entity-machine-learned-entity.md) — jest to jednostka podstawowa. Przed rozpoczęciem korzystania z innych jednostek należy zaprojektować schemat przy użyciu tego typu jednostki.
+* Niemachine-uczenie używane jako wymagana [Funkcja](luis-concept-feature.md) — dla dokładnego dopasowania tekstu, dopasowania wzorców lub wykrycia przez wstępnie utworzone jednostki
 * [Wzorzec. any](#patternany-entity) -do wyodrębniania tekstu dowolnego formularza, takiego jak tytuły książek ze [wzorca](reference-entity-pattern-any.md)
 
-Jednostki zdobyte na maszynie zapewniają szeroką gamę opcji wyodrębniania danych. Jednostki, które nie są wykorzystywane przez maszynę, współpracują z dopasowywaniem do tekstu i są używane jako [funkcje wymagane](#design-entities-for-decomposition) dla jednostki lub zamiaru.
+jednostki uczenia maszynowego zapewniają szeroką gamę opcji wyodrębniania danych. Obiekty inne niż Uczenie maszynowe współpracują z dopasowywaniem tekstu i są używane jako [funkcje wymagane](#design-entities-for-decomposition) dla obiektu lub zamiaru uczenia maszynowego.
 
 ## <a name="entities-represent-data"></a>Jednostki reprezentują dane
 
@@ -51,18 +51,26 @@ Weź pod uwagę następujące cztery wyrażenia długości:
 |--|--|--|--|
 |Pomoc|Pomoc|-|Brak elementów do wyodrębnienia.|
 |Wyślij coś|sendSomething|-|Brak elementów do wyodrębnienia. Model nie ma wymaganej funkcji do wyodrębnienia `something` w tym kontekście i nie podano odbiorcy.|
-|Wyślij Roberta|sendSomething|`Bob`, `present`|Model wyodrębnia `Bob` przez dodanie wymaganej funkcji wstępnie skompilowanej jednostki `personName` . Jednostka poznania maszynowego została użyta do wyodrębnienia `present` .|
-|Wyślij Roberta do pudełka czekolady|sendSomething|`Bob`, `box of chocolates`|Dwie ważne fragmenty danych `Bob` i `box of chocolates` , które zostały wyodrębnione przez jednostki zdobyte przez maszynę.|
+|Wyślij Roberta|sendSomething|`Bob`, `present`|Model wyodrębnia `Bob` przez dodanie wymaganej funkcji wstępnie skompilowanej jednostki `personName` . Jednostka uczenia maszynowego została użyta do wyodrębnienia `present` .|
+|Wyślij Roberta do pudełka czekolady|sendSomething|`Bob`, `box of chocolates`|Dwie ważne fragmenty danych `Bob` i, które zostały `box of chocolates` wyodrębnione przez jednostki uczenia maszynowego.|
 
 ## <a name="design-entities-for-decomposition"></a>Projektowanie jednostek do dekompozycji
 
-Jednostki z obsługą maszyn umożliwiają zaprojektowanie schematu aplikacji na potrzeby dekompozycji, dzieląc znaczną koncepcję na podjednostki.
+jednostki uczenia maszynowego umożliwiają projektowanie schematu aplikacji na potrzeby dekompozycji, co pozwala na rozdzielenie dużej koncepcji na podjednostki.
 
 Projektowanie pod kątem dekompozycji umożliwia LUISom zwrócenie głębokiego stopnia rozpoznawania jednostek do aplikacji klienckiej. Dzięki temu aplikacja kliencka może skupić się na regułach biznesowych i pozostawić dane do LUIS.
 
-Wyznaczone przez maszynę wyzwalacze jednostki na podstawie kontekstu uzyskanego za pośrednictwem przykładu wyrażenia długości.
+Jednostka uczenia maszynowego jest wyzwalana na podstawie kontekstu uzyskanego za pośrednictwem przykładu wyrażenia długości.
 
-Jednostki, które są [**poznanie maszyn**](tutorial-machine-learned-entity.md) , to elementy wyodrębniające najwyższego poziomu. Podjednostki są jednostkami podrzędnymi jednostek obsługiwanych przez maszynę.
+[**jednostki uczenia maszynowego**](tutorial-machine-learned-entity.md) to elementy wyodrębniające najwyższego poziomu. Podjednostki są jednostkami podrzędnymi jednostek uczenia maszynowego.
+
+## <a name="effective-machine-learned-entities"></a>Efektywne jednostki zdobyte przez maszynę
+
+Aby efektywnie kompilować informacje o jednostkach:
+
+* Etykiety powinny być spójne dla zamiar. Obejmuje to nawet wyrażenia długości w zamiarze **Brak** , które zawierają tę jednostkę. W przeciwnym razie model nie będzie mógł ustalić sekwencji efektywnie.
+* Jeśli masz zainstalowaną maszynę z podjednostkami, upewnij się, że różne zamówienia i warianty jednostki i podjednostek są prezentowane w etykiecie wyrażenia długości. Przykładowe etykiety wyrażenia długości powinny zawierać wszystkie prawidłowe formularze i zawierają jednostki, które są wyświetlane i są nieobecne, a także są zmieniane w ramach wypowiedź.
+* Należy unikać dopasowywania jednostek do bardzo ustalonego zestawu. Nastąpi **zamontowanie** , gdy model nie jest dobrze generalize i jest typowym problemem w modelach uczenia maszynowego. Oznacza to, że aplikacja nie będzie odpowiednio działała w nowych danych. Z kolei należy zaróżnić przykład z etykietą wyrażenia długości, aby aplikacja mogła uogólnić poza ograniczonymi przykładami. Należy zaróżnić różne podjednostki o wystarczającej zmianie modelu, aby myśleć o większej koncepcji, a nie tylko w przykładach.
 
 <a name="composite-entity"></a>
 <a name="list-entity"></a>
@@ -73,7 +81,7 @@ Jednostki, które są [**poznanie maszyn**](tutorial-machine-learned-entity.md) 
 
 ## <a name="types-of-entities"></a>Typy jednostek
 
-Podjednostka do elementu nadrzędnego powinna być jednostką dodaną przez maszynę. Podjednostka może użyć jednostki, która nie jest pouczenia maszynowego jako [funkcji](luis-concept-feature.md).
+Podjednostka do elementu nadrzędnego powinna być jednostką uczenia maszynowego. Podjednostka może użyć jednostki niezwiązanej z uczeniem maszynowym jako [funkcji](luis-concept-feature.md).
 
 Wybierz jednostkę na podstawie sposobu wyodrębniania danych i sposobu ich reprezentowania po wyodrębnieniu.
 
@@ -85,6 +93,15 @@ Wybierz jednostkę na podstawie sposobu wyodrębniania danych i sposobu ich repr
 |[**Wstępnie utworzonych**](luis-reference-prebuilt-entities.md)|Jest już szkolony do wyodrębniania określonego rodzaju danych, takich jak adres URL lub wiadomość e-mail. Niektóre z tych wstępnie skompilowanych jednostek są zdefiniowane w projekcie typu "Open Source [" — tekst](https://github.com/Microsoft/Recognizers-Text) . Jeśli określona kultura lub jednostka nie jest obecnie obsługiwana, współtworzy projekt.|
 |[**Wyrażenie regularne**](reference-entity-regular-expression.md)|Używa wyrażenia regularnego do **dokładnego dopasowania tekstu**.|
 
+
+## <a name="extraction-versus-resolution"></a>Wyodrębnianie a rozpoznawanie
+
+Jednostki wyodrębniają dane, ponieważ dane są wyświetlane w wypowiedź. Jednostki nie zmieniają ani nie rozwiązują danych. Jednostka nie będzie udostępniać żadnej rozdzielczości, jeśli tekst jest prawidłową wartością dla jednostki lub nie.
+
+Istnieją sposoby zapewnienia rozwiązania do ekstrakcji, ale należy pamiętać, że ogranicza to zdolność aplikacji do odporności na różnice i błędy.
+
+Jednostki list i wyrażenia regularne (dopasowanie tekstu) mogą być używane jako [funkcje wymagane](luis-concept-feature.md#required-features) dla podjednostki i które działają jako filtr do wyodrębniania. Należy to uważnie użyć, aby nie utrudniać możliwości aplikacji.
+
 ## <a name="extracting-contextually-related-data"></a>Wyodrębnianie danych związanych z kontekstem
 
 Wypowiedź może zawierać dwa lub więcej wystąpień jednostki, gdzie znaczenie danych opiera się na kontekście w wypowiedź. Przykładem jest wypowiedź do zarezerwowania lotu, który ma dwie lokalizacje geograficzne, źródło i miejsce docelowe.
@@ -93,7 +110,7 @@ Wypowiedź może zawierać dwa lub więcej wystąpień jednostki, gdzie znaczeni
 
 Dwie lokalizacje muszą zostać wyodrębnione w sposób, w jaki aplikacja klienta wie o typie każdej lokalizacji w celu ukończenia zakupu biletów.
 
-Aby wyodrębnić lokalizację początkową i docelową, należy utworzyć dwie podjednostki jako część jednostki uczenia maszynowego. Dla każdej z podjednostek utwórz wymaganą funkcję, która używa geographyV2.
+Aby wyodrębnić lokalizację początkową i docelową, Utwórz dwa podjednostki w ramach jednostki Uczenie maszynowe w ramach kolejności biletów. Dla każdej z podjednostek utwórz wymaganą funkcję, która używa geographyV2.
 
 <a name="using-component-constraints-to-help-define-entity"></a>
 <a name="using-subentity-constraints-to-help-define-entity"></a>
@@ -124,5 +141,5 @@ Zapoznaj się z pojęciami dotyczącymi dobrego [wyrażenia długości](luis-con
 
 Zobacz [Dodawanie jednostek](luis-how-to-add-entities.md) , aby dowiedzieć się więcej na temat dodawania jednostek do aplikacji Luis.
 
-Zapoznaj się z [samouczkiem: Wyodrębnij dane strukturalne z wypowiedź użytkownika z jednostkami maszynowymi w Language Understanding (Luis)](tutorial-machine-learned-entity.md) , aby dowiedzieć się, jak wyodrębnić dane strukturalne z wypowiedź przy użyciu jednostki, która jest poznania maszyny.
+Zobacz [Samouczek: Wyodrębnij dane strukturalne z wypowiedź użytkownika przy użyciu jednostek uczenia maszynowego w programie Language Understanding (Luis)](tutorial-machine-learned-entity.md) , aby dowiedzieć się, jak wyodrębnić dane strukturalne z wypowiedź przy użyciu jednostki Uczenie maszynowe.
 

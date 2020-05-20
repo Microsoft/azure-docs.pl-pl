@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: cc994875e39410ecf01417c4d08248d5bc7d034a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 0545be9ebe067a62b398c6c89b79a8484f0b48d4
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589826"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683111"
 ---
 # <a name="iterative-app-design-for-luis"></a>Projekt aplikacji iteracyjnej dla LUIS
 
@@ -115,7 +115,7 @@ Wersję można wyeksportować również na poziomie aplikacji lub wersji. Jedyn�
 
 Wyeksportowany plik **nie** zawiera:
 
-* Informacje o maszynach, ponieważ aplikacja jest ponownie przeszkolna po zaimportowaniu
+* Informacje o uczeniu maszynowym, ponieważ aplikacja jest ponownie przeszkolna po zaimportowaniu
 * Informacje o współautorze
 
 Aby utworzyć kopię zapasową schematu aplikacji LUIS, wyeksportuj wersję z [portalu Luis](https://www.luis.ai/applications).

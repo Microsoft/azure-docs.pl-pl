@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: cee548aff49cd5e4a57eed994b8ade2d157c6313
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee4fb0708d437c21bea8e77864f210c42b5df019
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75912133"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683965"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>Kojarzenie równorzędnego numeru ASN z subskrypcją platformy Azure przy użyciu portalu
 
@@ -55,22 +55,8 @@ Zarejestruj się w celu uzyskania dostawcy zasobów komunikacji równorzędnej w
     > ![Zakończono rejestrację](./media/rp-register-completed.png)
 
 ### <a name="create-peerasn"></a>Utwórz PeerAsn
-Można utworzyć nowy zasób PeerAsn do kojarzenia numeru systemu autonomicznego (ASN) z subskrypcją platformy Azure. Można skojarzyć wiele numerów WPW z subskrypcją, tworząc **PeerAsn** dla każdego numeru ASN, który należy skojarzyć.
+Jako usługodawca internetowy lub internetowy Dostawca usługi Exchange można utworzyć nowy zasób PeerAsn do kojarzenia numeru systemu autonomicznego z subskrypcją platformy Azure. Możesz skojarzyć wiele numerów ASN z subskrypcją, przechodząc do [strony Skojarz stronę PeerASN](https://go.microsoft.com/fwlink/?linkid=2129592) dla każdego numeru WPW, który należy skojarzyć.
 
-1. Kliknij pozycję **Utwórz zasób** > .**Zobacz wszystko**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Wyszukaj PeerAsn](./media/peerasn-seeall.png)
-
-1. Wyszukaj ciąg *PeerAsn* w polu wyszukiwania i naciśnij klawisz *Enter* na klawiaturze. Na stronie wyników kliknij pozycję zasób **PeerAsn** .
-
-    > [!div class="mx-imgBorder"]
-    > ![Uruchom PeerAsn](./media/peerasn-launch.png)
-
-1. Po uruchomieniu **PeerAsn** kliknij pozycję **Utwórz**.
-
-    > [!div class="mx-imgBorder"]
-    > ![Utwórz PeerAsn](./media/peerasn-create.png)
 
 1. Na stronie **Skojarz element równorzędny ASN** , w obszarze **podstawowe** karty, wypełnij pola, jak pokazano poniżej.
 

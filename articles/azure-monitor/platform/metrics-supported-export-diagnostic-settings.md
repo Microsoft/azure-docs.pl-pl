@@ -5,12 +5,12 @@ services: azure-monitor
 ms.topic: reference
 ms.date: 03/30/2020
 ms.subservice: metrics
-ms.openlocfilehash: 6be8cb1b7e74301d16a1174f5ca2b774334dac3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 91fc2c4525ee622064520b0098087d54158bbe9e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80422109"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680690"
 ---
 # <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Metryki platformy Azure Monitor eksportowane za pośrednictwem ustawień diagnostycznych
 
@@ -24,7 +24,10 @@ Ze względu na złożonego w zapleczu Azure Monitor nie wszystkie metryki są ek
 
 ## <a name="change-to-behavior-for-nulls-and-zero-values"></a>Zmiana zachowania dla wartości NULL i zero 
  
-W przypadku metryk platformy, które można wyeksportować za pomocą ustawień diagnostycznych, istnieje kilka metryk, dla których Azure Monitor interpretuje wartość "0s" jako "null". Spowodowało to kilka pomyłek między rzeczywistym "0s" (emitowanym przez zasób) i interpretowaniem "0s" (wartości null). Wkrótce zostanie nadana zmiana, a metryki platformy wyeksportowane za pośrednictwem ustawień diagnostycznych nie będą już eksportować elementu "0s", chyba że zostanie on rzeczywiście wyemitowany przez bazowego zasobu. Ta zmiana została zaplanowana na 1 kwietnia 2020, ale została opóźniona z powodu zmiany priorytetu z powodu COVID-19. 
+W przypadku metryk platformy, które można wyeksportować za pomocą ustawień diagnostycznych, istnieje kilka metryk, dla których Azure Monitor interpretuje wartość "0s" jako "null". Spowodowało to kilka pomyłek między rzeczywistym "0s" (emitowanym przez zasób) i interpretowaniem "0s" (wartości null). Wkrótce zostanie nadana zmiana, a metryki platformy wyeksportowane za pośrednictwem ustawień diagnostycznych nie będą już eksportować elementu "0s", chyba że zostanie on rzeczywiście wyemitowany przez bazowego zasobu. 
+
+> [!CAUTION]
+> Zmiana w zachowaniu opisanym powyżej została zaplanowana na 1 czerwca 2020.
 
 Uwaga:
 
@@ -41,7 +44,7 @@ Tabela zawiera następujące kolumny.
 - Eksportować za pomocą ustawień diagnostycznych? 
 - Wpływ na wartość NULL/0 
 - ResourceType 
-- Metryka 
+- Metric 
 - MetricDisplayName
 - Jednostka 
 - Agregacja
@@ -51,7 +54,7 @@ Tabela zawiera następujące kolumny.
 > Poniższa tabela może mieć poziomy pasek przewijania u dołu. Jeśli uważasz, że brakuje informacji, sprawdź, czy pasek przewijania jest widoczny w lewo.  
 
 
-| Eksportować za pomocą ustawień diagnostycznych?  | Już emituje wartości NULL |  ResourceType  |  Metryka  |  MetricDisplayName  |  Jednostka  |  Agregacja | 
+| Eksportować za pomocą ustawień diagnostycznych?  | Już emituje wartości NULL |  ResourceType  |  Metric  |  MetricDisplayName  |  Jednostka  |  Agregacja | 
 |---|---| ---- | ----- | ------ | ---- | ---- | 
 | Tak * * * *  | Nie |  Microsoft. AnalysisServices/serwery  |  CleanerCurrentPrice  |  Pamięć: bieżąca cena oczyszczarki  |  Liczba  |  Średnia | 
 | Tak * * * *  | Nie |  Microsoft. AnalysisServices/serwery  |  CleanerMemoryNonshrinkable  |  Pamięć: pamięć oczyszczarki niemożliwa do zmniejszenia  |  Bajty  |  Średnia | 
@@ -205,7 +208,7 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. łańcucha bloków/blockchainMembers  |  QueuedTransactions  |  Transakcje w kolejce  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. łańcucha bloków/blockchainMembers  |  RequestHandled  |  Obsłużone żądania  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. łańcucha bloków/blockchainMembers  |  StorageUsage  |  Użycie magazynu  |  Bajty  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. cache/Redis  |  cachehits  |  Trafienia pamięci podręcznej  |  Liczba  |  Łącznie | 
+| **Tak**  | Nie |  Microsoft. cache/Redis  |  cachehits  |  Trafienia w pamięci podręcznej  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  cachehits0  |  Trafienia pamięci podręcznej (fragmentu 0)  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  cachehits1  |  Trafienia pamięci podręcznej (fragmentu 1)  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  cachehits2  |  Trafienia pamięci podręcznej (fragmentu 2)  |  Liczba  |  Łącznie | 
@@ -239,7 +242,7 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  cacheRead7  |  Odczyt pamięci podręcznej (fragmentu 7)  |  BytesPerSecond  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  cacheRead8  |  Odczyt pamięci podręcznej (fragmentu 8)  |  BytesPerSecond  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  cacheRead9  |  Odczyt pamięci podręcznej (fragmentu 9)  |  BytesPerSecond  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. cache/Redis  |  cacheWrite  |  Zapis pamięci podręcznej  |  BytesPerSecond  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft. cache/Redis  |  cacheWrite  |  Zapis w pamięci podręcznej  |  BytesPerSecond  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  cacheWrite0  |  Zapis pamięci podręcznej (fragmentu 0)  |  BytesPerSecond  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  cacheWrite1  |  Zapisywanie pamięci podręcznej (fragmentu 1)  |  BytesPerSecond  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  cacheWrite2  |  Zapisywanie pamięci podręcznej (fragmentu 2)  |  BytesPerSecond  |  Maksimum | 
@@ -250,7 +253,7 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  cacheWrite7  |  Zapis w pamięci podręcznej (fragmentu 7)  |  BytesPerSecond  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  cacheWrite8  |  Zapis w pamięci podręcznej (fragmentu 8)  |  BytesPerSecond  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  cacheWrite9  |  Zapis w pamięci podręcznej (fragmentu 9)  |  BytesPerSecond  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. cache/Redis  |  connectedclients  |  Podłączeni klienci  |  Liczba  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft. cache/Redis  |  connectedclients  |  Połączeni klienci  |  Liczba  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  connectedclients0  |  Połączeni klienci (fragmentu 0)  |  Liczba  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  connectedclients1  |  Połączeni klienci (fragmentu 1)  |  Liczba  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  connectedclients2  |  Połączeni klienci (fragmentu 2)  |  Liczba  |  Maksimum | 
@@ -284,7 +287,7 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  expiredkeys7  |  Wygasłe klucze (fragmentu 7)  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  expiredkeys8  |  Wygasłe klucze (fragmentu 8)  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  expiredkeys9  |  Wygasłe klucze (fragmentu 9)  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. cache/Redis  |  GetCommands  |  Kto  |  Liczba  |  Łącznie | 
+| **Tak**  | Nie |  Microsoft. cache/Redis  |  GetCommands  |  Pobrania  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  getcommands0  |  Pobiera (fragmentu 0)  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  getcommands1  |  Pobiera (fragmentu 1)  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  getcommands2  |  Pobiera (fragmentu 2)  |  Liczba  |  Łącznie | 
@@ -361,7 +364,7 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  totalkeys7  |  Łączna liczba kluczy (fragmentu 7)  |  Liczba  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  totalkeys8  |  Łączna liczba kluczy (fragmentu 8)  |  Liczba  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  totalkeys9  |  Łączna liczba kluczy (fragmentu 9)  |  Liczba  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. cache/Redis  |  usedmemory  |  Używana pamięć  |  Bajty  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft. cache/Redis  |  usedmemory  |  Użyta pamięć  |  Bajty  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  usedmemory0  |  Używana pamięć (fragmentu 0)  |  Bajty  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  usedmemory1  |  Używana pamięć (fragmentu 1)  |  Bajty  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  usedmemory2  |  Używana pamięć (fragmentu 2)  |  Bajty  |  Maksimum | 
@@ -372,7 +375,7 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  usedmemory7  |  Używana pamięć (fragmentu 7)  |  Bajty  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  usedmemory8  |  Używana pamięć (fragmentu 8)  |  Bajty  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  usedmemory9  |  Używana pamięć (fragmentu 9)  |  Bajty  |  Maksimum | 
-| **Tak**  | Nie |  Microsoft. cache/Redis  |  usedmemorypercentage  |  Wartość procentowa używanej pamięci  |  Wartość procentowa  |  Maksimum | 
+| **Tak**  | Nie |  Microsoft. cache/Redis  |  usedmemorypercentage  |  Procentowe użycie pamięci  |  Wartość procentowa  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  usedmemoryRss  |  Używana pamięć RSS  |  Bajty  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  usedmemoryRss0  |  Używana pamięć RSS (fragmentu 0)  |  Bajty  |  Maksimum | 
 | **Tak**  | Nie |  Microsoft. cache/Redis  |  usedmemoryRss1  |  Używana pamięć RSS (fragmentu 1)  |  Bajty  |  Maksimum | 
@@ -456,7 +459,7 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. CognitiveServices/konta  |  SpeechSessionDuration  |  Czas trwania sesji mowy  |  Sekundy  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. CognitiveServices/konta  |  SuccessfulCalls  |  Pomyślne wywołania  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. CognitiveServices/konta  |  TotalCalls  |  Łączna liczba wywołań  |  Liczba  |  Łącznie | 
-| **Tak**  | Nie |  Microsoft. CognitiveServices/konta  |  TotalErrors  |  Łączna liczba błędów  |  Liczba  |  Łącznie | 
+| **Tak**  | Nie |  Microsoft. CognitiveServices/konta  |  TotalErrors  |  Całkowita liczba błędów  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. CognitiveServices/konta  |  TotalTokenCalls  |  Łączna liczba wywołań tokenów  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. CognitiveServices/konta  |  TotalTransactions  |  Łączna liczba transakcji  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft.Compute/virtualMachines  |  Wykorzystane środki CPU  |  Wykorzystane środki CPU  |  Liczba  |  Średnia | 
@@ -755,7 +758,7 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | **Tak** |  Microsoft. Devices/provisioningServices  |  AttestationAttempts  |  Próby zaświadczania  |  Liczba  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. Devices/provisioningServices  |  DeviceAssignments  |  Przypisane urządzenia  |  Liczba  |  Łącznie | 
 | **Tak**  | **Tak** |  Microsoft. Devices/provisioningServices  |  RegistrationAttempts  |  Próby rejestracji  |  Liczba  |  Łącznie | 
-| Nie  | Nie |  Microsoft. DocumentDB/databaseAccounts  |  AvailableStorage  |  Dostępna pamięć  |  Bajty  |  Łącznie | 
+| Nie  | Nie |  Microsoft. DocumentDB/databaseAccounts  |  AvailableStorage  |  Dostępny magazyn  |  Bajty  |  Łącznie | 
 | Nie  | Nie |  Microsoft. DocumentDB/databaseAccounts  |  CassandraConnectionClosures  |  Zamknięcia połączeń Cassandra  |  Liczba  |  Łącznie | 
 | Nie  | Nie |  Microsoft. DocumentDB/databaseAccounts  |  CassandraRequestCharges  |  Opłaty za żądania Cassandra  |  Liczba  |  Łącznie | 
 | Nie  | Nie |  Microsoft. DocumentDB/databaseAccounts  |  CassandraRequests  |  Żądania Cassandra  |  Liczba  |  Liczba | 
@@ -1006,7 +1009,7 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. MachineLearningServices/obszary robocze  |  Rdzenie, których nie można używać  |  Rdzenie, których nie można używać  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. MachineLearningServices/obszary robocze  |  Węzły niezdatne do użytku  |  Węzły niezdatne do użytku  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Maps/konta  |  Dostępność  |  Dostępność  |  Wartość procentowa  |  Średnia | 
-| Nie  | Nie |  Microsoft. Maps/konta  |  Sposób użycia  |  Sposób użycia  |  Liczba  |  Liczba | 
+| Nie  | Nie |  Microsoft. Maps/konta  |  Użycie  |  Użycie  |  Liczba  |  Liczba | 
 | **Tak**  | Nie |  Microsoft. Media/MediaServices  |  AssetCount  |  Liczba zasobów  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Media/MediaServices  |  AssetQuota  |  Przydział zasobów  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. Media/MediaServices  |  AssetQuotaUsedPercentage  |  Procent użycia przydziału zasobów  |  Wartość procentowa  |  Średnia | 
@@ -1296,7 +1299,7 @@ Tabela zawiera następujące kolumny.
 | **Tak**  | Nie |  Microsoft. OperationalInsights/obszary robocze  |  Pamięć Average_Used pamięci (MB)  |  Używana pamięć (MB)  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. OperationalInsights/obszary robocze  |  Average_Users  |  Użytkownicy  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. OperationalInsights/obszary robocze  |  Average_Virtual pamięci współdzielonej  |  Wirtualna pamięć udostępniona  |  Liczba  |  Średnia | 
-| **Tak**  | Nie |  Microsoft. OperationalInsights/obszary robocze  |  Wydarzenie  |  Wydarzenie  |  Liczba  |  Średnia | 
+| **Tak**  | Nie |  Microsoft. OperationalInsights/obszary robocze  |  Zdarzenie  |  Zdarzenie  |  Liczba  |  Średnia | 
 | **Tak**  | **Tak** |  Microsoft. OperationalInsights/obszary robocze  |  Puls  |  Puls  |  Liczba  |  Łącznie | 
 | **Tak**  | Nie |  Microsoft. OperationalInsights/obszary robocze  |  Aktualizowanie  |  Aktualizowanie  |  Liczba  |  Średnia | 
 | **Tak**  | Nie |  Microsoft. PowerBIDedicated/pojemności  |  memory_metric  |  Memory (Pamięć)  |  Bajty  |  Średnia | 

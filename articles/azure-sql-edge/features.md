@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 7d33c2bef1cd0f7bfab4ec3c09f16c049881d1cd
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f0994ac1d28118869f0d5c2844a034623d101ee8
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597387"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684374"
 ---
 # <a name="supported-features-of-azure-sql-edge-preview"></a>Obsługiwane funkcje usługi Azure SQL Edge (wersja zapoznawcza) 
 
@@ -34,7 +34,7 @@ Usługa Azure SQL Edge jest dostępna z dwiema różnymi wersjami lub planami op
 
 ## <a name="operating-system"></a>System operacyjny
 
-Kontenery usługi Azure SQL Edge są obecnie oparte na Ubuntuach (16,04 i 18,04) i jako takie są obsługiwane tylko na hostach Docker z systemem Ubuntu 16,04 i 18,04. Usługa Azure SQL Edge może być również uruchamiana na innych hostach z systemem operacyjnym, na przykład w innych dystrybucjach systemu Linux lub Windows (przy użyciu platformy Docker CE lub platformy Docker EE), ale te konfiguracje nie są szeroko testowane przez firmę Microsoft.
+Kontenery usługi Azure SQL Edge są obecnie oparte na Ubuntu 16,04 i są obsługiwane tylko na hostach platformy Docker z systemem Ubuntu 16,04 (zalecane) lub Ubuntu 18,04. Usługa Azure SQL Edge może być również uruchamiana na innych hostach z systemem operacyjnym, na przykład w innych dystrybucjach systemu Linux lub Windows (przy użyciu platformy Docker CE lub platformy Docker EE), ale te konfiguracje nie są szeroko testowane przez firmę Microsoft.
 
 Usługa Azure SQL Edge jest obecnie obsługiwana tylko w przypadku wdrażania za pomocą Azure IoT Edge. Aby uzyskać więcej informacji na temat obsługiwanych systemów Azure IoT Edge, zapoznaj się z [Azure IoT Edge obsługiwanymi systemami](https://docs.microsoft.com/azure/iot-edge/support).
 
@@ -93,7 +93,7 @@ Poniższa lista zawiera SQL Server 2019 funkcji systemu Linux, które nie są ob
 | &nbsp; | Zawsze włączone wystąpienie klastra trybu failover |
 | &nbsp; | Dublowanie bazy danych |
 | &nbsp; | Gorące Dodawanie pamięci i procesora CPU |
-| **Bezpieczeństwo** | Rozszerzalne zarządzanie kluczami |
+| **Zabezpieczenia** | Rozszerzalne zarządzanie kluczami |
 | &nbsp; | Integracja z usługą Active Directory|
 | &nbsp; | Obsługa bezpiecznych Enclaves|
 | **Usługi** | SQL Server Browser |

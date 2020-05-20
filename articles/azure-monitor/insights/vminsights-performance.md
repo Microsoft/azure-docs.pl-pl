@@ -5,17 +5,23 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/15/2019
-ms.openlocfilehash: a50ba39777e6a9d3d609e584c0c7d872f2a65f35
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/31/2020
+ms.openlocfilehash: 1ea6d09609d1b7b3f7ba7297a040447d1fc24756
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80283722"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684380"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms"></a>Jak uzyskać Wykres wydajności przy użyciu Azure Monitor dla maszyn wirtualnych
 
 Azure Monitor dla maszyn wirtualnych obejmuje zestaw wykresów wydajności przeznaczonych dla kilku kluczowych wskaźników wydajności (KPI), aby pomóc w określeniu, jak dobrze działa maszyna wirtualna. Wykresy przedstawiają wykorzystanie zasobów w danym okresie, aby można było identyfikować wąskie gardła, anomalie lub przełączać się do perspektywy zawierającej poszczególne maszyny, aby wyświetlić wykorzystanie zasobów na podstawie wybranej metryki. Chociaż istnieje wiele elementów, które należy wziąć pod uwagę w przypadku wydajności, Azure Monitor dla maszyn wirtualnych monitoruje kluczowe wskaźniki wydajności systemu operacyjnego związane z procesorem, pamięcią, kartą sieciową i wykorzystaniem dysku. Wydajność uzupełnia funkcję monitorowania kondycji i pomaga w ujawnianiu problemów, które wskazują na awarię składnika systemu, zapewnia wsparcie i optymalizację w celu osiągnięcia wydajności lub planowania pojemności.  
+
+## <a name="limitations"></a>Ograniczenia
+Poniżej przedstawiono ograniczenia dotyczące zbierania danych o wydajności z Azure Monitor dla maszyn wirtualnych.
+
+- **Dostępna pamięć** nie jest dostępna dla maszyn wirtualnych z systemem Red Hat Linux (RHEL) 6. Ta Metryka jest obliczana na podstawie **MemAvailable** , która została wprowadzona w [jądrze w wersji 3,14](http://www.man7.org/linux/man-pages/man1/free.1.html).
+- Metryki są dostępne tylko dla dysków danych w maszynach wirtualnych z systemem Linux przy użyciu rodziny systemu plików EXT (EXT2, EXT3, EXT4).
 
 ## <a name="multi-vm-perspective-from-azure-monitor"></a>Perspektywa z obsługą wiele maszyn wirtualnych od Azure Monitor
 

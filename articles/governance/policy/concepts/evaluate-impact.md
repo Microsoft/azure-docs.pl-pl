@@ -1,14 +1,14 @@
 ---
 title: Oceń wpływ nowej definicji Azure Policy
 description: Zapoznaj się z procesem tworzenia nowej definicji zasad w środowisku platformy Azure.
-ms.date: 09/23/2019
+ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 394f87c0328bce46d4c7177a336a7861991ad0e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d9844e8435452b388c934c5969898fe01d23fb47
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187753"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684307"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy-definition"></a>Oceń wpływ nowej definicji Azure Policy
 
@@ -33,8 +33,7 @@ Z tego powodu definicje zasad powinny być ściśle zdefiniowane i skoncentrowan
 
 ## <a name="audit-existing-resources"></a>Inspekcja istniejących zasobów
 
-Przed rozpoczęciem zarządzania nowymi lub zaktualizowanymi zasobami przy użyciu nowej definicji zasad najlepiej sprawdzić, w jaki sposób ta metoda szacuje ograniczony podzbiór istniejących zasobów, takich jak testowa Grupa zasobów. Użyj
- [trybu wymuszania](./assignment-structure.md#enforcement-mode)_wyłączonego_ (DoNotEnforce) w przypisaniu zasad, aby zapobiec utworzeniu [efektu](./effects.md) wyzwalacza lub wpisów dziennika aktywności.
+Przed rozpoczęciem zarządzania nowymi lub zaktualizowanymi zasobami przy użyciu nowej definicji zasad najlepiej sprawdzić, w jaki sposób ta metoda szacuje ograniczony podzbiór istniejących zasobów, takich jak testowa Grupa zasobów. Użyj [trybu wymuszania](./assignment-structure.md#enforcement-mode) _wyłączonego_ (DoNotEnforce) w przypisaniu zasad, aby zapobiec utworzeniu [efektu](./effects.md) wyzwalacza lub wpisów dziennika aktywności.
 
 Ten krok daje możliwość oceny wyników zgodności nowych zasad w istniejących zasobach bez wpływu na przepływ pracy. Sprawdź, czy żadne zgodne zasoby nie są oznaczone jako niezgodne (_fałszywie dodatnie_) i czy wszystkie zasoby, które powinny być niezgodne, są oznaczone jako poprawne.
 Gdy początkowy podzestaw zasobów zostanie zweryfikowany zgodnie z oczekiwaniami, wolno zwiększyć ocenę do wszystkich istniejących zasobów.

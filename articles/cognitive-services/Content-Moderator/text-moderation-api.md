@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 05/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 41e88dd5a08de485f770559959843ba3b54e590f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5f41330836edab647f379eb43130c078c46cce53
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81274014"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685071"
 ---
 # <a name="learn-text-moderation-concepts"></a>Poznaj pojęcia związane z moderowaniem tekstu
 
-W celu zapewnienia umiarkowanej zawartości tekstu użyj funkcji moderowania tekstu wspomaganego przez Content Moderator i [kontroli ludzkich](Review-Tool-User-Guide/human-in-the-loop.md) .
+Używaj modeli moderowania tekstu Content Moderator do analizowania zawartości tekstowej.
 
-Zawartość można blokować, zatwierdzać lub przeglądać na podstawie ustawionych zasad i progów. Służy do rozszerzonego moderowania środowisk, w których partnerzy, pracownicy i konsumenci generują zawartość tekstową. Te środowiska obejmują pokoje czatów, tablice dyskusyjne, czatboty, katalogi handlu elektronicznego i dokumenty. 
+Można zablokować, zatwierdzać lub przeglądać zawartość na podstawie zasad i progów (zobacz [przeglądy, przepływy pracy i zadania,](./review-api.md) aby dowiedzieć się, jak skonfigurować Recenzje przez człowieka). Używaj modeli moderowania tekstu, aby rozszerzyć ludzkie moderowanie środowisk, w których partnerzy, pracownicy i konsumenci generują zawartość tekstową. Te środowiska obejmują pokoje czatów, tablice dyskusyjne, czatboty, katalogi handlu elektronicznego i dokumenty. 
 
 Odpowiedź usługi zawiera następujące informacje:
 
@@ -34,7 +34,7 @@ Odpowiedź usługi zawiera następujące informacje:
 
 ## <a name="profanity"></a>Wulgaryzmy
 
-Jeśli interfejs API wykryje wszelkie nieodpowiednie warunki w żadnym z [obsługiwanych języków](Text-Moderation-API-Languages.md), te warunki są zawarte w odpowiedzi. Odpowiedź zawiera również lokalizację (`Index`) w oryginalnym tekście. `ListId` W poniższym przykładowym kodzie JSON odwołują się do warunków znalezionych w [niestandardowych listach terminów](try-terms-list-api.md) , jeśli są dostępne.
+Jeśli interfejs API wykryje wszelkie nieodpowiednie warunki w żadnym z [obsługiwanych języków](Text-Moderation-API-Languages.md), te warunki są zawarte w odpowiedzi. Odpowiedź zawiera również lokalizację ( `Index` ) w oryginalnym tekście. `ListId`W poniższym przykładowym kodzie JSON odwołują się do warunków znalezionych w [niestandardowych listach terminów](try-terms-list-api.md) , jeśli są dostępne.
 
     "Terms": [
     {
@@ -155,4 +155,4 @@ Content Moderator udostępnia [interfejs API listy terminów](https://westus.dev
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przetestuj [konsolę interfejsu API moderowania tekstu](try-text-api.md) i użyj przykładów kodu interfejsu API REST. Zapoznaj się z sekcją moderowanie tekstu [zestawu .NET SDK](dotnet-sdk-quickstart.md) w przypadku znajomości programów Visual Studio i C#.
+Przetestuj interfejsy API za pomocą [konsoli interfejsu API moderowania tekstu](try-text-api.md). Zobacz też [przeglądy, przepływy pracy i zadania,](./review-api.md) aby dowiedzieć się, jak skonfigurować Recenzje przez człowieka.

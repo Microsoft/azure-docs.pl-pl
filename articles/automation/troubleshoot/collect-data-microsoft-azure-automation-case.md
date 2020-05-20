@@ -1,6 +1,6 @@
 ---
-title: Dane do zebrania po otwarciu przypadku do automatyzacji Microsoft Azure | Microsoft Docs
-description: W tym artykule opisano niektóre informacje, które należy zebrać przed otwarciem przypadku Azure Automation z obsługą Microsoft Azure.
+title: Dane do zebrania podczas otwierania przypadku Microsoft Azure Automation | Microsoft Docs
+description: W tym artykule opisano informacje, które należy zebrać przed otwarciem przypadku Azure Automation z obsługą Microsoft Azure.
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: v-miegge
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/23/2019
 ms.author: v-miegge
-ms.openlocfilehash: e1d5d791a58f301991819b41757b9021f6e30fc0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d2f97d0b889186324aef9613847e3eddbfe1eb02
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81679402"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684847"
 ---
-# <a name="data-to-collect-when-you-open-a-case-for-microsoft-azure-automation"></a>Dane, które należy zebrać podczas otwierania przypadku dla usługi Microsoft Azure Automation
+# <a name="data-to-collect-when-opening-a-case-for-microsoft-azure-automation"></a>Dane do zebrania podczas otwierania przypadku Microsoft Azure Automation
 
 W tym artykule opisano niektóre informacje, które należy zebrać przed otwarciem przypadku Azure Automation z obsługą Microsoft Azure. Te informacje nie są wymagane do otwarcia przypadku. Może jednak pomóc firmie Microsoft w szybszym rozwiązywaniu problemów. Ponadto użytkownik może zostać poproszony o te dane przez inżyniera pomocy technicznej po otwarciu przypadku.
 
@@ -92,5 +92,5 @@ Oprócz [podstawowych elementów danych](#basic-data)należy zebrać następują
 Jeśli potrzebujesz więcej pomocy:
 
 * Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [forów platformy Azure](https://azure.microsoft.com/support/forums/).
-* Nawiąż [@AzureSupport](https://twitter.com/azuresupport)połączenie z kontem oficjalnego Microsoft Azure, aby zwiększyć komfort obsługi klienta, łącząc społeczność platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
+* Nawiąż połączenie z [@AzureSupport](https://twitter.com/azuresupport) kontem oficjalnego Microsoft Azure, aby zwiększyć komfort obsługi klienta, łącząc społeczność platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
 * Zaplikowanie zdarzenia pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję **Uzyskaj pomoc techniczną**.

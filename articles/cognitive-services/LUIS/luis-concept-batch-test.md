@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: e9ad7c52af20762633c710b39a64fbebf0cf6213
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a5ebd9b05b2dea9e04d4c9745c13d692ea88fcb8
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79220051"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680427"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>Testowanie wsadowe przy użyciu 1000 wyrażenia długości w portalu LUIS
 
@@ -24,7 +24,7 @@ Testy wsadowe sprawdzają poprawność aktywnej przeszkolonej wersji, aby zmierz
 
 ## <a name="group-data-for-batch-test"></a>Grupuj dane dla testu wsadowego
 
-Należy pamiętać, że wyrażenia długości używany do testowania wsadowego jest nowy do LUIS. Jeśli masz zestaw danych wyrażenia długości, Podziel wyrażenia długości na trzy zestawy: przykład wyrażenia długości dodany do intencji, wyrażenia długości otrzymany z opublikowanego punktu końcowego i wyrażenia długości używany do wsadowego testowania LUIS po jego przeszkoleniu. 
+Należy pamiętać, że wyrażenia długości używany do testowania wsadowego jest nowy do LUIS. Jeśli masz zestaw danych wyrażenia długości, Podziel wyrażenia długości na trzy zestawy: przykład wyrażenia długości dodany do intencji, wyrażenia długości otrzymany z opublikowanego punktu końcowego i wyrażenia długości używany do wsadowego testowania LUIS po jego przeszkoleniu.
 
 ## <a name="a-data-set-of-utterances"></a>Zestaw danych wyrażenia długości
 
@@ -35,7 +35,7 @@ Prześlij plik wsadowy wyrażenia długości, nazywany *zestawem danych*, na pot
 |* Brak zduplikowanych wyrażenia długości|
 |1000 wyrażenia długości lub mniej|
 
-* Duplikaty są uważane za dokładne dopasowania ciągu, a nie dopasowania, które są tokenami w pierwszej kolejności. 
+* Duplikaty są uważane za dokładne dopasowania ciągu, a nie dopasowania, które są tokenami w pierwszej kolejności.
 
 ## <a name="entities-allowed-in-batch-tests"></a>Jednostki dozwolone w testach wsadowych
 
@@ -46,7 +46,7 @@ Wszystkie jednostki niestandardowe w modelu pojawiają się w filtr jednostek te
 
 ## <a name="batch-file-format"></a>Format pliku wsadowego
 
-Plik wsadowy składa się z wyrażenia długości. Każdy wypowiedź musi mieć oczekiwaną prognozę zamierzenia wraz z wszelkimi [jednostkami](luis-concept-entity-types.md#types-of-entities) , które powinny być wykrywane. 
+Plik wsadowy składa się z wyrażenia długości. Każdy wypowiedź musi mieć oczekiwaną prognozę założeń oraz wszystkie [jednostki uczenia maszynowego](luis-concept-entity-types.md#types-of-entities) , które powinny być wykrywane.
 
 ## <a name="batch-syntax-template-for-intents-with-entities"></a>Szablon składni usługi Batch dla intencji z jednostkami
 
@@ -57,7 +57,7 @@ Użyj następującego szablonu, aby uruchomić plik wsadowy:
   {
     "text": "example utterance goes here",
     "intent": "intent name goes here",
-    "entities": 
+    "entities":
     [
         {
             "entity": "entity name 1 goes here",
@@ -74,7 +74,7 @@ Użyj następującego szablonu, aby uruchomić plik wsadowy:
 ]
 ```
 
-Plik wsadowy używa właściwości **startPos** i **endPos** do zanotowania początku i końca jednostki. Wartości są zależne od zera i nie powinny zaczynać ani kończyć się spacją. Różni się to od dzienników zapytań, które używają właściwości startIndex i endIndex. 
+Plik wsadowy używa właściwości **startPos** i **endPos** do zanotowania początku i końca jednostki. Wartości są zależne od zera i nie powinny zaczynać ani kończyć się spacją. Różni się to od dzienników zapytań, które używają właściwości startIndex i endIndex.
 
 [!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 
@@ -92,12 +92,12 @@ Użyj następującego szablonu, aby uruchomić plik wsadowy bez jednostek:
 ]
 ```
 
-Jeśli nie chcesz testować jednostek, Dołącz `entities` Właściwość i ustaw wartość jako pustą tablicę. `[]`
+Jeśli nie chcesz testować jednostek, Dołącz `entities` Właściwość i ustaw wartość jako pustą tablicę `[]` .
 
 
 ## <a name="common-errors-importing-a-batch"></a>Typowe błędy podczas importowania partii
 
-Typowe błędy obejmują: 
+Typowe błędy obejmują:
 
 > * Ponad 1 000 wyrażenia długości
 > * Obiekt wypowiedź JSON, który nie ma właściwości Entities. Właściwość może być pustą tablicą.
@@ -112,7 +112,7 @@ LUIS śledzi stan ostatniego testu zestawu danych. Obejmuje to rozmiar (liczbę 
 
 ## <a name="batch-test-results"></a>Wyniki testów wsadowych
 
-Wynik testu wsadowego jest wykresem punktowym, znanym jako macierz błędów. Ten wykres to 4-kierunkowe porównanie wyrażenia długości w pliku wsadowym oraz przewidywanych zamiar i elementów bieżącego modelu. 
+Wynik testu wsadowego jest wykresem punktowym, znanym jako macierz błędów. Ten wykres to 4-kierunkowe porównanie wyrażenia długości w pliku wsadowym oraz przewidywanych zamiar i elementów bieżącego modelu.
 
 Punkty danych w sekcjach **fałszywe pozytywne** i **fałszywe wartości ujemne** wskazują błędy, które należy zbadać. Jeśli wszystkie punkty danych znajdują się w sekcjach **prawdziwe pozytywne** i **prawdziwe** , dokładność Twojej aplikacji jest idealna dla tego zestawu danych.
 
@@ -124,13 +124,13 @@ Ten wykres ułatwia znalezienie wyrażenia długości, że LUIS przewidywane nie
 
 ## <a name="errors-in-the-results"></a>Błędy w wynikach
 
-Błędy w teście wsadowym wskazują intencje, które nie są przewidywane w pliku wsadowym. Błędy są wskazane w dwóch czerwonych sekcjach wykresu. 
+Błędy w teście wsadowym wskazują intencje, które nie są przewidywane w pliku wsadowym. Błędy są wskazane w dwóch czerwonych sekcjach wykresu.
 
-Sekcja fałszywych wartości dodatnich wskazuje, że element wypowiedź jest zgodny z intencją lub jednostką, gdy nie powinien. Fałszywa wartość ujemna wskazuje, że element wypowiedź nie był zgodny z zamiarem lub jednostką, gdy powinien. 
+Sekcja fałszywych wartości dodatnich wskazuje, że element wypowiedź jest zgodny z intencją lub jednostką, gdy nie powinien. Fałszywa wartość ujemna wskazuje, że element wypowiedź nie był zgodny z zamiarem lub jednostką, gdy powinien.
 
 ## <a name="fixing-batch-errors"></a>Naprawianie błędów partii
 
-Jeśli wystąpią błędy w testach wsadowych, można dodać więcej wyrażenia długości do zamiaru i/lub podawać więcej wyrażenia długości z jednostką, aby pomóc LUIS dyskryminacji między intencjami. Po dodaniu wyrażenia długości i oznaczeniu ich, a mimo to w testowaniu wsadowym nadal pojawiają się błędy przewidywania, rozważ dodanie funkcji [listy fraz](luis-concept-feature.md) z słownictwem specyficznym dla domeny, aby ułatwić Luis szybsze uczenie się. 
+Jeśli wystąpią błędy w testach wsadowych, można dodać więcej wyrażenia długości do zamiaru i/lub podawać więcej wyrażenia długości z jednostką, aby pomóc LUIS dyskryminacji między intencjami. Po dodaniu wyrażenia długości i oznaczeniu ich, a mimo to w testowaniu wsadowym nadal pojawiają się błędy przewidywania, rozważ dodanie funkcji [listy fraz](luis-concept-feature.md) z słownictwem specyficznym dla domeny, aby ułatwić Luis szybsze uczenie się.
 
 ## <a name="next-steps"></a>Następne kroki
 

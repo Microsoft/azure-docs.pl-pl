@@ -1,17 +1,17 @@
 ---
 title: Monitorowanie elementów Runbook Azure Automation przy użyciu alertów metryk
-description: Ten artykuł przeprowadzi Cię przez proces monitorowania Azure Automation elementów Runbook opartych na metrykach
+description: W tym artykule opisano sposób monitorowania elementów Runbook w oparciu o metryki.
 services: automation
 ms.date: 11/01/2018
 ms.topic: article
-ms.openlocfilehash: f288029bb35fe4e3c71db37a1de265edbcd913b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0d30e3d18ecb279e26731346bca7bb7c12943cb
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81310552"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685414"
 ---
-# <a name="monitoring-runbooks-with-metric-alerts"></a>Monitorowanie elementów Runbook przy użyciu alertów metryk
+# <a name="monitor-runbooks-with-metric-alerts"></a>Monitorowanie elementów runbook za pomocą alertów metryki
 
 W tym artykule dowiesz się, jak tworzyć alerty na podstawie stanu ukończenia elementów Runbook.
 
@@ -31,7 +31,7 @@ W Azure Portal przejdź do konta usługi Automation. W obszarze **monitorowanie*
 
 2. Na stronie **Konfiguruj logikę sygnału** jest definiowana logika, która wyzwala alert. W obszarze Graf historyczny prezentowane są dwa wymiary, **Nazwa elementu Runbook** i **stan**. Wymiary są różnymi właściwościami metryki, których można użyć do filtrowania wyników. W polu **Nazwa elementu Runbook**wybierz element Runbook, na którym chcesz utworzyć alert, lub pozostaw pustą wartość, aby otrzymywać alerty dotyczące wszystkich elementów Runbook. W polu **stan**wybierz pozycję stan z listy rozwijanej, która ma być monitorowana. Wartości Nazwa elementu Runbook i stan, które pojawiają się na liście rozwijanej, są przeznaczone tylko dla zadań uruchomionych w ciągu ostatniego tygodnia.
 
-   Jeśli chcesz otrzymywać alerty dotyczące stanu lub elementu Runbook, który nie jest wyświetlany na liście rozwijanej, **\+** kliknij obok wymiaru. Ta akcja powoduje otwarcie okna dialogowego, w którym można wprowadzić wartość niestandardową, która nie jest ostatnio emitowana dla tego wymiaru. Jeśli wprowadzisz wartość, która nie istnieje dla właściwości, alert nie zostanie wyzwolony.
+   Jeśli chcesz otrzymywać alerty dotyczące stanu lub elementu Runbook, który nie jest wyświetlany na liście rozwijanej, kliknij **\+** obok wymiaru. Ta akcja powoduje otwarcie okna dialogowego, w którym można wprowadzić wartość niestandardową, która nie jest ostatnio emitowana dla tego wymiaru. Jeśli wprowadzisz wartość, która nie istnieje dla właściwości, alert nie zostanie wyzwolony.
 
    > [!NOTE]
    > Jeśli nie zastosowano nazwy dla wymiaru **runbookname** , jeśli istnieją jakiekolwiek elementy Runbook spełniające kryteria stanu, w tym ukryte elementy Runbook systemu, zostanie wyświetlony alert.
@@ -67,7 +67,7 @@ W Azure Portal przejdź do konta usługi Automation. W obszarze **monitorowanie*
 > [!NOTE]
 > Po dodaniu adresu e-mail do grupy akcji zostanie wysłana wiadomość e-mail z powiadomieniem informującą o tym, że adres został dodany do grupy akcji.
 
-## <a name="notification"></a>Powiadomienie
+## <a name="receive-notification"></a>Odbierz powiadomienie
 
 Gdy spełnione są kryteria alertów, Grupa akcji uruchamia zdefiniowaną akcję. W tym artykule jest wysyłana wiadomość e-mail. Na poniższej ilustracji przedstawiono przykład wiadomości e-mail otrzymanej po wyzwoleniu alertu:
 

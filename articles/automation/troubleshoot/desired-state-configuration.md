@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie problemów Azure Automation konfiguracja stanu
-description: Ten artykuł zawiera informacje dotyczące rozwiązywania problemów Azure Automation konfiguracji stanu.
+title: Rozwiązywanie problemów z konfiguracją stanu Azure Automation
+description: W tym artykule opisano sposób rozwiązywania problemów z konfiguracją stanu Azure Automation.
 services: automation
 ms.service: automation
 ms.subservice: ''
@@ -9,16 +9,16 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4c9e7b6d93fb4bbc3e3b05d9346ec84197665a55
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 6e057f5c9525f3b4ca373897c865990eb29835c0
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995307"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681380"
 ---
 # <a name="troubleshoot-azure-automation-state-configuration-issues"></a>Rozwiązywanie problemów z konfiguracją stanu Azure Automation
 
-Ten artykuł zawiera informacje dotyczące rozwiązywania problemów występujących podczas kompilowania lub wdrażania konfiguracji w Azure Automation konfiguracji stanu.
+Ten artykuł zawiera informacje o rozwiązywaniu problemów i rozwiązywaniu problemów, które pojawiają się podczas kompilowania lub wdrażania konfiguracji w Azure Automation konfiguracji stanu. Aby uzyskać ogólne informacje na temat funkcji konfiguracja stanu, zobacz [Omówienie konfiguracji stanu Azure Automation](../automation-dsc-overview.md).
 
 ## <a name="diagnose-an-issue"></a>Diagnozuj problem
 
@@ -40,7 +40,7 @@ Jeśli konfiguracja została pomyślnie skompilowana, ale nie powiedzie się w p
 
 Moduł [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) może pomóc w analizie szczegółowych informacji z dzienników DSC. Jeśli skontaktujesz się z pomocą techniczną, wymagają one tych dzienników do zdiagnozowania problemu.
 
-`xDscDiagnostics` Moduł można zainstalować na komputerze lokalnym, postępując zgodnie z instrukcjami w temacie [Instalowanie stabilnej wersji modułu](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module).
+Moduł można zainstalować `xDscDiagnostics` na komputerze lokalnym, postępując zgodnie z instrukcjami w temacie [Instalowanie stabilnej wersji modułu](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module).
 
 Aby zainstalować `xDscDiagnostics` moduł na maszynie platformy Azure, użyj polecenie [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand?view=azps-3.7.0). Można również użyć opcji **Uruchom polecenie** w Azure Portal, wykonując czynności opisane w temacie [Uruchamianie skryptów programu PowerShell na maszynie wirtualnej z systemem Windows za pomocą polecenia Uruchom](../../virtual-machines/windows/run-command.md).
 
@@ -66,7 +66,7 @@ Ten błąd jest tymczasowym problemem, który został zaplanowany do rozwiązani
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Aby usunąć konfigurację, użyjhttps://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationDscConfiguration?view=azps-3.7.0 polecenia cmdlet [Remove-AzAutomationDscConfiguration].
+https://docs.microsoft.com/powershell/module/Az.Automation/Remove-AzAutomationDscConfiguration?view=azps-3.7.0Aby usunąć konfigurację, użyj polecenia cmdlet [Remove-AzAutomationDscConfiguration].
 
 ## <a name="scenario-failed-to-register-the-dsc-agent"></a><a name="failed-to-register-agent"></a>Scenariusz: nie można zarejestrować agenta DSC
 
@@ -119,13 +119,13 @@ Wykonaj następujące kroki, aby ponownie zarejestrować węzeł niepowodzenia k
 
 #### <a name="step-1-unregister-the-node"></a>Krok 1. Wyrejestruj węzeł
 
-1. W Azure Portal przejdź do pozycji**konta automatyzacji** **głównej** > > (konto usługi Automation) > **Konfiguracja stanu (DSC)**.
+1. W Azure Portal przejdź do pozycji **Home**  >  **konta automatyzacji** głównej > (konto usługi Automation) > **Konfiguracja stanu (DSC)**.
 1. Wybierz **węzły**i wybierz węzeł z problemami.
 1. Wybierz pozycję **Wyrejestruj** , aby wyrejestrować węzeł.
 
 #### <a name="step-2-uninstall-the-dsc-extension-from-the-node"></a>Krok 2. odinstalowanie rozszerzenia DSC z węzła
 
-1. W Azure Portal przejdź do **strony głównej** > **maszyny wirtualnej** > (węzeł z niepowodzeniem) > **rozszerzenia**.
+1. W Azure Portal przejdź do **strony głównej**  >  **maszyny wirtualnej** > (węzeł z niepowodzeniem) > **rozszerzenia**.
 1. Wybierz pozycję **Microsoft. PowerShell. DSC**, rozszerzenie DSC programu PowerShell.
 1. Wybierz pozycję **Odinstaluj** , aby odinstalować rozszerzenie.
 
@@ -151,7 +151,7 @@ If (($certs.Count) -gt 0)
 
 #### <a name="step-4-reregister-the-failing-node"></a>Krok 4. ponowne zarejestrowanie węzła, który kończy się niepowodzeniem
 
-1. W Azure Portal przejdź do pozycji**konta automatyzacji** **głównej** > > (konto usługi Automation) > **Konfiguracja stanu (DSC)**.
+1. W Azure Portal przejdź do pozycji **Home**  >  **konta automatyzacji** głównej > (konto usługi Automation) > **Konfiguracja stanu (DSC)**.
 1. Wybierz **węzły**.
 1. Wybierz pozycję **Dodaj**.
 1. Wybierz węzeł z niepowodzeniem.
@@ -176,7 +176,7 @@ Ten błąd występuje zazwyczaj, gdy węzeł jest przypisany do nazwy konfigurac
 * Upewnij się, że przypiszesz węzeł z nazwą konfiguracji węzła, a nie nazwą konfiguracji.
 * Konfigurację węzła można przypisać do węzła przy użyciu Azure Portal lub polecenia cmdlet programu PowerShell.
 
-  * W Azure Portal przejdź do pozycji**konta automatyzacji** **głównej** > > (konto usługi Automation) > **Konfiguracja stanu (DSC)**. Następnie wybierz węzeł i wybierz pozycję **Przypisz konfigurację węzła**.
+  * W Azure Portal przejdź do pozycji **Home**  >  **konta automatyzacji** głównej > (konto usługi Automation) > **Konfiguracja stanu (DSC)**. Następnie wybierz węzeł i wybierz pozycję **Przypisz konfigurację węzła**.
   * Użyj polecenia cmdlet [Set-AzAutomationDscNode](https://docs.microsoft.com/powershell/module/Az.Automation/Set-AzAutomationDscNode?view=azps-3.7.0) .
 
 ## <a name="scenario-no-node-configurations-mof-files-were-produced-when-a-configuration-was-compiled"></a><a name="no-mof-files"></a>Scenariusz: podczas kompilowania konfiguracji nie zostały utworzone żadne konfiguracje węzłów (pliki MOF)
@@ -191,7 +191,7 @@ Compilation completed successfully, but no node configuration **.mof** files wer
 
 ### <a name="cause"></a>Przyczyna
 
-Gdy wyrażenie zgodne ze `Node` słowem kluczowym w konfiguracji DSC ma `$null`wartość, nie są generowane konfiguracje węzłów.
+Gdy wyrażenie `Node` zgodne ze słowem kluczowym w konfiguracji DSC ma wartość `$null` , nie są generowane konfiguracje węzłów.
 
 ### <a name="resolution"></a>Rozwiązanie
 
@@ -230,11 +230,11 @@ System.InvalidOperationException error processing property 'Credential' of type 
 
 ### <a name="cause"></a>Przyczyna
 
-W konfiguracji użyto poświadczeń, ale nie wprowadzono dla nich odpowiedniej `ConfigurationData` `PSDscAllowPlainTextPassword` wartości true dla każdej konfiguracji węzła.
+W konfiguracji użyto poświadczeń, ale nie wprowadzono dla `ConfigurationData` `PSDscAllowPlainTextPassword` nich odpowiedniej wartości true dla każdej konfiguracji węzła.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Upewnij się, `ConfigurationData` że w każdej konfiguracji węzła, `PSDscAllowPlainTextPassword` która jest wymieniona w konfiguracji, określono wartość true. Zobacz [Kompilowanie konfiguracji DSC w konfiguracji stanu Azure Automation](../automation-dsc-compile.md).
+Upewnij się, że w `ConfigurationData` `PSDscAllowPlainTextPassword` każdej konfiguracji węzła, która jest wymieniona w konfiguracji, określono wartość true. Zobacz [Kompilowanie konfiguracji DSC w konfiguracji stanu Azure Automation](../automation-dsc-compile.md).
 
 ## <a name="scenario-failure-processing-extension-error-when-enabling-a-machine-from-a-dsc-extension"></a><a name="failure-processing-extension"></a>Scenariusz: "błąd przetwarzania rozszerzenia" podczas włączania maszyny z poziomu rozszerzenia DSC
 
@@ -292,7 +292,7 @@ Ten komunikat występuje, gdy występuje problem z łącznością między węzł
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Ustal, czy węzeł znajduje się w wirtualnej sieci prywatnej (VPN), czy też ma inne problemy z nawiązywaniem połączenia z platformą Azure. Zobacz [Rozwiązywanie problemów podczas](onboarding.md)dołączania rozwiązań.
+Ustal, czy węzeł znajduje się w wirtualnej sieci prywatnej (VPN), czy też ma inne problemy z nawiązywaniem połączenia z platformą Azure. Zobacz [Rozwiązywanie problemów z wdrażaniem funkcji](onboarding.md).
 
 ## <a name="scenario-failure-with-a-general-error-when-applying-a-configuration-in-linux"></a><a name="failure-linux-temp-noexec"></a>Scenariusz: Wystąpił błąd ogólny podczas stosowania konfiguracji w systemie Linux
 
@@ -306,7 +306,7 @@ This event indicates that failure happens when LCM is processing the configurati
 
 ### <a name="cause"></a>Przyczyna
 
-Jeśli lokalizacja **/tmp** jest ustawiona na `noexec`, bieżąca wersja DSC nie będzie mogła zastosować konfiguracji.
+Jeśli lokalizacja **/tmp** jest ustawiona na `noexec` , bieżąca wersja DSC nie będzie mogła zastosować konfiguracji.
 
 ### <a name="resolution"></a>Rozwiązanie
 
@@ -330,7 +330,7 @@ Najlepszym rozwiązaniem jest skompilowanie lokalnie lub w potoku ciągłej inte
 
 #### <a name="issue"></a>Problem
 
-`GatewayTimeout` Wystąpił błąd podczas przekazywania konfiguracji DSC. 
+`GatewayTimeout`Wystąpił błąd podczas przekazywania konfiguracji DSC. 
 
 ### <a name="cause"></a>Przyczyna
 
@@ -345,5 +345,5 @@ Konfiguracje DSC można szybko przeanalizować przez jawne dołączenie `ModuleN
 Jeśli nie widzisz tutaj problemu lub nie możesz rozwiązać problemu, wypróbuj jeden z następujących kanałów, aby uzyskać dodatkową pomoc techniczną:
 
 * Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [forów platformy Azure](https://azure.microsoft.com/support/forums/).
-* Nawiąż [@AzureSupport](https://twitter.com/azuresupport)połączenie z kontem oficjalnego Microsoft Azure, aby zwiększyć komfort obsługi klienta. Pomoc techniczna systemu Azure łączy społeczność platformy Azure z odpowiedziami, wsparciem i ekspertami.
+* Nawiąż połączenie z [@AzureSupport](https://twitter.com/azuresupport) kontem oficjalnego Microsoft Azure, aby zwiększyć komfort obsługi klienta. Pomoc techniczna systemu Azure łączy społeczność platformy Azure z odpowiedziami, wsparciem i ekspertami.
 * Zaplikowanie zdarzenia pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/)i wybierz pozycję **Uzyskaj pomoc techniczną**.

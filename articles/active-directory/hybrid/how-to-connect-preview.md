@@ -12,38 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/13/2017
+ms.date: 05/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7def733a80aea1be77825bb9069217f5f43e003
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 396e1d9e6ad474d053ca803218d55396c073845d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261283"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680188"
 ---
 # <a name="more-details-about-features-in-preview"></a>Więcej szczegółów na temat funkcji w wersji zapoznawczej
 W tym temacie opisano, jak używać funkcji obecnie dostępnych w wersji zapoznawczej.
 
-## <a name="group-writeback"></a>Zapisywanie zwrotne grup
-Opcja stornowania grupowego w funkcjach opcjonalnych umożliwia Stornowanie **grup pakietu Office 365** do lasu z zainstalowanym programem Exchange. Jest to grupa, która jest zawsze zarządzana w chmurze. Jeśli używasz lokalnego programu Exchange, możesz zapisać te grupy w środowisku lokalnym, aby użytkownicy korzystający z lokalnej skrzynki pocztowej programu Exchange mogli wysyłać i odbierać wiadomości e-mail z tych grup.
+## <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>Interfejs API usługi Azure AD Connect Sync w wersji 2 (publiczna wersja zapoznawcza) 
 
-Więcej informacji o grupach pakietu Office 365 i sposobach ich użycia można znaleźć [tutaj](https://aka.ms/O365g).
-
-Grupa Office 365 jest reprezentowana jako grupa dystrybucyjna w AD DS lokalnym. Lokalny serwer Exchange musi znajdować się w programie Exchange 2013 zbiorczej aktualizacji 8 (wydanej w marcu 2015) lub w programie Exchange 2016 w celu rozpoznania tego typu nowej grupy.
-
-**Uwagi w wersji zapoznawczej**
-
-* Atrybut książka adresowa nie jest obecnie wypełniany w wersji zapoznawczej. Bez tego atrybutu Grupa nie jest widoczna w liście. Najprostszym sposobem wypełnienia tego atrybutu jest użycie polecenia cmdlet `update-recipient`programu Exchange PowerShell.
-* Tylko lasy ze schematem programu Exchange są prawidłowymi obiektami docelowymi dla grup. Jeśli nie wykryto żadnego programu Exchange, nie można włączyć funkcji zapisywania zwrotnego grup.
-* Obecnie są obsługiwane tylko wdrożenia organizacji programu Exchange z jednym lasem. Jeśli masz więcej niż jedną lokalną organizację programu Exchange, musisz mieć lokalne rozwiązanie GALSync dla tych grup, które mają być wyświetlane w innych lasach.
-* Funkcja zapisywania zwrotnego grup nie obsługuje grup zabezpieczeń ani grup dystrybucyjnych.
-
-> [!NOTE]
-> Do zapisywania zwrotnego grup jest wymagana subskrypcja Azure AD — wersja Premium.
-> 
->
+Wdrożono nowy punkt końcowy (API) dla Azure AD Connect, który zwiększa wydajność operacji usługi synchronizacji do Azure Active Directory. Korzystając z nowego punktu końcowego w wersji 2, zobaczysz zauważalny wzrost wydajności dotyczący eksportowania i importowania do usługi Azure AD. Ten nowy punkt końcowy obsługuje również synchronizowanie grup z do członków 250 000. Za pomocą tego punktu końcowego można także pisać ujednolicone grupy usługi O365, bez maksymalnego limitu członkostwa, do Active Directory lokalnego, gdy włączono funkcję zapisywania zwrotnego grup.   Aby uzyskać więcej informacji, zobacz [Azure AD Connect Sync v2 Endpoint API (publiczna wersja zapoznawcza)](how-to-connect-sync-endpoint-api-v2.md).
 
 ## <a name="user-writeback"></a>Zapisywanie zwrotne użytkownika
 > [!IMPORTANT]

@@ -4,12 +4,12 @@ description: Dowiedz się więcej na temat szyfrowania w usłudze Azure Containe
 ms.topic: article
 ms.date: 05/01/2020
 ms.custom: ''
-ms.openlocfilehash: d9cd10401e7f645a8edd269184a56dc27544a8c8
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: a81305be13fd824e7674346aadcaddb83787322d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82927324"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683486"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Szyfrowanie rejestru przy użyciu klucza zarządzanego przez klienta
 
@@ -17,7 +17,7 @@ Gdy przechowujesz obrazy i inne artefakty w rejestrze kontenerów platformy Azur
 
 Szyfrowanie po stronie serwera z kluczami zarządzanymi przez klienta jest obsługiwane przez integrację z [Azure Key Vault](../key-vault/general/overview.md). Możesz tworzyć własne klucze szyfrowania i przechowywać je w magazynie kluczy lub używać interfejsów API Azure Key Vault do generowania kluczy. Za pomocą Azure Key Vault można również prześledzić użycie klucza.
 
-Ta funkcja jest dostępna w warstwie usługi kontenera **Premium** . Aby uzyskać informacje o warstwach i ograniczeniach usługi Registry, zobacz [Azure Container Registry SKU](container-registry-skus.md).
+Ta funkcja jest dostępna w warstwie usługi kontenera **Premium** . Aby uzyskać informacje o warstwach i ograniczeniach usługi Registry, zobacz [Azure Container Registry warstwy usług](container-registry-skus.md).
 
    
 ## <a name="things-to-know"></a>Co należy wiedzieć

@@ -1,14 +1,14 @@
 ---
 title: Wskazówki dotyczące ograniczonych żądań
 description: Zapoznaj się z równoległym grupowaniem, rozłożeniem, stronicowaniem i wykonywaniem zapytań, aby uniknąć ograniczania żądań przez usługę Azure Resource Graph.
-ms.date: 12/02/2019
+ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: fbd4bec715b187bcc643fe32b8452b0e062e7713
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dbcd438f1eda4edd30deef41542beeae6d746dc2
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259853"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682058"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Wskazówki dotyczące żądań z ograniczeniami na wykresie zasobów platformy Azure
 
@@ -30,10 +30,10 @@ W każdej odpowiedzi na zapytanie wykres zasobów platformy Azure dodaje dwa nag
 - `x-ms-user-quota-remaining`(int): pozostały przydział zasobów dla użytkownika. Ta wartość jest mapowana na liczbę zapytań.
 - `x-ms-user-quota-resets-after`(hh: mm: SS): czas trwania do momentu zresetowania zużycia przydziału użytkownika.
 
-Aby zilustrować, jak działają nagłówki, przyjrzyjmy się odpowiedzi kwerendy zawierającej nagłówek i wartości `x-ms-user-quota-remaining: 10` i. `x-ms-user-quota-resets-after: 00:00:03`
+Aby zilustrować, jak działają nagłówki, przyjrzyjmy się odpowiedzi kwerendy zawierającej nagłówek i wartości `x-ms-user-quota-remaining: 10` i `x-ms-user-quota-resets-after: 00:00:03` .
 
 - W ciągu następnych 3 sekund można przesłać maksymalnie 10 zapytań bez ograniczenia przepustowości.
-- W ciągu 3 sekund `x-ms-user-quota-remaining` wartości i `x-ms-user-quota-resets-after` zostaną zresetowane do `15` i `00:00:05` odpowiednio.
+- W ciągu 3 sekund wartości `x-ms-user-quota-remaining` i `x-ms-user-quota-resets-after` zostaną zresetowane do `15` i `00:00:05` odpowiednio.
 
 Aby zobaczyć przykład użycia nagłówków do _wycofywania_ na żądaniach zapytań, zobacz test in [Query in Parallel](#query-in-parallel).
 
@@ -185,7 +185,7 @@ async Task ExecuteQueries(IEnumerable<string> queries)
 }
 ```
 
-## <a name="pagination"></a>Dzielenie na strony
+## <a name="pagination"></a>Dzielenia na strony
 
 Ponieważ wykres zasobów platformy Azure zwraca co najwyżej 1000 wpisów w pojedynczej odpowiedzi na zapytanie, może być konieczne podział [zapytań na strony](./work-with-data.md#paging-results) , aby uzyskać kompletny zestaw danych, którego szukasz. Niektórzy klienci grafu zasobów platformy Azure obsługują jednak stronicowanie w inny sposób niż inne.
 
@@ -228,14 +228,14 @@ Ponieważ wykres zasobów platformy Azure zwraca co najwyżej 1000 wpisów w poj
 
 ## <a name="still-get-throttled"></a>Nadal masz ograniczone ograniczenia?
 
-Jeśli podczas wykonywania powyższych zaleceń masz ograniczone ograniczenia, skontaktuj się z zespołem pod adresem [resourcegraphsupport@microsoft.com](mailto:resourcegraphsupport@microsoft.com).
+Jeśli podczas wykonywania powyższych zaleceń masz ograniczone ograniczenia, skontaktuj się z zespołem pod adresem [resourcegraphsupport@microsoft.com](mailto:resourcegraphsupport@microsoft.com) .
 
 Podaj następujące informacje:
 
 - W przypadku konkretnego limitu ograniczania przepustowości wymagane są wymagania dotyczące przypadków użycia i współpracy.
 - Ile zasobów masz dostęp? Ile z nich jest zwracanych z pojedynczego zapytania?
 - Jakie typy zasobów interesują Cię?
-- Co to jest Twój wzorzec zapytania? Zapytania X na sekundę (Y) itd.
+- Co to jest Twój wzorzec zapytania? X zapytań na sekundę i tak dalej.
 
 ## <a name="next-steps"></a>Następne kroki
 

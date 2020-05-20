@@ -10,16 +10,16 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 36777208dc8ac179f1aaf345c374a33001e3f8bd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dd6228ea50968c98c5ba151b8af9a0c2fa829582
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81404261"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684070"
 ---
 # <a name="learn-image-moderation-concepts"></a>Poznaj pojęcia związane z moderowaniem obrazu
 
-Content Moderator korzystaj z [Narzędzia do oceny obrazów z](Review-Tool-User-Guide/human-in-the-loop.md) erotyczneją maszynową i w pętli, aby uzyskać umiarkowane obrazy dotyczące zawartości dla dorosłych i. Skanuj obrazy pod kątem zawartości tekstowej i Wyodrębnij ten tekst oraz wykrywaj twarze. Obrazy można dopasować do list niestandardowych i podejmować dalsze działania.
+Za pomocą [Narzędzia do oceny](Review-Tool-User-Guide/human-in-the-loop.md) i erotycznej obrazów wspieranych maszynowo można Content moderator używać narzędzi do moderowania obrazów dla dorosłych i zawartości. Skanuj obrazy pod kątem zawartości tekstowej i Wyodrębnij ten tekst oraz wykrywaj twarze. Obrazy można dopasować do list niestandardowych i podejmować dalsze działania.
 
 ## <a name="evaluating-for-adult-and-racy-content"></a>Ocenianie zawartości dla osób dorosłych i erotycznej
 
@@ -147,4 +147,4 @@ Aby uzyskać więcej złożonychych przypadków, użyj [Narzędzia do przeglądu
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przetestuj [konsolę interfejsu API moderowania obrazów](try-image-api.md) i użyj przykładów kodu interfejsu API REST. Zapoznaj się z sekcją moderowanie obrazów [zestawu .NET SDK](dotnet-sdk-quickstart.md) , jeśli znasz program Visual Studio i C#.
+Przetestuj [konsolę interfejsu API moderowania obrazów](try-image-api.md) i użyj przykładów kodu interfejsu API REST. Zobacz też [przeglądy, przepływy pracy i zadania,](./review-api.md) aby dowiedzieć się, jak skonfigurować Recenzje przez człowieka.

@@ -8,13 +8,13 @@ author: Blackmist
 ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 03/05/2020
-ms.openlocfilehash: 593ca5d63245ed664b5f63373d1d651129055544
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/13/2020
+ms.openlocfilehash: 99e2c878443b9a4256eec495429dbe57a88557d0
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592393"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683013"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Uczenie modeli za pomocą Azure Machine Learning
 
@@ -111,6 +111,18 @@ Projektant umożliwia uczenie modeli przy użyciu interfejsu przeciągania i upu
 + [Klasyfikacja: przewidywanie zmian, pragnienie i kupowanie](how-to-designer-sample-classification-churn.md)
 + [Klasyfikacja przy użyciu niestandardowego skryptu języka R: przewidywanie opóźnień lotów](how-to-designer-sample-classification-flight-delay.md)
 + [Klasyfikacja tekstu: zestaw danych witryny Wikipedia SP 500](how-to-designer-sample-text-classification.md)
+
+## <a name="many-models-solution-accelerator"></a>Akcelerator rozwiązań wielu modeli
+
+[Akcelerator rozwiązań wielu modeli](https://aka.ms/many-models) (wersja zapoznawcza) jest oparty na Azure Machine Learning i umożliwia uczenie, obsługę setek lub nawet tysięcy modeli uczenia maszynowego oraz zarządzanie nimi.
+
+Na przykład Kompilowanie modelu __dla każdego wystąpienia lub poszczególnych osób__ w następujących scenariuszach może prowadzić do udoskonalonych wyników:
+
+* Przewidywanie sprzedaży dla poszczególnych magazynów
+* Konserwacja predykcyjna dla setek ropy naftowej
+* Dostosowanie środowiska dla poszczególnych użytkowników.
+
+Aby uzyskać więcej informacji, zobacz [Akcelerator rozwiązania wielu modeli](https://aka.ms/many-models) w serwisie GitHub.
 
 ## <a name="cli"></a>Interfejs wiersza polecenia
 

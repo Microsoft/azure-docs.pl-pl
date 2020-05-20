@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 3/16/2020
+ms.date: 5/19/2020
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 4cb5a3d471aa3131d3233841cd6450f0a968dfe7
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 97599d8113d20511882ec38928b221706e7f37b9
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82800978"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682405"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Informacje o wersji agenta usługi Azure File Sync
 Usługa Azure File Sync umożliwia scentralizowanie udziałów plików Twojej organizacji w usłudze Azure Files bez rezygnacji z elastyczności, wydajności i zgodności lokalnego serwera plików. Instalacje systemów Windows Server są przekształcane w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego dostępnego protokołu w systemie Windows Server w celu uzyskania lokalnego dostępu do danych (w tym protokołu SMB, systemu plików NFS i protokołu FTPS). Możesz mieć dowolną potrzebną Ci liczbę pamięci podręcznych na całym świecie.
@@ -25,24 +25,28 @@ Następujące wersje są obsługiwane przez agenta usługi Azure File Sync:
 
 | Rozwoju | Numer wersji agenta | Data wydania | Stan |
 |----|----------------------|--------------|------------------|
-| V10 — wersja [4522409](https://support.microsoft.com/en-us/help/4522409)| 10.0.0.0 | 9 kwietnia 2020 | W locie |
+| 2020 — pakiet zbiorczy aktualizacji — [KB4522412](https://support.microsoft.com/help/4522412)| 10.0.2.0 | 19 maja 2020 | Obsługiwane |
+| V10 wydanie — [KB4522409](https://support.microsoft.com/en-us/help/4522409)| 10.0.0.0 | 9 kwietnia 2020 | Obsługiwane |
 | Grudzień 2019 — pakiet zbiorczy aktualizacji — [KB4522360](https://support.microsoft.com/help/4522360)| 9.1.0.0 | 12 grudnia 2019 | Obsługiwane |
 | V9 wydanie — [KB4522359](https://support.microsoft.com/help/4522359)| 9.0.0.0 | 2 grudnia 2019 | Obsługiwane |
 | V8 wydanie — [KB4511224](https://support.microsoft.com/help/4511224)| 8.0.0.0 | 8 października 2019 r. | Obsługiwane |
 | 2019 lipca zbiorczych aktualizacji — [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 24 lipca 2019 r. | Obsługiwane |
 | 2019 lipca zbiorczych aktualizacji — [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 12 lipca 2019 r. | Obsługiwane |
 | Wersji 7 wydanie — [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 19 czerwca 2019 | Obsługiwane |
-| Czerwiec 2019 — pakiet zbiorczy aktualizacji — [KB4489739](https://support.microsoft.com/help/4489739)| 6.3.0.0 | 27 czerwca 2019 | Obsługiwane — wersja agenta wygaśnie 21 kwietnia 2020 |
-| Czerwiec 2019 — pakiet zbiorczy aktualizacji — [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 13 czerwca 2019 | Obsługiwane — wersja agenta wygaśnie 21 kwietnia 2020 |
-| 2019 — pakiet zbiorczy aktualizacji — [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 7 maja 2019 | Obsługiwane — wersja agenta wygaśnie 21 kwietnia 2020 |
-| Wydanie V6 — [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | 21 kwietnia 2019 | Obsługiwane — wersja agenta wygaśnie 21 kwietnia 2020 |
-| Wersja V5 | 5.0.2.0 - 5.2.0.0 | Brak | Nieobsługiwane — wersje agenta wygasły 18 marca, 2020 |
-| Wersja v4 | 4.0.1.0 - 4.3.0.0 | Brak | Nieobsługiwane — wersje agenta wygasły 6 listopada, 2019 |
-| Wersja V3 | 3.1.0.0 - 3.4.0.0 | Brak | Nieobsługiwane — wersje agenta wygasły 19 sierpnia 2019 |
-| Agenci wstępnie GA | 1.1.0.0 — 3.0.13.0 | Brak | Nieobsługiwane — wersje agenta wygasły 1 października 2018 |
+| Wydanie w wersji 6 | 6.0.0.0 - 6.3.0.0 | Nie dotyczy | Nieobsługiwane — wersje agenta wygasły 21 kwietnia 2020 |
+| Wersja V5 | 5.0.2.0 - 5.2.0.0 | Nie dotyczy | Nieobsługiwane — wersje agenta wygasły 18 marca, 2020 |
+| Wersja v4 | 4.0.1.0 - 4.3.0.0 | Nie dotyczy | Nieobsługiwane — wersje agenta wygasły 6 listopada, 2019 |
+| Wersja V3 | 3.1.0.0 - 3.4.0.0 | Nie dotyczy | Nieobsługiwane — wersje agenta wygasły 19 sierpnia 2019 |
+| Agenci wstępnie GA | 1.1.0.0 — 3.0.13.0 | Nie dotyczy | Nieobsługiwane — wersje agenta wygasły 1 października 2018 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Zasady aktualizacji agenta usługi Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-10020"></a>10.0.2.0 wersja agenta
+Poniższe informacje o wersji dotyczą wersji 10.0.2.0 agenta Azure File Sync wydana 19 maja 2020. Te informacje są uzupełnieniem informacji o wersji w wersji 10.0.0.0.
+
+Problem rozwiązany w tej wersji:  
+- Agent synchronizacji magazynu (FileSyncSvc) często ulega awarii po zainstalowaniu agenta Azure File Sync v10.
 
 ## <a name="agent-version-10000"></a>Wersja agenta 10.0.0.0
 Poniższe informacje o wersji dotyczą wersji 10.0.0.0 agenta Azure File Sync (wydanie 9 kwietnia 2020).
@@ -310,7 +314,7 @@ Poniższe informacje o wersji dotyczą wersji 7.0.0.0 agenta Azure File Sync (wy
 ### <a name="improvements-and-issues-that-are-fixed"></a>Ulepszenia i problemy, które zostały naprawione
 
 - Obsługa większych rozmiarów udziałów plików
-    - W wersji zapoznawczej większych udziałów plików platformy Azure zwiększamy również limity pomocy technicznej dotyczące synchronizacji plików. W pierwszym kroku Azure File Sync teraz obsługuje do 25 TB i 50 000 000 plików w pojedynczej, synchronizowanej przestrzeni nazw. Aby złożyć udział w wersji zapoznawczej dużego udziału plików, Wypełnij https://aka.ms/azurefilesatscalesurveyten formularz. 
+    - W wersji zapoznawczej większych udziałów plików platformy Azure zwiększamy również limity pomocy technicznej dotyczące synchronizacji plików. W pierwszym kroku Azure File Sync teraz obsługuje do 25 TB i 50 000 000 plików w pojedynczej, synchronizowanej przestrzeni nazw. Aby złożyć udział w wersji zapoznawczej dużego udziału plików, Wypełnij ten formularz https://aka.ms/azurefilesatscalesurvey . 
 - Obsługa ustawień zapory i sieci wirtualnej na kontach magazynu
     - Azure File Sync teraz obsługuje ustawienia zapory i sieci wirtualnej na kontach magazynu. Aby skonfigurować wdrożenie do pracy z ustawieniami zapory i sieci wirtualnej, zobacz [Konfigurowanie ustawień zapory i sieci wirtualnej](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings).
 - Polecenie cmdlet programu PowerShell do natychmiastowej synchronizacji plików zmienionych w udziale plików platformy Azure
@@ -501,7 +505,7 @@ Poniższe informacje o wersji dotyczą wersji 5.0.2.0 agenta Azure File Sync (wy
 ### <a name="improvements-and-issues-that-are-fixed"></a>Ulepszenia i problemy, które zostały naprawione
 
 - Obsługa Azure Government w chmurze
-  - Dodaliśmy obsługę wersji zapoznawczej dla chmury Azure Government. Wymaga to białej subskrypcji i specjalnego pobrania agenta od firmy Microsoft. Aby uzyskać dostęp do wersji zapoznawczej, Wyślij wiadomość e-mail [AzureFiles@microsoft.com](mailto:AzureFiles@microsoft.com)bezpośrednio na adres.
+  - Dodaliśmy obsługę wersji zapoznawczej dla chmury Azure Government. Wymaga to białej subskrypcji i specjalnego pobrania agenta od firmy Microsoft. Aby uzyskać dostęp do wersji zapoznawczej, Wyślij wiadomość e-mail bezpośrednio na adres [AzureFiles@microsoft.com](mailto:AzureFiles@microsoft.com) .
 - Obsługa deduplikacji danych
     - Funkcja deduplikacji danych jest teraz w pełni obsługiwana przy użyciu obsługi warstw w chmurze w systemach Windows Server 2016 i Windows Server 2019. Włączenie deduplikacji na woluminie z włączonym obsługą warstw w chmurze umożliwia przechowywanie w pamięci podręcznej większej liczby plików bez udostępniania większej ilości miejsca w magazynie.
 - Obsługa transferu danych w trybie offline (na przykład za pośrednictwem urządzenie Data Box)

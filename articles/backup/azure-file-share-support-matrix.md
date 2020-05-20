@@ -3,12 +3,12 @@ title: Macierz obsługi dla kopii zapasowej udziału plików platformy Azure
 description: Zawiera podsumowanie ustawień i ograniczeń pomocy technicznej podczas tworzenia kopii zapasowych udziałów plików platformy Azure.
 ms.topic: conceptual
 ms.date: 5/07/2020
-ms.openlocfilehash: 38e8cdba4913a56b4dc6b4398a99db9e9f93be51
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 42578cc83ef193801fa700ec7d136385411e5f79
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116734"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684625"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Macierz obsługi dla kopii zapasowej udziału plików platformy Azure
 
@@ -19,10 +19,10 @@ Za pomocą [usługi Azure Backup](https://docs.microsoft.com/azure/backup/backup
 Kopia zapasowa dla udziałów plików platformy Azure jest dostępna w następujących GEOREGIONY:
 
 **Regiony ga**:<br>
-Australia Południowo-Wschodnia (ASE), Kanada Środkowa (CNC), zachodnio-środkowe stany USA (WCUS), zachodnie stany USA 2 (WUS 2), Indie Południowe (INS), Północno-środkowe stany USA (NCUS), Japonia Wschodnia (JPE), Brazylia Południowa (BRS), Południowe Azja Wschodnia (morze), Szwajcaria Zachodnia (SZW), Zjednoczone Emiraty Arabskie (UAC), Norwegia Wschodnia (NWE), Indie Zachodnie (INW), Australia Środkowa (ACL), Korea Środkowa (KRC), Japonia Zachodnia (JPW), Północna Republika Południowej Afryki (SAN), Zachodnie Zjednoczone Królestwo , Korea Południowa (KRS), Niemcy Północne (GN), Norwegia Zachodnia (NWW), Zachodnia Republika Południowej Afryki (piły), Szwajcaria Północna (SZN), Niemcy Środkowo-Zachodnie (GWC), Zjednoczone Emiraty Arabskie (UAN), Francja Środkowa (FRC), Indie Środkowe (INC), Kanada Wschodnia (CNE), Azja Wschodnia (EA), Australia Wschodnia (AE), Stany USA (ci), zachodnie stany USA (WUS),, US Gov Arizona (UGA), US Gov Teksas (UGT), US gov Wirginia (UGV), US dod (region środkowy) (UDC), US DoD (region wschodni) ()
+Australia Południowo-Wschodnia (ASE), Kanada Środkowa (CNC), zachodnio-środkowe stany USA (WCUS), Południowo-środkowe stany USA (SCUS), zachodnie stany USA 2 (WUS 2), Indie Południowe (INS), Północno-środkowe stany USA (NCUS), Japonia Wschodnia (JPE), Brazylia Południowa (BRS), Południowe Azja Wschodnia (morski), Szwajcaria Zachodnia (szw), Zjednoczone Emiraty Arabskie (UAC), Norwegia Wschodnia (NWE), Indie Zachodnie (inw), Australia Środkowa (ACL), Korea Środkowa (KRC), Japonia Zachodnia Północna Republika Południowej Afryki , Południowe Zjednoczone Królestwo (UKS), Zachodnie Zjednoczone Królestwo (UKW), Korea Południowa (KRS), Europa Północna (NE), Niemcy Północne (GN), Norwegia Zachodnia (NWW), Zachodnia Republika Południowej Afryki (Piła), Szwajcaria Północna (SZN), Niemcy Środkowo-Zachodnie (GWC), Zjednoczone Emiraty Arabskie (UAN), Francja Środkowa (FRC), Indie Środkowe (INC), Kanada Wschodnia (CNE), (EA), Australia Wschodnia (AE), środkowe stany USA (CUS), zachodnie stany USA (WUS) Azja Wschodnia, US gov Arizona (uga) , US Gov Wirginia (UGV), US DoD (region środkowy) (UDC), US DoD (region wschodni) (LUCZ)
 
 **Obsługiwane regiony (w ramach wersji zapoznawczej), ale nie są jeszcze ga**:<br>
-Wschodnie stany USA (EUS), Wschodnie stany USA 2 (EUS2), Europa Północna (NE), Południowo-środkowe stany USA (SCUS), Południowe Zjednoczone Królestwo (UKS), Europa Zachodnia (my)
+Wschodnie stany USA (EUS), Wschodnie stany USA 2 (EUS2), Europa Zachodnia (my)
 
 ## <a name="supported-storage-accounts"></a>Obsługiwane konta magazynu
 
@@ -37,7 +37,7 @@ Wschodnie stany USA (EUS), Wschodnie stany USA 2 (EUS2), Europa Północna (NE),
 | Typ udziału plików                                   | Pomoc techniczna   |
 | -------------------------------------------------- | --------- |
 | Standardowa                                           | Obsługiwane |
-| Large                                              | Obsługiwane |
+| Duży                                              | Obsługiwane |
 | Premium                                            | Obsługiwane |
 | Udziały plików połączone z usługą Azure File Sync | Obsługiwane |
 

@@ -1,6 +1,6 @@
 ---
 title: Zarządzanie harmonogramami w Azure Automation
-description: Dowiedz się, jak utworzyć harmonogram i zarządzać nim w Azure Automation, aby umożliwić automatyczne uruchamianie elementu Runbook w określonym czasie lub w harmonogramie cyklicznym.
+description: W tym artykule opisano sposób tworzenia harmonogramu i pracy z nim w Azure Automation.
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
@@ -9,22 +9,22 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4cd6d4236b95a17f404df13e8b50daf989cf6072
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.openlocfilehash: c644333fd49c4e54a54d00e7fb033c6d4bdc158b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82652105"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685341"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Zarządzanie harmonogramami w Azure Automation
 
 Aby zaplanować uruchomienie elementu Runbook w Azure Automation o określonym czasie, należy połączyć go z co najmniej jednym harmonogramem. Harmonogram można skonfigurować do uruchamiania jednokrotnie lub cyklicznie lub codziennie harmonogramu dla elementów Runbook w Azure Portal. Można je również zaplanować co tydzień, co miesiąc, konkretne dni tygodnia lub dni miesiąca lub określony dzień miesiąca. Element Runbook może zostać powiązany z wieloma harmonogramami, a harmonogram może zostać powiązany z wieloma elementami Runbook.
 
 > [!NOTE]
-> Harmonogramy nie obsługują obecnie Azure Automation konfiguracji DSC.
+> Azure Automation obsługuje czas letni i harmonogramy odpowiednio dla operacji automatyzacji.
 
->[!NOTE]
->Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Instrukcje dotyczące instalacji polecenia AZ module w hybrydowym procesie roboczym elementu Runbook znajdują się w temacie [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). W przypadku konta usługi Automation można zaktualizować moduły do najnowszej wersji za pomocą [sposobu aktualizowania modułów Azure PowerShell w programie Azure Automation](../automation-update-azure-modules.md).
+> [!NOTE]
+> Harmonogramy obecnie nie są włączone dla Azure Automation konfiguracji DSC.
 
 ## <a name="powershell-cmdlets-used-to-access-schedules"></a>Polecenia cmdlet programu PowerShell służące do uzyskiwania dostępu do harmonogramów
 

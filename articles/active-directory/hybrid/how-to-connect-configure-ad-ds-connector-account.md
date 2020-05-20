@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeb80c3a94e63a886e4a16c0b8fa445b2a8a34e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c69a700c9bcaa018bcfc1b1e6e01e166ef2d43bf
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72515823"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680235"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Skonfiguruj uprawnienia konta łącznika AD DS 
 
@@ -32,7 +32,7 @@ W przypadku instalacji programu Azure AD Connect Express automatycznie generowan
 ### <a name="permissions-summary"></a>Podsumowanie uprawnień 
 Poniższa tabela zawiera podsumowanie uprawnień wymaganych w przypadku obiektów usługi AD: 
 
-| Funkcja | Uprawnienia |
+| Cechy | Uprawnienia |
 | --- | --- |
 | Funkcja MS-DS-ConsistencyGuid |Uprawnienia do odczytu i zapisu do atrybutu MS-DS-ConsistencyGuid udokumentowanego w [koncepcji projektowania — przy użyciu MS-ds-ConsistencyGuid jako sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
 | Synchronizacja skrótów haseł |<li>Replikowanie zmian w katalogu</li>  <li>Replikuj wszystkie zmiany katalogu |
@@ -40,7 +40,7 @@ Poniższa tabela zawiera podsumowanie uprawnień wymaganych w przypadku obiektó
 | Folder publiczny poczty programu Exchange |Uprawnienia Odczyt do atrybutów przedstawionych w [folderze publicznym poczty programu Exchange](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) dla folderów publicznych. | 
 | Zapisywanie zwrotne haseł |Uprawnienia do odczytu i zapisu w odniesieniu do atrybutów opisanych w temacie [wprowadzenie do zarządzania hasłami](../authentication/howto-sspr-writeback.md) dla użytkowników. |
 | Zapisywanie zwrotne urządzeń |Uprawnienia do odczytu i zapisu dla obiektów urządzeń i kontenerów udokumentowanych w funkcji [zapisywania zwrotnego urządzeń](how-to-connect-device-writeback.md). |
-| Zapisywanie zwrotne grup |Odczytuj, twórz, Aktualizuj i usuwaj obiekty grupy do zsynchronizowanych **grup pakietu Office 365**.  Aby uzyskać więcej informacji, zobacz [zapisywanie zwrotne grup](how-to-connect-preview.md#group-writeback).|
+| Zapisywanie zwrotne grup |Odczytuj, twórz, Aktualizuj i usuwaj obiekty grupy do zsynchronizowanych **grup pakietu Office 365**.|
 
 ## <a name="using-the-adsyncconfig-powershell-module"></a>Korzystanie z modułu ADSyncConfig PowerShell 
 Moduł ADSyncConfig wymaga [Narzędzia administracji zdalnej serwera (RSAT) dla AD DS](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools) , ponieważ zależy on od modułu i narzędzi AD DS PowerShell. Aby zainstalować narzędzia RSAT dla AD DS, Otwórz okno programu Windows PowerShell za pomocą polecenia "Uruchom jako administrator" i wykonaj: 
@@ -48,7 +48,7 @@ Moduł ADSyncConfig wymaga [Narzędzia administracji zdalnej serwera (RSAT) dla 
 ``` powershell
 Install-WindowsFeature RSAT-AD-Tools 
 ```
-![Konfigurowanie](media/how-to-connect-configure-ad-ds-connector-account/configure2.png)
+![Konfiguracja](media/how-to-connect-configure-ad-ds-connector-account/configure2.png)
 
 >[!NOTE]
 >Możesz również skopiować plik **C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.PSM1** do kontrolera domeny, który ma już narzędzia RSAT dla AD DS zainstalowane i korzystać z tego modułu programu PowerShell.
@@ -83,13 +83,13 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <ADAccountDN>
 
 Pamiętaj o zamianie `<ADAccountName>` `<ADDomainName>` i `<ADAccountDN>` z odpowiednimi wartościami dla danego środowiska.
 
-Jeśli nie chcesz modyfikować uprawnień w kontenerze AdminSDHolder, użyj przełącznika `-SkipAdminSdHolders`. 
+Jeśli nie chcesz modyfikować uprawnień w kontenerze AdminSDHolder, użyj przełącznika `-SkipAdminSdHolders` . 
 
 Domyślnie wszystkie polecenia cmdlet ustawiania uprawnień będą podejmować próby ustawienia uprawnień AD DS w katalogu głównym każdej domeny w lesie, co oznacza, że użytkownik uruchamiający sesję programu PowerShell wymaga uprawnień administratora domeny w każdej domenie w lesie.  Z powodu tego wymagania zaleca się użycie administratora przedsiębiorstwa z katalogu głównego lasu. Jeśli wdrożenie Azure AD Connect ma wiele łączników AD DS, będzie wymagane uruchomienie tego samego polecenia cmdlet w każdym lesie zawierającym łącznik AD DS. 
 
-Możesz również ustawić uprawnienia dla konkretnej jednostki organizacyjnej lub obiektu AD DS przy użyciu parametru `-ADobjectDN` , a następnie nazwy wyróżniającej obiektu docelowego, gdzie chcesz ustawić uprawnienia. W przypadku korzystania z ADobjectDN docelowego polecenie cmdlet ustawi uprawnienia tylko dla tego obiektu, a nie w katalogu głównym domeny lub kontenerze AdminSDHolder. Ten parametr może być przydatny w przypadku niektórych jednostek organizacyjnych lub AD DS obiektów, które mają wyłączone dziedziczenie uprawnień (Zobacz Lokalizowanie obiektów AD DS z wyłączonym dziedziczeniem uprawnień) 
+Możesz również ustawić uprawnienia dla konkretnej jednostki organizacyjnej lub obiektu AD DS przy użyciu parametru, `-ADobjectDN` a następnie nazwy wyróżniającej obiektu docelowego, gdzie chcesz ustawić uprawnienia. W przypadku korzystania z ADobjectDN docelowego polecenie cmdlet ustawi uprawnienia tylko dla tego obiektu, a nie w katalogu głównym domeny lub kontenerze AdminSDHolder. Ten parametr może być przydatny w przypadku niektórych jednostek organizacyjnych lub AD DS obiektów, które mają wyłączone dziedziczenie uprawnień (Zobacz Lokalizowanie obiektów AD DS z wyłączonym dziedziczeniem uprawnień) 
 
-Wyjątkami od tych typowych parametrów jest `Set-ADSyncRestrictedPermissions` polecenie cmdlet, które służy do ustawiania uprawnień na samym koncie łącznika AD DS, a `Set-ADSyncPasswordHashSyncPermissions` polecenie cmdlet, ponieważ uprawnienia wymagane do synchronizacji skrótów haseł są ustawiane tylko w katalogu głównym domeny, dlatego to polecenie cmdlet nie zawiera `-ObjectDN` parametrów `-SkipAdminSdHolders` lub.
+Wyjątkami od tych typowych parametrów jest `Set-ADSyncRestrictedPermissions` polecenie cmdlet, które służy do ustawiania uprawnień na samym koncie łącznika AD DS, a `Set-ADSyncPasswordHashSyncPermissions` polecenie cmdlet, ponieważ uprawnienia wymagane do synchronizacji skrótów haseł są ustawiane tylko w katalogu głównym domeny, dlatego to polecenie cmdlet nie zawiera `-ObjectDN` `-SkipAdminSdHolders` parametrów lub.
 
 ### <a name="determine-your-ad-ds-connector-account"></a>Określanie konta łącznika AD DS 
 W przypadku Azure AD Connect jest już zainstalowany i chcesz sprawdzić, co to jest konto łącznika AD DS aktualnie używane przez Azure AD Connect, można wykonać polecenie cmdlet: 
@@ -148,7 +148,7 @@ To polecenie cmdlet ustawi następujące uprawnienia:
 
  
 ### <a name="configure-ms-ds-consistency-guid-permissions"></a>Konfigurowanie uprawnień usługi MS-DS-spójności-identyfikatora GUID 
-Aby ustawić uprawnienia dla konta łącznika AD DS przy użyciu atrybutu MS-ds-Consistency-GUID jako kotwicy źródłowej ("Zezwól na platformę Azure zarządzać zakotwiczeniem źródła dla mnie"), uruchom polecenie: 
+Aby ustawić uprawnienia dla konta łącznika AD DS przy użyciu atrybutu MS-ds-Consistency-GUID jako kotwicy źródłowej (znanej również jako opcja "Zezwól na platformę Azure do zarządzania zakotwiczeniem źródła"), uruchom polecenie: 
 
 ``` powershell
 Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 

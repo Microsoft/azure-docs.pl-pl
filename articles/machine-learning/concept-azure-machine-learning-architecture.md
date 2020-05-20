@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/17/2020
+ms.date: 05/13/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: e70401bbaa97920163f3c7e76e32b9b9be2f5e72
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 49c23774fe16c24ba90daa02cdda1688b79b12d3
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871472"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683044"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Jak działa Azure Machine Learning: architektura i koncepcje
 
@@ -34,7 +34,7 @@ Przepływ pracy modelu uczenia maszynowego jest zwykle następujący:
 
 1. **Pakiet** — po znalezieniu zadowalającego przebiegu Zarejestruj trwały model w **rejestrze modelu**.
 
-1. **Sprawdź poprawność** - **zapytania** o zarejestrowane metryki z bieżącego i przeszłego uruchomienia. Jeśli metryki nie wskazują żądanego wyniku, pętla Wróć do kroku 1 i wykonuje iterację w skryptach.
+1. **Sprawdź poprawność**  -  **Wykonaj zapytanie dotyczące eksperymentu** pod kątem zarejestrowanych metryk z bieżącego i przeszłego uruchomienia. Jeśli metryki nie wskazują żądanego wyniku, pętla Wróć do kroku 1 i wykonuje iterację w skryptach.
 
 1. **Wdróż** — opracowuje skrypt oceniania, który używa modelu i **wdraża model** jako **usługę sieci Web** na platformie Azure lub na **IoT Edge urządzenie**.
 
@@ -48,7 +48,7 @@ Użyj tych narzędzi dla Azure Machine Learning:
 + Korzystanie z usługi w dowolnym środowisku R z [zestawem SDK Azure Machine Learning dla języka r](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + Automatyzuj działania uczenia maszynowego za pomocą [interfejsu wiersza polecenia Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli).
 + Użyj programu [Azure Machine Learning Designer (wersja zapoznawcza)](concept-designer.md) , aby wykonać etapy przepływu pracy bez pisania kodu.
-
++ [Akcelerator rozwiązań wielu modeli](https://aka.ms/many-models) (wersja zapoznawcza) jest oparty na Azure Machine Learning i umożliwia uczenie, obsługę setek lub nawet tysięcy modeli uczenia maszynowego oraz zarządzanie nimi.
 
 > [!NOTE]
 > Chociaż w tym artykule opisano warunki i pojęcia używane przez Azure Machine Learning, nie zdefiniowano warunków i koncepcji dla platformy Azure. Aby uzyskać więcej informacji na temat terminologii platformy Azure, zobacz [słownik Microsoft Azure](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
@@ -58,9 +58,9 @@ Użyj tych narzędzi dla Azure Machine Learning:
 * [Działanie](#activities)
 * [Workspace](#workspaces)
     * [Eksperymenty](#experiments)
-        * [Run](#runs) 
+        * [Uruchom](#runs) 
             * [Uruchom konfigurację](#run-configurations)
-            * [Zdjęcie](#snapshots)
+            * [Migawka](#snapshots)
             * [Śledzenie git](#github-tracking-and-integration)
             * [Rejestrowanie](#logging)
     * [Potoki uczenia maszynowego](#ml-pipelines)
@@ -182,7 +182,7 @@ Aby ułatwić uczenie modeli przy użyciu popularnych struktur, Klasa szacowania
 
 W przypadku zadań PyTorch, TensorFlow i łańcucha, Azure Machine Learning również udostępnia odpowiednie [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)i [łańcucha](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) szacowania, aby uprościć korzystanie z tych platform.
 
-Aby uzyskać więcej informacji zobacz następujące artykuły:
+Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 * [Uczenie modeli ml z szacowania](how-to-train-ml-models.md).
 * [Pytorch modele uczenia głębokiego na dużą skalę w Azure Machine Learning](how-to-train-pytorch.md).
@@ -222,7 +222,7 @@ Dowiedz się więcej o [wystąpieniach obliczeniowych](concept-compute-instance.
 
 **Azure Machine Learning zestawy** danych (wersja zapoznawcza) ułatwiają uzyskiwanie dostępu i pracę z danymi. Zestawy danych zarządzają danymi w różnych scenariuszach, takich jak szkolenia modeli i tworzenie potoku. Za pomocą zestawu SDK Azure Machine Learning można uzyskać dostęp do magazynu bazowego, eksplorować dane i zarządzać cyklem życia różnych definicji zestawu danych.
 
-Zestawy danych udostępniają metody pracy z danymi w popularnych formatach, np. przy `from_delimited_files()` użyciu `to_pandas_dataframe()`lub.
+Zestawy danych udostępniają metody pracy z danymi w popularnych formatach, np. przy użyciu `from_delimited_files()` lub `to_pandas_dataframe()` .
 
 Aby uzyskać więcej informacji, zobacz [Tworzenie i Rejestrowanie zestawów danych Azure Machine Learning](how-to-create-register-datasets.md).  Aby uzyskać więcej przykładów użycia zestawów danych, zobacz [przykładowe notesy](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/datasets-tutorial).
 

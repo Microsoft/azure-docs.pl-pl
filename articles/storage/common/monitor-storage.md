@@ -5,31 +5,32 @@ author: normesta
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 5564634471045838dae3344dc883b6fdc203711e
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.custom: monitoring
+ms.openlocfilehash: c8125001b5960a0bf770e8e015ad757a277629ea
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722923"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684906"
 ---
-# <a name="monitoring-azure-storage"></a>Monitorowanie usługi Azure Storage
+# <a name="monitor-azure-storage"></a>Monitorowanie usługi Azure Storage
 
 Jeśli masz krytyczne aplikacje i procesy biznesowe, które opierają się na zasobach platformy Azure, chcesz monitorować te zasoby pod kątem ich dostępności, wydajności i operacji. W tym artykule opisano dane monitorowania, które są generowane przez usługę Azure Storage, oraz sposób używania funkcji Azure Monitor do analizowania alertów dotyczących tych danych.
 
 > [!NOTE]
-> Dzienniki usługi Azure Storage w Azure Monitor są w publicznej wersji zapoznawczej i są dostępne do testowania w wersji zapoznawczej we wszystkich regionach chmury publicznej. Aby zarejestrować się w wersji zapoznawczej, zobacz [Tę stronę](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).  Ta wersja zapoznawcza umożliwia korzystanie z dzienników obiektów BLOB (w tym Azure Data Lake Storage Gen2), plików, kolejek, tabel, kont usługi Premium Storage w ramach kont magazynu ogólnego przeznaczenia w wersji 1 i w wersji 2. Klasyczne konta magazynu nie są obsługiwane.
+> Dzienniki usługi Azure Storage w Azure Monitor są w publicznej wersji zapoznawczej i są dostępne do testowania wersji zapoznawczej we wszystkich regionach chmury publicznej. Aby zarejestrować się w wersji zapoznawczej, zobacz [Tę stronę](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). Ta wersja zapoznawcza umożliwia korzystanie z dzienników obiektów BLOB (w tym Azure Data Lake Storage Gen2), plików, kolejek, tabel, kont magazynu w warstwie Premium w celu ogólnego przeznaczenia w wersji 1 i w wersji 2. Klasyczne konta magazynu nie są obsługiwane.
 
 ## <a name="monitor-overview"></a>Przegląd monitora
 
-Na stronie **Przegląd** w Azure Portal poszczególnych zasobów magazynu znajduje się krótki widok użycia zasobów, w tym jego żądanie i opłaty godzinowe. Jest to przydatne informacje, ale dostępna jest tylko niewielka ilość danych monitorowania. Niektóre z tych danych są zbierane automatycznie i są dostępne do analizy zaraz po utworzeniu zasobu magazynu. Dodatkowe typy zbierania danych można włączyć za pomocą jakiejś konfiguracji.
+Na stronie **Przegląd** w Azure Portal poszczególnych zasobów magazynu znajduje się krótki widok użycia zasobów, na przykład żądania i rozliczenia godzinowe. Te informacje są przydatne, ale dostępna jest tylko niewielka ilość danych monitorowania. Niektóre z tych danych są zbierane automatycznie i są dostępne do analizy zaraz po utworzeniu zasobu magazynu. Dodatkowe typy zbierania danych można włączyć za pomocą jakiejś konfiguracji.
 
 ## <a name="what-is-azure-monitor"></a>Co to jest Azure Monitor?
-Usługa Azure Storage tworzy dane monitorowania za pomocą [Azure monitor](../../azure-monitor/overview.md) , który jest pełną usługą monitorowania stosu na platformie Azure, która oferuje pełny zestaw funkcji do monitorowania zasobów platformy Azure, a także zasobów w innych chmurach i lokalnych. 
+Usługa Azure Storage tworzy dane monitorowania za pomocą [Azure monitor](../../azure-monitor/overview.md), który jest pełną usługą monitorowania stosu na platformie Azure. Azure Monitor oferuje pełny zestaw funkcji służących do monitorowania zasobów i zasobów platformy Azure w innych chmurach i lokalnych. 
 
-Rozpocznij od artykułu [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../../azure-monitor/insights/monitor-azure-resource.md) , w którym opisano następujące kwestie:
+Aby dowiedzieć się więcej na temat Azure Monitor, zobacz [monitorowanie zasobów platformy Azure przy użyciu Azure monitor](../../azure-monitor/insights/monitor-azure-resource.md). W tym artykule opisano następujące zagadnienia:
 
 - Co to jest Azure Monitor?
 - Koszty związane z monitorowaniem
@@ -37,71 +38,71 @@ Rozpocznij od artykułu [monitorowanie zasobów platformy Azure za pomocą Azure
 - Konfigurowanie zbierania danych
 - Standardowe narzędzia na platformie Azure na potrzeby analizowania danych monitorowania i powiadamiania o nich
 
-Poniższe sekcje dotyczą tego artykułu, opisując określone dane zebrane z usługi Azure Storage i dostarczając przykłady służące do konfigurowania zbierania danych i analizowania tych danych za pomocą narzędzi platformy Azure.
+Poniższe sekcje dotyczą tego artykułu, opisując szczegółowe dane zebrane z usługi Azure Storage. Przykłady pokazują, jak skonfigurować zbieranie danych i analizować je za pomocą narzędzi platformy Azure.
 
-## <a name="monitoring-data-from-azure-storage"></a>Monitorowanie danych z usługi Azure Storage
+## <a name="monitor-data-from-azure-storage"></a>Monitorowanie danych z usługi Azure Storage
 
-Usługa Azure Storage zbiera te same dane monitorowania, jak inne zasoby platformy Azure, które są opisane w temacie [monitorowanie danych z zasobów platformy Azure](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). Szczegółowe informacje o dziennikach i metrykach utworzonych przez usługę Azure Storage można znaleźć w temacie [Informacje o danych monitorowania usługi Azure Storage](monitor-storage-reference.md) .
+Usługa Azure Storage zbiera te same dane monitorowania jak inne zasoby platformy Azure, które są opisane w temacie [monitorowanie danych z zasobów platformy Azure](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). Aby uzyskać więcej informacji na temat dzienników i metryk utworzonych przez usługę Azure Storage, zobacz [Informacje o danych monitorowania usługi Azure Storage](monitor-storage-reference.md).
 
 Metryki i dzienniki w Azure Monitor obsługują tylko Azure Resource Manager kont magazynu. Azure Monitor nie obsługuje klasycznych kont magazynu. Jeśli chcesz użyć metryk lub dzienników na klasycznym koncie magazynu, musisz przeprowadzić migrację do konta magazynu Azure Resource Manager. Zobacz [Migrowanie do Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
 
-Jeśli chcesz, możesz nadal korzystać z klasycznych metryk i dzienników. W rzeczywistości klasyczne metryki i dzienniki są dostępne równolegle z metrykami i dziennikami w Azure Monitor. Obsługa będzie obowiązywać do momentu zakończenia usługi Azure Storage w ramach starszych metryk i dzienników. 
+Jeśli chcesz, możesz nadal korzystać z klasycznych metryk i dzienników. W rzeczywistości klasyczne metryki i dzienniki są dostępne równolegle z metrykami i dziennikami w Azure Monitor. Obsługa będzie obowiązywać do momentu zakończenia usługi Azure Storage w ramach starszych metryk i dzienników.
 
 ### <a name="logs-in-azure-monitor-preview"></a>Dzienniki w Azure Monitor (wersja zapoznawcza)
 
-Wpisy dziennika są tworzone tylko wtedy, gdy istnieją żądania skierowane do punktu końcowego usługi. Na przykład jeśli konto magazynu ma aktywność w swoim punkcie końcowym obiektu BLOB, ale nie znajduje się w jego punktach końcowych tabeli lub kolejki, zostanie utworzony tylko dziennik dotyczący usługi BLOB. Dzienniki usługi Azure Storage zawierają szczegółowe informacje na temat żądań zakończonych powodzeniem i zakończonych niepowodzeniem w usłudze magazynu. Tych informacji można używać na potrzeby monitorowania poszczególnych żądań i diagnozowania problemów z usługą magazynu. Żądania są rejestrowane na podstawie najlepszego wysiłku.
+Wpisy dziennika są tworzone tylko wtedy, gdy istnieją żądania skierowane do punktu końcowego usługi. Na przykład jeśli konto magazynu ma aktywność w swoim punkcie końcowym obiektu BLOB, ale nie znajduje się w jego punktach końcowych tabeli lub kolejki, tworzone są tylko dzienniki odnoszące się do usługi BLOB Service. Dzienniki usługi Azure Storage zawierają szczegółowe informacje na temat żądań zakończonych powodzeniem i zakończonych niepowodzeniem w usłudze magazynu. Tych informacji można używać na potrzeby monitorowania poszczególnych żądań i diagnozowania problemów z usługą magazynu. Żądania są rejestrowane na podstawie najlepszego wysiłku.
 
-#### <a name="logging-authenticated-requests"></a>Rejestrowanie żądań uwierzytelnionych
+#### <a name="log-authenticated-requests"></a>Rejestruj uwierzytelnione żądania
 
  Rejestrowane są następujące typy żądań uwierzytelnionych:
 
 - Żądania zakończone powodzeniem
 - Żądania zakończone niepowodzeniem, w tym błędy limitu czasu, ograniczania przepustowości, sieci, autoryzacji i inne błędy
-- Żądania przy użyciu sygnatury dostępu współdzielonego (SAS) lub protokołu OAuth, w tym żądania zakończone niepowodzeniem i zakończone powodzeniem
-- Żądania danych analitycznych (klasyczne dane dziennika w kontenerze **$Logs** i dane metryk klas w tabelach **$Metric** )
+- Żądania używające sygnatury dostępu współdzielonego (SAS) lub OAuth, w tym żądania zakończone niepowodzeniem i zakończone powodzeniem
+- Żądania danych analitycznych (klasyczne dane dziennika w **$Logs** kontenera i danych metryk klas w tabelach **$Metric** )
 
-Żądania wykonywane przez samą usługę magazynu, takie jak tworzenie lub usuwanie dziennika, nie są rejestrowane. Pełna lista zarejestrowanych danych jest udokumentowana w temacie [zarejestrowane operacje magazynu i komunikaty o stanie](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) oraz [format dziennika magazynu](monitor-storage-reference.md) .
+Żądania wykonywane przez samą usługę magazynu, takie jak tworzenie lub usuwanie dziennika, nie są rejestrowane. Aby uzyskać pełną listę zarejestrowanych danych, zobacz [zarejestrowane operacje magazynu i komunikaty o stanie](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) oraz [format dziennika magazynu](monitor-storage-reference.md).
 
-#### <a name="logging-anonymous-requests"></a>Rejestrowanie żądań anonimowych
+#### <a name="log-anonymous-requests"></a>Rejestruj anonimowe żądania
 
  Rejestrowane są następujące typy żądań anonimowych:
 
 - Żądania zakończone powodzeniem
 - Błędy serwera
-- Błędy przekroczenia limitu czasu dla klienta i serwera
-- Żądania GET zakończone niepowodzeniem z kodem błędu 304 (Nie zmodyfikowano)
+- Błędy limitu czasu dla klienta i serwera
+- Żądania GET zakończone niepowodzeniem z kodem błędu 304 (nie zmodyfikowano)
 
-Wszystkie inne Nieudane żądania anonimowe nie są rejestrowane. Pełna lista zarejestrowanych danych jest udokumentowana w temacie [zarejestrowane operacje magazynu i komunikaty o stanie](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) oraz [format dziennika magazynu](monitor-storage-reference.md) .
+Wszystkie inne Nieudane żądania anonimowe nie są rejestrowane. Aby uzyskać pełną listę zarejestrowanych danych, zobacz [zarejestrowane operacje magazynu i komunikaty o stanie](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) oraz [format dziennika magazynu](monitor-storage-reference.md).
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
-Metryki platformy i dziennik aktywności są zbierane automatycznie, ale należy utworzyć ustawienie diagnostyczne, aby zbierać dzienniki zasobów lub przesyłać je dalej poza Azure Monitor. Zobacz [Tworzenie ustawień diagnostycznych, aby zbierać dzienniki platformy i metryki na platformie Azure](../../azure-monitor/platform/diagnostic-settings.md) w celu uzyskania szczegółowego procesu tworzenia ustawień diagnostycznych przy użyciu Azure Portal, interfejsu wiersza polecenia lub programu PowerShell.
+Metryki platformy i dziennik aktywności są zbierane automatycznie, ale należy utworzyć ustawienie diagnostyczne, aby zbierać dzienniki zasobów lub przesyłać je dalej poza Azure Monitor. Aby proces tworzenia ustawień diagnostycznych przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure lub programu PowerShell, zobacz [Tworzenie ustawień diagnostycznych w celu zbierania dzienników platformy i metryk na platformie Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
-Podczas tworzenia ustawień diagnostycznych należy wybrać typ magazynu, dla którego chcesz włączyć dzienniki (obiekt BLOB, kolejka, tabela, plik). W przypadku utworzenia ustawienia diagnostycznego w Azure Portal, można wybrać zasób z listy. Jeśli używasz programu PowerShell lub interfejsu wiersza polecenia platformy Azure, musisz użyć identyfikatora zasobu typu magazyn. Identyfikator zasobu można znaleźć w Azure Portal, otwierając stronę **Właściwości** konta magazynu.
+Podczas tworzenia ustawienia diagnostycznego wybierz typ magazynu, dla którego chcesz włączyć dzienniki, takie jak obiekt BLOB, kolejka, tabela lub plik. W przypadku utworzenia ustawienia diagnostycznego w Azure Portal można wybrać zasób z listy. Jeśli używasz programu PowerShell lub interfejsu wiersza polecenia platformy Azure, musisz użyć identyfikatora zasobu typu magazyn. Identyfikator zasobu można znaleźć w Azure Portal, otwierając stronę **Właściwości** konta magazynu.
 
-Należy również określić kategorie operacji do zbierania dzienników. Kategorie usługi Azure Storage są wymienione w poniższej tabeli:
+Należy również określić kategorie operacji, dla których mają być zbierane dzienniki. Kategorie usługi Azure Storage są wymienione w tej tabeli.
 
 | Kategoria | Opis |
 |:---|:---|
-| StorageRead | Operacje odczytu w obiektach Blob.  |
+| StorageRead | Operacje odczytu w obiektach Blob. |
 | StorageWrite | Operacje zapisu w obiektach Blob. |
 | StorageDelete | Operacje usuwania obiektów BLOB. |
 
-## <a name="analyzing-metric-data"></a>Analizowanie danych metryki
+## <a name="analyze-metric-data"></a>Analizowanie danych metryki
 
-Metryki usługi Azure Storage można analizować za pomocą metryk z innych usług platformy Azure za pomocą Eksploratora metryk. Otwórz Eksploratora metryk, wybierając **metryki** z menu **Azure monitor** . Aby uzyskać szczegółowe informacje na temat korzystania z tego narzędzia, zobacz [Rozpoczynanie pracy z usługą Azure Eksplorator metryk](../../azure-monitor/platform/metrics-getting-started.md) . 
+Metryki usługi Azure Storage można analizować za pomocą metryk z innych usług platformy Azure, korzystając z Eksplorator metryk. Otwórz Eksplorator metryk, wybierając **metryki** z menu **Azure monitor** . Aby uzyskać szczegółowe informacje na temat korzystania z tego narzędzia, zobacz [Rozpoczynanie pracy z usługą Azure Eksplorator metryk](../../azure-monitor/platform/metrics-getting-started.md). 
 
-Poniższy przykład pokazuje, jak wyświetlić **transakcje** na poziomie konta.
+Ten przykład pokazuje sposób wyświetlania **transakcji** na poziomie konta.
 
-![zrzut ekranu przedstawiający dostęp do metryk w Azure Portal](./media/monitor-storage/access-metrics-portal.png)
+![Zrzut ekranu przedstawiający dostęp do metryk w Azure Portal](./media/monitor-storage/access-metrics-portal.png)
 
-W przypadku metryk obsługujących Wymiary można filtrować metrykę z odpowiednią wartością wymiaru. Poniższy przykład pokazuje, jak wyświetlić **transakcje** na poziomie konta w ramach określonej operacji, wybierając wartości dla wymiaru **nazwa interfejsu API** .
+W przypadku metryk, które obsługują wymiary, można filtrować metrykę przy użyciu żądanej wartości wymiaru. Ten przykład pokazuje, jak wyświetlić **transakcje** na poziomie konta w określonej operacji, wybierając wartości dla wymiaru **nazwa interfejsu API** .
 
-![zrzut ekranu przedstawiający dostęp do metryk z wymiarem w Azure Portal](./media/monitor-storage/access-metrics-portal-with-dimension.png)
+![Zrzut ekranu przedstawiający dostęp do metryk z wymiarem w Azure Portal](./media/monitor-storage/access-metrics-portal-with-dimension.png)
 
 Aby uzyskać pełną listę wymiarów obsługiwanych przez usługę Azure Storage, zobacz [Dimension Metrics](monitor-storage-reference.md#metrics-dimensions).
 
-Wszystkie metryki usługi Azure Storage znajdują się w następujących obszarach nazw:
+Wszystkie metryki usługi Azure Storage znajdują się w następujących przestrzeniach nazw:
 
 - Microsoft. Storage/storageAccounts
 - Microsoft. Storage/storageAccounts/blobServices
@@ -109,21 +110,21 @@ Wszystkie metryki usługi Azure Storage znajdują się w następujących obszara
 - Microsoft. Storage/storageAccounts/queueServices
 - Microsoft. Storage/storageAccounts/tableServices
 
-Aby uzyskać listę wszystkich Azure Monitor metryki pomocy technicznej (w tym Azure Storage), zobacz [Azure monitor obsługiwane metryki](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+Aby uzyskać listę wszystkich Azure Monitor metryki pomocy technicznej, w tym usługi Azure Storage, zobacz [Azure monitor obsługiwane metryki](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
 
 
 ### <a name="access-metrics"></a>Metryki dostępu
 
 > [!TIP]
-> Aby wyświetlić przykłady interfejsu wiersza polecenia platformy Azure lub platformy .NET, wybierz odpowiednią kartę poniżej.
+> Aby wyświetlić przykłady interfejsu wiersza polecenia platformy Azure lub platformy .NET, wybierz odpowiednie karty wymienione w tym miejscu.
 
-### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 #### <a name="list-the-metric-definition"></a>Lista definicji metryk
 
-Można wyświetlić listę definicji metryk konta magazynu lub pojedynczej usługi magazynu, takiej jak obiekt BLOB, plik, tabela lub usługa kolejki. Użyj polecenia cmdlet [Get-AzMetricDefinition](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricdefinition?view=azps-3.3.0) .
+Można wyświetlić listę definicji metryk konta magazynu lub poszczególnych usług magazynu, takich jak obiekt BLOB, plik, tabela lub usługa kolejki. Użyj polecenia cmdlet [Get-AzMetricDefinition](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricdefinition?view=azps-3.3.0) .
 
-W tym przykładzie Zastąp `<resource-ID>` symbol ZASTĘPCZy identyfikatorem zasobu całego konta magazynu lub identyfikatorem zasobu pojedynczej usługi magazynu, takim jak obiekt BLOB, plik, tabela lub usługa kolejki. Te identyfikatory zasobów można znaleźć na stronach **Właściwości** konta magazynu na Azure Portal.
+W tym przykładzie Zastąp `<resource-ID>` symbol zastępczy identyfikatorem zasobu całego konta magazynu lub identyfikatorem zasobu pojedynczej usługi magazynu, takim jak obiekt BLOB, plik, tabela lub usługa kolejki. Te identyfikatory zasobów można znaleźć na stronach **Właściwości** konta magazynu w Azure Portal.
 
 ```powershell
    $resourceId = "<resource-ID>"
@@ -132,7 +133,7 @@ W tym przykładzie Zastąp `<resource-ID>` symbol ZASTĘPCZy identyfikatorem zas
 
 #### <a name="read-metric-values"></a>Odczytaj wartości metryk
 
-Można odczytywać wartości metryk na poziomie konta magazynu lub pojedynczej usługi magazynu, takiej jak obiekt BLOB, plik, tabela lub usługa kolejki. Użyj polecenia cmdlet [Get-AzMetric](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric?view=azps-3.3.0) .
+Można odczytywać wartości metryk na poziomie konta magazynu lub poszczególnych usług magazynu, takich jak obiekt BLOB, plik, tabela lub usługa kolejki. Użyj polecenia cmdlet [Get-AzMetric](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric?view=azps-3.3.0) .
 
 ```powershell
    $resourceId = "<resource-ID>"
@@ -141,11 +142,11 @@ Można odczytywać wartości metryk na poziomie konta magazynu lub pojedynczej u
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-#### <a name="list-account-level-metric-definition"></a>Lista definicji metryki na poziomie konta
+#### <a name="list-the-account-level-metric-definition"></a>Utwórz listę definicji metryk na poziomie konta
 
-Można wyświetlić listę definicji metryk konta magazynu lub pojedynczej usługi magazynu, takiej jak obiekt BLOB, plik, tabela lub usługa kolejki. Użyj polecenia [AZ monitor Metric list-](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list-definitions) Definitions.
+Można wyświetlić listę definicji metryk konta magazynu lub poszczególnych usług magazynu, takich jak obiekt BLOB, plik, tabela lub usługa kolejki. Użyj polecenia [AZ monitor Metric list-](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list-definitions) Definitions.
  
-W tym przykładzie Zastąp `<resource-ID>` symbol ZASTĘPCZy identyfikatorem zasobu całego konta magazynu lub identyfikatorem zasobu pojedynczej usługi magazynu, takim jak obiekt BLOB, plik, tabela lub usługa kolejki. Te identyfikatory zasobów można znaleźć na stronach **Właściwości** konta magazynu na Azure Portal.
+W tym przykładzie Zastąp `<resource-ID>` symbol zastępczy identyfikatorem zasobu całego konta magazynu lub identyfikatorem zasobu pojedynczej usługi magazynu, takim jak obiekt BLOB, plik, tabela lub usługa kolejki. Te identyfikatory zasobów można znaleźć na stronach **Właściwości** konta magazynu w Azure Portal.
 
 ```azurecli-interactive
    az monitor metrics list-definitions --resource <resource-ID>
@@ -153,7 +154,7 @@ W tym przykładzie Zastąp `<resource-ID>` symbol ZASTĘPCZy identyfikatorem zas
 
 #### <a name="read-account-level-metric-values"></a>Odczytaj wartości metryk na poziomie konta
 
-Można odczytać wartości metryk konta magazynu lub pojedynczej usługi magazynu, takiej jak obiekt BLOB, plik, tabela lub usługa kolejki. Użyj polecenia [AZ monitor Metric list](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list) .
+Można odczytać wartości metryk konta magazynu lub poszczególnych usług magazynu, takich jak obiekt BLOB, plik, tabela lub usługa kolejki. Użyj polecenia [AZ monitor Metric list](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list) .
 
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
@@ -161,15 +162,15 @@ Można odczytać wartości metryk konta magazynu lub pojedynczej usługi magazyn
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
-Azure Monitor udostępnia [zestaw .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) do odczytywania definicji metryk i wartości. [Przykładowy kod](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) pokazuje, jak używać zestawu SDK z innymi parametrami. Aby uzyskać metryki `0.18.0-preview` magazynu, należy użyć wersji lub nowszej.
+Azure Monitor udostępnia [zestaw .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) do odczytywania definicji metryk i wartości. [Przykładowy kod](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) pokazuje, jak używać zestawu SDK z innymi parametrami. Aby `0.18.0-preview` uzyskać metryki magazynu, należy użyć lub nowszej wersji.
  
-W tych przykładach Zastąp `<resource-ID>` symbol ZASTĘPCZy identyfikatorem zasobu całego konta magazynu lub identyfikatorem zasobu pojedynczej usługi magazynu, takim jak obiekt BLOB, plik, tabela lub usługa kolejki. Te identyfikatory zasobów można znaleźć na stronach **Właściwości** konta magazynu na Azure Portal.
+W tych przykładach Zastąp `<resource-ID>` symbol zastępczy identyfikatorem zasobu całego konta magazynu lub identyfikatorem zasobu pojedynczej usługi magazynu, takim jak obiekt BLOB, plik, tabela lub usługa kolejki. Te identyfikatory zasobów można znaleźć na stronach **Właściwości** konta magazynu w Azure Portal.
 
-Zastąp `<subscription-ID>` zmienną identyfikatorem subskrypcji.  Aby uzyskać `<tenant-ID>`wskazówki dotyczące uzyskiwania wartości dla,, i `<application-ID>` `<AccessKey>`, zobacz [How to: Use the Portal, aby utworzyć aplikację usługi Azure AD i nazwę główną usługi, która może uzyskiwać dostęp do zasobów](https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/). 
+Zastąp `<subscription-ID>` ZMIENNĄ identyfikatorem subskrypcji. Aby uzyskać wskazówki dotyczące uzyskiwania wartości dla `<tenant-ID>` , `<application-ID>` i `<AccessKey>` , zobacz [Korzystanie z portalu do tworzenia aplikacji usługi Azure AD i nazwy głównej usługi, która może uzyskiwać dostęp do zasobów](https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/). 
 
-#### <a name="list-account-level-metric-definition"></a>Lista definicji metryki na poziomie konta
+#### <a name="list-the-account-level-metric-definition"></a>Utwórz listę definicji metryk na poziomie konta
 
-W poniższych przykładach pokazano, jak wyświetlić listę metryk na poziomie konta:
+Poniższy przykład pokazuje, jak wyświetlić definicję metryki na poziomie konta:
 
 ```csharp
     public static async Task ListStorageMetricDefinition()
@@ -246,11 +247,11 @@ Poniższy przykład pokazuje, jak odczytywać `UsedCapacity` dane na poziomie ko
 
 ```
 
-#### <a name="read-multi-dimensional-metric-values"></a>Odczytaj wartości wielowymiarowych metryk
+#### <a name="read-multidimensional-metric-values"></a>Odczytaj wartości wielowymiarowe metryki
 
-W przypadku metryk wielowymiarowych należy zdefiniować filtr metadanych, jeśli chcesz odczytać dane metryki dla określonej wartości wymiaru.
+W przypadku metryk wielowymiarowych należy zdefiniować filtry metadanych, jeśli chcesz odczytywać dane metryk dla określonych wartości wymiarów.
 
-Poniższy przykład pokazuje, jak odczytać dane metryki z obsługą wielowymiarowego:
+Poniższy przykład pokazuje, jak odczytywać dane metryki z obsługą wielowymiarową metryki:
 
 ```csharp
     public static async Task ReadStorageMetricValueTest()
@@ -301,40 +302,40 @@ Poniższy przykład pokazuje, jak odczytać dane metryki z obsługą wielowymiar
 
 ---
 
-## <a name="analyzing-log-data"></a>Analizowanie danych dziennika
+## <a name="analyze-log-data"></a>Analizowanie danych dzienników
 
 Można uzyskać dostęp do dzienników zasobów jako obiektów BLOB na koncie magazynu, jako dane zdarzenia lub za pomocą zapytań analitycznych dzienników.
 
-Szczegółowe informacje o polach, które pojawiają się w tych dziennikach, można znaleźć w temacie [Informacje o danych monitorowania usługi Azure Storage](monitor-storage-reference.md) .
+Aby uzyskać szczegółowe informacje na temat pól, które pojawiają się w tych dziennikach, zobacz [dokumentacja danych monitorowania usługi Azure Storage](monitor-storage-reference.md).
 
 > [!NOTE]
-> Dzienniki usługi Azure Storage w Azure Monitor są w publicznej wersji zapoznawczej i są dostępne do testowania w wersji zapoznawczej we wszystkich regionach chmury publicznej. Aby zarejestrować się w wersji zapoznawczej, zobacz [Tę stronę](https://www.microsoft.com).  Ta wersja zapoznawcza umożliwia korzystanie z dzienników obiektów BLOB (w tym Azure Data Lake Storage Gen2), plików, kolejek, tabel, kont usługi Premium Storage w ramach kont magazynu ogólnego przeznaczenia w wersji 1 i w wersji 2. Klasyczne konta magazynu nie są obsługiwane.
+> Dzienniki usługi Azure Storage w Azure Monitor są w publicznej wersji zapoznawczej i są dostępne do testowania wersji zapoznawczej we wszystkich regionach chmury publicznej. Aby zarejestrować się w wersji zapoznawczej, zobacz [Tę stronę](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). Ta wersja zapoznawcza umożliwia korzystanie z dzienników obiektów BLOB (w tym Azure Data Lake Storage Gen2), plików, kolejek, tabel, kont magazynu w warstwie Premium w celu ogólnego przeznaczenia w wersji 1 i w wersji 2. Klasyczne konta magazynu nie są obsługiwane.
 
 ### <a name="access-logs-in-a-storage-account"></a>Dostęp do dzienników na koncie magazynu
 
-Dzienniki są wyświetlane jako obiekty blob przechowywane w kontenerze na docelowym koncie magazynu. Dane są zbierane i przechowywane w pojedynczym obiekcie BLOB jako ładunek JSON rozdzielany wierszami. Nazwa obiektu BLOB jest zgodna z następującą konwencją nazewnictwa:
+Dzienniki są wyświetlane jako obiekty blob przechowywane w kontenerze na docelowym koncie magazynu. Dane są zbierane i przechowywane w pojedynczym obiekcie BLOB jako ładunek JSON rozdzielany wierszami. Nazwa obiektu BLOB jest zgodna z tą konwencją nazewnictwa:
 
 `https://<destination-storage-account>.blob.core.windows.net/insights-logs-<storage-operation>/resourceId=/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<source-storage-account>/blobServices/default/y=<year>/m=<month>/d=<day>/h=<hour>/m=<minute>/PT1H.json`
 
-Przykład:
+Oto przykład:
 
 `https://mylogstorageaccount.blob.core.windows.net/insights-logs-storagewrite/resourceId=/subscriptions/`<br>`208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/blobServices/default/y=2019/m=07/d=30/h=23/m=12/PT1H.json`
 
-### <a name="access-logs-in-event-hub"></a>Dostęp do dzienników w centrum zdarzeń
+### <a name="access-logs-in-an-event-hub"></a>Dostęp do dzienników w centrum zdarzeń
 
-Dzienniki wysyłane do centrum zdarzeń nie są przechowywane jako plik, ale można sprawdzić, czy centrum zdarzeń otrzymało informacje dziennika. W Azure Portal przejdź do centrum zdarzeń, a następnie sprawdź, czy liczba **przychodzących komunikatów** jest większa od zera. 
+Dzienniki wysyłane do centrum zdarzeń nie są przechowywane jako plik, ale można sprawdzić, czy centrum zdarzeń otrzymało informacje dziennika. W Azure Portal przejdź do centrum zdarzeń i sprawdź, czy liczba **przychodzących komunikatów** jest większa od zera. 
 
 ![Dzienniki inspekcji](media/monitor-storage/event-hub-log.png)
 
-Możesz uzyskać dostęp do danych dziennika, które są wysyłane do centrum zdarzeń, i je odczytywać, korzystając z informacji o zabezpieczeniach i narzędzi do monitorowania. Aby uzyskać więcej informacji, zobacz [co można zrobić przy użyciu danych monitorowania wysyłanych do centrum zdarzeń?](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub).
+Możesz uzyskiwać dostęp do danych dziennika, które są wysyłane do centrum zdarzeń, i je odczytywać, korzystając z informacji o zabezpieczeniach i narzędzi do monitorowania. Aby uzyskać więcej informacji, zobacz [co można zrobić przy użyciu danych monitorowania wysyłanych do centrum zdarzeń?](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub).
 
-### <a name="access-logs-in-log-analytics-workspace"></a>Dostęp do dzienników w obszarze roboczym Log Analytics
+### <a name="access-logs-in-a-log-analytics-workspace"></a>Dostęp do dzienników w obszarze roboczym Log Analytics
 
-Dostęp do dzienników wysyłanych do obszaru roboczego Log Analytics można uzyskać przy użyciu zapytań dziennika Azure Monitor.
+Można uzyskać dostęp do dzienników wysyłanych do obszaru roboczego Log Analytics przy użyciu zapytań dziennika Azure Monitor.
 
-Zobacz Rozpoczynanie [pracy z log Analytics w Azure monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
+Aby uzyskać więcej informacji, zobacz Rozpoczynanie [pracy z log Analytics w Azure monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
 
-Dane są przechowywane w poniższych tabelach.
+Dane są przechowywane w tych tabelach.
 
 | Tabela | Opis |
 |:---|:---|
@@ -345,11 +346,11 @@ Dane są przechowywane w poniższych tabelach.
 
 ### <a name="azure-storage-log-analytics-queries-in-azure-monitor"></a>Log Analytics zapytań usługi Azure Storage w Azure Monitor
 
-Poniżej przedstawiono niektóre zapytania, które można wprowadzić na pasku wyszukiwania **przeszukiwania dzienników** , aby ułatwić monitorowanie kont usługi Azure Storage. Te zapytania działają w [nowym języku](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+Poniżej przedstawiono niektóre zapytania, które można wprowadzić na pasku **przeszukiwania dzienników** , aby ułatwić monitorowanie kont usługi Azure Storage. Te zapytania działają w [nowym języku](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
 
-Poniżej znajdują się zapytania, których można użyć do monitorowania kont usługi Azure Storage.
+Użyj tych zapytań, aby ułatwić monitorowanie kont usługi Azure Storage:
 
-* Lista 10 najczęstszych błędów w ciągu ostatnich 3 dni.
+* Aby wyświetlić listę 10 najczęstszych błędów w ciągu ostatnich trzech dni.
 
     ```Kusto
     StorageBlobLogs
@@ -357,7 +358,7 @@ Poniżej znajdują się zapytania, których można użyć do monitorowania kont 
     | summarize count() by StatusText
     | top 10 by count_ desc
     ```
-* Aby wyświetlić 10 najważniejszych operacji, które powodują najwięcej błędów w ciągu ostatnich 3 dni.
+* Aby wyświetlić 10 najważniejszych operacji, które spowodowały najwięcej błędów w ciągu ostatnich trzech dni.
 
     ```Kusto
     StorageBlobLogs
@@ -365,7 +366,7 @@ Poniżej znajdują się zapytania, których można użyć do monitorowania kont 
     | summarize count() by OperationName
     | top 10 by count_ desc
     ```
-* Aby wyświetlić 10 najważniejszych operacji z najdłuższym opóźnieniem zakończonym w ciągu ostatnich 3 dni.
+* Aby wyświetlić 10 najważniejszych operacji z najdłuższym opóźnieniem zakończonym w ciągu ostatnich trzech dni.
 
     ```Kusto
     StorageBlobLogs
@@ -373,21 +374,21 @@ Poniżej znajdują się zapytania, których można użyć do monitorowania kont 
     | top 10 by DurationMs desc
     | project TimeGenerated, OperationName, DurationMs, ServerLatencyMs, ClientLatencyMs = DurationMs - ServerLatencyMs
     ```
-* Aby wyświetlić listę wszystkich operacji powodujących błędy ograniczania po stronie serwera w ciągu ostatnich 3 dni.
+* Aby wyświetlić listę wszystkich operacji, które spowodowały błędy ograniczania wydajności po stronie serwera w ciągu ostatnich trzech dni.
 
     ```Kusto
     StorageBlobLogs
     | where TimeGenerated > ago(3d) and StatusText contains "ServerBusy"
     | project TimeGenerated, OperationName, StatusCode, StatusText
     ```
-* Aby wyświetlić listę wszystkich żądań z dostępem anonimowym w ciągu ostatnich 3 dni.
+* Aby wyświetlić listę wszystkich żądań z dostępem anonimowym w ciągu ostatnich trzech dni.
 
     ```Kusto
     StorageBlobLogs
     | where TimeGenerated > ago(3d) and AuthenticationType == "Anonymous"
     | project TimeGenerated, OperationName, AuthenticationType, Uri
     ```
-* Aby utworzyć wykres kołowy operacji użytych w ciągu ostatnich 3 dni.
+* Aby utworzyć wykres kołowy operacji używanych w ciągu ostatnich trzech dni.
     ```Kusto
     StorageBlobLogs
     | where TimeGenerated > ago(3d)
@@ -395,15 +396,15 @@ Poniżej znajdują się zapytania, których można użyć do monitorowania kont 
     | sort by count_ desc 
     | render piechart
     ```
-## <a name="faq"></a>Często zadawane pytania
+## <a name="faq"></a>Najczęściej zadawane pytania
 
 **Czy usługa Azure Storage obsługuje metryki dla dysków Managed Disks lub niezarządzanych?**
 
-Nie, usługa Azure COMPUTE obsługuje metryki na dyskach. Aby uzyskać więcej informacji, zobacz [artykuł](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/) .
+Nie. Usługa Azure COMPUTE obsługuje metryki na dyskach. Aby uzyskać więcej informacji, zobacz [metryki na dysku dla dysków zarządzanych i niezarządzanych](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/).
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Informacje o danych monitorowania usługi Azure Storage](monitor-storage-reference.md) dotyczące dokumentacji dzienników i metryk utworzonych przez usługę Azure Storage.
-- [Monitorowanie zasobów platformy Azure za pomocą Azure monitor](../../azure-monitor/insights/monitor-azure-resource.md) , aby uzyskać szczegółowe informacje na temat monitorowania zasobów platformy Azure.
-- [Migracja metryk usługi Azure Storage](./storage-metrics-migration.md)
+- Aby uzyskać informacje na temat dzienników i metryk utworzonych przez usługę Azure Storage, zobacz [Informacje o danych monitorowania usługi Azure Storage](monitor-storage-reference.md).
+- Aby uzyskać szczegółowe informacje na temat monitorowania zasobów platformy Azure, zobacz [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../../azure-monitor/insights/monitor-azure-resource.md).
+- Aby uzyskać więcej informacji na temat migracji metryk, zobacz [migracja metryk usługi Azure Storage](./storage-metrics-migration.md).
 

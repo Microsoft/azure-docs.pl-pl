@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3c917912e50c864f49abd5afcd28df4633702f0f
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 0eadb0f7ca6aad635d20148f63a204506a821d75
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993711"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681604"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurowanie eksperymentów zautomatyzowanego uczenia maszynowego w języku Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -117,15 +117,16 @@ Zobacz [instrukcje](how-to-train-with-datasets.md#mount-files-to-remote-compute-
 
 ## <a name="train-and-validation-data"></a>Dane dotyczące uczenia i walidacji
 
-Można określić oddzielne zestawy pouczenia i walidacji bezpośrednio `AutoMLConfig` w konstruktorze.
+Można określić oddzielne zestawy pouczenia i walidacji bezpośrednio w `AutoMLConfig` konstruktorze.
 
 ### <a name="k-folds-cross-validation"></a>K — zgięcie krzyżowe
 
-Użyj `n_cross_validations` ustawienia, aby określić liczbę operacji sprawdzania krzyżowego. Zestaw danych szkoleniowych zostanie losowo podzielony na `n_cross_validations` zgięcia o równym rozmiarze. Podczas każdego zaokrąglania krzyżowego, jeden ze zgięciów będzie używany do walidacji modelu przeszkolonego na pozostałych zgięciach. Ten proces jest powtarzany `n_cross_validations` do momentu, aż każde zgięcie zostanie użyte raz jako zestaw walidacji. Zostaną zgłoszone średnie wyniki `n_cross_validations` dla wszystkich rund, a odpowiedni model zostanie przeszukany w całym zestawie danych szkoleniowych.
+Użyj `n_cross_validations` Ustawienia, aby określić liczbę operacji sprawdzania krzyżowego. Zestaw danych szkoleniowych zostanie losowo podzielony na `n_cross_validations` zgięcia o równym rozmiarze. Podczas każdego zaokrąglania krzyżowego, jeden ze zgięciów będzie używany do walidacji modelu przeszkolonego na pozostałych zgięciach. Ten proces jest powtarzany do `n_cross_validations` momentu, aż każde zgięcie zostanie użyte raz jako zestaw walidacji. Zostaną zgłoszone średnie wyniki dla wszystkich `n_cross_validations` rund, a odpowiedni model zostanie przeszukany w całym zestawie danych szkoleniowych.
 
+Dowiedz się więcej o tym, jak autoML stosuje krzyżowe sprawdzanie poprawności, aby [uniknąć nadmiernego dopasowania modeli](concept-manage-ml-pitfalls.md#prevent-over-fitting).
 ### <a name="monte-carlo-cross-validation-repeated-random-sub-sampling"></a>Monte Carlo, krzyżowe sprawdzanie poprawności (powtarza losowe Podpróbkowanie)
 
-Użyj `validation_size` , aby określić procentowy zestaw danych szkoleniowych, który ma być używany do walidacji `n_cross_validations` , i Użyj, aby określić liczbę operacji krzyżowych. Podczas każdego zaokrąglania krzyżowego, podzbiór rozmiaru `validation_size` będzie losowo wybierany do walidacji modelu przeszkolonego na pozostałych danych. Na koniec zostaną zgłoszone średnie wyniki `n_cross_validations` dla wszystkich rund, a odpowiedni model zostanie przeszukany w całym zestawie danych szkoleniowych. Monte Carlo nie jest obsługiwana w przypadku prognozowania szeregów czasowych.
+Użyj, `validation_size` Aby określić procentowy zestaw danych szkoleniowych, który ma być używany do walidacji, i Użyj, `n_cross_validations` Aby określić liczbę operacji krzyżowych. Podczas każdego zaokrąglania krzyżowego, podzbiór rozmiaru `validation_size` będzie losowo wybierany do walidacji modelu przeszkolonego na pozostałych danych. Na koniec zostaną zgłoszone średnie wyniki dla wszystkich `n_cross_validations` rund, a odpowiedni model zostanie przeszukany w całym zestawie danych szkoleniowych. Monte Carlo nie jest obsługiwana w przypadku prognozowania szeregów czasowych.
 
 ### <a name="custom-validation-dataset"></a>Niestandardowy zestaw danych walidacji
 
@@ -135,7 +136,7 @@ Użyj niestandardowego zestawu danych walidacji, jeśli podział losowy nie jest
 
 Następnie określ, gdzie będzie szkolony model. Zautomatyzowany eksperyment szkoleniowy do uczenia maszynowego można uruchomić na następujących opcjach obliczeniowych:
 * Komputer lokalny, taki jak pulpit lokalny lub laptop, zazwyczaj w przypadku małego zestawu danych i nadal w fazie eksploracji.
-* Maszyna zdalna w chmurze — [Azure Machine Learning zarządzane obliczenia](concept-compute-target.md#amlcompute) to usługa zarządzana, która umożliwia uczenie modeli uczenia maszynowego w klastrach maszyn wirtualnych platformy Azure.
+* Maszyna zdalna w chmurze — [Azure Machine Learning zarządzane obliczenia](concept-compute-target.md#amlcompute) to usługa zarządzana, która umożliwia uczenie modeli uczenia maszynowego w klastrach maszyn wirtualnych platformy Azure. 
 
   Zobacz tę [witrynę usługi GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) , aby poznać przykłady notesów z lokalnymi i zdalnymi obiektami docelowymi obliczeniowymi.
 
@@ -176,9 +177,9 @@ Oto niektóre przykłady:
       n_cross_validations=5)
    ```
 
-Trzy różne `task` wartości parametrów (trzeci typ zadania to `forecasting`, i używa podobnej puli algorytmu jako `regression` zadania) określają listę modeli do zastosowania. Użyj parametrów `whitelist` lub `blacklist` , aby kontynuować modyfikowanie iteracji z dostępnymi modelami do dołączania lub wykluczania. Listę obsługiwanych modeli można znaleźć w [klasie SupportedModels](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels) ([Klasyfikacja](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification), [prognozowanie](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.forecasting)i [regresja](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression)).
+Trzy różne `task` wartości parametrów (trzeci typ zadania to `forecasting` , i używa podobnej puli algorytmu jako `regression` zadania) określają listę modeli do zastosowania. Użyj `whitelist` parametrów lub, `blacklist` Aby kontynuować modyfikowanie iteracji z dostępnymi modelami do dołączania lub wykluczania. Listę obsługiwanych modeli można znaleźć w [klasie SupportedModels](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels) ([Klasyfikacja](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.classification), [prognozowanie](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.forecasting)i [regresja](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.constants.supportedmodels.regression)).
 
-Aby uniknąć błędów przekroczenia limitu czasu eksperymentów, automatyczna usługa weryfikacji ML `experiment_timeout_minutes` będzie wymagała ustawienia co najmniej 15 minut lub 60 minut, jeśli rozmiar wiersza według kolumny przekracza 10 000 000.
+Aby uniknąć błędów przekroczenia limitu czasu eksperymentów, automatyczna usługa weryfikacji ML będzie wymagała `experiment_timeout_minutes` Ustawienia co najmniej 15 minut lub 60 minut, jeśli rozmiar wiersza według kolumny przekracza 10 000 000.
 
 ### <a name="primary-metric"></a>Metryka podstawowa
 Metryka podstawowa określa metrykę, która ma być używana podczas uczenia modelu na potrzeby optymalizacji. Dostępne metryki, które można wybrać, są określane przez wybrany typ zadania, a w poniższej tabeli przedstawiono prawidłowe Podstawowe metryki dla każdego typu zadania.
@@ -197,7 +198,7 @@ Zapoznaj się z określonymi definicjami tych metryk w temacie [Omówienie zauto
 
 W każdym automatycznym doświadczeniu uczenia maszynowego Twoje dane są [automatycznie skalowane i znormalizowane](concept-automated-ml.md#preprocess) , aby ułatwić *określonym* algorytmom, które są wrażliwe na funkcje różnej skali.  Można jednak również włączyć dodatkowe cechowania, takie jak brakujące wartości, które nie przypisywania, kodowania i transformacji. [Dowiedz się więcej na temat tego, co obejmuje cechowania](how-to-use-automated-ml-for-ml-models.md#featurization).
 
-Podczas konfigurowania eksperymentów można włączyć ustawienie `featurization`zaawansowane. W poniższej tabeli przedstawiono zaakceptowane ustawienia dla cechowania w [klasie AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
+Podczas konfigurowania eksperymentów można włączyć ustawienie zaawansowane `featurization` . W poniższej tabeli przedstawiono zaakceptowane ustawienia dla cechowania w [klasie AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
 
 |Konfiguracja cechowania | Opis |
 | ------------- | ------------- |
@@ -209,7 +210,7 @@ Podczas konfigurowania eksperymentów można włączyć ustawienie `featurizatio
 > Zautomatyzowane kroki cechowania uczenia maszynowego (normalizacja funkcji, obsługa brakujących danych, konwertowanie tekstu na liczbowe itp.) staje się częścią modelu źródłowego. Korzystając z modelu dla prognoz, te same kroki cechowania stosowane podczas uczenia są automatycznie stosowane do danych wejściowych.
 
 ### <a name="time-series-forecasting"></a>Prognozowanie szeregów czasowych
-Zadanie szeregów `forecasting` czasowych wymaga dodatkowych parametrów w obiekcie Configuration:
+Zadanie szeregów czasowych `forecasting` wymaga dodatkowych parametrów w obiekcie Configuration:
 
 1. `time_column_name`: Wymagany parametr, który definiuje nazwę kolumny w danych szkoleniowych zawierających prawidłową serię czasową.
 1. `max_horizon`: Określa długość czasu, który ma być przewidywany na podstawie okresowości danych szkoleniowych. Na przykład jeśli masz dane szkoleniowe z codziennymi ziarnami czasowymi, możesz określić, jak daleko w dni ma być nadany model.
@@ -250,10 +251,10 @@ automl_config = AutoMLConfig(task = 'forecasting',
 
 Modele kompletów są domyślnie włączone i pojawiają się jako ostateczne iteracje przebiegu w zautomatyzowanym przebiegu uczenia maszynowego. Obecnie obsługiwane metody kompletu są głosune i ułożone na stosie. Głosowanie jest implementowane jako odmowa głosu przy użyciu średniej ważonej, a implementacja stosu korzysta z dwóch implementacji warstwy, w której pierwsza warstwa ma takie same modele jak zestaw do głosowania, a drugi model warstwy jest używany do znajdowania optymalnej kombinacji modeli z pierwszej warstwy. Jeśli używasz modeli ONNX **lub** włączono wyjaśnienie modelu, stos zostanie wyłączony i będzie można używać tylko głosu.
 
-Istnieje wiele argumentów domyślnych, które mogą być podane jako `kwargs` `AutoMLConfig` obiekt w celu zmiany domyślnego zachowania kompletności stosu.
+Istnieje wiele argumentów domyślnych, które mogą być podane jako `kwargs` obiekt w `AutoMLConfig` celu zmiany domyślnego zachowania kompletności stosu.
 
-* `stack_meta_learner_type`: meta-uczyć się model przeszkolony w danych wyjściowych poszczególnych modeli heterogenicznych. Domyślne `LogisticRegression` meta uczy są przeznaczone do zadań klasyfikacji (lub `LogisticRegressionCV` w przypadku włączenia wzajemnej walidacji) oraz `ElasticNet` dla zadań regresji/prognozowania ( `ElasticNetCV` lub w przypadku włączenia weryfikacji krzyżowej). Ten parametr może być jednym `LogisticRegression`z następujących ciągów:, `LogisticRegressionCV`, `LightGBMClassifier` `ElasticNet` `ElasticNetCV`,,, `LightGBMRegressor`, lub. `LinearRegression`
-* `stack_meta_learner_train_percentage`: określa proporcję zestawu szkoleniowego (podczas wybierania typu uczenia i walidacji), które mają zostać zarezerwowane do uczenia się. Wartość domyślna to `0.2`.
+* `stack_meta_learner_type`: meta-uczyć się model przeszkolony w danych wyjściowych poszczególnych modeli heterogenicznych. Domyślne meta uczy są `LogisticRegression` przeznaczone do zadań klasyfikacji (lub `LogisticRegressionCV` w przypadku włączenia wzajemnej walidacji) oraz `ElasticNet` dla zadań regresji/prognozowania (lub w `ElasticNetCV` przypadku włączenia weryfikacji krzyżowej). Ten parametr może być jednym z następujących ciągów:,,,,, `LogisticRegression` `LogisticRegressionCV` `LightGBMClassifier` `ElasticNet` `ElasticNetCV` `LightGBMRegressor` , lub `LinearRegression` .
+* `stack_meta_learner_train_percentage`: określa proporcję zestawu szkoleniowego (podczas wybierania typu uczenia i walidacji), które mają zostać zarezerwowane do uczenia się. Wartość domyślna to `0.2` .
 * `stack_meta_learner_kwargs`: parametry opcjonalne do przekazania do inicjatora meta. Te parametry i typy parametrów stanowią duplikaty parametrów i typów parametrów z odpowiedniego konstruktora modelu i są przekazywane do konstruktora modelu.
 
 Poniższy kod przedstawia przykład określania zachowania niestandardowego w `AutoMLConfig` obiekcie.
@@ -282,7 +283,7 @@ automl_classifier = AutoMLConfig(
         )
 ```
 
-Szkolenia w ramach usługi jest domyślnie włączone, ale można je wyłączyć za pomocą parametrów `enable_voting_ensemble` logicznych `enable_stack_ensemble` i.
+Szkolenia w ramach usługi jest domyślnie włączone, ale można je wyłączyć za pomocą `enable_voting_ensemble` `enable_stack_ensemble` parametrów logicznych i.
 
 ```python
 automl_classifier = AutoMLConfig(
@@ -313,7 +314,7 @@ project_folder = './sample_projects/automl-classification'
 experiment = Experiment(ws, experiment_name)
 ```
 
-Prześlij eksperyment, aby uruchomić i wygenerować model. Przekaż `AutoMLConfig` do `submit` metody w celu wygenerowania modelu.
+Prześlij eksperyment, aby uruchomić i wygenerować model. Przekaż `AutoMLConfig` do metody w `submit` celu wygenerowania modelu.
 
 ```python
 run = experiment.submit(automl_config, show_output=True)
@@ -321,13 +322,13 @@ run = experiment.submit(automl_config, show_output=True)
 
 >[!NOTE]
 >Zależności są najpierw instalowane na nowym komputerze.  Przed wyświetleniem danych wyjściowych może upłynąć do 10 minut.
->`True` Ustawienie `show_output` powoduje, że dane wyjściowe są wyświetlane w konsoli programu.
+>Ustawienie `show_output` powoduje `True` , że dane wyjściowe są wyświetlane w konsoli programu.
 
 ### <a name="exit-criteria"></a><a name="exit"></a>Kryteria wyjścia
 
 Istnieje kilka opcji, które można zdefiniować, aby zakończyć eksperyment.
 1. Brak kryteriów: Jeśli nie określisz żadnych parametrów zakończenia, eksperyment będzie kontynuowany do momentu, gdy nie zostanie wprowadzony żaden kolejny postęp w głównej metryki.
-1. Zakończ po upływie długiego czasu: `experiment_timeout_minutes` użycie w ustawieniach pozwala określić, jak długo w minutach ma być kontynuowane eksperymentowanie.
+1. Zakończ po upływie długiego czasu: użycie `experiment_timeout_minutes` w ustawieniach pozwala określić, jak długo w minutach ma być kontynuowane eksperymentowanie.
 1. Zakończ po osiągnięciu wyniku: użycie `experiment_exit_score` spowoduje zakończenie eksperymentu po osiągnięciu podstawowego wyniku metryki.
 
 ### <a name="explore-model-metrics"></a>Eksplorowanie metryk modelu
@@ -337,7 +338,7 @@ Możesz wyświetlić wyniki szkolenia w widżecie lub inline, jeśli jesteś w n
 ## <a name="understand-automated-ml-models"></a>Zrozumienie zautomatyzowanych modeli ML
 
 Każdy model wygenerowany przy użyciu zautomatyzowanej ML obejmuje następujące kroki:
-+ Zautomatyzowana funkcja inżynierii ( `"featurization": 'auto'`Jeśli)
++ Zautomatyzowana funkcja inżynierii (Jeśli `"featurization": 'auto'` )
 + Skalowanie/Normalizacja i algorytm przy użyciu wartości parametru
 
 Czynimy to przezroczyste, aby uzyskać te informacje z fitted_model danych wyjściowych z zautomatyzowanej ML.
@@ -350,7 +351,7 @@ best_run, fitted_model = automl_run.get_output()
 
 ### <a name="automated-feature-engineering"></a>Zautomatyzowana funkcja inżynierii
 
-Zapoznaj się z listą procesu przetwarzania wstępnego i [zautomatyzowanej funkcji](concept-automated-ml.md#preprocess) , która występuje, gdy `"featurization": 'auto'`.
+Zapoznaj się z listą procesu przetwarzania wstępnego i [zautomatyzowanej funkcji](concept-automated-ml.md#preprocess) , która występuje, gdy `"featurization": 'auto'` .
 
 Rozważmy następujący przykład:
 + Istnieją cztery funkcje wejściowe: A (numeryczne), B (numeryczne), C (liczbowe), D (DateTime)
@@ -360,7 +361,7 @@ Rozważmy następujący przykład:
 
 Użyj tych 2 interfejsów API w pierwszym kroku dopasowanego modelu, aby poznać więcej.  Zapoznaj się z [tym przykładowym notesem](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
 
-+ Interfejs API 1 `get_engineered_feature_names()` : zwraca listę nazw przytworzonych funkcji.
++ Interfejs API 1: `get_engineered_feature_names()` zwraca listę nazw przytworzonych funkcji.
 
   Użycie:
   ```python
@@ -421,7 +422,7 @@ Użyj tych 2 interfejsów API w pierwszym kroku dopasowanego modelu, aby poznać
    |Przekształcenia|Lista transformacji zastosowanych do funkcji wejściowych do generowania przetworzonych funkcji.|
    
 ### <a name="customize-feature-engineering"></a>Dostosuj Inżynieria funkcji
-Aby dostosować Inżynieria funkcji, `"featurization": FeaturizationConfig`Określ.
+Aby dostosować Inżynieria funkcji, określ  `"featurization": FeaturizationConfig` .
 
 Obsługiwane dostosowania obejmują:
 
@@ -507,7 +508,7 @@ LogisticRegression
 
 Modele wytwarzane za pomocą zautomatyzowanej ML wszystkie mają obiekty otoki, które są dublowane z klasy pochodzenia Open Source. Większość obiektów otoki modelu klasyfikacji zwróconych przez zautomatyzowaną `predict_proba()` tablicę implementuje funkcję, która akceptuje przykład danych macierzy podobnej do tablicy lub rozrzedzonej (wartości X), i zwraca tablicę n-wymiarową każdego przykładu i odpowiadającą jej wartość prawdopodobieństwa klasy.
 
-Przy założeniu, że pobrano najlepszy przebieg i zamontowany model przy użyciu tych samych wywołań z `predict_proba()` powyższych, można wywołać bezpośrednio z poziomu dopasowanego `X_test` modelu, dostarczając przykład w odpowiednim formacie, w zależności od typu modelu.
+Przy założeniu, że pobrano najlepszy przebieg i zamontowany model przy użyciu tych samych wywołań z powyższych, można wywołać `predict_proba()` bezpośrednio z poziomu dopasowanego modelu, dostarczając `X_test` przykład w odpowiednim formacie, w zależności od typu modelu.
 
 ```python
 best_run, fitted_model = automl_run.get_output()
@@ -528,6 +529,7 @@ Aby uzyskać ogólne informacje na temat sposobu włączenia wyjaśnień modelu 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o tym [, jak i gdzie wdrożyć model](how-to-deploy-and-where.md).
++ Dowiedz się więcej o tym [, jak i gdzie wdrożyć model](how-to-deploy-and-where.md).
 
-Dowiedz się więcej o tym, [Jak szkolić model regresji z automatycznym uczeniem maszynowym](tutorial-auto-train-models.md) lub [jak korzystać z funkcji automatycznego uczenia maszynowego w ramach zasobu zdalnego](how-to-auto-train-remote.md).
++ Dowiedz się więcej o tym, [Jak szkolić model regresji z automatycznym uczeniem maszynowym](tutorial-auto-train-models.md) lub [jak korzystać z funkcji automatycznego uczenia maszynowego w ramach zasobu zdalnego](how-to-auto-train-remote.md).
++ Dowiedz się, jak uczenie wielu modeli za pomocą autoML w [akceleratorze rozwiązań wielu modeli](https://aka.ms/many-models).

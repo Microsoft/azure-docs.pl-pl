@@ -9,12 +9,13 @@ ms.date: 12/20/2019
 ms.author: normesta
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 8dc3c629830019a6c207c18f1783559e89512172
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.custom: monitoring
+ms.openlocfilehash: 9b4accd14785aedee06850d5a79dc9835086306a
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610976"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680376"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Kompleksowe rozwiązywanie problemów przy użyciu metryk i rejestrowania usługi Azure Storage, narzędzia AzCopy i narzędzia Message Analyzer
 
@@ -85,7 +86,7 @@ W tym samouczku będziemy używać analizatora komunikatów do pracy z trzema r�
 
 ### <a name="configure-server-side-logging-and-metrics"></a>Konfigurowanie rejestrowania i metryk po stronie serwera
 
-Najpierw będziemy musieli skonfigurować rejestrowanie i metryki usługi Azure Storage, aby umożliwić analizowanie danych ze strony serwisowej. Rejestrowanie i metryki można skonfigurować na różne sposoby — za pośrednictwem [Azure Portal](https://portal.azure.com)przy użyciu programu PowerShell lub programowo. Zobacz [Włączanie metryk](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) i [Włączanie rejestrowania](storage-analytics-logging.md#enable-storage-logging) , aby uzyskać szczegółowe informacje o konfigurowaniu rejestrowania i metryk.
+Najpierw będziemy musieli skonfigurować rejestrowanie i metryki usługi Azure Storage, aby umożliwić analizowanie danych ze strony serwisowej. Rejestrowanie i metryki można skonfigurować na różne sposoby — za pośrednictwem [Azure Portal](https://portal.azure.com)przy użyciu programu PowerShell lub programowo. Zobacz [Włączanie metryk](storage-analytics-metrics.md#enable-metrics-by-using-the-azure-portal) i [Włączanie rejestrowania](storage-analytics-logging.md#enable-storage-logging) , aby uzyskać szczegółowe informacje o konfigurowaniu rejestrowania i metryk.
 
 ### <a name="configure-net-client-side-logging"></a>Konfigurowanie rejestrowania po stronie klienta platformy .NET
 
@@ -141,9 +142,9 @@ Aby uzyskać więcej informacji na temat dodawania i dostosowywania wykresów me
 
 ## <a name="use-azcopy-to-copy-server-logs-to-a-local-directory"></a>Użyj AzCopy do kopiowania dzienników serwera do katalogu lokalnego
 
-Usługa Azure Storage zapisuje dane dziennika serwera w obiektach Blob, natomiast metryki są zapisywane w tabelach. Obiekty blob dziennika są dostępne w dobrze znanym `$logs` kontenerze dla konta magazynu. Obiekty blob dziennika są nazywane hierarchicznie według roku, miesiąca, dnia i godziny, dzięki czemu można łatwo zlokalizować zakres czasu, który chcesz zbadać. Na przykład na `storagesample` koncie kontener obiektów BLOB dziennika dla 01/02/2015, od 8-9 am, wynosi `https://storagesample.blob.core.windows.net/$logs/blob/2015/01/08/0800`. Poszczególne obiekty blob w tym kontenerze są nazywane sekwencyjnie, począwszy `000000.log`od.
+Usługa Azure Storage zapisuje dane dziennika serwera w obiektach Blob, natomiast metryki są zapisywane w tabelach. Obiekty blob dziennika są dostępne w dobrze znanym `$logs` kontenerze dla konta magazynu. Obiekty blob dziennika są nazywane hierarchicznie według roku, miesiąca, dnia i godziny, dzięki czemu można łatwo zlokalizować zakres czasu, który chcesz zbadać. Na przykład na `storagesample` koncie kontener obiektów BLOB dziennika dla 01/02/2015, od 8-9 am, wynosi `https://storagesample.blob.core.windows.net/$logs/blob/2015/01/08/0800` . Poszczególne obiekty blob w tym kontenerze są nazywane sekwencyjnie, począwszy od `000000.log` .
 
-Możesz użyć narzędzia wiersza polecenia AzCopy, aby pobrać te pliki dzienników po stronie serwera do wybranej lokalizacji na komputerze lokalnym. Na przykład można użyć poniższego polecenia, aby pobrać pliki dziennika dla operacji obiektu BLOB, które miały miejsce w dniu 2 stycznia 2015 do folderu `C:\Temp\Logs\Server`; Zamień `<storageaccountname>` na nazwę konta magazynu:
+Możesz użyć narzędzia wiersza polecenia AzCopy, aby pobrać te pliki dzienników po stronie serwera do wybranej lokalizacji na komputerze lokalnym. Na przykład można użyć poniższego polecenia, aby pobrać pliki dziennika dla operacji obiektu BLOB, które miały miejsce w dniu 2 stycznia 2015 do folderu `C:\Temp\Logs\Server` ; Zastąp `<storageaccountname>` nazwą swojego konta magazynu:
 
 ```azcopy
 azcopy copy 'http://<storageaccountname>.blob.core.windows.net/$logs/blob/2015/01/02' 'C:\Temp\Logs\Server'  --recursive
@@ -311,14 +312,14 @@ Teraz, gdy wiesz już, jak używać analizatora komunikatów do analizowania dan
 | Nieoczekiwane opóźnienia w dostarczaniu komunikatów w kolejce |AzureStorageClientDotNetV4. Description zawiera "ponawianie nieudanej operacji". |Klient |
 | Zwiększenie HTTP w wzrost percentthrottlingerror |Protokoły. Response. StatusCode = = 500 &#124;&#124; HTTP. Odpowiedź. StatusCode = = 503 |Sieć |
 | Zwiększ w wzrost percenttimeouterror |Protokoły. Odpowiedź. StatusCode = = 500 |Sieć |
-| Zwiększ w wzrost percenttimeouterror (wszystko) |* StatusCode = = 500 |Wszyscy |
+| Zwiększ w wzrost percenttimeouterror (wszystko) |* StatusCode = = 500 |Wszystko |
 | Zwiększ w wzrost percentnetworkerror |AzureStorageClientDotNetV4. EventLogEntry. Level < 2 |Klient |
 | Komunikaty HTTP 403 (Zabronione) |Protokoły. Odpowiedź. StatusCode = = 403 |Sieć |
 | Komunikaty HTTP 404 (Nie znaleziono) |Protokoły. Odpowiedź. StatusCode = = 404 |Sieć |
-| 404 (wszystkie) |* StatusCode = = 404 |Wszyscy |
+| 404 (wszystkie) |* StatusCode = = 404 |Wszystko |
 | Problem z autoryzacją sygnatury dostępu współdzielonego |AzureStorageLog. stanem żądania = = "SASAuthorizationError" |Sieć |
 | Komunikaty HTTP 409 (Konflikt) |Protokoły. Odpowiedź. StatusCode = = 409 |Sieć |
-| 409 (wszystkie) |* StatusCode = = 409 |Wszyscy |
+| 409 (wszystkie) |* StatusCode = = 409 |Wszystko |
 | Niskie PercentSuccess lub wpisy dziennika analizy zawierają operacje ze stanem transakcji ClientOtherErrors |AzureStorageLog. stanem żądania = = "ClientOtherError" |Serwer |
 | Ostrzeżenie nagle |((AzureStorageLog. EndToEndLatencyMS-AzureStorageLog. ServerLatencyMS) > (AzureStorageLog. ServerLatencyMS * 1,5)) oraz (AzureStorageLog. RequestPacketSize <1460) i (AzureStorageLog. EndToEndLatencyMS-AzureStorageLog. ServerLatencyMS >= 200) |Serwer |
 | Zakres czasu w dziennikach serwera i sieci |#Timestamp >= 2014-10-20T16:36:38 i #Timestamp <= 2014-10-20T16:36:39 |Serwer, Sieć |

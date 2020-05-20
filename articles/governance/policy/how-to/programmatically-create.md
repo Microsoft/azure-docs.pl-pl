@@ -1,14 +1,14 @@
 ---
 title: Programowe tworzenie zasad
 description: W tym artykule opisano sposób programowego tworzenia zasad i zarządzania nimi dla Azure Policy za pomocą interfejsu wiersza polecenia platformy Azure, Azure PowerShell i API REST.
-ms.date: 01/31/2019
+ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 08ed43a464d1dd7de8220428dbc1c61ce9fc3ad6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8ee87ecd9e7c636b5bb63c8e94be0e353acc3e13
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79264546"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682116"
 ---
 # <a name="programmatically-create-policies"></a>Programowe tworzenie zasad
 
@@ -72,7 +72,7 @@ Pierwszym krokiem w celu lepszego wglądu w zasoby jest utworzenie i przypisanie
    Polecenie tworzy definicję zasad o nazwie _konta magazynu inspekcji otwarte dla sieci publicznych_.
    Aby uzyskać więcej informacji na temat innych parametrów, których można użyć, zobacz [New-AzPolicyDefinition](/powershell/module/az.resources/new-azpolicydefinition).
 
-   Gdy jest wywoływana bez parametrów lokalizacji `New-AzPolicyDefinition` , domyślnie zapisuje definicję zasad w wybranej subskrypcji kontekstu sesji. Aby zapisać definicję w innej lokalizacji, użyj następujących parametrów:
+   Gdy jest wywoływana bez parametrów lokalizacji, `New-AzPolicyDefinition` domyślnie zapisuje definicję zasad w wybranej subskrypcji kontekstu sesji. Aby zapisać definicję w innej lokalizacji, użyj następujących parametrów:
 
    - Identyfikator **subskrypcji** — Zapisz w innej subskrypcji. Wymaga wartości _identyfikatora GUID_ .
    - **ManagementGroupName** — Zapisz w grupie zarządzania. Wymaga wartości _ciągu_ .
@@ -87,8 +87,8 @@ Pierwszym krokiem w celu lepszego wglądu w zasoby jest utworzenie i przypisanie
 
    Zastąp _ContosoRG_ nazwą zamierzonej grupy zasobów.
 
-   Parametr **SCOPE** w `New-AzPolicyAssignment` działaniu z grupą zarządzania, subskrypcją, grupą zasobów lub pojedynczym zasobem. Parametr używa pełnej ścieżki zasobu, która Właściwość **ResourceID** `Get-AzResourceGroup` zwraca wartość. Wzorzec dla **zakresu** dla każdego kontenera jest następujący:. Zastąp odpowiednio nazwę zasobu, nazwę grupy zasobów, Identyfikator subskrypcji i nazwę grupy zarządzania. `{rName}` `{rgName}` `{subId}` `{mgName}`
-   `{rType}`zostanie zastąpiony **typem zasobu** zasobu, na przykład `Microsoft.Compute/virtualMachines` dla maszyny wirtualnej.
+   Parametr **SCOPE** w `New-AzPolicyAssignment` działaniu z grupą zarządzania, subskrypcją, grupą zasobów lub pojedynczym zasobem. Parametr używa pełnej ścieżki zasobu, która Właściwość **ResourceID** `Get-AzResourceGroup` zwraca wartość. Wzorzec dla **zakresu** dla każdego kontenera jest następujący:. Zastąp `{rName}` `{rgName}` `{subId}` `{mgName}` odpowiednio nazwę zasobu, nazwę grupy zasobów, Identyfikator subskrypcji i nazwę grupy zarządzania.
+   `{rType}`zostanie zastąpiony **typem zasobu** zasobu, `Microsoft.Compute/virtualMachines` na przykład dla maszyny wirtualnej.
 
    - Zasoby`/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Grupa zasobów —`/subscriptions/{subId}/resourceGroups/{rgName}`
@@ -133,10 +133,10 @@ Aby utworzyć definicję zasad, należy wykonać poniższą procedurę.
 
    ```console
    # For defining a policy in a subscription
-   armclient PUT "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
+   armclient PUT "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2019-09-01" @<path to policy definition JSON file>
 
    # For defining a policy in a management group
-   armclient PUT "/providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2016-12-01" @<path to policy definition JSON file>
+   armclient PUT "/providers/Microsoft.Management/managementgroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/AuditStorageAccounts?api-version=2019-09-01" @<path to policy definition JSON file>
    ```
 
    Zastąp poprzednią wartość {Subscription} IDENTYFIKATORem subskrypcji lub {managementGroupId} IDENTYFIKATORem [grupy zarządzania](../../management-groups/overview.md).
@@ -145,7 +145,7 @@ Aby utworzyć definicję zasad, należy wykonać poniższą procedurę.
 
 Aby utworzyć przypisanie zasad i przypisać definicję zasad na poziomie grupy zasobów, należy wykonać czynności opisane w poniższej procedurze.
 
-1. Skopiuj poniższy fragment kodu JSON, aby utworzyć plik przydziału zasad JSON. Zastąp przykładowe informacje &lt; &gt; w symbolami własnymi wartościami.
+1. Skopiuj poniższy fragment kodu JSON, aby utworzyć plik przydziału zasad JSON. Zastąp przykładowe informacje w &lt; &gt; symbolami własnymi wartościami.
 
    ```json
    {
@@ -162,10 +162,10 @@ Aby utworzyć przypisanie zasad i przypisać definicję zasad na poziomie grupy 
 1. Utwórz przypisanie zasad, używając następującego wywołania:
 
    ```console
-   armclient PUT "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/Audit Storage Accounts Open to Public Networks?api-version=2017-06-01-preview" @<path to Assignment JSON file>
+   armclient PUT "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Authorization/policyAssignments/Audit Storage Accounts Open to Public Networks?api-version=2019-09-01" @<path to Assignment JSON file>
    ```
 
-   Zastąp przykładowe informacje &lt; &gt; w symbolami własnymi wartościami.
+   Zastąp przykładowe informacje w &lt; &gt; symbolami własnymi wartościami.
 
    Aby uzyskać więcej informacji na temat wykonywania wywołań HTTP do interfejsu API REST, zobacz [zasoby interfejsu API REST platformy Azure](/rest/api/resources/).
 
@@ -205,18 +205,18 @@ Aby utworzyć definicję zasad, należy wykonać czynności opisane w poniższej
    Polecenie tworzy definicję zasad o nazwie _konta magazynu inspekcji otwarte dla sieci publicznych_.
    Aby uzyskać więcej informacji na temat innych parametrów, których można użyć, zobacz [AZ Policy Definition Create](/cli/azure/policy/definition#az-policy-definition-create).
 
-   Gdy jest wywoływana bez parametrów lokalizacji `az policy definition creation` , domyślnie zapisuje definicję zasad w wybranej subskrypcji kontekstu sesji. Aby zapisać definicję w innej lokalizacji, użyj następujących parametrów:
+   Gdy jest wywoływana bez parametrów lokalizacji, `az policy definition creation` domyślnie zapisuje definicję zasad w wybranej subskrypcji kontekstu sesji. Aby zapisać definicję w innej lokalizacji, użyj następujących parametrów:
 
-   - **--subskrypcja** — Zapisz w innej subskrypcji. Wymaga wartości identyfikatora _GUID_ dla identyfikatora subskrypcji lub wartości _ciągu_ dla nazwy subskrypcji.
-   - **--Management-Group** -Save w grupie zarządzania. Wymaga wartości _ciągu_ .
+   - **subskrypcja** — Zapisz w innej subskrypcji. Wymaga wartości identyfikatora _GUID_ dla identyfikatora subskrypcji lub wartości _ciągu_ dla nazwy subskrypcji.
+   - **Zarządzanie — Grupa** — Zapisz w grupie zarządzania. Wymaga wartości _ciągu_ .
 
-1. Użyj następującego polecenia, aby utworzyć przypisanie zasad. Zastąp przykładowe informacje &lt; &gt; w symbolami własnymi wartościami.
+1. Użyj następującego polecenia, aby utworzyć przypisanie zasad. Zastąp przykładowe informacje w &lt; &gt; symbolami własnymi wartościami.
 
    ```azurecli-interactive
    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
    ```
 
-   Parametr **--SCOPE** w `az policy assignment create` programie współdziała z grupą zarządzania, subskrypcją, grupą zasobów lub pojedynczym zasobem. Parametr używa pełnej ścieżki zasobów. Wzorzec dla **zakresu** dla każdego kontenera jest następujący:. Zastąp odpowiednio nazwę zasobu, nazwę grupy zasobów, Identyfikator subskrypcji i nazwę grupy zarządzania. `{rName}` `{rgName}` `{subId}` `{mgName}` `{rType}`zostanie zastąpiony **typem zasobu** zasobu, na przykład `Microsoft.Compute/virtualMachines` dla maszyny wirtualnej.
+   Parametr **SCOPE** w `az policy assignment create` działaniu z grupą zarządzania, subskrypcją, grupą zasobów lub pojedynczym zasobem. Parametr używa pełnej ścieżki zasobów. Wzorzec dla **zakresu** dla każdego kontenera jest następujący:. Zastąp `{rName}` `{rgName}` `{subId}` `{mgName}` odpowiednio nazwę zasobu, nazwę grupy zasobów, Identyfikator subskrypcji i nazwę grupy zarządzania. `{rType}`zostanie zastąpiony **typem zasobu** zasobu, `Microsoft.Compute/virtualMachines` na przykład dla maszyny wirtualnej.
 
    - Zasoby`/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Grupa zasobów —`/subscriptions/{subID}/resourceGroups/{rgName}`

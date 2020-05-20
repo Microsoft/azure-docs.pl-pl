@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 05/17/2020
 ms.author: diberry
-ms.openlocfilehash: 653882db4b62d7731123faf7b177da44dbd74e3f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: abf149d621d283744a71e08ea4ac2199a1994d57
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584998"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680953"
 ---
 # <a name="add-prebuilt-models-for-common-usage-scenarios"></a>Dodaj wstępnie zbudowane modele dla typowych scenariuszy użycia
 
@@ -40,7 +40,7 @@ LUIS zawiera zestaw wstępnie skompilowanych modeli umożliwiających szybkie do
 
 1. Na stronie **intencje** wybierz pozycję **Dodaj prebudowany cel domeny** z paska narzędzi powyżej listy intencje.
 
-1. Wybierz opcję **Narzędzia. Cancel** w wyskakującym oknie dialogowym.
+1. Wybierz cel z okna dialogowego.
 
     > [!div class="mx-imgBorder"]
     > ![Dodaj wstępnie utworzony cel](./media/luis-prebuilt-domains/add-prebuilt-domain-intents.png)
@@ -61,13 +61,24 @@ LUIS zawiera zestaw wstępnie skompilowanych modeli umożliwiających szybkie do
 
 1. Wybierz pozycję **Done** (Gotowe). Po dodaniu jednostki nie ma potrzeby uczenia aplikacji.
 
+## <a name="add-a-prebuilt-domain-entity"></a>Dodawanie wstępnie skompilowanej jednostki domeny
+1. Zaloguj się do [portalu Luis](https://www.luis.ai)i wybierz swoją **subskrypcję** i **zasób tworzenia** , aby wyświetlić aplikacje przypisane do tego zasobu.
+1. Otwórz aplikację, wybierając jej nazwę na stronie **Moje aplikacje** .
+1. Wybierz **jednostki** z lewej strony.
+
+1. Na stronie **jednostki** wybierz pozycję **Dodaj prekompilowaną jednostkę domeny**.
+
+1. W oknie dialogowym **Dodawanie wstępnie utworzonych modeli domen** wybierz prekompilowaną jednostkę domeny.
+
+1. Wybierz pozycję **Done** (Gotowe). Po dodaniu jednostki nie ma potrzeby uczenia aplikacji.
+
 ## <a name="publish-to-view-prebuilt-model-from-prediction-endpoint"></a>Publikuj w celu wyświetlenia prekompilowanego modelu z poziomu punktu końcowego przewidywania
 
 Najprostszym sposobem wyświetlenia wartości prekompilowanego modelu jest zapytanie z opublikowanego punktu końcowego.
 
 ## <a name="entities-containing-a-prebuilt-entity-token"></a>Jednostki zawierające wstępnie utworzony token jednostki
 
-Jeśli masz zainstalowaną maszynę wymagającą wymaganej funkcji wstępnie skompilowanej jednostki, Dodaj podskładnik do jednostki, której dotyczy dana maszyna, a następnie Dodaj _wymaganą_ funkcję wstępnie skompilowanej jednostki.
+Jeśli masz jednostkę uczenia maszynowego wymagającą wymaganej funkcji wstępnie skompilowanej jednostki, Dodaj podjednostkę do jednostki Uczenie maszynowe, a następnie Dodaj _wymaganą_ funkcję wstępnie skompilowanej jednostki.
 
 ## <a name="next-steps"></a>Następne kroki
 > [!div class="nextstepaction"]

@@ -2,17 +2,17 @@
 title: Dobry przykład wyrażenia długości-LUIS
 description: Wypowiedzi to dane wejściowe od użytkownika, które Twoja aplikacja musi zinterpretować. Zbierz frazy, które będą wprowadzane przez użytkowników. Uwzględnij wyrażenia długości, które oznaczają te same czynności, ale są konstruowane inaczej niż długość słowa i umieszczanie wyrazów.
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 184038ff2758fbe7c5834682c82c082ef6661234
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/19/2020
+ms.openlocfilehash: 6a17416183762893432841c27124ec6a0f8a289d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592869"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83685275"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Dowiedz się, co to jest dobry wyrażenia długości dla aplikacji LUIS
 
-**Wyrażenia długości** są danymi wejściowymi od użytkownika, który musi być interpretowany przez aplikację. Aby przeprowadzić uczenie LUIS w celu wyodrębnienia z nich intencji i jednostek, ważne jest, aby przechwycić wiele różnych przykładowych wyrażenia długości dla każdego zamiaru. Proaktywne uczenie lub proces ciągłego uczenia się z nowymi wyrażenia długościami jest niezwykle istotny dla analizy maszynowej, która zapewnia LUIS.
+**Wyrażenia długości** są danymi wejściowymi od użytkownika, który musi być interpretowany przez aplikację. Aby przeprowadzić uczenie LUIS w celu wyodrębnienia z nich intencji i jednostek, ważne jest, aby przechwycić wiele różnych przykładowych wyrażenia długości dla każdego zamiaru. Proaktywne uczenie się lub proces ciągłego uczenia się z nowymi wyrażenia długościami jest niezwykle istotny dla analizy Machine-Learning, która zapewnia LUIS.
 
 Zbieraj wyrażenia długości, że użytkownicy będą wprowadzać. Uwzględnij wyrażenia długości, co oznacza, że są one takie same, ale są zbudowane na różne sposoby:
 
@@ -84,7 +84,7 @@ Ustaw ustawienia wersji za pośrednictwem portalu LUIS, w sekcji **Zarządzanie*
 
 ### <a name="word-forms"></a>Formularze programu Word
 
-Normalizacja **formularzy wyrazów** ignoruje różnice w wyrazach, które wykraczają poza katalog główny. Na przykład słowa `run` `running` i `runs` zmiany w oparciu o intensywność zleceń.
+Normalizacja **formularzy wyrazów** ignoruje różnice w wyrazach, które wykraczają poza katalog główny.
 
 <a name="utterance-normalization-for-diacritics-and-punctuation"></a>
 

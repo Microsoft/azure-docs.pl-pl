@@ -5,15 +5,15 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 03/11/2020
+ms.date: 05/18/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 0090f02382e024e5539383328b55d58798002d63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 19d0be6a032868c6683cd5b6bbfa7f07306171fb
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79117142"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683417"
 ---
 | Zasób | Podstawowy | Standardowa | Premium |
 |---|---|---|---|
@@ -24,15 +24,15 @@ ms.locfileid: "79117142"
 | Pobierz przepustowość<sup>2</sup> MB/s | 30 | 60 | 100 |
 | Przepustowość przekazywania<sup>2</sup> MB/s | 10 | 20 | 50 |
 | Elementy webhook | 2 | 10 | 500 |
-| Replikacja geograficzna | Brak | Brak | [Obsługiwane][geo-replication] |
-| Zaufanie do zawartości | Brak | Brak | [Obsługiwane][content-trust] |
-| Dostęp do sieci wirtualnej | Brak | Brak | [Wersja zapoznawcza][vnet] |
-| Integracja z linkiem prywatnym | Brak | Brak | [Wersja zapoznawcza][plink] |
-| Klucze zarządzane przez klienta | Brak | Brak | [Wersja zapoznawcza][cmk] |
-| Uprawnienia w zakresie repozytorium | Brak | Brak | [Wersja zapoznawcza][token]|
-| &bull;Żeton | Brak | Brak | 20 000 |
-| &bull;Mapy zakresu | Brak | Brak | 20 000 |
-| &bull;Repozytoria na mapę zakresu | Brak | Brak | 500 |
+| Replikacja geograficzna | Nie dotyczy | Nie dotyczy | [Obsługiwał][geo-replication] |
+| Zaufanie do zawartości | Nie dotyczy | Nie dotyczy | [Obsługiwał][content-trust] |
+| Prywatny link z prywatnymi punktami końcowymi | Nie dotyczy | Nie dotyczy | [Obsługiwał][plink] |
+| Dostęp do sieci wirtualnej punktu końcowego usługi | Nie dotyczy | Nie dotyczy | [Przeglądania][vnet] |
+| Klucze zarządzane przez klienta | Nie dotyczy | Nie dotyczy | [Obsługiwał][cmk] |
+| Uprawnienia w zakresie repozytorium | Nie dotyczy | Nie dotyczy | [Przeglądania][token]|
+| &bull;Żeton | Nie dotyczy | Nie dotyczy | 20 000 |
+| &bull;Mapy zakresu | Nie dotyczy | Nie dotyczy | 20 000 |
+| &bull;Repozytoria na mapę zakresu | Nie dotyczy | Nie dotyczy | 500 |
 
 
 <sup>1</sup> Określone limity magazynu to ilość *dołączonego* magazynu dla każdej warstwy. Opłata jest naliczana za dodatkową dzienną stawkę za GiB dla magazynu obrazów powyżej tych limitów. Aby uzyskać informacje o stawkach, zobacz [Cennik usługi Azure Container Registry][pricing].

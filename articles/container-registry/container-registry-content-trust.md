@@ -3,19 +3,19 @@ title: Zarządzaj podpisanymi obrazami
 description: Informacje o sposobie włączania zaufania zawartości dla usługi Azure Container Registry oraz wypychania i ściągania obrazów ze znakiem.
 ms.topic: article
 ms.date: 09/06/2019
-ms.openlocfilehash: ce1e9e5cce0de58703e69df8db14cfbf3ecf04f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 72d45301e1d8a5f29eda941bd39217082f5dc6ba
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78249927"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680495"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Zaufanie do zawartości w usłudze Azure Container Registry
 
 Azure Container Registry implementuje model [zaufania zawartości][docker-content-trust] platformy Docker, umożliwiając wypychanie i ściąganie podpisanych obrazów. Ten artykuł umożliwia rozpoczęcie włączania zaufania zawartości w rejestrach kontenerów.
 
 > [!NOTE]
-> Zaufanie zawartości to funkcja [jednostki SKU Premium](container-registry-skus.md) Azure Container Registry.
+> Zaufanie zawartości jest funkcją [warstwy usługi Premium](container-registry-skus.md) Azure Container Registry.
 
 ## <a name="how-content-trust-works"></a>Jak działa zaufanie do zawartości
 
@@ -38,7 +38,7 @@ Zaufanie do zawartości jest zarządzane przy użyciu zestawu kryptograficznych 
 
 Pierwszym krokiem jest włączenie zaufania do zawartości na poziomie rejestru. Gdy włączysz zaufanie do zawartości, klienci (użytkownicy lub usługi) będą mogli wypychać podpisane obrazy do Twojego rejestru. Włączenie zaufania do zawartości w rejestrze nie ogranicza użycia rejestru tylko do użytkowników z włączonym zaufaniem do zawartości. Użytkownicy bez włączonego zaufania do zawartości wciąż będą mogli używać Twojego rejestru w zwykły sposób. Jednak użytkownicy z włączony zaufaniem do zawartości w swoich klientach będą widzieć w Twoim rejestrze *tylko* podpisane obrazy.
 
-Aby włączyć zaufanie do zawartości dla rejestru, najpierw przejdź do rejestru w witrynie Azure Portal. W **obszarze zasady**wybierz pozycję**Zaoszczędź** **zawartość** > **włączona** > . Można również użyć polecenia [AZ ACR config Content-Trust Update][az-acr-config-content-trust-update] w interfejsie użytkownika platformy Azure.
+Aby włączyć zaufanie do zawartości dla rejestru, najpierw przejdź do rejestru w witrynie Azure Portal. W obszarze **zasady**wybierz **Content Trust**pozycję  >  **Enabled**  >  **Zaoszczędź**zawartość włączona. Można również użyć polecenia [AZ ACR config Content-Trust Update][az-acr-config-content-trust-update] w interfejsie użytkownika platformy Azure.
 
 ![Włączanie zaufania do zawartości dla rejestru w witrynie Azure Portal][content-trust-01-portal]
 
@@ -78,7 +78,7 @@ Szczegóły dotyczące przydzielania roli `AcrImageSigner` w witrynie Azure Port
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Przejdź do rejestru w Azure Portal, a następnie wybierz pozycję **Kontrola dostępu (IAM)** > **Dodaj przypisanie roli**. W obszarze **Dodawanie przypisania roli** wybierz pozycję `AcrImageSigner` w obszarze **Rola**, a następnie **wybierz** co najmniej jednego użytkownika lub jedną jednostkę usługi, po czym wybierz pozycję **Zapisz**.
+Przejdź do rejestru w Azure Portal, a następnie wybierz pozycję **Kontrola dostępu (IAM)**  >  **Dodaj przypisanie roli**. W obszarze **Dodawanie przypisania roli** wybierz pozycję `AcrImageSigner` w obszarze **Rola**, a następnie **wybierz** co najmniej jednego użytkownika lub jedną jednostkę usługi, po czym wybierz pozycję **Zapisz**.
 
 W tym przykładzie przypisano rolę `AcrImageSigner` dwóm jednostkom: jednostce usługi o nazwie „service-principal” i użytkownikowi o nazwie „Azure User”.
 
@@ -114,7 +114,7 @@ az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee 
 Identyfikator `<service principal ID>` może być identyfikatorem **appId** lub **objectId** bądź jedną z nazw **servicePrincipalName**. Aby uzyskać więcej informacji na temat pracy z jednostkami usługi i usługą Azure Container Registry, zobacz [Uwierzytelnianie w usłudze Azure Container Registry przy użyciu jednostek usługi](container-registry-auth-service-principal.md).
 
 > [!IMPORTANT]
-> Po zmianie ról Uruchom `az acr login` polecenie, aby odświeżyć lokalny token tożsamości dla interfejsu wiersza polecenia platformy Azure, aby nowe role zaczęły obowiązywać. Aby uzyskać informacje na temat weryfikowania ról dla tożsamości, zobacz [Zarządzanie dostępem do zasobów platformy Azure przy użyciu RBAC i interfejsu wiersza polecenia platformy Azure](../role-based-access-control/role-assignments-cli.md) i [Rozwiązywanie problemów z rolą RBAC dla zasobów platformy Azure](../role-based-access-control/troubleshooting.md).
+> Po zmianie ról Uruchom polecenie, `az acr login` Aby odświeżyć lokalny token tożsamości dla interfejsu wiersza polecenia platformy Azure, aby nowe role zaczęły obowiązywać. Aby uzyskać informacje na temat weryfikowania ról dla tożsamości, zobacz [Zarządzanie dostępem do zasobów platformy Azure przy użyciu RBAC i interfejsu wiersza polecenia platformy Azure](../role-based-access-control/role-assignments-cli.md) i [Rozwiązywanie problemów z rolą RBAC dla zasobów platformy Azure](../role-based-access-control/troubleshooting.md).
 
 ## <a name="push-a-trusted-image"></a>Wypychanie zaufanego obrazu
 
@@ -144,7 +144,7 @@ Po pierwszym użyciu polecenia `docker push` z włączonym zaufaniem do zawarto�
 
 ## <a name="pull-a-trusted-image"></a>Ściąganie zaufanego obrazu
 
-Aby ściągnąć zaufany obraz, włącz zaufanie do zawartości i uruchom polecenie `docker pull` jak zwykle. Do ściągania zaufanych obrazów `AcrPull` rola jest wystarczająca dla zwykłych użytkowników. Nie są wymagane żadne dodatkowe `AcrImageSigner` role, takie jak rola. Użytkownicy z włączonym zaufaniem do zawartości mogą ściągać tylko obrazy z podpisanymi tagami. Oto przykład ściągania podpisanego tagu:
+Aby ściągnąć zaufany obraz, włącz zaufanie do zawartości i uruchom polecenie `docker pull` jak zwykle. Do ściągania zaufanych obrazów `AcrPull` rola jest wystarczająca dla zwykłych użytkowników. Nie są wymagane żadne dodatkowe role, takie jak `AcrImageSigner` rola. Użytkownicy z włączonym zaufaniem do zawartości mogą ściągać tylko obrazy z podpisanymi tagami. Oto przykład ściągania podpisanego tagu:
 
 ```console
 $ docker pull myregistry.azurecr.io/myimage:signed
@@ -190,7 +190,7 @@ Jeśli utracisz dostęp do klucza głównego, utracisz dostęp do podpisanych ta
 > [!WARNING]
 > Wyłączenie i ponowne włączenie zaufania do zawartości w rejestrze spowoduje **usunięcie całości danych o zaufaniu dla wszystkich podpisanych tagów w każdym repozytorium w rejestrze**. Ta akcja jest nieodwracalna — usługa Azure Container Registry nie może odzyskać usuniętych danych o zaufaniu. Wyłączenie zaufania do zawartości nie powoduje usunięcia samych obrazów.
 
-Aby wyłączyć zaufanie do zawartości dla rejestru, przejdź do rejestru w witrynie Azure Portal. W obszarze **zasady**wybierz pozycję **zaufana** > zawartość**wyłączona** > **Zapisz**. Zostanie wyświetlone ostrzeżenie dotyczące utraty wszystkich podpisów w rejestrze. Wybierz przycisk **OK**, aby trwale usunąć wszystkie podpisy w rejestrze.
+Aby wyłączyć zaufanie do zawartości dla rejestru, przejdź do rejestru w witrynie Azure Portal. W obszarze **zasady**wybierz pozycję **zaufana zawartość**  >  **wyłączona**  >  **Zapisz**. Zostanie wyświetlone ostrzeżenie dotyczące utraty wszystkich podpisów w rejestrze. Wybierz przycisk **OK**, aby trwale usunąć wszystkie podpisy w rejestrze.
 
 ![Wyłączanie zaufania do zawartości dla rejestru w witrynie Azure Portal][content-trust-03-portal]
 

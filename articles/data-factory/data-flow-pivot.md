@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/30/2019
-ms.openlocfilehash: a58444f81f60b48f9c2c76f13257a6a2431158a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a0084c3e8185f615e7ac2a2b8c212f1ebf022c08
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686409"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683300"
 ---
 # <a name="pivot-transformation-in-mapping-data-flow"></a>Przekształcenie tabeli przestawnej w mapowaniu przepływu danych
 
@@ -27,7 +27,7 @@ Przekształcenie przestawne wymaga trzech różnych danych wejściowych: Grupuj 
 
 ### <a name="group-by"></a>Grupuj według
 
-![Grupuj według opcji](media/data-flow/pivot2.png "[Grupuj według opcji")
+![Grupuj według opcji](media/data-flow/pivot2.png "Grupuj według opcji")
 
 Wybierz kolumny, dla których mają zostać zagregowane przestawiane kolumny. Dane wyjściowe będą grupować wszystkie wiersze z tą samą grupą według wartości w jednym wierszu. Agregacja wykonana w kolumnie przestawnej będzie miała miejsce dla każdej grupy.
 
@@ -63,7 +63,7 @@ Poniższa ilustracja pomocy pokazuje, jak różne składniki Pivot współdział
 
 Jeśli w konfiguracji klucza przestawnego nie określono żadnych wartości, kolumny przestawne będą dynamicznie generowane w czasie wykonywania. Liczba przestawianych kolumn będzie równa liczbie unikatowych wartości klucza przestawnego pomnożonej przez liczbę kolumn tabeli przestawnej. Ponieważ może to być zmiana numeru, środowisko użytkownika nie będzie wyświetlało metadanych kolumn na karcie **Inspekcja** i nie będzie można propagować kolumn. Aby przekształcać te kolumny, użyj funkcji [wzorca kolumny](concepts-data-flow-column-pattern.md) w celu mapowania przepływu danych. 
 
-W przypadku ustawienia określonych wartości klucza przestawnego w metadanych. e nazwy kolumn będą dostępne dla Ciebie w mapowaniu inspekcji i ujścia.
+W przypadku ustawienia określonych wartości klucza przestawnego w metadanych zostanie wyświetlona kolumna przestawna. Nazwy kolumn będą dostępne dla Ciebie w mapowaniu inspekcji i ujścia.
 
 ### <a name="generate-metadata-from-drifted-columns"></a>Generuj metadane na podstawie kolumn z przedryfem
 
@@ -73,7 +73,7 @@ Pivot automatycznie generuje nowe nazwy kolumn na podstawie wartości wierszy. T
 
 ### <a name="sinking-pivoted-columns"></a>Wystawianie kolumn na wystawienie
 
-Mimo że przestawiane kolumny są dynamiczne, nadal mogą być zapisywane w docelowym magazynie danych. Włącz opcję **Zezwalaj na dryf schematu** w ustawieniach ujścia. Pozwoli to na pisanie kolumn, które nie są uwzględnione w metadanych. metadane kolumn, ale opcja dryfowania schematu umożliwi wygruntowanie danych.
+Mimo że przestawiane kolumny są dynamiczne, nadal mogą być zapisywane w docelowym magazynie danych. Włącz opcję **Zezwalaj na dryf schematu** w ustawieniach ujścia. Pozwoli to na pisanie kolumn, które nie są uwzględnione w metadanych. Nowe nazwy dynamiczne nie będą widoczne w metadanych kolumny, ale opcja dryfowania schematu umożliwi wygruntowanie danych.
 
 ### <a name="rejoin-original-fields"></a>Odłączanie oryginalnych pól
 

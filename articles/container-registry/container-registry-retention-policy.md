@@ -3,18 +3,20 @@ title: Zasady do zachowywania nieoznakowanych manifestów
 description: Informacje o sposobie włączania zasad przechowywania w rejestrze kontenerów platformy Azure w celu automatycznego usunięcia nieoznakowanych manifestów po upływie określonego czasu.
 ms.topic: article
 ms.date: 10/02/2019
-ms.openlocfilehash: 912616b6ab95cdff91e70477c7d6de476ccfdfa7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5dda85934bb10cf16fd90381539b892df4f5445c
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74454817"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683460"
 ---
 # <a name="set-a-retention-policy-for-untagged-manifests"></a>Ustawianie zasad przechowywania dla nieoznakowanych manifestów
 
-Azure Container Registry zapewnia opcję ustawiania *zasad przechowywania* dla zapisywanych manifestów obrazów, które nie mają skojarzonych tagów (*nieoznakowane manifesty*). Po włączeniu zasad przechowywania, nieoznaczone manifesty w rejestrze są automatycznie usuwane po upływie kilku dni. Ta funkcja zapobiega wypełnianiu przez rejestr artefaktów, które nie są potrzebne, i pomaga zaoszczędzić na kosztach magazynowania. Jeśli `delete-enabled` atrybut manifestu bez znaczników jest ustawiony na `false`, nie można usunąć manifestu, a zasady przechowywania nie są stosowane.
+Azure Container Registry zapewnia opcję ustawiania *zasad przechowywania* dla zapisywanych manifestów obrazów, które nie mają skojarzonych tagów (*nieoznakowane manifesty*). Po włączeniu zasad przechowywania, nieoznaczone manifesty w rejestrze są automatycznie usuwane po upływie kilku dni. Ta funkcja zapobiega wypełnianiu przez rejestr artefaktów, które nie są potrzebne, i pomaga zaoszczędzić na kosztach magazynowania. Jeśli `delete-enabled` atrybut manifestu bez znaczników jest ustawiony na `false` , nie można usunąć manifestu, a zasady przechowywania nie są stosowane.
 
 Możesz użyć Azure Cloud Shell lub lokalnej instalacji interfejsu wiersza polecenia platformy Azure, aby uruchomić przykłady poleceń w tym artykule. Jeśli chcesz używać go lokalnie, wymagana jest wersja 2.0.74 lub nowsza. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli].
+
+Zasady przechowywania to funkcja rejestrów kontenerów w **warstwie Premium** . Aby uzyskać informacje na temat warstw usługi Registry, zobacz [Azure Container Registry warstwy usług](container-registry-skus.md).
 
 > [!IMPORTANT]
 > Ta funkcja jest obecnie dostępna w wersji zapoznawczej, a niektóre [ograniczenia mają zastosowanie](#preview-limitations). Wersje zapoznawcze są udostępniane pod warunkiem udzielenia zgody na [dodatkowe warunki użytkowania][terms-of-use]. Niektóre cechy funkcji mogą ulec zmianie, zanim stanie się ona ogólnie dostępna.
@@ -24,7 +26,6 @@ Możesz użyć Azure Cloud Shell lub lokalnej instalacji interfejsu wiersza pole
 
 ## <a name="preview-limitations"></a>Ograniczenia wersji zapoznawczej
 
-* Tylko rejestr kontenerów w **warstwie Premium** można skonfigurować przy użyciu zasad przechowywania. Aby uzyskać informacje na temat warstw usługi Registry, zobacz [Azure Container Registry SKU](container-registry-skus.md).
 * Zasady przechowywania można ustawić tylko dla manifestów nieoznakowanych.
 * Zasady przechowywania są obecnie stosowane tylko do manifestów, które są nieoznakowane *po* włączeniu zasad. Istniejące nieoznaczone manifesty w rejestrze nie podlegają zasadom. Aby usunąć istniejące nieoznaczone manifesty, zobacz przykłady w temacie [usuwanie obrazów kontenera w Azure Container Registry](container-registry-delete.md).
 
@@ -58,7 +59,7 @@ az acr config retention update --registry myregistry --status enabled --days 0 -
 
 W przypadku włączenia powyższych zasad z okresem przechowywania równym 0 dni można szybko sprawdzić, czy usunięte manifestu nie są usuwane:
 
-1. Wypchnij obraz obrazu `hello-world:latest` testowego do rejestru lub Zastąp inny wybrany obraz testowy.
+1. Wypchnij obraz obrazu testowego `hello-world:latest` do rejestru lub Zastąp inny wybrany obraz testowy.
 1. UNTAG `hello-world:latest` obraz, na przykład za pomocą polecenia [AZ ACR Repository UNTAG][az-acr-repository-untag] . Manifest nieoznakowany pozostaje w rejestrze.
     ```azurecli
     az acr repository untag --name myregistry --image hello-world:latest
@@ -73,7 +74,7 @@ Aby wyświetlić zasady przechowywania ustawione w rejestrze, uruchom polecenie 
 az acr config retention show --registry myregistry
 ```
 
-Aby wyłączyć zasady przechowywania w rejestrze, uruchom polecenie [AZ ACR config przechowywanie aktualizacji][az-acr-config-retention-update] i ustaw następujące ustawienia `--status disabled`:
+Aby wyłączyć zasady przechowywania w rejestrze, uruchom polecenie [AZ ACR config przechowywanie aktualizacji][az-acr-config-retention-update] i ustaw `--status disabled` następujące ustawienia:
 
 ```azurecli
 az acr config retention update --registry myregistry --status disabled --type UntaggedManifests

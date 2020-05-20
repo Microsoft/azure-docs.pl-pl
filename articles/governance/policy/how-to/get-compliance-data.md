@@ -1,14 +1,14 @@
 ---
 title: Pobierz dane zgodności zasad
 description: Azure Policy oceny i efekty określają zgodność. Dowiedz się, jak uzyskać szczegóły zgodności zasobów platformy Azure.
-ms.date: 02/01/2019
+ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: d4d9c530a7f9c4683f522a08a30e23437d1774cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1c75f078cb80d5e2dbc00a69817d223d4818d55b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82194010"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684522"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Pobieranie danych zgodności zasobów platformy Azure
 
@@ -30,13 +30,13 @@ Wyniki kompletnego cyklu oceny są dostępne w ramach `Microsoft.PolicyInsights`
 
 Oceny przypisanych zasad i inicjatyw odbywają się w wyniku różnych zdarzeń:
 
-- Zasady lub inicjatywa są nowo przypisane do zakresu. Przypisanie do określonego zakresu zajmie około 30 minut. Po zastosowaniu cykl oceny rozpoczyna się dla zasobów należących do tego zakresu od nowo przypisanych zasad lub inicjatyw, a w zależności od skutków używanych przez zasady lub inicjatywę zasoby są oznaczane jako zgodne lub niezgodne. Duże zasady lub inicjatywy oceniane w odniesieniu do dużego zakresu zasobów mogą zająć dużo czasu. W związku z tym nie istnieje wstępnie zdefiniowane oczekiwanie, kiedy cykl szacowania zostanie ukończony. Po jego zakończeniu zaktualizowane wyniki zgodności są dostępne w portalu i zestawach SDK.
+- Zasady lub inicjatywa są nowo przypisane do zakresu. Przypisanie do określonego zakresu zajmie około 30 minut. Po zastosowaniu cykl oceny rozpoczyna się dla zasobów należących do tego zakresu od nowo przypisanych zasad lub inicjatyw, a w zależności od skutków używanych przez zasady lub inicjatywę zasoby są oznaczane jako zgodne lub niezgodne. Duże zasady lub inicjatywy oceniane w odniesieniu do dużego zakresu zasobów mogą zająć dużo czasu. W związku z tym nie istnieje wstępnie zdefiniowane oczekiwanie po zakończeniu cyklu szacowania. Po jego zakończeniu zaktualizowane wyniki zgodności są dostępne w portalu i zestawach SDK.
 
 - Zasady lub inicjatywa już przypisane do zakresu zostały zaktualizowane. Cykl oceny i czas dla tego scenariusza są takie same jak w przypadku nowego przypisania do zakresu.
 
 - Zasób jest wdrażany w zakresie z przypisaniem za pośrednictwem Menedżer zasobów, REST, interfejsu wiersza polecenia platformy Azure lub Azure PowerShell. W tym scenariuszu zdarzenie wpływu (dołączanie, inspekcja, odmowa, wdrożenie) i informacje o stanie zgodnym dla poszczególnych zasobów staną się dostępne w portalu i zestawach SDK około 15 minut później. To zdarzenie nie powoduje oceny innych zasobów.
 
-- Cykl oceny zgodności standardowej. Co 24 godziny, przydziały są automatycznie oceniane. Duże zasady lub inicjatywy wielu zasobów mogą zająć dużo czasu, dlatego nie istnieje wstępnie zdefiniowane oczekiwanie, kiedy cykl oceny zakończy się. Po jego zakończeniu zaktualizowane wyniki zgodności są dostępne w portalu i zestawach SDK.
+- Cykl oceny zgodności standardowej. Co 24 godziny, przydziały są automatycznie oceniane. Duże zasady lub inicjatywy wielu zasobów mogą zająć dużo czasu, dlatego nie istnieje wstępnie zdefiniowane oczekiwanie po zakończeniu cyklu szacowania. Po jego zakończeniu zaktualizowane wyniki zgodności są dostępne w portalu i zestawach SDK.
 
 - Dostawca zasobów [konfiguracji gościa](../concepts/guest-configuration.md) został zaktualizowany o szczegóły zgodności przez zasób zarządzany.
 
@@ -44,7 +44,41 @@ Oceny przypisanych zasad i inicjatyw odbywają się w wyniku różnych zdarzeń:
 
 ### <a name="on-demand-evaluation-scan"></a>Skanowanie oceny na żądanie
 
-Skanowanie w celu uzyskania subskrypcji lub grupy zasobów można rozpocząć przy użyciu wywołania interfejsu API REST. To skanowanie jest procesem asynchronicznym. W związku z tym punkt końcowy REST do uruchomienia skanowania nie czeka na zakończenie skanowania. Zamiast tego zapewnia identyfikator URI, aby wykonać zapytanie o stan żądana oceny.
+Skanowanie w celu przetestowania subskrypcji lub grupy zasobów można rozpocząć przy użyciu Azure PowerShell lub wywołania interfejsu API REST. To skanowanie jest procesem asynchronicznym.
+
+#### <a name="on-demand-evaluation-scan---azure-powershell"></a>Skanowanie w celu oceny na żądanie — Azure PowerShell
+
+Skanowanie zgodności zostało rozpoczęte przy użyciu polecenia cmdlet [Start-AzPolicyComplianceScan](/powershell/module/az.policyinsights/start-azpolicycompliancescan) .
+
+Domyślnie program `Start-AzPolicyComplianceScan` uruchamia ocenę dla wszystkich zasobów w bieżącej subskrypcji. Aby rozpocząć ocenę dla określonej grupy zasobów, użyj parametru **ResourceGroupName** . W poniższym przykładzie rozpocznie się skanowanie zgodności w bieżącej subskrypcji grupy zasobów _mojagz_ :
+
+```azurepowershell-interactive
+Start-AzPolicyComplianceScan -ResourceGroupName MyRG
+```
+
+Program PowerShell może oczekiwać na zakończenie wywołania asynchronicznego przed dostarczeniem wyników wyjściowych lub uruchomieniem go w tle jako [zadania](/powershell/module/microsoft.powershell.core/about/about_jobs). Aby użyć zadania programu PowerShell do uruchomienia skanowania zgodności w tle, użyj parametru **AsJob** i ustaw wartość na obiekt, np `$job` . w tym przykładzie:
+
+```azurepowershell-interactive
+$job = Start-AzPolicyComplianceScan -AsJob
+```
+
+Stan zadania można sprawdzić, sprawdzając `$job` obiekt. Zadanie jest typu `Microsoft.Azure.Commands.Common.AzureLongRunningJob` . Użyj `Get-Member` obiektu, `$job` Aby wyświetlić dostępne właściwości i metody.
+
+Gdy skanowanie zgodności jest uruchomione, sprawdzanie, czy `$job` obiekt zwraca wyniki, takie jak następujące:
+
+```azurepowershell-interactive
+$job
+
+Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+--     ----            -------------   -----         -----------     --------             -------
+2      Long Running O… AzureLongRunni… Running       True            localhost            Start-AzPolicyCompliance…
+```
+
+Po zakończeniu skanowania zgodności Właściwość **State** zmieni się na _zakończone_.
+
+#### <a name="on-demand-evaluation-scan---rest"></a>Skanowanie do oceny na żądanie — REST
+
+Jako proces asynchroniczny punkt końcowy REST do uruchomienia skanowania nie czeka na zakończenie skanowania. Zamiast tego zapewnia identyfikator URI, aby wykonać zapytanie o stan żądana oceny.
 
 Każdy identyfikator URI interfejsu API REST zawiera używane zmienne, które musisz zastąpić własnymi wartościami:
 
@@ -56,22 +90,22 @@ Skanowanie obsługuje Obliczanie zasobów w ramach subskrypcji lub grupy zasobó
 - Subskrypcja
 
   ```http
-  POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
+  POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2019-10-01
   ```
 
 - Grupa zasobów
 
   ```http
-  POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
+  POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2019-10-01
   ```
 
 Wywołanie zwraca stan **Zaakceptowany 202** . Uwzględniony w nagłówku odpowiedzi to właściwość **Location** o następującym formacie:
 
 ```http
-https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2018-07-01-preview
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2019-10-01
 ```
 
-`{ResourceContainerGUID}`jest generowana statycznie dla żądanego zakresu. Jeśli w zakresie jest już uruchomione skanowanie na żądanie, nowe skanowanie nie zostanie uruchomione. Zamiast tego nowe żądanie ma ten sam `{ResourceContainerGUID}` identyfikator URI **lokalizacji** dla stanu. Polecenie API REST **Get** do identyfikatora URI **lokalizacji** zwraca **202 zaakceptowane** podczas obliczania. Po zakończeniu skanowania ewaluacyjnego zostanie zwrócony stan **200 OK** . Treść ukończonego skanowania jest odpowiedzią JSON o stanie:
+`{ResourceContainerGUID}`jest generowana statycznie dla żądanego zakresu. Jeśli w zakresie jest już uruchomione skanowanie na żądanie, nowe skanowanie nie zostanie uruchomione. Zamiast tego nowe żądanie ma ten sam `{ResourceContainerGUID}` Identyfikator URI **lokalizacji** dla stanu. Polecenie API REST **Get** do identyfikatora URI **lokalizacji** zwraca **202 zaakceptowane** podczas obliczania. Po zakończeniu skanowania ewaluacyjnego zostanie zwrócony stan **200 OK** . Treść ukończonego skanowania jest odpowiedzią JSON o stanie:
 
 ```json
 {
@@ -87,9 +121,9 @@ W poniższej tabeli przedstawiono, w jaki sposób różne skutki zasad działaj�
 | Stan zasobu | Efekt | Ocena zasad | Stan zgodności |
 | --- | --- | --- | --- |
 | Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Niezgodne |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | Fałsz | Zgodny |
+| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Zgodny |
 | Nowa | Audit, AuditIfNotExist\* | True | Niezgodne |
-| Nowa | Audit, AuditIfNotExist\* | Fałsz | Zgodny |
+| Nowa | Audit, AuditIfNotExist\* | False | Zgodny |
 
 \* Efekty Append, DeployIfNotExist i AuditIfNotExist wymagają instrukcji IF z wartością TRUE.
 Ponadto efekty wymagają, aby warunek istnienia miał wartość FALSE, aby być niezgodnymi. W przypadku wartości TRUE warunek IF wyzwala ocenę warunku istnienia dla powiązanych zasobów.
@@ -143,7 +177,7 @@ Wróć do strony zgodność zasobów, kliknij prawym przyciskiem myszy wiersz zd
 
 ### <a name="understand-non-compliance"></a>Zrozumienie braku zgodności
 
-Gdy zasoby są określone jako **niezgodne**, istnieje wiele możliwych przyczyn. Aby określić przyczynę braku zgodności zasobu lub aby znaleźć zmianę odpowiedzialną, zobacz [Określanie, które nie](./determine-non-compliance.md)są **zgodne** .
+Jeśli zasób jest określony jako **niezgodny**, istnieje wiele możliwych przyczyn. Aby określić przyczynę braku zgodności zasobu lub aby znaleźć zmianę odpowiedzialną, zobacz [Określanie, które nie](./determine-non-compliance.md)są **zgodne** .
 
 ## <a name="command-line"></a>Wiersz polecenia
 
@@ -269,7 +303,7 @@ Aby uzyskać więcej informacji na temat wykonywania zapytań dotyczących zdarz
 ### <a name="azure-powershell"></a>Azure PowerShell
 
 Moduł Azure PowerShell dla Azure Policy jest dostępny w Galeria programu PowerShell jako [AZ. PolicyInsights](https://www.powershellgallery.com/packages/Az.PolicyInsights).
-Za pomocą PowerShellGet można zainstalować moduł przy użyciu `Install-Module -Name Az.PolicyInsights` programu (Upewnij się, że zainstalowano najnowszą [Azure PowerShell](/powershell/azure/install-az-ps) ):
+Za pomocą PowerShellGet można zainstalować moduł przy użyciu programu (Upewnij się, `Install-Module -Name Az.PolicyInsights` że zainstalowano najnowszą [Azure PowerShell](/powershell/azure/install-az-ps) ):
 
 ```azurepowershell-interactive
 # Install from PowerShell Gallery via PowerShellGet
@@ -383,7 +417,7 @@ TenantId                   : {tenantId}
 PrincipalOid               : {principalOid}
 ```
 
-Pole **PrincipalOid** może służyć do uzyskiwania określonego użytkownika za pomocą polecenia cmdlet `Get-AzADUser`Azure PowerShell. Zastąp **{principalOid}** odpowiedzią uzyskaną z poprzedniego przykładu.
+Pole **PrincipalOid** może służyć do uzyskiwania określonego użytkownika za pomocą polecenia cmdlet Azure PowerShell `Get-AzADUser` . Zastąp **{principalOid}** odpowiedzią uzyskaną z poprzedniego przykładu.
 
 ```azurepowershell-interactive
 PS> (Get-AzADUser -ObjectId {principalOid}).DisplayName
@@ -392,7 +426,7 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Dzienniki usługi Azure Monitor
 
-Jeśli `AzureActivity` masz [obszar roboczy Log Analytics](../../../log-analytics/log-analytics-overview.md) z [rozwiązania Activity Log Analytics](../../../azure-monitor/platform/activity-log-collect.md) powiązanego z subskrypcją, możesz również wyświetlić wyniki niezgodności z cyklu oceny przy użyciu prostych zapytań Kusto i `AzureActivity` tabeli. Dzięki szczegółowym dziennikom Azure Monitor alerty można skonfigurować tak, aby oglądać niezgodność.
+Jeśli masz [obszar roboczy log Analytics](../../../log-analytics/log-analytics-overview.md) z `AzureActivity` [rozwiązania Activity Log Analytics](../../../azure-monitor/platform/activity-log-collect.md) powiązanego z subskrypcją, możesz również wyświetlić wyniki niezgodności z cyklu oceny przy użyciu prostych zapytań Kusto i `AzureActivity` tabeli. Dzięki szczegółowym dziennikom Azure Monitor alerty można skonfigurować tak, aby oglądać niezgodność.
 
 :::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Azure Policy zgodności przy użyciu dzienników Azure Monitor" border="false":::
 

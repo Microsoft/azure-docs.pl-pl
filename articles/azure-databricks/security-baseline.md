@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7d417f412592d87dec751b9d98a26bf786c719e5
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 23057723d46ed5d9203741ab2eb1a15edb5bd510
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82796852"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681696"
 ---
 # <a name="azure-security-baseline-for-azure-databricks"></a>Podstawa zabezpieczeń platformy Azure dla Azure Databricks
 
@@ -146,7 +146,7 @@ Możesz również użyć planów platformy Azure, aby uprościć duże wdrożeni
 
 **Wskazówki**: Użyj tagów dla sieciowych grup zabezpieczeń i innych zasobów związanych z zabezpieczeniami sieci i przepływem ruchu, które są skojarzone z wystąpieniem Azure Databricks. W przypadku poszczególnych reguł sieciowej grupy zabezpieczeń Użyj pola "Description", aby określić potrzeby biznesowe i/lub czas trwania (itp.) dla reguł zezwalających na ruch do/z sieci.
 
-* [Tworzenie i używanie tagów](httphttps://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+* [Tworzenie i używanie tagów](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
 **Monitorowanie Azure Security Center**: nie dotyczy
 

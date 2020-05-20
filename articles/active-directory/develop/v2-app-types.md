@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 05/19/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: def92071496716f90b24158a50e4a5233e93c994
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bdacee476fbc25154fe225700730f1b8f7f872ec
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81677985"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682269"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Typy aplikacji dla platformy tożsamości firmy Microsoft
 
@@ -25,7 +25,7 @@ Punkt końcowy Microsoft Identity platform (v 2.0) obsługuje uwierzytelnianie d
 
 ## <a name="the-basics"></a>Podstawy
 
-Należy zarejestrować każdą aplikację korzystającą z punktu końcowego platformy tożsamości firmy Microsoft w nowym [portalu rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908). Proces rejestracji aplikacji zbiera i przypisuje te wartości dla aplikacji:
+Należy zarejestrować każdą aplikację korzystającą z punktu końcowego platformy tożsamości firmy Microsoft w [Rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908)Azure Portal. Proces rejestracji aplikacji zbiera i przypisuje te wartości dla aplikacji:
 
 * **Identyfikator aplikacji (klienta)** , który jednoznacznie identyfikuje aplikację
 * **Identyfikator URI przekierowania** , za pomocą którego można kierować odpowiedzi z powrotem do aplikacji
@@ -42,13 +42,19 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 ## <a name="single-page-apps-javascript"></a>Aplikacje jednostronicowe (JavaScript)
 
-Wiele nowoczesnych aplikacji ma fronton aplikacji jednostronicowej, który jest przeznaczony głównie do pisania w języku JavaScript. Często jest on pisany przy użyciu struktury, takiej jak kątowy, reaguje lub Vue. Punkt końcowy platformy tożsamości firmy Microsoft obsługuje te aplikacje przy użyciu [niejawnego przepływu OAuth 2,0](v2-oauth2-implicit-grant-flow.md).
+Wiele nowoczesnych aplikacji ma fronton aplikacji jednostronicowej oparty głównie na języku JavaScript, często z platformą, taką jak kątowy, reagowanie lub Vue. Punkt końcowy platformy tożsamości firmy Microsoft obsługuje te aplikacje za pomocą [przepływu kodu autoryzacji OAuth 2,0](v2-oauth2-auth-code-flow.md).
 
-W tym przepływie aplikacja otrzymuje tokeny bezpośrednio od platformy tożsamości firmy Microsoft autoryzuje punkt końcowy, bez żadnych wymian serwer-serwer. Cała logika uwierzytelniania i obsługa sesji odbywa się całkowicie w kliencie JavaScript bez dodatkowych przekierowań stron.
+W tym przepływie aplikacja otrzymuje kod z punktu końcowego platformy tożsamości firmy Microsoft `authorize` i realizuje go pod kątem tokenów i tokenów odświeżania przy użyciu żądań sieci Web między lokacjami. Token odświeżania wygasa co 24 godziny, a aplikacja musi zażądać innego kodu.
 
-![Pokazuje przepływ niejawnego uwierzytelniania](./media/v2-app-types/convergence-scenarios-implicit.svg)
+![Przepływ kodu dla aplikacji SPA](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)
 
-Aby zapoznać się z tym scenariuszem, wypróbuj jeden z przykładów kodu aplikacji jednostronicowych w sekcji [wprowadzenie do platformy tożsamości firmy Microsoft](v2-overview.md#getting-started) .
+Aby zapoznać się z tym scenariuszem w działaniu, zapoznaj się z [samouczkiem: Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph z poziomu skryptu JavaScript Spa przy użyciu przepływu kodu uwierzytelniania](tutorial-v2-javascript-auth-code.md).
+
+### <a name="authorization-code-flow-vs-implicit-flow"></a>Przepływ kodu autoryzacji a niejawny przepływ
+
+W przypadku większości historii uwierzytelniania OAuth 2,0 zalecanym sposobem [jest](v2-oauth2-implicit-grant-flow.md) skompilowanie aplikacji jednostronicowych. Wraz z usunięciem [plików cookie innych firm](reference-third-party-cookies-spas.md) i [zwróceniem uwagi](https://tools.ietf.org/html/draft-ietf-oauth-security-topics-14) na problemy związane z bezpieczeństwem w odniesieniu do niejawnego przepływu został przeniesiony do przepływu kodu autoryzacji dla aplikacji jednostronicowych.
+
+Aby zapewnić zgodność aplikacji w przeglądarce Safari i innych przeglądarek świadomych zachowania poufności, nie zalecamy już korzystania z niejawnego przepływu i zamiast tego zaleca się przepływ kodu autoryzacji.
 
 ## <a name="web-apps"></a>Aplikacje internetowe
 
@@ -77,7 +83,8 @@ Tożsamość użytkownika można sprawdzić, sprawdzając token identyfikatora p
 
 Aby zapoznać się z tym scenariuszem w działaniu, wypróbuj jedną z przykładów kodu logowania aplikacji sieci Web w sekcji [wprowadzenie do platformy tożsamości firmy Microsoft](v2-overview.md#getting-started) .
 
-Oprócz prostej logowania aplikacja serwera sieci Web może potrzebować dostępu do innej usługi sieci Web, takiej jak interfejs API REST. W takim przypadku aplikacja serwera sieci Web jest zaangażowana w połączony przepływ OpenID Connect Connect i OAuth 2,0 przy użyciu [przepływu kodu autoryzacji oauth 2,0](active-directory-v2-protocols.md). Aby uzyskać więcej informacji na temat tego scenariusza, zapoznaj [się z artykułem wprowadzenie do usługi Web Apps i interfejsów API sieci Web](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md).
+Oprócz prostej logowania aplikacja serwera sieci Web może potrzebować dostępu do innej usługi sieci Web, takiej jak interfejs API REST. W takim przypadku aplikacja serwera sieci Web jest zaangażowana w połączony przepływ OpenID Connect Connect i OAuth 2,0 przy użyciu [przepływu kodu autoryzacji oauth 2,0](v2-oauth2-auth-code-flow.md). Aby uzyskać więcej informacji na temat tego scenariusza, zapoznaj [się z artykułem wprowadzenie do usługi Web Apps i interfejsów API sieci Web](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md).
+
 
 ## <a name="web-apis"></a>Interfejsy API sieci Web
 
@@ -120,3 +127,7 @@ W tym przepływie aplikacja współdziała bezpośrednio z `/token` punktem koń
 ![Pokazuje przepływ uwierzytelniania aplikacji demona](./media/v2-app-types/convergence-scenarios-daemon.svg)
 
 Aby skompilować aplikację demona, zapoznaj się z [dokumentacją dotyczącą poświadczeń klienta](v2-oauth2-client-creds-grant-flow.md)lub wypróbuj [przykładową aplikację platformy .NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
+
+## <a name="next-steps"></a>Następne kroki
+
+Teraz, gdy znasz już typy aplikacji obsługiwanych przez platformę tożsamości firmy Microsoft, Dowiedz się więcej na temat [uwierzytelniania OAuth 2,0 i OpenID Connect](active-directory-v2-protocols.md) , aby uzyskać informacje o składnikach protokołu używanych w różnych scenariuszach.
