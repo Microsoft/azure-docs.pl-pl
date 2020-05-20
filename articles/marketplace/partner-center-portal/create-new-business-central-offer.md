@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: c7618bd4408f07b70e2f9fffe23e38ba968e7210
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: f8fb7a3858b8991b2dc27bd07fe6c4b004be28df
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792398"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701345"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Tworzenie oferty Dynamics 365 Business Central
 
@@ -23,8 +23,8 @@ Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum part
 ## <a name="create-a-new-offer"></a>Tworzenie nowej oferty
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
-2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace** > **Overview**.
-3. Na stronie Przegląd wybierz pozycję **+ Nowa oferta** > **Dynamics 365 Business Central**.
+2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
+3. Na stronie Przegląd wybierz pozycję **+ Nowa oferta**  >  **Dynamics 365 Business Central**.
 
     ![Ilustruje menu nawigacji po lewej stronie.](./media/new-offer-dynamics-365-bc.png)
 
@@ -36,7 +36,7 @@ Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum part
 Wprowadź **Identyfikator oferty**. To jest unikatowy identyfikator dla każdej oferty na Twoim koncie.
 
 - Ten identyfikator jest widoczny dla klientów w adresie sieci Web dla ofert i szablonów Azure Resource Manager, jeśli ma zastosowanie.
-- Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczone do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1**, adres sieci Web oferty będzie wynosić `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczone do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1**, adres sieci Web oferty będzie wynosić `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
 - Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz**.
 
 Wprowadź **alias oferty**. Jest to nazwa używana dla oferty w centrum partnerskim.
@@ -137,30 +137,15 @@ Nazwa wprowadzona w tym miejscu będzie wyświetlana klientom jako tytuł oferty
 
 ### <a name="short-description"></a>Krótki opis
 
-Podaj krótki opis oferty (do 100 znaków), która może być używana w wynikach wyszukiwania w portalu Marketplace.
+Podaj krótki opis oferty, do 100 znaków. Ten opis może być używany w wynikach wyszukiwania w portalu Marketplace.
 
 ### <a name="description"></a>Opis
 
-Podaj dłuższy opis oferty (do 3 000 znaków). Ten opis będzie wyświetlany klientom na liście przeglądów w portalu Marketplace. Uwzględnij swoją propozycję oferty, najważniejsze zalety, kategorie i/lub branżowe skojarzenia, szanse zakupu w aplikacji oraz wszelkie wymagane informacje. 
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Niektóre porady dotyczące pisania opisu:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- Jasno opisz swoją wartość oferty w pierwszych kilku zdaniach opisu. Uwzględnij następujące elementy na swojej pozycji wartości:
-  - Opis produktu
-  - Typ użytkownika, który korzysta z produktu
-  - Klienci muszą lub cierpią adresy produktów
-- Należy pamiętać, że pierwsze niektóre zdania mogą być wyświetlane w wynikach wyszukiwania.  
-- Nie należy polegać na funkcjach i funkcjach, aby sprzedawać produkt. Zamiast tego należy skoncentrować się na dostarczanej wartości.  
-- Korzystaj z specyficznych dla branży słownictwa lub takich słów, jak to możliwe.
-- Rozważ użycie tagów HTML, aby sformatować swój opis i zwiększyć jego atrakcyjność.
-
-Aby zwiększyć atrakcyjność opisu oferty, użyj edytora tekstu sformatowanego w celu zastosowania formatowania.
-
-![Korzystanie z edytora tekstu sformatowanego](./media/rich-text-editor.png)
-
-| <center>Zmień format tekstu | <center>Dodawanie punktorów lub numeracji | <center>Dodaj lub Usuń wcięcie tekstu |
-| --- | --- | --- |
-| <center>![Zmienianie formatu tekstu przy użyciu edytora tekstu sformatowanego](./media/text-editor3.png) |  <center>![Używanie edytora tekstu sformatowanego do dodawania list](./media/text-editor4.png) |  <center>![Używanie edytora tekstu sformatowanego do wcięcia](./media/text-editor5.png) |
+[!INCLUDE [Rich text editor](./includes/rich-text-editor.md)]
 
 ### <a name="search-keywords"></a>Słowa kluczowe wyszukiwania
 
@@ -266,7 +251,7 @@ Wymagane, jeśli oferta musi być zainstalowana wraz z innym rozszerzeniem, któ
 
 #### <a name="dependency-package-file"></a>Plik pakietu zależności
 
-Wymagane, jeśli oferta musi być zainstalowana wraz z innym rozszerzeniem, które zostało już opublikowane w portalu Marketplace. Jeśli tak, Przekaż swój `.app` plik `.zip` lub tutaj.
+Wymagane, jeśli oferta musi być zainstalowana wraz z innym rozszerzeniem, które zostało już opublikowane w portalu Marketplace. Jeśli tak, Przekaż swój `.app` `.zip` plik lub tutaj.
 
 ### <a name="url-to-app-installation"></a>Adres URL instalacji aplikacji
 
@@ -317,9 +302,9 @@ Firma Microsoft może usunąć złożoność konfigurowania dysku testowego, udo
 
 - **Czas trwania dysku testowego** (wymagane) — umożliwia określenie długości czasu, przez który dysk testowy pozostanie aktywny, przez zdefiniowanie liczby godzin. Po tylu godzinach sesja zostanie zakończona i nie będzie już korzystać z jednej z Twoich licencji. Zalecamy użycie wartości 2-24 godzin w zależności od złożoności oferty. Ten czas trwania może być ustawiony tylko przez całą liczbę godzin (na przykład "2" godzin, "1,5" jest nieprawidłowy).  Użytkownik może zażądać nowej sesji, jeśli są one nieaktualne i chcą ponownie uzyskać dostęp do dysku testowego.
 
-- **Adres URL wystąpienia** (wymagany) — adres URL, pod którym klient będzie rozpoczynać swój dysk testowy. Zwykle jest to adres URL wystąpienia usługi Dynamics 365 z uruchomioną aplikacją z zainstalowanymi przykładowymi danymi `https://testdrive.crm.dynamics.com`(na przykład).
+- **Adres URL wystąpienia** (wymagany) — adres URL, pod którym klient będzie rozpoczynać swój dysk testowy. Zwykle jest to adres URL wystąpienia usługi Dynamics 365 z uruchomioną aplikacją z zainstalowanymi przykładowymi danymi (na przykład `https://testdrive.crm.dynamics.com` ).
 
-- **Adres URL internetowego interfejsu API wystąpienia** (wymagane) — Pobierz adres URL internetowego interfejsu API dla wystąpienia usługi Dynamics 365, logując się do konta usługi Microsoft 365 i przechodząc do **ustawień** \&gt; **Dostosowywanie** \&gt; **Zasoby** \&dla deweloperów gt; **Interfejs API sieci Web wystąpienia (główny adres URL usługi)**, skopiuj adres URL znaleziony w tym `https://testdrive.crm.dynamics.com/api/data/v9.0`miejscu (na przykład).
+- **Adres URL internetowego interfejsu API wystąpienia** (wymagane) — Pobierz adres URL internetowego interfejsu API dla wystąpienia usługi Dynamics 365, logując się do konta usługi Microsoft 365 i przechodząc do **ustawień** \& gt; **Dostosowanie** \& gt **Zasoby** \& dla deweloperów gt **Interfejs API sieci Web wystąpienia (główny adres URL usługi)**, skopiuj adres URL znaleziony w tym miejscu (na przykład `https://testdrive.crm.dynamics.com/api/data/v9.0` ).
 
 - **Nazwa roli** (wymagana) — podaj nazwę roli zabezpieczeń, która została zdefiniowana w niestandardowym dysku testowym Dynamics 365, która zostanie przypisana do użytkownika podczas testu na dysku (na przykład "rola stacji testowych").
 
@@ -349,7 +334,7 @@ Aby wdrożyć dysk testowy w Twoim imieniu, utwórz oddzielną i unikatową subs
 
 - **Identyfikator subskrypcji platformy Azure** (wymagany dla Azure Resource Manager i aplikacji logiki) — wprowadź identyfikator subskrypcji, aby udzielić dostępu do usług konta platformy Azure na potrzeby raportowania użycia zasobów i rozliczeń. Zalecamy [utworzenie oddzielnej subskrypcji platformy Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription) , która ma być używana na potrzeby dysków testowych, jeśli jeszcze jej nie masz. Identyfikator subskrypcji platformy Azure można znaleźć, logując się do [Azure Portal](https://portal.azure.com/) i przechodząc do karty **subskrypcje** w menu po lewej stronie. Wybranie karty spowoduje wyświetlenie identyfikatora subskrypcji (na przykład "a83645ac-1234-5ab6-6789-1h234g764ghty").
 
-- **Identyfikator dzierżawy usługi Azure AD** (wymagany) — wprowadź [Identyfikator dzierżawy](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)usługi Azure Active Directory (AD). Aby znaleźć ten identyfikator, zaloguj się do [Azure Portal](https://portal.azure.com/), wybierz kartę Active Directory w menu po lewej stronie, wybierz pozycję * * Właściwości, a następnie wyszukaj numer **identyfikatora katalogu** na liście (na przykład 50c464d3-4930-494c-963c-1e951d15360e). Możesz również wyszukać identyfikator dzierżawy w organizacji przy użyciu adresu nazwy domeny w [https://www.whatismytenantid.com](https://www.whatismytenantid.com)lokalizacji.
+- **Identyfikator dzierżawy usługi Azure AD** (wymagany) — wprowadź [Identyfikator dzierżawy](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)usługi Azure Active Directory (AD). Aby znaleźć ten identyfikator, zaloguj się do [Azure Portal](https://portal.azure.com/), wybierz kartę Active Directory w menu po lewej stronie, wybierz pozycję * * Właściwości, a następnie wyszukaj numer **identyfikatora katalogu** na liście (na przykład 50c464d3-4930-494c-963c-1e951d15360e). Możesz również wyszukać identyfikator dzierżawy w organizacji przy użyciu adresu nazwy domeny w lokalizacji [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
 
 - **Nazwa dzierżawy usługi Azure AD** (wymagana dla dynamicznego 365) — wprowadź nazwę Azure Active Directory (AD). Aby znaleźć tę nazwę, zaloguj się do [Azure Portal](https://portal.azure.com/), w prawym górnym rogu nazwa dzierżawy zostanie wyświetlona w polu Nazwa konta.
 

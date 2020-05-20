@@ -39,6 +39,8 @@
         - name: Zasady uczenia
           href: concept-active-learning.md
           displayName: 'active, inactive'
+        - name: Tryb ucznia
+          href: concept-apprentice-mode.md
         - name: Zdarzenia aktywne i nieaktywne
           href: concept-active-inactive-events.md
         - name: Nagrody
@@ -62,16 +64,18 @@
   items:
     - name: Tworzenie zasobu interfejsu Personalizacja
       href: how-to-create-resource.md
-    - name: Konfigurowanie pętli uczenia
+    - name: Konfigurowanie usługi Personalizacja
       href: how-to-settings.md
       displayName: 'azure, portal, settings, evaluation, offline, policy, export, model, configure'
+    - name: Korzystanie z trybu ucznia
+      href: how-to-learning-behavior.md
     - name: Zarządzanie ustawieniami uczenia i modelu
       href: how-to-manage-model.md
     - name: Analizowanie za pomocą oceny w trybie offline
       href: how-to-offline-evaluation.md
 - name: Dokumentacja
   items:
-    - name: Przykłady
+    - name: Samples
       href: 'https://go.microsoft.com/fwlink/?linkid=2092083'
     - name: Dokumentacja interfejsu API REST
       href: 'https://go.microsoft.com/fwlink/?linkid=2092082'
@@ -111,7 +115,7 @@
       href: personalizer-encryption-of-data-at-rest.md
     - name: Harmonogram działania dla platformy Azure
       href: 'https://go.microsoft.com/fwlink/?linkid=2092153'
-    - name: Ceny
+    - name: Cennik
       href: 'https://go.microsoft.com/fwlink/?linkid=2092154'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/personalizer'

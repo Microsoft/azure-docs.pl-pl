@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7600eae27daf11c4fd02718abc25cef9006179e1
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 23e3ccff11dc33858249565d3ad8396b19dd87c6
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683621"
+ms.locfileid: "83698893"
 ---
 # <a name="azure-synapse-analytics-business-intelligence-partners"></a>Partnerzy analizy biznesowej usługi Azure Synapse Analytics
 
@@ -27,7 +27,7 @@ Aby utworzyć kompletne rozwiązanie magazynu danych przy użyciu Synapse puli S
 | ------- | ----------- | -------------------- |
 | ![Birst](./media/sql-data-warehouse-partner-business-intelligence/birst_logo.png) |**Birst**<br>Birst nawiązuje połączenie całej organizacji za pomocą sieci wieloczęściowych zwirtualizowanych wystąpień analizy biznesowej w oparciu o współdzieloną wspólną sieć szkieletową analizy|[Strona produktu](https://www.birst.com/)<br> |
 | ![ClearStory dane](./media/sql-data-warehouse-partner-business-intelligence/clearstory_data_logo.png) |**Dane ClearStory (ciągłe szczegółowe informacje biznesowe)**<br>Dane ClearStory umożliwiają szybką analizę między różnymi danymi przechowywanymi w puli Synapse SQL. Zintegrowana z usługą ClearStory platforma oparta na platformie Spark i analiza dostępu do danych oraz harmonizacja różnych zestawów danych. Umożliwiają one szybkie i wspólne Eksplorowanie, które umożliwiają użytkownikom biznesowym uzyskanie szybkiego wglądu w szczegółowe dane. |[Strona produktu](https://www.clearstorydata.com/product/continuous-insights/)<br> |
-| ![Dundas](./media/sql-data-warehouse-partner-business-intelligence/dundas_software_logo.png) |**Dundas BI**<br>Wizualizacja danych Dundas to wiodący, globalny dostawca oprogramowania do analizy biznesowej i wizualizacji danych.  Pulpity nawigacyjne Dundas, raportowanie i analiza danych wizualnych zapewniają bezproblemową integrację z aplikacjami biznesowymi, umożliwiając lepsze podejmowanie decyzji i szybsze uzyskiwanie szczegółowych informacji.|[Strona produktu](https://www.dundas.com/dundas-bi)<br>[Azure Marketplace](https://azure.microsoft.com/marketplace/partners/dundas/dundas-bi/)<br> |
+| ![Dundas](./media/sql-data-warehouse-partner-business-intelligence/dundas_software_logo.png) |**Dundas BI**<br>Wizualizacja danych Dundas to wiodący, globalny dostawca oprogramowania do analizy biznesowej i wizualizacji danych.  Pulpity nawigacyjne Dundas, raportowanie i analiza danych wizualnych zapewniają bezproblemową integrację z aplikacjami biznesowymi, umożliwiając lepsze podejmowanie decyzji i szybsze uzyskiwanie szczegółowych informacji.|[Strona produktu](https://www.dundas.com/dundas-bi)<br>[Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dundas.dundas-bi)<br> |
 | ![Cognos IBM](./media/sql-data-warehouse-partner-business-intelligence/cognos_analytics_logo.png) |**Analiza Cognos firmy IBM**<br>Usługa Cognos Analytics obejmuje inteligentne możliwości samoobsługowe, które ułatwiają proste, jasne i łatwe korzystanie z nich niezależnie od tego, czy jesteś doświadczonym analitykiem biznesowym badającym Kinks w olbrzymim łańcuchu dostaw, czy też na rynku Optymalizacja pojedynczej kampanii. Cognos Analytics korzysta z AI i innych inteligentnych funkcji, aby przeprowadzić duże podnoszenie poziomu eksploracji danych i ułatwić użytkownikom uzyskiwanie potrzebnych odpowiedzi|[Strona produktu](https://www.ibm.com/products/cognos-analytics)<br>|
 | ![Konstruktory informacji](./media/sql-data-warehouse-partner-business-intelligence/informationbuilders_logo.png) |**Konstruktory informacji (WebFOCUS)**<br>Analiza biznesowa WebFOCUS ułatwia firmom korzystanie z danych bardziej strategicznie w całej firmie i poza nią. Umożliwia użytkownikom i administratorom szybkie tworzenie pulpitów nawigacyjnych, które łączą zawartość z wielu źródeł danych i formatów. Zapewnia również niezawodne zabezpieczenia i kompleksowe zarządzanie, które umożliwiają bezproblemowe i bezpieczne udostępnianie dowolnej zawartości analizy biznesowej i analizy|[Strona produktu](https://www.informationbuilders.com/products/bi-and-analytics-platform)<br> |
 ![Jinfonet](./media/sql-data-warehouse-partner-business-intelligence/jinfonet_logo.png) |**Jinfonet JReport**<br>JReport to możliwe do osadzenia rozwiązanie analizy biznesowej dla przedsiębiorstwa. Rozwiązanie oferuje wiele funkcji, takich jak tworzenie raportów, pulpity nawigacyjne i analiza danych w chmurze, danych Big Data i transakcyjnych źródłach danych. Wizualizacja danych pozwala na przeprowadzanie własnych raportów i odnajdywania danych w celu Agile, podejmowania decyzji na bieżąco. |[Strona produktu](https://www.jinfonet.com/product/jreport-designer)<br> |

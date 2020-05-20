@@ -1,10 +1,10 @@
-- name: Dokumentacja tłumaczenia tekstu w usłudze Translator
+- name: Dokumentacja usługi Translator
   href: index.yml
-- name: Interfejs API tekstu usługi Translator
+- name: Translator
   items:
     - name: Omówienie
       items:
-        - name: Czym jest interfejs API tłumaczenia tekstu w usłudze Translator?
+        - name: Co to jest usługa Translator?
           href: translator-info-overview.md
     - name: Przewodniki Szybki start
       items:
@@ -22,7 +22,7 @@
           href: quickstart-sentences.md
     - name: Samouczki
       items:
-        - name: 'Tworzenie aplikacji WPF dla tłumaczenia tekstu w usłudze Translator, C#'
+        - name: 'Tworzenie aplikacji WPF dla usługi Translator, C#'
           href: tutorial-wpf-translation-csharp.md
         - name: 'Tworzenie aplikacji do tłumaczenia Flask, Python'
           href: tutorial-build-flask-app-translation-synthesis.md
@@ -34,7 +34,7 @@
           href: character-counts.md
     - name: Przewodniki z instrukcjami
       items:
-        - name: Rejestrowanie się w celu skorzystania z interfejsu API tłumaczenia tekstu w usłudze Translator
+        - name: Rejestrowanie się w celu korzystania z usługi Translator
           href: translator-text-how-to-signup.md
         - name: Migrowanie do interfejsu API V3 tłumaczenia tekstu
           href: migrate-to-v3.md
@@ -66,7 +66,7 @@
           href: 'https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Ruby'
     - name: Dokumentacja
       items:
-        - name: Dokumentacja interfejsu API v3 tłumaczenia tekstu w usłudze Translator
+        - name: Dokumentacja usługi Translator w wersji 3
           href: reference/v3-0-reference.md
           items:
             - name: Języki
@@ -83,7 +83,7 @@
               href: reference/v3-0-dictionary-lookup.md
             - name: Przykłady słowników
               href: reference/v3-0-dictionary-examples.md
-        - name: Dokumentacja interfejsu API v2 tłumaczenia tekstu w usłudze Translator (przestarzały)
+        - name: Dokumentacja usługi Translator w wersji 2 (przestarzała)
           href: reference/v2-0-reference.md
           items:
             - name: Przekształcanie tekstu

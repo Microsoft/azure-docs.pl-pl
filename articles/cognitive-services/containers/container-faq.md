@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 0e4f9da3aec42df42cc43f73fdeefa7087de6db5
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: bf30fc5e6ccfc0f59c1769245e58177428472156
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592189"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701814"
 ---
 # <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Kontenery Cognitive Services platformy Azure — często zadawane pytania
 
@@ -22,7 +22,7 @@ ms.locfileid: "83592189"
 
 **P: co jest dostępne?**
 
-Odp **.:** Kontenery usługi Azure Cognitive Services umożliwiają deweloperom korzystanie z tych samych inteligentnych interfejsów API, które są dostępne na platformie Azure, ale z [korzyściami](../cognitive-services-container-support.md#features-and-benefits) z kontenerach. Niektóre kontenery są dostępne jako [wersja zapoznawcza](../cognitive-services-gating-process.md), co może wymagać, aby aplikacja mogła uzyskać dostęp. Inne kontenery są publicznie dostępne jako wersja zapoznawcza lub są ogólnie dostępne. Pełną listę kontenerów i ich dostępność można znaleźć w artykule [Obsługa kontenerów w usłudze Azure Cognitive Services](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services) . 
+Odp **.:** Kontenery usługi Azure Cognitive Services umożliwiają deweloperom korzystanie z tych samych inteligentnych interfejsów API, które są dostępne na platformie Azure, ale z [korzyściami](../cognitive-services-container-support.md#features-and-benefits) z kontenerach. Niektóre kontenery są dostępne jako wersja zapoznawcza, co może wymagać, aby aplikacja mogła uzyskać dostęp. Inne kontenery są publicznie dostępne jako wersja zapoznawcza lub są ogólnie dostępne. Pełną listę kontenerów i ich dostępność można znaleźć w artykule [Obsługa kontenerów w usłudze Azure Cognitive Services](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services) . 
 
 **P: czy istnieje różnica między chmurą Cognitive Services i kontenerami?**
 

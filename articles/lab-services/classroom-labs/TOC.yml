@@ -28,6 +28,24 @@
       items:
         - name: Korzystanie z laboratoriów przy prowadzeniu zajęć
           href: classroom-labs-scenarios.md
+        - name: Laboratoria klas — typy klas
+          items:
+            - name: Omówienie typów klas
+              href: class-types.md
+            - name: Uczenie głębokie w ramach przetwarzania języka naturalnego
+              href: class-type-deep-learning-natural-language-processing.md
+            - name: Skrypty powłoki w systemie Linux
+              href: class-type-shell-scripting-linux.md
+            - name: Etyczne działania hakerskie
+              href: class-type-ethical-hacking.md
+            - name: Zarządzanie bazami danych
+              href: class-type-database-management.md
+            - name: Język Python i notesy Jupyter Notebook
+              href: class-type-jupyter-notebook.md
+            - name: Tworzenie aplikacji mobilnych za pomocą programu Android Studio
+              href: class-type-mobile-dev-android-studio.md
+            - name: Analiza danych big data
+              href: class-type-big-data-analytics.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Podręcznik administratora
@@ -36,29 +54,13 @@
       href: account-setup-guide.md
     - name: Przewodnik konfigurowania laboratorium przyspieszonego
       href: setup-guide.md
-    - name: Laboratoria klas — typy klas
-      items:
-        - name: Omówienie typów klas
-          href: class-types.md
-        - name: Uczenie głębokie w ramach przetwarzania języka naturalnego
-          href: class-type-deep-learning-natural-language-processing.md
-        - name: Skrypty powłoki w systemie Linux
-          href: class-type-shell-scripting-linux.md
-        - name: Etyczne działania hakerskie
-          href: class-type-ethical-hacking.md
-        - name: Zarządzanie bazami danych
-          href: class-type-database-management.md
-        - name: Język Python i notesy Jupyter Notebook
-          href: class-type-jupyter-notebook.md
-        - name: Tworzenie aplikacji mobilnych za pomocą programu Android Studio
-          href: class-type-mobile-dev-android-studio.md
-        - name: Analiza danych big data
-          href: class-type-big-data-analytics.md
     - name: Tworzenie i konfigurowanie kont laboratoriów (właściciel konta laboratorium)
       items:
         - name: Tworzenie kont laboratoriów i zarządzanie nimi
           href: how-to-manage-lab-accounts.md
-        - name: Konfigurowanie kont laboratoriów
+        - name: Zarządzanie laboratoriami na koncie laboratoriów
+          href: manage-labs.md
+        - name: Konfigurowanie automatycznego zamykania maszyn wirtualnych
           href: how-to-configure-lab-accounts.md
         - name: Dodawanie twórcy laboratorium
           href: add-lab-creator.md
@@ -76,7 +78,7 @@
           href: specify-marketplace-images.md
         - name: Określanie informacji o pomocy technicznej (właściciel konta laboratorium)
           href: lab-account-owner-support-information.md
-    - name: Tworzenie i konfigurowanie laboratoriów na potrzeby zajęć (instruktor)
+    - name: Tworzenie i konfigurowanie laboratoriów na potrzeby zajęć (nauczyciel)
       items:
         - name: Tworzenie laboratoriów na potrzeby zajęć i zarządzanie nimi
           href: how-to-manage-classroom-labs.md
@@ -108,9 +110,9 @@
           href: how-to-prepare-windows-template.md
         - name: Sterowanie zachowaniem zamykania systemu Windows
           href: how-to-windows-shutdown.md
-        - name: Wyświetlanie informacji o pomocy technicznej (instruktor)
+        - name: Wyświetlanie informacji pomocy technicznej (nauczyciel)
           href: lab-creator-support-information.md
-        - name: Uzyskiwanie dostępu do maszyn wirtualnych uczniów z widoku instruktora
+        - name: Dostęp do maszyn wirtualnych uczniów z poziomu widoku nauczycieli
           href: instructor-access-virtual-machines.md
     - name: Łączenie się z maszynami wirtualnymi w laboratoriach na potrzeby zajęć (uczeń)
       items:

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: fd49d11061a345b396d300c2356645a2acd5b4c0
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 69d4b1d6c67dc63347ec4fb8043427ddf0a42ae1
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588126"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702116"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Skonfiguruj cele obliczeń i używaj ich do szkolenia modelu 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -95,9 +95,11 @@ Teraz, po dołączeniu obliczeń i skonfigurowaniu przebiegu, następnym krokiem
 
 Azure Machine Learning COMPUTE to infrastruktura obliczeniowa, która umożliwia użytkownikowi łatwe tworzenie obliczeń jednego lub wielowęzłowego. Obliczenia są tworzone w regionie obszaru roboczego jako zasób, który może być współużytkowany z innymi użytkownikami w obszarze roboczym. Obliczenia są skalowane automatycznie podczas przesyłania zadania i mogą być umieszczane w Virtual Network platformy Azure. Obliczenia są wykonywane w środowisku kontenerowym i pakiety zależności modelu w [kontenerze platformy Docker](https://www.docker.com/why-docker).
 
-Za pomocą obliczeń Azure Machine Learning można dystrybuować proces uczenia w klastrze procesorów CPU lub węzłów obliczeniowych procesora GPU w chmurze. Aby uzyskać więcej informacji o rozmiarach maszyn wirtualnych, które obejmują procesory GPU, zobacz [rozmiary maszyny wirtualnej zoptymalizowanej według procesora GPU](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu).
+Za pomocą obliczeń Azure Machine Learning można dystrybuować proces uczenia w klastrze procesorów CPU lub węzłów obliczeniowych procesora GPU w chmurze. Aby uzyskać więcej informacji o rozmiarach maszyn wirtualnych, które obejmują procesory GPU, zobacz [rozmiary maszyny wirtualnej zoptymalizowanej według procesora GPU](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu). 
 
 Azure Machine Learning COMPUTE ma limity domyślne, takie jak liczba rdzeni, które można przydzielić. Aby uzyskać więcej informacji, zobacz [Zarządzanie przydziałami zasobów platformy Azure i ich żądania](https://docs.microsoft.com/azure/machine-learning/how-to-manage-quotas).
+
+Możesz również użyć maszyn wirtualnych o niskim priorytecie do uruchamiania niektórych lub wszystkich obciążeń. Te maszyny wirtualne nie mają gwarantowanej dostępności i mogą być przeszukiwane w trakcie użytkowania. Zastępujące zadanie zostało ponownie uruchomione, a nie wznowione.  Maszyny wirtualne o niskim priorytecie mają obniżone stawki w porównaniu do normalnych maszyn wirtualnych, zobacz [Planowanie i zarządzanie kosztami](https://docs.microsoft.com/azure/machine-learning/concept-plan-manage-cost).
 
 > [!TIP]
 > Klastry mogą zwykle skalować do 100 węzłów, o ile masz wystarczające limity przydziału dla wymaganej liczby rdzeni. Domyślnie klastry są skonfigurowane z obsługą komunikacji między węzłami między węzłami klastra w celu obsługi zadań MPI na przykład. Można jednak skalować klastry do tysięcy węzłów przez po prostu [podnieść bilet pomocy technicznej](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)i zażądać dozwolonych subskrypcji lub obszaru roboczego lub określonego klastra w celu wyłączenia komunikacji między węzłami. 

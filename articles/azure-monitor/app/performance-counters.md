@@ -3,12 +3,12 @@ title: Liczniki wydajności w Application Insights | Microsoft Docs
 description: Monitoruj system i niestandardowe liczniki wydajności .NET w Application Insights.
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.openlocfilehash: 201338d3a904030ea961aede094b9877bfee3e36
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 274e02c484c091cbb13ac2cf69bf99672f579f33
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82855112"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701469"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Liczniki wydajności systemu w Application Insights
 
@@ -21,16 +21,16 @@ Okienko metryki zawiera domyślny zestaw liczników wydajności.
 ![Liczniki wydajności zgłoszone w Application Insights](./media/performance-counters/performance-counters.png)
 
 Bieżące domyślne liczniki, które są skonfigurowane do zbierania dla aplikacji sieci Web ASP.NET/ASP.NET Core:
-- Czas\\procesora (%)
-- Czas procesora\\(%) dla procesu znormalizowany
-- Bajty dostępne pamięci\\
+- \\Czas procesora (%)
+- Czas procesora (%) dla procesu \\ znormalizowany
+- \\Bajty dostępne pamięci
 - Żądania ASP.NET/s
 - Zgłoszone wyjątki środowiska CLR platformy .NET/s
 - Czas wykonywania ApplicationsRequest ASP.NET
-- Prywatne\\bajty procesu
-- Bajty danych we/wy procesu\\/s
-- Żądania aplikacji\\ASP.NET w kolejce aplikacji
-- Procesor (_Total)\\czas procesora (%)
+- \\Prywatne bajty procesu
+- \\Bajty danych we/wy procesu/s
+- Żądania aplikacji ASP.NET \\ w kolejce aplikacji
+- Procesor (_Total) \\ czas procesora (%)
 
 ## <a name="add-counters"></a>Dodawanie liczników
 
@@ -40,7 +40,7 @@ Jeśli żądany licznik wydajności nie znajduje się na liście metryk, można 
 
     `Get-Counter -ListSet *`
 
-    (Zobacz [`Get-Counter`](https://technet.microsoft.com/library/hh849685.aspx)).
+    (Zobacz [`Get-Counter`](https://technet.microsoft.com/library/hh849685.aspx) ).
 2. Otwórz plik ApplicationInsights. config.
 
    * Jeśli podczas opracowywania dodaliśmy Application Insights do aplikacji, edytuj plik ApplicationInsights. config w projekcie, a następnie wdróż go ponownie na serwerach.
@@ -57,11 +57,11 @@ Jeśli żądany licznik wydajności nie znajduje się na liście metryk, można 
     ```
 
 > [!NOTE]
-> Aplikacje ASP.NET Core nie są dostępne `ApplicationInsights.config`, a w związku z tym powyższa metoda jest nieprawidłowa dla aplikacji ASP.NET Core.
+> Aplikacje ASP.NET Core nie są dostępne `ApplicationInsights.config` , a w związku z tym powyższa metoda jest nieprawidłowa dla aplikacji ASP.NET Core.
 
 Można przechwycić zarówno liczniki standardowe, jak i te, które zostały zaimplementowane. `\Objects\Processes`jest przykładem licznika standardowego, który jest dostępny we wszystkich systemach Windows. `\Sales(photo)\# Items Sold`to przykład niestandardowego licznika, który może być zaimplementowany w usłudze sieci Web.
 
-Format jest `\Category(instance)\Counter"`lub dla kategorii, które nie mają wystąpień `\Category\Counter`.
+Format jest `\Category(instance)\Counter"` lub dla kategorii, które nie mają wystąpień `\Category\Counter` .
 
 `ReportAs`jest wymagany w przypadku nazw liczników niezgodnych `[a-zA-Z()/-_ \.]+` -czyli zawierających znaki, które nie należą do następujących zestawów: litery, nawiasy okrągłe, ukośnik, łącznik, podkreślenie, spacja i kropka.
 
@@ -111,7 +111,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 ## <a name="performance-counters-in-analytics"></a>Liczniki wydajności w analizie
 W [analizie](../../azure-monitor/app/analytics.md)można wyszukiwać i wyświetlać raporty liczników wydajności.
 
-Schemat **liczniki wydajności** uwidacznia `category`, `counter` nazwę i `instance` nazwę każdego licznika wydajności.  W telemetrii dla każdej aplikacji zobaczysz tylko liczniki dla tej aplikacji. Na przykład, aby zobaczyć, jakie liczniki są dostępne: 
+Schemat **liczniki wydajności** uwidacznia `category` , `counter` nazwę i `instance` nazwę każdego licznika wydajności.  W telemetrii dla każdej aplikacji zobaczysz tylko liczniki dla tej aplikacji. Na przykład, aby zobaczyć, jakie liczniki są dostępne: 
 
 ![Liczniki wydajności w Application Insights Analytics](./media/performance-counters/analytics-performance-counters.png)
 
@@ -121,7 +121,7 @@ Aby uzyskać wykres dostępnej pamięci w ostatnim okresie:
 
 ![Timechart pamięci w analizie Application Insights](./media/performance-counters/analytics-available-memory.png)
 
-Podobnie jak w przypadku **performanceCounters** innych telemetrii, `cloud_RoleInstance` liczniki wydajności ma także kolumnę, która wskazuje tożsamość wystąpienia serwera hosta, na którym działa aplikacja. Na przykład, aby porównać wydajność aplikacji na różnych komputerach: 
+Podobnie jak w przypadku innych telemetrii, **liczniki wydajności** ma także kolumnę `cloud_RoleInstance` , która wskazuje tożsamość wystąpienia serwera hosta, na którym działa aplikacja. Na przykład, aby porównać wydajność aplikacji na różnych komputerach: 
 
 ![Wydajność segmentacja według wystąpienia roli w Application Insights Analytics](./media/performance-counters/analytics-metrics-role-instance.png)
 
@@ -142,12 +142,12 @@ Aplikacje ASP.NET i ASP.NET Core wdrożone na platformie Azure Web Apps działa�
 Obsługa liczników wydajności w ASP.NET Core jest ograniczona:
 
 * Wersje [SDK](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) 2.4.1 i nowsze zbierają liczniki wydajności, jeśli aplikacja działa w usłudze Azure Web Apps (Windows).
-* Wersja zestawu SDK 2.7.1 i nowsze zbiera liczniki wydajności, jeśli aplikacja działa w systemie Windows i `NETSTANDARD2.0` w wersji docelowej lub nowszej.
+* Wersja zestawu SDK 2.7.1 i nowsze zbiera liczniki wydajności, jeśli aplikacja działa w systemie Windows i w wersji docelowej `NETSTANDARD2.0` lub nowszej.
 * W przypadku aplikacji przeznaczonych dla .NET Framework wszystkie wersje zestawu SDK obsługują liczniki wydajności.
 * Wersje SDK 2.8.0 i nowsze obsługują licznik procesora/pamięci w systemie Linux. Żaden inny licznik nie jest obsługiwany w systemie Linux. Zalecanym sposobem uzyskiwania liczników systemowych w systemie Linux (i innych środowiskach innych niż Windows) jest użycie [EventCounters](eventcounters.md)
 
-## <a name="alerts"></a>Alerty
-Podobnie jak w przypadku innych metryk, można [ustawić alert](../../azure-monitor/app/alerts.md) ostrzegający o tym, czy licznik wydajności wykracza poza określony limit. Otwórz okienko alerty, a następnie kliknij pozycję Dodaj alert.
+## <a name="alerts"></a>Alerts (Alerty)
+Podobnie jak w przypadku innych metryk, można [ustawić alert](../../azure-monitor/platform/alerts-log.md) ostrzegający o tym, czy licznik wydajności wykracza poza określony limit. Otwórz okienko alerty, a następnie kliknij pozycję Dodaj alert.
 
 ## <a name="next-steps"></a><a name="next"></a>Następne kroki
 

@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 07ceb8eebed5657f87417dc24281008dd0863851
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0792dd98bb554b7b430676472c27274f3312d381
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650393"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701370"
 ---
 # <a name="best-practices-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Najlepsze rozwiązania dotyczące usług SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
@@ -121,7 +121,7 @@ Aby uzyskać więcej informacji, zapoznaj się z funkcjami [filename](develop-st
 > [!NOTE]
 > Funkcje używane do usuwania partycji, FilePath i FileInfo nie są obecnie obsługiwane w przypadku tabel zewnętrznych innych niż te utworzone automatycznie dla każdej tabeli utworzonej w Apache Spark dla usługi Azure Synapse Analytics.
 
-Jeśli przechowywane dane nie są podzielone na partycje, należy rozważyć ich partycjonowanie, aby można było używać tych funkcji do optymalizowania zapytań przeznaczonych dla tych plików. Podczas [wykonywania zapytania dotyczącego partycjonowanych tabel platformy Spark](develop-storage-files-spark-tables.md) z poziomu bazy danych SQL na żądanie zapytanie będzie automatycznie kierować tylko te pliki.
+Jeśli przechowywane dane nie są podzielone na partycje, należy rozważyć ich partycjonowanie, aby można było używać tych funkcji do optymalizowania zapytań przeznaczonych dla tych plików. Podczas [wykonywania zapytania dotyczącego Apache Spark partycjonowanych tabel usługi Azure Synapse](develop-storage-files-spark-tables.md) z poziomu bazy danych SQL na żądanie zapytanie będzie automatycznie kierować tylko te pliki.
 
 ## <a name="use-parser_version-20-for-querying-csv-files"></a>Używanie PARSER_VERSION 2,0 do wykonywania zapytań dotyczących plików CSV
 

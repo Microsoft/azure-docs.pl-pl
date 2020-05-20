@@ -3,7 +3,7 @@ title: Dokumentacja usługi Personalizacja
 summary: Dowiedz się, jak za pomocą usługi Personalizacja umożliwić aplikacji wybranie najlepszego środowiska dla użytkowników na podstawie ich zachowania w czasie rzeczywistym.
 metadata:
   ms.topic: landing-page
-  ms.date: 10/03/2019
+  ms.date: 05/01/2020
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -12,12 +12,12 @@ metadata:
   title: Dokumentacja usługi Personalizacja
   titleSuffix: Azure Cognitive Services
   description: Usługa Personalizacja platformy Azure to chmurowa usługa interfejsu API, która pozwala wybrać najlepsze środowiska dla użytkowników na podstawie ich zachowania w czasie rzeczywistym.
-  ms.openlocfilehash: c703673ec85cadb57e2cc69d1ee1a0d023d53436
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: ef18921e9211bb1a3659fffc84bde922d500d0b0
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "77525027"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83586324"
 landingContent:
 - title: Informacje o usłudze Personalizacja
   linkLists:
@@ -101,6 +101,8 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
+    - text: Korzystanie z trybu ucznia
+      url: how-to-learning-behavior.md
     - text: Ulepszanie pętli za pomocą ocen w trybie offline
       url: concepts-offline-evaluation.md
     - text: Zdarzenia aktywne i nieaktywne

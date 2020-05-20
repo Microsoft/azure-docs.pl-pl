@@ -3,12 +3,12 @@ title: Inteligentne wykrywanie na platformie Azure Application Insights | Micros
 description: Application Insights przeprowadza automatyczne głębokiej analizy danych telemetrycznych aplikacji i ostrzega o potencjalnych problemach.
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: ff9f88e1d2e643d04c4417283420217e7d496caf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b7fecf886515780858ecc503a29be3bd76b73c3f
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536798"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700843"
 ---
 # <a name="smart-detection-in-application-insights"></a>Wykrywanie inteligentne w usłudze Application Insights
  Inteligentne wykrywanie automatycznie ostrzega o potencjalnych problemach z wydajnością i anomaliach niepowodzeń w aplikacji sieci Web. Wykonuje proaktywnie analizę danych telemetrycznych wysyłanych przez aplikację do [Application Insights](../../azure-monitor/app/app-insights-overview.md). W przypadku nagłego wzrostu współczynnika błędów lub nietypowych wzorców wydajności klienta lub serwera zostanie wyświetlony alert. Ta funkcja nie wymaga konfiguracji. Działa, gdy aplikacja wysyła wystarczającą ilość danych telemetrycznych.
@@ -46,7 +46,7 @@ Konfigurowanie powiadomień e-mail dla konkretnej reguły wykrywania inteligentn
 
 Alternatywnie można zmienić konfigurację przy użyciu szablonów Azure Resource Manager. Aby uzyskać więcej informacji, [Zobacz temat zarządzanie Application Insights regułami wykrywania automatycznego przy użyciu szablonów Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config) .
 
-## <a name="video"></a>Film wideo
+## <a name="video"></a>Wideo
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
@@ -59,6 +59,6 @@ Te narzędzia diagnostyczne ułatwiają inspekcję danych telemetrycznych z apli
 
 Inteligentne wykrywanie jest całkowicie automatyczne. Ale być może chcesz skonfigurować więcej alertów?
 
-* [Ręcznie skonfigurowane alerty metryk](../../azure-monitor/app/alerts.md)
+* [Ręcznie skonfigurowane alerty metryk](../../azure-monitor/platform/alerts-log.md)
 * [Testy dostępności sieci Web](../../azure-monitor/app/monitor-web-app-availability.md) 
 

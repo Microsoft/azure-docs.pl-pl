@@ -141,8 +141,21 @@
         - name: Schemat zdarzeń w chmurze
           href: cloud-event-schema.md
     - name: Procedury obsługi zdarzeń
-      displayName: 'Azure Automation, Functions, Event Hubs, Hybrid Connections, Logic Apps, Service Bus, Queue Storage, Webhooks'
       href: event-handlers.md
+      items:
+        - name: Elementy webhook
+          displayName: 'Azure Automation, Webhooks, Logic Apps'
+          href: handler-webhooks.md
+        - name: Azure Functions
+          href: handler-functions.md
+        - name: Event Hubs
+          href: handler-event-hubs.md
+        - name: Service Bus
+          href: handler-service-bus.md
+        - name: Połączenia hybrydowe w usłudze Relay
+          href: handler-relay-hybrid-connections.md
+        - name: Kolejki magazynu
+          href: handler-storage-queues.md
     - name: Dostarczanie zdarzeń
       items:
         - name: Filtrowanie zdarzeń
@@ -227,6 +240,8 @@
       href: /python/api/overview/azure/event-grid
     - name: Node.js
       href: /javascript/api/overview/azure/eventgrid
+    - name: Limity przydziału i ograniczenia
+      href: quotas-limits.md
     - name: Schemat subskrypcji
       href: subscription-creation-schema.md
     - name: Zasoby szablonu

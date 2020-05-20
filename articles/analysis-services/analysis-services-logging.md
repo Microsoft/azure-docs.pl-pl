@@ -4,15 +4,15 @@ description: Opisuje sposób konfigurowania rejestrowania do monitorowania serwe
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 71a81c4a3a57c206540e20f7c7e58949c552e582
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7e1eab20a8e315b977c21de46dd4f6ea2fec9f5d
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128931"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701494"
 ---
 # <a name="setup-diagnostic-logging"></a>Konfigurowanie rejestrowania diagnostycznego
 
@@ -38,11 +38,11 @@ Wybieranie dzienników **aparatów** wszystkie [xEvents](https://docs.microsoft.
 |Raporty postępu     |   Początek raportu postępu      |
 |Raporty postępu     |   Koniec raportu postępu      |
 |Raporty postępu     |   Bieżący raport postępu      |
-|Kwerendy     |  Początek zapytania       |
-|Kwerendy     |   Koniec zapytania      |
+|Zapytania     |  Początek zapytania       |
+|Zapytania     |   Koniec zapytania      |
 |Polecenia     |  Początek polecenia       |
 |Polecenia     |  Koniec polecenia       |
-|Błędy & ostrzeżeń     |   Error      |
+|Błędy & ostrzeżeń     |   Błąd      |
 |Odnajdź     |   Odnajdź zakończenie      |
 |Powiadomienie     |    Powiadomienie     |
 |Sesja     |  Inicjowanie sesji       |
@@ -90,7 +90,7 @@ Kategoria metryki rejestruje te same [metryki serwera](analysis-services-monitor
 
 3. Kliknij przycisk **Zapisz**.
 
-    Jeśli zostanie wyświetlony komunikat o błędzie "nie można zaktualizować diagnostyki dla \<nazwy obszaru roboczego>. Identyfikator subskrypcji \<subskrypcji> nie jest zarejestrowany do korzystania z usługi Microsoft. Insights. Postępuj zgodnie z instrukcjami [Diagnostyka Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) , aby zarejestrować konto, a następnie spróbuj ponownie wykonać tę procedurę.
+    Jeśli zostanie wyświetlony komunikat o błędzie "nie można zaktualizować diagnostyki dla \< nazwy obszaru roboczego>. \<Identyfikator subskrypcji subskrypcji> nie jest zarejestrowany do korzystania z usługi Microsoft. Insights. Postępuj zgodnie z instrukcjami [Diagnostyka Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) , aby zarejestrować konto, a następnie spróbuj ponownie wykonać tę procedurę.
 
     Jeśli chcesz zmienić sposób zapisywania dzienników zasobów w dowolnym momencie w przyszłości, możesz powrócić do tej strony, aby zmodyfikować ustawienia.
 
@@ -158,7 +158,7 @@ Aby wyświetlić dane diagnostyczne, w obszarze roboczym Log Analytics Otwórz p
 
 ![Opcje przeszukiwania dzienników w Azure Portal](./media/analysis-services-logging/aas-logging-open-log-search.png)
 
-W konstruktorze zapytań rozwiń węzeł **LogManagement** > **AzureDiagnostics**. AzureDiagnostics obejmuje zdarzenia aparatu i usługi. Zwróć uwagę na to, że zapytanie jest tworzone na bieżąco. Pole EventClass\_s zawiera nazwy systemu xEvent, które mogą wyglądać dobrze, jeśli użyto xEvents do rejestrowania lokalnego. Kliknij **pozycję\_EventClass s** lub jeden z nazw zdarzeń, a obszar roboczy log Analytics kontynuuje konstruowanie zapytania. Pamiętaj, aby zapisywać zapytania, dzięki czemu będzie można skorzystać z nich później.
+W konstruktorze zapytań rozwiń węzeł **LogManagement**  >  **AzureDiagnostics**. AzureDiagnostics obejmuje zdarzenia aparatu i usługi. Zwróć uwagę na to, że zapytanie jest tworzone na bieżąco. Pole EventClass \_ s zawiera nazwy systemu xEvent, które mogą wyglądać dobrze, jeśli użyto xEvents do rejestrowania lokalnego. Kliknij pozycję **EventClass \_ s** lub jeden z nazw zdarzeń, a obszar roboczy log Analytics kontynuuje konstruowanie zapytania. Pamiętaj, aby zapisywać zapytania, dzięki czemu będzie można skorzystać z nich później.
 
 ### <a name="example-queries"></a>Przykładowe zapytania
 
@@ -251,7 +251,7 @@ Set-AzContext -SubscriptionId <subscription ID>
 
 Możesz użyć istniejącego konta magazynu dla dzienników, pod warunkiem, że znajduje się on w tej samej subskrypcji co serwer. W tym samouczku utworzysz nowe konto magazynu przeznaczone do Analysis Services dzienników. Aby to ułatwić, zapisujesz szczegóły konta magazynu w zmiennej o nazwie **sa**.
 
-Należy także użyć tej samej grupy zasobów, która zawiera serwer Analysis Services. Podstaw wartości dla `awsales_resgroup`, `awsaleslogs`i `West Central US` z własnymi wartościami:
+Należy także użyć tej samej grupy zasobów, która zawiera serwer Analysis Services. Podstaw wartości dla `awsales_resgroup` , `awsaleslogs` i `West Central US` z własnymi wartościami:
 
 ```powershell
 $sa = New-AzStorageAccount -ResourceGroupName awsales_resgroup `

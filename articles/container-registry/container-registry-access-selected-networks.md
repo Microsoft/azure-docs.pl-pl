@@ -1,14 +1,14 @@
 ---
-title: Konfigurowanie reguł zapory usługi
+title: Konfigurowanie dostępu do rejestru publicznego
 description: Skonfiguruj reguły adresów IP, aby umożliwić dostęp do usługi Azure Container Registry z wybranych publicznych adresów IP lub zakresów adresów.
 ms.topic: article
-ms.date: 05/04/2020
-ms.openlocfilehash: f6459061ca486b4bf229409e6ec1ed1bd808a474
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.date: 05/19/2020
+ms.openlocfilehash: dc0514fbe7d3e01914965cee5dc547172d4435a4
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82984618"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702087"
 ---
 # <a name="configure-public-ip-network-rules"></a>Konfigurowanie reguł sieci publicznych adresów IP
 
@@ -59,24 +59,46 @@ az acr network-rule add \
 
 ## <a name="disable-public-network-access"></a>Wyłącz dostęp do sieci publicznej
 
-Aby ograniczyć ruch do sieci wirtualnych przy użyciu [linku prywatnego](container-registry-private-link.md), należy wyłączyć publiczny punkt końcowy w rejestrze. Wyłączenie publicznego punktu końcowego zastępuje wszystkie konfiguracje zapory.
+Opcjonalnie można wyłączyć publiczny punkt końcowy w rejestrze. Wyłączenie publicznego punktu końcowego zastępuje wszystkie konfiguracje zapory. Na przykład możesz chcieć wyłączyć publiczny dostęp do rejestru zabezpieczonego w sieci wirtualnej za pomocą [linku prywatnego](container-registry-private-link.md).
+
+### <a name="disable-public-access---cli"></a>Wyłącz dostęp publiczny — interfejs wiersza polecenia
+
+Aby wyłączyć dostęp publiczny za pomocą interfejsu wiersza polecenia platformy Azure, uruchom polecenie [AZ ACR Update][az-acr-update] i ustaw wartość `--public-network-enabled` `false` . 
+
+> [!NOTE]
+> `public-network-enabled`Argument wymaga interfejsu wiersza polecenia platformy Azure 2.6.0 lub nowszego. 
+
+```azurecli
+az acr update --name myContainerRegistry --public-network-enabled false
+```
 
 ### <a name="disable-public-access---portal"></a>Wyłącz dostęp publiczny — Portal
 
 1. W portalu przejdź do rejestru kontenerów, a następnie wybierz pozycję **ustawienia > sieci**.
-1. Na karcie **dostęp publiczny** w obszarze **Zezwalaj na dostęp publiczny**wybierz pozycję **wyłączone**. Następnie wybierz pozycję **Zapisz**.
+1. Na karcie **dostęp publiczny** w obszarze **Zezwalaj na dostęp do sieci publicznej**wybierz pozycję **wyłączone**. Następnie wybierz pozycję **Zapisz**.
 
 ![Wyłącz dostęp publiczny][acr-access-disabled]
 
-## <a name="restore-default-registry-access"></a>Przywróć domyślny dostęp do rejestru
 
-Aby przywrócić rejestr w celu domyślnego zezwalania na dostęp, zaktualizuj akcję domyślną. 
+## <a name="restore-public-network-access"></a>Przywróć dostęp do sieci publicznej
 
-### <a name="restore-default-registry-access---portal"></a>Przywróć domyślny dostęp do rejestru — Portal
+Aby ponownie włączyć publiczny punkt końcowy, zaktualizuj ustawienia sieci, aby zezwolić na dostęp publiczny. Włączenie publicznego punktu końcowego zastępuje wszystkie konfiguracje zapory. 
+
+### <a name="restore-public-access---cli"></a>Przywracanie publicznego dostępu — interfejs wiersza polecenia
+
+Uruchom [AZ ACR Update][az-acr-update] i ustaw `--public-network-enabled` wartość `true` . 
+
+> [!NOTE]
+> `public-network-enabled`Argument wymaga interfejsu wiersza polecenia platformy Azure 2.6.0 lub nowszego. 
+
+```azurecli
+az acr update --name myContainerRegistry --public-network-enabled true
+```
+
+### <a name="restore-public-access---portal"></a>Przywracanie publicznego dostępu — Portal
 
 1. W portalu przejdź do rejestru kontenerów, a następnie wybierz pozycję **ustawienia > sieci**.
-1. W obszarze **Zapora**wybierz każdy zakres adresów, a następnie wybierz ikonę Usuń.
-1. Na karcie **dostęp publiczny** w obszarze **Zezwalaj na dostęp publiczny**wybierz pozycję **wszystkie sieci**. Następnie wybierz pozycję **Zapisz**.
+1. Na karcie **dostęp publiczny** w obszarze **Zezwalaj na dostęp do sieci publicznej**wybierz pozycję **wszystkie sieci**. Następnie wybierz pozycję **Zapisz**.
 
 ![Publiczny dostęp ze wszystkich sieci][acr-access-all-networks]
 

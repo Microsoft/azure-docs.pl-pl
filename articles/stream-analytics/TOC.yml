@@ -58,6 +58,7 @@
       items:
         - name: Przegląd danych wyjściowych
           href: stream-analytics-define-outputs.md
+          displayName: 'adls, sql, blob, event hubs, power bi, table, service bus, cosmos, functions'
         - name: Wyjście do usługi Cosmos DB
           href: stream-analytics-documentdb-output.md
         - name: Wyjście do usługi Azure SQL DB
@@ -127,14 +128,22 @@
           href: copy-job.md
         - name: Parowanie zadań w celu zwiększenia niezawodności
           href: stream-analytics-job-reliability.md
-        - name: Uwierzytelnianie przy użyciu tożsamości zarządzanej — dane wyjściowe usługi ADLS Gen 1
-          href: stream-analytics-managed-identities-adls.md
         - name: Korzystanie z danych referencyjnych bazy danych SQL
           href: sql-reference-data.md
-        - name: Uwierzytelnianie przy użyciu tożsamości zarządzanej — dane wyjściowe obiektów blob
-          href: blob-output-managed-identity.md
-        - name: Uwierzytelnianie przy użyciu tożsamości zarządzanej — Power BI
-          href: powerbi-output-managed-identity.md
+        - name: Uwierzytelnianie przy użyciu tożsamości zarządzanej
+          items:
+            - name: Usługa ADLS Gen 1
+              href: stream-analytics-managed-identities-adls.md
+              displayName: 'managed identity, identities, authenticate'
+            - name: Blob Storage
+              href: blob-output-managed-identity.md
+              displayName: 'managed identity, identities, authenticate'
+            - name: Power BI
+              href: powerbi-output-managed-identity.md
+              displayName: 'managed identity, identities, authenticate'
+            - name: Azure SQL DB
+              href: sql-database-output-managed-identity.md
+              displayName: 'managed identity, identities, authenticate'
         - name: Szyfrowanie danych
           href: data-protection.md
     - name: Tworzenie rozwiązań
@@ -226,6 +235,18 @@
           href: stream-analytics-job-diagnostic-logs.md
         - name: Błędy danych
           href: data-errors.md
+        - name: Kody błędów
+          items:
+            - name: Błędy konfiguracji
+              href: configuration-error-codes.md
+            - name: Błędy danych
+              href: data-error-codes.md
+            - name: Zewnętrzne błędy dostępności
+              href: external-availability-error-codes.md
+            - name: Błędy zewnętrzne
+              href: external-error-codes.md
+            - name: Błędy wewnętrzne
+              href: internal-error-codes.md
     - name: Integracja z uczeniem maszynowym
       items:
         - name: Analiza tonacji przy użyciu modeli usługi ML

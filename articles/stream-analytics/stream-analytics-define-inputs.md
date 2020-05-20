@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/17/2020
-ms.openlocfilehash: 388f43fec9242f6a4b448483d9486aa4413d2612
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 52f333a8e39dfd8f68666e6438a7d40414b6f958
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254471"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701419"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Przesyłaj strumieniowo dane jako dane wejściowe do Stream Analytics
 
@@ -20,7 +20,7 @@ Stream Analytics ma integrację pierwszej klasy z strumieniami danych platformy 
 
 - [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 - [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) 
-- [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) 
+- [Magazyn obiektów blob platformy Azure](https://azure.microsoft.com/services/storage/blobs/) 
 
 Te zasoby wejściowe mogą znajdować się w tej samej subskrypcji platformy Azure co Stream Analytics zadania lub innej subskrypcji.
 
@@ -57,7 +57,7 @@ W poniższej tabeli opisano każdą właściwość na stronie **nowe dane wejśc
 | **Grupa odbiorców centrum zdarzeń** (zalecane) | Zdecydowanie zaleca się użycie odrębnej grupy odbiorców dla każdego zadania Stream Analytics. Ten ciąg identyfikuje grupę odbiorców, która ma być używana do pozyskiwania danych z centrum zdarzeń. Jeśli grupa odbiorców nie zostanie określona, zadanie Stream Analytics używa $Default grupy odbiorców.  |
 | **Klucz partycji** | Jeśli dane wejściowe są podzielone na partycje przez właściwość, można dodać nazwę tej właściwości. Klucze partycji są opcjonalne i są używane do poprawiania wydajności zapytania, jeśli zawiera klauzulę PARTITION BY lub GROUP BY dla tej właściwości. |
 | **Format serializacji zdarzeń** | Format serializacji (JSON, CSV, Avro lub [inny (protobuf, XML, własny,...)](custom-deserializer.md)) przychodzącego strumienia danych.  Upewnij się, że format JSON jest wyrównany ze specyfikacją i nie zawiera wiodących wartości 0 dla liczb dziesiętnych. |
-| **Kodowanie** | UTF-8 jest obecnie jedynym obsługiwanym formatem kodowania. |
+| **Encoding** | UTF-8 jest obecnie jedynym obsługiwanym formatem kodowania. |
 | **Typ kompresji zdarzenia** | Typ kompresji używany do odczytywania przychodzącego strumienia danych, na przykład None (wartość domyślna), GZip lub Wklęśnięcie. |
 
 Gdy dane pochodzą z danych wejściowych strumienia centrum zdarzeń, masz dostęp do następujących pól metadanych w kwerendzie Stream Analytics:
@@ -86,7 +86,7 @@ FROM Input
 
 IoT Hub platformy Azure to wysoce skalowalna usługa do obsługi zdarzeń publikowania/subskrybowania, zoptymalizowana pod kątem scenariuszy IoT.
 
-Domyślna sygnatura czasowa zdarzeń pochodzących z IoT Hub w Stream Analytics jest sygnaturą czasową, jaką zdarzenie dotarło do IoT Hub, `EventEnqueuedUtcTime`czyli. Aby przetworzyć dane jako strumień przy użyciu sygnatury czasowej w ładunku zdarzenia, należy użyć słowa kluczowego [timestamp by](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) .
+Domyślna sygnatura czasowa zdarzeń pochodzących z IoT Hub w Stream Analytics jest sygnaturą czasową, jaką zdarzenie dotarło do IoT Hub, czyli `EventEnqueuedUtcTime` . Aby przetworzyć dane jako strumień przy użyciu sygnatury czasowej w ładunku zdarzenia, należy użyć słowa kluczowego [timestamp by](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) .
 
 ### <a name="iot-hub-consumer-groups"></a>Grupy konsumentów Centrum IoT Hub
 
@@ -107,7 +107,7 @@ W poniższej tabeli opisano każdą właściwość na stronie **nowe dane wejśc
 | **Grupa konsumentów** | Zdecydowanie zaleca się użycie innej grupy odbiorców dla każdego zadania Stream Analytics. Grupa konsumentów służy do pozyskiwania danych z IoT Hub. Stream Analytics używa grupy konsumentów $Default, chyba że określisz inaczej.  |
 | **Klucz partycji** | Jeśli dane wejściowe są podzielone na partycje przez właściwość, można dodać nazwę tej właściwości. Klucze partycji są opcjonalne i są używane do poprawiania wydajności zapytania, jeśli zawiera klauzulę PARTITION BY lub GROUP BY dla tej właściwości. |
 | **Format serializacji zdarzeń** | Format serializacji (JSON, CSV, Avro lub [inny (protobuf, XML, własny,...)](custom-deserializer.md)) przychodzącego strumienia danych.  Upewnij się, że format JSON jest wyrównany ze specyfikacją i nie zawiera wiodących wartości 0 dla liczb dziesiętnych. |
-| **Kodowanie** | UTF-8 jest obecnie jedynym obsługiwanym formatem kodowania. |
+| **Encoding** | UTF-8 jest obecnie jedynym obsługiwanym formatem kodowania. |
 | **Typ kompresji zdarzenia** | Typ kompresji używany do odczytywania przychodzącego strumienia danych, na przykład None (wartość domyślna), GZip lub Wklęśnięcie. |
 
 
@@ -130,11 +130,11 @@ W przypadku scenariuszy zawierających duże ilości danych bez struktury do prz
 
 Przetwarzanie dziennika jest często używanym scenariuszem do używania danych wejściowych usługi BLOB Storage z Stream Analytics. W tym scenariuszu pliki danych telemetrycznych zostały przechwycone z systemu i muszą zostać przeanalizowane i przetworzone w celu wyodrębnienia istotnych danych.
 
-Domyślna sygnatura czasowa zdarzeń magazynu obiektów BLOB w Stream Analytics to sygnatura czasowa ostatniej modyfikacji obiektu BLOB, `BlobLastModifiedUtcTime`czyli. Jeśli obiekt BLOB zostanie przekazany do konta magazynu o godzinie 13:00, a zadanie Azure Stream Analytics zostanie uruchomione przy użyciu opcji *teraz* o godzinie 13:01, obiekt BLOB nie zostanie pobrany jako zmodyfikowany czas poza okresem wykonywania zadania.
+Domyślna sygnatura czasowa zdarzeń magazynu obiektów BLOB w Stream Analytics to sygnatura czasowa ostatniej modyfikacji obiektu BLOB, czyli `BlobLastModifiedUtcTime` . Jeśli obiekt BLOB zostanie przekazany do konta magazynu o godzinie 13:00, a zadanie Azure Stream Analytics zostanie uruchomione przy użyciu opcji *teraz* o godzinie 13:01, obiekt BLOB nie zostanie pobrany jako zmodyfikowany czas poza okresem wykonywania zadania.
 
 Jeśli obiekt BLOB zostanie przekazany do kontenera konta magazynu o godzinie 13:00, a zadanie Azure Stream Analytics zostanie rozpoczęte przy użyciu *czasu niestandardowego* o godzinie 13:00 lub starszej, obiekt BLOB zostanie pobrany jako jego zmodyfikowany czas w okresie wykonywania zadania.
 
-Jeśli zadanie Azure Stream Analytics zostało uruchomione przy użyciu *teraz* o godzinie 13:00, a obiekt BLOB zostanie przekazany do kontenera konta magazynu o godzinie 13:01, Azure Stream Analytics pobierze obiekt BLOB.
+Jeśli zadanie Azure Stream Analytics zostało uruchomione przy użyciu *teraz* o godzinie 13:00, a obiekt BLOB zostanie przekazany do kontenera konta magazynu o godzinie 13:01, Azure Stream Analytics pobierze obiekt BLOB. Sygnatura czasowa przypisana do każdego obiektu BLOB jest oparta wyłącznie na `BlobLastModifiedTime` . Folder, w którym znajduje się obiekt BLOB, nie ma związku z przypisaną sygnaturą czasową. Na przykład jeśli istnieje obiekt BLOB *2019/10-01/00/B1. txt* z `BlobLastModifiedTime` 2019-11-11, to sygnatura czasowa przypisana do tego obiektu BLOB to 2019-11-11.
 
 Aby przetworzyć dane jako strumień przy użyciu sygnatury czasowej w ładunku zdarzenia, należy użyć słowa kluczowego [timestamp by](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) . Zadanie Stream Analytics pobiera dane z danych wejściowych z usługi Azure Blob Storage co sekundę, jeśli plik BLOB jest dostępny. Jeśli plik BLOB jest niedostępny, istnieje wykładnicza wycofywania z maksymalnym opóźnieniem wynoszącym 90 sekund.
 
@@ -143,7 +143,7 @@ Dane wejściowe w formacie CSV wymagają wiersza nagłówka, aby zdefiniować po
 > [!NOTE]
 > Stream Analytics nie obsługuje dodawania zawartości do istniejącego pliku obiektu BLOB. Stream Analytics będzie przeglądać każdy plik tylko raz, a wszelkie zmiany wprowadzone w pliku po odczytaniu zadania nie są przetwarzane. Najlepszym rozwiązaniem jest przekazanie wszystkich danych dla pliku obiektu BLOB jednocześnie, a następnie dodanie dodatkowych zdarzeń do innego, nowego pliku obiektu BLOB.
 
-Jednoczesne przekazywanie bardzo dużej liczby obiektów BLOB może spowodować, że Stream Analytics pominąć odczytywanie kilku obiektów BLOB w rzadkich przypadkach. Zaleca się przekazywanie obiektów blob z co najmniej 2 sekund z wyjątkiem magazynu obiektów BLOB. Jeśli ta opcja nie jest możliwa, można użyć Event Hubs do przesyłania strumieniowego dużych ilości zdarzeń. 
+W scenariuszach, w których wiele obiektów BLOB jest w sposób ciągły dodawane i Stream Analytics przetwarza obiekty blob w miarę ich dodawania, istnieje możliwość, że niektóre obiekty blob są pomijane w rzadkich przypadkach ze względu na stopień szczegółowości `BlobLastModifiedTime` . Można to ograniczyć przez przekazywanie obiektów blob z co najmniej dwiema sekundami. Jeśli ta opcja nie jest możliwa, można użyć Event Hubs do przesyłania strumieniowego dużych ilości zdarzeń.
 
 ### <a name="configure-blob-storage-as-a-stream-input"></a>Konfigurowanie magazynu obiektów BLOB jako danych wejściowych strumienia 
 
@@ -156,12 +156,12 @@ W poniższej tabeli opisano każdą właściwość na stronie **nowe dane wejśc
 | **Konto magazynu** | Nazwa konta magazynu, w którym znajdują się pliki obiektów BLOB. |
 | **Klucz konta magazynu** | Klucz tajny skojarzony z kontem magazynu. Ta opcja jest wypełniana automatycznie, chyba że zostanie wybrana opcja ręcznego dostarczania ustawień magazynu obiektów BLOB. |
 | **Kontener** | Kontener dla danych wejściowych obiektu BLOB. Kontenery zapewniają logiczne grupowanie obiektów BLOB przechowywanych w Blob service Microsoft Azure. Podczas przekazywania obiektu BLOB do usługi Azure Blob Storage należy określić kontener dla tego obiektu BLOB. Możesz wybrać opcję **Użyj istniejącego** kontenera lub **utworzyć nowy** , aby utworzyć nowy kontener.|
-| **Wzorzec ścieżki** (opcjonalnie) | Ścieżka pliku używana do lokalizowania obiektów BLOB w określonym kontenerze. Jeśli chcesz odczytywać obiekty blob z katalogu głównego kontenera, nie ustawiaj wzorca ścieżki. W ścieżce można określić jedno lub więcej wystąpień następujących trzech zmiennych: `{date}`, `{time}`, lub`{partition}`<br/><br/>Przykład 1:`cluster1/logs/{date}/{time}/{partition}`<br/><br/>Przykład 2:`cluster1/logs/{date}`<br/><br/>`*` Znak nie jest dozwoloną wartością dla prefiksu ścieżki. Dozwolone są tylko poprawne <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">znaki obiektów blob platformy Azure</a> . Nie dołączaj nazw kontenerów ani nazw plików. |
-| **Format daty** (opcjonalnie) | Jeśli używasz zmiennej daty w ścieżce, format daty, w którym są zorganizowane pliki. Przykład: `YYYY/MM/DD` |
+| **Wzorzec ścieżki** (opcjonalnie) | Ścieżka pliku używana do lokalizowania obiektów BLOB w określonym kontenerze. Jeśli chcesz odczytywać obiekty blob z katalogu głównego kontenera, nie ustawiaj wzorca ścieżki. W ścieżce można określić jedno lub więcej wystąpień następujących trzech zmiennych: `{date}` , `{time}` , lub`{partition}`<br/><br/>Przykład 1:`cluster1/logs/{date}/{time}/{partition}`<br/><br/>Przykład 2:`cluster1/logs/{date}`<br/><br/>`*`Znak nie jest dozwoloną wartością dla prefiksu ścieżki. Dozwolone są tylko poprawne <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">znaki obiektów blob platformy Azure</a> . Nie dołączaj nazw kontenerów ani nazw plików. |
+| **Format daty** (opcjonalnie) | Jeśli używasz zmiennej daty w ścieżce, format daty, w którym są zorganizowane pliki. Przykład: `YYYY/MM/DD` <br/><br/> Gdy dane wejściowe obiektu BLOB mają `{date}` lub `{time}` w swojej ścieżce, foldery są przeszukiwane w kolejności rosnącej.|
 | **Format czasu** (opcjonalnie) |  Jeśli używasz zmiennej czasowej w ścieżce, format czasu, w którym są zorganizowane pliki. Obecnie jedyną obsługiwaną wartością jest `HH` dla godzin. |
 | **Klucz partycji** | Jeśli dane wejściowe są podzielone na partycje przez właściwość, można dodać nazwę tej właściwości. Klucze partycji są opcjonalne i są używane do poprawiania wydajności zapytania, jeśli zawiera klauzulę PARTITION BY lub GROUP BY dla tej właściwości. |
 | **Format serializacji zdarzeń** | Format serializacji (JSON, CSV, Avro lub [inny (protobuf, XML, własny,...)](custom-deserializer.md)) przychodzącego strumienia danych.  Upewnij się, że format JSON jest wyrównany ze specyfikacją i nie zawiera wiodących wartości 0 dla liczb dziesiętnych. |
-| **Kodowanie** | W przypadku woluminów CSV i JSON UTF-8 jest obecnie jedynym obsługiwanym formatem kodowania. |
+| **Encoding** | W przypadku woluminów CSV i JSON UTF-8 jest obecnie jedynym obsługiwanym formatem kodowania. |
 | **Kompresja** | Typ kompresji używany do odczytywania przychodzącego strumienia danych, na przykład None (wartość domyślna), GZip lub Wklęśnięcie. |
 
 Gdy dane pochodzą ze źródła magazynu obiektów blob, masz dostęp do następujących pól metadanych w kwerendzie Stream Analytics:

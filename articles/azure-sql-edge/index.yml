@@ -1,0 +1,55 @@
+### YamlMime:Landing
+title: Dokumentacja usługi Azure SQL Edge (wersja zapoznawcza)
+summary: Usługa Azure SQL Edge to aparat relacyjnej bazy danych zoptymalizowany pod kątem wdrożeń IoT i brzegowych.
+metadata:
+  title: Dokumentacja usługi Azure SQL Edge (wersja zapoznawcza)
+  meta.description: Learn how to use Azure SQL Edge (Preview).
+  services: sql-database-edge
+  ms.service: sql-database-edge
+  ms.topic: landing-page
+  author: stevestein
+  ms.author: sstein
+  ms.date: 05/19/2020
+  ms.openlocfilehash: a2e26d4bfbec3a139987e2a7a0fe21c429c740a5
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+  ms.translationtype: HT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83593141"
+landingContent:
+- title: Usługa SQL Edge
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to jest usługa SQL Edge?
+      url: overview.md
+  - linkListType: deploy
+    links:
+    - text: Wdrażanie usługi SQL Edge
+      url: deploy-portal.md
+- title: Synchronizowanie danych
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Synchronizowanie danych usługi SQL Edge z usługą Azure Data Factory
+      url: tutorial-sync-data-factory.md
+    - text: Synchronizowanie danych usługi SQL Edge z usługą SQL Database
+      url: tutorial-sync-data-sync.md
+- title: Strumieniowe przesyłanie danych
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Strumieniowe przesyłanie danych
+      url: stream-data.md
+    - text: Widoki wykazu przesyłania strumieniowego
+      url: streaming-catalog-views.md
+- title: Uczenie maszynowe
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Uczenie maszynowe i sztuczna inteligencja
+      url: onnx-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Wdrażanie rozwiązań ONNX w usłudze SQL Edge
+      url: deploy-onnx.md

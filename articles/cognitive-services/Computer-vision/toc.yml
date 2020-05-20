@@ -135,6 +135,8 @@
       href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
     - name: Azure PowerShell
       href: 'https://aka.ms/azure-powershell-cognitiveservices'
+    - name: Interfejs API przetwarzania obrazów w wersji 3.0
+      href: 'https://aka.ms/computer-vision-v3-ref'
     - name: Interfejs API przetwarzania obrazów 3.0 (wersja zapoznawcza)
       href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6'
     - name: Interfejs API przetwarzania obrazów v2.1

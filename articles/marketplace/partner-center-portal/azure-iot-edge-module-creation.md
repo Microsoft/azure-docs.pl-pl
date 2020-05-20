@@ -6,13 +6,13 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/03/2020
-ms.openlocfilehash: d69090eb07159c2c188c54499a167f127269df24
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.date: 05/19/2020
+ms.openlocfilehash: 21fc51aef664b2ea9360c4d8ca8e722bb7bbb349
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857657"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701155"
 ---
 # <a name="create-configure-and-publish-an-iot-edge-module-offer-in-azure-marketplace"></a>Tworzenie, Konfigurowanie i publikowanie oferty modułu IoT Edge w portalu Azure Marketplace
 
@@ -21,8 +21,8 @@ W tym artykule opisano sposób tworzenia i publikowania oferty usługi Edge dla 
 ## <a name="create-a-new-offer"></a>Tworzenie nowej oferty
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
-2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace** > **Overview**.
-3. Na stronie Przegląd wybierz pozycję **+ Nowa oferta** > **IoT Edge module**.
+2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
+3. Na stronie Przegląd wybierz pozycję **+ Nowa oferta**  >  **IoT Edge module**.
 
     ![Ilustruje menu nawigacji po lewej stronie.](./media/new-offer-iot-edge.png)
 
@@ -34,7 +34,7 @@ W tym artykule opisano sposób tworzenia i publikowania oferty usługi Edge dla 
 Wprowadź **Identyfikator oferty**. To jest unikatowy identyfikator dla każdej oferty na Twoim koncie.
 
 - Ten identyfikator jest widoczny dla klientów w adresie sieci Web dla ofert i szablonów Azure Resource Manager, jeśli ma zastosowanie.
-- Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczone do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1**, adres sieci Web oferty będzie wynosić `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczone do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1**, adres sieci Web oferty będzie wynosić `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
 - Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz**.
 
 Wprowadź **alias oferty**. Jest to nazwa używana dla oferty w centrum partnerskim.
@@ -48,7 +48,7 @@ Wybierz pozycję **Utwórz** , aby wygenerować ofertę i kontynuować.
 
 Na stronie **Przegląd oferty** przedstawiono wizualną reprezentację kroków wymaganych do opublikowania oferty (zarówno ukończonej, jak i nadchodzącej) oraz czasu, w którym należy wykonać poszczególne kroki.
 
-Ta strona zawiera linki do wykonywania operacji na tej ofercie w zależności od dokonanego wyboru. Przykład:
+Ta strona zawiera linki do wykonywania operacji na tej ofercie w zależności od dokonanego wyboru. Na przykład:
 
 - Jeśli oferta jest ofertą typu wersja robocza, [Usuń wersję roboczą](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
 - Jeśli oferta jest aktywna [, Zatrzymaj sprzedawanie oferty](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
@@ -67,7 +67,7 @@ Po opublikowaniu oferty w witrynie Marketplace z centrum partnerskim możesz opc
 
     - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) dla zaangażowania klienta
     - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-    - [SalesForce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+    - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
 
     > [!NOTE]
     > Jeśli system CRM nie jest wymieniony powyżej, użyj [tabeli platformy Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) lub [punktu końcowego HTTPS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) do przechowywania danych potencjalnych klientów, a następnie wyeksportuj dane do systemu CRM.
@@ -91,7 +91,7 @@ Ta strona umożliwia definiowanie kategorii używanych do grupowania oferty w wi
 
 #### <a name="category"></a>Kategoria
 
-Wybierz co najmniej jedną i maksymalnie pięć kategorii. Te kategorie służą do umieszczania oferty w odpowiednich obszarach wyszukiwania w witrynie Marketplace i są wyświetlane na stronie szczegółów oferty. W opisie oferty Wyjaśnij, w jaki sposób oferta obsługuje te kategorie. Na stronach przeglądania wszystkie moduły IoT Edge są wyświetlane w kategorii  **moduł Internet rzeczy > IoT Edge**.
+Wybierz co najmniej jedną i maksymalnie pięć kategorii. Te kategorie służą do umieszczania oferty w odpowiednich obszarach wyszukiwania w witrynie Marketplace i są wyświetlane na stronie szczegółów oferty. W opisie oferty Wyjaśnij, w jaki sposób oferta obsługuje te kategorie. Na stronach przeglądania wszystkie moduły IoT Edge są wyświetlane w kategorii **moduł Internet rzeczy > IoT Edge**   .
 
 #### <a name="legal"></a>Informacje prawne
 
@@ -146,44 +146,15 @@ Podaj bardziej szczegółowy opis oferty. Może to być maksymalnie 256 znaków 
 
 ### <a name="description"></a>Opis
 
-Podaj dłuższy opis oferty, do 3 000 znaków. Ten komunikat jest wyświetlany klientom w przeglądzie oferty w portalu Marketplace.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-W opisie Uwzględnij co najmniej jeden z następujących elementów:
+Oferty modułu IoT Edge muszą obejmować minimalny zakres wymagań sprzętowych w dolnej części opisu, taki jak:
 
-- Wartość i klucz korzyści oferowanych przez Twoją ofertę
-- Skojarzenia kategorii lub branżowych
-- Szanse zakupu w aplikacji
-- Wszelkie wymagane ujawnienie
+- Minimalne wymagania sprzętowe: Linux x64 i arm32 OS, 1 GB pamięci RAM, 500 MB magazynu
 
-Oferty modułu IoT Edge muszą obejmować minimalny zakres wymagań sprzętowych w dolnej części opisu. Przykład:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-*Minimalne wymagania sprzętowe: Linux x64 i arm32 OS, 1 GB pamięci RAM, 500 MB magazynu*
-
-Oto kilka porad dotyczących pisania opisu:
-
-- Jasno opisz wartość oferty w pierwszych kilku zdaniach opisu. Uwzględnij następujące elementy:
-    - Opis oferty.
-    - Typ użytkownika, który przynosi korzyści z oferty.
-    - Klienci potrzebują lub wystawiają adresy oferty.
-- Należy pamiętać, że pierwsze niektóre zdania mogą być wyświetlane w wynikach wyszukiwania.
-- Nie opieraj się na funkcjach i funkcjach, aby sprzedawać swój produkt. Zamiast tego należy skoncentrować się na wartości, którą oferuje oferta.
-- Spróbuj użyć tekstów specyficznych dla branżowych lub opartych na korzyściach.
-
-Aby zwiększyć atrakcyjność **opisu** oferty, użyj edytora tekstu sformatowanego do formatowania opisu. Edytor tekstu sformatowanego pozwala dodawać numery, punktory, pogrubienie, kursywę i wcięcia, aby zwiększyć czytelność opisu.
-
-:::image type="content" source="media/text-editor2.png" alt-text="Ilustruje Edytor tekstu sformatowanego." border="false":::
-
-- Aby zmienić format zawartości, zaznacz tekst, który chcesz sformatować, i wybierz styl tekstu, jak pokazano na poniższym zrzucie ekranu:
-
-     :::image type="content" source="media/text-editor3.png" alt-text="Ilustruje formant stylu tekstu w edytorze tekstu sformatowanego." border="false":::
-
-- Aby dodać listę punktowaną lub numerowaną do tekstu, użyj opcji przedstawionych na tym zrzucie ekranu:
-  
-    :::image type="content" source="media/text-editor4.png" alt-text="Ilustruje kontrolki listy punktowanej i liczbowej w edytorze tekstu sformatowanego." border="false":::
-
-- Aby dodać lub usunąć wcięcie do tekstu, użyj opcji przedstawionych na tym zrzucie ekranu:
-
-    :::image type="content" source="media/text-editor5.png" alt-text="Ilustruje kontrolki wcięcia w edytorze tekstu sformatowanego." border="false":::
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 #### <a name="privacy-policy-url"></a>Adres URL zasad ochrony prywatności
 
@@ -397,11 +368,11 @@ Na karcie **szczegóły repozytorium obrazów** uzyskasz następujące informacj
 
 :::image type="content" source="media/iot-edge-module-creation/iot-edge-module-admin-user.png" alt-text="Ilustruje okno dialogowe Aktualizowanie rejestru kontenerów.":::
 
-**Hasło dla Azure Container Registry**: Podaj hasło dla nazwy użytkownika administratora, która jest skojarzona z Azure Container Registry i ma obraz kontenera. Aby zapewnić firmie dostęp do rejestru, należy podać nazwę użytkownika i hasło. Hasło można uzyskać z Azure Portal, przechodząc do **Container Registry** > **kluczy dostępu** lub za pomocą interfejsu wiersza polecenia platformy Azure przy użyciu narzędzia [show.](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)
+**Hasło dla Azure Container Registry**: Podaj hasło dla nazwy użytkownika administratora, która jest skojarzona z Azure Container Registry i ma obraz kontenera. Aby zapewnić firmie dostęp do rejestru, należy podać nazwę użytkownika i hasło. Hasło można uzyskać z Azure Portal, przechodząc do **Container Registry**  >  **kluczy dostępu** lub za pomocą interfejsu wiersza polecenia platformy Azure przy użyciu narzędzia [show.](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)
 
 :::image type="content" source="media/iot-edge-module-creation/iot-edge-module-username-password.png" alt-text="Ilustruje ekran klucz dostępu w Azure Portal.":::
 
-**Nazwa repozytorium w Azure Container Registry**. Podaj nazwę repozytorium Azure Container Registry, w którym znajduje się obraz. Nazwa repozytorium jest określana podczas wypychania obrazu do rejestru. Nazwę repozytorium można znaleźć, przechodząc do**strony repozytoria** [Container Registry](https://azure.microsoft.com/services/container-registry/) > . Aby uzyskać więcej informacji, zobacz [Wyświetlanie repozytoriów rejestru kontenerów w Azure Portal](https://docs.microsoft.com/azure/container-registry/container-registry-repositories). Należy pamiętać, że po ustawieniu nazwy nie można jej zmienić. Użyj unikatowej nazwy dla każdej oferty na koncie.
+**Nazwa repozytorium w Azure Container Registry**. Podaj nazwę repozytorium Azure Container Registry, w którym znajduje się obraz. Nazwa repozytorium jest określana podczas wypychania obrazu do rejestru. Nazwę repozytorium można znaleźć, przechodząc do [Container Registry](https://azure.microsoft.com/services/container-registry/)  >  **strony repozytoria**Container Registry. Aby uzyskać więcej informacji, zobacz [Wyświetlanie repozytoriów rejestru kontenerów w Azure Portal](https://docs.microsoft.com/azure/container-registry/container-registry-repositories). Należy pamiętać, że po ustawieniu nazwy nie można jej zmienić. Użyj unikatowej nazwy dla każdej oferty na koncie.
 
 ### <a name="image-tags-for-new-versions-of-your-offer"></a>Tagi obrazu dla nowych wersji oferty
 

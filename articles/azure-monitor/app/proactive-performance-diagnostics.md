@@ -4,12 +4,12 @@ description: Application Insights przeprowadza inteligentnej analizy telemetrii 
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: 6c5b19c7e03993ef973cd708ed7a6fe89feb01a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ad4341993d92052123eacd3d37500905a0b25179
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687692"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697177"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Wykrywanie inteligentne — anomalie wydajności
 
@@ -34,7 +34,7 @@ Nie, powiadomienie nie oznacza, że w aplikacji występuje problem. To po prostu
 
 ## <a name="how-do-i-fix-it"></a>Jak go naprawić?
 
-Powiadomienia obejmują informacje diagnostyczne. Przykład:
+Powiadomienia obejmują informacje diagnostyczne. Oto przykład:
 
 
 ![Oto przykład wykrywania pogorszenia czasu odpowiedzi serwera](media/proactive-performance-diagnostics/server_response_time_degradation.png)
@@ -70,12 +70,12 @@ Wiadomości e-mail dotyczące anomalii dotyczących wydajności wykrywania intel
 * *Czy mogę utworzyć własne reguły wykrywania anomalii lub dostosować istniejące reguły?*
 
   * Jeszcze nie, ale możesz:
-    * [Skonfiguruj alerty](../../azure-monitor/app/alerts.md) informujące o przekroczeniu progu przez metrykę.
+    * [Skonfiguruj alerty](/azure/azure-monitor/platform/alerts-log) informujące o przekroczeniu progu przez metrykę.
     * [Wyeksportuj dane telemetryczne](../../azure-monitor/app/export-telemetry.md) do [bazy danych](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) lub [do Power BI](../../azure-monitor/app/export-power-bi.md ), gdzie możesz ją przeanalizować.
 * *Jak często przeprowadzana jest analiza?*
 
   * Przeprowadzamy analizę codziennie na danych telemetrycznych od poprzedniego dnia (pełny dzień w strefie czasowej UTC).
-* *Czy te zastępują [alerty metryk](../../azure-monitor/app/alerts.md)?*
+* *Czy te zastępują [alerty metryk](/azure/azure-monitor/platform/alerts-log)?*
   * Nie.  Nie zobowiązujemy się do wykrywania wszystkich zachowań, które mogą być rozważane nietypowe.
 
 
@@ -180,5 +180,5 @@ Te narzędzia diagnostyczne ułatwiają inspekcję danych telemetrycznych z apli
 
 Inteligentne wykrywanie są całkowicie automatyczne. Ale być może chcesz skonfigurować więcej alertów?
 
-* [Ręcznie skonfigurowane alerty metryk](../../azure-monitor/app/alerts.md)
+* [Ręcznie skonfigurowane alerty metryk](/azure/azure-monitor/platform/alerts-log)
 * [Testy dostępności sieci Web](../../azure-monitor/app/monitor-web-app-availability.md)

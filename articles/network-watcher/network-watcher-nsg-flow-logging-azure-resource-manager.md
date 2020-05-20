@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2020
 ms.author: damendo
-ms.openlocfilehash: 104311904b99cadbbc8c0267a98f2709443608ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7b7580843bc5ad90ebc394c41e81f4d16f51ccb1
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80891462"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701764"
 ---
 # <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Konfigurowanie dzienników przepływu sieciowej grupy zabezpieczeń na podstawie szablonu Azure Resource Manager
 
 > [!div class="op_single_selector"]
 > - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
-> - [Narzędzia](network-watcher-nsg-flow-logging-powershell.md)
+> - [Program PowerShell](network-watcher-nsg-flow-logging-powershell.md)
 > - [Interfejs wiersza polecenia platformy Azure](network-watcher-nsg-flow-logging-cli.md)
-> - [INTERFEJS API REST](network-watcher-nsg-flow-logging-rest.md)
+> - [Interfejs API REST](network-watcher-nsg-flow-logging-rest.md)
 > - [Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
 
@@ -110,7 +110,7 @@ Poniżej przedstawiono dwa przykłady kompletnych szablonów służących do kon
 ```
 
 > [!NOTE]
-> * Nazwa zasobu ma format "zasób nadrzędny>/Child zasobów". W tym miejscu zasób nadrzędny jest wystąpieniem Network Watcher regionalnym (format:<RegionName>NetworkWatcher_. Przykład: NetworkWatcher_centraluseuap)
+> * Nazwa zasobu ma format "nadrzędny Resource_Child zasobu". W tym miejscu zasób nadrzędny jest wystąpieniem Network Watcher regionalnym (format: NetworkWatcher_RegionName. Przykład: NetworkWatcher_centraluseuap)
 > * Element targetresourceid jest IDENTYFIKATORem zasobu docelowej sieciowej grupy zabezpieczeń
 > * storageId to identyfikator zasobu docelowego konta magazynu
 
@@ -156,13 +156,18 @@ Poniżej przedstawiono dwa przykłady kompletnych szablonów służących do kon
 ## <a name="deploying-your-azure-resource-manager-template"></a>Wdrażanie szablonu Azure Resource Manager
 
 W tym samouczku przyjęto założenie, że masz istniejącą grupę zasobów i sieciowej grupy zabezpieczeń można włączyć logowanie do przepływu.
-Każdy z powyższych przykładowych szablonów można zapisać lokalnie jako `azuredeploy.json`. Zaktualizuj wartości właściwości, tak aby wskazywały na prawidłowe zasoby w subskrypcji.
+Każdy z powyższych przykładowych szablonów można zapisać lokalnie jako `azuredeploy.json` . Zaktualizuj wartości właściwości, tak aby wskazywały na prawidłowe zasoby w subskrypcji.
 
 Aby wdrożyć szablon, uruchom następujące polecenie w programie PowerShell.
 ```azurepowershell
+$context = Get-AzSubscription -SubscriptionId 56acfbd6-vc72-43e9-831f-bcdb6f2c5505
+Set-AzContext $context
 New-AzResourceGroupDeployment -Name EnableFlowLog -ResourceGroupName NetworkWatcherRG `
     -TemplateFile "C:\MyTemplates\azuredeploy.json"
 ```
+
+> [!NOTE]
+> Powyższe polecenia służą do wdrażania zasobu w grupie zasobów NetworkWatcherRG, a nie do grupy zasobów zawierającej sieciowej grupy zabezpieczeń
 
 
 ## <a name="verifying-your-deployment"></a>Weryfikowanie wdrożenia

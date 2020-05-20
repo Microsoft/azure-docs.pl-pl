@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 27ce3931e6808c5ba7ee0dbf9d3354220bbc0177
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a3860b2cedbdf8154658449349439f918775cb25
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592172"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701860"
 ---
 # <a name="install-and-run-form-recognizer-containers-preview"></a>Instalowanie i uruchamianie kontenerów aparatów rozpoznawania formularzy (wersja zapoznawcza)
 
@@ -67,7 +67,7 @@ Ten klucz jest używany do uruchamiania kontenera i jest dostępny na stronie kl
 
 ## <a name="request-access-to-the-container-registry"></a>Zażądaj dostępu do rejestru kontenerów
 
-Wypełnij i prześlij [formularz żądania Cognitive Services kontenerów](https://aka.ms/cognitivegate) , aby zażądać dostępu do kontenera.
+Wypełnij i prześlij [formularz żądania](https://aka.ms/FormRecognizerContainerRequestAccess) , aby zażądać dostępu do kontenera.
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 

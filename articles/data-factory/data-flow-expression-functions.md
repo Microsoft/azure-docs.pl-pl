@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: 52f389e00d63f3659dfe79487b31ec9c3fab1ced
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 82fbc144b9b2dffdddc09900bf6ed9424b445100
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82580682"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701460"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Wyrażenia transformacji danych w mapowaniu przepływu danych
 
@@ -59,6 +59,13 @@ ___
 Operator logiczny i. Taki sam jak && * ``and(true, false) -> false``  
 * ``true && false -> false``  
 ___
+### <code>array</code>
+<code><b>array([<i>&lt;value1&gt;</i> : any], ...) => array</b></code><br/><br/>
+Tworzy tablicę elementów. Wszystkie elementy powinny być tego samego typu. Jeśli nie określono żadnych elementów, wartością domyślną jest pusta tablica ciągów. Analogicznie jak operator tworzenia []* ``array('Seattle', 'Washington')``
+* ``['Seattle', 'Washington']``
+* ``['Seattle', 'Washington'][1]``
+* ``'Washington'``
+___
 ### <code>asin</code>
 <code><b>asin(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Oblicza odwrotną wartość sinusa* ``asin(0) -> 0.0``  
@@ -79,6 +86,27 @@ Wybiera wartość kolumny według nazwy w strumieniu. Opcjonalną nazwę strumie
 * ``toLong(byName($debtCol))``  
 * ``toString(byName('Bogus Column'))``  
 * ``toString(byName('Bogus Column', 'DeriveStream'))``  
+___
+### <code>byNames</code>
+<code><b>byNames(<i>&lt;column names&gt;</i> : array, [<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
+Wybierz tablicę kolumn według nazwy w strumieniu. Opcjonalną nazwę strumienia można przekazać jako drugi argument. Jeśli istnieje wiele dopasowań, zwracane jest pierwsze dopasowanie. Jeśli nie ma żadnych dopasowań dla kolumny, wszystkie dane wyjściowe są wartością NULL. Zwracana wartość wymaga funkcji konwersji typu (toDate, toString,...).  Nazwy kolumn znane w czasie projektowania powinny być rozkierowane tylko według ich nazwy. Obliczane dane wejściowe nie są obsługiwane, ale można użyć podstawiania parametrów.
+* ``toString(byNames(['parent', 'child']))``
+* ````
+* ``byNames(['parent']) ? string``
+* ````
+* ``toLong(byNames(['income']))``
+* ````
+* ``byNames(['income']) ? long``
+* ````
+* ``toBoolean(byNames(['foster']))``
+* ````
+* ``toLong(byNames($debtCols))``
+* ````
+* ``toString(byNames(['a Column']))``
+* ````
+* ``toString(byNames(['a Column'], 'DeriveStream'))``
+* ````
+* ``byNames(['orderItem']) ? (itemName as string, itemQty as integer)``
 ___
 ### <code>byPosition</code>
 <code><b>byPosition(<i>&lt;position&gt;</i> : integer) => any</b></code><br/><br/>
@@ -119,6 +147,15 @@ ___
 Pobiera wszystkie kolumny wyjściowe dla strumienia. Opcjonalną nazwę strumienia można przekazać jako drugi argument.  
 * ``columnNames()``
 * ``columnNames('DeriveStream')``
+
+___
+### <code>columns</code>
+<code><b>columns([<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
+Pobiera wszystkie kolumny wyjściowe dla strumienia. Opcjonalną nazwę strumienia można przekazać jako drugi argument.   
+* ``columns()``
+* ````
+* ``columns('DeriveStream')``
+* ````
 ___
 ### <code>compare</code>
 <code><b>compare(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => integer</b></code><br/><br/>
@@ -402,7 +439,7 @@ Po lewej stronie jest to ciąg, który został dostarczony przez podane uzupełn
 * ``lpad('dumbo', 4, '-') -> 'dumb'``  
 *"" LPAD ("Dumbo", 8, "<>") — > "<><dumbo'``  
 ___
-### <code>LTRIM</code>
+### <code> LTRIM</code>
 <code><b>ltrim(<i>&lt;string to trim&gt;</i> : string, [<i>&lt;trim characters&gt;</i> : string]) => string</b></code><br/><br/>
 Lewy przycina ciąg znaków wiodących. Jeśli drugi parametr jest nieokreślony, przycina odstępy. W przeciwnym razie przycinanie dowolnego znaku określonego w drugim parametrze* ``ltrim('  dumbo  ') -> 'dumbo  '``  
 * ``ltrim('!--!du!mbo!', '-!') -> 'du!mbo!'``  
@@ -523,17 +560,17 @@ Gromadzi elementy w tablicy. Funkcja ograniczania oczekuje odwołania do akumulo
 ___
 ### <code>regexExtract</code>
 <code><b>regexExtract(<i>&lt;string&gt;</i> : string, <i>&lt;regex to find&gt;</i> : string, [<i>&lt;match group 1-based index&gt;</i> : integral]) => string</b></code><br/><br/>
-Wyodrębnij pasujący podciąg dla danego wzorca wyrażenia regularnego. Ostatni parametr identyfikuje grupę dopasowania i domyślnie ma wartość 1 w przypadku pominięcia. Użyj "<regex>" (cytat tyłu), aby dopasować ciąg bez ucieczki* ``regexExtract('Cost is between 600 and 800 dollars', '(\\d+) and (\\d+)', 2) -> '800'``  
+Wyodrębnij pasujący podciąg dla danego wzorca wyrażenia regularnego. Ostatni parametr identyfikuje grupę dopasowania i domyślnie ma wartość 1 w przypadku pominięcia. Użyj " <regex> " (cytat tyłu), aby dopasować ciąg bez ucieczki* ``regexExtract('Cost is between 600 and 800 dollars', '(\\d+) and (\\d+)', 2) -> '800'``  
 * ``regexExtract('Cost is between 600 and 800 dollars', `(\d+) and (\d+)`, 2) -> '800'``  
 ___
 ### <code>regexMatch</code>
 <code><b>regexMatch(<i>&lt;string&gt;</i> : string, <i>&lt;regex to match&gt;</i> : string) => boolean</b></code><br/><br/>
-Sprawdza, czy ciąg jest zgodny z danym wzorcem wyrażenia regularnego. Użyj "<regex>" (cytat tyłu), aby dopasować ciąg bez ucieczki* ``regexMatch('200.50', '(\\d+).(\\d+)') -> true``  
+Sprawdza, czy ciąg jest zgodny z danym wzorcem wyrażenia regularnego. Użyj " <regex> " (cytat tyłu), aby dopasować ciąg bez ucieczki* ``regexMatch('200.50', '(\\d+).(\\d+)') -> true``  
 * ``regexMatch('200.50', `(\d+).(\d+)`) -> true``  
 ___
 ### <code>regexReplace</code>
 <code><b>regexReplace(<i>&lt;string&gt;</i> : string, <i>&lt;regex to find&gt;</i> : string, <i>&lt;substring to replace&gt;</i> : string) => string</b></code><br/><br/>
-Zamień wszystkie wystąpienia wzorca wyrażenia regularnego na inny podciąg w danym ciągu Użyj "<regex>" (cudzysłów tylny), aby dopasować ciąg bez ucieczki* ``regexReplace('100 and 200', '(\\d+)', 'bojjus') -> 'bojjus and bojjus'``  
+Zamień wszystkie wystąpienia wzorca wyrażenia regularnego na inny podciąg w danym ciągu Użyj " <regex> " (cudzysłów tylny), aby dopasować ciąg bez ucieczki* ``regexReplace('100 and 200', '(\\d+)', 'bojjus') -> 'bojjus and bojjus'``  
 * ``regexReplace('100 and 200', `(\d+)`, 'gunchus') -> 'gunchus and gunchus'``  
 ___
 ### <code>regexSplit</code>
@@ -965,7 +1002,7 @@ Pobiera wartość pierwszego parametru oceniane n wierszy po bieżącym wierszu.
 ___
 ### <code>nTile</code>
 <code><b>nTile([<i>&lt;value1&gt;</i> : integer]) => integer</b></code><br/><br/>
-Funkcja NTile dzieli wiersze dla każdej partycji okna na `n` Zasobniki z zakresu od 1 do maksymalnie. `n` Wartości zasobnika różnią się o co najwyżej 1. Jeśli liczba wierszy w partycji nie jest równo podzielona na liczbę przedziałów, pozostałe wartości są dystrybuowane jeden na przedział, rozpoczynając od pierwszego przedziału. Funkcja NTile jest przydatna do obliczania wartości tertiles, kwartyls, deciles i innych typowych statystyk podsumowujących. Funkcja oblicza dwie zmienne podczas inicjalizacji: rozmiar regularnego zasobnika będzie mieć jeden dodatkowy wiersz. Obie zmienne są zależne od rozmiaru bieżącej partycji. Podczas obliczeń funkcja śledzi bieżący numer wiersza, bieżący zasobnik i numer wiersza, w którym zostanie zmieniony zasobnik (bucketThreshold). Gdy bieżąca liczba wierszy osiągnie próg zasobnika, wartość przedziału jest zwiększana o jeden, a próg jest zwiększany o rozmiar zasobnika (plus jeden dodatkowy, jeśli bieżący zasobnik jest uzupełniony).  
+Funkcja NTile dzieli wiersze dla każdej partycji okna na `n` Zasobniki z zakresu od 1 do maksymalnie `n` . Wartości zasobnika różnią się o co najwyżej 1. Jeśli liczba wierszy w partycji nie jest równo podzielona na liczbę przedziałów, pozostałe wartości są dystrybuowane jeden na przedział, rozpoczynając od pierwszego przedziału. Funkcja NTile jest przydatna do obliczania wartości tertiles, kwartyls, deciles i innych typowych statystyk podsumowujących. Funkcja oblicza dwie zmienne podczas inicjalizacji: rozmiar regularnego zasobnika będzie mieć jeden dodatkowy wiersz. Obie zmienne są zależne od rozmiaru bieżącej partycji. Podczas obliczeń funkcja śledzi bieżący numer wiersza, bieżący zasobnik i numer wiersza, w którym zostanie zmieniony zasobnik (bucketThreshold). Gdy bieżąca liczba wierszy osiągnie próg zasobnika, wartość przedziału jest zwiększana o jeden, a próg jest zwiększany o rozmiar zasobnika (plus jeden dodatkowy, jeśli bieżący zasobnik jest uzupełniony).  
 * ``nTile()``  
 * ``nTile(numOfBuckets)``  
 ___

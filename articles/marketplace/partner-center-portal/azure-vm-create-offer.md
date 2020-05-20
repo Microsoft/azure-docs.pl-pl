@@ -6,13 +6,13 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/01/2020
-ms.openlocfilehash: 31b8960f5617566a72545510cf03771f7a3bfcbd
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.date: 05/19/2020
+ms.openlocfilehash: 25b7a619f6d3e308de966ead5925133f6094d9c8
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82745003"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701082"
 ---
 # <a name="create-an-azure-virtual-machine-offer-in-the-azure-marketplace"></a>Tworzenie oferty maszyny wirtualnej platformy Azure w portalu Azure Marketplace
 
@@ -61,8 +61,8 @@ Zespół inżynieryjny powinien zrozumieć następujące technologie firmy Micro
 ## <a name="create-a-new-offer"></a>Tworzenie nowej oferty
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
-2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace** > **Overview**.
-3. Na stronie Przegląd wybierz pozycję **+ Nowa oferta** > **Azure Virtual Machine**.
+2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
+3. Na stronie Przegląd wybierz pozycję **+ Nowa oferta**  >  **Azure Virtual Machine**.
 
     ![Ilustruje menu nawigacji po lewej stronie.](./media/new-offer-azure-vm.png)
 
@@ -74,7 +74,7 @@ Zespół inżynieryjny powinien zrozumieć następujące technologie firmy Micro
 Wprowadź **Identyfikator oferty**. To jest unikatowy identyfikator dla każdej oferty na Twoim koncie.
 
 - Ten identyfikator jest widoczny dla klientów w adresie sieci Web oferty witryny Marketplace oraz w Azure PowerShell i interfejsu wiersza polecenia platformy Azure, jeśli ma zastosowanie.
-- Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczone do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1** tutaj, adres internetowy oferty będzie miał `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`wartość.
+- Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczone do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1** tutaj, adres internetowy oferty będzie miał wartość `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
 - Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz**.
 
 Wprowadź **alias oferty**. Jest to nazwa używana dla oferty w centrum partnerskim.
@@ -104,7 +104,7 @@ Po opublikowaniu oferty na komercyjnym rynku w centrum partnerskim połącz ją 
 1. Wybierz miejsce docelowe potencjalnych klientów, do którego chcesz wysyłać potencjalnych klientów. Centrum partnerskie obsługuje następujące systemy CRM:
     - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) dla zaangażowania klienta
     - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-    - [SalesForce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+    - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
 
     > [!NOTE]
     > Jeśli Twój system CRM nie jest wymieniony powyżej, użyj [tabeli platformy Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) lub [punktu końcowego HTTPS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) do przechowywania danych potencjalnych klientów. Następnie wyeksportuj dane do systemu CRM.
@@ -197,32 +197,11 @@ Podaj dłuższy opis oferty. Może to być maksymalnie 256 znaków i jest używa
 
 #### <a name="description"></a>Opis
 
-Podaj szczegółowy opis oferty, do 3 000 znaków. Ten komunikat jest wyświetlany klientom w przeglądzie komercyjnej aukcji Marketplace.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-W opisie Uwzględnij co najmniej jeden z następujących elementów:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- Wartość i kluczowe korzyści wynikające z oferty
-- Skojarzenia kategorii lub branżowych
-- Szanse zakupu w aplikacji
-- Wszelkie wymagane ujawnienie
-
-Oto kilka porad dotyczących pisania opisu:
-
-- Jasno opisz wartość oferty w pierwszych kilku zdaniach opisu. Uwzględnij następujące elementy:
-  - Opis oferty.
-  - Typ użytkownika, który korzysta z oferty.
-  - Wymagania klientów lub problemy z ofertą.
-- Należy pamiętać, że pierwsze niektóre zdania mogą być wyświetlane w wynikach wyszukiwania.
-- Nie należy polegać na funkcjach i funkcjach, które umożliwiają sprzedawanie oferty. Zamiast tego należy skoncentrować się na wartości, którą oferuje oferta.
-- Używaj słów specyficznych dla branży lub korzyści.
-
-Aby zwiększyć atrakcyjność opisu oferty, użyj edytora tekstu sformatowanego w celu zastosowania formatowania.
-
-![Korzystanie z edytora tekstu sformatowanego](./media/rich-text-editor.png)
-
-| <center>Zmień format tekstu | <center>Dodawanie punktorów lub numeracji | <center>Dodaj lub Usuń wcięcie tekstu |
-| --- | --- | --- |
-| <center>![Zmienianie formatu tekstu przy użyciu edytora tekstu sformatowanego](./media/text-editor3.png) |  <center>![Używanie edytora tekstu sformatowanego do dodawania list](./media/text-editor4.png) |  <center>![Używanie edytora tekstu sformatowanego do wcięcia](./media/text-editor5.png) |
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 #### <a name="privacy-policy-link"></a>Link zasad ochrony prywatności
 
@@ -247,7 +226,7 @@ Podaj witrynę sieci Web pomocy technicznej, w której klienci mogą skontaktowa
 Podaj informacje kontaktowe dla partnerów firmy Microsoft, które mają być używane, gdy klienci otworzą bilet pomocy technicznej. Ta wartość nie zostanie wyświetlona na liście w portalu Marketplace.
 
 - Nazwa
-- Poczta e-mail
+- E-mail
 - Telefon
 
 ### <a name="engineering-contact"></a>Kontakt inżynieryjny
@@ -255,7 +234,7 @@ Podaj informacje kontaktowe dla partnerów firmy Microsoft, które mają być u�
 Podaj informacje kontaktowe firmy Microsoft, które mają być używane w przypadku problemów z ofertą, w tym problemy z certyfikatem. Ta wartość nie zostanie wyświetlona na liście w portalu Marketplace.
 
 - Nazwa
-- Poczta e-mail
+- E-mail
 - Telefon
 
 ### <a name="marketplace-media"></a>Multimedia dla portalu Marketplace
@@ -263,7 +242,7 @@ Podaj informacje kontaktowe firmy Microsoft, które mają być używane w przypa
 Podaj logo i obrazy, które mają być używane z ofertą. Wszystkie obrazy muszą mieć format PNG. Nierozmyte obrazy spowodują odrzucenie zgłoszenia.
 
 >[!Note]
->Jeśli występuje problem z przekazywaniem plików, upewnij się https://upload.xboxlive.com , że sieć lokalna nie blokuje usługi używanej przez centrum partnerskie.
+>Jeśli występuje problem z przekazywaniem plików, upewnij się, że sieć lokalna nie blokuje https://upload.xboxlive.com usługi używanej przez centrum partnerskie.
 
 #### <a name="marketplace-logos"></a>Logo witryny Marketplace
 
@@ -400,7 +379,7 @@ Jeśli już ustawisz ceny dla planu w Stany Zjednoczone dolarów (USD) i dodasz 
 
 Po usunięciu rynku klienci z tego rynku korzystający z aktywnych wdrożeń nie będą mogli tworzyć nowych wdrożeń ani skalować istniejących wdrożeń. Nie wpłynie to na istniejące wdrożenia.
 
-#### <a name="pricing"></a>Cennik
+#### <a name="pricing"></a>Ceny
 
 **Model licencji** — wybierz **miesięczny plan rozliczeniowy oparty na użyciu** , aby skonfigurować Cennik dla tego planu lub **Bring Your Own License** , aby umożliwić klientom korzystanie z tego planu w ramach istniejącej licencji.
 
@@ -527,7 +506,7 @@ Krok **walidacji ręcznej** w procesie publikowania reprezentuje obszerny przegl
 
 Na stronie **Przegląd oferty** przedstawiono wizualną reprezentację kroków wymaganych do opublikowania oferty (zarówno w toku, jak i w trakcie) oraz czas trwania każdego kroku.
 
-Ta strona zawiera linki do wykonywania operacji na tej ofercie w zależności od dokonanego wyboru. Przykład:
+Ta strona zawiera linki do wykonywania operacji na tej ofercie w zależności od dokonanego wyboru. Na przykład:
 
 - Jeśli oferta jest ofertą typu wersja robocza, [Usuń wersję roboczą](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
 - Jeśli oferta jest aktywna [, Zatrzymaj sprzedawanie oferty](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)

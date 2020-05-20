@@ -41,21 +41,9 @@
           href: tutorial-intents-only.md
         - name: 2. Wyodrębnianie danych użytkowników
           href: tutorial-machine-learned-entity.md
-          displayName: 'n-depth, constraint, descriptor, phrase list, entity'
+          displayName: 'n-depth, constraint, descriptor, phrase list, entity, feature'
         - name: 3. Uzyskiwanie tonacji z wypowiedzi użytkowników
           href: tutorial-publish-settings.md
-    - name: Tworzenie i używanie jednostek
-      items:
-        - name: Jednostki wyrażenia regularnego
-          href: tutorial-regex-entity.md
-        - name: Lista jednostek
-          href: tutorial-list-entity.md
-        - name: Role jednostki
-          href: tutorial-entity-roles.md
-          displayName: 'roles, geographyV2, context'
-        - name: Grupowanie i wyodrębnianie powiązanych danych za pomocą jednostek złożonych
-          href: luis-tutorial-composite-entity.md
-          displayName: roles
     - name: Usprawnianie aplikacji
       items:
         - name: Rozwiązywanie problemów z niepewnymi przewidywaniami
@@ -79,17 +67,19 @@
     - name: Planowanie aplikacji
       displayName: 'simple, composite, prebuilt, list, regex, regular expression'
       href: luis-how-plan-your-app.md
+    - name: Zbieranie danych
+      href: data-collection.md
     - name: Modele aplikacji
       items:
         - name: Typy
           href: luis-concept-model.md
-        - name: Intencje
+        - name: Intencje — klasyfikowanie wypowiedzi
           href: luis-concept-intent.md
-        - name: Wypowiedzi
-          href: luis-concept-utterance.md
-        - name: Jednostki
+        - name: Jednostki — wyodrębnianie danych
           displayName: 'prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, machine-learn, exact, mixed, roles'
           href: luis-concept-entity-types.md
+        - name: Przykładowe wypowiedzi
+          href: luis-concept-utterance.md
         - name: Wstępnie utworzone modele
           href: luis-concept-prebuilt-model.md
         - name: Wzorce
@@ -97,7 +87,7 @@
           displayName: roles
         - name: Funkcje
           href: luis-concept-feature.md
-          displayName: 'descriptor, phrase list'
+          displayName: 'descriptor, phrase list, feature'
         - name: Rozszerzanie aplikacji w czasie wykonywania
           href: schema-change-prediction-runtime.md
     - name: Współczynnik przewidywania
@@ -153,15 +143,13 @@
           href: howto-add-prebuilt-models.md
         - name: Oznaczanie etykietą jednostki w wypowiedzi
           href: label-entity-example-utterance.md
-        - name: Dodawanie deskryptora
-          displayName: 'synonym, interchange, phrase list, descriptor'
+        - name: Dodawanie funkcji
+          displayName: 'synonym, interchange, phrase list, descriptor, feature'
           href: luis-how-to-add-features.md
         - name: Za pomocą interfejsów API REST
           items:
             - name: Programowe tworzenie aplikacji przy użyciu środowiska Node.js
               href: luis-tutorial-node-import-utterances-csv.md
-            - name: Korzystanie z jednostki listy w celu dokładnego dopasowania tekstu przy użyciu środowiska Node.js
-              href: luis-tutorial-list-entity.md
     - name: Integracja
       items:
         - name: Za pomocą sprawdzania pisowni Bing w wersji 7
@@ -193,11 +181,25 @@
       href: luis-how-to-publish-app.md
     - name: Środowisko uruchomieniowe przewidywania zapytania
       href: luis-get-started-get-intent-from-browser.md
+    - name: Migrate (Migracja)
+      items:
+        - name: Migrowanie z jednostki złożonej
+          href: migrate-from-composite-entity.md
+        - name: Migrowanie do zasobu tworzenia
+          items:
+            - name: Omówienie
+              href: luis-migration-authoring.md
+            - name: Jak przeprowadzić migrację
+              href: luis-migration-authoring-steps.md
+        - name: Migrowanie do interfejsu API w wersji 3
+          href: luis-migration-api-v3.md
     - name: Zarządzanie aplikacją
       items:
         - name: Zasoby platformy Azure
           displayName: 'azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription, authoring, endpoint, prediction'
           href: luis-how-to-azure-subscription.md
+        - name: Ustawienia aplikacji i wersji
+          href: how-to-application-settings-portal.md
         - name: Migrowanie do zasobu tworzenia
           items:
             - name: Omówienie
@@ -216,6 +218,8 @@
       items:
         - name: Dla deweloperów
           href: developer-reference-resource.md
+        - name: Schemat aplikacji
+          href: app-schema-definition.md
         - name: Migrowanie do interfejsów API tworzenia w wersji 3
           href: luis-migration-authoring-entities.md
         - name: Migrowanie do interfejsów API przewidywania w wersji 3
@@ -259,6 +263,8 @@
         - name: Omówienie
           href: developer-reference-resource.md
           displayName: 'SDK, API, quickstart, REST, cli, powershell, azure, rm, resource manager, samples, package, module, tool, dispatch, bot'
+        - name: Schemat aplikacji
+          href: app-schema-definition.md
         - name: Interfejs wiersza polecenia platformy Azure
           href: 'https://go.microsoft.com/fwlink/?linkid=2092156'
         - name: Azure RM PowerShell
@@ -329,7 +335,7 @@
       displayName: 'failover, fail-over, fail over, Europe, EU, Australia, business continuity, bcdr'
     - name: Limity
       href: luis-limits.md
-    - name: Ustawienia aplikacji
+    - name: Ustawienia aplikacji i wersji
       href: luis-reference-application-settings.md
     - name: Dokumentacja wstępnie utworzonych jednostek
       items:
@@ -387,7 +393,7 @@
           href: reference-entity-simple.md
     - name: Składnia wzorca
       href: reference-pattern-syntax.md
-    - name: Opinia
+    - name: Dokumentacja tonacji
       href: luis-reference-prebuilt-sentiment.md
 - name: Zasoby
   items:

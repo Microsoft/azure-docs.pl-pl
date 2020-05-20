@@ -7,13 +7,13 @@ manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/08/2020
-ms.openlocfilehash: 41b2e12a94f5751e31f482c913c71b4731b1cf6c
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.date: 05/19/2020
+ms.openlocfilehash: 3d8806e34afe45e6cced3de4554b7dd365f4ddf9
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871911"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701773"
 ---
 # <a name="create-a-managed-service-offer"></a>Tworzenie oferty usługi zarządzanej
 
@@ -24,8 +24,8 @@ Aby opublikować ofertę usługi zarządzanej, należy dysponować [poziomem kom
 ## <a name="create-a-new-offer"></a>Tworzenie nowej oferty
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
-2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace** > **Overview**.
-3. Na stronie Przegląd wybierz pozycję **+ Nowa oferowana** > **usługa zarządzana**.
+2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
+3. Na stronie Przegląd wybierz pozycję **+ Nowa oferowana**  >  **usługa zarządzana**.
 
     ![Ilustruje menu nawigacji po lewej stronie.](./media/new-offer-managed-service.png)
 
@@ -37,7 +37,7 @@ Aby opublikować ofertę usługi zarządzanej, należy dysponować [poziomem kom
 Wprowadź **Identyfikator oferty**. To jest unikatowy identyfikator dla każdej oferty na Twoim koncie.
 
 * Ten identyfikator jest widoczny dla klientów w adresie sieci Web dla ofert i szablonów Azure Resource Manager, jeśli ma zastosowanie.
-* Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczone do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1**, adres sieci Web oferty będzie wynosić `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+* Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczone do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1**, adres sieci Web oferty będzie wynosić `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
 * Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz**.
 
 Wprowadź **alias oferty**. Jest to nazwa używana dla oferty w centrum partnerskim.
@@ -94,25 +94,11 @@ Podaj dłuższy opis oferty (do 256 znaków). To długie podsumowanie może być
 
 ### <a name="description"></a>Opis
 
-Podaj dłuższy opis oferty (do 3 000 znaków). Ten opis będzie wyświetlany klientom na liście przeglądów w portalu Marketplace. Uwzględnij swoją propozycję oferty, najważniejsze zalety, kategorie i/lub branżowe skojarzenia, szanse zakupu w aplikacji oraz wszelkie wymagane informacje.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-Niektóre porady dotyczące pisania opisu:  
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- Jasno opisz swoją wartość oferty w pierwszych kilku zdaniach opisu. Uwzględnij następujące elementy na swojej pozycji wartości:
-  - Opis oferty
-  - Typ użytkownika, który przynosi korzyści z oferty
-  - Klienci muszą lub cierpią, że adres oferty
-- Należy pamiętać, że pierwsze niektóre zdania mogą być wyświetlane w wynikach wyszukiwania.  
-- Nie należy polegać na funkcjach i funkcjach, aby sprzedawać produkt. Zamiast tego należy skoncentrować się na dostarczanej wartości.  
-- Korzystaj z specyficznych dla branży słownictwa lub takich słów, jak to możliwe.
-
-Aby zwiększyć atrakcyjność opisu oferty, użyj edytora tekstu sformatowanego w celu zastosowania formatowania.
-
-![Korzystanie z edytora tekstu sformatowanego](./media/rich-text-editor.png)
-
-| <center>Zmień format tekstu | <center>Dodawanie punktorów lub numeracji | <center>Dodaj lub Usuń wcięcie tekstu |
-| --- | --- | --- |
-| <center>![Zmienianie formatu tekstu przy użyciu edytora tekstu sformatowanego](./media/text-editor3.png) |  <center>![Używanie edytora tekstu sformatowanego do dodawania list](./media/text-editor4.png) |  <center>![Używanie edytora tekstu sformatowanego do wcięcia](./media/text-editor5.png) |
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 ### <a name="privacy-policy-link"></a>Link zasad ochrony prywatności
 

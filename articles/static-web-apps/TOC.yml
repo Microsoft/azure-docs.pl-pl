@@ -1,0 +1,61 @@
+- name: Dokumentacja usługi Azure Static Web Apps
+  href: index.yml
+- name: Omówienie
+  items:
+    - name: Informacje o usłudze Static Web Apps
+      href: overview.md
+- name: Przewodniki Szybki start
+  expanded: true
+  items:
+    - name: Tworzenie pierwszej statycznej aplikacji internetowej
+      href: getting-started.md
+- name: Pojęcia
+  items:
+    - name: Obsługa interfejsów API za pomocą usługi Azure Functions
+      href: apis.md
+    - name: Trasy
+      href: routes.md
+    - name: Uwierzytelnianie i autoryzacja
+      href: authentication-authorization.md
+    - name: Uzyskiwanie dostępu do informacji o użytkownikach
+      href: user-information.md
+    - name: Przeglądanie żądań ściągnięcia w środowiskach przedprodukcyjnych
+      href: review-publish-pull-requests.md
+    - name: Domena niestandardowa
+      href: custom-domain.md
+    - name: Konfiguracja kompilowania i przepływu pracy
+      href: github-actions-workflow.md
+- name: Przewodniki z instrukcjami
+  items:
+    - name: Konfigurowanie programowania lokalnego
+      href: local-development.md
+    - name: Dodawanie interfejsu API
+      href: add-api.md
+    - name: Konfigurowanie ustawień aplikacji
+      href: application-settings.md
+- name: Samouczki
+  items:
+    - name: Publikowanie z poziomu generatora witryn statycznych
+      items:
+        - name: Gatsby
+          href: publish-gatsby.md
+        - name: Hugo
+          href: publish-hugo.md
+        - name: VuePress
+          href: publish-vuepress.md
+    - name: Wdrażanie z poziomu platformy
+      items:
+        - name: Next.js
+          href: deploy-nextjs.md
+        - name: Nuxt.js
+          href: deploy-nuxtjs.md
+- name: Zasoby
+  items:
+    - name: Rozwijanie umiejętności dzięki środowisku Microsoft Learn
+      items:
+        - name: 'Publikowanie aplikacji w języku JavaScript i interfejsu API przy użyciu platformy Angular, React, Svelte lub Vue'
+          href: /learn/modules/publish-app-service-static-web-app-api
+        - name: Tworzenie i publikowanie statycznej aplikacji internetowej za pomocą platformy Gatsby
+          href: /learn/modules/create-deploy-static-webapp-gatsby-app-service
+    - name: Przydziały
+      href: quotas.md

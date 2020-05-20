@@ -3,12 +3,12 @@ title: Zarządzanie kopiami zapasowymi baz danych SAP HANAymi na maszynach wirtu
 description: W tym artykule przedstawiono typowe zadania związane z zarządzaniem i monitorowaniem SAP HANA baz danych uruchomionych na maszynach wirtualnych platformy Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: c810a049fafcbce6d4c840557b101e5226343ab7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e3705750e32b8b34ed397b8f68f22b0728129266
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660153"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701108"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Zarządzanie kopiami zapasowymi baz danych platformy SAP HANA i ich monitorowanie
 
@@ -208,13 +208,13 @@ Aby wznowić ochronę bazy danych SAP HANA:
 
 * W menu **Zasady kopii zapasowych** wybierz zasady, a następnie wybierz pozycję **Zapisz**.
 
-### <a name="upgrading-from-sap-hana-10-to-20"></a>Uaktualnianie z SAP HANA 1,0 do 2,0
+### <a name="upgrading-from-sdc-to-mdc"></a>Uaktualnianie z SDC do MDC
 
-Dowiedz się, jak kontynuować tworzenie kopii zapasowej bazy danych SAP HANA [po uaktualnieniu z SAP HANA 1,0 do 2,0](backup-azure-sap-hana-database-troubleshoot.md#upgrading-from-sap-hana-10-to-20).
+Dowiedz się, jak kontynuować tworzenie kopii zapasowej bazy danych SAP HANA [po uaktualnieniu z SDC do MDC](backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-a-change-in-sid).
 
-### <a name="upgrading-without-a-sid-change"></a>Uaktualnianie bez zmiany identyfikatora SID
+### <a name="upgrading-from-sdc-to-mdc-without-a-sid-change"></a>Uaktualnianie z SDC do MDC bez zmiany identyfikatora SID
 
-Dowiedz się, jak kontynuować tworzenie kopii zapasowej bazy danych SAP HANA, której [Identyfikator SID nie został zmieniony po uaktualnieniu](backup-azure-sap-hana-database-troubleshoot.md#upgrading-without-an-sid-change).
+Dowiedz się, jak kontynuować tworzenie kopii zapasowej bazy danych SAP HANA, której [Identyfikator SID nie zmienił się po uaktualnieniu z SDC do MDC](backup-azure-sap-hana-database-troubleshoot.md#sdc-to-mdc-upgrade-with-no-change-in-sid).
 
 ### <a name="unregister-an-sap-hana-instance"></a>Wyrejestruj wystąpienie SAP HANA
 

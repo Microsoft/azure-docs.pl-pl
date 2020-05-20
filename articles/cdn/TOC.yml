@@ -67,6 +67,8 @@
           href: cdn-restrict-access-by-country.md
         - name: Poprawianie wydajności poprzez kompresowanie plików
           href: cdn-improve-performance.md
+        - name: Wiele źródeł punktu końcowego
+          href: endpoint-multiorigin.md
         - name: Sterowanie zachowaniem buforowania
           items:
             - name: Sterowanie zachowaniem buforowania przy użyciu reguł buforowania

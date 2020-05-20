@@ -7,17 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: b3c6f88df151cc497f0de670d5d78a05c7477459
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 87c915330fdc0d59d0d32c0747c7dc7647c342ba
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791888"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700987"
 ---
 # <a name="create-an-azure-container-offer"></a>Tworzenie oferty kontenera platformy Azure
-
-> [!IMPORTANT]
-> Przenosimy zarządzanie ofertami kontenerów platformy Azure z portal Cloud Partner do Centrum partnerskiego. Dopóki Twoje oferty nie zostaną zmigrowane, postępuj zgodnie z instrukcjami zawartymi w temacie [przygotowanie zasobów technicznych kontenera](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-create-technical-assets) do Portal Cloud partner, aby zarządzać ofertami.
 
 W tym artykule przedstawiono zasoby techniczne i zalecenia ułatwiające tworzenie oferty kontenera w witrynie Azure Marketplace.
 

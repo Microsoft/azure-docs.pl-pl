@@ -9,6 +9,8 @@
       href: cognitive-services-and-machine-learning.md
     - name: Niestandardowe poddomeny usług Cognitive Services
       href: cognitive-services-custom-subdomains.md
+    - name: Proces kontroli w usługach Cognitive Services
+      href: cognitive-services-gating-process.md
     - name: Obsługa języków
       href: language-support.md
 - name: Przewodniki Szybki start

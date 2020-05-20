@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: allensu
-ms.openlocfilehash: 14cb5a06e9f51269d05468d36ecb6cd2bf19e40c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: af7d47c98e4716df3a6cbd222c7d3c8def48e5fc
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83643607"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701643"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Konfiguracja usługi DNS prywatnego punktu końcowego platformy Azure
 
@@ -36,7 +36,7 @@ Aplikacje nie muszą zmieniać adresu URL połączenia. Podczas próby rozwiąza
 
 W przypadku usług platformy Azure Użyj zalecanych nazw stref, zgodnie z opisem w poniższej tabeli:
 
-| Prywatny typ zasobu linku/zasób |Nazwa strefy Prywatna strefa DNS | Nazwa publicznej strefy DNS |
+| Prywatny typ zasobu linku/zasób |Nazwa strefy Prywatna strefa DNS | Publiczne usługi przesyłania dalej strefy DNS |
 |---|---|---|---|
 | SQL DB (Microsoft. SQL/Server)/SQL Server | privatelink.database.windows.net | database.windows.net |
 | Azure Synapse Analytics (Microsoft. SQL/Server)/SQL Server  | privatelink.database.windows.net | database.windows.net |
@@ -54,7 +54,7 @@ W przypadku usług platformy Azure Użyj zalecanych nazw stref, zgodnie z opisem
 | Azure Database for PostgreSQL — pojedynczy serwer (Microsoft. DBforPostgreSQL/serwery)/postgresqlServer | privatelink.postgres.database.azure.com | postgres.database.azure.com |
 | Azure Database for MySQL (Microsoft. DBforMySQL/Servers)/sqlServer | privatelink.mysql.database.azure.com | mysql.database.azure.com |
 | Azure Database for MariaDB (Microsoft. DBforMariaDB/serwery)/mariadbServer | privatelink.mariadb.database.azure.com | mariadb.database.azure.com |
-| Azure Key Vault (magazyn/magazyny firmy Microsoft)/magazyn | privatelink.vaultcore.azure.net | vault.azure.net |
+| Azure Key Vault (magazyn/magazyny firmy Microsoft)/magazyn | privatelink.vaultcore.azure.net | vault.azure.net <br> vaultcore.azure.net |
 | Usługa Azure Kubernetes Service — Kubernetes API (Microsoft. ContainerService/managedClusters)/managedCluster | privatelink. {Region}. azmk8s. IO | {Region}. azmk8s. IO |
 | Azure Search (Microsoft. Search/searchServices)/searchService | privatelink.search.windows.net | search.windows.net |
 | Azure Container Registry (Microsoft. ContainerRegistry/rejestry)/rejestr | privatelink.azurecr.io | azurecr.io |
@@ -150,7 +150,7 @@ Aby prawidłowo skonfigurować program, potrzebne są następujące zasoby:
 Na poniższym diagramie przedstawiono sekwencję rozpoznawania nazw DNS z sieci lokalnej, która warunkowo przekazuje ruch DNS do platformy Azure, gdzie rozwiązanie jest nawiązywane przez prywatną strefę DNS [połączoną z siecią wirtualną.](../dns/private-dns-virtual-network-links.md)
 
 > [!IMPORTANT]
-> Warunkowe przekazywanie należy przeprowadzić do [publicznej strefy DNS](#azure-services-dns-zone-configuration)   ex:  `database.windows.net`   , zamiast **privatelink**. Database.Windows.NET
+> Warunkowe przekazywanie należy wykonać do zalecanej [**publicznej usługi przesyłania dalej strefy DNS**](#azure-services-dns-zone-configuration)   :  `database.windows.net`   zamiast **privatelink**. Database.Windows.NET
 
 :::image type="content" source="media/private-endpoint-dns/on-premises-forwarding-to-azure.png" alt-text="Lokalne przekazywanie do Azure DNS":::
 

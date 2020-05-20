@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 4d9dc0315a5c87ed67390e8edb23d44ee55f242b
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 37569eba0d351fdedcd68042af2e33b0e3947faa
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82732771"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701503"
 ---
 # <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny klienta w komercyjnej analizie Marketplace
 
@@ -97,7 +97,8 @@ W tabeli **szczegóły klienta** zostanie wyświetlona lista numerowanych głów
 - Każda kolumna w siatce jest do sortowania.
 - Dane można wyodrębnić do pliku TSV, jeśli liczba rekordów jest mniejsza niż 1000.
 - Jeśli liczba rekordów przekracza 1000, eksportowane dane będą asynchroniczne umieszczane na stronie pobierania przez następne 30 dni.
-- Filtry można zastosować do tabeli, aby wyświetlić tylko te dane, które Cię interesują. Dane można filtrować według nazwy firmy, identyfikatora klienta, identyfikatora subskrypcji w portalu Marketplace, typu licencji platformy Azure, daty pozyskania, utraty daty, adresu E-mail klienta, kraju/województwa/miejscowości/pliku zip, języka klienta itd.
+- Filtry można zastosować do tabeli, aby wyświetlić tylko te dane, które Cię interesują. Dane można filtrować według nazwy firmy, identyfikatora klienta, identyfikatora subskrypcji portalu Marketplace, typu licencji platformy Azure, daty pozyskania, daty utraty, adresu E-mail klienta, kraju/województwa/miejscowości/kodu pocztowego, języka klienta itd.
+- Po zakupieniu oferty przez chronionego klienta informacje w **szczegółowych danych klienta** będą maskowane (* * * * * * * * * * * *).
 
 ### <a name="customer-page-filters"></a>Filtry stron klienta
 

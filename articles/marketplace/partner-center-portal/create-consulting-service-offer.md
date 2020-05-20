@@ -6,13 +6,13 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/08/2020
-ms.openlocfilehash: 626dc5a7d1cd52182e68eb0d217b2ac4c653330e
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.date: 05/19/2020
+ms.openlocfilehash: bd9d643708515855e81ac6729843388a690b2c45
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82994353"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700960"
 ---
 # <a name="create-a-consulting-service-offer"></a>Tworzenie oferty usługi konsultingowej
 
@@ -32,8 +32,8 @@ Zalety publikowania na komercyjnej witrynie Marketplace:
 ## <a name="create-a-new-offer"></a>Tworzenie nowej oferty
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
-2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace** > **Overview**.
-3. Na stronie Przegląd wybierz pozycję **+ Nowa** > **Usługa konsultingowa**oferty.
+2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
+3. Na stronie Przegląd wybierz pozycję **+ Nowa**  >  **Usługa konsultingowa**oferty.
 
     ![Ilustruje menu nawigacji po lewej stronie.](./media/new-offer-consulting-service.png)
 
@@ -45,7 +45,7 @@ Zalety publikowania na komercyjnej witrynie Marketplace:
 Wprowadź **Identyfikator oferty**. To jest unikatowy identyfikator dla każdej oferty na Twoim koncie.
 
 - Ten identyfikator jest widoczny dla klientów w adresie sieci Web dla oferty portalu Marketplace.
-- Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczone do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1**, adres sieci Web oferty będzie wynosić `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczone do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1**, adres sieci Web oferty będzie wynosić `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
 - Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz**.
 
 Wprowadź **alias oferty**. Jest to nazwa używana dla oferty w centrum partnerskim.
@@ -65,7 +65,7 @@ Po opublikowaniu oferty w portalu Marketplace przy użyciu Centrum partnerskiego
 
     - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) dla zaangażowania klienta
     - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-    - [SalesForce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+    - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
 
     > [!NOTE]
     > Jeśli system CRM nie jest wymieniony powyżej, użyj [tabeli platformy Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) lub [punktu końcowego HTTPS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) do przechowywania danych potencjalnych klientów, a następnie wyeksportuj dane do systemu CRM.
@@ -108,7 +108,7 @@ Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 W tym miejscu zdefiniujesz szczegóły oferty, które są wyświetlane w portalu Marketplace. Obejmuje to nazwę oferty, opis, obrazy i tak dalej. Podczas konfigurowania tej oferty Pamiętaj, aby zgodnie z zasadami szczegółowymi na [stronie komercyjne zasady certyfikacji witryny Marketplace](https://docs.microsoft.com/legal/marketplace/certification-policies#800-consulting-services) .
 
 > [!NOTE]
-> Szczegóły oferty nie muszą znajdować się w języku angielskim, jeśli opis oferty zaczyna się od &quot;frazy, ta aplikacja jest dostępna tylko w języku [język inny niż angielski]. &quot; Istnieje również możliwość udostępnienia przydatnego linku do oferowania zawartości w języku innym niż ten, który jest używany w szczegółach dotyczących oferty.
+> Szczegóły oferty nie muszą znajdować się w języku angielskim, jeśli opis oferty zaczyna się od frazy, &quot; Ta aplikacja jest dostępna tylko w języku [język inny niż angielski]. &quot; Istnieje również możliwość udostępnienia przydatnego linku do oferowania zawartości w języku innym niż ten, który jest używany w szczegółach dotyczących oferty.
 
 ### <a name="name"></a>Nazwa
 
@@ -126,32 +126,11 @@ Podaj krótki opis oferty. Może to być maksymalnie 100 znaków i jest używana
 
 ### <a name="description"></a>Opis
 
-Podaj dłuższy opis oferty, do 3 000 znaków. Ten komunikat jest wyświetlany klientom w przeglądzie oferty w portalu Marketplace.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-W opisie Uwzględnij co najmniej jeden z następujących elementów:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- Wartość i klucz korzyści oferowanych przez Twoją ofertę
-- Skojarzenia kategorii lub branżowych
-- Szanse zakupu w aplikacji
-- Wszelkie wymagane ujawnienie
-
-Oto kilka porad dotyczących pisania opisu:
-
-- Jasno opisz wartość oferty w pierwszych kilku zdaniach opisu. Uwzględnij następujące elementy:
-  - Opis oferty.
-  - Typ użytkownika, który przynosi korzyści z oferty.
-  - Klienci potrzebują lub wystawiają adresy oferty.
-- Należy pamiętać, że pierwsze niektóre zdania mogą być wyświetlane w wynikach wyszukiwania.
-- Nie opieraj się na funkcjach i funkcjach, aby sprzedawać swój produkt. Zamiast tego należy skoncentrować się na wartości, którą oferuje oferta.
-- Spróbuj użyć tekstów specyficznych dla branżowych lub opartych na korzyściach.
-
-Aby zwiększyć atrakcyjność opisu oferty, użyj edytora tekstu sformatowanego w celu zastosowania formatowania.
-
-![Korzystanie z edytora tekstu sformatowanego](./media/rich-text-editor.png)
-
-| <center>Zmień format tekstu | <center>Dodawanie punktorów lub numeracji | <center>Dodaj lub Usuń wcięcie tekstu |
-| --- | --- | --- |
-| <center>![Zmienianie formatu tekstu przy użyciu edytora tekstu sformatowanego](./media/text-editor3.png) |  <center>![Używanie edytora tekstu sformatowanego do dodawania list](./media/text-editor4.png) |  <center>![Używanie edytora tekstu sformatowanego do wcięcia](./media/text-editor5.png) |
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 ### <a name="keywords"></a>Słowa kluczowe
 

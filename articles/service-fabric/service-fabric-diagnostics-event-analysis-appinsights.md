@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 5c80dc9f350fec30469a9bce2ed836c276ef3a7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3b7cb09d67080d49f53d9dd48b5ed0f8f3a54884
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75464759"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701896"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Analiza zdarzeń i wizualizacja przy użyciu Application Insights
 
@@ -42,7 +42,7 @@ Aby dowiedzieć się więcej o możliwościach portalu Application Insights, prz
 
 ### <a name="configuring-application-insights-with-eventflow"></a>Konfigurowanie Application Insights przy użyciu użyciu struktury eventflow
 
-Jeśli używasz użyciu struktury eventflow do agregowania zdarzeń, upewnij się, że zaimportowano pakiet `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights`NuGet. Poniższy kod jest wymagany w sekcji dane *wyjściowe* pliku *eventFlowConfig. JSON*:
+Jeśli używasz użyciu struktury eventflow do agregowania zdarzeń, upewnij się, że zaimportowano `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights` pakiet NuGet. Poniższy kod jest wymagany w sekcji dane *wyjściowe* pliku *eventFlowConfig. JSON*:
 
 ```json
 "outputs": [
@@ -73,5 +73,5 @@ Kliknięcie pozycji **Analiza** spowoduje przejście do portalu analizy Applicat
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Konfigurowanie alertów w programie AI](../azure-monitor/app/alerts.md) do powiadamiania o zmianach wydajności lub użycia
+* [Konfigurowanie alertów w programie AI](/azure/azure-monitor/platform/alerts-log) do powiadamiania o zmianach wydajności lub użycia
 * [Inteligentne wykrywanie w Application Insights](../azure-monitor/app/proactive-diagnostics.md) służy do aktywnej analizy danych telemetrycznych wysyłanych do Application Insights w celu ostrzegania o potencjalnych problemach z wydajnością

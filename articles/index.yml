@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 2cc8369c59905e1d1e1b794b8cbdefce1ede0a67
-  ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+  ms.openlocfilehash: 21319a3de2bcd38cd5373ac68fc1c9733ab64ee4
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 05/04/2020
-  ms.locfileid: "82739431"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83593203"
 highlightedContent:
   items:
   - title: Wprowadzenie — przewodnik dla deweloperów platformy Azure
@@ -495,6 +495,13 @@ productDirectory:
     - compute
     - databases
     url: https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json
+  - title: Statyczne aplikacje internetowe
+    summary: Tworzenie i wdrażanie aplikacji internetowych pełnego stosu na platformie Azure z repozytorium GitHub
+    imageSrc: ./media/index/static-apps.svg
+    azureCategories:
+    - compute
+    - web
+    url: static-web-apps/index.yml
   - title: Zestawy skali maszyn wirtualnych
     summary: Skalowanie w górę do tysięcy maszyn wirtualnych z systemem Linux i Windows oraz zarządzanie nimi
     imageSrc: https://static.docs.com/ui/media/product/azure/vm-scale-sets.svg
@@ -599,13 +606,13 @@ productDirectory:
     - databases
     - hybrid
     url: sql-database/index.yml
-  - title: Azure SQL Database Edge (wersja zapoznawcza)
+  - title: Usługa Azure SQL Edge (wersja zapoznawcza)
     summary: Zoptymalizowany pod kątem działania na brzegu sieci aparat danych o niewielkim zużyciu zasobów z wbudowaną sztuczną inteligencją
     imageSrc: https://static.docs.com/ui/media/product/azure/sql-database-edge.svg
     azureCategories:
     - databases
     - iot
-    url: sql-database-edge/index.yml
+    url: azure-sql-edge/index.yml
   - title: Table Storage
     summary: Magazyn NoSQL kluczy i wartości używający zestawów danych z częściową strukturą
     imageSrc: https://static.docs.com/ui/media/product/azure/storage-accounts.svg

@@ -1,20 +1,20 @@
 ---
-author: IEvangelist
-ms.author: dapine
+author: aahill
+ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/04/2020
-ms.openlocfilehash: 88d83676de1e7fa18c4c1dcbf347da8d685ba2fa
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/18/2020
+ms.openlocfilehash: 66bd78c94e6c54d26959778cc059730c13d02629
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593339"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698572"
 ---
-Wypełnij i prześlij [formularz żądania Cognitive Services kontenerów](https://aka.ms/cognitivegate) , aby zażądać dostępu do kontenera. Formularz żąda informacji o użytkowniku, firmie i scenariuszu użytkownika, dla którego będziesz używać kontenera. Po przesłaniu formularza zespół Cognitive Services platformy Azure przegląda go, aby upewnić się, że spełnia on kryteria dostępu do prywatnego rejestru kontenerów.
+Formularz żąda informacji o użytkowniku, firmie i scenariuszu użytkownika, dla którego będziesz używać kontenera. Po przesłaniu formularza zespół Cognitive Services platformy Azure przegląda go, aby upewnić się, że spełnia on kryteria dostępu do prywatnego rejestru kontenerów.
 
 > [!IMPORTANT]
-> Musisz użyć adresu e-mail skojarzonego z kontem Microsoft (MSA) lub kontem Azure Active Directory (Azure AD) w formularzu. Aby uzyskać więcej informacji na temat kryteriów akceptacji, zobacz [Cognitive Services-kontroli proces](../articles/cognitive-services/cognitive-services-gating-process.md).
+> Musisz użyć adresu e-mail skojarzonego z kontem Microsoft (MSA) lub kontem Azure Active Directory (Azure AD) w formularzu.
 
 Jeśli Twoje żądanie zostanie zatwierdzone, otrzymasz wiadomość e-mail z instrukcjami opisującymi, jak uzyskać poświadczenia i uzyskać dostęp do prywatnego rejestru kontenerów.
 

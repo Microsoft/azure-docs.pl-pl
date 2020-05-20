@@ -2,13 +2,13 @@
 title: Konfigurowanie linku prywatnego
 description: Skonfiguruj prywatny punkt końcowy w rejestrze kontenerów i Włącz dostęp za pośrednictwem prywatnego linku w lokalnej sieci wirtualnej
 ms.topic: article
-ms.date: 05/07/2020
-ms.openlocfilehash: 46ec816d85a528fd3208026ef76dff8470154767
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.date: 05/19/2020
+ms.openlocfilehash: 93cdbab8bcdaa9787373407fe8d6619dd5fd49c6
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982451"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701399"
 ---
 # <a name="configure-azure-private-link-for-an-azure-container-registry"></a>Konfigurowanie prywatnego linku platformy Azure dla usługi Azure Container Registry 
 
@@ -24,9 +24,9 @@ Ta funkcja jest dostępna w warstwie usługi kontenera **Premium** . Aby uzyska�
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Aby skorzystać z kroków interfejsu wiersza polecenia platformy Azure w tym artykule, zaleca się użycie interfejsu wiersza polecenia platformy Azure w wersji 2.2.0 lub nowszej. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli]. Lub Uruchom w [Azure Cloud Shell](../cloud-shell/quickstart.md).
-* Jeśli nie masz jeszcze rejestru kontenerów, utwórz go (wymagana warstwa Premium) i [zaimportuj](container-registry-import-images.md) przykładowy obraz, taki `hello-world` jak z usługi Docker Hub. Na przykład użyj [Azure Portal][quickstart-portal] lub [interfejsu wiersza polecenia platformy Azure][quickstart-cli] , aby utworzyć rejestr.
-* Aby skonfigurować dostęp do rejestru przy użyciu prywatnego linku w innej subskrypcji platformy Azure, należy zarejestrować dostawcę zasobów dla Azure Container Registry w tej subskrypcji. Przykład:
+* Aby skorzystać z kroków interfejsu wiersza polecenia platformy Azure w tym artykule, zaleca się użycie interfejsu wiersza polecenia platformy Azure w wersji 2.6.0 lub nowszej. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli]. Lub Uruchom w [Azure Cloud Shell](../cloud-shell/quickstart.md).
+* Jeśli nie masz jeszcze rejestru kontenerów, utwórz go (wymagana warstwa Premium) i [zaimportuj](container-registry-import-images.md) przykładowy obraz, taki jak `hello-world` z usługi Docker Hub. Na przykład użyj [Azure Portal][quickstart-portal] lub [interfejsu wiersza polecenia platformy Azure][quickstart-cli] , aby utworzyć rejestr.
+* Aby skonfigurować dostęp do rejestru przy użyciu prywatnego linku w innej subskrypcji platformy Azure, należy zarejestrować dostawcę zasobów dla Azure Container Registry w tej subskrypcji. Na przykład:
 
   ```azurecli
   az account set --subscription <Name or ID of subscription of private link>
@@ -114,7 +114,7 @@ REGISTRY_ID=$(az acr show --name $REGISTRY_NAME \
 
 Uruchom polecenie [AZ Network Private-Endpoint Create][az-network-private-endpoint-create] , aby utworzyć prywatny punkt końcowy rejestru.
 
-Poniższy przykład tworzy *połączenie*punktów końcowych *myPrivateEndpoint* i połączenia z usługą. Aby określić zasób rejestru kontenerów dla punktu końcowego, należy `--group-ids registry`przekazać:
+Poniższy przykład tworzy *połączenie*punktów końcowych *myPrivateEndpoint* i połączenia z usługą. Aby określić zasób rejestru kontenerów dla punktu końcowego, należy przekazać `--group-ids registry` :
 
 ```azurecli
 az network private-endpoint create \
@@ -160,7 +160,7 @@ DATA_ENDPOINT_PRIVATE_IP=$(az resource show \
 
 ### <a name="create-dns-records-in-the-private-zone"></a>Tworzenie rekordów DNS w strefie prywatnej
 
-Następujące polecenia tworzą rekordy DNS w strefie prywatnej dla punktu końcowego rejestru i jego punktu końcowego danych. Na przykład jeśli w regionie *westeurope* istnieje rejestr o nazwie Moje `myregistry.azurecr.io` *rejestry* , nazwy punktów końcowych to i `myregistry.westeurope.data.azurecr.io`. 
+Następujące polecenia tworzą rekordy DNS w strefie prywatnej dla punktu końcowego rejestru i jego punktu końcowego danych. Na przykład jeśli w regionie *westeurope* istnieje rejestr o nazwie Moje *rejestry* , nazwy punktów końcowych to `myregistry.azurecr.io` i `myregistry.westeurope.data.azurecr.io` . 
 
 > [!NOTE]
 > Jeśli rejestr ma [replikację geograficzną](container-registry-geo-replication.md), Utwórz dodatkowe rekordy DNS dla każdego repliky adres IP punktu końcowego danych.
@@ -207,7 +207,7 @@ Skonfiguruj prywatny link podczas tworzenia rejestru lub Dodaj prywatny link do 
 
 1. Podczas tworzenia rejestru w portalu na karcie **podstawowe** w obszarze **jednostka SKU**wybierz pozycję **Premium**.
 1. Wybierz kartę **Sieć** .
-1. W obszarze **łączność sieciowa**wybierz pozycję **prywatny punkt końcowy** > **+ Dodaj**.
+1. W obszarze **łączność sieciowa**wybierz pozycję **prywatny punkt końcowy**  >  **+ Dodaj**.
 1. Wprowadź lub wybierz następujące informacje:
 
     | Ustawienie | Wartość |
@@ -282,7 +282,21 @@ Link prywatny jest teraz skonfigurowany i gotowy do użycia.
 
 ## <a name="disable-public-access"></a>Wyłącz dostęp publiczny
 
-W przypadku wielu scenariuszy należy wyłączyć dostęp do rejestru z sieci publicznych. Ta konfiguracja uniemożliwia klientom spoza sieci wirtualnej osiąganie punktów końcowych rejestru. Aby wyłączyć dostęp publiczny przy użyciu portalu:
+W przypadku wielu scenariuszy należy wyłączyć dostęp do rejestru z sieci publicznych. Ta konfiguracja uniemożliwia klientom spoza sieci wirtualnej osiąganie punktów końcowych rejestru. 
+
+### <a name="disable-public-access---cli"></a>Wyłącz dostęp publiczny — interfejs wiersza polecenia
+
+Aby wyłączyć dostęp publiczny za pomocą interfejsu wiersza polecenia platformy Azure, uruchom polecenie [AZ ACR Update][az-acr-update] i ustaw wartość `--public-network-enabled` `false` . 
+
+> [!NOTE]
+> `public-network-enabled`Argument wymaga interfejsu wiersza polecenia platformy Azure 2.6.0 lub nowszego. 
+
+```azurecli
+az acr update --name $REGISTRY_NAME --public-network-enabled false
+```
+
+
+### <a name="disable-public-access---portal"></a>Wyłącz dostęp publiczny — Portal
 
 1. W portalu przejdź do rejestru kontenerów, a następnie wybierz pozycję **ustawienia > sieci**.
 1. Na karcie **dostęp publiczny** w obszarze **Zezwalaj na dostęp publiczny**wybierz pozycję **wyłączone**. Następnie wybierz pozycję **Zapisz**.
@@ -293,7 +307,7 @@ Należy sprawdzić, czy zasoby w podsieci prywatnego punktu końcowego łączą 
 
 Aby sprawdzić poprawność połączenia z linkiem prywatnym, Użyj protokołu SSH do maszyny wirtualnej skonfigurowanej w sieci wirtualnej.
 
-Uruchom polecenie `nslookup` , aby rozwiązać adres IP rejestru za pośrednictwem prywatnego linku:
+Uruchom `nslookup` polecenie, aby rozwiązać adres IP rejestru za pośrednictwem prywatnego linku:
 
 ```bash
 nslookup $REGISTRY_NAME.azurecr.io
@@ -319,13 +333,13 @@ Address: 40.78.103.41
 
 ### <a name="registry-operations-over-private-link"></a>Operacje na rejestrze za pośrednictwem prywatnego linku
 
-Sprawdź również, czy można wykonywać operacje na rejestrze z maszyny wirtualnej w podsieci. Nawiąż połączenie SSH z maszyną wirtualną, a następnie uruchom polecenie [AZ ACR login][az-acr-login] , aby zalogować się do rejestru. W zależności od konfiguracji maszyny wirtualnej może być konieczne dodanie do nich prefiksów następujących poleceń `sudo`.
+Sprawdź również, czy można wykonywać operacje na rejestrze z maszyny wirtualnej w podsieci. Nawiąż połączenie SSH z maszyną wirtualną, a następnie uruchom polecenie [AZ ACR login][az-acr-login] , aby zalogować się do rejestru. W zależności od konfiguracji maszyny wirtualnej może być konieczne dodanie do nich prefiksów następujących poleceń `sudo` .
 
 ```bash
 az acr login --name $REGISTRY_NAME
 ```
 
-Wykonywanie operacji rejestru, takich `docker pull` jak pobranie przykładowego obrazu z rejestru. Zamień `hello-world:v1` na obraz i tag odpowiedni dla rejestru, poprzedzony prefiksem nazwa serwera logowania rejestru (wszystkie małe litery):
+Wykonywanie operacji rejestru, takich jak `docker pull` pobranie przykładowego obrazu z rejestru. Zamień `hello-world:v1` na obraz i tag odpowiedni dla rejestru, poprzedzony prefiksem nazwa serwera logowania rejestru (wszystkie małe litery):
 
 ```bash
 docker pull myregistry.azurecr.io/hello-world:v1
@@ -337,7 +351,7 @@ Platforma Docker pomyślnie ściąga obraz do maszyny wirtualnej.
 
 Zarządzanie połączeniami prywatnego punktu końcowego rejestru przy użyciu Azure Portal lub za pomocą poleceń w grupie poleceń [AZ ACR Private-Endpoint-Connection][az-acr-private-endpoint-connection] . Operacje obejmują Zatwierdź, Usuń, Wyświetl, Odrzuć lub Pokaż szczegóły połączeń prywatnych punktów końcowych rejestru.
 
-Na przykład aby wyświetlić listę połączeń prywatnych punktów końcowych rejestru, uruchom polecenie [AZ ACR Private-Endpoint-Connection list][az-acr-private-endpoint-connection-list] . Przykład:
+Na przykład aby wyświetlić listę połączeń prywatnych punktów końcowych rejestru, uruchom polecenie [AZ ACR Private-Endpoint-Connection list][az-acr-private-endpoint-connection-list] . Na przykład:
 
 ```azurecli
 az acr private-endpoint-connection list \
@@ -350,9 +364,9 @@ W przypadku skonfigurowania połączenia prywatnego punktu końcowego za pomocą
 
 Jak pokazano w tym artykule, podczas dodawania prywatnego połączenia punktu końcowego z rejestrem rekordy DNS w `privatelink.azurecr.io` strefie są tworzone dla rejestru i jego punktów końcowych danych w regionach, w których rejestr jest [replikowany](container-registry-geo-replication.md). 
 
-Jeśli później dodasz nową replikę, musisz ręcznie dodać nowy rekord strefy dla punktu końcowego danych w tym regionie. Jeśli na przykład utworzysz replikę *rejestru* w lokalizacji *northeurope* , Dodaj rekord strefy dla `myregistry.northeurope.data.azurecr.io`. Aby uzyskać instrukcje, zobacz [tworzenie rekordów DNS w strefie prywatnej](#create-dns-records-in-the-private-zone) w tym artykule.
+Jeśli później dodasz nową replikę, musisz ręcznie dodać nowy rekord strefy dla punktu końcowego danych w tym regionie. Jeśli na przykład utworzysz replikę *rejestru* w lokalizacji *northeurope* , Dodaj rekord strefy dla `myregistry.northeurope.data.azurecr.io` . Aby uzyskać instrukcje, zobacz [tworzenie rekordów DNS w strefie prywatnej](#create-dns-records-in-the-private-zone) w tym artykule.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli wszystkie zasoby platformy Azure zostały utworzone w tej samej grupie zasobów i nie będą już potrzebne, możesz opcjonalnie usunąć zasoby za pomocą jednego polecenia [AZ Group Delete](/cli/azure/group) :
 

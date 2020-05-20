@@ -2,13 +2,13 @@
 title: Reguły dostępu zapory
 description: Skonfiguruj reguły dostępu do usługi Azure Container Registry za zaporą, zezwalając na dostęp do ("listy dozwolonych") interfejsów API REST i nazw domen punktów końcowych danych lub zakresów adresów IP specyficznych dla usługi.
 ms.topic: article
-ms.date: 05/07/2020
-ms.openlocfilehash: b3560fe769a97c8d3a4e5a3580d42d7c0b3a3f08
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.date: 05/18/2020
+ms.openlocfilehash: 109764a5697920547230530de41a3e5acfe0117d
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82978352"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701919"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Konfigurowanie reguł dostępu do usługi Azure Container Registry za zaporą
 
@@ -18,7 +18,7 @@ Jeśli zamiast tego chcesz skonfigurować dostęp do sieci przychodzącej do rej
 
 ## <a name="about-registry-endpoints"></a>Informacje o punktach końcowych rejestru
 
-Do ściągania lub wypychania obrazów lub innych artefaktów do usługi Azure Container Registry klient, taki jak demon Docker, musi korzystać z dwóch różnych punktów końcowych przy użyciu protokołu HTTPS. W przypadku klientów, którzy uzyskują dostęp do rejestru za zaporą, należy skonfigurować reguły dostępu dla obu punktów końcowych.
+Do ściągania lub wypychania obrazów lub innych artefaktów do usługi Azure Container Registry klient, taki jak demon Docker, musi korzystać z dwóch różnych punktów końcowych przy użyciu protokołu HTTPS. W przypadku klientów, którzy uzyskują dostęp do rejestru za zaporą, należy skonfigurować reguły dostępu dla obu punktów końcowych. Oba punkty końcowe są osiągane przez port 443.
 
 * **Punkt końcowy interfejsu API REST usługi Registry** — operacje zarządzania uwierzytelnianiem i rejestrem są obsługiwane przez publiczny punkt końcowy interfejsu API REST rejestru. Ten punkt końcowy jest nazwą serwera logowania rejestru. Przykład: `myregistry.azurecr.io`
 
@@ -28,10 +28,10 @@ Jeśli rejestr jest [replikowany geograficznie](container-registry-geo-replicati
 
 ## <a name="allow-access-to-rest-and-data-endpoints"></a>Zezwalaj na dostęp do punktów końcowych REST i danych
 
-* **Punkt końcowy REST** — Zezwalanie na dostęp do w pełni kwalifikowanej nazwy `<registry-name>.azurecr.io`serwera logowania rejestru lub skojarzonego zakresu adresów IP
-* **Punkt końcowy magazynu (dane)** — umożliwia dostęp do wszystkich kont usługi Azure Blob Storage przy `*.blob.core.windows.net`użyciu symbolu wieloznacznego lub skojarzonego zakresu adresów IP.
+* **Punkt końcowy REST** — Zezwalanie na dostęp do w pełni kwalifikowanej nazwy serwera logowania rejestru `<registry-name>.azurecr.io` lub SKOJARZONEGO zakresu adresów IP
+* **Punkt końcowy magazynu (dane)** — umożliwia dostęp do wszystkich kont usługi Azure Blob Storage przy użyciu symbolu wieloznacznego `*.blob.core.windows.net` lub SKOJARZONEGO zakresu adresów IP.
 > [!NOTE]
-> Azure Container Registry wprowadza [dedykowane punkty końcowe danych](#enable-dedicated-data-endpoints-preview) (wersja zapoznawcza), co pozwala na ścisłe Określanie reguł zapory klienta dla magazynu rejestru. Opcjonalnie można włączyć punkty końcowe danych we wszystkich regionach, w których znajduje się rejestr lub zreplikowane, `<registry-name>.<region>.data.azurecr.io`przy użyciu formularza.
+> Azure Container Registry wprowadza [dedykowane punkty końcowe danych](#enable-dedicated-data-endpoints), co pozwala na ścisłe Określanie reguł zapory klienta dla magazynu rejestru. Opcjonalnie można włączyć punkty końcowe danych we wszystkich regionach, w których znajduje się rejestr lub zreplikowane, przy użyciu formularza `<registry-name>.<region>.data.azurecr.io` .
 
 ## <a name="allow-access-by-ip-address-range"></a>Zezwalaj na dostęp według zakresu adresów IP
 
@@ -117,26 +117,45 @@ W sieci wirtualnej platformy Azure Użyj reguł zabezpieczeń sieci do filtrowan
 
 Można na przykład utworzyć regułę sieciowej grupy zabezpieczeń dla ruchu wychodzącego z **AzureContainerRegistryą** docelową, aby zezwolić na ruch do usługi Azure Container Registry. Aby zezwolić na dostęp do tagu usługi tylko w określonym regionie, Określ region w następującym formacie: **AzureContainerRegistry**. [*Nazwa regionu*].
 
-## <a name="enable-dedicated-data-endpoints-preview"></a>Włącz dedykowane punkty końcowe danych (wersja zapoznawcza)
+## <a name="enable-dedicated-data-endpoints"></a>Włączanie dedykowanych punktów końcowych danych 
 
 > [!WARNING]
 > Jeśli wcześniej skonfigurowano dostęp zapory klienta do istniejących `*.blob.core.windows.net` punktów końcowych, przełączenie do dedykowanych punktów końcowych danych będzie miało wpływ na łączność klienta, co powoduje błędy ściągnięcia. Aby zapewnić klientom spójny dostęp, Dodaj nowe reguły punktu końcowego danych do reguł zapory klienta. Po zakończeniu Włącz dedykowane punkty końcowe danych dla rejestrów przy użyciu interfejsu wiersza polecenia platformy Azure lub innych narzędzi.
 
-Dedykowane punkty końcowe danych to opcjonalna funkcja warstwy kontenera usługi **Premium** Registry. Aby uzyskać informacje o warstwach i ograniczeniach usługi Registry, zobacz [Azure Container Registry warstw](container-registry-skus.md). Aby włączyć punkty końcowe danych przy użyciu interfejsu wiersza polecenia platformy Azure, użyj interfejsu wiersza polecenia platformy Azure w wersji 2.4.0 lub nowszej. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+Dedykowane punkty końcowe danych to opcjonalna funkcja warstwy kontenera usługi **Premium** Registry. Aby uzyskać informacje o warstwach i ograniczeniach usługi Registry, zobacz [Azure Container Registry warstwy usług](container-registry-skus.md). 
 
-Następujące polecenie [AZ ACR Update][az-acr-update] umożliwia korzystanie z dedykowanych punktów końcowych danych *w rejestrze rejestru.* W celu pokazania założono, że rejestr jest replikowany w dwóch regionach:
+Dedykowane punkty końcowe danych można włączyć przy użyciu Azure Portal lub interfejsu wiersza polecenia platformy Azure. Punkty końcowe danych są zgodne ze wzorcem regionalnym `<registry-name>.<region>.data.azurecr.io` . W rejestrze z replikacją geograficzną włączenie punktów końcowych danych umożliwia korzystanie z punktów końcowych we wszystkich regionach replik.
+
+### <a name="portal"></a>Portal
+
+Aby włączyć punkty końcowe danych przy użyciu portalu:
+
+1. Przejdź do rejestru kontenerów.
+1. Wybierz pozycję **Sieć**  >  **dostęp publiczny**.
+1. Zaznacz pole wyboru **Włącz dedykowany punkt końcowy danych** .
+1. Wybierz pozycję **Zapisz**.
+
+Punkt końcowy danych lub punkty końcowe pojawiają się w portalu.
+
+![Dedykowane punkty końcowe danych w portalu](./media/container-registry-firewall-access-rules/dedicated-data-endpoints-portal.png)
+
+### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
+
+Aby włączyć punkty końcowe danych przy użyciu interfejsu wiersza polecenia platformy Azure, użyj interfejsu wiersza polecenia platformy Azure w wersji 2.4.0 lub nowszej. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+
+Następujące polecenie [AZ ACR Update][az-acr-update] umożliwia korzystanie z dedykowanych punktów końcowych danych *w rejestrze rejestru.* 
 
 ```azurecli
 az acr update --name myregistry --data-endpoint-enabled
 ```
 
-Punkty końcowe danych używają wzorca regionalnego `<registry-name>.<region>.data.azurecr.io`. Aby wyświetlić punkty końcowe danych, użyj polecenia [AZ ACR show-Endpoints][az-acr-show-endpoints] :
+Aby wyświetlić punkty końcowe danych, użyj polecenia [AZ ACR show-Endpoints][az-acr-show-endpoints] :
 
 ```azurecli
 az acr show-endpoints --name myregistry
 ```
 
-Dane wyjściowe:
+Dane wyjściowe dla celów demonstracyjnych pokazują dwa regionalne punkty końcowe
 
 ```
 {
@@ -165,6 +184,8 @@ Jeśli musisz uzyskać dostęp do programu Microsoft Container Registry (MCR) z 
 * Poznaj [najlepsze rozwiązania dotyczące platformy Azure dotyczące zabezpieczeń sieci](../security/fundamentals/network-best-practices.md)
 
 * Dowiedz się więcej o [grupach zabezpieczeń](/azure/virtual-network/security-overview) w sieci wirtualnej platformy Azure
+
+* Dowiedz się więcej o konfigurowaniu [prywatnego linku](container-registry-private-link.md) do rejestru kontenerów
 
 * Dowiedz się więcej na temat [dedykowanych punktów końcowych danych](https://azure.microsoft.com/blog/azure-container-registry-mitigating-data-exfiltration-with-dedicated-data-endpoints/) dla Azure Container Registry
 

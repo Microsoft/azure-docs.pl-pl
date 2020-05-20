@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: b85846419ce5f6cd4093e198d83240817c95754a
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 81b36532d09985d1e50fb3d0394d054d9a5e8250
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983061"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701161"
 ---
 # <a name="create-a-new-saas-offer-in-the-commercial-marketplace"></a>Utwórz nową ofertę SaaS w portalu komercyjnym
 
@@ -21,8 +21,8 @@ Aby rozpocząć tworzenie ofert oprogramowania jako usługi (SaaS) w komercyjnej
 ## <a name="create-a-new-offer"></a>Tworzenie nowej oferty
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
-2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace** > **Overview**.
-3. Na stronie Przegląd wybierz pozycję **+ nowe oferowane** > **oprogramowanie jako usługa**.
+2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
+3. Na stronie Przegląd wybierz pozycję **+ nowe oferowane**  >  **oprogramowanie jako usługa**.
 
    ![Ilustruje menu nawigacji po lewej stronie.](./media/new-offer-saas.png)
 
@@ -34,7 +34,7 @@ Aby rozpocząć tworzenie ofert oprogramowania jako usługi (SaaS) w komercyjnej
 Wprowadź **Identyfikator oferty**. To jest unikatowy identyfikator dla każdej oferty na Twoim koncie.
 
 - Ten identyfikator jest widoczny dla klientów w adresie sieci Web dla ofert i szablonów Azure Resource Manager, jeśli ma zastosowanie.
-- Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczone do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1** tutaj, adres internetowy oferty będzie miał `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`wartość.
+- Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczone do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1** tutaj, adres internetowy oferty będzie miał wartość `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
 - Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz**.
 
 Wprowadź **alias oferty**. Jest to nazwa używana dla oferty w centrum partnerskim.
@@ -173,7 +173,7 @@ Firma Microsoft oferuje standardowy szablon kontraktu.
 
 - **Używasz standardowej umowy dotyczącej komercyjnej witryny Microsoft Marketplace?**
 
-Aby uprościć proces zakupów dla klientów i zmniejszyć złożoność prawną dla dostawców oprogramowania, firma Microsoft oferuje standardową umowę dotyczącą komercyjnego portalu Microsoft Marketplace, aby ułatwić obsługę transakcji w portalu Marketplace. Zamiast przedstawiać niestandardowe warunki i postanowienia, Komercyjni wydawcy portalu Marketplace mogą zaoferować swoje oprogramowanie zgodnie z umową standardową, której klienci muszą jedynie Zweryfikuj i akceptować. Kontrakt standardowy można znaleźć pod adresem https://go.microsoft.com/fwlink/?linkid=2041178.
+Aby uprościć proces zakupów dla klientów i zmniejszyć złożoność prawną dla dostawców oprogramowania, firma Microsoft oferuje standardową umowę dotyczącą komercyjnego portalu Microsoft Marketplace, aby ułatwić obsługę transakcji w portalu Marketplace. Zamiast przedstawiać niestandardowe warunki i postanowienia, Komercyjni wydawcy portalu Marketplace mogą zaoferować swoje oprogramowanie zgodnie z umową standardową, której klienci muszą jedynie Zweryfikuj i akceptować. Kontrakt standardowy można znaleźć pod adresem https://go.microsoft.com/fwlink/?linkid=2041178 .
 
 Możesz wybrać opcję użycia kontraktu standardowego zamiast podawania własnych warunków i postanowień, wybierając opcję "Użyj standardowej umowy dla portalu komercyjnego".
 
@@ -227,28 +227,13 @@ Podaj szczegóły, które mają być wyświetlane w witrynie Marketplace, w tym 
 - **Słowa kluczowe wyszukiwania** — wprowadź do trzech słów kluczowych wyszukiwania, których klienci mogą używać w celu znalezienia oferty w portalu Marketplace.
 - **Instrukcje dotyczące** rozpoczynania pracy (wymagane) — Wyjaśnij, jak skonfigurować i rozpocząć korzystanie z aplikacji dla potencjalnych klientów.  Ten przewodnik Szybki Start może zawierać linki do bardziej szczegółowej dokumentacji online. W tym polu można wprowadzić do 3 000 znaków tekstu.
 
-#### <a name="description"></a>**Opis**
+#### <a name="description"></a>Opis
 
-To pole jest wymagane. Elementy do uwzględnienia w **opisie**:
+To pole jest wymagane.
 
-* Jasno opisz swoją wartość oferty w pierwszych kilku zdaniach opisu.  
-* Należy pamiętać, że pierwsze niektóre zdania mogą być wyświetlane w wynikach wyszukiwania.  
-* Nie należy polegać na funkcjach i funkcjach, aby sprzedawać produkt. Zamiast tego należy skoncentrować się na dostarczanej wartości.  
-* Korzystaj z specyficznych dla branży słownictwa lub takich słów, jak to możliwe.
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-Podstawowe składniki Twojej pozycji wartości powinny obejmować:
-
-* Opis produktu
-* Typ użytkownika, który przynosi korzyści z produktu
-* Klienci muszą lub cierpią adresy produktów
-
-Aby zwiększyć atrakcyjność opisu oferty, użyj edytora tekstu sformatowanego w celu zastosowania formatowania.
-
-![Korzystanie z edytora tekstu sformatowanego](./media/rich-text-editor.png)
-
-| <center>Zmień format tekstu | <center>Dodawanie punktorów lub numeracji | <center>Dodaj lub Usuń wcięcie tekstu |
-| --- | --- | --- |
-| <center>![Zmienianie formatu tekstu przy użyciu edytora tekstu sformatowanego](./media/text-editor3.png) |  <center>![Używanie edytora tekstu sformatowanego do dodawania list](./media/text-editor4.png) |  <center>![Używanie edytora tekstu sformatowanego do wcięcia](./media/text-editor5.png) |
+[!INCLUDE [Rich text editor](./includes/rich-text-editor.md)]
 
 #### <a name="links"></a>Linki
 
@@ -309,7 +294,7 @@ Ta strona definiuje szczegóły techniczne (ścieżkę URL, element webhook, ide
 
 - **Adres URL strony docelowej** (wymagane) — Zdefiniuj adres URL witryny, po którym klienci będą mogli skorzystać po uzyskaniu oferty z portalu Marketplace. Ten adres URL będzie punktem końcowym, który odbiera token, gdy klient jest kierowany do strony. Ten token może być wymieniany w celu uzyskania szczegółowych informacji o aprowizacji za pomocą rozwiązania w interfejsach API realizacji. Te szczegóły i wszelkie inne zbierane informacje mogą być używane jako część strony sieci Web interaktywnej klienta wbudowanej w środowisko użytkownika w celu ukończenia rejestracji i aktywowania zakupu.
 
-- **Element webhook połączenia** (wymagany) — dla wszystkich zdarzeń asynchronicznych wymaganych przez firmę Microsoft w imieniu klienta (na przykład subskrypcja SaaS została niepoprawna), wymagamy podania elementu webhook połączenia. Jeśli nie masz jeszcze systemu elementu webhook, najprostszą konfiguracją jest posiadanie aplikacji logiki punktu końcowego protokołu HTTP, która będzie nasłuchiwać wszystkich zdarzeń, które są w nim ogłaszane, a następnie odpowiednio obsługiwać je (na przykład\/https:/prod-1westus.Logic.Azure.com:443/Work). Aby uzyskać więcej informacji, zobacz [wywoływanie, wyzwalanie lub zagnieżdżanie przepływów pracy za pomocą punktów końcowych HTTP w usłudze Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
+- **Element webhook połączenia** (wymagany) — dla wszystkich zdarzeń asynchronicznych wymaganych przez firmę Microsoft w imieniu klienta (na przykład subskrypcja SaaS została niepoprawna), wymagamy podania elementu webhook połączenia. Jeśli nie masz jeszcze systemu elementu webhook, najprostszą konfiguracją jest posiadanie aplikacji logiki punktu końcowego protokołu HTTP, która będzie nasłuchiwać wszystkich zdarzeń, które są w nim ogłaszane, a następnie odpowiednio obsługiwać je (na przykład https: \/ /prod-1westus.Logic.Azure.com:443/Work). Aby uzyskać więcej informacji, zobacz [wywoływanie, wyzwalanie lub zagnieżdżanie przepływów pracy za pomocą punktów końcowych HTTP w usłudze Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
 
 - **Identyfikator dzierżawy usługi Azure AD** (wymagany) — wewnątrz Azure Portal wymagamy [utworzenia aplikacji Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) , aby umożliwić nam zweryfikowanie połączenia między naszymi dwiema usługami w ramach komunikacji uwierzytelnionej. Aby znaleźć [Identyfikator dzierżawy](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), przejdź do Azure Active Directory i wybierz pozycję **Właściwości**, a następnie wyszukaj numer **identyfikatora katalogu** na liście (na przykład 50c464d3-4930-494c-963c-1e951d15360e).
 
@@ -361,7 +346,7 @@ Jeśli już ustawisz ceny dla planu w Stany Zjednoczone dolarów (USD) i dodasz 
 
 Wybierz pozycję **Zapisz** przed kontynuowaniem.
 
-#### <a name="pricing"></a>Cennik
+#### <a name="pricing"></a>Ceny
 
 ##### <a name="pricing-model"></a>Model cen
 
@@ -402,7 +387,7 @@ W tym miejscu możesz skonfigurować bezpłatną wersję próbną dla każdego p
 >[!NOTE]
 >Po opublikowaniu oferty transakcyjnej w ramach bezpłatnej wersji próbnej nie można jej wyłączyć dla tego planu. Upewnij się, że to ustawienie jest poprawne podczas pierwszego publikowania, aby uniknąć konieczności ponownego tworzenia planu.
 
-Aby uzyskać informacje o subskrypcjach klientów, które aktualnie uczestniczą w bezpłatnej wersji próbnej `isFreeTrial`, użyj nowej właściwości interfejsu API, która zostanie oznaczona jako true lub false. Aby uzyskać więcej informacji, zobacz [SaaS Get Subscription API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription).
+Aby uzyskać informacje o subskrypcjach klientów, które aktualnie uczestniczą w bezpłatnej wersji próbnej, użyj nowej właściwości interfejsu API `isFreeTrial` , która zostanie oznaczona jako true lub false. Aby uzyskać więcej informacji, zobacz [SaaS Get Subscription API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription).
 
 >[!NOTE]
 >Bezpłatne wersje próbne nie są obsługiwane w przypadku planów, które wykorzystują usługę pomiaru Marketplace.
@@ -411,7 +396,7 @@ Aby uzyskać informacje o subskrypcjach klientów, które aktualnie uczestniczą
 
 Każdy plan można skonfigurować tak, aby był widoczny dla wszystkich, lub tylko do określonych odbiorców. Członkostwo w tych ograniczonych odbiorcach można przypisywać przy użyciu identyfikatorów dzierżaw usługi Azure AD.
 
-##### <a name="privacy"></a>Ochrona prywatności
+##### <a name="privacy"></a>Prywatność
 
 Wybierz opcję **to jest plan prywatny** , aby Twój plan był prywatny i widoczny tylko dla wybranych odbiorców z ograniczeniami. Po opublikowaniu jako planu prywatnego możesz zaktualizować odbiorców lub wybrać opcję udostępnienia planu wszystkim użytkownikom. Gdy plan zostanie opublikowany jako widoczny dla wszystkich użytkowników, musi pozostawać widoczny dla wszystkich (nie może zostać ponownie skonfigurowany jako plan prywatny).
 
@@ -419,7 +404,7 @@ Wybierz opcję **to jest plan prywatny** , aby Twój plan był prywatny i widocz
 
 Przypisz odbiorców, którzy będą mieli dostęp do tego planu prywatnego. Dostęp jest przypisywany przy użyciu identyfikatorów dzierżawców z opcją dołączenia opisu każdego przypisanego identyfikatora dzierżawy. W przypadku importowania pliku arkusza kalkulacyjnego CSV można dodać maksymalnie 10 identyfikatorów dzierżaw lub 20 000 klientów.
 
-Dzierżawca jest reprezentacją organizacji, identyfikator reprezentowany jako identyfikator GUID (unikatowy identyfikator globalny, 128-bitowy numer liczbowy używany do identyfikowania zasobów). Jest to dedykowane wystąpienie usługi Azure AD, które otrzymuje organizacja lub Deweloper aplikacji, gdy organizacja lub Deweloper aplikacji tworzy relację z firmą Microsoft, na przykład podczas rejestracji na platformie Azure, Microsoft Intune lub Microsoft 365. Każda dzierżawa usługi Azure AD jest unikatowa i oddzielona od innych dzierżaw usługi Azure AD. Aby sprawdzić dzierżawę, zaloguj się w witrynie Azure Portal przy użyciu konta, którego chcesz użyć do zarządzania aplikacją. Jeśli masz dzierżawę, nastąpi automatyczne zalogowanie do niej, a nazwa dzierżawy zostanie wyświetlona bezpośrednio pod nazwą Twojego konta. Umieść wskaźnik myszy na nazwie konta w prawym górnym rogu witryny Azure Portal, aby wyświetlić swoją nazwę, adres e-mail, identyfikator katalogu/dzierżawy (GUID) oraz domenę. Jeśli Twoje konto jest skojarzone z wieloma dzierżawami, możesz wybrać nazwę swojego konta, aby otworzyć menu, w którym można przełączać się między dzierżawami. Każda dzierżawa ma własny identyfikator dzierżawy. Możesz również wyszukać identyfikator dzierżawy w organizacji przy użyciu adresu URL nazwy domeny [https://www.whatismytenantid.com](https://www.whatismytenantid.com)pod adresem.
+Dzierżawca jest reprezentacją organizacji, identyfikator reprezentowany jako identyfikator GUID (unikatowy identyfikator globalny, 128-bitowy numer liczbowy używany do identyfikowania zasobów). Jest to dedykowane wystąpienie usługi Azure AD, które otrzymuje organizacja lub Deweloper aplikacji, gdy organizacja lub Deweloper aplikacji tworzy relację z firmą Microsoft, na przykład podczas rejestracji na platformie Azure, Microsoft Intune lub Microsoft 365. Każda dzierżawa usługi Azure AD jest unikatowa i oddzielona od innych dzierżaw usługi Azure AD. Aby sprawdzić dzierżawę, zaloguj się w witrynie Azure Portal przy użyciu konta, którego chcesz użyć do zarządzania aplikacją. Jeśli masz dzierżawę, nastąpi automatyczne zalogowanie do niej, a nazwa dzierżawy zostanie wyświetlona bezpośrednio pod nazwą Twojego konta. Umieść wskaźnik myszy na nazwie konta w prawym górnym rogu witryny Azure Portal, aby wyświetlić swoją nazwę, adres e-mail, identyfikator katalogu/dzierżawy (GUID) oraz domenę. Jeśli Twoje konto jest skojarzone z wieloma dzierżawami, możesz wybrać nazwę swojego konta, aby otworzyć menu, w którym można przełączać się między dzierżawami. Każda dzierżawa ma własny identyfikator dzierżawy. Możesz również wyszukać identyfikator dzierżawy w organizacji przy użyciu adresu URL nazwy domeny pod adresem [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
 
 Mimo że usługa SaaS oferuje identyfikatory dzierżawców do definiowania prywatnych odbiorców, inne typy ofert mogą korzystać z identyfikatorów subskrypcji platformy Azure (które są również reprezentowane jako identyfikatory GUID).
 

@@ -4,16 +4,16 @@ description: Dowiedz się, jak dodać nazwę główną usługi Automation do rol
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 925fbbb51ac240b96486a2c0aa09c850a8d164bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bc3e17ce5becf039703585167e1ef3aa825cf2ab
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80408643"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697532"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Dodawanie jednostki usługi do roli administratora serwera 
 
@@ -30,7 +30,7 @@ Przed ukończeniem tego zadania musisz mieć nazwę główną usługi zarejestro
 Administratorów serwera można skonfigurować przy użyciu SQL Server Management Studio (SSMS). Aby wykonać to zadanie, musisz mieć uprawnienia [administratora serwera](analysis-services-server-admins.md) na platformie Azure jako serwer. 
 
 1. W programie SSMS Połącz się z platformą Azure jako serwerem.
-2. W obszarze **Właściwości** > serwera**zabezpieczenia**kliknij przycisk **Dodaj**.
+2. W obszarze **Właściwości serwera**  >  **zabezpieczenia**kliknij przycisk **Dodaj**.
 3. W obszarze **Wybierz użytkownika lub grupę**Wyszukaj zarejestrowaną aplikację według nazwy, wybierz pozycję, a następnie kliknij przycisk **Dodaj**.
 
     ![Wyszukaj konto jednostki usługi](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-picker.png)
@@ -44,7 +44,7 @@ Administratorów serwera można skonfigurować przy użyciu SQL Server Managemen
 Administratorzy serwera można również skonfigurować, wdrażając serwer Analysis Services przy użyciu szablonu Azure Resource Manager. Tożsamość, w której działa wdrożenie, musi należeć do roli **współautor** dla zasobu w [Access Control opartej na rolach (RBAC) na platformie Azure](../role-based-access-control/overview.md).
 
 > [!IMPORTANT]
-> Nazwę główną usługi należy dodać przy użyciu formatu `app:{service-principal-client-id}@{azure-ad-tenant-id}`.
+> Nazwę główną usługi należy dodać przy użyciu formatu `app:{service-principal-client-id}@{azure-ad-tenant-id}` .
 
 Poniższy szablon Menedżer zasobów wdraża serwer Analysis Services z określoną jednostką usługi dodaną do roli administratora Analysis Services:
 

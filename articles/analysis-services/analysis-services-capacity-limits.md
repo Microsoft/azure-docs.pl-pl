@@ -4,15 +4,15 @@ description: W tym artykule opisano limity zasobów i obiektów dla serwera Azur
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f309c9863eb2f3065251537380a2977839f990d8
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: c2caab4e449f4299d00fff14b697887ec00f35e6
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73573209"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697497"
 ---
 # <a name="analysis-services-resource-and-object-limits"></a>Analysis Services limity zasobów i obiektów
 

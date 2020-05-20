@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/23/2020
-ms.openlocfilehash: 0f1611e6d3524cc78fc20fed9d1aac6f3fd453fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 751c85559330272e84e628d22756d47c24b08711
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82106444"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701661"
 ---
 # <a name="authorizing-database-access-to-authenticated-users-to-sql-database-and-azure-synapse-analytics-using-logins-and-user-accounts"></a>Autoryzowanie dostępu do bazy danych dla uwierzytelnionych użytkowników do SQL Database i usługi Azure Synapse Analytics przy użyciu nazw logowania i kont użytkowników
 
@@ -25,7 +25,7 @@ W tym artykule omówiono następujące informacje:
 
 - Opcje konfigurowania Azure SQL Database i usługi Azure Synapse Analytics (dawniej Azure SQL Data Warehouse) w celu umożliwienia użytkownikom wykonywania zadań administracyjnych i uzyskiwania dostępu do danych przechowywanych w tych bazach danych.
 - Konfiguracja dostępu i autoryzacji po pierwszym utworzeniu nowej Azure SQL Database
-- Jak dodać nazwy logowania i konta użytkowników w bazie danych Master i konta użytkowników, a następnie przyznać im uprawnienia administracyjne
+- Jak dodać nazwy logowania i konta użytkowników w bazie danych Master, a następnie przyznać im uprawnienia administracyjne
 - Jak dodać konta użytkowników w bazach danych użytkowników, skojarzone z nazwami logowania lub kontami zawartych użytkowników
 - Konfigurowanie kont użytkowników z uprawnieniami w bazach danych użytkowników przy użyciu ról bazy danych i jawnych uprawnień
 
@@ -57,7 +57,7 @@ Podczas tworzenia pierwszego wdrożenia usługi Azure SQL należy określić naz
 
 - Logowanie SQL z uprawnieniami administracyjnymi jest tworzone przy użyciu podanej nazwy logowania. [Logowanie](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine#sa-login) do usługi SQL Database odbywa się przy użyciu poszczególnych kont użytkowników.
 - Ta nazwa logowania ma przyznane pełne uprawnienia administracyjne do wszystkich baz danych jako [podmiot zabezpieczeń na poziomie serwera](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine). Ta nazwa logowania ma wszystkie dostępne uprawnienia w ramach SQL Database i nie może być ograniczona. W wystąpieniu zarządzanym ta nazwa logowania jest dodawana do [stałej roli serwera sysadmin](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) (Ta rola nie istnieje z bazami danych w jednej lub w puli).
-- Dla tej nazwy logowania `dbo` w każdej bazie danych użytkownika zostanie utworzone [konto użytkownika](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions#database-users) o nazwie. Użytkownik [dbo](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine) ma wszystkie uprawnienia baz danych w bazie danych i jest mapowany na `db_owner` stałą rolę bazy danych. Dodatkowe role stałych baz danych zostały omówione w dalszej części tego artykułu.
+- [user account](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions#database-users) `dbo` Dla tej nazwy logowania w każdej bazie danych użytkownika zostanie utworzone konto użytkownika o nazwie. Użytkownik [dbo](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine) ma wszystkie uprawnienia baz danych w bazie danych i jest mapowany na `db_owner` stałą rolę bazy danych. Dodatkowe role stałych baz danych zostały omówione w dalszej części tego artykułu.
 
 Aby zidentyfikować konta administratorów dla bazy danych, Otwórz Azure Portal i przejdź do karty **Właściwości** serwera lub wystąpienia zarządzanego.
 
@@ -89,12 +89,12 @@ W tym momencie wystąpienie usługi Azure SQL jest skonfigurowane tylko do dost�
 
   - Utwórz dodatkową nazwę logowania SQL w bazie danych Master dla pojedynczego lub puli wdrożenia bazy danych lub wdrożenia wystąpienia zarządzanego
   - Utwórz konto użytkownika w bazie danych Master skojarzone z nowym logowaniem
-  - Dodaj `dbmanager`konto użytkownika do programu, `loginmanager` roli lub obu w `master` bazie danych przy użyciu instrukcji [ALTER Server role](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql) (dla usługi Azure Synapse Analytics, użyj instrukcji [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) ).
+  - Dodaj konto użytkownika do programu `dbmanager` , `loginmanager` roli lub obu w `master` bazie danych przy użyciu instrukcji [ALTER Server role](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql) (dla usługi Azure Synapse Analytics, użyj instrukcji [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) ).
 
   > [!NOTE]
-  > `dbmanager`role `loginmanager` i **nie** odnoszą się do wdrożeń wystąpienia zarządzanego.
+  > `dbmanager``loginmanager`role i **nie** odnoszą się do wdrożeń wystąpienia zarządzanego.
 
-  Członkowie tych [specjalnych ról głównych baz danych](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-) dla jednej lub puli baz danych umożliwiają użytkownikom posiadanie uprawnień do tworzenia baz danych i zarządzania nimi oraz do tworzenia nazw logowania i zarządzania nimi. W bazach danych utworzonych przez użytkownika, który jest członkiem `dbmanager` roli, członek jest mapowany na `db_owner` stałą rolę bazy danych i może logować się do tej bazy danych i zarządzać nią przy `dbo` użyciu konta użytkownika. Te role nie mają jawnych uprawnień poza główną bazą danych.
+  Członkowie tych [specjalnych ról głównych baz danych](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-) dla jednej lub puli baz danych umożliwiają użytkownikom posiadanie uprawnień do tworzenia baz danych i zarządzania nimi oraz do tworzenia nazw logowania i zarządzania nimi. W bazach danych utworzonych przez użytkownika, który jest członkiem `dbmanager` roli, członek jest mapowany na `db_owner` stałą rolę bazy danych i może logować się do tej bazy danych i zarządzać nią przy użyciu `dbo` konta użytkownika. Te role nie mają jawnych uprawnień poza główną bazą danych.
 
   > [!IMPORTANT]
   > Nie można utworzyć dodatkowego identyfikatora logowania SQL z pełnymi uprawnieniami administracyjnymi w jednej lub puli baz danych.
@@ -116,7 +116,7 @@ Można utworzyć konta dla użytkowników niebędących administratorami przy u�
   W ramach tego podejścia informacje o uwierzytelnianiu użytkownika są przechowywane w poszczególnych bazach danych i automatycznie replikowane do baz danych replikowanych geograficznie. Jeśli jednak to samo konto istnieje w wielu bazach danych i używasz uwierzytelniania SQL, należy zachować ręczne Synchronizowanie haseł. Ponadto, jeśli użytkownik ma konto w różnych bazach danych z różnymi hasłami, zapamiętanie tych haseł może stać się problemem.
 
 > [!IMPORTANT]
-> Aby utworzyć zawartych użytkowników mapowanych na tożsamości usługi Azure AD, musisz zalogować się przy użyciu konta usługi Azure AD, które jest administratorem w SQL Database. W wystąpieniu zarządzanym logowanie za pomocą programu `sysadmin` SQL z uprawnieniami może również spowodować utworzenie identyfikatora logowania lub użytkownika usługi Azure AD.
+> Aby utworzyć zawartych użytkowników mapowanych na tożsamości usługi Azure AD, musisz zalogować się przy użyciu konta usługi Azure AD, które jest administratorem w SQL Database. W wystąpieniu zarządzanym logowanie za pomocą programu SQL z `sysadmin` uprawnieniami może również spowodować utworzenie identyfikatora logowania lub użytkownika usługi Azure AD.
 
 Przykłady pokazujące sposób tworzenia logowań i użytkowników znajdują się w temacie:
 

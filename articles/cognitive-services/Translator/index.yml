@@ -1,10 +1,10 @@
 ### YamlMime:Landing
-title: Dokumentacja tłumaczenia tekstu w usłudze Translator
-summary: Tłumaczenie tekstu w usłudze Translator to chmurowa usługa tłumaczenia maszynowego umożliwiająca tłumaczenie tekstu niemal w czasie rzeczywistym za pomocą prostego wywołania interfejsu API REST. Interfejs API korzysta z nowoczesnej technologii neuronowego tłumaczenia maszynowego oraz udostępnia technologię statystycznego tłumaczenia maszynowego. Custom Translator to rozszerzenie interfejsu API tłumaczenia tekstu w usłudze Translator, które pozwala na tworzenie neuronowych systemów tłumaczenia. Dostosowany system tłumaczenia umożliwia tłumaczenie tekstu za pomocą interfejsu API tłumaczenia tekstu w usłudze Translator lub usług Microsoft Speech Services.
+title: Dokumentacja usługi Translator
+summary: Translator to chmurowa usługa tłumaczenia maszynowego umożliwiająca tłumaczenie tekstu niemal w czasie rzeczywistym przez proste wywoływanie interfejsu API REST. Usługa korzysta z nowoczesnej technologii neuronowego tłumaczenia maszynowego oraz udostępnia technologię statystycznego tłumaczenia maszynowego. Custom Translator to rozszerzenie usługi Translator, które pozwala na tworzenie neuronowych systemów tłumaczenia. Dostosowany system tłumaczenia umożliwia tłumaczenie tekstu za pomocą usługi Translator lub usług Microsoft Speech Services.
 metadata:
-  title: Dokumentacja tłumaczenia tekstu w usłudze Translator — przewodniki Szybki start, samouczki i dokumentacja interfejsu API
+  title: Dokumentacja usługi Translator — przewodniki Szybki start, samouczki i dokumentacja interfejsu API
   titleSuffix: Azure Cognitive Services
-  description: Tłumaczenie tekstu w usłudze Translator to chmurowa usługa tłumaczenia maszynowego umożliwiająca tłumaczenie tekstu niemal w czasie rzeczywistym za pomocą prostego wywołania interfejsu API REST. Interfejs API korzysta z nowoczesnej technologii neuronowego tłumaczenia maszynowego oraz udostępnia technologię statystycznego tłumaczenia maszynowego. Custom Translator to rozszerzenie interfejsu API tłumaczenia tekstu w usłudze Translator, które pozwala na tworzenie neuronowych systemów tłumaczenia. Dostosowany system tłumaczenia umożliwia tłumaczenie tekstu za pomocą interfejsu API tłumaczenia tekstu w usłudze Translator lub usług Microsoft Speech Services.
+  description: Translator to chmurowa usługa tłumaczenia maszynowego umożliwiająca tłumaczenie tekstu niemal w czasie rzeczywistym przez proste wywoływanie interfejsu API REST. Usługa korzysta z nowoczesnej technologii neuronowego tłumaczenia maszynowego oraz udostępnia technologię statystycznego tłumaczenia maszynowego. Custom Translator to rozszerzenie usługi Translator, które pozwala na tworzenie neuronowych systemów tłumaczenia. Dostosowany system tłumaczenia umożliwia tłumaczenie tekstu za pomocą usługi Translator lub usług Microsoft Speech Services.
   services: cognitive-services
   author: erhopf
   manager: nitinme
@@ -13,18 +13,18 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/14/2019
   ms.author: erhopf
-  ms.openlocfilehash: 47944b573cdc2a8121c525c7750aa868d4a4e696
-  ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+  ms.openlocfilehash: 26fc174ef0993339487a2edcc32cbb4fd864f96e
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 04/16/2020
-  ms.locfileid: "81529805"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83592750"
 landingContent:
 - title: Translator
   linkLists:
   - linkListType: overview
     links:
-    - text: Interfejs API tekstu usługi Translator
+    - text: Translator
       url: translator-info-overview.md
     - text: Custom Translator
       url: translator-info-overview.md
@@ -36,7 +36,7 @@ landingContent:
       url: translator-text-how-to-signup.md
     - text: Często zadawane pytania
       url: https://www.microsoft.com/translator/faq.aspx
-- title: Interfejs API tekstu usługi Translator
+- title: Rozpoczęcie pracy
   linkLists:
   - linkListType: quickstart
     links:
@@ -60,7 +60,7 @@ landingContent:
       url: tutorial-build-flask-app-translation-synthesis.md
   - linkListType: reference
     links:
-    - text: Odwołanie do interfejsu API tłumaczenia tekstu w usłudze Translator (v3)
+    - text: Dokumentacja usługi Translator (wersja 3)
       url: reference/v3-0-reference.md
     - text: Limity żądań
       url: request-limits.md
