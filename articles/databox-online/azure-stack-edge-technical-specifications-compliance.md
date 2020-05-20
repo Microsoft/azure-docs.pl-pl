@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 054f1449d6f06225633bf0647cac93ca42f2b59b
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 5a4ac2342ca36d83d1a579851c090c4713814c8d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929013"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652038"
 ---
 # <a name="azure-stack-edge-technical-specifications"></a>Azure Stack Edge — specyfikacje techniczne
 
-Składniki sprzętowe Microsoft Azure Stack urządzenia brzegowego są zgodne ze specyfikacjami technicznymi i standardami prawnymi opisanymi w tym artykule. Specyfikacje techniczne opisują jednostki zasilacza (PSUs), pojemność magazynu, obudowy i standardy środowiskowe. 
+Składniki sprzętowe Microsoft Azure Stack urządzenia brzegowego są zgodne ze specyfikacjami technicznymi i standardami prawnymi opisanymi w tym artykule. Specyfikacje techniczne opisują jednostki zasilacza (PSUs), pojemność magazynu, obudowy i standardy środowiskowe.
 
 ## <a name="compute-memory-specifications"></a>Obliczenia, specyfikacje pamięci
 
@@ -28,15 +28,13 @@ Urządzenie brzegowe Azure Stack ma następujące specyfikacje dotyczące oblicz
 | Procesor CPU    | 2 X 10 rdzeni procesora CPU                     |
 | Memory (Pamięć)              | 128 GB pamięci RAM                  |
 
-
 ## <a name="fpga-specifications"></a>Specyfikacje FPGA
 
-FPGA jest dołączana do wszystkich Azure Stack urządzeń brzegowych, które umożliwiają Machine Learning (ML) scenariusze. 
+FPGA jest dołączana do wszystkich Azure Stack urządzeń brzegowych, które umożliwiają Machine Learning (ML) scenariusze.
 
 | Specyfikacja           | Wartość                  |
 |-------------------------|----------------------------|
-| FPGA   | Intel Arria 10 <br> Dostępne modele sieci neuronowych Network (DNN) są takie same, jak te [obsługiwane przez wystąpienia FPGA chmury](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#whats-supported-on-azure).| 
-
+| FPGA   | Intel Arria 10 <br> Dostępne modele sieci neuronowych Network (DNN) są takie same, jak te [obsługiwane przez wystąpienia FPGA chmury](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-fpga-web-service#whats-supported-on-azure).|
 
 ## <a name="power-supply-unit-specifications"></a>Specyfikacje jednostek zasilacza
 
@@ -48,6 +46,11 @@ Urządzenie brzegowe Azure Stack ma dwie jednostki zasilacza 100-240 V (PSUs) z 
 | Częstotliwość               | 50/60 Hz                   |
 | Wybór zakresu napięcia | Wybór na Wydziale: 100-240 V AC |
 | Możliwość podłączenia gorąca           | Yes                        |
+
+### <a name="azure-stack-edge-power-cord-specifications-by-region"></a>Azure Stack Edge — specyfikacje przewodu zasilającego według regionu
+
+Urządzenie brzegowe Azure Stack wymaga przewodu zasilającego, który różni się w zależności od regionu platformy Azure.
+Aby zapoznać się ze specyfikacją techniczną wszystkich obsługiwanych przewodów zasilających, zobacz [Azure Stack Edge — specyfikacje przewodu zasilającego według regionów](azure-stack-edge-technical-specifications-power-cords-regional.md).
 
 <!--## Power consumption statistics
 
@@ -133,7 +136,6 @@ W tej sekcji przedstawiono specyfikacje dotyczące środowiska obudowy, takie ja
 |    Energetyczna             |    Rozporządzenie Komisji (UE) nr. 617/2013                                                                                                                                                                                        |
 |    RoHS           |    EN 50581:2012                                                                                                                                                                                        |
 
-
 ### <a name="operating-temperature-de-rating-specifications"></a>Specyfikacje dotyczące nieklasyfikacji temperatury działania
 
 |     Obniżenie temperatury działania     |     Zakres temperatury otoczenia                                                         |
@@ -141,7 +143,6 @@ W tej sekcji przedstawiono specyfikacje dotyczące środowiska obudowy, takie ja
 |    Do 35 °C (95 °F)                       |    Maksymalną temperaturę zmniejsza się o 1 c/300 m (1 °F/547 ft) powyżej 950 m (3 117 ft).    |
 |    35 oC do 40 °C (95 °F do 104 °F)            |    Maksymalna temperatura jest zmniejszona o 1 c/175 m (1 °F/319 ft) powyżej 950 m (3 117 ft).    |
 |    40 °C do 45 °C (104 °F do 113 °F)           |    Maksymalna temperatura jest zmniejszona o 1 °C/125 m (1 °F/950 ft) powyżej m (3 117 ft).    |
-
 
 ## <a name="next-steps"></a>Następne kroki
 

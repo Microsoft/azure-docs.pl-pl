@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/26/2020
+ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6316165ba08d055be1186995e2fe2ad5a0079fb7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78f7c8eb363d791b7109aebced668c1e0a952274
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80330726"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636093"
 ---
 # <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Przewodnik: Dodawanie wymiany oświadczeń interfejsu API REST do zasad niestandardowych w Azure Active Directory B2C
 
@@ -34,7 +34,7 @@ Interakcję można także zaprojektować jako profil techniczny weryfikacji. Jes
 
 ## <a name="prepare-a-rest-api-endpoint"></a>Przygotowywanie punktu końcowego interfejsu API REST
 
-W tym instruktażu należy mieć interfejs API REST, który sprawdza, czy identyfikator objectId Azure AD B2C użytkownika jest zarejestrowany w systemie zaplecza. W przypadku zarejestrowania interfejs API REST zwraca saldo konta użytkownika. W przeciwnym razie interfejs API REST rejestruje nowe konto w katalogu i zwraca saldo `50.00`początkowe.
+W tym instruktażu należy mieć interfejs API REST, który sprawdza, czy identyfikator objectId Azure AD B2C użytkownika jest zarejestrowany w systemie zaplecza. W przypadku zarejestrowania interfejs API REST zwraca saldo konta użytkownika. W przeciwnym razie interfejs API REST rejestruje nowe konto w katalogu i zwraca saldo początkowe `50.00` .
 
 Poniższy kod JSON ilustruje Azure AD B2C dane zostaną wysłane do punktu końcowego interfejsu API REST. 
 
@@ -59,7 +59,7 @@ Konfiguracja punktu końcowego interfejsu API REST jest poza zakresem tego artyk
 
 W trakcie wykonywania zasad Azure AD B2C, zgłoszenie zapewnia tymczasowy magazyn danych. Oświadczenia można zadeklarować w sekcji [schematu oświadczeń](claimsschema.md) . 
 
-1. Otwórz plik rozszerzeń zasad. Na przykład <em> `SocialAndLocalAccounts/` </em>.
+1. Otwórz plik rozszerzeń zasad. Na przykład <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em> .
 1. Wyszukaj element [BuildingBlocks](buildingblocks.md) . Jeśli element nie istnieje, Dodaj go.
 1. Znajdź element [ClaimsSchema](claimsschema.md) . Jeśli element nie istnieje, Dodaj go.
 1. Dodaj następujące oświadczenia do elementu **ClaimsSchema** .  
@@ -111,17 +111,17 @@ W trakcie wykonywania zasad Azure AD B2C, zgłoszenie zapewnia tymczasowy magazy
 
 W tym przykładzie `userLanguage` zostanie on wysłany do usługi REST, jak `lang` w ramach ładunku JSON. Wartość tego `userLanguage` żądania zawiera identyfikator języka bieżącego użytkownika. Aby uzyskać więcej informacji, zobacz temat [Rozwiązywanie konfliktów](claim-resolver-overview.md).
 
-Powyższe `AuthenticationType` Komentarze i `AllowInsecureAuthInProduction` określają zmiany, które należy wykonać po przejściu do środowiska produkcyjnego. Aby dowiedzieć się, jak zabezpieczyć interfejsy API usługi RESTful w środowisku produkcyjnym, zobacz [Secure RESTful API](secure-rest-api.md).
+Powyższe Komentarze `AuthenticationType` i `AllowInsecureAuthInProduction` określają zmiany, które należy wykonać po przejściu do środowiska produkcyjnego. Aby dowiedzieć się, jak zabezpieczyć interfejsy API usługi RESTful w środowisku produkcyjnym, zobacz [Secure RESTful API](secure-rest-api.md).
 
 ## <a name="add-an-orchestration-step"></a>Dodaj krok aranżacji
 
 [Podróże użytkowników](userjourneys.md) określają jawne ścieżki, za pomocą których zasady umożliwiają aplikacji jednostki uzależnionej uzyskanie żądanych oświadczeń dla użytkownika. Podróż użytkownika jest reprezentowana jako sekwencja aranżacji, która musi być stosowana w przypadku pomyślnej transakcji. Możesz dodawać lub odejmować kroki aranżacji. W takim przypadku dodasz nowy krok aranżacji, który służy do rozszerzania informacji dostarczonych do aplikacji po zarejestrowaniu lub zalogowaniu się użytkownika za pośrednictwem wywołania interfejsu API REST.
 
-1. Otwórz podstawowy plik zasad. Na przykład <em> `SocialAndLocalAccounts/` </em>.
+1. Otwórz podstawowy plik zasad. Na przykład <em>`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`**</em> .
 1. Wyszukaj `<UserJourneys>` element. Skopiuj cały element, a następnie usuń go.
-1. Otwórz plik rozszerzeń zasad. Na przykład <em> `SocialAndLocalAccounts/` </em>.
+1. Otwórz plik rozszerzeń zasad. Na przykład <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em> .
 1. Wklej `<UserJourneys>` do pliku rozszerzeń po zamknięciu `<ClaimsProviders>` elementu.
-1. `<UserJourney Id="SignUpOrSignIn">`Znajdź i Dodaj następujący krok aranżacji przed ostatnim.
+1. Znajdź `<UserJourney Id="SignUpOrSignIn">` i Dodaj następujący krok aranżacji przed ostatnim.
 
     ```XML
     <OrchestrationStep Order="7" Type="ClaimsExchange">
@@ -131,7 +131,7 @@ Powyższe `AuthenticationType` Komentarze i `AllowInsecureAuthInProduction` okre
     </OrchestrationStep>
     ```
 
-1. Refaktoryzacja ostatniego kroku aranżacji przez zmianę `Order` do. `8` Ostatnie dwa kroki aranżacji powinny wyglądać następująco:
+1. Refaktoryzacja ostatniego kroku aranżacji przez zmianę `Order` do `8` . Ostatnie dwa kroki aranżacji powinny wyglądać następująco:
 
     ```XML
     <OrchestrationStep Order="7" Type="ClaimsExchange">
@@ -148,7 +148,7 @@ Powyższe `AuthenticationType` Komentarze i `AllowInsecureAuthInProduction` okre
 
 ## <a name="include-a-claim-in-the-token"></a>Uwzględnianie roszczeń w tokenie 
 
-Aby zwrócić `balance` wniosek z powrotem do aplikacji jednostki uzależnionej, Dodaj do <em> `SocialAndLocalAccounts/` </em> pliku zgłoszenie wyjściowe. Dodanie zgłoszenia wyjściowego spowoduje wydanie tego żądania do tokenu po pomyślnym przejściu użytkownika i zostanie wysłane do aplikacji. Zmodyfikuj element profil techniczny w sekcji jednostki uzależnionej, aby dodać `balance` jako zgłoszenie wyjściowe.
+Aby zwrócić `balance` wniosek z powrotem do aplikacji jednostki uzależnionej, Dodaj do pliku zgłoszenie wyjściowe <em>`SocialAndLocalAccounts/`**`SignUpOrSignIn.xml`**</em> . Dodanie zgłoszenia wyjściowego spowoduje wydanie tego żądania do tokenu po pomyślnym przejściu użytkownika i zostanie wysłane do aplikacji. Zmodyfikuj element profil techniczny w sekcji jednostki uzależnionej, aby dodać `balance` jako zgłoszenie wyjściowe.
  
 ```xml
 <RelyingParty>
@@ -209,9 +209,6 @@ Zapisz zmienione pliki: *TrustFrameworkBase. XML*i *TrustFrameworkExtensions. XM
   ...
 }
 ```
-
-## <a name="next-steps"></a>Następne kroki
-
 
 ## <a name="next-steps"></a>Następne kroki
 

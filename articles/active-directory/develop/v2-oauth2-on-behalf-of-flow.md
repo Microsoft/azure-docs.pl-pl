@@ -12,12 +12,12 @@ ms.date: 1/3/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 57497c7bd8cd1d0b46c40b6977079f4a6a2d876f
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 9e1711bbb859d855d2490e49c21db5c654eca7f5
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82689548"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83643384"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Platforma tożsamości firmy Microsoft i protokół OAuth 2,0 w imieniu użytkownika
 
@@ -27,7 +27,7 @@ Przepływ uwierzytelniania OAuth 2,0 w imieniu (OBO) obsługuje przypadek użyci
 W tym artykule opisano, jak programować bezpośrednio w odniesieniu do protokołu w aplikacji.  Jeśli to możliwe, zalecamy korzystanie z obsługiwanych bibliotek uwierzytelniania firmy Microsoft (MSAL) zamiast [uzyskiwać tokeny i wywoływać zabezpieczone interfejsy API sieci Web](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows).  Zapoznaj się również z [przykładowymi aplikacjami korzystającymi z MSAL](sample-v2-code.md).
 
 > [!NOTE]
-> Od maja 2018 niektóre pochodne `id_token` niejawnego przepływu nie mogą być używane dla przepływu OBO. Aplikacje jednostronicowe (aplikacji jednostronicowych) powinny przekazać token **dostępu** do klienta poufnego w warstwie środkowej, aby w zamian wykonać przepływy OBO. Aby uzyskać więcej informacji o tym, którzy klienci mogą wykonywać wywołania OBO, zobacz [ograniczenia](#client-limitations).
+> Od maja 2018 niektóre pochodne niejawnego przepływu `id_token` nie mogą być używane dla przepływu OBO. Aplikacje jednostronicowe (aplikacji jednostronicowych) powinny przekazać token **dostępu** do klienta poufnego w warstwie środkowej, aby w zamian wykonać przepływy OBO. Aby uzyskać więcej informacji o tym, którzy klienci mogą wykonywać wywołania OBO, zobacz [ograniczenia](#client-limitations).
 
 ## <a name="protocol-diagram"></a>Diagram protokołu
 
@@ -62,16 +62,16 @@ Gdy jest używany wspólny klucz tajny, żądanie tokenu dostępu między usług
 
 | Parametr |  | Opis |
 | --- | --- | --- |
-| `grant_type` | Wymagany | Typ żądania tokenu. W przypadku żądania przy użyciu tokenu JWT wartość musi być równa `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| `client_id` | Wymagany | Identyfikator aplikacji (klienta), którą strona [Rejestracje aplikacji Azure Portala](https://go.microsoft.com/fwlink/?linkid=2083908) została przypisana do aplikacji. |
-| `client_secret` | Wymagany | Wpis tajny klienta wygenerowany dla aplikacji na stronie Azure Portal-Rejestracje aplikacji. |
-| `assertion` | Wymagany | Wartość tokenu użytego w żądaniu.  Ten token musi mieć odbiorców aplikacji wykonujących to żądanie OBO (aplikacja oznaczona przez `client-id` pole). |
-| `scope` | Wymagany | Rozdzielana spacjami lista zakresów dla żądania tokenu. Aby uzyskać więcej informacji, zobacz [zakresy](v2-permissions-and-consent.md). |
-| `requested_token_use` | Wymagany | Określa, w jaki sposób żądanie powinno być przetwarzane. W przepływie OBO wartość musi być ustawiona na `on_behalf_of`. |
+| `grant_type` | Wymagane | Typ żądania tokenu. W przypadku żądania przy użyciu tokenu JWT wartość musi być równa `urn:ietf:params:oauth:grant-type:jwt-bearer` . |
+| `client_id` | Wymagane | Identyfikator aplikacji (klienta), którą strona [Rejestracje aplikacji Azure Portala](https://go.microsoft.com/fwlink/?linkid=2083908) została przypisana do aplikacji. |
+| `client_secret` | Wymagane | Wpis tajny klienta wygenerowany dla aplikacji na stronie Azure Portal-Rejestracje aplikacji. |
+| `assertion` | Wymagane | Wartość tokenu użytego w żądaniu.  Ten token musi mieć odbiorców aplikacji wykonujących to żądanie OBO (aplikacja oznaczona przez `client-id` pole). |
+| `scope` | Wymagane | Rozdzielana spacjami lista zakresów dla żądania tokenu. Aby uzyskać więcej informacji, zobacz [zakresy](v2-permissions-and-consent.md). |
+| `requested_token_use` | Wymagane | Określa, w jaki sposób żądanie powinno być przetwarzane. W przepływie OBO wartość musi być ustawiona na `on_behalf_of` . |
 
 #### <a name="example"></a>Przykład
 
-Następujące HTTP POST żąda tokenu dostępu i tokenu odświeżania z `user.read` zakresem dla https://graph.microsoft.com internetowego interfejsu API.
+Następujące HTTP POST żąda tokenu dostępu i tokenu odświeżania z `user.read` zakresem dla internetowego https://graph.microsoft.com interfejsu API.
 
 ```HTTP
 //line breaks for legibility only
@@ -94,19 +94,19 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 
 | Parametr |  | Opis |
 | --- | --- | --- |
-| `grant_type` | Wymagany | Typ żądania tokenu. W przypadku żądania przy użyciu tokenu JWT wartość musi być równa `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| `client_id` | Wymagany |  Identyfikator aplikacji (klienta), którą strona [Rejestracje aplikacji Azure Portala](https://go.microsoft.com/fwlink/?linkid=2083908) została przypisana do aplikacji. |
-| `client_assertion_type` | Wymagany | Wartość musi być `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
-| `client_assertion` | Wymagany | Potwierdzenie (token sieci Web JSON), które należy utworzyć i podpisać przy użyciu certyfikatu zarejestrowanego jako poświadczenia dla aplikacji. Aby dowiedzieć się, jak zarejestrować certyfikat i format potwierdzenia, zobacz [poświadczenia certyfikatu](active-directory-certificate-credentials.md). |
-| `assertion` | Wymagany | Wartość tokenu użytego w żądaniu. |
-| `requested_token_use` | Wymagany | Określa, w jaki sposób żądanie powinno być przetwarzane. W przepływie OBO wartość musi być ustawiona na `on_behalf_of`. |
-| `scope` | Wymagany | Rozdzielana spacjami lista zakresów dla żądania tokenu. Aby uzyskać więcej informacji, zobacz [zakresy](v2-permissions-and-consent.md).|
+| `grant_type` | Wymagane | Typ żądania tokenu. W przypadku żądania przy użyciu tokenu JWT wartość musi być równa `urn:ietf:params:oauth:grant-type:jwt-bearer` . |
+| `client_id` | Wymagane |  Identyfikator aplikacji (klienta), którą strona [Rejestracje aplikacji Azure Portala](https://go.microsoft.com/fwlink/?linkid=2083908) została przypisana do aplikacji. |
+| `client_assertion_type` | Wymagane | Wartość musi być `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` . |
+| `client_assertion` | Wymagane | Potwierdzenie (token sieci Web JSON), które należy utworzyć i podpisać przy użyciu certyfikatu zarejestrowanego jako poświadczenia dla aplikacji. Aby dowiedzieć się, jak zarejestrować certyfikat i format potwierdzenia, zobacz [poświadczenia certyfikatu](active-directory-certificate-credentials.md). |
+| `assertion` | Wymagane | Wartość tokenu użytego w żądaniu. |
+| `requested_token_use` | Wymagane | Określa, w jaki sposób żądanie powinno być przetwarzane. W przepływie OBO wartość musi być ustawiona na `on_behalf_of` . |
+| `scope` | Wymagane | Rozdzielana spacjami lista zakresów dla żądania tokenu. Aby uzyskać więcej informacji, zobacz [zakresy](v2-permissions-and-consent.md).|
 
-Zwróć uwagę, że parametry są prawie takie same, jak w przypadku żądania przez wspólny klucz tajny, z `client_secret` tą różnicą, że parametr jest zastępowany przez dwa parametry: a `client_assertion_type` i `client_assertion`.
+Zwróć uwagę, że parametry są prawie takie same, jak w przypadku żądania przez wspólny klucz tajny, z tą różnicą, że `client_secret` parametr jest zastępowany przez dwa parametry: a `client_assertion_type` i `client_assertion` .
 
 #### <a name="example"></a>Przykład
 
-Następujące HTTP POST żąda tokenu dostępu z `user.read` zakresem dla https://graph.microsoft.com internetowego interfejsu API z certyfikatem.
+Następujące HTTP POST żąda tokenu dostępu z `user.read` zakresem dla internetowego https://graph.microsoft.com interfejsu API z certyfikatem.
 
 ```HTTP
 // line breaks for legibility only
@@ -130,15 +130,15 @@ Odpowiedź sukcesu to odpowiedź OAuth 2,0 JSON z poniższymi parametrami.
 
 | Parametr | Opis |
 | --- | --- |
-| `token_type` | Wskazuje wartość typu tokenu. Jedynym typem, który obsługuje platforma tożsamości firmy Microsoft `Bearer`, jest. Aby uzyskać więcej informacji o tokenach okaziciela, zobacz [Framework uwierzytelniania OAuth 2,0: użycie tokenu okaziciela (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+| `token_type` | Wskazuje wartość typu tokenu. Jedynym typem, który obsługuje platforma tożsamości firmy Microsoft, jest `Bearer` . Aby uzyskać więcej informacji o tokenach okaziciela, zobacz [Framework uwierzytelniania OAuth 2,0: użycie tokenu okaziciela (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | `scope` | Zakres dostępu udzielony w tokenie. |
 | `expires_in` | Czas (w sekundach), przez jaki token dostępu jest prawidłowy. |
 | `access_token` | Żądany token dostępu. Usługa wywołująca może używać tego tokenu do uwierzytelniania w usłudze odbiorczej. |
-| `refresh_token` | Token odświeżania dla żądanego tokenu dostępu. Usługa wywołująca może używać tego tokenu do żądania innego tokenu dostępu po wygaśnięciu bieżącego tokenu dostępu. Token odświeżania jest podany tylko w przypadku, `offline_access` gdy żądany został zakres. |
+| `refresh_token` | Token odświeżania dla żądanego tokenu dostępu. Usługa wywołująca może używać tego tokenu do żądania innego tokenu dostępu po wygaśnięciu bieżącego tokenu dostępu. Token odświeżania jest podany tylko w przypadku, gdy `offline_access` żądany został zakres. |
 
 ### <a name="success-response-example"></a>Przykład odpowiedzi sukcesu
 
-Poniższy przykład przedstawia Pomyślne odpowiedzi na żądanie tokenu dostępu dla https://graph.microsoft.com internetowego interfejsu API.
+Poniższy przykład przedstawia Pomyślne odpowiedzi na żądanie tokenu dostępu dla internetowego https://graph.microsoft.com interfejsu API.
 
 ```json
 {
@@ -179,7 +179,7 @@ Teraz usługa warstwy środkowej może użyć tokenu pozyskanego powyżej, aby w
 ```HTTP
 GET /v1.0/me HTTP/1.1
 Host: graph.microsoft.com
-Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVGFlN0NkV1c3UWZkSzdNN0RyNXlvUUdLNmFEc19vdDF3cEQyZjNqRkxiNlVrcm9PcXA2cXBJclAxZVV0QktzMHEza29HN3RzXzJpSkYtQjY1UV8zVGgzSnktUHZsMjkxaFNBQSIsImFsZyI6IlJTMjU2IiwieDV0IjoiejAzOXpkc0Z1aXpwQmZCVksxVG4yNVFIWU8wIiwia2lkIjoiejAzOXpkc0Z1aXpwQmZCVksxVG4yNVFIWU8wIn0.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwiaWF0IjoxNDkzOTMwMDE2LCJuYmYiOjE0OTM5MzAwMTYsImV4cCI6MTQ5MzkzMzg3NSwiYWNyIjoiMCIsImFpbyI6IkFTUUEyLzhEQUFBQUlzQjN5ZUljNkZ1aEhkd1YxckoxS1dlbzJPckZOUUQwN2FENTVjUVRtems9IiwiYW1yIjpbInB3ZCJdLCJhcHBfZGlzcGxheW5hbWUiOiJUb2RvRG90bmV0T2JvIiwiYXBwaWQiOiIyODQ2ZjcxYi1hN2E0LTQ5ODctYmFiMy03NjAwMzViMmYzODkiLCJhcHBpZGFjciI6IjEiLCJmYW1pbHlfbmFtZSI6IkNhbnVtYWxsYSIsImdpdmVuX25hbWUiOiJOYXZ5YSIsImlwYWRkciI6IjE2Ny4yMjAuMC4xOTkiLCJuYW1lIjoiTmF2eWEgQ2FudW1hbGxhIiwib2lkIjoiZDVlOTc5YzctM2QyZC00MmFmLThmMzAtNzI3ZGQ0YzJkMzgzIiwib25wcmVtX3NpZCI6IlMtMS01LTIxLTIxMjc1MjExODQtMTYwNDAxMjkyMC0xODg3OTI3NTI3LTI2MTE4NDg0IiwicGxhdGYiOiIxNCIsInB1aWQiOiIxMDAzM0ZGRkEwNkQxN0M5Iiwic2NwIjoiVXNlci5SZWFkIiwic3ViIjoibWtMMHBiLXlpMXQ1ckRGd2JTZ1JvTWxrZE52b3UzSjNWNm84UFE3alVCRSIsInRpZCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsInVuaXF1ZV9uYW1lIjoibmFjYW51bWFAbWljcm9zb2Z0LmNvbSIsInVwbiI6Im5hY2FudW1hQG1pY3Jvc29mdC5jb20iLCJ1dGkiOiJzUVlVekYxdUVVS0NQS0dRTVFVRkFBIiwidmVyIjoiMS4wIn0.Hrn__RGi-HMAzYRyCqX3kBGb6OS7z7y49XPVPpwK_7rJ6nik9E4s6PNY4XkIamJYn7tphpmsHdfM9lQ1gqeeFvFGhweIACsNBWhJ9Nx4dvQnGRkqZ17KnF_wf_QLcyOrOWpUxdSD_oPKcPS-Qr5AFkjw0t7GOKLY-Xw3QLJhzeKmYuuOkmMDJDAl0eNDbH0HiCh3g189a176BfyaR0MgK8wrXI_6MTnFSVfBePqklQeLhcr50YTBfWg3Svgl6MuK_g1hOuaO-XpjUxpdv5dZ0SvI47fAuVDdpCE48igCX5VMj4KUVytDIf6T78aIXMkYHGgW3-xAmuSyYH_Fr0yVAQ
+Authorization: Bearer eyJ0eXAiO ... 0X2tnSQLEANnSPHY0gKcgw
 ```
 
 ## <a name="gaining-consent-for-the-middle-tier-application"></a>Uzyskanie zgody na aplikację warstwy środkowej
@@ -191,7 +191,7 @@ W zależności od architektury lub użycia aplikacji można wziąć pod uwagę r
 
 ### <a name="default-and-combined-consent"></a>/.default i połączona zgoda
 
-Aplikacja warstwy środkowej dodaje klienta do listy znanych aplikacji klienckich w jego manifeście, a następnie klient może wyzwolić połączony przepływ zgody zarówno dla siebie, jak i dla aplikacji warstwy środkowej. W punkcie końcowym platformy tożsamości firmy Microsoft odbywa się to przy użyciu [ `/.default` zakresu](v2-permissions-and-consent.md#the-default-scope). Gdy Wyzwalasz ekran zgody przy użyciu znanych aplikacji klienckich, `/.default`a na ekranie wyrażania zgody zostaną wyświetlone uprawnienia **zarówno** dla klienta, jak i do interfejsu API warstwy środkowej, a także Zażądaj uprawnień wymaganych przez interfejs API warstwy środkowej. Użytkownik wyraża zgodę na obie aplikacje, a następnie przepływ OBO działa.
+Aplikacja warstwy środkowej dodaje klienta do listy znanych aplikacji klienckich w jego manifeście, a następnie klient może wyzwolić połączony przepływ zgody zarówno dla siebie, jak i dla aplikacji warstwy środkowej. W punkcie końcowym platformy tożsamości firmy Microsoft odbywa się to przy użyciu [ `/.default` zakresu](v2-permissions-and-consent.md#the-default-scope). Gdy Wyzwalasz ekran zgody przy użyciu znanych aplikacji klienckich, a `/.default` na ekranie wyrażania zgody zostaną wyświetlone uprawnienia **zarówno** dla klienta, jak i do interfejsu API warstwy środkowej, a także Zażądaj uprawnień wymaganych przez interfejs API warstwy środkowej. Użytkownik wyraża zgodę na obie aplikacje, a następnie przepływ OBO działa.
 
 ### <a name="pre-authorized-applications"></a>Wstępnie autoryzowane aplikacje
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 05/13/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 957aa77e18ea8f910f258d1dc59de0d093b0eab6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 83e657114f4e51775fb73267322a48e362f57b1c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80476659"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83641696"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Instrukcje: blokowanie starszego uwierzytelniania w usłudze Azure AD przy użyciu dostępu warunkowego   
 
@@ -82,9 +82,9 @@ Aby uzyskać więcej informacji na temat tych protokołów uwierzytelniania i us
 
 Przed zablokowaniem starszego uwierzytelniania w katalogu należy najpierw zrozumieć, czy użytkownicy mają aplikacje korzystające ze starszego uwierzytelniania i jak mają wpływ na ogólny katalog. Korzystając z dzienników logowania usługi Azure AD, można zrozumieć, czy używane jest starsze uwierzytelnianie.
 
-1. Przejdź do **Azure Portal** > **Azure Active Directory** > **logowania**.
-1. Dodaj kolumnę aplikacji klienckiej, jeśli nie jest ona wyświetlana po kliknięciu pozycji **kolumny** > **aplikacja kliencka**.
-1. **Dodaj filtry** > **aplikacje klienckie** > zaznacz wszystkie starsze protokoły uwierzytelniania i kliknij przycisk **Zastosuj**.
+1. Przejdź do **Azure Portal**  >  **Azure Active Directory**  >  **logowania**.
+1. Dodaj kolumnę aplikacji klienckiej, jeśli nie jest ona wyświetlana po kliknięciu pozycji **kolumny**  >  **aplikacja kliencka**.
+1. **Dodaj filtry**  >  **Aplikacja kliencka** > zaznacz wszystkie starsze protokoły uwierzytelniania i kliknij przycisk **Zastosuj**.
 
 Filtrowanie będzie zawierać tylko próby logowania, które zostały wykonane przez starsze protokoły uwierzytelniania. Kliknięcie każdej próby logowania spowoduje wyświetlenie dodatkowych szczegółów. Pole **aplikacji klienckiej** na karcie **Informacje podstawowe** wskazuje, który z starszych wersji protokołu uwierzytelniania był używany.
 
@@ -154,3 +154,4 @@ W przypadku zablokowania starszego uwierzytelniania przy użyciu warunku **other
 - [Określanie wpływu przy użyciu trybu tylko Raport z dostępem warunkowym](howto-conditional-access-report-only.md)
 - Jeśli nie znasz jeszcze konfiguracji zasad dostępu warunkowego, zobacz [Wymagaj uwierzytelniania wieloskładnikowego dla określonych aplikacji z Azure Active Directory dostępem warunkowym](app-based-mfa.md) na przykład.
 - Aby uzyskać więcej informacji na temat nowoczesnej obsługi uwierzytelniania, zobacz [jak nowoczesne uwierzytelnianie działa dla pakietu office 2013 i aplikacji klienckich pakietu office 2016](/office365/enterprise/modern-auth-for-office-2013-and-2016) 
+- [Jak skonfigurować urządzenie lub aplikację wielofunkcyjną do wysyłania wiadomości e-mail przy użyciu pakietu Office 365 i Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)

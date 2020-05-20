@@ -4,13 +4,13 @@ description: Dowiedz się więcej na temat kroków wymaganych do włączenia now
 author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 65c2220bd3e9ea93e562b256e84796aed9046d00
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 05/18/2020
+ms.openlocfilehash: e66ae6aa0b9b7e309fbd6fcc3699cb873a266bbe
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211410"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647893"
 ---
 # <a name="workspace-based-application-insights-resources-preview"></a>Zasoby Application Insights oparte na obszarze roboczym (wersja zapoznawcza)
 
@@ -40,9 +40,7 @@ Kliknięcie niebieskiego linku spowoduje przejście do skojarzonego obszaru robo
 
 ## <a name="copy-the-connection-string"></a>Kopiowanie parametrów połączenia
 
-[Parametry połączenia]() identyfikują zasób, z którym chcesz skojarzyć dane telemetryczne. Umożliwia również modyfikowanie punktów końcowych, które będą używane przez zasób jako miejsce docelowe dla danych telemetrycznych. Należy skopiować parametry połączenia i dodać je do kodu aplikacji lub do zmiennej środowiskowej.
-
-![Kliknij i skopiuj klucz Instrumentacji](./media/create-new-resource/instrumentation-key.png)
+[Parametry połączenia](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) identyfikują zasób, z którym chcesz skojarzyć dane telemetryczne. Umożliwia również modyfikowanie punktów końcowych, które będą używane przez zasób jako miejsce docelowe dla danych telemetrycznych. Należy skopiować parametry połączenia i dodać je do kodu aplikacji lub do zmiennej środowiskowej.
 
 ## <a name="monitoring-configuration"></a>Konfiguracja monitorowania
 
@@ -192,6 +190,10 @@ Aby zapoznać się z pełną dokumentacją interfejsu wiersza polecenia platform
 Po utworzeniu zasobu Application Insights opartego na obszarze roboczym można zmodyfikować skojarzony obszar roboczy Log Analytics.
 
 W okienku zasobów Application Insights wybierz pozycję **Właściwości**  >  **Zmień obszar roboczy**  >  **log Analytics obszary robocze**
+
+## <a name="export-telemetry"></a>Eksportuj dane telemetryczne
+
+Starsza Funkcja eksportu ciągłego nie jest obsługiwana w przypadku zasobów opartych na obszarze roboczym. Zamiast tego wybierz pozycję **Ustawienia diagnostyczne**  >  **Dodaj ustawienie diagnostyczne** z poziomu zasobu Application Insights. Można wybrać wszystkie tabele lub podzbiór tabel do zarchiwizowania na koncie magazynu lub do przesyłania strumieniowego do centrum zdarzeń platformy Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 207f4aecfb57480293c138c95ed6e8f6562bbc7b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5c6956c38d15213d84b43b24784d2bb2b3a1963f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80529162"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83638578"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Konfigurowanie przepływu poświadczeń hasła właściciela zasobu w Azure Active Directory B2C przy użyciu zasad niestandardowych
 
@@ -227,7 +227,7 @@ Następnie zaktualizuj plik jednostki uzależnionej inicjujący utworzoną przez
 
 1. Utwórz kopię pliku *SignUpOrSignin. XML* w katalogu roboczym i zmień jego nazwę na *ROPC_Auth. XML*.
 2. Otwórz nowy plik i zmień wartość atrybutu **PolicyId** dla **TrustFrameworkPolicy** na unikatową wartość. Identyfikator zasad to nazwa zasad. Na przykład **B2C_1A_ROPC_Auth**.
-3. Zmień wartość atrybutu **ReferenceId** w **DefaultUserJourney** na `ResourceOwnerPasswordCredentials`.
+3. Zmień wartość atrybutu **ReferenceId** w **DefaultUserJourney** na `ResourceOwnerPasswordCredentials` .
 4. Zmień element **OutputClaims** tak, aby zawierał tylko następujące oświadczenia:
 
     ```XML
@@ -246,12 +246,12 @@ Następnie zaktualizuj plik jednostki uzależnionej inicjujący utworzoną przez
 
 Użyj ulubionej aplikacji do programowania interfejsów API do wygenerowania wywołania interfejsu API i przejrzyj odpowiedź na Debugowanie zasad. Utwórz wywołanie podobne do tego przykładu, używając następujących informacji jako treści żądania POST:
 
-`https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 
-- Zamień `your-tenant-name` na nazwę dzierżawy Azure AD B2C.
+- Zamień `<tenant-name>` na nazwę dzierżawy Azure AD B2C.
 - Zastąp `B2C_1A_ROPC_Auth` pełną nazwą zasad poświadczeń hasła właściciela zasobu.
 
-| Key | Wartość |
+| Klucz | Wartość |
 | --- | ----- |
 | nazwa użytkownika | `user-account` |
 | hasło | `password1` |
@@ -262,14 +262,14 @@ Użyj ulubionej aplikacji do programowania interfejsów API do wygenerowania wyw
 
 - Zamień `user-account` na nazwę konta użytkownika w dzierżawie.
 - Zamień `password1` na hasło konta użytkownika.
-- Zamień `application-id` na identyfikator aplikacji z rejestracji *ROPC_Auth_app* .
+- Zamień na `application-id` Identyfikator aplikacji z rejestracji *ROPC_Auth_app* .
 - *Offline_access* jest opcjonalne, jeśli chcesz otrzymać token odświeżenia.
 
 Rzeczywiste żądanie POST wygląda podobnie do poniższego przykładu:
 
 ```HTTPS
-POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
-Host: yourtenant.b2clogin.com
+POST /<tenant-name>.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
+Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 username=contosouser.outlook.com.ws&password=Passxword1&grant_type=password&scope=openid+bef22d56-552f-4a5b-b90a-1988a7d634ce+offline_access&client_id=bef22d56-552f-4a5b-b90a-1988a7d634ce&response_type=token+id_token
@@ -291,12 +291,12 @@ Pomyślna odpowiedź z dostępem w trybie offline wygląda podobnie do poniższe
 
 Utwórz wywołanie POST podobne do pokazanego tutaj. Użyj informacji w poniższej tabeli jako treści żądania:
 
-`https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 
-- Zamień `your-tenant-name` na nazwę dzierżawy Azure AD B2C.
+- Zamień `<tenant-name>` na nazwę dzierżawy Azure AD B2C.
 - Zastąp `B2C_1A_ROPC_Auth` pełną nazwą zasad poświadczeń hasła właściciela zasobu.
 
-| Key | Wartość |
+| Klucz | Wartość |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |
@@ -304,8 +304,8 @@ Utwórz wywołanie POST podobne do pokazanego tutaj. Użyj informacji w poniższ
 | zasób | `application-id` |
 | refresh_token | `refresh-token` |
 
-- Zamień `application-id` na identyfikator aplikacji z rejestracji *ROPC_Auth_app* .
-- Zamień `refresh-token` na **refresh_token** , który został wysłany z powrotem w poprzedniej odpowiedzi.
+- Zamień na `application-id` Identyfikator aplikacji z rejestracji *ROPC_Auth_app* .
+- Zamień na `refresh-token` **refresh_token** , który został wysłany z powrotem w poprzedniej odpowiedzi.
 
 Pomyślna odpowiedź wygląda podobnie do poniższego przykładu:
 

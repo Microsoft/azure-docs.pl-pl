@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 05/13/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a868c8199ac34a498a280e2522d6b1e4c7ec370
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1cf241ec9a26ea2c9e877e40205065b6ad4e0a98
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80295211"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83641322"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Dostęp warunkowy: Blokuj starsze uwierzytelnianie
 
@@ -27,19 +27,19 @@ Ze względu na zwiększone ryzyko związane ze starszymi protokołami uwierzytel
 Poniższe kroki pomogą w tworzeniu zasad dostępu warunkowego w celu blokowania starszych żądań uwierzytelniania. Te zasady są umieszczane w [trybie tylko do raportowania](howto-conditional-access-report-only.md) , aby rozpocząć, aby administratorzy mogli ustalić wpływ, jaki będzie miał na istniejących użytkowników. Gdy Administratorzy są woli, że zasady mają zastosowanie, mogą przełączyć **się na wdrożenie lub wdrożyć** je przez dodanie określonych grup i wykluczenie innych.
 
 1. Zaloguj się do **Azure Portal** jako Administrator globalny, administrator zabezpieczeń lub administrator dostępu warunkowego.
-1. Przejdź do **Azure Active Directory** > **Security** > **dostępu warunkowego**zabezpieczeń.
+1. Przejdź do **Azure Active Directory**  >  **Security**  >  **dostępu warunkowego**zabezpieczeń.
 1. Wybierz pozycję **nowe zasady**.
 1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
 1. W obszarze **przypisania**wybierz pozycję **Użytkownicy i grupy**
    1. W obszarze **dołączanie**wybierz pozycję **Wszyscy użytkownicy**.
    1. W obszarze **Wyklucz**wybierz pozycję **Użytkownicy i grupy** , a następnie wybierz wszystkie konta, które muszą mieć możliwość korzystania z starszego uwierzytelniania. Wyklucz co najmniej jedno konto, aby zapobiec blokowaniu. Jeśli nie wykluczasz żadnego konta, nie będziesz w stanie utworzyć tych zasad.
-   1. Wybierz pozycję **Gotowe**.
+   1. Wybierz pozycję **Done** (Gotowe).
 1. W obszarze **aplikacje lub akcje w chmurze**wybierz pozycję **wszystkie aplikacje w chmurze**.
-   1. Wybierz pozycję **Gotowe**.
-1. W obszarze **warunki** > **aplikacje klienckie (wersja zapoznawcza)** ustaw wartość **Konfiguruj** na **tak**.
-   1. Sprawdź tylko pola >  **aplikacje mobilne i klienci stacjonarni****inni klienci**.
-   1. Wybierz pozycję **Gotowe**.
-1. W obszarze **kontrole** > dostępu**Udziel**wybierz opcję **Blokuj dostęp**.
+   1. Wybierz pozycję **Done** (Gotowe).
+1. W obszarze **warunki**  >  **aplikacje klienckie (wersja zapoznawcza)** ustaw wartość **Konfiguruj** na **tak**.
+   1. Sprawdź tylko pola **aplikacje mobilne i klienci stacjonarni**  >  **inni klienci**.
+   1. Wybierz pozycję **Done** (Gotowe).
+1. W obszarze **kontrole dostępu**  >  **Udziel**wybierz opcję **Blokuj dostęp**.
    1. Wybierz przycisk **Wybierz**.
 1. Potwierdź ustawienia i ustaw opcję **Włącz zasady** **tylko na raport**.
 1. Wybierz pozycję **Utwórz** , aby utworzyć zasady.
@@ -51,3 +51,5 @@ Poniższe kroki pomogą w tworzeniu zasad dostępu warunkowego w celu blokowania
 [Określanie wpływu przy użyciu trybu tylko Raport z dostępem warunkowym](howto-conditional-access-report-only.md)
 
 [Symulowanie zachowania logowania za pomocą narzędzia What If dostępu warunkowego](troubleshoot-conditional-access-what-if.md)
+
+[Jak skonfigurować urządzenie lub aplikację wielofunkcyjną do wysyłania wiadomości e-mail przy użyciu pakietu Office 365 i Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)

@@ -13,12 +13,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
-ms.openlocfilehash: aae1b8aa27363e8f1d3c72d3934146c47b0cf2c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4aaeb2ab6e22107d8c9edfbce45c4ae212e8649f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535897"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83640425"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Wskazówki dla deweloperów dotyczące Azure Active Directory dostępu warunkowego
 
@@ -124,9 +124,9 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 ```
 
-W interfejsie Web API 1 przechwytuje `error=interaction_required`błąd i wysyłamy `claims` wyzwanie do aplikacji klasycznej. W tym momencie aplikacja klasyczna może utworzyć nowe `acquireToken()` wywołanie i dołączyć `claims`żądanie jako dodatkowy parametr ciągu zapytania. To nowe żądanie wymaga od użytkownika przeprowadzenia uwierzytelniania wieloskładnikowego, a następnie wysłania tego nowego tokenu z powrotem do interfejsu Web API 1 i zakończenia przepływu w imieniu użytkownika.
+W interfejsie Web API 1 przechwytuje błąd `error=interaction_required` i wysyłamy `claims` wyzwanie do aplikacji klasycznej. W tym momencie aplikacja klasyczna może utworzyć nowe `acquireToken()` wywołanie i dołączyć `claims` żądanie jako dodatkowy parametr ciągu zapytania. To nowe żądanie wymaga od użytkownika przeprowadzenia uwierzytelniania wieloskładnikowego, a następnie wysłania tego nowego tokenu z powrotem do interfejsu Web API 1 i zakończenia przepływu w imieniu użytkownika.
 
-Aby wypróbować ten scenariusz, zapoznaj się z naszym [przykładem kodu platformy .NET](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/Microsoft.Identity.Web/README.md#handle-conditional-access). Przedstawiono w nim sposób przekazywania wyzwania oświadczeń z interfejsu API sieci Web 1 do aplikacji natywnej i konstruowania nowego żądania w aplikacji klienckiej.
+Aby wypróbować ten scenariusz, zapoznaj się z naszym [przykładem kodu platformy .NET](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph#handling-required-interactions-with-the-user-dynamic-consent-mfa-etc-). Przedstawiono w nim sposób przekazywania wyzwania oświadczeń z interfejsu API sieci Web 1 do aplikacji natywnej i konstruowania nowego żądania w aplikacji klienckiej.
 
 ## <a name="scenario-app-accessing-multiple-services"></a>Scenariusz: aplikacja uzyskuje dostęp do wielu usług
 
@@ -136,7 +136,7 @@ Załóżmy, że mamy usługi sieci Web a i B, a usługa sieci Web B ma zastosowa
 
 ![Aplikacja z dostępem do diagramu przepływu wielu usług](./media/v2-conditional-access-dev-guide/app-accessing-multiple-services-scenario.png)
 
-Alternatywnie, jeśli aplikacja początkowo żąda tokenu usługi sieci Web A, użytkownik końcowy nie wywołuje zasad dostępu warunkowego. Dzięki temu deweloper aplikacji może kontrolować środowisko użytkownika końcowego i nie wymuszać wywoływania zasad dostępu warunkowego we wszystkich przypadkach. W przypadku, gdy aplikacja następnie żąda tokenu usługi sieci Web B, jest to trudne. W tym momencie użytkownik końcowy musi przestrzegać zasad dostępu warunkowego. Gdy aplikacja próbuje się `acquireToken`, może wygenerować następujący błąd (zilustrowany na poniższym diagramie):
+Alternatywnie, jeśli aplikacja początkowo żąda tokenu usługi sieci Web A, użytkownik końcowy nie wywołuje zasad dostępu warunkowego. Dzięki temu deweloper aplikacji może kontrolować środowisko użytkownika końcowego i nie wymuszać wywoływania zasad dostępu warunkowego we wszystkich przypadkach. W przypadku, gdy aplikacja następnie żąda tokenu usługi sieci Web B, jest to trudne. W tym momencie użytkownik końcowy musi przestrzegać zasad dostępu warunkowego. Gdy aplikacja próbuje się `acquireToken` , może wygenerować następujący błąd (zilustrowany na poniższym diagramie):
 
 ```
 HTTP 400; Bad Request
@@ -153,13 +153,13 @@ Jeśli aplikacja korzysta z biblioteki MSAL, błąd uzyskiwania tokenu jest zaws
 
 W tym scenariuszu w przypadku aplikacji jednostronicowej (SPA) korzystamy z MSAL. js do wywoływania internetowego interfejsu API chronionego przez funkcję dostępu warunkowego. Jest to prosta architektura, ale ma pewne wszystkie szczegóły, które należy wziąć pod uwagę podczas tworzenia dookoła dostępu warunkowego.
 
-W MSAL. js istnieje kilka funkcji, które uzyskują tokeny: `loginPopup()`, `acquireTokenSilent(...)`, `acquireTokenPopup(…)`i `acquireTokenRedirect(…)`.
+W MSAL. js istnieje kilka funkcji, które uzyskują tokeny: `loginPopup()` , `acquireTokenSilent(...)` , `acquireTokenPopup(…)` i `acquireTokenRedirect(…)` .
 
 * `loginPopup()`uzyskuje token identyfikatora za pomocą interakcyjnego żądania logowania, ale nie uzyskuje tokenów dostępu dla żadnej usługi (łącznie z chronionym interfejsem API usługi Dostęp warunkowy).
 * `acquireTokenSilent(…)`można następnie użyć do dyskretnego uzyskania tokenu dostępu, co oznacza, że w żadnym wypadku nie jest wyświetlany interfejs użytkownika.
 * `acquireTokenPopup(…)`i `acquireTokenRedirect(…)` są one używane do interaktywnego żądania tokenu dla zasobu, co oznacza, że zawsze wyświetla interfejs użytkownika logowania.
 
-Gdy aplikacja wymaga tokenu dostępu do wywoływania internetowego interfejsu API, próbuje `acquireTokenSilent(…)`. Jeśli sesja tokenu wygasła lub musi być zgodna z zasadami dostępu warunkowego, funkcja *acquireToken* kończy się niepowodzeniem, a aplikacja używa `acquireTokenPopup()` lub. `acquireTokenRedirect()`
+Gdy aplikacja wymaga tokenu dostępu do wywoływania internetowego interfejsu API, próbuje `acquireTokenSilent(…)` . Jeśli sesja tokenu wygasła lub musi być zgodna z zasadami dostępu warunkowego, funkcja *acquireToken* kończy się niepowodzeniem, a aplikacja używa `acquireTokenPopup()` lub `acquireTokenRedirect()` .
 
 ![Aplikacja jednostronicowa korzystająca z diagramu przepływu MSAL](./media/v2-conditional-access-dev-guide/spa-using-msal-scenario.png)
 
@@ -173,7 +173,7 @@ error=interaction_required
 error_description=AADSTS50076: Due to a configuration change made by your administrator, or because you moved to a new location, you must use multi-factor authentication to access '<Web API App/Client ID>'.
 ```
 
-Nasza aplikacja musi przechwycić `error=interaction_required`. Aplikacja może następnie korzystać z `acquireTokenPopup()` lub `acquireTokenRedirect()` w tym samym zasobie. Użytkownik musi przeprowadzić uwierzytelnianie wieloskładnikowe. Po zakończeniu uwierzytelniania wieloskładnikowego przez użytkownika aplikacja zostanie wystawiona jako nowy token dostępu dla żądanego zasobu.
+Nasza aplikacja musi przechwycić `error=interaction_required` . Aplikacja może następnie korzystać z `acquireTokenPopup()` lub `acquireTokenRedirect()` w tym samym zasobie. Użytkownik musi przeprowadzić uwierzytelnianie wieloskładnikowe. Po zakończeniu uwierzytelniania wieloskładnikowego przez użytkownika aplikacja zostanie wystawiona jako nowy token dostępu dla żądanego zasobu.
 
 Aby wypróbować ten scenariusz, zapoznaj się [z naszym Przykładem Spa](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/Microsoft.Identity.Web/README.md#handle-conditional-access). Ten przykładowy kod korzysta z zasad dostępu warunkowego i internetowego interfejsu API, który został zarejestrowany wcześniej przy użyciu protokołu JS SPA, aby przedstawić ten scenariusz. Pokazuje, jak prawidłowo obsługiwać wyzwanie oświadczeń i uzyskać token dostępu, który może być używany przez internetowy interfejs API. Alternatywnie można wyewidencjonować ogólny [przykładowy kod kątowy. js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) w celu uzyskania wskazówek dotyczących Spa
 

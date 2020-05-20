@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6a6cc8e5931f3e29c242f51a6e062441953228ad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0a62cd4ad6d992d8994fbd3e66bd0b90e45aa213
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80337417"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636996"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-custom-policy"></a>Integruj wymianę oświadczeń interfejsu API REST w zasadach niestandardowych Azure AD B2C
 
@@ -24,7 +24,7 @@ ms.locfileid: "80337417"
 
 Platforma obsługi tożsamości, która jest zależna od Azure Active Directory B2C (Azure AD B2C), może być zintegrowana z interfejsami API RESTful w trakcie podróży użytkownika. W tym artykule przedstawiono sposób tworzenia podróży użytkowników, które współdziałają z usługą RESTful przy użyciu [profilu technicznego RESTful](https://identitydivision.visualstudio.com/defaultcollection/Identity%20CXP/_git/GTP?path=%2Fyoelh%2Fdocs%2Frest-api%2Frestful-technical-profile.md&version=GBmaster).
 
-Za pomocą Azure AD B2C można dodać własną logikę biznesową do podróży użytkownika, wywołując własną usługę RESTful. Platforma obsługi tożsamości może wysyłać i odbierać dane z usługi RESTful w celu wymiany oświadczeń. Można na przykład:
+Za pomocą Azure AD B2C można dodać własną logikę biznesową do podróży użytkownika, wywołując własną usługę RESTful. Platforma obsługi tożsamości może wysyłać i odbierać dane z usługi RESTful w celu wymiany oświadczeń. Możesz na przykład:
 
 - **Sprawdź poprawność danych wejściowych użytkownika**. Można na przykład sprawdzić, czy w bazie danych klienta istnieje adres e-mail podany przez użytkownika, a jeśli nie, występuje błąd.
 - **Przetwarzanie oświadczeń**. Jeśli użytkownik wpisze swoją pierwszą nazwę na wszystkich małych i wielkich liter, interfejs API REST może sformatować nazwę tylko przy użyciu pierwszej litery i zwrócić go do Azure AD B2C.
@@ -74,7 +74,7 @@ W przypadku skonfigurowania opcji **treści** profil techniczny interfejsu API R
 
 ## <a name="receiving-data"></a>Pobieranie danych
 
-`OutputClaims` Element [profilu technicznego RESTful](restful-technical-profile.md) zawiera listę oświadczeń zwracanych przez interfejs API REST. Może być konieczne zamapowanie nazwy żądania zdefiniowanego w zasadach na nazwę zdefiniowaną w interfejsie API REST. Można również uwzględnić oświadczenia, które nie są zwracane przez dostawcę tożsamości interfejsu API REST, o ile atrybut DefaultValue jest ustawiony.
+`OutputClaims`Element [profilu technicznego RESTful](restful-technical-profile.md) zawiera listę oświadczeń zwracanych przez interfejs API REST. Może być konieczne zamapowanie nazwy żądania zdefiniowanego w zasadach na nazwę zdefiniowaną w interfejsie API REST. Można również uwzględnić oświadczenia, które nie są zwracane przez dostawcę tożsamości interfejsu API REST, o ile atrybut DefaultValue jest ustawiony.
 
 Oświadczenia wynikowe analizowane przez dostawcę oświadczeń RESTful zawsze oczekują na przeanalizowanie płaskiej reakcji treści JSON, na przykład:
 
@@ -162,7 +162,7 @@ W profilu technicznym RESTful może być konieczne wysłanie języka/ustawień r
 
 ## <a name="handling-error-messages"></a>Obsługa komunikatów o błędach
 
-Interfejs API REST może wymagać zwrócenia komunikatu o błędzie, takiego jak "nie znaleziono użytkownika w systemie CRM". Jeśli wystąpi błąd, interfejs API REST powinien zwrócić komunikat o błędzie HTTP 409 (kod stanu odpowiedzi konfliktu). Aby uzyskać więcej informacji, zobacz [profil techniczny RESTful](https://identitydivision.visualstudio.com/defaultcollection/Identity%20CXP/_git/GTP?path=%2Fyoelh%2Fdocs%2Frest-api%2Frestful-technical-profile.md&version=GBmaster&anchor=returning-error-message).
+Interfejs API REST może wymagać zwrócenia komunikatu o błędzie, takiego jak "nie znaleziono użytkownika w systemie CRM". Jeśli wystąpi błąd, interfejs API REST powinien zwrócić komunikat o błędzie HTTP 409 (kod stanu odpowiedzi konfliktu). Aby uzyskać więcej informacji, zobacz [profil techniczny RESTful](restful-technical-profile.md#returning-error-message).
 
 Można to osiągnąć tylko przez wywołanie profilu technicznego interfejsu API REST z poziomu profilu technicznego weryfikacji. Dzięki temu użytkownik może skorygować dane na stronie i ponownie uruchomić weryfikację przy przesyłaniu strony.
 

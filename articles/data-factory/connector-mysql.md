@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 05/12/2020
 ms.author: jingwang
-ms.openlocfilehash: 8467bbe1512e45342b86ff62d51a3f66b3096f03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9fbf4062304dda7112e89ecd4abd5288533f28ff
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418137"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83635781"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Kopiowanie danych z programu MySQL przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -38,7 +38,7 @@ Ten łącznik MySQL jest obsługiwany dla następujących działań:
 
 Dane z bazy danych MySQL można kopiować do dowolnego obsługiwanego magazynu danych ujścia. Listę magazynów danych obsługiwanych jako źródła/ujścia przez działanie kopiowania można znaleźć w tabeli [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats) .
 
-W przypadku tego łącznika MySQL obsługuje program MySQL w **wersji 5,6 i 5,7**.
+W przypadku tego łącznika MySQL obsługuje **program MySQL w wersji 5,6, 5,7 i 8,0**.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -56,15 +56,15 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które
 
 Następujące właściwości są obsługiwane w przypadku usługi połączonej MySQL:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type musi być ustawiona na wartość: **MySQL** | Tak |
-| Parametry połączenia | Określ informacje, które są konieczne do nawiązania połączenia z wystąpieniem Azure Database for MySQL.<br/> Możesz również wprowadzić hasło w Azure Key Vault i ściągnąć `password` konfigurację z parametrów połączenia. Zapoznaj się z poniższymi przykładami i [Zapisz poświadczenia w Azure Key Vault](store-credentials-in-key-vault.md) artykule, aby uzyskać więcej szczegółów. | Tak |
+| typ | Właściwość Type musi być ustawiona na wartość: **MySQL** | Yes |
+| Parametry połączenia | Określ informacje, które są konieczne do nawiązania połączenia z wystąpieniem Azure Database for MySQL.<br/> Możesz również wprowadzić hasło w Azure Key Vault i ściągnąć `password` konfigurację z parametrów połączenia. Zapoznaj się z poniższymi przykładami i [Zapisz poświadczenia w Azure Key Vault](store-credentials-in-key-vault.md) artykule, aby uzyskać więcej szczegółów. | Yes |
 | Właściwością connectvia | [Integration Runtime](concepts-integration-runtime.md) używany do nawiązywania połączenia z magazynem danych. Dowiedz się więcej z sekcji [wymagania wstępne](#prerequisites) . Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. |Nie |
 
-Typowe parametry połączenia to `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`. Więcej właściwości, które można ustawić dla danego przypadku:
+Typowe parametry połączenia to `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>` . Więcej właściwości, które można ustawić dla danego przypadku:
 
-| Właściwość | Opis | Opcje | Wymagany |
+| Właściwość | Opis | Opcje | Wymagane |
 |:--- |:--- |:--- |:--- |
 | SSLMode | Ta opcja określa, czy sterownik używa szyfrowania i weryfikacji TLS podczas łączenia z bazą danych MySQL. Np.,`SSLMode=<0/1/2/3/4>`| WYŁĄCZONE (0)/PREFEROWANe (1) **(wartość domyślna)** /wymagane (2)/VERIFY_CA (3)/VERIFY_IDENTITY (4) | Nie |
 | UseSystemTrustStore | Ta opcja umożliwia określenie, czy certyfikat urzędu certyfikacji ma być używany z magazynu zaufania systemu, czy z określonego pliku PEM. Na przykład `UseSystemTrustStore=<0/1>;`| Włączone (1)/wyłączone (0) **(wartość domyślna)** | Nie |
@@ -145,12 +145,12 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z programu MySQL, obsługiwane są następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type zestawu danych musi być ustawiona na: **MySQL** | Tak |
+| typ | Właściwość Type zestawu danych musi być ustawiona na: **MySQL** | Yes |
 | tableName | Nazwa tabeli w bazie danych MySQL. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
-**Przyklad**
+**Przykład**
 
 ```json
 {
@@ -178,9 +178,9 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z programu MySQL, w sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **MySqlSource** | Tak |
+| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **MySqlSource** | Yes |
 | query | Użyj niestandardowego zapytania SQL, aby odczytać dane. Na przykład: `"SELECT * FROM MyTable"`. | Nie (Jeśli określono "TableName" w zestawie danych) |
 
 **Przykład:**

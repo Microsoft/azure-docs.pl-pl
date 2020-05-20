@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4113328a5de02c36b7285c837bd5314d11e526b
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 0c4feeca1cbe7eb88aace811829e4d9c2db5f38e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690388"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83641604"
 ---
 # <a name="conditional-access-insights-and-reporting"></a>Szczegółowe informacje i raportowanie dostępu warunkowego
 
@@ -36,9 +36,6 @@ Następujące role mogą uzyskać dostęp do usługi Insights i raportowania:
 
 Użytkownicy muszą także mieć jedną z następujących Log Analytics ról obszaru roboczego:  
 
-- Czytelnik 
-- Czytnik monitorowania 
-- Log Analytics czytelnik 
 - Współautor  
 - Właściciel 
 
@@ -54,7 +51,7 @@ Jeśli dzienniki usługi Azure AD nie zostały zintegrowane z dziennikami Azure 
 Aby uzyskać dostęp do szczegółowych informacji i skoroszytu raportów:  
 
 1. Zaloguj się w witrynie **Azure Portal**.
-1. Przejdź do **Azure Active Directory** > **zabezpieczenia** >  > **i raportowanie****dostępu warunkowego**.
+1. Przejdź do **Azure Active Directory**  >  **zabezpieczenia**  >  i raportowanie**dostępu warunkowego**  >  **Insights and reporting**.
 
 ### <a name="get-started-select-parameters"></a>Wprowadzenie: Wybieranie parametrów 
 
@@ -112,11 +109,11 @@ Gdy objętość logowań przekracza pojemność kwerendy Log Analytics, skoroszy
 
 ### <a name="can-i-save-my-parameter-selections"></a>Czy mogę zapisać moje wybrane parametry?  
 
-Możesz zapisać wybrane opcje parametrów w górnej części skoroszytu, przechodząc do **Azure Active Directory** > **skoroszyty** > **dostępu warunkowego i raportowania**. W tym miejscu znajdziesz szablon skoroszytu, w którym można edytować skoroszyt i zapisać kopię w obszarze roboczym, włącznie z wybranymi parametrami, w **raportach** lub **raportach udostępnionych**. 
+Możesz zapisać wybrane opcje parametrów w górnej części skoroszytu, przechodząc do **Azure Active Directory**  >  **skoroszyty**  >  **dostępu warunkowego i raportowania**. W tym miejscu znajdziesz szablon skoroszytu, w którym można edytować skoroszyt i zapisać kopię w obszarze roboczym, włącznie z wybranymi parametrami, w **raportach** lub **raportach udostępnionych**. 
 
 ### <a name="can-i-edit-and-customize-the-workbook-with-additional-queries"></a>Czy mogę edytować i dostosowywać skoroszyt z dodatkowymi zapytaniami? 
 
-Można edytować i dostosowywać skoroszyt, przechodząc do **Azure Active Directory** > **skoroszyty** > **dostępu warunkowego i raportowania**. W tym miejscu znajdziesz szablon skoroszytu, w którym można edytować skoroszyt i zapisać kopię w obszarze roboczym, włącznie z wybranymi parametrami, w **raportach** lub **raportach udostępnionych**. Aby rozpocząć edytowanie zapytań, kliknij przycisk **Edytuj** w górnej części skoroszytu.  
+Można edytować i dostosowywać skoroszyt, przechodząc do **Azure Active Directory**  >  **skoroszyty**  >  **dostępu warunkowego i raportowania**. W tym miejscu znajdziesz szablon skoroszytu, w którym można edytować skoroszyt i zapisać kopię w obszarze roboczym, włącznie z wybranymi parametrami, w **raportach** lub **raportach udostępnionych**. Aby rozpocząć edytowanie zapytań, kliknij przycisk **Edytuj** w górnej części skoroszytu.  
  
 ## <a name="next-steps"></a>Następne kroki
 

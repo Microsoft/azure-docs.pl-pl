@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 68f6f8ec67aca44c89b338287bdd37b6066992e0
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: f20636bfaf8b1b1f7714a9cede63886deaf53e36
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207024"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83641197"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>Aplikacja sieci Web, która wywołuje interfejsy API sieci Web: Konfiguracja kodu
 
@@ -95,7 +95,7 @@ Microsoft. Identity. Web upraszcza kod przez ustawienie poprawnych ustawień po�
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-ASP.NET obsługuje elementy podobnie jak ASP.NET Core, z tą różnicą, że konfiguracja OpenID Connect Connect i subskrypcję `OnAuthorizationCodeReceived` zdarzenia wystąpi w pliku [App_Start \Startup.auth.cs](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/App_Start/Startup.Auth.cs) . Pojęcia są również podobne do tych w ASP.NET Core, z wyjątkiem tego, że w programie ASP.NET należy `RedirectUri` określić w [pliku Web. config # L15](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/master/WebApp/Web.config#L15). Ta konfiguracja jest nieco mniej niezawodna niż ta w ASP.NET Core, ponieważ należy ją zmienić podczas wdrażania aplikacji.
+ASP.NET obsługuje elementy podobnie jak ASP.NET Core, z tą różnicą, że konfiguracja OpenID Connect Connect i subskrypcję `OnAuthorizationCodeReceived` zdarzenia wystąpi w pliku [App_Start \Startup.auth.cs](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/a2da310539aa613b77da1f9e1c17585311ab22b7/WebApp/App_Start/Startup.Auth.cs) . Pojęcia są również podobne do tych w ASP.NET Core, z wyjątkiem tego, że w programie ASP.NET należy określić `RedirectUri` w [pliku Web. config # L15](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/master/WebApp/Web.config#L15). Ta konfiguracja jest nieco mniej niezawodna niż ta w ASP.NET Core, ponieważ należy ją zmienić podczas wdrażania aplikacji.
 
 Oto kod dla Startup.Auth.cs:
 
@@ -169,7 +169,7 @@ public partial class Startup
 Zobacz temat [aplikacja sieci Web, która loguje się w użytkownikach: Konfiguracja kodu](scenario-web-app-sign-user-app-configuration.md?tabs=java#initialization-code) , aby zrozumieć, jak przykład Java Pobiera kod autoryzacji. Gdy aplikacja otrzyma kod, [AuthFilter. Java # L51-L56](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java#L51-L56):
 
 1. Deleguje do `AuthHelper.processAuthenticationCodeRedirect` metody w [AuthHelper. Java # L67-L97](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthHelper.java#L67-L97).
-1. Wywołania `getAuthResultByAuthCode`.
+1. Wywołania `getAuthResultByAuthCode` .
 
 ```Java
 class AuthHelper {
@@ -191,7 +191,7 @@ class AuthHelper {
 }
 ```
 
-`getAuthResultByAuthCode` Metoda jest definiowana w [AuthHelper. Java # L176](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthHelper.java#L176). Tworzy element MSAL `ConfidentialClientApplication`, a następnie wywołuje `acquireToken()` metodę `AuthorizationCodeParameters` utworzoną na podstawie kodu autoryzacji.
+`getAuthResultByAuthCode`Metoda jest definiowana w [AuthHelper. Java # L176](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/d55ee4ac0ce2c43378f2c99fd6e6856d41bdf144/src/main/java/com/microsoft/azure/msalwebsample/AuthHelper.java#L176). Tworzy element MSAL `ConfidentialClientApplication` , a następnie wywołuje metodę `acquireToken()` `AuthorizationCodeParameters` utworzoną na podstawie kodu autoryzacji.
 
 ```Java
    private IAuthenticationResult getAuthResultByAuthCode(
@@ -268,7 +268,7 @@ Użycie potwierdzeń klientów jest zaawansowanym scenariuszem, szczegółowym w
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Samouczek ASP.NET Core używa iniekcji zależności, aby umożliwić określenie implementacji pamięci podręcznej tokenów w pliku Startup.cs dla aplikacji. Microsoft. Identity. Web zawiera wstępnie skompilowane serializatory pamięci podręcznej tokenów opisane w [serializacji buforu tokenów](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/Microsoft.Identity.Web/README.md#token-cache-serialization). Interesującą możliwością jest wybranie ASP.NET Core pamięci [podręcznej pamięci rozproszonej](https://docs.microsoft.com/aspnet/core/performance/caching/distributed#distributed-memory-cache):
+Samouczek ASP.NET Core używa iniekcji zależności, aby umożliwić określenie implementacji pamięci podręcznej tokenów w pliku Startup.cs dla aplikacji. Microsoft. Identity. Web zawiera wstępnie skompilowane serializatory pamięci podręcznej tokenów opisane w [serializacji buforu tokenów](msal-net-token-cache-serialization.md#token-cache-for-a-web-app-confidential-client-application). Interesującą możliwością jest wybranie ASP.NET Core pamięci [podręcznej pamięci rozproszonej](https://docs.microsoft.com/aspnet/core/performance/caching/distributed#distributed-memory-cache):
 
 ```csharp
 // Use a distributed token cache by adding:

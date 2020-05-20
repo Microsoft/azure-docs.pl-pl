@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/31/2019
+ms.date: 04/10/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 00938d831e70289b24acb599b81016aa6e564d78
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0ffadca550a3a28b0ab490dd43c3b884602c93df
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78186934"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83638493"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Zabezpieczanie interfejsu API usługi Azure API Management przy użyciu Azure AD B2C
 
@@ -69,15 +69,15 @@ Następnie uzyskaj dobrze znany adres URL konfiguracji dla jednego z Azure AD B2
 1. Wybierz hiperlink, aby przejść do strony OpenID Connect Connect dobrze znana konfiguracja.
 1. Na stronie, która zostanie otwarta w przeglądarce, Zapisz `issuer` wartość, na przykład:
 
-    `https://your-b2c-tenant.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/`
+    `https://<tenant-name>.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/`
 
     Ta wartość jest używana w następnej sekcji podczas konfigurowania interfejsu API w usłudze Azure API Management.
 
-Teraz powinny zostać zarejestrowane dwa adresy URL do użycia w następnej sekcji: adres URL punktu końcowego znanej konfiguracji OpenID Connect Connect i identyfikator URI wystawcy. Przykład:
+Teraz powinny zostać zarejestrowane dwa adresy URL do użycia w następnej sekcji: adres URL punktu końcowego znanej konfiguracji OpenID Connect Connect i identyfikator URI wystawcy. Na przykład:
 
 ```
-https://yourb2ctenant.b2clogin.com/yourb2ctenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_signupsignin1
-https://yourb2ctenant.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/
+https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_signupsignin1/v2.0/.well-known/openid-configuration
+https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/
 ```
 
 ## <a name="configure-inbound-policy-in-azure-api-management"></a>Konfigurowanie zasad ruchu przychodzącego na platformie Azure API Management
@@ -88,7 +88,7 @@ Teraz można przystąpić do dodawania zasad ruchu przychodzącego w usłudze Az
 1. Wybierz pozycję **Interfejsy API**.
 1. Wybierz interfejs API, który ma być zabezpieczony za pomocą Azure AD B2C.
 1. Wybierz kartę **Projekt**.
-1. W obszarze **Przetwarzanie przychodzące**wybierz ** \< / ** pozycję Otwórz Edytor kodu zasad.
+1. W obszarze **Przetwarzanie przychodzące**wybierz pozycję **\</\>** Otwórz Edytor kodu zasad.
 1. Umieść następujący `<validate-jwt>` tag wewnątrz `<inbound>` zasad.
 
     1. Zaktualizuj `url` wartość w `<openid-config>` elemencie za pomocą dobrze znanego adresu URL konfiguracji zasad.
@@ -99,12 +99,12 @@ Teraz można przystąpić do dodawania zasad ruchu przychodzącego w usłudze Az
     <policies>
         <inbound>
             <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-                <openid-config url="https://yourb2ctenant.b2clogin.com/yourb2ctenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_signupsignin1" />
+                <openid-config url="https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_signupsignin1/v2.0/.well-known/openid-configuration" />
                 <audiences>
                     <audience>44444444-0000-0000-0000-444444444444</audience>
                 </audiences>
                 <issuers>
-                    <issuer>https://yourb2ctenant.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
+                    <issuer>https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
                 </issuers>
             </validate-jwt>
             <base />
@@ -129,12 +129,12 @@ Najpierw musisz mieć token wystawiony przez Azure AD B2C do użycia w `Authoriz
 1. W obszarze **zasady**wybierz pozycję **przepływy użytkownika (zasady)**.
 1. Wybierz istniejący przepływ użytkownika rejestracji/logowania, na przykład *B2C_1_signupsignin1*.
 1. W przypadku **aplikacji**wybierz pozycję *webapp1*.
-1. Dla **adresu URL odpowiedzi**wybierz `https://jwt.ms`opcję.
+1. Dla **adresu URL odpowiedzi**wybierz opcję `https://jwt.ms` .
 1. Wybierz pozycję **Uruchom przepływ użytkownika**.
 
     ![Uruchom stronę przepływu użytkownika w celu zarejestrowania się w przepływie użytkownika w Azure Portal](media/secure-apim-with-b2c-token/portal-03-user-flow.png)
 
-1. Zakończ proces logowania. Należy przekierować do `https://jwt.ms`.
+1. Zakończ proces logowania. Należy przekierować do `https://jwt.ms` .
 1. Zapisz zakodowaną wartość tokenu wyświetlaną w przeglądarce. Ta wartość tokenu jest używana dla nagłówka autoryzacji w programie Poster.
 
     ![Wartość zakodowanego tokenu wyświetlana w jwt.ms](media/secure-apim-with-b2c-token/jwt-ms-01-token.png)
@@ -146,7 +146,7 @@ Aplikacja kliencka (w tym przypadku) wywołująca opublikowany interfejs API mus
 1. Przejdź do wystąpienia usługi Azure API Management w [Azure Portal](https://portal.azure.com).
 1. Wybierz pozycję **Subskrypcje**.
 1. Wybierz wielokropek dla **produktu: nieograniczone**, a następnie wybierz pozycję **Pokaż/Ukryj klucze**.
-1. Zapisz **klucz podstawowy** dla produktu. Ten klucz jest używany dla `Ocp-Apim-Subscription-Key` nagłówka w żądaniu HTTP w programie Poster.
+1. Zapisz **klucz podstawowy** dla produktu. Ten klucz jest używany dla `Ocp-Apim-Subscription-Key` nagłówka w ŻĄDANIU http w programie Poster.
 
 ![Strona klucza subskrypcji z kluczami Pokaż/Ukryj wybrane w Azure Portal](media/secure-apim-with-b2c-token/portal-04-api-subscription-key.png)
 
@@ -154,15 +154,15 @@ Aplikacja kliencka (w tym przypadku) wywołująca opublikowany interfejs API mus
 
 Po zarejestrowaniu tokenu dostępu i klucza subskrypcji APIM można już sprawdzić, czy bezpieczny dostęp do interfejsu API został prawidłowo skonfigurowany.
 
-1. Utwórz nowe `GET` żądanie w programie [Poster](https://www.getpostman.com/). W polu adres URL żądania Określ punkt końcowy listy głośników interfejsu API, który został opublikowany jako jedno z wymagań wstępnych. Przykład:
+1. Utwórz nowe `GET` żądanie w programie [Poster](https://www.getpostman.com/). W polu adres URL żądania Określ punkt końcowy listy głośników interfejsu API, który został opublikowany jako jedno z wymagań wstępnych. Na przykład:
 
     `https://contosoapim.azure-api.net/conference/speakers`
 
 1. Następnie Dodaj następujące nagłówki:
 
-    | Key | Wartość |
+    | Klucz | Wartość |
     | --- | ----- |
-    | `Authorization` | Zapisana wcześniej wartość tokenu zakodowana, poprzedzona `Bearer ` znakiem (z uwzględnieniem odstępu po "okaziciela") |
+    | `Authorization` | Zapisana wcześniej wartość tokenu zakodowana, poprzedzona znakiem `Bearer ` (z uwzględnieniem odstępu po "okaziciela") |
     | `Ocp-Apim-Subscription-Key` | APIM klucz subskrypcji został zarejestrowany wcześniej |
 
     Adres URL i **nagłówki** żądania **pobrania** powinny wyglądać podobnie do:
@@ -213,11 +213,11 @@ Po pomyślnym wykonaniu żądania Przetestuj przypadek niepowodzenia, aby upewni
     }
     ```
 
-Jeśli zobaczysz kod `401` stanu, sprawdzono, że tylko wywołujący mający prawidłowy token dostępu wystawiony przez Azure AD B2C mogą wykonywać pomyślne żądania do interfejsu API usługi Azure API Management.
+Jeśli zobaczysz `401` kod stanu, sprawdzono, że tylko wywołujący mający prawidłowy token dostępu wystawiony przez Azure AD B2C mogą wykonywać pomyślne żądania do interfejsu API usługi Azure API Management.
 
 ## <a name="support-multiple-applications-and-issuers"></a>Obsługa wielu aplikacji i wystawców
 
-Niektóre aplikacje zwykle współpracują z pojedynczym interfejsem API REST. Aby umożliwić interfejsowi API akceptowanie tokenów przeznaczonych dla wielu aplikacji, Dodaj ich identyfikatory `<audiences>` aplikacji do elementu w zasadach ruchu przychodzącego APIM.
+Niektóre aplikacje zwykle współpracują z pojedynczym interfejsem API REST. Aby umożliwić interfejsowi API akceptowanie tokenów przeznaczonych dla wielu aplikacji, Dodaj ich identyfikatory aplikacji do `<audiences>` elementu w zasadach ruchu przychodzącego APIM.
 
 ```XML
 <!-- Accept tokens intended for these recipient applications -->
@@ -227,12 +227,12 @@ Niektóre aplikacje zwykle współpracują z pojedynczym interfejsem API REST. A
 </audiences>
 ```
 
-Podobnie aby obsługiwać wiele wystawców tokenów, Dodaj ich identyfikatory URI punktu końcowego `<issuers>` do elementu w zasadach APIM przychodzących.
+Podobnie aby obsługiwać wiele wystawców tokenów, Dodaj ich identyfikatory URI punktu końcowego do `<issuers>` elementu w zasadach APIM przychodzących.
 
 ```XML
 <!-- Accept tokens from multiple issuers -->
 <issuers>
-    <issuer>https://yourb2ctenant.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
+    <issuer>https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
     <issuer>https://login.microsoftonline.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
 </issuers>
 ```
@@ -253,14 +253,14 @@ W poniższym przykładzie zasady ruchu przychodzącego APIM przedstawiają spos�
 <policies>
     <inbound>
         <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
-            <openid-config url="https://yourb2ctenant.b2clogin.com/yourb2ctenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_signupsignin1" />
+            <openid-config url="https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_signupsignin1/v2.0/.well-known/openid-configuration" />
             <audiences>
                 <audience>44444444-0000-0000-0000-444444444444</audience>
                 <audience>66666666-0000-0000-0000-666666666666</audience>
             </audiences>
             <issuers>
                 <issuer>https://login.microsoftonline.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
-                <issuer>https://yourb2ctenant.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
+                <issuer>https://<tenant-name>.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/</issuer>
             </issuers>
         </validate-jwt>
         <base />

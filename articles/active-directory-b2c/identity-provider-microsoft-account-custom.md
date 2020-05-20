@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b7d8fbddc86c0d05d7b0d4ce46cb06c5fc92a2cf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 56c25ce417a17024843de1b9b16f57740de1e9fc
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188124"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636978"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurowanie logowania za pomocą konto Microsoft przy użyciu zasad niestandardowych w programie Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ W tym artykule opisano sposób włączania logowania dla użytkowników z konto 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Wykonaj kroki opisane w temacie Wprowadzenie [do zasad niestandardowych w Azure Active Directory B2C](custom-policy-get-started.md).
-- Jeśli nie masz jeszcze konto Microsoft, utwórz ją pod adresem [https://www.live.com/](https://www.live.com/).
+- Jeśli nie masz jeszcze konto Microsoft, utwórz ją pod adresem [https://www.live.com/](https://www.live.com/) .
 
 ## <a name="register-an-application"></a>Rejestrowanie aplikacji
 
@@ -38,8 +38,8 @@ Aby włączyć logowanie dla użytkowników z konto Microsoft, musisz zarejestro
 1. Wybierz pozycję **wszystkie usługi** w lewym górnym rogu Azure Portal, a następnie wyszukaj i wybierz pozycję **rejestracje aplikacji**.
 1. Wybierz pozycję **Nowa rejestracja**.
 1. Wprowadź **nazwę** aplikacji. Na przykład *MSAapp1*.
-1. W obszarze **obsługiwane typy kont**wybierz pozycję **konta w dowolnym katalogu organizacyjnym i osobiste konta Microsoft (np. Skype, Xbox, Outlook.com)**.
-1. W obszarze **URI przekierowania (opcjonalnie)** wybierz pozycję **Sieć Web** i wprowadź `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` wartość w polu tekstowym. Zamień `your-tenant-name` na nazwę dzierżawy Azure AD B2C.
+1. W obszarze **obsługiwane typy kont**wybierz pozycję **konta w dowolnym katalogu organizacyjnym (dowolny katalog usługi Azure AD — wielodostępny) i osobiste konta Microsoft (np. Skype, Xbox)**.
+1. W obszarze **URI przekierowania (opcjonalnie)** wybierz pozycję **Sieć Web** i wprowadź `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/oauth2/authresp` wartość w polu tekstowym. Zamień `<tenant-name>` na nazwę dzierżawy Azure AD B2C.
 1. Wybierz pozycję **zarejestruj**
 1. Zapisz **Identyfikator aplikacji (klienta)** widoczny na stronie przeglądu aplikacji. Jest to potrzebne podczas konfigurowania dostawcy oświadczeń w dalszej części.
 1. Wybierz **certyfikaty & wpisy tajne**
@@ -49,7 +49,7 @@ Aby włączyć logowanie dla użytkowników z konto Microsoft, musisz zarejestro
 
 ## <a name="configuring-optional-claims"></a>Konfigurowanie oświadczeń opcjonalnych
 
-Jeśli chcesz uzyskać oświadczenia `family_name` i `given_name` usługi Azure AD, możesz skonfigurować opcjonalne oświadczenia dla swojej aplikacji w Azure Portal interfejsie użytkownika lub manifeście aplikacji. Aby uzyskać więcej informacji, zobacz [jak dostarczyć opcjonalne oświadczenia do aplikacji usługi Azure AD](../active-directory/develop/active-directory-optional-claims.md).
+Jeśli chcesz uzyskać `family_name` `given_name` oświadczenia i usługi Azure AD, możesz skonfigurować opcjonalne oświadczenia dla swojej aplikacji w Azure Portal interfejsie użytkownika lub manifeście aplikacji. Aby uzyskać więcej informacji, zobacz [jak dostarczyć opcjonalne oświadczenia do aplikacji usługi Azure AD](../active-directory/develop/active-directory-optional-claims.md).
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). Wyszukaj i wybierz pozycję **Azure Active Directory**.
 1. W sekcji **Zarządzanie** wybierz pozycję **rejestracje aplikacji**.
@@ -69,10 +69,10 @@ Teraz, po utworzeniu aplikacji w dzierżawie usługi Azure AD, musisz przechowyw
 1. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
 1. Na stronie Przegląd wybierz pozycję **Struktura środowiska tożsamości**.
 1. Wybierz pozycję **klucze zasad** , a następnie wybierz pozycję **Dodaj**.
-1. W obszarze **Opcje**wybierz `Manual`opcję.
+1. W obszarze **Opcje**wybierz opcję `Manual` .
 1. Wprowadź **nazwę** klucza zasad. Na przykład `MSASecret`. Prefiks `B2C_1A_` jest automatycznie dodawany do nazwy klucza.
 1. W **kluczu tajnym**wprowadź klucz tajny klienta zapisany w poprzedniej sekcji.
-1. W obszarze **użycie klucza**wybierz `Signature`opcję.
+1. W obszarze **użycie klucza**wybierz opcję `Signature` .
 1. Kliknij przycisk **Utwórz**.
 
 ## <a name="add-a-claims-provider"></a>Dodawanie dostawcy oświadczeń
@@ -148,7 +148,7 @@ Jeśli w portalu nie są wyświetlane żadne błędy, przejdź do następnej sek
 W tym momencie skonfigurowano dostawcę tożsamości, ale jeszcze nie jest on dostępny na żadnym z ekranów rejestracji lub logowania. Aby udostępnić ten element, Utwórz duplikat istniejącej przez użytkownika szablonu, a następnie zmodyfikuj go tak, aby miał również konto Microsoft dostawcę tożsamości.
 
 1. Otwórz plik *TrustFrameworkBase. XML* z pakietu początkowego.
-1. Znajdź i Skopiuj całą zawartość elementu **UserJourney** , który zawiera `Id="SignUpOrSignIn"`.
+1. Znajdź i Skopiuj całą zawartość elementu **UserJourney** , który zawiera `Id="SignUpOrSignIn"` .
 1. Otwórz *plik TrustFrameworkExtensions. XML* i Znajdź element **UserJourneys** . Jeśli element nie istnieje, Dodaj go.
 1. Wklej całą zawartość elementu **UserJourney** , który został skopiowany jako element podrzędny elementu **UserJourneys** .
 1. Zmień nazwę identyfikatora podróży użytkownika. Na przykład `SignUpSignInMSA`.
@@ -158,7 +158,7 @@ W tym momencie skonfigurowano dostawcę tożsamości, ale jeszcze nie jest on do
 Element **ClaimsProviderSelection** jest analogiczny do przycisku dostawcy tożsamości na ekranie rejestracji lub logowania. Jeśli dodasz element **ClaimsProviderSelection** dla konto Microsoft, zostanie wyświetlony nowy przycisk, gdy użytkownik zostanie umieszczony na stronie.
 
 1. W pliku *TrustFrameworkExtensions. XML* Znajdź element **OrchestrationStep** , który zawiera `Order="1"` w utworzonej podróży użytkownika.
-1. W obszarze **ClaimsProviderSelects**Dodaj następujący element. Ustaw wartość **TargetClaimsExchangeId** na odpowiednią wartość, na przykład `MicrosoftAccountExchange`:
+1. W obszarze **ClaimsProviderSelects**Dodaj następujący element. Ustaw wartość **TargetClaimsExchangeId** na odpowiednią wartość, na przykład `MicrosoftAccountExchange` :
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="MicrosoftAccountExchange" />
@@ -197,7 +197,7 @@ Zaktualizuj plik jednostki uzależnionej (RP), który inicjuje utworzoną przez 
 1. Upewnij się, że aplikacja Azure AD B2C utworzona w poprzedniej sekcji (lub przez zakończenie wymagań wstępnych, na przykład *webapp1* lub *testapp1*) została wybrana w polu **Wybierz aplikację** , a następnie przetestuj ją, klikając polecenie **Uruchom teraz**.
 1. Wybierz przycisk **konto Microsoft** i zaloguj się.
 
-    Jeśli operacja logowania powiedzie się, nastąpi przekierowanie do `jwt.ms` , która wyświetla zdekodowany token, podobny do:
+    Jeśli operacja logowania powiedzie się, nastąpi przekierowanie do, `jwt.ms` która wyświetla zdekodowany token, podobny do:
 
     ```json
     {
@@ -208,7 +208,7 @@ Zaktualizuj plik jednostki uzależnionej (RP), który inicjuje utworzoną przez 
       "exp": 1562365200,
       "nbf": 1562361600,
       "ver": "1.0",
-      "iss": "https://your-b2c-tenant.b2clogin.com/10000000-0000-0000-0000-000000000000/v2.0/",
+      "iss": "https://<tenant-name>.b2clogin.com/10000000-0000-0000-0000-000000000000/v2.0/",
       "sub": "20000000-0000-0000-0000-000000000000",
       "aud": "30000000-0000-0000-0000-000000000000",
       "acr": "b2c_1a_signupsigninmsa",

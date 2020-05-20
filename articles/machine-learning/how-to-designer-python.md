@@ -5,16 +5,17 @@ description: Dowiedz się, jak przekształcać dane przy użyciu języka Python 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
 author: peterclu
 ms.author: peterlu
 ms.date: 02/28/2020
-ms.openlocfilehash: a2bd9845cd29c7d139e2042f39b4697847639207
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: designer
+ms.openlocfilehash: e27844f9f534ea4db1aba53c12fb3947e7269846
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79455795"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83644467"
 ---
 # <a name="execute-python-code-in-azure-machine-learning-designer"></a>Wykonaj kod języka Python w projektancie Azure Machine Learning
 
@@ -47,7 +48,7 @@ W tym artykule jest wykorzystywany przykładowy zestaw **danych z danymi cen sam
     ![Połącz zestawy danych](media/how-to-designer-python/connect-dataset.png)
         
 
-1. Zanotuj, który port wejściowy jest używany. Projektant przypisuje lewy port wejściowy do zmiennej `dataset1` i środkowy port wejściowy do. `dataset2` 
+1. Zanotuj, który port wejściowy jest używany. Projektant przypisuje lewy port wejściowy do zmiennej `dataset1` i środkowy port wejściowy do `dataset2` . 
 
 Moduły wejściowe są opcjonalne, ponieważ można generować lub importować dane bezpośrednio w module **wykonywania skryptu języka Python** .
 
@@ -74,7 +75,7 @@ W tym przykładzie używasz Pandas do łączenia dwóch kolumn znajdujących si�
     
     ![Wykonaj potok Python](media/how-to-designer-python/execute-python-pipeline.png)
 
-    Skrypt punktu wejścia musi zawierać funkcję `azureml_main`. Istnieją dwa parametry funkcji, które są mapowane na dwa porty wejściowe dla modułu **uruchamiania skryptów języka Python** .
+    Skrypt punktu wejścia musi zawierać funkcję `azureml_main` . Istnieją dwa parametry funkcji, które są mapowane na dwa porty wejściowe dla modułu **uruchamiania skryptów języka Python** .
 
     Zwracana wartość musi być Pandas Dataframe. Można zwrócić do dwóch ramek dataframes jako dane wyjściowe modułu.
     

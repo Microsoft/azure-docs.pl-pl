@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 12/13/2019
-ms.openlocfilehash: 7cbe0015eeb9b46cd72496a220ce7f7d094cb61d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: dd5ca3c52364813a9aabe3db821c4f7e094fa637
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198569"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83634133"
 ---
 # <a name="automated-backups"></a>Automatyczne kopie zapasowe
 
@@ -91,7 +91,7 @@ Kopie zapasowe wykonywane przed okresem przechowywania są automatycznie przeczy
 Azure SQL Database oblicza łączny magazyn kopii zapasowych w magazynie jako wartość zbiorczą. Co godzinę ta wartość jest raportowana w potoku rozliczeń platformy Azure, który jest odpowiedzialny za agregowanie tego użycia godzinowego w celu obliczenia zużycia na koniec każdego miesiąca. Po porzucenia bazy danych zużycie zmniejsza się w miarę starzenia się kopii zapasowych. Gdy kopie zapasowe staną się starsze niż okres przechowywania, rozliczenia zostaną zatrzymane.
 
    > [!IMPORTANT]
-   > Kopie zapasowe bazy danych są przechowywane przez określony okres przechowywania, nawet jeśli baza danych została porzucona. Porzucenie i ponowne utworzenie bazy danych może często zaoszczędzić na kosztach magazynowania i obliczeń, ale może zwiększyć koszty magazynu kopii zapasowych, ponieważ firma Microsoft zachowuje kopię zapasową dla określonego okresu przechowywania (co to jest co najmniej 7 dni) dla każdej porzuconej bazy danych, za każdym razem, gdy zostanie usunięta.
+   > Kopie zapasowe bazy danych są przechowywane przez określony okres przechowywania, nawet jeśli baza danych została porzucona. Porzucenie i ponowne utworzenie bazy danych może często zaoszczędzić na kosztach magazynowania i obliczeń, ale może zwiększyć koszty magazynu kopii zapasowych, ponieważ firma Microsoft zachowuje kopię zapasową dla pozostałego okresu przechowywania dla każdej porzuconej bazy danych, za każdym razem, gdy zostanie usunięta.
 
 ### <a name="monitor-consumption"></a>Monitorowanie użycia
 
@@ -149,6 +149,9 @@ Jeśli chcesz zachować kopie zapasowe dłużej niż maksymalny okres przechowyw
 
 > [!IMPORTANT]
 > Usunięcie programu Azure SQL Server, który hostuje bazy danych SQL, spowoduje również usunięcie wszystkich elastycznych pul baz danych i baz danych należących do serwera. Nie można ich odzyskać. Nie można przywrócić usuniętego serwera. Ale jeśli skonfigurowano długoterminowe przechowywanie, kopie zapasowe baz danych z LTR nie zostaną usunięte i te bazy danych można przywrócić.
+
+> [!NOTE]
+> Minimalny kopie przechowywania kopii zapasowych, który można skonfigurować dla pojedynczych baz danych w puli i zarządzanych isntances za Azure Portal wynosi 7 dni. Minimalny kopie przechowywanie kopii zapasowych na 1 dzień można skonfigurować dla wystąpienia zarządzanego tylko przy użyciu programu PowerShell z modułem programu SQL Server w wersji 2.6.0 lub nowszej.
 
 ## <a name="encrypted-backups"></a>Szyfrowane kopie zapasowe
 

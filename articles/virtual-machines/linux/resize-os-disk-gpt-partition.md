@@ -1,5 +1,5 @@
 ---
-title: Zmiana rozmiaru dysku systemu operacyjnego za pomocą partycji GPT | Microsoft Docs
+title: Zmiana rozmiaru dysku systemu operacyjnego z partycją GPT | Microsoft Docs
 description: Ten artykuł zawiera instrukcje dotyczące zmiany rozmiarów dysku systemu operacyjnego z partycją GPT.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,27 +14,27 @@ ms.devlang: azurecli
 ms.date: 05/03/2020
 ms.author: kaib
 ms.custom: seodec18
-ms.openlocfilehash: f863233f0a34271841cc8e973f9aa3ca9416ceeb
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 7c408e8e29b3f9ac423a6104c40242f11f93a171
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858992"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651094"
 ---
-# <a name="resize-an-os-disk-with-a-gpt-partition"></a>Zmiana rozmiaru dysku systemu operacyjnego z partycją GPT
+# <a name="resize-an-os-disk-that-has-a-gpt-partition"></a>Zmiana rozmiaru dysku systemu operacyjnego z partycją GPT
 
 > [!NOTE]
-> Ten scenariusz ma zastosowanie tylko do dysku systemu operacyjnego z partycją GPT.
+> Ten scenariusz dotyczy tylko dysków systemu operacyjnego z partycją z tabelą partycji GUID (GPT).
 
-W tym artykule opisano sposób zwiększenia rozmiaru dysku systemu operacyjnego z partycją GPT w systemie Linux.
+W tym artykule opisano sposób zwiększenia rozmiaru dysku systemu operacyjnego z partycją GPT w systemie Linux. 
 
 ## <a name="identify-whether-the-os-disk-has-an-mbr-or-gpt-partition"></a>Określanie, czy dysk systemu operacyjnego ma partycję MBR lub GPT
 
-Użyj podanego polecenia, aby **określić, czy** partycja dysku została utworzona przy użyciu partycji głównego rekordu rozruchowego (MBR), czy partycji z tabelą partycji GUID (GPT).
+Użyj **częściowego** polecenia, aby określić, czy partycja dysku została utworzona za pomocą partycji głównego rekordu rozruchowego (MBR) czy partycji GPT.
 
 ### <a name="mbr-partition"></a>Partycja MBR
 
-W poniższych danych wyjściowych **tabela partycji** zawiera wartość **MSDOS**identyfikującą partycję **MBR** .
+W poniższych danych wyjściowych **tabela partycji** zawiera wartość **MSDOS**. Ta wartość identyfikuje partycję MBR.
 
 ```
 [user@myvm ~]# parted -l /dev/sda
@@ -50,7 +50,7 @@ Number  Start   End     Size    Type     File system  Flags
 
 ### <a name="gpt-partition"></a>Partycja GPT
 
-W poniższych danych wyjściowych **tabela partycji** zawiera wartość **GPT**identyfikującą partycję GPT.
+W poniższych danych wyjściowych **tabela partycji** zawiera wartość **GPT**. Ta wartość identyfikuje partycję GPT.
 
 ```
 [user@myvm ~]# parted -l /dev/sda
@@ -76,16 +76,16 @@ Poniższe instrukcje dotyczą dystrybucji z systemem Linux.
 > [!NOTE]
 > Przed kontynuowaniem Utwórz kopię zapasową maszyny wirtualnej lub wykonaj migawkę dysku systemu operacyjnego.
 
-### <a name="ubuntu-16x-and-18x"></a>Ubuntu 16. x i 18. x
+### <a name="ubuntu"></a>Ubuntu
 
 Aby zwiększyć rozmiar dysku systemu operacyjnego w Ubuntu 16. x i 18. x:
 
 1. Zatrzymaj maszynę wirtualną.
-1. Zwiększ rozmiar OSDisk z portalu.
+1. Zwiększ rozmiar dysku systemu operacyjnego z portalu.
 1. Uruchom ponownie maszynę wirtualną, a następnie zaloguj się do maszyny wirtualnej jako użytkownik **główny** .
-1. OSDisk będzie teraz wyświetlał zwiększony rozmiar systemu plików.
+1. Sprawdź, czy na dysku systemu operacyjnego jest teraz wyświetlany zwiększony rozmiar systemu plików.
 
-Jak pokazano w poniższym przykładzie, rozmiar dysku systemu operacyjnego został zmieniony z portalu do 100 GB, ponieważ system plików **/dev/sda1** na tej stronie **/** zawiera teraz 97 GB.
+Jak pokazano w poniższym przykładzie, rozmiar dysku systemu operacyjnego został zmieniony z portalu do 100 GB. System plików **/dev/sda1** zainstalowany na **/** teraz wyświetla 97 GB.
 
 ```
 user@myvm:~# df -Th
@@ -102,17 +102,17 @@ tmpfs          tmpfs      65M     0   65M   0% /run/user/1000
 user@myvm:~#
 ```
 
-### <a name="suse-12-sp4suse-sles-12-for-sap-suse-sles-15-and-suse-sles-15-for-sap"></a>SUSE 12 SP4, SUSE SLES 12 dla oprogramowania SAP, SUSE SLES 15 i SUSE SLES 15 dla oprogramowania SAP
+### <a name="suse"></a>SUSE
 
-Aby zwiększyć rozmiar dysku systemu operacyjnego w SUSE 12 SP4, SUSE SLES 15 i SUSE SLES 15 for SAP:
+Aby zwiększyć rozmiar dysku systemu operacyjnego w wersji SUSE 12 SP4, SUSE SLES 12 dla oprogramowania SAP, SUSE SLES 15 i SUSE SLES 15 dla oprogramowania SAP:
 
 1. Zatrzymaj maszynę wirtualną.
-1. Zwiększ rozmiar OSDisk z portalu.
+1. Zwiększ rozmiar dysku systemu operacyjnego z portalu.
 1. Uruchom ponownie maszynę wirtualną.
 
 Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
 
-   1. Uzyskaj dostęp do maszyny wirtualnej jako **użytkownik główny** przy użyciu następującego polecenia:
+   1. Uzyskaj dostęp do maszyny wirtualnej jako użytkownik **główny** przy użyciu następującego polecenia:
    
       `#sudo su`
 
@@ -124,11 +124,11 @@ Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
 
       `#sgdisk -e /dev/sda`
 
-   1. Zmień rozmiar partycji bez usuwania przy użyciu następującego polecenia. **Część** polecenia ma opcję o nazwie **resizepart** , aby zmienić rozmiar partycji bez jej usuwania. Liczba 4 po resizepart wskazuje zmianę rozmiarów czwartej (czwartej) partycji.
+   1. Zmień rozmiar partycji bez usuwania przy użyciu następującego polecenia. **Część** polecenia ma opcję o nazwie **resizepart** , aby zmienić rozmiar partycji bez jej usuwania. Liczba 4 po **resizepart** wskazuje zmianę rozmiarów czwartej partycji.
 
       `#parted -s /dev/sda "resizepart 4 -1" quit`
 
-   1. Uruchom polecenie `#lsblk` , aby sprawdzić, czy partycja została zwiększona.
+   1. Uruchom **#lsblk** polecenie, aby sprawdzić, czy partycja została zwiększona.
 
       Poniższe dane wyjściowe pokazują, że rozmiar partycji **/dev/sda4** został zmieniony na 98,5 GB.
 
@@ -143,7 +143,7 @@ Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
       └─sdb1   8:17   0   20G  0 part /mnt/resource
       ```
       
-   1. Określ typ systemu plików w OSDisk przy użyciu następującego polecenia:
+   1. Określ typ systemu plików na dysku systemu operacyjnego za pomocą następującego polecenia:
 
       `blkid`
 
@@ -208,17 +208,19 @@ Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
       user@myvm:~ #
       ```
 
-Jak pokazano w powyższym przykładzie, można zwiększyć rozmiar systemu plików dla OSDisk.
+W poprzednim przykładzie widzimy, że zwiększono rozmiar systemu plików dla dysku systemu operacyjnego.
 
-### <a name="rhel-7x-with-lvm"></a>RHEL 7. x z LVM
+### <a name="rhel"></a>RHEL
+
+Aby zwiększyć rozmiar dysku systemu operacyjnego w RHEL 7. x z LVM:
 
 1. Zatrzymaj maszynę wirtualną.
-1. Zwiększ rozmiar OSDisk z portalu.
+1. Zwiększ rozmiar dysku systemu operacyjnego z portalu.
 1. Uruchom maszynę wirtualną.
 
 Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
 
-   1. Uzyskaj dostęp do maszyny wirtualnej jako **użytkownik główny** przy użyciu następującego polecenia:
+   1. Uzyskaj dostęp do maszyny wirtualnej jako użytkownik **główny** przy użyciu następującego polecenia:
    
       `#sudo su`
 
@@ -230,7 +232,7 @@ Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
 
       `#sgdisk -e /dev/sda`
 
-   1. Zmień rozmiar partycji bez usuwania przy użyciu następującego polecenia. **Część** polecenia ma opcję o nazwie **resizepart** , aby zmienić rozmiar partycji bez jej usuwania. Liczba 4 po resizepart wskazuje zmianę rozmiarów czwartej (czwartej) partycji.
+   1. Zmień rozmiar partycji bez usuwania przy użyciu następującego polecenia. **Część** polecenia ma opcję o nazwie **resizepart** , aby zmienić rozmiar partycji bez jej usuwania. Liczba 4 po **resizepart** wskazuje zmianę rozmiarów czwartej partycji.
 
       `#parted -s /dev/sda "resizepart 4 -1" quit`
     
@@ -259,7 +261,7 @@ Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
       └─sdb1              8:17   0   50G  0 part /mnt/resource
       ```
 
-   1. Użyj następującego polecenia, aby zmienić rozmiar **woluminu fizycznego (PV)**:
+   1. Użyj następującego polecenia, aby zmienić rozmiar woluminu fizycznego (PV):
 
       `#pvresize /dev/sda4`
 
@@ -275,7 +277,7 @@ Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
       /dev/sda4  rootvg lvm2 a--  <99.02g <74.02g
       ```
 
-   1. W poniższym przykładzie rozmiar `/dev/mapper/rootvg-rootlv` jest zmieniany z 2 GB na 12GB (wzrost rozmiaru 10 GB) przy użyciu następującego polecenia, co również spowoduje zmianę rozmiaru systemu plików:
+   1. W poniższym przykładzie rozmiar **/dev/mapper/rootvg-rootlv** jest zmieniany z 2 GB do 12 GB (wzrost 10 GB) za pomocą poniższego polecenia. To polecenie spowoduje również zmianę rozmiaru systemu plików.
 
       `#lvresize -r -L +10G /dev/mapper/rootvg-rootlv`
 
@@ -297,7 +299,7 @@ Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
       data blocks changed from 524288 to 3145728
       ```
          
-   1. Sprawdź, `/dev/mapper/rootvg-rootlv` czy zwiększono rozmiar systemu plików lub nie korzystasz z następującego polecenia:
+   1. Sprawdź, czy **/dev/mapper/rootvg-rootlv** ma zwiększony rozmiar systemu plików przy użyciu następującego polecenia:
 
       `#df -Th /`
 
@@ -310,8 +312,8 @@ Po ponownym uruchomieniu maszyny wirtualnej wykonaj następujące czynności:
       [user@myvm ~]#
       ```
 
-      > [!NOTE]
-      > Aby użyć tej samej procedury, aby zmienić rozmiar dowolnego innego woluminu logicznego, Zmień nazwę **LV** w kroku 7
+   > [!NOTE]
+   > Aby użyć tej samej procedury, aby zmienić rozmiar dowolnego innego woluminu logicznego, Zmień nazwę **LV** w kroku 7.
 
 ## <a name="next-steps"></a>Następne kroki
 

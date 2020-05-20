@@ -6,16 +6,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/23/2020
+ms.date: 05/12/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80b7536704d68e96429d715705a0518410db399a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9fbe76fb18e33efaa161d2e2b488b48fa5c8580d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82112324"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83644164"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrowanie do uwierzytelniania w chmurze przy użyciu wdrożenia etapowego (wersja zapoznawcza)
 
@@ -38,8 +38,8 @@ Aby zapoznać się z omówieniem tej funkcji, zobacz "Azure Active Directory: co
 -   Masz dzierżawę usługi Azure Active Directory (Azure AD) z domenami federacyjnymi.
 
 -   Podjęto decyzję o przejściu do jednej z dwóch opcji:
-    - **Opcja**synchronizacji*skrótów haseł (synchronizacja)* + *bezproblemowe logowanie jednokrotne (SSO)*  - 
-    - **Opcja B** - *uwierzytelnianie* + przekazywane*bezproblemowo Logowanie jednokrotne*
+    - **Opcja A**  -  *Synchronizacja skrótów haseł (synchronizacja)*  +  *bezproblemowe logowanie jednokrotne (SSO)*
+    - **Opcja B**  -  *uwierzytelnianie przekazywane*  +  *bezproblemowe logowanie jednokrotne*
     
     Chociaż *bezproblemowe logowanie jednokrotne* jest opcjonalne, zalecamy włączenie dla użytkowników, którzy uruchamiają komputery przyłączone do domeny z wewnątrz sieci firmowej.
 
@@ -51,6 +51,7 @@ Aby zapoznać się z omówieniem tej funkcji, zobacz "Azure Active Directory: co
 
 -   Aby umożliwić *bezproblemowe logowanie jednokrotne* w określonym lesie Active Directory, musisz być administratorem domeny.
 
+
 ## <a name="supported-scenarios"></a>Obsługiwane scenariusze
 
 Poniższe scenariusze są obsługiwane w przypadku wdrażania etapowego. Funkcja działa tylko dla:
@@ -58,6 +59,7 @@ Poniższe scenariusze są obsługiwane w przypadku wdrażania etapowego. Funkcja
 - Użytkownicy, którzy są obsługiwani do usługi Azure AD za pomocą Azure AD Connect. Nie dotyczy to użytkowników korzystających tylko z chmury.
 
 - Ruch związany z logowaniem użytkowników w przeglądarkach i nowoczesnych klientach *uwierzytelniania* . Aplikacje lub usługi w chmurze korzystające ze starszego uwierzytelniania będą powracać do przepływów uwierzytelniania federacyjnego. Przykładem może być Usługa Exchange Online z wyłączoną funkcją nowoczesnego uwierzytelniania lub program Outlook 2010, który nie obsługuje nowoczesnego uwierzytelniania.
+- Rozmiar grupy jest obecnie ograniczony do 50 000 użytkowników.  Jeśli masz grupy, które są większe niż 50 000 użytkowników, zaleca się poddzielenie tej grupy na wiele grup na potrzeby wdrożenia etapowego.
 
 ## <a name="unsupported-scenarios"></a>Nieobsługiwane scenariusze
 
@@ -78,6 +80,9 @@ Następujące scenariusze nie są obsługiwane w przypadku wdrażania etapowego:
 
 - Przy pierwszym dodawaniu grupy zabezpieczeń do wdrożenia przemieszczanego można ograniczyć do 200 użytkowników, aby uniknąć przekroczenia limitu czasu środowiska. Po dodaniu grupy można do niej dodać kilku użytkowników bezpośrednio, zgodnie z potrzebami.
 
+>[!NOTE]
+> Ponieważ punkty końcowe dzierżawców nie wysyłają wskazówek logowania, nie są obsługiwane w przypadku wdrażania etapowego.  Aplikacje SAML korzystają z punktów końcowych dzierżawców i nie obsługują wdrażania etapowego.
+
 ## <a name="get-started-with-staged-rollout"></a>Wprowadzenie do wdrożenia przemieszczanego
 
 Aby przetestować logowanie do *synchronizacji skrótów haseł* przy użyciu wdrożenia etapowego, postępuj zgodnie z instrukcjami w następnej sekcji.
@@ -86,7 +91,7 @@ Aby uzyskać informacje o używaniu poleceń cmdlet programu PowerShell, zobacz 
 
 ## <a name="pre-work-for-password-hash-sync"></a>Pre-Work dla synchronizacji skrótów haseł
 
-1.  Włącz *synchronizację skrótów haseł*na stronie [funkcje](how-to-connect-install-custom.md#optional-features) opcjonalne w Azure AD Connect. 
+1. Włącz *synchronizację skrótów haseł*na   stronie [funkcje opcjonalne](how-to-connect-install-custom.md#optional-features)   w Azure AD Connect. 
 
    ![Zrzut ekranu strony "funkcje opcjonalne" w Azure Active Directory Connect](media/how-to-connect-staged-rollout/sr1.png)
 
@@ -112,27 +117,27 @@ Zalecamy włączenie *bezproblemowego logowania jednokrotnego* niezależnie od m
 
 ## <a name="pre-work-for-seamless-sso"></a>Przedpracuj przed bezproblemowym logowaniem jednokrotnym
 
-Włącz *bezproblemową rejestrację jednokrotną* w lasach Active Directory przy użyciu programu PowerShell. Jeśli masz więcej niż jeden las Active Directory, włącz go osobno dla każdego lasu.  *Bezproblemowe logowanie jednokrotne* jest wyzwalane tylko dla użytkowników wybranych do wdrożenia etapowego. Nie ma to wpływu na istniejącą konfigurację Federacji.
+Włącz *bezproblemową rejestrację jednokrotną*   w lasach Active Directory przy użyciu programu PowerShell. Jeśli masz więcej niż jeden las Active Directory, włącz go osobno dla każdego lasu.  *Bezproblemowe logowanie jednokrotne* jest wyzwalane tylko dla użytkowników wybranych do wdrożenia etapowego. Nie ma to wpływu na istniejącą konfigurację Federacji.
 
 Włącz *bezproblemową rejestrację jednokrotną* , wykonując następujące czynności:
 
 1. Zaloguj się do Azure AD Connect Server.
 
-2. Przejdź do folderu *% ProgramFiles%\\Microsoft Azure Active Directory Connect.* 
+2. Przejdź do folderu *% ProgramFiles% \\ Microsoft Azure Active Directory Connect*   .
 
 3. Zaimportuj bezproblemowy moduł programu PowerShell dla *logowania jednokrotnego* , uruchamiając następujące polecenie: 
 
    `Import-Module .\AzureADSSO.psd1`
 
-4. Uruchom program PowerShell jako administrator. W programie PowerShell Wywołaj `New-AzureADSSOAuthenticationContext`polecenie. To polecenie umożliwia otwarcie okienka, w którym można wprowadzić poświadczenia administratora globalnego dzierżawy.
+4. Uruchom program PowerShell jako administrator. W programie PowerShell Wywołaj polecenie  `New-AzureADSSOAuthenticationContext` . To polecenie umożliwia otwarcie okienka, w którym można wprowadzić poświadczenia administratora globalnego dzierżawy.
 
-5. Wywołanie `Get-AzureADSSOStatus | ConvertFrom-Json`. To polecenie wyświetla listę Active Directory lasów (Zobacz listę "domeny"), na której włączono tę funkcję. Domyślnie na poziomie dzierżawy jest ustawiona wartość false.
+5. Wywołanie  `Get-AzureADSSOStatus | ConvertFrom-Json` . To polecenie wyświetla listę Active Directory lasów (Zobacz listę "domeny"), na której włączono tę funkcję. Domyślnie na poziomie dzierżawy jest ustawiona wartość false.
 
    ![Przykład danych wyjściowych programu Windows PowerShell](./media/how-to-connect-staged-rollout/sr3.png)
 
-6. Wywołanie `$creds = Get-Credential`. W wierszu polecenia wprowadź poświadczenia administratora domeny dla zamierzonego lasu Active Directory.
+6. Wywołanie  `$creds = Get-Credential` . W wierszu polecenia wprowadź poświadczenia administratora domeny dla zamierzonego lasu Active Directory.
 
-7. Wywołanie `Enable-AzureADSSOForest -OnPremCredentials $creds`. To polecenie tworzy konto komputera AZUREADSSOACC z lokalnego kontrolera domeny dla lasu Active Directory, który jest wymagany do *bezproblemowego logowania jednokrotnego*.
+7. Wywołanie `Enable-AzureADSSOForest -OnPremCredentials $creds` . To polecenie tworzy konto komputera AZUREADSSOACC z lokalnego kontrolera domeny dla lasu Active Directory, który jest wymagany do *bezproblemowego logowania jednokrotnego*.
 
 8. *Bezproblemowe logowanie jednokrotne* wymaga, aby adresy URL znajdować się w strefie intranetowej. Aby wdrożyć te adresy URL przy użyciu zasad grupy, zobacz [Szybki Start: usługa Azure AD bezproblemowe logowanie](how-to-connect-sso-quick-start.md#step-3-roll-out-the-feature)jednokrotne.
 
@@ -146,9 +151,9 @@ Aby wdrożyć określoną funkcję (*uwierzytelnianie przekazywane*, *synchroniz
 
 Jedną z następujących opcji można wdrożyć:
 
-- **Opcja**synchronizacja + *skrótów haseł**bezproblemowe logowanie jednokrotne*  - 
-- **Opcja B** - *uwierzytelnianie* + przekazywane*bezproblemowo Logowanie jednokrotne*
-- **Nieobsługiwane** -  + *pass-through authentication*uwierzytelnianie + przekazywania*synchronizacji skrótów haseł**bezproblemowe logowanie jednokrotne*
+- **Opcja A**  -  *Synchronizacja*  +  skrótów haseł *bezproblemowe logowanie jednokrotne*
+- **Opcja B**  -  *uwierzytelnianie przekazywane*  +  *bezproblemowe logowanie jednokrotne*
+- **Nieobsługiwane**  -  *Synchronizacja*  +  skrótów haseł *uwierzytelnianie przekazywane*  +  *bezproblemowe logowanie jednokrotne*
 
 Wykonaj następujące czynności:
 

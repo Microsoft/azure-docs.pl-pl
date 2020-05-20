@@ -5,23 +5,23 @@ author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
-ms.topic: conceptual
-ms.date: 05/08/2020
+ms.topic: tutorial
+ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 5e8656e891d250547174aa3deb27a94eebaa0ba3
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 34341e39f2db78d8f0d3355d180a2781229f232f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125676"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651135"
 ---
 # <a name="how-to-create-a-java-application-that-uses-azure-cosmos-db-sql-api-and-change-feed-processor"></a>Jak utworzyć aplikację Java, która używa Azure Cosmos DB interfejsu API SQL i procesora źródła zmian
 
-> [!IMPORTANT]  
-> Aby uzyskać więcej informacji na temat Azure Cosmos DB Java SDK v4, Wyświetl informacje o wersji pakietu Azure Cosmos DB SDK v4, [repozytorium Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos)Azure Cosmos DB, [wskazówki dotyczące wydajności](performance-tips-java-sdk-v4-sql.md)zestawu Java SDK 4 Azure Cosmos DB i [Przewodnik rozwiązywania problemów](troubleshoot-java-sdk-v4-sql.md)z zestawem SDK Java w wersji 4.
->
-
 Ten Przewodnik instruktażowy przeprowadzi Cię przez prostą aplikację Java, która używa Azure Cosmos DB interfejsu API SQL do wstawiania dokumentów do kontenera Azure Cosmos DB, zachowując istotny widok kontenera przy użyciu kanału informacyjnego zmian i procesora źródła zmian. Aplikacja Java komunikuje się z Azure Cosmos DB interfejsem API SQL przy użyciu Azure Cosmos DB Java SDK v4.
+
+> [!IMPORTANT]  
+> Ten samouczek dotyczy tylko Azure Cosmos DB Java SDK v4. Aby uzyskać więcej informacji, zapoznaj się z informacjami o [wersji](sql-api-sdk-java-v4.md)Azure Cosmos DB Java SDK v4, [repozytorium Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos), Azure Cosmos DB przewodniku Azure Cosmos DB [dotyczącym](performance-tips-java-sdk-v4-sql.md) [rozwiązywania problemów](troubleshoot-java-sdk-v4-sql.md) z zestawem Java SDK 4. Jeśli obecnie używasz starszej wersji niż v4, zapoznaj się z przewodnikiem [Migrowanie do Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) , aby uzyskać pomoc w uaktualnianiu do wersji v4.
+>
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

@@ -2,14 +2,14 @@
 title: Zmiany przewidywanych punktów końcowych w interfejsie API v3
 description: Interfejsy API funkcji przewidywania zapytań w wersji 3 zostały zmienione. Skorzystaj z tego przewodnika, aby zrozumieć, jak przeprowadzić migrację do interfejsów API punktu końcowego w wersji 3.
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/15/2020
 ms.author: diberry
-ms.openlocfilehash: 4b6d28b24ffc6c0a848d1c7a34e863da0606d936
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d6e5981bcdc81383454c65d3cf7b6c1195b70a4a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81530389"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653866"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Zmiany przewidywanych punktów końcowych dla wersji 3
 
@@ -73,16 +73,9 @@ Interfejs API przewidywania w wersji 2 nie będzie przestarzały przez co najmni
 
 ### <a name="changes-by-slot-name-and-version-name"></a>Zmiany według nazwy miejsca i nazwy wersji
 
-Format wywołania HTTP punktu końcowego v3 został zmieniony.
+[Format wywołania http punktu końcowego v3](developer-reference-resource.md#rest-endpoints) został zmieniony.
 
-Jeśli chcesz wykonać zapytanie według wersji, musisz najpierw [opublikować za pośrednictwem interfejsu API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) w `"directVersionPublish":true`usłudze. Zbadaj punkt końcowy odwołujący się do identyfikatora wersji zamiast nazwy gniazda.
-
-|WERSJA INTERFEJSU API PRZEWIDYWANIA|METHOD|Adres URL|
-|--|--|--|
-|Czytanie|GET|https://<b>{region}</b>. API.Cognitive.Microsoft.com/Luis/<b>prognozowanie</b>/<b>v 3.0</b>/Apps/<b>{App-ID}</b>/Slots/<b>{slot-Name}</b>/Predict? Query =<b>{Query}</b>|
-|Czytanie|POST|https://<b>{region}</b>. API.Cognitive.Microsoft.com/Luis/<b>prognozowanie</b>/<b>v 3.0</b>/Apps/<b>{App-ID}</b>/Slots/<b>{slot-Name}</b>/Predict|
-|Wersja 2|GET|https://<b>{region}</b>. API.Cognitive.Microsoft.com/Luis/<b>prognozowanie</b>/<b>v 3.0</b>/Apps/<b>{App-ID}</b>/Versions/<b>{Version-ID}</b>/Predict? Query =<b>{Query}</b>|
-|Wersja 2|POST|https://<b>{region}</b>. API.Cognitive.Microsoft.com/Luis/<b>prognozowanie</b>/<b>v 3.0</b>/Apps/<b>{App-ID}</b>/Versions/<b>{Version-ID}</b>/Predict|
+Jeśli chcesz wykonać zapytanie według wersji, musisz najpierw [opublikować za pośrednictwem interfejsu API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) w usłudze `"directVersionPublish":true` . Zbadaj punkt końcowy odwołujący się do identyfikatora wersji zamiast nazwy gniazda.
 
 |Prawidłowe wartości dla`SLOT-NAME`|
 |--|
@@ -95,12 +88,12 @@ Jeśli chcesz wykonać zapytanie według wersji, musisz najpierw [opublikować z
 
 Interfejs API v3 ma inne parametry ciągu zapytania.
 
-|Nazwa parametru|Typ|Wersja|Domyślny|Przeznaczenie|
+|Nazwa parametru|Typ|Wersja|Domyślne|Przeznaczenie|
 |--|--|--|--|--|
 |`log`|wartość logiczna|WERSJA 2 & V3|fałsz|Zapisz zapytanie w pliku dziennika. Wartość domyślna to false.|
 |`query`|ciąg|Tylko wersja 3|Brak domyślnej — jest to wymagane w żądaniu GET|**W wersji 2**wypowiedź do przewidywania jest `q` parametrem. <br><br>**W wersji 3**funkcja jest przenoszona do `query` parametru.|
-|`show-all-intents`|wartość logiczna|Tylko wersja 3|fałsz|Zwróć wszystkie intencje z odpowiednim wynikiem w obiekcie **przewidywania. intencje** . Intencje są zwracane jako obiekty w obiekcie nadrzędnym `intents` . Pozwala to na dostęp programistyczny bez konieczności wyszukiwania zamiaru w tablicy: `prediction.intents.give`. W wersji 2 te zostały zwrócone w tablicy. |
-|`verbose`|wartość logiczna|WERSJA 2 & V3|fałsz|**W wersji 2**, gdy ustawiono wartość true, wszystkie przewidywane intencje zostały zwrócone. Jeśli potrzebujesz wszystkich przewidywanych intencji, użyj parametru v3 `show-all-intents`.<br><br>**W wersji 3**ten parametr zawiera tylko szczegóły metadanych jednostki przewidywania jednostek.  |
+|`show-all-intents`|wartość logiczna|Tylko wersja 3|fałsz|Zwróć wszystkie intencje z odpowiednim wynikiem w obiekcie **przewidywania. intencje** . Intencje są zwracane jako obiekty w obiekcie nadrzędnym `intents` . Pozwala to na dostęp programistyczny bez konieczności wyszukiwania zamiaru w tablicy: `prediction.intents.give` . W wersji 2 te zostały zwrócone w tablicy. |
+|`verbose`|wartość logiczna|WERSJA 2 & V3|fałsz|**W wersji 2**, gdy ustawiono wartość true, wszystkie przewidywane intencje zostały zwrócone. Jeśli potrzebujesz wszystkich przewidywanych intencji, użyj parametru v3 `show-all-intents` .<br><br>**W wersji 3**ten parametr zawiera tylko szczegóły metadanych jednostki przewidywania jednostek.  |
 |`timezoneOffset`|ciąg|Wersja 2|-|Strefa czasowa zastosowana do jednostek datetimeV2.|
 |`datetimeReference`|ciąg|Czytanie|-|[Strefa czasowa](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) zastosowana do jednostek datetimeV2. Zamienia `timezoneOffset` z wersji 2.|
 
@@ -119,7 +112,7 @@ Interfejs API v3 ma inne parametry ciągu zapytania.
 }
 ```
 
-|Właściwość|Typ|Wersja|Domyślny|Przeznaczenie|
+|Właściwość|Typ|Wersja|Domyślne|Przeznaczenie|
 |--|--|--|--|--|
 |`dynamicLists`|tablica|Tylko wersja 3|Niewymagane.|[Listy dynamiczne](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time) umożliwiają rozbudowa istniejącej, przeszkolonej i opublikowanej jednostki listy, już w aplikacji Luis.|
 |`externalEntities`|tablica|Tylko wersja 3|Niewymagane.|[Jednostki zewnętrzne](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) zapewniają aplikacji Luis możliwość identyfikowania i etykietowania jednostek podczas środowiska uruchomieniowego, które mogą być używane jako funkcje istniejących jednostek. |
@@ -135,7 +128,7 @@ Plik JSON odpowiedzi zapytania został zmieniony, aby umożliwić większy dost�
 
 
 
-Najważniejsze właściwości JSON dla V2 to, gdy `verbose` ma wartość true, co zwraca wszystkie intencje i ich wyniki we `intents` właściwości:
+Najważniejsze właściwości JSON dla V2 to, gdy `verbose` ma wartość true, co zwraca wszystkie intencje i ich wyniki we `intents` Właściwości:
 
 ```JSON
 {
@@ -160,7 +153,7 @@ Najważniejsze właściwości JSON dla wersji v3 to:
 }
 ```
 
-`intents` Obiekt jest listą nieuporządkowaną. Nie należy zakładać pierwszego elementu podrzędnego `intents` w odnosi się `topIntent`do. Zamiast tego należy użyć `topIntent` wartości, aby znaleźć wynik:
+`intents`Obiekt jest listą nieuporządkowaną. Nie należy zakładać pierwszego elementu podrzędnego w `intents` odnosi się do `topIntent` . Zamiast tego należy użyć `topIntent` wartości, aby znaleźć wynik:
 
 ```nodejs
 const topIntentName = response.prediction.topIntent;
@@ -169,18 +162,18 @@ const score = intents[topIntentName];
 
 Zmiany schematu JSON odpowiedzi są dozwolone dla:
 
-* Wyczyść rozróżnienie między oryginalnymi wypowiedź `query`i zwróciło prognozowanie `prediction`.
+* Wyczyść rozróżnienie między oryginalnymi wypowiedź `query` i zwróciło prognozowanie `prediction` .
 * Łatwiejszy dostęp programistyczny do przewidywanych danych. Zamiast wyliczania za pomocą tablicy w wersji 2, można uzyskać dostęp do wartości według **nazwy** dla intencji i jednostek. W przypadku przewidywanych ról jednostek nazwa roli jest zwracana, ponieważ jest unikatowa w całej aplikacji.
 * Typy danych, jeśli zostały określone, są przestrzegane. Wartości numeryczne nie są już zwracane jako ciągi.
-* Rozróżnienie między informacjami prognozowania pierwszego priorytetu a dodatkowymi metadanymi `$instance` zwracanymi w obiekcie.
+* Rozróżnienie między informacjami prognozowania pierwszego priorytetu a dodatkowymi metadanymi zwracanymi w `$instance` obiekcie.
 
 ### <a name="entity-response-changes"></a>Zmiany odpowiedzi jednostki
 
 #### <a name="marking-placement-of-entities-in-utterances"></a>Oznaczanie rozmieszczenia jednostek w wyrażenia długości
 
-**W wersji 2**jednostka została oznaczona w wypowiedź z `startIndex` i. `endIndex`
+**W wersji 2**jednostka została oznaczona w wypowiedź z `startIndex` i `endIndex` .
 
-**W wersji 3**jednostka jest oznaczona za pomocą `startIndex` i `entityLength`.
+**W wersji 3**jednostka jest oznaczona za pomocą `startIndex` i `entityLength` .
 
 #### <a name="access-instance-for-entity-metadata"></a>Dostęp `$instance` do metadanych jednostki
 
@@ -188,7 +181,7 @@ Jeśli potrzebujesz metadanych jednostki, ciąg zapytania musi używać `verbose
 
 #### <a name="each-predicted-entity-is-represented-as-an-array"></a>Każda jednostka predykcyjna jest reprezentowana jako tablica
 
-`prediction.entities.<entity-name>` Obiekt zawiera tablicę, ponieważ każda jednostka może być przewidywalna więcej niż jeden raz w wypowiedź.
+`prediction.entities.<entity-name>`Obiekt zawiera tablicę, ponieważ każda jednostka może być przewidywalna więcej niż jeden raz w wypowiedź.
 
 <a name="prebuilt-entities-with-new-json"></a>
 
@@ -220,9 +213,9 @@ const associatedMetadata = entities.$instance.my_list_entity[item];
 
 #### <a name="entity-role-name-instead-of-entity-name"></a>Nazwa roli jednostki zamiast nazwy jednostki
 
-W wersji 2 `entities` tablica zwróciła wszystkie przewidywane jednostki o nazwie jednostki, która jest unikatowym identyfikatorem. W wersji 3, jeśli jednostka używa ról, a Prognoza dotyczy roli jednostki, identyfikator podstawowy to nazwa roli. Jest to możliwe, ponieważ nazwy ról jednostek muszą być unikatowe w całej aplikacji, w tym w przypadku innych nazw modelu (intencje, jednostki).
+W wersji 2 `entities` Tablica zwróciła wszystkie przewidywane jednostki o nazwie jednostki, która jest unikatowym identyfikatorem. W wersji 3, jeśli jednostka używa ról, a Prognoza dotyczy roli jednostki, identyfikator podstawowy to nazwa roli. Jest to możliwe, ponieważ nazwy ról jednostek muszą być unikatowe w całej aplikacji, w tym w przypadku innych nazw modelu (intencje, jednostki).
 
-W poniższym przykładzie: Rozważmy wypowiedź, który zawiera tekst, `Yellow Bird Lane`. Ten tekst jest przewidywany jako rola jednostki `Location` niestandardowej `Destination`.
+W poniższym przykładzie: Rozważmy wypowiedź, który zawiera tekst, `Yellow Bird Lane` . Ten tekst jest przewidywany jako `Location` rola jednostki niestandardowej `Destination` .
 
 |Wypowiedź tekst|Nazwa jednostki|Nazwa roli|
 |--|--|--|

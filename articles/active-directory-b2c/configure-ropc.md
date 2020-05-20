@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/27/2020
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 70cd4f2ca3a4ac37bdf1d1e465d1f1a7d06ef9e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d1989f65f73ac4f9dc8dd328fa9d7ed267eec1aa
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78189705"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636413"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Konfigurowanie przepływu poświadczeń hasła właściciela zasobu w Azure AD B2C
 
@@ -40,7 +40,7 @@ Przepływ poświadczeń hasła właściciela zasobu (ROPC) to standardowy przep�
 
    Następnie zobaczysz punkt końcowy, na przykład:
 
-   `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_ROPC_Auth`
+   `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/v2.0/.well-known/openid-configuration`
 
 
 ## <a name="register-an-application"></a>Rejestrowanie aplikacji
@@ -50,18 +50,18 @@ Przepływ poświadczeń hasła właściciela zasobu (ROPC) to standardowy przep�
 ## <a name="test-the-user-flow"></a>Testowanie przepływu użytkownika
 
 Użyj ulubionej aplikacji do programowania interfejsów API do wygenerowania wywołania interfejsu API i przejrzyj odpowiedź, aby debugować przepływ użytkownika. Utwórz wywołanie podobne do tego z informacjami w poniższej tabeli jako treść żądania POST:
-- Zastąp * \<yourtenant.onmicrosoft.com>* nazwą dzierżawy B2C.
-- Zastąp * \<B2C_1A_ROPC_Auth>* pełną nazwą zasad poświadczeń hasła właściciela zasobu.
-- Zastąp * \<ciąg bef2222d56-552f-4a5b-b90a-1988a7d634c3>* identyfikatorem aplikacji z rejestracji.
+- Zastąp * \< nazwę dzierżawcy>. onmicrosoft.com* nazwą dzierżawy B2C.
+- Zastąp * \< B2C_1A_ROPC_Auth>* pełną nazwą zasad poświadczeń hasła właściciela zasobu.
+- Zastąp * \< ciąg bef2222d56-552f-4a5b-b90a-1988A7D634C3>* identyfikatorem aplikacji z rejestracji.
 
-`https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 
-| Key | Wartość |
+| Klucz | Wartość |
 | --- | ----- |
 | nazwa użytkownika | leadiocl@outlook.com |
 | hasło | Passxword1 |
 | grant_type | hasło |
-| scope | OpenID Connect \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
+| scope | OpenID Connect \< bef2222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | response_type | id_token tokenu |
 
@@ -70,8 +70,8 @@ Użyj ulubionej aplikacji do programowania interfejsów API do wygenerowania wyw
 Rzeczywiste żądanie POST wygląda następująco:
 
 ```
-POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?p=B2C_1_ROPC_Auth HTTP/1.1
-Host: yourtenant.b2clogin.com
+POST /<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token HTTP/1.1
+Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 username=leadiocl%40trashmail.ws&password=Passxword1&grant_type=password&scope=openid+bef22d56-552f-4a5b-b90a-1988a7d634ce+offline_access&client_id=bef22d56-552f-4a5b-b90a-1988a7d634ce&response_type=token+id_token
@@ -94,9 +94,9 @@ Pomyślna odpowiedź z dostępem w trybie offline wygląda podobnie do poniższe
 
 Utwórz wywołanie POST podobne do przedstawionego tutaj z informacjami w poniższej tabeli jako treść żądania:
 
-`https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1_ROPC_Auth/oauth2/v2.0/token`
 
-| Key | Wartość |
+| Klucz | Wartość |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |
