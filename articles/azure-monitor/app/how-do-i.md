@@ -3,12 +3,12 @@ title: Jak mogę... na platformie Azure Application Insights | Microsoft Docs
 description: Często zadawane pytania w Application Insights.
 ms.topic: conceptual
 ms.date: 04/04/2017
-ms.openlocfilehash: 8d4b1e79c48b14ed7dce756468e4c48d633c3f04
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9ca5900bc9172b1f4ef9b1a7a660c6936ac38095
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536866"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701942"
 ---
 # <a name="how-do-i--in-application-insights"></a>Jak mogę (...) w usłudze Application Insights?
 ## <a name="get-an-email-when-"></a>Otrzymuj wiadomość e-mail, gdy...
@@ -16,7 +16,7 @@ ms.locfileid: "81536866"
 Ustaw [test sieci Web dostępności](../../azure-monitor/app/monitor-web-app-availability.md).
 
 ### <a name="email-if-my-site-is-overloaded"></a>Wyślij wiadomość e-mail, jeśli moja witryna jest przeciążona
-Ustaw [alert](../../azure-monitor/app/alerts.md) dotyczący **czasu odpowiedzi serwera**. Wartość progowa z przedziału od 1 do 2 sekund powinna być poprawna.
+Ustaw [alert](../../azure-monitor/platform/alerts-log.md) dotyczący **czasu odpowiedzi serwera**. Wartość progowa z przedziału od 1 do 2 sekund powinna być poprawna.
 
 ![](./media/how-do-i/030-server.png)
 
@@ -26,10 +26,10 @@ Jeśli chcesz ustawić alert dla **wyjątków serwera**, może być konieczne wy
 
 ### <a name="email-on-exceptions"></a>Poczta e-mail przy wyjątkach
 1. [Skonfiguruj Monitorowanie wyjątków](../../azure-monitor/app/asp-net-exceptions.md)
-2. [Ustawianie alertu](../../azure-monitor/app/alerts.md) dotyczącego metryki liczby wyjątków
+2. [Ustawianie alertu](../../azure-monitor/platform/alerts-log.md) dotyczącego metryki liczby wyjątków
 
 ### <a name="email-on-an-event-in-my-app"></a>Wyślij wiadomość e-mail dotyczącą zdarzenia w mojej aplikacji
-Załóżmy, że chcesz otrzymać wiadomość e-mail po wystąpieniu określonego zdarzenia. Application Insights nie zapewnia bezpośrednio tej funkcji, ale może [wysłać Alert, gdy Metryka przekroczy próg](../../azure-monitor/app/alerts.md).
+Załóżmy, że chcesz otrzymać wiadomość e-mail po wystąpieniu określonego zdarzenia. Application Insights nie zapewnia bezpośrednio tej funkcji, ale może [wysłać Alert, gdy Metryka przekroczy próg](../../azure-monitor/platform/alerts-log.md).
 
 Alerty można ustawiać w [niestandardowych metrykach](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric), chociaż nie zdarzeniach niestandardowych. Napisz kod, aby zwiększyć metrykę w przypadku wystąpienia zdarzenia:
 
@@ -65,11 +65,11 @@ Oto niektóre ważne kwestie:
 * Ponieważ wiadomości e-mail są wysyłane zarówno w "alertach", jak i w dobrej kondycji, warto rozważyć przemyśleć wydarzenie z jednym z nich jako warunek dwustanowy. Na przykład zamiast zdarzenia "ukończenie zadania" występuje warunek "zadanie w toku", w którym można otrzymywać wiadomości e-mail na początku i na końcu zadania.
 
 ### <a name="set-up-alerts-automatically"></a>Automatyczne Konfigurowanie alertów
-[Tworzenie nowych alertów za pomocą programu PowerShell](../../azure-monitor/app/alerts.md#automation)
+[Tworzenie nowych alertów za pomocą programu PowerShell](../../azure-monitor/platform/alerts-log.md)
 
 ## <a name="use-powershell-to-manage-application-insights"></a>Zarządzanie Application Insights przy użyciu programu PowerShell
 * [Tworzenie nowych zasobów](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
-* [Utwórz nowe alerty](../../azure-monitor/app/alerts.md#automation)
+* [Utwórz nowe alerty](../../azure-monitor/platform/alerts-log.md)
 
 ## <a name="separate-telemetry-from-different-versions"></a>Oddzielna Telemetria od różnych wersji
 
@@ -137,10 +137,10 @@ Aby **dynamicznie zatrzymać i uruchomić** zbieranie danych telemetrycznych z s
 ```
 
 ### <a name="other-applications"></a>Inne aplikacje
-Nie zaleca się korzystania `TelemetryConfiguration.Active` z pojedynczych w konsoli programu ani aplikacji ASP.NET Core.
-Jeśli utworzono `TelemetryConfiguration` wystąpienie samodzielnie — ustaw wartość `DisableTelemetry` `true`.
+Nie zaleca się korzystania z `TelemetryConfiguration.Active` pojedynczych w konsoli programu ani aplikacji ASP.NET Core.
+Jeśli utworzono `TelemetryConfiguration` wystąpienie samodzielnie — ustaw wartość `DisableTelemetry` `true` .
 
-W przypadku aplikacji ASP.NET Core można uzyskać `TelemetryConfiguration` dostęp do wystąpienia przy użyciu [iniekcji zależności ASP.NET Core](/aspnet/core/fundamentals/dependency-injection/). Więcej informacji znajdziesz w artykule [ApplicationInsights for ASP.NET Core Applications](../../azure-monitor/app/asp-net-core.md) .
+W przypadku aplikacji ASP.NET Core można uzyskać dostęp do `TelemetryConfiguration` wystąpienia przy użyciu [iniekcji zależności ASP.NET Core](/aspnet/core/fundamentals/dependency-injection/). Więcej informacji znajdziesz w artykule [ApplicationInsights for ASP.NET Core Applications](../../azure-monitor/app/asp-net-core.md) .
 
 ## <a name="disable-selected-standard-collectors"></a>Wyłącz wybrane moduły standardowe
 Można wyłączyć moduły zbierające standardowe (na przykład liczniki wydajności, żądania HTTP lub zależności).
@@ -156,7 +156,7 @@ Wśród metryk, które można wyświetlić w Eksploratorze metryk jest zestaw li
 ### <a name="if-you-see-no-performance-counter-data"></a>Jeśli nie widzisz danych licznika wydajności
 * **Serwer IIS** na komputerze lub na maszynie wirtualnej. [Zainstaluj Monitor stanu](../../azure-monitor/app/monitor-performance-live-website-now.md).
 * **Witryna sieci Web platformy Azure** — nie obsługujemy jeszcze liczników wydajności. Istnieje kilka metryk dostępnych jako standardowa część panelu sterowania witryny sieci Web systemu Azure.
-* **Unix server** - [Zebrano instalację](../../azure-monitor/app/java-collectd.md) serwera UNIX
+* **Serwer UNIX**  -  [Instalacja zebrana](../../azure-monitor/app/java-collectd.md)
 
 ### <a name="to-display-more-performance-counters"></a>Aby wyświetlić więcej liczników wydajności
 * Najpierw [Dodaj nowy wykres](../../azure-monitor/platform/metrics-charts.md) i sprawdź, czy licznik znajduje się w podstawowym zestawie oferowanym przez nas.

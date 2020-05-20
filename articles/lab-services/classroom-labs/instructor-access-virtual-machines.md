@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2020
 ms.author: spelluru
-ms.openlocfilehash: 449ff8aafd6dec1e9c0ff16dc407155949fd1313
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 4b4e6bf7b69f1b4c7664a104a0af70d9e486f08a
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83586171"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699964"
 ---
 # <a name="access-virtual-machines-as-a-student-from-the-educator-view"></a>Dostęp do maszyn wirtualnych jako uczniów z widoku nauczycieli
 W tym artykule przedstawiono sposób, w jaki wykładowcy mogą uzyskać dostęp do swoich maszyn wirtualnych dla klas, które uczestniczyły jako uczniowie. 
@@ -36,5 +36,6 @@ Poniżej przedstawiono scenariusz, w którym ta funkcja pomoże. Asystent naucza
 Zobacz następujące artykuły:
 
 - [Łączenie z maszyną wirtualną](how-to-use-classroom-lab.md#connect-to-the-vm)
-- [Nawiązywanie połączenia z maszyną wirtualną przy użyciu protokołu RDP na komputerze Mac](connect-virtual-machine-mac-rdp.md)
+- [Nawiązywanie połączenia z maszyną wirtualną przy użyciu protokołu RDP na komputerze Mac](connect-virtual-machine-mac-remote-desktop.md)
+- [Nawiązywanie połączenia z maszyną wirtualną przy użyciu protokołu RDP na Chromebook](connect-virtual-machine-chromebook-remote-desktop.md)
 - [Korzystanie z usług pulpitu zdalnego dla maszyn wirtualnych z systemem Linux](how-to-use-remote-desktop-linux-student.md)

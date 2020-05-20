@@ -3,12 +3,12 @@ title: Konfigurowanie analizy aplikacji internetowej w technologii ASP.NET za po
 description: Konfigurowanie narzędzi analitycznych dotyczących wydajności, dostępności i zachowania użytkowników dla witryny sieci Web ASP.NET hostowanej lokalnie lub na platformie Azure.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: d3181c3d43f07c7cb920b9fe265a8420c1417a56
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aa4449a0229ba156dbeed37c10ed21f8b1b5f201
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82145279"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698500"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Konfigurowanie usługi Application Insights dla witryny sieci Web ASP.NET.
 
@@ -30,7 +30,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 > [!IMPORTANT]
 > Zrzuty ekranu w tym przykładzie są oparte na programie Visual Studio 2017 w wersji 15.9.9 i nowszych. Środowisko umożliwiające dodawanie Application Insights różni się w różnych wersjach programu Visual Studio, a także według typu szablonu ASP.NET. Starsze wersje mogą zawierać tekst alternatywny, taki jak "Konfigurowanie Application Insights".
 
-Kliknij prawym przyciskiem myszy nazwę aplikacji sieci Web w Eksplorator rozwiązań i wybierz polecenie **Dodaj** > **Telemetria usługi Application Insights**
+Kliknij prawym przyciskiem myszy nazwę aplikacji sieci Web w Eksplorator rozwiązań i wybierz polecenie **Dodaj**  >  **Telemetria usługi Application Insights**
 
 ![Zrzut ekranu Eksploratora rozwiązań z wyróżnioną opcją Konfiguruj usługę Application Insights](./media/asp-net/add-telemetry-new.png)
 
@@ -50,7 +50,7 @@ Jeśli chcesz ustawić grupę zasobów lub lokalizację, w której dane są prze
 
 ![Zrzut ekranu strony Zarejestruj swoją aplikację w usłudze Application Insights](./media/asp-net/00005-register-ed.png)
 
- Wybierz pozycję **projekt** > **Zarządzanie** > **pakietami NuGet źródło pakietów: NuGet.org** > upewnij się, że masz najnowszą stabilną wersję zestawu Application Insights SDK.
+ Wybierz pozycję **projekt**  >  **Zarządzanie**  >  **pakietami NuGet źródło pakietów: NuGet.org** > upewnij się, że masz najnowszą stabilną wersję zestawu Application Insights SDK.
 
  Dane telemetryczne będą wysyłane do witryny [Azure Portal](https://portal.azure.com) zarówno podczas debugowania, jak i po opublikowaniu aplikacji.
 > [!NOTE]
@@ -68,7 +68,7 @@ Telemetrię można wyświetlić w programie Visual Studio lub w portalu sieci We
 
 ### <a name="see-your-telemetry-in-visual-studio"></a>Wyświetlanie telemetrii w programie Visual Studio
 
-Wyświetlanie danych usługi Application Insights w programie Visual Studio.  Wybierz pozycję **Eksplorator rozwiązań** > **połączone usługi** > kliknij prawym przyciskiem myszy **Application Insights**, a następnie kliknij pozycję **Wyszukaj telemetrię na żywo**.
+Wyświetlanie danych usługi Application Insights w programie Visual Studio.  Wybierz pozycję **Eksplorator rozwiązań**  >  **połączone usługi** > kliknij prawym przyciskiem myszy **Application Insights**, a następnie kliknij pozycję **Wyszukaj telemetrię na żywo**.
 
 W oknie wyszukiwania usługi Visual Studio Application Insights zobaczysz dane ze swojej aplikacji dla telemetrii wygenerowanej po stronie serwera aplikacji. Poeksperymentuj z filtrami, a następnie kliknij dowolne zdarzenie, aby wyświetlić więcej szczegółów.
 
@@ -135,11 +135,11 @@ Istnieją jeszcze inne tematy, które warto przejrzeć, jeśli interesują Cię 
 * **[Praca z usługą Application Insights w programie Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Zawiera informacje o debugowaniu przy użyciu telemetrii, wyszukiwaniu diagnostycznym i przechodzeniu do szczegółów kodu.
 * **[Analiza](../../azure-monitor/log-query/get-started-portal.md)** — zaawansowany język zapytań.
 
-### <a name="alerts"></a>Alerty
+### <a name="alerts"></a>Alerts (Alerty)
 
 * [Testy dostępności](../../azure-monitor/app/monitor-web-app-availability.md): Utwórz testy, aby upewnić się, że Twoja witryna jest widoczna w sieci Web.
 * [Inteligentne diagnostyki](../../azure-monitor/app/proactive-diagnostics.md): Te testy są uruchamiane automatycznie, więc nie trzeba wykonywać żadnych czynności, aby je skonfigurować. Ta funkcja powiadomi Cię, jeśli w aplikacji występuje nietypowa liczba nieudanych żądań.
-* [Alerty metryk](../../azure-monitor/app/alerts.md): Ustaw alerty, aby ostrzec użytkownika, gdy Metryka przekroczy próg. Możesz je ustawić dla metryk niestandardowych, które zakodujesz w aplikacji.
+* [Alerty metryk](../../azure-monitor/platform/alerts-log.md): Ustaw alerty, aby ostrzec użytkownika, gdy Metryka przekroczy próg. Możesz je ustawić dla metryk niestandardowych, które zakodujesz w aplikacji.
 
 ### <a name="automation"></a>Automatyzacja
 

@@ -4,15 +4,15 @@ description: Dowiedz się, jak utworzyć jednostkę usługi do automatyzowania A
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: dc163de9a7fb46d62f4bc2983e040e68bbf9231c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1ea9b978cce22ae6d99cbce5b4b85558f2a47b59
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266145"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699081"
 ---
 # <a name="automation-with-service-principals"></a>Automatyzacja przy użyciu jednostek usługi
 
@@ -92,7 +92,7 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 ### <a name="amo-and-adomd"></a>AMO i ADOMD 
 
-Podczas nawiązywania połączenia z aplikacjami klienckimi i aplikacjami sieci Web, [bibliotekami klienckimi biblioteki AMO i ADOMD](analysis-services-data-providers.md) w wersji 15.0.2 i wyższych, które mają być instalowalne, z poziomu `app:AppID` usług NuGet w `cert:thumbprint`parametrach połączenia przy użyciu następującej składni: i hasła lub. 
+Podczas nawiązywania połączenia z aplikacjami klienckimi i aplikacjami sieci Web, [bibliotekami klienckimi biblioteki AMO i ADOMD](analysis-services-data-providers.md) w wersji 15.0.2 i wyższych, które mają być instalowalne, z poziomu usług NuGet w parametrach połączenia przy użyciu następującej składni: `app:AppID` i hasła lub `cert:thumbprint` . 
 
 W poniższym przykładzie `appID` i `password` są używane do wykonywania operacji odświeżania bazy danych modelu:
 
@@ -110,4 +110,5 @@ db.Model.SaveChanges();
 
 ## <a name="next-steps"></a>Następne kroki
 [Zaloguj się przy użyciu Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps)   
-[Dodawanie jednostki usługi do roli administratora serwera](analysis-services-addservprinc-admins.md)   
+[Dodawanie jednostki usługi do roli administratora serwera](analysis-services-addservprinc-admins.md)  
+[Automatyzowanie Power BI Premium obszarów roboczych i zadań DataSet przy użyciu jednostek usługi](https://docs.microsoft.com/power-bi/admin/service-premium-service-principal) 

@@ -1,0 +1,70 @@
+### YamlMime:Landing
+title: Dokumentacja usługi Azure Static Web Apps
+summary: Usługa Azure Static Web Apps umożliwia tworzenie aplikacji internetowych w języku JavaScript, które są automatycznie publikowane na podstawie zmian wprowadzanych w serwisie GitHub.
+metadata:
+  title: Dokumentacja usługi Azure Static Web Apps
+  description: Usługa Azure Static Web Apps umożliwia tworzenie aplikacji internetowych w języku JavaScript, które są automatycznie publikowane na podstawie zmian wprowadzanych w serwisie GitHub.
+  ms.topic: landing-page
+  ms.service: static-web-apps
+  author: craigshoemaker
+  ms.author: cshoe
+  ms.date: 04/09/2020
+  ms.openlocfilehash: 8dd4f7420c4b58d621312f361beede1e48bc17b5
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+  ms.translationtype: HT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83593073"
+landingContent:
+- title: Informacje o usłudze Static Web Apps
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Co to jest usługa Azure Static Web Apps?
+      url: overview.md
+- title: Rozpoczęcie pracy
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Tworzenie pierwszej aplikacji Angular
+      url: /azure/static-web-apps/getting-started?tabs=angular
+    - text: Tworzenie pierwszej aplikacji React
+      url: /azure/static-web-apps/getting-started?tabs=react
+    - text: Tworzenie pierwszej aplikacji Vue
+      url: /azure/static-web-apps/getting-started?tabs=vue
+    - text: Tworzenie pierwszej aplikacji (bez platformy)
+      url: /azure/static-web-apps/getting-started?tabs=vanilla-javascript
+  - linkListType: learn
+    links:
+    - text: Publikowanie aplikacji w języku JavaScript i interfejsu API przy użyciu platformy Angular, React, Svelte lub Vue
+      url: /learn/modules/publish-app-service-static-web-app-api
+- title: Kluczowe pojęcia
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Trasy
+      url: routes.md
+    - text: Publiczne interfejsy API
+      url: apis.md
+    - text: Przygotowanie
+      url: review-publish-pull-requests.md
+    - text: Ograniczanie dostępu
+      url: authentication-authorization.md
+- title: Scenariusze publikowania
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Publikowanie z platformy Gatsby
+      url: publish-gatsby.md
+    - text: Publikowanie z platformy Hugo
+      url: publish-hugo.md
+    - text: Publikowanie z platformy VuePress
+      url: publish-vuepress.md
+    - text: Wdrażanie z platformy Next.js
+      url: deploy-nextjs.md
+    - text: Wdrażanie z platformy Nuxt.js
+      url: deploy-nuxtjs.md
+  - linkListType: learn
+    links:
+    - text: Publikowanie statycznej aplikacji internetowej za pomocą platformy Gatsby
+      url: /learn/modules/create-deploy-static-webapp-gatsby-app-service

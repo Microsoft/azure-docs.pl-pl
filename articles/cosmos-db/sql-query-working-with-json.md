@@ -4,14 +4,14 @@ description: Dowiedz się więcej na temat zapytań i dostępu do zagnieżdżony
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 05/19/2020
 ms.author: tisande
-ms.openlocfilehash: d0b11cdb0cf2719b576b7a4c4f3fa534ae09dfa8
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: a569b0122f9122b141b64ded21dbd9be1d766a41
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83117023"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699126"
 ---
 # <a name="working-with-json-in-azure-cosmos-db"></a>Praca z JSON w Azure Cosmos DB
 
@@ -148,13 +148,11 @@ Załóżmy na przykład, że dokument ma właściwość o nazwie `order` i Wła�
 ```json
 {
   "id": "AndersenFamily",
-  "order": [
-     {
+  "order": {
          "orderId": "12345",
          "productId": "A17849",
          "price($)": 59.33
-     }
-  ],
+   },
   "creationDate": 1431620472,
   "isRegistered": true
 }
@@ -265,7 +263,7 @@ Wyniki są następujące:
 
 Nie można użyć aliasu, aby zaprojektować wartość jako nazwę właściwości ze spacją, znakiem specjalnym lub słowem zastrzeżonym. Jeśli chcesz zmienić projekcję wartości na przykład, jeśli ma nazwę właściwości z spacją, możesz użyć [wyrażenia JSON](#json-expressions).
 
-Przykład:
+Oto przykład:
 
 ```sql
     SELECT

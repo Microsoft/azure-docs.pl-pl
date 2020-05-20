@@ -119,8 +119,6 @@
           href: global-dist-under-the-hood.md
         - name: Obecność regionalna
           href: regional-presence.md
-        - name: Magazyn transakcyjny i analityczny
-          href: globally-distributed-transactional-analytical-storage.md
     - name: Partycjonowanie
       items:
         - name: Omówienie partycjonowania
@@ -494,14 +492,16 @@
           href: change-feed-functions.md
         - name: Model ściągania zestawienia zmian
           href: change-feed-pull-model.md
-    - name: Globalnie dystrybuowana analiza i sztuczna inteligencja
+    - name: Analiza przy użyciu usługi Synapse Link
       items:
-        - name: Przypadki użycia analizy
-          href: analytics-usecases.md
-        - name: Analiza — architektury rozwiązań
-          href: analytics-solution-architectures.md
-        - name: Architektura lambda
-          href: lambda-architecture.md
+        - name: Usługa Synapse Link dla usługi Azure Cosmos DB
+          href: synapse-link.md
+        - name: Magazyn analityczny — omówienie
+          href: analytical-store-introduction.md
+        - name: Często zadawane pytania dotyczące usługi Synapse Link
+          href: synapse-link-frequently-asked-questions.md
+        - name: Przypadki użycia usługi Synapse Link
+          href: synapse-link-use-cases.md
     - name: Wbudowane notesy programu Jupyter
       items:
         - name: Omówienie notesów Jupyter
@@ -1020,6 +1020,10 @@
           href: how-to-migrate-from-change-feed-library.md
         - name: Zestawienie zmian — przykład asynchronicznej aplikacji Java
           href: create-sql-api-java-changefeed.md
+    - name: Analiza przy użyciu usługi Synapse Link
+      items:
+        - name: Konfigurowanie usługi Synapse Link
+          href: configure-synapse-link.md
     - name: Wbudowana analiza przy użyciu platformy Apache Spark
       items:
         - name: Łącznik platformy Azure Spark w usłudze Azure Databricks

@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: d54506b94f076f0a3d967f88bd4e2960a1ca6396
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ef7824640dcd2b9dbae1d27f385e5334ba9875ff
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75530905"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699223"
 ---
 # <a name="troubleshoot-data-loss-in-azure-cache-for-redis"></a>Rozwiązywanie problemów z utratą danych w usłudze Azure Cache for Redis
 
@@ -36,9 +36,9 @@ Jeśli okaże się, że klucze zniknęły z pamięci podręcznej, należy sprawd
 
 ### <a name="key-expiration"></a>Wygaśnięcie klucza
 
-Usługa Azure cache for Redis usuwa klucz automatycznie, jeśli klucz ma przypisany limit czasu i ten okres został zakończony. Więcej informacji o wygaśnięciu klucza Redis można znaleźć w dokumentacji polecenia [wygasania](https://redis.io/commands/expire) . Wartości limitu czasu można również ustawić za pomocą poleceń [Set](https://redis.io/commands/set), [SETEX](https://redis.io/commands/setex), [GetSet](https://redis.io/commands/getset)i other ** \*Store** .
+Usługa Azure cache for Redis usuwa klucz automatycznie, jeśli klucz ma przypisany limit czasu i ten okres został zakończony. Więcej informacji o wygaśnięciu klucza Redis można znaleźć w dokumentacji polecenia [wygasania](https://redis.io/commands/expire) . Wartości limitu czasu można również ustawić za pomocą poleceń [Set](https://redis.io/commands/set), [SETEX](https://redis.io/commands/setex), [GetSet](https://redis.io/commands/getset)i other ** \* Store** .
 
-Aby uzyskać statystyki dotyczące liczby wygasłych kluczy, użyj polecenia [info](https://redis.io/commands/info) . `Stats` Sekcja zawiera łączną liczbę wygasłych kluczy. `Keyspace` Sekcja zawiera więcej informacji o liczbie kluczy z limitami czasu i średnim limitem czasu.
+Aby uzyskać statystyki dotyczące liczby wygasłych kluczy, użyj polecenia [info](https://redis.io/commands/info) . `Stats`Sekcja zawiera łączną liczbę wygasłych kluczy. `Keyspace`Sekcja zawiera więcej informacji o liczbie kluczy z limitami czasu i średnim limitem czasu.
 
 ```
 # Stats
@@ -80,7 +80,7 @@ cmdstat_hdel:calls=1,usec=47,usec_per_call=47.00
 
 ### <a name="async-replication"></a>Replikacja asynchroniczna
 
-Wszystkie wystąpienia usługi Azure cache for Redis w warstwie Standardowa lub Premium są skonfigurowane z węzłem głównym i co najmniej jedną repliką. Dane są kopiowane z serwera głównego do repliki asynchronicznie przy użyciu procesu w tle. W witrynie sieci Web [Redis.IO](https://redis.io/topics/replication) opisano, jak działa replikacja danych Redis. W przypadku scenariuszy, w których klienci zapisują w Redis często, częściowe utrata danych może wystąpić, ponieważ ta replikacja gwarantuje chwilę. Jeśli na przykład serwer główny ulegnie awarii *po* zapisaniu przez klienta klucza do niego, ale *zanim* proces w tle będzie miał szansę na wysłanie tego klucza do repliki, klucz zostanie utracony, gdy replika przejmuje jako nowy wzorzec.
+Wszystkie wystąpienia usługi Azure cache for Redis w warstwie Standardowa lub Premium są skonfigurowane z węzłem głównym i co najmniej jedną repliką. Dane są kopiowane z serwera głównego do repliki asynchronicznie przy użyciu procesu w tle. W witrynie sieci Web [Redis.IO](https://redis.io/topics/replication) opisano, jak działa replikacja danych Redis. W przypadku scenariuszy, w których klienci zapisują Redis często, częściowe utrata danych może wystąpić, ponieważ ta replikacja nie ma gwarancji natychmiastowej. Jeśli na przykład serwer główny ulegnie awarii *po* zapisaniu przez klienta klucza do niego, ale *zanim* proces w tle będzie miał szansę na wysłanie tego klucza do repliki, klucz zostanie utracony, gdy replika przejmuje jako nowy wzorzec.
 
 ## <a name="major-or-complete-loss-of-keys"></a>Główna lub pełna utrata kluczy
 
@@ -94,7 +94,7 @@ Jeśli większość lub wszystkie klucze zniknęły z pamięci podręcznej, nale
 
 ### <a name="key-flushing"></a>Opróżnianie klucza
 
-Klienci mogą wywołać polecenie [FLUSHDB](https://redis.io/commands/flushdb) , aby usunąć wszystkie klucze w *pojedynczej* bazie danych lub [FLUSHALL](https://redis.io/commands/flushall) , aby usunąć wszystkie klucze ze *wszystkich* baz danych w pamięci podręcznej Redis. Aby dowiedzieć się, czy klucze zostały opróżnione, użyj polecenia [info](https://redis.io/commands/info) . Sekcja `Commandstats` wskazuje, czy wywołano polecenie **Flush** :
+Klienci mogą wywołać polecenie [FLUSHDB](https://redis.io/commands/flushdb) , aby usunąć wszystkie klucze w *pojedynczej* bazie danych lub [FLUSHALL](https://redis.io/commands/flushall) , aby usunąć wszystkie klucze ze *wszystkich* baz danych w pamięci podręcznej Redis. Aby dowiedzieć się, czy klucze zostały opróżnione, użyj polecenia [info](https://redis.io/commands/info) . `Commandstats`Sekcja wskazuje, czy wywołano polecenie **Flush** :
 
 ```
 # Commandstats

@@ -1,31 +1,28 @@
 ---
 title: Tworzenie oferty kontenera platformy Azure — Azure Marketplace
-description: W tym artykule wyjaśniono, jak utworzyć i opublikować ofertę kontenera w witrynie Azure Marketplace.
+description: Dowiedz się, jak utworzyć i opublikować ofertę kontenera w witrynie Azure Marketplace.
 author: mingshen
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/07/2020
-ms.openlocfilehash: f2a3b6355fdaa8cd90525fac9d29324270dfad02
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.date: 05/19/2020
+ms.openlocfilehash: 75baddbefc2babf73fee18cafe07177a3f0fb6f2
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791939"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701031"
 ---
 # <a name="create-an-azure-container-offer"></a>Tworzenie oferty kontenera platformy Azure
-
-> [!IMPORTANT]
-> Przenosimy zarządzanie ofertami kontenerów platformy Azure z portal Cloud Partner do Centrum partnerskiego. Dopóki Twoje oferty nie zostaną zmigrowane, postępuj zgodnie z instrukcjami w temacie [Containers](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/containers/cpp-containers-offer) for Portal Cloud partner, aby zarządzać ofertami.
 
 W tym artykule opisano sposób tworzenia i publikowania oferty kontenera dla portalu Azure Marketplace. Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) , jeśli jeszcze tego nie zrobiono. Upewnij się, że Twoje konto jest zarejestrowane w komercyjnym programie Marketplace.
 
 ## <a name="create-a-new-offer"></a>Tworzenie nowej oferty
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
-2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace** > **Overview**.
-3. Na stronie Przegląd wybierz pozycję **+ nowy oferta** > **platformy Azure**.
+2. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
+3. Na stronie Przegląd wybierz pozycję **+ nowy oferta**  >  **platformy Azure**.
 
     ![Ilustruje menu nawigacji po lewej stronie.](./media/new-offer-azure-container.png)
 
@@ -37,7 +34,7 @@ W tym artykule opisano sposób tworzenia i publikowania oferty kontenera dla por
 Wprowadź **Identyfikator oferty**. To jest unikatowy identyfikator dla każdej oferty na Twoim koncie.
 
 - Ten identyfikator jest widoczny dla klientów w adresie sieci Web dla ofert i szablonów Azure Resource Manager, jeśli ma zastosowanie.
-- Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczone do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1**, adres sieci Web oferty będzie wynosić `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczone do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1**, adres sieci Web oferty będzie wynosić `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
 - Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz**.
 
 Wprowadź **alias oferty**. Jest to nazwa używana dla oferty w centrum partnerskim.
@@ -51,7 +48,7 @@ Wybierz pozycję **Utwórz** , aby wygenerować ofertę i kontynuować.
 
 Na stronie **Przegląd oferty** przedstawiono wizualną reprezentację kroków wymaganych do opublikowania oferty (zarówno ukończonej, jak i nadchodzącej) oraz czasu, w którym należy wykonać poszczególne kroki.
 
-Ta strona zawiera różne linki w zależności od bieżącego stanu oferty. Przykład:
+Ta strona zawiera różne linki w zależności od bieżącego stanu oferty. Na przykład:
 
 - Jeśli oferta jest ofertą typu wersja robocza, [Usuń wersję roboczą](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
 - Jeśli oferta jest aktywna [, Zatrzymaj sprzedawanie oferty](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)
@@ -68,12 +65,12 @@ Po opublikowaniu oferty na komercyjnym rynku w centrum partnerskim można połą
 
 1. **Wybierz miejsce docelowe potencjalnego klienta, na którym chcesz wysłać klientów**. Centrum partnerskie obsługuje następujące systemy CRM:
 
-- [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) dla zaangażowania klienta
-- [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-- [SalesForce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+   - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) dla zaangażowania klienta
+   - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
+   - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
 
-> [!NOTE]
-> Jeśli system CRM nie jest wymieniony powyżej, użyj [tabeli platformy Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) lub [punktu końcowego HTTPS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) do przechowywania danych potencjalnych klientów, a następnie wyeksportuj dane do systemu CRM.
+   > [!NOTE]
+   > Jeśli system CRM nie jest wymieniony powyżej, użyj [tabeli platformy Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) lub [punktu końcowego HTTPS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) do przechowywania danych potencjalnych klientów, a następnie wyeksportuj dane do systemu CRM.
 
 2. Połącz ofertę z miejscem docelowym potencjalnego klienta podczas publikowania w centrum partnerskim.
 3. Upewnij się, że połączenie z miejscem docelowym potencjalnego klienta zostało skonfigurowane prawidłowo. Po opublikowaniu go w centrum partnerskim sprawdzimy połączenie i wyślesz potencjalnego klienta. Podczas wyświetlania podglądu oferty przed jej rozpoczęciem możesz również przetestować połączenie z liderem, próbując zakupić ofertę samodzielnie w środowisku wersji zapoznawczej.
@@ -149,40 +146,11 @@ Bardziej szczegółowy opis oferty. Może to być maksymalnie 256 znaków i jest
 
 ### <a name="description"></a>Opis
 
-Podaj dłuższy opis oferty, do 3 000 znaków. Ten komunikat jest wyświetlany klientom w przeglądzie oferty w portalu Marketplace.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-W opisie Uwzględnij co najmniej jeden z następujących elementów:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-- Wartość i klucz korzyści oferowanych przez Twoją ofertę
-- Skojarzenia kategorii lub branżowych
-- Szanse zakupu w aplikacji
-- Wszelkie wymagane ujawnienie
-
-Oto kilka porad dotyczących pisania opisu:
-
-- Jasno opisz wartość oferty w pierwszych kilku zdaniach opisu. Uwzględnij następujące elementy:
-  - Opis oferty.
-  - Typ użytkownika, który przynosi korzyści z oferty
-  - Klienci potrzebują lub wystawiają adresy oferty.
-- Należy pamiętać, że pierwsze niektóre zdania mogą być wyświetlane w wynikach wyszukiwania.
-- Nie opieraj się na funkcjach i funkcjach, aby sprzedawać swój produkt. Zamiast tego należy skoncentrować się na wartości, którą oferuje oferta.
-- Spróbuj użyć tekstów specyficznych dla branżowych lub opartych na korzyściach.
-
-Aby zwiększyć atrakcyjność **opisu** oferty, użyj edytora tekstu sformatowanego w celu sformatowania opisu. przy użyciu numeracji, punktorów, pogrubienia, kursywy i wcięć, aby zwiększyć czytelność opisu.
-
-:::image type="content" source="media/text-editor2.png" alt-text="Ilustruje Edytor tekstu sformatowanego." border="false" :::
-
-- Użyj tej listy rozwijanej, aby zastosować styl akapitu do tekstu.
-
-    :::image type="content" source="media/text-editor3.png" alt-text="Ilustruje formant stylu tekstu w edytorze tekstu sformatowanego." border="false":::
-
-- Te ikony służą do stosowania numeracji lub punktorów do tekstu.
-
-     :::image type="content" source="media/text-editor4.png" alt-text="Ilustruje kontrolki listy punktowanej i liczbowej w edytorze tekstu sformatowanego." border="false":::
-
-- Te ikony służą do dodawania lub usuwania wcięć z tekstu.
-
-    :::image type="content" source="media/text-editor5.png" alt-text="Ilustruje kontrolki wcięcia w edytorze tekstu sformatowanego." border="false":::
+[!INCLUDE [Long description-3](./includes/long-description-3.md)]
 
 #### <a name="privacy-policy-link"></a>Link zasad ochrony prywatności
 
@@ -390,11 +358,11 @@ Podaj poniższe informacje na karcie **szczegóły repozytorium obrazów** .
 
  :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Ilustruje okno dialogowe Aktualizowanie rejestru kontenerów.":::
 
-**Hasło dla Azure Container Registry** — Podaj hasło dla nazwy użytkownika administratora, która jest skojarzona z Azure Container Registry i ma obraz kontenera. Aby zapewnić firmie dostęp do rejestru, należy podać nazwę użytkownika i hasło. Hasło można uzyskać z Azure Portal, przechodząc do **Container Registry** > **kluczy dostępu** lub za pomocą interfejsu wiersza polecenia platformy Azure przy użyciu narzędzia [show](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show).
+**Hasło dla Azure Container Registry** — Podaj hasło dla nazwy użytkownika administratora, która jest skojarzona z Azure Container Registry i ma obraz kontenera. Aby zapewnić firmie dostęp do rejestru, należy podać nazwę użytkownika i hasło. Hasło można uzyskać z Azure Portal, przechodząc do **Container Registry**  >  **kluczy dostępu** lub za pomocą interfejsu wiersza polecenia platformy Azure przy użyciu narzędzia [show](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show).
 
 :::image type="content" source="media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Ilustruje menu klucz dostępu.":::
 
-**Nazwa repozytorium w Azure Container Registry**. Podaj nazwę repozytorium Azure Container Registry, w którym znajduje się obraz. Dołącz nazwę repozytorium podczas wypychania obrazu do rejestru. Nazwę repozytorium można znaleźć, przechodząc do strony**repozytoria** [Container Registry](https://azure.microsoft.com/services/container-registry/) > . Aby uzyskać więcej informacji, zobacz [Wyświetlanie repozytoriów rejestru kontenerów w Azure Portal](https://docs.microsoft.com/azure/container-registry/container-registry-repositories).
+**Nazwa repozytorium w Azure Container Registry**. Podaj nazwę repozytorium Azure Container Registry, w którym znajduje się obraz. Dołącz nazwę repozytorium podczas wypychania obrazu do rejestru. Nazwę repozytorium można znaleźć, przechodząc do [Container Registry](https://azure.microsoft.com/services/container-registry/)  >  strony**repozytoria** Container Registry. Aby uzyskać więcej informacji, zobacz [Wyświetlanie repozytoriów rejestru kontenerów w Azure Portal](https://docs.microsoft.com/azure/container-registry/container-registry-repositories).
 
 > [!NOTE]
 > Po ustawieniu nazwy nie można jej zmienić. Użyj unikatowej nazwy dla każdej oferty na koncie.
@@ -407,7 +375,7 @@ Po opublikowaniu aktualizacji klienci muszą mieć możliwość automatycznego p
 
 To pole musi zawierać **najnowszy** tag wskazujący na najnowszą wersję obrazu na wszystkich obsługiwanych platformach. Musi on również zawierać tag Version (na przykład, zaczynając od XX. XX. XX, gdzie XX jest liczbą). Klienci powinni używać [tagów manifestu](https://github.com/estesp/manifest-tool) , aby docelowa była wiele platform. Wszystkie Tagi, do których odwołuje się tag manifestu, również muszą zostać dodane, aby można było je przekazać.
 
-Wszystkie Tagi manifestu (z wyjątkiem najnowszego tagu) muszą zaczynać się od X **-** . y lub x. y. Z-gdzie x, y i Z są liczbami całkowitymi. Na przykład jeśli **najnowszy** tag wskazuje na 1.0.1-Linux-x64, 1.0.1-Linux-arm32 i 1.0.1-Windows-arm32, te sześć tagów należy dodać do tego pola. Aby uzyskać szczegółowe informacje, zobacz [Przygotowywanie zasobów technicznych kontenera platformy Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-technical-assets).
+Wszystkie Tagi manifestu (z wyjątkiem najnowszego tagu) muszą zaczynać się od X. Y **-** lub x. y. Z-gdzie x, y i Z są liczbami całkowitymi. Na przykład jeśli **najnowszy** tag wskazuje na 1.0.1-Linux-x64, 1.0.1-Linux-arm32 i 1.0.1-Windows-arm32, te sześć tagów należy dodać do tego pola. Aby uzyskać szczegółowe informacje, zobacz [Przygotowywanie zasobów technicznych kontenera platformy Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-container-technical-assets).
 
 > [!NOTE]
 > Pamiętaj, aby dodać tag testowy do obrazu, aby można było zidentyfikować obraz podczas testowania.

@@ -5,14 +5,14 @@ author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 05/20/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 06e5a1a7b107f949dbb4945ef4d3116b9fa6d076
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d7408f3b3e955d397ba4a54d07323f80dd72c3d3
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656604"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697346"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Odczytywanie zestawienia zmian w usłudze Azure Cosmos DB
 
@@ -20,7 +20,7 @@ Możesz współpracować ze źródłem zmian Azure Cosmos DB, korzystając z mod
 
 W modelu ściągania serwer żąda działania, często żąda go od centralnej kolejki roboczej. Klient w tym przypadku nie tylko ma logikę biznesową do przetwarzania zmian, ale również zapisuje stan dla ostatnio przetworzonej zmiany, obsługując Równoważenie obciążenia na wielu klientach przetwarzających zmiany równolegle i obsługują błędy.
 
-Podczas odczytywania ze źródła zmian Azure Cosmos DB, Używanie modelu wypychania jest zwykle zalecane, ponieważ nie trzeba martwić się o:
+Podczas odczytywania ze źródła zmian Azure Cosmos DB zwykle zalecamy korzystanie z modelu wypychania, ponieważ nie trzeba martwić się o:
 
 - Sondowanie źródła zmian pod kątem przyszłych zmian.
 - Przechowywanie stanu dla ostatnio przetworzonej zmiany. Podczas odczytywania ze źródła zmian jest on automatycznie przechowywany w [kontenerze dzierżawy](change-feed-processor.md#components-of-the-change-feed-processor).

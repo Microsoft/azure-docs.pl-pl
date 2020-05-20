@@ -6,12 +6,12 @@ author: mamccrea
 ms.author: mamccrea
 ms.topic: conceptual
 ms.date: 01/29/2020
-ms.openlocfilehash: 73905483850a47a9d036bef1b9e1ee60d3484555
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d68c36e7d6603cb8cdc906ad2a0280094e6e0e5
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77484591"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698261"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Analizowanie danych JSON i Avro w Azure Stream Analytics
 
@@ -19,7 +19,8 @@ Azure Stream Analytics obsługiwać zdarzenia przetwarzania w formatach danych C
 
 >[!NOTE]
 >Pliki AVRO utworzone przez funkcję przechwytywania centrum zdarzeń używają określonego formatu, który wymaga użycia funkcji *deserializacji niestandardowej* . Aby uzyskać więcej informacji, zobacz [odczytywanie danych wejściowych w dowolnym formacie za pomocą deserializatorów niestandardowych platformy .NET](https://docs.microsoft.com/azure/stream-analytics/custom-deserializer-examples).
-
+>
+>Deserializacja Stream Analytics AVRO nie obsługuje typu mapy. Stream Analytics nie może odczytać obiektów BLOB przechwytywania funkcji EventHub, ponieważ funkcja przechwytywania EventHub używa map.
 
 
 ## <a name="record-data-types"></a>Rejestruj typy danych
@@ -69,7 +70,7 @@ Wynik:
 
 
 ### <a name="select-all-properties"></a>Zaznacz wszystkie właściwości
-Można wybrać wszystkie właściwości zagnieżdżonego rekordu przy użyciu symbolu wieloznacznego "*". Rozważmy następujący przykład:
+Można wybrać wszystkie właściwości zagnieżdżonego rekordu przy użyciu symbolu wieloznacznego "*". Rozpatrzmy następujący przykład:
 
 ```SQL
 SELECT

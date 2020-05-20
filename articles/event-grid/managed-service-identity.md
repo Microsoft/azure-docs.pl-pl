@@ -1,5 +1,5 @@
 ---
-title: Przekazywanie zdarzeń Azure Event Grid subskrypcji przy użyciu tożsamości usługi zarządzanej
+title: Dostarczanie zdarzeń przy użyciu tożsamości usługi zarządzanej
 description: W tym artykule opisano sposób włączania tożsamości usługi zarządzanej w temacie Azure Event Grid. Służy do przekazywania zdarzeń do obsługiwanych miejsc docelowych.
 services: event-grid
 author: spelluru
@@ -7,14 +7,14 @@ ms.service: event-grid
 ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 0e1f46c0bd7ce22cae77db1a524336445fd3f795
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 4d96f28b98cccada2ac5c77589acc6df1430bb02
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83691026"
+ms.locfileid: "83700657"
 ---
-# <a name="enable-and-use-managed-service-identity-for-an-event-grid-topic-or-domain"></a>Włączanie i używanie tożsamości usługi zarządzanej dla tematu lub domeny siatki zdarzeń 
+# <a name="event-delivery-with-managed-identity"></a>Dostarczanie zdarzeń przy użyciu tożsamości zarządzanej
 W tym artykule opisano sposób włączania [tożsamości usługi zarządzanej](../active-directory/managed-identities-azure-resources/overview.md) dla tematu lub domeny w usłudze Event Grid. Służy do przekazywania zdarzeń do obsługiwanych miejsc docelowych, takich jak kolejki Service Bus i tematy, Centra zdarzeń i konta magazynu.
 
 Poniżej przedstawiono kroki, które są szczegółowo omówione w tym artykule:

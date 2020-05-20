@@ -3,12 +3,12 @@ title: Usługa Azure Service Fabric diagnozowanie typowych scenariuszy
 description: Dowiedz się więcej na temat rozwiązywania typowych scenariuszy monitorowania i diagnostyki w aplikacjach Service Fabric platformy Azure.
 ms.topic: article
 ms.date: 02/25/2019
-ms.openlocfilehash: 3c7f027bad71d48db5fba002f778f23db8225fa5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bc17f00dc46c6e995d18621353c8f10cacf7759c
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76906953"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697686"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnozuj typowe scenariusze za pomocą Service Fabric
 
@@ -45,7 +45,7 @@ Rozwiązania w tym artykule będą korzystać z następujących narzędzi. Zalec
 1. W tym samym zasobie Application Insights można filtrować według "żądań" zamiast wyjątków i wyświetlać wszystkie żądania
 2. W przypadku korzystania z zestawu SDK Service Fabric Application Insights można zobaczyć wizualną reprezentację Twoich usług, a także liczbę żądań zakończonych powodzeniem i niepowodzeniem. Po lewej stronie kliknij pozycję "Mapa aplikacji".
 
-    ![Mapa aplikacji w bloku](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png) ![mapy aplikacji AI](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
+    ![Mapa aplikacji w bloku mapy aplikacji AI ](media/service-fabric-diagnostics-common-scenarios/app-map-blade.png) ![](media/service-fabric-diagnostics-common-scenarios/app-map-new.png)
 
     Aby uzyskać więcej informacji na temat mapy aplikacji, zapoznaj się z [dokumentacją mapy aplikacji](../azure-monitor/app/app-map.md)
 
@@ -133,7 +133,7 @@ Sprawdź te linki, aby uzyskać pełną listę liczników wydajności dla niezaw
 ## <a name="next-steps"></a>Następne kroki
 
 * [Wyszukaj typowe błędy aktywacji pakietu kodu](./service-fabric-diagnostics-code-package-errors.md)
-* [Konfigurowanie alertów w programie AI](../azure-monitor/app/alerts.md) do powiadamiania o zmianach wydajności lub użycia
+* [Konfigurowanie alertów w programie AI](/azure/azure-monitor/platform/alerts-log) do powiadamiania o zmianach wydajności lub użycia
 * [Inteligentne wykrywanie w Application Insights](../azure-monitor/app/proactive-diagnostics.md) wykonuje aktywną analizę danych telemetrycznych wysyłanych do systemu AI w celu ostrzegania o potencjalnych problemach z wydajnością
 * Dowiedz się więcej o dziennikach Azure Monitor [alerty](../log-analytics/log-analytics-alerts.md) w celu ułatwienia wykrywania i diagnostyki.
 * W przypadku klastrów lokalnych dzienniki Azure Monitor oferują bramę (serwer proxy przesyłania dalej HTTP), za pomocą której można wysyłać dane do dzienników Azure Monitor. Dowiedz się więcej na temat [łączenia komputerów bez dostępu do Internetu do dzienników Azure monitor przy użyciu bramy log Analytics](../azure-monitor/platform/gateway.md)

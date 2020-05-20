@@ -1,0 +1,75 @@
+- name: Dokumentacja usługi SQL Edge
+  href: index.yml
+- name: Omówienie
+  items:
+    - name: Co to jest usługa SQL Edge?
+      href: overview.md
+    - name: Obsługiwane wersje i funkcje
+      href: features.md
+- name: Przewodniki Szybki start
+  expanded: true
+  items:
+    - name: Wdrażanie usługi SQL Edge
+      href: deploy-portal.md
+    - name: Wdrażanie modeli ONNX w usłudze SQL Edge
+      href: deploy-onnx.md
+- name: Samouczki
+  items:
+    - name: Synchronizowanie danych za pomocą usługi Azure Data Factory
+      href: tutorial-sync-data-factory.md
+    - name: Synchronizowanie danych za pomocą usługi SQL Data Sync
+      href: tutorial-sync-data-sync.md
+    - name: Tworzenie kompleksowego rozwiązania IoT przy użyciu usługi SQL Edge
+      items:
+        - name: Konfigurowanie zasobów platformy Azure
+          href: tutorial-deploy-azure-resources.md
+        - name: Konfigurowanie modułów usługi IoT Edge
+          href: tutorial-set-up-iot-edge-modules.md
+        - name: Wdrażanie modelu w usłudze SQL Edge
+          href: tutorial-run-ml-model-on-sql-edge.md
+- name: Instrukcje
+  items:
+    - name: Pakiety DAC i zadania usługi Stream Analytics
+      href: stream-analytics.md
+    - name: Konfigurowanie replikacji
+      href: configure-replication.md
+    - name: Śledzenie zmian danych
+      href: track-data-changes.md
+    - name: Zarządzanie zadaniami przesyłania strumieniowego T-SQL
+      href: create-stream-analytics-job.md
+    - name: Nawiązywanie połączenia z usługą SQL Edge
+      href: connect.md
+    - name: Konfigurowanie usługi SQL Edge
+      href: configure.md
+    - name: Wdrażanie pakietu aplikacji warstwy danych
+      href: deploy-dacpac.md
+- name: Pojęcia
+  items:
+    - name: Uczenie maszynowe i sztuczna inteligencja z użyciem formatu ONNX
+      href: onnx-overview.md
+    - name: Tworzenie kopii zapasowej i przywracanie
+      href: backup-restore.md
+    - name: Przesyłanie strumieniowe danych w usłudze SQL Edge
+      items:
+        - name: Strumieniowe przesyłanie danych
+          href: stream-data.md
+        - name: Tworzenie strumienia zewnętrznego (Transact-SQL)
+          href: create-external-stream-transact-sql.md
+        - name: Zmienianie strumienia zewnętrznego (Transact-SQL)
+          href: alter-external-stream-transact-sql.md
+        - name: Usuwanie strumienia zewnętrznego (Transact-SQL)
+          href: drop-external-stream-transact-sql.md
+        - name: Widoki przesyłania strumieniowego i dynamiczne widoki zarządzania
+          items:
+            - name: Widoki przesyłania strumieniowego i dynamiczne widoki zarządzania
+              href: streaming-catalog-views.md
+            - name: sys.external_job_streams (Transact-SQL)
+              href: sys-external-job-streams.md
+            - name: sys.external-streaming_jobs (Transact-SQL)
+              href: sys-external-streaming-jobs.md
+            - name: sys.external_streams (Transact-SQL)
+              href: sys-external-streams.md
+    - name: Przetwarzanie danych szeregów czasowych
+      items:
+        - name: Date_Bucket (Transact-SQL)
+          href: date-bucket-tsql.md

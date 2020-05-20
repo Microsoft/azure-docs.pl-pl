@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: ed2638cfe4ab7e849e428729ccd17ffdeb6314af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 858dfa8282a06feab877bcea65de47b8455133dc
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82086355"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697308"
 ---
 # <a name="development-best-practices-for-synapse-sql"></a>Najlepsze rozwiązania dotyczące programowania Synapse SQL
 W tym artykule opisano wskazówki i najlepsze rozwiązania w zakresie tworzenia rozwiązań magazynu danych. 
@@ -154,7 +154,7 @@ W związku z tym osiągniesz lepszą wydajność. Aby uzyskać więcej informacj
 
 Jeśli dane w magazynie nie są partycjonowane, rozważ ich partycjonowanie, aby można było używać tych funkcji do optymalizowania zapytań przeznaczonych dla tych plików.
 
-Podczas [wykonywania zapytania dotyczącego partycjonowanych tabel platformy Spark](develop-storage-files-spark-tables.md) z poziomu bazy danych SQL na żądanie zapytanie będzie automatycznie dotyczyć tylko plików wymaganych.
+Podczas [wykonywania zapytania dotyczącego Apache Spark partycjonowania dla tabel zewnętrznych platformy Azure Synapse](develop-storage-files-spark-tables.md) z bazy danych SQL na żądanie, zapytanie będzie automatycznie kierować tylko pliki, które są zbędne.
 
 ### <a name="use-cetas-to-enhance-query-performance-and-joins"></a>Korzystanie z CETAS w celu zwiększenia wydajności zapytań i sprzężeń
 

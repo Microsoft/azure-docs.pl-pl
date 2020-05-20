@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 66b325eb1d268fdd5b1052a0da84c603186edf65
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: bbe0a0b7f22df20c8ce3d734738132b5056a36e4
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83589503"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697079"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Konfigurowanie laboratorium do uczenia skryptów powłoki w systemie Linux
 W tym artykule opisano sposób konfigurowania laboratorium do uczenia skryptów powłoki w systemie Linux. Obsługa skryptów jest przydatną częścią administrowania systemem, która umożliwia administratorom uniknięcie powtarzających się zadań. W tym przykładowym scenariuszu Klasa obejmuje tradycyjne skrypty bash oraz ulepszone skrypty. Ulepszone skrypty to skrypty, które łączą bash polecenia i Ruby. Takie podejście umożliwia używanie języka Ruby do przekazywania danych wokół i bash poleceń w celu współdziałania z powłoką. 
@@ -39,12 +39,11 @@ Postępuj zgodnie z [tym samouczkiem](tutorial-setup-classroom-lab.md) , aby utw
 | Ustawienia laboratorium | Wartość/instrukcje | 
 | ------------ | ------------------ |
 | Rozmiar maszyny wirtualnej (VM) | Mały  |
-| Obraz maszyny wirtualnej | Ubuntu Server 18,04 LTS |
-| Włącz Podłączanie pulpitu zdalnego | Włącz. <p>Włączenie tego ustawienia umożliwi nauczycielom i uczniom łączenie się z maszynami wirtualnymi przy użyciu pulpitu zdalnego (RDP). Aby uzyskać więcej informacji, zobacz [Włączanie maszyn wirtualnych pulpitu zdalnego dla systemu Linux w laboratorium w Azure Lab Services](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm). </p>|
+| Obraz maszyny wirtualnej | Ubuntu Server 18,04 LTS|
+| Włącz Podłączanie pulpitu zdalnego | Włącz. <p>Włączenie tego ustawienia umożliwi nauczycielom i uczniom łączenie się z maszynami wirtualnymi przy użyciu pulpitu zdalnego (RDP). Aby uzyskać więcej informacji, zobacz [Włączanie maszyn wirtualnych pulpitu zdalnego dla systemu Linux w laboratorium w Azure Lab Services](how-to-enable-remote-desktop-linux.md). </p>|
 
-
-## <a name="install-desktop-and-xrdp"></a>Zainstaluj program Desktop i xrdp
-Na obrazie LTS serwera Ubuntu Server 18,04 nie jest zainstalowany serwer pulpitu zdalnego. Postępuj zgodnie z instrukcjami podanymi w artykule [Instalowanie i konfigurowanie pulpit zdalny, aby nawiązać połączenie z maszyną wirtualną z systemem Linux w systemie Azure](../../virtual-machines/linux/use-remote-desktop.md) , aby zainstalować pakiety, które są konieczne na komputerze szablonu, aby połączyć się za pośrednictwem protokołu RDP.
+## <a name="install-desktop-and-rdp"></a>Zainstaluj program Desktop i protokół RDP
+Na obrazie LTS serwera Ubuntu Server 18,04 nie jest zainstalowany serwer pulpitu zdalnego RDP. Postępuj zgodnie z instrukcjami podanymi w artykule [Instalowanie i konfigurowanie pulpit zdalny, aby nawiązać połączenie z maszyną wirtualną z systemem Linux w systemie Azure](../../virtual-machines/linux/use-remote-desktop.md) , aby zainstalować pakiety, które są konieczne na komputerze szablonu do łączenia się za pośrednictwem protokołu RDP (Remote Desktop Protocol).
 
 ## <a name="install-ruby"></a>Instalowanie języka Ruby
 Ruby to dynamiczny język, który może być połączony ze skryptami bash. W tej sekcji pokazano, jak `apt-get` zainstalować najnowszą wersję języka [Ruby](https://www.ruby-lang.org/).

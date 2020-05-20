@@ -9,12 +9,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 1/15/2020
-  ms.openlocfilehash: 852a01416b52c6a7b98c3b4883210749bf3cc509
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: b3e986c67c55af467ea6534dd7484a307ec08227
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "80132443"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83589265"
 landingContent:
 - title: Azure Maps — informacje
   linkLists:
@@ -56,6 +56,36 @@ landingContent:
       url: how-to-manage-pricing-tier.md
     - text: Wyświetlanie metryk użycia interfejsu API usługi Azure Maps
       url: how-to-view-api-usage.md
+- title: Tworzenie zawartości przy użyciu kreatora
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Pojęcia dotyczące planów wnętrz
+      url: creator-indoor-maps.md
+  - linkListType: tutorial
+    links:
+    - text: Tworzenie danych planów wnętrz przy użyciu kreatora
+      url: tutorial-creator-indoor-maps.md
+  - linkListType: how-to-guide
+    links:
+    - text: Zarządzanie planami wnętrz kreatora
+      url: how-to-manage-creator.md
+    - text: Implementowanie dynamicznego określania stylów dla planów wnętrz
+      url: indoor-map-dynamic-styling.md
+    - text: Korzystanie z wizualizatora błędów rysunków w usłudze Azure Maps
+      url: drawing-error-visualizer.md
+    - text: Korzystanie z modułu planów wnętrz
+      url: how-to-use-indoor-module.md
+  - linkListType: reference
+    links:
+    - text: Usługa konwersji
+      url: https://docs.microsoft.com/rest/api/maps/conversion
+    - text: Usługa zestawów danych
+      url: https://docs.microsoft.com/rest/api/maps/dataset
+    - text: Usługa zestawów fragmentów
+      url: https://docs.microsoft.com/rest/api/maps/tileset
+    - text: Usługa zestawów stanu funkcji
+      url: https://docs.microsoft.com/rest/api/maps/featurestate
 - title: Programowanie przy użyciu zestawu Web SDK
   linkLists:
   - linkListType: concept

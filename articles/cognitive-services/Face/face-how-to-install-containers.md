@@ -11,24 +11,24 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 74465bddb57c14af4d02c1d3bfdc46f3ac25bef3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bd1449501cdc9483621a5408a3a4926afe90212f
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80878548"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702156"
 ---
 # <a name="install-and-run-face-containers-preview"></a>Instalowanie i uruchamianie kontenerów z systemem (wersja zapoznawcza)
 
 Usługa Azure Cognitive Services twarz oferuje ustandaryzowany kontener systemu Linux dla platformy Docker, który wykrywa ludzkie twarze na obrazach. Identyfikuje także atrybuty, które obejmują dzielnice, takie jak nos i oczy, płeć, wiek i inne funkcje twarzy przewidziane dla maszyn. Oprócz wykrywania, twarz może sprawdzić, czy dwie twarze w tym samym obrazie lub różnych obrazach są takie same, przy użyciu oceny ufności. Twarz może również porównać twarze z bazą danych, aby sprawdzić, czy podobna lub identyczna twarz już istnieje. Może również organizować podobne twarze w grupy przy użyciu współużytkowanych cech wizualnych.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed użyciem kontenerów usługi Front Service należy spełnić następujące wymagania wstępne.
 
-|Wymagany|Przeznaczenie|
+|Wymagane|Przeznaczenie|
 |--|--|
 |Aparat platformy Docker| Aparat platformy Docker musi być zainstalowany na [komputerze-hoście](#the-host-computer). Platforma Docker udostępnia pakiety, które konfigurują środowisko platformy Docker w systemach [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) i [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Aby uzyskać podstawowe informacje na temat platformy Docker i kontenerów, zapoznaj się z artykułem [Docker overview](https://docs.docker.com/engine/docker-overview/) (Przegląd platformy Docker).<br><br> Program Docker musi być skonfigurowany tak, aby umożliwić kontenerom łączenie się z danymi rozliczeń i wysyłanie ich do platformy Azure. <br><br> W systemie Windows program Docker musi być również skonfigurowany do obsługi kontenerów systemu Linux.<br><br>|
 |Znajomość platformy Docker | Potrzebna jest podstawowa znajomość pojęć platformy Docker, takich jak rejestry, repozytoria, kontenery i obrazy kontenerów. Trzeba również znać podstawowe `docker` polecenia.| 
@@ -37,6 +37,8 @@ Przed użyciem kontenerów usługi Front Service należy spełnić następujące
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
 ## <a name="request-access-to-the-private-container-registry"></a>Zażądaj dostępu do rejestru kontenera prywatnego
+
+Wypełnij i prześlij [formularz żądania](https://aka.ms/VisionContainersPreview) , aby zażądać dostępu do kontenera. 
 
 [!INCLUDE [Request access to private container registry](../../../includes/cognitive-services-containers-request-access.md)]
 
@@ -55,7 +57,7 @@ W poniższej tabeli opisano minimalną i zalecaną liczbę rdzeni procesora CPU 
 * Każdy rdzeń musi mieć co najmniej 2,6 GHz lub szybszy.
 * Liczba transakcji na sekundę (TPS).
 
-Rdzeń i pamięć odpowiadają `--cpus` ustawieniom `--memory` i, które są używane jako część `docker run` polecenia.
+Rdzeń i pamięć odpowiadają `--cpus` `--memory` ustawieniom i, które są używane jako część `docker run` polecenia.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Pobierz obraz kontenera za pomocą docker pull
 
@@ -82,7 +84,7 @@ Gdy kontener znajduje się na [komputerze hosta](#the-host-computer), użyj nast
 
 ## <a name="run-the-container-with-docker-run"></a>Uruchamianie kontenera przy użyciu uruchomienia platformy Docker
 
-Użyj polecenia [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) , aby uruchomić kontener. Zapoznaj się z tematem [zbieranie wymaganych parametrów](#gathering-required-parameters) `{ENDPOINT_URI}` , aby uzyskać szczegółowe `{API_KEY}` informacje na temat sposobu pobierania wartości i.
+Użyj polecenia [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) , aby uruchomić kontener. Zapoznaj się z tematem [zbieranie wymaganych parametrów](#gathering-required-parameters) , aby uzyskać szczegółowe informacje na temat sposobu pobierania `{ENDPOINT_URI}` `{API_KEY}` wartości i.
 
 [Przykłady](face-resource-container-config.md#example-docker-run-commands) `docker run` polecenia są dostępne.
 
@@ -104,7 +106,7 @@ To polecenie:
 Więcej [przykładów](./face-resource-container-config.md#example-docker-run-commands) `docker run` polecenia jest dostępnych. 
 
 > [!IMPORTANT]
-> Aby `Eula`można `Billing`było uruchomić `ApiKey` kontener lub nie można uruchomić kontenera, należy określić opcje, i. Aby uzyskać więcej informacji, zobacz [rozliczenia](#billing).
+> `Eula` `Billing` `ApiKey` Aby można było uruchomić kontener lub nie można uruchomić kontenera, należy określić opcje, i. Aby uzyskać więcej informacji, zobacz [rozliczenia](#billing).
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
@@ -113,7 +115,7 @@ Więcej [przykładów](./face-resource-container-config.md#example-docker-run-co
 
 Kontener udostępnia interfejsy API punktu końcowego przewidywania zapytań. 
 
-Użyj hosta, `http://localhost:5000`, dla interfejsów API kontenerów.
+Użyj hosta, `http://localhost:5000` , dla interfejsów API kontenerów.
 
 
 <!--  ## Validate container is running -->

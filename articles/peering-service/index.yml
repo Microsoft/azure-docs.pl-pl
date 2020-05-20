@@ -1,8 +1,8 @@
 ### YamlMime:Landing
-title: Wersja zapoznawcza usługi Azure Peering Service
+title: Usługa Azure Peering Service
 summary: Dowiedz się więcej o usłudze Azure Peering Service
 metadata:
-  title: Dokumentacja wersji zapoznawczej usługi Azure Peering Service
+  title: Dokumentacja usługi Azure Peering Service
   description: Dowiedz się, jak wdrożyć połączenie usługi Peering Service i jak nim zarządzać
   services: peering-service
   ms.service: peering-service
@@ -10,13 +10,13 @@ metadata:
   ms.topic: landing-page
   author: ypitsch
   ms.author: ypitsch
-  ms.date: 11/04/2019
-  ms.openlocfilehash: edebc54be0a4ac96d7230e93d0c3bb20bc502cad
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.date: 05/18/2020
+  ms.openlocfilehash: 182f9dbb72f39a0489bb908d8ab315bdecaec7ec
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "76721238"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83586069"
 landingContent:
 - title: Peering Service — informacje
   linkLists:
@@ -34,7 +34,7 @@ landingContent:
       url: connection-telemetry.md
     - text: Dołączanie modelu
       url: onboarding-model.md
-- title: Wprowadzenie
+- title: Rozpoczęcie pracy
   linkLists:
   - linkListType: how-to-guide
     links:

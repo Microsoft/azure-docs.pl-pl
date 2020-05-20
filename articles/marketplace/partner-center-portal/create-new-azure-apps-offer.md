@@ -6,17 +6,17 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/03/2020
-ms.openlocfilehash: 22d6c37b59488633394d7f3ed5ca5b0c78371e7d
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.date: 05/19/2020
+ms.openlocfilehash: 55d544ecf6c96335ca65255e1af695f7757b818c
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790691"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699522"
 ---
 # <a name="create-an-azure-application-offer"></a>Tworzenie oferty aplikacji platformy Azure
 
-W tym artykule opisano kroki i zagadnienia dotyczące tworzenia nowej oferty aplikacji platformy Azure w portalu komercyjnym. Przed utworzeniem nowej oferty aplikacji platformy Azure należy zapoznać się z tymi koncepcjami. 
+W tym artykule opisano kroki i zagadnienia dotyczące tworzenia nowej oferty aplikacji platformy Azure w portalu komercyjnym. Przed utworzeniem nowej oferty aplikacji platformy Azure należy zapoznać się z tymi koncepcjami.
 
 Przed opublikowaniem nowej oferty aplikacji platformy Azure [Utwórz komercyjne konto witryny Marketplace w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) i upewnij się, że Twoje konto jest zarejestrowane w komercyjnym programie Marketplace.
 
@@ -107,16 +107,16 @@ Aby dowiedzieć się więcej o wymaganiach dotyczących publikowania dla każdeg
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/home).
 
-1. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace** > **Overview**.
+1. W menu po lewej stronie wybierz pozycję **komercyjne Omówienie witryny Marketplace**  >  **Overview**.
 
-1. Na stronie Przegląd wybierz pozycję **+ Nowa oferta** > **aplikacji platformy Azure**.
+1. Na stronie Przegląd wybierz pozycję **+ Nowa oferta**  >  **aplikacji platformy Azure**.
 
     ![Ilustruje menu nawigacji po lewej stronie.](./media/new-offer-azure-app.png)
 
 1. Na stronie **Nowa oferta** wprowadź **Identyfikator oferty**. To jest unikatowy identyfikator dla każdej oferty na Twoim koncie.
 
      * Ten identyfikator jest widoczny dla klientów w adresie sieci Web dla ofert i szablonów Azure Resource Manager, jeśli ma zastosowanie.
-     * Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczone do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1**, adres sieci Web oferty będzie wynosić `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+     * Użyj tylko małych liter i cyfr. Może zawierać łączniki i podkreślenia, ale nie spacje i jest ograniczone do 50 znaków. Jeśli na przykład wprowadzisz polecenie **test-Offer-1**, adres sieci Web oferty będzie wynosić `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
      * Nie można zmienić identyfikatora oferty po wybraniu pozycji **Utwórz**.
 
 1. Wprowadź **alias oferty**. Jest to nazwa używana dla oferty w centrum partnerskim.
@@ -174,26 +174,19 @@ Nazwa wprowadzona w tym miejscu będzie wyświetlana klientom jako tytuł oferty
 
 #### <a name="search-results-summary"></a>Podsumowanie wyników wyszukiwania
 
-Podaj krótki opis oferty (do 100 znaków), która może być używana w wynikach wyszukiwania.
+Podaj krótki opis oferty, do 100 znaków. Ten opis może być używany w wynikach wyszukiwania.
 
 #### <a name="long-summary"></a>Długie podsumowanie
 
-Podaj dłuższy opis oferty (do 256 znaków). Ten opis może być używany w wynikach wyszukiwania.
+Podaj dłuższy opis oferty, do 256 znaków. Ten opis może być używany w wynikach wyszukiwania.
 
 #### <a name="description"></a>Opis
 
-Podaj dłuższy opis oferty (do 3 000 znaków). Ten opis będzie wyświetlany klientom w przeglądzie wyświetlania. Uwzględnij swoją propozycję oferty, najważniejsze zalety, kategorie i/lub branżowe skojarzenia, szanse zakupu w aplikacji oraz wszelkie wymagane informacje.
+[!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
-SHere są wskazówkami dotyczącymi pisania opisu:
+[!INCLUDE [Long description-2](./includes/long-description-2.md)]
 
-* Jasno opisz wartość oferty w pierwszych kilku zdaniach opisu. Uwzględnij następujące elementy:
-  * Opis oferty.
-  * Typ użytkownika, który korzysta z oferty.
-  * Wymagania klientów lub problemy z ofertą.
-* Należy pamiętać, że pierwsze niektóre zdania mogą być wyświetlane w wynikach wyszukiwania.
-* Nie należy polegać na funkcjach i funkcjach, które umożliwiają sprzedawanie oferty. Zamiast tego należy skoncentrować się na wartości, którą oferuje oferta.
-* Używaj słów specyficznych dla branży lub korzyści.
-* Rozważ użycie tagów HTML, aby sformatować swój opis, aby zwiększyć jego atrakcyjność.
+[!INCLUDE [Rich text editor](./includes/rich-text-editor.md)]
 
 #### <a name="search-keywords"></a>Słowa kluczowe wyszukiwania
 
@@ -216,7 +209,7 @@ Podaj nazwę, adres e-mail i numer telefonu dla kontaktu **z pomocą techniczną
 Podaj logo i obrazy, które mają być używane z ofertą. Wszystkie obrazy muszą mieć format PNG. Nierozmyte obrazy spowodują odrzucenie zgłoszenia.
 
 >[!Note]
->Jeśli występuje problem z przekazywaniem plików, upewnij się https://upload.xboxlive.com , że sieć lokalna nie blokuje usługi używanej przez centrum partnerskie.
+>Jeśli występuje problem z przekazywaniem plików, upewnij się, że sieć lokalna nie blokuje https://upload.xboxlive.com usługi używanej przez centrum partnerskie.
 
 #### <a name="store-logos"></a>Logo sklepu
 
@@ -384,7 +377,7 @@ Każdy plan musi być dostępny na co najmniej jednym rynku. Zaznacz pole wyboru
 
 Jeśli już ustawisz ceny dla planu w Stany Zjednoczone dolarów (USD) i dodasz kolejną lokalizację na rynku, cena nowego rynku zostanie obliczona zgodnie z bieżącymi stawkami za wymianę. Zawsze sprawdzaj ceny poszczególnych rynków przed opublikowaniem. Cennik można przejrzeć przy użyciu linku "Eksport cen (xlsx)" po zapisaniu zmian.
 
-#### <a name="pricing"></a>Cennik
+#### <a name="pricing"></a>Ceny
 
 Podaj cenę za miesiąc dla tego planu.  Ta cena jest uzupełnieniem usługi Azure Infrastructure lub kosztów związanych z płatność zgodnie z rzeczywistym użyciem w przypadku zasobów wdrożonych w ramach tego rozwiązania.
 
@@ -422,7 +415,7 @@ Na tej karcie można przekazać pakiet wdrożeniowy, który umożliwi klientom w
 
 Na tej karcie można edytować wersję roboczą konfiguracji technicznej.
 
-**Wersja** — Przypisz bieżącą wersję konfiguracji technicznej.  Zwiększ tę wersję przy każdej publikacji zmiany na tej stronie. Wersja musi mieć format `{integer}.{integer}.{integer}`.
+**Wersja** — Przypisz bieżącą wersję konfiguracji technicznej.  Zwiększ tę wersję przy każdej publikacji zmiany na tej stronie. Wersja musi mieć format `{integer}.{integer}.{integer}` .
 
 **Plik pakietu** (zip) — ten pakiet zawiera wszystkie pliki szablonów potrzebne dla tego planu, a także dodatkowe zasoby, spakowane jako `.zip` plik.
 
@@ -433,7 +426,7 @@ Wszystkie pakiety planu aplikacji platformy Azure muszą zawierać te dwa pliki 
 
 Maksymalne obsługiwane rozmiary plików:
 
-* Do 1 GB w łącznym rozmiarze `.zip` skompresowanego Archiwum
+* Do 1 GB w łącznym rozmiarze skompresowanego `.zip` Archiwum
 * Do 1 GB dla dowolnego nieskompresowanego pliku w `.zip` Archiwum  
 
 Wszystkie nowe oferty aplikacji platformy Azure muszą również obejmować identyfikator GUID [przypisywania użycia klienta przez partnera platformy Azure](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution) .
@@ -458,7 +451,7 @@ Wybierz tę opcję, aby włączyć dostęp just-in-Time (JIT) dla tego planu.  D
 
 Wybierz, czy podczas wdrażania tego planu ma zostać skonfigurowany **pełny** , czy **przyrostowy tryb wdrażania** : 
 
-* W **trybie kompletnym**ponowne wdrożenie aplikacji przez klienta spowoduje usunięcie zasobów w zarządzanej grupie zasobów, jeśli zasoby nie są zdefiniowane w `mainTemplate.json`. 
+* W **trybie kompletnym**ponowne wdrożenie aplikacji przez klienta spowoduje usunięcie zasobów w zarządzanej grupie zasobów, jeśli zasoby nie są zdefiniowane w `mainTemplate.json` . 
 * W **trybie przyrostowym**ponowne wdrożenie aplikacji pozostawia istniejące zasoby bez zmian.
 
 Aby dowiedzieć się więcej na temat trybów wdrażania, zobacz [Azure Resource Manager trybami wdrożenia](https://docs.microsoft.com/azure/azure-resource-manager/deployment-modes).
@@ -469,9 +462,9 @@ Określ punkt końcowy elementu webhook HTTPS, aby otrzymywać powiadomienia o w
 
 #### <a name="customize-allowed-customer-actions"></a>Dostosuj dozwolone akcje klienta
 
-Wybierz tę opcję, aby określić akcje, które klienci mogą wykonywać na zarządzanych zasobach oprócz akcji "`*/read`", które są dostępne domyślnie. 
+Wybierz tę opcję, aby określić akcje, które klienci mogą wykonywać na zarządzanych zasobach oprócz akcji " `*/read` ", które są dostępne domyślnie. 
 
-Utwórz listę dodatkowych akcji, które chcesz umożliwić klientowi wykonywanie w tym miejscu, oddzielając je średnikami.  Aby uzyskać więcej informacji, zobacz [Omówienie przypisań Odmów dla zasobów platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments).  Aby uzyskać dostępne akcje, zobacz [Azure Resource Manager operacje dostawcy zasobów](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations). Na przykład, aby zezwolić użytkownikom na ponowne uruchomienie maszyn wirtualnych, `Microsoft.Compute/virtualMachines/restart/action` Dodaj do dozwolonych akcji.
+Utwórz listę dodatkowych akcji, które chcesz umożliwić klientowi wykonywanie w tym miejscu, oddzielając je średnikami.  Aby uzyskać więcej informacji, zobacz [Omówienie przypisań Odmów dla zasobów platformy Azure](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments).  Aby uzyskać dostępne akcje, zobacz [Azure Resource Manager operacje dostawcy zasobów](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations). Na przykład, aby zezwolić użytkownikom na ponowne uruchomienie maszyn wirtualnych, Dodaj `Microsoft.Compute/virtualMachines/restart/action` do dozwolonych akcji.
 
 #### <a name="global-azure--azure-government-cloud"></a>Globalna Chmura platformy Azure/Azure Government
 
@@ -519,7 +512,7 @@ Aby włączyć stację testową, zaznacz pole wyboru **Włącz dysk testowy** na
 Aby zezwolić na wdrożenie dysku testowego w Twoim imieniu, Utwórz i podaj oddzielną, unikatową subskrypcję platformy Azure (niewymaganą dla Power BI dysków testowych).
 
 * **Identyfikator subskrypcji platformy Azure** (wymagany dla Azure Resource Manager i aplikacji logiki) — wprowadź identyfikator subskrypcji, aby udzielić dostępu do usług konta platformy Azure na potrzeby raportowania użycia zasobów i rozliczeń. Zalecamy [utworzenie oddzielnej subskrypcji platformy Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription) , która ma być używana na potrzeby dysków testowych, jeśli jeszcze jej nie masz. Identyfikator subskrypcji platformy Azure można znaleźć, logując się do [Azure Portal](https://portal.azure.com/) i przechodząc do karty **subskrypcje** w menu po lewej stronie. Wybranie karty spowoduje wyświetlenie identyfikatora subskrypcji (np. "a83645ac-1234-5ab6-6789-1h234g764ghty").
-* **Identyfikator dzierżawy usługi Azure AD** (wymagany) — wprowadź [Identyfikator dzierżawy](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)usługi Azure Active Directory (AD). Aby znaleźć ten identyfikator, zaloguj się do [Azure Portal](https://portal.azure.com/), wybierz kartę Active Directory w menu po lewej stronie, wybierz pozycję **Właściwości**, a następnie wyszukaj numer **identyfikatora katalogu** na liście (na przykład 50c464d3-4930-494c-963c-1e951d15360e). Możesz również wyszukać identyfikator dzierżawy w organizacji przy użyciu adresu URL nazwy domeny w [https://www.whatismytenantid.com](https://www.whatismytenantid.com):.
+* **Identyfikator dzierżawy usługi Azure AD** (wymagany) — wprowadź [Identyfikator dzierżawy](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)usługi Azure Active Directory (AD). Aby znaleźć ten identyfikator, zaloguj się do [Azure Portal](https://portal.azure.com/), wybierz kartę Active Directory w menu po lewej stronie, wybierz pozycję **Właściwości**, a następnie wyszukaj numer **identyfikatora katalogu** na liście (na przykład 50c464d3-4930-494c-963c-1e951d15360e). Możesz również wyszukać identyfikator dzierżawy w organizacji przy użyciu adresu URL nazwy domeny w: [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
 * **Nazwa dzierżawy usługi Azure AD** (wymagana dla dynamicznego 365) — wprowadź nazwę Azure Active Directory (AD). Aby znaleźć tę nazwę, zaloguj się do [Azure Portal](https://portal.azure.com/), w prawym górnym rogu nazwa dzierżawy zostanie wyświetlona w polu Nazwa konta.
 * **Identyfikator aplikacji usługi Azure AD** (wymagany) — wprowadź [Identyfikator aplikacji](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)Azure Active Directory (AD). Aby znaleźć ten identyfikator, zaloguj się do [Azure Portal](https://portal.azure.com/), wybierz kartę Active Directory w menu po lewej stronie, wybierz pozycję **rejestracje aplikacji**, a następnie wyszukaj numer **identyfikatora aplikacji** na liście (na przykład 50c464d3-4930-494c-963c-1e951d15360e).
 * **Azure Active Directory klucz tajny klienta aplikacji** (wymagane) — wprowadź [klucz tajny klienta](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets)aplikacji usługi Azure AD. Aby znaleźć tę wartość, zaloguj się do [Azure Portal](https://portal.azure.com/). Wybierz kartę **Azure Active Directory** w menu po lewej stronie, wybierz pozycję **rejestracje aplikacji**, a następnie wybierz aplikację testową. Następnie wybierz pozycję **Certyfikaty i wpisy tajne**, wybierz pozycję **Nowy wpis tajny klienta**, wprowadź opis, wybierz pozycję **nigdy nie** w obszarze **wygaśnięcie**, a następnie wybierz pozycję **Dodaj**. Pamiętaj o skopiowaniu wartości przed opuszczeniem tej strony.

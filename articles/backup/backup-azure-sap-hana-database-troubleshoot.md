@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z kopiami zapasowymi baz danych SAP HANA
 description: Opisuje sposób rozwiązywania typowych błędów, które mogą wystąpić podczas tworzenia kopii zapasowej SAP HANA baz danych przy użyciu Azure Backup.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 01514847dcd38842d70c4caef2e38df9df3f620a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 5c1ad55a86e80808b9055fd1b34a2d72209464a2
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652083"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697066"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Rozwiązywanie problemów z tworzeniem kopii zapasowych baz danych SAP HANA na platformie Azure
 
@@ -62,19 +62,12 @@ Przed skonfigurowaniem kopii zapasowych zapoznaj się z sekcją [wymagania wstę
 | **Możliwe przyczyny**    | Miejsce docelowe kopii zapasowej dziennika mogło zostać zaktualizowane z BACKINT do systemu plików lub plik wykonywalny BACKINT mógł zostać zmieniony |
 | **Zalecana akcja** | Wyzwól pełną kopię zapasową, aby rozwiązać ten problem                   |
 
-### <a name="usererrorincomaptiblesrctargetsystsemsforrestore"></a>UserErrorIncomaptibleSrcTargetSystsemsForRestore
-
-| Komunikat o błędzie      | <span style="font-weight:normal">Systemy źródłowe i docelowe na potrzeby przywracania są niezgodne</span>    |
-| ------------------ | ------------------------------------------------------------ |
-| **Możliwe przyczyny**    | System docelowy przywracania jest niezgodny ze źródłem |
-| **Zalecana akcja** | Zapoznaj się z uwagą do [1642148](https://launchpad.support.sap.com/#/notes/1642148) dla oprogramowania SAP, aby dowiedzieć się więcej na temat typów przywracania obsługiwanych dzisiaj |
-
 ### <a name="usererrorsdctomdcupgradedetected"></a>UserErrorSDCtoMDCUpgradeDetected
 
 | Komunikat o błędzie      | <span style="font-weight:normal">Wykryto uaktualnienie SDC do MDC</span>                                   |
 | ------------------ | ------------------------------------------------------------ |
 | **Możliwe przyczyny**    | Wystąpienie SAP HANA zostało uaktualnione z SDC do MDC. Kopie zapasowe zakończą się niepowodzeniem po aktualizacji. |
-| **Zalecana akcja** | Aby rozwiązać ten problem, wykonaj kroki opisane w [sekcji Uaktualnianie z SAP HANA 1,0 do 2,0](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#upgrading-from-sap-hana-10-to-20) . |
+| **Zalecana akcja** | Aby rozwiązać ten problem, wykonaj kroki opisane w temacie [SDC to MDC upgrade](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#sdc-to-mdc-upgrade-with-a-change-in-sid) . |
 
 ### <a name="usererrorinvalidbackintconfiguration"></a>UserErrorInvalidBackintConfiguration
 
@@ -88,7 +81,7 @@ Przed skonfigurowaniem kopii zapasowych zapoznaj się z sekcją [wymagania wstę
 |Komunikat o błędzie  |Systemy źródłowe i docelowe na potrzeby przywracania są niezgodne  |
 |---------|---------|
 |Możliwe przyczyny   | Systemy źródłowe i docelowe wybrane do przywracania są niezgodne        |
-|Zalecana akcja   |   Upewnij się, że scenariusz przywracania nie znajduje się na poniższej liście możliwych niezgodnych operacji przywracania: <br><br>   **Przypadek 1:** Nie można zmienić nazwy SYSTEMDB podczas przywracania.  <br><br> **Przypadek 2:** Source-SDC i Target-MDC: źródłowej bazy danych nie można przywrócić jako SYSTEMDB lub dzierżawcy bazy danych na serwerze docelowym. <br><br> **Przypadek 3:** Source-MDC i Target-SDC: nie można przywrócić źródłowej bazy danych (SYSTEMDB lub dzierżawcy bazy danych) do obiektu docelowego. <br><br>  Aby uzyskać więcej informacji, zapoznaj się z uwagą 1642148 w programie [SAP support Launchpad](https://launchpad.support.sap.com). |
+|Zalecana akcja   |   Upewnij się, że Twój Scenariusz przywracania nie znajduje się na poniższej liście możliwych niezgodnych operacji przywracania: <br><br>   **Przypadek 1:** Nie można zmienić nazwy SYSTEMDB podczas przywracania.  <br><br> **Przypadek 2:** Source-SDC i Target-MDC: źródłowej bazy danych nie można przywrócić jako SYSTEMDB lub dzierżawcy bazy danych na serwerze docelowym. <br><br> **Przypadek 3:** Source-MDC i Target-SDC: nie można przywrócić źródłowej bazy danych (SYSTEMDB lub dzierżawcy bazy danych) do obiektu docelowego. <br><br>  Aby uzyskać więcej informacji, zobacz Uwaga **1642148** w programie [Launchpad SAP support](https://launchpad.support.sap.com). |
 
 ## <a name="restore-checks"></a>Testy przywracania
 
@@ -111,25 +104,83 @@ Pamiętaj o następujących kwestiach:
 
 W przypadku wielu baz danych kontenerów dla platformy HANA Standardowa konfiguracja to SYSTEMDB + 1 lub więcej baz danych dzierżawców. Przywrócenie całego wystąpienia SAP HANA oznacza przywrócenie zarówno SYSTEMDB, jak i baz danych dzierżawcy. Najpierw przywraca SYSTEMDB, a następnie przechodzi do bazy danych dzierżawcy. Zasadniczo systemowa baza danych zastępuje informacje o systemie w wybranym miejscu docelowym. To przywracanie przesłania również informacje dotyczące BackInt w wystąpieniu docelowym. Dlatego po przywróceniu bazy danych systemowych do wystąpienia docelowego Uruchom ponownie skrypt przed rejestracją. Kolejne Przywracanie bazy danych dzierżawy zakończy się powodzeniem.
 
-## <a name="upgrading-from-sap-hana-10-to-20"></a>Uaktualnianie z SAP HANA 1,0 do 2,0
+## <a name="back-up-a-replicated-vm"></a>Tworzenie kopii zapasowej zreplikowanej maszyny wirtualnej
 
-Jeśli chronisz bazy danych SAP HANA 1,0 i chcesz przeprowadzić uaktualnienie do wersji 2,0, wykonaj następujące czynności:
+### <a name="scenario-1"></a>Scenariusz 1
 
-- [Zatrzymaj ochronę](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) z zachowaniem zachowania danych dla starej bazy danych SDC.
-- Wykonaj uaktualnienie. Po zakończeniu program HANA jest teraz MDC z systemową bazą danych i bazami danych dzierżaw
-- Uruchom ponownie [skrypt poprzedzający rejestrację](https://aka.ms/scriptforpermsonhana) z prawidłowymi szczegółami (SID i MDC).
-- Ponownie zarejestruj rozszerzenie dla tego samego komputera w Azure Portal (szczegóły wyświetlania > kopii zapasowej-> wybierz odpowiednią maszynę wirtualną platformy Azure — > ponownie register).
-- Kliknij przycisk ponownie odkryj baz danych dla tej samej maszyny wirtualnej. Ta akcja powinna spowodować wyświetlenie nowego baz danych w kroku 2 z prawidłowymi szczegółami (SYSTEMDB i dzierżawcą bazy danych, a nie SDC).
-- Skonfiguruj kopię zapasową tych nowych baz danych.
+Oryginalna maszyna wirtualna została zreplikowana przy użyciu Azure Site Recovery lub kopii zapasowej maszyny wirtualnej platformy Azure. Nowa maszyna wirtualna została skompilowana w celu symulowania starej maszyny wirtualnej. Oznacza to, że ustawienia są dokładnie takie same. (Dzieje się tak, ponieważ oryginalna maszyna wirtualna została usunięta, a przywracanie zostało wykonane z kopii zapasowej maszyny wirtualnej lub Azure Site Recovery).
 
-## <a name="upgrading-without-an-sid-change"></a>Uaktualnianie bez zmiany identyfikatora SID
+Ten scenariusz może obejmować dwa możliwe przypadki. Dowiedz się, jak utworzyć kopię zapasową zreplikowanej maszyny wirtualnej w obu tych przypadkach:
 
-Uaktualnienia do systemu operacyjnego lub SAP HANA, które nie powodują zmiany identyfikatora SID, można obsłużyć, jak opisano poniżej:
+1. Nowa utworzona maszyna wirtualna ma taką samą nazwę i należy do tej samej grupy zasobów i subskrypcji co usunięta maszyna wirtualna.
 
-- [Zatrzymaj ochronę](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) z zachowaniem zachowania danych dla bazy danych
-- Wykonaj uaktualnienie.
-- Uruchom ponownie [skrypt przed rejestracją](https://aka.ms/scriptforpermsonhana). Zwykle został obserwowany proces uaktualniania usuwa niezbędne role. Uruchomienie skryptu przed rejestracją pomoże sprawdzić wszystkie wymagane role.
-- Ponownie [Wznów ochronę](sap-hana-db-manage.md#resume-protection-for-an-sap-hana-database) bazy danych
+    - Rozszerzenie już istnieje na maszynie wirtualnej, ale nie jest widoczne dla żadnej z usług
+    - Uruchamianie skryptu przed rejestracją
+    - Zarejestruj ponownie rozszerzenie dla tego samego komputera w Azure Portal (szczegóły widoku**kopii zapasowej**  ->  **View details** -> wybierz odpowiednią maszynę wirtualną platformy Azure — > ponownej rejestracji)
+    - Kopia zapasowa już istniejącej bazy danych (z usuniętej maszyny wirtualnej) powinna zostać pomyślnie uruchomiona
+
+2. Nowa utworzona maszyna wirtualna ma:
+
+    - inna nazwa niż usunięta maszyna wirtualna
+    - taka sama nazwa jak usunięta maszyna wirtualna, ale znajduje się w innej grupie zasobów lub subskrypcji (w porównaniu do usuniętej maszyny wirtualnej)
+
+    W takim przypadku wykonaj następujące czynności:
+
+    - Rozszerzenie już istnieje na maszynie wirtualnej, ale nie jest widoczne dla żadnej z usług
+    - Uruchamianie skryptu przed rejestracją
+    - Jeśli wykryjesz i zaczniesz ochronę nowych baz danych, zobaczysz zduplikowane aktywne bazy danych w portalu. Aby tego uniknąć, [Zatrzymaj ochronę z zachowaniem Zachowaj dane](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) dla starych baz danych. Następnie kontynuuj pozostałe kroki.
+    - Odkryj bazy danych, aby włączyć tworzenie kopii zapasowej
+    - Włącz wykonywanie kopii zapasowych w tych bazach danych
+    - Już istniejące kopie zapasowe baz danych (z usuniętej maszyny wirtualnej) będą nadal przechowywane w magazynie (z kopiami zapasowymi zachowywanymi zgodnie z zasadami)
+
+### <a name="scenario-2"></a>Scenariusz 2
+
+Oryginalna maszyna wirtualna została zreplikowana przy użyciu Azure Site Recovery lub kopii zapasowej maszyny wirtualnej platformy Azure. Nowa maszyna wirtualna została skompilowana z zawartości — do użycia jako szablon. To jest nowa maszyna wirtualna z nowym identyfikatorem SID.
+
+Wykonaj następujące kroki, aby włączyć tworzenie kopii zapasowych na nowej maszynie wirtualnej:
+
+- Rozszerzenie już istnieje na maszynie wirtualnej, ale nie jest widoczne dla żadnej z usług
+- Uruchom skrypt przed rejestracją. Na podstawie identyfikatora SID nowej maszyny wirtualnej mogą wystąpić dwa scenariusze:
+  - Oryginalna maszyna wirtualna i Nowa maszyna wirtualna mają ten sam identyfikator SID. Skrypt przed rejestracją zostanie uruchomiony pomyślnie.
+  - Oryginalna maszyna wirtualna i Nowa maszyna wirtualna mają różne identyfikatory SID. Skrypt poprzedzający rejestrację zakończy się niepowodzeniem. Skontaktuj się z pomocą techniczną, aby uzyskać pomoc w tym scenariuszu.
+- Odnajdywanie baz danych, dla których chcesz utworzyć kopię zapasową
+- Włącz wykonywanie kopii zapasowych w tych bazach danych
+
+## <a name="sdc-version-upgrade-or-mdc-version-upgrade-on-the-same-vm"></a>Uaktualnienie wersji SDC lub uaktualnienie wersji MDC na tej samej maszynie wirtualnej
+
+Uaktualnienia do systemu operacyjnego, zmiany wersji SDC lub zmiany wersji MDC, które nie powodują zmiany identyfikatora SID, można obsłużyć w następujący sposób:
+
+- Upewnij się, że nowa wersja systemu operacyjnego, SDC lub wersja MDC są obecnie [obsługiwane przez Azure Backup](sap-hana-backup-support-matrix.md#scenario-support)
+- [Zatrzymaj ochronę z zachowaniem zachowania danych](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) dla bazy danych
+- Wykonaj uaktualnienie lub aktualizację
+- Uruchom ponownie skrypt przed rejestracją. Zazwyczaj proces uaktualniania usuwa niezbędne role. Uruchomienie skryptu przed rejestracją pomoże sprawdzić wszystkie wymagane role
+- Ponownie Wznów ochronę bazy danych
+
+## <a name="sdc-to-mdc-upgrade-with-no-change-in-sid"></a>SDC do MDC upgrade bez zmiany identyfikatora SID
+
+Uaktualnienia z SDC do MDC, które nie powodują zmiany identyfikatora SID, mogą być obsługiwane w następujący sposób:
+
+- Upewnij się, że nowa wersja MDC jest obecnie [obsługiwana przez Azure Backup](sap-hana-backup-support-matrix.md#scenario-support)
+- [Zatrzymaj ochronę z zachowaniem zachowania danych](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) dla starej bazy danych SDC
+- Wykonaj uaktualnienie. Po zakończeniu system HANA jest teraz MDC z systemową bazą danych i dzierżawcą baz danych
+- Uruchom ponownie [skrypt przed rejestracją](https://aka.ms/scriptforpermsonhana)
+- Zarejestruj ponownie rozszerzenie dla tego samego komputera w Azure Portal (szczegóły widoku**kopii zapasowej**  ->  **View details** -> wybierz odpowiednią maszynę wirtualną platformy Azure — > ponownej rejestracji)
+- Kliknij przycisk ponownie **odkryj baz danych** dla tej samej maszyny wirtualnej. Ta akcja powinna zawierać nowy baz danych w kroku 3 jako SYSTEMDB i bazę danych dzierżawy, a nie SDC
+- Starsza baza danych SDC będzie nadal istnieć w magazynie i ma stare dane kopii zapasowej przechowywane zgodnie z zasadami
+- Skonfiguruj kopię zapasową tych baz danych
+
+## <a name="sdc-to-mdc-upgrade-with-a-change-in-sid"></a>SDC MDC uaktualnianie przy użyciu zmiany identyfikatora SID
+
+Uaktualnienia z SDC do MDC, które powodują zmianę identyfikatora SID można obsłużyć w następujący sposób:
+
+- Upewnij się, że nowa wersja MDC jest obecnie [obsługiwana przez Azure Backup](sap-hana-backup-support-matrix.md#scenario-support)
+- **Zatrzymaj ochronę z zachowaniem zachowania danych** dla starej bazy danych SDC
+- Wykonaj uaktualnienie. Po zakończeniu system HANA jest teraz MDC z systemową bazą danych i dzierżawcą baz danych
+- Uruchom ponownie [skrypt poprzedzający rejestrację](https://aka.ms/scriptforpermsonhana) z prawidłowymi szczegółami (nowy identyfikator SID i MDC). Ze względu na zmianę identyfikatora SID mogą wystąpić problemy z pomyślnie uruchomionym skryptem. Skontaktuj się z pomocą techniczną Azure Backup, Jeśli napotykasz problemy.
+- Zarejestruj ponownie rozszerzenie dla tego samego komputera w Azure Portal (szczegóły widoku**kopii zapasowej**  ->  **View details** -> wybierz odpowiednią maszynę wirtualną platformy Azure — > ponownej rejestracji)
+- Kliknij przycisk ponownie **odkryj baz danych** dla tej samej maszyny wirtualnej. Ta akcja powinna zawierać nowy baz danych w kroku 3 jako SYSTEMDB i bazę danych dzierżawy, a nie SDC
+- Starsza baza danych SDC będzie nadal istnieć w magazynie i ma stare dane kopii zapasowej przechowywane zgodnie z zasadami
+- Skonfiguruj kopię zapasową tych baz danych
 
 ## <a name="re-registration-failures"></a>Błędy ponownej rejestracji
 
@@ -139,7 +190,7 @@ Przed wyzwoleniem operacji ponownego rejestrowania Sprawdź co najmniej jeden z 
 - Jeśli obszar **stanu kopii** zapasowej dla elementu kopii zapasowej jest wyświetlany jako **nieosiągalny**, należy wykluczyć wszystkie inne przyczyny, które mogą spowodować wystąpienie tego samego stanu:
 
   - Brak uprawnień do wykonywania operacji związanych z kopiami zapasowymi na maszynie wirtualnej
-  - Maszyna wirtualna jest zamykana, dlatego nie można wykonać kopii zapasowych
+  - Maszyna wirtualna jest wyłączona, dlatego nie można wykonać kopii zapasowych
   - Problemy z siecią
 
 Te objawy mogą wystąpić z następujących powodów:

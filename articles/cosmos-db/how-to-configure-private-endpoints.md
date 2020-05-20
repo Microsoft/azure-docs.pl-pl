@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/14/2020
 ms.author: thweiss
-ms.openlocfilehash: 6ba85961ac4ec9b1b439de18a1d6da0cec4ead4f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2c4044fded2d14b8c6a1d92f367de9588b7b2ca3
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652578"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697884"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Konfigurowanie prywatnego linku platformy Azure dla konta usługi Azure Cosmos
 
@@ -646,11 +646,9 @@ W przypadku korzystania z prywatnego linku do konta usługi Azure Cosmos stosowa
 
 * W przypadku korzystania z interfejsu API Azure Cosmos DB dla konta MongoDB, które ma link prywatny, niektóre narzędzia i biblioteki mogą nie funkcjonować, ponieważ automatycznie rozkładają `appName` parametr z parametrów połączenia. Ten parametr jest wymagany do nawiązania połączenia z kontem za pośrednictwem prywatnego punktu końcowego. Niektóre narzędzia, takie jak Visual Studio Code, nie usuwają tego parametru z parametrów połączenia i są w związku z tym zgodne.
 
-* Nie można przenieść ani usunąć sieci wirtualnej, jeśli zawiera link prywatny.
-
-* Nie można przełączyć konta usługi Azure Cosmos do trybu failover w regionie, który nie jest zamapowany na wszystkie prywatne punkty końcowe dołączone do konta.
-
 * Administrator sieci powinien mieć co najmniej `Microsoft.DocumentDB/databaseAccounts/PrivateEndpointConnectionsApproval/action` uprawnienia w zakresie konta usługi Azure Cosmos w celu utworzenia automatycznie zatwierdzonych prywatnych punktów końcowych.
+
+* Tryb bezpośredni nie jest obecnie obsługiwany w regionach platformy Azure opartych na Chinach.
 
 ### <a name="limitations-to-private-dns-zone-integration"></a>Ograniczenia związane z integracją prywatnej strefy DNS
 

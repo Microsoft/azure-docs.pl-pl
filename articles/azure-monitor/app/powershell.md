@@ -3,18 +3,18 @@ title: Automatyzacja Application Insights platformy Azure przy użyciu programu 
 description: Automatyzacja tworzenia zasobów, alertów i testów dostępności w programie PowerShell oraz zarządzania nimi przy użyciu szablonu Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 05/02/2020
-ms.openlocfilehash: fba85981f32611164c328945e45de4032ad949eb
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: a6653582a990b97775976b757198f11b2a46c46b
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780508"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697925"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>Zarządzanie zasobami Application Insights przy użyciu programu PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-W tym artykule przedstawiono sposób automatycznego automatyzowania tworzenia i aktualizowania zasobów [Application Insights](../../azure-monitor/app/app-insights-overview.md) przy użyciu usługi Azure Resource Management. Można to zrobić na przykład w ramach procesu kompilacji. Wraz z zasobem podstawowa Application Insights można tworzyć [testy sieci Web dostępności](../../azure-monitor/app/monitor-web-app-availability.md), konfigurować [alerty](../../azure-monitor/app/alerts.md), ustawiać [schemat cenowy](pricing.md)oraz tworzyć inne zasoby platformy Azure.
+W tym artykule przedstawiono sposób automatycznego automatyzowania tworzenia i aktualizowania zasobów [Application Insights](../../azure-monitor/app/app-insights-overview.md) przy użyciu usługi Azure Resource Management. Można to zrobić na przykład w ramach procesu kompilacji. Wraz z zasobem podstawowa Application Insights można tworzyć [testy sieci Web dostępności](../../azure-monitor/app/monitor-web-app-availability.md), konfigurować [alerty](../../azure-monitor/platform/alerts-log.md), ustawiać [schemat cenowy](pricing.md)oraz tworzyć inne zasoby platformy Azure.
 
 Kluczem do tworzenia tych zasobów są szablony JSON dla [Azure Resource Manager](../../azure-resource-manager/management/manage-resources-powershell.md). Podstawowa procedura: pobieranie definicji JSON istniejących zasobów; Sparametryzuj pewne wartości, takie jak Names; a następnie uruchom szablon, gdy chcesz utworzyć nowy zasób. Można spakować wiele zasobów razem, aby utworzyć je wszystkie w jednym miejscu, na przykład monitor aplikacji z testami dostępności, alertami i magazynem na potrzeby eksportu ciągłego. Istnieje kilka subtleties niektórych parameterizations, które wyjaśnimy tutaj.
 
@@ -245,7 +245,7 @@ $Resource | Set-AzResource -Force
 
 ### <a name="setting-data-retention-using-rest"></a>Ustawianie przechowywania danych przy użyciu REST
 
-Aby uzyskać bieżące przechowywanie danych dla zasobu Application Insights, można użyć narzędzia OSS [ARMClient](https://github.com/projectkudu/ARMClient).  (Dowiedz się więcej na temat ARMClient z artykułów przez [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) i [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/)).  Oto przykład użycia `ARMClient`, aby pobrać bieżące przechowywanie:
+Aby uzyskać bieżące przechowywanie danych dla zasobu Application Insights, można użyć narzędzia OSS [ARMClient](https://github.com/projectkudu/ARMClient).  (Dowiedz się więcej na temat ARMClient z artykułów przez [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) i [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/)).  Oto przykład użycia `ARMClient` , aby pobrać bieżące przechowywanie:
 
 ```PS
 armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName?api-version=2018-05-01-preview
@@ -268,7 +268,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
 
 ### <a name="setting-data-retention-using-a-powershell-script"></a>Ustawianie przechowywania danych przy użyciu skryptu programu PowerShell
 
-Aby zmienić przechowywanie, można również użyć następującego skryptu. Skopiuj ten skrypt, aby zapisać `Set-ApplicationInsightsRetention.ps1`go jako.
+Aby zmienić przechowywanie, można również użyć następującego skryptu. Skopiuj ten skrypt, aby zapisać go jako `Set-ApplicationInsightsRetention.ps1` .
 
 ```PS
 Param(
@@ -350,7 +350,7 @@ armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 
 ## <a name="set-the-daily-cap-reset-time"></a>Ustaw godzinę resetowania dziennego limitu
 
-Aby ustawić dzienny czas resetowania, możesz użyć [ARMClient](https://github.com/projectkudu/ARMClient). Oto przykład użycia `ARMClient`, aby ustawić godzinę resetowania na nową godzinę (w tym przykładzie 12:00 UTC):
+Aby ustawić dzienny czas resetowania, możesz użyć [ARMClient](https://github.com/projectkudu/ARMClient). Oto przykład użycia `ARMClient` , aby ustawić godzinę resetowania na nową godzinę (w tym przykładzie 12:00 UTC):
 
 ```PS
 armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview "{'CurrentBillingFeatures':['Basic'],'DataVolumeCap':{'ResetTime':12}}"
@@ -365,7 +365,7 @@ Aby uzyskać bieżący plan cenowy, należy użyć polecenia cmdlet [Set-AzAppli
 Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <resource name> | Format-List
 ```
 
-Aby ustawić plan cenowy, użyj tego samego polecenia cmdlet `-PricingPlan` z określonym:  
+Aby ustawić plan cenowy, użyj tego samego polecenia cmdlet z `-PricingPlan` określonym:  
 
 ```PS
 Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <resource name> -PricingPlan Basic
@@ -380,7 +380,7 @@ Możesz również ustawić plan cenowy dla istniejącego zasobu Application Insi
                -appName myApp
 ```
 
-`priceCode` Jest definiowana jako:
+`priceCode`Jest definiowana jako:
 
 |priceCode|plan|
 |---|---|
@@ -415,19 +415,19 @@ Aby zautomatyzować testy dostępności, zapoznaj się z [artykułem szablon ale
 
 Aby zautomatyzować tworzenie dowolnego innego zasobu dowolnego rodzaju, Utwórz przykład ręcznie, a następnie skopiuj i Sparametryzuj jego kod z [Azure Resource Manager](https://resources.azure.com/). 
 
-1. Otwórz [Azure Resource Manager](https://resources.azure.com/). Przejdź w dół `subscriptions/resourceGroups/<your resource group>/providers/Microsoft.Insights/components`do zasobu aplikacji. 
+1. Otwórz [Azure Resource Manager](https://resources.azure.com/). Przejdź w dół `subscriptions/resourceGroups/<your resource group>/providers/Microsoft.Insights/components` do zasobu aplikacji. 
    
     ![Nawigacja w Azure Resource Explorer](./media/powershell/01.png)
    
     *Składniki* to podstawowe zasoby Application Insights do wyświetlania aplikacji. Istnieją oddzielne zasoby dla skojarzonych reguł alertów i testów dostępności sieci Web.
-2. Skopiuj kod JSON składnika do odpowiedniego miejsca w `template1.json`.
+2. Skopiuj kod JSON składnika do odpowiedniego miejsca w `template1.json` .
 3. Usuń następujące właściwości:
    
    * `id`
    * `InstrumentationKey`
    * `CreationDate`
    * `TenantId`
-4. Otwórz sekcje `webtests` i `alertrules` i skopiuj kod JSON dla poszczególnych elementów do szablonu. (Nie Kopiuj z węzłów `webtests` lub `alertrules` : Przejdź do elementów znajdujących się poniżej).
+4. Otwórz `webtests` sekcje i `alertrules` i skopiuj kod JSON dla poszczególnych elementów do szablonu. (Nie Kopiuj z `webtests` węzłów lub `alertrules` : Przejdź do elementów znajdujących się poniżej).
    
     Każdy test sieci Web ma skojarzoną regułę alertu, dlatego należy skopiować oba te testy.
    

@@ -23,6 +23,8 @@
           href: tutorial-create-store-locator.md
     - name: Samouczki interfejsu API REST
       items:
+        - name: Tworzenie planów wnętrz
+          href: tutorial-creator-indoor-maps.md
         - name: Konfigurowanie geofencingu
           href: tutorial-geofence.md
         - name: Analiza przestrzenna
@@ -49,6 +51,12 @@
       href: azure-maps-event-grid-integration.md
     - name: Wybieranie właściwej warstwy cenowej
       href: choose-pricing-tier.md
+    - name: Kreator planów wnętrz
+      items:
+        - name: Pojęcia dotyczące planów wnętrz
+          href: creator-indoor-maps.md
+        - name: Błędy i ostrzeżenia dotyczące konwersji rysunków
+          href: drawing-conversion-error-codes.md
     - name: Pokrycie
       items:
         - name: Pokrycie geokodowaniem
@@ -83,6 +91,8 @@
           href: how-to-manage-authentication.md
         - name: Zarządzanie warstwą cenową
           href: how-to-manage-pricing-tier.md
+        - name: Zarządzanie kreatorem
+          href: how-to-manage-creator.md
         - name: Wyświetlanie metryk użycia
           href: how-to-view-api-usage.md
     - name: Pobierz dane mapy z interfejsów API REST
@@ -201,12 +211,22 @@
           href: how-to-add-tile-layer-android-map.md
         - name: Wyświetlanie danych o ruchu
           href: how-to-show-traffic-android.md
+    - name: Tworzenie planów wnętrz przy użyciu kreatora
+      items:
+        - name: Moduł planów wnętrz
+          href: how-to-use-indoor-module.md
+        - name: Dynamiczne określanie stylów dla planów wnętrz
+          href: indoor-map-dynamic-styling.md
+        - name: Wizualizator błędów rysunków
+          href: drawing-error-visualizer.md
     - name: Przesyłanie opinii o danych
       href: how-to-use-feedback-tool.md
 - name: Dokumentacja
   items:
     - name: Rozszerzenia interfejsu API i parametrów
       items:
+        - name: Wymagania dotyczące pakietu do rysowania
+          href: drawing-requirements.md
         - name: Model użycia pojazdu
           href: consumption-model.md
         - name: Rozszerzanie formatu GeoJSON
@@ -251,6 +271,8 @@
           href: 'https://docs.microsoft.com/javascript/api/azure-maps-rest/'
         - name: Moduł operacji we/wy danych przestrzennych
           href: 'https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/'
+        - name: Moduł wnętrz
+          href: 'https://aka.ms/am-indoor-module-websdk/'
     - name: Szablon usługi Resource Manager
       href: /azure/templates/microsoft.maps/accounts
 - name: Zasoby

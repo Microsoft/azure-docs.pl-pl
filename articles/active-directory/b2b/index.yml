@@ -1,28 +1,30 @@
 ### YamlMime:Landing
-title: Dokumentacja usługi Azure Active Directory B2B
-summary: Dowiedz się, jak korzystać z modelu współpracy między firmami (B2B) w usłudze Azure AD (B2B), aby bezpiecznie udostępniać aplikacje i usługi firmy dla użytkowników-gości i partnerów zewnętrznych z dowolnej organizacji, zachowując kontrolę nad własnymi danymi firmowymi.
+title: Dokumentacja tożsamości zewnętrznych
+summary: Tożsamości zewnętrzne to zestaw funkcji umożliwiających organizacjom zabezpieczanie dowolnych użytkowników zewnętrznych (w tym klientów i partnerów) oraz zarządzanie nimi. Bazując na współpracy B2B, tożsamości zewnętrzne oferują dodatkowe możliwości interakcji i komunikacji z użytkownikami spoza organizacji.
 metadata:
-  title: Dokumentacja zarządzania aplikacjami
-  description: Dowiedz się, jak korzystać z modelu współpracy między firmami (B2B) w usłudze Azure AD (B2B), aby bezpiecznie udostępniać aplikacje i usługi firmy dla użytkowników-gości i partnerów zewnętrznych z dowolnej organizacji, zachowując kontrolę nad własnymi danymi firmowymi.
+  title: Dokumentacja tożsamości zewnętrznych
+  description: Tożsamości zewnętrzne to zestaw funkcji umożliwiających organizacjom zabezpieczanie dowolnych użytkowników zewnętrznych (w tym klientów i partnerów) oraz zarządzanie nimi. Bazując na współpracy B2B, tożsamości zewnętrzne oferują dodatkowe możliwości interakcji i komunikacji z użytkownikami spoza organizacji.
   ms.service: active-directory
   ms.subservice: B2B
   ms.workload: identity
   ms.topic: landing-page
-  ms.date: 08/27/2019
+  ms.date: 05/19/2020
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: 2c0f418249d470c1454474012fb25e6670630108
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 3a26561b7789446aff70c9fb9e08d523d05d8d64
+  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "74272695"
+  ms.lasthandoff: 05/19/2020
+  ms.locfileid: "83587480"
 landingContent:
-- title: Współpraca B2B — Informacje
+- title: Informacje o tożsamościach zewnętrznych
   linkLists:
   - linkListType: overview
     links:
+    - text: Porównanie rozwiązań dla tożsamości zewnętrznych
+      url: compare-with-b2c.md
     - text: Co to jest dostęp dla użytkowników-gości B2B?
       url: what-is-b2b.md
 - title: Zapraszanie użytkowników-gości B2B

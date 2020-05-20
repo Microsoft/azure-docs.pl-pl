@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 3c09a95309e001def306698bbba4f6d0a1a2804d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2ea7fb97b6c97a797ce99878762333833965549d
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255537"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698651"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>Użyj pomocą distcp do kopiowania danych między obiektami BLOB usługi Azure Storage a Azure Data Lake Storage Gen2
 
@@ -23,11 +23,11 @@ Pomocą distcp udostępnia wiele parametrów wiersza polecenia i zdecydowanie za
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* **Subskrypcja platformy Azure**. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Istniejące konto usługi Azure Storage bez możliwości Data Lake Storage Gen2 (hierarchiczny obszar nazw) jest włączone**.
-* **Konto usługi Azure Storage z włączoną funkcją Data Lake Storage Gen2**. Aby uzyskać instrukcje dotyczące sposobu tworzenia jednego z nich, zobacz [Tworzenie konta magazynu Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md)
-* **System plików** , który został utworzony na koncie magazynu z włączoną hierarchiczną przestrzenią nazw.
-* **Klaster usługi Azure HDInsight** z dostępem do konta magazynu z włączonym Data Lake Storage Gen2. Zobacz [Korzystanie z usługi Azure Data Lake Storage Gen2 w połączeniu z klastrami usługi Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Upewnij się, że Pulpit zdalny dla klastra są włączone.
+* Subskrypcja platformy Azure. Zobacz temat [Uzyskiwanie bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Istniejące konto usługi Azure Storage bez możliwości Data Lake Storage Gen2 (hierarchiczny obszar nazw) jest włączone.
+* Konto usługi Azure Storage z włączonymi możliwościami Data Lake Storage Gen2 (hierarchiczny obszar nazw). Aby uzyskać instrukcje dotyczące sposobu tworzenia jednego z nich, zobacz [Tworzenie konta usługi Azure Storage](../common/storage-account-create.md) .
+* Kontener, który został utworzony na koncie magazynu z włączoną hierarchiczną przestrzenią nazw.
+* Klaster usługi Azure HDInsight z dostępem do konta magazynu z włączoną funkcją hierarchicznej przestrzeni nazw. Zobacz [Korzystanie z usługi Azure Data Lake Storage Gen2 w połączeniu z klastrami usługi Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). Upewnij się, że Pulpit zdalny dla klastra są włączone.
 
 ## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>Korzystanie z pomocą distcp z klastra usługi HDInsight w systemie Linux
 
@@ -37,25 +37,25 @@ Klaster HDInsight An jest dostarczany z narzędziem pomocą distcp, które może
 
 2. Sprawdź, czy możesz uzyskać dostęp do istniejącego konta ogólnego przeznaczenia w wersji 2 (bez włączonej hierarchicznej przestrzeni nazw).
 
-        hdfs dfs –ls wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/
+        hdfs dfs –ls wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/
 
-    Dane wyjściowe powinny dostarczyć listę zawartości w kontenerze.
+   Dane wyjściowe powinny dostarczyć listę zawartości w kontenerze.
 
 3. Podobnie Sprawdź, czy możesz uzyskać dostęp do konta magazynu z włączoną hierarchiczną przestrzenią nazw z poziomu klastra. Uruchom następujące polecenie:
 
-        hdfs dfs -ls abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/
+        hdfs dfs -ls abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/
 
-    Dane wyjściowe powinny dostarczyć listę plików/folderów na koncie Data Lake Storage.
+    Dane wyjściowe powinny dostarczyć listę plików/folderów na koncie magazynu Data Lake.
 
 4. Użyj pomocą distcp, aby skopiować dane z WASB do konta Data Lake Storage.
 
-        hadoop distcp wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder
+        hadoop distcp wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder
 
     Polecenie kopiuje zawartość folderu **/example/Data/Gutenberg/** w usłudze BLOB Storage do **/myfolder** na koncie Data Lake Storage.
 
 5. Podobnie należy używać pomocą distcp do kopiowania danych z konta Data Lake Storage do Blob Storage (WASB).
 
-        hadoop distcp abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg
+        hadoop distcp abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg
 
     Polecenie kopiuje zawartość **/MyFolder** na koncie Data Lake Store do folderu **/example/Data/Gutenberg/** w WASB.
 
@@ -63,9 +63,9 @@ Klaster HDInsight An jest dostarczany z narzędziem pomocą distcp, które może
 
 Ponieważ najniższy stopień szczegółowości pomocą distcp jest pojedynczym plikiem, ustawienie maksymalnej liczby równoczesnych kopii jest najważniejszym parametrem, który optymalizuje go względem Data Lake Storage. Liczba równoczesnych kopii jest równa liczbie parametrów mapowania (**m**) w wierszu polecenia. Ten parametr określa maksymalną liczbę odwzorów, które są używane do kopiowania danych. Wartość domyślna to 20.
 
-**Przyklad**
+**Przykład**
 
-    hadoop distcp -m 100 wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/example/data/gutenberg abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net/myfolder
+    hadoop distcp -m 100 wasbs://<container-name>@<storage-account-name>.blob.core.windows.net/example/data/gutenberg abfss://<container-name>@<storage-account-name>.dfs.core.windows.net/myfolder
 
 ### <a name="how-do-i-determine-the-number-of-mappers-to-use"></a>Jak mogę określić liczbę odwzorowań do użycia?
 
@@ -77,7 +77,7 @@ Oto kilka użytecznych wskazówek.
 
         m = (number of nodes * YARN memory for each node) / YARN container size
 
-**Przyklad**
+**Przykład**
 
 Załóżmy, że masz klaster 4x D14v2s i próbujesz przenieść 10 TB danych z 10 różnych folderów. Każdy z folderów zawiera różne ilości danych, a rozmiary plików w poszczególnych folderach są inne.
 

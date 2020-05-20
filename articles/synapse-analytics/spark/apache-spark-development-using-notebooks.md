@@ -6,15 +6,15 @@ author: ruixinxu
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/01/2020
 ms.author: ruxu
 ms.reviewer: ''
-ms.openlocfilehash: 506339cefa90fb17bedfc946f70cb4d7d8047cf2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 21e3ba8cbf60cbbdc6480719016fc48db4fe390c
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81430229"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702100"
 ---
 # <a name="create-develop-and-maintain-azure-synapse-studio-preview-notebooks"></a>Tworzenie, opracowywanie i konserwowanie notesów platformy Azure Synapse Studio (wersja zapoznawcza)
 
@@ -55,12 +55,12 @@ Istnieje wiele sposobów dodawania nowej komórki do notesu.
 
 ### <a name="set-a-primary-language"></a>Ustawianie języka podstawowego
 
-Notesy usługi Azure Synapse Studio obsługują cztery języki Spark:
+Notesy usługi Azure Synapse Studio obsługują cztery języki Apache Spark:
 
-* pyspark (Python)
+* pySpark (Python)
 * Spark (Scala)
-* sparkSQL
-* Spark.NET (C#)
+* SparkSQL
+* .NET dla Apache Spark (C#)
 
 Można ustawić język podstawowy dla nowych dodanych komórek z listy rozwijanej na górnym pasku poleceń.
 
@@ -75,9 +75,9 @@ Możesz użyć wielu języków w jednym notesie, określając poprawne polecenie
 |%% pyspark| Python | Wykonaj zapytanie w języku **Python** względem kontekstu platformy Spark.  |
 |%% Spark| Scala | Wykonaj zapytanie **Scala** względem kontekstu Spark.  |  
 |%% SQL| SparkSQL | Wykonaj zapytanie **SparkSQL** względem kontekstu Spark.  |
-|%% CSharp | Spark.NET C # | Wykonaj zapytanie **Spark.NET języka C#** względem kontekstu platformy Spark. |
+|%% CSharp | .NET dla platformy Spark C # | Wykonaj zapytanie **platformy .NET dla platformy Spark w języku C#** względem kontekstu platformy Spark. |
 
-Na poniższej ilustracji przedstawiono przykład sposobu pisania zapytania PySpark przy użyciu polecenia **%% PySpark** Magic lub zapytania SparkSQL z poleceniem **%% SQL** Magic w notesie **Spark (Scala)** . Zwróć uwagę, że podstawowy język notesu jest ustawiony na Scala.
+Na poniższej ilustracji przedstawiono przykład sposobu pisania zapytania PySpark przy użyciu polecenia **%% PySpark** Magic lub zapytania SparkSQL z poleceniem **%% SQL** Magic w notesie **Spark (Scala)** . Zwróć uwagę, że podstawowy język notesu jest ustawiony na pySpark.
 
    ![Synapse-Spark-MAGICS](./media/apache-spark-development-using-notebooks/synapse-spark-magics.png)
 
@@ -115,10 +115,10 @@ Funkcje IntelliSense są na różnych poziomach dojrzałości dla różnych jęz
 
 |Języki| Wyróżnianie składni | Znacznik błędu składniowy  | Uzupełnianie kodu składni | Uzupełnianie kodu zmiennej| Uzupełnianie kodu funkcji systemu| Uzupełnianie kodu funkcji użytkownika| Inteligentne wcięcie | Składanie kodu|
 |--|--|--|--|--|--|--|--|--|
-|PySpark (Python)|Tak|Tak|Tak|Tak|Tak|Tak|Tak|Tak|
-|Spark (Scala)|Tak|Tak|Tak|Tak|-|-|-|Tak|
-|SparkSQL|Tak|Tak|-|-|-|-|-|-|
-|Spark.NET (C#)|Tak|-|-|-|-|-|-|-|
+|PySpark (Python)|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Spark (Scala)|Yes|Yes|Yes|Yes|-|-|-|Yes|
+|SparkSQL|Yes|Yes|-|-|-|-|-|-|
+|.NET dla platformy Spark (C#)|Yes|-|-|-|-|-|-|-|
 
 ### <a name="format-text-cell-with-toolbar-buttons"></a>Formatowanie komórki tekstowej przy użyciu przycisków paska narzędzi
 
@@ -267,7 +267,7 @@ Dostęp do danych można uzyskać bezpośrednio na podstawowym koncie magazynu. 
 
 Widok wyników tabelarycznych jest dostępny z opcją tworzenia wykresu słupkowego, wykresu liniowego, wykresu kołowego, wykresu punktowego i wykresu warstwowego. Możesz wizualizować dane bez konieczności pisania kodu. Wykresy można dostosować w **opcjach wykresu**. 
 
-Dane wyjściowe poleceń Magic **%% SQL** są wyświetlane domyślnie w widoku renderowanej tabeli. Aby utworzyć renderowany widok tabeli, można wywołać funkcję **Display (`<DataFrame name>`)** na platformie Spark dataframes lub odporną na błędy rozproszone zestawy danych (RDD).
+Dane wyjściowe poleceń Magic **%% SQL** są wyświetlane domyślnie w widoku renderowanej tabeli. Aby utworzyć renderowany widok tabeli, można wywołać funkcję **Display ( `<DataFrame name>` )** na platformie Spark dataframes lub odporną na błędy rozproszone zestawy danych (RDD).
 
    ![Wykresy wbudowane](./media/apache-spark-development-using-notebooks/synapse-builtin-charts.png)
 
@@ -339,11 +339,11 @@ Dostępne magicy komórki: [%% Time](https://ipython.readthedocs.io/en/stable/in
 
 Podobnie jak w przypadku notesów Jupyter, notesy platformy Azure Synapse Studio mają interfejs użytkownika modalnego. Klawiatura wykonuje różne czynności w zależności od trybu, w którym znajduje się komórka notesu. Notesy programu Synapse Studio obsługują następujące dwa tryby dla danej komórki kodu: Tryb poleceń i tryb edycji.
 
-1. Komórka jest w trybie polecenia, gdy nie ma kursora tekstu z monitem o wpisanie. Gdy komórka jest w trybie poleceń, można edytować Notes jako całość, ale nie do pojedynczych komórek. Przejdź do trybu polecenia, `ESC` naciskając lub klikając myszą poza obszarem edytora komórki.
+1. Komórka jest w trybie polecenia, gdy nie ma kursora tekstu z monitem o wpisanie. Gdy komórka jest w trybie poleceń, można edytować Notes jako całość, ale nie do pojedynczych komórek. Przejdź do trybu polecenia, naciskając `ESC` lub klikając myszą poza obszarem edytora komórki.
 
    ![tryb polecenia](./media/apache-spark-development-using-notebooks/synapse-command-mode2.png)
 
-2. Tryb edycji jest wskazywany przez kursor tekstowy z monitem o wpisanie w obszarze edytora. Gdy komórka jest w trybie edycji, nie można wpisać do komórki. Przejdź do trybu edycji, `Enter` naciskając lub klikając myszą w obszarze edytora komórki.
+2. Tryb edycji jest wskazywany przez kursor tekstowy z monitem o wpisanie w obszarze edytora. Gdy komórka jest w trybie edycji, nie można wpisać do komórki. Przejdź do trybu edycji, naciskając `Enter` lub klikając myszą w obszarze edytora komórki.
    
    ![edit-mode](./media/apache-spark-development-using-notebooks/synapse-edit-mode2.png)
 
@@ -374,7 +374,7 @@ Korzystając z następujących skrótów klawiaturowych, można łatwiej nawigow
 |--|--|
 |Przenieś kursor w górę | W górę |
 |Przenieś kursor w dół|W dół|
-|Cofanie|Ctrl + Z|
+|Cofnij|Ctrl + Z|
 |Ponów|Ctrl + Y|
 |Skomentuj/Usuń komentarz|Ctrl +/|
 |Usuń słowo przed|Ctrl + Backspace|
@@ -390,5 +390,8 @@ Korzystając z następujących skrótów klawiaturowych, można łatwiej nawigow
 
 ## <a name="next-steps"></a>Następne kroki
 
+- [Szybki Start: Tworzenie puli Apache Spark (wersja zapoznawcza) w usłudze Azure Synapse Analytics przy użyciu narzędzi sieci Web](../quickstart-apache-spark-notebook.md)
+- [Co to jest Apache Spark w usłudze Azure Synapse Analytics](apache-spark-overview.md)
+- [Korzystanie z platformy .NET dla Apache Spark przy użyciu usługi Azure Synapse Analytics](spark-dotnet.md)
 - [Dokumentacja platformy .NET dla Apache Spark](/dotnet/spark?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [Azure Synapse Analytics](https://docs.microsoft.com/azure/synapse-analytics)

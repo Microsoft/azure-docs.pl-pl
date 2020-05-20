@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 148b80a6843168b11e4feb3558f6bf08eaeb3ace
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c5bfb6632a22a890ac2387f06464c18be7dd714
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81261265"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83699058"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny zamówień w komercyjnej analizie Marketplace
 
@@ -104,6 +104,7 @@ W tabeli Order Details (szczegóły zamówienia) wyświetlana jest lista numerow
 - Dane można wyodrębnić do pliku TSV, jeśli liczba rekordów jest mniejsza niż 1000.
 - Jeśli liczba rekordów przekracza 1000, eksportowane dane będą asynchroniczne umieszczane na stronie pobierania przez następne 30 dni.
 - Filtry można zastosować do **tabeli Order Details** , aby wyświetlić tylko te dane, które Cię interesują. Dane można filtrować według kraju, typu licencji platformy Azure, typu licencji Marketplace, typu oferty, stanu zamówienia, bezpłatnych identyfikatorów, identyfikatora subskrypcji witryny Marketplace, identyfikatora klienta i nazwy firmy.
+- Ponieważ oferty SaaS zakupione w witrynie Azure Marketplace lub AppSource nie wymagają subskrypcji platformy Azure, Identyfikator subskrypcji portalu Marketplace zostanie wyświetlony jako 00000000-0000-0000-0000-000000000000 w sekcji **szczegółowe dane zamówień** .
 
 #### <a name="orders-page-filters"></a>Filtry stron zamówień
 

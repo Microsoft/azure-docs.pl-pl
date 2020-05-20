@@ -3,12 +3,12 @@ title: Często zadawane pytania — tworzenie kopii zapasowych baz danych platfo
 description: W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące tworzenia kopii zapasowych SAP HANA baz danych przy użyciu usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: f9e0d96439a79c2c3d2cb2caa00ff09be3ff790d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 56f98dddb00eb3ffc87eb27da73066de807a1ee1
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660116"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701014"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Często zadawane pytania — tworzenie kopii zapasowych baz danych SAP HANA na maszynach wirtualnych platformy Azure
 
@@ -49,9 +49,9 @@ Zapoznaj się z [wymaganiami wstępnymi](tutorial-backup-sap-hana-db.md#prerequi
 
 Uruchomienie skryptu przed rejestracją ustawia wymagane uprawnienia, aby system Azure mógł tworzyć kopie zapasowe baz danych SAP HANA. Możesz znaleźć więcej informacji na temat tego, co robi skrypt [here](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does)przed rejestracją.
 
-### <a name="will-backups-work-after-migrating-sap-hana-from-10-to-20"></a>Czy kopie zapasowe będą wykonywane po przeprowadzeniu migracji SAP HANA z 1,0 do 2,0?
+### <a name="will-backups-work-after-migrating-sap-hana-from-sdc-to-mdc"></a>Czy kopie zapasowe będą wykonywane po przeprowadzeniu migracji SAP HANA z SDC do MDC?
 
-Zapoznaj się z [tą sekcją](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#upgrading-from-sap-hana-10-to-20) przewodnika rozwiązywania problemów.
+Zapoznaj się z [tą sekcją](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#sdc-to-mdc-upgrade-with-a-change-in-sid) przewodnika rozwiązywania problemów.
 
 ### <a name="can-azure-hana-backup-be-set-up-against-a-virtual-ip-load-balancer-and-not-a-virtual-machine"></a>Czy można utworzyć kopię zapasową platformy Azure HANA względem wirtualnego adresu IP (modułu równoważenia obciążenia), a nie maszyny wirtualnej?
 

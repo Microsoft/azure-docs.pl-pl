@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: 01a4cd172b699cef009197d1fce1d5bae62f2925
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 9a81ab58335e968e5ce4816de85ed1b63bc93455
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680627"
+ms.locfileid: "83699606"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Wizualnie Monitoruj Azure Data Factory
 
@@ -142,7 +142,7 @@ Kliknięcie ikony powoduje otwarcie raportu o zużyciu zasobów używanych przez
 
 ![Monitorowanie użycia](media/monitor-visually/monitor-consumption-2.png)
 
-Te wartości można podłączyć do przebiegu potoku [Cennik usługi Azure calcula. Hat. Aby uzyskać więcej informacji na Azure Data Factory cenach, zobacz temat [Omówienie cen](pricing-concepts.md).
+Te wartości można podłączyć do [kalkulatora cen platformy Azure]. ( https://azure.microsoft.com/pricing/details/data-factory/) Aby oszacować koszt uruchomienia potoku. Aby uzyskać więcej informacji na Azure Data Factory cenach, zobacz temat [Omówienie cen](pricing-concepts.md).
 
 > [!NOTE]
 > Te wartości zwracane przez kalkulator cen są szacowane. Nie odzwierciedla dokładnej kwoty, która będzie rozliczana Azure Data Factory 

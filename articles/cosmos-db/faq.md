@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 0a890139f9d7a955a5c96262d6e5b8f275e61d0d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: a5dbdc4baea0973797427672c9171b4bf841086f
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83675939"
+ms.locfileid: "83701393"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Często zadawane pytania dotyczące różnych interfejsów API w usłudze Azure Cosmos DB
 
@@ -93,7 +93,7 @@ Aby wypróbować subskrypcje Azure Cosmos DB, mają zastosowanie następujące w
 * Replikacja globalna jest dostępna w następujących [regionach świadczenia usługi Azure](https://azure.microsoft.com/regions/): środkowe stany USA, Europa Północna i Azja Południowo-Wschodnia
 * Maksymalna przepływność 5 K/s w przypadku aprowizacji na poziomie kontenera.
 * Maksymalna przepływność 20 K/s w przypadku aprowizacji na poziomie bazy danych.
-* Subskrypcje wygasną po upływie 30 dni i można je przedłużyć do maksymalnie 31 dni.
+* Subskrypcje wygasną po upływie 30 dni i można je przedłużyć do maksymalnie 31 dni. Po wygaśnięciu zawarte informacje zostaną usunięte.
 * Nie można utworzyć biletów pomocy technicznej platformy Azure dla usług try Azure Cosmos DB. Jednak pomoc techniczna jest świadczona dla subskrybentów z istniejącymi planami pomocy technicznej.
 
 ## <a name="set-up-azure-cosmos-db"></a>Skonfiguruj Azure Cosmos DB

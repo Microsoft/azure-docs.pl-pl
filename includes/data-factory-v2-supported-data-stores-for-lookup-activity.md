@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 12/13/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: fb44f217b7a940bc07a164e482b67ddb53835715
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 622a527d8aae7991edd7cae7da953ec7dd8afa4e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75440472"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83696508"
 ---
 | Kategoria | Magazyn danych |
 |:--- |:--- |
-| **Azure** |[Azure Blob Storage](../articles/data-factory/connector-azure-blob-storage.md) |
+| **Azure** |[Magazyn obiektów blob platformy Azure](../articles/data-factory/connector-azure-blob-storage.md) |
 | &nbsp; |[Azure Cosmos DB (interfejs API SQL)](../articles/data-factory/connector-azure-cosmos-db.md) |
 | &nbsp; |[Azure Data Explorer](../articles/data-factory/connector-azure-data-explorer.md) |
 | &nbsp; |[Usługa Azure Data Lake Storage 1. generacji](../articles/data-factory/connector-azure-data-lake-store.md) |
-| &nbsp; |[Usługa Azure Data Lake Storage 2. generacji](../articles/data-factory/connector-azure-data-lake-storage.md) |
+| &nbsp; |[Azure Data Lake Storage Gen2](../articles/data-factory/connector-azure-data-lake-storage.md) |
 | &nbsp; |[Azure Database for MariaDB](../articles/data-factory/connector-azure-database-for-mariadb.md) |
 | &nbsp; |[Azure Database for MySQL](../articles/data-factory/connector-azure-database-for-mysql.md) |
 | &nbsp; |[Azure Database for PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |
@@ -83,13 +83,14 @@ ms.locfileid: "75440472"
 | &nbsp; |[Oracle Service Cloud (wersja zapoznawcza)](../articles/data-factory/connector-oracle-service-cloud.md) |
 | &nbsp; |[PayPal (wersja zapoznawcza)](../articles/data-factory/connector-paypal.md) |
 | &nbsp; |[QuickBooks (wersja zapoznawcza)](../articles/data-factory/connector-quickbooks.md) |
-| &nbsp; |[SalesForce](../articles/data-factory/connector-salesforce.md) |
+| &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |
 | &nbsp; |[Salesforce Service Cloud](../articles/data-factory/connector-salesforce-service-cloud.md) |
 | &nbsp; |[Salesforce Marketing Cloud](../articles/data-factory/connector-salesforce-marketing-cloud.md) |
 | &nbsp; |[SAP Cloud for Customer (C4C)](../articles/data-factory/connector-sap-cloud-for-customer.md) |
 | &nbsp; |[SAP ECC](../articles/data-factory/connector-sap-ecc.md) |
 | &nbsp; |[ServiceNow](../articles/data-factory/connector-servicenow.md) |
 | &nbsp; |[Shopify (wersja zapoznawcza)](../articles/data-factory/connector-shopify.md) |
+| &nbsp; |[Lista usługi SharePoint Online](../articles/data-factory/connector-sharepoint-online-list.md) |
 | &nbsp; |[Square (wersja zapoznawcza)](../articles/data-factory/connector-square.md) |
 | &nbsp; |[Tabela internetowa (tabela HTML)](../articles/data-factory/connector-web-table.md) 
 | &nbsp; |[Xero](../articles/data-factory/connector-xero.md) |

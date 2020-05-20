@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/03/2020
-ms.openlocfilehash: 0e45e832def4073f22a160b95447afb1b10ef77a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 7ef7a55c81441077d2217ccfc41a2a9c9578eefe
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657376"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697565"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Przydziały usługi Azure Cosmos DB
 
@@ -188,7 +188,7 @@ W poniższej tabeli przedstawiono limity dla [Azure Cosmos DB Wypróbuj bezpłat
 
 | Zasób | Limit domyślny |
 | --- | --- |
-| Okres próbny | 30 dni (można odnowić dowolną liczbę razy) |
+| Okres próbny | 30 dni (po wygaśnięciu może zażądać nowej wersji próbnej) <br> Po wygaśnięciu informacje przechowywane są usuwane. |
 | Maksymalna liczba kontenerów na subskrypcję (SQL, Gremlin, interfejs API tabel) | 1 |
 | Maksymalna liczba kontenerów na subskrypcję (interfejs API MongoDB) | 3 |
 | Maksymalna przepływność na kontener | 5000 |
