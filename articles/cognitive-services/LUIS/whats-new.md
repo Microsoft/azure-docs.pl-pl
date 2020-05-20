@@ -2,31 +2,37 @@
 title: Co nowego — Language Understanding (LUIS)
 description: Ten artykuł jest regularnie aktualizowany za pomocą wiadomości o interfejs API usługi Language Understanding usługi Azure Cognitive Services.
 ms.topic: overview
-ms.date: 05/08/2020
-ms.openlocfilehash: d7ef989d04132dedc79d2408b7083b57d8c926b0
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/19/2020
+ms.openlocfilehash: b4d287c8d1ddbeeee63390fb397718de1234c93e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592801"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83675961"
 ---
 # <a name="whats-new-in-language-understanding"></a>Co nowego w Language Understanding
 
 Dowiedz się, co nowego w usłudze. Te elementy obejmują informacje o wersji, klipy wideo, wpisy w blogu i inne rodzaje informacji. Oznacz Tę stronę zakładką, aby zapewnić aktualność usługi.
 
-## <a name="release-notes"></a>Uwagi do wersji
+## <a name="release-notes"></a>Informacje o wersji
 
 ### <a name="may-2020---build"></a>Maj 2020-Build
 
 * Wydane jako **ogólnie dostępne** (ga):
     * [Kontener Language Understanding](luis-container-howto.md)
     * Portal w wersji zapoznawczej promowany dla [bieżącego portalu](https://www.luis.ai), [poprzedni](https://previous.luis.ai) Portal nadal jest dostępny
-    * Nowe środowisko tworzenia i etykietowania jednostek, które poznanie maszynowe
-    * [Proces uaktualniania](migrate-from-composite-entity.md) z jednostek złożonych i prostych do jednostek z obsługą maszyn
+    * Nowe środowisko tworzenia i etykietowania jednostek uczenia maszynowego
+    * [Proces uaktualniania](migrate-from-composite-entity.md) z jednostek złożonych i prostych do jednostek uczenia maszynowego
     * [Ustawianie](how-to-application-settings-portal.md) obsługi normalizowania wariantów wyrazów
 * Zmiany wersji zapoznawczej interfejsu API tworzenia
-    * Schemat aplikacji 7. x dla zagnieżdżonych jednostek rozwidzianych maszynowo
+    * Schemat aplikacji 7. x dla zagnieżdżonych jednostek uczenia maszynowego
     * [Migracja do wymaganej funkcji](luis-migration-authoring-entities.md#api-change-constraint-replaced-with-required-feature)
+* Nowe zasoby dla deweloperów
+    * [Narzędzia do ciągłej integracji](developer-reference-resource.md#continuous-integration-tools)
+    * Warsztat — uczenie najlepszych rozwiązań dla [ _naturalnego Language Understanding_ (NLU) przy użyciu Luis](developer-reference-resource.md#workshops)
+* [Klucze zarządzane przez klienta](luis-encryption-of-data-at-rest.md) — Szyfruj wszystkie dane używane w programie Luis przy użyciu własnego klucza
+* [AI show](https://channel9.msdn.com/Shows/AI-Show/New-Features-in-Language-Understanding) (wideo) — Zobacz nowe funkcje w Luis
+
 
 
 ### <a name="march-2020"></a>Marzec 2020 r.
@@ -48,13 +54,13 @@ Dowiedz się, co nowego w usłudze. Te elementy obejmują informacje o wersji, k
     * Włoskie wstępnie [skompilowane jednostki](luis-reference-prebuilt-entities.md#italian-entity-support) — wiek, waluta, wymiar, numer i rozdzielczość procentową zmieniono z wersji 2.
 * Ulepszone środowisko użytkownika w [portalu Preview.Luis.AI](https://preview.luis.ai) — środowisko etykietowania odnowionych umożliwiające tworzenie i debugowanie modeli złożonych. Wypróbuj samouczki dotyczące portalu w wersji zapoznawczej:
     * [Tylko intencje](tutorial-intents-only.md)
-    * [Odtworzona jednostka pouczenia maszynowego](tutorial-machine-learned-entity.md)
+    * [Odtworzenie jednostki uczenia maszynowego](tutorial-machine-learned-entity.md)
 * Dokładniejsze Omówienie języka — [tworzenie zaawansowanych modeli języków](luis-concept-entity-types.md) z mniejszym nakładem pracy.
 * Zdefiniuj funkcje uczenia maszynowego na poziomie modelu i Włącz modele, które mają być używane jako sygnały do innych modeli, na przykład użycie jednostek jako funkcji do intencji i innych jednostek.
 * Nowe, rozwinięte [limity](luis-limits.md) — większa liczba list fraz i łączna liczba fraz, nowy model jako limity funkcji
 * Wyodrębnij informacje z tekstu w formacie głębokiej struktury hierarchii, co sprawia, że aplikacje do konwersacji są bardziej wydajne.
 
-    ![obraz jednostki o Poznaniu maszynowym](./media/whats-new/deep-entity-extraction-example.png)
+    ![obraz jednostki uczenia maszynowego](./media/whats-new/deep-entity-extraction-example.png)
 
 ### <a name="september-3-2019"></a>3 września, 2019
 

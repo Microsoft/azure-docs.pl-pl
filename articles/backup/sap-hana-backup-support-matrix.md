@@ -3,12 +3,12 @@ title: Tabela obsługi kopii zapasowych platformy SAP HANA
 description: W tym artykule omówiono obsługiwane scenariusze i ograniczenia dotyczące tworzenia kopii zapasowych SAP HANA baz danych na maszynach wirtualnych platformy Azure przy użyciu usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 8496dc4996cac68535bfe9be30e4b5f72e2d5721
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 20519562151a70c9fd8e8fe5d86ce912e615b460
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79252443"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660133"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Macierz obsługi dla kopii zapasowych baz danych platformy SAP HANA na maszynach wirtualnych platformy Azure
 
@@ -37,7 +37,7 @@ Azure Backup obsługuje tworzenie kopii zapasowych baz danych SAP HANA na platfo
 ------
 
 > [!NOTE]
-> Operacje tworzenia kopii zapasowych i przywracania z SAP HANA natywnych klientów (SAP HANA Studio/Panel sterowania/DBA) nie są obecnie obsługiwane.
+> Teraz można [monitorować zadania tworzenia kopii zapasowej i przywracania](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#monitor-manual-backup-jobs-in-the-portal) (na tym samym komputerze) wyzwalane w ramach Azure Portal z natywnych klientów platformy HANA (SAP HANA Studio/Panel sterowania/administrator).
 
 ## <a name="next-steps"></a>Następne kroki
 

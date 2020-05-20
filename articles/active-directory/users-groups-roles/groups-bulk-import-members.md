@@ -13,14 +13,14 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8902c3147bbe142fc58d4e2c3fa83601c8ccbba3
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 5b83b0687db72c78a0c7788933acf07f5cb9e0ed
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203532"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83679350"
 ---
-# <a name="bulk-import-group-members-in-azure-active-directory"></a>Importuj zbiorczo członków grupy w Azure Active Directory
+# <a name="bulk-add-group-members-in-azure-active-directory"></a>Zbiorcze dodawanie elementów członkowskich grupy w Azure Active Directory
 
 Za pomocą portalu usługi Azure Active Directory (Azure AD) można dodać dużą liczbę elementów członkowskich do grupy przy użyciu pliku wartości rozdzielanych przecinkami (CSV) w celu zbiorczego importowania elementów członkowskich grupy.
 
@@ -35,7 +35,7 @@ Pobierz i wypełnij szablon CSV przekazywania zbiorczego, aby pomyślnie dodać 
 Wiersze pobranego szablonu CSV są następujące:
 
 - **Numer wersji**: pierwszy wiersz zawierający numer wersji musi być uwzględniony w pliku CSV przekazywania.
-- **Nagłówki kolumn**: format nagłówków *kolumn jest* &gt; &lt; &lt; *wymagany lub pusty*&gt;. Na przykład `Member object ID or user principal name [memberObjectIdOrUpn] Required`. Niektóre starsze wersje szablonu mogą mieć niewielkie wahania. Aby zmienić członkostwo w grupie, można użyć opcji identyfikatora obiektu Członkowskiego lub nazwy głównej użytkownika.
+- **Nagłówki kolumn**: format nagłówków kolumn jest &lt; *Item name* &gt; &lt; *wymagany lub pusty* &gt; . Na przykład `Member object ID or user principal name [memberObjectIdOrUpn] Required`. Niektóre starsze wersje szablonu mogą mieć niewielkie wahania. Aby zmienić członkostwo w grupie, można użyć opcji identyfikatora obiektu Członkowskiego lub nazwy głównej użytkownika.
 - **Przykład wiersza**: w szablonie zamieszczono wiersz przykładów dopuszczalnych wartości dla każdej kolumny. Musisz usunąć wiersz przykładów i zastąpić go własnymi wpisami.
 
 ### <a name="additional-guidance"></a>Dodatkowe wskazówki
@@ -48,7 +48,7 @@ Wiersze pobranego szablonu CSV są następujące:
 ## <a name="to-bulk-import-group-members"></a>Aby zaimportować zbiorczo członków grupy
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta administratora użytkowników w organizacji. Właściciele grupy mogą również zbiorczo importować członków należących do nich grup.
-1. W usłudze Azure AD wybierz kolejno pozycje **grupy** > **wszystkie grupy**.
+1. W usłudze Azure AD wybierz kolejno pozycje **grupy**  >  **wszystkie grupy**.
 1. Otwórz grupę, do której dodawane są elementy członkowskie, a następnie wybierz pozycję **Członkowie**.
 1. Na stronie **Członkowie** wybierz pozycję **Importuj członków**.
 1. Na stronie **grupy importu zbiorczego** kliknij pozycję **Pobierz** , aby pobrać szablon pliku CSV z wymaganymi właściwościami elementów członkowskich grupy.
@@ -57,7 +57,7 @@ Wiersze pobranego szablonu CSV są następujące:
 
 1. Otwórz plik CSV i Dodaj wiersz dla każdego członka grupy, który ma zostać zaimportowany do grupy (wymagane wartości to **Identyfikator obiektu elementu członkowskiego** lub **główna nazwa użytkownika**). Następnie zapisz plik.
 
-   ![Plik CSV zawiera nazwy i identyfikatory dla elementów członkowskich do zaimportowania](./media/groups-bulk-import-members/csv-file.png)
+    :::image type="content" source="./media/groups-bulk-import-members/csv-file.png" alt-text="Plik CSV zawiera nazwy i identyfikatory członków do zaimportowania":::
 
 1. Na stronie **grupy importu zbiorczego** , w obszarze **Przekaż plik CSV**, przejdź do pliku. Po wybraniu pliku zostanie uruchomiony Walidacja pliku CSV.
 1. Po sprawdzeniu poprawności zawartości pliku, Strona importowania zbiorczego wyświetla **pomyślnie przekazany plik**. Jeśli występują błędy, należy je usunąć przed przesłaniem zadania.

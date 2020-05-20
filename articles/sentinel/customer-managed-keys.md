@@ -9,17 +9,17 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2019
+ms.date: 05/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 5eed208ed79aeab4e46ed90dd4d340a8b445be96
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ded28ef872bbc3147793ea3d68c94f8dde35f74e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461637"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83674174"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Konfigurowanie klucza zarządzanego przez klienta na platformie Azure
 
@@ -27,13 +27,15 @@ ms.locfileid: "81461637"
 Ten artykuł zawiera ogólne informacje i kroki konfigurowania klucza zarządzanego przez klienta (CMK) dla platformy Azure. CMK umożliwia zaszyfrowanie wszystkich danych zapisanych lub wysyłanych do usługi Azure wskaźnikowych we wszystkich odpowiednich zasobach magazynu za pomocą klucza Azure Key Vault utworzonego lub należącego do użytkownika.
 
 > [!NOTE]
-> -   Możliwość usługi Azure wskaźnik CMK jest dostępna tylko dla klientów, którzy są **nową** , i dostęp do tej możliwości są kontrolowane przez rejestrację funkcji platformy Azure.Możesz zażądać dostępu przez kontaktowanie azuresentinelCMK@microsoft.comsię, a jako pojemność jest dostępna, oczekujące żądania zostaną zatwierdzone.
+> -   Możliwość usługi Azure wskaźnik CMK jest dostępna tylko dla klientów, którzy są **nową** , i dostęp do tej możliwości są kontrolowane przez rejestrację funkcji platformy Azure.Możesz zażądać dostępu przez kontaktowanie się azuresentinelCMK@microsoft.com , a jako pojemność jest dostępna, oczekujące żądania zostaną zatwierdzone.
 > -   Funkcja CMK Azure wskaźnikowego jest dostępna tylko w regionach Wschodnie stany USA, zachodnie stany USA 2 i środkowe stany USA.
-> -   Funkcja CMK jest dostępna tylko dla klientów, którzy wysyłają 1 TB dziennie lub dłużej. Po zastosowaniu do firmy Microsoft informacji o dodatkowych cenach otrzymasz informacje o dodatkowym cenniku w celu udostępnienia CMK w ramach subskrypcji platformy Azure. Dowiedz się więcej o [log Analytics](../azure-monitor/platform/customer-managed-keys.md#disclaimers) naliczania opłat.
+> -   Funkcja CMK jest dostępna tylko dla klientów, którzy wysyłają 1 TB dziennie lub dłużej. Po zastosowaniu do firmy Microsoft informacji o dodatkowych cenach otrzymasz informacje o dodatkowym cenniku w celu udostępnienia CMK w ramach subskrypcji platformy Azure. Dowiedz się więcej o [cenach log Analytics](../azure-monitor/platform/manage-cost-storage.md#log-analytics-dedicated-clusters).
 
 ## <a name="how-cmk-works"></a>Jak działa CMK 
 
-Rozwiązanie do tworzenia i gromadzenia dzienników obejmuje kilka zasobów magazynu, takich jak Log Analytics i innych zasobów magazynu. W ramach konfiguracji usługi Azure wskaźnikowej CMK należy również skonfigurować ustawienia CMK dla powiązanych zasobów magazynu. Dane zapisane w zasobach magazynu innych niż Log Analytics również będą szyfrowane.
+Rozwiązanie Azure wskaźnikowego używa kilku zasobów magazynu dla zbierania i funkcji dzienników, w tym Log Analytics i innych. W ramach konfiguracji usługi Azure wskaźnikowej CMK należy również skonfigurować ustawienia CMK dla powiązanych zasobów magazynu. Dane zapisane w zasobach magazynu innych niż Log Analytics również będą szyfrowane.
+
+Dowiedz się więcej o [CMK](../azure-monitor/platform/customer-managed-keys.md#customer-managed-key-cmk-overview).
 
 > [!NOTE]
 > W przypadku włączenia CMK na platformie Azure — żadna publiczna funkcja w wersji zapoznawczej, która nie obsługuje CMK, nie będzie włączona.

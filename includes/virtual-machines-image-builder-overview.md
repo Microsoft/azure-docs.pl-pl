@@ -1,16 +1,16 @@
 ---
 author: cynthn
 ms.author: cynthn
-ms.date: 05/05/2020
+ms.date: 05/15/2020
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 11a9b8609218a6cf56a789b18094d048e26d4af8
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 9bbf2288ac92c33c2b24af4e6a97882013a4ff1d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83343341"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673462"
 ---
 Standardowe obrazy maszyn wirtualnych (VM) umożliwiają organizacjom Migrowanie do chmury i zapewnianie spójności we wdrożeniach. Obrazy zwykle obejmują wstępnie zdefiniowane ustawienia zabezpieczeń i konfiguracji oraz niezbędne oprogramowanie. Skonfigurowanie własnego potoku obrazu wymaga czasu, infrastruktury i konfiguracji, ale za pomocą konstruktora obrazów maszyn wirtualnych platformy Azure wystarczy utworzyć prostą konfigurację opisującą obraz, przesłać ją do usługi, a obraz został skompilowany i rozdystrybuowany.
  
@@ -86,7 +86,8 @@ Jeśli masz tożsamość, którą chcesz udzielić uprawnień IT, aby to zrobić
 
 Szczegółowo wyjaśniono [uprawnienia, a](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements)przykłady pokazują, jak to jest zaimplementowane.
 
-> [Uwaga!] Wcześniej z AIB można użyć nazwy SPN AIB i przyznać uprawnienia SPN do grup zasobów obrazu. Nie jest ona przenoszona z tego modelu, aby umożliwić korzystanie z przyszłych funkcji. Od 1 czerwca 2020, Konstruktor obrazów nie akceptuje szablonów, które nie mają tożsamości przypisanej do użytkownika, istniejące szablony należy ponownie przesłać do usługi przy użyciu [tożsamości użytkownika](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#identity). W przykładach w tym przykładzie pokazano, jak utworzyć tożsamość przypisaną przez użytkownika i dodać ją do szablonu.
+> [!Note]
+> Wcześniej z AIB można użyć nazwy SPN AIB i przyznać uprawnienia SPN do grup zasobów obrazu. Nie jest ona przenoszona z tego modelu, aby umożliwić korzystanie z przyszłych funkcji. Z 26 maja 2020, Konstruktor obrazów nie akceptuje szablonów, które nie mają tożsamości przypisanej do użytkownika, istniejące szablony muszą zostać przesłane ponownie do usługi przy użyciu [tożsamości użytkownika](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#identity). W przykładach w tym przykładzie pokazano, jak utworzyć tożsamość przypisaną przez użytkownika i dodać ją do szablonu. Więcej informacji można znaleźć w tej [dokumentacji](https://github.com/danielsollondon/azvmimagebuilder#service-updates-and-latest-release-information) dotyczącej tej zmiany i wydań aktualizacji.
 
 ## <a name="costs"></a>Koszty
 Podczas tworzenia, kompilowania i przechowywania obrazów przy użyciu usługi Azure Image Builder naliczane są koszty obliczeń, sieci i magazynu. Koszty te są podobne do kosztów ponoszonych w ramach ręcznego tworzenia obrazów niestandardowych. W przypadku zasobów opłata zostanie naliczona zgodnie z stawką za platformę Azure. 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: c1b807c6e4fa269ac2ab8d7eacd3ca1d4f81a1ca
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: b518b2b92ba6d2529ffdefce754a3b29b74fb21b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792619"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83674291"
 ---
 # <a name="troubleshoot"></a>Rozwiązywanie problemów
 
@@ -94,7 +94,7 @@ Zalecamy przetestowanie następujących rzeczy przed bardziej szczegółowymi an
 * Czy jest zainstalowany koder-dekoder H265? Mimo że powinno nastąpić powrót do kodera-dewielokrotna h264ego, występują przypadki, w których ta rezerwa nie działała prawidłowo. Zapoznaj się z [wymaganiami systemowymi](../overview/system-requirements.md#development-pc) dotyczącymi instalowania najnowszego sterownika grafiki.
 * W przypadku korzystania z projektu środowiska Unity Zamknij środowisko Unity, Usuń *bibliotekę* tymczasową i foldery *obj* w katalogu projektu i ponownie załaduj/Skompiluj projekt. W niektórych przypadkach dane w pamięci podręcznej spowodowały, że próbka nie działa prawidłowo, bez oczywistych przyczyn.
 
-Jeśli te dwa kroki nie były pomocne, należy sprawdzić, czy ramki wideo są odbierane przez klienta, czy nie. Można to zrobić programowo, jak wyjaśniono w rozdziale [kwerendy wydajności po stronie serwera](../overview/features/performance-queries.md) . `FrameStatistics struct` Zawiera element członkowski, który wskazuje liczbę ramek wideo, które zostały odebrane. Jeśli ta liczba jest większa niż 0 i rośnie wraz z upływem czasu, klient odbiera rzeczywiste ramki wideo z serwera. W związku z tym musi być problemem po stronie klienta.
+Jeśli te dwa kroki nie były pomocne, należy sprawdzić, czy ramki wideo są odbierane przez klienta, czy nie. Można to zrobić programowo, jak wyjaśniono w rozdziale [kwerendy wydajności po stronie serwera](../overview/features/performance-queries.md) . `FrameStatistics struct`Zawiera element członkowski, który wskazuje liczbę ramek wideo, które zostały odebrane. Jeśli ta liczba jest większa niż 0 i rośnie wraz z upływem czasu, klient odbiera rzeczywiste ramki wideo z serwera. W związku z tym musi być problemem po stronie klienta.
 
 ### <a name="common-client-side-issues"></a>Typowe problemy po stronie klienta
 
@@ -129,11 +129,11 @@ Ponadto proces konwersji generuje [wyjściowy plik JSON](../how-tos/conversion/g
 }
 ```
 
-Pole ograniczenia jest opisane jako pozycja `min` i `max` w przestrzeni 3D, w metrach. Dlatego Współrzędna 1000,0 oznacza, że nie jest to 1 Kilometer od początku.
+Pole ograniczenia jest opisane jako `min` `max` pozycja i w przestrzeni 3D, w metrach. Dlatego Współrzędna 1000,0 oznacza, że nie jest to 1 Kilometer od początku.
 
 W przypadku tego pola ograniczenia mogą występować dwa problemy, które prowadzą do niewidocznej geometrii:
-* **Pole może być daleko od środka**, więc obiekt jest obcinany całkowicie ze względu na przycinanie do odległej płaszczyzny. `boundingBox` Wartości w tym przypadku wyglądać następująco: `min = [-2000, -5,-5], max = [-1990, 5,5]`, przy użyciu dużego przesunięcia na osi x jako przykładu. Aby rozwiązać ten problem, należy włączyć `recenterToOrigin` opcję w [konfiguracji konwersji modelu](../how-tos/conversion/configure-model-conversion.md).
-* **Pole może być wyśrodkowane, ale zamówienia wielkości są zbyt duże**. Oznacza to, że podczas gdy aparat zostanie uruchomiony w środku modelu, jego geometria jest obcinana we wszystkich kierunkach. Typowe `boundingBox` wartości w tym przypadku wyglądać następująco: `min = [-1000,-1000,-1000], max = [1000,1000,1000]`. Przyczyną tego typu problemu jest zwykle niezgodność skali jednostki. Aby skompensować, należy określić [wartość skalowania podczas konwersji](../how-tos/conversion/configure-model-conversion.md#geometry-parameters) lub oznaczyć Model źródłowy odpowiednimi jednostkami. Skalowanie może być również stosowane do węzła głównego podczas ładowania modelu w czasie wykonywania.
+* **Pole może być daleko od środka**, więc obiekt jest obcinany całkowicie ze względu na przycinanie do odległej płaszczyzny. `boundingBox`Wartości w tym przypadku wyglądać następująco: `min = [-2000, -5,-5], max = [-1990, 5,5]` , przy użyciu dużego przesunięcia na osi x jako przykładu. Aby rozwiązać ten problem, należy włączyć `recenterToOrigin` opcję w [konfiguracji konwersji modelu](../how-tos/conversion/configure-model-conversion.md).
+* **Pole może być wyśrodkowane, ale zamówienia wielkości są zbyt duże**. Oznacza to, że podczas gdy aparat zostanie uruchomiony w środku modelu, jego geometria jest obcinana we wszystkich kierunkach. Typowe `boundingBox` wartości w tym przypadku wyglądać następująco: `min = [-1000,-1000,-1000], max = [1000,1000,1000]` . Przyczyną tego typu problemu jest zwykle niezgodność skali jednostki. Aby skompensować, należy określić [wartość skalowania podczas konwersji](../how-tos/conversion/configure-model-conversion.md#geometry-parameters) lub oznaczyć Model źródłowy odpowiednimi jednostkami. Skalowanie może być również stosowane do węzła głównego podczas ładowania modelu w czasie wykonywania.
 
 **Potok renderowania aparatu Unity nie obejmuje punktów zaczepienia renderowania:**
 
@@ -150,7 +150,7 @@ Zmień *typ kompilacji* rozwiązania Unity na **Debuguj**. Podczas testowania AR
 ### <a name="compile-failures-when-compiling-unity-samples-for-hololens-2"></a>Błędy kompilacji podczas kompilowania próbek aparatu Unity 2
 
 Wystąpił błąd fałszywe podczas próby skompilowania przykładów aparatu Unity (Szybki Start, ShowCaseApp,..) dla urządzenia HoloLens 2. Program Visual Studio nie może kopiować niektórych plików poza nimi. W przypadku wystąpienia tego problemu:
-* Usuń wszystkie pliki tymczasowe aparatu Unity z projektu i spróbuj ponownie.
+* Usuń wszystkie pliki tymczasowe aparatu Unity z projektu i spróbuj ponownie. Oznacza to, że Zamknij Unity, Usuń *bibliotekę* tymczasową i foldery *obj* w katalogu projektu i ponownie załaduj/Skompiluj projekt.
 * Upewnij się, że projekty znajdują się w katalogu na dysku z odpowiednio krótką ścieżką, ponieważ krok kopiowania czasami wydaje się być przyczyną problemów z długimi nazwami plików.
 * Jeśli to nie pomoże, może to być, że usługa MS sens przeszkadza w kroku kopiowania. Aby skonfigurować wyjątek, Uruchom to polecenie rejestru z wiersza polecenia (wymaga uprawnień administratora):
     ```cmd
@@ -161,9 +161,9 @@ Wystąpił błąd fałszywe podczas próby skompilowania przykładów aparatu Un
 
 W przypadku gdy renderowane obiekty pozornie są przenoszone wraz z przesunięciami, mogą wystąpić problemy związane z *reprojektem późnego etapu* (LSR). Zapoznaj się z sekcją dotyczącą [przemieszczenia na późnym etapie](../overview/features/late-stage-reprojection.md) w celu uzyskania wskazówek dotyczących sposobu podejścia do takiej sytuacji.
 
-Kolejną przyczyną niestabilnych hologramów (Wobbling, zniekształcenia, zakłócenia lub hologramów przeskoków) może być słaba łączność sieciowa, w szczególności niewystarczająca przepustowość sieci lub zbyt wysokie opóźnienia. Dobrym wskaźnikiem jakości połączenia sieciowego jest wartość `ARRServiceStats.VideoFramesReused` [Statystyka wydajności](../overview/features/performance-queries.md) . Ponownie używane ramki wskazują sytuacje, w których stara ramka wideo jest wymagana ponownie na stronie klienta, ponieważ nie jest dostępna nowa ramka wideo — na przykład ze względu na utratę pakietów lub z powodu różnic w opóźnieniu sieci. Jeśli `ARRServiceStats.VideoFramesReused` jest często większa od zera, oznacza to problem z siecią.
+Kolejną przyczyną niestabilnych hologramów (Wobbling, zniekształcenia, zakłócenia lub hologramów przeskoków) może być słaba łączność sieciowa, w szczególności niewystarczająca przepustowość sieci lub zbyt wysokie opóźnienia. Dobrym wskaźnikiem jakości połączenia sieciowego jest wartość [Statystyka wydajności](../overview/features/performance-queries.md) `ARRServiceStats.VideoFramesReused` . Ponownie używane ramki wskazują sytuacje, w których stara ramka wideo jest wymagana ponownie na stronie klienta, ponieważ nie jest dostępna nowa ramka wideo — na przykład ze względu na utratę pakietów lub z powodu różnic w opóźnieniu sieci. Jeśli `ARRServiceStats.VideoFramesReused` jest często większa od zera, oznacza to problem z siecią.
 
-Inna wartość, która ma być `ARRServiceStats.LatencyPoseToReceiveAvg`wyszukiwana. Powinien on być spójny poniżej 100 ms. Jeśli zobaczysz wyższe wartości, oznacza to, że masz połączenie z centrum danych zbyt daleko.
+Inna wartość, która ma być wyszukiwana `ARRServiceStats.LatencyPoseToReceiveAvg` . Powinien on być spójny poniżej 100 ms. Jeśli zobaczysz wyższe wartości, oznacza to, że masz połączenie z centrum danych zbyt daleko.
 
 Aby zapoznać się z listą potencjalnych środków zaradczych, zobacz [wytyczne dotyczące łączności sieciowej](../reference/network-requirements.md#guidelines-for-network-connectivity).
 

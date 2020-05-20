@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: zarhoads
-ms.openlocfilehash: 1d97ae5692a4cdc328833ce4c01a8114506a960a
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 9fd7d6c6d472400afea05ac0cd87321a46dddb37
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779075"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83677926"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące zabezpieczeń na platformie Azure Kubernetes Service (AKS)
 
@@ -30,7 +30,7 @@ Można także zapoznać się z najlepszymi rozwiązaniami dotyczącymi [zabezpie
 
 **Wskazówki dotyczące najlepszych** rozwiązań — do uruchamiania jako inny użytkownik lub Grupa i ograniczania dostępu do podstawowych procesów i usług węzła, definiowania ustawień kontekstu zabezpieczeń. Przypisz wymaganą minimalną liczbę uprawnień.
 
-Aby aplikacje działały prawidłowo, należy uruchomić jako zdefiniowany użytkownika lub grupę, a nie jako *element główny*. Dla elementu pod lub kontenera można zdefiniować ustawienia, takie jak *runAsUser* lub fsGroup, aby założyć odpowiednie uprawnienia. *fsGroup* `securityContext` Należy przypisać tylko wymagane uprawnienia użytkownika lub grupy, a nie użyć kontekstu zabezpieczeń jako środka do założenia dodatkowych uprawnień. Ustawienia *runAsUser*, eskalacji uprawnień i inne funkcje systemu Linux są dostępne tylko w węzłach i w systemach Linux.
+Aby aplikacje działały prawidłowo, należy uruchomić jako zdefiniowany użytkownika lub grupę, a nie jako *element główny*. `securityContext`Dla elementu pod lub kontenera można zdefiniować ustawienia, takie jak *RunAsUser* lub *fsGroup* , aby założyć odpowiednie uprawnienia. Należy przypisać tylko wymagane uprawnienia użytkownika lub grupy, a nie użyć kontekstu zabezpieczeń jako środka do założenia dodatkowych uprawnień. Ustawienia *runAsUser*, eskalacji uprawnień i inne funkcje systemu Linux są dostępne tylko w węzłach i w systemach Linux.
 
 Jeśli użytkownik nie jest użytkownikiem głównym, kontenery nie mogą być powiązane z portami uprzywilejowanymi w obszarze 1024. W tym scenariuszu usługi Kubernetes Services mogą służyć do uzyskania informacji o tym, że aplikacja działa na określonym porcie.
 
@@ -71,14 +71,17 @@ Aby określić, jakie ustawienia kontekstu zabezpieczeń są potrzebne, Pracuj z
 
 Aby ograniczyć ryzyko ujawnienia poświadczeń w kodzie aplikacji, należy unikać stosowania poświadczeń stałych lub udostępnionych. Poświadczeń lub kluczy nie należy uwzględniać bezpośrednio w kodzie. Jeśli te poświadczenia są ujawniane, aplikacja musi zostać zaktualizowana i wdrożona ponownie. Lepszym rozwiązaniem jest nadanie podstawom tożsamości i sposobu samodzielnego uwierzytelniania lub automatycznego pobierania poświadczeń z magazynu cyfrowego.
 
-Następujące [skojarzone projekty typu open source AKS][aks-associated-projects] umożliwiają automatyczne uwierzytelnianie z magazynów lub zażądanie poświadczeń i kluczy z magazynu cyfrowego:
+### <a name="use-azure-container-compute-upstream-projects"></a>Korzystanie z projektów nadrzędnych obliczeń kontenerów platformy Azure
 
-* Zarządzane tożsamości dla zasobów platformy Azure i
-* [Dostawca Azure Key Vault dla sterownika CSI magazynu wpisów tajnych](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage)
+> [!IMPORTANT]
+> Skojarzone projekty open source AKS nie są obsługiwane przez pomoc techniczną platformy Azure. Są one udostępniane użytkownikom do samodzielnego instalowania w klastrach i zbierania opinii z naszej społeczności.
 
-Skojarzone projekty open source AKS nie są obsługiwane przez pomoc techniczną platformy Azure. Są one dostarczane w celu zebrania opinii i usterek z naszej społeczności. Te projekty nie są zalecane do użycia w środowisku produkcyjnym.
+Następujące [skojarzone projekty typu open source AKS][aks-associated-projects] umożliwiają automatyczne uwierzytelnianie z magazynów lub zażądanie poświadczeń oraz kluczy z magazynu cyfrowego. Te projekty są obsługiwane przez zespół nadrzędny usługi obliczeniowej Azure Container i są częścią [szerszej listy projektów dostępnych do użycia](https://github.com/Azure/container-compute-upstream/blob/master/README.md#support).
 
-### <a name="use-pod-managed-identities"></a>Użyj tożsamości zarządzanych
+ * [Azure Active Directory pod tożsamością][aad-pod-identity]
+ * [Dostawca Azure Key Vault dla sterownika CSI magazynu wpisów tajnych](https://github.com/Azure/secrets-store-csi-driver-provider-azure#usage)
+
+#### <a name="use-pod-managed-identities"></a>Użyj tożsamości zarządzanych
 
 Zarządzana tożsamość zasobów platformy Azure pozwala na uwierzytelnianie pod względem usług platformy Azure, które go obsługują, takich jak Storage czy SQL. W obszarze jest przypisana tożsamość platformy Azure, która umożliwia im uwierzytelnianie Azure Active Directory i odbieranie cyfrowego tokenu. Ten token cyfrowy może być przedstawiony innym usługom platformy Azure, które sprawdzają, czy jest on autoryzowany do uzyskiwania dostępu do usługi i wykonując wymagane akcje. Takie podejście oznacza, że dla parametrów połączenia bazy danych nie są wymagane żadne wpisy tajne. Uproszczony przepływ pracy dotyczący tożsamości zarządzanej pod, jest przedstawiony na poniższym diagramie:
 
@@ -88,7 +91,7 @@ Przy użyciu tożsamości zarządzanej kod aplikacji nie musi zawierać poświad
 
 Aby uzyskać więcej informacji o tożsamościach pod, zobacz [Konfigurowanie klastra AKS do użycia z tożsamościami zarządzanymi i aplikacjami][aad-pod-identity] .
 
-### <a name="use-azure-key-vault-with-secrets-store-csi-driver"></a>Użyj Azure Key Vault ze sterownikiem CSI magazynu kluczy tajnych
+#### <a name="use-azure-key-vault-with-secrets-store-csi-driver"></a>Użyj Azure Key Vault ze sterownikiem CSI magazynu kluczy tajnych
 
 Korzystanie z projektu tożsamości pod Identity umożliwia uwierzytelnianie w celu obsługi usług platformy Azure. W przypadku własnych usług lub aplikacji bez tożsamości zarządzanych dla zasobów platformy Azure można nadal uwierzytelniać się przy użyciu poświadczeń lub kluczy. Magazyn cyfrowy może służyć do przechowywania zawartości tego klucza tajnego.
 

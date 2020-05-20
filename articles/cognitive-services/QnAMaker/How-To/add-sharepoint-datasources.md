@@ -3,12 +3,12 @@ title: Pliki programu SharePoint — QnA Maker
 description: Dodaj zabezpieczone źródła danych programu SharePoint do bazy wiedzy, aby wzbogacić bazę wiedzy z pytaniami i odpowiedziami, które mogą być zabezpieczone za pomocą Active Directory.
 ms.topic: conceptual
 ms.date: 02/20/2020
-ms.openlocfilehash: 6f05079e39c8afb001bd4ba09d68f435c18efad5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 93f17e79834b412ce0babf220ba13649ae07718c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80294874"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660307"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Dodawanie bezpiecznego źródła danych programu SharePoint do bazy wiedzy
 
@@ -27,12 +27,12 @@ Jeśli Menedżer bazy wiedzy QnA Maker nie jest menedżerem Active Directory, na
 
 Do bazy wiedzy można dodać wszystkie [typy plików](../Concepts/content-types.md) obsługiwane przez QNA Maker z witryny programu SharePoint. Może być konieczne przyznanie [uprawnień](#permissions) , jeśli zasób pliku jest zabezpieczony.
 
-1. Z biblioteki z witryną programu SharePoint wybierz menu wielokropka pliku `...`.
+1. Z biblioteki z witryną programu SharePoint wybierz menu wielokropka pliku `...` .
 1. Skopiuj adres URL pliku.
 
    ![Pobierz adres URL pliku programu SharePoint, wybierając menu wielokropka pliku, a następnie kopiując adres URL.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
 
-1. Na stronie **Ustawienia** w portalu QNA Maker [Dodaj adres URL](manage-knowledge-bases.md#edit-knowledge-base) do bazy wiedzy.
+1. Na stronie **Ustawienia** w portalu QNA Maker Dodaj adres URL do bazy wiedzy.
 
 ### <a name="images-with-sharepoint-files"></a>Obrazy z plikami programu SharePoint
 
@@ -44,7 +44,7 @@ Dodaj obraz z następującą składnią promocji:
 ![Explanation or description of image](URL of public image)
 ```
 
-Tekst w nawiasach `[]`kwadratowych, objaśnia obraz. Adres URL w nawiasach `()`, jest bezpośrednim linkiem do obrazu.
+Tekst w nawiasach kwadratowych, `[]` objaśnia obraz. Adres URL w nawiasach, `()` jest bezpośrednim linkiem do obrazu.
 
 Po przetestowaniu pary QnA w panelu test interaktywny w portalu QnA Maker zostanie wyświetlony obraz zamiast tekstu z promocji. Spowoduje to zweryfikowanie, że obraz można pobrać publicznie z aplikacji klienckiej.
 
@@ -113,7 +113,7 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
 1. Menedżer Active Directory loguje się do Azure Portal i otwiera **[aplikacje dla przedsiębiorstw](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)**.
 
-1. `QnAMakerPortalSharePoint` Wyszukaj pozycję wybierz aplikację QNA Maker.
+1. Wyszukaj `QnAMakerPortalSharePoint` pozycję Wybierz aplikację QNA Maker.
 
     [![Wyszukaj QnAMakerPortalSharePoint na liście aplikacji dla przedsiębiorstw](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png)](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png#lightbox)
 

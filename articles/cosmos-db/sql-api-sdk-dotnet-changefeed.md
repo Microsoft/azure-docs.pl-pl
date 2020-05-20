@@ -1,19 +1,19 @@
 ---
 title: Azure Cosmos DB interfejs API procesora źródła zmian platformy .NET, informacje o wersji zestawu SDK
 description: Dowiedz się więcej na temat interfejsu API procesora i zestawu SDK, w tym daty wydania, daty wycofania i zmian wprowadzonych między poszczególnymi wersjami zestawu SDK procesora kanału zmian platformy .NET.
-author: ealsur
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 01/30/2019
-ms.author: maquaran
-ms.openlocfilehash: 5820778d46f5701b82bb289192350a9e13739d37
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/11/2020
+ms.author: anfeldma
+ms.openlocfilehash: e39cef33d8d402b6e04c6b9952cae21848e02424
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80619438"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660432"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Zestaw SDK procesora kanału informacyjnego platformy .NET: pobieranie i informacje o wersji
 
@@ -23,8 +23,9 @@ ms.locfileid: "80619438"
 > * [Źródło zmian platformy .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
-> * [Java (asynchroniczny)](sql-api-sdk-async-java.md)
-> * [Java](sql-api-sdk-java.md)
+> * [Zestaw Java SDK v4](sql-api-sdk-java-v4.md)
+> * [Async Java SDK 2](sql-api-sdk-async-java.md)
+> * [Sync Java SDK 2](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [Dostawca zasobów REST](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
@@ -36,33 +37,33 @@ ms.locfileid: "80619438"
 |---|---|
 |**Pobieranie zestawu SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**Dokumentacja interfejsu API**|[Dokumentacja referencyjna interfejsu API biblioteki procesora zmian](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
-|**Wprowadzenie**|[Wprowadzenie do zestawu .NET SDK procesora źródła zmian](change-feed.md)|
+|**Rozpoczęcie pracy**|[Wprowadzenie do zestawu .NET SDK procesora źródła zmian](change-feed.md)|
 |**Bieżąca obsługiwana platforma**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET rdzeń](https://www.microsoft.com/net/download/core) |
 
 > [!NOTE]
 > Jeśli używasz procesora z zestawem danych zmian, zapoznaj się z najnowszą wersją 3. x [zestawu SDK platformy .NET](change-feed-processor.md), który zawiera zestaw SDK ze źródłem zmian. 
 
-## <a name="release-notes"></a>Uwagi do wersji
+## <a name="release-notes"></a>Informacje o wersji
 
 ### <a name="v2-builds"></a>2 kompilacje
 
 ### <a name="230"></a><a name="2.3.0"/>2.3.0
-* Dodano nową metodę `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` i odpowiedni interfejs `ICheckpointPartitionProcessorFactory`publiczny. Umożliwia to implementację `IPartitionProcessor` interfejsu przy użyciu wbudowanego mechanizmu tworzenia punktów kontrolnych. Nowa fabryka jest podobna do istniejącej `IPartitionProcessorFactory`, z tą różnicą, `Create` że jej Metoda pobiera `ILeaseCheckpointer` również parametr.
-* Tylko jedna z dwóch metod ( `ChangeFeedProcessorBuilder.WithPartitionProcessorFactory` lub `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory`) może być używana dla tego samego `ChangeFeedProcessorBuilder` wystąpienia.
+* Dodano nową metodę `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` i odpowiedni interfejs publiczny `ICheckpointPartitionProcessorFactory` . Umożliwia to implementację `IPartitionProcessor` interfejsu przy użyciu wbudowanego mechanizmu tworzenia punktów kontrolnych. Nowa fabryka jest podobna do istniejącej `IPartitionProcessorFactory` , z tą różnicą, że jej `Create` Metoda pobiera również `ILeaseCheckpointer` parametr.
+* Tylko jedna z dwóch metod (lub) `ChangeFeedProcessorBuilder.WithPartitionProcessorFactory` `ChangeFeedProcessorBuilder.WithCheckpointPartitionProcessorFactory` może być używana dla tego samego `ChangeFeedProcessorBuilder` wystąpienia.
 
 ### <a name="228"></a><a name="2.2.8"/>2.2.8
 * Ulepszenia stabilności i diagnostyki:
-  * Dodano obsługę wykrywania źródła zmian odczytywania przez dłuższy czas. Gdy trwa dłużej niż wartość określona przez `ChangeFeedProcessorOptions.ChangeFeedTimeout` właściwość, zostaną wykonane następujące kroki:
+  * Dodano obsługę wykrywania źródła zmian odczytywania przez dłuższy czas. Gdy trwa dłużej niż wartość określona przez `ChangeFeedProcessorOptions.ChangeFeedTimeout` Właściwość, zostaną wykonane następujące kroki:
     * Operacja odczytu źródła zmian na problematycznej partycji została przerwana.
     * Wystąpienie procesora kanału informacyjnego zmiany porzuca własność nieproblematycznej dzierżawy. Usunięta dzierżawa zostanie wybrana podczas kolejnego kroku pozyskiwania dzierżawy, który zostanie wykonany przez to samo lub inne wystąpienie procesora źródła zmian. W ten sposób odczytywanie kanału informacyjnego zmian zostanie rozpoczęte.
     * Problem jest raportowany w monitorze kondycji. Domyślny monitor kondycji wysyła wszystkie zgłoszone problemy do dziennika śledzenia.
-  * Dodano nową właściwość publiczną: `ChangeFeedProcessorOptions.ChangeFeedTimeout`. Wartość domyślna tej właściwości to 10 minut.
-  * Dodano nową publiczną wartość wyliczenia: `Monitoring.MonitoredOperation.ReadChangeFeed`. Gdy wartość `HealthMonitoringRecord.Operation` jest ustawiona na `Monitoring.MonitoredOperation.ReadChangeFeed`, wskazuje, że problem z kondycją jest związany ze źródłem zmian odczytywania.
+  * Dodano nową właściwość publiczną: `ChangeFeedProcessorOptions.ChangeFeedTimeout` . Wartość domyślna tej właściwości to 10 minut.
+  * Dodano nową publiczną wartość wyliczenia: `Monitoring.MonitoredOperation.ReadChangeFeed` . Gdy wartość `HealthMonitoringRecord.Operation` jest ustawiona na `Monitoring.MonitoredOperation.ReadChangeFeed` , wskazuje, że problem z kondycją jest związany ze źródłem zmian odczytywania.
 
 ### <a name="227"></a><a name="2.2.7"/>2.2.7
 * Ulepszona strategia równoważenia obciążenia dla scenariusza, w którym wszystkie dzierżawy zajmują czas dłuższy niż interwał wygaśnięcia dzierżawy, na przykład z powodu problemów z siecią:
   * W tym scenariuszu algorytm równoważenia obciążenia używany do fałszywego traktowania dzierżaw jako wygasłych, co powoduje kradzież dzierżaw od aktywnych właścicieli. Może to spowodować niepotrzebne ponowne zrównoważenie wielu dzierżaw.
-  * Ten problem został rozwiązany w tej wersji przez uniknięcie ponowienia konfliktu podczas uzyskiwania wygasłej dzierżawy, której właściciel nie zmienił i posponing uzyskanie wygasłej dzierżawy do następnej iteracji równoważenia obciążenia.
+  * Ten problem został rozwiązany w tej wersji przez uniknięcie ponowienia konfliktu podczas uzyskiwania wygasłej dzierżawy, która nie zmieniła się, i odroczono pobieranie wygasłej dzierżawy do następnej iteracji równoważenia obciążenia.
 
 ### <a name="226"></a><a name="2.2.6"/>2.2.6
 * Ulepszona obsługa wyjątków obserwatorów.
@@ -77,14 +78,14 @@ ms.locfileid: "80619438"
 ### <a name="224"></a><a name="2.2.4"/>2.2.4
 * Dodano nową właściwość ChangeFeedProcessorOptions. StartContinuation, aby można było obsługiwać uruchamianie źródła zmian z tokenu kontynuacji żądania. Ta wartość jest używana tylko wtedy, gdy kolekcja dzierżawcy jest pusta lub dzierżawa nie ma ustawionego zestawu ContinuationToken. W przypadku dzierżaw w kolekcji dzierżawy, które mają ustawioną ContinuationToken, używany jest ContinuationToken i ChangeFeedProcessorOptions. StartContinuation jest ignorowana.
 
-### <a name="223"></a><a name="2.2.3"/>2.2.3
+### <a name="223"></a><a name="2.2.3"/>Regulamin
 * Dodano obsługę używania magazynu niestandardowego do utrwalania tokenów kontynuacji na partycję.
   * Na przykład niestandardowa magazyn dzierżawy może być Azure Cosmos DB kolekcje dzierżawy w dowolny sposób.
   * Niestandardowe magazyny dzierżaw mogą korzystać z nowej rozszerzalności ChangeFeedProcessorBuilder. WithLeaseStoreManager (ILeaseStoreManager) i interfejsu publicznego ILeaseStoreManager.
   * Refaktoryzacja interfejsu ILeaseManager w wielu interfejsach roli.
 * Drobna zmiana podziału: Usunięto punkt rozszerzalności ChangeFeedProcessorBuilder. WithLeaseManager (ILeaseManager), zamiast tego należy użyć ChangeFeedProcessorBuilder. WithLeaseStoreManager (ILeaseStoreManager).
 
-### <a name="222"></a><a name="2.2.2"/>2.2.2
+### <a name="222"></a><a name="2.2.2"/>ppkt
 * W tej wersji rozwiązano problem występujący podczas przetwarzania podziału w monitorowanej kolekcji i używania kolekcji dzierżaw z podziałem na partycje. Podczas przetwarzania dzierżawy dla partycji dzielonej nie można usunąć dzierżawy odpowiadającej tej partycji. Problem został rozwiązany w tej wersji.
 
 ### <a name="221"></a><a name="2.2.1"/>2.2.1
@@ -96,7 +97,7 @@ ms.locfileid: "80619438"
 * Ulepszenia diagnostyki pomocniczej.
 
 ### <a name="210"></a><a name="2.1.0"/>2.1.0
-* Dodano nowy interfejs API,&lt;zadanie&lt;IReadOnlyList&gt; &gt; RemainingPartitionWork IRemainingWorkEstimator. GetEstimatedRemainingWorkPerPartitionAsync (). Może to służyć do uzyskania szacowanej pracy dla każdej partycji.
+* Dodano nowy interfejs API, zadanie &lt; IReadOnlyList &lt; RemainingPartitionWork &gt; &gt; IRemainingWorkEstimator. GetEstimatedRemainingWorkPerPartitionAsync (). Może to służyć do uzyskania szacowanej pracy dla każdej partycji.
 * Obsługuje pakiet Microsoft. Azure. DocumentDB SDK 2,0. Wymaga programu Microsoft. Azure. DocumentDB 2,0 lub nowszego.
 
 ### <a name="206"></a><a name="2.0.6"/>2.0.6
@@ -158,7 +159,7 @@ ms.locfileid: "80619438"
 * Zgodne z [zestawem SDK programu SQL .NET](sql-api-sdk-dotnet.md) w wersji 1,21 lub nowszej.
 
 ### <a name="120"></a><a name="1.2.0"/>1.2.0
-* Dodaje obsługę .NET Standard 2,0. Pakiet obsługuje `netstandard2.0` teraz monikery `net451` struktury.
+* Dodaje obsługę .NET Standard 2,0. Pakiet obsługuje teraz `netstandard2.0` `net451` monikery struktury.
 * Zgodne z [zestawami SDK programu SQL .NET](sql-api-sdk-dotnet.md) 1.17.0 i nowszymi wersjami.
 * Zgodne z programem [SQL zestaw .NET Core SDK](sql-api-sdk-dotnet-core.md) w wersji 1.5.1 i nowszych.
 
@@ -192,8 +193,8 @@ Każde żądanie Cosmos DB za pomocą wycofanego zestawu SDK zostanie odrzucone 
 | [2.2.6](#2.2.6) |29 stycznia 2019 |--- |
 | [2.2.5](#2.2.5) |13 grudnia 2018 |--- |
 | [2.2.4](#2.2.4) |29 listopada 2018 |--- |
-| [2.2.3](#2.2.3) |19 listopada 2018 |--- |
-| [2.2.2](#2.2.2) |31 października 2018 r. |--- |
+| [Regulamin](#2.2.3) |19 listopada 2018 |--- |
+| [ppkt](#2.2.2) |31 października 2018 r. |--- |
 | [2.2.1](#2.2.1) |24 października 2018 |--- |
 | [1.3.3](#1.3.3) |Maja 08, 2018 |--- |
 | [1.3.2](#1.3.2) |18 kwietnia 2018 |--- |

@@ -5,17 +5,18 @@ author: normesta
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 1e41eb02f4b02078dbf4d42c46cab574cf8d0701
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.custom: monitoring
+ms.openlocfilehash: b1134f5538663f5b04e77270fee1a715b32a4f3e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204070"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83675922"
 ---
-# <a name="azure-storage-analytics-logging"></a>Rejestrowanie analityki magazynu platformy Azure
+# <a name="azure-storage-analytics-logging"></a>Rejestrowanie usługi Azure Storage Analytics
 
 Usługa Storage Analytics rejestruje szczegółowe informacje dotyczące żądań do usługi magazynu zakończonych powodzeniem i niepowodzeniem. Tych informacji można używać na potrzeby monitorowania poszczególnych żądań i diagnozowania problemów z usługą magazynu. Żądania są rejestrowane na podstawie najlepszego wysiłku.
 
@@ -24,7 +25,7 @@ Usługa Storage Analytics rejestruje szczegółowe informacje dotyczące żąda�
  Wpisy dziennika są tworzone tylko wtedy, gdy istnieją żądania skierowane do punktu końcowego usługi. Na przykład jeśli konto magazynu ma aktywność w swoim punkcie końcowym obiektu BLOB, ale nie znajduje się w jego punktach końcowych tabeli lub kolejki, zostaną utworzone tylko dzienniki dotyczące Blob service.
 
 > [!NOTE]
->  Rejestrowanie w usłudze Storage Analytics jest aktualnie dostępne tylko dla usług Blob Storage, Queue Storage i Table Storage. Jednak konto magazynu w warstwie Premium nie jest obsługiwane.
+>  Rejestrowanie w usłudze Storage Analytics jest aktualnie dostępne tylko dla usług Blob Storage, Queue Storage i Table Storage. Analityka magazynu rejestrowanie jest również dostępne dla kont [BlockBlobStorage](../blobs/storage-blob-create-account-block-blob.md) z wydajnością Premium. Nie jest to jednak dostępne w przypadku kont ogólnego przeznaczenia w wersji 2 z wydajnością w warstwie Premium.
 
 ## <a name="requests-logged-in-logging"></a>Zarejestrowane żądania logowania
 ### <a name="logging-authenticated-requests"></a>Rejestrowanie żądań uwierzytelnionych
@@ -51,10 +52,10 @@ Usługa Storage Analytics rejestruje szczegółowe informacje dotyczące żąda�
 
 ## <a name="how-logs-are-stored"></a>Jak przechowywane są dzienniki
 
-Wszystkie dzienniki są przechowywane w blokowych obiektach Blob w `$logs`kontenerze o nazwie, który jest tworzony automatycznie, gdy analityka magazynu jest włączona dla konta magazynu. `$logs` Kontener znajduje się w przestrzeni nazw obiektów BLOB na koncie magazynu, na przykład: `http://<accountname>.blob.core.windows.net/$logs`. Nie można usunąć tego kontenera po włączeniu analityka magazynu, chociaż jego zawartość może zostać usunięta. Jeśli używasz narzędzia do przeglądania magazynu do bezpośredniego przechodzenia do kontenera, zobaczysz wszystkie obiekty blob zawierające dane rejestrowania.
+Wszystkie dzienniki są przechowywane w blokowych obiektach Blob w kontenerze o nazwie `$logs` , który jest tworzony automatycznie, gdy analityka magazynu jest włączona dla konta magazynu. Kontener znajduje się `$logs` w przestrzeni nazw obiektów BLOB na koncie magazynu, na przykład: `http://<accountname>.blob.core.windows.net/$logs` . Nie można usunąć tego kontenera po włączeniu analityka magazynu, chociaż jego zawartość może zostać usunięta. Jeśli używasz narzędzia do przeglądania magazynu do bezpośredniego przechodzenia do kontenera, zobaczysz wszystkie obiekty blob zawierające dane rejestrowania.
 
 > [!NOTE]
->  `$logs` Kontener nie jest wyświetlany, gdy jest wykonywana operacja tworzenia listy kontenerów, taka jak operacja listy kontenerów. Dostęp do niego należy uzyskać bezpośrednio. Na przykład możesz użyć operacji list Blobs, aby uzyskać dostęp do obiektów BLOB w `$logs` kontenerze.
+>  `$logs`Kontener nie jest wyświetlany, gdy jest wykonywana operacja tworzenia listy kontenerów, taka jak operacja listy kontenerów. Dostęp do niego należy uzyskać bezpośrednio. Na przykład możesz użyć operacji list Blobs, aby uzyskać dostęp do obiektów BLOB w `$logs` kontenerze.
 
 Gdy żądania są rejestrowane, analityka magazynu przekaże wyniki pośrednie jako bloki. Okresowo analityka magazynu zatwierdzi te bloki i udostępni je jako obiekt BLOB. Dane dziennika mogą pojawić się w obiektach Blob w kontenerze **$Logs** , ponieważ częstotliwość opróżniania przez usługę magazynu dzienników. Zduplikowane rekordy mogą istnieć dla dzienników utworzonych w tej samej godzinie. Można określić, czy rekord jest duplikatem, sprawdzając identyfikator **żądania** i numer **operacji** .
 
@@ -88,13 +89,13 @@ Aby uzyskać informacje na temat programistycznego tworzenia listy obiektów blo
 
 |Atrybut|Opis|
 |---------------|-----------------|
-|`<service-name>`|Nazwa usługi magazynu. Na przykład: `blob`, `table`, lub`queue`|
+|`<service-name>`|Nazwa usługi magazynu. Na przykład: `blob` , `table` , lub`queue`|
 |`YYYY`|Czterocyfrowy rok dla dziennika. Na przykład: `2011`|
 |`MM`|Dwucyfrowy miesiąc dla dziennika. Na przykład: `07`|
 |`DD`|Dzień dwa cyfry dla dziennika. Na przykład: `31`|
 |`hh`|Godzina dwie cyfry, która wskazuje godzinę początkową dzienników w formacie 24-godzinnym. Na przykład: `18`|
-|`mm`|Wartość dwóch cyfr wskazująca na minutę początkową dzienników. **Uwaga:**  Ta wartość nie jest obsługiwana w bieżącej wersji analityka magazynu i jej wartość będzie zawsze równa `00`.|
-|`<counter>`|Licznik oparty na zero, zawierający sześć cyfr wskazujących liczbę obiektów BLOB dziennika wygenerowanych dla usługi magazynu w ciągu godziny. Ten licznik jest uruchamiany `000000`o. Na przykład: `000001`|
+|`mm`|Wartość dwóch cyfr wskazująca na minutę początkową dzienników. **Uwaga:**  Ta wartość nie jest obsługiwana w bieżącej wersji analityka magazynu i jej wartość będzie zawsze równa `00` .|
+|`<counter>`|Licznik oparty na zero, zawierający sześć cyfr wskazujących liczbę obiektów BLOB dziennika wygenerowanych dla usługi magazynu w ciągu godziny. Ten licznik jest uruchamiany o `000000` . Na przykład: `000001`|
 
  Poniżej znajduje się pełna nazwa dziennika przykładowego, który łączy powyższe przykłady:
 
@@ -113,8 +114,8 @@ Aby uzyskać informacje na temat programistycznego tworzenia listy obiektów blo
 |Atrybut|Opis|
 |---------------|-----------------|
 |`LogType`|Opisuje, czy dziennik zawiera informacje dotyczące operacji odczytu, zapisu lub usuwania. Ta wartość może zawierać jeden typ lub kombinację wszystkich trzech, rozdzielonych przecinkami.<br /><br /> Przykład 1:`write`<br /><br /> Przykład 2:`read,write`<br /><br /> Przykład 3:`read,write,delete`|
-|`StartTime`|Najwcześniejsza godzina wpisu w dzienniku w postaci `YYYY-MM-DDThh:mm:ssZ`. Na przykład: `2011-07-31T18:21:46Z`|
-|`EndTime`|Najnowsza godzina wpisu w dzienniku w postaci `YYYY-MM-DDThh:mm:ssZ`. Na przykład: `2011-07-31T18:22:09Z`|
+|`StartTime`|Najwcześniejsza godzina wpisu w dzienniku w postaci `YYYY-MM-DDThh:mm:ssZ` . Na przykład: `2011-07-31T18:21:46Z`|
+|`EndTime`|Najnowsza godzina wpisu w dzienniku w postaci `YYYY-MM-DDThh:mm:ssZ` . Na przykład: `2011-07-31T18:22:09Z`|
 |`LogVersion`|Wersja formatu dziennika.|
 
  Na poniższej liście przedstawiono kompletne przykładowe metadane przy użyciu powyższych przykładów:
@@ -187,7 +188,7 @@ queueClient.SetServiceProperties(serviceProperties);
  Aby wyświetlić i przeanalizować dane dziennika, należy pobrać obiekty blob zawierające dane dzienników, które interesują się na komputerze lokalnym. Wiele narzędzi do przeglądania magazynu umożliwia pobieranie obiektów blob z konta magazynu; do pobrania danych dzienników można również użyć zespołu usługi Azure Storage dostępnego w wierszu polecenia usługi Azure copy [AzCopy](storage-use-azcopy-v10.md) .  
  
 >[!NOTE]
-> `$logs` Kontener nie jest zintegrowany z Event Grid, więc nie będziesz otrzymywać powiadomień o zapisie plików dziennika. 
+> `$logs`Kontener nie jest zintegrowany z Event Grid, więc nie będziesz otrzymywać powiadomień o zapisie plików dziennika. 
 
  Aby upewnić się, że pobierasz dane dziennika, które Cię interesują, i unikaj pobierania tych samych danych dziennika więcej niż raz:  
 

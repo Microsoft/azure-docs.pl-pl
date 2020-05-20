@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: bcaf45af4c02dad22e2cc611fa7ea5a32ad3a853
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 00a71fec9c0bfc1db45eee7129b7c2a8adaef0fa
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75443877"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83674228"
 ---
 # <a name="azure-operational-security-overview"></a>Omówienie zabezpieczeń operacyjnych platformy Azure
 
@@ -60,7 +60,7 @@ Aby uzyskać więcej informacji, zobacz [tabelę składników Azure Backup](/azu
 
 -   Umożliwia zarządzanie tożsamościami i dostępem (IAM) jako usługą w chmurze.
 -   Zapewnia centralne zarządzanie dostępem, logowanie jednokrotne (SSO) i raportowanie.
--   Obsługa zintegrowanego zarządzania dostępem dla [tysięcy aplikacji](https://azure.microsoft.com/marketplace/active-directory/) w portalu Azure Marketplace, w tym usług Salesforce, Google Apps, Box i Concur.
+-   Obsługa zintegrowanego zarządzania dostępem dla [tysięcy aplikacji](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory) w portalu Azure Marketplace, w tym usług Salesforce, Google Apps, Box i Concur.
 
 Usługa Azure AD zawiera również pełen pakiet [funkcji zarządzania tożsamościami](/azure/security/security-identity-management-overview#security-monitoring-alerts-and-machine-learning-based-reports), w tym:
 

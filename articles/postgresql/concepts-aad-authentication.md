@@ -6,22 +6,17 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ec853657d6dd1f3b019d8a414cfa28edc1083b29
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8fa9a4ebe64880ae136a8460d35200fb84abb6cf
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74769918"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660189"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>Używanie Azure Active Directory do uwierzytelniania za pomocą PostgreSQL
 
 Uwierzytelnianie Microsoft Azure Active Directory (Azure AD) to mechanizm łączenia się z Azure Database for PostgreSQL przy użyciu tożsamości zdefiniowanych w usłudze Azure AD.
 Uwierzytelnianie za pomocą usługi Azure AD umożliwia zarządzanie tożsamościami użytkowników bazy danych i innymi usługami firmy Microsoft w centralnej lokalizacji, co upraszcza zarządzanie uprawnieniami.
-
-> [!IMPORTANT]
-> Uwierzytelnianie usługi Azure AD dla Azure Database for PostgreSQL jest obecnie dostępne w publicznej wersji zapoznawczej.
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
-> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Zalety korzystania z usługi Azure AD:
 
@@ -57,7 +52,7 @@ W przypadku korzystania z uwierzytelniania usługi Azure AD na serwerze PostgreS
 
 ## <a name="permissions"></a>Uprawnienia
 
-Aby utworzyć nowych użytkowników, którzy mogą uwierzytelniać się w usłudze Azure AD, `azure_ad_admin` musisz mieć rolę w bazie danych. Ta rola jest przypisywana przez skonfigurowanie konta administratora usługi Azure AD dla określonego serwera Azure Database for PostgreSQL.
+Aby utworzyć nowych użytkowników, którzy mogą uwierzytelniać się w usłudze Azure AD, musisz mieć `azure_ad_admin` rolę w bazie danych. Ta rola jest przypisywana przez skonfigurowanie konta administratora usługi Azure AD dla określonego serwera Azure Database for PostgreSQL.
 
 Aby utworzyć nowego użytkownika bazy danych usługi Azure AD, musisz nawiązać połączenie jako administrator usługi Azure AD. Jest to zademonstrowane w temacie [Konfigurowanie i logowanie za pomocą usługi Azure AD dla Azure Database for PostgreSQL](howto-configure-sign-in-aad-authentication.md).
 

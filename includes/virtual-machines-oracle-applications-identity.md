@@ -4,18 +4,18 @@ ms.service: virtual-machines-linux
 ms.topic: include
 ms.date: 07/10/2019
 ms.author: danlep
-ms.openlocfilehash: c1cca99a04e78c40cdd1061e52e49f45a73c73eb
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: 2b28cc742bb981e0db535d39cb0c7fbf027470ea
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68361559"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673768"
 ---
 ### <a name="identity-tier"></a>Warstwa tożsamości 
 
 Partnerstwo firmy Microsoft — Oracle umożliwia skonfigurowanie ujednoliconej tożsamości na platformie Azure, OCI i aplikacji Oracle. W przypadku pakietu aplikacji JD Edwards EnterpriseOne lub PeopleSoft do konfigurowania logowania jednokrotnego między usługą Azure AD i Oracle OHS jest wymagany wystąpienie serwera Oracle HTTP (IDCS).
 
-OHS działa jako zwrotny serwer proxy do warstwy aplikacji, co oznacza, że wszystkie żądania do aplikacji końcowych przechodzą przez nią. Webbramą programu Oracle Access Manager jest wtyczka serwera sieci Web OHS, która przechwytuje każde żądanie przechodzenia do aplikacji końcowej. Jeśli dostęp do zasobu jest chroniony (wymaga uwierzytelnionej sesji), usługa webbram inicjuje przepływ uwierzytelniania OIDC przy użyciu usługi Identity w chmurze za pomocą przeglądarki użytkownika. Więcej informacji o przepływach obsługiwanych przez program webgate OpenID Connect Connect można znaleźć w [dokumentacji programu Oracle Access Manager](https://docs.oracle.com/en/middleware/idm/access-manager/12.2.1.3/aiaag/integrating-webgate-oidc-server.html).
+OHS działa jako zwrotny serwer proxy do warstwy aplikacji, co oznacza, że wszystkie żądania do aplikacji końcowych przechodzą przez nią. Webbramą programu Oracle Access Manager jest wtyczka serwera sieci Web OHS, która przechwytuje każde żądanie przechodzenia do aplikacji końcowej. Jeśli dostęp do zasobu jest chroniony (wymaga uwierzytelnionej sesji), usługa webbram inicjuje przepływ uwierzytelniania OIDC przy użyciu usługi Identity w chmurze za pomocą przeglądarki użytkownika. Więcej informacji o przepływach obsługiwanych przez program webgate OpenID Connect Connect można znaleźć w [dokumentacji programu Oracle Access Manager](https://docs.oracle.com/cd/E52734_01/oam/AIAAG/GUID-1E927D1B-FB83-425B-8768-85DB441821A4.htm#AIAAG7327).
 
 W przypadku tej konfiguracji użytkownik zalogowany do usługi Azure AD może przejść do aplikacji JD Edwards EnterpriseOne lub PeopleSoft bez ponownego zalogowania się za pomocą usługi tożsamości Oracle w chmurze. Klienci, którzy wdrażają to rozwiązanie, uzyskują zalety logowania jednokrotnego, w tym jeden zestaw poświadczeń, ulepszone środowisko logowania, ulepszone zabezpieczenia i krótszy koszt pomocy technicznej.
 

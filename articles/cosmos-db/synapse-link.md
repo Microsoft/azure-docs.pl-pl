@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 714d587cc047887685f7f7c7f4f5a2bbc2310aa2
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 709b442fde94d88adc7fe4cce16ee1a50bf06c6b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598626"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83674336"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Co to jest link usługi Azure Synapse dla Azure Cosmos DB (wersja zapoznawcza)?
 
@@ -35,11 +35,11 @@ W porównaniu do tradycyjnych rozwiązań opartych na usłudze ETL link usługi 
 
 ### <a name="reduced-complexity-with-no-etl-jobs-to-manage"></a>Zmniejszona złożoność bez zadań ETL do zarządzania
 
-Link usługi Azure Synapse umożliwia bezpośredni dostęp do magazynu analitycznego Azure Cosmos DB przy użyciu usługi Azure Synapse Analytics bez złożonych ruchów danych. Wszystkie aktualizacje danych operacyjnych są widoczne w magazynie analitycznym niemal w czasie rzeczywistym bez ETL ani źródła zmian. Można uruchomić dużą skalę analizy w porównaniu z magazynem analitycznym, z Synapse Analytics, bez konieczności przekształceń danych.
+Link usługi Azure Synapse umożliwia bezpośredni dostęp do magazynu analitycznego Azure Cosmos DB przy użyciu usługi Azure Synapse Analytics bez złożonych ruchów danych. Wszystkie aktualizacje danych operacyjnych są widoczne w magazynie analitycznym niemal w czasie rzeczywistym bez zadań ETL lub zmiany źródła. Można uruchomić dużą skalę analizy w porównaniu z magazynem analitycznym, z Synapse Analytics, bez konieczności przekształceń danych.
 
 ### <a name="near-real-time-insights-into-your-operational-data"></a>Wgląd w dane operacyjne niemal w czasie rzeczywistym
 
-Teraz możesz uzyskać szczegółowe informacje na temat danych operacyjnych niemal w czasie rzeczywistym przy użyciu linku usługi Azure Synapse. Systemy oparte na usłudze ETL mają większe opóźnienia do analizowania danych operacyjnych, z powodu wielu warstw do wyodrębnienia, przekształcenia i załadowania danych operacyjnych. Dzięki integracji natywnej Azure Cosmos DB z magazynem analitycznym przy użyciu usługi Azure Synapse Analytics można analizować dane operacyjne niemal w czasie rzeczywistym, włączając nowe scenariusze biznesowe. 
+Teraz możesz uzyskać szczegółowe informacje na temat danych operacyjnych niemal w czasie rzeczywistym przy użyciu linku usługi Azure Synapse. Systemy oparte na usłudze ETL mają większe opóźnienia do analizowania danych operacyjnych, z powodu wielu warstw potrzebnych do wyodrębniania, przekształcania i ładowania danych operacyjnych. Dzięki integracji natywnej Azure Cosmos DB z magazynem analitycznym przy użyciu usługi Azure Synapse Analytics można analizować dane operacyjne niemal w czasie rzeczywistym, włączając nowe scenariusze biznesowe. 
 
 
 ### <a name="no-impact-on-operational-workloads"></a>Brak wpływu na obciążenia operacyjne
@@ -54,7 +54,7 @@ Azure Cosmos DB magazyn analityczny jest zoptymalizowany pod kątem zapewnienia 
 
 Za pomocą linku Azure Synapse można uzyskać zoptymalizowane pod kątem kosztów, w pełni zarządzane rozwiązanie do analizy operacyjnej. Eliminuje to dodatkowe warstwy magazynu i obliczenia wymagane w tradycyjnych potokach ETL do analizowania danych operacyjnych. 
 
-Azure Cosmos DB magazyn analityczny jest zgodny z modelem cen opartym na zużyciu, który jest oparty na założeniu magazynu danych i analitycznych zapytań operationsand do odczytu i zapisu. Nie wymaga to obsługi żadnej przepływności, ponieważ jest to aktualne w przypadku obciążeń transakcyjnych. Uzyskiwanie dostępu do danych przy użyciu wysoce elastycznych aparatów obliczeniowych z usługi Azure Synapse Analytics sprawia, że całkowity koszt magazynu i wydajności obliczeniowej jest bardzo wydajny.
+Azure Cosmos DB magazyn analityczny jest zgodny z modelem cen opartym na zużyciu, który jest oparty na magazynowaniu danych i operacjach analitycznych odczytu/zapisu oraz wykonywanych zapytań. Nie wymaga to obsługi żadnej przepływności, ponieważ jest to aktualne w przypadku obciążeń transakcyjnych. Uzyskiwanie dostępu do danych przy użyciu wysoce elastycznych aparatów obliczeniowych z usługi Azure Synapse Analytics sprawia, że całkowity koszt magazynu i wydajności obliczeniowej jest bardzo wydajny.
 
 
 ### <a name="analytics-for-locally-available-globally-distributed-multi-master-data"></a>Analiza dla lokalnie dostępnych, globalnie dystrybuowanych, danych z wieloma wzorcami
@@ -99,7 +99,7 @@ Ta Integracja umożliwia korzystanie z następujących scenariuszy HTAP dla ró�
 
 * Inżynier ds. danych, który chce udostępnić dane klientom, tworząc tabele SQL lub Spark za pośrednictwem kontenerów Azure Cosmos DB bez ręcznej procesów ETL.
 
-Aby uzyskać więcej informacji o obsłudze środowiska uruchomieniowego usługi Azure Synapse Analytics dla Azure Cosmos DB, zobacz [Azure Synapse Analytics for Cosmos DB support]().
+Aby uzyskać więcej informacji o obsłudze środowiska uruchomieniowego usługi Azure Synapse Analytics dla Azure Cosmos DB, zobacz [Azure Synapse Analytics for Cosmos DB support](../synapse-analytics/synapse-link/concept-synapse-link-cosmos-db-support.md).
 
 ## <a name="when-to-use-azure-synapse-link-for-azure-cosmos-db"></a>Kiedy używać linku usługi Azure Synapse dla Azure Cosmos DB?
 
@@ -124,11 +124,11 @@ W takich przypadkach łącze Synapse zapewnia bardziej zintegrowane środowisko 
 
 * Dostęp do magazynu analitycznego Azure Cosmos DB przy użyciu programu Synapse SQL Server jest obecnie objęty testową wersją zapoznawczą. Aby zażądać dostępu, Wyślij wiadomość e-mail do [zespołu Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
 
-* Uzyskiwanie dostępu do Sklepu Azure Cosmos DB Analytics z zainicjowaną obsługą SQL Synapse nie jest obecnie dostępne. 
+* Uzyskiwanie dostępu do Sklepu Azure Cosmos DB Analytics z zainicjowaną obsługą SQL Synapse nie jest obecnie dostępne.
 
 ## <a name="pricing"></a>Ceny
 
-Model rozliczeń usługi Azure Synapse umożliwia tłumaczenie kosztów ponoszonych przy użyciu magazynu analitycznego Azure Cosmos DB i środowiska uruchomieniowego Synapse. Aby dowiedzieć się więcej, zapoznaj się z artykułami dotyczącymi [cen sklepu analitycznego Azure Cosmos DB](analytical-store-introduction.md#analytical-store-pricing) i [cennika usługi Azure Synapse Analytics]() .
+Model rozliczeń łącza usługi Azure Synapse obejmuje koszty związane z korzystaniem z magazynu analitycznego Azure Cosmos DB i środowiska uruchomieniowego Synapse. Aby dowiedzieć się więcej, zapoznaj się z artykułami dotyczącymi [cen sklepu analitycznego Azure Cosmos DB](analytical-store-introduction.md#analytical-store-pricing) i [cennika usługi Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/synapse-analytics/) .
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -136,9 +136,9 @@ Aby dowiedzieć się więcej, zobacz następujące dokumenty:
 
 * [Omówienie magazynu analitycznego Azure Cosmos DB](analytical-store-introduction.md)
 
-* [Rozpocznij pracę z linkiem usługi Azure Synapse dla Azure Cosmos DB](configure-synapse-link.md) 
+* [Rozpocznij pracę z linkiem usługi Azure Synapse dla Azure Cosmos DB](configure-synapse-link.md)
  
-* [Co jest obsługiwane w czasie wykonywania usługi Azure Synapse Analytics]()
+* [Co jest obsługiwane w czasie wykonywania usługi Azure Synapse Analytics](../synapse-analytics/synapse-link/concept-synapse-link-cosmos-db-support.md)
 
 * [Często zadawane pytania dotyczące usługi Azure Synapse link dla Azure Cosmos DB](synapse-link-frequently-asked-questions.md)
 

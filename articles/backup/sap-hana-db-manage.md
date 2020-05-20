@@ -3,12 +3,12 @@ title: Zarządzanie kopiami zapasowymi baz danych SAP HANAymi na maszynach wirtu
 description: W tym artykule przedstawiono typowe zadania związane z zarządzaniem i monitorowaniem SAP HANA baz danych uruchomionych na maszynach wirtualnych platformy Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 89fd7f23163d301817e767771257d9bc6f4ed526
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c810a049fafcbce6d4c840557b101e5226343ab7
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79480066"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660153"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Zarządzanie kopiami zapasowymi baz danych platformy SAP HANA i ich monitorowanie
 
@@ -64,17 +64,25 @@ Kopie zapasowe są uruchamiane zgodnie z harmonogramem zasad. Kopię zapasową m
 1. W menu magazyn kliknij pozycję **elementy kopii zapasowej**.
 2. W obszarze **elementy kopii zapasowej**wybierz maszynę wirtualną z uruchomioną SAP HANA bazą danych, a następnie kliknij pozycję **Utwórz kopię zapasową teraz**.
 3. W obszarze **kopia zapasowa**Użyj formantu kalendarza, aby wybrać ostatni dzień przechowywania punktu odzyskiwania. Następnie kliknij przycisk **OK**.
-4. Monitoruj powiadomienia portalu. Postęp zadania można monitorować na pulpicie nawigacyjnym magazynu > >  **zadania tworzenia kopii zapasowej****w toku**. W zależności od rozmiaru bazy danych Tworzenie początkowej kopii zapasowej może chwilę potrwać.
+4. Monitoruj powiadomienia portalu. Postęp zadania można monitorować na pulpicie nawigacyjnym magazynu > **zadania tworzenia kopii zapasowej**  >  **w toku**. W zależności od rozmiaru bazy danych Tworzenie początkowej kopii zapasowej może chwilę potrwać.
 
 ### <a name="hana-native-client-integration"></a>Integracja z klientem platformy HANA Native
 
-Teraz pełne kopie zapasowe na żądanie wyzwalane przez dowolnego klienta platformy HANA są wyświetlane jako pełna kopia zapasowa na stronie **elementy kopii zapasowej** .
+#### <a name="backup"></a>Backup
+
+Kopie zapasowe na żądanie wyzwalane przez dowolnych klientów natywnych platformy HANA (do **BACKINT**) zostaną wyświetlone na liście kopii na stronie **elementy kopii** zapasowej.
 
 ![Ostatnio wykonywane kopie zapasowe](./media/sap-hana-db-manage/last-backups.png)
 
-Te pełne kopie zapasowe ad hoc również zostaną wyświetlone na liście punktów przywracania na potrzeby przywracania.
+[Te kopie zapasowe](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#monitor-manual-backup-jobs-in-the-portal) można także monitorować na stronie **zadania tworzenia kopii zapasowej** .
+
+Te kopie zapasowe na żądanie również zostaną wyświetlone na liście punktów przywracania do przywrócenia.
 
 ![Lista punktów przywracania](./media/sap-hana-db-manage/list-restore-points.png)
+
+#### <a name="restore"></a>Przywracanie
+
+Przywrócenie wyzwalane przez klientów platformy HANA Native (przy użyciu **BACKINT**) do przywrócenia na tym samym komputerze może być [monitorowane](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#monitor-manual-backup-jobs-in-the-portal) ze strony **zadania tworzenia kopii zapasowej** .
 
 ### <a name="run-sap-hana-native-client-backup-on-a-database-with-azure-backup-enabled"></a>Uruchamianie SAP HANA natywnej kopii zapasowej klienta w bazie danych z włączoną usługą Azure Backup
 
@@ -82,7 +90,7 @@ Jeśli chcesz utworzyć lokalną kopię zapasową (przy użyciu platformy HANA S
 
 1. Poczekaj na zakończenie wszystkich pełnych lub dzienników kopii zapasowych bazy danych. Sprawdź stan w SAP HANA Studio/Panel sterowania.
 2. Wyłącz kopie zapasowe dzienników i ustaw wykaz kopii zapasowych w systemie plików dla odpowiedniej bazy danych.
-3. Aby to zrobić, kliknij dwukrotnie pozycję **systemdb** > **Konfiguracja** > systemdb**Wybierz pozycję Filtr bazy danych** > **(log)**.
+3. Aby to zrobić, kliknij dwukrotnie pozycję **systemdb**  >  **Konfiguracja**systemdb  >  **Wybierz pozycję Filtr bazy danych**  >  **(log)**.
 4. Ustaw **enable_auto_log_backup** na wartość **nie**.
 5. Ustaw **log_backup_using_backint** na **wartość false**.
 6. Wykonaj pełną kopię zapasową bazy danych.

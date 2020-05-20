@@ -7,30 +7,35 @@ ms.topic: how-to
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5a00fc44021278a8b910cf454b43b0bae2c3a1f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d217e6d49f33db099d54e6521073c56ec146c0b8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81432192"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660099"
 ---
 # <a name="connect-to-your-azure-synapse-workspace-using-private-links-preview"></a>Nawiązywanie połączenia z obszarem roboczym usługi Azure Synapse za pomocą linków prywatnych (wersja zapoznawcza)
 
 W tym artykule przedstawiono sposób tworzenia prywatnego punktu końcowego w obszarze roboczym usługi Azure Synapse. Aby dowiedzieć się więcej [, zobacz prywatne linki i prywatne punkty końcowe](https://docs.microsoft.com/azure/private-link/) .
 
-## <a name="step-1-open-your-azure-synapse-workspace-in-azure-portal"></a>Krok 1. Otwieranie obszaru roboczego usługi Azure Synapse w Azure Portal
+## <a name="step-1-register-network-resource-provider"></a>Krok 1. rejestrowanie dostawcy zasobów sieciowych
+
+Jeśli jeszcze tego nie zrobiono, zarejestruj dostawcę zasobów sieciowych. Rejestracja dostawcy zasobów umożliwia skonfigurowanie subskrypcji do pracy z dostawcą zasobów. Po [zarejestrowaniu](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)wybierz pozycję *Microsoft. Network* z listy dostawców zasobów. Jeśli dostawca zasobów sieciowych jest już zarejestrowany, przejdź do kroku 2.
+
+
+## <a name="step-2-open-your-azure-synapse-workspace-in-azure-portal"></a>Krok 2. Otwieranie obszaru roboczego usługi Azure Synapse w Azure Portal
 
 Wybierz pozycję **połączenie prywatne punktu końcowego** w obszarze **zabezpieczenia** , a następnie wybierz pozycję **+ prywatny punkt końcowy**.
 ![Otwórz obszar roboczy usługi Azure Synapse w Azure Portal](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-1.png)
 
-## <a name="step-2-select-your-subscription-and-region-details"></a>Krok 2. Wybieranie szczegółów dotyczących subskrypcji i regionu
+## <a name="step-3-select-your-subscription-and-region-details"></a>Krok 3. Wybieranie szczegółów dotyczących subskrypcji i regionu
 
 Na karcie **podstawy** w oknie **Tworzenie prywatnego punktu końcowego** wybierz swoją **subskrypcję** i **grupę zasobów**. Nadaj **nazwę** do prywatnego punktu końcowego, który chcesz utworzyć. Wybierz **region** , w którym ma zostać utworzony prywatny punkt końcowy.
 
 Prywatne punkty końcowe są tworzone w podsieci. Wybrana subskrypcja, Grupa zasobów i region odfiltruje podsieci prywatnych punktów końcowych. Wybierz pozycję **Dalej: zasób >** po zakończeniu.
 ![Wybierz szczegóły subskrypcji i regionu](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-2.png)
 
-## <a name="step-3-select-your-azure-synapse-workspace-details"></a>Krok 3. Wybierz szczegóły obszaru roboczego usługi Azure Synapse
+## <a name="step-4-select-your-azure-synapse-workspace-details"></a>Krok 4. Wybierz szczegóły obszaru roboczego usługi Azure Synapse
 
 Wybierz pozycję **Połącz z zasobem platformy Azure w moim katalogu** na karcie **zasób** . Wybierz **subskrypcję** zawierającą obszar roboczy usługi Azure Synapse. **Typ zasobu** służący do tworzenia prywatnych punktów końcowych w obszarze roboczym usługi Azure Synapse to *Microsoft. Synapse/Workspaces*.
 

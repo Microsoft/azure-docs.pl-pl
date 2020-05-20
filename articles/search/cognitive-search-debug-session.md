@@ -1,0 +1,95 @@
+---
+title: Debuguj zestawu umiejętności wzbogacenia AI (wersja zapoznawcza)
+titleSuffix: Azure Cognitive Search
+description: Sesje debugowania, do których dostęp odbywa się za pomocą Azure Portal, udostępnia środowisko IDE podobne do, w którym można identyfikować i naprawiać błędy, weryfikować zmiany i wypchnąć zmiany do umiejętności w potoku wzbogacania AI. Sesje debugowania są w wersji zapoznawczej.
+manager: nitinme
+author: tchristiani
+ms.author: terrychr
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 05/19/2020
+ms.openlocfilehash: 04b221d772abf923d7aabfe767a6424b72ed8fb2
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83664067"
+---
+# <a name="debug-sessions"></a>Sesje debugowania
+
+Sesje debugowania to edytor wizualny, który współpracuje z istniejącym zestawu umiejętności w Azure Portal. W ramach sesji debugowania można identyfikować i rozwiązywać błędy, sprawdzać poprawność zmian i wypchnąć zmiany do zestawu umiejętności produkcyjnego w potoku wzbogacenia AI.
+
+> [!Important]
+> Obsługa sesji debugowania dla usługi Azure Wyszukiwanie poznawcze jest dostępna [na żądanie](https://aka.ms/DebugSessions) jako wersja zapoznawcza ograniczonego dostępu. Funkcje w wersji zapoznawczej są udostępniane bez umowy dotyczącej poziomu usług i nie są zalecane w przypadku obciążeń produkcyjnych. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+> Po uzyskaniu dostępu do wersji zapoznawczej będziesz mieć możliwość dostępu do sesji debugowania i używania ich w ramach usługi przy użyciu Azure Portal.
+
+## <a name="using-debug-sessions"></a>Korzystanie z sesji debugowania
+
+Po uruchomieniu sesji Usługa tworzy kopię zestawu umiejętności, indeksatora i indeksu, gdzie jest używany pojedynczy dokument do testowania zestawu umiejętności. Zmiany wprowadzone w sesji są zapisywane w sesji. Zmiany wprowadzone w sesji debugowania nie wpłyną na zestawu umiejętności produkcyjny, chyba że zmiany zostaną zatwierdzone. Zatwierdzenie zmian spowoduje zastąpienie produkcji zestawu umiejętności.
+
+Podczas sesji debugowania można edytować zestawu umiejętności, sprawdzać i sprawdzać poprawność każdego węzła w drzewie wzbogacania w kontekście określonego dokumentu. Po rozwiązaniu problemów z potokiem wzbogacania zmiany mogą zostać zapisane w sesji i przekazane do zestawu umiejętności w środowisku produkcyjnym. 
+
+Jeśli potok wzbogacania nie zawiera żadnych błędów, sesja debugowania może być używana do przyrostowego wzbogacania dokumentu, testowania i weryfikowania każdej zmiany przed zatwierdzeniem zmian.
+
+## <a name="creating-a-debug-session"></a>Tworzenie sesji debugowania
+
+Aby rozpocząć sesję debugowania, musisz mieć istniejący potok wzbogacania AI, włącznie z; Źródło danych, zestawu umiejętności, indeksator i indeks. Aby skonfigurować sesję debugowania, należy nazwać sesję i podać konto magazynu ogólnego przeznaczenia, które będzie używane do buforowania wykonywania umiejętności podczas uruchamiania indeksatora. Konieczne będzie również wybranie indeksatora, który będzie uruchomiony. Indeksator ma odwołania przechowywane do źródła danych, zestawu umiejętności i index. Sesja debugowania zostanie domyślnie wykorzystana z pierwszego dokumentu w źródle danych lub można określić dokument w źródle danych, aby wykonać krok.
+
+> [!div class="mx-imgBorder"]
+> ![Tworzenie sesji debugowania](media/cognitive-search-debug/debug-session-new.png)
+
+## <a name="debug-session-features"></a>Funkcje debugowania sesji
+
+Sesja debugowania rozpoczyna się od wykonania zestawu umiejętności w wybranym dokumencie. Sesja debugowania spowoduje zapisanie dodatkowych metadanych skojarzonych z każdą operacją w zestawu umiejętności. Metadane utworzone przez wykonania potoku, informuje następujący zestaw funkcji, które są następnie używane do identyfikowania i rozwiązywania problemów z zestawu umiejętności.
+
+## <a name="ai-enrichments"></a>Wzbogacanie AI
+
+Ponieważ umiejętności wykonują drzewo wzbogacania, reprezentujące dokument. Użycie drzewa do wizualizacji danych wyjściowych umiejętności lub wzbogacania zapewnia kompleksowy wygląd wszystkich przeprowadzonych operacji wzbogacania. Można wyszukać cały dokument i zbadać każdy węzeł drzewa wzbogacania. Ta perspektywa ułatwia kształtowanie obiektów. Ten format udostępnia również podpowiedzi wizualne do typu, ścieżki i zawartości każdego węzła w drzewie.
+
+## <a name="skill-graph"></a>Wykres umiejętności
+
+Widok **Wykres umiejętności** zawiera hierarchiczną, wizualną reprezentację zestawu umiejętności. Wykres jest górną reprezentacją kolejności, w której są wykonywane umiejętności. Umiejętności, które są zależne od danych wyjściowych innych umiejętności, będą widoczne na wykresie poniżej. Umiejętności na tym samym poziomie w hierarchii mogą być wykonywane równolegle. 
+
+Wybranie umiejętności na grafie spowoduje wyróżnienie związanych z nim umiejętności, węzłów, które tworzą dane wejściowe i węzły, które akceptują swoje wyjście. Każdy węzeł umiejętności wyświetla jego typ, błędy lub ostrzeżenia oraz liczby wykonań. Na **wykresie umiejętności** można wybrać umiejętność debugowania lub udoskonalania. Po wybraniu kwalifikacji jego szczegóły będą wyświetlane w okienku Szczegóły umiejętności po prawej stronie wykresu.
+
+> [!div class="mx-imgBorder"]
+> ![Wykres umiejętności](media/cognitive-search-debug/skills-graph.png)
+
+## <a name="skill-details"></a>Szczegóły kwalifikacji
+
+W okienku Szczegóły umiejętności zostanie wyświetlony zestaw obszarów do pracy z konkretną umiejętnością, gdy ta umiejętność zostanie wyróżniona na **grafie umiejętności**. Możesz przeglądać i edytować szczegóły ustawień umiejętności. Podano definicję JSON umiejętności. Wyświetlane są również szczegóły dotyczące wykonywania umiejętności oraz błędy i ostrzeżenia. Karta **Ustawienia umiejętności** & w **Edytorze JSON kwalifikacji** można umożliwić bezpośrednie modyfikacje umiejętności. [`</>`](#expression-evaluator)Otwiera okno umożliwiające wyświetlanie i Edytowanie wyrażeń danych wejściowych i wyjściowych umiejętności.
+
+Zagnieżdżone kontrolki wejściowe w oknie Ustawienia umiejętności mogą służyć do tworzenia złożonych kształtów dla projekcji, mapowania pól wyjściowych dla pola typu złożonego lub dane wejściowe do umiejętności. Gdy jest używany z **ewaluatora wyrażeń**, zagnieżdżone dane wejściowe zapewniają łatwy test i sprawdzanie poprawności konstruktora wyrażeń.
+
+## <a name="skill-execution-history"></a>Historia wykonywania kwalifikacji
+
+Umiejętność można wykonać wiele razy w zestawu umiejętności dla jednego dokumentu. Na przykład umiejętność OCR będzie wykonywana jeden raz dla każdego obrazu wyodrębnionego z każdego dokumentu. W okienku Szczegóły umiejętności na karcie **wykonania** zostanie wyświetlona historia wykonywania umiejętności, która zapewnia dokładniejsze zapoznaj się z każdym wywołaniem umiejętności. 
+
+Historia wykonywania umożliwia śledzenie określonego wzbogacania z powrotem do umiejętności, która go wygenerowała. Kliknięcie danych wejściowych kwalifikacji przenosi do umiejętności, która wygenerowała te dane wejściowe. Pozwala to na identyfikację głównej przyczyny problemu, który może być manifestem z poziomu umiejętności podrzędnej. 
+
+W przypadku zidentyfikowania potencjalnego problemu historia wykonywania wyświetla linki do umiejętności, które wygenerowały określone dane wejściowe, zapewniając funkcję śledzenia stosu. Klikając umiejętność skojarzoną z danymi wejściowymi, przejdź do umiejętności, aby naprawić wszelkie usterki, lub Kontynuuj śledzenie określonego problemu.
+
+Podczas kompilowania niestandardowej umiejętności lub debugowania błędu z niestandardową umiejętnością istnieje możliwość wygenerowania żądania dotyczącego wywołania umiejętności w historii wykonywania.
+
+## <a name="enriched-data-structure"></a>Ulepszona struktura danych
+
+Okienko **ulepszona struktura danych** pokazuje wzbogacenia dokumentu za pomocą zestawu umiejętności, szczegółowo kontekst dla każdego wzbogacania i źródłową umiejętność. **Ewaluatora wyrażeń** można także użyć do wyświetlania zawartości dla każdego wzbogacania.
+
+> [!div class="mx-imgBorder"]
+> ![Ulepszona struktura danych](media/cognitive-search-debug/enriched-data-structure-display.png)
+
+## <a name="expression-evaluator"></a>Ewaluatora wyrażeń
+
+**Ewaluatora wyrażeń** umożliwia szybkie wgląd do wartości dowolnej ścieżki. Umożliwia edytowanie ścieżki i testowanie wyników przed aktualizacją jakichkolwiek wejść lub kontekstu dla umiejętności lub projekcji.
+
+## <a name="errorswarnings"></a>Błędy/ostrzeżenia
+
+W tym oknie są wyświetlane wszystkie błędy i ostrzeżenia, które zestawu umiejętności produkuje, gdy jest wykonywane względem dokumentu w sesji debugowania.
+
+## <a name="next-steps"></a>Następne kroki
+
+Teraz, gdy zrozumiesz elementy sesji debugowania, wypróbuj samouczek, aby poznać praktyczne środowisko pracy.
+
+> [!div class="nextstepaction"]
+> [Samouczek dotyczący funkcji eksplorowania sesji debugowania](https://docs.microsoft.com/azure/search/cognitive-search-tutorial-debug-sessions)

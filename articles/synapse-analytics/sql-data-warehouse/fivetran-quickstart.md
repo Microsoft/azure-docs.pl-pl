@@ -11,12 +11,12 @@ ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8f164232a3b1782511758f93a9e9b8d17d3714d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4cf6c82b330a2672fdde39c3acf156a74cb57e34
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414268"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659980"
 ---
 # <a name="quickstart-fivetran-with-data-warehouse"></a>Szybki Start: Fivetran z magazynem danych 
 
@@ -66,7 +66,7 @@ W tym przewodniku szybki start opisano sposób konfigurowania nowego użytkownik
 
 3. Dodaj odpowiednią klasę zasobów do użytkownika Fivetran. Używana Klasa zasobów zależy od pamięci wymaganej do utworzenia indeksu magazynu kolumn. Na przykład integracje z produktami takimi jak Marketo i Salesforce wymagają wyższego poziomu klasy zasobów ze względu na dużą liczbę kolumn i większą ilość danych używanych przez produkty. Wyższa Klasa zasobów wymaga więcej pamięci do tworzenia indeksów magazynu kolumn.
 
-    Zalecamy korzystanie z klas zasobów statycznych. Możesz rozpocząć od klasy `staticrc20` zasobów. Klasa `staticrc20` zasobów przypisuje każdemu użytkownikowi 200 MB, niezależnie od używanego poziomu wydajności. Jeśli indeksowanie magazynu kolumn kończy się niepowodzeniem na poziomie początkowej klasy zasobów, zwiększ klasę zasobów.
+    Zalecamy korzystanie z klas zasobów statycznych. Możesz rozpocząć od `staticrc20` klasy zasobów. `staticrc20`Klasa zasobów przypisuje każdemu użytkownikowi 200 MB, niezależnie od używanego poziomu wydajności. Jeśli indeksowanie magazynu kolumn kończy się niepowodzeniem na poziomie początkowej klasy zasobów, zwiększ klasę zasobów.
 
     ```sql
     EXEC sp_addrolemember '<resource_class_name>', 'fivetran';
@@ -82,5 +82,5 @@ Aby nawiązać połączenie z magazynem danych z konta usługi Fivetran, wprowad
 * Host (nazwa serwera).
 * Przewożąc.
 * Database.
-* Użytkownik (nazwa użytkownika powinna być **\@fivetran server_name** , gdzie *server_name* jest częścią identyfikatora URI hosta platformy Azure: ** _\_nazwa serwera_. Database.Windows.NET**).
+* Użytkownik (nazwa użytkownika powinna być **fivetran \@ _server_name_ ** , gdzie *server_name* jest częścią identyfikatora URI hosta platformy Azure: ** _ \_ Nazwa serwera_. Database.Windows.NET**).
 * Hasło.

@@ -4,12 +4,12 @@ description: Informacje o definiowaniu niestandardowej trasy ruchu wychodzącego
 services: container-service
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: e7dbde4095fb635180bb1ba663734f8dbfd602f7
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: babfd70a6a9732113531be13073af212a6820557
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82733502"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83677893"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route-preview"></a>Dostosowywanie ruchu wychodzącego klastra przy użyciu trasy zdefiniowanej przez użytkownika (wersja zapoznawcza)
 
@@ -40,11 +40,11 @@ az extension update --name aks-preview
 ```
 
 ## <a name="limitations"></a>Ograniczenia
-* W trakcie okresu `outboundType` zapoznawczego można zdefiniować tylko w czasie tworzenia klastra i nie można go później zaktualizować.
-* W trakcie okresu `outboundType` zapoznawczego klastry AKS powinny korzystać z usługi Azure CNI. Korzystającą wtyczki kubenet można skonfigurować, użycie wymaga ręcznego skojarzenia tabeli tras z podsiecią AKS.
-* Ustawienie `outboundType` wymaga `vm-set-type` klastrów AKS z `VirtualMachineScaleSets` i `load-balancer-sku` z. `Standard`
+* W trakcie okresu zapoznawczego `outboundType` można zdefiniować tylko w czasie tworzenia klastra i nie można go później zaktualizować.
+* W trakcie okresu zapoznawczego `outboundType` klastry AKS powinny korzystać z usługi Azure CNI. Korzystającą wtyczki kubenet można skonfigurować, użycie wymaga ręcznego skojarzenia tabeli tras z podsiecią AKS.
+* Ustawienie `outboundType` wymaga klastrów AKS z `vm-set-type` `VirtualMachineScaleSets` i `load-balancer-sku` z `Standard` .
 * Ustawienie `outboundType` wartości `UDR` wymaga trasy zdefiniowanej przez użytkownika z prawidłową łącznością wychodzącą dla klastra.
-* Ustawienie `outboundType` wartości `UDR` powoduje, że adres IP źródła danych przychodzących kierowany do modułu równoważenia obciążenia może być **niezgodny** z wychodzącym docelowym ruchem wyjściowym klastra.
+* Ustawienie `outboundType` wartości powoduje `UDR` , że adres IP źródła danych przychodzących kierowany do modułu równoważenia obciążenia może być **niezgodny** z wychodzącym docelowym ruchem wyjściowym klastra.
 
 ## <a name="overview-of-outbound-types-in-aks"></a>Przegląd typów wychodzących w AKS
 
@@ -55,14 +55,14 @@ Klaster AKS można dostosować przy użyciu unikatowego `outboundType` typu modu
 
 ### <a name="outbound-type-of-loadbalancer"></a>Typ wychodzącego modułu równoważenia obciążenia
 
-Jeśli `loadBalancer` jest ustawiona, AKS automatycznie wykonuje następujące czynności konfiguracyjne. Moduł równoważenia obciążenia jest używany do ruchu wychodzącego przez AKS przypisany publiczny adres IP. Typ wychodzący `loadBalancer` obsługuje usługi Kubernetes Services typu `loadBalancer`, które oczekują wyjście z modułu równoważenia obciążenia utworzonego przez dostawcę zasobów AKS.
+Jeśli `loadBalancer` jest ustawiona, AKS automatycznie wykonuje następujące czynności konfiguracyjne. Moduł równoważenia obciążenia jest używany do ruchu wychodzącego przez AKS przypisany publiczny adres IP. Typ wychodzący `loadBalancer` obsługuje usługi Kubernetes Services typu `loadBalancer` , które oczekują wyjście z modułu równoważenia obciążenia utworzonego przez dostawcę zasobów AKS.
 
 Następująca konfiguracja jest wykonywana przez AKS.
    * Publiczny adres IP jest inicjowany dla ruchu wychodzącego klastra.
    * Publiczny adres IP jest przypisywany do zasobu modułu równoważenia obciążenia.
    * Pule zaplecza dla modułu równoważenia obciążenia są skonfigurowane dla węzłów agenta w klastrze.
 
-Poniżej znajduje się topologia sieci wdrożona domyślnie w klastrach AKS, która `outboundType` korzysta `loadBalancer`z programu.
+Poniżej znajduje się topologia sieci wdrożona domyślnie w klastrach AKS, która korzysta `outboundType` z programu `loadBalancer` .
 
 ![niepowiązanytype — lb](media/egress-outboundtype/outboundtype-lb.png)
 
@@ -119,9 +119,6 @@ DEVSUBNET_NAME="${PREFIX}dev"
 Następnie ustaw identyfikatory subskrypcji.
 
 ```azure-cli
-# Get ARM Access Token and Subscription ID - This will be used for AuthN later.
-
-ACCESS_TOKEN=$(az account get-access-token -o tsv --query 'accessToken')
 
 # NOTE: Update Subscription Name
 # Set Default Azure Subscription to be Used via Subscription ID
@@ -301,7 +298,7 @@ Nazwa główna usługi jest używana przez AKS do tworzenia zasobów klastra. Na
 az ad sp create-for-rbac -n "${PREFIX}sp" --skip-assignment
 ```
 
-Teraz Zastąp `APPID` poniższe `PASSWORD` i poniżej z identyfikatorem jednostki usługi i hasłem głównym usługi generowanym automatycznie przez poprzednie dane wyjściowe polecenia. Odwołujemy się do identyfikatora zasobu sieci wirtualnej, aby przyznać uprawnienia do nazwy głównej usługi, dzięki czemu AKS może wdrożyć w niej zasoby.
+Teraz Zastąp `APPID` `PASSWORD` poniższe i poniżej z identyfikatorem jednostki usługi i hasłem głównym usługi generowanym automatycznie przez poprzednie dane wyjściowe polecenia. Odwołujemy się do identyfikatora zasobu sieci wirtualnej, aby przyznać uprawnienia do nazwy głównej usługi, dzięki czemu AKS może wdrożyć w niej zasoby.
 
 ```azure-cli
 APPID="<SERVICE_PRINCIPAL_APPID_GOES_HERE>"
@@ -318,7 +315,7 @@ az role assignment list --assignee $APPID --all -o table
 
 ### <a name="deploy-aks"></a>Wdróż AKS
 
-Na koniec klaster AKS można wdrożyć w istniejącej podsieci, która jest dedykowana dla klastra. Podsieć docelowa do wdrożenia jest zdefiniowana za pomocą zmiennej środowiskowej `$SUBNETID`. Nie zdefiniowano `$SUBNETID` zmiennej w poprzednich krokach. Aby ustawić wartość identyfikatora podsieci, można użyć następującego polecenia:
+Na koniec klaster AKS można wdrożyć w istniejącej podsieci, która jest dedykowana dla klastra. Podsieć docelowa do wdrożenia jest zdefiniowana za pomocą zmiennej środowiskowej `$SUBNETID` . Nie zdefiniowano `$SUBNETID` zmiennej w poprzednich krokach. Aby ustawić wartość identyfikatora podsieci, można użyć następującego polecenia:
 
 ```azurecli
 SUBNETID="/subscriptions/$SUBID/resourceGroups/$RG/providers/Microsoft.Network/virtualNetworks/$VNET_NAME/subnets/$AKSSUBNET_NAME"
@@ -361,7 +358,7 @@ az aks update -g $RG -n $AKS_NAME --api-server-authorized-ip-ranges $CURRENT_IP/
 
 ```
 
- Użyj polecenia [AZ AKS Get-Credentials][az-aks-get-credentials] , aby skonfigurować `kubectl` program do nawiązywania połączenia z nowo utworzonym klastrem Kubernetes. 
+ Użyj polecenia [AZ AKS Get-Credentials][az-aks-get-credentials] , aby skonfigurować program `kubectl` do nawiązywania połączenia z nowo utworzonym klastrem Kubernetes. 
 
  ```azure-cli
  az aks get-credentials -g $RG -n $AKS_NAME
@@ -399,7 +396,7 @@ kubectl apply -f internal-lb.yaml
 
 Ponieważ typ wychodzący klastra jest ustawiony jako UDR, skojarzenie węzłów agenta jako puli zaplecza dla modułu równoważenia obciążenia nie jest wykonywane automatycznie przez AKS podczas tworzenia klastra. Jednak skojarzenie puli zaplecza jest obsługiwane przez dostawcę chmury platformy Azure Kubernetes podczas wdrażania usługi Kubernetes.
 
-Wdróż aplikację do głosowania na platformie Azure, kopiując YAML poniżej do pliku o nazwie `example.yaml`.
+Wdróż aplikację do głosowania na platformie Azure, kopiując YAML poniżej do pliku o nazwie `example.yaml` .
 
 ```yaml
 apiVersion: apps/v1
@@ -520,7 +517,7 @@ kubernetes         ClusterIP      192.168.0.1      <none>        443/TCP        
 az network firewall nat-rule create --collection-name exampleset --destination-addresses $FWPUBLIC_IP --destination-ports 80 --firewall-name $FWNAME --name inboundrule --protocols Any --resource-group $RG --source-addresses '*' --translated-port 80 --action Dnat --priority 100 --translated-address <INSERT IP OF K8s SERVICE>
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 > [!NOTE]
 > W przypadku usuwania usługi wewnętrznej Kubernetes, jeśli wewnętrzny moduł równoważenia obciążenia nie jest już używany przez żadną usługę, dostawca chmury platformy Azure usunie wewnętrzny moduł równoważenia obciążenia. W następnym wdrożeniu usługi moduł równoważenia obciążenia zostanie wdrożony, jeśli nie można znaleźć żadnej z żądanych konfiguracji.

@@ -17,12 +17,12 @@ ms.date: 04/07/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56e44059268037cfd839fc7c877c5d6c972dead8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e7f025a434c6db134237325a2f949b2a7c772672
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80886045"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83679168"
 ---
 # <a name="how-to-manage-inactive-user-accounts-in-azure-ad"></a>Instrukcje: Zarządzanie kontami nieaktywnych użytkowników w usłudze Azure AD
 
@@ -43,7 +43,7 @@ Ostatnim pomyślnym zalogowaniem jest uzyskanie potencjalnego wglądu w ciągłe
 
 Wykryjesz nieaktywne konta, oceniając Właściwość **lastSignInDateTime** uwidocznioną przez typ zasobu **signInActivity** interfejsu API **Microsoft Graph** . Korzystając z tej właściwości, można zaimplementować rozwiązanie dla następujących scenariuszy:
 
-- **Użytkownicy według nazwy**: w tym scenariuszu wyszukiwanie określonego użytkownika według nazwy, który umożliwia ocenę lastSignInDate:`https://graph.microsoft.com/beta/users?$filter=startswith(displayName,'markvi')&$select=displayName,signInActivity`
+- **Użytkownicy według nazwy**: w tym scenariuszu wyszukiwanie określonego użytkownika według nazwy, który umożliwia ocenę lastSignInDateTime:`https://graph.microsoft.com/beta/users?$filter=startswith(displayName,'markvi')&$select=displayName,signInActivity`
 
 - **Użytkownicy według daty**: w tym scenariuszu żądasz listy użytkowników z lastSignInDateTime przed określoną datą:`https://graph.microsoft.com/beta/users?filter=signInActivity/lastSignInDateTime le 2019-06-01T00:00:00Z`
 

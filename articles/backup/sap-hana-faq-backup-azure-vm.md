@@ -3,12 +3,12 @@ title: Często zadawane pytania — tworzenie kopii zapasowych baz danych platfo
 description: W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące tworzenia kopii zapasowych SAP HANA baz danych przy użyciu usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: a46c4d6cccc00452a56567880400ef5779e6aed4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f9e0d96439a79c2c3d2cb2caa00ff09be3ff790d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80155396"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660116"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Często zadawane pytania — tworzenie kopii zapasowych baz danych SAP HANA na maszynach wirtualnych platformy Azure
 
@@ -60,6 +60,18 @@ Obecnie nie ma możliwości skonfigurowania rozwiązania wyłącznie dla wirtual
 ### <a name="i-have-a-sap-hana-system-replication-hsr-how-should-i-configure-backup-for-this-setup"></a>Mam replikację systemu SAP HANA (HSR), jak skonfigurować tworzenie kopii zapasowych dla tej konfiguracji?
 
 Węzły podstawowe i pomocnicze HSR będą traktowane jako dwie pojedyncze, niepowiązane maszyny wirtualne. Należy skonfigurować kopię zapasową w węźle podstawowym, a po przełączeniu w tryb failover trzeba skonfigurować kopię zapasową w węźle pomocniczym (który będzie teraz węzłem podstawowym). Nie ma automatycznej operacji "awaryjnej" kopii zapasowej w innym węźle.
+
+### <a name="how-can-i-move-an-on-demand-backup-to-the-local-file-system-instead-of-the-azure-vault"></a>Jak przenieść kopię zapasową na żądanie do lokalnego systemu plików zamiast z magazynu platformy Azure?
+
+1. Zaczekaj na ukończenie aktualnie uruchomionej kopii zapasowej w wymaganej bazie danych (Sprawdź, czy w programie Studio została ukończona)
+1. Wyłącz kopie zapasowe dzienników i ustaw kopię zapasową wykazu w **systemie plików** dla żądanej bazy danych, wykonując następujące czynności:
+1. Kliknij dwukrotnie pozycję **SYSTEMDB**  ->  **Konfiguracja**SYSTEMDB  ->  **Wybierz pozycję Filtr bazy danych**  ->  **(Dziennik)**
+    1. Ustaw enable_auto_log_backup na **nie**
+    1. Ustaw log_backup_using_backint na **wartość false**
+1. Wykonaj kopię zapasową na żądanie w wymaganej bazie danych i poczekaj na zakończenie tworzenia kopii zapasowych i wykazu.
+1. Przywróć poprzednie ustawienia, aby umożliwić tworzenie kopii zapasowych w magazynie platformy Azure:
+    1. Ustaw wartość enable_auto_log_backup na **tak**
+    1. Ustaw log_backup_using_backint na **wartość true**
 
 ## <a name="restore"></a>Przywracanie
 

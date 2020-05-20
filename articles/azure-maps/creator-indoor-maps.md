@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 34a1495d1a14e35bc5a94bfc01f4034c6fd6de72
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: fb0293c66662c86723c31baebeed42dd42d33413
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598395"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83677801"
 ---
 # <a name="creator-for-indoor-maps"></a>Kreator dla map pomieszczeń
 
@@ -35,7 +35,7 @@ Przekaż pakiet rysowania przy użyciu [interfejsu API przekazywania danych Azur
 
 ## <a name="convert-a-drawing-package"></a>Konwertowanie pakietu rysowania
 
-[Usługa konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/data/conversion) konwertuje przekazany pakiet rysowania na dane mapy pomieszczeń. Usługa konwersji również sprawdza poprawność pakietu. Problemy ze sprawdzaniem poprawności są klasyfikowane do dwóch typów: Błędy i ostrzeżenia. W przypadku wykrycia błędów proces konwersji kończy się niepowodzeniem. W przypadku wykrycia ostrzeżeń konwersja zostanie zakończona pomyślnie. Zaleca się jednak przejrzenie i rozwiązanie wszystkich ostrzeżeń. Ostrzeżenie oznacza, że część konwersji została zignorowana lub automatycznie naprawiona. Niepowodzenie rozpoznania ostrzeżeń może spowodować błędy w ostatnim procesie. Aby uzyskać więcej informacji, zobacz [rysowanie ostrzeżeń i błędów pakietu](drawing-conversion-error-codes.md).
+[Usługa konwersji Azure Maps](https://docs.microsoft.com/rest/api/maps/conversion) konwertuje przekazany pakiet rysowania na dane mapy pomieszczeń. Usługa konwersji również sprawdza poprawność pakietu. Problemy ze sprawdzaniem poprawności są klasyfikowane do dwóch typów: Błędy i ostrzeżenia. W przypadku wykrycia błędów proces konwersji kończy się niepowodzeniem. W przypadku wykrycia ostrzeżeń konwersja zostanie zakończona pomyślnie. Zaleca się jednak przejrzenie i rozwiązanie wszystkich ostrzeżeń. Ostrzeżenie oznacza, że część konwersji została zignorowana lub automatycznie naprawiona. Niepowodzenie rozpoznania ostrzeżeń może spowodować błędy w ostatnim procesie. Aby uzyskać więcej informacji, zobacz [rysowanie ostrzeżeń i błędów pakietu](drawing-conversion-error-codes.md).
 
 Gdy wystąpi błąd, usługa konwersji oferuje link do [wizualizacji błędów rysowania Azure Maps](drawing-error-visualizer.md) autonomicznej aplikacji sieci Web. Możesz użyć wizualizatora błędów rysowania, aby sprawdzić [ostrzeżenia i błędy pakietu rysowania](drawing-conversion-error-codes.md) , które wystąpiły podczas procesu konwersji. Po usunięciu błędów można spróbować przekazać i skonwertować pakiet.
 

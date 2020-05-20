@@ -11,21 +11,23 @@ ms.service: virtual-machines
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/16/2020
+ms.date: 05/12/2020
 ms.author: borisb
 ms.custom: ''
-ms.openlocfilehash: e70eedcfcdf548965b79e4a48a3a8bfa643f0396
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 077fd70f0908dcef3af0c1e037fe137d636a4ac4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81687426"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660565"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>Rozwiązania aplikacji Oracle integrujące Microsoft Azure i infrastrukturę chmurową Oracle
 
 Firmy Microsoft i Oracle współpracują w celu zapewnienia małych opóźnień i wysokiej przepływności łączności między chmurami, co pozwala korzystać z zalet najlepszych chmur. 
 
 Korzystając z tej łączności między chmurami, można podzielić aplikację wielowarstwową w celu uruchomienia warstwy bazy danych w infrastrukturze chmury firmy Oracle (OCI) oraz aplikacji i innych warstw na Microsoft Azure. Środowisko jest podobne do uruchamiania całego stosu rozwiązań w pojedynczej chmurze. 
+
+Jeśli interesuje Cię uruchamianie oprogramowania pośredniczącego, w tym serwera WebLogic, w infrastrukturze platformy Azure, ale baza danych Oracle działa w ramach OCI, zobacz [WebLogic Server Azure Applications](oracle-weblogic.md).
 
 Jeśli interesuje się wdrażanie rozwiązań Oracle w całości w infrastrukturze platformy Azure, zobacz [obrazy maszyn wirtualnych Oracle i ich wdrożenie na Microsoft Azure](oracle-vm-solutions.md).
 
@@ -44,18 +46,18 @@ Aplikacje, które można uruchomić w konfiguracji obejmującej wiele chmur, obe
 * Aplikacje sieci sprzedaży firmy Oracle
 * Zarządzanie finansowe Oracle Hyperion
 
-Poniższy diagram przedstawia ogólny przegląd połączonego rozwiązania. Dla uproszczenia diagram pokazuje tylko warstwę aplikacji i warstwę danych. W zależności od architektury aplikacji rozwiązanie może zawierać dodatkowe warstwy, takie jak warstwa sieci Web na platformie Azure. Aby uzyskać więcej informacji, zobacz następujące sekcje.
+Poniższy diagram przedstawia ogólny przegląd połączonego rozwiązania. Dla uproszczenia diagram pokazuje tylko warstwę aplikacji i warstwę danych. W zależności od architektury aplikacji rozwiązanie może zawierać dodatkowe warstwy, takie jak klaster serwera WebLogic lub warstwa sieci Web na platformie Azure. Aby uzyskać więcej informacji, zobacz następujące sekcje.
 
 ![Omówienie rozwiązania OCI na platformie Azure](media/oracle-oci-overview/crosscloud.png)
 
 ## <a name="region-availability"></a>Dostępność regionów 
 
 Łączność między różnymi lokalizacjami w chmurze jest ograniczona do następujących regionów:
-* Azure Wschodnie stany USA (Wschodnie) & OCI Ashburn (Wschodnie stany USA)
-* Azure Południowe Zjednoczone Królestwo (uksouth) & OCI Londyn (Południowe Zjednoczone Królestwo)
-* Azure Kanada Środkowa (canadacentral) & OCI Toronto (Kanada Południowo-Wschodnia)
-* Azure Europa Zachodnia (westeurope) & OCI Amsterdam (Holandia zachodni)
-* Azure Japonia Wschodnia (japaneast) & OCI Tokio (Japonia Wschodnia)
+* Azure Wschodnie stany USA (Wschodnie) & OCI Ashburn, VA (Wschodnie stany USA)
+* Azure Południowe Zjednoczone Królestwo (UKSouth) & OCI Londyn (Południowe Zjednoczone Królestwo)
+* Azure Kanada Środkowa (CanadaCentral) & OCI Toronto (Kanada Południowo-Wschodnia)
+* Azure Europa Zachodnia (WestEurope) & OCI Amsterdam (Holandia zachodni)
+* Azure Japonia Wschodnia (JapanEast) & OCI Tokio (Japonia Wschodnia)
 
 ## <a name="networking"></a>Networking
 
@@ -70,10 +72,12 @@ Korzystając z ExpressRoute i FastConnect, klienci mogą połączyć się z siec
 Zabezpieczenia sieci to kluczowy składnik dowolnej aplikacji korporacyjnej, który stanowi centralne rozwiązanie w chmurze. Każdy ruch przechodzący przez ExpressRoute i FastConnect przechodzi przez sieć prywatną. Ta konfiguracja umożliwia bezpieczną komunikację między siecią wirtualną platformy Azure a siecią chmurą wirtualną firmy Oracle. Nie musisz podawać publicznego adresu IP do żadnych maszyn wirtualnych na platformie Azure. Podobnie nie jest potrzebna Brama internetowa w OCI. Cała komunikacja odbywa się za pośrednictwem prywatnego adresu IP maszyn.
 
 Ponadto można skonfigurować [listy zabezpieczeń](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/securitylists.htm) w sieci i reguł zabezpieczeń w chmurze wirtualnej OCI (dołączone do [sieciowych grup zabezpieczeń](../../../virtual-network/security-overview.md)platformy Azure). Za pomocą tych reguł można kontrolować ruch przepływający między maszynami w sieciach wirtualnych. Reguły zabezpieczeń sieci można dodawać na poziomie komputera, na poziomie podsieci, a także na poziomie sieci wirtualnej.
+
+[Aplikacje platformy Azure WebLogic Server](oracle-weblogic.md) dla każdego z nich tworzą sieciową grupę zabezpieczeń, która została wstępnie skonfigurowana do pracy z konfiguracjami portów serwera WebLogic.
  
 ## <a name="identity"></a>Tożsamość
 
-Tożsamość jest jednym z podstawowych filarów powiązania między firmą Microsoft i bazą danych Oracle. W celu zintegrowania [usługi Oracle Identity Cloud Service](https://docs.oracle.com/en/cloud/paas/identity-cloud/index.html) (IDCS) z usługą [Azure Active Directory](../../../active-directory/index.yml) (Azure AD) została wykonana znaczna pracy. Azure AD to usługa zarządzania tożsamościami i dostępem opartymi na chmurze firmy Microsoft. Ułatwia użytkownikom logowanie się i dostęp do różnych zasobów. Usługa Azure AD umożliwia również zarządzanie użytkownikami i ich uprawnieniami.
+Tożsamość jest jednym z podstawowych filarów powiązania między firmą Microsoft i bazą danych Oracle. W celu zintegrowania [usługi Oracle Identity Cloud Service](https://docs.oracle.com/en/cloud/paas/identity-cloud/index.html) (IDCS) z usługą [Azure Active Directory](../../../active-directory/index.yml) (Azure AD) została wykonana znaczna pracy. Azure AD to usługa zarządzania tożsamościami i dostępem opartymi na chmurze firmy Microsoft. Użytkownicy mogą logować się i uzyskiwać dostęp do różnych zasobów, korzystając z pomocy z usługi Azure AD. Usługa Azure AD umożliwia również zarządzanie użytkownikami i ich uprawnieniami.
 
 Obecnie ta Integracja umożliwia zarządzanie w jednej centralnej lokalizacji, która jest Azure Active Directory. Usługa Azure AD synchronizuje wszelkie zmiany w katalogu z odpowiednim katalogiem Oracle i służy do logowania jednokrotnego do wielochmurowych rozwiązań firmy Oracle.
 

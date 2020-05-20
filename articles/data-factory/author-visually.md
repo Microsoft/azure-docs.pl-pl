@@ -9,13 +9,13 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: anandsub
-ms.date: 12/19/2019
-ms.openlocfilehash: e7de92878dac72470c0b65d1cf18c1a2d526a0bb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/15/2020
+ms.openlocfilehash: bf0aeb3b73f2b12e723269a792d67d7f6185894f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418494"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83674583"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Tworzenie wizualne w Azure Data Factory
 
@@ -34,6 +34,14 @@ Aby otworzyć **kanwę tworzenia**, kliknij ikonę ołówka.
 Tutaj utworzysz potoki, działania, zestawy danych, połączone usługi, przepływy danych, wyzwalacze i środowiska Integration Runtime wchodzące w skład Twojego fabryki. Aby rozpocząć tworzenie potoku przy użyciu kanwy tworzenia, zobacz [Kopiowanie danych za pomocą działania kopiowania](tutorial-copy-data-portal.md). 
 
 Domyślne środowisko tworzenia wizualizacji działa bezpośrednio z usługą Data Factory. Azure Repos integracja z usługą Git lub GitHub jest również obsługiwana, aby umożliwić kontrolę źródła i współpracę w ramach potoków usługi Data Factory. Aby dowiedzieć się więcej o różnicach między tymi środowiskami tworzenia, zobacz [Kontrola źródła w Azure Data Factory](source-control.md).
+
+### <a name="properties-pane"></a>Okienko właściwości
+
+W przypadku zasobów najwyższego poziomu, takich jak potoki, zestawy danych i przepływy, właściwości wysokiego poziomu można edytować w okienku właściwości po prawej stronie kanwy. Okienko właściwości zawiera właściwości, takie jak nazwa, opis, adnotacje i inne właściwości wyższego poziomu. Podzasoby, takie jak działania potokowe i przekształcenia przepływu danych, są edytowane przy użyciu panelu w dolnej części kanwy. 
+
+![Kanwa tworzenia](media/author-visually/properties-pane.png)
+
+Okienko właściwości będzie domyślnie otwierane tylko podczas tworzenia zasobów. Aby go edytować, kliknij ikonę okienka właściwości znajdującą się w prawym górnym rogu kanwy.
 
 ## <a name="expressions-and-functions"></a>Wyrażenia i funkcje
 

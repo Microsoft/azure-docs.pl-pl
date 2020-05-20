@@ -10,18 +10,18 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/16/2020
+ms.date: 05/12/2020
 ms.author: borisb
-ms.openlocfilehash: c737189650d571fb62a770707e84ed15c5a37a57
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 649d96a158682752e0d4a31bf7ec73eb7c442f0f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81870502"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660545"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Omówienie aplikacji i rozwiązań firmy Oracle na platformie Azure
 
-W tym artykule przedstawiono możliwości uruchamiania rozwiązań firmy Oracle przy użyciu infrastruktury platformy Azure. Zobacz także szczegółowe wprowadzenie do dostępnych [obrazów maszyn wirtualnych Oracle](oracle-vm-solutions.md) w portalu Azure Marketplace oraz możliwość łączenia się [z platformą Azure przy użyciu infrastruktury chmurowej (OCI) firmy Oracle](oracle-oci-overview.md).
+W tym artykule przedstawiono możliwości uruchamiania rozwiązań firmy Oracle przy użyciu infrastruktury platformy Azure. Zobacz także szczegółowe wprowadzenie do dostępnych [aplikacji platformy Azure WebLogic Server](oracle-weblogic.md), [obrazów maszyn wirtualnych Oracle](oracle-vm-solutions.md) w portalu Azure Marketplace oraz możliwości [łączenia się z platformą Azure przy użyciu infrastruktury chmury firmy Oracle (OCI)](oracle-oci-overview.md).
 
 ## <a name="oracle-databases-on-azure-infrastructure"></a>Bazy danych Oracle w infrastrukturze platformy Azure
 
@@ -35,9 +35,13 @@ Możesz również skonfigurować Oracle Database na obrazie nieOracle Linux dost
 
 Opcjonalnie można skonfigurować z wieloma dołączonymi dyskami i zwiększyć wydajność bazy danych, instalując automatyczne zarządzanie magazynem (ASM) firmy Oracle.
 
+## <a name="weblogic-server-with-azure-service-integrations"></a>Serwer WebLogic z integracją usług platformy Azure
+
+Wybieraj z wielu aplikacji platformy Azure WebLogic Server, aby przyspieszyć podróż do chmury.  Dostępne są kilka wstępnie skonfigurowanych integracji usługi platformy Azure, w tym baza danych, usługa Azure App Gateway i Azure Active Directory.
+
 ## <a name="applications-on-oracle-linux-and-weblogic-server"></a>Aplikacje na serwerach Oracle Linux i WebLogic
 
-Uruchamiaj aplikacje dla przedsiębiorstw na platformie Azure w obsługiwanych systemach operacyjnych Oracle. Następujące obrazy są dostępne w portalu Azure Marketplace:
+Uruchamiaj aplikacje dla przedsiębiorstw na platformie Azure w obsługiwanych systemach operacyjnych Oracle. Następujące obrazy maszyn wirtualnych są dostępne w portalu Azure Marketplace:
 
 * Oracle webWebLogicc Server 12.1.2
 
@@ -55,7 +59,7 @@ Uruchamiaj aplikacje dla przedsiębiorstw na platformie Azure w obsługiwanych s
 
 * Tworzenie kopii zapasowych maszyn wirtualnych Oracle przy użyciu [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview)
 
-* Utwórz kopię zapasową Oracle Database przy użyciu programu Oracle RMAN i opcjonalnie Użyj [usługi Azure Blob bezpiecznik](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux) , aby zainstalować [redudant konto platformy BLOB Storage Azure o wysokim poziomie dostępności](https://docs.microsoft.com/azure/storage/common/storage-redundancy) i zapisać w nim kopie zapasowe RMAN w celu dodania odporności.
+* Utwórz kopię zapasową Oracle Database przy użyciu programu Oracle RMAN i opcjonalnie Użyj [usługi Azure Blob bezpiecznik](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux) , aby zainstalować [wysoce nadmiarowe konto platformy Azure Blob Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy) i zapisać w nim kopie zapasowe RMAN w celu dodania odporności.
 
 ## <a name="integration-of-azure-with-oci"></a>Integracja z platformą Azure za pomocą OCI
 
@@ -89,6 +93,8 @@ Użyj Oracle Database Cloud Services (autonomiczna baza danych, certyfikat RAC, 
 Wdrażanie aplikacji Oracle na platformie Azure jest oparte na modelu "Przenieś własną licencję". Przyjęto założenie, że masz licencję na korzystanie z oprogramowania Oracle i że masz aktualną umowę pomocy technicznej z firmą Oracle. Firma Oracle gwarantuje mobilność licencji ze środowiska lokalnego na platformę Azure. Zobacz [często zadawane pytania dotyczące](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)programu Oracle-Azure.
 
 ## <a name="next-steps"></a>Następne kroki
+
+* Dowiedz się więcej na temat [aplikacji platformy Azure WebLogic Server](oracle-weblogic.md) i integracji usługi platformy Azure, które obsługują.
 
 * Dowiedz się więcej o wdrażaniu [obrazów maszyn wirtualnych Oracle](oracle-vm-solutions.md) w infrastrukturze platformy Azure.
 

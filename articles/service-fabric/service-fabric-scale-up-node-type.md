@@ -3,12 +3,12 @@ title: Skalowanie w górę typu węzła Service Fabric platformy Azure
 description: Dowiedz się, jak skalować klaster Service Fabric przez dodanie zestawu skalowania maszyn wirtualnych.
 ms.topic: article
 ms.date: 02/13/2019
-ms.openlocfilehash: 4dbb9e4fbfeb27c5b8b13f70207888cf37bbb0e0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5ea4f37a6c088c6f738ef05db8b5b295982c27fe
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80998939"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83674224"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>Skalowanie w górę węzła klastra usługi Service Fabric podstawowego typu
 W tym artykule opisano sposób skalowania w górę typu węzła podstawowego klastra Service Fabric przez zwiększenie zasobów maszyny wirtualnej. Klaster Service Fabric jest połączonym z siecią zestawem maszyn wirtualnych lub fizycznych, w którym są wdrażane i zarządzane mikrousługi. Maszyna lub maszyna wirtualna będąca częścią klastra nazywa się węzłem. Zestawy skalowania maszyn wirtualnych to zasób obliczeniowy platformy Azure, który służy do wdrażania kolekcji maszyn wirtualnych jako zestawu i zarządzania nią. Każdy typ węzła, który jest zdefiniowany w klastrze platformy Azure [, jest ustawiany jako oddzielny zestaw skalowania](service-fabric-cluster-nodetypes.md). Każdy typ węzła może być następnie zarządzany osobno. Po utworzeniu klastra Service Fabric można skalować typ węzła klastra w pionie (zmienić zasoby węzłów) lub uaktualnić system operacyjny maszyn wirtualnych typu węzła.  Klaster można skalować w dowolnym momencie, nawet w przypadku uruchamiania obciążeń w klastrze.  W miarę skalowania klastra aplikacje są automatycznie skalowane.
@@ -22,7 +22,7 @@ W tym artykule opisano sposób skalowania w górę typu węzła podstawowego kla
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="upgrade-the-size-and-operating-system-of-the-primary-node-type-vms"></a>Uaktualnij rozmiar i system operacyjny z maszyn wirtualnych typu węzła podstawowego
+## <a name="process-to-upgrade-the-size-and-operating-system-of-the-primary-node-type-vms"></a>Proces uaktualniania rozmiaru i systemu operacyjnego dla maszyn wirtualnych typu węzła podstawowego
 Oto proces aktualizowania rozmiaru maszyny wirtualnej i systemu operacyjnego dla maszyn wirtualnych typu węzła podstawowego.  Po uaktualnieniu maszyny wirtualne typu węzła podstawowego mają rozmiar standardowy D4_V2 i uruchomiono system Windows Server 2016 Datacenter z kontenerami.
 
 > [!WARNING]
@@ -41,43 +41,126 @@ Oto proces aktualizowania rozmiaru maszyny wirtualnej i systemu operacyjnego dla
 10. Usuń stan węzła z klastra.  Jeśli poziom trwałości starego zestawu skalowania to Silver lub Gold, ten krok jest wykonywany automatycznie przez system.
 11. Jeśli aplikacja stanowa została wdrożona w poprzednim kroku, sprawdź, czy aplikacja działa.
 
+## <a name="set-up-the-test-cluster"></a>Konfigurowanie klastra testowego
+
+Zacznij od pobrania dwóch zestawów plików, które będą potrzebne w tym samouczku, przed [szablonem]() i [parametrami]() oraz [szablonem]() i [parametrami]().
+
+Następnie zaloguj się do konta platformy Azure.
+
 ```powershell
-# Variables.
-$groupname = "sfupgradetestgroup"
-$clusterloc="southcentralus"  
-$subscriptionID="<your subscription ID>"
-
 # sign in to your Azure account and select your subscription
-Login-AzAccount -SubscriptionId $subscriptionID 
+Login-AzAccount -SubscriptionId "<your subscription ID>"
+```
 
-# Create a new resource group for your deployment and give it a name and a location.
-New-AzResourceGroup -Name $groupname -Location $clusterloc
+Ten samouczek przeprowadzi Cię przez scenariusz tworzenia certyfikatu z podpisem własnym. Aby użyć istniejącego certyfikatu z Azure Key Vault, Pomiń ten krok i w zamian wykonaj duplikaty kroków z [używania istniejącego certyfikatu w celu wdrożenia klastra](https://docs.microsoft.com/azure/service-fabric/upgrade-managed-disks#use-an-existing-certificate-to-deploy-the-cluster).
 
-# Deploy the two node type cluster.
-New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\Deploy-2NodeTypes-2ScaleSets.parameters.json" `
-    -TemplateFile "C:\temp\cluster\Deploy-2NodeTypes-2ScaleSets.json" -Verbose
+### <a name="generate-a-self-signed-certificate-and-deploy-the-cluster"></a>Wygeneruj certyfikat z podpisem własnym i Wdróż klaster
 
-# Connect to the cluster and check the cluster health.
-$ClusterName= "sfupgradetest.southcentralus.cloudapp.azure.com:19000"
-$thumb="F361720F4BD5449F6F083DDE99DC51A86985B25B"
+Najpierw Przypisz zmienne, które będą potrzebne do wdrożenia klastra Service Fabric. Dostosuj wartości dla `resourceGroupName` ,, `certSubjectName` `parameterFilePath` i `templateFilePath` dla określonego konta i środowiska:
 
-Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveIntervalInSec 10 `
+```powershell
+# Assign deployment variables
+$resourceGroupName = "sftestupgradegroup"
+$certOutputFolder = "c:\certificates"
+$certPassword = "Password!1" | ConvertTo-SecureString -AsPlainText -Force
+$certSubjectName = "sftestupgrade.southcentralus.cloudapp.azure.com"
+$templateFilePath = "C:\Deploy-2NodeTypes-2ScaleSets.json"
+$parameterFilePath = "C:\Deploy-2NodeTypes-2ScaleSets.parameters.json"
+```
+
+> [!NOTE]
+> Upewnij się, że `certOutputFolder` Lokalizacja istnieje na komputerze lokalnym przed uruchomieniem polecenia, aby wdrożyć nowy klaster Service Fabric.
+
+Następnie otwórz plik *Deploy-2NodeTypes-2ScaleSets. Parameters. JSON* i Dostosuj wartości dla i, `clusterName` `dnsName` aby odpowiadały wartościom dynamicznym ustawionym w programie PowerShell, i Zapisz zmiany.
+
+Następnie wdróż klaster testowy Service Fabric:
+
+```powershell
+# Deploy the initial test cluster
+New-AzServiceFabricCluster `
+    -ResourceGroupName $resourceGroupName `
+    -CertificateOutputFolder $certOutputFolder `
+    -CertificatePassword $certPassword `
+    -CertificateSubjectName $certSubjectName `
+    -TemplateFile $templateFilePath `
+    -ParameterFile $parameterFilePath
+```
+
+Po zakończeniu wdrażania zlokalizuj plik *PFX* ( `$certPfx` ) na komputerze lokalnym i zaimportuj go do magazynu certyfikatów:
+
+```powershell
+cd c:\certificates
+$certPfx = ".\sftestupgradegroup20200312121003.pfx"
+
+Import-PfxCertificate `
+     -FilePath $certPfx `
+     -CertStoreLocation Cert:\CurrentUser\My `
+     -Password (ConvertTo-SecureString Password!1 -AsPlainText -Force)
+```
+
+Operacja zwróci odcisk palca certyfikatu, który zostanie użyty do nawiązania połączenia z nowym klastrem i sprawdzenia jego stanu kondycji.
+
+### <a name="connect-to-the-new-cluster-and-check-health-status"></a>Nawiąż połączenie z nowym klastrem i sprawdź stan kondycji
+
+Połącz się z klastrem i upewnij się, że wszystkie jego węzły są w dobrej kondycji (zastępując `clusterName` `thumb` zmienne i dla klastra):
+
+```powershell
+# Connect to the cluster
+$clusterName = "sftestupgrade.southcentralus.cloudapp.azure.com:19000"
+$thumb = "BB796AA33BD9767E7DA27FE5182CF8FDEE714A70"
+
+Connect-ServiceFabricCluster `
+    -ConnectionEndpoint $clusterName `
+    -KeepAliveIntervalInSec 10 `
     -X509Credential `
     -ServerCertThumbprint $thumb  `
     -FindType FindByThumbprint `
     -FindValue $thumb `
     -StoreLocation CurrentUser `
-    -StoreName My 
+    -StoreName My
 
+# Check cluster health
 Get-ServiceFabricClusterHealth
+```
 
-# Deploy a new scale set into the primary node type.  Create a new load balancer and public IP address for the new scale set.
-New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\Deploy-2NodeTypes-3ScaleSets.parameters.json" `
-    -TemplateFile "C:\temp\cluster\Deploy-2NodeTypes-3ScaleSets.json" -Verbose
+Jesteśmy gotowi do rozpoczęcia procedury uaktualniania.
 
-# Check the cluster health again. All 15 nodes should be healthy.
+## <a name="upgrade-the-primary-node-type-vms"></a>Uaktualnij podstawowe maszyny wirtualne typu Node
+
+Po podjęciu decyzji o uaktualnieniu podstawowego typu węzła maszyny wirtualne Dodaj nowy zestaw skalowania do typu węzła podstawowego, tak że typ węzła podstawowego ma teraz dwa zestawy skalowania. Podano przykładowy plik [szablonu](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-3ScaleSets.json) i [parametrów](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-3ScaleSets.parameters.json) , aby wyświetlić niezbędne zmiany. Nowe maszyny wirtualne zestawu skalowania są w standardowym rozmiarze D4_V2 i uruchamiane są systemy Windows Server 2016 Datacenter z kontenerami. Nowy zestaw skalowania jest również dodawany do nowego modułu równoważenia obciążenia i publicznego adresu IP. 
+
+Aby znaleźć nowy zestaw skalowania w szablonie, wyszukaj zasób "Microsoft. COMPUTE/virtualMachineScaleSets" o nazwie odpowiadającej parametrowi vmNodeType2Name. Nowy zestaw skalowania jest dodawany do typu węzła podstawowego przy użyciu właściwości->virtualMachineProfile->extensionProfile->Extensions->Properties->Settings->nodeTypeRef.
+
+### <a name="deploy-the-updated-template"></a>Wdróż zaktualizowany szablon
+
+Dostosuj `parameterFilePath` i `templateFilePath` w razie konieczności, a następnie uruchom następujące polecenie:
+
+```powershell
+# Deploy the new scale set into the primary node type along with a new load balancer and public IP
+$templateFilePath = "C:\Deploy-2NodeTypes-3ScaleSets.json"
+$parameterFilePath = "C:\Deploy-2NodeTypes-3ScaleSets.parameters.json"
+
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateFile $templateFilePath `
+    -TemplateParameterFile $parameterFilePath `
+    -CertificateThumbprint $thumb `
+    -CertificateUrlValue $certUrlValue `
+    -SourceVaultValue $sourceVaultValue `
+    -Verbose
+```
+
+Po zakończeniu wdrożenia Sprawdź kondycję klastra ponownie i upewnij się, że wszystkie węzły (w oryginalnym i w nowym zestawie skalowania) są w dobrej kondycji.
+
+```powershell
 Get-ServiceFabricClusterHealth
+```
 
+## <a name="migrate-nodes-to-the-new-scale-set"></a>Migrowanie węzłów do nowego zestawu skalowania
+
+Teraz można rozpocząć wyłączanie węzłów oryginalnego zestawu skalowania. Po wyłączeniu tych węzłów usługi systemowe i węzły inicjatora są migrowane do maszyn wirtualnych nowego zestawu skalowania, ponieważ są również oznaczone jako podstawowy typ węzła.
+
+```powershell
 # Disable the nodes in the original scale set.
 $nodeNames = @("_NTvm1_0","_NTvm1_1","_NTvm1_2","_NTvm1_3","_NTvm1_4")
 
@@ -85,36 +168,36 @@ Write-Host "Disabling nodes..."
 foreach($name in $nodeNames){
     Disable-ServiceFabricNode -NodeName $name -Intent RemoveNode -Force
 }
+```
 
-Write-Host "Checking node status..."
-foreach($name in $nodeNames){
- 
-    $state = Get-ServiceFabricNode -NodeName $name 
+Użyj Service Fabric Explorer do monitorowania migracji węzłów inicjatora do nowego zestawu skalowania, a postęp węzłów w pierwotnym zestawie skalowania można *wyłączyć* , aby *wyłączyć stan wyłączony* .
 
-    $loopTimeout = 50
+> [!NOTE]
+> Ukończenie operacji wyłączania dla wszystkich węzłów oryginalnego zestawu skalowania może zająć trochę czasu. W celu zagwarantowania spójności danych tylko jeden węzeł inicjatora może ulec zmianie jednocześnie. Każda zmiana węzła inicjatora wymaga aktualizacji klastra; w ten sposób wymiana węzła inicjatora wymaga dwóch uaktualnień klastra (jednego z nich do dodania i usunięcia węzła). Uaktualnienie pięciu węzłów inicjatora w tym przykładowym scenariuszu spowoduje przeprowadzenie dziesięciu uaktualnień klastra.
 
-    do{
-        Start-Sleep 5
-        $loopTimeout -= 1
-        $state = Get-ServiceFabricNode -NodeName $name
-        Write-Host "$name state: " $state.NodeDeactivationInfo.Status
-    }
+## <a name="remove-the-original-scale-set"></a>Usuń oryginalny zestaw skalowania
 
-    while (($state.NodeDeactivationInfo.Status -ne "Completed") -and ($loopTimeout -ne 0))
-    
+Po zakończeniu operacji wyłączania Usuń zestaw skalowania.
 
-    if ($state.NodeStatus -ne [System.Fabric.Query.NodeStatus]::Disabled)
-    {
-        Write-Error "$name node deactivation failed with state" $state.NodeStatus
-        exit
-    }
-}
+```powershell
+# Remove the original scale set
+$scaleSetName = "NTvm1"
 
-# Remove the scale set
-$scaleSetName="NTvm1"
-Remove-AzVmss -ResourceGroupName $groupname -VMScaleSetName $scaleSetName -Force
+Remove-AzVmss `
+    -ResourceGroupName $resourceGroupName `
+    -VMScaleSetName $scaleSetName `
+    -Force
+
 Write-Host "Removed scale set $scaleSetName"
+```
 
+W Service Fabric Explorer usunięte węzły (i w rezultacie *stan kondycji klastra*) będą teraz wyświetlane w stanie *błędu* .
+
+## <a name="remove-the-old-load-balancer-and-update-dns-settings"></a>Usuwanie starego modułu równoważenia obciążenia i aktualizowanie ustawień DNS
+
+Teraz możemy usunąć zasoby związane z starym typem węzła podstawowego, rozpoczynając od modułu równoważenia obciążenia i starego publicznego adresu IP. 
+
+```powershell
 $lbname="LB-sfupgradetest-NTvm1"
 $oldPublicIpName="PublicIP-LB-FE-0"
 $newPublicIpName="PublicIP-LB-FE-2"
@@ -131,16 +214,28 @@ Remove-AzLoadBalancer -Name $lbname -ResourceGroupName $groupname -Force
 
 # Remove the old public IP
 Remove-AzPublicIpAddress -Name $oldPublicIpName -ResourceGroupName $groupname -Force
+```
 
+Następnie zaktualizujemy ustawienia DNS nowego publicznego adresu IP, aby dublować ustawienia ze starego publicznego adresu IP typu węzła podstawowego.
+
+```powershell
 # Replace DNS settings of Public IP address related to new Primary Node Type with DNS settings of Public IP address related to old Primary Node Type
 $PublicIP = Get-AzPublicIpAddress -Name $newPublicIpName  -ResourceGroupName $groupname
 $PublicIP.DnsSettings.DomainNameLabel = $primaryDNSName
 $PublicIP.DnsSettings.Fqdn = $primaryDNSFqdn
 Set-AzPublicIpAddress -PublicIpAddress $PublicIP
+```
 
+Jeszcze raz Sprawdź kondycję klastra
+
+```powershell
 # Check the cluster health
 Get-ServiceFabricClusterHealth
+```
 
+Na koniec Usuń stan węzła dla każdego z węzłów pokrewnych. Jeśli poziom trwałości starego zestawu skalowania to Silver lub Gold, spowoduje to nastąpić automatycznie.
+
+```powershell
 # Remove node state for the deleted nodes.
 foreach($name in $nodeNames){
     # Remove the node from the cluster
@@ -148,6 +243,8 @@ foreach($name in $nodeNames){
     Write-Host "Removed node state for node $name"
 }
 ```
+
+Typ węzła podstawowego klastra został teraz uaktualniony. Sprawdź, czy wdrożone aplikacje działają prawidłowo i kondycja klastra jest prawidłowa.
 
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się, jak [dodać typ węzła do klastra](virtual-machine-scale-set-scale-node-type-scale-out.md)
