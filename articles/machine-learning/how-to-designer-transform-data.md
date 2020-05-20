@@ -5,16 +5,17 @@ description: Dowiedz się, jak przekształcać dane w projektancie Azure Machine
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
 author: peterclu
 ms.author: peterlu
 ms.date: 05/04/2020
-ms.openlocfilehash: 5296ac54cab403ef78b3e8bd32fe5ebe6ea43119
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.custom: designer
+ms.openlocfilehash: 718023424834ffca7a026dc5b3d35b8fb11fe633
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82842879"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83644304"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer-preview"></a>Przekształcanie danych w programie Azure Machine Learning Designer (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -71,7 +72,7 @@ W tej sekcji użyjesz [modułu Split Data](algorithm-module-reference/split-data
 
 1. W okienku Szczegóły modułu z prawej strony kanwy Ustaw **tryb dzielenia** na **wyrażenie regularne**.
 
-1. Wprowadź **wyrażenie regularne**: `\"native-country" United-States`.
+1. Wprowadź **wyrażenie regularne**: `\"native-country" United-States` .
 
     Tryb **wyrażenia regularnego** testuje pojedynczą kolumnę dla wartości. Aby uzyskać więcej informacji na temat modułu Split Data (podział danych), zobacz [stronę referencyjną modułu algorytmu](algorithm-module-reference/split-data.md)powiązanego.
 
@@ -111,7 +112,7 @@ Teraz, gdy potok został skonfigurowany tak, aby podzielił dane, musisz określ
     > [!NOTE]
     > W tym artykule przyjęto założenie, że masz dostęp do magazynu danych zarejestrowanego w bieżącym obszarze roboczym Azure Machine Learning. Aby uzyskać instrukcje dotyczące sposobu konfigurowania magazynu danych, zobacz [nawiązywanie połączenia z usługami Azure Storage](how-to-access-data.md#azure-machine-learning-studio).
 
-    Jeśli nie masz magazynu danych, możesz utworzyć go teraz. Na przykład w tym artykule zostaną zapisane zestawy danych na domyślnym koncie usługi BLOB Storage skojarzonym z obszarem roboczym. Spowoduje to zapisanie zestawów danych do `azureml` kontenera w nowym folderze o nazwie. `data`
+    Jeśli nie masz magazynu danych, możesz utworzyć go teraz. Na przykład w tym artykule zostaną zapisane zestawy danych na domyślnym koncie usługi BLOB Storage skojarzonym z obszarem roboczym. Spowoduje to zapisanie zestawów danych do `azureml` kontenera w nowym folderze o nazwie `data` .
 
 1.  Wybierz moduł **eksportu danych** połączony z najbardziej *odpowiednim*portem modułu **Split Data** .
 
@@ -125,9 +126,9 @@ Teraz, gdy potok został skonfigurowany tak, aby podzielił dane, musisz określ
 
     **Format pliku**: CSV
 
-1. Upewnij się, że moduł **eksportu danych** połączony z lewym portem **danych z podziałem** ma **ścieżkę** `/data/us-income`.
+1. Upewnij się, że moduł **eksportu danych** połączony z lewym portem **danych z podziałem** ma **ścieżkę** `/data/us-income` .
 
-1. Upewnij się, że moduł **eksportu danych** połączony z właściwym portem ma **ścieżkę** `/data/non-us-income`.
+1. Upewnij się, że moduł **eksportu danych** połączony z właściwym portem ma **ścieżkę** `/data/non-us-income` .
 
     Potok i ustawienia powinny wyglądać następująco:
     
@@ -155,15 +156,15 @@ Po zakończeniu potoku można wyświetlić wyniki, przechodząc do magazynu obie
 
 1. W okienku Szczegóły modułu z prawej strony kanwy wybierz pozycję dane **wyjściowe + dzienniki**. 
 
-1. Wybierz ikonę](media/how-to-designer-transform-data/visualize-icon.png) wizualizacji ikona ![Wizualizacja obok pozycji **wyniki pozycję DataSet1**. 
+1. Wybierz ikonę wizualizacji ikona ![ Wizualizacja ](media/how-to-designer-transform-data/visualize-icon.png) obok pozycji **wyniki pozycję DataSet1**. 
 
 1. Sprawdź, czy kolumna "kraj macierzysty" zawiera tylko wartość "Stany Zjednoczone".
 
-1. Wybierz ikonę](media/how-to-designer-transform-data/visualize-icon.png) wizualizacji ikona ![Wizualizacja obok pozycji **wyniki DataSet2**. 
+1. Wybierz ikonę wizualizacji ikona ![ Wizualizacja ](media/how-to-designer-transform-data/visualize-icon.png) obok pozycji **wyniki DataSet2**. 
 
 1. Sprawdź, czy kolumna "kraj macierzysty" nie zawiera wartości "Stany Zjednoczone".
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Pomiń tę sekcję, jeśli chcesz kontynuować pracę z częścią 2 tej metody, aby ponownie przeprowadzić [uczenie modeli przy użyciu programu Azure Machine Learning Designer](how-to-retrain-designer.md).
 

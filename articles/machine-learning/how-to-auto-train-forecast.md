@@ -10,17 +10,19 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 05d658c052c5bc12f49d957bb29ad085c269c57b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4bb32418a9f6f556c3bcdfbdf8a70a10c4588218
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82137374"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83646145"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Autouczenie modelu prognozowania szeregów czasowych
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-W tym artykule dowiesz się, jak skonfigurować i szkolić model regresji prognozowania szeregów czasowych przy użyciu funkcji automatycznego uczenia maszynowego w Azure Machine Learning. 
+W tym artykule dowiesz się, jak skonfigurować i szkolić model regresji prognozowania szeregów czasowych przy użyciu funkcji automatycznego uczenia maszynowego w [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py). 
+
+Aby zapoznać się z małym doświadczeniem w kodzie, zobacz [Samouczek: prognozowanie popytu na automatyczne Uczenie maszynowe](tutorial-automated-ml-forecast.md) na potrzeby prognozowania szeregów czasowych przy użyciu funkcji automatycznego uczenia maszynowego w [Azure Machine Learning Studio](https://ml.azure.com/).
 
 Konfigurowanie modelu prognozowania jest podobne do konfigurowania modelu regresji standardowej przy użyciu automatycznego uczenia maszynowego, ale niektóre opcje konfiguracji i wstępne kroki przetwarzania istnieją do pracy z danymi szeregów czasowych. 
 
@@ -40,7 +42,6 @@ Funkcje wyodrębnione z danych szkoleniowych odgrywają rolę krytyczną. I, zau
 
 ## <a name="time-series-and-deep-learning-models"></a>Serie czasowe i modele uczenia głębokiego
 
-
 Uczenie głębokie o rozbudowanej ML umożliwia prognozowanie danych szeregów czasowych univariate i wieloczynnikowa.
 
 Modele uczenia głębokiego mają trzy możliwości wewnętrzne:
@@ -51,7 +52,6 @@ Modele uczenia głębokiego mają trzy możliwości wewnętrzne:
 Dane o większej liczbie, modele uczenia głębokiego, takie jak ForecastTCN firmy Microsoft, mogą poprawić wyniki modelu wynikowego. Dowiedz się, jak [skonfigurować eksperyment do uczenia głębokiego](#configure-a-dnn-enable-forecasting-experiment).
 
 Automatyczna ML zapewnia użytkownikom zarówno natywne, jak i bogate modele uczenia w ramach systemu rekomendacji. 
-
 
 Modele| Opis | Korzyści
 ----|----|---
@@ -66,7 +66,7 @@ ForecastTCN (wersja zapoznawcza)| ForecastTCN to model sieci neuronowych zaproje
 
 ## <a name="preparing-data"></a> Przygotowywanie danych
 
-Najważniejszym różnicą między typem zadania regresja prognozowania a typem zadania regresji w ramach automatycznego uczenia maszynowego jest dołączenie funkcji w danych, która reprezentuje prawidłową serię czasową. Zwykła seria czasowa ma dobrze zdefiniowaną i spójną częstotliwość i ma wartość w każdym punkcie próbki w ciągłym przedziale czasu. Weź pod uwagę poniższą migawkę pliku `sample.csv`.
+Najważniejszym różnicą między typem zadania regresja prognozowania a typem zadania regresji w ramach automatycznego uczenia maszynowego jest dołączenie funkcji w danych, która reprezentuje prawidłową serię czasową. Zwykła seria czasowa ma dobrze zdefiniowaną i spójną częstotliwość i ma wartość w każdym punkcie próbki w ciągłym przedziale czasu. Weź pod uwagę poniższą migawkę pliku `sample.csv` .
 
     day_datetime,store,sales_quantity,week_of_year
     9/3/2018,A,2000,36
@@ -80,7 +80,7 @@ Najważniejszym różnicą między typem zadania regresja prognozowania a typem 
     9/7/2018,A,2450,36
     9/7/2018,B,650,36
 
-Ten zestaw danych to prosty przykład codziennych danych sprzedaży dla firmy, która ma dwa różne sklepy, a i B. Ponadto istnieje funkcja `week_of_year` , która umożliwi modelowi wykrywanie tygodniowego sezonowości. Pole `day_datetime` reprezentuje czystą serię czasową z częstotliwością dzienną, `sales_quantity` a pole jest kolumną docelową do uruchamiania prognoz. Odczytaj dane do ramki dataPandas, a następnie użyj `to_datetime` funkcji, aby upewnić się, że serie czasowe są `datetime` typu.
+Ten zestaw danych to prosty przykład codziennych danych sprzedaży dla firmy, która ma dwa różne sklepy, a i B. Ponadto istnieje funkcja `week_of_year` , która umożliwi modelowi wykrywanie tygodniowego sezonowości. Pole `day_datetime` reprezentuje czystą serię czasową z częstotliwością dzienną, a pole `sales_quantity` jest kolumną docelową do uruchamiania prognoz. Odczytaj dane do ramki dataPandas, a następnie użyj `to_datetime` funkcji, aby upewnić się, że serie czasowe są `datetime` typu.
 
 ```python
 import pandas as pd
@@ -88,7 +88,7 @@ data = pd.read_csv("sample.csv")
 data["day_datetime"] = pd.to_datetime(data["day_datetime"])
 ```
 
-W takim przypadku dane są już sortowane rosnąco według pola `day_datetime`Time. Jednak podczas konfigurowania eksperymentu upewnij się, że kolumna żądana godzina jest posortowana w kolejności rosnącej, aby utworzyć prawidłową serię czasową. Załóżmy, że dane zawierają 1 000 rekordów i czynią deterministyczną podział w danych w celu tworzenia zestawów danych szkoleniowych i testowych. Zidentyfikuj nazwę kolumny etykieta i ustaw ją na etykieta. W tym przykładzie etykieta będzie `sales_quantity`. Następnie należy oddzielić pole Etykieta `test_data` od, `test_target` aby formularz został ustawiony.
+W takim przypadku dane są już sortowane rosnąco według pola Time `day_datetime` . Jednak podczas konfigurowania eksperymentu upewnij się, że kolumna żądana godzina jest posortowana w kolejności rosnącej, aby utworzyć prawidłową serię czasową. Załóżmy, że dane zawierają 1 000 rekordów i czynią deterministyczną podział w danych w celu tworzenia zestawów danych szkoleniowych i testowych. Zidentyfikuj nazwę kolumny etykieta i ustaw ją na etykieta. W tym przykładzie etykieta będzie `sales_quantity` . Następnie należy oddzielić pole Etykieta od `test_data` , aby formularz został `test_target` ustawiony.
 
 ```python
 train_data = data.iloc[:950]
@@ -105,14 +105,14 @@ test_labels = test_data.pop(label).values
 <a name="config"></a>
 
 ## <a name="train-and-validation-data"></a>Dane dotyczące uczenia i walidacji
-Można określić oddzielne zestawy pouczenia i walidacji bezpośrednio `AutoMLConfig` w konstruktorze.
+Można określić oddzielne zestawy pouczenia i walidacji bezpośrednio w `AutoMLConfig` konstruktorze.
 
 ### <a name="rolling-origin-cross-validation"></a>Krzyżowe sprawdzanie poprawności źródła
 W przypadku prognozowania cyklu kroczącego (ROCV) dla szeregów czasowych jest używana do podziału szeregów czasowych w sposób ciągły spójny. ROCV dzieli serię na dane szkoleniowe i weryfikacyjne przy użyciu punktu czasu pochodzenia. Przesuwanie źródła w czasie powoduje wygenerowanie zgięcia wzajemnego sprawdzania poprawności.  
 
 ![tekst alternatywny](./media/how-to-auto-train-forecast/ROCV.svg)
 
-Ta strategia zachowuje integralność danych szeregów czasowych i eliminuje ryzyko wycieku danych. ROCV jest automatycznie używany do prognozowania zadań, przekazując dane szkoleniowe i weryfikacyjne oraz ustawiając liczbę składanych za pomocą `n_cross_validations`. 
+Ta strategia zachowuje integralność danych szeregów czasowych i eliminuje ryzyko wycieku danych. ROCV jest automatycznie używany do prognozowania zadań, przekazując dane szkoleniowe i weryfikacyjne oraz ustawiając liczbę składanych za pomocą `n_cross_validations` . Dowiedz się więcej o tym, jak funkcja "automl" stosuje krzyżowe sprawdzanie poprawności, aby [uniknąć nadmiernego dopasowania modeli](concept-manage-ml-pitfalls.md#prevent-over-fitting).
 
 ```python
 automl_config = AutoMLConfig(task='forecasting',
@@ -132,9 +132,9 @@ W przypadku zadań prognozowania automatyczne Uczenie maszynowe korzysta z krok�
 * Tworzenie funkcji opartych na czasie, które ułatwiają uczenie wzorców sezonowych
 * Koduj zmienne kategorii na liczby liczbowe
 
-[`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) Obiekt definiuje ustawienia i dane niezbędne do automatycznego zadania uczenia maszynowego. Podobnie jak w przypadku problemu z regresją, definiuje się standardowe parametry szkolenia, takie jak typ zadania, liczba iteracji, dane szkoleniowe i liczba operacji krzyżowych. W przypadku zadań prognozowania należy ustawić dodatkowe parametry, które mają wpływ na eksperyment. W poniższej tabeli opisano każdy parametr i jego użycie.
+[`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py)Obiekt definiuje ustawienia i dane niezbędne do automatycznego zadania uczenia maszynowego. Podobnie jak w przypadku problemu z regresją, definiuje się standardowe parametry szkolenia, takie jak typ zadania, liczba iteracji, dane szkoleniowe i liczba operacji krzyżowych. W przypadku zadań prognozowania należy ustawić dodatkowe parametry, które mają wpływ na eksperyment. W poniższej tabeli opisano każdy parametr i jego użycie.
 
-| Nazwa&nbsp;parametru | Opis | Wymagany |
+| &nbsp;Nazwa parametru | Opis | Wymagane |
 |-------|-------|-------|
 |`time_column_name`|Służy do określania kolumny DateTime w danych wejściowych używanych do kompilowania szeregów czasowych i wywnioskowania jej częstotliwości.|✓|
 |`grain_column_names`|Nazwy definiujące poszczególne grupy serii w danych wejściowych. Jeśli ziarno nie jest zdefiniowane, zakłada się, że zestaw danych jest jedną serią czasową.||
@@ -145,7 +145,7 @@ W przypadku zadań prognozowania automatyczne Uczenie maszynowe korzysta z krok�
 
 Aby uzyskać więcej informacji, zobacz [dokumentację referencyjną](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) .
 
-Utwórz ustawienia szeregów czasowych jako obiekt słownika. Ustaw wartość `time_column_name` na `day_datetime` pole w zestawie danych. Zdefiniuj `grain_column_names` parametr, aby mieć pewność, że dla danych są tworzone **dwie osobne grupy szeregów czasowych** . jeden dla sklepu A i B. w końcu ustaw wartość `max_horizon` na 50, aby przewidzieć cały zestaw testów. Ustaw okno prognozy na 10 okresów `target_rolling_window_size`, a następnie określ pojedyncze opóźnienie dla wartości docelowych dla dwóch okresów, z których ma `target_lags` zostać przewidziany parametr. Zalecane jest ustawienie `max_horizon`opcji i `target_rolling_window_size` `target_lags` na wartość "automatycznie", która automatycznie będzie wykrywać te wartości. W poniższym przykładzie dla tych parametrów użyto ustawień "Auto". 
+Utwórz ustawienia szeregów czasowych jako obiekt słownika. Ustaw wartość `time_column_name` na `day_datetime` pole w zestawie danych. Zdefiniuj `grain_column_names` parametr, aby upewnić się, że dla danych są tworzone **dwie osobne grupy szeregów czasowych** ; jeden dla sklepu a i B. na koniec ustaw wartość `max_horizon` na 50, aby przewidzieć cały zestaw testów. Ustaw okno prognozy na 10 okresów `target_rolling_window_size` , a następnie określ pojedyncze opóźnienie dla wartości docelowych dla dwóch okresów, z których ma zostać przewidziany `target_lags` parametr. Zalecane jest ustawienie opcji `max_horizon` `target_rolling_window_size` i na wartość `target_lags` "automatycznie", która automatycznie będzie wykrywać te wartości. W poniższym przykładzie dla tych parametrów użyto ustawień "Auto". 
 
 ```python
 time_series_settings = {
@@ -163,7 +163,7 @@ time_series_settings = {
 
 Definiując `grain_column_names` w powyższym fragmencie kodu, AutoML utworzy dwie osobne grupy szeregów czasowych, znane także jako wiele szeregów czasowych. Jeśli nie zdefiniowano żadnego ziarna, AutoML założenie, że zestaw danych jest pojedynczą serią czasową. Aby dowiedzieć się więcej o pojedynczych seriach czasowych, zobacz [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
 
-Teraz można utworzyć obiekt `AutoMLConfig` standardowy, określić typ `forecasting` zadania i przesłać eksperyment. Po zakończeniu działania modelu Pobierz iterację najlepszego przebiegu.
+Teraz `AutoMLConfig` można utworzyć obiekt standardowy, określić `forecasting` Typ zadania i przesłać eksperyment. Po zakończeniu działania modelu Pobierz iterację najlepszego przebiegu.
 
 ```python
 from azureml.core.workspace import Workspace
@@ -220,9 +220,9 @@ Aby uzyskać więcej informacji o rozmiarach obliczeniowych i maszyn wirtualnych
 Aby zapoznać się ze szczegółowym przykładem kodu korzystającego z DNNs, zobacz [Notes prognozowania produkcji napojów](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) .
 
 ### <a name="target-rolling-window-aggregation"></a>Agregacja stopniowego okna docelowego
-Często najlepszą informacją, jaką może mieć Prognoza, jest Ostatnia wartość elementu docelowego. Tworzenie statystyk zbiorczych dla elementu docelowego może zwiększyć dokładność prognoz. Agregacje przedziałów kroczących w przedziale czasu umożliwiają dodanie kroczącej agregacji wartości danych jako funkcji. Aby włączyć ruchome okna docelowej, `target_rolling_window_size` Ustaw dla ustawienia rozmiar okna z żądanymi liczbami całkowitymi. 
+Często najlepszą informacją, jaką może mieć Prognoza, jest Ostatnia wartość elementu docelowego. Tworzenie statystyk zbiorczych dla elementu docelowego może zwiększyć dokładność prognoz. Agregacje przedziałów kroczących w przedziale czasu umożliwiają dodanie kroczącej agregacji wartości danych jako funkcji. Aby włączyć ruchome okna docelowej, ustaw `target_rolling_window_size` dla ustawienia rozmiar okna z żądanymi liczbami całkowitymi. 
 
-Przykład tego elementu można zobaczyć podczas przewidywania popytu na energię. Możesz dodać funkcję okna kroczącego o trzy dni, aby móc wprowadzić zmiany termiczne z miejscami do magazynowania. W poniższym przykładzie w `target_rolling_window_size=3` `AutoMLConfig` konstruktorze zostało utworzone okno o rozmiarze trzy według ustawienia. W tabeli przedstawiono Inżynieria funkcji, która występuje, gdy stosowana jest agregacja okna. Kolumny dla wartości minimum, maksimum i sum są generowane w przedziale okna trzech na podstawie zdefiniowanych ustawień. Każdy wiersz ma nową funkcję obliczeniową. w przypadku sygnatury czasowej 8 września 2017 4:10:00 wartości maksymalne, minimum i sum są obliczane przy użyciu wartości popytu dla 8 września 2017 1:10:00-3:10:00. To okno z trzema zmianami i wypełnia dane dla pozostałych wierszy.
+Przykład tego elementu można zobaczyć podczas przewidywania popytu na energię. Możesz dodać funkcję okna kroczącego o trzy dni, aby móc wprowadzić zmiany termiczne z miejscami do magazynowania. W poniższym przykładzie w konstruktorze zostało utworzone okno o rozmiarze trzy według ustawienia `target_rolling_window_size=3` `AutoMLConfig` . W tabeli przedstawiono Inżynieria funkcji, która występuje, gdy stosowana jest agregacja okna. Kolumny dla wartości minimum, maksimum i sum są generowane w przedziale okna trzech na podstawie zdefiniowanych ustawień. Każdy wiersz ma nową funkcję obliczeniową. w przypadku sygnatury czasowej 8 września 2017 4:10:00 wartości maksymalne, minimum i sum są obliczane przy użyciu wartości popytu dla 8 września 2017 1:10:00-3:10:00. To okno z trzema zmianami i wypełnia dane dla pozostałych wierszy.
 
 ![tekst alternatywny](./media/how-to-auto-train-forecast/target-roll.svg)
 
@@ -248,7 +248,7 @@ fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
 
 Użyj najlepszej iteracji modelu do prognozowania wartości dla zestawu danych testowych.
 
-Zamiast `forecast()` tego należy użyć funkcji `predict()`, która będzie umożliwiać określenie, kiedy mają być uruchamiane przewidywania. W poniższym przykładzie należy najpierw zastąpić wszystkie wartości w `y_pred` `NaN`. Podstawą prognozy będzie na końcu danych szkoleniowych w tym przypadku, tak jak zwykle w przypadku korzystania z programu `predict()`. Jeśli jednak zamienisz tylko drugą połowę `y_pred` z `NaN`, funkcja spowodowałaby pozostawienie wartości liczbowych w pierwszej połowie niemodyfikowanej, ale prognozowanie `NaN` wartości w drugiej połowie. Funkcja zwraca zarówno wartości prognozowane, jak i wyrównane funkcje.
+`forecast()`Zamiast tego należy użyć funkcji, która `predict()` będzie umożliwiać określenie, kiedy mają być uruchamiane przewidywania. W poniższym przykładzie należy najpierw zastąpić wszystkie wartości w `y_pred` `NaN` . Podstawą prognozy będzie na końcu danych szkoleniowych w tym przypadku, tak jak zwykle w przypadku korzystania z programu `predict()` . Jeśli jednak zamienisz tylko drugą połowę `y_pred` z `NaN` , funkcja spowodowałaby pozostawienie wartości liczbowych w pierwszej połowie niemodyfikowanej, ale prognozowanie `NaN` wartości w drugiej połowie. Funkcja zwraca zarówno wartości prognozowane, jak i wyrównane funkcje.
 
 Można również użyć `forecast_destination` parametru w `forecast()` funkcji, aby prognozować wartości aż do określonej daty.
 
@@ -259,7 +259,7 @@ label_fcst, data_trans = fitted_pipeline.forecast(
     test_data, label_query, forecast_destination=pd.Timestamp(2019, 1, 8))
 ```
 
-Oblicz RMSE (główny błąd oznaczający pierwiastek) między wartościami `actual_labels` rzeczywistymi i prognozowanymi wartościami w `predict_labels`.
+Oblicz RMSE (główny błąd oznaczający pierwiastek) między `actual_labels` wartościami rzeczywistymi i prognozowanymi wartościami w `predict_labels` .
 
 ```python
 from sklearn.metrics import mean_squared_error
@@ -269,16 +269,16 @@ rmse = sqrt(mean_squared_error(actual_labels, predict_labels))
 rmse
 ```
 
-Teraz, gdy ogólna dokładność modelu została określona, najbardziej realistycznym następnym krokiem jest użycie modelu do prognozowania nieznanych przyszłych wartości. Podaj zestaw danych w tym samym formacie co zestaw `test_data` testów, ale z przyszłymi datetimemi, a wynikający z nich zestaw prognoz to prognozowane wartości dla każdego kroku szeregów czasowych. Załóżmy, że ostatnie rekordy szeregów czasowych w zestawie danych były 12/31/2018. Aby prognozować zapotrzebowanie na następny dzień (lub wiele okresów potrzebnych do prognozowania, <= `max_horizon`), Utwórz pojedynczy rekord szeregu czasowego dla każdego magazynu dla 01/01/2019.
+Teraz, gdy ogólna dokładność modelu została określona, najbardziej realistycznym następnym krokiem jest użycie modelu do prognozowania nieznanych przyszłych wartości. Podaj zestaw danych w tym samym formacie co zestaw testów `test_data` , ale z przyszłymi datetimemi, a wynikający z nich zestaw prognoz to prognozowane wartości dla każdego kroku szeregów czasowych. Załóżmy, że ostatnie rekordy szeregów czasowych w zestawie danych były 12/31/2018. Aby prognozować zapotrzebowanie na następny dzień (lub wiele okresów potrzebnych do prognozowania, <= `max_horizon` ), Utwórz pojedynczy rekord szeregu czasowego dla każdego magazynu dla 01/01/2019.
 
     day_datetime,store,week_of_year
     01/01/2019,A,1
     01/01/2019,A,1
 
-Powtórz kroki niezbędne do załadowania tych przyszłych danych do ramki Dataframe, a następnie `best_run.predict(test_data)` Uruchom polecenie, aby przewidzieć przyszłe wartości.
+Powtórz kroki niezbędne do załadowania tych przyszłych danych do ramki Dataframe, a następnie uruchom polecenie `best_run.predict(test_data)` , aby przewidzieć przyszłe wartości.
 
 > [!NOTE]
-> Wartości nie mogą być przewidywane dla liczby okresów większej niż `max_horizon`. Model musi być przeszkolony z większym horyzontem, aby przewidzieć przyszłe wartości poza bieżącym horyzontem.
+> Wartości nie mogą być przewidywane dla liczby okresów większej niż `max_horizon` . Model musi być przeszkolony z większym horyzontem, aby przewidzieć przyszłe wartości poza bieżącym horyzontem.
 
 ## <a name="next-steps"></a>Następne kroki
 

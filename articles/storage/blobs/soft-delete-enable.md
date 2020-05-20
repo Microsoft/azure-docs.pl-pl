@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 05/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: bbefa2a5d40d047d8885e4a0db8239d79a24feae
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 5d6cbf873ac1b76c24f5907a47038157b22e5680
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120117"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83634121"
 ---
 # <a name="enable-and-manage-soft-delete-for-blobs"></a>Włączanie i zarządzanie nietrwałego usuwania dla obiektów BLOB
 
@@ -105,7 +105,7 @@ Aby znaleźć bieżące zasady przechowywania nietrwałego usuwania, użyj nast�
    Get-AzStorageServiceProperty -ServiceType Blob -Context $account.Context
 ```
 
-# <a name="cli"></a>[Interfejs wiersza polecenia](#tab/azure-CLI)
+# <a name="cli"></a>[Interfejs](#tab/azure-CLI)
 
 Aby włączyć usuwanie nietrwałe, zaktualizuj właściwości usługi klienta obiektów blob:
 
@@ -137,7 +137,21 @@ block_blob_service.set_blob_service_properties(
     delete_retention_policy=DeleteRetentionPolicy(enabled=True, days=7))
 ```
 
-# <a name="net"></a>[.NET](#tab/net)
+# <a name="net-v12-sdk"></a>[Zestaw SDK .NET V12](#tab/dotnet)
+
+Aby włączyć usuwanie nietrwałe, zaktualizuj właściwości usługi klienta obiektów blob:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_EnableSoftDelete":::
+
+Aby odzyskać obiekty blob, które zostały przypadkowo usunięte, wywołaj Cofnięcie usunięcia na tych obiektach Blob. Należy pamiętać, że wywołanie **cofnięcia usunięcia**, zarówno w aktywnych, jak i niemiękkich obiektach Blob, spowoduje przywrócenie wszystkich skojarzonych nietrwałych migawek usuniętych jako aktywne. Poniższy przykład wywołuje Cofnięcie usunięcia wszystkich nietrwałych usuniętych i aktywnych obiektów BLOB w kontenerze:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverDeletedBlobs":::
+
+Aby odzyskać do określonej wersji obiektu BLOB, najpierw Wywołaj metodę Undelete na obiekcie blob, a następnie skopiuj żądaną migawkę na obiekt BLOB. Poniższy przykład odzyskuje blokowy obiekt BLOB do ostatnio wygenerowanej migawki:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/DataProtection.cs" id="Snippet_RecoverSpecificBlobVersion":::
+
+# <a name="net-v11-sdk"></a>[Zestaw SDK .NET v11](#tab/dotnet11)
 
 Aby włączyć usuwanie nietrwałe, zaktualizuj właściwości usługi klienta obiektów blob:
 
@@ -153,7 +167,7 @@ serviceProperties.DeleteRetentionPolicy.RetentionDays = RetentionDays;
 blobClient.SetServiceProperties(serviceProperties);
 ```
 
-Aby odzyskać obiekty blob, które zostały przypadkowo usunięte, wywołaj Cofnięcie usunięcia na tych obiektach Blob. Należy pamiętać, że wywoływanie **usuwania obiektów BLOB**, zarówno aktywnych, jak i nietrwałych usuniętych obiektów blob, spowoduje przywrócenie wszystkich skojarzonych nietrwałych migawek usuniętych jako aktywne. Poniższy przykład wywołuje Cofnięcie usunięcia wszystkich nietrwałych usuniętych i aktywnych obiektów BLOB w kontenerze:
+Aby odzyskać obiekty blob, które zostały przypadkowo usunięte, wywołaj Cofnięcie usunięcia na tych obiektach Blob. Należy pamiętać, że wywołanie **cofnięcia usunięcia**, zarówno w aktywnych, jak i niemiękkich obiektach Blob, spowoduje przywrócenie wszystkich skojarzonych nietrwałych migawek usuniętych jako aktywne. Poniższy przykład wywołuje Cofnięcie usunięcia wszystkich nietrwałych usuniętych i aktywnych obiektów BLOB w kontenerze:
 
 ```csharp
 // Recover all blobs in a container
@@ -177,7 +191,7 @@ IEnumerable<IListBlobItem> allBlobVersions = container.ListBlobs(
 CloudBlockBlob copySource = allBlobVersions.First(version => ((CloudBlockBlob)version).IsSnapshot &&
     ((CloudBlockBlob)version).Name == blockBlob.Name) as CloudBlockBlob;
 blockBlob.StartCopy(copySource);
-```
+```  
 
 ---
 

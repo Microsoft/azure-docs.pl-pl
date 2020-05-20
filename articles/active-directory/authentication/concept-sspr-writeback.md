@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89431c2bf1838d3264b03c8a5f2ce62cd6df3631
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 42768c61cc46ba97e9bd16a06c85f20219672fdd
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82127845"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83639798"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Jak działa funkcja stornowania samoobsługowego resetowania haseł w Azure Active Directory?
 
@@ -56,7 +56,7 @@ Gdy użytkownik z synchronizacją federacyjnego lub skrótem hasła próbuje zre
    * Obiekt User musi znajdować się w przestrzeni łącznika Active Directory.
    * Obiekt użytkownika musi być połączony z odpowiednim obiektem Metaverse (MV).
    * Obiekt użytkownika musi być połączony z odpowiednim obiektem łącznika Azure Active Directory.
-   * Łącze z obiektu łącznika Active Directory do MV musi mieć regułę `Microsoft.InfromADUserAccountEnabled.xxx` synchronizacji na tym łączu.
+   * Łącze z obiektu łącznika Active Directory do MV musi mieć regułę synchronizacji `Microsoft.InfromADUserAccountEnabled.xxx` na tym łączu.
 
    Gdy wywołanie pochodzi z chmury, aparat synchronizacji używa atrybutu **cloudAnchor** , aby wyszukać obiekt przestrzeni łącznika Azure Active Directory. Następnie następuje po łączu z powrotem do obiektu MV, a następnie następuje po linku z powrotem do obiektu Active Directory. Ponieważ może istnieć wiele obiektów Active Directory (wiele lasów) dla tego samego użytkownika, aparat synchronizacji korzysta z `Microsoft.InfromADUserAccountEnabled.xxx` linku w celu wybrania poprawnego działania.
 
@@ -141,6 +141,7 @@ Hasła nie są zapisywane z powrotem w żadnej z następujących sytuacji:
 * **Nieobsługiwane operacje administratora**
    * Wszystkie zainicjowane przez administratora hasło użytkownika końcowego w programie PowerShell w wersji 1, 2 lub Microsoft Graph (obsługiwane jest [Microsoft Graph API beta](https://docs.microsoft.com/graph/api/passwordauthenticationmethod-resetpassword?view=graph-rest-beta&tabs=http) ).
    * Wszystkie zainicjowane przez administratora ustawienia resetowania hasła użytkownika końcowego w [centrum administracyjnym Microsoft 365](https://admin.microsoft.com).
+   * Każdy administrator nie może użyć narzędzia resetowania hasła do resetowania własnego hasła do zapisywania zwrotnego haseł.
 
 > [!WARNING]
 > Użycie pola wyboru "użytkownik musi zmienić hasło przy następnym logowaniu" w lokalnych AD DS narzędziach administracyjnych, takich jak Active Directory Użytkownicy i komputery, lub Centrum administracyjne usługi Active Directory jest obsługiwana jako funkcja w wersji zapoznawczej programu Azure AD Connect. Aby uzyskać więcej informacji, zobacz [implementowanie synchronizacji skrótów haseł przy użyciu synchronizacji Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md).

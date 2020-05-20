@@ -9,12 +9,13 @@ ms.topic: reference
 ms.author: peterlu
 author: peterclu
 ms.date: 01/09/2020
-ms.openlocfilehash: 59199291589a81d0a0d96b7867078b8196be086f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: designer
+ms.openlocfilehash: af676f128796c762b330d986836ea825a36cb246
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77366198"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83646299"
 ---
 # <a name="use-a-keyboard-to-use-azure-machine-learning-designer-preview"></a>Korzystanie z klawiatury do korzystania z programu Azure Machine Learning Designer (wersja zapoznawcza)
 
@@ -62,11 +63,11 @@ Aby dostosować właściwości modułu:
 
 ## <a name="action-shortcuts"></a>Skróty akcji
 
-Użyj następujących skrótów z kluczem dostępu. Aby uzyskać więcej informacji o kluczach dostępu https://en.wikipedia.org/wiki/Access_key, zobacz.
+Użyj następujących skrótów z kluczem dostępu. Aby uzyskać więcej informacji o kluczach dostępu, zobacz https://en.wikipedia.org/wiki/Access_key .
 
 | Klawiszy | Akcja |
 |-|-|
-| Klucz dostępu + R | Run |
+| Klucz dostępu + R | Uruchom |
 | Klucz dostępu + P | Publikowanie |
 | Klucz dostępu + C | Klonowanie |
 | Klucz dostępu + D | Wdrażanie |

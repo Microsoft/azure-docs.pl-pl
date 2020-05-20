@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8358d3378ea892ebeef653bcb51243c9f1aa0b8d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 36027583d64ac91432888d866440932c6e1bdd07
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79259775"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83635442"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Żądanie tokenu dostępu w Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ W tym artykule pokazano, jak zażądać tokenu dostępu dla aplikacji sieci Web 
 
 ## <a name="scopes"></a>Zakresy
 
-Zakresy umożliwiają zarządzanie uprawnieniami do chronionych zasobów. Po zażądaniu tokenu dostępu aplikacja kliencka musi określić odpowiednie uprawnienia w parametrze **zakresu** żądania. Na przykład, aby określić **wartość zakresu** `read` dla interfejsu API, który ma **Identyfikator URI aplikacji** `https://contoso.onmicrosoft.com/api`, zakresem będzie `https://contoso.onmicrosoft.com/api/read`.
+Zakresy umożliwiają zarządzanie uprawnieniami do chronionych zasobów. Po zażądaniu tokenu dostępu aplikacja kliencka musi określić odpowiednie uprawnienia w parametrze **zakresu** żądania. Na przykład, aby określić **wartość zakresu** `read` dla interfejsu API, który ma **Identyfikator URI aplikacji** `https://contoso.onmicrosoft.com/api` , zakresem będzie `https://contoso.onmicrosoft.com/api/read` .
 
 Zakresy są używane przez internetowy interfejs API w celu implementowania kontroli dostępu opartej na zakresach. Na przykład użytkownicy internetowego interfejsu API mogą mieć dostęp zarówno do odczytu, jak i zapisu lub tylko dostęp do odczytu. Aby uzyskać wiele uprawnień w tym samym żądaniu, można dodać wiele wpisów **w pojedynczym** parametrze żądania, rozdzielone spacjami.
 
@@ -54,7 +54,7 @@ Jeśli zażądasz więcej zakresów niż to, co jest przyznane aplikacji klienck
 - **OpenID Connect** — żąda tokenu identyfikatora.
 - **offline_access** — żąda tokenu odświeżania przy użyciu [przepływów kodu uwierzytelniania](authorization-code-flow.md).
 
-Jeśli parametr **response_type** w `/authorize` żądaniu `token`zawiera, parametr **SCOPE** musi zawierać co najmniej jeden zakres zasobów inny niż `openid` i `offline_access` , który zostanie przyznany. W przeciwnym razie `/authorize` żądanie zakończy się niepowodzeniem.
+Jeśli parametr **response_type** w `/authorize` żądaniu zawiera `token` , parametr **SCOPE** musi zawierać co najmniej jeden zakres zasobów inny niż `openid` i `offline_access` , który zostanie przyznany. W przeciwnym razie `/authorize` żądanie zakończy się niepowodzeniem.
 
 ## <a name="request-a-token"></a>Żądanie tokenu
 
@@ -85,7 +85,7 @@ https://jwt.ms/?code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
 Po pomyślnym otrzymaniu kodu autoryzacji można użyć go do żądania tokenu dostępu:
 
 ```HTTP
-POST <tenant-name>.onmicrosoft.com/oauth2/v2.0/token?p=<policy-name> HTTP/1.1
+POST <tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/token HTTP/1.1
 Host: <tenant-name>.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
@@ -111,7 +111,7 @@ Powinien zostać wyświetlony komunikat podobny do następującego:
 }
 ```
 
-W przypadku https://jwt.ms użycia do badania zwróconego tokenu dostępu powinien zostać wyświetlony komunikat podobny do następującego:
+W przypadku użycia https://jwt.ms do badania zwróconego tokenu dostępu powinien zostać wyświetlony komunikat podobny do następującego:
 
 ```JSON
 {

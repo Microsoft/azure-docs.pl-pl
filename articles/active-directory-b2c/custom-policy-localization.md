@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/11/2020
+ms.date: 05/12/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: be12bce8fa29076621bec35228838a4ebdd97433
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 090fecea44c7881920fcd087304f33f935a5e907
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80545866"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636258"
 ---
 # <a name="localize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Lokalizowanie interfejsu użytkownika aplikacji przy użyciu zasad niestandardowych w Azure Active Directory B2C
 
@@ -27,7 +27,7 @@ W tym artykule przedstawiono sposób obsługi wielu ustawień regionalnych lub j
 
 ## <a name="set-up-the-list-of-supported-languages"></a>Skonfiguruj listę obsługiwanych języków
 
-Otwórz plik rozszerzeń zasad. Na przykład <em> `SocialAndLocalAccounts/` </em>.
+Otwórz plik rozszerzeń zasad. Na przykład <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em> .
 
 1. Wyszukaj element [BuildingBlocks](buildingblocks.md) . Jeśli element nie istnieje, Dodaj go.
 1. Dodaj `Localization` element z obsługiwanymi językami: angielski (domyślny) i hiszpański.  
@@ -252,10 +252,10 @@ W poniższym przykładzie w języku angielskim (EN) i hiszpańskim (ES) ciągi n
 1. Wybierz przekazane zasady, a następnie wybierz pozycję **Uruchom teraz**.
 1. Powinno być możliwe wyświetlenie zlokalizowanej strony rejestracji lub logowania.
 1. Kliknij link do rejestracji, aby wyświetlić zlokalizowaną stronę rejestracji w usłudze.
-1. Zmień język domyślny przeglądarki na hiszpański. Można też dodać parametr ciągu zapytania `ui_locales` do żądania autoryzacji. Przykład: 
+1. Zmień język domyślny przeglądarki na hiszpański. Można też dodać parametr ciągu zapytania `ui_locales` do żądania autoryzacji. Na przykład: 
 
 ```http
-https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_signup_signin&client_id=0239a9cc-309c-4d41-12f1-31299feb2e82&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&ui_locales=es
+https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/B2C_1A_signup_signin/oauth2/v2.0/authorize&client_id=0239a9cc-309c-4d41-12f1-31299feb2e82&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&ui_locales=es
 ```
 
 ## <a name="next-steps"></a>Następne kroki

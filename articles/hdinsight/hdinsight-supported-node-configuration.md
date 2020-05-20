@@ -6,15 +6,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 08/26/2019
-ms.openlocfilehash: e75146266568001d8fee7be26898ac8bdfffb7fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 05/14/2020
+ms.openlocfilehash: 0bf5559590b66400fc4fc4dc27ea88c3522effb1
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77484790"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83646623"
 ---
 # <a name="what-are-the-default-and-recommended-node-configurations-for-azure-hdinsight"></a>Jakie są domyślne i zalecane konfiguracje węzłów dla usługi Azure HDInsight?
 
@@ -24,9 +24,9 @@ W tym artykule omówiono domyślne i zalecane konfiguracje węzłów dla klastr�
 
 W poniższych tabelach przedstawiono domyślne i zalecane rozmiary maszyn wirtualnych dla klastrów usługi HDInsight.  Te informacje są niezbędne, aby zrozumieć rozmiary maszyn wirtualnych używane podczas tworzenia skryptów programu PowerShell lub interfejsu wiersza polecenia platformy Azure w celu wdrożenia klastrów usługi HDInsight.
 
-Jeśli potrzebujesz więcej niż 32 węzłów procesu roboczego w klastrze, wybierz rozmiar węzła głównego z co najmniej 8 rdzeniami i 14 GB pamięci RAM. 
+Jeśli potrzebujesz więcej niż 32 węzłów procesu roboczego w klastrze, wybierz rozmiar węzła głównego z co najmniej 8 rdzeniami i 14 GB pamięci RAM.
 
-Jedynymi typami klastrów z dyskami danych są klastry Kafka i HBase z włączoną funkcją przyspieszonego zapisywania. Usługa HDInsight obsługuje rozmiary dysków P30 i S30 w tych scenariuszach.
+Jedynymi typami klastrów z dyskami danych są klastry Kafka i HBase z włączoną funkcją przyspieszonego zapisywania. Usługa HDInsight obsługuje rozmiary dysków P30 i S30 w tych scenariuszach. W przypadku wszystkich innych typów klastrów Usługa HDInsight zapewnia zarządzane miejsce na dysku z klastrem. Począwszy od 11/07/2019, rozmiar dysku zarządzanego każdego węzła w nowo utworzonym klastrze wynosi 128 GB. Nie można go zmienić.
 
 W poniższej tabeli zestawiono specyfikacje wszystkich minimalnych zalecanych typów maszyn wirtualnych używanych w tym dokumencie.
 
@@ -42,7 +42,7 @@ W poniższej tabeli zestawiono specyfikacje wszystkich minimalnych zalecanych ty
 | Standardowa_A2_v2  | 2         | 4           | 20             | 2000 / 40 / 20                                           | 4 / 4 x 500               | 2 / 500                 |
 | Standardowa_A4_v2  | 4         | 8           | 40             | 4000 / 80 / 40                                           | 8 / 8 x 500               | 4 / 1000                     |
 
-Aby uzyskać szczegółowe informacje na temat specyfikacji poszczególnych typów maszyn wirtualnych, zobacz następujące dokumenty:
+Aby uzyskać więcej informacji na temat specyfikacji poszczególnych typów maszyn wirtualnych, zobacz następujące dokumenty:
 
 * [Rozmiary maszyn wirtualnych ogólnego przeznaczenia: Dv2 Series 1-5](../virtual-machines/dv2-dsv2-series.md)
 * [Rozmiary maszyn wirtualnych zoptymalizowane pod kątem pamięci: Dv2 Series 11-15](../virtual-machines/dv2-dsv2-series-memory.md)
@@ -51,7 +51,7 @@ Aby uzyskać szczegółowe informacje na temat specyfikacji poszczególnych typ�
 ### <a name="all-supported-regions-except-brazil-south-and-japan-west"></a>Wszystkie obsługiwane regiony, z wyjątkiem Brazylii Południowe i Japonia Zachodnia
 
 > [!Note]
-> Aby uzyskać identyfikator jednostki SKU do użycia w programie PowerShell i innych skryptach `Standard_` , Dodaj na początku wszystkie jednostki SKU maszyny wirtualnej w poniższych tabelach. Na przykład `D12_v2` `Standard_D12_v2`.
+> Aby uzyskać identyfikator jednostki SKU do użycia w programie PowerShell i innych skryptach, Dodaj `Standard_` na początku wszystkie jednostki SKU maszyny wirtualnej w poniższych tabelach. Na przykład `D12_v2` `Standard_D12_v2` .
 
 | Typ klastra | Hadoop | HBase | Zapytanie interakcyjne | Storm | platforma Spark | ML Server | Kafka |
 |---|---|---|---|---|---|---|---|

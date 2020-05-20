@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/10/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: b02835ae3a1d7fed52f2cdb4ab25aa74ba66e8c3
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 4b6def2ce2b0c1ba6d3a45e64bb7f82b5948a524
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83119896"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83642186"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Znane problemy z Azure Data Lake Storage Gen2
 
@@ -107,7 +107,7 @@ Aplikacje innych firm, które używają interfejsów API REST do pracy, będą n
 
 Jeśli [anonimowy dostęp do odczytu](storage-manage-access-to-resources.md) został przyznany do kontenera, listy ACL nie mają wpływu na ten kontener ani pliki w tym kontenerze.
 
-## <a name="premium-performance-block-blob-storage-accounts"></a>Premium — konta magazynu bloków BLOB wydajności
+## <a name="premium-performance-blockblobstorage-storage-accounts"></a>Premium — konta magazynu BlockBlobStorage wydajności
 
 ### <a name="diagnostic-logs"></a>Dzienniki diagnostyczne
 
@@ -126,7 +126,7 @@ Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,wr
 
 ### <a name="lifecycle-management-policies"></a>Zasady zarządzania cyklem życia
 
-- Zasady zarządzania cyklem życia nie są jeszcze obsługiwane w przypadku kont magazynu blokowych obiektów BLOB w warstwie Premium. 
+- Zasady zarządzania cyklem życia nie są jeszcze obsługiwane na kontach magazynu BlockBlobStorage w warstwie Premium. 
 
 - Nie można przenieść danych z warstwy Premium do niższej warstwy. 
 
@@ -134,11 +134,11 @@ Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,wr
 
 ### <a name="hdinsight-support"></a>Obsługa usługi HDInsight
 
-Podczas tworzenia klastra usługi HDInsight n nie można jeszcze wybrać konta blokowego magazynu obiektów blob, w którym jest włączona funkcja hierarchicznej przestrzeni nazw. Można jednak dołączyć konto do klastra po jego utworzeniu.
+Podczas tworzenia klastra usługi HDInsight n nie można jeszcze wybrać konta BlockBlobStorage, na którym jest włączona funkcja hierarchicznej przestrzeni nazw. Można jednak dołączyć konto do klastra po jego utworzeniu.
 
 ### <a name="dremio-support"></a>Obsługa Dremio
 
-Dremio jeszcze nie nawiązuje połączenia z kontem magazynu blokowych obiektów blob, w którym jest włączona funkcja hierarchicznej przestrzeni nazw. 
+Dremio jeszcze nie nawiązuje połączenia z kontem BlockBlobStorage, na którym jest włączona funkcja hierarchicznej przestrzeni nazw. 
 
 ## <a name="windows-azure-storage-blob-wasb-driver-unsupported-with-data-lake-storage-gen2"></a>Sterownik systemu Windows Azure Storage Blob (WASB) (nieobsługiwany z Data Lake Storage Gen2)
 

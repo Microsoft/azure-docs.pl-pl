@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 56ab49949b4ea2a92bc591042b2d43a7f7b2dc63
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cd2511dcbf2e387a6f324742219b81c927b534af
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80632684"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636389"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Limity pamięci i współbieżności dla usługi Azure Synapse Analytics
 
@@ -77,7 +77,7 @@ Po wprowadzeniu [grup obciążeń](sql-data-warehouse-workload-isolation.md)nie 
 
 ## <a name="concurrency-maximums-for-resource-classes"></a>Maksymalne wartości współbieżności dla klas zasobów
 
-Aby upewnić się, że każda kwerenda ma wystarczającą ilość zasobów do wydajnego wykonywania, usługa SQL Analytics w usłudze Azure Synapse śledzi wykorzystanie zasobów przez przypisanie do każdego zapytania miejsc współbieżności. System umieszcza zapytania w kolejce na podstawie ważności i miejsc współbieżności. Zapytania oczekują w kolejce do momentu udostępnienia wystarczającej liczby miejsc współbieżności. [Znaczenie](sql-data-warehouse-workload-importance.md) i miejsca współbieżności określają priorytety procesora. Aby uzyskać więcej informacji, zobacz [Analizowanie obciążenia](analyze-your-workload.md)
+Aby upewnić się, że każda kwerenda ma wystarczającą ilość zasobów do wydajnego wykonywania, Synapse SQL śledzi wykorzystanie zasobów przez przypisanie miejsc współbieżności do poszczególnych zapytań. System umieszcza zapytania w kolejce na podstawie ważności i miejsc współbieżności. Zapytania oczekują w kolejce do momentu udostępnienia wystarczającej liczby miejsc współbieżności. [Znaczenie](sql-data-warehouse-workload-importance.md) i miejsca współbieżności określają priorytety procesora. Aby uzyskać więcej informacji, zobacz [Analizowanie obciążenia](analyze-your-workload.md)
 
 **Statyczne klasy zasobów**
 

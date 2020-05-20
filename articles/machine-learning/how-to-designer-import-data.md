@@ -5,16 +5,17 @@ description: Dowiedz się, jak importować dane do programu Azure Machine Learni
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
 author: peterclu
 ms.author: peterlu
 ms.date: 01/16/2020
-ms.openlocfilehash: 1ad7677607d625f673546a6ea29ea58b80a8d1b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: designer
+ms.openlocfilehash: 2b42f8f9dfe6ef2993b4615f0e4584874beabb28
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80546750"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83644568"
 ---
 # <a name="import-your-data-into-azure-machine-learning-designer-preview"></a>Importowanie danych do programu Azure Machine Learning Designer (wersja zapoznawcza)
 
@@ -35,13 +36,13 @@ Możesz również zarejestrować dane wyjściowe dla dowolnego modułu projektan
 
 1. Wybierz moduł, który wyprowadza dane, które chcesz zarejestrować.
 
-1. W okienku właściwości wybierz pozycję **wyjściowy** > **zestaw danych**.
+1. W okienku właściwości wybierz pozycję **wyjściowy**  >  **zestaw danych**.
 
     ![Zrzut ekranu przedstawiający sposób nawigowania do opcji Zarejestruj zestaw danych](media/how-to-designer-import-data/register-dataset-designer.png)
 
 ### <a name="use-a-dataset"></a>Korzystanie z zestawu danych
 
-Zarejestrowane zestawy danych można znaleźć w palecie modułów w obszarze **zestawy danych** > **Moje zestawy danych**. Aby użyć zestawu danych, przeciągnij i upuść go na kanwie potoku. Następnie połącz port wyjściowy zestawu danych z innymi modułami w palecie.
+Zarejestrowane zestawy danych można znaleźć w palecie modułów w obszarze **zestawy danych**  >  **Moje zestawy danych**. Aby użyć zestawu danych, przeciągnij i upuść go na kanwie potoku. Następnie połącz port wyjściowy zestawu danych z innymi modułami w palecie.
 
 ![Zrzut ekranu przedstawiający lokalizację zapisanych zestawów danych w palecie projektanta](media/how-to-designer-import-data/use-datasets-designer.png)
 

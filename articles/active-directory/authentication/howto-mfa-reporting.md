@@ -1,48 +1,32 @@
 ---
-title: Raporty dotyczące dostępu i użycia usługi Azure MFA — Azure Active Directory
-description: W tym artykule opisano, jak używać funkcji raportów usługi Azure Multi-Factor Authentication.
+title: Szczegóły zdarzenia logowania dla usługi Azure Multi-Factor Authentication — Azure Active Directory
+description: Dowiedz się, jak wyświetlać aktywność logowania dla zdarzeń usługi Azure Multi-Factor Authentication i komunikatów o stanie.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/30/2018
+ms.date: 05/15/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2df562d65ad064efb1be337e0b68cb8638536981
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c9bf76729c3b5844918659283a65eeb347c4237d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82112766"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83639834"
 ---
-# <a name="reports-in-azure-multi-factor-authentication"></a>Raporty w usłudze Azure Multi-Factor Authentication
+# <a name="use-the-sign-ins-report-to-review-azure-multi-factor-authentication-events"></a>Użyj raportu logowania, aby przejrzeć zdarzenia usługi Azure Multi-Factor Authentication
 
-Usługa Azure Multi-Factor Authentication udostępnia kilka raportów, które mogą być używane przez Ciebie i Twoją organizację za pomocą Azure Portal. W poniższej tabeli wymieniono dostępne raporty:
+Aby przejrzeć i zrozumieć zdarzenia usługi Azure Multi-Factor Authentication, można użyć raportu logowania Azure Active Directory (Azure AD). Ten raport przedstawia szczegóły uwierzytelniania dla zdarzeń, gdy użytkownik zostanie poproszony o uwierzytelnienie wieloskładnikowe, a w przypadku korzystania z zasad dostępu warunkowego. Aby uzyskać szczegółowe informacje na temat raportu logowania, zobacz [Omówienie raportów działań związanych z logowaniem w usłudze Azure AD](../reports-monitoring/concept-sign-ins.md).
 
-| Raport | Lokalizacja | Opis |
-|:--- |:--- |:--- |
-| Historia zablokowanego użytkownika | Usługa Azure AD > Security > MFA > blokowanie/odblokowywanie użytkowników | Pokazuje historię żądań zablokowania lub odblokowania użytkowników. |
-| Alerty użycia i oszustw | Logowanie za pomocą usługi Azure AD > | Zawiera informacje dotyczące ogólnego użycia, podsumowania użytkowników i szczegółów użytkownika; a także historia alertów o oszustwie przesłanych w określonym zakresie dat. |
-| Użycie dla składników lokalnych | Raport aktywności > działania usługi Azure AD > Security > MFA | Zawiera informacje o ogólnym użyciu usługi MFA za pomocą rozszerzenia serwera NPS, usług AD FS i serwera MFA. |
-| Historia pominiętych użytkowników | Usługa Azure AD > Security > MFA > jednorazowe obejście | Przedstawia historię żądań w celu obejścia Multi-Factor Authentication dla użytkownika. |
-| Stan serwera | Stan serwera usługi Azure AD > Security > MFA > | Przedstawia stan Multi-Factor Authentication serwerów skojarzonych z Twoim kontem. |
+W tym artykule opisano sposób wyświetlania raportu logowania usługi Azure AD w Azure Portal, a następnie modułu programu PowerShell w MSOnline v1.
 
-## <a name="view-mfa-reports"></a>Wyświetlanie raportów usługi MFA
+## <a name="view-the-azure-ad-sign-ins-report"></a>Wyświetl raport dotyczący logowania do usługi Azure AD
 
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-2. Po lewej stronie wybierz pozycję **Azure Active Directory** > **zabezpieczenia** > **MFA**.
-3. Wybierz raport, który chcesz wyświetlić.
-
-   ![Raport o stanie serwera usługi MFA w Azure Portal](./media/howto-mfa-reporting/report.png)
-
-## <a name="azure-ad-sign-ins-report"></a>Raport dotyczący logowania usługi Azure AD
-
-Za pomocą **raportu aktywność logowania** w [Azure Portal](https://portal.azure.com)można uzyskać informacje potrzebne do określenia sposobu działania środowiska.
-
-Raport logowania zawiera informacje na temat użycia zarządzanych aplikacji i działań związanych z logowaniem użytkowników, w tym informacji o użyciu uwierzytelniania wieloskładnikowego (MFA). Dane usługi MFA dają wgląd w sposób działania usługi MFA w Twojej organizacji. Umożliwiają one udzielenie odpowiedzi na takie pytania, jak:
+Raport logowania zawiera informacje na temat użycia zarządzanych aplikacji i działań związanych z logowaniem użytkowników, w tym informacji o użyciu uwierzytelniania wieloskładnikowego (MFA). Dane usługi MFA dają wgląd w sposób działania usługi MFA w Twojej organizacji. Umożliwia to udzielenie odpowiedzi na pytania podobne do następujących:
 
 - Czy logowanie zostało zakwestionowane przez usługę MFA?
 - Jak użytkownik ukończył uwierzytelnianie MFA?
@@ -51,94 +35,76 @@ Raport logowania zawiera informacje na temat użycia zarządzanych aplikacji i d
 - Ilu użytkowników nie mogło odpowiedzieć na wezwania usługi MFA?
 - Jakie są typowe problemy z usługą MFA, na które natykają się użytkownicy końcowi?
 
-Te dane są dostępne za pomocą [Azure Portal](https://portal.azure.com) i [interfejsu API raportowania](../reports-monitoring/concept-reporting-api.md).
+Aby wyświetlić raport działań związanych z logowaniem w [Azure Portal](https://portal.azure.com), wykonaj następujące czynności. Możesz również wysyłać zapytania o dane przy użyciu [interfejsu API raportowania](../reports-monitoring/concept-reporting-api.md).
 
-![Raport logowania usługi Azure AD w Azure Portal](./media/howto-mfa-reporting/sign-in-report.png)
+1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta z uprawnieniami *administratora globalnego* .
+1. Wyszukaj i wybierz pozycję **Azure Active Directory**, a następnie wybierz pozycję **Użytkownicy** z menu po lewej stronie.
+1. W obszarze *działanie* z menu po lewej stronie wybierz pozycję **logowania**.
+1. Zostanie wyświetlona lista zdarzeń logowania, w tym stan. Możesz wybrać zdarzenie, aby wyświetlić więcej szczegółów.
 
-### <a name="sign-ins-report-structure"></a>Struktura raportu logowania
+    Karta *szczegóły uwierzytelniania* lub *dostęp warunkowy* w szczegółach zdarzenia zawiera kod stanu lub zasady wyzwalające monit usługi MFA.
 
-Raporty działania logowania dla usługi MFA umożliwiają dostęp do następujących informacji:
+    [![](media/howto-mfa-reporting/sign-in-report-cropped.png "Screenshot of example Azure Active Directory sign-ins report in the Azure portal")](media/howto-mfa-reporting/sign-in-report.png#lightbox)
 
-**Wymagana usługa MFA:** czy usługa MFA jest wymagana do logowania, czy też nie. Uwierzytelnianie wieloskładnikowe może być wymagane ze względu na użytkownika MFA, dostęp warunkowy lub inne powody. Możliwe wartości to **Yes** lub **no**.
+Jeśli jest dostępna, jest wyświetlane uwierzytelnianie, takie jak wiadomość SMS, powiadomienie Microsoft Authenticator aplikacji lub połączenie telefoniczne.
 
-**Wynik usługi MFA:** więcej informacji na temat tego, czy uwierzytelnianie MFA zostało przeprowadzone pomyślnie, czy też nie:
+Poniższe szczegółowe informacje są wyświetlane w oknie *szczegóły uwierzytelniania* dla zdarzenia logowania, które pokazuje, czy żądanie MFA zostało spełnione lub odrzucone:
 
-- Jeśli uwierzytelnianie MFA powiodło się, ta kolumna zawiera więcej informacji na temat sposobu przeprowadzenia uwierzytelnienia MFA.
-   - Azure Multi-Factor Authentication
-      - ukończone w chmurze
-      - wygasłe z powodu zasad skonfigurowanych w dzierżawie
-      - wyświetlono monit o rejestrację
-      - zrealizowane przez oświadczenie w tokenie
-      - zrealizowane przez oświadczenie dostarczone przez dostawcę zewnętrznego
-      - zrealizowane przez silne uwierzytelnianie
-      - pominięte, ponieważ zrealizowany przepływ był przepływem logowania brokera systemu Windows
-      - pominięte z powodu hasła aplikacji
-      - pominięte z powodu lokalizacji
-      - pominięte z powodu zarejestrowanego urządzenia
-      - pominięte z powodu zapamiętanego urządzenia
-      - pomyślnie ukończono
-   - Przekierowane do zewnętrznego dostawcy w celu uwierzytelnienia wieloskładnikowego
+* Jeśli uwierzytelnianie MFA powiodło się, ta kolumna zawiera więcej informacji na temat sposobu przeprowadzenia uwierzytelnienia MFA.
+   * ukończone w chmurze
+   * wygasłe z powodu zasad skonfigurowanych w dzierżawie
+   * wyświetlono monit o rejestrację
+   * zrealizowane przez oświadczenie w tokenie
+   * zrealizowane przez oświadczenie dostarczone przez dostawcę zewnętrznego
+   * zrealizowane przez silne uwierzytelnianie
+   * pominięte, ponieważ zrealizowany przepływ był przepływem logowania brokera systemu Windows
+   * pominięte z powodu hasła aplikacji
+   * pominięte z powodu lokalizacji
+   * pominięte z powodu zarejestrowanego urządzenia
+   * pominięte z powodu zapamiętanego urządzenia
+   * pomyślnie ukończono
 
-- Jeśli uwierzytelnianie MFA nie powiodło się, ta kolumna zawiera przyczynę niepowodzenia.
-   - Niepowodzenie uwierzytelniania Azure Multi-Factor Authentication;
-      - uwierzytelnianie w toku
-      - próba zduplikowanego uwierzytelnienia
-      - zbyt wiele razy wprowadzono niepoprawny kod
-      - nieprawidłowe uwierzytelnienie
-      - nieprawidłowy kod weryfikacyjny aplikacji mobilnej
-      - błąd konfiguracji
-      - połączenie telefoniczne przekierowane do poczty głosowej
-      - numer telefonu ma nieprawidłowy format
-      - błąd usługi
-      - nie można nawiązać połączenia z telefonem użytkownika
-      - nie można wysłać powiadomienia aplikacji mobilnej do urządzenia
-      - nie można wysłać powiadomienia aplikacji mobilnej
-      - uwierzytelnienie odrzucone przez użytkownika
-      - użytkownik nie odpowiedział na powiadomienie aplikacji mobilnej
-      - użytkownik nie ma żadnych zarejestrowanych metod weryfikacji
-      - użytkownik wprowadził nieprawidłowy kod
-      - użytkownik wprowadził nieprawidłowy numer PIN
-      - użytkownik rozłączył połączenie telefoniczne bez pomyślnego uwierzytelnienia
-      - użytkownik jest zablokowany
-      - użytkownik nigdy nie wprowadził kodu weryfikacyjnego
-      - nie znaleziono użytkownika
-      - kod weryfikacyjny został już raz użyty
-
-**Metoda uwierzytelniania usługi MFA:** metoda uwierzytelniania stosowana przez użytkownika w celu zakończenia uwierzytelniania MFA. Możliwe wartości to:
-
-- Wiadomość SMS
-- Powiadomienie aplikacji mobilnej
-- Połączenie telefoniczne (numer telefonu uwierzytelniania)
-- Kod weryfikacyjny aplikacji mobilnej
-- Połączenie telefoniczne (numer telefonu służbowego)
-- Połączenie telefoniczne (alternatywny numer telefonu uwierzytelniania)
-
-**Szczegóły uwierzytelniania usługi MFA:** wyczyszczona wersja numeru telefonu, na przykład +X XXXXXXXX64.
-
-**Dostęp warunkowy** Znajdź informacje o zasadach dostępu warunkowego, których dotyczy próba logowania, w tym:
-
-- Nazwa zasady
-- Przyznaj kontrolki
-- Kontrolki sesji
-- Wynik
+* Jeśli uwierzytelnianie MFA nie powiodło się, ta kolumna zawiera przyczynę niepowodzenia.
+   * uwierzytelnianie w toku
+   * próba zduplikowanego uwierzytelnienia
+   * zbyt wiele razy wprowadzono niepoprawny kod
+   * nieprawidłowe uwierzytelnienie
+   * nieprawidłowy kod weryfikacyjny aplikacji mobilnej
+   * błąd konfiguracji
+   * połączenie telefoniczne przekierowane do poczty głosowej
+   * numer telefonu ma nieprawidłowy format
+   * błąd usługi
+   * nie można nawiązać połączenia z telefonem użytkownika
+   * nie można wysłać powiadomienia aplikacji mobilnej do urządzenia
+   * nie można wysłać powiadomienia aplikacji mobilnej
+   * uwierzytelnienie odrzucone przez użytkownika
+   * użytkownik nie odpowiedział na powiadomienie aplikacji mobilnej
+   * użytkownik nie ma żadnych zarejestrowanych metod weryfikacji
+   * użytkownik wprowadził nieprawidłowy kod
+   * użytkownik wprowadził nieprawidłowy numer PIN
+   * użytkownik rozłączył połączenie telefoniczne bez pomyślnego uwierzytelnienia
+   * użytkownik jest zablokowany
+   * użytkownik nigdy nie wprowadził kodu weryfikacyjnego
+   * nie znaleziono użytkownika
+   * kod weryfikacyjny został już raz użyty
 
 ## <a name="powershell-reporting-on-users-registered-for-mfa"></a>Raportowanie programu PowerShell dla użytkowników zarejestrowanych na potrzeby usługi MFA
 
 Najpierw upewnij się, że zainstalowano [moduł PowerShell MSOnline V1](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-1.0) .
 
-Zidentyfikuj użytkowników, którzy zostali zarejestrowani na potrzeby uwierzytelniania wieloskładnikowego, korzystając z programu PowerShell w następujący sposób. Ten zestaw poleceń wyklucza wyłączonych użytkowników, ponieważ nie można uwierzytelnić tych kont w usłudze Azure AD.
+Zidentyfikuj użytkowników, którzy zostali zarejestrowani na potrzeby uwierzytelniania wieloskładnikowego, korzystając z programu PowerShell w następujący sposób. Ten zestaw poleceń wyklucza wyłączonych użytkowników, ponieważ nie można uwierzytelnić tych kont w usłudze Azure AD:
 
 ```powershell
 Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods -ne $null -and $_.BlockCredential -eq $False} | Select-Object -Property UserPrincipalName
 ```
 
-Zidentyfikuj użytkowników, którzy nie zarejestrowali usługi MFA przy użyciu poniższego programu PowerShell. Ten zestaw poleceń wyklucza wyłączonych użytkowników, ponieważ nie można uwierzytelnić tych kont w usłudze Azure AD.
+Zidentyfikuj użytkowników, którzy nie zarejestrowali usługi MFA przy użyciu poniższego programu PowerShell. Ten zestaw poleceń wyklucza wyłączonych użytkowników, ponieważ nie można uwierzytelnić tych kont w usłudze Azure AD:
 
 ```powershell
 Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods.Count -eq 0 -and $_.BlockCredential -eq $False} | Select-Object -Property UserPrincipalName
 ```
 
-Zidentyfikuj zarejestrowane metody użytkownika i wyjścia. 
+Zidentyfikuj zarejestrowane metody danych i użytkowników:
 
 ```powershell
 Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalName}},
@@ -148,9 +114,9 @@ Get-MsolUser -All | Select-Object @{N='UserPrincipalName';E={$_.UserPrincipalNam
 @{N='MFA Methods';E={$_.StrongAuthenticationMethods.methodtype}} | Export-Csv -Path c:\MFA_Report.csv -NoTypeInformation
 ```
 
-## <a name="possible-results-in-activity-reports"></a>Możliwe wyniki w raportach aktywności
+## <a name="downloaded-activity-reports-result-codes"></a>Kody wyników pobranych raportów działań
 
-Poniższa tabela może służyć do rozwiązywania problemów z uwierzytelnianiem wieloskładnikowym za pomocą pobranej wersji raportu aktywność usługi uwierzytelnianie wieloskładnikowe. Nie będą one widoczne bezpośrednio w Azure Portal.
+Poniższa tabela może pomóc w rozwiązywaniu problemów ze zdarzeniami przy użyciu pobranej wersji raportu działania z poprzednich kroków portalu lub poleceń programu PowerShell. Te kody wyników nie są wyświetlane bezpośrednio w Azure Portal.
 
 | Wynik wywołania | Opis | Szeroki opis |
 | --- | --- | --- |
@@ -200,8 +166,17 @@ Poniższa tabela może służyć do rozwiązywania problemów z uwierzytelnianie
 | FAILED_AUTH_RESULT_TIMEOUT | Limit czasu wyniku uwierzytelniania | Wykonanie Multi-Factor Authentication przez użytkownika trwało zbyt długo. |
 | FAILED_AUTHENTICATION_THROTTLED | Ograniczenie uwierzytelniania | Multi-Factor Authentication próba została ograniczona przez usługę. |
 
+## <a name="additional-mfa-reports"></a>Dodatkowe raporty MFA
+
+Następujące dodatkowe informacje i raporty są dostępne dla zdarzeń MFA, w tym dla serwera usługi MFA:
+
+| Raport | Lokalizacja | Opis |
+|:--- |:--- |:--- |
+| Historia zablokowanego użytkownika | Usługa Azure AD > Security > MFA > blokowanie/odblokowywanie użytkowników | Pokazuje historię żądań zablokowania lub odblokowania użytkowników. |
+| Użycie dla składników lokalnych | Raport aktywności > działania usługi Azure AD > Security > MFA | Zawiera informacje o ogólnym użyciu serwera MFA za pomocą rozszerzenia serwera NPS, usług ADFS i serwera MFA. |
+| Historia pominiętych użytkowników | Usługa Azure AD > Security > MFA > jednorazowe obejście | Przedstawia historię żądań serwera MFA w celu obejścia usługi MFA dla użytkownika. |
+| Stan serwera | Stan serwera usługi Azure AD > Security > MFA > | Przedstawia stan serwerów MFA skojarzonych z Twoim kontem. |
+
 ## <a name="next-steps"></a>Następne kroki
 
-* [SSPR i raportowanie informacji dotyczących użycia i usługi MFA](howto-authentication-methods-usage-insights.md)
-* [Dla użytkowników](../user-help/multi-factor-authentication-end-user.md)
-* [Miejsce wdrożenia](concept-mfa-whichversion.md)
+Ten artykuł zawiera omówienie raportu działania związane z logowaniem. Aby uzyskać szczegółowe informacje o tym, co zawiera i zrozumieć dane, zobacz [raporty dotyczące aktywności logowania w usłudze Azure AD](../reports-monitoring/concept-sign-ins.md).

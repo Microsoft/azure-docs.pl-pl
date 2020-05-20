@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: machine-learning
 author: nibaccam
 ms.service: machine-learning
@@ -16,4 +16,4 @@ ms.contentlocale: pl-PL
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "75527063"
 ---
-**Dotyczy:** ![](media/aml-applies-to-skus/yes.png)Yes Basic ![Edition yes](media/aml-applies-to-skus/yes.png)Enterprise Edition &nbsp; &nbsp; &nbsp; &nbsp; [Upgrade to Enterprise edition](../articles/machine-learning/how-to-manage-workspace.md#upgrade)(uaktualnienie do wersji Enterprise Edition) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  
+**dotyczy:** ![ yes ](media/aml-applies-to-skus/yes.png) Basic Edition ![ yes ](media/aml-applies-to-skus/yes.png) Enterprise Edition &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ([uaktualnienie do wersji Enterprise Edition](../articles/machine-learning/how-to-manage-workspace.md#upgrade))  

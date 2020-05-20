@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: b28901918f2606100d92f47800c6e0fb6778e3d0
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: bdd8104200bf21507e978abacf600c4780bb3808
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82606895"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83636671"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Ochrona przed zagrożeniami w usłudze Azure Security Center
 
@@ -29,7 +29,10 @@ Ochrona przed zagrożeniami w Azure Security Center zapewnia kompleksową ochron
 
 * **Ochrona przed zagrożeniami dla warstw usług platformy Azure**: warstwa sieci platformy Azure, warstwa zarządzania azure (Azure Resource Manager) (wersja zapoznawcza) i Azure Key Vault (wersja zapoznawcza)
 
-Czy alert jest generowany przez Security Center, czy odbierany przez Security Center z innego produktu zabezpieczeń, można go wyeksportować. Aby wyeksportować alerty do usługi Azure wskaźnikowej (lub SIEM innej firmy) lub dowolnego innego narzędzia zewnętrznego, postępuj zgodnie z instrukcjami w temacie [Eksportowanie alertów do Siem](continuous-export.md). 
+Czy alert jest generowany przez Security Center, czy odbierany przez Security Center z innego produktu zabezpieczeń, można go wyeksportować. Aby wyeksportować alerty do usługi Azure wskaźnikowej, wszelkich SIEM innych firm lub dowolnego innego narzędzia zewnętrznego, postępuj zgodnie z instrukcjami w temacie [Eksportowanie alertów do Siem](continuous-export.md). 
+
+> [!NOTE]
+> Alerty z różnych źródeł mogą mieć różne ilości czasu. Na przykład alerty wymagające analizy ruchu sieciowego mogą trwać dłużej niż alerty związane z podejrzanymi procesami uruchomionymi na maszynach wirtualnych.
 
 > [!TIP]
 > Aby włączyć funkcje ochrony przed zagrożeniami Security Center, należy zastosować warstwę cenową standardowa do subskrypcji zawierającej odpowiednie obciążenia.
@@ -44,14 +47,14 @@ Czy alert jest generowany przez Security Center, czy odbierany przez Security Ce
 
 Azure Security Center integruje się z usługami platformy Azure w celu monitorowania i ochrony maszyn z systemem Windows. Security Center przedstawia alerty i sugestie dotyczące korygowania ze wszystkich tych usług w łatwym do użycia formacie.
 
-* Usługa **Microsoft Defender ATP** <a name="windows-atp"></a> — Security Center rozszerza swoją platformę ochrony obciążeń w chmurze przez integrację z usługą Microsoft Defender Advanced Threat Protection (ATP). Razem zapewniają kompleksowe możliwości wykrywania i reagowania punktów końcowych (EDR).
+* **Microsoft Defender Advanced Threat Protection (ATP)** <a name="windows-atp"></a> -Security Center rozszerza platformę ochrony obciążeń w chmurze przez integrację z usługą Microsoft Defender Advanced Threat Protection (ATP). Razem zapewniają kompleksowe możliwości wykrywania i reagowania punktów końcowych (EDR).
 
     > [!IMPORTANT]
     > Czujnik ATP programu Microsoft Defender jest automatycznie włączany na serwerach z systemem Windows, które używają Security Center.
 
     Gdy usługa Microsoft Defender ATP wykryje zagrożenie, wyzwala alert. Alert jest wyświetlany na pulpicie nawigacyjnym Security Center. Z poziomu pulpitu nawigacyjnego można przestawiać do konsoli usługi Microsoft Defender ATP i przeprowadzić szczegółowe badanie w celu odzyskania zakresu ataku. Aby uzyskać więcej informacji o usłudze Microsoft Defender ATP, zobacz Dołączanie [serwerów do usługi Microsoft Defender ATP](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
 
-* <a name="windows-dump"></a> **Analiza zrzutu awaryjnego** — w przypadku awarii oprogramowania zrzut awaryjny przechwytuje część pamięci w chwili awarii.
+* Analiza zrzutu **awaryjnego** <a name="windows-dump"></a> — W przypadku awarii oprogramowania zrzut awaryjny przechwytuje część pamięci w chwili awarii.
 
     Awaria może być spowodowana przez złośliwe oprogramowanie lub zawiera złośliwe oprogramowanie. Aby uniknąć wykrycia przez produkty zabezpieczające, różne rodzaje złośliwego oprogramowania korzystają z ataku bez plików, który pozwala uniknąć zapisywania na dysku lub zaszyfrować składniki oprogramowania napisane na dysku. Atak tego typu jest trudny do wykrycia przy użyciu tradycyjnych metod opartych na dyskach.
 
@@ -59,7 +62,7 @@ Azure Security Center integruje się z usługami platformy Azure w celu monitoro
 
     Aby uzyskać szczegółowe informacje na temat alertów analizy zrzutu awaryjnego, zobacz [tabelę referencyjną alertów](alerts-reference.md#alerts-windows).
 
-* <a name="windows-fileless"></a> **Wykrywanie ataków bezplikowych** — ataki bezplikowe ukierunkowane na punkty końcowe są wspólne. Aby uniknąć wykrywania, ataki bez plików wsuwają złośliwe ładunki do pamięci. Ładunki osoby atakującej pozostają w dużej ilości zagrożonych procesów i wykonują szeroką gamę złośliwych działań.
+* Wykrywanie ataków bezplikowych **Fileless attack detection** <a name="windows-fileless"></a> — Ataki bezplikowe ukierunkowane na punkty końcowe są wspólne. Aby uniknąć wykrywania, ataki bez plików wsuwają złośliwe ładunki do pamięci. Ładunki osoby atakującej pozostają w dużej ilości zagrożonych procesów i wykonują szeroką gamę złośliwych działań.
 
     W przypadku wykrywania ataków bez plików, zautomatyzowane metody śledczej pamięci identyfikują narzędzia, techniki i zachowania ataku bez plików. To rozwiązanie okresowo skanuje maszynę w czasie wykonywania i wyodrębnia informacje bezpośrednio z pamięci procesów krytycznych dla zabezpieczeń.
 
@@ -79,9 +82,9 @@ Azure Security Center integruje się z usługami platformy Azure w celu monitoro
 
 Security Center zbiera rekordy inspekcji z maszyn z systemem Linux przy użyciu **inspekcji**, jednej z najpopularniejszych struktur inspekcji systemu Linux. Inspekcja w jądrze linii głównej. 
 
-* **Alerty poddane inspekcji systemu Linux i integracja** <a name="linux-auditd"></a> z agentem log Analytics — System z inspekcją składa się z podsystemu poziomu jądra, który jest odpowiedzialny za wywołania systemowe monitorowania. Filtruje je według określonego zestawu reguł i zapisuje komunikaty dla nich w gnieździe. Security Center integruje funkcje z pakietu objętego inspekcją w ramach agenta Log Analytics. Ta Integracja umożliwia zbieranie zdarzeń inspekcji we wszystkich obsługiwanych dystrybucjach systemu Linux bez wymagań wstępnych.
+* **Alerty poddane inspekcji systemu Linux i integracja** <a name="linux-auditd"></a> z agentem log Analytics — System podlegający inspekcji składa się z podsystemu poziomu jądra, który jest odpowiedzialny za wywołania systemu monitorowania. Filtruje je według określonego zestawu reguł i zapisuje komunikaty dla nich w gnieździe. Security Center integruje funkcje z pakietu objętego inspekcją w ramach agenta Log Analytics. Ta Integracja umożliwia zbieranie zdarzeń inspekcji we wszystkich obsługiwanych dystrybucjach systemu Linux bez wymagań wstępnych.
 
-    rekordy poddane inspekcji są zbierane, wzbogacane i agregowane do zdarzeń przy użyciu agenta Log Analytics agenta dla systemu Linux. Security Center ciągle dodaje nową analizę, która używa sygnałów systemu Linux do wykrywania złośliwych zachowań na maszynach w chmurze i lokalnych systemach Linux. Podobnie jak w przypadku funkcji systemu Windows, te analizy obejmują między podejrzanymi procesami, podejrzanyche próby logowania, ładowanie modułu jądra i inne działania. Te działania mogą wskazywać, że komputer jest atakowany lub został naruszony.  
+    rekordy poddane inspekcji są zbierane, wzbogacane i agregowane do zdarzeń przy użyciu agenta Log Analytics agenta dla systemu Linux. Security Center ciągle dodaje nową analizę, która używa sygnałów systemu Linux do wykrywania złośliwych zachowań na maszynach w chmurze i lokalnych systemach Linux. Podobnie jak w przypadku funkcji systemu Windows, te analizy obejmują między podejrzanymi procesami, podejrzanych prób logowania, ładowanie modułu jądra i inne działania. Te działania mogą wskazywać, że komputer jest atakowany lub został naruszony.  
 
     Listę alertów systemu Linux można znaleźć w [tabeli referencyjnej alertów](alerts-reference.md#alerts-linux).
 
@@ -171,7 +174,7 @@ Zaawansowana ochrona przed zagrożeniami dla magazynu wykrywa nietypowe i potenc
 
 Zaawansowana ochrona przed zagrożeniami dla usługi Azure Storage jest obecnie dostępna tylko dla [BLOB Storage](https://azure.microsoft.com/services/storage/blobs/). 
 
-Ta usługa jest dostępna we wszystkich chmurach publicznych i chmurach dla instytucji rządowych USA, ale nie w regionach w chmurze na platformie Azure dla instytucji rządowych.
+Ta usługa jest dostępna we wszystkich chmurach publicznych i chmurach dla instytucji rządowych USA, ale nie ma innych regionów w chmurze lub Azure Government.
 
 Aby uzyskać szczegółowe informacje o cenach, w tym bezpłatną 30-dniową wersję próbną, zobacz [stronę z cennikiem Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e8ceaf13324864c7ec3df731c3e710815b0eba9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0db72e30fbced17665c112ad56510d7c2ca23d12
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81309778"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83639624"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Włącz usługę Azure Multi-Factor Authentication dla poszczególnych użytkowników, aby zabezpieczyć zdarzenia logowania
 
@@ -54,7 +54,7 @@ Wszyscy użytkownicy zaczynają *wyłączać*. Po zarejestrowaniu użytkowników
 Wykonaj następujące kroki, aby uzyskać dostęp do strony Azure Portal, na której można wyświetlać Stany użytkowników i zarządzać nimi:
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) jako administrator.
-1. Wyszukaj i wybierz pozycję *Azure Active Directory*, a następnie wybierz pozycję **Użytkownicy** > **Wszyscy użytkownicy**.
+1. Wyszukaj i wybierz pozycję *Azure Active Directory*, a następnie wybierz pozycję **Użytkownicy**  >  **Wszyscy użytkownicy**.
 1. Wybierz **Multi-Factor Authentication**. Może być konieczne przewinięcie w prawo, aby wyświetlić tę opcję menu. Wybierz Poniższy przykładowy zrzut ekranu, aby zobaczyć pełne okno Azure Portal i lokalizację menu:[![](media/howto-mfa-userstates/selectmfa-cropped.png "Wybierz Multi-Factor Authentication z okna użytkowników w usłudze Azure AD")](media/howto-mfa-userstates/selectmfa.png#lightbox)
 1. Zostanie otwarta nowa strona, która wyświetla stan użytkownika, jak pokazano w poniższym przykładzie.
    ![Zrzut ekranu pokazujący przykładowe informacje o stanie użytkownika dotyczące usługi Azure Multi-Factor Authentication](./media/howto-mfa-userstates/userstate1.png)
@@ -67,7 +67,7 @@ Aby zmienić stan Multi-Factor Authentication platformy Azure dla użytkownika, 
 1. Znajdź użytkownika, który ma zostać włączony dla Multi-Factor Authentication platformy Azure. Być może trzeba będzie zmienić widok u góry, aby **Użytkownicy**.
    ![Wybierz użytkownika, którego stan chcesz zmienić z karty użytkownicy](./media/howto-mfa-userstates/enable1.png)
 1. Zaznacz pole wyboru obok nazw użytkowników, dla których chcesz zmienić stan.
-1. Po prawej stronie w obszarze **szybkie kroki**wybierz pozycję **Włącz** lub **Wyłącz**. W poniższym przykładzie użytkownik *Jan Kowalski* ma pole wyboru obok nazwy i jest włączone do użycia: ![Włącz wybranego użytkownika, klikając pozycję Włącz w menu szybkie kroki](./media/howto-mfa-userstates/user1.png)
+1. Po prawej stronie w obszarze **szybkie kroki**wybierz pozycję **Włącz** lub **Wyłącz**. W poniższym przykładzie użytkownik *Jan Kowalski* ma pole wyboru obok nazwy i jest włączone do użycia: ![ Włącz wybranego użytkownika, klikając pozycję Włącz w menu szybkie kroki](./media/howto-mfa-userstates/user1.png)
 
    > [!TIP]
    > *Włączone* użytkownicy są automatycznie przełączane w celu *wymuszenia* rejestracji w usłudze Azure Multi-Factor Authentication. Nie zmieniaj ręcznie stanu użytkownika na *wymuszone*.
@@ -80,9 +80,9 @@ Po włączeniu użytkowników Powiadom ich pocztą e-mail. Poinformuj użytkowni
 
 Aby zmienić stan użytkownika przy użyciu [programu Azure AD PowerShell](/powershell/azure/overview), należy zmienić `$st.State` parametr dla konta użytkownika. Istnieją trzy możliwe stany konta użytkownika:
 
-* *Dostępny*
+* *Włączone*
 * *Enforced (Wymuszony)*
-* *Wyłączony*  
+* *Wyłączone*  
 
 Nie przenoś użytkowników bezpośrednio do stanu *wymuszonego* . W takim przypadku aplikacje niekorzystające z przeglądarki przestaną działać, ponieważ użytkownik nie przeszedł za pośrednictwem usługi Azure Multi-Factor Authentication Registration i uzyskał [hasło aplikacji](howto-mfa-mfasettings.md#app-passwords).
 
@@ -98,7 +98,7 @@ Następnie połącz się za pomocą polecenia [Connect-MsolService](/powershell/
 Connect-MsolService
 ```
 
-Poniższy przykładowy skrypt programu PowerShell umożliwia uwierzytelnianie wieloskładnikowe dla pojedynczego użytkownika o *bsimon@contoso.com*nazwie:
+Poniższy przykładowy skrypt programu PowerShell umożliwia uwierzytelnianie wieloskładnikowe dla pojedynczego użytkownika o nazwie *bsimon@contoso.com* :
 
 ```PowerShell
 $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
@@ -110,7 +110,7 @@ $sta = @($st)
 Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
 ```
 
-Korzystanie z programu PowerShell jest dobrym rozwiązaniem w przypadku konieczności zbiorczego włączania użytkowników. Poniższy skrypt przechodzi przez listę użytkowników i włącza uwierzytelnianie wieloskładnikowe na swoich kontach. Zdefiniuj konta użytkowników ustawione w pierwszym wierszu `$users` w następujący sposób:
+Korzystanie z programu PowerShell jest dobrym rozwiązaniem w przypadku konieczności zbiorczego włączania użytkowników. Poniższy skrypt przechodzi przez listę użytkowników i włącza uwierzytelnianie wieloskładnikowe na swoich kontach. Zdefiniuj konta użytkowników ustawione w pierwszym wierszu w `$users` następujący sposób:
 
    ```PowerShell
    # Define your list of users to update state in bulk
@@ -185,4 +185,4 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 
 Aby skonfigurować ustawienia usługi Azure Multi-Factor Authentication, takie jak Zaufane adresy IP, niestandardowe wiadomości głosowe i alerty oszustwa, zobacz [Konfigurowanie ustawień usługi azure Multi-Factor Authentication](howto-mfa-mfasettings.md). Aby zarządzać ustawieniami użytkownika dla usługi Azure Multi-Factor Authentication, zobacz [Zarządzanie ustawieniami użytkownika przy użyciu usługi azure Multi-Factor Authentication](howto-mfa-userdevicesettings.md).
 
-Aby zrozumieć, dlaczego użytkownik otrzymał monit lub nie był monitowany o przeprowadzenie uwierzytelniania MFA, zobacz [Azure Multi-Factor Authentication Reports](howto-mfa-reporting.md#azure-ad-sign-ins-report).
+Aby zrozumieć, dlaczego użytkownik otrzymał monit lub nie był monitowany o przeprowadzenie uwierzytelniania MFA, zobacz [Azure Multi-Factor Authentication Reports](howto-mfa-reporting.md).

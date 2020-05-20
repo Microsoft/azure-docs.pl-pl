@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: guybo
-ms.openlocfilehash: 5bf26fa096058f5a73d5527c0c6adb1649c9884f
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: cf50ee847bd1542a3e024cb88cf7bbc8bc283f91
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857322"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83643430"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>Przygotowywanie maszyny wirtualnej z systemem SLES lub openSUSE dla platformy Azure
 
@@ -28,7 +28,7 @@ W tym artykule przyjęto założenie, że już zainstalowano system operacyjny S
 * Wszystkie wirtualne dyski twarde na platformie Azure muszą mieć rozmiar wirtualny wyrównany do 1 MB. Podczas konwertowania z dysku surowego na dysk VHD należy upewnić się, że rozmiar dysku surowego jest wielokrotnością 1 MB przed konwersją. Aby uzyskać więcej informacji, zobacz [uwagi dotyczące instalacji systemu Linux](create-upload-generic.md#general-linux-installation-notes) .
 
 ## <a name="use-suse-studio"></a>Korzystanie z programu SUSE Studio
-[SUSE Studio](http://www.susestudio.com) może łatwo tworzyć obrazy SLES i openSUSE oraz zarządzać nimi na platformie Azure i funkcji Hyper-V. Jest to zalecane podejście do dostosowywania własnych obrazów SLES i openSUSE.
+[SUSE Studio](https://studioexpress.opensuse.org/) może łatwo tworzyć obrazy SLES i openSUSE oraz zarządzać nimi na platformie Azure i funkcji Hyper-V. Jest to zalecane podejście do dostosowywania własnych obrazów SLES i openSUSE.
 
 Alternatywą dla tworzenia własnego wirtualnego dysku twardego jest również publikowanie BYOS (przenoszenie własnych subskrypcji) dla SLES na [repozytorium VMDepot](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/04/using-and-contributing-vms-to-vm-depot.pdf).
 
@@ -98,7 +98,7 @@ Alternatywą dla tworzenia własnego wirtualnego dysku twardego jest również p
 ## <a name="prepare-opensuse-131"></a>Przygotuj openSUSE 13.1 +
 1. W środkowym okienku Menedżera funkcji Hyper-V wybierz maszynę wirtualną.
 2. Kliknij przycisk **Połącz** , aby otworzyć okno dla maszyny wirtualnej.
-3. W powłoce Uruchom polecenie "`zypper lr`". Jeśli to polecenie zwraca dane wyjściowe podobne do następujących, repozytoria są konfigurowane zgodnie z oczekiwaniami — nie są wymagane żadne korekty (Zwróć uwagę na to, że numery wersji mogą się różnić):
+3. W powłoce Uruchom polecenie " `zypper lr` ". Jeśli to polecenie zwraca dane wyjściowe podobne do następujących, repozytoria są konfigurowane zgodnie z oczekiwaniami — nie są wymagane żadne korekty (Zwróć uwagę na to, że numery wersji mogą się różnić):
    
         # | Alias                 | Name                  | Enabled | Refresh
         --+-----------------------+-----------------------+---------+--------
@@ -112,7 +112,7 @@ Alternatywą dla tworzenia własnego wirtualnego dysku twardego jest również p
         # sudo zypper ar -f https://download.opensuse.org/distribution/13.1/repo/oss openSUSE_13.1_OSS
         # sudo zypper ar -f http://download.opensuse.org/update/13.1 openSUSE_13.1_Updates
    
-    Następnie można sprawdzić, czy repozytoria zostały dodane, ponownie uruchamiając polecenie "`zypper lr`". W przypadku, gdy jeden z odpowiednich repozytoriów aktualizacji nie jest włączony, włącz go przy użyciu następującego polecenia:
+    Następnie można sprawdzić, czy repozytoria zostały dodane, ponownie uruchamiając polecenie " `zypper lr` ". W przypadku, gdy jeden z odpowiednich repozytoriów aktualizacji nie jest włączony, włącz go przy użyciu następującego polecenia:
    
         # sudo zypper mr -e [NUMBER OF REPOSITORY]
 4. Zaktualizuj jądro do najnowszej dostępnej wersji:

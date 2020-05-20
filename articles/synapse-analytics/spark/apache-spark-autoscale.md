@@ -8,12 +8,12 @@ services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: be7ac79b9429d2fc72c3b6bc2b6d92666b089dfb
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6a627dfed3886a99a458a67d793c3ebbbdd0fb19
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591968"
+ms.locfileid: "83644867"
 ---
 # <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Automatyczne skalowanie pul Apache Spark usługi Azure Synapse Analytics
 
@@ -46,7 +46,7 @@ W przypadku skalowania w górę usługa Azure Synapse Skalowanie automatyczne ob
 
 W przypadku skalowania w dół w oparciu o liczbę modułów wykonujących, wzorce aplikacji na węzeł i bieżące wymagania dotyczące procesora CPU i pamięci, automatyczne skalowanie wystawia żądanie usunięcia pewnej liczby węzłów. Usługa wykrywa również, które węzły są kandydatami do usunięcia na podstawie bieżącego wykonywania zadania. Operacja skalowania w dół najpierw likwidowanie węzłów, a następnie usunięcie ich z klastra.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 ### <a name="create-a-spark-pool-with-autoscaling"></a>Tworzenie puli platformy Spark z funkcją automatycznego skalowania
 
@@ -58,7 +58,7 @@ Aby włączyć funkcję automatycznego skalowania, wykonaj następujące czynno�
     * **Minimalna** liczba węzłów.
     * **Maksymalna** liczba węzłów.
 
-Początkowa liczba węzłów będzie minimalną. Ta wartość definiuje początkowy rozmiar wystąpienia podczas jego tworzenia. Minimalna liczba węzłów nie może być mniejsza niż 3.
+Początkowa liczba węzłów będzie minimalną. Ta wartość definiuje początkowy rozmiar wystąpienia podczas jego tworzenia. Minimalna liczba węzłów nie może być mniejsza niż trzy.
 
 ## <a name="best-practices"></a>Najlepsze rozwiązania
 
@@ -74,4 +74,4 @@ Uruchomione zadania będą nadal wykonywane i kończone. Oczekujące zadania bę
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przewodnik Szybki Start dotyczący konfigurowania nowej puli platformy Spark [Tworzenie puli platformy Spark](..\quickstart-create-apache-spark-pool.md)
+Przewodnik Szybki Start dotyczący konfigurowania nowej puli platformy Spark [Tworzenie puli platformy Spark](../quickstart-create-apache-spark-pool-portal.md)

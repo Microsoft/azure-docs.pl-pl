@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 15d9d186ef36ee9181a6ce0386aa9cc5de7838e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c166684484b839ec661ae2e68d5a5e5253d2528f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76718655"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83634510"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Zaawansowane eksplorowanie i modelowanie danych za pomocą platformy Spark
 
@@ -54,11 +54,11 @@ Kroki instalacji i kod zostały przedstawione w tym przewodniku dotyczącym korz
 
 ### <a name="spark-16-notebooks"></a>Notesy platformy Spark 1,6
 
-[pySpark-Machine-Learning-Data-nauka-Spark-Advanced-Data-Eksploracja-Modeling. ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): zawiera tematy w notesie #1 i projektowanie modeli przy użyciu strojenia parametrów i krzyżowego sprawdzania poprawności.
+[pySpark-Machine-Learning-Data-nauka-Spark-Advanced-Data-Eksploracja-Modeling. ipynb](https://github.com/Azure-Samples/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): zawiera tematy w notesie #1 i projektowanie modeli przy użyciu strojenia parametrów i krzyżowego sprawdzania poprawności.
 
 ### <a name="spark-20-notebooks"></a>Notesy platformy Spark 2,0
 
-[Spark 2.0-pySpark3-Machine-Learning-Data-nauka-Spark-Advanced-Data-Eksplorowanie — Modeling. ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): ten plik zawiera informacje na temat sposobu przeprowadzania eksploracji danych, modelowania i oceniania w klastrach platformy Spark 2,0.
+[Spark 2.0-pySpark3-Machine-Learning-Data-nauka-Spark-Advanced-Data-Eksplorowanie — Modeling. ipynb](https://github.com/Azure-Samples/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): ten plik zawiera informacje na temat sposobu przeprowadzania eksploracji danych, modelowania i oceniania w klastrach platformy Spark 2,0.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -116,7 +116,7 @@ Jądra PySpark, które są dostarczane z notesami Jupyter, mają kontekst predef
 Jądro PySpark zawiera wstępnie zdefiniowane "MAGICS", które są poleceniami specjalnymi, które można wywołać za pomocą%%. Istnieją dwa takie polecenia, które są używane w tych przykładach kodu.
 
 * **%% lokalne** Określa, że kod w kolejnych wierszach ma być wykonywany lokalnie. Kod musi być prawidłowym kodem w języku Python.
-* **%% nazwy zmiennej SQL \<-o>** Wykonuje zapytanie programu Hive względem elementu SqlContext. Jeśli parametr-o zostanie przesłany, wynik zapytania jest utrwalany w lokalnym kontekście języka Python%% jako Pandas Dataframe.
+* **%% \< Nazwa zmiennej SQL-o>** wykonuje zapytanie Hive względem elementu SqlContext. Jeśli parametr-o zostanie przesłany, wynik zapytania jest utrwalany w lokalnym kontekście języka Python%% jako Pandas Dataframe.
 
 Aby uzyskać więcej informacji na temat jądra dla notesów Jupyter oraz wstępnie zdefiniowanych "magicznych", zobacz [jądra dostępne dla notesów Jupyter z klastrami usługi HDInsight Spark Linux w usłudze HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
@@ -197,8 +197,8 @@ Po przeprowadzeniu danych do platformy Spark następnym krokiem w procesie anali
 ### <a name="plot-a-histogram-of-passenger-count-frequencies-in-the-sample-of-taxi-trips"></a>Wykreśl histogram częstotliwości liczby pasażerów w próbce podróży z taksówką
 Ten kod i kolejne fragmenty kodu używają programu SQL Magic do wykonywania zapytań dotyczących przykładu i lokalnego Magic w celu wykreślenia danych.
 
-* **SQL Magic (`%%sql`)** Jądro usługi HDInsight PySpark obsługuje proste wbudowane zapytania HiveQL względem elementu SqlContext. Argument (-o VARIABLE_NAME) utrwala dane wyjściowe zapytania SQL jako element Pandas Dataframe na serwerze Jupyter. Oznacza to, że jest dostępny w trybie lokalnym.
-* Magic służy do uruchamiania kodu lokalnie na serwerze Jupyter, który jest węzła głównego klastra usługi HDInsight. ** `%%local` ** Zwykle używasz `%%local` Magic po użyciu `%%sql -o` Magic do uruchomienia zapytania. Parametr-o będzie utrwalał dane wyjściowe zapytania SQL lokalnie. Następnie `%%local` Magic wyzwala następny zestaw fragmentów kodu do uruchomienia lokalnego na danych wyjściowych zapytań SQL, które zostały utrwalone lokalnie. Dane wyjściowe są automatycznie wizualizowane po uruchomieniu kodu.
+* **SQL Magic ( `%%sql` )** jądro usługi HDInsight PySpark obsługuje łatwe wbudowane zapytania HiveQL względem elementu SqlContext. Argument (-o VARIABLE_NAME) utrwala dane wyjściowe zapytania SQL jako element Pandas Dataframe na serwerze Jupyter. Oznacza to, że jest dostępny w trybie lokalnym.
+* ** `%%local` Magic** służy do uruchamiania kodu lokalnie na serwerze Jupyter, który jest węzła głównego klastra usługi HDInsight. Zwykle używasz `%%local` Magic po użyciu `%%sql -o` Magic do uruchomienia zapytania. Parametr-o będzie utrwalał dane wyjściowe zapytania SQL lokalnie. Następnie `%%local` Magic wyzwala następny zestaw fragmentów kodu do uruchomienia lokalnego na danych wyjściowych zapytań SQL, które zostały utrwalone lokalnie. Dane wyjściowe są automatycznie wizualizowane po uruchomieniu kodu.
 
 To zapytanie pobiera liczbę podróży według liczby pasażerów. 
 
@@ -209,7 +209,7 @@ To zapytanie pobiera liczbę podróży według liczby pasażerów.
     SELECT passenger_count, COUNT(*) as trip_counts FROM taxi_train WHERE passenger_count > 0 and passenger_count < 7 GROUP BY passenger_count
 
 
-Ten kod tworzy lokalną ramkę danych z wyników zapytania i wykreśla dane. `%%local` Magic tworzy lokalną ramkę danych, `sqlResults`która może być używana do wykreślania przy użyciu matplotlib. 
+Ten kod tworzy lokalną ramkę danych z wyników zapytania i wykreśla dane. `%%local`Magic tworzy lokalną ramkę danych, `sqlResults` która może być używana do wykreślania przy użyciu matplotlib. 
 
 <!-- -->
 

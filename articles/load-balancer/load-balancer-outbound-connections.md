@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 80da8d2880509a8ed6a2af8cb181b3bc2c281c09
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 37a458aea659cb6215cf29e6abcbc3341c7e0b7b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930577"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83643253"
 ---
 # <a name="outbound-connections-in-azure"></a>Połączenia wychodzące na platformie Azure
 
@@ -105,7 +105,7 @@ Możesz pominąć użycie adresu IP frontonu dla połączeń wychodzących z now
       ]
 ```
 
-Zwykle `disableOutboundSnat` opcja domyślnie ma _wartość false_ i oznacza, że ta reguła powoduje, że dla skojarzonych maszyn wirtualnych w puli zaplecza reguły równoważenia obciążenia są używane wychodzące pliki zasad sieciowych. Można `disableOutboundSnat` zmienić na _wartość true_ , aby uniemożliwić Load Balancer przy użyciu skojarzonego adresu IP frontonu dla połączeń wychodzących dla maszyn wirtualnych w puli zaplecza tej reguły równoważenia obciążenia.  Można również wyznaczyć określony adres IP dla przepływów wychodzących, jak opisano w [wielu połączonych scenariuszach](#combinations) .
+Zwykle `disableOutboundSnat` opcja domyślnie ma _wartość false_ i oznacza, że ta reguła powoduje, że dla skojarzonych maszyn wirtualnych w puli zaplecza reguły równoważenia obciążenia są używane wychodzące pliki zasad sieciowych. `disableOutboundSnat`Można zmienić na _wartość true_ , aby uniemożliwić Load Balancer przy użyciu skojarzonego adresu IP frontonu dla połączeń wychodzących dla maszyn wirtualnych w puli zaplecza tej reguły równoważenia obciążenia.  Można również wyznaczyć określony adres IP dla przepływów wychodzących, jak opisano w [wielu połączonych scenariuszach](#combinations) .
 
 #### <a name="load-balancer-basic"></a>Load Balancer podstawowa
 
@@ -257,6 +257,10 @@ Czasami jest niepożądane, aby maszyna wirtualna mogła utworzyć przepływ wyc
 Po zastosowaniu sieciowej grupy zabezpieczeń do maszyny wirtualnej z równoważeniem obciążenia należy zwrócić uwagę na [Tagi usługi](../virtual-network/security-overview.md#service-tags) i [domyślne reguły zabezpieczeń](../virtual-network/security-overview.md#default-security-rules). Musisz się upewnić, że maszyna wirtualna może odbierać żądania sondowania kondycji z Azure Load Balancer. 
 
 Jeśli sieciowej grupy zabezpieczeń blokuje żądania sondy kondycji z domyślnego tagu AZURE_LOADBALANCER, sonda kondycji maszyny wirtualnej kończy się niepowodzeniem, a maszyna wirtualna jest oznaczona jako wyłączona. Load Balancer przestaje wysyłać Nowe przepływy do tej maszyny wirtualnej.
+
+## <a name="connections-to-azure-storage-in-the-same-region"></a>Połączenia z usługą Azure Storage w tym samym regionie
+
+Połączenia wychodzące za pośrednictwem powyższych scenariuszy nie są wymagane do nawiązania połączenia z magazynem w tym samym regionie, w którym znajduje się maszyna wirtualna. Jeśli nie chcesz tego robić, użyj sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń), jak wyjaśniono powyżej. Łączność wychodząca jest wymagana w przypadku łączności z magazynem w innych regionach. Podczas nawiązywania połączenia z magazynem z maszyny wirtualnej w tym samym regionie źródłowy adres IP w dziennikach diagnostycznych magazynu będzie adresem wewnętrznym dostawcy, a nie publicznym adresem IP maszyny wirtualnej. Jeśli chcesz ograniczyć dostęp do konta magazynu do maszyn wirtualnych w co najmniej jednej podsieci Virtual Network w tym samym regionie, użyj [Virtual Network punktów końcowych usługi](../virtual-network/virtual-network-service-endpoints-overview.md) , a nie publicznego adresu IP podczas konfigurowania zapory konta magazynu. Po skonfigurowaniu punktów końcowych usługi zobaczysz Virtual Network prywatny adres IP w dziennikach diagnostycznych magazynu, a nie na wewnętrznym adresie dostawcy.
 
 ## <a name="limitations"></a>Ograniczenia
 - Role procesów roboczych sieci Web bez sieci wirtualnej i innych usług platformy firmy Microsoft mogą być dostępne, gdy jest używany tylko wewnętrzny usługa Load Balancer w warstwie Standardowa ze względu na efekt uboczny od sposobu, w jaki działają usługi frontonu i inne usługi platformy. Nie należy polegać na tym efekcie ubocznym, ponieważ sama sama usługa lub bazowa platforma mogą ulec zmianie bez powiadomienia. Zawsze należy założyć, że konieczne jest utworzenie połączenia wychodzącego jawnie, jeśli jest to potrzebne, przy użyciu tylko wewnętrznego usługa Load Balancer w warstwie Standardowa. Scenariusz [domyślny](#defaultsnat) dla tego artykułu nie jest dostępny.

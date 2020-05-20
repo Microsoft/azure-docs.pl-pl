@@ -6,13 +6,13 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/03/2020
-ms.openlocfilehash: 31b9d4d57e38adcd079082a4f32770c4cbc8fbb3
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.date: 05/13/2020
+ms.openlocfilehash: 4b3a2ed71845b8848c9cb0ac5002e0c69a170410
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82736203"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83642317"
 ---
 # <a name="marketplace-metering-service-authentication-strategies"></a>Strategie uwierzytelniania usługi pomiaru w portalu Marketplace
 
@@ -44,7 +44,7 @@ Aby uzyskać więcej informacji na temat tych tokenów, zobacz [Azure Active Dir
 
 #### <a name="http-method"></a>Metoda HTTP
 
-**POST**
+**POUBOJOWEGO**
 
 #### <a name="request-url"></a>*Adres URL żądania*
 
@@ -112,13 +112,13 @@ Na przykład postępuj zgodnie z poniższymi instrukcjami, aby uwierzytelnić si
 
 1. Upewnij się, że zarządzana tożsamość została skonfigurowana przy użyciu jednej z metod:
     * [Interfejs użytkownika Azure Portal](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
-    * [Interfejs wiersza polecenia](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm)
-    * [PowerShell](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm)
+    * [Interfejs](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm)
+    * [Program PowerShell](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm)
     * [Szablon Azure Resource Manager](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm)
     * [REST](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm#system-assigned-managed-identity)
     * [Zestawy Azure SDK](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm)
 
-1. Uzyskaj token dostępu dla identyfikatora aplikacji usługi pomiaru Marketplace (`20e940b3-4c77-4b0b-9a53-9e16a1b010a7`) przy użyciu tożsamości systemowej, protokołu RDP z maszyną wirtualną, Otwórz konsolę programu PowerShell i uruchom poniższe polecenie
+1. Uzyskaj token dostępu dla identyfikatora aplikacji usługi pomiaru Marketplace ( `20e940b3-4c77-4b0b-9a53-9e16a1b010a7` ) przy użyciu tożsamości systemowej, protokołu RDP z maszyną wirtualną, Otwórz konsolę programu PowerShell i uruchom poniższe polecenie
 
     ```powershell
     # curl is an alias to Web-Invoke PowerShell command
@@ -141,7 +141,7 @@ Na przykład postępuj zgodnie z poniższymi instrukcjami, aby uwierzytelnić si
     $managedappId = $resourceGroupInfo.managedBy 
     ```
 
-1. Usługa pomiaru Marketplace wymaga `resourceID`, aby raportować użycie w i `resourceUsageId` w przypadku aplikacji zarządzanej.
+1. Usługa pomiaru Marketplace wymaga, aby raportować użycie w `resourceID` i w `resourceUsageId` przypadku aplikacji zarządzanej.
 
     ```powershell
     # Get resourceUsageId from the managed app
@@ -151,7 +151,7 @@ Na przykład postępuj zgodnie z poniższymi instrukcjami, aby uwierzytelnić si
     $resourceUsageId = $ManagedApp.properties.billingDetails.resourceUsageId
     ```
 
-1. Użyj [interfejsu API usługi pomiaru Marketplace](https://review.docs.microsoft.com/azure/marketplace/partner-center-portal/marketplace-metering-service-apis?branch=pr-en-us-101847) , aby emitować użycie.
+1. Użyj [interfejsu API usługi pomiaru Marketplace](./marketplace-metering-service-apis.md) , aby emitować użycie.
 
 ## <a name="next-steps"></a>Następne kroki
 

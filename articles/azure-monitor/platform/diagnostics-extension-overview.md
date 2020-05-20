@@ -6,18 +6,26 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 6cb514312db525ffd2ccf9f7b70968daaa94f322
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5dcdfba6e8dd00c8ba09e5e98293a30d19e51c99
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77672382"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83635955"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Przegląd rozszerzenia Diagnostyka Azure
 Diagnostyka Azure rozszerzenie jest [agentem w Azure monitor](agents-overview.md) , który zbiera dane monitorowania z systemu operacyjnego gościa zasobów obliczeniowych platformy Azure, w tym maszyn wirtualnych. Ten artykuł zawiera Omówienie rozszerzenia Diagnostyka Azure, w tym określonych funkcji, które obsługuje, oraz opcji instalacji i konfiguracji. 
 
 > [!NOTE]
 > Diagnostyka Azure rozszerzenie jest jednym z agentów dostępnych do zbierania danych monitorowania z systemu operacyjnego gościa zasobów obliczeniowych. Zapoznaj się z [omówieniem agentów Azure monitor](agents-overview.md) , aby uzyskać opis różnych agentów i wskazówki dotyczące wybierania odpowiednich agentów w celu spełnienia określonych wymagań.
+
+## <a name="primary-scenarios"></a>Podstawowe scenariusze
+Podstawowe scenariusze rozkierowane przez rozszerzenie diagnostyki są następujące:
+
+- Zbieranie metryk gościa do metryk Azure Monitor.
+- Wysyłanie dzienników gościa i metryk do usługi Azure Storage w celu archiwizacji.
+- Wyślij dzienniki gościa i metryki do usługi Azure Event Hub, aby można było wysyłać je poza platformę Azure.
+
 
 ## <a name="comparison-to-log-analytics-agent"></a>Porównanie z agentem Log Analytics
 Agent Log Analytics w Azure Monitor może być również używany do zbierania danych monitorowania z systemu operacyjnego gościa maszyn wirtualnych. W zależności od potrzeb można użyć lub obu tych opcji. Szczegółowe porównanie agentów Azure Monitor można znaleźć w temacie [Omówienie agentów Azure monitor](agents-overview.md) . 
