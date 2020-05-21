@@ -1,15 +1,15 @@
 ---
 title: Utwórz konto w Azure Portal
 description: Dowiedz się, jak utworzyć konto usługi Azure Batch w portalu Azure w celu równoległego uruchamiania dużych obciążeń w chmurze
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/26/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9349ed74111565f68a088cda95c8defcd79f7e69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e01c62270fc0195c430150a534df2a141808ffa6
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82113225"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726931"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Tworzenie konta usługi Batch w witrynie Azure Portal
 
@@ -23,7 +23,7 @@ Ogólne informacje o kontach usługi Batch i scenariuszach można znaleźć w [o
 
 1. Zaloguj się w witrynie [Azure Portal][azure_portal].
 
-1. Wybierz pozycję **Utwórz zasób** > **obliczeniowy** > **usługi Batch**.
+1. Wybierz pozycję **Utwórz zasób**  >  **obliczeniowy**  >  **usługi Batch**.
 
     ![Usługa Batch w witrynie Marketplace][marketplace_portal]
 
@@ -75,7 +75,7 @@ Podczas tworzenia pierwszego konta usługi Batch w trybie subskrypcji użytkowni
 
 1. Zaloguj się w witrynie [Azure Portal][azure_portal].
 
-1. Wybierz pozycję **wszystkie** > **subskrypcje**usług, a następnie wybierz subskrypcję, której chcesz użyć dla konta usługi Batch.
+1. Wybierz pozycję **wszystkie**  >  **subskrypcje**usług, a następnie wybierz subskrypcję, której chcesz użyć dla konta usługi Batch.
 
 1. Na stronie **Subskrypcja** wybierz pozycję **Dostawcy zasobów** i wyszukaj dostawcę **Microsoft.Batch**. Sprawdź, czy dostawca zasobów **Microsoft.Batch** został zarejestrowany w subskrypcji. Jeśli nie, wybierz link **Zarejestruj**.
 
@@ -112,7 +112,7 @@ Jeśli wolisz udzielić dostępu do magazynu kluczy ręcznie, przejdź do sekcji
 > [!NOTE]
 > Upewnij się, że pola wyboru **Virtual Machines platformy Azure do wdrożenia** i **Azure Resource Manager dla wdrożenia szablonu** są zaznaczone w obszarze **zasady dostępu** dla połączonego zasobu **Key Vault** .
 > 
-> ![Obowiązkowe zasady](./media/batch-account-create-portal/key-vault-access-policy.png) dostępu Key Vault nie jest to wymagane podczas tworzenia konta w usłudze Batch w Azure Portal. Opcja jest domyślnie zaznaczona.
+> ![Obowiązkowe zasady dostępu Key Vault ](./media/batch-account-create-portal/key-vault-access-policy.png) nie jest to wymagane podczas tworzenia konta w usłudze Batch w Azure Portal. Opcja jest domyślnie zaznaczona.
 
 
 

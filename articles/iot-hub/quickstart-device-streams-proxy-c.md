@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 91cf594e74d91b8b4df2108d23459016fa843700
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b8cba8f7a21b04dc722124eb2873c64f67fd6def
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80586626"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83727136"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Szybki Start: Włączanie protokołu SSH i RDP przez strumień urządzenia IoT Hub przy użyciu aplikacji serwera proxy języka C (wersja zapoznawcza)
 
@@ -48,7 +48,7 @@ Na poniższej ilustracji przedstawiono sposób, w jaki programy lokalnego serwer
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -126,7 +126,7 @@ W tym przewodniku szybki start użyjesz [zestawu SDK urządzeń Azure IoT dla j�
 
 ## <a name="register-a-device"></a>Rejestrowanie urządzenia
 
-Zanim urządzenie będzie mogło nawiązać połączenie, należy je najpierw zarejestrować w centrum IoT. W tej sekcji użyjesz Azure Cloud Shell z [rozszerzeniem IoT](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) , aby zarejestrować symulowane urządzenie.
+Zanim urządzenie będzie mogło nawiązać połączenie, należy je najpierw zarejestrować w centrum IoT. W tej sekcji użyjesz Azure Cloud Shell z [rozszerzeniem IoT](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot?view=azure-cli-latest) , aby zarejestrować symulowane urządzenie.
 
 1. Aby utworzyć tożsamość urządzenia, uruchom następujące polecenie w Cloud Shell:
 
@@ -157,7 +157,7 @@ Ta sekcja umożliwia ustanowienie kompleksowego strumienia do tunelowania ruchu 
 
 ### <a name="run-the-device-local-proxy-application"></a>Uruchamianie aplikacji serwera proxy urządzenia lokalnego
 
-1. Edytuj plik źródłowy **iothub_client_c2d_streaming_proxy_sample. c** w folderze `iothub_client/samples/iothub_client_c2d_streaming_proxy_sample`i podaj parametry połączenia urządzenia, adres IP/nazwa hosta urządzenia docelowego i port SSH 22:
+1. Edytuj plik źródłowy **iothub_client_c2d_streaming_proxy_sample. c** w folderze `iothub_client/samples/iothub_client_c2d_streaming_proxy_sample` i podaj parametry połączenia urządzenia, adres IP/nazwa hosta urządzenia docelowego i port SSH 22:
 
    ```C
    /* Paste in your device connection string  */
@@ -211,7 +211,7 @@ ssh {username}@localhost -p 2222
 
 W tym momencie w oknie Logowanie SSH zostanie wyświetlony komunikat z prośbą o wprowadzenie poświadczeń.
 
-Na poniższej ilustracji przedstawiono dane wyjściowe konsoli na lokalnym serwerze proxy urządzenia, który łączy się z demonem SSH w `IP_address:22`:
+Na poniższej ilustracji przedstawiono dane wyjściowe konsoli na lokalnym serwerze proxy urządzenia, który łączy się z demonem SSH w `IP_address:22` :
 
 ![Dane wyjściowe lokalnego serwera proxy urządzenia](./media/quickstart-device-streams-proxy-c/device-console-output.png)
 
@@ -219,7 +219,7 @@ Na poniższej ilustracji przedstawiono dane wyjściowe konsoli programu klienta 
 
 ![Dane wyjściowe klienta SSH](./media/quickstart-device-streams-proxy-csharp/ssh-console-output.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
 

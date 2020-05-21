@@ -11,23 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/23/2020
+ms.date: 05/20/2020
 ms.author: aschhab
-ms.openlocfilehash: a4bc2dcfd1826623516a40be0aff7688d0b6168c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9cedf3678fc73b004c142380b4ba69c10ca72ebf
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116693"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726999"
 ---
 # <a name="message-sessions"></a>Sesje komunikatów
-Sesje Microsoft Azure Service Bus umożliwiają wspólną i uporządkowaną obsługę niepowiązanych sekwencji powiązanych komunikatów. Sesji można używać w wzorcach First In, First Out (FIFO) i Request-Response. W tym artykule pokazano, jak za pomocą sesji zaimplementować te wzorce przy użyciu Service Bus. 
-
-## <a name="first-in-first-out-fifo-pattern"></a>Wzorzec First-In, First Out (FIFO)
-Aby zrealizować gwarancję FIFO w Service Bus, użyj sesji. Service Bus nie jest to opis charakteru relacji między komunikatami, a także nie definiuje konkretnego modelu do określenia, gdzie zostanie uruchomiona lub zakończona sekwencja komunikatów.
+Sesje Microsoft Azure Service Bus umożliwiają wspólną i uporządkowaną obsługę niepowiązanych sekwencji powiązanych komunikatów. Sesji można używać w wzorcach **First In, First Out (FIFO)** i **Request-Response** . W tym artykule pokazano, jak za pomocą sesji zaimplementować te wzorce przy użyciu Service Bus. 
 
 > [!NOTE]
 > Warstwa Podstawowa Service Bus nie obsługuje sesji. W warstwach Standardowa i Premium obsługiwane są sesje. Aby zapoznać się z różnicami między tymi warstwami, zobacz [Cennik usługi Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
+
+## <a name="first-in-first-out-fifo-pattern"></a>Wzorzec First-In, First Out (FIFO)
+Aby zrealizować gwarancję FIFO w Service Bus, użyj sesji. Service Bus nie jest to opis charakteru relacji między komunikatami, a także nie definiuje konkretnego modelu do określenia, gdzie zostanie uruchomiona lub zakończona sekwencja komunikatów.
 
 Każdy nadawca może utworzyć sesję podczas przesyłania komunikatów do tematu lub kolejki przez ustawienie właściwości [SessionID](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) na określony identyfikator zdefiniowany przez aplikację, który jest unikatowy dla sesji. Na poziomie protokołu AMQP 1,0 ta wartość jest mapowana na Właściwość *Group-ID* .
 
@@ -62,7 +62,7 @@ Blokada jest uwalniana, gdy wywoływana jest wartość **Close** lub **CloseAsyn
 
 Gdy wiele współbieżnych odbiorników pobiera z kolejki, komunikaty należące do określonej sesji są wysyłane do określonego odbiornika, który aktualnie przechowuje blokadę dla danej sesji. W przypadku tej operacji, nieprzechodzący strumień komunikatów w jednej kolejce lub subskrypcji jest usuwany z różnych odbiorników, a odbiorcy mogą również być aktywni na różnych komputerach klienckich, ponieważ zarządzanie blokadą odbywa się po stronie usługi w Service Bus.
 
-Poprzednia ilustracja przedstawia trzy współbieżne odbiorniki sesji. Jedna sesja z `SessionId` programem = 4 nie ma aktywnego klienta będącego właścicielem, co oznacza, że żadne komunikaty nie są dostarczane z tej konkretnej sesji. Sesja działa na wiele sposobów, takich jak Kolejka podrzędna.
+Poprzednia ilustracja przedstawia trzy współbieżne odbiorniki sesji. Jedna sesja z programem `SessionId` = 4 nie ma aktywnego klienta będącego właścicielem, co oznacza, że żadne komunikaty nie są dostarczane z tej konkretnej sesji. Sesja działa na wiele sposobów, takich jak Kolejka podrzędna.
 
 Blokada sesji zatrzymywana przez odbiorcę sesji to parasol dla blokad komunikatów używanych przez tryb rozliczania *blokady wglądu* . Tylko jeden odbiornik może mieć blokadę w sesji. Odbiorca może mieć wiele komunikatów w locie, ale komunikaty zostaną odebrane w pożądanej kolejności. Porzucanie komunikatu powoduje ponowne obsłużynie tego samego komunikatu z następną operacją Receive.
 
@@ -95,7 +95,7 @@ Definicja liczby dostaw na komunikat w kontekście sesji różni się nieco od d
 ## <a name="request-response-pattern"></a>Wzorzec żądania-odpowiedzi
 [Wzorzec żądanie-odpowiedź](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html) to dobrze ustanowiony wzorzec integracji, który umożliwia aplikacji nadawcy wysłanie żądania i pozwala odbiornikowi prawidłowo wysyłać odpowiedź z powrotem do aplikacji nadawcy. Ten wzorzec zwykle wymaga kolejki lub tematu o krótkim czasie, aby aplikacja mogła wysyłać odpowiedzi do programu. W tym scenariuszu sesje zapewniają proste rozwiązanie alternatywne z porównywalną semantyką. 
 
-Wiele aplikacji może wysyłać żądania do pojedynczej kolejki żądań z określonym parametrem nagłówka ustawionym na unikatową identyfikację aplikacji nadawcy. Aplikacja odbiornika może przetwarzać żądania przychodzące z kolejki i wysyłać odpowiedzi w kolejce z włączoną obsługą sesji, ustawiając identyfikator sesji na unikatowy identyfikator, który nadawca przesłał na komunikat żądania. Aplikacja, która wysłała żądanie, może następnie odbierać komunikaty z określonym IDENTYFIKATORem sesji i prawidłowo przetwarzać odpowiedzi.
+Wiele aplikacji może wysyłać żądania do pojedynczej kolejki żądań z określonym parametrem nagłówka ustawionym na unikatową identyfikację aplikacji nadawcy. Aplikacja odbiornika może przetwarzać żądania przychodzące z kolejki i wysyłać odpowiedzi w kolejce z włączoną obsługą sesji, ustawiając identyfikator sesji na unikatowy identyfikator, który nadawca przesłał na komunikat żądania. Aplikacja, która wysłała żądanie, może następnie odbierać komunikaty na określonym IDENTYFIKATORze sesji i prawidłowo przetwarzać odpowiedzi.
 
 > [!NOTE]
 > Aplikacja, która wysyła początkowe żądania powinna wiedzieć o IDENTYFIKATORze sesji i służy `SessionClient.AcceptMessageSession(SessionID)` do blokowania sesji, na której oczekuje odpowiedzi. Dobrym pomysłem jest użycie identyfikatora GUID, który jednoznacznie identyfikuje wystąpienie aplikacji jako identyfikator sesji. Nie powinna istnieć procedura obsługi sesji ani `AcceptMessageSession(timeout)` w kolejce, aby upewnić się, że odpowiedzi są dostępne do zablokowania i przetworzenia przez określone odbiorniki.

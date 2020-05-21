@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure w magazynie
 description: Zawiera opis sposobu tworzenia kopii zapasowych maszyn wirtualnych platformy Azure w magazynie Recovery Services przy użyciu Azure Backup
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: aeadd7bc798f690c67eef38c6dc645204ff39115
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cba042efb08f121d4cd9fa5693edd69c827f1465
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273516"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83727016"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure w magazynie Recovery Services
 
@@ -91,7 +91,7 @@ Skonfiguruj zasady tworzenia kopii zapasowych dla magazynu.
 
    ![Przycisk Kopia zapasowa](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
-2.  > W **celu utworzenia kopii zapasowej**,**gdzie jest uruchomione Twoje obciążenie?** wybierz pozycję **Azure**. W **czym chcesz utworzyć kopię zapasową?** wybierz pozycję **maszyna** >  wirtualna**OK**. Spowoduje to zarejestrowanie rozszerzenia maszyny wirtualnej w magazynie.
+2. W **celu utworzenia kopii zapasowej**,  >  **gdzie jest uruchomione Twoje obciążenie?** wybierz pozycję **Azure**. W **czym chcesz utworzyć kopię zapasową?** wybierz pozycję **maszyna wirtualna**  >   **OK**. Spowoduje to zarejestrowanie rozszerzenia maszyny wirtualnej w magazynie.
 
    ![Okienka celu tworzenia kopii zapasowych i tworzenia kopii zapasowych](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
@@ -108,6 +108,9 @@ Skonfiguruj zasady tworzenia kopii zapasowych dla magazynu.
    * Kopie zapasowe maszyn wirtualnych można wykonywać tylko w pojedynczym magazynie.
 
      ![Okienko "Wybieranie maszyn wirtualnych"](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
+
+    >[!NOTE]
+    > W celu skonfigurowania kopii zapasowej będą dostępne tylko maszyny wirtualne w tym samym regionie i w tej samej subskrypcji co magazyn.
 
 5. W obszarze **kopia zapasowa**kliknij pozycję **Włącz kopię zapasową**. Spowoduje to wdrożenie zasad w magazynie i na maszynach wirtualnych, a następnie zainstalowanie rozszerzenia kopii zapasowej na agencie maszyny wirtualnej działającym na maszynie wirtualnej platformy Azure.
 
@@ -149,7 +152,7 @@ Początkowa kopia zapasowa będzie uruchamiana zgodnie z harmonogramem, ale moż
 3. Na liście **elementy kopii zapasowej** kliknij przycisk wielokropka (...).
 4. Kliknij pozycję **Utwórz kopię zapasową teraz**.
 5. W obszarze **kopia zapasowa**Użyj formantu kalendarza, aby wybrać ostatni dzień przechowywania punktu odzyskiwania. Następnie kliknij przycisk **OK**.
-6. Monitoruj powiadomienia portalu. Postęp zadania można monitorować na pulpicie nawigacyjnym magazynu > >  **zadania tworzenia kopii zapasowej****w toku**. W zależności od rozmiaru maszyny wirtualnej tworzenie początkowej kopii zapasowej może potrwać pewien czas.
+6. Monitoruj powiadomienia portalu. Postęp zadania można monitorować na pulpicie nawigacyjnym magazynu > **zadania tworzenia kopii zapasowej**  >  **w toku**. W zależności od rozmiaru maszyny wirtualnej tworzenie początkowej kopii zapasowej może potrwać pewien czas.
 
 ## <a name="verify-backup-job-status"></a>Sprawdź stan zadania tworzenia kopii zapasowej
 
@@ -166,12 +169,12 @@ Zakończenie fazy **transferu danych do magazynu** może zająć wiele dni w zal
 
 Stan zadania może się różnić w zależności od następujących scenariuszy:
 
-**Zdjęcie** | **Transferowanie danych do magazynu** | **Stan zadania**
+**Migawka** | **Transferowanie danych do magazynu** | **Stan zadania**
 --- | --- | ---
-Zakończone | W toku | W toku
-Zakończone | Pominięto | Zakończone
-Zakończone | Zakończone | Zakończone
-Zakończone | Niepowodzenie | Ukończono z ostrzeżeniem
+Ukończone | W toku | W toku
+Ukończone | Pominięto | Ukończone
+Ukończone | Ukończone | Ukończone
+Ukończone | Niepowodzenie | Ukończono z ostrzeżeniem
 Niepowodzenie | Niepowodzenie | Niepowodzenie
 
 Teraz dzięki tej możliwości dla tej samej maszyny wirtualnej dwa kopie zapasowe mogą działać równolegle, ale w każdej fazie (migawka, transfer danych do magazynu) można uruchomić tylko jedno zadanie podrzędne. W związku z tym w przypadku zadania tworzenia kopii zapasowej w toku zakończyło się niepowodzeniem wykonywania kopii zapasowej w następnym dniu. Kopie zapasowe kolejnych dni mogą mieć ukończoną migawkę **,** podczas gdy zadanie tworzenia kopii zapasowej w danym dniu jest w toku.
@@ -185,7 +188,7 @@ Azure Backup tworzenia kopii zapasowych maszyn wirtualnych platformy Azure przez
 
 **MASZYN** | **Szczegóły**
 --- | ---
-**Windows** | 1. [Pobierz i zainstaluj](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) plik msi agenta.<br/><br/> 2. Zainstaluj program z uprawnieniami administratora na komputerze.<br/><br/> 3. Sprawdź instalację. W *C:\WindowsAzure\Packages* na maszynie wirtualnej kliknij prawym przyciskiem myszy**Właściwości** **WaAppAgent. exe** > . Na karcie **szczegóły** **Wersja produktu** powinna mieć wartość 2.6.1198.718 lub wyższą.<br/><br/> Jeśli aktualizujesz agenta, upewnij się, że nie są uruchomione żadne operacje tworzenia kopii zapasowej, a [następnie ponownie zainstaluj agenta](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
+**Windows** | 1. [Pobierz i zainstaluj](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) plik msi agenta.<br/><br/> 2. Zainstaluj program z uprawnieniami administratora na komputerze.<br/><br/> 3. Sprawdź instalację. W *C:\WindowsAzure\Packages* na maszynie wirtualnej kliknij prawym przyciskiem myszy właściwości **WaAppAgent. exe**  >  **Properties**. Na karcie **szczegóły** **Wersja produktu** powinna mieć wartość 2.6.1198.718 lub wyższą.<br/><br/> Jeśli aktualizujesz agenta, upewnij się, że nie są uruchomione żadne operacje tworzenia kopii zapasowej, a [następnie ponownie zainstaluj agenta](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
 **Linux** | Zainstaluj program przy użyciu KCO lub pakietu DEB z repozytorium pakietu dystrybucji. Jest to preferowana metoda instalowania i uaktualniania agenta systemu Linux platformy Azure. Wszyscy [pozatwierdzeni dostawcy dystrybucji](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integrują pakiet agenta platformy Azure z systemem Linux z obrazami i repozytoriami. Agent jest dostępny w serwisie [GitHub](https://github.com/Azure/WALinuxAgent), ale nie zalecamy instalacji.<br/><br/> Jeśli aktualizujesz agenta, upewnij się, że nie są uruchomione żadne operacje tworzenia kopii zapasowej, i zaktualizuj pliki binarne.
 
 >[!NOTE]
