@@ -7,12 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/06/2020
 tags: connectors
-ms.openlocfilehash: c6d8dc087e6306173fc4d55368cd3c4c624d5302
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 0dea516ea6b938b91fc4b9b833979bcecc285339
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82978573"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714971"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Odbieranie przychodzących żądań HTTPS i odpowiadanie na nie w Azure Logic Apps
 
@@ -61,9 +61,9 @@ Ten wbudowany wyzwalacz tworzy ręcznie możliwy do przełączenia punkt końcow
 
    ![Wyzwalacz żądania](./media/connectors-native-reqres/request-trigger.png)
 
-   | Nazwa właściwości | Nazwa właściwości JSON | Wymagany | Opis |
+   | Nazwa właściwości | Nazwa właściwości JSON | Wymagane | Opis |
    |---------------|--------------------|----------|-------------|
-   | **ADRES URL POST PROTOKOŁU HTTP** | dawaj | Yes | Adres URL punktu końcowego, który jest generowany po zapisaniu aplikacji logiki i jest używany do wywoływania aplikacji logiki |
+   | **ADRES URL POST PROTOKOŁU HTTP** | dawaj | Tak | Adres URL punktu końcowego, który jest generowany po zapisaniu aplikacji logiki i jest używany do wywoływania aplikacji logiki |
    | **Schemat JSON treści żądania** | `schema` | Nie | Schemat JSON, który opisuje właściwości i wartości w treści żądania przychodzącego |
    |||||
 
@@ -117,7 +117,7 @@ Ten wbudowany wyzwalacz tworzy ręcznie możliwy do przełączenia punkt końcow
    }
    ```
 
-   Po wprowadzeniu schematu JSON Projektant wyświetla przypomnienie, aby dołączyć `Content-Type` nagłówek do żądania i ustawić wartość tego nagłówka. `application/json` Aby uzyskać więcej informacji, zobacz temat [Obsługa typów zawartości](../logic-apps/logic-apps-content-type.md).
+   Po wprowadzeniu schematu JSON Projektant wyświetla przypomnienie, aby dołączyć `Content-Type` nagłówek do żądania i ustawić wartość tego nagłówka `application/json` . Aby uzyskać więcej informacji, zobacz temat [Obsługa typów zawartości](../logic-apps/logic-apps-content-type.md).
 
    ![Przypomnienie o uwzględnieniu nagłówka "Content-Type"](./media/connectors-native-reqres/include-content-type.png)
 
@@ -160,7 +160,7 @@ Ten wbudowany wyzwalacz tworzy ręcznie możliwy do przełączenia punkt końcow
 
 1. Aby określić dodatkowe właściwości, Otwórz listę **Dodaj nowy parametr** i wybierz parametry, które chcesz dodać.
 
-   | Nazwa właściwości | Nazwa właściwości JSON | Wymagany | Opis |
+   | Nazwa właściwości | Nazwa właściwości JSON | Wymagane | Opis |
    |---------------|--------------------|----------|-------------|
    | **Metoda** | `method` | Nie | Metoda, która musi być używana przez żądanie przychodzące do wywoływania aplikacji logiki |
    | **Ścieżka względna** | `relativePath` | Nie | Ścieżka względna parametru, który może zostać zaakceptowany przez adres URL punktu końcowego aplikacji logiki |
@@ -178,7 +178,7 @@ Ten wbudowany wyzwalacz tworzy ręcznie możliwy do przełączenia punkt końcow
 
    Na przykład można odpowiedzieć na żądanie, [dodając akcję odpowiedzi](#add-response), której można użyć do zwrócenia dostosowanej odpowiedzi i opisanej w dalszej części tego tematu.
 
-   Aplikacja logiki utrzymuje otwarte żądanie przychodzące tylko przez jedną minutę. Przy założeniu, że przepływ pracy aplikacji logiki zawiera akcję odpowiedzi, jeśli aplikacja logiki nie zwróci odpowiedzi po upływie tego czasu, aplikacja logiki zwróci `504 GATEWAY TIMEOUT` obiekt wywołujący. W przeciwnym razie, jeśli aplikacja logiki nie zawiera akcji odpowiedzi, aplikacja logiki natychmiast zwróci `202 ACCEPTED` odpowiedź do obiektu wywołującego.
+   Aplikacja logiki utrzymuje otwarte żądanie przychodzące tylko przez [ograniczony czas](../logic-apps/logic-apps-limits-and-config.md#request-limits). Przy założeniu, że przepływ pracy aplikacji logiki zawiera akcję odpowiedzi, jeśli aplikacja logiki nie zwróci odpowiedzi po upływie tego czasu, aplikacja logiki zwróci `504 GATEWAY TIMEOUT` obiekt wywołujący. W przeciwnym razie, jeśli aplikacja logiki nie zawiera akcji odpowiedzi, aplikacja logiki natychmiast zwróci `202 ACCEPTED` odpowiedź do obiektu wywołującego.
 
 1. Gdy skończysz, Zapisz aplikację logiki. Na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
 
@@ -188,7 +188,7 @@ Ten wbudowany wyzwalacz tworzy ręcznie możliwy do przełączenia punkt końcow
 
 1. Aby wyzwolić aplikację logiki, Wyślij HTTP POST do wygenerowanego adresu URL.
 
-   Na przykład można użyć narzędzia, takiego jak [ogłośer](https://www.getpostman.com/) , aby wysłać wpis http. Jeśli [włączono Azure Active Directory otwierania uwierzytelniania](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) (Azure AD OAuth) do autoryzacji wywołań przychodzących do wyzwalacza żądania, wywołaj wyzwalacz przy użyciu [adresu URL sygnatury dostępu współdzielonego (SAS)](../logic-apps/logic-apps-securing-a-logic-app.md#sas) lub przy użyciu tokenu uwierzytelniania, ale nie możesz użyć obu tych opcji. Token uwierzytelniania musi określać `Bearer` typ w nagłówku autoryzacji. Aby uzyskać więcej informacji, zobacz [bezpieczny dostęp i dane w Azure Logic Apps — dostęp do wyzwalaczy opartych na żądaniach](../logic-apps/logic-apps-securing-a-logic-app.md#secure-triggers).
+   Na przykład można użyć narzędzia, takiego jak [ogłośer](https://www.getpostman.com/) , aby wysłać wpis http. Jeśli [włączono Azure Active Directory otwierania uwierzytelniania](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) (Azure AD OAuth) do autoryzacji wywołań przychodzących do wyzwalacza żądania, wywołaj wyzwalacz przy użyciu [adresu URL sygnatury dostępu współdzielonego (SAS)](../logic-apps/logic-apps-securing-a-logic-app.md#sas) lub przy użyciu tokenu uwierzytelniania, ale nie możesz użyć obu tych opcji. Token uwierzytelniania musi określać `Bearer` Typ w nagłówku autoryzacji. Aby uzyskać więcej informacji, zobacz [bezpieczny dostęp i dane w Azure Logic Apps — dostęp do wyzwalaczy opartych na żądaniach](../logic-apps/logic-apps-securing-a-logic-app.md#secure-triggers).
 
 Aby uzyskać więcej informacji na temat podstawowej definicji JSON wyzwalacza i sposobu wywoływania tego wyzwalacza, zobacz te tematy, [Typ wyzwalacza żądania](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) oraz [przepływy pracy wywołania, wyzwalacza lub zagnieżdżania z punktami końcowymi http w Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
@@ -208,13 +208,13 @@ Poniżej znajduje się więcej informacji na temat danych wyjściowych wyzwalacz
 
 Możesz użyć akcji odpowiedzi, aby odpowiedzieć na ładunek (dane) do przychodzącego żądania HTTPS, ale tylko w aplikacji logiki, która jest wyzwalana przez żądanie HTTPS. Akcję odpowiedzi można dodać w dowolnym momencie w przepływie pracy. Aby uzyskać więcej informacji na temat podstawowej definicji JSON dla tego wyzwalacza, zobacz [Typ akcji odpowiedź](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
 
-Aplikacja logiki utrzymuje otwarte żądanie przychodzące tylko przez jedną minutę. Przy założeniu, że przepływ pracy aplikacji logiki zawiera akcję odpowiedzi, jeśli aplikacja logiki nie zwróci odpowiedzi po upływie tego czasu, aplikacja logiki zwróci `504 GATEWAY TIMEOUT` obiekt wywołujący. W przeciwnym razie, jeśli aplikacja logiki nie zawiera akcji odpowiedzi, aplikacja logiki natychmiast zwróci `202 ACCEPTED` odpowiedź do obiektu wywołującego.
+Aplikacja logiki utrzymuje otwarte żądanie przychodzące tylko przez [ograniczony czas](../logic-apps/logic-apps-limits-and-config.md#request-limits). Przy założeniu, że przepływ pracy aplikacji logiki zawiera akcję odpowiedzi, jeśli aplikacja logiki nie zwróci odpowiedzi po upływie tego czasu, aplikacja logiki zwróci `504 GATEWAY TIMEOUT` obiekt wywołujący. W przeciwnym razie, jeśli aplikacja logiki nie zawiera akcji odpowiedzi, aplikacja logiki natychmiast zwróci `202 ACCEPTED` odpowiedź do obiektu wywołującego.
 
 > [!IMPORTANT]
 > Jeśli akcja odpowiedzi zawiera te nagłówki, Logic Apps usuwa te nagłówki z wygenerowanego komunikatu odpowiedzi bez wyświetlania ostrzeżenia lub błędu:
 >
 > * `Allow`
-> * `Content-*`z następującymi wyjątkami `Content-Disposition`: `Content-Encoding`,, i`Content-Type`
+> * `Content-*`z następującymi wyjątkami: `Content-Disposition` , `Content-Encoding` , i`Content-Type`
 > * `Cookie`
 > * `Expires`
 > * `Last-Modified`
@@ -229,7 +229,7 @@ Aplikacja logiki utrzymuje otwarte żądanie przychodzące tylko przez jedną mi
 
    ![Dodaj nowy krok](./media/connectors-native-reqres/add-response.png)
 
-   Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę między tymi krokami. Wybierz wyświetlony znak plus (**+**), a następnie wybierz pozycję **Dodaj akcję**.
+   Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę między tymi krokami. Wybierz wyświetlony znak plus ( **+** ), a następnie wybierz pozycję **Dodaj akcję**.
 
 1. W obszarze **Wybierz akcję**w polu wyszukiwania wprowadź "odpowiedź" jako filtr, a następnie wybierz akcję **odpowiedź** .
 
@@ -251,10 +251,10 @@ Aplikacja logiki utrzymuje otwarte żądanie przychodzące tylko przez jedną mi
 
    Poniżej znajduje się więcej informacji na temat właściwości, które można ustawić w akcji odpowiedzi. 
 
-   | Nazwa właściwości | Nazwa właściwości JSON | Wymagany | Opis |
+   | Nazwa właściwości | Nazwa właściwości JSON | Wymagane | Opis |
    |---------------|--------------------|----------|-------------|
-   | **Kod stanu** | `statusCode` | Yes | Kod stanu do zwrócenia w odpowiedzi |
-   | **Nagłówka** | `headers` | Nie | Obiekt JSON, który opisuje jeden lub więcej nagłówków do uwzględnienia w odpowiedzi |
+   | **Kod stanu** | `statusCode` | Tak | Kod stanu do zwrócenia w odpowiedzi |
+   | **Nagłówki** | `headers` | Nie | Obiekt JSON, który opisuje jeden lub więcej nagłówków do uwzględnienia w odpowiedzi |
    | **Treść** | `body` | Nie | Treść odpowiedzi |
    |||||
 

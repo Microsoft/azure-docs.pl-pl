@@ -2,13 +2,13 @@
 title: Testowanie aplikacji w portalu LUIS
 description: Użyj Language Understanding (LUIS), aby w sposób ciągły pracować w aplikacji, aby udoskonalić ją i ulepszyć jej zrozumienie.
 ms.topic: conceptual
-ms.date: 05/17/2020
-ms.openlocfilehash: 3608bb17b6d1ea8c9095fa54324993a9e40355b6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 05/20/2020
+ms.openlocfilehash: 91994418b50eb112582bbed1853dd85e9db3599d
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653875"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714424"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testowanie aplikacji LUIS w portalu LUIS
 
@@ -42,7 +42,8 @@ Test wypowiedź nie powinien być dokładnie taki sam, jak w przypadku każdego 
 
 1. Wypowiedź, jego górny cel i Ocena są dodawane do listy wyrażenia długości w polu tekstowym.
 
-    ![Testowanie interaktywne identyfikuje niewłaściwy cel](./media/luis-how-to-interactive-test/test-weather-1.png)
+    > [!div class="mx-imgBorder"]
+    > ![Testowanie interaktywne identyfikuje niewłaściwy cel](./media/luis-how-to-interactive-test/test-weather-1.png)
 
 ## <a name="inspect-the-prediction"></a>Inspekcja przewidywania
 
@@ -50,9 +51,13 @@ Sprawdzasz szczegóły wyniku testu w panelu **Inspekcja** .
 
 1. Po otwarciu panelu slajdu **testowego** zaznacz opcję **Sprawdź** , czy wypowiedź chcesz porównać.
 
-    ![Wybierz przycisk Sprawdź, aby zobaczyć więcej szczegółów na temat wyników testu](./media/luis-how-to-interactive-test/inspect.png)
+    > [!div class="mx-imgBorder"]
+    > ![Wybierz przycisk Sprawdź, aby zobaczyć więcej szczegółów na temat wyników testu](./media/luis-how-to-interactive-test/inspect.png)
 
 1. Zostanie wyświetlony panel **Inspekcja** . Panel zawiera górne przeznaczenie oceny, a także wszystkie zidentyfikowane jednostki. Panel przedstawia prognozowanie wybranych wypowiedź.
+
+    > [!div class="mx-imgBorder"]
+    > ![Zrzut ekranu przedstawiający panel testowania testów](./media/luis-how-to-interactive-test/inspect-panel.png)
 
 ## <a name="add-to-example-utterances"></a>Dodaj do przykładu wyrażenia długości
 
@@ -76,12 +81,14 @@ Jeśli używasz [wzorców](luis-concept-patterns.md) i wypowiedź dopasowane do 
 
 Aktywną wersję aplikacji można przetestować przy użyciu opublikowanej wersji [punktu końcowego](luis-glossary.md#endpoint) . W panelu **Inspekcja** wybierz pozycję **Porównaj z opublikowanym**. Wszystkie testy dotyczące opublikowanego modelu są odejmowane od salda przydziału subskrypcji platformy Azure.
 
-![Porównaj z opublikowanym](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
+> [!div class="mx-imgBorder"]
+> ![Porównaj z opublikowanym](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
 
 ## <a name="view-endpoint-json-in-test-panel"></a>Wyświetl kod JSON punktu końcowego w panelu testów
 Możesz wyświetlić kod JSON punktu końcowego zwrócony do porównania, wybierając **Widok Pokaż JSON**.
 
-![Opublikowana odpowiedź JSON](./media/luis-how-to-interactive-test/inspect-panel-compare-json.png)
+> [!div class="mx-imgBorder"]
+> ![Opublikowana odpowiedź JSON](./media/luis-how-to-interactive-test/inspect-panel-compare-json.png)
 
 ## <a name="additional-settings-in-test-panel"></a>Ustawienia dodatkowe w panelu testu
 

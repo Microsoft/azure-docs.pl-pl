@@ -1,5 +1,5 @@
 ---
-title: Tworzenie zapytań dotyczących magazynu analitycznego Azure Cosmos DB przy użyciu Apache Spark usługi Azure Synapse Analytics
+title: Tworzenie zapytań dotyczących magazynu analitycznego Azure Cosmos DB (wersja zapoznawcza) za pomocą Apache Spark usługi Azure Synapse Analytics
 description: Jak badać Azure Cosmos DB analityczne za pomocą Apache Spark dla usługi Azure Synapse Analytics
 services: synapse-analytics
 author: ArnoMicrosoft
@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 05/06/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 02d4b6a636bff5ef11686abba6efb52f45f04779
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 5c19a3f808b85ba9e34d3304251fe8acb21204ce
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83600069"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700203"
 ---
-# <a name="query-azure-cosmos-db-analytical-store-with-apache-spark-for-azure-synapse-analytics"></a>Tworzenie zapytań dotyczących magazynu analitycznego Azure Cosmos DB przy użyciu Apache Spark usługi Azure Synapse Analytics
+# <a name="query-azure-cosmos-db-analytical-store-preview-with-apache-spark-for-azure-synapse-analytics"></a>Tworzenie zapytań dotyczących magazynu analitycznego Azure Cosmos DB (wersja zapoznawcza) za pomocą Apache Spark usługi Azure Synapse Analytics
 
 W tym artykule przedstawiono kilka przykładów, na których można korzystać z magazynu analitycznego z gestów Synapse. Gesty są widoczne po kliknięciu prawym przyciskiem myszy kontenera. Za pomocą gestów można szybko wygenerować kod i dostosować go do własnych potrzeb. Gesty są również idealne do odnajdywania danych za pomocą jednego kliknięcia.
 

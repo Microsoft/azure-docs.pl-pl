@@ -7,17 +7,17 @@ ms.service: mysql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
-ms.date: 04/27/2020
-ms.openlocfilehash: 7313d12509859514e41b30c4021f74f25a0e50b9
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.date: 05/19/2020
+ms.openlocfilehash: 4fef9db91369c23d27090cc2433b5e0ed09bbc7d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629952"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684732"
 ---
-# <a name="quickstart-create-an-azure-database-for-mysql-server-by-using-the-arm-template"></a>Szybki Start: Tworzenie serwera Azure Database for MySQL przy użyciu szablonu ARM
+# <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>Szybki Start: Tworzenie serwera Azure Database for MySQL przy użyciu szablonu ARM
 
-Azure Database for MySQL to usługa zarządzana, która umożliwia uruchamianie i skalowanie w chmurze baz danych MySQL o wysokiej dostępności, a także zarządzanie nimi. W tym przewodniku szybki start przedstawiono sposób użycia wstępnie zdefiniowanego szablonu Azure Resource Manager (ARM) do utworzenia serwera Azure Database for MySQL z integracją z siecią wirtualną. Serwer można utworzyć przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure lub Azure PowerShell.
+Azure Database for MySQL to usługa zarządzana, która umożliwia uruchamianie i skalowanie w chmurze baz danych MySQL o wysokiej dostępności, a także zarządzanie nimi. W tym przewodniku szybki start utworzysz serwer Azure Database for MySQL z integracją z siecią wirtualną przy użyciu szablonu ARM. Serwer można utworzyć w Azure Portal, interfejsie wiersza polecenia platformy Azure lub Azure PowerShell.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -27,7 +27,7 @@ Azure Database for MySQL to usługa zarządzana, która umożliwia uruchamianie 
 
 Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/).
 
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+# <a name="powershell"></a>[Program PowerShell](#tab/PowerShell)
 
 * Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/).
 * Jeśli chcesz uruchomić kod lokalnie, [Azure PowerShell](/powershell/azure/).
@@ -65,7 +65,7 @@ Więcej przykładów szablonów Azure Database for MySQL można znaleźć w [gal
 
 Wybierz następujący link, aby wdrożyć szablon Azure Database for MySQL Server w Azure Portal:
 
-[![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mysql-with-vnet%2fazuredeploy.json)
+[![Wdróż na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mysql-with-vnet%2fazuredeploy.json)
 
 Na stronie **wdrażanie Azure Database for MySQL przy użyciu sieci wirtualnej** :
 
@@ -98,7 +98,7 @@ Na stronie **wdrażanie Azure Database for MySQL przy użyciu sieci wirtualnej**
 
 6. Wybierz pozycję **Kup**.
 
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+# <a name="powershell"></a>[Program PowerShell](#tab/PowerShell)
 
 Użyj poniższego kodu interaktywnego, aby utworzyć nowy serwer Azure Database for MySQL przy użyciu szablonu. W kodzie zostanie wyświetlony komunikat z prośbą o nową nazwę serwera, nazwę i lokalizację nowej grupy zasobów oraz nazwę i hasło konta administratora.
 
@@ -156,7 +156,7 @@ Wykonaj następujące kroki, aby zobaczyć przegląd nowego serwera Azure Databa
 
 2. Na liście baza danych wybierz nowy serwer. Zostanie wyświetlona strona **Przegląd** dla nowego serwera Azure Database for MySQL.
 
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+# <a name="powershell"></a>[Program PowerShell](#tab/PowerShell)
 
 Uruchom Poniższy kod interaktywny, aby wyświetlić szczegółowe informacje o serwerze Azure Database for MySQL. Musisz wprowadzić nazwę nowego serwera.
 
@@ -180,7 +180,7 @@ az resource show --resource-group $resourcegroupName --name $serverName --resour
 
 ---
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie jest już potrzebne, Usuń grupę zasobów, która spowoduje usunięcie zasobów z grupy zasobów.
 
@@ -194,7 +194,7 @@ Gdy nie jest już potrzebne, Usuń grupę zasobów, która spowoduje usunięcie 
 
 4. W oknie dialogowym potwierdzenia wpisz nazwę grupy zasobów, a następnie wybierz pozycję **Usuń**.
 
-# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
+# <a name="powershell"></a>[Program PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"

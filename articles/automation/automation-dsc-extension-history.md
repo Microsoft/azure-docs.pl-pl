@@ -1,22 +1,22 @@
 ---
-description: Dowiedz się więcej o historii wersji dla rozszerzenia konfiguracji żądanego stanu (DSC) na platformie Azure.
+title: Pracuj z historią wersji rozszerzenia konfiguracji żądanego stanu platformy Azure
+description: W tym artykule opisano sposób pracy z historią wersji dla rozszerzenia konfiguracji żądanego stanu (DSC) na platformie Azure.
 ms.date: 06/21/2018
 keywords: dsc, powershell, azure, extension
-title: Historia wersji rozszerzenia Azure DSC
 author: mgoedtel
 ms.author: magoedte
 services: automation
 ms.service: automation
 ms.subservice: dsc
 ms.topic: conceptual
-ms.openlocfilehash: 207b8f7467753a8693bbabe6dd3f7a890307cf21
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4578e3bff7951293c5ec2f1992e597face84b716
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82120706"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83713203"
 ---
-# <a name="azure-desired-state-configuration-extension-version-history"></a>Historia wersji rozszerzenia konfiguracji żądanego stanu platformy Azure
+# <a name="work-with-azure-desired-state-configuration-extension-version-history"></a>Pracuj z historią wersji rozszerzenia konfiguracji żądanego stanu platformy Azure
 
 Rozszerzenie maszyny wirtualnej konfiguracji żądanego stanu (DSC) platformy Azure jest aktualizowane w miarę potrzeb w celu obsługi ulepszeń i nowych funkcji dostarczanych przez platformę Azure, system Windows Server oraz środowisko Windows Management Framework (WMF), które zawiera program Windows PowerShell.
 
@@ -27,7 +27,7 @@ Ten artykuł zawiera informacje o każdej wersji rozszerzenia maszyny wirtualnej
 ### <a name="version-276"></a>Wersja 2,76
 
 - **Data wydania:**
-  - 9 maja 2018 (Azure) | 21 czerwca 2018 (Chiny platformy Azure, Azure Government)
+  - 9 maja 2018 (Azure) | 21 czerwca 2018 (Vianet platformy Azure — Chiny 21, Azure Government)
 - **Obsługa systemu operacyjnego:**
   - Windows Server 2016
   - Windows Server 2012 R2
@@ -42,7 +42,7 @@ Ten artykuł zawiera informacje o każdej wersji rozszerzenia maszyny wirtualnej
   - WMF 4.0
 - **Naturalne**
   - Azure
-  - Azure China
+  - Azure Chiny Vianet 21
   - Azure Government
 - **Uwagi:** Ta wersja używa DSC w systemie Windows Server 2016; w przypadku innych systemów operacyjnych systemu Windows jest instalowany [system Windows Management Framework 5,1](https://devblogs.microsoft.com/powershell/wmf-5-1-releasing-january-2017/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia). W przypadku serwera nano Server rola DSC jest zainstalowana na maszynie wirtualnej.
 - **Nowe funkcje:**
@@ -89,7 +89,7 @@ Ten artykuł zawiera informacje o każdej wersji rozszerzenia maszyny wirtualnej
     }
     ```
 
-  - W nowej wersji rozszerzenia protokół TLS 1,2 jest teraz wymuszany. Gdy wdrożenie rozszerzenia ma już włączoną flagą autoupgrademinorversion = true w szablonie Menedżer zasobów, rozszerzenie zostanie uaktualnione do 2,75. W przypadku ręcznych aktualizacji `TypeHandlerVersion = 2.75` Określ w szablonie Menedżer zasobów.
+  - W nowej wersji rozszerzenia protokół TLS 1,2 jest teraz wymuszany. Gdy wdrożenie rozszerzenia ma już włączoną flagą autoupgrademinorversion = true w szablonie Menedżer zasobów, rozszerzenie zostanie uaktualnione do 2,75. W przypadku ręcznych aktualizacji Określ `TypeHandlerVersion = 2.75` w szablonie Menedżer zasobów.
 
 ### <a name="version-270---272"></a>Wersja 2,70-2,72
 
@@ -181,10 +181,10 @@ Ten artykuł zawiera informacje o każdej wersji rozszerzenia maszyny wirtualnej
 - **Data wydania:** 3 czerwca 2016
 - **Obsługa systemu operacyjnego:** Windows Server 2016 Technical Preview, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 z dodatkiem SP1
 - **Obsługa WMF:** WMF 5,0 RTM, WMF 4,0 Update, WMF 4,0
-- **Środowisko:** Azure, Chiny platformy Azure, Azure Government
+- **Środowisko:** Azure, Azure Chiny Vianet 21, Azure Government
 - **Uwagi:** Ta wersja używa DSC jako dołączonego do systemu Windows Server 2016 Technical Preview; w przypadku innych systemów operacyjnych systemu Windows instalowany jest [pakiet Windows Management Framework 5,0 RTM](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-5-0-rtm-is-now-available-via-the-microsoft-update-catalog/) (zainstalowanie pakietu WMF wymaga ponownego uruchomienia).
 - **Nowe funkcje:**
-  - Rozszerzenie DSC zostało teraz dołączone do Chin platformy Azure. Ta wersja zawiera głównie poprawki do uruchamiania rozszerzenia na platformie Azure (Chiny).
+  - Rozszerzenie DSC zostało teraz dołączone do platformy Azure w Chinach Vianet 21. Ta wersja zawiera głównie poprawki do uruchamiania rozszerzenia na platformie Azure (Chiny) Vianet 21.
 
 ### <a name="version-218"></a>Wersja 2,18
 
@@ -249,7 +249,7 @@ Ten artykuł zawiera informacje o każdej wersji rozszerzenia maszyny wirtualnej
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać więcej informacji na temat programu PowerShell DSC, przejdź do [centrum dokumentacji programu PowerShell](/powershell/scripting/dsc/overview/overview).
+- Aby uzyskać więcej informacji na temat programu PowerShell DSC, zobacz [centrum dokumentacji programu PowerShell](/powershell/scripting/dsc/overview/overview).
 - Zapoznaj się z [szablonem Menedżer zasobów dla rozszerzenia DSC](/azure/virtual-machines/extensions/dsc-template).
 - Aby uzyskać więcej funkcji, którymi można zarządzać za pomocą programu PowerShell DSC i więcej zasobów DSC, przejrzyj [galerię programu PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
 - Aby uzyskać szczegółowe informacje o przekazywaniu poufnych parametrów do konfiguracji, zobacz [Zarządzanie poświadczeniami bezpiecznie przy użyciu programu obsługi rozszerzeń DSC](/azure/virtual-machines/extensions/dsc-credentials).

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3bf7ff668584a78fea6e2d787e96f36a20f12e37
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: f3e53ac189e0d612b09c362e82ba5bc2fe5fec8d
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197631"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83696831"
 ---
 # <a name="cetas-with-synapse-sql"></a>CETAS z Synapse SQL
 
@@ -89,7 +89,9 @@ Musisz mieć uprawnienia do wyświetlania zawartości folderu i zapisywania do f
 
 Te przykłady używają CETAS do zapisywania całkowitej populacji zagregowanej według roku i stanu do folderu aggregated_data, który znajduje się w population_ds DataSource.
 
-Ten przykład opiera się na utworzonym wcześniej formacie, źródle danych i pliku zewnętrznym. Zapoznaj się z dokumentem [tabele zewnętrzne](develop-tables-external-tables.md) . Aby zapisać wyniki zapytania do innego folderu w tym samym źródle danych, Zmień argument lokalizacji. Aby zapisać wyniki na innym koncie magazynu, Utwórz i użyj innego źródła danych dla argumentu DATA_SOURCE.
+Ten przykład opiera się na utworzonym wcześniej formacie, źródle danych i pliku zewnętrznym. Zapoznaj się z dokumentem [tabele zewnętrzne](develop-tables-external-tables.md) . Aby zapisać wyniki zapytania do innego folderu w tym samym źródle danych, Zmień argument lokalizacji. 
+
+Aby zapisać wyniki na innym koncie magazynu, Utwórz i użyj innego źródła danych dla argumentu DATA_SOURCE.
 
 > [!NOTE]
 > Poniższe przykłady używają publicznego konta usługi Azure Data Storage. Jest on tylko do odczytu. Aby wykonać te zapytania, należy podać źródło danych, dla którego masz uprawnienia do zapisu.
@@ -114,7 +116,7 @@ GO
 SELECT * FROM population_by_year_state
 ```
 
-W poniższym przykładzie jest stosowana tabela zewnętrzna jako źródło dla CETAS. Opiera się on na poświadczeniach, źródle danych, zewnętrznym formacie pliku i utworzonej wcześniej tabeli zewnętrznej. Zapoznaj się z dokumentem [tabele zewnętrzne](develop-tables-external-tables.md) .
+Poniższy przykład używa tabeli zewnętrznej jako źródła dla CETAS. Opiera się on na poświadczeniach, źródle danych, zewnętrznym formacie pliku i utworzonej wcześniej tabeli zewnętrznej. Zapoznaj się z dokumentem [tabele zewnętrzne](develop-tables-external-tables.md) .
 
 ```sql
 -- use CETAS with select from external table
@@ -155,7 +157,8 @@ CETAS może służyć do przechowywania zestawów wyników przy użyciu następu
 - tinyint
 - bit
 
-LOB nie można używać z CETAS.
+> [!NOTE]
+> LOB nie można używać z CETAS.
 
 Następujące typy danych nie mogą być używane w SELECT część elementu CETAS:
 
@@ -170,4 +173,4 @@ Następujące typy danych nie mogą być używane w SELECT część elementu CET
 
 ## <a name="next-steps"></a>Następne kroki
 
-Można spróbować wykonać zapytanie dotyczące [tabel platformy Spark](develop-storage-files-spark-tables.md).
+Możesz spróbować wykonać zapytania [Apache Spark w przypadku tabel zewnętrznych usługi Azure Synapse](develop-storage-files-spark-tables.md).

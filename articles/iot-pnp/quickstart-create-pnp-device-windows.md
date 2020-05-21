@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: e80194f53a406b8b378d0fb787df627937125a27
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4f9b8f3edc475ec50eaf11080020aa9f62a0d2c1
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75867488"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700885"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-windows"></a>Szybki Start: korzystanie z modelu możliwości urządzenia do tworzenia urządzenia w wersji zapoznawczej IoT Plug and Play (Windows)
 
@@ -28,7 +28,7 @@ Aby ukończyć ten przewodnik Szybki Start, musisz zainstalować następujące o
 * [Narzędzia kompilacji dla programu Visual Studio](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16) z **narzędziami kompilacji C++** i obciążeniami **składników Menedżera pakietów NuGet** . Lub jeśli masz już [program Visual Studio (Community, Professional lub Enterprise)](https://visualstudio.microsoft.com/downloads/) 2019, 2017 lub 2015 z zainstalowanymi takimi samymi obciążeniami.
 * Usługi [git](https://git-scm.com/download/).
 * [CMAKE](https://cmake.org/download/).
-* [Visual Studio Code](https://code.visualstudio.com/).
+* [Program Visual Studio Code](https://code.visualstudio.com/)
 
 ### <a name="install-azure-iot-tools"></a>Instalowanie narzędzi Azure IoT Tools
 
@@ -87,7 +87,7 @@ W tym przewodniku szybki start użyjesz istniejącego modelu możliwości przyk�
 
 1. Utwórz `pnp_app` folder na dysku lokalnym. Ten folder służy do plików modelu urządzenia i szczątkowego kodu urządzenia.
 
-1. Pobierz [model możliwości urządzenia i przykładowe pliki interfejsu](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/SampleDevice.capabilitymodel.json) oraz [przykład interfejsu](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/EnvironmentalSensor.interface.json) i Zapisz pliki w `pnp_app` folderze.
+1. Pobierz [model możliwości urządzenia i przykładowe pliki interfejsu](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/SampleDevice.model.json) oraz [przykład interfejsu](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/EnvironmentalSensor.interface.json) i Zapisz pliki w `pnp_app` folderze.
 
     > [!TIP]
     > Aby pobrać plik z usługi GitHub, przejdź do pliku, kliknij prawym przyciskiem myszy pozycję **RAW**, a następnie wybierz pozycję **Zapisz łącze jako**.
@@ -96,13 +96,13 @@ W tym przewodniku szybki start użyjesz istniejącego modelu możliwości przyk�
 
     ![Model możliwości urządzenia](media/quickstart-create-pnp-device/dcm.png)
 
-1. W pobranych plikach Zastąp `<YOUR_COMPANY_NAME_HERE>` pola `@id` i `schema` unikatowymi wartościami. Używaj tylko znaków a-z, A-Z, 0-9 i znaku podkreślenia. Aby uzyskać więcej informacji, zobacz [Format identyfikatora cyfrowego przędzy](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL#digital-twin-identifier-format).
+1. W pobranych plikach Zastąp `<YOUR_COMPANY_NAME_HERE>` `@id` `schema` pola i unikatowymi wartościami. Używaj tylko znaków a-z, A-Z, 0-9 i znaku podkreślenia. Aby uzyskać więcej informacji, zobacz [Format identyfikatora cyfrowego przędzy](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL#digital-twin-identifier-format).
 
 ## <a name="generate-the-c-code-stub"></a>Generuj procedurę tworzenia kodu w języku C
 
 Teraz, gdy masz już DCM i skojarzone z nią interfejsy, możesz wygenerować kod urządzenia, który implementuje model. Aby wygenerować skrót kodu C w VS Code:
 
-1. Gdy folder `pnp_app` jest otwarty w vs Code, użyj **kombinacji klawiszy Ctrl + Shift + P** , aby otworzyć paletę poleceń, wprowadź **Plug and Play IoT**i wybierz pozycję **Generuj procedurę tworzenia kodu urządzenia**.
+1. Gdy `pnp_app` folder jest otwarty w vs Code, użyj **kombinacji klawiszy Ctrl + Shift + P** , aby otworzyć paletę poleceń, wprowadź **Plug and Play IoT**i wybierz pozycję **Generuj procedurę tworzenia kodu urządzenia**.
 
     > [!NOTE]
     > Przy pierwszym użyciu interfejsu wiersza polecenia IoT Plug and Play CodeGen można pobrać i zainstalować automatycznie kilka sekund.
@@ -126,7 +126,7 @@ Teraz, gdy masz już DCM i skojarzone z nią interfejsy, możesz wygenerować ko
 
 Pakiet Vcpkg jest używany do kompilowania wygenerowanej procedury tworzenia kodu urządzenia. Utworzona Aplikacja symuluje urządzenie, które nawiązuje połączenie z usługą IoT Hub. Aplikacja wysyła dane telemetryczne i właściwości oraz odbiera polecenia.
 
-1. `cmake` Utwórz podkatalog w `sample_device` folderze i przejdź do tego folderu:
+1. Utwórz `cmake` podkatalog w `sample_device` folderze i przejdź do tego folderu:
 
     ```cmd
     mkdir cmake
@@ -169,9 +169,9 @@ Pakiet Vcpkg jest używany do kompilowania wygenerowanej procedury tworzenia kod
 
 Aby sprawdzić poprawność kodu urządzenia za pomocą programu **Azure IoT Explorer**, należy opublikować pliki w repozytorium modeli.
 
-1. Gdy folder `pnp_app` jest otwarty w vs Code, użyj **kombinacji klawiszy Ctrl + Shift + P** , aby otworzyć paletę poleceń, wpisz i wybierz pozycję **IoT plug & Play: Prześlij pliki do repozytorium modeli**.
+1. Gdy `pnp_app` folder jest otwarty w vs Code, użyj **kombinacji klawiszy Ctrl + Shift + P** , aby otworzyć paletę poleceń, wpisz i wybierz pozycję **IoT plug & Play: Prześlij pliki do repozytorium modeli**.
 
-1. Wybierz `SampleDevice.capabilitymodel.json` pozycję `EnvironmentalSensor.interface.json` i.
+1. Wybierz pozycję `SampleDevice.capabilitymodel.json` i `EnvironmentalSensor.interface.json` .
 
 1. Wprowadź parametry połączenia repozytorium modelu firmy.
 

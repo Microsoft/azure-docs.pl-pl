@@ -1,15 +1,15 @@
 ---
 title: Samouczek — wdrażanie lokalnego szablonu Azure Resource Manager
 description: Dowiedz się, jak wdrożyć szablon Azure Resource Manager z komputera lokalnego
-ms.date: 03/13/2020
+ms.date: 05/20/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7f134bb836d05d006ef2e474ea48382a671957fe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 01f04d18ae54c3c512010dd005e9d820b914e536
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82188828"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714070"
 ---
 # <a name="tutorial-deploy-a-local-azure-resource-manager-template"></a>Samouczek: Wdrażanie szablonu Azure Resource Manager lokalnego
 
@@ -50,7 +50,7 @@ Zapisz kopię szablonu na komputerze lokalnym przy użyciu rozszerzenia JSON, na
 
 Aby rozpocząć pracę z interfejsem wiersza polecenia Azure PowerShell/Azure w celu wdrożenia szablonu, zaloguj się przy użyciu poświadczeń platformy Azure.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 Connect-AzAccount
@@ -66,10 +66,10 @@ az login
 
 Jeśli masz wiele subskrypcji platformy Azure, wybierz subskrypcję, której chcesz użyć:
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-Select-AzSubscription [SubscriptionID/SubscriptionName]
+Set-AzContext [SubscriptionID/SubscriptionName]
 ```
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
@@ -84,7 +84,7 @@ az account set --subscription [SubscriptionID/SubscriptionName]
 
 Podczas wdrażania szablonu należy określić grupę zasobów, która będzie zawierać zasoby. Przed uruchomieniem polecenia wdrożenia Utwórz grupę zasobów przy użyciu interfejsu wiersza polecenia platformy Azure lub Azure PowerShell. Wybierz karty w poniższej sekcji kodu, aby wybrać między Azure PowerShell i interfejsem wiersza polecenia platformy Azure. Przykłady interfejsu wiersza polecenia w tym artykule są przeznaczone dla powłoki bash.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $projectName = Read-Host -Prompt "Enter a project name that is used to generate resource and resource group names"
@@ -113,7 +113,7 @@ az group create \
 
 Użyj jednej lub obu opcji wdrażania, aby wdrożyć szablon.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $projectName = Read-Host -Prompt "Enter the same project name"
@@ -151,7 +151,7 @@ Aby dowiedzieć się więcej o wdrażaniu szablonu przy użyciu interfejsu wiers
 
 ---
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Wyczyść wdrożone zasoby, usuwając grupę zasobów.
 

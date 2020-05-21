@@ -1,6 +1,6 @@
 ---
-title: Konwertowanie konfiguracji na zasoby złożone na potrzeby konfiguracji stanu — Azure Automation
-description: Dowiedz się, jak konwertować konfiguracje na zasoby złożone, aby skonfigurować stan w Azure Automation.
+title: Konwertuj konfiguracje na zasoby złożone na potrzeby konfiguracji stanu Azure Automation
+description: W tym artykule opisano sposób konwertowania konfiguracji na zasoby złożone na potrzeby konfiguracji stanu Azure Automation.
 keywords: DSC, PowerShell, konfiguracja, instalacja
 services: automation
 ms.service: automation
@@ -10,14 +10,14 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a39b038d31d1b4a614ff0acf7df2586706bb0404
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 99fd7b2d0581b3eda97ec6fadeb43b55a3ad2bf0
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585515"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83711333"
 ---
-# <a name="convert-configurations-to-composite-resources"></a>Konwertowanie konfiguracji do zasobów złożonych
+# <a name="convert-configurations-to-composite-resources-for-azure-automation-state-configuration"></a>Konwertuj konfiguracje na zasoby złożone na potrzeby konfiguracji stanu Azure Automation
 
 > Dotyczy: Windows PowerShell 5,1
 

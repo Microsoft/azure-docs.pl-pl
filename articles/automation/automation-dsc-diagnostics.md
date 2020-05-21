@@ -1,6 +1,6 @@
 ---
-title: Przekazywanie danych Azure Automation konfiguracji stanu do dzienników Azure Monitor
-description: W tym artykule pokazano, jak wysyłać dane raportowania konfiguracji żądanego stanu (DSC) z konfiguracji stanu Azure Automation do Azure Monitor dzienników w celu zapewnienia dodatkowego wglądu i zarządzania.
+title: Integracja z dziennikami Azure Monitor
+description: W tym artykule opisano, jak wysyłać dane o konfiguracji żądanego stanu z konfiguracji stanu Azure Automation do Azure Monitor dzienników.
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -9,14 +9,14 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0b0ee75c39ba87503f150ffb72b7ab95aaf83999
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: cc68b53137175042f586ee83bc045f0fbbca38f7
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996049"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83713288"
 ---
-# <a name="forward-state-configuration-reporting-data-to-azure-monitor-logs"></a>Przekazywanie danych raportowania konfiguracji stanu do dzienników usługi Azure Monitor
+# <a name="integrate-with-azure-monitor-logs"></a>Integracja z dziennikami Azure Monitor
 
 Azure Automation konfiguracja stanu zachowuje dane stanu węzła przez 30 dni. Dane stanu węzła można wysłać do obszaru roboczego Log Analytics, jeśli wolisz zachować te dane przez dłuższy okres. Stan zgodności jest widoczny w Azure Portal lub w programie PowerShell dla węzłów i dla indywidualnych zasobów DSC w konfiguracjach węzłów. 
 
@@ -29,7 +29,6 @@ Dzienniki Azure Monitor zapewniają większą widoczność operacyjną danych ko
 - Za pomocą widoków niestandardowych i zapytań wyszukiwania można wizualizować wyniki elementu Runbook, stan zadania elementu Runbook oraz inne powiązane wskaźniki lub metryki kluczy.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
-
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -60,7 +59,7 @@ Aby rozpocząć importowanie danych z konfiguracji stanu Azure Automation do dzi
    Get-AzResource -ResourceType 'Microsoft.OperationalInsights/workspaces'
    ```
 
-1. Uruchom następujące polecenie cmdlet programu PowerShell, `<AutomationResourceId>` zastępując `<WorkspaceResourceId>` `ResourceId` wartości i wartościami z każdego z poprzednich kroków.
+1. Uruchom następujące polecenie cmdlet programu PowerShell, `<AutomationResourceId>` zastępując `<WorkspaceResourceId>` wartości i `ResourceId` wartościami z każdego z poprzednich kroków.
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <WorkspaceResourceId> -Enabled $true -Category 'DscNodeStatus'
@@ -127,8 +126,8 @@ To zapytanie wyświetla wykres stanu węzła w czasie.
 
 Azure Automation Diagnostics Utwórz dwie kategorie rekordów w dziennikach Azure Monitor:
 
-* Dane stanu węzła (`DscNodeStatusData`)
-* Dane stanu zasobu (`DscResourceStatusData`)
+* Dane stanu węzła ( `DscNodeStatusData` )
+* Dane stanu zasobu ( `DscResourceStatusData` )
 
 ### <a name="dscnodestatusdata"></a>DscNodeStatusData
 
@@ -140,7 +139,7 @@ Azure Automation Diagnostics Utwórz dwie kategorie rekordów w dziennikach Azur
 | NodeName_s |Nazwa zarządzanego węzła. |
 | NodeComplianceStatus_s |Wartość stanu określająca, czy węzeł jest zgodny. |
 | DscReportStatus |Wartość stanu wskazująca, czy sprawdzanie zgodności zostało pomyślnie wykonane. |
-| ConfigurationMode | Tryb służący do zastosowania konfiguracji do węzła. Możliwe wartości: <ul><li>`ApplyOnly`: Konfiguracja DSC stosuje konfigurację i nie wykonuje żadnych dalszych operacji, chyba że nowa konfiguracja jest wypychana do węzła docelowego lub gdy nowa konfiguracja zostanie pościągnięta z serwera. Po początkowej aplikacji nowej konfiguracji DSC nie sprawdza dryfu od wcześniej skonfigurowanego stanu. Konfiguracja DSC próbuje zastosować konfigurację do momentu jego pomyślnego `ApplyOnly` zakończenia. </li><li>`ApplyAndMonitor`: Jest to wartość domyślna. LCM stosuje wszelkie nowe konfiguracje. Po początkowej aplikacji nowej konfiguracji, jeśli węzeł docelowy zostanie przedryfem z żądanego stanu, DSC zgłosi niezgodność w dziennikach. Konfiguracja DSC próbuje zastosować konfigurację do momentu jego pomyślnego `ApplyAndMonitor` zakończenia.</li><li>`ApplyAndAutoCorrect`: Konfiguracja DSC stosuje wszelkie nowe konfiguracje. Po początkowym zastosowaniu nowej konfiguracji, jeśli węzeł docelowy zostanie przedryfem z żądanego stanu, DSC zgłosi niezgodność w dziennikach, a następnie ponownie zastosuje bieżącą konfigurację.</li></ul> |
+| ConfigurationMode | Tryb służący do zastosowania konfiguracji do węzła. Możliwe wartości: <ul><li>`ApplyOnly`: Konfiguracja DSC stosuje konfigurację i nie wykonuje żadnych dalszych operacji, chyba że nowa konfiguracja jest wypychana do węzła docelowego lub gdy nowa konfiguracja zostanie pościągnięta z serwera. Po początkowej aplikacji nowej konfiguracji DSC nie sprawdza dryfu od wcześniej skonfigurowanego stanu. Konfiguracja DSC próbuje zastosować konfigurację do momentu jego pomyślnego zakończenia `ApplyOnly` . </li><li>`ApplyAndMonitor`: Jest to wartość domyślna. LCM stosuje wszelkie nowe konfiguracje. Po początkowej aplikacji nowej konfiguracji, jeśli węzeł docelowy zostanie przedryfem z żądanego stanu, DSC zgłosi niezgodność w dziennikach. Konfiguracja DSC próbuje zastosować konfigurację do momentu jego pomyślnego zakończenia `ApplyAndMonitor` .</li><li>`ApplyAndAutoCorrect`: Konfiguracja DSC stosuje wszelkie nowe konfiguracje. Po początkowym zastosowaniu nowej konfiguracji, jeśli węzeł docelowy zostanie przedryfem z żądanego stanu, DSC zgłosi niezgodność w dziennikach, a następnie ponownie zastosuje bieżącą konfigurację.</li></ul> |
 | HostName_s | Nazwa zarządzanego węzła. |
 | IPAddress | Adres IPv4 węzła zarządzanego. |
 | Kategoria | `DscNodeStatus`. |

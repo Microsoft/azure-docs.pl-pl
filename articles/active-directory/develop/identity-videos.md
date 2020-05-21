@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: marsma
 ms.custom: aaddev
 ms.reviewer: celested
-ms.openlocfilehash: 346d5560d8388c8958e94efd4e149f54eb0235b7
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 232b166d667996f2138224dc6ecbbc925d0ebe9e
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681790"
+ms.locfileid: "83712659"
 ---
 # <a name="microsoft-identity-platform-videos"></a>Wideo poświęcone platformie tożsamości firmy Microsoft
 
@@ -25,7 +25,9 @@ Poznaj podstawy nowoczesnego uwierzytelniania, platformy tożsamości firmy Micr
 
 ## <a name="microsoft-identity-platform-for-developers"></a>Platforma tożsamości firmy Microsoft dla deweloperów
 
-*Tożsamość dla deweloperów* filmów wideo koncentruje się na tym, co musisz wiedzieć, aby rozpocząć dodawanie obsługi tożsamości do aplikacji. Dostrojenie w celu szybkiego dostarczania podstawowych aspektów platformy i korzystania z jej bibliotek uwierzytelniania jest dobrym miejscem do uruchomienia dla każdego dewelopera.
+W przypadku serii wideo *dla deweloperów* , Matthijs Hoekstra i Kyle Marsh zawiera Przewodnik po wprowadzeniu do platformy tożsamości firmy Microsoft. Zapoznaj się z kluczowymi składnikami i możliwościami platformy oraz jak korzystać z bibliotek uwierzytelniania, aby rozpocząć dodawanie nowoczesnego, bezpiecznego uwierzytelniania do aplikacji.
+
+Dzięki zawartości nadzorowanej i honed na wiele przeprowadzonych sesji szkoleniowych ta seria jest dobrym miejscem do rozpoczęcia pracy z tożsamościami na platformie Azure.
 ___
 
 :::row:::
@@ -33,13 +35,13 @@ ___
         1 — omówienie platformy tożsamości firmy Microsoft dla deweloperów (33:55)
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/zjezqZPPOfc]
+        >[!VIDEO https://www.youtube.com/embed/zjezqZPPOfc]
     :::column-end:::
      :::column:::
         2 — jak uwierzytelniać użytkowników aplikacji za pomocą platformy tożsamości firmy Microsoft (29:09)
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/Mtpx_lpfRLs]
+        >[!VIDEO https://www.youtube.com/embed/Mtpx_lpfRLs]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -47,13 +49,13 @@ ___
         3 — uprawnienia platformy tożsamości firmy Microsoft i struktura wyrażania zgody (45:08)
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/toAWRNqqDL4]
+        >[!VIDEO https://www.youtube.com/embed/toAWRNqqDL4]
     :::column-end:::
     :::column:::
         4 — jak chronić interfejsy API przy użyciu platformy tożsamości firmy Microsoft (33:17)
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/IIQ7QW4bYqA]
+        >[!VIDEO https://www.youtube.com/embed/IIQ7QW4bYqA]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -61,7 +63,7 @@ ___
         5 — role aplikacji i grupy zabezpieczeń na platformie tożsamości firmy Microsoft (15:52)
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/-BK2iBDrmNo]
+        >[!VIDEO https://www.youtube.com/embed/-BK2iBDrmNo]
     :::column-end:::
     :::column:::
         <!-- BLANK TITLE CELL -->
@@ -81,13 +83,13 @@ ___
         1 — podstawy: pojęcia nowoczesnego uwierzytelniania (4:33)
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/fbSVgC8nGz4?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+        >[!VIDEO https://www.youtube.com/embed/fbSVgC8nGz4?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
     :::column-end:::
      :::column:::
         2 — uwierzytelnianie nowoczesne dla aplikacji sieci Web (6:02)
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/tCNcG1lcCHY?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+        >[!VIDEO https://www.youtube.com/embed/tCNcG1lcCHY?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -95,13 +97,13 @@ ___
         3 — Logowanie jednokrotne w sieci Web (4:13)
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/51B-jSOBF8U?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+        >[!VIDEO https://www.youtube.com/embed/51B-jSOBF8U?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
     :::column-end:::
     :::column:::
         4 — federacyjne Uwierzytelnianie sieci Web (6:19)
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/CjarTgjKcX8?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+        >[!VIDEO https://www.youtube.com/embed/CjarTgjKcX8?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -109,13 +111,13 @@ ___
         5 — natywne aplikacje klienckie — część 1 (8:12)
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/OGMDnuDrAcQ?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+        >[!VIDEO https://www.youtube.com/embed/OGMDnuDrAcQ?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
     :::column-end:::
     :::column:::
         6 — natywne aplikacje klienckie — część 2 (5:33)
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/2RE6IhXfmHY?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
+        >[!VIDEO https://www.youtube.com/embed/2RE6IhXfmHY?list=PLLasX02E8BPD5vC2XHS_oHaMVmaeHHPLy]
     :::column-end:::
 :::row-end:::
 
@@ -129,7 +131,7 @@ ___
         Microsoft Identity platform — Omówienie
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8]
+        >[!VIDEO https://www.youtube.com/embed/bNlcFuIo3r8]
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -141,13 +143,13 @@ ___
         Wprowadzenie do bibliotek MSAL
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/apbbx2n4tnU]
+        >[!VIDEO https://www.youtube.com/embed/apbbx2n4tnU]
     :::column-end:::
     :::column:::
         Jak MSAL ułatwia uwierzytelnianie
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/yLVEBU9Z96Q]
+        >[!VIDEO https://www.youtube.com/embed/yLVEBU9Z96Q]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -155,13 +157,13 @@ ___
         Wyjaśnione zakresy
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/eiPHOoLmGJs]
+        >[!VIDEO https://www.youtube.com/embed/eiPHOoLmGJs]
     :::column-end:::
     :::column:::
         Co to są brokerzy
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/Zd_Uubnu0U0]
+        >[!VIDEO https://www.youtube.com/embed/Zd_Uubnu0U0]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -169,13 +171,13 @@ ___
         Jakie identyfikatory URI przekierowania
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/znSN_3JAuoU]
+        >[!VIDEO https://www.youtube.com/embed/znSN_3JAuoU]
     :::column-end:::
     :::column:::
         Wyjaśnienie dzierżawców
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/mDhT4Zv1fZU]
+        >[!VIDEO https://www.youtube.com/embed/mDhT4Zv1fZU]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -183,13 +185,13 @@ ___
         Rola usługi Azure AD
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/zDEC7A5ZS2Q]
+        >[!VIDEO https://www.youtube.com/embed/zDEC7A5ZS2Q]
     :::column-end:::
     :::column:::
         Rola obiektów aplikacji usługi Azure AD
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/HEpq_YSmuWw]
+        >[!VIDEO https://www.youtube.com/embed/HEpq_YSmuWw]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -197,13 +199,13 @@ ___
         Różnice konto Microsoft organizacyjnych i prywatnych
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/E2OUluQQKSk]
+        >[!VIDEO https://www.youtube.com/embed/E2OUluQQKSk]
     :::column-end:::
     :::column:::
         Różnice dotyczące SPA i aplikacji sieci Web
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/ZJirt7eTVw8?t=5]
+        >[!VIDEO https://www.youtube.com/embed/ZJirt7eTVw8?t=5]
     :::column-end:::
 :::row-end:::
 
@@ -217,13 +219,13 @@ ___
         Punkty końcowe i zalety przejścia do wersji 2.0
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
+        >[!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
     :::column-end:::
      :::column:::
         Migrowanie bazy kodu ADAL do MSAL
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/xgL_z9yCnrE]
+        >[!VIDEO https://www.youtube.com/embed/xgL_z9yCnrE]
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -231,12 +233,12 @@ ___
         Dlaczego należy przeprowadzić migrację z biblioteki ADAL do MSAL
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
+        >[!VIDEO https://www.youtube.com/embed/qpdC45tZYDg]
     :::column-end:::
     :::column:::
         Zalety MSAL za pośrednictwem biblioteki ADAL
     :::column-end:::
     :::column:::
-        > [!VIDEO https://www.youtube.com/embed/q-TDszj2O-4]
+        >[!VIDEO https://www.youtube.com/embed/q-TDszj2O-4]
     :::column-end:::
 :::row-end:::

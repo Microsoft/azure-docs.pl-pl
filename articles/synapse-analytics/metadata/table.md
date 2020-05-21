@@ -6,37 +6,33 @@ author: MikeRys
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7c1951c772dcd2f49f4f7c09021f69193af0a87e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3e28a76a559603755d3d72e8d5e27cde72aa9533
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424580"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701060"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tabele udostępnione metadanych usługi Azure Synapse Analytics
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-Usługa Azure Synapse Analytics umożliwia korzystanie z różnych aparatów obliczeniowych obszarów roboczych w celu udostępniania baz danych i tabel z kopią zapasową Parquet między pulami Apache Spark (wersja zapoznawcza), aparatem SQL na żądanie (wersja zapoznawcza) i pulami SQL.
+Usługa Azure Synapse Analytics umożliwia korzystanie z różnych aparatów obliczeniowych obszarów roboczych w celu udostępniania baz danych i tabel z kopią zapasową Parquet między pulami Apache Spark (wersja zapoznawcza) i aparatem SQL na żądanie (wersja zapoznawcza).
 
 Po utworzeniu bazy danych przez zadanie platformy Spark można utworzyć w niej tabele z platformą Spark, która używa Parquet jako formatu magazynu. Te tabele staną się natychmiast dostępne do wykonywania zapytań za pomocą dowolnych pul platformy Azure Synapse Workspace. Mogą być również używane z dowolnego zadania platformy Spark z uprawnieniami.
 
-Tabele utworzone, zarządzane i zewnętrzne są również udostępniane jako tabele zewnętrzne o tej samej nazwie w odpowiedniej zsynchronizowanej bazie danych SQL na żądanie i w odpowiednich `$`schematach z prefiksami w pulach SQL, w których włączono synchronizację metadanych. [Uwidacznianie tabeli Spark w programie SQL Server](#exposing-a-spark-table-in-sql) zawiera więcej szczegółów na temat synchronizacji tabel.
+Tabele utworzone, zarządzane i zewnętrzne są również udostępniane jako tabele zewnętrzne o tej samej nazwie w odpowiedniej zsynchronizowanej bazie danych w programie SQL na żądanie. [Uwidacznianie tabeli Spark w programie SQL Server](#exposing-a-spark-table-in-sql) zawiera więcej szczegółów na temat synchronizacji tabel.
 
-Ponieważ tabele są synchronizowane z usługą SQL na żądanie i w pulach SQL asynchronicznie, nastąpi opóźnienie do momentu ich wyświetlenia.
-
-Mapowanie tabel do tabel zewnętrznych, źródeł danych i formatów plików.
+Ponieważ tabele są zsynchronizowane z usługą SQL na żądanie asynchronicznie, nastąpi opóźnienie do momentu ich wyświetlenia.
 
 ## <a name="manage-a-spark-created-table"></a>Zarządzanie tabelą utworzoną przez platformę Spark
 
 Użyj platformy Spark do zarządzania utworzonymi bazami danych platformy Spark. Można na przykład usunąć ją za pośrednictwem zadania puli platformy Spark i utworzyć w niej tabele z platformy Spark.
 
 W przypadku tworzenia obiektów w takiej bazie danych z poziomu serwera SQL na żądanie lub próby porzucenia bazy danych operacja zakończy się pomyślnie, ale oryginalna baza danych platformy Spark nie zostanie zmieniona.
-
-Jeśli spróbujesz porzucić zsynchronizowany schemat w puli SQL lub spróbować utworzyć w niej tabelę, platforma Azure zwróci błąd.
 
 ## <a name="exposing-a-spark-table-in-sql"></a>Uwidacznianie tabeli Spark w programie SQL
 
@@ -46,7 +42,7 @@ Platforma Spark oferuje dwa typy tabel, które usługa Azure Synapse udostępnia
 
 - Zarządzane tabele
 
-  Platforma Spark udostępnia wiele opcji przechowywania danych w tabelach zarządzanych, takich jak TEXT, CSV, JSON, JDBC, PARQUET, ORC, HIVE, DELTA i LIBSVM. Te pliki są zwykle przechowywane w katalogu `warehouse` , w którym są przechowywane zarządzane dane tabeli.
+  Platforma Spark udostępnia wiele opcji przechowywania danych w tabelach zarządzanych, takich jak TEXT, CSV, JSON, JDBC, PARQUET, ORC, HIVE, DELTA i LIBSVM. Te pliki są zwykle przechowywane w katalogu, w `warehouse` którym są przechowywane zarządzane dane tabeli.
 
 - Tabele zewnętrzne
 
@@ -56,7 +52,7 @@ Usługa Azure Synapse obecnie udostępnia tylko zarządzane i zewnętrzne tabele
 
 ### <a name="how-are-spark-tables-shared"></a>Jak tabele Spark są udostępnione
 
-Zarządzane i zewnętrzne tabele Spark uwidocznione w aparatach SQL jako tabele zewnętrzne o następujących właściwościach:
+Zarządzane i zewnętrzne tabele Spark uwidocznione w aparacie SQL jako tabele zewnętrzne o następujących właściwościach:
 
 - Źródło danych tabeli zewnętrznej SQL to źródło danych reprezentujące folder lokalizacji tabeli Spark.
 - Format pliku tabeli zewnętrznej SQL to Parquet.
@@ -88,7 +84,7 @@ Tabele platformy Spark zapewniają różne typy danych niż aparaty SQL Synapse.
 
 ## <a name="security-model"></a>Model zabezpieczeń
 
-Bazy danych i tabele platformy Spark oraz zsynchronizowane reprezentacje w aparatach SQL zostaną zabezpieczone na podstawowym poziomie magazynu. Ponieważ nie mają obecnie uprawnień do samych obiektów, obiekty mogą być widoczne w Eksploratorze obiektów.
+Bazy danych i tabele platformy Spark oraz zsynchronizowane reprezentacje w aparacie SQL zostaną zabezpieczone na podstawowym poziomie magazynu. Ponieważ nie mają obecnie uprawnień do samych obiektów, obiekty mogą być widoczne w Eksploratorze obiektów.
 
 Podmiot zabezpieczeń tworzący zarządzaną tabelę jest traktowany jako właściciel tej tabeli i ma wszystkie prawa do tabeli, a także bazowe foldery i pliki. Ponadto właściciel bazy danych automatycznie stanie się współwłaścicielem tabeli.
 
@@ -100,7 +96,7 @@ Aby uzyskać więcej informacji na temat sposobu ustawiania uprawnień do folder
 
 ### <a name="create-a-managed-table-backed-by-parquet-in-spark-and-query-from-sql-on-demand"></a>Tworzenie zarządzanej tabeli obsługiwanej przez Parquet w usłudze Spark i zapytanie z usługi SQL na żądanie
 
-W tym scenariuszu istnieje baza danych Spark o nazwie `mytestdb`. Zobacz [tworzenie & łączenie z bazą danych platformy Spark — SQL na żądanie](database.md#create--connect-to-spark-database---sql-on-demand).
+W tym scenariuszu istnieje baza danych Spark o nazwie `mytestdb` . Zobacz [tworzenie & łączenie z bazą danych platformy Spark — SQL na żądanie](database.md#create--connect-to-spark-database---sql-on-demand).
 
 Utwórz zarządzaną tabelę Spark za pomocą SparkSQL, uruchamiając następujące polecenie:
 
@@ -108,14 +104,14 @@ Utwórz zarządzaną tabelę Spark za pomocą SparkSQL, uruchamiając następuj�
     CREATE TABLE mytestdb.myParquetTable(id int, name string, birthdate date) USING Parquet
 ```
 
-Spowoduje to utworzenie tabeli `myParquetTable` w bazie danych `mytestdb`. Po krótkim opóźnieniu można zobaczyć tabelę w SQL na żądanie. Na przykład Uruchom poniższą instrukcję z poziomu usługi SQL na żądanie.
+Spowoduje to utworzenie tabeli `myParquetTable` w bazie danych `mytestdb` . Po krótkim opóźnieniu można zobaczyć tabelę w SQL na żądanie. Na przykład Uruchom poniższą instrukcję z poziomu usługi SQL na żądanie.
 
 ```sql
     USE mytestdb;
     SELECT * FROM sys.tables;
 ```
 
-Sprawdź, `myParquetTable` czy jest uwzględniony w wynikach.
+Sprawdź, czy `myParquetTable` jest uwzględniony w wynikach.
 
 >[!NOTE]
 >Tabela, która nie korzysta z Parquet, ponieważ jej format przechowywania nie zostanie zsynchronizowany.
@@ -169,16 +165,16 @@ CREATE TABLE mytestdb.myExternalParquetTable
     LOCATION "abfss://<fs>@arcadialake.dfs.core.windows.net/synapse/workspaces/<synapse_ws>/warehouse/mytestdb.db/myparquettable/"
 ```
 
-Zastąp symbol `<fs>` zastępczy nazwą systemu plików, który jest domyślnym systemem plików obszaru roboczego i symbolem zastępczym `<synapse_ws>` z nazwą obszaru roboczego Synapse, którego używasz do uruchamiania tego przykładu.
+Zastąp symbol zastępczy `<fs>` nazwą systemu plików, który jest domyślnym systemem plików obszaru roboczego i symbolem zastępczym `<synapse_ws>` z nazwą obszaru roboczego Synapse, którego używasz do uruchamiania tego przykładu.
 
-Poprzedni przykład tworzy tabelę `myExtneralParquetTable` w bazie danych. `mytestdb` Po krótkim opóźnieniu można zobaczyć tabelę w SQL na żądanie. Na przykład Uruchom poniższą instrukcję z poziomu usługi SQL na żądanie.
+Poprzedni przykład tworzy tabelę `myExtneralParquetTable` w bazie danych `mytestdb` . Po krótkim opóźnieniu można zobaczyć tabelę w SQL na żądanie. Na przykład Uruchom poniższą instrukcję z poziomu usługi SQL na żądanie.
 
 ```sql
 USE mytestdb;
 SELECT * FROM sys.tables;
 ```
 
-Sprawdź, `myExternalParquetTable` czy jest uwzględniony w wynikach.
+Sprawdź, czy `myExternalParquetTable` jest uwzględniony w wynikach.
 
 Teraz można odczytywać dane z programu SQL na żądanie w następujący sposób:
 
@@ -193,27 +189,6 @@ id | name | birthdate
 ---+-------+-----------
 1 | Alice | 2010-01-01
 ```
-
-### <a name="querying-spark-tables-in-a-sql-pool"></a>Wykonywanie zapytania dotyczącego tabel platformy Spark w puli SQL
-
-W przypadku tabel utworzonych w poprzednich przykładach teraz utworzysz pulę SQL w obszarze roboczym o nazwie `mysqlpool` , która umożliwia synchronizację metadanych (lub użycie już utworzonej puli od [udostępnienia bazy danych Spark w puli SQL](database.md#exposing-a-spark-database-in-a-sql-pool).
-
-Uruchom następującą instrukcję względem puli `mysqlpool` SQL:
-
-```sql
-SELECT * FROM sys.tables;
-```
-
-Sprawdź, czy tabele `myParquetTable` i `myExternalParquetTable` są widoczne w schemacie `$mytestdb`.
-
-Teraz można odczytywać dane z programu SQL na żądanie w następujący sposób:
-
-```sql
-SELECT * FROM [$mytestdb].myParquetTable WHERE name = 'Alice';
-SELECT * FROM [$mytestdb].myExternalParquetTable WHERE name = 'Alice';
-```
-
-Należy uzyskać takie same wyniki jak w przypadku programu SQL na żądanie powyżej.
 
 ## <a name="next-steps"></a>Następne kroki
 

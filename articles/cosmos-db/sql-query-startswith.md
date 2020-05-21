@@ -4,23 +4,24 @@ description: Dowiedz się więcej o funkcji STARTSWITH systemu SQL w Azure Cosmo
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 05/20/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 9ed49c067946186f8b79f67bad0a460113eacb73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e915ea4be058f805e938ec8526ca0ee40d556271
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78295712"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715277"
 ---
 # <a name="startswith-azure-cosmos-db"></a>STARTSWITH (Azure Cosmos DB)
+
  Zwraca wartość Boolean wskazującą, czy pierwsze wyrażenie ciągu zaczyna się od drugiego.  
   
 ## <a name="syntax"></a>Składnia
   
 ```sql
-STARTSWITH(<str_expr1>, <str_expr2>)  
+STARTSWITH(<str_expr1>, <str_expr2> [, <bool_expr>])  
 ```  
   
 ## <a name="arguments"></a>Argumenty
@@ -30,6 +31,8 @@ STARTSWITH(<str_expr1>, <str_expr2>)
   
 *str_expr2*  
    Jest wyrażeniem ciągu, które ma zostać porównane z początkiem *str_expr1*.
+
+*bool_expr* Opcjonalna wartość dla ignorowania wielkości liter. Po ustawieniu na wartość true, STARTSWITH będzie wykonywać wyszukiwanie bez uwzględniania wielkości liter. Jeśli nie określono tego parametru, ta wartość jest równa false.
 
 ## <a name="return-types"></a>Typy zwracane
   

@@ -1,24 +1,20 @@
 ---
-title: Omówienie usługi Azure Automation
-description: Dowiedz się, jak używać usługi Azure Automation do automatyzacji cyklu życia infrastruktury i aplikacji.
+title: Wprowadzenie do usługi Azure Automation
+description: Ten artykuł zawiera informacje o tym, co Azure Automation jest i jak używać go do automatyzowania cyklu życia infrastruktury i aplikacji.
 services: automation
 ms.subservice: process-automation
 keywords: Azure Automation, DSC, PowerShell, konfiguracja stanu, zarządzanie aktualizacjami, śledzenie zmian, DSC, spis, elementy Runbook, Python, grafika
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 8ee8fd4d9a81746be7b65aeb6410691a5e3aea96
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5e9d680e2f7d4a0ed3439d5acb6106fa1415aec1
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81010243"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712778"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Wprowadzenie do usługi Azure Automation
-
-Ten artykuł zawiera krótkie omówienie usługi Azure Automation i odpowiedzi na niektóre często zadawane pytania. Aby uzyskać więcej informacji o różnych możliwościach, odwiedź linki zawarte w tym omówieniu.
-
-## <a name="about-azure-automation"></a>Informacje o Azure Automation
 
 Azure Automation oferuje chmurową usługę automatyzacji i konfiguracji, która obsługuje spójne zarządzanie w środowiskach platformy Azure i innych niż platformy Azure. Obejmuje automatyzację procesów, zarządzanie konfiguracją, zarządzanie aktualizacjami, udostępnione możliwości i funkcje heterogeniczne. Automatyzacja zapewnia pełną kontrolę podczas wdrażania, działania i likwidowania obciążeń i zasobów.
 
@@ -32,13 +28,22 @@ Automatyzacja procesów obsługuje integrację usług platformy Azure i innych s
 
 ## <a name="configuration-management"></a>Zarządzanie konfiguracją
 
-[Konfiguracja stanu](automation-dsc-overview.md) Azure Automation to rozwiązanie oparte na chmurze dla konfiguracji żądanego stanu (DSC) programu PowerShell, które zapewnia usługi dla środowisk przedsiębiorstwa. Korzystając z tej funkcji, można zarządzać zasobami DSC w Azure Automation i stosować konfiguracje na maszynach wirtualnych lub fizycznych z serwera ściągania DSC w chmurze platformy Azure. Można monitorować i automatycznie aktualizować konfiguracje maszyn fizycznych i wirtualnych w systemie Windows lub Linux, w chmurze lub lokalnie. Obsługa spisu umożliwia wykonywanie zapytań dotyczących zasobów gościa w celu wglądu w zainstalowane aplikacje i inne elementy konfiguracji.
- 
-Usługa konfiguracji stanu Azure Automation zapewnia zaawansowane możliwości raportowania i wyszukiwania. Za pomocą tych funkcji można znaleźć szczegółowe informacje o tym, co jest skonfigurowane w ramach systemu operacyjnego. Usługa obsługuje śledzenie zmian w usługach, demonach, oprogramowaniu, rejestrze i plikach w środowisku, aby ułatwić diagnozowanie niepożądanych zmian i zgłaszanie alertów. Istotna funkcja związana jest raportowaniem najważniejszych zdarzeń, na przykład zdarzenia wydawane, gdy węzły odnoszą się do ich przypisanych konfiguracji. 
+Zarządzanie konfiguracją w programie Azure Automation umożliwia dostęp do dwóch funkcji:
+
+* Śledzenie zmian i spis
+* Azure Automation State Configuration
+
+### <a name="change-tracking-and-inventory"></a>Śledzenie zmian i spis
+
+Change Tracking i spis łączy funkcje śledzenia zmian i spisu, aby umożliwić śledzenie zmian infrastruktury maszyny wirtualnej i serwera. Usługa obsługuje śledzenie zmian w usługach, demonach, oprogramowaniu, rejestrze i plikach w środowisku, aby ułatwić diagnozowanie niepożądanych zmian i zgłaszanie alertów. Obsługa spisu umożliwia wykonywanie zapytań dotyczących zasobów gościa w celu wglądu w zainstalowane aplikacje i inne elementy konfiguracji. Aby uzyskać szczegółowe informacje o tej funkcji, zobacz [Change Tracking i spis](change-tracking.md).
+
+### <a name="azure-automation-state-configuration"></a>Azure Automation State Configuration
+
+[Konfiguracja stanu Azure Automation](automation-dsc-overview.md) to oparta na chmurze funkcja konfiguracji żądanego stanu (DSC) programu PowerShell, która udostępnia usługi dla środowisk przedsiębiorstwa. Korzystając z tej funkcji, można zarządzać zasobami DSC w Azure Automation i stosować konfiguracje na maszynach wirtualnych lub fizycznych z serwera ściągania DSC w chmurze platformy Azure. 
 
 ## <a name="update-management"></a>Zarządzanie aktualizacjami
 
-Azure Automation obejmuje rozwiązanie do [zarządzania aktualizacjami](automation-update-management.md) systemów Windows i Linux w środowiskach hybrydowych. Dzięki temu rozwiązaniu można uzyskać wgląd w zgodność aktualizacji na platformie Azure, w innych chmurach i w środowisku lokalnym. Zarządzanie aktualizacjami umożliwia tworzenie zaplanowanych wdrożeń, które organizują instalację aktualizacji w ramach zdefiniowanego okna obsługi. Jeśli aktualizacja nie powinna być zainstalowana na komputerze, można użyć funkcji zarządzania aktualizacjami, aby wykluczyć ją z wdrożenia.
+Azure Automation zawiera funkcję [Update Management](automation-update-management.md) dla systemów Windows i Linux w środowiskach hybrydowych. Update Management zapewnia wgląd w zgodność aktualizacji na platformie Azure oraz w innych chmurach i lokalnych. Funkcja ta umożliwia tworzenie zaplanowanych wdrożeń, które organizują instalację aktualizacji w ramach zdefiniowanego okna obsługi. Jeśli aktualizacja nie powinna być zainstalowana na komputerze, można użyć funkcji Update Management, aby wykluczyć ją z wdrożenia.
 
 ## <a name="shared-capabilities"></a>Współdzielone możliwości
 
@@ -63,7 +68,7 @@ Azure Automation obsługuje kontrolę dostępu opartą na rolach (RBAC) w celu r
 
 ### <a name="source-control-integration"></a>Integracja kontroli źródła
 
-Azure Automation zezwala na [integrację kontroli źródła](source-control-integration.md). Ta funkcja promuje konfigurację jako kod, w którym elementy Runbook lub konfiguracje mogą być sprawdzane w systemie kontroli źródła.
+Azure Automation obsługuje [integrację kontroli źródła](source-control-integration.md). Ta funkcja promuje konfigurację jako kod, w którym elementy Runbook lub konfiguracje mogą być sprawdzane w systemie kontroli źródła.
 
 ## <a name="heterogeneous-support-windows-and-linux"></a>Obsługa heterogeniczna (systemy Windows i Linux)
 
@@ -85,7 +90,7 @@ Azure Automation obsługuje zarządzanie przez cały cykl życia infrastruktury 
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
-## <a name="pricing-for-automation"></a>Cennik usługi Automation
+## <a name="pricing-for-azure-automation"></a>Cennik Azure Automation
 
 Ceny skojarzone z Azure Automation można sprawdzić na stronie [cennika](https://azure.microsoft.com/pricing/details/automation/) .
 

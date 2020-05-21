@@ -1,32 +1,29 @@
 ---
 title: Tworzenie graficznego elementu Runbook w Azure Automation
-description: Samouczek przedstawiający sposób tworzenia, testowania i publikowania prostego graficznego elementu Runbook w Azure Automation.
+description: W tym artykule przedstawiono sposób tworzenia, testowania i publikowania prostego graficznego elementu Runbook w Azure Automation.
 keywords: runbook, szablon runbook, automatyzacja runbook, azure runbook
 services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: f87f389667043e26f066886eddcdb8061df0319f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e3061b1c8650f24775a1e9ea8f328a5270263476
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81726186"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714529"
 ---
 # <a name="tutorial-create-a-graphical-runbook"></a>Samouczek: Tworzenie graficznego elementu Runbook
 
 Ten samouczek przeprowadzi Cię przez proces tworzenia [graficznego elementu Runbook](../automation-runbook-types.md#graphical-runbooks) w usłudze Azure Automation. Możesz tworzyć i edytować graficzne i graficzne elementy Runbook przepływu pracy programu PowerShell przy użyciu edytora graficznego w Azure Portal. 
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie prostego graficznego elementu Runbook
 > * Testowanie i publikowanie elementu Runbook
 > * Uruchamianie i śledzenie stanu zadania elementu Runbook
 > * Zaktualizuj element Runbook, aby uruchomić maszynę wirtualną platformy Azure z użyciem parametrów elementu Runbook i linków warunkowych
-
->[!NOTE]
->Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Instrukcje dotyczące instalacji polecenia AZ module w hybrydowym procesie roboczym elementu Runbook znajdują się w temacie [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). W przypadku konta usługi Automation można zaktualizować moduły do najnowszej wersji przy użyciu [sposobu aktualizowania modułów Azure PowerShell w programie Azure Automation](../automation-update-azure-modules.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -38,7 +35,7 @@ Do wykonania kroków tego samouczka niezbędne są następujące elementy:
 
 ## <a name="step-1---create-runbook"></a>Krok 1. Tworzenie elementu runbook
 
-Zacznij od utworzenia prostego elementu Runbook, który wyświetla tekst `Hello World`.
+Zacznij od utworzenia prostego elementu Runbook, który wyświetla tekst `Hello World` .
 
 1. W witrynie Azure Portal otwórz konto usługi Automation. 
 
@@ -58,13 +55,13 @@ Zacznij od utworzenia prostego elementu Runbook, który wyświetla tekst `Hello 
 
 Kontrolka Biblioteka po lewej stronie edytora umożliwia wybranie działań do dodania do elementu Runbook. Zamierzasz dodać `Write-Output` polecenie cmdlet do tekstu wyjściowego z elementu Runbook.
 
-1. W kontrolce Biblioteka kliknij pole wyszukiwania i wpisz `write-output`. Wyniki wyszukiwania są wyświetlane na poniższej ilustracji. <br> ![Microsoft.PowerShell.Utility](../media/automation-tutorial-runbook-graphical/search-powershell-cmdlet-writeoutput.png)
+1. W kontrolce Biblioteka kliknij pole wyszukiwania i wpisz `write-output` . Wyniki wyszukiwania są wyświetlane na poniższej ilustracji. <br> ![Microsoft.PowerShell.Utility](../media/automation-tutorial-runbook-graphical/search-powershell-cmdlet-writeoutput.png)
 
 2. Przewiń listę w dół. Kliknij prawym przyciskiem myszy pozycję **Write-Output** i wybierz pozycję **Dodaj do kanwy**. Alternatywnie możesz kliknąć przycisk wielokropka (...) obok nazwy polecenia cmdlet, a następnie wybrać pozycję **Dodaj do kanwy**.
 
 3. Kliknij pozycję **Write-Output** na kanwie. Ta akcja powoduje otwarcie strony kontrola konfiguracji, która umożliwia skonfigurowanie działania.
 
-4. Nazwa pola **etykieta** jest domyślnie ustawiona na nazwę polecenia cmdlet, ale można ją zmienić na bardziej przyjazną. Zmień ją na `Write Hello World to output`.
+4. Nazwa pola **etykieta** jest domyślnie ustawiona na nazwę polecenia cmdlet, ale można ją zmienić na bardziej przyjazną. Zmień ją na `Write Hello World to output` .
 
 5. Kliknij pozycję **Parametry**, aby podać wartości parametrów polecenia cmdlet.
 
@@ -74,9 +71,9 @@ Kontrolka Biblioteka po lewej stronie edytora umożliwia wybranie działań do d
 
 7. Menu rozwijane **Źródło danych** zawiera źródła, których można użyć do wypełniania wartości parametru. W tym menu wybierz pozycję **wyrażenie programu PowerShell**. 
 
-   Możesz użyć danych wyjściowych z takich źródeł jako innego działania, zasobu usługi Automation lub wyrażenia programu PowerShell. W tym przypadku dane wyjściowe są właśnie `Hello World`. Możesz użyć wyrażenia programu PowerShell i wprowadzić ciąg.<br>
+   Możesz użyć danych wyjściowych z takich źródeł jako innego działania, zasobu usługi Automation lub wyrażenia programu PowerShell. W tym przypadku dane wyjściowe są właśnie `Hello World` . Możesz użyć wyrażenia programu PowerShell i wprowadzić ciąg.<br>
 
-8. W polu **wyrażenie** wpisz `Hello World` , a następnie dwukrotnie kliknij przycisk **OK** , aby powrócić do kanwy.
+8. W polu **wyrażenie** wpisz, `Hello World` a następnie dwukrotnie kliknij przycisk **OK** , aby powrócić do kanwy.
 
 9. Zapisz element Runbook, klikając przycisk **Zapisz**.
 
@@ -90,9 +87,9 @@ Przed opublikowaniem elementu Runbook w celu udostępnienia go w środowisku pro
 
 3. Należy pamiętać, że [zadanie elementu Runbook](../automation-runbook-execution.md) jest tworzone i jego stan jest wyświetlany w okienku.
 
-   Stan zadania zaczyna się od `Queued`, co oznacza, że zadanie oczekuje na dostępność elementu Runbook Worker w chmurze. Stan zmieni się na `Starting` po potwierdzeniu pracownika przez proces roboczy. Na koniec stan zmieni `Running` się, gdy element Runbook faktycznie zacznie działać.
+   Stan zadania zaczyna się od `Queued` , co oznacza, że zadanie oczekuje na dostępność elementu Runbook Worker w chmurze. Stan zmieni się na `Starting` po potwierdzeniu pracownika przez proces roboczy. Na koniec stan zmieni się, `Running` gdy element Runbook faktycznie zacznie działać.
 
-4. Po zakończeniu zadania elementu Runbook w okienku test zostaną wyświetlone dane wyjściowe. W tym przypadku zobaczysz `Hello World`.
+4. Po zakończeniu zadania elementu Runbook w okienku test zostaną wyświetlone dane wyjściowe. W tym przypadku zobaczysz `Hello World` .
 
     ![Witaj, świecie](../media/automation-tutorial-runbook-graphical/runbook-test-results.png)
 
@@ -114,11 +111,11 @@ Utworzony element Runbook jest nadal w trybie wersji roboczej. Aby można było 
 
 5. Zostanie otwarte okienko zadań dla zadania elementu Runbook, które zostało utworzone. Sprawdź, czy pole **stan zadania** zawiera wartość **ukończono**.
 
-6. Kliknij pozycję **dane wyjściowe** , aby otworzyć stronę wyjściową, w `Hello World` której można wyświetlić wyświetlane dane.
+6. Kliknij pozycję **dane wyjściowe** , aby otworzyć stronę wyjściową, w której można wyświetlić `Hello World` wyświetlane dane.
 
 7. Zamknij stronę wyjściową.
 
-8. Kliknij pozycję **Wszystkie dzienniki**, aby otworzyć okienko strumieni dla zadania elementu Runbook. Powinien być widoczny `Hello World` tylko w strumieniu danych wyjściowych. 
+8. Kliknij pozycję **Wszystkie dzienniki**, aby otworzyć okienko strumieni dla zadania elementu Runbook. Powinien być widoczny tylko `Hello World` w strumieniu danych wyjściowych. 
 
     Należy pamiętać, że w okienku strumienie mogą być wyświetlane inne strumienie zadania elementu Runbook, takie jak pełne strumienie i błędy, jeśli element Runbook zapisze w nich.
 
@@ -140,7 +137,7 @@ Element Runbook został przetestowany i opublikowany, ale dotąd nie jest to prz
 
 4. Na stronie Nowa zmienna wprowadź następujące ustawienia w udostępnionych polach.
 
-    * **Nazwa** — wprowadź `AzureSubscriptionId`.
+    * **Nazwa** — wprowadź `AzureSubscriptionId` .
     * **Wartość** — wprowadź swój identyfikator subskrypcji. 
     * **Typ** — Zachowaj wybraną ciąg.
     * **Szyfrowanie** — Użyj wartości domyślnej.
@@ -152,27 +149,27 @@ Element Runbook został przetestowany i opublikowany, ale dotąd nie jest to prz
 Teraz, gdy masz zmienną do przechowywania identyfikatora subskrypcji, możesz skonfigurować element Runbook do uwierzytelniania przy użyciu poświadczeń Uruchom jako dla subskrypcji. W tym celu Dodaj jako element zawartości połączenie Uruchom jako platformy Azure. Należy również dodać polecenie cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/Connect-AzAccount?view=azps-3.5.0) i polecenie cmdlet [Set-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/Set-AzContext?view=azps-3.5.0) do kanwy.
 
 >[!NOTE]
->Dla elementów Runbook programu PowerShell `Add-AzAccount` i `Add-AzureRMAccount` są to aliasy dla `Connect-AzAccount`. Należy zauważyć, że te aliasy nie są dostępne dla graficznych elementów Runbook. Graficzny element Runbook może korzystać `Connect-AzAccount`tylko z siebie.
+>Dla elementów Runbook programu PowerShell `Add-AzAccount` i `Add-AzureRMAccount` są to aliasy dla `Connect-AzAccount` . Należy zauważyć, że te aliasy nie są dostępne dla graficznych elementów Runbook. Graficzny element Runbook może korzystać tylko z `Connect-AzAccount` siebie.
 
 1. Przejdź do elementu Runbook i wybierz pozycję **Edytuj** na stronie MyFirstRunbook-graficzna.
 
-2. Ten `Write Hello World to output` wpis nie jest potrzebny. Po prostu kliknij wielokropek i wybierz pozycję **Usuń**.
+2. Ten wpis nie jest potrzebny `Write Hello World to output` . Po prostu kliknij wielokropek i wybierz pozycję **Usuń**.
 
 3. W kontrolce Biblioteka rozwiń węzeł **zasoby**, a następnie pozycję **połączenia**. Dodaj `AzureRunAsConnection` do kanwy, wybierając pozycję **Dodaj do kanwy**.
 
-4. Zmień `AzureRunAsConnection` nazwę `Get Run As Connection`na.
+4. Zmień nazwę `AzureRunAsConnection` na `Get Run As Connection` .
 
 5. W kontrolce Biblioteka wpisz `Connect-AzAccount` w polu wyszukiwania.
 
 6. Dodaj `Connect-AzAccount` do kanwy.
 
-7. Umieść wskaźnik `Get Run As Connection` myszy, dopóki okrąg nie pojawi się w dolnej części kształtu. Kliknij okrąg i przeciągnij strzałkę do `Connect-AzAccount` , aby utworzyć łącze. Element Runbook zaczyna się `Get Run As Connection` od, a `Connect-AzAccount`następnie uruchamia.<br> ![Tworzenie połączenia między działaniami](../media/automation-tutorial-runbook-graphical/runbook-link-auth-activities.png)
+7. Umieść wskaźnik myszy `Get Run As Connection` , dopóki okrąg nie pojawi się w dolnej części kształtu. Kliknij okrąg i przeciągnij strzałkę do, `Connect-AzAccount` Aby utworzyć łącze. Element Runbook zaczyna się od `Get Run As Connection` , a następnie uruchamia `Connect-AzAccount` .<br> ![Tworzenie połączenia między działaniami](../media/automation-tutorial-runbook-graphical/runbook-link-auth-activities.png)
 
-8. Na kanwie wybierz pozycję `Connect-AzAccount`. W okienku kontrola konfiguracji wpisz **Logowanie do platformy Azure** w polu **etykieta** .
+8. Na kanwie wybierz pozycję `Connect-AzAccount` . W okienku kontrola konfiguracji wpisz **Logowanie do platformy Azure** w polu **etykieta** .
 
 9. Kliknij pozycję **Parametry**, a zostanie wyświetlona strona Konfiguracja parametru działania.
 
-10. `Connect-AzAccount` Polecenie cmdlet ma wiele zestawów parametrów i należy wybrać jeden przed podaniem wartości parametrów. Kliknij pozycję **zestaw parametrów** , a następnie wybierz pozycję **ServicePrincipalCertificateWithSubscriptionId**.
+10. `Connect-AzAccount`Polecenie cmdlet ma wiele zestawów parametrów i należy wybrać jeden przed podaniem wartości parametrów. Kliknij pozycję **zestaw parametrów** , a następnie wybierz pozycję **ServicePrincipalCertificateWithSubscriptionId**.
 
 11. Parametry dla tego zestawu parametrów są wyświetlane na stronie Konfiguracja parametru działania. Kliknij pozycję **APPLICATIONID**.<br> ![Dodawanie parametrów konta platformy Azure](../media/automation-tutorial-runbook-graphical/Add-AzureRmAccount-params.png)
 
@@ -180,13 +177,13 @@ Teraz, gdy masz zmienną do przechowywania identyfikatora subskrypcji, możesz s
 
    * **Źródło danych** — wybierz pozycję **dane wyjściowe działania**.
    * Lista źródeł danych — wybierz pozycję **Pobierz połączenie automatyzacji**.
-   * **Ścieżka pola** --wpisz `ApplicationId`. Określasz nazwę właściwości dla ścieżki pola, ponieważ działanie wyprowadza obiekt z wieloma właściwościami.
+   * **Ścieżka pola** --wpisz `ApplicationId` . Określasz nazwę właściwości dla ścieżki pola, ponieważ działanie wyprowadza obiekt z wieloma właściwościami.
 
 13. Kliknij pozycję **CERTIFICATETHUMBPRINT**i na stronie wartość parametru wprowadź następujące ustawienia, a następnie kliknij przycisk **OK**.
 
     * **Źródło danych** — wybierz pozycję **dane wyjściowe działania**.
     * Lista źródeł danych — wybierz pozycję **Pobierz połączenie automatyzacji**.
-    * **Ścieżka pola** --wpisz `CertificateThumbprint`.
+    * **Ścieżka pola** --wpisz `CertificateThumbprint` .
 
 14. Kliknij pozycję **serviceprincipal**i na stronie wartość parametru wybierz pozycję **ConstantValue** dla pola **Źródło danych** . Kliknij opcję **prawda**; a następnie kliknij przycisk **OK**.
 
@@ -194,35 +191,35 @@ Teraz, gdy masz zmienną do przechowywania identyfikatora subskrypcji, możesz s
 
     * **Źródło danych** — wybierz pozycję **dane wyjściowe działania**. 
     * Lista źródeł danych — wybierz pozycję **Pobierz połączenie automatyzacji**.
-    * **Ścieżka pola** --wpisz `TenantId`. 
+    * **Ścieżka pola** --wpisz `TenantId` . 
 
 16. W kontrolce Biblioteka wpisz `Set-AzContext` w polu wyszukiwania.
 
 17. Dodaj `Set-AzContext` do kanwy.
 
-18. Wybierz `Set-AzContext` pozycję na kanwie. W okienku sterowania konfiguracją wprowadź `Specify Subscription Id` w polu **etykieta** .
+18. Wybierz pozycję `Set-AzContext` na kanwie. W okienku sterowania konfiguracją wprowadź `Specify Subscription Id` w polu **etykieta** .
 
 19. Kliknij przycisk **Parametry** i zostanie wyświetlona strona Konfiguracja parametru działania.
 
-20. `Set-AzContext` Polecenie cmdlet ma wiele zestawów parametrów i należy wybrać jeden przed podaniem wartości parametrów. Kliknij pozycję **zestaw parametrów** , a następnie wybierz pozycję Identyfikator **subskrypcji**.
+20. `Set-AzContext`Polecenie cmdlet ma wiele zestawów parametrów i należy wybrać jeden przed podaniem wartości parametrów. Kliknij pozycję **zestaw parametrów** , a następnie wybierz pozycję Identyfikator **subskrypcji**.
 
 21. Parametry dla tego zestawu parametrów są wyświetlane na stronie Konfiguracja parametru działania. Kliknij pozycję Identyfikator **subskrypcji**.
 
 22. Na stronie wartość parametru wybierz opcję **zasób zmiennej** dla pola **Źródło danych** i wybierz pozycję **AzureSubscriptionId** z listy źródło. Po zakończeniu kliknij przycisk **OK** dwa razy.
 
-23. Umieść wskaźnik `Login to Azure` myszy, dopóki okrąg nie pojawi się w dolnej części kształtu. Kliknij okrąg i przeciągnij strzałkę do `Specify Subscription Id`. Element Runbook powinien wyglądać podobnie do poniższego.
+23. Umieść wskaźnik myszy `Login to Azure` , dopóki okrąg nie pojawi się w dolnej części kształtu. Kliknij okrąg i przeciągnij strzałkę do `Specify Subscription Id` . Element Runbook powinien wyglądać podobnie do poniższego.
 
     ![Konfiguracja uwierzytelniania elementu Runbook](../media/automation-tutorial-runbook-graphical/runbook-auth-config.png)
 
 ## <a name="step-7---add-activity-to-start-a-virtual-machine"></a>Krok 7. Dodawanie działania w celu uruchomienia maszyny wirtualnej
 
-Teraz musisz dodać `Start-AzVM` działanie, aby uruchomić maszynę wirtualną. Możesz wybrać dowolną maszynę wirtualną w ramach subskrypcji platformy Azure, a teraz zakodowana jej nazwę w poleceniu cmdlet [Start-AzVM](https://docs.microsoft.com/powershell/module/az.compute/start-azvm?view=azps-3.5.0) .
+Teraz musisz dodać działanie, `Start-AzVM` Aby uruchomić maszynę wirtualną. Możesz wybrać dowolną maszynę wirtualną w ramach subskrypcji platformy Azure, a teraz zakodowana jej nazwę w poleceniu cmdlet [Start-AzVM](https://docs.microsoft.com/powershell/module/az.compute/start-azvm?view=azps-3.5.0) .
 
 1. W kontrolce Biblioteka wpisz `Start-Az` w polu wyszukiwania.
 
-2. Dodaj `Start-AzVM` element do kanwy, a następnie kliknij i przeciągnij `Specify Subscription Id`go poniżej.
+2. Dodaj `Start-AzVM` element do kanwy, a następnie kliknij i przeciągnij go poniżej `Specify Subscription Id` .
 
-3. Umieść wskaźnik `Specify Subscription Id` myszy, dopóki okrąg nie pojawi się w dolnej części kształtu. Kliknij okrąg i przeciągnij strzałkę do `Start-AzVM`.
+3. Umieść wskaźnik myszy `Specify Subscription Id` , dopóki okrąg nie pojawi się w dolnej części kształtu. Kliknij okrąg i przeciągnij strzałkę do `Start-AzVM` .
 
 4. Wybierz pozycję `Start-AzVM`. Kliknij opcję **Parametry** , a następnie pozycję **zestaw parametrów** , aby wyświetlić zestawy dla działania.
 
@@ -247,11 +244,11 @@ Element Runbook aktualnie uruchamia maszynę wirtualną w grupie zasobów okreś
 2. Wybierz pozycję **dane wejściowe i wyjściowe** , a następnie **Dodaj dane wejściowe** , aby otworzyć okienko parametru wejściowego elementu Runbook.
 
 3. Wprowadź następujące ustawienia w podanych polach, a następnie kliknij przycisk **OK**.
-   * **Nazwa** — Określ `VMName`.
+   * **Nazwa** — Określ `VMName` .
    * **Wpisz** --Zachowaj ustawienie ciągu.
    * **Obowiązkowe** — Zmień wartość na **tak**.
 
-4. Utwórz drugi obowiązkowy parametr wejściowy o `ResourceGroupName` nazwie, a następnie kliknij przycisk **OK** , aby zamknąć okienko dane wejściowe i wyjściowe.<br> ![Parametry wejściowe elementu Runbook](../media/automation-tutorial-runbook-graphical/start-azurermvm-params-outputs.png)
+4. Utwórz drugi obowiązkowy parametr wejściowy o nazwie `ResourceGroupName` , a następnie kliknij przycisk **OK** , aby zamknąć okienko dane wejściowe i wyjściowe.<br> ![Parametry wejściowe elementu Runbook](../media/automation-tutorial-runbook-graphical/start-azurermvm-params-outputs.png)
 
 5. Wybierz `Start-AzVM` działanie, a następnie kliknij pozycję **Parametry**.
 
@@ -273,11 +270,11 @@ Element Runbook aktualnie uruchamia maszynę wirtualną w grupie zasobów okreś
 
 ## <a name="step-9---create-a-conditional-link"></a>Krok 9. Tworzenie połączenia warunkowego
 
-Teraz można zmodyfikować element Runbook, aby próbował uruchomić maszynę wirtualną, jeśli nie została jeszcze uruchomiona. W tym celu dodaj polecenie cmdlet [Get-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Get-AzVM?view=azps-3.5.0) , które pobiera stan wystąpienia maszyny wirtualnej. Następnie można dodać moduł kodu przepływu pracy programu PowerShell o `Get Status` nazwie z fragmentem kodu programu PowerShell, aby określić, czy stan maszyny wirtualnej jest uruchomiony lub zatrzymany. Łącze warunkowe z `Get Status` modułu działa `Start-AzVM` tylko wtedy, gdy bieżący stan uruchomienia jest zatrzymany. Po zakończeniu tej procedury element Runbook używa `Write-Output` polecenia cmdlet do wyprowadzania komunikatu, aby poinformować użytkownika o tym, czy maszyna wirtualna została pomyślnie uruchomiona.
+Teraz można zmodyfikować element Runbook, aby próbował uruchomić maszynę wirtualną, jeśli nie została jeszcze uruchomiona. W tym celu dodaj polecenie cmdlet [Get-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Get-AzVM?view=azps-3.5.0) , które pobiera stan wystąpienia maszyny wirtualnej. Następnie można dodać moduł kodu przepływu pracy programu PowerShell o nazwie `Get Status` z fragmentem kodu programu PowerShell, aby określić, czy stan maszyny wirtualnej jest uruchomiony lub zatrzymany. Łącze warunkowe z `Get Status` modułu działa tylko `Start-AzVM` wtedy, gdy bieżący stan uruchomienia jest zatrzymany. Po zakończeniu tej procedury element Runbook używa `Write-Output` polecenia cmdlet do wyprowadzania komunikatu, aby poinformować użytkownika o tym, czy maszyna wirtualna została pomyślnie uruchomiona.
 
 1. Otwórz **MyFirstRunbook-graficznej** w edytorze graficznym.
 
-2. Usuń łącze między `Specify Subscription Id` i `Start-AzVM` , klikając je, a następnie naciskając klawisz **delete**.
+2. Usuń łącze między `Specify Subscription Id` i, `Start-AzVM` klikając je, a następnie naciskając klawisz **delete**.
 
 3. W kontrolce Biblioteka wpisz `Get-Az` w polu wyszukiwania.
 
@@ -293,11 +290,11 @@ Teraz można zmodyfikować element Runbook, aby próbował uruchomić maszynę w
 
 9. W obszarze **Źródło danych** dla pozycji **stan**wybierz opcję **stała wartość**, a następnie **wartość true**. Kliknij przycisk **OK**.
 
-10. Utwórz łącze z `Specify Subscription Id` do `Get-AzVM`.
+10. Utwórz łącze z `Specify Subscription Id` do `Get-AzVM` .
 
 11. W kontrolce Biblioteka rozwiń pozycję **Kontrola elementu Runbook** i Dodaj **kod** do kanwy.  
 
-12. Utwórz łącze z `Get-AzVM` do `Code`.  
+12. Utwórz łącze z `Get-AzVM` do `Code` .  
 
 13. Kliknij `Code` i w okienku Konfiguracja Zmień etykietę, aby **uzyskać stan**.
 
@@ -316,35 +313,35 @@ Teraz można zmodyfikować element Runbook, aby próbował uruchomić maszynę w
      $StatusOut
      ```
 
-16. Utwórz łącze z `Get Status` do `Start-AzVM`.
+16. Utwórz łącze z `Get Status` do `Start-AzVM` .
 
     ![Element Runbook z modułem kodu](../media/automation-tutorial-runbook-graphical/runbook-startvm-get-status.png)  
 
 17. Wybierz łącze i w okienku Konfiguracja Zmień **warunek Zastosuj** na **wartość tak**. Należy pamiętać, że łącze stanie się linią kreskowaną, co oznacza, że działanie docelowe jest uruchamiane tylko wtedy, gdy warunek zostanie spełniony.  
 
-18. Dla **wyrażenia warunku**wpisz `$ActivityOutput['Get Status'] -eq "Stopped"`. `Start-AzVM`teraz działa tylko wtedy, gdy maszyna wirtualna jest zatrzymana.
+18. Dla **wyrażenia warunku**wpisz `$ActivityOutput['Get Status'] -eq "Stopped"` . `Start-AzVM`teraz działa tylko wtedy, gdy maszyna wirtualna jest zatrzymana.
 
 19. W kontrolce Biblioteka rozwiń pozycję **Polecenia cmdlet**, a następnie pozycję **Microsoft.PowerShell.Utility**.
 
-20. Dwa `Write-Output` razy Dodaj do kanwy.
+20. `Write-Output`Dwa razy Dodaj do kanwy.
 
 21. W przypadku pierwszej `Write-Output` kontrolki kliknij pozycję **Parametry** i zmień wartość **etykieta** na **powiadamianie o uruchomieniu maszyny wirtualnej**.
 
-22. Dla elementu **inputobject**Zmień **Źródło danych** na **wyrażenie programu PowerShell**i wpisz wyrażenie `$VMName successfully started.`.
+22. Dla elementu **inputobject**Zmień **Źródło danych** na **wyrażenie programu PowerShell**i wpisz wyrażenie `$VMName successfully started.` .
 
-23. Na `Write-Output` drugiej kontrolce kliknij pozycję **Parametry** , a następnie zmień wartość **etykieta** na **powiadamianie o nieudanym uruchomieniu maszyny wirtualnej**.
+23. Na drugiej `Write-Output` kontrolce kliknij pozycję **Parametry** , a następnie zmień wartość **etykieta** na **powiadamianie o nieudanym uruchomieniu maszyny wirtualnej**.
 
-24. Dla elementu **inputobject**Zmień **Źródło danych** na **wyrażenie programu PowerShell**i wpisz wyrażenie `$VMName could not start`.
+24. Dla elementu **inputobject**Zmień **Źródło danych** na **wyrażenie programu PowerShell**i wpisz wyrażenie `$VMName could not start` .
 
-25. Utwórz linki z `Start-AzVM` do `Notify VM Started` i `Notify VM Start Failed`.
+25. Utwórz linki z `Start-AzVM` do `Notify VM Started` i `Notify VM Start Failed` .
 
 26. Wybierz łącze do `Notify VM Started` i Zmień **warunek zastosowania** na true.
 
-27. Dla **wyrażenia warunku**wpisz `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -eq $true`. Ta `Write-Output` kontrolka jest teraz uruchamiana tylko wtedy, gdy maszyna wirtualna zostanie uruchomiona pomyślnie.
+27. Dla **wyrażenia warunku**wpisz `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -eq $true` . Ta `Write-Output` kontrolka jest teraz uruchamiana tylko wtedy, gdy maszyna wirtualna zostanie uruchomiona pomyślnie.
 
 28. Wybierz łącze do `Notify VM Start Failed` i Zmień **warunek zastosowania** na true.
 
-29. Dla pola **wyrażenie warunku** wpisz `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -ne $true`. Ta `Write-Output` kontrolka jest teraz uruchamiana tylko wtedy, gdy maszyna wirtualna nie została pomyślnie uruchomiona. Element Runbook powinien wyglądać jak na poniższej ilustracji.
+29. Dla pola **wyrażenie warunku** wpisz `$ActivityOutput['Start-AzVM'].IsSuccessStatusCode -ne $true` . Ta `Write-Output` kontrolka jest teraz uruchamiana tylko wtedy, gdy maszyna wirtualna nie została pomyślnie uruchomiona. Element Runbook powinien wyglądać jak na poniższej ilustracji.
 
     ![Element Runbook z pozycją Write-Output](../media/automation-tutorial-runbook-graphical/runbook-startazurermvm-complete.png)
 
@@ -354,8 +351,7 @@ Teraz można zmodyfikować element Runbook, aby próbował uruchomić maszynę w
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej o tworzeniu graficznym, zobacz [Tworzenie graficzne w Azure Automation](../automation-graphical-authoring-intro.md).
-* Aby rozpocząć pracę z elementami Runbook programu PowerShell, zobacz [Tworzenie elementu Runbook programu PowerShell](automation-tutorial-runbook-textual-powershell.md).
-* Aby rozpocząć pracę z elementami Runbook przepływu pracy programu PowerShell, zobacz temat [Tworzenie elementu Runbook przepływu pracy programu PowerShell](automation-tutorial-runbook-textual.md).
-* Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* [Tworzenie graficzne w Azure Automation](../automation-graphical-authoring-intro.md)
+* [Tworzenie elementu runbook programu PowerShell](automation-tutorial-runbook-textual-powershell.md)
+* [Tworzenie elementu runbook przepływu pracy programu PowerShell](automation-tutorial-runbook-textual.md)
+* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)

@@ -1,23 +1,20 @@
 ---
 title: Zarządzanie danymi usługi Azure Automation
-description: Ten artykuł zawiera wiele tematów dotyczących zarządzania środowiskiem Azure Automation.  Obecnie obejmuje przechowywanie danych i wykonywanie kopii zapasowych Azure Automation odzyskiwania po awarii w Azure Automation.
+description: Ten artykuł zawiera pojęcia związane z zarządzaniem danymi w Azure Automation, w tym przechowywanie i wykonywanie kopii zapasowych danych.
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 03/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: f917e9c64a932d75fd0f6b14c9e0f35808467355
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 44fe626abd71c13b7f16aa07c4ddf261ff3cacea
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80984661"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715430"
 ---
-# <a name="managing-azure-automation-data"></a>Zarządzanie danymi usługi Azure Automation
+# <a name="management-of-azure-automation-data"></a>Zarządzanie danymi usługi Azure Automation
 
-Ten artykuł zawiera wiele tematów dotyczących zarządzania danymi w środowisku Azure Automationm.
-
->[!NOTE]
->Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Instrukcje dotyczące instalacji polecenia AZ module w hybrydowym procesie roboczym elementu Runbook znajdują się w temacie [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). W przypadku konta usługi Automation można zaktualizować moduły do najnowszej wersji przy użyciu [sposobu aktualizowania modułów Azure PowerShell w programie Azure Automation](automation-update-azure-modules.md).
+Ten artykuł zawiera kilka tematów dotyczących zarządzania danymi w środowisku Azure Automationm.
 
 ## <a name="data-retention"></a>Przechowywanie danych
 

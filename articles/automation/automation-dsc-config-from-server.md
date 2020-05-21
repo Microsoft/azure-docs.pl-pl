@@ -1,6 +1,6 @@
 ---
-title: Tworzenie konfiguracji z istniejących serwerów — Azure Automation
-description: Dowiedz się, jak tworzyć konfiguracje z istniejących serwerów dla Azure Automation.
+title: Tworzenie konfiguracji z istniejących serwerów na potrzeby konfiguracji stanu Azure Automation
+description: W tym artykule opisano sposób tworzenia konfiguracji z istniejących serwerów na potrzeby konfiguracji stanu Azure Automation.
 keywords: DSC, PowerShell, konfiguracja, instalacja
 services: automation
 ms.service: automation
@@ -10,14 +10,14 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dff9b8f52207a38cf7eaddefa178aff262ddc546
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d783ce7193faed4110d07988d3f3f05951c80a45
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585546"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83711401"
 ---
-# <a name="create-configurations-from-existing-servers"></a>Tworzenie konfiguracji z istniejących serwerów
+# <a name="create-configurations-from-existing-servers-for-azure-automation-state-configuration"></a>Tworzenie konfiguracji z istniejących serwerów na potrzeby konfiguracji stanu Azure Automation
 
 > Dotyczy: Windows PowerShell 5,1
 

@@ -1,6 +1,6 @@
 ---
-title: Dane konfiguracji w skali — Azure Automation
-description: Dowiedz się, jak skonfigurować dane w odpowiedniej skali dla konfiguracji stanu w Azure Automation.
+title: Konfigurowanie danych w odpowiedniej skali dla konfiguracji stanu Azure Automation
+description: W tym artykule opisano sposób konfigurowania danych w odpowiedniej skali na potrzeby konfiguracji stanu Azure Automation.
 keywords: DSC, PowerShell, konfiguracja, instalacja
 services: automation
 ms.service: automation
@@ -10,14 +10,14 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 644ea1c00af7e71ff56852298fff18e5293c137b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5f6773d9f2210fd1b0342c9586d89155082bf8ff
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585573"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83711452"
 ---
-# <a name="configuration-data-at-scale"></a>Dane konfiguracji w dużej skali
+# <a name="configure-data-at-scale-for-azure-automation-state-configuration"></a>Konfigurowanie danych w odpowiedniej skali dla konfiguracji stanu Azure Automation
 
 > Dotyczy: Windows PowerShell 5,1
 

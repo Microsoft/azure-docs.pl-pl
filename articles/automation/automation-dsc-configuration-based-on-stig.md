@@ -1,6 +1,6 @@
 ---
-title: Konfiguracja oparta na STIG do użycia w konfiguracji stanu — Azure Automation
-description: Więcej informacji na temat konfiguracji w oparciu o konfigurację stanu STIG w programie Azure Automation.
+title: Skonfiguruj dane na podstawie konfiguracji stanu Azure Automation STIG
+description: W tym artykule opisano sposób konfigurowania danych na podstawie konfiguracji stanu Azure Automation STIG.
 keywords: DSC, PowerShell, konfiguracja, instalacja
 services: automation
 ms.service: automation
@@ -10,14 +10,14 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d6d257198fcae54b1214d77f6b905d876d2687f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e17ae51addce2bb156b6f1c54e29fd777699516f
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585527"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83711384"
 ---
-# <a name="configuration-based-on-stig"></a>Konfiguracja oparta na metodologii STIG
+# <a name="configure-data-based-on-stig-for-azure-automation-state-configuration"></a>Skonfiguruj dane na podstawie konfiguracji stanu Azure Automation STIG
 
 > Dotyczy: Windows PowerShell 5,1
 

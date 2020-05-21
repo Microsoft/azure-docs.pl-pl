@@ -6,18 +6,18 @@ author: diberry
 manager: nitinme
 ms.custom: include file
 ms.service: cognitive-services
-ms.date: 05/06/2020
+ms.date: 05/19/2020
 ms.subservice: language-understanding
 ms.topic: include
 ms.author: diberry
-ms.openlocfilehash: 4067b4439c166a4d3af02b3448bbe7edd98a0a07
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 52a1e0f2691a9b60cc60ed866fc6e316c94e47cd
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585093"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701305"
 ---
-Aby uzyskać przewidywania usługi LUIS w czatbocie lub innej aplikacji klienckiej, należy opublikować aplikację w punkcie końcowym.
+Aby otrzymywać prognozę LUIS w programie Chat bot lub innej aplikacji klienckiej, należy opublikować aplikację w punkcie końcowym przewidywania.
 
 1. Wybierz pozycję **Publikuj** w prawym górnym rogu.
 

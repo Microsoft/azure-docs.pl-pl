@@ -4,12 +4,12 @@ description: W tym artykule opisano, jak używać Eksploratora kopii zapasowych 
 ms.reviewer: dcurwin
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.openlocfilehash: 87780124d531212a141520df65ff7408cc120e55
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: e891ee1ccfbe929aaa8ac35518b40f5514da714f
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160993"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715209"
 ---
 # <a name="monitor-your-backups-with-backup-explorer"></a>Monitorowanie kopii zapasowych za pomocą Eksploratora kopii zapasowych
 
@@ -30,6 +30,7 @@ Te możliwości są udostępniane przez natywną integrację z usługą Azure Re
 > * Eksplorator kopii zapasowych nie jest obecnie obsługiwany w chmurach krajowych.
 > * Obecnie Dostosowywanie szablonu Eksploratora kopii zapasowych nie jest obsługiwane.
 > * Nie zalecamy pisania niestandardowych automatyzacji w danych grafu zasobów platformy Azure.
+> * Obecnie Eksplorator kopii zapasowych umożliwia monitorowanie kopii zapasowych w ramach maksymalnie 1000 subskrypcji (między dzierżawcami).
 
 ## <a name="get-started"></a>Rozpoczęcie pracy
 

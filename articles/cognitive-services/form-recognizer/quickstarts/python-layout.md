@@ -9,18 +9,18 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 342ae7e42c85ad661c04ba4ebb6629673f4af4dc
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: f0c1e9eccda8171ab816d33dac3f1947cea67eea
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77482280"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714614"
 ---
 # <a name="quickstart-extract-text-and-layout-information-using-the-form-recognizer-rest-api-with-python"></a>Szybki Start: wyodrębnianie informacji o tekście i układzie przy użyciu interfejsu API REST aparatu rozpoznawania formularzy w języku Python
 
 W tym przewodniku szybki start użyjesz interfejsu API REST aparatu rozpoznawania formularzy platformy Azure w języku Python, aby wyodrębnić informacje o układzie tekstu oraz dane tabeli z dokumentów formularzy.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -36,8 +36,8 @@ Aby ukończyć ten przewodnik Szybki Start, musisz dysponować:
 
 Aby rozpocząć analizowanie układu, należy wywołać interfejs API **[Analizowanie układu](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeLayoutAsync)** przy użyciu poniższego skryptu języka Python. Przed uruchomieniem skryptu wprowadź następujące zmiany:
 
-1. Zamień `<Endpoint>` na punkt końcowy uzyskany w ramach subskrypcji aparatu rozpoznawania formularza.
-1. Zamień `<path to your form>` na ścieżkę do dokumentu formularza lokalnego.
+1. Zamień na `<Endpoint>` punkt końcowy uzyskany w ramach subskrypcji aparatu rozpoznawania formularza.
+1. Zamień na `<path to your form>` ścieżkę do dokumentu formularza lokalnego.
 1. Zamień `<subscription key>` na klucz subskrypcji skopiowany z poprzedniego kroku.
 
     ```python
@@ -55,7 +55,7 @@ Aby rozpocząć analizowanie układu, należy wywołać interfejs API **[Analizo
     
     headers = {
         # Request headers
-        'Content-Type': '<file type>',
+        'Content-Type': 'application/json',
         'Ocp-Apim-Subscription-Key': apim_key,
     }
     with open(source, "rb") as f:
@@ -119,7 +119,7 @@ while n_try < n_tries:
 
 ### <a name="examine-the-response"></a>Sprawdzanie odpowiedzi
 
-Skrypt będzie drukował odpowiedzi do konsoli do momentu zakończenia operacji **analizy układu** . Następnie drukuje wyodrębnione dane w formacie JSON. `"readResults"` Węzeł zawiera każdy wiersz tekstu z odpowiednim umieszczaniem pola ograniczenia na stronie. W `"pageResults"` polu są wyświetlane wszystkie fragmenty tekstu w tabelach, z których każda jest Współrzędna kolumny wiersza.
+Skrypt będzie drukował odpowiedzi do konsoli do momentu zakończenia operacji **analizy układu** . Następnie drukuje wyodrębnione dane w formacie JSON. `"readResults"`Węzeł zawiera każdy wiersz tekstu z odpowiednim umieszczaniem pola ograniczenia na stronie. W `"pageResults"` polu są wyświetlane wszystkie fragmenty tekstu w tabelach, z których każda jest Współrzędna kolumny wiersza.
 
 Zapoznaj się z poniższym obrazem faktury i odpowiednimi danymi wyjściowymi JSON. Wynik został skrócony do uproszczenia.
 

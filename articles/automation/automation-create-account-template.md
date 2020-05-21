@@ -1,20 +1,20 @@
 ---
-title: Utwórz konto usługi Automation za pomocą szablonów Azure Resource Manager | Microsoft Docs
-description: Aby utworzyć konto Azure Automation, można użyć szablonu Azure Resource Manager.
+title: Tworzenie konta usługi Automation przy użyciu szablonu Azure Resource Manager | Microsoft Docs
+description: W tym artykule opisano, jak utworzyć konto Azure Automation przy użyciu szablonu Azure Resource Manager.
 ms.service: automation
 ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 04/24/2020
-ms.openlocfilehash: 949b07a16b2c2b08891d721e46948481cfe572b2
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 10b53da1ef277d7a3d6ab7c850192ce8f08ded68
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996100"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712676"
 ---
-# <a name="create-an-automation-account-by-using-an-azure-resource-manager-template"></a>Tworzenie konta usługi Automation przy użyciu szablonu Azure Resource Manager
+# <a name="create-an-automation-account-using-an-azure-resource-manager-template"></a>Tworzenie konta usługi Automation przy użyciu szablonu Azure Resource Manager
 
 Za pomocą [szablonów Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md) można utworzyć konto Azure Automation w grupie zasobów. Ten artykuł zawiera przykładowy szablon, który:
 
@@ -310,8 +310,6 @@ Jeśli dopiero zaczynasz Azure Automation i Azure Monitor, ważne jest zapoznani
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy masz już konto usługi Automation, możesz tworzyć elementy Runbook i zautomatyzować procesy ręczne.
-
-* Aby rozpocząć pracę z elementami Runbook programu PowerShell, zobacz [Tworzenie elementu Runbook programu PowerShell](automation-first-runbook-textual-powershell.md).
-* Aby rozpocząć pracę z elementami Runbook przepływu pracy programu PowerShell, zobacz temat [Tworzenie elementu Runbook przepływu pracy programu PowerShell](automation-first-runbook-textual.md).
-* Aby rozpocząć pracę z elementami Runbook języka Python 2, zobacz [Tworzenie elementu Runbook w języku Python](automation-first-runbook-textual-python2.md).
+* [Tworzenie elementu runbook programu PowerShell](automation-first-runbook-textual-powershell.md)
+* [Tworzenie elementu Runbook przepływu pracy programu PowerShell](automation-first-runbook-textual.md)
+* [Tworzenie elementu runbook języka Python](automation-first-runbook-textual-python2.md)

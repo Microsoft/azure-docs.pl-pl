@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5ba3ff2cc98e505486de9cf2337fe19024f97c62
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 62291505aae35b6fe334e2bdb53335a1ea3fe20b
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680461"
+ms.locfileid: "83714546"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Przenoszenie konta Azure Automation do innej subskrypcji
 
@@ -28,16 +28,16 @@ Konto usługi Automation jest jednym z zasobów, które można przenieść. Ten 
 4. Usuń i ponownie Utwórz konta Uruchom jako.
 5. Włącz ponownie funkcje.
 
-## <a name="disable-features"></a>Wyłącz funkcje
+## <a name="remove-features"></a>Usuń funkcje
 
-Aby odłączyć obszar roboczy od konta usługi Automation, musisz wyłączyć zasoby funkcji w obszarze roboczym:
+Aby odłączyć obszar roboczy od konta usługi Automation, musisz usunąć zasoby funkcji w obszarze roboczym:
 
 - Śledzenie zmian i spis
 - Zarządzanie aktualizacjami
 - Uruchamianie lub zatrzymywanie maszyn wirtualnych po godzinach pracy
 
 1. Znajdź grupę zasobów w witrynie Azure Portal.
-2. Znajdź każdą funkcję i wybierz pozycję **Usuń** na stronie usuwanie zasobów.
+2. Znajdź każdą funkcję i wybierz pozycję **Usuń** na stronie **usuwanie zasobów** .
 
     ![Zrzut ekranu przedstawiający usuwanie zasobów funkcji z Azure Portal](../media/move-account/delete-solutions.png)
 
@@ -127,7 +127,7 @@ Teraz można przenieść konto usługi Automation i jego elementy Runbook.
 
 ## <a name="enable-features"></a>Włącz funkcje
 
-Po ponownym utworzeniu kont Uruchom jako należy ponownie włączyć funkcje, które zostały wyłączone przed przeniesieniem: 
+Po ponownym utworzeniu konta Uruchom jako należy ponownie włączyć funkcje, które zostały usunięte przed przeniesieniem:
 
 1. Aby włączyć Change Tracking i spis, wybierz pozycję **Change Tracking i spis** na koncie usługi Automation. Wybierz obszar roboczy Log Analytics przesunięty, a następnie wybierz pozycję **Włącz**.
 
@@ -157,4 +157,4 @@ Po zakończeniu przenoszenia Sprawdź, czy wymienione poniżej możliwości są 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat przenoszenia zasobów na platformie Azure, zobacz [przenoszenie zasobów na platformie Azure](../../azure-resource-manager/management/move-support-resources.md).
+[Przenoszenie zasobów na platformie Azure](../../azure-resource-manager/management/move-support-resources.md)

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 41de12c08dee52240f9b10c191ced4aacaea8e94
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8ec4c87dc4f19c140c5ac02779c5551016dfb0b3
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592784"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714325"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Ulepszanie syntezy przy użyciu języka znaczników syntezy mowy (SSML)
 
@@ -195,10 +195,8 @@ Domyślnie usługa zamiany tekstu na mowę służy do syntezowania tekstu przy u
 
 Obecnie w przypadku tych głosów neuronowych są obsługiwane zmiany stylu mowy:
 * `en-US-AriaNeural`
-* `pt-BR-FranciscaNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
-* `zh-CN-YunyeNeural`
 
 Zmiany są stosowane na poziomie zdania i stylu różnią się w zależności od głosu. Jeśli styl nie jest obsługiwany, usługa zwróci mowę w domyślnym stylu mowy neutralnej.
 
@@ -223,15 +221,11 @@ Użyj tej tabeli, aby określić, które style wymawiające są obsługiwane dla
 |                         | `style="chat"`            | Wyraża swobodny i swobodny sygnał                         |
 |                         | `style="cheerful"`        | Wyraża pozytywne i szczęśliwe Tony                         |
 |                         | `style="empathetic"`      | Wyraża świadomość Caring i zrozumienie               |
-|   `pt-BR-FranciscaNeural`| `style="calm"`      | Calm ton               |
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Wyrażanie formalnego i profesjonalnego tonu dla wiadomości z narracją |
 |                         | `style="customerservice"` | Wyraża przyjazne i pomocne oddzwonić dla obsługi klienta  |
 |                         | `style="assistant"`       | Wyraża dźwięk ciepły i swobodny dla asystentów cyfrowych    |
 |                         | `style="lyrical"`         | Wyraża emocji w melodic i Sentimental sposób         |   
-| `zh-CN-YunyangNeural`  | `style="customerservice"` | Wyraża przyjazne i pomocne oddzwonić dla obsługi klienta  |
-| `zh-CN-YunyeNeural`  | `style="calm"`      | Calm ton               |  
-|                         | `style="sad"`       | Wyznaczanie nieszczęśliwego i nieprawidłowego sygnału    |
-|                         | `style="serious"`         | Wyrażanie poważnych i trudnych ton        |   
+| `zh-CN-YunyangNeural`   | `style="customerservice"` | Wyraża przyjazne i pomocne oddzwonić dla obsługi klienta  | 
 
 **Przykład**
 

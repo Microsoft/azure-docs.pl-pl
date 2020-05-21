@@ -1,17 +1,17 @@
 ---
 title: Przewodnik Szybki start platformy Azure — Tworzenie elementu runbook usługi Azure Automation | Microsoft Docs
-description: Dowiedz się, jak utworzyć element runbook usługi Azure Automation
+description: Ten artykuł ułatwia rozpoczęcie tworzenia Azure Automation elementu Runbook.
 services: automation
 ms.date: 02/05/2019
 ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 250f51c9f028dd55d8327259e35b82b0c392c1f6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a784ddbc2ab1298bec3e2dc21469785163d7a228
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81537002"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83711996"
 ---
 # <a name="create-an-azure-automation-runbook"></a>Tworzenie elementu runbook usługi Azure Automation
 
@@ -21,7 +21,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Zaloguj się do platformy Azure https://portal.azure.compod adresem.
+Zaloguj się do platformy Azure pod adresem https://portal.azure.com .
 
 ## <a name="create-the-runbook"></a>Tworzenie elementu Runbook
 
@@ -41,7 +41,7 @@ Najpierw utwórz element runbook. Przykładowy element runbook tworzony w tym pr
 
     ![Tworzenie skryptu programu PowerShell w edytorze elementów runbook](./media/automation-quickstart-create-runbook/automation-edit-runbook-empty.png)
 
-1. Wpisz lub skopiuj i wklej następujący kod do okienka edycji. Powoduje utworzenie opcjonalnego parametru wejściowego `Name` o nazwie domyślnej wartości `World`i wyjście ciągu, który używa tej wartości wejściowej:
+1. Wpisz lub skopiuj i wklej następujący kod do okienka edycji. Powoduje utworzenie opcjonalnego parametru wejściowego o nazwie `Name` domyślnej wartości `World` i wyjście ciągu, który używa tej wartości wejściowej:
 
    ```powershell-interactive
    param
@@ -85,11 +85,11 @@ Po opublikowaniu elementu runbook zostanie wyświetlona strona przeglądu.
 
    ![Zadanie testowania elementu runbook](./media/automation-quickstart-create-runbook/automation-job-page.png)
 
-1. Gdy zadanie ma `Running` stan lub `Completed`, kliknij pozycję **dane wyjściowe** , aby otworzyć okienko dane wyjściowe i wyświetlić dane wyjściowe elementu Runbook.
+1. Gdy zadanie ma stan `Running` lub `Completed` , kliknij pozycję **dane wyjściowe** , aby otworzyć okienko dane wyjściowe i wyświetlić dane wyjściowe elementu Runbook.
 
    ![Zadanie testowania elementu runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy element runbook nie będzie już potrzebny, usuń go. Aby to zrobić, zaznacz element runbook na liście i kliknij pozycję **Usuń**.
 

@@ -8,12 +8,12 @@ ms.date: 04/22/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: b3c6926f17e8378fd3b53bfd59a7c5ea8141adb4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 977b2fa40e2ce27a2711e5a44f5fb487433c9462
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82097238"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714563"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Rozwiązywanie problemów z kwerendą podczas korzystania z Azure Cosmos DB
 
@@ -35,19 +35,19 @@ Przed przeczytaniem tego przewodnika warto rozważyć typowe problemy z zestawem
 - Aby uzyskać najlepszą wydajność, postępuj zgodnie z tymi [wskazówkami dotyczącymi wydajności](performance-tips.md).
     > [!NOTE]
     > Aby zwiększyć wydajność, zalecamy przetwarzanie hosta Windows 64-bitowego. Zestaw SDK SQL zawiera natywną bibliotekę serviceinterop. dll umożliwiającą analizowanie i optymalizowanie zapytań lokalnie. Usługa serviceinterop. dll jest obsługiwana tylko na platformie Windows x64. W przypadku systemu Linux i innych nieobsługiwanych platform, na których nie jest dostępna usługa serviceinterop. dll, do bramy zostanie nawiązane dodatkowe połączenie sieciowe w celu uzyskania zoptymalizowanego zapytania.
-- Zestaw SDK umożliwia ustawienie dla `MaxItemCount` zapytań, ale nie można określić minimalnej liczby elementów.
-    - Kod powinien obsługiwać dowolny rozmiar strony od zera do `MaxItemCount`.
-    - Liczba elementów na stronie będzie zawsze mniejsza lub równa podanej `MaxItemCount`liczbie. Jednak `MaxItemCount` jest ściśle maksimum i może być mniej wyników niż ta kwota.
+- Zestaw SDK umożliwia ustawienie `MaxItemCount` dla zapytań, ale nie można określić minimalnej liczby elementów.
+    - Kod powinien obsługiwać dowolny rozmiar strony od zera do `MaxItemCount` .
+    - Liczba elementów na stronie będzie zawsze mniejsza lub równa podanej liczbie `MaxItemCount` . Jednak `MaxItemCount` jest ściśle maksimum i może być mniej wyników niż ta kwota.
 - Czasami zapytania mogą mieć puste strony nawet wtedy, gdy wyniki są na przyszłość. Przyczyny tego mogą być następujące:
     - Zestaw SDK może wykonywać wiele wywołań sieciowych.
     - Pobieranie dokumentów może potrwać dłuższy czas.
-- Wszystkie zapytania mają token kontynuacji, który umożliwi kontynuowanie zapytania. Pamiętaj, aby całkowicie opróżnić zapytanie. Zapoznaj się z przykładami zestawu SDK i `while` Użyj pętli `FeedIterator.HasMoreResults` on, aby opróżnić całe zapytanie.
+- Wszystkie zapytania mają token kontynuacji, który umożliwi kontynuowanie zapytania. Pamiętaj, aby całkowicie opróżnić zapytanie. Zapoznaj się z przykładami zestawu SDK i Użyj `while` pętli on, `FeedIterator.HasMoreResults` Aby opróżnić całe zapytanie.
 
 ## <a name="get-query-metrics"></a>Pobierz metryki zapytania
 
 Podczas optymalizowania zapytania w Azure Cosmos DB, pierwszym krokiem jest zawsze [pobieranie metryk zapytania](profile-sql-api-query.md) dla zapytania. Te metryki są również dostępne za pomocą Azure Portal. Po uruchomieniu zapytania w Eksplorator danych metryki zapytania są widoczne obok karty **wyniki** :
 
-[![Pobieranie metryk](./media/troubleshoot-query-performance/obtain-query-metrics.png) zapytania](./media/troubleshoot-query-performance/obtain-query-metrics.png#lightbox)
+[![Pobieranie metryk ](./media/troubleshoot-query-performance/obtain-query-metrics.png) zapytania](./media/troubleshoot-query-performance/obtain-query-metrics.png#lightbox)
 
 Po otrzymaniu metryk zapytania Porównaj **liczbę pobranych dokumentów** z **liczbą dokumentów wyjściowych** dla zapytania. To porównanie służy do identyfikowania odpowiednich sekcji do przejrzenia w tym artykule.
 
@@ -135,7 +135,7 @@ Client Side Metrics
 
 ### <a name="include-necessary-paths-in-the-indexing-policy"></a>Dołącz wymagane ścieżki do zasad indeksowania
 
-Zasady indeksowania powinny obejmować wszystkie właściwości zawarte w `WHERE` klauzulach, `ORDER BY` klauzulach `JOIN`i większości funkcji systemu. Żądane ścieżki określone w zasadach indeksu powinny być zgodne z właściwościami w dokumentach JSON.
+Zasady indeksowania powinny obejmować wszystkie właściwości zawarte w `WHERE` klauzulach, `ORDER BY` klauzulach `JOIN` i większości funkcji systemu. Żądane ścieżki określone w zasadach indeksu powinny być zgodne z właściwościami w dokumentach JSON.
 
 > [!NOTE]
 > W przypadku właściwości w Azure Cosmos DB zasad indeksowania jest uwzględniana wielkość liter
@@ -200,7 +200,8 @@ Jeśli wyrażenie może być przetłumaczone na zakres wartości ciągu, można 
 
 Poniżej znajduje się lista niektórych typowych funkcji ciągów, które mogą używać indeksu:
 
-- STARTSWITH(wyrażenie_ciągu, wyrażenie_ciągu)
+- STARTSWITH (str_expr1, str_expr2, bool_expr)  
+- ZAWIERA (str_expr, str_expr, bool_expr)
 - LEFT(wyrażenie_ciągu, wyrażenie_liczbowe) = wyrażenie_ciągu
 - Podciąg (str_expr, num_expr, num_expr) = str_expr, ale tylko wtedy, gdy pierwszy num_expr wynosi 0
 
@@ -208,8 +209,7 @@ Poniżej przedstawiono niektóre typowe funkcje systemowe, które nie używają 
 
 | **Funkcja systemowa**                     | **Pomysły dotyczące optymalizacji**             |
 | --------------------------------------- |------------------------------------------------------------ |
-| CONTAINS                                | Użyj Azure Search do wyszukiwania pełnotekstowego.                        |
-| GÓRNY/DOLNY                             | Zamiast używać funkcji system do normalizacji danych do porównania, należy znormalizować wielkość liter po wstawieniu. ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` Zostanie ```SELECT * FROM c WHERE c.name = 'BOB'```zapytanie. |
+| GÓRNY/DOLNY                             | Zamiast używać funkcji system do normalizacji danych do porównania, należy znormalizować wielkość liter po wstawieniu. Zostanie zapytanie ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` ```SELECT * FROM c WHERE c.name = 'BOB'``` . |
 | Funkcje matematyczne (inne niż zagregowane) | Jeśli trzeba często obliczać wartość w zapytaniu, należy rozważyć przechowywanie wartości jako właściwości w dokumencie JSON. |
 
 ------
@@ -220,7 +220,7 @@ Inne części zapytania nadal mogą używać indeksu, mimo że funkcje systemowe
 
 W większości przypadków zagregowane funkcje systemowe w Azure Cosmos DB będą używały indeksu. Jednak w zależności od filtrów lub dodatkowych klauzul w kwerendzie agregującej aparat zapytań może być wymagany do załadowania dużej liczby dokumentów. Zwykle aparat zapytań zastosuje najpierw filtry równości i zakresu. Po zastosowaniu tych filtrów aparat zapytań może oszacować dodatkowe filtry i wykonać ładowanie pozostałych dokumentów w celu obliczenia agregacji, jeśli jest to konieczne.
 
-Na przykład biorąc pod tym dwa przykładowe zapytania, zapytanie z filtrem równości i `CONTAINS` funkcji systemu zwykle będzie bardziej wydajne niż zapytanie zawierające tylko filtr funkcji `CONTAINS` systemu. Dzieje się tak, ponieważ filtr równości jest stosowany jako pierwszy i używa indeksu przed załadowaniem dokumentów dla bardziej kosztownego `CONTAINS` filtru.
+Na przykład biorąc pod tym dwa przykładowe zapytania, zapytanie z `CONTAINS` filtrem równości i funkcji systemu zwykle będzie bardziej wydajne niż zapytanie zawierające tylko `CONTAINS` Filtr funkcji systemu. Dzieje się tak, ponieważ filtr równości jest stosowany jako pierwszy i używa indeksu przed załadowaniem dokumentów dla bardziej kosztownego `CONTAINS` filtru.
 
 Kwerenda z tylko `CONTAINS` filtrem o wyższym poziomie filtrów:
 
@@ -230,7 +230,7 @@ FROM c
 WHERE CONTAINS(c.description, "spinach")
 ```
 
-Zapytanie z zarówno filtrem równości `CONTAINS` , jak i filtrem o niższych wartościach ru:
+Zapytanie z zarówno filtrem równości, jak i `CONTAINS` filtrem o niższych wartościach ru:
 
 ```sql
 SELECT AVG(c._ts)
@@ -260,9 +260,9 @@ WHERE udf.MyUDF("Sausages and Luncheon Meats")
 
 #### <a name="queries-with-group-by"></a>Zapytania z grupą według
 
-Opłata za usługę RU dla zapytań `GROUP BY` w programie zwiększa się w miarę wzrostu kardynalności właściwości w `GROUP BY` klauzuli. W poniższym zapytaniu, na przykład, opłata za wartość RU zapytania zostanie zwiększona w miarę wzrostu liczby unikatowych opisów.
+Opłata za usługę RU dla zapytań w programie zwiększa się `GROUP BY` w miarę wzrostu kardynalności właściwości w `GROUP BY` klauzuli. W poniższym zapytaniu, na przykład, opłata za wartość RU zapytania zostanie zwiększona w miarę wzrostu liczby unikatowych opisów.
 
-Opłata za obiekt RU funkcji agregującej z `GROUP BY` klauzulą będzie większa niż wartość "ru" funkcji agregującej. W tym przykładzie aparat zapytań musi załadować każdy dokument pasujący do `c.foodGroup = "Sausages and Luncheon Meats"` filtru, aby opłata ru była wysoka.
+Opłata za obiekt RU funkcji agregującej z `GROUP BY` klauzulą będzie większa niż wartość "ru" funkcji agregującej. W tym przykładzie aparat zapytań musi załadować każdy dokument pasujący do filtru, `c.foodGroup = "Sausages and Luncheon Meats"` Aby opłata ru była wysoka.
 
 ```sql
 SELECT COUNT(1)
@@ -349,7 +349,7 @@ Zaktualizowane zasady indeksowania:
 
 ### <a name="optimize-join-expressions-by-using-a-subquery"></a>Optymalizowanie wyrażeń SPRZĘŻENIa przy użyciu podzapytania
 
-Podzapytania wielowartościowe mogą optymalizować `JOIN` wyrażenia przez wypychanie predykatów po każdym wyrażeniu SELECT-wielu, a nie po wszystkich sprzężeniach `WHERE` krzyżowych w klauzuli.
+Podzapytania wielowartościowe mogą optymalizować `JOIN` wyrażenia przez wypychanie predykatów po każdym wyrażeniu SELECT-wielu, a nie po wszystkich sprzężeniach krzyżowych w `WHERE` klauzuli.
 
 Weź pod uwagę następujące zapytanie:
 
@@ -365,7 +365,7 @@ AND n.nutritionValue < 10) AND s.amount > 1
 
 **Opłata za ru:** 167,62 jednostek ru
 
-W przypadku tego zapytania indeks będzie pasować do dowolnego dokumentu, który ma tag o nazwie `infant formula`, `nutritionValue` większy niż 0 i `amount` większy od 1. W `JOIN` tym miejscu wyrażenie będzie przekroczyć iloczyn wszystkich elementów tagów, składników odżywczych i obsługuje tablice dla każdego pasującego dokumentu przed zastosowaniem filtra. `WHERE` Klauzula zastosuje predykat filtru dla każdej `<c, t, n, s>` krotki.
+W przypadku tego zapytania indeks będzie pasować do dowolnego dokumentu, który ma tag o nazwie `infant formula` , `nutritionValue` większy niż 0 i `amount` większy od 1. W `JOIN` tym miejscu wyrażenie będzie przekroczyć iloczyn wszystkich elementów tagów, składników odżywczych i obsługuje tablice dla każdego pasującego dokumentu przed zastosowaniem filtra. `WHERE`Klauzula zastosuje predykat filtru dla każdej `<c, t, n, s>` krotki.
 
 Na przykład, jeśli pasujący dokument zawiera 10 elementów w każdej z trzech tablic, zostanie rozszerzony na 1 x 10 x 10 x 10 (czyli 1 000) krotek. Użycie podkwerend w tym miejscu może pomóc w odfiltrowaniu sprzężonych elementów tablicy przed dołączeniem do następnego wyrażenia.
 
@@ -381,11 +381,11 @@ JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 
 **Opłata za ru:** 22,17 jednostek ru
 
-Załóżmy, że tylko jeden element w tablicy tagów pasuje do filtru i że istnieje pięć elementów dla elementów odżywczych i obsługujących tablice. `JOIN` Wyrażenia zostaną rozszerzone na 1 x 1 x 5 x 5 = 25 elementów, w przeciwieństwie do 1 000 elementów w pierwszym zapytaniu.
+Załóżmy, że tylko jeden element w tablicy tagów pasuje do filtru i że istnieje pięć elementów dla elementów odżywczych i obsługujących tablice. `JOIN`Wyrażenia zostaną rozszerzone na 1 x 1 x 5 x 5 = 25 elementów, w przeciwieństwie do 1 000 elementów w pierwszym zapytaniu.
 
 ## <a name="queries-where-retrieved-document-count-is-equal-to-output-document-count"></a>Zapytania, w przypadku których liczba pobranych dokumentów jest równa liczbie dokumentów wyjściowych
 
-Jeśli **liczba pobranych dokumentów** jest w przybliżeniu równa **liczbie dokumentów wyjściowych**, aparat zapytań nie musiał skanować wielu zbędnych dokumentów. W przypadku wielu zapytań, takich jak te, `TOP` które używają słowa kluczowego, **liczba pobranych dokumentów** może przekroczyć **liczbę dokumentów wyjściowych** o 1. Nie musisz się z nim wiązać.
+Jeśli **liczba pobranych dokumentów** jest w przybliżeniu równa **liczbie dokumentów wyjściowych**, aparat zapytań nie musiał skanować wielu zbędnych dokumentów. W przypadku wielu zapytań, takich jak te, które używają `TOP` słowa kluczowego, **liczba pobranych dokumentów** może przekroczyć **liczbę dokumentów wyjściowych** o 1. Nie musisz się z nim wiązać.
 
 ### <a name="minimize-cross-partition-queries"></a>Minimalizuj zapytania między partycjami
 
@@ -401,7 +401,7 @@ FROM c
 WHERE c.foodGroup = "Soups, Sauces, and Gravies" and c.description = "Mushroom, oyster, raw"
 ```
 
-Zapytania z `IN` filtrem z kluczem partycji będą sprawdzać tylko odpowiednie partycje fizyczne i nie będą "wentylatorem":
+Zapytania `IN` z filtrem z kluczem partycji będą sprawdzać tylko odpowiednie partycje fizyczne i nie będą "wentylatorem":
 
 ```sql
 SELECT *

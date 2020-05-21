@@ -1,17 +1,17 @@
 ---
 title: Zarządzanie połączeniami w Azure Automation
-description: Zasoby połączeń w Azure Automation zawierają informacje wymagane do nawiązania połączenia z zewnętrzną usługą lub aplikacją z poziomu elementu Runbook lub konfiguracji DSC. W tym artykule opisano szczegółowe informacje o połączeniach i sposobach pracy z nimi zarówno w tworzeniu tekstu, jak i w formie graficznej.
+description: W tym artykule opisano, jak zarządzać połączeniami Azure Automation z usługami lub aplikacjami zewnętrznymi oraz jak korzystać z nich w elementach Runbook.
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 01/13/2020
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1a50c5d3d6e068054cfc8381b220d38471a7eb6c
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 2bd4a59ee1b82b8f6eb3bf172b11239af1a9f4c5
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996574"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714274"
 ---
 # <a name="manage-connections-in-azure-automation"></a>Zarządzanie połączeniami w Azure Automation
 
@@ -50,14 +50,14 @@ Polecenia cmdlet w poniższej tabeli tworzą połączenia automatyzacji i zarzą
 
 ## <a name="internal-cmdlets-to-access-connections"></a>Wewnętrzne polecenia cmdlet do uzyskiwania dostępu do połączeń
 
-Wewnętrzne polecenie cmdlet w poniższej tabeli służy do uzyskiwania dostępu do połączeń w elementach Runbook i konfiguracjach DSC. To polecenie cmdlet jest dołączone do modułu `Orchestrator.AssetManagement.Cmdlets`globalnego. Aby uzyskać więcej informacji, zobacz [wewnętrzne polecenia cmdlet](shared-resources/modules.md#internal-cmdlets).
+Wewnętrzne polecenie cmdlet w poniższej tabeli służy do uzyskiwania dostępu do połączeń w elementach Runbook i konfiguracjach DSC. To polecenie cmdlet jest dołączone do modułu globalnego `Orchestrator.AssetManagement.Cmdlets` . Aby uzyskać więcej informacji, zobacz [wewnętrzne polecenia cmdlet](shared-resources/modules.md#internal-cmdlets).
 
 |Wewnętrzne polecenie cmdlet|Opis|
 |---|---|
 |`Get-AutomationConnection` | Pobiera wartości różnych pól w połączeniu i zwraca je jako [tablicę skrótów](https://go.microsoft.com/fwlink/?LinkID=324844). Następnie można użyć tego obiektu Hashtable z odpowiednimi poleceniami w konfiguracji elementu Runbook lub DSC.|
 
 >[!NOTE]
->Należy unikać używania zmiennych z `Name` parametrem `Get-AutomationConnection`. Użycie zmiennych w tym przypadku może spowodować skomplikowanie wykrywania zależności między elementami Runbook a konfiguracjami DSC i zasobami połączeń w czasie projektowania.
+>Należy unikać używania zmiennych z `Name` parametrem `Get-AutomationConnection` . Użycie zmiennych w tym przypadku może spowodować skomplikowanie wykrywania zależności między elementami Runbook a konfiguracjami DSC i zasobami połączeń w czasie projektowania.
 
 ## <a name="python-2-functions-to-access-connections"></a>Funkcja Python 2 do uzyskiwania dostępu do połączeń
 
@@ -68,7 +68,7 @@ Funkcja w poniższej tabeli służy do uzyskiwania dostępu do połączeń w ele
 | `automationassets.get_automation_connection` | Pobiera połączenie. Zwraca słownik z właściwościami połączenia. |
 
 > [!NOTE]
-> Aby uzyskać dostęp do `automationassets` funkcji zasobów, należy zaimportować moduł w górnej części elementu Runbook języka Python.
+> `automationassets`Aby uzyskać dostęp do funkcji zasobów, należy zaimportować moduł w górnej części elementu Runbook języka Python.
 
 ## <a name="create-a-new-connection"></a>Tworzenie nowego połączenia
 
@@ -78,12 +78,12 @@ Aby utworzyć nowe połączenie w Azure Portal:
 
 1. Na koncie usługi Automation kliknij pozycję **połączenia** w obszarze **zasoby udostępnione**.
 2. Kliknij pozycję **+ Dodaj połączenie** na stronie połączenia.
-4. W polu **Typ** w okienku nowe połączenie wybierz typ połączenia do utworzenia. Dostępne są `Azure`następujące opcje `AzureServicePrincipal`, i `AzureClassicCertificate`. 
+4. W polu **Typ** w okienku nowe połączenie wybierz typ połączenia do utworzenia. Dostępne są następujące opcje `Azure` , `AzureServicePrincipal` i `AzureClassicCertificate` . 
 5. Formularz przedstawia właściwości wybranego typu połączenia. Wypełnij formularz i kliknij przycisk **Utwórz** , aby zapisać nowe połączenie.
 
 ### <a name="create-a-new-connection-with-windows-powershell"></a>Tworzenie nowego połączenia przy użyciu programu Windows PowerShell
 
-Utwórz nowe połączenie za pomocą programu Windows PowerShell przy `New-AzAutomationConnection` użyciu polecenia cmdlet. To polecenie cmdlet ma `ConnectionFieldValues` parametr, który oczekuje, że element Hashtable definiuje wartości dla każdej właściwości zdefiniowanej przez typ połączenia.
+Utwórz nowe połączenie za pomocą programu Windows PowerShell przy użyciu `New-AzAutomationConnection` polecenia cmdlet. To polecenie cmdlet ma `ConnectionFieldValues` parametr, który oczekuje, że element Hashtable definiuje wartości dla każdej właściwości zdefiniowanej przez typ połączenia.
 
 Poniższe przykładowe polecenia można użyć jako alternatywy dla tworzenia konta Uruchom jako w portalu w celu utworzenia nowego zasobu połączenia.
 
@@ -93,13 +93,13 @@ $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "Tenant
 New-AzAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
 ```
 
-Podczas tworzenia konta usługi Automation domyślnie zawiera on kilka modułów globalnych wraz z typem `AzureServicePrincipal` połączenia w celu utworzenia zasobu `AzureRunAsConnection` połączenia. Jeśli podjęto próbę utworzenia nowego zasobu połączenia w celu nawiązania połączenia z usługą lub aplikacją z inną metodą uwierzytelniania, operacja nie powiedzie się, ponieważ typ połączenia nie jest już zdefiniowany na koncie usługi Automation. Aby uzyskać więcej informacji na temat tworzenia własnego typu połączenia dla niestandardowego modułu, zobacz [Dodawanie typu połączenia](#add-a-connection-type).
+Podczas tworzenia konta usługi Automation domyślnie zawiera on kilka modułów globalnych wraz z typem połączenia `AzureServicePrincipal` w celu utworzenia `AzureRunAsConnection` zasobu połączenia. Jeśli podjęto próbę utworzenia nowego zasobu połączenia w celu nawiązania połączenia z usługą lub aplikacją z inną metodą uwierzytelniania, operacja nie powiedzie się, ponieważ typ połączenia nie jest już zdefiniowany na koncie usługi Automation. Aby uzyskać więcej informacji na temat tworzenia własnego typu połączenia dla niestandardowego modułu, zobacz [Dodawanie typu połączenia](#add-a-connection-type).
 
 ## <a name="add-a-connection-type"></a>Dodaj typ połączenia
 
-Jeśli element Runbook lub Konfiguracja DSC nawiązuje połączenie z usługą zewnętrzną, należy zdefiniować typ połączenia w [module niestandardowym](shared-resources/modules.md#custom-modules) o nazwie moduł integracji. Ten moduł zawiera plik metadanych, który określa właściwości typu połączenia i ma nazwę ** &lt;ModuleName&gt;-Automation. JSON**znajdującą się w folderze module skompresowanego pliku **zip** . Ten plik zawiera pola połączenia, które są wymagane do nawiązania połączenia z systemem lub usługą, którą reprezentuje moduł. Korzystając z tego pliku, można ustawić nazwy pól, typy danych, stan szyfrowania i opcjonalny stan dla typu połączenia. 
+Jeśli element Runbook lub Konfiguracja DSC nawiązuje połączenie z usługą zewnętrzną, należy zdefiniować typ połączenia w [module niestandardowym](shared-resources/modules.md#custom-modules) o nazwie moduł integracji. Ten moduł zawiera plik metadanych, który określa właściwości typu połączenia i ma nazwę ** &lt; ModuleName &gt; -Automation. JSON**znajdującą się w folderze module skompresowanego pliku **zip** . Ten plik zawiera pola połączenia, które są wymagane do nawiązania połączenia z systemem lub usługą, którą reprezentuje moduł. Korzystając z tego pliku, można ustawić nazwy pól, typy danych, stan szyfrowania i opcjonalny stan dla typu połączenia. 
 
-Poniższy przykład to szablon w formacie pliku **JSON** , który definiuje właściwości nazwy użytkownika i hasła dla niestandardowego typu połączenia o nazwie `MyModuleConnection`:
+Poniższy przykład to szablon w formacie pliku **JSON** , który definiuje właściwości nazwy użytkownika i hasła dla niestandardowego typu połączenia o nazwie `MyModuleConnection` :
 
 ```json
 {
@@ -124,7 +124,7 @@ Poniższy przykład to szablon w formacie pliku **JSON** , który definiuje wła
 
 ## <a name="get-a-connection-in-a-runbook-or-dsc-configuration"></a>Pobieranie połączenia w elemencie Runbook lub konfiguracji DSC
 
-Pobierz połączenie w elemencie Runbook lub konfiguracji DSC przy użyciu wewnętrznego `Get-AutomationConnection` polecenia cmdlet. To polecenie cmdlet jest preferowane `Get-AzAutomationConnection` za pośrednictwem polecenia cmdlet, ponieważ pobiera wartości połączenia zamiast informacji o połączeniu. 
+Pobierz połączenie w elemencie Runbook lub konfiguracji DSC przy użyciu wewnętrznego `Get-AutomationConnection` polecenia cmdlet. To polecenie cmdlet jest preferowane za pośrednictwem `Get-AzAutomationConnection` polecenia cmdlet, ponieważ pobiera wartości połączenia zamiast informacji o połączeniu. 
 
 ### <a name="textual-runbook-example"></a>Przykład tekstowego elementu Runbook
 
@@ -141,7 +141,7 @@ Możesz dodać działanie dla wewnętrznego `Get-AutomationConnection` polecenia
 
 ![Dodaj do kanwy](media/automation-connections/connection-add-canvas.png)
 
-Na poniższej ilustracji przedstawiono przykład użycia obiektu połączenia w graficznym elemencie Runbook. W tym przykładzie używany `Constant value` jest zestaw danych dla `Get RunAs Connection` działania, który używa obiektu połączenia do uwierzytelniania. [Link potoku](automation-graphical-authoring-intro.md#links-and-workflow) jest używany w tym miejscu `ServicePrincipalCertificate` , ponieważ zestaw parametrów oczekuje pojedynczego obiektu.
+Na poniższej ilustracji przedstawiono przykład użycia obiektu połączenia w graficznym elemencie Runbook. W tym przykładzie używany jest `Constant value` zestaw danych dla `Get RunAs Connection` działania, który używa obiektu połączenia do uwierzytelniania. [Link potoku](automation-graphical-authoring-intro.md#use-links-for-workflow) jest używany w tym miejscu, ponieważ `ServicePrincipalCertificate` zestaw parametrów oczekuje pojedynczego obiektu.
 
 ![Pobierz połączenia](media/automation-connections/automation-get-connection-object.png)
 
@@ -192,6 +192,6 @@ azure_credential = get_automation_runas_credential(runas_connection)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej na temat poleceń cmdlet służących do uzyskiwania dostępu do połączeń, zobacz [Zarządzanie modułami w Azure Automation](shared-resources/modules.md).
-* Aby uzyskać ogólne informacje o elementach Runbook, zobacz [wykonywanie elementów Runbook w Azure Automation](automation-runbook-execution.md).
-* Aby uzyskać szczegółowe informacje na temat konfiguracji DSC, zobacz [Konfiguracja stanu — przegląd](automation-dsc-overview.md).
+* [Zarządzanie modułami w usłudze Azure Automation](shared-resources/modules.md)
+* [Wykonywanie elementu runbook w usłudze Azure Automation](automation-runbook-execution.md)
+* [Konfiguracja stanu — omówienie](automation-dsc-overview.md)

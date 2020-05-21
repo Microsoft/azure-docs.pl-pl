@@ -9,16 +9,16 @@ ms.date: 05/11/2020
 ms.topic: troubleshooting
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 9f09477eb174792d6348a6b9761a4f9e5467ec44
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: dba321d055e64d62ca91f95461c3299bee5f90d2
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649537"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714223"
 ---
 # <a name="capture-a-browser-trace-for-troubleshooting"></a>Przechwytywanie danych śledzenia przeglądarki na potrzeby rozwiązywania problemów
 
-W przypadku rozwiązywania problemów z Azure Portal i konieczności skontaktowania się z pomocą techniczną firmy Microsoft zalecamy najpierw przechwycenie śledzenia przeglądarki i pewnych dodatkowych informacji. Zbierane informacje mogą dostarczyć ważnych informacji o portalu w momencie wystąpienia problemu. Wykonaj kroki opisane w tym artykule dla narzędzi deweloperskich w używanej przeglądarce: Google Chrome lub Microsoft Edge (chrom), Microsoft Edge (EdgeHTML) lub Apple Safari.
+W przypadku rozwiązywania problemów z Azure Portal i konieczności skontaktowania się z pomocą techniczną firmy Microsoft zalecamy najpierw przechwycenie śledzenia przeglądarki i pewnych dodatkowych informacji. Zbierane informacje mogą dostarczyć ważnych informacji o portalu w momencie wystąpienia problemu. Wykonaj kroki opisane w tym artykule dla narzędzi deweloperskich w używanej przeglądarce: Google Chrome lub Microsoft Edge (chrom), Microsoft Edge (EdgeHTML), Apple Safari lub Firefox.
 
 ## <a name="google-chrome-and-microsoft-edge-chromium"></a>Google Chrome i Microsoft Edge (chrom)
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.author: sandeepu
 author: sandeeppujar
 ms.date: 04/30/2020
-ms.openlocfilehash: cd583b79d6c73ff8da1c9770bf72b3e6990c3140
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a42b483a5ca4b4948f14c1ccbf0b7af6e49224bb
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597205"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715068"
 ---
 # <a name="connect-an-azure-sphere-device-to-your-azure-iot-central-application"></a>Łączenie urządzenia Azure Sphere z aplikacją IoT Central platformy Azure
 
@@ -20,7 +20,7 @@ ms.locfileid: "83597205"
 
 W tym artykule opisano sposób nawiązywania połączenia z urządzeniem Azure Sphere (DevKit) z aplikacją IoT Central platformy Azure.
 
-Azure Sphere to zabezpieczona platforma aplikacji wysokiego poziomu z wbudowanymi funkcjami komunikacji i zabezpieczeń dla urządzeń połączonych z Internetem. Obejmuje ona bezpieczną, połączoną, skrzyżowaną jednostkę mikrokontrolerów (MIKROKONTROLERY), niestandardową, opartą na systemie Linux system operacyjny (OS) i usługę zabezpieczeń opartą na chmurze, która zapewnia ciągły, odnawialny poziom zabezpieczeń. Aby uzyskać więcej informacji, zobacz[co to jest Azure Sphere?](https://docs.microsoft.com/azure-sphere/product-overview/what-is-azure-sphere).
+Azure Sphere to zabezpieczona platforma aplikacji wysokiego poziomu z wbudowanymi funkcjami komunikacji i zabezpieczeń dla urządzeń połączonych z Internetem. Obejmuje ona bezpieczną, połączoną, skrzyżowaną jednostkę mikrokontrolerów (MIKROKONTROLERY), niestandardową, opartą na systemie Linux system operacyjny (OS) i usługę zabezpieczeń opartą na chmurze, która zapewnia ciągły, odnawialny poziom zabezpieczeń. Aby uzyskać więcej informacji, zobacz [co to jest Azure Sphere?](https://docs.microsoft.com/azure-sphere/product-overview/what-is-azure-sphere).
 
 [Azure Sphere Development Kit](https://azure.microsoft.com/services/azure-sphere/get-started/) zapewniają wszystko, czego potrzebujesz, aby rozpocząć tworzenie prototypów i opracowywanie aplikacji Azure Sphere. Usługa Azure IoT Central z Azure Sphere zapewnia kompleksowy stos rozwiązania IoT. Azure Sphere zapewnia obsługę urządzeń i IoT Central jako kod zerowy, zarządzaną platformą aplikacji IoT.
 

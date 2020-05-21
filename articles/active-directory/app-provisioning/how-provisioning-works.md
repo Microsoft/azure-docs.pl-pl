@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/10/2019
+ms.date: 05/20/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: 7ee685da3492b6915a687151beea3e82e46185de
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 533e38206b9a85b449880d88c9ff969c051fac53
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593730"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712234"
 ---
 # <a name="how-provisioning-works"></a>Jak działa aprowizacja
 
@@ -25,14 +25,14 @@ Automatyczne Inicjowanie obsługi odnosi się do tworzenia tożsamości i ról u
 **Usługa Azure AD Provisioning** udostępnia użytkownikom SaaS aplikacje i inne systemy, łącząc się z systemem dla punktu końcowego interfejsu API zarządzania tożsamościami w wielu domenach (standard scim) 2,0 przez dostawcę aplikacji. Ten punkt końcowy Standard scim umożliwia usłudze Azure AD Programistyczne tworzenie, aktualizowanie i usuwanie użytkowników. W przypadku wybranych aplikacji usługa aprowizacji może również tworzyć, aktualizować i usuwać dodatkowe obiekty powiązane z tożsamościami, takie jak grupy i role. Kanał używany do aprowizacji między usługą Azure AD a aplikacją jest szyfrowany przy użyciu szyfrowania HTTPS TLS 1,2.
 
 
-![Azure AD Provisioning Service](./media/how-provisioning-works/provisioning0.PNG)
+![Azure AD Provisioning Service ](./media/how-provisioning-works/provisioning0.PNG)
  *— rysunek 1: usługa Azure AD Provisioning*
 
-![Przepływ pracy](./media/how-provisioning-works/provisioning1.PNG)
-aprowizacji użytkowników wychodzących*rysunek 2: "wychodzące" przepływ pracy aprowizacji użytkowników z usługi Azure AD do popularnych aplikacji SaaS*
+![Przepływ pracy aprowizacji użytkowników wychodzących ](./media/how-provisioning-works/provisioning1.PNG)
+ *rysunek 2: "wychodzące" przepływ pracy aprowizacji użytkowników z usługi Azure AD do popularnych aplikacji SaaS*
 
-![Przepływ pracy](./media/how-provisioning-works/provisioning2.PNG)
-aprowizacji przychodzących użytkowników *— rysunek 3: "przychodzący" przepływ pracy aprowizacji użytkowników z popularnych aplikacji do zarządzania stolicą Kadr (HCM) do Azure Active Directory i systemu Windows Server Active Directory*
+![Przepływ pracy aprowizacji przychodzących użytkowników ](./media/how-provisioning-works/provisioning2.PNG)
+ *— rysunek 3: "przychodzący" przepływ pracy aprowizacji użytkowników z popularnych aplikacji do zarządzania stolicą Kadr (HCM) do Azure Active Directory i systemu Windows Server Active Directory*
 
 ## <a name="provisioning-using-scim-20"></a>Inicjowanie obsługi przy użyciu Standard scim 2,0
 
@@ -63,7 +63,7 @@ Podczas konfigurowania aprowizacji do aplikacji SaaS, jeden z typów mapowań at
 
 W przypadku inicjowania obsługi ruchu wychodzącego z usługi Azure AD do aplikacji SaaS poleganie na [przypisaniach użytkowników lub grup](../manage-apps/assign-user-or-group-access-portal.md) jest najczęstszym sposobem ustalenia, którzy użytkownicy znajdują się w zakresie aprowizacji. Ponieważ przypisania użytkownika są również używane do włączania logowania jednokrotnego, ta sama metoda może służyć do zarządzania dostępem i aprowizacji. Określanie zakresu opartego na przypisaniach nie ma zastosowania do scenariuszy inicjowania obsługi ruchu przychodzącego, takich jak Workday i SuccessFactors.
 
-* **Grupowania.** Za pomocą planu licencjonowania Azure AD — wersja Premium można używać grup do przypisywania dostępu do aplikacji SaaS. Następnie, gdy zakres aprowizacji jest ustawiony do **synchronizowania tylko przypisanych użytkowników i grup**, usługa aprowizacji usługi Azure AD będzie inicjować lub cofać obsługę administracyjną użytkowników w zależności od tego, czy są członkami grupy przypisanej do aplikacji. Sam obiekt grupy nie jest inicjowany, chyba że aplikacja obsługuje obiekty grup. Upewnij się, że grupy przypisane do aplikacji mają ustawioną właściwość "SecurityEnabled" na wartość "false".
+* **Grupowania.** Za pomocą planu licencjonowania Azure AD — wersja Premium można używać grup do przypisywania dostępu do aplikacji SaaS. Następnie, gdy zakres aprowizacji jest ustawiony do **synchronizowania tylko przypisanych użytkowników i grup**, usługa aprowizacji usługi Azure AD będzie inicjować lub cofać obsługę administracyjną użytkowników w zależności od tego, czy są członkami grupy przypisanej do aplikacji. Sam obiekt grupy nie jest inicjowany, chyba że aplikacja obsługuje obiekty grup. Upewnij się, że grupy przypisane do aplikacji mają właściwość "SecurityEnabled" ustawioną na wartość "true".
 
 * **Grupy dynamiczne.** Usługa aprowizacji użytkowników w usłudze Azure AD może odczytywać i inicjować użytkowników w [grupach dynamicznych](../users-groups-roles/groups-create-rule.md). Pamiętaj o następujących zastrzeżeniach i zaleceniach:
 
@@ -83,7 +83,7 @@ Filtry zakresu umożliwiają definiowanie reguł opartych na atrybutach, które 
 
 Możliwe jest użycie usługi aprowizacji użytkowników w usłudze Azure AD w celu udostępnienia użytkownikom B2B (lub gościa) w usłudze Azure AD w celu SaaS aplikacji. Jednak aby użytkownicy B2B mogli logować się do aplikacji SaaS przy użyciu usługi Azure AD, aplikacja SaaS musi mieć skonfigurowaną funkcję logowania jednokrotnego opartego na protokole SAML. Aby uzyskać więcej informacji na temat sposobu konfigurowania aplikacji SaaS do obsługi logowań użytkowników B2B, zobacz [Konfigurowanie aplikacji SaaS na potrzeby współpracy B2B](../b2b/configure-saas-apps.md).
 
-Należy pamiętać, że element userPrincipalName dla użytkownika-gościa jest często przechowywany jako "alias@domain.com# ext #". gdy element userPrincipalName zostanie uwzględniony w mapowaniu atrybutów jako atrybut źródłowy, #EXT # jest usuwany z elementu userPrincipalName. Jeśli potrzebujesz #EXT #, Zamień element userPrincipalName na originalUserPrincipalName jako atrybut source. 
+Należy pamiętać, że element userPrincipalName dla użytkownika-gościa jest często przechowywany jako "alias # EXT # @domain.com ". gdy element userPrincipalName zostanie uwzględniony w mapowaniu atrybutów jako atrybut źródłowy, #EXT # jest usuwany z elementu userPrincipalName. Jeśli potrzebujesz #EXT #, Zamień element userPrincipalName na originalUserPrincipalName jako atrybut source. 
 
 ## <a name="provisioning-cycles-initial-and-incremental"></a>Cykle aprowizacji: początkowe i przyrostowe
 

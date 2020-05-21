@@ -1,6 +1,6 @@
 ---
 title: Wprowadzenie do konfiguracji stanu Azure Automation
-description: Wyjaśnienie i przykłady najczęstszych zadań w konfiguracji stanu Azure Automation
+description: W tym artykule opisano sposób wykonywania najczęstszych zadań w konfiguracji stanu Azure Automation.
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 45d56daee20d95230f77db249028883165acb951
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 76d078d564125db7b6b8ae10909340a52b220407
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995778"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83713220"
 ---
 # <a name="get-started-with-azure-automation-state-configuration"></a>Wprowadzenie do konfiguracji stanu Azure Automation
 
@@ -123,7 +123,7 @@ Po rozpoczęciu kompilacji można wyświetlić ją na kafelku **zadania kompilac
 
 ## <a name="view-node-configurations"></a>Wyświetl konfiguracje węzłów
 
-Pomyślne zakończenie zadania kompilacji powoduje utworzenie co najmniej jednej nowej konfiguracji węzła. Konfiguracja węzła to dokument MOF, który jest wdrażany na serwerze ściągania i gotowy do ściągnięcia i zastosowania przez co najmniej jeden węzeł. Konfiguracje węzłów można wyświetlić na koncie usługi Automation na stronie Konfiguracja stanu (DSC). Konfiguracja węzła ma nazwę z formularzem `ConfigurationName.NodeName`.
+Pomyślne zakończenie zadania kompilacji powoduje utworzenie co najmniej jednej nowej konfiguracji węzła. Konfiguracja węzła to dokument MOF, który jest wdrażany na serwerze ściągania i gotowy do ściągnięcia i zastosowania przez co najmniej jeden węzeł. Konfiguracje węzłów można wyświetlić na koncie usługi Automation na stronie Konfiguracja stanu (DSC). Konfiguracja węzła ma nazwę z formularzem `ConfigurationName.NodeName` .
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Po lewej stronie kliknij pozycję **wszystkie zasoby** , a następnie nazwę konta usługi Automation.

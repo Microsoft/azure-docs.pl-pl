@@ -4,12 +4,12 @@ description: Monitoruj Azure Backup obciążenia i twórz niestandardowe alerty 
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 54a98cebc2887f7508543a4dc752b2145c3bbda2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 81e4f9f63df19ed57f26be8eb246c6dab1bf512c
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183657"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714835"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Monitorowanie na dużą skalę przy użyciu Azure Monitor
 
@@ -45,6 +45,9 @@ Definiowanie charakterystyki alertu to jego warunek wyzwalania. Wybierz opcję *
 
 W razie potrzeby można edytować zapytanie Kusto. Wybierz próg, okres i częstotliwość. Próg określa, kiedy zostanie zgłoszony alert. Okres jest oknem czasu, w którym jest uruchamiane zapytanie. Na przykład jeśli próg jest większy niż 0, okres wynosi 5 minut, a częstotliwość wynosi 5 minut, a następnie reguła uruchamia kwerendę co 5 minut, przeglądając poprzedni 5 minut. Jeśli liczba wyników jest większa od 0, otrzymasz powiadomienie za pomocą wybranej grupy akcji.
 
+> [!NOTE]
+> Aby uruchomić regułę alertów raz dziennie, dla wszystkich zdarzeń/dzienników utworzonych w danym dniu, Zmień wartość obu wartości "period" i "częstotliwość" na 1440, czyli 24 godziny.
+
 #### <a name="alert-action-groups"></a>Grupy akcji alertów
 
 Użyj grupy akcji, aby określić kanał powiadomień. Aby wyświetlić dostępne mechanizmy powiadomień, w obszarze **grupy akcji**wybierz pozycję **Utwórz nowy**.
@@ -64,6 +67,7 @@ Wykresy domyślne dają Kusto zapytania dotyczące podstawowych scenariuszy, w k
     ````Kusto
     AddonAzureBackupJobs
     | where JobOperation=="Backup"
+    | summarize arg_max(TimeGenerated,*) by JobUniqueId
     | where JobStatus=="Completed"
     ````
 
@@ -72,6 +76,7 @@ Wykresy domyślne dają Kusto zapytania dotyczące podstawowych scenariuszy, w k
     ````Kusto
     AddonAzureBackupJobs
     | where JobOperation=="Backup"
+    | summarize arg_max(TimeGenerated,*) by JobUniqueId
     | where JobStatus=="Failed"
     ````
 
@@ -80,6 +85,7 @@ Wykresy domyślne dają Kusto zapytania dotyczące podstawowych scenariuszy, w k
     ````Kusto
     AddonAzureBackupJobs
     | where JobOperation=="Backup"
+    | summarize arg_max(TimeGenerated,*) by JobUniqueId
     | where JobStatus=="Completed"
     | join kind=inner
     (
@@ -96,6 +102,7 @@ Wykresy domyślne dają Kusto zapytania dotyczące podstawowych scenariuszy, w k
     ````Kusto
     AddonAzureBackupJobs
     | where JobOperation=="Backup" and JobOperationSubType=="Log"
+    | summarize arg_max(TimeGenerated,*) by JobUniqueId
     | where JobStatus=="Completed"
     | join kind=inner
     (
@@ -112,6 +119,7 @@ Wykresy domyślne dają Kusto zapytania dotyczące podstawowych scenariuszy, w k
     ````Kusto
     AddonAzureBackupJobs
     | where JobOperation=="Backup"
+    | summarize arg_max(TimeGenerated,*) by JobUniqueId
     | where JobStatus=="Completed"
     | join kind=inner
     (
@@ -161,8 +169,8 @@ Dane diagnostyczne z magazynu są napompowane do obszaru roboczego Log Analytics
 Dzienników aktywności można także użyć do uzyskania powiadomień o zdarzeniach, takich jak powodzenie wykonywania kopii zapasowej. Aby rozpocząć, wykonaj następujące kroki:
 
 1. Zaloguj się do witryny Azure Portal.
-1. Otwórz odpowiedni magazyn Recovery Services.
-1. W oknie właściwości magazynu Otwórz sekcję **Dziennik aktywności** .
+2. Otwórz odpowiedni magazyn Recovery Services.
+3. W oknie właściwości magazynu Otwórz sekcję **Dziennik aktywności** .
 
 Aby zidentyfikować odpowiedni dziennik i utworzyć alert:
 
@@ -170,9 +178,9 @@ Aby zidentyfikować odpowiedni dziennik i utworzyć alert:
 
    ![Filtrowanie w poszukiwaniu dzienników aktywności dla kopii zapasowych maszyny wirtualnej platformy Azure](media/backup-azure-monitoring-laworkspace/activitylogs-azurebackup-vmbackups.png)
 
-1. Wybierz nazwę operacji, aby wyświetlić odpowiednie szczegóły.
-1. Wybierz pozycję **Nowa reguła alertu** , aby otworzyć stronę **Tworzenie reguły** .
-1. Utwórz alert, wykonując czynności opisane w temacie [Tworzenie i wyświetlanie alertów dziennika aktywności oraz zarządzanie nimi za pomocą Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
+2. Wybierz nazwę operacji, aby wyświetlić odpowiednie szczegóły.
+3. Wybierz pozycję **Nowa reguła alertu** , aby otworzyć stronę **Tworzenie reguły** .
+4. Utwórz alert, wykonując czynności opisane w temacie [Tworzenie i wyświetlanie alertów dziennika aktywności oraz zarządzanie nimi za pomocą Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
 
    ![Nowa reguła alertu](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 

@@ -3,12 +3,12 @@ title: Konfigurowanie raportów usługi Azure Backup
 description: Konfigurowanie i wyświetlanie raportów dla Azure Backup przy użyciu Log Analytics i skoroszytów platformy Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: c1af9a532b390b428e74957c455988dfd4df3967
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cd6e0e55f471da83d15e26252b0730ab00f20d3c
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82184949"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83713832"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurowanie raportów usługi Azure Backup
 
@@ -22,14 +22,15 @@ Obecnie Azure Backup udostępnia rozwiązanie do raportowania, które korzysta z
 
 ## <a name="supported-scenarios"></a>Obsługiwane scenariusze
 
-- Raporty kopii zapasowych są obsługiwane w przypadku maszyn wirtualnych platformy Azure, usług SQL na maszynach wirtualnych platformy Azure, SAP HANA/ASE na maszynach wirtualnych platformy Azure, agentów Microsoft Azure Recovery Services (MARS), Microsoft Azure Backup Server (serwera usługi MAB) i System Center Data Protection Manager (DPM). Dane dla kopii zapasowej udziału plików platformy Azure nie są obecnie widoczne w raportach kopii zapasowych.
+- Raporty kopii zapasowych są obsługiwane na maszynach wirtualnych platformy Azure, na maszynach wirtualnych platformy Azure, SAP HANA na maszynach wirtualnych platformy Azure, w Microsoft Azure Recovery Services (MARS) Agent, Microsoft Azure Backup Server (serwera usługi MAB) i System Center Data Protection Manager (DPM). Dane dla kopii zapasowej udziału plików platformy Azure nie są obecnie widoczne w raportach kopii zapasowych.
 - W przypadku obciążeń programu DPM raporty kopii zapasowych są obsługiwane w programie DPM w wersji 5.1.363.0 i nowszych oraz w wersji agent 2.0.9127.0 i nowszych.
 - W przypadku obciążeń serwera usługi MAB raporty kopii zapasowych są obsługiwane dla serwera usługi MAB wersji 13.0.415.0 i nowszych oraz do wersji agenta 2.0.9170.0 i nowszych.
 - Raporty kopii zapasowych można wyświetlać w ramach wszystkich elementów kopii zapasowych, magazynów, subskrypcji i regionów, o ile ich dane są wysyłane do obszaru roboczego Log Analytics, do którego użytkownik ma dostęp. Aby wyświetlić raporty dla zbioru magazynów, musisz mieć dostęp do czytnika do obszaru roboczego Log Analytics, do którego magazyny wysyłają swoje dane. Nie musisz mieć dostępu do poszczególnych magazynów.
 - Jeśli jesteś użytkownikiem [usługi Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/) z delegowanym dostępem do subskrypcji klientów, możesz użyć tych raportów za pomocą usługi Azure Lighthouse do wyświetlania raportów dla wszystkich dzierżawców.
+- Obecnie dane można wyświetlać w raportach dotyczących kopii zapasowych w maksymalnie 100 Log Analytics obszarach roboczych (między dzierżawcami).
 - Dane dla zadań kopii zapasowej dzienników nie są obecnie wyświetlane w raportach.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Wykonaj następujące kroki, aby rozpocząć korzystanie z raportów.
 
@@ -81,6 +82,9 @@ Raport zawiera różne karty:
 
    ![Karta Użycie](./media/backup-azure-configure-backup-reports/usage.png)
 
+> [!NOTE]
+> W przypadku obciążeń programu DPM użytkownicy mogą zobaczyć niewielką różnicę (kolejność 20 MB na serwer DPM) między wartościami użycia wyświetlanymi w raportach w porównaniu do zagregowanej wartości użycia, jak pokazano na karcie Przegląd magazynu usług Recovery Services. Różnica ta jest uwzględniana przez fakt, że każdy serwer DPM zarejestrowany dla kopii zapasowej ma skojarzone źródło danych "Metadata", które nie jest uwzględniane jako artefakt na potrzeby raportowania.
+
 - **Zadania**: Użyj tej karty, aby wyświetlić długotrwałe trendy na zadaniach, takie jak liczba zadań zakończonych niepowodzeniem dziennie i Najczęstsze przyczyny niepowodzenia zadania. Te informacje można wyświetlić zarówno na poziomie zagregowanym, jak i na poziomie elementu kopii zapasowej. Wybierz konkretny element kopii zapasowej w siatce, aby wyświetlić szczegółowe informacje na temat każdego zadania, które zostało wyzwolone dla tego elementu kopii zapasowej w wybranym zakresie czasu.
 
    ![Karta zadania](./media/backup-azure-configure-backup-reports/jobs.png)
@@ -127,7 +131,7 @@ Widżety w raporcie kopii zapasowych są obsługiwane przez zapytania Kusto, kt�
 
 - Wcześniejsza aplikacja Power BI Template for Reporting, która zawiera dane źródłowe z konta usługi Azure Storage, znajduje się na ścieżce przestarzałej. Zalecamy, aby rozpocząć wysyłanie danych diagnostycznych magazynu do Log Analytics, aby wyświetlić raporty.
 
-- * Ponadto [schemat wersji 1](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#v1-schema-vs-v2-schema) służący do wysyłania danych diagnostycznych na konto magazynu lub w obszarze roboczym La znajduje się również na ścieżce przestarzałej. Oznacza to, że w przypadku zapisaniu niestandardowych zapytań lub automatyzacji opartych na schemacie V1 zaleca się zaktualizowanie tych zapytań, aby używały obecnie obsługiwanego schematu v2.
+- Ponadto [schemat wersji 1](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#v1-schema-vs-v2-schema) służący do wysyłania danych diagnostycznych na konto magazynu lub w obszarze roboczym La znajduje się również na ścieżce przestarzałej. Oznacza to, że w przypadku zapisaniu niestandardowych zapytań lub automatyzacji opartych na schemacie V1 zaleca się zaktualizowanie tych zapytań, aby używały obecnie obsługiwanego schematu v2.
 
 ## <a name="next-steps"></a>Następne kroki
 

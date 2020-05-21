@@ -1,14 +1,14 @@
 ---
 title: 'Wzorzec: parametry w definicji zasad'
 description: Ten Azure Policy wzorzec zawiera przykład sposobu używania parametrów w definicji zasad.
-ms.date: 01/31/2020
+ms.date: 05/20/2020
 ms.topic: sample
-ms.openlocfilehash: 4921bb216ef67b561bc8986cf48239e6448beafc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e163a243a0dc23f04d564287b630634eb4662cda
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77172807"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83696725"
 ---
 # <a name="azure-policy-pattern-parameters"></a>Wzorzec Azure Policy: parametry
 
@@ -16,7 +16,10 @@ Definicję zasad można uczynić dynamicznym, aby zmniejszyć liczbę definicji 
 
 ## <a name="sample-1-string-parameters"></a>Przykład 1: parametry ciągu
 
-Ta definicja zasad używa dwóch parametrów, **TagName** i **tagValue** , aby określić, co ma być wyszukiwane przez zasady dla zasobów. Ten format umożliwia używanie zasad dla dowolnej liczby kombinacji nazwy tagu i wartości tagów, ale tylko do obsługi jednej definicji zasad.
+Ta definicja zasad używa dwóch parametrów, **TagName** i **tagValue** , aby określić, co ma być wyszukiwane przez zasady dla zasobów. Ten format umożliwia użycie definicji zasad dla dowolnej liczby kombinacji nazw tagów i wartości tagów, ale tylko do obsługi jednej definicji zasad.
+
+> [!NOTE]
+> Aby uzyskać przykładowy tag, który używa **trybu** _All_ i współpracuje z grupą zasobów, zobacz [wzorzec: Tags — przykład #1](./pattern-tags.md#sample-1-parameterize-tags).
 
 :::code language="json" source="~/policy-templates/patterns/pattern-parameters-1.json":::
 
@@ -42,11 +45,27 @@ Ta definicja zasad używa jednego parametru, **listOfBandwidthinMbps**, aby spra
 
 W tej części definicji zasad parametr **listOfBandwidthinMbps** jest zdefiniowany jako _Tablica_ i opis jest przeznaczony do użycia. Jako _Tablica_ma wiele wartości do dopasowania.
 
-Ten parametr jest następnie używany w bloku **Klasa policyrule. if** . Jako parametr _tablicy_ , należy **użyć lub** **notIn** [warunku](../concepts/definition-structure.md#conditions) _tablicy_
-.
+Ten parametr jest następnie używany w bloku **Klasa policyrule. if** . Jako parametr _tablicy_ , _array_ 
+ należy użyć lub **notIn** [warunku](../concepts/definition-structure.md#conditions)tablicy. **in**
 W tym miejscu jest używany w odniesieniu do aliasu **. bandwidthInMbps** jako jednej ze zdefiniowanych wartości.
 
 :::code language="json" source="~/policy-templates/patterns/pattern-parameters-2.json" range="21-24" highlight="3":::
+
+## <a name="sample-3-parameterized-effect"></a>Przykład 3: efekt sparametryzowany
+
+Typowym sposobem, aby definicje zasad były wielokrotnego użytku, jest Sparametryzuj samego efektu. W tym przykładzie zastosowano pojedynczy parametr, **efekt**. Parametryzacja efekt umożliwia przypisanie tej samej definicji do różnych zakresów z różnymi efektami.
+
+:::code language="json" source="~/policy-templates/patterns/pattern-parameters-3.json":::
+
+### <a name="sample-3-explanation"></a>Przykład 3: wyjaśnienie
+
+:::code language="json" source="~/policy-templates/patterns/pattern-parameters-3.json" range="11-25":::
+
+W tej części definicji zasad parametr **Effect** jest definiowany jako _ciąg_. Definicja zasad ustawia wartość domyślną dla przypisania do _inspekcji_ i ogranicza inne opcje do _wyłączony_ i _Odmów_.
+
+Parametr jest następnie używany w bloku **Klasa policyrule. then** dla _efektu_.
+
+:::code language="json" source="~/policy-templates/patterns/pattern-parameters-3.json" range="38-40" highlight="2":::
 
 ## <a name="next-steps"></a>Następne kroki
 

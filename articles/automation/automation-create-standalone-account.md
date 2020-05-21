@@ -1,16 +1,16 @@
 ---
 title: Tworzenie autonomicznego konta usługi Azure Automation
-description: W tym artykule przedstawiono kroki tworzenia, testowania i używania przykładowego uwierzytelniania podmiotu zabezpieczeń w Azure Automation.
+description: W tym artykule opisano sposób tworzenia autonomicznego konta Azure Automation oraz klasycznego konta Uruchom jako.
 services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5f291bdea2df67e07b1aca2dcc6326c3c9864ad2
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: ffe7edd5faf5ae4f88f9f3e0c40256bee32395d7
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995792"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714869"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Tworzenie autonomicznego konta usługi Azure Automation
 
@@ -31,13 +31,11 @@ Po utworzeniu tego konta możesz szybko rozpocząć tworzenie i wdrażanie eleme
 Aby utworzyć lub zaktualizować konto usługi Automation oraz wykonać zadania opisane w tym artykule, musisz mieć następujące uprawnienia i uprawnienia:
 
 * Aby można było utworzyć konto usługi Automation, konto użytkownika usługi Azure AD musi zostać dodane do roli z uprawnieniami odpowiadającymi roli właściciela dla `Microsoft.Automation` zasobów. Aby uzyskać więcej informacji, zobacz [Access Control oparte na rolach w Azure Automation](automation-role-based-access-control.md).
-* W Azure Portal w obszarze **Azure Active Directory** > **Zarządzanie** > **ustawieniami użytkownika**, jeśli **rejestracje aplikacji** ma wartość **tak**, użytkownicy niebędący administratorami w dzierżawie usługi Azure AD mogą [rejestrować aplikacje Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). Jeśli **rejestracje aplikacji** jest ustawiona na wartość **nie**, użytkownik wykonujący tę akcję musi być administratorem globalnym w usłudze Azure AD.
+* W Azure Portal w obszarze **Azure Active Directory**  >  **Zarządzanie**  >  **ustawieniami użytkownika**, jeśli **rejestracje aplikacji** jest ustawiona na **tak**, użytkownicy inni niż administratorzy w dzierżawie usługi Azure AD mogą [rejestrować aplikacje Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). Jeśli **rejestracje aplikacji** jest ustawiona na wartość **nie**, użytkownik wykonujący tę akcję musi być administratorem globalnym w usłudze Azure AD.
 
 Jeśli nie jesteś członkiem wystąpienia Active Directory subskrypcji przed dodaniem do roli administratora globalnego/współadministratora subskrypcji, dodasz Cię do Active Directory jako gość. W tym scenariuszu ten komunikat zostanie wyświetlony w okienku Dodawanie konta usługi Automation:`You do not have permissions to create.`
 
-Jeśli użytkownik zostanie najpierw dodany do roli administratora globalnego/współadministratora, można usunąć tego użytkownika z wystąpienia Active Directory subskrypcji. Możesz przeczytać użytkownika do roli użytkownika w Active Directory.
-
-Aby sprawdzić role użytkowników:
+Jeśli użytkownik zostanie najpierw dodany do roli administratora globalnego/współadministratora, można usunąć tego użytkownika z wystąpienia Active Directory subskrypcji. Możesz przeczytać użytkownika do roli użytkownika w Active Directory. Aby sprawdzić role użytkowników:
 
 1. W Azure Portal przejdź do okienka Azure Active Directory.
 1. Wybierz pozycję **Użytkownicy i grupy**.
@@ -83,8 +81,6 @@ Aby utworzyć konto Azure Automation w Azure Portal, wykonaj następujące czynn
 
 1. Aby śledzić postęp tworzenia konta usługi Automation, w menu wybierz pozycję **powiadomienia** .
 
-### <a name="resources-included"></a>Zasoby dołączone
-
 Po pomyślnym utworzeniu konta usługi Automation automatycznie zostanie utworzonych kilka zasobów. Po utworzeniu te elementy Runbook można bezpiecznie usunąć, jeśli nie chcesz ich zachować. Konta Uruchom jako mogą służyć do uwierzytelniania na koncie w elemencie Runbook i powinny pozostać bez względu na to, czy nie zostanie utworzona inna lub nie jest wymagana. Poniższa tabela zawiera podsumowanie zasobów dla konta Uruchom jako.
 
 | Zasób | Opis |
@@ -105,9 +101,8 @@ Klasyczne konta Uruchom jako nie są już tworzone domyślnie podczas tworzenia 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej o tworzeniu graficznym, zobacz [Tworzenie graficzne w Azure Automation](automation-graphical-authoring-intro.md).
-* Aby rozpocząć pracę z elementami Runbook programu PowerShell, zobacz artykuł [My first PowerShell runbook](automation-first-runbook-textual-powershell.md) (Mój pierwszy element Runbook programu PowerShell).
-* Aby rozpocząć pracę z elementami Runbook przepływu pracy programu PowerShell, zobacz [mój pierwszy element Runbook przepływu pracy programu PowerShell](automation-first-runbook-textual.md).
-* Aby rozpocząć pracę z elementami Runbook języka Python 2, zobacz [mój pierwszy python2 Runbook](automation-first-runbook-textual-python2.md).
-* Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* [Tworzenie graficzne w Azure Automation](automation-graphical-authoring-intro.md)
+* [Mój pierwszy element Runbook programu PowerShell](automation-first-runbook-textual-powershell.md)
+* [Mój pierwszy element Runbook przepływu pracy programu PowerShell](automation-first-runbook-textual.md)
+* [Mój pierwszy element Runbook python2](automation-first-runbook-textual-python2.md)
+* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: 7afbfcc7830374c07850d1f634eb5e29fb459597
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 9f10825d8f22a7ddd9858e86dc2083ae47da9a69
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654917"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712761"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Co to jest wystąpienie obliczeniowe Azure Machine Learning?
 
@@ -114,7 +114,7 @@ Można wykonać następujące czynności:
 
 * Tworzenie wystąpienia obliczeniowego. Określ nazwę, typ maszyny wirtualnej platformy Azure, w tym procesory GPU (Uwaga: nie można zmienić typu maszyny wirtualnej po utworzeniu), Włącz/Wyłącz dostęp SSH i skonfiguruj ustawienia sieci wirtualnej opcjonalnie. Można również utworzyć wystąpienie bezpośrednio z poziomu zintegrowanych notesów, Azure Portal, szablonu Menedżer zasobów lub zestawu SDK Azure Machine Learning. Przydziały dedykowanych rdzeni na region, które mają zastosowanie do tworzenia wystąpienia obliczeniowego, są ujednolicone i udostępniane Azure Machine Learning przydziału klastra obliczeniowego.
 * Odśwież kartę wystąpienia obliczeniowe
-* Uruchamianie, zatrzymywanie i ponowne uruchamianie wystąpienia obliczeniowego
+* Uruchamianie, zatrzymywanie i ponowne uruchamianie wystąpienia obliczeniowego. Zatrzymaj maszynę wirtualną, gdy nie używasz jej do obniżenia kosztów. Następnie uruchom ją ponownie, gdy będzie potrzebna.
 * Usuwanie wystąpienia obliczeniowego
 
 Dla każdego wystąpienia obliczeniowego w obszarze roboczym możesz:

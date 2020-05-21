@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 7bdcccee3270f9d2b611682a9a59505158a494d2
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 593cca5fbf0aa6e4c162e541560763c50cbc067e
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82205211"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83711418"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Zasady pomocy technicznej usługi Azure Red Hat OpenShift
 
@@ -22,13 +22,13 @@ Niektóre konfiguracje klastrów usługi Azure Red Hat OpenShift 4 mogą mieć w
 
 ## <a name="cluster-configuration-requirements"></a>Wymagania dotyczące konfiguracji klastra
 
-* Wszystkie operatory klastrów OpenShift muszą pozostać w stanie zarządzanym. Listę operatorów klastra można zwrócić przez uruchomienie `oc get clusteroperators`.
+* Wszystkie operatory klastrów OpenShift muszą pozostać w stanie zarządzanym. Listę operatorów klastra można zwrócić przez uruchomienie `oc get clusteroperators` .
 * Nie usuwaj ani nie Modyfikuj usług Cluster Prometheus i Alertmanager.
 * Nie usuwaj reguł usługi alertów usług.
 * Nie należy modyfikować wersji klastra OpenShift.
 * Nie usuwaj ani nie Modyfikuj rejestrowania usługi Azure Red Hat OpenShift Service (procesem MDSD).
 * Nie usuwaj ani nie Modyfikuj klucza tajnego ściągania klastra "arosvc.azurecr.io".
-* Wszystkie maszyny wirtualne klastra muszą mieć dostęp do ruchu wychodzącego z Internetu, co najmniej do punktów końcowych Azure Resource Manager (ARM) i rejestrowania usług (Genewa).
+* Wszystkie maszyny wirtualne klastra muszą mieć bezpośredni dostęp do Internetu, co najmniej do punktów końcowych Azure Resource Manager (ARM) i rejestrowania usług (Genewa).  Nie jest obsługiwany żaden formularz proxy protokołu HTTPS.
 * Usługa Azure Red Hat OpenShift uzyskuje dostęp do klastra za pośrednictwem usługi linku prywatnego.  Nie usuwaj ani nie Modyfikuj dostępu do usługi.
 * Węzły obliczeniowe inne niż RHCOS nie są obsługiwane. Na przykład nie można użyć węzła obliczeniowego RHEL.
 

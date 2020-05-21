@@ -3,12 +3,12 @@ title: Model danych dzienników Azure Monitor
 description: W tym artykule dowiesz się więcej na temat Azure Monitor Log Analytics szczegóły modelu danych Azure Backup.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 72484923bc94e197cd195c0192b53feb3ef457ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78d43e4c65f31b47f4b6070f071c932692cee883
+ms.sourcegitcommit: a3c6efa4d4a48e9b07ecc3f52a552078d39e5732
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183691"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83707993"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics model danych dla Azure Backup danych
 
@@ -463,7 +463,9 @@ Poniżej przedstawiono kilka przykładów ułatwiających pisanie zapytań dotyc
 ## <a name="v1-schema-vs-v2-schema"></a>Schemat wersji V1 schematu vs v2
 Wcześniej dane diagnostyczne dla agenta Azure Backup i kopii zapasowej maszyny wirtualnej platformy Azure zostały wysłane do tabeli Diagnostyka Azure w schemacie nazywanym ***schematem V1***. Następnie dodano nowe kolumny do obsługi innych scenariuszy i obciążeń, a dane diagnostyczne zostały wypchnięte w nowym schemacie nazywanym ***schematem v2***. 
 
-Ze względu na zgodność z poprzednimi wersjami dane diagnostyczne dla agenta Azure Backup i kopii zapasowej maszyny wirtualnej platformy Azure są obecnie wysyłane do Diagnostyka Azure tabeli w schemacie V1 i v2 (z teraz schematem w wersji 1). Istnieje możliwość zidentyfikowania, które rekordy w Log Analytics znajdują się w schemacie V1 przez filtrowanie rekordów dla SchemaVersion_s = = "v1" w zapytaniach dziennika.
+Ze względu na zgodność z poprzednimi wersjami dane diagnostyczne dla agenta Azure Backup i kopii zapasowej maszyny wirtualnej platformy Azure są obecnie wysyłane do Diagnostyka Azure tabeli w schemacie V1 i v2 (z teraz schematem w wersji 1). Istnieje możliwość zidentyfikowania, które rekordy w Log Analytics znajdują się w schemacie V1 przez filtrowanie rekordów dla SchemaVersion_s = = "v1" w zapytaniach dziennika. 
+
+Zapoznaj się z trzecią kolumną "Description" w [modelu danych](https://docs.microsoft.com/azure/backup/backup-azure-diagnostics-mode-data-model#using-azure-backup-data-model) opisanym powyżej, aby określić, które kolumny należą do schematu tylko w wersji 1.
 
 ## <a name="next-steps"></a>Następne kroki
 

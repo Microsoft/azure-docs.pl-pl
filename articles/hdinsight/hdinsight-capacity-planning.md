@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/07/2020
-ms.openlocfilehash: 4ede8833fdbdbd57654e6c02147f53e58a17b1de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/07/2020
+ms.openlocfilehash: 8e76f767470b9052b25cd2b2958f3f9e9780881b
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80886997"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714750"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planowanie wydajności klastrów usługi HDInsight
 
@@ -84,7 +84,6 @@ Opłata jest naliczana za okres istnienia klastra. Jeśli jest potrzebny tylko o
 
 > [!NOTE]  
 > Po usunięciu klastra zostanie również usunięty jego domyślny magazyn metadanych Hive. Aby zachować magazyn metadanych dla następnego ponownego tworzenia klastra, Użyj zewnętrznego magazynu danych, takiego jak Azure Database lub [Apache Oozie](https://oozie.apache.org/).
-<!-- see [Using external metadata stores](hdinsight-using-external-metadata-stores.md). -->
 
 ### <a name="isolate-cluster-job-errors"></a>Izolowanie błędów zadań klastra
 
@@ -92,40 +91,7 @@ Czasami mogą wystąpić błędy spowodowane równoległym wykonywaniem wielu ma
 
 ## <a name="quotas"></a>Przydziały
 
-Po określeniu rozmiaru, skali i typu docelowej maszyny wirtualnej klastra sprawdź bieżące limity pojemności przydziału dla subskrypcji. Po osiągnięciu limitu przydziału nie można wdrażać nowych klastrów. Lub Skaluj istniejące klastry, dodając więcej węzłów procesu roboczego. Jedynym limitem przydziału jest przydział rdzeni procesora CPU, który istnieje na poziomie regionu dla każdej subskrypcji. Na przykład subskrypcja może mieć limit 30 rdzeni w regionie Wschodnie stany USA.
-
-Aby sprawdzić dostępne rdzenie, wykonaj następujące czynności:
-
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-2. Przejdź do strony **Przegląd** klastra usługi HDInsight.
-3. W menu po lewej stronie wybierz pozycję **limity przydziału**.
-
-   Na stronie zostanie wyświetlona liczba używanych rdzeni, liczba dostępnych rdzeni i łączna liczba rdzeni.
-
-Jeśli musisz zażądać zwiększenia limitu przydziału, wykonaj następujące czynności:
-
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-1. Wybierz pozycję **Pomoc i obsługa techniczna** w lewej dolnej części strony.
-1. Wybierz pozycję **nowe żądanie obsługi**.
-1. Na stronie **nowe żądanie obsługi** w obszarze **podstawowe** karty wybierz następujące opcje:
-
-   - **Typ problemu**: **limity usług i subskrypcji (przydziały)**
-   - **Subskrypcja**: subskrypcja, którą chcesz zmodyfikować
-   - **Typ limitu przydziału**: **HDInsight**
-
-     ![Utwórz żądanie obsługi, aby zwiększyć limit przydziału rdzeni usługi HDInsight](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
-
-1. Wybierz pozycję **Dalej: rozwiązania >>**.
-1. Na stronie **szczegóły** wprowadź opis problemu, wybierz ważność problemu, preferowaną metodę kontaktu i inne wymagane pola.
-1. Wybierz kolejno pozycje **Dalej: recenzja + utwórz >>**.
-1. Na karcie **Recenzja i tworzenie** wybierz pozycję **Utwórz**.
-
-> [!NOTE]  
-> Jeśli potrzebujesz zwiększyć przydział rdzenia usługi HDInsight w regionie prywatnym, [Prześlij żądanie dozwolonych](https://aka.ms/canaryintwhitelist).
-
-Możesz [skontaktować się z pomocą techniczną, aby zażądać zwiększenia limitu przydziału](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
-
-Istnieją pewne stałe limity przydziału. Na przykład jedna subskrypcja platformy Azure może mieć co najwyżej 10 000 rdzeni. Aby uzyskać szczegółowe informacje dotyczące tych limitów, zobacz [limity subskrypcji i usług platformy Azure, przydziały i ograniczenia](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+Aby uzyskać więcej informacji na temat zarządzania przydziałami subskrypcji, zobacz temat [żądanie limitu przydziału](quota-increase-request.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

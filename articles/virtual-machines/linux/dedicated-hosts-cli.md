@@ -6,32 +6,40 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: ba40e610e31a1215ac90baf63a04b435b636d68a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dc772368de1a0f7d8a7d4f44b47ecafda70f0a70
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79127700"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714852"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Wdrażanie maszyn wirtualnych na dedykowanych hostach przy użyciu interfejsu wiersza polecenia platformy Azure
  
 
 W tym artykule opisano sposób tworzenia [dedykowanego hosta](dedicated-hosts.md) platformy Azure do hostowania maszyn wirtualnych. 
 
-Upewnij się, że zainstalowano interfejs wiersza polecenia platformy Azure w wersji 2.0.70 lub nowszej oraz że zalogowano `az login`się na koncie platformy Azure przy użyciu programu. 
+Upewnij się, że zainstalowano interfejs wiersza polecenia platformy Azure w wersji 2.0.70 lub nowszej oraz że zalogowano się na koncie platformy Azure przy użyciu programu `az login` . 
 
 
 ## <a name="limitations"></a>Ograniczenia
 
 - Zestawy skalowania maszyn wirtualnych nie są obecnie obsługiwane na dedykowanych hostach.
 - Rozmiary i typy sprzętu dostępne dla dedykowanych hostów różnią się w zależności od regionu. Więcej informacji można znaleźć na [stronie cennika](https://aka.ms/ADHPricing) hosta.
- 
 
 ## <a name="create-resource-group"></a>Tworzenie grupy zasobów 
 Grupa zasobów platformy Azure to logiczny kontener przeznaczony do wdrażania zasobów platformy Azure i zarządzania nimi. Utwórz grupę zasobów za pomocą AZ Group Create. Poniższy przykład tworzy grupę zasobów o nazwie *myDHResourceGroup* w lokalizacji *Wschodnie stany USA* .
 
 ```bash
 az group create --name myDHResourceGroup --location eastus 
+```
+ 
+## <a name="list-available-host-skus-in-a-region"></a>Wyświetlanie dostępnych jednostek SKU hosta w regionie
+Nie wszystkie jednostki SKU hosta są dostępne we wszystkich regionach i strefach dostępności. 
+
+Wyświetlanie listy dostępności hosta i ograniczeń oferty przed rozpoczęciem aprowizacji dedykowanych hostów. 
+
+```bash
+az vm list-skus -l eastus2  -r hostGroups/hosts  -o table  
 ```
  
 ## <a name="create-a-host-group"></a>Tworzenie grupy hostów 

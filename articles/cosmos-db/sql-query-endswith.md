@@ -4,23 +4,24 @@ description: Dowiedz się więcej o funkcji systemowej ENDSWITH SQL w Azure Cosm
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 05/20/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 37c5a8b3c44c5ac46b837e4d851d22f85aeaf39c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d7e7f3e33389d4a201ec3281829cb9f0415978e6
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78299452"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83713560"
 ---
 # <a name="endswith-azure-cosmos-db"></a>ENDSWITH (Azure Cosmos DB)
+
  Zwraca wartość Boolean wskazującą, czy pierwsze wyrażenie ciągu ma kończyć się drugim.  
   
 ## <a name="syntax"></a>Składnia
   
 ```sql
-ENDSWITH(<str_expr1>, <str_expr2>)  
+ENDSWITH(<str_expr1>, <str_expr2> [, <bool_expr>])
 ```  
   
 ## <a name="arguments"></a>Argumenty
@@ -29,7 +30,9 @@ ENDSWITH(<str_expr1>, <str_expr2>)
    Jest wyrażeniem ciągu.  
   
 *str_expr2*  
-   Jest wyrażeniem ciągu, które ma zostać porównane z końcem *str_expr1*.  
+   Jest wyrażeniem ciągu, które ma zostać porównane z końcem *str_expr1*.
+
+*bool_expr* Opcjonalna wartość dla ignorowania wielkości liter. Po ustawieniu na wartość true, ENDSWITH będzie wykonywać wyszukiwanie bez uwzględniania wielkości liter. Jeśli nie określono tego parametru, ta wartość jest równa false.
   
 ## <a name="return-types"></a>Typy zwracane
   
@@ -51,7 +54,7 @@ SELECT ENDSWITH("abc", "b") AS e1, ENDSWITH("abc", "bc") AS e2
 
 ## <a name="remarks"></a>Uwagi
 
-Ta funkcja systemowa nie będzie używać indeksu.
+Ta funkcja systemowa będzie korzystać z [indeksu zakresu](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Następne kroki
 

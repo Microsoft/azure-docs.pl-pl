@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8d4de424d5d4d6da1ee80e04b35e63ae29df57c8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b3cca8403897227843b088a3985d54a3b164be0d
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424909"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702043"
 ---
 # <a name="sql-on-demand-preview-in-azure-synapse-analytics"></a>SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics 
 
@@ -28,7 +28,7 @@ SQL na żądanie to system rozproszonego przetwarzania danych, oparty na dużej 
 
 SQL na żądanie jest bezserwerowy, dlatego nie istnieje infrastruktura do konfigurowania lub klastrów do obsługi. Domyślny punkt końcowy dla tej usługi jest udostępniany w każdym obszarze roboczym usługi Azure Synapse, więc możesz zacząć wysyłać zapytania o dane zaraz po utworzeniu obszaru roboczego. Za zarezerwowane zasoby nie jest naliczana opłata za dane przeskanowane przez uruchomione zapytania, dlatego ten model jest rzeczywistym modelem płatnym za użycie.  
 
-Jeśli używasz platformy Spark w potoku danych do przygotowywania, czyszczenia lub wzbogacania danych, możesz [wysyłać zapytania dotyczące wszystkich tabel platformy Spark](develop-storage-files-spark-tables.md) utworzonych w procesie bezpośrednio z poziomu bazy danych SQL na żądanie. Użyj [linku prywatnego](../security/how-to-connect-to-workspace-with-private-links.md) , aby przenieść punkt końcowy na żądanie SQL do [zarządzanej sieci wirtualnej obszaru roboczego](../security/synapse-workspace-managed-vnet.md).  
+W przypadku korzystania z Apache Spark platformy Azure Synapse w potoku danych w celu przygotowania, oczyszczenia lub wzbogacania danych można [wykonywać zapytania dotyczące zewnętrznych tabel platformy Spark](develop-storage-files-spark-tables.md) utworzonych w procesie bezpośrednio z poziomu bazy danych SQL na żądanie. Użyj [linku prywatnego](../security/how-to-connect-to-workspace-with-private-links.md) , aby przenieść punkt końcowy na żądanie SQL do [zarządzanej sieci wirtualnej obszaru roboczego](../security/synapse-workspace-managed-vnet.md).  
 
 ## <a name="who-is-sql-on-demand-for"></a>Kto jest SQL na żądanie
 
@@ -42,7 +42,7 @@ Różne role profesjonalne mogą korzystać z usługi SQL na żądanie:
 
 - Inżynierowie danych mogą eksplorować usługi Lake, przekształcać i przygotowywać dane przy użyciu tych usług oraz uprościć potoki przekształcania danych. Aby uzyskać więcej informacji, zapoznaj się z tym [samouczkiem](tutorial-data-analyst.md).
 - Naukowcy danych mogą szybko przyczynić się do zawartości i struktury danych w Lake, dzięki funkcjom, takim jak OPENROWSET i automatycznym wnioskom schematu.
-- Analitycy danych mogą [eksplorować tabele danych i platformy Spark](develop-storage-files-spark-tables.md) utworzone przez analityków danych lub inżynierów danych przy użyciu znanego języka T-SQL lub ich ulubionych narzędzi, które mogą łączyć się z serwerem SQL na żądanie.
+- Analitycy danych mogą [eksplorować dane i bazy danych platformy Spark](develop-storage-files-spark-tables.md) utworzone przez analityków danych lub inżynierów danych przy użyciu znanego języka T-SQL lub ich ulubionych narzędzi, które mogą łączyć się z serwerem SQL na żądanie.
 - Specjaliści analizy biznesowej mogą szybko [tworzyć Power BI raporty na podstawie danych w tabelach Lake](tutorial-connect-power-bi-desktop.md) i Spark.
 
 ## <a name="what-do-i-need-to-do-to-start-using-it"></a>Co należy zrobić, aby rozpocząć korzystanie z niego?
@@ -110,7 +110,7 @@ Program SQL on-Demand oferuje mechanizmy zabezpieczania dostępu do danych.
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integracja usługi Azure Active Directory z uwierzytelnianiem wieloskładnikowym
 
-Usługa SQL na żądanie umożliwia centralne zarządzanie tożsamościami użytkowników bazy danych i innych usług firmy Microsoft z [integracją Azure Active Directory](../../sql-database/sql-database-Azure AD-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Ta funkcja upraszcza zarządzanie uprawnieniami i zwiększa bezpieczeństwo. Azure Active Directory (Azure AD) obsługuje [uwierzytelnianie wieloskładnikowe](../../sql-database/sql-database-ssms-mfa-authentication-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (MFA) w celu zwiększenia bezpieczeństwa danych i aplikacji podczas obsługi logowania jednokrotnego.
+Usługa SQL na żądanie umożliwia centralne zarządzanie tożsamościami użytkowników bazy danych i innych usług firmy Microsoft z [integracją Azure Active Directory](../../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Ta funkcja upraszcza zarządzanie uprawnieniami i zwiększa bezpieczeństwo. Azure Active Directory (Azure AD) obsługuje [uwierzytelnianie wieloskładnikowe](../../sql-database/sql-database-ssms-mfa-authentication-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (MFA) w celu zwiększenia bezpieczeństwa danych i aplikacji podczas obsługi logowania jednokrotnego.
 
 #### <a name="authentication"></a>Authentication
 

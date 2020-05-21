@@ -1,27 +1,24 @@
 ---
 title: Azure Automation często zadawane pytania | Microsoft Docs
-description: Odpowiedzi na często zadawane pytania dotyczące Azure Automation.
+description: Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące Azure Automation.
 services: automation
 ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 02/25/2020
-ms.openlocfilehash: 3fa29f3df5f0434c4c61e8d12adbb3f55156a29f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 46786ff5bd158804ea5d93377fbbcc39a9c8af26
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81405960"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712880"
 ---
 # <a name="azure-automation-frequently-asked-questions"></a>Azure Automation często zadawane pytania
 
 Ta firma Microsoft — często zadawane pytania dotyczące Azure Automation. Jeśli masz dodatkowe pytania dotyczące jego możliwości, przejdź na forum dyskusyjne i Opublikuj swoje pytania. Gdy pytanie jest często zadawane, dodamy je do tego artykułu, aby można je było szybko i łatwo znaleźć.
 
->[!NOTE]
->Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Instrukcje dotyczące instalacji polecenia AZ module w hybrydowym procesie roboczym elementu Runbook znajdują się w temacie [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). W przypadku konta usługi Automation można zaktualizować moduły do najnowszej wersji przy użyciu [sposobu aktualizowania modułów Azure PowerShell w programie Azure Automation](automation-update-azure-modules.md).
-
-## <a name="update-management-solution"></a>Update Management solution (Rozwiązanie Update Management)
+## <a name="update-management"></a>Zarządzanie aktualizacjami
 
 ### <a name="can-i-prevent-unexpected-os-level-upgrades"></a>Czy mogę uniknąć nieoczekiwanych uaktualnień na poziomie systemu operacyjnego?
 
@@ -29,7 +26,7 @@ W przypadku niektórych odmian systemu Linux, takich jak Red Hat Enterprise Linu
 
 Aby uniknąć aktualizacji wersji systemu operacyjnego za pomocą wdrożeń Update Management, użyj funkcji **wykluczania** .
 
-W Red Hat Enterprise Linux nazwa pakietu do wykluczenia to `redhat-release-server.x86_64`.
+W Red Hat Enterprise Linux nazwa pakietu do wykluczenia to `redhat-release-server.x86_64` .
 
 ### <a name="why-arent-criticalsecurity-updates-applied"></a>Dlaczego aktualizacje krytyczne/zabezpieczenia są stosowane?
 

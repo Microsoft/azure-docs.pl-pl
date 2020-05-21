@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 14fd237b6437c15ede2da7c0694004f6c22736cc
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8de6e9cff8149423f4b00b07e3113be6606181b5
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83600003"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714240"
 ---
 # <a name="quickstart-building-your-first-static-web-app"></a>Szybki Start: Tworzenie pierwszej statycznej aplikacji sieci Web
 
@@ -81,7 +81,7 @@ Zacznij od skonfigurowania nowej aplikacji i powiązania jej z repozytorium GitH
 - Wybierz swoją _subskrypcję platformy Azure_
 - Wybierz lub Utwórz nową _grupę zasobów_
 - Nadaj aplikacji nazwę **My-static-Web-App**.
-  - Prawidłowe znaki to `a-z` (bez uwzględniania wielkości liter), `0-9` i `_` .
+  - Prawidłowe znaki to `a-z` (bez uwzględniania wielkości liter), `0-9` i `-` .
 - Wybierz _region_ znajdujący się najbliżej siebie
 - Wybierz **bezpłatną** _jednostkę SKU_
 - Kliknij przycisk **Zaloguj się przy użyciu usługi GitHub** i Uwierzytelnij się za pomocą usługi GitHub
@@ -130,6 +130,8 @@ Następnie Dodaj szczegóły konfiguracji specyficzne dla preferowanej platformy
 Kliknij przycisk **Przejrzyj i utwórz**.
 
 :::image type="content" source="media/getting-started/review-create.png" alt-text="Przycisk tworzenia przeglądu":::
+
+Aby zmienić te wartości po utworzeniu aplikacji, można edytować [plik przepływu pracy](github-actions-workflow.md).
 
 ### <a name="review--create"></a>Przegląd + tworzenie
 

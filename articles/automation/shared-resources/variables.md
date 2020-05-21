@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cc6cf908c5550f81ca6002de031d8d54dcff1eec
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: cb89caa0a2fe5cde5bcea92e08c0df117215d916
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685318"
+ms.locfileid: "83713305"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Zarządzanie zmiennymi w Azure Automation
 
@@ -188,12 +188,12 @@ W graficznym elemencie Runbook można dodać działania dla wewnętrznych polece
 
 ![Dodaj zmienną do kanwy](../media/variables/runbook-variable-add-canvas.png)
 
-Na poniższej ilustracji przedstawiono przykładowe czynności służące do zaktualizowania zmiennej o prostej wartości w graficznym elemencie Runbook. W tym przykładzie działanie programu `Get-AzVM` Pobiera pojedynczą maszynę wirtualną platformy Azure i zapisuje nazwę komputera do istniejącej zmiennej ciągu automatyzacji. Nie ma znaczenia, czy [łącze jest potokiem, czy sekwencją](../automation-graphical-authoring-intro.md#links-and-workflow) , ponieważ kod oczekuje tylko pojedynczego obiektu w danych wyjściowych.
+Na poniższej ilustracji przedstawiono przykładowe czynności służące do zaktualizowania zmiennej o prostej wartości w graficznym elemencie Runbook. W tym przykładzie działanie programu `Get-AzVM` Pobiera pojedynczą maszynę wirtualną platformy Azure i zapisuje nazwę komputera do istniejącej zmiennej ciągu automatyzacji. Nie ma znaczenia, czy [łącze jest potokiem, czy sekwencją](../automation-graphical-authoring-intro.md#use-links-for-workflow) , ponieważ kod oczekuje tylko pojedynczego obiektu w danych wyjściowych.
 
 ![Ustaw prostą zmienną](../media/variables/runbook-set-simple-variable.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej na temat poleceń cmdlet służących do uzyskiwania dostępu do zmiennych, zobacz [Zarządzanie modułami w Azure Automation](modules.md).
-* Aby uzyskać ogólne informacje o elementach Runbook, zobacz [wykonywanie elementów Runbook w Azure Automation](../automation-runbook-execution.md).
-* Aby uzyskać szczegółowe informacje na temat konfiguracji DSC, zobacz [Konfiguracja stanu — przegląd](../automation-dsc-overview.md).
+* [Zarządzanie modułami w usłudze Azure Automation](modules.md)
+* [Wykonywanie elementu runbook w usłudze Azure Automation](../automation-runbook-execution.md)
+* [Przegląd konfiguracji stanu Azure Automation](../automation-dsc-overview.md) 

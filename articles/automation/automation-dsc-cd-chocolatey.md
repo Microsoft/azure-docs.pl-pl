@@ -1,18 +1,18 @@
 ---
-title: Ciągłe wdrażanie konfiguracji stanu Azure Automation przy użyciu czekolady
-description: Opisuje DevOps ciągłe wdrażanie przy użyciu konfiguracji stanu Azure Automation za pomocą Menedżera pakietów czekolady. Zawiera przykład z pełnym szablonem Menedżer zasobów JSON i źródłem programu PowerShell.
+title: Konfigurowanie Azure Automation ciągłego wdrażania przy użyciu czekolady
+description: W tym artykule opisano sposób konfigurowania ciągłego wdrażania z konfiguracją stanu i Menedżera pakietów czekolady.
 services: automation
 ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
-ms.openlocfilehash: 278c6ee05fdf78cbfa8653381b65233fbb513593
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 63fd65f6a80dec582b9cecc8483bc3425d08c551
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996121"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714189"
 ---
-# <a name="provide-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Zapewnianie ciągłego wdrażania maszyn wirtualnych przy użyciu konfiguracji stanu automatyzacji i czekolady
+# <a name="set-up-continuous-deployment-with-chocolatey"></a>Konfigurowanie ciągłego wdrażania z czekoladą
 
 Na świecie DevOps istnieje wiele narzędzi, które pomagają w różnych punktach w potoku ciągłej integracji. [Konfiguracja stanu](automation-dsc-overview.md) Azure Automation jest nowym uzupełnieniem opcji, które mogą być używane przez zespoły DevOps. 
 
@@ -69,7 +69,7 @@ Pełne źródło tego przykładu użycia znajduje się w [tym projekcie programu
 
 ## <a name="step-1-set-up-the-pull-server-and-automation-account"></a>Krok 1. Konfigurowanie serwera ściągania i konta usługi Automation
 
-W wierszu polecenia programu`Connect-AzAccount`PowerShell uwierzytelnionego (): (może upłynąć kilka minut, gdy serwer ściągania jest skonfigurowany)
+W `Connect-AzAccount` wierszu polecenia programu PowerShell uwierzytelnionego (): (może upłynąć kilka minut, gdy serwer ściągania jest skonfigurowany)
 
 ```azurepowershell-interactive
 New-AzResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
@@ -189,7 +189,7 @@ Get-AzAutomationDscCompilationJob `
     -Id $compilationJobId
 ```
 
-Te kroki powodują powstanie nowej konfiguracji węzła o nazwie **ISVBoxConfig. isvbox** umieszczanej na serwerze ściągania. Nazwa konfiguracji węzła jest skompilowana jako `configurationName.nodeName`.
+Te kroki powodują powstanie nowej konfiguracji węzła o nazwie **ISVBoxConfig. isvbox** umieszczanej na serwerze ściągania. Nazwa konfiguracji węzła jest skompilowana jako `configurationName.nodeName` .
 
 ## <a name="step-5-create-and-maintain-package-metadata"></a>Krok 5. Tworzenie i konserwowanie metadanych pakietu
 

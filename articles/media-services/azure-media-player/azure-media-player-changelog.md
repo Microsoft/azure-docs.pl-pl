@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: 15f8a3ac8c2777b3a878de92db495e559f64ad20
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a1a55ceec2679034125ddd202402cabcbf71e17e
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81726550"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698314"
 ---
 # <a name="changelog"></a>Dziennik zmian #
 
@@ -246,7 +246,7 @@ ms.locfileid: "81726550"
 
 ### <a name="changes-211"></a>Zmiany 2.1.1 ####
 
-- Stąp Dodano kod błędu dla wymagania https Widevine: w przypadku programu Chrome v58 zawartość Widevine musi zostać załadowana/odtworzona przy `https://` użyciu protokołu, w przeciwnym razie odtwarzanie nie powiedzie się.
+- Stąp Dodano kod błędu dla wymagania https Widevine: w przypadku programu Chrome v58 zawartość Widevine musi zostać załadowana/odtworzona przy użyciu `https://` protokołu, w przeciwnym razie odtwarzanie nie powiedzie się.
 - Stąp Dodano etykietę Aria do ładowania pokrętła, dzięki czemu technologia wspomagająca może głosować "Ładowanie wideo" podczas ładowania zawartości  
 
 ## <a name="210-official-release"></a>2.1.0 (wydanie oficjalne) ##
@@ -577,8 +577,8 @@ ms.locfileid: "81726550"
 - [Poprawka błędu] [AzureHtml5JS] Odtwarzanie na żywo w przypadku aktualizacji w dniu MPD w przypadku niewielkich niedokładności w znaczniku czasu
 - [Poprawka błędu] [AzureHtml5JS] Wyeliminowano kilka problemów z odtwarzaniem na żywo
 - [Poprawka błędu] [AzureHtml5JS] Bufory opróżniania, gdy są włączone heurystyke rozmiaru okna i przejdź do ekranu o wyższej rozdzielczości
-- [Poprawka błędu] [AzureHtml5JS] W programie Chrome jest teraz poprawnie wyświetlana zakończona zdarzenie. Połączono z poprzednim znanym problemem *przeglądarki Chrome nie wyśle&euro;prawidłowo&euro;zdarzenia â œendedâ podczas korzystania z AzureHtml5JS. W podstawowej przeglądarce występuje problem.*
-- [Poprawka błędu] [AzureHtml5JS] Wyłączono przeglądarkę Safari, aby rozwiązać *problem z odtwarzaniem za pomocą programu OSX Yosemite z AzureHtml5JS Tech. Istnieją problemy z implementacją skryptów. Tymczasowe środki zaradcze: Wymuś&euro;rozwiązanie&euro;â œflashSSâ&euro;,&euro;â œsilverlightSSâ jako zamówienie techniczne dla tych agentów użytkownika*
+- [Poprawka błędu] [AzureHtml5JS] W programie Chrome jest teraz poprawnie wyświetlana zakończona zdarzenie. Połączono z poprzednim znanym problemem *przeglądarki Chrome nie wyśle prawidłowo zakończonego zdarzenia po użyciu AzureHtml5JS. W podstawowej przeglądarce występuje problem.*
+- [Poprawka błędu] [AzureHtml5JS] Wyłączono przeglądarkę Safari, aby rozwiązać *problem z odtwarzaniem za pomocą programu OSX Yosemite z AzureHtml5JS Tech. Istnieją problemy z implementacją skryptów. Tymczasowe ograniczenie: Wymuś błysk, Silverlight jako kolejność Tech dla tych agentów użytkownika*
 - [Poprawka błędu] [Błysk] loadstart jest uruchamiany po wystąpieniu błędu
 
 ## <a name="020-beta"></a>0.2.0 (wersja beta) ##
@@ -589,7 +589,7 @@ ms.locfileid: "81726550"
 - Ona Obsługa przerwań
 - Ona Obsługa sygnatur czasowych większych niż 2 ^ 53
 - Ona Parametr zapytania URL utrzymuje żądanie manifestu
-- Ona Nieprzetestowanego Obsługa profilów `QuickStart` i `HighQuality` algorytmów heurystycznych
+- Ona Nieprzetestowanego Obsługa `QuickStart` profilów i `HighQuality` algorytmów heurystycznych
 - Ona Nieprzetestowanego Udostępnianie informacji o strumieniu wideo dla szybkości transmisji bitów, szerokości i wysokości na AzureHtml5JS i błysku
 - Ona Nieprzetestowanego Wybierz szybkość transmisji bitów w AzureHtml5JS i błysku (zobacz dokumentację interfejsu API)
 

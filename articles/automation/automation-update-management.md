@@ -1,16 +1,16 @@
 ---
 title: Omówienie Update Management Azure Automation
-description: Omówienie funkcji Update Management, która zarządza aktualizacjami dla maszyn z systemami Windows i Linux
+description: Omówienie funkcji Update Management, która zarządza aktualizacjami dla maszyn z systemami Windows i Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 05/04/2020
+ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: d3a3a19673ecb6edb82f0512f318298865c8ed24
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: ba4ce84dca85ea1e3f2385ac280bd82c16aa8fb3
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681290"
+ms.locfileid: "83714767"
 ---
 # <a name="update-management-overview"></a>Omówienie rozwiązania Update Management
 
@@ -74,7 +74,7 @@ Posiadanie maszyny zarejestrowanej dla Update Management w więcej niż jednym L
 
 ### <a name="supported-client-types"></a>Obsługiwane typy klientów
 
-W poniższej tabeli wymieniono systemy operacyjne obsługiwane w przypadku ocen aktualizacji. Stosowanie poprawek wymaga hybrydowego procesu roboczego elementu Runbook. Aby uzyskać więcej informacji na temat wymagań hybrydowych procesów roboczych elementu Runbook, zobacz [wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Windows](automation-windows-hrw-install.md) i [wdrażanie hybrydowego procesu roboczego elementu Runbook programu Linux](automation-linux-hrw-install.md).
+W poniższej tabeli wymieniono systemy operacyjne obsługiwane w przypadku ocen aktualizacji. Stosowanie poprawek wymaga hybrydowego procesu roboczego elementu Runbook. Aby uzyskać informacje o wymaganiach hybrydowych procesów roboczych elementu Runbook, zobacz [wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Windows](automation-windows-hrw-install.md) i [wdrażanie hybrydowego procesu roboczego elementu Runbook w systemie Linux](automation-linux-hrw-install.md)
 
 > [!NOTE]
 > Ocena aktualizacji maszyn z systemem Linux jest obsługiwana tylko w niektórych regionach, jak wymieniono w [tabeli mapowania](https://docs.microsoft.com/azure/automation/how-to/region-mappings#supported-mappings)obszaru roboczego konta usługi Automation i log Analytics. 
@@ -98,9 +98,11 @@ W poniższej tabeli wymieniono nieobsługiwane systemy operacyjne:
 
 |System operacyjny  |Uwagi  |
 |---------|---------|
-|Klient systemu Windows     | Systemy operacyjne klienta (takie jak Windows 7 i Windows 10) nie są obsługiwane.        |
+|Klient systemu Windows     | Systemy operacyjne klienta (takie jak Windows 7 i Windows 10) nie są obsługiwane.<br> W przypadku usługi Azure Windows Virtual Desktop (WVD) zalecana metoda<br> Aby zarządzać aktualizacjami, należy [Windows Update dla programu Business](https://docs.microsoft.com/windows/deployment/update/waas-manage-updates-wufb) for Windows 10 Client Patch Management. |
 |Windows Server Nano Server 2016     | Nieobsługiwane.       |
 |Węzły usługi Azure Kubernetes | Nieobsługiwane. Użyj procesu poprawek opisanego w temacie [stosowanie aktualizacji zabezpieczeń i jądra do węzłów systemu Linux w usłudze Azure Kubernetes Service (AKS)](../aks/node-updates-kured.md)|
+
+
 
 ### <a name="client-requirements"></a>Wymagania dotyczące klientów
 
@@ -168,9 +170,9 @@ W poniższej tabeli opisano połączone źródła obsługiwane przez Update Mana
 
 | Połączone źródło | Obsługiwane | Opis |
 | --- | --- | --- |
-| Agenci dla systemu Windows |Yes |Update Management zbiera informacje o aktualizacjach systemu z agentów systemu Windows, a następnie uruchamia instalację wymaganych aktualizacji. |
-| Agenci dla systemu Linux |Yes |Update Management zbiera informacje o aktualizacjach systemu z agentów z systemem Linux, a następnie uruchamia instalację wymaganych aktualizacji w obsługiwanych dystrybucjach. |
-| Grupa zarządzania programu Operations Manager |Yes |Update Management zbiera informacje o aktualizacjach systemu z agentów w połączonej grupie zarządzania.<br/><br/>Bezpośrednie połączenie z agentem Operations Manager do Azure Monitor dzienników nie jest wymagane. Dane są przekazywane z grupy zarządzania do obszaru roboczego Log Analytics. |
+| Agenci dla systemu Windows |Tak |Update Management zbiera informacje o aktualizacjach systemu z agentów systemu Windows, a następnie uruchamia instalację wymaganych aktualizacji. |
+| Agenci dla systemu Linux |Tak |Update Management zbiera informacje o aktualizacjach systemu z agentów z systemem Linux, a następnie uruchamia instalację wymaganych aktualizacji w obsługiwanych dystrybucjach. |
+| Grupa zarządzania programu Operations Manager |Tak |Update Management zbiera informacje o aktualizacjach systemu z agentów w połączonej grupie zarządzania.<br/><br/>Bezpośrednie połączenie z agentem Operations Manager do Azure Monitor dzienników nie jest wymagane. Dane są przekazywane z grupy zarządzania do obszaru roboczego Log Analytics. |
 
 ### <a name="collection-frequency"></a>Częstotliwość zbierania
 

@@ -4,15 +4,15 @@ description: Dowiedz się, jak szybko utworzyć wystąpienie serwera Azure Analy
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 10/30/2019
+ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4c1b22d4871d3e490f59be71b63569fdf563ce45
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 36899aa789f4947fe860621bc1795bfbe2ff1ecf
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75442836"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697473"
 ---
 # <a name="quickstart-create-a-server---portal"></a>Szybki start: tworzenie serwera — portal
 
@@ -30,7 +30,7 @@ W tym przewodniku Szybki start opisano, jak utworzyć zasób serwera usług Anal
 
 ## <a name="create-a-server"></a>Tworzenie serwera
 
-1. Kliknij pozycję **+ Utwórz** > **Analytics** > **Analysis Services**analizy zasobów.
+1. Kliknij pozycję **+ Utwórz**  >  **Analytics**  >  **Analysis Services**analizy zasobów.
 
     ![Portal](./media/analysis-services-create-server/aas-create-server-portal.png)
 
@@ -45,9 +45,9 @@ W tym przewodniku Szybki start opisano, jak utworzyć zasób serwera usług Anal
    * **Ustawienie Magazyn kopii zapasowych**: opcjonalne. Jeśli masz już [konto magazynu](../storage/common/storage-introduction.md), możesz je wskazać jako domyślny magazyn kopii zapasowych modelowej bazy danych. Możesz również określić ustawienia [tworzenia i przywracania kopii zapasowych](analysis-services-backup.md) później.
    * **Czas wygaśnięcia klucza magazynu**: opcjonalne. Określ czas wygaśnięcia klucza magazynu.
 
-Tworzenie serwera zwykle trwa mniej niż minutę. W przypadku wybrania opcji **Dodaj do portalu** przejdź do portalu, aby zobaczyć nowy serwer. Lub przejdź do **wszystkich usług** > **Analysis Services** , aby sprawdzić, czy serwer jest gotowy. Serwery obsługują modele tabelaryczne na poziomach zgodności 1200 i wyższych. Poziom zgodności modelu jest określony w programie Visual Studio lub SSMS.
+Tworzenie serwera zwykle trwa mniej niż minutę. W przypadku wybrania opcji **Dodaj do portalu** przejdź do portalu, aby zobaczyć nowy serwer. Lub przejdź do **wszystkich usług**  >  **Analysis Services** , aby sprawdzić, czy serwer jest gotowy. Serwery obsługują modele tabelaryczne na poziomach zgodności 1200 i wyższych. Poziom zgodności modelu jest określony w programie Visual Studio lub SSMS.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy serwer nie będzie już potrzebny, usuń go. Na stronie **Przegląd** serwera kliknij pozycję **Usuń**. 
 

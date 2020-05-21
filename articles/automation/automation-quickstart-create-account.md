@@ -1,17 +1,17 @@
 ---
 title: Przewodnik Szybki start platformy Azure — Tworzenie konta usługi Azure Automation | Microsoft Docs
-description: Dowiedz się, jak utworzyć konto usługi Azure Automation i uruchomić element runbook
+description: Ten artykuł ułatwia rozpoczęcie tworzenia konta Azure Automation i uruchamiania elementu Runbook.
 services: automation
 ms.date: 04/04/2019
 ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 7704f080b7c1878f2fa2b079a1f242c8c2cc87a9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8d4cdb87302e12c024e15f8e0a7e3854d6f707a7
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81536985"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715464"
 ---
 # <a name="create-an-azure-automation-account"></a>Tworzenie konta usługi Azure Automation
 
@@ -63,7 +63,7 @@ Uruchom jeden z elementów runbook z samouczka.
 
     ![Strona zadania elementu runbook](./media/automation-quickstart-create-account/automation-tutorial-script-job.png)
 
-1. Po stanie zadania kliknij pozycję `Running` **dane wyjściowe** lub **wszystkie dzienniki** , aby wyświetlić dane wyjściowe zadania elementu Runbook. W przypadku tego elementu runbook z samouczka danymi wyjściowymi jest lista Twoich zasobów platformy Azure.
+1. Po stanie zadania `Running` kliknij pozycję **dane wyjściowe** lub **wszystkie dzienniki** , aby wyświetlić dane wyjściowe zadania elementu Runbook. W przypadku tego elementu runbook z samouczka danymi wyjściowymi jest lista Twoich zasobów platformy Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 

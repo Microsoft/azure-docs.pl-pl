@@ -12,16 +12,17 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ff291592efc73415cce74ff666117851bb53e8a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 0428671cf41bf148bc76bbd963bdd8fd90fce8e5
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681021"
+ms.locfileid: "83712274"
 ---
 # <a name="add-facebook-as-an-identity-provider-for-external-identities"></a>Dodawanie usługi Facebook jako dostawcy tożsamości dla tożsamości zewnętrznych
 
 Możesz dodać usługę Facebook do swoich przepływów użytkownika samoobsługowego rejestrowania (wersja zapoznawcza), aby użytkownicy mogli logować się do aplikacji przy użyciu własnych kont w serwisie Facebook. Aby umożliwić użytkownikom logowanie się przy użyciu usługi Facebook, należy najpierw włączyć samoobsługowe [Rejestrowanie](self-service-sign-up-user-flow.md) w dzierżawie. Po dodaniu usługi Facebook jako dostawcy tożsamości Skonfiguruj przepływ użytkownika dla aplikacji i wybierz pozycję Facebook jako jedną z opcji logowania.
+
 > [!NOTE]
 > Użytkownicy mogą korzystać tylko z kont w serwisie Facebook, aby zarejestrować się w aplikacjach za pomocą rejestracji samoobsługowej i przepływów użytkowników. Użytkownicy nie mogą zostać zaproszeni i korzystać z zaproszenia przy użyciu konta w serwisie Facebook.
 

@@ -1,6 +1,6 @@
 ---
-title: Włącz maszyny do zarządzania przez Azure Automation konfigurację stanu
-description: Jak skonfigurować maszyny do zarządzania przy użyciu konfiguracji stanu Azure Automation
+title: Włącz konfigurację stanu Azure Automation
+description: W tym artykule opisano sposób konfigurowania maszyn do zarządzania przy użyciu konfiguracji stanu Azure Automation.
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -9,14 +9,14 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/10/2019
 manager: carmonm
-ms.openlocfilehash: 52cd72d1144fa2acad993e927d49545d645d596f
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: a2693803603e053f06c8b6886c6f6639f0859461
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993733"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83713152"
 ---
-# <a name="enable-machines-for-management-by-azure-automation-state-configuration"></a>Włącz maszyny do zarządzania przez Azure Automation konfigurację stanu
+# <a name="enable-azure-automation-state-configuration"></a>Włącz konfigurację stanu Azure Automation
 
 W tym temacie opisano, jak można skonfigurować maszyny do zarządzania przy użyciu konfiguracji stanu Azure Automation. Aby uzyskać szczegółowe informacje o tej usłudze, zobacz [Konfiguracja stanu Azure Automation — Omówienie](automation-dsc-overview.md).
 
@@ -26,7 +26,7 @@ Azure Automation konfiguracja stanu umożliwia łatwe włączenie maszyn wirtual
 
 > [!NOTE]
 >Wdrożenie DSC w węźle systemu Linux używa folderu **/tmp** . Moduły takie jak `nxautomation` są tymczasowo pobierane do weryfikacji przed ich zainstalowaniem w odpowiednich lokalizacjach. Aby zapewnić poprawne zainstalowanie modułów, Agent Log Analytics dla systemu Linux musi mieć uprawnienia do odczytu/zapisu w folderze **/tmp** .<br><br>
->Agent Log Analytics dla systemu Linux działa jako `omsagent` użytkownik. Aby udzielić `omsagent` użytkownikowi uprawnień do >zapisu, uruchom polecenie `setfacl -m u:omsagent:rwx /tmp`.
+>Agent Log Analytics dla systemu Linux działa jako `omsagent` użytkownik. Aby udzielić użytkownikowi uprawnień do >zapisu `omsagent` , uruchom polecenie `setfacl -m u:omsagent:rwx /tmp` .
 
 ### <a name="enable-a-vm-using-azure-portal"></a>Włącz maszynę wirtualną przy użyciu Azure Portal
 
@@ -53,7 +53,7 @@ Za pomocą szablonów Azure Resource Manager można zainstalować i włączyć m
 Aby włączyć maszyny wirtualne do konfiguracji stanu, można użyć polecenia cmdlet [register-AzAutomationDscNode](/powershell/module/az.automation/register-azautomationdscnode) w programie PowerShell. 
 
 > [!NOTE]
->`Register-AzAutomationDscNode` Polecenie cmdlet jest obecnie zaimplementowane tylko dla maszyn z systemem Windows, ponieważ wyzwala tylko rozszerzenie systemu Windows.
+>`Register-AzAutomationDscNode`Polecenie cmdlet jest obecnie zaimplementowane tylko dla maszyn z systemem Windows, ponieważ wyzwala tylko rozszerzenie systemu Windows.
 
 ### <a name="register-vms-across-azure-subscriptions"></a>Rejestrowanie maszyn wirtualnych w ramach subskrypcji platformy Azure
 
@@ -83,7 +83,7 @@ Do konfigurowania stanu można włączyć serwery z systemem Linux działające 
 1. Upewnij się, że na komputerach jest zainstalowana najnowsza wersja [konfiguracji żądanego stanu programu PowerShell dla systemu Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) , aby włączyć konfigurację stanu.
 2. Jeśli [lokalne Configuration Manager konfiguracji DSC programu PowerShell](/powershell/scripting/dsc/managing-nodes/metaConfig4) są zgodne z przypadkiem użycia i chcesz włączyć maszyny, aby oba te elementy były ściągane z programu i do konfiguracji stanu:
 
-   - Na każdym komputerze z systemem Linux, `Register.py` aby włączyć maszynę z ustawieniami domyślnymi lokalnych Configuration Manager DSC programu PowerShell.
+   - Na każdym komputerze z systemem Linux, aby włączyć `Register.py` maszynę z ustawieniami domyślnymi lokalnych Configuration Manager DSC programu PowerShell.
 
      `/opt/microsoft/dsc/Scripts/Register.py <Automation account registration key> <Automation account registration URL>`
 
@@ -123,7 +123,7 @@ Aby włączyć konfigurację stanu dowolnego komputera, można wygenerować [kon
 > [!NOTE]
 > Konfiguracje konfiguracji DSC zawierają wpisy tajne, które są konieczne do włączenia komputera na koncie usługi Automation na potrzeby zarządzania. Upewnij się, że wszystkie utworzone konfiguracje konfiguracji DSC są prawidłowo chronione, lub usuń je po użyciu.
 
-Obsługa serwera proxy dla konfiguracji z systemem jest kontrolowana przez LCM, który jest aparatem DSC środowiska Windows PowerShell. LCM działa na wszystkich węzłach docelowych i jest odpowiedzialny za wywoływanie zasobów konfiguracyjnych, które znajdują się w skrypcie konfiguracji DSC. Obsługę proxy można uwzględnić w konfiguracji `ConfigurationRepositoryWeb`, dołączając definicje adresu URL serwera proxy i poświadczenia serwera proxy zgodnie z wymaganiami w blokach, `ResourceRepositoryWeb`i. `ReportServerWeb` Zobacz [konfigurowanie Configuration Manager lokalnego](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaconfig?view=powershell-7).
+Obsługa serwera proxy dla konfiguracji z systemem jest kontrolowana przez [Configuration Manager lokalnego](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaconfig?view=powershell-7), który jest aparatem DSC środowiska Windows PowerShell. LCM działa na wszystkich węzłach docelowych i jest odpowiedzialny za wywoływanie zasobów konfiguracyjnych, które znajdują się w skrypcie konfiguracji DSC. Obsługę proxy można uwzględnić w konfiguracji, przez uwzględnienie definicji `ProxyURL` i `ProxyCredential` właściwości zgodnie z wymaganiami w `ConfigurationRepositoryWeb` `ResourceRepositoryWeb` `ReportServerWeb` blokach, i. Przykładem ustawienia adresu URL jest `ProxyURL = "http://172.16.3.6:3128";` . `ProxyCredential`Właściwość jest ustawiona na `PSCredential` obiekt, zgodnie z opisem w temacie [Zarządzanie poświadczeniami w Azure Automation](shared-resources/credentials.md). 
 
 ### <a name="generate-dsc-metaconfigurations-using-a-dsc-configuration"></a>Generuj konfiguracje konfiguracji DSC przy użyciu konfiguracji DSC
 
@@ -245,9 +245,9 @@ Obsługa serwera proxy dla konfiguracji z systemem jest kontrolowana przez LCM, 
 
 1. Wprowadź klucz rejestracji i adres URL dla konta usługi Automation, a także nazwy maszyn, które mają zostać włączone. Wszystkie inne parametry są opcjonalne. Aby znaleźć klucz rejestracji i adres URL rejestracji dla konta usługi Automation, zobacz [bezpieczne Włączanie maszyn przy użyciu rejestracji](#enable-machines-securely-using-registration).
 
-1. Jeśli chcesz, aby maszyny raportują informacje o stanie DSC do Azure Automation konfiguracji stanu, ale nie pobieraj konfiguracji lub modułów programu PowerShell `ReportOnly` , ustaw dla parametru wartość true.
+1. Jeśli chcesz, aby maszyny raportują informacje o stanie DSC do Azure Automation konfiguracji stanu, ale nie pobieraj konfiguracji lub modułów programu PowerShell, ustaw `ReportOnly` dla parametru wartość true.
 
-1. Jeśli `ReportOnly` nie jest ustawiona, komputery raportują informacje o stanie DSC w celu Azure Automation konfiguracji stanu i konfiguracji ściągania lub modułów programu PowerShell. Ustaw odpowiednio parametry w `ConfigurationRepositoryWeb`blokach `ResourceRepositoryWeb`,, `ReportServerWeb` i.
+1. Jeśli `ReportOnly` nie jest ustawiona, komputery raportują informacje o stanie DSC w celu Azure Automation konfiguracji stanu i konfiguracji ściągania lub modułów programu PowerShell. Ustaw odpowiednio parametry w `ConfigurationRepositoryWeb` `ResourceRepositoryWeb` blokach,, i `ReportServerWeb` .
 
 1. Uruchom skrypt. Powinien teraz istnieć folder katalogu roboczego o nazwie **DscMetaConfigs**, zawierający konfiguracje konfiguracji DSC programu PowerShell dla maszyn, które mają zostać włączone (jako administrator).
 
@@ -299,11 +299,11 @@ Aby zwiększyć bezpieczeństwo, można w dowolnym momencie wygenerować ponowni
 
 Po zarejestrowaniu maszyny jako węzła DSC w konfiguracji stanu Azure Automation istnieje kilka powodów, dla których może być konieczne ponowne zarejestrowanie tego węzła w przyszłości.
 
-- **Odnowienie certyfikatu.** W przypadku wersji systemu Windows Server starszych niż Windows Server 2019 każdy węzeł automatycznie negocjuje unikatowy certyfikat na potrzeby uwierzytelniania, który wygaśnie po upływie jednego roku. Jeśli certyfikat wygaśnie bez odnowienia, węzeł nie może komunikować się z Azure Automation i jest oznaczony `Unresponsive`. Obecnie protokół rejestracji DSC programu PowerShell nie może automatycznie odnawiać certyfikatów, gdy zbliżają się do wygaśnięcia, i należy ponownie zarejestrować węzły po roku. Przed ponownym zarejestrowaniem upewnij się, że w każdym węźle jest uruchomiony program WMF 5 RTM. 
+- **Odnowienie certyfikatu.** W przypadku wersji systemu Windows Server starszych niż Windows Server 2019 każdy węzeł automatycznie negocjuje unikatowy certyfikat na potrzeby uwierzytelniania, który wygaśnie po upływie jednego roku. Jeśli certyfikat wygaśnie bez odnowienia, węzeł nie może komunikować się z Azure Automation i jest oznaczony `Unresponsive` . Obecnie protokół rejestracji DSC programu PowerShell nie może automatycznie odnawiać certyfikatów, gdy zbliżają się do wygaśnięcia, i należy ponownie zarejestrować węzły po roku. Przed ponownym zarejestrowaniem upewnij się, że w każdym węźle jest uruchomiony program WMF 5 RTM. 
 
     Ponowne zarejestrowanie wykonane przez 90 dni lub mniej od czasu wygaśnięcia certyfikatu lub w dowolnym momencie po upływie czasu wygaśnięcia certyfikatu powoduje wygenerowanie i użycie nowego certyfikatu. Rozwiązanie tego problemu jest zawarte w systemie Windows Server 2019 lub nowszym.
 
-- **Zmiany w wartościach LCM DSC.** Może być konieczne zmiana [wartości LCM usługi POWERSHELL DSC](/powershell/scripting/dsc/managing-nodes/metaConfig4) ustawionych podczas początkowej rejestracji węzła, na przykład `ConfigurationMode`. Obecnie te wartości agenta DSC można zmienić tylko przez ponowną rejestrację. Jedynym wyjątkiem jest wartość konfiguracji węzła przypisana do węzła. Można to zmienić w Azure Automation DSC bezpośrednio.
+- **Zmiany w wartościach LCM DSC.** Może być konieczne zmiana [wartości LCM usługi POWERSHELL DSC](/powershell/scripting/dsc/managing-nodes/metaConfig4) ustawionych podczas początkowej rejestracji węzła, na przykład `ConfigurationMode` . Obecnie te wartości agenta DSC można zmienić tylko przez ponowną rejestrację. Jedynym wyjątkiem jest wartość konfiguracji węzła przypisana do węzła. Można to zmienić w Azure Automation DSC bezpośrednio.
 
 Węzeł można ponownie zarejestrować tak jak początkowo zarejestrowano węzeł przy użyciu dowolnej metody opisanej w tym dokumencie. Nie musisz wyrejestrować węzła z konfiguracji stanu Azure Automation przed jego ponownym zarejestrowaniem.
 

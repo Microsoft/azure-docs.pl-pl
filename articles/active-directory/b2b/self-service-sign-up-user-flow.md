@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfd430d750b2220882479a430322f4b4c4e0c44c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: cd94fffded8c0e5d7b120993f069b042c2b19b6c
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597464"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712353"
 ---
 # <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Dodawanie przepływu użytkownika samoobsługowego rejestrowania do aplikacji (wersja zapoznawcza)
 |     |
@@ -25,7 +25,10 @@ ms.locfileid: "83597464"
 | Rejestracja samoobsługowa jest publiczną funkcją w wersji zapoznawczej Azure Active Directory. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.|
 |     |
 
-Skojarzenie przepływu użytkownika z aplikacją pozwala na włączenie rejestracji w tej aplikacji. Możesz wybrać więcej niż jedną aplikację, która ma być skojarzona z przepływem użytkownika. Po skojarzeniu przepływu użytkownika z co najmniej jedną aplikacją użytkownicy, którzy odwiedzają tę aplikację, będą mogli zarejestrować się przy użyciu opcji skonfigurowanych w przepływie użytkownika.
+Możesz tworzyć przepływy użytkowników dla aplikacji, które są tworzone przez organizację. Skojarzenie przepływu użytkownika z aplikacją pozwala na włączenie rejestracji w tej aplikacji. Możesz wybrać więcej niż jedną aplikację, która ma być skojarzona z przepływem użytkownika. Po skojarzeniu przepływu użytkownika z co najmniej jedną aplikacją użytkownicy, którzy odwiedzają tę aplikację, będą mogli zarejestrować się i uzyskać konto gościa przy użyciu opcji skonfigurowanych w przepływie użytkownika.
+
+> [!NOTE]
+> Przepływy użytkowników można kojarzyć z aplikacjami skompilowanymi przez organizację. Przepływów użytkowników nie można używać dla aplikacji firmy Microsoft, takich jak SharePoint i zespoły.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
@@ -33,9 +36,12 @@ Skojarzenie przepływu użytkownika z aplikacją pozwala na włączenie rejestra
 
 Usługa Azure AD jest domyślnym dostawcą tożsamości dla samoobsługowego rejestrowania się. Oznacza to, że użytkownicy mogą rejestrować się domyślnie przy użyciu konta usługi Azure AD. Dostawców tożsamości społecznościowych można również dołączać do tych przepływów rejestracji, aby obsługiwać konta Google i Facebook.
 
-- [Dodaj firmę Google do listy dostawców tożsamości społecznościowych](google-federation.md)
 - [Dodawanie usługi Facebook do listy dostawców tożsamości społecznościowych](facebook-federation.md)
- 
+- [Dodaj firmę Google do listy dostawców tożsamości społecznościowych](google-federation.md)
+
+> [!NOTE]
+> W bieżącej wersji zapoznawczej, jeśli przepływ użytkownika samoobsługowego rejestrowania jest skojarzony z aplikacją i wysyłasz użytkownikowi zaproszenie do tej aplikacji, użytkownik nie będzie mógł skorzystać z konta usługi Gmail w celu zrealizowania zaproszenia. W ramach tego problemu użytkownik może przejść przez proces tworzenia konta samoobsługowego. Mogą oni lub korzystać z zaproszenia, uzyskując dostęp do innej aplikacji lub portalu Moje aplikacje pod adresem https://myapps.microsoft.com .
+
 ### <a name="define-custom-attributes-optional"></a>Zdefiniuj atrybuty niestandardowe (opcjonalnie)
 
 Atrybuty użytkownika są wartościami zbieranymi od użytkownika podczas samoobsługowego rejestrowania się. Usługa Azure AD jest dostarczana z wbudowanym zestawem atrybutów, ale można utworzyć niestandardowe atrybuty do użycia w przepływie użytkownika. Można również odczytywać i zapisywać te atrybuty przy użyciu interfejsu API Microsoft Graph. Zobacz [Definiowanie atrybutów niestandardowych dla przepływów użytkowników](user-flow-add-custom-attributes.md).

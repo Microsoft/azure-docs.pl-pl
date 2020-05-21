@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 92b6378b00e12f618d07798b5ce789cbd9971544
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 83813b30f30bf5aba62f2f94a8ec3cefd2e7090f
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535540"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715141"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Dane wyjściowe i komunikaty elementu Runbook w Azure Automation
 
@@ -20,11 +20,11 @@ W poniższej tabeli krótko opisano każdy strumień z zachowaniem w Azure Porta
 
 | Strumień | Opis | Opublikowany | Testowanie |
 |:--- |:--- |:--- |:--- |
-| Error |Komunikat o błędzie przeznaczony dla użytkownika. W przeciwieństwie do wyjątku, element Runbook jest domyślnie kontynuowany po komunikacie o błędzie. |Zapisano w historii zadań |Wyświetlane w okienku danych wyjściowych testu |
+| Błąd |Komunikat o błędzie przeznaczony dla użytkownika. W przeciwieństwie do wyjątku, element Runbook jest domyślnie kontynuowany po komunikacie o błędzie. |Zapisano w historii zadań |Wyświetlane w okienku danych wyjściowych testu |
 | Debugowanie |Komunikaty przeznaczone dla użytkownika interaktywnego. Nie należy używać w elementach Runbook. |Nie zapisano w historii zadań |Niewyświetlane w okienku danych wyjściowych testu |
 | Dane wyjściowe |Obiekty, które mają być używane przez inne elementy Runbook. |Zapisano w historii zadań |Wyświetlane w okienku danych wyjściowych testu |
 | Postęp |Rekordy generowane automatycznie przed każdym działaniem w elemencie Runbook i po nim. Element Runbook nie powinien próbować tworzyć własnych rekordów postępu, ponieważ są one przeznaczone dla użytkownika interaktywnego. |Zapisywane w historii zadań tylko wtedy, gdy jest włączone rejestrowanie postępu dla elementu Runbook |Niewyświetlane w okienku danych wyjściowych testu |
-| Pełny |Komunikaty, które zawierają ogólne lub debugowane informacje. |Zapisywane w historii zadań tylko wtedy, gdy dla elementu Runbook jest włączone pełne rejestrowanie |Wyświetlane w okienku danych wyjściowych testu `VerbosePreference` tylko wtedy, gdy zmienna jest ustawiona na Kontynuuj w elemencie Runbook |
+| Pełny |Komunikaty, które zawierają ogólne lub debugowane informacje. |Zapisywane w historii zadań tylko wtedy, gdy dla elementu Runbook jest włączone pełne rejestrowanie |Wyświetlane w okienku danych wyjściowych testu tylko wtedy `VerbosePreference` , gdy zmienna jest ustawiona na Kontynuuj w elemencie Runbook |
 | Ostrzeżenie |Komunikat ostrzegawczy przeznaczony dla użytkownika. |Zapisano w historii zadań |Wyświetlane w okienku danych wyjściowych testu |
 
 >[!NOTE]
@@ -32,7 +32,7 @@ W poniższej tabeli krótko opisano każdy strumień z zachowaniem w Azure Porta
 
 ## <a name="output-stream"></a>Strumień wyjściowy
 
-Strumień wyjściowy jest używany do wyprowadzania obiektów utworzonych przez skrypt lub przepływ pracy, gdy działa poprawnie. Azure Automation używa głównie tego strumienia dla obiektów, które mają być używane przez nadrzędne elementy Runbook, które wywołują [bieżący element Runbook](automation-child-runbooks.md). Gdy element nadrzędny [wywołuje element Runbook w tekście](automation-child-runbooks.md#invoking-a-child-runbook-using-inline-execution), element podrzędny zwraca dane z strumienia wyjściowego do elementu nadrzędnego. 
+Strumień wyjściowy jest używany do wyprowadzania obiektów utworzonych przez skrypt lub przepływ pracy, gdy działa poprawnie. Azure Automation używa głównie tego strumienia dla obiektów, które mają być używane przez nadrzędne elementy Runbook, które wywołują [bieżący element Runbook](automation-child-runbooks.md). Gdy element nadrzędny [wywołuje element Runbook w tekście](automation-child-runbooks.md#invoke-a-child-runbook-using-inline-execution), element podrzędny zwraca dane z strumienia wyjściowego do elementu nadrzędnego. 
 
 Element Runbook używa strumienia wyjściowego do przekazywania ogólnych informacji do klienta tylko wtedy, gdy nie jest on wywoływany przez inny element Runbook. Najlepszym rozwiązaniem jest jednak, aby elementy Runbook zwykle używały [pełnego strumienia](#verbose-stream) do przekazywania użytkownikowi ogólnych informacji.
 
@@ -114,11 +114,11 @@ Aby zadeklarować typ danych wyjściowych w graficznym lub graficznym elemencie 
 
 W poniższym przykładzie przedstawiono dwa graficzne elementy Runbook, które demonstrują funkcję wejścia i wyjścia. Zastosowanie modelowego modelu projektowego elementu Runbook ma jeden element Runbook jako uwierzytelnianie szablonu elementu Runbook Zarządzanie uwierzytelnianiem za pomocą platformy Azure przy użyciu konta Uruchom jako. Drugi element Runbook, który zwykle wykonuje logikę podstawową w celu zautomatyzowania danego scenariusza, w tym przypadku wykonuje szablon uwierzytelnianie elementu Runbook. Wyświetla wyniki w okienku danych wyjściowych testu. W normalnych warunkach ten element Runbook będzie miał zawartość dla zasobu wykorzystującego dane wyjściowe z podrzędnego elementu Runbook.
 
-Oto podstawowa logika elementu Runbook **AuthenticateTo-Azure** .<br> ![Przykład](media/automation-runbook-output-and-messages/runbook-authentication-template.png)uwierzytelniania szablonu elementu Runbook.
+Oto podstawowa logika elementu Runbook **AuthenticateTo-Azure** .<br> ![Przykład uwierzytelniania szablonu elementu Runbook ](media/automation-runbook-output-and-messages/runbook-authentication-template.png) .
 
-Element Runbook zawiera typ `Microsoft.Azure.Commands.Profile.Models.PSAzureContext`danych wyjściowych, który zwraca właściwości profilu uwierzytelniania.<br> ![Przykład typu danych wyjściowych elementu Runbook](media/automation-runbook-output-and-messages/runbook-input-and-output-add-blade.png)
+Element Runbook zawiera typ danych wyjściowych `Microsoft.Azure.Commands.Profile.Models.PSAzureContext` , który zwraca właściwości profilu uwierzytelniania.<br> ![Przykład typu danych wyjściowych elementu Runbook](media/automation-runbook-output-and-messages/runbook-input-and-output-add-blade.png)
 
-Chociaż ten element Runbook jest prosty, istnieje jeden element konfiguracji do wywołania w tym miejscu. Ostatnie działanie wykonuje `Write-Output` polecenie cmdlet w celu zapisania danych profilu w zmiennej przy użyciu wyrażenia programu PowerShell dla `Inputobject` parametru. Ten parametr jest wymagany w `Write-Output`przypadku programu.
+Chociaż ten element Runbook jest prosty, istnieje jeden element konfiguracji do wywołania w tym miejscu. Ostatnie działanie wykonuje `Write-Output` polecenie cmdlet w celu zapisania danych profilu w zmiennej przy użyciu wyrażenia programu PowerShell dla `Inputobject` parametru. Ten parametr jest wymagany w przypadku programu `Write-Output` .
 
 Drugi element Runbook w tym przykładzie o nazwie **test-ChildOutputType**, po prostu definiuje dwie działania.<br> ![Przykład elementu Runbook podrzędnego typu wyjściowego](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png)
 
@@ -201,7 +201,7 @@ Szczegóły zadania elementu Runbook można wyświetlić w Azure Portal przy uż
 
 ### <a name="retrieve-runbook-output-and-messages-in-windows-powershell"></a>Pobieranie danych wyjściowych i komunikatów elementu Runbook w programie Windows PowerShell
 
-W programie Windows PowerShell można pobrać dane wyjściowe i komunikaty z elementu Runbook za pomocą polecenia cmdlet [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) . To polecenie cmdlet wymaga identyfikatora zadania i ma parametr o nazwie `Stream` , który umożliwia określenie strumienia do pobrania. Możesz określić wartość dla tego parametru, aby pobrać wszystkie strumienie dla zadania.
+W programie Windows PowerShell można pobrać dane wyjściowe i komunikaty z elementu Runbook za pomocą polecenia cmdlet [Get-AzAutomationJobOutput](https://docs.microsoft.com/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.5.0) . To polecenie cmdlet wymaga identyfikatora zadania i ma parametr o nazwie, `Stream` który umożliwia określenie strumienia do pobrania. Możesz określić wartość dla tego parametru, aby pobrać wszystkie strumienie dla zadania.
 
 W poniższym przykładzie jest uruchamiany przykładowy element Runbook, a następnie kod czeka na jego zakończenie. Po zakończeniu wykonywania elementu Runbook skrypt zbiera strumień danych wyjściowych elementu Runbook z zadania.
 

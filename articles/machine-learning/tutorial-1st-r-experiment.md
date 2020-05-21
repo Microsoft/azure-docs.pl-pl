@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: 5b1c6561519bc25c2b7ac77f0a25eff89413a07a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dea5b3fb6cf20924666668e59e370399664d6b28
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81256488"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684746"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model"></a>Samouczek: Tworzenie modelu uczenia maszynowego przy użyciu języka R
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -121,10 +121,10 @@ Teraz przejdź dalej i zaimportuj pakiet **azuremlsdk** .
 library(azuremlsdk)
 ```
 
-Skrypty szkoleniowe i oceniające`accidents.R` ( `accident_predict.R`i) mają pewne dodatkowe zależności. Jeśli planujesz uruchamiać te skrypty lokalnie, upewnij się, że masz również wymagane pakiety.
+Skrypty szkoleniowe i oceniające ( `accidents.R` i `accident_predict.R` ) mają pewne dodatkowe zależności. Jeśli planujesz uruchamiać te skrypty lokalnie, upewnij się, że masz również wymagane pakiety.
 
 ### <a name="load-your-workspace"></a>Załaduj obszar roboczy
-Utwórz wystąpienie obiektu obszaru roboczego z istniejącego obszaru roboczego. Poniższy kod załaduje szczegóły obszaru roboczego z pliku **config. JSON** . Możesz również pobrać obszar roboczy przy użyciu [`get_workspace()`](https://azure.github.io/azureml-sdk-for-r/reference/get_workspace.html).
+Utwórz wystąpienie obiektu obszaru roboczego z istniejącego obszaru roboczego. Poniższy kod załaduje szczegóły obszaru roboczego z pliku **config. JSON** . Możesz również pobrać obszar roboczy przy użyciu [`get_workspace()`](https://azure.github.io/azureml-sdk-for-r/reference/get_workspace.html) .
 
 ```R
 ws <- load_workspace_from_config()
@@ -159,7 +159,7 @@ wait_for_provisioning_completion(compute_target)
 
 ## <a name="prepare-data-for-training"></a>Przygotowywanie danych do szkolenia
 W tym samouczku są stosowane dane z [administracji krajowej bezpieczeństwa ruchu](https://cdan.nhtsa.gov/tsftables/tsfar.htm) drogowego USA (z podziękowaniami dla [Mary C. Meyer i Tremika Finney](https://www.stat.colostate.edu/~meyer/airbags.htm)).
-Ten zestaw danych zawiera dane z ponad 25 000 samochodów w Stanach Zjednoczonych ze zmiennymi, których można użyć do przewidywania prawdopodobieństwa krytyczne. Najpierw zaimportuj dane do języka R i Przekształć je w nową ramkę `accidents` danych na potrzeby analizy i wyeksportuj je do `Rdata` pliku.
+Ten zestaw danych zawiera dane z ponad 25 000 samochodów w Stanach Zjednoczonych ze zmiennymi, których można użyć do przewidywania prawdopodobieństwa krytyczne. Najpierw zaimportuj dane do języka R i Przekształć je w nową ramkę danych `accidents` na potrzeby analizy i wyeksportuj je do `Rdata` pliku.
 
 ```R
 nassCDS <- read.csv("nassCDS.csv", 
@@ -200,11 +200,11 @@ Na potrzeby tego samouczka Dopasuj model regresji logistycznej do przekazanych d
 * Przesyłanie zadania
 
 ### <a name="prepare-the-training-script"></a>Przygotuj skrypt szkoleniowy
-Skrypt szkoleniowy został `accidents.R` wywołany w tym samym katalogu, w którym znajduje się ten samouczek. Zwróć uwagę na następujące szczegóły w **skrypcie szkoleniowym** , które zostały wykonane w celu wykorzystania Azure Machine Learning do szkolenia:
+Skrypt szkoleniowy został wywołany `accidents.R` w tym samym katalogu, w którym znajduje się ten samouczek. Zwróć uwagę na następujące szczegóły w **skrypcie szkoleniowym** , które zostały wykonane w celu wykorzystania Azure Machine Learning do szkolenia:
 
 * Skrypt szkoleniowy przyjmuje argument `-d` , aby znaleźć katalog zawierający dane szkoleniowe. Po zdefiniowaniu i przesłaniu zadania później należy wskazać magazyn danych dla tego argumentu. Platforma Azure ML zainstaluje folder magazynu w klastrze zdalnym dla zadania szkoleniowego.
-* Skrypt szkoleniowy rejestruje ostateczną dokładność jako metrykę do rekordu uruchomienia w usłudze Azure ML przy użyciu `log_metric_to_run()`. Zestaw SDK usługi Azure ML udostępnia zestaw interfejsów API rejestrowania do rejestrowania różnych metryk podczas przebiegów szkoleniowych. Te metryki są rejestrowane i utrwalane w rekordzie przebiegu eksperymentu. Dostęp do metryk można uzyskać w dowolnym momencie lub wyświetlić na stronie Szczegóły uruchamiania w programie [Studio](https://ml.azure.com). Zobacz [informacje](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) dotyczące pełnego zestawu metod `log_*()`rejestrowania.
-* Skrypt szkoleniowy zapisuje model w katalogu **o nazwie**Outputs. `./outputs` Folder otrzymuje specjalne traktowanie w usłudze Azure ml. Podczas szkolenia pliki zapisywane do `./outputs` są automatycznie przekazywane do rekordu uruchomienia przez usługę Azure ml i utrwalane jako artefakty. Zapisując przeszkolony model do `./outputs`, będziesz mieć dostęp do pliku modelu nawet po jego zakończeniu i nie masz już dostępu do zdalnego środowiska szkoleniowego.
+* Skrypt szkoleniowy rejestruje ostateczną dokładność jako metrykę do rekordu uruchomienia w usłudze Azure ML przy użyciu `log_metric_to_run()` . Zestaw SDK usługi Azure ML udostępnia zestaw interfejsów API rejestrowania do rejestrowania różnych metryk podczas przebiegów szkoleniowych. Te metryki są rejestrowane i utrwalane w rekordzie przebiegu eksperymentu. Dostęp do metryk można uzyskać w dowolnym momencie lub wyświetlić na stronie Szczegóły uruchamiania w programie [Studio](https://ml.azure.com). Zobacz [informacje](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) dotyczące pełnego zestawu metod rejestrowania `log_*()` .
+* Skrypt szkoleniowy zapisuje model w katalogu **o nazwie**Outputs. `./outputs`Folder otrzymuje specjalne traktowanie w usłudze Azure ml. Podczas szkolenia pliki zapisywane do `./outputs` są automatycznie przekazywane do rekordu uruchomienia przez usługę Azure ml i utrwalane jako artefakty. Zapisując przeszkolony model do `./outputs` , będziesz mieć dostęp do pliku modelu nawet po jego zakończeniu i nie masz już dostępu do zdalnego środowiska szkoleniowego.
 
 ### <a name="create-an-estimator"></a>Tworzenie narzędzia do szacowania
 
@@ -212,11 +212,11 @@ Usługa Azure ML szacowania hermetyzuje informacje o konfiguracji uruchamiania, 
 
 Aby utworzyć szacowania, zdefiniuj:
 
-* Katalog zawierający skrypty, które są używane do uczenia`source_directory`(). Wszystkie pliki w tym katalogu są przekazywane do węzłów klastra w celu wykonania. Katalog musi zawierać Twój skrypt szkoleniowy i wymagane dodatkowe skrypty.
-* Skrypt szkoleniowy, który zostanie wykonany (`entry_script`).
-* Obiekt docelowy obliczeń (`compute_target`), w tym przypadku utworzony wcześniej klaster AmlCompute.
-* Parametry wymagane ze skryptu szkoleniowego (`script_params`). Usługa Azure ML uruchomi skrypt szkoleniowy jako skrypt wiersza polecenia z `Rscript`. W tym samouczku określisz jeden argument do skryptu, punkt zamontowania katalogu danych, do którego możesz uzyskać `ds$path(target_path)`dostęp.
-* Wszystkie zależności środowiska wymagane do uczenia się. Domyślny obraz platformy Docker skompilowany na potrzeby szkolenia zawiera już trzy pakiety (`caret` `e1071`, i `optparse`), które są niezbędne w skrypcie szkoleniowym.  Nie musisz podawać dodatkowych informacji. Jeśli używasz pakietów języka R, które nie są uwzględnione domyślnie, użyj `cran_packages` parametru szacowania, aby dodać dodatkowe pakiety Cran. Zobacz [`estimator()`](https://azure.github.io/azureml-sdk-for-r/reference/estimator.html) informacje dotyczące pełnego zestawu konfigurowalnych opcji.
+* Katalog zawierający skrypty, które są używane do uczenia ( `source_directory` ). Wszystkie pliki w tym katalogu są przekazywane do węzłów klastra w celu wykonania. Katalog musi zawierać Twój skrypt szkoleniowy i wymagane dodatkowe skrypty.
+* Skrypt szkoleniowy, który zostanie wykonany ( `entry_script` ).
+* Obiekt docelowy obliczeń ( `compute_target` ), w tym przypadku utworzony wcześniej klaster AmlCompute.
+* Parametry wymagane ze skryptu szkoleniowego ( `script_params` ). Usługa Azure ML uruchomi skrypt szkoleniowy jako skrypt wiersza polecenia z `Rscript` . W tym samouczku określisz jeden argument do skryptu, punkt zamontowania katalogu danych, do którego możesz uzyskać dostęp `ds$path(target_path)` .
+* Wszystkie zależności środowiska wymagane do uczenia się. Domyślny obraz platformy Docker skompilowany na potrzeby szkolenia zawiera już trzy pakiety ( `caret` , `e1071` i), które `optparse` są niezbędne w skrypcie szkoleniowym.  Nie musisz podawać dodatkowych informacji. Jeśli używasz pakietów języka R, które nie są uwzględnione domyślnie, użyj parametru szacowania, `cran_packages` Aby dodać dodatkowe pakiety Cran. Zobacz [`estimator()`](https://azure.github.io/azureml-sdk-for-r/reference/estimator.html) informacje dotyczące pełnego zestawu konfigurowalnych opcji.
 
 ```R
 est <- estimator(source_directory = ".",
@@ -252,7 +252,7 @@ Współpracownicy z dostępem do obszaru roboczego — mogą przesyłać wiele e
 Gdy Twój model zakończy szkolenia, możesz uzyskać dostęp do artefaktów zadania, które zostały utrwalone w rekordzie uruchomienia, w tym zarejestrowane metryki i finalny, przeszkolony model.
 
 ### <a name="get-the-logged-metrics"></a>Pobieranie zarejestrowanych metryk
-W skrypcie `accidents.R`szkoleniowym zarejestrowano metrykę z modelu: dokładność prognoz w danych szkoleniowych. Możesz wyświetlić metryki w [Studio](https://ml.azure.com)lub wyodrębnić je do sesji lokalnej jako listę R w następujący sposób:
+W skrypcie szkoleniowym `accidents.R` zarejestrowano metrykę z modelu: dokładność prognoz w danych szkoleniowych. Możesz wyświetlić metryki w [Studio](https://ml.azure.com)lub wyodrębnić je do sesji lokalnej jako listę R w następujący sposób:
 
 ```R
 metrics <- get_run_metrics(run)
@@ -309,7 +309,7 @@ Dzięki modelowi można przewidzieć niebezpieczeństwo zgonu z kolizji. Użyj p
 
 ### <a name="register-the-model"></a>Rejestrowanie modelu
 
-Najpierw Zarejestruj pobrany model do obszaru roboczego za pomocą [`register_model()`](https://azure.github.io/azureml-sdk-for-r/reference/register_model.html). Zarejestrowanym modelem może być dowolna Kolekcja plików, ale w tym przypadku obiekt modelu R jest wystarczający. Platforma Azure ML będzie używać zarejestrowanego modelu do wdrożenia.
+Najpierw Zarejestruj pobrany model do obszaru roboczego za pomocą [`register_model()`](https://azure.github.io/azureml-sdk-for-r/reference/register_model.html) . Zarejestrowanym modelem może być dowolna Kolekcja plików, ale w tym przypadku obiekt modelu R jest wystarczający. Platforma Azure ML będzie używać zarejestrowanego modelu do wdrożenia.
 
 ```R
 model <- register_model(ws, 
@@ -319,7 +319,7 @@ model <- register_model(ws,
 ```
 
 ### <a name="define-the-inference-dependencies"></a>Zdefiniuj zależności wnioskowania
-Aby utworzyć usługę sieci Web dla modelu, należy najpierw utworzyć skrypt oceniania (`entry_script`), skrypt języka R, który przyjmuje jako wartości zmiennych wejściowych (w formacie JSON) i wyprowadza prognozę z modelu. Na potrzeby tego samouczka Użyj dostarczonego pliku `accident_predict.R`oceniania. Skrypt oceniania musi zawierać `init()` metodę, która ładuje model i zwraca funkcję, która używa modelu do prognozowania na podstawie danych wejściowych. Zapoznaj się z [dokumentacją](https://azure.github.io/azureml-sdk-for-r/reference/inference_config.html#details) , aby uzyskać więcej szczegółów.
+Aby utworzyć usługę sieci Web dla modelu, należy najpierw utworzyć skrypt oceniania ( `entry_script` ), skrypt języka R, który przyjmuje jako wartości zmiennych wejściowych (w formacie JSON) i wyprowadza prognozę z modelu. Na potrzeby tego samouczka Użyj dostarczonego pliku oceniania `accident_predict.R` . Skrypt oceniania musi zawierać `init()` metodę, która ładuje model i zwraca funkcję, która używa modelu do prognozowania na podstawie danych wejściowych. Zapoznaj się z [dokumentacją](https://azure.github.io/azureml-sdk-for-r/reference/inference_config.html#details) , aby uzyskać więcej szczegółów.
 
 Następnie zdefiniuj **środowisko** Azure ml dla zależności pakietu skryptu. W środowisku należy określić pakiety języka R (z CRAN lub innych innych), które są potrzebne do uruchomienia skryptu. Możesz również podać wartości zmiennych środowiskowych, do których skrypt może się odwoływać, aby zmodyfikować jego zachowanie. Domyślnie platforma Azure ML kompiluje ten sam domyślny obraz platformy Docker używany z szacowania na potrzeby szkolenia. Ponieważ samouczek nie ma specjalnych wymagań, Utwórz środowisko bez atrybutów specjalnych.
 
@@ -338,7 +338,7 @@ inference_config <- inference_config(
 ```
 
 ### <a name="deploy-to-aci"></a>Wdrażanie w usłudze ACI
-W tym samouczku zostanie wdrożona usługa do ACI. Ten kod Inicjuje obsługę jednego kontenera w celu reagowania na żądania przychodzące, które jest odpowiednie do testowania i obciążeń lekkich. Więcej [`aci_webservice_deployment_config()`](https://azure.github.io/azureml-sdk-for-r/reference/aci_webservice_deployment_config.html) konfigurowalnych opcji można znaleźć w temacie. (W przypadku wdrożeń na skalę produkcyjną można także [wdrożyć usługę Azure Kubernetes Service](https://azure.github.io/azureml-sdk-for-r/articles/deploy-to-aks/deploy-to-aks.html)).
+W tym samouczku zostanie wdrożona usługa do ACI. Ten kod Inicjuje obsługę jednego kontenera w celu reagowania na żądania przychodzące, które jest odpowiednie do testowania i obciążeń lekkich. Więcej [`aci_webservice_deployment_config()`](https://azure.github.io/azureml-sdk-for-r/reference/aci_webservice_deployment_config.html) konfigurowalnych opcji można znaleźć w temacie. (W przypadku wdrożeń na skalę produkcyjną można także [wdrożyć usługę Azure Kubernetes Service](https://azure.github.io/azureml-sdk-for-r/articles/deploy-to-aks.html)).
 
 ``` R
 aci_config <- aci_webservice_deployment_config(cpu_cores = 1, memory_gb = 0.5)
@@ -358,7 +358,7 @@ wait_for_deployment(aci_service, show_output = TRUE)
 
 ## <a name="test-the-deployed-service"></a>Testowanie wdrożonego modelu
 
-Teraz, gdy model jest wdrażany jako usługa, można przetestować usługę z poziomu języka R przy [`invoke_webservice()`](https://azure.github.io/azureml-sdk-for-r/reference/invoke_webservice.html)użyciu.  Podaj nowy zestaw danych do przewidywania, Przekształć go w kod JSON i wyślij go do usługi.
+Teraz, gdy model jest wdrażany jako usługa, można przetestować usługę z poziomu języka R przy użyciu [`invoke_webservice()`](https://azure.github.io/azureml-sdk-for-r/reference/invoke_webservice.html) .  Podaj nowy zestaw danych do przewidywania, Przekształć go w kod JSON i wyślij go do usługi.
 
 ```R
 library(jsonlite)
@@ -384,7 +384,7 @@ Możesz również uzyskać punkt końcowy HTTP usługi sieci Web, który akceptu
 aci_service$scoring_uri
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Usuń zasoby, gdy nie będą już potrzebne. Nie usuwaj zasobów, których planujesz nadal używać. 
 

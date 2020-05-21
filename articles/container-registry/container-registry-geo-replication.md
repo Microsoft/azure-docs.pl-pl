@@ -5,12 +5,12 @@ author: stevelas
 ms.topic: article
 ms.date: 05/11/2020
 ms.author: stevelas
-ms.openlocfilehash: ea5e3dffaafb691a667bad3ef0014389e1604e27
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: bea71695c66c77a8e9fff3cb708113a04f24ed96
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682791"
+ms.locfileid: "83711571"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replikacja geograficzna w usłudze Azure Container Registry
 
@@ -95,7 +95,7 @@ Usługa ACR rozpocznie synchronizowanie obrazów między skonfigurowanymi replik
 * W przypadku wypychania lub ściągania obrazów z rejestru z replikacją geograficzną usługa Azure Traffic Manager w tle wysyła żądanie do rejestru znajdującego się najbliżej Ciebie w odniesieniu do opóźnienia sieci.
 * Po wypchnięciu aktualizacji obrazu lub tagu do najbliższego regionu przez Azure Container Registry replikację manifestów i warstw do pozostałych regionów, które zostały wybrane. Większe obrazy trwają dłużej niż mniejsze. Obrazy i Tagi są synchronizowane w regionach replikacji z modelem spójności ostatecznej.
 * Aby zarządzać przepływami pracy, które są zależne od aktualizacji wypychanych do rejestru z replikacją geograficzną, zalecamy skonfigurowanie elementów [webhook](container-registry-webhook.md) w celu reagowania na zdarzenia wypychania. Można skonfigurować regionalne elementy webhook w ramach rejestru replikowanego geograficznie do śledzenia zdarzeń wypychania w miarę ich kończenia w regionach replikowanych geograficznie.
-* Aby można było obsłużać obiekty blob reprezentujące warstwy zawartości, w rejestrze usługi Azure Container są stosowane punkty końcowe danych. Możesz włączyć [dedykowane punkty końcowe danych](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints-preview) dla rejestru w każdym z geograficznie replikowanych regionów rejestru. Punkty końcowe umożliwiają konfigurację ścisłych reguł dostępu do zapory z zakresem.
+* Aby można było obsłużać obiekty blob reprezentujące warstwy zawartości, w rejestrze usługi Azure Container są stosowane punkty końcowe danych. Możesz włączyć [dedykowane punkty końcowe danych](container-registry-firewall-access-rules.md#enable-dedicated-data-endpoints) dla rejestru w każdym z geograficznie replikowanych regionów rejestru. Punkty końcowe umożliwiają konfigurację ścisłych reguł dostępu do zapory z zakresem.
 * W przypadku skonfigurowania [prywatnego linku](container-registry-private-link.md) do rejestru przy użyciu prywatnych punktów końcowych w sieci wirtualnej, dedykowane punkty końcowe danych w każdym z replikowanych geograficznie regionów są domyślnie włączone. 
 
 ## <a name="delete-a-replica"></a>Usuwanie repliki

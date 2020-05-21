@@ -2,13 +2,13 @@
 title: 'Szybki Start: Tworzenie nowej aplikacji w portalu LUIS'
 description: W tym przewodniku szybki start utworzysz podstawowe elementy aplikacji, intencje i jednostki, a także test z przykładową wypowiedźą w portalu LUIS.
 ms.topic: quickstart
-ms.date: 05/05/2020
-ms.openlocfilehash: b2ab2ec0fa5398ae8a69906aee25ef44ad5db3c9
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.date: 05/19/2020
+ms.openlocfilehash: 7cf55a7891b7e06c18c80d9d359b19e54f0413a9
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585251"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83697284"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Szybki Start: Tworzenie nowej aplikacji w portalu LUIS
 
@@ -137,7 +137,7 @@ Przykładowa metoda wyrażenia długości **nie** powinna być poza domeną apli
 
 1. Sprawdź, czy jednostka została znaleziona w **FindForm** zamiaru, wybierając pozycję **intencje** w menu po lewej stronie. Następnie wybierz pozycję **FindForm** zamierzenia.
 
-   Jednostka jest oznaczona, gdzie pojawia się w przykładzie wyrażenia długości. Jeśli chcesz zobaczyć oryginalny tekst zamiast nazwy jednostki, przełącz **Widok jednostek** z paska narzędzi.
+   Jednostka jest oznaczona, gdzie pojawia się w przykładzie wyrażenia długości.
 
    > [!div class="mx-imgBorder"]
    > [![Zrzut ekranu przedstawiający wszystkie przykładowe wyrażenia długości oznaczone obiektami](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)

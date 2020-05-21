@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.openlocfilehash: 29713622be90ea280bff3c002be746bf1615718f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6240b0813132f4a14dbe94b870774ebe7a0663aa
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605903"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714580"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Wywoływanie usługi Azure Functions z Azure Logic Apps
 
@@ -40,7 +40,7 @@ Aby uruchamiać fragmenty kodu bez tworzenia usługi Azure Functions, Dowiedz si
 
   * Funkcja używa szablonu **wyzwalacza http** .
 
-    Szablon wyzwalacza HTTP może akceptować zawartość, `application/json` która ma typ z aplikacji logiki. Po dodaniu funkcji platformy Azure do aplikacji logiki projektant aplikacji logiki wyświetli niestandardowe funkcje, które są tworzone na podstawie tego szablonu w ramach subskrypcji platformy Azure.
+    Szablon wyzwalacza HTTP może akceptować zawartość, która ma `application/json` Typ z aplikacji logiki. Po dodaniu funkcji platformy Azure do aplikacji logiki projektant aplikacji logiki wyświetli niestandardowe funkcje, które są tworzone na podstawie tego szablonu w ramach subskrypcji platformy Azure.
 
   * Funkcja nie korzysta z tras niestandardowych, chyba że zdefiniowano [definicję openapi](../azure-functions/functions-openapi-definition.md) (wcześniej znaną jako [plik Swagger](https://swagger.io/)).
 
@@ -60,11 +60,11 @@ Aby uzyskać bardziej zaawansowane środowisko pracy z parametrami funkcji w pro
 
 1. W aplikacji funkcji Skonfiguruj [współużytkowanie zasobów między źródłami (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) , tak aby wszystkie źródła były dozwolone, wykonując następujące czynności:
 
-   1. Z listy **aplikacje funkcji** wybierz aplikację funkcji. W okienku po prawej stronie wybierz pozycję **funkcje** > platformy**CORS**.
+   1. Z listy **aplikacje funkcji** wybierz aplikację funkcji. W okienku po prawej stronie wybierz pozycję **funkcje platformy**  >  **CORS**.
 
       ![Wybierz aplikację funkcji > "funkcje platformy" > "CORS"](./media/logic-apps-azure-functions/function-platform-features-cors.png)
 
-   1. W obszarze **CORS**Dodaj symbol wieloznaczny gwiazdki (**`*`**), ale Usuń wszystkie inne źródła z listy i wybierz pozycję **Zapisz**.
+   1. W obszarze **CORS**Dodaj **`*`** symbol wieloznaczny gwiazdki (), ale Usuń wszystkie inne źródła z listy i wybierz pozycję **Zapisz**.
 
       ![Ustaw wartość "CORS * na symbol wieloznaczny" * "](./media/logic-apps-azure-functions/function-platform-features-cors-origins.png)
 
@@ -83,13 +83,13 @@ function convertToDateString(request, response){
 
 Oto co się dzieje w tej funkcji:
 
-1. Funkcja tworzy `data` zmienną i przypisuje `body` obiekt wewnątrz `request` obiektu do tej zmiennej. Funkcja używa operatora kropki (.) do odwoływania się `body` do obiektu wewnątrz `request` obiektu:
+1. Funkcja tworzy `data` zmienną i przypisuje `body` obiekt wewnątrz `request` obiektu do tej zmiennej. Funkcja używa operatora kropki (.) do odwoływania się do `body` obiektu wewnątrz `request` obiektu:
 
    ```javascript
    var data = request.body;
    ```
 
-1. Funkcja może teraz uzyskiwać dostęp do `date` właściwości za pośrednictwem `data` zmiennej i przekonwertować tę wartość właściwości z typu DateTime na typ DateString przez wywołanie `ToDateString()` funkcji. Funkcja zwraca również wynik przez `body` właściwość w odpowiedzi funkcji:
+1. Funkcja może teraz uzyskiwać dostęp do `date` właściwości za pośrednictwem `data` zmiennej i przekonwertować tę wartość właściwości z typu DateTime na typ DateString przez wywołanie `ToDateString()` funkcji. Funkcja zwraca również wynik przez `body` Właściwość w odpowiedzi funkcji:
 
    ```javascript
    body: data.date.ToDateString();
@@ -127,22 +127,22 @@ Jednak zanim będzie można utworzyć dowolną funkcję platformy Azure, musisz 
 
    1. W polu **kod** Dodaj kod do szablonu funkcji, łącznie z odpowiedzią i ładunkiem, która ma zostać zwrócona do aplikacji logiki po zakończeniu działania funkcji. Gdy wszystko będzie gotowe, wybierz pozycję **Utwórz**.
 
-   Przykład:
+   Na przykład:
 
    ![Zdefiniuj funkcję](./media/logic-apps-azure-functions/add-code-function-definition.png)
 
-   W kodzie szablonu * `context` obiekt* odwołuje się do wiadomości wysyłanej przez aplikację logiki za pomocą pola **treści żądania** w późniejszym kroku. Aby uzyskać dostęp `context` do właściwości obiektu z wewnątrz funkcji, użyj następującej składni:
+   W kodzie szablonu * `context` obiekt* odwołuje się do wiadomości wysyłanej przez aplikację logiki za pomocą pola **treści żądania** w późniejszym kroku. Aby uzyskać dostęp do `context` właściwości obiektu z wewnątrz funkcji, użyj następującej składni:
 
    `context.body.<property-name>`
 
-   Na przykład, aby odwołać `content` się do właściwości `context` wewnątrz obiektu, użyj następującej składni:
+   Na przykład, aby odwołać się do `content` Właściwości wewnątrz `context` obiektu, użyj następującej składni:
 
    `context.body.content`
 
-   Kod szablonu zawiera również `input` zmienną, która przechowuje wartość z `data` parametru, aby funkcja mogła wykonywać operacje na tej wartości. Wewnątrz funkcji języka JavaScript `data` zmienna jest również skrótem dla. `context.body`
+   Kod szablonu zawiera również `input` zmienną, która przechowuje wartość z `data` parametru, aby funkcja mogła wykonywać operacje na tej wartości. Wewnątrz funkcji języka JavaScript `data` zmienna jest również skrótem dla `context.body` .
 
    > [!NOTE]
-   > Właściwość `body` w tym miejscu dotyczy `context` obiektu i nie jest taka sama jak token **treści** z danych wyjściowych akcji, które można również przekazać do funkcji.
+   > `body`Właściwość w tym miejscu dotyczy `context` obiektu i nie jest taka sama jak token **treści** z danych wyjściowych akcji, które można również przekazać do funkcji.
 
 1. W polu **treść żądania** podaj dane wejściowe funkcji, które muszą być sformatowane jako obiekt JavaScript Object Notation (JSON).
 
@@ -200,7 +200,7 @@ Gdy chcesz wyzwolić aplikację logiki z wewnątrz funkcji platformy Azure, apli
 
 ## <a name="enable-authentication-for-azure-functions"></a>Włączanie uwierzytelniania dla usługi Azure Functions
 
-Aby uwierzytelnić dostęp do zasobów w innych dzierżawach usługi Azure Active Directory (Azure AD) bez konieczności logowania i dostarczania poświadczeń lub wpisów tajnych, aplikacja logiki może używać [tożsamości zarządzanej](../active-directory/managed-identities-azure-resources/overview.md) (znanej wcześniej jako tożsamość usługi ZARZĄDZANEJ lub MSI). Platforma Azure zarządza tą tożsamością i pomaga zabezpieczyć Twoje poświadczenia, ponieważ nie trzeba podawać ani obrócić wpisów tajnych. Dowiedz się więcej [na temat usług platformy Azure, które obsługują tożsamości zarządzane na potrzeby uwierzytelniania w usłudze Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+Aby w prosty sposób uwierzytelniać dostęp do innych zasobów chronionych przez usługę Azure Active Directory (Azure AD) bez konieczności logowania się i dostarczania poświadczeń lub wpisów tajnych, aplikacja logiki może korzystać z [tożsamości zarządzanej](../active-directory/managed-identities-azure-resources/overview.md) (znanej wcześniej jako tożsamość usługi ZARZĄDZANEJ lub MSI). Platforma Azure zarządza tą tożsamością i pomaga zabezpieczyć Twoje poświadczenia, ponieważ nie trzeba podawać ani obrócić wpisów tajnych. Dowiedz się więcej [na temat usług platformy Azure, które obsługują tożsamości zarządzane na potrzeby uwierzytelniania w usłudze Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 W przypadku skonfigurowania aplikacji logiki do korzystania z tożsamości przypisanej do systemu lub ręcznie utworzonej tożsamości przypisanej do użytkownika usługi Azure Functions w aplikacji logiki mogą również używać tej samej tożsamości do uwierzytelniania. Aby uzyskać więcej informacji na temat obsługi uwierzytelniania dla usługi Azure Functions w usłudze Logic Apps, zobacz [Dodawanie uwierzytelniania do połączeń wychodzących](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
@@ -229,7 +229,7 @@ Aby użyć zarządzanej tożsamości aplikacji logiki w funkcji platformy Azure,
 
    ![Z menu konsoli debugowania wybierz opcję "CMD"](./media/logic-apps-azure-functions/open-debug-console-kudu.png)
 
-1. Gdy zostanie wyświetlona Następna strona, na liście folder wybierz pozycję **Witryna** > **wwwroot** > *Funkcja*. W tych krokach użyto "FabrikamAzureFunction" jako funkcji przykładowej.
+1. Gdy zostanie wyświetlona Następna strona, na liście folder wybierz pozycję **Witryna**  >  **wwwroot**  >  *Funkcja*. W tych krokach użyto "FabrikamAzureFunction" jako funkcji przykładowej.
 
    ![Wybierz pozycję "Witryna" > "wwwroot" > funkcji](./media/logic-apps-azure-functions/select-site-wwwroot-function-folder.png)
 
@@ -237,7 +237,7 @@ Aby użyć zarządzanej tożsamości aplikacji logiki w funkcji platformy Azure,
 
    ![Kliknij pozycję Edytuj dla pliku "Function. JSON"](./media/logic-apps-azure-functions/edit-function-json-file.png)
 
-1. Sprawdź, `bindings` czy `authLevel` Właściwość istnieje w obiekcie. Jeśli właściwość istnieje, ustaw wartość właściwości na `anonymous`. W przeciwnym razie Dodaj tę właściwość i ustaw wartość.
+1. `bindings`Sprawdź, czy właściwość istnieje w obiekcie `authLevel` . Jeśli właściwość istnieje, ustaw wartość właściwości na `anonymous` . W przeciwnym razie Dodaj tę właściwość i ustaw wartość.
 
    ![Dodaj właściwość "authLevel" i ustaw wartość "Anonymous"](./media/logic-apps-azure-functions/set-authentication-level-function-app.png)
 
@@ -253,11 +253,11 @@ Przed rozpoczęciem tego zadania Znajdź i Umieść te wartości w celu późnie
 
   * Aby wygenerować ten identyfikator obiektu, [Włącz tożsamość przypisaną przez system do aplikacji logiki](../logic-apps/create-managed-service-identity.md#azure-portal-system-logic-app).
 
-  * W przeciwnym razie aby znaleźć ten identyfikator obiektu, Otwórz aplikację logiki w Projektancie aplikacji logiki. W menu aplikacji logiki w obszarze **Ustawienia**wybierz pozycję**przypisany system** **tożsamości** > .
+  * W przeciwnym razie aby znaleźć ten identyfikator obiektu, Otwórz aplikację logiki w Projektancie aplikacji logiki. W menu aplikacji logiki w obszarze **Ustawienia**wybierz pozycję **Identity**  >  **przypisany system**tożsamości.
 
 * Identyfikator katalogu dla dzierżawy w Azure Active Directory (Azure AD)
 
-  Aby uzyskać identyfikator katalogu dzierżawy, możesz uruchomić polecenie [`Get-AzureAccount`](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureaccount) programu PowerShell. Lub w Azure Portal wykonaj następujące kroki:
+  Aby uzyskać identyfikator katalogu dzierżawy, możesz uruchomić [`Get-AzureAccount`](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureaccount) polecenie programu PowerShell. Lub w Azure Portal wykonaj następujące kroki:
 
   1. W [Azure Portal](https://portal.azure.com)Znajdź i wybierz swoją aplikację funkcji.
 

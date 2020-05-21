@@ -1,6 +1,6 @@
 ---
 title: Przegląd konfiguracji stanu Azure Automation
-description: Omówienie konfiguracji stanu Azure Automation, jej warunków i znanych problemów
+description: Ten artykuł zawiera omówienie konfiguracji stanu Azure Automation.
 keywords: PowerShell DSC, Konfiguracja żądanego stanu, środowisko PowerShell DSC Azure
 services: automation
 ms.service: automation
@@ -10,12 +10,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dbe617e6614eb69f0a7f6e31c89c1f645804fe1b
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: be0da641a67d532851b8d295065213016c795f01
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82993855"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83713186"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Przegląd konfiguracji stanu Azure Automation
 
@@ -88,18 +88,18 @@ Jeśli węzły znajdują się w sieci prywatnej, wymagane są następujące port
 * Port: tylko protokół TCP 443 wymagany do wychodzącego dostępu do Internetu
 * Globalny adres URL: ***. Azure-Automation.NET**
 * Globalny adres URL US Gov Wirginia: ***. Azure-Automation.us**
-* Usługa agenta: **https://\<identyfikator obszaru roboczego\>. agentsvc.Azure-Automation.NET**
+* Usługa agenta: **https:// \< identyfikator obszaru roboczego \> . agentsvc.Azure-Automation.NET**
 
 Jeśli używasz zasobów DSC komunikujących się między węzłami, takimi jak [WAITFOR * Resources](https://docs.microsoft.com/powershell/scripting/dsc/reference/resources/windows/waitForAllResource), musisz również zezwolić na ruch między węzłami. Zapoznaj się z dokumentacją poszczególnych zasobów DSC, aby poznać te wymagania sieciowe.
 
 #### <a name="proxy-support"></a>Obsługa serwera proxy
 
-Obsługa serwera proxy dla agenta DSC jest dostępna w systemie Windows w wersji 1809 i nowszych. Ta opcja jest włączona przez ustawienie wartości dla `ProxyURL` i `ProxyCredential` w [skrypcie konfiguracji](automation-dsc-onboarding.md#generate-dsc-metaconfigurations) w celu zarejestrowania węzłów.
+Obsługa serwera proxy dla agenta DSC jest dostępna w systemie Windows w wersji 1809 i nowszych. Ta opcja jest włączona przez ustawienie wartości `ProxyURL` i `ProxyCredential` właściwości w [skrypcie konfiguracji](automation-dsc-onboarding.md#generate-dsc-metaconfigurations) , używanym do rejestrowania węzłów. 
 
 >[!NOTE]
 >Konfiguracja stanu Azure Automation nie zapewnia obsługi serwera proxy DSC dla wcześniejszych wersji systemu Windows.
 
-W przypadku węzłów systemu Linux Agent DSC obsługuje serwer proxy i używa `http_proxy` zmiennej do określenia adresu URL.
+W przypadku węzłów systemu Linux Agent DSC obsługuje serwer proxy i używa `http_proxy` zmiennej do określenia adresu URL. Aby dowiedzieć się więcej na temat obsługi serwera proxy, zobacz [generowanie konfiguracji DSC](automation-dsc-onboarding.md#generate-dsc-metaconfigurations).
 
 #### <a name="azure-automation-state-configuration-network-ranges-and-namespace"></a>Zakresy sieci Azure Automation konfiguracji stanu i przestrzeń nazw
 
@@ -107,7 +107,7 @@ Zaleca się użycie adresów wymienionych poniżej podczas definiowania wyjątk�
 
 Jeśli masz konto usługi Automation zdefiniowane dla określonego regionu, możesz ograniczyć komunikację z tym regionalnym centrum danych. Poniższa tabela zawiera rekord DNS dla każdego regionu:
 
-| **Okolicy** | **Rekord DNS** |
+| **Region** | **Rekord DNS** |
 | --- | --- |
 | Zachodnio-środkowe stany USA | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
 | Południowo-środkowe stany USA |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |

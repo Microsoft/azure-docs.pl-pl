@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: thweiss
-ms.openlocfilehash: 684799ee12715c789910accf80aa5b4afec763d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 921a11d8846c868436365fe400852eac0f7dcd3e
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81273243"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83712098"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indeksowanie w usłudze Azure Cosmos DB — omówienie
 
@@ -90,7 +90,7 @@ Indeks **zakresu** jest oparty na uporządkowanej strukturze podobnej do drzewa.
    ```sql
    SELECT * FROM container c WHERE c.property > 'value'
    ```
-  (działa dla `>`, `<`, `>=` `<=`,, `!=`)
+  (działa dla `>` , `<` ,,, `>=` `<=` `!=` )
 
 - Sprawdzanie obecności właściwości:
 
@@ -98,7 +98,11 @@ Indeks **zakresu** jest oparty na uporządkowanej strukturze podobnej do drzewa.
    SELECT * FROM c WHERE IS_DEFINED(c.property)
    ```
 
-- Dopasowanie prefiksu ciągu (zawiera słowo kluczowe nie będzie korzystać z indeksu zakresu):
+- Funkcje systemowe ciągów:
+
+   ```sql
+   SELECT * FROM c WHERE CONTAINS(c.property, "value")
+   ```
 
    ```sql
    SELECT * FROM c WHERE STARTSWITH(c.property, "value")
@@ -152,7 +156,7 @@ Indeksy **złożone** zwiększają wydajność podczas wykonywania operacji na w
  SELECT * FROM container c ORDER BY c.property1, c.property2
 ```
 
-- Wykonuje zapytania z filtrem `ORDER BY`i. Te zapytania mogą korzystać z indeksu złożonego, jeśli do `ORDER BY` klauzuli zostanie dodana Właściwość Filter.
+- Wykonuje zapytania z filtrem i `ORDER BY` . Te zapytania mogą korzystać z indeksu złożonego, jeśli do klauzuli zostanie dodana Właściwość Filter `ORDER BY` .
 
 ```sql
  SELECT * FROM container c WHERE c.property1 = 'value' ORDER BY c.property1, c.property2
@@ -175,12 +179,12 @@ Tak długo, jak jeden predykat filtru używa jednego z rodzajów indeksu, aparat
 
 Ścieżki wyodrębnione podczas indeksowania danych ułatwiają wyszukiwanie w indeksie podczas przetwarzania zapytania. Dopasowując `WHERE` klauzulę zapytania z listą ścieżek indeksowanych, można łatwo zidentyfikować elementy, które pasują do predykatu zapytania.
 
-Rozważmy na przykład następujące zapytanie: `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. Predykat zapytania (filtrowanie dla elementów, gdzie każda lokalizacja ma wartość "Francja", ponieważ jego kraj) będzie odpowiadał ścieżce wyróżnionej w kolorze czerwonym poniżej:
+Rozważmy na przykład następujące zapytanie: `SELECT location FROM location IN company.locations WHERE location.country = 'France'` . Predykat zapytania (filtrowanie dla elementów, gdzie każda lokalizacja ma wartość "Francja", ponieważ jego kraj) będzie odpowiadał ścieżce wyróżnionej w kolorze czerwonym poniżej:
 
 ![Dopasowanie określonej ścieżki w drzewie](./media/index-overview/matching-path.png)
 
 > [!NOTE]
-> `ORDER BY` Klauzula, która porządkuje według pojedynczej właściwości, *zawsze* wymaga indeksu zakresu i zakończy się niepowodzeniem, jeśli ścieżka, do której się odwołuje, nie ma takiej wartości. Podobnie, `ORDER BY` zapytanie, które porządkuje wiele właściwości, *zawsze* wymaga indeksu złożonego.
+> `ORDER BY`Klauzula, która porządkuje według pojedynczej właściwości, *zawsze* wymaga indeksu zakresu i zakończy się niepowodzeniem, jeśli ścieżka, do której się odwołuje, nie ma takiej wartości. Podobnie, `ORDER BY` zapytanie, które porządkuje wiele właściwości, *zawsze* wymaga indeksu złożonego.
 
 ## <a name="next-steps"></a>Następne kroki
 

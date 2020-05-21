@@ -4,23 +4,24 @@ description: Dowiedz się, jak Funkcja systemowa SQL w Azure Cosmos DB zwraca wa
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/03/2020
+ms.date: 05/20/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: c0c25b63fb6a7bf42bd2ec5b9503cac2cce7583f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0de34e6e0e238887b8f75ae2397e9e650eaac340
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78302597"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83711707"
 ---
 # <a name="contains-azure-cosmos-db"></a>ZAWIERA (Azure Cosmos DB)
+
  Zwraca wartość logiczną wskazującą, czy pierwsze wyrażenie ciągu zawiera drugie.  
   
 ## <a name="syntax"></a>Składnia
   
 ```sql
-CONTAINS(<str_expr1>, <str_expr2>)  
+CONTAINS(<str_expr1>, <str_expr2> [, <bool_expr>])  
 ```  
   
 ## <a name="arguments"></a>Argumenty
@@ -30,6 +31,8 @@ CONTAINS(<str_expr1>, <str_expr2>)
   
 *str_expr2*  
    Jest wyrażeniem ciągu do znalezienia.  
+
+*bool_expr* Opcjonalna wartość dla ignorowania wielkości liter. Po ustawieniu na wartość true program zawiera wyszukiwanie bez uwzględniania wielkości liter. Jeśli nie określono tego parametru, ta wartość jest równa false.
   
 ## <a name="return-types"></a>Typy zwracane
   
@@ -40,7 +43,7 @@ CONTAINS(<str_expr1>, <str_expr2>)
   Poniższy przykład sprawdza, czy "ABC" zawiera "AB" i czy "ABC" zawiera "d".  
   
 ```sql
-SELECT CONTAINS("abc", "ab") AS c1, CONTAINS("abc", "d") AS c2 
+SELECT CONTAINS("abc", "ab") AS c1, CONTAINS("abc", "d") AS c2
 ```  
   
  Tutaj znajduje się zestaw wyników.  
@@ -51,7 +54,7 @@ SELECT CONTAINS("abc", "ab") AS c1, CONTAINS("abc", "d") AS c2
 
 ## <a name="remarks"></a>Uwagi
 
-Ta funkcja systemowa nie będzie używać indeksu.
+Ta funkcja systemowa będzie korzystać z [indeksu zakresu](index-policy.md#includeexclude-strategy).
 
 ## <a name="next-steps"></a>Następne kroki
 

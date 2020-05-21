@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/28/2020
+ms.date: 05/20/2020
 ms.author: allensu
-ms.openlocfilehash: c9b5aaefeb8ab21eed850f5bf291d38981239aab
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 7723e74b9617d5e8d56dd3c3e46145c4945ca21f
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82508432"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83698094"
 ---
 # <a name="troubleshoot-azure-virtual-network-nat-connectivity"></a>Rozwiązywanie problemów z łącznością NAT na platformie Azure Virtual Network
 
@@ -31,6 +31,7 @@ Ten artykuł ułatwia administratorom diagnozowanie i rozwiązywanie problemów 
 * [Polecenie ping protokołu ICMP kończy się niepowodzeniem](#icmp-ping-is-failing)
 * [Błędy łączności](#connectivity-failures)
 * [Współistnienie IPv6](#ipv6-coexistence)
+* [Połączenie nie pochodzi z adresów IP bramy translatora adresów sieciowych](#connection-doesnt-originate-from-nat-gateway-ips)
 
 Aby rozwiązać te problemy, wykonaj kroki opisane w następnej sekcji.
 
@@ -61,10 +62,10 @@ _**Rozwiązanie:**_ Korzystanie z odpowiednich wzorców i najlepszych rozwiąza�
 - System DNS może wprowadzić wiele pojedynczych przepływów w woluminie, gdy klient nie buforuje wyniku rozpoznawania nazw DNS. Użyj buforowania.
 - Przepływy UDP (na przykład wyszukiwania DNS) przydzielą porty przydziałów adresów sieciowych przez czas trwania bezczynności. Im dłuższy limit czasu bezczynności, tym wyższe ciśnienie w portach źródłowego. Użyj krótkiego limitu czasu bezczynności (na przykład 4 minuty).
 - Użyj pul połączeń do kształtowania woluminu połączenia.
-- Nigdy nie wolno odrzucać przepływu TCP i polegać na czasomierzach TCP w celu oczyszczenia przepływu. Jeśli nie zezwolisz na bezpośrednie zamknięcie połączenia protokołu TCP, stan pozostanie przydzielony w systemach pośrednich i punktach końcowych, a porty dla innych połączeń są niedostępne. Może to spowodować awarię aplikacji i wyczerpanie adresów współdziałania. 
+- Nigdy nie wolno odrzucać przepływu TCP i polegać na czasomierzach TCP w celu oczyszczenia przepływu. Jeśli nie zezwolisz na bezpośrednie zamknięcie połączenia protokołu TCP, stan pozostanie przydzielony w systemach pośrednich i punktach końcowych, a porty dla innych połączeń są niedostępne. Ten wzorzec może wyzwolić awarie aplikacji i wyczerpanie adresów współdziałania. 
 - Nie zmieniaj wartości czasomierza zamknięcia protokołu TCP na poziomie systemu operacyjnego bez specjalistycznej wiedzy o wpływie na nie. Gdy stos TCP zostanie odzyskany, wydajność aplikacji może mieć negatywny wpływ, gdy punkty końcowe połączenia mają niezgodne oczekiwania. Zamiarem zmiany czasomierzy jest zwykle znak podstawowego problemu projektowego. Przejrzyj poniższe zalecenia.
 
-Często przekroczenie wyczerpania może być również wzmocnione przy użyciu innych antywzorców w aplikacji źródłowej. Zapoznaj się z tymi dodatkowymi wzorcami i najlepszymi rozwiązaniami, aby zwiększyć skalowalność i niezawodność usługi.
+Układ wydechowy można także wzmocnić z innymi antywzorcem w aplikacji źródłowej. Zapoznaj się z tymi dodatkowymi wzorcami i najlepszymi rozwiązaniami, aby zwiększyć skalowalność i niezawodność usługi.
 
 - Zbadaj wpływ zmniejszenia [limitu czasu bezczynności protokołu TCP](nat-gateway-resource.md#timers) na niższe wartości, łącznie z domyślnym limitem czasu bezczynności wynoszącym 4 minuty, aby zwolnić wcześniej spis portów.
 - Należy rozważyć [asynchroniczne wzorce sondowania](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply) dla długotrwałych operacji w celu zwolnienia zasobów połączenia dla innych operacji.
@@ -116,8 +117,8 @@ Użyj narzędzi, takich jak następujące, aby sprawdzić poprawność łączno�
 
 #### <a name="configuration"></a>Konfiguracja
 
-Sprawdź następujące informacje:
-1. Czy zasób bramy NAT ma co najmniej jeden zasób publicznego adresu IP lub jeden zasób prefiksu publicznego adresu IP? Aby zapewnić łączność wychodzącą, musisz mieć co najmniej jeden adres IP skojarzony z bramą translatora adresów sieciowych.
+Sprawdź konfigurację:
+1. Czy zasób bramy translatora adresów sieciowych ma co najmniej jeden zasób publicznego adresu IP lub jeden zasób prefiksu publicznego adresu IP? Aby zapewnić łączność wychodzącą, musisz mieć co najmniej jeden adres IP skojarzony z bramą translatora adresów sieciowych.
 2. Czy podsieć sieci wirtualnej jest skonfigurowana do korzystania z bramy translatora adresów sieciowych?
 3. Czy używasz UDR (trasa zdefiniowana przez użytkownika) i chcesz zastępowanie miejsca docelowego?  Zasoby bramy NAT stają się domyślną trasą (0/0) w skonfigurowanych podsieciach.
 
@@ -129,7 +130,7 @@ Przejrzyj sekcję dotyczącą [wyczerpania adresów](#snat-exhaustion) w tym art
 
 Platforma Azure monitoruje i współpracuje z infrastrukturą. Mogą wystąpić błędy przejściowe, nie ma gwarancji, że transmisje są bezstratne.  Użyj wzorców projektowych, które pozwalają na retransmisję SYN dla aplikacji TCP. Limity czasu połączenia są wystarczająco duże, aby zezwolić na ponowną transmisję protokołu TCP SYN w celu ograniczenia przejściowych wpływów spowodowanych przez utracony pakiet SYN.
 
-_**Narzędzie**_
+_**Rozwiązanie:**_
 
 * Sprawdź, czy jest [wyczerpany wyczerpanie adresów](#snat-exhaustion).
 * Parametr konfiguracji w stosie protokołu TCP kontrolujący zachowanie retransmisji SYN ma nazwę RTO ([limit czasu retransmisji](https://tools.ietf.org/html/rfc793)). Wartość RTO jest ustawiana, ale zazwyczaj jest domyślnie 1 sekunda lub wyższa, z możliwością wycofywania wykładniczego.  Jeśli limit czasu połączenia aplikacji jest za krótki (na przykład 1 s), można zobaczyć sporadyczne limity czasu połączenia.  Zwiększ limit czasu połączenia aplikacji.
@@ -154,7 +155,7 @@ Poprzednie sekcje dotyczą programu wraz z internetowym punktem końcowym, z kt�
 
 Zwykle przechwycenia pakietu w lokalizacji źródłowej i docelowej (jeśli jest dostępna) jest wymagana do określenia, co ma miejsce.
 
-_**Narzędzie**_
+_**Rozwiązanie:**_
 
 * Sprawdź, czy jest [wyczerpany wyczerpanie adresów](#snat-exhaustion). 
 * Sprawdź poprawność łączności z punktem końcowym w tym samym regionie lub w innym miejscu do porównania.  
@@ -170,7 +171,7 @@ Jedną z możliwych przyczyn jest to, że połączenie TCP ma limit czasu bezczy
 
 Resetowanie protokołu TCP nie jest generowane po stronie publicznej zasobów bramy translatora adresów sieciowych. Resetowanie protokołu TCP po stronie docelowej jest generowane przez źródłową maszynę wirtualną, a nie zasób bramy translatora adresów sieciowych.
 
-_**Narzędzie**_
+_**Rozwiązanie:**_
 
 * Przejrzyj zalecenia dotyczące [wzorców projektowych](#design-patterns) .  
 * Aby uzyskać dalsze Rozwiązywanie problemów, w razie potrzeby należy otworzyć zgłoszenie do pomocy technicznej.
@@ -182,6 +183,18 @@ _**Narzędzie**_
 _**Rozwiązanie:**_ Wdróż bramę translatora adresów sieciowych w podsieci bez prefiksu IPv6.
 
 Możesz wskazać zainteresowanie dodatkowymi możliwościami za pośrednictwem [Virtual Network translatora adresów sieciowych](https://aka.ms/natuservoice)w usłudze UserVoice.
+
+### <a name="connection-doesnt-originate-from-nat-gateway-ips"></a>Połączenie nie pochodzi z adresów IP bramy translatora adresów sieciowych
+
+Należy skonfigurować bramę translatora adresów sieciowych, adresy IP do użycia i podsieć, dla której ma być używany zasób bramy translatora adresów sieciowych. Jednak połączenia z wystąpień maszyn wirtualnych, które istniały przed wdrożeniem bramy translatora adresów sieciowych, nie używają adresów IP.  Wydaje się, że używają adresów IP, które nie są używane z zasobem bramy translatora adresów sieciowych.
+
+_**Rozwiązanie:**_
+
+[Virtual Network translator adresów sieciowych](nat-overview.md) zastępuje łączność wychodzącą dla podsieci, w której jest skonfigurowana. W przypadku przejścia z domyślnego lub przychodzącego ruchu wychodzącego modułu równoważenia obciążenia do korzystania z bram translatora adresów sieciowych nowe połączenia będą od razu rozpoczynać korzystanie z adresów IP skojarzonych z zasobem bramy translatora adresów sieciowych.  Jeśli jednak maszyna wirtualna nadal ma ustanowione połączenie podczas przełączania do zasobu bramy NAT, połączenie będzie kontynuowane przy użyciu starego adresu IP, który został przypisany podczas ustanawiania połączenia.  Przed ponownym użyciem połączenia, które już istniało, należy się upewnić, że w systemie operacyjnym lub przeglądarce buforowanie połączeń w puli połączeń jest naprawdę nawiązywane.  Na przykład _podczas korzystania z_ zapełnień w programie PowerShell należy określić parametr _-DisableKeepalive_ , aby wymusić nowe połączenie.  Jeśli używasz przeglądarki, połączenia mogą również być w puli.
+
+Nie jest konieczne ponowne uruchomienie maszyny wirtualnej w celu skonfigurowania podsieci dla zasobu bramy translatora adresów sieciowych.  Jeśli jednak maszyna wirtualna jest ponownie uruchamiana, stan połączenia jest opróżniany.  Gdy stan połączenia został opróżniony, wszystkie połączenia rozpoczną korzystanie z adresów IP (y) zasobów bramy translatora adresów sieciowych.  Jest to jednak efekt uboczny maszyny wirtualnej, która jest uruchamiana ponownie, a nie wskaźnik, że wymagane jest ponowne uruchomienie.
+
+Jeśli nadal występują problemy, otwórz sprawę pomocy technicznej, aby uzyskać dalsze Rozwiązywanie problemów.
 
 ## <a name="next-steps"></a>Następne kroki
 

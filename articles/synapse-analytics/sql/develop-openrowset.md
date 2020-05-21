@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4ec6e18aa4fa741ba784e68ccf9b5f87ad654eba
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 3861b981a1083b44e9cc522a01c50cf24f281e91
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591424"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83702035"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Jak używać funkcji OPENROWSET z SQL na żądanie (wersja zapoznawcza)
 
@@ -45,10 +45,12 @@ Jest to szybka i łatwa metoda odczytywania zawartości plików bez wstępnej ko
                     TYPE = 'PARQUET') AS file
     ```
 
+
     Ta opcja umożliwia skonfigurowanie lokalizacji konta magazynu w źródle danych i określenie metody uwierzytelniania, która ma być używana do uzyskiwania dostępu do magazynu. 
     
     > [!IMPORTANT]
     > `OPENROWSET`bez `DATA_SOURCE` zapewnia szybki i łatwy sposób uzyskiwania dostępu do plików magazynu, ale oferuje ograniczoną liczbę opcji uwierzytelniania. Przykładowo podmiot zabezpieczeń usługi Azure AD może uzyskać dostęp do plików tylko przy użyciu [tożsamości usługi Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#force-azure-ad-pass-through) i nie może uzyskać dostępu do publicznie dostępnych plików. Jeśli potrzebujesz bardziej zaawansowanych opcji uwierzytelniania, użyj `DATA_SOURCE` opcji i zdefiniuj poświadczenia, które mają być używane do uzyskiwania dostępu do magazynu.
+
 
 ## <a name="security"></a>Zabezpieczenia
 
@@ -57,10 +59,10 @@ Użytkownik bazy danych musi mieć `ADMINISTER BULK OPERATIONS` uprawnienia do k
 Administrator magazynu musi także umożliwić użytkownikowi dostęp do plików przez udostępnienie prawidłowego tokenu SAS lub włączenie podmiotu zabezpieczeń usługi Azure AD w celu uzyskania dostępu do plików magazynu. Dowiedz się więcej o kontroli dostępu do magazynu w [tym artykule](develop-storage-files-storage-access-control.md).
 
 `OPENROWSET`Użyj następujących reguł, aby określić sposób uwierzytelniania do magazynu:
-- W programie `OPENROWSET` z `DATA_SOURCE` mechanizmem uwierzytelniania zależy od typu obiektu wywołującego.
-  - Identyfikatory logowania usługi AAD mogą uzyskiwać dostęp do plików tylko przy użyciu własnej [tożsamości usługi Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#force-azure-ad-pass-through) , jeśli usługa Azure Storage umożliwia użytkownikowi usługi Azure AD dostęp do plików źródłowych (na przykład jeśli obiekt wywołujący ma uprawnienie czytnika magazynu w magazynie) i w przypadku [włączenia uwierzytelniania przekazującego usługi Azure AD](develop-storage-files-storage-access-control.md#force-azure-ad-pass-through) w usłudze Synapse SQL.
+- W programie `OPENROWSET` bez `DATA_SOURCE` mechanizmu uwierzytelniania zależy od typu obiektu wywołującego.
+  - Identyfikatory logowania usługi Azure AD mogą uzyskiwać dostęp do plików tylko przy użyciu własnej [tożsamości usługi Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) , jeśli usługa Azure Storage umożliwia użytkownikowi usługi Azure AD dostęp do plików źródłowych (na przykład jeśli obiekt wywołujący ma uprawnienie czytnika magazynu w magazynie) i w przypadku [włączenia uwierzytelniania przekazującego usługi Azure AD](develop-storage-files-storage-access-control.md#force-azure-ad-pass-through) w usłudze Synapse SQL.
   - Identyfikatory logowania SQL mogą być również używane `OPENROWSET` bez `DATA_SOURCE` uzyskiwania dostępu do publicznie dostępnych plików, plików chronionych przy użyciu tokenu SAS lub zarządzanej tożsamości obszaru roboczego Synapse. Należy [utworzyć poświadczenia o zakresie serwera](develop-storage-files-storage-access-control.md#examples) , aby umożliwić dostęp do plików magazynu. 
-- W programie `OPENROWSET` z `DATA_SOURCE` mechanizmem uwierzytelniania jest zdefiniowany w poświadczeniach o zakresie bazy danych przypisanych do źródła danych, do którego się odwołuje. Ta opcja umożliwia dostęp do dostępnego publicznie magazynu lub dostęp do magazynu przy użyciu tokenu SAS, zarządzanej tożsamości obszaru roboczego lub [tożsamości obiektu wywołującego usługi Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#) (Jeśli obiekt wywołujący jest podmiotem zabezpieczeń usługi Azure AD). Jeśli `DATA_SOURCE` odwołuje się do usługi Azure Storage, która nie jest publiczna, należy [utworzyć poświadczenia w zakresie bazy danych](develop-storage-files-storage-access-control.md#examples) i odwołać się do nich w `DATA SOURCE` celu zezwolenia na dostęp do plików magazynu.
+- W programie `OPENROWSET` z `DATA_SOURCE` mechanizmem uwierzytelniania jest zdefiniowany w poświadczeniach o zakresie bazy danych przypisanych do źródła danych, do którego się odwołuje. Ta opcja umożliwia dostęp do dostępnego publicznie magazynu lub dostęp do magazynu przy użyciu tokenu SAS, zarządzanej tożsamości obszaru roboczego lub [tożsamości obiektu wywołującego usługi Azure AD](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) (Jeśli obiekt wywołujący jest podmiotem zabezpieczeń usługi Azure AD). Jeśli `DATA_SOURCE` odwołuje się do usługi Azure Storage, która nie jest publiczna, należy [utworzyć poświadczenia w zakresie bazy danych](develop-storage-files-storage-access-control.md#examples) i odwołać się do nich w `DATA SOURCE` celu zezwolenia na dostęp do plików magazynu.
 
 Obiekt wywołujący musi mieć `REFERENCES` uprawnienia do poświadczeń, aby można było go użyć do uwierzytelnienia w magazynie.
 
@@ -193,7 +195,7 @@ Określa metodę kompresji. Obsługiwana jest następująca metoda kompresji:
 
 PARSER_VERSION = "parser_version"
 
-Określa wersję parsera, która ma być używana podczas odczytywania plików. Obecnie obsługiwane wersje analizatora woluminów CSV to 1,0 i 2,0
+Określa wersję parsera, która ma być używana podczas odczytywania plików. Obecnie obsługiwane wersje analizatora woluminów CSV to 1,0 i 2,0:
 
 - PARSER_VERSION = "1,0"
 - PARSER_VERSION = "2,0"

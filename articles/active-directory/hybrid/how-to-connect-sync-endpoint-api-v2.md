@@ -8,16 +8,16 @@ editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fce1168f8f95e01b6ac05e673636e02356043cf3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: b5501153a9c54d4509aa7dd948e03e011b30d79e
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83691075"
+ms.locfileid: "83713815"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>Interfejs API usługi Azure AD Connect Sync w wersji 2 (publiczna wersja zapoznawcza) 
 Firma Microsoft wdrożyła nowy punkt końcowy (API) dla Azure AD Connect, który poprawia wydajność operacji usługi synchronizacji do Azure Active Directory. Korzystając z nowego punktu końcowego w wersji 2, zobaczysz zauważalny wzrost wydajności dotyczący eksportowania i importowania do usługi Azure AD. Ten nowy punkt końcowy obsługuje następujące elementy:
@@ -31,6 +31,9 @@ Firma Microsoft wdrożyła nowy punkt końcowy (API) dla Azure AD Connect, któr
 
 ## <a name="pre-requisites"></a>Wymagania wstępne  
 Aby można było korzystać z nowego punktu końcowego v2, należy użyć Azure AD Connect w [wersji 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) lub nowszej i postępować zgodnie z poniższymi instrukcjami wdrażania, aby włączyć punkt końcowy V2 dla Azure AD Connect serwera.   
+
+>[!NOTE]
+>Obecnie ta publiczna wersja zapoznawcza jest dostępna tylko w chmurze globalnej platformy Azure i nie jest dostępna dla [chmur krajowych](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
 
 ### <a name="public-preview-limitations"></a>Ograniczenia publicznej wersji zapoznawczej  
 Mimo że ta wersja została poddana szerokim testom, nadal mogą wystąpić problemy. Jednym z celów tej publicznej wersji zapoznawczej jest znalezienie i rozwiązanie tych problemów.  

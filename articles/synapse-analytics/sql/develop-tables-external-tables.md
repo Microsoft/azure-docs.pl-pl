@@ -9,34 +9,36 @@ ms.subservice: ''
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0405644af24eb277aa47db64348c9a217cf72239
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: bf014c7188232f07a399cc3e438d1d894c96a233
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195964"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83701446"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Używanie tabel zewnętrznych z Synapse SQL
 
 Zewnętrzna tabela wskazuje dane znajdujące się w usłudze Hadoop, w usłudze Azure Storage BLOB lub Azure Data Lake Storage. Tabele zewnętrzne są używane do odczytywania danych z plików lub zapisywania danych w plikach w usłudze Azure Storage. Za pomocą języka SQL Synapse można używać tabel zewnętrznych do odczytywania i zapisywania danych w puli SQL lub SQL na żądanie (wersja zapoznawcza).
 
-## <a name="external-tables-in-synapse-sql"></a>Tabele zewnętrzne w Synapse SQL
+## <a name="external-tables-in-synapse-sql-pool-and-on-demand"></a>Tabele zewnętrzne w puli Synapse SQL i na żądanie
 
-### <a name="sql-pool"></a>[Pula SQL](#tab/sql-pool)
+### <a name="sql-pool"></a>[Pula SQL](#tab/sql-pool) 
 
 W puli SQL można użyć tabeli zewnętrznej do:
 
 - Wykonaj zapytania dotyczące usługi Azure Blob Storage i Azure Data Lake Gen2 przy użyciu instrukcji języka Transact-SQL.
 - Importuj i przechowuj dane z usługi Azure Blob Storage i Azure Data Lake Storage do puli SQL.
 
-Gdy jest używany w połączeniu z instrukcją [CREATE TABLE jako SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) , wybranie z tabeli zewnętrznej importuje dane do tabeli w puli SQL. W dodatkowej [instrukcji Copy](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)tabele zewnętrzne są przydatne do ładowania danych. Aby zapoznać się z samouczkiem ładowania, zobacz Tworzenie [danych z usługi Azure Blob Storage przy użyciu sieci podstawowej](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Gdy jest używany w połączeniu z instrukcją [CREATE TABLE jako SELECT](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) , wybranie z tabeli zewnętrznej importuje dane do tabeli w puli SQL. Oprócz [instrukcji Copy](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)tabele zewnętrzne są przydatne do ładowania danych. 
 
-### <a name="sql-on-demand"></a>[SQL na żądanie](#tab/sql-ondemand)
+Aby zapoznać się z samouczkiem ładowania, zobacz Tworzenie [danych z usługi Azure Blob Storage przy użyciu sieci podstawowej](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+
+### <a name="sql-on-demand"></a>[SQL na żądanie](#tab/sql-on-demand)
 
 W przypadku usługi SQL na żądanie będziesz używać tabeli zewnętrznej do:
 
 - Wykonywanie zapytań dotyczących danych w usłudze Azure Blob Storage lub Azure Data Lake Storage przy użyciu instrukcji języka Transact-SQL
-- Przechowuj wyniki zapytania na żądanie SQL w plikach na platformie Azure Blob Storage lub Azure Data Lake Storage przy użyciu [CETAS](develop-tables-cetas.md).
+- Przechowywanie wyników zapytania na żądanie SQL w plikach na platformie Azure Blob Storage lub Azure Data Lake Storage przy użyciu [CETAS](develop-tables-cetas.md)
 
 Tabele zewnętrzne można utworzyć przy użyciu programu SQL na żądanie, wykonując następujące czynności:
 
@@ -50,8 +52,8 @@ Tabele zewnętrzne można utworzyć przy użyciu programu SQL na żądanie, wyko
 
 Użytkownik musi mieć `SELECT` uprawnienia do tabeli zewnętrznej, aby odczytywać dane.
 Zewnętrzna tabela dostępu do magazynu platformy Azure przy użyciu podanego w zakresie bazy danych poświadczeń zdefiniowanej w źródle danych przy użyciu następujących reguł:
-- Źródło danych bez poświadczeń umożliwia dostęp do publicznie dostępnych plików w usłudze Azure Storage w tabelach zewnętrznych.
-- Źródło danych może mieć poświadczenia umożliwiające zewnętrznym tabelom dostęp do plików w usłudze Azure Storage przy użyciu tokenu SAS lub tożsamości zarządzanej przez obszar roboczy — zobacz [przykłady w tym miejscu](develop-storage-files-storage-access-control.md#examples).
+- Źródło danych bez poświadczeń umożliwia tabelom zewnętrznym dostęp do publicznie dostępnych plików w usłudze Azure Storage.
+- Źródło danych może mieć poświadczenia umożliwiające zewnętrznym tabelom dostęp do plików w usłudze Azure Storage przy użyciu tokenu SAS lub tożsamości zarządzanej przez obszar roboczy — aby poznać przykłady, zobacz artykuł dotyczący [tworzenia plików magazynu w ramach kontroli dostępu do magazynu](develop-storage-files-storage-access-control.md#examples) .
 
 > [!IMPORTANT]
 > W puli SQL źródło danych bez creadential umożliwia użytkownikowi usługi Azure AD dostęp do plików magazynu przy użyciu tożsamości usługi Azure AD. W programie SQL na żądanie należy utworzyć źródło danych z poświadczeniami z zakresem bazy danych zawierającymi `IDENTITY='User Identity'` właściwości — Zobacz [przykłady tutaj](develop-storage-files-storage-access-control.md#examples).
@@ -74,7 +76,7 @@ WITH
 [;]
 ```
 
-#### <a name="sql-on-demand"></a>[SQL na żądanie](#tab/sql-ondemand)
+#### <a name="sql-on-demand"></a>[SQL na żądanie](#tab/sql-on-demand)
 
 ```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
@@ -84,11 +86,14 @@ WITH
 )
 [;]
 ```
+
 ---
 
 ### <a name="arguments-for-create-external-data-source"></a>Argumenty tworzenia zewnętrznego źródła danych
 
-data_source_name — określa zdefiniowaną przez użytkownika nazwę źródła danych. Nazwa musi być unikatowa w obrębie bazy danych.
+data_source_name
+
+Określa zdefiniowaną przez użytkownika nazwę źródła danych. Nazwa musi być unikatowa w obrębie bazy danych.
 
 #### <a name="location"></a>Lokalizacja
 LOCATION = `'<prefix>://<path>'` — udostępnia protokół połączenia i ścieżkę do zewnętrznego źródła danych. Ścieżka może zawierać kontener w postaci `'<prefix>://<path>/container'` , a folder w postaci `'<prefix>://<path>/container/folder'` .
@@ -100,7 +105,9 @@ LOCATION = `'<prefix>://<path>'` — udostępnia protokół połączenia i ście
 | Azure Data Lake Store Gen 2 | `abfs[s]`       | `<container>@<storage_account>.dfs.core.windows.net`  |
 
 #### <a name="credential"></a>Poświadczenie
-CREDENTIAL = `<database scoped credential>` to opcjonalne poświadczenie, które będzie używane do uwierzytelniania w usłudze Azure Storage. Zewnętrzne źródło danych bez poświadczeń może uzyskać dostęp do konta magazynu publicznego. Zewnętrzne źródła danych bez poświadczeń w puli SQL mogą również korzystać z tożsamości usługi Azure AD wywołujących w celu uzyskiwania dostępu do plików w magazynie. Zewnętrzne źródło danych z poświadczeniami użycia określonej w poświadczeniu do uzyskiwania dostępu do plików.
+CREDENTIAL = `<database scoped credential>` to opcjonalne poświadczenie, które będzie używane do uwierzytelniania w usłudze Azure Storage. Zewnętrzne źródło danych bez poświadczeń może uzyskać dostęp do konta magazynu publicznego. 
+
+Zewnętrzne źródła danych bez poświadczeń w puli SQL mogą również korzystać z tożsamości usługi Azure AD wywołujących w celu uzyskiwania dostępu do plików w magazynie. Zewnętrzne źródło danych z poświadczeniami użycia określonej w poświadczeniu do uzyskiwania dostępu do plików.
 - W puli SQL poświadczenia w zakresie bazy danych mogą określać niestandardową tożsamość aplikacji, tożsamość zarządzaną w obszarze roboczym lub klucz SAK. 
 - W usłudze SQL na żądanie poświadczenia bazy danych mogą określać tożsamość usługi Azure AD, tożsamość zarządzaną w obszarze roboczym lub klucz sygnatury dostępu współdzielonego. 
 
@@ -123,7 +130,7 @@ WITH
   ) ;
 ```
 
-#### <a name="sql-on-demand"></a>[SQL na żądanie](#tab/sql-ondemand)
+#### <a name="sql-on-demand"></a>[SQL na żądanie](#tab/sql-on-demand)
 
 Poniższy przykład tworzy zewnętrzne źródło danych dla Azure Data Lake Gen2, do którego można uzyskać dostęp przy użyciu poświadczeń sygnatury dostępu współdzielonego:
 
@@ -366,4 +373,4 @@ Tabela zewnętrzna została utworzona, w celu przeprowadzenia dalszej eksploracj
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z artykułem [CETAS](develop-tables-cetas.md) , jak zapisać wyniki zapytania w tabeli zewnętrznej w usłudze Azure Storage. Można też uruchomić zapytania dotyczące [tabel platformy Spark](develop-storage-files-spark-tables.md).
+Zapoznaj się z artykułem [CETAS](develop-tables-cetas.md) , jak zapisać wyniki zapytania w tabeli zewnętrznej w usłudze Azure Storage. Można też rozpocząć wykonywanie zapytań [dotyczących Apache Spark w przypadku tabel zewnętrznych usługi Azure Synapse](develop-storage-files-spark-tables.md).

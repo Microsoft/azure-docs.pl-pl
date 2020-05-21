@@ -1,6 +1,6 @@
 ---
-title: Regiony obsługi dla połączonego obszaru roboczego Log Analytics
-description: W tym artykule opisano, jak obsługiwać mapowania regionów między kontem usługi Automation i obszarem roboczym Log Analytics.
+title: Obsługiwane regiony połączonego obszaru roboczego usługi Log Analytics
+description: W tym artykule opisano obsługiwane mapowania regionów między kontem usługi Automation i obszarem roboczym Log Analytics.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,14 +9,14 @@ ms.author: magoedte
 ms.date: 04/23/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 229fab5550d7b03fcbba80b5f4d9433d3b31e5b1
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: e637aec3c5105bb9628a854b0d4c73988e60daaf
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680444"
+ms.locfileid: "83714512"
 ---
-# <a name="support-regions-for-linked-log-analytics-workspace"></a>Regiony obsługi dla połączonego obszaru roboczego Log Analytics
+# <a name="supported-regions-for-linked-log-analytics-workspace"></a>Obsługiwane regiony połączonego obszaru roboczego usługi Log Analytics
 
 W Azure Automation można włączyć funkcje Update Management, Change Tracking i spisu oraz Start/Stop VMs during off-hours dla maszyn wirtualnych. Jednak tylko niektóre regiony są obsługiwane na potrzeby łączenia obszaru roboczego Log Analytics i konta usługi Automation w ramach subskrypcji. Mapowania regionów mają zastosowanie tylko do konta usługi Automation i obszaru roboczego Log Analytics. Obszar roboczy Log Analytics i konto usługi Automation muszą znajdować się w tej samej subskrypcji, ale mogą znajdować się w różnych grupach zasobów wdrożonych w tym samym regionie. Aby uzyskać więcej informacji, zobacz [log Analytics obszaru roboczego i konta usługi Automation](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account).
 
@@ -49,9 +49,9 @@ W poniższej tabeli przedstawiono obsługiwane mapowania:
 
 ## <a name="unlink-a-workspace"></a>Odłączanie obszaru roboczego
 
-Jeśli zdecydujesz, że nie chcesz już integrować konta usługi Automation z obszarem roboczym Log Analytics, możesz odłączyć swoje konto bezpośrednio od Azure Portal. Przed kontynuowaniem należy najpierw [wyłączyć](move-account.md#disable-features) Update Management, Change Tracking i spis, a Start/Stop VMS during off-hours, jeśli są używane. Jeśli nie wyłączysz tych funkcji, nie możesz ukończyć operacji odłączania. 
+Jeśli zdecydujesz, że nie chcesz już integrować konta usługi Automation z obszarem roboczym Log Analytics, możesz odłączyć swoje konto bezpośrednio od Azure Portal. Przed kontynuowaniem należy najpierw [usunąć](move-account.md#remove-features) Update Management, Change Tracking i spis, a Start/Stop VMS during off-hours, jeśli są używane. Jeśli ich nie usuniesz, nie można ukończyć operacji odłączania. 
 
-Po wyłączeniu funkcji można wykonać poniższe kroki, aby odłączyć konto usługi Automation.
+Po usunięciu funkcji można wykonać poniższe kroki, aby odłączyć konto usługi Automation.
 
 > [!NOTE]
 > Niektóre funkcje, w tym wcześniejsze wersje rozwiązania Azure SQL monitoring, mogły utworzyć zasoby automatyzacji, które należy usunąć przed odłączeniem obszaru roboczego.
@@ -80,6 +80,6 @@ Alternatywnie możesz odłączyć obszar roboczy od konta usługi Automation w o
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Dowiedz się więcej na temat Update Management w [Update Management Omówienie](../automation-update-management.md).
-* Dowiedz się więcej na temat Change Tracking i spisu w temacie [Change Tracking i spisu](../change-tracking.md).
-* Dowiedz się więcej na temat Start/Stop VMs during off-hours w [Start/Stop VMS during off-hours Omówienie](../automation-solution-vm-management.md).
+* [Omówienie rozwiązania Update Management](../automation-update-management.md)
+* [Przegląd Change Tracking i spisu](../change-tracking.md)
+* [Przegląd Start/Stop VMs during off-hours](../automation-solution-vm-management.md)

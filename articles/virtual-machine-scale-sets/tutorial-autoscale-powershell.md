@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 3c8488fa794e2bfa4de7833cb4cd4756b5394263
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: d2e10c2a02bf14f7a01ce03bc70f6e3f43b96385
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201370"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700827"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Samouczek: skalowanie automatyczne zestawu skalowania maszyn wirtualnych przy użyciu programu Azure PowerShell
 
@@ -28,7 +28,7 @@ Podczas tworzenia zestawu skalowania musisz zdefiniować liczbę wystąpień mas
 > * Testy obciążeniowe wystąpień maszyn wirtualnych i wyzwalanie reguł skalowania automatycznego
 > * Skalowanie automatyczne do wewnątrz po zmniejszeniu zapotrzebowania
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 Jest to znany problem, który ma wpływ na moduł programu Azure PowerShell w wersji 6.8.1 lub nowszej, w tym bieżącą wersję programu Azure Cloud Shell. Ten samouczek można uruchamiać tylko przy użyciu modułu programu Azure PowerShell w wersji od 6.0.0 do 6.8.0. Uruchom polecenie `Get-Module -ListAvailable AzureRM`, aby dowiedzieć się, jaka wersja jest używana. Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Connect-AzureRmAccount`, aby utworzyć połączenie z platformą Azure.
 
@@ -68,7 +68,7 @@ W tej regule są używane następujące parametry:
 | Parametr               | Wyjaśnienie                                                                                                         | Wartość          |
 |-------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
 | *-Metricname*           | Metryka wydajności, która jest monitorowana i na której są stosowane akcje zestawu skalowania.                                                   | Procentowe użycie procesora CPU |
-| *-TimeGrain*            | Częstotliwość zbierania metryk do analizy.                                                                   | 1 min       |
+| *-TimeGrain*            | Częstotliwość zbierania metryk do analizy.                                                                   | 1 minuta       |
 | *-MetricStatistic*      | Określa sposób agregacji metryk zebranych do celów analizy.                                                | Średnia        |
 | *-TimeWindow*           | Przedział czasu monitorowania, po którym wartość metryki jest porównywana z wartością progową.                                   | 5 minut      |
 | *-— Operator*             | Operator używany do porównywania danych metryki z wartością progową.                                                     | Większe niż   |
@@ -239,7 +239,7 @@ MYRESOURCEGROUP   myScaleSet_6   eastus Standard_DS2                   6        
 Zakończ działanie pętli *while* za pomocą klawiszy `Ctrl-c`. Co pięć minut zestaw skalowania będzie powtarzał operację skalowania w pionie, usuwając po jednym wystąpieniu maszyny wirtualnej aż do osiągnięcia minimalnej liczby wystąpień równej dwa.
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Aby pozbyć się zestawu skalowania i dodatkowych zasobów, usuń grupę zasobów wraz z całą zawartością za pomocą polecenia [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup). Parametr `-Force` potwierdza, że chcesz usunąć zasoby bez wyświetlania dodatkowego monitu. Parametr `-AsJob` zwraca kontrolę do wiersza polecenia bez oczekiwania na zakończenie operacji.
 
 ```azurepowershell-interactive
@@ -255,8 +255,3 @@ W tym samouczku przedstawiono automatyczne skalowanie zestawu skalowania w pioni
 > * Tworzenie reguł skalowania automatycznego i korzystanie z nich
 > * Testy obciążeniowe wystąpień maszyn wirtualnych i wyzwalanie reguł skalowania automatycznego
 > * Skalowanie automatyczne do wewnątrz po zmniejszeniu zapotrzebowania
-
-Więcej akcji zestawów skalowania maszyn wirtualnych zawierają następujące przykładowe skrypty programu Azure PowerShell:
-
-> [!div class="nextstepaction"]
-> [Scale set script samples for Azure PowerShell (Przykładowe skrypty zestawu skalowania przeznaczone dla programu Azure PowerShell)](powershell-samples.md)

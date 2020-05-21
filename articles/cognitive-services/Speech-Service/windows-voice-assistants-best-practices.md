@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: adamwa
-ms.openlocfilehash: 30df02062d3b94836f0131ac1124f56d1deefb5b
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: a9145c7c26f4d6caa1679052035b36f1ae88f878
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82997492"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83714784"
 ---
 # <a name="design-assistant-experiences-for-windows-10"></a>Środowiska asystenta projektowego dla systemu Windows 10
 
 Asystenci głosu opracowani w systemie Windows 10 muszą implementować poniższe wskazówki dotyczące środowiska użytkownika, aby zapewnić najlepsze możliwe środowisko aktywacji głosu w systemie Windows 10. Ten dokument zawiera Przewodnik po zrozumieniu kluczowych działań potrzebnych do integracji asystenta głosowego z powłoką systemu Windows 10.
 
-## <a name="contents"></a>Spis treści
+## <a name="contents"></a>Zawartość
 
 - [Podsumowanie widoków aktywacji głosu obsługiwanych w systemie Windows 10](#summary-of-voice-activation-views-supported-in-windows-10)
 - [Podsumowanie wymagań](#requirements-summary)
@@ -63,25 +63,22 @@ Asystenci powinni stworzyć środowisko nasłuchiwania, aby zapewnić krytyczne 
 - Asystent przetwarza i przygotowywa odpowiedź
 - Asystent odpowiada
 
-Nawet jeśli Stany zmieniają się szybko, warto zastanowić się nad zapewnieniem środowiska użytkownika dla Stanów, ponieważ czasy trwania są zmienne w ekosystemie systemu Windows. Opinie wizualne oraz krótkie CHIMES audio lub chirps, nazywane &quot;także earcons&quot;, mogą być częścią rozwiązania. Podobnie karty wizualne powiązane z opisami audio sprawiają, że są odpowiednie opcje odpowiedzi.
+Nawet jeśli Stany zmieniają się szybko, warto zastanowić się nad zapewnieniem środowiska użytkownika dla Stanów, ponieważ czasy trwania są zmienne w ekosystemie systemu Windows. Opinie wizualne oraz krótkie CHIMES audio lub chirps, nazywane także &quot; earcons &quot; , mogą być częścią rozwiązania. Podobnie karty wizualne powiązane z opisami audio sprawiają, że są odpowiednie opcje odpowiedzi.
 
 ## <a name="design-guidance-for-in-app-voice-activation"></a>Wskazówki dotyczące projektowania aktywacji głosu w aplikacji
 
 Gdy aplikacja asystenta ma fokus, cel klienta jest jasno widoczny dla aplikacji, więc wszystkie środowiska aktywacji głosowej powinny być obsługiwane przez główny widok aplikacji. Ten widok może zostać zmieniony przez klienta. Aby pomóc w wyjaśnieniu interakcji asystenta, w pozostałej części tego dokumentu używany jest konkretny przykład asystenta usług finansowych o nazwie contoso. W tym i kolejnych diagramach, co mówi klient, będzie wyświetlany w kreskówki bąbelki mowy po lewej stronie z odpowiedziami asystenta w kreskówkiych dymkach po prawej stronie.
 
-**Widok w aplikacji. Stan początkowy po rozpoczęciu aktywacji głosu:**
-![zrzut ekranu asystenta głosowego w systemie Windows przed aktywacją](media/voice-assistants/windows_voice_assistant/initial_state.png)
+**Widok w aplikacji. Stan początkowy po rozpoczęciu aktywacji głosu:** 
+ ![ zrzut ekranu asystenta głosowego w systemie Windows przed aktywacją](media/voice-assistants/windows_voice_assistant/initial_state.png)
 
-**Widok w aplikacji. Po pomyślnym aktywacji głosu rozpocznie się nasłuchiwanie:**![zrzut ekranu przedstawiający asystenta głosowego w systemie Windows, podczas gdy asystent głosowy słucha](media/voice-assistants/windows_voice_assistant/listening.png)
+**Widok w aplikacji. Po pomyślnym aktywacji głosu rozpocznie się nasłuchiwanie:** ![ zrzut ekranu przedstawiający asystenta głosowego w systemie Windows, podczas gdy asystent głosowy słucha](media/voice-assistants/windows_voice_assistant/listening.png)
 
-**Widok w aplikacji. Wszystkie odpowiedzi pozostają w środowisku aplikacji.** ![Zrzut ekranu asystenta głosowego w systemie Windows jako odpowiedzi Asystenta](media/voice-assistants/windows_voice_assistant/response.png)
+**Widok w aplikacji. Wszystkie odpowiedzi pozostają w środowisku aplikacji.** ![ Zrzut ekranu asystenta głosowego w systemie Windows jako odpowiedzi Asystenta](media/voice-assistants/windows_voice_assistant/response.png)
 
 ## <a name="design-guidance-for-voice-activation-above-lock"></a>Wskazówki dotyczące projektowania aktywacji głosu powyżej blokady
 
 Dostępne w przypadku 19H2, dostępne są Asystenci na platformie aktywacji głosu systemu Windows.
-
-> [!NOTE]
-> Ze względu na aktywny problem, asystenci, którzy rysują nad interfejsem użytkownika blokady, muszą zaimplementować WindowService. CloseWindow () dla wszystkich dismissals. Spowoduje to zakończenie działania aplikacji, ale ograniczenie problemu technicznego i zachowanie asystenta w stanie czystym. Ponadto w celu utrzymania stanu czystego, jeśli aplikacja została włączona dla aktywacji głosowej blokady, musi nasłuchiwać zmian stanu blokady i WindowService. CloseWindow (), gdy urządzenie zostanie zablokowane.
 
 ### <a name="customer-opt-in"></a>Zgoda klienta
 
@@ -108,16 +105,16 @@ Asystent musi zaimplementować wskazówki dotyczące odrzucenia w tej sekcji, ab
 - **Wszystkie kanwy asystenta, które wyświetlają powyższą blokadę, muszą zawierać znak X** w prawym górnym rogu, który odrzuci asystenta.
 - **Naciśnięcie dowolnego klucza musi również odrzucić aplikację asystenta**. Wprowadzanie z klawiatury to tradycyjny sygnał aplikacji blokady, który klient chce się zalogować. W związku z tym wszystkie dane wejściowe klawiatury/tekstu nie powinny być kierowane do aplikacji. Zamiast tego aplikacja powinna zostać odrzucana po wykryciu danych wejściowych klawiatury, aby klient mógł łatwo zalogować się na swoim urządzeniu.
 - **Jeśli ekran zostanie wyłączony, aplikacja musi się odrzucić.** Dzięki temu następnym razem, gdy klient korzysta z komputera, ekran logowania będzie gotowy i oczekuje na te komputery.
-- Jeśli aplikacja jest &quot;używana&quot;, może ona być kontynuowana nad blokadą. &quot;w użyciu&quot; stanowi wszelkie dane wejściowe lub wyjściowe. Na przykład podczas przesyłania strumieniowego muzyki lub filmu wideo aplikacja może kontynuować pracę powyżej blokady. &quot;&quot; Postępuj zgodnie z innymi multiturnmi krokami okna dialogowego, aby zachować aplikację powyżej blokady.
+- Jeśli aplikacja jest &quot; używana &quot; , może ona być kontynuowana nad blokadą. &quot;w użyciu &quot; stanowi wszelkie dane wejściowe lub wyjściowe. Na przykład podczas przesyłania strumieniowego muzyki lub filmu wideo aplikacja może kontynuować pracę powyżej blokady. &quot;Postępuj zgodnie z &quot; innymi multiturnmi krokami okna dialogowego, aby zachować aplikację powyżej blokady.
 - **Szczegóły implementacji dotyczące odrzucania aplikacji** można znaleźć [w powyższym przewodniku implementacji blokady](windows-voice-assistants-implementation-guide.md#closing-the-application).
 
 ![Zrzut ekranu asystenta głosowego w systemie Windows przed aktywacją](media/voice-assistants/windows_voice_assistant/above_lock_response.png)
 
 ![Zrzut ekranu asystenta głosowego w systemie Windows przed aktywacją](media/voice-assistants/windows_voice_assistant/lock_screen2.png)
 
-### <a name="privacy-amp-security-considerations-above-lock"></a>Zagadnienia dotyczące zabezpieczeń prywatności &amp; powyżej blokady
+### <a name="privacy-amp-security-considerations-above-lock"></a>&amp;Zagadnienia dotyczące zabezpieczeń prywatności powyżej blokady
 
-Wiele komputerów jest przenośnych, ale nie zawsze w zasięgu klienta. Mogą one zostać krótko pozostawiły w pokojach hotelowych, na stanowiskach samolotu lub w obszarach roboczych, gdzie inne osoby mają fizyczny dostęp. Jeśli asystenci, którzy zostali włączeni powyżej blokady nie są przygotowani, mogą stać się podmiotem klasy, tak &quot;jak ataki [Akcja Maid](https://en.wikipedia.org/wiki/Evil_maid_attack) &quot; .
+Wiele komputerów jest przenośnych, ale nie zawsze w zasięgu klienta. Mogą one zostać krótko pozostawiły w pokojach hotelowych, na stanowiskach samolotu lub w obszarach roboczych, gdzie inne osoby mają fizyczny dostęp. Jeśli asystenci, którzy zostali włączeni powyżej blokady nie są przygotowani, mogą stać się podmiotem klasy, tak jak ataki &quot; [Akcja Maid](https://en.wikipedia.org/wiki/Evil_maid_attack) &quot; .
 
 W związku z tym asystent powinien postępować zgodnie z instrukcjami w tej sekcji, aby zapewnić bezpieczeństwo środowiska. Interakcja powyżej blokady występuje, gdy użytkownik systemu Windows jest nieuwierzytelniony. Oznacza to, że ogólnie rzecz biorąc, **dane wejściowe asystenta powinny również być traktowane jako nieuwierzytelnione**.
 
@@ -127,9 +124,9 @@ W związku z tym asystent powinien postępować zgodnie z instrukcjami w tej sek
 
 | **Action — Klasa** | **Opis** | **Przykłady (niepełna lista)** |
 | --- | --- | --- |
-| Bezpieczne bez uwierzytelniania | Informacje ogólne dotyczące przeznaczenia lub podstawowe polecenie i kontrola aplikacji | &quot;Która jest godzina? &quot;, &quot;Odtwórz następną ścieżkę&quot; |
-| Bezpieczna z IDENTYFIKATORem osoby mówiącej | Ryzyko personifikacji, ujawnianie informacji osobistych. | &quot;Co&#39;s moje spotkanie? &quot;, &quot;Przejrzyj moją listę&quot;zakupów, &quot;Odpowiedz na wywołanie&quot; |
-| Bezpieczne tylko po uwierzytelnieniu systemu Windows | Akcje wysokiego ryzyka, których atakujący może użyć, aby uszkodzić klienta | &quot;Kup&quot;więcej artykułów spożywczych &quot;, Usuń mój (ważny)&quot;termin &quot;, Wyślij wiadomość&quot;SMS, &quot;a następnie Uruchom stronę sieci Web (szkodliwa)&quot; |
+| Bezpieczne bez uwierzytelniania | Informacje ogólne dotyczące przeznaczenia lub podstawowe polecenie i kontrola aplikacji | &quot;Co to jest czas? &quot; &quot; Odtwórz następną ścieżkę&quot; |
+| Bezpieczna z IDENTYFIKATORem osoby mówiącej | Ryzyko personifikacji, ujawnianie informacji osobistych. | &quot;Co&#39;s moje moje terminy? &quot; , &quot; Przejrzyj moją listę zakupów &quot; , &quot; Odpowiedz na wywołanie&quot; |
+| Bezpieczne tylko po uwierzytelnieniu systemu Windows | Akcje wysokiego ryzyka, których atakujący może użyć, aby uszkodzić klienta | &quot;Kup więcej artykułów spożywczych &quot; , &quot; Usuń mój (ważny) termin &quot; , &quot; Wyślij wiadomość SMS, a następnie &quot; &quot; Uruchom stronę sieci Web (szkodliwa)&quot; |
 
 W przypadku firmy Contoso ogólne informacje dotyczące publicznej informacji o zapasach są bezpieczne bez uwierzytelniania. Informacje specyficzne dla klienta, takie jak liczba posiadanych udziałów, prawdopodobnie są bezpieczne z IDENTYFIKATORem osoby mówiącej. Jednak kupowanie lub sprzedawanie zasobów nigdy nie powinno być dozwolone bez uwierzytelniania systemu Windows.
 

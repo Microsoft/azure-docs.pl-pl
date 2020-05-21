@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2b80efa30ac7e04b9eb21dd6f8a39ab4ee90adf6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ff29b9ab87b2cd48297f5f1ee195f11fb56b428a
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424853"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700319"
 ---
 # <a name="sql-authentication"></a>Uwierzytelnianie SQL
 
@@ -47,10 +47,10 @@ Konta administratorów **serwera** i **usługi Azure AD** mają następującą c
 - Nie należy wprowadzać `master` bazy danych jako `dbo` użytkownik i mieć ograniczone uprawnienia w obszarze głównym.
 - **Nie** są członkami standardowej SQL Server `sysadmin` stałej roli serwera, która nie jest dostępna w usłudze SQL Database.  
 - Może tworzyć, zmieniać i usuwać bazy danych, nazwy logowania, użytkowników z wzorców i reguły zapory adresów IP na poziomie serwera.
-- Może dodawać i usuwać członków do ról `dbmanager` i `loginmanager` .
-- Może wyświetlać tabelę `sys.sql_logins` systemową.
+- Może dodawać i usuwać członków do `dbmanager` ról i `loginmanager` .
+- Może wyświetlać `sys.sql_logins` tabelę systemową.
 
-## <a name="sql-on-demand-preview"></a>SQL na żądanie (wersja zapoznawcza)
+## <a name="sql-on-demand-preview"></a>[SQL na żądanie (wersja zapoznawcza)](#tab/serverless)
 
 Aby zarządzać użytkownikami mającymi dostęp do programu SQL na żądanie, możesz użyć poniższych instrukcji.
 
@@ -72,7 +72,7 @@ CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 
 Po utworzeniu nazwy logowania i użytkownika można przyznać prawa przy użyciu standardowej składni SQL Server.
 
-## <a name="sql-pool"></a>Pula SQL
+## <a name="sql-pool"></a>[Pula SQL](#tab/provisioned)
 
 ### <a name="administrator-access-path"></a>Ścieżka dostępu administratora
 
@@ -90,7 +90,7 @@ Jedną z tych ról administracyjnych jest rola **DBManager** . Członkowie tej r
 
 Aby utworzyć bazę danych, użytkownik musi być użytkownikiem opartym na SQL Server logowaniu do `master` bazy danych lub użytkownika zawartej bazy danych na podstawie Azure Active Directory użytkownika.
 
-1. Aby nawiązać połączenie z `master` bazą danych, użyj konta administratora.
+1. Aby nawiązać połączenie z bazą danych, użyj konta administratora `master` .
 2. Utwórz nazwę logowania SQL Server uwierzytelniania przy użyciu instrukcji [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) . Przykładowa instrukcja:
 
    ```sql
@@ -127,6 +127,8 @@ Teraz użytkownik może połączyć się z `master` bazą danych i może tworzy�
 ### <a name="login-managers"></a>Menedżerowie logowania
 
 Druga rola administracyjna to rola menedżera logowania. Członkowie tej roli mogą tworzyć nowe nazwy logowania w bazie danych master. Jeśli chcesz, możesz wykonać te same kroki (utworzenie identyfikatora logowania i użytkownika, a następnie dodanie użytkownika do roli **loginmanager**), aby umożliwić użytkownikowi tworzenie nowych identyfikatorów logowania w bazie danych master. Zazwyczaj identyfikatory logowania nie są konieczne, ponieważ firma Microsoft zaleca korzystanie z użytkowników zawartej bazy danych, którzy przeprowadzają uwierzytelnianie na poziomie bazy danych zamiast użytkowników przeprowadzających uwierzytelnianie w oparciu o identyfikator logowania. Aby uzyskać więcej informacji, zobacz artykuł [Contained Database Users - Making Your Database Portable](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (Użytkownicy zawartej bazy danych — tworzenie przenośnej bazy danych).
+
+---
 
 ## <a name="non-administrator-users"></a>Użytkownicy niebędący administratorami
 
@@ -202,7 +204,7 @@ Rozpocznij od listy uprawnień [Uprawnienia (aparat bazy danych)](https://docs.m
 
 Podczas zarządzania nazwami logowania i użytkownikami w SQL Database należy wziąć pod uwagę następujące kwestie:
 
-- Podczas wykonywania `CREATE/ALTER/DROP DATABASE` instrukcji musisz mieć połączenie z bazą danych **Master** .
+- Podczas wykonywania instrukcji musisz mieć połączenie z bazą danych **Master** `CREATE/ALTER/DROP DATABASE` .
 - Użytkownik bazy danych odpowiadający identyfikatorowi logowania **Administrator serwera** nie może zostać zmieniony ani usunięty.
 - Domyślnym językiem identyfikatora logowania **Administrator serwera** jest angielski (Stany Zjednoczone).
 - Tylko administratorzy (identyfikator logowania **Administrator serwera** lub Administrator usługi Azure AD) i członkowie roli bazy danych **dbmanager** w bazie danych **master** mają uprawnienia do wykonywania instrukcji `CREATE DATABASE` i `DROP DATABASE`.

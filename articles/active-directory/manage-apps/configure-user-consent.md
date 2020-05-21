@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: mimart
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: 2064ac929063fcdcf15c1e7495769c7d84aeef33
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 0a508e52189938447ea6fc1928d441d81deab392
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698016"
+ms.locfileid: "83714021"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Konfigurowanie sposobu, w jaki użytkownicy końcowi wyrażają zgodę na aplikacje
 
@@ -49,7 +49,7 @@ Aby skonfigurować ustawienia zgody użytkowników za pomocą Azure Portal:
 1. W obszarze **wyrażanie zgody użytkownika na aplikacje**wybierz ustawienie zgody, które chcesz skonfigurować dla wszystkich użytkowników.
 1. Wybierz pozycję **Zapisz** , aby zapisać ustawienia.
 
-![Ustawienia zgody użytkownika](./media/configure-user-consent/configure-consent-setting-for-all-users.png)
+![Ustawienia zgody użytkownika](./media/configure-user-consent/setting-for-all-users.png)
 
 > [!TIP]
 > Rozważ [włączenie przepływu pracy zgody administratora](configure-admin-consent-workflow.md) , aby umożliwić użytkownikom zażądanie przeglądu i zatwierdzenia aplikacji, do których użytkownik nie może wyrazić zgodę — na przykład jeśli użytkownik wyraża zgodę użytkownika na wyłączenie lub gdy aplikacja żąda uprawnień, których użytkownik nie może udzielić.
@@ -102,7 +102,7 @@ Klasyfikacje uprawnień umożliwiają zidentyfikowanie wpływu różnych uprawni
 
 W tym przykładzie został sklasyfikowany minimalny zestaw uprawnień wymaganych do logowania jednokrotnego:
 
-![Klasyfikacje uprawnień](./media/configure-user-consent/configure-permission-classifications.png)
+![Klasyfikacje uprawnień](./media/configure-user-consent/permission-classifications.png)
 
 > [!TIP]
 > W przypadku interfejsu API Microsoft Graph minimalne uprawnienia niezbędne do wykonania podstawowego logowania jednokrotnego to `openid` , `profile` `User.Read` i `offline_access` . Dzięki tym uprawnieniom aplikacja może odczytywać szczegóły profilu zalogowanego użytkownika i może obsługiwać ten dostęp nawet wtedy, gdy użytkownik nie korzysta już z aplikacji.
@@ -192,7 +192,7 @@ Można skonfigurować, którzy użytkownicy mogą wyrazić zgodę na aplikacje u
 
 W tym przykładzie wszyscy właściciele grupy mogą wyrazić zgodę na aplikacje uzyskujące dostęp do danych ich grup:
 
-![Klasyfikacje uprawnień](./media/configure-user-consent/configure-group-owner-consent.png)
+![Klasyfikacje uprawnień](./media/configure-user-consent/group-owner-consent.png)
 
 ### <a name="configure-group-owner-consent-using-powershell"></a>Konfigurowanie zgody właściciela grupy przy użyciu programu PowerShell
 

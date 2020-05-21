@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 0d857a0066737cd7bdc14dff435e25add66f2cdd
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 95baaaff0936d288b5a56efb8f6ce1ba87637d8a
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201379"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83700930"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Samouczek: skalowanie automatyczne zestawu skalowania maszyn wirtualnych przy użyciu szablonu platformy Azure
 Podczas tworzenia zestawu skalowania musisz zdefiniować liczbę wystąpień maszyn wirtualnych, które chcesz uruchamiać. W odpowiedzi na zmieniające się zapotrzebowanie aplikacji możesz automatycznie zwiększać lub zmniejszać liczbę wystąpień maszyn wirtualnych. Skalowanie automatyczne pozwala spełniać potrzeby klientów lub reagować na zmiany wydajności aplikacji w całym cyklu jej życia. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
@@ -67,13 +67,13 @@ W tej regule są używane następujące parametry:
 | Parametr         | Wyjaśnienie                                                                                                         | Wartość           |
 |-------------------|---------------------------------------------------------------------------------------------------------------------|-----------------|
 | *metricName*      | Metryka wydajności, która jest monitorowana i na której są stosowane akcje zestawu skalowania.                                                   | Procentowe użycie procesora CPU  |
-| *timeGrain*       | Częstotliwość zbierania metryk do analizy.                                                                   | 1 min        |
+| *timeGrain*       | Częstotliwość zbierania metryk do analizy.                                                                   | 1 minuta        |
 | *timeAggregation* | Określa sposób agregacji metryk zebranych do celów analizy.                                                | Średnia         |
 | *timeWindow*      | Przedział czasu monitorowania, po którym wartość metryki jest porównywana z wartością progową.                                   | 5 minut       |
 | *zakład*        | Operator używany do porównywania danych metryki z wartością progową.                                                     | Większe niż    |
 | *próg*       | Wartość, która powoduje wyzwolenie akcji przez regułę skalowania automatycznego.                                                      | 70%             |
 | *wskazywa*       | Określa, czy podczas stosowania reguły ma nastąpić skalowanie w pionie czy w poziomie.                                              | Zwiększ        |
-| *Wprowadź*            | Wskazuje, że liczba wystąpień maszyn wirtualnych powinna zostać zmieniona o określoną wartość.                                    | Liczba zmian    |
+| *typ*            | Wskazuje, że liczba wystąpień maszyn wirtualnych powinna zostać zmieniona o określoną wartość.                                    | Liczba zmian    |
 | *wartościami*           | Określa liczbę wystąpień maszyn wirtualnych podlegających skalowaniu w pionie lub w poziomie podczas stosowania reguły.                                             | 3               |
 | *cooldown*        | Przedział czasu przed ponownym zastosowaniem reguły, który gwarantuje, że akcje skalowania automatycznego zaczną obowiązywać. | 5 minut       |
 
@@ -256,7 +256,7 @@ Gdy narzędzie **stress** zakończy działanie na początkowych wystąpieniach m
 Zakończ działanie narzędzia *watch* za pomocą klawiszy `Ctrl-c`. Co pięć minut zestaw skalowania będzie powtarzał operację skalowania w pionie, usuwając po jednym wystąpieniu maszyny wirtualnej aż do osiągnięcia minimalnej liczby wystąpień równej dwa.
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Aby pozbyć się zestawu skalowania i dodatkowych zasobów, usuń grupę zasobów wraz z całą zawartością za pomocą polecenia [az group delete](/cli/azure/group):
 
 ```azurecli-interactive
@@ -272,8 +272,3 @@ W tym samouczku przedstawiono automatyczne skalowanie zestawu skalowania w pioni
 > * Tworzenie reguł skalowania automatycznego i korzystanie z nich
 > * Testy obciążeniowe wystąpień maszyn wirtualnych i wyzwalanie reguł skalowania automatycznego
 > * Skalowanie automatyczne do wewnątrz po zmniejszeniu zapotrzebowania
-
-Więcej akcji zestawów skalowania maszyn wirtualnych zawierają następujące przykładowe skrypty interfejsu wiersza polecenia platformy Azure:
-
-> [!div class="nextstepaction"]
-> [Scale set script samples for Azure CLI (Przykładowe skrypty zestawu skalowania przeznaczone dla interfejsu wiersza polecenia platformy Azure)](cli-samples.md)
