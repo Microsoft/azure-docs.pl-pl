@@ -1,18 +1,18 @@
 ---
 title: Wbudowane definicje zasad dla konfiguracji aplikacji platformy Azure
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla konfiguracji aplikacji platformy Azure. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 05/01/2020
+ms.date: 05/13/2020
 ms.topic: sample
 author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 947b78a45843ce142a4373efe9f29d976bffbc6f
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 1758fb9073c860021081fa905ba3c54b5773044a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82981021"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648892"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-app-configuration"></a>Azure Policy wbudowane definicje zasad dla konfiguracji aplikacji platformy Azure
 

@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
-ms.openlocfilehash: 5b57a2463815d5db1c83d3bc4e8cd56314fb204d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 19ccdf85e1753bea202c5c157919ab4e8ff96d06
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82176994"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660260"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Mapowanie istniejącej domeny niestandardowej na chmurę z platformą Azure
 Usługa nazw rozproszonych (DNS) to technika przechowywania nazw węzłów sieciowych w całej sieci. Ten samouczek mapuje domenę, taką jak www.contoso.com, przy użyciu rekordu CNAME. Zabezpiecza domenę niestandardową za pomocą certyfikatu i pokazuje, jak wymusić Transport Layer Security (TLS), znane także jako SSL (SSL). 
@@ -21,7 +21,7 @@ Certyfikaty szyfrują ruch internetowy. Te certyfikaty TLS/SSL mogą być przech
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Aplikacja wdrożona w chmurze Azure wiosennej (zobacz [Szybki Start: uruchamianie istniejącej aplikacji w chmurze platformy Azure przy użyciu Azure Portal](spring-cloud-quickstart-launch-app-portal.md)lub użycie istniejącej aplikacji).
 * Nazwa domeny z dostępem do rejestru DNS dla dostawcy domeny, na przykład GoDaddy.
-* Prywatny certyfikat od innego dostawcy. Certyfikat musi być zgodny z domeną.
+* Certyfikat prywatny (czyli certyfikat z podpisem własnym) od innego dostawcy. Certyfikat musi być zgodny z domeną.
 * Wdrożone wystąpienie [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
 
 ## <a name="import-certificate"></a>Importowanie certyfikatu 
@@ -31,25 +31,44 @@ Aby przekazać certyfikat do magazynu kluczy:
 1. Przejdź do wystąpienia magazynu kluczy.
 1. W okienku nawigacji po lewej stronie kliknij pozycję **Certyfikaty**.
 1. W górnym menu kliknij pozycję **Generuj/Importuj**.
-1. W oknie dialogowym **Tworzenie certyfikatu** w obszarze **metoda tworzenia certyfikatu**wybierz opcję `Import`.
+1. W oknie dialogowym **Tworzenie certyfikatu** w obszarze **metoda tworzenia certyfikatu**wybierz opcję `Import` .
 1. W obszarze **Przekaż plik certyfikatu**przejdź do lokalizacji certyfikatu i wybierz ją.
 1. W obszarze **hasło**wprowadź klucz prywatny certyfikatu.
 1. Kliknij przycisk **Utwórz**.
 
-![Importuj certyfikat 1](./media/custom-dns-tutorial/import-certificate-a.png)
+    ![Importuj certyfikat 1](./media/custom-dns-tutorial/import-certificate-a.png)
 
 Aby zaimportować certyfikat do chmury wiosennej platformy Azure:
 1. Przejdź do wystąpienia usługi. 
 1. W okienku nawigacji po lewej stronie aplikacji wybierz pozycję **Ustawienia protokołu TLS/SSL**.
 1. Następnie kliknij pozycję **Importuj certyfikat Key Vault**.
 
-![Importowanie certyfikatu](./media/custom-dns-tutorial/import-certificate.png)
+    ![Importowanie certyfikatu](./media/custom-dns-tutorial/import-certificate.png)
 
-Po pomyślnym zaimportowaniu certyfikatu zostanie on wyświetlony na liście **certyfikatów kluczy prywatnych**.
+Lub można użyć interfejsu wiersza polecenia platformy Azure do zaimportowania certyfikatu:
+
+```
+az spring-cloud certificate add --name <cert name> --vault-uri <key vault uri> --vault-certificate-name <key vault cert name>
+```
+
+> [!IMPORTANT] 
+> Upewnij się, że masz dostęp do usługi Azure wiosny Cloud do magazynu kluczy przed wykonaniem poprzedniego polecenia importowania certyfikatu. Jeśli nie, możesz wykonać następujące polecenie, aby udzielić praw dostępu.
+
+```
+az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id 938df8e2-2b9d-40b1-940c-c75c33494239 --certificate-permissions get list
+``` 
+
+Po pomyślnym zaimportowaniu certyfikatu zobaczysz go na liście **certyfikatów klucza prywatnego**.
 
 ![Certyfikat klucza prywatnego](./media/custom-dns-tutorial/key-certificates.png)
 
->[!IMPORTANT] 
+Można też użyć interfejsu wiersza polecenia platformy Azure, aby wyświetlić listę certyfikatów:
+
+```
+az spring-cloud certificate list
+```
+
+> [!IMPORTANT] 
 > Aby zabezpieczyć domenę niestandardową za pomocą tego certyfikatu, nadal musisz powiązać certyfikat z określoną domeną. Wykonaj kroki opisane w tym dokumencie pod nagłówkiem **Dodaj powiązanie SSL**.
 
 ## <a name="add-custom-domain"></a>Dodaj domenę niestandardową
@@ -71,19 +90,29 @@ Przejdź do strony aplikacji.
 1. Wybierz opcję **domena niestandardowa**.
 2. Następnie **Dodaj domenę niestandardową**. 
 
-![Domena niestandardowa](./media/custom-dns-tutorial/custom-domain.png)
+    ![Domena niestandardowa](./media/custom-dns-tutorial/custom-domain.png)
 
 3. Wpisz w pełni kwalifikowaną nazwę domeny, do której dodano rekord CNAME, taki jak www.contoso.com. Upewnij się, że typ rekordu nazwy hosta jest ustawiony na wartość CNAME (<service_name>. azuremicroservices.io)
 4. Kliknij przycisk **Sprawdź poprawność** , aby włączyć przycisk **Dodaj** .
 5. Kliknij pozycję **Dodaj**.
 
-![Dodaj domenę niestandardową](./media/custom-dns-tutorial/add-custom-domain.png)
+    ![Dodaj domenę niestandardową](./media/custom-dns-tutorial/add-custom-domain.png)
+
+Lub można użyć interfejsu wiersza polecenia platformy Azure, aby dodać domenę niestandardową:
+```
+az spring-cloud app custom-domain bind --domain-name <domain name> --app <app name> 
+```
 
 Jedna aplikacja może mieć wiele domen, ale jedna domena może mapować tylko jedną aplikację. Po pomyślnym zmapowaniu domeny niestandardowej do aplikacji zobaczysz ją w tabeli domeny niestandardowej.
 
 ![Tabela domen niestandardowych](./media/custom-dns-tutorial/custom-domain-table.png)
 
->[!NOTE]
+Można też użyć interfejsu wiersza polecenia platformy Azure, aby wyświetlić listę domen niestandardowych:
+```
+az spring-cloud app custom-domain list --app <app name> 
+```
+
+> [!NOTE]
 > Etykieta **niezabezpieczona** dla domeny niestandardowej oznacza, że nie jest ona jeszcze powiązana z certyfikatem SSL. Wszystkie żądania HTTPS z przeglądarki do domeny niestandardowej otrzymają błąd lub ostrzeżenie.
 
 ## <a name="add-ssl-binding"></a>Dodawanie powiązania SSL
@@ -91,7 +120,12 @@ W tabeli domena niestandardowa wybierz pozycję **Dodaj powiązanie SSL** , jak 
 1. Wybierz **certyfikat** lub zaimportuj go.
 1. Kliknij przycisk **Zapisz**.
 
-![Dodawanie powiązania SSL](./media/custom-dns-tutorial/add-ssl-binding.png)
+    ![Dodawanie powiązania SSL](./media/custom-dns-tutorial/add-ssl-binding.png)
+
+Można też użyć interfejsu wiersza polecenia platformy Azure, aby **dodać powiązanie SSL**:
+```
+az spring-cloud app custom-domain update --domain-name <domain name> --certificate <cert name> --app <app name> 
+```
 
 Po pomyślnym dodaniu powiązania SSL stan domeny będzie bezpieczny: **dobra kondycja**. 
 
@@ -103,6 +137,11 @@ Domyślnie każdy może nadal uzyskiwać dostęp do aplikacji przy użyciu proto
 Na stronie aplikacji w lewym okienku nawigacji wybierz pozycję **domena niestandardowa**. Następnie ustaw **tylko https**na *wartość true*.
 
 ![Dodawanie powiązania SSL](./media/custom-dns-tutorial/enforce-http.png)
+
+Możesz też użyć interfejsu wiersza polecenia platformy Azure, aby wymusić HTTPS:
+```
+az spring-cloud app update -name <app-name> --https-only <true|false> -g <resource group> --service <service-name>
+```
 
 Po zakończeniu operacji przejdź do dowolnego adresu URL HTTPS, który wskazuje aplikację. Należy zauważyć, że adresy URL protokołu HTTP nie działają.
 

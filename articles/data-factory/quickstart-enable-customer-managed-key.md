@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: chez
 ms.reviewer: mariozi
-ms.openlocfilehash: 3933edff3730b9c16ea3c129890c1a7d66cf5215
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: fa1ce8516223b725c1efcb7e27d4726bbadfe62e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83117894"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655053"
 ---
-# <a name="enhance-data-factory-security-and-configure-customer-managed-keys-with-azure-key-vault"></a>Zwiększ bezpieczeństwo Data Factory i skonfiguruj klucze zarządzane przez klienta za pomocą Azure Key Vault
+# <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>Szyfrowanie Azure Data Factory przy użyciu kluczy zarządzanych przez klienta
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -25,7 +25,7 @@ Azure Data Factory szyfruje przechowywane dane, w tym Definicje jednostek, wszys
 Azure Key Vault jest wymagane do przechowywania kluczy zarządzanych przez klienta. Możesz utworzyć własne klucze i zapisać je w magazynie kluczy lub użyć Azure Key Vault interfejsów API do wygenerowania kluczy. Magazyn kluczy i Data Factory muszą znajdować się w tej samej dzierżawie Azure Active Directory (Azure AD) i w tym samym regionie, ale mogą znajdować się w różnych subskrypcjach. Aby uzyskać więcej informacji na temat Azure Key Vault, zobacz [co to jest Azure Key Vault?](../key-vault/general/overview.md)
 
 > [!NOTE]
-> Na razie klucz zarządzany przez klienta można skonfigurować tylko w przypadku pustej Data Factory: brak połączonej usługi, brak potoku, brak zestawów danych. Przed utworzeniem fabryki należy rozważyć włączenie klucza zarządzanego przez klienta.
+> Klucz zarządzany przez klienta można skonfigurować tylko w przypadku pustej fabryki danych. Fabryka danych nie może zawierać żadnych zasobów, takich jak połączone usługi, potoki i przepływy danych. Zaleca się włączenie klucza zarządzanego przez klienta bezpośrednio po utworzeniu fabryki.
 
 ## <a name="about-customer-managed-keys"></a>Informacje o kluczach zarządzanych przez klienta
 
@@ -54,13 +54,13 @@ W przypadku tworzenia nowego Azure Key Vault za pomocą Azure Portal, __usuwanie
 
   ![Zrzut ekranu Włącz trwałe usuwanie i przeczyszczanie ochrony podczas tworzenia Key Vault](media/quickstart-enable-customer-managed-key/01-enable-purge-protection.png)
 
-### <a name="grant-data-factory-access-to-key-vault"></a>Przyznaj Data Factory dostęp do Key Vault
+### <a name="grant-data-factory-access-to-azure-key-vault"></a>Przyznaj Data Factory dostęp do Azure Key Vault
 
 Upewnij się, że Azure Key Vault i Azure Data Factory znajdują się w tej samej dzierżawie Azure Active Directory (Azure AD) i w _tym samym regionie_. Z poziomu Azure Key Vault kontroli dostępu Udziel tożsamość usługi zarządzanej (MSI) następujących uprawnień: _Pobierz_, _Odpakuj klucz_i _Zawijaj klucz_. Te uprawnienia są wymagane, aby włączyć klucze zarządzane przez klienta w Data Factory.
 
   ![Zrzut ekranu umożliwiający Data Factory dostęp do Key Vault](media/quickstart-enable-customer-managed-key/02-access-policy-factory-msi.png)
 
-### <a name="generate-or-upload-customer-managed-key-to-key-vault"></a>Generuj lub Przekaż klucz zarządzany przez klienta do Key Vault
+### <a name="generate-or-upload-customer-managed-key-to-azure-key-vault"></a>Generuj lub Przekaż klucz zarządzany przez klienta do Azure Key Vault
 
 Możesz utworzyć własne klucze i zapisać je w magazynie kluczy lub użyć Azure Key Vault interfejsów API do wygenerowania kluczy. Tylko 2048-bitowe klucze RSA są obsługiwane przez szyfrowanie Data Factory. Aby uzyskać więcej informacji, zobacz [Informacje o kluczach, wpisach tajnych i certyfikatach](../key-vault/general/about-keys-secrets-certificates.md).
 
@@ -68,7 +68,7 @@ Możesz utworzyć własne klucze i zapisać je w magazynie kluczy lub użyć Azu
 
 ## <a name="enable-customer-managed-keys"></a>Włącz klucze zarządzane przez klienta
 
-1. Upewnij się, że Data Factory jest pusty: brak połączonej usługi, brak potoku i nie ustawiono danych. Na razie wdrożenie klucza zarządzanego przez klienta do niepustej fabryki spowoduje wystąpienie błędu.
+1. Upewnij się, że Data Factory jest puste. Fabryka danych nie może zawierać żadnych zasobów, takich jak połączone usługi, potoki i przepływy danych. Na razie wdrożenie klucza zarządzanego przez klienta do niepustej fabryki spowoduje wystąpienie błędu.
 
 1. Aby zlokalizować identyfikator URI klucza w Azure Portal, przejdź do Azure Key Vault i wybierz ustawienie klucze. Wybierz żądany klucz, a następnie kliknij klucz, aby wyświetlić jego wersje. Wybierz wersję klucza, aby wyświetlić ustawienia
 

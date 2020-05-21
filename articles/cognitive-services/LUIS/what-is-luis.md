@@ -3,12 +3,12 @@ title: Co to jest usługa Language Understanding (LUIS)?
 description: Language Understanding (LUIS) to oparta na chmurze usługa interfejsu API, która stosuje dostosowane techniki analizy i uczenia maszynowego do wypowiedzi użytkownika w języku naturalnym, aby rozpoznać ich ogólne znaczenie i wydobyć istotne szczegółowe informacje.
 ms.topic: overview
 ms.date: 05/05/2020
-ms.openlocfilehash: d09aaabeec1d22132843ba98472e1cd89ba95815
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 26e1dfd5a610be9470d05080ca1559eec47196ab
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592818"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83675983"
 ---
 # <a name="what-is-language-understanding-luis"></a>Co to jest usługa Language Understanding (LUIS)?
 
@@ -46,7 +46,7 @@ Twoja aplikacja LUIS zawiera model języka naturalnego specyficzny dla domeny. M
 
 * **Model wstępnie utworzony** usługi LUIS zawiera wiele wstępnie utworzonych modeli domeny, w tym intencje, wypowiedzi i wstępnie utworzone jednostki. Możesz skorzystać z wstępnie utworzonych jednostek bez konieczności korzystania z intencji i wypowiedzi wstępnie utworzonego modelu. [Wstępnie utworzone modele domeny](luis-how-to-use-prebuilt-domains.md) zawierają kompletny projekt i są świetnym sposobem, aby szybko rozpocząć korzystanie z usługi LUIS.
 
-* **Model niestandardowy** LUIS oferuje kilka sposobów identyfikacji własnych niestandardowych modeli, w tym intencje i jednostki. Jednostki obejmują jednostki, które są zależne od maszyn, określone lub literały, oraz kombinację maszyn i literału.
+* **Model niestandardowy** LUIS oferuje kilka sposobów identyfikacji własnych niestandardowych modeli, w tym intencje i jednostki. Jednostki obejmują jednostki uczenia maszynowego, określone lub literałowe jednostki oraz kombinację uczenia maszynowego i literału.
 
 ## <a name="build-the-luis-model"></a>Tworzenie modelu w usłudze LUIS
 Utwórz model przy użyciu interfejsów API [tworzenia](https://go.microsoft.com/fwlink/?linkid=2092087) lub [portalu Luis](https://www.luis.ai).

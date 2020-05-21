@@ -1,20 +1,20 @@
 ---
 title: Szybki Start — używanie języka Java do tworzenia bazy danych dokumentów przy użyciu Azure Cosmos DB
 description: Ten przewodnik Szybki Start przedstawia przykładowy kod Java, którego można użyć do nawiązania połączenia z interfejsem API SQL Azure Cosmos DB i wykonywania na nich zapytań
-author: SnehaGunda
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 10/31/2019
-ms.author: sngun
+ms.date: 05/11/2020
+ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 1d818957daa53efc856a345a4886e814fdaab6f3
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 236cff59ffbef835b5a57a3d5a0d223cfebf34ae
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858142"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647688"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>Szybki Start: Tworzenie aplikacji Java do zarządzania Azure Cosmos DB danych interfejsu API SQL
 
@@ -22,19 +22,23 @@ ms.locfileid: "82858142"
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
-> * [Java](create-sql-api-java.md)
+> * [Zestaw Java SDK v4](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
 W tym przewodniku szybki start utworzysz konto Azure Cosmos DB interfejsu API SQL i zarządzasz nim z Azure Portal i używasz aplikacji Java sklonowanej z usługi GitHub. Najpierw utwórz konto Azure Cosmos DB interfejsu API SQL przy użyciu Azure Portal, a następnie Utwórz aplikację Java przy użyciu zestawu SQL Java SDK, a następnie Dodaj zasoby do konta Cosmos DB przy użyciu aplikacji Java. Azure Cosmos DB to wielomodelowa usługa bazy danych, która pozwala szybko tworzyć i wysyłać zapytania dotyczące dokumentów, tabel, kluczy i wartościowych baz danych przy użyciu dystrybucji globalnej i możliwości skalowania w poziomie.
 
+> [!IMPORTANT]  
+> Ten przewodnik Szybki Start dotyczy tylko Azure Cosmos DB Java SDK v4. Aby uzyskać więcej informacji, zapoznaj się z informacjami o [wersji](sql-api-sdk-java-v4.md)Azure Cosmos DB Java SDK v4, [repozytorium Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos), Azure Cosmos DB przewodniku Azure Cosmos DB [dotyczącym](performance-tips-java-sdk-v4-sql.md) [rozwiązywania problemów](troubleshoot-java-sdk-v4-sql.md) z zestawem Java SDK 4. Jeśli obecnie używasz starszej wersji niż v4, zapoznaj się z przewodnikiem [Migrowanie do Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) , aby uzyskać pomoc w uaktualnianiu do wersji v4.
+>
+
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Lub [Wypróbuj bezpłatnie Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) bez subskrypcji platformy Azure. Można również użyć [emulatora Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) z identyfikatorem URI `https://localhost:8081` i kluczem `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`.
-- [Zestaw Java Development Kit (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Wskaż zmienną `JAVA_HOME` środowiskową do folderu, w którym zainstalowano JDK.
-- [Archiwum binarne Maven](https://maven.apache.org/download.cgi). W systemie Ubuntu Uruchom `apt-get install maven` polecenie, aby zainstalować Maven.
-- Usługi [git](https://www.git-scm.com/downloads). W systemie Ubuntu Uruchom `sudo apt-get install git` polecenie, aby zainstalować usługę git.
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Lub [Wypróbuj bezpłatnie Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) bez subskrypcji platformy Azure. Można również użyć [emulatora Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) z identyfikatorem URI `https://localhost:8081` i kluczem `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==` .
+- [Zestaw Java Development Kit (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Wskaż `JAVA_HOME` zmienną środowiskową do folderu, w którym zainstalowano JDK.
+- [Archiwum binarne Maven](https://maven.apache.org/download.cgi). W systemie Ubuntu Uruchom polecenie, `apt-get install maven` Aby zainstalować Maven.
+- Usługi [git](https://www.git-scm.com/downloads). W systemie Ubuntu Uruchom polecenie, `sudo apt-get install git` Aby zainstalować usługę git.
 
 ## <a name="introductory-notes"></a>Uwagi wprowadzające
 
@@ -86,7 +90,7 @@ Ten krok jest opcjonalny. Jeśli chcesz się dowiedzieć, jak zasoby bazy danych
 
 ### <a name="managing-database-resources-using-the-synchronous-sync-api"></a>Zarządzanie zasobami bazy danych za pomocą synchronicznego (synchronizacji) interfejsu API
 
-* Inicjowanie klienta `CosmosClient`. `CosmosClient` Zapewnia logiczną reprezentację po stronie klienta dla usługi Azure Cosmos Database. Ten klient jest używany do konfigurowania i wykonywania żądań dotyczących usługi.
+* Inicjowanie klienta `CosmosClient`. `CosmosClient`Zapewnia logiczną reprezentację po stronie klienta dla usługi Azure Cosmos Database. Ten klient jest używany do konfigurowania i wykonywania żądań dotyczących usługi.
     
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateSyncClient)]
 
@@ -102,11 +106,11 @@ Ten krok jest opcjonalny. Jeśli chcesz się dowiedzieć, jak zasoby bazy danych
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateItem)]
    
-* Odczyty punktów są wykonywane `readItem` przy użyciu metody.
+* Odczyty punktów są wykonywane przy użyciu `readItem` metody.
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=ReadItem)]
 
-* Zapytania SQL w formacie JSON są wykonywane przy `queryItems` użyciu metody.
+* Zapytania SQL w formacie JSON są wykonywane przy użyciu `queryItems` metody.
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=QueryItems)]
 
@@ -116,7 +120,7 @@ Ten krok jest opcjonalny. Jeśli chcesz się dowiedzieć, jak zasoby bazy danych
 
 * Asynchroniczne wywołania interfejsu API zwracają natychmiast, bez oczekiwania na odpowiedź z serwera. W związku z tym następujące fragmenty kodu pokazują właściwe wzorce projektowe do realizacji wszystkich powyższych zadań zarządzania przy użyciu asynchronicznego interfejsu API.
 
-* Inicjowanie klienta `CosmosAsyncClient`. `CosmosAsyncClient` Zapewnia logiczną reprezentację po stronie klienta dla usługi Azure Cosmos Database. Ten klient służy do konfigurowania i wykonywania żądań asynchronicznych dotyczących usługi.
+* Inicjowanie klienta `CosmosAsyncClient`. `CosmosAsyncClient`Zapewnia logiczną reprezentację po stronie klienta dla usługi Azure Cosmos Database. Ten klient służy do konfigurowania i wykonywania żądań asynchronicznych dotyczących usługi.
     
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=CreateAsyncClient)]
 
@@ -128,15 +132,15 @@ Ten krok jest opcjonalny. Jeśli chcesz się dowiedzieć, jak zasoby bazy danych
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateContainerIfNotExists)]
 
-* Podobnie jak w przypadku interfejsu API synchronizacji, Tworzenie elementu jest realizowane przy `createItem` użyciu metody. Ten przykład pokazuje, jak skutecznie wystawiać `createItem` wiele żądań asynchronicznych, subskrybując ponownie aktywny strumień, który wystawia żądania i drukuje powiadomienia. Ponieważ ten prosty przykład działa w celu ukończenia i zakończenia, `CountDownLatch` wystąpienia są używane do upewnienia się, że program nie zostanie zakończony podczas tworzenia elementu. **Odpowiednie asynchroniczne metody programowania nie zablokują wywołań asynchronicznych — w przypadku realistycznych żądań użycia generowane są z głównej pętli (), która jest wykonywana w nieskończoność, eliminując konieczność zablokowania wywołań asynchronicznych.**
+* Podobnie jak w przypadku interfejsu API synchronizacji, Tworzenie elementu jest realizowane przy użyciu `createItem` metody. Ten przykład pokazuje, jak skutecznie wystawiać wiele żądań asynchronicznych `createItem` , subskrybując ponownie aktywny strumień, który wystawia żądania i drukuje powiadomienia. Ponieważ ten prosty przykład działa w celu ukończenia i zakończenia, `CountDownLatch` wystąpienia są używane do upewnienia się, że program nie zostanie zakończony podczas tworzenia elementu. **Odpowiednie asynchroniczne metody programowania nie zablokują wywołań asynchronicznych — w przypadku realistycznych żądań użycia generowane są z głównej pętli (), która jest wykonywana w nieskończoność, eliminując konieczność zablokowania wywołań asynchronicznych.**
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=CreateItem)]
    
-* Podobnie jak w przypadku interfejsu API synchronizacji, odczyty punktów `readItem` są wykonywane przy użyciu metody.
+* Podobnie jak w przypadku interfejsu API synchronizacji, odczyty punktów są wykonywane przy użyciu `readItem` metody.
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=ReadItem)]
 
-* Podobnie jak w przypadku interfejsu API synchronizacji zapytania SQL za pośrednictwem JSON są `queryItems` wykonywane przy użyciu metody.
+* Podobnie jak w przypadku interfejsu API synchronizacji zapytania SQL za pośrednictwem JSON są wykonywane przy użyciu `queryItems` metody.
 
     [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=QueryItems)]
 
@@ -158,7 +162,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
     mvn package
     ```
 
-3. W oknie terminalu usługi git Użyj następującego polecenia, aby uruchomić aplikację Java (Zastąp SYNCASYNCMODE with `sync` lub `async` , w zależności od tego, który przykładowy kod chcesz uruchomić, ZAstąp YOUR_COSMOS_DB_HOSTNAME wartością URI z cudzysłowem z portalu i Zastąp YOUR_COSMOS_DB_MASTER_KEY z wytoczonym kluczem podstawowym z portalu)
+3. W oknie terminalu usługi git Użyj następującego polecenia, aby uruchomić aplikację Java (Zastąp SYNCASYNCMODE with `sync` lub `async` , w zależności od tego, który przykładowy kod chcesz uruchomić, zastąp YOUR_COSMOS_DB_HOSTNAME wartością URI z cudzysłowem z portalu i zastąp YOUR_COSMOS_DB_MASTER_KEY z wytoczonym kluczem podstawowym z portalu)
 
     ```bash
     mvn exec:java@SYNCASYNCMODE -DACCOUNT_HOST=YOUR_COSMOS_DB_HOSTNAME -DACCOUNT_KEY=YOUR_COSMOS_DB_MASTER_KEY
@@ -178,7 +182,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

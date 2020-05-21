@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 35988f10703967bd5986015ccb0fb480679b94e9
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 907b3ead8e39268bc73604599bd2c37b18ddfa21
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81404761"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83676108"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-javascript"></a>Szybki Start: Wyodrębnianie wydrukowanych i odręcznych tekstu przy użyciu interfejsu API REST przetwarzanie obrazów i języka JavaScript
 
@@ -34,18 +34,18 @@ Wybierz poniższą kartę dla używanej wersji.
 #### <a name="version-2"></a>[Wersja 2](#tab/version-2)
 
 > [!IMPORTANT]
-> Metoda [odczytywania wsadowego](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) jest uruchamiana asynchronicznie. Ta metoda nie zwraca żadnych informacji w treści pomyślnej odpowiedzi. Zamiast tego metoda odczytywania wsadowego zwraca identyfikator URI w wartości pola nagłówka `Operation-Location` odpowiedzi. Następnie można wywołać ten identyfikator URI, który reprezentuje interfejs API [wyniku operacji odczytu](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) , aby sprawdzić stan i zwrócić wyniki wywołania metody odczytu wsadowego.
+> Metoda [odczytywania wsadowego](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) jest uruchamiana asynchronicznie. Ta metoda nie zwraca żadnych informacji w treści pomyślnej odpowiedzi. Zamiast tego metoda odczytywania wsadowego zwraca identyfikator URI w wartości `Operation-Location` pola nagłówka odpowiedzi. Następnie można wywołać ten identyfikator URI, który reprezentuje interfejs API [wyniku operacji odczytu](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) , aby sprawdzić stan i zwrócić wyniki wywołania metody odczytu wsadowego.
 
 #### <a name="version-3-public-preview"></a>[3 (publiczna wersja zapoznawcza)](#tab/version-3)
 
 > [!IMPORTANT]
-> Metoda [odczytywania wsadowego](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d986960601faab4bf452005) jest uruchamiana asynchronicznie. Ta metoda nie zwraca żadnych informacji w treści pomyślnej odpowiedzi. Zamiast tego metoda odczytywania wsadowego zwraca identyfikator URI w wartości pola nagłówka `Operation-Location` odpowiedzi. Następnie można wywołać ten identyfikator URI, który reprezentuje interfejs API [wyniku operacji odczytu](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d9869604be85dee480c8750) , aby sprawdzić stan i zwrócić wyniki wywołania metody odczytu wsadowego.
+> Metoda [odczytywania wsadowego](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d986960601faab4bf452005) jest uruchamiana asynchronicznie. Ta metoda nie zwraca żadnych informacji w treści pomyślnej odpowiedzi. Zamiast tego metoda odczytywania wsadowego zwraca identyfikator URI w wartości `Operation-Location` pola nagłówka odpowiedzi. Następnie można wywołać ten identyfikator URI, który reprezentuje interfejs API [wyniku operacji odczytu](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d9869604be85dee480c8750) , aby sprawdzić stan i zwrócić wyniki wywołania metody odczytu wsadowego.
 
 ---
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services).
 
 Musisz mieć klucz subskrypcji funkcji przetwarzania obrazów. Możesz uzyskać bezpłatny klucz wersji próbnej z usługi [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Lub postępuj zgodnie z instrukcjami w temacie [Tworzenie konta Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) , aby subskrybować przetwarzanie obrazów i uzyskać klucz. Zapisz klucz subskrypcji i adres URL punktu końcowego w lokalizacji tymczasowej.
 
@@ -73,10 +73,7 @@ Aby utworzyć i uruchomić przykład, wykonaj następujące kroki:
 
 <script type="text/javascript">
     function processImage() {
-        // **********************************************
-        // *** Update or verify the following values. ***
-        // **********************************************
-
+        // Fetch your Computer Vision key and endpoint for this sample.
         var subscriptionKey = document.getElementById("subscriptionKey").value;
         var endpoint = document.getElementById("endpointUrl").value;
         

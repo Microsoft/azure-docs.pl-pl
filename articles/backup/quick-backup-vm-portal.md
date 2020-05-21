@@ -1,17 +1,16 @@
 ---
 title: Szybki Start — tworzenie kopii zapasowej maszyny wirtualnej za pomocą Azure Portal
 description: W tym przewodniku szybki start dowiesz się, jak utworzyć magazyn Recovery Services, włączyć ochronę na maszynie wirtualnej platformy Azure, i utworzyć kopię zapasową maszyny wirtualnej przy użyciu Azure Portal.
-ms.reviewer: saurse
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 02/06/2020
+ms.date: 05/12/2020
 ms.custom: mvc
-ms.openlocfilehash: 4bff53516447408486a6e40f2f7059ebc811aaa4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 80944d99c51ae4880a40df8700a73d08a95efe77
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79240450"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656955"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Tworzenie kopii zapasowej maszyny wirtualnej na platformie Azure
 
@@ -66,11 +65,11 @@ W oknie **Kopia zapasowa** maszyny wirtualnej jest wyświetlany stan kopii zapas
 
 Gdy ochrona maszyny wirtualnej nie jest już potrzebna, można ją wyłączyć i usunąć punkty przywracania oraz magazyn usługi Recovery Services, a następnie usunąć grupę zasobów i skojarzone zasoby maszyny wirtualnej
 
-Jeśli zamierzasz kontynuować pracę z samouczkiem dotyczącym tworzenia kopii zapasowych, w którym objaśniono, jak przywracać dane dla maszyny wirtualnej, pomiń kroki opisane w tej sekcji i przejdź do sekcji [Następne kroki](#next-steps).
+Jeśli zamierzasz kontynuować pracę z samouczkiem dotyczącym tworzenia kopii zapasowych, w którym wyjaśniono, jak przywrócić dane dla maszyny wirtualnej, Pomiń kroki opisane w tej sekcji i przejdź do [następnej procedury](#next-steps).
 
 1. Wybierz pozycję **Kopia zapasowa** dla maszyny wirtualnej.
 
-2. Wybierz pozycję **...Więcej**, aby wyświetlić dodatkowe opcje, a następnie wybierz pozycję **Zatrzymaj tworzenie kopii zapasowej**.
+2. Wybierz pozycję **Zatrzymaj tworzenie kopii zapasowej**.
 
     ![Zatrzymywanie tworzenia kopii zapasowej maszyny wirtualnej w witrynie Azure Portal](./media/quick-backup-vm-portal/stop-backup.png)
 

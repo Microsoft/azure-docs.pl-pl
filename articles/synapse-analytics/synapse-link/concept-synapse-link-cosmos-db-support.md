@@ -1,5 +1,5 @@
 ---
-title: Link usługi Azure Synapse dla Azure Cosmos DB obsługiwanych funkcji
+title: Link usługi Azure Synapse (wersja zapoznawcza) dla Azure Cosmos DB obsługiwanych funkcji
 description: Zapoznaj się z bieżącą listą akcji obsługiwanych przez link Synapse platformy Azure dla Azure Cosmos DB
 services: synapse-analytics
 author: ArnoMicrosoft
@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1b94d7677026f3695d07be4d83a5059373078c2e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 2e0b1ee5584420ab38fda8897ef610794b09c29a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599949"
+ms.locfileid: "83658843"
 ---
-# <a name="azure-synapse-link-for-azure-cosmos-db-supported-features"></a>Link usługi Azure Synapse dla Azure Cosmos DB obsługiwanych funkcji
+# <a name="azure-synapse-link-preview-for-azure-cosmos-db-supported-features"></a>Link usługi Azure Synapse (wersja zapoznawcza) dla Azure Cosmos DB obsługiwanych funkcji
 
 W tym artykule opisano funkcje, które są obecnie obsługiwane w usłudze Azure Synapse link do Azure Cosmos DB. 
 

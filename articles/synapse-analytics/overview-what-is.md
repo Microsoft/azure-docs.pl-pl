@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5c458b1c04a7f3be1a43d725591426e619286b7d
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 0f34b853728c91d9e3c6e32396c0f7eb427af101
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587883"
+ms.locfileid: "83656209"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>Co to jest usługa Azure Synapse Analytics (obszary robocze w wersji zapoznawczej)?
 
@@ -63,7 +63,7 @@ Usługa Azure Synapse usuwa tradycyjne bariery technologiczne między programami
 
 Usługa Azure Synapse jest wbudowana w taki sam aparat integracji danych i środowisko jak Azure Data Factory, co pozwala na tworzenie rozbudowanych potoków danych bez użycia oddzielnego aparatu aranżacji.
 
-* Przenoszenie danych między Synapse i 85 lokalnymi źródłami danych
+* Przenoszenie danych między usługą Azure Synapse i 90 + lokalnymi źródłami danych
 * Organizowanie notesów, potoków, zadań platformy Spark, skryptów SQL i procedur składowanych
 * ETL bezpłatny kod z działaniami przepływu danych
 
@@ -87,6 +87,6 @@ Usługa Azure Synapse umożliwia przedsiębiorstwom zarządzanie zasobami analit
 
 * [Tworzenie obszaru roboczego](quickstart-create-workspace.md)
 * [Korzystanie z programu Synapse Studio](quickstart-synapse-studio.md)
-* [Tworzenie puli SQL](quickstart-create-sql-pool.md)
+* [Tworzenie puli SQL](quickstart-create-sql-pool-portal.md)
 * [Korzystanie z bazy danych SQL na żądanie](quickstart-sql-on-demand.md)
-* [Tworzenie puli Apache Spark](quickstart-create-apache-spark-pool.md)
+* [Tworzenie puli Apache Spark](quickstart-create-apache-spark-pool-portal.md)

@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 12/11/2019
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: c343c160f67eda2dd390ffc39f3b4f1ff49cacb6
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: cd89f2ae13b10c83c3fc22023fc2e3cae1770c98
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448666"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650278"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Szybki Start: wysyłanie żądania wyszukiwania do wyszukiwanie jednostek Bing interfejsu API REST przy użyciu języka C #
 
 Ten przewodnik Szybki start umożliwi Ci utworzenie Twojego pierwszego wywołania interfejsu API wyszukiwania jednostek Bing i wyświetlenie odpowiedzi JSON. Ta prosta aplikacja w języku C# wysyła zapytanie wyszukiwania wiadomości do interfejsu API i wyświetla odpowiedź. Kod źródłowy tej aplikacji jest dostępny w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingEntitySearchv7.cs).
 
-Chociaż ta aplikacja jest napisana w języku C#, interfejs API jest usługą internetową zgodną z wzorcem REST i większością języków programowania.
+Mimo że aplikacja jest zapisywana w języku C#, interfejs API jest usługą sieci Web RESTful zgodną z większością języków programowania.
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
@@ -32,7 +32,7 @@ Chociaż ta aplikacja jest napisana w języku C#, interfejs API jest usługą in
 
    1. Kliknij prawym przyciskiem myszy projekt w **Eksplorator rozwiązań**.
    2. Wybierz pozycję **Zarządzaj pakietami NuGet**.
-   3. Wyszukaj plik *Newtonsoft. JSON* i zainstaluj pakiet.
+   3. Wyszukaj i wybierz pozycję *Newtonsoft. JSON*, a następnie zainstaluj pakiet.
 
 - Jeśli używasz systemu Linux/MacOS, ta aplikacja może być uruchamiana przy użyciu narzędzia [mono](https://www.mono-project.com/).
 
@@ -41,7 +41,7 @@ Chociaż ta aplikacja jest napisana w języku C#, interfejs API jest usługą in
 
 ## <a name="create-and-initialize-a-project"></a>Tworzenie i inicjowanie projektu
 
-1. Utwórz nowe rozwiązanie konsolowe dla języka C# w programie Visual Studio. Dodaj następujące przestrzenie nazw do głównego pliku kodu.
+1. Utwórz nowe rozwiązanie konsolowe dla języka C# w programie Visual Studio. Następnie Dodaj następujące przestrzenie nazw do głównego pliku kodu:
     
     ```csharp
     using Newtonsoft.Json;
@@ -50,7 +50,7 @@ Chociaż ta aplikacja jest napisana w języku C#, interfejs API jest usługą in
     using System.Text;
     ```
 
-2. Utwórz nową klasę i dodaj zmienne dla punktu końcowego interfejsu API, swój klucz subskrypcji i zapytania, które chcesz przeszukać. Możesz użyć poniższego globalnego punktu końcowego lub niestandardowego punktu końcowego [poddomeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) , który jest wyświetlany w Azure Portal dla zasobu.
+2. Utwórz nową klasę i Dodaj zmienne dla punktu końcowego interfejsu API, klucza subskrypcji i zapytania, które chcesz przeszukać. Możesz użyć globalnego punktu końcowego w poniższym kodzie lub użyć punktu końcowego [niestandardowej domeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) podrzędnej wyświetlanego w Azure Portal dla zasobu.
 
     ```csharp
     namespace EntitySearchSample
@@ -73,11 +73,13 @@ Chociaż ta aplikacja jest napisana w języku C#, interfejs API jest usługą in
 
 ## <a name="send-a-request-and-get-the-api-response"></a>Wysyłanie żądania i odbieranie odpowiedzi interfejsu API
 
-1. W klasie utwórz funkcję o nazwie `Search()`. Utwórz nowy obiekt `HttpClient` i dodaj klucz subskrypcji do nagłówka `Ocp-Apim-Subscription-Key`.
+1. W klasie utwórz funkcję o nazwie `Search()`. W ramach tej funkcji Utwórz nowy `HttpClient` obiekt i Dodaj swój klucz subskrypcji do `Ocp-Apim-Subscription-Key` nagłówka.
 
-   1. Łącząc hosta i ścieżkę, utwórz identyfikator URI Twojego żądania. Następnie dodaj swój rynek i zakoduj adres URL zapytania.
-   2. Poczekaj `client.GetAsync()`, aby uzyskać odpowiedź HTTP, a następnie zapisz odpowiedź w formacie JSON, oczekując na `ReadAsStringAsync()`.
-   3. Sformatuj ciąg JSON `JsonConvert.DeserializeObject()` i wydrukuj go w konsoli.
+2. Łącząc hosta i ścieżkę, utwórz identyfikator URI Twojego żądania. Następnie Dodaj swój rynek i adres URL — Koduj zapytanie.
+
+3. Oczekiwanie `client.GetAsync()` na uzyskanie odpowiedzi HTTP, a następnie przechowanie odpowiedzi JSON przez oczekiwanie `ReadAsStringAsync()` .
+
+4. Sformatuj ciąg JSON `JsonConvert.DeserializeObject()` i wydrukuj go w konsoli.
 
       ```csharp
       async static void Search()
@@ -96,7 +98,7 @@ Chociaż ta aplikacja jest napisana w języku C#, interfejs API jest usługą in
       }
       ```
 
-2. W metodzie głównej aplikacji wywołaj funkcję `Search()`.
+5. W `Main()` metodzie aplikacji Wywołaj `Search()` funkcję.
     
     ```csharp
     static void Main(string[] args)
@@ -178,4 +180,4 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 > [Tworzenie jednostronicowej aplikacji internetowej](../tutorial-bing-entities-search-single-page-app.md)
 
 * [Czym jest interfejs API wyszukiwania jednostek Bing?](../overview.md )
-* [Dokumentacja interfejsu API wyszukiwania jednostek Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)
+* [Odwołanie interfejs API wyszukiwania jednostek Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

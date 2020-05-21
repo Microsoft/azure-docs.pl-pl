@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 09ccb9f095e58d8fa22ec3d119853c729f0c7026
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 328f3d0dc648b3c5fa96c3aab02e80a37cf4218f
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67090569"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680733"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Samouczek: integracja Azure Active Directory z usługą Skillport
 
@@ -139,7 +139,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą Skillport, 
 
 ### <a name="configure-skillport-single-sign-on"></a>Konfigurowanie logowania jednokrotnego Skillport
 
-Aby skonfigurować Logowanie jednokrotne na stronie **Skillport** , musisz wysłać pobrany **XML metadanych Federacji** i odpowiednie skopiowane adresy URL z Azure Portal do [zespołu pomocy technicznej Skillport](https://www.skillsoft.com/contact.asp). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+Aby skonfigurować Logowanie jednokrotne na stronie **Skillport** , musisz wysłać pobrany **XML metadanych Federacji** i odpowiednie skopiowane adresy URL z Azure Portal do [zespołu pomocy technicznej Skillport](https://www.skillsoft.com/about/contact-us). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
 
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
@@ -194,7 +194,7 @@ W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie
 
 ### <a name="create-skillport-test-user"></a>Utwórz użytkownika testowego Skillport
 
-Aby można było utworzyć użytkownika testowego Skillport, należy skontaktować się z [zespołem pomocy technicznej Skillport](https://www.skillsoft.com/contact.asp) , ponieważ mają one wiele scenariuszy handlowych zgodnie z wymogami użytkownika końcowego. Program skonfiguruje ją po dyskusji z użytkownikami.
+Aby można było utworzyć użytkownika testowego Skillport, należy skontaktować się z [zespołem pomocy technicznej Skillport](https://www.skillsoft.com/about/contact-us) , ponieważ mają one wiele scenariuszy handlowych zgodnie z wymogami użytkownika końcowego. Program skonfiguruje ją po dyskusji z użytkownikami.
 
 ### <a name="test-single-sign-on"></a>Testowanie logowania jednokrotnego
 

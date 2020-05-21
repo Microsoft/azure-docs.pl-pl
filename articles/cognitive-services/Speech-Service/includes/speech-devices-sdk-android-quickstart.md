@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: 4a2d9f382045db2aeab80d9ecf5a05b031bcbc9e
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 57244c2022d06d8f1768dbe8bcc971aa59acd6a9
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400102"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673139"
 ---
 W tym przewodniku szybki start dowiesz się, jak utworzyć produkt z obsługą mowy przy użyciu zestawu Speech Devices SDK dla systemu Android lub użyć go jako urządzenia [transkrypcji konwersacji](../conversation-transcription-service.md) .
 
@@ -47,7 +47,7 @@ Przed rozpoczęciem korzystania z zestawu SDK usługi Speech Devices należy:
 
 1. Urządzenie powinno być wyświetlane w obszarze **Wybierz urządzenie**. Wybierz przycisk **Widok** obok urządzenia.
 
-1. Połącz się z siecią bezprzewodową, wybierając ikonę folderu, a następnie wybierz pozycję **Ustawienia** > **Sieć WLAN**.
+1. Połącz się z siecią bezprzewodową, wybierając ikonę folderu, a następnie wybierz pozycję **Ustawienia**  >  **Sieć WLAN**.
 
    ![Vysor WLAN](../media/speech-devices-sdk/qsg-4.png)
 
@@ -58,7 +58,7 @@ Przed rozpoczęciem korzystania z zestawu SDK usługi Speech Devices należy:
    >
    > ![Folder plików Vysor](../media/speech-devices-sdk/qsg-10.png)
    >
-   > Wybierz pozycję **Ustawienia**. Wyszukaj ciąg "adres MAC", a następnie wybierz pozycję **adres** > Mac**zaawansowanej sieci WLAN**. Zapisz adres MAC, który pojawia się w dolnej części okna dialogowego.
+   > Wybierz pozycję **Ustawienia**. Wyszukaj ciąg "adres MAC", a następnie wybierz pozycję **adres MAC**  >  **zaawansowanej sieci WLAN**. Zapisz adres MAC, który pojawia się w dolnej części okna dialogowego.
    >
    > ![Vysor adres MAC](../media/speech-devices-sdk/qsg-11.png)
    >
@@ -96,7 +96,7 @@ Aby sprawdzić poprawność instalacji zestawu deweloperskiego, skompiluj i zain
     Zaktualizuj program **Build. Gradle (module: App)** , dodając ten wiersz do sekcji zależności. 
     
     ```xml
-    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.11.0'
+    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.12.0'
     ```
     
 1. Dodaj swój klucz subskrypcji mowy do kodu źródłowego. Jeśli chcesz wypróbować funkcję rozpoznawania intencji, Dodaj również klucz subskrypcji [usługi Language Understanding](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) i identyfikator aplikacji.
@@ -124,7 +124,7 @@ Aby sprawdzić poprawność instalacji zestawu deweloperskiego, skompiluj i zain
    > [!TIP]
    > Możesz również [utworzyć niestandardowe słowo kluczowe](../speech-devices-sdk-create-kws.md).
 
-   Aby użyć nowego słowa kluczowego, zaktualizuj następujące dwa wiersze w `MainActivity.java`i skopiuj pakiet słów kluczowych do aplikacji. Na przykład, aby użyć słowa kluczowego "Machine" ze słowa kluczowego KWS-Machine. zip:
+   Aby użyć nowego słowa kluczowego, zaktualizuj następujące dwa wiersze w `MainActivity.java` i skopiuj pakiet słów kluczowych do aplikacji. Na przykład, aby użyć słowa kluczowego "Machine" ze słowa kluczowego KWS-Machine. zip:
 
    - Skopiuj pakiet słowa kluczowego do folderu "C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\".
    - Zaktualizuj `MainActivity.java` za pomocą słowa kluczowego i nazwy pakietu:
@@ -177,6 +177,6 @@ Jeśli nie możesz nawiązać połączenia z urządzeniem mowy. Wpisz następuj�
 ```
 
 > [!NOTE]
-> To polecenie używa Android Debug Bridge, `adb.exe`, który jest częścią instalacji Android Studio. To narzędzie znajduje się w nazwie\[użytkownika C:\Users] \AppData\Local\Android\Sdk\platform-Tools. Możesz dodać ten katalog do ścieżki, aby był wygodniejszy do wywoływania `adb`. W przeciwnym razie należy określić pełną ścieżkę do instalacji programu ADB. exe w każdym poleceniu, które wywołuje `adb`.
+> To polecenie używa Android Debug Bridge, `adb.exe` , który jest częścią instalacji Android Studio. To narzędzie znajduje się w \[ nazwie użytkownika C:\Users] \AppData\Local\Android\Sdk\platform-Tools. Możesz dodać ten katalog do ścieżki, aby był wygodniejszy do wywoływania `adb` . W przeciwnym razie należy określić pełną ścieżkę do instalacji programu ADB. exe w każdym poleceniu, które wywołuje `adb` .
 >
-> Jeśli zobaczysz błąd `no devices/emulators found` , sprawdź, czy kabel USB jest podłączony, i upewnij się, że jest używany kabel wysokiej jakości.
+> Jeśli zobaczysz błąd, `no devices/emulators found` Sprawdź, czy kabel USB jest podłączony, i upewnij się, że jest używany kabel wysokiej jakości.

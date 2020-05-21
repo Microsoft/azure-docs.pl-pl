@@ -7,12 +7,12 @@ ms.date: 04/18/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 3b23eac4ab50401e68e17064d0964dacc3c17d32
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.openlocfilehash: 4d486b8ffc921a5ca2f38bef912ba6dc46ecec40
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82120506"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83634087"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -20,7 +20,7 @@ ms.locfileid: "82120506"
 
 Usługa Azure Blob Storage jest zoptymalizowana pod kątem przechowywania dużych ilości danych bez struktury. Obiekty blob są obiektami, które mogą przechowywać dane tekstowe lub binarne, w tym obrazy, dokumenty, multimedia strumieniowe i dane archiwalne. W tym przewodniku szybki start dowiesz się, jak zarządzać obiektami BLOB przy użyciu języka JavaScript w przeglądarce. Zostaną przekazane i wyświetlone obiekty blob, a będziesz tworzyć i usuwać kontenery.
 
-[API reference documentation](/javascript/api/@azure/storage-blob) |  | [Przykłady](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples) pakietu | [kodu źródłowego biblioteki](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)dokumentacji interfejsu API[(npm)](https://www.npmjs.com/package/@azure/storage-blob)
+[Dokumentacja](/javascript/api/@azure/storage-blob)  |  interfejsu API [Kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)  |  źródłowy biblioteki [Pakiet (npm)](https://www.npmjs.com/package/@azure/storage-blob)  |  [Przykłady](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 > [!NOTE]
 > Aby rozpocząć pracę z poprzednią wersją zestawu SDK, zobacz [Szybki Start: Zarządzanie obiektami BLOB za pomocą zestawu SDK v10 języka JavaScript w programie Node. js](storage-quickstart-blobs-nodejs-legacy.md).
@@ -32,9 +32,9 @@ Usługa Azure Blob Storage jest zoptymalizowana pod kątem przechowywania dużyc
 * [Node.js](https://nodejs.org)
 * [Microsoft Visual Studio Code](https://code.visualstudio.com)
 * Rozszerzenie Visual Studio Code do debugowania przeglądarki, takie jak:
-    * [Debuger dla przeglądarki Microsoft Edge](vscode:extension/msjsdiag.debugger-for-edge)
-    * [Debuger dla programu Chrome](vscode:extension/msjsdiag.debugger-for-chrome)
-    * [Debuger dla programu Firefox](vscode:extension/firefox-devtools.vscode-firefox-debug)
+    * [Debuger dla przeglądarki Microsoft Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge)
+    * [Debuger dla programu Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
+    * [Debuger dla programu Firefox](https://marketplace.visualstudio.com/items?itemName=firefox-devtools.vscode-firefox-debug)
 
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
@@ -117,13 +117,13 @@ npm install --save @azure/storage-blob
 
 Aby korzystać z bibliotek zestawu Azure SDK w witrynie sieci Web, przekonwertuj swój kod, aby działał w przeglądarce. Można to zrobić za pomocą narzędzia o nazwie pakiet. Zgrupowanie Pobiera kod JavaScript zapisany przy użyciu konwencji [Node. js](https://nodejs.org) i konwertuje go na format zrozumiały dla przeglądarek. Ten artykuł szybkiego startu używa pakietu [Parcel](https://parceljs.org/) .
 
-Zainstaluj program Parcel, uruchamiając `npm` następujące polecenie w oknie terminalu:
+Zainstaluj program Parcel, uruchamiając następujące `npm` polecenie w oknie terminalu:
 
 ```console
 npm install -g parcel-bundler
 ```
 
-W Visual Studio Code Otwórz plik *Package. JSON* i Dodaj `browserlist` między elementami `license` i. `dependencies` Dotyczy `browserlist` to najnowszej wersji trzech popularnych przeglądarek. Pełny plik *Package. JSON* powinien teraz wyglądać następująco:
+W Visual Studio Code Otwórz plik *Package. JSON* i Dodaj `browserlist` między elementami `license` i `dependencies` . Dotyczy to `browserlist` najnowszej wersji trzech popularnych przeglądarek. Pełny plik *Package. JSON* powinien teraz wyglądać następująco:
 
 :::code language="json" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/package.json" highlight="12-16":::
 
@@ -131,7 +131,7 @@ Zapisz plik *Package. JSON* .
 
 ### <a name="import-the-azure-blob-storage-client-library"></a>Importowanie biblioteki klienckiej usługi Azure Blob Storage
 
-Aby użyć bibliotek zestawu Azure SDK w języku JavaScript, `@azure/storage-blob` zaimportuj pakiet. Utwórz nowy plik w Visual Studio Code zawierający poniższy kod JavaScript.
+Aby użyć bibliotek zestawu Azure SDK w języku JavaScript, zaimportuj `@azure/storage-blob` pakiet. Utwórz nowy plik w Visual Studio Code zawierający poniższy kod JavaScript.
 
 :::code language="javascript" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/index.js" id="snippet_ImportLibrary":::
 
@@ -203,7 +203,7 @@ Wyświetl zawartość kontenera magazynu po kliknięciu przycisku **listy plikó
 
 Zapisz plik *index. js* .
 
-Ten kod wywołuje funkcję [ContainerClient. listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) , a następnie używa iteratora, aby pobrać nazwę każdej zwróconej [BlobItem](/javascript/api/@azure/storage-blob/blobitem) . Dla każdego `BlobItem`z nich aktualizuje listę **plików** o wartość właściwości [Nazwa](/javascript/api/@azure/storage-blob/blobitem#name) .
+Ten kod wywołuje funkcję [ContainerClient. listBlobsFlat](/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) , a następnie używa iteratora, aby pobrać nazwę każdej zwróconej [BlobItem](/javascript/api/@azure/storage-blob/blobitem) . Dla każdego z `BlobItem` nich aktualizuje listę **plików** o wartość właściwości [Nazwa](/javascript/api/@azure/storage-blob/blobitem#name) .
 
 ### <a name="upload-blobs"></a>Przekazywanie obiektów BLOB
 
@@ -213,7 +213,7 @@ Przekaż pliki do kontenera magazynu po kliknięciu przycisku **Wybierz i przeka
 
 Zapisz plik *index. js* .
 
-Ten kod łączy przycisk **Wybierz i przekaż pliki** do ukrytego `file-input` elementu. Zdarzenie przycisku `click` wyzwala zdarzenie wejściowe `click` pliku i wyświetla selektor plików. Po wybraniu plików i zamknięciu okna dialogowego `input` zdarzenie występuje, a `uploadFiles` funkcja jest wywoływana. Ta funkcja tworzy obiekt [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) , a następnie wywołuje funkcję [uploadBrowserData](/javascript/api/@azure/storage-blob/blockblobclient#uploadbrowserdata-blob---arraybuffer---arraybufferview--blockblobparalleluploadoptions-) tylko przeglądarki dla każdego wybranego pliku. Każde wywołanie zwraca obiekt `Promise`. Każda `Promise` z nich jest dodawana do listy, dzięki czemu można oczekiwać, że pliki będą jednocześnie przesyłane równolegle.
+Ten kod łączy przycisk **Wybierz i przekaż pliki** do ukrytego `file-input` elementu. Zdarzenie przycisku `click` wyzwala zdarzenie wejściowe pliku `click` i wyświetla selektor plików. Po wybraniu plików i zamknięciu okna dialogowego `input` zdarzenie występuje, a `uploadFiles` Funkcja jest wywoływana. Ta funkcja tworzy obiekt [BlockBlobClient](/javascript/api/@azure/storage-blob/blockblobclient) , a następnie wywołuje funkcję [uploadBrowserData](/javascript/api/@azure/storage-blob/blockblobclient#uploadbrowserdata-blob---arraybuffer---arraybufferview--blockblobparalleluploadoptions-) tylko przeglądarki dla każdego wybranego pliku. Każde wywołanie zwraca obiekt `Promise` . Każda z nich `Promise` jest dodawana do listy, dzięki czemu można oczekiwać, że pliki będą jednocześnie przesyłane równolegle.
 
 ### <a name="delete-blobs"></a>Usuwanie obiektów blob
 
@@ -236,7 +236,7 @@ Aby skonfigurować rozszerzenie debugera w Visual Studio Code:
 1. Wybierz pozycję **uruchom > Dodaj konfigurację**
 2. Wybierz pozycję **Edge**, **Chrome**lub **Firefox**, w zależności od tego, które rozszerzenie zostało zainstalowane wcześniej w sekcji [wymagania wstępne](#prerequisites) .
 
-Dodanie nowej konfiguracji spowoduje utworzenie pliku *Launch. JSON* i otwarcie go w edytorze. Zmodyfikuj plik *Launch. JSON* tak `http://localhost:1234/index.html`, aby miał `url` wartość, jak pokazano poniżej:
+Dodanie nowej konfiguracji spowoduje utworzenie pliku *Launch. JSON* i otwarcie go w edytorze. Zmodyfikuj plik *Launch. JSON* tak, aby miał `url` wartość `http://localhost:1234/index.html` , jak pokazano poniżej:
 
 :::code language="json" source="~/azure-storage-snippets/blobs/quickstarts/JavaScript/V12/azure-blobs-js-browser/.vscode/launch.json" highlight="11":::
 
@@ -250,9 +250,9 @@ Aby uruchomić lokalny serwer sieci Web, wybierz pozycję **wyświetl > Terminal
 parcel index.html
 ```
 
-Pakiet zbiorczy dzieli kod i uruchamia lokalny serwer programistyczny dla Twojej strony `http://localhost:1234/index.html`. Zmiany wprowadzone w pliku *index. js* zostaną automatycznie skompilowane i odzwierciedlone na serwerze deweloperskim za każdym razem, gdy plik zostanie zapisany.
+Pakiet zbiorczy dzieli kod i uruchamia lokalny serwer programistyczny dla Twojej strony `http://localhost:1234/index.html` . Zmiany wprowadzone w pliku *index. js* zostaną automatycznie skompilowane i odzwierciedlone na serwerze deweloperskim za każdym razem, gdy plik zostanie zapisany.
 
-Jeśli zostanie wyświetlony komunikat informujący o tym, że nie można **użyć skonfigurowanego portu 1234**, można zmienić port, uruchamiając `parcel -p <port#> index.html`polecenie. W pliku *Launch. JSON* zaktualizuj port w ścieżce URL w celu dopasowania.
+Jeśli zostanie wyświetlony komunikat informujący o tym, że nie można **użyć skonfigurowanego portu 1234**, można zmienić port, uruchamiając polecenie `parcel -p <port#> index.html` . W pliku *Launch. JSON* zaktualizuj port w ścieżce URL w celu dopasowania.
 
 ### <a name="start-debugging"></a>Rozpocznij debugowanie
 
@@ -285,11 +285,11 @@ W [Azure Portal](https://portal.azure.com)można sprawdzić wyniki wywołań int
 #### <a name="step-4---delete-the-container"></a>Krok 4. Usuwanie kontenera
 
 1. W aplikacji sieci Web wybierz pozycję **Usuń kontener**. Stan wskazuje, że kontener został usunięty.
-2. W Azure Portal wybierz ** \<\> nazwę konta | Link kontenerów** w lewym górnym rogu okienka portalu.
+2. W Azure Portal wybierz ** \< nazwę konta \> | Link kontenerów** w lewym górnym rogu okienka portalu.
 3. Wybierz pozycję **Odśwież**. Nowy kontener zniknie.
 4. Zamknij aplikację sieci Web.
 
-### <a name="clean-up-resources"></a>Oczyszczanie zasobów
+### <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Kliknij konsolę **terminala** w Visual Studio Code i naciśnij klawisze CTRL + C, aby zatrzymać serwer sieci Web.
 

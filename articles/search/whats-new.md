@@ -7,29 +7,29 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 03/24/2020
-ms.openlocfilehash: 0aea6a42269712e5c1e505c270f9d88635de83e5
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 05/19/2020
+ms.openlocfilehash: 6597a8d5f1f8f4aa34ba9f59d4e08b5dc6d66728
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195280"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682466"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Co nowego w usłudze Azure Wyszukiwanie poznawcze
 
 Dowiedz się, co nowego w usłudze. Oznacz Tę stronę zakładką, aby zapewnić aktualność usługi.
 
-<a name="new-service-name"></a>
-
-## <a name="new-service-name"></a>Nowa nazwa usługi
-
-Azure Search teraz zmieniono nazwę na **platformę Azure wyszukiwanie poznawcze** w celu odzwierciedlenia rozszerzonego (nieopcjonalnego) korzystania z umiejętności poznawczych i przetwarzania AI w operacjach podstawowych. Wersje interfejsu API, pakiety NuGet, przestrzenie nazw i punkty końcowe nie są zmieniane. Zmiany nazwy usługi nie wpływają na nowe i istniejące rozwiązania wyszukiwania.
-
 ## <a name="feature-announcements"></a>Anonse funkcji
 
-### <a name="may-2020"></a>Maj 2020 r.
+### <a name="may-2020-microsoft-build"></a>Maj 2020 (Microsoft Build)
 
-+ Funkcja debugowania sesji jest teraz dostępna w wersji zapoznawczej. [Zarejestruj się, aby zażądać dostępu](https://aka.ms/DebugSessions).
++ Funkcja [debugowania sesji](cognitive-search-debug-session.md) jest teraz dostępna w wersji zapoznawczej. [Zarejestruj się, aby zażądać dostępu](https://aka.ms/DebugSessions). Sesje debugowania udostępniają interfejs oparty na portalu do badania i rozwiązywania problemów z zestawu umiejętności. Poprawki utworzone w sesji debugowania można zapisać w środowisku produkcyjnym umiejętności. Rozpocznij pracę z [tym samouczkiem](cognitive-search-tutorial-debug-sessions.md).
+
++ Ulepszenia zabezpieczeń umożliwiają [skonfigurowanie prywatnego punktu końcowego wyszukiwania (wersja zapoznawcza)](service-create-private-endpoint.md) , który jest niedostępny w publicznej sieci Internet. Istnieje również możliwość [skonfigurowania reguł IP dla obsługi zapory w powiązaniu (wersja zapoznawcza)](service-configure-firewall.md).
+
++ Użyj [tożsamości zarządzanej przez system (wersja zapoznawcza)](search-howto-managed-identities-data-sources.md) , aby skonfigurować połączenie ze źródłem danych platformy Azure do indeksowania. Dotyczy [indeksatorów](search-indexer-overview.md) , które pobierają zawartość ze źródeł danych platformy Azure, takich jak Azure SQL Database, Azure Cosmos DB i Azure Storage.
+
++ Zmień podstawę obliczania wyników wyszukiwania z fragmentu na wszystkie-fragmentów przy użyciu [parametru zapytania globalnego scoringStatistics =](index-similarity-and-scoring.md#scoring-statistics).
 
 ### <a name="march-2020"></a>Marzec 2020 r.
 
@@ -74,9 +74,15 @@ Azure Search teraz zmieniono nazwę na **platformę Azure wyszukiwanie poznawcze
 
 + W indeksatorach są teraz obsługiwane [Azure Data Lake Storage Gen2 (wersja zapoznawcza)](search-howto-index-azure-data-lake-storage.md) [Cosmos DB, interfejs API Gremlin (wersja](search-howto-index-cosmosdb.md)zapoznawcza) i [Cosmos DB interfejs API Cassandra (wersja zapoznawcza)](search-howto-index-cosmosdb.md) . Możesz zarejestrować się, korzystając z [tego formularza](https://aka.ms/azure-cognitive-search/indexer-preview). Po zaakceptowaniu w programie w wersji zapoznawczej otrzymasz wiadomość e-mail z potwierdzeniem.
 
-### <a name="july-2019"></a>Lipiec 2019 r.
+### <a name="july-2019"></a>Lipiec 2019
 
 + Ogólnie dostępna w [chmurze Azure Government](../azure-government/documentation-government-services-webandmobile.md#azure-cognitive-search).
+
+<a name="new-service-name"></a>
+
+## <a name="new-service-name"></a>Nowa nazwa usługi
+
+Azure Search teraz zmieniono nazwę na **platformę Azure wyszukiwanie poznawcze** w celu odzwierciedlenia rozszerzonego (nieopcjonalnego) korzystania z umiejętności poznawczych i przetwarzania AI w operacjach podstawowych. Wersje interfejsu API, pakiety NuGet, przestrzenie nazw i punkty końcowe nie są zmieniane. Zmiany nazwy usługi nie wpływają na nowe i istniejące rozwiązania wyszukiwania.
 
 ## <a name="service-updates"></a>Aktualizacje usług
 

@@ -11,23 +11,23 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 122a505773eb36263f83294c6792922b47ca33b2
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 7e9980bfe3065b4ce0df5a2f083f5f4bef366f35
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81405028"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681111"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-with-go"></a>Szybki Start: generowanie miniatury przy użyciu interfejsu API REST przetwarzanie obrazów z funkcją go
 
 W tym przewodniku szybki start utworzysz miniaturę obrazu przy użyciu interfejsu API REST przetwarzanie obrazów. Należy określić wysokość i szerokość, która może się różnić od obrazu wejściowego. Interfejs API przetwarzania obrazów wykorzystuje inteligentne przycinanie, aby określić obszar zainteresowania i wygenerować współrzędne przycinania na podstawie tego obszaru.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Musisz mieć zainstalowany język [Go](https://golang.org/dl/).
-- Musisz mieć klucz subskrypcji funkcji przetwarzania obrazów. Możesz uzyskać bezpłatny klucz wersji próbnej z usługi [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Lub postępuj zgodnie z instrukcjami w temacie [Tworzenie konta Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) , aby subskrybować przetwarzanie obrazów i uzyskać klucz. Następnie [Utwórz zmienne środowiskowe](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla ciągu punktu końcowego klucza i usługi, odpowiednio `COMPUTER_VISION_SUBSCRIPTION_KEY` nazwane `COMPUTER_VISION_ENDPOINT`i.
+- Musisz mieć klucz subskrypcji funkcji przetwarzania obrazów. Możesz uzyskać bezpłatny klucz wersji próbnej z usługi [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Lub postępuj zgodnie z instrukcjami w temacie [Tworzenie konta Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) , aby subskrybować przetwarzanie obrazów i uzyskać klucz. Następnie [Utwórz zmienne środowiskowe](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla ciągu punktu końcowego klucza i usługi, `COMPUTER_VISION_SUBSCRIPTION_KEY` odpowiednio nazwane i `COMPUTER_VISION_ENDPOINT` .
 
 ## <a name="create-and-run-the-sample"></a>Tworzenie i uruchamianie próbki
 
@@ -44,10 +44,13 @@ Aby utworzyć i uruchomić przykład, wykonaj następujące kroki:
 package main
 
 import (
-    "encoding/json"
+    "bytes"
     "fmt"
     "io/ioutil"
+    "io"
+    "log"
     "net/http"
+    "os"
     "strings"
     "time"
 )
@@ -55,21 +58,13 @@ import (
 func main() {
     // Add your Computer Vision subscription key and endpoint to your environment variables.
     subscriptionKey := os.Getenv("COMPUTER_VISION_SUBSCRIPTION_KEY")
-    if (subscriptionKey == "") {
-        log.Fatal("\n\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable.\n" +
-            "**Restart your shell or IDE for changes to take effect.**\n")
-
     endpoint := os.Getenv("COMPUTER_VISION_ENDPOINT")
-    if ("" == endpoint) {
-        log.Fatal("\n\nSet the COMPUTER_VISION_ENDPOINT environment variable.\n" +
-            "**Restart your shell or IDE for changes to take effect.**")
-    }
-    const uriBase = endpoint + "vision/v2.1/generateThumbnail"
-    const imageUrl =
-        "https://upload.wikimedia.org/wikipedia/commons/9/94/Bloodhound_Puppy.jpg"
+
+    uriBase := endpoint + "vision/v3.0/generateThumbnail"
+    const imageUrl = "https://upload.wikimedia.org/wikipedia/commons/9/94/Bloodhound_Puppy.jpg"
 
     const params = "?width=100&height=100&smartCropping=true"
-    const uri = uriBase + params
+    uri := uriBase + params
     const imageUrlEnc = "{\"url\":\"" + imageUrl + "\"}"
 
     reader := strings.NewReader(imageUrlEnc)
@@ -103,14 +98,19 @@ func main() {
     if err != nil {
         panic(err)
     }
+    
+    // Convert byte[] to io.Reader type
+    readerThumb := bytes.NewReader(data)
 
-    // Parse the JSON data
-    var f interface{}
-    json.Unmarshal(data, &f)
+    // Write the image binary to file
+    file, err := os.Create("thumb_local.png")
+    if err != nil { log.Fatal(err) }
+    defer file.Close()
+    _, err = io.Copy(file, readerThumb)
+    if err != nil { log.Fatal(err) }
 
-    // Format and display the JSON result
-    jsonFormatted, _ := json.MarshalIndent(f, "", "  ")
-    fmt.Println(string(jsonFormatted))
+    fmt.Println("The thunbnail from local has been saved to file.")
+    fmt.Println()
 }
 ```
 

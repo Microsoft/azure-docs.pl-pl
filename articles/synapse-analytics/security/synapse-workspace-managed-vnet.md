@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 162d96244b01f8c5e1acf224475aadb9508f0aa5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 623b6325b88f42f0076c84a221864762cd3918f9
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81423635"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83645233"
 ---
 # <a name="azure-synapse-analytics-managed-virtual-network-preview"></a>Virtual Network zarządzane przez usługę Azure Synapse Analytics (wersja zapoznawcza)
 
@@ -40,6 +40,8 @@ Pula SQL i SQL na żądanie są funkcjami wielodostępnymi i dlatego znajdują s
 
 ## <a name="create-an-azure-synapse-workspace-with-a-managed-workspace-vnet"></a>Tworzenie obszaru roboczego usługi Azure Synapse z zarządzaną siecią wirtualną obszaru roboczego
 
+Jeśli jeszcze tego nie zrobiono, zarejestruj dostawcę zasobów sieciowych. Rejestracja dostawcy zasobów umożliwia skonfigurowanie subskrypcji do pracy z dostawcą zasobów. Po [zarejestrowaniu](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)wybierz pozycję *Microsoft. Network* z listy dostawców zasobów.
+
 Aby utworzyć obszar roboczy usługi Azure Synapse z skojarzoną z nią zarządzaną siecią wirtualną, wybierz kartę **zabezpieczenia i sieć** w Azure Portal a następnie zaznacz pole wyboru **Włącz zarządzane sieci wirtualne** .
 
 Jeśli pole wyboru nie zostanie zaznaczone, do obszaru roboczego nie będzie skojarzona Sieć wirtualna.
@@ -50,7 +52,7 @@ Jeśli pole wyboru nie zostanie zaznaczone, do obszaru roboczego nie będzie sko
 ![Włączanie zarządzanej sieci wirtualnej obszaru roboczego](./media/synapse-workspace-managed-vnet/enable-managed-vnet-1.png)
 
 >[!NOTE]
->Cały ruch wychodzący z sieci wirtualnej zarządzanego obszaru roboczego zostanie zablokowany w przyszłości. Zaleca się nawiązanie połączenia ze wszystkimi źródłami danych przy użyciu zarządzanych prywatnych punktów końcowych.
+>Cały ruch wychodzący z sieci wirtualnej zarządzanego obszaru roboczego poza zarządzanymi prywatnymi punktami końcowymi zostanie zablokowany w przyszłości. Zaleca się utworzenie zarządzanych prywatnych punktów końcowych w celu nawiązania połączenia ze wszystkimi źródłami danych platformy Azure spoza obszaru roboczego. 
 
 Możesz sprawdzić, czy obszar roboczy usługi Azure Synapse jest skojarzony z zarządzaną siecią wirtualną obszaru roboczego, wybierając pozycję **Przegląd** z Azure Portal.
 

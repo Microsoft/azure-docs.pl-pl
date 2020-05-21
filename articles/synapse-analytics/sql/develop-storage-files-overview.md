@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 941fa8d2570d22b6c2a54de02a61b4a7ece2e632
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 204fd1b1a0a2984886684bbabf33dc7e73c1b45c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691880"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653544"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Wykonywanie zapytań dotyczących plików magazynu za pomocą zasobów SQL na żądanie (wersja zapoznawcza) w programie Synapse SQL
 
@@ -90,7 +90,7 @@ Te dodatkowe parametry są wprowadzane do pracy z plikami CSV (rozdzielanymi tek
 ```
 
 - ESCAPE_CHAR = "char" określa znak w pliku, który jest używany do wyprowadzania siebie i wszystkich wartości ograniczników w pliku. Jeśli po znaku ucieczki następuje wartość inna niż sama lub jakakolwiek z wartości ogranicznika, znak ucieczki jest usuwany podczas odczytywania wartości.
-Parametr ESCAPE_CHAR zostanie zastosowany niezależnie od tego, czy FIELDQUOTE jest czy nie jest włączony. Nie będzie on używany do ucieczki znaku cudzysłowu. Znak cudzysłowu jest wyprowadzany z podwójnym cudzysłówem w równaniu z zachowaniem CSV programu Excel.
+ESCAPE_CHAR parametr zostanie zastosowany, niezależnie od tego, czy FIELDQUOTE jest czy nie jest włączony. Nie będzie on używany do ucieczki znaku cudzysłowu. Znak cudzysłowu jest wyprowadzany z podwójnym cudzysłówem w równaniu z zachowaniem CSV programu Excel.
 - FIELDTERMINATOR = "field_terminator" Określa terminator pola, które ma być używane. Domyślny terminator pola jest przecinkiem ("**,**")
 - ROWTERMINATOR = "row_terminator" Określa terminator wiersza, który ma być używany. Domyślnym terminatorem wiersza jest znak nowego wiersza: **\r\n**.
 

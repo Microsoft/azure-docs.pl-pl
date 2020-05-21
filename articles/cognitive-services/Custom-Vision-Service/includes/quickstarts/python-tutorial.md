@@ -3,12 +3,12 @@ author: areddish
 ms.author: areddish
 ms.service: cognitive-services
 ms.date: 04/14/2020
-ms.openlocfilehash: a28f1a63a4096c536f4c1f7f6c50d538821f236d
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 6f5dcfff621afa7e8ab11e611664393e3e73f731
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82134152"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83696488"
 ---
 W tym artykule pokazano, jak rozpocząć pracę z zestawem SDK Custom Vision przy użyciu języka Python w celu utworzenia modelu klasyfikacji obrazów. Po jego utworzeniu można dodawać Tagi, przekazywać obrazy, uczenie projektu, uzyskać opublikowany adres punktu końcowego prognozowanego projektu i używać punktu końcowego do programistycznego testowania obrazu. Użyj tego przykładu jako szablonu do utworzenia własnej aplikacji języka Python. Jeśli chcesz przejść przez proces tworzenia i używania modelu klasyfikacji _bez_ kodu, zobacz zamiast tego [wskazówki dotyczące przeglądarki](../../getting-started-build-a-classifier.md).
 
@@ -43,6 +43,7 @@ Zobacz metodę [create_project](https://docs.microsoft.com/python/api/azure-cogn
 ```Python
 from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
 from azure.cognitiveservices.vision.customvision.training.models import ImageFileCreateEntry
+from msrest.authentication import ApiKeyCredentials
 
 ENDPOINT = "<your API endpoint>"
 
@@ -53,7 +54,8 @@ prediction_resource_id = "<your prediction resource id>"
 
 publish_iteration_name = "classifyModel"
 
-trainer = CustomVisionTrainingClient(training_key, endpoint=ENDPOINT)
+credentials = ApiKeyCredentials(in_headers={"Training-key": training_key})
+trainer = CustomVisionTrainingClient(ENDPOINT, credentials)
 
 # Create a new project
 print ("Creating project...")
@@ -127,9 +129,11 @@ Aby wysłać obraz do punktu końcowego przewidywania i uzyskać przewidywanie, 
 
 ```python
 from azure.cognitiveservices.vision.customvision.prediction import CustomVisionPredictionClient
+from msrest.authentication import ApiKeyCredentials
 
 # Now there is a trained endpoint that can be used to make a prediction
-predictor = CustomVisionPredictionClient(prediction_key, endpoint=ENDPOINT)
+prediction_credentials = ApiKeyCredentials(in_headers={"Prediction-key": prediction_key})
+predictor = CustomVisionPredictionClient(ENDPOINT, prediction_credentials)
 
 with open(base_image_url + "images/Test/test_image.jpg", "rb") as image_contents:
     results = predictor.classify_image(

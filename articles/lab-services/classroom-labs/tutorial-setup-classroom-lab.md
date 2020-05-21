@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/10/2020
+ms.date: 05/19/2020
 ms.author: spelluru
-ms.openlocfilehash: b3a9c95233c2016dc35f4fcade3e2634e121d252
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 1c9e594af96fd43bc03f67caa06f585ab57b4b6e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591781"
+ms.locfileid: "83643465"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Samouczek: konfigurowanie laboratorium na potrzeby zajęć 
 W tym samouczku skonfigurujesz laboratorium na potrzeby zajęć z maszynami wirtualnymi używanymi przez uczniów podczas zajęć.  
@@ -70,6 +70,9 @@ W tym kroku utworzysz laboratorium dla swojej klasy na platformie Azure.
     1. Nawiąż połączenie z maszyną wirtualną szablonu, wybierając pozycję **Połącz**. Jeśli jest to maszyna wirtualna z szablonem systemu Linux, wybierz, czy chcesz nawiązać połączenie przy użyciu protokołu SSH, czy RDP (Jeśli włączono protokół RDP).
     3. Zainstaluj i Skonfiguruj oprogramowanie wymagane dla danej klasy na maszynie wirtualnej z szablonem. 
     4. **Zatrzymaj** maszynę wirtualną szablonu.  
+
+    > [!NOTE]
+    > Na maszynach wirtualnych szablonowych naliczane są **koszty** , dlatego należy się upewnić, że maszyna wirtualna jest ZAMKNIĘTA, gdy nie jest potrzebna do uruchomienia. 
 
 ## <a name="publish-the-template-vm"></a>Publikowanie maszyny wirtualnej szablonu
 Ten krok polega na opublikowaniu szablonu maszyny wirtualnej. Podczas publikowania szablonu maszyny wirtualnej Azure Lab Services tworzy maszyny wirtualne w laboratorium przy użyciu szablonu. Wszystkie maszyny wirtualne mają taką samą konfigurację jak szablon.

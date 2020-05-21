@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 94906d645ec38a24d54536ee8aa93e7418c8dc35
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1de2d647a6292467a5ac4cc333ccacdedfc3c9ea
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75465179"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83639003"
 ---
 # <a name="quickstart-create-a-xamarin-android-app-with-azure-spatial-anchors"></a>Szybki Start: Tworzenie aplikacji dla systemu Android z zakotwiczeniami przestrzennymi platformy Azure
 
@@ -63,6 +63,8 @@ Znajdź pole `SpatialAnchorsAccountKey` i zastąp wartość `Set me` kluczem kon
 
 Znajdź pole `SpatialAnchorsAccountId` i zastąp wartość `Set me` identyfikatorem konta.
 
+Znajdź `AzureSpatialAnchorsManager(Session arCoreSession)` i Dodaj następujący wiersz, zastępując w domenie konta wcześniejszie: `this.spatialAnchorsSession.Configuration.AccountId = "MyAccountDomain";` .
+
 ## <a name="deploy-the-app-to-your-android-device"></a>Wdrażanie aplikacji na urządzeniu z systemem Android
 
 Włącz urządzenie z systemem Android, zaloguj się i połącz je z komputerem przy użyciu kabla USB.
@@ -73,21 +75,21 @@ Ustaw projekt startowy na **SampleXamarin. Android**, Zmień **konfigurację roz
 
 ![Konfiguracja programu Visual Studio](./media/get-started-xamarin-android/visual-studio-windows-configuration.png)
 
-Wybierz kolejno opcje **Debuguj** > **Rozpocznij debugowanie** , aby wdrożyć i uruchomić aplikację.
+Wybierz kolejno opcje **Debuguj**  >  **Rozpocznij debugowanie** , aby wdrożyć i uruchomić aplikację.
 
 # <a name="macos"></a>[macOS](#tab/deploy-macos)
 
 ![Konfiguracja programu Visual Studio](./media/get-started-xamarin-android/visual-studio-macos-configuration.jpg)
 
-Wybierz pozycję **Uruchom** > **Uruchom bez debugowania** , aby wdrożyć i uruchomić aplikację.
+Wybierz pozycję **Uruchom**  >  **Uruchom bez debugowania** , aby wdrożyć i uruchomić aplikację.
 
 ---
 
 W aplikacji wybierz pozycję **podstawowa** , aby uruchomić demonstrację, i postępuj zgodnie z instrukcjami, aby umieścić i odwołać kotwicę.
 
-> ![Zrzut ekranu](./media/get-started-xamarin-android/screenshot-1.jpg)
-> ![1 Zrzut](./media/get-started-xamarin-android/screenshot-2.jpg)
-> ![ekranu 2 zrzut ekranu 3](./media/get-started-xamarin-android/screenshot-3.jpg)
+> ![Zrzut ekranu 1 zrzut ekranu ](./media/get-started-xamarin-android/screenshot-1.jpg)
+>  ![ 2 ](./media/get-started-xamarin-android/screenshot-2.jpg)
+>  ![ zrzut ekranu 3](./media/get-started-xamarin-android/screenshot-3.jpg)
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

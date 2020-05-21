@@ -1,18 +1,18 @@
 ---
 title: Wbudowane definicje zasad dla usługi Azure Virtual Network
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Virtual Network platformy Azure. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 05/05/2020
+ms.date: 05/13/2020
 ms.topic: sample
 author: KumudD
 ms.author: kumud
 ms.service: virtual-network
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 557e3658b73314660ffde134b6151f9d83b26824
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: bae8d7b6e102cb5fdc4938ee4951f8a89a50753e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82928520"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659894"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-virtual-network"></a>Azure Policy wbudowane definicje zasad dla platformy Azure Virtual Network
 
@@ -24,7 +24,7 @@ Nazwa każdej wbudowanej definicji zasad łączy się z definicją zasad w Azure
 
 [!INCLUDE [azure-policy-samples-policies-network](../../includes/policy/samples/bycat/policies-network.md)]
 
-## <a name="tags"></a>Tagi
+## <a name="tags"></a>Tags
 
 [!INCLUDE [azure-policy-samples-policies-tags](../../includes/policy/samples/bycat/policies-tags.md)]
 

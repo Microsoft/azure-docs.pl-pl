@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 03/04/2020
+ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aba42e6bd9b11e47d793219c0ff06b9177d609f5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f149678bd65ff47b8582e56cf376d88284c8fa8b
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78298823"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681333"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Pilotażowa aprowizacja w chmurze dla istniejącego zsynchronizowanego lasu usługi AD 
 
@@ -141,14 +141,14 @@ Weryfikacja agenta odbywa się w Azure Portal i na serwerze lokalnym, na którym
 ### <a name="azure-portal-agent-verification"></a>Weryfikacja agenta Azure Portal
 Aby sprawdzić, czy Agent jest widziany przez platformę Azure, wykonaj następujące kroki:
 
-1. Zaloguj się do witryny Azure Portal.
+1. Zaloguj się do Portalu Azure.
 2. Po lewej stronie wybierz pozycję **Azure Active Directory**, kliknij pozycję **Azure AD Connect** i w centrum wybierz pozycję **Zarządzaj Provisioning (wersja zapoznawcza)**.</br>
 ![Azure Portal](media/how-to-install/install6.png)</br>
 
 3.  Na ekranie **Azure AD Provisioning (wersja zapoznawcza)** kliknij pozycję **Przejrzyj wszystkich agentów**.
 ![Inicjowanie obsługi usługi Azure AD](media/how-to-install/install7.png)</br>
  
-4. Na **ekranie agenci aprowizacji lokalnego** zostaną zainstalowani agenci.  Sprawdź, czy dany Agent jest tam i jest oznaczony jako **wyłączony**.  Agent jest wyłączony przez domyślnych ![agentów aprowizacji](media/how-to-install/verify1.png)</br>
+4. Na **ekranie agenci aprowizacji lokalnego** zostaną zainstalowani agenci.  Sprawdź, czy dany Agent jest tam i jest oznaczony jako **wyłączony**.  Agent jest wyłączony przez domyślnych ![ agentów aprowizacji](media/how-to-install/verify1.png)</br>
 
 ### <a name="on-the-local-server"></a>Na serwerze lokalnym
 Aby sprawdzić, czy agent działa, wykonaj następujące kroki:
@@ -199,7 +199,9 @@ Synchronizacja Azure AD Connect synchronizuje zmiany występujące w katalogu lo
 3.  Uruchom polecenie `Start-ADSyncSyncCycle`.  Naciśnij klawisz ENTER.  
 
 >[!NOTE] 
->Jeśli używasz własnego harmonogramu niestandardowego dla synchronizacji z usługą AAD Connect, Włącz harmonogram. 
+>Jeśli używasz własnego harmonogramu niestandardowego na potrzeby synchronizacji Azure AD Connect, Włącz harmonogram. 
+
+Po włączeniu harmonogramu Azure AD Connect przestanie eksportować wszelkie zmiany obiektów `cloudNoFlow=true` w obiekcie Metaverse, chyba że jakikolwiek atrybut odwołania (np. Trwa aktualizowanie Menedżera). W przypadku, gdy w obiekcie istnieje aktualizacja atrybutu odwołania, Azure AD Connect zignoruje `cloudNoFlow` sygnał i wyeksportuje wszystkie aktualizacje obiektu.
 
 ## <a name="something-went-wrong"></a>Wystąpił błąd
 W przypadku, gdy pilotaż nie działa zgodnie z oczekiwaniami, możesz wrócić do konfiguracji synchronizacji Azure AD Connect, wykonując poniższe kroki:

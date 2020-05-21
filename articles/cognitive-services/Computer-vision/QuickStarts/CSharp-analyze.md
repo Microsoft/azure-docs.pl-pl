@@ -11,35 +11,36 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: d8002530120eee4a3613f2310c4a59cc18612cad
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: ed003e83d8343d2da0f1b11c6d82581b76d3168d
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81405159"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83679879"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-computer-vision-rest-api-and-c"></a>Szybki Start: analizowanie obrazu lokalnego przy użyciu interfejsu API REST przetwarzanie obrazów i języka C #
 
 W tym przewodniku szybki start przeanalizuje lokalnie przechowywany obraz w celu wyodrębnienia funkcji wizualnych przy użyciu interfejsu API REST przetwarzanie obrazów. Za pomocą metody [analizy obrazu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) można wyodrębnić informacje o funkcji wizualizacji z zawartości obrazu.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Musisz mieć program [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) lub nowszy.
-- Musisz mieć klucz subskrypcji funkcji przetwarzania obrazów. Możesz uzyskać bezpłatny klucz wersji próbnej z usługi [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Lub postępuj zgodnie z instrukcjami w temacie [Tworzenie konta Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) , aby subskrybować przetwarzanie obrazów i uzyskać klucz. Następnie [Utwórz zmienne środowiskowe](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla ciągu punktu końcowego klucza i usługi, odpowiednio `COMPUTER_VISION_SUBSCRIPTION_KEY` nazwane `COMPUTER_VISION_ENDPOINT`i.
+- Musisz mieć klucz subskrypcji funkcji przetwarzania obrazów. Możesz uzyskać bezpłatny klucz wersji próbnej z usługi [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Lub postępuj zgodnie z instrukcjami w temacie [Tworzenie konta Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) , aby subskrybować przetwarzanie obrazów i uzyskać klucz. Następnie [Utwórz zmienne środowiskowe](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla ciągu punktu końcowego klucza i usługi, `COMPUTER_VISION_SUBSCRIPTION_KEY` odpowiednio nazwane i `COMPUTER_VISION_ENDPOINT` .
 
 ## <a name="create-and-run-the-sample-application"></a>Tworzenie i uruchamianie przykładowej aplikacji
 
 Aby utworzyć próbkę w programie Visual Studio, wykonaj następujące czynności:
 
-1. Utwórz nowe rozwiązanie programu Visual Studio w programie Visual Studio przy użyciu szablonu aplikacji konsolowej w języku Visual C# (.NET Framework).
+1. Utwórz nowe rozwiązanie lub projekt programu Visual Studio w programie Visual Studio przy użyciu szablonu Aplikacja konsolowa języka Visual C# (.NET Core Framework).
 1. Zainstaluj pakiet NuGet Newtonsoft.Json.
     1. W menu kliknij pozycję **Narzędzia**, a następnie **Menedżer pakietów NuGet** i **Zarządzaj pakietami NuGet rozwiązania**.
-    1. Kliknij kartę **Przeglądaj**, a następnie w polu **Wyszukiwanie** wpisz ciąg „Newtonsoft.Json”.
-    1. Gdy zostanie wyświetlona pozycja **Newtonsoft.Json**, wybierz ją, a następnie kliknij kolejno pole wyboru obok nazwy projektu i pozycję **Zainstaluj**.
+    1. Kliknij kartę **Przeglądaj** , a następnie w polu **wyszukiwania** wpisz "Newtonsoft. JSON" (jeśli nie jest on jeszcze wyświetlany).
+    1. Wybierz **Newtonsoft. JSON**, a następnie kliknij pole wyboru obok nazwy projektu i **Zainstaluj**.
+1. Skopiuj/wklej przykładowy fragment kodu poniżej, do pliku Program.cs. Dostosuj nazwę przestrzeni nazw, jeśli różni się od utworzonej przez siebie.
+1. Dodaj obraz wyboru do folderu bin/debug/netcoreappX. X, a następnie Dodaj nazwę obrazu (z rozszerzeniem) do zmiennej "imageFilePath".
 1. Uruchom program.
-1. Gdy pojawi się monit, wprowadź ścieżkę do obrazu lokalnego.
 
 ```csharp
 using Newtonsoft.Json.Linq;
@@ -59,26 +60,18 @@ namespace CSHttpClientSample
         static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
         
         // the Analyze method endpoint
-        static string uriBase = endpoint + "vision/v2.1/analyze";
+        static string uriBase = endpoint + "vision/v3.0/analyze";
 
-        static async Task Main()
+        // Image you want analyzed (add to your bin/debug/netcoreappX.X folder)
+        // For sample images, download one from here (png or jpg):
+        // https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/ComputerVision/Images
+        static string imageFilePath = @"my-sample-image";
+
+        public static void Main()
         {
-            // Get the path and filename to process from the user.
-            Console.WriteLine("Analyze an image:");
-            Console.Write(
-                "Enter the path to the image you wish to analyze: ");
-            string imageFilePath = Console.ReadLine();
+            // Call the API
+            MakeAnalysisRequest(imageFilePath).Wait();
 
-            if (File.Exists(imageFilePath))
-            {
-                // Call the REST API method.
-                Console.WriteLine("\nWait for the results to appear.\n");
-                await MakeAnalysisRequest(imageFilePath);
-            }
-            else
-            {
-                Console.WriteLine("\nInvalid file path");
-            }
             Console.WriteLine("\nPress Enter to exit...");
             Console.ReadLine();
         }
@@ -167,7 +160,7 @@ namespace CSHttpClientSample
 
 ## <a name="examine-the-response"></a>Sprawdzanie odpowiedzi
 
-Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie JSON. Przykładowa aplikacja analizuje i wyświetla pomyślną odpowiedź w oknie konsoli, podobnie jak w poniższym przykładzie:
+Pomyślna odpowiedź jest zwracana w formacie JSON (na podstawie używanego obrazu) w oknie konsoli, podobnie jak w poniższym przykładzie:
 
 ```json
 {

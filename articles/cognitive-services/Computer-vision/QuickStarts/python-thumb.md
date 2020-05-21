@@ -11,22 +11,22 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 68a6504668b9f180a421fe20c2c89d73b87bcc35
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 9f80d9be8966d1e2d8350f7fbc3c34182cb7b63e
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81404344"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83684131"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-python"></a>Szybki Start: generowanie miniatury przy użyciu interfejsu API REST przetwarzanie obrazów i języka Python
 
 W tym przewodniku szybki start utworzysz miniaturę obrazu przy użyciu interfejsu API REST przetwarzanie obrazów. W przypadku metody [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) możesz określać żądaną wysokość i szerokość, a interfejs API przetwarzania obrazów wykorzystuje inteligentne przycinanie, aby określić obszar zainteresowania i na jego podstawie wygenerować współrzędne przycinania.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/try/cognitive-services/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/try/cognitive-services/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Musisz mieć klucz subskrypcji funkcji przetwarzania obrazów. Możesz uzyskać bezpłatny klucz wersji próbnej z usługi [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Lub postępuj zgodnie z instrukcjami w temacie [Tworzenie konta Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) , aby subskrybować przetwarzanie obrazów i uzyskać klucz. Następnie [Utwórz zmienne środowiskowe](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla ciągu punktu końcowego klucza i usługi, odpowiednio `COMPUTER_VISION_SUBSCRIPTION_KEY` nazwane `COMPUTER_VISION_ENDPOINT`i.
+- Musisz mieć klucz subskrypcji funkcji przetwarzania obrazów. Możesz uzyskać bezpłatny klucz wersji próbnej z usługi [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Lub postępuj zgodnie z instrukcjami w temacie [Tworzenie konta Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) , aby subskrybować przetwarzanie obrazów i uzyskać klucz. Następnie [Utwórz zmienne środowiskowe](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla ciągu punktu końcowego klucza i usługi, `COMPUTER_VISION_SUBSCRIPTION_KEY` odpowiednio nazwane i `COMPUTER_VISION_ENDPOINT` .
 - Edytor kodu, taki jak [Visual Studio Code](https://code.visualstudio.com/download).
 
 ## <a name="create-and-run-the-sample"></a>Tworzenie i uruchamianie próbki
@@ -37,46 +37,49 @@ Aby utworzyć i uruchomić przykład, skopiuj poniższy kod do edytora kodu.
 import os
 import sys
 import requests
-# If you are using a Jupyter notebook, uncomment the following line.
+# If you are using a Jupyter notebook, uncomment the following lines.
 # %matplotlib inline
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 from PIL import Image
 from io import BytesIO
 
 # Add your Computer Vision subscription key and endpoint to your environment variables.
-if 'COMPUTER_VISION_SUBSCRIPTION_KEY' in os.environ:
-    subscription_key = os.environ['COMPUTER_VISION_SUBSCRIPTION_KEY']
-else:
-    print("\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable.\n**Restart your shell or IDE for changes to take effect.**")
-    sys.exit()
-
-if 'COMPUTER_VISION_ENDPOINT' in os.environ:
-    endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
+subscription_key = os.environ['COMPUTER_VISION_SUBSCRIPTION_KEY']
+endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
 
 thumbnail_url = endpoint + "vision/v2.1/generateThumbnail"
 
 # Set image_url to the URL of an image that you want to analyze.
 image_url = "https://upload.wikimedia.org/wikipedia/commons/9/94/Bloodhound_Puppy.jpg"
 
+# Construct URL
 headers = {'Ocp-Apim-Subscription-Key': subscription_key}
 params = {'width': '50', 'height': '50', 'smartCropping': 'true'}
 data = {'url': image_url}
-response = requests.post(thumbnail_url, headers=headers,
-                         params=params, json=data)
+# Call API
+response = requests.post(thumbnail_url, headers=headers, params=params, json=data)
 response.raise_for_status()
 
+# Open the image from bytes
 thumbnail = Image.open(BytesIO(response.content))
-
-# Display the thumbnail.
-plt.imshow(thumbnail)
-plt.axis("off")
 
 # Verify the thumbnail size.
 print("Thumbnail is {0}-by-{1}".format(*thumbnail.size))
+
+# Save thumbnail to file
+thumbnail.save('thumbnail.png')
+
+# Display image
+thumbnail.show()
+
+# Optional. Display the thumbnail from Jupyter.
+# plt.imshow(thumbnail)
+# plt.axis("off")
 ```
 
 Następnie wykonaj poniższe czynności:
-1. Opcjonalnie zastąp wartość `image_url` adresem URL innego obrazu, dla którego chcesz wygenerować miniaturę.
+
+1. Obowiązkowe Zastąp wartość `image_url` adresem URL własnego obrazu.
 1. Zapisz kod jako plik z rozszerzeniem `.py`. Na przykład `get-thumbnail.py`.
 1. Otwórz okno wiersza polecenia.
 1. W wierszu polecenia użyj polecenia `python`, aby uruchomić próbkę. Na przykład `python get-thumbnail.py`.

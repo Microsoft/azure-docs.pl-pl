@@ -1,26 +1,26 @@
 ---
 title: Szybki Start — używanie środowiska Node. js do wykonywania zapytań z Azure Cosmos DB konta interfejsu API SQL
 description: Jak używać środowiska Node. js do tworzenia aplikacji, która łączy się z Azure Cosmos DB konta interfejsu API SQL i wysyła zapytania do danych.
-author: deborahc
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 02/26/2020
-ms.author: dech
-ms.openlocfilehash: 0b29f9c1f395e079c97d5877d08bd7bd73c7ea53
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/11/2020
+ms.author: anfeldma
+ms.openlocfilehash: 4f874bd77432ba9ee110a7304629a80f1ce5d0dd
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80240313"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655361"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>Szybki Start: Używanie środowiska Node. js do nawiązywania połączenia i wykonywania zapytań dotyczących danych z Azure Cosmos DB konta interfejsu API SQL
 
 > [!div class="op_single_selector"]
 > - [.NET V3](create-sql-api-dotnet.md)
 > - [.NET V4](create-sql-api-dotnet-V4.md)
-> - [Java](create-sql-api-java.md)
+> - [Zestaw Java SDK v4](create-sql-api-java.md)
 > - [Node.js](create-sql-api-nodejs.md)
 > - [Python](create-sql-api-python.md)
 > - [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -35,7 +35,7 @@ Obejrzyj ten film wideo, aby zapoznać się z pełnym przewodnikiem dotyczącym 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Lub [Wypróbuj bezpłatnie Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) bez subskrypcji platformy Azure. Można również użyć [emulatora Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) z identyfikatorem URI `https://localhost:8081` i kluczem `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`.
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Lub [Wypróbuj bezpłatnie Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) bez subskrypcji platformy Azure. Można również użyć [emulatora Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) z identyfikatorem URI `https://localhost:8081` i kluczem `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==` .
 - [Node. js 6.0.0 +](https://nodejs.org/).
 - Usługi [git](https://www.git-scm.com/downloads).
 
@@ -55,7 +55,7 @@ Opcja "Wypróbuj Azure Cosmos DB bezpłatnie" nie wymaga subskrypcji platformy A
 
 Teraz można użyć narzędzia Eksplorator danych w Azure Portal, aby utworzyć bazę danych i kontener.
 
-1. Wybierz pozycję **Eksplorator danych** > **nowy kontener**.
+1. Wybierz pozycję **Eksplorator danych**  >  **nowy kontener**.
 
    Obszar **Dodaj kontener** jest wyświetlany po prawej stronie, może być konieczne przewinięcie w prawo w celu wyświetlenia go.
 
@@ -67,7 +67,7 @@ Teraz można użyć narzędzia Eksplorator danych w Azure Portal, aby utworzyć 
    | ----------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
    | **Identyfikator bazy danych**   | Zadania           | Wprowadź _Zadania_ jako nazwę nowej bazy danych. Nazwy baz danych muszą zawierać od 1 do 255 znaków i nie mogą zawierać znaków `/, \\, #, ?` ani mieć spacji na końcu. Sprawdź opcję **zainicjuj przepływność bazy danych** , która umożliwia udostępnianie przepływności dla bazy danych we wszystkich kontenerach w bazie danych. Ta opcja pomaga również w obniżyć kosztów. |
    | **Przepływność**    | 400             | Pozostaw przepływność na 400 jednostek żądań na sekundę (RU/s). Jeśli chcesz zmniejszyć opóźnienie, możesz później przeskalować przepływność w górę.                                                                                                                                                                                                                                                    |
-   | **Identyfikator kontenera**  | Items           | Wprowadź _elementy_ jako nazwę nowego kontenera. W przypadku identyfikatorów kontenerów obowiązują takie same wymagania dotyczące znaków jak dla nazw baz danych.                                                                                                                                                                                                                                                               |
+   | **Identyfikator kontenera**  | Items (Elementy)           | Wprowadź _elementy_ jako nazwę nowego kontenera. W przypadku identyfikatorów kontenerów obowiązują takie same wymagania dotyczące znaków jak dla nazw baz danych.                                                                                                                                                                                                                                                               |
    | **Klucz partycji** | /category       | W przykładzie opisanym w tym artykule jest stosowany _/Category_ jako klucz partycji.                                                                                                                                                                                                                                                                                                           |
 
    Oprócz powyższych ustawień można opcjonalnie dodać **unikatowe klucze** dla kontenera. W tym przykładzie pozostawmy pole puste. Unikatowe klucze umożliwiają deweloperom dodanie warstwy integralności danych do bazy danych. Tworząc unikatowe Zasady kluczy podczas tworzenia kontenera, należy zapewnić unikatowość jednej lub więcej wartości na klucz partycji. Aby dowiedzieć się więcej, zapoznaj się z artykułem [Unique keys in Azure Cosmos DB (Unikatowe klucze w usłudze Azure Cosmos DB)](unique-keys.md).
@@ -98,7 +98,7 @@ Ten krok jest opcjonalny. Jeśli chcesz dowiedzieć się, jak zasoby bazy danych
 
 Jeśli znasz poprzednią wersję zestawu SDK JavaScript języka SQL, możesz użyć, aby wyświetlić _kolekcje_ terminów i _dokument_. Ponieważ Azure Cosmos DB obsługuje [wiele modeli interfejsów API](introduction.md), [wersja 2.0 + zestawu JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos) używa _kontenera_warunków ogólnych, który może być kolekcją, wykresem lub tabelą i _elementem_ do opisywania zawartości kontenera.
 
-Cosmos DB zestawu SDK języka JavaScript nazywa się@azure/cosmos"" i można go zainstalować z npm...
+Cosmos DB zestawu SDK języka JavaScript nazywa się " @azure/cosmos " i można go zainstalować z npm...
 
 ```bash
 npm install @azure/cosmos
@@ -106,7 +106,7 @@ npm install @azure/cosmos
 
 Wszystkie poniższe fragmenty kodu pochodzą z pliku _app.js_.
 
-- `CosmosClient` Zaimportowano z pakietu `@azure/cosmos` npm.
+- `CosmosClient`Zaimportowano z `@azure/cosmos` pakietu npm.
 
   ```javascript
   const CosmosClient = require("@azure/cosmos").CosmosClient;
@@ -167,7 +167,7 @@ Wszystkie poniższe fragmenty kodu pochodzą z pliku _app.js_.
   ```
 
 > [!NOTE]
-> W ramach metod "Update" i "Delete" element musi zostać wybrany z bazy danych przez wywołanie `container.item()`. Przesłane dwa parametry są identyfikatorem elementu i kluczem partycji elementu. W tym przypadku klucz partycjonowania jest wartością pola "Category".
+> W ramach metod "Update" i "Delete" element musi zostać wybrany z bazy danych przez wywołanie `container.item()` . Przesłane dwa parametry są identyfikatorem elementu i kluczem partycji elementu. W tym przypadku klucz partycjonowania jest wartością pola "Category".
 
 ## <a name="update-your-connection-string"></a>Aktualizowanie parametrów połączenia
 
@@ -189,7 +189,7 @@ Teraz wróć do Azure Portal, aby uzyskać szczegóły parametrów połączenia 
 
 ## <a name="run-the-app"></a>Uruchomienie aplikacji
 
-1. Uruchom `npm install` w terminalu, aby zainstalować@azure/cosmospakiet npm
+1. Uruchom `npm install` w terminalu, aby zainstalować @azure/cosmos pakiet npm
 
 2. Uruchom polecenie `node app.js` w terminalu, aby uruchomić aplikację Node.
 

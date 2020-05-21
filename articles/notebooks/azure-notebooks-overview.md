@@ -3,16 +3,16 @@ title: Przegląd Azure Notebooks wersji zapoznawczej
 description: Uruchamiaj notesy Jupyter w chmurze za pomocą usługi bezpłatna wersja zapoznawcza Azure Notebooks, w której nie jest wymagana instalacja ani konfiguracja.
 ms.topic: overview
 ms.date: 04/05/2019
-ms.openlocfilehash: bd2355bdefcedca5026a25915dc1da55fdc33a36
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e40b7056aef7e59759c9e04ba9d98fbfb7d28ca3
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75646334"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647532"
 ---
 # <a name="overview-of-azure-notebooks-preview"></a>Przegląd Azure Notebooks wersji zapoznawczej
 
-Azure Notebooks to bezpłatna usługa hostowana umożliwiająca tworzenie i uruchamianie notesów Jupyter w chmurze bez instalacji. [Jupyter](https://jupyter.org/) (wcześniej IPython) to projekt typu open source, który umożliwia łatwe łączenie tekstu Markdown, kodu wykonywalnego, trwałych danych, grafiki i wizualizacji na jednej kanwie nazywanej *notesem* z możliwością udostępniania (zdjęcia za zgodą jupyter.org):
+Azure Notebooks to bezpłatna usługa hostowana umożliwiająca tworzenie i uruchamianie notesów Jupyter w chmurze bez instalacji. [Jupyter](https://jupyter.org/) (dawniej IPython) to projekt typu "open source", który umożliwia łatwe łączenie tekstu z promocji, kodu wykonywalnego, danych trwałych, grafiki i wizualizacji na pojedynczą, możliwą do współużytkowaną kanwę, nazywaną *notesem* (grzecznościowa obraz Jupyter.org):
 
 [![Przykłady notesów Jupyter](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 

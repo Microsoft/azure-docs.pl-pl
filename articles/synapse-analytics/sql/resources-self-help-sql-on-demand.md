@@ -2,19 +2,19 @@
 title: Wersja zapoznawcza na żądanie SQL) Samopomoc
 description: Ta sekcja zawiera informacje, które mogą pomóc w rozwiązywaniu problemów z programem SQL na żądanie (wersja zapoznawcza).
 services: synapse analytics
-author: vvasic-msft
+author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: ''
-ms.date: 04/15/2020
-ms.author: vvasic
+ms.date: 05/15/2020
+ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: e2c262915c928cf487cb84aeb3423d67e7a96e97
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8b2a9b6c5324240d71a80cde904057757d6ef421
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424832"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658878"
 ---
 # <a name="self-help-for-sql-on-demand-preview"></a>Samoobsługowa pomoc dla SQL na żądanie (wersja zapoznawcza)
 
@@ -29,17 +29,47 @@ Jeśli program Synapse Studio nie może nawiązać połączenia z usługą SQL n
 
 ## <a name="query-fails-because-file-cannot-be-opened"></a>Zapytanie nie powiodło się, ponieważ nie można otworzyć pliku
 
-Jeśli zapytanie nie powiedzie się z powodu błędu "nie można otworzyć pliku, ponieważ nie istnieje lub jest używany przez inny proces" i masz pewność, że oba pliki istnieją i nie są używane przez inny proces, oznacza to, że usługa SQL na żądanie nie może uzyskać dostępu do pliku. Ten problem jest zwykle spowodowany tym, że tożsamość Azure Active Directory nie ma uprawnień dostępu do pliku. Domyślnie SQL na żądanie próbuje uzyskać dostęp do pliku przy użyciu tożsamości Azure Active Directory. Aby rozwiązać ten problem, musisz mieć odpowiednie prawa dostępu do pliku. Najprostszym sposobem jest przyznanie sobie roli współautor danych obiektu blob magazynu na koncie magazynu, które próbujesz zbadać. [Aby uzyskać więcej informacji, odwiedź pełny Przewodnik po Azure Active Directory kontroli dostępu do magazynu](../../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). 
+Jeśli zapytanie nie powiedzie się z powodu błędu "nie można otworzyć pliku, ponieważ nie istnieje lub jest używany przez inny proces" i masz pewność, że oba pliki istnieją i nie są używane przez inny proces, oznacza to, że usługa SQL na żądanie nie może uzyskać dostępu do pliku. Ten problem jest zwykle spowodowany tym, że tożsamość Azure Active Directory nie ma uprawnień dostępu do pliku. Domyślnie SQL na żądanie próbuje uzyskać dostęp do pliku przy użyciu tożsamości Azure Active Directory. Aby rozwiązać ten problem, musisz mieć odpowiednie prawa dostępu do pliku. Najprostszym sposobem jest udzielenie sobie roli „Współautor danych obiektu blob usługi Storage” w odniesieniu do konta magazynu, którego dotyczy zapytanie. [Aby uzyskać więcej informacji, zobacz pełny przewodnik dotyczący kontroli dostępu do magazynu w usłudze Azure Active Directory](../../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). 
 
 ## <a name="query-fails-because-it-cannot-be-executed-due-to-current-resource-constraints"></a>Zapytanie nie powiodło się, ponieważ nie można go wykonać ze względu na bieżące ograniczenia zasobów 
 
 Jeśli zapytanie nie powiedzie się i zostanie wyświetlony komunikat o błędzie "to zapytanie nie może zostać wykonane z powodu bieżących ograniczeń zasobów", oznacza to, że w tej chwili nie można wykonać tego zapytania z powodu ograniczeń zasobów: 
 
-- Upewnij się, że są używane typy danych o rozsądnych rozmiarach. Ponadto Określ schemat dla plików Parquet dla kolumn ciągów, ponieważ będą one domyślnie VARCHAR (8000). 
+- Upewnij się, że są używane typy danych o rozsądnych rozmiarach. Ponadto określ schemat dla kolumn ciągów plików Parquet, ponieważ domyślnie jest to VARCHAR(8000). 
 
 - Jeśli zapytanie wskazuje pliki CSV, należy rozważyć [utworzenie statystyk](develop-tables-statistics.md#statistics-in-sql-on-demand-preview). 
 
 - Zapoznaj się [z najlepszymi rozwiązaniami dotyczącymi wydajności dla programu SQL na żądanie](best-practices-sql-on-demand.md) , aby zoptymalizować zapytanie.  
+
+## <a name="create-statement-is-not-supported-in-master-database"></a>INSTRUKCJA CREATE nie jest obsługiwana w bazie danych Master
+
+Jeśli zapytanie nie powiedzie się, zostanie wyświetlony komunikat o błędzie:
+
+> "Nie można wykonać zapytania. Błąd: w bazie danych Master nie jest obsługiwana funkcja CREATE EXTERNAL TABLE/źródło danych/plik z ZAKRESem bazy danych. 
+
+oznacza to, że baza danych Master na żądanie SQL nie obsługuje tworzenia:
+  - Tabele zewnętrzne
+  - Zewnętrzne źródła danych
+  - Poświadczenia w zakresie bazy danych
+  - Zewnętrzne formaty plików
+
+Rozwiązanie:
+
+  1. Utwórz bazę danych użytkownika:
+
+```sql
+CREATE DATABASE <DATABASE_NAME>
+```
+
+  2. Wykonaj instrukcję CREATE w kontekście <DATABASE_NAME>, która nie powiodła się wcześniej dla bazy danych Master. 
+  
+  Przykład tworzenia zewnętrznego formatu pliku:
+    
+```sql
+USE <DATABASE_NAME>
+CREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] 
+WITH ( FORMAT_TYPE = PARQUET)
+```
 
 ## <a name="next-steps"></a>Następne kroki
 

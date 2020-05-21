@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/11/2020
+ms.date: 05/19/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 928e0cec1cad5d6fe8b70b728cd86a41577ce797
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: b54e8efc4f5f22a89526bb5d529805b33371529f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195357"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655125"
 ---
 # <a name="what-is-azure-firewall"></a>Co to jest usługa Azure Firewall?
 
@@ -124,10 +124,11 @@ Reguły filtrowania dla protokołów innych niż TCP/UDP (na przykład ICMP) nie
 |Aktywne FTP nie jest obsługiwane|Usługa Active FTP została wyłączona w zaporze platformy Azure w celu ochrony przed atakami za pośrednictwem protokołu FTP za pomocą polecenia FTP PORT.|Zamiast tego można użyć pasywnego protokołu FTP. Należy nadal jawnie otwierać porty TCP 20 i 21 w zaporze.
 |Metryka wykorzystania portów przez przytranslatora adresów sieciowych pokazuje 0%|Metryka wykorzystania portów w zaporze platformy Azure może wskazywać na użycie 0% nawet wtedy, gdy są używane porty. W takim przypadku użycie metryki jako części metryki kondycji zapory zapewnia niepoprawny wynik.|Ten problem został rozwiązany, a wdrażanie w środowisku produkcyjnym jest celem 2020 maja. W niektórych przypadkach ponowne wdrożenie zapory rozwiązuje problem, ale nie jest to spójne. Jako obejście pośrednie Użyj stanu kondycji zapory tylko w celu wyszukania *stanu = obniżona*wartość, a nie dla *stanu = zła kondycja*. W przypadku wyczerpania portów zostanie wyświetlony stan *obniżonej wydajności*. *Nie* działa w przyszłości, gdy jest więcej metryk, które mają wpływ na kondycję zapory.
 |DNAT nie jest obsługiwana z włączonym wymuszonym tunelowaniem|Zapory wdrożone z włączonym wymuszonym tunelowaniem nie mogą obsługiwać przychodzącego dostępu z Internetu z powodu asymetrycznego routingu.|Jest to spowodowane projektem routingu asymetrycznego. Ścieżka zwrotna dla połączeń przychodzących odbywa się za pośrednictwem lokalnej zapory, która nie widziała ustanowionego połączenia.
-|Pasywny protokół FTP nie działa w przypadku zapór z wieloma publicznymi adresami IP.|Pasywne FTP ustanawia różne połączenia dla kanałów kontroli i danych. Gdy Zapora z wieloma publicznymi adresami IP wysyła dane wychodzące, losowo wybiera jeden z jego publicznych adresów IP dla źródłowego adresu IP. Usługa FTP kończy się niepowodzeniem, gdy kanały danych i kontroli używają różnych źródłowych adresów IP.|Zaplanowano jawną konfigurację translatora adresów sieciowych. W międzyczasie Rozważ użycie pojedynczego adresu IP w tej sytuacji.|
+|Pasywny protokół FTP nie działa w przypadku zapór z wieloma publicznymi adresami IP|Pasywne FTP ustanawia różne połączenia dla kanałów kontroli i danych. Gdy Zapora z wieloma publicznymi adresami IP wysyła dane wychodzące, losowo wybiera jeden z jego publicznych adresów IP dla źródłowego adresu IP. Usługa FTP kończy się niepowodzeniem, gdy kanały danych i kontroli używają różnych źródłowych adresów IP.|Zaplanowano jawną konfigurację translatora adresów sieciowych. W międzyczasie Rozważ użycie pojedynczego adresu IP w tej sytuacji.|
 |W metryce NetworkRuleHit brakuje wymiaru protokołu|Metryka ApplicationRuleHit umożliwia filtrowanie na podstawie protokołu, ale w odpowiedniej metryce NetworkRuleHit nie ma tej możliwości.|Trwa badanie poprawki.|
 |Reguły NAT z portami z zakresu od 64000 do 65535 nie są obsługiwane|Zapora platformy Azure zezwala na dowolny port w zakresie 1-65535 w regułach sieci i aplikacji, jednak reguły NAT obsługują tylko porty w zakresie 1-63999.|Jest to bieżące ograniczenie.
-|Aktualizacje konfiguracji mogą mieć średnio pięć minut.|Aktualizacja konfiguracji zapory platformy Azure może trwać od trzech do pięciu minut, a aktualizacje równoległe nie są obsługiwane.|Trwa badanie poprawki.
+|Aktualizacje konfiguracji mogą mieć średnio pięć minut|Aktualizacja konfiguracji zapory platformy Azure może trwać od trzech do pięciu minut, a aktualizacje równoległe nie są obsługiwane.|Trwa badanie poprawki.|
+|Zapora platformy Azure używa nagłówków SNI TLS do filtrowania ruchu HTTPS i MSSQL|Jeśli oprogramowanie przeglądarki lub serwera nie obsługuje rozszerzenia wskaźnika nazwy serwera (SNI), nie będzie można nawiązać połączenia za pomocą zapory platformy Azure.|Jeśli oprogramowanie przeglądarki lub serwera nie obsługuje SNI, może być możliwe sterowanie połączeniem przy użyciu reguły sieci zamiast reguły aplikacji. Zobacz [oznaczanie nazwy serwera](https://wikipedia.org/wiki/Server_Name_Indication) oprogramowania, które obsługuje SNI.
 
 ## <a name="next-steps"></a>Następne kroki
 

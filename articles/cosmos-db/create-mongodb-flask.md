@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: 43f4cf7e4008aa01a26c48a8e99f7465eeeb234b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 53d1010f501e59b99c3ba6bac675124cdc5f77a0
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77061747"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659222"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Szybki Start: Tworzenie aplikacji w języku Python przy użyciu interfejsu API Azure Cosmos DB dla MongoDB
 
@@ -23,7 +23,7 @@ ms.locfileid: "77061747"
 > * [Node.js](create-mongodb-nodejs.md)
 > * [Python](create-mongodb-flask.md)
 > * [Xamarin](create-mongodb-xamarin.md)
-> * [Golang](create-mongodb-golang.md)
+> * [Golang](create-mongodb-go.md)
 >  
 
 W tym przewodniku szybki start użyjesz Azure Cosmos DB konta interfejsu API usługi Mongo DB lub emulatora Azure Cosmos DB, aby uruchomić aplikację sieci Web do wykonania z kolbą języka Python sklonowaną z usługi GitHub. Azure Cosmos DB to wielomodelowa usługa bazy danych, która pozwala szybko tworzyć i wysyłać zapytania dotyczące dokumentów, tabel, kluczy i wartościowych baz danych przy użyciu dystrybucji globalnej i możliwości skalowania w poziomie.
@@ -96,9 +96,9 @@ Wszystkie poniższe fragmenty kodu pochodzą z pliku *App.py* i używają parame
 
 2. Otwórz okno terminalu i za pomocą polecenia `cd` przejdź do katalogu, w którym jest zapisana aplikacja.
 
-3. Następnie Ustaw zmienną środowiskową dla aplikacji `set FLASK_APP=app.py` `$env:FLASK_APP = app.py` do kolby dla edytorów programu PowerShell lub `export FLASK_APP=app.py` w przypadku korzystania z komputera Mac. 
+3. Następnie Ustaw zmienną środowiskową dla aplikacji do kolby `set FLASK_APP=app.py` dla `$env:FLASK_APP = app.py` edytorów programu PowerShell lub w `export FLASK_APP=app.py` przypadku korzystania z komputera Mac. 
 
-4. Uruchom aplikację za pomocą `flask run` programu i przejdź do *protokołu\/http:/127.0.0.1:5000/*.
+4. Uruchom aplikację za pomocą programu `flask run` i przejdź do *protokołu http: \/ /127.0.0.1:5000/*.
 
 5. Dodawaj oraz usuwaj zadania i sprawdzaj, jak są dodawane i zmieniane w kolekcji.
 
@@ -124,7 +124,7 @@ Aby przetestować kod na koncie usługi Live Azure Cosmos DB, Pobierz informacje
 
 Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne do nawiązania komunikacji z usługą Azure Cosmos DB. Możesz ją uruchomić tak jak wcześniej.
 
-## <a name="deploy-to-azure"></a>Wdrażanie na platformie Azure
+## <a name="deploy-to-azure"></a>Wdróż na platformie Azure
 
 Aby wdrożyć tę aplikację, możesz utworzyć nową aplikację internetową na platformie Azure i włączyć ciągłe wdrażanie z rozwidleniem tego repozytorium GitHub. Postępuj zgodnie z tym [samouczkiem](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment) , aby skonfigurować ciągłe wdrażanie za pomocą usługi GitHub na platformie Azure.
 
@@ -151,7 +151,7 @@ Jeśli nie chcesz tworzyć rozwidlenia tego repozytorium, możesz również wybr
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

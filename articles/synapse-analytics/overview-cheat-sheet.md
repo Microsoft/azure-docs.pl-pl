@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: c7ae76128e90dbd9328c4bc5adcbddc334ab11cc
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: c49e5f421f88b4d2676204ff0a32a0aa2b808be1
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983163"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652661"
 ---
 # <a name="azure-synapse-analytics-cheat-sheet"></a>Arkusz Ściągawka usługi Azure Synapse Analytics
 
@@ -31,7 +31,7 @@ Arkusz usługi Azure Synapse Analytics Ściągawka przeprowadzi Cię przez podst
 | Rzeczowniki i czasowniki                         | Wyniki działania       |
 |:---                                 |:---                 |
 | **Obszar roboczy Synapse (wersja zapoznawcza)** | Jest to zabezpieczana granica współpracy na potrzeby przeprowadzania analiz przedsiębiorstw opartych na chmurze na platformie Azure. Obszar roboczy jest wdrażany w określonym regionie i ma skojarzone konto ADLS Gen2 i system plików (do przechowywania danych tymczasowych). Obszar roboczy znajduje się w grupie zasobów. |
-| **Analiza SQL**   | Uruchom analizę z pulami lub z możliwościami na żądanie.  |
+| **Synapse SQL**   | Uruchom analizę z pulami lub z możliwościami na żądanie.  |
 | **Pula SQL**   | w obszarze roboczym można wdrożyć zasoby od 0 do N z przydziałem SQL z odpowiednimi bazami danych. Każda pula SQL ma skojarzoną bazę danych. Pulę SQL można skalować, wstrzymywać i wznawiać ręcznie lub automatycznie. Pula SQL może być skalowana z 100 jednostek dwu do 30 000 jednostek dwu.       |
 | **SQL na żądanie (wersja zapoznawcza)**   | System rozproszonego przetwarzania danych zbudowany na potrzeby danych na dużą skalę, który umożliwia uruchamianie zapytań T-SQL za pośrednictwem danych w usłudze Data Lake. Nie trzeba zarządzać infrastrukturą.       |
 |**Apache Spark** | Czas wykonywania platformy Spark używany w puli platformy Spark. Bieżącą obsługiwaną wersją jest platforma Spark 2,4 z 3.6.1 języka Python, Scala 2.11.12, obsługą platformy .NET dla Apache Spark 0,5 i delty Lake 0,3.  | 
@@ -40,7 +40,7 @@ Arkusz usługi Azure Synapse Analytics Ściągawka przeprowadzi Cię przez podst
 | **Sesja platformy Spark**  |   Zunifikowany punkt wejścia aplikacji Spark. Zapewnia sposób współpracy z różnymi funkcjami platformy Spark i z mniejszą liczbą konstrukcji. Aby uruchomić Notes, należy utworzyć sesję. Sesję można skonfigurować do uruchamiania na określonej liczbie wykonawców o określonym rozmiarze. Domyślną konfiguracją sesji notesu jest uruchamianie na 2 wykonawczych o średnim rozmiarze. |
 | **Żądanie SQL**  |   Operacje, takie jak zapytanie, są wykonywane za pomocą puli SQL lub SQL na żądanie. |
 |**Integracja danych**| Zapewnia możliwość pozyskiwania danych między różnymi źródłami i organizowania działań uruchomionych w obszarze roboczym lub poza obszarem roboczym.| 
-|**Artefakty**| Koncepcja, która hermetyzuje wszystkie obiekty wymagane przez użytkownika do zarządzania źródłami danych, opracowywania, organizowania i wizualizacji.|
+|**Artifacts**| Koncepcja, która hermetyzuje wszystkie obiekty wymagane przez użytkownika do zarządzania źródłami danych, opracowywania, organizowania i wizualizacji.|
 |**Notes**| Interaktywny i reaktywny interfejs nauki i inżynierii danych obsługujący Scala, PySpark, C# i SparkSQL. |
 |**Definicja zadania platformy Spark**|Interfejs do przesyłania zadania platformy Spark przez zestaw jar zawierający kod i jego zależności.|
 |**Przepływ danych**|  Zapewnia w pełni wizualizację, bez konieczności kodowania danych Big Data. Wszystkie optymalizacje i wykonywanie są obsługiwane w sposób bezserwerowy. |
@@ -55,7 +55,7 @@ Arkusz usługi Azure Synapse Analytics Ściągawka przeprowadzi Cię przez podst
 
 - [Tworzenie obszaru roboczego](quickstart-create-workspace.md)
 - [Korzystanie z programu Synapse Studio](quickstart-synapse-studio.md)
-- [Tworzenie puli SQL](quickstart-create-sql-pool.md)
+- [Tworzenie puli SQL](quickstart-create-sql-pool-portal.md)
 - [Korzystanie z bazy danych SQL na żądanie](quickstart-sql-on-demand.md)
-- [Tworzenie puli Apache Spark](quickstart-create-apache-spark-pool.md)
+- [Tworzenie puli Apache Spark](quickstart-create-apache-spark-pool-portal.md)
 

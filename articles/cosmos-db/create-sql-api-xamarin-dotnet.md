@@ -1,26 +1,26 @@
 ---
 title: 'Azure Cosmos DB: tworzenie aplikacji z listą zadań do wykonania za pomocą oprogramowania Xamarin'
 description: Przykładowy kod Xamarin, którego można używać do nawiązywania połączeń z usługą Azure Cosmos DB i wykonywania w niej zapytań
-author: codemillmatt
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/30/2018
-ms.author: masoucou
-ms.openlocfilehash: 125cc2516fbd694bbe62545e85d4e14225fb2a6a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/11/2020
+ms.author: anfeldma
+ms.openlocfilehash: 3278374a0a09ed4e776ba0f773ad2dafd9786164
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80756435"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652011"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Szybki Start: Tworzenie aplikacji do zrobienia za pomocą platformy Xamarin przy użyciu Azure Cosmos DB konta interfejsu API SQL
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
-> * [Java](create-sql-api-java.md)
+> * [Zestaw Java SDK v4](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -118,9 +118,9 @@ Kod w rozwiązaniu ToDoItems zawiera następujące elementy:
 Teraz dokonamy szybkiego przeglądu sposobu komunikowania się aplikacji z usługą Azure Cosmos DB.
 
 * Wymagane jest dodanie pakietu NuGet [Microsoft.Azure.DocumentDb.Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/) do wszystkich projektów.
-* `ToDoItem` Klasa w folderze folderze Azure-DocumentDB-dotnet/Samples/Xamarin/ToDoItems/ToDoItems. Core/models modeluje dokumenty w kontenerze **Items** utworzonym powyżej. Należy pamiętać, że w nazwach właściwości jest rozróżniana wielkość liter.
+* `ToDoItem`Klasa w folderze folderze Azure-DocumentDB-dotnet/Samples/Xamarin/ToDoItems/ToDoItems. Core/models modeluje dokumenty w kontenerze **Items** utworzonym powyżej. Należy pamiętać, że w nazwach właściwości jest rozróżniana wielkość liter.
 * Klasa `CosmosDBService` znajdująca się w folderze azure-documentdb-dotnet/samples/xamarin/ToDoItems/ToDoItems.Core/Services hermetyzuje komunikację z usługą Azure Cosmos DB.
-* Klasa `CosmosDBService` zawiera zmienną typu `DocumentClient`. `DocumentClient` Służy do konfigurowania i wykonywania żądań dotyczących konta Azure Cosmos DB i jest tworzone wystąpienie:
+* Klasa `CosmosDBService` zawiera zmienną typu `DocumentClient`. Służy `DocumentClient` do konfigurowania i wykonywania żądań dotyczących konta Azure Cosmos DB i jest tworzone wystąpienie:
 
     ```csharp
     docClient = new DocumentClient(new Uri(APIKeys.CosmosEndpointUrl), APIKeys.CosmosAuthKey);
@@ -130,7 +130,7 @@ Teraz dokonamy szybkiego przeglądu sposobu komunikowania się aplikacji z usłu
 
    [!code-csharp[](~/samples-cosmosdb-xamarin/src/ToDoItems.Core/Services/CosmosDBService.cs?name=GetToDoItems)] 
 
-    `CreateDocumentQuery<T>` Pobiera identyfikator URI wskazujący kontener utworzony w poprzedniej sekcji. Można również określić operatory LINQ, na przykład klauzulę `Where`. W tym przypadku zwracane są tylko te zadania, które nie zostały jeszcze wykonane.
+    `CreateDocumentQuery<T>`Pobiera identyfikator URI wskazujący kontener utworzony w poprzedniej sekcji. Można również określić operatory LINQ, na przykład klauzulę `Where`. W tym przypadku zwracane są tylko te zadania, które nie zostały jeszcze wykonane.
 
     Funkcja `CreateDocumentQuery<T>` jest wykonywana synchronicznie i zwraca obiekt `IQueryable<T>`. Jednak metoda `AsDocumentQuery` konwertuje obiekt `IQueryable<T>` do obiektu `IDocumentQuery<T>`, który może być wykonywany asynchronicznie. Dzięki temu wątek interfejsu użytkownika nie jest blokowany w aplikacjach mobilnych.
 
@@ -139,17 +139,17 @@ Teraz dokonamy szybkiego przeglądu sposobu komunikowania się aplikacji z usłu
 > [!TIP]
 > Kilka funkcji działających w kontenerach usługi Azure Cosmos i dokumentach przyjmuje identyfikator URI jako parametr, który określa adres kontenera lub dokumentu. Ten identyfikator URI jest tworzony przy użyciu klasy `URIFactory`. Wszystkie identyfikatory URI baz danych, kontenerów i dokumentów można utworzyć za pomocą tej klasy.
 
-* Funkcja `ComsmosDBService.InsertToDoItem` pokazuje, jak wstawić nowy dokument:
+* `ComsmosDBService.InsertToDoItem`Funkcja pokazuje, jak wstawić nowy dokument:
 
    [!code-csharp[](~/samples-cosmosdb-xamarin/src/ToDoItems.Core/Services/CosmosDBService.cs?name=InsertToDoItem)] 
 
     Określono identyfikator URI elementu, a także element, który ma zostać wstawiony.
 
-* Funkcja `CosmosDBService.UpdateToDoItem` pokazuje, jak zastąpić istniejący dokument nowym:
+* `CosmosDBService.UpdateToDoItem`Funkcja pokazuje, jak zastąpić istniejący dokument nowym:
 
    [!code-csharp[](~/samples-cosmosdb-xamarin/src/ToDoItems.Core/Services/CosmosDBService.cs?name=UpdateToDoItem)] 
 
-    W tym miejscu jest wymagany nowy identyfikator URI w celu jednoznacznego zidentyfikowania dokumentu, który `UriFactory.CreateDocumentUri` ma zostać zastąpiony przez użycie i przekazanie go do nazwy bazy danych i kontenera oraz identyfikatora dokumentu.
+    W tym miejscu jest wymagany nowy identyfikator URI w celu jednoznacznego zidentyfikowania dokumentu, który ma zostać zastąpiony przez użycie `UriFactory.CreateDocumentUri` i przekazanie go do nazwy bazy danych i kontenera oraz identyfikatora dokumentu.
 
     Funkcja `DocumentClient.ReplaceDocumentAsync` zastępuje dokument identyfikowany przez identyfikator URI dokumentem określonym jako parametr.
 
@@ -196,7 +196,7 @@ W poniższych krokach zademonstrowano sposób uruchamiania aplikacji przy użyci
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

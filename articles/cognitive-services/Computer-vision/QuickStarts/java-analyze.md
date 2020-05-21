@@ -11,23 +11,23 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: f68c58c16c4efd75941e00b859784f810915b575
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3f5f273537593f5af4f398e55d72cd3f91a0c2cd
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81404860"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682216"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>Szybki Start: analizowanie obrazu zdalnego przy użyciu interfejsu API REST przetwarzanie obrazów i środowiska Java
 
 W tym przewodniku szybki start przeanalizuje zdalnie przechowywany obraz, aby wyodrębnić funkcje wizualne przy użyciu języka Java i interfejsu API REST przetwarzanie obrazów. [Metoda Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) umożliwia wyodrębnienie elementów wizualnych na podstawie zawartości obrazu.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Musisz mieć zainstalowaną platformę [Java&trade; i zestaw Standard Edition Development Kit 7 lub 8](https://aka.ms/azure-jdks) (JDK 7 lub 8).
-- Musisz mieć klucz subskrypcji funkcji przetwarzania obrazów. Możesz uzyskać bezpłatny klucz wersji próbnej z usługi [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Lub postępuj zgodnie z instrukcjami w temacie [Tworzenie konta Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) , aby subskrybować przetwarzanie obrazów i uzyskać klucz. Następnie [Utwórz zmienne środowiskowe](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla ciągu punktu końcowego klucza i usługi, odpowiednio `COMPUTER_VISION_SUBSCRIPTION_KEY` nazwane `COMPUTER_VISION_ENDPOINT`i.
+- Musisz mieć klucz subskrypcji funkcji przetwarzania obrazów. Możesz uzyskać bezpłatny klucz wersji próbnej z usługi [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Lub postępuj zgodnie z instrukcjami w temacie [Tworzenie konta Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) , aby subskrybować przetwarzanie obrazów i uzyskać klucz. Następnie [Utwórz zmienne środowiskowe](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla ciągu punktu końcowego klucza i usługi, `COMPUTER_VISION_SUBSCRIPTION_KEY` odpowiednio nazwane i `COMPUTER_VISION_ENDPOINT` .
 
 ## <a name="create-and-run-the-sample-application"></a>Tworzenie i uruchamianie przykładowej aplikacji
 
@@ -53,25 +53,24 @@ Aby utworzyć i uruchomić przykład, wykonaj następujące kroki:
    import org.json.JSONObject;
    ```
 
-1. Zastąp `Main` klasę publiczną poniższym kodem.
+1. Zastąp `AnalyzeImage` klasę publiczną poniższym kodem.
 1. Opcjonalnie zastąp wartość `imageToAnalyze` adresem URL innego obrazu, który chcesz analizować.
 
 ```java
-public class Main {
+public class AnalyzeImage {
     // **********************************************
     // *** Update or verify the following values. ***
     // **********************************************
 
     // Add your Computer Vision subscription key and endpoint to your environment variables.
     // After setting, close and then re-open your command shell or project for the changes to take effect.
-    String subscriptionKey = System.getenv("COMPUTER_VISION_SUBSCRIPTION_KEY");
-    String endpoint = ("COMPUTER_VISION_ENDPOINT");
+    private static String subscriptionKey = System.getenv("COMPUTER_VISION_SUBSCRIPTION_KEY");
+    private static String endpoint = System.getenv("COMPUTER_VISION_ENDPOINT");
 
-    private static final String uriBase = endpoint + 
-            "vision/v2.1/analyze";
+    private static final String uriBase = endpoint + "vision/v3.0/analyze";
     private static final String imageToAnalyze =
             "https://upload.wikimedia.org/wikipedia/commons/" +
-                    "1/12/Broadway_and_Times_Square_by_night.jpg";
+            "1/12/Broadway_and_Times_Square_by_night.jpg";
 
     public static void main(String[] args) {
         CloseableHttpClient httpClient = HttpClientBuilder.create().build();
@@ -120,9 +119,9 @@ public class Main {
 1. Zapisz, a następnie skompiluj projekt języka Java.
 1. Jeśli używasz środowiska IDE, uruchom klasę `Main`.
 
-Alternatywnie, jeśli używasz programu z poziomu okna wiersza polecenia, uruchom następujące polecenia. Te polecenia zakładają, że biblioteki znajdują się `libs` w folderze o nazwie znajdującym się `Main.java`w tym samym folderze co; w przeciwnym razie należy zamienić `libs` na ścieżkę do bibliotek.
+Alternatywnie, jeśli używasz programu z poziomu okna wiersza polecenia, uruchom następujące polecenia. Te polecenia zakładają, że biblioteki znajdują się w folderze o nazwie znajdującym `libs` się w tym samym folderze co `Main.java` ; Jeśli nie, należy zamienić na `libs` ścieżkę do bibliotek.
 
-1. Skompiluj plik `Main.java`.
+1. Skompiluj plik `Main.java` .
 
     ```bash
     javac -cp ".;libs/*" Main.java

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: e0bc7eeff276d44f3cd23e30eb54c9bd1ca94efd
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 49aaf9c748d75df8ffbb2adcd80aa6b966f88680
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80659104"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673190"
 ---
 1. Uruchom środowisko Eclipse.
 
@@ -19,7 +19,7 @@ ms.locfileid: "80659104"
 
 1. Za chwilę zostanie wyświetlone główne okno środowiska IDE programu Eclipse. Zamknij ekran **powitalny** , jeśli jest obecny.
 
-1. Na pasku menu zaćmienie Utwórz nowy projekt, wybierając pozycję **plik** > **Nowy** > **projekt**.
+1. Na pasku menu zaćmienie Utwórz nowy projekt, wybierając pozycję **plik**  >  **Nowy**  >  **projekt**.
 
 1. Zostanie wyświetlone okno dialogowe **Nowy projekt**. Wybierz pozycję **Java Project** (Projekt języka Java) i wybierz pozycję **Next** (Dalej).
 
@@ -31,7 +31,7 @@ ms.locfileid: "80659104"
 
 1. Jeśli zostanie wyświetlone okno **Open Associated Perspective?** (Otworzyć skojarzoną perspektywę?), wybierz pozycję **Open Perspective** (Otwórz perspektywę).
 
-1. W narzędziu **Package Explorer** kliknij prawym przyciskiem myszy projekt **quickstart**. Wybierz pozycję **Konfiguruj** > **Konwertuj do projektu Maven** z menu kontekstowego.
+1. W narzędziu **Package Explorer** kliknij prawym przyciskiem myszy projekt **quickstart**. Wybierz pozycję **Konfiguruj**  >  **Konwertuj do projektu Maven** z menu kontekstowego.
 
    ![Zrzut ekranu narzędzia Package Explorer](../articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-04-convert-to-maven-project.png)
 
@@ -45,7 +45,7 @@ ms.locfileid: "80659104"
 
      [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/pom.xml#repositories)]
 
-   * Należy również dodać `dependencies` element z opcją 1.11.0 zestawu mowy SDK jako zależność:
+   * Należy również dodać `dependencies` element z opcją 1.12.0 zestawu mowy SDK jako zależność:
 
      [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-microphone/pom.xml#dependencies)]
 

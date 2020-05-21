@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 02/10/2020
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 1992a2a63d16a955d136459f5dbaece7df815c71
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 40a1d75ff90efafff14cd27ab439df8ab3729c50
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77132028"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83674305"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Wprowadzenie do prywatnych rejestrów kontenerów platformy Docker na platformie Azure
 
@@ -36,16 +36,16 @@ Platforma Azure udostępnia narzędzia, w tym interfejs wiersza polecenia platfo
 
 ## <a name="key-features"></a>Najważniejsze funkcje
 
-* **Jednostki SKU rejestru** — Utwórz co najmniej jeden rejestr kontenerów w ramach subskrypcji platformy Azure. Rejestry są dostępne w trzech jednostkach SKU: [Basic, standard i Premium](container-registry-skus.md), z których każdy obsługuje integrację elementów webhook, uwierzytelnianie rejestru przy użyciu Azure Active Directory i usuwanie funkcji. Utwórz rejestr w tej samej lokalizacji platformy Azure, w której znajdują się wdrożenia, aby korzystać z lokalnego, bliskiego sieciowo magazynu obrazów kontenerów. Użyj funkcji [replikacji geograficznej](container-registry-geo-replication.md) dostępnej w rejestrach w warstwie Premium dla scenariuszy zaawansowanej replikacji i dystrybucji obrazu kontenera. 
+* **Warstwy usług rejestru** — Utwórz co najmniej jeden rejestr kontenerów w ramach subskrypcji platformy Azure. Rejestry są dostępne w trzech warstwach: [podstawowa, standardowa i Premium](container-registry-skus.md), z których każdy obsługuje integrację elementów webhook, uwierzytelnianie rejestru przy użyciu Azure Active Directory i usuwanie funkcji. Utwórz rejestr w tej samej lokalizacji platformy Azure, w której znajdują się wdrożenia, aby korzystać z lokalnego, bliskiego sieciowo magazynu obrazów kontenerów. Użyj funkcji [replikacji geograficznej](container-registry-geo-replication.md) dostępnej w rejestrach w warstwie Premium dla scenariuszy zaawansowanej replikacji i dystrybucji obrazu kontenera. 
 
-* **Zabezpieczenia i dostęp** — Zaloguj się do rejestru przy użyciu interfejsu wiersza polecenia platformy Azure lub standardowej `docker login` opcji. Azure Container Registry transferuje obrazy kontenerów za pośrednictwem protokołu HTTPS i obsługuje protokół TLS w celu zabezpieczania połączeń klientów. 
+* **Zabezpieczenia i dostęp** — Zaloguj się do rejestru przy użyciu interfejsu wiersza polecenia platformy Azure lub standardowej opcji `docker login` . Azure Container Registry transferuje obrazy kontenerów za pośrednictwem protokołu HTTPS i obsługuje protokół TLS w celu zabezpieczania połączeń klientów. 
 
   > [!IMPORTANT]
   > Od 13 stycznia 2020, Azure Container Registry będą wymagały wszystkich bezpiecznych połączeń z serwerów i aplikacji do korzystania z protokołu TLS 1,2. Włącz protokół TLS 1,2 przy użyciu dowolnego ostatniego klienta platformy Docker (wersja 18.03.0 lub nowsza). Obsługa protokołu TLS 1,0 i 1,1 zostanie wycofana. 
 
   Możesz [kontrolować dostęp](container-registry-authentication.md) do rejestru kontenerów za pomocą tożsamości platformy Azure, [jednostki usługi](../active-directory/develop/app-objects-and-service-principals.md) wspieranej przez usługę Azure Active Directory lub podanego konta administratora. Za pomocą kontroli dostępu opartej na rolach (RBAC) można przypisywać użytkownikom lub systemom szczegółowe uprawnienia do rejestru.
 
-  Funkcje zabezpieczeń jednostki SKU Premium obejmują [zaufanie zawartości](container-registry-content-trust.md) dla podpisywania tagów obrazu oraz [zapory i sieci wirtualne (wersja zapoznawcza)](container-registry-vnet.md) w celu ograniczenia dostępu do rejestru. Azure Security Center opcjonalnie integrują się z Azure Container Registry, aby [skanować obrazy](../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) przy każdym wypchnięciu obrazu do rejestru.
+  Funkcje zabezpieczeń warstwy usługi Premium obejmują [zaufanie zawartości](container-registry-content-trust.md) dla podpisywania znacznika obrazu oraz [zapory i sieci wirtualne (wersja zapoznawcza)](container-registry-vnet.md) w celu ograniczenia dostępu do rejestru. Azure Security Center opcjonalnie integrują się z Azure Container Registry, aby [skanować obrazy](../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) przy każdym wypchnięciu obrazu do rejestru.
 
 * **Obsługiwane obrazy i artefakty** — pogrupowane w repozytorium, każdy obraz jest migawką tylko do odczytu kontenera zgodnego z platformą Docker. Rejestry kontenerów platformy Azure mogą obejmować zarówno obrazy systemu Windows, jak i Linux. Możesz kontrolować nazwy obrazów wszystkich wdrożeń kontenera. Użyj standardowych [poleceń platformy Docker](https://docs.docker.com/engine/reference/commandline/), aby wypchnąć obrazy do repozytorium lub aby ściągnąć je z repozytorium. Oprócz obrazów kontenerów platformy Docker Azure Container Registry przechowuje [powiązane formaty zawartości](container-registry-image-formats.md) , takie jak [wykresy Helm](container-registry-helm-repos.md) i obrazy skompilowane zgodnie ze [specyfikacją formatu obrazu typu Open Container Initiative (OCI)](https://github.com/opencontainers/image-spec/blob/master/spec.md).
 

@@ -8,32 +8,32 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 12/11/2019
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: c4335e1ac0f0ffc7ee5570a8f0819827fc77dd18
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 6d4e7297ba0b325aa0045c16620d716ceb1418b4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75384155"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650261"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-java"></a>Szybki Start: wysyłanie żądania wyszukiwania do wyszukiwanie jednostek Bing interfejsu API REST przy użyciu języka Java
 
 Ten przewodnik Szybki start umożliwi Ci utworzenie Twojego pierwszego wywołania interfejsu API wyszukiwania jednostek Bing i wyświetlenie odpowiedzi JSON. Ta prosta aplikacja w języku Java wysyła zapytanie wyszukiwania wiadomości do interfejsu API i wyświetla odpowiedź.
 
-Chociaż ta aplikacja jest napisana w języku Java, interfejs API jest usługą internetową zgodną z wzorcem REST i większością języków programowania.
+Mimo że aplikacja jest zapisywana w języku Java, interfejs API jest usługą sieci Web RESTful zgodną z większością języków programowania.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Zestaw Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/)
-* [Biblioteka Gson](https://github.com/google/gson)
+* [Zestaw Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/).
+* [Biblioteka Gson](https://github.com/google/gson).
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Tworzenie i inicjowanie projektu
 
-1. Utwórz nowy projekt w języku Java w ulubionym środowisku IDE lub edytorze i zaimportuj poniższe biblioteki.
+1. Utwórz nowy projekt Java w ulubionym środowisku IDE lub edytorze, a następnie zaimportuj następujące biblioteki:
 
    ```java
    import java.io.*;
@@ -50,7 +50,7 @@ Chociaż ta aplikacja jest napisana w języku Java, interfejs API jest usługą 
    import com.google.gson.JsonParser;
    ```
 
-2. W nowej klasie utwórz zmienne dla punktu końcowego interfejsu API, klucza subskrypcji i zapytania wyszukiwania. Możesz użyć poniższego globalnego punktu końcowego lub niestandardowego punktu końcowego [poddomeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) , który jest wyświetlany w Azure Portal dla zasobu.
+2. W nowej klasie utwórz zmienne dla punktu końcowego interfejsu API, klucza subskrypcji i zapytania wyszukiwania. Możesz użyć globalnego punktu końcowego w poniższym kodzie lub użyć punktu końcowego [niestandardowej domeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) podrzędnej wyświetlanego w Azure Portal dla zasobu.
 
    ```java
    public class EntitySearch {
@@ -68,7 +68,7 @@ Chociaż ta aplikacja jest napisana w języku Java, interfejs API jest usługą 
 
 ## <a name="construct-a-search-request-string"></a>Konstruowanie ciągu żądania wyszukiwania
 
-1. Utwórz funkcję o nazwie `search()` zwracającą `String` w formacie JSON. Zakoduj zapytanie wyszukiwania w formacie URL i dodaj je do ciągu parametrów za pomocą `&q=`. Dodaj do ciągu swój rynek za pomocą `?mkt=`.
+1. Utwórz funkcję o nazwie `search()` zwracającą `String` w formacie JSON. Zakoduj zapytanie wyszukiwania w formacie URL i dodaj je do ciągu parametrów za pomocą `&q=`. Dodaj swój rynek do ciągu parametru z parametrem `?mkt=` .
  
 2. Utwórz obiekt adresu URL zawierający Twoje ciągi hosta, ścieżki i parametrów.
     
@@ -104,7 +104,7 @@ Chociaż ta aplikacja jest napisana w języku Java, interfejs API jest usługą 
     //...
     ```
 
-3. Utwórz obiekt `String` do przechowywania odpowiedzi z obiektu `BufferedReader`. Przechodząc przez niego iteracyjnie, dołącz do ciągu poszczególne wiersze. Następnie zamknij czytnik i zwróć odpowiedź. 
+3. Utwórz obiekt `String` do przechowywania odpowiedzi z obiektu `BufferedReader`. Przechodząc przez niego iteracyjnie, dołącz do ciągu poszczególne wiersze. Następnie zamknij czytelnika i zwróć odpowiedź. 
     
     ```java
     String line;
@@ -119,9 +119,9 @@ Chociaż ta aplikacja jest napisana w języku Java, interfejs API jest usługą 
 
 ## <a name="format-the-json-response"></a>Formatowanie odpowiedzi w formacie JSON
 
-1. Utwórz nową funkcję o nazwie `prettify`, aby sformatować odpowiedź w formacie JSON. Utwórz nowy obiekt `JsonParser` i wywołaj metodę `parse()` dla tekstu JSON, a następnie zapisz go w obiekcie JSON. 
+1. Utwórz nową funkcję o nazwie `prettify`, aby sformatować odpowiedź w formacie JSON. Utwórz nowe `JsonParser` , wywołaj `parse()` dla tekstu JSON, a następnie Zapisz je jako obiekt JSON. 
 
-2. Za pomocą biblioteki Gson utwórz nowy element `GsonBuilder()` i za pomocą metody `setPrettyPrinting().create()` sformatuj zawartość JSON. Następnie ją zwróć.    
+2. Użyj biblioteki Gson, aby utworzyć nową `GsonBuilder()` , użyć `setPrettyPrinting().create()` do SFORMATOWANIA kodu JSON, a następnie zwrócić ją.    
   
    ```java
    //...
@@ -136,7 +136,7 @@ Chociaż ta aplikacja jest napisana w języku Java, interfejs API jest usługą 
 
 ## <a name="call-the-search-function"></a>Wywoływanie funkcji wyszukiwania
 
-1. Z poziomu metody main projektu wywołaj funkcję `search()` i za pomocą funkcji `prettify()` sformatuj tekst.
+- Z poziomu metody main projektu wywołaj funkcję `search()` i za pomocą funkcji `prettify()` sformatuj tekst.
     
     ```java
         public static void main(String[] args) {
@@ -220,5 +220,5 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 > [!div class="nextstepaction"]
 > [Tworzenie jednostronicowej aplikacji internetowej](../tutorial-bing-entities-search-single-page-app.md)
 
-* [Czym jest interfejs API wyszukiwania jednostek Bing?](../overview.md )
-* [Dokumentacja interfejsu API wyszukiwania jednostek Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)
+* [Czym jest interfejs API wyszukiwania jednostek Bing?](../overview.md)
+* [Odwołanie interfejs API wyszukiwania jednostek Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 01a9a8239e2997335f5123d63cfc664027cffa02
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 27471cad2dfcd7accdb6b43414f216f85552fab3
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75376396"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652490"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-spatial-anchors-in-cwinrt-and-directx"></a>Szybki Start: Tworzenie aplikacji HoloLens z zakotwiczeniami przestrzennymi platformy Azure w językach C++/WinRT i DirectX
 
@@ -54,6 +54,8 @@ Znajdź pole `SpatialAnchorsAccountKey` i zastąp wartość `Set me` kluczem kon
 
 Znajdź pole `SpatialAnchorsAccountId` i zastąp wartość `Set me` identyfikatorem konta.
 
+Znajdź `case DemoStep::ConfigSession:` i Dodaj następujący wiersz, zastępując w domenie konta wcześniejszie: `configuration.AccountKey("MyAccountDomain");` .
+
 ## <a name="deploy-the-app-to-your-hololens"></a>Wdrażanie aplikacji na urządzeniu HoloLens
 
 Zmień **konfigurację rozwiązania** na **Wydanie**, zmień **platformę rozwiązania** na **x86** i wybierz **urządzenie** spośród opcji miejsc docelowych wdrażania.
@@ -64,7 +66,7 @@ W przypadku korzystania z urządzenia HoloLens 2 Użyj **arm64** jako **platform
 
 Włącz urządzenie HoloLens, zaloguj się i połącz to urządzenie z komputerem PC za pomocą kabla USB.
 
-Wybierz kolejno opcje **Debuguj** > **Rozpocznij debugowanie** , aby wdrożyć aplikację i rozpocząć debugowanie.
+Wybierz kolejno opcje **Debuguj**  >  **Rozpocznij debugowanie** , aby wdrożyć aplikację i rozpocząć debugowanie.
 
 Postępuj zgodnie z instrukcjami w aplikacji, aby umieścić i przywołać kotwicę.
 

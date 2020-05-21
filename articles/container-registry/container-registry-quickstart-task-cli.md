@@ -3,12 +3,12 @@ title: Szybki Start — Tworzenie obrazu kontenera uruchamiania &
 description: Szybko uruchamiaj zadania z Azure Container Registry, aby kompilować i uruchamiać obraz kontenera platformy Docker na żądanie w chmurze.
 ms.topic: quickstart
 ms.date: 01/31/2020
-ms.openlocfilehash: f08f10dd170acaa8594ad5a47f5ef58e27288b10
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e07dd9dd36bc2c5a2dc5ea7efe81f693784b8996
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76986278"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680648"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Szybki Start: kompilowanie i uruchamianie obrazu kontenera za pomocą zadań Azure Container Registry
 
@@ -16,7 +16,7 @@ W tym przewodniku szybki start użyjesz poleceń Azure Container Registry zadani
 
 Po tym przewodniku szybki start zapoznaj się z bardziej zaawansowanymi funkcjami zadań ACR. Zadania ACR umożliwiają automatyzowanie kompilacji obrazów na podstawie zatwierdzeń kodu lub aktualizacji obrazu podstawowego lub testowanie wielu kontenerów równolegle, między innymi scenariuszami. 
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto][azure-account] .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto][azure-account].
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -40,7 +40,7 @@ Utwórz rejestr kontenerów za pomocą polecenia [AZ ACR Create][az-acr-create] 
 az acr create --resource-group myResourceGroup --name myContainerRegistry008 --sku Basic
 ```
 
-W tym przykładzie jest tworzony rejestr *podstawowy* , opcja zoptymalizowana pod kątem kosztów dla deweloperów, która uczy się Azure Container Registry. Aby uzyskać szczegółowe informacje na temat dostępnych warstw usług, zobacz [Jednostki SKU rejestru kontenerów][container-registry-skus].
+W tym przykładzie jest tworzony rejestr *podstawowy* , opcja zoptymalizowana pod kątem kosztów dla deweloperów, która uczy się Azure Container Registry. Aby uzyskać szczegółowe informacje o dostępnych warstwach usług, zobacz temat [warstwy usługi Container Registry][container-registry-skus].
 
 ## <a name="build-an-image-from-a-dockerfile"></a>Tworzenie obrazu z pliku dockerfile
 
@@ -50,7 +50,7 @@ Teraz Użyj Azure Container Registry do skompilowania obrazu. Najpierw Utwórz k
 echo FROM hello-world > Dockerfile
 ```
 
-Uruchom polecenie [AZ ACR Build][az-acr-build] , aby skompilować obraz. Po pomyślnym skompilowaniu obraz jest wypychany do rejestru. Poniższy przykład wypchnięcie `sample/hello-world:v1` obrazu. `.` Na końcu polecenia ustawia lokalizację pliku dockerfile, w tym przypadku bieżący katalog.
+Uruchom polecenie [AZ ACR Build][az-acr-build] , aby skompilować obraz. Po pomyślnym skompilowaniu obraz jest wypychany do rejestru. Poniższy przykład wypchnięcie `sample/hello-world:v1` obrazu. Na `.` końcu polecenia ustawia lokalizację pliku dockerfile, w tym przypadku bieżący katalog.
 
 ```azurecli-interactive
 az acr build --image sample/hello-world:v1 \
@@ -121,7 +121,7 @@ az acr run --registry myContainerRegistry008 \
   --cmd '$Registry/sample/hello-world:v1' /dev/null
 ```
 
-`cmd` Parametr w tym przykładzie służy do uruchamiania kontenera w konfiguracji domyślnej, ale `cmd` obsługuje dodatkowe `docker run` parametry lub nawet inne `docker` polecenia.
+`cmd`Parametr w tym przykładzie służy do uruchamiania kontenera w konfiguracji domyślnej, ale `cmd` obsługuje dodatkowe `docker run` parametry lub nawet inne `docker` polecenia.
 
 Dane wyjściowe będą podobne do następujących:
 
@@ -168,7 +168,7 @@ For more examples and ideas, visit:
 Run ID: cab was successful after 6s
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów, rejestr kontenerów i przechowywane w nim obrazy kontenerów nie będą już potrzebne, można je usunąć za pomocą polecenia [az group delete][az-group-delete].
 

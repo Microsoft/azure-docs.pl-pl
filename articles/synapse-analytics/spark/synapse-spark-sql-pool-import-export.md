@@ -9,28 +9,30 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: f562c195e90f2356568530b9b618ae9e6610fa56
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: d2c8215a68d2f80471be87b0ca07aa1438a25ac4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201456"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83660051"
 ---
 # <a name="introduction"></a>Wprowadzenie
 
-Łącznik Spark SQL Analytics został zaprojektowany w celu wydajnego transferu danych między pulą usługi Spark (wersja zapoznawcza) i pulami SQL w usłudze Azure Synapse. Łącznik Spark SQL Analytics działa tylko w pulach SQL, nie działa z SQL na żądanie.
+Usługa Azure Synapse Apache Spark do Synapse SQL Connector została zaprojektowana w celu wydajnego transferu danych między pulami usługi Spark (wersja zapoznawcza) a pulami SQL na platformie Azure Synapse. Usługa Azure Synapse Apache Spark Synapse łącznik SQL działa tylko w pulach SQL, nie działa z SQL na żądanie.
 
-## <a name="design"></a>Projektowanie
+## <a name="design"></a>Projekt
 
 Przenoszenie danych między pulami platformy Spark i pulami SQL można wykonać przy użyciu JDBC. Jednak w przypadku dwóch systemów rozproszonych, takich jak platforma Spark i pule SQL, JDBC zachodzi wąskie gardło z transferem danych szeregowych.
 
-Pule platformy Spark do łącznika usługi SQL Analytics są implementacją źródła danych dla Apache Spark. Używa Azure Data Lake Storage Gen 2 i Base w pulach SQL do wydajnego transferu danych między klastrem Spark i wystąpieniem usługi SQL Analytics.
+Pula Apache Spark platformy Azure Synapse do Synapse SQL Connector jest implementacją źródła danych dla Apache Spark. Używa Azure Data Lake Storage Gen2 i Base w pulach SQL do wydajnego transferu danych między klastrem Spark a wystąpieniem programu SQL Synapse.
 
 ![Architektura łącznika](./media/synapse-spark-sqlpool-import-export/arch1.png)
 
 ## <a name="authentication-in-azure-synapse-analytics"></a>Uwierzytelnianie w usłudze Azure Synapse Analytics
 
-Uwierzytelnianie między systemami odbywa się bezproblemowo w usłudze Azure Synapse Analytics. Istnieje usługa tokenów, która łączy się z Azure Active Directory, aby uzyskać tokeny zabezpieczające do użycia podczas uzyskiwania dostępu do konta magazynu lub serwera magazynu danych. Z tego powodu nie ma potrzeby tworzenia poświadczeń ani określania ich w interfejsie API łącznika, o ile uwierzytelnianie AAD jest skonfigurowane na koncie magazynu i na serwerze magazynu danych. W przeciwnym razie można określić uwierzytelnianie SQL. Więcej szczegółów znajduje się w sekcji [użycie](#usage) .
+Uwierzytelnianie między systemami odbywa się bezproblemowo w usłudze Azure Synapse Analytics. Istnieje usługa tokenów, która łączy się z Azure Active Directory, aby uzyskać tokeny zabezpieczające do użycia podczas uzyskiwania dostępu do konta magazynu lub serwera magazynu danych. 
+
+Z tego powodu nie ma potrzeby tworzenia poświadczeń ani określania ich w interfejsie API łącznika, o ile uwierzytelnianie AAD jest skonfigurowane na koncie magazynu i na serwerze magazynu danych. W przeciwnym razie można określić uwierzytelnianie SQL. Więcej szczegółów znajduje się w sekcji [użycie](#usage) .
 
 ## <a name="constraints"></a>Ograniczenia
 
@@ -53,7 +55,7 @@ Aby przypisać rolę:
 EXEC sp_addrolemember 'db_exporter', 'Mary';
 ```
 
-## <a name="usage"></a>Sposób użycia
+## <a name="usage"></a>Użycie
 
 Instrukcje import nie są wymagane, ale są wstępnie zaimportowane do środowiska notesu.
 
@@ -147,13 +149,13 @@ sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
 
 Załóżmy, że masz element Dataframe "pyspark_df", który chcesz zapisać w magazynie danych.
 
-Tworzenie tabeli tymczasowej przy użyciu ramki Dataframe w PySpark
+Tworzenie tabeli tymczasowej przy użyciu ramki Dataframe w PySpark:
 
 ```Python
 pyspark_df.createOrReplaceTempView("pysparkdftemptable")
 ```
 
-Uruchamianie komórki Scala w notesie PySpark przy użyciu MAGICS
+Uruchom komórkę Scala w notesie PySpark przy użyciu MAGICS:
 
 ```Scala
 %%spark
@@ -166,7 +168,7 @@ Podobnie w scenariuszu odczytu Odczytaj dane przy użyciu Scala i Zapisz je w ta
 
 ## <a name="allowing-other-users-to-use-the-dw-connector-in-your-workspace"></a>Zezwalanie innym użytkownikom na korzystanie z łącznika DW w obszarze roboczym
 
-Aby zmienić brakujące uprawnienia dla innych osób, musisz być właścicielem danych obiektów blob magazynu na koncie magazynu ADLS Gen2 połączonym z obszarem roboczym. Upewnij się, że użytkownik ma dostęp do obszaru roboczego i uprawnień do uruchamiania notesów.
+Musisz być właścicielem danych obiektów blob magazynu na koncie magazynu ADLS Gen2 połączonym z obszarem roboczym, aby zmienić brakujące uprawnienia dla innych. Upewnij się, że użytkownik ma dostęp do obszaru roboczego i uprawnień do uruchamiania notesów.
 
 ### <a name="option-1"></a>Opcja 1
 
@@ -178,8 +180,8 @@ Aby zmienić brakujące uprawnienia dla innych osób, musisz być właścicielem
 
 | Folder | / | synapse | obszary robocze  | <workspacename> | sparkpools | <sparkpoolname>  | sparkpoolinstances  |
 |--|--|--|--|--|--|--|--|
-| Uprawnienia dostępu |--X |--X |--X |--X |--X |--X |-WX |
-| Uprawnienia domyślne |---|---|---|---|---|---|---|
+| Uprawnienia dostępu | --X | --X | --X | --X | --X | --X | -WX |
+| Uprawnienia domyślne | ---| ---| ---| ---| ---| ---| ---|
 
 - Powinien być możliwy dostęp do listy ACL wszystkich folderów z "Synapse" i w dół z Azure Portal. Aby uzyskać dostęp do listy ACL w folderze głównym "/", postępuj zgodnie z poniższymi instrukcjami.
 
@@ -188,9 +190,10 @@ Aby zmienić brakujące uprawnienia dla innych osób, musisz być właścicielem
 - Po wyświetleniu konta magazynu na liście kliknij prawym przyciskiem myszy obszar roboczy listy i wybierz pozycję "Zarządzaj dostępem".
 - Dodaj użytkownika do folderu/z uprawnieniami dostępu "wykonaj". Wybierz pozycję "OK"
 
-**Upewnij się, że nie wybrano opcji "domyślne", jeśli nie zamierzasz**
+> [!IMPORTANT]
+> Upewnij się, że nie wybrano opcji "domyślne", jeśli nie chcesz.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Tworzenie puli SQL](../../synapse-analytics/quickstart-create-apache-spark-pool.md))
-- [Utwórz nową pulę Apache Spark dla obszaru roboczego analizy usługi Azure Synapse](../../synapse-analytics/quickstart-create-apache-spark-pool.md) 
+- [Tworzenie puli SQL przy użyciu Azure Portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
+- [Utwórz nową pulę Apache Spark przy użyciu Azure Portal](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md) 

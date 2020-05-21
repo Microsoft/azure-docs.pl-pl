@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 03/20/2020
-ms.openlocfilehash: 6da2c324872a86c2c0ce6f55801bc7b0ee8d713e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 670cebe1c0f1c9002e33b729d0db9ee9f9a01283
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80607624"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682532"
 ---
 # <a name="quickstart-deploy-cognitive-search-using-a-resource-manager-template"></a>Szybki Start: wdrażanie Wyszukiwanie poznawcze przy użyciu szablonu Menedżer zasobów
 
@@ -24,15 +24,15 @@ W tym artykule omówiono proces wdrażania zasobu Wyszukiwanie poznawcze platfor
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="create-a-cognitive-search-service"></a>Tworzenie usługi Wyszukiwanie poznawcze
 
 ### <a name="review-the-template"></a>Zapoznaj się z szablonem
 
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów platformy Azure](https://docs.microsoft.com/azure/templates/Microsoft.Search/2015-08-19/searchservices).
+Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-azure-search-create/).
 
-:::code language="json"source="~/quickstart-templates/101-azure-search-create/azuredeploy.json" range="1-86" highlight="4-50":::
+:::code language="json"source="~/quickstart-templates/101-azure-search-create/azuredeploy.json" range="1-86" highlight="4-50,70-85":::
 
 Zasób platformy Azure zdefiniowany w tym szablonie:
 
@@ -42,7 +42,7 @@ Zasób platformy Azure zdefiniowany w tym szablonie:
 
 Wybierz poniższy obraz, aby zalogować się na platformie Azure i otworzyć szablon. Szablon tworzy zasób Wyszukiwanie poznawcze platformy Azure.
 
-[![Wdrażanie na platformie Azure](./media/search-get-started-arm/arm-deploybuttona.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-search-create%2Fazuredeploy.json)
+[![Wdróż na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2F101-azure-search-create%2Fazuredeploy.json)
 
 W portalu jest wyświetlany formularz, który umożliwia łatwe udostępnianie wartości parametrów. Niektóre parametry są wstępnie wypełnione wartościami domyślnymi z szablonu. Musisz podać swoją subskrypcję, grupę zasobów, lokalizację i nazwę usługi. Jeśli chcesz użyć Cognitive Services w potoku [wzbogacenia AI](https://docs.microsoft.com/azure/search/cognitive-search-concept-intro) , na przykład w celu przeanalizowania plików obrazów binarnych dla tekstu, wybierz lokalizację, w której są dostępne zarówno wyszukiwanie poznawcze, jak i Cognitive Services. Obie usługi muszą znajdować się w tym samym regionie dla obciążeń wzbogacania AI. Po zakończeniu formularza należy wyrazić zgodę na warunki i postanowienia, a następnie wybrać przycisk Kup, aby zakończyć wdrożenie.
 
@@ -53,7 +53,7 @@ W portalu jest wyświetlany formularz, który umożliwia łatwe udostępnianie w
 
 Po zakończeniu wdrażania możesz uzyskać dostęp do nowej grupy zasobów i nowej usługi wyszukiwania w portalu.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Inne Wyszukiwanie poznawcze Przewodniki Szybki Start i samouczki zostały skompilowane na tym przewodniku Szybki Start. Jeśli planujesz kontynuować pracę z kolejnymi przewodnikami Szybki Start i samouczkami, możesz pozostawić ten zasób na miejscu. Gdy nie jest już potrzebne, można usunąć grupę zasobów, która spowoduje usunięcie usługi Wyszukiwanie poznawcze i powiązanych zasobów.
 

@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 49c1a29547195ad8557550ba1bc0cb80fae40ad8
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: 0d2666e2b56e73b809a0480d45fa3a4a63f06490
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402630"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652205"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Zapewnianie uwierzytelniania Key Vault przy użyciu zasad kontroli dostępu
 
@@ -107,9 +107,6 @@ W danych wyjściowych identyfikator objectId jest wymieniony jako `Id` :
 Id                    : 1cef38c4-388c-45a9-b5ae-3d88375e166a
 ...
 ```
-
-> [!WARNING]
-> Grupy usługi Azure AD z tożsamościami zarządzanymi wymagają do 8hr tokenu odświeżania i zaczynają obowiązywać.
 
 #### <a name="users"></a>Użytkownicy
 
@@ -225,6 +222,9 @@ Add-AzADGroupMember -TargetGroupObjectId <groupId> -MemberObjectId <objectId>
 Na koniec nadaj grupie usługi AD uprawnienia do Twojego magazynu kluczy przy użyciu interfejsu wiersza polecenia platformy Azure AZ Key Directory [Set-Policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) lub Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy?view=azps-2.7.0) polecenia cmdlet. Przykłady można znaleźć w sekcji [nadawanie aplikacji, grupie usługi Azure AD lub dostęp użytkownika do magazynu kluczy](#give-the-principal-access-to-your-key-vault) .
 
 Aplikacja wymaga również co najmniej jednej roli zarządzania tożsamościami i dostępem (IAM) przypisanej do magazynu kluczy. W przeciwnym razie nie będzie można zalogować się i nie powiedzie się z powodu niewystarczających praw dostępu do subskrypcji.
+
+> [!WARNING]
+> Grupy usługi Azure AD z tożsamościami zarządzanymi mogą wymagać do 8hr tokenu odświeżania i zaczynają obowiązywać.
 
 ## <a name="next-steps"></a>Następne kroki
 

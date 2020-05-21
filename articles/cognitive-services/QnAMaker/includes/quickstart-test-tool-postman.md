@@ -10,12 +10,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: 97dfe175a609ab336206098948b4e3fcc401d8bc
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 1f47b4532a009694d4167c08f6f04312f8020acc
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203975"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673479"
 ---
 W tym samouczku Szybki start opisano sposób uzyskiwania odpowiedzi z bazy wiedzy przy użyciu narzędzia Postman.
 
@@ -51,7 +51,7 @@ Użyj tej procedury, aby skonfigurować program, a następnie zapoznaj się z ka
 
 W poprzednim przewodniku szybki start metadane zostały dodane do dwóch par QnA w celu rozróżnienia między dwoma różnymi pytaniami. Dodaj metadane do zapytania, aby ograniczyć filtr do tylko odpowiedniej pary QnA.
 
-1. W programie Poster Zmień tylko kod JSON zapytania, dodając `strictFilters` właściwość z parą nazwa/wartość `service:qna_maker`. Treść JSON powinna być:
+1. W programie Poster Zmień tylko kod JSON zapytania, dodając `strictFilters` Właściwość z parą nazwa/wartość `service:qna_maker` . Treść JSON powinna być:
 
     ```json
     {
@@ -64,7 +64,7 @@ W poprzednim przewodniku szybki start metadane zostały dodane do dwóch par QnA
     }
     ```
 
-    Pytanie jest tylko pojedynczym słowem, `size`które może zwracać jeden z dwóch zestawów pytań i odpowiedzi. `strictFilters` Tablica informuje odpowiedź, aby zmniejszyć do tylko `qna_maker` odpowiedzi.
+    Pytanie jest tylko pojedynczym słowem, `size` które może zwracać jeden z dwóch zestawów pytań i odpowiedzi. `strictFilters`Tablica informuje odpowiedź, aby zmniejszyć do tylko `qna_maker` odpowiedzi.
 
 1. Odpowiedź zawiera tylko odpowiedź, która spełnia kryteria filtru.
 
@@ -103,9 +103,12 @@ W poprzednim przewodniku szybki start metadane zostały dodane do dwóch par QnA
     }
     ```
 
-    Jeśli istnieje pytanie i odpowiedź, które nie spełniły wyszukiwanego terminu, ale spełniały filtr, nie zostanie on zwrócony. Zamiast tego jest zwracana ogólna `No good match found in KB.` odpowiedź.
+    Jeśli istnieje pytanie i odpowiedź, które nie spełniły wyszukiwanego terminu, ale spełniały filtr, nie zostanie on zwrócony. Zamiast tego `No good match found in KB.` jest zwracana ogólna odpowiedź.
 
 ## <a name="use-debug-query-property"></a>Użyj właściwości zapytania debugowania
+
+> [!NOTE]
+>Nie zaleca się używania poreperty debugowania dla żadnej zależności. Ta właściwość została dodana, aby ułatwić zespołowi produktu Rozwiązywanie problemów. 
 
 Informacje debugowania pomagają zrozumieć, w jaki sposób została określona zwrócona odpowiedź. Chociaż jest to przydatne, nie jest to konieczne. Aby wygenerować odpowiedź z informacjami o debugowaniu, Dodaj `debug` Właściwość:
 
@@ -213,7 +216,7 @@ Informacje debugowania pomagają zrozumieć, w jaki sposób została określona 
 
 ## <a name="use-test-knowledge-base"></a>Korzystanie z bazy wiedzy testowej
 
-Jeśli chcesz uzyskać odpowiedź z bazy wiedzy testowej, użyj właściwości `isTest` Body.
+Jeśli chcesz uzyskać odpowiedź z bazy wiedzy testowej, użyj `isTest` Właściwości Body.
 
 W programie Poster Zmień tylko treść pliku JSON przez dodanie `isTest` właściwości. KOD JSON powinien:
 
@@ -357,7 +360,7 @@ Możesz poprosić o minimalny próg odpowiedzi. Jeśli próg nie jest spełniony
     }
     ```
 
-    QnA Maker zwrócił wynik `0`, co oznacza brak pewności. Zwraca również odpowiedź domyślną.
+    QnA Maker zwrócił wynik `0` , co oznacza brak pewności. Zwraca również odpowiedź domyślną.
 
 1. Zmień wartość progową na 60% i ponownie Zażądaj zapytania:
 

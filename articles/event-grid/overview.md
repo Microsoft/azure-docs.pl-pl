@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/20/2020
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 7a323bd9b9c605363963d5a25d1746727e379553
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 75ee828c659aba895f65d0cf14070966428a1d19
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587599"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682514"
 ---
 # <a name="what-is-azure-event-grid"></a>Co to jest usługa Azure Event Grid?
 

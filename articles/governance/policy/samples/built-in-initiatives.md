@@ -1,21 +1,21 @@
 ---
 title: Lista wbudowanych inicjatyw zasad
 description: Utwórz listę wbudowanych inicjatyw zasad dla Azure Policy. Kategorie obejmują zgodność z przepisami, konfigurację gościa i inne.
-ms.date: 05/05/2020
+ms.date: 05/13/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 29301e958d0354fb86cce2156f9050420eebc6da
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 969b1849628616bf42951e1ff7fdf2f507cf0abe
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837754"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83639439"
 ---
 # <a name="azure-policy-built-in-initiative-definitions"></a>Azure Policy wbudowane definicje inicjatyw
 
 Ta strona jest indeksem Azure Policy wbudowanych definicji inicjatywy.
 
-Nazwa każdego wbudowanego łącza do źródła definicji inicjatywy w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy). Wbudowane elementy są pogrupowane według właściwości **Category** w **metadanych**. Aby przejść do określonej **kategorii**, użyj menu po prawej stronie. W przeciwnym razie użyj <kbd>klawiszy CTRL</kbd>-<kbd>F</kbd> , aby użyć funkcji wyszukiwania przeglądarki.
+Nazwa każdego wbudowanego łącza do źródła definicji inicjatywy w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy). Wbudowane elementy są pogrupowane według właściwości **Category** w **metadanych**. Aby przejść do określonej **kategorii**, użyj menu po prawej stronie. W przeciwnym razie użyj <kbd>klawiszy CTRL</kbd> - <kbd>F</kbd> , aby użyć funkcji wyszukiwania przeglądarki.
 
 ## <a name="guest-configuration"></a>Konfiguracja gościa
 

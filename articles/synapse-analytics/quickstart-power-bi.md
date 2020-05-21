@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/29/2020
 ms.author: jocaplan
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 83e9e802d2150ee7f43f01e9f6d6827ef3acfcdd
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: c5b86319752fc70e754e34b787bbdc12f18636f0
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83204754"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655995"
 ---
 # <a name="quickstart-linking-a-power-bi-workspace-to-a-synapse-analytics-workspace-preview"></a>Szybki Start: łączenie obszaru roboczego Power BI z obszarem roboczym Synapse Analytics (wersja zapoznawcza)
 
@@ -70,4 +70,4 @@ Nowe raporty można utworzyć, klikając **+** w górnej części karty **progra
 
 ## <a name="next-steps"></a>Następne kroki
 
-Następnie możesz [utworzyć raport Power BI dotyczący plików przechowywanych w usłudze Azure Storage](sql/tutorial-connect-power-bi-desktop.md)
+Dowiedz się więcej [na temat tworzenia raportu Power BI dla plików przechowywanych w usłudze Azure Storage](sql/tutorial-connect-power-bi-desktop.md).

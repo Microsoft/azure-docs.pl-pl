@@ -1,14 +1,14 @@
 ---
 title: Wdrażanie SWIFT dostawcy CSP — przykład strategii CSCF V2020
 description: Wdróż kroki dla przykładowej strategii SWIFT CSP-CSCF V2020, w tym szczegóły parametru artefaktu.
-ms.date: 09/24/2019
+ms.date: 05/13/2020
 ms.topic: sample
-ms.openlocfilehash: 63a3880d0092f1ed6fabb2b024d05eebb79fe58b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 971b69dcc5c64d7e51e9237e09ee8474551ac43a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74546488"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657051"
 ---
 # <a name="deploy-the-swift-csp-cscf-v2020-blueprint-sample"></a>Wdróż przykład SWIFT programu CSP — CSCF V2020 plan
 
@@ -19,7 +19,7 @@ Aby wdrożyć usługę Azure Plans SWIFT CSP-CSCF V2020 plan, należy wykonać n
 > - Oznacz swoją kopię przykładowej publikacji jako **opublikowaną**
 > - Przypisz swoją kopię planu do istniejącej subskrypcji
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free).
 
 ## <a name="create-blueprint-from-sample"></a>Utwórz plan z przykładu
 
@@ -93,18 +93,18 @@ Poniższa tabela zawiera listę parametrów artefaktów strategii:
 
 |Nazwa artefaktu|Typ artefaktu|Nazwa parametru|Opis|
 |-|-|-|-|
-|\[Wersja\]zapoznawcza: Inspekcja SWIFT dostawcy usług kryptograficznych — CSCF V2020 Controls i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji|Przypisywanie zasad|Lista typów zasobów, dla których włączono obsługę dzienników diagnostycznych|Lista typów zasobów do inspekcji, jeśli nie włączono ustawienia dziennika diagnostycznego. Akceptowalne wartości można znaleźć Azure Monitor w obszarze [schematy dzienników diagnostycznych](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
-|\[Wersja\]zapoznawcza: Inspekcja SWIFT dostawcy usług kryptograficznych — CSCF V2020 Controls i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji|Przypisywanie zasad|Identyfikatory połączonych obszarów roboczych|Rozdzielana średnikami lista identyfikatorów obszaru roboczego, z którymi ma być połączony Agent Log Analytics|
-|\[Wersja\]zapoznawcza: Inspekcja SWIFT dostawcy usług kryptograficznych — CSCF V2020 Controls i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji|Przypisywanie zasad|Lista użytkowników, którzy powinni zostać dołączeni do grupy administratorów maszyn wirtualnych z systemem Windows|Rozdzielana średnikami lista elementów członkowskich, które powinny być uwzględnione w lokalnej grupie Administratorzy. Przykład: administrator; Użytkownik1; Do|
-|\[Wersja\]zapoznawcza: Inspekcja SWIFT dostawcy usług kryptograficznych — CSCF V2020 Controls i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji|Przypisywanie zasad|Nazwa domeny (FQDN)|W pełni kwalifikowana nazwa domeny (FQDN), do której należy dołączyć maszyny wirtualne z systemem Windows|
-|\[Wersja\]zapoznawcza: wdrażanie log Analytics agenta dla systemu Linux VM Scale Sets (VMSS)|Przypisywanie zasad|Log Analytics obszar roboczy dla VM Scale Sets systemu Linux (VMSS)|Jeśli ten obszar roboczy znajduje się poza zakresem przypisania, musisz ręcznie udzielić uprawnienia "Log Analytics współautor" (lub podobnego) do identyfikatora podmiotu zabezpieczeń przypisania zasad.|
-|\[Wersja\]zapoznawcza: wdrażanie log Analytics agenta dla systemu Linux VM Scale Sets (VMSS)|Przypisywanie zasad|Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Linux do dodania do zakresu|Pustą tablicę można użyć do wskazania braku parametrów opcjonalnych:\[\]|
-|\[Wersja\]zapoznawcza: wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux|Przypisywanie zasad|Obszar roboczy Log Analytics dla maszyn wirtualnych z systemem Linux|Jeśli ten obszar roboczy znajduje się poza zakresem przypisania, musisz ręcznie udzielić uprawnienia "Log Analytics współautor" (lub podobnego) do identyfikatora podmiotu zabezpieczeń przypisania zasad.|
-|\[Wersja\]zapoznawcza: wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux|Przypisywanie zasad|Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Linux do dodania do zakresu|Pustą tablicę można użyć do wskazania braku parametrów opcjonalnych:\[\]|
-|\[Wersja\]zapoznawcza: wdrażanie log Analytics agenta dla systemu Windows VM Scale Sets (VMSS)|Przypisywanie zasad|Log Analytics obszar roboczy dla VM Scale Sets systemu Windows (VMSS)|Jeśli ten obszar roboczy znajduje się poza zakresem przypisania, musisz ręcznie udzielić uprawnienia "Log Analytics współautor" (lub podobnego) do identyfikatora podmiotu zabezpieczeń przypisania zasad.|
-|\[Wersja\]zapoznawcza: wdrażanie log Analytics agenta dla systemu Windows VM Scale Sets (VMSS)|Przypisywanie zasad|Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Windows do dodania do zakresu|Pustą tablicę można użyć do wskazania braku parametrów opcjonalnych:\[\]|
-|\[Wersja\]zapoznawcza: wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows|Przypisywanie zasad|Obszar roboczy Log Analytics dla maszyn wirtualnych z systemem Windows|Jeśli ten obszar roboczy znajduje się poza zakresem przypisania, musisz ręcznie udzielić uprawnienia "Log Analytics współautor" (lub podobnego) do identyfikatora podmiotu zabezpieczeń przypisania zasad.|
-|\[Wersja\]zapoznawcza: wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows|Przypisywanie zasad|Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Windows do dodania do zakresu|Pustą tablicę można użyć do wskazania braku parametrów opcjonalnych:\[\]|
+|\[Wersja zapoznawcza \] : Inspekcja SWIFT dostawcy usług kryptograficznych — CSCF V2020 Controls i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji|Przypisywanie zasad|Lista typów zasobów, dla których włączono obsługę dzienników diagnostycznych|Lista typów zasobów do inspekcji, jeśli nie włączono ustawienia dziennika diagnostycznego. Akceptowalne wartości można znaleźć Azure Monitor w obszarze [schematy dzienników diagnostycznych](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|\[Wersja zapoznawcza \] : Inspekcja SWIFT dostawcy usług kryptograficznych — CSCF V2020 Controls i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji|Przypisywanie zasad|Identyfikatory połączonych obszarów roboczych|Rozdzielana średnikami lista identyfikatorów obszaru roboczego, z którymi ma być połączony Agent Log Analytics|
+|\[Wersja zapoznawcza \] : Inspekcja SWIFT dostawcy usług kryptograficznych — CSCF V2020 Controls i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji|Przypisywanie zasad|Lista użytkowników, którzy powinni zostać dołączeni do grupy administratorów maszyn wirtualnych z systemem Windows|Rozdzielana średnikami lista elementów członkowskich, które powinny być uwzględnione w lokalnej grupie Administratorzy. Przykład: administrator; Użytkownik1; Do|
+|\[Wersja zapoznawcza \] : Inspekcja SWIFT dostawcy usług kryptograficznych — CSCF V2020 Controls i wdrażanie określonych rozszerzeń maszyn wirtualnych do obsługi wymagań inspekcji|Przypisywanie zasad|Nazwa domeny (FQDN)|W pełni kwalifikowana nazwa domeny (FQDN), do której należy dołączyć maszyny wirtualne z systemem Windows|
+|\[Wersja zapoznawcza \] : wdrażanie log Analytics agenta dla systemu Linux VM Scale Sets (VMSS)|Przypisywanie zasad|Log Analytics obszar roboczy dla VM Scale Sets systemu Linux (VMSS)|Jeśli ten obszar roboczy znajduje się poza zakresem przypisania, musisz ręcznie udzielić uprawnienia "Log Analytics współautor" (lub podobnego) do identyfikatora podmiotu zabezpieczeń przypisania zasad.|
+|\[Wersja zapoznawcza \] : wdrażanie log Analytics agenta dla systemu Linux VM Scale Sets (VMSS)|Przypisywanie zasad|Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Linux do dodania do zakresu|Pustą tablicę można użyć do wskazania braku parametrów opcjonalnych:\[\]|
+|\[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux|Przypisywanie zasad|Obszar roboczy Log Analytics dla maszyn wirtualnych z systemem Linux|Jeśli ten obszar roboczy znajduje się poza zakresem przypisania, musisz ręcznie udzielić uprawnienia "Log Analytics współautor" (lub podobnego) do identyfikatora podmiotu zabezpieczeń przypisania zasad.|
+|\[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux|Przypisywanie zasad|Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Linux do dodania do zakresu|Pustą tablicę można użyć do wskazania braku parametrów opcjonalnych:\[\]|
+|\[Wersja zapoznawcza \] : wdrażanie log Analytics agenta dla systemu Windows VM Scale Sets (VMSS)|Przypisywanie zasad|Log Analytics obszar roboczy dla VM Scale Sets systemu Windows (VMSS)|Jeśli ten obszar roboczy znajduje się poza zakresem przypisania, musisz ręcznie udzielić uprawnienia "Log Analytics współautor" (lub podobnego) do identyfikatora podmiotu zabezpieczeń przypisania zasad.|
+|\[Wersja zapoznawcza \] : wdrażanie log Analytics agenta dla systemu Windows VM Scale Sets (VMSS)|Przypisywanie zasad|Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Windows do dodania do zakresu|Pustą tablicę można użyć do wskazania braku parametrów opcjonalnych:\[\]|
+|\[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows|Przypisywanie zasad|Obszar roboczy Log Analytics dla maszyn wirtualnych z systemem Windows|Jeśli ten obszar roboczy znajduje się poza zakresem przypisania, musisz ręcznie udzielić uprawnienia "Log Analytics współautor" (lub podobnego) do identyfikatora podmiotu zabezpieczeń przypisania zasad.|
+|\[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows|Przypisywanie zasad|Opcjonalnie: lista obrazów maszyn wirtualnych z obsługiwanym systemem operacyjnym Windows do dodania do zakresu|Pustą tablicę można użyć do wskazania braku parametrów opcjonalnych:\[\]|
 |Wdróż zaawansowaną ochronę przed zagrożeniami na kontach magazynu|Przypisywanie zasad|Efekt|Informacje dotyczące efektów zasad można znaleźć w [opisie Azure Policy efektów](../../../policy/concepts/effects.md)|
 |Wdrażanie inspekcji na serwerach SQL|Przypisywanie zasad|Wartość w dniach okresu przechowywania (0 oznacza nieograniczony czas przechowywania)|Dni przechowywania (opcjonalnie, 180 dni, jeśli nie określono)|
 |Wdrażanie inspekcji na serwerach SQL|Przypisywanie zasad|Nazwa grupy zasobów dla konta magazynu na potrzeby inspekcji programu SQL Server|Inspekcja zapisuje zdarzenia bazy danych w dzienniku inspekcji na koncie usługi Azure Storage (konto magazynu zostanie utworzone w każdym regionie, w którym zostanie utworzone SQL Server, które będzie współużytkowane przez wszystkie serwery w tym regionie). Ważne — w przypadku właściwej operacji inspekcji nie należy usuwać ani zmieniać nazw grup zasobów ani kont magazynu.|
@@ -116,8 +116,8 @@ Poniższa tabela zawiera listę parametrów artefaktów strategii:
 Po przejrzeniu kroków w celu wdrożenia przykładowego planu CSCF V2020, odwiedź następujące artykuły, aby dowiedzieć się więcej o mapowaniu planów i kontroli:
 
 > [!div class="nextstepaction"]
-> [SWIFT CSP-CSCF V2020 plan — Omówienie](./index.md)
-> [SWIFT CSP-CSCF V2020 plan-Control Mapping](./control-mapping.md)
+> [SWIFT CSP-CSCF V2020 — Omówienie](./index.md) 
+>  [SWIFT CSP — CSCF V2020 — Mapowanie formantów](./control-mapping.md)
 
 Dodatkowe artykuły na temat strategii i sposobu ich używania:
 

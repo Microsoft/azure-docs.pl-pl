@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 9618dc1cef8d04cc5906579af0ef372694aeaaa9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9717c76b42a63479c77f862057bfb141954eacff
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80673985"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673411"
 ---
 ## <a name="create-a-device-template"></a>Tworzenie szablonu urządzenia
 
 Utwórz folder o nazwie `environmental-sensor` na komputerze lokalnym.
 
-Pobierz plik JSON [modelu możliwości czujnika środowiska](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensorInline.capabilitymodel.json) i Zapisz go w `environmental-sensor` folderze.
+Pobierz plik JSON [modelu możliwości czujnika środowiska](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/9004219bff1e958b7cd6ff2a52209f4b7ae19396/samples/EnvironmentalSensorInline.capabilitymodel.json) i Zapisz go w `environmental-sensor` folderze.
 
-Użyj edytora tekstów, aby zamienić dwa wystąpienia `{YOUR_COMPANY_NAME_HERE}` z nazwą firmy w pobranym `EnvironmentalSensorInline.capabilitymodel.json` pliku.
+Użyj edytora tekstów, aby zamienić dwa wystąpienia z `{YOUR_COMPANY_NAME_HERE}` nazwą firmy w `EnvironmentalSensorInline.capabilitymodel.json` pobranym pliku.
 
-W aplikacji IoT Central platformy Azure Utwórz szablon urządzenia o nazwie *czujnik środowiska* , importując plik modelu `EnvironmentalSensorInline.capabilitymodel.json` możliwości urządzenia:
+W aplikacji IoT Central platformy Azure Utwórz szablon urządzenia o nazwie *czujnik środowiska* , importując `EnvironmentalSensorInline.capabilitymodel.json` plik modelu możliwości urządzenia:
 
 ![Szablon urządzenia z zaimportowanym modelem możliwości urządzenia](./media/iot-central-add-environmental-sensor/device-template.png)
 

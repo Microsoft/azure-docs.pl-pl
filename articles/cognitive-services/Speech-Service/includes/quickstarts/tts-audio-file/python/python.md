@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 10a11168b8046dbcc877f45141571fccdca879f0
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 4429a03709d0f565d5fcf98f6999c812c0d43561
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400331"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673088"
 ---
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -35,7 +35,7 @@ sudo apt-get update
 sudo apt-get install build-essential libssl1.0.2 libasound2
 ```
 
-# <a name="rhel--centos-8"></a>[RHEL/CentOS 8](#tab/rhel-centos)
+# <a name="rhelcentos"></a>[RHEL/CentOS](#tab/rhel-centos)
 
 ```Bash
 sudo yum update
@@ -43,7 +43,8 @@ sudo yum install alsa-lib openssl python3
 ```
 
 > [!NOTE]
-> W systemie RHEL/CentOS 7/8 postępuj zgodnie z instrukcjami dotyczącymi [sposobu konfigurowania OpenSSL dla systemu Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+> - W systemie RHEL/CentOS 7 postępuj zgodnie z instrukcjami dotyczącymi [KONFIGUROWANIA RHEL/CentOS 7 dla zestawu Speech SDK](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
+> - W systemie RHEL/CentOS 8 postępuj zgodnie z instrukcjami dotyczącymi [sposobu konfigurowania OpenSSL dla systemu Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 ---
 
@@ -117,7 +118,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 
 1. Pobierz i zainstaluj 64-bitową wersję języka [Python](https://www.python.org/downloads/), 3,5 do 3,8 na komputerze.
 1. Pobierz i zainstaluj program [Visual Studio Code](https://code.visualstudio.com/Download).
-1. Otwórz program Visual Studio Code i zainstaluj rozszerzenie języka Python. Wybierz opcję**rozszerzenia** **preferencji** >  **plików** > z menu. Wyszukaj pozycję **Python**.
+1. Otwórz program Visual Studio Code i zainstaluj rozszerzenie języka Python. Wybierz **File**opcję  >  **Preferences**  >  **rozszerzenia** preferencji plików z menu. Wyszukaj pozycję **Python**.
 
    ![Instalowanie rozszerzenia języka Python](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-extension.png)
 

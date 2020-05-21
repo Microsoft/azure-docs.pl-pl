@@ -1,21 +1,21 @@
 ---
 title: Lista wbudowanych definicji zasad
 description: Utwórz listę wbudowanych definicji zasad dla Azure Policy. Kategorie obejmują Tagi, zgodność z przepisami, Key Vault, Kubernetes, konfigurację gościa i inne.
-ms.date: 05/05/2020
+ms.date: 05/13/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 2ff75ce7d6f0df5906894c50a25fede0f2a19f1a
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: c6a7f128dd2479645cc379f36532563c0ade5d14
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838204"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83651432"
 ---
 # <a name="azure-policy-built-in-policy-definitions"></a>Azure Policy wbudowane definicje zasad
 
 Ta strona jest indeksem Azure Policy wbudowanych definicji zasad.
 
-Nazwa każdego wbudowanego łącza do definicji zasad w Azure Portal. Użyj linku w kolumnie **Źródło** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy). Wbudowane elementy są pogrupowane według właściwości **Category** w **metadanych**. Aby przejść do określonej **kategorii**, użyj menu po prawej stronie. W przeciwnym razie użyj <kbd>klawiszy CTRL</kbd>-<kbd>F</kbd> , aby użyć funkcji wyszukiwania przeglądarki.
+Nazwa każdego wbudowanego łącza do definicji zasad w Azure Portal. Użyj linku w kolumnie **Źródło** , aby wyświetlić źródło w [Azure Policy repozytorium GitHub](https://github.com/Azure/azure-policy). Wbudowane elementy są pogrupowane według właściwości **Category** w **metadanych**. Aby przejść do określonej **kategorii**, użyj menu po prawej stronie. W przeciwnym razie użyj <kbd>klawiszy CTRL</kbd> - <kbd>F</kbd> , aby użyć funkcji wyszukiwania przeglądarki.
 
 ## <a name="app-configuration"></a>Konfiguracja aplikacji
 
@@ -29,7 +29,7 @@ Nazwa każdego wbudowanego łącza do definicji zasad w Azure Portal. Użyj link
 
 [!INCLUDE [azure-policy-samples-policies-app-service](../../../../includes/policy/samples/bycat/policies-app-service.md)]
 
-## <a name="automation"></a>Automatyzacja
+## <a name="automation"></a>Automation
 
 [!INCLUDE [azure-policy-samples-policies-automation](../../../../includes/policy/samples/bycat/policies-automation.md)]
 
@@ -141,7 +141,7 @@ Nazwa każdego wbudowanego łącza do definicji zasad w Azure Portal. Użyj link
 
 [!INCLUDE [azure-policy-samples-policies-stream-analytics](../../../../includes/policy/samples/bycat/policies-stream-analytics.md)]
 
-## <a name="tags"></a>Tagi
+## <a name="tags"></a>Tags
 
 [!INCLUDE [azure-policy-samples-policies-tags](../../../../includes/policy/samples/bycat/policies-tags.md)]
 

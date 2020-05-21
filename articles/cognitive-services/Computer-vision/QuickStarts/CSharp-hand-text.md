@@ -1,5 +1,5 @@
 ---
-title: 'Szybki Start: przetwarzanie obrazów 2,0 i 2,1 — Wyodrębnij tekst drukowany i napisany ręcznie — REST, C #'
+title: 'Szybki Start: przetwarzanie obrazów 2,1 i 3,0-Wyodrębnij tekst drukowany i napisany ręcznie — REST, C #'
 titleSuffix: Azure Cognitive Services
 description: W tym przewodniku szybki start wyodrębnisz drukowany i odręczny tekst z obrazu przy użyciu interfejs API przetwarzania obrazów w języku C#.
 services: cognitive-services
@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: b5bb1e80ac7a2a7fca053365b1062df61b2acc03
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: bd42dd52af039ee61585b110ee31f1ad41613162
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81405153"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681214"
 ---
-# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-20-and-21-rest-api-and-c"></a>Szybki Start: Wyodrębnianie tekstu napisanego i odręcznego przy użyciu przetwarzanie obrazów 2,0 i 2,1 interfejsu API REST i języka C #
+# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-21-and-30-rest-api-and-c"></a>Szybki Start: Wyodrębnianie tekstu napisanego i odręcznego przy użyciu przetwarzanie obrazów 2,1 i 3,0 interfejsu API REST i języka C #
 
 W tym przewodniku szybki start wyodrębnisz drukowany i/lub odręczny tekst z obrazu za pomocą interfejsu API REST przetwarzanie obrazów. Przy użyciu metod operacji odczytu i [odczytu](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) [partii](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) możesz wykryć tekst w obrazie i wyodrębnić rozpoznane znaki do strumienia znaków, który można odczytać. Interfejs API określi model rozpoznawania, który ma być używany dla każdego wiersza tekstu, aby obsługiwał obrazy zarówno w postaci tekstu, jak i w postaci odręcznej.
 
-W porównaniu do przetwarzanie obrazów 2,0 i 2,1, przetwarzanie obrazów 3,0 publiczna wersja zapoznawcza zawiera następujące informacje:
+W porównaniu do przetwarzanie obrazów 2,1 i 3,0, przetwarzanie obrazów 3,0 publiczna wersja zapoznawcza zawiera następujące informacje:
 
 * jeszcze lepsza dokładność
 * zmieniony format danych wyjściowych
@@ -32,22 +32,22 @@ W porównaniu do przetwarzanie obrazów 2,0 i 2,1, przetwarzanie obrazów 3,0 pu
 #### <a name="version-2"></a>[Wersja 2](#tab/version-2)
 
 > [!IMPORTANT]
-> Metoda [odczytywania wsadowego](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) jest uruchamiana asynchronicznie. Ta metoda nie zwraca żadnych informacji w treści pomyślnej odpowiedzi. Zamiast tego metoda odczytywania wsadowego zwraca identyfikator URI w wartości pola nagłówka `Operation-Location` odpowiedzi. Następnie można wywołać ten identyfikator URI, który reprezentuje interfejs API [wyniku operacji odczytu](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) , aby sprawdzić stan i zwrócić wyniki wywołania metody odczytu wsadowego.
+> Metoda [odczytywania wsadowego](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) jest uruchamiana asynchronicznie. Ta metoda nie zwraca żadnych informacji w treści pomyślnej odpowiedzi. Zamiast tego metoda odczytywania wsadowego zwraca identyfikator URI w wartości `Operation-Location` pola nagłówka odpowiedzi. Następnie można wywołać ten identyfikator URI, który reprezentuje interfejs API [wyniku operacji odczytu](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) , aby sprawdzić stan i zwrócić wyniki wywołania metody odczytu wsadowego.
 
-#### <a name="version-3-public-preview"></a>[3 (publiczna wersja zapoznawcza)](#tab/version-3)
+#### <a name="version-3"></a>[Wersja 3](#tab/version-3)
 
 > [!IMPORTANT]
-> Metoda [odczytywania wsadowego](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d986960601faab4bf452005) jest uruchamiana asynchronicznie. Ta metoda nie zwraca żadnych informacji w treści pomyślnej odpowiedzi. Zamiast tego metoda odczytywania wsadowego zwraca identyfikator URI w wartości pola nagłówka `Operation-Location` odpowiedzi. Następnie można wywołać ten identyfikator URI, który reprezentuje interfejs API [wyniku operacji odczytu](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d9869604be85dee480c8750) , aby sprawdzić stan i zwrócić wyniki wywołania metody odczytu wsadowego.
+> Metoda [odczytywania wsadowego](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d986960601faab4bf452005) jest uruchamiana asynchronicznie. Ta metoda nie zwraca żadnych informacji w treści pomyślnej odpowiedzi. Zamiast tego metoda odczytywania wsadowego zwraca identyfikator URI w wartości `Operation-Location` pola nagłówka odpowiedzi. Następnie można wywołać ten identyfikator URI, który reprezentuje interfejs API [wyniku operacji odczytu](https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6/operations/5d9869604be85dee480c8750) , aby sprawdzić stan i zwrócić wyniki wywołania metody odczytu wsadowego.
 
 ---
 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services).
 
 - Wymagany jest [program Visual Studio 2015 lub nowszy](https://visualstudio.microsoft.com/downloads/).
-- Musisz mieć klucz subskrypcji funkcji przetwarzania obrazów. Możesz uzyskać bezpłatny klucz wersji próbnej z usługi [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Lub postępuj zgodnie z instrukcjami w temacie [Tworzenie konta Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) , aby subskrybować przetwarzanie obrazów i uzyskać klucz. Następnie [Utwórz zmienne środowiskowe](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla ciągu punktu końcowego klucza i usługi, odpowiednio `COMPUTER_VISION_SUBSCRIPTION_KEY` nazwane `COMPUTER_VISION_ENDPOINT`i.
+- Musisz mieć klucz subskrypcji funkcji przetwarzania obrazów. Możesz uzyskać bezpłatny klucz wersji próbnej z usługi [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Lub postępuj zgodnie z instrukcjami w temacie [Tworzenie konta Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) , aby subskrybować przetwarzanie obrazów i uzyskać klucz. Następnie [Utwórz zmienne środowiskowe](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla ciągu punktu końcowego klucza i usługi, `COMPUTER_VISION_SUBSCRIPTION_KEY` odpowiednio nazwane i `COMPUTER_VISION_ENDPOINT` .
 
 ## <a name="create-and-run-the-sample-application"></a>Tworzenie i uruchamianie przykładowej aplikacji
 
@@ -80,29 +80,20 @@ namespace CSHttpClientSample
         static string subscriptionKey = Environment.GetEnvironmentVariable("COMPUTER_VISION_SUBSCRIPTION_KEY");
 
         static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
-        
+
         // the Batch Read method endpoint
         static string uriBase = endpoint + "vision/v2.1/read/core/asyncBatchAnalyze";
+        // Add your own local image with text (png or jpg OK)
+        static string imageFilePath = @"my-image.png";
 
-        static async Task Main()
+        static void Main()
         {
-            // Get the path and filename to process from the user.
-            Console.WriteLine("Text Recognition:");
-            Console.Write(
-                "Enter the path to an image with text you wish to read: ");
-            string imageFilePath = Console.ReadLine();
 
-            if (File.Exists(imageFilePath))
-            {
-                // Call the REST API method.
-                Console.WriteLine("\nWait a moment for the results to appear.\n");
-                await ReadText(imageFilePath);
-            }
-            else
-            {
-                Console.WriteLine("\nInvalid file path");
-            }
-            Console.WriteLine("\nPress Enter to exit...");
+            // Call the REST API method.
+            Console.WriteLine("\nExtracting text...\n");
+            ReadText(imageFilePath).Wait();
+
+            Console.WriteLine("\nPress Enter to exit.");
             Console.ReadLine();
         }
 
@@ -257,70 +248,20 @@ namespace CSHttpClientSample
         static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
 
         // the Batch Read method endpoint
-        static string uriBase = endpoint + "/vision/v3.0-preview/read/analyze";
+        static string uriBase = endpoint + "/vision/v3.0-preview//read/analyze";
 
-        static void PrintUsage()
-        {
-            // Get the path and filename to process from the user.
-            Console.WriteLine("Cognitive Service Batch Read File Sample");
-            Console.WriteLine("Usage: ");
-            Console.WriteLine("    From Azure Cogntivie Service, retrieve your endpoint and subscription key.");
-            Console.WriteLine("    Set environment variable COMPUTER_VISION_ENDPOINT, such as \"https://westus2.api.cognitive.microsoft.com\"");
-            Console.WriteLine("    Set environment variable COMPUTER_VISION_SUBSCRIPTION_KEY, such as \"1234567890abcdef1234567890abcdef\"\n");
-            Console.WriteLine("    Run the program without argument to enter a file name and a language manually.");
-            Console.WriteLine("    Or run the program with a file name for an image file (bmp/jpg/png/tiff) or a PDF file, plus the language. The language can be \"en\" or \"es\".");
-            Console.WriteLine("       For example: dotnet Program.dll sample.jpg en");
-            Console.WriteLine();
-        }
+        // Add a local image with text here (png or jpg is OK)
+        static string imageFilePath = @"my-image.png";
+        // Add a language, either "en" or "es"
+        static string language = "en";
+
 
         static void Main(string[] args)
         {
-            PrintUsage();
+            // Call the REST API method.
+            Console.WriteLine("\nExtracting text...\n");
+            ReadText(imageFilePath, language).Wait();
 
-            if (string.IsNullOrEmpty(subscriptionKey) || string.IsNullOrEmpty(endpoint))
-            {
-                Console.Error.WriteLine("Please set environment variables COMPUTER_VISION_ENDPOINT and COMPUTER_VISION_SUBSCRIPTION_KEY.");
-                return;
-            }
-
-            string imageFilePath;
-            string language;
-            if (args.Length == 0)
-            {
-                Console.Write(
-                    "Enter the path to an image (bmp/jpg/png/tiff) or PDF with text you wish to read: ");
-                imageFilePath = Console.ReadLine();
-            }
-            else
-            {
-                imageFilePath = args[0];
-            }
-
-            if (args.Length <= 1)
-            {
-                Console.Write(
-                    "Enter the language to read: \"en\" or \"es\": ");
-                language = Console.ReadLine();
-            }
-            else
-            {
-                language = args[1];
-            }
-
-            Console.WriteLine($"Endpoint:     [{endpoint}]");
-            Console.WriteLine($"Subscription: [{subscriptionKey}]");
-            Console.WriteLine($"URL:          [{uriBase}]");
-
-            if (File.Exists(imageFilePath))
-            {
-                // Call the REST API method.
-                Console.WriteLine("\nWait a moment for the results to appear.\n");
-                ReadText(imageFilePath, language).Wait();
-            }
-            else
-            {
-                Console.WriteLine("\nInvalid file path");
-            }
             Console.WriteLine("\nPress Enter to exit...");
             Console.ReadLine();
         }
@@ -627,7 +568,7 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 
 ---
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy rozwiązanie Visual Studio nie będzie już potrzebne, usuń je. W tym celu otwórz Eksplorator plików, przejdź do folderu, w którym utworzono rozwiązanie Visual Studio, i usuń folder.
 

@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 10/08/2019
-ms.openlocfilehash: 5a7d4d1917f65cd3d836db83600937a3e3d89de6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/19/2020
+ms.openlocfilehash: 260a3fbb8486a1e9eeaa87e920143615e5fae867
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79239539"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681820"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Samouczek: korzystanie z interfejsów API producentów i odbiorców platformy Apache Kafka
 
@@ -21,7 +21,7 @@ Informacje o sposobie korzystania z interfejsów API producentów i odbiorców p
 
 Interfejs API producenta platformy Kafka umożliwia aplikacjom wysyłanie strumieni danych do klastra Kafka. Interfejs API odbiorcy platformy Kafka umożliwia aplikacjom odczytywanie strumieni danych z klastra.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Wymagania wstępne
@@ -40,7 +40,7 @@ Aby uzyskać więcej informacji o tych interfejsach API, zobacz dokumentację pl
 
 ## <a name="understand-the-code"></a>Zrozumienie kodu
 
-Przykładowa aplikacja znajduje się w [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)lokalizacji w `Producer-Consumer` podkatalogu. Jeśli pakiet Enterprise Security używany jest klaster Kafka **(ESP)** , należy użyć wersji aplikacji znajdującej się w `DomainJoined-Producer-Consumer` podkatalogu.
+Przykładowa aplikacja znajduje się w lokalizacji [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) w `Producer-Consumer` podkatalogu. Jeśli pakiet Enterprise Security używany jest klaster Kafka **(ESP)** , należy użyć wersji aplikacji znajdującej się w `DomainJoined-Producer-Consumer` podkatalogu.
 
 Ta aplikacja składa się zasadniczo z czterech plików:
 * `pom.xml`: w tym pliku są definiowane zależności projektu, wersja języka Java i metody pakowania.
@@ -73,7 +73,7 @@ Należy zrozumieć następujące ważne kwestie dotyczące pliku `pom.xml`:
 
 ### <a name="producerjava"></a>Producer.java
 
-Producent komunikuje się z hostami brokera platformy Kafka (węzłami procesu roboczego) i wysyła dane do tematu platformy Kafka. Poniższy fragment kodu pochodzi z pliku [Producer. Java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) z [repozytorium GitHub](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) i pokazuje, jak ustawić właściwości producenta:
+Producent komunikuje się z hostami brokera platformy Kafka (węzłami procesu roboczego) i wysyła dane do tematu platformy Kafka. Poniższy fragment kodu pochodzi z pliku [Producer. Java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) z [repozytorium GitHub](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) i pokazuje, jak ustawić właściwości producenta. W przypadku klastrów z włączoną obsługą zabezpieczeń przedsiębiorstwa należy dodać dodatkową właściwość "Properties. setProperty (CommonClientConfigs. SECURITY_PROTOCOL_CONFIG," SASL_PLAINTEXT ");"
 
 ```java
 Properties properties = new Properties();
@@ -87,7 +87,7 @@ KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
 
 ### <a name="consumerjava"></a>Consumer.java
 
-Odbiorca komunikuje się z hostami brokera platformy Kafka (węzłami procesu roboczego) i odczytuje rekordy w pętli. Poniższy fragment kodu z pliku [Consumer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Consumer.java) ustawia właściwości odbiorcy:
+Odbiorca komunikuje się z hostami brokera platformy Kafka (węzłami procesu roboczego) i odczytuje rekordy w pętli. Poniższy fragment kodu z pliku [konsument. Java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Consumer.java) ustawia właściwości konsumenta. W przypadku klastrów z włączoną obsługą zabezpieczeń przedsiębiorstwa należy dodać dodatkową właściwość "Properties. setProperty (CommonClientConfigs. SECURITY_PROTOCOL_CONFIG," SASL_PLAINTEXT ");"
 
 ```java
 KafkaConsumer<String, String> consumer;
@@ -115,22 +115,32 @@ Plik [Run. Java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-start
 
 ## <a name="build-and-deploy-the-example"></a>Kompilowanie i wdrażanie przykładu
 
+### <a name="use-pre-built-jar-files"></a>Użyj wstępnie skompilowanych plików JAR
+
+Pobierz Jars z [przykładu Rozpoczynanie pracy z platformą Azure Kafka](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/Prebuilt-Jars). Jeśli klaster jest włączony **pakiet Enterprise Security (ESP)** , użyj Kafka-Producer-Consumer-ESP. jar. Użyj poniższego polecenia, aby skopiować Jars do klastra.
+
+```cmd
+scp kafka-producer-consumer*.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.net:kafka-producer-consumer.jar
+```
+
+### <a name="build-the-jar-files-from-code"></a>Kompiluj pliki JAR z kodu
+
 Jeśli chcesz pominąć ten krok, prekompilowane Jars można pobrać z `Prebuilt-Jars` podkatalogu. Pobierz plik Kafka-Producer-Consumer. jar. Jeśli klaster jest włączony **pakiet Enterprise Security (ESP)** , użyj Kafka-Producer-Consumer-ESP. jar. Wykonaj krok 3, aby skopiować plik jar do klastra usługi HDInsight.
 
-1. Pobierz i Wyodrębnij przykłady z [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)programu.
+1. Pobierz i Wyodrębnij przykłady z programu [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) .
 
-2. Ustaw bieżący katalog na lokalizację `hdinsight-kafka-java-get-started\Producer-Consumer` katalogu. Jeśli pakiet Enterprise Security używasz klastra Kafka **(ESP)** z włączoną obsługą klastrów, należy ustawić lokalizację na `DomainJoined-Producer-Consumer`podkatalog. Użyj następującego polecenia, aby skompilować aplikację:
+2. Ustaw bieżący katalog na lokalizację `hdinsight-kafka-java-get-started\Producer-Consumer` katalogu. Jeśli pakiet Enterprise Security używasz klastra Kafka **(ESP)** z włączoną obsługą klastrów, należy ustawić lokalizację na `DomainJoined-Producer-Consumer` podkatalog. Użyj następującego polecenia, aby skompilować aplikację:
 
     ```cmd
     mvn clean package
     ```
 
-    To polecenie tworzy katalog o nazwie `target`, który zawiera plik o nazwie `kafka-producer-consumer-1.0-SNAPSHOT.jar`.
+    To polecenie tworzy katalog o nazwie `target`, który zawiera plik o nazwie `kafka-producer-consumer-1.0-SNAPSHOT.jar`. W przypadku klastrów ESP plik zostanie`kafka-producer-consumer-esp-1.0-SNAPSHOT.jar`
 
 3. Zamień ciąg `sshuser` na nazwę użytkownika SSH klastra i zamień ciąg `CLUSTERNAME` na nazwę klastra. Wprowadź następujące polecenie, aby skopiować `kafka-producer-consumer-1.0-SNAPSHOT.jar` plik do klastra usługi HDInsight. Po wyświetleniu monitu wprowadź hasło użytkownika SSH.
 
     ```cmd
-    scp ./target/kafka-producer-consumer-1.0-SNAPSHOT.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.net:kafka-producer-consumer.jar
+    scp ./target/kafka-producer-consumer*.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.net:kafka-producer-consumer.jar
     ```
 
 ## <a name="run-the-example"></a><a id="run"></a>Uruchamianie przykładu
@@ -141,7 +151,7 @@ Jeśli chcesz pominąć ten krok, prekompilowane Jars można pobrać z `Prebuilt
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. Aby uzyskać hosty brokera Kafka, Zastąp wartości `<clustername>` i `<password>` w poniższym poleceniu i wykonaj je. Użyj tej samej wielkości liter `<clustername>` dla, jak pokazano w Azure Portal. Zamień `<password>` na hasło logowania klastra, a następnie wykonaj następujące polecenie:
+1. Aby uzyskać hosty brokera Kafka, Zastąp wartości `<clustername>` i `<password>` w poniższym poleceniu i wykonaj je. Użyj tej samej wielkości liter dla `<clustername>` , jak pokazano w Azure Portal. Zamień na `<password>` hasło logowania klastra, a następnie wykonaj następujące polecenie:
 
     ```bash
     sudo apt -y install jq
@@ -153,7 +163,7 @@ Jeśli chcesz pominąć ten krok, prekompilowane Jars można pobrać z `Prebuilt
     > [!Note]  
     > To polecenie wymaga dostępu Ambari. Jeśli klaster znajduje się za sieciowej grupy zabezpieczeń, Uruchom to polecenie z komputera, który może uzyskać dostęp do Ambari.
 
-1. Utwórz temat Kafka, `myTest`wprowadzając następujące polecenie:
+1. Utwórz temat Kafka, `myTest` wprowadzając następujące polecenie:
 
     ```bash
     java -jar kafka-producer-consumer.jar create myTest $KAFKABROKERS
@@ -169,6 +179,7 @@ Jeśli chcesz pominąć ten krok, prekompilowane Jars można pobrać z `Prebuilt
 
     ```bash
     java -jar kafka-producer-consumer.jar consumer myTest $KAFKABROKERS
+    scp ./target/kafka-producer-consumer*.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.net:kafka-producer-consumer.jar
     ```
 
     Zostanie wyświetlona liczba odczytanych rekordów wraz z liczbą rekordów.
@@ -195,7 +206,7 @@ tmux new-session 'java -jar kafka-producer-consumer.jar consumer myTest $KAFKABR
 \; attach
 ```
 
-To polecenie używa polecenia `tmux`, aby podzielić terminal na dwie kolumny. W każdej kolumnie jest uruchamiany odbiorca z tą samą wartością identyfikatora grupy. Kiedy odbiorcy zakończą odczytywanie, można zauważyć, że każdy z nich odczytał tylko część rekordów. __Naciśnij klawisz Ctrl + C__ dwa razy `tmux`, aby wyjść.
+To polecenie używa polecenia `tmux`, aby podzielić terminal na dwie kolumny. W każdej kolumnie jest uruchamiany odbiorca z tą samą wartością identyfikatora grupy. Kiedy odbiorcy zakończą odczytywanie, można zauważyć, że każdy z nich odczytał tylko część rekordów. __Naciśnij klawisz Ctrl + C__ dwa razy, aby wyjść `tmux` .
 
 Użycie przez klientów w tej samej grupie jest obsługiwane przez partycje tematu. W tym przykładowym kodzie utworzony wcześniej temat `test` ma osiem partycji. Jeśli zostanie uruchomionych ośmiu odbiorców, każdy z nich będzie odczytywał rekordy z jednej partycji tematu.
 
@@ -204,7 +215,13 @@ Użycie przez klientów w tej samej grupie jest obsługiwane przez partycje tema
 
 Rekordy przechowywane w Kafka są przechowywane w kolejności, w jakiej są odbierane w ramach partycji. Aby dostarczać rekordy *na partycji* w określonej kolejności, utwórz grupę odbiorców, w której liczba wystąpień odbiorców jest zgodna z liczbą partycji. Aby dostarczać rekordy *w temacie* w określonej kolejności, utwórz grupę odbiorców z jednym wystąpieniem odbiorcy.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="common-issues-faced"></a>Często spotykane problemy
+
+1. **Tworzenie tematu kończy się niepowodzeniem** Jeśli w klastrze jest włączony pakiet Enterprise Security Pack, użyj [wstępnie utworzonych plików jar dla producenta i konsumenta](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Prebuilt-Jars/kafka-producer-consumer-esp.jar). Plik JAR. ESP można skompilować z kodu w [ `DomainJoined-Producer-Consumer` podkatalogu](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer). Należy zauważyć, że właściwości producent i odbiorca wyapisz dodatkową właściwość `CommonClientConfigs.SECURITY_PROTOCOL_CONFIG` dla klastrów obsługujących ESP.
+
+2. **Problem z problemem z klastrami z obsługą ESP** Jeśli operacje tworzenia i zużywania nie powiodą się i jest używany klaster obsługujący ESP, sprawdź, czy użytkownik `kafka` jest obecny we wszystkich zasadach Ranger. Jeśli go nie ma, Dodaj go do wszystkich zasad Rangerymi.
+
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Aby wyczyścić zasoby utworzone w tym samouczku, możesz usunąć grupę zasobów. Usunięcie grupy zasobów powoduje również usunięcie skojarzonego klastra usługi HDInsight i wszystkich innych zasobów skojarzonych z tą grupą zasobów.
 

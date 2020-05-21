@@ -1,18 +1,18 @@
 ---
 title: Wbudowane definicje zasad dla Azure Data Lake Storage Gen1
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Data Lake Storage Gen1. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 05/04/2020
+ms.date: 05/13/2020
 ms.topic: sample
 author: twooley
 ms.author: twooley
 ms.service: data-lake-store
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 62163bd2f58bb8a331c3b941a28eb729bcb49fb6
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: c254510cd30e5fc971d097e5706ab622f02cacd3
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82966204"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656265"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-data-lake-storage-gen1"></a>Azure Policy wbudowane definicje zasad dla Azure Data Lake Storage Gen1
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: b0af45ba4a6b1ca7f9e751af082ff0db80776ec0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: be5bc8ec4e8f363d9b6079d22f3bba1af2d4d5fb
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80679786"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682571"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Szybki Start: renderowanie modelu przy użyciu aparatu Unity
 
@@ -66,13 +66,13 @@ Domyślny model, który jest renderowany, jest [wbudowanym przykładowym modelem
 
 1. W przeglądarce zasobów aparatu Unity przejdź do folderu *sceny* i Otwórz scenę **szybkiego startu** .
 1. Z *hierarchii*wybierz obiekt gry **RemoteRendering** .
-1. W *Inspektorze*wprowadź [poświadczenia konta](../how-tos/create-an-account.md).
+1. W *Inspektorze*wprowadź [poświadczenia konta](../how-tos/create-an-account.md). Jeśli nie masz jeszcze konta, [Utwórz je](../how-tos/create-an-account.md).
 
 ![Informacje o koncie ARR](./media/arr-sample-account-info.png)
 
 > [!IMPORTANT]
 > Witryna Azure portal wyświetla domenę konta tylko jako *mixedreality.Azure.com*. Jest to niewystarczające do pomyślnego nawiązania połączenia.
-> Ustaw **AccountDomain** na `<region>.mixedreality.azure.com`, gdzie `<region>` jest [jednym z dostępnych regionów w sąsiedztwie](../reference/regions.md).
+> Ustaw **AccountDomain** na `<region>.mixedreality.azure.com` , gdzie `<region>` jest [jednym z dostępnych regionów w sąsiedztwie](../reference/regions.md).
 
 Później chcemy wdrożyć ten projekt w usłudze HoloLens i nawiązać połączenie z usługą renderowania zdalnego z tego urządzenia. Ze względu na to, że nie mamy łatwego sposobu wprowadzania poświadczeń na urządzeniu, próbka szybkiego startu **zapisze poświadczenia w scenie aparatu Unity**.
 

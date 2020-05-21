@@ -1,14 +1,14 @@
 ---
 title: 'Samouczek: Tworzenie definicji zasad niestandardowych'
 description: W tym samouczku utworzysz niestandardową definicję zasad Azure Policy, aby wymusić niestandardowe reguły biznesowe dla zasobów platformy Azure.
-ms.date: 11/25/2019
+ms.date: 05/20/2020
 ms.topic: tutorial
-ms.openlocfilehash: 7a1eb8abcfbf7513b4620f66c0a7fdbd288f8705
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4d91ae589adbadb7d03e318dc20d6b2b78a84a18
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82190711"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683241"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Samouczek: Tworzenie definicji zasad niestandardowych
 
@@ -33,7 +33,7 @@ Proces tworzenia zasad niestandardowych obejmuje następujące kroki:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="identify-requirements"></a>Określanie wymagań
 
@@ -321,7 +321,7 @@ Wykres zasobów platformy Azure może być używany w [Cloud Shell](https://shel
 
 Określenie, co należy zrobić z niezgodnymi zasobami, jest niemal tak ważne, jak zdecydowanie, co należy ocenić w pierwszej kolejności. Każda możliwa odpowiedź na niezgodny zasób jest nazywana [efektem](../concepts/effects.md). Efekt kontroluje, czy niezgodny zasób jest rejestrowany, blokowany, czy są dołączane do niego dane lub czy jest z nim kojarzone wdrożenie przywracające zasób do stanu zgodności.
 
-W naszym przykładzie efekt to Deny (Odmów), ponieważ nie chcemy tworzenia niezgodnych zasobów w naszym środowisku platformy Azure. Audit (Inspekcja) jest dobrym pierwszym wyborem dla efektu zasad, umożliwiając określenie wpływu zasad przed ustawieniem dla nich efektu Deny (Odmów). Jednym ze sposobów na ułatwienie modyfikowania efektu dla przypisania jest sparametryzowanie efektu. Zobacz [Parametry](#parameters) poniżej, aby uzyskać szczegółowe informacje na ten temat.
+W naszym przykładzie odmowa jest efektem, ponieważ nie chcemy, aby niezgodne zasoby zostały utworzone w środowisku platformy Azure. Audit (Inspekcja) jest dobrym pierwszym wyborem dla efektu zasad, umożliwiając określenie wpływu zasad przed ustawieniem dla nich efektu Deny (Odmów). Jednym ze sposobów na ułatwienie modyfikowania efektu dla przypisania jest sparametryzowanie efektu. Zobacz [Parametry](#parameters) poniżej, aby uzyskać szczegółowe informacje na ten temat.
 
 ## <a name="compose-the-definition"></a>Tworzenie definicji
 
@@ -453,7 +453,7 @@ Oto kompletna definicja zawierająca wszystkie trzy części zasad:
 
 Ukończonej definicji można użyć do utworzenia nowych zasad. Portal i każdy z zestawów SDK (interfejsu wiersza polecenia platformy Azure, programu Azure PowerShell i interfejsu API REST) przyjmuje definicję w inny sposób, więc należy przejrzeć polecenia dla każdego z nich, aby zwalidować poprawność składni. Następnie przypisz ją za pomocą sparametryzowanego efektu do odpowiednich zasobów w celu zarządzania zabezpieczeniami kont magazynu.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie planujesz dalszej pracy z zasobami utworzonymi w tym samouczku, wykonaj poniższe kroki, aby usunąć wszystkie utworzone powyżej przypisania lub definicje:
 

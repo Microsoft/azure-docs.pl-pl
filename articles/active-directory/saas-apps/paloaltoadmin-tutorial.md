@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/12/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2fc9a23a8b0ef69760867dd5768510397f8570e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9804a44a29f4540c28ec4e1eb6927e65af70218c
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80129787"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83682953"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Samouczek: integracja Azure Active Directory z programem Palo Alto Networks — interfejs użytkownika administratora
 
@@ -108,7 +108,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją Palo Alto
 
 1. Aplikacja PureCloud by Genesys oczekuje asercji SAML w określonym formacie, co wymaga dodania mapowań atrybutów niestandardowych do konfiguracji atrybutów tokenów języka SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
-    ![image](common/default-attributes.png)
+    ![image (obraz)](common/default-attributes.png)
 
    > [!NOTE]
    > Ponieważ wartości atrybutów są jedynie przykładowe, zamapuj odpowiednie wartości dla atrybutów *nazwa użytkownika* i *rola administratora*. Istnieje inny opcjonalny atrybut *domena dostępu*, który jest używany do ograniczania dostępu administratora do określonych systemów wirtualnego na zaporze.
@@ -124,7 +124,7 @@ Aby skonfigurować logowanie jednokrotne usługi Azure AD z aplikacją Palo Alto
     > [!NOTE]
     > Aby uzyskać więcej informacji o atrybutach, zobacz następujące artykuły:
     > * [Administrative role profile for Admin UI (adminrole)](https://www.paloaltonetworks.com/documentation/80/pan-os/pan-os/firewall-administration/manage-firewall-administrators/configure-an-admin-role-profile) (Profil roli administracyjnej dla aplikacji Admin UI (adminrole))
-    > * [Device access domain for Admin UI (accessdomain)](https://www.paloaltonetworks.com/documentation/80/pan-os/web-interface-help/device/device-access-domain) (Domena dostępu do urządzeń dla aplikacji Admin UI (accessdomain))
+    > * [Device access domain for Admin UI (accessdomain)](https://docs.paloaltonetworks.com/pan-os/8-0/pan-os-web-interface-help/device/device-access-domain.html) (Domena dostępu do urządzeń dla aplikacji Admin UI (accessdomain))
 
 1. Na stronie **Konfigurowanie logowania jednokrotnego za pomocą protokołu SAML** w sekcji **Certyfikat podpisywania SAML** kliknij link **Pobierz**, aby pobrać **kod XML metadanych federacji** na podstawie podanych opcji zgodnie z wymaganiami i zapisać go na komputerze.
 
@@ -148,7 +148,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
@@ -243,7 +243,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
     g. Wybierz przycisk **OK**.
 
-13. Aby umożliwić administratorom używanie logowania jednokrotnego SAML przy użyciu platformy Azure, wybierz pozycję**Konfiguracja** **urządzenia** > . W okienku **Setup** (Konfiguracja) wybierz kartę **Management** (Zarządzanie), a następnie w obszarze **Authentication Settings** (Ustawienia uwierzytelniania) wybierz przycisk **Settings** (Ustawienia), czyli koło zębate.
+13. Aby umożliwić administratorom używanie logowania jednokrotnego SAML przy użyciu **Device**platformy Azure, wybierz pozycję  >  **Konfiguracja**urządzenia. W okienku **Setup** (Konfiguracja) wybierz kartę **Management** (Zarządzanie), a następnie w obszarze **Authentication Settings** (Ustawienia uwierzytelniania) wybierz przycisk **Settings** (Ustawienia), czyli koło zębate.
 
     ![Przycisk Settings (Ustawienia)](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_authsetup.png)
 

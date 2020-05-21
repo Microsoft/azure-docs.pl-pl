@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 02/25/2020
 ms.author: jingwang
-ms.openlocfilehash: 7d66d226554c4b6f84e3040cdd7c3edea0a5f054
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: c54d3187af1faee3a47a794dcf5b9b91733e5592
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982177"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683358"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Szybki Start: Tworzenie fabryki danych przy użyciu interfejsu użytkownika Azure Data Factory
 
@@ -29,11 +29,11 @@ ms.locfileid: "82982177"
 W tym przewodniku Szybki start opisano sposób używania interfejsu użytkownika usługi Azure Data Factory w celu tworzenia i monitorowania fabryki danych. Potok tworzony w tej fabryce danych *kopiuje* dane z jednego folderu do innego folderu w usłudze Azure Blob Storage. Aby *przekształcić* dane przy użyciu Azure Data Factory, zobacz [Mapowanie przepływu danych](concepts-data-flow-overview.md) i [przepływu danych przetwarzanie (wersja zapoznawcza)](wrangling-data-flow-overview.md).
 
 > [!NOTE]
-> Jeśli jesteś nowym użytkownikiem usługi Azure Data Factory, przed wykonaniem kroków zawartych w tym przewodniku Szybki start zobacz [Wprowadzenie do usługi Azure Data Factory](data-factory-introduction.md). 
+> Jeśli jesteś nowym użytkownikiem usługi Azure Data Factory, przed wykonaniem kroków zawartych w tym przewodniku Szybki start zobacz [Wprowadzenie do usługi Azure Data Factory](introduction.md). 
 
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
-### <a name="video"></a>Film wideo 
+### <a name="video"></a>Wideo 
 Obejrzenie tego filmu wideo ułatwi zapoznanie się z interfejsem użytkownika usługi Data Factory: 
 >[!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Visually-build-pipelines-for-Azure-Data-Factory-v2/Player]
 
@@ -49,7 +49,7 @@ Obejrzenie tego filmu wideo ułatwi zapoznanie się z interfejsem użytkownika u
    ![Wybór usługi Data Factory w okienku „Nowy”](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. Na stronie **Nowa fabryka danych** wprowadź wartość **ADFTutorialDataFactory** w polu **Nazwa**. 
  
-   Nazwa fabryki danych Azure musi być *globalnie unikatowa*. Jeśli zostanie wyświetlony następujący błąd, Zmień nazwę fabryki danych (na przykład ** &lt;&gt;ADFTutorialDataFactory**) i spróbuj utworzyć ją ponownie. Artykuł [Usługa Data Factory — reguły nazewnictwa](naming-rules.md) zawiera reguły nazewnictwa artefaktów usługi Data Factory.
+   Nazwa fabryki danych Azure musi być *globalnie unikatowa*. Jeśli zostanie wyświetlony następujący błąd, Zmień nazwę fabryki danych (na przykład ** &lt; &gt; ADFTutorialDataFactory**) i spróbuj utworzyć ją ponownie. Artykuł [Usługa Data Factory — reguły nazewnictwa](naming-rules.md) zawiera reguły nazewnictwa artefaktów usługi Data Factory.
   
    ![Komunikat o błędzie występujący, jeśli nazwa jest niedostępna](./media/doc-common-process/name-not-available-error.png)
 1. W obszarze **Subskrypcja** wybierz subskrypcję platformy Azure, w której chcesz utworzyć fabrykę danych. 
@@ -106,7 +106,7 @@ Wyjściowy zestaw danych reprezentuje dane, które są kopiowane do lokalizacji 
 
 W ustawieniach połączonej usługi określono konto usługi Azure Storage, które zawiera dane źródłowe. W ustawieniach zestawu danych źródłowych należy określić, gdzie dokładnie znajduje się źródło danych (kontener obiektów blob, folder i plik). W ustawieniach zestawu danych ujścia należy określić, gdzie kopiowane są dane (kontener obiektów blob, folder i plik). 
  
-1. Wybierz przycisk **+** (znak plus), a następnie wybierz pozycję **zestaw danych**.
+1. Wybierz **+** przycisk (znak plus), a następnie wybierz pozycję **zestaw danych**.
 
    ![Menu do tworzenia zestawu danych](./media/quickstart-create-data-factory-portal/new-dataset-menu.png)
 1. Na stronie **Nowy zestaw danych** wybierz pozycję **Azure Blob Storage**, a następnie wybierz pozycję **Kontynuuj**. 
@@ -130,7 +130,7 @@ W ustawieniach połączonej usługi określono konto usługi Azure Storage, któ
     ![Ustawianie właściwości dla InputDataset](./media/quickstart-create-data-factory-portal/set-properties-for-inputdataset.png)
 1. Powtórz kroki, aby utworzyć wyjściowy zestaw danych:  
 
-    a. Wybierz przycisk **+** (znak plus), a następnie wybierz pozycję **zestaw danych**.
+    a. Wybierz **+** przycisk (znak plus), a następnie wybierz pozycję **zestaw danych**.
 
     b. Na stronie **Nowy zestaw danych** wybierz pozycję **Azure Blob Storage**, a następnie wybierz pozycję **Kontynuuj**.
 
@@ -146,7 +146,7 @@ W ustawieniach połączonej usługi określono konto usługi Azure Storage, któ
 ## <a name="create-a-pipeline"></a>Tworzenie potoku 
 Podczas tej procedury utworzysz potok i zweryfikujesz go za pomocą działania kopiowania, które korzysta z wejściowego i wyjściowego zestawu danych. Działanie kopiowania służy do kopiowania danych z pliku określonego w ustawieniach wejściowego zestawu danych do pliku określonego w ustawieniach wyjściowego zestawu danych. Jeśli wejściowy zestaw danych określa tylko folder (a nie nazwę pliku), działanie kopiowania kopiuje wszystkie pliki w folderze źródłowym do lokalizacji docelowej. 
 
-1. Wybierz przycisk **+** (znak plus), a następnie wybierz pozycję **potok**. 
+1. Wybierz **+** przycisk (znak plus), a następnie wybierz pozycję **potok**. 
 
 1. Na karcie **Ogólne** określ wartość **CopyPipeline** w polu **Nazwa**. 
 

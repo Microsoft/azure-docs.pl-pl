@@ -6,19 +6,19 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 09/04/2019
-ms.openlocfilehash: 58c5b3bdd6d50f2e512cccffe78bd4e70805d729
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/19/2020
+ms.openlocfilehash: 6da2537464e39ecb2c613a97b19f2d8f316818af
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78204739"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83677555"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Samouczek: konfigurowanie zasad platformy Apache Kafka w usłudze HDInsight przy użyciu pakietu Enterprise Security (wersja zapoznawcza)
 
 Dowiedz się, jak skonfigurować zasady platformy Apache Ranger na potrzeby klastrów Apache Kafka pakietów Enterprise Security Package (ESP). Klastry ESP są łączone z domeną, co pozwala użytkownikom na uwierzytelnianie przy użyciu poświadczeń domeny. Korzystając z tego artykułu, utworzysz dwie zasady platformy Ranger, aby ograniczyć dostęp do tematów `sales` i `marketingspend`.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie użytkowników domeny
@@ -26,7 +26,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Tworzenie tematów w klastrze platformy Kafka
 > * Testowanie zasad platformy Ranger
 
-## <a name="prerequisite"></a>Wymagania wstępne
+## <a name="prerequisite"></a>Wymaganie wstępne
 
 [Klaster Kafka usługi HDInsight z pakiet Enterprise Security](./apache-domain-joined-configure-using-azure-adds.md).
 
@@ -48,7 +48,7 @@ Utwórz zasady platformy Ranger dla użytkowników **sales_user** i **marketing_
 
 1. Otwórz **interfejs użytkownika administratora platformy Ranger**.
 
-2. Wybierz pozycję ** \<ClusterName>_kafka** w obszarze **Kafka**. Lista może zawierać tylko jedne wstępnie skonfigurowane zasady.
+2. Wybierz pozycję ** \< clustername>_kafka** w obszarze **Kafka**. Lista może zawierać tylko jedne wstępnie skonfigurowane zasady.
 
 3. Wybierz pozycję **Dodaj nowe zasady** i wprowadź następujące wartości:
 
@@ -145,9 +145,10 @@ W oparciu o skonfigurowane zasady platformy Ranger użytkownik **sales_user** mo
 
    Przykład: `export KAFKABROKERS=wn0-khdicl.contoso.com:9092,wn1-khdicl.contoso.com:9092`
 
-4. Wykonaj krok 3 w sekcji **Tworzenie i wdrażanie przykładu** w [samouczku: użyj interfejsów API Apache Kafka producenta i klienta](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) , aby `kafka-producer-consumer.jar` upewnić się, że jest również dostępna do **sales_user**.
+4. Wykonaj krok 3 w sekcji **Tworzenie i wdrażanie przykładu** w [samouczku: użyj interfejsów API Apache Kafka producenta i klienta](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example) , aby upewnić się, że `kafka-producer-consumer.jar` jest również dostępna do **sales_user**.
 
-**Uwaga: w tym samouczku Użyj Kafka-Producer-Consumer. jar w projekcie "DomainJoined-Produc-Consumer" (a nie w ramach projektu producent-odbiorca, który jest przeznaczony dla scenariuszy przyłączonych do domeny).**
+> [!NOTE]  
+> W tym samouczku Użyj Kafka-Producer-Consumer. jar w projekcie "DomainJoined-Produc-Consumer" (a nie w ramach projektu producent-klient, który jest przeznaczony dla scenariuszy przyłączonych do domeny).
 
 5. Upewnij się, że użytkownik **sales_user1** może tworzyć do tematu `salesevents`, wykonując następujące polecenie:
 
@@ -187,7 +188,7 @@ W oparciu o skonfigurowane zasady platformy Ranger użytkownik **sales_user** mo
 
    ![Zdarzenia dostępu inspekcji zasad interfejsu użytkownika Ranger ](./media/apache-domain-joined-run-kafka/apache-ranger-admin-audit.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń klaster Kafka, który został utworzony w następujących krokach:
 

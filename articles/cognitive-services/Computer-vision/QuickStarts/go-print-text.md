@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 729c489169d242fdaf3872186da1dc2763ae1ea2
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: bb9c15883dee4142d486ba64d71ddb76d0b970a6
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81405004"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681088"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-with-go"></a>Szybki Start: Wyodrębnianie wydrukowanego tekstu (OCR) przy użyciu interfejsu API REST przetwarzanie obrazów za pomocą języka go
 
@@ -25,12 +25,12 @@ ms.locfileid: "81405004"
 
 W tym przewodniku Szybki Start zostanie wyodrębniony drukowany tekst z użyciem optycznego rozpoznawania znaków (OCR) z obrazu przy użyciu interfejsu API REST przetwarzanie obrazów. Metoda optycznego rozpoznawania znaków ([OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc)) pozwala wykrywać na obrazie tekst wydrukowany i wyodrębniać rozpoznane znaki do strumienia znaków, którego mogą używać komputery.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - Musisz mieć zainstalowany język [Go](https://golang.org/dl/).
-- Musisz mieć klucz subskrypcji funkcji przetwarzania obrazów. Możesz uzyskać bezpłatny klucz wersji próbnej z usługi [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Lub postępuj zgodnie z instrukcjami w temacie [Tworzenie konta Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) , aby subskrybować przetwarzanie obrazów i uzyskać klucz. Następnie [Utwórz zmienne środowiskowe](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla ciągu punktu końcowego klucza i usługi, odpowiednio `COMPUTER_VISION_SUBSCRIPTION_KEY` nazwane `COMPUTER_VISION_ENDPOINT`i.
+- Musisz mieć klucz subskrypcji funkcji przetwarzania obrazów. Możesz uzyskać bezpłatny klucz wersji próbnej z usługi [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Lub postępuj zgodnie z instrukcjami w temacie [Tworzenie konta Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) , aby subskrybować przetwarzanie obrazów i uzyskać klucz. Następnie [Utwórz zmienne środowiskowe](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) dla ciągu punktu końcowego klucza i usługi, `COMPUTER_VISION_SUBSCRIPTION_KEY` odpowiednio nazwane i `COMPUTER_VISION_ENDPOINT` .
 
 ## <a name="create-and-run-the-sample"></a>Tworzenie i uruchamianie próbki
 
@@ -51,28 +51,23 @@ import (
     "fmt"
     "io/ioutil"
     "net/http"
+    "os"
     "strings"
     "time"
 )
 
 func main() {
     // Add your Computer Vision subscription key and endpoint to your environment variables.
+    // Add your Computer Vision subscription key and endpoint to your environment variables.
     subscriptionKey := os.Getenv("COMPUTER_VISION_SUBSCRIPTION_KEY")
-    if (subscriptionKey == "") {
-        log.Fatal("\n\nSet the COMPUTER_VISION_SUBSCRIPTION_KEY environment variable.\n" +
-            "**Restart your shell or IDE for changes to take effect.**\n")
-
     endpoint := os.Getenv("COMPUTER_VISION_ENDPOINT")
-    if ("" == endpoint) {
-        log.Fatal("\n\nSet the COMPUTER_VISION_ENDPOINT environment variable.\n" +
-            "**Restart your shell or IDE for changes to take effect.**")
-    }
-    const uriBase = endpoint + "vision/v2.1/ocr"
+
+    uriBase := endpoint + "vision/v3.0/ocr"
     const imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/" +
         "Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png"
 
-    const params = "?language=unk&detectOrientation=true"
-    const uri = uriBase + params
+    params := "?language=unk&detectOrientation=true"
+    uri := uriBase + params
     const imageUrlEnc = "{\"url\":\"" + imageUrl + "\"}"
 
     reader := strings.NewReader(imageUrlEnc)

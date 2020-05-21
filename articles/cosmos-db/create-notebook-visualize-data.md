@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 45dd4e8dcfd74cdb5d96b935e239b9f4b5094a7c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 41f68ead6f985d6cc2c8120091c36783d074b066
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73720928"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659146"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Samouczek: Tworzenie notesu w Azure Cosmos DB, aby analizować i wizualizować dane
 
@@ -28,13 +28,13 @@ W tej sekcji utworzysz bazę danych i kontener usługi Azure Cosmos, a następni
 
 1. Przejdź do konta usługi Azure Cosmos i Otwórz **Eksplorator danych.**
 
-1. Przejdź do karty **notesy** , wybierz `…` pozycję Dalej w obszarze **Moje notesy** i Utwórz **Nowy Notes**. Wybierz język **Python 3** jako domyślne jądro.
+1. Przejdź do karty **notesy** , wybierz pozycję `…` dalej w obszarze **Moje notesy** i Utwórz **Nowy Notes**. Wybierz język **Python 3** jako domyślne jądro.
 
    ![Tworzenie nowego notesu](./media/create-notebook-visualize-data/create-new-notebook.png)
 
 1. Po utworzeniu nowego notesu można zmienić jego nazwę na podobną do **VisualizeRetailData. ipynb.**
 
-1. Następnie utworzysz bazę danych o nazwie "RetailDemo" i kontener o nazwie "WebsiteData" w celu przechowywania danych detalicznych. Możesz użyć/CardID jako klucza partycji. Skopiuj i wklej następujący kod do nowej komórki w notesie i uruchom go:
+1. Następnie utworzysz bazę danych o nazwie "RetailDemo" i kontener o nazwie "WebsiteData" w celu przechowywania danych detalicznych. Możesz użyć/CartID jako klucza partycji. Skopiuj i wklej następujący kod do nowej komórki w notesie i uruchom go:
 
    ```python
    import azure.cosmos
@@ -121,7 +121,7 @@ Przed uruchomieniem zapytań w celu przeanalizowania danych, można odczytać da
 {Query text}
 ```
 
-Aby dowiedzieć się więcej, zobacz [wbudowane polecenia i funkcje notesu w artykule Azure Cosmos DB](use-notebook-features-and-commands.md) . Zapytanie zostanie uruchomione `SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c`. Wyniki zostaną zapisane w Pandas Dataframe o nazwie df_cosmos. Wklej następujące polecenie w nowej komórce notesu i uruchom je:
+Aby dowiedzieć się więcej, zobacz [wbudowane polecenia i funkcje notesu w artykule Azure Cosmos DB](use-python-notebook-features-and-commands.md) . Zapytanie zostanie uruchomione `SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c` . Wyniki zostaną zapisane w Pandas Dataframe o nazwie df_cosmos. Wklej następujące polecenie w nowej komórce notesu i uruchom je:
 
 ```python
 %%sql --database RetailDemo --container WebsiteData --output df_cosmos
@@ -290,4 +290,4 @@ W tej sekcji zostaną uruchomione pewne zapytania dotyczące pobranych danych.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej na temat poleceń notesów, zobacz [jak używać wbudowanych poleceń i funkcji notesu w artykule Azure Cosmos DB](use-notebook-features-and-commands.md) .
+* Aby dowiedzieć się więcej na temat poleceń notesu języka Python, zobacz [jak używać wbudowanych poleceń i funkcji notesu w artykule Azure Cosmos DB](use-python-notebook-features-and-commands.md) .

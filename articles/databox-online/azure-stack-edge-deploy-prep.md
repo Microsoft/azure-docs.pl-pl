@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 06/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: e453723692e0e6c08c1bd03301318688082201c2
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: e6b752eab3f6a8f40fad8b2f947a82f86a8ccfe5
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82570951"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652065"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge"></a>Samouczek: przygotowanie do wdrożenia Azure Stack Edge  
 
@@ -22,15 +22,16 @@ Jest to pierwszy samouczek z serii samouczków wdrażania, które są wymagane d
 
 Do ukończenia procesu instalacji i konfiguracji niezbędne są uprawnienia administratora. Przygotowanie portalu zajmuje mniej niż 10 minut.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
+>
 > * Tworzenie nowego zasobu
 > * Uzyskiwanie klucza aktywacji
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-### <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Aby wdrożyć Azure Stack Edge, zapoznaj się z poniższymi samouczkami w określonej kolejności.
 
@@ -52,14 +53,15 @@ Poniżej przedstawiono wymagania wstępne dotyczące konfiguracji zasobów usłu
 
 Przed rozpoczęciem upewnij się, że:
 
-- Subskrypcja Microsoft Azure jest włączona dla zasobu Azure Stack Edge. Subskrypcje z płatność zgodnie z rzeczywistym użyciem nie są obsługiwane.
-- Masz uprawnienia właściciela lub współautora na poziomie grupy zasobów dla Azure Stack Edge/Data Box Gateway, IoT Hub i zasobów usługi Azure Storage.
+* Subskrypcja Microsoft Azure jest włączona dla zasobu Azure Stack Edge. Upewnij się, że użyto obsługiwanej subskrypcji, takiej jak [Microsoft Umowa Enterprise (EA)](https://azure.microsoft.com/overview/sales-number/), [dostawca rozwiązań w chmurze (CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp)lub [dostęp sponsorowany Microsoft Azure](https://azure.microsoft.com/offers/ms-azr-0036p/). Subskrypcje z płatność zgodnie z rzeczywistym użyciem nie są obsługiwane.
 
-    - Aby utworzyć dowolny zasób Azure Stack Edge/Data Box Gateway, należy mieć uprawnienia jako współautora (lub wyższe) w zakresie na poziomie grupy zasobów. Należy również upewnić się, że `Microsoft.DataBoxEdge` dostawca jest zarejestrowany. Aby uzyskać informacje na temat rejestrowania, przejdź do pozycji [zarejestruj dostawcę zasobów](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
-    - Aby utworzyć dowolny zasób IoT Hub, upewnij się, że jest zarejestrowany dostawca Microsoft. Devices. Aby uzyskać informacje na temat rejestrowania, przejdź do pozycji [zarejestruj dostawcę zasobów](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
-    - Aby utworzyć zasób konta magazynu, należy ponownie uzyskać wartość współautor lub wyższy dostęp do zakresu na poziomie grupy zasobów. Usługa Azure Storage jest domyślnie zarejestrowanym dostawcą zasobów.
-- Masz uprawnienia administratora lub użytkownika do Azure Active Directory interfejs API programu Graph. Aby uzyskać więcej informacji, zobacz [Azure Active Directory interfejs API programu Graph](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
-- Masz konto magazynu platformy Microsoft Azure z poświadczeniami dostępu.
+* Masz uprawnienia właściciela lub współautora na poziomie grupy zasobów dla Azure Stack Edge/Data Box Gateway, IoT Hub i zasobów usługi Azure Storage.
+
+  * Aby utworzyć dowolny zasób Azure Stack Edge/Data Box Gateway, należy mieć uprawnienia jako współautora (lub wyższe) w zakresie na poziomie grupy zasobów. Należy również upewnić się, że `Microsoft.DataBoxEdge` dostawca jest zarejestrowany. Aby uzyskać informacje na temat rejestrowania, przejdź do pozycji [zarejestruj dostawcę zasobów](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+  * Aby utworzyć dowolny zasób IoT Hub, upewnij się, że jest zarejestrowany dostawca Microsoft. Devices. Aby uzyskać informacje na temat rejestrowania, przejdź do pozycji [zarejestruj dostawcę zasobów](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+  * Aby utworzyć zasób konta magazynu, należy ponownie uzyskać wartość współautor lub wyższy dostęp do zakresu na poziomie grupy zasobów. Usługa Azure Storage jest domyślnie zarejestrowanym dostawcą zasobów.
+* Masz uprawnienia administratora lub użytkownika do Azure Active Directory interfejs API programu Graph. Aby uzyskać więcej informacji, zobacz [Azure Active Directory interfejs API programu Graph](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+* Masz konto magazynu platformy Microsoft Azure z poświadczeniami dostępu.
 
 ### <a name="for-the-azure-stack-edge-device"></a>Dla urządzenia brzegowego Azure Stack
 
@@ -70,7 +72,6 @@ Przed wdrożeniem urządzenia fizycznego upewnij się, że są spełnione nastę
 - Masz dostęp do płaskiej, stabilnej i poziomej powierzchni roboczej, gdzie można bezpiecznie umieścić urządzenie.
 - Miejsce, w którym chcesz skonfigurować urządzenie, ma standardowe zasilanie prądem przemiennym z niezależnego źródła lub jednostkę dystrybucji zasilania na stojaku (PDU, rack power distribution unit) z zasilaczem UPS.
 - Masz dostęp do urządzenia fizycznego.
-
 
 ### <a name="for-the-datacenter-network"></a>Sieć centrum danych
 
@@ -90,9 +91,9 @@ Jeśli masz istniejący zasób Azure Stack Edge do zarządzania urządzeniem fiz
 Aby utworzyć zasób Azure Stack Edge, wykonaj następujące czynności w Azure Portal.
 
 1. Zaloguj się do programu przy użyciu poświadczeń Microsoft Azure 
-    
-    - Azure Portal pod tym adresem URL: [https://portal.azure.com](https://portal.azure.com).
-    - Lub Portal Azure Government pod tym adresem URL: [https://portal.azure.us](https://portal.azure.us). Aby uzyskać więcej informacji, przejdź do [obszaru łączenie z Azure Government przy użyciu portalu](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
+
+    - Azure Portal pod tym adresem URL: [https://portal.azure.com](https://portal.azure.com) .
+    - Lub Portal Azure Government pod tym adresem URL: [https://portal.azure.us](https://portal.azure.us) . Aby uzyskać więcej informacji, przejdź do [obszaru łączenie z Azure Government przy użyciu portalu](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
 2. W okienku po lewej stronie wybierz pozycję **+ Utwórz zasób**. Wyszukaj i wybierz pozycję **Azure Stack Edge/Data Box Gateway**. Wybierz przycisk **Utwórz**.
 3. Wybierz subskrypcję, która ma być używana na potrzeby urządzenia Azure Stack Edge. Wybierz region, w którym chcesz wdrożyć zasób Azure Stack Edge. Aby uzyskać listę wszystkich regionów, w których jest dostępny zasób Azure Stack Edge, zobacz [dostępność produktów platformy Azure według regionów](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all).
@@ -155,14 +156,16 @@ Po rozpoczęciu i uruchomieniu Azure Stack brzegowej należy uzyskać klucz akty
     ![Pobieranie klucza aktywacji](media/azure-stack-edge-deploy-prep/get-activation-key.png)
 
 > [!IMPORTANT]
-> - Klucz aktywacji wygasa po trzech dniach od jego wygenerowania.
-> - Jeśli klucz wygaśnie, wygeneruj nowy klucz. Starszy klucz nie jest prawidłowy.
+>
+> * Klucz aktywacji wygasa po trzech dniach od jego wygenerowania.
+> * Jeśli klucz wygaśnie, wygeneruj nowy klucz. Starszy klucz nie jest prawidłowy.
 
 ## <a name="next-steps"></a>Następne kroki
 
 W tym samouczku przedstawiono informacje dotyczące Azure Stack brzegowych tematów, takich jak:
 
 > [!div class="checklist"]
+>
 > * Tworzenie nowego zasobu
 > * Uzyskiwanie klucza aktywacji
 

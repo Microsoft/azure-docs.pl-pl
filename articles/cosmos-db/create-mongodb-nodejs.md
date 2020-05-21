@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: de4a9324cd1cfaccec6dcca6a8dfc057d37275c0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3a6a20b4f92a7e78f7ed82210bb46d8bf1081628
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80619235"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659185"
 ---
 # <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>Szybki Start: Migrowanie istniejącej aplikacji sieci Web Node. js MongoDB do Azure Cosmos DB 
 
@@ -24,13 +24,13 @@ ms.locfileid: "80619235"
 > * [Node.js](create-mongodb-nodejs.md)
 > * [Python](create-mongodb-flask.md)
 > * [Xamarin](create-mongodb-xamarin.md)
-> * [Golang](create-mongodb-golang.md)
+> * [Golang](create-mongodb-go.md)
 >  
 
 W tym przewodniku szybki start utworzysz Azure Cosmos DB konta interfejsu API usługi Mongo DB i zarządzasz nim przy użyciu Azure Cloud Shell oraz aplikacji średniej (MongoDB, Express, skośnej i Node. js) sklonowanej z usługi GitHub. Azure Cosmos DB to wielomodelowa usługa bazy danych, która pozwala szybko tworzyć i wysyłać zapytania dotyczące dokumentów, tabel, kluczy i wartościowych baz danych przy użyciu dystrybucji globalnej i możliwości skalowania w poziomie.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Lub [Wypróbuj bezpłatnie Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) bez subskrypcji platformy Azure. Można również użyć [emulatora Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) z parametrami `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true`połączenia.
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Lub [Wypróbuj bezpłatnie Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) bez subskrypcji platformy Azure. Można również użyć [emulatora Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) z parametrami połączenia `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true` .
 - [Node. js](https://nodejs.org/)i działająca wiedza o języku Node. js.
 - Usługi [git](https://git-scm.com/downloads).
 - Jeśli nie chcesz używać Azure Cloud Shell, [interfejs wiersza polecenia platformy Azure w wersji 2.0 +](/cli/azure/install-azure-cli).
@@ -198,7 +198,7 @@ npm start
 
 Komunikat na konsoli powinien stwierdzać, że środowisko programistyczne jest uruchomione i gotowe do pracy. 
 
-Przejdź do `http://localhost:3000` programu w przeglądarce. Wybierz pozycję Utwórz **konto** w górnym menu i spróbuj utworzyć dwóch fikcyjnych użytkowników. 
+Przejdź do programu `http://localhost:3000` w przeglądarce. Wybierz pozycję Utwórz **konto** w górnym menu i spróbuj utworzyć dwóch fikcyjnych użytkowników. 
 
 Przykładowa aplikacja MEAN.js przechowuje dane użytkowników w bazie danych. Jeśli wszystko przebiega poprawnie i aplikacja MEAN.js automatycznie zaloguje się do utworzonego użytkownika, oznacza to, że połączenie z usługą Azure Cosmos DB działa. 
 
@@ -240,7 +240,7 @@ Na terminalu zatwierdź wszystkie zmiany w środowisku Git. Możesz skopiować o
 git add .
 git commit -m "configured MongoDB connection string"
 ```
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

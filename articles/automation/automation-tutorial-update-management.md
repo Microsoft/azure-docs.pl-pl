@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 62c661f75aef77117a61be7e802562e6dde17ba5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 52158fe78262b5b2b3d006fb3a543ca743f4e417
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81604671"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683835"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure
 
@@ -19,7 +19,7 @@ Przy użyciu rozwiązania Update Management można zarządzać aktualizacjami i 
 
 Aby uzyskać informacje o cenach, zobacz [cennik usługi Automation dla rozwiązania Update Management](https://azure.microsoft.com/pricing/details/automation/).
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Wyświetlanie oceny aktualizacji
@@ -118,15 +118,15 @@ W obszarze **Nowe wdrożenie aktualizacji** podaj następujące informacje:
 
    |System operacyjny  |Typ  |
    |---------|---------|
-   |Windows     | Aktualizacje krytyczne</br>Aktualizacje zabezpieczeń</br>Pakiety zbiorcze aktualizacji</br>Pakiety funkcji</br>Dodatki Service Pack</br>Aktualizacje definicji</br>Narzędzia</br>Aktualizacje<br>Sterownik        |
+   |Windows     | Aktualizacje krytyczne</br>Aktualizacje zabezpieczeń</br>Pakiety zbiorcze aktualizacji</br>Pakiety funkcji</br>Dodatki Service Pack</br>Aktualizacje definicji</br>narzędzia</br>Aktualizacje<br>Sterownik        |
    |Linux     | Aktualizacje krytyczne i zabezpieczeń</br>Inne aktualizacje       |
 
    Opisy typów klasyfikacji znajdują się w sekcji [klasyfikacje aktualizacji](automation-view-update-assessments.md#update-classifications).
 
-* **Aktualizacje do dołączenia/wykluczania** — otwiera stronę dołączania/wykluczania. Aktualizacje, które mają zostać dołączone lub wykluczone, znajdują się na oddzielnych kartach, określając numery IDENTYFIKACYJNe artykułu w bazie wiedzy. W przypadku określenia co najmniej jednego numeru IDENTYFIKACYJNego należy usunąć lub wyczyścić wszystkie klasyfikacje ze wdrożeniem aktualizacji. Dzięki temu podczas określania identyfikatorów aktualizacji nie są uwzględniane żadne inne aktualizacje pakietu aktualizacji.
+* **Aktualizacje dołączania/wykluczania** — otwiera stronę dołączania/wykluczania. Aktualizacje, które mają zostać dołączone lub wykluczone, znajdują się na oddzielnych kartach, określając numery IDENTYFIKACYJNe artykułu w bazie wiedzy. W przypadku określenia co najmniej jednego numeru IDENTYFIKACYJNego należy usunąć lub wyczyścić wszystkie klasyfikacje ze wdrożeniem aktualizacji. Dzięki temu podczas określania identyfikatorów aktualizacji nie są uwzględniane żadne inne aktualizacje pakietu aktualizacji.
 
 > [!NOTE]
-> Ważne jest, aby wiedzieć, że wykluczenia zastępują dołączenia. Na przykład, jeśli zdefiniujesz regułę wykluczania `*`, Update Management nie zainstaluje żadnych poprawek ani pakietów, ponieważ są one wykluczone. Wykluczone poprawki nadal są wyświetlane jako brakujące na komputerze. W przypadku komputerów z systemem Linux, jeśli zostanie uwzględniony pakiet z wyłączonym pakietem zależnym, program Update Management nie zainstaluje głównego pakietu.
+> Ważne jest, aby wiedzieć, że wykluczenia zastępują dołączenia. Na przykład, jeśli zdefiniujesz regułę wykluczania `*` , Update Management nie zainstaluje żadnych poprawek ani pakietów, ponieważ są one wykluczone. Wykluczone poprawki nadal są wyświetlane jako brakujące na komputerze. W przypadku komputerów z systemem Linux, jeśli zostanie uwzględniony pakiet z wyłączonym pakietem zależnym, program Update Management nie zainstaluje głównego pakietu.
 
 > [!NOTE]
 > Nie można określić aktualizacji, które zostały zastąpione w celu włączenia ich do wdrożenia aktualizacji.
@@ -149,7 +149,7 @@ W obszarze **Nowe wdrożenie aktualizacji** podaj następujące informacje:
   > Aby uniknąć stosowania aktualizacji poza oknem obsługi w programie Ubuntu, należy ponownie skonfigurować pakiet nienadzorowany do uaktualnienia, aby wyłączyć aktualizacje automatyczne. Informacje o sposobie konfigurowania pakietu programu znajdują się [w temacie Aktualizacje automatyczne w przewodniku po serwerze Ubuntu](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
 * **Opcje ponownego uruchamiania**: Użyj, aby określić opcje obsługi ponownych uruchomień. Dostępne są następujące opcje:
-  * Uruchom ponownie w razie potrzeby (ustawienie domyślne)
+  * Uruchom ponownie, jeśli jest to wymagane (ustawienie domyślne)
   * Zawsze uruchamiaj ponownie
   * Nigdy nie uruchamiaj ponownie
   * Tylko ponowny rozruch — nie instaluje aktualizacji

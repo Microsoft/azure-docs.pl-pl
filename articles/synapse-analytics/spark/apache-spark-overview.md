@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: b6af42f09351df60beb2aa449f8fcd2ff6a554e8
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 470cc8cc16c8bdb32bac32a7227690899abb9c51
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82116659"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83644670"
 ---
 # <a name="what-is-apache-spark-in-azure-synapse-analytics"></a>Co to jest Apache Spark w usłudze Azure Synapse Analytics
 
@@ -32,10 +32,10 @@ Apache Spark zapewnia elementy podstawowe do przetwarzania klastrów w pamięci.
 
 Pule Spark w usłudze Azure Synapse oferują w pełni zarządzaną usługę Spark. Zalety tworzenia puli platformy Spark w usłudze Synapse Analytics są wymienione tutaj.
 
-| Funkcja | Opis |
+| Cechy | Opis |
 | --- | --- |
 | Szybkość i wydajność |Wystąpienia platformy Spark zaczynają się około 2 minut przez mniej niż 60 węzłów i około 5 minut przez więcej niż 60 węzłów. Wystąpienie jest zamykane, domyślnie 5 minut od ostatniego wykonanego zadania, chyba że jest ono utrzymywane przez połączenie notesu. |
-| Łatwość tworzenia |Nową pulę platformy Spark można utworzyć na platformie Azure Synapse w ciągu kilku minut, korzystając z zestawu SDK Azure Portal, Azure PowerShell lub Synapse Analytics. Zobacz Rozpoczynanie [pracy z pulami platformy Spark w Synapse Analytics](../quickstart-create-apache-spark-pool.md). |
+| Łatwość tworzenia |Nową pulę platformy Spark można utworzyć na platformie Azure Synapse w ciągu kilku minut, korzystając z zestawu SDK Azure Portal, Azure PowerShell lub Synapse Analytics. Zobacz Rozpoczynanie [pracy z pulami platformy Spark w Synapse Analytics](../quickstart-create-apache-spark-pool-studio.md). |
 | Łatwość obsługi |Synapse Analytics zawiera niestandardowy Notes pochodzący z [nteract](https://nteract.io/). Można ich używać do interakcyjnego przetwarzania danych i wizualizacji.|
 | Interfejsy API REST |Platforma Spark w Synapse Analytics obejmuje platformę [Apache usługi Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), oparty na interfejsie API REST serwer zadań platformy Spark do zdalnego przesyłania i monitorowania zadań. |
 | Obsługa Azure Data Lake Storage generacji 2| Pule Spark w usłudze Azure Synapse mogą Azure Data Lake Storage używać generacji 2 oraz magazynu obiektów BLOB. Aby uzyskać więcej informacji o usłudze Data Lake Storage, zobacz temat [Przegląd usługi Azure Data Lake Storage](../../data-lake-store/data-lake-store-overview.md). |
@@ -78,7 +78,7 @@ Apache Spark to [MLlib](https://spark.apache.org/mllib/), biblioteka uczenia mas
 
 Skorzystaj z poniższych artykułów, aby dowiedzieć się więcej o Apache Spark Synapse Analytics:
 
-- [Szybki Start: Tworzenie puli platformy Spark w usłudze Azure Synapse](../quickstart-create-apache-spark-pool.md)
+- [Szybki Start: Tworzenie puli platformy Spark w usłudze Azure Synapse](../quickstart-create-apache-spark-pool-portal.md)
 - [Szybki Start: Tworzenie notesu Apache Spark](../quickstart-apache-spark-notebook.md)
 - [Samouczek: Uczenie maszynowe przy użyciu Apache Spark](./apache-spark-machine-learning-mllib-notebook.md)
 - [Apache Spark Oficjalna dokumentacja](https://spark.apache.org/docs/latest/)
@@ -90,4 +90,4 @@ Skorzystaj z poniższych artykułów, aby dowiedzieć się więcej o Apache Spar
 
 W tym omówieniu uzyskasz podstawowe informacje na temat Apache Spark w usłudze Azure Synapse Analytics. Przejdź do następnego artykułu, aby dowiedzieć się, jak utworzyć pulę platformy Spark w usłudze Azure Synapse Analytics:
 
-- [Tworzenie puli platformy Spark na platformie Azure Synapse](../quickstart-create-apache-spark-pool.md)
+- [Tworzenie puli platformy Spark na platformie Azure Synapse](../quickstart-create-apache-spark-pool-portal.md)

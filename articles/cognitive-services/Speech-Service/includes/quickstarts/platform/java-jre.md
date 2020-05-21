@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/11/2019
 ms.author: erhopf
-ms.openlocfilehash: 7147f0d13c88c1d2e17e81a360a5aee55ee760ed
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 94946b4b6d0f0fc9c94cac7aca1e971b3f6262f9
+ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78926026"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83673224"
 ---
-W tym przewodniku przedstawiono sposób instalowania [zestawu Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) dla 64-bitowego języka Java 8 JRE. Jeśli chcesz, aby nazwa pakietu była już uruchomiona, zestaw Java SDK nie jest dostępny w repozytorium centralnym Maven. Bez względu na to, czy `pom.xml` korzystasz z Gradle, czy pliku zależności, musisz dodać repozytorium `https://csspeechstorage.blob.core.windows.net/maven/` niestandardowe wskazujące na (patrz poniżej, aby znaleźć nazwę pakietu).
+W tym przewodniku przedstawiono sposób instalowania [zestawu Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) dla 64-bitowego języka Java 8 JRE. Jeśli chcesz, aby nazwa pakietu była już uruchomiona, zestaw Java SDK nie jest dostępny w repozytorium centralnym Maven. Bez względu na to, czy korzystasz z Gradle `pom.xml` , czy pliku zależności, musisz dodać repozytorium niestandardowe wskazujące na `https://csspeechstorage.blob.core.windows.net/maven/` (patrz poniżej, aby znaleźć nazwę pakietu).
 
 > [!NOTE]
 > Aby uzyskać informacje dotyczące zestawu Speech Devices SDK oraz urządzenia Roobo, zobacz [Speech Devices SDK](~/articles/cognitive-services/speech-service/speech-devices-sdk.md).
@@ -29,14 +29,14 @@ W tym przewodniku przedstawiono sposób instalowania [zestawu Speech SDK](~/arti
 - Pakiet SDK mowy Java jest dostępny dla następujących systemów operacyjnych:
   - Windows: tylko 64-bitowe
   - Mac: macOS X w wersji 10,13 lub nowszej
-  - Linux: 64-bit tylko w Ubuntu 16,04, Ubuntu 18,04, Debian 9, RHEL 8, CentOS 8
+  - Linux: 64-bit tylko w Ubuntu 16,04, Ubuntu 18,04, Debian 9, RHEL 7/8, CentOS 7/8
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) lub [zestaw JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 - [Zaćmienie IDE Java](https://www.eclipse.org/downloads/) (wymaga już zainstalowanego języka Java)
-- Na obsługiwanych platformach systemu Linux wymagane są pewne biblioteki`libssl` (na potrzeby obsługi protokołu Secure `libasound2` Sockets Layer i obsługi dźwięku). Zapoznaj się z dystrybucją poniżej, aby zapoznać się z poleceniami wymaganymi do zainstalowania odpowiednich wersji tych bibliotek.
+- Na obsługiwanych platformach systemu Linux wymagane są pewne biblioteki ( `libssl` na potrzeby obsługi protokołu Secure Sockets Layer i `libasound2` obsługi dźwięku). Zapoznaj się z dystrybucją poniżej, aby zapoznać się z poleceniami wymaganymi do zainstalowania odpowiednich wersji tych bibliotek.
 
   - W systemie Ubuntu Uruchom następujące polecenia, aby zainstalować wymagane pakiety:
 
@@ -52,7 +52,7 @@ W tym przewodniku przedstawiono sposób instalowania [zestawu Speech SDK](~/arti
         sudo apt-get install build-essential libssl1.0.2 libasound2
         ```
 
-  - W systemie RHEL/CentOS 8 Uruchom następujące polecenia, aby zainstalować wymagane pakiety:
+  - W systemie RHEL/CentOS Uruchom następujące polecenia, aby zainstalować wymagane pakiety:
 
         ```sh
         sudo yum update
@@ -60,7 +60,8 @@ W tym przewodniku przedstawiono sposób instalowania [zestawu Speech SDK](~/arti
         ```
 
 > [!NOTE]
-> W systemie RHEL/CentOS 8 postępuj zgodnie z instrukcjami dotyczącymi [sposobu konfigurowania OpenSSL dla systemu Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
+> - W systemie RHEL/CentOS 7 postępuj zgodnie z instrukcjami dotyczącymi [KONFIGUROWANIA RHEL/CentOS 7 dla zestawu Speech SDK](~/articles/cognitive-services/speech-service/how-to-configure-rhel-centos-7.md).
+> - W systemie RHEL/CentOS 8 postępuj zgodnie z instrukcjami dotyczącymi [sposobu konfigurowania OpenSSL dla systemu Linux](~/articles/cognitive-services/speech-service/how-to-configure-openssl-linux.md).
 
 - W systemie Windows wymagany jest [Microsoft Visual C++ redystrybucyjny dla programu Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) dla danej platformy. Należy pamiętać, że zainstalowanie tego programu po raz pierwszy może wymagać ponownego uruchomienia systemu Windows przed kontynuowaniem pracy z tym przewodnikiem.
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: b1db306ffdb1c05c880e5fc639de2cc1db130d8e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6276d198e547efec3d2e3cb88816da5e2b593aae
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82096286"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83644679"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Apache Spark w podstawowych pojęciach dotyczących usługi Azure Synapse Analytics
 
@@ -30,7 +30,7 @@ Ponieważ nie ma dolarów ani kosztu zasobów związanych z tworzeniem pul platf
 
 Najlepszym rozwiązaniem jest utworzenie mniejszych pul platformy Spark, które mogą być używane do programowania i debugowania, a następnie większych do uruchamiania obciążeń produkcyjnych.
 
-Możesz zapoznać się z artykułem jak utworzyć pulę platformy Spark i zobaczyć wszystkie ich właściwości tutaj, aby rozpocząć [pracę z pulami platformy Spark w Synapse Analytics](../quickstart-create-apache-spark-pool.md)
+Możesz zapoznać się z artykułem jak utworzyć pulę platformy Spark i zobaczyć wszystkie ich właściwości tutaj, aby rozpocząć [pracę z pulami platformy Spark w Synapse Analytics](../quickstart-create-apache-spark-pool-portal.md)
 
 ## <a name="spark-instances"></a>Wystąpienia platformy Spark
 

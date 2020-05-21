@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f23520bd724d2f7ed5a9422a0541e717c800dee2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 596b47ecc0cf42e8cf1e7001c1462f55d34ff9c3
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201027"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680294"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Samouczek: ręczne konfigurowanie urządzeń dołączonych hybrydowo do usługi Azure Active Directory
 
@@ -25,7 +25,7 @@ Zarządzanie urządzeniami w usłudze Azure Active Directory (Azure AD) pozwala 
 > [!TIP]
 > Jeśli masz możliwość użycia usługi Azure AD Connect, zapoznaj się z odpowiednimi samouczkami dotyczącymi domen [zarządzanych](hybrid-azuread-join-managed-domains.md) lub [federacyjnych](hybrid-azuread-join-federated-domains.md). Użycie programu Azure AD Connect pozwala znacznie uprościć proces konfiguracji dołączenia hybrydowego do usługi Azure AD.
 
-Jeśli masz lokalne środowisko usługi Active Directory i chcesz dołączyć do usługi Azure AD urządzenia dołączone do domeny, możesz to zrobić przez skonfigurowanie urządzeń dołączonych hybrydowo do usługi Azure AD. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Jeśli masz lokalne środowisko usługi Active Directory i chcesz dołączyć do usługi Azure AD urządzenia dołączone do domeny, możesz to zrobić przez skonfigurowanie urządzeń dołączonych hybrydowo do usługi Azure AD. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Ręczne konfigurowanie dołączania do hybrydowej usługi Azure AD
@@ -112,7 +112,7 @@ Aby zweryfikować istnienie obiektu i pobrać wartości z odnajdywania, możesz 
    $scp.Keywords;
    ```
 
-Dane wyjściowe **$scp.Keywords** pokazują informacje o dzierżawie usługi Azure AD. Przykład:
+Dane wyjściowe **$scp.Keywords** pokazują informacje o dzierżawie usługi Azure AD. Oto przykład:
 
    ```
    azureADName:microsoft.com
@@ -141,7 +141,7 @@ Polecenie cmdlet `Initialize-ADSyncDomainJoinedComputerSync`:
 
 * Korzysta z modułu Active Directory PowerShell i narzędzi usług Azure Active Directory Domain Services (Azure AD DS). Te narzędzia są zależne od usług internetowych usługi Active Directory uruchomionych na kontrolerze domeny. Usługi internetowe usługi Active Directory są obsługiwane na kontrolerach domeny z systemem Windows Server 2008 R2 lub nowszym.
 * Jest obsługiwane tylko przez moduł MSOnline programu PowerShell w wersji 1.1.166.0. Aby pobrać ten moduł, użyj [tego linku](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0).
-* Jeśli narzędzia AD DS nie są zainstalowane, `Initialize-ADSyncDomainJoinedComputerSync` program zakończy się niepowodzeniem. Narzędzia AD DS można zainstalować za pomocą Menedżer serwera w obszarze **funkcje** > **Narzędzia administracji zdalnej serwera** > **Narzędzia do administrowania rolami**.
+* Jeśli narzędzia AD DS nie są zainstalowane, program zakończy `Initialize-ADSyncDomainJoinedComputerSync` się niepowodzeniem. Narzędzia AD DS można zainstalować za pomocą Menedżer serwera w obszarze **funkcje**  >  **Narzędzia administracji zdalnej serwera**  >  **Narzędzia do administrowania rolami**.
 
 W przypadku kontrolerów domeny z systemem Windows Server 2008 i jego wcześniejszymi wersjami użyj następującego skryptu, aby utworzyć punkt połączenia usługi. W konfiguracji z wieloma lasami użyj następującego skryptu, aby utworzyć punkt połączenia usługi w każdym lesie, w którym istnieją komputery.
 
@@ -185,7 +185,7 @@ W przypadku korzystania z AD FS należy włączyć następujące punkty końcowe
 - `/adfs/services/trust/13/certificatemixed`
 
 > [!WARNING]
-> **Usługi ADFS/Services/Trust/2005/windowstransport** oraz **ADFS/Services/Trust/13/windowstransport** powinny być włączone tylko jako punkty końcowe dostępne dla intranetu i nie mogą być uwidocznione jako punkty końcowe dla ekstranetu za pośrednictwem serwera proxy aplikacji sieci Web. Aby dowiedzieć się więcej na temat wyłączania punktów końcowych usługi WS-Trust systemu Windows, zobacz temat [wyłączanie punktów końcowych systemu Windows WS-Trust na serwerze proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Punkty końcowe można sprawdzić za pomocą konsoli zarządzania AD FS w obszarze**punkty końcowe** **usługi** > .
+> **Usługi ADFS/Services/Trust/2005/windowstransport** oraz **ADFS/Services/Trust/13/windowstransport** powinny być włączone tylko jako punkty końcowe dostępne dla intranetu i nie mogą być uwidocznione jako punkty końcowe dla ekstranetu za pośrednictwem serwera proxy aplikacji sieci Web. Aby dowiedzieć się więcej na temat wyłączania punktów końcowych usługi WS-Trust systemu Windows, zobacz temat [wyłączanie punktów końcowych systemu Windows WS-Trust na serwerze proxy](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). Punkty końcowe można sprawdzić za pomocą konsoli zarządzania AD FS w obszarze **Service**  >  **punkty końcowe**usługi.
 
 > [!NOTE]
 >Jeśli nie masz usługi AD FS jako lokalnej usługi federacyjnej, postępuj zgodnie z instrukcjami od dostawcy, aby upewnić się, że obsługuje on punkty końcowe protokołu WS-Trust 1.3 lub 2005, i że są one publikowane za pomocą pliku wymiany metadanych (MEX).
@@ -200,7 +200,7 @@ Jeśli masz więcej niż jedną zweryfikowaną nazwę domeny, musisz udostępni�
 
 * `http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid`
 
-Jeśli już wystawiasz oświadczenie ImmutableID (na przykład alternatywny identyfikator logowania), musisz podać jedno odpowiednie oświadczenie dla komputerów:
+Jeśli wydano już ImmutableIDe (na przykład użycie `mS-DS-ConsistencyGuid` lub inny atrybut jako wartość źródłowa ImmutableID), należy podać jedno odpowiednie dla komputerów:
 
 * `http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`
 
@@ -329,7 +329,7 @@ Aby uzyskać listę zweryfikowanych domen firmowych, możesz użyć polecenia cm
 
 ![Lista domen firmy](./media/hybrid-azuread-join-manual/01.png)
 
-### <a name="issue-immutableid-for-the-computer-when-one-for-users-exists-for-example-an-alternate-login-id-is-set"></a>Wystaw oświadczenie ImmutableID dla komputera, gdy istnieje ono dla użytkowników (na przykład został ustawiony alternatywny identyfikator logowania)
+### <a name="issue-immutableid-for-the-computer-when-one-for-users-exists-for-example-using-ms-ds-consistencyguid-as-the-source-for-immutableid"></a>Problem z ImmutableID komputera, gdy istnieje jeden dla użytkowników (na przykład użycie mS-DS-ConsistencyGuid jako źródła dla ImmutableID)
 
 Oświadczenie `http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID` musi zawierać prawidłową wartość dla komputerów. W usługach AD FS można utworzyć reguły przekształcania wystawiania w następujący sposób:
 
@@ -501,7 +501,7 @@ Jeśli część urządzeń dołączonych do domeny to urządzenia z systemem Win
 
 ### <a name="set-a-policy-in-azure-ad-to-enable-users-to-register-devices"></a>Ustawianie zasad w usłudze Azure AD w celu umożliwienia użytkownikom rejestrowania urządzeń
 
-Aby zarejestrować urządzenia z systemem Windows niższego poziomu, upewnij się, że włączono ustawienie umożliwiające użytkownikom rejestrowanie urządzeń w usłudze Azure AD. W Azure Portal można znaleźć to ustawienie w obszarze **Azure Active Directory** > **Użytkownicy i grupy** > **Ustawienia urządzenia**.
+Aby zarejestrować urządzenia z systemem Windows niższego poziomu, upewnij się, że włączono ustawienie umożliwiające użytkownikom rejestrowanie urządzeń w usłudze Azure AD. W Azure Portal można znaleźć to ustawienie w obszarze **Azure Active Directory**  >  **Użytkownicy i grupy**  >  **Ustawienia urządzenia**.
 
 Następujące zasady muszą mieć ustawioną wartość **wszystkie**: **Użytkownicy mogą zarejestrować swoje urządzenia w usłudze Azure AD**.
 
@@ -523,7 +523,7 @@ Jeśli takie żądanie przychodzi, lokalna usługa federacyjna musi uwierzytelni
 
 W usługach AD FS musisz dodać regułę przekształcania wystawiania, która przechodzi przez metodę uwierzytelniania. Aby dodać tę regułę:
 
-1. W konsoli zarządzania AD FS przejdź do pozycji **AD FS** > **zaufania relacje** > zaufania**jednostek uzależnionych**.
+1. W konsoli zarządzania AD FS przejdź do pozycji **AD FS**  >  **zaufania relacje**zaufania  >  **jednostek uzależnionych**.
 1. Kliknij prawym przyciskiem myszy obiekt relacji zaufania jednostki uzależnionej Platforma tożsamości usługi Microsoft Office 365, a następnie wybierz pozycję **Edytuj reguły oświadczeń**.
 1. Na karcie **Reguły przekształcania wystawiania** wybierz pozycję **Dodaj regułę**.
 1. Na liście szablonów **Reguła oświadczenia** wybierz pozycję **Wysyłanie oświadczeń przy użyciu reguły niestandardowej**.
@@ -533,7 +533,7 @@ W usługach AD FS musisz dodać regułę przekształcania wystawiania, która pr
 
    `c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"] => issue(claim = c);`
 
-1. Na serwerze federacyjnym wprowadź następujące polecenie programu PowerShell. Zastąp ** \<RPObjectName\> ** nazwą obiektu jednostki uzależnionej dla obiektu zaufania jednostki uzależnionej usługi Azure AD. Ten obiekt zazwyczaj nosi nazwę **Platforma tożsamości usługi Microsoft Office 365**.
+1. Na serwerze federacyjnym wprowadź następujące polecenie programu PowerShell. Zastąp ** \< RPObjectName \> ** nazwą obiektu jednostki uzależnionej dla obiektu zaufania jednostki uzależnionej usługi Azure AD. Ten obiekt zazwyczaj nosi nazwę **Platforma tożsamości usługi Microsoft Office 365**.
 
    `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
 

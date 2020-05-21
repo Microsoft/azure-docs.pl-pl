@@ -1,25 +1,14 @@
 ---
 title: Przykład skryptu interfejsu wiersza polecenia platformy Azure — Tworzenie konta usługi Batch — subskrypcja użytkownika
 description: Ten skrypt tworzy konto usługi Azure Batch w trybie subskrypcji użytkownika. To konto przydziela węzły obliczeniowe do subskrypcji.
-services: batch
-documentationcenter: ''
-author: LauraBrenner
-manager: evansma
-editor: ''
-ms.assetid: ''
-ms.service: batch
-ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 01/29/2018
-ms.author: labrenne
-ms.openlocfilehash: 5cab96c148d52597ee024f1ddb0b683db8d52dd7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9f3919574dd7dcbe932c71dfcea2ac52ec906c6c
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77024521"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83681884"
 ---
 # <a name="cli-example-create-a-batch-account-in-user-subscription-mode"></a>Przykład interfejsu wiersza polecenia: tworzenie konta usługi Batch w trybie subskrypcji użytkownika
 

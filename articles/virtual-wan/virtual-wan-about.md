@@ -5,21 +5,23 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 02/05/2020
+ms.date: 05/14/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 927c09f61ce0847c72cefb51935116070e956861
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8bdba64445212c564a3d4762bc8497be15f7d9a0
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80743104"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83657012"
 ---
 # <a name="about-azure-virtual-wan"></a>Informacje o wirtualnej sieci WAN platformy Azure
 
-Wirtualna sieć WAN platformy Azure to usługa sieciowa, która oferuje wiele funkcji sieciowych, zabezpieczeń i routingu w celu zapewnienia pojedynczego interfejsu operacyjnego. Te funkcje obejmują łączność z gałęzią (za pośrednictwem automatyzacji łączności z urządzeń partnerskich sieci WAN, takich jak SD-WAN lub VPN CPE), łączności sieci VPN typu lokacja-lokacja, sieci VPN użytkowników zdalnych (połączeń punkt-lokacja), połączeń prywatnych (ExpressRoute), łączności z chmurą (łączności przechodniej dla sieci wirtualnych), sieci VPN ExpressRoute, routingu, zapory systemu Nie musisz mieć wszystkich tych przypadków użycia, aby rozpocząć korzystanie z wirtualnej sieci WAN. Możesz po prostu rozpocząć pracę z tylko jednym przypadkiem użycia i dostosować sieć w miarę rozwoju. Wirtualna architektura sieci WAN jest architekturą Hub i szprych z wbudowaną skalą i wydajnością dla gałęzi (urządzeń sieci VPN/SD-WAN), użytkowników (klientów sieci VPN platformy Azure/OpenVPN/IKEv2), obwodów ExpressRoute i sieci wirtualnych. Umożliwia ona [globalną architekturę sieci tranzytowej](virtual-wan-global-transit-network-architecture.md) , w której sieć hostowana w chmurze "Hub" umożliwia przechodnią łączność między punktami końcowymi, które mogą być rozproszone dla różnych typów "szprych".
+Wirtualna sieć WAN platformy Azure to usługa sieciowa, która udostępnia wiele funkcji sieci, zabezpieczeń i routingu w celu zapewnienia pojedynczego interfejsu operacyjnego. Te funkcje obejmują łączność z gałęzią (za pośrednictwem automatyzacji łączności z wirtualnych urządzeń partnerskich sieci WAN, takich jak SD-WAN lub VPN CPE). połączenie sieci VPN typu lokacja-lokacja, połączenie VPN użytkownika zdalnego (punkt-lokacja), połączenie prywatne (ExpressRoute), łączność w chmurze (łączność przechodnia dla sieci wirtualnych), Sieć VPN ExpressRoute między łącznością, routingiem, zaporą platformy Azure i szyfrowaniem w celu połączenia prywatnego. Nie musisz mieć wszystkich tych przypadków użycia, aby rozpocząć korzystanie z wirtualnej sieci WAN. Możesz po prostu rozpocząć pracę z tylko jednym przypadkiem użycia, a następnie dostosować sieć w miarę rozwoju.
 
-Regiony platformy Azure służą jako centra, z którymi można nawiązać połączenie. Wszystkie centra są połączone z pełną siatką w standardowej wirtualnej sieci WAN, dzięki czemu użytkownik może łatwo korzystać z sieci szkieletowej firmy Microsoft w przypadku połączeń dowolnego typu (dowolnych). W przypadku połączeń szprych z urządzeniami z SD/WAN/VPN użytkownicy mogą ręcznie skonfigurować ją w usłudze Azure Virtual WAN lub użyć rozwiązania partnerskiego wirtualnego urządzenia WAN (SD-WAN/VPN) w celu skonfigurowania łączności z platformą Azure. Mamy listę partnerów, którzy obsługują automatyzację łączności (możliwość eksportowania informacji o urządzeniu do platformy Azure, pobierania konfiguracji platformy Azure i nawiązywania połączeń) przy użyciu wirtualnej sieci WAN platformy Azure. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [partnerów i lokalizacji wirtualnych sieci WAN](virtual-wan-locations-partners.md) . 
+Wirtualna architektura sieci WAN to architektura koncentratora i szprych ze skalą i wydajnością wbudowaną dla gałęzi (urządzenia sieci VPN/SD-WAN), użytkownicy (klienci sieci VPN/OpenVPN/IKEv2), obwody usługi ExpressRoute i sieci wirtualne. Umożliwia ona [globalną architekturę sieci tranzytowej](virtual-wan-global-transit-network-architecture.md), w której sieć hostowana w chmurze "Hub" umożliwia przechodnią łączność między punktami końcowymi, które mogą być rozproszone dla różnych typów "szprych".
+
+Regiony platformy Azure służą jako centra, z którymi można nawiązać połączenie. Wszystkie centra są połączone z pełną siatką w standardowej wirtualnej sieci WAN, dzięki czemu użytkownik może łatwo korzystać z sieci szkieletowej firmy Microsoft w przypadku połączeń dowolnego typu (dowolnych). W przypadku połączeń szprych z urządzeniami z SD/WAN/VPN użytkownicy mogą ręcznie skonfigurować je w wirtualnej sieci WAN platformy Azure lub użyć rozwiązania partnerskiego sieci WAN CPE (SD-WAN/VPN) w celu skonfigurowania połączenia z platformą Azure. Mamy listę partnerów, którzy obsługują automatyzację łączności (możliwość eksportowania informacji o urządzeniu do platformy Azure, pobierania konfiguracji platformy Azure i nawiązywania połączeń) przy użyciu wirtualnej sieci WAN platformy Azure. Aby uzyskać więcej informacji, zobacz artykuł dotyczący [partnerów i lokalizacji wirtualnych sieci WAN](virtual-wan-locations-partners.md) .
 
 ![Diagram usługi Virtual WAN](./media/virtual-wan-about/virtualwan1.png)
 
@@ -97,7 +99,7 @@ ExpressRoute umożliwia łączenie sieci lokalnej z platformą Azure za pośredn
 
 Informacje o lokalizacji znajdują się w artykule dotyczącym [partnerów i lokalizacji wirtualnych sieci WAN](virtual-wan-locations-partners.md) .
 
-## <a name="faq"></a><a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a><a name="faq"></a>Często zadawane pytania
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
 

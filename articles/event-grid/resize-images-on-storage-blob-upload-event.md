@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 04/01/2020
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 1d1da88d1e7eaf06ebf71da999ef8fb25c7cf066
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 77b801837be80749ca73dd4ae5c526a7980e83e0
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81482195"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652708"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Samouczek: Automatyzowanie zmiany rozmiarów załadowanych obrazów przy użyciu Event Grid
 
@@ -37,7 +37,7 @@ Aby dodać funkcję zmiany rozmiaru do istniejącej aplikacji do przekazywania o
 
 ---
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie konta usługi Azure Storage
@@ -192,15 +192,15 @@ Kod projektu funkcji jest wdrażany bezpośrednio z publicznego przykładowego r
 
 Subskrypcja zdarzeń wskazuje, które zdarzenia generowane przez dostawcę mają być wysyłane do określonego punktu końcowego. W tym przypadku punkt końcowy jest uwidaczniany przez Twoją funkcję. Poniżej przedstawiono procedurę tworzenia subskrypcji zdarzeń wysyłającej powiadomienia do funkcji w witrynie Azure Portal:
 
-1. W witrynie [Azure Portal](https://portal.azure.com) wybierz pozycję **Wszystkie usługi** z menu po lewej stronie, a następnie wybierz pozycję **Aplikacje funkcji**.
+1. W [Azure Portal](https://portal.azure.com)w górnej części strony Wyszukaj i wybierz `Function App` i wybierz aplikację funkcji, która została właśnie utworzona. Wybierz pozycję **funkcje** i wybierz funkcję **miniatury** .
 
-    ![Przejdź do aplikacji funkcji w Azure Portal](./media/resize-images-on-storage-blob-upload-event/portal-find-functions.png)
+    :::image type="content" source="media/resize-images-on-storage-blob-upload-event/choose-thumbnail-function.png" alt-text="Wybieranie funkcji miniatury w portalu":::
 
-2. Rozwiń swoją aplikację funkcji, wybierz funkcję **Thumbnail**, a następnie wybierz pozycję **Dodaj subskrypcję usługi Event Grid**.
+1.  Wybierz pozycję Wybierz **integrację** , a następnie wybierz **wyzwalacz Event Grid** i wybierz pozycję **Utwórz subskrypcję Event Grid**.
 
-    ![Przejdź do dodawania subskrypcji Event Grid w Azure Portal](./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png)
+    :::image type="content" source="./media/resize-images-on-storage-blob-upload-event/add-event-subscription.png" alt-text="Przejdź do dodawania subskrypcji Event Grid w Azure Portal" :::
 
-3. Użyj ustawień subskrypcji zdarzeń w sposób określony w tabeli poniżej.
+1. Użyj ustawień subskrypcji zdarzeń w sposób określony w tabeli poniżej.
     
     ![Tworzenie subskrypcji zdarzeń z funkcji w witrynie Azure Portal](./media/resize-images-on-storage-blob-upload-event/event-subscription-create.png)
 
@@ -215,13 +215,13 @@ Subskrypcja zdarzeń wskazuje, które zdarzenia generowane przez dostawcę mają
     | **Typ punktu końcowego** | generowany automatycznie | Wstępnie zdefiniowana jako **Funkcja platformy Azure**. |
     | **Punktu końcowego** | generowany automatycznie | Nazwa funkcji. W tym przypadku jest to **miniatura**. |
 
-4. Przejdź do karty **filtry** i wykonaj następujące czynności:
+1. Przejdź do karty **filtry** i wykonaj następujące czynności:
     1. Zaznacz pole wyboru **Enable subject filtering** (Włącz filtrowanie tematów).
     2. W polu **Subject begins with** (Temat rozpoczyna się od) wprowadź następującą wartość: **/blobServices/default/containers/images/blobs/**.
 
         ![Określ filtr dla subskrypcji zdarzeń](./media/resize-images-on-storage-blob-upload-event/event-subscription-filter.png)
 
-5. Wybierz pozycję **Create** (Utwórz), aby dodać subskrypcję zdarzeń. Spowoduje to utworzenie subskrypcji zdarzeń, która wyzwala `Thumbnail` funkcję po dodaniu obiektu BLOB do `images` kontenera. Funkcja zmieni rozmiar obrazów i doda je do kontenera `thumbnails`.
+1. Wybierz pozycję **Create** (Utwórz), aby dodać subskrypcję zdarzeń. Spowoduje to utworzenie subskrypcji zdarzeń, która wyzwala `Thumbnail` funkcję po dodaniu obiektu BLOB do `images` kontenera. Funkcja zmieni rozmiar obrazów i doda je do kontenera `thumbnails`.
 
 Ponieważ usługi zaplecza zostały już skonfigurowane, można przetestować funkcję zmieniania rozmiaru obrazów w przykładowej aplikacji internetowej.
 

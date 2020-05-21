@@ -11,12 +11,12 @@ ms.date: 04/27/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 99c64e703158c40c2cc110a18be7b8c8d3800ff0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7f0aabf4bd18f82c247a43931e02e4b6890b2ef4
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82207806"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650688"
 ---
 # <a name="quickstart-configure-workload-isolation-using-t-sql"></a>Szybki Start: Konfigurowanie izolacji obciążenia przy użyciu języka T-SQL
 
@@ -25,11 +25,11 @@ W tym przewodniku szybki start utworzysz grupę obciążeń i klasyfikator w cel
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 > [!NOTE]
-> Tworzenie wystąpienia usługi SQL Analytics w usłudze Azure Synapse Analytics może skutkować powstaniem nowej, rozliczanej usłudze.  Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> Utworzenie wystąpienia programu SQL Synapse w usłudze Azure Synapse Analytics może spowodować powstanie nowej usługi do obciążania.  Aby uzyskać więcej informacji, zobacz [Cennik usługi Azure Synapse Analytics](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-W tym przewodniku szybki start założono, że masz już wystąpienie usługi SQL Analytics w usłudze Azure Synapse i że masz uprawnienia sterujące bazą danych. Jeżeli chcesz utworzyć taki magazyn, skorzystaj z przewodnika [Szybki start: tworzenie i łączenie — portal](create-data-warehouse-portal.md), aby utworzyć magazyn danych o nazwie **mySampleDataWarehouse**.
+W tym przewodniku szybki start założono, że masz już wystąpienie SQL Synapse w usłudze Azure Synapse i że masz uprawnienia do kontroli bazy danych. Jeżeli chcesz utworzyć taki magazyn, skorzystaj z przewodnika [Szybki start: tworzenie i łączenie — portal](create-data-warehouse-portal.md), aby utworzyć magazyn danych o nazwie **mySampleDataWarehouse**.
 
 ## <a name="create-login-for-dataloads"></a>Utwórz nazwę logowania dla ładowania danych
 
@@ -94,7 +94,7 @@ SELECT * FROM
 sys.dm_workload_management_workload_groups_stats
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 ```sql
 DROP WORKLOAD CLASSIFIER [wgcELTLogin]

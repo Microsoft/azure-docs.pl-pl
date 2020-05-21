@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/16/2020
 ms.author: masoucou
-ms.openlocfilehash: 98b0ddf345ebd19e2cd974db3891e88c9f72530d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: db28455c47541b49b38ddbbc4d5e83ae20e2279d
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79481691"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83659162"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Szybki Start: Tworzenie aplikacji Xamarin. Forms przy użyciu zestawu .NET SDK i interfejsu API Azure Cosmos DB dla MongoDB
 
@@ -23,7 +23,7 @@ ms.locfileid: "79481691"
 > * [Node.js](create-mongodb-nodejs.md)
 > * [Python](create-mongodb-flask.md)
 > * [Xamarin](create-mongodb-xamarin.md)
-> * [Golang](create-mongodb-golang.md)
+> * [Golang](create-mongodb-go.md)
 >  
 
 Azure Cosmos DB to rozproszona globalnie, wielomodelowa usługa bazy danych firmy Microsoft. Dzięki wykorzystaniu dystrybucji globalnej i możliwości skalowania poziomego opartego na usłudze Azure Cosmos DB, można szybko tworzyć i za pomocą zapytań badać bazy danych dokumentów, par klucz/wartość i grafów.
@@ -173,7 +173,7 @@ Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach poł
 4. Usuń `&replicaSet=globaldb` z parametrów połączenia. Jeśli ta wartość nie zostanie usunięta z ciągu zapytania, zostanie wyświetlony komunikat o błędzie środowiska uruchomieniowego.
 
 > [!IMPORTANT]
-> Należy usunąć parę `&replicaSet=globaldb` klucz/wartość z ciągu zapytania ciągu połączenia w celu uniknięcia błędu czasu wykonywania.
+> Należy usunąć `&replicaSet=globaldb` parę klucz/wartość z ciągu zapytania ciągu połączenia w celu uniknięcia błędu czasu wykonywania.
 
 Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne do nawiązania komunikacji z usługą Azure Cosmos DB.
 
@@ -189,7 +189,7 @@ Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne
 6. Kliknij prawym przyciskiem myszy projekt **TaskList.iOS** i wybierz polecenie **Ustaw jako projekt startowy**.
 7. Naciśnij klawisz F5, aby rozpocząć debugowanie aplikacji.
 
-### <a name="visual-studio-for-mac"></a>Visual Studio for Mac
+### <a name="visual-studio-for-mac"></a>Visual Studio dla komputerów Mac
 
 1. Na liście rozwijanej platform wybierz pozycję TaskList.iOS lub TaskList.Android, w zależności od platformy, na której chcesz uruchamiać aplikację.
 2. Naciśnij klawisze Cmd + Enter, aby rozpocząć debugowanie aplikacji.
@@ -198,7 +198,7 @@ Aplikacja została zaktualizowana i zawiera teraz wszystkie informacje potrzebne
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

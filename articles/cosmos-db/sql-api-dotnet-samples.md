@@ -7,18 +7,19 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 07/23/2019
 ms.author: sngun
-ms.openlocfilehash: 9b6635a0dab20c8122ad4df4b7fbc5a0cb6f4c99
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6a9ab62d5ea408a5c7683d2f06e2cd52f52da1bb
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "71351123"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83683885"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB: przykłady platformy .NET dla interfejsu SQL API
+
 > [!div class="op_single_selector"]
-> * [Przykłady dla platformy .NET](sql-api-dotnet-samples.md)
-> * [Przykłady kodu Java](sql-api-java-samples.md)
-> * [Przykłady asynchronicznego kodu Java](sql-api-async-java-samples.md)
+> * [Przykłady zestawu SDK dla platformy .NET V2](sql-api-dotnet-samples.md)
+> * [Przykłady zestawu SDK dla platformy .NET v3](sql-api-dotnet-v3sdk-samples.md)
+> * [Przykłady zestawu SDK dla języka Java v4](sql-api-java-sdk-samples.md)
 > * [Przykłady dla platformy Node.js](sql-api-nodejs-samples.md)
 > * [Przykłady języka Python](sql-api-python-samples.md)
 > * [Galeria przykładów kodu dla platformy Azure](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)
@@ -52,7 +53,7 @@ Subskrypcja platformy Azure lub bezpłatne Cosmos DB konto wersji próbnej
 ## <a name="database-examples"></a>Przykłady dotyczące baz danych
 Metoda [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DatabaseManagement/Program.cs#L75-L91) przykładowego projektu *DatabaseManagement* pokazuje, jak wykonać poniższe zadania. Aby dowiedzieć się więcej o bazach danych usługi Azure Cosmos przed uruchomieniem poniższych przykładów, zobacz [Working with Databases, Containers and items](databases-containers-items.md). 
 
-| Zadanie | Dokumentacja interfejsu API |
+| Zadanie | Odwołanie API |
 | --- | --- |
 | [Tworzenie bazy danych](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DatabaseManagement/Program.cs#L77) |[DocumentClient. CreateDatabaseIfNotExistsAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync) |
 | [Odczytywanie bazy danych na podstawie identyfikatora](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DatabaseManagement/Program.cs#L79) |[DocumentClient.ReadDatabaseAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.readdatabaseasync) |
@@ -62,7 +63,7 @@ Metoda [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/m
 ## <a name="collection-examples"></a>Przykłady dotyczące kolekcji
 Metoda [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L86-L104) przykładowego projektu *CollectionManagement* pokazuje, jak wykonać poniższe zadania. Aby dowiedzieć się więcej na temat kolekcji usługi Azure Cosmos przed uruchomieniem poniższych przykładów, zobacz [Working with Databases, Containers and items](databases-containers-items.md). 
 
-| Zadanie | Dokumentacja interfejsu API |
+| Zadanie | Odwołanie API |
 | --- | --- |
 | [Tworzenie kolekcji](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L109) |[DocumentClient. metody createdocumentcollectionifnotexistsasync](/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync) 
 | [Zmienianie skonfigurowanej wydajności kolekcji](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L190) |[DocumentClient.ReplaceOfferAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync) |
@@ -73,7 +74,7 @@ Metoda [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob
 ## <a name="document-examples"></a>Przykłady dotyczące dokumentów
 Metoda [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L109-L118) przykładowego projektu *DocumentManagement* pokazuje, jak wykonać poniższe zadania. Aby dowiedzieć się więcej o dokumentach usługi Azure Cosmos przed uruchomieniem poniższych przykładów, zobacz [Working with Databases, Containers and items](databases-containers-items.md). 
 
-| Zadanie | Dokumentacja interfejsu API |
+| Zadanie | Odwołanie API |
 | --- | --- |
 | [Tworzenie dokumentu](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L154) |[DocumentClient.CreateDocumentAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentasync) |
 | [Odczytaj dokument według identyfikatora](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L168) |[DocumentClient.ReadDocumentAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.readdocumentasync) |
@@ -89,7 +90,7 @@ Metoda [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/
 ## <a name="indexing-examples"></a>Przykłady dotyczące indeksowania
 Metoda [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/IndexManagement/Program.cs#L93-L115) przykładowego projektu *IndexManagement* pokazuje, jak wykonać poniższe zadania. Aby dowiedzieć się więcej na temat indeksowania w Azure Cosmos DB przed uruchomieniem poniższych przykładów, zobacz [zasady indeksu](index-policy.md), [typy indeksów](index-types.md)i [ścieżki indeksów](index-paths.md). 
 
-| Zadanie | Dokumentacja interfejsu API |
+| Zadanie | Odwołanie API |
 | --- | --- |
 | [Wyłączanie dokumentu z indeksu](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/IndexManagement/Program.cs#L123-L162) |[IndexingDirective.Exclude](/dotnet/api/microsoft.azure.documents.indexingdirective) |
 | [Użyj indeksowania z opóźnieniem](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/IndexManagement/Program.cs#L174-L192) |[IndexingPolicy. Indexing](/dotnet/api/microsoft.azure.documents.indexingpolicy.indexingmode) |
@@ -101,7 +102,7 @@ Metoda [RunIndexDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/mast
 ## <a name="geospatial-examples"></a>Przykłady danych geoprzestrzennych
 Metoda [RunDemoAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs#L94-L139) przykładowego projektu *geoprzestrzennego* pokazuje, jak wykonać poniższe zadania.  Aby dowiedzieć się więcej na temat GEOJSON i danych geoprzestrzennych przed uruchomieniem poniższych przykładów, zobacz [Korzystanie z danych lokalizacji geograficznej i GEOJSON](geospatial.md). 
 
-| Zadanie | Dokumentacja interfejsu API |
+| Zadanie | Odwołanie API |
 | --- | --- |
 | [Włączanie indeksowania danych geoprzestrzennych w nowej kolekcji](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs#L48) |[IndexingPolicy](/dotnet/api/microsoft.azure.documents.indexingpolicy) <br> [IndexKind.Spatial](/dotnet/api/microsoft.azure.documents.indexkind) <br>[DataType.Point](/dotnet/api/microsoft.azure.documents.datatype) |
 | [Wstawianie dokumentów z punktami GeoJSON](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Geospatial/Program.cs#L104-L114) |[DocumentClient.CreateDocumentAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentasync) </br> [DataType.Point](/dotnet/api/microsoft.azure.documents.datatype) |
@@ -113,7 +114,7 @@ Metoda [RunDemoAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/mast
 ## <a name="query-examples"></a>Przykłady zapytań
 Metoda [RunDemoAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs#L64-L129) projektu przykładowe *zapytania* pokazuje, jak wykonać poniższe zadania przy użyciu gramatyki zapytań SQL, dostawcy LINQ z kwerendą i wyrażenia lambda. Aby dowiedzieć się więcej na temat odwołania do zapytań SQL w Azure Cosmos DB przed uruchomieniem poniższych przykładów, zobacz [przykłady zapytań SQL dotyczących Azure Cosmos DB](how-to-sql-query.md). 
 
-| Zadanie | Dokumentacja interfejsu API |
+| Zadanie | Odwołanie API |
 | --- | --- |
 | [Wykonywanie zapytań dotyczących wszystkich dokumentów](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs#L131-L147) |[DocumentQueryable.CreateDocumentQuery](/previous-versions/azure/dn850285(v=azure.100)) |
 | [Wykonywanie zapytań dotyczących równości przy użyciu operatora ==](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs#L186-L198) |[DocumentQueryable.CreateDocumentQuery](/previous-versions/azure/dn850285(v=azure.100)) |
@@ -133,7 +134,7 @@ Metoda [RunDemoAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/mast
 ## <a name="change-feed-examples"></a>Przykłady zestawienia zmian 
 Metoda [RunDemoAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ChangeFeed/Program.cs#L54-L97) przykładowego projektu *ChangeFeed* pokazuje, jak wykonać poniższe zadania. Aby dowiedzieć się więcej na temat źródła zmian w Azure Cosmos DB przed uruchomieniem poniższych przykładów, zobacz [odczytywanie Azure Cosmos DB Zmienianie źródła danych](read-change-feed.md) i [Zmienianie procesora](change-feed-processor.md). 
 
-| Zadanie | Dokumentacja interfejsu API |
+| Zadanie | Odwołanie API |
 | --- | --- |
 | [Odczytywanie zestawienia zmian](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ChangeFeed/Program.cs#L132) |[DocumentClient.CreateDocumentChangeFeedQuery](/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery) | 
 | [Odczytywanie zakresów kluczy partycji](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ChangeFeed/Program.cs#L118) |[DocumentClient.ReadPartitionKeyRangeFeedAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.readpartitionkeyrangefeedasync) | 
@@ -143,7 +144,7 @@ Przykładowy procesor źródła zmian [ChangeFeedMigrationTool](https://github.c
 ## <a name="server-side-programming-examples"></a>Przykłady programowania po stronie serwera
 Metoda [RunDemoAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/ServerSideScripts/Program.cs#L58-L91) przykładowego projektu *ServerSideScripts* pokazuje, jak wykonać poniższe zadania. Aby dowiedzieć się więcej na temat programowania po stronie serwera w Azure Cosmos DB przed uruchomieniem poniższych przykładów, zobacz [procedury składowane, wyzwalacze i funkcje zdefiniowane przez użytkownika](stored-procedures-triggers-udfs.md). 
 
-| Zadanie | Dokumentacja interfejsu API |
+| Zadanie | Odwołanie API |
 | --- | --- |
 | [Tworzenie procedury składowanej](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/ServerSideScripts/Program.cs#L110) |[DocumentClient.CreateStoredProcedureAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createstoredprocedureasync) |
 | [Wykonywanie procedury składowanej](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/ServerSideScripts/Program.cs#L125) |[DocumentClient.ExecuteStoredProcedureAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.executestoredprocedureasync) |
@@ -156,7 +157,7 @@ Metoda [RunDemoAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/mast
 ## <a name="user-management-examples"></a>Przykłady zarządzania użytkownikami
 Metoda [RunDemoAsync](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/UserManagement/Program.cs#L55-L129) przykładowego projektu *UserManagement* pokazuje, jak wykonywać następujące zadania:
 
-| Zadanie | Dokumentacja interfejsu API |
+| Zadanie | Odwołanie API |
 | --- | --- |
 | [Tworzenie użytkownika](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/UserManagement/Program.cs#L93) |[DocumentClient.CreateUserAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createuserasync) |
 | [Ustawianie uprawnień w kolekcji lub dokumencie](https://github.com/Azure/azure-documentdb-net/blob/master/samples/code-samples/UserManagement/Program.cs#L97) |[DocumentClient.CreatePermissionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createpermissionasync) |
