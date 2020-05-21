@@ -8,30 +8,30 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 04/24/2020
-ms.openlocfilehash: 2cad73f85ce81c650e1f1ff702a099b2d6df8e16
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: ad7baea087cd6073659929cc41f626b597bbae63
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82984880"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650341"
 ---
 # <a name="quickstart-connect-a-go-application-to-azure-cosmos-dbs-api-for-mongodb"></a>Szybki Start: łączenie aplikacji go z interfejsem API Azure Cosmos DB dla MongoDB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
 > * [Java](create-mongodb-java.md)
-> * [Node. js](create-mongodb-nodejs.md)
+> * [Node.js](create-mongodb-nodejs.md)
 > * [Python](create-mongodb-flask.md)
 > * [Xamarin](create-mongodb-xamarin.md)
-> * [Golang](create-mongodb-golang.md)
+> * [Golang](create-mongodb-go.md)
 >  
 
 Azure Cosmos DB to wielomodelowa usługa bazy danych, która pozwala szybko tworzyć i wysyłać zapytania dotyczące dokumentów, tabel, kluczy i wartościowych baz danych przy użyciu dystrybucji globalnej i możliwości skalowania w poziomie. W tym przewodniku szybki start utworzysz konto Azure Cosmos DB i zarządzasz nim przy użyciu Azure Cloud Shell, Sklonuj istniejącą przykładową aplikację z usługi GitHub i skonfigurujesz ją do pracy z Azure Cosmos DBami. 
 
-Przykładowa aplikacja jest narzędziem do zarządzania opartym `todo` na wierszu polecenia, które zostało zapisaniem. Interfejs API Azure Cosmos DB dla MongoDB jest [zgodny z protokołem telekomunikacyjnym MongoDB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction#wire-protocol-compatibility), dzięki czemu można połączyć się z nim przy użyciu dowolnego sterownika klienta MongoDB. Ta aplikacja korzysta ze [sterownika go dla MongoDB](https://github.com/mongodb/mongo-go-driver) w sposób niewidoczny dla aplikacji, w której dane są przechowywane w bazie danych Azure Cosmos DB.
+Przykładowa aplikacja jest narzędziem do zarządzania opartym na wierszu polecenia, które zostało `todo` zapisaniem. Interfejs API Azure Cosmos DB dla MongoDB jest [zgodny z protokołem telekomunikacyjnym MongoDB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction#wire-protocol-compatibility), dzięki czemu można połączyć się z nim przy użyciu dowolnego sterownika klienta MongoDB. Ta aplikacja korzysta ze [sterownika go dla MongoDB](https://github.com/mongodb/mongo-go-driver) w sposób niewidoczny dla aplikacji, w której dane są przechowywane w bazie danych Azure Cosmos DB.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free). Lub [Wypróbuj bezpłatnie Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) bez subskrypcji platformy Azure. Można również użyć [emulatora Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) z parametrami `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true`połączenia.
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free). Lub [Wypróbuj bezpłatnie Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) bez subskrypcji platformy Azure. Można również użyć [emulatora Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) z parametrami połączenia `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true` .
 - Zainstalowano na komputerze i działająca wiedza na temat [języka go.](https://golang.org/)
 - Usługi [git](https://git-scm.com/downloads).
 - Jeśli nie chcesz używać Azure Cloud Shell, [interfejs wiersza polecenia platformy Azure w wersji 2.0 +](/cli/azure/install-azure-cli).
@@ -42,7 +42,7 @@ Przykładowa aplikacja jest narzędziem do zarządzania opartym `todo` na wiersz
 
 Uruchom następujące polecenia w celu sklonowania przykładowego repozytorium.
 
-1. Otwórz wiersz polecenia, Utwórz nowy folder o nazwie `git-samples`, a następnie Zamknij wiersz polecenia.
+1. Otwórz wiersz polecenia, Utwórz nowy folder o nazwie `git-samples` , a następnie Zamknij wiersz polecenia.
 
     ```bash
     mkdir "C:\git-samples"
@@ -75,7 +75,7 @@ Wszystkie poniższe fragmenty kodu pochodzą z pliku `todo.go`.
 
 ### <a name="connecting-the-go-app-to-azure-cosmos-db"></a>Łączenie aplikacji języka Go z usługą Cosmos Azure DB
 
-[`clientOptions`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo/options?tab=doc#ClientOptions)hermetyzuje parametry połączenia dla Azure Cosmos DB, które są przesyłane przy użyciu zmiennej środowiskowej (szczegóły w kolejnej sekcji). Połączenie jest inicjowane przy [`mongo.NewClient`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#NewClient) użyciu, do `clientOptions` którego wystąpienie zostanie przesłane. Funkcja jest wywoływana w celu potwierdzenia pomyślnej łączności (dotyczy to strategii niepowodzenia) [ `Ping` ](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Client.Ping)
+[`clientOptions`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo/options?tab=doc#ClientOptions)hermetyzuje parametry połączenia dla Azure Cosmos DB, które są przesyłane przy użyciu zmiennej środowiskowej (szczegóły w kolejnej sekcji). Połączenie jest inicjowane przy użyciu, [`mongo.NewClient`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#NewClient) do którego `clientOptions` wystąpienie zostanie przesłane. [ `Ping` Funkcja](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Client.Ping) jest wywoływana w celu potwierdzenia pomyślnej łączności (dotyczy to strategii niepowodzenia)
 
 ```go
     ctx, cancel := context.WithTimeout(context.Background(), time.Second*10)
@@ -101,7 +101,7 @@ Wszystkie poniższe fragmenty kodu pochodzą z pliku `todo.go`.
 
 ### <a name="create-a-todo-item"></a>Utwórz `todo` element
 
-Aby utworzyć `todo`, uzyskujemy dojście do [`mongo.Collection`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection) i Wywołaj [`InsertOne`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.InsertOne) funkcję. 
+Aby utworzyć `todo` , uzyskujemy dojście do [`mongo.Collection`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection) i Wywołaj [`InsertOne`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.InsertOne) funkcję. 
 
 ```go
 func create(desc string) {
@@ -116,7 +116,7 @@ func create(desc string) {
     }
 ```
 
-Przekazujemy `Todo` strukturę, która zawiera opis i stan (początkowo ustawiony na `pending`).
+Przekazujemy `Todo` strukturę, która zawiera opis i stan (początkowo ustawiony na `pending` ).
 
 ```go
 type Todo struct {
@@ -125,9 +125,9 @@ type Todo struct {
     Status      string             `bson:"status"`
 }
 ```
-### <a name="list-todo-items"></a>Elementy `todo` listy
+### <a name="list-todo-items"></a>`todo`Elementy listy
 
-Można wyświetlić listę zadań do wykonania na podstawie kryteriów. [`bson.D`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/bson?tab=doc#D) Jest tworzony w celu hermetyzacji kryteriów filtrowania
+Można wyświetlić listę zadań do wykonania na podstawie kryteriów. [`bson.D`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/bson?tab=doc#D)Jest tworzony w celu hermetyzacji kryteriów filtrowania
 
 ```go
 func list(status string) {
@@ -181,7 +181,7 @@ Na koniec informacje są renderowane w formacie tabelarycznym
 
 ### <a name="update-a-todo-item"></a>Aktualizowanie `todo` elementu
 
-`todo` Można ją zaktualizować na podstawie jej `_id`. [`bson.D`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/bson?tab=doc#D) Filtr jest tworzony na podstawie, `_id` a drugi jest tworzony dla zaktualizowanych informacji, co jest nowym stanem (`completed` lub `pending`) w tym przypadku. Na [`UpdateOne`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.UpdateOne) koniec funkcja jest wywoływana z filtrem i zaktualizowanym dokumentem
+`todo`Można ją zaktualizować na podstawie jej `_id` . [`bson.D`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/bson?tab=doc#D)Filtr jest tworzony na podstawie, `_id` a drugi jest tworzony dla zaktualizowanych informacji, co jest nowym stanem ( `completed` lub `pending` ) w tym przypadku. Na koniec [`UpdateOne`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.UpdateOne) Funkcja jest wywoływana z filtrem i zaktualizowanym dokumentem
 
 ```go
 func update(todoid, newStatus string) {
@@ -201,7 +201,7 @@ func update(todoid, newStatus string) {
 
 ### <a name="delete-a-todo"></a>Usuń element`todo`
 
-Element `todo` jest usuwany na podstawie `_id` jego i jest hermetyzowany w postaci [`bson.D`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/bson?tab=doc#D) wystąpienia. [`DeleteOne`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.DeleteOne)jest wywoływana w celu usunięcia dokumentu.
+Element `todo` jest usuwany na podstawie jego `_id` i jest hermetyzowany w postaci [`bson.D`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/bson?tab=doc#D) wystąpienia. [`DeleteOne`](https://pkg.go.dev/go.mongodb.org/mongo-driver@v1.3.2/mongo?tab=doc#Collection.DeleteOne)jest wywoływana w celu usunięcia dokumentu.
 
 ```go
 func delete(todoid string) {
@@ -221,7 +221,7 @@ func delete(todoid string) {
 
 ## <a name="build-the-application"></a>Kompilowanie aplikacji
 
-Przejdź do katalogu, w którym Sklonowano aplikację, i skompiluj ją (przy `go build`użyciu).
+Przejdź do katalogu, w którym Sklonowano aplikację, i skompiluj ją (przy użyciu `go build` ).
 
 ```bash
 cd monogdb-go-quickstart
@@ -340,7 +340,7 @@ export MONGODB_CONNECTION_STRING="mongodb://<COSMOSDB_ACCOUNT_NAME>:<COSMOSDB_PA
 > Ta `ssl=true` opcja jest ważna ze względu na wymagania Cosmos DB. Aby uzyskać więcej informacji, zobacz [wymagania dotyczące parametrów połączenia](connect-mongodb-account.md#connection-string-requirements).
 >
 
-W polu `MONGODB_CONNECTION_STRING` zmienna środowiskowa Zastąp symbole zastępcze `<COSMOSDB_ACCOUNT_NAME>` dla i`<COSMOSDB_PASSWORD>`
+W polu `MONGODB_CONNECTION_STRING` zmienna środowiskowa Zastąp symbole zastępcze dla `<COSMOSDB_ACCOUNT_NAME>` i`<COSMOSDB_PASSWORD>`
 
 1. `<COSMOSDB_ACCOUNT_NAME>`: Nazwa utworzonego konta Azure Cosmos DB
 2. `<COSMOSDB_PASSWORD>`: Klucz bazy danych wyodrębniony w poprzednim kroku
@@ -360,7 +360,7 @@ Aby utworzyć`todo`
 ./todo --create "Create an Azure Cosmos DB database account"
 ```
 
-Jeśli to się powiedzie, powinny pojawić się dane `_id` wyjściowe z MongoDB nowo utworzonego dokumentu:
+Jeśli to się powiedzie, powinny pojawić się dane wyjściowe z MongoDB `_id` nowo utworzonego dokumentu:
 
 ```bash
 added todo ObjectID("5e9fd6befd2f076d1f03bd8a")
@@ -372,7 +372,7 @@ Utwórz inny`todo`
 ./todo --create "Get the MongoDB connection string using the Azure CLI"
 ```
 
-Wyświetl wszystkie `todo`elementy s
+Wyświetl wszystkie `todo` elementy s
 
 ```bash
 ./todo --list all
@@ -391,13 +391,13 @@ Powinny zostać wyświetlone te, które zostały właśnie dodane w formacie tab
 +----------------------------+--------------------------------+-----------+
 ```
 
-Aby zaktualizować stan elementu `todo` (np. Zmień go na `completed` stan), użyj identyfikatora `todo`
+Aby zaktualizować stan elementu `todo` (np. Zmień go na `completed` stan), użyj `todo` identyfikatora
 
 ```bash
 ./todo --update 5e9fd6b1bcd2fa6bd267d4c4,completed
 ```
 
-Wyświetl tylko zakończone `todo`
+Wyświetl `todo` tylko zakończone
 
 ```bash
 ./todo --list completed
@@ -425,19 +425,19 @@ W górnym polu wyszukiwania wprowadź **Azure Cosmos DB**. Po otwarciu bloku kon
 ![Eksplorator danych z nowo utworzonym dokumentem](./media/create-mongodb-go/go-cosmos-db-data-explorer.jpg)
 
 
-Usuń identyfikator `todo` using
+Usuń `todo` Identyfikator using
 
 ```bash
 ./todo --delete 5e9fd6b1bcd2fa6bd267d4c4,completed
 ```
 
-Wyświetl listę `todo`s do potwierdzenia
+Wyświetl listę `todo` s do potwierdzenia
 
 ```bash
 ./todo --list all
 ```
 
-`todo` Właśnie usunięty nie powinien być obecny
+`todo`Właśnie usunięty nie powinien być obecny
 
 ```bash
 +----------------------------+--------------------------------+-----------+
@@ -448,13 +448,13 @@ Wyświetl listę `todo`s do potwierdzenia
 +----------------------------+--------------------------------+-----------+
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start przedstawiono sposób tworzenia konta interfejsu API usługi Azure Cosmos DB MongoDB przy użyciu Azure Cloud Shell i tworzenia i uruchamiania aplikacji w wierszu polecenia programu go w celu zarządzania `todo`usługą. Teraz możesz zaimportować dodatkowe dane do swojego konta usługi Azure Cosmos DB.
+W tym przewodniku szybki start przedstawiono sposób tworzenia konta interfejsu API usługi Azure Cosmos DB MongoDB przy użyciu Azure Cloud Shell i tworzenia i uruchamiania aplikacji w wierszu polecenia programu go w celu zarządzania usługą `todo` . Teraz możesz zaimportować dodatkowe dane do swojego konta usługi Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
 > [Importowanie danych z bazy danych MongoDB do usługi Azure Cosmos DB](mongodb-migrate.md)

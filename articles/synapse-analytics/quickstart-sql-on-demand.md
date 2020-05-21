@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9cb90ba81f6399d7b0e238d673c2d956911bd004
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 8c87b059d94d6b3be1a4b5cf2f83007b746f4156
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201042"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658594"
 ---
-# <a name="quickstart-using-sql-on-demand"></a>Szybki Start: korzystanie z SQL na żądanie
+# <a name="quickstart-use-sql-on-demand"></a>Szybki Start: korzystanie z SQL na żądanie
 
 Synapse SQL na żądanie (wersja zapoznawcza) to usługa zapytań bezserwerowych, która umożliwia uruchamianie zapytań SQL dotyczących plików umieszczonych w usłudze Azure Storage. W tym przewodniku szybki start dowiesz się, jak wysyłać zapytania o różne typy plików przy użyciu programu SQL na żądanie. Obsługiwane formaty są wymienione w [OPENROWSET](sql/develop-openrowset.md).
 
@@ -30,7 +30,7 @@ Wybierz klienta SQL, aby wystawić zapytania:
 - [Azure Data Studio](sql/get-started-azure-data-studio.md) to narzędzie klienckie, które umożliwia uruchamianie zapytań SQL i notesów w bazie danych na żądanie.
 - [SQL Server Management Studio](sql/get-started-ssms.md) to narzędzie klienta, które umożliwia uruchamianie zapytań SQL w bazie danych na żądanie.
 
-Parametry szybkiego startu:
+Parametry dla tego przewodnika Szybki Start:
 
 | Parametr                                 | Opis                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
@@ -89,7 +89,7 @@ SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-
 GO
 ```
 
-## <a name="querying-csv-files"></a>Wykonywanie zapytania dotyczącego plików CSV
+## <a name="query-csv-files"></a>Pliki CSV zapytania
 
 Na poniższej ilustracji znajduje się podgląd pliku do zbadania:
 
@@ -118,7 +118,7 @@ WHERE
 W czasie kompilacji zapytania można określić schemat.
 Aby uzyskać więcej przykładów, zobacz jak [zbadać plik CSV](sql/query-single-csv-file.md).
 
-## <a name="querying-parquet-files"></a>Wykonywanie zapytania dotyczącego plików Parquet
+## <a name="query-parquet-files"></a>Wykonywanie zapytań względem plików Parquet
 
 Poniższy przykład pokazuje możliwości automatycznego wnioskowania schematu do wykonywania zapytań dotyczących plików Parquet. Zwraca liczbę wierszy we wrześniu 2017 bez określania schematu.
 
@@ -136,7 +136,7 @@ FROM OPENROWSET
 
 Znajdź więcej informacji na temat [wykonywania zapytań dotyczących plików Parquet](sql/query-parquet-files.md).
 
-## <a name="querying-json-files"></a>Wykonywanie zapytania dotyczącego plików JSON
+## <a name="query-json-files"></a>Wykonywanie zapytań względem plików JSON
 
 ### <a name="json-sample-file"></a>Przykładowy plik JSON
 
@@ -158,7 +158,7 @@ Pliki są przechowywane w kontenerze *JSON* , w *książkach*folderów i zawiera
 }
 ```
 
-### <a name="querying-json-files"></a>Wykonywanie zapytania dotyczącego plików JSON
+### <a name="query-json-files"></a>Wykonywanie zapytań względem plików JSON
 
 Poniższe zapytanie pokazuje, w jaki sposób używać [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) do pobierania wartości skalarnych (tytuł, wydawca) z książki z tytułem *probabilistyczne i metodami statystycznymi w Cryptology, wprowadzeniem do wybranych artykułów*:
 

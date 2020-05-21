@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 12/11/2019
+ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: 69e4d992e2ef89b4d3d9408d6e50591fb8166c79
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 9699bb0e75aac19a2d5c5c68d07e85b1c17c7cbc
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75385783"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650194"
 ---
-# <a name="quickstart-for-bing-entity-search-api-with-ruby"></a>Przewodnik Szybki start dotyczący korzystania z interfejsu API wyszukiwania jednostek Bing za pomocą języka Ruby
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-ruby"></a>Szybki Start: wysyłanie żądania wyszukiwania do wyszukiwanie jednostek Bing interfejsu API REST przy użyciu języka Ruby
 
 Ten przewodnik Szybki start umożliwi Ci utworzenie Twojego pierwszego wywołania interfejsu API wyszukiwania jednostek Bing i wyświetlenie odpowiedzi JSON. Ta prosta aplikacja w języku Ruby wysyła zapytanie wyszukiwania wiadomości do interfejsu API i wyświetla odpowiedź. Kod źródłowy tej aplikacji jest dostępny w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingEntitySearchv7.rb).
 
-Chociaż ta aplikacja jest napisana w języku Ruby, interfejs API jest usługą internetową zgodną z wzorcem REST i większością języków programowania.
+Mimo że aplikacja jest zapisywana w języku Ruby, interfejs API jest usługą sieci Web RESTful zgodną z większością języków programowania.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -31,7 +31,7 @@ Chociaż ta aplikacja jest napisana w języku Ruby, interfejs API jest usługą 
 
 ## <a name="create-and-initialize-the-application"></a>Tworzenie i inicjowanie aplikacji
 
-1. W Twoim ulubionym środowisku IDE lub edytorze kodu utwórz plik wiadomości języka Ruby i zaimportuj następujące pakiety.
+1. W ulubionym środowisku IDE lub edytorze kodu Utwórz plik Ruby wiadomości i zaimportuj następujące pakiety:
 
     ```ruby
     require 'net/https'
@@ -39,7 +39,7 @@ Chociaż ta aplikacja jest napisana w języku Ruby, interfejs API jest usługą 
     require 'json'
     ```
 
-2. Utwórz zmienne dla swojego punktu końcowego interfejsu API, adresu URL wyszukiwania wiadomości, swojego klucza subskrypcji i zapytania wyszukiwania. Możesz użyć poniższego globalnego punktu końcowego lub niestandardowego punktu końcowego [poddomeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) , który jest wyświetlany w Azure Portal dla zasobu.
+2. Utwórz zmienne dla punktu końcowego interfejsu API, adres URL wyszukiwania wiadomości, klucz subskrypcji i zapytanie wyszukiwania. Możesz użyć globalnego punktu końcowego w poniższym kodzie lub użyć punktu końcowego [niestandardowej domeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) podrzędnej wyświetlanego w Azure Portal dla zasobu.
     
     ```ruby
     host = 'https://api.cognitive.microsoft.com'
@@ -65,7 +65,7 @@ Chociaż ta aplikacja jest napisana w języku Ruby, interfejs API jest usługą 
     request['Ocp-Apim-Subscription-Key'] = subscriptionKey
     ```
 
-3. Wyślij żądanie i wydrukuj odpowiedź
+3. Wyślij żądanie i wydrukuj odpowiedź.
 
     ```ruby
     response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
@@ -145,5 +145,5 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 > [!div class="nextstepaction"]
 > [Tworzenie jednostronicowej aplikacji internetowej](../tutorial-bing-entities-search-single-page-app.md)
 
-* [Co to jest interfejs API wyszukiwania jednostek Bing](../search-the-web.md)
-* [Dokumentacja interfejsu API wyszukiwania jednostek Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference)
+* [Czym jest interfejs API wyszukiwania jednostek Bing?](../search-the-web.md)
+* [Odwołanie interfejs API wyszukiwania jednostek Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

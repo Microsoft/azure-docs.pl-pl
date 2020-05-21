@@ -8,12 +8,12 @@ ms.reviewer: jrasnick, carlrab
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: 62546fc98429c3a28217b1992f803aa40ce615c8
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 4d1fafa131a39ab72f6fc09663c7eb5b06107539
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982347"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83644852"
 ---
 # <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-spark-pools-preview"></a>Samouczek: Tworzenie aplikacji Apache Spark dla pul Spark (wersja zapoznawcza) za pomocą Azure Toolkit for IntelliJ
 
@@ -23,7 +23,7 @@ W tym samouczku pokazano, jak za pomocą wtyczki Azure Toolkit for IntelliJ twor
 - Uzyskaj dostęp do zasobów pul platformy Spark.
 - Tworzenie i uruchamianie aplikacji Scala Spark lokalnie.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 >
 > - Korzystanie z wtyczki Azure Toolkit for IntelliJ
@@ -62,13 +62,14 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
     |Lokalizacja&nbsp;projektu| Wprowadź żądaną lokalizację, aby zapisać projekt.|
     |Zestaw SDK projektu| Może ona być pusta przy pierwszym użyciu POMYSŁu. Wybierz pozycję **New...** (Nowy...) i przejdź do swojego zestawu JDK.|
     |Wersja platformy Spark|Kreator tworzenia integruje poprawną wersję dla zestawów Spark SDK i Scala SDK. Synapse obsługuje tylko platformę **Spark 2.4.0**.|
+    |||
 
     ![Wybieranie zestawu SDK Apache Spark](./media/intellij-tool-synapse/create-synapse-application02.png)
 
 7. Wybierz pozycję **Zakończ**. Udostępnienie projektu może potrwać kilka minut.
 8. Projekt Spark automatycznie tworzy artefakt. Aby wyświetlić artefakt, wykonaj następujące czynności:
 
-   a. Na pasku menu Przejdź do struktury projektu **pliku** > **..**..
+   a. Na pasku menu Przejdź do **File**  >  **struktury projektu pliku..**..
 
    b. W oknie **Struktura projektu** wybierz pozycję **artefakty**.
 
@@ -76,7 +77,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
     ![Informacje o artefaktach w oknie dialogowym](./media/intellij-tool-synapse/default-artifact-dialog.png)
 
-9. Znajdź **LogQuery** z usługi **MojaApl** > **src** > **Main** > **Scala**> **sample**Sample> **LogQuery**. W tym samouczku do uruchomienia programu **LogQuery** .
+9. Znajdź **LogQuery** z usługi **MojaApl**  >  **src**  >  **Main**  >  **Scala** >  **Sample** >  **LogQuery**. W tym samouczku do uruchomienia programu **LogQuery** .
 
    ![Polecenia służące do tworzenia klasy Scala z projektu](./media/intellij-tool-synapse/select-run-file.png)
 
@@ -86,7 +87,7 @@ Zaloguj się do subskrypcji platformy Azure, aby nawiązać połączenie z pulam
 
 ### <a name="sign-in-to-your-azure-subscription"></a>Zaloguj się do subskrypcji platformy Azure
 
-1. Na pasku menu Przejdź do **widoku** > **Narzędzia** > **Eksplorator platformy Microsoft Azure**.
+1. Na pasku menu Przejdź do **widoku**  >  **Narzędzia**  >  **Eksplorator platformy Microsoft Azure**.
 
    ![IntelliJ pomysł przedstawia Eksplorator platformy Azure](./media/intellij-tool-synapse/show-azure-explorer1.png)
 
@@ -130,7 +131,7 @@ Po utworzeniu aplikacji Scala można uruchomić ją zdalnie.
 
     ![Polecenie Prześlij aplikację platformy Spark do usługi HDInsight](./media/intellij-tool-synapse/open-configuration-window.png)
 
-2. W oknie dialogowym **konfiguracje uruchamiania/debugowania** kliknij **+** pozycję, a następnie wybierz pozycję **Apache Spark w Synapse**.
+2. W oknie dialogowym **konfiguracje uruchamiania/debugowania** kliknij pozycję **+** , a następnie wybierz pozycję **Apache Spark w Synapse**.
 
     ![Polecenie Prześlij aplikację platformy Spark do usługi HDInsight](./media/intellij-tool-synapse/create-synapse-configuration02.png)
 
@@ -141,7 +142,7 @@ Po utworzeniu aplikacji Scala można uruchomić ją zdalnie.
     |Pule platformy Spark|Wybierz pule platformy Spark, na których chcesz uruchomić aplikację.|
     |Wybierz artefakt do przesłania|Pozostaw ustawienie domyślne.|
     |Nazwa klasy głównej|Wartością domyślną jest główna Klasa z wybranego pliku. Możesz zmienić klasę, wybierając wielokropek (**...**) i wybierając inną klasę.|
-    |Konfiguracje zadań|Można zmienić domyślny klucz i wartości. Aby uzyskać więcej informacji, zobacz [interfejs API REST usługi Apache usługi Livy](https://livy.incubator.apache.org./docs/latest/rest-api.html).|
+    |Konfiguracje zadań|Można zmienić domyślny klucz i wartości. Aby uzyskać więcej informacji, zobacz [interfejs API REST usługi Apache usługi Livy](http://livy.incubator.apache.org./docs/latest/rest-api.html).|
     |Argumenty wiersza polecenia|W razie potrzeby można wprowadzać argumenty rozdzielone spacją dla klasy głównej.|
     |Odwołania do Jars i plików, do których istnieją odwołania|Możesz wprowadzić ścieżki do przywoływanych Jars i plików, jeśli istnieją. Można również przeglądać pliki w wirtualnym systemie plików platformy Azure, który obecnie obsługuje tylko ADLS Gen2 klaster. Aby uzyskać więcej informacji: [Apache Spark konfiguracja](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) i [sposób przekazywania zasobów do klastra](../../storage/blobs/storage-quickstart-blobs-storage-explorer.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).|
     |Magazyn przekazywania zadań|Rozwiń, aby wyświetlić dodatkowe opcje.|
@@ -164,7 +165,7 @@ Poniższe instrukcje umożliwiają skonfigurowanie lokalnego uruchomienia i loka
 
 ### <a name="scenario-1-do-local-run"></a>Scenariusz 1. Uruchamianie lokalne
 
-1. Otwórz okno dialogowe **konfiguracje uruchamiania/debugowania** , a następnie wybierz znak plus**+**(). Następnie wybierz opcję **Apache Spark on Synapse** . Wprowadź informacje o **nazwie**i **nazwie klasy głównej** do zapisania.
+1. Otwórz okno dialogowe **konfiguracje uruchamiania/debugowania** , a następnie wybierz znak plus ( **+** ). Następnie wybierz opcję **Apache Spark on Synapse** . Wprowadź informacje o **nazwie**i **nazwie klasy głównej** do zapisania.
 
     ![IntelliJ uruchamianie konfiguracji debugowania — uruchomienie lokalne](./media/intellij-tool-synapse/local-run-synapse.png)
 
@@ -176,7 +177,7 @@ Poniższe instrukcje umożliwiają skonfigurowanie lokalnego uruchomienia i loka
 
     ![IntelliJ uruchamianie konfiguracji debugowania — uruchomienie lokalne](./media/intellij-tool-synapse/local-run-synapse01.png)
 
-3. Po zakończeniu lokalnego uruchomienia, jeśli skrypt zawiera dane wyjściowe, można sprawdzić plik wyjściowy z**__ustawień domyślnych__** **danych** > .
+3. Po zakończeniu lokalnego uruchomienia, jeśli skrypt zawiera dane wyjściowe, można sprawdzić plik wyjściowy z **data**  >  **__ustawień domyślnych__** danych.
 
     ![Wynik lokalnego uruchomienia projektu IntelliJ](./media/intellij-tool-synapse/spark-local-run-result.png)
 
@@ -189,7 +190,7 @@ Poniższe instrukcje umożliwiają skonfigurowanie lokalnego uruchomienia i loka
 
 ## <a name="access-and-manage-synapse-workspace"></a>Dostęp do obszaru roboczego Synapse i zarządzanie nim
 
-W programie Azure Toolkit for IntelliJ można wykonywać różne operacje w Eksploratorze Azure. Na pasku menu Przejdź do **widoku** > **Narzędzia** > **Eksplorator platformy Microsoft Azure**.
+W programie Azure Toolkit for IntelliJ można wykonywać różne operacje w Eksploratorze Azure. Na pasku menu Przejdź do **widoku**  >  **Narzędzia**  >  **Eksplorator platformy Microsoft Azure**.
 
 ### <a name="launch-workspace"></a>Uruchom obszar roboczy
 
@@ -211,8 +212,8 @@ Można uruchomić konsolę lokalną Spark (Scala) lub uruchomić konsolę sesji 
 
 Upewnij się, że WINUTILS. EXE — wymaganie wstępne.
 
-1. Na pasku menu Przejdź do opcji **Uruchom** > **Edytowanie konfiguracji..**..
-2. W oknie **konfiguracje uruchamiania/debugowania** w lewym okienku przejdź do **Apache Spark na Synapse** > **[Spark on Synapse] MojaApl**.
+1. Na pasku menu Przejdź do opcji **Uruchom**  >  **Edytowanie konfiguracji..**..
+2. W oknie **konfiguracje uruchamiania/debugowania** w lewym okienku przejdź do **Apache Spark na Synapse**  >  **[Spark on Synapse] MojaApl**.
 3. W oknie głównym wybierz kartę **uruchomiono lokalnie** .
 4. Podaj następujące wartości, a następnie wybierz przycisk **OK**:
 
@@ -223,15 +224,15 @@ Upewnij się, że WINUTILS. EXE — wymaganie wstępne.
 
     ![Lokalna konfiguracja zestawu konsoli](./media/intellij-tool-synapse/local-console-synapse01.png)
 
-5. W programie Project przejdź do usługi **MojaApl** > **src** > **Main** > **Scala** > **MojaApl**.
-6. Na pasku menu Przejdź do menu **Narzędzia** > **platformy Spark** > **Uruchom konsolę usługi Spark (Scala)**.
+5. W programie Project przejdź do usługi **MojaApl**  >  **src**  >  **Main**  >  **Scala**  >  **MojaApl**.
+6. Na pasku menu Przejdź do menu **Narzędzia**  >  **platformy Spark**  >  **Uruchom konsolę usługi Spark (Scala)**.
 7. Następnie można wyświetlić dwa okna dialogowe z monitem, jeśli chcesz automatyczne naprawić zależności. W takim przypadku wybierz pozycję **Automatyczne rozwiązywanie**.
 
     ![IntelliJ pomysł Spark automatycznej poprawki dialog1](./media/intellij-tool-synapse/intellij-console-autofix1.png)
 
     ![IntelliJ pomysł Spark automatycznej poprawki dialog2](./media/intellij-tool-synapse/intellij-console-autofix2.png)
 
-8. Konsola powinna wyglądać podobnie do poniższej ilustracji. W oknie konsoli wpisz `sc.appName`, a następnie naciśnij klawisze CTRL + ENTER. Zostanie wyświetlony wynik. Aby zatrzymać konsolę lokalną, kliknij przycisk czerwony.
+8. Konsola powinna wyglądać podobnie do poniższej ilustracji. W oknie konsoli wpisz `sc.appName` , a następnie naciśnij klawisze CTRL + ENTER. Zostanie wyświetlony wynik. Aby zatrzymać konsolę lokalną, kliknij przycisk czerwony.
 
     ![Wynik z lokalnej konsoli POMYSŁu IntelliJ](./media/intellij-tool-synapse/local-console-result.png)
 
@@ -239,9 +240,9 @@ Upewnij się, że WINUTILS. EXE — wymaganie wstępne.
 
 Jest on obsługiwany tylko w systemach IntelliJ 2018,2 i 2018,3.
 
-1. Na pasku menu Przejdź do opcji **Uruchom** > **Edytowanie konfiguracji..**..
+1. Na pasku menu Przejdź do opcji **Uruchom**  >  **Edytowanie konfiguracji..**..
 
-2. W oknie **konfiguracje uruchamiania/debugowania** w lewym okienku przejdź do **Apache Spark na Synapse** > **[Spark on Synapse] MojaApl**.
+2. W oknie **konfiguracje uruchamiania/debugowania** w lewym okienku przejdź do **Apache Spark na Synapse**  >  **[Spark on Synapse] MojaApl**.
 
 3. W oknie głównym wybierz kartę **zdalne uruchamianie na klastrze** .
 
@@ -254,10 +255,10 @@ Jest on obsługiwany tylko w systemach IntelliJ 2018,2 i 2018,3.
 
     ![Interaktywna konfiguracja zestawu konsolowego](./media/intellij-tool-synapse/interactive-console-configuration.png)
 
-5. W programie Project przejdź do usługi **MojaApl** > **src** > **Main** > **Scala** > **MojaApl**.
+5. W programie Project przejdź do usługi **MojaApl**  >  **src**  >  **Main**  >  **Scala**  >  **MojaApl**.
 
-6. Na pasku menu Przejdź do menu **Narzędzia** > **platformy Spark** > **Uruchom konsolę sesji programu Spark usługi Livy Interactive (Scala)**.
-7. Konsola powinna wyglądać podobnie do poniższej ilustracji. W oknie konsoli wpisz `sc.appName`, a następnie naciśnij klawisze CTRL + ENTER. Zostanie wyświetlony wynik. Aby zatrzymać konsolę lokalną, kliknij przycisk czerwony.
+6. Na pasku menu Przejdź do menu **Narzędzia**  >  **platformy Spark**  >  **Uruchom konsolę sesji programu Spark usługi Livy Interactive (Scala)**.
+7. Konsola powinna wyglądać podobnie do poniższej ilustracji. W oknie konsoli wpisz `sc.appName` , a następnie naciśnij klawisze CTRL + ENTER. Zostanie wyświetlony wynik. Aby zatrzymać konsolę lokalną, kliknij przycisk czerwony.
 
     ![Wynik interaktywnej konsoli POMYSŁu IntelliJ](./media/intellij-tool-synapse/interactive-console-result.png)
 
@@ -270,4 +271,4 @@ Jest to wygodne, aby przewidzieć wynik skryptu, wysyłając jakiś kod do konso
 ## <a name="next-steps"></a>Następne kroki
 
 - [Azure Synapse Analytics](../overview-what-is.md)
-- [Utwórz nową pulę Apache Spark dla obszaru roboczego analizy usługi Azure Synapse](../../synapse-analytics/quickstart-create-apache-spark-pool.md)
+- [Utwórz nową pulę Apache Spark dla obszaru roboczego analizy usługi Azure Synapse](../../synapse-analytics/quickstart-create-apache-spark-pool-studio.md)

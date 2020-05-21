@@ -1,5 +1,5 @@
 ---
-title: Połącz z linkiem usługi Azure Synapse dla Azure Cosmos DB
+title: Połącz z linkiem usługi Azure Synapse (wersja zapoznawcza) dla Azure Cosmos DB
 description: Jak połączyć Azure Cosmos DB z obszarem roboczym Synapse za pomocą usługi Azure Synapse link
 services: synapse-analytics
 author: ArnoMicrosoft
@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: d72d1feda4c267dfa3d5c0dea6928f1b7541b26d
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6bdc2eca3bdf02814ee851ff266e04bb57f7978c
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599937"
+ms.locfileid: "83658828"
 ---
-# <a name="connect-to-azure-synapse-link-for-azure-cosmos-db"></a>Połącz z linkiem usługi Azure Synapse dla Azure Cosmos DB
+# <a name="connect-to-azure-synapse-link-preview-for-azure-cosmos-db"></a>Połącz z linkiem usługi Azure Synapse (wersja zapoznawcza) dla Azure Cosmos DB
 
 W tym artykule opisano, jak uzyskać dostęp do bazy danych Azure Cosmos DB z usługi Azure Synapse Analytics Studio za pomocą usługi Azure Synapse link.
 

@@ -8,12 +8,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 09/13/2019
-ms.openlocfilehash: f3ff9bd64f54d8f83fd1889078e8a4c01827d135
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 61d401a543032b1a206a4477f04d7e8e209c0f2a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77525893"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83646598"
 ---
 # <a name="quickstart-set-up-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Szybki Start: Konfigurowanie geograficznej maszyny wirtualnej ze sztuczną inteligencją na platformie Azure 
 
@@ -24,7 +24,7 @@ Narzędzia AI zawarte w DSVM geograficznym obejmują następujące elementy:
 - Wersje procesora GPU popularnych struktur głębokiego uczenia, takich jak Microsoft Cognitive Toolkit, TensorFlow, Keras, Caffe2 i łańcucha
 - Narzędzia do uzyskiwania i wstępnego przetwarzania obrazu i danych tekstowych
 - Narzędzia dla działań programistycznych, takie jak Microsoft Machine Learning Server Developer Edition, Anaconda Python, Jupyter Notess for Python i R, środowisk IDE dla języków Python i R oraz baz danych SQL
-- Oprogramowanie ArcGIS Pro Desktop z ESRI, a także interfejsy Python i R, które mogą współdziałać z danymi geograficznymi z aplikacji AI
+- Oprogramowanie ArcGIS Pro Desktop z Esri, a także interfejsy Python i R, które mogą współdziałać z danymi geograficznymi z aplikacji AI
  
 
 ## <a name="create-your-geo-ai-data-science-vm"></a>Utwórz geograficzną Data Science VM AI

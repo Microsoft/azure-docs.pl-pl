@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 0bf58348d91c23db9bcc016ff6d71ce2b3804ced
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: df7753983cea2ca2cc285f04cd32da6ed065f415
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83201055"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656134"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-workspace-preview"></a>Szybki Start: Tworzenie obszaru roboczego usługi Azure Synapse Analytics (wersja zapoznawcza)
 
@@ -25,6 +25,9 @@ Jeśli nie masz subskrypcji platformy Azure, [przed rozpoczęciem utwórz bezpł
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - [Konto magazynu Azure Data Lake Storage Gen2](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+
+## <a name="register-azure-synapse-resource-provider"></a>Zarejestruj dostawcę zasobów usługi Azure Synapse
+Jeśli jeszcze tego nie zrobiono, zarejestruj dostawcę zasobów usługi Azure Synapse. Rejestracja dostawcy zasobów umożliwia skonfigurowanie subskrypcji do pracy z dostawcą zasobów. Aby zarejestrować dostawcę zasobów usługi Azure Synapse, zobacz [dostawcy zasobów platformy Azure i ich typy](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types). Po zarejestrowaniu wybierz pozycję *Microsoft. Synapse* z listy dostawców zasobów.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
@@ -43,7 +46,7 @@ Zaloguj się do [Azure Portal](https://portal.azure.com/)
     | **Subskrypcja** | *Twoja subskrypcja* | Aby uzyskać szczegółowe informacje o subskrypcjach, zobacz [Subskrypcje](https://account.windowsazure.com/Subscriptions). |
     | **Grupa zasobów** | *Dowolna Grupa zasobów* | Prawidłowe nazwy grup zasobów opisano w artykule [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (Reguły i ograniczenia nazewnictwa). |
     | **Nazwa obszaru roboczego** | mysampleworkspace | Określa nazwę obszaru roboczego, który będzie również używany dla punktów końcowych połączenia.|
-    | **Okolicy** | Wschodnie stany USA 2 | Określa lokalizację obszaru roboczego.|
+    | **Region** | Wschodnie stany USA 2 | Określa lokalizację obszaru roboczego.|
     | **Usługa Data Lake Storage 2. generacji** | Koncie`storage account name` </br> System plików:`root file system to use` | Określa nazwę konta magazynu ADLS Gen2, która ma być używana jako magazyn podstawowy i system plików do użycia.|
     ||||
 
@@ -63,7 +66,7 @@ Zaloguj się do [Azure Portal](https://portal.azure.com/)
 6. Na karcie **Podsumowanie** zostaną uruchomione wymagane walidacje, aby upewnić się, że obszar roboczy może zostać pomyślnie utworzony. Po pomyślnym zakończeniu walidacji kliknij pozycję **Utwórz** ![ przepływ obsługi obszaru roboczego — karta potwierdzenie.](media/quickstart-create-synapse-workspace/create-workspace-05.png)
 7. Po pomyślnym zakończeniu procesu aprowizacji zasobów zobaczysz wpis dla utworzonego obszaru roboczego na liście obszarów roboczych Synapse. ![Lista obszarów roboczych Synapse z nowo zainicjowanym obszarem roboczym.](media/quickstart-create-synapse-workspace/create-workspace-07.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Wykonaj poniższe kroki, aby usunąć obszar roboczy usługi Azure Synapse.
 > [!WARNING]
@@ -82,4 +85,4 @@ Jeśli chcesz usunąć obszar roboczy usługi Azure Synapse, wykonaj następują
 
 ## <a name="next-steps"></a>Następne kroki
 
-Następnie możesz [utworzyć pule SQL](quickstart-create-sql-pool.md) lub [utworzyć pule Apache Spark](quickstart-create-apache-spark-pool.md) , aby rozpocząć analizowanie i Eksplorowanie danych.
+Następnie możesz [utworzyć pule SQL](quickstart-create-sql-pool-studio.md) lub [utworzyć pule Apache Spark](quickstart-create-apache-spark-pool-studio.md) , aby rozpocząć analizowanie i Eksplorowanie danych.

@@ -1,14 +1,14 @@
 ---
 title: 'Samouczek: zarządzanie zapytaniami w Azure Portal'
 description: W tym samouczku utworzysz zapytanie grafu zasobów i udostępnisz nowe zapytanie innym osobom w Azure Portal.
-ms.date: 11/21/2019
+ms.date: 05/20/2020
 ms.topic: tutorial
-ms.openlocfilehash: 00cb3f95112804c81beb6bce6fc35891e6197e60
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e63a92a4570a0713ed65e1090e4d77d25fb10f95
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74303947"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83637765"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>Samouczek: Tworzenie i udostępnianie kwerendy wykresu zasobów platformy Azure w Azure Portal
 
@@ -129,7 +129,7 @@ Wybranie zapytania grafu zasobów spowoduje otwarcie strony dla tego zapytania. 
 
 ### <a name="query-resource-graph"></a>Zapytanie grafu zasobów
 
-Zapytania dotyczące wykresów zasobów można znaleźć za pomocą zapytania do grafu zasobów. Poniższe kwerendy wykresu zasobów są ograniczone przez typ `Microsoft.ResourceGraph/queries`, a następnie używa `project` do wyświetlania tylko nazwy, godziny modyfikacji i samego zapytania:
+Zapytania dotyczące wykresów zasobów można znaleźć za pomocą zapytania do grafu zasobów. Poniższe kwerendy wykresu zasobów są ograniczone przez typ `Microsoft.ResourceGraph/queries` , a następnie używa `project` do wyświetlania tylko nazwy, godziny modyfikacji i samego zapytania:
 
 ```kusto
 Resources
@@ -147,7 +147,7 @@ Zapytanie udostępnione można usunąć za pomocą następujących interfejsów:
 - Strona **otwieranie zapytania** w Eksploratorze grafu zasobów
 - Strona grupy zasobów
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu pracy z tym samouczkiem Usuń utworzone zapytania prywatne i udostępnione, jeśli nie będą już potrzebne.
 

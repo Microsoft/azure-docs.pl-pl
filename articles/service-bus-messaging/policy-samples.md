@@ -1,18 +1,18 @@
 ---
 title: Wbudowane definicje zasad dla Azure Service Bus Messaging
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla Azure Service Bus komunikatów. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 05/01/2020
+ms.date: 05/13/2020
 ms.topic: sample
 author: spelluru
 ms.author: spelluru
 ms.service: service-bus-messaging
 ms.custom: subject-policy-samples
-ms.openlocfilehash: bdd24f54f324ec08f22f6c56fac2ce42113d27da
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 0bda32fc86b40029889f8297d54c85a8cf163b43
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982670"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83650973"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-service-bus-messaging"></a>Azure Policy wbudowane definicje zasad dla Azure Service Bus komunikatów
 

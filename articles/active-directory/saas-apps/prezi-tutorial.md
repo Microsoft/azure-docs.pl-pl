@@ -15,96 +15,96 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dab850e1919c735f35d2efb9fa373c8cd331c165
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 95b81a7c36a39d124383b0c052b1944196a36d45
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82736144"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648766"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-prezi"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Prezi
+# <a name="tutorial-azure-active-directory-single-sign-on-integration-with-prezi"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym za pomocą Prezi
 
 W tym samouczku dowiesz się, jak zintegrować usługę Prezi z usługą Azure Active Directory (Azure AD). Po zintegrowaniu usługi Prezi z usługą Azure AD można:
 
-* Kontrolka w usłudze Azure AD, która ma dostęp do Prezi.
+* Kontroluj, kto ma dostęp do usługi Prezi w usłudze Azure AD.
 * Zezwól użytkownikom na automatyczne logowanie się do usługi Prezi przy użyciu kont w usłudze Azure AD.
-* Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
+* Zarządzaj kontami w Azure Portal.
 
-Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Aby dowiedzieć się więcej o integracji aplikacji oprogramowania jako usługi (SaaS) z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby rozpocząć, potrzebne są następujące elementy:
 
 * Subskrypcja usługi Azure AD. Jeśli nie masz subskrypcji, możesz uzyskać [bezpłatne konto](https://azure.microsoft.com/free/).
-* Subskrypcja z włączonym logowaniem jednokrotnym (SSO) Prezi.
+* Subskrypcja Prezi włączona z logowaniem jednokrotnym (SSO).
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
 W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
 
-* Prezi obsługuje usługę **SP i dostawcy tożsamości** zainicjowano Logowanie jednokrotne
-* Prezi obsługuje Inicjowanie obsługi użytkowników **just in Time**
-* Po skonfigurowaniu Prezi można wymusić kontrolę sesji, która chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozszerzy od dostępu warunkowego. [Dowiedz się, jak wymuszać kontrolę sesji za pomocą Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Usługa Prezi obsługuje logowanie jednokrotne z użyciem dodatków SP-i dostawcy tożsamości.
+* Prezi obsługuje Inicjowanie obsługi użytkowników just in Time.
+* Po skonfigurowaniu Prezi można wymusić kontrolę sesji, co chroni eksfiltracji i niefiltrowanie danych poufnych organizacji w czasie rzeczywistym. Kontrolka sesji rozciąga się od dostępu warunkowego. Aby uzyskać więcej informacji, zobacz [Informacje o sposobie wymuszania kontroli sesji przy użyciu Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-prezi-from-the-gallery"></a>Dodawanie Prezi z galerii
+## <a name="add-prezi-from-the-gallery"></a>Dodaj Prezi z galerii
 
 Aby skonfigurować integrację programu Prezi z usługą Azure AD, musisz dodać Prezi z galerii do listy zarządzanych aplikacji SaaS.
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta służbowego lub konto Microsoft prywatnego.
-1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** .
-1. Przejdź do **aplikacji przedsiębiorstwa** , a następnie wybierz pozycję **wszystkie aplikacje**.
+1. W okienku po lewej stronie wybierz pozycję **Azure Active Directory**.
+1. Przejdź do pozycji **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Aby dodać nową aplikację, wybierz pozycję **Nowa aplikacja**.
-1. W sekcji **Dodaj z galerii** wpisz **Prezi** w polu wyszukiwania.
-1. Wybierz pozycję **Prezi** from panel wyników, a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
+1. W sekcji **Dodaj z galerii** wprowadź **Prezi** w polu wyszukiwania.
+1. Na panelu Wyniki wybierz pozycję **Prezi** , a następnie Dodaj aplikację. Poczekaj kilka sekund, gdy aplikacja zostanie dodana do dzierżawy.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-prezi"></a>Skonfiguruj i przetestuj Logowanie jednokrotne w usłudze Azure AD dla Prezi
+## <a name="configure-and-test-azure-ad-sso-for-prezi"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla Prezi
 
-Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą Prezi przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w Prezi.
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą Prezi przy użyciu użytkownika testowego o nazwie B. Simon. Aby logowanie jednokrotne działało, należy nawiązać relację między użytkownikiem usługi Azure AD a powiązanym użytkownikiem w Prezi.
 
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD za pomocą Prezi, wykonaj następujące bloki konstrukcyjne:
 
-1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
-    1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
-    1. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
-1. **[Skonfiguruj Logowanie jednokrotne](#configure-prezi-sso)** w usłudze Prezi, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
-    1. **[Utwórz użytkownika testowego Prezi](#create-prezi-test-user)** , aby dysponować odpowiednikiem B. Simon w Prezi, która jest połączona z reprezentacją użytkownika w usłudze Azure AD.
-1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
+1. [Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso) , aby umożliwić użytkownikom korzystanie z tej funkcji.
+    1. [Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user) w celu przetestowania logowania jednokrotnego usługi Azure AD za pomocą B. Simon.
+    1. [Przypisz użytkownika testowego usługi Azure AD,](#assign-the-azure-ad-test-user) aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
+1. [Skonfiguruj Logowanie jednokrotne](#configure-prezi-sso) w usłudze Prezi, aby skonfigurować ustawienia logowania jednokrotnego po stronie aplikacji.
+    1. [Utwórz użytkownika testowego Prezi](#create-a-prezi-test-user) , aby miał odpowiednik B. Simon w Prezi, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
+1. [Przetestuj Logowanie jednokrotne](#test-sso) , aby sprawdzić, czy konfiguracja działa.
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
-Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure AD w Azure Portal.
+Aby włączyć logowanie jednokrotne w usłudze Azure AD w Azure Portal:
 
 1. W [Azure Portal](https://portal.azure.com/)na stronie integracja aplikacji **Prezi** Znajdź sekcję **Zarządzanie** i wybierz pozycję **Logowanie jednokrotne**.
 1. Na stronie **Wybierz metodę logowania jednokrotnego** wybierz pozycję **SAML**.
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** kliknij ikonę Edytuj/pióro, aby określić **podstawową konfigurację języka SAML** , aby edytować ustawienia.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** wybierz ikonę **edycji** , aby edytować ustawienia w **podstawowej konfiguracji SAML**.
 
-   ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
+   ![Edytuj podstawowe ustawienia konfiguracji SAML](common/edit-urls.png)
 
-1. W sekcji **Podstawowa konfiguracja protokołu SAML** użytkownik nie musi wykonywać żadnych kroków, ponieważ aplikacja jest już wstępnie zintegrowana z platformą Azure.
+1. W sekcji **Podstawowa konfiguracja języka SAML** użytkownik nie musi wykonywać żadnych czynności, ponieważ aplikacja jest już wstępnie zintegrowana z platformą Azure.
 
-1. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
+1. Wybierz opcję **Ustaw dodatkowe adresy URL**i wykonaj następujące czynności, jeśli chcesz skonfigurować aplikację w trybie zainicjowanym przez program **SP**:
 
-    W polu tekstowym **adres URL logowania** wpisz adres URL:`https://prezi.com/login/sso/`
+    W polu **adres URL logowania** wprowadź adres URL `https://prezi.com/login/sso/` .
 
-1. Kliknij przycisk **Zapisz**.
+1. Wybierz pozycję **Zapisz**.
 
 1. Aplikacja Prezi oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
-    ![image](common/default-attributes.png)
+    ![Atrybuty użytkownika & oświadczenia](common/default-attributes.png)
 
-1. Oprócz powyższych, aplikacja Prezi oczekuje kilku atrybutów do przekazania z powrotem w odpowiedzi SAML, które przedstawiono poniżej. Te atrybuty są również wstępnie wypełnione, ale można je sprawdzić zgodnie z wymaganiami.
+1. Aplikacja Prezi oczekuje również, że kilka atrybutów zostanie przekazana z powrotem w odpowiedzi SAML, jak pokazano tutaj. Te atrybuty są również wstępnie wypełniane, ale można je przejrzeć zgodnie z wymaganiami.
     
     | Nazwa | Atrybut źródłowy|
     | ---------------| --------------- |
     | given_name | user.givenname |
     | family_name | user.surname |
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź **certyfikat (base64)** i wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** w sekcji **certyfikat podpisywania SAML** Znajdź pozycję **certyfikat (base64)**. Wybierz pozycję **Pobierz** , aby pobrać certyfikat i zapisać go na komputerze.
 
     ![Link do pobierania certyfikatu](common/certificatebase64.png)
 
-1. W sekcji **Konfigurowanie Prezi** skopiuj odpowiednie adresy URL na podstawie wymagania.
+1. W sekcji **Konfiguracja Prezi** skopiuj odpowiednie adresy URL zgodnie z wymaganiami.
 
     ![Kopiowanie adresów URL konfiguracji](common/copy-configuration-urls.png)
 
@@ -112,77 +112,72 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 
-1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
+1. W Azure Portal, w okienku po lewej stronie wybierz pozycję **Azure Active Directory**. Przejdź do pozycji **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
-1. We właściwościach **użytkownika** wykonaj następujące kroki:
-   1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
-   1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
+1. We właściwościach użytkownika wykonaj następujące kroki:
+   1. W polu **Nazwa** wprowadź wartość **B. Simon**.
+   1. W polu **Nazwa użytkownika** wprowadź `username@companydomain.extension` na przykład `B.Simon@contoso.com` .
+   1. Zaznacz pole wyboru **Pokaż hasło** . Zapisz wartość, która pojawia się w polu **hasło** .
+   1. Wybierz przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi Prezi.
+W tej sekcji należy włączyć usługę B. Simon, aby korzystać z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi Prezi.
 
-1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
+1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**  >  **wszystkie aplikacje**.
 1. Na liście Aplikacje wybierz pozycję **Prezi**.
 1. Na stronie Przegląd aplikacji Znajdź sekcję **Zarządzanie** i wybierz pozycję **Użytkownicy i grupy**.
 
-   ![Link „Użytkownicy i grupy”](common/users-groups-blade.png)
+   ![Link Użytkownicy i grupy](common/users-groups-blade.png)
 
-1. Wybierz pozycję **Dodaj użytkownika**, a następnie w oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Użytkownicy i grupy** .
+1. Wybierz pozycję **Dodaj użytkownika**, a następnie **Użytkownicy i grupy** w oknie dialogowym **Dodawanie przypisania**.
 
     ![Link Dodaj użytkownika](common/add-assign-user.png)
 
-1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
+1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij pozycję **Wybierz** w dolnej części ekranu.
 1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
+1. W oknie dialogowym **Dodawanie przypisania** wybierz pozycję **Przypisz**.
 
 ## <a name="configure-prezi-sso"></a>Konfigurowanie logowania jednokrotnego Prezi
 
-1. W innym oknie przeglądarki sieci Web Zaloguj się do Prezi przy użyciu konta zespołu i przejdź do **[konsoli administracyjnej](https://prezi.com/organizations/manage)**.
+1. W innym oknie przeglądarki sieci Web Zaloguj się do Prezi przy użyciu konta zespołu i przejdź do [konsoli administracyjnej](https://prezi.com/organizations/manage).
 
-1. W **konsoli administracyjnej**kliknij kartę **Ustawienia** .
+1. W **konsoli administracyjnej**wybierz kartę **Ustawienia** .
 
-    ![Konfiguracja Prezi](./media/prezi-tutorial/settings-image.png)
+    ![Karta Ustawienia](./media/prezi-tutorial/settings-image.png)
 
-1. Przejdź do sekcji Logowanie jednokrotne **(SSO)** i Użyj przełącznika, aby włączyć logowanie jednokrotne.
+1. Przejdź do sekcji Logowanie jednokrotne **(SSO)** i włącz przełącznik, aby włączyć logowanie jednokrotne.
     
-    ![Konfiguracja Prezi](./media/prezi-tutorial/single-signon.png)
+    ![Przełącznik logowania jednokrotnego (SSO)](./media/prezi-tutorial/single-signon.png)
 
-1. W sekcji Logowanie jednokrotne **(SSO)** wykonaj następujące czynności:
+1. W sekcji Logowanie jednokrotne **(SSO)** wykonaj następujące kroki:
 
-    ![Konfiguracja Prezi](./media/prezi-tutorial/configuration.png)
+    ![Sekcja Logowanie jednokrotne (SSO)](./media/prezi-tutorial/configuration.png)
 
-    a. W polu tekstowym **Identyfikator lub adres URL wystawcy** , wklej wartość **identyfikatora usługi Azure AD** , która została skopiowana z Azure Portal.
+    1. W polu **Identyfikator lub adres URL wystawcy** wklej wartość **identyfikatora usługi Azure AD** skopiowaną z Azure Portal.
 
-    b. W polu tekstowym **punkt końcowy SAML 2,0 (http)** wklej wartość **adresu URL logowania** , która została skopiowana z Azure Portal.
+    1. W polu **punkt końcowy SAML 2,0 (http)** wklej wartość **adresu URL logowania** , która została skopiowana z Azure Portal.
 
-    c. Otwórz pobrany **certyfikat (base64)** z Azure Portal do Notatnika i skopiuj zawartość certyfikatu i wklej do pola tekstowego **certyfikatu (X. 509)** .
+    1. Otwórz pobrany **certyfikat (base64)** z Azure Portal do Notatnika. Skopiuj zawartość certyfikatu i wklej zawartość do pola **certyfikat (X. 509)** .
 
-    d. Kliknij przycisk **Zapisz**.
+    1. Wybierz pozycję **Zapisz**.
 
-### <a name="create-prezi-test-user"></a>Utwórz użytkownika testowego Prezi
+### <a name="create-a-prezi-test-user"></a>Tworzenie użytkownika testowego Prezi
 
-W tej sekcji użytkownik o nazwie Britta Simon jest tworzony w Prezi. Prezi obsługuje Inicjowanie obsługi użytkowników just in Time, która jest domyślnie włączona. W tej sekcji nie musisz niczego robić. Jeśli użytkownik nie istnieje jeszcze w usłudze Prezi, zostanie utworzony nowy po uwierzytelnieniu.
+W tej sekcji użytkownik o nazwie Britta Simon jest tworzony w Prezi. Prezi obsługuje Inicjowanie obsługi użytkowników just in Time, która jest domyślnie włączona. W tej sekcji nie ma elementu Action. Jeśli użytkownik nie istnieje jeszcze w usłudze Prezi, zostanie utworzony nowy po uwierzytelnieniu.
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
+W tej sekcji przetestujesz konfigurację rejestracji jednokrotnej usługi Azure AD za pomocą panelu dostępu.
 
-Po kliknięciu kafelka Prezi w panelu dostępu należy automatycznie zalogować się do Prezi, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Po wybraniu kafelka Prezi w panelu dostępu należy automatycznie zalogować się do konta Prezi, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-
-- [Co to jest dostęp do aplikacji i logowanie jednokrotne z usługą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-
+- [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 - [Co to jest dostęp warunkowy w usłudze Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
 - [Wypróbuj Prezi z usługą Azure AD](https://aad.portal.azure.com/)
-
 - [Co to jest kontrola sesji w Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
 - [Jak chronić Prezi z zaawansowaną widocznością i kontrolkami](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 

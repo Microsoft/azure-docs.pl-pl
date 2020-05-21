@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 02/10/2020
-ms.openlocfilehash: 535cf95216cca210b5add5ca22cd6e5b1b997541
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 3177de6816dd690514620098e79db844077fbaf6
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779017"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83655446"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Samouczek: wprowadzenie do tworzenia pierwszego eksperymentu z użyciem zestawu SDK języka Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -47,7 +47,9 @@ Aby zarządzać zasobami platformy Azure, można utworzyć obszar roboczy za po�
 
 W tym samouczku używany jest serwer notesu chmury w obszarze roboczym do obsługi wstępnie skonfigurowanego środowiska instalacji. Jeśli wolisz sterować środowiskiem, pakietami i zależnościami, użyj [własnego środowiska](how-to-configure-environment.md#local) .
 
- Wykonaj poniższe szczegółowe kroki, aby sklonować i uruchomić samouczek z obszaru roboczego. 
+ Postępuj zgodnie z tym filmem wideo lub użyj szczegółowych kroków poniżej, aby sklonować i uruchomić samouczek z obszaru roboczego. 
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
 
 ### <a name="clone-a-notebook-folder"></a>Klonowanie folderu notesu
 

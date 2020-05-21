@@ -10,12 +10,12 @@ ms.date: 05/04/2020
 ms.author: cynthn
 ms.custom: mvc
 ms.reviewer: akjosh
-ms.openlocfilehash: 9f3a175352aa0455cecc2e31e235a60cc27c76c5
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: bed65754dd872d51d4cbd1bccc673373e8e96846
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792177"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652996"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>Samouczek: tworzenie niestandardowego obrazu maszyny wirtualnej na platformie Azure za pomocą interfejsu wiersza polecenia platformy Azure
 
@@ -53,7 +53,7 @@ Do utworzenia przykładu przedstawionego w tym samouczku potrzebna jest istniej�
 
 Usługa Azure Cloud Shell to bezpłatna interaktywna powłoka, której możesz używać do wykonywania kroków opisanych w tym artykule. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. 
 
-Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Cloud Shell można również uruchomić na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
+Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Cloud Shell można również uruchomić na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/powershell](https://shell.azure.com/powershell) . Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
 
 ## <a name="create-an-image-gallery"></a>Tworzenie galerii obrazów 
 
@@ -134,7 +134,7 @@ az sig image-version create \
 > [!NOTE]
 > Musisz poczekać na zakończenie kompilowania i replikowania wersji obrazu, aby można było użyć tego samego obrazu zarządzanego do utworzenia innej wersji obrazu.
 >
-> Możesz również przechowywać obraz w magazynie Premiun przez dodanie `--storage-account-type  premium_lrs`lub [nadmiarowy magazyn stref](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) przez dodanie `--storage-account-type  standard_zrs` go podczas tworzenia wersji obrazu.
+> Możesz również przechowywać obraz w magazynie Premiun przez dodanie `--storage-account-type  premium_lrs` lub [nadmiarowy magazyn stref](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) przez dodanie `--storage-account-type  standard_zrs` go podczas tworzenia wersji obrazu.
 >
 
  
@@ -142,7 +142,7 @@ az sig image-version create \
 
 Utwórz maszynę wirtualną za pomocą polecenia [AZ VM Create](/cli/azure/vm#az-vm-create) przy użyciu--wyspecjalizowanego parametru, aby wskazać obraz, jest to wyspecjalizowany obraz. 
 
-Użyj identyfikatora definicji obrazu dla `--image` programu, aby utworzyć maszynę wirtualną na podstawie najnowszej wersji dostępnego obrazu. Możesz również utworzyć maszynę wirtualną na podstawie określonej wersji, podając identyfikator wersji obrazu dla `--image`. 
+Użyj identyfikatora definicji obrazu dla programu, `--image` Aby utworzyć maszynę wirtualną na podstawie najnowszej wersji dostępnego obrazu. Możesz również utworzyć maszynę wirtualną na podstawie określonej wersji, podając identyfikator wersji obrazu dla `--image` . 
 
 W tym przykładzie tworzymy maszynę wirtualną na podstawie najnowszej wersji obrazu *myImageDefinition* .
 
@@ -167,7 +167,7 @@ az sig show \
    --query id
 ```
 
-Użyj identyfikatora obiektu jako zakresu wraz z adresem e-mail i [AZ role przypisanie Create](/cli/azure/role/assignment#az-role-assignment-create) , aby dać użytkownikowi dostęp do galerii obrazów udostępnionych. `<email-address>` Zastąp `<gallery iD>` i własnymi informacjami.
+Użyj identyfikatora obiektu jako zakresu wraz z adresem e-mail i [AZ role przypisanie Create](/cli/azure/role/assignment#az-role-assignment-create) , aby dać użytkownikowi dostęp do galerii obrazów udostępnionych. Zastąp `<email-address>` i `<gallery iD>` własnymi informacjami.
 
 ```azurecli-interactive
 az role assignment create \
@@ -196,5 +196,5 @@ W tym samouczku został utworzony obraz niestandardowy maszyny wirtualnej. W tym
 Przejdź do następnego samouczka, aby dowiedzieć się więcej o maszynach wirtualnych o wysokiej dostępności.
 
 > [!div class="nextstepaction"]
-> [Utwórz maszyny wirtualne o wysokiej](tutorial-availability-sets.md)dostępności.
+> [Tworzenie maszyn wirtualnych o wysokiej dostępności](tutorial-availability-sets.md)
 

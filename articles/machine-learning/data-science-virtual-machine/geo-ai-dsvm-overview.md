@@ -10,18 +10,18 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 03/05/2018
-ms.openlocfilehash: 2cefd3c7f85e043497084e2cd2b906bd546ca10d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 333b1fd94372a79e501de6be261a4cde5c6ab074
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80282277"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83658371"
 ---
 # <a name="what-is-the-geo-artificial-intelligence-data-science-virtual-machine"></a>Co to jest geograficzna sztuczna inteligencja Data Science Virtual Machine?
 
-Geograficznie sztuczna inteligencja Data Science Virtual Machine (nazywana również geograficzną Data Science VM AI lub geograficznie DSVM) oferuje funkcje analityczne geoprzestrzenne z Data Science Virtual Machine platformy Azure (DSVM). Ta maszyna wirtualna rozszerza zestaw narzędzi AI i analizy danych [DSVM](overview.md) , dodając wiodący w rynku system informacji geograficznej [ARCGIS Pro](https://www.esri.com/arcgis/products/arcgis-pro/overview) z Esri.
+Geograficznie sztuczna inteligencja Data Science Virtual Machine (nazywana również geograficzną Data Science VM AI lub geograficznie DSVM) oferuje funkcje analityczne geoprzestrzenne z Data Science Virtual Machine platformy Azure (DSVM). Ta maszyna wirtualna rozszerza zestaw narzędzi AI i analizy danych [DSVM](overview.md) , dodając wiodący w rynku system informacji geograficznej [ArcGIS Pro](https://www.esri.com/arcgis/products/arcgis-pro/overview) z Esri.
 
- Geograficzna Data Science VM AI to oferta produktu, która powstała w wyniku współpracy między ESRI i firmą Microsoft. Wynikiem jest zaawansowane środowisko, które zapewnia następujące możliwości:
+ Geograficzna Data Science VM AI to oferta produktu, która powstała w wyniku współpracy między Esri i firmą Microsoft. Wynikiem jest zaawansowane środowisko, które zapewnia następujące możliwości:
 
 - Eksplorowanie danych za pomocą najpopularniejszych narzędzi do nauki i danych
 - Zastosuj analizę statystyczną do danych z aspektami geograficznymi lub przestrzennymi

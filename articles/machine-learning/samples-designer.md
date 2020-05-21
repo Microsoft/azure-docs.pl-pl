@@ -9,12 +9,13 @@ ms.topic: sample
 author: peterclu
 ms.author: peterlu
 ms.date: 03/29/2020
-ms.openlocfilehash: 60f8f2593ef9c05fa905e9d3d6f6ba0901a14243
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.custom: designer
+ms.openlocfilehash: e40c49cdcaae6fa84a72c645f5fea4bac99ee03f
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983350"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654551"
 ---
 # <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>Przykładowe potoki & zestawy danych dla projektanta Azure Machine Learning
 
@@ -54,7 +55,7 @@ Poniżej przedstawiono sposób użycia przykładu projektanta:
 
    1. Wybierz moduł na kanwie.
 
-   1. W okienku Szczegóły modułu z prawej strony kanwy wybierz pozycję dane **wyjściowe + dzienniki**. Wybierz ikonę](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) wizualizacji ![ikona Graf, aby zobaczyć wyniki każdego modułu. 
+   1. W okienku Szczegóły modułu z prawej strony kanwy wybierz pozycję dane **wyjściowe + dzienniki**. Wybierz ![ ikonę wizualizacji ikona Graf, ](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) Aby zobaczyć wyniki każdego modułu. 
 
    Użyj przykładów jako punktów początkowych dla niektórych najpopularniejszych scenariuszy uczenia maszynowego.
 
@@ -102,12 +103,12 @@ Dowiedz się więcej o przykładach demonstrujących narzędzia i funkcje uczeni
 
 Podczas tworzenia nowego potoku w programie Azure Machine Learning Designer domyślnie są uwzględniane różne przykładowe zestawy danych. Te przykładowe zestawy danych są używane przez potoki przykładowe na stronie głównej projektanta. 
 
-Przykładowe zestawy danych są dostępne w kategorii**przykłady** **zestawów danych**-. Można to znaleźć w palecie modułów z lewej strony kanwy w projektancie. Możesz użyć dowolnego z tych zestawów danych we własnym potoku, przeciągając go do kanwy.
+Przykładowe zestawy danych są dostępne w kategorii **przykłady zestawów danych** - **Samples** . Można to znaleźć w palecie modułów z lewej strony kanwy w projektancie. Możesz użyć dowolnego z tych zestawów danych we własnym potoku, przeciągając go do kanwy.
 
-| Nazwa&nbsp;zestawu danych&nbsp;&nbsp;&nbsp;&nbsp;| Opis zestawu danych |
+| Nazwa zestawu danych &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Opis zestawu danych |
 |-------------|:--------------------|
 | Binarny zestaw danych klasyfikacji dochodów z spisu dla dorosłych | Podzbiór bazy danych spisu 1994 przy użyciu pracy dla dorosłych w wieku 16 ze skorygowanym indeksem dochodu > 100.<br/>**Użycie**: klasyfikowanie osób przy użyciu demograficznych w celu przewidywania, czy osoba uzyskuje ponad 50 000 roku.<br/> **Badania pokrewne**: Kohavi, R., Becker, B., (1996). [Machine Learning — repozytorium](https://archive.ics.uci.edu/ml). Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera|
-|Dane cen samochodów (RAW)|Informacje na temat samochodów i modeli, w tym Cena, funkcje, takie jak liczba cylindrów i MPG, oraz Ocena ryzyka dla ubezpieczenia.<br/> Ocena ryzyka jest początkowo skojarzona z funkcją autoprice. Następnie jest dostosowywany do rzeczywistego ryzyka w procesie znanym jako symbol aktuarialny. Wartość + 3 wskazuje, że jest to ryzykowne i wartość-3, która prawdopodobnie jest bezpieczna.<br/>**Użycie**:</b> przewidywanie oceny ryzyka według funkcji przy użyciu regresji lub klasyfikacji wieloczynnikowa.<br/>**Powiązane badania**:</b> Schlimmer, J.C. (1987). [Machine Learning — repozytorium](https://archive.ics.uci.edu/ml). Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera. |
+|Dane cen samochodów (RAW)|Informacje na temat samochodów i modeli, w tym Cena, funkcje, takie jak liczba cylindrów i MPG, oraz Ocena ryzyka dla ubezpieczenia.<br/> Ocena ryzyka jest początkowo skojarzona z funkcją autoprice. Następnie jest dostosowywany do rzeczywistego ryzyka w procesie znanym jako symbol aktuarialny. Wartość + 3 wskazuje, że jest to ryzykowne i wartość-3, która prawdopodobnie jest bezpieczna.<br/>**Użycie**: </b> przewidywanie oceny ryzyka według funkcji przy użyciu regresji lub klasyfikacji wieloczynnikowa.<br/>**Powiązane badania**: </b> Schlimmer, J.C. (1987). [Machine Learning — repozytorium](https://archive.ics.uci.edu/ml). Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera. |
 | Udostępnione etykiety programu CRM pragnienie |Etykiety z wyzwania KDD 2009 ([orange_small_train_appetency. labels](http://www.sigkdd.org/site/2009/files/orange_small_train_appetency.labels)) z przewidywania relacji klientów.|
 |Udostępnione etykiety zmian CRM|Etykiety z wyzwania KDD 2009 ([orange_small_train_churn. labels](http://www.sigkdd.org/site/2009/files/orange_small_train_churn.labels)) z przewidywania relacji klientów.|
 |Udostępniony zestaw danych programu CRM | Te dane pochodzą z wyzwania KDD 2009 ([orange_small_train. Data. zip](http://www.sigkdd.org/site/2009/files/orange_small_train.data.zip)). <br/>Zestaw danych zawiera klientów 50 000 z niemieckiej firmy telekomunikacyjnej pomarańczowa. Każdy klient ma 230 funkcje anonimowe, 190, które są liczbowe i 40 są kategorii. Funkcje są bardzo rozrzedzone. |
@@ -117,10 +118,10 @@ Przykładowe zestawy danych są dostępne w kategorii**przykłady** **zestawów 
 |IMDB tytuły filmów|Zestaw danych zawiera informacje o filmach, które zostały ocenione w Tweetach w serwisie Twitter: IMDB, nazwa filmu, gatunek i rok produkcyjny. W zestawie danych znajdują się 17K filmy. Zestaw danych został wprowadzony w papierze "S". Dooms, T. de Pessemier i L. Martens. MovieTweetings: zestaw danych klasyfikacji filmu zebrany z serwisu Twitter. Warsztat na crowdsourcing i ludzi obliczeń dla systemów zalecających, CrowdRec o RecSys 2013. "|
 |Klasyfikacje filmów|Zestaw danych to rozszerzona wersja zestawu danych tweetów filmów. Zestaw danych zawiera klasyfikacje 170K dla filmów, wyodrębnione z dobrze zorganizowanych tweetów w serwisie Twitter. Każde wystąpienie reprezentuje Tweet i jest krotką: identyfikator użytkownika, identyfikator filmu IMDB, klasyfikacja, sygnatura czasowa, liczba ulubionych dla tego tweetu i liczba przesłanych tweetów tego tweetu. Zestaw danych został udostępniony przez. wspomniane, S. Dooms, B. Loni i D. Tikk dla systemów polecających 2014.|
 |Zestaw danych pogody|Codzienne obserwacje pogodowe z NOAA ([scalone dane z 201304 do 201310](https://az754797.vo.msecnd.net/data/WeatherDataset.csv)).<br/>Dane pogodowe obejmują obserwacje z stacji pogodowych portów lotniczych, obejmujących okres od kwietnia do października 2013. Przed przekazaniem do projektanta zestaw danych został przetworzony w następujący sposób:    <br/> -Identyfikatory stacji pogody zostały zamapowane na odpowiednie identyfikatory portów lotniczych    <br/> -Stacje pogodowe nieskojarzone z najgorętszym portów lotniczych 70 zostały odfiltrowane    <br/> -Kolumna Date została podzielona na oddzielne kolumny Year, month i Day.    <br/> — Wybrano następujące kolumny: AirportID, Year, month, Day, Time, TimeZone, SkyCondition, Visibility, Pogodatype, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, recordType, HourlyPrecip, ALTIMETER|
-|Zestaw danych witryny Wikipedia SP 500|Dane są wyprowadzane z witrynyhttps://www.wikipedia.org/) Wikipedia (na podstawie artykułów każdej usługi S&P 500 firmy, przechowywanej jako dane XML.    <br/>Przed przekazaniem do projektanta zestaw danych został przetworzony w następujący sposób:    <br/> -Wyodrębnij zawartość tekstową dla każdej konkretnej firmy    <br/> -Usuń formatowanie wiki    <br/> -Usuń znaki inne niż alfanumeryczne    <br/> — Konwertuj cały tekst na małe litery    <br/> -Znane kategorie firmy zostały dodane    <br/>Należy zauważyć, że w niektórych firmach nie znaleziono artykułu, więc liczba rekordów jest mniejsza niż 500.|
+|Zestaw danych witryny Wikipedia SP 500|Dane są wyprowadzane z witryny Wikipedia ( https://www.wikipedia.org/) na podstawie artykułów każdej usługi S&P 500 firmy, przechowywanej jako dane XML.    <br/>Przed przekazaniem do projektanta zestaw danych został przetworzony w następujący sposób:    <br/> -Wyodrębnij zawartość tekstową dla każdej konkretnej firmy    <br/> -Usuń formatowanie wiki    <br/> -Usuń znaki inne niż alfanumeryczne    <br/> — Konwertuj cały tekst na małe litery    <br/> -Znane kategorie firmy zostały dodane    <br/>Należy zauważyć, że w niektórych firmach nie znaleziono artykułu, więc liczba rekordów jest mniejsza niż 500.|
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 

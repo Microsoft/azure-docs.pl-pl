@@ -10,12 +10,12 @@ author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 03/04/2020
-ms.openlocfilehash: b5a335a3f215ad5883b1b223245ca9d3f9967c3b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8af412fb2660625ffb413052b06d4429d7844e70
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80366523"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656515"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Samouczek: Tworzenie modelu klasyfikacji przy użyciu zautomatyzowanej ML w Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -23,6 +23,8 @@ ms.locfileid: "80366523"
 W tym samouczku dowiesz się, jak utworzyć podstawowy model klasyfikacji bez pisania pojedynczego wiersza kodu przy użyciu automatycznego interfejsu uczenia maszynowego Azure Machine Learning. Ten model klasyfikacji przewiduje, czy klient zasubskrybuje stały termin złożenia przez instytucję finansową.
 
 Dzięki zautomatyzowanej usłudze Machine Learning można zautomatyzować czasochłonne zadania. Automatyczne Uczenie maszynowe szybko iteruje wiele kombinacji algorytmów i parametrów, aby ułatwić znalezienie najlepszego modelu w oparciu o pomyślną metrykę wybrania.
+
+Aby zapoznać się z przykładem prognozowania szeregów czasowych, zobacz [Samouczek: prognozowanie popytu & AutoML](tutorial-automated-ml-forecast.md).
 
 W tym samouczku dowiesz się, jak wykonywać następujące zadania:
 
@@ -51,7 +53,7 @@ Aby zarządzać zasobami platformy Azure, można utworzyć obszar roboczy za po�
 
 ## <a name="create-and-run-the-experiment"></a>Tworzenie i uruchamianie eksperymentu
 
-Należy wykonać następujące czynności w celu skonfigurowania i uruchomienia kroków za pośrednictwem usługi Azure https://ml.azure.comMachine Learning w systemie, skonsolidowanego interfejsu sieci Web, który obejmuje narzędzia uczenia maszynowego do wykonywania scenariuszy analizy danych dla lekarzy danych wszystkich poziomów umiejętności. Ten interfejs nie jest obsługiwany w przeglądarkach programu Internet Explorer.
+Należy wykonać następujące czynności w celu skonfigurowania i uruchomienia kroków za pośrednictwem usługi Azure Machine Learning w systemie https://ml.azure.com , skonsolidowanego interfejsu sieci Web, który obejmuje narzędzia uczenia maszynowego do wykonywania scenariuszy analizy danych dla lekarzy danych wszystkich poziomów umiejętności. Ten interfejs nie jest obsługiwany w przeglądarkach programu Internet Explorer.
 
 1. Zaloguj się do [Azure Machine Learning](https://ml.azure.com).
 
@@ -90,7 +92,7 @@ Należy wykonać następujące czynności w celu skonfigurowania i uruchomienia 
         Pole|Opis| Wartość dla samouczka
         ---|---|---
         Format pliku|Definiuje układ i typ danych przechowywanych w pliku.| Lista
-        Ogranicznik|Jeden lub więcej znaków do określenia granicy między&nbsp; oddzielnymi, niezależnymi regionami w postaci zwykłego tekstu lub innymi strumieniami danych. |Przecinek
+        Ogranicznik|Jeden lub więcej znaków do określenia granicy między &nbsp; oddzielnymi, niezależnymi regionami w postaci zwykłego tekstu lub innymi strumieniami danych. |Przecinek
         Kodowanie|Identyfikuje tablicę znaków, która ma być używana do odczytywania zestawu danych.| UTF-8
         Nagłówki kolumn| Wskazuje, w jaki sposób nagłówki zestawu danych (jeśli istnieją) będą traktowane.| Wszystkie pliki mają te same nagłówki
         Pomiń wiersze | Wskazuje, ile (jeśli istnieją) wiersze są pomijane w zestawie danych.| Brak
@@ -115,7 +117,7 @@ Należy wykonać następujące czynności w celu skonfigurowania i uruchomienia 
         Pole | Opis | Wartość dla samouczka
         ----|---|---
         Nazwa obliczeniowa |Unikatowa nazwa identyfikująca kontekst obliczeniowy.|automl — obliczenia
-        Rozmiar&nbsp;maszyny&nbsp;wirtualnej| Wybierz rozmiar maszyny wirtualnej dla obliczenia.|Standard_DS12_V2
+        &nbsp;Rozmiar maszyny &nbsp; wirtualnej| Wybierz rozmiar maszyny wirtualnej dla obliczenia.|Standard_DS12_V2
         Minimalna/Maksymalna liczba węzłów (w ustawieniach zaawansowanych)| Aby profilować dane, musisz określić co najmniej jeden węzeł.|Minimalna liczba węzłów: 1<br>Maksymalna liczba węzłów: 6
   
         1. Wybierz pozycję **Utwórz** , aby uzyskać obiekt docelowy obliczeń. 
@@ -133,14 +135,14 @@ Należy wykonać następujące czynności w celu skonfigurowania i uruchomienia 
         >[!NOTE]
         > W tym samouczku nie ustawisz oceny metryki lub maksymalnej liczby rdzeni na wartość progową iteracji. Nie można natomiast blokować algorytmów.
    
-        Dodatkowe&nbsp;konfiguracje|Opis|Wartość&nbsp;dla&nbsp;samouczka
+        Dodatkowe &nbsp; konfiguracje|Opis|Wartość &nbsp; dla &nbsp; samouczka
         ------|---------|---
         Metryka podstawowa| Metryka oceny, według której będzie mierzony algorytm uczenia maszynowego.|AUC_weighted
-        Automatyczne cechowania| Włącza przetwarzanie wstępne. Obejmuje to automatyczne czyszczenie danych, przygotowanie i transformację do generowania funkcji syntetycznych.| Włączanie
+        Automatyczne cechowania| Włącza przetwarzanie wstępne. Obejmuje to automatyczne czyszczenie danych, przygotowanie i transformację do generowania funkcji syntetycznych.| Włącz
         Zablokowane algorytmy | Algorytmy, które mają zostać wykluczone z zadania szkoleniowego| Brak
-        Kryterium zakończenia| Jeśli kryteria są spełnione, zadanie szkolenia zostanie zatrzymane. |Czas&nbsp;zadania&nbsp;szkoleniowego (godziny): 1 <br> Próg&nbsp;wyniku&nbsp;metryki: brak
-        Walidacja | Wybierz typ i liczbę testów.|Typ walidacji:<br>&nbsp;k — złożenie&nbsp;krzyżowego sprawdzania poprawności <br> <br> Liczba walidacji: 2
-        Współbieżność| Maksymalna liczba wykonanych równoległych iteracji na iterację| Maksymalna&nbsp;liczba&nbsp;współbieżnych iteracji: 5
+        Kryterium zakończenia| Jeśli kryteria są spełnione, zadanie szkolenia zostanie zatrzymane. |&nbsp;Czas zadania szkoleniowego &nbsp; (godziny): 1 <br> &nbsp;Próg wyniku metryki &nbsp; : brak
+        Walidacja | Wybierz typ i liczbę testów.|Typ walidacji:<br>&nbsp;k — złożenie &nbsp; krzyżowego sprawdzania poprawności <br> <br> Liczba walidacji: 2
+        Współbieżność| Maksymalna liczba wykonanych równoległych iteracji na iterację| Maksymalna liczba &nbsp; współbieżnych &nbsp; iteracji: 5
         
         Wybierz pozycję **Zapisz**.
 
@@ -195,13 +197,13 @@ Teraz masz działającą usługę sieci Web do generowania prognoz.
 
 Przejdź do [**następnych kroków**](#next-steps) , aby dowiedzieć się więcej na temat korzystania z nowej usługi sieci Web i testowania prognoz przy użyciu Power BI wbudowanej Azure Machine Learning obsługi.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Pliki wdrożeń są większe niż pliki danych i eksperymenty, dzięki czemu są one droższe do przechowywania. Usuń tylko pliki wdrożenia, aby zminimalizować koszty dla konta, lub jeśli chcesz zachować obszar roboczy i pliki eksperymentów. W przeciwnym razie Usuń całą grupę zasobów, jeśli nie planujesz używać żadnego z tych plików.  
 
 ### <a name="delete-the-deployment-instance"></a>Usuwanie wystąpienia wdrożenia
 
-Usuń tylko wystąpienie wdrożenia z Azure Machine Learning na https:\//ml.Azure.com/, jeśli chcesz zachować grupę zasobów i obszar roboczy dla innych samouczków i eksploracji. 
+Usuń tylko wystąpienie wdrożenia z Azure Machine Learning na https: \/ /ml.Azure.com/, jeśli chcesz zachować grupę zasobów i obszar roboczy dla innych samouczków i eksploracji. 
 
 1. Przejdź do [Azure Machine Learning](https://ml.azure.com/). Przejdź do obszaru roboczego i po lewej stronie okienka **elementy zawartości** wybierz pozycję **punkty końcowe**. 
 
@@ -221,7 +223,8 @@ W tym samouczku zautomatyzowanym uczenia maszynowego użyto zautomatyzowanego in
 > [Używanie usługi internetowej](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
 + Dowiedz się więcej o [automatycznym uczeniu maszynowym](concept-automated-ml.md).
-+ Aby uzyskać więcej informacji na temat metryk i wykresów klasyfikacji, zobacz artykuł [Omówienie zautomatyzowanych wyników uczenia maszynowego](how-to-understand-automated-ml.md#classification) . + Dowiedz się więcej na temat [cechowania](how-to-use-automated-ml-for-ml-models.md#featurization).
++ Aby uzyskać więcej informacji na temat metryk i wykresów klasyfikacji, zobacz artykuł [Omówienie automatycznego uczenia maszynowego](how-to-understand-automated-ml.md#classification) .
++ Dowiedz się więcej o [cechowania](how-to-use-automated-ml-for-ml-models.md#featurization).
 + Dowiedz się więcej na temat [profilowania danych](how-to-use-automated-ml-for-ml-models.md#profile).
 
 

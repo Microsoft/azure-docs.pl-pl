@@ -1,14 +1,14 @@
 ---
 title: Przykład wdrażania planu IRS 1075
 description: Wdróż kroki dla przykładowego planu IRS 1075 (Rev. 11-2016), w tym szczegóły parametru artefaktu.
-ms.date: 11/20/2019
+ms.date: 05/13/2020
 ms.topic: sample
-ms.openlocfilehash: 15fcac5bfd11d889522d078853bd6f916eb54616
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7faf1042f695ac43b2fa22d2685149426cb1ed80
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74546816"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653102"
 ---
 # <a name="deploy-the-irs-1075-blueprint-sample"></a>Wdróż przykład planu IRS 1075
 
@@ -19,7 +19,7 @@ Aby wdrożyć przykład strategii 1075 (Rev. 11-2016) platformy Azure, należy w
 > - Oznacz swoją kopię przykładowej publikacji jako **opublikowaną**
 > - Przypisz swoją kopię planu do istniejącej subskrypcji
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free).
 
 ## <a name="create-blueprint-from-sample"></a>Utwórz plan z przykładu
 
@@ -116,8 +116,8 @@ Poniższa tabela zawiera listę parametrów artefaktów strategii:
 Po przejrzeniu kroków w celu wdrożenia przykładu planu IRS 1075 (Rev. 11-2016) zapoznaj się z następującymi artykułami, aby dowiedzieć się więcej o mapowaniu planów i kontroli:
 
 > [!div class="nextstepaction"]
-> [Plan 1075 — Omówienie](./index.md)
-> planu[IRS 1075 — mapowanie kontroli](./control-mapping.md)
+> [Plan 1075 — Omówienie](./index.md) 
+>  [Plan IRS 1075 — Mapowanie formantów](./control-mapping.md)
 
 Dodatkowe artykuły na temat strategii i sposobu ich używania:
 

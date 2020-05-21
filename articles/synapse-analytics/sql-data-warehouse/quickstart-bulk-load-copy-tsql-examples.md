@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/06/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: c7d6a0d289953376c6535f2401c9c77edb3205df
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 7f2d77f3b174d8a00df9f7a93b6fef80b9cd29e8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82994869"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647605"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Bezpieczne ładowanie danych przy użyciu języka SQL Synapse
 
@@ -28,7 +28,7 @@ W poniższej macierzy opisano obsługiwane metody uwierzytelniania dla poszczeg�
 |  Azure Blob Storage  | SAS/MSI/NAZWA GŁÓWNA USŁUGI/USŁUGA/AAD |              SYGNATURA DOSTĘPU WSPÓŁDZIELONEGO/KLUCZ              |              SYGNATURA DOSTĘPU WSPÓŁDZIELONEGO/KLUCZ              |
 | Azure Data Lake Gen2 | SAS/MSI/NAZWA GŁÓWNA USŁUGI/USŁUGA/AAD | SAS/MSI/NAZWA GŁÓWNA USŁUGI/USŁUGA/AAD | SAS/MSI/NAZWA GŁÓWNA USŁUGI/USŁUGA/AAD |
 
-## <a name="a-storage-account-key-with-lf-as-the-row-terminator"></a>A. Klucz konta magazynu z LF jako terminator wiersza
+## <a name="a-storage-account-key-with-lf-as-the-row-terminator-unix-style-new-line"></a>A. Klucz konta magazynu z LF jako terminator wiersza (nowy wiersz w stylu systemu UNIX)
 
 
 ```sql
@@ -47,7 +47,7 @@ WITH (
 >
 > - Użyj wartości szesnastkowej (0x0A), aby określić znak wysuwu wiersza/wiersz. Zwróć uwagę, że instrukcja COPY interpretuje ciąg "\n" jako "\r\n" (wiersz powrotu karetki).
 
-## <a name="b-shared-access-signatures-sas-with-crlf-as-the-row-terminator"></a>B. Sygnatury dostępu współdzielonego (SAS) z CRLF jako terminator wiersza
+## <a name="b-shared-access-signatures-sas-with-crlf-as-the-row-terminator-windows-style-new-line"></a>B. Sygnatury dostępu współdzielonego (SAS) z CRLF jako terminator wiersza (nowy wiersz w stylu systemu Windows)
 ```sql
 COPY INTO target_table
 FROM 'https://adlsgen2account.dfs.core.windows.net/myblobcontainer/folder1/'

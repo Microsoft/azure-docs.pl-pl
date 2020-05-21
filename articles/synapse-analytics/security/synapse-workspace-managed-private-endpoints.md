@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 08c6610541d987cddd7cf2aeb71c526cb2359598
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dc748260c6e71eaaa469defb227d5cc2748a1345
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81423684"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83645321"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Zarządzane prywatne punkty końcowe Synapse (wersja zapoznawcza)
 
@@ -30,8 +30,9 @@ Prywatny punkt końcowy używa prywatnego adresu IP z sieci wirtualnej w celu ef
 
 >[!IMPORTANT]
 >Zarządzane prywatne punkty końcowe są obsługiwane tylko w obszarach roboczych usługi Azure Synapse z zarządzaną siecią wirtualną obszaru roboczego.
+
 >[!NOTE]
->Zaleca się utworzenie zarządzanych prywatnych punktów końcowych, aby połączyć się ze wszystkimi źródłami danych platformy Azure. Cały ruch wychodzący z >zarządzanej sieci wirtualnej obszaru roboczego zostanie zablokowany w przyszłości.
+>Cały ruch wychodzący z sieci wirtualnej zarządzanego obszaru roboczego poza zarządzanymi prywatnymi punktami końcowymi zostanie zablokowany w przyszłości. Zaleca się utworzenie zarządzanych prywatnych punktów końcowych w celu nawiązania połączenia ze wszystkimi źródłami danych platformy Azure spoza obszaru roboczego. 
 
 Połączenie prywatnego punktu końcowego jest tworzone w stanie "oczekiwanie" podczas tworzenia zarządzanego prywatnego punktu końcowego w usłudze Azure Synapse. Zainicjowano przepływ pracy zatwierdzania. Właściciel zasobu link prywatny jest odpowiedzialny za zaakceptowanie lub odrzucenie połączenia.
 
@@ -47,7 +48,7 @@ Po utworzeniu obszaru roboczego usługa Azure Synapse tworzy dwa zarządzane pry
 
 Te dwa zarządzane prywatne punkty końcowe są wymienione w usłudze Azure Synapse Studio. Wybierz pozycję **Zarządzaj** na lewym pasku nawigacyjnym, a następnie wybierz pozycję **zarządzane sieci wirtualne** , aby zobaczyć w programie Studio.
 
-Zarządzany prywatny punkt końcowy, który jest przeznaczony dla puli SQL, nosi nazwę *Synapse-WS\<-SQL\> --WorkspaceName* , a ten, który jest przeznaczony dla SQL na żądanie, nosi nazwę *Synapse-WS-sqlOnDemand--\<WorkspaceName\>*.
+Zarządzany prywatny punkt końcowy, który jest przeznaczony dla puli SQL, nosi nazwę *Synapse-WS-SQL-- \< WorkspaceName \> * , a ten, który jest przeznaczony dla SQL na żądanie, nosi nazwę *Synapse-WS-sqlOnDemand \< \> --WorkspaceName*.
 ![Zarządzane prywatne punkty końcowe dla puli SQL i SQL na żądanie](./media/synapse-workspace-managed-private-endpoints/managed-pe-for-sql-1.png)
 
 Te dwa zarządzane prywatne punkty końcowe są tworzone automatycznie podczas tworzenia obszaru roboczego usługi Azure Synapse. Nie są naliczone opłaty za te dwa zarządzane prywatne punkty końcowe.

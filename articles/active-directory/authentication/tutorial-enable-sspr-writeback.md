@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd4815187e829cff56893988874e4dcac3b8985e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d0ea181b0e6ac18a559614c5bce0707775acdcec
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82143760"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83640185"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Samouczek: Azure Active Directory Włączanie funkcji zapisywania zwrotnego do samoobsługowego resetowania haseł w środowisku lokalnym
 
@@ -23,7 +23,7 @@ Dzięki usłudze Azure Active Directory (Azure AD) samoobsługowego resetowania 
 
 Funkcję zapisywania zwrotnego haseł można użyć do synchronizowania zmian haseł w usłudze Azure AD z powrotem do środowiska lokalnego AD DS. Azure AD Connect zapewnia bezpieczny mechanizm wysyłania tych haseł z powrotem do istniejącego katalogu lokalnego z usługi Azure AD.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Skonfiguruj wymagane uprawnienia do zapisywania zwrotnego haseł
@@ -59,11 +59,15 @@ Aby poprawnie współpracować z funkcją zapisywania zwrotnego SSPR, konto okre
 
 Jeśli nie przypiszesz tych uprawnień, zapisywanie zwrotne zostanie prawidłowo skonfigurowane, ale użytkownicy napotykają błędy podczas zarządzania hasłami lokalnymi w chmurze. Do **tego obiektu i wszystkich obiektów zależnych,** które mają być wyświetlane, należy zastosować uprawnienia.  
 
+> [!TIP]
+>
+> Jeśli hasła dla niektórych kont użytkowników nie są zapisywane z powrotem w katalogu lokalnym, należy się upewnić, że dziedziczenie nie jest wyłączone dla konta w środowisku Premium AD DS. Aby funkcja działała poprawnie, należy zastosować uprawnienia do zapisu dla haseł.
+
 Aby skonfigurować odpowiednie uprawnienia do zapisywania zwrotnego haseł, wykonaj następujące czynności:
 
 1. W lokalnym środowisku AD DS Otwórz **Active Directory użytkowników i komputery** przy użyciu konta z odpowiednimi uprawnieniami *administratora domeny* .
 1. Upewnij się, że **funkcje zaawansowane** zostały włączone w menu **Widok** .
-1. W lewym panelu kliknij prawym przyciskiem myszy obiekt, który reprezentuje katalog główny domeny, a następnie wybierz pozycję **Właściwości** > **zabezpieczenia** > **Zaawansowane**.
+1. W lewym panelu kliknij prawym przyciskiem myszy obiekt, który reprezentuje katalog główny domeny, a następnie wybierz pozycję **Właściwości**  >  **zabezpieczenia**  >  **Zaawansowane**.
 1. Na karcie **uprawnienia** wybierz pozycję **Dodaj**.
 1. Dla **podmiotu zabezpieczeń**wybierz konto, do którego mają być stosowane uprawnienia (konto używane przez Azure AD Connect).
 1. Z listy rozwijanej **Zastosuj do** wybierz pozycję **obiekty podrzędne użytkownika**.
@@ -79,7 +83,7 @@ Aby skonfigurować odpowiednie uprawnienia do zapisywania zwrotnego haseł, wyko
 
 Aktualizacja uprawnień może potrwać do godziny lub dłużej, aby te uprawnienia były replikowane do wszystkich obiektów w katalogu.
 
-Zasady dotyczące haseł w lokalnym środowisku AD DS mogą uniemożliwiać poprawne przetwarzanie resetowania haseł. Aby zapisywanie zwrotne haseł działało najbardziej efektywnie, zasady grupy dla *minimalnego wieku hasła* muszą mieć wartość 0. To ustawienie można znaleźć w obszarze **Konfiguracja komputera zasady > zasad > ustawienia systemu Windows > ustawienia zabezpieczeń > zasad konta** w ramach `gpedit.msc`programu.
+Zasady dotyczące haseł w lokalnym środowisku AD DS mogą uniemożliwiać poprawne przetwarzanie resetowania haseł. Aby zapisywanie zwrotne haseł działało najbardziej efektywnie, zasady grupy dla *minimalnego wieku hasła* muszą mieć wartość 0. To ustawienie można znaleźć w obszarze **Konfiguracja komputera zasady > zasad > ustawienia systemu Windows > ustawienia zabezpieczeń > zasad konta** w ramach programu `gpedit.msc` .
 
 W przypadku aktualizacji zasad grupy poczekaj na replikację zaktualizowanych zasad lub Użyj `gpupdate /force` polecenia.
 
@@ -119,7 +123,7 @@ Aby włączyć funkcję zapisywania zwrotnego haseł w SSPR, wykonaj następują
 
 1. Gdy wszystko będzie gotowe, wybierz pozycję **Zapisz**.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz już używać funkcji zapisywania zwrotnego SSPR skonfigurowanej w ramach tego samouczka, wykonaj następujące czynności:
 

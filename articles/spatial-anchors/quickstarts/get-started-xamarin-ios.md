@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: c5e217a33c8b461a438e2d0209fe6733850634e6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9c5e36fd062a2579ece4aaa1501243295af72e1b
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75465149"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83649810"
 ---
 # <a name="quickstart-create-a-xamarin-ios-app-with-azure-spatial-anchors"></a>Szybki Start: Tworzenie aplikacji platformy Xamarin dla systemu iOS przy użyciu kotwic Azure przestrzennego
 
@@ -55,6 +55,8 @@ Znajdź pole `SpatialAnchorsAccountKey` i zastąp wartość `Set me` kluczem kon
 
 Znajdź pole `SpatialAnchorsAccountId` i zastąp wartość `Set me` identyfikatorem konta.
 
+Znajdź `StartSession()` i Dodaj następujący wiersz, zastępując w domenie konta wcześniejszie: `this.cloudSession.Configuration.AccountKey = "MyAccountDomain";` .
+
 ## <a name="deploy-the-app-to-your-ios-device"></a>Wdrażanie aplikacji na urządzeniu z systemem iOS
 
 Włącz urządzenie z systemem iOS, zaloguj się i połącz je z komputerem przy użyciu kabla USB.
@@ -63,13 +65,13 @@ Ustaw projekt startowy na **SampleXamarin. iOS**, Zmień **konfigurację rozwią
 
 ![Konfiguracja programu Visual Studio](./media/get-started-xamarin-iOS/visual-studio-macos-configuration.jpg)
 
-Wybierz pozycję **Uruchom** > **Uruchom bez debugowania** , aby wdrożyć i uruchomić aplikację.
+Wybierz pozycję **Uruchom**  >  **Uruchom bez debugowania** , aby wdrożyć i uruchomić aplikację.
 
 W aplikacji wybierz pozycję **podstawowa** , aby uruchomić demonstrację, i postępuj zgodnie z instrukcjami, aby umieścić i odwołać kotwicę.
 
-> ![Zrzut ekranu](./media/get-started-xamarin-ios/screenshot-1.jpg)
-> ![1 Zrzut](./media/get-started-xamarin-ios/screenshot-2.jpg)
-> ![ekranu 2 zrzut ekranu 3](./media/get-started-xamarin-ios/screenshot-3.jpg)
+> ![Zrzut ekranu 1 zrzut ekranu ](./media/get-started-xamarin-ios/screenshot-1.jpg)
+>  ![ 2 ](./media/get-started-xamarin-ios/screenshot-2.jpg)
+>  ![ zrzut ekranu 3](./media/get-started-xamarin-ios/screenshot-3.jpg)
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

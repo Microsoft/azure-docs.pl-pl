@@ -4,12 +4,12 @@ description: Dowiedz się, jak przeprowadzić przywracanie na poziomie plików n
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 338c6b642076835132b75aa4259381791378577a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 439ffeed7f0e37f04eda39380ddcabe1fa4e06c3
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74171733"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83653269"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Przywracanie plików na maszynę wirtualną na platformie Azure
 
@@ -117,6 +117,9 @@ Na potrzeby przywracania plików usługa Azure Backup udostępnia skrypt do uruc
 ## <a name="restore-file-to-your-vm"></a>Przywracanie plików na maszynę wirtualną
 
 Po skopiowaniu skryptu odzyskiwania na maszynę wirtualną możesz nawiązać połączenie z punktem odzyskiwania i przywrócić pliki.
+
+>[!NOTE]
+> Sprawdź [tutaj](backup-azure-restore-files-from-vm.md#selecting-the-right-machine-to-run-the-script) , aby sprawdzić, czy można uruchomić skrypt na maszynie wirtualnej przed kontynuowaniem.
 
 1. Połącz się z maszyną wirtualną przy użyciu protokołu SSH. Zastąp ciąg *publicIpAddress* publicznym adresem IP maszyny wirtualnej, jak pokazano poniżej:
 

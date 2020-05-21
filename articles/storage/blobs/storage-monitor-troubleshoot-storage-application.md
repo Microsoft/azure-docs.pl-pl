@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 3a2381302a378e7b2635b84c32a87e844e4605a7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8554a78112d197ef8174ac9d18147d301745165e
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68844884"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652165"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Monitorowanie i rozwiązywanie problemów aplikacji magazynu w chmurze
 
@@ -87,9 +87,9 @@ W tym scenariuszu należy użyć narzędzia [Microsoft Message Analyzer](https:/
 
 ### <a name="download-microsoft-message-analyzer"></a>Pobieranie narzędzia Microsoft Message Analyzer
 
-Pobierz narzędzie [Microsoft Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226) i zainstaluj aplikację.
+Pobierz narzędzie [Microsoft Message Analyzer](https://docs.microsoft.com/message-analyzer/installing-and-upgrading-message-analyzer) i zainstaluj aplikację.
 
-Uruchom aplikację i wybierz polecenie **plik** > **otwarty** > **z innych źródeł plików**.
+Uruchom aplikację i wybierz polecenie **plik**  >  **otwarty**  >  **z innych źródeł plików**.
 
 W oknie dialogowym **File Selector** (Selektor plików) wybierz opcję **+ Add Azure Connection** (+ Dodaj połączenie Azure). Uzupełnij pola **Storage account name** (Nazwa konta magazynu) i **Account key** (Klucz konta), a następnie kliknij przycisk **OK**.
 

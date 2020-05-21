@@ -1,5 +1,5 @@
 ---
-title: Prognoza popytu na potrzeby udostępniania roweru z automatycznym eksperymentem dotyczącym ML
+title: 'Samouczek: prognozowanie popytu & AutoML'
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, jak uczenie i wdrażanie modelu prognozowania popytu przy użyciu automatycznej uczenia maszynowego w programie Azure Machine Learning Studio.
 services: machine-learning
@@ -9,24 +9,27 @@ ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
-ms.date: 01/27/2020
-ms.openlocfilehash: 11e0a8a0076fb2e68c379b279f471ff74846df2e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/19/2020
+ms.openlocfilehash: 07450f0c1ea85f22d19e59aaa27898cbf34a7978
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77088242"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656573"
 ---
-# <a name="tutorial-forecast-bike-sharing-demand-with-automated-machine-learning"></a>Samouczek: Prognoza popytu na udostępnianie rowerów przy użyciu automatycznej uczenia maszynowego
+# <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Samouczek: prognozowanie popytu przy użyciu automatycznej uczenia maszynowego
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-W tym samouczku użyjesz zautomatyzowanej uczenia maszynowego lub zautomatyzowanej sieci ML w Azure Machine Learning Studio, aby utworzyć model prognozowania szeregów czasowych, aby przewidzieć zapotrzebowanie na wypożyczenie dla usługi udostępniania roweru.
+W tym samouczku użyjesz zautomatyzowanej uczenia maszynowego lub zautomatyzowanej produkcji w Azure Machine Learning Studio, aby utworzyć model prognozowania szeregów czasowych, aby przewidzieć zapotrzebowanie na wypożyczenie dla usługi udostępniania roweru.
+
+Aby zapoznać się z przykładem modelu klasyfikacji, zobacz [Samouczek: Tworzenie modelu klasyfikacji ze zautomatyzowaną ml w Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
 
 W tym samouczku dowiesz się, jak wykonywać następujące zadania:
 
 > [!div class="checklist"]
 > * Utwórz i Załaduj zestaw danych.
 > * Konfigurowanie i uruchamianie zautomatyzowanego eksperymentu ML.
+> * Określ ustawienia prognozowania.
 > * Poznaj wyniki eksperymentu.
 > * Wdróż najlepszy model.
 
@@ -75,7 +78,7 @@ Przed skonfigurowaniem eksperymentu Przekaż plik danych do obszaru roboczego w 
         Pole|Opis| Wartość dla samouczka
         ---|---|---
         Format pliku|Definiuje układ i typ danych przechowywanych w pliku.| Lista
-        Ogranicznik|Jeden lub więcej znaków do określenia granicy między&nbsp; oddzielnymi, niezależnymi regionami w postaci zwykłego tekstu lub innymi strumieniami danych. |Przecinek
+        Ogranicznik|Jeden lub więcej znaków do określenia granicy między &nbsp; oddzielnymi, niezależnymi regionami w postaci zwykłego tekstu lub innymi strumieniami danych. |Przecinek
         Kodowanie|Identyfikuje tablicę znaków, która ma być używana do odczytywania zestawu danych.| UTF-8
         Nagłówki kolumn| Wskazuje, w jaki sposób nagłówki zestawu danych (jeśli istnieją) będą traktowane.| Użyj nagłówków z pierwszego pliku
         Pomiń wiersze | Wskazuje, ile (jeśli istnieją) wiersze są pomijane w zestawie danych.| Brak
@@ -110,7 +113,7 @@ Po załadowaniu i skonfigurowaniu danych skonfiguruj zdalny cel obliczeń i wybi
         Pole | Opis | Wartość dla samouczka
         ----|---|---
         Nazwa obliczeniowa |Unikatowa nazwa identyfikująca kontekst obliczeniowy.|rower — obliczenia
-        Rozmiar&nbsp;maszyny&nbsp;wirtualnej| Wybierz rozmiar maszyny wirtualnej dla obliczenia.|Standard_DS12_V2
+        &nbsp;Rozmiar maszyny &nbsp; wirtualnej| Wybierz rozmiar maszyny wirtualnej dla obliczenia.|Standard_DS12_V2
         Minimalna/Maksymalna liczba węzłów (w ustawieniach zaawansowanych)| Aby profilować dane, musisz określić co najmniej jeden węzeł.|Minimalna liczba węzłów: 1<br>Maksymalna liczba węzłów: 6
   
         1. Wybierz pozycję **Utwórz** , aby uzyskać obiekt docelowy obliczeń. 
@@ -129,19 +132,19 @@ Ukończ instalację eksperymentu dotyczącego zautomatyzowanej sieci ML, określ
 
 1. Wybierz **datę** jako **kolumnę czasową** i pozostaw puste **kolumny Grupuj według** . 
 
-    1. Wybierz pozycję **Wyświetl dodatkowe ustawienia konfiguracji** i wypełnij pola w następujący sposób. Te ustawienia służą do lepszego kontrolowania zadania szkoleniowego. W przeciwnym razie wartości domyślne są stosowane na podstawie wyboru eksperymentu i danych.
+    1. Wybierz pozycję **Wyświetl dodatkowe ustawienia konfiguracji** i wypełnij pola w następujący sposób. Te ustawienia służą do lepszego kontrolowania zadania szkoleniowego i określania ustawień prognozy. W przeciwnym razie wartości domyślne są stosowane na podstawie wyboru eksperymentu i danych.
 
   
-        Dodatkowe&nbsp;konfiguracje|Opis|Wartość&nbsp;dla&nbsp;samouczka
+        Dodatkowe &nbsp; konfiguracje|Opis|Wartość &nbsp; dla &nbsp; samouczka
         ------|---------|---
         Metryka podstawowa| Metryka oceny, według której będzie mierzony algorytm uczenia maszynowego.|Znormalizowany błąd średniego poziomu głównego
-        Automatyczne cechowania| Włącza przetwarzanie wstępne. Obejmuje to automatyczne czyszczenie danych, przygotowanie i transformację do generowania funkcji syntetycznych.| Włączanie
-        Wyjaśnij najlepszy model (wersja zapoznawcza)| Automatycznie pokazuje wyjaśnienie najlepszego modelu utworzonego za pomocą zautomatyzowanej ML.| Włączanie
+        Automatyczne cechowania| Włącza przetwarzanie wstępne. Obejmuje to automatyczne czyszczenie danych, przygotowanie i transformację do generowania funkcji syntetycznych.| Włącz
+        Wyjaśnij najlepszy model (wersja zapoznawcza)| Automatycznie pokazuje wyjaśnienie najlepszego modelu utworzonego za pomocą zautomatyzowanej ML.| Włącz
         Zablokowane algorytmy | Algorytmy, które mają zostać wykluczone z zadania szkoleniowego| Skrajnie losowe drzewa
-        Dodatkowe ustawienia prognozowania| Te ustawienia pomagają poprawić dokładność modelu <br><br> _**Przewidywany horyzont**_ czasowy: długość czasu na przyszłość, którą chcesz przewidzieć <br> _**Spowolnienia celu prognozy:**_ jak daleko z powrotem chcesz skonstruować spowolnienia zmiennej docelowej <br> _**Docelowe okno kroczące**_: Określa rozmiar okna stopniowego, nad którym będą generowane funkcje, takie jak *Maksymalna, minimalna* i *sum*. |Horyzont prognoz: 14 <br> Spowolnienia&nbsp;docelowy&nbsp;prognozy: brak <br> Rozmiar&nbsp;&nbsp;stopniowego&nbsp;okna docelowego: brak
-        Kryterium zakończenia| Jeśli kryteria są spełnione, zadanie szkolenia zostanie zatrzymane. |Czas&nbsp;zadania&nbsp;szkoleniowego (godziny): 3 <br> Próg&nbsp;wyniku&nbsp;metryki: brak
-        Walidacja | Wybierz typ i liczbę testów.|Typ walidacji:<br>&nbsp;k — złożenie&nbsp;krzyżowego sprawdzania poprawności <br> <br> Liczba walidacji: 5
-        Współbieżność| Maksymalna liczba wykonanych równoległych iteracji na iterację| Maksymalna&nbsp;liczba&nbsp;współbieżnych iteracji: 6
+        Dodatkowe ustawienia prognozowania| Te ustawienia pomagają poprawić dokładność modelu <br><br> _**Przewidywany horyzont**_ czasowy: długość czasu na przyszłość, którą chcesz przewidzieć <br> _**Spowolnienia celu prognozy:**_ jak daleko z powrotem chcesz skonstruować spowolnienia zmiennej docelowej <br> _**Docelowe okno kroczące**_: Określa rozmiar okna stopniowego, nad którym będą generowane funkcje, takie jak *Maksymalna, minimalna* i *sum*. |Horyzont prognoz: 14 <br> &nbsp;Spowolnienia docelowy prognozy &nbsp; : brak <br> &nbsp;Rozmiar stopniowego &nbsp; okna docelowego &nbsp; : brak
+        Kryterium zakończenia| Jeśli kryteria są spełnione, zadanie szkolenia zostanie zatrzymane. |&nbsp;Czas zadania szkoleniowego &nbsp; (godziny): 3 <br> &nbsp;Próg wyniku metryki &nbsp; : brak
+        Walidacja | Wybierz typ i liczbę testów.|Typ walidacji:<br>&nbsp;k — złożenie &nbsp; krzyżowego sprawdzania poprawności <br> <br> Liczba walidacji: 5
+        Współbieżność| Maksymalna liczba wykonanych równoległych iteracji na iterację| Maksymalna liczba &nbsp; współbieżnych &nbsp; iteracji: 6
         
         Wybierz pozycję **Zapisz**.
 
@@ -197,7 +200,7 @@ Po pomyślnym wdrożeniu masz działającą usługę sieci Web do generowania pr
 
 Przejdź do [**następnych kroków**](#next-steps) , aby dowiedzieć się więcej na temat korzystania z nowej usługi sieci Web i testowania prognoz przy użyciu Power BI wbudowanej Azure Machine Learning obsługi.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Pliki wdrożeń są większe niż pliki danych i eksperymenty, dzięki czemu są one droższe do przechowywania. Usuń tylko pliki wdrożenia, aby zminimalizować koszty dla konta, lub jeśli chcesz zachować obszar roboczy i pliki eksperymentów. W przeciwnym razie Usuń całą grupę zasobów, jeśli nie planujesz używać żadnego z tych plików.  
 
@@ -224,6 +227,10 @@ Zapoznaj się z tym artykułem, aby zapoznać się z procedurą tworzenia Power 
 > [!div class="nextstepaction"]
 > [Używanie usługi internetowej](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
++ Dowiedz się więcej o [automatycznym uczeniu maszynowym](concept-automated-ml.md).
++ Aby uzyskać więcej informacji na temat metryk i wykresów klasyfikacji, zobacz artykuł [Omówienie automatycznego uczenia maszynowego](how-to-understand-automated-ml.md#classification) .
++ Dowiedz się więcej o [cechowania](how-to-use-automated-ml-for-ml-models.md#featurization).
++ Dowiedz się więcej na temat [profilowania danych](how-to-use-automated-ml-for-ml-models.md#profile).
 
 >[!NOTE]
 > Ten zestaw danych udostępniania roweru został zmodyfikowany dla tego samouczka. Ten zestaw danych został udostępniony w ramach [konkursu Kaggle](https://www.kaggle.com/c/bike-sharing-demand/data) i pierwotnie dostępny za pośrednictwem [Wielkiej Bikeshare](https://www.capitalbikeshare.com/system-data). Można go również znaleźć w [bazie danych UCI Machine Learning](http://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset).<br><br>

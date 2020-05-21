@@ -7,18 +7,18 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 07/19/2019
-ms.openlocfilehash: 15399d5a00c13141877dcf44640df2c1f9b9ba5c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 026165c7c2052992e8ab485f9ab81c8964f38235
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75889057"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647967"
 ---
-# <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>Samouczek: uzyskiwanie dostępu do usługi Azure Blob Storage z Azure Databricks przy użyciu Azure Key Vault
+# <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>Samouczek: Dostęp do usługi Azure Blob Storage z usługi Azure Databricks przy użyciu usługi Azure Key Vault
 
 W tym samouczku opisano, jak uzyskać dostęp do usługi Azure Blob Storage z Azure Databricks przy użyciu wpisów tajnych przechowywanych w magazynie kluczy.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie konta magazynu i kontenera obiektów BLOB
@@ -40,7 +40,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account-and-blob-container"></a>Tworzenie konta magazynu i kontenera obiektów BLOB
 
-1. W Azure Portal wybierz pozycję **Utwórz** > **Magazyn**zasobów. Następnie wybierz pozycję **konto magazynu**.
+1. W Azure Portal wybierz pozycję **Utwórz**  >  **Magazyn**zasobów. Następnie wybierz pozycję **konto magazynu**.
 
    ![Znajdź zasób konta usługi Azure Storage](./media/store-secrets-azure-key-vault/create-storage-account-resource.png)
 
@@ -105,7 +105,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-an-azure-databricks-workspace-and-add-a-secret-scope"></a>Tworzenie obszaru roboczego Azure Databricks i Dodawanie zakresu tajnego
 
-1. W Azure Portal wybierz pozycję **Utwórz** > **Analytics** > **Azure Databricks**analizy zasobów.
+1. W Azure Portal wybierz pozycję **Utwórz**  >  **Analytics**  >  **Azure Databricks**analizy zasobów.
 
     ![Datakostki na Azure Portal](./media/store-secrets-azure-key-vault/azure-databricks-on-portal.png)
 
@@ -167,7 +167,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
    ```
 
    * **Nazwa instalacji** jest ścieżką DBFS reprezentującą lokalizację kontenera BLOB Storage lub folderu wewnątrz kontenera (określonego w źródle).
-   * **conf-Key** może być albo `fs.azure.account.key.<\your-storage-account-name>.blob.core.windows.net``fs.azure.sas.<\your-container-name>.<\your-storage-account-name>.blob.core.windows.net`
+   * **conf-Key** może `fs.azure.account.key.<\your-storage-account-name>.blob.core.windows.net` być albo`fs.azure.sas.<\your-container-name>.<\your-storage-account-name>.blob.core.windows.net`
    * **SCOPE-Name** to nazwa zakresu tajnego utworzonego w poprzedniej sekcji. 
    * **Key-Name** to nazwa klucza tajnego utworzonego dla klucza konta magazynu w magazynie kluczy.
 
@@ -176,7 +176,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 6. Uruchom następujące polecenie, aby odczytać plik tekstowy z kontenera magazynu obiektów BLOB do ramki Dataframe. Zmień wartości w poleceniu, aby pasowały do nazwy instalacji i nazwy pliku.
 
    ```python
-   df = spark.read.text("mnt/<mount-name>/<file-name>")
+   df = spark.read.text("/mnt/<mount-name>/<file-name>")
    ```
 
    ![Odczytaj plik do ramki danych](./media/store-secrets-azure-key-vault/command2.png)
@@ -200,7 +200,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
    ![Błąd podczas odinstalowywania konta magazynu](./media/store-secrets-azure-key-vault/command5.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, Usuń całą grupę zasobów, wykonując następujące czynności:
 

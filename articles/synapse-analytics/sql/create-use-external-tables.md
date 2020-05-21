@@ -9,16 +9,16 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: f90021e35b4089547b236d01b10820f6c06bd0cc
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 039fdda4ab8fe636c1eab926c477aea420b59de8
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195166"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83647484"
 ---
 # <a name="create-and-use-external-tables-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Tworzenie i używanie tabel zewnętrznych w programie SQL na żądanie (wersja zapoznawcza) przy użyciu usługi Azure Synapse Analytics
 
-W tej sekcji dowiesz się, jak tworzyć tabele zewnętrzne i korzystać z nich na żądanie SQL (wersja zapoznawcza). Tabele zewnętrzne są przydatne, gdy chcesz kontrolować dostęp do danych zewnętrznych w programie SQL na żądanie, a jeśli chcesz używać narzędzi, takich jak Power BI, w połączeniu z SQL na żądanie. Tabele zewnętrzne mogą uzyskać dostęp do dwóch typów magazynu:
+W tej sekcji dowiesz się, jak tworzyć [tabele zewnętrzne](develop-tables-external-tables.md) i korzystać z nich na żądanie SQL (wersja zapoznawcza). Tabele zewnętrzne są przydatne, gdy chcesz kontrolować dostęp do danych zewnętrznych w programie SQL na żądanie, a jeśli chcesz używać narzędzi, takich jak Power BI, w połączeniu z SQL na żądanie. Tabele zewnętrzne mogą uzyskać dostęp do dwóch typów magazynu:
 - Magazyn publiczny, w którym użytkownicy uzyskują dostęp do publicznych plików magazynu.
 - Chroniony magazyn, w którym użytkownicy uzyskują dostęp do plików magazynu przy użyciu poświadczeń SAS, tożsamości usługi Azure AD lub zarządzanej tożsamości obszaru roboczego Synapse.
 
@@ -61,7 +61,11 @@ Zapytania w tym artykule będą wykonywane w przykładowej bazie danych i używa
 
 ## <a name="create-an-external-table-on-protected-data"></a>Tworzenie tabeli zewnętrznej dla chronionych danych
 
-Możesz tworzyć tabele zewnętrzne, które uzyskują dostęp do danych na koncie usługi Azure Storage, które umożliwiają dostęp użytkownikom przy użyciu tożsamości usługi Azure AD lub klucza SAS. Tabele zewnętrzne można tworzyć w ten sam sposób, w jaki tworzysz regularne SQL Server tabele zewnętrzne. Poniższe zapytanie tworzy tabelę zewnętrzną, która odczytuje plik SynapseSQL *populacji* z konta usługi Azure Storage, do którego odwołuje się `sqlondemanddemo` Źródło danych i chronione przy użyciu poświadczeń o zakresie bazy danych o nazwie `sqlondemand` . Poświadczenia w zakresie źródła danych i bazy danych są tworzone w [skrypcie Instalatora](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql).
+Możesz tworzyć tabele zewnętrzne, które uzyskują dostęp do danych na koncie usługi Azure Storage, które umożliwiają dostęp użytkownikom przy użyciu tożsamości usługi Azure AD lub klucza SAS. Tabele zewnętrzne można tworzyć w ten sam sposób, w jaki tworzysz regularne SQL Server tabele zewnętrzne. 
+
+Następujące zapytanie tworzy tabelę zewnętrzną, która odczytuje plik SynapseSQL *populacji* z konta usługi Azure Storage, do którego odwołuje się `sqlondemanddemo` Źródło danych i chronione przy użyciu poświadczeń o zakresie bazy danych o nazwie `sqlondemand` . 
+
+Poświadczenia w zakresie źródła danych i bazy danych są tworzone w [skrypcie Instalatora](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql).
 
 > [!NOTE]
 > Zmień pierwszy wiersz zapytania, na przykład [mydbname], tak aby była używana utworzona baza danych. 
@@ -81,7 +85,6 @@ WITH (
     DATA_SOURCE = sqlondemanddemo,
     FILE_FORMAT = QuotedCSVWithHeaderFormat
 );
-GO
 ```
 
 ## <a name="create-an-external-table-on-public-data"></a>Tworzenie tabeli zewnętrznej na danych publicznych
@@ -105,9 +108,9 @@ CREATE EXTERNAL TABLE Taxi (
          FILE_FORMAT = ParquetFormat
 );
 ```
-## <a name="use-a-external-table"></a>Korzystanie z tabeli zewnętrznej
+## <a name="use-an-external-table"></a>Korzystanie z tabeli zewnętrznej
 
-W zapytaniach można używać tabel zewnętrznych w taki sam sposób, w jaki są one używane w kwerendach SQL Server.
+W zapytaniach można używać [tabel zewnętrznych](develop-tables-external-tables.md) w taki sam sposób, w jaki są one używane w kwerendach SQL Server.
 
 Poniższe zapytanie ilustruje tę wartość przy użyciu tabeli zewnętrznej *wypełniania* utworzonej w poprzedniej sekcji. Zwraca nazwy krajów z ich populacją w 2019 w kolejności malejącej.
 

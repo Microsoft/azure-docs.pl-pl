@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.subservice: ''
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: 9e8a539421a76b6f94f10d559ad0086c9d87abf4
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 27ec09f1286f4e7999db56acdedaba1a37122aad
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592954"
+ms.locfileid: "83656198"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-preview-in-azure-synapse-analytics-using-web-tools"></a>Szybki Start: Tworzenie puli Apache Spark (wersja zapoznawcza) w usłudze Azure Synapse Analytics przy użyciu narzędzi sieci Web
 
@@ -29,7 +29,7 @@ Jeśli nie masz subskrypcji platformy Azure, [przed rozpoczęciem utwórz bezpł
 
 - Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
 - [Obszar roboczy analizy Synapse](quickstart-create-workspace.md)
-- [Pula Apache Spark](quickstart-create-apache-spark-pool.md)
+- [Pula Apache Spark](quickstart-create-apache-spark-pool-studio.md)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
@@ -133,7 +133,9 @@ Structured Query Language (SQL) to najbardziej typowy i szeroko używany język 
 
 ## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Usługa Azure Synapse zapisuje dane w Azure Data Lake Storage. Można bezpiecznie zezwolić na wyłączenie wystąpienia platformy Spark, gdy nie jest ono używane. Opłata jest naliczana za pulę Apache Spark platformy Azure Synapse o ile jest uruchomiona, nawet jeśli nie jest używana. Opłaty za pulę mają wiele razy więcej niż opłaty za magazyn. W związku z tym czynią ekonomiczną, aby umożliwić wyłączenie wystąpień platformy Spark, gdy nie są one używane.
+Usługa Azure Synapse zapisuje dane w Azure Data Lake Storage. Można bezpiecznie zezwolić na wyłączenie wystąpienia platformy Spark, gdy nie jest ono używane. Opłata jest naliczana za pulę Apache Spark platformy Azure Synapse o ile jest uruchomiona, nawet jeśli nie jest używana. 
+
+Ze względu na to, że opłaty za pulę są znacznie większe niż opłaty za magazyn, sprawia, że wystąpienia platformy Spark są zamykane, gdy nie są używane.
 
 Aby upewnić się, że wystąpienie platformy Spark zostanie zamknięte, Zakończ wszystkie połączone sesje (notesy). Pula jest zamykana, gdy zostanie osiągnięty **czas bezczynności** określony w puli Apache Spark. Możesz również wybrać opcję **sesja końcowa** na pasku stanu w dolnej części notesu.
 

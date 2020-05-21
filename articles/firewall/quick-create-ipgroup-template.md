@@ -5,20 +5,19 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 04/06/2020
 ms.author: victorh
-ms.openlocfilehash: 53e5bf4f770ce986af2f3572bd6c1ef4cd9e3c2b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 403aaafebcae680f337aeff551b81a80a9549252
+ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81605244"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83680563"
 ---
 # <a name="quickstart-create-an-azure-firewall-and-ip-groups---resource-manager-template"></a>Szybki Start: Tworzenie zapory platformy Azure i grup adresów IP — szablon Menedżer zasobów
 
-W tym przewodniku szybki start użyjesz szablonu Menedżer zasobów do wdrożenia zapory platformy Azure z przykładowymi grupami adresów IP używanymi w regule sieci i aplikacji.
-
-Grupa adresów IP to zasób najwyższego poziomu, który umożliwia definiowanie i grupowanie adresów IP, zakresów i podsieci w pojedynczym obiekcie. Jest to przydatne w przypadku zarządzania adresami IP w regułach zapory platformy Azure. Możesz ręcznie wprowadzić adresy IP lub zaimportować je z pliku.
+W tym przewodniku szybki start użyjesz szablonu Menedżer zasobów do wdrożenia zapory platformy Azure z przykładowymi grupami adresów IP używanymi w regule sieci i aplikacji. Grupa adresów IP to zasób najwyższego poziomu, który umożliwia definiowanie i grupowanie adresów IP, zakresów i podsieci w pojedynczym obiekcie. Jest to przydatne w przypadku zarządzania adresami IP w regułach zapory platformy Azure. Możesz ręcznie wprowadzić adresy IP lub zaimportować je z pliku.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -32,22 +31,21 @@ Ten szablon służy do tworzenia zapory platformy Azure i grup adresów IP oraz 
 
 ### <a name="review-the-template"></a>Zapoznaj się z szablonem
 
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox/azuredeploy.json)
+Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox).
 
 :::code language="json" source="~/quickstart-templates/101-azurefirewall-create-with-ipgroups-and-linux-jumpbox/azuredeploy.json" range="001-512" highlight="118-141":::
 
 W szablonie zdefiniowano wiele zasobów platformy Azure:
 
 - [**Microsoft. Network/ipGroups**](/azure/templates/microsoft.network/ipGroups)
-- [**Microsoft. Network/adresów publicipaddress**](/azure/templates/microsoft.network/publicipaddresses)
+- [**Microsoft. Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
+- [**Microsoft. Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 - [**Microsoft. Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
 - [**Microsoft. Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
-- [**Microsoft. COMPUTE/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
+- [**Microsoft. Network/adresów publicipaddress**](/azure/templates/microsoft.network/publicipaddresses)
 - [**Microsoft. Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
-- [**Microsoft. Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
+- [**Microsoft. COMPUTE/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
 - [**Microsoft. Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
-- [**Microsoft. Network/routeTables**](/azure/templates/microsoft.network/routeTables)
-
 
 ### <a name="deploy-the-template"></a>Wdrożenie szablonu
 
@@ -55,7 +53,7 @@ Wdróż szablon Menedżer zasobów na platformie Azure:
 
 1. Wybierz pozycję **Wdróż na platformie Azure** , aby zalogować się do platformy Azure i otworzyć szablon. Szablon umożliwia utworzenie zapory platformy Azure, infrastruktury sieciowej i dwóch maszyn wirtualnych.
 
-   [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-create-with-ipgroups-and-linux-jumpbox%2Fazuredeploy.json)
+   [![Wdróż na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-create-with-ipgroups-and-linux-jumpbox%2Fazuredeploy.json)
 
 2. W portalu na stronie **Tworzenie zapory platformy Azure ze IpGroups** wpisz lub wybierz następujące wartości:
    - Subskrypcja: wybierz z istniejących subskrypcji 
@@ -80,7 +78,7 @@ W Azure Portal Przejrzyj wdrożone zasoby, zwłaszcza reguły zapory, które kor
 
 Aby dowiedzieć się więcej o składni i właściwościach JSON zapory w szablonie, zobacz artykuł [Microsoft. Network azureFirewalls Template Reference](https://docs.microsoft.com/azure/templates/Microsoft.Network/2019-11-01/azureFirewalls).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie potrzebujesz już zasobów utworzonych za pomocą zapory, Usuń grupę zasobów. Spowoduje to usunięcie zapory i wszystkich powiązanych zasobów.
 

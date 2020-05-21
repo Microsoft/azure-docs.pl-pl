@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 12/13/2018
 ms.author: crtreasu
-ms.openlocfilehash: 32f4545a45eda8acddd7c93cc4917dbadca9ad4d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b2b3ca886359a0b4c906b89ed76f57486fc2c368
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67135027"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83638984"
 ---
 ## <a name="create-a-spatial-anchors-resource"></a>Tworzenie zasobu usługi Spatial Anchors
 
@@ -42,6 +42,10 @@ Następnie można wyświetlić właściwości zasobów. Skopiuj wartość **iden
 
    ![Właściwości zasobu](./media/spatial-anchors-get-started-create-resource/view-resource-properties.png)
 
-W obszarze **Ustawienia**wybierz pozycję **klucz**. Skopiuj wartość **klucza podstawowego** do edytora tekstu. Ta wartość to `Account Key`. Będzie on potrzebny później.
+Skopiuj również wartość **domeny konta** zasobu do edytora tekstu, ponieważ będzie ona potrzebna później.
+
+   ![Domena konta](./media/spatial-anchors-get-started-create-resource/view-resource-domain.png)
+
+W obszarze **Ustawienia**wybierz pozycję **klucz**. Skopiuj wartość **klucza podstawowego** do edytora tekstu. Ta wartość to `Account Key` . Będzie on potrzebny później.
 
    ![Klucz konta](./media/spatial-anchors-get-started-create-resource/view-account-key.png)

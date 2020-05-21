@@ -9,12 +9,12 @@ ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1da5bd7020304c67bd9f9058612f47d528611a9e
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 9a726544a899df8e4013ebf91dc09994bb2f6a8a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195336"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652454"
 ---
 # <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Szybki Start: Tworzenie aplikacji dla systemu iOS z zakotwiczeniami przestrzennymi platformy Azure w postaci SWIFT lub w celu-C
 
@@ -58,7 +58,7 @@ Przejdź do adresu `iOS/Swift/`.
 cd ./iOS/Swift/
 ```
 
-# <a name="objective-c"></a>[Obiektowy C](#tab/openproject-objc)
+# <a name="objective-c"></a>[Objective-C](#tab/openproject-objc)
 
 Przejdź do adresu `iOS/Objective-C/`.
 
@@ -81,7 +81,7 @@ Następnie otwórz plik `.xcworkspace` w programie Xcode.
 open ./SampleSwift.xcworkspace
 ```
 
-# <a name="objective-c"></a>[Obiektowy C](#tab/openproject-objc)
+# <a name="objective-c"></a>[Objective-C](#tab/openproject-objc)
 
 ```bash
 open ./SampleObjC.xcworkspace
@@ -101,13 +101,17 @@ Znajdź pole `spatialAnchorsAccountKey` i zastąp wartość `Set me` kluczem kon
 
 Znajdź pole `spatialAnchorsAccountId` i zastąp wartość `Set me` identyfikatorem konta.
 
-# <a name="objective-c"></a>[Obiektowy C](#tab/openproject-objc)
+Znajdź `startSession()` i Dodaj następujący wiersz, zastępując w domenie konta wcześniejszie: `cloudSession!.configuration.accountDomain = "MyAccountDomain";` .
+
+# <a name="objective-c"></a>[Objective-C](#tab/openproject-objc)
 
 Otwórz plik `iOS/Objective-C/SampleObjC/BaseViewController.m`.
 
 Znajdź pole `SpatialAnchorsAccountKey` i zastąp wartość `Set me` kluczem konta.
 
 Znajdź pole `SpatialAnchorsAccountId` i zastąp wartość `Set me` identyfikatorem konta.
+
+Znajdź `startSession()` i Dodaj następujący wiersz, zastępując w domenie konta wcześniejszie: `_cloudSession.configuration.accountKey = @"MyAccountDomain";` .
 
 ---
 

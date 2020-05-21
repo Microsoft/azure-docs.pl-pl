@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: b9c40d93c48bcf5959b5d9651510ce6076eb789e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b63aa2b2d98a12246d0dc2c35e015da872caff28
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201758"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83641100"
 ---
 # <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Samouczek: Tworzenie demona wielodostępnego, która używa punktu końcowego platformy tożsamości firmy Microsoft
 
@@ -32,7 +32,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 Aplikacja została skompilowana jako aplikacja ASP.NET MVC. Używa ona oprogramowania OWIN OpenID Connect Connecter do logowania użytkowników.
 
-Składnik "Demon" w tym przykładzie jest kontrolerem interfejsu API, `SyncController.cs`. Gdy kontroler jest wywoływany, pobiera listę użytkowników w dzierżawie Azure Active Directory klienta (Azure AD) z Microsoft Graph. `SyncController.cs`jest wyzwalany przez wywołanie AJAX w aplikacji sieci Web. Używa [biblioteki Microsoft Authentication Library (MSAL) dla platformy .NET](msal-overview.md) , aby uzyskać token dostępu dla Microsoft Graph.
+Składnik "Demon" w tym przykładzie jest kontrolerem interfejsu API, `SyncController.cs` . Gdy kontroler jest wywoływany, pobiera listę użytkowników w dzierżawie Azure Active Directory klienta (Azure AD) z Microsoft Graph. `SyncController.cs`jest wyzwalany przez wywołanie AJAX w aplikacji sieci Web. Używa [biblioteki Microsoft Authentication Library (MSAL) dla platformy .NET](msal-overview.md) , aby uzyskać token dostępu dla Microsoft Graph.
 
 >[!NOTE]
 > Jeśli dopiero zaczynasz pracę z platformą tożsamości firmy Microsoft, zalecamy rozpoczęcie pracy z programem [.NET Core DAEMON — szybki](quickstart-v2-netcore-daemon.md)Start.
@@ -114,8 +114,8 @@ Jeśli nie chcesz używać automatyzacji, wykonaj kroki opisane w poniższych se
 1. Wybierz pozycję **Zarejestruj**, aby utworzyć aplikację.
 1. Na stronie **Przegląd** aplikacji Znajdź wartość **Identyfikator aplikacji (klienta)** i Zapisz ją jako nowszą. Będzie ona potrzebna do skonfigurowania pliku konfiguracji programu Visual Studio dla tego projektu.
 1. Na liście stron dla aplikacji wybierz pozycję **Uwierzytelnianie**. Następnie:
-   - W sekcji **Ustawienia zaawansowane** Ustaw **adres URL wylogowywania** na **https://localhost:44316/Account/EndSession**.
-   - W sekcji **Ustawienia** > zaawansowane**niejawne przyznanie** wybierz pozycję **tokeny dostępu** i **tokeny identyfikatorów**. Ten przykład wymaga, aby [przepływ niejawnego przydzielenia](v2-oauth2-implicit-grant-flow.md) był włączony do logowania użytkownika i wywoływania interfejsu API.
+   - W sekcji **Ustawienia zaawansowane** Ustaw **adres URL wylogowywania** na **https://localhost:44316/Account/EndSession** .
+   - W sekcji **Ustawienia zaawansowane**  >  **niejawne przyznanie** wybierz pozycję **tokeny dostępu** i **tokeny identyfikatorów**. Ten przykład wymaga, aby [przepływ niejawnego przydzielenia](v2-oauth2-implicit-grant-flow.md) był włączony do logowania użytkownika i wywoływania interfejsu API.
 1. Wybierz pozycję **Zapisz**.
 1. Na stronie **certyfikaty & wpisy tajne** w sekcji **klucze tajne klienta** wybierz pozycję **nowy klucz tajny klienta**. Następnie:
 
@@ -199,7 +199,7 @@ Odpowiedni kod dla tego przykładu znajduje się w następujących plikach:
 1. Dodaj nowy **kontroler MVC 5 — puste** wystąpienie o nazwie **UserController**. Zastąp implementację zawartością pliku o tej samej nazwie z przykładu.
 1. Dodaj nowy **kontroler Web API 2 — puste** wystąpienie o nazwie **SyncController**. Zastąp implementację zawartością pliku o tej samej nazwie z przykładu.
 1. W przypadku interfejsu użytkownika w folderze **Views\Account** Dodaj trzy **puste (bez modelu) wystąpienia widoków** o nazwie **GrantPermissions**, **index**i **UserMismatch**. Dodaj i jeden nazwany **indeks** w folderze **Views\User** Zastąp implementację zawartością pliku o tej samej nazwie z przykładu.
-1. Aktualizowanie **współużytkowanego\_układu. cshtml** i **Home\Index.cshtml** w celu poprawnego łączenia różnych widoków.
+1. Aktualizowanie **współużytkowanego \_ układu. cshtml** i **Home\Index.cshtml** w celu poprawnego łączenia różnych widoków.
 
 ## <a name="deploy-the-sample-to-azure"></a>Wdróż przykład na platformie Azure
 
@@ -213,7 +213,7 @@ Ten projekt zawiera projekty aplikacji sieci Web i interfejsów API sieci Web. W
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. W lewym górnym rogu wybierz pozycję **Utwórz zasób**.
-1. Wybierz pozycję **Web** > **App**Web, a następnie nadaj nazwę witrynie sieci Web. Na przykład nadaj mu nazwę **dotnet-Web-DAEMON-v2-contoso.azurewebsites.NET**.
+1. Wybierz pozycję **Web**  >  **App**Web, a następnie nadaj nazwę witrynie sieci Web. Na przykład nadaj mu nazwę **dotnet-Web-DAEMON-v2-contoso.azurewebsites.NET**.
 1. Wybierz informacje dotyczące **subskrypcji**, **grupy zasobów**i **planu i lokalizacji usługi App Service**. System **operacyjny** to **Windows**i **publikuje** **kod**.
 1. Wybierz pozycję **Utwórz** i poczekaj na utworzenie usługi App Service.
 1. Po otrzymaniu powiadomienia o **pomyślnym wdrożeniu** wybierz pozycję **Przejdź do zasobu** , aby przejść do nowo utworzonej usługi App Service.
@@ -235,15 +235,15 @@ Program Visual Studio opublikuje projekt i automatycznie otworzy przeglądarkę 
 1. Wróć do witryny [Azure Portal](https://portal.azure.com).
 1. W okienku po lewej stronie wybierz usługę **Azure Active Directory** a następnie wybierz pozycję **rejestracje aplikacji**.
 1. Wybierz aplikację **dotnet-Web-demon-v2** .
-1. Na stronie **uwierzytelnianie** dla swojej aplikacji zaktualizuj pola **adresu URL wylogowywania** z adresem usługi. Na przykład użyj [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net).
-1. Z menu **znakowanie** , zaktualizuj **adres URL strony głównej** na adres usługi. Na przykład użyj [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net).
+1. Na stronie **uwierzytelnianie** dla swojej aplikacji zaktualizuj pola **adresu URL wylogowywania** z adresem usługi. Użyj na przykład nazwy `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
+1. Z menu **znakowanie** , zaktualizuj **adres URL strony głównej** na adres usługi. Użyj na przykład nazwy `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
 1. Zapisz konfigurację.
-1. Dodaj ten sam adres URL na liście wartości menu**identyfikatorów URI przekierowania** **uwierzytelniania** > . Jeśli masz wiele adresów URL przekierowania, upewnij się, że istnieje nowy wpis, który używa identyfikatora URI usługi App Service dla każdego adresu URL przekierowania.
+1. Dodaj ten sam adres URL na liście wartości **Authentication**  >  menu**identyfikatorów URI przekierowania** uwierzytelniania. Jeśli masz wiele adresów URL przekierowania, upewnij się, że istnieje nowy wpis, który używa identyfikatora URI usługi App Service dla każdego adresu URL przekierowania.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 Gdy nie jest już potrzebne, Usuń obiekt aplikacji, który został utworzony w kroku [zarejestruj aplikację](#register-your-application) .  Aby usunąć aplikację, postępuj zgodnie z instrukcjami w temacie [usuwanie aplikacji napisanej przez Ciebie lub w organizacji](quickstart-remove-app.md#remove-an-application-authored-by-you-or-your-organization).
 
-## <a name="get-help"></a>Uzyskiwanie pomocy
+## <a name="get-help"></a>Uzyskaj pomoc
 
 Użyj [Stack Overflow](http://stackoverflow.com/questions/tagged/msal) , aby uzyskać pomoc techniczną dla społeczności.
 Zadawaj pytania na Stack Overflow pierwsze i Przeglądaj istniejące problemy, aby zobaczyć, czy ktoś zażądał wcześniej pytania.

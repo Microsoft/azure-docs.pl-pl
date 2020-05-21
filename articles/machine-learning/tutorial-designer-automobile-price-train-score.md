@@ -9,12 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 05/12/2020
-ms.openlocfilehash: d730eb64f5025daa740e4fad0fce0a95300363e1
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.custom: designer
+ms.openlocfilehash: 16f281cce70fb8d2a943b62c796c3037649c3c72
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983401"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656587"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Samouczek: przewidywanie ceny za samochód przy użyciu projektanta (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -69,7 +70,7 @@ Potok jest uruchamiany w obiekcie docelowym obliczeń, który jest zasobem oblic
 
 Można ustawić **domyślny obiekt docelowy obliczeń** dla całego potoku, co spowoduje, że każdy moduł domyślnie użyje tego samego obiektu docelowego obliczeń. Można jednak określić cele obliczeń dla poszczególnych modułów.
 
-1. Obok nazwy potoku ![ **Wybierz zrzut ekranu ikony koła** zębatego](./media/tutorial-designer-automobile-price-train-score/gear-icon.png) w górnej części kanwy, aby otworzyć okienko **Ustawienia** .
+1. Obok nazwy potoku wybierz zrzut ekranu ikony **koła** ![ zębatego ](./media/tutorial-designer-automobile-price-train-score/gear-icon.png) w górnej części kanwy, aby otworzyć okienko **Ustawienia** .
 
 1. W okienku **Ustawienia** z prawej strony kanwy wybierz pozycję **Wybierz element docelowy obliczeń**.
 
@@ -139,7 +140,7 @@ Podczas uczenia modelu trzeba wykonać coś dotyczące brakujących danych. W ty
 
 1. Rozwiń listę rozwijaną **nazwy kolumn** obok pozycji **Dołącz**, a następnie wybierz pozycję **wszystkie kolumny**.
 
-1. Wybierz opcję **+** , aby dodać nową regułę.
+1. Wybierz opcję, **+** Aby dodać nową regułę.
 
 1. Z menu rozwijanego wybierz opcję **Wyklucz** i **nazwy kolumn**.
     
@@ -217,7 +218,7 @@ Nauczenie modelu przez nadanie mu zestawu danych, który zawiera cenę. Algorytm
     
     Ta opcja umożliwia wyświetlenie kilku kategorii modułów, których można użyć do zainicjowania algorytmów uczenia.
 
-1. Wybierz opcję**regresja liniowa** **regresji** > i przeciągnij ją na kanwę potoku.
+1. Wybierz **Regression**opcję  >  **regresja liniowa**regresji i przeciągnij ją na kanwę potoku.
 
 1. Połącz dane wyjściowe modułu **regresji liniowej** z lewym wejściem modułu **uczenie modelu** .
 
@@ -292,7 +293,7 @@ Po zakończeniu przebiegu można wyświetlić wyniki uruchomienia potoku. Najpie
 
 1. Wybierz moduł **model oceny** , aby wyświetlić jego dane wyjściowe.
 
-1. W okienku Szczegóły modułu z prawej strony kanwy wybierz pozycję dane **wyjściowe + dzienniki** > ikona](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) Wizualizacja ![ikony grafu, aby wyświetlić wyniki.
+1. W okienku Szczegóły modułu z prawej strony kanwy wybierz pozycję dane **wyjściowe + dzienniki** > ikona Wizualizacja ikony grafu, ![ ](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) Aby wyświetlić wyniki.
 
     W tym miejscu możesz zobaczyć przewidywane ceny i rzeczywiste ceny z danych testowych.
 
@@ -304,7 +305,7 @@ Użyj **modelu szacowania** , aby zobaczyć, jak dobrze szkolony model jest wyko
 
 1. Wybierz moduł **Oceń model** , aby wyświetlić jego dane wyjściowe.
 
-1. W okienku Szczegóły modułu z prawej strony kanwy wybierz pozycję dane **wyjściowe + dzienniki** > ikona](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) Wizualizacja ![ikony grafu, aby wyświetlić wyniki.
+1. W okienku Szczegóły modułu z prawej strony kanwy wybierz pozycję dane **wyjściowe + dzienniki** > ikona Wizualizacja ikony grafu, ![ ](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) Aby wyświetlić wyniki.
 
 Następujące statystyki są wyświetlane dla modelu:
 
@@ -316,7 +317,7 @@ Następujące statystyki są wyświetlane dla modelu:
 
 W przypadku wszystkich powyższych statystyk mniejsze wartości oznaczają lepszą jakość modelu. Mniejsza wartość wskazuje, że przewidywania są bliżej rzeczywistych wartości. Dla współczynnika wyznaczania wartość bliższej wartości to 1 (1,0), tym lepsze przewidywania.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Pomiń tę sekcję, jeśli chcesz kontynuować w części 2 samouczka [Wdrażanie modeli](tutorial-designer-automobile-price-deploy.md).
 

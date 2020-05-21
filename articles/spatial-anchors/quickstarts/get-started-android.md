@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 0501c8bb1d71c6cff6033fc937cda019c8890056
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3f794d1c70baee07b9ff3ed5d8299cf8ad3bf983
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75376464"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83652507"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>Szybki Start: Tworzenie aplikacji dla systemu Android przy użyciu kotwic usługi Azure przestrzenny
 
@@ -34,7 +34,7 @@ Aby ukończyć ten przewodnik Szybki start, upewnij się, że dysponujesz nastę
 
 - Maszyna z systemem Windows lub macOS z <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.4 +</a>.
   - W przypadku korzystania z systemu Windows potrzebna jest również <a href="https://git-scm.com/download/win" target="_blank">git dla systemu Windows</a> i <a href="https://git-lfs.github.com/">narzędzia Git LFS</a>.
-  - W przypadku uruchamiania w systemie macOS Pobierz narzędzie git zainstalowane za pośrednictwem usługi oprogramowania homebrew. Wprowadź następujące polecenie w jednym wierszu terminalu: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Następnie uruchom `brew install git` i `brew install git-lfs`.
+  - W przypadku uruchamiania w systemie macOS Pobierz narzędzie git zainstalowane za pośrednictwem usługi oprogramowania homebrew. Wprowadź następujące polecenie w jednym wierszu terminalu: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` . Następnie uruchom `brew install git` i `brew install git-lfs` .
   - Aby skompilować przykład NDK, należy również zainstalować CMake NDK i 3,6 lub więcej SDK Tools w Android Studio.
 - Urządzenie z systemem Android <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">pracujące w trybie dewelopera</a> i <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">zgodne z platformą ARCore</a>.
   - Aby komputer mógł komunikować się z urządzeniem z systemem Android, mogą być wymagane dodatkowe sterowniki urządzeń. Aby uzyskać dodatkowe informacje i instrukcje, zobacz [tutaj](https://developer.android.com/studio/run/device.html) .
@@ -52,7 +52,7 @@ Aby ukończyć ten przewodnik Szybki start, upewnij się, że dysponujesz nastę
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-Pobierz `arcore_c_api.h` z tego [miejsca](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.11.0/libraries/include/arcore_c_api.h) i umieść go `Android\NDK\libraries\include`w.
+Pobierz `arcore_c_api.h` z tego [miejsca](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.11.0/libraries/include/arcore_c_api.h) i umieść go w `Android\NDK\libraries\include` .
 
 W ramach nowo sklonowanego repozytorium zainicjuj moduły podrzędne, uruchamiając następujące polecenie:
 
@@ -86,6 +86,8 @@ Znajdź pole `SpatialAnchorsAccountKey` i zastąp wartość `Set me` kluczem kon
 
 Znajdź pole `SpatialAnchorsAccountId` i zastąp wartość `Set me` identyfikatorem konta.
 
+Znajdź `public AzureSpatialAnchorsManager(Session arCoreSession)` i Dodaj następujący wiersz, zastępując w domenie konta wcześniejszie: `spatialAnchorsSession.getConfiguration().setAccountDomain("MyAccountDomain");` .
+
 # <a name="ndk"></a>[NDK](#tab/openproject-ndk)
 
 Otwórz plik `Android/NDK/app/src/main/cpp/AzureSpatialAnchorsApplication.cpp`.
@@ -93,6 +95,8 @@ Otwórz plik `Android/NDK/app/src/main/cpp/AzureSpatialAnchorsApplication.cpp`.
 Znajdź pole `SpatialAnchorsAccountKey` i zastąp wartość `Set me` kluczem konta.
 
 Znajdź pole `SpatialAnchorsAccountId` i zastąp wartość `Set me` identyfikatorem konta.
+
+Znajdź `AzureSpatialAnchorsApplication::StartCloudSession()` i Dodaj następujący wiersz, zastępując w domenie konta wcześniejszie: `m_cloudSession->Configuration()->AccountDomain("MyAccountDomain");` .
 
 ---
 

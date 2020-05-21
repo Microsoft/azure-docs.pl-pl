@@ -9,12 +9,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: d8c38707f68b5841edb39e4527ec2cdcb1a35adf
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.custom: designer
+ms.openlocfilehash: 41b6fb38798e9aa7264000676d81101db1c83236
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983384"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83656534"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Samouczek: Wdrażanie modelu uczenia maszynowego za pomocą narzędzia Projektant (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -37,7 +38,7 @@ Aby wdrożyć potok, należy najpierw skonwertować potok szkoleniowy do potoku 
 
 ### <a name="create-a-real-time-inference-pipeline"></a>Tworzenie potoku w czasie rzeczywistym
 
-1. Nad kanwą potoku wybierz pozycję **Utwórz** > **potok wnioskowania w czasie rzeczywistym**.
+1. Nad kanwą potoku wybierz pozycję **Utwórz**  >  **potok wnioskowania w czasie rzeczywistym**.
 
     ![Zrzut ekranu przedstawiający miejsce znalezienia przycisku Utwórz potok](./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png)
 
@@ -68,7 +69,7 @@ W wyświetlonym oknie dialogowym możesz wybrać dowolny z istniejących klastr�
 
 1. Wybierz pozycję **obliczenia** w wyświetlonym oknie dialogowym, aby przejść do strony **obliczenia** .
 
-1. Na Wstążce Nawigacja wybierz pozycję >  **klastry wnioskowania****+ Nowy**.
+1. Na Wstążce Nawigacja wybierz pozycję **klastry wnioskowania**  >  **+ Nowy**.
 
     ![Zrzut ekranu przedstawiający sposób uzyskiwania do okienka nowy klaster wnioskowania](./media/tutorial-designer-automobile-price-deploy/new-inference-cluster.png)
 
@@ -116,7 +117,7 @@ Po zakończeniu wdrażania można testować punkt końcowy w czasie rzeczywistym
 
     ![Zrzut ekranu przedstawiający sposób testowania punktu końcowego w czasie rzeczywistym z etykietą z oceną dla wyróżnionej ceny](./media/tutorial-designer-automobile-price-deploy/test-endpoint.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 
