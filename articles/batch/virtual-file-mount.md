@@ -1,15 +1,14 @@
 ---
-title: Instalowanie wirtualnego systemu plików w puli — Azure Batch | Microsoft Docs
+title: Instalowanie wirtualnego systemu plików w puli
 description: Dowiedz się, jak zainstalować wirtualny system plików w puli wsadowej.
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/13/2019
-ms.author: labrenne
-ms.openlocfilehash: 703b65f0a1571659d7be479776dd8fdf02d86731
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4a9ea7d9ecd65ab55c2420015f82e863e45cbd5d
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117033"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722664"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Instalowanie wirtualnego systemu plików w puli partii
 
@@ -32,17 +31,17 @@ Rozważmy scenariusz z wieloma zadaniami wymagającymi dostępu do wspólnego ze
 
 Zainstalowanie wirtualnego systemu plików w puli sprawia, że system plików jest dostępny dla wszystkich węzłów obliczeniowych w puli. System plików jest konfigurowany, gdy węzeł obliczeniowy jest przyłączany do puli lub gdy węzeł jest ponownie uruchamiany lub odtwarzany z obrazu.
 
-Aby zainstalować system plików w puli, Utwórz `MountConfiguration` obiekt. Wybierz obiekt, który pasuje do wirtualnego systemu plików: `AzureBlobFileSystemConfiguration`, `AzureFileShareConfiguration` `NfsMountConfiguration`, lub `CifsMountConfiguration`.
+Aby zainstalować system plików w puli, Utwórz `MountConfiguration` obiekt. Wybierz obiekt, który pasuje do wirtualnego systemu plików: `AzureBlobFileSystemConfiguration` , `AzureFileShareConfiguration` , `NfsMountConfiguration` lub `CifsMountConfiguration` .
 
 Wszystkie obiekty konfiguracji instalacji muszą mieć następujące parametry podstawowe. Niektóre konfiguracje instalacji mają parametry specyficzne dla używanego systemu plików, które zostały omówione bardziej szczegółowo w przykładach kodu.
 
 - **Nazwa konta lub źródło**: Aby zainstalować wirtualny udział plików, potrzebna jest nazwa konta magazynu lub jego źródła.
-- **Względna ścieżka lub źródło instalacji**: Lokalizacja systemu plików zainstalowanego w węźle obliczeniowym względem katalogu standardowego `fsmounts` dostępnego w węźle za pośrednictwem. `AZ_BATCH_NODE_MOUNTS_DIR` Dokładna lokalizacja różni się w zależności od systemu operacyjnego używanego w węźle. Na przykład fizyczna lokalizacja w węźle Ubuntu jest zamapowana na `mnt\batch\tasks\fsmounts`, a w węźle CentOS, do `mnt\resources\batch\tasks\fsmounts`którego jest zamapowany.
+- **Względna ścieżka lub źródło instalacji**: Lokalizacja systemu plików zainstalowanego w węźle obliczeniowym względem `fsmounts` katalogu standardowego dostępnego w węźle za pośrednictwem `AZ_BATCH_NODE_MOUNTS_DIR` . Dokładna lokalizacja różni się w zależności od systemu operacyjnego używanego w węźle. Na przykład fizyczna lokalizacja w węźle Ubuntu jest zamapowana na `mnt\batch\tasks\fsmounts` , a w węźle CentOS, do którego jest zamapowany `mnt\resources\batch\tasks\fsmounts` .
 - **Opcje instalacji lub opcje blobfuse**: te opcje opisują konkretne parametry instalowania systemu plików.
 
-Po utworzeniu `MountConfiguration` obiektu Przypisz obiekt do `MountConfigurationList` właściwości podczas tworzenia puli. System plików jest instalowany, gdy węzeł jest przyłączony do puli lub gdy węzeł jest ponownie uruchamiany lub odtwarzany z obrazu.
+Po `MountConfiguration` utworzeniu obiektu Przypisz obiekt do `MountConfigurationList` właściwości podczas tworzenia puli. System plików jest instalowany, gdy węzeł jest przyłączony do puli lub gdy węzeł jest ponownie uruchamiany lub odtwarzany z obrazu.
 
-Gdy system plików jest zainstalowany, tworzona jest zmienna `AZ_BATCH_NODE_MOUNTS_DIR` środowiskowa, która wskazuje lokalizację zainstalowanych systemów plików, a także pliki dziennika, które są przydatne do rozwiązywania problemów i debugowania. Pliki dziennika są wyjaśnione bardziej szczegółowo w sekcji [Diagnozowanie błędów instalacji](#diagnose-mount-errors) .  
+Gdy system plików jest zainstalowany, tworzona jest zmienna środowiskowa, `AZ_BATCH_NODE_MOUNTS_DIR` która wskazuje lokalizację zainstalowanych systemów plików, a także pliki dziennika, które są przydatne do rozwiązywania problemów i debugowania. Pliki dziennika są wyjaśnione bardziej szczegółowo w sekcji [Diagnozowanie błędów instalacji](#diagnose-mount-errors) .  
 
 > [!IMPORTANT]
 > Maksymalna liczba zainstalowanych systemów plików w puli wynosi 10. Zobacz [przydziały usługi Batch i limity](batch-quota-limit.md#other-limits) dotyczące szczegółów i innych limitów.
@@ -154,13 +153,13 @@ new PoolAddParameter
 
 ## <a name="diagnose-mount-errors"></a>Diagnozuj błędy instalacji
 
-Jeśli konfiguracja instalacji nie powiedzie się, węzeł obliczeniowy w puli zakończy się niepowodzeniem, a stan węzła stanie się bezużyteczny. Aby zdiagnozować błąd konfiguracji instalacji, zbadaj [`ComputeNodeError`](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) właściwość w celu uzyskania szczegółowych informacji o błędzie.
+Jeśli konfiguracja instalacji nie powiedzie się, węzeł obliczeniowy w puli zakończy się niepowodzeniem, a stan węzła stanie się bezużyteczny. Aby zdiagnozować błąd konfiguracji instalacji, zbadaj [`ComputeNodeError`](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) Właściwość w celu uzyskania szczegółowych informacji o błędzie.
 
-Aby pobrać pliki dziennika do debugowania, użyj [OutputFiles](batch-task-output-files.md) do przekazania `*.log` plików. `*.log` Pliki zawierają informacje o instalacji systemu plików w `AZ_BATCH_NODE_MOUNTS_DIR` lokalizacji. Pliki dziennika instalacji mają format: `<type>-<mountDirOrDrive>.log` dla każdej instalacji. Na przykład `cifs` instalacja w katalogu instalacji o nazwie `test` będzie miała plik dziennika instalacji o nazwie:. `cifs-test.log`
+Aby pobrać pliki dziennika do debugowania, użyj [OutputFiles](batch-task-output-files.md) do przekazania `*.log` plików. `*.log`Pliki zawierają informacje o instalacji systemu plików w `AZ_BATCH_NODE_MOUNTS_DIR` lokalizacji. Pliki dziennika instalacji mają format: `<type>-<mountDirOrDrive>.log` dla każdej instalacji. Na przykład `cifs` Instalacja w katalogu instalacji o nazwie `test` będzie miała plik dziennika instalacji o nazwie: `cifs-test.log` .
 
 ## <a name="supported-skus"></a>Obsługiwane jednostki SKU
 
-| Wydawca | Oferta | SKU | Udział Azure Files | Blobfuse | Instalacja systemu plików NFS | Instalacja CIFS |
+| Publisher | Oferta | SKU | Udział Azure Files | Blobfuse | Instalacja systemu plików NFS | Instalacja CIFS |
 |---|---|---|---|---|---|---|
 | partia | Renderowanie — centos73 | dawania | :heavy_check_mark: <br>Uwaga: zgodność z CentOS 7,7</br>| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Canonical | UbuntuServer | 16,04 – LTS, 18,04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |

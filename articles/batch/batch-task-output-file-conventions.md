@@ -1,15 +1,15 @@
 ---
-title: Utrwalanie danych wyjściowych w usłudze Azure Storage za pomocą biblioteki Konwencji plików platformy .NET — Azure Batch
+title: Utrwalanie danych wyjściowych w usłudze Azure Storage za pomocą biblioteki Konwencji plików platformy .NET
 description: Dowiedz się, jak używać biblioteki Konwencji plików Azure Batch dla platformy .NET, aby utrwalać zadanie wsadowe & dane wyjściowe zadania do usługi Azure Storage, a następnie wyświetlać te dane wyjściowe w Azure Portal.
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/14/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d7988ef4339280bd729cc1acaa1b7fb2c33b6b9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d8dea7f503536a4eb2b0c36db7b3d35b70eb8a67
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82232704"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726336"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Utrwalanie danych zadań i zadań w usłudze Azure Storage za pomocą biblioteki Konwencji plików wsadowych dla platformy .NET
 
@@ -64,7 +64,7 @@ Aby uzyskać więcej informacji na temat pracy z kontenerami i obiektami BLOB w 
 
 Aby zachować dane wyjściowe zadania do usługi Azure Storage, należy najpierw utworzyć kontener przez wywołanie [CloudJob][net_cloudjob]. [PrepareOutputStorageAsync][net_prepareoutputasync]. Ta metoda rozszerzenia przyjmuje obiekt [CloudStorageAccount][net_cloudstorageaccount] jako parametr. Tworzy kontener o nazwie zgodnej ze standardem Konwencji plików, dzięki czemu jego zawartość jest wykrywalna przez Azure Portal i metody pobierania omówione w dalszej części artykułu.
 
-Zwykle umieszczasz kod w celu utworzenia kontenera w aplikacji &mdash; klienckiej aplikacji, która tworzy pule, zadania i zadania.
+Zwykle umieszczasz kod w celu utworzenia kontenera w aplikacji klienckiej &mdash; aplikacji, która tworzy pule, zadania i zadania.
 
 ```csharp
 CloudJob job = batchClient.JobOperations.CreateJob(
@@ -99,7 +99,7 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskOutput, "frame_full_res.jpg
 await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg");
 ```
 
-`kind` Parametr [TaskOutputStorage](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage). Metoda [SaveAsync](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync#overloads) klasyfikuje utrwalone pliki. Istnieją cztery wstępnie zdefiniowane typy [TaskOutputKind][net_taskoutputkind] : `TaskOutput`, `TaskPreview`, `TaskLog`, i `TaskIntermediate.` można także definiować niestandardowe kategorie danych wyjściowych.
+`kind`Parametr [TaskOutputStorage](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage).[ Metoda SaveAsync](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync#overloads) klasyfikuje utrwalone pliki. Istnieją cztery wstępnie zdefiniowane typy [TaskOutputKind][net_taskoutputkind] : `TaskOutput` , `TaskPreview` ,, `TaskLog` i `TaskIntermediate.` można także definiować niestandardowe kategorie danych wyjściowych.
 
 Te typy wyjściowe umożliwiają określenie typu danych wyjściowych do wyświetlenia podczas późniejszej kwerendy partii dla utrwalonych danych wyjściowych danego zadania. Innymi słowy, gdy wyświetlasz listę danych wyjściowych dla zadania, możesz filtrować listę na jednym z typów wyjściowych. Na przykład "Nadaj mi *Podgląd* danych wyjściowych dla zadania *109*". Więcej informacji na temat wyświetlania i pobierania danych wyjściowych znajduje się w dalszej części artykułu.
 
@@ -124,7 +124,7 @@ Podobnie jak w przypadku typu **TaskOutputKind** dla danych wyjściowych zadania
 
 ### <a name="store-task-logs"></a>Przechowuj dzienniki zadań
 
-Oprócz utrwalania plików w trwałej pamięci masowej po zakończeniu zadania lub zadania, może być konieczne utrwalenie plików, które są aktualizowane podczas wykonywania plików dziennika zadań &mdash; lub `stdout.txt` `stderr.txt`na przykład. W tym celu Biblioteka Konwencji plików Azure Batch udostępnia [TaskOutputStorage][net_taskoutputstorage]. [SaveTrackedAsync][net_savetrackedasync] . Za pomocą [SaveTrackedAsync][net_savetrackedasync]można śledzić aktualizacje pliku w węźle (w określonym interwale) i zachować te aktualizacje w usłudze Azure Storage.
+Oprócz utrwalania plików w trwałej pamięci masowej po zakończeniu zadania lub zadania, może być konieczne utrwalenie plików, które są aktualizowane podczas wykonywania &mdash; plików dziennika zadań lub `stdout.txt` `stderr.txt` na przykład. W tym celu Biblioteka Konwencji plików Azure Batch udostępnia [TaskOutputStorage][net_taskoutputstorage]. [SaveTrackedAsync][net_savetrackedasync] . Za pomocą [SaveTrackedAsync][net_savetrackedasync]można śledzić aktualizacje pliku w węźle (w określonym interwale) i zachować te aktualizacje w usłudze Azure Storage.
 
 W poniższym fragmencie kodu używamy [SaveTrackedAsync][net_savetrackedasync] do aktualizacji `stdout.txt` usługi Azure Storage co 15 sekund podczas wykonywania zadania:
 
@@ -151,9 +151,9 @@ using (ITrackedSaveOperation stdout =
 }
 ```
 
-Sekcja `Code to process data and produce output file(s)` z komentarzem jest symbolem zastępczym dla kodu, który zwykle wykonuje zadanie. Przykładowo może być kod, który pobiera dane z usługi Azure Storage i wykonuje transformację lub obliczenie. Ważna część tego fragmentu kodu przedstawia sposób, w jaki można otoczyć ten kod w `using` bloku, aby okresowo aktualizować plik za pomocą [SaveTrackedAsync][net_savetrackedasync].
+Sekcja z komentarzem `Code to process data and produce output file(s)` jest symbolem zastępczym dla kodu, który zwykle wykonuje zadanie. Przykładowo może być kod, który pobiera dane z usługi Azure Storage i wykonuje transformację lub obliczenie. Ważna część tego fragmentu kodu przedstawia sposób, w jaki można otoczyć ten kod w `using` bloku, aby okresowo aktualizować plik za pomocą [SaveTrackedAsync][net_savetrackedasync].
 
-Agent węzła jest programem uruchamianym w każdym węźle w puli i udostępnia interfejs poleceń i kontroli między węzłem a usługą Batch. `Task.Delay` Wywołanie jest wymagane na końcu tego `using` bloku, aby upewnić się, że Agent węzła ma czas, aby opróżnić zawartość Standard do pliku stdout. txt w węźle. Bez tego opóźnienia można pominąć ostatnie kilka sekund danych wyjściowych. To opóźnienie może nie być wymagane dla wszystkich plików.
+Agent węzła jest programem uruchamianym w każdym węźle w puli i udostępnia interfejs poleceń i kontroli między węzłem a usługą Batch. `Task.Delay`Wywołanie jest wymagane na końcu tego `using` bloku, aby upewnić się, że Agent węzła ma czas, aby opróżnić zawartość Standard do pliku stdout. txt w węźle. Bez tego opóźnienia można pominąć ostatnie kilka sekund danych wyjściowych. To opóźnienie może nie być wymagane dla wszystkich plików.
 
 > [!NOTE]
 > Po włączeniu śledzenia plików przy użyciu usługi **SaveTrackedAsync**tylko *dołączanie* do śledzonego pliku są utrwalane w usłudze Azure Storage. Tej metody należy używać tylko do śledzenia plików dziennika nieobracania lub innych plików, które są zapisywane przy użyciu operacji dołączania na końcu pliku.

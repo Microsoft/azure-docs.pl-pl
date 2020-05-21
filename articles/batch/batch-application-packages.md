@@ -1,15 +1,15 @@
 ---
-title: Zainstaluj pakiety aplikacji w węzłach obliczeniowych
+title: Wdróż pakiety aplikacji w węzłach obliczeniowych
 description: Funkcja pakietów aplikacji programu Azure Batch umożliwia łatwe zarządzanie wieloma aplikacjami i wersjami do zainstalowania w węzłach obliczeniowych usługi Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/26/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7824d3e2d8cfb7b52041e59a9007688c4ef1cafa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 61e94ade21d8dd6fad2ba10dff87d4ba10333e3a
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115622"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726880"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Wdrażanie aplikacji w węzłach obliczeniowych za pomocą pakietów aplikacji wsadowych
 
@@ -123,7 +123,7 @@ W szczegółach aplikacji można skonfigurować następujące ustawienia dla apl
 ### <a name="add-a-new-application"></a>Dodaj nową aplikację
 Aby utworzyć nową aplikację, Dodaj pakiet aplikacji i określ nowy, unikatowy identyfikator aplikacji. Pierwszy pakiet aplikacji dodany wraz z nowym IDENTYFIKATORem aplikacji również tworzy nową aplikację.
 
-Kliknij pozycję **aplikacje** > **Dodaj**.
+Kliknij pozycję **aplikacje**  >  **Dodaj**.
 
 ![Blok nowej aplikacji w Azure Portal][5]
 
@@ -159,7 +159,7 @@ Po wybraniu pliku kliknij przycisk **OK** , aby rozpocząć przekazywanie do us�
 > 
 
 ### <a name="add-a-new-application-package"></a>Dodaj nowy pakiet aplikacji
-Aby dodać wersję pakietu aplikacji dla istniejącej aplikacji, wybierz aplikację w oknach **aplikacje** , a następnie kliknij pozycję **pakiety** > **Dodaj**.
+Aby dodać wersję pakietu aplikacji dla istniejącej aplikacji, wybierz aplikację w oknach **aplikacje** , a następnie kliknij pozycję **pakiety**  >  **Dodaj**.
 
 ![Dodaj blok pakietu aplikacji w Azure Portal][8]
 
@@ -248,7 +248,7 @@ Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-W węzłach systemu Linux format jest nieco inny. Kropki (.), łączniki (-) i znaki liczbowe (#) są spłaszczone do podkreślenia w zmiennej środowiskowej. Należy również pamiętać, że sprawa identyfikatora aplikacji jest zachowywana. Przykład:
+W węzłach systemu Linux format jest nieco inny. Kropki (.), łączniki (-) i znaki liczbowe (#) są spłaszczone do podkreślenia w zmiennej środowiskowej. Należy również pamiętać, że sprawa identyfikatora aplikacji jest zachowywana. Na przykład:
 
 ```
 Linux:

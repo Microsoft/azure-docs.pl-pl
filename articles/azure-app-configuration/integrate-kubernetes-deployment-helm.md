@@ -8,12 +8,12 @@ ms.service: azure-app-configuration
 ms.topic: tutorial
 ms.date: 04/14/2020
 ms.author: shuawan
-ms.openlocfilehash: 2aebccdf18aaba345beb344a8b6fc3b37754a4a1
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: aac42e6f782ac1e939ff955c5811238f99e703eb
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793617"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725673"
 ---
 # <a name="integrate-with-kubernetes-deployment-using-helm"></a>Integracja z wdrażaniem Kubernetes przy użyciu usługi Helm
 
@@ -23,7 +23,7 @@ W trakcie procesu zwalniania program Helm Scala wykres z odpowiednią konfigurac
 
 Wartości przechowywane w *wartościach. YAML* można zastąpić przez udostępnienie dodatkowych YAML plików konfiguracji w wierszu polecenia podczas uruchamiania Helm. Konfiguracja aplikacji platformy Azure obsługuje eksportowanie wartości konfiguracji do plików YAML. Integracja tej możliwości eksportu z wdrożeniem umożliwia aplikacjom Kubernetes korzystanie z wartości konfiguracyjnych przechowywanych w konfiguracji aplikacji.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 > [!div class="checklist"]
 > * Użyj wartości z konfiguracji aplikacji podczas wdrażania aplikacji do Kubernetes przy użyciu Helm.
 > * Utwórz wpis tajny Kubernetes na podstawie odwołania Key Vault w konfiguracji aplikacji.
@@ -41,7 +41,7 @@ W tym samouczku założono podstawowe informacje dotyczące zarządzania Kuberne
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Wybierz pozycję **Eksplorator** > konfiguracji**Utwórz** , aby dodać następujące pary klucz-wartość:
+6. Wybierz pozycję **Eksplorator konfiguracji**  >  **Utwórz** , aby dodać następujące pary klucz-wartość:
 
     | Klucz | Wartość |
     |---|---|
@@ -56,7 +56,7 @@ W tym samouczku założono podstawowe informacje dotyczące zarządzania Kuberne
 
 3. Wybierz pozycję **Eksplorator konfiguracji**.
 
-4. Wybierz pozycję **+ Utwórz** > **odwołanie do magazynu kluczy**, a następnie określ następujące wartości:
+4. Wybierz pozycję **+ Utwórz**  >  **odwołanie do magazynu kluczy**, a następnie określ następujące wartości:
     - **Klucz**: wybierz pozycję Secret **. Password**.
     - **Etykieta**: pozostaw tę wartość pustą.
     - **Subskrypcja**, **Grupa zasobów**i **Magazyn kluczy**: wprowadź wartości odpowiadające tym w magazynie kluczy utworzonym w poprzednim kroku.
@@ -169,7 +169,7 @@ metadata:
   name: mysecret
 type: Opaque
 data:
-  password: {{ .Values.secrets.password }}
+  password: {{ .Values.secrets.password | b64enc }}
 ```
 
 Na koniec Zaktualizuj plik *Values. YAML* o następującej zawartości, aby opcjonalnie podać wartości domyślne ustawień konfiguracji i wpisów tajnych, do których odwołuje się plik *Deployment. YAML* i Secret *. YAML* . Ich rzeczywiste wartości zostaną zastąpione konfiguracją pobieraną z konfiguracji aplikacji.
@@ -233,7 +233,7 @@ Jeden wpis tajny, **hasło**, sklepy jako odwołanie Key Vault w konfiguracji ap
 
 ![Lokalne uruchamianie aplikacji z przewodnika Szybki start](./media/kubernetes-dashboard-secrets.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

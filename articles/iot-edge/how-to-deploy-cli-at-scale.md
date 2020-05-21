@@ -9,12 +9,12 @@ ms.date: 4/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ff6bb9e4d4e40c02b52f35bd56bf065a8804a43a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a7bb2cc23374110d447ec7526ada75f7e36a966e
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82134379"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726166"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Wdrażanie i monitorowanie modułów IoT Edge na dużą skalę przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -148,7 +148,7 @@ Poniżej przedstawiono podstawowy manifest wdrożenia warstwowego z jednym modu�
 }
 ```
 
-W poprzednim przykładzie pokazano ustawienie wdrożenia warstwowego `properties.desired` dla modułu. Jeśli to wdrożenie warstwowe nadano urządzeniu, w którym już zastosowano ten sam moduł, spowoduje to zastąpienie wszelkich istniejących żądanych właściwości. Aby można było zaktualizować zamiast zastępować odpowiednie właściwości, możesz zdefiniować nową podsekcję. Przykład:
+W poprzednim przykładzie pokazano ustawienie wdrożenia warstwowego `properties.desired` dla modułu. Jeśli to wdrożenie warstwowe nadano urządzeniu, w którym już zastosowano ten sam moduł, spowoduje to zastąpienie wszelkich istniejących żądanych właściwości. Aby można było zaktualizować zamiast zastępować odpowiednie właściwości, możesz zdefiniować nową podsekcję. Na przykład:
 
 ```json
 "SimulatedTEmperatureSensor": {
@@ -182,7 +182,7 @@ Aby uzyskać więcej informacji na temat bliźniaczych reprezentacji i tagów ur
 
 Wdrażasz moduły na urządzeniach docelowych, tworząc wdrożenie, które składa się z manifestu wdrożenia, a także innych parametrów.
 
-Użyj polecenia [AZ IoT Edge Deployment Create](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-create) , aby utworzyć wdrożenie:
+Użyj polecenia [AZ IoT Edge Deployment Create](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-create) , aby utworzyć wdrożenie:
 
 ```cli
 az iot edge deployment create --deployment-id [deployment id] --hub-name [hub name] --content [file path] --labels "[labels]" --target-condition "[target query]" --priority [int]
@@ -193,7 +193,7 @@ Użyj tego samego polecenia z `--layered` flagą, aby utworzyć wdrożenie warst
 Polecenie wdrożenia Create przyjmuje następujące parametry:
 
 * **--warstwowy** — opcjonalna flaga identyfikująca wdrożenie jako wdrożenie warstwowe.
-* **--Deployment-ID** — nazwa wdrożenia, które zostanie utworzone w usłudze IoT Hub. Nadaj wdrożenie unikatową nazwę, która jest maksymalnie 128 małymi literami. Unikaj spacji i następujących nieprawidłowych `& ^ [ ] { } \ | " < > /`znaków:. Parametr wymagany.
+* **--Deployment-ID** — nazwa wdrożenia, które zostanie utworzone w usłudze IoT Hub. Nadaj wdrożenie unikatową nazwę, która jest maksymalnie 128 małymi literami. Unikaj spacji i następujących nieprawidłowych znaków: `& ^ [ ] { } \ | " < > /` . Parametr wymagany.
 * **--Content** -FilePath do pliku JSON manifestu wdrożenia. Parametr wymagany.
 * **--Hub-Name** -Name Centrum IoT, w którym zostanie utworzone wdrożenie. Centrum musi znajdować się w bieżącej subskrypcji. Zmień bieżącą subskrypcję za pomocą `az account set -s [subscription name]` polecenia.
 * **--etykiety** — Dodawanie etykiet w celu ułatwienia śledzenia wdrożeń. Etykiety to nazwy i pary wartości opisujące wdrożenie. Etykiety przyjmują formatowanie JSON dla nazw i wartości. Na przykład: `{"HostPlatform":"Linux", "Version:"3.0.1"}`
@@ -215,7 +215,7 @@ W przypadku zaktualizowania warunku docelowego następujące aktualizacje są wy
 
 Nie można zaktualizować zawartości wdrożenia, w tym modułów i tras zdefiniowanych w manifeście wdrożenia. Aby zaktualizować zawartość wdrożenia, należy utworzyć nowe wdrożenie, które jest przeznaczone dla tych samych urządzeń o wyższym priorytecie. Można modyfikować pewne właściwości istniejącego modułu, w tym warunek docelowy, etykiety, metryki i priorytet.
 
-Użyj polecenia [AZ IoT Edge Deployment Update](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-update) , aby zaktualizować wdrożenie:
+Użyj polecenia [AZ IoT Edge Deployment Update](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-update) , aby zaktualizować wdrożenie:
 
 ```cli
 az iot edge deployment update --deployment-id [deployment id] --hub-name [hub name] --set [property1.property2='value']
@@ -236,7 +236,7 @@ Polecenie aktualizacji wdrożenia przyjmuje następujące parametry:
 
 Po usunięciu wdrożenia wszystkie urządzenia przyjmą kolejne wdrożenie o najwyższym priorytecie. Jeśli urządzenia nie spełniają warunku docelowego innego wdrożenia, moduły nie zostaną usunięte po usunięciu wdrożenia.
 
-Użyj polecenia [AZ IoT Edge Deployment Delete](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-delete) , aby usunąć wdrożenie:
+Użyj polecenia [AZ IoT Edge Deployment Delete](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-delete) , aby usunąć wdrożenie:
 
 ```cli
 az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub name]

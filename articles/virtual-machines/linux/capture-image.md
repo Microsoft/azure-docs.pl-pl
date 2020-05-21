@@ -8,16 +8,18 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: 70282879b64054d48d904b5ada9284f844448851
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 54f82d0ba4b0c5de0b4e373416857d670d4bba53
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792687"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723310"
 ---
 # <a name="how-to-create-a-managed-image-of-a-virtual-machine-or-vhd"></a>Jak utworzyć zarządzany obraz maszyny wirtualnej lub wirtualnego dysku twardego
 
 Aby utworzyć wiele kopii maszyny wirtualnej do użycia na platformie Azure na potrzeby tworzenia i testowania, Przechwyć zarządzany obraz maszyny wirtualnej lub wirtualnego dysku twardego systemu operacyjnego. Aby tworzyć, przechowywać i udostępniać obrazy na dużą skalę, zobacz [udostępnione Galerie obrazów](../shared-images-cli.md).
+
+Jeden zarządzany obraz obsługuje maksymalnie 20 równoczesnych wdrożeń. Próba utworzenia więcej niż 20 maszyn wirtualnych współbieżnie z tego samego obrazu zarządzanego może spowodować przekroczenie limitu czasu oczekiwania z ograniczeniami wydajności magazynu pojedynczego wirtualnego dysku twardego. Aby jednocześnie utworzyć więcej niż 20 maszyn wirtualnych, Użyj obrazu [udostępnionego galerii obrazów](shared-image-galleries.md) skonfigurowanego z 1 repliką dla każdego 20 współbieżnych wdrożeń maszyn wirtualnych.
 
 Aby utworzyć obraz zarządzany, należy usunąć informacje o koncie osobistym. W poniższych krokach wycofasz obsługę istniejącej maszyny wirtualnej, zwolnisz ją i utworzysz obraz. Ten obraz służy do tworzenia maszyn wirtualnych w ramach dowolnej grupy zasobów w ramach subskrypcji.
 
@@ -37,7 +39,7 @@ Aby uzyskać uproszczoną wersję tego artykułu oraz testowanie, ocenianie lub 
 
 
 ## <a name="step-1-deprovision-the-vm"></a>Krok 1. Anulowanie aprowizacji maszyny wirtualnej
-Najpierw należy anulować obsługę administracyjną maszyny wirtualnej przy użyciu agenta maszyny wirtualnej platformy Azure w celu usunięcia plików i danych specyficznych dla maszyny. Użyj `waagent` polecenia z `-deprovision+user` parametrem na źródłowej maszynie wirtualnej z systemem Linux. Aby uzyskać więcej informacji, zobacz [Przewodnik użytkownika Agenta platformy Azure dla systemu Linux](../extensions/agent-linux.md).
+Najpierw należy anulować obsługę administracyjną maszyny wirtualnej przy użyciu agenta maszyny wirtualnej platformy Azure w celu usunięcia plików i danych specyficznych dla maszyny. Użyj `waagent` polecenia z `-deprovision+user` parametrem na ŹRÓDŁOWEJ maszynie wirtualnej z systemem Linux. Aby uzyskać więcej informacji, zobacz [Przewodnik użytkownika Agenta platformy Azure dla systemu Linux](../extensions/agent-linux.md).
 
 1. Nawiązywanie połączenia z maszyną wirtualną z systemem Linux przy użyciu klienta SSH.
 2. W oknie SSH wprowadź następujące polecenie:
@@ -46,9 +48,9 @@ Najpierw należy anulować obsługę administracyjną maszyny wirtualnej przy u�
     sudo waagent -deprovision+user
     ```
    > [!NOTE]
-   > To polecenie można uruchomić tylko na maszynie wirtualnej, która zostanie przechwycona jako obraz. To polecenie nie gwarantuje, że obraz jest czyszczony dla wszystkich poufnych informacji lub jest odpowiedni do ponownej dystrybucji. Ten `+user` parametr usuwa także ostatnio zainicjowane konto użytkownika. Aby zachować poświadczenia konta użytkownika na maszynie wirtualnej, użyj tylko `-deprovision`.
+   > To polecenie można uruchomić tylko na maszynie wirtualnej, która zostanie przechwycona jako obraz. To polecenie nie gwarantuje, że obraz jest czyszczony dla wszystkich poufnych informacji lub jest odpowiedni do ponownej dystrybucji. Ten `+user` parametr usuwa także ostatnio zainicjowane konto użytkownika. Aby zachować poświadczenia konta użytkownika na maszynie wirtualnej, użyj tylko `-deprovision` .
  
-3. Wprowadź **y** , aby kontynuować. Można dodać `-force` parametr, aby uniknąć tego kroku potwierdzenia.
+3. Wprowadź **y** , aby kontynuować. Można dodać parametr, `-force` Aby uniknąć tego kroku potwierdzenia.
 4. Po zakończeniu wykonywania polecenia wpisz **Exit** , aby zamknąć klienta SSH.  Maszyna wirtualna będzie nadal działać w tym momencie.
 
 ## <a name="step-2-create-vm-image"></a>Krok 2. Tworzenie obrazu maszyny wirtualnej

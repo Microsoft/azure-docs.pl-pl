@@ -6,13 +6,13 @@ ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
-ms.topic: conceptual
-ms.openlocfilehash: 497f3b3b42d98c08b06744eaa976ae188443b90d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: dcb9d43b228428379414ca5d7688cff709a9959e
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115673"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726421"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>Opcje przenoszenia magazynu i danych na potrzeby renderowania zasobów i plików wyjściowych
 

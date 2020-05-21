@@ -1,14 +1,14 @@
 ---
 title: Monitorowanie partii przy użyciu usługi Azure Application Insights
 description: Dowiedz się, jak instrumentować Azure Batch aplikację .NET przy użyciu biblioteki Application Insights platformy Azure.
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/05/2018
-ms.openlocfilehash: ca8cde9b1838239a79ebca4efe43d9e619f80f12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b6817ad1303e6039ebfe5fe5ae6101b9bc192eb4
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115469"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723616"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Monitorowanie i debugowanie Azure Batch aplikacji .NET z Application Insights
 
@@ -215,7 +215,7 @@ foreach (string aiFile in AIFilesToUpload)
 ...
 ```
 
-`FileToStage` Metoda jest funkcją pomocnika w przykładowym kodzie, która umożliwia łatwe przekazywanie pliku z dysku lokalnego do obiektu BLOB usługi Azure Storage. Każdy plik jest później pobierany do węzła obliczeniowego i przywoływany przez zadanie.
+`FileToStage`Metoda jest funkcją pomocnika w przykładowym kodzie, która umożliwia łatwe przekazywanie pliku z dysku lokalnego do obiektu BLOB usługi Azure Storage. Każdy plik jest później pobierany do węzła obliczeniowego i przywoływany przez zadanie.
 
 Na koniec Dodaj zadania do zadania i Uwzględnij niezbędne Application Insights pliki binarne.
 ```csharp
@@ -280,13 +280,13 @@ Na poniższych zrzutach ekranu przedstawiono sposób, w jaki Application Insight
 Metryki niestandardowe są również cennym narzędziem w portalu. Można na przykład wyświetlić średni czas, jaki zajęł każdy węzeł obliczeniowy do pobrania wymaganego pliku tekstowego, który został przetworzony.
 
 Aby utworzyć przykładowy wykres:
-1. W zasobie Application Insights kliknij pozycję **Eksplorator metryk** > **Dodaj wykres**.
+1. W zasobie Application Insights kliknij pozycję **Eksplorator metryk**  >  **Dodaj wykres**.
 2. Kliknij pozycję **Edytuj** na wykresie, który został dodany.
 2. Zaktualizuj szczegóły wykresu w następujący sposób:
    * Ustaw **Typ wykresu** na **siatkę**.
    * Ustaw **agregację** na wartość **średnia**.
    * Ustaw wartość **Group by** na **NodeId**.
-   * W obszarze **metryki**wybierz pozycję **niestandardowa** > **pobieranie obiektów BLOB w sekundach**.
+   * W obszarze **metryki**wybierz pozycję **niestandardowa**  >  **pobieranie obiektów BLOB w sekundach**.
    * Dostosuj wyświetlaną **paletę kolorów** do wybranej opcji. 
 
 ![Czas pobierania obiektów BLOB na węzeł](./media/monitor-application-insights/blobdownloadtime.png)

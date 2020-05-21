@@ -2,14 +2,14 @@
 title: Samouczek — korzystanie z biblioteki klienta Azure Batch dla środowiska Node. js
 description: Podstawowe pojęcia dotyczące usługi Azure Batch i tworzenie prostego rozwiązania przy użyciu języka Node.js.
 ms.assetid: ''
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 05/22/2017
-ms.openlocfilehash: ccf0778938c873a5510f1408bf31d95c9d6ee873
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 57b411e3c9c96aab31e85c4022a5954f7215cf02
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116863"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83724211"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Wprowadzenie do zestawu SDK usługi Batch dla środowiska Node.js
 
@@ -60,7 +60,7 @@ To polecenie instaluje najnowszą wersję zestawu Node SDK usługi Azure Batch.
 
 ### <a name="step-2-create-an-azure-batch-account"></a>Krok 2. Tworzenie konta usługi Azure Batch
 
-Można go utworzyć za pomocą [Azure Portal](batch-account-create-portal.md) lub z wiersza polecenia ([PowerShell](batch-powershell-cmdlets-get-started.md) /[platformy Azure](/cli/azure)).
+Można go utworzyć za pomocą [Azure Portal](batch-account-create-portal.md) lub z wiersza polecenia ([PowerShell](batch-powershell-cmdlets-get-started.md)  / [platformy Azure](/cli/azure)).
 
 Poniżej przedstawiono polecenia, które umożliwiają utworzenie konta za pomocą interfejsu wiersza polecenia platformy Azure.
 

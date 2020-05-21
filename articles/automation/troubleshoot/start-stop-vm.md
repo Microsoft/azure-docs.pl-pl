@@ -1,6 +1,6 @@
 ---
-title: Rozwiązywanie problemów z wdrażaniem Start/Stop VMs during off-hours Azure Automation
-description: W tym artykule opisano sposób rozwiązywania problemów związanych z wdrażaniem i rozwiązywania w nich funkcji Start/Stop VMs during off-hours.
+title: Rozwiązywanie problemów dotyczących Start/Stop VMs during off-hours Azure Automation
+description: Ten artykuł zawiera informacje na temat rozwiązywania problemów i rozwiązywania związanych z tą funkcją Start/Stop VMs during off-hours funkcji.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,14 +9,14 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bd537fd943e9a13a59c2fa630235130ce9ccfe2d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 53a7e113d64ea4cf7018d51a44f9488342f1470f
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680849"
+ms.locfileid: "83715634"
 ---
-# <a name="troubleshoot-startstop-vms-during-off-hours-deployment-issues"></a>Rozwiązywanie problemów z wdrażaniem Start/Stop VMs during off-hours
+# <a name="troubleshoot-startstop-vms-during-off-hours-issues"></a>Rozwiązywanie problemów dotyczących Start/Stop VMs during off-hours
 
 Ten artykuł zawiera informacje dotyczące rozwiązywania problemów, które pojawiają się podczas wdrażania funkcji Start/Stop VMs during off-hours Azure Automation na maszynach wirtualnych. 
 

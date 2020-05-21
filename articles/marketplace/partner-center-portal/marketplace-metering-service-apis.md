@@ -6,13 +6,13 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 07/11/2019
-ms.openlocfilehash: 159d2c60fc1fc5ad1f21f2b948208eaae0d06208
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.date: 05/18/2020
+ms.openlocfilehash: 95eba648219413923ce27d433a5236877c4953f3
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857872"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725469"
 ---
 # <a name="marketplace-metering-service-apis"></a>Interfejsy API usługi pomiaru w witrynie Marketplace
 
@@ -35,6 +35,9 @@ Interfejs API zdarzeń użycia umożliwia emitowanie zdarzeń użycia dla okreś
 | `x-ms-requestid`     | Unikatowa wartość ciągu służąca do śledzenia żądania od klienta, najlepiej identyfikatora GUID. Jeśli ta wartość nie zostanie podana, zostanie wygenerowana i podana w nagłówkach odpowiedzi. |
 | `x-ms-correlationid` | Unikatowa wartość ciągu dla operacji na kliencie. Ten parametr umożliwia skorelowanie wszystkich zdarzeń z operacji klienta ze zdarzeniami po stronie serwera. Jeśli ta wartość nie zostanie podana, zostanie wygenerowana i podana w nagłówkach odpowiedzi. |
 | `authorization`   | [Pobierz token okaziciela sieci Web JSON (JWT).](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) Uwaga: podczas wykonywania żądania HTTP, prefiks `Bearer` do tokenu uzyskany z przywoływanego linku. |
+
+>[!Note]
+>W przypadku planów aplikacji zarządzanych przez aplikacje platformy Azure `resourceId` jest to `resourceUsageId` znaleziono w obszarze `billingDetails` obiektu metadanych aplikacji zarządzanej.  Przykładowy skrypt do pobrania można znaleźć w temacie [using the Azure-Managed tożsamośćs token](./marketplace-metering-service-authentication.md#using-the-azure-managed-identities-token).  W przypadku ofert SaaS `resourceId` jest to identyfikator subskrypcji SaaS.  Aby uzyskać więcej informacji o subskrypcjach SaaS, zobacz [list subscriptions](./pc-saas-fulfillment-api-v2.md#list-subscriptions).
 
 *Żądając*
 
@@ -192,7 +195,7 @@ OK
 }
 ```
 
-Opis kodu stanu przywoływany `BatchUsageEvent` w odpowiedzi interfejsu API:
+Opis kodu stanu przywoływany w `BatchUsageEvent` odpowiedzi interfejsu API:
 
 | Kod stanu  | Opis |
 | ---------- | -------------------- |

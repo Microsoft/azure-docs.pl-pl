@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Łączenie klastra Kubernetes z obsługą usługi Azure ARC przy użyciu usługi Azure Arc
 keywords: Kubernetes, łuk, Azure, K8s, kontenery
-ms.openlocfilehash: 9b37ad264dc8a8a6c653c25ddf6ac0fcb4065f9b
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: dd4e03ac6bdf2e4554f07f2aa5ffca78b1ed1230
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680821"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725622"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Połącz klaster Kubernetes z obsługą usługi Azure ARC (wersja zapoznawcza)
 
@@ -169,7 +169,7 @@ AzureArcTest1  eastus      AzureArcTest
 Usługa Azure ARC z włączonym Kubernetes wdraża kilka operatorów w `azure-arc` przestrzeni nazw. Te wdrożenia i zasobniki można wyświetlić tutaj:
 
 ```console
-kubectl -n azure-arc get deploy,po
+kubectl -n azure-arc get deployments,pods
 ```
 
 **Rozdzielczości**
@@ -198,8 +198,13 @@ pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 
 Usługa Azure ARC z włączonym Kubernetes składa się z kilku agentów (operatorów) uruchomionych w klastrze wdrożonym w `azure-arc` przestrzeni nazw.
 
-* `deploy/config-agent`: Obserwujący połączony klaster dla zasobów konfiguracji kontroli źródła zastosowanych w klastrze i aktualizacji stanu zgodności
-* `deploy/controller-manager`: jest operatorem operatorów i organizuje interakcje między składnikami usługi Azure Arc
+* `deployment.apps/config-agent`: Obserwujący połączony klaster dla zasobów konfiguracji kontroli źródła zastosowanych w klastrze i aktualizacji stanu zgodności
+* `deployment.apps/controller-manager`: jest operatorem operatorów i organizuje interakcje między składnikami usługi Azure Arc
+* `deployment.apps/metrics-agent`: zbiera metryki innych agentów ARC, aby upewnić się, że te agenci wykazują optymalną wydajność
+* `deployment.apps/cluster-metadata-operator`: zbiera metadane klastra — wersję klastra, liczbę węzłów i wersję agenta Arc
+* `deployment.apps/resource-sync-agent`: synchronizuje powyższe metadane klastra z platformą Azure
+* `deployment.apps/clusteridentityoperator`: utrzymuje certyfikat tożsamości usługi zarządzanej (MSI) używany przez innych agentów do komunikacji z platformą Azure
+* `deployment.apps/flux-logs-agent`: zbiera dzienniki z operatorów strumienia wdrożonych w ramach konfiguracji kontroli źródła
 
 ## <a name="delete-a-connected-cluster"></a>Usuwanie połączonego klastra
 

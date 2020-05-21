@@ -1,15 +1,15 @@
 ---
 title: Uruchamianie zadań na koniec do końca przy użyciu szablonów
 description: Korzystając tylko z poleceń interfejsu wiersza polecenia, można utworzyć pulę, przekazać dane wejściowe, utworzyć zadania i skojarzone zadania i pobrać wynikowe dane wyjściowe.
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 634a0b66379d8c94988d5f974baffe475af94c2e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2b1a28c817e0b0aa8047cdd9952065862bda9b73
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117356"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726778"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Użyj Azure Batch szablonów interfejsu wiersza polecenia i transferu plików
 
@@ -61,7 +61,7 @@ Szablony Azure Batch są podobne do szablonów Azure Resource Manager, w funkcji
 
 -   **Parametry**
 
-    -   Zezwalaj na określenie wartości właściwości w sekcji treści, z uwzględnieniem tylko wartości parametrów, które mają być dostarczone, gdy szablon jest używany. Na przykład pełna definicja puli może być umieszczona w treści i tylko jeden parametr zdefiniowany dla `poolId`; w związku z tym należy podać tylko ciąg identyfikatora puli, aby utworzyć pulę.
+    -   Zezwalaj na określenie wartości właściwości w sekcji treści, z uwzględnieniem tylko wartości parametrów, które mają być dostarczone, gdy szablon jest używany. Na przykład pełna definicja puli może zostać umieszczona w treści i tylko jeden parametr zdefiniowany dla `poolId` ; w związku z tym należy podać tylko ciąg identyfikatora puli, aby utworzyć pulę.
         
     -   Treść szablonu może zostać utworzona przez kogoś z wiedzą na temat partii i aplikacji, które mają być uruchamiane przez program Batch; gdy szablon jest używany, należy podać tylko wartości parametrów zdefiniowanych przez autora. Użytkownik bez szczegółowej wiedzy o partiach i/lub aplikacji może korzystać z szablonów.
 
@@ -136,7 +136,7 @@ Jeśli plik szablonu ma nazwę _Pool-narzędzia FFmpeg. JSON_, a następnie Wywo
 az batch pool create --template pool-ffmpeg.json
 ```
 
-Interfejs wiersza polecenia poprosi o podanie wartości parametrów `poolId` i `nodeCount` . Możesz również podać parametry w pliku JSON. Przykład:
+Interfejs wiersza polecenia poprosi o podanie wartości `poolId` parametrów i `nodeCount` . Możesz również podać parametry w pliku JSON. Na przykład:
 
 ```json
 {
@@ -253,7 +253,7 @@ Szablon interfejsu wiersza polecenia w usłudze Batch można przekazać do aplik
 
 Aby przekazać szablon:
 
-1. W Batch Explorer wybierz kolejno pozycje **Galeria** > **lokalne szablony**.
+1. W Batch Explorer wybierz kolejno pozycje **Galeria**  >  **lokalne szablony**.
 
 2. Wybierz lub przeciągnij i upuść, lokalną pulę lub szablon zadania.
 

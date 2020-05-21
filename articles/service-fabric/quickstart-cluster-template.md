@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: edoyle
 ms.date: 04/24/2020
-ms.openlocfilehash: 60771d5a188df5dfeca3530a551a116c870e63f5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2db3dffbbf0f6d98fe6da7a0cec5400f7f2c03da
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82149333"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722460"
 ---
 # <a name="quickstart-create-a-service-fabric-cluster-using-resource-manager-template"></a>Szybki Start: Tworzenie klastra Service Fabric przy użyciu szablonu Menedżer zasobów
 
@@ -91,7 +91,7 @@ $certThumbprint = "<Certificate Thumbprint>"
 
 ### <a name="review-the-template"></a>Zapoznaj się z szablonem
 
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/service-fabric-secure-cluster-5-node-1-nodetype). Szablon tego artykułu jest zbyt długi, aby można go było wyświetlić w tym miejscu. Aby wyświetlić szablon, zobacz https://github.com/Azure/azure-quickstart-templates/blob/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json.
+Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/). Szablon tego artykułu jest zbyt długi, aby można go było wyświetlić w tym miejscu. Aby wyświetlić szablon, zobacz plik [azuredeploy. JSON](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/service-fabric-secure-cluster-5-node-1-nodetype/azuredeploy.json) .
 
 W szablonie zdefiniowano wiele zasobów platformy Azure:
 
@@ -111,9 +111,9 @@ Otwórz plik *azuredeploy. Parameters. JSON* i edytuj wartości parametrów, tak
 * wartość **ClusterName** pasuje do wartości podanej dla *CertDNSName* podczas tworzenia certyfikatu klastra
 * **adminUserName** jest wartością inną niż domyślny token *Gen-Unique*
 * **adminPassword** jest wartością inną niż domyślny token ogólnego *hasła*
-* **certificateThumbprint**, **sourceVaultResourceId**i **certificateUrlValue** są pustym ciągiem (`""`)
+* **certificateThumbprint**, **sourceVaultResourceId**i **certificateUrlValue** są pustym ciągiem ( `""` )
 
-Przykład:
+Na przykład:
 
 ```json
 {
@@ -170,7 +170,7 @@ Punkt końcowy Service Fabric Explorer można również znaleźć w bloku zasob�
 
 ![Blok zasobów Service Fabric pokazujący Service Fabric Explorer punkt końcowy](./media/quickstart-cluster-template/service-fabric-explorer-endpoint-azure-portal.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów nie będzie już konieczna, usuń ją, co spowoduje usunięcie zasobów z grupy zasobów.
 

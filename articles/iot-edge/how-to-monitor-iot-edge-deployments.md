@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cc7c1fd1dff85908c96e2fd7b2276df3d833e37f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 97bc3c8571793ec8c8b67fe0e7c5cb3b6a56fde4
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82134314"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726047"
 ---
 # <a name="monitor-iot-edge-deployments"></a>Monitorowanie wdrożeń IoT Edge
 
@@ -67,7 +67,7 @@ Aby wprowadzić zmiany do wdrożenia, zobacz [Modyfikowanie wdrożenia](how-to-d
 
 ## <a name="monitor-a-deployment-with-azure-cli"></a>Monitorowanie wdrożenia przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Użyj polecenia [az IoT Edge Deployment show](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-show) , aby wyświetlić szczegółowe informacje o pojedynczym wdrożeniu:
+Użyj polecenia [az IoT Edge Deployment show](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-show) , aby wyświetlić szczegółowe informacje o pojedynczym wdrożeniu:
 
 ```cli
 az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name]
@@ -85,7 +85,7 @@ Sprawdź wdrożenie w oknie poleceń.Właściwość **metryki** zawiera liczbę 
 * **reportedSuccessfulCount** — Metryka urządzenia, która określa liczbę IoT Edge urządzeń w ramach raportowania wdrożenia zakończonych powodzeniem z IoT Edge środowiska uruchomieniowego klienta.
 * **reportedFailedCount** — Metryka urządzenia, która określa liczbę IoT Edge urządzeń w przypadku niepowodzenia raportowania wdrożenia w środowisku uruchomieniowym klienta IoT Edge.
 
-Listę identyfikatorów urządzeń lub obiektów dla każdej z metryk można wyświetlić za pomocą polecenia [az IoT Edge Deployment show-Metric](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-edge-deployment-show-metric) :
+Listę identyfikatorów urządzeń lub obiektów dla każdej z metryk można wyświetlić za pomocą polecenia [az IoT Edge Deployment show-Metric](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-show-metric) :
 
 ```cli
 az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [metric id] --hub-name [hub name]
@@ -94,8 +94,8 @@ az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [
 Polecenie show Deployment-Metric pobiera następujące parametry:
 
 * **--Deployment-ID** — nazwa wdrożenia, która istnieje w usłudze IoT Hub.
-* **--Metric-ID** -Nazwa metryki, dla której chcesz zobaczyć listę identyfikatorów urządzeń, na przykład `reportedFailedCount`.
-* **--Hub-Name** -Name Centrum IoT, w którym istnieje wdrożenie. Centrum musi znajdować się w bieżącej subskrypcji. Przejdź do żądanej subskrypcji za pomocą polecenia `az account set -s [subscription name]`.
+* **--Metric-ID** -Nazwa metryki, dla której chcesz zobaczyć listę identyfikatorów urządzeń, na przykład `reportedFailedCount` .
+* **--Hub-Name** -Name Centrum IoT, w którym istnieje wdrożenie. Centrum musi znajdować się w bieżącej subskrypcji. Przejdź do żądanej subskrypcji za pomocą polecenia `az account set -s [subscription name]` .
 
 Aby wprowadzić zmiany do wdrożenia, zobacz [Modyfikowanie wdrożenia](how-to-deploy-cli-at-scale.md#modify-a-deployment).
 

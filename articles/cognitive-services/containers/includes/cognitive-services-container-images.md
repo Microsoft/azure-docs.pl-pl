@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/24/2020
 ms.author: aahi
-ms.openlocfilehash: 9025e016725a966061c557f16b610d8897c04c11
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 6d47829d32ed0b7ded545c73748cda1019d94bde
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83590671"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83721409"
 ---
 ### <a name="container-repositories-and-images"></a>Repozytoria kontenerów i obrazy
 
@@ -62,7 +62,7 @@ Następujące kontenery w wersji zapoznawczej są dostępne publicznie. Microsof
 
 #### <a name="public-gated-preview-container-registry-containerpreviewazurecrio"></a>Public "Gated" (wersja zapoznawcza) (rejestr kontenerów: `containerpreview.azurecr.io` )
 
-Poniższe kontenery w wersji zapoznawczej są hostowane w rejestrze w wersji zapoznawczej kontenera i wymagają dostępu do aplikacji. Aby uzyskać więcej informacji, zobacz [Cognitive Services procesu kontroli](../../cognitive-services-gating-process.md) .
+Poniższe kontenery w wersji zapoznawczej są hostowane w rejestrze w wersji zapoznawczej kontenera i wymagają dostępu do aplikacji. Aby uzyskać więcej informacji, zobacz następujące artykuły dotyczące kontenerów.
 
 | Usługa | Kontener | Container Registry/repozytorium/nazwa obrazu |
 |--|--|--|

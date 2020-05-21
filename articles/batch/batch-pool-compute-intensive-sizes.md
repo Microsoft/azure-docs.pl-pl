@@ -1,19 +1,18 @@
 ---
 title: Używanie maszyn wirtualnych platformy Azure intensywnie korzystających z obliczeń przy użyciu usługi Batch
 description: Jak korzystać z systemu HPC i rozmiaru maszyny wirtualnej procesora GPU w pulach Azure Batch. Dowiedz się więcej o zależnościach systemu operacyjnego i zobacz kilka przykładów scenariusza.
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/17/2018
-ms.author: labrenne
-ms.openlocfilehash: 674ee6c5b96c7aaf2926b51824488d03fc56d0a6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 04e39678c77604bca4194bebc7968c5c43fb019c
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115962"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83724092"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Używanie wystąpień RDMA lub GPU w pulach wsadowym
 
-Do uruchamiania pewnych zadań wsadowych można korzystać z rozmiarów maszyn wirtualnych platformy Azure przeznaczonych do obliczeń na dużą skalę. Przykład:
+Do uruchamiania pewnych zadań wsadowych można korzystać z rozmiarów maszyn wirtualnych platformy Azure przeznaczonych do obliczeń na dużą skalę. Na przykład:
 
 * Aby uruchomić wiele wystąpień [obciążeń MPI](batch-mpi.md), wybierz serię H lub inne rozmiary, które mają interfejs sieciowy do zdalnego bezpośredniego dostępu do pamięci (RDMA). Rozmiary te łączą się z siecią InfiniBand w celu komunikacji między węzłami, co umożliwia przyspieszenie aplikacji MPI. 
 
@@ -101,12 +100,12 @@ Aby uruchamiać aplikacje CUDA w puli węzłów systemu Windows NC, należy zain
 | Ustawienie | Wartość |
 | ---- | ----- | 
 | **Typ obrazu** | Witryna Marketplace (Linux/Windows) |
-| **Wydawca** | MicrosoftWindowsServer |
+| **Publisher** | MicrosoftWindowsServer |
 | **Oferta** | WindowsServer |
 | **Magazyn** | 2016 — centrum danych |
 | **Rozmiar węzła** | Standard NC6 |
 | **Odwołania do pakietu aplikacji** | GPUDriver, wersja 411,82 |
-| **Uruchamianie zadania włączone** | Prawda<br>**Wiersz polecenia** - `cmd /c "%AZ_BATCH_APP_PACKAGE_GPUDriver#411.82%\\GPUDriverSetup.exe /s"`<br/>**Tożsamość użytkownika** — autoużytkownik puli, administrator<br/>**Oczekiwanie na powodzenie** — prawda
+| **Uruchamianie zadania włączone** | True<br>**Wiersz polecenia** - `cmd /c "%AZ_BATCH_APP_PACKAGE_GPUDriver#411.82%\\GPUDriverSetup.exe /s"`<br/>**Tożsamość użytkownika** — autoużytkownik puli, administrator<br/>**Oczekiwanie na powodzenie** — prawda
 
 ## <a name="example-nvidia-gpu-drivers-on-a-linux-nc-vm-pool"></a>Przykład: Sterowniki procesora GPU NVIDIA w puli maszyn wirtualnych z systemem Linux NC
 
@@ -143,7 +142,7 @@ Aby uruchamiać aplikacje MPI systemu Windows w puli węzłów maszyny wirtualne
 | **Obraz niestandardowy** | *Nazwa obrazu* |
 | **Jednostka SKU agenta węzła** | Batch. Node. Windows amd64 |
 | **Rozmiar węzła** | Standard H16r |
-| **Komunikacja między węzłami włączona** | Prawda |
+| **Komunikacja między węzłami włączona** | True |
 | **Maksymalna liczba zadań na węzeł** | 1 |
 
 ## <a name="example-intel-mpi-on-a-linux-h16r-vm-pool"></a>Przykład: Intel MPI w puli maszyn wirtualnych z systemem Linux H16r
@@ -155,11 +154,11 @@ Korzystając z interfejsów API usługi Batch lub Azure Portal, Utwórz pulę pr
 | Ustawienie | Wartość |
 | ---- | ---- |
 | **Typ obrazu** | Witryna Marketplace (Linux/Windows) |
-| **Wydawca** | OpenLogic |
+| **Publisher** | OpenLogic |
 | **Oferta** | CentOS — HPC |
 | **Magazyn** | 7.4 |
 | **Rozmiar węzła** | Standard H16r |
-| **Komunikacja między węzłami włączona** | Prawda |
+| **Komunikacja między węzłami włączona** | True |
 | **Maksymalna liczba zadań na węzeł** | 1 |
 
 ## <a name="next-steps"></a>Następne kroki

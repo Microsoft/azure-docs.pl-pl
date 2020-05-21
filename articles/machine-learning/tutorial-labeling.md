@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: d960c8225cbb22c221ecaec1b7c49b5bb20c1429
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a8136f8fe6431187884a180925234d6aab36983f
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203645"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725520"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Samouczek: Tworzenie projektu etykietowania dla wieloklasowej klasyfikacji obrazów 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -77,7 +77,7 @@ Magazyny danych Azure Machine Learning są używane do przechowywania informacji
 
 ### <a name="create-a-labeling-project"></a>Tworzenie projektu etykietowania
 
-Teraz, gdy masz listę etykiet i dostęp do danych, które mają mieć etykietę, Utwórz projekt etykietowania.
+Teraz, gdy masz dostęp do danych, które mają mieć etykietę, Utwórz projekt etykietowania.
 
 1. W górnej części strony wybierz pozycję **projekty**.
 
@@ -196,7 +196,7 @@ Etykiety obrazów można eksportować w [formacie Coco](http://cocodataset.org/#
 
 1. Po pomyślnym wyeksportowaniu etykiet wybierz pozycję **zestawy danych** po lewej stronie, aby wyświetlić wyniki.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]

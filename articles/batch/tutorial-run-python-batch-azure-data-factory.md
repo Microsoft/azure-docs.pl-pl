@@ -1,5 +1,5 @@
 ---
-title: Uruchamianie skryptów języka Python za poorednictwem środowiska Data Factory-Azure Batch Python
+title: Uruchamianie skryptów Python za Data Factory
 description: Samouczek — informacje o sposobie uruchamiania skryptów języka Python w ramach potoku za pośrednictwem Azure Data Factory przy użyciu Azure Batch.
 author: mammask
 ms.devlang: python
@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 12/11/2019
 ms.author: komammas
 ms.custom: mvc
-ms.openlocfilehash: 6761896a6555c11d7957f923a5951641c1541012
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 49f675a56247433ce92763a69045fb214c7c37dc
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82117067"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723072"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Samouczek: uruchamianie skryptów Python za pomocą Azure Data Factory przy użyciu Azure Batch
 
@@ -56,7 +56,7 @@ W tej sekcji użyjesz Batch Explorer do utworzenia puli usługi Batch, która b�
     1. Ustaw typ skali na **stały rozmiar**i ustaw liczbę węzłów dedykowanych na 2.
     1. W obszarze **nauka danych**wybierz pozycję **Dsvm systemu Windows** jako system operacyjny.
     1. Wybierz `Standard_f2s_v2` rozmiar maszyny wirtualnej.
-    1. Włącz zadanie uruchamiania i Dodaj polecenie `cmd /c "pip install pandas"`. Tożsamość użytkownika może pozostać jako domyślny **użytkownik puli**.
+    1. Włącz zadanie uruchamiania i Dodaj polecenie `cmd /c "pip install pandas"` . Tożsamość użytkownika może pozostać jako domyślny **użytkownik puli**.
     1. Wybierz przycisk **OK**.
 
 ## <a name="create-blob-containers"></a>Tworzenie kontenerów obiektów BLOB
@@ -65,8 +65,8 @@ Tutaj utworzysz kontenery obiektów blob, które będą przechowywać pliki wej�
 
 1. Zaloguj się, aby Eksplorator usługi Storage przy użyciu poświadczeń platformy Azure.
 1. Korzystając z konta magazynu połączonego z kontem usługi Batch, Utwórz dwa kontenery obiektów BLOB (jeden dla plików wejściowych, jeden dla plików wyjściowych), wykonując czynności opisane w [sekcji Tworzenie kontenera obiektów BLOB](../vs-azure-tools-storage-explorer-blobs.md#create-a-blob-container).
-    * W tym przykładzie wywołamy nasz kontener `input`wejściowy oraz nasz kontener `output`wyjściowy.
-1. Przekaż `main.py` i `iris.csv` do kontenera `input` wejściowego przy użyciu Eksplorator usługi Storage, wykonując czynności opisane w temacie [Zarządzanie obiektami BLOB w kontenerze obiektów BLOB](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container)
+    * W tym przykładzie wywołamy nasz kontener wejściowy `input` oraz nasz kontener wyjściowy `output` .
+1. Przekaż `main.py` i `iris.csv` do kontenera wejściowego `input` przy użyciu Eksplorator usługi Storage, wykonując czynności opisane w temacie [Zarządzanie obiektami BLOB w kontenerze obiektów BLOB](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container)
 
 
 ## <a name="develop-a-script-in-python"></a>Opracowywanie skryptu w języku Python
@@ -125,7 +125,7 @@ W tej sekcji utworzysz potok i zweryfikujesz go za pomocą skryptu języka Pytho
 
     ![](./media/run-python-batch-azure-data-factory/integrate-pipeline-with-azure-batch.png)
 
-1. Na karcie **Ustawienia** wprowadź polecenie `python main.py`.
+1. Na karcie **Ustawienia** wprowadź polecenie `python main.py` .
 1. W przypadku **połączonej usługi zasobów**Dodaj konto magazynu, które zostało utworzone w poprzednich krokach. Przetestuj połączenie, aby upewnić się, że zakończyło się pomyślnie.
 1. W **ścieżce folderu**wybierz nazwę kontenera **BLOB Storage platformy Azure** , który zawiera skrypt języka Python i skojarzone dane wejściowe. Spowoduje to pobranie wybranych plików z kontenera do wystąpień węzłów puli przed wykonaniem skryptu języka Python.
 
@@ -142,7 +142,7 @@ W tej sekcji utworzysz potok i zweryfikujesz go za pomocą skryptu języka Pytho
 W przypadku wygenerowania ostrzeżeń lub błędów przez wykonanie skryptu można wyewidencjonować `stdout.txt` lub `stderr.txt` uzyskać więcej informacji na temat danych wyjściowych, które zostały zarejestrowane.
 
 1. Wybierz pozycję **zadania** z lewej strony Batch Explorer.
-1. Wybierz zadanie utworzone przez fabrykę danych. Przy założeniu, że `custom-activity-pool`Nazwa puli `adfv2-custom-activity-pool`została wybrana, wybierz opcję.
+1. Wybierz zadanie utworzone przez fabrykę danych. Przy założeniu, że Nazwa puli została `custom-activity-pool` wybrana, wybierz opcję `adfv2-custom-activity-pool` .
 1. Kliknij zadanie, które miało kod zakończenia błędu.
 1. Wyświetl `stdout.txt` i `stderr.txt` Zbadaj swój problem.
 
@@ -153,6 +153,6 @@ W tym samouczku przedstawiono przykład, w którym pokazano, jak uruchamiać skr
 Aby dowiedzieć się więcej na temat Azure Data Factory, zobacz:
 
 > [!div class="nextstepaction"]
-> [Azure Data Factory](../data-factory/introduction.md)
-> [działań niestandardowych](../data-factory/transform-data-using-dotnet-custom-activity.md) [potoków i działań](../data-factory/concepts-pipelines-activities.md)
-> 
+> [Azure Data Factory](../data-factory/introduction.md) 
+>  [Potoki i działania](../data-factory/concepts-pipelines-activities.md) 
+>  [Działania niestandardowe](../data-factory/transform-data-using-dotnet-custom-activity.md)

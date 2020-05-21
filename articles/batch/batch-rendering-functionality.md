@@ -4,13 +4,13 @@ description: Standardowe możliwości Azure Batch są używane do uruchamiania r
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
-ms.topic: conceptual
-ms.openlocfilehash: 3efe1dfa69de5ce41aed2152baa88b313fd928f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: 867dfae570a1e2006b7eea568e3450050f485d9d
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115758"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726472"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Możliwości renderowania Azure Batch
 
@@ -28,7 +28,7 @@ Istnieje obraz systemu Windows 2016 i obraz CentOS.  W [portalu Azure Marketplac
 
 Aby zapoznać się z przykładową konfiguracją puli, zobacz [samouczek renderowania interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/batch/tutorial-rendering-cli).  Azure Portal i Batch Explorer udostępniają narzędzia graficznego interfejsu użytkownika, które umożliwiają wybranie renderowania obrazu maszyny wirtualnej podczas tworzenia puli.  W przypadku korzystania z interfejsu API usługi Batch określ następujące wartości właściwości [elementu imagereference](https://docs.microsoft.com/rest/api/batchservice/pool/add#imagereference) podczas tworzenia puli:
 
-| Wydawca | Oferta | SKU | Wersja |
+| Publisher | Oferta | SKU | Wersja |
 |---------|---------|---------|--------|
 | partia | Renderowanie — centos73 | dawania | najnowsza |
 | partia | Renderowanie — windows2016 | dawania | najnowsza |
@@ -46,15 +46,15 @@ Inne opcje są dostępne, jeśli na maszynach wirtualnych puli są wymagane doda
 
 W konfiguracji puli należy określić aplikacje, które będą używane i mieć opłatę licencyjną.
 
-* Określ `applicationLicenses` właściwość podczas [tworzenia puli](https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body).  Następujące wartości można określić w tablicy ciągów-"VRay", "Arnold", "3dsMax", "Maya".
+* Określ `applicationLicenses` Właściwość podczas [tworzenia puli](https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body).  Następujące wartości można określić w tablicy ciągów-"VRay", "Arnold", "3dsMax", "Maya".
 * Po określeniu jednej lub kilku aplikacji koszt tych aplikacji zostanie dodany do kosztu maszyn wirtualnych.  Ceny aplikacji są wymienione na [stronie cennika Azure Batch](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
 
 > [!NOTE]
-> Jeśli zamiast tego nawiążesz połączenie z serwerem licencji, aby korzystać z aplikacji do renderowania, `applicationLicenses` nie określaj właściwości.
+> Jeśli zamiast tego nawiążesz połączenie z serwerem licencji, aby korzystać z aplikacji do renderowania, nie określaj `applicationLicenses` właściwości.
 
 Możesz użyć Azure Portal lub Batch Explorer do wybrania aplikacji i pokazywania cen aplikacji.
 
-Jeśli podjęto próbę użycia aplikacji, ale aplikacja nie została określona we `applicationLicenses` właściwości konfiguracji puli lub nie dociera do serwera licencji, wykonanie aplikacji kończy się niepowodzeniem z błędem licencjonowania i kodem zakończenia innym niż zero.
+Jeśli podjęto próbę użycia aplikacji, ale aplikacja nie została określona we `applicationLicenses` Właściwości konfiguracji puli lub nie dociera do serwera licencji, wykonanie aplikacji kończy się niepowodzeniem z błędem licencjonowania i kodem zakończenia innym niż zero.
 
 ### <a name="environment-variables-for-pre-installed-applications"></a>Zmienne środowiskowe dla wstępnie zainstalowanych aplikacji
 

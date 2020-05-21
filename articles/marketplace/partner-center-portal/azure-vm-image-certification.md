@@ -7,17 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
-ms.openlocfilehash: 9bd7e40855f30612b90cf28365c0b1410cd3e3d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fe04cb12dc1afea78b023eab623927a07224888c
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81731122"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726149"
 ---
 # <a name="azure-virtual-machine-vm-image-certification"></a>Certyfikat obrazu maszyny wirtualnej platformy Azure
-
-> [!NOTE]
-> Przenosimy zarządzanie ofertami maszyn wirtualnych platformy Azure z usługi portal Cloud Partner do Centrum partnerskiego. Dopóki Twoje oferty nie zostaną zmigrowane, nadal postępuj zgodnie z instrukcjami w temacie [Tworzenie certyfikatów dla Azure Key Vault](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-key-vault-cert) w Portal Cloud partner, aby zarządzać ofertami.
 
 W tym artykule opisano sposób testowania i przesyłania obrazu maszyny wirtualnej (VM) w komercyjnej witrynie Marketplace, aby upewnić się, że spełnia on najnowsze wymagania dotyczące publikowania w witrynie Azure Marketplace.
 
@@ -45,7 +42,7 @@ Do tej pracy można użyć nowej lub istniejącej grupy zasobów platformy Azure
 
 Edytuj i uruchom poniższy skrypt Azure PowerShell, aby utworzyć plik certyfikatu (pfx) w folderze lokalnym. Zastąp wartości parametrów przedstawionych w poniższej tabeli.
 
-| **Konstruktora** | **Opis** |
+| **Parametr** | **Opis** |
 | --- | --- |
 | $certroopath | Folder lokalny, w którym ma zostać zapisany plik PFX. |
 | $location | Jedna z lokalizacji geograficznych platformy Azure w warstwie Standardowa. |
@@ -89,7 +86,7 @@ Edytuj i uruchom poniższy skrypt Azure PowerShell, aby utworzyć plik certyfika
 
 #### <a name="create-the-azure-key-vault-to-store-the-certificate"></a>Utwórz magazyn kluczy platformy Azure, aby zapisać certyfikat
 
-Skopiuj zawartość szablonu poniżej do pliku na komputerze lokalnym. W poniższym przykładzie skryptu ten zasób ma wartość `C:\certLocation\keyvault.json`).
+Skopiuj zawartość szablonu poniżej do pliku na komputerze lokalnym. W poniższym przykładzie skryptu ten zasób ma wartość `C:\certLocation\keyvault.json` ).
 
 ```json
 {
@@ -186,7 +183,7 @@ Skopiuj zawartość szablonu poniżej do pliku na komputerze lokalnym. W poniżs
 
 Edytuj i uruchom poniższy skrypt Azure PowerShell, aby utworzyć Azure Key Vault i skojarzoną grupę zasobów. Zastąp wartości parametrów przedstawionych w poniższej tabeli.
 
-| **Konstruktora** | **Opis** |
+| **Parametr** | **Opis** |
 | --- | --- |
 | $postfix | Losowy ciąg liczbowy dołączony do identyfikatorów wdrożenia. |
 | $rgName | Nazwa grupy zasobów platformy Azure (RG) do utworzenia. |
@@ -560,7 +557,7 @@ Skopiuj następujący szablon Azure Resource Manager dla wdrożenia dysku VHD do
 
 Edytuj ten plik, aby podać wartości tych parametrów:
 
-| **Konstruktora** | **Opis** |
+| **Parametr** | **Opis** |
 | --- | --- |
 | ResourceGroupName | Istniejąca nazwa grupy zasobów platformy Azure. Zazwyczaj należy używać tego samego RG, co Magazyn kluczy. |
 | TemplateFile | Pełna nazwa ścieżki do pliku VHDtoImage. JSON. |
@@ -571,7 +568,7 @@ Edytuj ten plik, aby podać wartości tych parametrów:
 | vmName | Nazwa maszyny wirtualnej. |
 | vaultName | Nazwa magazynu kluczy. |
 | vaultResourceGroup | Grupa zasobów magazynu kluczy. |
-| certificateUrl | Adres sieci Web (URL) certyfikatu, w tym wersja przechowywana w magazynie kluczy, na przykład: `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7`. |
+| certificateUrl | Adres sieci Web (URL) certyfikatu, w tym wersja przechowywana w magazynie kluczy, na przykład: `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` . |
 | vhdUrl | Adres internetowy wirtualnego dysku twardego. |
 | vmSize | Rozmiar wystąpienia maszyny wirtualnej. |
 | publicIPAddressName | Nazwa publicznego adresu IP. |
@@ -583,7 +580,7 @@ Edytuj ten plik, aby podać wartości tych parametrów:
 
 ### <a name="deploy-an-azure-vm"></a>Wdróż maszynę wirtualną platformy Azure
 
-Skopiuj i edytuj następujący skrypt, aby podać wartości zmiennych `$storageaccount` i. `$vhdUrl` Wykonaj tę operację, aby utworzyć zasób maszyny wirtualnej platformy Azure na podstawie istniejącego uogólnionego wirtualnego dysku twardego.
+Skopiuj i edytuj następujący skrypt, aby podać wartości `$storageaccount` `$vhdUrl` zmiennych i. Wykonaj tę operację, aby utworzyć zasób maszyny wirtualnej platformy Azure na podstawie istniejącego uogólnionego wirtualnego dysku twardego.
 
 ```PowerShell
 

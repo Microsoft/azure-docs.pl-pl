@@ -6,12 +6,12 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 012d27b44ecfbdd460adf241742df397880f78c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: abbf5d79da033a696890566d85bd24bb54577d2c
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81450355"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715702"
 ---
 # <a name="change-feed-design-patterns-in-azure-cosmos-db"></a>Zmień wzorce projektowe kanału informacyjnego w Azure Cosmos DB
 
@@ -29,7 +29,7 @@ Azure Cosmos DB doskonale nadaje się w przypadku aplikacji IoT, gier, sprzedaż
 
 ## <a name="event-computing-and-notifications"></a>Przetwarzanie i powiadomienia o zdarzeniach
 
-Źródło zmian Azure Cosmos DB może uprościć scenariusze, które wymagają wyzwalania powiadomienia lub wywołania interfejsu API na podstawie pewnego zdarzenia. Za pomocą [biblioteki procesów kanału informacyjnego zmiany](change-feed-processor.md) można automatycznie sondować kontener pod kątem zmian i wywoływać zewnętrzny interfejs API za każdym razem, gdy występuje zapis lub aktualizacja.
+Źródło zmian Azure Cosmos DB może uprościć scenariusze, które wymagają wyzwolenia powiadomienia lub wysłanie wywołania do interfejsu API na podstawie określonego zdarzenia. Za pomocą [biblioteki procesów kanału informacyjnego zmiany](change-feed-processor.md) można automatycznie sondować kontener pod kątem zmian i wywoływać zewnętrzny interfejs API za każdym razem, gdy występuje zapis lub aktualizacja.
 
 Możesz również wybiórczo wyzwalać powiadomienie lub wysyłać wywołanie do interfejsu API na podstawie określonych kryteriów. Na przykład w przypadku odczytywania danych ze źródła zmian przy użyciu [Azure Functions](change-feed-functions.md)można umieścić logikę w funkcji, aby wysłać powiadomienie tylko w przypadku spełnienia określonych kryteriów. Chociaż kod funkcji platformy Azure będzie wykonywany podczas każdego zapisu i aktualizacji, powiadomienie będzie wysyłane tylko wtedy, gdy zostały spełnione określone kryteria.
 

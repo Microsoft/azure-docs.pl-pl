@@ -2,16 +2,14 @@
 title: Rozwiązywanie typowych problemów z usługą Azure Kubernetes
 description: Dowiedz się, jak rozwiązywać typowe problemy związane z korzystaniem z usługi Azure Kubernetes Service (AKS)
 services: container-service
-author: sauryadas
 ms.topic: troubleshooting
-ms.date: 12/13/2019
-ms.author: saudas
-ms.openlocfilehash: 8460f4f2a66a1f545bea767cccf3aa77c9d3bff3
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.date: 05/16/2020
+ms.openlocfilehash: f9831077d1f2850d39e4ef5e5ba35245f16cd683
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82778961"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83724998"
 ---
 # <a name="aks-troubleshooting"></a>Rozwiązywanie problemów z usługą Azure Kubernetes Service
 
@@ -24,16 +22,16 @@ Istnieje również [Przewodnik rozwiązywania problemów](https://github.com/fei
 
 ## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>Otrzymuję błąd "Przekroczono limit przydziału" podczas tworzenia lub uaktualniania. Co mam zrobić? 
 
-Musisz [zażądać rdzeni](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
+ [Zażądaj większej liczby rdzeni](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
 
 ## <a name="what-is-the-maximum-pods-per-node-setting-for-aks"></a>Co to jest ustawienie maksymalnej liczby elementów w poszczególnych węzłach dla AKS?
 
 Ustawienie Maksymalna liczba sztuk na węzeł domyślnie jest 30, Jeśli klaster AKS jest wdrażany w Azure Portal.
-Ustawienie maksymalny rozmiar poszczególnych węzłów domyślnie 110 w przypadku wdrażania klastra AKS w interfejsie wiersza polecenia platformy Azure. (Upewnij się, że używasz najnowszej wersji interfejsu wiersza polecenia platformy Azure). To ustawienie domyślne można zmienić przy użyciu `–-max-pods` flagi w `az aks create` poleceniu.
+Ustawienie maksymalny rozmiar poszczególnych węzłów domyślnie 110 w przypadku wdrażania klastra AKS w interfejsie wiersza polecenia platformy Azure. (Upewnij się, że używasz najnowszej wersji interfejsu wiersza polecenia platformy Azure). To ustawienie można zmienić przy użyciu `–-max-pods` flagi w `az aks create` poleceniu.
 
 ## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Otrzymuję błąd insufficientSubnetSize podczas wdrażania klastra AKS przy użyciu zaawansowanej sieci. Co mam zrobić?
 
-Jeśli używana jest usługa Azure CNI (Advanced Network), AKS przydziela adresy IP na podstawie skonfigurowanego węzła "Max-Binding". W oparciu o skonfigurowaną maksymalną liczbę zasobników na węzeł rozmiar podsieci musi być większy niż iloczyn liczby węzłów i maksymalne ustawienie pod na węzeł. Poniższe równanie zawiera opis:
+W przypadku korzystania z wtyczki sieciowej usługi Azure CNI AKS przydziela adresy IP na podstawie parametru "--Max-" na węzeł. Rozmiar podsieci musi być większy niż liczba węzłów pomnożona przez ustawienie maksymalna liczba numerów na węzeł. Poniższe równanie zawiera opis:
 
 Rozmiar podsieci > liczbę węzłów w klastrze (biorąc pod uwagę przyszłe wymagania dotyczące skalowania) * Maksymalna liczba zasobników na zestaw węzłów.
 
@@ -43,32 +41,32 @@ Aby uzyskać więcej informacji, zobacz [Planowanie adresów IP w klastrze](conf
 
 Może istnieć różne przyczyny zablokowania w tym trybie. Możesz zajrzeć do:
 
-* Samego siebie, przy użyciu `kubectl describe pod <pod-name>`.
-* Dzienniki przy użyciu programu `kubectl logs <pod-name>`.
+* Samego siebie, przy użyciu `kubectl describe pod <pod-name>` .
+* Dzienniki przy użyciu programu `kubectl logs <pod-name>` .
 
 Aby uzyskać więcej informacji na temat rozwiązywania problemów, zobacz [debugowanie aplikacji](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
 
-## <a name="im-trying-to-enable-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Próbuję włączyć funkcję RBAC w istniejącym klastrze. Jak to zrobić?
+## <a name="im-trying-to-enable-role-based-access-control-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Próbuję włączyć Access Control oparty na rolach (RBAC) w istniejącym klastrze. Jak to zrobić?
 
-Niestety włączenie kontroli dostępu opartej na rolach (RBAC) w istniejących klastrach nie jest obecnie obsługiwane. Należy jawnie utworzyć nowe klastry. W przypadku korzystania z interfejsu wiersza polecenia RBAC jest domyślnie włączone. Jeśli używasz portalu AKS, przycisk przełączania umożliwiający włączenie RBAC jest dostępny w przepływie pracy tworzenia.
+Włączenie kontroli dostępu opartej na rolach (RBAC) w istniejących klastrach nie jest obecnie obsługiwane, należy ją ustawić podczas tworzenia nowych klastrów. RBAC jest domyślnie włączone w przypadku korzystania z interfejsu wiersza polecenia, portalu lub wersji API nowszej niż `2020-03-01` .
 
-## <a name="i-created-a-cluster-with-rbac-enabled-by-using-either-the-azure-cli-with-defaults-or-the-azure-portal-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>Po utworzeniu klastra z włączoną funkcją RBAC przy użyciu interfejsu wiersza polecenia platformy Azure z wartościami domyślnymi lub Azure Portal, a teraz widzimy wiele ostrzeżeń na pulpicie nawigacyjnym Kubernetes. Pulpit nawigacyjny służący do pracy bez żadnych ostrzeżeń. Co mam zrobić?
+## <a name="i-created-a-cluster-with-rbac-enabled-and-now-i-see-many-warnings-on-the-kubernetes-dashboard-the-dashboard-used-to-work-without-any-warnings-what-should-i-do"></a>Został utworzony klaster z włączoną funkcją RBAC i teraz widzimy wiele ostrzeżeń na pulpicie nawigacyjnym Kubernetes. Pulpit nawigacyjny służący do pracy bez żadnych ostrzeżeń. Co mam zrobić?
 
-Przyczyną ostrzeżeń na pulpicie nawigacyjnym jest to, że klaster jest teraz włączony przy użyciu RBAC i dostęp do niego jest domyślnie wyłączony. Ogólnie rzecz biorąc, to podejście jest dobrym rozwiązaniem, ponieważ domyślne narażenie pulpitu nawigacyjnego na wszystkich użytkowników klastra może prowadzić do zagrożeń bezpieczeństwa. Jeśli nadal chcesz włączyć pulpit nawigacyjny, postępuj zgodnie z instrukcjami w [tym wpisie w blogu](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
+Przyczyna ostrzeżeń to klaster z włączoną funkcją RBAC, a dostęp do pulpitu nawigacyjnego jest teraz ograniczony domyślnie. Ogólnie rzecz biorąc, to podejście jest dobrym rozwiązaniem, ponieważ domyślne narażenie pulpitu nawigacyjnego na wszystkich użytkowników klastra może prowadzić do zagrożeń bezpieczeństwa. Jeśli nadal chcesz włączyć pulpit nawigacyjny, postępuj zgodnie z instrukcjami w [tym wpisie w blogu](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
 
 ## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>Nie mogę nawiązać połączenia z pulpitem nawigacyjnym. Co mam zrobić?
 
-Najprostszym sposobem, aby uzyskać dostęp do usługi poza klastrem, `kubectl proxy`jest uruchomienie, które serwery proxy żądania wysyłane do portu localhost 8001 do serwera interfejsu API Kubernetes. Z tego miejsca serwer interfejsu API może być serwerem proxy usługi: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/`.
+Najprostszym sposobem, aby uzyskać dostęp do usługi poza klastrem, jest uruchomienie `kubectl proxy` , które serwery proxy żądania wysyłane do portu localhost 8001 do serwera interfejsu API Kubernetes. Z tego miejsca serwer interfejsu API może być serwerem proxy usługi: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/` .
 
-Jeśli nie widzisz pulpitu nawigacyjnego Kubernetes, sprawdź, `kube-proxy` czy pod `kube-system` przestrzeni nazw jest uruchomiony program. Jeśli nie jest w stanie uruchomionym, Usuń element pod, a zostanie uruchomiony ponownie.
+Jeśli nie widzisz pulpitu nawigacyjnego Kubernetes, sprawdź, czy `kube-proxy` pod przestrzeni nazw jest uruchomiony program `kube-system` . Jeśli nie jest w stanie uruchomionym, Usuń element pod, a zostanie uruchomiony ponownie.
 
 ## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Nie mogę pobrać dzienników przy użyciu dzienników polecenia kubectl lub nie mogę nawiązać połączenia z serwerem interfejsu API. Otrzymuję komunikat "błąd z serwera: błąd podczas wybierania numeru zaplecza: wybierz TCP...". Co mam zrobić?
 
-Upewnij się, że domyślna grupa zabezpieczeń sieci nie jest modyfikowana i że dla połączenia z serwerem interfejsu API jest otwarty zarówno port 22, jak i 9000. Sprawdź, czy `tunnelfront` w przestrzeni nazw *polecenia systemu* przy użyciu `kubectl get pods --namespace kube-system` polecenia jest uruchomiona. Jeśli tak nie jest, Wymuś usunięcie elementu pod i zostanie on ponownie uruchomiony.
+Upewnij się, że porty 22, 9000 i 1194 są otwarte w celu nawiązania połączenia z serwerem interfejsu API. Sprawdź, czy `tunnelfront` w `aks-link` przestrzeni nazw *polecenia systemu* przy użyciu polecenia jest uruchomiony lub pod `kubectl get pods --namespace kube-system` . Jeśli tak nie jest, Wymuś usunięcie elementu pod i zostanie on ponownie uruchomiony.
 
-## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>Próbuję uaktualnić lub skalować i uzyskać "komunikat: zmiana właściwości" elementu imagereference "jest niedozwolona. Jak mogę rozwiązać ten problem?
+## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>Próbuję uaktualnić lub skalować i uzyskać `"Changing property 'imageReference' is not allowed"` błąd. Jak mogę rozwiązać ten problem?
 
-Ten błąd może być spowodowany modyfikacją tagów w węzłach agenta wewnątrz klastra AKS. Modyfikowanie i usuwanie tagów oraz innych właściwości zasobów w grupie zasobów MC_ * może prowadzić do nieoczekiwanych wyników. Modyfikacja zasobów w grupie MC_ * w klastrze AKS powoduje przerwanie celu poziomu usługi (SLO).
+Ten błąd może być spowodowany modyfikacją tagów w węzłach agenta wewnątrz klastra AKS. Modyfikowanie lub usuwanie tagów i innych właściwości zasobów w grupie zasobów MC_ * może prowadzić do nieoczekiwanych wyników. Zmiana zasobów w grupie MC_ * w klastrze AKS powoduje przerwanie celu poziomu usługi (SLO).
 
 ## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>Otrzymuję błędy, które są w stanie awarii mojego klastra, a uaktualnienie lub skalowanie nie będzie działało, dopóki nie zostanie naprawione
 
@@ -81,30 +79,30 @@ Ten błąd występuje, gdy klastry wchodzą w stan niepowodzenia z wielu powodó
     * Skalowanie klastra przy użyciu zaawansowanej sieci i **niewystarczającej liczby zasobów podsieci (sieci)**. Aby rozwiązać ten problem, należy najpierw skalować klaster z powrotem do stanu stabilnego celu w ramach limitu przydziału. Następnie wykonaj [następujące kroki, aby zażądać zwiększenia przydziału zasobów](../azure-resource-manager/templates/error-resource-quota.md#solution) przed ponowną próbą skalowania w górę poza początkowymi limitami przydziału.
 2. Po usunięciu podstawowej przyczyny niepowodzenia uaktualnienia klaster powinien działać w stanie sukces. Po zweryfikowaniu stanu, ponów próbę wykonania oryginalnej operacji.
 
-## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>Otrzymuję błędy podczas próby uaktualnienia lub skalowania stanu, w którym mój klaster jest aktualnie uaktualniany lub nie przeprowadzono uaktualnienia
+## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-upgraded-or-has-failed-upgrade"></a>Otrzymuję błędy podczas próby uaktualnienia lub skalowania stanu, w którym mój klaster jest uaktualniany lub którego uaktualnienie nie powiodło się
 
 *Ta pomoc w rozwiązywaniu problemów jest skierowana zhttps://aka.ms/aks-pending-upgrade*
 
-Operacje uaktualniania i skalowania w klastrze z pojedynczą pulą węzłów lub klastra z [wieloma pulami węzłów](use-multiple-node-pools.md) wzajemnie się wykluczają. Klaster ani Pula węzłów nie mogą być jednocześnie uaktualniane i skalowane. W zamian każdy typ operacji musi zakończyć się w odniesieniu do zasobu docelowego przed następnym żądaniem tego samego zasobu. W związku z tym operacje są ograniczone w przypadku wystąpienia lub próby aktywnego uaktualnienia lub operacji skalowania, a następnie niepowodzenie. 
+ Nie można jednocześnie uaktualnić i skalować puli klastra lub węzła. W zamian każdy typ operacji musi zakończyć się w zasobie docelowym przed następnym żądaniem tego samego zasobu. W związku z tym operacje są ograniczone w przypadku wystąpienia lub próby aktywnego uaktualnienia lub operacji skalowania. 
 
-Aby ułatwić zdiagnozowanie uruchomienia `az aks show -g myResourceGroup -n myAKSCluster -o table` problemu w celu pobrania szczegółowego stanu w klastrze. W oparciu o wynik:
+Aby ułatwić zdiagnozowanie uruchomienia problemu w `az aks show -g myResourceGroup -n myAKSCluster -o table` celu pobrania szczegółowego stanu w klastrze. W oparciu o wynik:
 
 * Jeśli klaster jest aktywnie uaktualniany, poczekaj na zakończenie operacji. Jeśli zakończyło się pomyślnie, ponów próbę wykonania poprzedniej operacji zakończonej niepowodzeniem.
 * Jeśli uaktualnienie nie powiodło się, wykonaj kroki opisane w poprzedniej sekcji.
 
 ## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>Czy mogę przenieść klaster na inną subskrypcję lub moją subskrypcję z moim klastrem do nowej dzierżawy?
 
-Jeśli klaster AKS został przeniesiony do innej subskrypcji lub klastra będącego właścicielem subskrypcji do nowej dzierżawy, klaster utraci funkcjonalność ze względu na utratę przypisań ról i uprawnień podmiotów usługi. Usługa **AKS nie obsługuje przesuwania klastrów między subskrypcjami ani dzierżawcami** z powodu tego ograniczenia.
+Jeśli klaster AKS został przeniesiony do innej subskrypcji lub subskrypcji klastra do nowej dzierżawy, klaster nie będzie działać z powodu brakujących uprawnień do tożsamości klastra. Usługa **AKS nie obsługuje przesuwania klastrów między subskrypcjami ani dzierżawcami** z powodu tego ograniczenia.
 
 ## <a name="im-receiving-errors-trying-to-use-features-that-require-virtual-machine-scale-sets"></a>Otrzymuję błędy podczas próby użycia funkcji, które wymagają zestawów skalowania maszyn wirtualnych
 
 *Ta pomoc w rozwiązywaniu problemów jest skierowana z aka.ms/aks-vmss-enablement*
 
-Mogą pojawić się błędy wskazujące, że klaster AKS nie znajduje się w zestawie skalowania maszyn wirtualnych, na przykład w poniższym przykładzie:
+Mogą pojawić się błędy wskazujące, że klaster AKS nie znajduje się na zestawie skalowania maszyn wirtualnych, na przykład w poniższym przykładzie:
 
-**Nieznanej obiektu agentpool "nieznanej obiektu agentpool" ustawił automatyczne skalowanie jako włączone, ale nie znajduje się na Virtual Machine Scale Sets**
+**Nieznanej obiektu agentpool `<agentpoolname>` ustawił automatyczne skalowanie jako włączone, ale nie na Virtual Machine Scale Sets**
 
-Aby korzystać z funkcji, takich jak automatyczne skalowanie klastra lub pule wielu węzłów, należy utworzyć klastry AKS korzystające z zestawów skalowania maszyn wirtualnych. Błędy są zwracane, jeśli spróbujesz użyć funkcji, które są zależne od zestawów skalowania maszyn wirtualnych, oraz dla klastra AKS z regularnym zestawem skalowania maszyn wirtualnych.
+Funkcje takie jak automatyczne skalowanie klastra lub pule wielu węzłów wymagają zestawów skalowania maszyn wirtualnych `vm-set-type` .
 
 Postępuj zgodnie z instrukcjami *przed rozpoczęciem* w odpowiednim dokumencie, aby poprawnie utworzyć klaster AKS:
 
@@ -118,8 +116,9 @@ Postępuj zgodnie z instrukcjami *przed rozpoczęciem* w odpowiednim dokumencie,
 Ograniczenia nazewnictwa są implementowane przez platformę Azure i AKS. Jeśli nazwa zasobu lub parametr przerywa jedno z tych ograniczeń, zwracany jest błąd, który prosi o podanie innych danych wejściowych. Stosuje się następujące typowe wskazówki dotyczące nazewnictwa:
 
 * Nazwy klastrów muszą składać się z 1-63 znaków. Jedyne dozwolone znaki to litery, cyfry, łączniki i podkreślenia. Pierwszy i ostatni znak musi być literą lub cyfrą.
-* Nazwa grupy zasobów AKS *MC_* łączy nazwę grupy zasobów i nazwę zasobu. Wygenerowana automatycznie składnia nie `MC_resourceGroupName_resourceName_AzureRegion` może być większa niż 80 znaków. W razie konieczności Zmniejsz długość nazwy grupy zasobów lub nazwę klastra AKS.
+* Nazwa grupy zasobów Node/*MC_* AKS łączy nazwę grupy zasobów i nazwę zasobu. Składnia autogenerata `MC_resourceGroupName_resourceName_AzureRegion` nie może zawierać więcej niż 80 znaków. W razie konieczności Zmniejsz długość nazwy grupy zasobów lub nazwę klastra AKS. Możesz również [dostosować nazwę grupy zasobów węzła](cluster-configuration.md#custom-resource-group-name)
 * *DnsPrefix* musi zaczynać i kończyć się wartościami alfanumerycznymi i muszą zawierać od 1-54 znaków. Prawidłowe znaki to wartości alfanumeryczne i łączniki (-). *DnsPrefix* nie może zawierać znaków specjalnych, takich jak kropka (.).
+* Nazwy puli węzłów AKS muszą składać się z małych liter i zawierać 1-11 znaków dla pul węzłów systemu Linux i 1-6 znaków dla pul węzłów Windows. Nazwa musi zaczynać się od litery i Jedyne dozwolone znaki to litery i cyfry.
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Otrzymuję błędy podczas próby utworzenia, zaktualizowania, skalowania, usunięcia lub uaktualnienia klastra, ta operacja nie jest dozwolona, ponieważ inna operacja jest w toku.
 
@@ -133,18 +132,22 @@ Na podstawie danych wyjściowych stanu klastra:
 
 * Jeśli uaktualnienie nie powiodło się, wykonaj kroki opisane w temacie jak pojawiają się [błędy, w których klaster jest w stanie niepowodzenia, a uaktualnienie lub skalowanie nie będzie działało do momentu jego naprawienia](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).
 
-## <a name="im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one"></a>Otrzymuję błędy, których nazwa główna usługi nie została znaleziona podczas próby utworzenia nowego klastra bez przechodzenia w istniejącym klastrze.
+## <a name="received-an-error-saying-my-service-principal-wasnt-found-or-is-invalid-when-i-try-to-create-a-new-cluster"></a>Odebrano błąd informujący o tym, że nie znaleziono jednostki usługi lub jest ona nieprawidłowa podczas próby utworzenia nowego klastra.
 
-Podczas tworzenia klastra AKS wymaga jednostki usługi do tworzenia zasobów w Twoim imieniu. Usługa AKS oferuje możliwość utworzenia nowego elementu podczas tworzenia klastra, ale wymaga Azure Active Directory w pełni propagowanie nowej jednostki usługi w odpowiednim czasie w celu pomyślnego utworzenia klastra. Gdy Propagacja trwa zbyt długo, klaster nie będzie mógł wykonać walidacji, ponieważ nie może znaleźć dostępnej jednostki usługi. 
+Podczas tworzenia klastra AKS do tworzenia zasobów w Twoim imieniu wymagana jest jednostka usługi lub zarządzana tożsamość. AKS może automatycznie utworzyć nową nazwę główną usługi podczas tworzenia klastra lub otrzymać istniejący. W przypadku korzystania z automatycznie utworzonego elementu Azure Active Directory musi propagować go do każdego regionu, aby tworzenie powiodło się. Gdy Propagacja trwa zbyt długo, klaster nie będzie mógł wykonać walidacji, ponieważ nie może znaleźć dostępnej nazwy głównej usługi. 
 
 Wykonaj następujące obejścia tego problemu:
-1. Użyj istniejącej jednostki usługi, która została już rozpropagowana w regionach i istnieje do przekazania do AKS podczas tworzenia klastra.
-2. W przypadku korzystania ze skryptów automatyzacji należy dodać opóźnienia czasu między utworzeniem jednostki usługi i tworzeniem klastra AKS.
-3. Jeśli używasz Azure Portal, Wróć do ustawień klastra podczas tworzenia i ponów próbę wykonania strony walidacji po kilku minutach.
+* Użyj istniejącej jednostki usługi, która została już rozpropagowana w regionach i istnieje do przekazania do AKS podczas tworzenia klastra.
+* W przypadku korzystania ze skryptów automatyzacji należy dodać opóźnienia czasu między utworzeniem jednostki usługi i tworzeniem klastra AKS.
+* Jeśli używasz Azure Portal, Wróć do ustawień klastra podczas tworzenia i ponów próbę wykonania strony walidacji po kilku minutach.
 
-## <a name="im-receiving-errors-after-restricting-my-egress-traffic"></a>Otrzymuję błędy po ograniczeniu ruchu wychodzącego
 
-W przypadku ograniczania ruchu wychodzącego z klastra AKS są [wymagane i opcjonalne zalecane](limit-egress-traffic.md) porty wyjściowe/reguły sieci oraz nazwy FQDN/aplikacji dla AKS. Jeśli ustawienia są w konflikcie z dowolną z tych reguł, uruchomienie niektórych `kubectl` poleceń może nie być możliwe. Podczas tworzenia klastra AKS mogą pojawić się także błędy.
+
+
+
+## <a name="im-receiving-errors-after-restricting-egress-traffic"></a>Otrzymuję błędy po ograniczeniu ruchu wychodzącego
+
+W przypadku ograniczania ruchu wychodzącego z klastra AKS są [wymagane i opcjonalne zalecane](limit-egress-traffic.md) porty wyjściowe/reguły sieci oraz nazwy FQDN/aplikacji dla AKS. Jeśli ustawienia są w konflikcie z dowolną z tych reguł, niektóre `kubectl` polecenia nie będą działały prawidłowo. Podczas tworzenia klastra AKS mogą pojawić się także błędy.
 
 Sprawdź, czy ustawienia nie powodują konfliktu z żadnym z wymaganych lub opcjonalnymi zalecanymi portami wychodzącymi/regułami sieciowymi oraz nazwą FQDN/reguł aplikacji.
 
@@ -153,33 +156,24 @@ Sprawdź, czy ustawienia nie powodują konfliktu z żadnym z wymaganych lub opcj
 ### <a name="what-are-the-recommended-stable-versions-of-kubernetes-for-azure-disk"></a>Jakie są zalecane stabilne wersje programu Kubernetes for Azure Disk? 
 
 | Wersja Kubernetes | Zalecana wersja |
-| -- | :--: |
+|--|:--:|
 | 1.12 | 1.12.9 lub nowszy |
 | 1.13 | 1.13.6 lub nowszy |
 | 1,14 | 1.14.2 lub nowszy |
-
-
-### <a name="what-versions-of-kubernetes-have-azure-disk-support-on-the-sovereign-cloud"></a>Jakie wersje programu Kubernetes mają obsługiwać dysk platformy Azure w chmurze suwerennej?
-
-| Wersja Kubernetes | Zalecana wersja |
-| -- | :--: |
-| 1.12 | 1.12.0 lub nowszy |
-| 1.13 | 1.13.0 lub nowszy |
-| 1,14 | 1.14.0 lub nowszy |
 
 
 ### <a name="waitforattach-failed-for-azure-disk-parsing-devdiskazurescsi1lun1-invalid-syntax"></a>WaitForAttach dla dysku platformy Azure nie powiodło się: analiza "/dev/Disk/Azure/scsi1/lun1": nieprawidłowa składnia
 
 W programie Kubernetes w wersji 1,10, MountVolume. WaitForAttach może zakończyć się niepowodzeniem przy ponownej instalacji dysku platformy Azure.
 
-W systemie Linux może zostać wyświetlony nieprawidłowy błąd formatu DevicePath. Przykład:
+W systemie Linux może zostać wyświetlony nieprawidłowy błąd formatu DevicePath. Na przykład:
 
 ```console
 MountVolume.WaitForAttach failed for volume "pvc-f1562ecb-3e5f-11e8-ab6b-000d3af9f967" : azureDisk - Wait for attach expect device path as a lun number, instead got: /dev/disk/azure/scsi1/lun1 (strconv.Atoi: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax)
   Warning  FailedMount             1m (x10 over 21m)   kubelet, k8s-agentpool-66825246-0  Unable to mount volumes for pod
 ```
 
-W systemie Windows może zostać wyświetlony nieprawidłowy błąd numeru DevicePath (LUN). Przykład:
+W systemie Windows może zostać wyświetlony nieprawidłowy błąd numeru DevicePath (LUN). Na przykład:
 
 ```console
 Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.WaitForAttach failed for volume "disk01" : azureDisk - WaitForAttach failed within timeout node (15282k8s9010) diskId:(andy-mghyb
@@ -189,10 +183,11 @@ Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.Wait
 Ten problem został rozwiązany w następujących wersjach programu Kubernetes:
 
 | Wersja Kubernetes | Stała wersja |
-| -- | :--: |
+|--|:--:|
 | 1.10 | 1.10.2 lub nowszy |
 | 1,11 | 1.11.0 lub nowszy |
-| 1,12 i nowsze | Brak |
+| 1,12 i nowsze | Nie dotyczy |
+
 
 ### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>Niepowodzenie podczas ustawiania identyfikatorów UID i GID w mountOptions dla dysku platformy Azure
 
@@ -207,7 +202,7 @@ mount: wrong fs type, bad option, bad superblock on /dev/sde,
        missing codepage or helper program, or other error
 ```
 
-Problem można rozwiązać, wykonując jedną z następujących czynności:
+Problem można rozwiązać, wykonując jedną z opcji:
 
 * [Skonfiguruj kontekst zabezpieczeń pod kątem](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) ustawienia UID w runAsUser i GID w fsGroup. Na przykład następujące ustawienie ustawi polecenie Uruchom jako root, udostępnij je dla dowolnego pliku:
 
@@ -225,7 +220,7 @@ spec:
   >[!NOTE]
   > Ponieważ GID i UID są domyślnie instalowane jako root lub 0. Jeśli gid lub UID są ustawione jako spoza katalogu głównego, na przykład 1000, Kubernetes będzie używać `chown` do zmiany wszystkich katalogów i plików znajdujących się na tym dysku. Ta operacja może być czasochłonna i może spowodować, że instalacja dysku będzie bardzo niska.
 
-* Użyj `chown` w initContainers, aby ustawić GID i UID. Przykład:
+* Użyj `chown` w initContainers, aby ustawić GID i UID. Na przykład:
 
 ```yaml
 initContainers:
@@ -237,100 +232,24 @@ initContainers:
     mountPath: /data
 ```
 
-### <a name="error-when-deleting-azure-disk-persistentvolumeclaim-in-use-by-a-pod"></a>Wystąpił błąd podczas usuwania usługi Azure Disk PersistentVolumeClaim używanej przez element pod
-
-Jeśli spróbujesz usunąć PersistentVolumeClaim dysku platformy Azure, który jest używany przez element pod, może zostać wyświetlony błąd. Przykład:
-
-```console
-$ kubectl describe pv pvc-d8eebc1d-74d3-11e8-902b-e22b71bb1c06
-...
-Message:         disk.DisksClient#Delete: Failure responding to request: StatusCode=409 -- Original Error: autorest/azure: Service returned an error. Status=409 Code="OperationNotAllowed" Message="Disk kubernetes-dynamic-pvc-d8eebc1d-74d3-11e8-902b-e22b71bb1c06 is attached to VM /subscriptions/{subs-id}/resourceGroups/MC_markito-aks-pvc_markito-aks-pvc_westus/providers/Microsoft.Compute/virtualMachines/aks-agentpool-25259074-0."
-```
-
-W programie Kubernetes w wersji 1,10 i nowszych istnieje funkcja ochrony PersistentVolumeClaim włączona domyślnie, aby uniknąć tego błędu. Jeśli używasz wersji programu Kubernetes, która nie ma rozwiązania tego problemu, możesz wyeliminować ten problem, usuwając go przy użyciu PersistentVolumeClaim przed usunięciem PersistentVolumeClaim.
-
-
-### <a name="error-cannot-find-lun-for-disk-when-attaching-a-disk-to-a-node"></a>Błąd "nie można odnaleźć jednostki LUN dla dysku" podczas dołączania dysku do węzła
-
-Po dołączeniu dysku do węzła może zostać wyświetlony następujący błąd:
-
-```console
-MountVolume.WaitForAttach failed for volume "pvc-12b458f4-c23f-11e8-8d27-46799c22b7c6" : Cannot find Lun for disk kubernetes-dynamic-pvc-12b458f4-c23f-11e8-8d27-46799c22b7c6
-```
-
-Ten problem został rozwiązany w następujących wersjach programu Kubernetes:
-
-| Wersja Kubernetes | Stała wersja |
-| -- | :--: |
-| 1.10 | 1.10.10 lub nowszy |
-| 1,11 | 1.11.5 lub nowszy |
-| 1.12 | 1.12.3 lub nowszy |
-| 1.13 | 1.13.0 lub nowszy |
-| 1,14 i nowsze | Brak |
-
-Jeśli używasz wersji programu Kubernetes, która nie ma rozwiązania tego problemu, możesz wyeliminować problem, czekając kilka minut i ponawiając próbę.
-
-### <a name="azure-disk-attachdetach-failure-mount-issues-or-io-errors-during-multiple-attachdetach-operations"></a>Awarie dołączania/odłączania dysku platformy Azure, problemy z instalowaniem lub błędy we/wy podczas wielu operacji dołączania/odłączania
-
-Począwszy od Kubernetes w wersji 1.9.2, w przypadku równoczesnego uruchamiania wielu operacji dołączania/odłączania, mogą pojawić się następujące problemy z dyskiem z powodu zanieczyszczonej pamięci podręcznej maszyn wirtualnych:
-
-* Awarie dołączania/odłączania dysku
-* Błędy we/wy dysku
-* Nieoczekiwany odłączenie dysku od maszyny wirtualnej
-* Maszyna wirtualna jest uruchomiona w stanie niepowodzenia z powodu dołączenia nieistniejącego dysku
-
-Ten problem został rozwiązany w następujących wersjach programu Kubernetes:
-
-| Wersja Kubernetes | Stała wersja |
-| -- | :--: |
-| 1.10 | 1.10.12 lub nowszy |
-| 1,11 | 1.11.6 lub nowszy |
-| 1.12 | 1.12.4 lub nowszy |
-| 1.13 | 1.13.0 lub nowszy |
-| 1,14 i nowsze | Brak |
-
-Jeśli używasz wersji programu Kubernetes, która nie ma rozwiązania tego problemu, możesz wyeliminować problem, wykonując następujące czynności:
-
-* Jeśli dysk oczekuje na odłączenie przez długi czas, spróbuj odłączyć dysk ręcznie
-
-### <a name="azure-disk-waiting-to-detach-indefinitely"></a>Dysk platformy Azure oczekuje na odłączenie w nieskończoność
-
-W niektórych przypadkach, jeśli operacja odłączenia dysku platformy Azure zakończy się niepowodzeniem przy pierwszej próbie, nie zostanie ponowiona operacja odłączenia i pozostanie ona dołączona do oryginalnej maszyny wirtualnej węzła. Ten błąd może wystąpić podczas przesuwania dysku z jednego węzła do drugiego. Przykład:
-
-```console
-[Warning] AttachVolume.Attach failed for volume "pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" : Attach volume "kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" to instance "/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-0" failed with compute.VirtualMachinesClient#CreateOrUpdate: Failure sending request: StatusCode=0 -- Original Error: autorest/azure: Service returned an error. Status= Code="ConflictingUserInput" Message="Disk '/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/disks/kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9' cannot be attached as the disk is already owned by VM '/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-1'."
-```
-
-Ten problem został rozwiązany w następujących wersjach programu Kubernetes:
-
-| Wersja Kubernetes | Stała wersja |
-| -- | :--: |
-| 1,11 | 1.11.9 lub nowszy |
-| 1.12 | 1.12.7 lub nowszy |
-| 1.13 | 1.13.4 lub nowszy |
-| 1,14 i nowsze | Brak |
-
-Jeśli używasz wersji programu Kubernetes, która nie ma rozwiązania tego problemu, możesz wyeliminować problem, ręcznie odłączając dysk.
-
 ### <a name="azure-disk-detach-failure-leading-to-potential-race-condition-issue-and-invalid-data-disk-list"></a>Błąd odłączania dysku platformy Azure, który prowadzi do potencjalnego problemu z sytuacją wyścigu i nieprawidłowa lista dysków danych
 
-Gdy nie można odłączyć dysku z platformą Azure, zostanie ponowiona próba ponowienia przez sześć razy, aby odłączyć dysk przy użyciu wycofywania wykładniczego. Będzie również utrzymywać blokadę na poziomie węzła na liście dysków danych przez około 3 minuty. Jeśli lista dysków jest aktualizowana ręcznie w tym okresie, na przykład w przypadku operacji dołączania lub odłączania ręcznego, spowoduje to, że lista dysków przechowywana przez blokadę na poziomie węzła będzie przestarzała i spowoduje to niestabilność na maszynie wirtualnej węzła.
+Gdy nie można odłączyć dysku z platformą Azure, zostanie ponowiona próba ponowienia przez sześć razy, aby odłączyć dysk przy użyciu wycofywania wykładniczego. Będzie również utrzymywać blokadę na poziomie węzła na liście dysków danych przez około 3 minuty. Jeśli lista dysków zostanie ręcznie zaktualizowana w tym czasie, spowoduje to, że lista dysków przechowywana przez blokadę na poziomie węzła nie będzie przestarzała i spowoduje niestabilność węzła.
 
 Ten problem został rozwiązany w następujących wersjach programu Kubernetes:
 
 | Wersja Kubernetes | Stała wersja |
-| -- | :--: |
+|--|:--:|
 | 1.12 | 1.12.9 lub nowszy |
 | 1.13 | 1.13.6 lub nowszy |
 | 1,14 | 1.14.2 lub nowszy |
-| 1,15 i nowsze | Brak |
+| 1,15 i nowsze | Nie dotyczy |
 
-Jeśli używasz wersji programu Kubernetes, która nie ma rozwiązania tego problemu, a maszyna wirtualna węzła ma przestarzałą listę dysków, możesz rozwiązać ten problem, odłączając wszystkie nieistniejące dyski z maszyny wirtualnej jako pojedynczą operację zbiorczą. **Pojedyncze odłączenie nieistniejących dysków może zakończyć się niepowodzeniem.**
-
+Jeśli używasz wersji programu Kubernetes, która nie ma rozwiązania tego problemu, a Twój węzeł ma przestarzałą listę dysków, możesz rozwiązać problem, odłączając wszystkie nieistniejące dyski z maszyny wirtualnej jako operację zbiorczą. **Pojedyncze odłączenie nieistniejących dysków może zakończyć się niepowodzeniem.**
 
 ### <a name="large-number-of-azure-disks-causes-slow-attachdetach"></a>Duża liczba dysków platformy Azure powoduje spowolnienie dołączania/odłączania
 
-Gdy liczba dysków platformy Azure dołączonych do maszyny wirtualnej węzła jest większa niż 10, operacje dołączania i odłączania mogą być wolne. Ten problem jest znany i nie ma w tej chwili żadnych rozwiązań.
+Gdy liczba operacji dołączania/odłączania dysku platformy Azure dla maszyny wirtualnej z jednym węzłem jest większa niż 10 lub większa niż 3 w przypadku kierowania pojedynczej puli zestawów skalowania maszyn wirtualnych, mogą one być wolniejsze niż oczekiwane. Ten problem jest znanym ograniczeniem i w tej chwili nie ma żadnych rozwiązań. [Element głosowy użytkownika do obsługi równoległego dołączania/odłączania poza liczbą.](https://feedback.azure.com/forums/216843-virtual-machines/suggestions/40444528-vmss-support-for-parallel-disk-attach-detach-for).
 
 ### <a name="azure-disk-detach-failure-leading-to-potential-node-vm-in-failed-state"></a>Niepowodzenie odłączenia dysku platformy Azure do potencjalnej maszyny wirtualnej węzła w stanie Niepowodzenie
 
@@ -339,13 +258,13 @@ W niektórych przypadkach, odłączenie dysku platformy Azure może zakończyć 
 Ten problem został rozwiązany w następujących wersjach programu Kubernetes:
 
 | Wersja Kubernetes | Stała wersja |
-| -- | :--: |
+|--|:--:|
 | 1.12 | 1.12.10 lub nowszy |
 | 1.13 | 1.13.8 lub nowszy |
 | 1,14 | 1.14.4 lub nowszy |
-| 1,15 i nowsze | Brak |
+| 1,15 i nowsze | Nie dotyczy |
 
-Jeśli używasz wersji programu Kubernetes, która nie ma rozwiązania tego problemu, a maszyna wirtualna w węźle jest w stanie awarii, możesz rozwiązać problem, ręcznie aktualizując stan maszyny wirtualnej przy użyciu jednego z poniższych elementów:
+Jeśli używasz wersji programu Kubernetes, która nie ma rozwiązania tego problemu, a stan węzła jest w stanie niepowodzenia, możesz rozwiązać problem, ręcznie aktualizując status maszyny wirtualnej przy użyciu jednego z poniższych elementów:
 
 * W przypadku klastra opartego na zestawie dostępności:
     ```azurecli
@@ -362,17 +281,9 @@ Jeśli używasz wersji programu Kubernetes, która nie ma rozwiązania tego prob
 ### <a name="what-are-the-recommended-stable-versions-of-kubernetes-for-azure-files"></a>Jakie są zalecane stabilne wersje programu Kubernetes for Azure Files?
  
 | Wersja Kubernetes | Zalecana wersja |
-| -- | :--: |
+|--|:--:|
 | 1.12 | 1.12.6 lub nowszy |
 | 1.13 | 1.13.4 lub nowszy |
-| 1,14 | 1.14.0 lub nowszy |
-
-### <a name="what-versions-of-kubernetes-have-azure-files-support-on-the-sovereign-cloud"></a>Jakie wersje Kubernetes mają Azure Files być obsługiwane w chmurze suwerennej?
-
-| Wersja Kubernetes | Zalecana wersja |
-| -- | :--: |
-| 1.12 | 1.12.0 lub nowszy |
-| 1.13 | 1.13.0 lub nowszy |
 | 1,14 | 1.14.0 lub nowszy |
 
 ### <a name="what-are-the-default-mountoptions-when-using-azure-files"></a>Jakie są domyślne mountOptions w przypadku korzystania z Azure Files?
@@ -380,11 +291,11 @@ Jeśli używasz wersji programu Kubernetes, która nie ma rozwiązania tego prob
 Zalecane ustawienia:
 
 | Wersja Kubernetes | wartość parametru FileMode i dirMode|
-| -- | :--: |
+|--|:--:|
 | 1.12.0 - 1.12.1 | 0755 |
 | 1.12.2 i nowsze | 0777 |
 
-W przypadku używania klastra z Kubernetes w wersji 1.8.5 lub nowszej i dynamicznego tworzenia woluminu trwałego za pomocą klasy magazynu opcje instalacji można określić w obiekcie klasy magazynu. W poniższym przykładzie są ustawiane *0777*:
+Opcje instalacji można określić w obiekcie klasy magazynu. W poniższym przykładzie są ustawiane *0777*:
 
 ```yaml
 kind: StorageClass
@@ -434,7 +345,7 @@ W niektórych przypadkach, takich jak obsługa wielu małych plików, podczas po
 
 ### <a name="error-when-enabling-allow-access-allow-access-from-selected-network-setting-on-storage-account"></a>Błąd podczas włączania ustawienia "Zezwalaj na dostęp z wybranej sieci" na koncie magazynu
 
-Jeśli włączysz opcję *Zezwalaj na dostęp z wybranej sieci* na koncie magazynu, które jest używane do inicjowania obsługi dynamicznej w programie AKS, zostanie wyświetlony komunikat o błędzie, gdy AKS utworzy udział plików:
+Jeśli włączysz opcję *Zezwalaj na dostęp z wybranej sieci* na koncie magazynu używanym do dynamicznego inicjowania obsługi administracyjnej w programie AKS, zostanie wyświetlony komunikat o błędzie, gdy AKS utworzy udział plików:
 
 ```console
 persistentvolume-controller (combined from similar events): Failed to provision volume with StorageClass "azurefile": failed to create share kubernetes-dynamic-pvc-xxx in account xxx: failed to create file share, err: storage: service returned error: StatusCode=403, ErrorCode=AuthorizationFailure, ErrorMessage=This request is not authorized to perform this operation.
@@ -446,7 +357,7 @@ Problem można rozwiązać, korzystając [z inicjowania obsługi statycznej z Az
 
 ### <a name="azure-files-fails-to-remount-in-windows-pod"></a>Nie można ponownie zainstalować Azure Files w systemie Windows pod
 
-Jeśli system Windows pod Azure Files instalacji zostanie usunięty, a następnie zaplanowane do ponownego utworzenia w tym samym węźle, instalacja zakończy się niepowodzeniem. Ten błąd wynika z faktu `New-SmbGlobalMapping` , że polecenie kończy się niepowodzeniem, ponieważ instalacja Azure Files jest już zainstalowana w węźle.
+Jeśli system Windows pod Azure Files instalacji zostanie usunięty, a następnie zaplanowane do ponownego utworzenia w tym samym węźle, instalacja zakończy się niepowodzeniem. Ten błąd wynika z faktu, że `New-SmbGlobalMapping` polecenie kończy się niepowodzeniem, ponieważ instalacja Azure Files jest już zainstalowana w węźle.
 
 Na przykład może zostać wyświetlony komunikat o błędzie podobny do:
 
@@ -457,24 +368,24 @@ E0118 08:15:52.041014    2112 nestedpendingoperations.go:267] Operation for "\"k
 Ten problem został rozwiązany w następujących wersjach programu Kubernetes:
 
 | Wersja Kubernetes | Stała wersja |
-| -- | :--: |
+|--|:--:|
 | 1.12 | 1.12.6 lub nowszy |
 | 1.13 | 1.13.4 lub nowszy |
-| 1,14 i nowsze | Brak |
+| 1,14 i nowsze | Nie dotyczy |
 
-### <a name="azure-files-mount-fails-due-to-storage-account-key-changed"></a>Azure Files instalacji nie powiodła się z powodu zmiany klucza konta magazynu
+### <a name="azure-files-mount-fails-because-of-storage-account-key-changed"></a>Instalacja Azure Files nie powiodła się z powodu zmiany klucza konta magazynu
 
 Jeśli klucz konta magazynu został zmieniony, mogą pojawić się błędy instalacji Azure Files.
 
-Problem można rozwiązać, ręcznie aktualizując pole *azurestorageaccountkey* w kluczu tajnym systemu Azure za pomocą klucza konta magazynu zakodowanego w formacie base64.
+Możesz zmniejszyć wartość ręcznie aktualizując `azurestorageaccountkey` pole ręcznie w kluczu tajnym systemu Azure za pomocą klucza konta magazynu szyfrowanego algorytmem Base64.
 
-Aby zakodować klucz konta magazynu w formacie Base64, można `base64`użyć programu. Przykład:
+Aby zakodować klucz konta magazynu w formacie Base64, można użyć programu `base64` . Na przykład:
 
 ```console
 echo X+ALAAUgMhWHL7QmQ87E1kSfIqLKfgC03Guy7/xk9MyIg2w4Jzqeu60CVw2r/dm6v6E0DWHTnJUEJGVQAoPaBc== | base64
 ```
 
-Aby zaktualizować plik tajny platformy Azure, `kubectl edit secret`Użyj programu. Przykład:
+Aby zaktualizować plik tajny platformy Azure, użyj programu `kubectl edit secret` . Na przykład:
 
 ```console
 kubectl edit secret azure-storage-account-{storage-account-name}-secret
@@ -482,19 +393,20 @@ kubectl edit secret azure-storage-account-{storage-account-name}-secret
 
 Po kilku minutach węzeł agenta ponowi próbę instalacji pliku platformy Azure przy użyciu zaktualizowanego klucza magazynu.
 
+
 ### <a name="cluster-autoscaler-fails-to-scale-with-error-failed-to-fix-node-group-sizes"></a>Skalowanie automatycznego skalowania klastra nie powiodło się z powodu błędu nie można naprawić rozmiarów grup węzłów
 
-Jeśli klaster automatycznego skalowania nie jest skalowany w górę i w dół, a w [dziennikach automatycznego skalowania klastra][view-master-logs]zobaczysz błąd podobny do poniższego.
+Jeśli klaster automatycznego skalowania nie jest skalowany w górę i w dół, a w [dziennikach automatycznego skalowania klastra][view-master-logs]zostanie wyświetlony komunikat o błędzie podobny do poniższego.
 
 ```console
 E1114 09:58:55.367731 1 static_autoscaler.go:239] Failed to fix node group sizes: failed to decrease aks-default-35246781-vmss: attempt to delete existing nodes
 ```
 
-Ten błąd występuje ze względu na sytuację wyścigu w przypadku nadrzędnego skalowania klastra, w którym program automatyczne skalowanie klastra zakończy się inną wartością niż ta, która znajduje się w klastrze. Aby uzyskać dostęp do tego stanu, wystarczy wyłączyć i ponownie włączyć [Automatyczne skalowanie klastra][cluster-autoscaler].
+Ten błąd występuje ze względu na sytuację wyścigu dla nadrzędnego skalowania klastra. W takim przypadku automatyczne skalowanie klastra ma inną wartość niż ta, która rzeczywiście znajduje się w klastrze. Aby skorzystać z tego stanu, wyłącz i ponownie Włącz [Automatyczne skalowanie klastra][cluster-autoscaler].
 
 ### <a name="slow-disk-attachment-getazuredisklun-takes-10-to-15-minutes-and-you-receive-an-error"></a>Wolne miejsce na dysku, GetAzureDiskLun trwa 10 do 15 minut i występuje błąd
 
-W wersji Kubernetes **starszej niż 1.15.0** może zostać wyświetlony błąd, taki jak **błąd WaitForAttach nie można znaleźć jednostki LUN dla dysku**.  Obejście tego problemu ma potrwać około 15 minut i ponowić próbę.
+W wersji Kubernetes **starszej niż 1.15.0**może zostać wyświetlony błąd, taki jak **błąd WaitForAttach nie można znaleźć jednostki LUN dla dysku**.  Obejście tego problemu ma na celu odczekanie około 15 minut, a następnie ponów próbę.
 
 <!-- LINKS - internal -->
 [view-master-logs]: view-master-logs.md

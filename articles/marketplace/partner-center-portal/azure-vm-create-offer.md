@@ -1,23 +1,20 @@
 ---
 title: Tworzenie oferty maszyny wirtualnej platformy Azure w portalu Azure Marketplace
-description: Dowiedz się, jak utworzyć ofertę maszyny wirtualnej w portalu Azure Marketplace z wymaganą jednostką SKU.
+description: Dowiedz się, jak utworzyć ofertę maszyny wirtualnej w portalu Azure Marketplace przy użyciu wymaganej jednostki SKU.
 author: emuench
 ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 25b7a619f6d3e308de966ead5925133f6094d9c8
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: ab41d3619150ace8e55702792d5974060133d5c1
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701082"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726183"
 ---
-# <a name="create-an-azure-virtual-machine-offer-in-the-azure-marketplace"></a>Tworzenie oferty maszyny wirtualnej platformy Azure w portalu Azure Marketplace
-
-> [!IMPORTANT]
-> Przenosimy zarządzanie ofertami maszyn wirtualnych platformy Azure z usługi portal Cloud Partner do Centrum partnerskiego. Dopóki Twoje oferty nie zostaną zmigrowane, nadal postępuj zgodnie z instrukcjami zawartymi w temacie [Tworzenie oferty maszyny wirtualnej](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-offer) w Portal Cloud partner, aby zarządzać ofertami.
+# <a name="create-an-azure-virtual-machine-offer-in-azure-marketplace"></a>Tworzenie oferty maszyny wirtualnej platformy Azure w portalu Azure Marketplace
 
 W tym artykule opisano sposób tworzenia i publikowania oferty maszyny wirtualnej platformy Azure w [witrynie Azure Marketplace](https://azuremarketplace.microsoft.com/). Dotyczy zarówno maszyn wirtualnych opartych na systemie Windows, jak i Linux, które zawierają system operacyjny, wirtualny dysk twardy (VHD) oraz maksymalnie 16 dysków danych. Przed rozpoczęciem [Utwórz komercyjne konto witryny Marketplace w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) , jeśli jeszcze tego nie zrobiono. Upewnij się, że Twoje konto jest zarejestrowane w komercyjnym programie Marketplace.
 
@@ -104,7 +101,7 @@ Po opublikowaniu oferty na komercyjnym rynku w centrum partnerskim połącz ją 
 1. Wybierz miejsce docelowe potencjalnych klientów, do którego chcesz wysyłać potencjalnych klientów. Centrum partnerskie obsługuje następujące systemy CRM:
     - [Dynamics 365](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics) dla zaangażowania klienta
     - [Marketo](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-marketo)
-    - [Salesforce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
+    - [SalesForce](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce)
 
     > [!NOTE]
     > Jeśli Twój system CRM nie jest wymieniony powyżej, użyj [tabeli platformy Azure](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table) lub [punktu końcowego HTTPS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-lead-management-instructions-https) do przechowywania danych potencjalnych klientów. Następnie wyeksportuj dane do systemu CRM.
@@ -379,7 +376,7 @@ Jeśli już ustawisz ceny dla planu w Stany Zjednoczone dolarów (USD) i dodasz 
 
 Po usunięciu rynku klienci z tego rynku korzystający z aktywnych wdrożeń nie będą mogli tworzyć nowych wdrożeń ani skalować istniejących wdrożeń. Nie wpłynie to na istniejące wdrożenia.
 
-#### <a name="pricing"></a>Ceny
+#### <a name="pricing"></a>Cennik
 
 **Model licencji** — wybierz **miesięczny plan rozliczeniowy oparty na użyciu** , aby skonfigurować Cennik dla tego planu lub **Bring Your Own License** , aby umożliwić klientom korzystanie z tego planu w ramach istniejącej licencji.
 

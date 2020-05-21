@@ -6,13 +6,13 @@ ms.author: dsindona
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/13/2020
-ms.openlocfilehash: 909f044fd18ce98577e16d877f174dfa00bc1f3c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/19/2020
+ms.openlocfilehash: 95d57e34694190b4ab997229f005ebeef7924e57
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81270404"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83724823"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Omówienie portalu komercyjnej witryny Marketplace w centrum partnerskim
 
@@ -26,31 +26,15 @@ Przedsiębiorstwa, instytucje rządowe i organizacje wszystkich rozmiarów szuka
 
 Centrum partnerskie to centralne środowisko partnerskie firmy Microsoft. W przypadku organizacji, które przechodzą na rynek firmy Microsoft i wykorzystują komercyjną witrynę Marketplace, centrum partnerskie to portal używany przez wydawców do tworzenia ofert i zarządzania nimi, zapewnia pokazy dla dysków testowych i umożliwia analizę wydajności oferty.
 
-## <a name="migration-from-cloud-partner-portal"></a>Migracja z portal Cloud Partner
+## <a name="migration-from-the-cloud-partner-portal"></a>Migracja z portal Cloud Partner
 
-Centrum partnerskie zwiększa integrację wszystkich aspektów naszej relacji z wydawcami oprogramowania. W ramach tej ewolucji przeprowadzimy migrację [Portal Cloud partner](https://cloudpartner.azure.com/) do Centrum partnerskiego.
+Centrum partnerskie zwiększa integrację wszystkich aspektów naszej relacji z wydawcami oprogramowania. W ramach tej ewolucji przeprowadzono migrację wszystkich komercyjnych ofert w portalu Marketplace z [Portal Cloud partner](https://cloudpartner.azure.com/) do Centrum partnerskiego.
 
-Istniejący Komercyjni wydawcy z portalu Marketplace znajdą znane, ale udoskonalone środowisko użytkownika z intuicyjnym interfejsem. Powiadomienia w portalu i powiadomienia e-mail informują wydawców o migracji. Użytkownicy będą bezproblemowo kierowani do odpowiedniej lokalizacji. Nie ma to wpływu na klientów korzystających z tego uaktualnienia.
-
->[!NOTE]
->Obecnie centrum partnerskie obsługuje tworzenie niektórych typów ofert i zarządzanie nimi zgodnie z poniższą tabelą. Kolejne typy ofert będą obsługiwane wkrótce po przeprowadzeniu migracji wszystkich zarządzania ofertami do Centrum partnerskiego.
-
-|Typ oferty  |Zarządzanie ofertą migrowane z portal Cloud Partner do Centrum partnerskiego  |
-|---------|---------|
-|Oprogramowanie jako usługa (SaaS)     | Dostępny teraz       |
-|Dynamics 365 dla zaangażowania klienta & PowerApps     | Dostępny teraz         |
-|Dynamics 365 dla operacji     | Dostępny teraz        |
-|Dynamics 365 for Business Central     | Dostępny teraz        |
-|Azure Application     | Dostępny teraz        |
-|Maszyna wirtualna platformy Azure     | Ogólna dostępność kwietnia — maj 2020        |
-|Kontener platformy Azure     | Ogólna dostępność kwietnia — maj 2020        |
-|Usługa doradcza     | Ogólna dostępność kwietnia — maj 2020        |
-|Moduł IoT Edge     | Ogólna dostępność kwietnia — maj 2020        |
-|Aplikacja usługi Power BI    | Ogólna dostępność kwietnia — maj 2020        |
+Istniejący wydawcy, którzy wcześniej korzystali z portal Cloud Partner mogą znaleźć znane, ale udoskonalone i intuicyjne środowisko użytkownika w centrum partnerskim. Użytkownicy będą bezproblemowo kierowani do odpowiedniej lokalizacji. Nie ma to wpływu na klientów korzystających z tego uaktualnienia.
 
 ### <a name="improvements-on-publishing-and-offer-management-user-experience"></a>Ulepszenia dotyczące publikowania i oferowania środowiska użytkownika zarządzania
 
-W przypadku przejścia do Centrum partnerskiego nowe funkcje są dostępne dla wydawców, a nie tylko ulepszeń środowiska użytkownika.  Aby uzyskać szczegółowe informacje, zobacz [często zadawane pytania dotyczące migracji z usługi Portal Cloud partner do Centrum partnerskiego](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-migration-faq).
+W przypadku przejścia do Centrum partnerskiego nowe funkcje są dostępne dla wydawców, a nie tylko ulepszeń środowiska użytkownika.  Aby uzyskać szczegółowe informacje, zobacz [często zadawane pytania dotyczące migracji z usługi Portal Cloud partner do Centrum partnerskiego](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-migration-faq).
 
 ### <a name="account-and-user-management-updates"></a>Aktualizacje zarządzania kontami i użytkownikami
 

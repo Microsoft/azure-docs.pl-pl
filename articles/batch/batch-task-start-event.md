@@ -1,14 +1,14 @@
 ---
 title: Zdarzenie rozpoczęcia zadania Azure Batch
 description: Informacje referencyjne dotyczące zdarzenia uruchamiania zadania wsadowego. To zdarzenie jest emitowane po zaplanowaniu uruchomienia zadania w węźle obliczeniowym przez harmonogram.
-ms.topic: article
+ms.topic: reference
 ms.date: 04/20/2017
-ms.openlocfilehash: 6e897cb02163d11657c915d31ee5564e5bbd7407
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f872e6c89e2f528729ae08125c6cc3eb5718e19a
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116404"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725792"
 ---
 # <a name="task-start-event"></a>Zdarzenie rozpoczęcia zadania
 

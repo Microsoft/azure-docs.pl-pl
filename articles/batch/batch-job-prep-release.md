@@ -1,15 +1,15 @@
 ---
 title: Tworzenie zadań w celu przygotowania & ukończonych zadań w węzłach obliczeniowych
 description: Zadania przygotowania na poziomie zadania umożliwiają minimalizowanie transferu danych do Azure Batch węzłów obliczeniowych oraz wykonywanie zadań do wyczyszczenia węzła podczas ukończenia zadania.
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: c9c88994a65d4d2cb8c8373d2bbb4aa2877fe465
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a73baa03500dfbcdd7193035bf70b0f3e03be283
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116064"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726676"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Uruchamianie zadań przygotowania i zwolnienia zadań w węzłach obliczeniowych wsadowych
 

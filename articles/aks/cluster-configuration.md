@@ -4,12 +4,12 @@ description: Dowiedz się, jak skonfigurować klaster w usłudze Azure Kubernete
 services: container-service
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: 94f84beee2d7a76e48ac1470a0ce0b387929cc08
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fe5ce13d9db8f2bc2231f87de7e602e63d239bfa
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79479165"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725150"
 ---
 # <a name="configure-an-aks-cluster"></a>Konfigurowanie klastra AKS
 
@@ -43,11 +43,13 @@ Wyświetlenie stanu jako **zarejestrowanego**może potrwać kilka minut. Stan re
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/UseCustomizedUbuntuPreview')].{Name:name,State:properties.state}"
 ```
 
-Gdy stan jest wyświetlany jako zarejestrowane, Odśwież rejestrację dostawcy `Microsoft.ContainerService` zasobów przy użyciu polecenia [AZ Provider Register](https://docs.microsoft.com/cli/azure/provider?view=azure-cli-latest#az-provider-register) :
+Gdy stan jest wyświetlany jako zarejestrowane, Odśwież rejestrację `Microsoft.ContainerService` dostawcy zasobów przy użyciu polecenia [AZ Provider Register](https://docs.microsoft.com/cli/azure/provider?view=azure-cli-latest#az-provider-register) :
 
 ```azurecli
 az provider register --namespace Microsoft.ContainerService
 ```
+
+### <a name="new-clusters"></a>Nowe klastry
 
 Skonfiguruj klaster tak, aby używał Ubuntu 18,04 podczas tworzenia klastra. Użyj `--aks-custom-headers` flagi, aby ustawić Ubuntu 18,04 jako domyślny system operacyjny.
 
@@ -55,19 +57,30 @@ Skonfiguruj klaster tak, aby używał Ubuntu 18,04 podczas tworzenia klastra. U�
 az aks create --name myAKSCluster --resource-group myResourceGroup --aks-custom-headers CustomizedUbuntu=aks-ubuntu-1804
 ```
 
-Jeśli chcesz utworzyć klaster regularnego Ubuntu 16,04, możesz to zrobić, pomijając znacznik niestandardowy `--aks-custom-headers` .
+Jeśli chcesz utworzyć klaster regularnego Ubuntu 16,04, możesz to zrobić, pomijając `--aks-custom-headers` znacznik niestandardowy.
+
+### <a name="existing-clusters"></a>Istniejące klastry
+
+Skonfiguruj nową pulę węzłów do używania Ubuntu 18,04. Użyj `--aks-custom-headers` flagi, aby ustawić Ubuntu 18,04 jako domyślny system operacyjny dla tej puli węzłów.
+
+```azure-cli
+az aks nodepool add --name ubuntu1804 --cluster-name myAKSCluster --resource-group myResourceGroup --aks-custom-headers CustomizedUbuntu=aks-ubuntu-1804
+```
+
+Jeśli chcesz utworzyć regularne pule węzłów Ubuntu 16,04, możesz to zrobić, pomijając `--aks-custom-headers` tag niestandardowy.
+
 
 ## <a name="custom-resource-group-name"></a>Nazwa niestandardowej grupy zasobów
 
-Podczas wdrażania klastra usługi Azure Kubernetes na platformie Azure zostanie utworzona druga grupa zasobów dla węzłów procesu roboczego. Domyślnie AKS będzie nazwać grupę `MC_resourcegroupname_clustername_location`zasobów węzła, ale możesz również podać własną nazwę.
+Podczas wdrażania klastra usługi Azure Kubernetes na platformie Azure zostanie utworzona druga grupa zasobów dla węzłów procesu roboczego. Domyślnie AKS będzie nazwać grupę zasobów węzła `MC_resourcegroupname_clustername_location` , ale możesz również podać własną nazwę.
 
-Aby określić własną nazwę grupy zasobów, zainstaluj rozszerzenie AKS-Preview interfejsu wiersza polecenia platformy Azure w wersji 0.3.2 lub nowszej. Korzystając z interfejsu wiersza `--node-resource-group` `az aks create` polecenia platformy Azure, użyj parametru polecenie, aby określić niestandardową nazwę grupy zasobów. W przypadku wdrażania klastra AKS za pomocą szablonu Azure Resource Manager można zdefiniować nazwę grupy zasobów za pomocą `nodeResourceGroup` właściwości.
+Aby określić własną nazwę grupy zasobów, zainstaluj rozszerzenie AKS-Preview interfejsu wiersza polecenia platformy Azure w wersji 0.3.2 lub nowszej. Korzystając z interfejsu wiersza polecenia platformy Azure, użyj `--node-resource-group` parametru `az aks create` polecenie, aby określić niestandardową nazwę grupy zasobów. W przypadku wdrażania klastra AKS za pomocą szablonu Azure Resource Manager można zdefiniować nazwę grupy zasobów za pomocą `nodeResourceGroup` właściwości.
 
 ```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup --node-resource-group myNodeResourceGroup
 ```
 
-Dodatkowa grupa zasobów jest automatycznie tworzona przez dostawcę zasobów platformy Azure we własnej subskrypcji. Należy pamiętać, że podczas tworzenia klastra można określić niestandardową nazwę grupy zasobów. 
+Dodatkowa grupa zasobów jest automatycznie tworzona przez dostawcę zasobów platformy Azure we własnej subskrypcji. Podczas tworzenia klastra można określić niestandardową nazwę grupy zasobów. 
 
 Podczas pracy z grupą zasobów węzła należy pamiętać, że nie można:
 

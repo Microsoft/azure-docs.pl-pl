@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: add2d515e4f8e8c56a98a7292e137e601332d10c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e653adfd7a148cea7bfb1ecfdbbf386eff0c3e86
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80410863"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723327"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Key Vault rozszerzenie maszyny wirtualnej dla systemu Linux
 
@@ -65,18 +65,18 @@ Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej Key Vault
 ```
 
 > [!NOTE]
-> Adresy URL obserwowanych certyfikatów powinny mieć postać `https://myVaultName.vault.azure.net/secrets/myCertName`.
+> Adresy URL obserwowanych certyfikatów powinny mieć postać `https://myVaultName.vault.azure.net/secrets/myCertName` .
 > 
-> Wynika to z `/secrets` faktu, że ścieżka zwraca pełny certyfikat, w tym klucz prywatny, `/certificates` podczas gdy ścieżka nie jest. Więcej informacji o certyfikatach można znaleźć tutaj: [Key Vault Certificates](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
+> Wynika to z faktu, że `/secrets` ścieżka zwraca pełny certyfikat, w tym klucz prywatny, podczas gdy `/certificates` ścieżka nie jest. Więcej informacji o certyfikatach można znaleźć tutaj: [Key Vault Certificates](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
 
 
 ### <a name="property-values"></a>Wartości właściwości
 
 | Nazwa | Wartość/przykład | Typ danych |
 | ---- | ---- | ---- |
-| apiVersion | 2019-07-01 | date |
+| apiVersion | 2019-07-01 | data |
 | publisher | Microsoft.Azure.KeyVault | ciąg |
-| type | KeyVaultForLinux | ciąg |
+| typ | KeyVaultForLinux | ciąg |
 | typeHandlerVersion | 1.0 | int |
 | pollingIntervalInS | 3600 | ciąg |
 | certificateStoreName | MY | ciąg |
@@ -90,7 +90,7 @@ Poniższy kod JSON przedstawia schemat rozszerzenia maszyny wirtualnej Key Vault
 
 Rozszerzenia maszyny wirtualnej platformy Azure można wdrażać za pomocą szablonów Azure Resource Manager. Szablony są idealne do wdrożenia co najmniej jednej maszyny wirtualnej, która wymaga odświeżenia certyfikatów po wdrożeniu. Rozszerzenie można wdrożyć na poszczególnych maszynach wirtualnych lub w zestawach skalowania maszyn wirtualnych. Schemat i konfiguracja są wspólne dla obu typów szablonów. 
 
-Konfiguracja JSON rozszerzenia maszyny wirtualnej musi być zagnieżdżona w ramach fragmentu zasobów maszyny wirtualnej szablonu, w odniesieniu `"resources": []` do szablonu maszyny wirtualnej, a w przypadku zestawu skalowania maszyn wirtualnych w obszarze `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` obiekt.
+Konfiguracja JSON rozszerzenia maszyny wirtualnej musi być zagnieżdżona w ramach fragmentu zasobów maszyny wirtualnej szablonu, `"resources": []` w odniesieniu do szablonu maszyny wirtualnej, a w przypadku zestawu skalowania maszyn wirtualnych w obszarze `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` obiekt.
 
 ```json
     {
@@ -194,7 +194,7 @@ Interfejsu wiersza polecenia platformy Azure można użyć do wdrożenia rozszer
 Należy pamiętać o następujących ograniczeniach/wymaganiach:
 - Ograniczenia Key Vault:
   - Musi istnieć w czasie wdrożenia 
-  - Zasady dostępu Key Vault są ustawione dla tożsamości VM/VMSS przy użyciu pliku MSI
+  - Zasady dostępu Key Vault mustbe ustawione dla tożsamości VM/VMSS przy użyciu tożsamości zarządzanej. Zobacz [udostępnianie uwierzytelniania Key Vault przy użyciu tożsamości zarządzanej](../../key-vault/managed-identity.md)
 
 
 ## <a name="troubleshoot-and-support"></a>Rozwiązywanie problemów i pomoc techniczna

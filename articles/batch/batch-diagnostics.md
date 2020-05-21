@@ -1,15 +1,15 @@
 ---
 title: Metryki, alerty i dzienniki diagnostyczne
 description: Rejestruj i Analizuj zdarzenia dziennika diagnostycznego dla zasobów konta Azure Batch, takich jak pule i zadania.
-ms.topic: article
+ms.topic: how-to
 ms.date: 12/05/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7f75a8302c8ba368138e6c8edee6c6069c5031d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0a33f71cd185a327bfe6852b9acd7d7317b94c2c
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117305"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726744"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Metryki, alerty i dzienniki usługi Batch na potrzeby oceny i monitorowania diagnostyki
 
@@ -34,7 +34,7 @@ Wyświetl metryki dla konta usługi Batch w Azure Portal. Na stronie **Przegląd
 
 Aby wyświetlić wszystkie metryki konta w usłudze Batch: 
 
-1. W portalu kliknij kolejno pozycje **wszystkie usługi Usługa** > **Batch konta**, a następnie kliknij nazwę swojego konta w usłudze Batch.
+1. W portalu kliknij kolejno pozycje **wszystkie usługi Usługa**  >  **Batch konta**, a następnie kliknij nazwę swojego konta w usłudze Batch.
 2. W obszarze **monitorowanie**kliknij pozycję **metryki**.
 3. Wybierz co najmniej jedną metrykę. Jeśli chcesz, wybierz pozycję dodatkowe metryki zasobów przy użyciu opcji **subskrypcje**, **Grupa zasobów**, **Typ zasobu**i listy rozwijane **zasobów** .
     * W przypadku metryk opartych na liczbie (takich jak "dedykowana liczba rdzeni" lub "Liczba węzłów o niskim priorytecie") Użyj agregacji "Średnia". W przypadku metryk opartych na zdarzeniach (takich jak "zmiany rozmiaru puli zakończonych zdarzeń") Użyj agregacji "Count".
@@ -62,8 +62,8 @@ Można na przykład skonfigurować alert metryki, gdy liczba rdzeni o niskim pri
 
 Aby skonfigurować alert dotyczący metryki w portalu:
 
-1. Kliknij kolejno pozycje **wszystkie usługi Usługa** > **Batch konta**, a następnie kliknij nazwę konta w usłudze Batch.
-2. W obszarze **monitorowanie**kliknij pozycję **reguły** > alertów**Dodaj alert metryki**.
+1. Kliknij kolejno pozycje **wszystkie usługi Usługa**  >  **Batch konta**, a następnie kliknij nazwę konta w usłudze Batch.
+2. W obszarze **monitorowanie**kliknij pozycję **reguły alertów**  >  **Dodaj alert metryki**.
 3. Wybierz metrykę, warunek alertu (na przykład, gdy Metryka przekroczy określoną wartość w danym okresie) i jedno lub więcej powiadomień.
 
 Możesz również skonfigurować alert niemal w czasie rzeczywistym za pomocą [interfejsu API REST](https://docs.microsoft.com/rest/api/monitor/). Aby uzyskać więcej informacji, zobacz [Omówienie alertów](../azure-monitor/platform/alerts-overview.md). Aby uwzględnić w alertach informacje dotyczące zadania, zadania lub puli, zobacz informacje na temat wyszukiwania zapytań w odpowiedzi na [zdarzenia z alertami Azure monitor](../azure-monitor/learn/tutorial-response.md)
@@ -94,8 +94,8 @@ Inne opcjonalne miejsca docelowe dla dzienników diagnostycznych:
 
 ### <a name="enable-collection-of-batch-diagnostic-logs"></a>Włącz zbieranie dzienników diagnostycznych partii
 
-1. W portalu kliknij kolejno pozycje **wszystkie usługi Usługa** > **Batch konta**, a następnie kliknij nazwę swojego konta w usłudze Batch.
-2. W obszarze **monitorowanie**kliknij pozycję **dzienniki** > diagnostyczne**Włącz diagnostykę**.
+1. W portalu kliknij kolejno pozycje **wszystkie usługi Usługa**  >  **Batch konta**, a następnie kliknij nazwę swojego konta w usłudze Batch.
+2. W obszarze **monitorowanie**kliknij pozycję **dzienniki diagnostyczne**  >  **Włącz diagnostykę**.
 3. W obszarze **Ustawienia diagnostyczne**wprowadź nazwę ustawienia i wybierz miejsce docelowe dziennika (istniejące konto magazynu, centrum zdarzeń lub dzienniki Azure monitor). Wybierz albo zarówno **ServiceLog** , jak i **AllMetrics**.
 
     Po wybraniu konta magazynu opcjonalnie Ustaw zasady przechowywania. Jeśli nie określisz liczby dni przechowywania danych, dane są zachowywane w trakcie okresu istnienia konta magazynu.
@@ -125,9 +125,9 @@ insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX
 RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/
 BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 ```
-Każdy `PT1H.json` plik obiektu BLOB zawiera zdarzenia w formacie JSON, które wystąpiły w ciągu godziny określonej w adresie URL `h=12`obiektu BLOB (na przykład). W ciągu tej godziny zdarzenia są dołączane do `PT1H.json` pliku w miarę ich występowania. Wartość minuta (`m=00`) jest zawsze `00`, ponieważ zdarzenia dzienników diagnostycznych są dzielone na pojedyncze obiekty blob na godzinę. (Wszystkie czasy są w formacie UTC).
+Każdy `PT1H.json` plik obiektu BLOB zawiera zdarzenia w formacie JSON, które wystąpiły w ciągu godziny określonej w adresie URL obiektu BLOB (na przykład `h=12` ). W ciągu tej godziny zdarzenia są dołączane do `PT1H.json` pliku w miarę ich występowania. Wartość minuta ( `m=00` ) jest zawsze `00` , ponieważ zdarzenia dzienników diagnostycznych są dzielone na pojedyncze obiekty blob na godzinę. (Wszystkie czasy są w formacie UTC).
 
-Poniżej znajduje się przykład `PoolResizeCompleteEvent` wpisu w pliku `PT1H.json` dziennika. Zawiera informacje o bieżącej i docelowej liczbie węzłów dedykowanych i o niskim priorytecie oraz o godzinie rozpoczęcia i zakończenia operacji:
+Poniżej znajduje się przykład `PoolResizeCompleteEvent` wpisu w `PT1H.json` pliku dziennika. Zawiera informacje o bieżącej i docelowej liczbie węzłów dedykowanych i o niskim priorytecie oraz o godzinie rozpoczęcia i zakończenia operacji:
 
 ```
 { "Tenant": "65298bc2729a4c93b11c00ad7e660501", "time": "2019-08-22T20:59:13.5698778Z", "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/", "category": "ServiceLog", "operationName": "PoolResizeCompleteEvent", "operationVersion": "2017-06-01", "properties": {"id":"MYPOOLID","nodeDeallocationOption":"Requeue","currentDedicatedNodes":10,"targetDedicatedNodes":100,"currentLowPriorityNodes":0,"targetLowPriorityNodes":0,"enableAutoScale":false,"isAutoPool":false,"startTime":"2019-08-22 20:50:59.522","endTime":"2019-08-22 20:59:12.489","resultCode":"Success","resultMessage":"The operation succeeded"}}

@@ -9,12 +9,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 8c648e3f9e0b36f11a031110f9b0638dc68a4a76
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 0e241b672bcac49c0459c840d46b0c81e158d56b
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599703"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725843"
 ---
 # <a name="install-software-and-set-up-resources-for-the-tutorial"></a>Instalowanie oprogramowania i Konfigurowanie zasobów dla samouczka
 
@@ -42,9 +42,12 @@ Wdróż zasoby platformy Azure wymagane przez ten samouczek usługi Azure SQL Ed
    Import-Module -Name Az -RequiredVersion 3.5.0
    Import-Module Az.IotHub -RequiredVersion 2.1.0
    Import-Module Az.Compute -RequiredVersion 3.5.0
-   az extension add --name azure-cli-iot-ext
+   az extension add --name azure-iot
    az extension add --name azure-cli-ml
    ```
+
+[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+
 
 2. Zadeklaruj zmienne wymagane przez skrypt programu PowerShell.
 

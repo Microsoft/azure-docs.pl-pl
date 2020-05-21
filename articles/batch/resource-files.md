@@ -2,13 +2,13 @@
 title: Tworzenie i używanie plików zasobów
 description: Dowiedz się, jak tworzyć pliki zasobów usługi Batch z różnych źródeł danych wejściowych. W tym artykule opisano kilka typowych metod tworzenia i umieszczania ich na maszynie wirtualnej.
 ms.date: 03/18/2020
-ms.topic: article
-ms.openlocfilehash: c9a2e581d0cada467e89e3da731fac7f78b22992
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: ea349c3a190b78297d9ad4555258d0cfd8828ed4
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117186"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723463"
 ---
 # <a name="creating-and-using-resource-files"></a>Tworzenie i używanie plików zasobów
 
@@ -48,9 +48,9 @@ SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy
 ```
 
 > [!NOTE]
-> Aby uzyskać dostęp do kontenera, musisz mieć `Read` zarówno `List` uprawnienia, jak i dostęp do `Read` obiektów BLOB.
+> Aby uzyskać dostęp do kontenera, musisz mieć `Read` zarówno `List` uprawnienia, jak i dostęp do obiektów BLOB `Read` .
 
-Po skonfigurowaniu uprawnień należy utworzyć token sygnatury dostępu współdzielonego i sformatować adres URL sygnatury dostępu współdzielonego, aby uzyskać dostęp do kontenera magazynu. Przy użyciu sformatowanego adresu URL sygnatury dostępu współdzielonego dla kontenera magazynu [`FromStorageContainerUrl`](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.resourcefile.fromstoragecontainerurl?view=azure-dotnet)wygeneruj plik zasobów przy użyciu polecenia.
+Po skonfigurowaniu uprawnień należy utworzyć token sygnatury dostępu współdzielonego i sformatować adres URL sygnatury dostępu współdzielonego, aby uzyskać dostęp do kontenera magazynu. Przy użyciu sformatowanego adresu URL sygnatury dostępu współdzielonego dla kontenera magazynu wygeneruj plik zasobów przy użyciu polecenia [`FromStorageContainerUrl`](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.resourcefile.fromstoragecontainerurl?view=azure-dotnet) .
 
 ```csharp
 CloudBlobContainer container = blobClient.GetContainerReference(containerName);

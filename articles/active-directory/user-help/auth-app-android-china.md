@@ -1,5 +1,5 @@
 ---
-title: Microsoft Authenticator dostępność i ograniczenia Foe systemu Android w Chinach | Microsoft Docs
+title: Microsoft Authenticator dostępność i ograniczenia dotyczące systemu Android w Chinach | Microsoft Docs
 description: Dowiedz się, jak uzyskać dostęp do Microsoft Authenticator aplikacji w Chinach
 services: active-directory
 author: curtand
@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: overview
-ms.date: 05/06/2020
+ms.date: 05/20/2020
 ms.author: curtand
-ms.openlocfilehash: 3ba1b41859a543ab5e0393c5715dc49d452ea73c
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: e42c4e5aced9fd567c67b520a98318c965045e07
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891837"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715532"
 ---
 # <a name="microsoft-authenticator-for-android-in-the-public-cloud-in-china"></a>Microsoft Authenticator dla systemu Android w chmurze publicznej w Chinach
 

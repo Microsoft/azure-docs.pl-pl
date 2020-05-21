@@ -4,25 +4,25 @@ description: Dowiedz się, jak utworzyć klaster, który dystrybuuje węzły w s
 services: container-service
 ms.custom: fasttrack-edit
 ms.topic: article
-ms.date: 06/24/2019
-ms.openlocfilehash: 5693d9e90de9ba68e7b76e0f2bd5b75141dbda71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 02/27/2020
+ms.openlocfilehash: 35aaad31728f4a0cd73913ecf397d8123b3f909a
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77596814"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725100"
 ---
-# <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Tworzenie klastra usługi Azure Kubernetes (AKS), który używa stref dostępności
+# <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Tworzenie klastra usługi Azure Kubernetes Service (AKS) korzystającego ze stref dostępności
 
-Klaster usługi Azure Kubernetes (AKS) dystrybuuje zasoby, takie jak węzły i magazyn, w logicznych sekcjach podstawowej infrastruktury obliczeniowej platformy Azure. Ten model wdrażania zapewnia, że węzły są uruchamiane w oddzielnych domenach aktualizacji i błędów w jednym centrum danych platformy Azure. Klastry usługi AKS wdrożone z tym domyślnym zachowaniem zapewniają wysoki poziom dostępności w celu ochrony przed awarią sprzętu lub zdarzeniem planowanej konserwacji.
+Klaster usługi Azure Kubernetes Service (AKS) dystrybuuje zasoby, takie jak węzły i magazyn, w logicznych sekcjach podstawowej infrastruktury platformy Azure. Ten model wdrażania w przypadku korzystania ze stref dostępności gwarantuje, że węzły w danej strefie dostępności są fizycznie oddzielone od tych, które są zdefiniowane w innej strefie dostępności. Klastry AKS wdrożone z wieloma strefami dostępności skonfigurowanymi w ramach klastra zapewniają wyższy poziom dostępności do ochrony przed awariami sprzętowymi lub zaplanowanym zdarzeniem konserwacji.
 
-Aby zapewnić wyższy poziom dostępności aplikacji, klastry AKS mogą być dystrybuowane między strefami dostępności. Strefy te są fizycznie oddzielne centra danych w danym regionie. Gdy składniki klastra są rozmieszczone w wielu strefach, klaster usługi AKS jest w stanie tolerować błąd w jednej z tych stref. Operacje zarządzania aplikacjami i zarządzaniem są nadal dostępne, nawet jeśli wystąpił problem w jednym całym centrum danych.
+Definiując pule węzłów w klastrze w celu rozdzielenia wielu stref, węzły w danej puli węzłów są w stanie kontynuować działanie nawet wtedy, gdy jedna strefa przestała działać. Aplikacje mogą być nadal dostępne nawet wtedy, gdy w jednym centrum danych występuje awaria fizyczna, jeśli jest ona niedostępna do tolerowanej awarii podzbioru węzłów.
 
-W tym artykule pokazano, jak utworzyć klaster usługi AKS i rozmieścić składniki węzła w strefach dostępności.
+W tym artykule pokazano, jak utworzyć klaster AKS i rozesłać składniki węzła w strefach dostępności.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
-Potrzebujesz zainstalowanego i skonfigurowany interfejsu wiersza polecenia platformy Azure w wersji 2.0.76 lub nowszej. Uruchom polecenie  `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie przeprowadzenie instalacji lub uaktualnienia, zobacz  [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
+Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.76 lub nowszej. Uruchom polecenie  `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczne będzie przeprowadzenie instalacji lub uaktualnienia, zobacz  [Instalowanie interfejsu wiersza polecenia platformy Azure][install-azure-cli].
 
 ## <a name="limitations-and-region-availability"></a>Ograniczenia i dostępność regionów
 
@@ -39,42 +39,38 @@ Klastry AKS można obecnie tworzyć przy użyciu stref dostępności w następuj
 * Europa Zachodnia
 * Zachodnie stany USA 2
 
-Podczas tworzenia klastra AKS przy użyciu stref dostępności obowiązują następujące ograniczenia:
+Podczas tworzenia klastra AKS przy użyciu stref dostępności są stosowane następujące ograniczenia:
 
-* Strefy dostępności można włączyć tylko podczas tworzenia klastra.
-* Nie można zaktualizować ustawień strefy dostępności po utworzeniu klastra. Nie można również zaktualizować istniejącego klastra stref niedostępnych, aby używać stref dostępności.
-* Po jego utworzeniu nie można wyłączyć stref dostępności klastra AKS.
-* Wybrany rozmiar węzła (jednostka SKU maszyny Wirtualnej) musi być dostępny we wszystkich strefach dostępności.
-* Klastry z włączonymi strefami dostępności wymagają użycia standardowych modułów równoważenia obciążenia platformy Azure do dystrybucji między strefami.
-* Aby wdrożyć standardowe moduły równoważenia obciążenia, należy użyć programu Kubernetes w wersji 1.13.5 lub nowszej.
+* Strefy dostępności można definiować tylko po utworzeniu klastra lub puli węzłów.
+* Nie można zaktualizować ustawień strefy dostępności po utworzeniu klastra. Nie można również zaktualizować istniejącego klastra strefowego niebędącego dostępnością do korzystania ze stref dostępności.
+* Wybrana opcja rozmiar węzła (jednostka SKU maszyny wirtualnej) musi być dostępna dla wszystkich wybranych stref dostępności.
+* Klastry z włączonymi strefami dostępności wymagają użycia usługi równoważenia obciążenia w warstwie Standardowa na potrzeby dystrybucji między strefami. Ten typ modułu równoważenia obciążenia można zdefiniować tylko w czasie tworzenia klastra. Aby uzyskać więcej informacji i ograniczeń dotyczących standardowego modułu równoważenia obciążenia, zobacz [ograniczenia dotyczące standardowej jednostki SKU modułu równoważenia obciążenia platformy Azure][standard-lb-limitations].
 
-Klastry usługi AKS korzystające ze stref dostępności muszą używać *standardowej jednostki* SKU modułu równoważenia obciążenia platformy Azure, która jest wartością domyślną dla typu modułu równoważenia obciążenia. Ten typ modułu równoważenia obciążenia można zdefiniować tylko w czasie tworzenia klastra. Aby uzyskać więcej informacji i ograniczenia standardowego modułu równoważenia obciążenia, zobacz [standardowe ograniczenia jednostki SKU modułu równoważenia obciążenia platformy Azure][standard-lb-limitations].
+### <a name="azure-disks-limitations"></a>Ograniczenia dotyczące dysków platformy Azure
 
-### <a name="azure-disks-limitations"></a>Ograniczenia dysków platformy Azure
+Woluminy korzystające z usługi Azure Managed disks nie są obecnie strefowo nadmiarowe. Woluminów nie można dołączać między strefami i muszą one znajdować się w tej samej strefie co dany węzeł obsługujący element docelowy pod.
 
-Woluminy korzystające z dysków zarządzanych platformy Azure nie są obecnie zasobami strefowymi. Zasobniki przełożone w innej strefie niż ich oryginalna strefa nie mogą ponownie dołączyć poprzedniego dysku.Zasobki rescheduled in a different zone from their original zone can't reattach their previous disk(s). Zaleca się uruchamianie obciążeń bezstanowych, które nie wymagają trwałego magazynu, które mogą napotkać problemy strefowe.
+Jeśli konieczne jest uruchamianie obciążeń stanowych, należy użyć przydziałów i tolerowania puli węzłów w ramach specyfikacji ze specyfikacją grupowanie w tej samej strefie co dyski. Alternatywnie możesz korzystać z magazynu opartego na sieci, takiego jak Azure Files, które można dołączyć do zasobników, gdy są one planowane między strefami.
 
-Jeśli musisz uruchomić obciążenia stanowe, użyj skazy i tolerancji w specyfikacjach zasobnika, aby poinformować harmonogram Kubernetes o utworzeniu zasobników w tej samej strefie co dyski. Alternatywnie należy użyć magazynu sieciowego, takich jak usługi Azure Files, które można dołączyć do zasobników, ponieważ są one zaplanowane między strefami.
+## <a name="overview-of-availability-zones-for-aks-clusters"></a>Przegląd stref dostępności dla klastrów AKS
 
-## <a name="overview-of-availability-zones-for-aks-clusters"></a>Omówienie stref dostępności dla klastrów AKS
+Strefy dostępności to oferta wysokiej dostępności, która chroni Twoje aplikacje i dane przed awariami centrów danych. Strefy są unikatowymi lokalizacjami fizycznymi w regionie świadczenia usługi Azure. Każda strefa składa się z co najmniej jednego centrum danych wyposażonego w niezależne zasilanie, chłodzenie i sieć. Aby zapewnić odporność, istnieją co najmniej trzy oddzielne strefy we wszystkich regionach z włączonymi strefami. Fizyczna separacja stref dostępności w ramach regionu chroni aplikacje i dane przed awariami centrum danych.
 
-Strefy dostępności to oferta o wysokiej dostępności, która chroni aplikacje i dane przed awariami centrów danych. Strefy są unikatowe lokalizacje fizyczne w regionie platformy Azure. Każda strefa składa się z co najmniej jednego centrum danych wyposażonego w niezależne zasilanie, chłodzenie i sieć. W celu zapewnienia odporności istnieją co najmniej trzy osobne strefy we wszystkich włączonych regionach. Fizyczna separacja stref dostępności w ramach regionu chroni aplikacje i dane przed awariami centrum danych. Usługi nadmiarowe strefowe replikują aplikacje i dane w strefach dostępności, aby chronić je przed pojedynczymi punktami awarii.
+Aby uzyskać więcej informacji, zobacz [co to są strefy dostępności na platformie Azure?][az-overview]
 
-Aby uzyskać więcej informacji, zobacz [Co to są strefy dostępności na platformie Azure?][az-overview].
+Klastry AKS wdrożone przy użyciu stref dostępności umożliwiają dystrybucję węzłów między wieloma strefami w jednym regionie. Na przykład klaster w regionie *Wschodnie stany USA 2*   może tworzyć węzły we wszystkich trzech strefach dostępności w *regionach Wschodnie stany USA 2*. Ta dystrybucja zasobów klastra AKS zwiększa dostępność klastra w miarę odporności na awarię określonej strefy.
 
-Klastry usługi AKS wdrażane przy użyciu stref dostępności mogą rozmieszczać węzły w wielu strefach w obrębie jednego regionu. Na przykład klaster w regionie *Wschodnie stany USA 2* może tworzyć węzły we wszystkich trzech strefach dostępności we *wschodnich stanach USA 2*. Ta dystrybucja zasobów klastra usługi AKS zwiększa dostępność klastra, ponieważ są one odporne na awarię określonej strefy.
+![Rozkład węzłów AKS w różnych strefach dostępności](media/availability-zones/aks-availability-zones.png)
 
-![Rozkład węzłów AKS w strefach dostępności](media/availability-zones/aks-availability-zones.png)
+Jeśli jedna strefa będzie niedostępna, aplikacje kontynuują działanie, Jeśli klaster jest rozłożony w wielu strefach.
 
-W przypadku awarii strefy węzły można równocześnie równoważone ręcznie lub przy użyciu skalowania automatycznego klastra. Jeśli pojedyncza strefa stanie się niedostępna, aplikacje będą nadal działać.
+## <a name="create-an-aks-cluster-across-availability-zones"></a>Tworzenie klastra AKS w różnych strefach dostępności
 
-## <a name="create-an-aks-cluster-across-availability-zones"></a>Tworzenie klastra AKS w strefach dostępności
+W przypadku tworzenia klastra przy użyciu polecenia [AZ AKS Create][az-aks-create] `--zones` parametr określa, które węzły agenta stref są wdrożone w programie. Składniki płaszczyzny kontroli, takie jak etcd, są rozłożone w trzech strefach, jeśli zdefiniujesz `--zones` parametr podczas tworzenia klastra. Strefy, w których są rozmieszczone składniki płaszczyzny kontroli, są niezależne od wybranych dla puli węzłów początkowych.
 
-Podczas tworzenia klastra za pomocą polecenia [az aks create][az-aks-create] `--zones` parametr określa, w których węzłach agenta stref są wdrażane. Komponenty płaszczyzny sterowania AKS dla klastra są również rozłożone na `--zones` strefy w najwyższej dostępnej konfiguracji podczas definiowania parametru w czasie tworzenia klastra.
+Jeśli nie zdefiniowano żadnych stref dla domyślnej puli agentów podczas tworzenia klastra AKS, składniki płaszczyzny kontroli nie są gwarantowane do rozprzestrzeniania się między strefami dostępności. Można dodać dodatkowe pule węzłów za pomocą polecenia [AZ AKS nodepool Add][az-aks-nodepool-add] i określić `--zones` dla nowych węzłów, ale nie zmieni się, jak płaszczyzna kontroli została rozłożona między strefami. Ustawienia stref dostępności można definiować tylko w przypadku tworzenia klastra lub puli węzłów.
 
-Jeśli podczas tworzenia klastra AKS nie zostaną zdefiniowane żadne strefy dla domyślnej puli agentów, składniki płaszczyzny sterowania AKS dla klastra nie będą używać stref dostępności. Można dodać dodatkowe pule węzłów za pomocą [polecenia az aks nodepool add][az-aks-nodepool-add] i określić `--zones` dla tych nowych węzłów, jednak składniki płaszczyzny sterowania pozostają bez świadomości strefy dostępności. Nie można zmienić świadomości strefy dla puli węzłów lub składników płaszczyzny sterowania AKS po ich wdrożeniu.
-
-Poniższy przykład tworzy klaster AKS o nazwie *myAKSCluster* w grupie zasobów o nazwie *myResourceGroup*. W sumie tworzone są *3* węzły - jeden agent w strefie *1,* jeden na *2,* a następnie jeden na *3.* Komponenty płaszczyzny sterowania AKS są również rozmieszczone między strefami w najwyższej dostępnej konfiguracji, ponieważ są zdefiniowane jako część procesu tworzenia klastra.
+Poniższy przykład tworzy klaster AKS o nazwie *myAKSCluster* w grupie zasobów o nazwie Moja *resourceName*. Łącznie *3* węzły są tworzone — jeden Agent w strefie *1*, jeden w *2*, a następnie jeden w *3*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus2
@@ -89,25 +85,27 @@ az aks create \
     --zones 1 2 3
 ```
 
-Utworzenie klastra usługi AKS zajmuje kilka minut.
+Utworzenie klastra AKS może potrwać kilka minut.
 
-## <a name="verify-node-distribution-across-zones"></a>Weryfikowanie rozkładu węzłów między strefami
+Przy wyborze strefy, do której powinien się znajdować nowy węzeł, dana Pula węzłów AKS będzie korzystać z [optymalnego równoważenia strefy oferowanego przez bazowe Virtual Machine Scale Sets platformy Azure][vmss-zone-balancing]. Dana Pula węzłów AKS jest traktowana jako "Zrównoważona", jeśli każda strefa ma taką samą liczbę maszyn wirtualnych lub \- maszynę wirtualną "+ 1" we wszystkich innych strefach zestawu skalowania.
 
-Gdy klaster jest gotowy, wyświetl listę węzłów agenta w zestawie skalowania, aby zobaczyć, w jakiej strefie dostępności są one wdrażane.
+## <a name="verify-node-distribution-across-zones"></a>Weryfikowanie dystrybucji węzłów między strefami
 
-Najpierw pobierz poświadczenia klastra AKS za pomocą polecenia [az aks get-credentials:][az-aks-get-credentials]
+Gdy klaster jest gotowy, Utwórz listę węzłów agenta w zestawie skalowania, aby zobaczyć, w jakiej strefie dostępności są one wdrażane.
+
+Najpierw pobierz poświadczenia klastra AKS za pomocą polecenia [AZ AKS Get-Credentials][az-aks-get-credentials] :
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Następnie użyj [polecenia kubectl describe,][kubectl-describe] aby wyświetlić listę węzłów w klastrze. Filtruj *wartość failure-domain.beta.kubernetes.io/zone,* jak pokazano w poniższym przykładzie:
+Następnie użyj polecenia [polecenia kubectl opisywania][kubectl-describe] , aby wyświetlić listę węzłów w klastrze. Odfiltruj wartość *Failure-Domain.beta.Kubernetes.IO/Zone* , jak pokazano w następującym przykładzie:
 
 ```console
 kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"
 ```
 
-Poniższe przykładowe dane wyjściowe przedstawia trzy węzły rozproszone w określonym regionie i strefach dostępności, takie jak *eastus2-1* dla pierwszej strefy dostępności i *eastus2-2* dla drugiej strefy dostępności:
+Poniższe przykładowe dane wyjściowe przedstawiają trzy węzły rozproszone w określonym regionie i strefach dostępności, takie jak *eastus2-1* dla pierwszej strefy dostępności i *eastus2-2* dla drugiej strefy dostępności:
 
 ```console
 Name:       aks-nodepool1-28993262-vmss000000
@@ -118,13 +116,13 @@ Name:       aks-nodepool1-28993262-vmss000002
             failure-domain.beta.kubernetes.io/zone=eastus2-3
 ```
 
-Podczas dodawania dodatkowych węzłów do puli agentów platforma Azure automatycznie dystrybuuje podstawowe maszyny wirtualne w określonych strefach dostępności.
+Podczas dodawania kolejnych węzłów do puli agentów platforma Azure automatycznie dystrybuuje bazowe maszyny wirtualne w określonych strefach dostępności.
 
-Należy zauważyć, że w nowszych wersjach kubernetes (1.17.0 `topology.kubernetes.io/zone` i nowsze), `failure-domain.beta.kubernetes.io/zone`AKS używa nowszej etykiety oprócz przestarzałe .
+Należy pamiętać, że w nowszych wersjach programu Kubernetes (1.17.0 i nowsze), AKS używa nowszej etykiety `topology.kubernetes.io/zone` oprócz przestarzałej `failure-domain.beta.kubernetes.io/zone` .
 
-## <a name="verify-pod-distribution-across-zones"></a>Sprawdź rozkład zasobników w różnych strefach
+## <a name="verify-pod-distribution-across-zones"></a>Weryfikacja pod kątem dystrybucji między strefami
 
-Zgodnie z opisem w [obszarze Dobrze znane etykiety, adnotacje i tainty][kubectl-well_known_labels], kubernetes używa `failure-domain.beta.kubernetes.io/zone` etykiety do automatycznego rozpowszechniania zasobników w kontrolerze replikacji lub usłudze w różnych dostępnych strefach. Aby to sprawdzić, można skalować w górę klastra z 3 do 5 węzłów, aby sprawdzić prawidłowe rozmieszczenie zasobników:
+Zgodnie z opisem w [dobrze znanych etykietach, adnotacjach i][kubectl-well_known_labels]zastosowaniach, Kubernetes używa `failure-domain.beta.kubernetes.io/zone` etykiety do automatycznego dystrybucji zasobników w kontrolerze replikacji lub w usłudze w różnych dostępnych strefach. W celu przetestowania można skalować klaster z 3 do 5 węzłów, aby sprawdzić poprawność rozpraszania:
 
 ```azurecli-interactive
 az aks scale \
@@ -133,7 +131,7 @@ az aks scale \
     --node-count 5
 ```
 
-Po zakończeniu operacji skalowania po kilku `kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"` minutach polecenie powinno dać dane wyjściowe podobne do tego przykładu:
+Po zakończeniu operacji skalowania po kilku minutach polecenie `kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"` powinno dać wynik podobny do tego przykładu:
 
 ```console
 Name:       aks-nodepool1-28993262-vmss000000
@@ -148,13 +146,13 @@ Name:       aks-nodepool1-28993262-vmss000004
             failure-domain.beta.kubernetes.io/zone=eastus2-2
 ```
 
-Jak widać, mamy teraz dwa dodatkowe węzły w strefach 1 i 2. Można wdrożyć aplikację składającą się z trzech replik. Użyjemy NGINX jako przykładu:
+Mamy teraz dwa dodatkowe węzły w strefach 1 i 2. Można wdrożyć aplikację składającą się z trzech replik. Będziemy używać NGINX jako przykładu:
 
 ```console
 kubectl run nginx --image=nginx --replicas=3
 ```
 
-Jeśli sprawdzisz, że węzły, w których zasobników są uruchomione, zobaczysz, że zasobników są uruchomione na zasobników odpowiadających trzech różnych stref dostępności. Na przykład za `kubectl describe pod | grep -e "^Name:" -e "^Node:"` pomocą polecenia można uzyskać dane wyjściowe podobne do tego:
+Oglądając węzły, w których są uruchomione Twoje zasobniki, zobaczysz, że na węzłach odpowiadających trzema różnymi strefami dostępności są uruchomione na podst. Na przykład za pomocą polecenia `kubectl describe pod | grep -e "^Name:" -e "^Node:"` można uzyskać dane wyjściowe podobne do następujących:
 
 ```console
 Name:         nginx-6db489d4b7-ktdwg
@@ -165,11 +163,11 @@ Name:         nginx-6db489d4b7-xz6wj
 Node:         aks-nodepool1-28993262-vmss000004/10.240.0.8
 ```
 
-Jak widać z poprzedniego wyjścia, pierwszy zasobnik jest uruchomiony w węźle 0, który znajduje się w strefie `eastus2-1`dostępności . Drugi zasobnik jest uruchomiony na węźle `eastus2-3`2, który odpowiada , `eastus2-2`a trzeci w węźle 4, w . Bez żadnej dodatkowej konfiguracji, Kubernetes rozkłada zasobników poprawnie we wszystkich trzech strefach dostępności.
+Jak widać na podstawie poprzednich danych wyjściowych, pierwszy pod z nich jest uruchamiany w węźle 0, który znajduje się w strefie dostępności `eastus2-1` . Drugi pod jest uruchomiony w węźle 2, który odnosi się do `eastus2-3` , i trzeci drugi w węźle 4, w `eastus2-2` . Bez dodatkowej konfiguracji program Kubernetes poprawna rozłożeniem tego samego zasobnika we wszystkich trzech strefach dostępności.
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym artykule opisano sposób tworzenia klastra usługi AKS, który używa stref dostępności. Aby uzyskać więcej informacji na temat klastrów o wysokiej dostępności, zobacz [Najważniejsze wskazówki dotyczące ciągłości działania i odzyskiwania po awarii w udręki AKS][best-practices-bc-dr].
+W tym artykule szczegółowo opisano sposób tworzenia klastra AKS używającego stref dostępności. Aby uzyskać więcej informacji na temat klastrów o wysokiej dostępności, zobacz [najlepsze rozwiązania dotyczące ciągłości działania i odzyskiwania po awarii w programie AKS][best-practices-bc-dr].
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
@@ -186,6 +184,7 @@ W tym artykule opisano sposób tworzenia klastra usługi AKS, który używa stre
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [az-aks-nodepool-add]: /cli/azure/ext/aks-preview/aks/nodepool#ext-aks-preview-az-aks-nodepool-add
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[vmss-zone-balancing]: ../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing
 
 <!-- LINKS - external -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe

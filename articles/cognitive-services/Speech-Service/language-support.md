@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 28c5c1258c0733cd23f7c4ad3c901360461d5bdc
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 93dc831fa631a28b918ef5015a3c9ff107d41541
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682142"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726081"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Obsługa języka i głosu dla usługi mowy
 
@@ -24,7 +24,11 @@ Obsługa języka zależy od funkcjonalności usługi mowy. W poniższych tabelac
 
 ## <a name="speech-to-text"></a>Zamiana mowy na tekst
 
-Zarówno zestaw Microsoft Speech SDK, jak i interfejs API REST obsługują następujące języki (ustawienia regionalne). W celu poprawienia dokładności, dostosowanie jest oferowane dla podzestawu języków za pomocą przekazywania zapisu audio + z etykietami ludzkimi lub powiązanego tekstu: zdania. Dostosowanie wymowy jest oferowane przez przekazywanie powiązanego tekstu: wymowa. Więcej informacji na temat dostosowywania [znajdziesz tutaj](how-to-custom-speech.md).
+Zarówno zestaw Microsoft Speech SDK, jak i interfejs API REST obsługują następujące języki (ustawienia regionalne). 
+
+W celu poprawienia dokładności, dostosowanie jest oferowane dla podzestawu języków za pomocą przekazywania **zapisu audio + z etykietami ludzkimi** lub **powiązanego tekstu: zdania**. Aby dowiedzieć się więcej o dostosowywaniu, zobacz Wprowadzenie [do Custom Speech](how-to-custom-speech.md).
+
+Aby uzyskać więcej informacji o tym, jak można ulepszyć wymowę, zobacz [ulepszanie modelu dla Custom Speech](how-to-custom-speech-improve-accuracy.md#add-new-words-with-pronunciation).
 
 <!--
 To get the AM and ML bits:
@@ -36,49 +40,49 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 
 | Regionalne  | Język                          | Obsługiwane | Dostosowania                                    |
 |---------|-----------------------------------|-----------|---------------------------------------------------|
-| `ar-AE` | Arabski (Zjednoczone Emiraty Arabskie)                      | Yes       | Nie                                                |
-| `ar-BH` | Arabski (Bahrajn), nowoczesny Standard | Yes       | Model językowy                                    |
-| `ar-EG` | Arabski (Egipt)                    | Yes       | Model językowy                                    |
-| `ar-IL` | Arabski (Izrael)                   | Yes       | Nie                                                |
-| `ar-KW` | Arabski (Kuwejt)                   | Yes       | Nie                                                |
-| `ar-PS` | Arabski (palestyński)                | Yes       | Nie                                                |
-| `ar-QA` | Arabski (katar)                    | Yes       | Nie                                                |
-| `ar-SA` | Arabski (Arabia Saudyjska)             | Yes       | Nie                                                |
-| `ar-SY` | Arabski (Syria)                    | Yes       | Model językowy                                    |
-| `ca-ES` | Kataloński                           | Yes       | Model językowy                                    |
-| `da-DK` | Duński (Dania)                  | Yes       | Model językowy                                    |
-| `de-DE` | Niemiecki (Niemcy)                  | Yes       | Model akustyczny<br>Model językowy<br>Fonetyczn |
-| `en-AU` | Angielski (Australia)               | Yes       | Model akustyczny<br>Model językowy                  |
-| `en-CA` | Angielski (Kanada)                  | Yes       | Model akustyczny<br>Model językowy                  |
-| `en-GB` | Angielski (Zjednoczone Królestwo)          | Yes       | Model akustyczny<br>Model językowy<br>Fonetyczn |
-| `en-IN` | Angielski (Indie)                   | Yes       | Model akustyczny<br>Model językowy                  |
-| `en-NZ` | Angielski (Nowa Zelandia)             | Yes       | Model akustyczny<br>Model językowy                  |
-| `en-US` | Angielski (Stany Zjednoczone)           | Yes       | Model akustyczny<br>Model językowy<br>Fonetyczn |
-| `es-ES` | hiszpański (Hiszpania)                   | Yes       | Model akustyczny<br>Model językowy                  |
-| `es-MX` | Hiszpański (Meksyk)                  | Yes       | Model akustyczny<br>Model językowy                  |
-| `fi-FI` | Fiński (Finlandia)                 | Yes       | Model językowy                                    |
-| `fr-CA` | francuski (Kanada)                   | Yes       | Model akustyczny<br>Model językowy                  |
-| `fr-FR` | Francuski (Francja)                   | Yes       | Model akustyczny<br>Model językowy<br>Fonetyczn |
-| `gu-IN` | Gudżarati (Indyjski)                 | Yes       | Model językowy                                    |
-| `hi-IN` | Hindi (Indie)                     | Yes       | Model akustyczny<br>Model językowy                  |
-| `it-IT` | Włoski (Włochy)                   | Yes       | Model akustyczny<br>Model językowy<br>Fonetyczn |
-| `ja-JP` | Japoński (Japonia)                  | Yes       | Model językowy                                    |
-| `ko-KR` | Koreański (Korea)                    | Yes       | Model językowy                                    |
-| `mr-IN` | Marathi (Indie)                   | Yes       | Model językowy                                    |
-| `nb-NO` | Norweski (bokmål) (Norwegia)       | Yes       | Model językowy                                    |
-| `nl-NL` | Niderlandzki (Holandia)               | Yes       | Model językowy                                    |
-| `pl-PL` | Polski (Polska)                   | Yes       | Model językowy                                    |
-| `pt-BR` | Portugalski (Brazylia)               | Yes       | Model akustyczny<br>Model językowy<br>Fonetyczn |
-| `pt-PT` | Portugalski (Portugalia)             | Yes       | Model językowy                                    |
-| `ru-RU` | Rosyjski (Rosja)                  | Yes       | Model akustyczny<br>Model językowy                  |
-| `sv-SE` | Szwedzki (Szwecja)                  | Yes       | Model językowy                                    |
-| `ta-IN` | Tamilski (Indie)                     | Yes       | Model językowy                                    |
-| `te-IN` | Telugu (Indie)                    | Yes       | Nie                                                |
-| `th-TH` | Tajski (Tajlandia)                   | Yes       | Nie                                                |
-| `tr-TR` | Turecki (Turcja)                  | Yes       | Nie                                                |
-| `zh-CN` | Chiński (mandarynki, uproszczony)    | Yes       | Model akustyczny<br>Model językowy                  |
-| `zh-HK` | Chiński (kantoński, tradycyjny)  | Yes       | Model językowy                                    |
-| `zh-TW` | Chiński (tajwański mandarynki)      | Yes       | Model językowy                                    |
+| `ar-AE` | Arabski (Zjednoczone Emiraty Arabskie)                      | Tak       | Nie                                                |
+| `ar-BH` | Arabski (Bahrajn), nowoczesny Standard | Tak       | Model językowy                                    |
+| `ar-EG` | Arabski (Egipt)                    | Tak       | Model językowy                                    |
+| `ar-IL` | Arabski (Izrael)                   | Tak       | Nie                                                |
+| `ar-KW` | Arabski (Kuwejt)                   | Tak       | Nie                                                |
+| `ar-PS` | Arabski (palestyński)                | Tak       | Nie                                                |
+| `ar-QA` | Arabski (katar)                    | Tak       | Nie                                                |
+| `ar-SA` | Arabski (Arabia Saudyjska)             | Tak       | Nie                                                |
+| `ar-SY` | Arabski (Syria)                    | Tak       | Model językowy                                    |
+| `ca-ES` | Kataloński                           | Tak       | Model językowy                                    |
+| `da-DK` | Duński (Dania)                  | Tak       | Model językowy                                    |
+| `de-DE` | Niemiecki (Niemcy)                  | Tak       | Model akustyczny<br>Model językowy<br>Fonetyczn |
+| `en-AU` | Angielski (Australia)               | Tak       | Model akustyczny<br>Model językowy                  |
+| `en-CA` | Angielski (Kanada)                  | Tak       | Model akustyczny<br>Model językowy                  |
+| `en-GB` | Angielski (Zjednoczone Królestwo)          | Tak       | Model akustyczny<br>Model językowy<br>Fonetyczn |
+| `en-IN` | Angielski (Indie)                   | Tak       | Model akustyczny<br>Model językowy                  |
+| `en-NZ` | Angielski (Nowa Zelandia)             | Tak       | Model akustyczny<br>Model językowy                  |
+| `en-US` | Angielski (Stany Zjednoczone)           | Tak       | Model akustyczny<br>Model językowy<br>Fonetyczn |
+| `es-ES` | hiszpański (Hiszpania)                   | Tak       | Model akustyczny<br>Model językowy                  |
+| `es-MX` | Hiszpański (Meksyk)                  | Tak       | Model akustyczny<br>Model językowy                  |
+| `fi-FI` | Fiński (Finlandia)                 | Tak       | Model językowy                                    |
+| `fr-CA` | francuski (Kanada)                   | Tak       | Model akustyczny<br>Model językowy                  |
+| `fr-FR` | Francuski (Francja)                   | Tak       | Model akustyczny<br>Model językowy<br>Fonetyczn |
+| `gu-IN` | Gudżarati (Indyjski)                 | Tak       | Model językowy                                    |
+| `hi-IN` | Hindi (Indie)                     | Tak       | Model akustyczny<br>Model językowy                  |
+| `it-IT` | Włoski (Włochy)                   | Tak       | Model akustyczny<br>Model językowy<br>Fonetyczn |
+| `ja-JP` | Japoński (Japonia)                  | Tak       | Model językowy                                    |
+| `ko-KR` | Koreański (Korea)                    | Tak       | Model językowy                                    |
+| `mr-IN` | Marathi (Indie)                   | Tak       | Model językowy                                    |
+| `nb-NO` | Norweski (bokmål) (Norwegia)       | Tak       | Model językowy                                    |
+| `nl-NL` | Niderlandzki (Holandia)               | Tak       | Model językowy                                    |
+| `pl-PL` | Polski (Polska)                   | Tak       | Model językowy                                    |
+| `pt-BR` | Portugalski (Brazylia)               | Tak       | Model akustyczny<br>Model językowy<br>Fonetyczn |
+| `pt-PT` | Portugalski (Portugalia)             | Tak       | Model językowy                                    |
+| `ru-RU` | Rosyjski (Rosja)                  | Tak       | Model akustyczny<br>Model językowy                  |
+| `sv-SE` | Szwedzki (Szwecja)                  | Tak       | Model językowy                                    |
+| `ta-IN` | Tamilski (Indie)                     | Tak       | Model językowy                                    |
+| `te-IN` | Telugu (Indie)                    | Tak       | Nie                                                |
+| `th-TH` | Tajski (Tajlandia)                   | Tak       | Nie                                                |
+| `tr-TR` | Turecki (Turcja)                  | Tak       | Model językowy                                    |
+| `zh-CN` | Chiński (mandarynki, uproszczony)    | Tak       | Model akustyczny<br>Model językowy                  |
+| `zh-HK` | Chiński (kantoński, tradycyjny)  | Tak       | Model językowy                                    |
+| `zh-TW` | Chiński (tajwański mandarynki)      | Tak       | Model językowy                                    |
 
 ## <a name="text-to-speech"></a>Zamiana tekstu na mowę
 
@@ -95,29 +99,29 @@ Głosy neuronowych mogą służyć do współdziałania z rozszerzenie czatbotó
 
 Aby uzyskać więcej informacji na temat dostępności regionalnej, zobacz [regiony](regions.md#standard-and-neural-voices).
 
-|Regionalne  | Język            | Płeć | Nazwa głosu  | Obsługa wielu języków | Obsługa stylu |
-|--|--|--|--|--|--|
-| `de-DE` | Niemiecki (Niemcy)    | Kobiety | "de-DE-KatjaNeural" | Tak. Angielski (Stany Zjednoczone) | Ogólne |
-| `en-AU` | Angielski (Australia) | Kobiety |  "en-AU-NatashaNeural" | Nie | Ogólne |
-| `en-CA` | Angielski (Kanada)    | Kobiety |  "en-CA-ClaraNeural"| Nie | Ogólne |
-| `en-GB` | Angielski (Zjednoczone Królestwo)        | Kobiety |  "pl-GB-LibbyNeural"| Nie | Ogólne |
-|  |      | Kobiety |  "pl-GB-MiaNeural" | Nie | Ogólne |
-| `en-US` | Angielski (Stany Zjednoczone)        | Kobiety |  "pl-US-AriaNeural"| Nie | Ogólne, dostępne są wiele stylów głosowych |
-|  |      | Mężczyźni   | "pl-US-GuyNeural" | Nie | Ogólne |
-| `es-ES` | hiszpański (Hiszpania)     | Kobiety |  "es-ES-ElviraNeural"| Tak. Angielski (Stany Zjednoczone) | Ogólne |
-| `es-MX` | Hiszpański (Meksyk)    | Kobiety |  "es-MX-DaliaNeural" | Tak. Angielski (Stany Zjednoczone) | Ogólne |
-| `fr-CA` | francuski (Kanada)     | Kobiety |  "fr-CA-SylvieNeural" | Tak. Angielski (Stany Zjednoczone) | Ogólne |
-| `fr-FR` | Francuski (Francja)     | Kobiety | "fr-FR-DeniseNeural"  | Tak. Angielski (Stany Zjednoczone) | Ogólne |
-| `it-IT` | Włoski (Włochy)     | Kobiety |  "IT-ElsaNeural"  | Tak. Angielski (Stany Zjednoczone) | Ogólne |
-| `ja-JP` | Japoński            | Kobiety |  "ja-JP-NanamiNeural" | Tak. Angielski (Stany Zjednoczone) | Ogólne |
-| `ko-KR` | Koreański              | Kobiety |  "ko-KR-SunHiNeural" | Tak. Angielski (Stany Zjednoczone) | Ogólne |
-| `nb-NO` | Norweski           | Kobiety | "NB-NO-IselinNeural" | Nie | Ogólne |
-| `pt-BR` | Portugalski (Brazylia) | Kobiety |  "pt-BR-FranciscaNeural" | Nie | Ogólne |
-| `tr-TR` | Turecki             | Kobiety | "TR-TR-EmelNeural" | Nie | Ogólne |
-| `zh-CN` | Chiński (mandarynki, uproszczony)  | Kobiety |  "zh-CN-XiaoxiaoNeural"  | Tak. Angielski (Stany Zjednoczone) | Ogólne, dostępne są wiele stylów głosowych |
-|  |  | Kobiety |  "zh-CN-XiaoyouNeural"  | Tak. Angielski (Stany Zjednoczone) | Głos dla dzieci, zoptymalizowany pod kątem narracji w wątku |
-|  |  | Mężczyźni |  "zh-CN-YunyangNeural"  | Tak. Angielski (Stany Zjednoczone) | Zoptymalizowane pod kątem czytania wiadomości, dostępne są wiele stylów głosowych |
-|  |  | Mężczyźni |  "zh-CN-YunyeNeural"  | Nie | Optymalizacja pod kątem narracji w wątku |
+|Regionalne  | Język            | Płeć | Nazwa głosu | Obsługa stylu |
+|--|--|--|--|--|
+| `de-DE` | Niemiecki (Niemcy)                | Kobiety | "de-DE-KatjaNeural"      | Ogólne |
+| `en-AU` | Angielski (Australia)             | Kobiety | "en-AU-NatashaNeural"    | Ogólne |
+| `en-CA` | Angielski (Kanada)                | Kobiety | "en-CA-ClaraNeural"      | Ogólne |
+| `en-GB` | Angielski (Zjednoczone Królestwo)                    | Kobiety | "pl-GB-LibbyNeural"      | Ogólne |
+|         |                                 | Kobiety | "pl-GB-MiaNeural"        | Ogólne |
+| `en-US` | Angielski (Stany Zjednoczone)                    | Kobiety | "pl-US-AriaNeural"       | Ogólne, dostępne są wiele stylów głosowych |
+|         |                                 | Mężczyźni   | "pl-US-GuyNeural"        | Ogólne |
+| `es-ES` | hiszpański (Hiszpania)                 | Kobiety | "es-ES-ElviraNeural"     | Ogólne |
+| `es-MX` | Hiszpański (Meksyk)                | Kobiety | "es-MX-DaliaNeural"      | Ogólne |
+| `fr-CA` | francuski (Kanada)                 | Kobiety | "fr-CA-SylvieNeural"     | Ogólne |
+| `fr-FR` | Francuski (Francja)                 | Kobiety | "fr-FR-DeniseNeural"     | Ogólne |
+| `it-IT` | Włoski (Włochy)                 | Kobiety | "IT-ElsaNeural"       | Ogólne |
+| `ja-JP` | Japoński                        | Kobiety | "ja-JP-NanamiNeural"     | Ogólne |
+| `ko-KR` | Koreański                          | Kobiety | "ko-KR-SunHiNeural"      | Ogólne |
+| `nb-NO` | Norweski                       | Kobiety | "NB-NO-IselinNeural"     | Ogólne |
+| `pt-BR` | Portugalski (Brazylia)             | Kobiety | "pt-BR-FranciscaNeural"  | Ogólne |
+| `tr-TR` | Turecki                         | Kobiety | "TR-TR-EmelNeural"       | Ogólne |
+| `zh-CN` | Chiński (mandarynki, uproszczony)  | Kobiety | "zh-CN-XiaoxiaoNeural"   | Ogólne, dostępne są wiele stylów głosowych |
+|         |                                 | Kobiety | "zh-CN-XiaoyouNeural"    | Głos dla dzieci, zoptymalizowany pod kątem narracji w wątku |
+|         |                                 | Mężczyźni   | "zh-CN-YunyangNeural"    | Zoptymalizowane pod kątem czytania wiadomości, dostępne są wiele stylów głosowych |
+|         |                                 | Mężczyźni   | "zh-CN-YunyeNeural"      | Optymalizacja pod kątem narracji w wątku |
 
 > [!IMPORTANT]
 > `en-US-JessaNeural`Głos został zmieniony na `en-US-AriaNeural` . Jeśli wcześniej używasz "Jessa", przekonwertuj wartość na "Aria".

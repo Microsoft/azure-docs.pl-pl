@@ -1,14 +1,14 @@
 ---
 title: Udział plików platformy Azure dla pul Azure Batch
 description: Jak zainstalować udział Azure Files z węzłów obliczeniowych w puli systemu Linux lub Windows w Azure Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/24/2018
-ms.openlocfilehash: 666ee6bd0e6287545c107427dffcc9f2ccde900a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0aa8c8f6dcf1114688e6abaf1a17f2e8af6fa4fe
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115452"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723497"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Korzystanie z udziału plików platformy Azure z pulą usługi Batch
 
@@ -37,10 +37,10 @@ Ta sekcja zawiera kroki i przykłady kodu służące do instalowania udziału pl
 
 W usłudze Batch należy zainstalować udział za każdym razem, gdy zadanie jest uruchamiane w węźle systemu Windows. Obecnie nie jest możliwe utrzymywanie połączenia sieciowego między zadaniami w węzłach systemu Windows.
 
-Na przykład Dołącz `net use` polecenie, aby zainstalować udział plików w ramach każdego wiersza polecenia zadania. Aby można było zainstalować udział plików, potrzebne są następujące poświadczenia:
+Na przykład Dołącz polecenie, `net use` Aby zainstalować udział plików w ramach każdego wiersza polecenia zadania. Aby można było zainstalować udział plików, potrzebne są następujące poświadczenia:
 
-* **Nazwa użytkownika**: Azure\\\<storageaccountname\>, na przykład Azure\\*mystorageaccountname*
-* **Hasło**: \<StorageAccountKeyWhichEnds in = =>, na przykład *XXXXXXXXXXXXXXXXXXXXX = =*
+* **Nazwa użytkownika**: Azure \\ \< STORAGEACCOUNTNAME \> , na przykład Azure \\ *mystorageaccountname*
+* **Hasło**: \< StorageAccountKeyWhichEnds in = =>, na przykład *XXXXXXXXXXXXXXXXXXXXX = =*
 
 Następujące polecenie instaluje udział plików *myfileshare* na koncie magazynu *mystorageaccountname* jako dysk *S:*
 
@@ -52,14 +52,14 @@ W przypadku uproszczenia poniższe przykłady przekazują poświadczenia bezpoś
 
 Aby uprościć operację instalacji, opcjonalnie Utrwalaj poświadczenia w węzłach. Następnie można zainstalować udział bez poświadczeń. Wykonaj następujące dwa kroki:
 
-1. Uruchom narzędzie `cmdkey` wiersza polecenia przy użyciu zadania uruchamiania w konfiguracji puli. Dzięki temu poświadczenia są utrwalane w każdym węźle systemu Windows. Wiersz polecenia Uruchom zadanie jest podobny do:
+1. Uruchom `cmdkey` Narzędzie wiersza polecenia przy użyciu zadania uruchamiania w konfiguracji puli. Dzięki temu poświadczenia są utrwalane w każdym węźle systemu Windows. Wiersz polecenia Uruchom zadanie jest podobny do:
 
    ```
    cmd /c "cmdkey /add:mystorageaccountname.file.core.windows.net /user:AZURE\mystorageaccountname /pass:XXXXXXXXXXXXXXXXXXXXX=="
 
    ```
 
-2. Zainstaluj udział w każdym węźle w ramach każdego zadania przy użyciu polecenia `net use`. Na przykład poniższy wiersz polecenia zadania instaluje udział plików jako dysk *S:* . Następnie następuje polecenie lub skrypt, który odwołuje się do udziału. Poświadczenia w pamięci podręcznej są używane `net use`w wywołaniu metody. W tym kroku przyjęto założenie, że używasz tej samej tożsamości użytkownika do zadań, które zostały użyte w zadania podrzędnego uruchamiania w puli, co nie jest odpowiednie dla wszystkich scenariuszy.
+2. Zainstaluj udział w każdym węźle w ramach każdego zadania przy użyciu polecenia `net use` . Na przykład poniższy wiersz polecenia zadania instaluje udział plików jako dysk *S:* . Następnie następuje polecenie lub skrypt, który odwołuje się do udziału. Poświadczenia w pamięci podręcznej są używane w wywołaniu metody `net use` . W tym kroku przyjęto założenie, że używasz tej samej tożsamości użytkownika do zadań, które zostały użyte w zadania podrzędnego uruchamiania w puli, co nie jest odpowiednie dla wszystkich scenariuszy.
 
    ```
    cmd /c "net use S: \\mystorageaccountname.file.core.windows.net\myfileshare" 
@@ -114,10 +114,10 @@ Najpierw w obszarze tożsamość użytkownika Administrator zainstaluj `cifs-uti
 apt-get update && apt-get install cifs-utils && sudo mkdir -p /mnt/MyAzureFileShare
 ```
 
-Następnie uruchom `mount` polecenie, aby zainstalować udział plików, podając następujące poświadczenia:
+Następnie uruchom polecenie, `mount` Aby zainstalować udział plików, podając następujące poświadczenia:
 
-* **Nazwa użytkownika**: \<storageaccountname\>, na przykład *mystorageaccountname*
-* **Hasło**: \<StorageAccountKeyWhichEnds in = =>, na przykład *XXXXXXXXXXXXXXXXXXXXX = =*
+* **Nazwa użytkownika**: \< storageaccountname \> , na przykład *mystorageaccountname*
+* **Hasło**: \< StorageAccountKeyWhichEnds in = =>, na przykład *XXXXXXXXXXXXXXXXXXXXX = =*
 
 Następujące polecenie instaluje udział plików *myfileshare* na koncie magazynu *mystorageaccountname* o godzinie */mnt/MyAzureFileShare*: 
 

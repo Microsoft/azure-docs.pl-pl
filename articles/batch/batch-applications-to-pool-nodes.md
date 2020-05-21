@@ -1,16 +1,16 @@
 ---
-title: Kopiowanie aplikacji i danych do węzłów puli
+title: Kopiuj aplikacje i dane do węzłów puli
 description: Dowiedz się, jak kopiować aplikacje i dane do węzłów puli.
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/17/2020
-ms.openlocfilehash: 700e9b80f8420266c0300b47bdd30bc271f8421c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dad52a69ee468872c10b3a9e66b967a1c7bd101d
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115588"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726829"
 ---
-# <a name="copying-applications-and-data-to-pool-nodes"></a>Kopiowanie aplikacji i danych do węzłów puli
+# <a name="copy-applications-and-data-to-pool-nodes"></a>Kopiuj aplikacje i dane do węzłów puli
 
 Azure Batch obsługuje kilka sposobów pobierania danych i aplikacji do węzłów obliczeniowych, dzięki czemu dane i aplikacje są dostępne do użycia przez zadania. Do uruchomienia całego zadania mogą być wymagane dane i aplikacje, dlatego należy je zainstalować na każdym węźle. Niektóre mogą być wymagane tylko dla konkretnego zadania lub muszą być zainstalowane dla zadania, ale nie muszą znajdować się w każdym węźle. Zadanie wsadowe zawiera narzędzia dla każdego z tych scenariuszy.
 
@@ -41,7 +41,7 @@ Istnieją inne sposoby pobierania danych do węzłów obliczeniowych usługi Bat
 - Pobieranie danych z innych usług sieci Web/lokalizacji niestandardowych
 - Mapowanie udziału sieciowego
 
-### <a name="azure-storage"></a>Usługa Azure Storage
+### <a name="azure-storage"></a>Azure Storage
 
 Magazyn obiektów BLOB ma elementy docelowe skalowalności. Elementy docelowe skalowalności udziału plików w usłudze Azure Storage są takie same jak w przypadku pojedynczego obiektu BLOB. Rozmiar będzie mieć wpływ na wymaganą liczbę węzłów i pul.
 

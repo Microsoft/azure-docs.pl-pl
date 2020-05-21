@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: babanisa
-ms.openlocfilehash: 2c275a5cd5dd7dd9399aa957dd7e68c611fc7c0e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 3c2c2e3d5a2ef48ddc212fc0df4906c91071d803
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83691180"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725957"
 ---
 # <a name="become-and-event-grid-partner"></a>Zostań i Event Grid partnera
 
@@ -34,10 +34,14 @@ Tematy dotyczące partnerów umożliwiają publikowanie zdarzeń w celu Azure Ev
 #### <a name="partner-flow"></a>Przepływ partnerski
 
 1. Utwórz dzierżawę platformy Azure, jeśli jeszcze jej nie masz.
-1. Przy użyciu interfejsu wiersza polecenia Utwórz nowy Event Grid `partnerRegistration` . Ten zasób zawiera informacje, takie jak nazwa wyświetlana, opis, identyfikator URI Instalatora i tak dalej. 
-![Tworzenie tematu partnera](./media/partner-onboarding-how-to/create-partner-registration.png)
+1. Przy użyciu interfejsu wiersza polecenia Utwórz nowy Event Grid `partnerRegistration` . Ten zasób zawiera informacje, takie jak nazwa wyświetlana, opis, identyfikator URI Instalatora i tak dalej.
+
+    ![Tworzenie tematu partnera](./media/partner-onboarding-how-to/create-partner-registration.png)
+
 1. Utwórz co najmniej jeden `partnerNamespaces` w każdym regionie, w którym chcesz opublikować zdarzenia. W ramach tej metody usługa Event Grid zainicjuje punkt końcowy publikowania (na przykład https://contoso.westus-1.eventgrid.azure.net/api/events) i klucze dostępu).
-![Utwórz przestrzeń nazw partnera](./media/partner-onboarding-how-to/create-partner-namespace.png)
+
+    ![Utwórz przestrzeń nazw partnera](./media/partner-onboarding-how-to/create-partner-namespace.png)
+
 1. Umożliwianie klientom rejestrowania w systemie, który ma być tematem partnera.
 1. Skontaktuj się z zespołem Event Grid, aby poinformować nas, że chcesz, aby Twój typ tematu partnera stał się publiczny.
 
@@ -46,9 +50,12 @@ Tematy dotyczące partnerów umożliwiają publikowanie zdarzeń w celu Azure Ev
 1. Klient będzie odwiedzał Azure Portal, aby zanotować Identyfikator subskrypcji platformy Azure i grupę zasobów, które mają zostać utworzone w temacie partnera.
 1. Klient będzie żądał tematu partnera za pośrednictwem systemu. W odpowiedzi utworzysz tunel zdarzenia w przestrzeni nazw partnera.
 1. Event Grid utworzy temat **oczekujący** partner w subskrypcji platformy Azure i grupie zasobów klienta.
-![Utwórz kanał zdarzenia](./media/partner-onboarding-how-to/create-event-tunnel-partner-topic.png)
+
+    ![Utwórz kanał zdarzenia](./media/partner-onboarding-how-to/create-event-tunnel-partner-topic.png)
+
 1. Klient aktywuje temat partnera za pośrednictwem Azure Portal. Zdarzenia mogą teraz przepływać od usługi do subskrypcji platformy Azure klienta.
-![Aktywuj temat partnera](./media/partner-onboarding-how-to/activate-partner-topic.png)
+
+    ![Aktywuj temat partnera](./media/partner-onboarding-how-to/activate-partner-topic.png)
 
 ## <a name="resource-model"></a>Model zasobów
 
@@ -64,21 +71,14 @@ Poniżej znajduje się model zasobów tematów dotyczących partnerów.
     Klienci mogą odnajdywać tylko zatwierdzone partnerRegistrations firmy Microsoft.
 * Zakres: utworzono w ramach subskrypcji platformy Azure partnera. Metadane widoczne dla klientów po ich publicznym udostępnieniu.
 
-### <a name="event-types"></a>Typy zdarzeń
-* Zasoby`partnerRegistrations/eventTypes`
-* Używane przez: Partnerzy
-* Opis: przechwytuje metadane dotyczące typów zdarzeń obsługiwanych przez rejestrację partnera.
-* Zakres: wykrycie przez klientów po ich publicznym udostępnieniu. Przebywa w subskrypcji partnera jako zasób podrzędny rejestracji partnera.
-        
-
 ### <a name="partner-namespaces"></a>Przestrzenie nazw partnerów
 * Zasób: partnerNamespaces
 * Używane przez: Partnerzy
 * Opis: udostępnia zasób regionalny do publikowania zdarzeń klienta w programie. Każda przestrzeń nazw partnerów ma punkt końcowy publikowania i klucze uwierzytelniania. Przestrzeń nazw zawiera również informacje o tym, jak partner żąda tematu partnera dla danego klienta i wyświetla listę aktywnych klientów.
 * Zakres: przebywa w ramach subskrypcji partnera.
 
-### <a name="event-tunnels"></a>Tunele zdarzeń
-* Zasoby`partnerNamespaces/eventTunnels`
+### <a name="event-channel"></a>Kanał zdarzenia
+* Zasoby`partnerNamespaces/eventChannels`
 * Używane przez: Partnerzy
 * Opis: tunele zdarzeń stanowią duplikat tematu partnera klienta. Tworząc tunel zdarzeń i określając subskrypcję platformy Azure klienta i grupę zasobów w metadanych, nastąpi zasygnalizowanie Event Grid w celu utworzenia tematu partnera dla klienta. Event Grid wystawia połączenie ARM w celu utworzenia odpowiedniego partnerTopic w subskrypcji klienta. Temat partnera zostanie utworzony w stanie "oczekiwanie". Istnieje Link 1-1 między eventTunnel i partnerTopic.
 * Zakres: przebywa w ramach subskrypcji partnera.
@@ -153,7 +153,7 @@ Po opublikowaniu w punkcie końcowym partnerNamespace otrzymasz odpowiedź. Odpo
 | Nieprawidłowy punkt końcowy                 | 404 — Nie znaleziono         |
 | Tablica lub zdarzenie przekraczają limity rozmiaru | ładunek 413 zbyt duży |
 
-## <a name="reference"></a>Tematy pomocy
+## <a name="reference"></a>Dokumentacja
 
   * [Swagger](https://github.com/ahamad-MS/azure-rest-api-specs/blob/master/specification/eventgrid/resource-manager/Microsoft.EventGrid/preview/2020-04-01-preview/EventGrid.json)
   * [Szablon ARM](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/allversions)

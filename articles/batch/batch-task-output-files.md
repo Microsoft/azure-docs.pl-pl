@@ -1,15 +1,15 @@
 ---
-title: Utrwalanie danych wyjściowych w usłudze Azure Storage za pomocą interfejsu API usługi Batch Azure Batch
+title: Utrwalanie danych wyjściowych w usłudze Azure Storage za pomocą interfejsu API usługi Batch
 description: Dowiedz się, jak za pomocą interfejsu API usługi Batch utrwalać dane wyjściowe zadania i zadania wsadowego w usłudze Azure Storage.
-ms.topic: article
+ms.topic: how-to
 ms.date: 03/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: d9c6465a553e5652ecab5dcd167bb4058ff5cc08
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8020fbd184e200504d0fb0a9ab7ef5de64bd76c9
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82234285"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726319"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Utrwalanie danych zadań w usłudze Azure Storage za pomocą interfejsu API usługi Batch
 
@@ -43,7 +43,7 @@ await container.CreateIfNotExists();
 
 ## <a name="get-a-shared-access-signature-for-the-container"></a>Uzyskaj sygnaturę dostępu współdzielonego dla kontenera
 
-Po utworzeniu kontenera Uzyskaj sygnaturę dostępu współdzielonego (SAS) z dostępem do zapisu do kontenera. Sygnatura dostępu współdzielonego zapewnia delegowany dostęp do kontenera. Sygnatura dostępu współdzielonego przyznaje dostęp z określonym zestawem uprawnień i w określonym przedziale czasu. Usługa Batch potrzebuje sygnatury dostępu współdzielonego z uprawnieniami do zapisu, aby zapisywać dane wyjściowe zadania do kontenera. Aby uzyskać więcej informacji na temat SYGNATURy [dostępu współdzielonego, zobacz \(using SAS\) Access Signatures w usłudze Azure Storage](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Po utworzeniu kontenera Uzyskaj sygnaturę dostępu współdzielonego (SAS) z dostępem do zapisu do kontenera. Sygnatura dostępu współdzielonego zapewnia delegowany dostęp do kontenera. Sygnatura dostępu współdzielonego przyznaje dostęp z określonym zestawem uprawnień i w określonym przedziale czasu. Usługa Batch potrzebuje sygnatury dostępu współdzielonego z uprawnieniami do zapisu, aby zapisywać dane wyjściowe zadania do kontenera. Aby uzyskać więcej informacji na temat SYGNATURy [dostępu współdzielonego, zobacz Using SAS Access Signatures \( \) w usłudze Azure Storage](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 Gdy otrzymasz sygnaturę dostępu współdzielonego przy użyciu interfejsów API usługi Azure Storage, interfejs API zwraca ciąg tokenu SAS. Ten ciąg tokenu zawiera wszystkie parametry sygnatury dostępu współdzielonego, w tym uprawnienia i interwał, w jakim SYGNATURa czasowa jest prawidłowa. Aby uzyskać dostęp do kontenera w usłudze Azure Storage za pomocą sygnatury dostępu współdzielonego, należy dołączyć ciąg tokenu sygnatury dostępu współdzielonego do identyfikatora URI zasobu. Identyfikator URI zasobu, wraz z dołączonym tokenem SAS, zapewnia uwierzytelniony dostęp do usługi Azure Storage.
 
@@ -63,7 +63,7 @@ string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken;
 
 Aby określić pliki wyjściowe dla zadania, Utwórz kolekcję obiektów [plik_wyjściowy](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) i przypisz ją do właściwości [CloudTask. OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) podczas tworzenia zadania.
 
-Poniższy przykład kodu w języku C# tworzy zadanie, które zapisuje liczby losowe do pliku `output.txt`o nazwie. Przykład tworzy plik `output.txt` wyjściowy do zapisu w kontenerze. Przykład tworzy również pliki wyjściowe dla plików dziennika, które pasują `std*.txt` do wzorca pliku (_np._ `stdout.txt` i `stderr.txt`). Adres URL kontenera wymaga sygnatury dostępu współdzielonego, która została wcześniej utworzona dla kontenera. Usługa Batch używa sygnatury dostępu współdzielonego, aby uwierzytelniać dostęp do kontenera:
+Poniższy przykład kodu w języku C# tworzy zadanie, które zapisuje liczby losowe do pliku o nazwie `output.txt` . Przykład tworzy plik wyjściowy do zapisu w `output.txt` kontenerze. Przykład tworzy również pliki wyjściowe dla plików dziennika, które pasują do wzorca pliku `std*.txt` (_np._ `stdout.txt` i `stderr.txt` ). Adres URL kontenera wymaga sygnatury dostępu współdzielonego, która została wcześniej utworzona dla kontenera. Usługa Batch używa sygnatury dostępu współdzielonego, aby uwierzytelniać dostęp do kontenera:
 
 ```csharp
 new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,100000) DO (ECHO !RANDOM!)) > output.txt\"")
@@ -93,11 +93,11 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
 
 Po określeniu pliku wyjściowego można użyć właściwości [plik_wyjściowy. FilePattern](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile.filepattern#Microsoft_Azure_Batch_OutputFile_FilePattern) , aby określić wzorzec pliku do dopasowania. Wzorzec pliku może być zgodny z zerowymi plikami, pojedynczym plikiem lub zestawem plików, które są tworzone przez zadanie.
 
-Właściwość **FilePattern** obsługuje standardowe symbole wieloznaczne systemu plików, `*` takie jak (dla dopasowań niecyklicznych) i `**` (dla dopasowań cyklicznych). Na przykład przykładowy kod określa wzorzec pliku do dopasowania `std*.txt` niecyklicznie:
+Właściwość **FilePattern** obsługuje standardowe symbole wieloznaczne systemu plików, takie jak `*` (dla dopasowań niecyklicznych) i `**` (dla dopasowań cyklicznych). Na przykład przykładowy kod określa wzorzec pliku do dopasowania `std*.txt` niecyklicznie:
 
 `filePattern: @"..\std*.txt"`
 
-Aby przekazać pojedynczy plik, określ wzorzec pliku bez symboli wieloznacznych. Na przykład przykładowy kod określa wzorzec pliku do dopasowania `output.txt`:
+Aby przekazać pojedynczy plik, określ wzorzec pliku bez symboli wieloznacznych. Na przykład przykładowy kod określa wzorzec pliku do dopasowania `output.txt` :
 
 `filePattern: @"output.txt"`
 
@@ -117,7 +117,7 @@ Zadania w zadaniu mogą generować pliki o tej samej nazwie. Na przykład `stdou
 
 Właściwość [OutputFileBlobContainerDestination. Path](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileblobcontainerdestination.path#Microsoft_Azure_Batch_OutputFileBlobContainerDestination_Path) określa docelowy obiekt BLOB lub katalog wirtualny dla plików wyjściowych. Możesz użyć właściwości **Path** , aby nazwać obiekt BLOB lub katalog wirtualny w taki sposób, że pliki wyjściowe o tej samej nazwie są jednoznacznie nazwane w usłudze Azure Storage. Użycie identyfikatora zadania w ścieżce jest dobrym sposobem na zapewnienie unikatowych nazw i łatwe identyfikowanie plików.
 
-Jeśli właściwość **FilePattern** jest ustawiona na wyrażenie symbolu wieloznacznego, wszystkie pliki zgodne ze wzorcem są przekazywane do katalogu wirtualnego określonego przez właściwość **Path** . Na przykład, jeśli kontener to `mycontainer`, identyfikator zadania to `mytask`, a wzorzec pliku to `..\std*.txt`, bezwzględne identyfikatory URI plików wyjściowych w usłudze Azure Storage będą podobne do następujących:
+Jeśli właściwość **FilePattern** jest ustawiona na wyrażenie symbolu wieloznacznego, wszystkie pliki zgodne ze wzorcem są przekazywane do katalogu wirtualnego określonego przez właściwość **Path** . Na przykład, jeśli kontener to `mycontainer` , identyfikator zadania to `mytask` , a wzorzec pliku to `..\std*.txt` , bezwzględne identyfikatory URI plików wyjściowych w usłudze Azure Storage będą podobne do następujących:
 
 ```
 https://myaccount.blob.core.windows.net/mycontainer/mytask/stderr.txt
@@ -147,11 +147,11 @@ Code: FileUploadContainerNotFound
 Message: One of the specified Azure container(s) was not found while attempting to upload an output file
 ```
 
-W przypadku każdego przekazywania plików Batch zapisuje dwa pliki dziennika w węźle COMPUTE `fileuploadout.txt` i. `fileuploaderr.txt` Możesz sprawdzić te pliki dziennika, aby dowiedzieć się więcej na temat konkretnego błędu. W przypadkach, gdy nigdy nie podjęto próby przekazania pliku, na przykład ponieważ nie można uruchomić samego zadania, te pliki dziennika nie będą istnieć.
+W przypadku każdego przekazywania plików Batch zapisuje dwa pliki dziennika w węźle COMPUTE `fileuploadout.txt` i `fileuploaderr.txt` . Możesz sprawdzić te pliki dziennika, aby dowiedzieć się więcej na temat konkretnego błędu. W przypadkach, gdy nigdy nie podjęto próby przekazania pliku, na przykład ponieważ nie można uruchomić samego zadania, te pliki dziennika nie będą istnieć.
 
 ## <a name="diagnose-file-upload-performance"></a>Diagnozowanie wydajności przekazywania plików
 
-Postęp `fileuploadout.txt` ładowania dzienników plików. Możesz sprawdzić ten plik, aby dowiedzieć się więcej o tym, jak długo trwa przekazywanie plików. Należy pamiętać, że istnieje wiele współczynników wpływających na wydajność, w tym rozmiar węzła, inne działanie w węźle w czasie przekazywania, niezależnie od tego, czy kontener docelowy znajduje się w tym samym regionie co Pula partii, jak wiele węzłów jest przekazywanych do konta magazynu w tym samym czasie itd.
+`fileuploadout.txt`Postęp ładowania dzienników plików. Możesz sprawdzić ten plik, aby dowiedzieć się więcej o tym, jak długo trwa przekazywanie plików. Należy pamiętać, że istnieje wiele współczynników wpływających na wydajność, w tym rozmiar węzła, inne działanie w węźle w czasie przekazywania, niezależnie od tego, czy kontener docelowy znajduje się w tym samym regionie co Pula partii, jak wiele węzłów jest przekazywanych do konta magazynu w tym samym czasie itd.
 
 ## <a name="use-the-batch-service-api-with-the-batch-file-conventions-standard"></a>Korzystanie z interfejsu API usługi Batch w standardzie Konwencji plików wsadowych
 

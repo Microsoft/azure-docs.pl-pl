@@ -1,16 +1,15 @@
 ---
 title: Planowanie zadań
 description: Użyj planowania zadań, aby zarządzać zadaniami.
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/20/2020
-ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 49b2064d38f9f646c6189d859479d2414569ff60
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c75f635a937dcddd2c1c02cc717f96f1441efe81
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116880"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726642"
 ---
 # <a name="schedule-jobs-for-efficiency"></a>Planowanie zadań pod kątem wydajności
 

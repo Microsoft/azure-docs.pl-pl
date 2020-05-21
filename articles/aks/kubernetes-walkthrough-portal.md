@@ -6,12 +6,12 @@ services: container-service
 ms.topic: quickstart
 ms.date: 01/21/2020
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: e4ac5a953b5d88d0074c3cfb7f1bd45331577238
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d904be260db8fe6170f57d438d3be6d306864d89
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81392802"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725112"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Szybki Start: Wdrażanie klastra usługi Azure Kubernetes Service (AKS) przy użyciu Azure Portal
 
@@ -21,7 +21,7 @@ Azure Kubernetes Service (AKS) to zarządzana usługa platformy Kubernetes, któ
 
 W tym przewodniku Szybki start założono, że masz podstawową wiedzę na temat pojęć związanych z rozwiązaniem Kubernetes. Aby uzyskać więcej informacji, zobacz [Podstawowe pojęcia dotyczące usługi Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -33,7 +33,7 @@ Aby utworzyć klaster usługi AKS, wykonaj następujące czynności:
 
 1. W menu witryny Azure Portal lub na **stronie głównej** wybierz pozycję **Utwórz zasób**.
 
-2. Wybierz pozycję **kontenery** >  **Kubernetes usługi**.
+2. Wybierz pozycję **kontenery**  >   **Kubernetes usługi**.
 
 3. Na stronie **podstawowe** skonfiguruj następujące opcje:
     - **Szczegóły projektu**: Wybierz **subskrypcję**platformy Azure, a następnie wybierz lub Utwórz **grupę zasobów**platformy Azure, taką jak grupa *zasobów*.
@@ -47,7 +47,7 @@ Aby utworzyć klaster usługi AKS, wykonaj następujące czynności:
 
 4. Na stronie **Skala** Zachowaj opcje domyślne. W dolnej części ekranu kliknij przycisk **Dalej: uwierzytelnianie**.
     > [!CAUTION]
-    > Utworzenie nowych jednostek usługi AAD może potrwać kilka minut, aby można było propagować i stać się dostępne, powodując nieznalezienie błędów jednostki usługi i niepowodzenia walidacji w Azure Portal. Po osiągnięciu tego problemu należy odwiedzić [tutaj](troubleshooting.md#im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one) , aby uzyskać środki zaradcze.
+    > Utworzenie nowych jednostek usługi AAD może potrwać kilka minut, aby można było propagować i stać się dostępne, powodując nieznalezienie błędów jednostki usługi i niepowodzenia walidacji w Azure Portal. Jeśli trafisz, odwiedź [tutaj](troubleshooting.md#received-an-error-saying-my-service-principal-wasnt-found-or-is-invalid-when-i-try-to-create-a-new-cluster) , aby rozwiązać problem.
 
 5. Na stronie **uwierzytelnianie** skonfiguruj następujące opcje:
     - Utwórz nową nazwę główną usługi, pozostawiając pole **nazwy głównej usługi** z **(nową) domyślną**jednostką usługi. Możesz też wybrać pozycję *Konfiguruj nazwę główną usługi* , aby użyć istniejącej. Jeśli używasz istniejącej usługi, musisz podać identyfikator klienta i klucz tajny SPN.
@@ -95,7 +95,7 @@ Plik manifestu platformy Kubernetes definiuje żądany stan klastra, w tym infor
 > [!TIP]
 > W tym przewodniku Szybki start ręcznie utworzysz i wdrożysz manifesty aplikacji w klastrze AKS. W bardziej rzeczywistych scenariuszach można użyć obszarów [Azure Dev Spaces][azure-dev-spaces], aby szybko iterować i debugować kod bezpośrednio w klastrze AKS. Obszarów Dev Spaces można używać na różnych platformach systemów operacyjnych i w środowiskach deweloperskich, aby pracować razem z innymi członkami zespołu.
 
-W Cloud Shell Użyj polecenia `nano azure-vote.yaml` lub `vi azure-vote.yaml` , aby utworzyć plik o nazwie. `azure-vote.yaml` Następnie skopiuj w następującej definicji YAML:
+W Cloud Shell Użyj `nano azure-vote.yaml` polecenia lub, `vi azure-vote.yaml` Aby utworzyć plik o nazwie `azure-vote.yaml` . Następnie skopiuj w następującej definicji YAML:
 
 ```yaml
 apiVersion: apps/v1

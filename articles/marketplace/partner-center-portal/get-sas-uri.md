@@ -7,17 +7,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mingshen
-ms.openlocfilehash: b521a3a035044e2f0c1b625df19d265cfa35b49a
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 42e2419301b282685b2afe13782c2deb4f52823c
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857931"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725877"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Uzyskiwanie identyfikatora URI sygnatury dostępu współdzielonego dla obrazu maszyny wirtualnej
-
-> [!IMPORTANT]
-> Przenosimy zarządzanie ofertami maszyn wirtualnych platformy Azure z usługi portal Cloud Partner do Centrum partnerskiego. Dopóki Twoje oferty nie zostaną zmigrowane, postępuj zgodnie z instrukcjami zawartymi w temacie [Uzyskiwanie identyfikatora URI sygnatury dostępu współdzielonego dla obrazu maszyny wirtualnej](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-get-sas-uri) w celu Portal Cloud partner zarządzania ofertami.
 
 W tym artykule opisano sposób generowania Uniform Resource Identifier (SAS) sygnatury dostępu współdzielonego dla każdego wirtualnego dysku twardego (VHD).
 
@@ -62,7 +59,7 @@ Istnieją dwa popularne narzędzia służące do tworzenia adresu SAS (URL):
 
 9. Wstaw nazwę wirtualnego dysku twardego po ciągu VHD w identyfikatorze URI sygnatury dostępu współdzielonego (w tym ukośniku). Końcowy identyfikator URI sygnatury dostępu współdzielonego powinien wyglądać następująco:
 
-    `<blob-service-endpoint-url> + /vhds/ + <vhd-name>? + <sas-connection-string>`Na przykład, jeśli nazwa przypadku to `TestRGVM2.vhd`, otrzymany identyfikator URI sygnatury dostępu współdzielonego będzie:
+    `<blob-service-endpoint-url> + /vhds/ + <vhd-name>? + <sas-connection-string>`Na przykład, jeśli nazwa przypadku to `TestRGVM2.vhd` , otrzymany identyfikator URI sygnatury dostępu współdzielonego będzie:
 
     `https://catech123.blob.core.windows.net/vhds/TestRGVM2.vhd?st=2018-05-06T07%3A00%3A00Z&se=2019-08-02T07%3A00%3A00Z&sp=rl&sv=2017-04-17&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
@@ -77,7 +74,7 @@ Istnieją dwa popularne narzędzia służące do tworzenia adresu SAS (URL):
     az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' --name <vhd-name> --permissions rl --start '<start-date>' --expiry '<expiry-date>'
     ```
 
-3. Edytuj plik, aby użyć następujących wartości parametrów. Podaj daty w formacie daty/godziny UTC, `2020-04-01T00:00:00Z`np..
+3. Edytuj plik, aby użyć następujących wartości parametrów. Podaj daty w formacie daty/godziny UTC, np `2020-04-01T00:00:00Z` ..
 
     * `<account-name>`— Nazwa konta usługi Azure Storage
     * `<account-key>`— Klucz konta usługi Azure Storage
@@ -109,7 +106,7 @@ Istnieją dwa popularne narzędzia służące do tworzenia adresu SAS (URL):
 
     `<blob-service-endpoint-url> + /vhds/ + <vhd-name>? + <sas-connection-string>`
 
-    Jeśli na przykład nazwa wirtualnego dysku twardego to `TestRGVM2.vhd`, identyfikator URI sygnatury dostępu współdzielonego będzie:
+    Jeśli na przykład nazwa wirtualnego dysku twardego to `TestRGVM2.vhd` , identyfikator URI sygnatury dostępu współdzielonego będzie:
 
     `https://catech123.blob.core.windows.net/vhds/TestRGVM2.vhd?st=2018-05-06T07%3A00%3A00Z&se=2019-08-02T07%3A00%3A00Z&sp=rl&sv=2017-04-17&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
 
@@ -121,8 +118,8 @@ Przejrzyj każdy utworzony identyfikator URI SYGNATURy dostępu współdzieloneg
 
 * Identyfikator URI wygląda następująco:`<blob-service-endpoint-url>` + `/vhds/` + `<vhd-name>?` + `<sas-connection-string>`
 * Identyfikator URI zawiera nazwę pliku obrazu VHD, w tym rozszerzenie nazwy pliku ". VHD".
-* `sp=rl`pojawia się blisko środka identyfikatora URI. Ten ciąg pokazuje, `Read` że `List` i jest określony dostęp.
-* Gdy `sr=c` jest wyświetlany, oznacza to, że jest określony dostęp na poziomie kontenera.
+* `sp=rl`pojawia się blisko środka identyfikatora URI. Ten ciąg pokazuje, że `Read` i `List` jest określony dostęp.
+* Gdy jest `sr=c` wyświetlany, oznacza to, że jest określony dostęp na poziomie kontenera.
 * Skopiuj i wklej identyfikator URI do przeglądarki w celu przetestowania i pobrania obiektu BLOB (możesz anulować operację przed ukończeniem pobierania).
 
 ## <a name="next-step"></a>Następny krok

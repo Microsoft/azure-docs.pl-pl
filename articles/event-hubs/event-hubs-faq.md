@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/02/2019
 ms.author: shvija
-ms.openlocfilehash: 7f6e1896c97c96cd484d15fb9e6a3056e5c5d6b2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d461652758dd1fe6bb90a703b7c3fa113c9bd3e
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82086372"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726251"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs często zadawane pytania
 
@@ -71,7 +71,7 @@ Za pomocą następujących protokołów można Azure Service Bus wysyłać i odb
 
 Zapoznaj się z poniższą tabelą dla portów wychodzących, które należy otworzyć, aby używać tych protokołów do komunikowania się z usługą Azure Event Hubs. 
 
-| Protocol (Protokół) | Porty | Szczegóły | 
+| Protokół | Porty | Szczegóły | 
 | -------- | ----- | ------- | 
 | AMQP | 5671 i 5672 | Zobacz [Przewodnik po protokole AMQP](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
 | HTTP, HTTPS | 80, 443 |  |
@@ -85,7 +85,7 @@ Aby znaleźć listę prawidłowych adresów IP dla połączeń, wykonaj następu
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Zanotuj adres IP zwrócony w `Non-authoritative answer`. Jedyną zmianą jest to, że w przypadku przywracania przestrzeni nazw w innym klastrze.
+2. Zanotuj adres IP zwrócony w `Non-authoritative answer` . Jedyną zmianą jest to, że w przypadku przywracania przestrzeni nazw w innym klastrze.
 
 Jeśli używasz nadmiarowości strefy dla przestrzeni nazw, musisz wykonać kilka dodatkowych czynności: 
 
@@ -150,9 +150,11 @@ Możesz zacząć od jednostek o niskiej przepływności (TUs), na przykład 2 TU
 **Brak kosztów** skojarzonych z tą funkcją. 
 
 ### <a name="how-are-throughput-limits-enforced"></a>Jak są wymuszane limity przepływności?
-Jeśli całkowita przepływność transferu danych przychodzących lub całkowita szybkość zdarzeń związanych z transferem danych przychodzących we wszystkich centrach zdarzeń w przestrzeni nazw przekroczy zagregowany limit jednostek przepływności, nadawcy są ograniczane i odbierane są błędy wskazujące, że przekroczony został przydział transferu danych przychodzących.
+Jeśli całkowita przepływność transferu danych przychodzących **lub całkowita szybkość** zdarzeń związanych z transferem danych przychodzących we wszystkich centrach zdarzeń w przestrzeni nazw przekroczy zagregowany limit jednostek przepływności, nadawcy są ograniczane i odbierane są błędy wskazujące, że przekroczony został przydział transferu danych przychodzących.
 
-Jeśli całkowita przepływność transferu danych wychodzących lub całkowita szybkość zdarzeń związanych z transferem danych wychodzących we wszystkich centrach zdarzeń w przestrzeni nazw przekroczy zagregowany limit jednostek przepływności, odbiorcy zostaną ograniczeni i otrzymają błędy wskazujące, że przekroczono przydział ruchu wychodzącego. Limity przydziałów ruchu przychodzącego i wychodzącego są wymuszane oddzielnie, dzięki czemu żaden nadawca nie może spowodować spowolnienia użycia zdarzenia, a odbiorca nie może uniemożliwić wysyłania zdarzeń do centrum zdarzeń.
+Jeśli całkowita przepływność transferu danych wychodzących **lub całkowita szybkość** zdarzeń związanych z transferem danych wychodzących we wszystkich centrach zdarzeń w przestrzeni nazw przekroczy zagregowany limit jednostek przepływności, odbiorniki są ograniczane, ale nie są generowane błędy ograniczania. 
+
+Limity przydziałów ruchu przychodzącego i wychodzącego są wymuszane oddzielnie, dzięki czemu żaden nadawca nie może spowodować spowolnienia użycia zdarzenia, a odbiorca nie może uniemożliwić wysyłania zdarzeń do centrum zdarzeń.
 
 ### <a name="is-there-a-limit-on-the-number-of-throughput-units-tus-that-can-be-reservedselected"></a>Czy istnieje ograniczenie liczby jednostek przepływności (TUs), które mogą być zarezerwowane lub wybrane?
 W przypadku oferty z wieloma dzierżawcami jednostki przepływności mogą wzrosnąć do 40 TUs (można wybrać do 20 TUs w portalu i zgłosić bilet pomocy technicznej, aby zgłosić go do 40 TUs w tej samej przestrzeni nazw). Poza 40 TUs, Event Hubs oferuje model oparty na zasobach i pojemności nazywany **klastrami Event Hubs — warstwa dedykowana**. Dedykowane klastry są sprzedawane w jednostkach pojemności.
@@ -236,7 +238,7 @@ Aby uzyskać listę wszystkich przydziałów Event Hubs, zobacz [przydziały](ev
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 ### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Dlaczego nie mogę utworzyć przestrzeni nazw po usunięciu jej z innej subskrypcji? 
-Po usunięciu przestrzeni nazw z subskrypcji poczekaj 4 godziny, a następnie utwórz ją z tą samą nazwą w innej subskrypcji. W przeciwnym razie może zostać wyświetlony następujący komunikat o błędzie `Namespace already exists`:. 
+Po usunięciu przestrzeni nazw z subskrypcji poczekaj 4 godziny, a następnie utwórz ją z tą samą nazwą w innej subskrypcji. W przeciwnym razie może zostać wyświetlony następujący komunikat o błędzie: `Namespace already exists` . 
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-event-hubs-and-their-suggested-actions"></a>Jakie są wyjątki generowane przez Event Hubs i ich sugerowane akcje?
 

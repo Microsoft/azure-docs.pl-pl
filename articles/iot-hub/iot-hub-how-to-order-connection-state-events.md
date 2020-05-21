@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
-ms.openlocfilehash: 210c2e74305ba99b4ac3a12625d0b7f5fc47ba43
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d84db9f9c36dc2818c78c5091b1ebe29c35f865
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73954249"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726200"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Porządkowanie zdarzeń połączenia urządzenia pochodzących z usługi Azure IoT Hub przy użyciu usługi Azure Cosmos DB
 
@@ -34,7 +34,7 @@ Numer sekwencyjny to ciąg reprezentujący liczbę szesnastkową. Możesz użyć
 
 Najpierw należy utworzyć procedurę składowaną i skonfigurować ją w celu uruchomienia logiki porównującej numery sekwencji zdarzeń przychodzących i zapisania najnowszego zdarzenia na urządzenie w bazie danych.
 
-1. W Cosmos DB interfejsie API SQL Wybierz pozycję **Eksplorator danych** > **Items** > **Nowa procedura składowana**.
+1. W Cosmos DB interfejsie API SQL Wybierz pozycję **Eksplorator danych**  >  **Items**  >  **Nowa procedura składowana**.
 
    ![Utwórz procedurę składowaną](./media/iot-hub-how-to-order-connection-state-events/create-stored-procedure.png)
 
@@ -334,9 +334,9 @@ Wyniki wykonanej procedury składowanej można zobaczyć w dokumencie Cosmos DB.
 
 ## <a name="use-the-azure-cli"></a>Używanie interfejsu wiersza polecenia platformy Azure
 
-Zamiast korzystać z [Azure Portal](https://portal.azure.com), można wykonać kroki IoT Hub przy użyciu interfejsu wiersza polecenia platformy Azure. Aby uzyskać szczegółowe informacje, zobacz strony interfejsu wiersza polecenia platformy Azure służące do [tworzenia subskrypcji zdarzeń](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) i [tworzenia urządzenia IoT](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create).
+Zamiast korzystać z [Azure Portal](https://portal.azure.com), można wykonać kroki IoT Hub przy użyciu interfejsu wiersza polecenia platformy Azure. Aby uzyskać szczegółowe informacje, zobacz strony interfejsu wiersza polecenia platformy Azure służące do [tworzenia subskrypcji zdarzeń](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) i [tworzenia urządzenia IoT](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Użycie zasobów w tym samouczku powoduje naliczanie opłat w ramach Twojej subskrypcji platformy Azure. Po zakończeniu próby wykonania samouczka i przetestowaniu wyników należy wyłączyć lub usunąć zasoby, które nie mają być zachowywane.
 

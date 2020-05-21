@@ -2,13 +2,13 @@
 title: Renderowanie aplikacji
 description: Możliwe jest korzystanie z aplikacji do renderowania z Azure Batch. Jednak obrazy maszyn wirtualnych portalu Azure Marketplace są dostępne ze wstępnie zainstalowanymi aplikacjami.
 ms.date: 09/19/2019
-ms.topic: conceptual
-ms.openlocfilehash: f04fff3df2deb714f0432e5ad77d921a2d7ac205
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: 70e3fb18f0cc4788303ed16656e1eed0f8177dfc
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115792"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726489"
 ---
 # <a name="pre-installed-applications-on-rendering-vm-images"></a>Wstępnie zainstalowane aplikacje do renderowania obrazów maszyn wirtualnych
 
@@ -60,7 +60,7 @@ Poniższa lista ma zastosowanie do systemu Windows Server 2016, w wersji 1.3.8 i
 * AZ 10
 
 > [!IMPORTANT]
-> Aby uruchomić polecenie V-Ray z Maya poza [szablonami rozszerzeń Azure Batch](https://github.com/Azure/batch-extension-templates), zacznij `vrayses.exe` przed uruchomieniem renderowania. Aby uruchomić vrayses. exe poza szablonami, można użyć poniższego polecenia `%MAYA_2017%\vray\bin\vrayses.exe"`.
+> Aby uruchomić polecenie V-Ray z Maya poza [szablonami rozszerzeń Azure Batch](https://github.com/Azure/batch-extension-templates), zacznij `vrayses.exe` przed uruchomieniem renderowania. Aby uruchomić vrayses. exe poza szablonami, można użyć poniższego polecenia `%MAYA_2017%\vray\bin\vrayses.exe"` .
 >
 > Aby zapoznać się z przykładem, zobacz Uruchamianie zadania [szablonu Maya i V-Ray](https://github.com/Azure/batch-extension-templates/blob/master/templates/maya/render-vray-windows/pool.template.json) w serwisie GitHub.
 

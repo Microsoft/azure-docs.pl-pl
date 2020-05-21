@@ -8,16 +8,16 @@ ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.topic: reference
 ms.workload: identity
-ms.date: 05/07/2020
+ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b75f03afc587d9616997b1df48b9c5c5166cb89
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: fe9c9f44c42ef1e8dd6ff3401ad7201b174aa952
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681724"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725299"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: historia wersji
 Zespół Azure Active Directory (Azure AD) regularnie aktualizuje Azure AD Connect za pomocą nowych funkcji i funkcji. Nie wszystkie dodatki są stosowane dla wszystkich odbiorców.
@@ -58,8 +58,7 @@ Ta kompilacja poprawek rozwiązuje problem polegający na tym, że w interfejsie
 
 
 >[!NOTE]
->Ta wersja jest wymagana do korzystania z nowego interfejsu API punktu końcowego Azure AD Connect synchronizacji w wersji 2.  Aby uzyskać więcej informacji, zobacz [Azure AD Connect Sync v2 Endpoint API (publiczna wersja zapoznawcza)](how-to-connect-sync-endpoint-api-v2.md).
-
+>Ta wersja zawiera nowy interfejs API punktu końcowego Azure AD Connect synchronizacji w wersji 2.  Ten nowy punkt końcowy w wersji 2 jest obecnie w publicznej wersji zapoznawczej.  Ta wersja lub nowsza jest wymagana do korzystania z nowego interfejsu API punktu końcowego v2.  Jednak po prostu zainstalowanie tej wersji nie powoduje włączenia punktu końcowego v2. Nadal będziesz korzystać z punktu końcowego V1, chyba że zostanie włączony punkt końcowy v2.  Należy postępować zgodnie z instrukcjami w obszarze [Azure AD Connect Sync Endpoint API (publiczna wersja zapoznawcza)](how-to-connect-sync-endpoint-api-v2.md) , aby włączyć tę funkcję i zalogować się do publicznej wersji zapoznawczej.  
 
 ## <a name="15290"></a>1.5.29.0
 
@@ -913,7 +912,7 @@ CBool(
     |CertFriendlyName|CertThumbprint|CertExtensionOids|
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
-    |CertVersion|CertSignatureAlgorithmOid|Wybierz|
+    |CertVersion|CertSignatureAlgorithmOid|Wybierz pozycję|
     |CertKeyAlgorithmParams|CertHashString|Lokalizacja|
     |||With|
 

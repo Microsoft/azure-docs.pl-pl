@@ -5,15 +5,15 @@ author: bwren
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/24/2020
+ms.date: 05/20/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: eef6ece115afc41fd30d77747eb3e368cf95719c
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: fcdc80e73d11bbc6d94e921548d346ee436b69ac
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780185"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715685"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Azure Cosmos DB monitorowania
 
@@ -32,7 +32,7 @@ Jeśli nie znasz jeszcze monitorowania usług platformy Azure, Zacznij od artyku
 
 Poniższe sekcje dotyczą tego artykułu, opisując określone dane zebrane z Azure Cosmos DB i dostarczając przykłady dotyczące konfigurowania zbierania danych i analizowania tych danych za pomocą narzędzi platformy Azure.
 
-## <a name="azure-monitor-for-cosmos-db-preview"></a>Azure Monitor dla Cosmos DB (wersja zapoznawcza)
+## <a name="azure-monitor-for-azure-cosmos-db"></a>Azure Monitor Azure Cosmos DB
 
 Azure Monitor dla Azure Cosmos DB jest oparta na [funkcjach skoroszytów Azure monitor](../azure-monitor/app/usage-workbooks.md) i korzysta z tych samych danych monitorowania zebranych dla Cosmos DB opisanych w poniższych sekcjach. Użyj Azure Monitor, aby zapoznać się z ogólną wydajnością, niepowodzeniami, pojemnością i kondycją operacyjną wszystkich zasobów Azure Cosmos DB w ujednoliconym środowisku interaktywnym i wykorzystać inne funkcje Azure Monitor do szczegółowej analizy i generowania alertów. Aby dowiedzieć się więcej, zobacz artykuł [eksplorowanie Azure Monitor Azure Cosmos DB](../azure-monitor/insights/cosmosdb-insights-overview.md) .
 
@@ -92,7 +92,7 @@ Dane w dziennikach Azure Monitor są przechowywane w tabelach, dla których każ
 
 | Tabela | Opis |
 |:---|:---|
-| AzureDiagnostics | Wspólna tabela używana przez wiele usług do przechowywania dzienników zasobów. Dzienniki zasobów z Azure Cosmos DB mogą być identyfikowane `MICROSOFT.DOCUMENTDB`za pomocą.   |
+| AzureDiagnostics | Wspólna tabela używana przez wiele usług do przechowywania dzienników zasobów. Dzienniki zasobów z Azure Cosmos DB mogą być identyfikowane za pomocą `MICROSOFT.DOCUMENTDB` .   |
 | AzureActivity    | Wspólna tabela przechowująca wszystkie rekordy z dziennika aktywności. 
 
 

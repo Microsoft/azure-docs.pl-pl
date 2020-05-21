@@ -3,12 +3,12 @@ title: Tabela obsługi dla maszyn wirtualnych platformy Azure
 description: Zawiera podsumowanie ustawień i ograniczeń pomocy technicznej podczas tworzenia kopii zapasowych maszyn wirtualnych platformy Azure przy użyciu usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 8ac2896b0b3b8c87ff993eddcebb063a66add1fa
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 01c81257ab2cc9882ec1d388702a00f58694a7e4
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659402"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83724262"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tabela obsługi dla maszyn wirtualnych platformy Azure
 
@@ -48,7 +48,7 @@ Tworzenie kopii zapasowych dysków po migracji na dyski zarządzane | Obsługiwa
 Tworzenie kopii zapasowych dysków zarządzanych po włączeniu blokady grupy zasobów | Nieobsługiwane.<br/><br/> Azure Backup nie może usunąć starszych punktów przywracania, a kopie zapasowe rozpoczną się niepowodzeniem po osiągnięciu maksymalnego limitu punktów przywracania.
 Modyfikowanie zasad tworzenia kopii zapasowej dla maszyny wirtualnej | Obsługiwane.<br/><br/> Kopia zapasowa maszyny wirtualnej zostanie utworzona przy użyciu ustawień harmonogram i przechowywanie w obszarze nowe zasady. Jeśli ustawienia przechowywania są rozszerzone, istniejące punkty odzyskiwania zostaną oznaczone i zachowane. Jeśli są one zmniejszone, istniejące punkty odzyskiwania zostaną oczyszczone w następnym zadaniu oczyszczania i ostatecznie usunięte.
 Anulowanie zadania tworzenia kopii zapasowej| Obsługiwane podczas procesu tworzenia migawek.<br/><br/> Nieobsługiwane w przypadku przesyłania migawki do magazynu.
-Tworzenie kopii zapasowej maszyny wirtualnej w innym regionie lub subskrypcji |Nieobsługiwane.
+Tworzenie kopii zapasowej maszyny wirtualnej w innym regionie lub subskrypcji |Nieobsługiwane.<br><br>Aby pomyślnie utworzyć kopię zapasową, maszyny wirtualne muszą znajdować się w tej samej subskrypcji co magazyn kopii zapasowych.
 Kopie zapasowe dziennie (za pomocą rozszerzenia maszyny wirtualnej platformy Azure) | Jedna zaplanowana kopia zapasowa dziennie.<br/><br/>Usługa Azure Backup obsługuje do dziewięciu kopii zapasowych na żądanie dziennie, ale firma Microsoft nie zaleca więcej niż czterech codziennych kopii zapasowych na żądanie w celu zapewnienia najlepszej wydajności.
 Kopie zapasowe dziennie (za pośrednictwem agenta MARS) | Trzy zaplanowane kopie zapasowe dziennie.
 Kopie zapasowe dziennie (za pośrednictwem programu DPM/serwera usługi MAB) | Dwa zaplanowane kopie zapasowe dziennie.
@@ -190,7 +190,7 @@ Sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń) na karcie sieciowej
 Statyczny adres IP | Nieobsługiwane.<br/><br/> Nowa maszyna wirtualna utworzona na podstawie punktu przywracania ma przypisany dynamiczny adres IP.<br/><br/> W przypadku klasycznych maszyn wirtualnych nie można utworzyć kopii zapasowej maszyny wirtualnej z zastrzeżonym adresem IP i bez zdefiniowanego punktu końcowego.
 Dynamiczny adres IP |Obsługiwane.<br/><br/> Jeśli karta sieciowa na źródłowej maszynie wirtualnej używa dynamicznego adresowania IP, domyślnie karta sieciowa na przywróconej maszynie wirtualnej będzie używać tego programu.
 Azure Traffic Manager| Obsługiwane.<br/><br/>Jeśli kopia zapasowa maszyny wirtualnej znajduje się w Traffic Manager, ręcznie Dodaj przywróconą maszynę wirtualną do tego samego wystąpienia Traffic Manager.
-Azure DNS |Obsługiwane.
+System DNS platformy Azure |Obsługiwane.
 Niestandardowe DNS |Obsługiwane.
 Łączność wychodząca za pośrednictwem serwera proxy HTTP | Obsługiwane.<br/><br/> Uwierzytelniony serwer proxy nie jest obsługiwany.
 Punkty końcowe usługi dla sieci wirtualnej| Obsługiwane.<br/><br/> Ustawienia zapory i konta magazynu sieci wirtualnej powinny zezwalać na dostęp ze wszystkich sieci.
@@ -217,10 +217,10 @@ Bezpieczeństwo danych:
 
 **Maszyna** | **Przesyłanie** | **Magazynowanie**
 --- | --- | ---
-Lokalne maszyny z systemem Windows bez programu DPM/usługi MABS | ![Yes][green] | ![Yes][green]
-Maszyny wirtualne platformy Azure | ![Yes][green] | ![Yes][green]
-Lokalne maszyny wirtualne/maszyny wirtualne platformy Azure z programem DPM | ![Yes][green] | ![Yes][green]
-Lokalne maszyny wirtualne/maszyny wirtualne platformy Azure z usługą MABS | ![Yes][green] | ![Yes][green]
+Lokalne maszyny z systemem Windows bez programu DPM/usługi MABS | ![Tak][green] | ![Tak][green]
+Maszyny wirtualne platformy Azure | ![Tak][green] | ![Tak][green]
+Lokalne maszyny wirtualne/maszyny wirtualne platformy Azure z programem DPM | ![Tak][green] | ![Tak][green]
+Lokalne maszyny wirtualne/maszyny wirtualne platformy Azure z usługą MABS | ![Tak][green] | ![Tak][green]
 
 ## <a name="vm-compression-support"></a>Obsługa kompresji maszyny wirtualnej
 
@@ -231,9 +231,9 @@ Funkcja Backup obsługuje kompresję ruchu kopii zapasowej, jak przedstawiono w 
 
 **Maszyna** | **Kompresja do usługi MABS/programu DPM (TCP)** | **Kompresuj do magazynu (HTTPS)**
 --- | --- | ---
-Lokalne maszyny z systemem Windows bez programu DPM/usługi MABS | NA | ![Yes][green]
+Lokalne maszyny z systemem Windows bez programu DPM/usługi MABS | NA | ![Tak][green]
 Maszyny wirtualne platformy Azure | Nie dotyczy | Nie dotyczy
-Lokalne maszyny wirtualne/maszyny wirtualne platformy Azure z programem DPM | ![Yes][green] | ![Yes][green]
+Lokalne maszyny wirtualne/maszyny wirtualne platformy Azure z programem DPM | ![Yes][green] | ![Tak][green]
 Lokalne maszyny wirtualne/maszyny wirtualne platformy Azure z usługą MABS | ![Yes][green] | ![Tak][green]
 
 ## <a name="next-steps"></a>Następne kroki

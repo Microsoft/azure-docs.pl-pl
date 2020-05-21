@@ -1,46 +1,48 @@
 ---
 title: Przykład wypowiedź jednostki etykiety
-description: Dowiedz się, jak dodać etykietę do jednostki uczenia maszynowego za pomocą podskładników w przykładowej wypowiedź na stronie szczegółów obiektu w portalu LUIS.
+description: Dowiedz się, jak dodać etykietę do jednostki uczenia maszynowego za pomocą podjednostek w przykładowej wypowiedź na stronie szczegółów obiektu w portalu LUIS.
 ms.topic: conceptual
-ms.date: 05/17/2020
-ms.openlocfilehash: 0181057bd693280223806e9b5b7cd8c7f7345f79
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 05/20/2020
+ms.openlocfilehash: 959b9c6b25a7a76a87112fcbd1a10e7da12db1dd
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683779"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722647"
 ---
 # <a name="label-machine-learning-entity-in-an-example-utterance"></a>Etykieta jednostki uczenia maszynowego w przykładzie wypowiedź
 
 Etykietowanie jednostki w przykładzie wypowiedź daje LUIS przykład obiektu i miejsce, w którym jednostka może być wyświetlana w wypowiedź.
 
+Można oznaczyć jednostki i podjednostki, które są poznanie maszynowe.
+
+Ponieważ nie można etykietować wyrażeń regularnych, list ani wstępnie skompilowanych jednostek, należy utworzyć jednostkę lub podjednostkę, a następnie dodać te jednostki, jeśli ma to zastosowanie, do jednostki lub podjednostki.
+
 ## <a name="label-example-utterances-from-the-intent-detail-page"></a>Etykieta przykład wyrażenia długości na stronie szczegółów zamiaru
+
+Aby oznaczyć przykłady jednostek w wypowiedź, wybierz intencję wypowiedź.
 
 1. Zaloguj się do [portalu Luis](https://www.luis.ai)i wybierz swoją **subskrypcję** i **zasób tworzenia** , aby wyświetlić aplikacje przypisane do tego zasobu.
 1. Otwórz aplikację, wybierając jej nazwę na stronie **Moje aplikacje** .
 1. Wybierz zamiar, która ma przykład wyrażenia długości, którą chcesz oznaczyć do wyodrębnienia z jednostką.
 1. Zaznacz tekst, który chcesz oznaczyć etykietą, a następnie wybierz jednostkę.
 
+## <a name="two-techniques-to-label-entities"></a>Dwie techniki do etykietowania jednostek
+
+Na stronie szczegółów intencji są obsługiwane dwie techniki etykietowania.
+* Wybierz pozycję jednostka lub podjednostka z [palety Entity](#label-with-the-entity-palette-visible) , a następnie wybierz wewnątrz przykładowego tekstu wypowiedź. Jest to zalecana technika, ponieważ możesz wizualnie sprawdzić, czy pracujesz z poprawną jednostką lub podobiektem, zgodnie ze schematem.
+* Najpierw wybierz w przykładzie wypowiedź tekst. Po wykonaniu tej czynności zostanie wyświetlone menu rozwijane z [opcjami etykietowania](#how-to-label-entity-from-in-place-menu) .
+
 ## <a name="label-with-the-entity-palette-visible"></a>Etykieta z widoczną paletą jednostek
 
-Po zaplanowaniu schematu z jednostkami pozostaw **paletę jednostki** widoczną podczas etykietowania. **Paleta jednostek** to przypomnienie dotyczące tego, jakie jednostki zaplanowano do wyodrębnienia.
+Po [zaplanowaniu schematu z jednostkami](luis-how-plan-your-app.md)pozostaw **paletę jednostki** widoczną podczas etykietowania. **Paleta jednostek** to przypomnienie dotyczące obiektów zaplanowanych do wyodrębnienia.
 
 Aby uzyskać dostęp do **palety Entity**, zaznacz **@** symbol na pasku narzędzi kontekstowych powyżej przykładowej listy wypowiedź.
 
 > [!div class="mx-imgBorder"]
 > ![Zrzut ekranu przedstawiający paletę jednostek na stronie Szczegóły intencji.](media/label-utterances/entity-palette-from-tool-bar.png)
 
-## <a name="label-entity-from-in-place-menu"></a>Etykieta jednostki z menu w miejscu
-
-Rozważmy przykład wypowiedź, `hi, please I want a cheese pizza in 20 minutes` .
-
-1. Wybierz tekst z lewej strony, a następnie wybierz prawym przyciskiem myszy tekst jednostki, a następnie z menu w miejscu wybierz jednostkę, z którą chcesz dodać etykietę.
-
-    > [!div class="mx-imgBorder"]
-    > ![Oznacz kompletną jednostkę uczenia maszynowego](media/label-utterances/label-steps-in-place-menu.png)
-
-
-## <a name="label-entity-from-entity-palette"></a>Etykieta jednostki z palety jednostek
+## <a name="how-to-label-entity-from-entity-palette"></a>Jak dodać etykietę do jednostki z palety jednostek
 
 Paleta jednostek oferuje alternatywę dla poprzedniego środowiska etykietowania. Umożliwia malowanie tekstu, aby natychmiast oznaczyć go jednostką.
 
@@ -69,6 +71,17 @@ Role jednostek są oznaczone etykietami przy użyciu **palety Entity**.
 1. Wybierz istniejącą rolę poniżej listy jednostek.
 1. W przykładowym tekście wypowiedź etykieta tekst z rolą jednostki.
 
+## <a name="how-to-label-entity-from-in-place-menu"></a>Jak oznaczyć obiekt etykietą z menu w miejscu
+
+Etykietowanie miejscowe umożliwia szybkie Zaznaczanie tekstu w wypowiedź i etykietowanie go. Można również utworzyć jednostkę usługi Machine Learning lub jednostkę listy na podstawie tekstu z etykietą.
+
+Rozważmy przykład wypowiedź, `hi, please I want a cheese pizza in 20 minutes` .
+
+Wybierz tekst z lewej strony, a następnie wybierz prawym przyciskiem myszy tekst jednostki, a następnie z menu w miejscu wybierz jednostkę, z którą chcesz dodać etykietę.
+
+> [!div class="mx-imgBorder"]
+> ![Oznacz kompletną jednostkę uczenia maszynowego](media/label-utterances/label-steps-in-place-menu.png)
+
 ## <a name="review-labeled-text"></a>Przejrzyj tekst z etykietą
 
 Po etykietowaniu Sprawdź przykład wypowiedź i upewnij się, że wybrany zakres tekstu został podkreślony z wybraną jednostką. Linia ciągła wskazuje, że tekst został oznaczony etykietą.
@@ -86,12 +99,12 @@ W przypadku przetworzenia etykiety tekstu, który jest już oznaczony etykietą,
 
 ## <a name="labeling-for-punctuation"></a>Etykietowanie interpunkcji
 
-Nie ma potrzeby etykietowania interpunkcji. Za pomocą _formularzy_ [ustawień aplikacji](luis-reference-application-settings.md) można kontrolować, czy interpunkcja ma wpływ na przewidywania wypowiedź.
+Nie ma potrzeby etykietowania interpunkcji. Użyj [ustawień aplikacji](luis-reference-application-settings.md) , aby kontrolować sposób, w jaki interpunkcja wpływa na przewidywania wypowiedź.
 
 ## <a name="unlabel-entities"></a>Nie etykieta jednostek
 
 > [!NOTE]
-> Tylko jednostki, na które nauczyne maszynowe, mogą być bez etykiet.
+> Tylko jednostki, na które nauczyne maszynowe, mogą być bez etykiet. Nie można etykietować ani deetykietować jednostek wyrażeń regularnych, jednostek listy ani wstępnie skompilowanych jednostek.
 
 Aby usunąć etykietę jednostki, wybierz jednostkę i wybierz pozycję Usuń **etykietę** z menu w miejscu.
 
@@ -107,6 +120,12 @@ Jeśli jest oznaczona etykietami dla podjednostki, obiekt nadrzędny zostanie oz
 ## <a name="automatic-labeling-for-non-machine-learned-entities"></a>Automatyczne etykietowanie jednostek nieprzeznaczonych dla maszyn
 
 Jednostki, które nie są poznanie maszynowe, obejmują wstępnie utworzone jednostki, jednostki wyrażeń regularnych, jednostki listy i wzorzec. wszystkie jednostki. Są one automatycznie oznaczone jako LUIS, więc użytkownicy nie muszą mieć do nich ręcznego etykiet.
+
+## <a name="intent-prediction-errors"></a>Błędy przewidywania intencji
+
+Błąd prognozowania intencji wskazuje, że przykład wypowiedź, że dana przeszkolonej aplikacji nie zostanie przewidywalna dla zamiaru.
+
+Dowiedz się, jak [wyświetlić te błędy](luis-how-to-add-intents.md#intent-prediction-errors) na stronie szczegółów dotyczących intencji.
 
 ## <a name="entity-prediction-errors"></a>Błędy przewidywania jednostek
 

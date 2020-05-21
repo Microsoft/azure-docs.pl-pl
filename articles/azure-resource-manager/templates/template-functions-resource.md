@@ -2,13 +2,13 @@
 title: Funkcje szablonu — zasoby
 description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager do pobierania wartości dotyczących zasobów.
 ms.topic: conceptual
-ms.date: 04/28/2020
-ms.openlocfilehash: 508933cbea3e21fdec63907cef73102866732bb1
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.date: 05/20/2020
+ms.openlocfilehash: d6d98062e2228c22302b250ab3c7bb9683bff232
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891003"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715923"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funkcje zasobów dla szablonów ARM
 
@@ -108,7 +108,7 @@ Poniższy przykład zwraca identyfikator zasobu dla blokady grupy zasobów.
 
 `list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)`
 
-Składnia tej funkcji różni się od nazwy operacji na liście. Każda implementacja zwraca wartości dla typu zasobu, który obsługuje operację listy. Nazwa operacji musi rozpoczynać się `list`od. Niektóre typowe zastosowania to `listKeys` i. `listSecrets`
+Składnia tej funkcji różni się od nazwy operacji na liście. Każda implementacja zwraca wartości dla typu zasobu, który obsługuje operację listy. Nazwa operacji musi rozpoczynać się od `list` . Niektóre typowe zastosowania to `listKeys` , `listKeyValue` i `listSecrets` .
 
 ### <a name="parameters"></a>Parametry
 
@@ -116,11 +116,11 @@ Składnia tej funkcji różni się od nazwy operacji na liście. Każda implemen
 |:--- |:--- |:--- |:--- |
 | resourceName lub resourceIdentifier |Tak |ciąg |Unikatowy identyfikator zasobu. |
 | apiVersion |Tak |ciąg |Wersja interfejsu API stanu środowiska uruchomieniowego zasobu. Zwykle w formacie **rrrr-mm-dd**. |
-| functionValues |Nie |obiekt | Obiekt, który zawiera wartości dla funkcji. Podaj tylko ten obiekt dla funkcji, które obsługują otrzymywanie obiektów z wartościami parametrów, takimi jak **listAccountSas** na koncie magazynu. Przykład przekazywania wartości funkcji przedstawiono w tym artykule. |
+| functionValues |Nie |object | Obiekt, który zawiera wartości dla funkcji. Podaj tylko ten obiekt dla funkcji, które obsługują otrzymywanie obiektów z wartościami parametrów, takimi jak **listAccountSas** na koncie magazynu. Przykład przekazywania wartości funkcji przedstawiono w tym artykule. |
 
 ### <a name="valid-uses"></a>Prawidłowe zastosowania
 
-Funkcji list można używać tylko we właściwościach definicji zasobu i w sekcji dane wyjściowe szablonu lub wdrożenia. Gdy jest używany z [iteracją właściwości](copy-properties.md), można użyć funkcji listy dla `input` , ponieważ wyrażenie jest przypisane do właściwości zasobów. Nie można ich używać z `count` , ponieważ należy określić liczbę przed rozliczeniem funkcji listy.
+Funkcji list można używać tylko we właściwościach definicji zasobu i w sekcji dane wyjściowe szablonu lub wdrożenia. Gdy jest używany z [iteracją właściwości](copy-properties.md), można użyć funkcji listy dla, `input` ponieważ wyrażenie jest przypisane do właściwości zasobów. Nie można ich używać z, `count` ponieważ należy określić liczbę przed rozliczeniem funkcji listy.
 
 ### <a name="implementations"></a>Implementacje
 
@@ -129,6 +129,7 @@ W poniższej tabeli przedstawiono możliwe zastosowania list *.
 | Typ zasobu | Nazwa funkcji |
 | ------------- | ------------- |
 | Microsoft. AnalysisServices/serwery | [listGatewayStatus](/rest/api/analysisservices/servers/listgatewaystatus) |
+| Microsoft. AppConfiguration] | [ListKeyValue](/rest/api/appconfiguration/configurationstores/listkeyvalue) |
 | Microsoft. AppConfiguration/configurationStores | ListKeys |
 | Microsoft. Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
 | Microsoft. Batch/batchAccounts | [listkeys](/rest/api/batchmanagement/batchaccount/getkeys) |
@@ -227,15 +228,15 @@ W poniższej tabeli przedstawiono możliwe zastosowania list *.
 | Microsoft. Web/lokalizacje | listwsdlinterfaces |
 | Microsoft. Web/apimanagementaccounts/interfejsy API/połączenia | listconnectionkeys |
 | Microsoft. Web/apimanagementaccounts/interfejsy API/połączenia | listsecrets |
-| Microsoft. Web/Sites/kopie zapasowe | [list](/rest/api/appservice/webapps/listbackups) |
-| Microsoft. Web/Sites/config | [list](/rest/api/appservice/webapps/listconfigurations) |
+| Microsoft. Web/Sites/kopie zapasowe | [staw](/rest/api/appservice/webapps/listbackups) |
+| Microsoft. Web/Sites/config | [staw](/rest/api/appservice/webapps/listconfigurations) |
 | Microsoft. Web/Sites/Functions | [listkeys](/rest/api/appservice/webapps/listfunctionkeys)
 | Microsoft. Web/Sites/Functions | [listsecrets](/rest/api/appservice/webapps/listfunctionsecrets) |
 | Microsoft. Web/Sites/hybridconnectionnamespaces/Przekaźniki | [listkeys](/rest/api/appservice/appserviceplans/listhybridconnectionkeys) |
 | Microsoft. Web/witryny | [listsyncfunctiontriggerstatus](/rest/api/appservice/webapps/listsyncfunctiontriggers) |
 | Microsoft. Web/Sites/Slots/Functions | [listsecrets](/rest/api/appservice/webapps/listfunctionsecretsslot) |
-| Microsoft. Web/Sites/gniazda/kopie zapasowe | [list](/rest/api/appservice/webapps/listbackupsslot) |
-| Microsoft. Web/Sites/szczeliny/konfiguracja | [list](/rest/api/appservice/webapps/listconfigurationsslot) |
+| Microsoft. Web/Sites/gniazda/kopie zapasowe | [staw](/rest/api/appservice/webapps/listbackupsslot) |
+| Microsoft. Web/Sites/szczeliny/konfiguracja | [staw](/rest/api/appservice/webapps/listconfigurationsslot) |
 | Microsoft. Web/Sites/Slots/Functions | [listsecrets](/rest/api/appservice/webapps/listfunctionsecretsslot) |
 
 Aby określić, które typy zasobów mają operację listy, dostępne są następujące opcje:
@@ -437,7 +438,7 @@ Zwraca obiekt reprezentujący stan środowiska uruchomieniowego zasobu.
 |:--- |:--- |:--- |:--- |
 | resourceName lub resourceIdentifier |Tak |ciąg |Nazwa lub unikatowy identyfikator zasobu. W przypadku odwoływania się do zasobu w bieżącym szablonie podaj tylko nazwę zasobu jako parametr. W przypadku odwoływania się do wcześniej wdrożonego zasobu lub gdy nazwa zasobu jest niejednoznaczna, podaj identyfikator zasobu. |
 | apiVersion |Nie |ciąg |Wersja interfejsu API określonego zasobu. **Ten parametr jest wymagany, jeśli zasób nie jest obsługiwany w ramach tego samego szablonu.** Zwykle w formacie **rrrr-mm-dd**. Aby uzyskać prawidłowe wersje interfejsu API dla zasobu, zobacz [Dokumentacja szablonu](/azure/templates/). |
-| Szczegółowe |Nie |ciąg |Wartość określająca, czy ma zostać zwrócony pełny obiekt zasobów. Jeśli nie zostanie określony `'Full'`, zwracany jest tylko obiekt właściwości zasobu. Pełny obiekt zawiera wartości, takie jak identyfikator zasobu i lokalizacja. |
+| Szczegółowe |Nie |ciąg |Wartość określająca, czy ma zostać zwrócony pełny obiekt zasobów. Jeśli nie zostanie określony `'Full'` , zwracany jest tylko obiekt właściwości zasobu. Pełny obiekt zawiera wartości, takie jak identyfikator zasobu i lokalizacja. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -462,7 +463,7 @@ Zwykle funkcja **Reference** służy do zwracania określonej wartości z obiekt
 }
 ```
 
-Użyj `'Full'` , gdy potrzebujesz wartości zasobów, które nie są częścią schematu właściwości. Na przykład aby ustawić zasady dostępu do magazynu kluczy, Pobierz właściwości tożsamości dla maszyny wirtualnej.
+Użyj, `'Full'` gdy potrzebujesz wartości zasobów, które nie są częścią schematu właściwości. Na przykład aby ustawić zasady dostępu do magazynu kluczy, Pobierz właściwości tożsamości dla maszyny wirtualnej.
 
 ```json
 {
@@ -488,7 +489,7 @@ Użyj `'Full'` , gdy potrzebujesz wartości zasobów, które nie są częścią 
 
 ### <a name="valid-uses"></a>Prawidłowe zastosowania
 
-Funkcji Reference można używać tylko we właściwościach definicji zasobu i sekcji Output szablonu lub wdrożenia. Gdy jest używany z [iteracją właściwości](copy-properties.md), można użyć funkcji Reference dla `input` , ponieważ wyrażenie jest przypisane do właściwości Resource.
+Funkcji Reference można używać tylko we właściwościach definicji zasobu i sekcji Output szablonu lub wdrożenia. Gdy jest używany z [iteracją właściwości](copy-properties.md), można użyć funkcji Reference dla, `input` ponieważ wyrażenie jest przypisane do właściwości Resource.
 
 Nie można użyć funkcji Reference do ustawienia wartości `count` właściwości w pętli kopiowania. Można użyć, aby ustawić inne właściwości w pętli. Odwołanie jest blokowane dla właściwości count, ponieważ ta właściwość musi zostać określona przed rozwiązanym funkcją referencyjną.
 
@@ -508,7 +509,7 @@ W przypadku odwoływania się do zasobu, który jest wdrożony w tym samym szabl
 "value": "[reference(parameters('storageAccountName'))]"
 ```
 
-W przypadku odwoływania się do zasobu, który nie jest wdrożony w tym samym szablonie `apiVersion`, podaj identyfikator zasobu i.
+W przypadku odwoływania się do zasobu, który nie jest wdrożony w tym samym szablonie, podaj identyfikator zasobu i `apiVersion` .
 
 ```json
 "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]"
@@ -524,9 +525,9 @@ W przypadku konstruowania w pełni kwalifikowanego odwołania do zasobu kolejno�
 
 **{Resource-Provider-Namespace}/{Parent-Resource-Type}/{Parent-Resource-Name} [/{Child-Resource-Type}/{Child-resource-name}]**
 
-Przykład:
+Na przykład:
 
-`Microsoft.Compute/virtualMachines/myVM/extensions/myExt`jest niepoprawny `Microsoft.Compute/virtualMachines/extensions/myVM/myExt`
+`Microsoft.Compute/virtualMachines/myVM/extensions/myExt``Microsoft.Compute/virtualMachines/extensions/myVM/myExt`jest niepoprawny
 
 Aby uprościć tworzenie dowolnego identyfikatora zasobu, użyj `resourceId()` funkcji opisanych w tym dokumencie zamiast `concat()` funkcji.
 
@@ -689,7 +690,7 @@ Właściwość **zarządzane** jest zwracana tylko dla grup zasobów zawierając
 
 ### <a name="remarks"></a>Uwagi
 
-Nie `resourceGroup()` można użyć funkcji w szablonie [wdrożonym na poziomie subskrypcji](deploy-to-subscription.md). Może być używany tylko w szablonach wdrożonych w grupie zasobów. Możesz użyć `resourceGroup()` funkcji w [połączonym lub zagnieżdżonym szablonie (z zakresem wewnętrznym)](linked-templates.md) , który jest przeznaczony dla grupy zasobów, nawet jeśli szablon nadrzędny został wdrożony w subskrypcji. W tym scenariuszu szablon połączony lub zagnieżdżony jest wdrażany na poziomie grupy zasobów. Aby uzyskać więcej informacji na temat określania docelowych grup zasobów w ramach wdrożenia na poziomie subskrypcji, zobacz [wdrażanie zasobów platformy Azure w więcej niż jednej subskrypcji lub grupie zasobów](cross-resource-group-deployment.md).
+`resourceGroup()`Nie można użyć funkcji w szablonie [wdrożonym na poziomie subskrypcji](deploy-to-subscription.md). Może być używany tylko w szablonach wdrożonych w grupie zasobów. Możesz użyć `resourceGroup()` funkcji w [połączonym lub zagnieżdżonym szablonie (z zakresem wewnętrznym)](linked-templates.md) , który jest przeznaczony dla grupy zasobów, nawet jeśli szablon nadrzędny został wdrożony w subskrypcji. W tym scenariuszu szablon połączony lub zagnieżdżony jest wdrażany na poziomie grupy zasobów. Aby uzyskać więcej informacji na temat określania docelowych grup zasobów w ramach wdrożenia na poziomie subskrypcji, zobacz [wdrażanie zasobów platformy Azure w więcej niż jednej subskrypcji lub grupie zasobów](cross-resource-group-deployment.md).
 
 Typowym zastosowaniem funkcji resourceing jest utworzenie zasobów w tej samej lokalizacji co grupa zasobów. Poniższy przykład używa lokalizacji grupy zasobów dla domyślnej wartości parametru.
 

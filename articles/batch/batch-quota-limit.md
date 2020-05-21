@@ -1,15 +1,15 @@
 ---
 title: Limity i przydziały dotyczące usługi
 description: Informacje o domyślnych przydziałach Azure Batch, limitach i ograniczeniach oraz o sposobach zwiększania limitu przydziału
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: a901d54ea584ec67bfa679e9cdc716ab27d45eca
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f47f2df38a601c6359ed257a9787130ea95d2ac8
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115826"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726574"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Limity przydziału i limity usługi Batch
 
@@ -80,14 +80,14 @@ Wykonaj następujące kroki, aby zażądać zwiększenia przydziału dla konta u
 ### <a name="increase-cores-quota-in-batch"></a>Zwiększ limit przydziału rdzeni w partii 
 
 1. Wybierz kafelek **Pomoc i obsługa techniczna** na pulpicie nawigacyjnym portalu lub znak zapytania (**?**) w prawym górnym rogu portalu.
-1. Wybierz pozycję nowe > **Informacje podstawowe** **żądania obsługi**.
+1. Wybierz pozycję **nowe**  >  **Informacje podstawowe**żądania obsługi.
 1. **Podstawowe informacje**:
    
-    a. **Issue Type** > **Limity liczby usług i subskrypcji typu problemu (przydziały)**
+    a. **Typ problemu**  >  **Limity usług i subskrypcji (przydziały)**
    
     b. Wybierz subskrypcję.
    
-    c. **Partia typów przydziału** > **Batch**
+    c. **Typ**  >  limitu przydziału **Partia zadań**
       
     Wybierz pozycję **Dalej**.
     

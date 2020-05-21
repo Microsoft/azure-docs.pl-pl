@@ -7,12 +7,12 @@ ms.service: iot-hub
 ms.topic: tutorial
 ms.date: 11/21/2019
 ms.author: robinsh
-ms.openlocfilehash: 889c5e68759a94682150ac88970b7123ad0fc412
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0b1870af6316713590eec59aee2af94ce34b7e1a
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82201741"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722562"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Samouczek: wysyłanie powiadomień e-mail dotyczących zdarzeń usługi Azure IoT Hub przy użyciu Event Grid i Logic Apps
 
@@ -27,7 +27,7 @@ W tym artykule przedstawiono przykładową konfigurację, która używa IoT Hub 
 * Konto e-mail od dowolnego dostawcy poczty e-mail obsługiwanego przez Azure Logic Apps, na przykład Office 365 Outlook, Outlook.com lub gmail. To konto e-mail służy do wysyłania powiadomień o zdarzeniach. Aby zapoznać się z pełną listą obsługiwanych łączników aplikacji logiki, zobacz [Omówienie łączników](https://docs.microsoft.com/connectors/).
 
   > [!IMPORTANT]
-  > Przed użyciem usługi Gmail Sprawdź, czy masz konto biznesowe usługi G (adres e-mail z domeną niestandardową), czy konto użytkownika usługi Gmail (adres e-mail z @gmail.com lub @googlemail.com). Tylko konta firmowe usługi G mogą korzystać z łącznika usługi Gmail z innymi łącznikami bez ograniczeń w aplikacjach logiki. Jeśli masz konto użytkownika usługi Gmail, możesz użyć łącznika usługi Gmail z tylko określonymi usługami zatwierdzonymi przez firmę Google lub można [utworzyć aplikację kliencką Google do użycia na potrzeby uwierzytelniania](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Aby uzyskać więcej informacji, zobacz [zabezpieczenia danych i zasady ochrony prywatności dla łączników Google w Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+  > Przed użyciem usługi Gmail Sprawdź, czy masz konto biznesowe usługi G (adres e-mail z domeną niestandardową), czy konto użytkownika usługi Gmail (adres e-mail z @gmail.com lub @googlemail.com ). Tylko konta firmowe usługi G mogą korzystać z łącznika usługi Gmail z innymi łącznikami bez ograniczeń w aplikacjach logiki. Jeśli masz konto użytkownika usługi Gmail, możesz użyć łącznika usługi Gmail z tylko określonymi usługami zatwierdzonymi przez firmę Google lub można [utworzyć aplikację kliencką Google do użycia na potrzeby uwierzytelniania](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Aby uzyskać więcej informacji, zobacz [zabezpieczenia danych i zasady ochrony prywatności dla łączników Google w Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
 * Centrum IoT Hub na platformie Azure. Jeśli jeszcze go nie masz, zobacz przewodnik [Wprowadzenie do usługi IoT Hub](../iot-hub/iot-hub-csharp-csharp-getstarted.md).
 
@@ -137,7 +137,7 @@ Akcje to kroki, które są wykonywane, gdy wyzwalacz uruchomi przepływ pracy ap
 
    * **Do**: wpisz adres e-mail, na który mają być wysyłane wiadomości e-mail z powiadomieniami. Na potrzeby tego samouczka użyj konta e-mail, które nadaje się do celów testowych. 
 
-   * **Temat**: wprowadź tekst tematu. Po kliknięciu pola tekstowego temat możesz wybrać zawartość dynamiczną do uwzględnienia. Na przykład w tym samouczku `IoT Hub alert: {event Type}`używamy. Jeśli nie widzisz zawartości dynamicznej, zaznacz hiperlink **Dodawanie zawartości dynamicznej** — spowoduje to włączenie i wyłączenie tej opcji.
+   * **Temat**: wprowadź tekst tematu. Po kliknięciu pola tekstowego temat możesz wybrać zawartość dynamiczną do uwzględnienia. Na przykład w tym samouczku używamy `IoT Hub alert: {event Type}` . Jeśli nie widzisz zawartości dynamicznej, zaznacz hiperlink **Dodawanie zawartości dynamicznej** — spowoduje to włączenie i wyłączenie tej opcji.
 
    * **Treść**: Napisz tekst wiadomości e-mail. Za pomocą narzędzia do wybierania wybierz właściwości JSON w celu dołączenia zawartości dynamicznej opartej na danych zdarzenia. Jeśli zawartość dynamiczna nie jest widoczna, zaznacz hiperlink **Dodaj zawartość dynamiczną** poniżej pola tekstowego **treść** . Jeśli nie pokazywane są odpowiednie pola, kliknij przycisk *więcej* na ekranie zawartości dynamicznej, aby uwzględnić pola z poprzedniej akcji.
 
@@ -193,17 +193,17 @@ W tej sekcji skonfigurujesz usługę IoT Hub pod kątem publikowania zdarzeń na
 
 6. Wybierz pozycję **Dodaj nowy filtr**. Wypełnij pola następującymi wartościami:
 
-   * **Klucz**: Wybierz `Subject`.
+   * **Klucz**: Wybierz `Subject` .
 
-   * **Operator**: SELECT `String begins with`.
+   * **Operator**: SELECT `String begins with` .
 
    * **Wartość**: wprowadź `devices/Building1_` , aby odfiltrować zdarzenia urządzenia podczas tworzenia 1.
   
    Dodaj inny filtr z następującymi wartościami:
 
-   * **Klucz**: Wybierz `Subject`.
+   * **Klucz**: Wybierz `Subject` .
 
-   * **Operator**: SELECT `String ends with`.
+   * **Operator**: SELECT `String ends with` .
 
    * **Wartość**: wprowadź `_Temperature` , aby odfiltrować zdarzenia urządzenia związane z temperaturą.
 
@@ -240,9 +240,9 @@ Aby przetestować aplikację logiki, utwórz nowe urządzenie w celu wyzwolenia 
 
 ## <a name="use-the-azure-cli"></a>Używanie interfejsu wiersza polecenia platformy Azure
 
-Nie musisz korzystać z witryny Azure Portal — kroki w centrum IoT Hub możesz wykonać przy użyciu interfejsu wiersza polecenia platformy Azure. Aby uzyskać szczegółowe informacje, zobacz strony interfejsu wiersza polecenia platformy Azure służące do [tworzenia subskrypcji zdarzeń](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) i [tworzenia urządzenia IoT](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity).
+Nie musisz korzystać z witryny Azure Portal — kroki w centrum IoT Hub możesz wykonać przy użyciu interfejsu wiersza polecenia platformy Azure. Aby uzyskać szczegółowe informacje, zobacz strony interfejsu wiersza polecenia platformy Azure służące do [tworzenia subskrypcji zdarzeń](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) i [tworzenia urządzenia IoT](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Użycie zasobów w tym samouczku powoduje naliczanie opłat w ramach Twojej subskrypcji platformy Azure. Po zakończeniu próby wykonania samouczka i przetestowaniu wyników należy wyłączyć lub usunąć zasoby, które nie mają być zachowywane. 
 

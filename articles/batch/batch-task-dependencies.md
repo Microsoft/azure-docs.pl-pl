@@ -1,15 +1,15 @@
 ---
-title: Tworzenie zależności zadań do uruchamiania zadań — Azure Batch
+title: Tworzenie zależności zadań do uruchamiania zadań
 description: Utwórz zadania, które zależą od ukończenia innych zadań przetwarzania stylu MapReduce i podobnych obciążeń danych Big Data w Azure Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/22/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9b3bc37a3d004f077e2e780d096b7bb2a8e5f773
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 42cf24758c64f107723ae0907db08bd4b757a15a
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116489"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726387"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Tworzenie zależności zadań w celu uruchamiania zadań zależnych od innych zadań
 
@@ -30,7 +30,7 @@ Można tworzyć zadania, które są zależne od innych zadań w relacji jeden-do
 W tym artykule omówiono sposób konfigurowania zależności zadań przy użyciu biblioteki usługi Batch dla [platformy .NET][net_msdn] . Najpierw pokazano, jak [włączyć zależność zadań](#enable-task-dependencies) względem zadań, a następnie zademonstrować sposób [konfigurowania zadania z zależnościami](#create-dependent-tasks). Opisano również sposób określania akcji zależności do uruchamiania zadań zależnych w przypadku niepowodzenia elementu nadrzędnego. Na koniec omówiono [scenariusze zależności](#dependency-scenarios) obsługiwane przez partię.
 
 ## <a name="enable-task-dependencies"></a>Włącz zależności zadań
-Aby korzystać z zależności zadań w aplikacji wsadowej, należy najpierw skonfigurować zadanie tak, aby korzystało z zależności zadań. W usłudze Batch .NET Włącz ją na [CloudJob][net_cloudjob] , ustawiając jej właściwość [UsesTaskDependencies][net_usestaskdependencies] na `true`:
+Aby korzystać z zależności zadań w aplikacji wsadowej, należy najpierw skonfigurować zadanie tak, aby korzystało z zależności zadań. W usłudze Batch .NET Włącz ją na [CloudJob][net_cloudjob] , ustawiając jej właściwość [UsesTaskDependencies][net_usestaskdependencies] na `true` :
 
 ```csharp
 CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
@@ -57,7 +57,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 Ten fragment kodu tworzy zadanie zależne z IDENTYFIKATORem zadania "kwiaty". Zadanie "kwiaty" zależy od zadań "deszcz" i "Sun". Zadanie "kwiaty" zostanie zaplanowane do uruchomienia w węźle obliczeniowym dopiero po pomyślnym ukończeniu zadań "deszcz" i "Sun".
 
 > [!NOTE]
-> Domyślnie zadanie jest uznawane za zakończone pomyślnie, gdy jest w stanie **ukończone** i jego **Kod zakończenia** to `0`. W usłudze Batch .NET oznacza to [CloudTask][net_cloudtask]. Wartość właściwości [State][net_taskstate] `Completed` i [TaskExecutionInformation][net_taskexecutioninformation]CloudTask. Wartość właściwości [ExitCode][net_exitcode] to `0`. Aby to zmienić, zobacz sekcję [Akcje zależności](#dependency-actions) .
+> Domyślnie zadanie jest uznawane za zakończone pomyślnie, gdy jest w stanie **ukończone** i jego **Kod zakończenia** to `0` . W usłudze Batch .NET oznacza to [CloudTask][net_cloudtask]. Wartość właściwości [State][net_taskstate] `Completed` i [TaskExecutionInformation][net_taskexecutioninformation]CloudTask.[ ][net_exitcode]Wartość właściwości ExitCode to `0` . Aby to zmienić, zobacz sekcję [Akcje zależności](#dependency-actions) .
 > 
 > 
 
@@ -110,9 +110,9 @@ W zależności od zakresu zadań nadrzędnych zadanie zależy od ukończenia zad
 Aby utworzyć zależność, podaj pierwsze i ostatnie identyfikatory zadań w zakresie do [TaskDependencies][net_taskdependencies]. Metoda statyczna [OnIdRange][net_onidrange] po wypełnieniu właściwości [DependsOn][net_dependson] elementu [CloudTask][net_cloudtask].
 
 > [!IMPORTANT]
-> W przypadku korzystania z zakresów identyfikatorów zadań w zależności od zakresu będą wybierane tylko zadania z identyfikatorami reprezentującymi wartości całkowite. Dlatego zakres `1..10` będzie wybierać zadania `3` i `7`, ale nie. `5flamingoes` 
+> W przypadku korzystania z zakresów identyfikatorów zadań w zależności od zakresu będą wybierane tylko zadania z identyfikatorami reprezentującymi wartości całkowite. Dlatego zakres `1..10` będzie wybierać zadania `3` i `7` , ale nie `5flamingoes` . 
 > 
-> Zera wiodące nie są istotne podczas oceniania zależności zakresu, dlatego zadania z identyfikatorami `4`ciągów `04` i `004` wszystkie będą znajdować się *w* zakresie, a wszystkie będą traktowane jako zadania `4`, więc pierwszy z nich będzie spełniał zależność.
+> Zera wiodące nie są istotne podczas oceniania zależności zakresu, dlatego zadania z identyfikatorami `4` ciągów `04` i `004` wszystkie będą znajdować się *w* zakresie, a wszystkie będą traktowane jako zadania `4` , więc pierwszy z nich będzie spełniał zależność.
 > 
 > Każde zadanie w zakresie musi spełniać zależność, przez pomyślne zakończenie lub przez zakończenie z powodu błędu zamapowanego na akcję zależności ustawioną na **spełnienie**. Aby uzyskać szczegółowe informacje, zobacz sekcję [Akcje zależności](#dependency-actions) .
 >

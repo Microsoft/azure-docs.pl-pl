@@ -1,15 +1,15 @@
 ---
-title: Inicjowanie obsługi administracyjnej puli w sieci wirtualnej — Azure Batch | Microsoft Docs
+title: Inicjowanie obsługi administracyjnej puli w sieci wirtualnej
 description: Jak utworzyć pulę usługi Batch w sieci wirtualnej platformy Azure, dzięki czemu węzły obliczeniowe mogą bezpiecznie komunikować się z innymi maszynami wirtualnymi w sieci, takimi jak serwer plików.
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 616118d5f75f9bfa6d97d89baac9d7ea9186cd5d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6ca9a8bb60ecbea38da7dfdb44123d7201d6a112
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82111899"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726285"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Tworzenie puli Azure Batch w sieci wirtualnej
 
@@ -51,9 +51,9 @@ W Twojej organizacji mogą istnieć wymagania dotyczące przekierowywania (wymus
 
 Aby upewnić się, że węzły obliczeniowe puli Azure Batch działają w sieci wirtualnej z włączonym wymuszonym tunelowaniem, należy dodać następujące [trasy zdefiniowane przez użytkownika](../virtual-network/virtual-networks-udr-overview.md) dla tej podsieci:
 
-* Usługa Batch musi komunikować się z węzłami obliczeniowymi puli na potrzeby planowania zadań. Aby włączyć tę komunikację, Dodaj zdefiniowaną przez użytkownika trasę dla każdego adresu IP używanego przez usługę Batch w regionie, w którym istnieje konto usługi Batch. Aby dowiedzieć się, jak uzyskać listę adresów IP usługi Batch, zobacz [lokalne znaczniki usług](../virtual-network/service-tags-overview.md). Adresy IP usługi Batch zostaną skojarzone z tagiem `BatchNodeManagement` usługi (lub odmianą regionalną zgodną z regionem konta usługi Batch).
+* Usługa Batch musi komunikować się z węzłami obliczeniowymi puli na potrzeby planowania zadań. Aby włączyć tę komunikację, Dodaj zdefiniowaną przez użytkownika trasę dla każdego adresu IP używanego przez usługę Batch w regionie, w którym istnieje konto usługi Batch. Aby dowiedzieć się, jak uzyskać listę adresów IP usługi Batch, zobacz [lokalne znaczniki usług](../virtual-network/service-tags-overview.md). Adresy IP usługi Batch zostaną skojarzone z `BatchNodeManagement` tagiem usługi (lub odmianą regionalną zgodną z regionem konta usługi Batch).
 
-* Upewnij się, że ruch wychodzący do usługi Azure Storage (w `<account>.table.core.windows.net`odniesieniu do adresów URL formularza, `<account>.queue.core.windows.net`i `<account>.blob.core.windows.net`) nie jest blokowany za pośrednictwem lokalnego urządzenia sieciowego.
+* Upewnij się, że ruch wychodzący do usługi Azure Storage (w odniesieniu do adresów URL formularza `<account>.table.core.windows.net` , `<account>.queue.core.windows.net` i `<account>.blob.core.windows.net` ) nie jest blokowany za pośrednictwem lokalnego urządzenia sieciowego.
 
 Po dodaniu trasy zdefiniowanej przez użytkownika Zdefiniuj trasę dla każdego powiązanego prefiksu adresu IP partii i ustaw **Typ następnego przeskoku** na **Internet**. Zobacz poniższy przykład:
 

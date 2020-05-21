@@ -1,14 +1,14 @@
 ---
 title: Bezpieczny dostęp do usługi Key Vault za pomocą usługi Batch
 description: Dowiedz się, jak programowo uzyskać dostęp do poświadczeń z Key Vault przy użyciu Azure Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/13/2020
-ms.openlocfilehash: d24904c3a539431e8aff420e9fbd8291cddde78a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3d0b2128bef1434f073700eb83e5935d74d8bb7a
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117458"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725724"
 ---
 # <a name="securely-access-key-vault-with-batch"></a>Bezpieczny dostęp do usługi Key Vault za pomocą usługi Batch
 
@@ -23,21 +23,21 @@ Aby można było uwierzytelnić Azure Key Vault z węzła usługi Batch, potrzeb
 
 ## <a name="obtain-a-certificate"></a>Uzyskaj certyfikat
 
-Jeśli nie masz jeszcze certyfikatu, najprostszym sposobem, aby uzyskać certyfikat z podpisem własnym, za pomocą narzędzia wiersza `makecert` polecenia.
+Jeśli nie masz jeszcze certyfikatu, najprostszym sposobem, aby uzyskać certyfikat z podpisem własnym, za pomocą `makecert` narzędzia wiersza polecenia.
 
-Zwykle można znaleźć `makecert` w tej ścieżce: `C:\Program Files (x86)\Windows Kits\10\bin\<arch>`. Otwórz wiersz polecenia jako administrator i przejdź do `makecert` poniższego przykładu.
+Zwykle można znaleźć `makecert` w tej ścieżce: `C:\Program Files (x86)\Windows Kits\10\bin\<arch>` . Otwórz wiersz polecenia jako administrator i przejdź do `makecert` poniższego przykładu.
 
 ```console
 cd C:\Program Files (x86)\Windows Kits\10\bin\x64
 ```
 
-Następnie użyj `makecert` narzędzia, aby utworzyć pliki certyfikatów z podpisem własnym o `batchcertificate.cer` nazwie `batchcertificate.pvk`i. Użyta nazwa pospolita (CN) nie jest ważna dla tej aplikacji, ale warto ją określić, która informuje o tym, jak certyfikat jest używany.
+Następnie użyj narzędzia, `makecert` Aby utworzyć pliki certyfikatów z podpisem własnym o nazwie `batchcertificate.cer` i `batchcertificate.pvk` . Użyta nazwa pospolita (CN) nie jest ważna dla tej aplikacji, ale warto ją określić, która informuje o tym, jak certyfikat jest używany.
 
 ```console
 makecert -sv batchcertificate.pvk -n "cn=batch.cert.mydomain.org" batchcertificate.cer -b 09/23/2019 -e 09/23/2019 -r -pe -a sha256 -len 2048
 ```
 
-Partia wymaga `.pfx` pliku. Użyj narzędzia [Pvk2pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) `.cer` do przekonwertowania `.pvk` plików utworzonych przez `makecert` program na pojedynczy `.pfx` plik.
+Partia wymaga `.pfx` pliku. Użyj narzędzia [Pvk2pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) do przekonwertowania `.cer` `.pvk` plików utworzonych przez program `makecert` na pojedynczy `.pfx` plik.
 
 ```console
 pvk2pfx -pvk batchcertificate.pvk -spc batchcertificate.cer -pfx batchcertificate.pfx -po
@@ -87,7 +87,7 @@ Teraz podczas tworzenia puli wsadowej można przejść do **certyfikatów** w pu
 
 ## <a name="install-azure-powershell"></a>Instalowanie programu Azure PowerShell
 
-Jeśli planujesz uzyskać dostęp do Key Vault przy użyciu skryptów programu PowerShell w węzłach, musisz mieć zainstalowaną bibliotekę Azure PowerShell. Istnieje kilka sposobów, aby to zrobić, jeśli w węzłach jest zainstalowany program Windows Management Framework (WMF) 5, można go pobrać za pomocą polecenia install-module. W przypadku używania węzłów, które nie mają programu WMF 5, najprostszym sposobem na zainstalowanie tej usługi jest Załączenie pliku Azure PowerShell `.msi` z plikami wsadowymi, a następnie Wywołaj Instalatora jako pierwszą część skryptu uruchamiania usługi Batch. Aby uzyskać szczegółowe informacje, zobacz ten przykład:
+Jeśli planujesz uzyskać dostęp do Key Vault przy użyciu skryptów programu PowerShell w węzłach, musisz mieć zainstalowaną bibliotekę Azure PowerShell. Istnieje kilka sposobów, aby to zrobić, jeśli w węzłach jest zainstalowany program Windows Management Framework (WMF) 5, można go pobrać za pomocą polecenia install-module. W przypadku używania węzłów, które nie mają programu WMF 5, najprostszym sposobem na zainstalowanie tej usługi jest załączenie `.msi` pliku Azure PowerShell z plikami wsadowymi, a następnie Wywołaj Instalatora jako pierwszą część skryptu uruchamiania usługi Batch. Aby uzyskać szczegółowe informacje, zobacz ten przykład:
 
 ```powershell
 $psModuleCheck=Get-Module -ListAvailable -Name Azure -Refresh

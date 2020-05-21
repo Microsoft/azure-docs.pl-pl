@@ -13,17 +13,20 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2020
+ms.date: 05/20/2020
 ms.author: shvija
-ms.openlocfilehash: c166f4cace6a8cc25b36a84f4614033801e69a51
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b3411b3e138778ca7ca1ffcfe14d8d6e84d76d4e
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265014"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726098"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Przechwyć zdarzenia za pomocą usługi Azure Event Hubs na platformie Azure Blob Storage lub Azure Data Lake Storage
 Usługa Azure Event Hubs umożliwia automatyczne przechwytywanie danych przesyłanych strumieniowo w Event Hubs w usłudze [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) lub w ramach wybranego konta [Azure Data Lake Storage generacji 1 lub generacji 2](https://azure.microsoft.com/services/data-lake-store/) , z dodatkową elastycznością określania interwału czasu lub rozmiaru. Konfigurowanie przechwytywania jest szybkie, nie ma kosztów administracyjnych do uruchomienia i jest automatycznie skalowane przy użyciu [jednostek przepływności](event-hubs-scalability.md#throughput-units)Event Hubs. Przechwytywanie Event Hubs jest najprostszym sposobem ładowania danych przesyłanych strumieniowo na platformę Azure i umożliwia skoncentrowanie się na przetwarzaniu danych, a nie na przechwytywaniu danych.
+
+> [!NOTE]
+> Konfigurowanie przechwytywania Event Hubs do użycia Azure Data Lake Storage **Gen 2** jest takie samo, jak skonfigurowanie go do korzystania z BLOB Storage platformy Azure. Aby uzyskać szczegółowe informacje, zobacz [Konfigurowanie przechwytywania Event Hubs](event-hubs-capture-enable-through-portal.md). 
 
 Przechwytywanie Event Hubs umożliwia przetwarzanie potoków w czasie rzeczywistym i opartych na partiach w tym samym strumieniu. Oznacza to, że można tworzyć rozwiązania, które zwiększają się wraz z potrzebami. Bez względu na to, czy tworzysz systemy oparte na partiach, z uwzględnieniem przyszłego przetwarzania w czasie rzeczywistym, czy chcesz dodać wydajną ścieżkę zimną do istniejącego rozwiązania w czasie rzeczywistym, Event Hubs przechwytywanie ułatwia pracę z danymi przesyłanymi strumieniowo.
 
@@ -44,7 +47,7 @@ Przechwytywanie Event Hubs umożliwia skonfigurowanie okna do kontroli przechwyt
 {Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}
 ```
 
-Należy zauważyć, że wartości dat są uzupełnione zerami; Przykładowa nazwa pliku może być:
+Wartości dat są uzupełnione zerami; Przykładowa nazwa pliku może być:
 
 ```
 https://mystorageaccount.blob.core.windows.net/mycontainer/mynamespace/myeventhub/0/2017/12/08/03/03/17.avro
@@ -60,7 +63,7 @@ Po skonfigurowaniu Event Hubs przechwytywania zostanie automatycznie uruchomione
 
 ## <a name="setting-up-event-hubs-capture"></a>Konfigurowanie przechwytywania Event Hubs
 
-Funkcję przechwytywania można skonfigurować w czasie tworzenia centrum zdarzeń przy użyciu [Azure Portal](https://portal.azure.com)lub szablonów Azure Resource Manager. Aby uzyskać więcej informacji zobacz następujące artykuły:
+Funkcję przechwytywania można skonfigurować w czasie tworzenia centrum zdarzeń przy użyciu [Azure Portal](https://portal.azure.com)lub szablonów Azure Resource Manager. Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - [Włączanie funkcji przechwytywania usługi Event Hubs przy użyciu witryny Azure Portal](event-hubs-capture-enable-through-portal.md)
 - [Tworzenie przestrzeni nazw usługi Event Hubs z centrum zdarzeń i włączanie funkcji przechwytywania przy użyciu szablonu usługi Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub-enable-capture.md)
@@ -129,7 +132,7 @@ To polecenie zwraca
 
 Możesz również użyć narzędzi Avro, aby skonwertować plik do formatu JSON i wykonać inne przetwarzanie.
 
-Aby przeprowadzić bardziej zaawansowane przetwarzanie, Pobierz i zainstaluj Avro dla wybranej platformy. W czasie tego pisania dostępne są implementacje języków C, C++, C\#, Java, NodeJS, Perl, php, Python i Ruby.
+Aby przeprowadzić bardziej zaawansowane przetwarzanie, Pobierz i zainstaluj Avro dla wybranej platformy. W czasie tego pisania dostępne są implementacje języków C, C++, C \# , Java, NodeJS, Perl, php, Python i Ruby.
 
 Oprogramowanie Apache Avro zakończyło się Wprowadzenie przewodników dla [języków Java][Java] i [Python][Python]. Możesz również przeczytać artykuł [wprowadzenie do Event Hubs przechwytywania](event-hubs-capture-python.md) .
 
@@ -137,7 +140,7 @@ Oprogramowanie Apache Avro zakończyło się Wprowadzenie przewodników dla [ję
 
 Przechwytywanie Event Hubs jest mierzone w jednostkach przepływności: jako opłata godzinowa. Opłata jest naliczana bezpośrednio proporcjonalnie do liczby jednostek przepływności zakupionych dla przestrzeni nazw. W miarę zwiększania i zmniejszania jednostek przepływności, Event Hubs przechwytywania liczników zwiększa się i zmniejsza w celu zapewnienia dopasowania wydajności. Liczniki występują wspólnie. Aby uzyskać szczegółowe informacje o cenach, zobacz [Cennik usługi Event Hubs](https://azure.microsoft.com/pricing/details/event-hubs/). 
 
-Należy pamiętać, że Przechwytywanie nie zużywa limitu przydziału ruchu wychodzącego, ponieważ jest rozliczany osobno. 
+Przechwytywanie nie zużywa limitu przydziału ruchu wychodzącego, ponieważ jest rozliczany osobno. 
 
 ## <a name="integration-with-event-grid"></a>Integracja z usługą Event Grid 
 

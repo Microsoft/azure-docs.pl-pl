@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: a2bc39a35299f56ba52a0143ce123560bd4d88fa
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 09867d6739998902ea0fd11281d1b975866c1242
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77137767"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722630"
 ---
 # <a name="train-a-model-for-custom-speech"></a>Trenowanie modelu dla usługi Custom Speech
 
@@ -42,7 +42,7 @@ Pierwszym krokiem do uczenia modelu jest przekazanie danych szkoleniowych. Użyj
 2. Przejdź do **> mowy Custom Speech > szkolenia**.
 3. Kliknij pozycję **uczenie modelu**.
 4. Następnie Nadaj swojemu szkoleniowi **nazwę** i **Opis**.
-5. Z menu rozwijanego **model scenariusza i linia bazowa** Wybierz scenariusz, który najlepiej pasuje do domeny. Jeśli nie masz pewności, który scenariusz wybrać, wybierz pozycję **Ogólne**. Model linii bazowej jest punktem początkowym szkolenia. Jeśli nie masz preferencji, możesz użyć najnowszej.
+5. Z menu rozwijanego **model scenariusza i linia bazowa** Wybierz scenariusz, który najlepiej pasuje do domeny. Jeśli nie masz pewności, który scenariusz wybrać, wybierz pozycję **Ogólne**. Model linii bazowej jest punktem początkowym szkolenia. Najnowszym modelem jest zazwyczaj najlepszy wybór.
 6. Na stronie **Wybierz dane szkoleniowe** wybierz jeden lub wiele zestawów danych, które mają być używane do szkoleń.
 7. Po zakończeniu szkolenia możesz wybrać przeprowadzenie testowania dokładności dla nowo nauczonego modelu. Ten krok jest opcjonalny.
 8. Wybierz pozycję **Utwórz** , aby skompilować niestandardowy model.
@@ -62,7 +62,7 @@ Jeśli zdecydowano się na przetestowanie dokładności, ważne jest, aby wybra�
 
 - [Wdrażanie modelu](how-to-custom-speech-deploy-model.md)
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Przygotowywanie i testowanie danych](how-to-custom-speech-test-data.md)
 - [Inspekcja danych](how-to-custom-speech-inspect-data.md)

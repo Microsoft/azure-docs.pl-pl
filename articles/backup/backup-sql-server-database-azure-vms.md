@@ -4,12 +4,12 @@ description: W tym artykule dowiesz się, jak utworzyć kopię zapasową SQL Ser
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 9becb574594672c1cf91e610b4c13f91c91aa14f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 3fd94dc6332d96f875c164dfeadff3a8ab2cad4e
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659531"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715600"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Tworzenie kopii zapasowych baz danych programu SQL Server na maszynach wirtualnych platformy Azure
 
@@ -43,74 +43,59 @@ Przed wykonaniem kopii zapasowej bazy danych SQL Server należy sprawdzić nast�
 
 ### <a name="establish-network-connectivity"></a>Ustawianie łączności sieciowej
 
-Dla wszystkich operacji maszyna wirtualna SQL Server wymaga łączności z publicznymi adresami IP platformy Azure. Operacje maszyny wirtualnej (Odnajdywanie bazy danych, konfigurowanie kopii zapasowych, Planowanie kopii zapasowych, przywracanie punktów odzyskiwania itd.) kończą się niepowodzeniem bez łączności z publicznymi adresami IP platformy Azure.
+Dla wszystkich operacji maszyna wirtualna SQL Server wymaga łączności z usługą Azure Backup, magazynem platformy Azure i Azure Active Directory. Można to osiągnąć za pomocą prywatnych punktów końcowych lub zezwalając na dostęp do wymaganych publicznych adresów IP lub nazw FQDN. Nieumożliwienie właściwej łączności z wymaganymi usługami platformy Azure może prowadzić do niepowodzenia operacji takich jak odnajdywanie bazy danych, konfigurowanie kopii zapasowej, wykonywanie kopii zapasowych i przywracanie danych.
 
-Ustanów łączność przy użyciu jednej z następujących opcji:
+W poniższej tabeli wymieniono różne alternatywy, których można użyć do ustanowienia łączności:
 
-#### <a name="allow-the-azure-datacenter-ip-ranges"></a>Zezwalaj na zakresy adresów IP centrum danych platformy Azure
+| **Zaznaczyć**                        | **Zalety**                                               | **Wady**                                            |
+| --------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Prywatne punkty końcowe                 | Zezwalaj na wykonywanie kopii zapasowych za pośrednictwem prywatnych adresów IP w sieci wirtualnej  <br><br>   Zapewnianie szczegółowej kontroli po stronie sieci i magazynu | Odnosi się do standardowych [kosztów](https://azure.microsoft.com/pricing/details/private-link/) prywatnych punktów końcowych |
+| Tagi usługi sieciowej grupy zabezpieczeń                  | Łatwiejsze zarządzanie, ponieważ zmiany zakresu są automatycznie scalane   <br><br>   Brak dodatkowych kosztów | Może być używany tylko z sieciowych grup zabezpieczeń  <br><br>    Zapewnia dostęp do całej usługi |
+| Tagi FQDN zapory platformy Azure          | Łatwiejsze zarządzanie, ponieważ wymagane są automatycznie zarządzane nazwy FQDN | Może być używany tylko z zaporą platformy Azure                         |
+| Zezwalaj na dostęp do nazw FQDN usługi/adresów IP | Brak dodatkowych kosztów   <br><br>  Współpracuje ze wszystkimi urządzeniami i zaporami zabezpieczeń sieci | Dostęp do szerokiego zestawu adresów IP lub nazw FQDN może być wymagany   |
+| Używanie serwera proxy HTTP                 | Dostęp do maszyn wirtualnych w jednym punkcie dostępu do Internetu                       | Dodatkowe koszty związane z uruchamianiem maszyny wirtualnej za pomocą oprogramowania serwera proxy         |
 
-Ta opcja zezwala na [zakresy adresów IP](https://www.microsoft.com/download/details.aspx?id=41653) w pobranym pliku. Aby uzyskać dostęp do sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń), użyj polecenia cmdlet Set-AzureNetworkSecurityRule. Jeśli lista bezpiecznych adresatów zawiera tylko adresy IP specyficzne dla regionu, należy również zaktualizować Azure Active Directory listę bezpiecznych adresatów, aby włączyć uwierzytelnianie.
-
-Alternatywnie można również zezwolić na dostęp do następujących nazw FQDN na potrzeby ustanawiania wymaganej łączności:
-
-* `*.<datacentercode>.backup.windowsazure.com`<br>
-(Zobacz [tutaj](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)kody centrów danych).
-
-* `login.windows.net`
-* `*.blob.core.windows.net`
-* `*.queue.core.windows.net`
-
-
-#### <a name="allow-access-using-nsg-tags"></a>Zezwalaj na dostęp za pomocą tagów sieciowej grupy zabezpieczeń
-
-Jeśli używasz sieciowej grupy zabezpieczeń do ograniczenia łączności, należy użyć znacznika usługi AzureBackup w celu zezwalania na dostęp wychodzący do Azure Backup. Ponadto należy również zezwolić na łączność z uwierzytelnianiem i transferem danych przy użyciu [reguł](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) dla usług Azure AD i Azure Storage. Można to zrobić w Azure Portal lub za pomocą programu PowerShell.
-
-Aby utworzyć regułę przy użyciu portalu:
-
-  1. W obszarze **wszystkie usługi**przejdź do pozycji **sieciowe grupy zabezpieczeń** i wybierz grupę zabezpieczeń sieci.
-  2. W obszarze **Ustawienia**wybierz pozycję **reguły zabezpieczeń dla ruchu wychodzącego** .
-  3. Wybierz pozycję **Dodaj**. Wprowadź wszystkie wymagane szczegóły dotyczące tworzenia nowej reguły zgodnie z opisem w [ustawieniach reguły zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Upewnij się, że opcja **miejsce docelowe** jest ustawiona na **tag usługi** i **znacznik usługi docelowej** jest ustawiony na **AzureBackup**.
-  4. Kliknij przycisk **Dodaj**, aby zapisać nowo utworzoną regułę zabezpieczeń dla ruchu wychodzącego.
-
-Aby utworzyć regułę przy użyciu programu PowerShell:
-
- 1. Dodawanie poświadczeń konta platformy Azure i aktualizowanie chmur narodowych<br/>
-      `Add-AzureRmAccount`<br/>
-
- 2. Wybierz subskrypcję usługi sieciowej grupy zabezpieczeń<br/>
-      `Select-AzureRmSubscription "<Subscription Id>"`
-
- 3. Wybierz sieciowej grupy zabezpieczeń<br/>
-    `$nsg = Get-AzureRmNetworkSecurityGroup -Name "<NSG name>" -ResourceGroupName "<NSG resource group name>"`
-
- 4. Dodaj regułę zezwalającą na ruch wychodzący dla tagu usługi Azure Backup<br/>
-    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
-
- 5. Dodaj regułę zezwalającą na ruch wychodzący dla tagu usługi magazynu<br/>
-    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "StorageAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "Storage" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
-
- 6. Dodaj regułę zezwalającą na ruch wychodzący dla tagu usługi usługi azureactivedirectory<br/>
-    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureActiveDirectoryAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureActiveDirectory" -DestinationPortRange 443 -Description "Allow outbound traffic to AzureActiveDirectory service"`
-
- 7. Zapisz sieciowej grupy zabezpieczeń<br/>
-    `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
-
-**Zezwalaj na dostęp za pomocą tagów zapory platformy Azure**. Jeśli używasz zapory platformy Azure, Utwórz regułę aplikacji przy użyciu [znacznika FQDN](https://docs.microsoft.com/azure/firewall/fqdn-tags)AzureBackup. Umożliwia to wychodzący dostęp do Azure Backup.
-
-**Wdróż serwer proxy HTTP, aby kierować ruchem**. Podczas tworzenia kopii zapasowej bazy danych SQL Server na maszynie wirtualnej platformy Azure rozszerzenie kopii zapasowej na maszynie wirtualnej używa interfejsów API HTTPS do wysyłania poleceń zarządzania do Azure Backup i danych do usługi Azure Storage. Rozszerzenie kopii zapasowej używa także usługi Azure AD do uwierzytelniania. Ruch rozszerzenia kopii zapasowej dla tych trzech usług należy kierować za pośrednictwem serwera proxy HTTP. Brak domen z symbolami wieloznacznymi używanych z Azure Backup do dodania do listy dozwolonych reguł serwera proxy. W przypadku usług świadczonych przez platformę Azure należy używać publicznych zakresów adresów IP. Rozszerzenia są jedynym składnikiem skonfigurowanym do uzyskiwania dostępu do publicznego Internetu.
-
-Opcje łączności obejmują następujące zalety i wady:
-
-**Zaznaczyć** | **Zalety** | **Wady**
---- | --- | ---
-Zezwolenie na zakresy adresów IP | Brak dodatkowych kosztów | Skomplikowane do zarządzania, ponieważ zakresy adresów IP zmieniają się w czasie <br/><br/> Zapewnia dostęp do całości platformy Azure, a nie tylko usługi Azure Storage
-Użyj tagów usługi sieciowej grupy zabezpieczeń | Łatwiejsze zarządzanie, ponieważ zmiany zakresu są automatycznie scalane <br/><br/> Brak dodatkowych kosztów <br/><br/> | Może być używany tylko z sieciowych grup zabezpieczeń <br/><br/> Zapewnia dostęp do całej usługi
-Używanie tagów nazwy FQDN zapory platformy Azure | Łatwiejsze zarządzanie, ponieważ wymagane są automatycznie zarządzane nazwy FQDN | Może być używany tylko z zaporą platformy Azure
-Używanie serwera proxy HTTP | Dostęp do maszyn wirtualnych w jednym punkcie dostępu do Internetu <br/> | Dodatkowe koszty związane z uruchamianiem maszyny wirtualnej za pomocą oprogramowania serwera proxy <br/> Brak opublikowanych adresów FQDN, reguły zezwalania będą podlegać zmianom adresu IP platformy Azure
+Więcej informacji na temat korzystania z tych opcji są następujące:
 
 #### <a name="private-endpoints"></a>Prywatne punkty końcowe
 
-[!INCLUDE [Private Endpoints](../../includes/backup-private-endpoints.md)]
+Prywatne punkty końcowe umożliwiają bezpieczne nawiązywanie połączenia z serwerów znajdujących się w sieci wirtualnej z magazynem Recovery Services. Prywatny punkt końcowy używa adresu IP z przestrzeni adresowej sieci wirtualnej dla Twojego magazynu. Ruch sieciowy między zasobami w sieci wirtualnej a magazynem jest przesyłany przez sieć wirtualną i prywatny link w sieci szkieletowej firmy Microsoft. Eliminuje to narażenie z publicznego Internetu. Przeczytaj więcej na temat prywatnych punktów końcowych Azure Backup [tym miejscu](https://docs.microsoft.com/azure/backup/private-endpoints).
+
+#### <a name="nsg-tags"></a>Tagi sieciowej grupy zabezpieczeń
+
+Jeśli używasz sieciowych grup zabezpieczeń (sieciowej grupy zabezpieczeń), Użyj znacznika usługi *AzureBackup* , aby zezwolić na dostęp wychodzący do Azure Backup. Oprócz znacznika Azure Backup należy również zezwolić na połączenie z uwierzytelnianiem i transferem danych, tworząc podobne [reguły sieciowej grupy zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) dla *usługi Azure AD* i *usługi Azure Storage*.  Poniższe kroki opisują proces tworzenia reguły dla tagu Azure Backup:
+
+1. W obszarze **wszystkie usługi**przejdź do pozycji **sieciowe grupy zabezpieczeń** i wybierz grupę zabezpieczeń sieci.
+
+1. W obszarze **Ustawienia**wybierz pozycję **reguły zabezpieczeń dla ruchu wychodzącego** .
+
+1. Wybierz pozycję **Dodaj**. Wprowadź wszystkie wymagane szczegóły dotyczące tworzenia nowej reguły zgodnie z opisem w [ustawieniach reguły zabezpieczeń](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Upewnij się, że opcja **miejsce docelowe** jest ustawiona na *tag usługi* i **znacznik usługi docelowej** jest ustawiony na *AzureBackup*.
+
+1. Kliknij przycisk **Dodaj** , aby zapisać nowo utworzoną regułę zabezpieczeń dla ruchu wychodzącego.
+
+W podobny sposób można tworzyć reguły zabezpieczeń wychodzące sieciowej grupy zabezpieczeń dla usługi Azure Storage i usługi Azure AD.
+
+#### <a name="azure-firewall-tags"></a>Tagi zapory platformy Azure
+
+Jeśli używasz zapory platformy Azure, Utwórz regułę aplikacji przy użyciu *AzureBackup* [znacznika FQDN zapory AzureBackup platformy Azure](https://docs.microsoft.com/azure/firewall/fqdn-tags). Umożliwia to wychodzący dostęp do Azure Backup.
+
+#### <a name="allow-access-to-service-ip-ranges"></a>Zezwalaj na dostęp do zakresów adresów IP usługi
+
+Jeśli zdecydujesz się zezwolić na dostęp do adresów IP usługi, zapoznaj się z zakresem w pliku JSON dostępnym w [tym miejscu](https://www.microsoft.com/download/confirmation.aspx?id=56519). Musisz zezwolić na dostęp do adresów IP odpowiadających Azure Backup, usłudze Azure Storage i Azure Active Directory.
+
+#### <a name="allow-access-to-service-fqdns"></a>Zezwalaj na dostęp do nazw FQDN usługi
+
+Można również użyć następujących nazw FQDN, aby zezwolić na dostęp do wymaganych usług z serwerów:
+
+| Usługa    | Nazwy domen do uzyskania dostępu                             |
+| -------------- | ------------------------------------------------------------ |
+| Azure Backup  | `*.backup.windowsazure.com`                             |
+| Usługa Azure Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` |
+| Usługa Azure AD      | Zezwalaj na dostęp do nazw FQDN w sekcjach 56 i 59 zgodnie z [tym artykułem](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |
+
+#### <a name="use-an-http-proxy-server-to-route-traffic"></a>Kierowanie ruchu przy użyciu serwera proxy HTTP
+
+Podczas tworzenia kopii zapasowej bazy danych SQL Server na maszynie wirtualnej platformy Azure rozszerzenie kopii zapasowej na maszynie wirtualnej używa interfejsów API HTTPS do wysyłania poleceń zarządzania do Azure Backup i danych do usługi Azure Storage. Rozszerzenie kopii zapasowej używa także usługi Azure AD do uwierzytelniania. Ruch rozszerzenia kopii zapasowej dla tych trzech usług należy kierować za pośrednictwem serwera proxy HTTP. Użyj listy adresów IP i nazw FQDN wymienionych powyżej, aby umożliwić dostęp do wymaganych usług. Uwierzytelnione serwery proxy nie są obsługiwane.
 
 ### <a name="database-naming-guidelines-for-azure-backup"></a>Wskazówki dotyczące nazewnictwa baz danych dla Azure Backup
 

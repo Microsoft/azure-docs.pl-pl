@@ -4,13 +4,13 @@ description: Dowiedz się, jak wdrożyć potok kompilacji/wydania dla aplikacji 
 author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
-ms.topic: conceptual
-ms.openlocfilehash: 79c4e74086acc0f74bcc43f6b4543afe12916364
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: 72f976071a5fc65c8e96f6b3cd5c0094785e287b
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117390"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726846"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Używanie Azure Pipelines do kompilowania i wdrażania rozwiązań HPC
 
@@ -475,7 +475,7 @@ Po skonfigurowaniu środowiska upewnij się, że następujące testy mogą zosta
 
 Połącz się z nowym kontem Azure Batch przy użyciu interfejsu wiersza polecenia platformy Azure z wiersza poleceń programu PowerShell.
 
-* Zaloguj się do konta platformy Azure przy `az login` użyciu i postępuj zgodnie z instrukcjami dotyczącymi uwierzytelniania.
+* Zaloguj się do konta platformy Azure przy użyciu `az login` i postępuj zgodnie z instrukcjami dotyczącymi uwierzytelniania.
 * Teraz uwierzytelniaj konto w usłudze Batch:`az batch account login -g <resourceGroup> -n <batchAccount>`
 
 #### <a name="list-the-available-applications"></a>Wyświetl listę dostępnych aplikacji

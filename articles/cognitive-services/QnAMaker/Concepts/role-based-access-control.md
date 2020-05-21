@@ -3,12 +3,12 @@ title: Współpracuj z innymi — QnA Maker
 description: ''
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: ef0823fc60424dc861ab70f4112e4689c1b97fb0
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 080e6549579675e27486e6173d5907d92bbaad70
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83665983"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83724925"
 ---
 # <a name="collaborate-with-other-authors-and-editors"></a>Współpracuj z innymi autorami i edytorami
 
@@ -40,7 +40,7 @@ Na poniższym diagramie przedstawiono przepływ, od perspektywy autora do logowa
 |3|Interfejs API usługi QnA Maker sprawdza poprawność tokenu.|
 |4 |Interfejs API usługi QnA Maker wywołuje usługę QnAMaker.|
 
-Jeśli zamierzasz wywołać interfejsy API tworzenia] (.. /How-To/collaborate-knowledge-base.md), Dowiedz się więcej na temat sposobu konfigurowania uwierzytelniania.
+Jeśli zamierzasz wywołać [interfejsy API tworzenia](../How-To/collaborate-knowledge-base.md), Dowiedz się więcej na temat konfigurowania uwierzytelniania.
 
 ## <a name="authenticate-by-qna-maker-portal"></a>Uwierzytelnianie za pomocą portalu QnA Maker
 

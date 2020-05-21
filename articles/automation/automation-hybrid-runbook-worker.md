@@ -1,16 +1,16 @@
 ---
-title: Przegląd hybrydowego procesu roboczego elementu Runbook w programie Azure Automation
-description: Ten artykuł zawiera omówienie hybrydowego procesu roboczego elementu Runbook, który jest funkcją Azure Automation, której można użyć do uruchamiania elementów Runbook na maszynach w lokalnym centrum danych lub dostawcy chmury.
+title: Azure Automation przegląd hybrydowego procesu roboczego elementu Runbook
+description: Ten artykuł zawiera omówienie hybrydowego procesu roboczego elementu Runbook, którego można użyć do uruchamiania elementów Runbook na maszynach w lokalnym centrum danych lub dostawcy chmury.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: c02a61366b05fa2750c581a1dedefb0d6239dada
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: f555d603756159dd108345260d71233c23c01ce5
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82994760"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715719"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Omówienie hybrydowych procesów roboczych elementów Runbook
 
@@ -53,7 +53,7 @@ Następujący port i adresy URL są wymagane dla hybrydowego procesu roboczego e
 * Port: tylko protokół TCP 443 wymagany do wychodzącego dostępu do Internetu
 * Globalny adres URL: *. azure-automation.net
 * Globalny adres URL w regionie US Gov Wirginia: *.azure-automation.us
-* Usługa agenta: https://\<identyfikator obszaru roboczego\>. agentsvc.Azure-Automation.NET
+* Usługa agenta: https:// \< Identyfikator obszaru roboczego \> . agentsvc.Azure-Automation.NET
 
 Zalecamy korzystanie z adresów wymienionych podczas definiowania [wyjątków](automation-runbook-execution.md#exceptions). W przypadku adresów IP można pobrać [zakresy adresów IP centrum danych Microsoft Azure](https://www.microsoft.com/en-us/download/details.aspx?id=56519). Ten plik jest aktualizowany co tydzień i ma aktualnie wdrożone zakresy oraz wszystkie nadchodzące zmiany w zakresach adresów IP.
 
@@ -61,7 +61,7 @@ Zalecamy korzystanie z adresów wymienionych podczas definiowania [wyjątków](a
 
 Jeśli masz konto usługi Automation zdefiniowane dla określonego regionu, możesz ograniczyć komunikację hybrydowego procesu roboczego elementu Runbook do tego regionalnego centrum danych. Poniższa tabela zawiera rekord DNS dla każdego regionu.
 
-| **Okolicy** | **Rekord DNS** |
+| **Region** | **Rekord DNS** |
 | --- | --- |
 | Australia Środkowa |ac-jobruntimedata-prod-su1.azure-automation.net</br>ac-agentservice-prod-1.azure-automation.net |
 | Australia Wschodnia |ae-jobruntimedata-prod-su1.azure-automation.net</br>ae-agentservice-prod-1.azure-automation.net |
@@ -112,9 +112,9 @@ Na początku standardowych adresów i portów wymaganych przez hybrydowy proces 
 |*.oms.opinsights.azure.com     | *. oms.opinsights.azure.us        |
 |*.blob.core.windows.net | *. blob.core.usgovcloudapi.net|
 
-## <a name="state-configuration-dsc-on-hybrid-runbook-worker"></a>Konfiguracja stanu (DSC) w hybrydowym procesie roboczym elementu Runbook
+## <a name="azure-automation-state-configuration-on-a-hybrid-runbook-worker"></a>Azure Automation konfiguracja stanu w hybrydowym procesie roboczym elementu Runbook
 
-Funkcję [Konfiguracja stanu (DSC)](automation-dsc-overview.md) można uruchomić w hybrydowym procesie roboczym elementu Runbook. Aby zarządzać konfiguracją serwerów, które obsługują hybrydowy proces roboczy elementu Runbook, należy dodać serwery jako węzły DSC. Aby uzyskać więcej informacji na temat dołączania, zobacz sekcję dołączanie [maszyn w celu zarządzania według konfiguracji stanu (DSC)](automation-dsc-onboarding.md).
+[Konfigurację stanu Azure Automation](automation-dsc-overview.md) można uruchomić w hybrydowym procesie roboczym elementu Runbook. Aby zarządzać konfiguracją serwerów, które obsługują hybrydowy proces roboczy elementu Runbook, należy dodać serwery jako węzły DSC. Zobacz temat [Włączanie maszyn do zarządzania przez Azure Automation konfigurację stanu](automation-dsc-onboarding.md).
 
 ## <a name="runbooks-on-a-hybrid-runbook-worker"></a>Elementy Runbook w hybrydowym procesie roboczym elementu Runbook
 

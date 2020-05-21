@@ -1,14 +1,14 @@
 ---
 title: Analiza kosztów i budżet
 description: Dowiedz się, jak uzyskać analizę kosztów i ustawić budżet dla podstawowych zasobów obliczeniowych i licencji na oprogramowanie używane do uruchamiania obciążeń usługi Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/19/2019
-ms.openlocfilehash: c3c3203882d003d7fbb5f9d5092a1c93886f313a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 13c8cc508a4940b5e21570104527c40988879919
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117492"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725775"
 ---
 # <a name="cost-analysis-and-budgets-for-azure-batch"></a>Analiza kosztów i budżety dla Azure Batch
 
@@ -43,7 +43,7 @@ Za pomocą Azure Portal można tworzyć budżety i wydawania alertów dla pul lu
 1. W Azure Portal wybierz pozycję **Cost Management + rozliczanie** na lewym pasku nawigacyjnym.
 1. Wybierz subskrypcję z sekcji **My subscriptions (Moje subskrypcje** )
 1. Przejdź do **analizy kosztów** poniżej sekcji **Cost Management** lewego paska nawigacyjnego, która będzie zawierać następujący widok:
-1. Wybierz pozycję **Dodaj filtr**. Z pierwszej listy rozwijanej wybierz pozycję **zasób** ![wybierz filtr zasobów](./media/batch-budget/resource-filter.png)
+1. Wybierz pozycję **Dodaj filtr**. Z pierwszej listy rozwijanej wybierz pozycję **zasób** ![ Wybierz filtr zasobów](./media/batch-budget/resource-filter.png)
 1. Z drugiej listy rozwijanej wybierz pulę wsadową. Po wybraniu puli analiza kosztów będzie wyglądać podobnie do poniższej analizy.
     ![Analiza kosztów puli](./media/batch-budget/pool-cost-analysis.png)
 
@@ -68,7 +68,7 @@ Dowiedz się więcej o konfigurowaniu maszyn wirtualnych o niskim priorytecie dl
 
 ### <a name="virtual-machine-os-disk-type"></a>Typ dysku systemu operacyjnego maszyny wirtualnej
 
-Istnieje wiele [typów dysków systemu operacyjnego maszyny wirtualnej](../virtual-machines/windows/disks-types.md). Większość serii maszyn wirtualnych ma rozmiary obsługujące magazyny w warstwie Premium i standardowa. Po wybraniu rozmiaru maszyny wirtualnej dla puli usługa Batch konfiguruje dyski systemu operacyjnego SSD w warstwie Premium. Gdy wybrano rozmiar maszyny wirtualnej "inny niż s", zostanie użyty tańszy, standardowy typ dysku twardego. Na przykład dyski SSD systemu operacyjnego w warstwie Premium są `Standard_D2s_v3` używane dla dysków z systemem operacyjnym i standardowego `Standard_D2_v3`dysku systemu operacyjnego.
+Istnieje wiele [typów dysków systemu operacyjnego maszyny wirtualnej](../virtual-machines/windows/disks-types.md). Większość serii maszyn wirtualnych ma rozmiary obsługujące magazyny w warstwie Premium i standardowa. Po wybraniu rozmiaru maszyny wirtualnej dla puli usługa Batch konfiguruje dyski systemu operacyjnego SSD w warstwie Premium. Gdy wybrano rozmiar maszyny wirtualnej "inny niż s", zostanie użyty tańszy, standardowy typ dysku twardego. Na przykład dyski SSD systemu operacyjnego w warstwie Premium są używane dla `Standard_D2s_v3` dysków z systemem operacyjnym i standardowego dysku systemu operacyjnego `Standard_D2_v3` .
 
 SSD w warstwie Premium dyski systemu operacyjnego są droższe, ale większa wydajność i maszyny wirtualne z dyskami w warstwie Premium mogą być uruchamiane nieco szybciej niż maszyny wirtualne ze standardowymi dyskami systemu operacyjnego. W usłudze Batch dysk systemu operacyjnego często nie jest używany, ponieważ aplikacje i pliki zadań znajdują się na tymczasowym dysku SSD maszyn wirtualnych. W związku z tym w wielu przypadkach nie trzeba płacić za większy koszt dysku SSD Premium, który jest inicjowany po określeniu rozmiaru maszyny wirtualnej.
 

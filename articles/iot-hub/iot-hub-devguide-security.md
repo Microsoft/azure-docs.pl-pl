@@ -11,12 +11,12 @@ ms.date: 07/18/2018
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: b7f9ac7e6e7049a3b744151bc9cb05115fbac935
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f1f6f4a6a1d48a0f409d5e5aba644a26653aa7df
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81729228"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726064"
 ---
 # <a name="control-access-to-iot-hub"></a>Kontrola dostępu do centrum IoT Hub
 
@@ -60,7 +60,7 @@ Na przykład w typowym rozwiązaniu IoT:
 > [!NOTE]
 > Aby uzyskać szczegółowe informacje, zobacz [uprawnienia](#iot-hub-permissions) .
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 Usługa Azure IoT Hub udziela dostępu do punktów końcowych, weryfikując token względem zasad dostępu współużytkowanego i poświadczeń zabezpieczeń rejestru tożsamości.
 
@@ -94,7 +94,7 @@ Protokół HTTPS implementuje uwierzytelnianie, dołączając prawidłowy token 
 
 Nazwa użytkownika (identyfikator urządzenia jest rozróżniana wielkość liter):`iothubname.azure-devices.net/DeviceId`
 
-Hasło (można wygenerować token sygnatury dostępu współdzielonego z poleceniem polecenia [AZ IoT Hub Generate-SAS-token](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token)lub [Azure iot Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)):
+Hasło (można wygenerować token sygnatury dostępu współdzielonego z poleceniem polecenia [AZ IoT Hub Generate-SAS-token](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token)lub [Azure iot Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)):
 
 `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
@@ -139,15 +139,15 @@ Poniżej przedstawiono oczekiwane wartości:
 
 | Wartość | Opis |
 | --- | --- |
-| podpisane |Ciąg sygnatury HMAC-SHA256 formularza: `{URL-encoded-resourceURI} + "\n" + expiry`. **Ważne**: klucz jest zdekodowany z formatu base64 i używany jako klucz do wykonywania obliczeń HMAC-SHA256. |
+| podpisane |Ciąg sygnatury HMAC-SHA256 formularza: `{URL-encoded-resourceURI} + "\n" + expiry` . **Ważne**: klucz jest zdekodowany z formatu base64 i używany jako klucz do wykonywania obliczeń HMAC-SHA256. |
 | ResourceURI |Prefiks identyfikatora URI (segment) punktów końcowych, do których można uzyskać dostęp za pomocą tego tokenu, rozpoczynając od nazwy hosta Centrum IoT (bez protokołu). Na przykład: `myHub.azure-devices.net/devices/device1` |
 | wygaśnięcia |Ciągi UTF8 przez liczbę sekund od czasu epoki 00:00:00 UTC 1 stycznia 1970. |
 | {Zakodowany w adresie URL — resourceURI} |Małe adresy URL — kodowanie identyfikatora URI zasobu niższej wielkości liter |
 | PolicyName |Nazwa zasad dostępu współdzielonego, do których odwołuje się ten token. Nieobecny, jeśli token odwołuje się do poświadczeń urządzenia-rejestru. |
 
-**Uwaga dotycząca prefiksu**: Prefiks URI jest obliczany przez segment i nie przez znak. Na przykład `/a/b` jest prefiks dla `/a/b/c` , ale nie dla `/a/bc`.
+**Uwaga dotycząca prefiksu**: Prefiks URI jest obliczany przez segment i nie przez znak. Na przykład `/a/b` jest prefiks dla, `/a/b/c` ale nie dla `/a/bc` .
 
-Poniższy fragment kodu środowiska Node. js przedstawia funkcję o nazwie **generateSasToken** , która oblicza token z danych wejściowych `resourceUri, signingKey, policyName, expiresInMins`. W następnych sekcjach szczegółowo opisano, jak zainicjować różne dane wejściowe dla różnych przypadków użycia tokenu.
+Poniższy fragment kodu środowiska Node. js przedstawia funkcję o nazwie **generateSasToken** , która oblicza token z danych wejściowych `resourceUri, signingKey, policyName, expiresInMins` . W następnych sekcjach szczegółowo opisano, jak zainicjować różne dane wejściowe dla różnych przypadków użycia tokenu.
 
 ```javascript
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
@@ -243,25 +243,25 @@ public static string generateSasToken(string resourceUri, string key, string pol
 
 Istnieją dwa sposoby uzyskania uprawnień **DeviceConnect** IoT Hub za pomocą tokenów zabezpieczających: Użyj [klucza urządzenia symetrycznego z rejestru tożsamości](#use-a-symmetric-key-in-the-identity-registry)lub Użyj [klucza dostępu współdzielonego](#use-a-shared-access-policy).
 
-Należy pamiętać, że wszystkie funkcje dostępne na urządzeniach są udostępniane przez projektowanie w punktach końcowych z prefiksem `/devices/{deviceId}`.
+Należy pamiętać, że wszystkie funkcje dostępne na urządzeniach są udostępniane przez projektowanie w punktach końcowych z prefiksem `/devices/{deviceId}` .
 
 > [!IMPORTANT]
 > Jedynym sposobem, w jaki IoT Hub uwierzytelniać określone urządzenie, jest użycie klucza symetrycznego tożsamości urządzenia. W przypadkach, gdy zasady dostępu współdzielonego są używane w celu uzyskania dostępu do funkcji urządzenia, rozwiązanie musi rozważyć składnik wystawiający token zabezpieczający jako zaufany podskładnik.
 
 Punkty końcowe dostępne na urządzeniu są (niezależnie od protokołu):
 
-| Endpoint | Funkcjonalność |
+| Endpoint | Funkcja |
 | --- | --- |
 | `{iot hub host name}/devices/{deviceId}/messages/events` |Wysyłanie komunikatów z urządzenia do chmury. |
 | `{iot hub host name}/devices/{deviceId}/messages/devicebound` |Odbieraj komunikaty z chmury do urządzenia. |
 
 ### <a name="use-a-symmetric-key-in-the-identity-registry"></a>Używanie klucza symetrycznego w rejestrze tożsamości
 
-W przypadku wygenerowania tokenu przy użyciu klucza symetrycznego tożsamości urządzenia zostanie pominięty element PolicyName (`skn`) tokenu.
+W przypadku wygenerowania tokenu przy użyciu klucza symetrycznego tożsamości urządzenia `skn` zostanie pominięty element PolicyName () tokenu.
 
 Na przykład token utworzony w celu uzyskania dostępu do wszystkich funkcji urządzenia powinien mieć następujące parametry:
 
-* Identyfikator URI zasobu `{IoT hub name}.azure-devices.net/devices/{device id}`:,
+* Identyfikator URI zasobu: `{IoT hub name}.azure-devices.net/devices/{device id}` ,
 * klucz podpisywania: dowolny klucz symetryczny dla `{device id}` tożsamości,
 * Brak nazwy zasad,
 * dowolny czas wygaśnięcia.
@@ -280,7 +280,7 @@ Wynik, który daje dostęp do wszystkich funkcji dla device1, będzie:
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> Istnieje możliwość wygenerowania tokenu sygnatury dostępu współdzielonego za pomocą polecenia rozszerzenia interfejsu użytkownika [AZ IoT Hub Generate-SAS-token](/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token)lub [narzędzi Azure iot Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+> Istnieje możliwość wygenerowania tokenu sygnatury dostępu współdzielonego za pomocą polecenia rozszerzenia interfejsu użytkownika [AZ IoT Hub Generate-SAS-token](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token)lub [narzędzi Azure iot Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
 ### <a name="use-a-shared-access-policy"></a>Korzystanie z zasad dostępu współdzielonego
 
@@ -295,9 +295,9 @@ Ponieważ zasady dostępu współdzielonego mogą potencjalnie udzielić dostęp
 
 Przykładowo usługa tokenu korzystająca z wstępnie utworzonych zasad dostępu współdzielonego o nazwie **urządzenie** utworzy token z następującymi parametrami:
 
-* Identyfikator URI zasobu `{IoT hub name}.azure-devices.net/devices/{device id}`:,
+* Identyfikator URI zasobu: `{IoT hub name}.azure-devices.net/devices/{device id}` ,
 * klucz podpisywania: jeden z kluczy `device` zasad,
-* Nazwa zasad: `device`,
+* Nazwa zasad: `device` ,
 * dowolny czas wygaśnięcia.
 
 Przykład przy użyciu poprzedniej funkcji Node. js:
@@ -314,7 +314,7 @@ Wynik, który daje dostęp do wszystkich funkcji dla device1, będzie:
 
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697&skn=device`
 
-Brama protokołu może używać tego samego tokenu dla wszystkich urządzeń, po prostu ustawiając identyfikator URI zasobu `myhub.azure-devices.net/devices`na.
+Brama protokołu może używać tego samego tokenu dla wszystkich urządzeń, po prostu ustawiając identyfikator URI zasobu na `myhub.azure-devices.net/devices` .
 
 ### <a name="use-security-tokens-from-service-components"></a>Korzystanie z tokenów zabezpieczających ze składników usługi
 
@@ -322,7 +322,7 @@ Składniki usługi mogą generować tylko tokeny zabezpieczające przy użyciu z
 
 Poniżej przedstawiono funkcje usługi uwidocznione w punktach końcowych:
 
-| Endpoint | Funkcjonalność |
+| Endpoint | Funkcja |
 | --- | --- |
 | `{iot hub host name}/devices` |Tworzenie, aktualizowanie, pobieranie i usuwanie tożsamości urządzeń. |
 | `{iot hub host name}/messages/events` |Odbieraj komunikaty z urządzenia do chmury. |
@@ -331,9 +331,9 @@ Poniżej przedstawiono funkcje usługi uwidocznione w punktach końcowych:
 
 Przykładowo usługa generująca przy użyciu wstępnie utworzonych zasad dostępu współdzielonego o nazwie **registryRead** utworzy token z następującymi parametrami:
 
-* Identyfikator URI zasobu `{IoT hub name}.azure-devices.net/devices`:,
+* Identyfikator URI zasobu: `{IoT hub name}.azure-devices.net/devices` ,
 * klucz podpisywania: jeden z kluczy `registryRead` zasad,
-* Nazwa zasad: `registryRead`,
+* Nazwa zasad: `registryRead` ,
 * dowolny czas wygaśnięcia.
 
 ```javascript
@@ -368,13 +368,13 @@ Aby uzyskać więcej informacji na temat uwierzytelniania przy użyciu urzędu c
 
 [Zestaw SDK usługi Azure IoT dla języka C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/service) (wersja 1.0.8 +) obsługuje rejestrowanie urządzenia korzystającego z certyfikatu X. 509 w celu uwierzytelnienia. Inne interfejsy API, takie jak Import/Export urządzeń, obsługują również certyfikaty X. 509.
 
-Aby skonfigurować certyfikaty X. 509 dla urządzeń, można również użyć polecenia rozszerzenia interfejsu wiersza poleceń [AZ IoT Hub Device-Identity](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) .
+Aby skonfigurować certyfikaty X. 509 dla urządzeń, można również użyć polecenia rozszerzenia interfejsu wiersza poleceń [AZ IoT Hub Device-Identity](/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest) .
 
-### <a name="c-support"></a>Obsługa\# języka C
+### <a name="c-support"></a>Obsługa języka C \#
 
 Klasa **registrymanager** zapewnia programowy sposób zarejestrowania urządzenia. W szczególności metody **AddDeviceAsync** i **UpdateDeviceAsync** umożliwiają rejestrowanie i aktualizowanie urządzenia w rejestrze tożsamości IoT Hub. Te dwie metody przyjmują wystąpienie **urządzenia** jako dane wejściowe. Klasa **urządzenia** zawiera właściwość **uwierzytelniania** , która pozwala określić podstawowy i pomocniczy odcisk palca certyfikatu X. 509. Odcisk palca reprezentuje Skrót SHA256 certyfikatu X. 509 (przechowywany przy użyciu binarnego kodowania DER). Istnieje możliwość określenia podstawowego odcisku palca lub pomocniczego odcisku palca lub obu tych elementów. Główne i pomocnicze odciski palca są obsługiwane w celu obsługi scenariuszy przerzucania certyfikatów.
 
-Oto przykładowy fragment kodu języka\# C służący do rejestrowania urządzenia przy użyciu odcisku palca certyfikatu X. 509:
+Oto przykładowy fragment kodu języka C służący \# do rejestrowania urządzenia przy użyciu odcisku palca certyfikatu X. 509:
 
 ```csharp
 var device = new Device(deviceId)
@@ -395,7 +395,7 @@ await registryManager.AddDeviceAsync(device);
 
 [Zestaw SDK urządzeń Azure IoT dla platformy .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device) (wersja 1.0.11 +) obsługuje używanie certyfikatów X. 509.
 
-### <a name="c-support"></a>Obsługa\# języka C
+### <a name="c-support"></a>Obsługa języka C \#
 
 Klasa **DeviceAuthenticationWithX509Certificate** obsługuje tworzenie wystąpień **DeviceClient** przy użyciu certyfikatu X. 509. Certyfikat X. 509 musi znajdować się w formacie PFX (nazywanym również formatem PKCS #12), który zawiera klucz prywatny.
 
@@ -421,7 +421,7 @@ Oto główne kroki wzorca usługi tokenu:
 
 2. Gdy urządzenie/moduł musi uzyskać dostęp do centrum IoT, żąda podpisanego tokenu z usługi tokenu. Urządzenie może być uwierzytelniane za pomocą niestandardowego schematu rejestracji tożsamości/uwierzytelniania w celu określenia tożsamości urządzenia/modułu używanego przez usługę tokenów do tworzenia tokenu.
 
-3. Usługa tokenu zwraca token. Token jest tworzony `/devices/{deviceId}` przy użyciu lub `/devices/{deviceId}/module/{moduleId}` AS `resourceURI`, z opcją `deviceId` jako uwierzytelnianym urządzeniem lub `moduleId` jako uwierzytelnianym modułem. Usługa tokenów używa zasad dostępu współdzielonego do konstruowania tokenu.
+3. Usługa tokenu zwraca token. Token jest tworzony przy użyciu `/devices/{deviceId}` lub `/devices/{deviceId}/module/{moduleId}` AS `resourceURI` , z opcją `deviceId` jako uwierzytelnianym urządzeniem lub `moduleId` jako uwierzytelnianym modułem. Usługa tokenów używa zasad dostępu współdzielonego do konstruowania tokenu.
 
 4. Urządzenie/moduł używa tokenu bezpośrednio w usłudze IoT Hub.
 

@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning
 description: Automatyczne Uczenie maszynowe wybiera algorytm dla Ciebie i generuje model gotowy do wdrożenia. Zapoznaj się z opcjami, których można użyć, aby skonfigurować zautomatyzowane eksperymenty uczenia maszynowego.
 author: cartacioS
 ms.author: sacartac
-ms.reviewer: sgilley
+ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 03/09/2020
+ms.date: 05/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0eadb0f7ca6aad635d20148f63a204506a821d75
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c183c179200738566d0794ba23582f16068013b6
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681604"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722851"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurowanie eksperymentów zautomatyzowanego uczenia maszynowego w języku Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -251,16 +251,23 @@ automl_config = AutoMLConfig(task = 'forecasting',
 
 Modele kompletów są domyślnie włączone i pojawiają się jako ostateczne iteracje przebiegu w zautomatyzowanym przebiegu uczenia maszynowego. Obecnie obsługiwane metody kompletu są głosune i ułożone na stosie. Głosowanie jest implementowane jako odmowa głosu przy użyciu średniej ważonej, a implementacja stosu korzysta z dwóch implementacji warstwy, w której pierwsza warstwa ma takie same modele jak zestaw do głosowania, a drugi model warstwy jest używany do znajdowania optymalnej kombinacji modeli z pierwszej warstwy. Jeśli używasz modeli ONNX **lub** włączono wyjaśnienie modelu, stos zostanie wyłączony i będzie można używać tylko głosu.
 
-Istnieje wiele argumentów domyślnych, które mogą być podane jako `kwargs` obiekt w `AutoMLConfig` celu zmiany domyślnego zachowania kompletności stosu.
+Istnieje wiele argumentów domyślnych, które mogą być podane jako `kwargs` obiekt w `AutoMLConfig` celu zmiany domyślnego zachowania DB.
+
+* `ensemble_download_models_timeout_sec`: Podczas generowania modelu VotingEnsemble i StackEnsemble pobierane są liczne dopasowane modele z poprzednich uruchomień podrzędnych. Jeśli wystąpi ten błąd: `AutoMLEnsembleException: Could not find any models for running ensembling` , może być konieczne dostarczenie więcej czasu na pobranie modeli. Wartość domyślna to 300 sekund do pobierania tych modeli równolegle i nie obowiązuje limit maksymalnego limitu czasu. Skonfiguruj ten parametr o wyższej wartości niż 300 s, jeśli potrzebujesz więcej czasu. **Uwaga**: Jeśli limit czasu zostanie osiągnięty, a wszystkie modele są pobrane, ensembling kontynuuje się tak jak wiele modeli, które zostały pobrane (nie jest to wymagane, aby wszystkie modele musiały zostać pobrane do końca przed upływem limitu czasu).
+
+Następujące parametry dotyczą tylko modeli StackEnsemble: 
 
 * `stack_meta_learner_type`: meta-uczyć się model przeszkolony w danych wyjściowych poszczególnych modeli heterogenicznych. Domyślne meta uczy są `LogisticRegression` przeznaczone do zadań klasyfikacji (lub `LogisticRegressionCV` w przypadku włączenia wzajemnej walidacji) oraz `ElasticNet` dla zadań regresji/prognozowania (lub w `ElasticNetCV` przypadku włączenia weryfikacji krzyżowej). Ten parametr może być jednym z następujących ciągów:,,,,, `LogisticRegression` `LogisticRegressionCV` `LightGBMClassifier` `ElasticNet` `ElasticNetCV` `LightGBMRegressor` , lub `LinearRegression` .
-* `stack_meta_learner_train_percentage`: określa proporcję zestawu szkoleniowego (podczas wybierania typu uczenia i walidacji), które mają zostać zarezerwowane do uczenia się. Wartość domyślna to `0.2` .
+
+* `stack_meta_learner_train_percentage`: określa proporcję zestawu szkoleniowego (podczas wybierania typu uczenia i walidacji), które mają zostać zarezerwowane do uczenia się. Wartość domyślna to `0.2` . 
+
 * `stack_meta_learner_kwargs`: parametry opcjonalne do przekazania do inicjatora meta. Te parametry i typy parametrów stanowią duplikaty parametrów i typów parametrów z odpowiedniego konstruktora modelu i są przekazywane do konstruktora modelu.
 
 Poniższy kod przedstawia przykład określania zachowania niestandardowego w `AutoMLConfig` obiekcie.
 
 ```python
 ensemble_settings = {
+    "ensemble_download_models_timeout_sec": 600
     "stack_meta_learner_type": "LogisticRegressionCV",
     "stack_meta_learner_train_percentage": 0.3,
     "stack_meta_learner_kwargs": {

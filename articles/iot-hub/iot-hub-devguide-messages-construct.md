@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: asrastog
-ms.openlocfilehash: 28537ac2389fbb1ca43ca4014515564bddeba4ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 77145c691f5b2b6364de64e491aac3c84495d464
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "69872482"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726132"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Tworzenie i odczytywanie komunikatów usługi IoT Hub
 
@@ -31,7 +31,7 @@ Komunikat IoT Hub składa się z:
 
 * Nieprzezroczysta treść binarna.
 
-Nazwy i wartości właściwości mogą zawierać tylko znaki alfanumeryczne ASCII, ``{'!', '#', '$', '%, '&', ''', '*', '+', '-', '.', '^', '_', '`', '|', '~'}`` a także w przypadku wysyłania komunikatów z urządzenia do chmury przy użyciu protokołu HTTPS lub wysyłania komunikatów z chmury do urządzenia.
+Nazwy i wartości właściwości mogą zawierać tylko znaki alfanumeryczne ASCII, a także w ``{'!', '#', '$', '%, '&', ''', '*', '+', '-', '.', '^', '_', '`', '|', '~'}`` przypadku wysyłania komunikatów z urządzenia do chmury przy użyciu protokołu HTTPS lub wysyłania komunikatów z chmury do urządzenia.
 
 Obsługa komunikatów przesyłanych z urządzeń do chmury przy użyciu IoT Hub ma następujące cechy:
 
@@ -51,9 +51,9 @@ Aby uzyskać więcej informacji na temat kodowania i dekodowania komunikatów wy
 
 | Właściwość | Opis  |Jesteś w trakcie, aby użytkownik miał tabelę?|Słowo kluczowe dla </br>zapytanie routingu|
 | --- | --- | --- | --- |
-| Identyfikator komunikatu |Identyfikator użytkownika-settable dla wiadomości używany na potrzeby wzorców odpowiedzi na żądanie. Format: ciąg z rozróżnianiem wielkości liter (do 128 znaków) ASCII 7-bitowe znaki alfanumeryczne + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`.  | Tak | Identyfikatora |
+| Identyfikator komunikatu |Identyfikator użytkownika-settable dla wiadomości używany na potrzeby wzorców odpowiedzi na żądanie. Format: ciąg z rozróżnianiem wielkości liter (do 128 znaków) ASCII 7-bitowe znaki alfanumeryczne + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}` .  | Tak | Identyfikatora |
 | iothub — enqueuedtime |Data i godzina odebrania komunikatu [z urządzenia do chmury](iot-hub-devguide-d2c-guidance.md) przez IoT Hub. | Nie | enqueuedTime |
-| user-id |Identyfikator używany do określania źródła komunikatów. Komunikaty generowane przez IoT Hub są ustawiane na `{iot hub name}`. | Tak | userId |
+| user-id |Identyfikator używany do określania źródła komunikatów. Komunikaty generowane przez IoT Hub są ustawiane na `{iot hub name}` . | Tak | userId |
 | iothub-Connection-ID urządzenia |Identyfikator ustawiony przez IoT Hub w komunikatach przesyłanych z urządzenia do chmury. Zawiera identyfikator **deviceId** urządzenia, które wysłało wiadomość. | Nie | connectionDeviceId |
 | iothub-Connection-module-ID |Identyfikator ustawiony przez IoT Hub w komunikatach przesyłanych z urządzenia do chmury. Zawiera **moduleId** urządzenia, które wysłało wiadomość. | Nie | connectionModuleId |
 | iothub-Connection-auth-Generation-ID |Identyfikator ustawiony przez IoT Hub w komunikatach przesyłanych z urządzenia do chmury. Zawiera **connectionDeviceGenerationId** (zgodnie z [właściwościami tożsamości urządzenia](iot-hub-devguide-identity-registry.md#device-identity-properties)) urządzenia, które wysłało komunikat. | Nie |connectionDeviceGenerationId |
@@ -63,13 +63,33 @@ Aby uzyskać więcej informacji na temat kodowania i dekodowania komunikatów wy
 
 | Właściwość | Opis  |Jesteś w trakcie, aby użytkownik miał tabelę?|
 | --- | --- | --- |
-| Identyfikator komunikatu |Identyfikator użytkownika-settable dla wiadomości używany na potrzeby wzorców odpowiedzi na żądanie. Format: ciąg z rozróżnianiem wielkości liter (do 128 znaków) ASCII 7-bitowe znaki alfanumeryczne + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`.  |Tak|
+| Identyfikator komunikatu |Identyfikator użytkownika-settable dla wiadomości używany na potrzeby wzorców odpowiedzi na żądanie. Format: ciąg z rozróżnianiem wielkości liter (do 128 znaków) ASCII 7-bitowe znaki alfanumeryczne + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}` .  |Tak|
 | Numer sekwencyjny |Liczba (unikatowa dla kolejki urządzenia) przypisana przez IoT Hub do poszczególnych komunikatów z chmury do urządzenia. |Nie|
 | na |Lokalizacja docelowa określona w komunikatach [z chmury do urządzenia](iot-hub-devguide-c2d-guidance.md) . |Nie|
 | bezwzględny czas wygaśnięcia |Data i godzina wygaśnięcia komunikatu. |Nie|   |
 | correlation-id |Właściwość ciągu w komunikacie odpowiedzi, który zwykle zawiera wartość MessageId żądania w wzorcach żądania-odpowiedzi. |Tak|
-| user-id |Identyfikator używany do określania źródła komunikatów. Komunikaty generowane przez IoT Hub są ustawiane na `{iot hub name}`. |Tak|
+| user-id |Identyfikator używany do określania źródła komunikatów. Komunikaty generowane przez IoT Hub są ustawiane na `{iot hub name}` . |Tak|
 | iothub — ACK |Generator komunikatów opinii. Ta właściwość jest używana w komunikatach z chmury do urządzeń w celu żądania IoT Hub generowania komunikatów zwrotnych w wyniku użycia wiadomości przez urządzenie. Możliwe wartości: **Brak** (wartość domyślna): nie Wygenerowano komunikatu o opinii, **wartość pozytywna**: otrzymasz wiadomość z informacją o opinii, jeśli wiadomość została ukończona, **wartość ujemna**: otrzymasz wiadomość z informacją zwrotną, jeśli wiadomość wygasła (lub osiągnięto maksymalną liczbę dostaw) bez ukończenia przez urządzenie lub **pełne**: dodatnie i ujemne. |Tak|
+
+### <a name="system-property-names"></a>Nazwy właściwości systemu
+
+Nazwy właściwości systemu różnią się w zależności od punktu końcowego, do którego są kierowane komunikaty. Szczegóły dotyczące tych nazw można znaleźć w poniższej tabeli.
+
+
+|Nazwa właściwości systemu|Event Hubs|Azure Storage|Service Bus|Event Grid|
+|--------------------|----------|-------------|-----------|----------|
+|Identyfikator komunikatu|Identyfikator komunikatu|Identyfikatora|Identyfikatora|Identyfikator komunikatu|
+|Czas w kolejce Centrum IoT|iothub — enqueuedtime|enqueuedTime|iothub — enqueuedtime|iothub — enqueuedtime|
+|Identyfikator użytkownika|user-id|userId|UserId|user-id|
+|Identyfikator urządzenia połączenia|iothub-Connection-ID urządzenia| connectionDeviceId|iothub-Connection-ID urządzenia|iothub-Connection-ID urządzenia|
+|Identyfikator modułu połączenia|iothub-Connection-module-ID|connectionModuleId|iothub-Connection-module-ID|iothub-Connection-module-ID|
+|Identyfikator generacji uwierzytelniania połączenia|iothub-Connection-auth-Generation-ID|connectionDeviceGenerationId| iothub-Connection-auth-Generation-ID|iothub-Connection-auth-Generation-ID|
+|Metoda uwierzytelniania połączenia|iothub-Connection-auth-Metoda|connectionAuthMethod|iothub-Connection-auth-Metoda|iothub-Connection-auth-Metoda|
+|contentType|Typ zawartości|contentType|ContentType|iothub-Content-Type|
+|contentEncoding|Kodowanie zawartości|contentEncoding|ContentEncoding|iothub — kodowanie zawartości|
+|iothub — enqueuedtime|iothub — enqueuedtime|enqueuedTime|     |iothub — enqueuedtime|
+|iothub-Interface-Name|iothub-Interface-Name|interfaceName|Iothub-Interface-Name|iothub-Interface-Name|
+|CorrelationId|correlation-id|correlationId|CorrelationId|correlation-id|
 
 ## <a name="message-size"></a>Rozmiar komunikatu
 

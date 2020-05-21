@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 06c28c2e0df7333d0c2d6f735ae0758bcd93191a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 798da0261dbb692d411f1bb568a272a6bb7dbb03
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685396"
+ms.locfileid: "83715668"
 ---
 # <a name="manage-credentials-in-azure-automation"></a>Zarządzanie poświadczeniami w Azure Automation
 
@@ -138,7 +138,7 @@ Możesz dodać działanie dla wewnętrznego `Get-AutomationPSCredential` polecen
 
 ![Dodaj poświadczenie do kanwy](../media/credentials/credential-add-canvas.png)
 
-Na poniższej ilustracji przedstawiono przykład użycia poświadczeń w graficznym elemencie Runbook. W takim przypadku poświadczenia udostępniają uwierzytelnianie dla elementu Runbook dla zasobów platformy Azure, zgodnie z opisem w temacie [Korzystanie z usługi Azure AD w Azure Automation do uwierzytelniania na platformie Azure](../automation-use-azure-ad.md). Pierwsze działanie Pobiera poświadczenia, które mają dostęp do subskrypcji platformy Azure. Działanie połączenie z kontem korzysta następnie z tego poświadczenia, aby zapewnić uwierzytelnianie dla wszystkich działań, które są po niej dostępne. [Link potoku](../automation-graphical-authoring-intro.md#links-and-workflow) jest używany w tym miejscu, ponieważ `Get-AutomationPSCredential` oczekuje pojedynczego obiektu.  
+Na poniższej ilustracji przedstawiono przykład użycia poświadczeń w graficznym elemencie Runbook. W takim przypadku poświadczenia udostępniają uwierzytelnianie dla elementu Runbook dla zasobów platformy Azure, zgodnie z opisem w temacie [Korzystanie z usługi Azure AD w Azure Automation do uwierzytelniania na platformie Azure](../automation-use-azure-ad.md). Pierwsze działanie Pobiera poświadczenia, które mają dostęp do subskrypcji platformy Azure. Działanie połączenie z kontem korzysta następnie z tego poświadczenia, aby zapewnić uwierzytelnianie dla wszystkich działań, które są po niej dostępne. [Link potoku](../automation-graphical-authoring-intro.md#use-links-for-workflow) jest używany w tym miejscu, ponieważ `Get-AutomationPSCredential` oczekuje pojedynczego obiektu.  
 
 ![Dodaj poświadczenie do kanwy](../media/credentials/get-credential.png)
 
@@ -163,6 +163,6 @@ print cred["password"]
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej na temat poleceń cmdlet służących do uzyskiwania dostępu do poświadczeń, zobacz [Zarządzanie modułami w Azure Automation](modules.md).
-* Aby uzyskać ogólne informacje o elementach Runbook, zobacz [wykonywanie elementów Runbook w Azure Automation](../automation-runbook-execution.md).
-* Aby uzyskać szczegółowe informacje na temat konfiguracji DSC, zobacz [Konfiguracja stanu — przegląd](../automation-dsc-overview.md).
+* [Zarządzanie modułami w usłudze Azure Automation](modules.md)
+* [Wykonywanie elementu runbook w usłudze Azure Automation](../automation-runbook-execution.md)
+* [Przegląd konfiguracji stanu Azure Automation](../automation-dsc-overview.md) 

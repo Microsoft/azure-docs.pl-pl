@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: d6902b2b076df86012cec6941be417ad0f0c7660
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8b5d508450d17d6e07e2c2bdb78b7934988936b9
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81428734"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715753"
 ---
 # <a name="optimizing-transactions-in-sql-pool"></a>Optymalizowanie transakcji w puli SQL
 
@@ -44,7 +44,7 @@ Limity bezpieczeństwa transakcji mają zastosowanie tylko do w pełni zarejestr
 
 Następujące operacje mogą być w sposób minimalny zarejestrowane:
 
-* CREATE TABLE jako wybrane ([CTAs](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+* CREATE TABLE JAKO WYBRANE ([CTAS]) (.. /SQL-Data-Warehouse/SQL-Data-Warehouse-Develop-CTAs.MD? TOC =/Azure/Synapse-Analytics/TOC.JSON&BC =/Azure/Synapse-Analytics/breadcrumb/TOC.JSON)
 * Wstaw.. ZAZNACZENIA
 * CREATE INDEX
 * ALTER INDEX REBUILD
@@ -84,7 +84,7 @@ Warto zauważyć, że wszystkie zapisy do aktualizacji pomocniczych lub nieklast
 
 ## <a name="optimizing-deletes"></a>Optymalizowanie usunięć
 
-Usuwanie jest operacją w pełni zarejestrowana.  Jeśli konieczne jest usunięcie dużej ilości danych w tabeli lub partycji, często jest to bardziej zrozumiałe dla `SELECT` danych, które mają być przechowywane, które mogą być uruchamiane jako zarejestrowane minimalnie.  Aby wybrać dane, Utwórz nową tabelę z [CTAs](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  Po utworzeniu Użyj [nazwy](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) , aby zamienić starą tabelę na nowo utworzoną tabelę.
+Usuwanie jest operacją w pełni zarejestrowana.  Jeśli konieczne jest usunięcie dużej ilości danych w tabeli lub partycji, często jest to bardziej zrozumiałe dla danych, które mają `SELECT` być przechowywane, które mogą być uruchamiane jako zarejestrowane minimalnie.  Aby wybrać dane, Utwórz nową tabelę z [CTAs](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  Po utworzeniu Użyj [nazwy](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) , aby zamienić starą tabelę na nowo utworzoną tabelę.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.
@@ -413,7 +413,7 @@ W przypadku wstrzymania lub skalowania puli SQL należy zrozumieć, że wszystki
 Jeśli obciążenie wystawiło długotrwałą i niekompletną modyfikację danych przed operacją wstrzymania lub skalowania, należy to zrobić. To cofnięcie może mieć wpływ na czas oczekiwania na wstrzymanie lub skalowanie puli SQL. 
 
 > [!IMPORTANT]
-> Zarówno `UPDATE` , `DELETE` jak i są w pełni zarejestrowane operacje, więc operacje cofania/ponawiania mogą trwać znacznie dłużej niż równoważne operacje, które nie zostały zarejestrowane w sposób minimalny.
+> Zarówno `UPDATE` , jak i `DELETE` są w pełni zarejestrowane operacje, więc operacje cofania/ponawiania mogą trwać znacznie dłużej niż równoważne operacje, które nie zostały zarejestrowane w sposób minimalny.
 
 Najlepszym scenariuszem jest umożliwienie wykonywania transakcji modyfikacji danych lotu przed zawstrzymywaniem lub skalowaniem puli SQL. Jednak ten scenariusz może nie zawsze być praktyczny. Aby zmniejszyć ryzyko długotrwałego wycofywania, należy wziąć pod uwagę jedną z następujących opcji:
 

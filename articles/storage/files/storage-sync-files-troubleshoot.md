@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 41bc2a05b81bca586cde261bf2eb05db96d687f8
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 062fa867115ea90dd129cac9c71ac6d9df6f3de2
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801320"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725860"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Rozwiązywanie problemów z usługą Azure File Sync
 Użyj Azure File Sync, aby scentralizować udziały plików w organizacji w Azure Files, utrzymując elastyczność, wydajność i zgodność lokalnego serwera plików. Funkcja Azure File Sync przekształca system Windows Server w szybką pamięć podręczną udziału plików platformy Azure. Możesz użyć dowolnego protokołu, który jest dostępny w systemie Windows Server, aby uzyskać dostęp do danych lokalnie, w tym SMB, NFS i FTPS. Na całym świecie możesz mieć dowolną liczbę pamięci podręcznych.
@@ -161,7 +161,7 @@ Ten błąd występuje, gdy zostanie osiągnięty limit liczby punktów końcowyc
 Ten błąd występuje, gdy inny punkt końcowy serwera synchronizuje określoną ścieżkę punktu końcowego serwera. Usługa Azure File Sync nie obsługuje synchronizacji tego samego katalogu lub woluminu w wielu punktach końcowych serwera.
 
 <a id="-2160590967"></a>**Tworzenie punktu końcowego serwera nie powiodło się; z powodu tego błędu: "MgmtServerJobFailed" (kod błędu:-2160590967 lub 0x80c80077)**  
-Ten błąd występuje, gdy ścieżka punktu końcowego serwera zawiera oddzielone pliki warstwowe. Jeśli punkt końcowy serwera został niedawno usunięty, poczekaj na zakończenie czyszczenia oddzielonych plików warstwowych. Zdarzenie o IDENTYFIKATORze 6662 jest rejestrowane w dzienniku zdarzeń telemetrii po rozpoczęciu oczyszczania oddzielonych plików warstwowych. Zdarzenie o IDENTYFIKATORze 6661 jest rejestrowane po zakończeniu oczyszczania oddzielonych plików warstwowych, a punkt końcowy serwera można odtworzyć przy użyciu ścieżki. Jeśli utworzenie punktu końcowego serwera zakończy się niepowodzeniem po zarejestrowaniu zdarzenia o IDENTYFIKATORze 6661, Usuń oddzielone pliki warstwowe, wykonując kroki opisane w [plikach warstwowych nie są dostępne na serwerze po usunięciu sekcji punktu końcowego serwera](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) .
+Ten błąd występuje, gdy ścieżka punktu końcowego serwera zawiera oddzielone pliki warstwowe. Jeśli punkt końcowy serwera został niedawno usunięty, poczekaj na zakończenie czyszczenia oddzielonych plików warstwowych. Zdarzenie o IDENTYFIKATORze 6662 jest rejestrowane w dzienniku zdarzeń telemetrii po rozpoczęciu oczyszczania oddzielonych plików warstwowych. Zdarzenie o IDENTYFIKATORze 6661 jest rejestrowane po zakończeniu oczyszczania oddzielonych plików warstwowych, a punkt końcowy serwera można odtworzyć przy użyciu ścieżki. Jeśli Tworzenie punktu końcowego serwera zakończy się niepowodzeniem po zakończeniu oczyszczania plików warstwowych lub jeśli nie można znaleźć zdarzenia o IDENTYFIKATORze 6661 w dzienniku zdarzeń telemetrii ze względu na przerzucenie dziennika zdarzeń, Usuń oddzielone pliki warstwowe, wykonując kroki opisane w [plikach warstwowych nie są dostępne na serwerze po usunięciu sekcji punktu końcowego serwera](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) .
 
 <a id="-2134347757"></a>**Usuwanie punktu końcowego serwera nie powiodło się, z powodu tego błędu: "MgmtServerJobExpired" (kod błędu:-2134347757 lub 0x80c87013)**  
 Ten błąd występuje wtedy, gdy serwer jest w trybie offline lub nie ma łączności sieciowej. Jeśli serwer nie jest już dostępny, wyrejestruj serwer w portalu, co spowoduje usunięcie punktów końcowych serwera. Aby usunąć punkty końcowe serwera, wykonaj kroki opisane w [Wyrejestruj serwer z Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
@@ -227,7 +227,7 @@ W ramach każdej grupy synchronizacji można przejść do szczegółów poszczeg
 ![Zrzut ekranu przedstawiający Azure Portal](media/storage-sync-files-troubleshoot/portal-sync-health.png)
 
 # <a name="server"></a>[Serwer](#tab/server)
-Przejdź do dzienników telemetrii serwera, które znajdują się w Podgląd zdarzeń pod adresem `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`. Zdarzenie 9102 odpowiada zakończonej sesji synchronizacji; Aby uzyskać najnowszy stan synchronizacji, poszukaj najnowszego zdarzenia o IDENTYFIKATORze 9102. SyncDirection informuje o tym, czy ta sesja była przekazaniem czy pobraniem. Jeśli HResult ma wartość 0, sesja synchronizacji zakończyła się pomyślnie. Wynik o wartości innej niż zero oznacza, że wystąpił błąd podczas synchronizacji; Lista typowych błędów znajduje się poniżej. Jeśli wartość PerItemErrorCount jest większa od 0, oznacza to, że niektóre pliki lub foldery nie zostały prawidłowo zsynchronizowane. Istnieje możliwość, że wynik HResult równy 0, ale PerItemErrorCount jest większy niż 0.
+Przejdź do dzienników telemetrii serwera, które znajdują się w Podgląd zdarzeń pod adresem `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry` . Zdarzenie 9102 odpowiada zakończonej sesji synchronizacji; Aby uzyskać najnowszy stan synchronizacji, poszukaj najnowszego zdarzenia o IDENTYFIKATORze 9102. SyncDirection informuje o tym, czy ta sesja była przekazaniem czy pobraniem. Jeśli HResult ma wartość 0, sesja synchronizacji zakończyła się pomyślnie. Wynik o wartości innej niż zero oznacza, że wystąpił błąd podczas synchronizacji; Lista typowych błędów znajduje się poniżej. Jeśli wartość PerItemErrorCount jest większa od 0, oznacza to, że niektóre pliki lub foldery nie zostały prawidłowo zsynchronizowane. Istnieje możliwość, że wynik HResult równy 0, ale PerItemErrorCount jest większy niż 0.
 
 Poniżej znajduje się przykład pomyślnego przekazania. Ze względu na zwięzłości są wyświetlane tylko niektóre wartości zawarte w każdym zdarzeniu 9102. 
 
@@ -284,7 +284,7 @@ Upewnij się, że dla każdego serwera w danej grupie synchronizacji:
 - W przypadku plików, które nie są synchronizowane, jest wartością 0 w przypadku przekazywania i pobierania.
 
 # <a name="server"></a>[Serwer](#tab/server)
-Zapoznaj się z zakończonymi sesjami synchronizacji, które są oznaczone przez 9102 zdarzeń w dzienniku zdarzeń telemetrii dla każdego serwera (w Podgląd zdarzeń `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`, przejdź do). 
+Zapoznaj się z zakończonymi sesjami synchronizacji, które są oznaczone przez 9102 zdarzeń w dzienniku zdarzeń telemetrii dla każdego serwera (w Podgląd zdarzeń, przejdź do `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry` ). 
 
 1. Na dowolnym serwerze upewnij się, że najnowsze sesje przekazywania i pobierania zostały ukończone pomyślnie. W tym celu należy sprawdzić, czy wartość HResult i PerItemErrorCount są równe 0 w przypadku przekazywania i pobierania (pole SyncDirection wskazuje, czy dana sesja jest sesjami przekazywania lub pobierania). Należy pamiętać, że jeśli ostatnio ukończona sesja synchronizacji nie zostanie wyświetlona, prawdopodobnie sesja synchronizacji jest obecnie w toku, która jest oczekiwana w przypadku dodania lub zmodyfikowania dużej ilości danych.
 2. Gdy serwer jest w pełni aktualny z chmurą i nie ma żadnych zmian do synchronizacji w dowolnym kierunku, zostaną wyświetlone puste sesje synchronizacji. Są one wskazywane przez przekazywanie i pobieranie zdarzeń, w których wszystkie pola Sync * (SyncFileCount, SyncDirCount, SyncTombstoneCount i SyncSizeBytes) są równe zero, co oznacza, że nie ma niczego do zsynchronizowania. Zwróć uwagę na to, że te puste sesje synchronizacji mogą nie występować na serwerach o wysokim poziomie zmian, ponieważ zawsze istnieje nowa synchronizacja. Jeśli nie ma żadnych działań synchronizacji, powinny one wystąpić co 30 minut. 
@@ -891,7 +891,7 @@ Ten błąd występuje, gdy operacja pozyskiwania danych przekracza limit czasu. 
 4. Wybierz połączone konto magazynu. Jeśli łącze nie powiedzie się, konto magazynu, do którego istnieje odwołanie, zostało usunięte.
     ![Zrzut ekranu przedstawiający okienko szczegółów punktu końcowego w chmurze z linkiem do konta magazynu.](media/storage-sync-files-troubleshoot/file-share-inaccessible-1.png)
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 ```powershell
 # Variables for you to populate based on your configuration
 $region = "<Az_Region>"
@@ -972,7 +972,7 @@ if ($storageAccount -eq $null) {
 2. Wybierz pozycję **pliki** , aby wyświetlić listę udziałów plików.
 3. Sprawdź, czy udział plików, do którego odwołuje się punkt końcowy w chmurze, pojawia się na liście udziałów plików (należy to zanotować w kroku 1 powyżej).
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 ```powershell
 $fileShare = Get-AzStorageShare -Context $storageAccount.Context | Where-Object {
     $_.Name -eq $cloudEndpoint.AzureFileShareName -and
@@ -999,7 +999,7 @@ if ($fileShare -eq $null) {
     - W polu **rola** wybierz pozycję **czytnik i dostęp do danych**.
     - W polu **Wybierz** wpisz **Microsoft. StorageSync**, wybierz rolę, a następnie kliknij przycisk **Zapisz**.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 ```powershell    
 $role = Get-AzRoleAssignment -Scope $storageAccount.Id | Where-Object { $_.DisplayName -eq "Microsoft.StorageSync" }
 
@@ -1078,7 +1078,7 @@ Jeśli nie ma warstwy do Azure Files:
 
    2. Sprawdź, czy serwer ma łączność z Internetem. 
    3. Sprawdź, czy sterowniki filtrów Azure File Sync (StorageSync. sys i StorageSyncGuard. sys) są uruchomione:
-       - W wierszu polecenia z podwyższonym poziomem `fltmc`uprawnień uruchom polecenie. Sprawdź, czy na liście znajdują się sterowniki filtrów systemu plików StorageSync. sys i StorageSyncGuard. sys.
+       - W wierszu polecenia z podwyższonym poziomem uprawnień uruchom polecenie `fltmc` . Sprawdź, czy na liście znajdują się sterowniki filtrów systemu plików StorageSync. sys i StorageSyncGuard. sys.
 
 > [!NOTE]
 > Zdarzenie o IDENTYFIKATORze 9003 jest rejestrowane raz w dzienniku zdarzeń telemetrii, jeśli plik nie ulegnie awarii (jedno zdarzenie jest rejestrowane na kod błędu). Sprawdź [błędy i sekcję korygowanie warstw](#tiering-errors-and-remediation) , aby sprawdzić, czy w kodzie błędu są wymienione czynności zaradcze.
@@ -1118,7 +1118,7 @@ Jeśli nie można odwołać plików:
     2. Sprawdź, czy serwer ma łączność z Internetem. 
     3. Otwórz przystawkę MMC usług i sprawdź, czy jest uruchomiona usługa agenta synchronizacji magazynu (FileSyncSvc).
     4. Sprawdź, czy sterowniki filtrów Azure File Sync (StorageSync. sys i StorageSyncGuard. sys) są uruchomione:
-        - W wierszu polecenia z podwyższonym poziomem `fltmc`uprawnień uruchom polecenie. Sprawdź, czy na liście znajdują się sterowniki filtrów systemu plików StorageSync. sys i StorageSyncGuard. sys.
+        - W wierszu polecenia z podwyższonym poziomem uprawnień uruchom polecenie `fltmc` . Sprawdź, czy na liście znajdują się sterowniki filtrów systemu plików StorageSync. sys i StorageSyncGuard. sys.
 
 > [!NOTE]
 > Zdarzenie o IDENTYFIKATORze 9006 jest rejestrowane raz na godzinę w dzienniku zdarzeń telemetrii, jeśli nie można odwołać pliku (jedno zdarzenie jest rejestrowane na kod błędu). Zapoznaj się z sekcją [Błędy odwołania i korygowanie](#recall-errors-and-remediation) , aby sprawdzić, czy w kodzie błędu są wymienione czynności zaradcze.
@@ -1243,7 +1243,7 @@ Jeśli wystąpią problemy z Azure File Sync na serwerze, należy najpierw wykon
 2. Sprawdź, czy usługa Azure File Sync jest uruchomiona na serwerze:
     - Otwórz przystawkę MMC usług i sprawdź, czy jest uruchomiona usługa agenta synchronizacji magazynu (FileSyncSvc).
 3. Sprawdź, czy sterowniki filtrów Azure File Sync (StorageSync. sys i StorageSyncGuard. sys) są uruchomione:
-    - W wierszu polecenia z podwyższonym poziomem `fltmc`uprawnień uruchom polecenie. Sprawdź, czy na liście znajdują się sterowniki filtrów systemu plików StorageSync. sys i StorageSyncGuard. sys.
+    - W wierszu polecenia z podwyższonym poziomem uprawnień uruchom polecenie `fltmc` . Sprawdź, czy na liście znajdują się sterowniki filtrów systemu plików StorageSync. sys i StorageSyncGuard. sys.
 
 Jeśli problem nie zostanie rozwiązany, uruchom narzędzie AFSDiag i Wyślij plik. zip do inżyniera pomocy technicznej przypisanego do Twojego przypadku w celu przeprowadzenia dalszej diagnostyki.
 

@@ -4,13 +4,13 @@ description: Jak używać aplikacji renderowania z Azure Batch. Ten artykuł zaw
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
-ms.topic: conceptual
-ms.openlocfilehash: 6610724cd2ecb14d165b587f9df31353e8eb8e41
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: how-to
+ms.openlocfilehash: 21ae6e0a190875e3e541eb858ec38658ce191ee6
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82115809"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726506"
 ---
 # <a name="rendering-applications"></a>Renderowanie aplikacji
 
@@ -29,9 +29,9 @@ Oprócz renderowania wbudowanych w 3ds Max, następujące moduły renderowania s
 
 ### <a name="task-command-line"></a>Wiersz polecenia zadania
 
-Wywołaj `3dsmaxcmdio.exe` aplikację, aby wykonać renderowanie wiersza polecenia w węźle puli.  Ta aplikacja znajduje się na ścieżce, gdy zadanie jest uruchomione. `3dsmaxcmdio.exe` Aplikacja ma te same parametry `3dsmaxcmd.exe` , które są opisane w [dokumentacji 3ds Max help](https://help.autodesk.com/view/3DSMAX/2018/ENU/) (renderowanie | Sekcja renderowania wiersza polecenia).
+Wywołaj `3dsmaxcmdio.exe` aplikację, aby wykonać renderowanie wiersza polecenia w węźle puli.  Ta aplikacja znajduje się na ścieżce, gdy zadanie jest uruchomione. `3dsmaxcmdio.exe`Aplikacja ma te same parametry, `3dsmaxcmd.exe` które są opisane w [dokumentacji 3ds Max help](https://help.autodesk.com/view/3DSMAX/2018/ENU/) (renderowanie | Sekcja renderowania wiersza polecenia).
 
-Przykład:
+Na przykład:
 
 ```
 3dsmaxcmdio.exe -v:5 -rfw:0 -start:{0} -end:{0} -bitmapPath:"%AZ_BATCH_JOB_PREP_WORKING_DIR%\sceneassets\images" -outputName:dragon.jpg -w:1280 -h:720 "%AZ_BATCH_JOB_PREP_WORKING_DIR%\scenes\dragon.max"
@@ -39,7 +39,7 @@ Przykład:
 
 Uwagi:
 
-* Należy zachować szczególną ostrożność, aby upewnić się, że pliki zasobów zostaną znalezione.  Upewnij się, że ścieżki są poprawne i względne przy użyciu okna **śledzenia zasobów** , `-bitmapPath` lub użyj parametru w wierszu polecenia.
+* Należy zachować szczególną ostrożność, aby upewnić się, że pliki zasobów zostaną znalezione.  Upewnij się, że ścieżki są poprawne i względne przy użyciu okna **śledzenia zasobów** , lub Użyj `-bitmapPath` parametru w wierszu polecenia.
 * Sprawdź, czy występują problemy z renderowaniem, takie jak niemożność odnalezienia zasobów, sprawdzając `stdout.txt` plik zapisany przez 3ds Max, gdy zadanie jest uruchomione.
 
 ### <a name="batch-explorer-templates"></a>Szablony Batch Explorer
@@ -57,7 +57,7 @@ Oprócz renderowania wbudowanych w Maya, następujące moduły renderowania są 
 
 ### <a name="task-command-line"></a>Wiersz polecenia zadania
 
-Renderowanie w wierszu `renderer.exe` polecenia jest używane w wierszu polecenia zadania. Renderowanie w wierszu polecenia jest udokumentowane w [pomocy Maya](https://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-EB558BC0-5C2B-439C-9B00-F97BCB9688E4).
+`renderer.exe`Renderowanie w wierszu polecenia jest używane w wierszu polecenia zadania. Renderowanie w wierszu polecenia jest udokumentowane w [pomocy Maya](https://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-EB558BC0-5C2B-439C-9B00-F97BCB9688E4).
 
 W poniższym przykładzie zadanie przygotowania zadania służy do kopiowania plików sceny i zasobów do katalogu roboczego przygotowania zadania, folder wyjściowy jest używany do przechowywania obrazu renderowania, a ramka 10 jest renderowana.
 

@@ -10,12 +10,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 8fdc64632be8b5fcb3dca8de2ee833fef25719fe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b7aefc54a20e23ae969750532e7e3bc824f69c56
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77656742"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725316"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>Identyfikator URI przekierowania lub adres URL odpowiedzi i ograniczenia
 
@@ -23,8 +23,9 @@ Identyfikator URI przekierowania lub adres URL odpowiedzi to lokalizacja, do kt�
 
  Do adresów URL odpowiedzi są stosowane następujące ograniczenia:
 
-    * Adres URL odpowiedzi musi rozpoczynać się od `https`schematu.
-    * W adresie URL odpowiedzi jest rozróżniana wielkość liter. Jego wielkość liter musi być zgodna z wielkością liter w ścieżce URL działającej aplikacji. Na przykład jeśli aplikacja zawiera jako część swojej ścieżki `.../abc/response-oidc`, nie należy określać `.../ABC/response-oidc` jej w adresie URL odpowiedzi. Ponieważ przeglądarka sieci Web traktuje ścieżki w miarę uwzględniania wielkości liter, `.../abc/response-oidc` pliki cookie skojarzone z programem mogą zostać wykluczone w przypadku przekierowania do niezgodnego z wielkością liter `.../ABC/response-oidc` adresów URL.
+* Adres URL odpowiedzi musi rozpoczynać się od schematu `https` .
+
+* W adresie URL odpowiedzi jest rozróżniana wielkość liter. Jego wielkość liter musi być zgodna z wielkością liter w ścieżce URL działającej aplikacji. Na przykład jeśli aplikacja zawiera jako część swojej ścieżki `.../abc/response-oidc` , nie należy określać jej `.../ABC/response-oidc` w adresie URL odpowiedzi. Ponieważ przeglądarka sieci Web traktuje ścieżki w miarę uwzględniania wielkości liter, pliki cookie skojarzone z programem `.../abc/response-oidc` mogą zostać wykluczone w przypadku przekierowania do niezgodnego z wielkością liter `.../ABC/response-oidc` adresów URL.
     
 ## <a name="maximum-number-of-redirect-uris"></a>Maksymalna liczba identyfikatorów URI przekierowania
 
@@ -47,7 +48,7 @@ Model aplikacji usługi Azure AD już dziś obsługuje zarówno schematy HTTP, j
 
 ## <a name="restrictions-using-a-wildcard-in-uris"></a>Ograniczenia przy użyciu symboli wieloznacznych w identyfikatorach URI
 
-Symbole wieloznaczne, takie `https://*.contoso.com`jak, są wygodne, ale należy je unikać. Używanie symboli wieloznacznych w identyfikatorze URI przekierowania ma wpływ na zabezpieczenia. Zgodnie ze specyfikacją OAuth 2,0 ([sekcja 3.1.2 specyfikacji RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)), identyfikator URI punktu końcowego przekierowania musi być bezwzględnym identyfikatorem URI. 
+Symbole wieloznaczne, takie jak `https://*.contoso.com` , są wygodne, ale należy je unikać. Używanie symboli wieloznacznych w identyfikatorze URI przekierowania ma wpływ na zabezpieczenia. Zgodnie ze specyfikacją OAuth 2,0 ([sekcja 3.1.2 specyfikacji RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)), identyfikator URI punktu końcowego przekierowania musi być bezwzględnym identyfikatorem URI. 
 
 Model aplikacji usługi Azure AD nie obsługuje wieloznacznych identyfikatorów URI dla aplikacji skonfigurowanych do logowania osobistych kont Microsoft i kont służbowych. Jednak symbole wieloznaczne są dozwolone dla aplikacji, które są skonfigurowane do logowania konta służbowego w ramach dzierżawy usługi Azure AD w organizacji już dziś. 
  

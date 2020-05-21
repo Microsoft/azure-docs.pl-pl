@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: 78857709447f99895c36f23d8760f44f8468ba7c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bc79dabe82ab02166e3aa60a378ff394bca25028
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402144"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725554"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Przygotowywanie danych dla usługi Custom Speech
 
@@ -38,7 +38,7 @@ Pliki powinny być pogrupowane według typu w zestawie danych i przekazywane jak
 
 ## <a name="upload-data"></a>Przekazywanie danych
 
-Aby przekazać dane, przejdź do <a href="https://speech.microsoft.com/customspeech" target="_blank">portalu <span class="docon docon-navigate-external x-hidden-focus"> </span>Custom Speech </a>. W portalu kliknij pozycję **Przekaż dane** , aby uruchomić kreatora i utworzyć swój pierwszy zestaw danych. Przed umożliwieniem przekazania danych użytkownik zostanie poproszony o wybranie typu danych mowy dla zestawu danych.
+Aby przekazać dane, przejdź do <a href="https://speech.microsoft.com/customspeech" target="_blank">portalu <span class="docon docon-navigate-external x-hidden-focus"></span> Custom Speech </a>. W portalu kliknij pozycję **Przekaż dane** , aby uruchomić kreatora i utworzyć swój pierwszy zestaw danych. Przed umożliwieniem przekazania danych użytkownik zostanie poproszony o wybranie typu danych mowy dla zestawu danych.
 
 ![Wybierz dźwięk z portalu mowy](./media/custom-speech/custom-speech-select-audio.png)
 
@@ -81,6 +81,8 @@ Aby sprawdzić właściwości dźwięku lub przekonwertować istniejące audio n
 
 Aby zmierzyć dokładność dokładności zamiany mowy na tekst firmy Microsoft podczas przetwarzania plików audio, należy zapewnić, aby porównanie było oznaczone przez człowieka (słowo-by-Word). Chociaż transkrypcja przez człowieka jest często czasochłonna, konieczne jest oszacowanie dokładności i uczenie modelu dla przypadków użycia. Należy pamiętać, że ulepszenia w zakresie rozpoznawania będą tylko tak dobre jak dostarczone dane. Z tego powodu ważne jest, aby przekazywać tylko transkrypcje o wysokiej jakości.
 
+Pliki audio mogą mieć cisz na początku i na końcu nagrywania. Jeśli to możliwe, Uwzględnij co najmniej pół drugiego wyciszenia przed i po mowę w każdym pliku przykładowym. Chociaż dźwięk z niskim woluminem nagrywania lub zakłóceniem niezakłóconego tła nie jest pomocny, nie powinien on wpływać na model niestandardowy. Przed rozpoczęciem zbierania próbek audio należy zawsze rozważyć uaktualnienie sprzętu z mikrotelefonu i przetwarzania sygnałów.
+
 | Właściwość                 | Wartość                               |
 |--------------------------|-------------------------------------|
 | Format pliku              | RIFF (WAV)                          |
@@ -98,7 +100,7 @@ Aby zmierzyć dokładność dokładności zamiany mowy na tekst firmy Microsoft 
 
 Aby rozwiązać problemy, takie jak usuwanie lub podstawianie wyrazów, wymagana jest znaczna ilość danych w celu usprawnienia rozpoznawania. Ogólnie rzecz biorąc, zaleca się dostarczenie transkrypcji słów-by-Word dla około 10 do 1 000 godzin. Transkrypcje dla wszystkich plików WAV powinny znajdować się w jednym pliku tekstowym (zwykły tekst). Każdy wiersz pliku z transkrypcją powinien zawierać nazwę jednego z plików dźwiękowych, a następnie odpowiednią transkrypcję. Nazwę pliku i transkrypcję należy rozdzielać przy użyciu tabulatora (\t).
 
-  Przykład:
+  Na przykład:
 ```
   speech01.wav  speech recognition is awesome
   speech02.wav  the quick brown fox jumped all over the place
@@ -110,7 +112,7 @@ Aby rozwiązać problemy, takie jak usuwanie lub podstawianie wyrazów, wymagana
 
 Transkrypcje są normalizowane pod względem tekstu, aby mogły być przetwarzane przez system. Istnieje jednak kilka ważnych normalizacji, które należy wykonać przed przekazaniem danych do programu Speech Studio. Aby uzyskać odpowiedni język do użycia podczas przygotowywania transkrypcji, zobacz [jak utworzyć transkrypcję z oznaczeniem ludzkim](how-to-custom-speech-human-labeled-transcriptions.md)
 
-Po zebraniu plików audio i odpowiednich transkrypcji należy je spakować jako jeden plik zip przed przekazaniem do <a href="https://speech.microsoft.com/customspeech" target="_blank">portalu <span class="docon docon-navigate-external x-hidden-focus"> </span>Custom Speech </a>. Poniżej znajduje się przykładowy zestaw danych z trzema plikami audio i plik transkrypcji z etykietami ludzkimi:
+Po zebraniu plików audio i odpowiednich transkrypcji należy je spakować jako jeden plik zip przed przekazaniem do <a href="https://speech.microsoft.com/customspeech" target="_blank">portalu <span class="docon docon-navigate-external x-hidden-focus"></span> Custom Speech </a>. Poniżej znajduje się przykładowy zestaw danych z trzema plikami audio i plik transkrypcji z etykietami ludzkimi:
 
 > [!div class="mx-imgBorder"]
 > ![Wybierz dźwięk z portalu mowy](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
@@ -124,7 +126,7 @@ Nazwy produktów lub funkcje, które są unikatowe, powinny zawierać powiązane
 | Zdania (wyrażenia długości) | Popraw dokładność podczas rozpoznawania nazw produktów lub słownika właściwych dla branż w kontekście zdania. |
 | Wymowy | Popraw wymowę nietypowych warunków, akronimów lub innych wyrazów z niezdefiniowanymi wymowiemi. |
 
-Zdania można podać jako pojedynczy plik tekstowy lub wiele plików tekstowych. Aby poprawić dokładność, użyj danych tekstowych, które są bliżej oczekiwanego wyrażenia długości. Wymowy należy dostarczyć jako pojedynczy plik tekstowy. Wszystkie elementy można spakować jako jeden plik zip i przekazać je do <a href="https://speech.microsoft.com/customspeech" target="_blank">portalu <span class="docon docon-navigate-external x-hidden-focus"> </span>Custom Speech </a>.
+Zdania można podać jako pojedynczy plik tekstowy lub wiele plików tekstowych. Aby poprawić dokładność, użyj danych tekstowych, które są bliżej oczekiwanego wyrażenia długości. Wymowy należy dostarczyć jako pojedynczy plik tekstowy. Wszystkie elementy można spakować jako jeden plik zip i przekazać je do <a href="https://speech.microsoft.com/customspeech" target="_blank">portalu <span class="docon docon-navigate-external x-hidden-focus"></span> Custom Speech </a>.
 
 ### <a name="guidelines-to-create-a-sentences-file"></a>Wskazówki dotyczące tworzenia pliku zdań
 
@@ -143,7 +145,7 @@ Użyj tej tabeli, aby upewnić się, że plik powiązane dane dla wyrażenia dł
 Ponadto należy uwzględnić następujące ograniczenia:
 
 * Unikaj powtarzania znaków więcej niż cztery razy. Na przykład: "aaaa" lub "uuuu".
-* Nie używaj znaków specjalnych ani znaków UTF-8 powyżej `U+00A1`.
+* Nie używaj znaków specjalnych ani znaków UTF-8 powyżej `U+00A1` .
 * Identyfikatory URI zostaną odrzucone.
 
 ### <a name="guidelines-to-create-a-pronunciation-file"></a>Wskazówki dotyczące tworzenia pliku wymowy
@@ -163,12 +165,12 @@ Obejmuje to przykłady mówionych wypowiedź i niestandardową wymowę dla każd
 
 Mówiony formularz jest wyszukiwaną sekwencją fonetyczną. Może składać się z litery, słów, sylab lub kombinacji wszystkich trzech.
 
-Dostosowana wymowa jest dostępna w`en-US`języku angielskim ()`de-DE`i niemieckim (). W tej tabeli przedstawiono obsługiwane znaki według języka:
+Dostosowana wymowa jest dostępna w języku angielskim ( `en-US` ) i niemieckim ( `de-DE` ). W tej tabeli przedstawiono obsługiwane znaki według języka:
 
-| Język | Ustawienia regionalne | Znaki |
+| Język | Regionalne | Znaki |
 |----------|--------|------------|
 | Angielski | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
-| niemiecki | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
+| Niemiecki | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 
 Skorzystaj z poniższej tabeli, aby upewnić się, że pokrewny plik danych dla wymowy jest poprawnie sformatowany. Pliki wymowy są małe i powinny mieć tylko kilka kilobajtów rozmiaru.
 

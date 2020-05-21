@@ -1,14 +1,14 @@
 ---
 title: Przesyłanie dużej liczby zadań
 description: Jak efektywnie przesłać bardzo dużą liczbę zadań w pojedynczym Azure Batch zadania
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/24/2018
-ms.openlocfilehash: 0be30e1a413a224d566db535d369a0b285b1f668
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 42b7d0586139b3d03569374615945047b42a2520
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117407"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725690"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Przesyłanie dużej liczby zadań do zadania wsadowego
 
@@ -24,9 +24,9 @@ Maksymalny rozmiar kolekcji zadań, którą można dodać w pojedynczym wywołan
 
 * Poniższe interfejsy API partii ograniczają kolekcję do **100 zadań**. Limit może być mniejszy w zależności od rozmiaru zadań — na przykład jeśli zadania zawierają dużą liczbę plików zasobów lub zmiennych środowiskowych.
 
-    * [INTERFEJS API REST](/rest/api/batchservice/task/addcollection)
+    * [Interfejs API REST](/rest/api/batchservice/task/addcollection)
     * [Interfejs API języka Python](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python)
-    * [Interfejs API środowiska Node. js](/javascript/api/@azure/batch/task?view=azure-node-latest)
+    * [Interfejs API Node.js](/javascript/api/@azure/batch/task?view=azure-node-latest)
 
   Korzystając z tych interfejsów API, należy zapewnić logikę w celu podzielenia liczby zadań do osiągnięcia limitu kolekcji, a także obsłużyć błędy i ponawiania próby w przypadku niepowodzenia dodawania zadań. Jeśli kolekcja zadań jest zbyt duża, aby można ją było dodać, żądanie generuje błąd i należy ponownie ponowić próbę z mniejszą liczbą zadań.
 
@@ -43,7 +43,7 @@ Dodanie dużej kolekcji zadań do zadania może zająć trochę czasu — na prz
 
 * **Rozmiar zadania** — Dodawanie dużych zadań trwa dłużej niż Dodawanie mniejszych. Aby zmniejszyć rozmiar każdego zadania w kolekcji, można uprościć wiersz polecenia zadania, zmniejszyć liczbę zmiennych środowiskowych lub obsłużyć bardziej wydajne wymagania dotyczące wykonywania zadań. Na przykład zamiast używać dużej liczby plików zasobów, należy zainstalować zależności zadań przy użyciu [zadania uruchamiania](batch-api-basics.md#start-task) w puli lub użyć [pakietu aplikacji](batch-application-packages.md) lub [kontenera Docker](batch-docker-container-workloads.md).
 
-* **Liczba operacji równoległych** — w zależności od interfejsu API usługi Batch zwiększenie przepływności przez zwiększenie maksymalnej liczby operacji współbieżnych przez klienta usługi Batch. Skonfiguruj to ustawienie za pomocą właściwości [BatchClientParallelOptions. MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) w interfejsie API platformy .NET lub `threads` parametru metod, takich jak [TaskOperations. add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python) w rozszerzeniu zestawu SDK języka Python dla usługi Batch. (Ta właściwość nie jest dostępna w natywnym zestawie SDK Python w usłudze Batch). Domyślnie ta właściwość jest ustawiona na 1, ale ustawiana jest wyższa, aby zwiększyć przepływność operacji. Zwiększa się przepływność poprzez zużywanie przepustowości sieci i pewnej wydajności procesora CPU. Przepływność zadań zwiększa się o maksymalnie 100 razy `MaxDegreeOfParallelism` lub `threads`. W tym celu należy ustawić liczbę współbieżnych operacji poniżej 100. 
+* **Liczba operacji równoległych** — w zależności od interfejsu API usługi Batch zwiększenie przepływności przez zwiększenie maksymalnej liczby operacji współbieżnych przez klienta usługi Batch. Skonfiguruj to ustawienie za pomocą właściwości [BatchClientParallelOptions. MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) w interfejsie API platformy .NET lub `threads` parametru metod, takich jak [TaskOperations. add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python) w rozszerzeniu zestawu SDK języka Python dla usługi Batch. (Ta właściwość nie jest dostępna w natywnym zestawie SDK Python w usłudze Batch). Domyślnie ta właściwość jest ustawiona na 1, ale ustawiana jest wyższa, aby zwiększyć przepływność operacji. Zwiększa się przepływność poprzez zużywanie przepustowości sieci i pewnej wydajności procesora CPU. Przepływność zadań zwiększa się o maksymalnie 100 razy `MaxDegreeOfParallelism` lub `threads` . W tym celu należy ustawić liczbę współbieżnych operacji poniżej 100. 
  
   Rozszerzenie interfejsu wiersza polecenia Azure Batch przy użyciu szablonów wsadowych zwiększa liczbę współbieżnych operacji automatycznie na podstawie liczby dostępnych rdzeni, ale tej właściwości nie można skonfigurować w interfejsie wiersza polecenia. 
 
@@ -53,7 +53,7 @@ Dodanie dużej kolekcji zadań do zadania może zająć trochę czasu — na prz
 
 Poniższe fragmenty kodu w języku C# pokazują ustawienia do skonfigurowania podczas dodawania dużej liczby zadań przy użyciu interfejsu API usługi Batch platformy .NET.
 
-Aby zwiększyć przepływność zadań, należy zwiększyć wartość właściwości [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet). Przykład:
+Aby zwiększyć przepływność zadań, należy zwiększyć wartość właściwości [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet). Na przykład:
 
 ```csharp
 BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
@@ -63,7 +63,7 @@ BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
 ...
 ```
 Dodaj kolekcję zadań do zadania przy użyciu odpowiedniego przeciążenia metody [AddTaskAsync](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync?view=azure-dotnet) lub [AddTask](/dotnet/api/microsoft.azure.batch.cloudjob.addtask?view=azure-dotnet
-) . Przykład:
+) . Na przykład:
 
 ```csharp
 // Add a list of tasks as a collection
@@ -134,7 +134,7 @@ client = batch.BatchExtensionsClient(
 ...
 ```
 
-Utwórz kolekcję zadań do dodania do zadania. Przykład:
+Utwórz kolekcję zadań do dodania do zadania. Na przykład:
 
 
 ```python
@@ -143,7 +143,7 @@ tasks = list()
 ...
 ```
 
-Dodaj kolekcję zadań przy użyciu [zadania. add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python). Ustaw parametr `threads` , aby zwiększyć liczbę operacji współbieżnych:
+Dodaj kolekcję zadań przy użyciu [zadania. add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python). Ustaw `threads` parametr, aby zwiększyć liczbę operacji współbieżnych:
 
 ```python
 try:
@@ -189,7 +189,7 @@ job_json = client.job.expand_template(parameter_sweep)
 job_parameter = client.job.jobparameter_from_json(job_json)
 ```
 
-Dodaj parametry zadania do zadania. Ustaw parametr `threads` , aby zwiększyć liczbę operacji współbieżnych:
+Dodaj parametry zadania do zadania. Ustaw `threads` parametr, aby zwiększyć liczbę operacji współbieżnych:
 
 ```python
 try:

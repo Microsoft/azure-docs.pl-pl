@@ -1,15 +1,15 @@
 ---
-title: Uruchamianie zadań w obszarze konta użytkowników — Azure Batch
+title: Uruchamianie zadań w obszarze konta użytkowników
 description: Warto skonfigurować konto użytkownika, w ramach którego ma zostać uruchomione zadanie. Informacje o typach kont użytkowników i sposobach ich konfigurowania.
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1aeb96075e95d7bc0d1e4527fb50b2d5238dbab5
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: f1bd31f9d4881bdc489988d3f955e7143eaf7759
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980290"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726268"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Uruchamianie zadań w obszarze konta użytkowników w usłudze Batch
 
@@ -81,7 +81,7 @@ Można skonfigurować specyfikację autoużytkownika dla uprawnień administrato
 >
 >
 
-Poniższe fragmenty kodu pokazują, jak skonfigurować specyfikację autoużytkownika. Przykłady ustawiają poziom podniesienia uprawnień `Admin` i zakres do. `Task` Zakres zadania jest ustawieniem domyślnym, ale jest tu uwzględniony na przykład.
+Poniższe fragmenty kodu pokazują, jak skonfigurować specyfikację autoużytkownika. Przykłady ustawiają poziom podniesienia uprawnień `Admin` i zakres do `Task` . Zakres zadania jest ustawieniem domyślnym, ale jest tu uwzględniony na przykład.
 
 #### <a name="batch-net"></a>Batch .NET
 
@@ -146,7 +146,7 @@ Konto użytkownika nazwanego jest przydatne, gdy chcesz uruchamiać wszystkie za
 
 Można również użyć nazwanego konta użytkownika do uruchomienia zadania, które ustawia uprawnienia do zasobów zewnętrznych, takich jak udziały plików. Przy użyciu nazwanego konta użytkownika kontrolujesz tożsamość użytkownika i można użyć tej tożsamości użytkownika do ustawiania uprawnień.  
 
-Konta użytkowników nazwanych umożliwiają włączenie protokołu SSH bez hasła między węzłami systemu Linux. Można użyć nazwanego konta użytkownika z węzłami systemu Linux, które wymagają uruchamiania zadań obejmujących wiele wystąpień. Każdy węzeł w puli może uruchamiać zadania w ramach konta użytkownika zdefiniowanego w całej puli. Aby uzyskać więcej informacji na temat zadań z wieloma wystąpieniami, zobacz [Używanie zadań z wieloma\-wystąpieniami do uruchamiania aplikacji MPI](batch-mpi.md).
+Konta użytkowników nazwanych umożliwiają włączenie protokołu SSH bez hasła między węzłami systemu Linux. Można użyć nazwanego konta użytkownika z węzłami systemu Linux, które wymagają uruchamiania zadań obejmujących wiele wystąpień. Każdy węzeł w puli może uruchamiać zadania w ramach konta użytkownika zdefiniowanego w całej puli. Aby uzyskać więcej informacji na temat zadań z wieloma wystąpieniami, zobacz [Używanie \- zadań z wieloma wystąpieniami do uruchamiania aplikacji MPI](batch-mpi.md).
 
 ### <a name="create-named-user-accounts"></a>Tworzenie nazwanych kont użytkowników
 
@@ -282,7 +282,7 @@ batch_client.pool.add(pool)
 
 ### <a name="run-a-task-under-a-named-user-account-with-elevated-access"></a>Uruchamianie zadania przy użyciu konta użytkownika o podniesionych uprawnieniach
 
-Aby uruchomić zadanie jako podwyższony użytkownik, należy ustawić właściwość **tożsamość użytkownika** zadania na nazwę konta użytkownika, które zostało utworzone za pomocą właściwości **ElevationLevel** ustawionej na `Admin`.
+Aby uruchomić zadanie jako podwyższony użytkownik, należy ustawić właściwość **tożsamość użytkownika** zadania na nazwę konta użytkownika, które zostało utworzone za pomocą właściwości **ElevationLevel** ustawionej na `Admin` .
 
 Ten fragment kodu określa, że zadanie powinno być uruchamiane przy użyciu konta użytkownika o nazwie. To nazwane konto użytkownika zostało zdefiniowane w puli podczas tworzenia puli. W takim przypadku nazwane konto użytkownika zostało utworzone z uprawnieniami administratora:
 

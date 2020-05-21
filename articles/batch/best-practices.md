@@ -2,13 +2,13 @@
 title: Najlepsze rozwiązania
 description: Poznaj najlepsze rozwiązania i przydatne porady dotyczące tworzenia rozwiązań Azure Batch.
 ms.date: 04/03/2020
-ms.topic: article
-ms.openlocfilehash: 43a0020953ea44593cf38298a78547194751fc72
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.topic: conceptual
+ms.openlocfilehash: f7d2add5fb30e3efdfb761364babf2211c3c254f
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117509"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725809"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch najlepszych praktyk
 
@@ -100,11 +100,11 @@ Zadania są pojedynczymi jednostkami pracy, które składają się na zadanie. Z
 
 ### <a name="task-execution"></a>Wykonywanie zadania
 
-- **Wybieranie Maksymalna liczba zadań na węzeł** Zadanie wsadowe obsługuje zadania związane z subskrypcją w węzłach (wykonywanie większej liczby zadań niż węzeł ma rdzenie). Jest to konieczne, aby upewnić się, że zadania "pasują" do węzłów w puli. Można na przykład mieć obniżoną wydajność, Jeśli podjęto próbę zaplanowania ośmiu zadań, za pomocą których każde zużywa 25% użycia procesora CPU w jednym węźle ( `maxTasksPerNode = 8`w puli z).
+- **Wybieranie Maksymalna liczba zadań na węzeł** Zadanie wsadowe obsługuje zadania związane z subskrypcją w węzłach (wykonywanie większej liczby zadań niż węzeł ma rdzenie). Jest to konieczne, aby upewnić się, że zadania "pasują" do węzłów w puli. Można na przykład mieć obniżoną wydajność, Jeśli podjęto próbę zaplanowania ośmiu zadań, za pomocą których każde zużywa 25% użycia procesora CPU w jednym węźle (w puli z `maxTasksPerNode = 8` ).
 
 ### <a name="designing-for-retries-and-re-execution"></a>Projektowanie na potrzeby ponownych prób i ponowne wykonywanie
 
-Zadania mogą być automatycznie ponawiane przez partię. Istnieją dwa typy ponownych prób: sterowane przez użytkownika i wewnętrzne. Ponowne próby sterowane przez użytkownika są określane przez [maxTaskRetryCount](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount?view=azure-dotnet)zadania. Gdy program określony w zadaniu zostanie zakończony z kodem zakończenia innym niż zero, zadanie zostanie ponowione w celu uzyskania wartości `maxTaskRetryCount`.
+Zadania mogą być automatycznie ponawiane przez partię. Istnieją dwa typy ponownych prób: sterowane przez użytkownika i wewnętrzne. Ponowne próby sterowane przez użytkownika są określane przez [maxTaskRetryCount](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount?view=azure-dotnet)zadania. Gdy program określony w zadaniu zostanie zakończony z kodem zakończenia innym niż zero, zadanie zostanie ponowione w celu uzyskania wartości `maxTaskRetryCount` .
 
 Chociaż rzadko, zadanie może być ponawiane wewnętrznie ze względu na błędy w węźle obliczeniowym, na przykład nie można zaktualizować stanu wewnętrznego lub awarii w węźle, gdy zadanie jest uruchomione. Zadanie zostanie ponowione w tym samym węźle obliczeniowym, jeśli jest to możliwe, do wewnętrznego limitu przed zapisaniem zadania i oddanie zadania do ponownego zaplanowania przez partię, potencjalnie w innym węźle obliczeniowym.
 
@@ -121,7 +121,7 @@ Chociaż rzadko, zadanie może być ponawiane wewnętrznie ze względu na błęd
 - **Zadania uruchamiania powinny być idempotentne** Podobnie jak w przypadku innych zadań, zadanie uruchomieniowe węzła powinno być idempotentne, ponieważ zostanie uruchomione ponownie za każdym razem, gdy węzeł zostanie uruchomiony. Zadanie idempotentne jest po prostu jednym, które generuje spójny wynik w przypadku wielokrotnego uruchomienia.
 
 - **Zarządzanie długotrwałymi usługami za pośrednictwem interfejsu usług systemu operacyjnego.**
-    Czasami istnieje potrzeba uruchomienia innego agenta obok agenta usługi Batch w węźle, np. w celu zebrania danych z węzła i zgłoszenia go. Zalecamy wdrożenie tych agentów jako usług systemu operacyjnego, takich jak usługa systemu Windows lub usługa Linux `systemd` .
+    Czasami istnieje potrzeba uruchomienia innego agenta obok agenta usługi Batch w węźle, np. w celu zebrania danych z węzła i zgłoszenia go. Zalecamy wdrożenie tych agentów jako usług systemu operacyjnego, takich jak usługa systemu Windows lub `systemd` Usługa Linux.
 
     W przypadku uruchamiania tych usług nie wolno zablokować plików na żadnych plikach w katalogach zarządzanych przez usługę Batch w węźle, ponieważ w przeciwnym razie usługa Batch nie będzie mogła usunąć tych katalogów ze względu na blokady plików. Jeśli na przykład zainstalujesz usługę systemu Windows w zadaniu uruchamiania, zamiast uruchamiania usługi bezpośrednio z katalogu roboczego zadania uruchamiania, skopiuj pliki w inne miejsce (jeśli pliki już istnieją, Pomiń kopię). Zainstaluj usługę z tej lokalizacji. Gdy wsadowe ponownie uruchamia zadanie podrzędne, usunie katalog roboczy zadania uruchamiania i ponownie go utworzy. Dzieje się tak, ponieważ usługa ma blokady plików w innym katalogu, a nie w katalogu roboczym zadania uruchamiania.
 
@@ -149,10 +149,10 @@ Aby uzyskać więcej informacji na temat Menedżer zasobów i szablonów, zobacz
 
 ### <a name="network-security-groups-nsgs-and-user-defined-routes-udrs"></a>Sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) i trasy zdefiniowane przez użytkownika (UDR)
 
-Podczas aprowizacji `BatchNodeManagement` pul usługi [Batch w sieci wirtualnej](batch-virtual-network.md)należy się upewnić, że są one zgodne z wytycznymi dotyczącymi korzystania z tagu usług, portów, protokołów i kierunku reguły.
+Podczas aprowizacji pul usługi [Batch w sieci wirtualnej](batch-virtual-network.md)należy się upewnić, że są one zgodne z wytycznymi dotyczącymi korzystania z `BatchNodeManagement` tagu usług, portów, protokołów i kierunku reguły.
 Użycie znacznika usługi jest zdecydowanie zalecane, a nie adresów IP podstawowych usług Batch, ponieważ mogą one ulec zmianie w czasie. Korzystanie z adresów IP usługi Batch bezpośrednio może zaistnieć jako niestabilność, przerwy lub przestoje dla pul usługi Batch, ponieważ usługa Batch aktualizuje adresy IP używane w czasie. Jeśli obecnie używasz adresów IP usługi Batch w regułach sieciowej grupy zabezpieczeń, zaleca się przełączenie na korzystanie z tagu usługi.
 
-W przypadku tras zdefiniowanych przez użytkownika upewnij się, że masz proces w miejscu, aby okresowo aktualizować adresy IP usługi Batch w tabeli tras w miarę zmiany w czasie. Aby dowiedzieć się, jak uzyskać listę adresów IP usługi Batch, zobacz [lokalne znaczniki usług](../virtual-network/service-tags-overview.md). Adresy IP usługi Batch zostaną skojarzone z tagiem `BatchNodeManagement` usługi (lub odmianą regionalną zgodną z regionem konta usługi Batch).
+W przypadku tras zdefiniowanych przez użytkownika upewnij się, że masz proces w miejscu, aby okresowo aktualizować adresy IP usługi Batch w tabeli tras w miarę zmiany w czasie. Aby dowiedzieć się, jak uzyskać listę adresów IP usługi Batch, zobacz [lokalne znaczniki usług](../virtual-network/service-tags-overview.md). Adresy IP usługi Batch zostaną skojarzone z `BatchNodeManagement` tagiem usługi (lub odmianą regionalną zgodną z regionem konta usługi Batch).
 
 ### <a name="honoring-dns"></a>Przestrzeganie systemu DNS
 

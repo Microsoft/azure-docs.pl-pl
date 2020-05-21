@@ -10,40 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 68947895891b4875ef4c57355f1236afdb8c2c7d
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 31c1d50962b2710fbeb249c61c8b3c144762be43
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83204821"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715651"
 ---
 # <a name="learn-the-basics-of-spx"></a>Poznaj podstawy korzystania z SPX
 
 W tym artykule przedstawiono podstawowe wzorce użycia SPX, narzędzie wiersza polecenia do korzystania z usługi mowy bez pisania kodu. Możesz szybko przetestować główne funkcje usługi mowy, bez tworzenia środowisk programistycznych lub pisania kodu, aby sprawdzić, czy przypadki użycia mogą być odpowiednio spełnione. Ponadto protokół SPX jest gotowy do produkcji i może służyć do automatyzowania prostych przepływów pracy w usłudze mowy, przy użyciu `.bat` skryptów powłoki lub.
 
-## <a name="prerequisites"></a>Wymagania wstępne
-
-Jedynym wymaganiem wstępnym jest subskrypcja usługi Azure Speech. Zapoznaj się z [przewodnikiem](get-started.md#new-resource) dotyczącym tworzenia nowej subskrypcji, jeśli jeszcze jej nie masz.
-
-## <a name="download-and-install"></a>Pobieranie i instalowanie
-
-Protokół SPX jest dostępny w systemach Windows i Linux. Zacznij od pobrania [archiwum zip](https://aka.ms/speech/spx-zips.zip), a następnie wyodrębnij go. Protokół SPX wymaga środowiska uruchomieniowego .NET Core lub .NET Framework, a następujące wersje są obsługiwane przez platformę:
-
-* Windows: [.NET Framework 4,7](https://dotnet.microsoft.com/download/dotnet-framework/net471), [.NET Core 3,0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
-* Linux: [.NET Core 3,0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
-
-Po zainstalowaniu środowiska uruchomieniowego przejdź do katalogu głównego `spx-zips` wyodrębnionego z pobrania i Wyodrębnij wymagany podkatalog ( `spx-net471` na przykład). W wierszu polecenia Zmień katalog na tę lokalizację, a następnie uruchom polecenie, `spx` Aby uruchomić aplikację.
-
-## <a name="create-subscription-config"></a>Utwórz konfigurację subskrypcji
-
-Aby rozpocząć korzystanie z usługi SPX, musisz najpierw wprowadzić klucz subskrypcji mowy i informacje o regionie. Aby znaleźć identyfikator regionu, zobacz stronę [Obsługa regionów](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) . Gdy masz klucz subskrypcji i Identyfikator regionu (np. `eastus`, `westus` Uruchom następujące polecenia.
-
-```shell
-spx config @key --set YOUR-SUBSCRIPTION-KEY
-spx config @region --set YOUR-REGION-ID
-```
-
-Twoje uwierzytelnianie subskrypcji jest teraz przechowywane dla przyszłych żądań SPX. Jeśli musisz usunąć jedną z tych przechowywanych wartości, uruchom polecenie `spx config @region --clear` lub `spx config @key --clear` .
+[!INCLUDE [](includes/spx-setup.md)]
 
 ## <a name="basic-usage"></a>Podstawowy sposób użycia
 

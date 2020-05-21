@@ -8,23 +8,20 @@ author: mlearned
 ms.author: mlearned
 description: 'Tworzenie jednostki usługi do dołączania z funkcją Azure Arc '
 keywords: Kubernetes, łuk, Azure, kontenery
-ms.openlocfilehash: f9f750980d8a8b5d8190ba0b399fe068f1dd99c7
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 3c95c6bb85c7c1bc097b7751a560a658863c0afd
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680800"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725605"
 ---
 # <a name="create-an-azure-arc-enabled-onboarding-service-principal-preview"></a>Tworzenie głównej nazwy usługi z funkcją Azure Arc — wersja zapoznawcza
 
 ## <a name="overview"></a>Omówienie
 
-Po dołączeniu klastra do platformy Azure Agenty działające w klastrze muszą uwierzytelniać się w Azure Resource Manager w ramach rejestracji. `connectedk8s`Rozszerzenie interfejsu wiersza polecenia platformy Azure ma zautomatyzowane tworzenie głównej nazwy usługi. Jednak może istnieć kilka scenariuszy, w których Automatyzacja interfejsu wiersza polecenia nie działa:
+Możliwe jest użycie jednostek usługi z przypisaniem roli z ograniczonymi uprawnieniami do dołączania klastrów Kubernetes do usługi Azure Arc. Jest to przydatne w przypadku potoków ciągłej integracji i ciągłego wdrażania (CI/CD), takich jak Azure Pipelines i akcje GitHub.
 
-* Organizacja zazwyczaj ogranicza tworzenie jednostek usługi
-* Użytkownik, który utworzył klaster, nie ma wystarczających uprawnień do tworzenia jednostek usługi
-
-Zamiast tego Utwórz nazwę główną usługi poza pasmem, a następnie Przekaż podmiot zabezpieczeń do rozszerzenia interfejsu wiersza polecenia platformy Azure.
+Poniższe kroki zawierają Przewodnik dotyczący używania jednostek usługi do dołączania klastrów Kubernetes do usługi Azure Arc.
 
 ## <a name="create-a-new-service-principal"></a>Utwórz nową nazwę główną usługi
 
@@ -57,13 +54,13 @@ Uprawnienia mogą być dodatkowo ograniczone przez przekazanie odpowiednich `--s
 | Zasób  | Argument `scope`| Efekt |
 | ------------- | ------------- | ------------- |
 | Subskrypcja | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333` | Jednostka usługi może zarejestrować dowolny klaster w istniejącej grupie zasobów w danej subskrypcji. |
-| Grupa zasobów | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`  | Nazwa główna usługi może rejestrować __tylko__ klastry w grupie zasobów`myGroup` |
+| Resource Group | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`  | Nazwa główna usługi może rejestrować __tylko__ klastry w grupie zasobów`myGroup` |
 
 ```console
 az role assignment create \
     --role 34e09817-6cbe-4d01-b1a2-e0eac5743d41 \      # this is the id for the built-in role
     --assignee 22cc2695-54b9-49c1-9a73-2269592103d8 \  # use the appId from the new SP
-    --scope /subscriptions/<<SUBSCRIPTION_ID>>         # apply the apropriate scope
+    --scope /subscriptions/<<SUBSCRIPTION_ID>>         # apply the appropriate scope
 ```
 
 **Rozdzielczości**

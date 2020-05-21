@@ -1,14 +1,14 @@
 ---
 title: Monitoruj Azure Batch
 description: Dowiedz się więcej na temat usług monitorowania platformy Azure, metryk, dzienników diagnostycznych i innych funkcji monitorowania dla Azure Batch.
-ms.topic: article
+ms.topic: how-to
 ms.date: 04/05/2018
-ms.openlocfilehash: c8b11d0b7187d6c4b5b3ccff1e19eb533ff3f0da
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 09ac9c676dc1e95cbece6fa500b4f2cf554f8526
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82113895"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83723531"
 ---
 # <a name="monitor-batch-solutions"></a>Monitorowanie rozwiązań usługi Batch
 
@@ -22,7 +22,7 @@ Na poziomie subskrypcji, który obejmuje konta usługi Batch, [Dziennik aktywno�
 
 W przypadku kont usługi Batch dziennik aktywności zbiera zdarzenia związane z tworzeniem i usuwaniem kont oraz zarządzaniem kluczami.
 
-Jednym ze sposobów na pobranie zdarzeń z dziennika aktywności jest użycie Azure Portal. Kliknij kolejno pozycje **wszystkie usługi** > **Dziennik aktywności**. Można też wykonywać zapytania o zdarzenia za pomocą interfejsu wiersza polecenia platformy Azure, poleceń cmdlet programu PowerShell lub interfejsu API REST Azure Monitor. Możesz również wyeksportować dziennik aktywności lub skonfigurować [alerty dziennika aktywności](../monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md).
+Jednym ze sposobów na pobranie zdarzeń z dziennika aktywności jest użycie Azure Portal. Kliknij kolejno pozycje **wszystkie usługi**  >  **Dziennik aktywności**. Można też wykonywać zapytania o zdarzenia za pomocą interfejsu wiersza polecenia platformy Azure, poleceń cmdlet programu PowerShell lub interfejsu API REST Azure Monitor. Możesz również wyeksportować dziennik aktywności lub skonfigurować [alerty dziennika aktywności](../monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience.md).
 
 ## <a name="batch-account-level-monitoring"></a>Monitorowanie na poziomie konta w usłudze Batch
 
@@ -33,7 +33,7 @@ Monitoruj każde konto usługi Batch przy użyciu funkcji [Azure monitor](../azu
 
 ## <a name="batch-resource-monitoring"></a>Monitorowanie zasobów wsadowych
 
-W aplikacjach wsadowych należy używać interfejsów API programu Batch do monitorowania stanu zasobów, takich jak zadania, zadania, węzły i pule. Przykład:
+W aplikacjach wsadowych należy używać interfejsów API programu Batch do monitorowania stanu zasobów, takich jak zadania, zadania, węzły i pule. Na przykład:
 
 * [Liczenie zadań i węzłów obliczeniowych według stanu](batch-get-resource-counts.md)
 * [Twórz zapytania umożliwiające wydajne wyświetlanie zasobów wsadowych](batch-efficient-list-queries.md)

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: a52735ee62f564a5dc536fd2b7d3539406388341
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5401957cb527d43e041345ac9e67e7f7a69ed0d0
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402063"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83725537"
 ---
 # <a name="what-is-custom-speech"></a>Co to jest Custom Speech?
 
@@ -37,9 +37,11 @@ Ten diagram przedstawia elementy wchodzące w skład [portalu Custom Speech](htt
 
 4. [Oceń dokładność](how-to-custom-speech-evaluate-data.md) — Oceń dokładność modelu zamiany mowy na tekst. [Portal Custom Speech](https://speech.microsoft.com/customspeech) będzie zawierać *Współczynnik błędów wyrazów*, który może służyć do określenia, czy wymagane jest dodatkowe szkolenie. Jeśli dokładność jest zadowalająca, można używać interfejsów API usługi mowy bezpośrednio. Jeśli chcesz poprawić dokładność przez średnią wartość wynoszącą 5%-20%, Użyj karty **szkolenia** w portalu, aby przekazać dodatkowe dane szkoleniowe, takie jak transkrypcje z etykietami ludzkimi i powiązane teksty.
 
-5. [Uczenie modelu](how-to-custom-speech-train-model.md) — Poprawa dokładności modelu zamiany mowy na tekst dzięki udostępnieniu zapisów pisanych (10 – 1000 godzin) i powiązanego tekstu (<200 MB) wraz z danymi testu dźwiękowego. Te dane ułatwiają uczenie modelu zamiany mowy na tekst. Po przekształceniu, ponownym przetestowaniu i, jeśli wynik jest zadowalający, można wdrożyć model.
+5. [Popraw dokładność](how-to-custom-speech-improve-accuracy.md) — Wybierz dodatkowe dane szkoleniowe strategicznie, aby poprawić jakość modelu zamiany mowy na tekst w oparciu o twój scenariusz.
 
-6. [Wdróż model](how-to-custom-speech-deploy-model.md) — Utwórz niestandardowy punkt końcowy dla modelu zamiany mowy na tekst i użyj go w aplikacjach, narzędziach lub produktach.
+6. [Uczenie modelu](how-to-custom-speech-train-model.md) — Poprawa dokładności modelu zamiany mowy na tekst dzięki udostępnieniu zapisów pisanych (10 – 1000 godzin) i powiązanego tekstu (<200 MB) wraz z danymi testu dźwiękowego. Te dane ułatwiają uczenie modelu zamiany mowy na tekst. Po przekształceniu, ponownym przetestowaniu i, jeśli wynik jest zadowalający, można wdrożyć model.
+
+7. [Wdróż model](how-to-custom-speech-deploy-model.md) — Utwórz niestandardowy punkt końcowy dla modelu zamiany mowy na tekst i użyj go w aplikacjach, narzędziach lub produktach.
 
 ## <a name="set-up-your-azure-account"></a>Skonfiguruj swoje konto platformy Azure
 

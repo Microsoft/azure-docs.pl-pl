@@ -1,15 +1,15 @@
 ---
 title: Rozpoczynanie pracy z interfejsem wiersza polecenia platformy Azure dla usługi Batch
 description: Skorzystaj z szybkiego wprowadzenia do poleceń usługi Batch w interfejsie wiersza polecenia platformy Azure, aby zarządzać zasobami usługi Azure Batch
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/24/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5fe73770dbe8dfe6d69cb08e1fbf44d42bff9e54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c9aa9a43dd036b4a547d1bff85b4431afcf74e23
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117373"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83726795"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Zarządzanie zasobami usługi Batch przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -28,7 +28,7 @@ Możesz uruchomić najnowszy interfejs wiersza polecenia platformy Azure w usłu
 
 ## <a name="command-help"></a>Pomoc związana z poleceniami
 
-Możesz wyświetlić tekst pomocy dla każdego polecenia w interfejsie wiersza polecenia platformy Azure, dodając do polecenia opcję `-h`. Pomiń wszelkie inne opcje. Przykład:
+Możesz wyświetlić tekst pomocy dla każdego polecenia w interfejsie wiersza polecenia platformy Azure, dodając do polecenia opcję `-h`. Pomiń wszelkie inne opcje. Na przykład:
 
 * Aby uzyskać pomoc dotyczącą polecenia `az`, wprowadź: `az -h`
 * Aby uzyskać listę wszystkich poleceń usługi Batch w interfejsie wiersza polecenia, użyj: `az batch -h`
@@ -111,7 +111,7 @@ Zobacz [przykłady skryptów interfejsów wiersza polecenia](cli-samples.md) dla
 
 ## <a name="json-files-for-resource-creation"></a>Pliki JSON do tworzenia zasobów
 
-Podczas tworzenia zasobów usługi Batch, np. puli i zadań, możesz określić plik JSON zawierający konfiguracje nowego zasobu, zamiast przekazywać parametry zasobu w opcjach wiersza polecenia. Przykład:
+Podczas tworzenia zasobów usługi Batch, np. puli i zadań, możesz określić plik JSON zawierający konfiguracje nowego zasobu, zamiast przekazywać parametry zasobu w opcjach wiersza polecenia. Na przykład:
 
 ```azurecli
 az batch pool create my_batch_pool.json

@@ -7,17 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 4d2d33f9d83132147b5b257ffcd6d659f272b8ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3c4e5fa4ce960f8113504b52aa0d5055bf1bf85a
+ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81730715"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83722715"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Tworzenie zasobów technicznych maszyny wirtualnej platformy Azure
-
-> [!IMPORTANT]
-> Przenosimy zarządzanie ofertami maszyn wirtualnych platformy Azure z usługi portal Cloud Partner do Centrum partnerskiego. Dopóki Twoje oferty nie zostaną zmigrowane, postępuj zgodnie z instrukcjami w temacie [Tworzenie zasobów technicznych dla maszyny wirtualnej, aby uzyskać Portal Cloud partner](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/virtual-machine/cpp-create-technical-assets) zarządzanie ofertami.
 
 W tym artykule opisano sposób tworzenia i konfigurowania zasobów technicznych dla oferty maszyny wirtualnej (VM) dla witryny Azure Marketplace. Maszyna wirtualna zawiera dwa składniki: wirtualny dysk twardy (VHD) systemu operacyjnego i opcjonalne skojarzone dyski danych VHD:
 
@@ -270,7 +267,7 @@ Poniższy proces uogólni maszynę wirtualną z systemem Linux i ponownie wdraż
 1. **Usuwanie agenta systemu Linux platformy Azure**
 
     1. Nawiązywanie połączenia z maszyną wirtualną z systemem Linux przy użyciu klienta SSH.
-    2. W oknie SSH wprowadź następujące polecenie: `sudo waagent -deprovision+user`.
+    2. W oknie SSH wprowadź następujące polecenie: `sudo waagent -deprovision+user` .
     3. Wpisz **Y** , aby kontynuować (parametr **-Force** można dodać do poprzedniego polecenia, aby uniknąć kroku potwierdzenia).
     d. Po zakończeniu wykonywania polecenia wpisz **Exit** , aby zamknąć klienta SSH.
 

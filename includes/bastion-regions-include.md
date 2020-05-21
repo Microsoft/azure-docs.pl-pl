@@ -1,25 +1,25 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 03/05/2020
+ms.date: 05/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 5190804180612e885b226f9b00d82b8d2f528a8a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b4cdb787fe65c52a77fa4761a65e9108e7927c40
+ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78668350"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83721194"
 ---
 >[!NOTE]
 >Pracujemy nad dodaniem dodatkowych regionów. Po dodaniu regionu dodamy go do tej listy.
 >
 
-**Południowej**
+**Ameryka Północna i Południowa**
 * Brazylia Południowa
 * Kanada Środkowa
 * Środkowe stany USA
@@ -35,6 +35,8 @@ ms.locfileid: "78668350"
 * Francja Środkowa
 * Europa Północna
 * Norwegia Wschodnia
+* Norwegia Zachodnia
+* Szwajcaria Północna
 * Południowe Zjednoczone Królestwo
 * Zachodnie Zjednoczone Królestwo
 * Europa Zachodnia
@@ -49,6 +51,7 @@ ms.locfileid: "78668350"
 * Korea Środkowa
 * Korea Południowa
 * Azja Południowo-Wschodnia
+* Indie Środkowe
 * Indie Zachodnie
 
 **Bliski Wschód i Afryka**
