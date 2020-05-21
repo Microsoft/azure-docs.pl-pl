@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 10/01/2019
-  ms.openlocfilehash: 428ff52a94c41a564e023d859f70af6eb56df7fa
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: 35c37f5b2b307bb1a3d90b9876f148b5a1120490
+  ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "80131684"
+  ms.lasthandoff: 05/20/2020
+  ms.locfileid: "83713634"
 landingContent:
 - title: Informacje o przetwarzaniu obrazów
   linkLists:
@@ -124,12 +124,12 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
+    - text: Interfejs API przetwarzania obrazów w wersji 3.0
+      url: https://aka.ms/computer-vision-v3-ref
     - text: Interfejs API przetwarzania obrazów v2.1
       url: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641/operations/56f91f2e778daf14a499f21b
     - text: Interfejs API przetwarzania obrazów v2.0
       url: https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44
-    - text: Interfejs API przetwarzania obrazów v1.0
-      url: https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739
     - text: Zestaw SDK .NET
       url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
     - text: Zestaw SDK dla języka Python

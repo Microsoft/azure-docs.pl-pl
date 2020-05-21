@@ -10,12 +10,12 @@ metadata:
   ms.author: jushiman
   ms.reviewer: mimckitt
   ms.date: 03/16/2020
-  ms.openlocfilehash: d5cb11bfc45a3d5fa91b242143b025e11c25b3d2
-  ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+  ms.openlocfilehash: 8eff3979088aecf5ea8ed0383a1af8ad0d71c21d
+  ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 05/12/2020
-  ms.locfileid: "83197563"
+  ms.lasthandoff: 05/20/2020
+  ms.locfileid: "83701341"
 landingContent:
 - title: Informacje o zestawach skalowania maszyn wirtualnych
   linkLists:
@@ -69,14 +69,6 @@ landingContent:
       url: tutorial-autoscale-cli.md
     - text: Autoskalowanie zestawu skalowania przy użyciu programu Azure PowerShell
       url: tutorial-autoscale-powershell.md
-- title: Samples
-  linkLists:
-  - linkListType: sample
-    links:
-    - text: Przykładowe wdrożenie zestawów skalowania maszyn wirtualnych za pomocą interfejs wiersza polecenia platformy Azure
-      url: cli-samples.md
-    - text: Przykładowe wdrożenie zestawów skalowania maszyn wirtualnych za pomocą programu Azure PowerShell
-      url: powershell-samples.md
 - title: Samodzielne szkolenie
   linkLists:
   - linkListType: learn

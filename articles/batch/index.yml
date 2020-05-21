@@ -4,18 +4,17 @@ summary: Usługa Azure Batch wydajnie uruchamia aplikacje o dużej skali w chmur
 metadata:
   title: Dokumentacja usługi Azure Batch
   description: Usługa Azure Batch wydajnie uruchamia aplikacje o dużej skali w chmurze. Zaplanuj zadania intensywnie korzystające z mocy obliczeniowej i dynamicznie dopasowuj zasoby dla rozwiązania bez zarządzania infrastrukturą.
-  services: batch
   ms.service: batch
   ms.topic: landing-page
-  author: LauraBrenner
-  ms.author: labrenne
+  author: JnHs
+  ms.author: jenhayes
   ms.date: 09/23/2019
-  ms.openlocfilehash: d44ef419ec93e890ac1f8696d3ee45aadd3cd26f
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 72c72d8125d9d7d4e3f3e00ad0ee8d99acd501c0
+  ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "77026068"
+  ms.lasthandoff: 05/21/2020
+  ms.locfileid: "83725707"
 landingContent:
 - title: Informacje o usłudze Azure Batch
   linkLists:
@@ -27,13 +26,13 @@ landingContent:
     links:
     - text: Bezpłatne szkolenie wideo firmy PluralSight
       url: https://app.pluralsight.com/library/courses/microsoft-azure-batch-getting-started/table-of-contents
-- title: Wprowadzenie
+- title: Rozpoczęcie pracy
   linkLists:
   - linkListType: quickstart
     links:
     - text: Interfejs wiersza polecenia platformy Azure
       url: quick-create-cli.md
-    - text: Portal Azure
+    - text: Azure Portal
       url: quick-create-portal.md
     - text: Interfejs API .NET
       url: quick-run-dotnet.md
@@ -77,7 +76,7 @@ landingContent:
       url: batch-pool-vm-sizes.md
     - text: Limity przydziału i ograniczenia
       url: batch-quota-limit.md
-    - text: Najlepsze praktyki
+    - text: Najlepsze rozwiązania
       url: best-practices.md
 - title: Dokumentacja interfejsu API
   linkLists:

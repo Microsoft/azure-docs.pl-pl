@@ -81,6 +81,11 @@
       href: tutorial-firmware-update.md
     - name: Testowanie łączności urządzenia
       href: tutorial-connectivity.md
+- name: Samples
+  items:
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./policy-samples.md
 - name: Pojęcia
   items:
     - name: Obsługa protokołu TLS

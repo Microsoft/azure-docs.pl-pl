@@ -16,7 +16,7 @@
   expanded: true
   items:
     - name: Tworzenie prywatnego klastra usługi Azure Red Hat OpenShift 4
-      href: create-private-cluster.md
+      href: howto-create-private-cluster-4x.md
     - name: Konfigurowanie przekazywania DNS dla klastra usługi Azure Red Hat OpenShift 4
       href: dns-forwarding.md
     - name: Konfigurowanie uwierzytelniania usługi Azure Active Directory dla klastra usługi Azure Red Hat OpenShift 4
@@ -48,7 +48,7 @@
         - name: Zarządzanie projektami w klastrze usługi Azure Red Hat OpenShift 3.11
           href: howto-manage-projects.md
         - name: Tworzenie prywatnego klastra usługi Azure Red Hat OpenShift 3.11
-          href: howto-create-private-cluster.md
+          href: howto-create-private-cluster-3x.md
         - name: Monitorowanie i rejestrowanie dla usługi Azure Red Hat OpenShift 3.11
           items:
             - name: Usługa Azure Monitor dla kontenerów w usłudze Azure Red Hat OpenShift 3.11 (wersja zapoznawcza)
