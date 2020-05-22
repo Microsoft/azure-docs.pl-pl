@@ -3,7 +3,7 @@ title: Często zadawane pytania dotyczące wystąpień zarządzanych
 description: SQL Database często zadawane pytania dotyczące wystąpienia zarządzanego
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 99fbda6f6d5e8fc88f9f4f34c6e194412a120057
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 3ffa4bc905a08c1757865db7bab828193ff3c7ea
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82598515"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770146"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>SQL Database często zadawane pytania dotyczące wystąpienia zarządzanego
 
@@ -76,7 +76,7 @@ Aby użyć innej strefy DNS zamiast domyślnego, na przykład *. contoso.com*:
 
 Jeśli wszystkie tabele w bazie danych mają klucze podstawowe, można użyć replikacji transakcyjnej.
 
-Nie `COPY_ONLY` można przywrócić natywnych kopii zapasowych wykonanych z wystąpienia zarządzanego do SQL Server, ponieważ wystąpienie zarządzane ma nowszą wersję bazy danych porównaną z SQL Server.
+Nie można przywrócić natywnych `COPY_ONLY` kopii zapasowych wykonanych z wystąpienia zarządzanego do SQL Server, ponieważ wystąpienie zarządzane ma nowszą wersję bazy danych porównaną z SQL Server.
 
 ## <a name="migrate-instance-db"></a>Migrowanie bazy danych wystąpień
 
@@ -129,7 +129,7 @@ Nie, magazyn kopii zapasowych nie jest odejmowany od przestrzeni dyskowej wystą
 
 Można to zrobić przy użyciu [rozwiązania Azure Cost Management](/azure/cost-management/). Przejdź do **subskrypcji** w [Azure Portal](https://portal.azure.com) i wybierz pozycję **Analiza kosztów**. 
 
-Użyj opcji **skumulowane koszty** , a następnie Przefiltruj według **typu zasobu** jako `microsoft.sql/managedinstances`. 
+Użyj opcji **skumulowane koszty** , a następnie Przefiltruj według **typu zasobu** jako `microsoft.sql/managedinstances` . 
   
 ## <a name="inbound-nsg-rules"></a>Reguły sieciowej grupy zabezpieczeń dla ruchu przychodzącego
 

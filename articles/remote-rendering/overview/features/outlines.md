@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 8b52dbe8cd12e51c42677ce37acbd57ad551ec50
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4f3889a0ba121cb9a3167c1f6ac95f0bed280539
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80680832"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759017"
 ---
 # <a name="outline-rendering"></a>Renderowanie konturów
 
@@ -26,21 +26,33 @@ Klasa `OutlineSettings` przechowuje ustawienia związane z właściwościami kon
 |----------------|---------|---------------------------------------------------------|
 | `Color`          | Color4Ub | Kolor używany do rysowania konspektu. Część alfa jest ignorowana.         |
 | `PulseRateHz`    | float   | Szybkość, z jaką krzywe konspektu na sekundę|
-| `PulseIntensity` | float   | Intensywność efektu impulsu konturu. Musi mieć długość od 0,0 do bez napędu i 1,0 do pełnego napędu. Intensywność ustawia minimalną nieprzezroczystość konspektu `MinOpacity = 1.0 - PulseIntensity`jako. |
+| `PulseIntensity` | float   | Intensywność efektu impulsu konturu. Musi mieć długość od 0,0 do bez napędu i 1,0 do pełnego napędu. Intensywność ustawia minimalną nieprzezroczystość konspektu jako `MinOpacity = 1.0 - PulseIntensity` . |
 
-![Pokreśl](./media/outlines.png) skutki zmiany `color` parametru z żółtego (z lewej) na amarantowy (wyśrodkuj) i `pulseIntensity` od 0 do 0,8 (prawo).
+![Pokreśl ](./media/outlines.png) skutki zmiany `color` parametru z żółtego (z lewej) na amarantowy (wyśrodkuj) i `pulseIntensity` od 0 do 0,8 (prawo).
 
 ## <a name="example"></a>Przykład
 
 Poniższy kod przedstawia przykład ustawiania parametrów konspektu za pośrednictwem interfejsu API:
 
-``` cs
+```cs
 void SetOutlineParameters(AzureSession session)
 {
     OutlineSettings outlineSettings = session.Actions.OutlineSettings;
     outlineSettings.Color = new Color4Ub(255, 255, 0, 255);
     outlineSettings.PulseRateHz = 2.0f;
     outlineSettings.PulseIntensity = 0.5f;
+}
+```
+
+```cpp
+void SetOutlineParameters(ApiHandle<AzureSession> session)
+{
+    ApiHandle<OutlineSettings> outlineSettings = *session->Actions()->OutlineSettings();
+    Color4Ub outlineColor;
+    outlineColor.channels = { 255, 255, 0, 255 };
+    outlineSettings->Color(outlineColor);
+    outlineSettings->PulseRateHz(2.0f);
+    outlineSettings->PulseIntensity(0.5f);
 }
 ```
 

@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5d737b1e85a28661a7491b8d2822e6472538c7a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7832f999de2f6f16cfe816c061925e371f90662e
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617957"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758694"
 ---
 # <a name="models"></a>Modele
 
@@ -36,8 +36,8 @@ Po przekonwertowaniu modelu można go załadować z usługi Azure Blob Storage d
 
 Istnieją dwie odrębne funkcje ładowania, które różnią się w zależności od sposobu, w jaki zasób jest rozliczane w usłudze BLOB Storage:
 
-* Model może być adresem URI sygnatury dostępu współdzielonego. Odpowiednia funkcja ładowania jest `LoadModelFromSASAsync` z parametrem `LoadModelFromSASParams`. Użyj tego wariantu również podczas ładowania [wbudowanych modeli](../samples/sample-model.md).
-* Model może być rozwiązany bezpośrednio przez parametry magazynu obiektów blob, w przypadku gdy [Magazyn obiektów BLOB jest połączony z kontem](../how-tos/create-an-account.md#link-storage-accounts). Odpowiednia funkcja ładowania w tym przypadku jest `LoadModelAsync` parametrem `LoadModelParams`.
+* Model może być adresem URI sygnatury dostępu współdzielonego. Odpowiednia funkcja ładowania jest `LoadModelFromSASAsync` z parametrem `LoadModelFromSASParams` . Użyj tego wariantu również podczas ładowania [wbudowanych modeli](../samples/sample-model.md).
+* Model może być rozwiązany bezpośrednio przez parametry magazynu obiektów blob, w przypadku gdy [Magazyn obiektów BLOB jest połączony z kontem](../how-tos/create-an-account.md#link-storage-accounts). Odpowiednia funkcja ładowania w tym przypadku jest `LoadModelAsync` parametrem `LoadModelParams` .
 
 Poniższe fragmenty kodu przedstawiają sposób ładowania modeli przy użyciu dowolnej funkcji. Aby załadować model przy użyciu identyfikatora URI sygnatury dostępu współdzielonego, należy użyć kodu takiego jak poniższy:
 
@@ -58,6 +58,28 @@ async void LoadModel(AzureSession session, Entity modelParent, string modelUri)
 }
 ```
 
+```cpp
+ApiHandle<LoadModelAsync> LoadModel(ApiHandle<AzureSession> session, ApiHandle<Entity> modelParent, std::string modelUri)
+{
+    LoadModelFromSASParams modelParams;
+    modelParams.ModelUrl = modelUri;
+    modelParams.Parent = modelParent;
+
+    ApiHandle<LoadModelAsync> loadOp = *session->Actions()->LoadModelFromSASAsync(modelParams);
+
+    loadOp->Completed([](const ApiHandle<LoadModelAsync>& async)
+    {
+        printf("Loading: finished.");
+    });
+    loadOp->ProgressUpdated([](float progress)
+    {
+        printf("Loading: %.1f%%", progress*100.f);
+    });
+
+    return loadOp;
+}
+```
+
 Jeśli chcesz załadować model bezpośrednio przy użyciu jego parametrów magazynu obiektów blob, użyj kodu podobnego do poniższego kodu:
 
 ```csharp
@@ -73,6 +95,20 @@ async void LoadModel(AzureSession session, Entity modelParent, string storageAcc
 
     var loadOp = session.Actions.LoadModelAsync(modelParams);
 
+    // ... (identical to the SAS URI snippet above)
+}
+```
+
+```cpp
+ApiHandle<LoadModelAsync> LoadModel(ApiHandle<AzureSession> session, ApiHandle<Entity> modelParent, std::string storageAccount, std::string containerName, std::string assetFilePath)
+{
+    LoadModelParams modelParams;
+    modelParams.Parent = modelParent;
+    modelParams.Blob.StorageAccountName = std::move(storageAccount);
+    modelParams.Blob.BlobContainerName = std::move(containerName);
+    modelParams.Blob.AssetPath = std::move(assetFilePath);
+
+    ApiHandle<LoadModelAsync> loadOp = *session->Actions()->LoadModelAsync(modelParams);
     // ... (identical to the SAS URI snippet above)
 }
 ```

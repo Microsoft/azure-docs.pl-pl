@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d6212692465270182db541889bed5f03a08a345
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fa952e0a237ca30a3bd109f51ee45c2f4dafa533
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74008289"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758269"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Analizowanie dzienników aktywności usługi Azure AD za pomocą dzienników Azure Monitor
 
@@ -60,8 +60,8 @@ Dzienniki są wypychane do tabel **AuditLogs** i **SigninLogs** w obszarze roboc
 
 1. W obszarze domyślny widok zapytania w poprzedniej sekcji Wybierz pozycję **schemat** i rozwiń obszar roboczy. 
 
-2. Rozwiń sekcję **Zarządzanie dziennikami** , a następnie rozwiń pozycję **AuditLogs** lub **SignInLogs** , aby wyświetlić schemat dziennika.
-    ![Dzienniki inspekcji](./media/howto-analyze-activity-logs-log-analytics/auditlogschema.png) ![dzienników logowania](./media/howto-analyze-activity-logs-log-analytics/signinlogschema.png)
+2. Rozwiń sekcję **Zarządzanie dziennikami** , a następnie rozwiń pozycję **AuditLogs** lub **SigninLogs** , aby wyświetlić schemat dziennika.
+    ![Dzienniki inspekcji dzienników ](./media/howto-analyze-activity-logs-log-analytics/auditlogschema.png) ![ logowania](./media/howto-analyze-activity-logs-log-analytics/signinlogschema.png)
 
 ## <a name="query-the-azure-ad-activity-logs"></a>Wykonywanie zapytań względem dzienników aktywności usługi Azure AD
 

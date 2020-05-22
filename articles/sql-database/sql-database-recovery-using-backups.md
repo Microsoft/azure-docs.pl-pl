@@ -3,7 +3,7 @@ title: Przywracanie bazy danych z kopii zapasowej
 description: Dowiedz się więcej o przywracaniu do punktu w czasie, który umożliwia wycofanie bazy danych Azure SQL Database do 35 dni.
 services: sql-database
 ms.service: sql-database
-ms.subservice: backup-restore
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: b98331a9cdb359aeefac5db1546f3a15b54010ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: da841c2f1280bc0dc126e43a9f618e170d0d2553
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79268745"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770690"
 ---
 # <a name="recover-an-azure-sql-database-by-using-automated-database-backups"></a>Odzyskiwanie bazy danych Azure SQL Database przy użyciu zautomatyzowanych kopii zapasowych bazy danych
 
@@ -147,7 +147,7 @@ Z Azure Portal można utworzyć nową bazę danych wystąpienia z jedną lub zar
 
 Aby przywrócić geograficzną pojedynczą bazę danych SQL z Azure Portal w wybranym regionie i serwerze, wykonaj następujące kroki:
 
-1. Z poziomu **pulpitu nawigacyjnego**wybierz pozycję **Dodaj** > **Utwórz SQL Database**. Na karcie **podstawowe** wprowadź wymagane informacje.
+1. Z poziomu **pulpitu nawigacyjnego**wybierz pozycję **Dodaj**  >  **Utwórz SQL Database**. Na karcie **podstawowe** wprowadź wymagane informacje.
 2. Wybierz **dodatkowe ustawienia**.
 3. W obszarze **Użyj istniejących danych**wybierz pozycję **kopia zapasowa**.
 4. W obszarze **kopia zapasowa**wybierz pozycję Kopia zapasowa z listy dostępnych kopii zapasowych przywracania geograficznego.

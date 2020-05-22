@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: ffd9919092cdf2481767e58f10ba6525d56ca4a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: baa0ad790491351a17b638ba9d8eb75ed1f355b0
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548456"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758626"
 ---
-# <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identity Management and access control security best practices (Zarządzanie tożsamościami na platformie Azure i najlepsze rozwiązania dotyczące kontroli dostępu)
+# <a name="azure-identity-management-and-access-control-security-best-practices"></a>Najlepsze rozwiązania dotyczące zabezpieczeń usługi Azure Identity Management i kontroli dostępu
 
 W tym artykule omówiono zbieranie najlepszych rozwiązań dotyczących zabezpieczeń usługi Azure Identity Management i kontroli dostępu. Te najlepsze rozwiązania wynikają z naszych doświadczeń związanych z [usługą Azure AD](../../active-directory/fundamentals/active-directory-whatis.md) i środowiskami klientów.
 
@@ -126,10 +126,10 @@ Użytkownicy mogą uzyskiwać dostęp do zasobów organizacji przy użyciu róż
 Aby zrównoważyć bezpieczeństwo i produktywność, należy wziąć pod uwagę sposób uzyskiwania dostępu do zasobów przed podjęciem decyzji o kontroli dostępu. Za pomocą dostępu warunkowego usługi Azure AD można rozwiązać ten wymóg. Przy użyciu dostępu warunkowego można podejmować zautomatyzowane decyzje dotyczące kontroli dostępu w oparciu o warunki dostępu do aplikacji w chmurze.
 
 **Najlepsze rozwiązanie**: zarządzanie dostępem do zasobów firmy i kontrolowanie dostępu do nich.  
-**Szczegóły**: Skonfiguruj [dostęp warunkowy](/azure/active-directory/active-directory-conditional-access-azure-portal) usługi Azure AD na podstawie grupy, lokalizacji i czułości aplikacji dla aplikacji SaaS i usługi Azure AD — połączone aplikacje.
+**Szczegóły**: Skonfiguruj typowe [zasady dostępu warunkowego](../../active-directory/conditional-access/concept-conditional-access-policy-common.md) usługi Azure AD na podstawie grupy, lokalizacji i czułości aplikacji dla aplikacji SaaS i usługi Azure AD — połączone aplikacje.
 
 **Najlepsze rozwiązanie**: Blokuj starsze protokoły uwierzytelniania.
-**Szczegóły**: osoby atakujące wykorzystują luki w starszych protokołach codziennie, szczególnie w przypadku ataków z rozpylaczem hasła. Skonfiguruj dostęp warunkowy, aby blokować starsze protokoły. Aby uzyskać więcej informacji, zobacz film wideo [usługi Azure AD: czy](https://www.youtube.com/watch?v=wGk0J4z90GI) .
+**Szczegóły**: osoby atakujące wykorzystują luki w starszych protokołach codziennie, szczególnie w przypadku ataków z rozpylaczem hasła. Skonfiguruj dostęp warunkowy, aby [blokować starsze protokoły](../../active-directory/conditional-access/howto-conditional-access-policy-block-legacy.md).
 
 ## <a name="plan-for-routine-security-improvements"></a>Planowanie rutynowych usprawnień zabezpieczeń
 
@@ -175,11 +175,11 @@ Ta metoda jest dostępna dla wszystkich warstw licencjonowania, ale nie może by
 Aby określić, gdzie należy włączyć Multi-Factor Authentication, zobacz, [która wersja usługi Azure MFA jest odpowiednia dla mojej organizacji?](/azure/active-directory/authentication/concept-mfa-whichversion).
 
 **Opcja 3**: [Włączanie Multi-Factor Authentication przy użyciu zasad dostępu warunkowego](/azure/active-directory/authentication/howto-mfa-getstarted).
-**Korzyść**: Ta opcja umożliwia wyświetlenie monitu o weryfikację dwuetapową w określonych warunkach przy użyciu [dostępu warunkowego](/azure/active-directory/active-directory-conditional-access-azure-portal). Określone warunki mogą być logowaniem użytkowników z różnych lokalizacji, niezaufanych urządzeń lub aplikacji, które są uważane za ryzykowne. Definiowanie określonych warunków, w których wymagana jest weryfikacja dwuetapowa, pozwala uniknąć stałego monitowania użytkowników, co może być nieprzyjemnym interfejsem użytkownika.
+**Korzyść**: Ta opcja umożliwia wyświetlenie monitu o weryfikację dwuetapową w określonych warunkach przy użyciu [dostępu warunkowego](../../active-directory/conditional-access/concept-conditional-access-policy-common.md). Określone warunki mogą być logowaniem użytkowników z różnych lokalizacji, niezaufanych urządzeń lub aplikacji, które są uważane za ryzykowne. Definiowanie określonych warunków, w których wymagana jest weryfikacja dwuetapowa, pozwala uniknąć stałego monitowania użytkowników, co może być nieprzyjemnym interfejsem użytkownika.
 
 Jest to najbardziej elastyczny sposób na umożliwienie weryfikacji dwuetapowej dla użytkowników. Włączenie zasad dostępu warunkowego działa tylko w przypadku usługi Azure Multi-Factor Authentication w chmurze i jest funkcją Premium usługi Azure AD. Więcej informacji na temat tej metody można znaleźć w temacie [wdrażanie opartego na chmurze Multi-Factor Authentication platformy Azure](/azure/active-directory/authentication/howto-mfa-getstarted).
 
-**Opcja 4**: Włączanie Multi-Factor Authentication przy użyciu zasad dostępu warunkowego poprzez ocenę ryzyka związanego z logowaniem i [Azure AD Identity Protection](/azure/active-directory/authentication/tutorial-risk-based-sspr-mfa).   
+**Opcja 4**: Włącz Multi-Factor Authentication przy użyciu zasad dostępu warunkowego, oceniając [zasady dostępu warunkowego opartego na ryzyku](../../active-directory/conditional-access/howto-conditional-access-policy-risk.md).   
 **Korzyść**: Ta opcja umożliwia:
 
 * Wykrywaj potencjalne luki w zabezpieczeniach, które mają wpływ na tożsamości w organizacji.

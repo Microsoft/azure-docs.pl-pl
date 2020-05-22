@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 62b3445ba841a87f04dbe8c867411814b849be07
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 4fef6102ac2ee69926c1c56af338b6e92670dd71
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682450"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773104"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Korzystanie z udziału plików platformy Azure w systemie Windows
 [Azure Files](storage-files-introduction.md) to łatwy w użyciu system plików w chmurze firmy Microsoft. Udziałów plików platformy Azure można bezproblemowo używać w systemach Windows i Windows Server. W tym artykule omówiono zagadnienia dotyczące korzystania z udziału plików platformy Azure w systemach Windows i Windows Server.
@@ -23,13 +23,13 @@ Z udziałów plików platformy Azure można korzystać w instalacji systemu Wind
 
 | Wersja systemu Windows        | Wersja protokołu SMB | Możliwa instalacja na maszynie wirtualnej platformy Azure | Instalacja lokalna |
 |------------------------|-------------|-----------------------|-----------------------|
-| Windows Server 2019 | SMB 3.0 | Tak | Yes |
-| Windows 10<sup>1</sup> | SMB 3.0 | Tak | Yes |
-| Windows Server semi-annual channel<sup>2</sup> | SMB 3.0 | Tak | Yes |
-| Windows Server 2016 | SMB 3.0 | Tak | Yes |
-| Windows 8.1 | SMB 3.0 | Tak | Yes |
-| Windows Server 2012 R2 | SMB 3.0 | Tak | Yes |
-| Windows Server 2012 | SMB 3.0 | Tak | Yes |
+| Windows Server 2019 | SMB 3.0 | Tak | Tak |
+| Windows 10<sup>1</sup> | SMB 3.0 | Tak | Tak |
+| Windows Server semi-annual channel<sup>2</sup> | SMB 3.0 | Tak | Tak |
+| Windows Server 2016 | SMB 3.0 | Tak | Tak |
+| Windows 8.1 | SMB 3.0 | Tak | Tak |
+| Windows Server 2012 R2 | SMB 3.0 | Tak | Tak |
+| Windows Server 2012 | SMB 3.0 | Tak | Tak |
 | Windows 7<sup>3</sup> | SMB 2.1 | Yes | Nie |
 | Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Yes | Nie |
 
@@ -186,7 +186,7 @@ Remove-PSDrive -Name <desired-drive-letter>
     
     ![Zrzut ekranu przedstawiający menu rozwijane „Mapuj dysk sieciowy”](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-1. Wybierz literę dysku, a następnie wprowadź ścieżkę UNC Format ścieżki UNC `<storageAccountName>.file.core.windows.net/<fileShareName>` . Na przykład: `anexampleaccountname.file.core.windows.net/example-share-name`.
+1. Wybierz literę dysku, a następnie wprowadź ścieżkę UNC Format ścieżki UNC `\\<storageAccountName>.file.core.windows.net\<fileShareName>` . Na przykład: `\\anexampleaccountname.file.core.windows.net\example-share-name`.
     
     ![Zrzut ekranu przedstawiający okno dialogowe „Mapowanie dysku sieciowego”](./media/storage-how-to-use-files-windows/2_MountOnWindows10.png)
 

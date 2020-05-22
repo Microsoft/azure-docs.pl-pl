@@ -8,12 +8,12 @@ ms.subservice: workloads
 ms.topic: overview
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: ae98325d98df1ac8a06e0c0bc950d89cc6b77eda
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 44006bdfd9ffe6e78380adefe9271f42c0a76f84
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82192267"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773283"
 ---
 # <a name="confidential-computing-on-azure"></a>Dane poufne na platformie Azure
 
@@ -42,13 +42,13 @@ Microsoft Azure pomaga zminimalizować obszar narażony na ataki w celu uzyskani
 
 ## <a name="introduction-to-confidential-computing"></a>Wprowadzenie do danych poufnych<a id="intro to acc"></a>
 
-Dane poufne to branżowy termin zdefiniowany przez [konsorcjum poufnego przetwarzania](https://confidentialcomputing.io/) danych (CCC), podstawą do definiowania i przyspieszania wdrażania informacji poufnych. Przetwarzanie poufne polega na ochronie danych używanych podczas wykonywania obliczeń. Obliczenia odbywają się w środowisku zaufanego wykonywania (TEE) sprzętowym.
+Dane poufne polegają na tym, że jest to termin branżowy zdefiniowany przez [konsorcjum, którego poufny](https://confidentialcomputing.io/) wpływ (CCC) — podstawą do definiowania i przyspieszania wdrażania poufnych danych. CCC definiuje charakter poufny jako ochronę danych używanych przez wykonywanie obliczeń w środowisku zaufanego środowiska wykonawczego (TEE) opartym na sprzęcie.
 
 TEE to środowisko, które wymusza wykonywanie tylko autoryzowanego kodu. Wszystkie dane w TEE nie mogą zostać odczytane ani naruszone przez żaden kod poza tym środowiskiem.
 
-### <a name="enclaves-and-trusted-execution-environments"></a>Enclaves i zaufane środowiska wykonawcze
+### <a name="enclaves"></a>Enclaves
 
-W kontekście obliczeń poufnych TEEs są często określane jako *enclaves* lub *Secure enclaves*. Enclaves są zabezpieczonymi częściami procesora sprzętowego i pamięci. Nie ma możliwości wyświetlania danych ani kodu w enklawy, nawet z debugerem. Jeśli niezaufany kod próbuje zmodyfikować zawartość w pamięci enklawy, środowisko zostanie wyłączone, a operacje zostaną odrzucone.
+Enclaves są zabezpieczonymi częściami procesora sprzętowego i pamięci. Nie ma możliwości wyświetlania danych ani kodu w enklawy, nawet z debugerem. Jeśli niezaufany kod próbuje zmodyfikować zawartość w pamięci enklawy, środowisko zostanie wyłączone, a operacje zostaną odrzucone.
 
 Podczas tworzenia aplikacji można używać [narzędzi programowych](#oe-sdk) do osłony fragmentów kodu i danych w enklawy. Narzędzia te zapewniają, że kod i dane nie mogą być wyświetlane ani modyfikowane przez żadną osobę spoza zaufanego środowiska. 
 
@@ -96,11 +96,11 @@ Aplikacja skompilowana za pomocą enclaves jest partycjonowana na dwa sposoby:
 1. Składnik "niezaufany" (Host)
 1. Składnik "zaufany" (enklawy)
 
-**Host** jest aplikacją enklawy działającą w niezaufanym środowisku. Kod na hoście nie może uzyskać dostępu do kodu załadowanego do enklawy. 
+**Host** jest miejscem, w którym aplikacja enklawy jest uruchomiona w systemie i jest środowiskiem niezaufanym. Na hoście nie można uzyskać dostępu do kodu enklawy wdrożonego na hoście. 
 
-**Enklawy** to miejsce, w którym kod i dane są uruchamiane wewnątrz implementacji tee. Aby zapewnić ochronę wpisów tajnych i poufnych danych, należy wykonać bezpieczne obliczenia w enklawy. 
+**Enklawy polega na** tym, że kod aplikacji i jego buforowane dane/pamięć są uruchamiane. Aby zapewnić tajne i poufne dane, ochrona powinna być wykonywana w enclaves. 
 
-Po rozpoczęciu tworzenia aplikacji enklawy należy określić kod i dane wymagające ochrony. Kod wybrany do umieszczenia w zaufanym składniku jest odizolowany od reszty aplikacji. Po zainicjowaniu enklawy i załadowaniu kodu do pamięci kod nie może zostać odczytany lub zmieniony z zewnątrz chronionego środowiska.
+Podczas projektowania aplikacji ważne jest, aby identyfikować i określić, jaka część aplikacji musi być uruchamiana w enclaves. Kod wybrany do umieszczenia w zaufanym składniku jest odizolowany od reszty aplikacji. Po zainicjowaniu enklawy i załadowaniu kodu do pamięci kod nie może zostać odczytany lub zmieniony z niezaufanych składników. 
 
 ### <a name="open-enclave-software-development-kit-oe-sdk"></a>Otwórz zestaw enklawy Software Development Kit (zestaw SDK programu OE)<a id="oe-sdk"></a>
 

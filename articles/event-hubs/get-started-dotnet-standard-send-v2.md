@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/20/2020
 ms.author: spelluru
-ms.openlocfilehash: fd4b41cc2fe97ad0c2f075884e21f4f2ffc01561
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 44e77330e6a651a93b1f88fa6b20450ebc2b1455
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82159458"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773991"
 ---
-# <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-core-azuremessagingeventhubs"></a>Wysyłanie zdarzeń do i odbieranie zdarzeń z usługi Azure Event Hubs — .NET Core (Azure. Messaging. EventHubs) 
-W tym przewodniku szybki start pokazano, jak wysyłać zdarzenia do i odbierać zdarzenia z centrum zdarzeń przy użyciu biblioteki podstawowej platformy .NET **Azure. Messaging. EventHubs** . 
+# <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-azuremessagingeventhubs"></a>Wysyłanie zdarzeń do i odbieranie zdarzeń z usługi Azure Event Hubs — .NET (Azure. Messaging. EventHubs) 
+W tym przewodniku szybki start pokazano, jak wysyłać zdarzenia do i odbierać zdarzenia z centrum zdarzeń przy użyciu biblioteki platformy .NET **Azure. Messaging. EventHubs** . 
 
 > [!IMPORTANT]
 > Ten przewodnik Szybki Start używa nowej biblioteki **Azure. Messaging. EventHubs** . Aby uzyskać szybki Start, który używa starej biblioteki **Microsoft. Azure. EventHubs** , zobacz [wysyłanie i odbieranie zdarzeń za pomocą biblioteki Microsoft. Azure. EventHubs](event-hubs-dotnet-standard-getstarted-send.md). 
@@ -34,7 +34,7 @@ Jeśli dopiero zaczynasz w usłudze Azure Event Hubs, zapoznaj się z tematem [E
 Do wykonania kroków tego przewodnika Szybki start niezbędne jest spełnienie następujących wymagań wstępnych:
 
 - **Subskrypcja Microsoft Azure**. Do korzystania z usług platformy Azure, w tym usługi Azure Event Hubs, potrzebna jest subskrypcja.  Jeśli nie masz istniejącego konta platformy Azure, możesz zarejestrować się w celu korzystania z [bezpłatnej wersji próbnej](https://azure.microsoft.com/free/) lub skorzystać z korzyści dla subskrybentów MSDN podczas [tworzenia konta](https://azure.microsoft.com).
-- **Microsoft Visual Studio 2019**. Biblioteka kliencka usługi Azure Event Hubs korzysta z nowych funkcji wprowadzonych w języku C# 8,0.  Nadal można korzystać z biblioteki ze starszymi wersjami języka C#, ale niektóre jej funkcje nie będą dostępne.  Aby włączyć te funkcje, należy [wskazać .NET Core 3,0](/dotnet/standard/frameworks#how-to-specify-target-frameworks) lub [określić wersję językową](/dotnet/csharp/language-reference/configure-language-version#override-a-default) , która ma być używana (8,0 lub nowsza). Jeśli używasz programu Visual Studio, wersje przed programem Visual Studio 2019 nie są zgodne z narzędziami wymaganymi do kompilowania projektów w języku C# 8,0. Program Visual Studio 2019, w tym bezpłatna wersja Community, można pobrać [tutaj](https://visualstudio.microsoft.com/vs/)
+- **Microsoft Visual Studio 2019**. Biblioteka kliencka usługi Azure Event Hubs korzysta z nowych funkcji wprowadzonych w języku C# 8,0.  Nadal można używać biblioteki z poprzednimi wersjami językowymi C#, ale Nowa składnia nie będzie dostępna. Aby skorzystać z pełnej składni, zalecamy skompilowanie z [zestaw .NET Core SDK](https://dotnet.microsoft.com/download) 3,0 lub wyższym i [wersji językowej](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version#override-a-default) ustawionej na `latest` . Jeśli używasz programu Visual Studio, wersje przed programem Visual Studio 2019 nie są zgodne z narzędziami wymaganymi do kompilowania projektów w języku C# 8,0. Program Visual Studio 2019, w tym bezpłatna wersja Community, można pobrać [tutaj](https://visualstudio.microsoft.com/vs/).
 - **Utwórz przestrzeń nazw Event Hubs i centrum zdarzeń**. Pierwszym krokiem jest użycie [Azure Portal](https://portal.azure.com) do utworzenia przestrzeni nazw typu Event Hubs i uzyskanie poświadczeń zarządzania wymaganych przez aplikację do komunikacji z centrum zdarzeń. Aby utworzyć przestrzeń nazw i centrum zdarzeń, wykonaj procedurę opisaną w [tym artykule](event-hubs-create.md). Następnie Pobierz **Parametry połączenia dla przestrzeni nazw Event Hubs** , wykonując instrukcje z artykułu: [pobieranie parametrów połączenia](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Parametry połączenia są używane w dalszej części tego przewodnika Szybki Start.
 
 ## <a name="send-events"></a>Wysyłanie zdarzeń 
@@ -57,7 +57,7 @@ W tej sekcji przedstawiono sposób tworzenia aplikacji konsolowej .NET Core w ce
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Dodawanie pakietu NuGet usługi Event Hubs
 
-1. Wybierz kolejno pozycje **Narzędzia** > **Menedżer pakietów** > NuGet**konsola Menedżera** pakietów z menu. 
+1. Wybierz kolejno pozycje **Narzędzia**Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera** pakietów z menu. 
 1. Uruchom następujące polecenie, aby zainstalować pakiet NuGet **Azure. Messaging. EventHubs** :
 
     ```cmd
@@ -139,7 +139,7 @@ W tym przewodniku szybki start użyjesz usługi Azure Storage jako magazynu punk
 
 ### <a name="add-the-event-hubs-nuget-package"></a>Dodawanie pakietu NuGet usługi Event Hubs
 
-1. Wybierz kolejno pozycje **Narzędzia** > **Menedżer pakietów** > NuGet**konsola Menedżera** pakietów z menu. 
+1. Wybierz kolejno pozycje **Narzędzia**Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera** pakietów z menu. 
 1. Uruchom następujące polecenie, aby zainstalować pakiet NuGet **Azure. Messaging. EventHubs** :
 
     ```cmd

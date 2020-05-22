@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: d7b9ecd048b080ae0ec9fd3fb7a4fb35009551b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7981a28db23ab8c0aed05013dd260ffd97a11c07
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681950"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758728"
 ---
 # <a name="entities"></a>Jednostki
 
@@ -22,7 +22,7 @@ Jednostki mają transformację zdefiniowaną przez pozycję, rotację i skalę. 
 
 Najważniejszym aspektem samej jednostki jest hierarchia i wyniki transformacji hierarchicznej. Na przykład jeśli wiele jednostek jest dołączanych jako elementy podrzędne do współużytkowanej jednostki nadrzędnej, wszystkie te jednostki można przenieść, obrócić i skalować w artykułem, zmieniając transformację jednostki nadrzędnej.
 
-Obiekt jest jednoznacznie własnością elementu nadrzędnego, co oznacza, że gdy element nadrzędny zostanie zniszczony `Entity.Destroy()`za pomocą, to są jego elementy podrzędne i wszystkie połączone [składniki](components.md). W ten sposób usuwanie modelu z sceny odbywa się przez wywołanie `Destroy` na głównym węźle modelu, zwrócone przez `AzureSession.Actions.LoadModelAsync()` lub jego wariant `AzureSession.Actions.LoadModelFromSASAsync()`SAS.
+Obiekt jest jednoznacznie własnością elementu nadrzędnego, co oznacza, że gdy element nadrzędny zostanie zniszczony za pomocą `Entity.Destroy()` , to są jego elementy podrzędne i wszystkie połączone [składniki](components.md). W ten sposób usuwanie modelu z sceny odbywa się przez wywołanie `Destroy` na głównym węźle modelu, zwrócone przez `AzureSession.Actions.LoadModelAsync()` lub jego wariant SAS `AzureSession.Actions.LoadModelFromSASAsync()` .
 
 Jednostki są tworzone, gdy serwer załaduje zawartość lub kiedy użytkownik chce dodać obiekt do sceny. Na przykład jeśli użytkownik chce dodać płaszczyznę wycinania w celu wizualizacji wnętrza siatki, użytkownik może utworzyć jednostkę, w której powinna istnieć płaszczyzna, a następnie dodać do niej składnik wycinania płaszczyzny.
 
@@ -32,13 +32,20 @@ Istnieją dwa typy funkcji zapytania dotyczące jednostek: wywołań synchronicz
 
 ### <a name="querying-components"></a>Wykonywanie zapytań dotyczących składników
 
-Aby znaleźć składnik określonego typu, użyj `FindComponentOfType`:
+Aby znaleźć składnik określonego typu, użyj `FindComponentOfType` :
 
 ```cs
 CutPlaneComponent cutplane = (CutPlaneComponent)entity.FindComponentOfType(ObjectType.CutPlaneComponent);
 
 // or alternatively:
 CutPlaneComponent cutplane = entity.FindComponentOfType<CutPlaneComponent>();
+```
+
+```cpp
+ApiHandle<CutPlaneComponent> cutplane = entity->FindComponentOfType(ObjectType::CutPlaneComponent)->as<CutPlaneComponent>();
+
+// or alternatively:
+ApiHandle<CutPlaneComponent> cutplane = *entity->FindComponentOfType<CutPlaneComponent>();
 ```
 
 ### <a name="querying-transforms"></a>Wykonywanie zapytań o przekształcenia
@@ -53,6 +60,13 @@ Zapytania transformacji są wywołaniami synchronicznymi dla obiektu. Należy pa
 Double3 translation = entity.Position;
 Quaternion rotation = entity.Rotation;
 ```
+
+```cpp
+// local space transform of the entity
+Double3 translation = *entity->Position();
+Quaternion rotation = *entity->Rotation();
+```
+
 
 ### <a name="querying-spatial-bounds"></a>Wykonywanie zapytania dotyczącego granic przestrzennych
 
@@ -77,6 +91,21 @@ metaDataQuery.Completed += (MetadataQueryAsync query) =>
         // ...
     }
 };
+```
+
+```cpp
+ApiHandle<MetadataQueryAsync> metaDataQuery = *entity->QueryMetaDataAsync();
+metaDataQuery->Completed([](const ApiHandle<MetadataQueryAsync>& query)
+    {
+        if (query->IsRanToCompletion())
+        {
+            ApiHandle<ObjectMetaData> metaData = *query->Result();
+            ApiHandle<ObjectMetaDataEntry> entry = *metaData->GetMetadataByName("MyInt64Value");
+            int64_t intValue = *entry->AsInt64();
+
+            // ...
+        }
+    });
 ```
 
 Zapytanie powiedzie się, nawet jeśli obiekt nie zawiera żadnych metadanych.

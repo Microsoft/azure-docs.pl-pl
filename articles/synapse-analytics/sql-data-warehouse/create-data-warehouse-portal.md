@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: Kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 9605d20fa6a1480b24d7b64963aa9579ed3b5a11
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e393b653ecb9e9d7b8eff277b91215ccc5bf6342
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81115178"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770826"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>Szybki Start: Tworzenie puli SQL Synapse i wykonywanie na niej zapytań przy użyciu Azure Portal
 
@@ -66,7 +66,11 @@ Wykonaj następujące kroki, aby utworzyć pulę SQL zawierającą przykładowe 
 
    Aby uzyskać więcej informacji na temat poziomów wydajności, zobacz [Zarządzanie obliczeniami w Azure SQL Data Warehouse](sql-data-warehouse-manage-compute-overview.md).
 
-5. Po zakończeniu karty podstawowe w formularzu analizy usługi Azure Synapse wybierz pozycję **Przegląd + Utwórz** , a następnie **Utwórz** , aby utworzyć pulę SQL. Aprowizacja zajmuje kilka minut.
+5. Wybierz pozycję **dodatkowe ustawienia**, w obszarze **Użyj istniejących danych**wybierz pozycję **przykład** , aby AdventureWorksDW zostanie utworzony jako Przykładowa baza danych.
+
+    ![Wybierz pozycję Użyj istniejących danych](./media/create-data-warehouse-portal/create-sql-pool-additional-1.png) 
+
+6. Po zakończeniu karty podstawowe w formularzu analizy usługi Azure Synapse wybierz pozycję **Przegląd + Utwórz** , a następnie **Utwórz** , aby utworzyć pulę SQL. Aprowizacja zajmuje kilka minut.
 
    ![Wybieranie opcji Recenzja + tworzenie](./media/create-data-warehouse-portal/create-sql-pool-review-create.png)
 
@@ -135,7 +139,7 @@ W tej sekcji używany jest program [SQL Server Management Studio](/sql/ssms/down
    | Typ serwera | Aparat bazy danych | Ta wartość jest wymagana |
    | Nazwa serwera | W pełni kwalifikowana nazwa serwera | Oto przykład: **sqlpoolservername.Database.Windows.NET**. |
    | Authentication | Uwierzytelnianie programu SQL Server | Uwierzytelnianie SQL to jedyny typ uwierzytelniania skonfigurowany w tym samouczku. |
-   | Logowanie | Konto administratora serwera | Konto określone podczas tworzenia serwera. |
+   | Zaloguj się | Konto administratora serwera | Konto określone podczas tworzenia serwera. |
    | Hasło | Hasło konta administratora serwera | Hasło określone podczas tworzenia serwera. |
    ||||
 
@@ -148,6 +152,8 @@ W tej sekcji używany jest program [SQL Server Management Studio](/sql/ssms/down
    ![obiekty bazy danych](./media/create-data-warehouse-portal/connected-ssms.png)
 
 ## <a name="run-some-queries"></a>Uruchamianie zapytań
+
+Nie zaleca się uruchamiania dużych zapytań podczas rejestrowania jako administrator serwera, ponieważ używa ona [ograniczonej klasy zasobów](resource-classes-for-workload-management.md). Zamiast tego należy skonfigurować [izolację obciążenia](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-tsql) , jak [pokazano w samouczkach](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/load-data-wideworldimportersdw#create-a-user-for-loading-data).
 
 Usługa SQL Data Warehouse używa T-SQL jako języka zapytań. Aby otworzyć okno zapytania i uruchomić kilka zapytań T-SQL, użyj następujących kroków:
 
@@ -172,7 +178,7 @@ Usługa SQL Data Warehouse używa T-SQL jako języka zapytań. Aby otworzyć okn
 
    ![Zapytanie dotyczące tabeli dbo.dimCustomer](./media/create-data-warehouse-portal/query-customer.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Opłaty są naliczane za jednostki magazynu danych i dane przechowywane w puli SQL. Opłaty za te zasoby obliczeniowe i magazynowe są naliczane osobno.
 
@@ -184,7 +190,7 @@ Wykonaj następujące kroki, aby wyczyścić zasoby, które nie są już potrzeb
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com), wybierz swoją pulę SQL.
 
-   ![Oczyszczanie zasobów](./media/create-data-warehouse-portal/clean-up-resources.png)
+   ![Czyszczenie zasobów](./media/create-data-warehouse-portal/clean-up-resources.png)
 
 2. Aby wstrzymać obliczenia, wybierz przycisk **Wstrzymaj** . Gdy pula SQL jest wstrzymana, zobaczysz przycisk **Wznów** . Aby wznowić obliczanie, wybierz pozycję **Wznów**.
 

@@ -1,5 +1,6 @@
 ---
 title: Wskazówki dla deweloperów dotyczące Azure Active Directory dostępu warunkowego
+titleSuffix: Microsoft identity platform
 description: Wskazówki dla deweloperów i scenariusze dotyczące dostępu warunkowego usługi Azure AD i platformy tożsamości firmy Microsoft.
 services: active-directory
 keywords: ''
@@ -7,28 +8,28 @@ author: rwike77
 manager: CelesteDG
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
-ms.date: 03/16/2020
+ms.date: 05/18/2020
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
-ms.openlocfilehash: 4aaeb2ab6e22107d8c9edfbce45c4ae212e8649f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6b31a03a6367c9c6f2025c1544b59c95b3f69175
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83640425"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771081"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Wskazówki dla deweloperów dotyczące Azure Active Directory dostępu warunkowego
 
 Funkcja dostępu warunkowego w usłudze Azure Active Directory (Azure AD) oferuje jeden z kilku sposobów zabezpieczania aplikacji oraz ochrony usługi. Dostęp warunkowy umożliwia deweloperom i klientom korporacyjnym ochronę usług na wiele sposobów, takich jak:
 
-* Uwierzytelnianie wieloskładnikowe
+* [Uwierzytelnianie wieloskładnikowe](../authentication/concept-mfa-howitworks.md)
 * Zezwalanie na dostęp do określonych usług tylko zarejestrowanym urządzeniom usługi Intune
 * Ograniczanie lokalizacji użytkowników i zakresów adresów IP
 
-Aby uzyskać więcej informacji na temat pełnych możliwości dostępu warunkowego, zobacz [dostęp warunkowy w Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
+Aby uzyskać więcej informacji na temat pełnych możliwości dostępu warunkowego, zobacz artykuł [co to jest dostęp warunkowy](../conditional-access/overview.md).
 
 W przypadku deweloperów tworzących aplikacje dla usługi Azure AD w tym artykule przedstawiono sposób korzystania z dostępu warunkowego, a także informacje o wpływie dostępu do zasobów, do których nie ma kontroli, które mogą mieć zastosowane zasady dostępu warunkowego. W tym artykule omówiono także skutki dostępu warunkowego w ramach przepływu, aplikacji sieci Web, uzyskiwania dostępu do Microsoft Graph i wywoływania interfejsów API.
 
@@ -175,9 +176,9 @@ error_description=AADSTS50076: Due to a configuration change made by your admini
 
 Nasza aplikacja musi przechwycić `error=interaction_required` . Aplikacja może następnie korzystać z `acquireTokenPopup()` lub `acquireTokenRedirect()` w tym samym zasobie. Użytkownik musi przeprowadzić uwierzytelnianie wieloskładnikowe. Po zakończeniu uwierzytelniania wieloskładnikowego przez użytkownika aplikacja zostanie wystawiona jako nowy token dostępu dla żądanego zasobu.
 
-Aby wypróbować ten scenariusz, zapoznaj się [z naszym Przykładem Spa](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/master/Microsoft.Identity.Web/README.md#handle-conditional-access). Ten przykładowy kod korzysta z zasad dostępu warunkowego i internetowego interfejsu API, który został zarejestrowany wcześniej przy użyciu protokołu JS SPA, aby przedstawić ten scenariusz. Pokazuje, jak prawidłowo obsługiwać wyzwanie oświadczeń i uzyskać token dostępu, który może być używany przez internetowy interfejs API. Alternatywnie można wyewidencjonować ogólny [przykładowy kod kątowy. js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) w celu uzyskania wskazówek dotyczących Spa
+Aby wypróbować ten scenariusz, zapoznaj się [z naszym Przykładem Spa](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/a2b257381b410c765ee01ecb611aa6f98c099eb1/2.%20Web%20API%20now%20calls%20Microsoft%20Graph/README.md). Ten przykładowy kod korzysta z zasad dostępu warunkowego i internetowego interfejsu API, który został zarejestrowany wcześniej przy użyciu protokołu JS SPA, aby przedstawić ten scenariusz. Pokazuje, jak prawidłowo obsługiwać wyzwanie oświadczeń i uzyskać token dostępu, który może być używany przez internetowy interfejs API. Alternatywnie można wyewidencjonować ogólny [przykładowy kod kątowy. js](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) w celu uzyskania wskazówek dotyczących Spa
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * Aby dowiedzieć się więcej o możliwościach, zobacz [dostęp warunkowy w Azure Active Directory](/azure/active-directory/conditional-access/overview).
 * Aby uzyskać więcej przykładów kodu usługi Azure AD, zobacz [przykłady](sample-v2-code.md).

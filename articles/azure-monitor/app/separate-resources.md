@@ -3,12 +3,12 @@ title: Jak zaprojektować wdrożenie Application Insights — jeden z wielu zaso
 description: Bezpośrednia Telemetria do różnych zasobów na potrzeby tworzenia, testowania i tworzenia sygnatur produkcji.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 6df6622cbba251c221533c3307dc194f08e871fb
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 187d84b29e42aa3264417dd66e66c3886b17e92a
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125693"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773695"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Ile zasobów Application Insights należy wdrożyć
 
@@ -138,7 +138,7 @@ Jeśli plik zawiera informację o kompilacji, moduł sieci Web usługi Applicati
 Należy jednak zauważyć, że numer wersji kompilacji jest generowany tylko przez Microsoft Build Engine, a nie przez kompilację dewelopera z programu Visual Studio.
 
 ### <a name="release-annotations"></a>Adnotacje dotyczące wersji
-Jeśli używasz usługi Azure DevOps, możesz [uzyskać znacznik adnotacji](../../azure-monitor/app/annotations.md) dodany do wykresów po każdym wydaniu nowej wersji. Na następującej ilustracji pokazano sposób wyświetlania tego znacznika.
+Jeśli używasz usługi Azure DevOps, możesz [uzyskać znacznik adnotacji](../../azure-monitor/app/annotations.md) dodany do wykresów po każdym wydaniu nowej wersji. 
 
 ## <a name="next-steps"></a>Następne kroki
 

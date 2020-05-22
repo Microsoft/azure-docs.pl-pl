@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 3947bf0dcad598bf52a742c790a2f99538d6facb
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 642f2705f54fe8f84cfde7ff039c9a723be59595
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116418"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770963"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Jakie metody uwierzytelniania i weryfikacji są dostępne w Azure Active Directory?
 
@@ -31,14 +31,15 @@ Użytkownik w usłudze Azure AD może wybrać uwierzytelnianie przy użyciu jedn
 
 Wiele kont w usłudze Azure AD jest włączonych do samoobsługowego resetowania hasła (SSPR) lub Multi-Factor Authentication platformy Azure. Te funkcje obejmują dodatkowe metody weryfikacji, takie jak rozmowa telefoniczna lub pytania zabezpieczające. Zaleca się, aby użytkownicy musieli zarejestrować wiele metod weryfikacji. Jeśli jedna metoda nie jest dostępna dla użytkownika, może zdecydować się na uwierzytelnienie przy użyciu innej metody.
 
-W poniższej tabeli opisano, jakie metody uwierzytelniania i weryfikacji są dostępne dla różnych scenariuszy:
+W poniższej tabeli opisano, jakie metody są dostępne dla uwierzytelniania podstawowego lub pomocniczego:
 
-| Metoda | Używane podczas logowania | Użyj podczas weryfikacji |
+| Metoda | Uwierzytelnianie podstawowe | Uwierzytelnianie pomocnicze |
 | --- | --- | --- |
-| [Hasło](#password) | Yes | Uwierzytelnianie MFA i SSPR |
+| [Hasło](#password) | Tak | |
 | [Aplikacja Microsoft Authenticator](#microsoft-authenticator-app) | Tak (wersja zapoznawcza) | Uwierzytelnianie MFA i SSPR |
-| [Klucze zabezpieczeń FIDO2 (wersja zapoznawcza)](#fido2-security-keys) | Yes | Tylko MFA |
-| [Tokeny sprzętowe OATH (wersja zapoznawcza)](#oath-hardware-tokens) | Yes | SSPR i MFA |
+| [Klucze zabezpieczeń FIDO2 (wersja zapoznawcza)](#fido2-security-keys) | Tak | Tylko MFA |
+| [Tokeny oprogramowania OATH](#oath-software-tokens) | Nie | Funkcja |
+| [Tokeny sprzętowe OATH (wersja zapoznawcza)](#oath-hardware-tokens-preview) | Tak | Funkcja |
 | [SMS](#phone-options) | Tak (wersja zapoznawcza) | Uwierzytelnianie MFA i SSPR |
 | [Połączenie głosowe](#phone-options) | Nie | Uwierzytelnianie MFA i SSPR |
 | [Pytania zabezpieczające](#security-questions) | Nie | Tylko SSPR |
@@ -73,7 +74,7 @@ Aplikacja Authenticator może pomóc zapobiec nieautoryzowanemu dostępowi do ko
 ![Zrzut ekranu przedstawiający przykładowy monit przeglądarki sieci Web dla powiadomienia aplikacji uwierzytelniania w celu ukończenia procesu logowania](media/tutorial-enable-azure-mfa/azure-multi-factor-authentication-browser-prompt.png)
 
 > [!NOTE]
-> Jeśli Twoja organizacja ma pracę w podróży lub podróżuje z Chin, *powiadomienie za pomocą metody aplikacji mobilnej* na urządzeniach z systemem Android nie działa w tym kraju. Dla tych użytkowników należy udostępnić alternatywne metody uwierzytelniania.
+> Jeśli Twoja organizacja ma pracę w podróży lub podróżuje z Chinami, *powiadomienie za pomocą metody aplikacji mobilnej* na urządzeniach z systemem Android nie działa w tym kraju/regionie. Dla tych użytkowników należy udostępnić alternatywne metody uwierzytelniania.
 
 ### <a name="verification-code-from-mobile-app"></a>Kod weryfikacyjny z aplikacji mobilnej
 
@@ -96,15 +97,29 @@ Użytkownicy mogą rejestrować i wybierać klucz zabezpieczeń FIDO2 w interfej
 
 Klucze zabezpieczeń FIDO2 w usłudze Azure AD są obecnie dostępne w wersji zapoznawczej. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
 
-## <a name="oath-hardware-tokens"></a>Tokeny sprzętowe OATH
+## <a name="oath-tokens"></a>Tokeny OATH
 
-OATH to otwarty standard, który określa sposób generowania kodów haseł jednorazowych (OTP). Usługa Azure AD obsługuje użycie tokenów SHA-TOTP w liczbie 2 sekund lub 60 sekund. Klienci mogą zakupić te tokeny od wybranego przez siebie dostawcy.
+TOTP OATH (oparte na czasie, hasło jednorazowe) to otwarty standard, który określa sposób generowania kodów haseł jednorazowych (OTP). TOTP OATH można zaimplementować przy użyciu oprogramowania lub sprzętu w celu wygenerowania kodów. Usługa Azure AD nie obsługuje HOTP OATH, innego standardu generowania kodu.
 
-Klucze tajne są ograniczone do 128 znaków, które mogą nie być zgodne ze wszystkimi tokenami. Klucz tajny może zawierać tylko znaki *a-z* lub *a-z* i cyfry *1-7*, a także musi być zakodowany w *Base32*.
+### <a name="oath-software-tokens"></a>Tokeny oprogramowania OATH
 
-Tokeny sprzętowe OATH w usłudze Azure AD są obecnie dostępne w wersji zapoznawczej. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)zapoznawczych Microsoft Azure.
+Tokeny OATH oprogramowania są zazwyczaj aplikacjami, takimi jak aplikacja Microsoft Authenticator i inne aplikacje uwierzytelniające. Usługa Azure AD generuje klucz tajny lub inicjator, który jest wprowadzany do aplikacji i użyty do wygenerowania każdego uwierzytelniania OTP.
 
-![Przekazywanie tokenów OATH do okna tokenów OATH usługi MFA](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
+Aplikacja Authenticator automatycznie generuje kody po skonfigurowaniu do wykonywania powiadomień wypychanych, aby użytkownik miał kopię zapasową nawet wtedy, gdy ich urządzenie nie ma łączności. Można również użyć aplikacji innych firm, które używają TOTP OATH do generowania kodów.
+
+Niektóre tokeny sprzętowe TOTP OATH są programowalne, co oznacza, że nie są one dostarczane z kluczem tajnym lub wstępnie zaprogramowanym inicjatorem. Te programowalne tokeny sprzętowe można skonfigurować przy użyciu klucza tajnego lub inicjatora uzyskanego w ramach przepływu instalacji tokenu oprogramowania. Klienci mogą zakupić te tokeny od wybranego dostawcy i używać klucza tajnego lub inicjatora w procesie instalacji dostawcy.
+
+### <a name="oath-hardware-tokens-preview"></a>Tokeny sprzętowe OATH (wersja zapoznawcza)
+
+Usługa Azure AD obsługuje użycie tokenów TOTP SHA-1, które odświeżają kody co 30 lub 60 sekund. Klienci mogą zakupić te tokeny od wybranego przez siebie dostawcy.
+
+Tokeny sprzętowe TOTP OATH zazwyczaj pochodzą z kluczem tajnym lub inicjatorem, który jest wstępnie zaprogramowany w tokenie. Te klucze muszą być danymi wejściowymi do usługi Azure AD, zgodnie z opisem w poniższych krokach. Klucze tajne są ograniczone do 128 znaków, które mogą nie być zgodne ze wszystkimi tokenami. Klucz tajny może zawierać tylko znaki *a-z* lub *a-z* i cyfry *1-7*, a także musi być zakodowany w *Base32*.
+
+Programowalne tokeny sprzętowe TOTP OATH można również skonfigurować za pomocą usługi Azure AD w przepływie instalacji tokenu oprogramowania.
+
+Tokeny sprzętowe OATH są obsługiwane w ramach publicznej wersji zapoznawczej. Aby uzyskać więcej informacji na temat wersji zapoznawczych, zobacz [dodatkowe warunki użytkowania wersji](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) zapoznawczych Microsoft Azure
+
+![Przekazywanie tokenów OATH do bloku tokenów OATH usługi MFA](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 
 Po uzyskaniu tokenów należy je przekazać w formacie pliku wartości rozdzielanych przecinkami (CSV), w tym nazwy UPN, numeru seryjnego, klucza tajnego, interwału czasu, producenta i modelu, jak pokazano w następującym przykładzie:
 
@@ -116,7 +131,7 @@ Helga@contoso.com,1234567,1234567abcdef1234567abcdef,60,Contoso,HardwareKey
 > [!NOTE]
 > Upewnij się, że dołączysz wiersz nagłówka do pliku CSV.
 
-Po prawidłowym sformatowaniu pliku CSV administrator może następnie zalogować się do Azure Portal, przejść do **Azure Active Directory**  >  **zabezpieczenia**  >  **MFA**  >  **tokeny Oath**usługi MFA i przekazać plik CSV.
+Po poprawnym sformatowaniu pliku CSV administrator może następnie zalogować się do Azure Portal, przejść do **Azure Active Directory > zabezpieczenia > MFA > tokeny Oath**i przekazać plik CSV.
 
 Proces może potrwać kilka minut, w zależności od rozmiaru pliku CSV. Wybierz przycisk **Odśwież** , aby uzyskać bieżący stan. W przypadku wystąpienia błędów w pliku można pobrać plik CSV, który zawiera listę błędów, które należy rozwiązać. Nazwy pól w pobranym pliku CSV różnią się od przekazanej wersji.
 
@@ -133,7 +148,7 @@ Użytkownicy mogą również weryfikować się za pomocą telefonu komórkowego 
 Aby działały prawidłowo, numery telefonów muszą mieć format *+ CountryCode*, na przykład *+ 1 4251234567*.
 
 > [!NOTE]
-> Musi być odstęp między kodem kraju i numerem telefonu.
+> Musi być odstęp między kodem kraju/regionu i numerem telefonu.
 >
 > Resetowanie hasła nie obsługuje rozszerzeń telefonu. Nawet w formacie *4251234567X12345 + 1* rozszerzenia są usuwane przed umieszczeniem wywołania.
 
@@ -167,7 +182,7 @@ Jeśli masz problemy z uwierzytelnianiem za pomocą telefonu w usłudze Azure AD
 
 * Zablokowany identyfikator obiektu wywołującego na pojedynczym urządzeniu.
    * Przejrzyj wszystkie zablokowane numery skonfigurowane na urządzeniu.
-* Nieprawidłowy numer telefonu lub nieprawidłowy kod kraju lub pomyłek między osobistym numerem telefonu a numerem telefonu służbowego.
+* Błędny numer telefonu lub nieprawidłowy kod kraju/regionu lub pomyłek między osobistym numerem telefonu a numerem telefonu służbowego.
    * Rozwiązywanie problemów z obiektem użytkownika i skonfigurowanymi metodami uwierzytelniania. Upewnij się, że zarejestrowano poprawne numery telefonów.
 * Wprowadzono nieprawidłowy kod PIN.
    * Upewnij się, że użytkownik użył poprawnego numeru PIN zarejestrowanego dla swojego konta.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: e60fa73af9bd33c22f8489520b683f244dc46302
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: cbefe2e2b25db7ce16a7a1bde423f60fda412590
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655953"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773359"
 ---
 # <a name="log-analytics-agent-overview"></a>Omówienie agenta Log Analytics
 Agent usługi Azure Log Analytics został opracowany z myślą o rozbudowanym zarządzaniu między maszynami wirtualnymi w każdej chmurze, maszynach lokalnych i tych monitorowanych przez [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/). Agenci systemów Windows i Linux wysyłają zebrane dane z różnych źródeł do obszaru roboczego Log Analytics w Azure Monitor, a także do wszystkich unikatowych dzienników lub metryk zgodnie z definicją w rozwiązaniu monitorowania. Agent Log Analytics obsługuje także szczegółowe informacje i inne usługi w Azure Monitor, takie jak [Azure monitor dla maszyn wirtualnych](../insights/vminsights-enable-overview.md), [Azure Security Center](/azure/security-center/)i [Azure Automation](../../automation/automation-intro.md).
@@ -170,10 +170,10 @@ W poniższej tabeli wymieniono informacje o konfiguracji serwera proxy i zapory,
 
 |Zasób agenta|Porty |Kierunek |Obejście inspekcji HTTPS|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |port 443 |Przychodzące i wychodzące|Yes |  
-|*.oms.opinsights.azure.com |port 443 |Przychodzące i wychodzące|Yes |  
-|*.blob.core.windows.net |port 443 |Przychodzące i wychodzące|Yes |
-|*.azure-automation.net |port 443 |Przychodzące i wychodzące|Yes |
+|*.ods.opinsights.azure.com |port 443 |Wychodzący|Tak |  
+|*.oms.opinsights.azure.com |port 443 |Wychodzący|Tak |  
+|*.blob.core.windows.net |port 443 |Wychodzący|Tak |
+|*.azure-automation.net |port 443 |Wychodzący|Tak |
 
 Informacje dotyczące zapory wymagane do Azure Government można znaleźć w temacie [Azure Government Management](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). 
 

@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c580a39db97e1ce50c3d244db3023bf422bca08
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 16c87eabec8f09f082c258a439a17b9f3aa79336
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837196"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759034"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Zabezpieczanie uprzywilejowanego dostępu dla wdrożeń hybrydowych i wdrożeń w chmurze w usłudze Azure AD
 
@@ -82,7 +82,7 @@ Po włączeniu Azure AD Privileged Identity Management:
 
 4. Otwórz Privileged Identity Management z listy **wszystkie usługi** i przypnij ją do pulpitu nawigacyjnego.
 
-Pierwsza osoba, która ma korzystać z PIM w organizacji, jest przypisywana do ról **administrator zabezpieczeń** i **administrator ról uprzywilejowanych** . Tylko Administratorzy ról uprzywilejowanych mogą zarządzać przypisaniami użytkowników w usłudze Azure AD. Kreator zabezpieczeń PIM przeprowadzi Cię przez początkowe środowisko odnajdywania i przypisywania. Możesz zamknąć kreatora bez wprowadzania żadnych dodatkowych zmian.
+Upewnij się, że pierwsza osoba, która ma korzystać z programu PIM w organizacji, jest przypisana do ról **administrator zabezpieczeń** i **administrator ról uprzywilejowanych** . Tylko Administratorzy ról uprzywilejowanych mogą zarządzać przypisaniami użytkowników w usłudze Azure AD. Kreator zabezpieczeń PIM przeprowadzi Cię przez początkowe środowisko odnajdywania i przypisywania. Możesz zamknąć kreatora bez wprowadzania żadnych dodatkowych zmian.
 
 #### <a name="identify-and-categorize-accounts-that-are-in-highly-privileged-roles"></a>Zidentyfikuj i Kategoryzuj konta, które są w rolach o wysokim poziomie uprawnień
 
@@ -110,11 +110,11 @@ Istnieje możliwość, że użytkownik zostanie przypadkowo zablokowany z ich ro
 
 Konta dostępu awaryjnego pomagają ograniczyć dostęp uprzywilejowany w ramach organizacji usługi Azure AD. Te konta są wysoce uprzywilejowane i nie są przypisane do określonych osób. Konta dostępu awaryjnego są ograniczone do sytuacji awaryjnej w przypadku scenariuszy "Break Glass", w których normalne konta administracyjne nie mogą być używane. Upewnij się, że masz kontrolę i zmniejszyć użycie konta awaryjnego tylko do tego czasu, w którym jest to konieczne.
 
-Oceń konta, które są przypisane lub kwalifikujące się do roli administratora globalnego. Jeśli nie widzisz żadnych kont tylko w chmurze korzystających \*z domeny. onmicrosoft.com (w przypadku dostępu awaryjnego "Break Glass"), utwórz je. Aby uzyskać więcej informacji, zobacz [Zarządzanie kontami administracyjnymi dostępu awaryjnego w usłudze Azure AD](directory-emergency-access.md).
+Oceń konta, które są przypisane lub kwalifikujące się do roli administratora globalnego. Jeśli nie widzisz żadnych kont tylko w chmurze korzystających z \* domeny. onmicrosoft.com (w przypadku dostępu awaryjnego "Break Glass"), utwórz je. Aby uzyskać więcej informacji, zobacz [Zarządzanie kontami administracyjnymi dostępu awaryjnego w usłudze Azure AD](directory-emergency-access.md).
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>Włącz uwierzytelnianie wieloskładnikowe i Zarejestruj wszystkie inne konta administratora niefederacyjnego z wysokim poziomem uprawnień pojedynczego użytkownika
 
-Wymagaj usługi Azure Multi-Factor Authentication (MFA) podczas logowania dla wszystkich użytkowników, którzy są trwale przypisani do co najmniej jednej roli administratora usługi Azure AD: Administrator globalny, administrator ról uprzywilejowanych, administrator programu Exchange Online i administrator usługi SharePoint Online. Skorzystaj z przewodnika, aby włączyć [uwierzytelnianie wieloskładnikowe (MFA) dla kont administratorów](../authentication/howto-mfa-userstates.md) i upewnić się, że wszyscy użytkownicy zostali zarejestrowani w [https://aka.ms/mfasetup](https://aka.ms/mfasetup)usłudze. Więcej informacji można znaleźć w sekcji Krok 2 i krok 3 przewodnika [Ochrona dostępu do danych i usług w pakiecie Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
+Wymagaj usługi Azure Multi-Factor Authentication (MFA) podczas logowania dla wszystkich użytkowników, którzy są trwale przypisani do co najmniej jednej roli administratora usługi Azure AD: Administrator globalny, administrator ról uprzywilejowanych, administrator programu Exchange Online i administrator usługi SharePoint Online. Skorzystaj z przewodnika, aby włączyć [uwierzytelnianie wieloskładnikowe (MFA) dla kont administratorów](../authentication/howto-mfa-userstates.md) i upewnić się, że wszyscy użytkownicy zostali zarejestrowani w usłudze [https://aka.ms/mfasetup](https://aka.ms/mfasetup) . Więcej informacji można znaleźć w sekcji Krok 2 i krok 3 przewodnika [Ochrona dostępu do danych i usług w pakiecie Office 365](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e). 
 
 ## <a name="stage-2-mitigate-frequently-used-attacks"></a>Etap 2: eliminowanie często używanych ataków
 
@@ -177,7 +177,7 @@ Azure AD Identity Protection to narzędzie do monitorowania i raportowania opart
 
 #### <a name="obtain-your-office-365-secure-score-if-using-office-365"></a>Uzyskaj wynik zabezpieczony przez pakiet Office 365 (Jeśli korzystasz z pakietu Office 365)
 
-W celu uzyskania bezpiecznego wyniku możesz korzystać z ustawień i działań dla usług Office 365, których używasz, i porównuje je z linią bazową utworzoną przez firmę Microsoft. Wyniki są uzyskiwane w oparciu o sposób wyrównany do zasad zabezpieczeń. Każdy użytkownik, który ma uprawnienia administratora do subskrypcji pakietu Office 365 Business Premium lub Enterprise w przedsiębiorstwie, może [https://securescore.office.com](https://securescore.office.com/)uzyskać dostęp do bezpiecznego wyniku pod adresem.
+W celu uzyskania bezpiecznego wyniku możesz korzystać z ustawień i działań dla usług Office 365, których używasz, i porównuje je z linią bazową utworzoną przez firmę Microsoft. Wyniki są uzyskiwane w oparciu o sposób wyrównany do zasad zabezpieczeń. Każdy użytkownik, który ma uprawnienia administratora do subskrypcji pakietu Office 365 Business Premium lub Enterprise w przedsiębiorstwie, może uzyskać dostęp do bezpiecznego wyniku pod adresem [https://securescore.office.com](https://securescore.office.com/) .
 
 #### <a name="review-the-office-365-security-and-compliance-guidance-if-using-office-365"></a>Zapoznaj się ze wskazówkami dotyczącymi zabezpieczeń i zgodności pakietu Office 365 (Jeśli korzystasz z pakietu Office 365)
 
@@ -207,7 +207,7 @@ Użyj witryny Enterprise Portal i Azure Portal, aby identyfikować subskrypcje w
 
 #### <a name="remove-microsoft-accounts-from-admin-roles"></a>Usuń konta Microsoft z ról administratora
 
-Konta Microsoft z innych programów, takich jak Xbox, Live i Outlook, nie powinny być używane jako konta administratorów dla subskrypcji organizacji. Usuń stan administratora z wszystkich kont Microsoft i Zastąp ciąg usługą Azure AD (na przykład chris@contoso.com) kontami służbowymi. W celach administracyjnych zależą od kont, które są uwierzytelniane w usłudze Azure AD, a nie w innych usługach.
+Konta Microsoft z innych programów, takich jak Xbox, Live i Outlook, nie powinny być używane jako konta administratorów dla subskrypcji organizacji. Usuń stan administratora z wszystkich kont Microsoft i Zastąp ciąg usługą Azure AD (na przykład chris@contoso.com ) kontami służbowymi. W celach administracyjnych zależą od kont, które są uwierzytelniane w usłudze Azure AD, a nie w innych usługach.
 
 #### <a name="monitor-azure-activity"></a>Monitorowanie aktywności platformy Azure
 

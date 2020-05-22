@@ -14,14 +14,14 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 502d1fe599accb29ccc99c9e527f8d1c8e1d52b8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a6f05b96eb856e7d2f2b79141e8da1203408f892
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77201830"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771438"
 ---
-# <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>Zmień model licencji dla SQL Server maszyny wirtualnej na platformie Azure
+# <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>Zmiana modelu licencjonowania maszyny wirtualnej z programem SQL Server na platformie Azure
 W tym artykule opisano, jak zmienić model licencji dla SQL Server maszyny wirtualnej (VM) na platformie Azure przy użyciu nowego dostawcy zasobów maszyny wirtualnej SQL, **Microsoft. SqlVirtualMachine**.
 
 Istnieją trzy modele licencji dla maszyny wirtualnej, która hostuje SQL Server: płatność zgodnie z rzeczywistym użyciem, Korzyść użycia hybrydowego platformy Azure i odzyskiwanie po awarii (DR). Model licencji maszyny wirtualnej SQL Server można zmodyfikować przy użyciu Azure Portal, interfejsu wiersza polecenia platformy Azure lub programu PowerShell. 
@@ -40,7 +40,7 @@ Aby wskazać użycie Korzyść użycia hybrydowego platformy Azure dla SQL Serve
 - Zainicjuj obsługę administracyjną maszyny wirtualnej przy użyciu obrazu z opcją płatność zgodnie z SQL Server rzeczywistym użyciem z witryny Azure Marketplace i aktywuj Korzyść użycia hybrydowego platformy Azure.
 - Samoinstalując SQL Server na maszynie wirtualnej platformy Azure, zarejestruj się ręcznie [przy użyciu dostawcy zasobów maszyny wirtualnej SQL](virtual-machines-windows-sql-register-with-resource-provider.md)i aktywuj korzyść użycia hybrydowego platformy Azure.
 
-Typ licencji SQL Server jest ustawiany podczas aprowizacji maszyny wirtualnej. Możesz to zmienić w dowolnym momencie później. Przełączanie między modelami licencji nie powoduje przestoju, nie powoduje ponownego uruchomienia maszyny wirtualnej ani usługi SQL Server, nie powoduje dodania dodatkowych kosztów i obowiązuje od razu. W rzeczywistości aktywowanie Korzyść użycia hybrydowego platformy Azure *obniża* koszty.
+Typ licencji SQL Server można skonfigurować, gdy maszyna wirtualna jest obsługiwana lub w dowolnym momencie później. Przełączanie między modelami licencji nie powoduje przestoju, nie powoduje ponownego uruchomienia maszyny wirtualnej ani usługi SQL Server, nie powoduje dodania dodatkowych kosztów i obowiązuje od razu. W rzeczywistości aktywowanie Korzyść użycia hybrydowego platformy Azure *obniża* koszty.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -99,7 +99,7 @@ az sql vm update -n <VMName> -g <ResourceGroupName> --license-type PAYG
 az sql vm update -n <VMName> -g <ResourceGroupName> --license-type DR
 ```
 
-# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Aby zmienić model licencji, możesz użyć programu PowerShell.
 
@@ -154,7 +154,7 @@ Zmiana modelu licencji to:
 
 ## <a name="known-errors"></a>Znane błędy
 
-### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found"></a>Nie znaleziono zasobu "Microsoft. SqlVirtualMachine/SqlVirtualMachines\</Resource-Group>" w grupie zasobów\<"Resource-Group>".
+### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found"></a>Nie znaleziono zasobu "Microsoft. SqlVirtualMachine/SqlVirtualMachines/ \< resource-group>" w grupie zasobów " \< Resource-Group>".
 
 Ten błąd występuje podczas próby zmiany modelu licencji na SQL Server maszynie wirtualnej, która nie została zarejestrowana w dostawcy zasobów maszyny wirtualnej SQL:
 
@@ -163,14 +163,14 @@ Ten błąd występuje podczas próby zmiany modelu licencji na SQL Server maszyn
 Musisz zarejestrować swoją subskrypcję u dostawcy zasobów, a następnie [zarejestrować SQL Serverą maszynę wirtualną przy użyciu dostawcy zasobów](virtual-machines-windows-sql-register-with-resource-provider.md). 
 
 
-### <a name="the-virtual-machine-vmname-has-more-than-one-nic-associated"></a>Maszyna wirtualna "\<VMName\>" ma skojarzoną więcej niż jedną kartę sieciową
+### <a name="the-virtual-machine-vmname-has-more-than-one-nic-associated"></a>Maszyna wirtualna " \< VMName \> " ma skojarzoną więcej niż jedną kartę sieciową
 
 Ten błąd występuje na maszynach wirtualnych, które mają więcej niż jedną kartę sieciową. Przed zmianą modelu licencjonowania Usuń jedną z kart sieciowych. Mimo że można dodać kartę sieciową z powrotem do maszyny wirtualnej po zmianie modelu licencji, operacje w Azure Portal, takie jak automatyczne tworzenie kopii zapasowych i stosowanie poprawek, nie będą już obsługiwane. 
 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji zobacz następujące artykuły: 
+Aby uzyskać więcej informacji, zobacz następujące artykuły: 
 
 * [Omówienie SQL Server na maszynie wirtualnej z systemem Windows](virtual-machines-windows-sql-server-iaas-overview.md)
 * [Często zadawane pytania dotyczące SQL Server na maszynie wirtualnej z systemem Windows](virtual-machines-windows-sql-server-iaas-faq.md)

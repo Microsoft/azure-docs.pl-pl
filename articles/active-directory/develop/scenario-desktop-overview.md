@@ -1,5 +1,6 @@
 ---
-title: Tworzenie aplikacji klasycznej, która wywołuje interfejsy API sieci Web — Microsoft Identity platform | Azure
+title: Tworzenie aplikacji klasycznej, która wywołuje interfejsy API sieci Web | Azure
+titleSuffix: Microsoft identity platform
 description: Dowiedz się, jak utworzyć aplikację klasyczną wywołującą interfejsy API sieci Web (omówienie)
 services: active-directory
 author: jmprieur
@@ -8,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 09cc43dec2eff48754f5a6e693badd6bb1907cce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 92f0909660427e414264442523dba3ed2abe0142
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80883005"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771863"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Scenariusz: aplikacja klasyczna, która wywołuje interfejsy API sieci Web
 
@@ -50,7 +51,7 @@ Napisz aplikację klasyczną i chcesz zalogować użytkowników do aplikacji i w
   - Lub, jeśli jest to aplikacja .NET Core i wyrażasz zgodę na interakcję uwierzytelniania z usługą Azure Active Directory (Azure AD) w przeglądarce systemowej.
 
 - W przypadku aplikacji hostowanych w systemie Windows jest również możliwe, aby aplikacje działające na komputerach przyłączonych do domeny systemu Windows lub z usługą Azure AD przyłączone w trybie dyskretnym przy użyciu zintegrowanego uwierzytelniania systemu Windows.
-- Na koniec, chociaż nie jest to zalecane, możesz użyć nazwy użytkownika i hasła w publicznych aplikacjach klienckich. Nadal jest to konieczne w niektórych scenariuszach, takich jak DevOps. Użycie nakłada ograniczenia dotyczące aplikacji. Na przykład nie może zalogować użytkownika, który musi wykonać uwierzytelnianie wieloskładnikowe (dostęp warunkowy). Ponadto aplikacja nie będzie korzystać z logowania jednokrotnego (SSO).
+- Na koniec, chociaż nie jest to zalecane, możesz użyć nazwy użytkownika i hasła w publicznych aplikacjach klienckich. Nadal jest to konieczne w niektórych scenariuszach, takich jak DevOps. Użycie nakłada ograniczenia dotyczące aplikacji. Na przykład nie może zalogować użytkownika, który musi przeprowadzić [uwierzytelnianie wieloskładnikowe](../authentication/concept-mfa-howitworks.md) (dostęp warunkowy). Ponadto aplikacja nie będzie korzystać z logowania jednokrotnego (SSO).
 
   Jest to również sprzeczne z zasadami nowoczesnego uwierzytelniania i są dostępne tylko dla starszych przyczyn.
 

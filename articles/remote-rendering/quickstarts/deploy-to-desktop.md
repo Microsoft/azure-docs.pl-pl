@@ -5,12 +5,12 @@ author: christophermanthei
 ms.author: chmant
 ms.date: 03/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 95993a54d321c9581d35f12b56d60e4ea052e505
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 59b235a32ae9363cc5fc804385867e140be502e2
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81415718"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759000"
 ---
 # <a name="quickstart-deploy-unity-sample-to-desktop"></a>Szybki Start: wdrażanie przykładu aparatu Unity na pulpicie
 
@@ -46,7 +46,7 @@ Tylko proste aplikacje klasyczne są obecnie obsługiwane na komputerze stacjona
 ## <a name="build-the-sample-project"></a>Kompilowanie przykładowego projektu
 
 1. Otwórz *plik > ustawienia kompilacji*.
-1. Zmień *platformę* na **platforma uniwersalna systemu Windows**.
+1. Zmień *platformę* na **platforma uniwersalna systemu Windows** (**autonomiczny komputer** jest również obsługiwany, ale nie jest używany w tym miejscu).
 1. Ustaw *urządzenie docelowe* na **komputer**.
 1. Ustaw *architekturę* na **x86**.
 1. Ustaw *typ kompilacji* na **projekt D3D**.

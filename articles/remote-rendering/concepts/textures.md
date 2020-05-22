@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 09fa22d33377dfcbafd84f0caeb5f33a575b1bce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: de3f127d97803ea920d61d748a1af0c80a1a1afc
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681664"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759136"
 ---
 # <a name="textures"></a>Tekstury
 
@@ -34,16 +34,16 @@ Załadowanie tekstury z tym samym identyfikatorem URI dwa razy spowoduje zwróce
 
 Podobnie jak w przypadku ładowania modeli, istnieją dwa warianty adresowania zasobów tekstury w źródłowym magazynie obiektów blob:
 
-* Element zawartości tekstury może być adresem URI sygnatury dostępu współdzielonego. Odpowiednia funkcja ładowania jest `LoadTextureFromSASAsync` z parametrem `LoadTextureFromSASParams`. Użyj tego wariantu również podczas ładowania [wbudowanych tekstur](../overview/features/sky.md#built-in-environment-maps).
-* Teksturę można rozwiązać bezpośrednio przez parametry magazynu obiektów blob, w przypadku gdy [Magazyn obiektów BLOB jest połączony z kontem](../how-tos/create-an-account.md#link-storage-accounts). Odpowiednia funkcja ładowania w tym przypadku jest `LoadTextureAsync` parametrem `LoadTextureParams`.
+* Element zawartości tekstury może być adresem URI sygnatury dostępu współdzielonego. Odpowiednia funkcja ładowania jest `LoadTextureFromSASAsync` z parametrem `LoadTextureFromSASParams` . Użyj tego wariantu również podczas ładowania [wbudowanych tekstur](../overview/features/sky.md#built-in-environment-maps).
+* Teksturę można rozwiązać bezpośrednio przez parametry magazynu obiektów blob, w przypadku gdy [Magazyn obiektów BLOB jest połączony z kontem](../how-tos/create-an-account.md#link-storage-accounts). Odpowiednia funkcja ładowania w tym przypadku jest `LoadTextureAsync` parametrem `LoadTextureParams` .
 
 Poniższy przykładowy kod przedstawia sposób ładowania tekstury za pomocą identyfikatora URI sygnatury dostępu współdzielonego (lub tekstury wbudowanej) — należy zauważyć, że tylko funkcja ładowania/parametr różni się w przypadku innych przypadków:
 
-``` cs
+```cs
 LoadTextureAsync _textureLoad = null;
 void LoadMyTexture(AzureSession session, string textureUri)
 {
-    _textureLoad = session.Actions.LoadTextureAsync(new LoadTextureParams(textureUri, TextureType.Texture2D));
+    _textureLoad = session.Actions.LoadTextureFromSASAsync(new LoadTextureFromSASParams(textureUri, TextureType.Texture2D));
     _textureLoad.Completed +=
         (LoadTextureAsync res) =>
         {
@@ -59,6 +59,28 @@ void LoadMyTexture(AzureSession session, string textureUri)
         };
 }
 ```
+
+```cpp
+void LoadMyTexture(ApiHandle<AzureSession> session, std::string textureUri)
+{
+    LoadTextureFromSASParams params;
+    params.TextureType = TextureType::Texture2D;
+    params.TextureUrl = std::move(textureUri);
+    ApiHandle<LoadTextureAsync> textureLoad = *session->Actions()->LoadTextureFromSASAsync(params);
+    textureLoad->Completed([](ApiHandle<LoadTextureAsync> res)
+    {
+        if (res->IsRanToCompletion())
+        {
+            //use res->Result()
+        }
+        else
+        {
+            printf("Texture loading failed!");
+        }
+    });
+}
+```
+
 
 W zależności od tego, co ma być używane dla tekstury, mogą istnieć ograniczenia dotyczące typu tekstury i zawartości. Na przykład mapa niesztywności [materiału PBR](../overview/features/pbr-materials.md) musi być w skali szarości.
 

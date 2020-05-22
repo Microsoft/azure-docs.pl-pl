@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 55d544ecf6c96335ca65255e1af695f7757b818c
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 2885df9e64bdbfa21eaaa38f423b90554f767cd7
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83699522"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773291"
 ---
 # <a name="create-an-azure-application-offer"></a>Tworzenie oferty aplikacji platformy Azure
 
@@ -354,7 +354,7 @@ Każdy plan można skonfigurować tak, aby był widoczny dla wszystkich, lub tyl
 
 Wybierz opcję **to jest plan prywatny** , aby Twój plan był prywatny i widoczny tylko dla wybranych odbiorców z ograniczeniami. Po opublikowaniu jako planu prywatnego możesz zaktualizować odbiorców lub wybrać opcję udostępnienia planu wszystkim użytkownikom. Gdy plan zostanie opublikowany jako widoczny dla wszystkich użytkowników, musi pozostać widoczny dla wszystkich; nie można jej ponownie skonfigurować jako planu prywatnego.
 
-W przypadku wybrania zakładu prywatnego należy wprowadzić **identyfikatory subskrypcji platformy Azure** i jego opis. Każdy z nich to odbiorca, który będzie miał dostęp do tego planu prywatnego. Dostęp jest przypisywany przy użyciu identyfikatorów subskrypcji platformy Azure z opcją dołączenia opisu każdego przypisanego identyfikatora subskrypcji platformy Azure. Dodaj maksymalnie 10 identyfikatorów subskrypcji klientów osobno lub 20 000 przez zaimportowanie pliku CSV. Identyfikatory subskrypcji platformy Azure są reprezentowane jako identyfikatory GUID i litery muszą być małymi literami.
+W przypadku wybrania planu jako prywatnego wprowadź **Identyfikator subskrypcji platformy Azure** i jego opis. Każdy z nich to odbiorca, który będzie miał dostęp do tego planu prywatnego. Dostęp jest przypisywany przy użyciu identyfikatorów subskrypcji platformy Azure z opcją dołączenia opisu każdego przypisanego identyfikatora subskrypcji platformy Azure. Dodaj maksymalnie 10 identyfikatorów subskrypcji klientów osobno lub 20 000 przez zaimportowanie pliku CSV. Identyfikatory subskrypcji platformy Azure są reprezentowane jako identyfikatory GUID i litery muszą być małymi literami.
 
 >[!Note]
 >Prywatna lub ograniczona Grupa odbiorców różni się od odbiorców w wersji zapoznawczej zdefiniowanej na karcie **Podgląd** . Odbiorca wersji zapoznawczej może uzyskać dostęp do oferty _przed_ opublikowaniem jej na żywo w portalu Marketplace. Gdy wybór odbiorców prywatnych dotyczy tylko określonego planu, odbiorcy wersji zapoznawczej mogą wyświetlić wszystkie plany (prywatne lub nie) do celów weryfikacji.
@@ -373,11 +373,11 @@ Wybierz pozycję **Zapisz wersję roboczą** przed kontynuowaniem.
 
 #### <a name="markets"></a>Wprowadza
 
-Każdy plan musi być dostępny na co najmniej jednym rynku. Zaznacz pole wyboru dla dowolnej lokalizacji rynkowej, w której chcesz udostępnić ten plan. Pole wyszukiwania i przycisk służący do wybierania krajów "z przekazaniem podatku", w których firma Microsoft dokonuje zakupu sprzedaży i używania podatków w Twoim imieniu, są dołączane do pomocy.
+Każdy plan musi być dostępny na co najmniej jednym rynku. Zaznacz pole wyboru dla dowolnej lokalizacji rynkowej, w której chcesz udostępnić ten plan. Pole wyszukiwania i przycisk służący do wybierania "krajów/regionów", w których firma Microsoft dokonuje zakupu sprzedaży i używania podatków w Twoim imieniu, są dołączane do pomocy.
 
 Jeśli już ustawisz ceny dla planu w Stany Zjednoczone dolarów (USD) i dodasz kolejną lokalizację na rynku, cena nowego rynku zostanie obliczona zgodnie z bieżącymi stawkami za wymianę. Zawsze sprawdzaj ceny poszczególnych rynków przed opublikowaniem. Cennik można przejrzeć przy użyciu linku "Eksport cen (xlsx)" po zapisaniu zmian.
 
-#### <a name="pricing"></a>Ceny
+#### <a name="pricing"></a>Cennik
 
 Podaj cenę za miesiąc dla tego planu.  Ta cena jest uzupełnieniem usługi Azure Infrastructure lub kosztów związanych z płatność zgodnie z rzeczywistym użyciem w przypadku zasobów wdrożonych w ramach tego rozwiązania.
 
@@ -399,7 +399,7 @@ Każdy plan można skonfigurować tak, aby był widoczny dla wszystkich, lub tyl
 
 Wybierz opcję **to jest plan prywatny** , aby Twój plan był prywatny i widoczny tylko dla wybranych odbiorców z ograniczeniami. Po opublikowaniu jako planu prywatnego możesz zaktualizować odbiorców lub wybrać opcję udostępnienia planu wszystkim użytkownikom. Gdy plan zostanie opublikowany jako widoczny dla wszystkich użytkowników, musi pozostać widoczny dla wszystkich; nie można jej ponownie skonfigurować jako planu prywatnego.
 
-W przypadku wybrania zakładu prywatnego należy wprowadzić **identyfikatory subskrypcji platformy Azure** i jego opis. Każdy z nich to odbiorca, który będzie miał dostęp do tego planu prywatnego. Dostęp jest przypisywany przy użyciu identyfikatorów subskrypcji platformy Azure z opcją dołączenia opisu każdego przypisanego identyfikatora subskrypcji platformy Azure. Dodaj maksymalnie 10 identyfikatorów subskrypcji klientów osobno lub 20 000 przez zaimportowanie pliku CSV. Identyfikatory subskrypcji platformy Azure są reprezentowane jako identyfikatory GUID i litery muszą być małymi literami.
+W przypadku wybrania planu jako prywatnego wprowadź **Identyfikator subskrypcji platformy Azure** i jego opis. Każdy z nich to odbiorca, który będzie miał dostęp do tego planu prywatnego. Dostęp jest przypisywany przy użyciu identyfikatorów subskrypcji platformy Azure z opcją dołączenia opisu każdego przypisanego identyfikatora subskrypcji platformy Azure. Dodaj maksymalnie 10 identyfikatorów subskrypcji klientów osobno lub 20 000 przez zaimportowanie pliku CSV. Identyfikatory subskrypcji platformy Azure są reprezentowane jako identyfikatory GUID i litery muszą być małymi literami.
 
 >[!Note]
 >Prywatna lub ograniczona Grupa odbiorców różni się od odbiorców w wersji zapoznawczej zdefiniowanej na karcie **Podgląd** . Odbiorca wersji zapoznawczej może uzyskać dostęp do oferty _przed_ opublikowaniem jej na żywo w portalu Marketplace. Gdy wybór odbiorców prywatnych dotyczy tylko określonego planu, odbiorcy wersji zapoznawczej mogą wyświetlić wszystkie plany (prywatne lub nie) do celów weryfikacji.

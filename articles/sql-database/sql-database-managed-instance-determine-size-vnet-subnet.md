@@ -3,7 +3,7 @@ title: Wystąpienie zarządzane określa rozmiar sieci wirtualnej/podsieci
 description: W tym temacie opisano sposób obliczania rozmiaru podsieci, w której zostaną wdrożone Azure SQL Database wystąpienia zarządzane.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 02/22/2019
-ms.openlocfilehash: 7f0ef26343284b7b668e71676114586f4bec8b9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9bbb138ecc10c5ded9da4479ce243e56610fc5b6
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73825758"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772929"
 ---
 # <a name="determine-vnet-subnet-size-for-azure-sql-database-managed-instance"></a>Określ rozmiar podsieci sieci wirtualnej dla Azure SQL Database wystąpienia zarządzanego
 

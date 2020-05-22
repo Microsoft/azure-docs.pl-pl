@@ -12,12 +12,12 @@ ms.date: 02/21/2020
 ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 186e36e4625a60362c54972b16b53f0f3e6753fa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b52bc45287e0e3a8f4908630cb6e57130c1725df
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79409196"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772424"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Przypisywanie użytkownika lub grupy do aplikacji dla przedsiębiorstw w Azure Active Directory
 
@@ -38,7 +38,7 @@ Korzystając z następujących typów aplikacji, można wymagać, aby użytkowni
 - Aplikacje serwera proxy aplikacji korzystające z Azure Active Directory wstępnego uwierzytelniania
 - Aplikacje utworzone na platformie aplikacji usługi Azure AD, która korzysta z uwierzytelniania OAuth 2,0/OpenID Connect, gdy użytkownik lub administrator wyraził zgodę na tę aplikację.
 
-Gdy przypisanie użytkownika jest wymagane, tylko użytkownicy, którzy jawnie przypisani do aplikacji, będą mogli się zalogować. Użytkownicy mogą uzyskiwać dostęp do aplikacji na stronie Moje aplikacje lub za pomocą linku bezpośredniego. 
+Gdy przypisanie użytkownika jest wymagane, tylko użytkownicy jawnie przypisani do aplikacji (za pośrednictwem bezpośredniego przypisania użytkownika lub w oparciu o członkostwo w grupach) będą mogli się zalogować. Użytkownicy mogą uzyskiwać dostęp do aplikacji na stronie Moje aplikacje lub za pomocą linku bezpośredniego. 
 
 Jeśli przypisanie *nie jest wymagane*, ponieważ ta opcja została ustawiona na wartość **nie** lub ponieważ aplikacja korzysta z innego trybu logowania jednokrotnego, każdy użytkownik będzie mógł uzyskać dostęp do aplikacji, jeśli ma bezpośredni link do aplikacji lub **adres URL dostępu użytkownika** na stronie **Właściwości** aplikacji. 
 
@@ -90,7 +90,7 @@ Aby wymagać przypisania użytkownika do aplikacji:
 1. Otwórz wiersz polecenia programu Windows PowerShell z podwyższonym poziomem uprawnień.
 
    > [!NOTE]
-   > Należy zainstalować moduł AzureAD (Użyj polecenia `Install-Module -Name AzureAD`). Jeśli zostanie wyświetlony monit o zainstalowanie modułu NuGet lub nowego modułu Azure Active Directory v2 PowerShell, wpisz Y i naciśnij klawisz ENTER.
+   > Należy zainstalować moduł AzureAD (Użyj polecenia `Install-Module -Name AzureAD` ). Jeśli zostanie wyświetlony monit o zainstalowanie modułu NuGet lub nowego modułu Azure Active Directory v2 PowerShell, wpisz Y i naciśnij klawisz ENTER.
 
 1. Uruchom `Connect-AzureAD` i zaloguj się przy użyciu konta administratora globalnego.
 1. Użyj następującego skryptu, aby przypisać użytkownika i rolę do aplikacji:
@@ -110,9 +110,11 @@ Aby wymagać przypisania użytkownika do aplikacji:
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```
 
-Więcej informacji o sposobie przypisywania użytkownika do roli aplikacji można znaleźć w dokumentacji usługi [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0)
+Więcej informacji o sposobie przypisywania użytkownika do roli aplikacji znajduje się w dokumentacji dotyczącej usługi [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0).
 
-Aby przypisać grupę do aplikacji dla przedsiębiorstw, należy zamienić `Get-AzureADUser` ją na. `Get-AzureADGroup`
+Aby przypisać grupę do aplikacji dla przedsiębiorstw, należy zamienić element `Get-AzureADUser` with `Get-AzureADGroup` i zastąpić `New-AzureADUserAppRoleAssignment` go `New-AzureADGroupAppRoleAssignment` .
+
+Więcej informacji o sposobie przypisywania grupy do roli aplikacji znajduje się w dokumentacji dotyczącej usługi [New-AzureADGroupAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureadgroupapproleassignment?view=azureadps-2.0).
 
 ### <a name="example"></a>Przykład
 
@@ -134,7 +136,7 @@ Ten przykład przypisuje użytkownikowi Britta Simon do aplikacji [analizy w mie
     $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
     ```
 
-1. Uruchom polecenie `$sp.AppRoles` , aby wyświetlić role dostępne dla aplikacji do analizy w miejscu pracy. W tym przykładzie chcemy przypisać rolę analityka (ograniczony dostęp) Britta Simon.
+1. Uruchom polecenie, `$sp.AppRoles` Aby wyświetlić role dostępne dla aplikacji do analizy w miejscu pracy. W tym przykładzie chcemy przypisać rolę analityka (ograniczony dostęp) Britta Simon.
 
    ![Pokazuje role dostępne dla użytkownika przy użyciu roli analiza w miejscu pracy](./media/assign-user-or-group-access-portal/workplace-analytics-role.png)
 

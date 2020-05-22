@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 600f19a6fc0b44fa8cb4b3ba6d37fcc601605dc5
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3abd93e1699a701140e8b3558dcdf0161110ff6f
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82206735"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758133"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Wybierz właściwą metodę uwierzytelniania dla Azure Active Directory rozwiązanie do tworzenia tożsamości hybrydowej
 
@@ -92,7 +92,7 @@ Szczegółowe informacje na temat decyzji:
 
 * **Scenariusze zaawansowane**. Jeśli organizacja zdecyduje się na to, można używać szczegółowych informacji z tożsamości z raportami Azure AD Identity Protection z Azure AD — wersja Premium P2. Przykładem jest raport o przeciekach poświadczeń. Funkcja Windows Hello dla firm ma [określone wymagania w przypadku używania synchronizacji skrótów haseł](https://docs.microsoft.com/windows/access-protection/hello-for-business/hello-identity-verification). [Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md) wymaga synchronizacji skrótów haseł w celu aprowizacji użytkowników przy użyciu poświadczeń firmowych w domenie zarządzanej.
 
-    Organizacje, które wymagają uwierzytelniania wieloskładnikowego z synchronizacją skrótów haseł, muszą korzystać z uwierzytelniania wieloskładnikowego usługi Azure AD lub [niestandardowych formantów dostępu warunkowego](../../active-directory/conditional-access/controls.md#custom-controls-preview). Organizacje te nie mogą korzystać z metod uwierzytelniania wieloskładnikowego innych firm ani lokalnych, które opierają się na Federacji.
+    Organizacje, które wymagają uwierzytelniania wieloskładnikowego z synchronizacją skrótów haseł, muszą używać [niestandardowych kontrolek](../../active-directory/conditional-access/controls.md#custom-controls-preview)usługi Azure Multi-Factor Authentication lub dostępu warunkowego. Organizacje te nie mogą korzystać z metod uwierzytelniania wieloskładnikowego innych firm ani lokalnych, które opierają się na Federacji.
 
 > [!NOTE]
 > Dostęp warunkowy usługi Azure AD wymaga [Azure AD — wersja Premium licencji P1](https://azure.microsoft.com/pricing/details/active-directory/) .
@@ -139,7 +139,7 @@ Zapoznaj się z artykułem [implementacja uwierzytelniania przekazywanego](../..
   * Uwierzytelnianie, które wymaga kart inteligentnych lub certyfikatów.
   * Lokalne serwery usługi MFA lub dostawcy wieloskładnikowego innych firm wymagające federacyjnego dostawcy tożsamości.
   * Uwierzytelnianie przy użyciu rozwiązań uwierzytelniania innych firm. Zobacz [listę zgodności Federacji usługi Azure AD](../../active-directory/hybrid/how-to-connect-fed-compatibility.md).
-  * Logowanie, które wymaga konta sAMAccountName, na przykład domena \ nazwa_użytkownika, zamiast głównej nazwy użytkownika (UPN), na przykład user@domain.com.
+  * Logowanie, które wymaga konta sAMAccountName, na przykład domena \ nazwa_użytkownika, zamiast głównej nazwy użytkownika (UPN), na przykład user@domain.com .
 
 * **Ciągłość**działania. Systemy federacyjne zwykle wymagają tablicy serwerów o zrównoważonym obciążeniu, znanej jako Farma. Ta farma jest konfigurowana w wewnętrznej sieci i topologii sieci obwodowej w celu zapewnienia wysokiej dostępności żądań uwierzytelniania.
 

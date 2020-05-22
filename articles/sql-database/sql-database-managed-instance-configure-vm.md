@@ -3,7 +3,7 @@ title: Łączenie z maszyną wirtualną klienta — wystąpienie zarządzane
 description: Nawiąż połączenie z wystąpieniem zarządzanym Azure SQL Database przy użyciu SQL Server Management Studio z maszyny wirtualnej platformy Azure.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: 8b5dce0b43fac7cfd0e974f26451338ca1541f8f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2787756da048de0a4354d88feb8445c03fb3ef74
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80528421"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773687"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Szybki Start: Konfigurowanie maszyny wirtualnej platformy Azure do nawiązywania połączenia z wystąpieniem zarządzanym Azure SQL Database
 
@@ -76,7 +76,7 @@ Najprostszym sposobem utworzenia klienckiej maszyny wirtualnej przy użyciu wszy
    | Ustawienie| Sugerowana wartość | Opis |
    | ---------------- | ----------------- | ----------- |
    | **Subskrypcja** | Prawidłowa subskrypcja | Musi być subskrypcją, w której masz uprawnienia do tworzenia nowych zasobów. |
-   | **Grupa zasobów** |Grupa zasobów określona w ramach [tworzenia wystąpienia zarządzanego](sql-database-managed-instance-get-started.md) — Szybki Start.|Ta grupa zasobów musi być tą, w której istnieje sieć wirtualna.|
+   | **Resource Group** |Grupa zasobów określona w ramach [tworzenia wystąpienia zarządzanego](sql-database-managed-instance-get-started.md) — Szybki Start.|Ta grupa zasobów musi być tą, w której istnieje sieć wirtualna.|
    | **Lokalizacja** | Lokalizacja grupy zasobów | Ta wartość jest wypełniana na podstawie wybranej grupy zasobów. |
    | **Nazwa maszyny wirtualnej**  | Dowolna prawidłowa nazwa | Prawidłowe nazwy opisano w artykule [Ograniczenia i reguły nazewnictwa](/azure/architecture/best-practices/resource-naming).|
    |**Nazwa użytkownika administratora**|Dowolna prawidłowa nazwa użytkownika|Prawidłowe nazwy opisano w artykule [Ograniczenia i reguły nazewnictwa](/azure/architecture/best-practices/resource-naming). Nie używaj nazwy „serveradmin”, gdyż jest ona zarezerwowana dla roli poziomu serwera.<br>Ta nazwa użytkownika jest używana przy każdej próbie [połączenia z maszyną wirtualną](#connect-to-virtual-machine).|
@@ -107,7 +107,7 @@ Poniższe kroki pokazują, jak nawiązać połączenie z nowo utworzoną maszyn�
 
     ![VM](./media/sql-database-managed-instance-configure-vm/vm.png)  
 
-2. Wybierz przycisk **Połącz**.
+2. Wybierz pozycję **Połącz**.
 
    Zostanie wyświetlony formularz Remote Desktop Protocol pliku (RDP) z publicznym adresem IP i numerem portu dla maszyny wirtualnej.
 

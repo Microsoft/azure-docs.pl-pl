@@ -3,18 +3,18 @@ title: Typy połączeń wystąpienia zarządzanego
 description: Informacje o typach połączeń wystąpienia zarządzanego
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto
 ms.date: 10/07/2019
-ms.openlocfilehash: 46223d1701b930d93de7c49c1e216a41045dda16
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a7df26590ec1514edcab24a1af9d85048b332d92
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73819457"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773644"
 ---
 # <a name="azure-sql-database-managed-instance-connection-types"></a>Azure SQL Database typy połączeń wystąpienia zarządzanego
 

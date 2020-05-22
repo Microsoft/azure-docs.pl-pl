@@ -1,14 +1,14 @@
 ---
 title: Obsługiwane Menedżer zasobów typy zasobów
 description: Podaj listę typów zasobów Menedżer zasobów obsługiwanych przez usługę Azure Resource Graph i historię zmian.
-ms.date: 05/16/2020
+ms.date: 05/21/2020
 ms.topic: reference
-ms.openlocfilehash: 61b4865f695fbee7bd425429fde03bc7161043db
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 7ccf8cc58ce19746958f89ff9d9207906aad16bd
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655866"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770588"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Informacje o tabeli i typie zasobów usługi Azure Resource Graph
 
@@ -217,11 +217,10 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. hardwaresecuritymodules/modułów dedicatedhsms
 - Microsoft. HDInsight/Klastry
 - Microsoft. healthcareapis/usługi
+- Microsoft. healthcareapis/Services/privateendpointconnections
 - Microsoft. hybridcompute/maszyny
 - Microsoft. hybridcompute/Machines/Extensions
 - Microsoft. hybriddata/datamanagers
-- Microsoft. Hydra/składniki
-- Microsoft. Hydra/networkscopes
 - Microsoft. importexport/zadania
 - Microsoft. industrydatalifecycle/derivedmodels
 - Microsoft. Insights/actiongroups
@@ -361,9 +360,6 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. portalsdk/rootresources
 - Microsoft. PowerBI/workspacecollections
 - Microsoft. powerbidedicated/pojemności
-- Microsoft. projectarcadia/obszary robocze
-- Microsoft. projectarcadia/Workspaces/sparkcomputes
-- Microsoft. projectarcadia/Workspaces/xmlcomputes
 - Microsoft. projectbabylon/konta
 - Microsoft. Quantum/obszary robocze
 - Microsoft. recoveryservices/magazyny
@@ -440,8 +436,6 @@ Wykres zasobów platformy Azure obsługuje następujące **typy zasobów** [Azur
 - Microsoft. vmwarecloudsimple/virtualmachines
 - Microsoft. vmwareonazure/privateclouds
 - Microsoft. vmwarevirtustream/privateclouds
-- Microsoft. vnfmanager/urządzenia
-- Microsoft. vnfmanager/vnfs
 - Microsoft. VSOnline/konta
 - Microsoft. VSOnline/plany
 - Microsoft. Web/apimanagementaccounts/interfejsy API

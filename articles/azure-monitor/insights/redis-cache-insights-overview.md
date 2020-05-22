@@ -4,13 +4,13 @@ description: W tym artykule opisano Azure Monitor funkcji Azure Redis Cache, kt�
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 05/07/2020
-ms.openlocfilehash: a6a8499a13e5c14869f9c9063528cea4ee82f419
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 05/21/2020
+ms.openlocfilehash: 8c8265242e09938126bfdb28900b64f2c0e7970a
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650434"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773884"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis-preview"></a>Eksploruj Azure Monitor dla usługi Azure cache for Redis (wersja zapoznawcza)
 
@@ -123,6 +123,38 @@ Po wybraniu opcji **Błędy** w górnej części strony zostanie otwarta tabela 
 ### <a name="metric-definitions"></a>Definicje metryk
 
 Aby zapoznać się z pełną listą definicji metryk, które tworzą te skoroszyty, zapoznaj się z [artykułem na temat dostępnych metryk i interwałów raportowania](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-monitor#available-metrics-and-reporting-intervals).
+
+## <a name="view-from-an-azure-cache-for-redis-resource"></a>Wyświetl z pamięci podręcznej platformy Azure dla zasobu Redis
+
+Aby uzyskać dostęp do Azure Monitor dla usługi Azure cache for Redis bezpośrednio z pojedynczego zasobu:
+
+1. W Azure Portal wybierz pozycję Pamięć podręczna platformy Azure dla Redis.
+
+2. Z listy wybierz indywidualną pamięć podręczną platformy Azure dla zasobu Redis. W sekcji monitorowanie wybierz pozycję szczegółowe dane (wersja zapoznawcza).
+
+    ![Zrzut ekranu przedstawiający opcje menu z wyrazami "Insights (wersja zapoznawcza)" wyróżnioną czerwoną ramką](./media/redis-cache-insights-overview/insights.png)
+
+Te widoki są również dostępne, wybierając nazwę zasobu pamięci podręcznej platformy Azure dla zasobu Redis z poziomu skoroszytu na poziomie Azure Monitor.
+
+### <a name="resource-level-overview"></a>Przegląd poziomu zasobów
+
+W skoroszycie **przeglądu** Azure Redis Cache przedstawiono kilka metryk wydajności, które dają dostęp do:
+
+- Interaktywne wykresy wydajności pokazujące najważniejsze informacje dotyczące usługi Azure cache na potrzeby wydajności Redis.
+
+- Kafelki metryk i Stanów wyróżniają fragmentu wydajność, łączną liczbę połączonych klientów i ogólne opóźnienia.
+
+![Zrzut ekranu przedstawiający pulpit nawigacyjny przegląd przedstawiający informacje o wydajności procesora CPU, używanej pamięci, połączonych klientach, błędach, wygasłych kluczach i kluczach wykluczonych](./media/redis-cache-insights-overview/resource-overview.png)
+
+Wybranie dowolnej z innych kart dotyczących **wydajności** lub **operacji** powoduje otwarcie odpowiednich skoroszytów.
+
+### <a name="resource-level-performance"></a>Wydajność na poziomie zasobów
+
+![Zrzut ekranu przedstawiający wykresy wydajności zasobów](./media/redis-cache-insights-overview/resource-performance.png)
+
+### <a name="resource-level-operations"></a>Operacje na poziomie zasobów
+
+![Zrzut ekranu przedstawiający wykresy operacji zasobów](./media/redis-cache-insights-overview/resource-operations.png)
 
 ## <a name="pin-export-and-expand"></a>Przypnij, Eksportuj i rozwiń
 

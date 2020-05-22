@@ -3,7 +3,7 @@ title: Konfigurowanie istniejącej sieci wirtualnej dla wystąpienia zarządzane
 description: W tym artykule opisano sposób konfigurowania istniejącej sieci wirtualnej i podsieci, w której można wdrożyć Azure SQL Database wystąpienie zarządzane.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,16 +11,16 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 50b832baa9253f47b5f10980ae1764c9425ed4d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e678edad2c59205e76598991b36d296404a3163
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79476953"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773625"
 ---
 # <a name="configure-an-existing-virtual-network-for-azure-sql-database-managed-instance"></a>Konfigurowanie istniejącej sieci wirtualnej dla wystąpienia zarządzanego usługi Azure SQL Database
 
-Azure SQL Database wystąpienie zarządzane musi być wdrożone w ramach [sieci wirtualnej](../virtual-network/virtual-networks-overview.md) platformy Azure i podsieć dedykowana tylko dla wystąpień zarządzanych. Możesz użyć istniejącej sieci wirtualnej i podsieci, jeśli jest skonfigurowana zgodnie z [wymaganiami sieci wirtualnej wystąpienia zarządzanego](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
+Wystąpienie zarządzane usługi Azure SQL Database musi zostać wdrożone w [sieci wirtualnej](../virtual-network/virtual-networks-overview.md) platformy Azure i podsieci dedykowanej tylko dla wystąpień zarządzanych. Możesz użyć istniejącej sieci wirtualnej i podsieci, jeśli jest skonfigurowana zgodnie z [wymaganiami sieci wirtualnej wystąpienia zarządzanego](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
 
 W przypadku zastosowania jednego z następujących przypadków można sprawdzić poprawność sieci i zmodyfikować ją przy użyciu skryptu opisanego w tym artykule:
 
@@ -35,7 +35,7 @@ W przypadku zastosowania jednego z następujących przypadków można sprawdzić
 
 ## <a name="validate-and-modify-an-existing-virtual-network"></a>Weryfikowanie i modyfikowanie istniejącej sieci wirtualnej
 
-Jeśli chcesz utworzyć wystąpienie zarządzane wewnątrz istniejącej podsieci, zalecamy wykonanie następującego skryptu programu PowerShell w celu przygotowania podsieci:
+Jeśli chcesz utworzyć wystąpienie zarządzane w ramach istniejącej podsieci, zalecamy wykonanie następującego skryptu programu PowerShell w celu przygotowania podsieci:
 
 ```powershell
 $scriptUrlBase = 'https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/manage/azure-sql-db-managed-instance/delegate-subnet'

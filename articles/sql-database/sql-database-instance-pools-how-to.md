@@ -3,7 +3,7 @@ title: Przewodniki dotyczące pul wystąpień (wersja zapoznawcza)
 description: W tym artykule opisano sposób tworzenia pul wystąpień Azure SQL Database (wersja zapoznawcza) i zarządzania nimi.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 4a27165d929cc9bc5f18e372f7f108887e466e43
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 005ed634830190a947045964ff01d126853bdc64
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79299366"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773045"
 ---
 # <a name="azure-sql-database-instance-pools-preview-how-to-guide"></a>Pule wystąpień Azure SQL Database (wersja zapoznawcza) — Przewodnik
 
@@ -28,11 +28,11 @@ W poniższej tabeli przedstawiono dostępne operacje związane z pulami wystąpi
 
 |Polecenie|Azure Portal|PowerShell|
 |:---|:---|:---|
-|Tworzenie puli wystąpień|Nie|Tak|
-|Aktualizuj pulę wystąpień (ograniczoną liczbę właściwości)|Nie |Tak |
-|Sprawdź użycie i właściwości puli wystąpień|Nie|Tak |
-|Usuń pulę wystąpień|Nie|Tak|
-|Utwórz wystąpienie zarządzane w puli wystąpień|Nie|Tak|
+|Tworzenie puli wystąpień|Nie|Yes|
+|Aktualizuj pulę wystąpień (ograniczoną liczbę właściwości)|Nie |Yes |
+|Sprawdź użycie i właściwości puli wystąpień|Nie|Yes |
+|Usuń pulę wystąpień|Nie|Yes|
+|Utwórz wystąpienie zarządzane w puli wystąpień|Nie|Yes|
 |Aktualizuj użycie zasobów wystąpienia zarządzanego|Tak |Tak|
 |Sprawdź użycie wystąpienia zarządzanego i właściwości|Tak|Tak|
 |Usuń wystąpienie zarządzane z puli|Tak|Tak|

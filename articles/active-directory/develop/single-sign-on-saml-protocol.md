@@ -1,6 +1,7 @@
 ---
 title: Protokół SAML logowania jednokrotnego na platformie Azure
-description: W tym artykule opisano Logowanie jednokrotne protokołu SAML w Azure Active Directory
+titleSuffix: Microsoft identity platform
+description: W tym artykule opisano protokół SAML logowania jednokrotnego (SSO) w Azure Active Directory
 services: active-directory
 documentationcenter: .net
 author: rwike77
@@ -9,28 +10,31 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/19/2017
+ms.date: 05/18/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 333f23ddfe834307b5cbfebb9540e0b5efc79a53
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 155816a9cd171b42e1def5cafa09cb9e310d5ee7
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82853777"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771676"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protokół SAML logowania jednokrotnego
 
-W tym artykule omówiono żądania uwierzytelniania SAML 2,0 i odpowiedzi, które Azure Active Directory (Azure AD) obsługują Logowanie jednokrotne.
+W tym artykule omówiono żądania uwierzytelniania SAML 2,0 i odpowiedzi, które Azure Active Directory (Azure AD) obsługują Logowanie jednokrotne (SSO).
 
-Poniższy diagram protokołu opisuje sekwencję logowania jednokrotnego. Usługa w chmurze (dostawca usług) używa powiązania przekierowania HTTP w celu przekazania elementu `AuthnRequest` (żądanie uwierzytelnienia) do usługi Azure AD (dostawcy tożsamości). Usługa Azure AD następnie używa powiązania post protokołu HTTP w celu `Response` opublikowania elementu w usłudze w chmurze.
+Poniższy diagram protokołu opisuje sekwencję logowania jednokrotnego. Usługa w chmurze (dostawca usług) używa powiązania przekierowania HTTP w celu przekazania `AuthnRequest` elementu (żądanie uwierzytelnienia) do usługi Azure AD (dostawcy tożsamości). Usługa Azure AD następnie używa powiązania post protokołu HTTP w celu opublikowania `Response` elementu w usłudze w chmurze.
 
-![Przepływ pracy logowania jednokrotnego](./media/single-sign-on-saml-protocol/active-directory-saml-single-sign-on-workflow.png)
+![Przepływ pracy logowania jednokrotnego (SSO)](./media/single-sign-on-saml-protocol/active-directory-saml-single-sign-on-workflow.png)
+
+> [!NOTE]
+> W tym artykule omówiono użycie protokołu SAML do logowania jednokrotnego. Aby uzyskać więcej informacji na temat innych sposobów obsługi logowania jednokrotnego (na przykład przy użyciu usługi OpenID Connect Connect lub zintegrowanego uwierzytelniania systemu Windows), zobacz Logowanie jednokrotne [do aplikacji w Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="authnrequest"></a>AuthnRequest
 
-Aby zażądać uwierzytelnienia użytkownika, usługi w chmurze `AuthnRequest` wysyłają element do usługi Azure AD. Przykładowy element SAML 2,0 `AuthnRequest` może wyglądać podobnie do poniższego przykładu:
+Aby zażądać uwierzytelnienia użytkownika, usługi w chmurze wysyłają `AuthnRequest` element do usługi Azure AD. Przykładowy element SAML 2,0 `AuthnRequest` może wyglądać podobnie do poniższego przykładu:
 
 ```
 <samlp:AuthnRequest
@@ -44,20 +48,20 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 
 | Parametr |  | Opis |
 | --- | --- | --- |
-| ID | Wymagany | Usługa Azure AD używa tego atrybutu do wypełniania `InResponseTo` atrybutu zwróconej odpowiedzi. Identyfikator nie może zaczynać się od liczby, więc typową strategią jest dołączenie ciągu takiego jak "ID" do ciągu reprezentującego identyfikator GUID. Na przykład `id6c1c178c166d486687be4aaf5e482730` jest PRAWIDŁOWYm identyfikatorem. |
-| Wersja | Wymagany | Dla tego parametru należy ustawić wartość **2,0**. |
-| IssueInstant | Wymagany | Jest to ciąg daty i godziny z wartością czasu UTC i [formatem rundy ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Usługa Azure AD oczekuje wartości daty i godziny tego typu, ale nie oblicza ani nie używa wartości. |
-| AssertionConsumerServiceUrl | Optional | Jeśli ta wartość jest określona, ten parametr `RedirectUri` musi być zgodny z usługą w chmurze w usłudze Azure AD. |
-| ForceAuthn | Optional | Jest to wartość logiczna. W przypadku wartości true oznacza to, że użytkownik zostanie zmuszony do ponownego uwierzytelnienia, nawet jeśli ma prawidłową sesję z usługą Azure AD. |
-| Ispassy | Optional | Jest to wartość logiczna określająca, czy usługa Azure AD powinna uwierzytelniać użytkownika w trybie dyskretnym, bez interakcji z użytkownikiem, jeśli taki istnieje. Jeśli ta wartość jest równa true, usługa Azure AD podejmie próbę uwierzytelnienia użytkownika przy użyciu pliku cookie sesji. |
+| ID | Wymagane | Usługa Azure AD używa tego atrybutu do wypełniania `InResponseTo` atrybutu zwróconej odpowiedzi. Identyfikator nie może zaczynać się od liczby, więc typową strategią jest dołączenie ciągu takiego jak "ID" do ciągu reprezentującego identyfikator GUID. Na przykład `id6c1c178c166d486687be4aaf5e482730` jest prawidłowym identyfikatorem. |
+| Wersja | Wymagane | Dla tego parametru należy ustawić wartość **2,0**. |
+| IssueInstant | Wymagane | Jest to ciąg daty i godziny z wartością czasu UTC i [formatem rundy ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Usługa Azure AD oczekuje wartości daty i godziny tego typu, ale nie oblicza ani nie używa wartości. |
+| AssertionConsumerServiceUrl | Opcjonalne | Jeśli ta wartość jest określona, ten parametr musi być zgodny z `RedirectUri` usługą w chmurze w usłudze Azure AD. |
+| ForceAuthn | Opcjonalne | Jest to wartość logiczna. W przypadku wartości true oznacza to, że użytkownik zostanie zmuszony do ponownego uwierzytelnienia, nawet jeśli ma prawidłową sesję z usługą Azure AD. |
+| Ispassy | Opcjonalne | Jest to wartość logiczna określająca, czy usługa Azure AD powinna uwierzytelniać użytkownika w trybie dyskretnym, bez interakcji z użytkownikiem, jeśli taki istnieje. Jeśli ta wartość jest równa true, usługa Azure AD podejmie próbę uwierzytelnienia użytkownika przy użyciu pliku cookie sesji. |
 
 Wszystkie inne `AuthnRequest` atrybuty, takie jak zgody, Destination, AssertionConsumerServiceIndex, AttributeConsumerServiceIndex i ProviderName, są **ignorowane**.
 
-Usługa Azure AD ignoruje `Conditions` także element `AuthnRequest`w.
+Usługa Azure AD ignoruje także `Conditions` element w `AuthnRequest` .
 
 ### <a name="issuer"></a>Wystawca
 
-`Issuer` Element w elemencie `AuthnRequest` musi dokładnie odpowiadać jednemu z **ServicePrincipalNames** w usłudze w chmurze w usłudze Azure AD. Zwykle jest to **Identyfikator URI aplikacji** określony podczas rejestracji aplikacji.
+`Issuer`Element w elemencie `AuthnRequest` musi dokładnie odpowiadać jednemu z **ServicePrincipalNames** w usłudze w chmurze w usłudze Azure AD. Zwykle jest to **Identyfikator URI aplikacji** określony podczas rejestracji aplikacji.
 
 Fragment SAML zawierający `Issuer` element wygląda podobnie do poniższego przykładu:
 
@@ -69,13 +73,13 @@ Fragment SAML zawierający `Issuer` element wygląda podobnie do poniższego prz
 
 Ten element żąda określonego formatu identyfikatora nazwy w odpowiedzi i jest opcjonalny w `AuthnRequest` elementach wysyłanych do usługi Azure AD.
 
-`NameIdPolicy` Element wygląda podobnie do poniższego przykładu:
+`NameIdPolicy`Element wygląda podobnie do poniższego przykładu:
 
 ```
 <NameIDPolicy Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"/>
 ```
 
-Jeśli `NameIDPolicy` jest podany, można uwzględnić jego opcjonalny `Format` atrybut. `Format` Atrybut może mieć tylko jedną z następujących wartości: Każda inna wartość spowoduje wystąpienie błędu.
+Jeśli `NameIDPolicy` jest podany, można uwzględnić jego opcjonalny `Format` atrybut. `Format`Atrybut może mieć tylko jedną z następujących wartości; jakakolwiek inna wartość spowoduje wystąpienie błędu.
 
 * `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`: Azure Active Directory wystawia żądania NameID jako identyfikator parowania.
 * `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`: Azure Active Directory wystawia żądania NameID w formacie adresu e-mail.
@@ -85,18 +89,18 @@ Jeśli `NameIDPolicy` jest podany, można uwzględnić jego opcjonalny `Format` 
 Usługa Azure AD ignoruje `AllowCreate` atrybut.
 
 ### <a name="requestauthncontext"></a>RequestAuthnContext
-`RequestedAuthnContext` Element określa odpowiednie metody uwierzytelniania. Jest ona opcjonalna `AuthnRequest` w elementach wysyłanych do usługi Azure AD. Usługa Azure AD `AuthnContextClassRef` obsługuje wartości takie `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`jak.
+`RequestedAuthnContext`Element określa odpowiednie metody uwierzytelniania. Jest ona opcjonalna w `AuthnRequest` elementach wysyłanych do usługi Azure AD. Usługa Azure AD obsługuje `AuthnContextClassRef` wartości takie jak `urn:oasis:names:tc:SAML:2.0:ac:classes:Password` .
 
 ### <a name="scoping"></a>Zakresów
-`Scoping` Element, który zawiera listę dostawców tożsamości, jest opcjonalny w `AuthnRequest` elementach wysyłanych do usługi Azure AD.
+`Scoping`Element, który zawiera listę dostawców tożsamości, jest opcjonalny w `AuthnRequest` elementach wysyłanych do usługi Azure AD.
 
-Jeśli jest `ProxyCount` podany, nie dołączaj `IDPListOption` atrybutu `RequesterID` lub elementu, ponieważ nie są one obsługiwane.
+Jeśli jest podany, nie dołączaj `ProxyCount` atrybutu `IDPListOption` lub `RequesterID` elementu, ponieważ nie są one obsługiwane.
 
 ### <a name="signature"></a>Podpis
-Nie dołączaj `Signature` elementu `AuthnRequest` do elementów, ponieważ usługa Azure AD nie obsługuje podpisanych żądań uwierzytelniania.
+Nie dołączaj `Signature` elementu do `AuthnRequest` elementów. Usługa Azure AD nie sprawdza poprawności podpisanych żądań uwierzytelniania. Weryfikacja żądającego jest zapewniana przez nie tylko odpowiadanie na zarejestrowane adresy URL usługi konsumenckej potwierdzenia.
 
 ### <a name="subject"></a>Podmiot
-Usługa Azure AD ignoruje `Subject` element `AuthnRequest` elementów.
+Nie dołączaj `Subject` elementu. Usługa Azure AD nie obsługuje określania tematu dla żądania i zwróci błąd, jeśli został podany.
 
 ## <a name="response"></a>Odpowiedź
 Po pomyślnym zakończeniu logowania usługa Azure AD ogłasza odpowiedź do usługi w chmurze. Odpowiedź na pomyślną próbę zalogowania wygląda jak w poniższym przykładzie:
@@ -146,14 +150,14 @@ Po pomyślnym zakończeniu logowania usługa Azure AD ogłasza odpowiedź do us�
 
 ### <a name="response"></a>Odpowiedź
 
-`Response` Element zawiera wynik żądania autoryzacji. Usługa Azure AD ustawia `ID`wartości `Version` i `IssueInstant` w `Response` elemencie. Ustawia również następujące atrybuty:
+`Response`Element zawiera wynik żądania autoryzacji. Usługa Azure AD ustawia `ID` `Version` wartości i `IssueInstant` w `Response` elemencie. Ustawia również następujące atrybuty:
 
 * `Destination`: Po pomyślnym zakończeniu logowania jest to ustawienie `RedirectUri` dostawcy usług (usługa w chmurze).
 * `InResponseTo`: Jest to wartość `ID` atrybutu `AuthnRequest` elementu, który zainicjował odpowiedź.
 
 ### <a name="issuer"></a>Wystawca
 
-Usługa Azure AD ustawia `Issuer` element, `https://sts.windows.net/<TenantIDGUID>/` na \<który TenantIDGUID> jest identyfikatorem dzierżawy dzierżawy usługi Azure AD.
+Usługa Azure AD ustawia `Issuer` element, na który `https://sts.windows.net/<TenantIDGUID>/` \< TENANTIDGUID> jest identyfikatorem dzierżawy dzierżawy usługi Azure AD.
 
 Na przykład odpowiedź z elementem Issuer może wyglądać jak w następującym przykładzie:
 
@@ -163,7 +167,7 @@ Na przykład odpowiedź z elementem Issuer może wyglądać jak w następującym
 
 ### <a name="status"></a>Stan
 
-`Status` Element umożliwia przekazanie sukcesu lub niepowodzenia logowania. Zawiera `StatusCode` element, który zawiera kod lub zestaw zagnieżdżonych kodów, które reprezentują stan żądania. Zawiera również `StatusMessage` element, który zawiera niestandardowe komunikaty o błędach, które są generowane podczas procesu logowania.
+`Status`Element umożliwia przekazanie sukcesu lub niepowodzenia logowania. Zawiera `StatusCode` element, który zawiera kod lub zestaw zagnieżdżonych kodów, które reprezentują stan żądania. Zawiera również `StatusMessage` element, który zawiera niestandardowe komunikaty o błędach, które są generowane podczas procesu logowania.
 
 <!-- TODO: Add an authentication protocol error reference -->
 
@@ -184,11 +188,11 @@ Timestamp: 2013-03-18 08:49:24Z</samlp:StatusMessage>
 
 ### <a name="assertion"></a>Asercja
 
-Oprócz `ID`elementów `IssueInstant` i `Version`usługa Azure AD ustawia następujące elementy w `Assertion` elemencie odpowiedzi.
+Oprócz `ID` `IssueInstant` `Version` elementów i usługa Azure AD ustawia następujące elementy w `Assertion` elemencie odpowiedzi.
 
 #### <a name="issuer"></a>Wystawca
 
-Jest to ustawienie, `https://sts.windows.net/<TenantIDGUID>/`gdzie \<TenantIDGUID> jest identyfikatorem dzierżawy dzierżawy usługi Azure AD.
+Jest to ustawienie `https://sts.windows.net/<TenantIDGUID>/` , gdzie \< TenantIDGUID> jest identyfikatorem dzierżawy dzierżawy usługi Azure AD.
 
 ```
 <Issuer>https://sts.windows.net/82869000-6ad1-48f0-8171-272ed18796e9/</Issuer>
@@ -196,7 +200,7 @@ Jest to ustawienie, `https://sts.windows.net/<TenantIDGUID>/`gdzie \<TenantIDGUI
 
 #### <a name="signature"></a>Podpis
 
-Usługa Azure AD podpisuje potwierdzenie w odpowiedzi na pomyślne logowanie. `Signature` Element zawiera podpis cyfrowy, którego usługa w chmurze może użyć do uwierzytelnienia źródła w celu zweryfikowania integralności potwierdzenia.
+Usługa Azure AD podpisuje potwierdzenie w odpowiedzi na pomyślne logowanie. `Signature`Element zawiera podpis cyfrowy, którego usługa w chmurze może użyć do uwierzytelnienia źródła w celu zweryfikowania integralności potwierdzenia.
 
 Aby wygenerować podpis cyfrowy, usługa Azure AD używa klucza podpisywania w `IDPSSODescriptor` elemencie dokumentu metadanych.
 
@@ -208,9 +212,9 @@ Aby wygenerować podpis cyfrowy, usługa Azure AD używa klucza podpisywania w `
 
 #### <a name="subject"></a>Podmiot
 
-Określa podmiot zabezpieczeń, który jest podmiotem instrukcji w potwierdzeniu. Zawiera `NameID` element, który reprezentuje uwierzytelnionego użytkownika. `NameID` Wartość jest identyfikatorem ukierunkowanym skierowanym tylko do dostawcy usług, który jest odbiorcą dla tokenu. Jest on trwały — można go odwołać, ale nigdy nie jest ponownie przypisywany. Jest on również nieprzezroczysty, w tym, że nie ujawnia żadnych informacji o użytkowniku i nie może być używany jako identyfikator zapytań dotyczących atrybutów.
+Określa podmiot zabezpieczeń, który jest podmiotem instrukcji w potwierdzeniu. Zawiera `NameID` element, który reprezentuje uwierzytelnionego użytkownika. `NameID`Wartość jest identyfikatorem ukierunkowanym skierowanym tylko do dostawcy usług, który jest odbiorcą dla tokenu. Jest on trwały — można go odwołać, ale nigdy nie jest ponownie przypisywany. Jest on również nieprzezroczysty, w tym, że nie ujawnia żadnych informacji o użytkowniku i nie może być używany jako identyfikator zapytań dotyczących atrybutów.
 
-Atrybut elementu jest zawsze ustawiony na `urn:oasis:names:tc:SAML:2.0:cm:bearer` `Method` `SubjectConfirmation`
+`Method`Atrybut `SubjectConfirmation` elementu jest zawsze ustawiony na `urn:oasis:names:tc:SAML:2.0:cm:bearer` .
 
 ```
 <Subject>
@@ -233,7 +237,7 @@ Ten element określa warunki, które definiują akceptowalne użycie potwierdze�
 </Conditions>
 ```
 
-Atrybuty `NotBefore` i `NotOnOrAfter` określają interwał, w którym potwierdzenie jest prawidłowe.
+`NotBefore`Atrybuty i `NotOnOrAfter` określają interwał, w którym potwierdzenie jest prawidłowe.
 
 * Wartość `NotBefore` atrybutu jest równa lub nieznacznie (mniejsza niż sekunda) późniejsza niż wartość `IssueInstant` atrybutu `Assertion` elementu. Usługa Azure AD nie uwzględnia żadnej różnicy czasu między nią a usługą w chmurze (dostawcy usługi) i nie dodaje żadnych buforów do tej godziny.
 * Wartość `NotOnOrAfter` atrybutu jest 70 minut później niż wartość `NotBefore` atrybutu.
@@ -248,7 +252,7 @@ Zawiera identyfikator URI, który identyfikuje zamierzone odbiorcy. Usługa Azur
 </AudienceRestriction>
 ```
 
-Podobnie jak `Issuer` w przypadku wartości `Audience` , wartość musi być dokładnie zgodna z jedną z głównych nazw usług, która reprezentuje usługę w chmurze w usłudze Azure AD. Jeśli `Issuer` jednak wartość elementu nie jest wartością identyfikatora URI `Audience` , wartość odpowiedzi jest poprzedzona `Issuer` wartością. `spn:`
+Podobnie jak w przypadku wartości `Issuer` , `Audience` wartość musi być dokładnie zgodna z jedną z głównych nazw usług, która reprezentuje usługę w chmurze w usłudze Azure AD. Jeśli jednak wartość `Issuer` elementu nie jest wartością identyfikatora URI, `Audience` wartość odpowiedzi jest `Issuer` poprzedzona wartością `spn:` .
 
 #### <a name="attributestatement"></a>AttributeStatement
 
@@ -266,15 +270,15 @@ Zawiera ona oświadczenia dotyczące tematu lub użytkownika. Poniższy fragment
 </AttributeStatement>
 ```        
 
-* **Nazwa** — wartość `Name` atrybutu (`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`) to główna nazwa użytkownika uwierzytelnionego użytkownika, na przykład. `testuser@managedtenant.com`
-* **Elemencie objectidentifier** — wartość `ObjectIdentifier` atrybutu (`http://schemas.microsoft.com/identity/claims/objectidentifier`) jest `ObjectId` obiektem katalogu, który reprezentuje uwierzytelnionego użytkownika w usłudze Azure AD. `ObjectId`jest niezmiennym, globalnie unikatowym i wielokrotnym używaniem bezpiecznego identyfikatora uwierzytelnionego użytkownika.
+* **Nazwa** — wartość `Name` atrybutu ( `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` ) to główna nazwa użytkownika uwierzytelnionego użytkownika, na przykład `testuser@managedtenant.com` .
+* **Elemencie objectidentifier** — wartość `ObjectIdentifier` atrybutu ( `http://schemas.microsoft.com/identity/claims/objectidentifier` ) jest `ObjectId` obiektem katalogu, który reprezentuje uwierzytelnionego użytkownika w usłudze Azure AD. `ObjectId`jest niezmiennym, globalnie unikatowym i wielokrotnym używaniem bezpiecznego identyfikatora uwierzytelnionego użytkownika.
 
 #### <a name="authnstatement"></a>AuthnStatement
 
 Ten element potwierdza, że podmiot potwierdzający został uwierzytelniony przez określone środki w określonym czasie.
 
 * Ten `AuthnInstant` atrybut określa czas uwierzytelniania użytkownika w usłudze Azure AD.
-* `AuthnContext` Element określa kontekst uwierzytelniania używany do uwierzytelniania użytkownika.
+* `AuthnContext`Element określa kontekst uwierzytelniania używany do uwierzytelniania użytkownika.
 
 ```
 <AuthnStatement AuthnInstant="2013-03-18T07:33:56.000Z" SessionIndex="_bf9c623d-cc20-407a-9a59-c2d0aee84d12">

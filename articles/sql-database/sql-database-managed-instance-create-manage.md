@@ -3,7 +3,7 @@ title: Dokumentacja interfejsu API zarządzania dla wystąpienia zarządzanego
 description: Dowiedz się więcej na temat tworzenia i zarządzania Azure SQL Database wystąpieniami zarządzanymi.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 713217a933c646cc4d04759f5697bbc0312827ce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 12f9411b62ac218e99d0006a743805c50c63b39a
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79268862"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773577"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Dokumentacja zarządzanego interfejsu API dla Azure SQL Database wystąpień zarządzanych
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 29967c5f8d452fbf66d9a121357415176139b39d
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: ab9c93dc029498c70a828f38f297c1e02dcb29ee
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82570671"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774076"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge"></a>Samouczek: Przekształcanie danych za pomocą Azure Stack Edge
 
@@ -22,7 +22,7 @@ W tym samouczku opisano sposób konfigurowania roli obliczeniowej na urządzeniu
 
 Wykonanie tej procedury może potrwać około 10 do 15 minut.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Konfigurowanie obliczeń
@@ -136,11 +136,11 @@ Wykonaj poniższe kroki, aby sprawdzić, czy moduł jest uruchomiony:
 
     ![Weryfikowanie przekształcania danych](./media/azure-stack-edge-deploy-configure-compute/verify-data-1.png)
  
-1.    W Eksploratorze plików Połącz się z utworzonymi wcześniej udziałami lokalnymi i krawędziami krawędzi.
+1. W Eksploratorze plików Połącz się z utworzonymi wcześniej udziałami lokalnymi i krawędziami krawędzi.
 
     ![Weryfikowanie przekształcania danych](./media/azure-stack-edge-deploy-configure-compute/verify-data-2.png) 
  
-1.    Dodaj dane do udziału lokalnego.
+1. Dodaj dane do udziału lokalnego.
 
     ![Weryfikowanie przekształcania danych](./media/azure-stack-edge-deploy-configure-compute/verify-data-3.png) 
  

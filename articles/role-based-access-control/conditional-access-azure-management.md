@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/15/2019
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: f3341f1c30a1581b8507652c322c00581e3972aa
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2a52635dbaa7a76034f3a535b099320a901e8c07
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77137410"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758779"
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>Zarządzanie dostępem do zarządzania platformą Azure przy użyciu dostępu warunkowego
 
@@ -47,5 +47,4 @@ Utworzone zasady mają zastosowanie do wszystkich punktów końcowych zarządzan
 
 Należy zauważyć, że zasady dotyczą Azure PowerShell, które wywołuje interfejs API Azure Resource Manager. Nie dotyczy to [programu PowerShell usługi Azure AD](/powershell/azure/active-directory/install-adv2), który wywołuje Microsoft Graph.
 
-
-Aby uzyskać więcej informacji na temat konfigurowania dostępu warunkowego i korzystania z niego, zobacz [dostęp warunkowy w Azure Active Directory](../active-directory/active-directory-conditional-access-azure-portal.md).
+Aby uzyskać więcej informacji na temat konfigurowania przykładowych zasad w celu włączenia dostępu warunkowego do zarządzania Microsoft Azure, zobacz [dostęp warunkowy w artykule: Wymagaj uwierzytelniania wieloskładnikowego dla zarządzania Azure](../active-directory/conditional-access/howto-conditional-access-policy-azure-management.md).

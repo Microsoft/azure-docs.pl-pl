@@ -3,7 +3,7 @@ title: Konfigurowanie wystąpienia zarządzanego przez P2S
 description: Nawiąż połączenie z wystąpieniem zarządzanym Azure SQL Database przy użyciu SQL Server Management Studio przy użyciu połączenia typu punkt-lokacja z lokalnego komputera klienckiego.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova, jovanpop
 ms.date: 03/13/2019
-ms.openlocfilehash: 30b2ba92174996ea2bae34e7553a3258d8ebee27
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 434b3d46d19138b494c9e29add3affb2eecc9c45
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79268888"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773752"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>Szybki Start: Konfigurowanie połączenia typu punkt-lokacja z wystąpieniem zarządzanym Azure SQL Database z lokalnego
 
@@ -54,7 +54,7 @@ Ten przewodnik Szybki start:
      Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/attachVPNGateway.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters, $scriptUrlBase
      ```
 
-3. Wklej skrypt w oknie programu PowerShell i podaj wymagane parametry. Wartości dla `<subscriptionId>`, `<resourceGroup>`i `<virtualNetworkName>` powinny być zgodne z tymi, które zostały użyte do szybkiego startu [tworzenia wystąpienia zarządzanego](sql-database-managed-instance-get-started.md) . Wartość parametru `<certificateNamePrefix>` może być wybranym ciągiem.
+3. Wklej skrypt w oknie programu PowerShell i podaj wymagane parametry. Wartości dla `<subscriptionId>` , `<resourceGroup>` i `<virtualNetworkName>` powinny być zgodne z tymi, które zostały użyte do szybkiego startu [tworzenia wystąpienia zarządzanego](sql-database-managed-instance-get-started.md) . Wartość parametru `<certificateNamePrefix>` może być wybranym ciągiem.
 
 4. Wykonaj skrypt programu PowerShell.
 
@@ -81,7 +81,7 @@ Ten przewodnik Szybki start:
 1. Przejdź do sieci **VPN** w **sieci & Internet** na lokalnym komputerze klienckim i wybierz swoją sieć wirtualną wystąpienia zarządzanego, aby nawiązać połączenie z tą wirtualną. Na poniższej ilustracji Sieć wirtualna ma nazwę **MyNewVNet**.
 
     ![Połączenie VPN](./media/sql-database-managed-instance-configure-p2s/vpn-connection.png)  
-2. Wybierz przycisk **Połącz**.
+2. Wybierz pozycję **Połącz**.
 3. W oknie dialogowym wybierz pozycję **Połącz**.
 
     ![Połączenie VPN](./media/sql-database-managed-instance-configure-p2s/vpn-connection2.png)  

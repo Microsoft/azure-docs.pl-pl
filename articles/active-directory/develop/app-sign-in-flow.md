@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/28/2020
+ms.date: 05/18/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 7b326e17611b5f4b9520d8218a28a67afe9a851a
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: af5b27dc85a276c731a61135ab59ab81f5aaf3c2
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82584352"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772203"
 ---
 # <a name="app-sign-in-flow-with-microsoft-identity-platform"></a>Przepływ logowania aplikacji przy użyciu platformy tożsamości firmy Microsoft
 
@@ -29,7 +29,7 @@ W tym temacie omówiono podstawowy przepływ logowania dla aplikacji internetowy
 Gdy użytkownik nawiguje w przeglądarce do aplikacji sieci Web, następuje:
 
 * Aplikacja sieci Web określa, czy użytkownik jest uwierzytelniany.
-* Jeśli użytkownik nie jest uwierzytelniony, aplikacja internetowa deleguje do usługi Azure AD, aby zalogować użytkownika. Ten proces logowania będzie zgodny z zasadami organizacji, co może oznaczać, że użytkownik musi wprowadzić poświadczenia przy użyciu uwierzytelniania wieloskładnikowego lub nie używać w ogóle hasła (na przykład korzystania z usługi Windows Hello).
+* Jeśli użytkownik nie jest uwierzytelniony, aplikacja internetowa deleguje do usługi Azure AD, aby zalogować użytkownika. Ten proces logowania będzie zgodny z zasadami organizacji, co może oznaczać, że użytkownik musi wprowadzić poświadczenia przy użyciu [uwierzytelniania wieloskładnikowego](../authentication/concept-mfa-howitworks.md) (czasami nazywanego uwierzytelnianiem dwuskładnikowym lub funkcji 2FA) lub nie używać hasła w ogóle (na przykład przy użyciu usługi Windows Hello).
 * Użytkownik zostanie poproszony o zgodę na dostęp wymagany przez aplikację kliencką. Dlatego aplikacje klienckie muszą być zarejestrowane w usłudze Azure AD, dzięki czemu platforma tożsamości firmy Microsoft może dostarczać tokeny reprezentujące dostęp, do którego użytkownik wyraził zgodę.
 
 Po pomyślnym uwierzytelnieniu użytkownika:
@@ -46,7 +46,7 @@ Poniższy diagram sekwencji podsumowuje tę interakcję:
 
 Deweloperzy aplikacji sieci Web mogą wskazać, czy wszystkie lub tylko niektóre strony wymagają uwierzytelniania. Na przykład w ASP.NET/ASP.NET rdzeń jest to wykonywane przez dodanie `[Authorize]` atrybutu do akcji kontrolera.
 
-Ten atrybut powoduje, że ASP.NET sprawdza obecność pliku cookie sesji zawierającego tożsamość użytkownika. Jeśli plik cookie nie istnieje, ASP.NET przekierowuje uwierzytelnianie do określonego dostawcy tożsamości. Jeśli dostawca tożsamości to usługa Azure AD, aplikacja sieci Web przekierowuje uwierzytelnianie do `https://login.microsoftonline.com`programu, co spowoduje wyświetlenie okna dialogowego logowania.
+Ten atrybut powoduje, że ASP.NET sprawdza obecność pliku cookie sesji zawierającego tożsamość użytkownika. Jeśli plik cookie nie istnieje, ASP.NET przekierowuje uwierzytelnianie do określonego dostawcy tożsamości. Jeśli dostawca tożsamości to usługa Azure AD, aplikacja sieci Web przekierowuje uwierzytelnianie do programu `https://login.microsoftonline.com` , co spowoduje wyświetlenie okna dialogowego logowania.
 
 ### <a name="how-a-web-app-delegates-sign-in-to-microsoft-identity-platform-and-obtains-a-token"></a>Jak aplikacja sieci Web deleguje logowanie do platformy tożsamości firmy Microsoft i uzyskuje token
 

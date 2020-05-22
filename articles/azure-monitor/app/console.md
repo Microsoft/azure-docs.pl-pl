@@ -2,14 +2,14 @@
 title: Application Insights platformy Azure dla aplikacji konsolowych | Microsoft Docs
 description: Monitoruj aplikacje sieci Web pod kątem dostępności, wydajności i użycia.
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 05/21/2020
 ms.reviewer: lmolkova
-ms.openlocfilehash: baaea0f8055eeff0314fcf5fde00729ea8091d12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fe34b2b48de8ef4f6c2cdd61623b885878bad2b4
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77655433"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774035"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights aplikacji konsolowych .NET
 
@@ -18,7 +18,7 @@ ms.locfileid: "77655433"
 Potrzebna jest subskrypcja z [Microsoft Azure](https://azure.com). Zaloguj się przy użyciu konto Microsoft, który może być używany w przypadku systemu Windows, usługi Xbox Live lub innych usług firmy Microsoft w chmurze. Twój zespół może mieć subskrypcję organizacyjną na platformie Azure: poproszenie właściciela o dodanie Cię do niego przy użyciu konto Microsoft.
 
 > [!NOTE]
-> Istnieje nowy Application Insights SDK o nazwie [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) , który może służyć do włączania Application Insights dla każdej aplikacji konsolowej. Zalecane jest korzystanie z tego pakietu i powiązanych instrukcji w [tym miejscu](../../azure-monitor/app/worker-service.md). Ten pakiet jest [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard)przeznaczony dla tego pakietu i dlatego może być używany w środowisku .net Core 2,0 lub nowszym oraz .NET Framework 4.7.2 lub wyższy.
+> Istnieje nowy Application Insights SDK o nazwie [Microsoft. ApplicationInsights. WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) , który może służyć do włączania Application Insights dla każdej aplikacji konsolowej. Zalecane jest korzystanie z tego pakietu i powiązanych instrukcji w [tym miejscu](../../azure-monitor/app/worker-service.md). Ten pakiet jest przeznaczony dla tego pakietu [`NetStandard2.0`](https://docs.microsoft.com/dotnet/standard/net-standard) i dlatego może być używany w środowisku .NET Core 2,0 lub nowszym oraz .NET Framework 4.7.2 lub wyższy.
 
 ## <a name="getting-started"></a>Wprowadzenie
 
@@ -36,7 +36,7 @@ telemetryClient.TrackTrace("Hello World!");
 ```
 
 > [!NOTE]
-> Dane telemetryczne nie są wysyłane natychmiast. Elementy telemetrii są wsadowe i wysyłane przez zestaw ApplicationInsights SDK. W aplikacjach konsolowych, które opuszczają bezpośrednio po `Track()` wywołaniu metody, dane telemetryczne mogą `Flush()` nie `Sleep` być wysyłane, chyba że zostaną wykonane przed zakończeniem działania aplikacji, jak pokazano w [pełnym przykładzie](#full-example) w dalszej części tego artykułu.
+> Dane telemetryczne nie są wysyłane natychmiast. Elementy telemetrii są wsadowe i wysyłane przez zestaw ApplicationInsights SDK. W aplikacjach konsolowych, które opuszczają bezpośrednio po wywołaniu `Track()` metody, dane telemetryczne mogą nie być wysyłane, chyba że `Flush()` `Sleep` / `Delay` zostaną wykonane przed zakończeniem działania aplikacji, jak pokazano w [pełnym przykładzie](#full-example) w dalszej części tego artykułu. `Sleep`nie jest wymagane, jeśli używasz programu `InMemoryChannel` . Istnieje aktywny problem dotyczący potrzeb `Sleep` , który jest śledzony w tym miejscu: [ApplicationInsights-dotnet/Issues/407](https://github.com/microsoft/ApplicationInsights-dotnet/issues/407)
 
 
 * Zainstaluj najnowszą wersję pakietu [Microsoft. ApplicationInsights. DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) — automatycznie śledzi protokół http, SQL lub inne zewnętrzne wywołania zależności.
@@ -125,7 +125,7 @@ module.Initialize(configuration);
 configuration.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 ```
 
-Jeśli utworzono konfigurację z zwykłym `TelemetryConfiguration()` konstruktorem, należy również włączyć obsługę korelacji. **Nie jest to konieczne** , jeśli odczytasz konfigurację z pliku `TelemetryConfiguration.CreateDefault()` , `TelemetryConfiguration.Active`użyto lub.
+Jeśli utworzono konfigurację z zwykłym `TelemetryConfiguration()` konstruktorem, należy również włączyć obsługę korelacji. **Nie jest to konieczne** , jeśli odczytasz konfigurację z pliku, użyto `TelemetryConfiguration.CreateDefault()` lub `TelemetryConfiguration.Active` .
 
 ```csharp
 configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
@@ -172,7 +172,8 @@ namespace ConsoleApp
             // before exit, flush the remaining data
             telemetryClient.Flush();
 
-            // flush is not blocking so wait a bit
+            // flush is not blocking when not using InMemoryChannel so wait a bit. There is an active issue regarding the need for `Sleep`/`Delay`
+            // which is tracked here: https://github.com/microsoft/ApplicationInsights-dotnet/issues/407
             Task.Delay(5000).Wait();
 
         }

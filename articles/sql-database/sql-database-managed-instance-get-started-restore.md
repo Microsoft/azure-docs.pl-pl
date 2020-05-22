@@ -3,7 +3,7 @@ title: Przywracanie kopii zapasowej do wystąpienia zarządzanego
 description: Przywracanie kopii zapasowej bazy danych do wystąpienia zarządzanego usługi Azure SQL Database za pomocą programu SSMS.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: 3b12aa860bee189f706bd98df63fc194a3a0cc71
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7b7d635a45929ead1ef67e10fef75e502c5005f7
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80874708"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770095"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Szybki Start: Przywracanie bazy danych do wystąpienia zarządzanego
 
@@ -90,7 +90,7 @@ W programie SSMS użyj następujących kroków, aby przywrócić bazę danych Wi
 
 > [!NOTE]
 > Operacja przywracania bazy danych jest asynchroniczna i wywołały. Może pojawić SQL Server Management Studio się komunikat o błędzie, jeśli wystąpiły przerwy w połączeniach lub wygaśnie limit czasu. Azure SQL Database będzie próbować przywrócić bazę danych w tle, a postęp przywracania można śledzić przy użyciu widoków [sys. dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) i [sys. dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) .
-> W niektórych fazach procesu przywracania w widokach systemu zostanie wyświetlony unikatowy identyfikator zamiast rzeczywistej nazwy bazy danych. Więcej informacji `RESTORE` na temat różnic dotyczących zachowań instrukcji [znajdziesz tutaj](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-transact-sql-information#restore-statement).
+> W niektórych fazach procesu przywracania w widokach systemu zostanie wyświetlony unikatowy identyfikator zamiast rzeczywistej nazwy bazy danych. Więcej informacji na temat `RESTORE` różnic dotyczących zachowań instrukcji [znajdziesz tutaj](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-transact-sql-information#restore-statement).
 
 ## <a name="next-steps"></a>Następne kroki
 

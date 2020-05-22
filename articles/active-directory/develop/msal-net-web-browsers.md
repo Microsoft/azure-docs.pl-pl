@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: ed1f47ae99f6346a932d0fe94be7586dc25a672f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e62536b610595c7a53eb8333f06f147e628dec7
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79262739"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772050"
 ---
 # <a name="using-web-browsers-msalnet"></a>Korzystanie z przeglądarek internetowych (MSAL.NET)
 
@@ -32,30 +32,30 @@ Ważne jest, aby zrozumieć, że w przypadku interakcyjnego pozyskiwania tokenu 
 
 - Hasło (jeśli zostało wpisane) nigdy nie jest przechowywane przez aplikację ani w bibliotece uwierzytelniania.
 - Umożliwia przekierowania innym dostawcom tożsamości (na przykład logowanie się przy użyciu konta szkoły służbowej lub konta osobistego przy użyciu usługi MSAL lub konta społecznościowego z Azure AD B2C).
-- Umożliwia usłudze STS kontrolę dostępu warunkowego, na przykład przez przeprowadzenie uwierzytelniania wieloskładnikowego (MFA) w fazie uwierzytelniania (wprowadzenie numeru PIN usługi Windows Hello lub wywołanie na telefonie lub w aplikacji uwierzytelniania na telefonie). W przypadkach, gdy wymagane uwierzytelnianie wieloskładnikowe nie jest jeszcze skonfigurowane, użytkownik może je skonfigurować w tym samym czasie w tym samym oknie dialogowym.  Użytkownik wprowadza swój numer telefonu komórkowego, a następnie przeprowadza instalację aplikacji uwierzytelniania i skanuje tag QR, aby dodać swoje konto. Ta interakcja oparta na serwerze jest doskonałym doświadczeniem!
+- Umożliwia usłudze STS kontrolę dostępu warunkowego, na przykład przez przeprowadzenie przez użytkownika [uwierzytelniania wieloskładnikowego (MFA)](../authentication/concept-mfa-howitworks.md) w fazie uwierzytelniania (wprowadzenie numeru PIN usługi Windows Hello lub wywołanie na telefonie lub w aplikacji uwierzytelniania na telefonie). W przypadkach, gdy wymagane uwierzytelnianie wieloskładnikowe nie jest jeszcze skonfigurowane, użytkownik może ją skonfigurować w tym samym czasie w tym samym oknie dialogowym.  Użytkownik wprowadza swój numer telefonu komórkowego, a następnie przeprowadza instalację aplikacji uwierzytelniania i skanuje tag QR, aby dodać swoje konto. Ta interakcja oparta na serwerze jest doskonałym doświadczeniem!
 - Umożliwia użytkownikowi zmianę hasła w tym samym oknie dialogowym po wygaśnięciu hasła (podanie dodatkowych pól dla starego hasła i nowego hasła).
 - Umożliwia znakowanie dzierżawy lub aplikacji (obrazów), które są kontrolowane przez administratora dzierżawy usługi Azure AD lub właściciela aplikacji.
 - Umożliwia użytkownikom wyrażanie zgody na zezwolenie aplikacji na dostęp do zasobów/zakresów w ich imieniu po uwierzytelnieniu.
 
 ### <a name="embedded-vs-system-web-ui"></a>Osadzony interfejs użytkownika sieci Web systemu vs
 
-MSAL.NET to biblioteka wieloplatformowa, która ma kod specyficzny dla platformy, który umożliwia hostowanie przeglądarki w kontrolce interfejsu użytkownika (na przykład w przypadku klasycznej platformy .NET używa WinForms, w programie Xamarin używa natywnych kontrolek mobilnych itp.). Ta kontrolka jest `embedded` NAZYWAna interfejsem użytkownika sieci Web. Alternatywnie, MSAL.NET może również uruchamiać przeglądarki systemu operacyjnego.
+MSAL.NET to biblioteka wieloplatformowa, która ma kod specyficzny dla platformy, który umożliwia hostowanie przeglądarki w kontrolce interfejsu użytkownika (na przykład w przypadku klasycznej platformy .NET używa WinForms, w programie Xamarin używa natywnych kontrolek mobilnych itp.). Ta kontrolka jest nazywana `embedded` interfejsem użytkownika sieci Web. Alternatywnie, MSAL.NET może również uruchamiać przeglądarki systemu operacyjnego.
 
 Ogólnie rzecz biorąc, zaleca się korzystanie z ustawień domyślnych platformy i jest to zwykle przeglądarka systemu. Przeglądarka systemowa jest lepsza do zapamiętywania użytkowników, którzy zalogowali się wcześniej. Jeśli musisz zmienić to zachowanie, użyj`WithUseEmbeddedWebView(bool)`
 
 ### <a name="at-a-glance"></a>Na pierwszy rzut oka
 
-| Framework        | Osadzić | System | Domyślny |
+| Framework        | Osadzić | System | Domyślne |
 | ------------- |-------------| -----| ----- |
 | Klasyczny .NET     | Tak | Tak ^ | Osadzić |
 | .NET Core     | Nie | Tak ^ | System |
 | .NET Standard | Nie | Tak ^ | System |
-| Platforma UWP | Tak | Nie | Osadzić |
+| UWP | Yes | Nie | Osadzić |
 | Xamarin.Android | Tak | Tak  | System |
 | Xamarin.iOS | Tak | Tak  | System |
-| Xamarin.Mac| Tak | Nie | Osadzić |
+| Xamarin.Mac| Yes | Nie | Osadzić |
 
-^ Wymaga "http://localhost" URI przekierowania
+^ Wymaga " http://localhost " URI przekierowania
 
 ## <a name="system-web-browser-on-xamarinios-xamarinandroid"></a>Systemowa przeglądarka sieci Web na platformie Xamarin. iOS, Xamarin. Android
 
@@ -74,7 +74,7 @@ await pca.AcquireTokenInteractive(s_scopes)
          .WithUseEmbeddedWebView(false)
 ```
 
-MSAL.NET nie może wykryć, czy użytkownik nawiguje lub po prostu zamyka przeglądarkę. Aplikacje korzystające z tej techniki są zachęcane do definiowania limitu `CancellationToken`czasu (za pośrednictwem). Zalecamy przekroczenie limitu czasu co najmniej kilku minut, aby wziąć pod uwagę sytuacje, w których użytkownik zostanie poproszony o zmianę hasła lub przeprowadzenie uwierzytelniania wieloskładnikowego.
+MSAL.NET nie może wykryć, czy użytkownik nawiguje lub po prostu zamyka przeglądarkę. Aplikacje korzystające z tej techniki są zachęcane do definiowania limitu czasu (za pośrednictwem `CancellationToken` ). Zalecamy przekroczenie limitu czasu co najmniej kilku minut, aby wziąć pod uwagę sytuacje, w których użytkownik zostanie poproszony o zmianę hasła lub przeprowadzenie uwierzytelniania wieloskładnikowego.
 
 ### <a name="how-to-use-the-default-os-browser"></a>Jak używać domyślnej przeglądarki systemu operacyjnego
 
@@ -94,12 +94,11 @@ IPublicClientApplication pca = PublicClientApplicationBuilder
 ```
 
 > [!Note]
-> W przypadku skonfigurowania `http://localhost`programu wewnętrznie MSAL.NET będzie znajdować losowy otwarty port i korzystać z niego.
+> W przypadku skonfigurowania programu `http://localhost` wewnętrznie MSAL.NET będzie znajdować losowy otwarty port i korzystać z niego.
 
 ### <a name="linux-and-mac"></a>Linux i MAC
 
-W systemie Linux MSAL.NET otworzy domyślną przeglądarkę systemu operacyjnego za pomocą narzędzia xdg-Open. Aby rozwiązać problem, uruchom narzędzie z terminalu na przykład`xdg-open "https://www.bing.com"`  
-Na komputerze Mac przeglądarka jest otwierana przez wywołanie`open <url>`
+W systemie Linux MSAL.NET otworzy domyślną przeglądarkę systemu operacyjnego za pomocą narzędzia xdg-Open. Aby rozwiązać problem, uruchom narzędzie z terminalu, na przykład `xdg-open "https://www.bing.com"` . Na komputerze Mac przeglądarka jest otwierana przez wywołanie `open <url>` .
 
 ### <a name="customizing-the-experience"></a>Dostosowywanie środowiska
 
@@ -160,7 +159,7 @@ Istnieją pewne różnice wizualne między osadzonym widokiem WebView a przeglą
 Jako deweloper korzystający z usługi MSAL.NET masz kilka opcji wyświetlania interaktywnego okna dialogowego z usługi STS:
 
 - **Przeglądarka systemu.** Przeglądarka systemowa jest domyślnie ustawiana w bibliotece. W przypadku korzystania z systemu Android Przeczytaj [przeglądarki systemowe](msal-net-system-browser-android-considerations.md) , aby uzyskać szczegółowe informacje na temat tego, które przeglądarki są obsługiwane na potrzeby uwierzytelniania. W przypadku korzystania z przeglądarki systemowej w systemie Android zaleca się, aby urządzenie miało przeglądarkę, która obsługuje niestandardowe karty programu Chrome.  W przeciwnym razie uwierzytelnianie może zakończyć się niepowodzeniem.
-- **Osadzony widok WebView.** Aby użyć tylko osadzonego widoku WebView w MSAL.NET `AcquireTokenInteractively` , Konstruktor parametrów zawiera `WithUseEmbeddedWebView()` metodę.
+- **Osadzony widok WebView.** Aby użyć tylko osadzonego widoku WebView w MSAL.NET, `AcquireTokenInteractively` Konstruktor parametrów zawiera `WithUseEmbeddedWebView()` metodę.
 
     iOS
 
@@ -182,7 +181,7 @@ Jako deweloper korzystający z usługi MSAL.NET masz kilka opcji wyświetlania i
 
 #### <a name="choosing-between-embedded-web-browser-or-system-browser-on-xamarinios"></a>Wybór między osadzoną przeglądarką sieci Web lub przeglądarką systemową na platformie Xamarin. iOS
 
-W aplikacji `AppDelegate.cs` `ParentWindow` dla systemu iOS można zainicjować w usłudze `null`. Nie jest on używany w systemie iOS
+W aplikacji dla systemu iOS `AppDelegate.cs` można zainicjować w `ParentWindow` usłudze `null` . Nie jest on używany w systemie iOS
 
 ```csharp
 App.ParentWindow = null; // no UI parent on iOS
@@ -190,13 +189,13 @@ App.ParentWindow = null; // no UI parent on iOS
 
 #### <a name="choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid"></a>Wybieranie między osadzoną przeglądarką sieci Web lub przeglądarką systemową na platformie Xamarin. Android
 
-W aplikacji `MainActivity.cs` systemu Android można ustawić działanie nadrzędne, tak aby wynik uwierzytelniania został przywrócony do:
+W aplikacji systemu Android `MainActivity.cs` można ustawić działanie nadrzędne, tak aby wynik uwierzytelniania został przywrócony do:
 
 ```csharp
  App.ParentWindow = this;
 ```
 
-Następnie w `MainPage.xaml.cs`:
+Następnie w `MainPage.xaml.cs` :
 
 ```csharp
 authResult = await App.PCA.AcquireTokenInteractive(App.Scopes)
@@ -207,7 +206,7 @@ authResult = await App.PCA.AcquireTokenInteractive(App.Scopes)
 
 #### <a name="detecting-the-presence-of-custom-tabs-on-xamarinandroid"></a>Wykrywanie obecności kart niestandardowych w aplikacji Xamarin. Android
 
-Jeśli chcesz użyć systemowej przeglądarki sieci Web, aby włączyć logowanie jednokrotne w aplikacjach działających w przeglądarce, ale martwisz się się o środowisko użytkownika dla urządzeń z systemem Android bez przeglądarki z obsługą kart niestandardowych, możesz wybrać opcję, wywołując `IsSystemWebViewAvailable()` metodę w. `IPublicClientApplication` Ta metoda zwraca `true` Jeśli pakiet packagemanager wykryje niestandardowe karty `false` i nie wykryje ich na urządzeniu.
+Jeśli chcesz użyć systemowej przeglądarki sieci Web, aby włączyć logowanie jednokrotne w aplikacjach działających w przeglądarce, ale martwisz się się o środowisko użytkownika dla urządzeń z systemem Android bez przeglądarki z obsługą kart niestandardowych, możesz wybrać opcję, wywołując `IsSystemWebViewAvailable()` metodę w `IPublicClientApplication` . Ta metoda zwraca `true` Jeśli pakiet packagemanager wykryje niestandardowe karty i nie wykryje `false` ich na urządzeniu.
 
 W oparciu o wartość zwróconą przez tę metodę i wymagania można podjąć decyzję:
 

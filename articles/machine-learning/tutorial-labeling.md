@@ -10,14 +10,14 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: a8136f8fe6431187884a180925234d6aab36983f
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: f880f189b19b4909268b6e0b24654fc4682ab7c8
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725520"
+ms.locfileid: "83759187"
 ---
-# <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Samouczek: Tworzenie projektu etykietowania dla wieloklasowej klasyfikacji obrazów 
+# <a name="tutorial-create-a-labeling-project-preview-for-multi-class-image-classification"></a>Samouczek: Tworzenie projektu etykietowania (wersja zapoznawcza) dla klasyfikacji obrazów wieloklasowych 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 W tym samouczku pokazano, jak zarządzać procesem etykietowania (nazywanymi również znakami oznakowania), które mają być używane jako dane do kompilowania modeli uczenia maszynowego. Etykietowanie danych w Azure Machine Learning jest w publicznej wersji zapoznawczej.

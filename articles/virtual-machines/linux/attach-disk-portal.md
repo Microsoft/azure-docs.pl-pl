@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 746cef8dfe026c731a677cbf77f729d36342f007
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6c485c1612df526e813119239fd2202b7657db9c
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78969350"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774195"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Dołączanie dysku danych do maszyny wirtualnej z systemem Linux przy użyciu portalu 
 W tym artykule opisano sposób dołączania nowych i istniejących dysków do maszyny wirtualnej z systemem Linux za pomocą Azure Portal. Możesz również [dołączyć dysk danych do maszyny wirtualnej z systemem Windows w Azure Portal](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -94,13 +94,13 @@ Jeśli używasz istniejącego dysku, który zawiera dane, Pomiń Instalowanie dy
 > [!NOTE]
 > Zalecane jest korzystanie z najnowszych wersji programu fdisk lub częściowo dostępnych dla Twojego dystrybucji.
 
-Podziel dysk na partycje za pomocą polecenia `fdisk`. Jeśli rozmiar dysku wynosi 2 tebibajtów (TiB) lub większy, należy użyć partycjonowania GPT, za pomocą `parted` którego można wykonać partycjonowanie GPT. Jeśli rozmiar dysku jest w obszarze 2TiB, można użyć partycji MBR lub GPT. Ustaw go jako dysk podstawowy na partycji 1 i zaakceptuj inne ustawienia domyślne. Poniższy przykład uruchamia `fdisk` proces w */dev/SDC*:
+Podziel dysk na partycje za pomocą polecenia `fdisk`. Jeśli rozmiar dysku wynosi 2 tebibajtów (TiB) lub większy, należy użyć partycjonowania GPT, za pomocą którego można `parted` wykonać partycjonowanie GPT. Jeśli rozmiar dysku jest w obszarze 2TiB, można użyć partycji MBR lub GPT. Ustaw go jako dysk podstawowy na partycji 1 i zaakceptuj inne ustawienia domyślne. Poniższy przykład uruchamia `fdisk` proces w */dev/SDC*:
 
 ```bash
 sudo fdisk /dev/sdc
 ```
 
-Nową partycję możesz dodać za pomocą polecenia `n`. W tym przykładzie wybieramy `p` również partycję podstawową i zaakceptujemy resztę wartości domyślnych. Dane wyjściowe będą mieć postać podobną do następującej:
+Nową partycję możesz dodać za pomocą polecenia `n`. W tym przykładzie wybieramy również `p` partycję podstawową i zaakceptujemy resztę wartości domyślnych. Dane wyjściowe będą mieć postać podobną do następującej:
 
 ```bash
 Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
@@ -122,7 +122,7 @@ Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
 Using default value 10485759
 ```
 
-Wydrukuj tabelę partycji przez wpisanie `p` , a następnie użyj `w` polecenia, aby zapisać tabelę na dysku i zakończyć. Dane wyjściowe powinny wyglądać podobnie do poniższego przykładu:
+Wydrukuj tabelę partycji przez wpisanie `p` , a następnie użyj polecenia, `w` Aby zapisać tabelę na dysku i zakończyć. Dane wyjściowe powinny wyglądać podobnie do poniższego przykładu:
 
 ```bash
 Command (m for help): p
@@ -179,12 +179,13 @@ Writing superblocks and filesystem accounting information: done
 Narzędzie Fdisk wymaga interaktywnego wprowadzania danych, dlatego nie jest idealnym rozwiązaniem do użycia w skryptach automatyzacji. Jednak narzędzie z [częściową](https://www.gnu.org/software/parted/) sytuacją może być przetwarzane przy użyciu skryptów, a tym samym lepsze w scenariuszach automatyzacji. Narzędzie częściowo służy do partycjonowania i formatowania dysku danych. W poniższym przewodniku będziemy używać nowego dysku danych/dev/SDC i sformatować go przy użyciu systemu plików [XFS](https://xfs.wiki.kernel.org/) .
 ```bash
 sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
+sudo mkfs.xfs /dev/sdc1
 partprobe /dev/sdc1
 ```
 Jak wspomniano powyżej, użyjemy narzędzia [partprobe](https://linux.die.net/man/8/partprobe) , aby upewnić się, że jądro natychmiast zna nową partycję i system plików. Niepowodzenie użycia partprobe może spowodować, że polecenia blkid lub lslbk nie zwracają identyfikatora UUID dla nowego systemu plików natychmiast.
 
 ### <a name="mount-the-disk"></a>Instalowanie dysku
-Utwórz katalog służący do instalowania systemu plików przy `mkdir`użyciu programu. W poniższym przykładzie jest tworzony katalog o godzinie */datadrive*:
+Utwórz katalog służący do instalowania systemu plików przy użyciu programu `mkdir` . W poniższym przykładzie jest tworzony katalog o godzinie */datadrive*:
 
 ```bash
 sudo mkdir /datadrive
@@ -235,12 +236,12 @@ Niektóre jądra systemu Linux obsługują operacje przycinania/mapowania do odr
 
 Istnieją dwa sposoby włączania obsługi przycinania na maszynie wirtualnej z systemem Linux. W zwykły sposób zapoznaj się z dystrybucją, aby uzyskać zalecane podejście:
 
-* Użyj opcji `discard` instalacji w */etc/fstab*, na przykład:
+* Użyj `discard` opcji instalacji w */etc/fstab*, na przykład:
 
     ```bash
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
     ```
-* W niektórych przypadkach opcja może `discard` mieć wpływ na wydajność. Alternatywnie można uruchomić `fstrim` polecenie ręcznie z wiersza polecenia lub dodać je do crontab w celu regularnego uruchamiania:
+* W niektórych przypadkach `discard` opcja może mieć wpływ na wydajność. Alternatywnie można uruchomić `fstrim` polecenie ręcznie z wiersza polecenia lub dodać je do crontab w celu regularnego uruchamiania:
   
     **Ubuntu**
   

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a237ad35d9d5d8abee784926563d972d0ee95f9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ccd51bd69c982aeae25dbf52d1e5d076542cf35
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78672647"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771200"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>Co to jest podstawowy token odświeżania?
 
@@ -60,7 +60,7 @@ PRT jest wystawiany podczas uwierzytelniania użytkownika na urządzeniu z syste
 * Przyłączone do usługi **Azure AD** lub **hybrydowe usługi Azure AD**: element PRT jest wystawiany podczas logowania do systemu Windows, gdy użytkownik zaloguje się przy użyciu poświadczeń organizacji. PRT jest wystawiany ze wszystkimi obsługiwanymi poświadczeniami systemu Windows 10, na przykład hasło i funkcja Windows Hello dla firm. W tym scenariuszu Wtyczka usługi Azure AD CloudAP jest podstawowym urzędem dla PRT.
 * **Zarejestrowane urządzenie usługi Azure AD**: PRT jest wystawiane, gdy użytkownik dodaje dodatkowe konto służbowe do urządzenia z systemem Windows 10. Użytkownicy mogą dodawać konta do systemu Windows 10 na dwa różne sposoby —  
    * Dodawanie konta za pomocą **tego konta wszędzie na tym urządzeniu** po zalogowaniu się do aplikacji (na przykład Outlook)
-   * Dodawanie konta z **ustawień** > **konta** > **dostęp do służbowego** > **połączenia**
+   * Dodawanie konta z **ustawień**  >  **konta**  >  **dostęp do służbowego**  >  **połączenia**
 
 W scenariuszach zarejestrowanych urządzeń w usłudze Azure AD Wtyczka Menedżera WAM usługi Azure AD jest głównym urzędem dla PRT, ponieważ logowanie systemu Windows nie odbywa się przy użyciu tego konta usługi Azure AD.
 
@@ -76,7 +76,7 @@ Po wydaniu PRT jest ważny przez 14 dni i ciągle jest odnawiany, o ile użytkow
 PRT jest używany przez dwa kluczowe składniki w systemie Windows:
 
 * **Wtyczka usługi Azure AD CloudAP**: podczas logowania do systemu Windows Wtyczka usługi Azure AD CLOUDAP żąda PRT z usługi Azure AD przy użyciu poświadczeń dostarczonych przez użytkownika. W pamięci podręcznej PRT jest również włączone logowanie buforowane, gdy użytkownik nie ma dostępu do połączenia z Internetem.
-* **Wtyczka usługi Azure AD wam**: gdy użytkownicy próbują uzyskać dostęp do aplikacji, Wtyczka usługi Azure AD wam używa PRT, aby włączyć logowanie jednokrotne w systemie Windows 10. Wtyczka usługi Azure AD WAM używa PRT, aby zażądać tokenów odświeżania i dostępu dla aplikacji korzystających z Menedżera WAM dla żądań tokenów. Umożliwia także Logowanie jednokrotne w przeglądarkach przez wstrzyknięcie PRT do żądań przeglądarki. Logowanie jednokrotne przeglądarki w systemie Windows 10 jest obsługiwane w przeglądarce Microsoft Edge (natywnie) i Chrome (za pośrednictwem kont systemu Windows 10 lub rozszerzenia usługi Office Online).
+* **Wtyczka usługi Azure AD wam**: gdy użytkownicy próbują uzyskać dostęp do aplikacji, Wtyczka usługi Azure AD wam używa PRT, aby włączyć logowanie jednokrotne w systemie Windows 10. Wtyczka usługi Azure AD WAM używa PRT, aby zażądać tokenów odświeżania i dostępu dla aplikacji korzystających z Menedżera WAM dla żądań tokenów. Umożliwia także Logowanie jednokrotne w przeglądarkach przez wstrzyknięcie PRT do żądań przeglądarki. Logowanie jednokrotne przeglądarki w systemie Windows 10 jest obsługiwane w przeglądarce Microsoft Edge (natywnie) i Chrome (za pośrednictwem [kont systemu Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji?hl=en) lub rozszerzeń usługi [Office Online](https://chrome.google.com/webstore/detail/office/ndjpnladcallmjemlbaebfadecfhkepb?hl=en) ).
 
 ## <a name="how-is-a-prt-renewed"></a>Jak jest odnawiana PRT?
 

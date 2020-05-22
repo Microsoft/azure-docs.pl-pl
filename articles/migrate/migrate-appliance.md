@@ -3,12 +3,12 @@ title: Urządzenie usługi Azure Migrate
 description: Zawiera omówienie urządzenia Azure Migrate używanego w ocenie i migracji serwera.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: bd5686b30b07c0f7fb8961f8d1f71035cb2688a4
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 98398510acb1eec29ea603d869f1e9ec383cb210
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656431"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758949"
 ---
 # <a name="azure-migrate-appliance"></a>Urządzenie usługi Azure Migrate
 
@@ -105,7 +105,7 @@ Urządzenie Azure Migrate wymaga połączenia z Internetem.
 *.microsoftonline.com <br/> *.microsoftonline-p.com | Utwórz aplikacje Azure Active Directory (AD) dla urządzenia, aby komunikować się z Azure Migrate.
 management.azure.com | Utwórz aplikacje usługi Azure AD dla urządzenia, aby komunikować się z usługą Azure Migrate.
 *.services.visualstudio.com | Przekaż Dzienniki aplikacji używane do wewnętrznego monitorowania.
-*.vault.azure.net | Zarządzanie wpisami tajnymi w Azure Key Vault.
+*.vault.azure.net | Zarządzanie wpisami tajnymi w Azure Key Vault. Uwaga: Upewnij się, że maszyny do replikacji mają dostęp do tego obiektu.
 aka.ms/* | Zezwalaj na dostęp do linków aliasów. Używany do Azure Migrate aktualizacji urządzenia.
 download.microsoft.com/download | Zezwalaj na pobieranie z usługi Microsoft Download.
 *.servicebus.windows.net | Komunikacja między urządzeniem a usługą Azure Migrate.
@@ -440,12 +440,12 @@ Aby zaewidencjonować Panel sterowania:
 W przypadku korzystania ze starszej wersji programu należy odinstalować usługę i ręcznie ją zaktualizować do najnowszej wersji.
 
 1. Aby sprawdzić dostępność najnowszych wersji usługi dla urządzeń, [Pobierz](https://aka.ms/latestapplianceservices) plik LatestComponents. JSON.
-2.  Po pobraniu otwórz plik LatestComponents. JSON w Notatniku.
-3. Znajdź najnowszą wersję usługi w pliku i link do pobierania. Na przykład:
+2.    Po pobraniu otwórz plik LatestComponents. JSON w Notatniku.
+3. Znajdź najnowszą wersję usługi w pliku i link do pobierania. Przykład:
 
     "Name": "ASRMigrationWebApp", "DownloadLink": " https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi ", "Version": "6.0.211.2", "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"
 
-4.  Pobierz najnowszą wersję nieaktualnej usługi przy użyciu linku pobierania w pliku.
+4.    Pobierz najnowszą wersję nieaktualnej usługi przy użyciu linku pobierania w pliku.
 5. Po pobraniu programu uruchom następujące polecenie w oknie polecenia administratora, aby sprawdzić integralność pobranego pliku MSI.
 
     ``` C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm] ```Na przykład: C: \> certutil-HashFile C:\USERS\PUBLIC\DOWNLOADS\MICROSOFTAZUREAPPLIANCECONFIGURATIONMANAGER.msi MD5

@@ -8,19 +8,19 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/15/2020
+ms.date: 05/19/2020
 ms.author: jingwang
-ms.openlocfilehash: fb33e05eae52ebc0274296b5c18783233e3e8969
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: f6b488fc4817e360ed512441f67d2e00356e6134
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657108"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758609"
 ---
 # <a name="copy-data-from-google-cloud-storage-using-azure-data-factory"></a>Kopiowanie danych z magazynu Google Cloud Storage przy użyciu Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-W tym artykule opisano sposób kopiowania danych z magazynu Google Cloud Storage. Aby dowiedzieć się więcej na temat Azure Data Factory, Przeczytaj [artykuł wprowadzający](introduction.md).
+W tym artykule opisano sposób kopiowania danych z usługi Google Cloud Storage (operacje odzyskiwania pamięci). Aby dowiedzieć się więcej na temat Azure Data Factory, Przeczytaj [artykuł wprowadzający](introduction.md).
 
 ## <a name="supported-capabilities"></a>Obsługiwane możliwości
 
@@ -31,27 +31,22 @@ Ten łącznik usługi Google Cloud Storage jest obsługiwany dla następujących
 - [Działanie GetMetadata](control-flow-get-metadata-activity.md)
 - [Usuń działanie](delete-activity.md)
 
-Ten łącznik usługi Google Cloud Storage obsługuje kopiowanie plików jako plik lub analizowanie plików z [obsługiwanymi formatami plików i kodekami kompresji](supported-file-formats-and-compression-codecs.md).
-
->[!NOTE]
->Kopiowanie danych z usługi Google Cloud Storage korzysta z [łącznika Amazon S3](connector-amazon-simple-storage-service.md) z odpowiednim niestandardowym punktem końcowym S3, ponieważ usługa Google Cloud Storage zapewnia współdziałanie zgodne z S3.
+Ten łącznik usługi Google Cloud Storage obsługuje kopiowanie plików jako plik lub analizowanie plików z [obsługiwanymi formatami plików i kodekami kompresji](supported-file-formats-and-compression-codecs.md). Wykorzystuje ona współdziałanie zgodne ze standardem S3 operacje odzyskiwania pamięci.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Na Twoim koncie usługi Google Cloud Storage wymagane jest następujące ustawienie:
 
 1. Włącz współdziałanie dla konta usługi Google Cloud Storage
-2. Ustaw projekt domyślny zawierający dane, które chcesz skopiować
-3. Utwórz klucz dostępu.
+2. Ustaw projekt domyślny zawierający dane, które mają zostać skopiowane z docelowego zasobnika operacje odzyskiwania pamięci
+3. Tworzenie konta usługi i Definiowanie odpowiednich poziomów uprawnień przy użyciu usługi IAM w chmurze w usłudze GCP 
+4. Generuj klucze dostępu dla tego konta usługi
 
 ![Pobieranie klucza dostępu do magazynu Google Cloud Storage](media/connector-google-cloud-storage/google-storage-cloud-settings.png)
 
 ## <a name="required-permissions"></a>Wymagane uprawnienia
 
-Aby skopiować dane z magazynu Google Cloud Storage, upewnij się, że masz przyznane następujące uprawnienia:
-
-- **W przypadku wykonywania działania kopiowania:**: `s3:GetObject` i `s3:GetObjectVersion` dla operacji obiektu.
-- **W przypadku Data Factory tworzenia graficznego interfejsu użytkownika**: `s3:ListAllMyBuckets` i `s3:ListBucket` / `s3:GetBucketLocation` dla operacji zasobnika są również wymagane w przypadku operacji takich jak połączenie testowe i przeglądanie/nawigowanie w ścieżkach plików. Jeśli nie chcesz udzielić tych uprawnień, Pomiń połączenie testowe na stronie tworzenia połączonej usługi i określ ścieżkę bezpośrednio w ustawieniach zestawu danych.
+Aby skopiować dane z magazynu Google Cloud Storage, upewnij się, że udzielono wymaganych uprawnień. Uprawnienia zdefiniowane w ramach konta usługi mogą zawierać `storage.buckets.get` , `storage.buckets.list` , `storage.objects.get` w przypadku operacji na obiektach.
 
 ## <a name="getting-started"></a>Wprowadzenie
 
@@ -65,10 +60,10 @@ Następujące właściwości są obsługiwane dla połączonej usługi Google Cl
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość Type musi być ustawiona na wartość **GoogleCloudStorage**. | Yes |
-| accessKeyId | Identyfikator klucza dostępu tajnego. Aby znaleźć klucz dostępu i wpis tajny, zobacz [wymagania wstępne](#prerequisites). |Yes |
-| secretAccessKey | Sam klucz dostępu tajnego. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
-| serviceUrl | Określ niestandardowy punkt końcowy S3 jako **`https://storage.googleapis.com`** . | Yes |
+| typ | Właściwość Type musi być ustawiona na wartość **GoogleCloudStorage**. | Tak |
+| accessKeyId | Identyfikator klucza dostępu tajnego. Aby znaleźć klucz dostępu i wpis tajny, zobacz [wymagania wstępne](#prerequisites). |Tak |
+| secretAccessKey | Sam klucz dostępu tajnego. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). |Tak |
+| serviceUrl | Określ niestandardowy punkt końcowy operacje odzyskiwania pamięci **`https://storage.googleapis.com`** . | Tak |
 | Właściwością connectvia | [Integration Runtime](concepts-integration-runtime.md) używany do nawiązywania połączenia z magazynem danych. Możesz użyć Azure Integration Runtime lub samodzielnego Integration Runtime (Jeśli magazyn danych znajduje się w sieci prywatnej). Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. |Nie |
 
 Oto przykład:
@@ -102,8 +97,8 @@ Następujące właściwości są obsługiwane w usłudze Google Cloud Storage w 
 
 | Właściwość   | Opis                                                  | Wymagane |
 | ---------- | ------------------------------------------------------------ | -------- |
-| typ       | Właściwość Type w `location` elemencie DataSet musi być ustawiona na wartość **AmazonS3Location**. | Yes      |
-| zasobnikname | Nazwa zasobnika S3.                                          | Yes      |
+| typ       | Właściwość Type w `location` elemencie DataSet musi być ustawiona na wartość **GoogleCloudStorageLocation**. | Tak      |
+| zasobnikname | Nazwa zasobnika operacje odzyskiwania pamięci.                                          | Tak      |
 | folderPath | Ścieżka do folderu w danym przedziale. Jeśli chcesz użyć symboli wieloznacznych do filtrowania folderów, pomiń to ustawienie i określ ustawienia źródła działania. | Nie       |
 | fileName   | Nazwa pliku w podanym zasobniku + folderPath. Jeśli chcesz użyć symboli wieloznacznych do filtrowania plików, pomiń to ustawienie i określ ustawienia źródła działania. | Nie       |
 
@@ -121,7 +116,7 @@ Następujące właściwości są obsługiwane w usłudze Google Cloud Storage w 
         "schema": [ < physical schema, optional, auto retrieved during authoring > ],
         "typeProperties": {
             "location": {
-                "type": "AmazonS3Location",
+                "type": "GoogleCloudStorageLocation",
                 "bucketName": "bucketname",
                 "folderPath": "folder/subfolder"
             },
@@ -146,11 +141,12 @@ Następujące właściwości są obsługiwane w usłudze Google Cloud Storage w 
 
 | Właściwość                 | Opis                                                  | Wymagane                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
-| typ                     | Właściwość Type w obszarze `storeSettings` musi być ustawiona na wartość **AmazonS3ReadSettings**. | Yes                                                         |
+| typ                     | Właściwość Type w obszarze `storeSettings` musi być ustawiona na wartość **GoogleCloudStorageReadSettings**. | Tak                                                         |
 | ***Zlokalizuj pliki do skopiowania:*** |  |  |
 | Opcja 1: ścieżka statyczna<br> | Kopiuj z podanego zasobnika lub folderu/ścieżki pliku określonego w zestawie danych. Jeśli chcesz skopiować wszystkie pliki z przedziału/folderu, należy również określić `wildcardFileName` jako `*` . |  |
-| Opcja 2: symbol wieloznaczny<br>- wildcardFolderPath | Ścieżka folderu z symbolami wieloznacznymi w ramach danego zasobnika skonfigurowanych w zestawie danych do filtrowania folderów źródłowych. <br>Dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak); Użyj `^` do ucieczki, jeśli rzeczywista nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz. <br>Zobacz więcej przykładów w [przykładach folderów i filtrów plików](#folder-and-file-filter-examples). | Nie                                            |
-| Opcja 2: symbol wieloznaczny<br>- wildcardFileName | Nazwa pliku zawierająca symbole wieloznaczne w podanym zasobniku + folderPath/wildcardFolderPath do filtrowania plików źródłowych. <br>Dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak); Użyj `^` do ucieczki, jeśli rzeczywista nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz.  Zobacz więcej przykładów w [przykładach folderów i filtrów plików](#folder-and-file-filter-examples). | Yes |
+| Opcja 2: prefiks operacje odzyskiwania pamięci<br>-prefix | Prefiks nazwy klucza operacje odzyskiwania pamięci w danym zasobniku skonfigurowanym w zestawie danych do filtrowania źródłowych plików operacje odzyskiwania pamięci. OPERACJE odzyskiwania pamięci klucze, których nazwa rozpoczyna się od, `bucket_in_dataset/this_prefix` jest zaznaczone. Wykorzystuje filtr po stronie usługi operacje odzyskiwania pamięci, który zapewnia lepszą wydajność niż filtr symboli wieloznacznych. | Nie |
+| Opcja 3: symbol wieloznaczny<br>- wildcardFolderPath | Ścieżka folderu z symbolami wieloznacznymi w ramach danego zasobnika skonfigurowanych w zestawie danych do filtrowania folderów źródłowych. <br>Dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak); Użyj `^` do ucieczki, jeśli rzeczywista nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz. <br>Zobacz więcej przykładów w [przykładach folderów i filtrów plików](#folder-and-file-filter-examples). | Nie                                            |
+| Opcja 3: symbol wieloznaczny<br>- wildcardFileName | Nazwa pliku zawierająca symbole wieloznaczne w podanym zasobniku + folderPath/wildcardFolderPath do filtrowania plików źródłowych. <br>Dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak); Użyj `^` do ucieczki, jeśli rzeczywista nazwa folderu ma symbol wieloznaczny lub ten znak ucieczki wewnątrz.  Zobacz więcej przykładów w [przykładach folderów i filtrów plików](#folder-and-file-filter-examples). | Tak |
 | Opcja 3: Lista plików<br>- fileListPath | Wskazuje, aby skopiować dany zestaw plików. Wskaż plik tekstowy, który zawiera listę plików, które chcesz skopiować, jeden plik na wiersz, który jest ścieżką względną do ścieżki skonfigurowanej w zestawie danych.<br/>W przypadku korzystania z tej opcji nie należy określać nazwy pliku w zestawie danych. Zobacz więcej przykładów na [listach plików](#file-list-examples). |Nie |
 | ***Ustawienia dodatkowe:*** |  | |
 | rozpoznawania | Wskazuje, czy dane są odczytane cyklicznie z podfolderów, czy tylko z określonego folderu. Należy pamiętać, że gdy wartość cykliczna jest ustawiona na wartość true, a ujścia jest magazynem opartym na plikach, pusty folder lub podfolder nie jest kopiowany ani tworzony w ujścia. <br>Dozwolone wartości to **true** (wartość domyślna) i **false**.<br>Ta właściwość nie ma zastosowania podczas konfigurowania `fileListPath` . |Nie |
@@ -185,7 +181,7 @@ Następujące właściwości są obsługiwane w usłudze Google Cloud Storage w 
                     "skipLineCount": 10
                 },
                 "storeSettings":{
-                    "type": "AmazonS3ReadSettings",
+                    "type": "GoogleCloudStorageReadSettings",
                     "recursive": true,
                     "wildcardFolderPath": "myfolder*A",
                     "wildcardFileName": "*.csv"
@@ -234,95 +230,7 @@ Aby uzyskać szczegółowe informacje na temat właściwości, zaznacz pozycję 
 
 ## <a name="legacy-models"></a>Starsze modele
 
->[!NOTE]
->Następujące modele są nadal obsługiwane w celu zapewnienia zgodności z poprzednimi wersjami. Użytkownik chce użyć nowego modelu wymienionego w powyższych sekcjach, przechodząc do przodu, a interfejs użytkownika tworzenia ADF został przełączony w celu wygenerowania nowego modelu.
-
-### <a name="legacy-dataset-model"></a>Model starszego zestawu danych
-
-| Właściwość | Opis | Wymagane |
-|:--- |:--- |:--- |
-| typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **AmazonS3Object** |Yes |
-| zasobnikname | Nazwa zasobnika S3. Filtr symboli wieloznacznych nie jest obsługiwany. |Tak dla działania kopiowania/wyszukiwania, nie dla działania GetMetadata |
-| key | **Nazwa lub filtr symboli wieloznacznych** klucza obiektu S3 w określonym przedziale. Stosuje się tylko wtedy, gdy właściwość "prefix" nie została określona. <br/><br/>Filtr symboli wieloznacznych jest obsługiwany dla części folderu i nazwy pliku. Dozwolone symbole wieloznaczne to: `*` (dopasowuje zero lub więcej znaków) i `?` (dopasowuje zero lub pojedynczy znak).<br/>-Przykład 1:`"key": "rootfolder/subfolder/*.csv"`<br/>-Przykład 2:`"key": "rootfolder/subfolder/???20180427.txt"`<br/>Zobacz więcej przykładów w [przykładach folderów i filtrów plików](#folder-and-file-filter-examples). Użyj `^` , aby wyjść, jeśli rzeczywista nazwa folderu/pliku ma symbol wieloznaczny lub ten znak ucieczki wewnątrz. |Nie |
-| prefiks | Prefiks klucza obiektu S3. Zaznaczone obiekty, których klucze zaczynają się od tego prefiksu. Stosuje się tylko wtedy, gdy właściwość "Key" nie została określona. |Nie |
-| version | Wersja obiektu S3, jeśli włączono obsługę wersji S3. |Nie |
-| modifiedDatetimeStart | Filtr plików oparty na atrybucie: ostatnio modyfikowane. Pliki zostaną wybrane, jeśli ich czas ostatniej modyfikacji należy do przedziału czasu między `modifiedDatetimeStart` i `modifiedDatetimeEnd` . Czas jest stosowany do strefy czasowej UTC w formacie "2018 r-12-01T05:00:00Z". <br/><br/> Właściwości mogą mieć wartość NULL, co oznacza, że żaden filtr atrybutu pliku nie zostanie zastosowany do zestawu danych.  Gdy `modifiedDatetimeStart` ma wartość DateTime `modifiedDatetimeEnd` , ale jest wartością null, oznacza to, że pliki, których ostatni zmodyfikowany atrybut jest większy lub równy wartości DateTime, zostaną zaznaczone.  Gdy `modifiedDatetimeEnd` ma wartość DateTime `modifiedDatetimeStart` , ale jest wartością null, oznacza to, że pliki, których ostatni zmodyfikowany atrybut jest mniejszy niż wartość DateTime zostanie wybrana.| Nie |
-| modifiedDatetimeEnd | Filtr plików oparty na atrybucie: ostatnio modyfikowane. Pliki zostaną wybrane, jeśli ich czas ostatniej modyfikacji należy do przedziału czasu między `modifiedDatetimeStart` i `modifiedDatetimeEnd` . Czas jest stosowany do strefy czasowej UTC w formacie "2018 r-12-01T05:00:00Z". <br/><br/> Właściwości mogą mieć wartość NULL, co oznacza, że żaden filtr atrybutu pliku nie zostanie zastosowany do zestawu danych.  Gdy `modifiedDatetimeStart` ma wartość DateTime `modifiedDatetimeEnd` , ale jest wartością null, oznacza to, że pliki, których ostatni zmodyfikowany atrybut jest większy lub równy wartości DateTime, zostaną zaznaczone.  Gdy `modifiedDatetimeEnd` ma wartość DateTime `modifiedDatetimeStart` , ale jest wartością null, oznacza to, że pliki, których ostatni zmodyfikowany atrybut jest mniejszy niż wartość DateTime zostanie wybrana.| Nie |
-| format | Jeśli chcesz **skopiować pliki** między magazynami opartymi na plikach (kopia binarna), Pomiń sekcję format w definicjach zestawu danych wejściowych i wyjściowych.<br/><br/>Jeśli chcesz analizować lub generować pliki o określonym formacie, obsługiwane są następujące typy formatu plików: **TextFormat**, **formatu jsonformat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ustaw właściwość **Type** w polu Format na jedną z tych wartości. Aby uzyskać więcej informacji, zobacz [format tekstowy](supported-file-formats-and-compression-codecs-legacy.md#text-format), [Format JSON](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Format Avro](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [Format Orc](supported-file-formats-and-compression-codecs-legacy.md#orc-format)i sekcje [formatu Parquet](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) . |Nie (tylko w przypadku scenariusza kopiowania binarnego) |
-| kompresja | Określ typ i poziom kompresji danych. Aby uzyskać więcej informacji, zobacz [obsługiwane formaty plików i kodery-dekoder kompresji](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Obsługiwane typy to: **gzip**, **Wklęśnięcie**, **BZip2**i **ZipDeflate**.<br/>Obsługiwane poziomy to: **optymalne** i **najszybszy**. |Nie |
-
->[!TIP]
->Aby skopiować wszystkie pliki w folderze, należy określić **zasobnik** dla zasobnika i **prefiks** dla części folderu.<br>Aby skopiować pojedynczy plik o podaną nazwę, określ wartość **dla zasobnika** i **klucza** dla części folderu oraz nazwę pliku.<br>Aby skopiować podzestaw plików w folderze, określ wartość **zasobnika** dla zasobnika i **klucza** dla części folderu oraz filtr symboli wieloznacznych.
-
-**Przykład: używanie prefiksu**
-
-```json
-{
-    "name": "GoogleCloudStorageDataset",
-    "properties": {
-        "type": "AmazonS3Object",
-        "linkedServiceName": {
-            "referenceName": "<linked service name>",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "bucketName": "testbucket",
-            "prefix": "testFolder/test",
-            "modifiedDatetimeStart": "2018-12-01T05:00:00Z",
-            "modifiedDatetimeEnd": "2018-12-01T06:00:00Z",
-            "format": {
-                "type": "TextFormat",
-                "columnDelimiter": ",",
-                "rowDelimiter": "\n"
-            },
-            "compression": {
-                "type": "GZip",
-                "level": "Optimal"
-            }
-        }
-    }
-}
-```
-
-### <a name="legacy-copy-activity-source-model"></a>Model źródłowy starszego działania kopiowania
-
-| Właściwość | Opis | Wymagane |
-|:--- |:--- |:--- |
-| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **FileSystemSource** |Yes |
-| rozpoznawania | Wskazuje, czy dane są odczytane cyklicznie z podfolderów, czy tylko z określonego folderu. Uwaga gdy wartość cykliczna jest ustawiona na wartość true, a obiekt sink jest magazynem opartym na plikach, pusty folder/podfolder nie zostanie skopiowany/utworzony w ujścia.<br/>Dozwolone wartości to: **true** (wartość domyślna), **Fałsz** | Nie |
-| maxConcurrentConnections | Liczba połączeń, które mają być jednocześnie połączone z magazynem magazynu. Określ tylko wtedy, gdy chcesz ograniczyć współbieżne połączenie z magazynem danych. | Nie |
-
-**Przykład:**
-
-```json
-"activities":[
-    {
-        "name": "CopyFromGoogleCloudStorage",
-        "type": "Copy",
-        "inputs": [
-            {
-                "referenceName": "<input dataset name>",
-                "type": "DatasetReference"
-            }
-        ],
-        "outputs": [
-            {
-                "referenceName": "<output dataset name>",
-                "type": "DatasetReference"
-            }
-        ],
-        "typeProperties": {
-            "source": {
-                "type": "FileSystemSource",
-                "recursive": true
-            },
-            "sink": {
-                "type": "<sink type>"
-            }
-        }
-    }
-]
-```
+Jeśli korzystasz z łącznika Amazon S3 do kopiowania danych z usługi Google Cloud Storage, nadal jest ona obsługiwana w celu zapewnienia zgodności z poprzednimi wersjami. Użytkownik chce użyć nowego modelu wymienionego w powyższych sekcjach, przechodząc do przodu, a interfejs użytkownika tworzenia ADF został przełączony w celu wygenerowania nowego modelu.
 
 ## <a name="next-steps"></a>Następne kroki
 Listę magazynów danych obsługiwanych jako źródła i ujścia przez działanie kopiowania w Azure Data Factory można znaleźć w temacie [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats).

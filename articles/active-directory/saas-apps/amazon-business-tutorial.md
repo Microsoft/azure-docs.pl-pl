@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7ac085beaa85a7ddf3a6c3bfc61820e8e5a63ea
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8218b3dbe09e5ce7e6c28e1084b26c6eec4a16ca
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68496910"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773052"
 ---
 # <a name="tutorial-integrate-amazon-business-with-azure-active-directory"></a>Samouczek: Integrowanie usługi Amazon Business z Azure Active Directory
 
@@ -87,24 +87,22 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     
        | | |
        |-|-|
-       | `https://www.amazon.com`|
-       | `https://www.amazon.co.jp`|
-       | `https://www.amazon.de`|
+       | `https://www.amazon.com`| Ameryka Północna |
+       | `https://www.amazon.co.jp`| Azja Wschodnia |
+       | `https://www.amazon.de`| Europa |
 
     1. W polu tekstowym **adres URL odpowiedzi** wpisz adres URL przy użyciu jednego z następujących wzorców:
     
        | | |
        |-|-|
-       | `https://www.amazon.com/bb/feature/sso/action/3p_redirect?idpid={idpid}`|
-       | `https://www.amazon.co.jp/bb/feature/sso/action/3p_redirect?idpid={idpid}`|
-       | `https://www.amazon.de/bb/feature/sso/action/3p_redirect?idpid={idpid}`|
+       | `https://www.amazon.com/bb/feature/sso/action/3p_redirect?idpid={idpid}`| Ameryka Północna |
+       | `https://www.amazon.co.jp/bb/feature/sso/action/3p_redirect?idpid={idpid}`| Azja Wschodnia |
+       | `https://www.amazon.de/bb/feature/sso/action/3p_redirect?idpid={idpid}`| Europa |
 
        > [!NOTE]
        > Wartość adresu URL odpowiedzi nie jest prawdziwa. Zaktualizuj ją, stosując rzeczywisty adres URL odpowiedzi. Otrzymasz `<idpid>` wartość z sekcji Konfiguracja usługi Amazon Business SSO, która została omówiona w dalszej części tego samouczka. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
 
-1. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
-
-    W polu tekstowym **adres URL logowania** wpisz adres URL:`https://www.amazon.com/`
+1. Jeśli chcesz skonfigurować aplikację w trybie zainicjowania programu **SP** , musisz dodać pełny adres URL podany w konfiguracji firmy Amazon Business do **adresu URL logowania** w sekcji **Ustaw dodatkowe adresy** URL.
 
 1. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych. Aby edytować atrybuty, kliknij ikonę **Edytuj** w sekcji **atrybuty użytkownika & oświadczenia** .
 
@@ -118,9 +116,9 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
     a. Kliknij **pióro** obok **grup zwróconych w ramach żądania**.
 
-    ![image](./media/amazon-business-tutorial/config04.png)
+    ![image (obraz)](./media/amazon-business-tutorial/config04.png)
 
-    ![image](./media/amazon-business-tutorial/config05.png)
+    ![image (obraz)](./media/amazon-business-tutorial/config05.png)
 
     b. Wybierz pozycję **wszystkie grupy** z listy radiowej.
 
@@ -153,6 +151,9 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 1. W kreatorze **konfigurowania logowania jednokrotnego** wybierz dostawcę zgodnie z wymaganiami organizacji i kliknij przycisk **dalej**.
 
     ![Grupa domyślna](media/amazon-business-tutorial/default-group1.png)
+    
+    > [!NOTE]
+    > Mimo że usługa Microsoft AD FS jest wymieniona, nie działa z logowaniem jednokrotnym w usłudze Azure AD.
 
 1. W kreatorze **nowego konta użytkownika** domyślne wybierz **grupę domyślną** , a następnie wybierz **domyślną rolę kupowania** zgodnie z rolą użytkownika w organizacji i kliknij przycisk **dalej**.
 
@@ -197,7 +198,12 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 1. Na koniec w sekcji **szczegóły połączenia z logowaniem jednokrotnym** **stan** jest wyświetlany jako **aktywny**.
 
     ![Połączenie](media/amazon-business-tutorial/sso-connection5.png)
-
+    
+    > [!NOTE]
+    > Jeśli chcesz skonfigurować aplikację w trybie inicjalizacji **SP** , wykonaj następujące czynności, a następnie wklej adres URL logowania z zrzutu ekranu powyżej w polu tekstowym **Ustaw dodatkowe adresy** **URL w** Azure Portal. Użyj następującego formatu:
+    >
+    > `https://www.amazon.<TLD>/bb/feature/sso/action/start?domain_hint=<uniqueid>`
+    
 ### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
 
 W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
@@ -209,7 +215,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 

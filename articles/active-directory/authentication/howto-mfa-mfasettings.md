@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfde52db9cbe5bc14be7b30c1063215472bff699
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 3ef98f243abd02f0156190638cda8ab7c33f935d
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83116292"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770911"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurowanie ustawień usługi Azure Multi-Factor Authentication
 
@@ -30,13 +30,13 @@ Możesz uzyskać dostęp do ustawień związanych z usługą Azure Multi-Factor 
 
 Niektóre z tych ustawień mają zastosowanie do serwera MFA, usługi Azure MFA lub obu.
 
-| Funkcja | Opis |
+| Cecha | Opis |
 | ------- | ----------- |
 | Blokada konta | Tymczasowe blokowanie kont w usłudze wieloskładnikowe uwierzytelnianie, jeśli w wierszu występuje zbyt wiele nieudanych prób uwierzytelnienia. Ta funkcja ma zastosowanie tylko do użytkowników, którzy wprowadzają kod PIN do uwierzytelnienia. (Serwer MFA) |
 | [Blokuj/Odblokuj użytkowników](#block-and-unblock-users) | Służy do blokowania, aby określeni użytkownicy mogli odbierać Multi-Factor Authentication żądania. Wszystkie próby uwierzytelnienia dla zablokowanych użytkowników są automatycznie odrzucane. Użytkownicy pozostają zablokowani przez 90 dni od momentu zablokowania. |
 | [Alert dotyczący wykrycia oszustwa](#fraud-alert) | Konfigurowanie ustawień związanych z możliwościami użytkowników w celu zgłaszania fałszywych żądań weryfikacji |
 | [Powiadomienia](#notifications) | Włącz powiadomienia zdarzeń z serwera MFA. |
-| [Tokeny OATH](concept-authentication-methods.md#oath-hardware-tokens) | Używany w środowiskach Azure MFA opartych na chmurze do zarządzania tokenami OATH dla użytkowników. |
+| [Tokeny OATH](concept-authentication-methods.md#oath-tokens) | Używany w środowiskach Azure MFA opartych na chmurze do zarządzania tokenami OATH dla użytkowników. |
 | [Ustawienia połączenia telefonicznego](#phone-call-settings) | Konfigurowanie ustawień związanych z połączeniami telefonicznymi i powitami w środowiskach chmurowych i lokalnych. |
 | Dostawcy | Spowoduje to wyświetlenie wszystkich istniejących dostawców uwierzytelniania, które mogły zostać skojarzone z Twoim kontem. Nie można utworzyć nowych dostawców uwierzytelniania od 1 września 2018 |
 
@@ -44,7 +44,7 @@ Niektóre z tych ustawień mają zastosowanie do serwera MFA, usługi Azure MFA 
 
 Ustawienia w tej sekcji dotyczą tylko serwera MFA.
 
-| Funkcja | Opis |
+| Cecha | Opis |
 | ------- | ----------- |
 | Ustawienia serwera | Pobierz serwer usługi MFA i Wygeneruj poświadczenia aktywacji w celu zainicjowania środowiska |
 | [Jednorazowe obejście](#one-time-bypass) | Zezwalaj użytkownikowi na uwierzytelnianie bez przeprowadzania weryfikacji dwuetapowej przez ograniczony czas. |

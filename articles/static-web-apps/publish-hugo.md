@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: a0d1ba696b39b9331c4a85c9cf37d13d545ffad5
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: a6ea758de7f471cb15462d1ebadaecf24c851c70
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599793"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773456"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Samouczek: publikowanie witryny Hugo w wersji zapoznawczej usługi Azure static Web Apps
 
@@ -133,13 +133,11 @@ Następnie Dodaj ustawienia konfiguracji, które są używane przez proces kompi
 
 1. Kliknij przycisk **Dalej: kompiluj >** , aby edytować konfigurację kompilacji
 
-1. Ustaw _lokalizację aplikacji_ na **/** .
+1. Ustaw _lokalizację aplikacji_ na **publiczną**.
 
-1. Ustaw _lokalizację artefaktu aplikacji_ na **publiczną**.
+1. Pozostaw pustą _lokalizację artefaktu aplikacji_ .
 
    Wartość _lokalizacji interfejsu API_ nie jest konieczna, ponieważ w tej chwili nie jest WDRAŻANY interfejs API.
-
-   :::image type="content" source="./media/publish-hugo/build-details.png" alt-text="Ustawienia kompilacji":::
 
 ### <a name="review-and-create"></a>Przejrzyj i utwórz
 

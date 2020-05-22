@@ -2,13 +2,13 @@
 title: Ograniczenia dotyczące nazw zasobów
 description: Pokazuje reguły i ograniczenia dotyczące nazewnictwa zasobów platformy Azure.
 ms.topic: conceptual
-ms.date: 04/22/2020
-ms.openlocfilehash: 7ab012c5363de643c4cb5de8777de56fad5a9711
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 05/21/2020
+ms.openlocfilehash: 553d0e33c4b9bc1aa238cf582f37be1e148eea5e
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653707"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758898"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reguły i ograniczenia nazewnictwa zasobów platformy Azure
 
@@ -696,6 +696,9 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > | dopuszczalna | grupa zasobów | 1-40 | Alfanumeryczne i łączniki. |
 > | lokacje | global | 2-60 | Zawiera znaki alfanumeryczne i łączniki.<br><br>Nie można rozpocząć ani zakończyć z łącznikiem. |
 > | Lokacje/miejsca | lokacja | 2-59 | Alfanumeryczne i łączniki. |
+
+> [!NOTE]
+> Azure Functions ma takie same reguły nazewnictwa i ograniczenia jak Microsoft. Web/Sites.
 
 ## <a name="next-steps"></a>Następne kroki
 

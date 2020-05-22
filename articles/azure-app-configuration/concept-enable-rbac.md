@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.date: 02/13/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 18fa1b60b15b7eef96efa8dcc4fbf9cd7c4dc7f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3ec30aafe63259237a89de6597970b908fb969cf
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77472624"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773444"
 ---
 # <a name="authorize-access-to-azure-app-configuration-using-azure-active-directory"></a>Autoryzuj dostęp do konfiguracji aplikacji platformy Azure przy użyciu Azure Active Directory
 Usługa Azure App Configuration obsługuje używanie Azure Active Directory (Azure AD) do autoryzacji żądań do wystąpień konfiguracji aplikacji.  Usługa Azure AD umożliwia korzystanie z kontroli dostępu opartej na rolach (RBAC) do przyznawania uprawnień podmiotowi zabezpieczeń.  Podmiot zabezpieczeń może być użytkownikiem lub [podmiotem usługi aplikacji](../active-directory/develop/app-objects-and-service-principals.md).  Aby dowiedzieć się więcej o rolach i przypisaniach ról, zobacz [opis różnych ról](../role-based-access-control/overview.md).
@@ -33,9 +33,10 @@ Gdy rola RBAC jest przypisana do podmiotu zabezpieczeń usługi Azure AD, platfo
 ## <a name="built-in-rbac-roles-for-azure-app-configuration"></a>Wbudowane role RBAC dla konfiguracji aplikacji platformy Azure
 Platforma Azure udostępnia następujące wbudowane role RBAC do autoryzowania dostępu do danych konfiguracji aplikacji przy użyciu usługi Azure AD i uwierzytelniania OAuth:
 
-- Właściciel danych konfiguracji aplikacji platformy Azure: Użyj tej roli, aby udzielić dostępu do odczytu i zapisu do zasobów konfiguracji aplikacji.
-- Czytnik danych konfiguracji aplikacji platformy Azure: Użyj tej roli, aby zapewnić dostęp do odczytu do zasobów konfiguracji aplikacji.
-- Współautor: Ta rola umożliwia uzyskanie dostępu administratora do usługi bez udzielania dostępu do danych przechowywanych w wystąpieniu konfiguracji aplikacji.
+- **Właściciel danych konfiguracji aplikacji**: Użyj tej roli, aby przyznać dostęp do odczytu/zapisu/usuwania do danych konfiguracji aplikacji. Nie powoduje to przyznania dostępu do zasobu konfiguracji aplikacji.
+- **Czytnik danych konfiguracji aplikacji**: Użyj tej roli, aby zapewnić dostęp do odczytu do danych konfiguracji aplikacji. Nie powoduje to przyznania dostępu do zasobu konfiguracji aplikacji.
+- **Współautor**: Ta rola służy do zarządzania zasobem konfiguracji aplikacji. Podczas gdy dane konfiguracji aplikacji są dostępne przy użyciu kluczy dostępu, ta rola nie udziela dostępu do danych za pomocą usługi Azure AD.
+- **Czytelnik**: Ta rola umożliwia dostęp do odczytu do zasobu konfiguracji aplikacji. Nie powoduje to przyznania dostępu do kluczy dostępu zasobu ani do danych przechowywanych w konfiguracji aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 Dowiedz się więcej o używaniu [tożsamości zarządzanych](howto-integrate-azure-managed-service-identity.md) do administrowania usługą konfiguracji aplikacji.

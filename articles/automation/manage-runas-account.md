@@ -1,18 +1,18 @@
 ---
-title: Zarządzaj kontami Azure Automation Uruchom jako
-description: W tym artykule opisano sposób zarządzania kontami Uruchom jako przy użyciu programu PowerShell lub portalu.
+title: Zarządzanie Azure Automation kontem Uruchom jako
+description: W tym artykule opisano, jak zarządzać kontem Uruchom jako przy użyciu programu PowerShell lub z poziomu Azure Portal.
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 04/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 68d04603ba9f0633bfa55598790b790055384fdb
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d85eac7af71f03be384b8fa9d9603525c0807dac
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648145"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770792"
 ---
-# <a name="manage-azure-automation-run-as-accounts"></a>Zarządzaj kontami Azure Automation Uruchom jako
+# <a name="manage-an-azure-automation-run-as-account"></a>Zarządzanie Azure Automation kontem Uruchom jako
 
 Konta Uruchom jako w Azure Automation umożliwiają uwierzytelnianie w celu zarządzania zasobami na platformie Azure przy użyciu poleceń cmdlet platformy Azure. Podczas tworzenia konta Uruchom jako jest tworzony nowy użytkownik głównej nazwy usługi w Azure Active Directory (AD) i przypisuje rolę współautor do tego użytkownika na poziomie subskrypcji.
 
@@ -53,11 +53,11 @@ Klasyczne konto Uruchom jako platformy Azure wykonuje następujące zadania.
 >[!NOTE]
 >Klasyczne konto Uruchom jako platformy Azure nie jest domyślnie tworzone w momencie tworzenia konta usługi Automation. To konto jest tworzone osobno zgodnie z krokami opisanymi w dalszej części tego artykułu.
 
-## <a name="run-as-account-permissions"></a><a name="permissions"></a>Uprawnienia konta Uruchom jako
+## <a name="obtain-run-as-account-permissions"></a><a name="permissions"></a>Uzyskaj uprawnienia konta Uruchom jako
 
 Ta sekcja definiuje uprawnienia zarówno do zwykłych kont Uruchom jako, jak i klasycznych kont Uruchom jako.
 
-### <a name="permissions-to-configure-run-as-accounts"></a>Uprawnienia do konfigurowania kont Uruchom jako
+### <a name="get-permissions-to-configure-run-as-accounts"></a>Uzyskaj uprawnienia do konfigurowania kont Uruchom jako
 
 W celu utworzenia lub zaktualizowania konta Uruchom jako wymagane są określone uprawnienia. Administrator aplikacji w Azure Active Directory i właściciel subskrypcji może ukończyć wszystkie zadania. W przypadku rozdzielenia obowiązków w poniższej tabeli przedstawiono listę zadań, równoważne polecenie cmdlet i potrzebne uprawnienia:
 
@@ -83,11 +83,11 @@ Aby sprawdzić, czy problem z wygenerowaniem komunikatu o błędzie został usun
 3. Wybierz swoją nazwę, a następnie wybierz pozycję **profil**. 
 4. Upewnij się, że wartość atrybutu **typu użytkownika** w profilu użytkownika nie jest ustawiona na **gość**.
 
-### <a name="permissions-to-configure-classic-run-as-accounts"></a><a name="permissions-classic"></a>Uprawnienia do konfigurowania klasycznych kont Uruchom jako
+### <a name="get-permissions-to-configure-classic-run-as-accounts"></a><a name="permissions-classic"></a>Uzyskaj uprawnienia do konfigurowania klasycznych kont Uruchom jako
 
 Aby skonfigurować lub odnowić klasyczne konta Uruchom jako, musisz mieć rolę współadministrator na poziomie subskrypcji. Aby dowiedzieć się więcej o uprawnieniach klasycznych subskrypcji, zobacz [klasycznej subskrypcji platformy Azure](../role-based-access-control/classic-administrators.md#add-a-co-administrator).
 
-## <a name="creating-a-run-as-account-in-azure-portal"></a>Tworzenie konta Uruchom jako w Azure Portal
+## <a name="create-a-run-as-account-in-azure-portal"></a>Utwórz konto Uruchom jako w Azure Portal
 
 Wykonaj następujące kroki, aby zaktualizować konto Azure Automation w Azure Portal. Utwórz pojedynczo konta Uruchom jako i klasycznej jako. Jeśli nie trzeba zarządzać zasobami klasycznymi, można po prostu utworzyć konto Uruchom jako platformy Azure.
 
@@ -99,7 +99,7 @@ Wykonaj następujące kroki, aby zaktualizować konto Azure Automation w Azure P
 6. W zależności od konta zainteresowania użyj okienka Dodawanie konta Uruchom **jako platformy Azure** lub **Dodaj klasyczne konto Uruchom jako platformy Azure** . Po przejrzeniu informacji przeglądowych kliknij przycisk **Utwórz**.
 6. W trakcie tworzenia konta Uruchom jako na platformie Azure postęp można śledzić po wybraniu z menu opcji **Powiadomienia**. Zostanie również wyświetlony transparent informujący o utworzeniu konta. Proces może potrwać kilka minut.
 
-## <a name="creating-a-run-as-account-using-powershell"></a>Tworzenie konta Uruchom jako przy użyciu programu PowerShell
+## <a name="create-a-run-as-account-using-powershell"></a>Tworzenie konta Uruchom jako przy użyciu programu PowerShell
 
 Poniższa lista zawiera wymagania dotyczące tworzenia konta Uruchom jako w programie PowerShell. Te wymagania dotyczą obu typów kont Uruchom jako.
 
@@ -108,7 +108,7 @@ Poniższa lista zawiera wymagania dotyczące tworzenia konta Uruchom jako w prog
 * Konto usługi Automation, do którego odwołuje się wartość `AutomationAccountName` `ApplicationDisplayName` parametrów i.
 * Uprawnienia równoważne z tymi wymienionymi w [wymaganych uprawnieniach do konfigurowania kont Uruchom jako](#permissions).
 
-Aby uzyskać wartości dla `SubscriptionId` , `ResourceGroupName` i `AutomationAccountName` , które są wymaganymi parametrami dla skryptu programu PowerShell, wykonaj poniższe kroki.
+Aby uzyskać wartości dla `SubscriptionId` , `ResourceGroupName` i, które są wymaganymi parametrami dla skryptu programu PowerShell, wykonaj poniższe kroki.
 
 1. W Azure Portal wybierz pozycję **konta usługi Automation**.
 1. Na stronie konta usługi Automation wybierz swoje konto usługi Automation.
@@ -126,7 +126,7 @@ Ta sekcja zawiera skrypt programu PowerShell służący do tworzenia konta Uruch
 * Tworzenie konta Uruchom jako i klasycznego konta Uruchom jako przy użyciu certyfikatu wystawionego przez urząd certyfikacji przedsiębiorstwa.
 * Tworzenie konta Uruchom jako i klasycznego konta Uruchom jako przy użyciu certyfikatu z podpisem własnym w chmurze usługi Azure Government.
 
-Skrypt używa wielu Azure Resource Manager poleceń cmdlet do tworzenia zasobów. W przypadku poleceń cmdlet i wymaganych uprawnień należy zapoznać [się z tematem uprawnienia do konfigurowania kont Uruchom jako](#permissions-to-configure-run-as-accounts).
+Skrypt używa wielu Azure Resource Manager poleceń cmdlet do tworzenia zasobów. Aby uzyskać odpowiednie polecenia cmdlet i uprawnienia, zobacz [pobieranie uprawnień do konfigurowania kont Uruchom jako](#get-permissions-to-configure-run-as-accounts).
 
 Zapisz skrypt na komputerze przy użyciu nazwy pliku **New-RunAsAccount. ps1**.
 
@@ -237,7 +237,7 @@ if (!(($AzureRmProfileVersion.Major -ge 3 -and $AzureRmProfileVersion.Minor -ge 
 
 
 Connect-AzAccount -Environment $EnvironmentName
-$Subscription = Get-AzSubscription -SubscriptionId $SubscriptionId
+$Subscription = Get-AzSubscription -SubscriptionId $SubscriptionId | Set-AzContext
 
 # Create a Run As account by using a service principal
 $CertifcateAssetName = "AzureRunAsCertificate"
@@ -299,7 +299,7 @@ if ($CreateClassicRunAsAccount) {
     CreateAutomationCertificateAsset $ResourceGroup $AutomationAccountName $ClassicRunAsAccountCertifcateAssetName $PfxCertPathForClassicRunAsAccount $PfxCertPlainPasswordForClassicRunAsAccount $false
 
     # Populate the ConnectionFieldValues
-    $SubscriptionName = $subscription.Subscription.Name
+    $SubscriptionName = $subscription.Name
     $ClassicRunAsAccountConnectionFieldValues = @{"SubscriptionName" = $SubscriptionName; "SubscriptionId" = $SubscriptionId; "CertificateAssetName" = $ClassicRunAsAccountCertifcateAssetName}
 
     # Create an Automation connection asset named AzureRunAsConnection in the Automation account. This connection uses the service principal.
@@ -349,7 +349,7 @@ Jeśli utworzono klasyczne konto Uruchom jako z certyfikatem publicznym przedsi�
 
 Jeśli utworzono klasyczne konto Uruchom jako z certyfikatem publicznym z podpisem własnym (plik **. cer** ), skrypt tworzy i zapisuje go w folderze plików tymczasowych na komputerze. Można go znaleźć w profilu użytkownika `%USERPROFILE%\AppData\Local\Temp` , który został użyty do wykonania sesji programu PowerShell.
 
-## <a name="deleting-a-run-as-or-classic-run-as-account"></a>Usuwanie Uruchom jako lub klasycznego konta Uruchom jako
+## <a name="delete-a-run-as-or-classic-run-as-account"></a>Usuwanie konta Uruchom jako lub klasycznego konta Uruchom jako
 
 W tej sekcji opisano, jak usunąć konto Uruchom jako lub klasyczne. Konto usługi Automation jest zachowywane podczas wykonywania tej akcji. Po usunięciu konta możesz je ponownie utworzyć w Azure Portal.
 
@@ -369,7 +369,7 @@ W tej sekcji opisano, jak usunąć konto Uruchom jako lub klasyczne. Konto usłu
 
    ![Ponowne tworzenie konta Uruchom jako usługi Automation](media/manage-runas-account/automation-account-create-runas.png)
 
-## <a name="renewing-a-self-signed-certificate"></a><a name="cert-renewal"></a>Odnawianie certyfikatu z podpisem własnym
+## <a name="renew-a-self-signed-certificate"></a><a name="cert-renewal"></a>Odnów certyfikat z podpisem własnym
 
 Certyfikat z podpisem własnym utworzony dla konta Uruchom jako wygasa w jednym roku od daty utworzenia. W pewnym momencie przed wygaśnięciem konta Uruchom jako należy odnowić certyfikat. Można je odnowić w dowolnym momencie przed wygaśnięciem. 
 
@@ -397,7 +397,7 @@ Aby odnowić certyfikat z podpisem własnym, wykonaj następujące czynności.
 
 1. W trakcie odnawiania certyfikatu postęp można śledzić po wybraniu z menu opcji **Powiadomienia**.
 
-## <a name="setting-up-automatic-certificate-renewal-with-an-automation-runbook"></a><a name="auto-cert-renewal"></a>Konfigurowanie automatycznego odnawiania certyfikatów przy użyciu elementu Runbook usługi Automation
+## <a name="set-up-automatic-certificate-renewal-with-an-automation-runbook"></a><a name="auto-cert-renewal"></a>Konfigurowanie automatycznego odnawiania certyfikatów przy użyciu elementu Runbook usługi Automation
 
 Aby automatycznie odnowić certyfikaty, można użyć elementu Runbook usługi Automation. Ten skrypt w serwisie [GitHub](https://github.com/ikanni/PowerShellScripts/blob/master/AzureAutomation/RunAsAccount/GrantPermissionToRunAsAccountAADApplication-ToRenewCertificateItself-CreateSchedule.ps1) umożliwia korzystanie z tej funkcji na koncie usługi Automation.
 
@@ -432,7 +432,7 @@ Wykonaj następujące kroki, aby natychmiast przetestować proces odnawiania.
 5. Po zakończeniu testu Edytuj element Runbook, a następnie Usuń znak komentarza dodany w kroku 1.
 6. Opublikuj element Runbook.
 
-## <a name="limiting-run-as-account-permissions"></a><a name="limiting-run-as-account-permissions"></a>Ograniczanie uprawnień konta Uruchom jako
+## <a name="limit-run-as-account-permissions"></a>Ogranicz uprawnienia konta Uruchom jako
 
 Aby kontrolować Określanie wartości docelowej automatyzacji względem zasobów na platformie Azure, można uruchomić skrypt [Update-AutomationRunAsAccountRoleAssignments. ps1](https://aka.ms/AA5hug8) . Ten skrypt zmienia istniejącą nazwę główną usługi konta Uruchom jako, aby utworzyć niestandardową definicję roli i korzystać z niej. Rola ma uprawnienia do wszystkich zasobów, z wyjątkiem [Key Vault](https://docs.microsoft.com/azure/key-vault/).
 
@@ -466,7 +466,7 @@ Możesz zezwolić Azure Automation, aby sprawdzić, czy Key Vault i nazwa głów
 
 Możesz użyć skryptu [extend-AutomationRunAsAccountRoleAssignmentToKeyVault. ps1](https://aka.ms/AA5hugb) w Galeria programu PowerShell, aby nadać kontu Uruchom jako uprawnienia do Key Vault. Aby uzyskać więcej informacji na temat ustawiania uprawnień dla Key Vault [, zobacz Udzielanie aplikacjom dostępu do magazynu kluczy](../key-vault/general/group-permissions-for-apps.md) .
 
-## <a name="resolving-misconfiguration-issues-for-run-as-accounts"></a>Rozwiązywanie problemów z błędami konfiguracji dla kont Uruchom jako
+## <a name="resolve-misconfiguration-issues-for-run-as-accounts"></a>Rozwiązywanie problemów z błędami konfiguracji dla kont Uruchom jako
 
 Niektóre elementy konfiguracji niezbędne do uruchomienia jako lub klasycznego konta Uruchom jako mogły zostać usunięte lub utworzone nieprawidłowo podczas konfiguracji początkowej. Możliwe wystąpienia niepozostałej konfiguracji obejmują:
 
@@ -489,5 +489,5 @@ Te problemy związane z kontem Uruchom jako można szybko rozwiązać, usuwając
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać więcej informacji na temat jednostek usługi, zobacz [obiekty aplikacji i obiekty główne usługi](../active-directory/develop/app-objects-and-service-principals.md).
-* Aby uzyskać więcej informacji na temat certyfikatów i usług Azure, zobacz [Omówienie certyfikatów dla platformy Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).
+* [Obiekty aplikacji i obiekty główne usługi](../active-directory/develop/app-objects-and-service-principals.md).
+* [Omówienie certyfikatów dla Cloud Services platformy Azure](../cloud-services/cloud-services-certs-create.md).

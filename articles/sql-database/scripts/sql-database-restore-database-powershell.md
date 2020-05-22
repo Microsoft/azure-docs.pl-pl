@@ -3,7 +3,7 @@ title: Przykład programu PowerShell — przywracanie kopii zapasowej — Azure 
 description: Azure PowerShell przykładowy skrypt służący do przywracania pojedynczej bazy danych SQL Azure do wcześniejszego punktu w czasie z automatycznych kopii zapasowych
 services: sql-database
 ms.service: sql-database
-ms.subservice: backup-restore
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
@@ -11,12 +11,12 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/27/2019
-ms.openlocfilehash: da4236e138bd75237ca10b85dc1586fecd1cece4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1a1e709992ce1e13f809c7c5f55b98aff11025e6
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73691552"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770350"
 ---
 # <a name="use-powershell-to-restore-an-azure-sql-single-database-to-an-earlier-point-in-time"></a>Przywracanie pojedynczej bazy danych usługi Azure SQL Database do wcześniejszego punktu w czasie za pomocą programu PowerShell
 

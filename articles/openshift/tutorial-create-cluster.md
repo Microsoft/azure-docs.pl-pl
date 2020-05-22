@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: 78ec45f5e6c354644e4303db53f276343225eff9
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 86e1bc088c3e4327fbd0b9ad4a05e7c42c3fb776
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858838"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773488"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Samouczek: Tworzenie klastra usługi Azure Red Hat OpenShift 4
 
@@ -24,8 +24,18 @@ W tym samouczku część jednej z trzech zostanie przygotowana do utworzenia kla
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten samouczek będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.75 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
+### <a name="verify-your-permissions"></a>Sprawdzanie uprawnień
+
+Aby utworzyć klaster Red Hat OpenShift platformy Azure, sprawdź następujące uprawnienia dotyczące konta i użytkownika platformy Azure:
+
+[!div class="mx-tdBreakAll"]
+|Uprawnienia|Grupa zasobów zawierająca sieć wirtualną|Wykonywane przez użytkownika`az aro create`|Nazwa główna usługi przebiegła jako`–client-id`|
+|----|:----:|:----:|:----:|
+|**Administrator dostępu użytkowników**|X|X| |
+|**Współautor**|X|X|X|
+
 ### <a name="install-the-az-aro-extension"></a>Zainstaluj `az aro` rozszerzenie
-`az aro` Rozszerzenie umożliwia tworzenie i usuwanie klastrów usługi Azure Red Hat OpenShift oraz uzyskiwanie do nich dostępu bezpośrednio z wiersza polecenia przy użyciu interfejsu użytkownika platformy Azure.
+`az aro`Rozszerzenie umożliwia tworzenie i usuwanie klastrów usługi Azure Red Hat OpenShift oraz uzyskiwanie do nich dostępu bezpośrednio z wiersza polecenia przy użyciu interfejsu użytkownika platformy Azure.
 
 Uruchom następujące polecenie, aby zainstalować `az aro` rozszerzenie.
 
@@ -41,7 +51,7 @@ az extension update -n aro --index https://az.aroapp.io/stable
 
 ### <a name="register-the-resource-provider"></a>Rejestrowanie dostawcy zasobów
 
-Następnie musisz zarejestrować dostawcę `Microsoft.RedHatOpenShift` zasobów w ramach subskrypcji.
+Następnie musisz zarejestrować `Microsoft.RedHatOpenShift` dostawcę zasobów w ramach subskrypcji.
 
 ```azurecli-interactive
 az provider register -n Microsoft.RedHatOpenShift --wait
@@ -74,7 +84,7 @@ Klucz tajny w systemie Red Hat umożliwia klastrowi dostęp do rejestrów konten
 
 Przechowuj zapisany `pull-secret.txt` plik w bezpiecznym miejscu — będzie on używany podczas tworzenia klastra.
 
-Po uruchomieniu `az aro create` polecenia można odwoływać się `--pull-secret @pull-secret.txt` do klucza tajnego ściągnięcia przy użyciu parametru. Wykonaj `az aro create` z katalogu, w którym zapisano `pull-secret.txt` plik. W przeciwnym razie `@pull-secret.txt` Zamień `@<path-to-my-pull-secret-file>`na.
+Po uruchomieniu `az aro create` polecenia można odwoływać się do klucza tajnego ściągnięcia przy użyciu `--pull-secret @pull-secret.txt` parametru. Wykonaj `az aro create` z katalogu, w którym zapisano `pull-secret.txt` plik. W przeciwnym razie Zamień `@pull-secret.txt` na `@<path-to-my-pull-secret-file>` .
 
 Jeśli kopiujesz klucz tajny ściągania lub odwołujesz się do niego w innych skryptach, klucz tajny ściągania powinien być sformatowany jako prawidłowy ciąg JSON.
 
@@ -199,9 +209,9 @@ az aro create \
 Po wykonaniu `az aro create` polecenia zwykle trwa około 35 minut na utworzenie klastra.
 
 >[!IMPORTANT]
-> Jeśli zdecydujesz się określić domenę niestandardową, na przykład **foo.example.com**, konsola OpenShift będzie dostępna pod adresem URL, takim jak `https://console-openshift-console.apps.foo.example.com`, a nie wbudowaną domeną. `https://console-openshift-console.apps.<random>.<location>.aroapp.io`
+> Jeśli zdecydujesz się określić domenę niestandardową, na przykład **foo.example.com**, konsola OpenShift będzie dostępna pod adresem URL, takim jak `https://console-openshift-console.apps.foo.example.com` , a nie wbudowaną domeną `https://console-openshift-console.apps.<random>.<location>.aroapp.io` .
 >
-> Domyślnie OpenShift używa certyfikatów z podpisem własnym dla wszystkich tras utworzonych w usłudze `*.apps.<random>.<location>.aroapp.io`.  Jeśli zdecydujesz się używać niestandardowej usługi DNS po nawiązaniu połączenia z klastrem, musisz postępować zgodnie z dokumentacją OpenShift w celu [skonfigurowania niestandardowego urzędu certyfikacji dla kontrolera](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) usług przychodzących i [niestandardowego urzędu certyfikacji dla serwera interfejsu API](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
+> Domyślnie OpenShift używa certyfikatów z podpisem własnym dla wszystkich tras utworzonych w usłudze `*.apps.<random>.<location>.aroapp.io` .  Jeśli zdecydujesz się używać niestandardowej usługi DNS po nawiązaniu połączenia z klastrem, musisz postępować zgodnie z dokumentacją OpenShift w celu [skonfigurowania niestandardowego urzędu certyfikacji dla kontrolera](https://docs.openshift.com/container-platform/4.3/authentication/certificates/replacing-default-ingress-certificate.html) usług przychodzących i [niestandardowego urzędu certyfikacji dla serwera interfejsu API](https://docs.openshift.com/container-platform/4.3/authentication/certificates/api-server.html).
 >
 
 ## <a name="next-steps"></a>Następne kroki

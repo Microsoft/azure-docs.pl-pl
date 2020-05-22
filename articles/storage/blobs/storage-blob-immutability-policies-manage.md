@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 05a155584f0cb69191883cb82b3db0af435ccc12
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 539154135c35e034c889294d911fb53b3d45daa4
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78970098"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771013"
 ---
 # <a name="set-and-manage-immutability-policies-for-blob-storage"></a>Ustawianie zasad niezmienności dla usługi BLOB Storage i zarządzanie nimi
 
@@ -61,17 +61,17 @@ W tym artykule przedstawiono sposób ustawiania zasad niezmienności i zarządza
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Ta funkcja jest uwzględniona w następujących grupach poleceń: `az storage container immutability-policy` i `az storage container legal-hold`. Uruchom `-h` na nich, aby zobaczyć polecenia.
+Ta funkcja jest uwzględniona w następujących grupach poleceń: `az storage container immutability-policy` i `az storage container legal-hold` . Uruchom `-h` na nich, aby zobaczyć polecenia.
 
-### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Moduł AZ. Storage obsługuje niezmienny magazyn.  Aby włączyć tę funkcję, wykonaj następujące kroki:
 
-1. Upewnij się, że masz zainstalowaną najnowszą wersję programu `Install-Module PowerShellGet –Repository PSGallery –Force`PowerShellGet:.
+1. Upewnij się, że masz zainstalowaną najnowszą wersję programu PowerShellGet: `Install-Module PowerShellGet –Repository PSGallery –Force` .
 2. Usuń poprzednią instalację Azure PowerShell.
-3. Zainstaluj Azure PowerShell: `Install-Module Az –Repository PSGallery –AllowClobber`.
+3. Zainstaluj Azure PowerShell: `Install-Module Az –Repository PSGallery –AllowClobber` .
 
 Poniższy przykładowy skrypt programu PowerShell jest przeznaczony do celów referencyjnych. Ten skrypt tworzy nowe konto magazynu i kontener. Następnie pokazano, jak ustawiać i czyścić informacje prawne, tworzyć i blokować zasady przechowywania oparte na czasie (znane także jako zasady niezmienności) i zwiększać Interwał przechowywania.
 
@@ -91,7 +91,7 @@ Register-AzResourceProvider -ProviderNamespace "Microsoft.Storage"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 
 # Create your Azure storage account
-$storageAccount = New-AzStorageAccount -ResourceGroupName $resourceGroup -StorageAccountName `
+$account = New-AzStorageAccount -ResourceGroupName $resourceGroup -StorageAccountName `
     $storageAccount -SkuName Standard_ZRS -Location $location -Kind StorageV2
 
 # Create a new container using the context
@@ -119,7 +119,7 @@ Remove-AzRmStorageContainerLegalHold -ResourceGroupName $resourceGroup `
 Utwórz lub zaktualizuj zasady niezmienności oparte na czasie:
 
 ```powershell
-# Create a time-based immutablity policy
+# Create a time-based immutability policy
 Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName $resourceGroup `
     -StorageAccountName $storageAccount -ContainerName $container -ImmutabilityPeriod 10
 ```
@@ -132,7 +132,7 @@ Get-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName $resourceGroup `
     -StorageAccountName $storageAccount -ContainerName $container
 ```
 
-Zablokuj zasady niezmienności `-Force` (Dodaj, aby odrzucić monit):
+Zablokuj zasady niezmienności (Dodaj, `-Force` Aby odrzucić monit):
 
 ```powershell
 # Lock immutability policies
@@ -174,12 +174,12 @@ Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Ta funkcja jest uwzględniona w następujących grupach poleceń: `az storage container immutability-policy` i `az storage container legal-hold`. Uruchom `-h` na nich, aby zobaczyć polecenia.
+Ta funkcja jest uwzględniona w następujących grupach poleceń: `az storage container immutability-policy` i `az storage container legal-hold` . Uruchom `-h` na nich, aby zobaczyć polecenia.
 
-### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```powershell
-# Create an immutablity policy with appends allowed
+# Create an immutability policy with appends allowed
 Set-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName $resourceGroup `
     -StorageAccountName $storageAccount -ContainerName $container -ImmutabilityPeriod 10 -AllowProtectedAppendWrite $true
 ```

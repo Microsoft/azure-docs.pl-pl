@@ -3,12 +3,12 @@ title: Organizowanie zasobów przy użyciu grup zarządzania — Zarządzanie pl
 description: Dowiedz się więcej na temat grup zarządzania, sposobu działania ich uprawnień i korzystania z nich.
 ms.date: 04/15/2020
 ms.topic: overview
-ms.openlocfilehash: cc60e4555f0fb2b920b8061fb044ce5dde990d38
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 43c8bb2bdb71b0b75d2fcc31451952214978093c
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81381539"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773155"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizowanie zasobów przy użyciu grup zarządzania platformy Azure
 
@@ -87,7 +87,7 @@ Te uprawnienia są dziedziczone do zasobów podrzędnych, które istnieją w hie
 
 Na poniższym wykresie przedstawiono listę ról i obsługiwane akcje na grupach zarządzania.
 
-| Nazwa roli RBAC             | Utwórz | Zmień nazwę | Przenieś\*\* | Usuwanie | Przypisywanie dostępu | Przypisywanie zasad | Odczyt  |
+| Nazwa roli RBAC             | Utwórz | Zmień nazwę | Przenieś\*\* | Usuń | Przypisywanie dostępu | Przypisywanie zasad | Odczyt  |
 |:-------------------------- |:------:|:------:|:--------:|:------:|:-------------:| :------------:|:-----:|
 |Właściciel                       | X      | X      | X        | X      | X             | X             | X     |
 |Współautor                 | X      | X      | X        | X      |               |               | X     |
@@ -108,7 +108,7 @@ Obsługa niestandardowych ról RBAC dla grup zarządzania jest obecnie w wersji 
 
 [Definiowanie i tworzenie roli niestandardowej](../../role-based-access-control/custom-roles.md) nie zmienia się wraz z uwzględnieniem grup zarządzania. Użyj pełnej ścieżki, aby zdefiniować grupę zarządzania **/providers/Microsoft.Management/managementgroups/{GroupID}**.
 
-Użyj identyfikatora grupy zarządzania, a nie nazwy wyświetlanej grupy zarządzania. Ten typowy błąd występuje, ponieważ oba te pola są zdefiniowanymi niestandardowymi podczas tworzenia grupy zarządzania.
+Użyj identyfikatora grupy zarządzania, a nie nazwy wyświetlanej grupy zarządzania. Ten typowy błąd występuje, ponieważ obie są polami niestandardowymi podczas tworzenia grupy zarządzania.
 
 ```json
 ...
@@ -143,13 +143,13 @@ Użyj identyfikatora grupy zarządzania, a nie nazwy wyświetlanej grupy zarząd
 
 ### <a name="issues-with-breaking-the-role-definition-and-assignment-hierarchy-path"></a>Problemy ze uszkodzeniem definicji roli i ścieżki hierarchii przypisania
 
-Definicje ról są przypisywane w dowolnym miejscu w hierarchii grupy zarządzania. Definicję roli można zdefiniować w nadrzędnej grupie zarządzania, podczas gdy rzeczywiste przypisanie roli istnieje w subskrypcji podrzędnej. Ponieważ istnieje relacja między tymi dwoma elementami, podczas próby oddzielenia przypisania od jego definicji wystąpi błąd.
+Definicje ról są przypisywane w dowolnym miejscu w hierarchii grupy zarządzania. Definicję roli można zdefiniować w nadrzędnej grupie zarządzania, podczas gdy rzeczywiste przypisanie roli istnieje w subskrypcji podrzędnej. Ponieważ istnieje relacja między tymi dwoma elementami, wystąpi błąd podczas próby oddzielenia przypisania od jego definicji.
 
 Na przykład przyjrzyjmy się małej sekcji hierarchii dla wizualizacji.
 
 :::image type="content" source="./media/subtree.png" alt-text="poddrzewo" border="false":::
 
-Załóżmy, że w grupie zarządzania Marketing zdefiniowano rolę niestandardową. Ta rola niestandardowa jest następnie przypisywana do dwóch subskrypcji bezpłatnych wersji próbnych.  
+Załóżmy, że istnieje rola niestandardowa zdefiniowana w grupie zarządzania Marketing. Ta rola niestandardowa jest następnie przypisywana do dwóch subskrypcji bezpłatnych wersji próbnych.  
 
 Jeśli spróbujesz przenieść jedną z tych subskrypcji jako podrzędną grupy zarządzania produkcyjnego, spowoduje to przerwanie ścieżki z przypisania roli subskrypcji do definicji roli grupy zarządzania Marketing. W tym scenariuszu zostanie wyświetlony komunikat o błędzie informujący, że przeniesienie nie jest dozwolone, ponieważ spowoduje przerwanie tej relacji.  
 
@@ -163,13 +163,14 @@ Istnieje kilka różnych opcji umożliwiających rozwiązanie tego scenariusza:
 
 Istnieją ograniczenia, które istnieją podczas korzystania z ról niestandardowych w grupach zarządzania. 
 
- - Można zdefiniować tylko jedną grupę zarządzania w przypisywanych zakresach nowej roli. To ograniczenie jest stosowane w celu zmniejszenia liczby sytuacji, w których definicje ról i przypisania ról są rozłączone. Dzieje się tak, gdy subskrypcja lub Grupa zarządzania z przypisaniem roli jest przenoszona do innego elementu nadrzędnego, który nie ma definicji roli.  
- - Akcje płaszczyzny danych RBAC nie mogą być zdefiniowane w rolach niestandardowych grupy zarządzania. To ograniczenie ma miejsce w przypadku, gdy występuje problem z opóźnieniami akcji RBAC aktualizujących dostawców zasobów płaszczyzny danych. Ten problem opóźnienia jest opracowywany, a akcje te zostaną wyłączone z definicji roli w celu ograniczenia ryzyka.
+ - Można zdefiniować tylko jedną grupę zarządzania w przypisywanych zakresach nowej roli. To ograniczenie jest stosowane w celu zmniejszenia liczby sytuacji, w których definicje ról i przypisania ról są rozłączone. Ta sytuacja występuje, gdy subskrypcja lub Grupa zarządzania z przypisaniem roli jest przenoszona do innego elementu nadrzędnego, który nie ma definicji roli.  
+ - Akcje płaszczyzny danych RBAC nie mogą być zdefiniowane w rolach niestandardowych grupy zarządzania. To ograniczenie ma miejsce w przypadku, gdy występuje problem z opóźnieniami akcji RBAC aktualizujących dostawców zasobów płaszczyzny danych.
+   Ten problem opóźnienia jest opracowywany, a akcje te zostaną wyłączone z definicji roli w celu ograniczenia ryzyka.
  - Azure Resource Manager nie sprawdza poprawności istnienia grupy zarządzania w zakresie możliwym do przypisania definicji roli. Jeśli na liście występuje literówka lub nieprawidłowy identyfikator grupy zarządzania, definicja roli nadal zostanie utworzona.  
 
 ## <a name="moving-management-groups-and-subscriptions"></a>Przeniesienie grup zarządzania i subskrypcji 
 
-Aby Grupa zarządzania lub subskrypcja była podrzędną inną grupą zarządzania, należy ocenić trzy reguły jako prawdziwe.
+Aby przenieść grupę zarządzania lub subskrypcję jako podrzędną innej grupy zarządzania, należy ocenić trzy reguły jako prawdziwe.
 
 Jeśli wykonujesz akcję Przenieś, potrzebujesz: 
 

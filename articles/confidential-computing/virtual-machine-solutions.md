@@ -8,20 +8,20 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: e574ac33e5f7da814c4bd813fc1c083c7cb4c2c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 49b159434497d4b455a338ba88058d73d7de10ee
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187889"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773138"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Rozwiązania na platformie Azure Virtual Machines
 
 Ten artykuł zawiera informacje na temat wdrażania maszyn wirtualnych w systemie Azure, które korzystają z procesorów firmy Intel, które są obsługiwane przez [rozszerzenie Microsoft Software Guard](https://software.intel.com/sgx) (Intel SGX). 
 
-## <a name="azure-confidential-computing-vm-sizes"></a>Poufne rozmiary maszyn wirtualnych platformy Azure
+## <a name="azure-confidential-computing-vm-sizes"></a>Rozmiary maszyn wirtualnych poufnego przetwarzania na platformie Azure
 
-Poufne maszyny wirtualne platformy Azure są przeznaczone do ochrony poufnych i integralności danych oraz kodu podczas przetwarzania w chmurze 
+Poufne maszyny wirtualne platformy Azure są przeznaczone do ochrony poufności i integralności danych i kodu podczas przetwarzania w chmurze. 
 
 [Seria DCsv2](../virtual-machines/dcv2-series.md) Maszyny wirtualne to najnowsza i Najnowsza rodzina rozmiarów informacji poufnych. Te maszyny wirtualne obsługują większy zakres możliwości wdrażania, mają 2. enklawy strony pamięci podręcznej (EPC) i większy wybór rozmiarów w porównaniu z naszymi maszynami wirtualnymi z serii DC. Maszyny wirtualne z [serii DC](../virtual-machines/sizes-previous-gen.md#preview-dc-series) są obecnie w wersji zapoznawczej i będą przestarzałe i nieuwzględnione w ogólnej dostępności.
 
@@ -39,7 +39,7 @@ az vm list-skus
     --output table
 ```
 
-Od kwietnia 2020 te jednostki SKU są dostępne w następujących regionach i strefach dostępności:
+Od maja 2020 te jednostki SKU są dostępne w następujących regionach i strefach dostępności:
 
 ```output
 Name              Locations      AZ_a
@@ -86,7 +86,7 @@ Postępuj zgodnie z samouczkiem szybkiego startu, aby wdrożyć maszynę wirtual
   
 - Zmiana **rozmiaru** — ze względu na wyspecjalizowany sprzęt można zmienić rozmiar poufnych wystąpień obliczeniowych w ramach tej samej rodziny. Na przykład można zmienić rozmiar maszyny wirtualnej serii DCsv2 z jednego rozmiaru serii DCsv2 na inny. Zmienianie rozmiaru niepoufnego rozmiaru obliczeniowego na poufne nie jest obsługiwane.  
 
-- **Obraz** — w celu zapewnienia obsługi rozszerzenia firmy Intel (Intel SGX) w odniesieniu do poufnych wystąpień obliczeniowych wszystkie wdrożenia muszą być uruchamiane na obrazach generacji 2. Usługa Azure CONFIDENTIAL Computing obsługuje obciążenia działające w systemach Ubuntu 18,04 Gen 2, Ubuntu 16,04 Gen 2 i Windows Server 2016 Gen 2. Przeczytaj o [obsłudze maszyn wirtualnych 2. generacji na platformie Azure](../virtual-machines/linux/generation-2.md) , aby dowiedzieć się więcej na temat obsługiwanych i nieobsługiwanych scenariuszy. 
+- **Obraz** — w celu zapewnienia obsługi rozszerzenia firmy Intel (Intel SGX) w odniesieniu do poufnych wystąpień obliczeniowych wszystkie wdrożenia muszą być uruchamiane na obrazach generacji 2. Usługa Azure CONFIDENTIAL Computing obsługuje obciążenia działające w Ubuntu 18,04 Gen 2, Ubuntu 16,04 Gen 2, Windows Server 2019 Gen2 i Windows Server 2016 Gen 2. Przeczytaj o [obsłudze maszyn wirtualnych 2. generacji na platformie Azure](../virtual-machines/linux/generation-2.md) , aby dowiedzieć się więcej na temat obsługiwanych i nieobsługiwanych scenariuszy. 
 
 - **Magazyn** — usługa Azure poufne dyski danych maszyn wirtualnych i naszych tymczasowych dysków systemu operacyjnego znajdują się na dyskach interfejsu NVMe. Wystąpienia obsługują tylko SSD w warstwie Premium i SSD w warstwie Standardowa dysków, a nie SSD w warstwie Ultra lub HDD w warstwie Standardowa. Rozmiar maszyny wirtualnej **DC8_v2** nie obsługuje magazynu w warstwie Premium. 
 
@@ -100,15 +100,15 @@ Dane poufne platformy Azure nie obsługują nadmiarowości strefy za pośrednict
 
 ## <a name="deploying-via-an-azure-resource-manager-template"></a>Wdrażanie za pomocą szablonu Azure Resource Manager 
 
-Usługa Azure Resource Manager to usługa wdrażania i zarządzania dla platformy Azure. Zapewnia ona warstwę zarządzania, która umożliwia tworzenie, aktualizowanie i usuwanie zasobów w ramach subskrypcji platformy Azure. Za pomocą funkcji zarządzania, takich jak kontrola dostępu, blokady i Tagi, można zabezpieczyć i zorganizować zasoby po wdrożeniu.
+Usługa Azure Resource Manager to usługa wdrażania i zarządzania dla platformy Azure. Zapewnia ona warstwę zarządzania, która umożliwia tworzenie, aktualizowanie i usuwanie zasobów w ramach subskrypcji platformy Azure. Możesz użyć funkcji zarządzania, takich jak kontrola dostępu, blokady i Tagi, aby zabezpieczyć i zorganizować zasoby po wdrożeniu.
 
 Aby dowiedzieć się więcej o szablonach Azure Resource Manager, zobacz [Template Deployment Omówienie](../azure-resource-manager/templates/overview.md).
 
-Aby wdrożyć maszynę wirtualną z serii DCsv2 w szablonie ARM, użyjesz [zasobu maszyny wirtualnej](../virtual-machines/windows/template-description.md). Należy upewnić się, że określono poprawne właściwości **vmSize** i **elementu imagereference**.
+Aby wdrożyć maszynę wirtualną z serii DCsv2 w szablonie Azure Resource Manager, będzie używany [zasób maszyny wirtualnej](../virtual-machines/windows/template-description.md). Upewnij się, że określono poprawne właściwości **vmSize** i **elementu imagereference**.
 
 ### <a name="vm-size"></a>Rozmiar maszyny wirtualnej
 
-Określ jeden z następujących rozmiarów w szablonie ARM w zasobów maszyny wirtualnej. Ten ciąg jest umieszczany jako **vmSize** we **właściwościach**.
+Określ jeden z następujących rozmiarów w szablonie Azure Resource Manager w zasobów maszyny wirtualnej. Ten ciąg jest umieszczany jako **vmSize** we **właściwościach**.
 
 ```json
   [
@@ -124,6 +124,12 @@ Określ jeden z następujących rozmiarów w szablonie ARM w zasobów maszyny wi
 W obszarze **Właściwości**należy również odwoływać się do obrazu w obszarze **obszarze storageprofile**. Użyj *tylko jednego* z następujących obrazów dla **elementu imagereference**.
 
 ```json
+      "2019-datacenter-gensecond": {
+        "offer": "WindowsServer",
+        "publisher": "MicrosoftWindowsServer",
+        "sku": "2019-datacenter-gensecond",
+        "version": "latest"
+      },
       "2016-datacenter-gensecond": {
         "offer": "WindowsServer",
         "publisher": "MicrosoftWindowsServer",
@@ -146,7 +152,7 @@ W obszarze **Właściwości**należy również odwoływać się do obrazu w obsz
 
 ## <a name="next-steps"></a>Następne kroki 
 
-W tym artykule omówiono kwalifikacje i konfiguracje potrzebne podczas tworzenia poufnej maszyny wirtualnej. Teraz możesz przejść do witryny Azure Marketplace, aby wdrożyć maszynę wirtualną z serii DCsv2.
+W tym artykule omówiono kwalifikacje i konfiguracje potrzebne podczas tworzenia poufnej maszyny wirtualnej. Teraz możesz przejść do Microsoft Azure Marketplace, aby wdrożyć maszynę wirtualną z serii DCsv2.
 
 > [!div class="nextstepaction"]
 > [Wdrażanie maszyny wirtualnej z serii DCsv2 w portalu Azure Marketplace](quick-create-marketplace.md)

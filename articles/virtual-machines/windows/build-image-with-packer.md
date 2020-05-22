@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure
 ms.date: 02/22/2019
 ms.author: cynthn
-ms.openlocfilehash: f813551ed665628898bb219a611947c3026ac67c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4180f62e589ef79227d8e60ca19661e1c65f0097
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82084485"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773325"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>Jak używać programu pakujący do tworzenia obrazów maszyn wirtualnych z systemem Windows na platformie Azure
 Każda maszyna wirtualna na platformie Azure jest tworzona na podstawie obrazu, który definiuje dystrybucję systemu Windows i wersję systemu operacyjnego. Obrazy mogą zawierać wstępnie zainstalowane aplikacje i konfiguracje. Portal Azure Marketplace udostępnia wiele obrazów od początku i innych firm dla najpopularniejszych środowisk systemów operacyjnych i aplikacji. można też tworzyć własne niestandardowe obrazy dostosowane do Twoich potrzeb. W tym artykule szczegółowo opisano, jak używać pakietu narzędzi open source [Pack](https://www.packer.io/) do definiowania i tworzenia obrazów niestandardowych na platformie Azure.
@@ -37,7 +37,7 @@ New-AzResourceGroup -Name $rgName -Location $location
 ## <a name="create-azure-credentials"></a>Tworzenie poświadczeń platformy Azure
 Pakiet Pack jest uwierzytelniany na platformie Azure przy użyciu nazwy głównej usługi. Jednostka usługi platformy Azure to tożsamość zabezpieczeń, której można używać z aplikacjami, usługami i narzędziami automatyzacji, takimi jak pakujący. Użytkownik kontroluje i definiuje uprawnienia do działania, które może wykonywać jednostka usługi na platformie Azure.
 
-Utwórz nazwę główną usługi przy użyciu [nowego AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal) i przypisz uprawnienia dla jednostki usługi, aby tworzyć zasoby i zarządzać nimi za pomocą [nowego AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment). Wartość dla `-DisplayName` musi być unikatowa; Zamień na własną wartość zgodnie z potrzebami.  
+Utwórz nazwę główną usługi przy użyciu [nowego AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal) i przypisz uprawnienia dla jednostki usługi, aby tworzyć zasoby i zarządzać nimi za pomocą [nowego AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment). Wartość dla `-DisplayName` musi być unikatowa; Zastąp wartość własną wartością w razie potrzeby.  
 
 ```azurepowershell
 $sp = New-AzADServicePrincipal -DisplayName "PackerServicePrincipal"
@@ -105,7 +105,7 @@ Utwórz plik o nazwie *Windows. JSON* i wklej poniższą zawartość. Wprowadź 
     },
 
     "location": "East US",
-    "vm_size": "Standard_DS2_v2"
+    "vm_size": "Standard_D2_v2"
   }],
   "provisioners": [{
     "type": "powershell",

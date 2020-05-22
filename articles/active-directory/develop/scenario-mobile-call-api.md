@@ -9,22 +9,22 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 05/18/2020
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 28f57c5657ce2f8537a654a7f67ed4481fab2c91
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 781406a1bfd253f0ab3eb333f23917be4aeb3ba9
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80882696"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771744"
 ---
 # <a name="call-a-web-api-from-a-mobile-app"></a>Wywoływanie interfejsu API sieci Web z aplikacji mobilnej
 
 Gdy aplikacja zaloguje się do użytkownika i odbierze tokeny, Biblioteka Microsoft Authentication Library (MSAL) ujawnia informacje o użytkowniku, środowisku użytkownika i wystawionych tokenach. Twoja aplikacja może używać tych wartości do wywoływania internetowego interfejsu API lub wyświetlania użytkownikowi komunikatu powitalnego.
 
-W tym artykule najpierw Przyjrzyjmy się wynikowi MSAL. Następnie dowiesz się, jak używać tokenu dostępu z `AuthenticationResult` programu lub `result` do wywoływania chronionego internetowego interfejsu API.
+W tym artykule najpierw Przyjrzyjmy się wynikowi MSAL. Następnie dowiesz się, jak używać tokenu dostępu z programu `AuthenticationResult` lub `result` do wywoływania chronionego internetowego interfejsu API.
 
 ## <a name="msal-result"></a>Wynik MSAL
 MSAL udostępnia następujące wartości: 
@@ -35,11 +35,11 @@ MSAL udostępnia następujące wartości:
 - `TenantId`jest identyfikatorem dzierżawy, w której zalogowany jest użytkownik. Dla użytkowników-Gości w usłudze Azure Active Directory (Azure AD) B2B ta wartość identyfikuje dzierżawcę, w którym użytkownik zalogował się. Wartość nie identyfikuje dzierżawy głównej użytkownika.  
 - `Scopes`wskazuje zakresy, które zostały przyznane z tokenem. Przyznane zakresy mogą być podzbiorem żądanych zakresów.
 
-MSAL udostępnia również streszczenie dla `Account` wartości. `Account` Wartość reprezentuje konto zalogowanego bieżącego użytkownika:
+MSAL udostępnia również streszczenie dla `Account` wartości. `Account`Wartość reprezentuje konto zalogowanego bieżącego użytkownika:
 
 - `HomeAccountIdentifier`Identyfikuje dzierżawcę w domu użytkownika.
 - `UserName`jest preferowaną nazwą użytkownika. Ta wartość może być pusta dla Azure AD B2C użytkowników.
-- `AccountIdentifier`Identyfikuje zalogowanego użytkownika. W większości przypadków ta wartość jest taka sama jak `HomeAccountIdentifier` wartość, chyba że użytkownik jest gościem w innej dzierżawie.
+- `AccountIdentifier`Identyfikuje zalogowanego użytkownika. W większości przypadków ta wartość jest taka sama jak wartość, `HomeAccountIdentifier` chyba że użytkownik jest gościem w innej dzierżawie.
 
 ## <a name="call-an-api"></a>Wywoływanie interfejsu API
 
@@ -87,7 +87,7 @@ Po uzyskaniu tokenu dostępu można wywołać internetowy interfejs API. Aplikac
 
 ### <a name="msal-for-ios-and-macos"></a>Biblioteka MSAL dla systemów iOS i macOS
 
-Metody uzyskiwania tokenów zwracają `MSALResult` obiekt. `MSALResult`uwidacznia `accessToken` właściwość. Możesz użyć `accessToken` , aby wywołać internetowy interfejs API. Dodaj tę właściwość do nagłówka autoryzacji HTTP przed wywołaniem dostępu do chronionego internetowego interfejsu API.
+Metody uzyskiwania tokenów zwracają `MSALResult` obiekt. `MSALResult`uwidacznia `accessToken` Właściwość. Możesz użyć, `accessToken` Aby wywołać internetowy interfejs API. Dodaj tę właściwość do nagłówka autoryzacji HTTP przed wywołaniem dostępu do chronionego internetowego interfejsu API.
 
 ```objc
 NSMutableURLRequest *urlRequest = [NSMutableURLRequest new];
@@ -138,7 +138,7 @@ result = await app.AcquireTokenSilent("scopeApi2")
 Interakcja jest wymagana w przypadku:
 
 - Użytkownik wyraził zgodę na pierwszy interfejs API, ale teraz musi powyrazić zgody na więcej zakresów. W takim przypadku używana jest wyrażanie zgody.
-- Pierwszy interfejs API nie wymaga uwierzytelniania wieloskładnikowego, ale następny interfejs API wykonuje.
+- Pierwszy interfejs API nie wymaga [uwierzytelniania wieloskładnikowego](../authentication/concept-mfa-howitworks.md), ale następny interfejs API wykonuje.
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")

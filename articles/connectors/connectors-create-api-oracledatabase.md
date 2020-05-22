@@ -3,16 +3,16 @@ title: Połącz z Oracle Database
 description: Wstawianie rekordów i zarządzanie nimi za pomocą Oracle Database interfejsów API REST i Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 05/20/2020
 tags: connectors
-ms.openlocfilehash: fdbf7fd7dded2fc0026e5c819ca579eeddc5cdb6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b4f016b53c6c42831d5f5ae08a30ec8ac176e6e
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82147812"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773376"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Wprowadzenie do łącznika Oracle Database
 
@@ -20,6 +20,13 @@ Korzystając z łącznika Oracle Database, tworzysz przepływy pracy organizacyj
 
 * Kompiluj swój przepływ pracy, dodając nowego klienta do bazy danych klientów lub aktualizując zamówienie w bazie danych zamówień.
 * Użyj akcji, aby uzyskać wiersz danych, Wstaw nowy wiersz, a nawet Usuń. Na przykład po utworzeniu rekordu w usłudze Dynamics CRM Online (wyzwalacz), a następnie wstawieniu wiersza w Oracle Database (Akcja). 
+
+Ten łącznik nie obsługuje następujących elementów:
+
+* Widoki 
+* Dowolna tabela z kluczami złożonymi
+* Zagnieżdżone typy obiektów w tabelach
+* Funkcje bazy danych z wartościami nieskalarnymi
 
 W tym artykule pokazano, jak używać łącznika Oracle Database w aplikacji logiki.
 
@@ -55,18 +62,18 @@ W tym artykule pokazano, jak używać łącznika Oracle Database w aplikacji log
 
 3. Wybierz pozycję **Zapisz**. Podczas zapisywania zostanie automatycznie wygenerowany adres URL żądania. 
 
-4. Wybierz pozycję **Nowy krok**, a następnie pozycję **Dodaj akcję**. Wpisz, `oracle` aby wyświetlić dostępne akcje: 
+4. Wybierz pozycję **Nowy krok**, a następnie pozycję **Dodaj akcję**. Wpisz `oracle` , aby wyświetlić dostępne akcje: 
 
     ![](./media/connectors-create-api-oracledatabase/oracledb-actions.png)
 
     > [!TIP]
-    > Jest to również najszybszy sposób wyświetlania wyzwalaczy i akcji dostępnych dla każdego łącznika. Wpisz część nazwy łącznika, na przykład `oracle`. Projektant wyświetla wszystkie wyzwalacze i wszystkie akcje. 
+    > Jest to również najszybszy sposób wyświetlania wyzwalaczy i akcji dostępnych dla każdego łącznika. Wpisz część nazwy łącznika, na przykład `oracle` . Projektant wyświetla wszystkie wyzwalacze i wszystkie akcje. 
 
 5. Wybierz jedną z akcji, na przykład **Oracle Database — Pobierz wiersz**. Wybierz pozycję **Połącz za pośrednictwem lokalnej bramy danych**. Wprowadź nazwę serwera Oracle, metodę uwierzytelniania, nazwę użytkownika, hasło, a następnie wybierz bramę:
 
     ![](./media/connectors-create-api-oracledatabase/create-oracle-connection.png)
 
-6. Po nawiązaniu połączenia wybierz tabelę z listy, a następnie wprowadź identyfikator wiersza w tabeli. Musisz znać identyfikator tabeli. Jeśli nie wiesz, skontaktuj się z administratorem usługi Oracle DB i Pobierz dane wyjściowe z `select * from yourTableName`programu. Zapewnia to informacje, które należy wykonać.
+6. Po nawiązaniu połączenia wybierz tabelę z listy, a następnie wprowadź identyfikator wiersza w tabeli. Musisz znać identyfikator tabeli. Jeśli nie wiesz, skontaktuj się z administratorem usługi Oracle DB i Pobierz dane wyjściowe z programu `select * from yourTableName` . Zapewnia to informacje, które należy wykonać.
 
     W poniższym przykładzie dane zadania są zwracane z bazy danych kadr: 
 
@@ -97,7 +104,7 @@ W tym artykule pokazano, jak używać łącznika Oracle Database w aplikacji log
 
 Środki **zaradcze**: Upewnij się, że brama jest uruchomiona na komputerze lokalnym, na którym został zainstalowany, i czy może nawiązać połączenie z Internetem.Nie zaleca się instalowania bramy na komputerze, który może zostać wyłączony lub uśpiony.Możesz również ponownie uruchomić usługę lokalna Brama danych (PBIEgwService).
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Błąd**: używany dostawca jest przestarzały: element "System. Data. OracleClient wymaga oprogramowania klienckiego Oracle w wersji 8.1.7 lub nowszej.". Zobacz [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) , aby zainstalować oficjalnego dostawcę.
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Błąd**: używany dostawca jest przestarzały: element "System. Data. OracleClient wymaga oprogramowania klienckiego Oracle w wersji 8.1.7 lub nowszej.". Zobacz, [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) Aby zainstalować oficjalnego dostawcę.
 
 **Przyczyna**: zestaw SDK klienta Oracle nie jest zainstalowany na komputerze, na którym jest uruchomiona lokalna Brama danych.  
 
@@ -108,12 +115,6 @@ W tym artykule pokazano, jak używać łącznika Oracle Database w aplikacji log
 **Przyczyna**: tabela nie ma klucza podstawowego.  
 
 **Rozwiązanie**: Łącznik Oracle Database wymaga użycia tabeli z kolumną klucza podstawowego.
-
-#### <a name="currently-not-supported"></a>Obecnie nieobsługiwane
-
-* Widoki 
-* Dowolna tabela z kluczami złożonymi
-* Zagnieżdżone typy obiektów w tabelach
  
 ## <a name="connector-specific-details"></a>Szczegóły dotyczące łącznika
 
@@ -123,7 +124,7 @@ Wyświetlanie wszystkich wyzwalaczy i akcji zdefiniowanych w strukturze Swagger,
 
 [Forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) jest doskonałym miejscem, w którym można zadawać pytania, odpowiadać na nie i dowiedzieć się, co inni użytkownicy Logic Apps robią. 
 
-Możesz pomóc ulepszyć Logic Apps i łączniki, głosując i przesyłając swoje pomysły [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish)w witrynie. 
+Możesz pomóc ulepszyć Logic Apps i łączniki, głosując i przesyłając swoje pomysły w witrynie [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish) . 
 
 
 ## <a name="next-steps"></a>Następne kroki

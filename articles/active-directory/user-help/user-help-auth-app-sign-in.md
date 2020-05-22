@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 02/25/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 9b8c44f99953d4518f0bc3f558f396250657c632
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: abf5d0d4aeeb18a11f50220e982448d41a9ac1b4
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79138947"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773206"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Zaloguj się do swoich kont przy użyciu aplikacji Microsoft Authenticator
 
@@ -53,7 +53,7 @@ Otwórz aplikację Microsoft Authenticator, przejdź do swojego konta służbowe
 
 Na urządzeniu z systemem Android:
 
-- **Jeśli zobaczysz, że ![jest wyświetlana ikona ikony](media/user-help-auth-app-sign-in/icon.png).** Jeśli ta ikona jest wyświetlana obok nazwy konta służbowego, oznacza to, że już skonfigurowano logowanie za pomocą telefonu do konta. Może zostać wyświetlony monit o dodanie powiadomień wypychanych dla Twojego konta, dzięki czemu można otrzymywać powiadomienia o żądaniach uwierzytelniania poza aplikacją.
+- **Jeśli zobaczysz, że jest wyświetlana ![ ikona ikony ](media/user-help-auth-app-sign-in/icon.png) .** Jeśli ta ikona jest wyświetlana obok nazwy konta służbowego, oznacza to, że już skonfigurowano logowanie za pomocą telefonu do konta. Może zostać wyświetlony monit o dodanie powiadomień wypychanych dla Twojego konta, dzięki czemu można otrzymywać powiadomienia o żądaniach uwierzytelniania poza aplikacją.
 - **Jeśli aplikacja jest już używana do weryfikacji dwuskładnikowej.** Jeśli używasz już aplikacji i weryfikacji dwuskładnikowej, możesz wybrać strzałkę obok nazwy konta, a następnie wybrać pozycję **Włącz logowanie za pomocą telefonu**.
 - **Jeśli nie możesz znaleźć konta służbowego.** Jeśli nie możesz znaleźć konta służbowego na ekranie **konta** aplikacji, oznacza to, że nie został jeszcze dodany do aplikacji. Dodaj swoje konto służbowe, wykonując czynności opisane w artykule [Dodawanie konta służbowego lub szkolnego](user-help-auth-app-add-work-school-account.md) .
 
@@ -62,6 +62,9 @@ Na urządzeniu z systemem iOS:
 - **Po naciśnięciu kafelka konta**konto zostanie otwarte w widoku pełny ekran konta. Jeśli zobaczysz, że logowanie za pomocą **telefonu jest włączone** , oznacza to, że użytkownik jest w pełni skonfigurowany, aby zalogować się bez hasła. Jeśli zobaczysz opcję **Włącz logowanie przy użyciu telefonu**, naciśnij ją, aby włączyć logowanie za telefonem.
 - **Jeśli aplikacja została już używana do weryfikacji dwuskładnikowej**, możesz nacisnąć kafelek konta, a następnie rozwinąć w widoku pełny ekran konta. Następnie naciśnij pozycję **Włącz logowanie** przy użyciu telefonu, aby włączyć logowanie przy użyciu telefonu.
 - **Jeśli nie możesz znaleźć konta służbowego** na ekranie **konta** aplikacji, oznacza to, że nie został jeszcze dodany do aplikacji. Dodaj swoje konto służbowe, wykonując czynności opisane w artykule Dodawanie konta służbowego lub szkolnego.
+
+> [!NOTE]
+> Nie obsługujemy kombinacji rejestracji urządzeń i uwierzytelniania opartego na certyfikatach w programie Authenticator w systemie iOS. Użytkownik musi użyć obejścia, rejestrując urządzenie ręcznie przy użyciu ustawień uwierzytelniania wystawcy przed zalogowaniem się.
 
 Po włączeniu logowania za pomocą telefonu możesz zalogować się przy użyciu tylko Microsoft Authenticator aplikacji.
 
@@ -92,7 +95,7 @@ Otwórz aplikację Microsoft Authenticator, przejdź do swojego konta służbowe
 
 Na urządzeniu z systemem Android:
 
-- **Jeśli zobaczysz, że ![jest wyświetlana ikona ikony](media/user-help-auth-app-sign-in/icon.png).** Jeśli ta ikona jest wyświetlana obok nazwy osobistej konto Microsoft, oznacza to, że już skonfigurowano logowanie za pomocą telefonu dla konta. Może zostać wyświetlony monit o dodanie powiadomień wypychanych dla Twojego konta, dzięki czemu można otrzymywać powiadomienia o żądaniach uwierzytelniania poza aplikacją.
+- **Jeśli zobaczysz, że jest wyświetlana ![ ikona ikony ](media/user-help-auth-app-sign-in/icon.png) .** Jeśli ta ikona jest wyświetlana obok nazwy osobistej konto Microsoft, oznacza to, że już skonfigurowano logowanie za pomocą telefonu dla konta. Może zostać wyświetlony monit o dodanie powiadomień wypychanych dla Twojego konta, dzięki czemu można otrzymywać powiadomienia o żądaniach uwierzytelniania poza aplikacją.
 - **Jeśli używasz aplikacji do weryfikacji dwuskładnikowej.** Jeśli używasz już aplikacji i weryfikacji dwuskładnikowej, możesz wybrać strzałkę obok nazwy konta, a następnie wybrać pozycję **Włącz logowanie za pomocą telefonu**.
 - **Jeśli nie możesz znaleźć konta służbowego.** Jeśli nie możesz znaleźć konta na ekranie **konta** aplikacji, oznacza to, że nie został jeszcze dodany do aplikacji. Dodaj swoje konto, wykonując czynności opisane w artykule [Dodawanie osobistych kont Microsoft](user-help-auth-app-add-personal-ms-account.md) .
 

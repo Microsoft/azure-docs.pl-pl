@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 12/11/2019
 ms.author: komammas
 ms.custom: mvc
-ms.openlocfilehash: 49f675a56247433ce92763a69045fb214c7c37dc
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 433a652ffa3fa3ae5a570fac6160ef8a04ee11c8
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/21/2020
-ms.locfileid: "83723072"
+ms.locfileid: "83773189"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Samouczek: uruchamianie skryptów Python za pomocą Azure Data Factory przy użyciu Azure Batch
 
@@ -34,6 +34,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 * Zainstalowana dystrybucja języka [Python](https://www.python.org/downloads/) do testowania lokalnego.
 * Pakiet [platformy Azure](https://pypi.org/project/azure/) `pip` .
+* [Zestaw danych Iris. csv](https://www.kaggle.com/uciml/iris/version/2#Iris.csv)
 * Konto usługi Azure Batch i połączone konto usługi Azure Storage. Zobacz [Tworzenie konta usługi Batch](quick-create-portal.md#create-a-batch-account) , aby uzyskać więcej informacji na temat tworzenia i łączenia kont usługi Batch z kontami magazynu.
 * Konto Azure Data Factory. Aby uzyskać więcej informacji na temat tworzenia fabryki danych za pomocą Azure Portal, zobacz temat [Tworzenie fabryki danych](../data-factory/quickstart-create-data-factory-portal.md#create-a-data-factory) .
 * [Batch Explorer](https://azure.github.io/BatchExplorer/).
@@ -66,7 +67,7 @@ Tutaj utworzysz kontenery obiektów blob, które będą przechowywać pliki wej�
 1. Zaloguj się, aby Eksplorator usługi Storage przy użyciu poświadczeń platformy Azure.
 1. Korzystając z konta magazynu połączonego z kontem usługi Batch, Utwórz dwa kontenery obiektów BLOB (jeden dla plików wejściowych, jeden dla plików wyjściowych), wykonując czynności opisane w [sekcji Tworzenie kontenera obiektów BLOB](../vs-azure-tools-storage-explorer-blobs.md#create-a-blob-container).
     * W tym przykładzie wywołamy nasz kontener wejściowy `input` oraz nasz kontener wyjściowy `output` .
-1. Przekaż `main.py` i `iris.csv` do kontenera wejściowego `input` przy użyciu Eksplorator usługi Storage, wykonując czynności opisane w temacie [Zarządzanie obiektami BLOB w kontenerze obiektów BLOB](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container)
+1. Przekaż `main.py` i [`iris.csv`](https://www.kaggle.com/uciml/iris/version/2#Iris.csv) do kontenera wejściowego `input` przy użyciu Eksplorator usługi Storage, wykonując czynności opisane w temacie [Zarządzanie obiektami BLOB w kontenerze obiektów BLOB](../vs-azure-tools-storage-explorer-blobs.md#managing-blobs-in-a-blob-container)
 
 
 ## <a name="develop-a-script-in-python"></a>Opracowywanie skryptu w języku Python

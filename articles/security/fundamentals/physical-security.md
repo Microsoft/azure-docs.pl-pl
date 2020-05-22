@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 634f89b3123902d981ad07dd1404315387104322
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 19fd257e76cdf811343f1c1c772fb3646933bb86
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68726724"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774047"
 ---
 # <a name="azure-facilities-premises-and-physical-security"></a>Funkcje platformy Azure, lokalne i zabezpieczenia fizyczne
 W tym artykule opisano, co firma Microsoft zabezpiecza infrastruktury platformy Azure.
@@ -28,7 +28,7 @@ W tym artykule opisano, co firma Microsoft zabezpiecza infrastruktury platformy 
 ## <a name="datacenter-infrastructure"></a>Infrastruktura centrum danych
 Platforma Azure składa się z [globalnej rozproszonej infrastruktury centrów](https://azure.microsoft.com/global-infrastructure/)danych, wspierając tysiące usługi online i obejmujących ponad 100 wysoce zabezpieczonych udogodnień na całym świecie.
 
-Infrastruktura została zaprojektowana w celu zapewnienia bliższych aplikacji użytkownikom na całym świecie, zachowywania miejsca zamieszkania i zapewniania kompleksowych opcji dotyczących zgodności i odporności klientów. Platforma Azure ma 52 regionów na całym świecie i jest dostępna w 140 krajach/regionach.
+Infrastruktura została zaprojektowana w celu zapewnienia bliższych aplikacji użytkownikom na całym świecie, zachowywania miejsca zamieszkania i zapewniania kompleksowych opcji dotyczących zgodności i odporności klientów. Platforma Azure ma 58 regionów na całym świecie i jest dostępna w 140 krajach/regionach.
 
 Region to zestaw centrów danych, które są połączone za pośrednictwem dużej i odpornej sieci. Sieć zawiera domyślnie dystrybucję zawartości, równoważenie obciążenia, nadmiarowość i szyfrowanie. W przypadku więcej regionów globalnych niż każdy inny dostawca usług w chmurze platforma Azure zapewnia elastyczność wdrażania aplikacji, w których są one potrzebne.
 

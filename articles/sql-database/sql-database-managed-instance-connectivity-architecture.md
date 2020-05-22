@@ -3,7 +3,7 @@ title: Architektura łączności dla wystąpienia zarządzanego
 description: Dowiedz się więcej o Azure SQL Database architekturze komunikacji i łączności wystąpienia zarządzanego oraz o tym, jak składniki kierują ruch do wystąpienia zarządzanego.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: fasttrack-edit
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: e4d6098b7b4de76461e924fc7d42d039046d7ce5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9f341c3c2c299ca358b2a42210f04c6399fe2892
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81677170"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773614"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architektura łączności dla wystąpienia zarządzanego w Azure SQL Database
 
@@ -66,7 +66,7 @@ Przyjrzyjmy się bardziej szczegółowo szczegółowe architektury łączności 
 
 ![Architektura łączności klastra wirtualnego](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-Klienci łączą się z wystąpieniem zarządzanym przy użyciu nazwy hosta z formularzem `<mi_name>.<dns_zone>.database.windows.net`. Ta nazwa hosta jest rozpoznawana jako prywatny adres IP, mimo że jest zarejestrowana w publicznej strefie systemu nazw domen (DNS) i jest publicznie rozpoznawalna. `zone-id` Jest generowany automatycznie podczas tworzenia klastra. Jeśli nowo utworzony klaster obsługuje pomocnicze wystąpienie zarządzane, jego identyfikator strefy jest udostępniany klastrowi podstawowemu. Aby uzyskać więcej informacji, zobacz [Korzystanie z grup autotrybu failover w celu zapewnienia przezroczystej i skoordynowanej pracy w trybie failover wielu baz danych](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets).
+Klienci łączą się z wystąpieniem zarządzanym przy użyciu nazwy hosta z formularzem `<mi_name>.<dns_zone>.database.windows.net` . Ta nazwa hosta jest rozpoznawana jako prywatny adres IP, mimo że jest zarejestrowana w publicznej strefie systemu nazw domen (DNS) i jest publicznie rozpoznawalna. `zone-id`Jest generowany automatycznie podczas tworzenia klastra. Jeśli nowo utworzony klaster obsługuje pomocnicze wystąpienie zarządzane, jego identyfikator strefy jest udostępniany klastrowi podstawowemu. Aby uzyskać więcej informacji, zobacz [Korzystanie z grup autotrybu failover w celu zapewnienia przezroczystej i skoordynowanej pracy w trybie failover wielu baz danych](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets).
 
 Ten prywatny adres IP należy do wewnętrznego modułu równoważenia obciążenia wystąpienia zarządzanego. Moduł równoważenia obciążenia kieruje ruch do bramy wystąpienia zarządzanego. Ponieważ wiele wystąpień zarządzanych może działać w tym samym klastrze, brama używa nazwy hosta wystąpienia zarządzanego w celu przekierowania ruchu do odpowiedniej usługi aparatu SQL.
 
@@ -83,28 +83,28 @@ Po rozpoczęciu połączeń wewnątrz wystąpienia zarządzanego (podobnie jak w
 
 ## <a name="service-aided-subnet-configuration"></a>Konfiguracja podsieci wspomagana przez usługę
 
-Aby rozwiązać wymagania dotyczące zabezpieczeń i możliwości zarządzania przez wystąpienie zarządzane przez klienta, przechodzą z ręcznego konfigurowania podsieci do usługi.
+Aby spełnić wymagania klienta dotyczące zabezpieczeń i możliwości zarządzania związane z wystąpieniem zarządzanym, przechodzi z ręcznej konfiguracji podsieci do konfiguracji wspomaganej przez usługę.
 
-Przy użyciu przystawki Zarządzanie podsieciami z obsługą administracyjną usługa ma pełną kontrolę nad ruchem danych (TDS), podczas gdy zarządzane wystąpienie jest odpowiedzialne za zapewnienie nieprzerwanego przepływu ruchu zarządzania w celu spełnienia warunków umowy SLA.
+Dzięki konfiguracji podsieci wspomaganej przez usługę użytkownik ma pełną kontrolę nad ruchem danych (TDS), podczas gdy zarządzane wystąpienie jest odpowiedzialne za zapewnienie nieprzerwanego przepływu ruchu związanego z zarządzaniem w celu spełnienia warunków umowy SLA.
 
-Konfiguracja podsieci wspomagana przez usługę jest oparta na funkcji [delegowania podsieci](../virtual-network/subnet-delegation-overview.md) sieci wirtualnej w celu zapewnienia automatycznego zarządzania konfiguracją sieci i włączania punktów końcowych usługi. Punkty końcowe usługi mogą służyć do konfigurowania reguł zapory sieci wirtualnej na kontach magazynu, które przechowują kopie zapasowe/dzienniki inspekcji.
+Konfiguracja podsieci wspomagana przez usługę jest oparta na funkcji [delegowania podsieci](../virtual-network/subnet-delegation-overview.md) sieci wirtualnej w celu zapewnienia automatycznego zarządzania konfiguracją sieci i włączania punktów końcowych usługi. Punkty końcowe usługi mogą być używane do konfigurowania reguł zapory sieci wirtualnej na kontach magazynu, które przechowują kopie zapasowe/dzienniki inspekcji.
 
 ### <a name="network-requirements"></a>Wymagania dotyczące sieci 
 
-Wdróż wystąpienie zarządzane w dedykowanej podsieci w sieci wirtualnej. Podsieć musi mieć następującą charakterystykę:
+Wdróż wystąpienie zarządzane w dedykowanej podsieci w sieci wirtualnej. Podsieć musi mieć następujące właściwości:
 
-- **Dedykowana podsieć:** Podsieć wystąpienia zarządzanego nie może zawierać żadnej innej usługi w chmurze, która jest skojarzona z nią, i nie może być podsiecią bramy. Podsieć nie może zawierać żadnego zasobu, ale wystąpienia zarządzanego i nie można później dodać innych typów zasobów w podsieci.
+- **Dedykowana podsieć:** Podsieć wystąpienia zarządzanego nie może zawierać żadnej innej skojarzonej z nią usługi w chmurze i nie może być podsiecią bramy. Podsieć nie może zawierać żadnego zasobu oprócz wystąpienia zarządzanego i nie można później dodać innych typów zasobów w podsieci.
 - **Delegowanie podsieci:** Podsieć wystąpienia zarządzanego musi być delegowana do `Microsoft.Sql/managedInstances` dostawcy zasobów.
-- **Sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń):** SIECIOWEJ grupy zabezpieczeń musi być skojarzona z podsiecią wystąpienia zarządzanego. Można użyć sieciowej grupy zabezpieczeń, aby kontrolować dostęp do punktu końcowego danych wystąpienia zarządzanego przez filtrowanie ruchu na porcie 1433 i port 11000-11999, gdy wystąpienie zarządzane jest skonfigurowane do przekierowania połączeń. Usługa będzie automatycznie dostarczać i utrzymywać bieżące [reguły](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration) wymagane do umożliwienia nieprzerwanego przepływu ruchu zarządzania.
-- **Tabela zdefiniowana przez użytkownika trasa (UDR):** Tabela UDR musi być skojarzona z podsiecią wystąpienia zarządzanego. Można dodać wpisy do tabeli tras, aby skierować ruch, który ma lokalne prywatne zakresy adresów IP jako miejsce docelowe za pomocą bramy sieci wirtualnej lub urządzenia sieci wirtualnej (urządzenie WUS). Usługa będzie automatycznie dostarczać i utrzymywać bieżące [wpisy](#user-defined-routes-with-service-aided-subnet-configuration) wymagane do umożliwienia nieprzerwanego przepływu ruchu zarządzania.
-- **Wystarczające adresy IP:** Podsieć wystąpienia zarządzanego musi mieć co najmniej 16 adresów IP. Zalecane minimum to 32 adresów IP. Aby uzyskać więcej informacji, zobacz [Określanie rozmiaru podsieci dla wystąpień zarządzanych](sql-database-managed-instance-determine-size-vnet-subnet.md). Wystąpienia zarządzane można wdrożyć w [istniejącej sieci](sql-database-managed-instance-configure-vnet-subnet.md) po jej skonfigurowaniu w celu spełnienia [wymagań sieci dla wystąpień zarządzanych](#network-requirements). W przeciwnym razie Utwórz [nową sieć i podsieć](sql-database-managed-instance-create-vnet-subnet.md).
+- **Sieciowa grupa zabezpieczeń:** Sieciowa grupa zabezpieczeń musi być skojarzona z podsiecią wystąpienia zarządzanego. Można użyć sieciowej grupy zabezpieczeń, aby kontrolować dostęp do punktu końcowego danych wystąpienia zarządzanego przez filtrowanie ruchu na porcie 1433 i portach 11000-11999, gdy wystąpienie zarządzane jest skonfigurowane na potrzeby przekierowywania połączeń. Usługa będzie automatycznie aprowizować i utrzymywać bieżące wymagane [zasady](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration), aby umożliwić nieprzerwany przepływ ruchu związanego z zarządzaniem.
+- **Tabela tras zdefiniowanych przez użytkownika (UDR):** Tabela UDR musi być skojarzona z podsiecią wystąpienia zarządzanego. Można dodać wpisy do tabeli tras, aby skierować ruch, który ma lokalne prywatne zakresy adresów IP jako lokalizację docelową, za pomocą bramy sieci wirtualnej lub wirtualnego urządzenia sieciowego (urządzenia WUS). Usługa będzie automatycznie aprowizować i utrzymywać bieżące wymagane [wpisy](#user-defined-routes-with-service-aided-subnet-configuration), aby umożliwić nieprzerwany przepływ ruchu związanego z zarządzaniem.
+- **Wystarczające adresy IP:** Podsieć wystąpienia zarządzanego musi mieć co najmniej 16 adresów IP. Zalecana minimalna liczba adresów IP to 32. Aby uzyskać więcej informacji, zobacz [Określanie rozmiaru podsieci dla wystąpień zarządzanych](sql-database-managed-instance-determine-size-vnet-subnet.md). Wystąpienia zarządzane można wdrożyć w [istniejącej sieci](sql-database-managed-instance-configure-vnet-subnet.md) po jej skonfigurowaniu w celu spełnienia [wymagań dotyczących sieci na potrzeby wystąpień zarządzanych](#network-requirements). W innym przypadku utwórz [nową sieć i podsieć](sql-database-managed-instance-create-vnet-subnet.md).
 
 > [!IMPORTANT]
 > Podczas tworzenia wystąpienia zarządzanego w podsieci są stosowane zasady konwersji sieci, które uniemożliwiają niezgodne zmiany konfiguracji sieci. Po usunięciu ostatniego wystąpienia z podsieci zostaną również usunięte zasady dotyczące opcji sieci.
 
 ### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>Obowiązkowe reguły zabezpieczeń dla ruchu przychodzącego z konfiguracją podsieci z obsługą usług 
 
-| Nazwa       |Port                        |Protocol (Protokół)|Element źródłowy           |Element docelowy|Akcja|
+| Nazwa       |Port                        |Protokół|Element źródłowy           |Element docelowy|Akcja|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |zarządzanie  |9000, 9003, 1438, 1440, 1452|TCP     |Xmlmanagement    |MI PODSIEĆ  |Zezwalaj |
 |            |9000, 9003                  |TCP     |CorpnetSaw       |MI PODSIEĆ  |Zezwalaj |
@@ -114,7 +114,7 @@ Wdróż wystąpienie zarządzane w dedykowanej podsieci w sieci wirtualnej. Pods
 
 ### <a name="mandatory-outbound-security-rules-with-service-aided-subnet-configuration"></a>Obowiązkowe reguły zabezpieczeń dla ruchu wychodzącego z konfiguracją podsieci z obsługą usług 
 
-| Nazwa       |Port          |Protocol (Protokół)|Element źródłowy           |Element docelowy|Akcja|
+| Nazwa       |Port          |Protokół|Element źródłowy           |Element docelowy|Akcja|
 |------------|--------------|--------|-----------------|-----------|------|
 |zarządzanie  |443, 12000    |TCP     |MI PODSIEĆ        |AzureCloud |Zezwalaj |
 |mi_subnet   |Dowolne           |Dowolne     |MI PODSIEĆ        |MI PODSIEĆ  |Zezwalaj |
@@ -310,20 +310,20 @@ Następujące funkcje sieci wirtualnej nie są obecnie obsługiwane w przypadku 
 
 ### <a name="deprecated-network-requirements-without-service-aided-subnet-configuration"></a>Przestarzałe Wymagania sieci bez konfiguracji podsieci z obsługą usług
 
-Wdróż wystąpienie zarządzane w dedykowanej podsieci w sieci wirtualnej. Podsieć musi mieć następującą charakterystykę:
+Wdróż wystąpienie zarządzane w dedykowanej podsieci w sieci wirtualnej. Podsieć musi mieć następujące właściwości:
 
-- **Dedykowana podsieć:** Podsieć wystąpienia zarządzanego nie może zawierać żadnej innej usługi w chmurze, która jest skojarzona z nią, i nie może być podsiecią bramy. Podsieć nie może zawierać żadnego zasobu, ale wystąpienia zarządzanego i nie można później dodać innych typów zasobów w podsieci.
-- **Sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń):** SIECIOWEJ grupy zabezpieczeń, który jest skojarzony z siecią wirtualną, musi definiować [reguły zabezpieczeń dla ruchu przychodzącego](#mandatory-inbound-security-rules) i [reguły zabezpieczeń dla ruchu wychodzącego](#mandatory-outbound-security-rules) przed innymi regułami. Można użyć sieciowej grupy zabezpieczeń, aby kontrolować dostęp do punktu końcowego danych wystąpienia zarządzanego przez filtrowanie ruchu na porcie 1433 i port 11000-11999, gdy wystąpienie zarządzane jest skonfigurowane do przekierowania połączeń.
+- **Dedykowana podsieć:** Podsieć wystąpienia zarządzanego nie może zawierać żadnej innej skojarzonej z nią usługi w chmurze i nie może być podsiecią bramy. Podsieć nie może zawierać żadnego zasobu oprócz wystąpienia zarządzanego i nie można później dodać innych typów zasobów w podsieci.
+- **Sieciowa Grupa zabezpieczeń (sieciowej grupy zabezpieczeń):** SIECIOWEJ grupy zabezpieczeń, który jest skojarzony z siecią wirtualną, musi definiować [reguły zabezpieczeń dla ruchu przychodzącego](#mandatory-inbound-security-rules) i [reguły zabezpieczeń dla ruchu wychodzącego](#mandatory-outbound-security-rules) przed innymi regułami. Można użyć sieciowej grupy zabezpieczeń, aby kontrolować dostęp do punktu końcowego danych wystąpienia zarządzanego przez filtrowanie ruchu na porcie 1433 i portach 11000-11999, gdy wystąpienie zarządzane jest skonfigurowane na potrzeby przekierowywania połączeń.
 - **Tabela zdefiniowana przez użytkownika trasa (UDR):** Tabela UDR, która jest skojarzona z siecią wirtualną, musi zawierać określone [wpisy](#user-defined-routes).
 - **Brak punktów końcowych usługi:** Żadna z punktów końcowych usługi nie powinna być skojarzona z podsiecią wystąpienia zarządzanego. Upewnij się, że opcja punkty końcowe usługi jest wyłączona podczas tworzenia sieci wirtualnej.
-- **Wystarczające adresy IP:** Podsieć wystąpienia zarządzanego musi mieć co najmniej 16 adresów IP. Zalecane minimum to 32 adresów IP. Aby uzyskać więcej informacji, zobacz [Określanie rozmiaru podsieci dla wystąpień zarządzanych](sql-database-managed-instance-determine-size-vnet-subnet.md). Wystąpienia zarządzane można wdrożyć w [istniejącej sieci](sql-database-managed-instance-configure-vnet-subnet.md) po jej skonfigurowaniu w celu spełnienia [wymagań sieci dla wystąpień zarządzanych](#network-requirements). W przeciwnym razie Utwórz [nową sieć i podsieć](sql-database-managed-instance-create-vnet-subnet.md).
+- **Wystarczające adresy IP:** Podsieć wystąpienia zarządzanego musi mieć co najmniej 16 adresów IP. Zalecana minimalna liczba adresów IP to 32. Aby uzyskać więcej informacji, zobacz [Określanie rozmiaru podsieci dla wystąpień zarządzanych](sql-database-managed-instance-determine-size-vnet-subnet.md). Wystąpienia zarządzane można wdrożyć w [istniejącej sieci](sql-database-managed-instance-configure-vnet-subnet.md) po jej skonfigurowaniu w celu spełnienia [wymagań dotyczących sieci na potrzeby wystąpień zarządzanych](#network-requirements). W innym przypadku utwórz [nową sieć i podsieć](sql-database-managed-instance-create-vnet-subnet.md).
 
 > [!IMPORTANT]
 > Nie można wdrożyć nowego wystąpienia zarządzanego, jeśli podsieć docelowa nie ma tych cech. Podczas tworzenia wystąpienia zarządzanego w podsieci są stosowane zasady konwersji sieci, które uniemożliwiają niezgodne zmiany konfiguracji sieci. Po usunięciu ostatniego wystąpienia z podsieci zostaną również usunięte zasady dotyczące opcji sieci.
 
 ### <a name="mandatory-inbound-security-rules"></a>Obowiązkowe reguły zabezpieczeń dla ruchu przychodzącego
 
-| Nazwa       |Port                        |Protocol (Protokół)|Element źródłowy           |Element docelowy|Akcja|
+| Nazwa       |Port                        |Protokół|Element źródłowy           |Element docelowy|Akcja|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |zarządzanie  |9000, 9003, 1438, 1440, 1452|TCP     |Dowolne              |MI PODSIEĆ  |Zezwalaj |
 |mi_subnet   |Dowolne                         |Dowolne     |MI PODSIEĆ        |MI PODSIEĆ  |Zezwalaj |
@@ -331,7 +331,7 @@ Wdróż wystąpienie zarządzane w dedykowanej podsieci w sieci wirtualnej. Pods
 
 ### <a name="mandatory-outbound-security-rules"></a>Obowiązkowe reguły zabezpieczeń dla ruchu wychodzącego
 
-| Nazwa       |Port          |Protocol (Protokół)|Element źródłowy           |Element docelowy|Akcja|
+| Nazwa       |Port          |Protokół|Element źródłowy           |Element docelowy|Akcja|
 |------------|--------------|--------|-----------------|-----------|------|
 |zarządzanie  |443, 12000    |TCP     |MI PODSIEĆ        |AzureCloud |Zezwalaj |
 |mi_subnet   |Dowolne           |Dowolne     |MI PODSIEĆ        |MI PODSIEĆ  |Zezwalaj |

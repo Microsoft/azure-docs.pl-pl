@@ -7,14 +7,14 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: babanisa
-ms.openlocfilehash: 3c2c2e3d5a2ef48ddc212fc0df4906c91071d803
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 2a1f35b86e21099c9fdd0397ae8a3b20aed3cd5d
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725957"
+ms.locfileid: "83758830"
 ---
-# <a name="become-and-event-grid-partner"></a>Zostań i Event Grid partnera
+# <a name="onboard-as-an-azure-event-grid-partner"></a>Dołącz do Azure Event Grid partnera
 
 W tym artykule opisano, jak prywatnie używać zasobów partnerskich Event Grid i jak stać się dostępny publicznie typ tematu partnera.
 
@@ -38,7 +38,7 @@ Tematy dotyczące partnerów umożliwiają publikowanie zdarzeń w celu Azure Ev
 
     ![Tworzenie tematu partnera](./media/partner-onboarding-how-to/create-partner-registration.png)
 
-1. Utwórz co najmniej jeden `partnerNamespaces` w każdym regionie, w którym chcesz opublikować zdarzenia. W ramach tej metody usługa Event Grid zainicjuje punkt końcowy publikowania (na przykład https://contoso.westus-1.eventgrid.azure.net/api/events) i klucze dostępu).
+1. Utwórz co najmniej jeden `partnerNamespaces` w każdym regionie, w którym chcesz opublikować zdarzenia. W ramach tej usługi Event Grid usługa zainicjuje punkt końcowy publikowania (na przykład `https://contoso.westus-1.eventgrid.azure.net/api/events` ) i klucze dostępu.
 
     ![Utwórz przestrzeń nazw partnera](./media/partner-onboarding-how-to/create-partner-namespace.png)
 
@@ -105,10 +105,10 @@ Publikuj zdarzenia do Azure Event Grid przy użyciu schematu CloudEvents 1,0. Ev
 
 ### <a name="example-flow"></a>Przykładowy przepływ
 
-1.  Usługa publikowania wykonuje wpis HTTP do https://contoso.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01 .
+1.  Usługa publikowania wykonuje wpis HTTP do `https://contoso.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01` .
 2.  W żądaniu Dołącz wartość nagłówka o nazwie AEG-SAS-Key, która zawiera klucz do uwierzytelniania. Ten klucz jest inicjowany podczas tworzenia partnerNamespace. Na przykład prawidłowa wartość nagłówka to AEG-SAS-Key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg = =.
 3.  Ustaw nagłówek Content-Type na wartość "Application/cloudevents-Batch + JSON; charset = UTF-8 ".
-4.  Wykonaj wpis HTTP w powyższym adresie URL publikowania, używając partii zdarzeń odpowiadających temu regionowi. Na przykład:
+4.  Wykonaj wpis HTTP w powyższym adresie URL publikowania, używając partii zdarzeń odpowiadających temu regionowi. Przykład:
 
 ``` json
 [
@@ -153,12 +153,12 @@ Po opublikowaniu w punkcie końcowym partnerNamespace otrzymasz odpowiedź. Odpo
 | Nieprawidłowy punkt końcowy                 | 404 — Nie znaleziono         |
 | Tablica lub zdarzenie przekraczają limity rozmiaru | ładunek 413 zbyt duży |
 
-## <a name="reference"></a>Dokumentacja
+## <a name="reference"></a>Tematy pomocy
 
   * [Swagger](https://github.com/ahamad-MS/azure-rest-api-specs/blob/master/specification/eventgrid/resource-manager/Microsoft.EventGrid/preview/2020-04-01-preview/EventGrid.json)
   * [Szablon ARM](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/allversions)
   * [Schemat szablonu ARM](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2020-04-01-preview/Microsoft.EventGrid.json)
-  * [Interfejsy API REST](https://docs.microsoft.com/rest/api/eventgrid/partnernamespaces)
+  * [Interfejsy API REST](https://docs.microsoft.com/rest/api/eventgrid/version2020-04-01-preview/partnernamespaces)
   * [Rozszerzenie interfejsu wiersza polecenia](https://docs.microsoft.com/cli/azure/ext/eventgrid/?view=azure-cli-latest)
 
 ### <a name="sdks"></a>Zestawy SDK

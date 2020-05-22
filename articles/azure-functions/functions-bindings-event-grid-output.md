@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 0237bcbf98578d9f83f3c9652661c786df54e73a
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 4df0faf3f74ef3423dcd42c2c76af8b39a889a92
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82627691"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773950"
 ---
 # <a name="azure-event-grid-output-binding-for-azure-functions"></a>Azure Event Grid powiązanie danych wyjściowych dla Azure Functions
 
@@ -40,7 +40,7 @@ public static EventGridEvent Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTim
 }
 ```
 
-Poniższy przykład pokazuje, `IAsyncCollector` jak używać interfejsu do wysyłania partii komunikatów.
+Poniższy przykład pokazuje, jak używać `IAsyncCollector` interfejsu do wysyłania partii komunikatów.
 
 ```csharp
 [FunctionName("EventGridAsyncOutput")]
@@ -162,7 +162,53 @@ module.exports = function(context) {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Powiązanie danych wyjściowych Event Grid nie jest dostępne dla języka Python.
+Poniższy przykład pokazuje powiązanie wyzwalacza w pliku *Function. JSON* i [funkcji języka Python](functions-reference-python.md) , która używa powiązania. Następnie wysyła w zdarzeniu do niestandardowego tematu Event Grid, zgodnie z opisem w `topicEndpointUri` .
+
+Oto dane powiązania w pliku *Function. JSON* :
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "type": "eventGridTrigger",
+      "name": "eventGridEvent",
+      "direction": "in"
+    },
+    {
+      "type": "eventGrid",
+      "name": "outputEvent",
+      "topicEndpointUri": "MyEventGridTopicUriSetting",
+      "topicKeySetting": "MyEventGridTopicKeySetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
+```
+
+Oto przykład języka Python do wysłania zdarzenia do niestandardowego tematu Event Grid przez ustawienie `EventGridOutputEvent` :
+
+```python
+import logging
+import azure.functions as func
+import datetime
+
+
+def main(eventGridEvent: func.EventGridEvent, 
+         outputEvent: func.Out[func.EventGridOutputEvent]) -> None:
+
+    logging.log("eventGridEvent: ", eventGridEvent)
+
+    outputEvent.set(
+        func.EventGridOutputEvent(
+            id="test-id",
+            data={"tag1": "value1", "tag2": "value2"},
+            subject="test-subject",
+            event_type="test-event-1",
+            event_time=datetime.datetime.utcnow(),
+            data_version="1.0"))
+```
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -176,7 +222,7 @@ Powiązanie danych wyjściowych Event Grid nie jest dostępne dla języka Java.
 
 W przypadku [bibliotek klas języka C#](functions-dotnet-class-library.md)należy użyć atrybutu [EventGridAttribute](https://github.com/Azure/azure-functions-eventgrid-extension/blob/dev/src/EventGridExtension/OutputBinding/EventGridAttribute.cs) .
 
-Konstruktor atrybutu przyjmuje nazwę ustawienia aplikacji, która zawiera nazwę tematu niestandardowego i nazwę ustawienia aplikacji, która zawiera klucz tematu. Aby uzyskać więcej informacji na temat tych ustawień, zobacz [Output-Configuration](#configuration). Oto przykład `EventGrid` atrybutu:
+Konstruktor atrybutu przyjmuje nazwę ustawienia aplikacji, która zawiera nazwę tematu niestandardowego i nazwę ustawienia aplikacji, która zawiera klucz tematu. Aby uzyskać więcej informacji na temat tych ustawień, zobacz [Output-Configuration](#configuration). Oto `EventGrid` przykład atrybutu:
 
 ```csharp
 [FunctionName("EventGridOutput")]
@@ -207,36 +253,36 @@ Powiązanie danych wyjściowych Event Grid nie jest dostępne dla języka Java.
 
 ---
 
-## <a name="configuration"></a>Konfigurowanie
+## <a name="configuration"></a>Konfiguracja
 
 W poniższej tabeli objaśniono właściwości konfiguracji powiązań ustawiane w pliku *Function. JSON* i w `EventGrid` atrybucie.
 
 |Function. JSON — Właściwość | Właściwość atrybutu |Opis|
 |---------|---------|----------------------|
-|**Wprowadź** | n/d | Musi być ustawiona na wartość "eventGrid". |
-|**wskazywa** | n/d | Musi być ustawiona na wartość "out". Ten parametr jest ustawiany automatycznie podczas tworzenia powiązania w Azure Portal. |
-|**Nazwij** | n/d | Nazwa zmiennej używana w kodzie funkcji, która reprezentuje zdarzenie. |
-|**topicEndpointUri** |**TopicEndpointUri** | Nazwa ustawienia aplikacji, która zawiera identyfikator URI tematu niestandardowego, na przykład `MyTopicEndpointUri`. |
+|**Wprowadź** | nie dotyczy | Musi być ustawiona na wartość "eventGrid". |
+|**wskazywa** | nie dotyczy | Musi być ustawiona na wartość "out". Ten parametr jest ustawiany automatycznie podczas tworzenia powiązania w Azure Portal. |
+|**Nazwij** | nie dotyczy | Nazwa zmiennej używana w kodzie funkcji, która reprezentuje zdarzenie. |
+|**topicEndpointUri** |**TopicEndpointUri** | Nazwa ustawienia aplikacji, która zawiera identyfikator URI tematu niestandardowego, na przykład `MyTopicEndpointUri` . |
 |**topicKeySetting** |**TopicKeySetting** | Nazwa ustawienia aplikacji, która zawiera klucz dostępu dla tematu niestandardowego. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!IMPORTANT]
-> Upewnij się, że wartość właściwości `TopicEndpointUri` konfiguracja jest ustawiona na nazwę ustawienia aplikacji, która zawiera identyfikator URI tematu niestandardowego. Nie określaj identyfikatora URI tematu niestandardowego bezpośrednio w tej właściwości.
+> Upewnij się, że wartość `TopicEndpointUri` właściwości konfiguracja jest ustawiona na nazwę ustawienia aplikacji, która zawiera identyfikator URI tematu niestandardowego. Nie określaj identyfikatora URI tematu niestandardowego bezpośrednio w tej właściwości.
 
-## <a name="usage"></a>Sposób użycia
+## <a name="usage"></a>Użycie
 
 # <a name="c"></a>[S #](#tab/csharp)
 
-Wysyłaj komunikaty przy użyciu parametru metody, takiego `out EventGridEvent paramName`jak. Aby napisać wiele komunikatów, można użyć `ICollector<EventGridEvent>` lub `IAsyncCollector<EventGridEvent>` zamiast. `out EventGridEvent`
+Wysyłaj komunikaty przy użyciu parametru metody, takiego jak `out EventGridEvent paramName` . Aby napisać wiele komunikatów, można użyć `ICollector<EventGridEvent>` lub zamiast `IAsyncCollector<EventGridEvent>` `out EventGridEvent` .
 
 # <a name="c-script"></a>[Skrypt C#](#tab/csharp-script)
 
-Wysyłaj komunikaty przy użyciu parametru metody, takiego `out EventGridEvent paramName`jak. W skrypcie języka C# `paramName` jest wartością określoną we `name` właściwości *Function. JSON*. Aby napisać wiele komunikatów, można użyć `ICollector<EventGridEvent>` lub `IAsyncCollector<EventGridEvent>` zamiast. `out EventGridEvent`
+Wysyłaj komunikaty przy użyciu parametru metody, takiego jak `out EventGridEvent paramName` . W skrypcie języka C# `paramName` jest wartością określoną we `name` właściwości *Function. JSON*. Aby napisać wiele komunikatów, można użyć `ICollector<EventGridEvent>` lub zamiast `IAsyncCollector<EventGridEvent>` `out EventGridEvent` .
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Dostęp do zdarzenia wyjściowego przy użyciu `context.bindings.<name>` metody `<name>` WHERE jest wartością określoną we `name` właściwości *Function. JSON*.
+Dostęp do zdarzenia wyjściowego przy użyciu metody `context.bindings.<name>` Where `<name>` jest wartością określoną we `name` właściwości *Function. JSON*.
 
 # <a name="python"></a>[Python](#tab/python)
 

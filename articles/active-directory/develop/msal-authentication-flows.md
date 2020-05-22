@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 01/30/2020
+ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: db9937d87692a1221d72bd27cfd653d803b9a1c6
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: ce81af90baeeda519f1b56d1e10a46923ebd22c2
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82883247"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772135"
 ---
 # <a name="authentication-flows"></a>Przepływy uwierzytelniania
 
@@ -49,7 +49,7 @@ W zależności od sposobu skompilowania klienta można użyć jednego (lub kilku
 |[Przepływ kodu urządzenia](v2-oauth2-device-code.md) | | x| x| x| |
 |[Poświadczenia klienta](v2-oauth2-client-creds-grant-flow.md) | | | x (tylko aplikacja)| | |
  
-Tokeny wystawione za pośrednictwem trybu niejawnego mają ograniczenie długości z powodu przekazanie z powrotem do przeglądarki `response_mode` za `query` pośrednictwem adresu URL (gdzie is lub `fragment`).  Niektóre przeglądarki mają limit rozmiaru adresu URL, który może być umieszczony na pasku przeglądarki i niepowodzenie, gdy jest zbyt długi.  W rezultacie te tokeny nie mają `groups` ani `wids` oświadczenia.
+Tokeny wystawione za pośrednictwem trybu niejawnego mają ograniczenie długości z powodu przekazanie z powrotem do przeglądarki za pośrednictwem adresu URL (gdzie `response_mode` is `query` lub `fragment` ).  Niektóre przeglądarki mają limit rozmiaru adresu URL, który może być umieszczony na pasku przeglądarki i niepowodzenie, gdy jest zbyt długi.  W rezultacie te tokeny nie mają `groups` ani `wids` oświadczenia.
 
 ## <a name="interactive"></a>Interaktywne
 
@@ -78,7 +78,7 @@ Ten przepływ uwierzytelniania nie obejmuje scenariuszy aplikacji, które wykorz
 
 MSAL obsługuje [przyznawanie kodu autoryzacji OAuth 2](v2-oauth2-auth-code-flow.md). Tego uprawnienia można używać w aplikacjach zainstalowanych na urządzeniu w celu uzyskania dostępu do chronionych zasobów, takich jak interfejsy API sieci Web. Pozwala to na dodawanie funkcji logowania i dostępu do interfejsu API do aplikacji mobilnych i klasycznych. 
 
-Gdy użytkownicy logują się do aplikacji sieci Web (websites), aplikacja sieci Web otrzymuje kod autoryzacji.  Kod autoryzacji jest realizowany w celu uzyskania tokenu do wywoływania interfejsów API sieci Web. W ASP.NET i ASP.NET Core Web Apps jedynym celem `AcquireTokenByAuthorizationCode` jest dodanie tokenu do pamięci podręcznej tokenów. Token może być następnie używany przez aplikację (zazwyczaj w kontrolerach, które po prostu otrzymują token dla interfejsu API za pomocą programu `AcquireTokenSilent`).
+Gdy użytkownicy logują się do aplikacji sieci Web (websites), aplikacja sieci Web otrzymuje kod autoryzacji.  Kod autoryzacji jest realizowany w celu uzyskania tokenu do wywoływania interfejsów API sieci Web. W ASP.NET i ASP.NET Core Web Apps jedynym celem `AcquireTokenByAuthorizationCode` jest dodanie tokenu do pamięci podręcznej tokenów. Token może być następnie używany przez aplikację (zazwyczaj w kontrolerach, które po prostu otrzymują token dla interfejsu API za pomocą programu `AcquireTokenSilent` ).
 
 ![Diagram przepływu kodu autoryzacji](media/msal-authentication-flows/authorization-code.png)
 
@@ -91,7 +91,7 @@ Na powyższym diagramie aplikacja:
 
 - Aby zrealizować token, można użyć kodu autoryzacji tylko raz. Nie próbuj uzyskać tokenu wiele razy przy użyciu tego samego kodu autoryzacji (jest to jawnie zabronione przez standardową specyfikację protokołu). W przypadku zrealizowania kodu kilkakrotnie lub z tego powodu nie masz świadomego, że struktura również go wykonuje, zostanie wyświetlony następujący błąd:`AADSTS70002: Error validating credentials. AADSTS54005: OAuth2 Authorization code was already redeemed, please retry with a new valid code or use an existing refresh token.`
 
-- Jeśli piszesz aplikację ASP.NET lub ASP.NET Core, może się tak zdarzyć, jeśli nie poinformujesz platformy o tym, że kod autoryzacji został już zrealizowany. W tym celu należy wywołać `context.HandleCodeRedemption()` metodę programu obsługi `AuthorizationCodeReceived` zdarzeń.
+- Jeśli piszesz aplikację ASP.NET lub ASP.NET Core, może się tak zdarzyć, jeśli nie poinformujesz platformy o tym, że kod autoryzacji został już zrealizowany. W tym celu należy wywołać `context.HandleCodeRedemption()` metodę programu `AuthorizationCodeReceived` obsługi zdarzeń.
 
 - Unikaj udostępniania tokenu dostępu za pomocą ASP.NET, co może uniemożliwić prawidłowe poprawność. Aby uzyskać więcej informacji, zobacz temat [#693 problemu](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/693).
 
@@ -151,7 +151,7 @@ Za pomocą przepływu kodu urządzenia aplikacja uzyskuje tokeny przez proces dw
 
 Na powyższym diagramie:
 
-1. Za każdym razem, gdy wymagane jest uwierzytelnienie użytkownika, aplikacja udostępnia kod i prosi użytkownika o użycie innego urządzenia (takiego jak telefon smartphone połączone z Internetem), aby przejść do adresu URL (na `https://microsoft.com/devicelogin`przykład). Następnie użytkownik jest monitowany o wprowadzenie kodu i przechodzi przez normalne środowisko uwierzytelniania, w tym monity o zgodę i uwierzytelnianie wieloskładnikowe, w razie potrzeby.
+1. Za każdym razem, gdy wymagane jest uwierzytelnienie użytkownika, aplikacja udostępnia kod i prosi użytkownika o użycie innego urządzenia (takiego jak telefon smartphone połączone z Internetem), aby przejść do adresu URL (na przykład `https://microsoft.com/devicelogin` ). Następnie użytkownik jest monitowany o wprowadzenie kodu i przechodzi przez normalne środowisko uwierzytelniania, w tym monity o zgodę i [uwierzytelnianie wieloskładnikowe](../authentication/concept-mfa-howitworks.md) , w razie potrzeby.
 
 2. Po pomyślnym uwierzytelnieniu aplikacja wiersza polecenia otrzymuje wymagane tokeny za pośrednictwem kanału zaplecza i używa ich do wykonywania wywołań interfejsu API sieci Web.
 
@@ -159,9 +159,9 @@ Na powyższym diagramie:
 
 - Przepływ kodu urządzenia jest dostępny tylko w publicznych aplikacjach klienckich.
 - Urząd przeszedł podczas konstruowania publicznej aplikacji klienckiej, musi mieć jedną z następujących czynności:
-  - Dzierżawca (w postaci `https://login.microsoftonline.com/{tenant}/` , gdzie `{tenant}` jest identyfikator GUID reprezentujący identyfikator dzierżawy lub domenę skojarzoną z dzierżawcą).
-  - Dla dowolnego konta służbowego (`https://login.microsoftonline.com/organizations/`).
-- Konta osobiste firmy Microsoft nie są jeszcze obsługiwane przez punkt końcowy usługi Azure AD v 2.0 (nie `/common` można `/consumers` używać dzierżawców).
+  - Dzierżawca (w postaci, `https://login.microsoftonline.com/{tenant}/` gdzie `{tenant}` jest identyfikator GUID reprezentujący identyfikator dzierżawy lub domenę skojarzoną z dzierżawcą).
+  - Dla dowolnego konta służbowego ( `https://login.microsoftonline.com/organizations/` ).
+- Konta osobiste firmy Microsoft nie są jeszcze obsługiwane przez punkt końcowy usługi Azure AD v 2.0 (nie można używać `/common` `/consumers` dzierżawców).
 
 ## <a name="integrated-windows-authentication"></a>Zintegrowane uwierzytelnianie systemu Windows
 
@@ -182,11 +182,11 @@ IWA jest przeznaczony dla aplikacji przeznaczonych dla platform .NET Framework, 
 
 IWA nie pomija uwierzytelniania wieloskładnikowego. Jeśli skonfigurowano uwierzytelnianie wieloskładnikowe, IWA może się nie powieść, jeśli wymagane jest wyzwanie usługi uwierzytelniania wieloskładnikowego. Uwierzytelnianie wieloskładnikowe wymaga interakcji z użytkownikiem.
 
-Nie kontrolujesz, kiedy dostawca tożsamości żąda wykonania uwierzytelniania dwuskładnikowego. Administrator dzierżawy. Zazwyczaj uwierzytelnianie dwuskładnikowe jest wymagane, gdy użytkownik loguje się z innego kraju, gdy nie jest połączony za pośrednictwem sieci VPN z siecią firmową, a czasami nawet wtedy, gdy użytkownik nawiązuje połączenie za pośrednictwem sieci VPN. Usługa Azure AD używa systemu AI do ciągłego uczenia się, czy wymagane jest uwierzytelnianie dwuskładnikowe. Jeśli IWA nie powiedzie się, należy wrócić do [monitu użytkownika interaktywnego] (#interactive).
+Nie kontrolujesz, kiedy dostawca tożsamości żąda wykonania uwierzytelniania dwuskładnikowego. Administrator dzierżawy. Zazwyczaj uwierzytelnianie dwuskładnikowe jest wymagane, gdy logujesz się z innego kraju/regionu, gdy nie masz połączenia za pośrednictwem sieci VPN z siecią firmową, a czasami nawet po nawiązaniu połączenia za pośrednictwem sieci VPN. Usługa Azure AD używa systemu AI do ciągłego uczenia się, czy wymagane jest uwierzytelnianie dwuskładnikowe. Jeśli IWA nie powiedzie się, należy wrócić do [monitu użytkownika interaktywnego] (#interactive).
 
 Urząd przeszedł podczas konstruowania publicznej aplikacji klienckiej, musi mieć jedną z następujących czynności:
-- Dzierżawca (w postaci `https://login.microsoftonline.com/{tenant}/` , gdzie `tenant` jest identyfikator GUID reprezentujący identyfikator dzierżawy lub domenę skojarzoną z dzierżawcą).
-- Dla dowolnego konta służbowego (`https://login.microsoftonline.com/organizations/`). Konta osobiste firmy Microsoft nie są obsługiwane (nie można `/common` używać `/consumers` ani dzierżawców).
+- Dzierżawca (w postaci, `https://login.microsoftonline.com/{tenant}/` gdzie `tenant` jest identyfikator GUID reprezentujący identyfikator dzierżawy lub domenę skojarzoną z dzierżawcą).
+- Dla dowolnego konta służbowego ( `https://login.microsoftonline.com/organizations/` ). Konta osobiste firmy Microsoft nie są obsługiwane (nie można używać `/common` ani `/consumers` dzierżawców).
 
 Ponieważ IWA jest przepływem dyskretnym, musi być spełniony jeden z następujących warunków:
 - Użytkownik Twojej aplikacji musi być wcześniej wyraził zgodę na korzystanie z aplikacji. 

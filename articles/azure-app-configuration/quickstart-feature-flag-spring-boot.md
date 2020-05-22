@@ -6,12 +6,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 04/18/2020
 ms.author: lcozzens
-ms.openlocfilehash: cc040fe2c9e0686844c8609b9682d757595b9dbf
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: a0d3c23f8f53b8ddfbd3fbd1cb1744a47664ce08
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82981072"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774021"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Szybki Start: Dodawanie flag funkcji do aplikacji z rozruchem wiosny
 
@@ -29,12 +29,12 @@ Biblioteki zarządzania funkcją rozruchu sprężynowego umożliwiają rozbudowa
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Wybierz pozycję **Menedżer** > funkcji **+ Dodaj** , aby dodać flagę `Beta`funkcji o nazwie.
+6. Wybierz pozycję **Menedżer funkcji**  >  **+ Dodaj** , aby dodać flagę funkcji o nazwie `Beta` .
 
     > [!div class="mx-imgBorder"]
     > ![Włącz flagę funkcji o nazwie beta](media/add-beta-feature-flag.png)
 
-    Dla `label` tej pory pozostaw niezdefiniowane.
+    `label`Dla tej pory pozostaw niezdefiniowane.
 
 ## <a name="create-a-spring-boot-app"></a>Tworzenie aplikacji Spring Boot
 
@@ -46,7 +46,7 @@ Użyj [sprężyny Initializr](https://start.spring.io/) , aby utworzyć nowy pro
 
    * Wygeneruj projekt **Maven** z użyciem języka **Java**.
    * Określ wersję **rozruchu sprężynowego** , która jest równa lub większa niż 2,0.
-   * Określ nazwy **Grupa** i **Artefakt** dla swojej aplikacji.  W tym artykule `com.example` są `demo`stosowane i.
+   * Określ nazwy **Grupa** i **Artefakt** dla swojej aplikacji.  W tym artykule są stosowane `com.example` i `demo` .
    * Dodaj zależność **sieci Web sprężyny** .
 
 1. Po określeniu poprzednich opcji wybierz pozycję **Generuj projekt**. Po wyświetleniu monitu Pobierz projekt na komputer lokalny.
@@ -55,7 +55,7 @@ Użyj [sprężyny Initializr](https://start.spring.io/) , aby utworzyć nowy pro
 
 1. Po wyodrębnieniu plików w systemie lokalnym aplikacja do rozruchowego sprężyny jest gotowa do edycji. Zlokalizuj *pliku pom. XML* w katalogu głównym aplikacji.
 
-1. Otwórz plik *pliku pom. XML* w edytorze tekstów i Dodaj następujący tekst do listy `<dependencies>`:
+1. Otwórz plik *pliku pom. XML* w edytorze tekstów i Dodaj następujący tekst do listy `<dependencies>` :
 
     **Chmura Wiosenna 1.1. x**
 
@@ -100,7 +100,7 @@ Użyj [sprężyny Initializr](https://start.spring.io/) , aby utworzyć nowy pro
 
 ## <a name="connect-to-an-app-configuration-store"></a>Nawiązywanie połączenia z magazynem konfiguracji aplikacji
 
-1. Przejdź do `resources` katalogu aplikacji i Otwórz `bootstrap.properties`go.  Jeśli plik nie istnieje, utwórz go. Dodaj następujący wiersz do pliku.
+1. Przejdź do `resources` katalogu aplikacji i otwórz go `bootstrap.properties` .  Jeśli plik nie istnieje, utwórz go. Dodaj następujący wiersz do pliku.
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].connection-string= ${APP_CONFIGURATION_CONNECTION_STRING}
@@ -108,7 +108,7 @@ Użyj [sprężyny Initializr](https://start.spring.io/) , aby utworzyć nowy pro
 
 1. W portalu konfiguracji aplikacji dla swojego magazynu konfiguracji wybierz pozycję `Access keys` z paska bocznego. Wybierz kartę klucze tylko do odczytu. Skopiuj wartość podstawowych parametrów połączenia.
 
-1. Dodaj podstawowe parametry połączenia jako zmienną środowiskową przy użyciu nazwy `APP_CONFIGURATION_CONNECTION_STRING`zmiennej.
+1. Dodaj podstawowe parametry połączenia jako zmienną środowiskową przy użyciu nazwy zmiennej `APP_CONFIGURATION_CONNECTION_STRING` .
 
 1. Otwórz główny plik Java aplikacji i dodaj element `@EnableConfigurationProperties`, aby włączyć tę funkcję.
 
@@ -178,7 +178,7 @@ Użyj [sprężyny Initializr](https://start.spring.io/) , aby utworzyć nowy pro
 
         @GetMapping("/welcome")
         public String mainWithParam(Model model) {
-            model.addAttribute("Beta", featureManager.isEnabledAsync("Beta").block());
+            model.addAttribute("Beta", featureManager.isEnabledAsync("featureManagement.Beta").block());
             return "welcome";
         }
     }
@@ -241,7 +241,7 @@ Użyj [sprężyny Initializr](https://start.spring.io/) , aby utworzyć nowy pro
 
     ```
 
-1. Utwórz nowy folder o nazwie CSS w `static` obszarze i wewnątrz niego jako nowy plik CSS o nazwie *Main. css*.
+1. Utwórz nowy folder o nazwie CSS w obszarze `static` i wewnątrz niego jako nowy plik CSS o nazwie *Main. css*.
 
     ```css
     html {
@@ -283,7 +283,7 @@ Użyj [sprężyny Initializr](https://start.spring.io/) , aby utworzyć nowy pro
     mvn spring-boot:run
     ```
 
-1. Otwórz okno przeglądarki i przejdź do adresu URL: `http://localhost:8080/welcome`.
+1. Otwórz okno przeglądarki i przejdź do adresu URL: `http://localhost:8080/welcome` .
 
     ![Lokalne uruchamianie aplikacji z przewodnika Szybki start](./media/quickstarts/spring-boot-feature-flag-local-before.png)
 
@@ -297,7 +297,7 @@ Użyj [sprężyny Initializr](https://start.spring.io/) , aby utworzyć nowy pro
 
     ![Lokalne uruchamianie aplikacji z przewodnika Szybki start](./media/quickstarts/spring-boot-feature-flag-local-after.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

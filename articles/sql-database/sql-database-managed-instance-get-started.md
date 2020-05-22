@@ -3,7 +3,7 @@ title: 'Azure Portal: Tworzenie wystąpienia zarządzanego'
 description: Utwórz SQL Database wystąpienie zarządzane, środowisko sieciowe i maszynę wirtualną klienta, aby uzyskać dostęp.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
-ms.openlocfilehash: 25128442cd922f6b9130586e245695b6880f661c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e8a0b27f055f39186371e23e46c8b41679e05dea
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80257618"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770112"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Szybki Start: Tworzenie Azure SQL Database wystąpienia zarządzanego
 
@@ -93,7 +93,7 @@ Poniższe kroki pokazują, jak utworzyć wystąpienie zarządzane:
 
    | Ustawienie| Sugerowana wartość | Opis |
    | ------ | --------------- | ----------- |
-   | **Sortowanie** | Wybierz sortowanie, które ma być używane dla wystąpienia zarządzanego. W przypadku migrowania baz danych z SQL Server sprawdź sortowanie źródłowe za `SELECT SERVERPROPERTY(N'Collation')` pomocą i Użyj tej wartości.| Aby uzyskać informacje o sortowaniu, zobacz [Ustawianie lub zmienianie sortowania serwera](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|   
+   | **Sortowanie** | Wybierz sortowanie, które ma być używane dla wystąpienia zarządzanego. W przypadku migrowania baz danych z SQL Server sprawdź sortowanie źródłowe za pomocą `SELECT SERVERPROPERTY(N'Collation')` i Użyj tej wartości.| Aby uzyskać informacje o sortowaniu, zobacz [Ustawianie lub zmienianie sortowania serwera](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|   
    | **Strefa czasowa** | Wybierz strefę czasową, której będzie przestrzegać wystąpienie zarządzane.|Aby uzyskać więcej informacji, zobacz [strefy czasowe](sql-database-managed-instance-timezone.md).|
    | **Użyj jako dodatkowego trybu failover** | Wybierz pozycję **tak**. | Włącz tę opcję, aby użyć wystąpienia zarządzanego jako dodatkowej grupy trybu failover.|
    | **Podstawowe wystąpienie zarządzane** (Jeśli **użycie jako ustawienia pomocnicze trybu failover** jest ustawione na **wartość tak**) | Wybierz istniejące podstawowe wystąpienie zarządzane, które zostanie przyłączone do tej samej strefy DNS z tworzonym wystąpieniem zarządzanym. | W tym kroku zostanie włączona konfiguracja po utworzeniu grupy trybu failover. Aby uzyskać więcej informacji, zobacz [Samouczek: dodawanie wystąpienia zarządzanego SQL Database do grupy trybu failover](sql-database-managed-instance-failover-group-tutorial.md).|

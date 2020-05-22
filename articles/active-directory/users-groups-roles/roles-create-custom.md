@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2cb19c82f8c19bf87eeef755adb5756b2452512
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2682a85f88a537630fbca86dd55541a152d8f37e
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74025272"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758643"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Tworzenie i przypisywanie roli niestandardowej w Azure Active Directory
 
@@ -30,8 +30,8 @@ Role niestandardowe można tworzyć na karcie [role i Administratorzy](https://p
 
 ### <a name="create-a-new-custom-role-to-grant-access-to-manage-app-registrations"></a>Utwórz nową rolę niestandardową, aby udzielić dostępu do zarządzania rejestracjami aplikacji
 
-1. Zaloguj się do  [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com)przy użyciu uprawnień administrator ról uprzywilejowanych lub Administrator globalny w organizacji usługi Azure AD.
-1. Wybierz pozycję **Azure Active Directory** > **role i Administratorzy** > **Nowa rola niestandardowa**.
+1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com)   przy użyciu uprawnień administrator ról uprzywilejowanych lub Administrator globalny w organizacji usługi Azure AD.
+1. Wybierz pozycję **Azure Active Directory**  >  **role i Administratorzy**  >  **Nowa rola niestandardowa**.
 
    ![Tworzenie lub edytowanie ról na stronie role i Administratorzy](./media/roles-create-custom/new-custom-role.png)
 
@@ -141,6 +141,9 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
    }
     ```
 
+  > [!Note]
+  > "TemplateId": "GUID" jest parametrem opcjonalnym wysyłanym w treści w zależności od wymagania. Jeśli istnieje wymóg tworzenia wielu różnych ról niestandardowych ze wspólnymi parametrami, najlepszym rozwiązaniem jest utworzenie szablonu i zdefiniowanie templateId. TemplateId można wygenerować wcześniej przy użyciu polecenia cmdlet programu PowerShell (New-GUID). Ident. 
+
 1. Utwórz przypisanie roli.
 
     Żądanie HTTP, aby utworzyć niestandardową definicję roli.
@@ -160,6 +163,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
        "resourceScope":"/<GUID OF APPLICATION REGISTRATION>"
    }
     ```
+
 
 ## <a name="assign-a-custom-role-scoped-to-a-resource"></a>Przypisywanie roli niestandardowej do zasobu
 

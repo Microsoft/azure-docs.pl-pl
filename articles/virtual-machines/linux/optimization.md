@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: 87776c14e45ff4bb3cce6661323d74a1315c8ab2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bf674170ff49f55fc7997a87d07f9069306fc0cd
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81757089"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774147"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optymalizowanie maszyny wirtualnej systemu Linux na platformie Azure
 Tworzenie maszyny wirtualnej z systemem Linux jest proste z poziomu wiersza polecenia lub portalu. W tym samouczku pokazano, jak upewnić się, że został skonfigurowany, aby zoptymalizować jego wydajność na platformie Microsoft Azure. W tym temacie jest używana maszyna wirtualna serwera Ubuntu, ale można również utworzyć maszynę wirtualną z systemem Linux przy użyciu [własnych obrazów jako szablonów](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -29,9 +29,9 @@ Na podstawie rozmiaru maszyny wirtualnej można dołączyć do 16 dodatkowych dy
 
 Aby osiągnąć największą liczbę operacji we/wy na dyskach Premium Storage, w których ustawienia pamięci podręcznej zostały ustawione na wartość **ReadOnly** lub **Brak**, należy wyłączyć **bariery** podczas instalowania systemu plików w systemie Linux. Nie jest wymagana żadna bariera, ponieważ zapisy do Premium Storage dysków z kopią zapasową są trwałe dla tych ustawień pamięci podręcznej.
 
-* Jeśli używasz **reiserFS**, wyłącz bariery przy użyciu opcji `barrier=none` instalacji (w celu włączenia barier, `barrier=flush`Użyj)
-* Jeśli używasz **ext3/ext4**, wyłącz bariery przy użyciu opcji `barrier=0` instalacji (aby włączyć bariery, `barrier=1`Użyj)
-* Jeśli używasz **XFS**, wyłącz bariery przy użyciu opcji `nobarrier` instalacji (aby włączyć bariery, użyj opcji `barrier`)
+* Jeśli używasz **reiserFS**, wyłącz bariery przy użyciu opcji instalacji `barrier=none` (w celu włączenia barier, użyj `barrier=flush` )
+* Jeśli używasz **ext3/ext4**, wyłącz bariery przy użyciu opcji instalacji `barrier=0` (aby włączyć bariery, użyj `barrier=1` )
+* Jeśli używasz **XFS**, wyłącz bariery przy użyciu opcji instalacji `nobarrier` (aby włączyć bariery, użyj opcji `barrier` )
 
 ## <a name="unmanaged-storage-account-considerations"></a>Zagadnienia dotyczące kont magazynu niezarządzanego
 Domyślna akcja podczas tworzenia maszyny wirtualnej przy użyciu interfejsu wiersza polecenia platformy Azure to użycie usługi Azure Managed Disks.  Te dyski są obsługiwane przez platformę Azure i nie wymagają żadnego przygotowania ani lokalizacji do ich przechowywania.  Dyski niezarządzane wymagają konta magazynu i są dostępne dodatkowe zagadnienia dotyczące wydajności.  Aby uzyskać więcej informacji o dyskach zarządzanych, zobacz [Omówienie usługi Azure Managed Disks](../windows/managed-disks-overview.md).  W poniższej sekcji omówiono zagadnienia związane z wydajnością tylko w przypadku korzystania z dysków niezarządzanych.  Ponownie domyślne i zalecane rozwiązanie magazynu to użycie dysków zarządzanych.
@@ -58,7 +58,7 @@ Aby włączyć poprawnie włączony dysk i zainstalowany plik wymiany, upewnij s
 * ResourceDisk. EnableSwap = Y
 * ResourceDisk. SwapSizeMB = {rozmiar w MB, aby spełnić Twoje potrzeby} 
 
-Po dokonaniu zmiany należy ponownie uruchomić waagent lub uruchomić ponownie maszynę wirtualną z systemem Linux w celu odzwierciedlenia tych zmian.  Wiadomo, że zmiany zostały zaimplementowane, a plik wymiany został utworzony, gdy użyjesz `free` polecenia, aby wyświetlić wolne miejsce. W poniższym przykładzie plik wymiany z 512 MB został utworzony w wyniku modyfikacji pliku **waagent. conf** :
+Po dokonaniu zmiany należy ponownie uruchomić waagent lub uruchomić ponownie maszynę wirtualną z systemem Linux w celu odzwierciedlenia tych zmian.  Wiadomo, że zmiany zostały zaimplementowane, a plik wymiany został utworzony, gdy użyjesz polecenia, `free` Aby wyświetlić wolne miejsce. W poniższym przykładzie plik wymiany z 512 MB został utworzony w wyniku modyfikacji pliku **waagent. conf** :
 
 ```bash
 azuseruser@myVM:~$ free
@@ -115,6 +115,8 @@ W przypadku rodziny dystrybucji Red Hat wystarczy wykonać następujące polecen
 ```bash
 echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 ```
+
+Ubuntu 18,04 z jądrem dostrojonym na platformie Azure korzysta z wielokolejkowych harmonogramów we/wy. W tym scenariuszu `none` jest to odpowiedni wybór zamiast `noop` . Aby uzyskać więcej informacji, zobacz [Ubuntue harmonogramy we/wy](https://wiki.ubuntu.com/Kernel/Reference/IOSchedulers).
 
 ## <a name="using-software-raid-to-achieve-higher-iops"></a>Używanie oprogramowania RAID do osiągania wyższych operacji I/Ops
 Jeśli obciążenia wymagają większej liczby operacji we/wy na sekundę, należy użyć konfiguracji oprogramowania RAID z wieloma dyskami. Ponieważ platforma Azure zapewnia już odporność dysku na lokalną warstwę sieci szkieletowej, osiągnięty jest najwyższy poziom wydajności z konfiguracji rozłożenia RAID-0.  Udostępnianie i tworzenie dysków w środowisku platformy Azure i dołączanie ich do maszyny wirtualnej z systemem Linux przed partycjonowaniem, formatowaniem i instalowaniem dysków.  Więcej informacji o konfigurowaniu oprogramowania instalacyjnego RAID na maszynie wirtualnej z systemem Linux na platformie Azure można znaleźć w dokumencie **[Konfigurowanie oprogramowania RAID w systemie Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** .

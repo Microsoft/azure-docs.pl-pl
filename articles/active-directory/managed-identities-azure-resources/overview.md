@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 05/20/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a5026fa055307a3a37031dbf64128e4622fc2b8
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 738a5bd76cc15b9356275707aed0d0a695aa6367
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83713934"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770928"
 ---
 # <a name="what-are-managed-identities-for-azure-resources"></a>Jakie są zarządzane tożsamości dla zasobów platformy Azure?
 
@@ -54,9 +54,6 @@ Wewnętrznie tożsamości zarządzane są nazwami podmiotu usługi typu specjaln
 Ponadto po utworzeniu tożsamości przypisanej do użytkownika lub przypisanej do systemu dostawca zasobów tożsamości zarządzanej (MSRP) wystawia certyfikat wewnętrznie dla tej tożsamości. 
 
 Przy użyciu tożsamości zarządzanej kod może zażądać tokenów dostępu dla usług obsługujących uwierzytelnianie usługi Azure AD. Platforma Azure zapewnia stopniową obsługę poświadczeń, które są używane przez wystąpienie usługi. 
-
-## <a name="credential-rotation"></a>Obrót poświadczeń
-Rotacja poświadczeń jest kontrolowana przez dostawcę zasobów, który hostuje zasób platformy Azure. Domyślny obrót poświadczenie odbywa się co 46 dni. Jest to dostawca zasobów do wywoływania nowych poświadczeń, więc dostawca zasobów może czekać dłużej niż 46 dni.
 
 Na poniższym diagramie pokazano, jak tożsamości usługi zarządzanej współpracują z maszynami wirtualnymi platformy Azure:
 
@@ -107,6 +104,9 @@ Na poniższym diagramie pokazano, jak tożsamości usługi zarządzanej współp
 
 6. W usłudze Azure AD jest wykonywane wywołanie żądające tokenu dostępu (jak określono w kroku 5) przy użyciu certyfikatu i identyfikatora klienta skonfigurowanego w kroku 3. Usługa Azure AD zwraca token dostępu powiązany z internetowym tokenem JSON (JWT, JSON Web Token).
 7. Kod wysyła token dostępu w wywołaniu do usługi, która obsługuje uwierzytelnianie w usłudze Azure AD.
+
+## <a name="credential-rotation"></a>Obrót poświadczeń
+Rotacja poświadczeń jest kontrolowana przez dostawcę zasobów, który hostuje zasób platformy Azure. Domyślny obrót poświadczenie odbywa się co 46 dni. Jest to dostawca zasobów do wywoływania nowych poświadczeń, więc dostawca zasobów może czekać dłużej niż 46 dni.
 
 ## <a name="how-can-i-use-managed-identities-for-azure-resources"></a>Jak można używać tożsamości zarządzanych dla zasobów platformy Azure?
 

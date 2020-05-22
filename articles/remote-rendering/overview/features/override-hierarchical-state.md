@@ -5,18 +5,18 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: f3be073857cc8583669ab26f306760478479e2ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 40857e83457222365e61a224ead19bd1d1d31ae7
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80680793"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758983"
 ---
 # <a name="hierarchical-state-override"></a>Hierarchiczne zastępowanie stanu
 
 W wielu przypadkach konieczna jest Dynamiczna zmiana wyglądu części [modelu](../../concepts/models.md), na przykład ukrycie podwykresów lub przełączenie części do przezroczystego renderowania. Zmiana materiałów dla każdej części nie jest praktyczna, ponieważ wymaga ona iteracji całego wykresu sceny i zarządzania klonowania i przypisywania materiału w każdym węźle.
 
-Aby osiągnąć ten przypadek użycia przy minimalnym możliwym obciążeniu `HierarchicalStateOverrideComponent`, użyj. Ten składnik implementuje hierarchiczne aktualizacje stanu dla dowolnych gałęzi grafu sceny. Oznacza to, że stan można zdefiniować na dowolnym poziomie wykresu sceny i Trickles hierarchię do momentu, aż zostanie zastąpiony przez nowy stan lub zastosowany do obiektu liścia.
+Aby osiągnąć ten przypadek użycia przy minimalnym możliwym obciążeniu, użyj `HierarchicalStateOverrideComponent` . Ten składnik implementuje hierarchiczne aktualizacje stanu dla dowolnych gałęzi grafu sceny. Oznacza to, że stan można zdefiniować na dowolnym poziomie wykresu sceny i Trickles hierarchię do momentu, aż zostanie zastąpiony przez nowy stan lub zastosowany do obiektu liścia.
 
 Na przykład rozważmy model samochodu i chcesz przełączyć cały samochód, aby był przezroczysty, z wyjątkiem części aparatu wewnętrznego. Ten przypadek użycia obejmuje tylko dwa wystąpienia składnika:
 
@@ -47,7 +47,7 @@ Stały zestaw Stanów, które mogą zostać zastąpione, to:
 
 ## <a name="hierarchical-overrides"></a>Zastąpienia hierarchiczne
 
-`HierarchicalStateOverrideComponent` Można je dołączyć na wielu poziomach hierarchii obiektów. Ponieważ może istnieć tylko jeden składnik każdego typu w jednostce, każda z nich `HierarchicalStateOverrideComponent` zarządza Stanami ukryty, zapoznaj się z elementem, wybranym, tintą kolorów i kolizją.
+`HierarchicalStateOverrideComponent`Można je dołączyć na wielu poziomach hierarchii obiektów. Ponieważ może istnieć tylko jeden składnik każdego typu w jednostce, każda z nich `HierarchicalStateOverrideComponent` zarządza Stanami ukryty, zapoznaj się z elementem, wybranym, tintą kolorów i kolizją.
 
 W związku z tym każdy stan może być ustawiony na jeden z:
 
@@ -68,6 +68,21 @@ component.SetState(HierarchicalStates.SeeThrough, HierarchicalEnableState.Inheri
 
 // set multiple states at once with the SetState function
 component.SetState(HierarchicalStates.Hidden | HierarchicalStates.DisableCollision, HierarchicalEnableState.ForceOff);
+```
+
+```cpp
+ApiHandle<HierarchicalStateOverrideComponent> component = ...;
+
+// set one state directly
+component->HiddenState(HierarchicalEnableState::ForceOn);
+
+// set a state with the SetState function
+component->SetState(HierarchicalStates::SeeThrough, HierarchicalEnableState::InheritFromParent);
+
+// set multiple states at once with the SetState function
+component->SetState(
+    (HierarchicalStates)((int32_t)HierarchicalStates::Hidden | (int32_t)HierarchicalStates::DisableCollision), HierarchicalEnableState::ForceOff);
+
 ```
 
 ### <a name="tint-color"></a>Kolor tinty

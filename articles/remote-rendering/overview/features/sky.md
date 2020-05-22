@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/07/2020
 ms.topic: article
-ms.openlocfilehash: 7316df7bcf78e3a154510e69116c288b2b293d4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: be3dc2b113cb21c2dfb54a29e7f426e0d925c6d9
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80680611"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83759119"
 ---
 # <a name="sky-reflections"></a>Odbicia nieba
 
@@ -37,9 +37,9 @@ Aby uzyskać więcej informacji na temat modelu oświetlenia, zapoznaj się z ro
 
 ## <a name="changing-the-sky-texture"></a>Zmiana tekstury z przestrzenią
 
-Aby zmienić mapę środowiska, wystarczy [załadować teksturę](../../concepts/textures.md) i zmienić jej `SkyReflectionSettings`:
+Aby zmienić mapę środowiska, wystarczy [załadować teksturę](../../concepts/textures.md) i zmienić jej `SkyReflectionSettings` :
 
-``` cs
+```cs
 LoadTextureAsync _skyTextureLoad = null;
 void ChangeEnvironmentMap(AzureSession session)
 {
@@ -66,7 +66,31 @@ void ChangeEnvironmentMap(AzureSession session)
 }
 ```
 
-Należy zauważyć, `LoadTextureFromSASAsync` że wariant jest używany powyżej, ponieważ załadowana została wbudowana tekstura. W przypadku ładowania z [połączonych magazynów obiektów BLOB](../../how-tos/create-an-account.md#link-storage-accounts)Użyj `LoadTextureAsync` wariantu.
+```cpp
+void ChangeEnvironmentMap(ApiHandle<AzureSession> session)
+{
+    LoadTextureFromSASParams params;
+    params.TextureType = TextureType::CubeMap;
+    params.TextureUrl = "builtin://VeniceSunset";
+    ApiHandle<LoadTextureAsync> skyTextureLoad = *session->Actions()->LoadTextureFromSASAsync(params);
+
+    skyTextureLoad->Completed([&](ApiHandle<LoadTextureAsync> res)
+    {
+        if (res->IsRanToCompletion())
+        {
+            ApiHandle<SkyReflectionSettings> settings = *session->Actions()->SkyReflectionSettings();
+            settings->SkyReflectionTexture(*res->Result());
+        }
+        else
+        {
+            printf("Texture loading failed!");
+        }
+    });
+}
+
+```
+
+Należy zauważyć, że `LoadTextureFromSASAsync` wariant jest używany powyżej, ponieważ załadowana została wbudowana tekstura. W przypadku ładowania z [połączonych magazynów obiektów BLOB](../../how-tos/create-an-account.md#link-storage-accounts)Użyj `LoadTextureAsync` wariantu.
 
 ## <a name="sky-texture-types"></a>Typy tekstury przestrzeni powietrznej
 
@@ -80,7 +104,7 @@ W odniesieniu do tego jest nieopakowany mapy sześciennej:
 
 ![Nieopakowany mapy sześciennej](media/Cubemap-example.png)
 
-`AzureSession.Actions.LoadTextureAsync` /  Użyj `LoadTextureFromSASAsync` with `TextureType.CubeMap` , aby ładować tekstury mapy sześciennej.
+Użyj `AzureSession.Actions.LoadTextureAsync` /  `LoadTextureFromSASAsync` with `TextureType.CubeMap` , aby ładować tekstury mapy sześciennej.
 
 ### <a name="sphere-environment-maps"></a>Mapy środowiska sfery
 
@@ -88,7 +112,7 @@ W przypadku używania tekstury 2D jako mapy środowiska obraz musi znajdować si
 
 ![Obraz w przestrzeni powietrznej we współrzędnych sferycznych](media/spheremap-example.png)
 
-Za `AzureSession.Actions.LoadTextureAsync` `TextureType.Texture2D` pomocą programu można ładować mapy środowiska sferycznego.
+Za pomocą programu `AzureSession.Actions.LoadTextureAsync` `TextureType.Texture2D` można ładować mapy środowiska sferycznego.
 
 ## <a name="built-in-environment-maps"></a>Wbudowane mapy środowiska
 

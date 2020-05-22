@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/05/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a route table using the portal.
-ms.openlocfilehash: 0807b535adc45093b439dba5ab8a0ea26b2a0721
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 740a2174933e37e2737de0daa56e4b1670ecf55f
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78402931"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773172"
 ---
 # <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>Tworzenie tabeli tras wirtualnego centrum sieci WAN dla urządzeń WUS: Azure Portal
 
@@ -76,6 +76,9 @@ Zaktualizuj centrum za pomocą tabeli tras centrum. Użyj następujących przyk�
 3. Kliknij przycisk **...**, a następnie kliknij pozycję **Edytuj centrum wirtualne**.
 4. Na stronie **Edytowanie wirtualnego centrum** przewiń w dół i zaznacz pole wyboru **Użyj tabeli do routingu**.
 5. W kolumnie **jeśli prefiks lokalizacji docelowej jest** kolumną Dodaj przestrzenie adresowe. W kolumnie **Wyślij do następnego przeskoku** Dodaj prywatny adres IP urządzenie WUS strefy DMZ.
+>[!NOTE]
+>Sieć DMZ urządzenie WUS ma zastosowanie do lokalnego centrum.
+>
 6. Kliknij przycisk **Potwierdź** , aby zaktualizować zasób centrum przy użyciu ustawień tabeli tras.
 
 ## <a name="5-create-the-vnet-connections"></a><a name="connections"></a>5. Tworzenie połączeń sieci wirtualnej

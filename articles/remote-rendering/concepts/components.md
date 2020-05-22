@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: cb8b38addef736914a8627971e57ea2b173293d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 42efc1395fee28a3854420f15c2ad08b301cc1f7
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681898"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758745"
 ---
 # <a name="components"></a>Składniki
 
@@ -38,6 +38,20 @@ lightComponent.Intensity = 11;
 lightComponent.Destroy();
 lightComponent = null;
 ```
+
+```cpp
+// create a point light component
+ApiHandle<AzureSession> session = GetCurrentlyConnectedSession();
+
+ApiHandle<PointLightComponent> lightComponent = session->Actions()->CreateComponent(ObjectType::PointLightComponent, ownerEntity)->as<PointLightComponent>();
+
+// ...
+
+// destroy the component
+lightComponent->Destroy();
+lightComponent = nullptr;
+```
+
 
 Składnik jest dołączany do jednostki podczas tworzenia. Nie można go później przenieść do innej jednostki. Składniki są jawnie usuwane z `Component.Destroy()` lub automatycznie, gdy jednostka właściciela składnika zostanie zniszczona.
 

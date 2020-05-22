@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 91a59e1398bf5e68799ad16a20dfb824904edc8a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 509375459d019ead5a7992b808044a75e2666393
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681690"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758864"
 ---
 # <a name="remote-rendering-sessions"></a>Sesje usługi Remote Rendering
 
@@ -24,9 +24,9 @@ Oznacza to, że w przypadku korzystania z zdalnego renderowania platformy Azure 
 
 ## <a name="managing-sessions"></a>Zarządzanie sesjami
 
-Istnieje wiele sposobów, aby zarządzać sesjami i korzystać z nich. Niezależny od języka sposób tworzenia, aktualizowania i zamykania sesji odbywa się za pomocą [interfejsu API REST zarządzania sesją](../how-tos/session-rest-api.md). W językach C# i C++ te operacje są ujawniane za pomocą `AzureFrontend` klas `AzureSession`i. W przypadku aplikacji aparatu Unity dostępne są dalsze funkcje narzędziowe udostępniane `ARRServiceUnity` przez składnik.
+Istnieje wiele sposobów, aby zarządzać sesjami i korzystać z nich. Niezależny od języka sposób tworzenia, aktualizowania i zamykania sesji odbywa się za pomocą [interfejsu API REST zarządzania sesją](../how-tos/session-rest-api.md). W językach C# i C++ te operacje są ujawniane za pomocą klas `AzureFrontend` i `AzureSession` . W przypadku aplikacji aparatu Unity dostępne są dalsze funkcje narzędziowe udostępniane przez `ARRServiceUnity` składnik.
 
-Po *nawiązaniu połączenia* z aktywną sesją operacje, takie jak [ładowanie modeli](models.md) i współdziałanie z sceną, są `AzureSession` ujawniane za pomocą klasy.
+Po *nawiązaniu połączenia* z aktywną sesją operacje, takie jak [ładowanie modeli](models.md) i współdziałanie z sceną, są ujawniane za pomocą `AzureSession` klasy.
 
 ### <a name="managing-multiple-sessions-simultaneously"></a>Jednoczesne zarządzanie wieloma sesjami
 
@@ -82,7 +82,7 @@ Możesz [wydłużyć czas dzierżawy](../how-tos/session-rest-api.md#update-a-se
 
 W poniższym kodzie przedstawiono prostą implementację uruchomienia sesji, która oczekuje na stan *gotowości* , połączenie, a następnie ponowne połączenie i wyłączenie.
 
-``` cs
+```cs
 RemoteRenderingInitialization init = new RemoteRenderingInitialization();
 // fill out RemoteRenderingInitialization parameters...
 
@@ -136,13 +136,13 @@ await session.StopAsync().AsTask();
 RemoteManagerStatic.ShutdownRemoteRendering();
 ```
 
-Można `AzureFrontend` utrzymywać `AzureSession` wiele wystąpień, manipulować nimi i wykonywać zapytania z kodu. Ale tylko jedno urządzenie może połączyć się `AzureSession` jednocześnie.
+`AzureFrontend` `AzureSession` Można utrzymywać wiele wystąpień, manipulować nimi i wykonywać zapytania z kodu. Ale tylko jedno urządzenie może połączyć się `AzureSession` jednocześnie.
 
 Okres istnienia maszyny wirtualnej nie jest powiązany z `AzureFrontend` wystąpieniem ani `AzureSession` wystąpieniem. `AzureSession.StopAsync`musi być wywołana, aby zatrzymać sesję.
 
 W przypadku identyfikatora sesji trwałej można wykonywać zapytania `AzureSession.SessionUUID()` i buforować lokalnie. Przy użyciu tego identyfikatora aplikacja może wywołać `AzureFrontend.OpenSession` powiązanie z tą sesją.
 
-Gdy `AzureSession.IsConnected` ma wartość true `AzureSession.Actions` , zwraca `RemoteManager`wystąpienie, które zawiera funkcje do [ładowania modeli](models.md), manipulowania [jednostkami](entities.md)i [zapytania o informacje](../overview/features/spatial-queries.md) o renderowanej scenie.
+Gdy `AzureSession.IsConnected` ma wartość true, `AzureSession.Actions` zwraca wystąpienie `RemoteManager` , które zawiera funkcje do [ładowania modeli](models.md), manipulowania [jednostkami](entities.md)i [zapytania o informacje](../overview/features/spatial-queries.md) o renderowanej scenie.
 
 ## <a name="next-steps"></a>Następne kroki
 

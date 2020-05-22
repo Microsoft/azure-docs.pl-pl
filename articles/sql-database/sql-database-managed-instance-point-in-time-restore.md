@@ -3,7 +3,7 @@ title: Zarządzane wystąpienie — przywracanie do punktu w czasie (kopie)
 description: Przywracanie bazy danych SQL w wystąpieniu zarządzanym do wcześniejszego punktu w czasie.
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 27f465e6864d0ff639e825c8a816d86648bd8853
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 21af96e8527bb3fc18666c0353ab3bdbe2a010f1
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79268810"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773809"
 ---
 # <a name="restore-a-sql-database-in-a-managed-instance-to-a-previous-point-in-time"></a>Przywracanie bazy danych SQL w wystąpieniu zarządzanym do wcześniejszego punktu w czasie
 
@@ -44,9 +44,9 @@ W poniższej tabeli przedstawiono scenariusze przywracania do punktu w czasie dl
 
 |           |Przywróć istniejącą bazę danych do tego samego wystąpienia zarządzanego| Przywracanie istniejącej bazy danych do innego wystąpienia zarządzanego|Przywracanie usuniętej bazy danych do tego samego wystąpienia zarządzanego|Przywracanie usuniętej bazy danych do innego wystąpienia zarządzanego|
 |:----------|:----------|:----------|:----------|:----------|
-|**Azure Portal**| Tak|Nie |Tak|Nie|
+|**Azure Portal**| Yes|Nie |Yes|Nie|
 |**Interfejs wiersza polecenia platformy Azure**|Tak |Tak |Nie|Nie|
-|**PowerShell**| Tak|Tak |Tak|Tak|
+|**Program PowerShell**| Tak|Tak |Tak|Tak|
 
 ## <a name="restore-an-existing-database"></a>Przywracanie istniejącej bazy danych
 
@@ -63,7 +63,7 @@ Przywróć istniejącą bazę danych do tego samego wystąpienia przy użyciu Az
 4. Na stronie **przywracanie** wybierz punkt dla daty i godziny, do której chcesz przywrócić bazę danych.
 5. Wybierz pozycję **Potwierdź** , aby przywrócić bazę danych. Ta akcja uruchamia proces przywracania, który tworzy nową bazę danych i wypełnia ją danymi z oryginalnej bazy danych w określonym momencie. Aby uzyskać więcej informacji na temat procesu odzyskiwania, zobacz [czas odzyskiwania](sql-database-recovery-using-backups.md#recovery-time).
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Jeśli nie masz jeszcze zainstalowanego Azure PowerShell, zobacz [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
@@ -211,7 +211,7 @@ W Azure Portal wybierz bazę danych z wystąpienia zarządzanego, a następnie w
 
    ![Usuwanie bazy danych przy użyciu Azure Portal](media/sql-database-managed-instance-point-in-time-restore/delete-database-from-mi.png)
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Użyj następującego polecenia programu PowerShell, aby usunąć istniejącą bazę danych z wystąpienia zarządzanego:
 

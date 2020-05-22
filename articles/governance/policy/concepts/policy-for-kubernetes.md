@@ -3,12 +3,12 @@ title: Dowiedz się Azure Policy Kubernetes
 description: Dowiedz się, w jaki sposób Azure Policy rego i Otwórz agenta zasad, aby zarządzać klastrami z systemem Kubernetes na platformie Azure lub lokalnie.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: f168490a8e1bb58a0b3335a0e876658f0bea03e6
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 738b6ae0a2482d1229fdbfe89d0c3dd99a33ec6e
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83691334"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772764"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Opis Azure Policy klastrów Kubernetes
 
@@ -212,13 +212,13 @@ Przed zainstalowaniem dodatku Azure Policy lub włączenia dowolnych funkcji us�
    - Interfejs wiersza polecenia platformy Azure
 
      ```azurecli-interactive
-     az ad sp create-for-rbac --role "Policy Insights Data Writer (Preview)" --scopes "/subscriptions/<subscriptionId>/resourceGroups/<rg>/Microsoft.Kubernetes/connectedClusters/<clusterName>"
+     az ad sp create-for-rbac --role "Policy Insights Data Writer (Preview)" --scopes "/subscriptions/<subscriptionId>/resourceGroups/<rg>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
      ```
 
    - Azure PowerShell
 
      ```azure powershell-interactive
-     $sp = New-AzADServicePrincipal -Role "Policy Insights Data Writer (Preview)" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<rg>/Microsoft.Kubernetes/connectedClusters/<clusterName>"
+     $sp = New-AzADServicePrincipal -Role "Policy Insights Data Writer (Preview)" -Scope "/subscriptions/<subscriptionId>/resourceGroups/<rg>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>"
 
      @{ appId=$sp.ApplicationId;password=[System.Runtime.InteropServices.Marshal]::PtrToStringAuto([System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($sp.Secret));tenant=(Get-AzContext).Tenant.Id } | ConvertTo-Json
      ```
@@ -245,7 +245,7 @@ Po zakończeniu powyższych kroków wymagań wstępnych Zainstaluj dodatek Azure
 
    ```bash
    # In below command, replace the following values with those gathered above.
-   #    <AzureArcClusterResourceId> with your Azure Arc enabled Kubernetes cluster resource Id. For example: /subscriptions/<subscriptionId>/resourceGroups/<rg>/Microsoft.Kubernetes/connectedClusters/<clusterName>
+   #    <AzureArcClusterResourceId> with your Azure Arc enabled Kubernetes cluster resource Id. For example: /subscriptions/<subscriptionId>/resourceGroups/<rg>/providers/Microsoft.Kubernetes/connectedClusters/<clusterName>
    #    <ServicePrincipalAppId> with app Id of the service principal created during prerequisites.
    #    <ServicePrincipalPassword> with password of the service principal created during prerequisites.
    #    <ServicePrincipalTenantId> with tenant of the service principal created during prerequisites.

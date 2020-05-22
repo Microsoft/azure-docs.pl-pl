@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 466b063253ee49ab58c2685f359b4bb8a4079532
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fb77c2bc1d229ae75da89caae3d8613b27e70b96
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81639698"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771336"
 ---
 # <a name="enable-combined-security-information-registration-in-azure-active-directory"></a>Włącz rejestrację połączonych informacji o zabezpieczeniach w Azure Active Directory
 
@@ -31,13 +31,13 @@ Przed włączeniem nowego środowiska zapoznaj się z artykułem [rejestracja in
 Wykonaj następujące kroki, aby włączyć rejestrację połączoną:
 
 1. Zaloguj się do Azure Portal jako administrator użytkownika lub Administrator globalny.
-2. Przejdź do pozycji **Azure Active Directory** > **Ustawienia** > użytkownika**Zarządzaj ustawieniami wersji zapoznawczej funkcji użytkownika**.
-3. W obszarze **Użytkownicy mogą używać funkcji w wersji zapoznawczej do rejestrowania i zarządzania informacjami o zabezpieczeniach**, wybierz opcję Włącz dla **wybranej** grupy użytkowników lub dla **wszystkich** użytkowników.
+2. Przejdź do pozycji **Azure Active Directory**  >  **Ustawienia użytkownika**  >  **Zarządzaj ustawieniami wersji zapoznawczej funkcji użytkownika**.
+3. W obszarze **Użytkownicy mogą używać połączenia rejestracji informacji o zabezpieczeniach**, wybierz opcję Włącz dla **wybranej** grupy użytkowników lub dla **wszystkich** użytkowników.
 
    ![Włącz środowisko wersji zapoznawczej połączonej informacji zabezpieczeń dla wszystkich użytkowników](media/howto-registration-mfa-sspr-combined/enable-the-combined-security-info-preview.png)
 
 > [!NOTE]
-> Po włączeniu połączonej rejestracji użytkownicy, którzy rejestrują lub potwierdzają swój numer telefonu lub aplikację mobilną za pomocą nowego środowiska, mogą używać ich do Multi-Factor Authentication i SSPR, jeśli te metody są włączone w zasadach Multi-Factor Authentication i SSPR. Jeśli wyłączysz to środowisko, użytkownicy, którzy przejdą do poprzedniej strony rejestracji SSPR `https://aka.ms/ssprsetup` w programie, będą musieli przeprowadzić uwierzytelnianie wieloskładnikowe, aby uzyskać dostęp do strony.
+> Po włączeniu połączonej rejestracji użytkownicy, którzy rejestrują lub potwierdzają swój numer telefonu lub aplikację mobilną za pomocą nowego środowiska, mogą używać ich do Multi-Factor Authentication i SSPR, jeśli te metody są włączone w zasadach Multi-Factor Authentication i SSPR. Jeśli wyłączysz to środowisko, użytkownicy, którzy przejdą do poprzedniej strony rejestracji SSPR w programie, `https://aka.ms/ssprsetup` będą musieli przeprowadzić uwierzytelnianie wieloskładnikowe, aby uzyskać dostęp do strony.
 
 Jeśli skonfigurowano listę przypisywania lokacji do strefy w programie Internet Explorer, następujące Lokacje muszą znajdować się w tej samej strefie:
 
@@ -55,7 +55,7 @@ Aby uzyskać więcej informacji na temat tworzenia zaufanych lokalizacji w dost�
 
 Poniższe zasady mają zastosowanie do wszystkich wybranych użytkowników próbujących zarejestrować się przy użyciu połączonego środowiska rejestracji i blokują dostęp, chyba że nawiązują połączenie z lokalizacji oznaczonej jako zaufane sieci.
 
-1. W **Azure Portal**przejdź do **Azure Active Directory** > **zabezpieczenia** > **dostęp warunkowy**
+1. W **Azure Portal**przejdź do **Azure Active Directory**  >  **zabezpieczenia**  >  **dostęp warunkowy**
 1. Wybierz pozycję **+ nowe zasady**
 1. Wprowadź nazwę tych zasad, *na przykład rejestrację informacji o zabezpieczeniach w zaufanych sieciach*.
 1. W obszarze **Przypisania** wybierz pozycję **Użytkownicy i grupy**. Wybierz użytkowników i grupy, których mają dotyczyć te zasady, a następnie wybierz pozycję **gotowe**.
@@ -67,12 +67,12 @@ Poniższe zasady mają zastosowanie do wszystkich wybranych użytkowników prób
 
     ![Tworzenie zasad dostępu warunkowego w celu kontrolowania rejestracji informacji zabezpieczających](media/howto-registration-mfa-sspr-combined/require-registration-from-trusted-location.png)
 
-1. W obszarze **warunki** > **lokalizacji**skonfiguruj następujące opcje:
+1. W obszarze **warunki**  >  **lokalizacji**skonfiguruj następujące opcje:
    1. Skonfiguruj **tak**
    1. Uwzględnij **dowolną lokalizację**
    1. Wyklucz **wszystkie Zaufane lokalizacje**
 1. Wybierz pozycję **gotowe** w oknie *lokalizacje* , a następnie wybierz pozycję **gotowe** w oknie *warunki* .
-1. W obszarze **Kontrola** > dostępu**Przyznaj**wybierz pozycję **Blokuj dostęp**, a następnie **Wybierz pozycję**
+1. W obszarze **Kontrola dostępu**  >  **Przyznaj**wybierz pozycję **Blokuj dostęp**, a następnie **Wybierz pozycję**
 1. Ustaw opcję **Włącz zasady** na wartość **włączone**
 1. Aby sfinalizować zasady, wybierz pozycję **Utwórz** .
 

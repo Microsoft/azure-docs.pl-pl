@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 05/16/2019
+ms.date: 05/18/2020
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 5ae2dee68ec0da8e8a00d4f01583461462bc196c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2a471504b88791b5bfb6ce6cc7c81d60bfbe5028
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76696099"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83772084"
 ---
 # <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Znane problemy w programie Internet Explorer i przeglądarki Microsoft Edge (MSAL. js)
 
@@ -28,7 +28,7 @@ Mamy wiele raportów o problemach z uwierzytelnianiem w programie IE i Microsoft
 ### <a name="cause"></a>Przyczyna
 Przyczyny większości tych problemów są następujące. Magazyn sesji i magazyn lokalny są podzielone na partycje za pomocą stref zabezpieczeń w przeglądarce Microsoft Edge. W tej konkretnej wersji programu Microsoft Edge, gdy aplikacja jest przekierowywana między strefami, magazyn sesji i magazyn lokalny są wyczyszczone. W tym celu magazyn sesji jest czyszczony w zwykłej nawigacji przeglądarki, a sesja i magazyn lokalny są wyczyszczone w trybie InPrivate przeglądarki. MSAL. js Zapisuje określony stan w magazynie sesji i opiera się na sprawdzaniu tego stanu podczas przepływów uwierzytelniania. Po wyczyszczeniu magazynu sesji ten stan zostanie utracony i dlatego powoduje uszkodzenie środowiska.
 
-### <a name="issues"></a>Problemy
+### <a name="issues"></a>Issues (Problemy)
 
 - **Nieskończone pętle przekierowania i ponowne ładowanie stron podczas uwierzytelniania**. Gdy użytkownicy logują się do aplikacji w przeglądarce Microsoft Edge, są przekierowywani z powrotem ze strony logowania usługi AAD i są zablokowane w nieskończonej pętli przekierowania, co spowodowało powtarzanie ponownych prób ładowania strony. Zwykle towarzyszy `invalid_state` błąd w magazynie sesji.
 
@@ -50,20 +50,20 @@ Użyj obejść poniżej.
 
 #### <a name="other-workarounds"></a>Inne obejścia
 Upewnij się, że Twój problem występuje tylko w przypadku określonej wersji przeglądarki Microsoft Edge i działa w innych przeglądarkach przed zastosowaniem tych rozwiązań.  
-1. Pierwszym krokiem w celu rozwiązania tych problemów jest upewnienie się, że domena aplikacji, oraz inne Lokacje związane z przekierowaniami przepływu uwierzytelniania są dodawane jako zaufane lokacje w ustawieniach zabezpieczeń przeglądarki, tak aby należały do tej samej strefy zabezpieczeń.
+1. Pierwszym krokiem w celu rozwiązania tych problemów jest upewnienie się, że domena aplikacji i inne Lokacje związane z przekierowaniami przepływu uwierzytelniania są dodawane jako zaufane lokacje w ustawieniach zabezpieczeń przeglądarki, tak aby znajdowały się w tej samej strefie zabezpieczeń.
 Aby to zrobić, wykonaj następujące kroki:
     - Otwórz program **Internet Explorer** i kliknij **Ustawienia** (ikonę koła zębatego) w prawym górnym rogu
     - Wybieranie **opcji internetowych**
     - Wybierz kartę **zabezpieczenia**
     - W obszarze **Zaufane Lokacje** kliknij przycisk **Lokacje** i Dodaj adresy URL w otwartym oknie dialogowym.
 
-2. Jak wspomniano wcześniej, ponieważ tylko magazyn sesji jest czyszczony podczas zwykłej nawigacji, można skonfigurować MSAL. js do używania magazynu lokalnego. Tę wartość można ustawić jako parametr `cacheLocation` konfiguracji podczas inicjowania MSAL.
+2. Jak wspomniano wcześniej, ponieważ tylko magazyn sesji jest czyszczony podczas zwykłej nawigacji, można skonfigurować MSAL. js do używania magazynu lokalnego. Tę wartość można ustawić jako `cacheLocation` parametr konfiguracji podczas inicjowania MSAL.
 
 Należy zauważyć, że nie rozwiąże to problemu dotyczącego przeglądania InPrivate, ponieważ zarówno sesja, jak i lokalne są wyczyszczone.
 
 ## <a name="issues-due-to-popup-blockers"></a>Problemy związane z blokowaniem okien podręcznych
 
-Istnieją przypadki, gdy okienka podręczne są blokowane w programie IE lub w przeglądarce Microsoft Edge, na przykład w przypadku drugiego okna podręcznego podczas uwierzytelniania wieloskładnikowego. W przeglądarce zostanie wyświetlony alert umożliwiający wyświetlenie okna podręcznego lub zawsze. Jeśli wybierzesz opcję Zezwalaj, przeglądarka automatycznie otworzy okno podręczne i zwróci do niego `null` uchwyt. W związku z tym biblioteka nie ma dojścia do okna i nie ma możliwości zamykania okna podręcznego. Ten sam problem nie występuje w programie Chrome, gdy zostanie wyświetlony komunikat z prośbą o zezwolenie na wyskakujące okienka, ponieważ nie powoduje automatycznego otwarcia okna podręcznego.
+Istnieją przypadki, gdy okienka podręczne są blokowane w programie IE lub w przeglądarce Microsoft Edge, na przykład w przypadku drugiego okna podręcznego podczas [uwierzytelniania wieloskładnikowego](../authentication/concept-mfa-howitworks.md). W przeglądarce zostanie wyświetlony alert umożliwiający wyświetlenie okna podręcznego lub zawsze. Jeśli wybierzesz opcję Zezwalaj, przeglądarka automatycznie otworzy okno podręczne i zwróci `null` do niego uchwyt. W związku z tym biblioteka nie ma dojścia do okna i nie ma możliwości zamykania okna podręcznego. Ten sam problem nie występuje w programie Chrome, gdy zostanie wyświetlony komunikat z prośbą o zezwolenie na wyskakujące okienka, ponieważ nie powoduje automatycznego otwarcia okna podręcznego.
 
 W ramach tego **problemu**deweloperzy będą musieli zezwolić na wyskakujące okienka w programie IE i przeglądarce Microsoft Edge przed rozpoczęciem korzystania z aplikacji, aby uniknąć tego problemu.
 

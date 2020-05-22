@@ -1,19 +1,19 @@
 ---
 title: Konfigurowanie reguł niestandardowych w wersji 2 przy użyciu programu PowerShell
 titleSuffix: Azure Web Application Firewall
-description: Informacje o konfigurowaniu niestandardowych reguł WAF v2 przy użyciu Azure PowerShell. Możesz utworzyć własne reguły oceniane dla każdego żądania, które przechodzi przez zaporę.
+description: Dowiedz się, jak skonfigurować niestandardowe reguły zapory aplikacji sieci Web (WAF) v2 przy użyciu Azure PowerShell. Możesz utworzyć własne reguły oceniane dla każdego żądania, które przechodzi przez zaporę.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.date: 11/16/2019
+ms.date: 05/21/2020
 ms.author: victorh
-ms.openlocfilehash: 4c50c4ce344a51a70f6849beb7c5d9d18a2b401d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2572e30c02552859eb5c61915a9ef524c0c6cc70
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77471639"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758966"
 ---
 # <a name="configure-web-application-firewall-v2-on-application-gateway-with-a-custom-rule-using-azure-powershell"></a>Skonfiguruj zaporę aplikacji sieci Web V2 na Application Gateway z regułą niestandardową przy użyciu Azure PowerShell
 
@@ -136,6 +136,19 @@ $appgw = New-AzApplicationGateway -Name $appgwName -ResourceGroupName $rgname `
   -RequestRoutingRules $rule01 -Sku $sku -AutoscaleConfiguration $autoscaleConfig `
   -WebApplicationFirewallConfig $wafConfig `
   -FirewallPolicy $wafPolicy
+```
+
+## <a name="update-your-waf"></a>Aktualizowanie WAF
+
+Po utworzeniu WAF można go zaktualizować przy użyciu procedury podobnej do poniższego kodu:
+
+```azurepowershell
+# Get the existing policy
+$policy = Get-AzApplicationGatewayFirewallPolicy -Name $policyName -ResourceGroupName $RGname
+# Add an existing rule named $rule
+$policy.CustomRules.Add($rule)
+# Update the policy
+Set-AzApplicationGatewayFirewallPolicy -InputObject $policy
 ```
 
 ## <a name="next-steps"></a>Następne kroki

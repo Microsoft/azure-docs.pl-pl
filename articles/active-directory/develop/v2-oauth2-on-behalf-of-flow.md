@@ -1,5 +1,6 @@
 ---
 title: Microsoft Identity platform i OAuth 2.0 w imieniu przepływu | Azure
+titleSuffix: Microsoft identity platform
 description: W tym artykule opisano sposób korzystania z komunikatów HTTP w celu zaimplementowania uwierzytelniania usługi do usługi przy użyciu przepływu uwierzytelniania OAuth 2.0 w imieniu użytkownika.
 services: active-directory
 author: hpsin
@@ -8,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 1/3/2020
+ms.date: 05/18/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 9e1711bbb859d855d2490e49c21db5c654eca7f5
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: bcf971b56aa0dc343fdfaf34b329e49a82bba9a8
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83643384"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771524"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Platforma tożsamości firmy Microsoft i protokół OAuth 2,0 w imieniu użytkownika
 
@@ -156,7 +157,7 @@ Poniższy przykład przedstawia Pomyślne odpowiedzi na żądanie tokenu dostęp
 
 ### <a name="error-response-example"></a>Przykład odpowiedzi na błąd
 
-W przypadku próby uzyskania tokenu dostępu dla podrzędnego interfejsu API zwracany jest komunikat o błędzie, jeśli w przypadku interfejsu API podrzędnego jest ustawiona zasada dostępu warunkowego (na przykład uwierzytelnianie wieloskładnikowe). Usługa warstwy środkowej powinna wystawić ten błąd w aplikacji klienckiej, dzięki czemu aplikacja kliencka może zapewnić interakcję użytkownika w celu spełnienia zasad dostępu warunkowego.
+W przypadku próby uzyskania tokenu dostępu dla podrzędnego interfejsu API zwracany jest komunikat o błędzie, jeśli w przypadku interfejsu API podrzędnego jest ustawiona zasada dostępu warunkowego (na przykład [uwierzytelnianie wieloskładnikowe](../authentication/concept-mfa-howitworks.md)). Usługa warstwy środkowej powinna wystawić ten błąd w aplikacji klienckiej, dzięki czemu aplikacja kliencka może zapewnić interakcję użytkownika w celu spełnienia zasad dostępu warunkowego.
 
 ```json
 {

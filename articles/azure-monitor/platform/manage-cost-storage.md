@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 05/21/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: ea289dbdf22f76c8ea716acf87b0b1a2da6ef0f9
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 6e6be4cd0f8053d356183a75c5a012dee0bd8c68
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196592"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83771319"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Zarządzanie użyciem i kosztami za pomocą dzienników Azure Monitor
 
@@ -92,14 +92,20 @@ Możesz również [ustawić warstwę cenową za pośrednictwem Azure Resource Ma
 
 ## <a name="legacy-pricing-tiers"></a>Starsze warstwy cenowe
 
-Subskrypcje, w których wystąpiły obszary robocze Log Analytics lub Application Insights zasobów, przed 2 kwietnia 2018 lub połączone z Umowa Enterprise, które zostały uruchomione przed 1 lutego 2019, nadal będą miały dostęp do korzystania ze starszych warstw cenowych: **bezpłatna**, **autonomiczna (za GB)** i **na węzeł (OMS)**.  Obszary robocze w warstwie cenowej bezpłatna będą mieć dzienne pozyskiwanie danych ograniczone do 500 MB (z wyjątkiem typów danych zabezpieczeń zbieranych przez Azure Security Center), a przechowywanie danych jest ograniczone do 7 dni. Warstwa cenowa bezpłatna jest przeznaczona tylko do celów ewaluacyjnych. Obszary robocze w warstwach autonomicznych lub na węzeł są dostępne przez użytkownika w sposób konfigurowalny od 30 do 730 dni.
+Subskrypcje, w których wystąpiły obszary robocze Log Analytics lub Application Insights zasobów, przed 2 kwietnia 2018 lub połączone z Umowa Enterprise, które zostały uruchomione przed 1 lutego 2019, nadal będą miały dostęp do korzystania ze starszych warstw cenowych: **bezpłatna**, **autonomiczna (za GB)** i **na węzeł (OMS)**.  Obszary robocze w warstwie cenowej bezpłatna będą mieć dzienne pozyskiwanie danych ograniczone do 500 MB (z wyjątkiem typów danych zabezpieczeń zbieranych przez [Azure Security Center](https://docs.microsoft.com/azure/security-center/)), a przechowywanie danych jest ograniczone do 7 dni. Warstwa cenowa bezpłatna jest przeznaczona tylko do celów ewaluacyjnych. Obszary robocze w warstwach autonomicznych lub na węzeł są dostępne przez użytkownika w sposób konfigurowalny od 30 do 730 dni.
 
 Opłaty za warstwę cenową na węzeł na monitorowaną maszynę wirtualną (węzeł) mają stopień szczegółowości godzin. Dla każdego monitorowanego węzła obszar roboczy ma przydzieloną 500 MB danych dziennie, które nie są rozliczane. Ta alokacja jest agregowana na poziomie obszaru roboczego. Dane pozyskane powyżej zagregowanego dziennego przydziału danych są rozliczane za GB jako nadwyżkowe dane. Należy pamiętać, że na rachunku usługa zostanie **Insight and Analytics** do log Analytics użycie, jeśli obszar roboczy znajduje się w warstwie cenowej węzła na węzeł. 
 
 > [!TIP]
 > Jeśli Twój obszar roboczy ma dostęp do warstwy cenowej **węzła** , ale zastanawiasz się, czy w warstwie płatność zgodnie z rzeczywistym użyciem jest to tańsze, możesz [użyć poniższego zapytania](#evaluating-the-legacy-per-node-pricing-tier) , aby łatwo uzyskać zalecenie. 
 
-Obszary robocze utworzone przed kwietnia 2016 mogą również uzyskiwać dostęp do oryginalnych warstw cenowych **Standard** i **Premium** , które mają odpowiednio stałe okresy 30 i 365. Nie można tworzyć nowych obszarów roboczych w warstwach cenowych **standardowa** lub **Premium** , a jeśli obszar roboczy jest przenoszony z tych warstw, nie można go przenieść z powrotem. 
+Obszary robocze utworzone przed kwietnia 2016 mogą również uzyskiwać dostęp do oryginalnych warstw cenowych **Standard** i **Premium** , które mają odpowiednio stałe okresy 30 i 365. Nie można tworzyć nowych obszarów roboczych w warstwach cenowych **standardowa** lub **Premium** , a jeśli obszar roboczy jest przenoszony z tych warstw, nie można go przenieść z powrotem.
+
+Istnieją także pewne zachowania między użyciem starszych warstw Log Analytics i sposobu rozliczania użycia dla [Azure Security Center](https://docs.microsoft.com/azure/security-center/). 
+
+1. Jeśli obszar roboczy znajduje się w starszej wersji warstwy Standardowa lub Premium, Azure Security Center będzie rozliczany tylko w przypadku Log Analytics pozyskiwania danych, a nie na węzeł.
+2. Jeśli obszar roboczy znajduje się w starszej warstwie węzła, Azure Security Center będzie rozliczany przy użyciu bieżącego [Azure Security Center modelu cenowego opartego na węźle](https://azure.microsoft.com/pricing/details/security-center/). 
+3. W przypadku innych warstw cenowych (w tym rezerwacji pojemności), jeśli Azure Security Center została włączona przed 19 czerwca 2017, Azure Security Center zostanie naliczona tylko za pozyskiwanie danych Log Analytics. W przeciwnym razie Azure Security Center będzie rozliczany przy użyciu bieżącego Azure Security Center modelu cen opartego na węzłach.
 
 Więcej szczegółów dotyczących ograniczeń warstwy cenowej można znaleźć [tutaj](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#log-analytics-workspaces).
 
@@ -125,7 +131,7 @@ Gdy przechowywanie zostanie obniżone, istnieje kilka okresów prolongaty przed 
 Przechowywanie można również [ustawić za pośrednictwem Azure Resource Manager](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) przy użyciu `retentionInDays` parametru. Ponadto w przypadku ustawienia przechowywania danych na 30 dni można wyzwolić natychmiastowe przeczyszczanie starszych danych przy użyciu `immediatePurgeDataOn30Days` parametru, co może być przydatne w scenariuszach związanych ze zgodnością. Ta funkcja jest udostępniana tylko przez Azure Resource Manager. 
 
 
-Dwa typy danych — `Usage` i `AzureActivity` --są domyślnie zachowywane przez 90 dni i nie są naliczane opłaty za korzystanie z tego 90go okresu przechowywania. Te typy danych są również wolne od opłat za pozyskiwanie danych. 
+Dwa typy danych-- `Usage` i `AzureActivity` --są domyślnie przechowywane przez co najmniej 90 dni i nie są naliczane opłaty za korzystanie z tego 90go okresu przechowywania. Jeśli okres przechowywania obszaru roboczego zostanie zwiększony powyżej 90 dni, zachowywane są również te typy danych.  Te typy danych są również wolne od opłat za pozyskiwanie danych. 
 
 Typy danych z zasobów Application Insights opartych na obszarze roboczym (,,,,,,,, `AppAvailabilityResults` `AppBrowserTimings` `AppDependencies` `AppExceptions` `AppEvents` `AppMetrics` `AppPageViews` `AppPerformanceCounters` `AppRequests` `AppSystemEvents` i `AppTraces` ) również są przechowywane domyślnie przez 90 dni i nie są naliczane opłaty za korzystanie z tego 90ego okresu przechowywania. Ich przechowywanie można dostosować przy użyciu funkcji przechowywania danych według typu. 
 

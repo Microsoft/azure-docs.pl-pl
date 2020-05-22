@@ -4,12 +4,12 @@ description: Dowiedz się, jak za pomocą Azure Portal utworzyć klaster usługi
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 5f7bf75598c09c5c8c0654f7db863068f9e7be7d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7fa547ca8a3907669c9e7671b11fe3a6307d97f4
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128859"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773427"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Utwórz i skonfiguruj klaster usługi Azure Kubernetes Services (AKS) do używania węzłów wirtualnych w Azure Portal
 
@@ -74,7 +74,7 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
 ## <a name="create-an-aks-cluster"></a>Tworzenie klastra AKS
 
-W lewym górnym rogu Azure Portal wybierz pozycję **Utwórz zasób** > **Kubernetes usługi**.
+W lewym górnym rogu Azure Portal wybierz pozycję **Utwórz zasób**  >  **Kubernetes usługi**.
 
 Na stronie **podstawowe** skonfiguruj następujące opcje:
 
@@ -101,7 +101,7 @@ Utworzenie klastra usługi AKS i przygotowanie go do użycia trwa kilka minut.
 
 Usługa Azure Cloud Shell to bezpłatna interaktywna powłoka, której możesz używać do wykonywania kroków opisanych w tym artykule. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. Aby zarządzać klastrem Kubernetes, należy użyć klienta wiersza polecenia usługi Kubernetes, narzędzia [kubectl][kubectl]. Klient `kubectl` jest instalowany wstępnie wraz z usługą Azure Cloud Shell.
 
-Aby otworzyć Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Cloud Shell można również uruchomić na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/bash](https://shell.azure.com/bash). Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
+Aby otworzyć Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Cloud Shell można również uruchomić na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/bash](https://shell.azure.com/bash) . Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
 
 Użyj polecenia [az aks get-credentials][az-aks-get-credentials] w celu skonfigurowania narzędzia `kubectl` w celu nawiązania połączenia z klastrem Kubernetes. Poniższy przykład umożliwia pobranie poświadczeń dla nazwy klastra *myAKSCluster* w grupie zasobów *myResourceGroup*:
 
@@ -154,8 +154,6 @@ spec:
       tolerations:
       - key: virtual-kubelet.io/provider
         operator: Exists
-      - key: azure.com/aci
-        effect: NoSchedule
 ```
 
 Uruchom aplikację za pomocą polecenia [polecenia kubectl Apply][kubectl-apply] .
@@ -164,7 +162,7 @@ Uruchom aplikację za pomocą polecenia [polecenia kubectl Apply][kubectl-apply]
 kubectl apply -f virtual-node.yaml
 ```
 
-Użyj [polecenia kubectl Get][kubectl-get] -Binding polecenia z `-o wide` argumentem, aby wyprowadzić listę z listy i zaplanowanego węzła. Zwróć uwagę na `virtual-node-helloworld` to, że zgodnie z harmonogramem zaplanowano w `virtual-node-linux` węźle.
+Użyj [polecenia kubectl Get][kubectl-get] -Binding polecenia z `-o wide` argumentem, aby wyprowadzić listę z listy i zaplanowanego węzła. Zwróć uwagę na to, że zgodnie z `virtual-node-helloworld` harmonogramem zaplanowano w `virtual-node-linux` węźle.
 
 ```console
 kubectl get pods -o wide
@@ -178,7 +176,7 @@ virtual-node-helloworld-9b55975f-bnmfl   1/1       Running   0          4m      
 Pod przypisywany jest wewnętrzny adres IP z podsieci sieci wirtualnej platformy Azure delegowanej do użycia z węzłami wirtualnymi.
 
 > [!NOTE]
-> Jeśli używasz obrazów przechowywanych w Azure Container Registry, [Skonfiguruj i użyj wpisu tajnego Kubernetes][acr-aks-secrets]. Bieżące ograniczenie węzłów wirtualnych polega na tym, że nie można używać zintegrowanego uwierzytelniania podstawowego usługi Azure AD. Jeśli nie korzystasz z wpisu tajnego, nie można uruchomić i zgłosić błędu `HTTP response status code 400 error code "InaccessibleImage"`.
+> Jeśli używasz obrazów przechowywanych w Azure Container Registry, [Skonfiguruj i użyj wpisu tajnego Kubernetes][acr-aks-secrets]. Bieżące ograniczenie węzłów wirtualnych polega na tym, że nie można używać zintegrowanego uwierzytelniania podstawowego usługi Azure AD. Jeśli nie korzystasz z wpisu tajnego, nie można uruchomić i zgłosić błędu `HTTP response status code 400 error code "InaccessibleImage"` .
 
 ## <a name="test-the-virtual-node-pod"></a>Przetestuj węzeł wirtualny pod
 
@@ -188,13 +186,13 @@ Aby przetestować pod kątem działania w węźle wirtualnym, przejdź do aplika
 kubectl run -it --rm virtual-node-test --image=debian
 ```
 
-Zainstaluj `curl` w temacie using `apt-get`:
+Zainstaluj `curl` w temacie using `apt-get` :
 
 ```console
 apt-get update && apt-get install -y curl
 ```
 
-Uzyskaj teraz dostęp do adresu Twojego elementu przy `curl`użyciu, takich *http://10.241.0.4*jak. Podaj własny wewnętrzny adres IP przedstawiony w poprzednim `kubectl get pods` poleceniu:
+Uzyskaj teraz dostęp do adresu Twojego elementu przy użyciu `curl` , takich jak *http://10.241.0.4* . Podaj własny wewnętrzny adres IP przedstawiony w poprzednim `kubectl get pods` poleceniu:
 
 ```console
 curl -L http://10.241.0.4
@@ -210,7 +208,7 @@ Zostanie wyświetlona aplikacja demonstracyjna, jak pokazano w następujących w
 [...]
 ```
 
-Zamknij sesję terminalu z testem pod `exit`. Po zakończeniu sesji, pod, jest usunięty.
+Zamknij sesję terminalu z testem pod `exit` . Po zakończeniu sesji, pod, jest usunięty.
 
 ## <a name="next-steps"></a>Następne kroki
 

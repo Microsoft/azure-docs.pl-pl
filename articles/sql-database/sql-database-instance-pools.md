@@ -3,7 +3,7 @@ title: Pule wystąpień (wersja zapoznawcza)
 description: W tym artykule opisano pule wystąpień Azure SQL Database (wersja zapoznawcza).
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 0938fbe94cb0d1e6dae3dcb84950a11f90dd9db8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a418972b78750dbed90f0148aac45dbcc2617f8e
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80878157"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83773087"
 ---
 # <a name="what-are-sql-database-instance-pools-preview"></a>Co to są pule wystąpień SQL Database (wersja zapoznawcza)?
 
@@ -31,7 +31,7 @@ Ponadto pule wystąpień obsługują natywną integrację sieci wirtualnej, dzi�
 
 Pule wystąpień zapewniają następujące korzyści:
 
-1. Możliwość hostowania 2 rdzeń wirtualny wystąpień. *Tylko dla wystąpień w pulach wystąpień. \**
+1. Możliwość hostowania 2 rdzeń wirtualny wystąpień. * \* Tylko dla wystąpień w pulach wystąpień*.
 2. Czas wdrożenia przewidywalny i szybki (do 5 minut).
 3. Minimalna alokacja adresów IP.
 
@@ -59,7 +59,7 @@ Poniższa lista zawiera główne przypadki użycia, w których należy uwzględn
 
 ## <a name="architecture-of-instance-pools"></a>Architektura pul wystąpień
 
-Pule wystąpień mają podobną architekturę do zwykłych wystąpień zarządzanych (*pojedyncze wystąpienia*). Aby obsługiwać [wdrożenia w ramach usługi Azure Virtual Networks (sieci wirtualnych)](../virtual-network/virtual-network-for-azure-services.md) i zapewnić izolację i bezpieczeństwo klientów, pule wystąpień również polegają na [klastrach wirtualnych](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture). Klastry wirtualne reprezentują dedykowany zestaw izolowanych maszyn wirtualnych wdrożonych w podsieci sieci wirtualnej klienta.
+Pule wystąpień mają podobną architekturę do zwykłych wystąpień zarządzanych (*pojedyncze wystąpienia*). Aby obsługiwać [wdrożenia w ramach usługi Azure Virtual Networks (sieci wirtualnych)](../virtual-network/virtual-network-for-azure-services.md)   i zapewnić izolację i bezpieczeństwo klientów, pule wystąpień również polegają na [klastrach wirtualnych](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture). Klastry wirtualne reprezentują dedykowany zestaw izolowanych maszyn wirtualnych wdrożonych w podsieci sieci wirtualnej klienta.
 
 Główna różnica między dwoma modelami wdrażania polega na tym, że pule wystąpień zezwalają na wiele wdrożeń procesów SQL Server w tym samym węźle maszyny wirtualnej, które są zasobami zarządzanymi przy użyciu [obiektów zadań systemu Windows](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects), natomiast pojedyncze wystąpienia są zawsze same w węźle maszyny wirtualnej.
 
@@ -112,7 +112,7 @@ Opcjonalne funkcje lub funkcje, które wymagają wybrania określonych wartości
 
 Chociaż wystąpienia zarządzane w ramach pul mają dedykowany rdzeń wirtualny i pamięć RAM, współużytkują dysk lokalny (na potrzeby użycia bazy danych tempdb) i zasoby sieciowe. Prawdopodobnie nie jest to możliwe, ale można napotkać efekt *sąsiedniego szumu* , jeśli wiele wystąpień w puli ma duże zużycie zasobów w tym samym czasie. W przypadku zaobserwowania tego zachowania należy rozważyć wdrożenie tych wystąpień do większej puli lub jako pojedyncze wystąpienia.
 
-## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
+## <a name="security-considerations"></a>Zagadnienia związane z zabezpieczeniami
 
 Ponieważ wystąpienia wdrożone w puli współużytkują tę samą maszynę wirtualną, warto rozważyć wyłączenie funkcji, które wprowadzają wyższe zagrożenia bezpieczeństwa lub w celu uzyskania prawidłowej kontroli uprawnień dostępu do tych funkcji. Na przykład integracja środowiska CLR, natywne wykonywanie kopii zapasowych i przywracanie, poczta e-mail bazy danych itp.
 

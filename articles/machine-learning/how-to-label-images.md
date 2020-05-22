@@ -7,14 +7,14 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 1a928726665a743cb874a2f8a51ee63fcf64d9ad
-ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
+ms.openlocfilehash: 22b77b79ea3f8c6744c2eba064c52e6d9e29c2b9
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/11/2020
-ms.locfileid: "83007520"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758915"
 ---
-# <a name="tag-images-in-a-labeling-project"></a>Obrazy tagów w projekcie etykietowania
+# <a name="tag-images-in-a-labeling-project-preview"></a>Obrazy tagów w projekcie etykietowania (wersja zapoznawcza)
 
 Gdy administrator projektu [tworzy projekt etykietowania](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) w Azure Machine Learning, można użyć narzędzia do etykietowania (publiczna wersja zapoznawcza), aby szybko przygotować dane dla Machine Learning projektu. W tym artykule opisano:
 
@@ -105,7 +105,7 @@ Na platformie Azure zostanie włączony przycisk **Prześlij** tylko po zastosow
 Jeśli projekt jest typu "Identyfikacja obiektu (pola ograniczające)", należy określić jedno lub więcej pól ograniczenia w obrazie i zastosować tag do każdego pola. Obrazy mogą zawierać wiele pól, z których każdy ma jeden tag. Użyj **widoku szczegółowe instrukcje** , aby określić, czy w projekcie są używane wiele pól ograniczenia.
 
 1. Wybierz tag dla powiązanego pola, które ma zostać utworzone.
-1. Wybierz **prostokątne** narzędzie ![prostokątnego pola](./media/how-to-label-images/rectangular-box-tool.png) i wybierz pozycję "R".
+1. Wybierz **prostokątne** narzędzie ![ prostokątnego pola ](./media/how-to-label-images/rectangular-box-tool.png) i wybierz pozycję "R".
 3. Kliknij i przeciągnij ukośnie na miejsce docelowe, aby utworzyć niedalekią ramkę. Aby dostosować pole ograniczenia, przeciągnij krawędzie lub rogi.
 
 ![Zrzut ekranu przedstawia podstawowe tworzenie pól związanych z ograniczeniami.](./media/how-to-label-images/bounding-box-sequence.png)
@@ -114,13 +114,13 @@ Aby usunąć pole ograniczenia, kliknij obiekt docelowy w kształcie X, który p
 
 Nie można zmienić znacznika istniejącego pola ograniczenia. Jeśli wprowadzisz błąd przypisania znacznika, musisz usunąć pole ograniczenia i utworzyć nowe z prawidłowym tagiem.
 
-Domyślnie można edytować istniejące pola ograniczenia. Narzędzie **blokowania/odblokowywania** regionów ![narzędzie do blokowania/odblokowywania regionów](./media/how-to-label-images/lock-bounding-boxes-tool.png) lub "L" przełącza takie zachowanie. Jeśli regiony są zablokowane, można zmienić tylko kształt lub lokalizację nowego pola ograniczenia.
+Domyślnie można edytować istniejące pola ograniczenia. Narzędzie **blokowania/odblokowywania** regionów narzędzie do ![ blokowania/odblokowywania regionów ](./media/how-to-label-images/lock-bounding-boxes-tool.png) lub "L" przełącza takie zachowanie. Jeśli regiony są zablokowane, można zmienić tylko kształt lub lokalizację nowego pola ograniczenia.
 
-Użyj narzędzia](./media/how-to-label-images/regions-tool.png) do manipulowania ![regionami w regionach narzędzi lub "M **", aby** dostosować istniejące pole ograniczenia. Przeciągnij krawędzie lub rogi, aby dostosować kształt. Kliknij wewnątrz, aby można było przeciągnąć całe pole ograniczenia. Jeśli nie możesz edytować regionu, prawdopodobnie przełączono narzędzie **blokowania/odblokowywania regionów** .
+Użyj narzędzia do manipulowania regionami **w regionach** narzędzi ![ ](./media/how-to-label-images/regions-tool.png) lub "M", aby dostosować istniejące pole ograniczenia. Przeciągnij krawędzie lub rogi, aby dostosować kształt. Kliknij wewnątrz, aby można było przeciągnąć całe pole ograniczenia. Jeśli nie możesz edytować regionu, prawdopodobnie przełączono narzędzie **blokowania/odblokowywania regionów** .
 
-Użyj](./media/how-to-label-images/template-box-tool.png) narzędzia **opartego** ![na szablonie narzędzia Box lub "T", aby utworzyć wiele pól o tym samym rozmiarze. Jeśli obraz nie ma żadnych pól ograniczenia i uaktywniasz pola oparte na szablonach, narzędzie spowoduje utworzenie pól o 50 do 50 pikseli. W przypadku utworzenia pola ograniczenia, a następnie aktywowania pól opartych na szablonach wszystkie nowe pola ograniczenia będą rozmiarem ostatniego utworzonego pola. Po umieszczeniu można zmienić rozmiar pól opartych na szablonie. Zmienianie rozmiaru pola opartego na szablonie zmienia rozmiar tylko określonego pola.
+Użyj narzędzia **opartego na szablonie** narzędzia Box ![ ](./media/how-to-label-images/template-box-tool.png) lub "T", aby utworzyć wiele pól o tym samym rozmiarze. Jeśli obraz nie ma żadnych pól ograniczenia i uaktywniasz pola oparte na szablonach, narzędzie spowoduje utworzenie pól o 50 do 50 pikseli. W przypadku utworzenia pola ograniczenia, a następnie aktywowania pól opartych na szablonach wszystkie nowe pola ograniczenia będą rozmiarem ostatniego utworzonego pola. Po umieszczeniu można zmienić rozmiar pól opartych na szablonie. Zmienianie rozmiaru pola opartego na szablonie zmienia rozmiar tylko określonego pola.
 
-Aby usunąć *wszystkie* pola związane z bieżącym obrazem, wybierz narzędzie](./media/how-to-label-images/delete-regions-tool.png) **Usuń wszystkie regiony** narzędzia ![Usuń regiony.
+Aby usunąć *wszystkie* pola związane z bieżącym obrazem, wybierz narzędzie **Usuń wszystkie regiony** narzędzia ![ Usuń regiony ](./media/how-to-label-images/delete-regions-tool.png) .
 
 Po utworzeniu pól ograniczenia dla obrazu wybierz pozycję **Prześlij** , aby zapisać swoją służbę lub nie będzie można zapisać pracy w toku.
 

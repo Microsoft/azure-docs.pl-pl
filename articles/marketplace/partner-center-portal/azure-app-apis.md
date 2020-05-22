@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: 2c37e51ad0c6618e20d9445fab7472b1a3a72ab9
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: e50534639f5f46b1675ba5c074fb8fdd843ac87e
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744899"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83770061"
 ---
 # <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>Interfejs API przekazywania Centrum partnerskiego do dołączania aplikacji platformy Azure w centrum partnerskim
 
@@ -63,7 +63,7 @@ grant_type=client_credentials
 &resource= https://api.partner.microsoft.com
 ```
 
-Dla wartości *tenant_id* w parametrach `POST URI` i *client_id* i *client_secret* Określ identyfikator dzierżawy, identyfikator klienta i klucz aplikacji pobranej z Centrum partnerskiego w poprzedniej sekcji. Dla parametru *Resource* należy określić `https://api.partner.microsoft.com`wartość.
+Dla wartości *tenant_id* w `POST URI` parametrach i *CLIENT_ID* i *CLIENT_SECRET* Określ identyfikator dzierżawy, identyfikator klienta i klucz aplikacji pobranej z Centrum partnerskiego w poprzedniej sekcji. Dla parametru *Resource* należy określić wartość `https://api.partner.microsoft.com` .
 
 ### <a name="step-3-use-the-microsoft-store-submission-api"></a>Krok 3. Korzystanie z interfejsu API przekazywania Microsoft Store
 
@@ -74,4 +74,4 @@ https://apidocs.microsoft.com/services/partneringestion/
 ## <a name="next-steps"></a>Następne kroki
 
 * Dowiedz się, jak utworzyć [zasób techniczny dla maszyny wirtualnej platformy Azure](create-azure-container-technical-assets.md)
-* Naucz się Hoe do tworzenia [oferty kontenera platformy Azure](create-azure-container-offer.md)
+* Dowiedz się, jak utworzyć [ofertę kontenera platformy Azure](create-azure-container-offer.md)
