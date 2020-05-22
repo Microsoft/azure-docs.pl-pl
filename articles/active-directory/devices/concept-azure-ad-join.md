@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40f89fbe19b93601f9e0525f0387e402bd175fe4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8e4521cb67ae95a1cd4a3e728a13e43bfd5773ab
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78672678"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737031"
 ---
 # <a name="azure-ad-joined-devices"></a>Urządzenia dołączone do usługi Azure AD
 
@@ -34,7 +34,7 @@ Usługa Azure AD Join jest przeznaczona dla organizacji, które chcą być w chm
 |   | Windows Autopilot |
 | **Opcje logowania urządzenia** | Konta organizacyjne przy użyciu: |
 |   | Hasło |
-|   | Windows Hello for Business |
+|   | Windows Hello dla firm |
 |   | Klucze zabezpieczeń FIDO 2.0 (wersja zapoznawcza) |
 | **Zarządzanie urządzeniami** | Zarządzanie urządzeniami przenośnymi (przykład: Microsoft Intune) |
 |   | Współzarządzanie z Microsoft Intune i Microsoft Endpoint Configuration Manager |
@@ -43,7 +43,7 @@ Usługa Azure AD Join jest przeznaczona dla organizacji, które chcą być w chm
 |   | Samoobsługowe resetowanie haseł i funkcja resetowania numeru PIN funkcji Windows Hello na ekranie blokady |
 |   | Enterprise State Roaming między urządzeniami |
 
-Urządzenia przyłączone do usługi Azure AD są zalogowane do korzystania z konta organizacji usługi Azure AD. Dostęp do zasobów w organizacji może być dodatkowo ograniczony w zależności od tego, czy konto usługi Azure AD i [zasady dostępu warunkowego](../conditional-access/overview.md) są stosowane do tożsamości urządzenia.
+Urządzenia przyłączone do usługi Azure AD są zalogowane do korzystania z konta organizacji usługi Azure AD. Dostęp do zasobów w organizacji może być dodatkowo ograniczony w zależności od tego, czy konto usługi Azure AD i [zasady dostępu warunkowego](../conditional-access/howto-conditional-access-policy-compliant-device.md) są stosowane do tożsamości urządzenia.
 
 Administratorzy mogą bezpiecznie i bardziej kontrolować urządzenia przyłączone do usługi Azure AD za pomocą narzędzi do zarządzania urządzeniami przenośnymi (MDM), takich jak Microsoft Intune lub w scenariuszach współzarządzania przy użyciu usługi Microsoft Endpoint Configuration Manager. Dzięki tym narzędziom można wymusić konfiguracje wymagane przez organizację, takie jak wymaganie zaszyfrowania magazynu, złożoność haseł, instalacje oprogramowania i aktualizacje oprogramowania. Administratorzy mogą udostępniać aplikacje organizacji dla urządzeń przyłączonych do usługi Azure AD przy użyciu Configuration Manager do [zarządzania aplikacjami z Microsoft Store dla firm i edukacji](/configmgr/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
 

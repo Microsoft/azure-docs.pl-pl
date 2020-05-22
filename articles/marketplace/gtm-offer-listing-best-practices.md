@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: bf2c4ff1afbf3558d6c49cf7bec90cd37e17929b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 33effe0bbc566880b147c377b3bb130cd81999c8
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658017"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83740777"
 ---
 # <a name="offer-listing-best-practices"></a>Najlepsze rozwiązania dotyczące ofert
 
@@ -22,7 +22,7 @@ Ten artykuł zawiera sugestie dotyczące tworzenia i angażowania komercyjnych o
 
 | Ustawienie witryny sklepu | Najlepsze rozwiązania |
 |:--- |:--- |  
-| Offer Name | Podaj silny tytuł:<br> <ul> <li> Nazwa aplikacji powinna komunikować się z podstawową wartością dla klientów. </li> <li> Dołącz słowa kluczowe wyszukiwania w tytule aplikacji, aby uzyskać wyższą klasyfikację w wynikach wyszukiwania. </li> </ul> Postępuj zgodnie z formatem ustawiania tytułu dla aukcji usługi konsultingowej:<br>[Nazwa oferty: [Duration] [typ oferty] (na przykład *Contoso: implementacja 2-tygodniowa*) <br><br> Przestrzeganie wytycznych dotyczących marki:<br>Po odniesieniu do znaków towarowych firmy Microsoft i nazw oprogramowania, produktów i usług firmy Microsoft postępuj zgodnie z informacjami o znakach [towarowych firmy Microsoft](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx) i innych istotnych wytycznych dotyczących produktów. |
+| Offer Name | Podaj silny tytuł:<br> <ul> <li> Nazwa aplikacji powinna komunikować się z podstawową wartością dla klientów. </li> <li> Dołącz słowa kluczowe wyszukiwania w tytule aplikacji, aby uzyskać wyższą klasyfikację w wynikach wyszukiwania. </li> </ul> Postępuj zgodnie z formatem ustawiania tytułu dla aukcji usługi konsultingowej:<br>[Nazwa oferty: [Duration] [typ oferty] (na przykład *Contoso: implementacja 2-tygodniowa*) <br><br> Przestrzeganie wytycznych dotyczących marki:<br>Po odniesieniu do znaków towarowych firmy Microsoft i nazw oprogramowania, produktów i usług firmy Microsoft postępuj zgodnie z informacjami o znakach [towarowych firmy Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) i innych istotnych wytycznych dotyczących produktów. |
 | Opis oferty | Podaj opis niejawnej oferty:<br> <ul> <li> Jasno opisz swoją wartość oferty w pierwszych kilku zdaniach opisu. </li> <li> Należy pamiętać, że pierwsze niektóre zdania mogą być wyświetlane w wynikach wyszukiwania. </li> <li> Nie należy polegać na funkcjach i funkcjach, aby sprzedawać produkt. Zamiast tego należy skoncentrować się na dostarczanej wartości. </li> <li> Korzystaj z specyficznych dla branży słownictwa lub takich słów, jak to możliwe.</li> <li> Ponadto aukcje usług konsultingowych muszą jasno określać usługę profesjonalną, którą zapewniasz. </li></ul> Podstawowe składniki Twojej pozycji wartości powinny zawierać następujące informacje:<ul><li>Opis produktu.</li><li>Typ użytkownika, który korzysta z produktu.</li><li>Klienci muszą lub cierpili adresy produktów.</li></ul> |
 
 Tabele w tej sekcji zawierają sugestie dotyczące tworzenia i angażowania ofert w portalu Marketplace. Aby napisać i skonfigurować materiały marketingowe, przejdź do [Centrum partnerskiego](https://partner.microsoft.com/dashboard/commercial-marketplace/). 

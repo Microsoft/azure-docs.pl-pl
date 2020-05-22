@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34b29ceadaaf85e69d1214039fa1b563ed21a77d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 10b0f86447436b8bf08874daf472b1223bff7d0a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80295182"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737660"
 ---
 # <a name="conditional-access-block-access-by-location"></a>Dostęp warunkowy: Blokuj dostęp według lokalizacji
 
-Z warunkiem lokalizacji w polu dostęp warunkowy można kontrolować dostęp do aplikacji w chmurze na podstawie lokalizacji sieciowej użytkownika. Warunek lokalizacji jest często używany do blokowania dostępu z krajów, w których organizacja wie ruch, nie powinien pochodzić z.
+Z warunkiem lokalizacji w polu dostęp warunkowy można kontrolować dostęp do aplikacji w chmurze na podstawie lokalizacji sieciowej użytkownika. Warunek lokalizacji jest często używany do blokowania dostępu z krajów/regionów, w których organizacja wie, że ruch nie powinien pochodzić z.
 
 ## <a name="define-locations"></a>Definiuj lokalizacje
 
 1. Zaloguj się do **Azure Portal** jako Administrator globalny, administrator zabezpieczeń lub administrator dostępu warunkowego.
-1. Przejdź do **Azure Active Directory** > **zabezpieczenia** > **dostępu** > warunkowego**o nazwie lokalizacje**.
+1. Przejdź do **Azure Active Directory**  >  **zabezpieczenia**  >  **dostępu warunkowego**  >  **o nazwie lokalizacje**.
 1. Wybierz pozycję **Nowa lokalizacja**.
 1. Nadaj lokalizacji nazwę.
 1. Wybierz pozycję **zakresy adresów IP** , jeśli znasz określone zewnętrznie zakresy adresów IPv4, które składają się na tę lokalizację lub **kraje/regiony**.
@@ -38,20 +38,20 @@ Więcej informacji o warunku lokalizacji w dostępie warunkowym można znaleźć
 ## <a name="create-a-conditional-access-policy"></a>Tworzenie zasad dostępu warunkowego
 
 1. Zaloguj się do **Azure Portal** jako Administrator globalny, administrator zabezpieczeń lub administrator dostępu warunkowego.
-1. Przejdź do **Azure Active Directory** > **Security** > **dostępu warunkowego**zabezpieczeń.
+1. Przejdź do **Azure Active Directory**  >  **Security**  >  **dostępu warunkowego**zabezpieczeń.
 1. Wybierz pozycję **nowe zasady**.
 1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
 1. W obszarze **przypisania**wybierz pozycję **Użytkownicy i grupy**
    1. W obszarze **dołączanie**wybierz pozycję **Wszyscy użytkownicy**.
-   1. Wybierz pozycję **Gotowe**.
-1. W obszarze **aplikacje lub akcje** > w chmurze**Wybierz pozycję** **wszystkie aplikacje w chmurze**, a następnie wybierz pozycję **gotowe**.
-1. W obszarze**Lokalizacja** **warunków** > .
+   1. Wybierz pozycję **Done** (Gotowe).
+1. W obszarze **aplikacje lub akcje w chmurze**  >  **Include**wybierz pozycję **wszystkie aplikacje w chmurze**, a następnie wybierz pozycję **gotowe**.
+1. W **Conditions**obszarze  >  **Lokalizacja**warunków.
    1. Ustaw **wartość** **tak**
    1. **Dołącz** **wybrane lokalizacje**
    1. Wybierz zablokowaną lokalizację utworzoną dla swojej organizacji.
-   1.  > Kliknij **pozycję****gotowe** > **gotowe**.
-1. W obszarze **warunki** > **aplikacje klienckie (wersja zapoznawcza)** ustaw wartość **opcji** **Konfiguruj** na tak, a następnie wybierz pozycję **gotowe**.
-1. W obszarze > **blok** **kontroli dostępu**, a następnie wybierz pozycję **Wybierz**.
+   1. Kliknij **pozycję**  >  **gotowe**  >  **gotowe**.
+1. W obszarze **warunki**  >  **aplikacje klienckie (wersja zapoznawcza)** ustaw wartość opcji **Konfiguruj** na **tak**, a następnie wybierz pozycję **gotowe**.
+1. W obszarze blok **kontroli dostępu**  >  **Block**, a następnie wybierz pozycję **Wybierz**.
 1. Potwierdź ustawienia i ustaw opcję **Włącz zasady** na **włączone**.
 1. Wybierz pozycję **Utwórz** , aby utworzyć zasady.
 

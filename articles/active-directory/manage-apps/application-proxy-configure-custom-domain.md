@@ -16,16 +16,16 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f35658a75adb4d4c6c279e45087e741b8117e65
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fda84a68921500e8ba40aa6d04bfb5939f79a1ef
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481385"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83736487"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Konfigurowanie domen niestandardowych za pomocą usługi Azure serwer proxy aplikacji usługi Azure AD
 
-Po opublikowaniu aplikacji za poorednictwem serwer proxy aplikacji usługi Azure Active Directory należy utworzyć zewnętrzny adres URL dla użytkowników. Ten adres URL pobiera domyślną domenę *yourtenant.msappproxy.NET*. Na przykład jeśli opublikujesz aplikację o nazwie *wydatki* w dzierżawie o nazwie *contoso*, zewnętrzny adres URL to *https:\//Expenses-contoso.msappproxy.NET*. Jeśli chcesz użyć własnej nazwy domeny zamiast *msappproxy.NET*, możesz skonfigurować domenę niestandardową dla swojej aplikacji. 
+Po opublikowaniu aplikacji za poorednictwem serwer proxy aplikacji usługi Azure Active Directory należy utworzyć zewnętrzny adres URL dla użytkowników. Ten adres URL pobiera domyślną domenę *yourtenant.msappproxy.NET*. Na przykład jeśli opublikujesz aplikację o nazwie *wydatki* w dzierżawie o nazwie *contoso*, zewnętrzny adres URL to *https: \/ /Expenses-contoso.msappproxy.NET*. Jeśli chcesz użyć własnej nazwy domeny zamiast *msappproxy.NET*, możesz skonfigurować domenę niestandardową dla swojej aplikacji. 
 
 ## <a name="benefits-of-custom-domains"></a>Zalety domen niestandardowych
 
@@ -128,7 +128,7 @@ Aby upewnić się, że wszystkie wymagane certyfikaty pośrednie są uwzględnia
 
 Nie ma ograniczeń dotyczących metod podpisu certyfikatu. Obsługiwane są Kryptografia krzywej eliptycznej (ECC), alternatywna nazwa podmiotu (SAN) i inne popularne typy certyfikatów. 
 
-Można używać certyfikatów symboli wieloznacznych, o ile symbol wieloznaczny pasuje do zewnętrznego adresu URL. W przypadku [aplikacji wieloznacznych](application-proxy-wildcard.md)należy używać certyfikatów wieloznacznych. Aby użyć certyfikatu w celu uzyskania dostępu do domen poddomen, należy dodać symbole wieloznacznej domeny jako alternatywne nazwy podmiotu w tym samym certyfikacie. Na przykład certyfikat dla * \*. Adventure-Works.com* nie będzie działał dla elementu * \*. Apps.Adventure-Works.com* , chyba że dodasz * \*Apps.Adventure-Works.com* jako alternatywną nazwę podmiotu. 
+Można używać certyfikatów symboli wieloznacznych, o ile symbol wieloznaczny pasuje do zewnętrznego adresu URL. W przypadku [aplikacji wieloznacznych](application-proxy-wildcard.md)należy używać certyfikatów wieloznacznych. Aby użyć certyfikatu w celu uzyskania dostępu do domen poddomen, należy dodać symbole wieloznacznej domeny jako alternatywne nazwy podmiotu w tym samym certyfikacie. Na przykład certyfikat dla * \* . Adventure-Works.com* nie będzie działał dla elementu * \* . Apps.Adventure-Works.com* , chyba że dodasz * \* Apps.Adventure-Works.com* jako alternatywną nazwę podmiotu. 
 
 W przypadku zainstalowania łańcucha certyfikatów na urządzeniach klienckich można użyć certyfikatów wystawionych przez własną infrastrukturę kluczy publicznych (PKI). Usługa Intune może wdrażać te certyfikaty na zarządzanych urządzeniach. W przypadku urządzeń niezarządzanych należy ręcznie zainstalować te certyfikaty. 
 
@@ -143,6 +143,6 @@ Tego samego certyfikatu można użyć dla wielu aplikacji. Jeśli przekazany cer
 Po wygaśnięciu certyfikatu zostanie wyświetlone ostrzeżenie z informacją o przekazaniu innego certyfikatu. Jeśli certyfikat zostanie odwołany, użytkownicy mogą zobaczyć ostrzeżenie o zabezpieczeniach podczas uzyskiwania dostępu do aplikacji. Aby zaktualizować certyfikat dla aplikacji, przejdź do strony **serwera proxy aplikacji** , wybierz pozycję **certyfikat**i przekaż nowy certyfikat. Jeśli stary certyfikat nie jest używany przez inne aplikacje, zostanie automatycznie usunięty. 
 
 ## <a name="next-steps"></a>Następne kroki
-* [Włącz logowanie jednokrotne](application-proxy-configure-single-sign-on-with-kcd.md) do opublikowanych aplikacji przy użyciu uwierzytelniania usługi Azure AD.
-* [Włącz dostęp warunkowy](../conditional-access/overview.md) do opublikowanych aplikacji.
 
+* [Włącz logowanie jednokrotne](application-proxy-configure-single-sign-on-with-kcd.md) do opublikowanych aplikacji przy użyciu uwierzytelniania usługi Azure AD.
+* [Dostęp warunkowy](../conditional-access/concept-conditional-access-cloud-apps.md) dla opublikowanych aplikacji w chmurze.

@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: bdd8104200bf21507e978abacf600c4780bb3808
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 850b06153a25020f36a4c7df1863e5a576495f3b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83636671"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744157"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Ochrona przed zagrożeniami w usłudze Azure Security Center
 
@@ -53,14 +53,6 @@ Azure Security Center integruje się z usługami platformy Azure w celu monitoro
     > Czujnik ATP programu Microsoft Defender jest automatycznie włączany na serwerach z systemem Windows, które używają Security Center.
 
     Gdy usługa Microsoft Defender ATP wykryje zagrożenie, wyzwala alert. Alert jest wyświetlany na pulpicie nawigacyjnym Security Center. Z poziomu pulpitu nawigacyjnego można przestawiać do konsoli usługi Microsoft Defender ATP i przeprowadzić szczegółowe badanie w celu odzyskania zakresu ataku. Aby uzyskać więcej informacji o usłudze Microsoft Defender ATP, zobacz Dołączanie [serwerów do usługi Microsoft Defender ATP](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
-
-* Analiza zrzutu **awaryjnego** <a name="windows-dump"></a> — W przypadku awarii oprogramowania zrzut awaryjny przechwytuje część pamięci w chwili awarii.
-
-    Awaria może być spowodowana przez złośliwe oprogramowanie lub zawiera złośliwe oprogramowanie. Aby uniknąć wykrycia przez produkty zabezpieczające, różne rodzaje złośliwego oprogramowania korzystają z ataku bez plików, który pozwala uniknąć zapisywania na dysku lub zaszyfrować składniki oprogramowania napisane na dysku. Atak tego typu jest trudny do wykrycia przy użyciu tradycyjnych metod opartych na dyskach.
-
-    Jednak za pomocą analizy pamięci można wykryć ten rodzaj ataku. Analizując pamięć w zrzucie awaryjnym, Security Center mogą wykrywać techniki używane przez atak. Na przykład atakujący może próbować wykorzystać luki w zabezpieczeniach oprogramowania, uzyskać dostęp do poufnych danych i dyskretnego pozostania go w ramach zagrożonego komputera. Security Center działa z minimalnym wpływem na wydajność hostów.
-
-    Aby uzyskać szczegółowe informacje na temat alertów analizy zrzutu awaryjnego, zobacz [tabelę referencyjną alertów](alerts-reference.md#alerts-windows).
 
 * Wykrywanie ataków bezplikowych **Fileless attack detection** <a name="windows-fileless"></a> — Ataki bezplikowe ukierunkowane na punkty końcowe są wspólne. Aby uniknąć wykrywania, ataki bez plików wsuwają złośliwe ładunki do pamięci. Ładunki osoby atakującej pozostają w dużej ilości zagrożonych procesów i wykonują szeroką gamę złośliwych działań.
 

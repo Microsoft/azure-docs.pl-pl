@@ -8,12 +8,12 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 64df2e0f17322f8e650ede9d4453d90c36252135
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 35049e148af09376667a55e2f0bb4a28cf728245
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680020"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83735892"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Rozwiązywanie problemów dotyczących Update Management
 
@@ -50,7 +50,7 @@ Ten błąd może wystąpić z następujących powodów:
 
 * Przejdź do pozycji [Konfiguracja sieci](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) , aby dowiedzieć się, które adresy i porty muszą być dozwolone do działania agenta log Analytics.
 
-* Sprawdź, czy występują problemy z konfiguracją zakresu. [Konfiguracja zakresu](../automation-onboard-solutions-from-automation-account.md#scope-configuration) określa, które maszyny są skonfigurowane do Update Management. Jeśli Twoja maszyna jest wyświetlana w obszarze roboczym, ale nie w portalu Update Management, musisz ustawić konfigurację zakresu, aby wskazać maszyny docelowe. Aby dowiedzieć się więcej na temat konfiguracji zakresu, zobacz [Włączanie maszyn w obszarze roboczym](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
+* Sprawdź, czy występują problemy z konfiguracją zakresu. [Konfiguracja zakresu](../automation-onboard-solutions-from-automation-account.md#scope-configuration) określa, które maszyny są skonfigurowane do Update Management. Jeśli Twoja maszyna jest wyświetlana w obszarze roboczym, ale nie w portalu Update Management, musisz ustawić konfigurację zakresu, aby wskazać maszyny docelowe. Aby dowiedzieć się więcej na temat konfiguracji zakresu, zobacz [Włączanie maszyn w obszarze roboczym](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace).
 
 * Usuń konfigurację procesu roboczego, wykonując czynności opisane w sekcji [usuwanie hybrydowego procesu roboczego elementu Runbook z lokalnego komputera z systemem Windows](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) lub [usuwanie hybrydowego procesu roboczego elementu Runbook z lokalnego komputera](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker)z systemem Linux. 
 
@@ -119,9 +119,9 @@ Przyczyną tego problemu mogą być lokalne problemy z konfiguracją lub niepraw
 
 4. Jeśli komputer nie jest widoczny w wynikach zapytania, nie został ostatnio zaewidencjonowany. Prawdopodobnie wystąpił problem z konfiguracją lokalną i należy [ponownie zainstalować agenta](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows). 
 
-5. Jeśli komputer jest wyświetlany w wynikach zapytania, sprawdź, czy występują problemy z konfiguracją zakresu. [Konfiguracja zakresu](../automation-onboard-solutions-from-automation-account.md#scope-configuration) określa, które maszyny są skonfigurowane do Update Management. 
+5. Jeśli komputer jest wyświetlany w wynikach zapytania, sprawdź, czy występują problemy z konfiguracją zakresu. [Konfiguracja zakresu](../automation-scope-configurations-update-management.md) określa, które maszyny są skonfigurowane do Update Management. 
 
-6. Jeśli Twoja maszyna jest wyświetlana w obszarze roboczym, ale nie w Update Management, musisz skonfigurować konfigurację zakresu, aby wskazać maszynę docelową. Aby dowiedzieć się, jak to zrobić, zobacz temat [Włączanie maszyn w obszarze roboczym](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
+6. Jeśli Twoja maszyna jest wyświetlana w obszarze roboczym, ale nie w Update Management, musisz skonfigurować konfigurację zakresu, aby wskazać maszynę docelową. Aby dowiedzieć się, jak to zrobić, zobacz temat [Włączanie maszyn w obszarze roboczym](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace).
 
 7. W obszarze roboczym Uruchom to zapytanie.
 

@@ -7,17 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 8eb59eebd29c2cc94e20b71b467866686deec2f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aa9813480425d179bdd11bac6f6f944f9f65e3ab
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81869723"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83741962"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Logowanie i uruchamianie aplikacji z poziomu portalu My Apps
 
@@ -78,9 +78,9 @@ Ikona jest dodawana po prawej stronie paska **adresu** , co pozwala na logowanie
 
 Możesz wybrać liczbę aplikacji, które mają być wyświetlane w **ostatnio używanej** sekcji, i zdecydować, czy zezwolić wewnętrznym adresom URL organizacji na przekierowywanie.
 
-1. Zaznacz ![ikonę](media/my-apps-portal/my-apps-portal-extension-icon.png) nowe rozszerzenie **Moje aplikacje bezpieczne logowanie** ikona rozszerzenia, po prawej stronie paska **adresu** , a następnie wybierz pozycję **Zaloguj się, aby rozpocząć**.
+1. Zaznacz ikonę nowe rozszerzenie **Moje aplikacje bezpieczne logowanie** ikona ![ rozszerzenia ](media/my-apps-portal/my-apps-portal-extension-icon.png) , po prawej stronie paska **adresu** , a następnie wybierz pozycję **Zaloguj się, aby rozpocząć**.
 
-2. ](media/my-apps-portal/my-apps-portal-extension-settings-icon.png)Kliknij prawym przyciskiem **myszy ikonę Ustawienia ikona** ![ustawienia, a następnie wybierz pozycję **Ustawienia**.
+2. Kliknij prawym przyciskiem myszy ikonę **Ustawienia ikona Ustawienia** ![ ](media/my-apps-portal/my-apps-portal-extension-settings-icon.png) , a następnie wybierz pozycję **Ustawienia**.
 
 3. W polu **Ustawienia** wybierz liczbę najnowszych aplikacji, które mają być widoczne w portalu, i zdecyduj, czy wewnętrzne adresy URL organizacji mają być przekierowywane, aby można było z nich korzystać zdalnie.
 
@@ -98,7 +98,7 @@ Jeśli masz uprawnienia do uzyskiwania dostępu do aplikacji opartych na chmurze
 
 1. Zaloguj się do swojego konta służbowego lub szkolnego na swoim komputerze.
 
-2. W obsługiwanej przeglądarce sieci Web otwórz i przejdź do https://myapps.microsoft.comlub Użyj linku dostarczonego przez organizację, jeśli przekierujesz użytkownika do dostosowanej strony, `https://myapps.microsoft.com/contoso.com`na przykład.
+2. W obsługiwanej przeglądarce sieci Web otwórz i przejdź do https://myapps.microsoft.com lub Użyj linku dostarczonego przez organizację, jeśli przekierujesz użytkownika do dostosowanej strony, na przykład `https://myapps.microsoft.com/contoso.com` .
 
     Zostanie wyświetlona strona **aplikacje** z widocznymi wszystkimi aplikacjami opartymi na chmurze, które są własnością Twojej organizacji, które są dostępne do użycia.
 
@@ -112,7 +112,7 @@ Wyświetlaj aplikacje organizacji i używaj ich z Intune Managed Browser na urz�
 
 1. Na urządzeniu przenośnym Pobierz i zainstaluj aplikację Intune Managed Browser ze sklepu Apple App Store i Sklep Google Play.
 
-2. Otwórz aplikację Intune Managed Browser, przejdź do https://myapps.microsoft.comlub Użyj linku dostarczonego przez organizację, jeśli przekierujesz użytkownika do dostosowanej strony, na https://myapps.microsoft.com/contoso.comprzykład.
+2. Otwórz aplikację Intune Managed Browser, przejdź do https://myapps.microsoft.com lub Użyj linku dostarczonego przez organizację, jeśli przekierujesz użytkownika do dostosowanej strony, na przykład https://myapps.microsoft.com/contoso.com .
 
     Zostanie wyświetlona strona **aplikacje** przedstawiająca wszystkie aplikacje oparte na chmurze należące do organizacji i dostępne do użycia.
 
@@ -126,7 +126,7 @@ Wyświetl Portal **Moje aplikacje** i korzystaj z niego z urządzenia iPhone lub
 
 1. Na urządzeniu przenośnym Uruchom aplikację przeglądarki sieci Web, taką jak Safari.
 
-2. Przejdź do https://myapps.microsoft.comlub Użyj linku dostarczonego przez organizację, jeśli przekierujesz użytkownika do dostosowanej strony, https://myapps.microsoft.com/contoso.comna przykład.
+2. Przejdź do https://myapps.microsoft.com lub Użyj linku dostarczonego przez organizację, jeśli przekierujesz użytkownika do dostosowanej strony, na przykład https://myapps.microsoft.com/contoso.com .
 
     Zostanie wyświetlona strona **aplikacje** z widocznymi wszystkimi aplikacjami opartymi na chmurze, które są własnością Twojej organizacji, które są dostępne do użycia.
 
@@ -140,7 +140,7 @@ Wyświetl Portal **Moje aplikacje** i korzystaj z niego na urządzeniu z systeme
 
 1. Na urządzeniu przenośnym Uruchom aplikację przeglądarki sieci Web, np. Google Chrome.
 
-2. Przejdź do https://myapps.microsoft.comlub Użyj linku dostarczonego przez organizację, jeśli przekierujesz użytkownika do dostosowanej strony, https://myapps.microsoft.com/contoso.comna przykład.
+2. Przejdź do https://myapps.microsoft.com lub Użyj linku dostarczonego przez organizację, jeśli przekierujesz użytkownika do dostosowanej strony, na przykład https://myapps.microsoft.com/contoso.com .
 
     Zostanie wyświetlona strona **aplikacje** przedstawiająca wszystkie aplikacje oparte na chmurze należące do organizacji i dostępne do użycia.
 

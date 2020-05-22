@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 41f68ead6f985d6cc2c8120091c36783d074b066
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 3de73156618b0f5234cc8049c4ea70385b790388
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659146"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743591"
 ---
 # <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Samouczek: Tworzenie notesu w Azure Cosmos DB, aby analizować i wizualizować dane
 
@@ -141,7 +141,7 @@ df_cosmos.head(10)
 
 W tej sekcji zostaną uruchomione pewne zapytania dotyczące pobranych danych.
 
-* **Zapytanie1:** Uruchom zapytanie Grupuj według w ramce Dataframe, aby uzyskać sumę łącznego przychodu sprzedaży dla każdego kraju i wyświetlić 5 elementów z wyników. W nowej komórce notesu uruchom następujący kod:
+* **Zapytanie1:** Uruchom zapytanie Grupuj według w ramce Dataframe, aby uzyskać sumę łącznego przychodu sprzedaży dla każdego kraju/regionu i wyświetlić 5 elementów z wyników. W nowej komórce notesu uruchom następujący kod:
 
    ```python
    df_revenue = df_cosmos.groupby("Country").sum().reset_index()
@@ -170,16 +170,16 @@ W tej sekcji zostaną uruchomione pewne zapytania dotyczące pobranych danych.
    !{sys.executable} -m pip install bokeh --user
    ```
 
-1. Następnie przygotuj się, aby wykreślić dane na mapie. Dołącz dane w Azure Cosmos DB z informacjami o kraju znajdującymi się w usłudze Azure Blob Storage i Konwertuj wynik na format GEOJSON. Skopiuj następujący kod do nowej komórki notesu i uruchom go.
+1. Następnie przygotuj się, aby wykreślić dane na mapie. Dołącz dane w Azure Cosmos DB z informacjami o kraju/regionie znajdującymi się w magazynie obiektów blob platformy Azure i Konwertuj wynik na format GEOJSON. Skopiuj następujący kod do nowej komórki notesu i uruchom go.
 
    ```python
    import urllib.request, json
    import geopandas as gpd
 
-   # Load country information for mapping
+   # Load country/region information for mapping
    countries = gpd.read_file("https://cosmosnotebooksdata.blob.core.windows.net/notebookdata/countries.json")
 
-   # Merge the countries dataframe with our data in Azure Cosmos DB, joining on country code
+   # Merge the countries/regions dataframe with our data in Azure Cosmos DB, joining on country/region code
    df_merged = countries.merge(df_revenue, left_on = 'admin', right_on = 'Country', how='left')
 
    # Convert to GeoJSON so bokeh can plot it
@@ -187,7 +187,7 @@ W tej sekcji zostaną uruchomione pewne zapytania dotyczące pobranych danych.
    json_data = json.dumps(merged_json)
    ```
 
-1. Wizualizowanie przychodów sprzedaży różnych krajów na mapie światowej przez uruchomienie następującego kodu w nowej komórce notesu:
+1. Wizualizuj przychody sprzedaży z różnych krajów/regionów na mapie światowej, uruchamiając następujący kod w nowej komórce notesu:
 
    ```python
    from bokeh.io import output_notebook, show
@@ -233,9 +233,9 @@ W tej sekcji zostaną uruchomione pewne zapytania dotyczące pobranych danych.
    show(p)
    ```
 
-   Dane wyjściowe wyświetlają mapę świata z różnymi kolorami. Kolor ciemniejszy jaśniejszy reprezentuje kraje z najwyższym przychodem do najniższego przychodu.
+   Dane wyjściowe wyświetlają mapę świata z różnymi kolorami. Kolor ciemniejszy jaśniejszy reprezentuje kraje/regiony z najwyższym przychodem do najniższego przychodu.
 
-   ![Wizualizacja mapy przychodu krajów](./media/create-notebook-visualize-data/countries-revenue-map-visualization.png)
+   ![Wizualizacja mapy przychodu krajów/regionów](./media/create-notebook-visualize-data/countries-revenue-map-visualization.png)
 
 1. Przyjrzyjmy się innemu przypadku wizualizacji danych. Kontener WebsiteData zawiera rekord użytkowników, którzy przeglądali element, dodani do swojego koszyka i kupili ten element. Przyjrzyjmy się współczynnikowi konwersji zakupionych elementów. Uruchom następujący kod w nowej komórce, aby wizualizować szybkość konwersji dla każdego elementu:
 

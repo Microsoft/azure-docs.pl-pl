@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: babanisa
-ms.openlocfilehash: 17416131566edf8710737862f0cbea2e31477960
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: e193b272460fe97f599adff414fcac6e80648104
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/21/2020
-ms.locfileid: "83722528"
+ms.locfileid: "83738374"
 ---
 # <a name="auth0-partner-topics"></a>Tematy dotyczące partnerów rozwiązanie Auth0
 ![Logo rozwiązanie Auth0](./media/auth0-overview/auth0-logo.png)
@@ -46,6 +46,6 @@ Utrzymywanie i inspekcja działań użytkownika ma kluczowe znaczenie dla utrzym
 
 - [Przegląd tematów dotyczących partnerów](partner-topics-overview.md)
 - [Jak korzystać z tematu partnera rozwiązanie Auth0](auth0-how-to.md)
-- [Dokumentacja rozwiązanie Auth0](https://auth0.com/docs/logs/streams/azure-eventgrid)
+- [Dokumentacja rozwiązanie Auth0](https://auth0.com/docs/azure-tutorial)
 - [Zostań partnerem Event Grid](partner-onboarding-overview.md)
 

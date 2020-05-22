@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 02/26/2020
 ms.author: alkohli
-ms.openlocfilehash: dfd9c949767d3dc8e63e3f15ba12641f27d46b80
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: bb73494dd5fe22c3be645f732f9d0958e48edb64
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82569357"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743635"
 ---
 # <a name="return-or-replace-your-azure-stack-edge-device"></a>Zwróć lub Zastąp urządzenie Azure Stack Edge
 
@@ -74,7 +74,7 @@ Aby rozpocząć proces powrotu, wykonaj następujące czynności.
 5. Należy umieścić etykietę wysyłkową uzyskaną z platformy Azure w pakiecie.
 6. Uzgodnij odbiór urządzenia z regionalną firmą kurierską. W przypadku powrotu urządzenia w Stanach Zjednoczonych przewoźnik może być UPS lub FedEx. Aby zaplanować odbiór przy użyciu zasilacza UPS:
 
-    1. Wywoływanie lokalnego zasilacza UPS (numer bezpłatny dla określonego kraju).
+    1. Zadzwoń do lokalnego oddziału firmy UPS (numer bezpłatny dla danego kraju/regionu).
     2. W wywołaniu Zadzwoń na numer śledzenia wycofywania przesyłki, jak pokazano na wydrukowanej etykiecie.
     3. Jeśli numer śledzenia nie jest ujęty w cudzysłów, zasilacz UPS będzie wymagał dodatkowej opłaty podczas odbioru.
 

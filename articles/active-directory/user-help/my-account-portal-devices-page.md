@@ -8,15 +8,15 @@ ms.reviewer: jpettere
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: d43b2bd5912375c3bb2010f0f2ae75a119512f03
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 9badda1663947587b078c6bb808f4efdf2e10579
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82625837"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83735960"
 ---
 # <a name="manage-your-connected-devices-from-the-devices-page"></a>Zarządzanie urządzeniami połączonymi ze strony urządzenia
 
@@ -31,7 +31,7 @@ Strona **urządzenia** w portalu **My Account** umożliwia zarządzanie urządze
 
 ## <a name="view-your-connected-devices"></a>Wyświetlanie podłączonych urządzeń
 
-1. Zaloguj się do konta służbowego, a następnie przejdź do strony **Moje konto** (https://myaccount.microsoft.com/) strona.
+1. Zaloguj się do konta służbowego, a następnie przejdź do strony **Moje konto** ( https://myaccount.microsoft.com/) Strona.
 
 2. Wybierz pozycję **urządzenia** w okienku nawigacji po lewej stronie lub wybierz łącze **Zarządzaj urządzeniami** w bloku **urządzenia** .
 

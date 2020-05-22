@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f04a3fea3801f917a3ae4aced04ef3824d1cfa82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ad681f4996f713b8bb0c85b07a3f38f0dcb6708a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78184523"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738238"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Zarządzanie dostępem użytkowników w Azure Active Directory B2C
 
@@ -66,15 +66,15 @@ Dostosowany przepływ użytkowników może zbierać informacje o DOB i kraju/reg
 
 Poniższe kroki pokazują logikę, która jest używana do obliczania **grupy wiekowej** od daty urodzenia użytkownika:
 
-1. Spróbuj znaleźć kraj według kodu kraju znajdującego się na liście. Jeśli kraj nie zostanie znaleziony, Wróć do **ustawień domyślnych**.
+1. Spróbuj znaleźć kraj/region według kodu kraju/regionu na liście. Jeśli kraj/region nie zostanie znaleziony, Wróć do **domyślnego**.
 
-2. Jeśli węzeł **MinorConsent** jest obecny w elemencie Country:
+2. Jeśli węzeł **MinorConsent** jest obecny w elemencie Country/Region:
 
     a. Oblicz datę, do której użytkownik musi zostać uznany za osobę dorosłą. Na przykład, jeśli bieżąca data to 14 marca 2015, a **MinorConsent** to 18, Data urodzenia nie może być późniejsza niż 14 marca 2000.
 
     b. Porównaj minimalną datę urodzenia z rzeczywistą datą urodzenia. Jeśli minimalna Data urodzenia jest wcześniejsza niż data urodzenia użytkownika, obliczenie zwróci wartość **pomocniczą** jako obliczenie grupy wiekowej.
 
-3. Jeśli węzeł **MinorNoConsentRequired** jest obecny w elemencie Country, powtórz kroki od 2A do 2b przy użyciu wartości z **MinorNoConsentRequired**. Wyjście 2b zwraca **MinorNoConsentRequired** , jeśli minimalna Data urodzenia jest wcześniejsza niż data urodzenia użytkownika.
+3. Jeśli węzeł **MinorNoConsentRequired** jest obecny w elemencie Country/region, powtórz kroki od 2A do 2b przy użyciu wartości z **MinorNoConsentRequired**. Wyjście 2b zwraca **MinorNoConsentRequired** , jeśli minimalna Data urodzenia jest wcześniejsza niż data urodzenia użytkownika.
 
 4. Jeśli żadna z obliczeń nie zwraca wartości true, obliczenia zwracają wartość **dorosłą**.
 

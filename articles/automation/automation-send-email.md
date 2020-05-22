@@ -1,44 +1,34 @@
 ---
 title: Wyślij wiadomość e-mail z elementu Runbook Azure Automation
-description: Dowiedz się, jak wysyłać wiadomości e-mail z poziomu elementu Runbook za pomocą usługi SendGrid.
+description: W tym artykule opisano sposób wysyłania wiadomości e-mail z elementu Runbook.
 services: automation
 ms.subservice: process-automation
 ms.date: 07/15/2019
-ms.topic: tutorial
-ms.openlocfilehash: 4d825dee469497cbb56a91c913ff3ac51963058b
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.topic: conceptual
+ms.openlocfilehash: 5f14bf383037bf937629d4307e7a1fb04825d2a7
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82855694"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743776"
 ---
-# <a name="tutorial-send-an-email-from-an-azure-automation-runbook"></a>Samouczek: wysyłanie wiadomości e-mail z Azure Automation elementu Runbook
+# <a name="send-an-email-from-a-runbook"></a>Wysyłanie wiadomości e-mail z poziomu elementu runbook
 
-Możesz wysłać wiadomość e-mail z elementu Runbook za pomocą usługi [SendGrid](https://sendgrid.com/solutions) przy użyciu programu PowerShell. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
-
-> [!div class="checklist"]
->
-> * Utwórz Azure Key Vault.
-> * Zapisz klucz `SendGrid` interfejsu API w magazynie kluczy.
-> * Utwórz element Runbook wielokrotnego użytku, który pobierze klucz interfejsu API i wyśle wiadomość e-mail przy użyciu klucza interfejsu API przechowywanego w [Azure Key Vault](/azure/key-vault/).
-
->[!NOTE]
->Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Instrukcje dotyczące instalacji polecenia AZ module w hybrydowym procesie roboczym elementu Runbook znajdują się w temacie [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). W przypadku konta usługi Automation można zaktualizować moduły do najnowszej wersji przy użyciu [sposobu aktualizowania modułów Azure PowerShell w programie Azure Automation](automation-update-azure-modules.md).
+Możesz wysłać wiadomość e-mail z elementu Runbook za pomocą usługi [SendGrid](https://sendgrid.com/solutions) przy użyciu programu PowerShell. 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Do wykonania czynności przedstawionych w tym samouczku są wymagane następujące elementy:
-
-* Subskrypcja platformy Azure: Jeśli jeszcze jej nie masz, możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Utwórz konto SendGrid](/azure/sendgrid-dotnet-how-to-send-email#create-a-sendgrid-account).
-* [Konto usługi Automation](automation-offering-get-started.md) z poleceniem **AZ** modules i poleceniem [Run As](automation-create-runas-account.md)do przechowywania i wykonywania elementu Runbook.
+* Subskrypcja platformy Azure. Jeśli jeszcze jej nie masz, możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/ember-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* [Konto SendGrid](/azure/sendgrid-dotnet-how-to-send-email#create-a-sendgrid-account).
+* [Konto usługi Automation](automation-offering-get-started.md) za pomocą **AZ** modules.
+* [Konto Uruchom jako](automation-create-runas-account.md) do przechowywania i wykonywania elementu Runbook.
 
 ## <a name="create-an-azure-key-vault"></a>Tworzenie usługi Azure Key Vault
 
-Azure Key Vault można utworzyć przy użyciu poniższego skryptu programu PowerShell. Zamień wartości zmiennej na wartości specyficzne dla danego środowiska. Użyj osadzonego Azure Cloud Shell za pomocą przycisku **Wypróbuj** , znajdującego się w prawym górnym rogu bloku kodu. Możesz również skopiować i uruchomić kod lokalnie, jeśli masz [moduł Azure PowerShell](/powershell/azure/install-az-ps) zainstalowany na komputerze lokalnym.
+Azure Key Vault można utworzyć przy użyciu poniższego skryptu programu PowerShell. Zamień wartości zmiennej na wartości specyficzne dla danego środowiska. Użyj osadzonego Azure Cloud Shell za pomocą przycisku **Wypróbuj** , znajdującego się w prawym górnym rogu bloku kodu. Możesz również kopiować i uruchamiać kod lokalnie, jeśli [masz zainstalowane na](/powershell/azure/install-az-ps) komputerze lokalnym.
 
 > [!NOTE]
-> Aby pobrać klucz interfejsu API, wykonaj kroki opisane w sekcji [Znajdowanie klucza interfejsu API usługi SendGrid](/azure/sendgrid-dotnet-how-to-send-email#to-find-your-sendgrid-api-key).
+> Aby pobrać klucz interfejsu API, wykonaj kroki opisane w sekcji [Znajdowanie klucza interfejsu API SendGrid](/azure/sendgrid-dotnet-how-to-send-email#to-find-your-sendgrid-api-key).
 
 ```azurepowershell-interactive
 $SubscriptionId  =  "<subscription ID>"
@@ -73,33 +63,27 @@ Set-AzKeyVaultAccessPolicy -VaultName $VaultName -ServicePrincipalName $appID -P
 
 Aby zapoznać się z innymi sposobami tworzenia Azure Key Vault i przechowywania wpisu tajnego, zobacz [Key Vault przewodników szybki start](/azure/key-vault/).
 
-## <a name="import-required-modules-to-your-automation-account"></a>Importowanie wymaganych modułów do konta usługi Automation
+## <a name="import-required-modules-into-your-automation-account"></a>Importowanie wymaganych modułów do konta usługi Automation
 
-Aby można było używać Azure Key Vault w elemencie Runbook, konto usługi Automation wymaga następujących modułów:
+Aby użyć Azure Key Vault w elemencie Runbook, należy zaimportować następujące moduły do konta usługi Automation:
 
-* [Az.Profile](https://www.powershellgallery.com/packages/Az.Profile)
-* [Az.KeyVault](https://www.powershellgallery.com/packages/Az.KeyVault)
+    * [Az.Profile](https://www.powershellgallery.com/packages/Az.Profile)
+    * [Az.KeyVault](https://www.powershellgallery.com/packages/Az.KeyVault)
 
-Kliknij przycisk **Wdróż, aby Azure Automation** na karcie Azure Automation w obszarze **Opcje instalacji**. Ta akcja spowoduje otwarcie Azure Portal. Na stronie Importowanie wybierz konto usługi Automation i kliknij przycisk **OK**.
-
-Aby uzyskać dodatkowe metody dodawania wymaganych modułów, zobacz [Importowanie modułów](/azure/automation/shared-resources/modules#importing-modules).
+Aby uzyskać instrukcje, zobacz [Importowanie AZ modules](shared-resources/modules.md#import-az-modules).
 
 ## <a name="create-the-runbook-to-send-an-email"></a>Tworzenie elementu Runbook w celu wysłania wiadomości e-mail
 
-Po utworzeniu magazynu kluczy i zapisaniu klucza `SendGrid` interfejsu API czas tworzenia elementu Runbook, który pobiera klucz interfejsu API i wysyła wiadomość e-mail.
-
-Ten element Runbook `AzureRunAsConnection` używa [konta Uruchom](automation-create-runas-account.md) jako do uwierzytelniania na platformie Azure w celu pobrania klucza tajnego z Azure Key Vault.
-
-Użyj tego przykładu, aby utworzyć element Runbook o nazwie **send-GridMailMessage**. Możesz zmodyfikować skrypt programu PowerShell, a następnie użyć go ponownie w różnych scenariuszach.
+Po utworzeniu Key Vault i zapisaniu `SendGrid` klucza interfejsu API czas tworzenia elementu Runbook, który pobiera klucz interfejsu API i wysyła wiadomość e-mail. Użyjmy elementu Runbook, który jest używany `AzureRunAsConnection` jako [konto Uruchom jako](automation-create-runas-account.md) do uwierzytelniania na platformie Azure w celu pobrania klucza tajnego z Azure Key Vault. Wywołamy element Runbook **send-GridMailMessage**. Można modyfikować skrypt programu PowerShell używany do przykładu i ponownie używać go w różnych scenariuszach.
 
 1. Przejdź do swojego konta Azure Automation.
 2. W obszarze **Automatyzacja procesów**wybierz pozycję **elementy Runbook**.
 3. W górnej części listy elementów Runbook wybierz pozycję **+ Utwórz element Runbook**.
-4. Na stronie **Dodawanie elementu Runbook** wprowadź polecenie **send-GridMailMessage** dla nazwy elementu Runbook. W polu Typ elementu Runbook wybierz pozycję **PowerShell**. Następnie wybierz przycisk **Create** (Utwórz).
+4. Na stronie Dodawanie elementu Runbook wprowadź polecenie **send-GridMailMessage** dla nazwy elementu Runbook. W polu Typ elementu Runbook wybierz pozycję **PowerShell**. Następnie wybierz przycisk **Create** (Utwórz).
    ![Utwórz element Runbook](./media/automation-send-email/automation-send-email-runbook.png)
-5. Element runbook zostanie utworzony i zostanie otworzona strona **Edytuj element runbook programu PowerShell**.
+5. Element runbook zostanie utworzony i zostanie otworzona strona Edytuj element runbook programu PowerShell.
    ![Edytowanie elementu Runbook](./media/automation-send-email/automation-send-email-edit.png)
-6. Skopiuj poniższy przykład programu PowerShell do strony **Edycja** . Upewnij się, `$VaultName` że jest to nazwa określona podczas tworzenia magazynu kluczy.
+6. Skopiuj poniższy przykład programu PowerShell do strony Edycja. Upewnij się, że `VaultName` określono nazwę wybraną dla Key Vault.
 
     ```powershell-interactive
     Param(
@@ -151,13 +135,14 @@ Użyj tego przykładu, aby utworzyć element Runbook o nazwie **send-GridMailMes
 7. Wybierz pozycję **Publikuj** , aby zapisać i opublikować element Runbook.
 
 Aby sprawdzić, czy element Runbook został wykonany pomyślnie, możesz wykonać czynności opisane w sekcji [testowanie elementu Runbook](manage-runbooks.md#test-a-runbook) lub [Uruchamianie elementu Runbook](start-runbooks.md).
+
 Jeśli nie widzisz początkowo testową pocztą e-mail, Sprawdź foldery **wiadomości-śmieci** i **spamu** .
 
-## <a name="clean-up"></a>Czyszczenie
+## <a name="clean-up-after-the-email-operation"></a>Wyczyść po operacji poczty e-mail
 
-Gdy element runbook nie będzie już potrzebny, usuń go. Aby to zrobić, zaznacz element runbook na liście i kliknij pozycję **Usuń**.
+1. Gdy element Runbook nie jest już wymagany, wybierz go na liście elementów Runbook, a następnie kliknij przycisk **Usuń**.
 
-Usuń Magazyn kluczy za pomocą polecenia cmdlet [Remove-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/remove-azkeyvault?view=azps-3.7.0) .
+2. Usuń Key Vault za pomocą polecenia cmdlet [Remove-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/remove-azkeyvault?view=azps-3.7.0) .
 
 ```azurepowershell-interactive
 $VaultName = "<your KeyVault name>"
@@ -167,7 +152,7 @@ Remove-AzKeyVault -VaultName $VaultName -ResourceGroupName $ResourceGroupName
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Problemy związane z tworzeniem lub uruchamianiem elementu Runbook można znaleźć w temacie [Rozwiązywanie problemów z elementami Runbook](./troubleshoot/runbooks.md).
-* Aby zaktualizować moduły na koncie usługi Automation, zobacz [temat jak aktualizować moduły Azure PowerShell w Azure Automation](automation-update-azure-modules.md)].
-* Aby monitorować wykonywanie elementu Runbook, zobacz temat [przekazywanie stanu zadań i strumieni zadań z automatyzacji do Azure monitor dzienników](automation-manage-send-joblogs-log-analytics.md).
-* Aby wyzwolić element Runbook przy użyciu alertu, zobacz [Używanie alertu do wyzwalania elementu runbook Azure Automation](automation-create-alert-triggered-runbook.md).
+* [Aktualizowanie modułów programu Azure PowerShell](automation-update-azure-modules.md)
+* [Przekazywanie danych zadania usługi Azure Automation do dzienników usługi Azure Monitor](automation-manage-send-joblogs-log-analytics.md)
+* [Użyj alertu, aby wyzwolić Azure Automation element Runbook](automation-create-alert-triggered-runbook.md)
+* [Rozwiązywanie problemów z elementem Runbook](./troubleshoot/runbooks.md)

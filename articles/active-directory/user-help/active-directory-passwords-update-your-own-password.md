@@ -8,15 +8,15 @@ ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
-ms.openlocfilehash: 3ed79be318319009aabb1b1ef0c42c4021bbbabe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b27b046d53a45c91d0a55a468758386437a7a6a5
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77062663"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739668"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Zresetuj hasło służbowe przy użyciu informacji zabezpieczających
 
@@ -103,7 +103,7 @@ Jeśli nie możesz uzyskać dostępu do konta usługi Azure Active Directory (Az
 
      Jeśli nadal nie możesz uzyskać dostępu do konta, skontaktuj się z administratorem organizacji, aby uzyskać pomoc.
 
-Po zresetowaniu hasła może zostać wykorzystana wiadomość e-mail z potwierdzeniem, która pochodzi z konta takiego jak "Microsoft w \<imieniu *your_organization*>". Jeśli otrzymasz podobną wiadomość e-mail, ale ostatnio nie zresetujesz hasła, musisz natychmiast skontaktować się z administratorem w organizacji.
+Po zresetowaniu hasła może zostać wykorzystana wiadomość e-mail z potwierdzeniem, która pochodzi z konta takiego jak "Microsoft w imieniu \< *your_organization*>". Jeśli otrzymasz podobną wiadomość e-mail, ale ostatnio nie zresetujesz hasła, musisz natychmiast skontaktować się z administratorem w organizacji.
 
 ## <a name="how-to-change-your-password"></a>How to change your password (Jak zmienić hasło)
 
@@ -117,7 +117,7 @@ Użyj tej metody, jeśli zwykle uzyskujesz dostęp do aplikacji za pomocą porta
 
 2. Wybierz swój profil w prawym górnym rogu, a następnie wybierz pozycję **Wyświetl konto**.
 
-3. Wybierz pozycję **zabezpieczenia & hasło ochrony prywatności** > **Password**.
+3. Wybierz pozycję **zabezpieczenia & hasło ochrony prywatności**  >  **Password**.
 
 4. Wpisz stare hasło, Utwórz i Potwierdź nowe hasło, a następnie wybierz pozycję **Prześlij**.
 

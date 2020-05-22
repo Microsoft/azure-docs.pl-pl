@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 05/06/2020
+ms.date: 05/18/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 227f4a804c466af81707eca79e9d8cf6c00e52be
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: c37850d2188f560b8eb8d0b16f5a1b2880a8b32e
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82984363"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83740623"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-bamboo"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z usługą EasySSO dla Bamboo
 
@@ -96,10 +96,10 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
 1. EasySSO for Bamboo oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych.
 
-    ![image](common/default-attributes.png)
+    ![image (obraz)](common/default-attributes.png)
 
 1. Oprócz powyższych, EasySSO for Bamboo oczekuje kilku atrybutów do przekazania z powrotem w odpowiedzi SAML, które przedstawiono poniżej. Te atrybuty są również wstępnie wypełnione, ale można je sprawdzić zgodnie z wymaganiami.
-    
+
     | Nazwa | Atrybut źródłowy |
     | ---------------|  --------- |
     | urn: identyfikator OID: 2.16.840.1.113730.3.1.241 | user.displayname |
@@ -120,7 +120,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
@@ -144,13 +144,50 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ## <a name="configure-easysso-for-bamboo-sso"></a>Konfigurowanie EasySSO na potrzeby logowania jednokrotnego Bamboo
 
-Aby skonfigurować Logowanie jednokrotne na stronie **EasySSO dla Bamboo** , musisz wysłać **adres URL metadanych federacji aplikacji** do [EasySSO dla zespołu pomocy technicznej Bamboo](mailto:support@techtime.co.nz). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+1. Zaloguj się do swojego wystąpienia usługi EasySSO for Bamboo z uprawnieniami administratora i przejdź do sekcji **Zarządzanie aplikacjami** .
+
+    ![EasySSO dla konfiguracji Bamboo](./media/easysso-for-bamboo-tutorial/jira-admin-1.png)
+
+1. Kliknij pozycję **EasySSO**.
+
+    ![EasySSO dla konfiguracji Bamboo](./media/easysso-for-bamboo-tutorial/jira-admin-2.png)
+
+1. Wybierz opcję **SAML** . Spowoduje to przejście do sekcji Konfiguracja protokołu SAML.
+
+    ![EasySSO dla konfiguracji Bamboo](./media/easysso-for-bamboo-tutorial/jira-admin-3.png)
+
+1. Wybierz **kartę certyfikaty** u góry, a zobaczysz poniższy ekran i Zlokalizuj **plik** **certyfikatu (base64)** , który został zapisany we wcześniejszych krokach konfiguracji **rejestracji jednokrotnej usługi Azure AD** . Dostępne są następujące opcje:
+
+    ![EasySSO dla konfiguracji Bamboo](./media/easysso-for-bamboo-tutorial/jira-admin-4.png)
+
+    a. Użyj pobranego **pliku metadanych** Federacji aplikacji do pliku lokalnego na komputerze. Wybierz przycisk radiowy **Przekaż** i postępuj zgodnie z oknem dialogowym przekazywania pliku określonym dla danego systemu operacyjnego
+
+    **ORAZ**
+
+    b. Otwórz **plik metadanych** Federacji aplikacji, aby zobaczyć zawartość (w dowolnym edytorze tekstu) i skopiować ją do Schowka. Wybierz opcję **dane wejściowe** i wklej zawartość schowka do pola tekstowego.
+
+    **ORAZ**
+
+    c. Konfiguracja w pełni ręczna. Otwórz certyfikat Federacji aplikacji **(base64)** , aby zobaczyć zawartość (w dowolnym edytorze tekstu) i skopiować ją do Schowka. Wklej ją do pola tekstowego **certyfikaty podpisywania tokenu dostawcy tożsamości** . Następnie przejdź do karty **Ogólne** i wypełnij **pola adres URL** i **Identyfikator jednostki** z odpowiednimi wartościami dla **adresu URL logowania** i **identyfikatora usługi Azure AD** , które zostały zapisane wcześniej.
+
+1. Kliknij przycisk **Zapisz** u dołu strony. Zostanie wyświetlona zawartość metadanych lub plików certyfikatów przeanalizowanych w pola konfiguracji. Konfiguracja EasySSO dla Bamboo została ukończona.
+
+1. W celu uzyskania najlepszego środowiska testowania przejdź do karty **& działanie** i zaznacz opcję **przycisk Zaloguj SAML** . Spowoduje to włączenie osobnego przycisku na ekranie logowania EasySSO dla Bamboo w celu przetestowania kompleksowej integracji protokołu SAML usługi Azure AD. Ten przycisk można opuścić i skonfigurować jego położenie, kolor oraz tłumaczenie dla trybu produkcji.
+
+    ![EasySSO dla konfiguracji Bamboo](./media/easysso-for-bamboo-tutorial/jira-admin-5.png)
+
+    > [!NOTE]
+    > Jeśli masz jakieś problemy, skontaktuj się z [zespołem pomocy technicznej EasySSO](mailto:support@techtime.co.nz).
 
 ### <a name="create-easysso-for-bamboo-test-user"></a>Utwórz EasySSO dla użytkownika testowego Bamboo
 
-W tej sekcji użytkownik o nazwie Britta Simon jest tworzony w EasySSO dla Bamboo. EasySSO dla Bamboo obsługuje Inicjowanie obsługi użytkowników just in Time, która jest domyślnie włączona. W tej sekcji nie musisz niczego robić. Jeśli użytkownik nie istnieje jeszcze w usłudze EasySSO dla Bamboo, zostanie utworzony nowy po uwierzytelnieniu.
+W tej sekcji użytkownik o nazwie B. Simon został utworzony w EasySSO dla Bamboo. EasySSO dla Bamboo obsługuje Inicjowanie obsługi użytkowników just in Time, która jest domyślnie **wyłączona** . Aby włączyć Inicjowanie obsługi użytkowników, należy jawnie zaznaczyć opcję **Utwórz użytkownika przy pomyślnym logowaniu** w sekcji Ogólne konfiguracji wtyczki EasySSO. Jeśli użytkownik nie istnieje jeszcze w usłudze EasySSO dla Bamboo, zostanie utworzony nowy po uwierzytelnieniu.
 
-## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
+Jeśli jednak użytkownik nie chce włączać automatycznego inicjowania obsługi użytkowników przy pierwszym logowaniu użytkownika, musi istnieć w katalogach użytkowników zaplecza EasySSO dla wystąpienia Bamboo, które używają, takich jak LDAP lub Atlassian.
+
+![Aprowizowanie użytkowników](./media/easysso-for-bamboo-tutorial/jira-admin-6.png)
+
+## <a name="test-sso"></a>Testuj Logowanie jednokrotne
 
 W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
 

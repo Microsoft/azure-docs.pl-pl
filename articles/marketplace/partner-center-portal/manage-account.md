@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 54b45825f2322dc127d5db818b7abe52e4a98967
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: f5e4515cfbacb656f60492613b5379c0bde60244
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208401"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83736028"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Zarządzanie kontem komercyjnej witryny Marketplace w centrum partnerskim
 
@@ -64,7 +64,7 @@ W sekcji informacje kontaktowe zobaczysz **nazwę wyświetlaną wydawcy**, **inf
 
 #### <a name="payout-account"></a>Konto wypłaty
 
-Konto wypłaty to konto bankowe, do którego są wysyłane transakcje z sprzedaży. To konto bankowe musi znajdować się w tym samym kraju, w którym zostało zarejestrowane konto Centrum partnerskiego.
+Konto wypłaty to konto bankowe, do którego są wysyłane transakcje z sprzedaży. To konto bankowe musi znajdować się w tym samym kraju/regionie, w którym zostało zarejestrowane konto Centrum partnerskiego.
 
 Aby skonfigurować konto wypłaty:
 
@@ -80,21 +80,21 @@ Aby skonfigurować konto wypłaty:
 
 Przejrzyj bieżący stan profilu podatkowego, potwierdź, że jest wyświetlany prawidłowy **Typ jednostki** i **Informacje o certyfikacie podatkowym** . Wybierz pozycję **Edytuj** , aby zaktualizować lub ukończyć wszystkie wymagane formularze.
 
-Aby ustalić swój stan podatkowy, należy określić swój kraj pobytu i obywatelstwo oraz wypełnić odpowiednie formularze podatkowe związane z Twoim krajem/regionem.
+Aby ustalić swój stan podatkowy, należy określić kraj/region zamieszkania i obywatelstwo oraz wypełnić odpowiednie formularze podatkowe związane z Twoim krajem/regionem.
 
-Niezależnie od kraju zamieszkania lub obywatelstwa, musisz wypełnić Stany Zjednoczone formularzy podatkowych, aby sprzedać oferty w firmie Microsoft. Partnerzy, którzy spełniają określone wymagania dotyczące Stany Zjednoczone miejsca zamieszkania, muszą wypełnić formularz urzędu skarbowego W postaci od-9. Inni partnerzy spoza Stany Zjednoczone muszą wypełnić formularz urzędu skarbowego W trybie do 8. Możesz wypełnić te formularze w trybie online, gdy dokończysz swój profil podatkowy.
+Niezależnie od kraju/regionu zamieszkania lub obywatelstwa, musisz wypełnić Stany Zjednoczone formularzy podatkowych, aby sprzedać oferty w firmie Microsoft. Partnerzy, którzy spełniają określone wymagania dotyczące Stany Zjednoczone miejsca zamieszkania, muszą wypełnić formularz urzędu skarbowego W postaci od-9. Inni partnerzy spoza Stany Zjednoczone muszą wypełnić formularz urzędu skarbowego W trybie do 8. Możesz wypełnić te formularze w trybie online, gdy dokończysz swój profil podatkowy.
 
 Stany Zjednoczone indywidualny numer identyfikacyjny podatnika (lub ITIN) nie jest wymagany do otrzymywania płatności od firmy Microsoft ani do roszczeń wynikających z Traktatu podatkowego.
 
 W centrum partnerskim można dokończyć i przesyłać formularze podatkowe elektronicznie. w większości przypadków nie ma potrzeby drukowania ani wysyłania żadnych formularzy.
 
-Różne kraje i regiony mają różne wymagania podatkowe. Dokładna kwota, która musi zostać zapłacona podatkiem, zależy od krajów i regionów, w których sprzedawane są oferty. Firma Microsoft przekazuje sprzedaż i używa podatków w niektórych krajach. Te kraje zostaną zidentyfikowane w procesie tworzenia oferty. W innych krajach, w zależności od tego, gdzie jest zarejestrowany, może być konieczne przekazanie sprzedaży i użycie podatku za sprzedaż bezpośrednio do urzędu opodatkowania lokalnego. Ponadto otrzymane przychody mogą być opodatkowane jako dochód. Zdecydowanie zachęcamy do skontaktowania się z odpowiednim urzędem dla danego kraju lub regionu, który może pomóc w ustaleniu odpowiednich informacji podatkowych dla transakcji sprzedaży firmy Microsoft.
+Różne kraje i regiony mają różne wymagania podatkowe. Dokładna kwota, która musi zostać zapłacona podatkiem, zależy od krajów i regionów, w których sprzedawane są oferty. Firma Microsoft dokonuje sprzedaży i używa podatków w Twoim imieniu w niektórych krajach/regionach. Te kraje/regiony zostaną zidentyfikowane w procesie tworzenia oferty. W innych krajach/regionach, w zależności od tego, gdzie się rejestrujesz, może być konieczne przekazanie sprzedaży i użycie podatku za sprzedaż bezpośrednio do urzędu opodatkowania lokalnego. Ponadto otrzymane przychody mogą być opodatkowane jako dochód. Zdecydowanie zachęcamy do skontaktowania się z odpowiednim urzędem dla danego kraju lub regionu, który może pomóc w ustaleniu odpowiednich informacji podatkowych dla transakcji sprzedaży firmy Microsoft.
 
 ##### <a name="withholding-rates"></a>Stawki za potrącenie
-Informacje przesyłane w formularzach podatkowych określają odpowiednią stawkę za potrącenie podatku. Wskaźnik potrącenia ma zastosowanie tylko do sprzedaży wprowadzonej do Stany Zjednoczone; sprzedaż dokonywana w lokalizacjach innych niż Stany USA nie podlega potrąceniu. Stawki zaliczania są różne, ale dla większości deweloperów rejestrowanych poza Stany Zjednoczone Domyślna stawka wynosi 30%. Istnieje możliwość zredukowania tej stawki, Jeśli Twój kraj wyraził zgodę na Traktat z tytułu podatku dochodowego z Stany Zjednoczone.
+Informacje przesyłane w formularzach podatkowych określają odpowiednią stawkę za potrącenie podatku. Wskaźnik potrącenia ma zastosowanie tylko do sprzedaży wprowadzonej do Stany Zjednoczone; sprzedaż dokonywana w lokalizacjach innych niż Stany USA nie podlega potrąceniu. Stawki zaliczania są różne, ale dla większości deweloperów rejestrowanych poza Stany Zjednoczone Domyślna stawka wynosi 30%. Istnieje możliwość zmniejszenia tej stawki, jeśli kraj/region wyraził zgodę na Traktat akcyzowy z Stany Zjednoczone.
 
 ##### <a name="tax-treaty-benefits"></a>Korzyści z Traktatu podatkowego
-Jeśli nie masz Stany Zjednoczone, możesz skorzystać z korzyści z traktatów podatkowych. Te korzyści różnią się w zależności od kraju do kraju i mogą pomóc w zmniejszeniu liczby podatków wykorzystanych przez firmę Microsoft. Korzyści z Traktatu podatkowego można zgłaszać, wypełniając część II formularza W 8BEN. Zalecamy komunikację z odpowiednimi zasobami w Twoim kraju lub regionie, aby określić, czy te korzyści dotyczą użytkownika.
+Jeśli nie masz Stany Zjednoczone, możesz skorzystać z korzyści z traktatów podatkowych. Te korzyści różnią się w zależności od kraju/regionu do kraju/regionu i mogą pozwalać zmniejszyć liczbę podatków rozpuszczalnych przez firmę Microsoft. Korzyści z Traktatu podatkowego można zgłaszać, wypełniając część II formularza W 8BEN. Zalecamy komunikację z odpowiednimi zasobami w Twoim kraju lub regionie, aby określić, czy te korzyści dotyczą użytkownika.
 
 [Dowiedz się więcej o szczegółach dotyczących podatku dla deweloperów aplikacji/gier systemu Windows i wydawców portalu Azure Marketplace](https://docs.microsoft.com/windows/uwp/publish/tax-details-for-paid-apps).
 
@@ -134,7 +134,7 @@ Aby uzyskać więcej informacji, zobacz [Śledzenie użycia klientów platformy 
 
 Jeśli publikujesz [Dynamics 365 do zaangażowania klienta & aplikacje zaawansowane](./create-new-customer-engagement-offer.md) lub [Dynamics 365 for Operations](./create-new-operations-offer.md) , musisz ukończyć **profil rozliczeń**.
 
-Adres rozliczeniowy jest wstępnie wypełniony przez firmę prawną i można go później zaktualizować. Pola podatek i Identyfikator VAT są opcjonalne.  Nie można edytować nazwy kraju i nazwy firmy.
+Adres rozliczeniowy jest wstępnie wypełniony przez firmę prawną i można go później zaktualizować. Pola podatek i Identyfikator VAT są opcjonalne.  Nie można edytować nazwy kraju/regionu i nazwy firmy.
 
 ## <a name="multi-user-account-management"></a>Zarządzanie kontami przez wiele użytkowników
 

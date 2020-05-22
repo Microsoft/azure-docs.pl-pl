@@ -5,12 +5,12 @@ author: ofirmanor
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: 62b2738324f4c728cd4b5959c04c93649c156afb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7f0c99899b647c677025dbb38480b4d7f64c24fa
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81114439"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739992"
 ---
 # <a name="common-alert-schema-definitions"></a>Definicje typowych schematów alertów
 
@@ -83,7 +83,7 @@ Każde wystąpienie alertu opisuje zaatakowany zasób i przyczynę alertu. Te wy
 | originAlertId | Identyfikator wystąpienia alertu, zgodnie z wygenerowaniem przez usługę monitorowania. |
 | firedDateTime | Data i godzina uruchomienia wystąpienia alertu w uniwersalnym czasie koordynowanym (UTC). |
 | resolvedDateTime | Data i godzina, kiedy warunek monitora dla wystąpienia alertu jest ustawiony na **rozwiązany** w formacie UTC. Dotyczy tylko alertów dotyczących metryk.|
-| description | Opis, zgodnie z definicją w regule alertu. |
+| description (opis) | Opis, zgodnie z definicją w regule alertu. |
 |essentialsVersion| Numer wersji sekcji podstawy.|
 |alertContextVersion | Numer wersji `alertContext` sekcji. |
 
@@ -149,7 +149,7 @@ Każde wystąpienie alertu opisuje zaatakowany zasób i przyczynę alertu. Te wy
 ### <a name="log-alerts"></a>Alerty dotyczące dzienników
 
 > [!NOTE]
-> W przypadku alertów dziennika, które mają zdefiniowany niestandardowy element tematu wiadomości e-mail i/lub ładunek JSON, włączenie wspólnego schematu powoduje przywrócenie tematu i/lub schematu ładunku poczty e-mail do opisanego w poniższej kolejności. Alerty z włączonym wspólnym schematem mają górny limit rozmiaru wynoszący 256 KB na alert. Wyniki wyszukiwania nie są osadzane w ładunku alertów dziennika, jeśli powodują, że rozmiar alertu przekracza ten próg. Można to określić, sprawdzając flagę `IncludeSearchResults`. Gdy wyniki wyszukiwania nie zostaną uwzględnione, należy użyć zapytania wyszukiwania w połączeniu z [interfejsem API log Analytics](https://docs.microsoft.com/rest/api/loganalytics/query/get). 
+> W przypadku alertów dziennika, które mają zdefiniowany niestandardowy element tematu wiadomości e-mail i/lub ładunek JSON, włączenie wspólnego schematu powoduje przywrócenie tematu i/lub schematu ładunku poczty e-mail do opisanego w poniższej kolejności. Alerty z włączonym wspólnym schematem mają górny limit rozmiaru wynoszący 256 KB na alert. Wyniki wyszukiwania nie są osadzane w ładunku alertów dziennika, jeśli powodują, że rozmiar alertu przekracza ten próg. Można to określić, sprawdzając flagę `IncludeSearchResults` . Gdy wyniki wyszukiwania nie zostaną uwzględnione, należy użyć zapytania wyszukiwania w połączeniu z [interfejsem API log Analytics](https://docs.microsoft.com/rest/api/loganalytics/dataaccess/query/get). 
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: a720627e1783d2e29ef180b7855132ea59444cab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 569731faffd97e816567af3f6ed1cf8cdf49f240
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248751"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83740454"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Wskazówki dotyczące danych osobowych przechowywanych w Log Analytics i Application Insights
 
@@ -83,7 +83,7 @@ W przypadku żądań danych widoku i eksportu należy użyć [interfejsu API zap
 > [!IMPORTANT]
 >  Chociaż większość operacji przeczyszczania może zakończyć się znacznie szybciej niż umowa SLA, **formalna umowa SLA na zakończenie operacji przeczyszczania jest ustawiana na 30 dni** z powodu dużego wpływu na używanej platformy danych. Jest to proces zautomatyzowany; nie ma sposobu na zażądanie, aby operacja była szybsza.
 
-### <a name="delete"></a>Usuwanie
+### <a name="delete"></a>Usuń
 
 > [!WARNING]
 > Usuwanie w Log Analytics są destrukcyjne i nieodwracalne! W ich wykonaniu należy zachować szczególną ostrożność.
@@ -101,7 +101,7 @@ Po przypisaniu roli Azure Resource Manager dostępne są dwie nowe ścieżki int
 
 #### <a name="log-data"></a>Dane dziennika
 
-* [Po przeczyszczeniu](https://docs.microsoft.com/rest/api/loganalytics/workspaces%202015-03-20/purge) — pobiera parametry danych do usunięcia i zwraca identyfikator GUID odwołania 
+* [Po przeczyszczeniu](https://docs.microsoft.com/rest/api/loganalytics/workspacepurge/purge) — pobiera parametry danych do usunięcia i zwraca identyfikator GUID odwołania 
 * Pobieranie stanu przeczyszczania — wywołanie po przeczyszczeniu zwróci nagłówek "x-MS-status-Location", który będzie zawierać adres URL, który można wywołać w celu określenia stanu interfejsu API przeczyszczania. Przykład:
 
     ```

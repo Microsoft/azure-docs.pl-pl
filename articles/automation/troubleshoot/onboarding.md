@@ -8,12 +8,12 @@ ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 27b93e77e7b813e73496d15c4003e999daff10d5
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 4c4c43d8522c6f507d458c56abc445e2da35fa6d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681268"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739383"
 ---
 # <a name="troubleshoot-feature-deployment-issues"></a>Rozwiązywanie problemów z wdrażaniem funkcji
 
@@ -71,7 +71,7 @@ Ten błąd jest spowodowany przez nieprawidłowe lub brakujące uprawnienia do m
 
 #### <a name="resolution"></a>Rozwiązanie
 
-Upewnij się, że masz poprawne [uprawnienia wdrażania funkcji](../automation-role-based-access-control.md#onboarding-permissions), a następnie spróbuj ponownie wdrożyć tę funkcję. Jeśli zostanie wyświetlony komunikat o błędzie `The solution cannot be enabled on this VM because the permission to read the workspace is missing` , upewnij się, że masz `Microsoft.OperationalInsights/workspaces/read` uprawnienia do sprawdzenia, czy maszyna wirtualna jest włączona dla obszaru roboczego.
+Upewnij się, że masz poprawne [uprawnienia wdrażania funkcji](../automation-role-based-access-control.md#feature-setup-permissions), a następnie spróbuj ponownie wdrożyć tę funkcję. Jeśli zostanie wyświetlony komunikat o błędzie `The solution cannot be enabled on this VM because the permission to read the workspace is missing` , upewnij się, że masz `Microsoft.OperationalInsights/workspaces/read` uprawnienia do sprawdzenia, czy maszyna wirtualna jest włączona dla obszaru roboczego.
 
 ### <a name="scenario-feature-deployment-fails-with-the-message-failed-to-configure-automation-account-for-diagnostic-logging"></a><a name="diagnostic-logging"></a>Scenariusz: Wdrażanie funkcji kończy się niepowodzeniem z komunikatem "nie można skonfigurować konta automatyzacji dla rejestrowania diagnostycznego"
 

@@ -3,12 +3,12 @@ title: Funkcje — LUIS
 description: Dodaj funkcje do modelu języka, aby przedstawić wskazówki dotyczące sposobu rozpoznawania danych wejściowych, które mają być oznaczone etykietami lub klasyfikacją.
 ms.topic: conceptual
 ms.date: 05/14/2020
-ms.openlocfilehash: e0fd4470c9e1c2a56562b3783010ff1ef87ff466
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c4f19ceed2e48f3f6ec2ed0958bccb7a85cff44f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682163"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83742708"
 ---
 # <a name="machine-learning-ml-features"></a>Funkcje uczenia maszynowego (ML)
 
@@ -85,7 +85,7 @@ Na przykład, jeśli n jednostka adresu wysyłkowego zawiera podjednostkę adres
     * Ulica (podjednostka)
     * Miasto (podjednostka)
     * Województwo (podjednostka)
-    * Kraj (podjednostka)
+    * Kraj/region (podjednostka)
     * Kod pocztowy (podjednostka)
 
 ## <a name="nested-subentities-with-features"></a>Zagnieżdżone podjednostki z funkcjami
@@ -118,14 +118,14 @@ Kontynuując przykład adresu wysyłkowego:
     * Nazwa ulicy (podjednostka)
     * Miasto (podjednostka)
     * Województwo (podjednostka)
-    * Kraj (podjednostka)
+    * Kraj/region (podjednostka)
     * Kod pocztowy (podjednostka)
 
 ### <a name="required-feature-using-prebuilt-entities"></a>Wymagana funkcja przy użyciu wstępnie utworzonych jednostek
 
-Miasto, Województwo i kraj są zwykle zamkniętym zestawem list, co oznacza, że nie zmieniają się znacznie w czasie. Te jednostki mogą mieć odpowiednie zalecane funkcje, a te funkcje mogą być oznaczone jako wymagane. Oznacza to, że cały adres wysyłkowy nie jest zwracany, ponieważ nie znaleziono jednostek z wymaganymi funkcjami.
+Miasto, Województwo i kraj/region są zwykle zamkniętym zestawem list, co oznacza, że nie zmieniają się znacznie w czasie. Te jednostki mogą mieć odpowiednie zalecane funkcje, a te funkcje mogą być oznaczone jako wymagane. Oznacza to, że cały adres wysyłkowy nie jest zwracany, ponieważ nie znaleziono jednostek z wymaganymi funkcjami.
 
-Co się stanie, jeśli miasto, Województwo lub kraj znajdują się w wypowiedź, ale w lokalizacji lub żargonu, które nie są oczekiwane przez LUIS? Jeśli chcesz udostępnić przetwarzanie końcowe, aby pomóc w rozwiązaniu jednostki, ze względu na wynik o niskim poziomie pewności od LUIS, nie zaznaczaj tej funkcji zgodnie z potrzebami.
+Co się stanie, jeśli miasto, Województwo lub kraj/region znajdują się w wypowiedź, ale w lokalizacji lub żargonu, których LUIS nie oczekuje? Jeśli chcesz udostępnić przetwarzanie końcowe, aby pomóc w rozwiązaniu jednostki, ze względu na wynik o niskim poziomie pewności od LUIS, nie zaznaczaj tej funkcji zgodnie z potrzebami.
 
 Innym przykładem wymaganej funkcji adresu dostawy jest numer [ulicy wymagany jako numer domu](luis-reference-prebuilt-entities.md) . Dzięki temu użytkownik może wprowadzić wartość "1 Microsoft" lub "jeden Microsoft". Oba te rozpoznają się z liczbą "1" dla podjednostki z numerem ulicy.
 
@@ -133,19 +133,19 @@ Innym przykładem wymaganej funkcji adresu dostawy jest numer [ulicy wymagany ja
 
 [Jednostka listy](reference-entity-list.md) jest używana jako lista nazw kanonicznych wraz z ich synonimami. Jako wymaganą funkcję, jeśli wypowiedź nie zawiera nazwy kanonicznej ani synonimu, jednostka nie jest zwracana jako część punktu końcowego przewidywania.
 
-Kontynuując na przykład adres wysyłkowy, Załóżmy, że firma tylko napływa wyłącznie do ograniczonego zestawu krajów. Można utworzyć jednostkę listy, która zawiera kilka sposobów, w których klient może odwoływać się do kraju. Jeśli LUIS nie znajdzie dokładnego dopasowania w tekście wypowiedź, jednostka (która ma wymaganą funkcję jednostki listy) nie jest zwracana w prognozie.
+Kontynuując na przykład adres wysyłkowy, Załóżmy, że firma jest tylko dostarczana do ograniczonego zestawu krajów/regionów. Można utworzyć jednostkę listy, która zawiera kilka sposobów, w których klient może odwoływać się do kraju. Jeśli LUIS nie znajdzie dokładnego dopasowania w tekście wypowiedź, jednostka (która ma wymaganą funkcję jednostki listy) nie jest zwracana w prognozie.
 
 |Nazwa kanoniczna|Synonimy|
 |--|--|
 |Stany Zjednoczone|U.S.<br>U. S. A<br>USA<br>Stany Zjednoczone<br>0|
 
-Aplikacja kliencka, taka jak rozmowa bot, może zadawać pytania, aby Klient wiedział, że zaznaczenie kraju jest ograniczone i _wymagane_.
+Aplikacja kliencka, taka jak rozmowa bot, może zadawać pytania, aby Klient wiedział, że zaznaczenie kraju/regionu jest ograniczone i _wymagane_.
 
 ### <a name="required-feature-using-regular-expression-entities"></a>Wymagana funkcja przy użyciu jednostek wyrażenia regularnego
 
 [Jednostka wyrażenia regularnego](reference-entity-regular-expression.md) używana jako wymagana funkcja zapewnia zaawansowane możliwości dopasowania tekstu.
 
-Kontynuując adres wysyłkowy, można utworzyć wyrażenie regularne, które przechwytuje reguły składni kodów pocztowych kraju.
+Kontynuując adres wysyłkowy, można utworzyć wyrażenie regularne, które przechwytuje reguły składni kodów pocztowych kraju/regionu.
 
 ## <a name="global-features"></a>Funkcje globalne
 

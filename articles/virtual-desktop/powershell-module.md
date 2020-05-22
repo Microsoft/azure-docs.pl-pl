@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6741c034351099f544c20749eb7c7a39e7932181
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: fd854691203361847ae9a6c873121c9b66820a90
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195130"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743367"
 ---
 # <a name="set-up-the-powershell-module-for-windows-virtual-desktop"></a>Konfigurowanie modułu programu PowerShell dla pulpitu wirtualnego systemu Windows
 
@@ -63,7 +63,12 @@ Spowoduje to zalogowanie się bezpośrednio do subskrypcji, która jest domyśln
 Jeśli chcesz zmienić domyślną subskrypcję po zalogowaniu, uruchom następujące polecenie cmdlet:
 
 ```powershell
-Select-AzSubscription -SubscriptionName <preferredsubscriptionname>
+Select-AzSubscription -Subscription <preferredsubscriptionname>
+```
+
+Możesz również wybrać opcję z listy za pomocą polecenia cmdlet out-GridView:
+```powershell
+Get-AzSubscription | Out-GridView -PassThru | Select-AzSubscription
 ```
 
 W przypadku wybrania nowej subskrypcji, która ma zostać użyta, nie trzeba określać jej identyfikatora w poleceniach cmdlet, które są uruchamiane w późniejszym czasie. Na przykład następujące polecenie cmdlet pobiera określonego hosta sesji bez potrzeby identyfikatora subskrypcji:

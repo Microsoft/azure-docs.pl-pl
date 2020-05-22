@@ -1,28 +1,28 @@
 ---
-title: Rozwiązywanie problemów ze zmianą w maszynie wirtualnej platformy Azure | Microsoft Docs
-description: Użyj śledzenia zmian, aby rozwiązać problemy ze zmianami w maszynie wirtualnej platformy Azure.
+title: Rozwiązywanie problemów dotyczących zmian na maszynie wirtualnej platformy Azure w Azure Automation | Microsoft Docs
+description: W tym artykule opisano sposób rozwiązywania problemów ze zmianami w maszynie wirtualnej platformy Azure.
 services: automation
 ms.subservice: change-inventory-management
-keywords: zmiana, śledzenie, automatyzacja
+keywords: zmiany, śledzenie, śledzenie zmian, spis, Automatyzacja
 ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 89f5e00c75b6b85c9a14de02504136907cde62b5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 211b34b4424fa5bc9b82dc1cc2a2da574ffc5d96
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81604695"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743685"
 ---
-# <a name="troubleshoot-changes-in-your-environment"></a>Rozwiązywanie problemów ze zmianami we własnym środowisku
+# <a name="troubleshoot-changes-on-an-azure-vm"></a>Rozwiązywanie problemów dotyczących zmian na maszynie wirtualnej platformy Azure
 
-W tym samouczku dowiesz się jak rozwiązywać problemy ze zmianami w maszynie wirtualnej platformy Azure. Po włączeniu Change Tracking można śledzić zmiany w oprogramowaniu, plikach, demonach systemu Linux, usługach Windows i kluczach rejestru systemu Windows na komputerach.
+W tym samouczku dowiesz się jak rozwiązywać problemy ze zmianami w maszynie wirtualnej platformy Azure. Dzięki włączeniu Change Tracking i spisu można śledzić zmiany w oprogramowaniu, plikach, demonach systemu Linux, usługach Windows i kluczach rejestru systemu Windows na komputerach.
 Identyfikowanie tych zmian konfiguracji może pomóc w określeniu problemów z działaniem w swoim środowisku.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Dodawanie maszyny wirtualnej do śledzenia zmian i spisu
+> * Włączanie Change Tracking i spisu dla maszyny wirtualnej
 > * Wyszukiwanie dzienników zmian dla zatrzymanej usługi
 > * Konfigurowanie śledzenia zmian
 > * Włączanie połączenia dziennika aktywności
@@ -35,42 +35,45 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 Do ukończenia tego samouczka niezbędne są następujące elementy:
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Konto automatyzacji](automation-offering-get-started.md) do przechowywania obserwatora i elementów Runbook akcji oraz zadania obserwatora.
-* [Maszyna wirtualna](../virtual-machines/windows/quick-create-portal.md) do dołączenia.
+* [Konto usługi Automation](automation-offering-get-started.md) do przechowywania obserwatora i elementów Runbook akcji oraz zadania obserwatora.
+* [Maszyna wirtualna](../virtual-machines/windows/quick-create-portal.md) , która ma zostać włączona dla tej funkcji.
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
 Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 
-## <a name="enable-change-tracking-and-inventory"></a>Włączanie śledzenia zmian i spisu
+## <a name="enable-change-tracking-and-inventory"></a>Włączanie rozwiązania Change Tracking and Inventory
 
-Najpierw musisz włączyć Change Tracking i spis dla maszyny wirtualnej w tym samouczku. Jeśli inne rozwiązanie automatyzacji zostało wcześniej włączone dla maszyny wirtualnej, ten krok nie jest konieczny.
+Najpierw należy włączyć Change Tracking i spis dla tego samouczka. Jeśli funkcja została wcześniej włączona, ten krok nie jest konieczny.
 
-1. Z menu po lewej stronie wybierz pozycję **maszyny wirtualne** i wybierz maszynę wirtualną z listy.
-1. Z menu po lewej stronie wybierz pozycję **spis** w obszarze **operacje**. Zostanie otwarta strona spis.
+>[!NOTE]
+>Jeśli pola są wyszarzone, dla maszyny wirtualnej jest włączona inna funkcja automatyzacji i musisz użyć tego samego obszaru roboczego i konta usługi Automation.
 
-![Włącz zmianę](./media/automation-tutorial-troubleshoot-changes/enableinventory.png)
+1. Wybierz pozycję **maszyny wirtualne** i wybierz maszynę wirtualną z listy.
+2. Z menu po lewej stronie wybierz pozycję **spis** w obszarze **operacje**. Zostanie otwarta strona spis.
 
-Skonfiguruj lokalizację, obszar roboczy usługi Log Analytics i konto usługi Automation, a następnie kliknij pozycję **Włącz**. Jeśli pola są wygaszone, oznacza to, że inne rozwiązanie automatyzacji jest włączone dla maszyny wirtualnej, a tym samym należy użyć tego samego obszaru roboczego i konta automatyzacji.
+    ![Włącz zmianę](./media/automation-tutorial-troubleshoot-changes/enableinventory.png)
 
-Obszar roboczy usługi [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) służy do zbierania danych generowanych przez funkcje i usługi, takie jak spis.
-Obszar roboczy zawiera pojedynczą lokalizację do przeglądania i analizowania danych z wielu źródeł.
+3. Wybierz obszar roboczy [log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) . Ten obszar roboczy zbiera dane, które są generowane przez funkcje takie jak Change Tracking i spis. Obszar roboczy zawiera pojedynczą lokalizację do przeglądania i analizowania danych z wielu źródeł.
 
-Podczas dołączania maszyna wirtualna jest obsługiwana za pomocą agenta Log Analytics dla systemu Windows i hybrydowego procesu roboczego elementu Runbook.
-Agent jest używany do komunikacji z maszyną wirtualną i uzyskiwania informacji o zainstalowanym oprogramowaniu.
+    [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Włączanie rozwiązania może potrwać do 15 minut. W tym czasie nie należy zamykać okna przeglądarki.
-Po włączeniu rozwiązania informacje dotyczące zainstalowanego oprogramowania i zmian w maszynie wirtualnej są przekazywane do dzienników usługi Azure Monitor.
+4. Wybierz konto usługi Automation, które ma być używane.
+
+5. Skonfiguruj lokalizację wdrożenia.
+
+5. Kliknij pozycję **Włącz** , aby wdrożyć funkcję dla maszyny wirtualnej. 
+
+Podczas instalacji maszyna wirtualna jest obsługiwana za pomocą agenta Log Analytics dla systemu Windows i [hybrydowego procesu roboczego elementu Runbook](automation-hybrid-runbook-worker.md). Włączenie Change Tracking i spisu może potrwać do 15 minut. W tym czasie nie należy zamykać okna przeglądarki.
+
+Po włączeniu tej funkcji informacje o zainstalowanym oprogramowaniu i zmianach na maszynach wirtualnych są przesyłane do dzienników Azure Monitor.
 Udostępnienie danych do analizy może potrwać od 30 minut do 6 godzin.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+## <a name="use-change-tracking-and-inventory-in-azure-monitor-logs"></a>Używanie Change Tracking i spisu w dziennikach Azure Monitor
 
-## <a name="using-change-tracking-in-azure-monitor-logs"></a>Używanie Change Tracking w dziennikach Azure Monitor
+Change Tracking i spis generuje dane dziennika, które są wysyłane do dzienników Azure Monitor. Aby wyszukać dzienniki przez uruchomienie zapytań, wybierz **log Analytics** w górnej części strony śledzenie zmian. Dane śledzenia zmian są przechowywane pod typem `ConfigurationChange` .
 
-Śledzenie zmian generuje dane dziennika, które są wysyłane do dzienników usługi Azure Monitor.
-Aby wyszukać dzienniki przez uruchomienie zapytań, wybierz **log Analytics** w górnej części strony śledzenie zmian.
-Dane śledzenia zmian są przechowywane pod typem `ConfigurationChange`.
-Następujące przykładowe zapytanie usługi Log Analytics zwraca wszystkie usługi systemu Windows, które zostały zatrzymane.
+Poniższy przykład Log Analytics Query zwraca wszystkie usługi systemu Windows, które zostały zatrzymane.
 
 ```loganalytics
 ConfigurationChange
@@ -81,27 +84,23 @@ Aby dowiedzieć się więcej na temat uruchamiania i wyszukiwania plików dzienn
 
 ## <a name="configure-change-tracking"></a>Konfigurowanie śledzenia zmian
 
-Śledzenie zmian daje możliwość śledzenia zmian konfiguracji na własnej maszynie wirtualnej. Poniższe kroki pokazują, jak skonfigurować śledzenie kluczy rejestru i plików.
-
-Aby wybrać, które pliki i klucze rejestru mają być zbierane i śledzone, wybierz pozycję **Edytuj ustawienia** w górnej części strony Śledzenie zmian.
+Funkcja śledzenia zmian umożliwia wybranie plików i kluczy rejestru do zbierania i śledzenia przy użyciu opcji **Edytuj ustawienia** w górnej części strony śledzenie zmian na maszynie wirtualnej. Do śledzenia na stronie Konfiguracja obszaru roboczego można dodawać klucze rejestru systemu Windows, pliki systemu Windows lub pliki Linux.
 
 > [!NOTE]
-> Spis i śledzenie zmian używają tych samych ustawień gromadzenia, a ustawienia zostaną skonfigurowane na poziomie obszaru roboczego.
+> Zarówno śledzenie zmian, jak i spis używają tych samych ustawień kolekcji, a ustawienia są konfigurowane na poziomie obszaru roboczego.
 
-Na stronie Konfiguracja obszaru roboczego Dodaj klucze rejestru systemu Windows, pliki systemu Windows lub pliki Linux do śledzenia, jak opisano w następnych trzech sekcjach.
-
-### <a name="add-a-windows-registry-key"></a>Dodawanie klucza rejestru systemu Windows
+### <a name="add-a-windows-registry-key"></a>Dodaj klucz rejestru systemu Windows
 
 1. Na karcie **Rejestr systemu Windows** wybierz opcję **Dodaj**. 
 
 1. Na stronie Dodaj rejestr systemu Windows dla Change Tracking wprowadź informacje dotyczące klucza do śledzenia i kliknij przycisk **Zapisz** .
 
-|Właściwość  |Opis  |
-|---------|---------|
-|Enabled (Włączony)     | Określa, czy ustawienie jest stosowane        |
-|Nazwa elementu     | Przyjazna nazwa pliku, który ma być śledzony        |
-|Grupa     | Nazwa grupy do logicznego grupowania plików        |
-|Klucz rejestru systemu Windows   | Ścieżka do sprawdzania pliku, na przykład: „HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup”      |
+    |Właściwość  |Opis  |
+    |---------|---------|
+    |Enabled (Włączony)     | Określa, czy ustawienie jest stosowane        |
+    |Nazwa elementu     | Przyjazna nazwa pliku, który ma być śledzony        |
+    |Grupa     | Nazwa grupy do logicznego grupowania plików        |
+    |Klucz rejestru systemu Windows   | Ścieżka do sprawdzania pliku, na przykład: „HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup”      |
 
 ### <a name="add-a-windows-file"></a>Dodawanie pliku systemu Windows
 
@@ -109,14 +108,14 @@ Na stronie Konfiguracja obszaru roboczego Dodaj klucze rejestru systemu Windows,
 
 1. Na stronie Dodawanie pliku systemu Windows dla Change Tracking wprowadź informacje dotyczące pliku lub katalogu, który ma być śledzony, i kliknij przycisk **Zapisz** .
 
-|Właściwość  |Opis  |
-|---------|---------|
-|Enabled (Włączony)     | Określa, czy ustawienie jest stosowane        |
-|Nazwa elementu     | Przyjazna nazwa pliku, który ma być śledzony        |
-|Grupa     | Nazwa grupy do logicznego grupowania plików        |
-|Wprowadzanie ścieżki     | Ścieżka do sprawdzania pliku, na przykład: „c:\temp\\\*.txt”<br>Możesz użyć również zmiennych środowiskowych, takich jak „%winDir%\System32\\\*.*”         |
-|Rekursja     | Określa, czy podczas wyszukiwania elementu, który ma być śledzony, ma być używana rekursja.        |
-|Przekaż zawartość pliku dla wszystkich ustawień| Włącza lub wyłącza przekazywanie zawartości pliku dla śledzonych zmian. Dostępne opcje: **True** lub **False**.|
+    |Właściwość  |Opis  |
+    |---------|---------|
+    |Enabled (Włączony)     | Określa, czy ustawienie jest stosowane        |
+    |Nazwa elementu     | Przyjazna nazwa pliku, który ma być śledzony        |
+    |Grupa     | Nazwa grupy do logicznego grupowania plików        |
+    |Wprowadzanie ścieżki     | Ścieżka do sprawdzania pliku, na przykład: „c:\temp\\\*.txt”<br>Możesz użyć również zmiennych środowiskowych, takich jak „%winDir%\System32\\\*.*”         |
+    |Rekursja     | Określa, czy podczas wyszukiwania elementu, który ma być śledzony, ma być używana rekursja.        |
+    |Przekaż zawartość pliku dla wszystkich ustawień| Włącza lub wyłącza przekazywanie zawartości pliku dla śledzonych zmian. Dostępne opcje: **True** lub **False**.|
 
 ### <a name="add-a-linux-file"></a>Dodawanie pliku systemu Linux
 
@@ -124,107 +123,119 @@ Na stronie Konfiguracja obszaru roboczego Dodaj klucze rejestru systemu Windows,
 
 1. Na stronie Dodawanie pliku systemu Linux dla Change Tracking wprowadź informacje dotyczące pliku lub katalogu, który ma być śledzony, i kliknij przycisk **Zapisz**.
 
-|Właściwość  |Opis  |
-|---------|---------|
-|Enabled (Włączony)     | Określa, czy ustawienie jest stosowane        |
-|Nazwa elementu     | Przyjazna nazwa pliku, który ma być śledzony        |
-|Grupa     | Nazwa grupy do logicznego grupowania plików        |
-|Wprowadzanie ścieżki     | Ścieżka do sprawdzania pliku, na przykład: „/etc/*.conf”       |
-|Typ ścieżki     | Typ elementu, który ma być monitorowany; możliwe wartości to Plik i Katalog        |
-|Rekursja     | Określa, czy podczas wyszukiwania elementu, który ma być śledzony, ma być używana rekursja.        |
-|Użyj polecenia Sudo     | To ustawienie określa, czy podczas sprawdzania elementu jest używane polecenie sudo.         |
-|Linki     | To ustawienie określa, w jaki sposób są obsługiwane linki symboliczne podczas przechodzenia między katalogami.<br> **Ignoruj** — ignoruje linki symboliczne i nie uwzględnia plików/katalogów, do których się odwołują<br>**Śledź** — śledzi linki symboliczne podczas rekursji i uwzględnia również pliki/katalogi, do których się odwołują<br>**Zarządzaj** — śledzi linki symboliczne i umożliwia obsługę zwracanej zawartości      |
-|Przekaż zawartość pliku dla wszystkich ustawień| Włącza lub wyłącza przekazywanie zawartości pliku dla śledzonych zmian. Dostępne opcje: True lub False.|
+    |Właściwość  |Opis  |
+    |---------|---------|
+    |Enabled (Włączony)     | Określa, czy ustawienie jest stosowane        |
+    |Nazwa elementu     | Przyjazna nazwa pliku, który ma być śledzony        |
+    |Grupa     | Nazwa grupy do logicznego grupowania plików        |
+    |Wprowadzanie ścieżki     | Ścieżka do sprawdzania pliku, na przykład: „/etc/*.conf”       |
+    |Typ ścieżki     | Typ elementu, który ma być monitorowany; możliwe wartości to Plik i Katalog        |
+    |Rekursja     | Określa, czy podczas wyszukiwania elementu, który ma być śledzony, ma być używana rekursja.        |
+    |Użyj polecenia Sudo     | To ustawienie określa, czy podczas sprawdzania elementu jest używane polecenie sudo.         |
+    |Linki     | To ustawienie określa, w jaki sposób są obsługiwane linki symboliczne podczas przechodzenia między katalogami.<br> **Ignoruj** — ignoruje linki symboliczne i nie uwzględnia plików/katalogów, do których się odwołują<br>**Śledź** — śledzi linki symboliczne podczas rekursji i uwzględnia również pliki/katalogi, do których się odwołują<br>**Zarządzaj** — śledzi linki symboliczne i umożliwia obsługę zwracanej zawartości      |
+    |Przekaż zawartość pliku dla wszystkich ustawień| Włącza lub wyłącza przekazywanie zawartości pliku dla śledzonych zmian. Dostępne opcje: True lub False.|
 
    > [!NOTE]
-   > Opcja **zarządzania łączami** nie jest zalecana. Pobieranie zawartości plików nie jest obsługiwane.
+   > Nie zaleca się **zarządzania** wartością właściwości **łącza** . Pobieranie zawartości plików nie jest obsługiwane.
 
 ## <a name="enable-activity-log-connection"></a>Włączanie połączenia dziennika aktywności
 
-Ze strony Śledzenie zmian na swojej maszynie wirtualnej wybierz pozycję **Zarządzanie połączeniem dziennika aktywności**. To zadanie powoduje otwarcie strony Dziennik aktywności platformy Azure. Kliknij przycisk **Połącz** , aby nawiązać połączenie Change Tracking z dziennikiem aktywności platformy Azure dla maszyny wirtualnej.
+1. Ze strony Śledzenie zmian na swojej maszynie wirtualnej wybierz pozycję **Zarządzanie połączeniem dziennika aktywności**. 
 
-Po włączeniu tego ustawienia przejdź do strony Omówienie dla maszyny wirtualnej i wybierz pozycję **Zatrzymaj**, aby zatrzymać swoją maszynę wirtualną. Po wyświetleniu monitu wybierz pozycję **Tak**, aby zatrzymać maszynę wirtualną. Po cofnięciu jej przydziału wybierz pozycję **Start**, aby ponownie uruchomić maszynę wirtualną.
+2. Na stronie dziennik aktywności platformy Azure kliknij pozycję **Połącz** , aby połączyć Change Tracking i spis do dziennika aktywności platformy Azure dla maszyny wirtualnej.
 
-Zatrzymanie i uruchomienie maszyny wirtualnej rejestruje zdarzenie w jego dzienniku aktywności. Przejdź z powrotem do strony Śledzenie zmian. Wybierz kartę **Zdarzenia** u dołu strony. Po chwili zdarzenia są wyświetlane na wykresie i w tabeli. Podobnie jak w poprzednim kroku, każde zdarzenie można wybrać, aby wyświetlić szczegółowe informacje o zdarzeniu.
+3. Przejdź do strony przegląd dla swojej maszyny wirtualnej i wybierz pozycję **Zatrzymaj** , aby zatrzymać maszynę wirtualną. 
 
-![Wyświetlanie szczegółów zmiany w portalu](./media/automation-tutorial-troubleshoot-changes/viewevents.png)
+4. Po wyświetleniu monitu wybierz pozycję **Tak**, aby zatrzymać maszynę wirtualną. 
+
+5. Po cofnięciu przydziału maszyny wirtualnej wybierz pozycję **Rozpocznij** , aby uruchomić ją ponownie. Zatrzymywanie i uruchamianie maszyny wirtualnej rejestruje zdarzenie w dzienniku aktywności. 
 
 ## <a name="view-changes"></a>Przeglądanie zmian
 
-Po włączeniu rozwiązania śledzenia zmian i spisu możesz wyświetlić wyniki na stronie Śledzenie zmian.
+1. Przejdź z powrotem do strony śledzenie zmian i wybierz kartę **zdarzenia** w dolnej części strony. 
 
-W ramach maszyny wirtualnej zaznacz pozycję **Śledzenie zmian** w obszarze **OPERACJE**.
+2. Po czasie zdarzenia śledzenia zmian są wyświetlane na wykresie i w tabeli. Wykres pokazuje zmiany, które wystąpiły w czasie. Wykres liniowy u góry Wyświetla zdarzenia dziennika aktywności platformy Azure. Każdy wiersz wykresów słupkowych reprezentuje inny typ zmiany do śledzenia. Te typy to demony, pliki, klucze rejestru systemu Windows, oprogramowanie i usługi systemu Windows. Karta zmiana zawiera szczegółowe informacje o wyświetlanych zmianach w pierwszej kolejności.
 
-![Zrzut ekranu przedstawiający listę zmian dotyczących maszyny wirtualnej](./media/automation-tutorial-troubleshoot-changes/change-tracking-list.png)
+    ![Wyświetlanie zdarzeń w portalu](./media/automation-tutorial-troubleshoot-changes/viewevents.png)
 
-Wykres pokazuje zmiany, które wystąpiły w czasie.
-Po dodaniu połączenia dziennika aktywności wykres liniowy u góry wyświetla zdarzenia dziennika aktywności platformy Azure.
-Każdy wiersz wykresów słupkowych reprezentuje innego typu zmiany umożliwiające śledzenie.
-Do tych typów należą demony systemu Linux, pliki, klucze rejestru systemu Windows, oprogramowanie i usługi systemu Windows.
-Karta zmiany przedstawia szczegółowe informacje dla zmian pokazanych w wizualizacji w kolejności malejącej według czasu, kiedy wystąpiła zmiana (najnowsze na początku).
-Na karcie **Zdarzenia** są wyświetlane w tabeli zdarzenia połączonego dziennika aktywności wraz z ich odpowiednimi szczegółami, przy czym najnowsze są na początku.
+3. Należy zauważyć, że wprowadzono wiele zmian w systemie, w tym zmiany w usługach i oprogramowaniu. Możesz użyć filtrów u góry strony, aby przefiltrować wyniki według **Typu zmiany** lub zakresu czasu.
 
-W wynikach możesz zobaczyć, że w systemie było wiele zmian łącznie ze zmianami usług i oprogramowania. Możesz użyć filtrów u góry strony, aby przefiltrować wyniki według **Typu zmiany** lub zakresu czasu.
+    ![Lista zmian w maszynie wirtualnej](./media/automation-tutorial-troubleshoot-changes/change-tracking-list.png)
 
-Wybierz **WindowsServices** zmianę. Wybranie tej opcji spowoduje otwarcie strony Zmień szczegóły zawierającej szczegóły dotyczące zmiany oraz wartości przed zmianą i po niej. W tym wystąpieniu zatrzymano usługę ochrony oprogramowania.
+4. Wybierz **WindowsServices** zmianę. Wybranie tej opcji spowoduje otwarcie strony Zmień szczegóły zawierającej szczegóły dotyczące zmiany oraz wartości przed zmianą i po niej. W tym wystąpieniu zatrzymano usługę ochrony oprogramowania.
 
-![Wyświetlanie szczegółów zmiany w portalu](./media/automation-tutorial-troubleshoot-changes/change-details.png)
+    ![Wyświetlanie szczegółów zmiany w portalu](./media/automation-tutorial-troubleshoot-changes/change-details.png)
 
 ## <a name="configure-alerts"></a>Konfigurowanie alertów
 
-Wyświetlanie zmian wprowadzonych w witrynie Azure Portal może być przydatne, ale bardziej korzystna jest możliwość otrzymywania alertów po wystąpieniu zmiany (np. po zatrzymaniu usługi).
+Wyświetlanie zmian wprowadzonych w witrynie Azure Portal może być przydatne, ale bardziej korzystna jest możliwość otrzymywania alertów po wystąpieniu zmiany (np. po zatrzymaniu usługi). Dodajmy alert dotyczący zatrzymanej usługi. 
 
-Aby dodać alert dotyczący zatrzymanej usługi, w witrynie Azure Portal przejdź do pozycji **Monitorowanie**. Następnie w obszarze **Usługi udostępnione** wybierz pozycję **Alerty** i kliknij przycisk **+ Nowa reguła alertu**
+1. W Azure Portal przejdź do pozycji **monitorowanie**. 
 
-Kliknij polecenie **Wybierz**, aby wybrać zasób. Na stronie wybierz zasób wybierz **log Analytics** z menu rozwijanego **Filtruj według typu zasobu** . Wybierz swój obszar roboczy usługi Log Analytics, a następnie wybierz pozycję **Gotowe**.
+2. Wybierz pozycję **alerty** w obszarze **usługi udostępnione**, a następnie kliknij pozycję **+ Nowa reguła alertu**.
 
-![Wybieranie zasobu](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
+3. Kliknij polecenie **Wybierz**, aby wybrać zasób. 
 
-Kliknij opcję **Dodaj warunek**, a na stronie Konfigurowanie logiki sygnału wybierz opcję **Przeszukiwanie dzienników niestandardowych** w tabeli. W polu tekstowym Zapytanie wyszukiwania wprowadź poniższe zapytanie:
+4. Na stronie wybierz zasób wybierz **log Analytics** z menu rozwijanego **Filtruj według typu zasobu** . 
 
-```loganalytics
-ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName == "W3SVC" and SvcState == "Stopped" | summarize by Computer
-```
+5. Wybierz obszar roboczy Log Analytics, a następnie kliknij przycisk **gotowe**.
 
-To zapytanie zwraca informacje o komputerach, na których w określonym przedziale czasu została zatrzymana usługa W3SVC.
+    ![Wybieranie zasobu](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
 
-W obszarze **Logika alertu** w polu **Próg** wprowadź **0**. Po zakończeniu wybierz pozycję **Gotowe**.
+6. Kliknij pozycję **Dodaj warunek**.
 
-![Konfigurowanie logiki sygnału](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
+7. W tabeli na stronie Konfiguruj logikę sygnałów wybierz opcję **Wyszukiwanie w dzienniku niestandardowym**. 
 
-W obszarze **Grupy akcji** wybierz pozycję **Utwórz nową**. Grupa akcji to grupa składająca się z akcji, których można używać w wielu alertach. Akcje mogą obejmować powiadomienia e-mail, elementy runbook i webhook oraz wiele innych. Aby dowiedzieć się więcej na temat grup akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi](../azure-monitor/platform/action-groups.md).
+8. W polu tekstowym wyszukiwanie kwerendy wprowadź następujące zapytanie:
 
-W obszarze **Szczegóły alertu** wprowadź nazwę i opis alertu. Ustaw **Ważność** na **Informacyjny (ważność 2)**, **Ostrzegawczy (ważność 1)** lub **Krytyczny (ważność 0)**.
+    ```loganalytics
+    ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName == "W3SVC" and SvcState == "Stopped" | summarize by Computer
+    ```
 
-W polu **Nazwa grupy akcji** wprowadź nazwę alertu oraz krótką nazwę. Krótka nazwa jest używana zamiast pełnej nazwy grupy akcji podczas przesyłania powiadomień przy użyciu danej grupy.
+    To zapytanie zwraca informacje o komputerach, na których w określonym przedziale czasu została zatrzymana usługa W3SVC.
 
-W obszarze **Akcje** wprowadź nazwę akcji, na przykład **Wyślij wiadomość e-mail do administratorów**. W obszarze **TYP AKCJI** wybierz pozycję **E-mail/SMS/Push/Głos**. W obszarze **SZCZEGÓŁY** wybierz pozycję **Edytuj szczegóły**.
+9. W polu **próg** w obszarze **logika alertu**wprowadź **wartość 0**. Po zakończeniu kliknij przycisk **gotowe**.
 
-![Dodawanie grupy akcji](./media/automation-tutorial-troubleshoot-changes/add-action-group.png)
+    ![Konfigurowanie logiki sygnału](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
 
-W okienku E-mail/SMS/Push/Głos wprowadź nazwę. Zaznacz pole wyboru **E-mail**, a następnie wprowadź prawidłowy adres e-mail. Kliknij przycisk **OK** w okienku, a następnie kliknij przycisk **OK** na stronie Dodaj grupę akcji.
+10. Wybierz pozycję **Utwórz nowy** w obszarze **grupy akcji**. Grupa akcji to grupa składająca się z akcji, których można używać w wielu alertach. Akcje mogą obejmować powiadomienia e-mail, elementy runbook i webhook oraz wiele innych. Aby dowiedzieć się więcej na temat grup akcji, zobacz [Tworzenie grup akcji i zarządzanie nimi](../azure-monitor/platform/action-groups.md).
 
-Aby dostosować temat wiadomości e-mail dotyczącej alertu, w obszarze **Tworzenie reguły**w obszarze **Dostosuj akcje**wybierz pozycję **temat wiadomości e-mail**. Po zakończeniu wybierz pozycję **Utwórz regułę alertu**. Alert informuje użytkownika o pomyślnym wdrożeniu aktualizacji oraz o maszynach będących elementami danego uruchomienia wdrożenia aktualizacji.
+11. W obszarze **Szczegóły alertu** wprowadź nazwę i opis alertu. 
 
-Poniższa ilustracja przedstawia przykładową wiadomość e-mail odebraną po zatrzymaniu usługi W3SVC.
+12. Ustaw **Ważność** na **Informacyjny (ważność 2)**, **Ostrzegawczy (ważność 1)** lub **Krytyczny (ważność 0)**.
 
-![email](./media/automation-tutorial-troubleshoot-changes/email.png)
+13. W polu **Nazwa grupy akcji** wprowadź nazwę alertu oraz krótką nazwę. Nazwa krótka jest używana zamiast pełnej nazwy grupy akcji podczas przesyłania powiadomień przy użyciu danej grupy.
+
+14. W polu **Akcje**wprowadź nazwę akcji, na przykład **administratorów poczty e-mail**. 
+
+15. W obszarze **Typ akcji**wybierz pozycję **poczta e-mail/SMS/wypychanie/głos**. 
+
+16. Aby uzyskać **szczegółowe informacje**, wybierz pozycję **Edytuj szczegóły**.
+
+    ![Dodawanie grupy akcji](./media/automation-tutorial-troubleshoot-changes/add-action-group.png)
+
+17. W okienku wiadomości E-mail/SMS/wypychanie/głos wprowadź nazwę, zaznacz pole wyboru **adres e-mail** , a następnie wprowadź prawidłowy adres e-mail. Po zakończeniu kliknij przycisk **OK** w okienku, a następnie kliknij przycisk **OK** na stronie Dodaj grupę akcji.
+
+18. Aby dostosować temat wiadomości e-mail dotyczącej alertu, wybierz pozycję **Dostosuj akcje**. 
+
+19. W obszarze **Utwórz regułę**wybierz pozycję **temat wiadomości e-mail**, a następnie wybierz pozycję **Utwórz regułę alertu**. Alert informuje użytkownika o pomyślnym wdrożeniu aktualizacji oraz o maszynach będących elementami danego uruchomienia wdrożenia aktualizacji. Poniższa ilustracja przedstawia przykładową wiadomość e-mail odebraną po zatrzymaniu usługi W3SVC.
+
+    ![poczta e-mail](./media/automation-tutorial-troubleshoot-changes/email.png)
 
 ## <a name="next-steps"></a>Następne kroki
 
 W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Dodawanie maszyny wirtualnej do śledzenia zmian i spisu
+> * Włączanie Change Tracking i spisu dla maszyny wirtualnej
 > * Wyszukiwanie dzienników zmian dla zatrzymanej usługi
 > * Konfigurowanie śledzenia zmian
-> * Włączanie połączenia dziennika aktywności
+> * Włącz połączenie dziennika aktywności
 > * Wyzwalanie zdarzenia
 > * Przeglądanie zmian
 > * Konfigurowanie alertów
 
-Przejdź do omówienia rozwiązania śledzenia zmian i spisu, aby uzyskać więcej informacji.
+Przejdź do omówienia funkcji Change Tracking i spisu, aby dowiedzieć się więcej na jej temat.
 
 > [!div class="nextstepaction"]
-> [Change management and Inventory solution](automation-change-tracking.md) (Rozwiązanie zarządzania zmianami i spisem)
-
+> [Przegląd Change Tracking i spisu](automation-change-tracking.md)

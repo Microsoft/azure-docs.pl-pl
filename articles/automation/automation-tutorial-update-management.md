@@ -1,38 +1,28 @@
 ---
-title: Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure
-description: Ten artykuł zawiera omówienie sposobu używania Update Management Azure Automation do zarządzania aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure i innych niż platformy Azure.
+title: Zarządzaj aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure w Azure Automation
+description: W tym artykule opisano, jak używać Update Management do zarządzania aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure.
 services: automation
 ms.subservice: update-management
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 52158fe78262b5b2b3d006fb3a543ca743f4e417
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 4b47fa873df88bf85c4c56c9f2ac94fce16c63be
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683835"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743650"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure
 
-Przy użyciu rozwiązania Update Management można zarządzać aktualizacjami i poprawkami dla maszyn wirtualnych. Z tym samouczku dowiesz się, jak szybko ocenić stan dostępnych aktualizacji, zaplanować instalację wymaganych aktualizacji, przejrzeć wyniki wdrożenia oraz utworzyć alert sprawdzający, czy aktualizacje zostały pomyślnie zastosowane.
+W tym artykule opisano, jak można użyć funkcji Azure Automation [Update Management](automation-update-management.md) do zarządzania aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure. 
 
 Aby uzyskać informacje o cenach, zobacz [cennik usługi Automation dla rozwiązania Update Management](https://azure.microsoft.com/pricing/details/automation/).
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
-
-> [!div class="checklist"]
-> * Wyświetlanie oceny aktualizacji
-> * Konfigurowanie alertów
-> * Planowanie wdrożenia aktualizacji
-> * Wyświetlanie wyników wdrożenia
-
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Do ukończenia tego samouczka niezbędne są następujące elementy:
-
-* Rozwiązanie [Update Management](automation-update-management.md) włączone dla co najmniej jednej maszyny wirtualnej.
-* [Maszyna wirtualna](../virtual-machines/windows/quick-create-portal.md) do dołączenia.
+* Funkcja [Update Management](automation-update-management.md) włączona dla co najmniej jednej maszyny wirtualnej. 
+* [Maszyna wirtualna](../virtual-machines/windows/quick-create-portal.md) z włączoną Update Management.
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -95,7 +85,7 @@ Aby dostosować temat wiadomości e-mail dotyczącej alertu, w obszarze **Tworze
 
 ## <a name="schedule-an-update-deployment"></a>Planowanie wdrożenia aktualizacji
 
-Następnie zaplanuj wdrożenie zgodnie z harmonogramem wydawania i oknem obsługi, aby zainstalować aktualizacje. Możesz wybrać typy aktualizacji, które mają zostać uwzględnione we wdrożeniu. Możesz na przykład uwzględnić aktualizacje krytyczne lub aktualizacje zabezpieczeń i wykluczyć pakiety zbiorcze aktualizacji.
+Zaplanuj wdrożenie zgodnie z harmonogramem wydania i oknem usługi, aby zainstalować aktualizacje. Możesz wybrać typy aktualizacji, które mają zostać uwzględnione we wdrożeniu. Możesz na przykład uwzględnić aktualizacje krytyczne lub aktualizacje zabezpieczeń i wykluczyć pakiety zbiorcze aktualizacji.
 
 >[!NOTE]
 >Planowanie wdrożenia aktualizacji powoduje utworzenie zasobu [harmonogramu](shared-resources/schedules.md) połączonego z elementem Runbook **MicrosoftOMSComputers poprawek** , który obsługuje wdrożenie aktualizacji na komputerach docelowych. Jeśli usuniesz zasób harmonogramu z Azure Portal lub przy użyciu programu PowerShell po utworzeniu wdrożenia, to usunięcie spowoduje przerwanie zaplanowanego wdrożenia aktualizacji i wyświetli błąd podczas próby ponownego skonfigurowania zasobu harmonogramu z poziomu portalu. Zasób harmonogramu można usunąć tylko przez usunięcie odpowiedniego harmonogramu wdrażania.  
@@ -112,18 +102,9 @@ W obszarze **Nowe wdrożenie aktualizacji** podaj następujące informacje:
 
 * **Maszyny do zaktualizowania**: Wybierz zapisane wyszukiwanie, zaimportowaną grupę lub wybierz **maszyny** z menu rozwijanego i wybierz opcję poszczególne maszyny. W przypadku wybrania opcji **komputery**gotowość poszczególnych maszyn zostanie wyświetlona w kolumnie **Aktualizuj gotowość agenta** . Aby dowiedzieć się więcej na temat różnych metod tworzenia grup komputerów w dziennikach Azure Monitor, zobacz [grupy komputerów w dziennikach Azure monitor](../azure-monitor/platform/computer-groups.md).
 
-* **Klasyfikacja aktualizacji**: dla każdego produktu odznacz wszystkie obsługiwane klasyfikacje aktualizacji, ale te, które mają zostać uwzględnione we wdrożeniu aktualizacji. Dla tego samouczka pozostaw wszystkie typy wybrane dla wszystkich produktów.
+* **Klasyfikacja aktualizacji**: dla każdego produktu odznacz wszystkie obsługiwane klasyfikacje aktualizacji, ale te, które mają zostać uwzględnione we wdrożeniu aktualizacji. Opisy typów klasyfikacji znajdują się w sekcji [klasyfikacje aktualizacji](automation-view-update-assessments.md#work-with-update-classifications).
 
-  Dostępne są następujące typy klasyfikacji:
-
-   |System operacyjny  |Typ  |
-   |---------|---------|
-   |Windows     | Aktualizacje krytyczne</br>Aktualizacje zabezpieczeń</br>Pakiety zbiorcze aktualizacji</br>Pakiety funkcji</br>Dodatki Service Pack</br>Aktualizacje definicji</br>narzędzia</br>Aktualizacje<br>Sterownik        |
-   |Linux     | Aktualizacje krytyczne i zabezpieczeń</br>Inne aktualizacje       |
-
-   Opisy typów klasyfikacji znajdują się w sekcji [klasyfikacje aktualizacji](automation-view-update-assessments.md#update-classifications).
-
-* **Aktualizacje dołączania/wykluczania** — otwiera stronę dołączania/wykluczania. Aktualizacje, które mają zostać dołączone lub wykluczone, znajdują się na oddzielnych kartach, określając numery IDENTYFIKACYJNe artykułu w bazie wiedzy. W przypadku określenia co najmniej jednego numeru IDENTYFIKACYJNego należy usunąć lub wyczyścić wszystkie klasyfikacje ze wdrożeniem aktualizacji. Dzięki temu podczas określania identyfikatorów aktualizacji nie są uwzględniane żadne inne aktualizacje pakietu aktualizacji.
+* **Aktualizacje do dołączenia/wykluczania** — otwiera stronę dołączania/wykluczania. Aktualizacje, które mają zostać dołączone lub wykluczone, znajdują się na oddzielnych kartach, określając numery IDENTYFIKACYJNe artykułu w bazie wiedzy. W przypadku określenia co najmniej jednego numeru IDENTYFIKACYJNego należy usunąć lub wyczyścić wszystkie klasyfikacje ze wdrożeniem aktualizacji. Dzięki temu podczas określania identyfikatorów aktualizacji nie są uwzględniane żadne inne aktualizacje pakietu aktualizacji.
 
 > [!NOTE]
 > Ważne jest, aby wiedzieć, że wykluczenia zastępują dołączenia. Na przykład, jeśli zdefiniujesz regułę wykluczania `*` , Update Management nie zainstaluje żadnych poprawek ani pakietów, ponieważ są one wykluczone. Wykluczone poprawki nadal są wyświetlane jako brakujące na komputerze. W przypadku komputerów z systemem Linux, jeśli zostanie uwzględniony pakiet z wyłączonym pakietem zależnym, program Update Management nie zainstaluje głównego pakietu.
@@ -131,7 +112,6 @@ W obszarze **Nowe wdrożenie aktualizacji** podaj następujące informacje:
 > [!NOTE]
 > Nie można określić aktualizacji, które zostały zastąpione w celu włączenia ich do wdrożenia aktualizacji.
 >
-
 * **Ustawienia harmonogramu**: spowoduje otwarcie okienka Ustawienia harmonogramu. Domyślny czas rozpoczęcia to 30 minut po bieżącej godzinie. Czas rozpoczęcia można ustawić na dowolny czas od 10 minut w przyszłości.
 
    Możesz też określić, czy wdrożenie ma występować raz, czy zgodnie z ustawionym harmonogramem cyklicznym. W obszarze **Cykl** wybierz pozycję **Raz**. Pozostaw wartość domyślną na 1 dzień, a następnie kliknij przycisk **OK**. Te wpisy powodują skonfigurowanie harmonogramu cyklicznego.
@@ -149,7 +129,7 @@ W obszarze **Nowe wdrożenie aktualizacji** podaj następujące informacje:
   > Aby uniknąć stosowania aktualizacji poza oknem obsługi w programie Ubuntu, należy ponownie skonfigurować pakiet nienadzorowany do uaktualnienia, aby wyłączyć aktualizacje automatyczne. Informacje o sposobie konfigurowania pakietu programu znajdują się [w temacie Aktualizacje automatyczne w przewodniku po serwerze Ubuntu](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
 * **Opcje ponownego uruchamiania**: Użyj, aby określić opcje obsługi ponownych uruchomień. Dostępne są następujące opcje:
-  * Uruchom ponownie, jeśli jest to wymagane (ustawienie domyślne)
+  * Uruchom ponownie w razie potrzeby (ustawienie domyślne)
   * Zawsze uruchamiaj ponownie
   * Nigdy nie uruchamiaj ponownie
   * Tylko ponowny rozruch — nie instaluje aktualizacji
@@ -196,16 +176,4 @@ Po pomyślnym wdrożeniu aktualizacji zostanie wyświetlony komunikat potwierdza
 
 ## <a name="next-steps"></a>Następne kroki
 
-W niniejszym samouczku zawarto informacje na temat wykonywania następujących czynności:
-
-> [!div class="checklist"]
-> * Dołączanie maszyny wirtualnej dla rozwiązania Update Management
-> * Wyświetlanie oceny aktualizacji
-> * Konfigurowanie alertów
-> * Planowanie wdrożenia aktualizacji
-> * Wyświetlanie wyników wdrożenia
-
-Kontynuowanie omawiania rozwiązania Update Management.
-
-> [!div class="nextstepaction"]
-> [Update Management solution](automation-update-management.md) (Rozwiązanie Update Management)
+* [Omówienie rozwiązania Update Management](automation-update-management.md)

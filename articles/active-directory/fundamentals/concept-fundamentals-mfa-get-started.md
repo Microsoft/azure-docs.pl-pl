@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: febdb708c637ac322c0ca884eae627da9bd5904c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1db133f52a99bd716c2228add0573e8d44255c9e
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79530397"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83736521"
 ---
 # <a name="overview-of-azure-multi-factor-authentication-for-your-organization"></a>Omówienie Multi-Factor Authentication platformy Azure dla Twojej organizacji
 
@@ -43,7 +43,7 @@ W przypadku klientów z pakietem Office 365 dostępne są dwie opcje:
 
 W przypadku klientów mających Azure AD — wersja Premium P1 lub podobne licencje zawierające te funkcje, takie jak Enterprise Mobility + Security E3, Microsoft 365 F1 lub Microsoft 365 E3: 
 
-Korzystanie z [dostępu warunkowego usługi Azure AD](../conditional-access/overview.md) w celu monitowania użytkowników o uwierzytelnianie wieloskładnikowe w określonych scenariuszach lub zdarzeniach spełniających wymagania biznesowe.
+Korzystanie z [dostępu warunkowego usługi Azure AD](../authentication/tutorial-enable-azure-mfa.md) w celu monitowania użytkowników o uwierzytelnianie wieloskładnikowe w określonych scenariuszach lub zdarzeniach spełniających wymagania biznesowe.
 
 ## <a name="azure-ad-premium-p2"></a>Usługa Azure AD — warstwa Premium P2
 

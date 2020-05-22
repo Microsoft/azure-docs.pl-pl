@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 4/17/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 5c8808450f8baa6d395ee9c24dbc59dfa919b66d
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 8075574556375b7c07de2abd6c5aff792880b497
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801012"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738822"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Tworzenie grup akcji i zarządzanie nimi w Azure Portal
 Grupa akcji to zbiór preferencji powiadomień definiowanych przez właściciela subskrypcji platformy Azure. Alerty Azure Monitor i Service Health umożliwiają Powiadamianie użytkowników o wyzwoleniu alertu. Różne alerty mogą korzystać z tej samej grupy akcji lub różnych grup akcji w zależności od wymagań użytkownika. W ramach subskrypcji można skonfigurować maksymalnie 2 000 grup akcji.
@@ -88,8 +88,8 @@ Wiadomości e-mail będą wysyłane z następujących adresów e-mail. Upewnij s
 
 W grupie akcji może istnieć ograniczona liczba akcji poczty e-mail. Zobacz artykuł [Informacje o ograniczeniu szybkości](./../../azure-monitor/platform/alerts-rate-limiting.md) .
 
-### <a name="email-azure-resource-manager-role"></a>Rola Azure Resource Manager e-mail
-Wyślij wiadomość e-mail do członków roli subskrypcji. Poczta e-mail będzie wysyłana tylko do członków roli **użytkownika usługi Azure AD** . Poczta e-mail nie zostanie wysłana do grup lub jednostek usługi Azure AD.
+### <a name="email-azure-resource-manager-role"></a>Wyślij wiadomość e-mail do roli usługi Azure Resource Manager
+Wyślij wiadomość e-mail do członków roli subskrypcji. Poczta e-mail będzie wysyłana tylko do członków roli **użytkownika usługi Azure AD** . Wiadomość e-mail nie zostanie wysłana do grup lub jednostek usługi Azure AD.
 
 W grupie akcji może istnieć ograniczona liczba akcji poczty e-mail. Zobacz artykuł [Informacje o ograniczeniu szybkości](./../../azure-monitor/platform/alerts-rate-limiting.md) .
 
@@ -201,9 +201,9 @@ Aby uzyskać dodatkowe informacje, zobacz [informacje dotyczące ograniczania sz
 W grupie akcji może istnieć ograniczona liczba akcji programu SMS.
 
 > [!NOTE]
-> Jeśli interfejs użytkownika grupy akcji Azure Portal nie pozwala na wybranie kodu kraju, to wiadomość SMS nie jest obsługiwana w Twoim kraju.  Jeśli Twój kod kraju nie jest dostępny, możesz głosować na [użytkownika](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice). Tymczasem obejście jest fakt, że grupa akcji wywoła element webhook do dostawcy programu SMS innej firmy z obsługą w Twoim kraju.  
+> Jeśli interfejs użytkownika grupy akcji Azure Portal nie pozwala na wybranie kodu kraju/regionu, to wiadomość SMS nie jest obsługiwana w Twoim kraju/regionie.  Jeśli kod kraju/regionu nie jest dostępny, możesz głosować na to, aby Twój kraj/region został dodany przy [głosowaniu użytkownika](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice). W międzyczasie obejście problemu polega na tym, że grupa akcji wywoła element webhook do dostawcy programu SMS innej firmy z obsługą w Twoim kraju/regionie.  
 
-Cennik dla obsługiwanych krajów znajduje się na [stronie cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).
+Cennik dla obsługiwanych krajów/regionów znajduje się na [stronie cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).
   
 
 ### <a name="voice"></a>Połączenia głosowe
@@ -212,9 +212,9 @@ Zapoznaj się z artykułem [dotyczącym ograniczania szybkości](./../../azure-m
 W grupie akcji może istnieć ograniczona liczba akcji głosowych.
 
 > [!NOTE]
-> Jeśli interfejs użytkownika grupy akcji Azure Portal nie pozwala na wybranie kodu kraju, połączenia głosowe nie są obsługiwane w Twoim kraju. Jeśli Twój kod kraju nie jest dostępny, możesz głosować na [użytkownika](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  Tymczasem obejście jest to, że grupa akcji wywoła element webhook do dostawcy wywołań głosowych innej firmy z obsługą w Twoim kraju.  
+> Jeśli interfejs użytkownika grupy akcji Azure Portal nie pozwala na wybranie kodu kraju/regionu, połączenia głosowe nie są obsługiwane w Twoim kraju/regionie. Jeśli kod kraju/regionu nie jest dostępny, możesz głosować na to, aby Twój kraj/region został dodany przy [głosowaniu użytkownika](https://feedback.azure.com/forums/913690-azure-monitor/suggestions/36663181-add-more-country-codes-for-sms-alerting-and-voice).  Tymczasem obejście jest to, że grupa akcji wywoła element webhook do dostawcy wywołań głosowych innej firmy z obsługą w Twoim kraju/regionie.  
 
-Cennik dla obsługiwanych krajów znajduje się na [stronie cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).
+Cennik dla obsługiwanych krajów/regionów znajduje się na [stronie cennika Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 ### <a name="webhook"></a>Webhook
 Próby elementów webhook zostały ponowione przy użyciu następujących reguł. Wywołanie elementu webhook jest ponawiane maksymalnie 2 razy, gdy zwracane są następujące kody stanu HTTP: 408, 429, 503, 504 lub punkt końcowy HTTP nie odpowiada. Pierwsze ponowienie próby odbywa się po 10 sekundach. Druga ponowna próba nastąpi po 100 sekundach. Po dwóch awariach żadna grupa akcji nie będzie wywoływała punktu końcowego przez 30 minut. 

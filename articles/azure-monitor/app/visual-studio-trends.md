@@ -7,12 +7,12 @@ ms.author: daviste
 ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.custom: vs-azure
-ms.openlocfilehash: bb94d3596fde541f16edd1b7012f57b89ebf52eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 151248f7cd6fe763643da42fc8edbe7c01a69cc7
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77670869"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744131"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Analizowanie trendów w programie Visual Studio
 Narzędzie Trendy usługi Application Insights wizualizuje sposób, w jaki ważne zdarzenia telemetrii aplikacji internetowej zmieniają się z upływem czasu, co ułatwia szybkie identyfikowanie problemów i anomalii. Łącząc Cię z bardziej szczegółowymi informacjami diagnostycznymi, narzędzie Trendy może ułatwić zwiększenie wydajności aplikacji, śledzenie przyczyn wyjątków oraz odkrywanie szczegółowych danych w zdarzeniach niestandardowych.
@@ -48,7 +48,7 @@ Zacznij od wybrania jednej z pięciu typowych analiz trendów, które analizują
 Dostęp do tych wstępnie skompilowanych analiz można uzyskać później, naciskając przycisk **Wyświetl popularne typy analizy telemetrii** w lewym górnym rogu okna narzędzia Trendy.
 
 ## <a name="visualize-trends-in-your-application"></a>Wizualizowanie trendów w aplikacji
-Narzędzie Trendy usługi Application Insights tworzy wizualizację szeregu czasowego w oparciu o telemetrię aplikacji. W każdej wizualizacji szeregu czasowego jest wyświetlany jeden typ telemetrii, pogrupowany według jednej właściwości tej telemetrii, w określonym zakresie czasu. Na przykład możesz wyświetlić żądania serwera z ostatnich 24 godzin pogrupowane według kraju, z którego pochodzą. W tym przykładzie każdy bąbelek na wizualizacji reprezentuje liczbę żądań serwera dla określonego kraju/regionu w ciągu jednej godziny.
+Narzędzie Trendy usługi Application Insights tworzy wizualizację szeregu czasowego w oparciu o telemetrię aplikacji. W każdej wizualizacji szeregu czasowego jest wyświetlany jeden typ telemetrii, pogrupowany według jednej właściwości tej telemetrii, w określonym zakresie czasu. Na przykład możesz chcieć wyświetlić żądania serwera pogrupowane według kraju/regionu, z którego pochodzą, w ciągu ostatnich 24 godzin. W tym przykładzie każdy bąbelek na wizualizacji reprezentuje liczbę żądań serwera dla określonego kraju/regionu w ciągu jednej godziny.
 
 Aby dostosować wyświetlane typy telemetrii, użyj kontrolek w górnej części okna. Najpierw wybierz interesujące Cię typy telemetrii:
 

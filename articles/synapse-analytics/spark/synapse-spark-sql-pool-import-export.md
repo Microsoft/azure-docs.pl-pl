@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: d2c8215a68d2f80471be87b0ca07aa1438a25ac4
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 1a2b9c739f3583fb5d842bd9d3834252d542cb7d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660051"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739281"
 ---
 # <a name="introduction"></a>Wprowadzenie
 
@@ -44,14 +44,14 @@ Z tego powodu nie ma potrzeby tworzenia poświadczeń ani określania ich w inte
 
 Aby utworzyć użytkowników, nawiąż połączenie z bazą danych i postępuj zgodnie z następującymi przykładami:
 
-```Sql
+```sql
 CREATE USER Mary FROM LOGIN Mary;
 CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 ```
 
 Aby przypisać rolę:
 
-```Sql
+```sql
 EXEC sp_addrolemember 'db_exporter', 'Mary';
 ```
 
@@ -64,14 +64,14 @@ Instrukcje import nie są wymagane, ale są wstępnie zaimportowane do środowis
 > [!NOTE]
 > **Importy niewymagane w środowisku notesu**
 
-```Scala
+```scala
  import com.microsoft.spark.sqlanalytics.utils.Constants
  import org.apache.spark.sql.SqlAnalyticsConnector._
 ```
 
 #### <a name="read-api"></a>Odczytaj interfejs API
 
-```Scala
+```scala
 val df = spark.read.sqlanalytics("[DBName].[Schema].[TableName]")
 ```
 
@@ -79,13 +79,13 @@ Powyższy interfejs API będzie działał zarówno wewnętrznie (zarządzany), j
 
 #### <a name="write-api"></a>Interfejs API zapisu
 
-```Scala
+```scala
 df.write.sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
 ```
 
 gdzie Tabletype może być stałymi. wewnętrzne lub stałe. EXTERNAL
 
-```Scala
+```scala
 df.write.sqlanalytics("[DBName].[Schema].[TableName]", Constants.INTERNAL)
 df.write.sqlanalytics("[DBName].[Schema].[TableName]", Constants.EXTERNAL)
 ```
@@ -97,14 +97,14 @@ Uwierzytelnianie do magazynu i SQL Server są wykonywane
 > [!NOTE]
 > Importy niewymagane w środowisku notesu
 
-```Scala
+```scala
  import com.microsoft.spark.sqlanalytics.utils.Constants
  import org.apache.spark.sql.SqlAnalyticsConnector._
 ```
 
 #### <a name="read-api"></a>Odczytaj interfejs API
 
-```Scala
+```scala
 val df = spark.read.
 option(Constants.SERVER, "samplews.database.windows.net").
 sqlanalytics("<DBName>.<Schema>.<TableName>")
@@ -112,7 +112,7 @@ sqlanalytics("<DBName>.<Schema>.<TableName>")
 
 #### <a name="write-api"></a>Interfejs API zapisu
 
-```Scala
+```scala
 df.write.
 option(Constants.SERVER, "[samplews].[database.windows.net]").
 sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
@@ -124,7 +124,7 @@ sqlanalytics("[DBName].[Schema].[TableName]", [TableType])
 
 Obecnie łącznik nie obsługuje uwierzytelniania opartego na tokenach w puli SQL, która znajduje się poza obszarem roboczym. Musisz użyć uwierzytelniania SQL.
 
-```Scala
+```scala
 val df = spark.read.
 option(Constants.SERVER, "samplews.database.windows.net").
 option(Constants.USER, [SQLServer Login UserName]).
@@ -134,7 +134,7 @@ sqlanalytics("<DBName>.<Schema>.<TableName>")
 
 #### <a name="write-api"></a>Interfejs API zapisu
 
-```Scala
+```scala
 df.write.
 option(Constants.SERVER, "[samplews].[database.windows.net]").
 option(Constants.USER, [SQLServer Login UserName]).
@@ -151,13 +151,13 @@ Załóżmy, że masz element Dataframe "pyspark_df", który chcesz zapisać w ma
 
 Tworzenie tabeli tymczasowej przy użyciu ramki Dataframe w PySpark:
 
-```Python
+```py
 pyspark_df.createOrReplaceTempView("pysparkdftemptable")
 ```
 
 Uruchom komórkę Scala w notesie PySpark przy użyciu MAGICS:
 
-```Scala
+```scala
 %%spark
 val scala_df = spark.sqlContext.sql ("select * from pysparkdftemptable")
 

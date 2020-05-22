@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/26/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bd26b2b475e293a1fda1b007289ba7c3eef35136
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8052f94755019d8ad3fe818d979d2eb7f8ba0a5e
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78183939"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738765"
 ---
 # <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Definiowanie przekształceń oświadczeń numeru telefonu w Azure AD B2C
 
@@ -28,14 +28,14 @@ Ten artykuł zawiera informacje i przykłady dotyczące korzystania z funkcji ob
 
 ## <a name="convertphonenumberclaimtostring"></a>ConvertPhoneNumberClaimToString
 
-Konwertuje typ `phoneNumber` danych na typ `string` danych.
+Konwertuje `phoneNumber` Typ danych na `string` Typ danych.
 
 | Element | TransformationClaimType | Typ danych | Uwagi |
 | ---- | ----------------------- | --------- | ----- |
 | Oświadczenie inputclaim | phoneNumber | phoneNumber |  Element ClaimType do przekonwertowania na ciąg. |
 | Oświadczenie outputclaim | phoneNumberString | ciąg | Wartość oświadczenia, która jest generowana po wywołaniu tej transformacji oświadczeń. |
 
-W tym przykładzie, cellPhoneNumber, z typem wartości `phoneNumber` jest konwertowana na cellPhone, z typem wartości. `string`
+W tym przykładzie, cellPhoneNumber, z typem wartości `phoneNumber` jest konwertowana na cellPhone, z typem wartości `string` .
 
 ```XML
 <ClaimsTransformation Id="PhoneNumberToString" TransformationMethod="ConvertPhoneNumberClaimToString">
@@ -62,8 +62,8 @@ Ta transformacja roszczeń sprawdza poprawność formatu numeru telefonu. Jeśli
 
 | Element | TransformationClaimType | Typ danych | Uwagi |
 | ---- | ----------------------- | --------- | ----- |
-| Oświadczenie inputclaim | phoneNumberString | ciąg |  Ciąg jako numer telefonu. Numer telefonu musi znajdować się w formacie międzynarodowym i kończyć się wiodącym kodem "+" i państwowym. Jeśli zostanie podane `country` zastrzeżenie wejściowe, numer telefonu jest w formacie lokalnym (bez kodu kraju). |
-| Oświadczenie inputclaim | country | ciąg | Obowiązkowe Ciąg określający kod kraju numeru telefonu w formacie ISO3166 (dwuliterowy kod kraju ISO-3166). |
+| Oświadczenie inputclaim | phoneNumberString | ciąg |  Ciąg jako numer telefonu. Numer telefonu musi znajdować się w formacie międzynarodowym i kończyć się wiodącym kodem "+" i kraj/region. Jeśli `country` zostanie podane zastrzeżenie wejściowe, numer telefonu jest w formacie lokalnym (bez kodu kraju/regionu). |
+| Oświadczenie inputclaim | country | ciąg | Obowiązkowe Wartość ciągu dla kodu kraju/regionu numeru telefonu w formacie ISO3166 (dwuliterowy kod kraju/regionu ISO-3166). |
 | Oświadczenie outputclaim | Oświadczenie outputclaim | phoneNumber | Wynik tej transformacji oświadczeń. |
 
 Transformacja oświadczeń **ConvertStringToPhoneNumberClaim** jest zawsze wykonywana z poziomu [profilu technicznego weryfikacji](validation-technical-profile.md) , który jest wywoływany przez [własny profil techniczny](self-asserted-technical-profile.md) lub [kontrolkę wyświetlania](display-controls.md). Metadane profilu technicznego **UserMessageIfClaimsTransformationInvalidPhoneNumber** z własnym potwierdzeń są kontrolowane przez komunikat o błędzie wyświetlany użytkownikowi.
@@ -113,24 +113,24 @@ Profil techniczny z własnym potwierdzeniem, który wywołuje profil techniczny 
 
 ## <a name="getnationalnumberandcountrycodefromphonenumberstring"></a>GetNationalNumberAndCountryCodeFromPhoneNumberString
 
-Spowoduje to wyodrębnienie kodu kraju i numeru Narodowego z roszczeń wejściowych i opcjonalnie zgłasza wyjątek, jeśli podany numer telefonu jest nieprawidłowy.
+Spowoduje to wyodrębnienie kodu kraju/regionu oraz numeru Narodowego z roszczeń wejściowych i opcjonalnie zgłasza wyjątek, jeśli podany numer telefonu jest nieprawidłowy.
 
 | Element | TransformationClaimType | Typ danych | Uwagi |
 | ---- | ----------------------- | --------- | ----- |
-| Oświadczenie inputclaim | phoneNumber | ciąg | Ciąg określający numer telefonu. Numer telefonu musi znajdować się w formacie międzynarodowym i kończyć się wiodącym kodem "+" i państwowym. |
+| Oświadczenie inputclaim | phoneNumber | ciąg | Ciąg określający numer telefonu. Numer telefonu musi znajdować się w formacie międzynarodowym i kończyć się wiodącym kodem "+" i kraj/region. |
 | InputParameter | throwExceptionOnFailure | wartość logiczna | Obowiązkowe Parametr wskazujący, czy wyjątek jest zgłaszany, gdy numer telefonu jest nieprawidłowy. Wartość domyślna to false. |
-| InputParameter | countryCodeType | ciąg | Obowiązkowe Parametr wskazujący typ kodu kraju w poroście danych wyjściowych. Dostępne wartości to **CallingCode** (międzynarodowy kod wywołujący dla kraju, na przykład + 1) lub **ISO3166** (dwuliterowy kod kraju ISO-3166). |
+| InputParameter | countryCodeType | ciąg | Obowiązkowe Parametr wskazujący typ kraju/regionu w poroście danych wyjściowych. Dostępne wartości to **CallingCode** (międzynarodowy kod wywołujący dla kraju/regionu, na przykład + 1) lub **ISO3166** (dwuliterowy kod kraju/regionu ISO-3166). |
 | Oświadczenie outputclaim | nationalNumber | ciąg | Ciąg określający numer Narodowy numeru telefonu. |
-| Oświadczenie outputclaim | countryCode | ciąg | Ciąg jako numer kierunkowy kraju numeru telefonu. |
+| Oświadczenie outputclaim | countryCode | ciąg | Wartość ciągu dla kodu kraju/regionu numeru telefonu. |
 
 
 Jeśli przekształcenie oświadczeń **GetNationalNumberAndCountryCodeFromPhoneNumberString** jest wykonywane z poziomu [profilu technicznego sprawdzania poprawności](validation-technical-profile.md) , który jest wywoływany przez [samodzielnie potwierdzony profil techniczny](self-asserted-technical-profile.md) lub [Akcja kontrolki wyświetlania](display-controls.md#display-control-actions), wówczas metadane profilu technicznego **UserMessageIfPhoneNumberParseFailure** z własnym potwierdzeniem są kontrolowane przez komunikat o błędzie wyświetlany użytkownikowi.
 
 ![Diagram ścieżki wykonywania komunikatu o błędzie](./media/phone-authentication/assert-execution.png)
 
-Możesz użyć tej transformacji oświadczeń, aby podzielić pełen numer telefonu na kod kraju i numer Narodowy. Jeśli podany numer telefonu jest nieprawidłowy, możesz zgłosić komunikat o błędzie.
+Możesz użyć tej transformacji oświadczeń, aby podzielić pełny numer telefonu na kod kraju/regionu i numer Narodowy. Jeśli podany numer telefonu jest nieprawidłowy, możesz zgłosić komunikat o błędzie.
 
-Poniższy przykład próbuje podzielić numer telefonu na numer Narodowy i kod kraju. Jeśli numer telefonu jest prawidłowy, numer telefonu zostanie przesłonięty przez numer Narodowy. Jeśli numer telefonu jest nieprawidłowy, wyjątek nie zostanie wygenerowany, a numer telefonu nadal ma oryginalną wartość.
+Poniższy przykład próbuje podzielić numer telefonu na numer Narodowy i kod kraju/regionu. Jeśli numer telefonu jest prawidłowy, numer telefonu zostanie przesłonięty przez numer Narodowy. Jeśli numer telefonu jest nieprawidłowy, wyjątek nie zostanie wygenerowany, a numer telefonu nadal ma oryginalną wartość.
 
 ```XML
 <ClaimsTransformation Id="GetNationalNumberAndCountryCodeFromPhoneNumberString" TransformationMethod="GetNationalNumberAndCountryCodeFromPhoneNumberString">

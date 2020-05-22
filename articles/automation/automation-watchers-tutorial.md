@@ -1,20 +1,26 @@
 ---
-title: Tworzenie zadania obserwatora na koncie Azure Automation
-description: Dowiedz się, jak utworzyć zadanie obserwatora na koncie Azure Automation, aby obejrzeć nowe pliki utworzone w folderze.
+title: Śledzenie zaktualizowanych plików za pomocą zadania obserwatora Azure Automation
+description: W tym artykule opisano sposób tworzenia zadania obserwatora na koncie Azure Automation, aby obejrzeć nowe pliki utworzone w folderze.
 services: automation
 ms.subservice: process-automation
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 1175350e7f9f4db92d7d59eba0cc66ac4bb49f5f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1c41437773cf45e51e90dc55ad37e198c77f4373
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617354"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744150"
 ---
-# <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Tworzenie zadań obserwatora Azure Automation w celu śledzenia zmian plików na komputerze lokalnym
+# <a name="track-updated-files-with-a-watcher-task"></a>Śledzenie zaktualizowanych plików przy użyciu zadania obserwatora
 
 Azure Automation używa zadania obserwatora, aby wyszukać zdarzenia i wyzwalać akcje przy użyciu elementów Runbook programu PowerShell. Zadanie obserwatora zawiera dwie części, obserwatora i akcję. Element Runbook obserwatora działa w interwale zdefiniowanym w zadaniu obserwatora i wyprowadza dane do elementu Runbook akcji. 
+
+> [!NOTE]
+> Zadania obserwatora nie są obsługiwane w przypadku platformy Azure w Chinach Vianet 21.
+
+> [!IMPORTANT]
+> Począwszy od maja 2020, używanie Azure Logic Apps jest obsługiwanym sposobem monitorowania zdarzeń, planowania cyklicznych zadań i wyzwalania akcji. Zobacz temat [Planowanie i uruchamianie cyklicznych zautomatyzowanych zadań, procesów i przepływów pracy przy użyciu Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/concepts-schedule-automated-recurring-tasks-workflows).
 
 Ten samouczek przeprowadzi Cię przez proces tworzenia zadania obserwatora do monitorowania po dodaniu nowego pliku do katalogu. Omawiane kwestie:
 
@@ -34,9 +40,6 @@ Do wykonania czynności przedstawionych w tym samouczku są wymagane następują
 * [Konto usługi Automation](automation-offering-get-started.md) do przechowywania obserwatora i elementów Runbook akcji oraz zadania obserwatora.
 * [Hybrydowy proces roboczy elementu Runbook](automation-hybrid-runbook-worker.md) , w którym jest uruchamiane zadanie obserwatora.
 * Elementy Runbook programu PowerShell. Elementy Runbook przepływu pracy programu PowerShell nie są obsługiwane przez zadania obserwatora.
-
-> [!NOTE]
-> Zadania obserwatora nie są obsługiwane w Chinach platformy Azure.
 
 ## <a name="import-a-watcher-runbook"></a>Importuj element Runbook obserwatora
 
@@ -166,5 +169,5 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 Skorzystaj z tego linku, aby dowiedzieć się więcej na temat tworzenia własnego elementu Runbook.
 
 > [!div class="nextstepaction"]
-> [Mój pierwszy element Runbook programu PowerShell](automation-first-runbook-textual-powershell.md).
+> [Tworzenie elementu runbook programu PowerShell](learn/automation-tutorial-runbook-textual-powershell.md)
 

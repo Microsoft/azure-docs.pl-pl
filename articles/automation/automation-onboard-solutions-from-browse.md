@@ -1,166 +1,71 @@
 ---
-title: Dowiedz się, jak dołączyć rozwiązania Update Management, Change Tracking i spisu dla wielu maszyn wirtualnych w Azure Automation
-description: Dowiedz się, jak dołączyć maszynę wirtualną platformy Azure przy użyciu rozwiązań Update Management, Change Tracking i spisu, które są częścią Azure Automation
+title: Włącz Update Management Azure Automation w Azure Portal
+description: W tym artykule opisano sposób włączania Update Management z Azure Portal.
 services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: d97fbe6ac515a2559340474105d73b7c9b9c6ee4
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: cb3bbf1a7c2e55d152d26c475369f9ccb6fb7d1e
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731921"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743982"
 ---
-# <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Włączanie rozwiązań Update Management, Change Tracking i spisu na wielu maszynach wirtualnych
+# <a name="enable-update-management-from-azure-portal"></a>Włącz Update Management z Azure Portal
 
-Azure Automation udostępnia rozwiązania do zarządzania aktualizacjami zabezpieczeń systemu operacyjnego, śledzenia zmian i spisu, co jest zainstalowane na komputerach. Istnieje wiele sposobów, aby dołączać maszyny, można dołączyć rozwiązanie [z maszyny wirtualnej](automation-onboard-solutions-from-vm.md)do [konta usługi Automation](automation-onboard-solutions-from-automation-account.md)podczas przeglądania maszyn wirtualnych lub przez [element Runbook](automation-onboard-solutions.md). W tym artykule opisano dołączanie tych rozwiązań podczas przeglądania maszyn wirtualnych na platformie Azure.
+W tym artykule opisano, jak włączyć funkcję [Update Management](automation-update-management.md) dla maszyn wirtualnych, przeglądając Azure Portal. Aby włączyć maszyny wirtualne platformy Azure na dużą skalę, należy włączyć istniejącą maszynę wirtualną przy użyciu Update Management. 
+
+Liczba grup zasobów, których można użyć do zarządzania maszynami wirtualnymi, jest ograniczona przez [Menedżer zasobów limity wdrożenia](../azure-resource-manager/templates/cross-resource-group-deployment.md). Menedżer zasobów wdrożeń nie należy mylić z wdrożeniami aktualizacji, są ograniczone do pięciu grup zasobów na wdrożenie. Dwie z tych grup zasobów są zastrzeżone do konfigurowania obszaru roboczego Log Analytics, konta usługi Automation i powiązanych zasobów. Spowoduje to pozostawienie trzech grup zasobów do wyboru dla zarządzania przez Update Management. Ten limit dotyczy tylko równoczesnej konfiguracji, a nie liczby grup zasobów, które mogą być zarządzane przez funkcję automatyzacji.
+
+> [!NOTE]
+> Podczas włączania Update Management tylko niektóre regiony są obsługiwane na potrzeby łączenia obszaru roboczego Log Analytics i konta usługi Automation. Aby uzyskać listę obsługiwanych par mapowania, zobacz [Mapowanie regionów dla konta usługi Automation i obszaru roboczego log Analytics](how-to/region-mappings.md).
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* [Konto usługi Automation](automation-offering-get-started.md) do zarządzania maszynami.
+* [Maszyna wirtualna](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Zaloguj się do platformy Azure w witrynie https://portal.azure.com
+Zaloguj się do platformy Azure pod adresem https://portal.azure.com .
 
-## <a name="enable-solutions"></a>Włączanie rozwiązań
+## <a name="enable-update-management"></a>Włączanie rozwiązania Update Management
 
-W Azure Portal przejdź do **maszyn wirtualnych**.
+1. W Azure Portal przejdź do **maszyn wirtualnych**.
 
-Korzystając z pól wyboru, wybierz maszyny wirtualne, które chcesz dołączyć do Change Tracking i spisu lub Update Management. Dołączanie jest dostępne dla maksymalnie trzech różnych grup zasobów jednocześnie. Maszyny wirtualne platformy Azure mogą istnieć w dowolnym regionie, niezależnie od lokalizacji konta usługi Automation.
+2. Użyj pól wyboru, aby wybrać maszyny wirtualne, które mają zostać dodane do Update Management. W danym momencie można dodać maszyny do maksymalnie trzech różnych grup zasobów. Maszyny wirtualne platformy Azure mogą istnieć w dowolnym regionie, niezależnie od lokalizacji konta usługi Automation.
 
-![Lista maszyn wirtualnych](media/automation-onboard-solutions-from-browse/vmlist.png)
-> [!TIP]
-> Użyj kontrolek filtr, aby zmodyfikować listę maszyn wirtualnych, a następnie kliknij górne pole wyboru, aby wybrać wszystkie maszyny wirtualne na liście.
+    ![Lista maszyn wirtualnych](media/automation-onboard-solutions-from-browse/vmlist.png)
 
-Na pasku poleceń kliknij pozycję **usługi** i wybierz opcję **śledzenie zmian**, **spis**lub **Update Management**.
+    > [!TIP]
+    > Użyj kontrolek filtr, aby wybrać maszyny wirtualne z różnych subskrypcji, lokalizacji i grup zasobów. Możesz kliknąć górne pole wyboru, aby wybrać wszystkie maszyny wirtualne znajdujące się na liście.
 
-> [!NOTE]
-> Change Tracking i spis używają tego samego rozwiązania. Gdy jest włączona, druga jest również włączona.
+    ![Włączanie rozwiązania Update Management](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
 
-Na poniższej ilustracji przedstawiono Update Management. Change Tracking i spis mają ten sam układ i zachowanie.
+3. Kliknij pozycję **usługi** i wybierz pozycję **Update Management** dla funkcji Update Management. 
 
-Lista maszyn wirtualnych jest filtrowana w celu wyświetlania tylko maszyn wirtualnych znajdujących się w tej samej subskrypcji i lokalizacji. Jeśli maszyny wirtualne znajdują się w więcej niż trzech grupach zasobów, wybierane są pierwsze trzy grupy zasobów.
+4. Lista maszyn wirtualnych jest filtrowana w celu wyświetlania tylko maszyn wirtualnych znajdujących się w tej samej subskrypcji i lokalizacji. Jeśli maszyny wirtualne znajdują się w więcej niż trzech grupach zasobów, wybierane są pierwsze trzy grupy zasobów.
 
-### <a name="onboarding-limitations"></a><a name="resource-group-limit"></a>Ograniczenia dotyczące dołączania
+5. Istniejący obszar roboczy Log Analytics i konto usługi Automation są domyślnie zaznaczone. Jeśli chcesz użyć innego obszaru roboczego Log Analytics i konta usługi Automation, kliknij pozycję **niestandardowa** , aby wybrać je ze strony Konfiguracja niestandardowa. Po wybraniu obszaru roboczego Log Analytics należy sprawdzić, czy jest on połączony z kontem usługi Automation. Jeśli zostanie znalezione połączone konto usługi Automation, zobaczysz następujący ekran. Po zakończeniu kliknij przycisk **OK**.
 
-Liczba grup zasobów, których można użyć do dołączenia, jest ograniczona przez [Menedżer zasobów limity wdrożenia](../azure-resource-manager/templates/cross-resource-group-deployment.md). Menedżer zasobów wdrożeń nie należy mylić z wdrożeniami aktualizacji, są ograniczone do 5 grup zasobów na wdrożenie. Aby zapewnić integralność dołączania, 2 z tych grup zasobów są zastrzeżone do konfigurowania obszaru roboczego Log Analytics, konta usługi Automation i powiązanych zasobów. Spowoduje to pozostawienie 3 grup zasobów do wybrania do wdrożenia. Ten limit dotyczy tylko jednoczesnego dołączania, a nie liczby grup zasobów, które mogą być zarządzane przez rozwiązanie automatyzacji.
+    ![Wybieranie obszaru roboczego i konta](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
 
-Możesz również użyć elementu Runbook do dołączenia, aby uzyskać więcej informacji, zobacz Dołączanie [rozwiązań aktualizacji i śledzenia zmian do Azure Automation](automation-onboard-solutions.md).
+6. Jeśli wybrany obszar roboczy nie jest połączony z kontem usługi Automation, zobaczysz następujący ekran. Wybierz konto usługi Automation, a następnie kliknij przycisk **OK** po zakończeniu.
 
-Użyj kontrolek filtr, aby wybrać maszyny wirtualne z różnych subskrypcji, lokalizacji i grup zasobów.
+    ![Brak obszaru roboczego](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
-![Dołączanie rozwiązania do zarządzania aktualizacjami](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
+7. Usuń zaznaczenie pola wyboru obok każdej maszyny wirtualnej, która nie ma być włączona. Maszyny wirtualne, które nie mogą być włączone, są już odwybrane.
 
-Zapoznaj się z opcjami obszaru roboczego Log Analytics i konta usługi Automation. Istniejący obszar roboczy i konto usługi Automation są domyślnie zaznaczone. Jeśli chcesz użyć innego obszaru roboczego Log Analytics i konta usługi Automation, kliknij pozycję **niestandardowa** , aby wybrać je ze strony **Konfiguracja niestandardowa** . Po wybraniu obszaru roboczego Log Analytics należy sprawdzić, czy jest on połączony z kontem usługi Automation. Po znalezieniu połączonego konta usługi Automation zobaczysz następujący ekran. Po zakończeniu kliknij przycisk **OK**.
-
-![Wybieranie obszaru roboczego i konta](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
-
-Jeśli wybrany obszar roboczy nie jest połączony z kontem usługi Automation, zobaczysz następujący ekran. Wybierz konto usługi Automation, a następnie kliknij przycisk **OK** po zakończeniu.
-
-![Brak obszaru roboczego](media/automation-onboard-solutions-from-browse/no-workspace.png)
-
-> [!NOTE]
-> W przypadku włączenia rozwiązań tylko w niektórych regionach jest obsługiwane łączenie obszaru roboczego usługi Log Analytics i konta usługi Automation.
->
-> Aby uzyskać listę obsługiwanych par mapowania, zobacz [Mapowanie regionów dla konta usługi Automation i obszaru roboczego log Analytics](how-to/region-mappings.md).
-
-Usuń zaznaczenie pola wyboru obok każdej maszyny wirtualnej, która nie ma być włączona. Maszyny wirtualne, których nie można włączyć, są już odwybrane.
-
-Kliknij pozycję **Włącz** , aby włączyć rozwiązanie. Włączanie rozwiązania może trwać do 15 minut.
-
-## <a name="unlink-workspace"></a>Unlink workspace (Odłączanie obszaru roboczego)
-
-Następujące rozwiązania zależą od obszaru roboczego Log Analytics:
-
-* [Zarządzanie aktualizacjami](automation-update-management.md)
-* [Change Tracking](automation-change-tracking.md)
-* [Uruchamianie lub zatrzymywanie maszyn wirtualnych po godzinach pracy](automation-solution-vm-management.md)
-
-Jeśli zdecydujesz, że nie chcesz już integrować konta usługi Automation z obszarem roboczym Log Analytics, możesz odłączyć swoje konto bezpośrednio od Azure Portal. Przed kontynuowaniem należy najpierw usunąć wymienione wcześniej rozwiązania. w przeciwnym razie proces ten nie zostanie zablokowany. Zapoznaj się z artykułem dotyczącym określonego rozwiązania, które zostało zaimportowane, aby poznać kroki wymagane do jego usunięcia.
-
-Po usunięciu tych rozwiązań możesz wykonać następujące czynności, aby odłączyć konto usługi Automation.
-
-> [!NOTE]
-> Niektóre rozwiązania, w tym wcześniejsze wersje rozwiązania Azure SQL monitoring, mogły utworzyć zasoby automatyzacji i mogą być również musiały zostać usunięte przed odłączeniem obszaru roboczego.
-
-1. W Azure Portal Otwórz konto usługi Automation, a na stronie konto usługi Automation wybierz opcję **połączony obszar roboczy** w sekcji **zasoby powiązane** z pozostałą częścią.
-
-2. Na stronie Odłącz obszar roboczy kliknij pozycję **Odłącz obszar roboczy**.
-
-   ![Odłącz stronę obszaru roboczego](media/automation-onboard-solutions-from-browse/automation-unlink-workspace-blade.png).
-
-   Zostanie wyświetlony monit sprawdzający, czy chcesz kontynuować.
-
-3. Mimo że Azure Automation próbuje odłączyć konto do obszaru roboczego Log Analytics, możesz śledzić postęp w obszarze **powiadomienia** z menu.
-
-Jeśli użyto rozwiązania Update Management, opcjonalnie możesz chcieć usunąć następujące elementy, które nie są już potrzebne po usunięciu rozwiązania.
-
-* Harmonogramy aktualizacji — każda z nich będzie mieć nazwy zgodne z utworzonymi wdrożeniami aktualizacji)
-
-* Grupy hybrydowych procesów roboczych utworzone dla rozwiązania — każda z nich będzie podobna do maszyna1. contoso. com_9ceb8108-26c9-4051-b6b3-227600d715c8).
-
-Jeśli użyto rozwiązania Start/Stop VMs during off-hours, opcjonalnie możesz chcieć usunąć następujące elementy, które nie są już potrzebne po usunięciu rozwiązania.
-
-* Uruchamianie i zatrzymywanie harmonogramów elementów Runbook maszyny wirtualnej
-* Uruchamianie i zatrzymywanie elementów Runbook maszyny wirtualnej
-* Zmienne
-
-Możesz również odłączyć obszar roboczy od konta usługi Automation z poziomu obszaru roboczego Log Analytics. W obszarze roboczym wybierz pozycję **konto usługi Automation** w obszarze **powiązane zasoby**. Na stronie konto usługi Automation wybierz opcję **Odłącz konto**.
-
-## <a name="troubleshooting"></a>Rozwiązywanie problemów
-
-Podczas dołączania wielu maszyn mogą istnieć maszyny, które są wyświetlane jako `Cannot enable`. Istnieją różne przyczyny, dla których niektóre maszyny mogą nie być włączone. W poniższych sekcjach przedstawiono możliwe przyczyny `Cannot enable` stanu na maszynie wirtualnej podczas próby dołączenia.
-
-### <a name="vm-reports-to-a-different-workspace-workspacename--change-configuration-to-use-it-for-enabling"></a>Raporty maszyny wirtualnej do innego obszaru roboczego:\<"WorkspaceName\>".  Zmień konfigurację, aby była używana do włączania
-
-**Przyczyna**: ten błąd pokazuje, że maszyna wirtualna, którą próbujesz dołączyć do raportów, do innego obszaru roboczego.
-
-**Rozwiązanie**: kliknij pozycję **Użyj jako konfiguracji** , aby zmienić wybrane konto usługi Automation i obszar roboczy log Analytics.
-
-### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>Raporty maszyn wirtualnych do obszaru roboczego, który nie jest dostępny w tej subskrypcji
-
-**Przyczyna**: obszar roboczy, do którego jest raportowana maszyna wirtualna:
-
-* Znajduje się w innej subskrypcji lub
-* Już nie istnieje lub
-* Znajduje się w grupie zasobów, do której nie masz uprawnień dostępu
-
-**Rozwiązanie**: Znajdź konto usługi Automation skojarzone z obszarem roboczym, do którego maszyna wirtualna jest zgłaszana, i dołączaj maszynę wirtualną, zmieniając konfigurację zakresu.
-
-### <a name="vm-operating-system-version-or-distribution-is-not-supported"></a>Wersja lub dystrybucja systemu operacyjnego maszyny wirtualnej nie jest obsługiwana
-
-**Przyczyna:** Rozwiązanie nie jest obsługiwane w przypadku wszystkich dystrybucji systemu Linux lub wszystkich wersji Windows.
-
-**Rozwiązanie:** Zapoznaj się z [listą obsługiwanych klientów](automation-update-management.md#supported-client-types).
-
-### <a name="classic-vms-cannot-be-enabled"></a>Nie można włączyć klasycznych maszyn wirtualnych
-
-**Przyczyna**: maszyny wirtualne korzystające z klasycznego modelu wdrażania nie są obsługiwane.
-
-**Rozwiązanie**: Migruj maszynę wirtualną do modelu wdrażania Menedżer zasobów. Aby dowiedzieć się, jak to zrobić, zobacz [Migrowanie zasobów modelu wdrożenia klasycznego](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
-
-### <a name="vm-is-stopped-deallocated"></a>Maszyna wirtualna jest zatrzymana. bez alokacji
-
-**Przyczyna**: maszyna wirtualna nie jest w stanie **uruchomienia** .
-
-**Rozwiązanie**: Aby dołączyć maszynę wirtualną do rozwiązania, maszyna wirtualna musi być uruchomiona. Kliknij link **Rozpocznij maszynę wirtualną** , aby uruchomić maszynę wirtualną bez nawigowania na stronie.
-
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
-
-Aby usunąć maszynę wirtualną z Update Management:
-
-* W obszarze roboczym Log Analytics Usuń maszynę wirtualną z zapisanego wyszukiwania konfiguracji `MicrosoftDefaultScopeConfig-Updates`zakresu. Zapisane wyszukiwania można znaleźć **ogólnie** w obszarze roboczym.
-* Usuń [agenta log Analytics dla systemu Windows](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) lub [agenta log Analytics dla Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+8. Kliknij pozycję **Włącz** , aby włączyć wybraną funkcję. Ukończenie instalacji może potrwać do 15 minut.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy rozwiązanie jest włączone dla maszyn wirtualnych, zapoznaj się z artykułem Omówienie Update Management, aby dowiedzieć się, jak utworzyć **wdrożenie aktualizacji** dla maszyn.
-
-> [!div class="nextstepaction"]
-> [Update Management — Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure](./automation-tutorial-update-management.md)
-
-Dodatkowe samouczki dotyczące rozwiązań i sposoby ich używania:
-
-* [Samouczek — zarządzanie aktualizacjami dla maszyny wirtualnej](automation-tutorial-update-management.md)
-
-* [Samouczek — identyfikowanie oprogramowania na maszynie wirtualnej](automation-tutorial-installed-software.md)
-
-* [Samouczek — Rozwiązywanie problemów dotyczących zmian na maszynie wirtualnej](automation-tutorial-troubleshoot-changes.md)
+* Aby używać Update Management dla maszyn wirtualnych, zobacz [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure](automation-tutorial-update-management.md).
+* Aby poznać konfiguracje zakresów, zobacz [Working with Scope Configurations for Update Management](automation-scope-configurations-update-management.md).
+* Jeśli obszar roboczy Log Analytics nie jest już potrzebny, zobacz instrukcje w polu [Odłącz obszar roboczy z konta usługi Automation dla Update Management](automation-unlink-workspace-update-management.md).
+* Aby usunąć maszyny wirtualne z Update Management, zobacz [usuwanie maszyn wirtualnych z Update Management](automation-remove-vms-from-update-management.md).
+* Aby rozwiązać ogólne błędy Update Management, zobacz [Rozwiązywanie problemów z Update Management](troubleshoot/update-management.md).
+* Aby rozwiązać problemy z usługą Windows Update Agent, zobacz [Rozwiązywanie problemów z usługą Windows Update Agent](troubleshoot/update-agent-issues.md).
+* Aby rozwiązać problemy z agentem aktualizacji systemu Linux, zobacz[Rozwiązywanie problemów z agentem aktualizacji systemu Linux](troubleshoot/update-agent-issues-linux.md).

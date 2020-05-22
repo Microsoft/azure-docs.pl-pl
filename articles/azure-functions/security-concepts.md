@@ -3,12 +3,12 @@ title: Zabezpieczanie Azure Functions
 description: Dowiedz się więcej na temat sposobu, w jaki kod funkcji działający na platformie Azure jest bezpieczniejszy przed typowymi atakami.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7336974a0f982f2dd2394f16d7f6d520ecb8571d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 07d099ae3ce8a544994208436770674e6674e6f0
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83664417"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744065"
 ---
 # <a name="securing-azure-functions"></a>Zabezpieczanie Azure Functions
 
@@ -181,7 +181,7 @@ Mając osobny punkt końcowy SCM, można kontrolować wdrożenia i inne funkcje 
 
 ### <a name="continuous-security-validation"></a>Ciągła Weryfikacja zabezpieczeń
 
-Ze względu na to, że zabezpieczenia muszą być uznawane za każdy krok w procesie programistycznym, warto również zaimplementować sprawdzanie poprawności zabezpieczeń w środowisku ciągłego wdrażania. Jest to czasami nazywane DevSecOps. Korzystanie z usługi Azure DevOps dla potoku wdrożenia pozwala zintegrować weryfikację w procesie wdrażania. Aby uzyskać więcej informacji, zobacz temat [Dowiedz się, jak dodać ciągłą weryfikację zabezpieczeń do potoku Ci/CD](/devops/migrate/security-validation-cicd-pipeline).  
+Ze względu na to, że zabezpieczenia muszą być uznawane za każdy krok w procesie programistycznym, warto również zaimplementować sprawdzanie poprawności zabezpieczeń w środowisku ciągłego wdrażania. Jest to czasami nazywane DevSecOps. Korzystanie z usługi Azure DevOps dla potoku wdrożenia pozwala zintegrować weryfikację w procesie wdrażania. Aby uzyskać więcej informacji, zobacz temat [Dowiedz się, jak dodać ciągłą weryfikację zabezpieczeń do potoku Ci/CD](/azure/devops/migrate/security-validation-cicd-pipeline).  
 
 ## <a name="network-security"></a>Bezpieczeństwo sieci
 

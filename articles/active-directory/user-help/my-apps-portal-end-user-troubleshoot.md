@@ -7,17 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 03/21/2019
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: f72dd5595d67ae989cec5681d22def9a2f929adf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ed1f06e4747492c43d19a00c1091b2b4d7f7050f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253158"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83741880"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Rozwiązywanie problemów z portalem My Apps
 
@@ -47,7 +47,7 @@ Jeśli masz problemy z instalowaniem rozszerzenia moje aplikacje bezpieczne logo
 
 Jeśli masz problemy z zalogowaniem się do portalu **Moje aplikacje** , możesz spróbować wykonać następujące czynności:
 
-- Upewnij się, że używasz odpowiedniego adresu URL. Powinna być https://myapps.microsoft.com lub dostosowana Strona dla organizacji, na przykład https://myapps.microsoft.com/contoso.com.
+- Upewnij się, że używasz odpowiedniego adresu URL. Powinna być https://myapps.microsoft.com lub dostosowana Strona dla organizacji, na przykład https://myapps.microsoft.com/contoso.com .
 
 - Upewnij się, że hasło jest poprawne i nie wygasło. Aby uzyskać więcej informacji, zobacz [Resetowanie hasła](active-directory-passwords-update-your-own-password.md)służbowego.
 

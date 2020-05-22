@@ -12,12 +12,12 @@ ms.date: 04/22/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 515ac034158b821968e2d7b2be9514a3f7c20866
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 59f42f7c1fcdfef29becfb4a046753650ae9d14f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82099096"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737558"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Instrukcje: dostarczanie opcjonalnych oświadczeń do aplikacji usługi Azure AD
 
@@ -61,15 +61,15 @@ Zestaw opcjonalnych oświadczeń dostępnych domyślnie dla aplikacji do użycia
 | `enfpolids`                | Wymuszane identyfikatory zasad. Lista identyfikatorów zasad, które zostały ocenione dla bieżącego użytkownika. | JWT |  |  |
 | `vnet`                     | Informacje o specyfikatorze sieci wirtualnej. | JWT        |           |      |
 | `fwd`                      | Adres IP.| JWT    |   | Dodaje oryginalny adres IPv4 klienta żądającego (w sieci wirtualnej) |
-| `ctry`                     | Kraj użytkownika | JWT |  | Usługa Azure AD zwraca `ctry` opcjonalne zgłoszenie, jeśli jest obecne, a wartość zgłoszenia to standardowy dwuliterowy kod kraju, taki jak fr, JP, sz i tak dalej. |
-| `tenant_ctry`              | Kraj dzierżawy zasobu | JWT | | |
+| `ctry`                     | Kraj/region użytkownika | JWT |  | Usługa Azure AD zwraca `ctry` opcjonalne, jeśli jest obecne, a wartość zgłoszenia to standardowy dwuliterowy kod kraju/regionu, taki jak fr, JP, sz i tak dalej. |
+| `tenant_ctry`              | Kraj/region dzierżawy zasobów | JWT | | |
 | `xms_pdl`             | Preferowana lokalizacja danych   | JWT | | W przypadku dzierżaw z wieloma lokalizacjami geograficznymi preferowaną lokalizacją danych jest kod składający się z regionu geograficznego, w którym znajduje się użytkownik. Aby uzyskać więcej informacji, zobacz [dokumentację Azure AD Connect dotyczącą preferowanej lokalizacji danych](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation).<br/>Na przykład: `APC` dla Azja i Pacyfik. |
 | `xms_pl`                   | Preferowany język użytkownika  | JWT ||Preferowany język użytkownika, jeśli jest ustawiony. Pochodzący od swojej dzierżawy domowej w scenariuszach dostępu gościa. Sformatowane — DW ("pl-US"). |
 | `xms_tpl`                  | Preferowany język dzierżawy| JWT | | Preferowany język dzierżawy zasobu, jeśli został ustawiony. Sformatowane w szystkie ("en"). |
 | `ztdid`                    | Identyfikator wdrożenia bez dotknięcia | JWT | | Tożsamość urządzenia używana na potrzeby [Autopilotażu systemu Windows](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
 | `email`                    | Adres e-mail dla tego użytkownika, jeśli użytkownik go ma.  | JWT, SAML | MSA, Azure AD | Ta wartość jest uwzględniana domyślnie, jeśli użytkownik jest gościem w dzierżawie.  W przypadku użytkowników zarządzanych (użytkowników w ramach dzierżawy) należy zażądać ich przez to opcjonalne żądanie lub tylko w wersji 3.0, z zakresem OpenID Connect.  W przypadku użytkowników zarządzanych adres e-mail musi być ustawiony w [portalu administracyjnym pakietu Office](https://portal.office.com/adminportal/home#/users).|
 | `groups`| Opcjonalne formatowanie oświadczeń grupy |JWT, SAML| |Używany w połączeniu z ustawieniem GroupMembershipClaims w [manifeście aplikacji](reference-app-manifest.md), który musi być również ustawiony. Aby uzyskać szczegółowe informacje, zobacz poniższe [oświadczenia grupy](#configuring-groups-optional-claims) . Aby uzyskać więcej informacji na temat oświadczeń grup, zobacz [jak skonfigurować oświadczenia grupy](../hybrid/how-to-connect-fed-group-claims.md)
-| `acct`                | Stan konta użytkowników w dzierżawie. | JWT, SAML | | Jeśli użytkownik jest członkiem dzierżawy, wartość jest `0`. Jeśli jest gościem, wartość to `1`. |
+| `acct`                | Stan konta użytkowników w dzierżawie. | JWT, SAML | | Jeśli użytkownik jest członkiem dzierżawy, wartość jest `0` . Jeśli jest gościem, wartość to `1` . |
 | `upn`                      | Element UserPrincipalName. | JWT, SAML  |           | Chociaż to zgłoszenie jest automatycznie dołączane, można je określić jako opcjonalne, aby dołączyć dodatkowe właściwości, aby zmodyfikować jego zachowanie w przypadku użytkownika-gościa.  |
 
 ## <a name="v20-specific-optional-claims-set"></a>v 2.0 — zestaw oświadczeń opcjonalnych specyficznych
@@ -92,7 +92,7 @@ Te oświadczenia są zawsze uwzględniane w tokenach usługi Azure AD w wersji 1
 
 ### <a name="additional-properties-of-optional-claims"></a>Dodatkowe właściwości oświadczeń opcjonalnych
 
-Niektóre opcjonalne oświadczenia można skonfigurować w celu zmiany sposobu zwracania oświadczenia. Te dodatkowe właściwości są najczęściej używane do przeprowadzania migracji aplikacji lokalnych z różnymi oczekiwaniami do danych (na przykład `include_externally_authenticated_upn_without_hash` pomagają klientom, którzy nie mogą obsłużyć znaków hash`#`() w UPN).
+Niektóre opcjonalne oświadczenia można skonfigurować w celu zmiany sposobu zwracania oświadczenia. Te dodatkowe właściwości są najczęściej używane do przeprowadzania migracji aplikacji lokalnych z różnymi oczekiwaniami do danych (na przykład `include_externally_authenticated_upn_without_hash` pomagają klientom, którzy nie mogą obsłużyć znaków hash ( `#` ) w UPN).
 
 **Tabela 4: wartości konfiguracji opcjonalnych oświadczeń**
 
@@ -100,7 +100,7 @@ Niektóre opcjonalne oświadczenia można skonfigurować w celu zmiany sposobu z
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Może być używany w przypadku odpowiedzi SAML i JWT oraz dla tokenów v 1.0 i v 2.0. |
 |                | `include_externally_authenticated_upn`  | Zawiera nazwę UPN gościa przechowywaną w dzierżawie zasobów. Na przykład: `foo_hometenant.com#EXT#@resourcetenant.com` |
-|                | `include_externally_authenticated_upn_without_hash` | Tak samo jak powyżej, z tą różnicą,`#`że znaki hash () są zastępowane`_`znakami podkreślenia (), na przykład`foo_hometenant.com_EXT_@resourcetenant.com` |
+|                | `include_externally_authenticated_upn_without_hash` | Tak samo jak powyżej, z tą różnicą, że znaki hash ( `#` ) są zastępowane znakami podkreślenia ( `_` ), na przykład`foo_hometenant.com_EXT_@resourcetenant.com` |
 
 #### <a name="additional-properties-example"></a>Przykład dodatkowych właściwości
 
@@ -118,7 +118,7 @@ Niektóre opcjonalne oświadczenia można skonfigurować w celu zmiany sposobu z
 }
 ```
 
-Ten obiekt OptionalClaims powoduje, że token identyfikatora zwrócony klientowi do uwzględnienia oświadczenie nazwy UPN z dodatkowymi informacjami dzierżawy głównej i dzierżawy zasobów. `upn` To zgłoszenie jest zmieniane w tokenie, jeśli użytkownik jest gościem w dzierżawie (który korzysta z innego dostawcy tożsamości na potrzeby uwierzytelniania).
+Ten obiekt OptionalClaims powoduje, że token identyfikatora zwrócony klientowi do uwzględnienia oświadczenie nazwy UPN z dodatkowymi informacjami dzierżawy głównej i dzierżawy zasobów. To zgłoszenie `upn` jest zmieniane w tokenie, jeśli użytkownik jest gościem w dzierżawie (który korzysta z innego dostawcy tożsamości na potrzeby uwierzytelniania).
 
 ## <a name="configuring-optional-claims"></a>Konfigurowanie oświadczeń opcjonalnych
 
@@ -216,9 +216,9 @@ Rozszerzenia schematu i otwarte nie są obsługiwane przez oświadczenia opcjona
 
 ### <a name="directory-extension-formatting"></a>Formatowanie rozszerzenia katalogu
 
-Podczas konfigurowania opcjonalnych oświadczeń rozszerzenia katalogu przy użyciu manifestu aplikacji należy użyć pełnej nazwy rozszerzenia (w formacie: `extension_<appid>_<attributename>`). `<appid>` Musi być zgodna z identyfikatorem aplikacji żądającej żądania.
+Podczas konfigurowania opcjonalnych oświadczeń rozszerzenia katalogu przy użyciu manifestu aplikacji należy użyć pełnej nazwy rozszerzenia (w formacie: `extension_<appid>_<attributename>` ). `<appid>`Musi być zgodna z identyfikatorem aplikacji żądającej żądania.
 
-W ramach tokenu JWT te oświadczenia będą emitowane z następującym formatem nazw: `extn.<attributename>`.
+W ramach tokenu JWT te oświadczenia będą emitowane z następującym formatem nazw: `extn.<attributename>` .
 
 W ramach tokenów SAML te oświadczenia będą emitowane przy użyciu następującego formatu identyfikatora URI:`http://schemas.microsoft.com/identity/claims/extn.<attributename>`
 
@@ -304,7 +304,7 @@ W tej sekcji omówiono opcje konfiguracji w obszarze opcjonalne oświadczenia do
    > [!NOTE]
    > Jeśli zostanie użyta wartość "emit_as_roles", wszystkie role aplikacji skonfigurowane do przypisania użytkownika nie będą wyświetlane w ramach tego żądania
 
-**Pokazują**
+**Przykłady:**
 
 1) Emituj grupy jako nazwy grup w tokenach dostępu OAuth w formacie dnsDomainName\sAMAccountName
 
@@ -371,9 +371,9 @@ Dostępnych jest wiele opcji aktualizowania właściwości konfiguracji tożsamo
 
 W poniższym przykładzie użyjesz interfejsu użytkownika i manifestu **konfiguracji tokenu** w celu **Manifest** dodania opcjonalnych oświadczeń do tokenów dostępu, identyfikatora i SAML przeznaczonych dla aplikacji. Różne opcjonalne oświadczenia zostaną dodane do każdego typu tokenu, który aplikacja może odbierać:
 
-- Tokeny identyfikatora będą teraz zawierać nazwę UPN dla użytkowników federacyjnych w pełnej postaci (`<upn>_<homedomain>#EXT#@<resourcedomain>`).
+- Tokeny identyfikatora będą teraz zawierać nazwę UPN dla użytkowników federacyjnych w pełnej postaci ( `<upn>_<homedomain>#EXT#@<resourcedomain>` ).
 - Tokeny dostępu, które inne klienci żądają tej aplikacji, będą teraz zawierać auth_time
-- Tokeny SAML będą teraz zawierać rozszerzenie schematu katalogu skypeId (w tym przykładzie identyfikator aplikacji dla tej aplikacji to ab603c56068041afb2f6832e2a17e237). Tokeny SAML będą uwidaczniać identyfikator Skype jako `extension_skypeId`.
+- Tokeny SAML będą teraz zawierać rozszerzenie schematu katalogu skypeId (w tym przykładzie identyfikator aplikacji dla tej aplikacji to ab603c56068041afb2f6832e2a17e237). Tokeny SAML będą uwidaczniać identyfikator Skype jako `extension_skypeId` .
 
 **Konfiguracja interfejsu użytkownika:**
 

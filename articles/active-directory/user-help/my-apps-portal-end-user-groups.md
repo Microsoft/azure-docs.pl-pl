@@ -7,17 +7,17 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 02/03/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 00639462fce4e67561b8e50609264d4423872c82
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 23b7205e63c7991368efe421d5c067e980314611
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77022300"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83741983"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>Aktualizowanie informacji o grupach w portalu Moje aplikacje
 
@@ -40,7 +40,7 @@ Jeśli administrator udzielił Ci uprawnień do wyświetlania kafelka **grupy** 
 
 1. Zaloguj się do konta służbowego.
 
-2. Otwórz przeglądarkę internetową i przejdź do https://myapps.microsoft.comlub Użyj linku dostarczonego przez organizację. Na przykład może nastąpić przekierowanie do dostosowanej strony organizacji, na przykład https://myapps.microsoft.com/contoso.com.
+2. Otwórz przeglądarkę internetową i przejdź do https://myapps.microsoft.com lub Użyj linku dostarczonego przez organizację. Na przykład może nastąpić przekierowanie do dostosowanej strony organizacji, na przykład https://myapps.microsoft.com/contoso.com .
 
     Zostanie wyświetlona strona **aplikacje** przedstawiająca wszystkie aplikacje oparte na chmurze należące do organizacji i dostępne do użycia.
 
@@ -98,7 +98,7 @@ Jeśli administrator udzielił Ci uprawnień do wyświetlania kafelka **grupy** 
 
 Po utworzeniu grupy można edytować jej szczegóły, w tym aktualizując dowolne z istniejących informacji.
 
-1. Wybierz grupę, którą chcesz edytować, na stronie **grupy** , a następnie wybierz pozycję **Edytuj szczegóły** na stronie * &lt;Group_Name&gt; * .
+1. Wybierz grupę, którą chcesz edytować, na stronie **grupy** , a następnie wybierz pozycję **Edytuj szczegóły** na stronie * &lt; Group_Name &gt; * .
 
     Zostanie wyświetlone okno **Edytuj szczegóły** i można zaktualizować informacje dodane podczas pierwszego tworzenia grupy.
 
@@ -108,7 +108,7 @@ Po utworzeniu grupy można edytować jej szczegóły, w tym aktualizując dowoln
 
 Możesz dodawać lub usuwać członków dla dowolnych grup, których jesteś członkiem.
 
-1. Wybierz grupę, do której chcesz dodać członków, a następnie wybierz **+** ją na stronie * &lt;Group_Name&gt; * .
+1. Wybierz grupę, do której chcesz dodać członków, a następnie wybierz ją **+** na stronie * &lt; Group_Name &gt; * .
 
     ![Dodawanie elementu członkowskiego grupy z wyróżnionym znakiem +](media/my-apps-portal/my-apps-portal-add-member-link.png)
 
@@ -118,7 +118,7 @@ Możesz dodawać lub usuwać członków dla dowolnych grup, których jesteś cz�
 
     Zaproszenie jest wysyłane do nowego członka, aby rozpocząć dostęp do aplikacji w organizacji.
 
-3. Jeśli element członkowski został dodany przez pomyłkę lub jeśli członek opuścił organizację, możesz usunąć element członkowski, wybierając pozycję **Usuń element członkowski** obok nazwy elementu członkowskiego na stronie * &lt;&gt; Group_Name* .
+3. Jeśli element członkowski został dodany przez pomyłkę lub jeśli członek opuścił organizację, możesz usunąć element członkowski, wybierając pozycję **Usuń element członkowski** obok nazwy elementu członkowskiego na stronie * &lt; Group_Name &gt; * .
 
     ![Usuń element członkowski z wyróżnionym linkiem usuwania](media/my-apps-portal/my-apps-portal-remove-member-link.png)
 
@@ -138,7 +138,7 @@ Jeśli Twoja organizacja zezwala na to, możesz odnowić grupę Office 365, rozs
 
 W dowolnym momencie możesz usunąć dowolną własną grupę. Jeśli jednak usuniesz grupę przez pomyłkę, musisz ją utworzyć i ponownie dodać członków.
 
-1. Wybierz grupę, którą chcesz trwale usunąć, a następnie wybierz pozycję **Usuń grupę** na stronie * &lt;Group_Name&gt; * .
+1. Wybierz grupę, którą chcesz trwale usunąć, a następnie wybierz pozycję **Usuń grupę** na stronie * &lt; Group_Name &gt; * .
 
     ![Strona <Group_name> z wyróżnionym linkiem Usuń grupę](media/my-apps-portal/my-apps-portal-delete-group-link.png)
 

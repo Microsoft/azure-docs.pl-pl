@@ -4,12 +4,12 @@ description: W tym artykule omówiono popularne pytania dotyczące Azure Site Re
 ms.topic: conceptual
 ms.date: 1/24/2020
 ms.author: raynew
-ms.openlocfilehash: a9d0ae4a6e60a72bbb1148aca1a75c44506b2e9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 270fa8de3346063d047b38132438f8097d87689d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257682"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744114"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Ogólne pytania dotyczące Azure Site Recovery
 
@@ -102,9 +102,14 @@ Tak. Po utworzeniu magazynu Site Recovery w regionie firma Microsoft gwarantuje,
 ### <a name="does-site-recovery-encrypt-replication"></a>Czy usługa Site Recovery szyfruje replikację?
 W przypadku maszyn wirtualnych i serwerów fizycznych replikacja między lokacjami lokalnymi jest obsługiwana. W przypadku maszyn wirtualnych i serwerów fizycznych replikowanych do platformy Azure obsługiwane są zarówno szyfrowanie podczas przesyłania, jak i [szyfrowanie (na platformie Azure)](https://docs.microsoft.com/azure/storage/storage-service-encryption) .
 
-### <a name="how-can-i-enforce-tls-12-on-all-on-premises-azure-site-recovery-components"></a>Jak wymusić protokół TLS 1,2 na wszystkich lokalnych składnikach Azure Site Recovery?
+### <a name="does-azure-to-azure-site-recovery-use-tls-12-for-all-communications-across-microservices-of-azure"></a>Czy platforma Azure-Azure Site Recovery korzysta z protokołu TLS 1,2 dla całej komunikacji na mikrousługi na platformie Azure?
+Tak, protokół TLS 1,2 jest wymuszany domyślnie dla scenariusza platformy Azure-to-Azure Site Recovery. 
+
+### <a name="how-can-i-enforce-tls-12-on-vmware-to-azure-and-physical-server-to-azure-site-recovery-scenarios"></a>Jak wymusić protokół TLS 1,2 w scenariuszach z oprogramowaniem VMware-to-Azure i serwerem fizycznym do Azure Site Recovery?
 Agenci mobilności instalowani na replikowanych elementach komunikują się tylko z serwerem przetwarzania tylko w protokole TLS 1,2. Jednak komunikacja z serwera konfiguracji do platformy Azure i z serwera przetwarzania na platformę Azure może należeć do protokołu TLS 1,1 lub 1,0. Postępuj zgodnie ze [wskazówkami](https://support.microsoft.com/en-us/help/3140245/update-to-enable-tls-1-1-and-tls-1-2-as-default-secure-protocols-in-wi) , aby wymusić szyfrowanie TLS 1,2 na wszystkich serwerach konfiguracji i serwerach przetwarzania skonfigurowanych przez użytkownika.
 
+### <a name="how-can-i-enforce-tls-12-on-hyperv-to-azure-site-recovery-scenarios"></a>Jak wymusić protokół TLS 1,2 w scenariuszach HyperV-to-Azure Site Recovery?
+Cała komunikacja między mikrousługami Azure Site Recovery odbywa się na protokole TLS 1,2. Site Recovery używa dostawców zabezpieczeń skonfigurowanych w systemie (OS) i używa najnowszego dostępnego protokołu TLS. Należy jawnie włączyć protokół TLS 1,2 w rejestrze, a następnie Site Recovery rozpocząć korzystanie z protokołu TLS 1,2 w celu komunikacji z usługami. 
 
 ## <a name="disaster-recovery"></a>Odzyskiwanie po awarii
 

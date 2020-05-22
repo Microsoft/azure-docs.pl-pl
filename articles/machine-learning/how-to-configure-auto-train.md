@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.custom: seodec18
-ms.openlocfilehash: c183c179200738566d0794ba23582f16068013b6
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 09f0e0f47ecd94c6db67b3973218cc1323bccde3
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/21/2020
-ms.locfileid: "83722851"
+ms.locfileid: "83736164"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurowanie eksperymentów zautomatyzowanego uczenia maszynowego w języku Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -253,9 +253,12 @@ Modele kompletów są domyślnie włączone i pojawiają się jako ostateczne it
 
 Istnieje wiele argumentów domyślnych, które mogą być podane jako `kwargs` obiekt w `AutoMLConfig` celu zmiany domyślnego zachowania DB.
 
-* `ensemble_download_models_timeout_sec`: Podczas generowania modelu VotingEnsemble i StackEnsemble pobierane są liczne dopasowane modele z poprzednich uruchomień podrzędnych. Jeśli wystąpi ten błąd: `AutoMLEnsembleException: Could not find any models for running ensembling` , może być konieczne dostarczenie więcej czasu na pobranie modeli. Wartość domyślna to 300 sekund do pobierania tych modeli równolegle i nie obowiązuje limit maksymalnego limitu czasu. Skonfiguruj ten parametr o wyższej wartości niż 300 s, jeśli potrzebujesz więcej czasu. **Uwaga**: Jeśli limit czasu zostanie osiągnięty, a wszystkie modele są pobrane, ensembling kontynuuje się tak jak wiele modeli, które zostały pobrane (nie jest to wymagane, aby wszystkie modele musiały zostać pobrane do końca przed upływem limitu czasu).
+* `ensemble_download_models_timeout_sec`: Podczas generowania modelu **VotingEnsemble** i **StackEnsemble** pobierane są liczne dopasowane modele z poprzednich uruchomień podrzędnych. Jeśli wystąpi ten błąd: `AutoMLEnsembleException: Could not find any models for running ensembling` , może być konieczne dostarczenie więcej czasu na pobranie modeli. Wartość domyślna to 300 sekund do pobierania tych modeli równolegle i nie obowiązuje limit maksymalnego limitu czasu. Skonfiguruj ten parametr o wyższej wartości niż 300 s, jeśli potrzebujesz więcej czasu. 
 
-Następujące parametry dotyczą tylko modeli StackEnsemble: 
+  > [!NOTE]
+  >  Jeśli zostanie osiągnięty limit czasu i zostaną pobrane modele, ensembling kontynuuje pracę z dowolną liczbą modeli, które zostały pobrane. Nie jest wymagane, aby wszystkie modele musiały zostać pobrane do końca przed upływem tego limitu czasu.
+
+Następujące parametry dotyczą tylko modeli **StackEnsemble** : 
 
 * `stack_meta_learner_type`: meta-uczyć się model przeszkolony w danych wyjściowych poszczególnych modeli heterogenicznych. Domyślne meta uczy są `LogisticRegression` przeznaczone do zadań klasyfikacji (lub `LogisticRegressionCV` w przypadku włączenia wzajemnej walidacji) oraz `ElasticNet` dla zadań regresji/prognozowania (lub w `ElasticNetCV` przypadku włączenia weryfikacji krzyżowej). Ten parametr może być jednym z następujących ciągów:,,,,, `LogisticRegression` `LogisticRegressionCV` `LightGBMClassifier` `ElasticNet` `ElasticNetCV` `LightGBMRegressor` , lub `LinearRegression` .
 

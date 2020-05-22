@@ -1,29 +1,29 @@
 ---
-title: Odkryj, jakie oprogramowanie jest zainstalowane na Twoich maszynach, za pomocą usługi Azure Automation | Microsoft Docs
-description: Użyj spisu, aby dowiedzieć się, jakie oprogramowanie jest zainstalowane na maszynach w Twoim środowisku.
+title: Sprawdź, jakie oprogramowanie jest zainstalowane na maszynach wirtualnych za pomocą Azure Automation | Microsoft Docs
+description: W tym artykule opisano oprogramowanie zainstalowane na maszynach wirtualnych w danym środowisku.
 services: automation
-keywords: spis, automatyzacja, zmiana, śledzenie
+keywords: Spis, Automatyzacja, śledzenie zmian
 ms.date: 04/11/2018
 ms.topic: tutorial
 ms.subservice: change-inventory-management
 ms.custom: mvc
-ms.openlocfilehash: b93035fc7e315f8117516771236186f9d942a0aa
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d4acecbc6d1a1d7f617b0da95da1b97dc5a3dd75
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81604659"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743667"
 ---
-# <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Wykrywanie, jakie oprogramowanie jest zainstalowane na maszynach na platformie Azure i poza platformą Azure
+# <a name="discover-what-software-is-installed-on-your-vms"></a>Odkryj, jakie oprogramowanie jest zainstalowane na maszynach wirtualnych
 
-W tym samouczku dowiesz się, jak wykryć, jakie oprogramowanie jest zainstalowane w danym środowisku. Możesz zbierać i wyświetlać spis oprogramowania, plików, demonów systemu Linux, usług systemu Windows i kluczy rejestru systemu Windows znajdujących się na Twoich komputerach. Śledzenie konfiguracji maszyn ułatwia identyfikowanie problemów operacyjnych w środowisku oraz lepsze rozumienie stanu maszyn.
+W ramach tego samouczka nauczysz się korzystać z funkcji Azure Automation Change Tracking i spisu, aby dowiedzieć się, jakie oprogramowanie jest zainstalowane w danym środowisku. Można zbierać i wyświetlać Spis oprogramowania, plików, demonów systemu Linux, usług Windows i kluczy rejestru systemu Windows na komputerach. Śledzenie konfiguracji maszyn ułatwia identyfikowanie problemów operacyjnych w środowisku oraz lepsze rozumienie stanu maszyn.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
-> * Włączanie rozwiązania
-> * Dołączanie maszyny wirtualnej platformy Azure
-> * Dołączanie maszyny wirtualnej spoza platformy Azure
+> * Włączanie rozwiązania Change Tracking and Inventory
+> * Włącz maszynę wirtualną platformy Azure
+> * Włącz maszynę wirtualną spoza platformy Azure
 > * Wyświetlanie zainstalowanego oprogramowania
 > * Dzienniki przeszukiwania zapasów dla zainstalowanego oprogramowania
 
@@ -32,77 +32,88 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 Do ukończenia tego samouczka niezbędne są następujące elementy:
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, możesz [aktywować korzyści dla subskrybentów MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) lub utworzyć [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Konto automatyzacji](automation-offering-get-started.md) do przechowywania obserwatora i elementów Runbook akcji oraz zadania obserwatora.
-* [Maszyna wirtualna](../virtual-machines/windows/quick-create-portal.md) do dołączenia.
+* [Konto usługi Automation](automation-offering-get-started.md) do przechowywania obserwatora i elementów Runbook akcji oraz zadania obserwatora.
+* [Maszyna wirtualna](../virtual-machines/windows/quick-create-portal.md) , która ma zostać włączona dla tej funkcji.
 
 ## <a name="log-in-to-azure"></a>Zaloguj się do platformy Azure.
 
 Zaloguj się do witryny Azure Portal na stronie https://portal.azure.com.
 
-## <a name="enable-change-tracking-and-inventory"></a>Włączanie śledzenia zmian i spisu
+## <a name="enable-change-tracking-and-inventory"></a>Włączanie rozwiązania Change Tracking and Inventory
 
-Najpierw należy włączyć śledzenie zmian i spisu na potrzeby tego samouczka. Jeśli rozwiązanie **Change Tracking** zostało wcześniej włączone, ten krok nie jest konieczny.
+Najpierw należy włączyć śledzenie zmian i spisu na potrzeby tego samouczka. Jeśli funkcja została wcześniej włączona, ten krok nie jest konieczny.
 
-Przejdź do konta usługi Automation i wybierz pozycję **spis** w obszarze **Zarządzanie konfiguracją**.
+>[!NOTE]
+>Jeśli pola są wyszarzone, dla maszyny wirtualnej jest włączona inna funkcja automatyzacji i musisz użyć tego samego obszaru roboczego i konta usługi Automation.
 
-Wybierz obszar roboczy Log Analytics i konto usługi Automation, a następnie kliknij pozycję **Włącz** , aby włączyć rozwiązanie. Włączanie rozwiązania może trwać do 15 minut.
+1. Przejdź do konta usługi Automation i wybierz pozycję **spis** lub **śledzenie zmian** w obszarze **Zarządzanie konfiguracją**.
 
-![Transparent konfiguracji dołączony do spisu](./media/automation-tutorial-installed-software/enableinventory.png)
-
-Aby włączyć rozwiązanie, skonfiguruj lokalizację, obszar roboczy usługi Log Analytics i konto usługi Automation, a następnie kliknij pozycję **Włącz**. Jeśli pola są wygaszone, oznacza to, że inne rozwiązanie automatyzacji jest włączone dla maszyny wirtualnej, a tym samym należy użyć tego samego obszaru roboczego i konta automatyzacji.
-
-Obszar roboczy usługi [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) służy do zbierania danych generowanych przez funkcje i usługi, takie jak spis.
-Obszar roboczy zawiera pojedynczą lokalizację do przeglądania i analizowania danych z wielu źródeł.
+2. Wybierz obszar roboczy [log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) . Ten obszar roboczy zbiera dane, które są generowane przez funkcje takie jak Change Tracking i spis. Obszar roboczy zawiera pojedynczą lokalizację do przeglądania i analizowania danych z wielu źródeł.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Włączanie rozwiązania może potrwać do 15 minut. W tym czasie nie należy zamykać okna przeglądarki.
-Po włączeniu rozwiązania informacje dotyczące zainstalowanego oprogramowania i zmian w maszynie wirtualnej są przekazywane do dzienników usługi Azure Monitor.
-Udostępnienie danych do analizy może potrwać od 30 minut do 6 godzin.
+3. Wybierz konto usługi Automation, które ma być używane.
 
-## <a name="onboard-a-vm"></a>Dołączanie maszyny wirtualnej
+4. Skonfiguruj lokalizację wdrożenia.
 
-Na koncie usługi Automation przejdź do pozycji **spis** w obszarze **Zarządzanie konfiguracją**.
+5. Kliknij pozycję **Włącz** , aby wdrożyć funkcję dla maszyny wirtualnej. 
 
-Wybierz pozycję **+Dodaj maszynę wirtualną platformy Azure**, co spowoduje otwarcie strony Maszyny wirtualne i umożliwi wybór istniejącej maszyny wirtualnej z listy. Wybierz maszynę wirtualną, którą chcesz dołączyć. Na stronie, która zostanie otwarta, kliknij pozycję **Włącz**, aby włączyć rozwiązanie na maszynie wirtualnej. Agent Microsoft Management Agent został wdrożony na maszynie wirtualnej i umożliwia skonfigurowanie agenta, aby komunikował się z obszarem roboczym usługi Log Analytics skonfigurowanym podczas włączania rozwiązania. Ukończenie procesu dołączania może potrwać kilka minut. W tym momencie możesz wybrać nową maszynę wirtualną z listy i dołączyć ją.
+    ![Transparent konfiguracji spisu](./media/automation-tutorial-installed-software/enableinventory.png)
 
-## <a name="onboard-a-non-azure-machine"></a>Dołączanie maszyny spoza platformy Azure
+Podczas instalacji maszyna wirtualna jest obsługiwana za pomocą agenta Log Analytics dla systemu Windows i [hybrydowego procesu roboczego elementu Runbook](automation-hybrid-runbook-worker.md). Włączenie Change Tracking i spisu może potrwać do 15 minut. W tym czasie nie należy zamykać okna przeglądarki.
 
-Aby dodać maszyny spoza platformy Azure, należy zainstalować [agenta log Analytics dla systemu Windows](../azure-monitor/platform/agent-windows.md) lub [agenta log Analytics w systemie Linux](automation-linux-hrw-install.md)w zależności od używanego systemu operacyjnego. Po zainstalowaniu agenta przejdź do konta usługi Automation i przejdź do pozycji **spis** w obszarze **Zarządzanie konfiguracją**. Po kliknięciu pozycji **Zarządzaj maszynami** zostanie wyświetlona lista maszyn raportujących w Twoim obszarze roboczym usługi Log Analytics, dla których rozwiązanie nie jest włączone. Wybierz opcję odpowiednią dla Twojego środowiska.
+Po włączeniu tej funkcji informacje o zainstalowanym oprogramowaniu i zmianach na maszynach wirtualnych są przesyłane do dzienników Azure Monitor. Udostępnienie danych do analizy może potrwać od 30 minut do 6 godzin.
 
-* **Włącz na wszystkich dostępnych maszynach** — ta opcja włącza rozwiązanie na wszystkich maszynach aktualnie raportujących w Twoim obszarze roboczym usługi Log Analytics.
-* **Włącz na wszystkich dostępnych i przyszłych maszynach** — ta opcja włącza rozwiązanie na wszystkich maszynach aktualnie raportujących w Twoim obszarze roboczym usługi Log Analytics oraz na wszystkich maszynach, które zostaną dodane do obszaru roboczego.
-* **Włącz na wybranych maszynach** — ta opcja włącza rozwiązanie tylko na wybranych maszynach.
+## <a name="add-an-azure-vm-to-change-tracking-and-inventory"></a>Dodawanie maszyny wirtualnej platformy Azure do Change Tracking i spisu
 
-![Zarządzanie maszynami](./media/automation-tutorial-installed-software/manage-machines.png)
+1. Na koncie usługi Automation przejdź do pozycji **spis** lub **śledzenie zmian** w obszarze **Zarządzanie konfiguracją**.
+
+2. Wybierz pozycję **+ Dodaj maszynę wirtualną platformy Azure**.
+
+3. Wybierz maszynę wirtualną z listy maszyn wirtualnych. 
+
+4. Kliknij pozycję **Włącz** , aby włączyć Change Tracking i spis na maszynie wirtualnej. Agent Log Analytics dla systemu Windows jest wdrażany na maszynie wirtualnej i konfiguruje maszynę wirtualną w celu komunikowania się z obszarem roboczym Log Analytics. Operacja instalacji może potrwać kilka minut. 
+
+5. W tym momencie, w razie potrzeby, można wybrać nową maszynę wirtualną z listy, aby włączyć tę funkcję.
+
+## <a name="add-a-non-azure-machine-to-change-tracking-and-inventory"></a>Dodawanie maszyny spoza platformy Azure do Change Tracking i spisu
+
+Aby włączyć maszyny spoza platformy Azure dla tej funkcji:
+
+1. W zależności od używanego systemu operacyjnego zainstaluj [agenta log Analytics dla systemu Windows](../azure-monitor/platform/agent-windows.md) lub [agenta log Analytics w systemie Linux](automation-linux-hrw-install.md). 
+
+2. Przejdź do konta usługi Automation i przejdź do pozycji **spis** lub **śledzenie zmian** w obszarze **Zarządzanie konfiguracją**. 
+
+3. Kliknij pozycję **Zarządzaj komputerami**. Zostanie wyświetlona lista maszyn zgłaszanych do obszaru roboczego Log Analytics, dla których nie włączono Change Tracking i spisu. Wybierz odpowiednią opcję dla danego środowiska:
+
+    * **Włącz na wszystkich dostępnych maszynach** — ta opcja włącza funkcję na wszystkich maszynach, które są w tej chwili raportowane do obszaru roboczego log Analytics.
+    * **Włącz na wszystkich dostępnych maszynach i w przyszłych maszynach** — ta opcja włącza funkcję na wszystkich komputerach, które są raportowane do obszaru roboczego log Analytics, a następnie na wszystkich przyszłych maszynach dodanych do obszaru roboczego.
+    * **Włącz na wybranych maszynach** — ta opcja włącza funkcję tylko na wybranych maszynach.
+
+    ![Zarządzanie maszynami](./media/automation-tutorial-installed-software/manage-machines.png)
 
 ## <a name="view-installed-software"></a>Wyświetlanie zainstalowanego oprogramowania
 
-Po włączeniu rozwiązania Change Tracking i spisu możesz wyświetlić wyniki na stronie spisu.
+Po włączeniu funkcji Change Tracking i spisu możesz wyświetlić wyniki na stronie spisu.
 
-Na koncie usługi Automation wybierz pozycję **spis** w obszarze **Zarządzanie konfiguracją**.
+1. Na koncie usługi Automation wybierz pozycję **spis** w obszarze **Zarządzanie konfiguracją**.
 
-Na stronie Spis kliknij kartę **Oprogramowanie**.
+2. Na stronie Spis kliknij kartę **Oprogramowanie**.
 
-Na karcie **Oprogramowanie** znajduje się tabela z listą oprogramowania, które zostało odnalezione. Oprogramowanie jest grupowane według nazwy i wersji oprogramowania.
+3. Zanotuj tabelę zawierającą listę znalezionego oprogramowania. Oprogramowanie jest grupowane według nazwy i wersji oprogramowania. Szczegółowe informacje wysokiego poziomu dotyczące każdego rekordu oprogramowania są wyświetlane w tabeli. Te szczegółowe informacje obejmują nazwę oprogramowania, wersję, wydawcę, czas ostatniego odświeżenia (ostatni czas odświeżania zgłoszony przez maszynę w grupie) i maszyny (liczba maszyn z tym oprogramowaniem).
 
-Szczegółowe informacje wysokiego poziomu dotyczące każdego rekordu oprogramowania są wyświetlane w tabeli. Te szczegółowe informacje obejmują nazwę oprogramowania, wersję, wydawcę, czas ostatniego odświeżenia (ostatni czas odświeżania zgłoszony przez maszynę w grupie) i maszyny (liczba maszyn z tym oprogramowaniem).
+    ![Zapasy oprogramowania](./media/automation-tutorial-installed-software/inventory-software.png)
 
-![Zapasy oprogramowania](./media/automation-tutorial-installed-software/inventory-software.png)
+4. Kliknij wiersz, aby wyświetlić właściwości rekordu oprogramowania i nazwy maszyn z tym oprogramowaniem.
 
-Kliknij wiersz, aby wyświetlić właściwości rekordu oprogramowania i nazwy maszyn z tym oprogramowaniem.
-
-Aby znaleźć określone oprogramowanie lub grupę oprogramowania, możesz je wyszukać w polu tekstowym bezpośrednio nad listą oprogramowania.
-Filtr umożliwia wyszukiwanie na podstawie nazwy oprogramowania, wersji lub wydawcy.
-
-Na przykład wyszukiwanie **contoso** zwraca wszystkie oprogramowanie o nazwie, wydawcy lub wersji zawierającej **contoso**.
+5. Aby znaleźć określone oprogramowanie lub grupę oprogramowania, możesz je wyszukać w polu tekstowym bezpośrednio nad listą oprogramowania.
+Filtr umożliwia wyszukiwanie na podstawie nazwy oprogramowania, wersji lub wydawcy. Na przykład wyszukiwanie **contoso** zwraca wszystkie oprogramowanie o nazwie, wydawcy lub wersji zawierającej **contoso**.
 
 ## <a name="search-inventory-logs-for-installed-software"></a>Dzienniki przeszukiwania zapasów dla zainstalowanego oprogramowania
 
-Spis generuje dane dziennika, które są wysyłane do dzienników usługi Azure Monitor. Aby wyszukać dzienniki przez uruchomienie zapytań, wybierz **log Analytics** w górnej części strony spis.
+Change Tracking i spis generuje dane dziennika, które są wysyłane do dzienników Azure Monitor. Aby wyszukać dzienniki przez uruchomienie zapytań, wybierz **log Analytics** w górnej części strony spis. Dane spisu są przechowywane pod typem `ConfigurationData` .
 
-Dane spisu są przechowywane pod typem `ConfigurationData`.
-Poniższe przykładowe zapytanie Log Analytics zwraca wyniki spisu, gdzie Wydawca jest równy **Microsoft Corporation**.
+Poniższy przykład Log Analytics Query zwraca wyniki spisu dla wydawcy Microsoft Corporation.
 
 ```loganalytics
 ConfigurationData
@@ -113,10 +124,9 @@ ConfigurationData
 
 Aby dowiedzieć się więcej na temat uruchamiania i wyszukiwania plików dziennika usługi Azure Monitor, zobacz [Dzienniki usługi Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
-### <a name="single-machine-inventory"></a>Spis dla pojedynczego komputera
+## <a name="see-the-software-inventory-for-a-single-machine"></a>Zobacz Spis oprogramowania dla jednej maszyny
 
-Aby wyświetlić spis oprogramowania dla pojedynczego komputera, możesz uzyskać dostęp do spisu ze strony zasobu maszyny wirtualnej platformy Azure lub użyć dzienników usługi Azure Monitor do odfiltrowania odpowiedniej maszyny.
-Poniższy przykład Log Analytics Query zwraca listę oprogramowania dla komputera o nazwie **ContosoVM**.
+Aby wyświetlić spis oprogramowania dla pojedynczego komputera, możesz uzyskać dostęp do spisu ze strony zasobu maszyny wirtualnej platformy Azure lub użyć dzienników usługi Azure Monitor do odfiltrowania odpowiedniej maszyny. Poniższy przykład Log Analytics Query zwraca listę oprogramowania dla komputera o nazwie **ContosoVM**.
 
 ```loganalytics
 ConfigurationData
@@ -129,16 +139,16 @@ ConfigurationData
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku przedstawiono sposób wyświetlania spisu oprogramowania, np.:
+W tym samouczku przedstawiono sposób wyświetlania spisu oprogramowania:
 
 > [!div class="checklist"]
-> * Włączanie rozwiązania
-> * Dołączanie maszyny wirtualnej platformy Azure
-> * Dołączanie maszyny wirtualnej spoza platformy Azure
+> * Włączanie rozwiązania Change Tracking and Inventory
+> * Włącz maszynę wirtualną platformy Azure
+> * Włącz maszynę wirtualną spoza platformy Azure
 > * Wyświetlanie zainstalowanego oprogramowania
 > * Dzienniki przeszukiwania zapasów dla zainstalowanego oprogramowania
 
-Przejdź do omówienia rozwiązania śledzenia zmian i spisu, aby uzyskać więcej informacji.
+Przejdź do omówienia funkcji Change Tracking i spisu, aby dowiedzieć się więcej na jej temat.
 
 > [!div class="nextstepaction"]
-> [Change management and Inventory solution](automation-change-tracking.md) (Rozwiązanie zarządzania zmianami i spisem)
+> [Przegląd Change Tracking i spisu](change-tracking.md)

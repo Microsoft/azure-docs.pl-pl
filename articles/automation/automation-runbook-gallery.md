@@ -1,18 +1,18 @@
 ---
-title: Galerie elementów Runbook i modułów dla usługi Azure Automation
-description: Elementy Runbook i moduły firmy Microsoft oraz społeczność są dostępne do zainstalowania i użycia w środowisku Azure Automationu.  W tym artykule opisano sposób uzyskiwania dostępu do tych zasobów i współtworzenia elementów Runbook w galerii.
+title: Używanie Azure Automation elementów Runbook i modułów w programie Galeria programu PowerShell
+description: W tym artykule opisano sposób używania elementów Runbook i modułów z firmy Microsoft i społeczności w Galeria programu PowerShell.
 services: automation
 ms.subservice: process-automation
 ms.date: 03/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 90b475e275598363314c8f131911fe12650cd3df
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f1d60c19b05de218ab985b2087071733602c7f2c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535557"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743887"
 ---
-# <a name="runbook-and-module-galleries-for-azure-automation"></a>Galerie elementów Runbook i modułów dla usługi Azure Automation
+# <a name="use-runbooks-and-modules-in-powershell-gallery"></a>Używanie elementów Runbook i modułów w programie Galeria programu PowerShell
 
 Zamiast tworzyć własne elementy Runbook i moduły w Azure Automation, możesz uzyskać dostęp do scenariuszy, które zostały już utworzone przez firmę Microsoft i społeczność. Można uzyskać elementy Runbook i [moduły](#modules-in-powershell-gallery) programu PowerShell z poziomu [elementów Runbook](#use-python-runbooks) Galeria programu PowerShell i Python z poziomu galerii centrum skryptów. Możesz również współtworzyć społeczność, udostępniając [scenariusze, które opracowujesz](#add-a-powershell-runbook-to-the-gallery). 
 
@@ -32,9 +32,9 @@ Można importować tylko bezpośrednio z Galeria programu PowerShell przy użyci
 
 Moduły programu PowerShell zawierają polecenia cmdlet, których można używać w elementach Runbook, oraz istniejące moduły, które można zainstalować w Azure Automation są dostępne w [Galeria programu PowerShell](https://www.powershellgallery.com). Możesz uruchomić tę galerię z Azure Portal i zainstalować ją bezpośrednio w Azure Automation. Można je również pobrać i zainstalować ręcznie.
 
-## <a name="common-solutions-available-in-powershell-gallery"></a>Popularne rozwiązania dostępne w Galeria programu PowerShell
+## <a name="common-scenarios-available-in-powershell-gallery"></a>Typowe scenariusze dostępne w Galeria programu PowerShell
 
-Poniższa lista zawiera kilka elementów Runbook, które udostępniają rozwiązania typowym scenariuszom. Aby uzyskać pełną listę elementów Runbook utworzonych przez zespół Azure Automation, zobacz [profil AzureAutomationTeam](https://www.powershellgallery.com/profiles/AzureAutomationTeam).
+Poniższa lista zawiera kilka elementów Runbook, które obsługują typowe scenariusze. Aby uzyskać pełną listę elementów Runbook utworzonych przez zespół Azure Automation, zobacz [profil AzureAutomationTeam](https://www.powershellgallery.com/profiles/AzureAutomationTeam).
 
    * [Update-ModulesInAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/) — importuje najnowszą wersję wszystkich modułów na koncie usługi Automation z Galeria programu PowerShell.
    * [Enable-AzureDiagnostics](https://www.powershellgallery.com/packages/Enable-AzureDiagnostics/) — konfiguruje Diagnostyka Azure i log Analytics do odbierania dzienników Azure Automation zawierających stan zadania i strumienie zadań.
@@ -94,7 +94,7 @@ Firma Microsoft zachęca do dodawania elementów Runbook do Galeria programu Pow
 
 ## <a name="use-python-runbooks"></a>Korzystanie z elementów Runbook języka Python
 
-Elementy Runbook języka Python są dostępne w [galerii centrum skryptów](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B1%5D.Type=ProgrammingLanguage&f%5B1%5D.Value=Python&f%5B1%5D.Text=Python&sortBy=Date&username=). Elementy Runbook języka Python można współtworzyć w galerii centrum skryptów, klikając przycisk **Przekaż wkład**. Gdy to zrobisz, upewnij się, że dodajesz `Python` tag podczas przekazywania Twojego wkładu.
+Elementy Runbook języka Python są dostępne w [galerii centrum skryptów](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B1%5D.Type=ProgrammingLanguage&f%5B1%5D.Value=Python&f%5B1%5D.Text=Python&sortBy=Date&username=). Elementy Runbook języka Python można współtworzyć w galerii centrum skryptów, klikając przycisk **Przekaż wkład**. Gdy to zrobisz, upewnij się, że dodajesz tag `Python` podczas przekazywania Twojego wkładu.
 
 > [!NOTE]
 > Do przeładowania zawartości do [Centrum skryptów](https://gallery.technet.microsoft.com/scriptcenter)wymagane jest co najmniej 100 punktów.
@@ -105,6 +105,6 @@ Możesz wysyłać żądania do [głosu użytkownika](https://feedback.azure.com/
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby rozpocząć pracę z elementami Runbook, zobacz [Zarządzanie elementem Runbook w Azure Automation](manage-runbooks.md).
-* Aby zrozumieć różnice między programem PowerShell i przepływem pracy programu PowerShell a elementami Runbook, zobacz temat [uczenie przepływu pracy programu PowerShell](automation-powershell-workflow.md).
-* Aby uzyskać więcej informacji na temat programu PowerShell, w tym modułów dokumentacji i uczenia dotyczącej języka, zapoznaj się z dokumentacją programu [PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
+* [Zarządzanie elementami Runbook w Azure Automation](manage-runbooks.md)
+* [Informacje o przepływie pracy programu PowerShell dla Azure Automation](automation-powershell-workflow.md)
+* [Dokumentacja programu PowerShell](https://docs.microsoft.com/powershell/scripting/overview)

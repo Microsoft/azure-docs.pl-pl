@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: caya
-ms.openlocfilehash: 65f404b52a5fc06d8fa5bb5aad291e57fde8caba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 56622ee2c014bd8dbca7c61ec00b927c56f63a40
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80617201"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83740403"
 ---
 # <a name="application-gateway-high-traffic-support"></a>Obsługa dużego natężenia ruchu usługi Application Gateway
 
@@ -51,7 +51,7 @@ W tym przykładzie pokazano, jak za pomocą Azure Portal skonfigurować alert w 
 > Można ustawić alert, który ma być wykonywany przy niższej lub wyższej wartości procentowej użycia, w zależności od tego, jak poufne jest prawdopodobieństwo potencjalnego obciążenia.
 
 ## <a name="set-up-waf-with-geofiltering-and-bot-protection-to-stop-attacks"></a>Konfigurowanie WAF z użyciem geofiltrów i ochrony bot w celu zatrzymywania ataków
-Jeśli potrzebujesz dodatkowej warstwy zabezpieczeń przed aplikacją, użyj Application Gateway jednostki SKU WAF_v2 do obsługi funkcji WAF. Jednostkę SKU v2 można skonfigurować tak, aby zezwalała na dostęp tylko do aplikacji z danego kraju lub krajów. Można skonfigurować regułę niestandardową WAF, aby jawnie zezwalać lub blokować ruch na podstawie geolokalizacji. Aby uzyskać więcej informacji, zobacz Opis [geofiltrowaniu reguł niestandardowych](https://docs.microsoft.com/azure/web-application-firewall/ag/geomatch-custom-rules) i [sposób konfigurowania reguł niestandardowych w Application Gateway WAF_v2 jednostki SKU przy użyciu programu PowerShell](https://docs.microsoft.com/azure/web-application-firewall/ag/configure-waf-custom-rules).
+Jeśli potrzebujesz dodatkowej warstwy zabezpieczeń przed aplikacją, użyj Application Gateway jednostki SKU WAF_v2 do obsługi funkcji WAF. Jednostkę SKU v2 można skonfigurować tak, aby zezwalała na dostęp tylko do aplikacji z danego kraju/regionu lub krajów/regionów. Można skonfigurować regułę niestandardową WAF, aby jawnie zezwalać lub blokować ruch na podstawie geolokalizacji. Aby uzyskać więcej informacji, zobacz Opis [geofiltrowaniu reguł niestandardowych](https://docs.microsoft.com/azure/web-application-firewall/ag/geomatch-custom-rules) i [sposób konfigurowania reguł niestandardowych w Application Gateway WAF_v2 jednostki SKU przy użyciu programu PowerShell](https://docs.microsoft.com/azure/web-application-firewall/ag/configure-waf-custom-rules).
 
 Włącz ochronę bot, aby blokować znane złe botów. Powinno to zmniejszyć ilość ruchu przychodzącego do aplikacji. Aby uzyskać więcej informacji, zobacz [bot Protection with Set up](https://docs.microsoft.com/azure/web-application-firewall/ag/configure-waf-custom-rules).
 

@@ -12,12 +12,12 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 9f2ed6ea8cc75e2ee72f15c14f3de7bb8bf8cef6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3338c71d37a176206ff106a8229c3b583209ddd4
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81450889"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737337"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory manifest aplikacji
 
@@ -43,9 +43,9 @@ W tej sekcji opisano atrybuty znalezione w manifeście aplikacji.
 
 ### <a name="id-attribute"></a>ID — atrybut
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
-| id | Ciąg |
+| identyfikator | String |
 
 Unikatowy identyfikator aplikacji w katalogu. Ten identyfikator nie jest identyfikatorem używanym do identyfikowania aplikacji w żadnej transakcji protokołu. Służy do odwoływania się do obiektu w zapytaniach w katalogu.
 
@@ -57,7 +57,7 @@ Przykład:
 
 ### <a name="accesstokenacceptedversion-attribute"></a>accessTokenAcceptedVersion — atrybut
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
 | accessTokenAcceptedVersion | Dopuszczający wartość null |
 
@@ -67,7 +67,7 @@ Używany punkt końcowy, wersja 1.0 lub 2.0, jest wybierany przez klienta i ma w
 
 Możliwe wartości `accesstokenAcceptedVersion` to 1, 2 lub null. Jeśli wartość jest równa null, ten parametr ma wartość domyślną 1, która odnosi się do punktu końcowego v 1.0.
 
-Jeśli `signInAudience` jest `AzureADandPersonalMicrosoftAccount`, wartość musi być `2`.
+Jeśli `signInAudience` jest `AzureADandPersonalMicrosoftAccount` , wartość musi być `2` .
 
 Przykład:
 
@@ -77,11 +77,11 @@ Przykład:
 
 ### <a name="addins-attribute"></a>atrybut dodatków
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
-| addIns | Collection |
+| addIns | Kolekcja |
 
-Definiuje niestandardowe zachowanie używane przez usługę do wywoływania aplikacji w określonych kontekstach. Na przykład aplikacje, które mogą renderować strumienie plików, mogą `addIns` ustawiać właściwość dla swojej funkcji "FileHandler". Ten parametr umożliwia usługom, takim jak pakiet Office 365, wywoływanie aplikacji w kontekście dokumentu, nad którym pracuje użytkownik.
+Definiuje niestandardowe zachowanie używane przez usługę do wywoływania aplikacji w określonych kontekstach. Na przykład aplikacje, które mogą renderować strumienie plików, mogą ustawiać `addIns` Właściwość dla swojej funkcji "FileHandler". Ten parametr umożliwia usługom, takim jak pakiet Office 365, wywoływanie aplikacji w kontekście dokumentu, nad którym pracuje użytkownik.
 
 Przykład:
 
@@ -102,7 +102,7 @@ Przykład:
 
 ### <a name="allowpublicclient-attribute"></a>allowPublicClient — atrybut
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
 | allowPublicClient | Wartość logiczna |
 
@@ -116,20 +116,20 @@ Przykład:
 
 ### <a name="availabletoothertenants-attribute"></a>availableToOtherTenants — atrybut
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
 | availableToOtherTenants | Wartość logiczna |
 
 Ustaw wartość PRAWDA, jeśli aplikacja jest udostępniana innym dzierżawcom; w przeciwnym razie false.
 
 > [!NOTE]
-> Ten atrybut jest dostępny tylko w środowisku **rejestracje aplikacji (starsza wersja)** . Zastąpione `signInAudience` przez środowisko [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) .
+> Ten atrybut jest dostępny tylko w środowisku **rejestracje aplikacji (starsza wersja)** . Zastąpione przez `signInAudience` środowisko [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) .
 
 ### <a name="appid-attribute"></a>atrybut appId
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
-| appId | Ciąg |
+| appId | String |
 
 Określa unikatowy identyfikator aplikacji przypisanej do aplikacji przez usługę Azure AD.
 
@@ -141,9 +141,9 @@ Przykład:
 
 ### <a name="approles-attribute"></a>appRoles — atrybut
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
-| appRoles | Collection |
+| appRoles | Kolekcja |
 
 Określa kolekcję ról, które może deklarować aplikacja. Role te można przypisać do użytkowników, grup lub podmiotów usługi. Aby uzyskać więcej przykładów i informacji, zobacz [Dodawanie ról aplikacji w aplikacji i odbieranie ich w tokenie](howto-add-app-roles-in-azure-ad-apps.md).
 
@@ -166,30 +166,30 @@ Przykład:
 
 ### <a name="displayname-attribute"></a>displayName — atrybut
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
-| displayName | Ciąg |
+| displayName | String |
 
 Nazwa wyświetlana aplikacji.
 
 > [!NOTE]
-> Ten atrybut jest dostępny tylko w środowisku **rejestracje aplikacji (starsza wersja)** . Zastąpione `name` przez środowisko [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) .
+> Ten atrybut jest dostępny tylko w środowisku **rejestracje aplikacji (starsza wersja)** . Zastąpione przez `name` środowisko [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) .
 
 ### <a name="errorurl-attribute"></a>errorUrl — atrybut
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
-| errorUrl | Ciąg |
+| errorUrl | String |
 
 Ich.
 
 ### <a name="groupmembershipclaims-attribute"></a>groupMembershipClaims — atrybut
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
-|groupMembershipClaims | Ciąg |
+|groupMembershipClaims | String |
 
-`groups` Konfiguruje w tokenie dostępu użytkownika lub OAuth 2,0, który oczekuje aplikacja. Aby ustawić ten atrybut, należy użyć jednej z następujących prawidłowych wartości ciągu:
+Konfiguruje `groups` w tokenie dostępu użytkownika lub OAuth 2,0, który oczekuje aplikacja. Aby ustawić ten atrybut, należy użyć jednej z następujących prawidłowych wartości ciągu:
 
 - `"None"`
 - `"SecurityGroup"`(w przypadku grup zabezpieczeń i ról usługi Azure AD)
@@ -203,24 +203,24 @@ Przykład:
 
 ### <a name="homepage-attribute"></a>atrybut strony głównej
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
-| głównej |Ciąg |
+| głównej |String |
 
 Adres URL strony głównej aplikacji.
 
 > [!NOTE]
-> Ten atrybut jest dostępny tylko w środowisku **rejestracje aplikacji (starsza wersja)** . Zastąpione `signInUrl` przez środowisko [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) .
+> Ten atrybut jest dostępny tylko w środowisku **rejestracje aplikacji (starsza wersja)** . Zastąpione przez `signInUrl` środowisko [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) .
 
 ### <a name="objectid-attribute"></a>objectId — atrybut
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
-|Obiektu | Ciąg |
+|Obiektu | String |
 
 Unikatowy identyfikator aplikacji w katalogu.
 
-Ta wartość jest dostępna tylko w środowisku **rejestracje aplikacji (starsza wersja)** . Zastąpione `id` przez środowisko [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) .
+Ta wartość jest dostępna tylko w środowisku **rejestracje aplikacji (starsza wersja)** . Zastąpione przez `id` środowisko [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) .
 
 Przykład:
 
@@ -230,9 +230,9 @@ Przykład:
 
 ### <a name="optionalclaims-attribute"></a>optionalClaims — atrybut
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
-| optionalClaims | Ciąg |
+| optionalClaims | String |
 
 Opcjonalne oświadczenia zwracane w tokenie przez usługę tokenu zabezpieczającego dla tej konkretnej aplikacji.
 
@@ -248,7 +248,7 @@ Przykład:
 
 ### <a name="identifieruris-attribute"></a>identifierUris — atrybut
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
 | identifierUris | Tablica ciągów |
 
@@ -262,9 +262,9 @@ Przykład:
 
 ### <a name="informationalurls-attribute"></a>informationalUrls — atrybut
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
-| informationalUrls | Ciąg |
+| informationalUrls | String |
 
 Określa linki do warunków użytkowania i zasad zachowania poufności informacji aplikacji. Warunki użytkowania usługi i zasady zachowania poufności informacji są udostępniane użytkownikom za pomocą funkcji wyrażania zgody użytkownika. Aby uzyskać więcej informacji, zobacz [jak: Dodawanie warunków użytkowania i zasad zachowania poufności informacji dla zarejestrowanych aplikacji usługi Azure AD](howto-add-terms-of-service-privacy-statement.md).
 
@@ -281,9 +281,9 @@ Przykład:
 
 ### <a name="keycredentials-attribute"></a>atrybut poświadczeń
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
-| keyCredentials | Collection |
+| keyCredentials | Kolekcja |
 
 Zawiera odwołania do poświadczeń przypisanych do aplikacji, wspólnych haseł opartych na ciągach oraz certyfikatów X. 509. Te poświadczenia są używane podczas żądania tokenów dostępu (gdy aplikacja działa jako klient, a nie jako zasób).
 
@@ -305,7 +305,7 @@ Przykład:
 
 ### <a name="knownclientapplications-attribute"></a>knownClientApplications — atrybut
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
 | knownClientApplications | Tablica ciągów |
 
@@ -319,9 +319,9 @@ Przykład:
 
 ### <a name="logourl-attribute"></a>logoUrl — atrybut
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
-| logoUrl | Ciąg |
+| logoUrl | String |
 
 Wartość tylko do odczytu wskazująca adres URL usługi CDN na logo, które zostało przekazane w portalu.
 
@@ -333,9 +333,9 @@ Przykład:
 
 ### <a name="logouturl-attribute"></a>logoutUrl — atrybut
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
-| logoutUrl | Ciąg |
+| logoutUrl | String |
 
 Adres URL do wylogowania z aplikacji.
 
@@ -347,9 +347,9 @@ Przykład:
 
 ### <a name="name-attribute"></a>atrybut nazwy
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
-| name | Ciąg |
+| name | String |
 
 Nazwa wyświetlana aplikacji.
 
@@ -361,11 +361,11 @@ Przykład:
 
 ### <a name="oauth2allowimplicitflow-attribute"></a>oauth2AllowImplicitFlow — atrybut
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
 | oauth2AllowImplicitFlow | Wartość logiczna |
 
-Określa, czy ta aplikacja sieci Web może żądać niejawnych tokenów dostępu protokołu OAuth 2.0. Wartością domyślną jest false. Ta flaga jest używana w przypadku aplikacji opartych na przeglądarce, takich jak aplikacje jednostronicowe języka JavaScript. Aby dowiedzieć się więcej `OAuth 2.0 implicit grant flow` , wprowadź w spisie treści i zobacz tematy dotyczące przepływu niejawnego.
+Określa, czy ta aplikacja sieci Web może żądać niejawnych tokenów dostępu protokołu OAuth 2.0. Wartością domyślną jest false. Ta flaga jest używana w przypadku aplikacji opartych na przeglądarce, takich jak aplikacje jednostronicowe języka JavaScript. Aby dowiedzieć się więcej, wprowadź `OAuth 2.0 implicit grant flow` w spisie treści i zobacz tematy dotyczące przepływu niejawnego.
 
 Przykład:
 
@@ -375,7 +375,7 @@ Przykład:
 
 ### <a name="oauth2allowidtokenimplicitflow-attribute"></a>oauth2AllowIdTokenImplicitFlow — atrybut
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
 | oauth2AllowIdTokenImplicitFlow | Wartość logiczna |
 
@@ -389,9 +389,9 @@ Przykład:
 
 ### <a name="oauth2permissions-attribute"></a>oauth2Permissions — atrybut
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
-| oauth2Permissions | Collection |
+| oauth2Permissions | Kolekcja |
 
 Określa kolekcję zakresów uprawnień OAuth 2,0, które aplikacja Web API (zasób) uwidacznia dla aplikacji klienckich. Te zakresy uprawnień mogą być przyznawane aplikacjom klienckim podczas wyrażania zgody.
 
@@ -414,7 +414,7 @@ Przykład:
 
 ### <a name="oauth2requiredpostresponse-attribute"></a>oauth2RequiredPostResponse — atrybut
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
 | oauth2RequiredPostResponse | Wartość logiczna |
 
@@ -428,12 +428,12 @@ Przykład:
 
 ### <a name="parentalcontrolsettings-attribute"></a>parentalControlSettings — atrybut
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
-| parentalControlSettings | Ciąg |
+| parentalControlSettings | String |
 
-- `countriesBlockedForMinors`Określa kraje, w których aplikacja jest blokowana dla małoletnich.
-- `legalAgeGroupRule`Określa regułę grupy wieku prawnego, która ma zastosowanie do użytkowników aplikacji. Można ustawić na `Allow`, `RequireConsentForPrivacyServices`, `RequireConsentForMinors` `RequireConsentForKids`, lub. `BlockMinors`  
+- `countriesBlockedForMinors`Określa kraje/regiony, w których aplikacja jest zablokowana dla małoletnich.
+- `legalAgeGroupRule`Określa regułę grupy wieku prawnego, która ma zastosowanie do użytkowników aplikacji. Można ustawić na `Allow` , `RequireConsentForPrivacyServices` ,, `RequireConsentForMinors` `RequireConsentForKids` lub `BlockMinors` .  
 
 Przykład:
 
@@ -446,9 +446,9 @@ Przykład:
 
 ### <a name="passwordcredentials-attribute"></a>passwordCredentials — atrybut
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
-| passwordCredentials | Collection |
+| passwordCredentials | Kolekcja |
 
 Zobacz opis `keyCredentials` właściwości.
 
@@ -468,9 +468,9 @@ Przykład:
 
 ### <a name="preauthorizedapplications-attribute"></a>preAuthorizedApplications — atrybut
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
-| preAuthorizedApplications | Collection |
+| preAuthorizedApplications | Kolekcja |
 
 Wyświetla listę aplikacji i żądanych uprawnień dla niejawnej zgody. Wymaga, aby administrator wyraził zgodę na aplikację. preAuthorizedApplications nie wymaga, aby użytkownik wyrażał zgodę na żądane uprawnienia. Uprawnienia wymienione w preAuthorizedApplications nie wymagają zgody użytkownika. Jednak wszelkie dodatkowe żądane uprawnienia, które nie są wymienione w preAuthorizedApplications, wymagają zgody użytkownika.
 
@@ -489,19 +489,19 @@ Przykład:
 
 ### <a name="publicclient-attribute"></a>publicClient — atrybut
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
 | publicClient | Wartość logiczna|
 
 Określa, czy ta aplikacja jest klientem publicznym (na przykład zainstalowaną aplikacją uruchomioną na urządzeniu przenośnym). 
 
-Ta właściwość jest dostępna tylko w środowisku **rejestracje aplikacji (starsza wersja)** . Zastąpione `allowPublicClient` przez środowisko [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) .
+Ta właściwość jest dostępna tylko w środowisku **rejestracje aplikacji (starsza wersja)** . Zastąpione przez `allowPublicClient` środowisko [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) .
 
 ### <a name="publisherdomain-attribute"></a>publisherDomain — atrybut
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
-| publisherDomain | Ciąg |
+| publisherDomain | String |
 
 Zweryfikowana domena wydawcy dla aplikacji. Tylko do odczytu.
 
@@ -513,19 +513,19 @@ Przykład:
 
 ### <a name="replyurls-attribute"></a>replyUrls — atrybut
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
 | replyUrls | Tablica ciągów |
 
 Ta właściwość wielowartościowa zawiera listę zarejestrowanych wartości redirect_uri, które usługa Azure AD będzie akceptować jako miejsca docelowe podczas zwracania tokenów.
 
-Ta właściwość jest dostępna tylko w środowisku **rejestracje aplikacji (starsza wersja)** . Zastąpione `replyUrlsWithType` przez środowisko [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) .
+Ta właściwość jest dostępna tylko w środowisku **rejestracje aplikacji (starsza wersja)** . Zastąpione przez `replyUrlsWithType` środowisko [rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) .
 
 ### <a name="replyurlswithtype-attribute"></a>replyUrlsWithType — atrybut
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
-| replyUrlsWithType | Collection |
+| replyUrlsWithType | Kolekcja |
 
 Ta właściwość wielowartościowa zawiera listę zarejestrowanych wartości redirect_uri, które usługa Azure AD będzie akceptować jako miejsca docelowe podczas zwracania tokenów. Każda wartość identyfikatora URI powinna zawierać skojarzoną wartość typu aplikacji. Obsługiwane wartości typu:
 
@@ -547,14 +547,14 @@ Przykład:
 
 ### <a name="requiredresourceaccess-attribute"></a>requiredResourceAccess — atrybut
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
-| requiredResourceAccess | Collection |
+| requiredResourceAccess | Kolekcja |
 
-Dzięki dynamicznej zgody można `requiredResourceAccess` korzystać z funkcji zgody administratora oraz w przypadku użytkowników, którzy używają zgody statycznej. Jednak ten parametr nie ma wpływu na środowisko zgody użytkownika na potrzeby ogólnego przypadku.
+Dzięki dynamicznej zgody można korzystać `requiredResourceAccess` z funkcji zgody administratora oraz w przypadku użytkowników, którzy używają zgody statycznej. Jednak ten parametr nie ma wpływu na środowisko zgody użytkownika na potrzeby ogólnego przypadku.
 
 - `resourceAppId`jest unikatowym identyfikatorem zasobu, do którego aplikacja wymaga dostępu. Ta wartość powinna być taka sama jak identyfikator appId zadeklarowany w docelowej aplikacji zasobów.
-- `resourceAccess`jest tablicą zawierającą zakresy uprawnień OAuth 2.0 i role aplikacji wymagane przez aplikację od określonego zasobu. Zawiera wartości `id` i `type` określonych zasobów.
+- `resourceAccess`jest tablicą zawierającą zakresy uprawnień OAuth 2.0 i role aplikacji wymagane przez aplikację od określonego zasobu. Zawiera `id` wartości i `type` określonych zasobów.
 
 Przykład:
 
@@ -574,9 +574,9 @@ Przykład:
 
 ### <a name="samlmetadataurl-attribute"></a>samlMetadataUrl — atrybut
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
-| samlMetadataUrl | Ciąg |
+| samlMetadataUrl | String |
 
 Adres URL metadanych SAML dla aplikacji.
 
@@ -588,9 +588,9 @@ Przykład:
 
 ### <a name="signinurl-attribute"></a>signInUrl — atrybut
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
-| signInUrl | Ciąg |
+| signInUrl | String |
 
 Określa adres URL strony głównej aplikacji.
 
@@ -602,9 +602,9 @@ Przykład:
 
 ### <a name="signinaudience-attribute"></a>signInAudience — atrybut
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
-| signInAudience | Ciąg |
+| signInAudience | String |
 
 Określa, jakie konta Microsoft są obsługiwane przez bieżącą aplikację. Obsługiwane są następujące wartości:
 - `AzureADMyOrg`-Użytkownicy z kontem służbowym firmy Microsoft w dzierżawie usługi Azure AD w organizacji (na przykład z jedną dzierżawą)
@@ -620,7 +620,7 @@ Przykład:
 
 ### <a name="tags-attribute"></a>Tag — atrybut
 
-| Key | Typ wartości |
+| Klucz | Typ wartości |
 | :--- | :--- |
 | tags | Tablica ciągów  |
 

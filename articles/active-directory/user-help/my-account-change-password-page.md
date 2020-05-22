@@ -8,15 +8,15 @@ ms.reviewer: jpettere
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: 75564ea463198967c6ed170851058202b5ba3478
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: a93ee781648440a6e656ff8fd948b2eb9e96bd43
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82625956"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83735943"
 ---
 # <a name="change-your-work-or-school-account-password-from-the-change-password-page"></a>Zmień hasło konta służbowego ze strony Zmień hasło
 
@@ -27,7 +27,7 @@ Strona **zmiana hasła** w portalu **My Account** umożliwia zaktualizowanie ist
 
 ## <a name="update-a-password-from-the-change-password-page"></a>Aktualizowanie hasła na stronie Zmienianie hasła
 
-1. Zaloguj się do swojego konta służbowego, korzystając z istniejącego hasła, a następnie przejdź do strony **Moje konto** (https://myaccount.microsoft.com/) strona.
+1. Zaloguj się do swojego konta służbowego, korzystając z istniejącego hasła, a następnie przejdź do strony **Moje konto** ( https://myaccount.microsoft.com/) Strona.
 
 2. Wybierz pozycję **hasło** w okienku nawigacji po lewej stronie lub wybierz łącze **Zmień hasło** z bloku **hasła** .
 

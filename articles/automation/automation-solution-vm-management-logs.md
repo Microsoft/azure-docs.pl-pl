@@ -1,18 +1,18 @@
 ---
-title: Jak wykonywać zapytania dotyczące dzienników z Start/Stop VMs during off-hours
-description: W tym artykule opisano sposób wykonywania zapytań dotyczących danych dzienników generowanych przez Start/Stop VMs during off-hours rozwiązanie z Azure Monitor.
+title: Zapytania dzienników z Azure Automation Start/Stop VMs during off-hours
+description: W tym artykule opisano, jak używać Azure Monitor do wykonywania zapytań dotyczących danych dzienników generowanych przez Start/Stop VMs during off-hours.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 472baa3f4b3cbb970a8f365ccc94929ad565c421
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: 49b573c5cd0125ba378f01db05b925f8e5eef3eb
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864236"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743725"
 ---
-# <a name="how-to-query-logs-from-startstop-vms-during-off-hours"></a>Jak wykonywać zapytania dotyczące dzienników z Start/Stop VMs during off-hours
+# <a name="query-logs-from-startstop-vms-during-off-hours"></a>Zapytania dzienników z Start/Stop VMs during off-hours
 
 Azure Automation przekazuje dwa typy rekordów do połączonego Log Analytics obszaru roboczego: dzienniki zadań i strumienie zadań. Ten artykuł przegląda dane dostępne dla [zapytania](../azure-monitor/log-query/log-query-overview.md) w Azure monitor.
 
@@ -60,7 +60,7 @@ Gdy wykonujesz każde wyszukiwanie w dzienniku, które zwraca rekordy kategorii 
 
 ## <a name="sample-log-searches"></a>Przykładowe wyszukiwania dzienników
 
-Poniższa tabela zawiera przykładowe wyszukiwania dzienników dla rekordów dzienników zbieranych przez to rozwiązanie.
+Poniższa tabela zawiera przykładowe wyszukiwania dzienników dla rekordów zadań zebranych przez Start/Stop VMs during off-hours.
 
 |Zapytanie | Opis|
 |----------|----------|
@@ -71,4 +71,6 @@ Poniższa tabela zawiera przykładowe wyszukiwania dzienników dla rekordów dzi
 
 ## <a name="next-steps"></a>Następne kroki
 
-Rozwiązanie **Start/Stop VMS during off-hours** nie obejmuje wstępnie zdefiniowanego zestawu alertów. Zapoznaj się z tematem [tworzenie alertów dziennika](../azure-monitor/platform/alerts-log.md) przy użyciu Azure monitor, aby dowiedzieć się, jak utworzyć alerty dotyczące nieudanych zadań i procedur.
+* [Tworzenie alertów dziennika za pomocą Azure Monitor](../azure-monitor/platform/alerts-log.md)
+* [Skonfiguruj zatrzymywanie/uruchamianie maszyn wirtualnych poza godzinami pracy](automation-solution-vm-management-config.md)
+* [Rozwiązywanie problemów dotyczących Start/Stop VMs during off-hours](troubleshoot/start-stop-vm.md)

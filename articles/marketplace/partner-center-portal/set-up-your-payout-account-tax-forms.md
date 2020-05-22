@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: dsindona
 ms.author: dsindona
 ms.service: marketplace
-ms.openlocfilehash: 627f6f01a17fc8cabb4f1883306baeb0e2d77e70
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 0256e5c60a417cec47f90cd6ec30fe9208f47f7f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792891"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738289"
 ---
 # <a name="set-up-your-payout-account-and-tax-forms"></a>Konfigurowanie konta do wypłaty i formularzy podatkowych
 
@@ -36,13 +36,13 @@ Po skonfigurowaniu konta należy wykonać dwie czynności, aby móc sprzedawać 
 
 Najpierw należy utworzyć profil podatkowy i przypisać go do programów, które uczestniczą w programie. Możesz utworzyć swój *profil podatkowy* dla komercyjnego portalu Marketplace, wykonując następujące czynności:
 
-- Określ swój kraj pobytu i obywatelstwo.
+- Określ swój kraj/region pobytu i obywatelstwo.
 - Wypełnij odpowiednie formularze podatkowe.
 
 W centrum partnerskim można dokończyć i przesyłać formularze podatkowe elektronicznie. w większości przypadków nie ma potrzeby drukowania ani wysyłania żadnych formularzy.
 
 > [!IMPORTANT]
-> Różne kraje i regiony mają różne wymagania podatkowe. Dokładna kwota, która musi zostać zapłacona podatkiem, zależy od krajów i regionów, w których oferta została sprzedawana. Zapoznaj się z [umową wydawcy Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560) , aby dowiedzieć się, w jakich krajach firma Microsoft przekazuje sprzedaż i korzystać z podatku w Twoim imieniu. W innych krajach, w zależności od tego, gdzie się rejestrujesz, może być konieczne przekazanie sprzedaży i użycie podatku za oferowaną sprzedaż bezpośrednio do urzędu opodatkowania lokalnego. Ponadto przychody sprzedaży aplikacji mogą być opodatkowane jako dochód. Zdecydowanie zachęcamy do skontaktowania się z odpowiednim urzędem dla danego kraju lub regionu, który może pomóc w ustaleniu odpowiednich informacji podatkowych dotyczących komercyjnych działań w portalu Marketplace.
+> Różne kraje i regiony mają różne wymagania podatkowe. Dokładna kwota, która musi zostać zapłacona podatkiem, zależy od krajów i regionów, w których oferta została sprzedawana. Zapoznaj się z [umową wydawcy Microsoft Azure Marketplace](https://go.microsoft.com/fwlink/p/?LinkID=699560) , aby dowiedzieć się, w jakich krajach/regionach firma Microsoft przekazuje sprzedaż i korzystać z opodatkowania w Twoim imieniu. W innych krajach/regionach, w zależności od tego, gdzie jest zarejestrowany, może być konieczne przekazanie sprzedaży i użycie podatku za oferowaną sprzedaż bezpośrednio do urzędu opodatkowania lokalnego. Ponadto przychody sprzedaży aplikacji mogą być opodatkowane jako dochód. Zdecydowanie zachęcamy do skontaktowania się z odpowiednim urzędem dla danego kraju lub regionu, który może pomóc w ustaleniu odpowiednich informacji podatkowych dotyczących komercyjnych działań w portalu Marketplace.
 
 1. W [centrum partnerskim](https://partner.microsoft.com/dashboard)wybierz ikonę **Ustawienia konta** w prawym górnym rogu, a następnie wybierz pozycję **Ustawienia dewelopera**.
 
@@ -54,20 +54,20 @@ W centrum partnerskim można dokończyć i przesyłać formularze podatkowe elek
 
 5. Kliknij przycisk **Edytuj** , aby edytować informacje podatkowe.
 
-6. Wybierz odpowiedni przycisk radiowy, a następnie wybierz swój kraj, jeśli zostanie wyświetlony monit. Ten krok określa jednostkę biznesową firmy Microsoft, która będzie używana do wypłat na Twoje konto.
+6. Wybierz odpowiedni przycisk radiowy, a następnie wybierz swój kraj/region, jeśli zostanie wyświetlony monit. Ten krok określa jednostkę biznesową firmy Microsoft, która będzie używana do wypłat na Twoje konto.
 
-7. W zależności od wyboru w kroku 6 zostanie wyświetlony monit o podanie informacji podatkowych wymaganych dla Twojego kraju.
+7. W zależności od wyboru w kroku 6 zostanie wyświetlony monit o podanie informacji podatkowych wymaganych dla danego kraju/regionu.
 
    > [!NOTE]
-   > Niezależnie od kraju zamieszkania lub obywatelstwa, musisz wypełnić Stany Zjednoczone formularzy podatkowych, aby sprzedawać dowolne oferty lub dodatki za pomocą komercyjnej witryny Marketplace. Wydawcy, którzy spełniają określone wymagania dotyczące Stany Zjednoczone miejsca do zamieszkania, muszą wypełnić formularz urzędu skarbowego W trybie. Inni wydawcy spoza Stany Zjednoczone muszą wypełnić formularz urzędu skarbowego W trybie do 8. Możesz wypełnić te formularze w trybie online, gdy dokończysz swój profil podatkowy.
+   > Niezależnie od kraju/regionu zamieszkania lub obywatelstwa, musisz wypełnić Stany Zjednoczone formularzy podatkowych, aby sprzedawać dowolne oferty lub dodatki za pomocą komercyjnej witryny Marketplace. Wydawcy, którzy spełniają określone wymagania dotyczące Stany Zjednoczone miejsca do zamieszkania, muszą wypełnić formularz urzędu skarbowego W trybie. Inni wydawcy spoza Stany Zjednoczone muszą wypełnić formularz urzędu skarbowego W trybie do 8. Możesz wypełnić te formularze w trybie online, gdy dokończysz swój profil podatkowy.
 
 ### <a name="withholding-rates"></a>Stawki za potrącenie
 
-Informacje przesyłane w formularzach podatkowych określają odpowiednią stawkę za potrącenie podatku. Wskaźnik potrącenia ma zastosowanie tylko do sprzedaży wprowadzonej do Stany Zjednoczone; sprzedaż dokonywana w lokalizacjach innych niż Stany USA nie podlega potrąceniu. Stawki zaliczania są różne, ale w przypadku większości wydawców rejestrowanych poza Stany Zjednoczone Domyślna stawka wynosi 30%. Istnieje możliwość zredukowania tej stawki, Jeśli Twój kraj wyraził zgodę na Traktat z tytułu podatku dochodowego z Stany Zjednoczone.
+Informacje przesyłane w formularzach podatkowych określają odpowiednią stawkę za potrącenie podatku. Wskaźnik potrącenia ma zastosowanie tylko do sprzedaży wprowadzonej do Stany Zjednoczone; sprzedaż dokonywana w lokalizacjach innych niż Stany USA nie podlega potrąceniu. Stawki zaliczania są różne, ale w przypadku większości wydawców rejestrowanych poza Stany Zjednoczone Domyślna stawka wynosi 30%. Istnieje możliwość zmniejszenia tej stawki, jeśli kraj/region wyraził zgodę na Traktat akcyzowy z Stany Zjednoczone.
 
 ### <a name="tax-treaty-benefits"></a>Korzyści z Traktatu podatkowego
 
-Jeśli nie masz Stany Zjednoczone, możesz skorzystać z korzyści z traktatów podatkowych. Te korzyści różnią się od kraju do kraju i mogą pozwalać zmniejszyć liczbę podatków potrąconych na sprzedaż komercyjną. Korzyści z Traktatu podatkowego można zgłaszać, wypełniając część II formularza W 8BEN. Zalecamy komunikację z odpowiednimi zasobami w Twoim kraju lub regionie, aby określić, czy te korzyści dotyczą użytkownika.
+Jeśli nie masz Stany Zjednoczone, możesz skorzystać z korzyści z traktatów podatkowych. Te korzyści różnią się w zależności od kraju/regionu do kraju/regionu i mogą pozwalać zmniejszyć liczbę podatków potrąconych przez komercyjną witrynę Marketplace. Korzyści z Traktatu podatkowego można zgłaszać, wypełniając część II formularza W 8BEN. Zalecamy komunikację z odpowiednimi zasobami w Twoim kraju lub regionie, aby określić, czy te korzyści dotyczą użytkownika.
 
 > [!NOTE]
 > Stany Zjednoczone indywidualny numer identyfikacyjny podatnika (lub ITIN) nie jest wymagany do otrzymywania płatności od firmy Microsoft ani do roszczeń wynikających z Traktatu podatkowego.

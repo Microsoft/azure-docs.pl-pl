@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 86bce85c6ec273b4ab5f9f00cbae68fc054f53f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c7f1700cb386a197b33427e2ea615de019284d96
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262404"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738323"
 ---
 # <a name="summary-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny podsumowania w komercyjnej analizie Marketplace
 
@@ -70,7 +70,7 @@ Mapę cieplną **klienci według lokalizacji geograficznej** wyświetlają liczb
 - Możesz przenieść mapę, aby wyświetlić dokładną lokalizację.
 - Możesz powiększyć do określonej lokalizacji.
 - Mapę cieplną ma dodatkową siatkę, aby wyświetlić szczegółowe informacje o liczbie klientów, liczbie zamówień, znormalizowanych godzinach użycia w określonej lokalizacji.
-- Możesz wyszukać i wybrać kraj w siatce, aby powiększyć do lokalizacji na mapie. Przywróć widok oryginalny, naciskając przycisk Home ( **Strona główna** ) na mapie.
+- Możesz wyszukać i wybrać kraj/region w siatce, aby powiększyć do lokalizacji na mapie. Przywróć widok oryginalny, naciskając przycisk Home ( **Strona główna** ) na mapie.
 - **Nowy** klient zakupił jedną z ofert po raz pierwszy w miesiącu w ramach wybranego zakresu dat.
 
 ### <a name="growth-trend-charts"></a>Wykresy trendu wzrostu

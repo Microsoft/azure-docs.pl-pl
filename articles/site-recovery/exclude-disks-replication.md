@@ -3,12 +3,12 @@ title: Wyklucz dyski z replikacji za pomocą Azure Site Recovery
 description: Jak wykluczać dyski z replikacji na platformę Azure przy użyciu Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: abecc19cac57a4a95d01b7a7ec076259088b101b
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: aa2e3ef3906a03be649a1978c1d662056c4d0f25
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82900282"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83740522"
 ---
 # <a name="exclude-disks-from-disaster-recovery"></a>Wyklucz dyski z odzyskiwania po awarii
 
@@ -24,9 +24,9 @@ W tym artykule opisano, jak wykluczać dyski z replikacji podczas odzyskiwania p
 
 Dyski można wykluczać z replikacji, co zostało podsumowane w tabeli.
 
-**Azure–Azure** | **Z programu VMware do platformy Azure** | **Z funkcji Hyper-V do platformy Azure** 
---- | --- | ---
-Tak | Tak | Tak 
+**Azure–Azure** | **Z programu VMware do platformy Azure** | **Z funkcji Hyper-V do platformy Azure** | **Serwer fizyczny do platformy Azure**
+--- | --- | --- | ---
+Tak | Tak | Tak | Tak
 
 ## <a name="exclude-limitations"></a>Wyklucz ograniczenia
 
@@ -179,7 +179,7 @@ Po planowanym przejściu w tryb failover (powrót po awarii) z platformy Azure d
 DB-Disk0-OS | Disk0 |   C:\ | Dysk systemu operacyjnego.
 DB-Disk1 | Dysk1 | D:\ | Baza danych systemu SQL i database1 użytkownika.
 DB-Disk2 (dysk wykluczony) | Dysk2 | E:\ | Pliki temp.
-DB-Disk3 (dysk wykluczony) | Dysk3 | F:\ | Baza danych SQL tempdb<br/><br/> Ścieżka folderu (F:\MSSQL\Data\).
+DB-Disk3 (dysk wykluczony) | Dysk3 | F:\ | Baza danych SQL tempdb<br/><br/> Ścieżka folderu (F:\MSSQL\Data \) .
 DB-Disk4 | Dysk4 | G:\ | Baza danych użytkownika 2
 
 

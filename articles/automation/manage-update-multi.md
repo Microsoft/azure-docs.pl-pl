@@ -1,22 +1,22 @@
 ---
-title: Zarządzanie aktualizacjami dla wielu maszyn wirtualnych platformy Azure
-description: W tym artykule opisano sposób zarządzania aktualizacjami dla maszyn wirtualnych platformy Azure i innych niż platformy Azure.
+title: Zarządzanie aktualizacjami dla wielu maszyn wirtualnych w Azure Automation
+description: W tym artykule opisano sposób zarządzania aktualizacjami dla wielu maszyn wirtualnych.
 services: automation
 ms.subservice: update-management
 ms.date: 03/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6a878ecf4519a852a9798b320bda26cd490487a4
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 864b6793f65c69c83c0e26d01a10e156b1094889
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731989"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83741022"
 ---
-# <a name="manage-updates-for-multiple-azure-virtual-machines"></a>Zarządzanie aktualizacjami dla wielu maszyn wirtualnych platformy Azure
+# <a name="manage-updates-for-multiple-vms"></a>Zarządzanie aktualizacjami dla wielu maszyn wirtualnych
 
-Za pomocą Update Management Azure Automation można zarządzać aktualizacjami i poprawkami dla maszyn wirtualnych z systemami Windows i Linux. Korzystając z konta usługi [Azure Automation](automation-offering-get-started.md), można wykonywać następujące czynności:
+Za pomocą Update Management Azure Automation można zarządzać aktualizacjami i poprawkami dla maszyn wirtualnych z systemem Windows i Linux. Korzystając z konta usługi [Azure Automation](automation-offering-get-started.md), można wykonywać następujące czynności:
 
-- Dołączanie maszyn wirtualnych.
+- Włącz maszyny wirtualne na potrzeby zarządzania aktualizacjami.
 - Ocenianie stanu dostępnych aktualizacji.
 - Planowanie instalacji wymaganych aktualizacji.
 - Przejrzyj wyniki wdrożenia, aby sprawdzić, czy aktualizacje zostały pomyślnie zastosowane do wszystkich maszyn wirtualnych, dla których Update Management jest włączona.
@@ -25,26 +25,24 @@ Aby dowiedzieć się więcej o wymaganiach systemowych dla Update Management, zo
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Maszyna wirtualna lub komputer z zainstalowanym obsługiwanym systemem operacyjnym.
-* Dostęp do repozytorium aktualizacji dla maszyn wirtualnych z systemem Linux dołączanych do Update Management.
+* Maszyna wirtualna lub komputer z zainstalowanym jednym z obsługiwanych systemów operacyjnych.
+* Dostęp do repozytorium aktualizacji dla maszyn wirtualnych z systemem Linux z włączoną obsługą Update Management.
 
-## <a name="enable-update-management-for-azure-virtual-machines"></a>Włącz Update Management dla usługi Azure Virtual Machines
+## <a name="enable-update-management-for-azure-vms"></a>Włączanie Update Management dla maszyn wirtualnych platformy Azure
 
-W Azure Portal Otwórz konto usługi Automation, a następnie wybierz pozycję **Update Management**.
+1. W Azure Portal Otwórz konto usługi Automation, a następnie wybierz pozycję **Update Management**.
 
-Wybierz pozycję **Dodaj maszyny wirtualne platformy Azure**.
+2. Wybierz pozycję **Dodaj maszyny wirtualne platformy Azure**.
 
-![Karta Dodaj maszynę wirtualną Azure](./media/manage-update-multi/update-onboard-vm.png)
+    ![Karta Dodaj maszynę wirtualną Azure](./media/manage-update-multi/update-onboard-vm.png)
 
-Wybierz maszynę wirtualną, którą chcesz dołączyć.
+3. Wybierz maszynę wirtualną do włączenia i wybierz pozycję **Włącz** w obszarze **Włącz Update Management**.
 
-W obszarze **włącz Update Management**wybierz pozycję **Włącz** , aby dołączyć maszynę wirtualną.
+    ![Okno dialogowe Włączanie rozwiązania Update Management](./media/manage-update-multi/update-enable.png)
 
-![Okno dialogowe Włączanie rozwiązania Update Management](./media/manage-update-multi/update-enable.png)
+    Po zakończeniu operacji Update Management jest włączona na maszynie wirtualnej.
 
-Po zakończeniu dołączania Update Management jest włączona dla swojej maszyny wirtualnej.
-
-## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Włącz Update Management dla maszyn wirtualnych i komputerów spoza platformy Azure
+## <a name="enable-update-management-for-non-azure-vms-and-computers"></a>Włącz Update Management dla maszyn wirtualnych i komputerów spoza platformy Azure
 
 Log Analytics agenta dla systemów Windows i Linux należy zainstalować na maszynach wirtualnych działających w sieci firmowej lub w innym środowisku chmury, aby umożliwić ich korzystanie z Update Management. Aby poznać wymagania systemowe i obsługiwane metody wdrażania agenta na maszynach hostowanych poza platformą Azure, zobacz [Omówienie agenta log Analytics](../azure-monitor/platform/log-analytics-agent.md).
 
@@ -54,7 +52,7 @@ Po włączeniu Update Management dla maszyn można wyświetlić informacje o mas
 
   ![Karta z wyświetlonymi komputerami](./media/manage-update-multi/update-computers-tab.png)
 
-Komputery, na których ostatnio włączono obsługę Update Management, mogły nie zostać jeszcze ocenione. Stan zgodności tych komputerów to `Not assessed`. Poniżej znajduje się lista możliwych wartości stanu zgodności:
+Komputery, na których ostatnio włączono obsługę Update Management, mogły nie zostać jeszcze ocenione. Stan zgodności tych komputerów to `Not assessed` . Poniżej znajduje się lista możliwych wartości stanu zgodności:
 
 - `Compliant`: Komputery, na których nie brakuje aktualizacji krytycznych lub zabezpieczeń.
 - `Non-compliant`: Komputery, na których brakuje co najmniej jednej aktualizacji krytycznej lub zabezpieczeń.
@@ -70,11 +68,11 @@ Po włączeniu Update Management zostanie otwarte okienko Update Management. Mo�
 
 ## <a name="collect-data"></a>Zbieranie danych
 
-Agenci zainstalowani na maszynach wirtualnych i komputerach zbierają dane o aktualizacjach. Agenci wysyłają dane do usługi Azure Update Management.
+Agenci zainstalowani na maszynach wirtualnych i komputerach zbierają dane dotyczące aktualizacji. Agenci wysyłają dane do usługi Azure Update Management.
 
 ### <a name="supported-agents"></a>Obsługiwani agenci
 
-W poniższej tabeli opisano połączone źródła obsługiwane przez to rozwiązanie:
+W poniższej tabeli opisano połączone źródła obsługiwane przez Update Management:
 
 | Połączone źródło | Obsługiwane | Opis |
 | --- | --- | --- |
@@ -117,24 +115,23 @@ W okienku **nowe wdrożenie aktualizacji** podaj następujące informacje:
 
   ![Nowe okienko wdrożenia aktualizacji](./media/manage-update-multi/update-select-computers.png)
 
-- **Klasyfikacja aktualizacji**: Wybierz typy oprogramowania, które mają zostać uwzględnione we wdrożeniu aktualizacji. Opis typów klasyfikacji zawiera temat [Aktualizowanie klasyfikacji](automation-view-update-assessments.md#update-classifications). Dostępne są następujące typy klasyfikacji:
+- **Klasyfikacja aktualizacji**: Wybierz typy oprogramowania, które mają zostać uwzględnione we wdrożeniu aktualizacji. Opis typów klasyfikacji zawiera temat [Aktualizowanie klasyfikacji](automation-view-update-assessments.md#work-with-update-classifications). Dostępne są następujące typy klasyfikacji:
   - Aktualizacje krytyczne
   - Aktualizacje zabezpieczeń
   - Pakiety zbiorcze aktualizacji
   - Pakiety funkcji
   - Dodatki Service Pack
   - Aktualizacje definicji
-  - Narzędzia
+  - narzędzia
   - Aktualizacje
 
 - **Aktualizacje do uwzględnienia/wykluczenia** — spowoduje to otwarcie strony Uwzględnij/Wyklucz. Aktualizacje, które mają zostać uwzględnione lub wykluczone, znajdują się na osobnych kartach. Aby uzyskać dodatkowe informacje na temat obsługi dołączania, zobacz [Planowanie wdrożenia aktualizacji](automation-tutorial-update-management.md#schedule-an-update-deployment).
 
 > [!NOTE]
-> Ważne jest, aby wiedzieć, że wykluczenia zastępują dołączenia. Na przykład, jeśli zdefiniujesz regułę wykluczania `*`dla programu, nie zostaną zainstalowane żadne poprawki ani pakiety, ponieważ są one wykluczone. Wykluczone poprawki nadal są wyświetlane jako brakujące na komputerze. W przypadku maszyn z systemem Linux, jeśli pakiet został uwzględniony, ale jego pakiet zależny został wykluczony, pakiet nie jest zainstalowany.
+> Ważne jest, aby wiedzieć, że wykluczenia zastępują dołączenia. Na przykład, jeśli zdefiniujesz regułę wykluczania dla programu `*` , nie zostaną zainstalowane żadne poprawki ani pakiety, ponieważ są one wykluczone. Wykluczone poprawki nadal są wyświetlane jako brakujące na komputerze. W przypadku maszyn z systemem Linux, jeśli pakiet został uwzględniony, ale jego pakiet zależny został wykluczony, pakiet nie jest zainstalowany.
 
 > [!NOTE]
 > Nie można określić aktualizacji, które zostały zastąpione w celu włączenia ich do wdrożenia aktualizacji.
->
 
 - **Ustawienia harmonogramu**: możesz zaakceptować domyślną datę i godzinę, czyli 30 minut po bieżącej godzinie. Możesz również określić inny czas.
 
@@ -171,7 +168,7 @@ W przypadku błędu co najmniej jednej aktualizacji w ramach wdrożenia jest wy�
 
 Aby wyświetlić pulpit nawigacyjny wdrożenia aktualizacji, wybierz ukończone wdrożenie.
 
-Okienko wyniki aktualizacji zawiera łączną liczbę aktualizacji i wyniki wdrożenia maszyny wirtualnej. Tabela po prawej stronie zawiera szczegółowy podział każdej aktualizacji i wyniki instalacji. Wyniki instalacji mogą mieć jedną z następujących wartości:
+Okienko wyniki aktualizacji zawiera łączną liczbę aktualizacji i wyniki wdrożenia dla maszyny wirtualnej. Tabela po prawej stronie zawiera szczegółowy podział każdej aktualizacji i wyniki instalacji. Wyniki instalacji mogą mieć jedną z następujących wartości:
 
 - `Not attempted`: Aktualizacja nie została zainstalowana, ponieważ na podstawie zdefiniowanego okna obsługi była dostępna niewystarczająca ilość czasu.
 - `Succeeded`: Aktualizacja powiodła się.
@@ -185,4 +182,4 @@ Aby wyświetlić szczegółowe informacje o błędach związanych z wdrożeniem,
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o Update Management dziennikach, danych wyjściowych i błędach, zobacz temat [kwerenda Update Records for Update Management](automation-update-management-query-logs.md).
+[Wykonywanie zapytań względem dzienników rozwiązania Update Management](automation-update-management-query-logs.md)

@@ -1,37 +1,34 @@
 ---
-title: Użyj szablonów Azure Resource Manager, aby dołączyć Update Management | Microsoft Docs
-description: Możesz użyć szablonu Azure Resource Manager, aby dołączyć Azure Automation Update Management rozwiązanie.
+title: Włączanie Update Management przy użyciu szablonu Azure Resource Manager | Microsoft Docs
+description: W tym artykule opisano, jak włączyć Update Management przy użyciu szablonu Azure Resource Manager.
 ms.service: automation
 ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 04/24/2020
-ms.openlocfilehash: dd8706c1e95e6b1e4ca4a38d4a336f6186464696
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 9e4396a1def5b032077c1c15c2d10b7f3452853f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872191"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743461"
 ---
-# <a name="onboard-update-management-solution-using-azure-resource-manager-template"></a>Dołączanie Update Management rozwiązania przy użyciu szablonu Azure Resource Manager
+# <a name="enable-update-management-using-azure-resource-manager-template"></a>Włączanie Update Management przy użyciu szablonu Azure Resource Manager
 
-Za pomocą [szablonów Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md) można włączyć rozwiązanie Update Management Azure Automation w grupie zasobów. Ten artykuł zawiera przykładowy szablon, który automatyzuje następujące czynności:
+Aby włączyć funkcję Update Management Azure Automation w grupie zasobów, można użyć [szablonu Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md) . Ten artykuł zawiera przykładowy szablon, który automatyzuje następujące czynności:
 
 * Tworzenie obszaru roboczego Log Analytics Azure Monitor.
 * Tworzenie konta Azure Automation.
 * Łączenie konta usługi Automation z obszarem roboczym Log Analytics, jeśli nie jest jeszcze połączone.
-* Dołączanie rozwiązania Azure Automation Update Management.
+* Włączanie Update Management.
 
-Szablon nie automatyzuje dołączania do co najmniej jednej maszyny wirtualnej platformy Azure lub innej niż Azure.
+Szablon nie automatyzuje włączania co najmniej jednej maszyny wirtualnej platformy Azure lub innej niż Azure.
 
-Jeśli masz już obszar roboczy Log Analytics i konto usługi Automation wdrożone w obsługiwanym regionie w ramach subskrypcji, nie są one połączone. W obszarze roboczym nie wdrożono jeszcze rozwiązania Update Management. Użycie tego szablonu spowoduje utworzenie linku i wdrożenie Update Management rozwiązanie. 
-
->[!NOTE]
->Użytkownik **nxautomation** zalogowany jako część Update Management w systemie Linux wykonuje wyłącznie podpisane elementy Runbook.
+Jeśli masz już obszar roboczy Log Analytics i konto usługi Automation wdrożone w obsługiwanym regionie w ramach subskrypcji, nie są one połączone. W obszarze roboczym nie włączono jeszcze Update Management. Użycie tego szablonu spowoduje utworzenie linku i wdrożenie Update Management dla maszyn wirtualnych. 
 
 >[!NOTE]
->Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Instrukcje dotyczące instalacji polecenia AZ module w hybrydowym procesie roboczym elementu Runbook znajdują się w temacie [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). W przypadku konta usługi Automation można zaktualizować moduły do najnowszej wersji przy użyciu [sposobu aktualizowania modułów Azure PowerShell w programie Azure Automation](automation-update-azure-modules.md).
+>Użytkownik **nxautomation** włączony jako część Update Management w systemie Linux wykonuje wyłącznie podpisane elementy Runbook.
 
 ## <a name="api-versions"></a>Wersje interfejsu API
 
@@ -226,7 +223,7 @@ Należy zapoznać się z poniższymi szczegółami konfiguracji, jeśli jesteś 
 
 4. Wszystko jest teraz gotowe do wdrożenia tego szablonu. Możesz użyć programu PowerShell lub interfejsu wiersza polecenia platformy Azure. Po wyświetleniu monitu o nazwę obszaru roboczego i konta usługi Automation Podaj nazwę globalnie unikatową we wszystkich subskrypcjach platformy Azure.
 
-    **PowerShell**
+    **Program PowerShell**
 
     ```powershell
     New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deployUMSolutiontemplate.json
@@ -244,10 +241,10 @@ Należy zapoznać się z poniższymi szczegółami konfiguracji, jeśli jesteś 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy masz wdrożone rozwiązanie Update Management, możesz włączyć maszyny wirtualne do zarządzania, przejrzeć oceny aktualizacji i wdrożyć aktualizacje, aby zapewnić ich zgodność.
+Po włączeniu Update Management można włączyć maszyny wirtualne do zarządzania, przejrzeć oceny aktualizacji i wdrożyć aktualizacje, aby zapewnić zgodność.
 
-- Z [konta usługi Azure Automation](automation-onboard-solutions-from-automation-account.md) dla jednej lub wielu maszyn platformy Azure i ręcznie dla maszyn nienależących do platformy Azure.
+- Na [koncie usługi Azure Automation](automation-onboard-solutions-from-automation-account.md) dla jednej lub wielu maszyn platformy Azure i ręcznie dla maszyn nienależących do platformy Azure
 
-- Dla jednej maszyny wirtualnej platformy Azure na stronie maszyny wirtualnej w Azure Portal. Ten scenariusz jest dostępny dla maszyn wirtualnych z systemami [Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) i [Windows](../virtual-machines/windows/tutorial-config-management.md#enable-update-management) .
+- Dla jednej maszyny wirtualnej platformy Azure na stronie maszyny wirtualnej w Azure Portal. Ten scenariusz jest dostępny dla maszyn wirtualnych z systemami [Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) i [Windows](../virtual-machines/windows/tutorial-config-management.md#enable-update-management)
 
-- Dla [wielu maszyn wirtualnych platformy Azure](manage-update-multi.md) , wybierając je na stronie **maszyny wirtualne** w Azure Portal. 
+- Dla [wielu maszyn wirtualnych platformy Azure](manage-update-multi.md) , wybierając je na stronie **maszyny wirtualne** w Azure Portal 

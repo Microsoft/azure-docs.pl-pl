@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: b28f34c6ee160f96a7b30ded274b030936ce3266
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 007fe7cb90c651c346bc7fbea46d74aa41605d2d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701575"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744077"
 ---
 # <a name="azure-synapse-analytics-workspace-preview-frequently-asked-questions"></a>Usługa Azure Synapse Analytics (wersja zapoznawcza obszaru roboczego) — często zadawane pytania
 
@@ -35,7 +35,7 @@ Odp.: usługa Azure Synapse to Zintegrowana platforma danych dla analizy bizneso
 
 ### <a name="q-how-do-i-get-started-with-azure-synapse-analytics"></a>P: Jak mogę Rozpoczynanie pracy z usługą Azure Synapse Analytics
 
-Odp.: Aby rozpocząć korzystanie z usługi Azure Synapse Analytics, [zarejestruj dostawcę zasobów Synapse platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types) , wybierając pozycję *Microsoft. Synapse* z listy dostawców zasobów. Następnie Utwórz [obszar roboczy Synapse](https://portal.azure.com) (bezpłatnie!) i Utwórz zasoby, które mają być w tym obszarze roboczym. Możesz wykonać jedną z naszych samouczków szybkiego startu, na przykład [utworzyć pulę SQL Synapse](quickstart-create-sql-pool-portal.md) lub [utworzyć obszar roboczy](quickstart-create-workspace.md), który przeprowadzi Cię przez prosty przypadek użycia. Możesz również znaleźć przykładowe Notesy i skrypty SQL w naszym [repozytorium](https://github.com/Azure/azure-synapse-analytics/tree/master/samples). Jeśli musisz nawiązać połączenie z publicznym zestawem danych, Utwórz nową połączoną usługę z następującymi atrybutami:
+Odp.: Aby rozpocząć korzystanie z usługi Azure Synapse Analytics, [zarejestruj dostawcę zasobów Synapse platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types) , wybierając pozycję *Microsoft. Synapse* z listy dostawców zasobów. Następnie Utwórz [obszar roboczy Synapse](https://portal.azure.com) (bezpłatnie!) i Utwórz zasoby, które mają być w tym obszarze roboczym. Możesz wykonać jedną z naszych samouczków szybkiego startu, na przykład [utworzyć pulę SQL Synapse](quickstart-create-sql-pool-portal.md) lub [utworzyć obszar roboczy](quickstart-create-workspace.md), który przeprowadzi Cię przez prosty przypadek użycia. Możesz również znaleźć przykładowe Notesy i skrypty SQL w naszym [repozytorium](https://github.com/Azure-Samples/Synapse). Jeśli musisz nawiązać połączenie z publicznym zestawem danych, Utwórz nową połączoną usługę z następującymi atrybutami:
 
 - azure_storage_account_name = "azureopendatastorage"
 - azure_storage_sas_token = "" (Write **""**)

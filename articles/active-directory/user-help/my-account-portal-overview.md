@@ -8,21 +8,21 @@ ms.reviewer: jpettere
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: overview
+ms.topic: end-user-help
 ms.date: 04/20/2020
 ms.author: curtand
-ms.openlocfilehash: fd22f3b9d365bfee543712f680d504bb134f24d7
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 878fbb81e05db058aa015f8b4a7eae42e8cfea2e
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82625701"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83742208"
 ---
 # <a name="what-is-the-my-account-portal"></a>Co to jest portal Moje konto?
 
 Portal **My Account** ułatwia zarządzanie kontem służbowym przez skonfigurowanie i zarządzanie informacjami o zabezpieczeniach, Zarządzanie połączonymi organizacjami i urządzeniami, a także wyświetlanie sposobu korzystania z danych przez organizację.
 
-Możesz przejść do portalu **My Account** (https://myaccount.microsoft.com), z bieżącej wersji dowolnej z następujących przeglądarek:
+Możesz przejść do portalu **My Account** ( https://myaccount.microsoft.com) , z bieżącej wersji dowolnej z następujących przeglądarek:
 
 - Chrome
 - Microsoft Edge

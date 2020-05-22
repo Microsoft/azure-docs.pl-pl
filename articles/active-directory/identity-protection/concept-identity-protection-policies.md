@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 05/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a44e32efa3e38cf9c4df7dc00e3189c129db418
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: 7587ed6d414a69cff67aca9446aebf6260c99fcd
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "72887418"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83736504"
 ---
 # <a name="identity-protection-policies"></a>Zasady ochrony tożsamości
 
@@ -41,7 +41,7 @@ W przypadku wykrycia ryzyka użytkownicy mogą wykonywać uwierzytelnianie wielo
 
 ### <a name="custom-conditional-access-policy"></a>Niestandardowe zasady dostępu warunkowego
 
-Administratorzy mogą również utworzyć niestandardowe zasady dostępu warunkowego, w tym ryzyko logowania jako warunek przypisania. Więcej informacji o dostępie warunkowym można znaleźć w artykule [co to jest dostęp warunkowy?](../conditional-access/overview.md)
+Administratorzy mogą również utworzyć niestandardowe zasady dostępu warunkowego, w tym ryzyko logowania jako warunek przypisania. Więcej informacji na temat ryzyka jako warunku w zasadach dostępu warunkowego można znaleźć w artykule, [dostęp warunkowy: warunki](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk)
 
 ![Zasady dotyczące ryzyka związanego z logowaniem niestandardowym dostępu warunkowego](./media/concept-identity-protection-policies/identity-protection-custom-sign-in-policy.png)
 

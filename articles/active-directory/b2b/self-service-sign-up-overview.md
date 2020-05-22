@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd76a0556ff22890aff9f4b623e7688064192558
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 98456f26fbc7ca3955883eb283b54084bd86d503
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712200"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737762"
 ---
 # <a name="self-service-sign-up-preview"></a>Rejestracja samoobsługowa (wersja zapoznawcza)
 |     |
@@ -35,7 +35,7 @@ Samoobsługowe przepływy pracy tworzenia konta dla użytkowników zewnętrznych
 Ustawienia przepływu użytkownika można skonfigurować w celu kontrolowania sposobu, w jaki użytkownik rejestruje się w aplikacji:
 
 - Typy kont używane do logowania, takie jak konta społecznościowe, takie jak Facebook lub konta usługi Azure AD
-- Atrybuty, które mają być zbierane z konta użytkownika, takie jak imię i nazwisko, kod pocztowy lub kraj zamieszkania
+- Atrybuty, które mają być zbierane z konta użytkownika, takie jak imię i nazwisko, kod pocztowy lub kraj/region w miejscu zamieszkania
 
 Gdy użytkownik chce zalogować się do aplikacji, niezależnie od tego, czy jest to aplikacja sieci Web, urządzenia przenośne, klasyczne czy jednostronicowe, aplikacja inicjuje żądanie autoryzacji do punktu końcowego dostarczonego przez przepływ użytkownika. Przepływ użytkownika definiuje i kontroluje środowisko użytkownika. Gdy użytkownik ukończy przepływ użytkownika tworzenia konta, usługa Azure AD generuje token i przekierowuje użytkownika z powrotem do aplikacji. Po zakończeniu tworzenia konta konto gościa jest inicjowane dla użytkownika w katalogu. Wiele aplikacji może korzystać z tego samego przepływu użytkownika.
 

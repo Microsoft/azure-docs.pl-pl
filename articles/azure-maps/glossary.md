@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: c9d5c2efc14dec5beee0eaf81a4f628421ef3d49
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4c3e6216c172b0ba1273fea1690c030a05f4c456
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77657048"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83742216"
 ---
 # <a name="glossary"></a>Słownik
 
@@ -31,7 +31,7 @@ Poniższa lista zawiera opis typowych słów używanych z usługami Azure Maps.
 
 <a name="altitude"></a>**Wysokość**: wysokość lub pozioma poszerzenie punktu nad powierzchnią odniesienia. Pomiary wysokości są oparte na danym wymiarze odniesienia, takim jak średni poziom morza. Zobacz również podniesienie uprawnień.
 
-<a name="ambiguous"></a>**Niejednoznaczny**: stan niepewności klasyfikacji danych, który istnieje, gdy obiekt może być odpowiednio przypisany do dwóch lub więcej wartości dla danego atrybutu. Na przykład podczas geokodowania "CA" zwracane są dwa niejednoznaczne wyniki: "Kanada" i "California". "CA" to kraj i kod stanu, odpowiednio dla "Kanada" i "California". 
+<a name="ambiguous"></a>**Niejednoznaczny**: stan niepewności klasyfikacji danych, który istnieje, gdy obiekt może być odpowiednio przypisany do dwóch lub więcej wartości dla danego atrybutu. Na przykład podczas geokodowania "CA" zwracane są dwa niejednoznaczne wyniki: "Kanada" i "California". "CA" jest krajem/regionem i kodem stanu, odpowiednio dla "Kanada" i "California". 
 
 <a name="annotation"></a>**Adnotacja**: tekst lub grafika wyświetlana na mapie, aby zapewnić użytkownikowi informacje. Adnotacja może identyfikować lub opisywać określoną jednostkę mapy, podawać ogólne informacje o obszarze mapy lub podawać informacje o samej mapie.
 
@@ -93,7 +93,7 @@ Poniższa lista zawiera opis typowych słów używanych z usługami Azure Maps.
 
 <a name="coordinate-system"></a>**Układ współrzędnych**: Struktura referencyjna służąca do definiowania pozycji punktów w przestrzeni w dwóch lub trzech wymiarach.
 
-<a name="country-code"></a>**Kod kraju**: unikatowy identyfikator kraju/regionu oparty na standardzie ISO. ISO2 to dwuznakowy kod dla kraju (na przykład US), który ISO3 reprezentuje kod składający się z trzech znaków (na przykład USA).
+<a name="country-code"></a>**Kod kraju**: unikatowy identyfikator kraju/regionu oparty na standardzie ISO. ISO2 to dwuznakowy kod dla kraju/regionu (na przykład US), który ISO3 reprezentuje kod składający się z trzech znaków (na przykład USA).
 
 <a name="country-subdivision"></a>Obszar **podziału kraju**: pierwszy poziom części kraju/regionu, często znany jako Województwo.
 
@@ -408,5 +408,5 @@ Poniższa lista zawiera opis typowych słów używanych z usługami Azure Maps.
 
 <a name="zip-code"></a>**Kod pocztowy**: zobacz [Kod pocztowy](#postal-code).
 
-<a name="Zoom level"></a>**Poziom powiększenia**: określa poziom szczegółowości i ilość widocznej mapy. Po powiększeniu do poziomu 0 będzie często widoczna pełna mapa świata. Jednak mapa będzie zawierać ograniczone szczegóły, takie jak nazwy kraju/regionu, obramowania i nazwy oceanu. W przypadku powiększenia do poziomu 17 mapa będzie wyświetlać obszar kilku bloków miast ze szczegółowymi informacjami o podróży. W usłudze Azure Maps najwyższy poziom powiększenia to 22. Aby uzyskać więcej informacji, zobacz [poziomy powiększenia i dokumentacja siatki kafelków](zoom-levels-and-tile-grid.md) .
+<a name="Zoom level"></a>**Poziom powiększenia**: określa poziom szczegółowości i ilość widocznej mapy. Po powiększeniu do poziomu 0 będzie często widoczna pełna mapa świata. Jednak mapa będzie zawierać ograniczone szczegóły, takie jak nazwy kraju/regionu, obramowania i nazwy oceanu. W przypadku powiększenia do poziomu 17 mapa będzie wyświetlać obszar kilku bloków miast ze szczegółowymi informacjami o podróży. W Azure Maps najwyższy poziom powiększenia to 22. Aby uzyskać więcej informacji, zobacz [poziomy powiększenia i dokumentacja siatki kafelków](zoom-levels-and-tile-grid.md) .
 

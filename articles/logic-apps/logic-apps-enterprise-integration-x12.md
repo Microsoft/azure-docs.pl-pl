@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/29/2020
-ms.openlocfilehash: 8ec20e03544ba54b83130ae41244dcdb186252d0
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 9398b40763e8226cedf788f9cefbf5ed28cd649d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82613092"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739536"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Komunikaty programu Exchange X12 dla integracji z usługą B2B Enterprise w Azure Logic Apps z Pakiet integracyjny dla przedsiębiorstw
 
@@ -319,8 +319,8 @@ W tej tabeli wymieniono typy komunikatów, których dotyczą zmiany, dowolne war
 | Typ komunikatu lub wariant |  Opis | Numer wersji dokumentu (GS8) |
 |-------------------------|--------------|-------------------------------|
 | 277 | Powiadomienie o stanie informacji opieki zdrowotnej | 005010X212 |
-| 837_I | Dentystyczne opieki zdrowotnej | 004010X096A1 <br>005010X223A1 <br>005010X223A2 |
-| 837_D | Instytucjonalne roszczeń w zakresie opieki zdrowotnej | 004010X097A1 <br>005010X224A1 <br>005010X224A2 |
+| 837_I | Instytucjonalne roszczeń w zakresie opieki zdrowotnej | 004010X096A1 <br>005010X223A1 <br>005010X223A2 |
+| 837_D | Dentystyczne opieki zdrowotnej | 004010X097A1 <br>005010X224A1 <br>005010X224A2 |
 | 837_P | Specjalista ds. opieki zdrowotnej | 004010X098A1 <br>005010X222 <br>005010X222A1 |
 |||
 
@@ -330,7 +330,7 @@ Aby określić numery wersji i typy komunikatów tych dokumentów, wykonaj nast�
 
 1. W schemacie HIPAA zastąp bieżący typ komunikatu typem komunikatu Variant dla numeru wersji dokumentu, którego chcesz użyć.
 
-   Załóżmy na przykład, że chcesz użyć numeru `005010X222A1` wersji dokumentu z typem `837` wiadomości. W schemacie zamiast każdej `"X12_00501_837"` wartości Zastąp `"X12_00501_837_P"` wartości wartością.
+   Załóżmy na przykład, że chcesz użyć numeru wersji dokumentu `005010X222A1` z `837` typem wiadomości. W schemacie zamiast każdej wartości Zastąp `"X12_00501_837"` `"X12_00501_837_P"` wartości wartością.
 
    Aby zaktualizować schemat, wykonaj następujące kroki:
 
@@ -338,9 +338,9 @@ Aby określić numery wersji i typy komunikatów tych dokumentów, wykonaj nast�
 
    1. W Twojej umowie możesz wybrać poprawiony schemat.
 
-1. W `schemaReferences` obiekcie Twojej umowy Dodaj kolejną pozycję, która określa typ komunikatu Variant pasującego do numeru wersji dokumentu.
+1. W obiekcie Twojej umowy `schemaReferences` Dodaj kolejną pozycję, która określa typ komunikatu Variant pasującego do numeru wersji dokumentu.
 
-   Załóżmy na przykład, że chcesz użyć numeru `005010X222A1` wersji dokumentu dla typu `837` wiadomości. Twoja umowa zawiera `schemaReferences` sekcję z tymi właściwościami i wartościami:
+   Załóżmy na przykład, że chcesz użyć numeru wersji dokumentu `005010X222A1` dla `837` typu wiadomości. Twoja umowa zawiera `schemaReferences` sekcję z tymi właściwościami i wartościami:
 
    ```json
    "schemaReferences": [
@@ -358,7 +358,7 @@ Aby określić numery wersji i typy komunikatów tych dokumentów, wykonaj nast�
    * `"schemaVersion": "00501"`
    * `"schemaName": "X12_00501_837_P"`
 
-   Gdy skończysz, Twoja `schemaReferences` sekcja będzie wyglądać następująco:
+   Gdy skończysz, Twoja sekcja będzie wyglądać następująco `schemaReferences` :
 
    ```json
    "schemaReferences": [

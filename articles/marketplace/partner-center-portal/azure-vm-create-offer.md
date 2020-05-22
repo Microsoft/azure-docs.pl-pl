@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: ab41d3619150ace8e55702792d5974060133d5c1
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 7ecd68023c5c48a82c07d98615807a895cdd0cae
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726183"
+ms.locfileid: "83743103"
 ---
 # <a name="create-an-azure-virtual-machine-offer-in-azure-marketplace"></a>Tworzenie oferty maszyny wirtualnej platformy Azure w portalu Azure Marketplace
 
@@ -223,7 +223,7 @@ Podaj witrynę sieci Web pomocy technicznej, w której klienci mogą skontaktowa
 Podaj informacje kontaktowe dla partnerów firmy Microsoft, które mają być używane, gdy klienci otworzą bilet pomocy technicznej. Ta wartość nie zostanie wyświetlona na liście w portalu Marketplace.
 
 - Nazwa
-- E-mail
+- Poczta e-mail
 - Telefon
 
 ### <a name="engineering-contact"></a>Kontakt inżynieryjny
@@ -231,7 +231,7 @@ Podaj informacje kontaktowe dla partnerów firmy Microsoft, które mają być u�
 Podaj informacje kontaktowe firmy Microsoft, które mają być używane w przypadku problemów z ofertą, w tym problemy z certyfikatem. Ta wartość nie zostanie wyświetlona na liście w portalu Marketplace.
 
 - Nazwa
-- E-mail
+- Poczta e-mail
 - Telefon
 
 ### <a name="marketplace-media"></a>Multimedia dla portalu Marketplace
@@ -370,7 +370,7 @@ Na tej karcie skonfigurujesz następujące elementy:
 
 #### <a name="markets"></a>Wprowadza
 
-Każdy plan musi być dostępny na co najmniej jednym rynku. Zaznacz pole wyboru dla każdej lokalizacji rynkowej, w której plan ma być dostępny do zakupu (Użytkownicy na tych rynkach mogą nadal wdrażać oferty we wszystkich regionach platformy Azure wybranych w obszarze **[Konfiguracja planu](#plan-setup)**). Przycisk **podatek z podatkiem** przedstawia kraje, w których firma Microsoft przekazuje sprzedaż i korzysta z podatku w Twoim imieniu. Publikowanie w Chinach jest ograniczone do planów, które są **bezpłatne** lub **Bring Your Own License** (BYOL).
+Każdy plan musi być dostępny na co najmniej jednym rynku. Zaznacz pole wyboru dla każdej lokalizacji rynkowej, w której plan ma być dostępny do zakupu (Użytkownicy na tych rynkach mogą nadal wdrażać oferty we wszystkich regionach platformy Azure wybranych w obszarze **[Konfiguracja planu](#plan-setup)**). Przycisk **podatek z podatkiem** przedstawia kraje/regiony, w których firma Microsoft przekazuje sprzedaż i korzysta z podatku w Twoim imieniu. Publikowanie w Chinach jest ograniczone do planów, które są **bezpłatne** lub **Bring Your Own License** (BYOL).
 
 Jeśli już ustawisz ceny dla planu w Stany Zjednoczone dolarów (USD) i dodasz kolejną lokalizację na rynku, cena nowego rynku zostanie obliczona zgodnie z bieżącymi stawkami za wymianę. Zawsze sprawdzaj ceny poszczególnych rynków przed opublikowaniem. Po zapisaniu zmian zapoznaj się z cenami przy użyciu linku **ceny eksport (xlsx)** .
 
@@ -503,7 +503,7 @@ Krok **walidacji ręcznej** w procesie publikowania reprezentuje obszerny przegl
 
 Na stronie **Przegląd oferty** przedstawiono wizualną reprezentację kroków wymaganych do opublikowania oferty (zarówno w toku, jak i w trakcie) oraz czas trwania każdego kroku.
 
-Ta strona zawiera linki do wykonywania operacji na tej ofercie w zależności od dokonanego wyboru. Na przykład:
+Ta strona zawiera linki do wykonywania operacji na tej ofercie w zależności od dokonanego wyboru. Przykład:
 
 - Jeśli oferta jest ofertą typu wersja robocza, [Usuń wersję roboczą](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#delete-a-draft-offer)
 - Jeśli oferta jest aktywna [, Zatrzymaj sprzedawanie oferty](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan)

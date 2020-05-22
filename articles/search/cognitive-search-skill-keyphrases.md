@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ccdd25d82af2b4893260af18dac818816d9e4579
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ddcd95356f9b70fec5a74f36f5b80e55ea56b477
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72791973"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744014"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>wyodrębnianie kluczowych fraz umiejętności poznawcze
 
@@ -31,7 +31,7 @@ Ta funkcja jest przydatna, jeśli trzeba szybko identyfikować główne punkty r
 Microsoft. umiejętności. Text. KeyPhraseExtractionSkill 
 
 ## <a name="data-limits"></a>Limity danych
-Maksymalny rozmiar rekordu powinien składać się z 50 000 znaków mierzonych przez [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Jeśli konieczne jest rozbicie danych przed wysłaniem ich do wyodrębniania kluczowych fraz, rozważ użycie [umiejętności podziału tekstu](cognitive-search-skill-textsplit.md).
+Maksymalny rozmiar rekordu powinien składać się z 50 000 znaków mierzonych przez [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length) . Jeśli konieczne jest rozbicie danych przed wysłaniem ich do wyodrębniania kluczowych fraz, rozważ użycie [umiejętności podziału tekstu](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Parametry umiejętności
 
@@ -44,10 +44,17 @@ W nazwach parametrów jest rozróżniana wielkość liter.
 
 ## <a name="skill-inputs"></a>Dane wejściowe kwalifikacji
 
-| Dane wejściowe     | Opis |
+| Dane wejściowe  | Opis |
 |--------------------|-------------|
 | tekst | Tekst do analizy.|
 | languageCode  |  Ciąg wskazujący język rekordów. Jeśli ten parametr nie jest określony, kod języka domyślnego będzie używany do analizowania rekordów. <br/>Zapoznaj się [z pełną listą obsługiwanych języków](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)|
+
+## <a name="skill-outputs"></a>Wyniki umiejętności
+
+| Dane wyjściowe  | Opis |
+|--------------------|-------------|
+| keyPhrases | Lista kluczowych fraz wyodrębnionych z tekstu wejściowego. Kluczowe frazy są zwracane w kolejności ważności. |
+
 
 ##  <a name="sample-definition"></a>Definicja Przykładowa
 
@@ -120,7 +127,7 @@ Jeśli podano nieobsługiwany kod języka, zostanie wygenerowany błąd i frazy 
 Jeśli tekst jest pusty, zostanie wygenerowane ostrzeżenie.
 Jeśli tekst jest większy niż 50 000 znaków, przeanalizowane zostaną tylko pierwsze 50 000 znaki i zostanie wygenerowane ostrzeżenie.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 + [Wbudowane umiejętności](cognitive-search-predefined-skills.md)
 + [Jak zdefiniować zestawu umiejętności](cognitive-search-defining-skillset.md)

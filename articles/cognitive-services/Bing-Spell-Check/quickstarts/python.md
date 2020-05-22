@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: 6b0977628f7c3d971804d8597f42425608028081
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3350ff4bc810666f7b772607c2983d86902f5ffc
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448458"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744048"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-python"></a>Szybki Start: sprawdzanie pisowni za pomocą interfejsu API REST sprawdzanie pisowni Bing i języka Python
 
@@ -52,7 +52,7 @@ Użyj tego przewodnika Szybki start, aby wykonać pierwsze wywołanie interfejsu
     data = {'text': example_text}
     ```
 
-2. Dodaj parametry dla żądania. Dołącz kod rynkowy po `mkt=`. Kod rynkowy to kraj, z którego pochodzi żądanie. Dodawaj również tryb sprawdzania pisowni po `&mode=`. Tryb jest albo `proof` (przechwytuje większość błędów pisowni/gramatyki `spell` ) lub (przechwytuje większość pisowni, ale nie wiele błędów gramatycznych).
+2. Dodaj parametry dla żądania. Dołącz kod rynkowy po `mkt=` . Kod rynkowy jest krajem/regionem, z którego pochodzi żądanie. Dodawaj również tryb sprawdzania pisowni po `&mode=` . Tryb jest albo `proof` (przechwytuje większość błędów pisowni/gramatyki) lub `spell` (przechwytuje większość pisowni, ale nie wiele błędów gramatycznych).
 
     ```python
     params = {

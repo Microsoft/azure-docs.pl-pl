@@ -7,12 +7,12 @@ ms.service: vs-appcenter
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: masoucou
-ms.openlocfilehash: aa2931440b538346d9f1aa9d0ec967f1a812d56b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b6eec99594ca748fa0610c60c83fd58e388f7923
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80241011"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83742904"
 ---
 # <a name="geospatial-apis-to-add-maps-spatial-analytics-and-mobility-solutions-with-azure-maps"></a>Interfejsy API geoprzestrzenne umożliwiające dodawanie map, analiz przestrzennych i rozwiązań do mobilności za pomocą Azure Maps
 
@@ -25,11 +25,11 @@ ms.locfileid: "80241011"
 - **Routing**: przedstawia najkrótsze lub najszybsze trasy dostępne dla wielu miejsc docelowych w określonym czasie. Routing udostępnia także wyspecjalizowane trasy i fakty dla podejść, rowerzystów i pojazdów komercyjnych.
 - **Strefy czasowe**: ułatwiają sprawdzenie, jaki czas znajduje się w dowolnym miejscu na świecie.
 - **Operacje przestrzenne**: ulepszanie analizy lokalizacji.
-- **Geolokalizacja**: znajduje kraj adresu IP.
+- **Geolokalizacja**: znajduje kraj/region w adresie IP.
 - **Usługa danych**: przekazuje i przechowuje dane geograficzne do użycia z operacjami przestrzennymi lub kompozycją obrazu.
 - **Mobilność**: zapewnia analizę lokalizacji w czasie rzeczywistym na publicznych usługach tranzytowych. Są uwzględniane oszacowania, informacje o trasie i szacowania czasu podróży.
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
   - [Azure Portal](https://portal.azure.com) 
   - [Dokumentacja Azure Maps](/azure/azure-maps/about-azure-maps)
   - [Przewodnik dla deweloperów](/azure/azure-maps/how-to-use-android-map-control-library)

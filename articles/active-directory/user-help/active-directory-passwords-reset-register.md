@@ -9,15 +9,15 @@ ms.assetid: ''
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
-ms.openlocfilehash: 397e1fd7695fd7e74e1f22959d0f9f24af7d1ea3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3deb59b04f3c0ba90e270bc064e3ece3c21229b3
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77062646"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739610"
 ---
 # <a name="register-your-verification-method-info-to-reset-your-own-password"></a>Zarejestruj informacje o metodzie weryfikacji, aby zresetować własne hasło
 
@@ -26,7 +26,7 @@ Jeśli nie pamiętasz hasła służbowego, nigdy nie otrzymasz hasła z Twojej o
 Administrator musi włączyć tę funkcję, aby móc zarejestrować informacje i zresetować własne hasło. Jeśli nie widzisz opcji nie **pamiętam hasła** , oznacza to, że administrator nie włączył funkcji dla Twojej organizacji. Jeśli uważasz, że jest to nieprawidłowe, skontaktuj się z działem pomocy technicznej w celu uzyskania pomocy.
 
 >[!Important]
->Ten artykuł jest przeznaczony dla użytkowników próbujących korzystać z rejestracji w celu samoobsługowego resetowania hasła. Oznacza to, że będzie można zresetować własne hasło służbowe (np. alain@contoso.com), nie wymagając pomocy administratora. Jeśli jesteś administratorem, aby uzyskać informacje na temat włączania samoobsługowego resetowania haseł dla pracowników lub innych użytkowników, zobacz Wdrażanie funkcji samoobsługowego [resetowania haseł w usłudze Azure AD i innych artykułów](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
+>Ten artykuł jest przeznaczony dla użytkowników próbujących korzystać z rejestracji w celu samoobsługowego resetowania hasła. Oznacza to, że będzie można zresetować własne hasło służbowe (np alain@contoso.com .), nie wymagając pomocy administratora. Jeśli jesteś administratorem, aby uzyskać informacje na temat włączania samoobsługowego resetowania haseł dla pracowników lub innych użytkowników, zobacz Wdrażanie funkcji samoobsługowego [resetowania haseł w usłudze Azure AD i innych artykułów](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
 
 ## <a name="set-up-your-password-reset-verification-method"></a>Konfigurowanie metody weryfikacji resetowania hasła
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: d8be2c8cc70db963252054a39cad558c4c1b5bd2
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 7c462f25703b581c0882582d57fa8e5d2902dc4f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871206"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737507"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Instrukcje: Dostosowywanie oświadczeń emitowanych w tokenach dla określonej aplikacji w dzierżawie (wersja zapoznawcza)
 
@@ -97,7 +97,7 @@ Istnieją pewne zestawy oświadczeń, które określają, jak i kiedy są używa
 | domain_dns_name |
 | domain_netbios_name |
 | e_exp |
-| email |
+| poczta e-mail |
 | endpoint |
 | enfpolids |
 | exp |
@@ -319,7 +319,7 @@ Element ID identyfikuje, która Właściwość źródła udostępnia wartość d
 | Użytkownik | extensionattribute14 | Atrybut rozszerzenia 14 |
 | Użytkownik | extensionattribute15 | Atrybut rozszerzenia 15 |
 | Użytkownik | othermail | Inna poczta |
-| Użytkownik | country | Kraj |
+| Użytkownik | country | Kraj/region |
 | Użytkownik | city | Miasto |
 | Użytkownik | state | Stan |
 | Użytkownik | stanowiska | Stanowisko |
@@ -328,7 +328,7 @@ Element ID identyfikuje, która Właściwość źródła udostępnia wartość d
 | aplikacja, zasób, odbiorcy | displayname | Nazwa wyświetlana |
 | aplikacja, zasób, odbiorcy | Obiekt | ObjectID |
 | aplikacja, zasób, odbiorcy | tags | Główny tag usługi |
-| Firma | tenantcountry | Kraj dzierżawy |
+| Firma | tenantcountry | Kraj/region dzierżawy |
 
 **TransformationID:** Element TransformationID musi być podany tylko wtedy, gdy element source ma wartość "Transformation".
 
@@ -360,8 +360,8 @@ W oparciu o wybraną metodę jest oczekiwany zestaw danych wejściowych i wyjśc
 
 |TransformationMethod|Oczekiwane dane wejściowe|Oczekiwane dane wyjściowe|Opis|
 |-----|-----|-----|-----|
-|Join|ciąg1, ciąg2, separator|Oświadczenie outputclaim|Sprzęga ciągi wejściowe przy użyciu separatora między. Na przykład: ciąg1: "foo@bar.com", ciąg2: "piaskownica", separator: "." powoduje w oświadczenie outputclaim: "foo@bar.com.sandbox"|
-|ExtractMailPrefix|mail (poczta)|Oświadczenie outputclaim|Wyodrębnia lokalną część adresu e-mail. Na przykład: mail: "foo@bar.com" powoduje oświadczenie outputclaim: "foo". Jeśli znak \@ nie jest obecny, oryginalny ciąg wejściowy jest zwracany w postaci, w jakiej jest.|
+|Join|ciąg1, ciąg2, separator|Oświadczenie outputclaim|Sprzęga ciągi wejściowe przy użyciu separatora między. Na przykład: ciąg1: " foo@bar.com ", ciąg2: "piaskownica", separator: "." powoduje w oświadczenie outputclaim: " foo@bar.com.sandbox "|
+|ExtractMailPrefix|mail (poczta)|Oświadczenie outputclaim|Wyodrębnia lokalną część adresu e-mail. Na przykład: mail: " foo@bar.com " powoduje oświadczenie outputclaim: "foo". Jeśli \@ znak nie jest obecny, oryginalny ciąg wejściowy jest zwracany w postaci, w jakiej jest.|
 
 **InputClaims:** Użyj elementu InputClaims, aby przekazać dane ze wpisu schematu roszczeń do transformacji. Ma dwa atrybuty: **ClaimTypeReferenceId** i **TransformationClaimType**.
 
@@ -415,9 +415,9 @@ W oparciu o wybraną metodę jest oczekiwany zestaw danych wejściowych i wyjśc
 
 ### <a name="custom-signing-key"></a>Niestandardowy klucz podpisywania
 
-Aby zasady mapowania oświadczeń zaczęły obowiązywać, należy przypisać niestandardowy klucz podpisywania do obiektu jednostki usługi. Zapewnia to potwierdzenie, że tokeny zostały zmodyfikowane przez twórcę zasad mapowania oświadczeń i chroni aplikacje przed zasadami mapowania oświadczeń utworzonymi przez złośliwe podmioty. Aby dodać niestandardowy klucz podpisywania, możesz użyć polecenia cmdlet `new-azureadapplicationkeycredential` Azure PowerShell, aby utworzyć poświadczenia klucza symetrycznego dla obiektu aplikacji. Aby uzyskać więcej informacji na temat tego polecenia cmdlet Azure PowerShell, zobacz polecenie [New-AzureADApplicationKeyCredential](https://docs.microsoft.com/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
+Aby zasady mapowania oświadczeń zaczęły obowiązywać, należy przypisać niestandardowy klucz podpisywania do obiektu jednostki usługi. Zapewnia to potwierdzenie, że tokeny zostały zmodyfikowane przez twórcę zasad mapowania oświadczeń i chroni aplikacje przed zasadami mapowania oświadczeń utworzonymi przez złośliwe podmioty. Aby dodać niestandardowy klucz podpisywania, możesz użyć polecenia cmdlet Azure PowerShell, `new-azureadapplicationkeycredential` Aby utworzyć poświadczenia klucza symetrycznego dla obiektu aplikacji. Aby uzyskać więcej informacji na temat tego polecenia cmdlet Azure PowerShell, zobacz polecenie [New-AzureADApplicationKeyCredential](https://docs.microsoft.com/powerShell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
 
-Aplikacje z włączonym mapowaniem oświadczeń muszą sprawdzać poprawność swoich kluczy `appid={client_id}` podpisywania tokenu przez dołączanie ich do [żądań metadanych OpenID Connect Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Poniżej znajduje się format dokumentu metadanych OpenID Connect Connect, którego należy użyć: 
+Aplikacje z włączonym mapowaniem oświadczeń muszą sprawdzać poprawność swoich kluczy podpisywania tokenu przez dołączanie ich `appid={client_id}` do [żądań metadanych OpenID Connect Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Poniżej znajduje się format dokumentu metadanych OpenID Connect Connect, którego należy użyć: 
 
 ```
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
@@ -478,7 +478,7 @@ W tym przykładzie utworzysz zasady, które usuwają podstawowy zestaw roszczeń
 
 #### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>Przykład: Utwórz i przypisz zasady, aby uwzględnić IDPracownika i TenantCountry jako oświadczenia w tokenach wystawionych dla jednostki usługi
 
-W tym przykładzie utworzysz zasady, które dodają elementy IDPracownika i TenantCountry do tokenów wystawionych dla połączonych podmiotów usługi. Element IDPracownika jest emitowany jako nazwa typ wystąpienia w tokenach SAML i JWTs. TenantCountry jest emitowany jako typ roszczeń kraju w tokenach SAML i JWTs. W tym przykładzie nadal będziemy używać podstawowych oświadczeń ustawionych w tokenach.
+W tym przykładzie utworzysz zasady, które dodają elementy IDPracownika i TenantCountry do tokenów wystawionych dla połączonych podmiotów usługi. Element IDPracownika jest emitowany jako nazwa typ wystąpienia w tokenach SAML i JWTs. TenantCountry jest emitowany jako typ roszczeń kraju/regionu w tokenach SAML i JWTs. W tym przykładzie nadal będziemy używać podstawowych oświadczeń ustawionych w tokenach.
 
 1. Utwórz zasady mapowania oświadczeń. Te zasady połączone z określonymi jednostkami usługi dodają do tokenów oświadczenia IDPracownika i TenantCountry.
    1. Aby utworzyć zasady, uruchom następujące polecenie:  
