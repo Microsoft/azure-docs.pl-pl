@@ -3,12 +3,12 @@ title: Samouczek — Tworzenie kopii zapasowej bazy danych na platformie Azure z
 description: W tym samouczku dowiesz się, jak utworzyć kopię zapasową SAP HANA baz danych działających na maszynie wirtualnej platformy Azure do magazynu Azure Backup Recovery Services przy użyciu interfejsu wiersza polecenia platformy Azure.
 ms.topic: tutorial
 ms.date: 12/4/2019
-ms.openlocfilehash: cdc8a8fb09a086a2b9212c21d071f267991fa275
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7d1c52a846b837d47aa40c8f6a68010a8e7f1137
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78206626"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747291"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Samouczek: Tworzenie kopii zapasowych baz danych SAP HANA na maszynie wirtualnej platformy Azure przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -141,6 +141,11 @@ e0f15dae-7cac-4475-a833-f52c50e5b6c3  ConfigureBackup   Completed  hxe         2
 ```
 
 Polecenie cmdlet [AZ Backup Job list](https://docs.microsoft.com/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) zawiera wszystkie zadania tworzenia kopii zapasowej (zaplanowane lub na żądanie), które zostały uruchomione lub są aktualnie uruchomione w chronionej bazie danych, a także inne operacje, takie jak rejestrowanie, konfigurowanie kopii zapasowej, usuwanie danych kopii zapasowej itp.
+
+>[!NOTE]
+>Azure Backup nie dostosowuje się automatycznie podczas tworzenia kopii zapasowej bazy danych SAP HANA uruchomionej na maszynie wirtualnej platformy Azure.
+>
+>Zmodyfikuj zasady ręcznie w razie konieczności.
 
 ## <a name="trigger-an-on-demand-backup"></a>Wyzwalanie kopii zapasowej na żądanie
 

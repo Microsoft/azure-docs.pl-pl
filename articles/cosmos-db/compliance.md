@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/18/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 5a35ec10d7d9bc60bbbf28ee85c83c838108050b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 32266695770f627f7044bce92e4505f45776fd28
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79527371"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747364"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Zgodność w usłudze Azure Cosmos DB 
 
@@ -20,7 +20,7 @@ Azure Cosmos DB jest dostępna we wszystkich regionach świadczenia usługi Azur
 
 * Chmura **publiczna platformy Azure** , która jest dostępna globalnie.
 
-* **Usługa Azure Chiny 21Vianet** jest dostępna za pomocą unikatowego powiązania między firmą Microsoft i firmę 21Vianet — jednym z największych dostawców Internetu w danym kraju.
+* **Usługa Azure Chiny 21Vianet** jest dostępna za pomocą unikatowego powiązania między firmą Microsoft i 21Vianet, jednym z największych dostawców Internetu kraju/regionu.
 
 * **Platforma Azure (Niemcy** ) udostępnia usługi w ramach modelu zarządca danych, co zapewnia, że dane klienta pozostają w Niemczech pod kontrolą międzyplatformowych usług typu T-Systems.
 
@@ -38,7 +38,7 @@ Zakres certyfikatów usługi Azure Cosmos DB jest ciągle rozszerzany. Obecnie A
 | --- | --- | --- | --- |
 | Wydawanie certyfikatów w witrynie CSA STAR | DoD SRG poziom 2 | HIPAA BAA | Australia IRAP |
 | Zaświadczanie gwiazdy | FedRAMP Moderate | HITRUST | Niemcy C5|
-| ISO 20000-1:2011 | GxP (FDA 21 CFR część 11) | PCI DSS | Singapur MTCS (poziom 3) |
+| ISO 20000-1:2011 | GxP (FDA 21 CFR Part 11) | PCI DSS | Singapur MTCS (poziom 3) |
 | ISO 22301:2012 | | | Hiszpania ENS wysoka|
 | ISO 27001:2013| | | |
 | ISO 27017:2015 | | | |

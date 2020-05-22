@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 29b6b47a30760887fb01700e50ecdeb5dd307ad4
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 33c4286c5a3fa8be68c1e6ec3bd331aa1e804cb4
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858168"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745011"
 ---
 # <a name="payment-thresholds-methods-and-time-frames"></a>Progi, metody i horyzonty czasowe płatności
 
@@ -38,7 +38,7 @@ Zwykle wyślemy płatność należną w danym miesiącu do 15 dnia danego miesi�
 
 Są to kraje i regiony, w których powyższe metody płatności są używane dla każdego portalu Marketplace. Próg płatności we wszystkich przypadkach wynosi $50 USD.
 
-| Kraj | Azure Marketplace | Przechowywanie, reklamy, mikser i Minecraft | Biuro | Płatności w systemie PayPal  |
+| Kraj/region | Azure Marketplace | Przechowywanie, reklamy, mikser i Minecraft | Office | Płatności w systemie PayPal  |
 | --- | --- | --- | --- | --- |
 | Afganistan | Tak | Tak | Nie | Nie |
 | Albania | Tak | Tak | Tak | Tak |
@@ -78,7 +78,7 @@ Są to kraje i regiony, w których powyższe metody płatności są używane dla
 | Wybrzeże D'Ivoire | Tak | Tak | Tak | Nie |
 | Chorwacja | Tak | Tak | Tak | Nie |
 | Cypr | Tak | Tak | Tak | Tak |
-| Czechy | Tak | Tak | Tak | Tak |
+| Republika Czeska | Tak | Tak | Tak | Tak |
 | Dania | Tak | Tak | Tak | Tak |
 | Dominika | Tak | Tak | Nie | Yes |
 | Dominikana | Tak | Tak | Tak | Tak |
@@ -177,14 +177,14 @@ Są to kraje i regiony, w których powyższe metody płatności są używane dla
 | Timor-Leste | Tak | Tak | Yes | Nie |
 | Togo | Tak | Tak | Yes | Nie |
 | Tonga | Tak | Yes | Nie | Nie |
-| Trynidad i Tobago | Tak | Tak | Tak | Tak |
+| Trinidad i Tobago | Tak | Tak | Tak | Tak |
 | Tunezja | Tak | Tak | Yes | Nie |
 | Turcja | Tak | Tak | Yes | Nie |
 | Turkmenistan | Tak | Yes | Nie | Nie |
 | Uganda | Tak | Tak | Yes | Nie |
 | Ukraina | Tak | Yes | Nie | Nie |
 | Zjednoczone Emiraty Arabskie | Tak | Tak | Tak | Tak |
-| Wielka Brytania | Tak | Tak | Tak | Tak |
+| Zjednoczone Królestwo | Tak | Tak | Tak | Tak |
 | Stany Zjednoczone | Tak | Tak | Tak | Tak |
 | Urugwaj | Tak | Tak | Tak | Tak |
 | Uzbekistan | Tak | Yes | Nie | Nie |

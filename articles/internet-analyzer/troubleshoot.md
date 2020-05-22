@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: guide
 ms.date: 12/04/2019
 ms.author: dibotero
-ms.openlocfilehash: a265278652c16b4682707470d183a02a55b9a0ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c9e203d7e8be7b24c711f73e2152a7745a57dac
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77069221"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745468"
 ---
 # <a name="azure-internet-analyzer-troubleshooting"></a>Rozwiązywanie problemów z analizatorem internetowym platformy Azure
 
@@ -25,7 +25,7 @@ Ten artykuł zawiera kroki rozwiązywania problemów dotyczących typowych probl
 ## <a name="azure-portal"></a>Azure Portal
 **"Karta wyników nie została wygenerowana dla wybranej kombinacji filtru" w sekcji kart wyników**
 - Karty wyników są generowane codziennie (na koniec każdego dnia, czasu UTC).
-- Karty wyników są generowane tylko wtedy, gdy zebrano ponad 100 pomiarów dla wybranej kombinacji filtru (test, okres, kraj itp.).
+- Karty wyników są generowane tylko wtedy, gdy zebrano ponad 100 pomiarów dla wybranej kombinacji filtru (test, okres, kraj/region itp.).
 
 **"Całkowita liczba pomiarów" wynosi zero dla jednego lub obu punktów końcowych w teście**
 - Liczba szeregów czasowych i pomiarowych jest obliczana raz na godzinę, więc musisz poczekać co najmniej przez czas na wyświetlenie nowych danych pomiarów.

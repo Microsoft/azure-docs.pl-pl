@@ -7,27 +7,27 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 01/31/2020
 ms.author: victorh
-ms.openlocfilehash: 6725e1de21dbd103850071f7511e2800c6bd7b69
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bdb115cf6d0f0aa2c55f6143015a323df6faa114
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76961090"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744301"
 ---
 # <a name="geomatch-custom-rules-preview"></a>Reguły niestandardowe geodopasowania (wersja zapoznawcza)
 
 Reguły niestandardowe umożliwiają tworzenie dostosowanych reguł spełniających dokładne potrzeby aplikacji i zasad zabezpieczeń. Teraz możesz ograniczyć dostęp do aplikacji sieci Web według kraju/regionu. Podobnie jak w przypadku wszystkich reguł niestandardowych, ta logika może zostać złożona z innymi regułami, aby odpowiadały potrzebom aplikacji.
 
-Aby utworzyć regułę niestandardową filtrowania geograficznego, po prostu wybierz *lokalizację geograficzną* jako typ dopasowania, a następnie wybierz kraj lub kraje, które mają być dozwolone/blokowane w aplikacji. Aby uzyskać więcej informacji, zobacz [jak utworzyć niestandardowe reguły w programie PowerShell](configure-waf-custom-rules.md) i więcej przykładów reguł niestandardowych (Create-Custom-waf-rules.MD).
+Aby utworzyć regułę niestandardową filtrowania geograficznego, po prostu wybierz *lokalizację geograficzną* jako typ dopasowania, a następnie wybierz kraj/region lub kraje/regiony, które mają być dozwolone/blokowane z poziomu aplikacji. Aby uzyskać więcej informacji, zobacz [jak utworzyć niestandardowe reguły w programie PowerShell](configure-waf-custom-rules.md) i więcej przykładów reguł niestandardowych (Create-Custom-waf-rules.MD).
 
 > [!IMPORTANT]
 > Ten podgląd publiczny nie jest objęty umową dotyczącą poziomu usług i nie należy korzystać z niego w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą nie być obsługiwane, mogą mieć ograniczone możliwości lub mogą nie być dostępne we wszystkich lokalizacjach platformy Azure. Aby uzyskać szczegółowe informacje, zobacz [Dodatkowe warunki użytkowania wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="country-codes"></a>Kody krajów
+## <a name="countryregion-codes"></a>Kody krajów/regionów
 
-Jeśli używasz operatora geodopasowania, selektory mogą być jednym z następujących kodów krajów dwucyfrowych. 
+Jeśli używasz operatora geodopasowania, selektory mogą być dowolnymi z następujących dwóch kodów kraju/regionu. 
 
-|Kod kraju | Nazwa kraju |
+|Kod kraju/regionu | Nazwa kraju/regionu |
 | ----- | ----- |
 | AD | Andora |
 | AE | Zjednoczone Emiraty Arabskie|
@@ -72,7 +72,7 @@ Jeśli używasz operatora geodopasowania, selektory mogą być jednym z następu
 | CU | Kuba|
 | CV | Cabo Verde|
 | CY | Cypr|
-| CZ | Czechy|
+| CZ | Republika Czeska|
 | DE | Niemcy|
 | DK | Dania|
 | DO | Dominikana|
@@ -86,7 +86,7 @@ Jeśli używasz operatora geodopasowania, selektory mogą być jednym z następu
 | FJ | Fidżi|
 | FM | Federalne Stany Mikronezji|
 | PW | Francja|
-| GB | Wielka Brytania|
+| GB | Zjednoczone Królestwo|
 | GE | Gruzja|
 | GF | Gujana Francuska|
 | GH | Ghana|
@@ -147,7 +147,7 @@ Jeśli używasz operatora geodopasowania, selektory mogą być jednym z następu
 | MX | Meksyk|
 | MY | Malezja|
 | MZ | Mozambik|
-| Nie dotyczy | Namibia|
+| NA | Namibia|
 | NE | Niger|
 | NG | Nigeria|
 | NI | Nikaragua|
@@ -190,7 +190,7 @@ Jeśli używasz operatora geodopasowania, selektory mogą być jednym z następu
 | TH | Tajlandia|
 | TN | Tunezja|
 | TR | Turcja|
-| TT | Trynidad i Tobago|
+| TT | Trinidad i Tobago|
 | TW | Tajwan|
 | TZ | Zjednoczona Republika Tanzanii|
 | UA | Ukraina|

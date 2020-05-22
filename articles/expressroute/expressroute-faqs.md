@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: jaredro
-ms.openlocfilehash: 845c53ec970777901ae8d1c0abf5032ac705d3e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 085830ee1c8e7556a7c3390aaf6e638245d20324
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79264923"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745755"
 ---
 # <a name="expressroute-faq"></a>Usługa ExpressRoute — często zadawane pytania
 
@@ -295,7 +295,7 @@ ExpressRoute Premium to zbiór następujących funkcji:
 * Zwiększona liczba połączeń sieci wirtualnych i ExpressRoute Global Reach, które można włączyć w obwodzie ExpressRoute (wartość domyślna to 10). Aby uzyskać więcej informacji, zobacz tabelę [limitów ExpressRoute](#limits) .
 * Łączność z pakietem Office 365
 * Globalna łączność przez sieć podstawową firmy Microsoft. Teraz można połączyć sieć wirtualną w jednym regionie geopolitycznym z obwodem ExpressRoute w innym regionie.<br>
-    **Pokazują**
+    **Przykłady:**
 
     *  Można połączyć sieć wirtualną utworzoną w Europie zachodniej z obwodem ExpressRoute utworzonym w Dolina krzemu. 
     *  W przypadku komunikacji równorzędnej firmy Microsoft są anonsowane prefiksy z innych regionów geopolitycznych, które mogą nawiązywać połączenia, na przykład, SQL Azure w Europie Zachodniej od obwodu w Dolina krzemu.
@@ -342,7 +342,7 @@ W porównaniu do standardowego obwodu ExpressRoute, obwód lokalny ma ten sam ze
 ExpressRoute lokalna ma również te same limity dotyczące zasobów (np. liczbę sieci wirtualnych na obwód) jako standard. 
 
 ### <a name="where-is-expressroute-local-available-and-which-azure-regions-is-each-peering-location-mapped-to"></a>Gdzie jest dostępna usługa ExpressRoute lokalna i które regiony platformy Azure są mapowane na poszczególne lokalizacje komunikacji równorzędnej?
-ExpressRoute Local jest dostępny w lokalizacjach komunikacji równorzędnej, w których jeden lub dwa regiony platformy Azure są zamknięte. Nie jest on dostępny w lokalizacji komunikacji równorzędnej, w której nie ma regionu świadczenia usługi Azure w tym stanie lub województwie lub kraju. Sprawdź dokładne mapowania na [stronie Lokalizacje](expressroute-locations-providers.md).  
+ExpressRoute Local jest dostępny w lokalizacjach komunikacji równorzędnej, w których jeden lub dwa regiony platformy Azure są zamknięte. Nie jest on dostępny w lokalizacji komunikacji równorzędnej, w której nie ma regionu świadczenia usługi Azure w tym stanie lub województwie lub kraju/regionie. Sprawdź dokładne mapowania na [stronie Lokalizacje](expressroute-locations-providers.md).  
 
 ## <a name="expressroute-for-office-365"></a>ExpressRoute pakietu Office 365
 

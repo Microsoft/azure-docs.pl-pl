@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 05/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7725a9ddd1d9559166360b27bd8a5371d8c0557e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c31053f62f768cc534e07a8ac8d692176cf52b1e
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83638246"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757623"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Omówienie tokenów w Azure Active Directory B2C
 
@@ -37,8 +37,8 @@ Następujące tokeny są używane w komunikacji z Azure AD B2C:
 
 [Zarejestrowana aplikacja](tutorial-register-applications.md) otrzymuje tokeny i komunikuje się z Azure AD B2C, wysyłając żądania do tych punktów końcowych:
 
-- `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/oauth2/v2.0/authorize`
-- `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/oauth2/v2.0/token`
+- `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize`
+- `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/token`
 
 Tokeny zabezpieczające, od których aplikacja otrzymuje Azure AD B2C mogą pochodzić z `/authorize` `/token` punktów końcowych lub. Gdy tokeny identyfikatorów są uzyskiwane z `/authorize` punktu końcowego, jest ono realizowane przy użyciu [niejawnego przepływu](implicit-flow-single-page-application.md), który jest często używany w przypadku użytkowników logujących się do aplikacji sieci Web opartych na języku JavaScript. Gdy tokeny identyfikatorów są uzyskiwane z `/token` punktu końcowego, odbywa się przy użyciu [przepływu kodu autoryzacji](openid-connect.md#get-a-token), który utrzymuje token ukryty w przeglądarce.
 

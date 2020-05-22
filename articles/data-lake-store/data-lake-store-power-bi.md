@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 952be68a1675732857969f875cd2b39c2feab674
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: eb34199f6f1b304d56c691f56b78d9c035be8a5b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691653"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744770"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Analizowanie danych w Azure Data Lake Storage Gen1 przy użyciu Power BI
 W tym artykule dowiesz się, jak za pomocą Power BI Desktop analizować i wizualizować dane przechowywane w Azure Data Lake Storage Gen1.
@@ -52,19 +52,19 @@ Przed przystąpieniem do wykonania kroków opisanych w tym samouczku należy dys
     W następnych krokach zaktualizujemy zapytanie w celu przekonwertowania zaimportowanych danych w żądanym formacie.
 9. Na Wstążce **Narzędzia główne** kliknij pozycję **Edytuj zapytania**.
    
-    ![Edytuj zapytania](./media/data-lake-store-power-bi/edit-queries.png "Edytuj zapytania")
+    ![Edytowanie zapytań](./media/data-lake-store-power-bi/edit-queries.png "Edytuj zapytania")
 10. W edytorze zapytań w kolumnie **zawartość** kliknij pozycję dane **binarne**.
     
-    ![Edytuj zapytania](./media/data-lake-store-power-bi/convert-query1.png "Edytuj zapytania")
+    ![Edytowanie zapytań](./media/data-lake-store-power-bi/convert-query1.png "Edytuj zapytania")
 11. Zostanie wyświetlona ikona pliku, która reprezentuje przekazany plik **Drivers. txt** . Kliknij plik prawym przyciskiem myszy, a następnie kliknij pozycję **CSV**.    
     
-    ![Edytuj zapytania](./media/data-lake-store-power-bi/convert-query2.png "Edytuj zapytania")
+    ![Edytowanie zapytań](./media/data-lake-store-power-bi/convert-query2.png "Edytuj zapytania")
 12. Powinny pojawić się dane wyjściowe, jak pokazano poniżej. Twoje dane są teraz dostępne w formacie, którego można użyć do tworzenia wizualizacji.
     
-    ![Edytuj zapytania](./media/data-lake-store-power-bi/convert-query3.png "Edytuj zapytania")
+    ![Edytowanie zapytań](./media/data-lake-store-power-bi/convert-query3.png "Edytuj zapytania")
 13. Na Wstążce **Narzędzia główne** kliknij przycisk **Zamknij i Zastosuj**, a następnie kliknij przycisk **Zamknij i Zastosuj**.
     
-    ![Edytuj zapytania](./media/data-lake-store-power-bi/load-edited-query.png "Edytuj zapytania")
+    ![Edytowanie zapytań](./media/data-lake-store-power-bi/load-edited-query.png "Edytuj zapytania")
 14. Po zaktualizowaniu zapytania na karcie **pola** zostaną wyświetlone nowe pola dostępne dla wizualizacji.
     
     ![Zaktualizowane pola](./media/data-lake-store-power-bi/updated-query-fields.png "Zaktualizowane pola")
@@ -81,10 +81,10 @@ Przed przystąpieniem do wykonania kroków opisanych w tym samouczku należy dys
         ![Wykres kołowy](./media/data-lake-store-power-bi/pie-chart.png "Tworzenie wizualizacji")
 16. Wybierając określony kraj/region z filtrów na poziomie strony, można teraz zobaczyć liczbę sterowników w każdym mieście wybranego kraju/regionu. Na przykład na karcie **wizualizacje** w obszarze filtry na **poziomie strony**wybierz pozycję **Brazylia**.
     
-    ![Wybierz kraj](./media/data-lake-store-power-bi/select-country.png "Wybierz kraj/region")
+    ![Wybierz kraj/region](./media/data-lake-store-power-bi/select-country.png "Wybierz kraj/region")
 17. Wykres kołowy jest automatycznie aktualizowany w celu wyświetlenia sterowników w miejscowościach Brazylii.
     
-    ![Sterowniki w danym kraju](./media/data-lake-store-power-bi/driver-per-country.png "Sterowniki na kraj/region")
+    ![Sterowniki w kraju/regionie](./media/data-lake-store-power-bi/driver-per-country.png "Sterowniki na kraj/region")
 18. W menu **plik** kliknij polecenie **Zapisz** , aby zapisać wizualizację jako plik Power BI Desktop.
 
 ## <a name="publish-report-to-power-bi-service"></a>Publikuj raport w usługa Power BI

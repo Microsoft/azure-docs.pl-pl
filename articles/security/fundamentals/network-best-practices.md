@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 5e155758d19b45d977fcd087bff0ceb85898f8f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e64873cc2e7779c4d931018fd16bdca08596aa2
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548301"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757827"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Najlepsze rozwiązania dotyczące platformy Azure dotyczące zabezpieczeń sieci
 W tym artykule omówiono zbiór najlepszych rozwiązań dotyczących platformy Azure w celu zwiększenia bezpieczeństwa sieci. Te najlepsze rozwiązania wynikają z naszych rozwiązań związanych z obsługą sieci platformy Azure i klientami.
@@ -74,7 +74,7 @@ Sieci muszą rozwijać się od tradycyjnych zabezpieczeń, ponieważ sieci mogą
 Najlepsze rozwiązania:
 
 **Najlepsze rozwiązanie**: zapewnianie warunkowego dostępu do zasobów na podstawie urządzenia, tożsamości, gwarancji, lokalizacji sieciowej i nie tylko.  
-**Szczegóły**: [dostęp warunkowy usługi Azure AD](/azure/active-directory/conditional-access/overview) umożliwia stosowanie odpowiednich kontroli dostępu, implementując automatyczne decyzje dotyczące kontroli dostępu w zależności od wymaganych warunków. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem do usługi Azure Management przy użyciu dostępu warunkowego](../../role-based-access-control/conditional-access-azure-management.md).
+**Szczegóły**: [dostęp warunkowy usługi Azure AD](../../active-directory/conditional-access/overview.md) umożliwia stosowanie odpowiednich kontroli dostępu, implementując automatyczne decyzje dotyczące kontroli dostępu w zależności od wymaganych warunków. Aby uzyskać więcej informacji, zobacz [Zarządzanie dostępem do usługi Azure Management przy użyciu dostępu warunkowego](../../active-directory/conditional-access/howto-conditional-access-policy-azure-management.md).
 
 **Najlepsze rozwiązanie**: Włącz dostęp do portów tylko po zatwierdzeniu przepływu pracy.  
 **Szczegóły**: można użyć [dostępu just in Time do maszyny wirtualnej w Azure Security Center](../../security-center/security-center-just-in-time.md) do blokowania ruchu przychodzącego na maszynach wirtualnych platformy Azure, co pozwala ograniczyć narażenie na ataki, zapewniając łatwy dostęp do łączenia się z maszynami wirtualnymi w razie potrzeby.

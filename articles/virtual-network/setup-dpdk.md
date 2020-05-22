@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/27/2018
+ms.date: 05/12/2020
 ms.author: labattul
-ms.openlocfilehash: c79c1fd687e329b97a854a3ff66a3cf95076b5d6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 79e06fe95b48468616dce913e19c430dc2818719
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80384232"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744877"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Konfigurowanie DPDK na maszynie wirtualnej z systemem Linux
 
@@ -50,7 +50,7 @@ Obsługiwane są następujące dystrybucje z portalu Azure Marketplace:
 
 **Obsługa niestandardowych jądra**
 
-W przypadku wszystkich wersji jądra systemu Linux, których nie ma na liście, zobacz [poprawki dotyczące kompilowania jądra z systemem Linux](https://github.com/microsoft/azure-linux-kernel)z systemem Azure. Aby uzyskać więcej informacji, możesz również skontaktować się z [azuredpdk@microsoft.com](mailto:azuredpdk@microsoft.com). 
+W przypadku wszystkich wersji jądra systemu Linux, których nie ma na liście, zobacz [poprawki dotyczące kompilowania jądra z systemem Linux](https://github.com/microsoft/azure-linux-kernel)z systemem Azure. Aby uzyskać więcej informacji, możesz również skontaktować się z [azuredpdk@microsoft.com](mailto:azuredpdk@microsoft.com) . 
 
 ## <a name="region-support"></a>Obsługa regionów
 
@@ -109,10 +109,10 @@ zypper \
 ## <a name="set-up-the-virtual-machine-environment-once"></a>Skonfiguruj środowisko maszyny wirtualnej (raz)
 
 1. [Pobierz najnowszą DPDK](https://core.dpdk.org/download). Na platformie Azure jest wymagana wersja 18,11 LTS lub 19,11 LTS.
-2. Utwórz konfigurację domyślną przy użyciu `make config T=x86_64-native-linuxapp-gcc`.
-3. Włącz opcję Mellanox PMDs w wygenerowanej `sed -ri 's,(MLX._PMD=)n,\1y,' build/.config`konfiguracji przy użyciu programu.
-4. Kompiluj z `make`.
-5. Zainstaluj program `make install DESTDIR=<output folder>`przy użyciu programu.
+2. Utwórz konfigurację domyślną przy użyciu `make config T=x86_64-native-linuxapp-gcc` .
+3. Włącz opcję Mellanox PMDs w wygenerowanej konfiguracji przy użyciu programu `sed -ri 's,(MLX._PMD=)n,\1y,' build/.config` .
+4. Kompiluj z `make` .
+5. Zainstaluj program przy użyciu programu `make install DESTDIR=<output folder>` .
 
 ## <a name="configure-the-runtime-environment"></a>Konfigurowanie środowiska uruchomieniowego
 
@@ -126,9 +126,9 @@ Po ponownym uruchomieniu Uruchom następujące polecenia jeden raz:
      echo 1024 | sudo tee /sys/devices/system/node/node*/hugepages/hugepages-2048kB/nr_hugepages
      ```
 
-   * Utwórz katalog do zainstalowania za pomocą `mkdir /mnt/huge`programu.
-   * Zainstaluj hugepages z `mount -t hugetlbfs nodev /mnt/huge`.
-   * Sprawdź, czy hugepages są zastrzeżone `grep Huge /proc/meminfo`z.
+   * Utwórz katalog do zainstalowania za pomocą programu `mkdir /mnt/huge` .
+   * Zainstaluj hugepages z `mount -t hugetlbfs nodev /mnt/huge` .
+   * Sprawdź, czy hugepages są zastrzeżone z `grep Huge /proc/meminfo` .
 
      > KORYGUJĄC Istnieje możliwość zmodyfikowania pliku GRUB w taki sposób, aby hugepages zostały zarezerwowane przy rozruchu, postępując zgodnie z [instrukcjami](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) dla DPDK. Instrukcje znajdują się w dolnej części strony. W przypadku korzystania z maszyny wirtualnej platformy Azure z systemem Linux zamiast tego należy zmodyfikować pliki w obszarze **/etc/config/grub.d** , aby zarezerwować hugepages w ramach ponownych uruchomień.
 
@@ -136,10 +136,10 @@ Po ponownym uruchomieniu Uruchom następujące polecenia jeden raz:
 
 3. Adresy PCI
 
-   * Użyj `ethtool -i <vf interface name>` , aby dowiedzieć się, który adres PCI ma być używany na potrzeby funkcji *wirtualnej*.
+   * Użyj, `ethtool -i <vf interface name>` Aby dowiedzieć się, który adres PCI ma być używany na potrzeby funkcji *wirtualnej*.
    * Jeśli funkcja *eth0* ma przyspieszoną obsługę sieci, upewnij się, że testpmd nie przejmowanie przypadkowo urządzenia z urządzeniem *VF* PCI dla *eth0*. Jeśli aplikacja DPDK przypadkowo przełączy się za pośrednictwem interfejsu sieciowego zarządzania i spowoduje utratę połączenia SSH, należy użyć konsoli szeregowej do zatrzymania aplikacji DPDK. Można również użyć konsoli szeregowej, aby zatrzymać lub uruchomić maszynę wirtualną.
 
-4. Ładuj *ibuverbs* przy każdym ponownym `modprobe -a ib_uverbs`uruchomieniu przy użyciu. Tylko w przypadku SLES 15 Załaduj *mlx4_ib* również mlx4_ib `modprobe -a mlx4_ib`.
+4. Ładuj *ibuverbs* przy każdym ponownym uruchomieniu przy użyciu `modprobe -a ib_uverbs` . Tylko w przypadku SLES 15 Załaduj *mlx4_ib* również mlx4_ib `modprobe -a mlx4_ib` .
 
 ## <a name="failsafe-pmd"></a>Failsafe PMD
 
@@ -172,9 +172,9 @@ Aby uruchomić testpmd w trybie głównym, użyj `sudo` polecenia przed poleceni
    -- -i
    ```
 
-   Jeśli używasz programu testpmd z więcej niż dwiema kartami sieciowymi `--vdev` , argument jest następujący: `net_vdev_netvsc<id>,iface=<vf’s pairing eth>`.
+   Jeśli używasz programu testpmd z więcej niż dwiema kartami sieciowymi, `--vdev` argument jest następujący: `net_vdev_netvsc<id>,iface=<vf’s pairing eth>` .
 
-3.  Po uruchomieniu Uruchom `show port info all` polecenie, aby sprawdzić informacje o porcie. Powinien zostać wyświetlony jeden lub dwa porty DPDK, które są net_failsafe (nie *net_mlx4*).
+3.  Po uruchomieniu Uruchom polecenie, `show port info all` Aby sprawdzić informacje o porcie. Powinien zostać wyświetlony jeden lub dwa porty DPDK, które są net_failsafe (nie *net_mlx4*).
 4.  Użyj `start <port> /stop <port>` do uruchomienia ruchu.
 
 Poprzednie polecenia zaczynają *testpmd* w trybie interaktywnym, co jest zalecane do wypróbowania poleceń testpmd.
@@ -213,7 +213,7 @@ Następujące polecenia okresowo drukują statystyki pakietów na sekundę:
      --stats-period <display interval in seconds>
    ```
 
-Podczas uruchamiania poprzednich poleceń na maszynie wirtualnej, należy zmienić *IP_SRC_ADDR* i *IP_DST_ADDR* w programie `app/test-pmd/txonly.c` , aby odpowiadały rzeczywistemu adresowi IP maszynom wirtualnym przed kompilacją. W przeciwnym razie pakiety są porzucane przed osiągnięciem odbiornika.
+Podczas uruchamiania poprzednich poleceń na maszynie wirtualnej, należy zmienić *IP_SRC_ADDR* i *IP_DST_ADDR* w programie, `app/test-pmd/txonly.c` aby odpowiadały rzeczywistemu adresowi IP maszynom wirtualnym przed kompilacją. W przeciwnym razie pakiety są porzucane przed osiągnięciem odbiornika.
 
 ### <a name="advanced-single-sendersingle-forwarder"></a>Zaawansowane: pojedynczy nadawca/pojedyncza usługa przesyłania dalej
 Następujące polecenia okresowo drukują statystyki pakietów na sekundę:
@@ -249,9 +249,9 @@ Następujące polecenia okresowo drukują statystyki pakietów na sekundę:
      --stats-period <display interval in seconds>
     ```
 
-Podczas uruchamiania poprzednich poleceń na maszynie wirtualnej, należy zmienić *IP_SRC_ADDR* i *IP_DST_ADDR* w programie `app/test-pmd/txonly.c` , aby odpowiadały rzeczywistemu adresowi IP maszynom wirtualnym przed kompilacją. W przeciwnym razie pakiety są usuwane przed osiągnięciem usługi przesyłania dalej. Nie będzie możliwe odbieranie przez trzeci komputer ruchu przesyłanego dalej, ponieważ usługa przesyłania dalej *testpmd* nie modyfikuje adresów warstwy 3, chyba że wprowadzisz pewne zmiany w kodzie.
+Podczas uruchamiania poprzednich poleceń na maszynie wirtualnej, należy zmienić *IP_SRC_ADDR* i *IP_DST_ADDR* w programie, `app/test-pmd/txonly.c` aby odpowiadały rzeczywistemu adresowi IP maszynom wirtualnym przed kompilacją. W przeciwnym razie pakiety są usuwane przed osiągnięciem usługi przesyłania dalej. Nie będzie możliwe odbieranie przez trzeci komputer ruchu przesyłanego dalej, ponieważ usługa przesyłania dalej *testpmd* nie modyfikuje adresów warstwy 3, chyba że wprowadzisz pewne zmiany w kodzie.
 
-## <a name="references"></a>Dokumentacja
+## <a name="references"></a>Odwołania
 
 * [Opcje EAL](https://dpdk.org/doc/guides/testpmd_app_ug/run_app.html#eal-command-line-options)
 * [Polecenia Testpmd](https://dpdk.org/doc/guides/testpmd_app_ug/run_app.html#testpmd-command-line-options)

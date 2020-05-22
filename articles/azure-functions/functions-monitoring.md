@@ -4,12 +4,12 @@ description: Dowiedz się, jak używać usługi Azure Application Insights z us�
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: 6218e5163212540f2132020dffea520d34b77cc4
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2aaf52a528f929f183c9bf4565d9f0da4918f146
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648862"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757759"
 ---
 # <a name="monitor-azure-functions"></a>Monitorowanie usługi Azure Functions
 
@@ -610,7 +610,7 @@ Po wybraniu opcji **Utwórz**zasób Application Insights zostanie utworzony za p
 <a id="manually-connect-an-app-insights-resource"></a>
 ### <a name="add-to-an-existing-function-app"></a>Dodawanie do istniejącej aplikacji funkcji 
 
-Podczas tworzenia aplikacji funkcji przy użyciu [programu Visual Studio](functions-create-your-first-function-visual-studio.md)należy utworzyć zasób Application Insights. Następnie można dodać klucz Instrumentacji z tego zasobu jako ustawienia aplikacji w aplikacji funkcji.
+Podczas tworzenia aplikacji funkcji przy użyciu [programu Visual Studio](functions-create-your-first-function-visual-studio.md)należy utworzyć zasób Application Insights. Następnie można dodać klucz Instrumentacji z tego zasobu jako [Ustawienia aplikacji](functions-how-to-use-azure-function-app-settings.md#settings) w aplikacji funkcji.
 
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 

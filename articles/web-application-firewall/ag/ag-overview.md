@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: e0e5c143e619b1c381a4a618a811883ad189719b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 45e7e59f72fcda983053314c0b11ff56de8a72e8
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81314357"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747766"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Zapora aplikacji sieci Web platformy Azure na platformie Azure Application Gateway
 
@@ -72,7 +72,7 @@ W tej sekcji opisano podstawowe korzyści, które WAF na Application Gateway.
 - Konfigurowalne limity rozmiaru żądań z dolną i górną granicą.
 - Listy wykluczeń pozwalają pominąć niektóre atrybuty żądania z oceny WAF. Typowym przykładem są tokeny wstawione Active Directory, które są używane dla pól uwierzytelniania lub hasła.
 - Utwórz reguły niestandardowe, aby odpowiadały określonym potrzebom aplikacji.
-- Ruch w filtrach geograficznych, aby zezwalać na dostęp do aplikacji lub blokować je w niektórych krajach. (wersja zapoznawcza)
+- Ruch w filtrach geograficznych, aby zezwalać na dostęp do aplikacji lub blokować je określonym krajom/regionom. (wersja zapoznawcza)
 - Chroń aplikacje przed botów za pomocą zestawu reguł ograniczenia bot. (wersja zapoznawcza)
 
 ## <a name="waf-policy"></a>Zasady WAF
@@ -125,8 +125,8 @@ W trybie oceniania anomalii ruch pasujący do dowolnej reguły nie jest natychmi
 
 |Ważność  |Wartość  |
 |---------|---------|
-|Krytyczny     |5|
-|Error        |4|
+|Krytyczne     |5|
+|Błąd        |4|
 |Ostrzeżenie      |3|
 |Wzory       |2|
 

@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2b336451bde559ce773a9b611bc98b4de3f11871
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e8e263d29bc71ac76c374eeda78e5250a0af2095
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652736"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744784"
 ---
 # <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Zestawu umiejętności pojęć i kompozycji na platformie Azure Wyszukiwanie poznawcze
 
@@ -26,9 +26,9 @@ Zestawu umiejętności to zasób wielokrotnego użytku w usłudze Azure Wyszukiw
 
 Zestawu umiejętności ma trzy właściwości:
 
-+   ```skills```, nieuporządkowana kolekcja umiejętności, dla których platforma Określa sekwencję wykonywania na podstawie danych wejściowych wymaganych dla każdej umiejętności
-+   ```cognitiveServices```klucz usługi poznawczej wymagany do rozliczania wywołanych umiejętności poznawczych
-+   ```knowledgeStore```, konto magazynu, w którym będą rzutowane wzbogacone dokumenty
++    ```skills```, nieuporządkowana kolekcja umiejętności, dla których platforma Określa sekwencję wykonywania na podstawie danych wejściowych wymaganych dla każdej umiejętności
++    ```cognitiveServices```klucz usługi poznawczej wymagany do rozliczania wywołanych umiejętności poznawczych
++    ```knowledgeStore```, konto magazynu, w którym będą rzutowane wzbogacone dokumenty
 
 
 
@@ -54,14 +54,14 @@ W pozostałej części tego dokumentu przyjęto założenie, że pracujemy z [pr
 
 ### <a name="context"></a>Kontekst
 Każda umiejętność wymaga kontekstu. Kontekst określa:
-+   Liczba wykonań kwalifikacji na podstawie wybranych węzłów. W przypadku wartości kontekstu typu Collection dodanie ```/*``` na końcu spowoduje, że umiejętność zostanie wywołana raz dla każdego wystąpienia w kolekcji. 
-+   Gdzie w drzewie wzbogacania są dodawane dane wyjściowe umiejętności. Dane wyjściowe są zawsze dodawane do drzewa jako elementy podrzędne węzła kontekstu. 
-+   Kształt danych wejściowych. W przypadku kolekcji wielopoziomowych ustawienie kontekstu dla kolekcji nadrzędnej wpłynie na kształt danych wejściowych dla umiejętności. Na przykład jeśli masz drzewo wzbogacania z listą krajów, z których każda została ulepszona, za pomocą listy Stanów zawierających listę ZipCodes.
++    Liczba wykonań kwalifikacji na podstawie wybranych węzłów. W przypadku wartości kontekstu typu Collection dodanie ```/*``` na końcu spowoduje, że umiejętność zostanie wywołana raz dla każdego wystąpienia w kolekcji. 
++    Gdzie w drzewie wzbogacania są dodawane dane wyjściowe umiejętności. Dane wyjściowe są zawsze dodawane do drzewa jako elementy podrzędne węzła kontekstu. 
++    Kształt danych wejściowych. W przypadku kolekcji wielopoziomowych ustawienie kontekstu dla kolekcji nadrzędnej wpłynie na kształt danych wejściowych dla umiejętności. Na przykład jeśli masz drzewo wzbogacania z listą krajów/regionów, z których każda została ulepszona, za pomocą listy Stanów zawierających listę ZipCodes.
 
 |Kontekst|Dane wejściowe|Kształt danych wejściowych|Wywołanie umiejętności|
 |---|---|---|---|
-|```/document/countries/*``` |```/document/countries/*/states/*/zipcodes/*``` |Lista wszystkich ZipCodes w kraju |Raz na kraj |
-|```/document/countries/*/states/*``` |```/document/countries/*/states/*/zipcodes/*``` |Lista ZipCodes w stanie | Raz na kombinację kraju i stanu|
+|```/document/countries/*``` |```/document/countries/*/states/*/zipcodes/*``` |Lista wszystkich ZipCodes w kraju/regionie |Raz na kraj/region |
+|```/document/countries/*/states/*``` |```/document/countries/*/states/*/zipcodes/*``` |Lista ZipCodes w stanie | Raz na kombinację kraju/regionu i stanu|
 
 ### <a name="sourcecontext"></a>SourceContext
 

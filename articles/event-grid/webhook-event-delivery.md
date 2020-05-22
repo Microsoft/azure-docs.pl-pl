@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: babanisa
-ms.openlocfilehash: 7ae8a21d4ea9216bea13d47ad5ae41f3bc1c2089
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 80efee18ff7cc927ea9029c11aadcf13ad75781a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82630176"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747594"
 ---
 # <a name="webhook-event-delivery"></a>Dostarczanie zdarzeń elementu webhook
 Elementy webhook to jeden z wielu sposobów odbierania zdarzeń z Azure Event Grid. Gdy nowe zdarzenie jest gotowe, usługa Event Grid ogłasza żądanie HTTP do skonfigurowanego punktu końcowego przy użyciu zdarzenia w treści żądania.
@@ -27,27 +27,27 @@ Podobnie jak w przypadku wielu innych usług, które obsługują elementy webhoo
 ## <a name="endpoint-validation-with-event-grid-events"></a>Walidacja punktu końcowego ze zdarzeniami Event Grid
 Jeśli używasz innego typu punktu końcowego, takiego jak oparty na wyzwalaczu HTTP funkcja platformy Azure, kod punktu końcowego musi uczestniczyć w uzgadnianiu walidacji z Event Grid. Event Grid obsługuje dwa sposoby walidacji subskrypcji.
 
-1. **Uzgadnianie synchroniczne**: w momencie tworzenia subskrypcji zdarzeń Event Grid wysyła do punktu końcowego zdarzenie weryfikacji subskrypcji. Schemat tego zdarzenia jest podobny do dowolnego innego zdarzenia Event Grid. Część danych tego zdarzenia zawiera `validationCode` właściwość. Aplikacja weryfikuje, czy żądanie weryfikacji dotyczy oczekiwanej subskrypcji zdarzeń, i zwraca kod weryfikacyjny w odpowiedzi synchronicznie. Ten mechanizm uzgadniania jest obsługiwany we wszystkich wersjach Event Grid.
+1. **Uzgadnianie synchroniczne**: w momencie tworzenia subskrypcji zdarzeń Event Grid wysyła do punktu końcowego zdarzenie weryfikacji subskrypcji. Schemat tego zdarzenia jest podobny do dowolnego innego zdarzenia Event Grid. Część danych tego zdarzenia zawiera `validationCode` Właściwość. Aplikacja weryfikuje, czy żądanie weryfikacji dotyczy oczekiwanej subskrypcji zdarzeń, i zwraca kod weryfikacyjny w odpowiedzi synchronicznie. Ten mechanizm uzgadniania jest obsługiwany we wszystkich wersjach Event Grid.
 
 2. **Uzgadnianie asynchroniczne**: w niektórych przypadkach nie można zwrócić ValidationCode w odpowiedzi synchronicznie. Na przykład w przypadku korzystania z usługi innej firmy (takiej jak [`Zapier`](https://zapier.com) lub [IFTTT](https://ifttt.com/)) nie można programowo odpowiedzieć na kod weryfikacyjny.
 
-   Począwszy od wersji 2018-05-01-Preview, Event Grid obsługuje ręczne uzgadnianie walidacji. Jeśli tworzysz subskrypcję zdarzeń za pomocą zestawu SDK lub narzędzia korzystającego z interfejsu API w wersji 2018-05-01-Preview lub nowszej, Event Grid `validationUrl` wysyła właściwość w części danych zdarzenia walidacji subskrypcji. Aby ukończyć uzgadnianie, Znajdź ten adres URL w danych zdarzenia i wykonaj żądanie GET. Możesz użyć klienta REST lub przeglądarki sieci Web.
+   Począwszy od wersji 2018-05-01-Preview, Event Grid obsługuje ręczne uzgadnianie walidacji. Jeśli tworzysz subskrypcję zdarzeń za pomocą zestawu SDK lub narzędzia korzystającego z interfejsu API w wersji 2018-05-01-Preview lub nowszej, Event Grid wysyła `validationUrl` Właściwość w części danych zdarzenia walidacji subskrypcji. Aby ukończyć uzgadnianie, Znajdź ten adres URL w danych zdarzenia i wykonaj żądanie GET. Możesz użyć klienta REST lub przeglądarki sieci Web.
 
-   Podany adres URL jest prawidłowy przez **5 minut**. W tym czasie stan aprowizacji subskrypcji zdarzenia to `AwaitingManualAction`. Jeśli weryfikacja ręczna nie zostanie zakończona w ciągu 5 minut, stan aprowizacji zostanie ustawiony na `Failed`. Przed rozpoczęciem walidacji ręcznej należy utworzyć subskrypcję zdarzeń.
+   Podany adres URL jest prawidłowy przez **5 minut**. W tym czasie stan aprowizacji subskrypcji zdarzenia to `AwaitingManualAction` . Jeśli weryfikacja ręczna nie zostanie zakończona w ciągu 5 minut, stan aprowizacji zostanie ustawiony na `Failed` . Przed rozpoczęciem walidacji ręcznej należy utworzyć subskrypcję zdarzeń.
 
    Ten mechanizm uwierzytelniania wymaga również, aby punkt końcowy elementu webhook zwracał kod stanu HTTP 200, aby wiedział, że wpis dla zdarzenia sprawdzania poprawności został zaakceptowany, zanim będzie można go umieścić w trybie walidacji ręcznej. Innymi słowy, jeśli punkt końcowy zwraca 200, ale nie zwraca odpowiedzi walidacji synchronicznie, tryb jest przenoszony do trybu walidacji ręcznej. Jeśli w ciągu 5 minut znajduje się adres URL sprawdzania poprawności, uzgadnianie weryfikacji jest uznawane za pomyślne.
 
 > [!NOTE]
-> Sprawdzanie poprawności przy użyciu certyfikatów z podpisem własnym nie jest obsługiwane. Zamiast tego użyj podpisanego certyfikatu z urzędu certyfikacji (CA).
+> Sprawdzanie poprawności przy użyciu certyfikatów z podpisem własnym nie jest obsługiwane. Zamiast tego użyj podpisanego certyfikatu z komercyjnego urzędu certyfikacji.
 
 ### <a name="validation-details"></a>Szczegóły walidacji
 
 - W momencie tworzenia/aktualizowania subskrypcji zdarzeń Event Grid ogłasza zdarzenie weryfikacji subskrypcji w docelowym punkcie końcowym.
 - Zdarzenie zawiera wartość nagłówka "AEG-Event-Type: SubscriptionValidation".
 - Treść zdarzenia ma ten sam schemat co inne zdarzenia Event Grid.
-- Właściwość eventType zdarzenia ma `Microsoft.EventGrid.SubscriptionValidationEvent`wartość.
-- Właściwość Data zdarzenia zawiera `validationCode` właściwość z losowo generowanym ciągiem. Na przykład "validationCode: acb13...".
-- Dane zdarzenia zawierają również `validationUrl` właściwość z adresem URL służącą do ręcznego weryfikowania subskrypcji.
+- Właściwość eventType zdarzenia ma wartość `Microsoft.EventGrid.SubscriptionValidationEvent` .
+- Właściwość Data zdarzenia zawiera `validationCode` Właściwość z losowo generowanym ciągiem. Na przykład "validationCode: acb13...".
+- Dane zdarzenia zawierają również `validationUrl` Właściwość z adresem URL służącą do ręcznego weryfikowania subskrypcji.
 - Tablica zawiera tylko zdarzenie walidacji. Inne zdarzenia są wysyłane w oddzielnym żądaniu po ECHA kodu weryfikacyjnego.
 - Zestawy SDK EventGrid dataplanes mają klasy odpowiadające danym zdarzenia weryfikacji subskrypcji i odpowiedzi na weryfikację subskrypcji.
 

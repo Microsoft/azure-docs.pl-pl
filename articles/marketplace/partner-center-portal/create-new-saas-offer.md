@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 81b36532d09985d1e50fb3d0394d054d9a5e8250
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: eb7f527885d1d49fe09407c3cbce109a098056f9
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701161"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744655"
 ---
 # <a name="create-a-new-saas-offer-in-the-commercial-marketplace"></a>Utwórz nową ofertę SaaS w portalu komercyjnym
 
@@ -340,13 +340,13 @@ Ta strona umożliwia skonfigurowanie rynków, w których ten plan będzie dostę
 
 #### <a name="markets-optional"></a>Rynki (opcjonalnie)
 
-Każdy plan musi być dostępny na co najmniej jednym rynku. Wybierz pozycję **Edytuj rynki** i zaznacz pole wyboru dla dowolnej lokalizacji rynkowej, w której chcesz udostępnić ten plan. Ta strona zawiera pole wyszukiwania i opcję wybierania krajów "z przekazaniem podatku", w których firma Microsoft przekazuje sprzedaż i korzysta z podatku w Twoim imieniu.
+Każdy plan musi być dostępny na co najmniej jednym rynku. Wybierz pozycję **Edytuj rynki** i zaznacz pole wyboru dla dowolnej lokalizacji rynkowej, w której chcesz udostępnić ten plan. Ta strona zawiera pole wyszukiwania i opcję wybierania "krajów/regionów", w których firma Microsoft przekazuje sprzedaż i korzysta z podatku w Twoim imieniu.
 
 Jeśli już ustawisz ceny dla planu w Stany Zjednoczone dolarów (USD) i dodasz kolejną lokalizację na rynku, cena nowego rynku zostanie obliczona zgodnie z bieżącymi stawkami za wymianę. Przed opublikowaniem zapoznaj się z cenami poszczególnych rynków. Zapoznaj się z cennikiem przy użyciu linku "Eksport cen (xlsx)" po zapisaniu zmian.
 
 Wybierz pozycję **Zapisz** przed kontynuowaniem.
 
-#### <a name="pricing"></a>Ceny
+#### <a name="pricing"></a>Cennik
 
 ##### <a name="pricing-model"></a>Model cen
 

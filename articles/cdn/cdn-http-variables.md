@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: allensu
-ms.openlocfilehash: b9ced5d4a81effcd73e0243d09bb83ed0fe7667c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 57a3bab06e4c0a1e4fd8df5d0794a89904a88954
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81253700"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747648"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Zmienne HTTP dla aparatu reguł Azure CDN
 Zmienne HTTP zapewniają metodę, za pomocą której można pobrać metadane żądań i odpowiedzi HTTP. Można następnie użyć tych metadanych do dynamicznego zmiany żądania lub odpowiedzi. Użycie zmiennych HTTP jest ograniczone do następujących funkcji aparatu zasad:
@@ -40,7 +40,7 @@ W poniższej tabeli opisano obsługiwane zmienne HTTP. Wartość pusta jest zwra
 | Miasto (zleceniodawca) | % {geo_city} | Wskazuje miasto osoby żądającej. | Los Angeles |
 | Kontynent (zleceniodawca) | % {geo_continent} | Wskazuje kontynent osoby żądającej przez jego skrót. <br />Prawidłowe wartości: <br />AF: Afryka<br />AS: Azja<br />UE: Europa<br />NA: Ameryka Północna<br />OC: Oceanii<br />SA: Ameryka Południowa<br /><br />**Przestarzałe:** % {virt_dst_continent}. <br />Ta zmienna została zaniechana na rzecz elementu% {geo_continent}. <br />Mimo że reguła, która używa tej przestarzałej zmiennej, będzie nadal działała, należy ją zaktualizować tak, aby korzystała z nowej zmiennej.| Nie dotyczy |
 | Wartość cookie | % {cookie_Cookie} | Zwraca wartość odpowiadającą kluczowi cookie identyfikowanemu przez termin cookie. | Przykładowe użycie: <br />% {cookie__utma}<br /><br />Przykładowa wartość:<br />111662281.2.10.1222100123 |
-| Kraj (zleceniodawca) | % {geo_country} | Wskazuje kraj osoby żądającej za pomocą swojego kodu kraju. <br />**Przestarzałe:** % {virt_dst_country}. <br /><br />Ta zmienna została zaniechana na rzecz elementu% {geo_country}. Mimo że reguła, która używa tej przestarzałej zmiennej, będzie nadal działała, należy ją zaktualizować tak, aby korzystała z nowej zmiennej. | USA |
+| Kraj/region (zleceniodawca) | % {geo_country} | Wskazuje kraj/region osoby żądającej za pomocą kodu kraju/regionu. <br />**Przestarzałe:** % {virt_dst_country}. <br /><br />Ta zmienna została zaniechana na rzecz elementu% {geo_country}. Mimo że reguła, która używa tej przestarzałej zmiennej, będzie nadal działała, należy ją zaktualizować tak, aby korzystała z nowej zmiennej. | USA |
 | Wyznaczono obszar rynkowy (zleceniodawca) | % {geo_dma_code} |Wskazuje rynek multimedialny osoby żądającej według kodu regionu. <br /><br />To pole ma zastosowanie tylko do żądań, które pochodzą z Stany Zjednoczone.| 745 |
 | Metoda żądania HTTP | % {request_method} | Wskazuje metodę żądania HTTP. | GET |
 | Kod stanu HTTP | % {status} | Wskazuje kod stanu HTTP odpowiedzi. | 200 |
@@ -52,7 +52,7 @@ W poniższej tabeli opisano obsługiwane zmienne HTTP. Wartość pusta jest zwra
 | Kod pocztowy (Obiekt żądający) | % {geo_postal_code} | Wskazuje kod pocztowy osoby żądającej. | 90210 |
 | Znaleziono ciąg zapytania | % {is_args} | Wartość tej zmiennej różni się w zależności od tego, czy żądanie zawiera ciąg zapytania.<br /><br />-Znaleziono ciąg zapytania:?<br />-Brak ciągu zapytania: NULL | ? |
 | Znaleziono parametr ciągu zapytania | % {is_amp} | Wartość tej zmiennej różni się w zależności od tego, czy żądanie zawiera co najmniej jeden parametr ciągu zapytania.<br /><br />-Znaleziono parametr: &<br />-Brak parametrów: NULL | & |
-| Wartość parametru ciągu zapytania | % {arg_&lt;parametr&gt;} | Zwraca wartość odpowiadającą parametrowi ciągu zapytania identyfikowanego przez warunek &lt;parametru&gt; . | Przykładowe użycie: <br />% {arg_language}<br /><br />Przykładowy parametr ciągu zapytania: <br />? Language = pl<br /><br />Przykładowa wartość: pl |
+| Wartość parametru ciągu zapytania | % {arg_ &lt; parametr &gt; } | Zwraca wartość odpowiadającą parametrowi ciągu zapytania identyfikowanego przez &lt; warunek parametru &gt; . | Przykładowe użycie: <br />% {arg_language}<br /><br />Przykładowy parametr ciągu zapytania: <br />? Language = pl<br /><br />Przykładowa wartość: pl |
 | Wartość ciągu zapytania | % {query_string} | Wskazuje całą wartość ciągu zapytania zdefiniowaną w adresie URL żądania. |Klucz1 = Val1&klucz2 = val2&key3 = Val3 |
 | Domena odwołująca | % {referring_domain} | Wskazuje domenę zdefiniowaną w nagłówku żądania odwołującego się. | <www.google.com> |
 | Region (zleceniodawca) | % {geo_region} | Wskazuje region osoby żądającej (na przykład Województwo) za pomocą skrótu alfanumerycznego. | CA |
@@ -62,18 +62,18 @@ W poniższej tabeli opisano obsługiwane zmienne HTTP. Wartość pusta jest zwra
 | Schemat żądania | % {Schema} | Wskazuje schemat żądania. |http |
 | Identyfikator URI żądania (względne) | % {request_uri} | Wskazuje ścieżkę względną, łącznie z ciągiem zapytania zdefiniowanym w identyfikatorze URI żądania. | /Marketing/foo.js? zalogowano = prawda |
 | Identyfikator URI żądania (względny bez ciągu zapytania) | % {URI} | Wskazuje ścieżkę względną do wymaganej zawartości. <br /><br/>Informacje o kluczu:<br />-Ta ścieżka względna wyklucza ciąg zapytania.<br />-Ta ścieżka względna odzwierciedla ponowne zapisywanie adresów URL. Adres URL zostanie zapisany w następujących warunkach:<br />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-Funkcja ponownego zapisywania adresów URL: Ta funkcja ponownie zapisuje ścieżkę względną zdefiniowaną w identyfikatorze URI żądania.<br />    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-Edge adres URL CNAME: ten typ żądania jest zapisywana na odpowiednim adresie URL usługi CDN. |/800001/corigin/rewrittendir/foo.js |
-| Identyfikator URI żądania | % {Request} | Zawiera opis żądania. <br />Składnia: &lt;protokół http&gt; &lt;ścieżki&gt; &lt;względnej metody http&gt; | Pobierz/Marketing/foo.js? zarejestrowano = true HTTP/1.1 |
-| Wartość nagłówka odpowiedzi | % {resp_&lt;ResponseHeader&gt;} | Zwraca wartość odpowiadającą nagłówkowi odpowiedzi identyfikowanemu przez termin &lt;ResponseHeader&gt; . <br /><br />Jeśli nazwa nagłówka odpowiedzi zawiera Łącznik (na przykład User-Agent), zastąp go znakiem podkreślenia (na przykład User_Agent). | Przykładowe użycie:% {resp_Content_Length}<br /><br />Przykładowa wartość: 100 |
+| Identyfikator URI żądania | % {Request} | Zawiera opis żądania. <br />Składnia: &lt; &gt; &lt; &gt; protokół http ścieżki względnej metody http &lt;&gt; | Pobierz/Marketing/foo.js? zarejestrowano = true HTTP/1.1 |
+| Wartość nagłówka odpowiedzi | % {resp_ &lt; ResponseHeader &gt; } | Zwraca wartość odpowiadającą nagłówkowi odpowiedzi identyfikowanemu przez &lt; termin ResponseHeader &gt; . <br /><br />Jeśli nazwa nagłówka odpowiedzi zawiera Łącznik (na przykład User-Agent), zastąp go znakiem podkreślenia (na przykład User_Agent). | Przykładowe użycie:% {resp_Content_Length}<br /><br />Przykładowa wartość: 100 |
 
-## <a name="usage"></a>Sposób użycia
+## <a name="usage"></a>Użycie
 W poniższej tabeli opisano poprawną składnię określania zmiennej HTTP.
 
 
 | Składnia | Przykład | Opis |
 | ------ | -------- | ---------- |
-| % {&lt;HTTPVariable&gt;} | % {Host} | Użyj tej składni, aby uzyskać całą wartość odpowiadającą określonemu &lt;HTTPVariable&gt;. |
-| % {&lt;HTTPVariableDelimiter&gt;} | % {Host,} | Użyj tej składni, aby ustawić wielkość liter dla całej wartości odpowiadającej określonemu &lt;HTTPVariableDelimiter&gt;. |
-| % {&lt;HTTPVariableDelimiterExpression&gt;} | % {Host/= ^ www\.([^\.] +)\.([^\.:] +)/CDN. $2. $3:80} | Użyj wyrażenia regularnego dla &lt;HTTPVariableDelimiterExpression&gt; , aby zamienić, usunąć lub manipulować wartością zmiennej http. |
+| % { &lt; HTTPVariable &gt; } | % {Host} | Użyj tej składni, aby uzyskać całą wartość odpowiadającą określonemu &lt; HTTPVariable &gt; . |
+| % { &lt; HTTPVariableDelimiter &gt; } | % {Host,} | Użyj tej składni, aby ustawić wielkość liter dla całej wartości odpowiadającej określonemu &lt; HTTPVariableDelimiter &gt; . |
+| % { &lt; HTTPVariableDelimiterExpression &gt; } | % {Host/= ^ www \. ([^ \. ] +) \. ([^ \. :] +)/CDN. $2. $3:80} | Użyj wyrażenia regularnego dla &lt; HTTPVariableDelimiterExpression &gt; , aby zamienić, usunąć lub manipulować wartością zmiennej http. |
 
 Nazwy zmiennych HTTP obsługują tylko litery i znaki podkreślenia. Konwertuj nieobsługiwane znaki na podkreślenia.
 
@@ -160,15 +160,15 @@ Informacje o kluczu:
 
 W poniższym przykładzie zależą od następującego przykładowego adresu URL żądania:
 
-https:\//CDN.mydomain.com/folder/Marketing/myconsultant/Proposal.html
+https: \/ /CDN.mydomain.com/folder/Marketing/myconsultant/Proposal.html
 
 Następujący ciąg ilustruje różne metody manipulowania zmiennymi:
 
-https:\//www%{HTTP_HOST: 3}/Mobile/%{REQUEST_URI: 7:10}/% {REQUEST_URI:-5:-8}. htm
+https: \/ /www%{HTTP_HOST: 3}/mobile/%{REQUEST_URI: 7:10}/% {REQUEST_URI:-5:-8}. htm
 
 Na podstawie przykładowego adresu URL żądania w powyższej zmiennej manipulowanie zostanie utworzona następująca wartość:
 
-https:\//www.mydomain.com/Mobile/Marketing/Proposal.htm
+https: \/ /www.mydomain.com/Mobile/Marketing/Proposal.htm
 
 
 ### <a name="pattern-removal"></a>Usuwanie wzorca
@@ -224,7 +224,7 @@ Informacje o kluczu:
 
 - Wartość zapisywana może składać się z dowolnej kombinacji tekstu i tych symboli zastępczych.
 
-    W poprzednim przykładzie nazwa hosta jest ponownie `cdn.$2.$3:80` zapisywana (na przykład CDN.mydomain.com:80).
+    W poprzednim przykładzie nazwa hosta jest ponownie zapisywana `cdn.$2.$3:80` (na przykład CDN.mydomain.com:80).
 
 - Symbol zastępczy wzorca (na przykład $1) można modyfikować poprzez następujące flagi:
      - U: wielkie litery w rozwiniętej wartości.

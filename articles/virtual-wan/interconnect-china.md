@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: sukishen
-ms.openlocfilehash: d086484ece6faf95dccffb1e29da8a0e906b1da4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d89a3c65eb8d8bffd4cf87160286d1905bd1ba5b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80985630"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747608"
 ---
 # <a name="interconnect-with-china-using-azure-virtual-wan-and-secure-hub"></a>Łączenie z Chinami przy użyciu wirtualnej sieci WAN platformy Azure i bezpiecznego centrum
 
@@ -137,7 +137,7 @@ Ruch kierowany do rozłączonych gałęzi lub z nich do lokalizacji w Chinach b�
 
 ![ExpressRoute Global Reach](./media/interconnect-china/expressroute-virtual.png)
 
-Obecnie ExpressRoute Global Reach nie jest dostępna w każdym kraju, ale można skonfigurować rozwiązanie przy użyciu wirtualnej sieci WAN platformy Azure.
+Obecnie ExpressRoute Global Reach nie jest dostępna w każdym kraju/regionie, ale można skonfigurować rozwiązanie przy użyciu wirtualnej sieci WAN platformy Azure.
 
 Można na przykład skonfigurować ExpressRoute za pomocą komunikacji równorzędnej firmy Microsoft i połączyć tunel VPN za pośrednictwem tej komunikacji równorzędnej z wirtualną siecią WAN platformy Azure. Teraz włączono, jeszcze raz, tranzyt między sieciami VPN i ExpressRoute bez Global Reach i dostawcy i usługi innej firmy, takich jak Megaport Cloud.
 

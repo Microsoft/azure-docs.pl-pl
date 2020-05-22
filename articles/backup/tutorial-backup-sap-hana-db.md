@@ -3,12 +3,12 @@ title: Samouczek — Tworzenie kopii zapasowych baz danych SAP HANA na maszynach
 description: W tym samouczku dowiesz się, jak utworzyć kopię zapasową SAP HANA baz danych działających na maszynie wirtualnej platformy Azure do magazynu Azure Backup Recovery Services.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: f64dd74ad0e038c5cad152e20ae2255de03114e3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cb1fc4c1b9bfa2025850f16d175ba83bd5ee1470
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79501454"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747231"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Samouczek: Tworzenie kopii zapasowych baz danych SAP HANA na maszynie wirtualnej platformy Azure
 
@@ -32,6 +32,11 @@ Przed skonfigurowaniem kopii zapasowych upewnij się, że wykonano następujące
   * W przypadku MDC klucz powinien wskazywać port SQL **serwer nazw**. W przypadku SDC powinna wskazywać port SQL of **INDEXSERVER**
   * Należy mieć poświadczenia, aby dodawać i usuwać użytkowników
 * Uruchom skrypt konfiguracji kopii zapasowej SAP HANA (skrypt przed rejestracją) na maszynie wirtualnej, na której jest zainstalowany program HANA, jako użytkownik główny. [Ten skrypt](https://aka.ms/scriptforpermsonhana) Pobiera System Hana do utworzenia kopii zapasowej. Zapoznaj się z sekcją co to jest [skrypt przed rejestracją](#what-the-pre-registration-script-does) , aby dowiedzieć się więcej na temat skryptu przed rejestracją.
+
+>[!NOTE]
+>Azure Backup nie dostosowuje się automatycznie podczas tworzenia kopii zapasowej bazy danych SAP HANA uruchomionej na maszynie wirtualnej platformy Azure.
+>
+>Zmodyfikuj zasady ręcznie w razie konieczności.
 
 ## <a name="set-up-network-connectivity"></a>Konfigurowanie łączności sieciowej
 
@@ -116,7 +121,7 @@ hdbuserstore list
 W danych wyjściowych polecenia powinien być wyświetlany klucz {SID} {dbname}, który jest wyświetlany jako AZUREWLBACKUPHANAUSER.
 
 >[!NOTE]
-> Upewnij się, że masz unikatowy zestaw plików SSFS `/usr/sap/{SID}/home/.hdb/`. W tej ścieżce powinien znajdować się tylko jeden folder.
+> Upewnij się, że masz unikatowy zestaw plików SSFS `/usr/sap/{SID}/home/.hdb/` . W tej ścieżce powinien znajdować się tylko jeden folder.
 
 ## <a name="create-a-recovery-service-vault"></a>Utwórz magazyn usługi Recovery Service
 

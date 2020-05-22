@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fd6794bafc3c209032f32626e8c46b51769d05e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 74e0faf8ac776c043f2407e509c936d21f227664
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481232"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739972"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Zagadnienia dotyczące zabezpieczeń dotyczące zdalnego uzyskiwania dostępu do aplikacji przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD
 
@@ -47,7 +47,7 @@ W przypadku wybrania opcji przekazywania jako metody wstępnego uwierzytelniania
 
 Zastosuj bogatsze kontrolki zasad przed ustanowieniem połączeń z siecią.
 
-Przy użyciu [dostępu warunkowego](../conditional-access/overview.md)można definiować ograniczenia dotyczące tego, jaki ruch jest możliwy do uzyskania dostępu do aplikacji zaplecza. Można utworzyć zasady ograniczające logowanie na podstawie lokalizacji, siły uwierzytelniania i profilu ryzyka użytkownika.
+Przy użyciu [dostępu warunkowego](../conditional-access/concept-conditional-access-cloud-apps.md)można definiować ograniczenia dotyczące sposobu, w jaki użytkownicy mogą uzyskiwać dostęp do aplikacji. Można utworzyć zasady ograniczające logowanie na podstawie lokalizacji, siły uwierzytelniania i profilu ryzyka użytkownika.
 
 Możesz również użyć dostępu warunkowego, aby skonfigurować zasady Multi-Factor Authentication, dodając kolejną warstwę zabezpieczeń do uwierzytelniania użytkowników. Ponadto aplikacje mogą być również kierowane do Microsoft Cloud App Security za pośrednictwem dostępu warunkowego usługi Azure AD w celu zapewnienia monitorowania i kontroli w czasie rzeczywistym za pomocą zasad [dostępu](https://docs.microsoft.com/cloud-app-security/access-policy-aad) i [sesji](https://docs.microsoft.com/cloud-app-security/session-policy-aad)
 
@@ -79,7 +79,7 @@ Nie musisz martwić się o utrzymanie i stosowanie poprawek do serwerów lokalny
 
 Niepoprawione oprogramowanie nadal jest kontem dla dużej liczby ataków. Azure serwer proxy aplikacji usługi Azure AD to usługa skalowalna w Internecie, do której należy firma Microsoft, dzięki czemu zawsze otrzymujesz najnowsze poprawki zabezpieczeń i uaktualnienia.
 
-Aby zwiększyć bezpieczeństwo aplikacji publikowanych przez usługę Azure serwer proxy aplikacji usługi Azure AD, usługa przeszukiwarki sieci Web nie może indeksować i archiwizowania aplikacji. Za każdym razem, gdy Robot przeszukiwarki sieci Web próbuje pobrać ustawienia robotów dla opublikowanej aplikacji, serwer proxy aplikacji odpowiada plikowi robots `User-agent: * Disallow: /`. txt, który zawiera.
+Aby zwiększyć bezpieczeństwo aplikacji publikowanych przez usługę Azure serwer proxy aplikacji usługi Azure AD, usługa przeszukiwarki sieci Web nie może indeksować i archiwizowania aplikacji. Za każdym razem, gdy Robot przeszukiwarki sieci Web próbuje pobrać ustawienia robotów dla opublikowanej aplikacji, serwer proxy aplikacji odpowiada plikowi robots. txt, który zawiera `User-agent: * Disallow: /` .
 
 #### <a name="azure-ddos-protection-service"></a>Usługa Azure DDoS Protection
 

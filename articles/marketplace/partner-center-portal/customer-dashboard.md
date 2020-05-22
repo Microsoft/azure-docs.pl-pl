@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 37569eba0d351fdedcd68042af2e33b0e3947faa
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: b8492a6740eb9acfa20fbbe5dd5beed5e985fafc
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701503"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744589"
 ---
 # <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny klienta w komercyjnej analizie Marketplace
 
@@ -52,9 +52,9 @@ Istnieją trzy **typy klientów**: nowe, istniejące i zmienione.
 
 ### <a name="customer-by-geography"></a>Klient według położenia geograficznego
 
-Wykres **Klient według geografii** pokazuje liczbę wszystkich klientów i klientów nabytych w wybranym zakresie dat i są mapowane na podstawie kraju klienta. Jasny do ciemnego koloru mapy reprezentuje niską i wysoką wartość liczby klientów. Kliknij rekord w tabeli, aby powiększyć w danym kraju.
+Wykres **Klient według geografii** pokazuje liczbę wszystkich klientów i klientów nabytych w wybranym zakresie dat i są mapowane na podstawie kraju/regionu klienta. Jasny do ciemnego koloru mapy reprezentuje niską i wysoką wartość liczby klientów. Kliknij rekord w tabeli, aby powiększyć w kraju/regionie.
 
-Mapę cieplną wyświetla liczbę klientów i% według kraju klienta. Możesz przenieść mapę, aby wyświetlić dokładną lokalizację i powiększyć do określonej lokalizacji. Ta mapa zawiera dodatkową siatkę, która umożliwia wyświetlanie% odbiorców według lokalizacji, a także klientów nowo dodanych do tej lokalizacji.
+Mapę cieplną wyświetla liczbę klientów i% według kraju/regionu klienta. Możesz przenieść mapę, aby wyświetlić dokładną lokalizację i powiększyć do określonej lokalizacji. Ta mapa zawiera dodatkową siatkę, która umożliwia wyświetlanie% odbiorców według lokalizacji, a także klientów nowo dodanych do tej lokalizacji.
 
 ### <a name="customer-trends"></a>Trendy klientów
 
@@ -97,7 +97,7 @@ W tabeli **szczegóły klienta** zostanie wyświetlona lista numerowanych głów
 - Każda kolumna w siatce jest do sortowania.
 - Dane można wyodrębnić do pliku TSV, jeśli liczba rekordów jest mniejsza niż 1000.
 - Jeśli liczba rekordów przekracza 1000, eksportowane dane będą asynchroniczne umieszczane na stronie pobierania przez następne 30 dni.
-- Filtry można zastosować do tabeli, aby wyświetlić tylko te dane, które Cię interesują. Dane można filtrować według nazwy firmy, identyfikatora klienta, identyfikatora subskrypcji portalu Marketplace, typu licencji platformy Azure, daty pozyskania, daty utraty, adresu E-mail klienta, kraju/województwa/miejscowości/kodu pocztowego, języka klienta itd.
+- Filtry można zastosować do tabeli, aby wyświetlić tylko te dane, które Cię interesują. Dane można filtrować według nazwy firmy, identyfikatora klienta, identyfikatora subskrypcji witryny Marketplace, typu licencji platformy Azure, daty pozyskania, utraty daty, adresu E-mail klienta, kraju/regionu/stanu/miejscowości/pliku zip, języka klienta itd.
 - Po zakupieniu oferty przez chronionego klienta informacje w **szczegółowych danych klienta** będą maskowane (* * * * * * * * * * * *).
 
 ### <a name="customer-page-filters"></a>Filtry stron klienta

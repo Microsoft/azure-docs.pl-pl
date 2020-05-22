@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 0c5bfb6632a22a890ac2387f06464c18be7dd714
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 3b4159d81ce1d202dd1a302e863e5392f51a9868
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83699058"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747806"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny zamówień w komercyjnej analizie Marketplace
 
@@ -58,7 +58,7 @@ Wartość procentowa obok sumy zamówień reprezentuje stopień wzrostu wybraneg
 
 ### <a name="orders-by-geography"></a>Zamówienia według położenia geograficznego
 
-Mapę cieplną **Orders by geography** wyświetla liczbę zamówień na mapie światowej i przedstawia stanowiska zamapowane na podstawie kraju klienta. Ta mapę cieplną działa tak samo jak **[Klient według położenia geograficznego mapę cieplną](./customer-dashboard.md#customer-by-geography)**.
+Mapę cieplną **Orders by geography** wyświetla liczbę zamówień na mapie światowej i pokazuje stanowiska zamapowane na podstawie kraju/regionu klienta. Ta mapę cieplną działa tak samo jak **[Klient według położenia geograficznego mapę cieplną](./customer-dashboard.md#customer-by-geography)**.
 
 ![Centrum partnerskie — analizowanie zamówień według lokalizacji geograficznej](./media/orders-by-geography.png)
 
@@ -103,7 +103,7 @@ W tabeli Order Details (szczegóły zamówienia) wyświetlana jest lista numerow
 - Każda kolumna w siatce jest do sortowania.
 - Dane można wyodrębnić do pliku TSV, jeśli liczba rekordów jest mniejsza niż 1000.
 - Jeśli liczba rekordów przekracza 1000, eksportowane dane będą asynchroniczne umieszczane na stronie pobierania przez następne 30 dni.
-- Filtry można zastosować do **tabeli Order Details** , aby wyświetlić tylko te dane, które Cię interesują. Dane można filtrować według kraju, typu licencji platformy Azure, typu licencji Marketplace, typu oferty, stanu zamówienia, bezpłatnych identyfikatorów, identyfikatora subskrypcji witryny Marketplace, identyfikatora klienta i nazwy firmy.
+- Filtry można zastosować do **tabeli Order Details** , aby wyświetlić tylko te dane, które Cię interesują. Dane można filtrować według kraju/regionu, typu licencji platformy Azure, typu licencji Marketplace, typu oferty, stanu zamówienia, bezpłatnych identyfikatorów, identyfikatora subskrypcji witryny Marketplace, identyfikatora klienta i nazwy firmy.
 - Ponieważ oferty SaaS zakupione w witrynie Azure Marketplace lub AppSource nie wymagają subskrypcji platformy Azure, Identyfikator subskrypcji portalu Marketplace zostanie wyświetlony jako 00000000-0000-0000-0000-000000000000 w sekcji **szczegółowe dane zamówień** .
 
 #### <a name="orders-page-filters"></a>Filtry stron zamówień

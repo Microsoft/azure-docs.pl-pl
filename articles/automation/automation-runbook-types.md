@@ -1,20 +1,20 @@
 ---
 title: Azure Automation typy elementów Runbook
-description: W tym artykule opisano różne typy elementów Runbook, których można użyć w Azure Automation i zagadnienia dotyczące określania, który typ ma być używany.
+description: W tym artykule opisano typy elementów Runbook, których można użyć w Azure Automation i zagadnienia dotyczące określania, który typ ma być używany.
 services: automation
 ms.subservice: process-automation
 ms.date: 03/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 390f14e8369f206b2f5ffce74f0775b33e313021
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: c7b036e7adca1fe92425659ebd099feaa3891556
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714988"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743819"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation typy elementów Runbook
 
-Usługa Automatyzacja procesów Azure Automation obsługuje kilka typów elementów Runbook, zgodnie z definicją w poniższej tabeli. Aby dowiedzieć się więcej o środowisku automatyzacji procesów, zobacz [wykonywanie elementów Runbook w Azure Automation](automation-runbook-execution.md).
+Funkcja automatyzacji procesów Azure Automation obsługuje kilka typów elementów Runbook, zgodnie z definicją w poniższej tabeli. Aby dowiedzieć się więcej o środowisku automatyzacji procesów, zobacz [wykonywanie elementów Runbook w Azure Automation](automation-runbook-execution.md).
 
 | Typ | Opis |
 |:--- |:--- |
@@ -28,9 +28,6 @@ Należy wziąć pod uwagę poniższe zagadnienia podczas określania, który typ
 
 * Nie można konwertować elementów Runbook z typu graficznego na tekst lub w inny sposób.
 * Istnieją ograniczenia w przypadku używania elementów Runbook różnych typów jako podrzędnych elementów Runbook. Aby uzyskać więcej informacji, zobacz [podrzędne elementy Runbook w Azure Automation](automation-child-runbooks.md).
-
->[!NOTE]
->Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Instrukcje dotyczące instalacji polecenia AZ module w hybrydowym procesie roboczym elementu Runbook znajdują się w temacie [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). W przypadku konta usługi Automation można zaktualizować moduły do najnowszej wersji przy użyciu [sposobu aktualizowania modułów Azure PowerShell w programie Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="graphical-runbooks"></a>Graficzne elementy Runbook
 
@@ -118,7 +115,7 @@ Kompilacja elementów Runbook języka Python w języku Python 2. Kod elementu Ru
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej na temat graficznego tworzenia elementów Runbook, zobacz [Tworzenie graficzne w Azure Automation](automation-graphical-authoring-intro.md).
-* Aby zrozumieć różnice między programem PowerShell i przepływami pracy programu PowerShell dla elementów Runbook, zobacz [uczenie przepływu pracy programu Windows PowerShell](automation-powershell-workflow.md).
-* Aby uzyskać więcej informacji na temat tworzenia lub importowania elementu Runbook, zobacz [Zarządzanie elementami Runbook w programie Azure Automation](manage-runbooks.md).
-* Aby dowiedzieć się więcej na temat programu PowerShell, w tym dokumentacji języka i modułów uczenia, zapoznaj się z dokumentacją programu [PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
+* [Zarządzanie elementami Runbook w Azure Automation](manage-runbooks.md)
+* [Informacje o przepływie pracy programu PowerShell dla Azure Automation](automation-powershell-workflow.md)
+* [Tworzenie graficznych elementów Runbook w Azure Automation](automation-graphical-authoring-intro.md)
+* [Dokumentacja programu PowerShell](https://docs.microsoft.com/powershell/scripting/overview)

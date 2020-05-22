@@ -1,28 +1,28 @@
 ---
-title: Korzystanie z Azure Automation graficznego zestawu Runbook SDK
-description: W tym artykule opisano sposób korzystania z Azure Automation graficznego zestawu Runbook SDK.
+title: Korzystanie z Azure Automation graficznego zestawu Runbook SDK (wersja zapoznawcza)
+description: W tym artykule opisano sposób korzystania z Azure Automation graficznego elementu Runbook SDK (wersja zapoznawcza).
 services: automation
 ms.subservice: process-automation
 ms.date: 07/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: 886ce03b6e107d871879ff40bdc5de9ceb97c7c3
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: b0733cd4f71a734511d5085473047eb7a6d030d3
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690737"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744331"
 ---
-# <a name="use-the-azure-automation-graphical-runbook-sdk"></a>Korzystanie z Azure Automation graficznego zestawu Runbook SDK
+# <a name="use-the-azure-automation-graphical-runbook-sdk-preview"></a>Korzystanie z Azure Automation graficznego zestawu Runbook SDK (wersja zapoznawcza)
 
 [Graficzne elementy Runbook](automation-graphical-authoring-intro.md) ułatwiają zarządzanie złożonością podstawowego kodu przepływu pracy programu Windows PowerShell lub programu PowerShell. Zestaw SDK tworzenia graficznego usługi Microsoft Azure Automation umożliwia deweloperom tworzenie i edytowanie graficznych elementów Runbook do użycia z Azure Automation. W tym artykule opisano podstawowe kroki tworzenia graficznego elementu Runbook z kodu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Zaimportuj `Orchestrator.GraphRunbook.Model.dll` pakiet do projektu.
+Zaimportuj `Orchestrator.GraphRunbook.Model.dll` pakiet, pobierając [zestaw SDK](https://www.microsoft.com/download/details.aspx?id=50734).
 
 ## <a name="create-a-runbook-object-instance"></a>Utwórz wystąpienie obiektu elementu Runbook
 
-Odwołuje `Orchestrator.GraphRunbook.Model` się do zestawu i Utwórz wystąpienie `Orchestrator.GraphRunbook.Model.GraphRunbook` klasy:
+Odwołuje się do `Orchestrator.GraphRunbook.Model` zestawu i Utwórz wystąpienie `Orchestrator.GraphRunbook.Model.GraphRunbook` klasy:
 
 ```csharp
 using Orchestrator.GraphRunbook.Model;
@@ -33,7 +33,7 @@ var runbook = new GraphRunbook();
 
 ## <a name="add-runbook-parameters"></a>Dodaj parametry elementu Runbook
 
-Utwórz `Orchestrator.GraphRunbook.Model.Parameter` wystąpienie obiektów i Dodaj je do elementu Runbook:
+Utwórz wystąpienie `Orchestrator.GraphRunbook.Model.Parameter` obiektów i Dodaj je do elementu Runbook:
 
 ```csharp
 runbook.AddParameter(
@@ -101,7 +101,7 @@ Działania są implementowane przez następujące klasy w `Orchestrator.GraphRun
 > [!NOTE]
 > Nie należy wyprowadzać własnych działań z dostarczonych klas. Azure Automation nie może używać elementów Runbook z niestandardowymi typami działań.
 
-Należy dostarczyć `CommandActivity` i parametry `InvokeRunbookActivity` jako deskryptory wartości, a nie wartości bezpośrednie. Deskryptory wartości określają sposób tworzenia rzeczywistych wartości parametrów. Obecnie są dostępne następujące deskryptory wartości:
+Należy dostarczyć `CommandActivity` i `InvokeRunbookActivity` Parametry jako deskryptory wartości, a nie wartości bezpośrednie. Deskryptory wartości określają sposób tworzenia rzeczywistych wartości parametrów. Obecnie są dostępne następujące deskryptory wartości:
 
 
 |Opis  |Definicja  |
@@ -137,8 +137,8 @@ var serialized = RunbookSerializer.Serialize(runbook);
 ```
 
 Ten ciąg można zapisać w pliku z rozszerzeniem **. graphrunbook** . Odpowiedni element Runbook można zaimportować do Azure Automation.
-Serializowany format może ulec zmianie w przyszłych wersjach programu `Orchestrator.GraphRunbook.Model.dll`. Firma Microsoft gwarantuje zgodność z poprzednimi wersjami: wszystkie elementy Runbook `Orchestrator.GraphRunbook.Model.dll` serializowane ze starszą wersją mogą zostać rozszeregowane przez dowolną nowszą wersję. Zgodność nie jest gwarantowana: element Runbook serializowany z nowszą wersją może nie być deserializowany przez starsze wersje.
+Serializowany format może ulec zmianie w przyszłych wersjach programu `Orchestrator.GraphRunbook.Model.dll` . Firma Microsoft gwarantuje zgodność z poprzednimi wersjami: wszystkie elementy Runbook serializowane ze starszą wersją `Orchestrator.GraphRunbook.Model.dll` mogą zostać rozszeregowane przez dowolną nowszą wersję. Zgodność nie jest gwarantowana: element Runbook serializowany z nowszą wersją może nie być deserializowany przez starsze wersje.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat graficznych elementów Runbook w Azure Automation, zobacz [wprowadzenie do tworzenia graficznego](automation-graphical-authoring-intro.md).
+[Tworzenie graficznych elementów Runbook w Azure Automation](automation-graphical-authoring-intro.md)

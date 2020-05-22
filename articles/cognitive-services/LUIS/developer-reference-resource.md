@@ -3,12 +3,12 @@ title: Zasoby dla deweloperów — Language Understanding
 description: Zestawy SDK, interfejsy API REST, interfejs wiersza polecenia ułatwiają tworzenie aplikacji Language Understanding (LUIS) w języku programowania. Zarządzaj zasobami platformy Azure i przewidywaniami LUIS.
 ms.topic: reference
 ms.date: 05/19/2020
-ms.openlocfilehash: c86dad46b09c2f761e73f38187b4824c0a17406f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c712a81e5b786ac980a0c48d358fef4caf2e7597
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655566"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83758065"
 ---
 # <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>Zasoby deweloperskie zestawu SDK, REST i interfejsu wiersza polecenia dla Language Understanding (LUIS)
 
@@ -79,7 +79,7 @@ W poniższej tabeli objaśniono parametry, które są oznaczone nawiasami klamro
 
 ### <a name="language-based-sdks"></a>Zestawy SDK oparte na języku
 
-|Język |Dokumentacja referencyjna|Pakiet|Samples|Przewodniki Szybki Start|
+|Język |Dokumentacja referencyjna|Pakiet|Samples|Przewodniki Szybki start|
 |--|--|--|--|--|
 |C#|[Tworzenie](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring?view=azure-dotnet)</br>[Przewidując](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime?view=azure-dotnet)|[Tworzenie pakietów NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[Prognoza NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[Przykłady zestawów SDK dla platformy .NET](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/LUIS)|[Tworzenie aplikacji i zarządzanie nią](sdk-authoring.md?pivots=programming-language-csharp)<br>[Punkt końcowy przewidywania zapytania](sdk-query-prediction-endpoint.md)|
 |Przejdź|[Tworzenie i prognozowanie](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis)|[SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis)|[Tworzenie](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/change-model/go)<br>[Przewidując](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/analyze-text/go)|[Tworzenie i prognozowanie przy użyciu REST](luis-get-started-get-intent-from-rest.md)|
@@ -119,7 +119,7 @@ Bot Framework udostępnia [kilka narzędzi](https://github.com/microsoft/botbuil
 * [LUISGen](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUISGen) — automatycznie Generuj kopie zapasowe klas/TypeScript w języku C# dla Twoich LUISów i jednostek.
 * [Emulator bot Framework](https://github.com/Microsoft/BotFramework-Emulator/releases) — aplikacja klasyczna, która umożliwia deweloperom bot testowanie i debugowanie botów utworzonych przy użyciu zestawu SDK bot Framework
 * [Układacz bot Framework](https://github.com/microsoft/BotFramework-Composer/blob/stable/README.md) — zintegrowane narzędzie programistyczne dla deweloperów i zespołów wielodyscyplinarnych do kompilowania botów i konwersacji z platformą Microsoft bot Framework
-
+* [Przykłady platformy bot Framework](https://github.com/microsoft/botbuilder-samples) — w #C, JavaScript, TypeScript i Python
 ## <a name="next-steps"></a>Następne kroki
 
 * Informacje o typowych [kodach błędów HTTP](luis-reference-response-codes.md)

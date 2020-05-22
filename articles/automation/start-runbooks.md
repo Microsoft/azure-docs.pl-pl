@@ -1,16 +1,16 @@
 ---
 title: Uruchamianie elementu runbook w usłudze Azure Automation
-description: Podsumowuje różne metody, których można użyć do uruchomienia elementu Runbook w Azure Automation i zawiera szczegółowe informacje na temat używania Azure Portal i programu Windows PowerShell.
+description: W tym artykule opisano sposób uruchamiania elementu Runbook w Azure Automation.
 services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7f2c0dda952959db3bffba6016f48b986016c19e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 20f2e0e4dec7602b69a24ed1eccd0c4ec946038b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81679465"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744914"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Uruchamianie elementu runbook w usłudze Azure Automation
 
@@ -19,7 +19,7 @@ Poniższa tabela pomaga określić metodę uruchamiania elementu Runbook w Azure
 | **Metoda** | **Właściwości** |
 | --- | --- |
 | [Azure Portal](#start-a-runbook-with-the-azure-portal) |<li>Najprostsza metoda z interakcyjnym interfejsem użytkownika.<br> <li>Formularz, aby zapewnić proste wartości parametrów.<br> <li>Łatwe śledzenie stanu zadania.<br> <li>Dostęp uwierzytelniany przy użyciu logowania do platformy Azure. |
-| [Windows PowerShell](/powershell/module/azurerm.automation/start-azurermautomationrunbook) |<li>Wywoływanie z wiersza polecenia za pomocą poleceń cmdlet programu Windows PowerShell.<br> <li>Może zostać uwzględniony w zautomatyzowanym rozwiązaniu z wieloma krokami.<br> <li>Żądanie zostało uwierzytelnione z certyfikatem lub podmiotem zabezpieczeń użytkownika OAuth/jednostką usługi.<br> <li>Podaj proste i złożone wartości parametrów.<br> <li>Śledzenie stanu zadania.<br> <li>Klient wymagany do obsługi poleceń cmdlet programu PowerShell. |
+| [Windows PowerShell](/powershell/module/azurerm.automation/start-azurermautomationrunbook) |<li>Wywoływanie z wiersza polecenia za pomocą poleceń cmdlet programu Windows PowerShell.<br> <li>Może zostać uwzględniony w funkcji automatycznej z wieloma krokami.<br> <li>Żądanie zostało uwierzytelnione z certyfikatem lub podmiotem zabezpieczeń użytkownika OAuth/jednostką usługi.<br> <li>Podaj proste i złożone wartości parametrów.<br> <li>Śledzenie stanu zadania.<br> <li>Klient wymagany do obsługi poleceń cmdlet programu PowerShell. |
 | [Interfejs API Azure Automation](/rest/api/automation/) |<li>Najbardziej elastyczna metoda, ale również najbardziej złożona.<br> <li>Wywoływanie z dowolnego niestandardowego kodu, który może wykonywać żądania HTTP.<br> <li>Zażądaj uwierzytelnienia za pomocą certyfikatu lub podmiotu zabezpieczeń uwierzytelniania OAuth/nazwy głównej usługi.<br> <li>Podaj proste i złożone wartości parametrów. *Jeśli wywołujesz element Runbook języka Python przy użyciu interfejsu API, ładunek JSON musi być serializowany.*<br> <li>Śledzenie stanu zadania. |
 | [Elementy webhook](automation-webhooks.md) |<li>Uruchom element Runbook z pojedynczego żądania HTTP.<br> <li>Uwierzytelniono z tokenem zabezpieczającym w adresie URL.<br> <li>Klient nie może przesłonić wartości parametrów określonych podczas tworzenia elementu webhook. Element Runbook może zdefiniować pojedynczy parametr, który jest wypełniany informacjami o żądaniu HTTP.<br> <li>Brak możliwości śledzenia stanu zadania przy użyciu adresu URL elementu webhook. |
 | [Odpowiedz na alert platformy Azure](../log-analytics/log-analytics-alerts.md) |<li>Uruchom element Runbook w odpowiedzi na alert platformy Azure.<br> <li>Skonfiguruj element webhook dla elementu Runbook i link do alertu.<br> <li>Uwierzytelniono z tokenem zabezpieczającym w adresie URL. |
@@ -30,10 +30,7 @@ Na poniższej ilustracji przedstawiono szczegółowy proces krok po kroku w cykl
 
 ![Architektura elementu Runbook](media/automation-starting-runbook/runbooks-architecture.png)
 
->[!NOTE]
->Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Instrukcje dotyczące instalacji polecenia AZ module w hybrydowym procesie roboczym elementu Runbook znajdują się w temacie [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). W przypadku konta usługi Automation można zaktualizować moduły do najnowszej wersji przy użyciu [sposobu aktualizowania modułów Azure PowerShell w programie Azure Automation](automation-update-azure-modules.md).
-
-## <a name="runbook-parameters"></a>Parametry elementu Runbook
+## <a name="work-with-runbook-parameters"></a>Współpraca z parametrami elementu Runbook
 
 Po uruchomieniu elementu Runbook z Azure Portal lub Windows PowerShell instrukcja jest wysyłana za pośrednictwem usługi sieci Web Azure Automation. Ta usługa nie obsługuje parametrów o złożonych typach danych. Jeśli trzeba podać wartość dla parametru złożonego, należy wywołać go z innego elementu Runbook, zgodnie z opisem w [podrzędnych elementach Runbook w Azure Automation](automation-child-runbooks.md).
 
@@ -114,7 +111,7 @@ Smith
 
 ### <a name="credentials"></a>Poświadczenia
 
-Jeśli parametr jest typem `PSCredential`danych, można podać nazwę [zasobu poświadczenia](automation-credentials.md)Azure Automation. Element Runbook pobierze poświadczenie z określoną nazwą. Następujący testowy element Runbook akceptuje parametr o nazwie `credential`.
+Jeśli parametr jest typem danych `PSCredential` , można podać nazwę [zasobu poświadczenia](automation-credentials.md)Azure Automation. Element Runbook pobierze poświadczenie z określoną nazwą. Następujący testowy element Runbook akceptuje parametr o nazwie `credential` .
 
 ```powershell
 Workflow Test-Parameters
@@ -126,13 +123,13 @@ Workflow Test-Parameters
 }
 ```
 
-Następujący tekst może zostać użyty jako parametr użytkownika przy założeniu, że został wywołany `My Credential`zasób poświadczenia.
+Następujący tekst może zostać użyty jako parametr użytkownika przy założeniu, że został wywołany zasób poświadczenia `My Credential` .
 
 ```input
 My Credential
 ```
 
-Przy założeniu, że nazwa użytkownika w poświadczeniu to `jsmith`, wyświetlane są następujące dane wyjściowe.
+Przy założeniu, że nazwa użytkownika w poświadczeniu to `jsmith` , wyświetlane są następujące dane wyjściowe.
 
 ```output
 jsmith
@@ -143,7 +140,7 @@ jsmith
 1. W Azure Portal wybierz pozycję **Automatyzacja** , a następnie kliknij nazwę konta usługi Automation.
 2. W menu centrum wybierz pozycję **elementy Runbook**.
 3. Na stronie elementy Runbook wybierz element Runbook, a następnie kliknij przycisk **Uruchom**.
-4. Jeśli element Runbook ma parametry, zostanie wyświetlony monit o podanie wartości pola tekstowego dla każdego parametru. Aby uzyskać więcej informacji na temat parametrów, zobacz [Runbook Parameters](#runbook-parameters).
+4. Jeśli element Runbook ma parametry, zostanie wyświetlony monit o podanie wartości pola tekstowego dla każdego parametru. Aby uzyskać więcej informacji na temat parametrów, zobacz [Runbook Parameters](#work-with-runbook-parameters).
 5. W okienku zadania można wyświetlić stan zadania elementu Runbook.
 
 ## <a name="start-a-runbook-with-powershell"></a>Uruchamianie elementu Runbook za pomocą programu PowerShell
@@ -173,15 +170,16 @@ While ($doLoop) {
 Get-AzAutomationJobOutput –AutomationAccountName $AutomationAcct -Id $job.JobId -ResourceGroupName $ResourceGroup –Stream Output
 ```
 
-Jeśli element Runbook wymaga parametrów, należy podać je jako [tablicę skrótów](https://technet.microsoft.com/library/hh847780.aspx). Klucz tablicy skrótów musi być zgodny z nazwą parametru, a wartość jest wartością parametru. Poniższy przykład przedstawia sposób uruchamiania elementu Runbook z dwoma parametrami będącymi ciągami o nazwie FirstName i LastName, liczbą całkowitą o nazwie RepeatCount i parametrem logicznym o nazwie Show. Aby uzyskać więcej informacji na temat parametrów, zobacz [Runbook Parameters](#runbook-parameters).
+Jeśli element Runbook wymaga parametrów, należy podać je jako [tablicę skrótów](https://technet.microsoft.com/library/hh847780.aspx). Klucz tablicy skrótów musi być zgodny z nazwą parametru, a wartość jest wartością parametru. Poniższy przykład przedstawia sposób uruchamiania elementu Runbook z dwoma parametrami będącymi ciągami o nazwie FirstName i LastName, liczbą całkowitą o nazwie RepeatCount i parametrem logicznym o nazwie Show. Aby uzyskać więcej informacji na temat parametrów, zobacz [Runbook Parameters](#work-with-runbook-parameters).
 
 ```azurepowershell-interactive
 $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
-Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -ResourceGroupName "ResourceGroup01" –Parameters $params
+Start-AzAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -ResourceGroupName "ResourceGroup01" –Parameters $params
 ```
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej o wykonywaniu elementów Runbook usługi Automation w centrum danych, zobacz [hybrydowe procesy robocze elementów Runbook](automation-hybrid-runbook-worker.md).
-* Aby dowiedzieć się więcej na temat tworzenia modularnych elementów Runbook, które mają być używane przez inne elementy Runbook dla określonych lub typowych funkcji, zobacz [podrzędne elementy Runbook](automation-child-runbooks.md).
-* Aby uzyskać więcej informacji na temat programu PowerShell, w tym modułów dokumentacji i uczenia dotyczącej języka, zapoznaj się z dokumentacją programu [PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
+* [Zarządzanie elementami Runbook w Azure Automation](manage-runbooks.md)
+* [Omówienie hybrydowego procesu roboczego elementu Runbook](automation-hybrid-runbook-worker.md)
+* [Tworzenie modułowych elementów runbook](automation-child-runbooks.md)
+* [Dokumentacja programu PowerShell](https://docs.microsoft.com/powershell/scripting/overview)

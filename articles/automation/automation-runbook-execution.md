@@ -1,16 +1,16 @@
 ---
 title: Wykonywanie elementu runbook w usłudze Azure Automation
-description: Opisuje szczegóły dotyczące sposobu przetwarzania elementu Runbook w Azure Automation.
+description: Ten artykuł zawiera informacje na temat przetwarzania elementów Runbook w programie Azure Automation.
 services: automation
 ms.subservice: process-automation
 ms.date: 04/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1933688459cd02ee4da448d2e83b0a7a92a1d2c8
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 5785377830f7e2cfb159a3090d19b1cd35b07a61
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82994745"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743910"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Wykonywanie elementu runbook w usłudze Azure Automation
 
@@ -29,9 +29,6 @@ Na poniższym diagramie przedstawiono cykl życia zadania elementu Runbook dla [
 ![Stany zadań — przepływ pracy programu PowerShell](./media/automation-runbook-execution/job-statuses.png)
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
-
->[!NOTE]
->Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Instrukcje dotyczące instalacji polecenia AZ module w hybrydowym procesie roboczym elementu Runbook znajdują się w temacie [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). W przypadku konta usługi Automation można zaktualizować moduły do najnowszej wersji przy użyciu [sposobu aktualizowania modułów Azure PowerShell w programie Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="runbook-execution-environment"></a>Środowisko wykonywania elementu Runbook
 
@@ -62,7 +59,7 @@ W poniższej tabeli wymieniono niektóre zadania wykonywania elementów Runbook 
 |Uruchamianie skryptów wymagających podniesienia uprawnień|Hybrydowy proces roboczy elementu Runbook|Piaskownice nie umożliwiają podniesienia uprawnień. Przy użyciu hybrydowego procesu roboczego elementu Runbook można wyłączyć funkcję Kontrola konta użytkownika i użyć [polecenia Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7) przy uruchamianiu polecenia, które wymaga podniesienia uprawnień.|
 |Uruchamianie skryptów, które wymagają dostępu do Instrumentacja zarządzania Windows (WMI)|Hybrydowy proces roboczy elementu Runbook|Zadania uruchomione w piaskownicach w chmurze nie mogą uzyskać dostępu do dostawcy WMI. |
 
-## <a name="resources"></a>Zasoby
+## <a name="resources"></a>Resources
 
 Elementy Runbook muszą zawierać logikę do obsługi [zasobów](https://docs.microsoft.com/rest/api/resources/resources), np. maszyn wirtualnych, sieci i zasobów w sieci. Zasoby są powiązane z subskrypcją platformy Azure, a elementy Runbook wymagają odpowiednich poświadczeń w celu uzyskania dostępu do dowolnego zasobu. Aby zapoznać się z przykładem obsługi zasobów w elemencie Runbook, zobacz temat [Obsługa zasobów](manage-runbooks.md#handle-resources). 
 
@@ -103,7 +100,7 @@ Dzienniki dostępne dla agenta Log Analytics i konta **nxautomation** są nastę
 * /var/opt/Microsoft/omsagent/Run/automationworker/Worker.log — dziennik procesu roboczego usługi Automation
 
 >[!NOTE]
->Użytkownik **nxautomation** dołączany w ramach Update Management wykonuje tylko podpisane elementy Runbook.
+>Użytkownik **nxautomation** włączony jako część Update Management wykonuje tylko podpisane elementy Runbook.
 
 ## <a name="runbook-permissions"></a>Uprawnienia elementu Runbook
 
@@ -134,7 +131,7 @@ W poniższej tabeli opisano Stany, które są możliwe dla danego zadania. Możn
 
 | Stan | Opis |
 |:--- |:--- |
-| Zakończone |Zadanie zostało ukończone pomyślnie. |
+| Ukończone |Zadanie zostało ukończone pomyślnie. |
 | Niepowodzenie |Nie można skompilować elementu Runbook graficznego lub przepływu pracy programu PowerShell. Nie można uruchomić elementu Runbook programu PowerShell lub zadanie miało wyjątek. Zobacz [Azure Automation typów elementów Runbook](automation-runbook-types.md).|
 | Niepowodzenie, oczekiwanie na zasoby |Zadanie nie powiodło się, ponieważ osiągnął limit [godziwego udziału](#fair-share) trzy razy i został uruchomiony z tego samego punktu kontrolnego lub od początku elementu Runbook za każdym razem. |
 | W kolejce |Zadanie oczekuje na udostępnienie zasobów w procesie roboczym usługi Automation, aby można było je uruchomić. |
@@ -157,9 +154,9 @@ W tej sekcji opisano niektóre sposoby obsługi wyjątków lub sporadycznych pro
 
 ### <a name="erroractionpreference"></a>ErrorActionPreference
 
-Zmienna [ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) określa, jak program PowerShell reaguje na błąd niepowodujący zakończenia. Przerywanie błędów zawsze kończy się i nie dotyczy `ErrorActionPreference`.
+Zmienna [ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) określa, jak program PowerShell reaguje na błąd niepowodujący zakończenia. Przerywanie błędów zawsze kończy się i nie dotyczy `ErrorActionPreference` .
 
-Gdy element Runbook używa `ErrorActionPreference`, zazwyczaj błąd niepowodujący zakończenia, taki `PathNotFound` jak polecenie cmdlet [GET-ChildItem](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7) , uniemożliwia ukończenie elementu Runbook. W poniższym przykładzie pokazano użycie `ErrorActionPreference`. Końcowe polecenie [Write-Output](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/write-output?view=powershell-7) nigdy nie jest wykonywane, gdy skrypt zostaje zatrzymany.
+Gdy element Runbook używa `ErrorActionPreference` , zazwyczaj błąd niepowodujący zakończenia, taki jak `PathNotFound` polecenie cmdlet [GET-ChildItem](https://docs.microsoft.com/powershell/module/microsoft.powershell.management/get-childitem?view=powershell-7) , uniemożliwia ukończenie elementu Runbook. W poniższym przykładzie pokazano użycie `ErrorActionPreference` . Końcowe polecenie [Write-Output](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/write-output?view=powershell-7) nigdy nie jest wykonywane, gdy skrypt zostaje zatrzymany.
 
 ```powershell-interactive
 $ErrorActionPreference = 'Stop'
@@ -169,7 +166,7 @@ Write-Output "This message will not show"
 
 ### <a name="try-catch-finally"></a>Wypróbuj teraz
 
-Aby obsłużyć błędy powodujące przerwanie, w skryptach programu PowerShell należy użyć instrukcji [catch](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) . Skrypt może używać tego mechanizmu do przechwytywania określonych wyjątków lub ogólnych wyjątków. `catch` Instrukcja powinna służyć do śledzenia lub próby obsługi błędów. Poniższy przykład próbuje pobrać plik, który nie istnieje. Przechwytuje `System.Net.WebException` wyjątek i zwraca ostatnią wartość dla każdego innego wyjątku.
+Aby obsłużyć błędy powodujące przerwanie, w skryptach programu PowerShell należy użyć instrukcji [catch](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) . Skrypt może używać tego mechanizmu do przechwytywania określonych wyjątków lub ogólnych wyjątków. `catch`Instrukcja powinna służyć do śledzenia lub próby obsługi błędów. Poniższy przykład próbuje pobrać plik, który nie istnieje. Przechwytuje `System.Net.WebException` wyjątek i zwraca ostatnią wartość dla każdego innego wyjątku.
 
 ```powershell-interactive
 try
@@ -217,7 +214,7 @@ Zadania elementu Runbook w piaskownicach platformy Azure nie mogą uzyskać dost
 
 ## <a name="webhooks"></a>Elementy webhook
 
-Usługi zewnętrzne, na przykład Azure DevOps Services i GitHub, mogą uruchomić element Runbook w programie Azure Automation. Aby wykonać ten typ uruchamiania, usługa używa [elementu webhook](automation-webhooks.md) za pośrednictwem pojedynczego żądania HTTP. Użycie elementu webhook umożliwia uruchomienie elementów Runbook bez implementacji pełnego rozwiązania Azure Automation. 
+Usługi zewnętrzne, na przykład Azure DevOps Services i GitHub, mogą uruchomić element Runbook w programie Azure Automation. Aby wykonać ten typ uruchamiania, usługa używa [elementu webhook](automation-webhooks.md) za pośrednictwem pojedynczego żądania HTTP. Użycie elementu webhook umożliwia uruchamianie elementów Runbook bez implementacji pełnej Azure Automation funkcji. 
 
 ## <a name="shared-resources"></a><a name="fair-share"></a>Udostępnione zasoby
 
@@ -231,7 +228,6 @@ Użycie podrzędnych elementów Runbook zmniejsza łączny czas pracy nadrzędne
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby rozpocząć pracę z elementem Runbook, zobacz [Zarządzanie elementami Runbook w Azure Automation](manage-runbooks.md).
-* Aby uzyskać więcej informacji na temat programu PowerShell, w tym modułów dokumentacji i uczenia dotyczącej języka, zobacz dokumentację [programu PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
-* Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
-).
+* [Zarządzanie elementami Runbook w Azure Automation](manage-runbooks.md)
+* [Dokumentacja programu PowerShell](https://docs.microsoft.com/powershell/scripting/overview)
+* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)

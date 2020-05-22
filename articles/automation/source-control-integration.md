@@ -1,25 +1,22 @@
 ---
-title: Integracja kontroli źródła w usłudze Automatyzacja Azure
-description: W tym artykule opisano integrację kontroli źródła z usługą GitHub w Azure Automation.
+title: Korzystanie z integracji kontroli źródła w Azure Automation
+description: W tym artykule opisano sposób synchronizowania Azure Automation kontroli źródła z innymi repozytoriami.
 services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: 166902978d1641458f18aeee6269c8d819e85233
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 248cbd42d86371742ad4985b515d70d022722385
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80132925"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744931"
 ---
-# <a name="source-control-integration-in-azure-automation"></a>Integracja kontroli źródła w usłudze Automatyzacja Azure
+# <a name="use-source-control-integration"></a>Korzystanie z integracji kontroli źródła
 
  Integracja kontroli źródła w Azure Automation obsługuje synchronizację jednokierunkową z repozytorium kontroli źródła. Kontrola źródła pozwala zachować aktualność elementów Runbook na Twoim koncie usługi Automation za pomocą skryptów w repozytorium usługi GitHub lub Azure Repos kontroli źródła. Ta funkcja ułatwia podwyższenie poziomu kodu, który został przetestowany w środowisku programistycznym, na konto automatyzacji produkcji.
  
  Integracja kontroli źródła pozwala łatwo współpracować z zespołem, śledzić zmiany i przywracać wcześniejsze wersje elementów Runbook. Na przykład kontrola źródła pozwala synchronizować różne gałęzie w kontroli źródła z kontami deweloperskimi, testowymi i produkcyjnymi. 
-
->[!NOTE]
->Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Instrukcje dotyczące instalacji polecenia AZ module w hybrydowym procesie roboczym elementu Runbook znajdują się w temacie [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). W przypadku konta usługi Automation można zaktualizować moduły do najnowszej wersji przy użyciu [sposobu aktualizowania modułów Azure PowerShell w programie Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="source-control-types"></a>Typy kontroli źródła
 
@@ -33,12 +30,12 @@ Azure Automation obsługuje trzy typy kontroli źródła:
 
 * Repozytorium kontroli źródła (GitHub lub Azure Repos)
 * [Konto Uruchom jako](manage-runas-account.md)
-* [Najnowsze moduły platformy Azure](automation-update-azure-modules.md) na koncie usługi Automation, łącznie z `Az.Accounts` modułem (AZ module równoważne `AzureRM.Profile`z)
+* [Najnowsze moduły platformy Azure](automation-update-azure-modules.md) na koncie usługi Automation, łącznie z `Az.Accounts` modułem (AZ module równoważne z `AzureRM.Profile` )
 
 > [!NOTE]
 > Zadania synchronizacji kontroli źródła są uruchamiane na koncie usługi Automation użytkownika i są rozliczane według tej samej stawki co inne zadania automatyzacji.
 
-## <a name="configuring-source-control"></a>Konfigurowanie kontroli źródła
+## <a name="configure-source-control"></a>Konfigurowanie kontroli źródła
 
 Ta sekcja zawiera informacje na temat konfigurowania kontroli źródła dla konta usługi Automation. Możesz użyć Azure Portal lub programu PowerShell.
 
@@ -90,7 +87,7 @@ New-AzAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<accoun
 #### <a name="create-source-control-connection-for-azure-repos-git"></a>Utwórz połączenie kontroli źródła dla Azure Repos (Git)
 
 > [!NOTE]
-> Azure Repos (Git) używa adresu URL, który uzyskuje dostęp do **dev.Azure.com** zamiast **VisualStudio.com**, używany we wcześniejszych formatach. Starszy format `https://<accountname>.visualstudio.com/<projectname>/_git/<repositoryname>` adresu URL jest przestarzały, ale nadal jest obsługiwany. Nowy format jest preferowany.
+> Azure Repos (Git) używa adresu URL, który uzyskuje dostęp do **dev.Azure.com** zamiast **VisualStudio.com**, używany we wcześniejszych formatach. Starszy format adresu URL `https://<accountname>.visualstudio.com/<projectname>/_git/<repositoryname>` jest przestarzały, ale nadal jest obsługiwany. Nowy format jest preferowany.
 
 
 ```powershell-interactive
@@ -100,7 +97,7 @@ New-AzAutomationSourceControl -Name SCReposGit -RepoUrl https://dev.azure.com/<a
 #### <a name="create-source-control-connection-for-azure-repos-tfvc"></a>Utwórz połączenie kontroli źródła dla Azure Repos (TFVC)
 
 > [!NOTE]
-> Azure Repos (TFVC) używa adresu URL, który uzyskuje dostęp do **dev.Azure.com** zamiast **VisualStudio.com**, używany we wcześniejszych formatach. Starszy format `https://<accountname>.visualstudio.com/<projectname>/_versionControl` adresu URL jest przestarzały, ale nadal jest obsługiwany. Nowy format jest preferowany.
+> Azure Repos (TFVC) używa adresu URL, który uzyskuje dostęp do **dev.Azure.com** zamiast **VisualStudio.com**, używany we wcześniejszych formatach. Starszy format adresu URL `https://<accountname>.visualstudio.com/<projectname>/_versionControl` jest przestarzały, ale nadal jest obsługiwany. Nowy format jest preferowany.
 
 ```powershell-interactive
 New-AzAutomationSourceControl -Name SCReposTFVC -RepoUrl https://dev.azure.com/<accountname>/<adoprojectname>/_git/<repositoryname> -SourceType VsoTfvc -AccessToken <secureStringofPAT> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"
@@ -139,7 +136,7 @@ Poniższa lista zawiera definicje minimalnych uprawnień, które są wymagane do
 
 <sup>1</sup> to `Service connections` uprawnienie jest wymagane tylko wtedy, gdy włączono AutoSync.
 
-## <a name="synchronizing"></a>Synchronizowanie
+## <a name="synchronize-with-source-control"></a>Synchronizuj z kontrolą źródła
 
 Wykonaj następujące kroki, aby przeprowadzić synchronizację z kontrolą źródła. 
 
@@ -161,7 +158,7 @@ Wykonaj następujące kroki, aby przeprowadzić synchronizację z kontrolą źr�
     Azure Automation Source Control.
     Supported runbooks to sync: PowerShell Workflow, PowerShell Scripts, DSC Configurations, Graphical, and Python 2.
 
-    Setting AzureRmEnvironment.
+    Setting AzEnvironment.
 
     Getting AzureRunAsConnection.
 
@@ -187,7 +184,7 @@ Wykonaj następujące kroki, aby przeprowadzić synchronizację z kontrolą źr�
 
 6. Dodatkowe rejestrowanie jest dostępne po wybraniu opcji **wszystkie dzienniki** na stronie Podsumowanie zadania synchronizacji kontroli źródła. Te dodatkowe wpisy dziennika mogą pomóc w rozwiązywaniu problemów, które mogą wystąpić podczas korzystania z kontroli źródła.
 
-## <a name="disconnecting-source-control"></a>Odłączanie kontroli źródła
+## <a name="disconnect-source-control"></a>Rozłącz kontrolę źródła
 
 Aby rozłączyć się z repozytorium kontroli źródła:
 
@@ -197,11 +194,11 @@ Aby rozłączyć się z repozytorium kontroli źródła:
 
 3. Na stronie Podsumowanie kontroli źródła kliknij pozycję **Usuń**.
 
-## <a name="handling-encoding-issues"></a>Obsługa problemów z kodowaniem
+## <a name="handle-encoding-issues"></a>Obsługa problemów z kodowaniem
 
 Jeśli wiele osób edytuje elementy Runbook w repozytorium kontroli źródła przy użyciu różnych edytorów, mogą wystąpić problemy z kodowaniem. Aby dowiedzieć się więcej o tej sytuacji, zobacz [typowe przyczyny problemów z kodowaniem](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues).
 
-## <a name="updating-the-pat"></a>Aktualizowanie przebiegu
+## <a name="update-the-pat"></a>Aktualizowanie
 
 Obecnie nie można użyć Azure Portal, aby zaktualizować wartość w kontroli źródła. Po wygaśnięciu lub odwołaniu danych o stanie kontroli źródła można aktualizować przy użyciu nowego tokenu dostępu w jeden z następujących sposobów:
 
@@ -210,4 +207,5 @@ Obecnie nie można użyć Azure Portal, aby zaktualizować wartość w kontroli 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o typach elementów Runbook i ich zaletach i ograniczeniach, zobacz [Azure Automation typów elementów Runbook](automation-runbook-types.md).
+* [Azure Automation: Integracja kontroli źródła w programie Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
+* [Azure Automation: Integrowanie kontroli źródła elementu Runbook za pomocą usługi Azure DevOps](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  

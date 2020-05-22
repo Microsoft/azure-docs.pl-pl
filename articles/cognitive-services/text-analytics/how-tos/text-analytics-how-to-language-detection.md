@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: d34f3a03e1bcd35c270d13c4dda57d0394a36e4b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 58f2dc39c185e158a2b4b1b5e73b6b7d589c8c03
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70387787"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745566"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Przykład: wykrywanie języka za pomocą analiza tekstu
 
@@ -25,12 +25,12 @@ Ta możliwość jest przydatna w przypadku magazynów zawartości przechowujący
 
 Funkcja wykrywanie języka może wykryć szeroką gamę języków, wariantów, dialektów i niektórych języków regionalnych lub kulturowych. Dokładna lista języków dla tej funkcji nie jest opublikowana.
 
-Jeśli masz zawartość wyrażoną w rzadziej używanym języku, możesz wypróbować funkcję wykrywanie języka, aby zobaczyć, czy zwraca kod. Odpowiedzi dla języków, których nie można wykryć, `unknown`to.
+Jeśli masz zawartość wyrażoną w rzadziej używanym języku, możesz wypróbować funkcję wykrywanie języka, aby zobaczyć, czy zwraca kod. Odpowiedzi dla języków, których nie można wykryć, to `unknown` .
 
 > [!TIP]
 > Analiza tekstu udostępnia również obraz kontenera platformy Docker oparty na systemie Linux na potrzeby wykrywania języka, można więc [zainstalować i uruchomić kontener analizy tekstu](text-analytics-how-to-install-containers.md) blisko danych.
 
-## <a name="preparation"></a>Przygotowywanie
+## <a name="preparation"></a>Przygotowanie
 
 Musisz mieć dokumenty JSON w tym formacie: ID i Text.
 
@@ -155,9 +155,9 @@ Wynik dodatni 1,0 wyraża najwyższy możliwy poziom ufności analizy.
 
 ### <a name="ambiguous-content"></a>Zawartość niejednoznaczna
 
-W niektórych przypadkach może być trudno odróżnić Języki w oparciu o dane wejściowe. Możesz użyć parametru, `countryHint` aby określić 2-literowy kod kraju. Domyślnie interfejs API używa "US" jako domyślnego countryHint, aby usunąć to zachowanie, można zresetować ten parametr, ustawiając tę wartość na pusty ciąg `countryHint = ""` .
+W niektórych przypadkach może być trudno odróżnić Języki w oparciu o dane wejściowe. Możesz użyć parametru, `countryHint` Aby określić 2-literowy kod kraju/regionu. Domyślnie interfejs API używa "US" jako domyślnego countryHint, aby usunąć to zachowanie, można zresetować ten parametr, ustawiając tę wartość na pusty ciąg `countryHint = ""` .
 
-Na przykład "niemożliwe" jest wspólne dla języka angielskiego i francuskiego, a jeśli jest określony z ograniczonym kontekstem, odpowiedź będzie oparta na wskazówek dotyczących kraju "US". Jeśli wiadomo, że tekst pochodzi z Francji, można podać to we wskazówce.
+Na przykład "niemożliwe" jest wspólne dla języka angielskiego i francuskiego, a jeśli jest określony z ograniczonym kontekstem, odpowiedź zostanie wyświetlona na podstawie wskazówki kraju/regionu "US". Jeśli wiadomo, że tekst pochodzi z Francji, można podać to we wskazówce.
 
 **Dane wejściowe**
 
@@ -209,7 +209,7 @@ Usługa ma teraz dodatkowy kontekst, aby zapewnić lepszą opinię:
     }
 ```
 
-Jeśli analizator nie może przeanalizować danych wejściowych, `(Unknown)`zwraca. Przykładem jest przesłanie bloku tekstu, który składa się wyłącznie z cyfr arabskich.
+Jeśli analizator nie może przeanalizować danych wejściowych, zwraca `(Unknown)` . Przykładem jest przesłanie bloku tekstu, który składa się wyłącznie z cyfr arabskich.
 
 ```json
     {
@@ -272,7 +272,7 @@ W tym artykule przedstawiono koncepcje i przepływ pracy wykrywania języka przy
 + Żądanie POST jest `/languages` punktem końcowym przy użyciu spersonalizowanego [klucza dostępu i punktu końcowego](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) , który jest prawidłowy dla Twojej subskrypcji.
 + Dane wyjściowe odpowiedzi składają się z identyfikatorów języka dla każdego identyfikatora dokumentu. Dane wyjściowe mogą być przesyłane strumieniowo do dowolnej aplikacji, która akceptuje kod JSON. Przykładowe aplikacje to programy Excel i Power BI, aby podać kilka nazw.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
  [Omówienie analizy tekstu](../overview.md) [Frequently asked questions (FAQ) (Często zadawane pytania (FAQ))](../text-analytics-resource-faq.md)</br>
  [Strona produktu analizy tekstu](//go.microsoft.com/fwlink/?LinkID=759712)

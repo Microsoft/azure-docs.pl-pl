@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 04/12/2020
 ms.author: juliako
-ms.openlocfilehash: 08dcee28c234183aa2b125d82d046d31d4b50e47
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: e74acd3cdb0a0d2e0fbb37d022ff40e1f5798b18
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82788857"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744606"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>Co to jest Azure Media Services Video Indexer?
 
@@ -70,8 +70,8 @@ Na poniższej liście przedstawiono szczegółowe informacje, które można pobr
 
 ### <a name="audio-insights"></a>Szczegółowe informacje o usłudze audio
 
-* **Transkrypcja audio**: konwertuje mowę na tekst w 12 językach i zezwala na rozszerzenia. Obsługiwane języki to angielski, hiszpański, francuski, niemiecki, włoski, mandarynki, chiński, japoński, arabski, rosyjski, portugalski (Brazylia), hindi i koreański.
-* **Automatyczne wykrywanie języka**: automatycznie rozpoznaje dominujący język mówiony. Obsługiwane języki to angielski, hiszpański, francuski, niemiecki, włoski, mandarynki chiński, japoński, rosyjski i portugalski (Brazylia). Jeśli nie można zidentyfikować języka z pewnością, Video Indexer zakłada, że język mówiony jest w języku angielskim. Aby uzyskać więcej informacji, zobacz [Language Identification model](language-identification-model.md).
+* **Transkrypcja audio**: konwertuje mowę na tekst w 12 językach i zezwala na rozszerzenia. Obsługiwane języki to angielski, hiszpański, francuski, niemiecki, włoski, mandarynki, chiński, japoński, arabski, rosyjski, portugalski, hindi i koreański.
+* **Automatyczne wykrywanie języka**: automatycznie rozpoznaje dominujący język mówiony. Obsługiwane języki to angielski, hiszpański, francuski, niemiecki, włoski, mandarynki chiński, japoński, rosyjski i portugalski. Jeśli nie można zidentyfikować języka z pewnością, Video Indexer zakłada, że język mówiony jest w języku angielskim. Aby uzyskać więcej informacji, zobacz [Language Identification model](language-identification-model.md).
 * **Identyfikacja i transkrypcja mowy w wielu językach** (wersja zapoznawcza): automatycznie identyfikuje język mówiony w różnych segmentach z dźwiękiem. Wysyła każdy segment pliku nośnika jako uzyskanego, a następnie łączy transkrypcję z powrotem do jednego ujednoliconego transkrypcji. Aby uzyskać więcej informacji, zobacz [Automatyczne identyfikowanie i transkrypcja zawartości w wielu językach](multi-language-identification-transcription.md).
 * **Napisy (transkrypcja)**: tworzy napisy w trzech formatach: VTT, TTML i SRT.
 * **Przetwarzanie dwóch kanałów**: automatycznie wykrywa odrębne transkrypcje i scala do pojedynczej osi czasu.
@@ -114,7 +114,7 @@ Jeśli używasz witryny sieci Web, szczegółowe informacje są dodawane jako me
 
 ## <a name="next-steps"></a>Następne kroki
 
-Możesz już rozpocząć pracę z usługą Video Indexer. Aby uzyskać więcej informacji zobacz następujące artykuły:
+Możesz już rozpocząć pracę z usługą Video Indexer. Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - [Rozpocznij pracę z witryną sieci web video Indexer](video-indexer-get-started.md).
 - [Przetwarzaj zawartość za pomocą interfejsu API REST Video Indexer](video-indexer-use-apis.md).

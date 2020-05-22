@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a399ee43ef0ce97274f060b7a5b7df46fb523605
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: ab6be101e33fb29f96e2e5ea0fd2e79aa1cf0d09
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582904"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744692"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Reguły członkostwa dynamicznego dla grup w Azure Active Directory
 
@@ -54,7 +54,7 @@ Aby uzyskać więcej instrukcji krok po kroku, zobacz [Tworzenie lub aktualizowa
 
 ### <a name="rule-syntax-for-a-single-expression"></a>Składnia reguły dla pojedynczego wyrażenia
 
-Pojedyncze wyrażenie jest najprostszą formą reguły członkostwa i zawiera tylko trzy wymienione powyżej elementy. Reguła z jednym wyrażeniem wygląda podobnie do następującej: `Property Operator Value`, gdzie składnia właściwości jest nazwą Object. Property.
+Pojedyncze wyrażenie jest najprostszą formą reguły członkostwa i zawiera tylko trzy wymienione powyżej elementy. Reguła z jednym wyrażeniem wygląda podobnie do następującej: `Property Operator Value` , gdzie składnia właściwości jest nazwą Object. Property.
 
 Poniżej znajduje się przykład prawidłowo skonstruowanej reguły członkostwa z pojedynczym wyrażeniem:
 
@@ -78,7 +78,7 @@ Kolejność części w wyrażeniu jest ważna, aby uniknąć błędów składnio
 
 Istnieją trzy typy właściwości, których można użyć do skonstruowania reguły członkostwa.
 
-- Boolean
+- Wartość logiczna
 - String
 - Kolekcja ciągów
 
@@ -86,14 +86,14 @@ Poniżej przedstawiono właściwości użytkownika, których można użyć do ut
 
 ### <a name="properties-of-type-boolean"></a>Właściwości typu Boolean
 
-| Właściwości | Dozwolone wartości | Sposób użycia |
+| Właściwości | Dozwolone wartości | Użycie |
 | --- | --- | --- |
 | accountEnabled |PRAWDA FAŁSZ |User. accountEnabled-EQ true |
 | dirSyncEnabled |PRAWDA FAŁSZ |User. dirSyncEnabled-EQ true |
 
 ### <a name="properties-of-type-string"></a>Właściwości typu String
 
-| Właściwości | Dozwolone wartości | Sposób użycia |
+| Właściwości | Dozwolone wartości | Użycie |
 | --- | --- | --- |
 | city |Dowolna wartość ciągu lub wartość *null* |(User. City-EQ "wartość") |
 | country |Dowolna wartość ciągu lub wartość *null* |(User. Country-EQ "wartość") |
@@ -118,16 +118,16 @@ Poniżej przedstawiono właściwości użytkownika, których można użyć do ut
 | streetAddress |Dowolna wartość ciągu lub wartość *null* |(User. streetAddress-EQ "wartość") |
 | surname |Dowolna wartość ciągu lub wartość *null* |(User. nazwisko-EQ "wartość") |
 | telephoneNumber |Dowolna wartość ciągu lub wartość *null* |(User. teletelefon-EQ "wartość") |
-| usageLocation |Dwubajtowy kod kraju |(User. usageLocation-EQ "US") |
-| userPrincipalName |Dowolna wartość ciągu |(User. userPrincipalName-EQ "alias@domain") |
+| usageLocation |Dwuliterowy kod kraju/regionu |(User. usageLocation-EQ "US") |
+| userPrincipalName |Dowolna wartość ciągu |(User. userPrincipalName-EQ " alias@domain ") |
 | userType |Gość elementu członkowskiego *ma wartość null* |(User. UserType-EQ "member") |
 
 ### <a name="properties-of-type-string-collection"></a>Właściwości kolekcji ciągów typu
 
-| Właściwości | Dozwolone wartości | Sposób użycia |
+| Właściwości | Dozwolone wartości | Użycie |
 | --- | --- | --- |
-| otherMails |Dowolna wartość ciągu |(User. otherMails-zawiera "alias@domain") |
-| proxyAddresses |SMTP: alias@domainalias@domain |(User. proxyAddresses-zawiera "SMTP: alias@domain") |
+| otherMails |Dowolna wartość ciągu |(User. otherMails-zawiera " alias@domain ") |
+| proxyAddresses |alias@domainSMTP:alias@domain |(User. proxyAddresses-zawiera "SMTP: alias@domain ") |
 
 Aby uzyskać właściwości używane dla reguł urządzeń, zobacz [reguły dotyczące urządzeń](#rules-for-devices).
 
@@ -185,8 +185,8 @@ Podczas określania wartości w wyrażeniu ważne jest używanie poprawnej skła
 
 * Podwójne cudzysłowy są opcjonalne, chyba że wartość jest ciągiem.
 * W operacjach typu String i wyrażeń regularnych nie jest rozróżniana wielkość liter.
-* Gdy wartość ciągu zawiera podwójne cudzysłowy, oba cudzysłowy powinny być wyprowadzane przy \` użyciu znaku, na przykład user. Department-EQ \`"Sales\`" jest poprawną składnią, gdy "Sales" jest wartością.
-* Można również przeprowadzać sprawdzanie wartości null, używając wartości null jako wartości, na przykład `user.department -eq null`.
+* Gdy wartość ciągu zawiera podwójne cudzysłowy, oba cudzysłowy powinny być wyprowadzane przy użyciu \` znaku, na przykład user. Department-EQ \` "Sales \` " jest poprawną składnią, gdy "Sales" jest wartością.
+* Można również przeprowadzać sprawdzanie wartości null, używając wartości null jako wartości, na przykład `user.department -eq null` .
 
 ### <a name="use-of-null-values"></a>Użycie wartości null
 
@@ -249,10 +249,10 @@ Reguła członkostwa może składać się z złożonych wyrażeń, w których w�
 
 Właściwości wielowartościowe to kolekcje obiektów tego samego typu. Mogą służyć do tworzenia reguł członkostwa przy użyciu-any i-All operatorów logicznych.
 
-| Właściwości | Wartości | Sposób użycia |
+| Właściwości | Wartości | Użycie |
 | --- | --- | --- |
 | assignedPlans | Każdy obiekt w kolekcji uwidacznia następujące właściwości ciągu: capabilityStatus, Service, servicePlanId |User. assignedPlans-any (assignedPlan. servicePlanId-EQ "efb87545-963c-4e0d-99df-69c6916d9eb0"-and assignedPlan. capabilityStatus-EQ "Enabled") |
-| proxyAddresses| SMTP: alias@domainalias@domain | (User. proxyAddresses-any (\_ -zawiera "contoso")) |
+| proxyAddresses| alias@domainSMTP:alias@domain | (User. proxyAddresses-any ( \_ -zawiera "contoso")) |
 
 ### <a name="using-the--any-and--all-operators"></a>Używanie operatorów-any i-All
 
@@ -279,11 +279,11 @@ Poniższe wyrażenie umożliwia wybranie wszystkich użytkowników, którzy maj�
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-### <a name="using-the-underscore-_-syntax"></a>Używanie znaku podkreślenia (\_)
+### <a name="using-the-underscore-_-syntax"></a>Używanie znaku podkreślenia ( \_ )
 
-Składnia podkreślenia (\_) dopasowuje wystąpienia określonej wartości w jednej z wielowartościowych właściwości kolekcji ciągów do dodawania użytkowników lub urządzeń do grupy dynamicznej. Jest używana z operatorami-any lub-ALL.
+Składnia podkreślenia ( \_ ) dopasowuje wystąpienia określonej wartości w jednej z wielowartościowych właściwości kolekcji ciągów do dodawania użytkowników lub urządzeń do grupy dynamicznej. Jest używana z operatorami-any lub-ALL.
 
-Oto przykład użycia podkreślenia (\_) w regule, aby dodać członków na podstawie User. ProxyAddress (działa tak samo dla User. otherMails). Ta reguła dodaje do grupy dowolnego użytkownika z adresem serwera proxy, który zawiera "contoso".
+Oto przykład użycia podkreślenia ( \_ ) w regule, aby dodać członków na podstawie User. ProxyAddress (działa tak samo dla User. otherMails). Ta reguła dodaje do grupy dowolnego użytkownika z adresem serwera proxy, który zawiera "contoso".
 
 ```
 (user.proxyAddresses -any (_ -contains "contoso"))
@@ -347,7 +347,7 @@ Atrybuty rozszerzenia i niestandardowe właściwości rozszerzenia są obsługiw
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-[Niestandardowe właściwości rozszerzenia](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions) są synchronizowane z lokalnej usługi AD systemu Windows Server lub z połączonej aplikacji SaaS i mają format `user.extension_[GUID]_[Attribute]`, gdzie:
+[Niestandardowe właściwości rozszerzenia](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions) są synchronizowane z lokalnej usługi AD systemu Windows Server lub z połączonej aplikacji SaaS i mają format `user.extension_[GUID]_[Attribute]` , gdzie:
 
 * [GUID] jest unikatowym identyfikatorem w usłudze Azure AD dla aplikacji, która utworzyła właściwość w usłudze Azure AD
 * [Attribute] jest nazwą właściwości, która została utworzona

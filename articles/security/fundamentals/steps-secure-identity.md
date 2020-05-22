@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: e0db8edfdfa380697a1d8d7e262a7a84da2fb7d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6cda0d79166f355fd7346865f2d42d066a3e3690
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77565540"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757895"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Pięć kroków związanych z zabezpieczaniem infrastruktury tożsamości
 
@@ -107,7 +107,7 @@ Aplikacje korzystające z własnych starszych metod do uwierzytelniania w usłud
 
 1. Blokuj [starsze uwierzytelnianie, jeśli używasz AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
 2. Skonfiguruj [SharePoint Online i usługi Exchange Online do korzystania z nowoczesnego uwierzytelniania](../../active-directory/conditional-access/conditional-access-for-exo-and-spo.md).
-3. Jeśli masz Azure AD — wersja Premium, użyj [zasad dostępu warunkowego](../../active-directory/conditional-access/overview.md) , aby zablokować starsze uwierzytelnianie, w przeciwnym razie użyj [domyślnych ustawień zabezpieczeń usługi Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
+3. Jeśli masz Azure AD — wersja Premium, użyj zasad dostępu warunkowego, aby [zablokować starsze uwierzytelnianie](../../active-directory/conditional-access/howto-conditional-access-policy-block-legacy.md), w przeciwnym razie użyj [domyślnych ustawień zabezpieczeń usługi Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
 
 ### <a name="block-invalid-authentication-entry-points"></a>Blokuj nieprawidłowe punkty wejścia uwierzytelniania
 
@@ -117,7 +117,7 @@ Korzystając z zakładanego naruszenia warunków, należy zmniejszyć wpływ nar
 
 Ważne jest, aby zrozumieć różne środowiska, w których można [wyrazić zgodę na usługę Azure AD](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience), [typy uprawnień i zgody](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)oraz ich wpływ na stan zabezpieczeń organizacji. Domyślnie wszyscy użytkownicy w usłudze Azure AD mogą przyznawać aplikacje korzystające z platformy tożsamości firmy Microsoft w celu uzyskania dostępu do danych organizacji. Zezwalanie użytkownikom na zgodę samodzielnie pozwala użytkownikom na łatwe uzyskiwanie przydatnych aplikacji, które integrują się z Microsoft 365, platformą Azure i innymi usługami, ale może to stanowić ryzyko, jeśli nie są one używane i monitorowane uważnie.
 
-Firma Microsoft zaleca [wyłączenie w przyszłości operacji wyrażania zgody użytkowników](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-removing-user-access#i-want-to-disable-all-future-user-consent-operations-to-any-application) na zmniejszenie obszaru powierzchni i uniknięcie tego ryzyka. Jeśli użytkownik końcowy wyraża zgodę na wyłączenie, poprzednie dotacje zgody nadal będą honorowane, ale wszystkie przyszłe operacje wyrażania zgody muszą być wykonywane przez administratora. Użytkownicy mogą żądać zgody administratora za pomocą [przepływu pracy zintegrowanego żądania zgody administratora](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow) lub przez własne procesy obsługi. Przed wyłączeniem zgody użytkownika końcowego należy skorzystać z naszych [zaleceń](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-consent-requests) w celu zaplanowania tej zmiany w organizacji. W przypadku aplikacji, dla których chcesz zezwolić wszystkim użytkownikom na dostęp, rozważ [udzielenie zgody w imieniu wszystkich użytkowników](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent), aby upewnić się, że użytkownicy, którzy nie zostali jeszcze zadani indywidualnie, będą mogli uzyskać dostęp do aplikacji. Jeśli nie chcesz, aby te aplikacje były dostępne dla wszystkich użytkowników we wszystkich scenariuszach, użyj [przypisywania aplikacji](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups) i [dostępu warunkowego](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) , aby ograniczyć dostęp użytkowników do aplikacji.
+Firma Microsoft zaleca [wyłączenie w przyszłości operacji wyrażania zgody użytkowników](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-removing-user-access#i-want-to-disable-all-future-user-consent-operations-to-any-application) na zmniejszenie obszaru powierzchni i uniknięcie tego ryzyka. Jeśli użytkownik końcowy wyraża zgodę na wyłączenie, poprzednie dotacje zgody nadal będą honorowane, ale wszystkie przyszłe operacje wyrażania zgody muszą być wykonywane przez administratora. Użytkownicy mogą żądać zgody administratora za pomocą [przepływu pracy zintegrowanego żądania zgody administratora](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow) lub przez własne procesy obsługi. Przed wyłączeniem zgody użytkownika końcowego należy skorzystać z naszych [zaleceń](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-consent-requests) w celu zaplanowania tej zmiany w organizacji. W przypadku aplikacji, dla których chcesz zezwolić wszystkim użytkownikom na dostęp, rozważ [udzielenie zgody w imieniu wszystkich użytkowników](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent), aby upewnić się, że użytkownicy, którzy nie zostali jeszcze zadani indywidualnie, będą mogli uzyskać dostęp do aplikacji. Jeśli nie chcesz, aby te aplikacje były dostępne dla wszystkich użytkowników we wszystkich scenariuszach, użyj [przypisywania aplikacji](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups) i dostępu warunkowego, aby ograniczyć dostęp użytkowników do [określonych aplikacji](../../active-directory/conditional-access/concept-conditional-access-cloud-apps.md).
 
 Upewnij się, że użytkownicy mogą zażądać zatwierdzenia przez administratora dla nowych aplikacji, aby zmniejszyć liczbę użytkowników, zminimalizować ilość pomocy technicznej i uniemożliwić użytkownikom rejestrowanie się w aplikacjach przy użyciu poświadczeń spoza usługi Azure AD. Po uregulowaniu operacji wyrażania zgody Administratorzy powinni regularnie przeprowadzać inspekcję aplikacji i uprawnień.
 

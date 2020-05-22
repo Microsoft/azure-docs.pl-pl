@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2020
 ms.author: sohamnc
-ms.openlocfilehash: c6e8570746ae3dd0051dbec084c89d90580d28b1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f4693cdac2d5d3a57987cc692797756314ded11e
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80371634"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747312"
 ---
 # <a name="azure-cdn-http-raw-logs"></a>Azure CDN dziennikami nieprzetworzonymi HTTP
 Dzienniki RAW zawierają bogate informacje o operacjach i błędach, które są ważne w przypadku inspekcji i rozwiązywania problemów. Dzienniki pierwotne różnią się od dzienników aktywności. Dzienniki aktywności zapewniają wgląd w operacje wykonywane w zasobach platformy Azure. Dzienniki pierwotne zawierają rekord operacji dla zasobu.
@@ -23,7 +23,7 @@ Dzienniki RAW zawierają bogate informacje o operacjach i błędach, które są 
 > [!IMPORTANT]
 > Funkcja dzienników RAW protokołu HTTP jest dostępna dla Azure CDN firmy Microsoft.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) . 
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -33,7 +33,7 @@ Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](http
 
 Aby skonfigurować dzienniki pierwotne dla Azure CDN z profilu Microsoft: 
 
-1. Z menu Azure Portal wybierz pozycję **wszystkie zasoby** >> **\<>profilu sieci CDN **.
+1. Z menu Azure Portal wybierz pozycję **wszystkie zasoby**  >>  ** \<>profilu sieci CDN **.
 
 2. W obszarze **Monitorowanie** wybierz pozycję **Ustawienia diagnostyki**.
 
@@ -84,7 +84,7 @@ Azure CDN z usługi firmy Microsoft obecnie udostępnia dzienniki pierwotne. Dzi
 | Skakując                   | Punkt obecności, który odpowiedział na żądanie użytkownika. Punkty obecności "skróty" są kodami portów lotniczych odpowiednich linii metra.                                                                                   |
 | Stan pamięci podręcznej          | Oznacza, czy obiekt został zwrócony z pamięci podręcznej lub pochodzi z źródła.                                                                                                             |
 > [!IMPORTANT]
-> Funkcja dzienników RAW protokołu HTTP jest dostępna automatycznie dla wszystkich profilów utworzonych lub zaktualizowanych po **25 lutego 2020**. W przypadku utworzonych wcześniej profilów usługi CDN należy zaktualizować punkt końcowy usługi CDN po skonfigurowaniu rejestrowania. Na przykład jeden może przechodzić do filtrowania geograficznego w punktach końcowych usługi CDN i blokować każdy kraj, który nie jest związany z obciążeniem i trafiać. 
+> Funkcja dzienników RAW protokołu HTTP jest dostępna automatycznie dla wszystkich profilów utworzonych lub zaktualizowanych po **25 lutego 2020**. W przypadku utworzonych wcześniej profilów usługi CDN należy zaktualizować punkt końcowy usługi CDN po skonfigurowaniu rejestrowania. Na przykład jeden może przechodzić do filtrowania geograficznego w punktach końcowych usługi CDN i blokować każdy kraj/region, który nie ma znaczenia dla obciążenia i trafiać. 
 
 > [!NOTE]
 > Dzienniki można wyświetlać w profilu Log Analytics, uruchamiając zapytanie. Przykładowe zapytanie będzie wyglądać jak AzureDiagnostics | gdzie Category = = "AzureCdnAccessLog"

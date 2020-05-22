@@ -12,12 +12,12 @@ manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
-ms.openlocfilehash: ab2ba31d6b712bd3399bc8bf5b491337d462dac9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d2a5928d8326c4a0628ebc1bfb7eec3cd20f9254
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606217"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747519"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Dostosuj konfigurację dla Azure-SSIS Integration Runtime
 
@@ -42,7 +42,7 @@ Następujące ograniczenia mają zastosowanie tylko do standardowych konfiguracj
 
 - Jeśli chcesz użyć *Gacutil. exe* w skrypcie do instalacji zestawów w globalnej pamięci podręcznej zestawów (GAC), musisz podać *Gacutil. exe* jako część konfiguracji niestandardowej. Możesz też użyć kopii podanej w naszym kontenerze *publicznej wersji zapoznawczej* , omówionej dalej w sekcji "instrukcje".
 
-- Jeśli chcesz odwołać się do podfolderu w skrypcie, *msiexec. exe* nie obsługuje `.\` notacji, aby odwołać się do folderu głównego. Użyj polecenia, takiego jak `msiexec /i "MySubfolder\MyInstallerx64.msi" ...` zamiast `msiexec /i ".\MySubfolder\MyInstallerx64.msi" ...`.
+- Jeśli chcesz odwołać się do podfolderu w skrypcie, *msiexec. exe* nie obsługuje `.\` notacji, aby odwołać się do folderu głównego. Użyj polecenia, takiego jak `msiexec /i "MySubfolder\MyInstallerx64.msi" ...` zamiast `msiexec /i ".\MySubfolder\MyInstallerx64.msi" ...` .
 
 - Udziały administracyjne lub ukryte udziały sieciowe, które są tworzone automatycznie przez system Windows, nie są obecnie obsługiwane w Azure-SSIS IR.
 
@@ -68,7 +68,7 @@ Aby dostosować Azure-SSIS IR, potrzebne są następujące elementy:
 
    * Musisz mieć plik skryptu o nazwie *Main. cmd*, który jest punktem wejścia konfiguracji niestandardowej.  
    * Aby upewnić się, że skrypt może być wykonywany w trybie dyskretnym, zalecamy najpierw przetestowanie go na komputerze lokalnym.  
-   * Jeśli chcesz, aby dodatkowe dzienniki wygenerowane przez inne narzędzia (na przykład *msiexec. exe*) zostały przekazane do kontenera, określ wstępnie zdefiniowaną zmienną `CUSTOM_SETUP_SCRIPT_LOG_DIR`środowiskową, jako folder dziennika w skryptach (na przykład *msiexec/i XXX. msi/quiet/LV% CUSTOM_SETUP_SCRIPT_LOG_DIR% \ install. log*).
+   * Jeśli chcesz, aby dodatkowe dzienniki wygenerowane przez inne narzędzia (na przykład *msiexec. exe*) zostały przekazane do kontenera, określ wstępnie zdefiniowaną zmienną środowiskową, `CUSTOM_SETUP_SCRIPT_LOG_DIR` jako folder dziennika w skryptach (na przykład *msiexec/i XXX. msi/quiet/LV% CUSTOM_SETUP_SCRIPT_LOG_DIR% \ install. log*).
 
 1. Pobierz, zainstaluj i Otwórz [Eksplorator usługi Azure Storage](https://storageexplorer.com/). W tym celu:
 
@@ -123,7 +123,7 @@ Aby dostosować Azure-SSIS IR, potrzebne są następujące elementy:
 
      * W przypadku wybrania **OH22'S HEDDA. Składnik we/wy** , można zainstalować [HEDDA. ](https://hedda.io/ssis-component/)Składnik jakości/oczyszczania danych we/wy z oh22 na Azure-SSIS IR po zakupie usługi. Aktualna wersja zintegrowana to **1.0.13**.
 
-     * W przypadku wybrania składnika **oh22's SQLPhonetics.NET** można zainstalować składnik [SQLPhonetics.NET](https://sqlphonetics.oh22.is/sqlphonetics-net-for-microsoft-ssis/) Data/dopasowanie z oh22 na Azure-SSIS IR, wprowadzając klucz licencji produktu zakupiony z nich w polu **klucz licencji** . Aktualna wersja zintegrowana to **1.0.43**.
+     * W przypadku wybrania składnika **oh22's SQLPhonetics.NET** można zainstalować składnik [SQLPhonetics.NET](https://appsource.microsoft.com/product/web-apps/oh22.sqlphonetics-ssis) Data/dopasowanie z oh22 na Azure-SSIS IR, wprowadzając klucz licencji produktu zakupiony z nich w polu **klucz licencji** . Aktualna wersja zintegrowana to **1.0.43**.
 
      * W przypadku wybrania składnika **KingswaySoft usługi SSIS Integration** Toolkit można zainstalować pakiet [narzędzi SSIS Integration Toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) dla aplikacji CRM/ERP/Marketing/Collaboration, takich jak Microsoft Dynamics/SharePoint/Project Server, Chmura marketingowa Oracle/Salesforce, itp. z KingswaySoft na Azure-SSIS IR, wprowadzając klucz licencji produktu nabyty z nich w polu **klucz licencji** . Bieżąca wersja zintegrowana to **2019,2**.
 
@@ -299,7 +299,7 @@ Aby dostosować Azure-SSIS IR, potrzebne są następujące elementy:
    
       Po skonfigurowaniu lub ponownym skonfigurowaniu Azure-SSIS IR przy użyciu interfejsu użytkownika Data Factory, zaznacz pole wyboru **dostosuj Azure-SSIS Integration Runtime z dodatkowymi konfiguracjami systemu/instalacjami składników** w sekcji **Ustawienia zaawansowane** , a następnie wprowadź identyfikator URI sygnatury dostępu współdzielonego kontenera w polu **Identyfikator URI sygnatury dostępu współdzielonego kontenera ustawień niestandardowych** .
    
-      Po skonfigurowaniu lub ponownym skonfigurowaniu Azure-SSIS IR przy użyciu programu PowerShell uruchom `Set-AzDataFactoryV2IntegrationRuntime` polecenie cmdlet z identyfikatorem URI sygnatury dostępu współdzielonego `SetupScriptContainerSasUri` kontenera jako wartość parametru.
+      Po skonfigurowaniu lub ponownym skonfigurowaniu Azure-SSIS IR przy użyciu programu PowerShell uruchom `Set-AzDataFactoryV2IntegrationRuntime` polecenie cmdlet z identyfikatorem URI sygnatury dostępu współdzielonego kontenera jako wartość `SetupScriptContainerSasUri` parametru.
 
 ## <a name="next-steps"></a>Następne kroki
 

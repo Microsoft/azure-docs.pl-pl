@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 012cdc53099bf156e50fe766b04c3176d415db1c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: f659a40cbb9e3ef2d0e7fe4e527518a76507d5ee
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83117397"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745712"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Skalowanie hostów sesji przy użyciu Azure Automation
 
@@ -114,7 +114,7 @@ Najpierw musisz mieć konto Azure Automation, aby uruchomić element Runbook pro
 
 Teraz, gdy masz konto Azure Automation, musisz również Azure Automation utworzyć konto Uruchom jako w celu uzyskania dostępu do zasobów platformy Azure.
 
-[Konto Uruchom jako Azure Automation](../../automation/manage-runas-account.md) zapewnia uwierzytelnianie na potrzeby zarządzania zasobami na platformie Azure za pomocą poleceń cmdlet platformy Azure. Podczas tworzenia konta Uruchom jako jest tworzony nowy użytkownik głównej nazwy usługi w Azure Active Directory i przypisuje rolę współautor do użytkownika jednostki usługi na poziomie subskrypcji, konto Uruchom jako platformy Azure jest doskonałym sposobem na bezpieczne uwierzytelnianie z użyciem certyfikatów i nazwy głównej usługi bez konieczności przechowywania nazwy użytkownika i hasła w obiekcie Credential. Aby dowiedzieć się więcej o uwierzytelnianiu Uruchom jako, zobacz [ograniczanie uprawnień konta Uruchom jako](../../automation/manage-runas-account.md#limiting-run-as-account-permissions).
+[Konto Uruchom jako Azure Automation](../../automation/manage-runas-account.md) zapewnia uwierzytelnianie na potrzeby zarządzania zasobami na platformie Azure za pomocą poleceń cmdlet platformy Azure. Podczas tworzenia konta Uruchom jako jest tworzony nowy użytkownik głównej nazwy usługi w Azure Active Directory i przypisuje rolę współautor do użytkownika jednostki usługi na poziomie subskrypcji, konto Uruchom jako platformy Azure jest doskonałym sposobem na bezpieczne uwierzytelnianie z użyciem certyfikatów i nazwy głównej usługi bez konieczności przechowywania nazwy użytkownika i hasła w obiekcie Credential. Aby dowiedzieć się więcej o uwierzytelnianiu Uruchom jako, zobacz [ograniczanie uprawnień konta Uruchom jako](../../automation/manage-runas-account.md#limit-run-as-account-permissions).
 
 Każdy użytkownik, który jest członkiem roli Administratorzy subskrypcji i administrator subskrypcji, może utworzyć konto Uruchom jako, postępując zgodnie z instrukcjami w następnej sekcji.
 

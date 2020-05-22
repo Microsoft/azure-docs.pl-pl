@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 04/08/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: cef4f83881aed67c46477110de530bbf191ee39f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ff83a9a4e4bfd4c27dd3f8d3f212e489c3772eb4
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80984765"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83741628"
 ---
 # <a name="add-personal-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Dodawanie osobistych kont Microsoft do aplikacji Microsoft Authenticator
 
@@ -59,7 +59,7 @@ Możesz dodać własne konto Microsoft, najpierw włączając weryfikację dwuet
 
     ![Wybierz konto Microsoft lub Zeskanuj kod QR, jeśli jest dostępny](media/user-help-auth-app-add-personal-ms-account/add-account-android.png)
 
-1. Zaloguj się do swojego konta osobistego przy użyciu odpowiedniego adresu e-mail (np. alain@outlook.com), a następnie wybierz przycisk **dalej**.
+1. Zaloguj się do swojego konta osobistego przy użyciu odpowiedniego adresu e-mail (np alain@outlook.com .), a następnie wybierz przycisk **dalej**.
 
     >[!Note]
     >Jeśli nie masz konto Microsoft osobistych, możesz go [utworzyć](https://account.microsoft.com/account/Account?refd=www.bing.com&ru=https%3A%2F%2Faccount.microsoft.com%2F%3Frefd%3Dwww.bing.com&destrt=home-index).

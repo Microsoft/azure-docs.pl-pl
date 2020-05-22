@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 48644f2f8148a7aa1974be0d7f761e9b3a55612d
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: a872331238946de0d57e6d42164f1ce7fb1c7357
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82783515"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746207"
 ---
 # <a name="payout-summary-overview"></a>Omówienie podsumowania wypłat
 
@@ -70,7 +70,7 @@ Ta opcja zapewnia pobranie każdego elementu linii zdobywania, który jest widoc
 | participantId | Podstawowa tożsamość ponosząca partnera w ramach programu |
 | participantIdType | Identyfikator programu dla programów zachęt i sprzedawcy, jeśli program jest przeznaczony dla programów do magazynowania i Azure Marketplace |
 | uczestnikname | Nazwa partnera zdobywania |
-| partnerCountryCode | Lokalizacja/kraj partnera zdobywania |
+| partnerCountryCode | Lokalizacja/kraj/region partnera zdobywania |
 | programName | Nazwa programu zachęty/sklepu |
 | transactionId | Unikatowy identyfikator transakcji |
 | transactionCurrency | Waluta, w której wystąpiła oryginalna transakcja klienta (nie jest to waluta lokalizacji partnera) |
@@ -89,7 +89,7 @@ Ta opcja zapewnia pobranie każdego elementu linii zdobywania, który jest widoc
 | calculationDate | Data obliczenia okresu zdobywania w systemie |
 | earningExchangeRate | Kurs wymiany używany do wyświetlania odpowiedniej ilości USD |
 | exchangeRateDate | Data kursu wymiany używana do obliczania EarningAmount USD |
-| paymentAmountWOTax | Kwota zarobków (bez podatku) w przypadku płatności w &quot;walucie&quot; w przypadku tylko wysłanych płatności |
+| paymentAmountWOTax | Kwota zarobków (bez podatku) w przypadku płatności w walucie w przypadku &quot; tylko wysłanych &quot; płatności |
 | paymentCurrency | Płatność na walutę wybraną przez partnera w profilu płatności. Wyświetlane tylko dla wysłanych płatności |
 | paymentExchangeRate | Kurs wymiany używany do obliczania paymentAmountWOTax w walucie płatności przy użyciu ExchangeRateDate |
 | paymentId | Unikatowy identyfikator płatności. Ta liczba jest widoczna w wyrażeniu bankowym |
@@ -113,15 +113,15 @@ Ta opcja zapewnia pobranie każdego elementu linii zdobywania, który jest widoc
 | storeFee | Kwota zachowywana przez firmę Microsoft jako opłata za udostępnienie aplikacji lub dodatku na rynku komercyjnym. |
 | transactionPaymentMethod | Instrument płatniczy klienta używany do transakcji (na przykład karta, rozliczenia z nośnikami mobilnymi i system PayPal) |
 | tpan | Sieć usługi AD innej firmy |
-| customerCountry | Kraj klienta |
+| customerCountry | Kraj/region klienta |
 | customerCity | Miasto klienta |
 | customerState | Stan klienta |
 | customerZip | Kod pocztowy klienta |
 | TenantID | Identyfikator dzierżawy |
 | externalReferenceId | Unikatowy identyfikator programu |
 | externalReferenceIdLabel | Etykieta unikatowego identyfikatora |
-| transactionCountryCode | Kod kraju, w którym wystąpiła transakcja |
-| taxCountry | Kraj klienta |
+| transactionCountryCode | Kod kraju/regionu, w którym wystąpiła transakcja |
+| taxCountry | Kraj/region klienta |
 | taxState | Stan klienta |
 | taxCity | Miasto klienta |
 | taxZipCode | Kod pocztowy klienta |
@@ -132,7 +132,7 @@ Ta opcja zapewnia pobranie każdego elementu linii zdobywania, który jest widoc
 | AssetId | Unikatowy identyfikator zamówień klientów dla usługi w portalu Marketplace. Reprezentuje elementy wiersza zakupu. Może istnieć wiele zasobów. |
 | OrderId (Identyfikator zamówienia) | Odnosi się do faktury klienta |
 | LineItemId | Pojedynczy wiersz faktury klienta |
-| Kraj klienta | Nazwa kraju podana przez klienta. Może to być inne niż kraj w subskrypcji platformy Azure klienta. |
+| Kraj/region klienta | Nazwa kraju/regionu podana przez klienta. Może to być inne niż kraj/region w subskrypcji platformy Azure klienta. |
 | EmailAddress klienta | Adres e-mail podany przez klienta. Może się to różnić od adresu e-mail w subskrypcji platformy Azure klienta. |
 | Identyfikatora skuId | Identyfikator jednostki SKU zdefiniowany podczas publikowania. Oferta może mieć wiele jednostek SKU, ale jednostka SKU może być skojarzona tylko z jedną ofertą. |
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 9514398ec6a84becd1283e4b0975804101b64086
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5e344eb37af4fc1fae35a1f0c036ed1582054ea5
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77209736"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747432"
 ---
 # <a name="migrate-an-android-app-from-google-maps"></a>Migrowanie aplikacji systemu Android ze sklepu Google Maps
 
@@ -52,7 +52,7 @@ Aby wyświetlić mapę przy użyciu zestawu SDK usługi Google Maps dla systemu 
 
     `implementation 'com.google.android.gms:play-services-maps:17.0.0'`
 
-1.  Dodaj klucz interfejsu API usługi Google Maps w sekcji aplikacji w pliku **XML\_usługi\_Google Maps** :
+1.  Dodaj klucz interfejsu API usługi Google Maps w sekcji aplikacji w pliku ** \_ \_ XML usługi Google Maps** :
     
     ```xml
     <meta-data android:name="com.google.android.geo.API_KEY" android:value="YOUR_GOOGLE_MAPS_KEY"/>
@@ -67,7 +67,7 @@ Aby wyświetlić mapę przy użyciu zestawu SDK usługi Google Maps dla systemu 
             android:layout_height="match_parent"/>
     ```
 
-1.  W pliku **MAINS. Java** należy zaimportować zestaw SDK usługi Google Maps. Przekazuj wszystkie metody cyklu życiowego z działania zawierającego widok mapy do odpowiednich z nich w klasie mapy. Pobierz `MapView` wystąpienie ze fragmentu mapy przy użyciu `getMapAsync(OnMapReadyCallback)` metody. `MapView` Automatycznie inicjuje system map i widok. Edytuj plik **MAINS. Java** w następujący sposób:
+1.  W pliku **MAINS. Java** należy zaimportować zestaw SDK usługi Google Maps. Przekazuj wszystkie metody cyklu życiowego z działania zawierającego widok mapy do odpowiednich z nich w klasie mapy. Pobierz `MapView` wystąpienie ze fragmentu mapy przy użyciu `getMapAsync(OnMapReadyCallback)` metody. `MapView`Automatycznie inicjuje system map i widok. Edytuj plik **MAINS. Java** w następujący sposób:
 
     ```java
     import com.google.android.gms.maps.GoogleMap;
@@ -182,7 +182,7 @@ Aby wyświetlić mapę przy użyciu zestawu Azure Maps SDK dla systemu Android, 
         > Android SDK Azure Maps są regularnie uaktualniane i rozszerzane. Aby uzyskać najnowszy Azure Maps numer wersji, można zobaczyć [formant wprowadzenie do mapy systemu Android](how-to-use-android-map-control-library.md) . Ponadto można ustawić numer wersji z "0,2" na "0 +", aby kod zawsze wskazywał najnowszą wersję.
     
     4. Przejdź do **pliku** na pasku narzędzi, a następnie kliknij pozycję **Synchronizuj projekt z plikami Gradle**.
-3. Dodaj fragment mapy do działania głównego (układ \> \> zasobów\_Main. xml):
+3. Dodaj fragment mapy do działania głównego ( \> Układ zasobów \> \_ Main. xml):
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -207,7 +207,7 @@ Aby wyświetlić mapę przy użyciu zestawu Azure Maps SDK dla systemu Android, 
     * Ustawianie informacji o uwierzytelnianiu Azure Maps
     * Pobieranie wystąpienia kontrolki mapy w metodzie **OnCreate**
 
-     Ustaw informacje o uwierzytelnianiu w `AzureMaps` klasie przy użyciu `setSubscriptionKey` metod `setAadProperties` lub. Ta globalna aktualizacja, należy się upewnić, że informacje o uwierzytelnianiu są dodawane do każdego widoku.
+     Ustaw informacje o uwierzytelnianiu w `AzureMaps` klasie przy użyciu `setSubscriptionKey` `setAadProperties` metod lub. Ta globalna aktualizacja, należy się upewnić, że informacje o uwierzytelnianiu są dodawane do każdego widoku.
 
     Kontrolka mapy zawiera własne metody cyklu życia do zarządzania cyklem życia OpenGL dla systemu Android. Te metody muszą być wywoływane bezpośrednio z zawartego działania. Aby poprawnie wywołać metody cyklu życia kontrolki mapy, należy zastąpić następujące metody cyklu życia w działaniu, które zawiera formant mapy. Wywoływanie odpowiedniej metody sterującej mapy.
 
@@ -314,11 +314,11 @@ Zauważ, że formant Azure Maps obsługuje bardziej powiększanie i oferuje wię
 
 ## <a name="localizing-the-map"></a>Lokalizowanie mapy
 
-Lokalizacja jest ważna, jeśli odbiorcy są rozproszeni w wielu krajach lub mówisz w różnych językach.
+Lokalizacja jest ważna, jeśli odbiorcy są rozproszeni w wielu krajach/regionach lub mówisz w różnych językach.
 
 **Wcześniej: Google Maps**
 
-Dodaj następujący kod do `onCreate` metody, aby ustawić język mapy. Należy dodać kod przed ustawieniem widoku kontekstu mapy. Kod języka "fr" ogranicza język do języka francuskiego.
+Dodaj następujący kod do metody, `onCreate` Aby ustawić język mapy. Należy dodać kod przed ustawieniem widoku kontekstu mapy. Kod języka "fr" ogranicza język do języka francuskiego.
 
 ```java
 String languageToLoad = "fr";
@@ -338,7 +338,7 @@ Oto przykład mapy Google z ustawionym językiem "fr".
 
 **Po: Azure Maps**
 
-Azure Maps udostępnia trzy różne sposoby ustawiania języka i regionalnego widoku mapy. Pierwsza opcja polega na przekazaniem informacji o języku i widoku regionalnym `AzureMaps` do klasy. Ta opcja używa metod statycznych `setLanguage` i `setView` globalnie. Oznacza to, że język domyślny i widok regionalny są ustawiane dla wszystkich kontrolek Azure Maps załadowanych w aplikacji. Ten przykład ustawia francuski przy użyciu kodu języka "fr-FR".
+Azure Maps udostępnia trzy różne sposoby ustawiania języka i regionalnego widoku mapy. Pierwsza opcja polega na przekazaniem informacji o języku i widoku regionalnym do `AzureMaps` klasy. Ta opcja używa metod statycznych `setLanguage` i `setView` globalnie. Oznacza to, że język domyślny i widok regionalny są ustawiane dla wszystkich kontrolek Azure Maps załadowanych w aplikacji. Ten przykład ustawia francuski przy użyciu kodu języka "fr-FR".
 
 ```java
 static {
@@ -365,7 +365,7 @@ Druga opcja polega na przejściu języka i wyświetleniu informacji w kodzie XML
     />
 ```
 
-Trzecią opcją jest Programowanie języka i widoku mapy regionalnej przy użyciu metody Maps `setStyle` . Ta opcja aktualizuje język i widok regionalny wszędzie tam, gdzie wykonywany jest kod.
+Trzecią opcją jest Programowanie języka i widoku mapy regionalnej przy użyciu `setStyle` metody Maps. Ta opcja aktualizuje język i widok regionalny wszędzie tam, gdzie wykonywany jest kod.
 
 ```java
 mapControl.onReady(map -> {
@@ -388,7 +388,7 @@ Mapy dynamiczne w obu Azure Maps i Google Maps można programistycznie przenieś
 
 **Wcześniej: Google Maps**
 
-Aparat kontrolki mapy usługi Google Maps można programistycznie przenieść przy użyciu `moveCamera` metody. `moveCamera` Metoda pozwala określić środek mapy i poziom powiększenia. `setMapType` Metoda zmienia typ mapy do wyświetlenia.
+Aparat kontrolki mapy usługi Google Maps można programistycznie przenieść przy użyciu `moveCamera` metody. `moveCamera`Metoda pozwala określić środek mapy i poziom powiększenia. `setMapType`Metoda zmienia typ mapy do wyświetlenia.
 
 ```java
 @Override
@@ -451,7 +451,7 @@ Dane punktów są często renderowane przy użyciu obrazu na mapie. Te obrazy s�
 
 **Wcześniej: Google Maps**
 
-Dzięki usłudze Google Maps znaczniki są dodawane za pomocą metody `addMarker` Maps.
+Dzięki usłudze Google Maps znaczniki są dodawane za pomocą `addMarker` metody Maps.
 
 ```java
 @Override
@@ -495,7 +495,7 @@ Obrazy niestandardowe mogą służyć do reprezentowania punktów na mapie. Mapa
 <center>
 
 ![żółty obraz pinezki](media/migrate-google-maps-web-app/ylw_pushpin.png)<br/>
-YLW\_pinezki. png</center>
+YLW \_ pinezki. png</center>
 
 W obu przykładach Powyższy obraz jest dodawany do folderu do rysowania zasobów aplikacji.
 
@@ -520,7 +520,7 @@ public void onMapReady(GoogleMap googleMap) {
 
 **Po: Azure Maps**
 
-Warstwy symboli w Azure Maps obsługują obrazy niestandardowe, ale najpierw muszą zostać załadowane do zasobów mapy i przypisany unikatowy identyfikator. Następnie warstwa symboli musi odwoływać się do tego identyfikatora. Przesuń symbol, aby wyrównać go do poprawnego punktu w `iconOffset` obrazie przy użyciu opcji. Przesunięcie ikony jest w pikselach. Domyślnie przesunięcie jest względem środkowego środka obrazu, ale tę wartość przesunięcia można dostosować przy użyciu `iconAnchor` opcji. Ten przykład ustawia `iconAnchor` opcję na `"center"`. Za pomocą przesunięcia ikony można przenieść obraz o pięć pikseli do prawej i 15 pikseli, aby wyrównać punkt obrazu pinezki.
+Warstwy symboli w Azure Maps obsługują obrazy niestandardowe, ale najpierw muszą zostać załadowane do zasobów mapy i przypisany unikatowy identyfikator. Następnie warstwa symboli musi odwoływać się do tego identyfikatora. Przesuń symbol, aby wyrównać go do poprawnego punktu w obrazie przy użyciu `iconOffset` opcji. Przesunięcie ikony jest w pikselach. Domyślnie przesunięcie jest względem środkowego środka obrazu, ale tę wartość przesunięcia można dostosować przy użyciu `iconAnchor` opcji. Ten przykład ustawia `iconAnchor` opcję na `"center"` . Za pomocą przesunięcia ikony można przenieść obraz o pięć pikseli do prawej i 15 pikseli, aby wyrównać punkt obrazu pinezki.
 
 ```java
 mapControl.onReady(map -> {
@@ -552,7 +552,7 @@ Linie łamane są używane do reprezentowania linii lub ścieżki na mapie. W po
 
 **Wcześniej: Google Maps**
 
-Dzięki usłudze Google Maps Renderuj linię łamaną przy użyciu `PolylineOptions` klasy. Dodaj linię łamaną do mapy za pomocą `addPolyline` metody. Ustaw kolor pociągnięcia przy użyciu `color` opcji. Ustaw szerokość obrysu przy użyciu `width` opcji. Dodaj tablicę kreskowaną pędzla `pattern` przy użyciu opcji.
+Dzięki usłudze Google Maps Renderuj linię łamaną przy użyciu `PolylineOptions` klasy. Dodaj linię łamaną do mapy za pomocą `addPolyline` metody. Ustaw kolor pociągnięcia przy użyciu `color` opcji. Ustaw szerokość obrysu przy użyciu `width` opcji. Dodaj tablicę kreskowaną pędzla przy użyciu `pattern` opcji.
 
 ```java
 @Override
@@ -580,7 +580,7 @@ public void onMapReady(GoogleMap googleMap) {
 
 **Po: Azure Maps**
 
-W Azure Maps linie łamane są nazywane `LineString` lub `MultiLineString` obiektami. Dodaj te obiekty do źródła danych i Renderuj je przy użyciu warstwy liniowej. Ustaw szerokość obrysu przy użyciu `strokeWidth` opcji. Dodaj tablicę kreskowaną pędzla `strokeDashArray` przy użyciu opcji.
+W Azure Maps linie łamane są nazywane `LineString` lub `MultiLineString` obiektami. Dodaj te obiekty do źródła danych i Renderuj je przy użyciu warstwy liniowej. Ustaw szerokość obrysu przy użyciu `strokeWidth` opcji. Dodaj tablicę kreskowaną pędzla przy użyciu `strokeDashArray` opcji.
 
 Szerokość obrysu i tablica kreskowana "pikseli" w Azure Maps Web SDK są takie same, jak w usłudze Google Maps. Oba te same wartości są akceptowane w celu uzyskania tych samych wyników.
 
@@ -645,7 +645,7 @@ public void onMapReady(GoogleMap googleMap) {
 
 **Po: Azure Maps**
 
-W Azure Maps, Dodaj `Polygon` obiekty `MultiPolygon` i do źródła danych i Renderuj je na mapie przy użyciu warstw. Renderowanie obszaru wielokąta w warstwie wielokąta. Renderowanie konspektu wielokąta przy użyciu warstwy liniowej. Ustaw kolor obrysu i szerokość przy użyciu `strokeColor` opcji `strokeWidth` i.
+W Azure Maps, Dodaj `Polygon` `MultiPolygon` obiekty i do źródła danych i Renderuj je na mapie przy użyciu warstw. Renderowanie obszaru wielokąta w warstwie wielokąta. Renderowanie konspektu wielokąta przy użyciu warstwy liniowej. Ustaw kolor obrysu i szerokość przy użyciu `strokeColor` `strokeWidth` opcji i.
 
 Jednostki z szerokością i tablicą łącznika "piksele" w Azure Maps zestawie Web SDK są wyrównane z odpowiednimi jednostkami w usłudze mapy Google. Obie akceptują te same wartości i generują te same wyniki.
 
@@ -722,10 +722,10 @@ public void onMapReady(GoogleMap googleMap) {
 
 **Po: Azure Maps**
 
-Warstwę kafelków można dodać do mapy w podobny sposób, jak każda inna warstwa. Sformatowany adres URL, który ma symbole zastępcze x, y i zoom; , odpowiednio jest używany do określenia warstwy, `{y}`w której mają być dostępne kafelki. `{z}` `{x}` Ponadto warstwy kafelków w Azure Maps obsługują `{quadkey}`, `{bbox-epsg-3857}`i `{subdomain}` symboli zastępczych. Aby warstwa kafelków została częściowo przezroczysta, używana jest wartość nieprzezroczystości 0,8. Nieprzezroczystość i przezroczystość, chociaż podobne, używaj odwróconych wartości. Aby przeprowadzić konwersję między obiema opcjami, Odejmij ich wartość od liczby.
+Warstwę kafelków można dodać do mapy w podobny sposób, jak każda inna warstwa. Sformatowany adres URL, który ma symbole zastępcze x, y i zoom; `{x}`, `{y}` `{z}` odpowiednio jest używany do określenia warstwy, w której mają być dostępne kafelki. Ponadto warstwy kafelków w Azure Maps obsługują `{quadkey}` , `{bbox-epsg-3857}` i `{subdomain}` symboli zastępczych. Aby warstwa kafelków została częściowo przezroczysta, używana jest wartość nieprzezroczystości 0,8. Nieprzezroczystość i przezroczystość, chociaż podobne, używaj odwróconych wartości. Aby przeprowadzić konwersję między obiema opcjami, Odejmij ich wartość od liczby.
 
 > [!TIP]
-> W Azure Maps jest wygodne renderowanie warstw poniżej innych warstw, w tym warstw mapy podstawowej. Ponadto często pożądane jest renderowanie warstw kafelków poniżej etykiet mapy, dzięki czemu można je łatwo odczytać. `map.layers.add` Metoda przyjmuje drugi parametr, który jest identyfikatorem warstwy, w której ma zostać wstawiona Nowa warstwa poniżej. Aby wstawić warstwę kafelków pod etykietami mapy, można użyć następującego kodu:`map.layers.add(myTileLayer, "labels");`
+> W Azure Maps jest wygodne renderowanie warstw poniżej innych warstw, w tym warstw mapy podstawowej. Ponadto często pożądane jest renderowanie warstw kafelków poniżej etykiet mapy, dzięki czemu można je łatwo odczytać. `map.layers.add`Metoda przyjmuje drugi parametr, który jest identyfikatorem warstwy, w której ma zostać wstawiona Nowa warstwa poniżej. Aby wstawić warstwę kafelków pod etykietami mapy, można użyć następującego kodu:`map.layers.add(myTileLayer, "labels");`
 
 ```java
 mapControl.onReady(map -> {
@@ -748,7 +748,7 @@ Zarówno Azure Maps, jak i usługi Google Maps zawierają opcje umożliwiające 
 
 **Wcześniej: Google Maps**
 
-Dzięki usłudze Google Maps dane przepływu ruchu mogą zostać zastąpione na podstawie mapy, przekazując do `setTrafficEnabled` metody mapy wartość true.
+Dzięki usłudze Google Maps dane przepływu ruchu mogą zostać zastąpione na podstawie mapy, przekazując do metody mapy wartość true `setTrafficEnabled` .
 
 ```java
 @Override

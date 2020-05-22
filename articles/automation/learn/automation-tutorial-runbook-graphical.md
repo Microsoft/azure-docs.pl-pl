@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/19/2020
 ms.topic: tutorial
-ms.openlocfilehash: e3061b1c8650f24775a1e9ea8f328a5270263476
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 3cd5db3736d5eda88e7cad7bda1966efb2b00977
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714529"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744740"
 ---
 # <a name="tutorial-create-a-graphical-runbook"></a>Samouczek: Tworzenie graficznego elementu Runbook
 
@@ -351,7 +351,8 @@ Teraz można zmodyfikować element Runbook, aby próbował uruchomić maszynę w
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Tworzenie graficzne w Azure Automation](../automation-graphical-authoring-intro.md)
-* [Tworzenie elementu runbook programu PowerShell](automation-tutorial-runbook-textual-powershell.md)
-* [Tworzenie elementu runbook przepływu pracy programu PowerShell](automation-tutorial-runbook-textual.md)
-* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)
+* Aby dowiedzieć się więcej o tworzeniu graficznym, zobacz [Tworzenie graficznego elementu Runbook w Azure Automation](../automation-graphical-authoring-intro.md).
+* Aby rozpocząć pracę z elementami Runbook programu PowerShell, zobacz [Tworzenie elementu Runbook programu PowerShell](automation-tutorial-runbook-textual-powershell.md).
+* Aby rozpocząć pracę z elementami Runbook przepływu pracy programu PowerShell, zobacz temat [Tworzenie elementu Runbook przepływu pracy programu PowerShell](automation-tutorial-runbook-textual.md).
+* Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

@@ -1,18 +1,18 @@
 ---
-title: Obsługa błędów w graficznych elementach Runbook w usłudze Azure Automation
-description: W tym artykule został opisany sposób implementacji logiki obsługi błędów w graficznych elementach Runbook w usłudze Azure Automation.
+title: Obsługa błędów w graficznych elementach Runbook Azure Automation
+description: W tym artykule opisano sposób implementacji logiki obsługi błędów w graficznych elementach Runbook.
 services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: a53d0cf0127ac3b66139d40dda62b64b05155bbd
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: e517516715871f3fbcdcab6383e6452523773363
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714886"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743875"
 ---
-# <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Obsługa błędów w graficznych elementach Runbook w usłudze Azure Automation
+# <a name="handle-errors-in-graphical-runbooks"></a>Obsługa błędów w graficznych elementach runbook
 
 Kluczową zasadą projektowania do uwzględnienia w Azure Automation graficzny element Runbook jest identyfikacja problemów, które element Runbook może napotkać podczas wykonywania. Przykładowe problemy to powodzenie, oczekiwane stany błędu i nieoczekiwane warunki błędu.
 
@@ -21,9 +21,6 @@ Często Jeśli wystąpi błąd niepowodujący zakończenia, który występuje w 
 Graficzny element Runbook powinien zawierać kod obsługi błędu, aby rozwiązać problemy z wykonywaniem. Aby sprawdzić poprawność danych wyjściowych działania lub obsłużyć błąd, można użyć działania Code programu PowerShell, zdefiniować logikę warunkową dla linku wyjściowego działania lub zastosować inną metodę.
 
 Graficzne elementy runbook usługi Azure Automation ulepszono o możliwość uwzględnienia obsługi błędów. Teraz możesz przekształcać wyjątki w błędy niepowodujące zakończenia oraz tworzyć linki błędów między działaniami. Ulepszony proces umożliwia elementowi Runbook przechwytywanie błędów i zarządzanie zrealizowanymi lub nieoczekiwanymi warunkami. 
-
->[!NOTE]
->Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Instrukcje dotyczące instalacji polecenia AZ module w hybrydowym procesie roboczym elementu Runbook znajdują się w temacie [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). W przypadku konta usługi Automation można zaktualizować moduły do najnowszej wersji przy użyciu [sposobu aktualizowania modułów Azure PowerShell w programie Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="powershell-error-types"></a>Typy błędów programu PowerShell
 
@@ -41,6 +38,8 @@ Błąd niepowodujący zakończenia to nieważny błąd, który umożliwia kontyn
 
 Użyj obsługi błędów w elemencie Runbook, gdy działanie krytyczne zgłasza błąd lub wyjątek. Ważne jest, aby zapobiec przetwarzaniu następnego działania w elemencie Runbook i odpowiednio obsłużyć błąd. Obsługa tego błędu jest szczególnie istotna, gdy elementy Runbook obsługują proces operacji biznesowej lub usług.
 
+## <a name="add-error-links"></a>Dodaj linki do błędów
+
 Dla każdego działania, które może powodować błąd, można dodać łącze błędu wskazujące na inne działanie. Działanie docelowe może być dowolnego typu, w tym działania związane z kodem, wywołania polecenia cmdlet, wywołania innego elementu Runbook i tak dalej. Działanie docelowe może również mieć linki wychodzące, zwykłe lub błędy. Linki umożliwiają elementowi Runbook zaimplementowanie złożonej logiki obsługi błędów bez konieczności działania kodu.
 
 Zalecaną metodą jest utworzenie dedykowanego elementu Runbook obsługi błędów z typowymi funkcjami, ale nie jest to wymagane. Rozważmy na przykład element Runbook, który próbuje uruchomić maszynę wirtualną i zainstalować na niej aplikację. Jeśli maszyna wirtualna nie zostanie uruchomiona poprawnie,:
@@ -52,7 +51,7 @@ Jednym z rozwiązań jest posiadanie linku błędu w elemencie Runbook wskazują
 
 Można również uogólnić to zachowanie w wielu elementach Runbook, umieszczając te dwa działania w oddzielnym elemencie Runbook obsługującym błędy. Zanim oryginalny element Runbook wywoła ten błąd obsługi elementu Runbook, może utworzyć niestandardowy komunikat z jego danych, a następnie przekazać go jako parametr do elementu Runbook obsługującego błędy.
 
-## <a name="how-to-use-error-handling"></a>Jak korzystać z obsługi błędów
+## <a name="turn-exceptions-into-non-terminating-errors"></a>Przekształcanie wyjątków w błędy niepowodujące zakończenia
 
 Każde działanie w elemencie Runbook ma ustawienie konfiguracji, które powoduje zamianę wyjątków na błędy niepowodujące zakończenia. To ustawienie jest domyślnie wyłączone. Zalecamy włączenie tego ustawienia dla wszystkich działań, w których element Runbook obsługuje błędy. To ustawienie zapewnia, że element Runbook obsługuje zarówno błędy kończące, jak i niepowodujące zakończenia w działaniu jako błędy niepowodujące zakończenia, przy użyciu linku błędu.  
 
@@ -66,6 +65,6 @@ Linki błędów przepływają z tych działań do jednego `error management` dzi
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej na temat linków i typów łączy w graficznych elementach Runbook, zobacz [Używanie linków dla przepływu pracy](automation-graphical-authoring-intro.md#use-links-for-workflow).
-
-* Aby dowiedzieć się więcej o wykonywaniu elementów Runbook, monitorowaniu zadań elementów Runbook i innych szczegółach technicznych, zobacz [wykonywanie elementów Runbook w Azure Automation](automation-runbook-execution.md).
+* [Tworzenie graficznych elementów Runbook w Azure Automation](automation-graphical-authoring-intro.md#use-links-for-workflow)
+* [Wykonywanie elementu runbook w usłudze Azure Automation](automation-runbook-execution.md)
+* [Zarządzanie elementami Runbook w Azure Automation](manage-runbooks.md)

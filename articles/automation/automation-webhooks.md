@@ -1,28 +1,25 @@
 ---
-title: Uruchamianie elementu runbook usługi Azure Automation za pomocą elementu webhook
-description: Element webhook, który umożliwia klientowi uruchomienie elementu Runbook w Azure Automation z wywołania HTTP.  W tym artykule opisano sposób tworzenia elementu webhook oraz wywoływania go w celu uruchomienia elementu Runbook.
+title: Uruchamianie Azure Automation elementu Runbook z elementu webhook
+description: W tym artykule opisano sposób używania elementu webhook do uruchamiania elementu Runbook w Azure Automation z wywołania HTTP.
 services: automation
 ms.subservice: process-automation
 ms.date: 01/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: cbe43b298c57d266f0b031b5192f25fe3df07c05
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: e61c8b9af04ce9157179d464c1a49ce685c6913f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82582436"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744723"
 ---
-# <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Uruchamianie elementu runbook usługi Azure Automation za pomocą elementu webhook
+# <a name="start-a-runbook-from-a-webhook"></a>Uruchamianie elementu runbook z poziomu elementu webhook
 
-Element webhook umożliwia zewnętrznej usłudze uruchamianie określonego elementu Runbook w Azure Automation za pośrednictwem pojedynczego żądania HTTP. Usługi zewnętrzne obejmują Azure DevOps Services, GitHub, dzienniki Azure Monitor i aplikacje niestandardowe. Taka usługa może użyć elementu webhook do uruchomienia elementu Runbook bez implementowania pełnego rozwiązania przy użyciu interfejsu API Azure Automation. Elementy webhook można porównać z innymi metodami uruchamiania elementu Runbook w programie w [Azure Automation](automation-starting-a-runbook.md).
+Element webhook umożliwia zewnętrznej usłudze uruchamianie określonego elementu Runbook w Azure Automation za pośrednictwem pojedynczego żądania HTTP. Usługi zewnętrzne obejmują Azure DevOps Services, GitHub, dzienniki Azure Monitor i aplikacje niestandardowe. Taka usługa może użyć elementu webhook do uruchomienia elementu Runbook bez implementacji pełnego interfejsu API Azure Automation. Elementy webhook można porównać z innymi metodami uruchamiania elementu Runbook w programie w [Azure Automation](automation-starting-a-runbook.md).
 
 > [!NOTE]
 > Korzystanie z elementu webhook do uruchamiania elementów Runbook języka Python nie jest obsługiwane.
 
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
-
->[!NOTE]
->Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Instrukcje dotyczące instalacji polecenia AZ module w hybrydowym procesie roboczym elementu Runbook znajdują się w temacie [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). W przypadku konta usługi Automation można zaktualizować moduły do najnowszej wersji przy użyciu [sposobu aktualizowania modułów Azure PowerShell w programie Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="webhook-properties"></a>Właściwości elementu webhook
 
@@ -39,11 +36,11 @@ W poniższej tabeli opisano właściwości, które należy skonfigurować dla el
 
 Element webhook może definiować wartości parametrów elementu Runbook, które są używane podczas uruchamiania elementu Runbook. Element webhook musi zawierać wartości parametrów obowiązkowych elementu Runbook i może zawierać wartości parametrów opcjonalnych. Wartość parametru skonfigurowana dla elementu webhook można modyfikować nawet po utworzeniu elementu webhook. Wiele elementów webhook połączonych z pojedynczym elementem Runbook może używać różnych wartości parametrów elementu Runbook. Gdy klient uruchamia element Runbook przy użyciu elementu webhook, nie może zastąpić wartości parametrów zdefiniowanych w elemencie webhook.
 
-Aby odbierać dane od klienta, element Runbook obsługuje jeden parametr o nazwie `WebhookData`. Ten parametr definiuje obiekt zawierający dane, które klient dołącza do żądania POST.
+Aby odbierać dane od klienta, element Runbook obsługuje jeden parametr o nazwie `WebhookData` . Ten parametr definiuje obiekt zawierający dane, które klient dołącza do żądania POST.
 
 ![Właściwości WebhookData](media/automation-webhooks/webhook-data-properties.png)
 
-`WebhookData` Parametr ma następujące właściwości:
+`WebhookData`Parametr ma następujące właściwości:
 
 | Właściwość | Opis |
 |:--- |:--- |
@@ -58,13 +55,13 @@ Nie istnieje konfiguracja elementu webhook wymaganego do obsługi `WebhookData` 
 
 Jeśli określisz wartość dla `WebhookData` tworzenia elementu webhook, zostanie ona zastąpiona, gdy element webhook rozpocznie działanie elementu Runbook przy użyciu danych z żądania post klienta. Dzieje się tak nawet wtedy, gdy aplikacja nie zawiera żadnych danych w treści żądania. 
 
-W przypadku uruchomienia elementu Runbook, który `WebhookData` definiuje użycie mechanizmu innego niż element webhook, można podać wartość `WebhookData` , którą rozpoznaje element Runbook. Ta wartość powinna być obiektem z tymi samymi [właściwościami](#webhook-properties) co `WebhookData` parametr, aby element Runbook mógł pracować z nim tak samo, jak działa `WebhookData` z rzeczywistymi obiektami przekazaną przez element webhook.
+W przypadku uruchomienia elementu Runbook, który definiuje `WebhookData` użycie mechanizmu innego niż element webhook, można podać wartość `WebhookData` , którą rozpoznaje element Runbook. Ta wartość powinna być obiektem z tymi samymi [właściwościami](#webhook-properties) co `WebhookData` parametr, aby element Runbook mógł pracować z nim tak samo, jak działa z rzeczywistymi `WebhookData` obiektami przekazaną przez element webhook.
 
 Na przykład, jeśli uruchamiasz następujący element Runbook z Azure Portal i chcesz przekazać niektóre przykładowe dane elementu webhook do testowania, musisz przekazać dane w formacie JSON w interfejsie użytkownika.
 
 ![WebhookData parametr z interfejsu użytkownika](media/automation-webhooks/WebhookData-parameter-from-UI.png)
 
-Dla następnego przykładu elementu Runbook zdefiniujmy następujące właściwości dla `WebhookData`:
+Dla następnego przykładu elementu Runbook zdefiniujmy następujące właściwości dla `WebhookData` :
 
 * **Element webhookname**: MyWebhook
 * **Elemencie requestbody**:`*[{'ResourceGroup': 'myResourceGroup','Name': 'vm01'},{'ResourceGroup': 'myResourceGroup','Name': 'vm02'}]*`
@@ -84,7 +81,7 @@ Teraz przekażemy następujący obiekt JSON w interfejsie użytkownika dla `Webh
 
 Bezpieczeństwo elementu webhook polega na poufności jego adresu URL, który zawiera token zabezpieczający, który umożliwia wywołanie elementu webhook. Azure Automation nie wykonuje żadnych uwierzytelnień na żądanie tak długo, jak jest wprowadzony prawidłowy adres URL. Z tego powodu klienci nie powinni używać elementu webhook dla elementów Runbook, które wykonują wysoce poufne operacje bez użycia alternatywnego sposobu weryfikacji żądania.
 
-Można uwzględnić logikę w elemencie Runbook, aby określić, czy jest wywoływana przez element webhook. Element Runbook sprawdza `WebhookName` Właściwość `WebhookData` parametru. Element Runbook może przeprowadzić dalsze sprawdzanie poprawności, szukając określonych informacji we `RequestHeader` właściwościach `RequestBody` i.
+Można uwzględnić logikę w elemencie Runbook, aby określić, czy jest wywoływana przez element webhook. Element Runbook sprawdza `WebhookName` Właściwość `WebhookData` parametru. Element Runbook może przeprowadzić dalsze sprawdzanie poprawności, szukając określonych informacji we `RequestHeader` `RequestBody` właściwościach i.
 
 Inna strategia polega na tym, że element Runbook wykonuje weryfikację zewnętrznego warunku, gdy odbierze żądanie elementu webhook. Rozważmy na przykład element Runbook, który jest wywoływany przez witrynę GitHub w dowolnym momencie, gdy istnieje nowe zatwierdzenie do repozytorium GitHub. Element Runbook może połączyć się z usługą GitHub, aby zweryfikować, że nastąpiło nowe zatwierdzenie przed kontynuowaniem.
 
@@ -108,7 +105,7 @@ Poniższa procedura umożliwia utworzenie nowego elementu webhook połączonego 
 
 ## <a name="use-a-webhook"></a>Używanie elementu webhook
 
-Aby można było użyć elementu webhook po jego utworzeniu, klient musi wydać żądanie HTTP `POST` z adresem URL elementu webhook. Składnia jest następująca:
+Aby można było użyć elementu webhook po jego utworzeniu, klient musi wydać `POST` żądanie HTTP z adresem URL elementu webhook. Składnia jest następująca:
 
 ```http
 http://<Webhook Server>/token?=<Token Value>
@@ -116,9 +113,9 @@ http://<Webhook Server>/token?=<Token Value>
 
 Klient otrzymuje jeden z następujących kodów powrotu z `POST` żądania.
 
-| Code | Tekst | Opis |
+| Kod | Tekst | Opis |
 |:--- |:--- |:--- |
-| 202 |Zaakceptowane |Żądanie zostało zaakceptowane, a element Runbook został pomyślnie umieszczony w kolejce. |
+| 202 |Zaakceptowano |Żądanie zostało zaakceptowane, a element Runbook został pomyślnie umieszczony w kolejce. |
 | 400 |Nieprawidłowe żądanie |Żądanie nie zostało zaakceptowane z jednego z następujących powodów: <ul> <li>Element webhook wygasł.</li> <li>Element webhook jest wyłączony.</li> <li>Token w adresie URL jest nieprawidłowy.</li>  </ul> |
 | 404 |Nie znaleziono |Żądanie nie zostało zaakceptowane z jednego z następujących powodów: <ul> <li>Nie znaleziono elementu webhook.</li> <li>Nie znaleziono elementu Runbook.</li> <li>Nie znaleziono konta.</li>  </ul> |
 | 500 |Wewnętrzny błąd serwera |Adres URL był prawidłowy, ale wystąpił błąd. Prześlij ponownie żądanie. |
@@ -219,7 +216,7 @@ $response = Invoke-WebRequest -Method Post -Uri $uri -Body $body -Headers $heade
 $jobid = (ConvertFrom-Json ($response.Content)).jobids[0]
 ```
 
-Poniższy przykład przedstawia treść żądania, które jest dostępne dla elementu Runbook we `RequestBody` właściwości. `WebhookData` Ta wartość jest formatowana w formacie JSON, aby była zgodna z formatem zawartym w treści żądania.
+Poniższy przykład przedstawia treść żądania, które jest dostępne dla elementu Runbook we `RequestBody` właściwości `WebhookData` . Ta wartość jest formatowana w formacie JSON, aby była zgodna z formatem zawartym w treści żądania.
 
 ```json
 [
@@ -240,4 +237,4 @@ Na poniższej ilustracji przedstawiono żądanie wysyłane z programu Windows Po
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się, jak za pomocą Azure Automation podejmować działania dotyczące alertów platformy Azure, zobacz temat [Używanie alertu do wyzwalania Azure Automation elementu Runbook](automation-create-alert-triggered-runbook.md).
+* [Użyj alertu, aby wyzwolić Azure Automation element Runbook](automation-create-alert-triggered-runbook.md)

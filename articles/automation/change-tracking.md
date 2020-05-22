@@ -1,18 +1,18 @@
 ---
-title: Przegląd Change Tracking i spisu w Azure Automation
-description: Change Tracking i spis pomaga identyfikować zmiany oprogramowania i usługi firmy Microsoft, które występują w danym środowisku.
+title: Przegląd Change Tracking Azure Automation i spisu
+description: W tym artykule opisano Change Tracking i funkcję spisu, która pomaga identyfikować zmiany oprogramowania i usług firmy Microsoft, które występują w danym środowisku.
 services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/28/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6a21effc3e567e75a8851fec35ff80dffc60a761
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: ab091ba413a8429a8fea131c643cceee7007f927
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82787179"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744362"
 ---
-# <a name="overview-of-change-tracking-and-inventory"></a>Przegląd Change Tracking i spisu
+# <a name="change-tracking-and-inventory-overview"></a>Przegląd Change Tracking i spisu
 
 W tym artykule przedstawiono Change Tracking i spis w Azure Automation. Ta funkcja śledzi zmiany w maszynach wirtualnych i infrastrukturze serwerów, aby ułatwić identyfikowanie problemów operacyjnych i środowiska przy użyciu oprogramowania zarządzanego przez Menedżera pakietów dystrybucji. Elementy, które są śledzone przez Change Tracking i spis obejmują: 
 
@@ -50,7 +50,7 @@ Inne ograniczenia:
 W Change Tracking i spisu są obecnie występują następujące problemy:
 
 * Aktualizacje poprawek nie są zbierane na maszynach podstawowych RS3 systemu Windows Server 2016.
-* Demony systemu Linux mogą wyświetlać zmieniony stan nawet wtedy, gdy nie nastąpiła żadna zmiana. Ten problem występuje ze względu na sposób, `SvcRunLevels` w jaki dane w dzienniku Azure monitor [zmianakonfiguracji](https://docs.microsoft.com/azure/azure-monitor/reference/tables/configurationchange) są przechwytywane.
+* Demony systemu Linux mogą wyświetlać zmieniony stan nawet wtedy, gdy nie nastąpiła żadna zmiana. Ten problem występuje ze względu na sposób, w jaki `SvcRunLevels` dane w dzienniku Azure monitor [zmianakonfiguracji](https://docs.microsoft.com/azure/azure-monitor/reference/tables/configurationchange) są przechwytywane.
 
 ## <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
 
@@ -136,7 +136,7 @@ Change Tracking i spis używają [Azure Security Center monitorowania integralno
 Change Tracking i spis obsługuje rekursję, co pozwala na określenie symboli wieloznacznych, aby uprościć śledzenie w katalogach. Rekursja udostępnia również zmienne środowiskowe umożliwiające śledzenie plików w środowiskach z wieloma lub dynamicznymi nazwami dysków. Poniższa lista zawiera typowe informacje, które należy znać podczas konfigurowania rekursji:
 
 * Do śledzenia wielu plików wymagane są symbole wieloznaczne.
-* Symboli wieloznacznych można używać tylko w ostatnim segmencie ścieżki, na przykład **plik c:\Folder\\*** lub **/etc/*. conf**.
+* Symboli wieloznacznych można używać tylko w ostatnim segmencie ścieżki, na przykład ** \\ plik c:\Folder*** lub **/etc/*. conf**.
 * Jeśli zmienna środowiskowa ma nieprawidłową ścieżkę, walidacja powiedzie się, ale ścieżka kończy się niepowodzeniem podczas wykonywania.
 * Należy unikać ogólnych nazw ścieżek podczas ustawiania ścieżki, ponieważ ten typ ustawienia może spowodować przechodzenie przez zbyt wiele folderów.
 
@@ -184,17 +184,18 @@ Kluczową możliwością Change Tracking i spisu jest alert dotyczący zmian sta
 
 |Zapytanie  |Opis  |
 |---------|---------|
-|Zmianakonfiguracji <br>&#124; gdzie ConfigChangeType = = "Files" i FileSystemPath zawiera "c:\\Windows\\system32\\Drivers\\"|Przydatne do śledzenia zmian w plikach krytycznych dla systemu.|
-|Zmianakonfiguracji <br>&#124;, gdzie FieldsChanged zawiera "FileContentChecksum" i FileSystemPath = = "c\\:\\Windows\\system32\\Drivers itp\\. hosts"|Przydatne do śledzenia modyfikacji plików konfiguracji kluczy.|
+|Zmianakonfiguracji <br>&#124; gdzie ConfigChangeType = = "Files" i FileSystemPath zawiera "c: \\ Windows \\ system32 \\ Drivers \\ "|Przydatne do śledzenia zmian w plikach krytycznych dla systemu.|
+|Zmianakonfiguracji <br>&#124;, gdzie FieldsChanged zawiera "FileContentChecksum" i FileSystemPath = = "c: \\ Windows \\ system32 \\ Drivers \\ itp. \\ hosts"|Przydatne do śledzenia modyfikacji plików konfiguracji kluczy.|
 |Zmianakonfiguracji <br>&#124; gdzie ConfigChangeType = = "Microsoft Services" i SvcName zawiera "W3SVC" i SvcState = = "zatrzymana"|Przydatne do śledzenia zmian w usługach krytycznych dla systemu.|
 |Zmianakonfiguracji <br>&#124;, gdzie ConfigChangeType = = "demony" i SvcName zawierają "SSH" i SvcState! = "uruchomiona"|Przydatne do śledzenia zmian w usługach krytycznych dla systemu.|
 |Zmianakonfiguracji <br>&#124; gdzie ConfigChangeType = = "oprogramowanie" i ChangeCategory = = "dodane"|Przydatne w przypadku środowisk, które wymagają blokowania konfiguracji oprogramowania.|
 |ConfigurationData <br>&#124;, gdzie Oprogramowaniename zawiera "Monitoring Agent" i CurrentVersion! = "8.0.11081.0"|Przydatne do wyświetlania maszyn, na których zainstalowano nieaktualną lub niezgodną wersję oprogramowania. To zapytanie raportuje o ostatnim raportowanym stanie konfiguracji, ale nie raportuje zmian.|
-|Zmianakonfiguracji <br>&#124;, gdzie RegistryKey = = @ "\\HKEY_LOCAL_MACHINE\\oprogramowania\\Microsoft\\Windows\\CurrentVersion QualityCompat"| Przydatne do śledzenia zmian kluczowych kluczy programu antywirusowego.|
-|Zmianakonfiguracji <br>&#124; gdzie RegistryKey zawiera @ "HKEY_LOCAL_MACHINE\\system\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\firewallpolicy"| Przydatne do śledzenia zmian w ustawieniach zapory.|
+|Zmianakonfiguracji <br>&#124;, gdzie RegistryKey = = @ "HKEY_LOCAL_MACHINE \\ oprogramowania \\ Microsoft \\ Windows \\ CurrentVersion \\ QualityCompat"| Przydatne do śledzenia zmian kluczowych kluczy programu antywirusowego.|
+|Zmianakonfiguracji <br>&#124; gdzie RegistryKey zawiera @ "HKEY_LOCAL_MACHINE \\ system \\ CurrentControlSet \\ Services \\ SharedAccess \\ Parameters \\ firewallpolicy"| Przydatne do śledzenia zmian w ustawieniach zapory.|
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby obejść Change Tracking i spis w swoich elementach Runbook, zobacz [zarządzanie Change Tracking i spisem](change-tracking-file-contents.md).
-* Aby rozwiązać błędy dotyczące Change Tracking i spisu, zobacz [Rozwiązywanie problemów dotyczących Change Tracking i spisu](automation-tutorial-troubleshoot-changes.md).
-* Użyj [wyszukiwania w dzienniku Azure monitor](../log-analytics/log-analytics-log-searches.md) , aby wyświetlić szczegółowe dane śledzenia zmian.
+* [Zarządzanie Change Tracking i spisem](change-tracking-file-contents.md)
+* [Dzienniki wyszukiwania w dziennikach Azure Monitor](../log-analytics/log-analytics-log-searches.md)
+* [Rozwiązywanie problemów dotyczących Change Tracking i spisu](troubleshoot/change-tracking.md)
+* [Rozwiązywanie problemów dotyczących zmian na maszynie wirtualnej platformy Azure](automation-tutorial-troubleshoot-changes.md)

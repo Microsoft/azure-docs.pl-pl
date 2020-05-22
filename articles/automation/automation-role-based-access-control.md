@@ -1,24 +1,21 @@
 ---
-title: Kontrola dostępu oparta na rolach w usłudze Azure Automation
-description: Funkcja kontroli dostępu opartej na rolach (role-based access control, RBAC) umożliwia zarządzanie dostępem do zasobów platformy Azure. Ten artykuł zawiera opis sposobu konfigurowania funkcji RBAC w usłudze Azure Automation.
+title: Zarządzanie uprawnieniami roli i zabezpieczeniami w Azure Automation
+description: W tym artykule opisano sposób korzystania z kontroli dostępu opartej na rolach (RBAC), która umożliwia zarządzanie dostępem do zasobów platformy Azure.
 keywords: automation rbac, kontrola dostępu oparta na rolach, azure rbac
 services: automation
 ms.subservice: shared-capabilities
 ms.date: 05/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: a49f2596df91c44deafa1be83483f8972e223742
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9cdde8d1142ec47f835e4a06e7fe2e843d796a3a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535574"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83743926"
 ---
-# <a name="role-based-access-control-in-azure-automation"></a>Kontrola dostępu oparta na rolach w usłudze Azure Automation
+# <a name="manage-role-permissions-and-security"></a>Zarządzanie uprawnieniami ról i zabezpieczeniami
 
 Funkcja kontroli dostępu opartej na rolach (role-based access control, RBAC) umożliwia zarządzanie dostępem do zasobów platformy Azure. Za pomocą [RBAC](../role-based-access-control/overview.md)można oddzielić cła w zespole i przyznać dostęp tylko do użytkowników, grup i aplikacji, których potrzebują do wykonywania swoich zadań. Dostęp oparty na rolach można udzielić użytkownikom przy użyciu Azure Portal, narzędzi wiersza polecenia platformy Azure lub interfejsów API zarządzania platformy Azure.
-
->[!NOTE]
->Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Instrukcje dotyczące instalacji polecenia AZ module w hybrydowym procesie roboczym elementu Runbook znajdują się w temacie [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). W przypadku konta usługi Automation można zaktualizować moduły do najnowszej wersji przy użyciu [sposobu aktualizowania modułów Azure PowerShell w programie Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="roles-in-automation-accounts"></a>Role na kontach usługi Automation
 
@@ -32,7 +29,7 @@ W usłudze Azure Automation prawo dostępu jest nadawane poprzez przypisywanie u
 | Operator usługi |Rola operatora automatyzacji umożliwia wyświetlenie nazwy i właściwości elementu Runbook oraz tworzenie zadań i zarządzanie nimi dla wszystkich elementów Runbook w ramach konta usługi Automation. Ta rola jest przydatna, jeśli chcesz chronić zasoby konta usługi Automation, takie jak zasoby poświadczeń i elementy Runbook, które mają być przeglądane lub modyfikowane, ale nadal Zezwól członkom organizacji na wykonywanie tych elementów Runbook. |
 |Operator zadania automatyzacji|Rola operatora zadań automatyzacji umożliwia tworzenie zadań dla wszystkich elementów Runbook w ramach konta usługi Automation i zarządzanie nimi.|
 |Operator elementu Runbook usługi Automation|Rola operatora elementu Runbook usługi Automation umożliwia wyświetlenie nazwy i właściwości elementu Runbook.|
-| Współautor usługi Log Analytics | Rola współautor Log Analytics umożliwia odczytywanie wszystkich danych monitorowania i edytowanie ustawień monitorowania. Edytowanie ustawień monitorowania obejmuje dodanie rozszerzenia maszyny wirtualnej do maszyn wirtualnych, przeczytanie kluczy konta magazynu w celu skonfigurowania kolekcji dzienników z usługi Azure Storage, tworzenia i konfigurowania kont usługi Automation, dodawania rozwiązań i konfigurowania diagnostyki platformy Azure dla wszystkich zasobów platformy Azure.|
+| Współautor usługi Log Analytics | Rola współautor Log Analytics umożliwia odczytywanie wszystkich danych monitorowania i edytowanie ustawień monitorowania. Edytowanie ustawień monitorowania obejmuje dodanie rozszerzenia maszyny wirtualnej do maszyn wirtualnych, przeczytanie kluczy konta magazynu w celu skonfigurowania kolekcji dzienników z usługi Azure Storage, tworzenia i konfigurowania kont usługi Automation, dodawania funkcji Azure Automation i konfigurowania diagnostyki platformy Azure dla wszystkich zasobów platformy Azure.|
 | Czytelnik usługi Log Analytics | Rola czytelnik Log Analytics umożliwia wyświetlanie i przeszukiwanie wszystkich danych monitorowania oraz Wyświetlanie ustawień monitorowania. Obejmuje to wyświetlanie konfiguracji diagnostyki platformy Azure dla wszystkich zasobów platformy Azure. |
 | Współautor monitorowania | Rola współautor monitorowania umożliwia odczytywanie wszystkich danych monitorowania i aktualizowanie ustawień monitorowania.|
 | Czytnik monitorowania | Rola czytelnik monitorowania umożliwia odczytywanie wszystkich danych monitorowania. |
@@ -130,7 +127,7 @@ Rola operatora elementu Runbook usługi Automation jest przyznawana w zakresie e
 
 ### <a name="log-analytics-contributor"></a>Współautor usługi Log Analytics
 
-Współautor Log Analytics może odczytywać wszystkie dane monitorowania i edytować ustawienia monitorowania. Edytowanie ustawień monitorowania obejmuje dodanie rozszerzenia maszyny wirtualnej do maszyn wirtualnych; Odczytywanie kluczy konta magazynu w celu skonfigurowania kolekcji dzienników z usługi Azure Storage; Tworzenie i Konfigurowanie kont usługi Automation; Dodawanie rozwiązań; i Konfigurowanie diagnostyki platformy Azure dla wszystkich zasobów platformy Azure. W poniższej tabeli przedstawiono uprawnienia przyznane dla roli:
+Współautor Log Analytics może odczytywać wszystkie dane monitorowania i edytować ustawienia monitorowania. Edytowanie ustawień monitorowania obejmuje dodanie rozszerzenia maszyny wirtualnej do maszyn wirtualnych; Odczytywanie kluczy konta magazynu w celu skonfigurowania kolekcji dzienników z usługi Azure Storage; Tworzenie i Konfigurowanie kont usługi Automation; Dodawanie funkcji; i Konfigurowanie diagnostyki platformy Azure dla wszystkich zasobów platformy Azure. W poniższej tabeli przedstawiono uprawnienia przyznane dla roli:
 
 |**Akcje**  |**Opis**  |
 |---------|---------|
@@ -142,7 +139,7 @@ Współautor Log Analytics może odczytywać wszystkie dane monitorowania i edyt
 |Microsoft. Insights/alertRules/*|Odczyt/zapis/usuwanie reguł alertów.|
 |Microsoft. Insights/diagnosticSettings/*|Odczyt/zapis/usuwanie ustawień diagnostycznych.|
 |Microsoft. OperationalInsights/*|Zarządzaj dziennikami Azure Monitor.|
-|Microsoft. OperationsManagement/*|Zarządzanie rozwiązaniami w obszarach roboczych.|
+|Microsoft. OperationsManagement/*|Zarządzaj funkcjami Azure Automation w obszarach roboczych.|
 |Microsoft. resources/Deployments/*|Tworzenie wdrożeń grup zasobów i zarządzanie nimi.|
 |Microsoft. resources/subscriptions/ResourceGroups/Deployments/*|Tworzenie wdrożeń grup zasobów i zarządzanie nimi.|
 |Microsoft. Storage/storageAccounts/listKeys/akcja|Wyświetl listę kluczy konta magazynu.|
@@ -207,11 +204,11 @@ Administrator dostępu użytkowników może zarządzać dostępem użytkowników
 |Microsoft. Authorization/*|Zarządzanie autoryzacją|
 |Microsoft. Support/*|Tworzenie biletów pomocy technicznej i zarządzanie nimi|
 
-## <a name="onboarding-permissions"></a>Uprawnienia do dołączania
+## <a name="feature-setup-permissions"></a>Uprawnienia do konfigurowania funkcji
 
-W poniższych sekcjach opisano minimalne wymagane uprawnienia wymagane do dołączania maszyn wirtualnych na potrzeby śledzenia zmian lub rozwiązania do zarządzania aktualizacjami.
+W poniższych sekcjach opisano minimalne wymagane uprawnienia wymagane do włączenia funkcji Update Management i Change Tracking i spisu.
 
-### <a name="permissions-for-onboarding-from-a-vm"></a>Uprawnienia do dołączania z maszyny wirtualnej
+### <a name="permissions-for-enabling-update-management-and-change-tracking-and-inventory-from-a-vm"></a>Uprawnienia do włączania Update Management i Change Tracking i spisu z maszyny wirtualnej
 
 |**Akcja**  |**Uprawnienie**  |**Zakres minimalny**  |
 |---------|---------|---------|
@@ -231,9 +228,9 @@ W poniższych sekcjach opisano minimalne wymagane uprawnienia wymagane do dołą
 | Sprawdzanie obszaru roboczego dołączania dla maszyny wirtualnej<sup>1</sup>       | Microsoft. OperationalInsights/obszary robocze/odczyt         | Subskrypcja         |
 | Rejestrowanie dostawcy Log Analytics |Microsoft. Insights/Register/Action | Subskrypcja|
 
-<sup>1</sup> to uprawnienie jest konieczne do dołączania do środowiska portalu maszyn wirtualnych.
+<sup>1</sup> to uprawnienie jest konieczne do włączenia funkcji w ramach środowiska portalu maszyn wirtualnych.
 
-### <a name="permissions-for-onboarding-from-automation-account"></a>Uprawnienia do dołączania z konta usługi Automation
+### <a name="permissions-for-enabling-update-management-and-change-tracking-and-inventory-from-an-automation-account"></a>Uprawnienia do włączania Update Management i Change Tracking i spisu na podstawie konta usługi Automation
 
 |**Akcja**  |**Uprawnienie** |**Zakres minimalny**  |
 |---------|---------|---------|
@@ -248,7 +245,7 @@ W poniższych sekcjach opisano minimalne wymagane uprawnienia wymagane do dołą
 |Utwórz/Edytuj zapisane wyszukiwanie     | Microsoft. OperationalInsights/obszary robocze/zapis        | Workspace        |
 |Utwórz/edytuj konfigurację zakresu     | Microsoft. OperationalInsights/obszary robocze/zapis        | Workspace        |
 | Rejestrowanie dostawcy Log Analytics |Microsoft. Insights/Register/Action | Subskrypcja|
-|**Krok 2 — dołączanie wielu maszyn wirtualnych**     |         |         |
+|**Krok 2 — Włączanie wielu maszyn wirtualnych**     |         |         |
 |Blok VMOnboarding — tworzenie rozszerzenia MMA     | Microsoft. COMPUTE/virtualMachines/Write           | Maszyna wirtualna        |
 |Utwórz/Edytuj zapisane wyszukiwanie     | Microsoft. OperationalInsights/obszary robocze/zapis           | Workspace        |
 |Utwórz/edytuj konfigurację zakresu  | Microsoft. OperationalInsights/obszary robocze/zapis   | Workspace|
@@ -314,7 +311,7 @@ Możesz usunąć uprawnienie dostępu dla użytkownika, który nie zarządza kon
 
 Możesz również skonfigurować dostęp oparty na rolach do konta usługi Automation przy użyciu następujących [poleceń cmdlet Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
-[Get-AzRoleDefinition](https://docs.microsoft.com/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0) wyświetla wszystkie role RBAC, które są dostępne w Azure Active Directory. Tego polecenia cmdlet można użyć z parametrem, `Name` aby wyświetlić listę wszystkich akcji, które może wykonać określona rola.
+[Get-AzRoleDefinition](https://docs.microsoft.com/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0) wyświetla wszystkie role RBAC, które są dostępne w Azure Active Directory. Tego polecenia cmdlet można użyć z `Name` parametrem, aby wyświetlić listę wszystkich akcji, które może wykonać określona rola.
 
 ```azurepowershell-interactive
 Get-AzRoleDefinition -Name 'Automation Operator'
@@ -385,7 +382,7 @@ Użyj polecenie [Remove-AzRoleAssignment](https://docs.microsoft.com/powershell/
 Remove-AzRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName 'Automation Operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
 ```
 
-W powyższym przykładzie `sign-in ID of a user you wish to remove`Zastąp `SubscriptionID`elementy `Resource Group Name`,, `Automation account name` i ze szczegółami Twojego konta. Wybierz opcję **tak** , gdy zostanie wyświetlony monit o potwierdzenie przed kontynuowaniem usuwania przypisań roli użytkownika.
+W powyższym przykładzie Zastąp `sign-in ID of a user you wish to remove` elementy,, `SubscriptionID` `Resource Group Name` i `Automation account name` ze szczegółami Twojego konta. Wybierz opcję **tak** , gdy zostanie wyświetlony monit o potwierdzenie przed kontynuowaniem usuwania przypisań roli użytkownika.
 
 ### <a name="user-experience-for-automation-operator-role---automation-account"></a>Środowisko użytkownika dla roli operatora automatyzacji — konto usługi Automation
 
@@ -428,6 +425,6 @@ Gdy użytkownik przypisany do roli operatora usługi w zakresie elementu Runbook
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać informacje na temat sposobów konfigurowania RBAC dla Azure Automation, zobacz [Zarządzanie RBAC z Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
-* Aby uzyskać szczegółowe informacje na temat sposobów uruchamiania elementu Runbook, zobacz [Uruchamianie elementu Runbook](automation-starting-a-runbook.md).
-* Aby uzyskać informacje na temat typów elementów Runbook, zobacz [Azure Automation typów elementów Runbook](automation-runbook-types.md).
+* [Zarządzanie RBAC przy użyciu Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
+* [Uruchamianie elementu runbook w usłudze Azure Automation](start-runbooks.md)
+* [Azure Automation typy elementów Runbook](automation-runbook-types.md)

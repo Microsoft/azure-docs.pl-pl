@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 3b3733dfc32dae21ddcf4c5f73cddf9ad6b7fc59
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2bab7b101b5461d854bb2db509b5cb243012a592
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80334069"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746021"
 ---
 # <a name="localization-support-in-azure-maps"></a>Obsługa lokalizacji w Azure Maps
 
@@ -35,12 +35,12 @@ Azure Maps zostały zlokalizowane w różnych językach w ramach usług. W poni�
 | EU-ES      | Baskijski                 |       |    ✓   |         |         |                   |                |
 | bg-BG      | Bułgarski              |   ✓   |    ✓   |    ✓    |     ✓     |                   |        ✓       |
 | ca-ES      | Kataloński                |       |    ✓   |         |    ✓      |                   |                |
-| zh-HanS    | Chiński uproszczony   |       |  zh-CN |         |     zh-CN   |                   |                |
+| zh-HanS    | Chiński (uproszczony)   |       |  zh-CN |         |     zh-CN   |                   |                |
 | zh-HanT    | Chiński (Hongkong SAR)  |  |   |    |    zh-HK   |                   |           |
 | zh-HanT    | Chiński (Tajwan)  | zh-TW |  zh-TW |  zh-TW  |    zh-TW   |                   |      zh-TW     |
 | hr-HR      | Chorwacki               |       |    ✓   |         |    ✓      |                   |                |
 | cs-CZ      | Czeski                  |   ✓   |    ✓   |    ✓    |    ✓      |         ✓         |        ✓       |
-| da-DK      | duński                 |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
+| da-DK      | Duński                 |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
 | NL-to      | Holenderski (Belgia)        |       |    ✓   |         |      ✓    |                   |                |
 | nl-NL      | Niderlandzki (Holandia)    |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
 | en-AU      | Angielski (Australia)    |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
@@ -49,23 +49,23 @@ Azure Maps zostały zlokalizowane w różnych językach w ramach usług. W poni�
 | pl-PL      | Angielski (USA)          |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
 | et-EE      | Estoński               |       |    ✓   |         |      ✓    |         ✓         |                |
 | PLI — PH     | Filipino               |       |       |         |     ✓    |                   |                |
-| fi-FI      | fiński                |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
+| fi-FI      | Fiński                |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
 | fr-FR      | Francuski                 |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
 | fr — CA      | francuski (Kanada)      |       |    ✓   |         |     ✓     |                   |                |
 | gl-ES      | Galicyjski               |       |    ✓   |         |         |                   |                |
-| de-DE      | niemiecki                 |   ✓   |    ✓   |    ✓    |   ✓      |         ✓         |        ✓       |
-| el-GR      | grecki                  |   ✓   |    ✓   |    ✓    |    ✓     |         ✓         |        ✓       |
+| de-DE      | Niemiecki                 |   ✓   |    ✓   |    ✓    |   ✓      |         ✓         |        ✓       |
+| el-GR      | Grecki                  |   ✓   |    ✓   |    ✓    |    ✓     |         ✓         |        ✓       |
 | gu      | Gudżarati                |       |       |         |     ✓    |                   |                |
 | he-IL      | Hebrajski                 |       |    ✓   |         |     ✓    |         ✓         |                |
 | hi-IN      | Hindi                  |       |        |         |     ✓    |                   |                |
-| hu-HU      | węgierski              |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
+| hu-HU      | Węgierski              |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
 | IS-IS      | Islandzki              |       |       |         |     ✓    |                   |                |
 | id-ID      | Indonezyjski             |   ✓   |    ✓    |    ✓    |     ✓    |         ✓         |        ✓       |
 | it-IT      | Włoski                |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
-| ja-JP      | japoński               |       |        |         |     ✓    |                   |                |
+| ja-JP      | Japoński               |       |        |         |     ✓    |                   |                |
 | kN-IN      | Kannada                |       |       |         |     ✓    |                   |                |
 | kk-KZ      | Kazachski                 |       |    ✓   |         |     ✓    |                   |                |
-| ko-KR      | koreański                 |   ✓   |        |    ✓    |     ✓    |                   |        ✓       |
+| ko-KR      | Koreański                 |   ✓   |        |    ✓    |     ✓    |                   |        ✓       |
 | ES — 419     | Łaciński (Ameryka Łacińska) |       |    ✓   |         |         |                   |                |
 | lv-LV      | Łotewski                |       |    ✓   |         |     ✓    |         ✓         |                |
 | lt-LT      | Litewski             |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
@@ -76,7 +76,7 @@ Azure Maps zostały zlokalizowane w różnych językach w ramach usług. W poni�
 | NGT        | Neutralne Języki w języku prawdy dla wszystkich regionów w lokalnych skryptach, jeśli są dostępne |   ✓     |        |         |       |        |      ✓          |
 | NGT — Latn   | Neutralna obudowa prawdy-łacińskiego exonyms. Skrypt łaciński zostanie użyty, jeśli jest dostępny |   ✓     |        |         |         |                |        ✓         |
 | pl-PL      | Polski                 |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
-| pt-BR      | portugalski (Brazylia)    |   ✓   |    ✓   |    ✓    |      ✓   |                   |        ✓       |
+| pt-BR      | Portugalski (Brazylia)    |   ✓   |    ✓   |    ✓    |      ✓   |                   |        ✓       |
 | pt-PT      | Portugalski (Portugalia)  |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
 | PA-IN      | Pendżabski                 |       |       |         |     ✓    |                   |                |
 | ro-RO      | Rumuński               |       |    ✓    |         |     ✓    |         ✓         |                |
@@ -87,10 +87,10 @@ Azure Maps zostały zlokalizowane w różnych językach w ramach usług. W poni�
 | SL — SL      | Słoweński              |   ✓   |    ✓   |    ✓    |     ✓    |                   |        ✓       |
 | es-ES      | Hiszpański                |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
 | es — MX      | Hiszpański (Meksyk)       |   ✓   |        |    ✓    |     ✓    |                   |        ✓       |
-| sv-SE      | szwedzki                |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
+| sv-SE      | Szwedzki                |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
 | Ta — w      | Tamilski (Indie)                 |       |       |         |     ✓    |                   |                |
 | te — IN      | Telugu (Indie)                 |       |       |         |     ✓    |                   |                |
-| th-TH      | Tajski                   |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
+| th-TH      | Tajlandzki                   |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
 | tr-TR      | Turecki                |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
 | uk-UA      | Ukraiński               |       |    ✓   |         |     ✓    |                   |                |
 | Twoje — klucz podstawowy      | Urdu                 |       |       |         |     ✓    |                   |                |
@@ -142,7 +142,7 @@ Upewnij się, że parametr **View** jest skonfigurowany jako wymagany dla interf
 >    * Azure Maps Web SDK
 >    * Azure Maps Android SDK
 
-Domyślnie parametr widoku jest ustawiany na **zunifikowany**, nawet jeśli nie został zdefiniowany w żądaniu. Określ lokalizację użytkowników. Następnie ustaw parametr **widoku** poprawnie dla tej lokalizacji. Alternatywnie można ustawić wartość "View = Auto", która zwróci dane mapy na podstawie adresu IP żądania.  Parametr **widoku** w Azure Maps musi być używany zgodnie z obowiązującymi przepisami, łącznie z tymi prawami dotyczącymi mapowania kraju, w którym są udostępniane mapy, obrazy i inne dane oraz zawartość innych firm, do których użytkownik jest uprawniony do dostępu za pośrednictwem Azure Maps.
+Domyślnie parametr widoku jest ustawiany na **zunifikowany**, nawet jeśli nie został zdefiniowany w żądaniu. Określ lokalizację użytkowników. Następnie ustaw parametr **widoku** poprawnie dla tej lokalizacji. Alternatywnie można ustawić wartość "View = Auto", która zwróci dane mapy na podstawie adresu IP żądania.  Parametr **widoku** w Azure Maps musi być używany zgodnie z obowiązującymi przepisami, łącznie z tymi prawami dotyczącymi mapowania kraju/regionu, w którym mapy, obrazy i inne dane oraz zawartość innych firm, do których masz uprawnienia dostępu za pośrednictwem Azure Maps są udostępniane.
 
 
 W poniższej tabeli przedstawiono obsługiwane widoki.

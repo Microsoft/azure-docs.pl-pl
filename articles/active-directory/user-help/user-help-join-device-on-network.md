@@ -8,16 +8,16 @@ ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 08/03/2018
 ms.author: curtand
 ms.reviewer: jairoc
-ms.openlocfilehash: 0ff8b85a15d94ded2d702e0df247f9ebc4d3f923
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6c93f34068cd296cb2d3a59f208fa644cdbf2260
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79266314"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745730"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Przyłącz urządzenie służbowe do sieci organizacji
 Dołącz do sieci swojej organizacji swoje urządzenie z systemem Windows 10, aby uzyskać dostęp do zasobów, które mogą być ograniczone.
@@ -61,7 +61,7 @@ Możesz upewnić się, że są one przyłączone do Twoich ustawień.
 
     ![Konta na ekranie Ustawienia](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Wybierz pozycję **uzyskaj dostęp do**zasobów służbowych i upewnij się, że zobaczysz tekst, który jest podobny **do * \<your_organization>* usługi Azure AD**.
+2. Wybierz pozycję **uzyskaj dostęp do**zasobów służbowych i upewnij się, że zobaczysz tekst, który jest podobny **do * \< your_organization>* usługi Azure AD**.
 
     ![Uzyskaj dostęp do ekranu służbowego z podłączonym kontem contoso](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
@@ -79,7 +79,7 @@ Jeśli urządzenie zostało już przez pewien czas skonfigurowane, możesz wykon
 
     ![Konfigurowanie ekranu konta służbowego](./media/user-help-join-device-on-network/join-device-setup-join-aad.png)
 
-4. Na ekranie **Zaloguj się,** wpisz swój adres e-mail (na przykład alain@contoso.com), a następnie wybierz przycisk **dalej**.
+4. Na ekranie **Zaloguj się,** wpisz swój adres e-mail (na przykład alain@contoso.com ), a następnie wybierz przycisk **dalej**.
 
     ![Zaloguj się na ekranie](./media/user-help-join-device-on-network/join-device-setup-get-signed-in.png)
 
@@ -106,7 +106,7 @@ Możesz upewnić się, że są one przyłączone do Twoich ustawień.
 
     ![Konta na ekranie Ustawienia](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Wybierz pozycję **uzyskaj dostęp do**zasobów służbowych i upewnij się, że zobaczysz tekst, który jest podobny **do * \<your_organization>* usługi Azure AD**.
+2. Wybierz pozycję **uzyskaj dostęp do**zasobów służbowych i upewnij się, że zobaczysz tekst, który jest podobny **do * \< your_organization>* usługi Azure AD**.
 
     ![Uzyskaj dostęp do ekranu służbowego z podłączonym kontem contoso](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 

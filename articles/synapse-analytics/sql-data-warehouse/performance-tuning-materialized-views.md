@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: e5973ed505a43ca56a0f11e3603e05eeed0952fd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 7a54d1d644d1069957db7f94d6f5e261e1a8dfb2
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657754"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747547"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Strojenie wydajności za pomocą zmaterializowanych widoków
 
@@ -37,7 +37,7 @@ Większość wymagań dotyczących widoku standardowego nadal stosuje się do wi
 |Wyświetlanie zawartości                    | Generowane za każdym razem, gdy widok jest używany.   | Wstępnie przetworzony i przechowywany w puli SQL podczas tworzenia widoku. Zaktualizowano w miarę dodawania danych do tabel bazowych.
 |Odświeżanie danych                    | Zawsze aktualizowane                               | Zawsze aktualizowane
 |Szybkość pobierania danych widoku z złożonych zapytań     | Opóźnienie                                         | Fast  
-|Dodatkowy magazyn                   | Nie                                           | Yes
+|Dodatkowy magazyn                   | Nie                                           | Tak
 |Składnia                          | UTWÓRZ WIDOK                                  | UTWÓRZ WIDOK Z MATERIAŁAMI JAKO WYBRANY
 
 ## <a name="benefits-of-using-materialized-views"></a>Zalety korzystania z widoków z materiałami
@@ -115,7 +115,7 @@ Opcje zmniejszania liczby widoków z materiałami:
 
 - Porzuć widoki z materiałami, które mają niskie użycie lub nie są już potrzebne.  Wyłączony widok materiałowy nie jest obsługiwany, ale nadal wiąże się z nim koszt magazynu.  
 
-- Połącz widoki z materiałami utworzone w tej samej lub podobnej tabeli podstawowej nawet wtedy, gdy ich dane nie nakładają się na siebie.  Łączenie widoków z materiałami może skutkować większym widokiem w rozmiarze niż suma oddzielnych widoków, ale koszt konserwacji widoku powinien zostać zredukowany.  Na przykład:
+- Połącz widoki z materiałami utworzone w tej samej lub podobnej tabeli podstawowej nawet wtedy, gdy ich dane nie nakładają się na siebie.  Łączenie widoków z materiałami może skutkować większym widokiem w rozmiarze niż suma oddzielnych widoków, ale koszt konserwacji widoku powinien zostać zredukowany.  Przykład:
 
 ```sql
 
@@ -159,7 +159,7 @@ Widoki z materiałami umożliwiają wprowadzanie zmian w tabelach podstawowych. 
 
 ## <a name="example"></a>Przykład
 
-W tym przykładzie używamy zapytania przypominającego TPCDS, które umożliwia znalezienie klientów, którzy spędzają więcej pieniędzy za pośrednictwem wykazu niż w sklepach, zidentyfikuj preferowanych klientów i ich kraj pochodzenia.   Zapytanie obejmuje wybranie pierwszych 100 rekordów z Unii trzech instrukcji SELECT sub obejmujących SUM () i GROUP BY.
+W tym przykładzie używamy zapytania przypominającego TPCDS, które umożliwia znalezienie klientów, którzy spędzają więcej pieniędzy za pośrednictwem wykazu niż w sklepach, zidentyfikuj preferowanych klientów i ich kraj/region pochodzenia.   Zapytanie obejmuje wybranie pierwszych 100 rekordów z Unii trzech instrukcji SELECT sub obejmujących SUM () i GROUP BY.
 
 ```sql
 WITH year_total AS (

@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: 5ceefb076b63df942cfff202946f6b82050bbab9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a0e930116447ded51616651751bba7482b638ca1
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81311941"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745497"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>Generowanie certyfikatu z podpisem własnym na platformie Azure Application Gateway przy użyciu niestandardowego głównego urzędu certyfikacji
 
@@ -67,7 +67,7 @@ Utwórz certyfikat głównego urzędu certyfikacji za pomocą OpenSSL.
    ```
    Poprzednie polecenia tworzą certyfikat główny. Ta funkcja zostanie użyta do podpisania certyfikatu serwera.
 
-1. Po wyświetleniu monitu wpisz hasło klucza głównego oraz informacje o organizacji dla niestandardowego urzędu certyfikacji, takie jak kraj, stan, organizacja, jednostka organizacyjna i w pełni kwalifikowana nazwa domeny (jest to domena wystawcy).
+1. Po wyświetleniu monitu wpisz hasło klucza głównego oraz informacje o organizacji dla niestandardowego urzędu certyfikacji, takie jak kraj/region, stan, organizacja, jednostka organizacyjna i w pełni kwalifikowana nazwa domeny (jest to domena wystawcy).
 
    ![Utwórz certyfikat główny](media/self-signed-certificates/root-cert.png)
 
@@ -88,7 +88,7 @@ Użyj następującego polecenia, aby wygenerować klucz dla certyfikatu serwera.
 CSR jest kluczem publicznym przyznanym do urzędu certyfikacji podczas żądania certyfikatu. Urząd certyfikacji wystawia certyfikat dla tego konkretnego żądania.
 
 > [!NOTE]
-> Nazwa POSPOLITa dla certyfikatu serwera musi być różna od domeny wystawcy. Na przykład w tym przypadku CN dla wystawcy jest `www.contoso.com` i CN certyfikatu serwera. `www.fabrikam.com`
+> Nazwa POSPOLITa dla certyfikatu serwera musi być różna od domeny wystawcy. Na przykład w tym przypadku CN dla wystawcy jest `www.contoso.com` i CN certyfikatu serwera `www.fabrikam.com` .
 
 
 1. Użyj następującego polecenia, aby wygenerować CSR:
@@ -97,7 +97,7 @@ CSR jest kluczem publicznym przyznanym do urzędu certyfikacji podczas żądania
    openssl req -new -sha256 -key fabrikam.key -out fabrikam.csr
    ```
 
-1. Po wyświetleniu monitu wpisz hasło klucza głównego oraz informacje o organizacji dla niestandardowego urzędu certyfikacji: kraj, stan, organizacja, jednostka organizacyjna i w pełni kwalifikowana nazwa domeny. Jest to domena witryny sieci Web i powinna być różna od wystawcy.
+1. Po wyświetleniu monitu wpisz hasło klucza głównego oraz informacje o organizacji dla niestandardowego urzędu certyfikacji: kraj/region, stan, organizacja, jednostka organizacyjna i w pełni kwalifikowana nazwa domeny. Jest to domena witryny sieci Web i powinna być różna od wystawcy.
 
    ![Certyfikat serwera](media/self-signed-certificates/server-cert.png)
 

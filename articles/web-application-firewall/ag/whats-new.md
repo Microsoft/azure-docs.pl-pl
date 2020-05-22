@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: overview
 ms.date: 10/24/2019
 ms.author: victorh
-ms.openlocfilehash: 0e0e67bfb893e1bf141182e45ce4a49f5f6880ca
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 11212c931e38b1c6319c7c3554155d9d17a1080c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73502247"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745146"
 ---
 # <a name="whats-new-in-azure-web-application-firewall"></a>Co nowego w zaporze aplikacji sieci Web platformy Azure?
 
@@ -25,13 +25,13 @@ Zapora aplikacji sieci Web platformy Azure jest regularnie aktualizowana. Aby za
 
 ## <a name="new-features"></a>Nowe funkcje
 
-|Funkcja  |Opis  |Data dodania  |
+|Cecha  |Opis  |Data dodania  |
 |---------|---------|---------|
 |Zestaw reguł łagodzenia bot (wersja zapoznawcza)|Zestaw reguł łagodzenia bot można włączyć wraz z zestawem reguł programu KSR. | Listopad 2019 r. |
-|Integracja z GeoDB (wersja zapoznawcza)|Teraz można tworzyć reguły niestandardowe ograniczające ruch według kraju pochodzenia. | Listopad 2019 r. |
+|Integracja z GeoDB (wersja zapoznawcza)|Teraz można tworzyć reguły niestandardowe ograniczające ruch według kraju/regionu pochodzenia. | Listopad 2019 r. |
 |Zasady WAF dla poszczególnych witryn/identyfikatorów URI (wersja zapoznawcza)|WAF-v2 obsługuje teraz stosowanie zasad do odbiorników, a także reguł opartych na ścieżkach. Zobacz [Tworzenie zasad WAFymi](create-waf-policy-ag.md). | Listopad 2019 r. |
 |Reguły niestandardowe zapory aplikacji internetowej |Application Gateway WAF_v2 obsługuje teraz Tworzenie reguł niestandardowych. Zobacz [Application Gateway reguł niestandardowych](custom-waf-rules-overview.md). |Czerwiec 2019 r. |
-|WAF konfiguracja i lista wykluczeń     |Dodaliśmy więcej opcji, które ułatwiają konfigurowanie WAF i zmniejszanie fałszywych wyników pozytywnych. Aby uzyskać więcej informacji [, zobacz limity rozmiaru żądań zapory aplikacji sieci Web i listy wykluczeń](application-gateway-waf-configuration.md) .|Grudzień 2018 r.|
+|WAF konfiguracja i lista wykluczeń     |Dodaliśmy więcej opcji, które ułatwiają konfigurowanie WAF i zmniejszanie fałszywych wyników pozytywnych. Aby uzyskać więcej informacji [, zobacz limity rozmiaru żądań zapory aplikacji sieci Web i listy wykluczeń](application-gateway-waf-configuration.md) .|Grudzień 2018|
 
 ## <a name="next-steps"></a>Następne kroki
 

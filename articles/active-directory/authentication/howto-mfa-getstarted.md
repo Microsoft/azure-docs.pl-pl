@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 845a202faccbbe0a604560ac57ae30f87344b95a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 15d519e1cede27b3626d715c48790af620589e43
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81451129"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757608"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Planowanie wdrożenia usługi Azure Multi-Factor Authentication
 
@@ -35,7 +35,7 @@ Aby szybko zapoznać się z usługą Azure Multi-Factor Authentication w działa
 
 Przed rozpoczęciem wdrażania usługi Azure Multi-Factor Authentication istnieją wstępnie wymagane elementy, które należy wziąć pod uwagę.
 
-| Scenariusz | Wymagania wstępne |
+| Scenariusz | Wymaganie wstępne |
 | --- | --- |
 | Środowisko tożsamości **tylko w chmurze** z nowoczesnego uwierzytelniania | **Brak dodatkowych zadań wymaganych wstępnie** |
 | Scenariusze tożsamości **hybrydowej** | Wdrożono [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) i tożsamości użytkowników są synchronizowane lub federacyjne z Active Directory Domain Services lokalnymi z Azure Active Directory. |
@@ -51,11 +51,11 @@ Plan wdrożenia usługi MFA powinien obejmować wdrożenie pilotażowe, a nastę
 
 Ważne jest, aby informować użytkowników, w planowaną komunikację, o nadchodzących zmianach, wymaganiach dotyczących rejestracji w usłudze Azure MFA oraz o wszelkich niezbędnych akcjach użytkownika. Zalecamy komunikację z przedstawicielami firmy w organizacji, takimi jak komunikacja, zarządzanie zmianami lub działy kadr.
 
-Firma Microsoft udostępnia [Szablony komunikacji](https://aka.ms/mfatemplates) i [dokumentację użytkowników końcowych](../user-help/security-info-setup-signin.md) , co ułatwia przygotowanie komunikacji. Możesz wysyłać użytkowników [https://myprofile.microsoft.com](https://myprofile.microsoft.com) do rejestracji bezpośrednio, wybierając linki do **informacji zabezpieczających** na tej stronie.
+Firma Microsoft udostępnia [Szablony komunikacji](https://aka.ms/mfatemplates) i [dokumentację użytkowników końcowych](../user-help/security-info-setup-signin.md) , co ułatwia przygotowanie komunikacji. Możesz wysyłać użytkowników do [https://myprofile.microsoft.com](https://myprofile.microsoft.com) rejestracji bezpośrednio, wybierając linki do **informacji zabezpieczających** na tej stronie.
 
 ## <a name="deployment-considerations"></a>Zagadnienia dotyczące wdrażania
 
-Uwierzytelnianie wieloskładnikowe systemu Azure jest wdrażane przez wymuszanie zasad z dostępem warunkowym. [Zasady dostępu warunkowego](../conditional-access/overview.md) mogą wymagać od użytkowników przeprowadzenia uwierzytelniania wieloskładnikowego w przypadku spełnienia określonych kryteriów, takich jak:
+Uwierzytelnianie wieloskładnikowe systemu Azure jest wdrażane przez wymuszanie zasad z dostępem warunkowym. Zasady dostępu warunkowego mogą wymagać od użytkowników przeprowadzenia uwierzytelniania wieloskładnikowego w przypadku spełnienia określonych kryteriów, takich jak:
 
 * Wszyscy użytkownicy, określony użytkownik, członek grupy lub przypisana rola
 * Dostęp do określonej aplikacji w chmurze
@@ -114,7 +114,7 @@ Administratorzy mogą wybrać [metody uwierzytelniania](../authentication/concep
 Powiadomienie wypychane jest wysyłane do aplikacji Microsoft Authenticator na urządzeniu przenośnym. Użytkownik wyświetli powiadomienie i wybierze opcję **Zatwierdź** , aby ukończyć weryfikację. Powiadomienia wypychane za pomocą aplikacji mobilnej zapewniają najmniej niepożądane opcje dla użytkowników. Są one również najbardziej niezawodną i bezpieczną opcją, ponieważ korzystają z połączenia danych, a nie z telefonem.
 
 > [!NOTE]
-> Jeśli Twoja organizacja ma pracowników pracujących w trakcie lub podróży z Chin, **powiadomienie za pomocą metody aplikacji mobilnej** na **urządzeniach z systemem Android** nie działa w tym kraju. Dla tych użytkowników należy udostępnić alternatywne metody.
+> Jeśli Twoja organizacja ma pracę w podróży lub podróżuje z Chinami, **powiadomienie za pomocą metody aplikacji mobilnej** na **urządzeniach z systemem Android** nie działa w tym kraju/regionie. Dla tych użytkowników należy udostępnić alternatywne metody.
 
 ### <a name="verification-code-from-mobile-app"></a>Kod weryfikacyjny z aplikacji mobilnej
 
@@ -221,14 +221,14 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 
 ## <a name="plan-conditional-access-policies"></a>Planowanie zasad dostępu warunkowego
 
-Aby zaplanować strategię zasad dostępu warunkowego, która określi, kiedy są wymagane usługi MFA i inne kontrolki, zobacz [temat co to jest dostęp warunkowy w Azure Active Directory?](../conditional-access/overview.md).
+Aby zaplanować strategię zasad dostępu warunkowego, która określi, kiedy są wymagane usługi MFA i inne kontrolki, zapoznaj się ze [wspólnymi zasadami dostępu warunkowego](../conditional-access/concept-conditional-access-policy-common.md).
 
 Ważne jest, aby zapobiec przypadkowemu zablokowaniu dzierżawy usługi Azure AD. Można ograniczyć wpływ tego nieumyślnego braku dostępu administracyjnego przez [utworzenie dwóch lub więcej kont dostępu awaryjnego w dzierżawie](../users-groups-roles/directory-emergency-access.md) i wykluczenie ich z zasad dostępu warunkowego.
 
 ### <a name="create-conditional-access-policy"></a>Tworzenie zasad dostępu warunkowego
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta administratora globalnego.
-1. Przejdź do **Azure Active Directory** > **Security** > **dostępu warunkowego**zabezpieczeń.
+1. Przejdź do **Azure Active Directory**  >  **Security**  >  **dostępu warunkowego**zabezpieczeń.
 1. Wybierz pozycję **nowe zasady**.
    ![Tworzenie zasad dostępu warunkowego w celu włączenia uwierzytelniania wieloskładnikowego dla użytkowników Azure Portal w grupie pilotażowej](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 1. Podaj opisową nazwę zasad.
@@ -282,9 +282,9 @@ Jeśli masz już wdrożone wystąpienie usługi NPS i używasz go, wybierz opcj�
 
 #### <a name="prepare-nps-for-users-that-arent-enrolled-for-mfa"></a>Przygotuj serwer zasad sieciowych dla użytkowników, którzy nie są zarejestrowani na potrzeby uwierzytelniania wieloskładnikowego
 
-Wybierz, co się stanie, gdy użytkownicy, którzy nie są zarejestrowani przy użyciu usługi MFA, spróbują przeprowadzić uwierzytelnianie. Aby kontrolować zachowanie funkcji `REQUIRE_USER_MATCH` , użyj ustawienia rejestru `HKLM\Software\Microsoft\AzureMFA` w ścieżce rejestru. To ustawienie ma jedną opcję konfiguracji.
+Wybierz, co się stanie, gdy użytkownicy, którzy nie są zarejestrowani przy użyciu usługi MFA, spróbują przeprowadzić uwierzytelnianie. Aby kontrolować zachowanie funkcji, użyj ustawienia rejestru `REQUIRE_USER_MATCH` w ścieżce rejestru `HKLM\Software\Microsoft\AzureMFA` . To ustawienie ma jedną opcję konfiguracji.
 
-| Key | Wartość | Domyślny |
+| Klucz | Wartość | Domyślne |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | PRAWDA/FAŁSZ | Nie ustawiono (odpowiednik wartości TRUE) |
 
@@ -324,7 +324,7 @@ Na każdym serwerze AD FS, na komputerze lokalnym mój magazyn, zostanie wypisan
 
 Jeśli okres ważności certyfikatów zbliża się do wygaśnięcia, [Wygeneruj i Sprawdź nowy certyfikat usługi MFA na każdym serwerze AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa#configure-the-ad-fs-servers).
 
-Poniższe wskazówki zawierają szczegółowe informacje na temat zarządzania certyfikatami usługi Azure MFA na serwerach AD FS. W przypadku konfigurowania AD FS za pomocą usługi Azure MFA certyfikaty wygenerowane za `New-AdfsAzureMfaTenantCertificate` pośrednictwem polecenia cmdlet programu PowerShell są prawidłowe przez dwa lata. Odnów i zainstaluj odnowione certyfikaty przed wygaśnięciem, aby ovoid przerwy w działaniu usługi MFA.
+Poniższe wskazówki zawierają szczegółowe informacje na temat zarządzania certyfikatami usługi Azure MFA na serwerach AD FS. W przypadku konfigurowania AD FS za pomocą usługi Azure MFA certyfikaty wygenerowane za pośrednictwem `New-AdfsAzureMfaTenantCertificate` polecenia cmdlet programu PowerShell są prawidłowe przez dwa lata. Odnów i zainstaluj odnowione certyfikaty przed wygaśnięciem, aby ovoid przerwy w działaniu usługi MFA.
 
 ## <a name="implement-your-plan"></a>Implementowanie planu
 

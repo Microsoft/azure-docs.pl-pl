@@ -1,43 +1,43 @@
 ---
-title: Migrowanie wdrożeń aktualizacji pakietu OMS do platformy Azure
-description: W tym artykule opisano sposób migrowania istniejących wdrożeń aktualizacji pakietu OMS na platformę Azure
+title: Migruj Azure Monitor dzienniki aktualizacji do Azure Portal
+description: W tym artykule opisano sposób migrowania wdrożeń aktualizacji Azure Monitor dzienników do Azure Portal.
 services: automation
 ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 910f284eedbf50be5b58b6c18f02e50adda35e9a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9bd6a7ff943b5f3750ce8aaeada32010b88272c2
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81680006"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745624"
 ---
-# <a name="migrate-your-oms-update-deployments-to-azure"></a>Migrowanie wdrożeń aktualizacji pakietu OMS do platformy Azure
+# <a name="migrate-azure-monitor-logs-update-deployments-to-azure-portal"></a>Migruj Azure Monitor dzienniki aktualizacji do Azure Portal
 
 Portal pakietu Operations Management Suite (OMS) jest [przestarzały](../azure-monitor/platform/oms-portal-transition.md). Wszystkie funkcje dostępne w portalu pakietu OMS dla Update Management są dostępne w Azure Portal za pomocą dzienników Azure Monitor. Ten artykuł zawiera informacje potrzebne do migracji do Azure Portal.
 
 ## <a name="key-information"></a>Informacje o kluczu
 
-* Istniejące wdrożenia będą nadal działały. Po ponownym utworzeniu wdrożenia na platformie Azure można usunąć stare wdrożenie z pakietu OMS.
-* Wszystkie istniejące funkcje pakietu OMS są dostępne na platformie Azure, aby dowiedzieć się więcej na temat Update Management, zobacz [Update Management Omówienie](automation-update-management.md).
+* Istniejące wdrożenia będą nadal działały. Po ponownym utworzeniu wdrożenia na platformie Azure można usunąć stare wdrożenie.
+* Wszystkie istniejące funkcje pakietu OMS są dostępne na platformie Azure. Aby dowiedzieć się więcej na temat Update Management, zobacz [Omówienie usługi Update Management](automation-update-management.md).
 
 ## <a name="access-the-azure-portal"></a>Uzyskiwanie dostępu do witryny Azure Portal
 
-W obszarze roboczym pakietu OMS kliknij pozycję **Otwórz na platformie Azure**. Wybranie tej opcji spowoduje przejście do obszaru roboczego Log Analytics, którego używa pakiet OMS.
+1. W obszarze roboczym kliknij pozycję **Otwórz na platformie Azure**. 
 
-![Otwórz na platformie Azure — Portal pakietu OMS](media/migrate-oms-update-deployments/link-to-azure-portal.png)
+    ![Otwórz na platformie Azure — Log Analytics](media/migrate-oms-update-deployments/link-to-azure-portal.png)
 
-W Azure Portal kliknij pozycję **konto usługi Automation** .
+2. W Azure Portal kliknij pozycję **konto usługi Automation** .
 
-![Dzienniki usługi Azure Monitor](media/migrate-oms-update-deployments/log-analytics.png)
+    ![Dzienniki usługi Azure Monitor](media/migrate-oms-update-deployments/log-analytics.png)
 
-Na koncie usługi Automation kliknij **Update Management**.
+3. Na koncie usługi Automation kliknij **Update Management**.
 
-![Zarządzanie aktualizacjami](media/migrate-oms-update-deployments/azure-automation.png)
+    ![Zarządzanie aktualizacjami](media/migrate-oms-update-deployments/azure-automation.png)
 
-W Azure Portal wybierz pozycję **konta usługi Automation** w obszarze **wszystkie usługi**. 
+4. W Azure Portal wybierz pozycję **konta usługi Automation** w obszarze **wszystkie usługi**. 
 
-W obszarze **Narzędzia do zarządzania**wybierz odpowiednie konto usługi Automation, a następnie kliknij przycisk **Update Management**.
+5. W obszarze **Narzędzia do zarządzania**wybierz odpowiednie konto usługi Automation, a następnie kliknij przycisk **Update Management**.
 
 ## <a name="recreate-existing-deployments"></a>Utwórz ponownie istniejące wdrożenia
 
@@ -47,31 +47,31 @@ Wszystkie wdrożenia aktualizacji utworzone w portalu pakietu OMS mają [zapisan
 
 Aby użyć istniejącego zapisanego wyszukiwania, wykonaj następujące kroki:
 
-Aby utworzyć nowe wdrożenie aktualizacji, przejdź do Azure Portal, wybierz konto usługi Automation, które jest używane, a następnie kliknij pozycję **Update Management**. Kliknij pozycję **Zaplanuj wdrożenie aktualizacji**.
+1. Aby utworzyć nowe wdrożenie aktualizacji, przejdź do Azure Portal, wybierz konto usługi Automation, które jest używane, a następnie kliknij pozycję **Update Management**. Kliknij pozycję **Zaplanuj wdrożenie aktualizacji**.
 
-![Zaplanuj wdrożenie aktualizacji](media/migrate-oms-update-deployments/schedule-update-deployment.png)
+    ![Zaplanuj wdrożenie aktualizacji](media/migrate-oms-update-deployments/schedule-update-deployment.png)
 
-Zostanie otwarte okienko nowe wdrożenie aktualizacji. Wprowadź wartości dla właściwości opisanych w poniższej tabeli, a następnie kliknij pozycję **Utwórz**:
+2. Zostanie otwarte okienko nowe wdrożenie aktualizacji. Wprowadź wartości dla właściwości opisanych w poniższej tabeli, a następnie kliknij pozycję **Utwórz**:
 
-W przypadku **maszyn do zaktualizowania**Wybierz zapisane wyszukiwanie używane przez istniejące wdrożenie pakietu OMS.
+3. W przypadku **maszyn do zaktualizowania**Wybierz zapisane wyszukiwanie używane przez wdrożenie pakietu OMS.
 
-| Właściwość | Opis |
-| --- | --- |
-|Nazwa |Unikatowa nazwa identyfikującą wdrożenie aktualizacji. |
-|System operacyjny| Wybierz pozycję **Linux** lub **Windows**.|
-|Maszyny do zaktualizowania |Wybierz zapisane wyszukiwanie bądź zaimportowaną grupę lub wybierz maszynę z listy rozwijanej, a następnie wybierz poszczególne maszyny. Jeśli wybierzesz pozycję **Maszyny**, gotowość maszyny będzie wyświetlana w kolumnie **AKTUALIZUJ GOTOWOŚĆ AGENTA**.</br> Aby dowiedzieć się więcej na temat różnych metod tworzenia grup komputerów w dziennikach usługi Azure Monitor, zobacz [Computer groups in Azure Monitor logs (Grupy komputerów w dziennikach usługi Azure Monitor)](../azure-monitor/platform/computer-groups.md) |
-|Klasyfikacje aktualizacji|Zaznacz wszystkie wymagane klasyfikacje aktualizacji. CentOS nie obsługuje tego pola.|
-|Aktualizacje do wykluczenia|Wprowadź aktualizacje do wykluczenia. W przypadku systemu Windows wprowadź artykuł KB bez prefiksu **KB** . W przypadku systemu Linux wprowadź nazwę pakietu lub Użyj symbolu wieloznacznego.  |
-|Ustawienia harmonogramu|Wybierz godzinę do uruchomienia, a następnie wybierz **jedno lub** **cykliczne** dla cyklu. | 
-| Okno obsługi |Liczba minut ustawiona dla aktualizacji. Wartość nie może być mniejsza niż 30 minut ani więcej niż 6 godzin. |
-| Kontrola ponownego uruchamiania| Określa, jak należy obsługiwać ponowny rozruch.</br>Dostępne opcje:</br>Ponowne uruchomienie, jeśli jest to wymagane (ustawienie domyślne)</br>Zawsze uruchamiaj ponownie</br>Nigdy nie uruchamiaj ponownie</br>Tylko ponowne uruchomienie — aktualizacje nie zostaną zainstalowane|
+    | Właściwość | Opis |
+    | --- | --- |
+    |Nazwa |Unikatowa nazwa identyfikującą wdrożenie aktualizacji. |
+    |System operacyjny| Wybierz pozycję **Linux** lub **Windows**.|
+    |Maszyny do zaktualizowania |Wybierz zapisane wyszukiwanie, zaimportowaną grupę lub wybierz maszynę z listy rozwijanej i wybierz poszczególne maszyny. Jeśli wybierzesz pozycję **Maszyny**, gotowość maszyny będzie wyświetlana w kolumnie **AKTUALIZUJ GOTOWOŚĆ AGENTA**.</br> Aby dowiedzieć się więcej na temat różnych metod tworzenia grup komputerów w dziennikach usługi Azure Monitor, zobacz [Computer groups in Azure Monitor logs (Grupy komputerów w dziennikach usługi Azure Monitor)](../azure-monitor/platform/computer-groups.md) |
+    |Klasyfikacje aktualizacji|Zaznacz wszystkie wymagane klasyfikacje aktualizacji. CentOS nie obsługuje tego pola.|
+    |Aktualizacje do wykluczenia|Wprowadź aktualizacje do wykluczenia. W przypadku systemu Windows wprowadź artykuł KB bez prefiksu **KB** . W przypadku systemu Linux wprowadź nazwę pakietu lub Użyj symbolu wieloznacznego.  |
+    |Ustawienia harmonogramu|Wybierz godzinę do uruchomienia, a następnie wybierz **jedno lub** **cykliczne** dla cyklu. | 
+    | Okno obsługi |Liczba minut ustawiona dla aktualizacji. Wartość nie może być mniejsza niż 30 minut ani więcej niż 6 godzin. |
+    | Kontrola ponownego uruchamiania| Określa, jak należy obsługiwać ponowny rozruch.</br>Dostępne opcje:</br>Ponowne uruchomienie, jeśli jest to wymagane (ustawienie domyślne)</br>Zawsze uruchamiaj ponownie</br>Nigdy nie uruchamiaj ponownie</br>Tylko ponowne uruchomienie — aktualizacje nie zostaną zainstalowane|
 
-Kliknij pozycję **zaplanowane wdrożenia aktualizacji** , aby wyświetlić stan nowo utworzonego wdrożenia aktualizacji.
+4. Kliknij pozycję **zaplanowane wdrożenia aktualizacji** , aby wyświetlić stan nowo utworzonego wdrożenia aktualizacji.
 
-![Nowe wdrożenie aktualizacji](media/migrate-oms-update-deployments/new-update-deployment.png)
+    ![Nowe wdrożenie aktualizacji](media/migrate-oms-update-deployments/new-update-deployment.png)
 
-Jak wspomniano wcześniej, po skonfigurowaniu nowych wdrożeń za pośrednictwem Azure Portal istniejące wdrożenia mogą zostać usunięte z portalu pakietu OMS.
+5. Jak wspomniano wcześniej, po skonfigurowaniu nowych wdrożeń za pośrednictwem Azure Portal można usunąć istniejące wdrożenia z Azure Portal.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat Update Management na platformie Azure, zobacz [Update Management](automation-update-management.md).
+Aby dowiedzieć się więcej na temat Update Management w Azure Automation, zobacz [omówienie Update Management](automation-update-management.md).

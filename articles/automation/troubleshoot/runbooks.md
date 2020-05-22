@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 manager: carmonm
 ms.custom: has-adal-ref
-ms.openlocfilehash: 586e560f25d12ed8076fcc76810c5a5fb84736dc
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 1ee6920d1870b7449f4b77394aaf918947f57ea5
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680895"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744310"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Rozwiązywanie problemów z elementem Runbook
 
@@ -45,7 +45,7 @@ Po otrzymaniu błędów podczas wykonywania elementu Runbook w Azure Automation 
     * [Odnów certyfikat,](../manage-runas-account.md#cert-renewal) Jeśli konto Uruchom jako wygasło.
     * [Odnów element webhook,](../automation-webhooks.md#renew-a-webhook) Jeśli próbujesz użyć wygasłego elementu webhook, aby uruchomić element Runbook.
     * [Sprawdź stan zadania](../automation-runbook-execution.md#job-statuses) , aby określić bieżące Stany elementu Runbook i niektóre możliwe przyczyny problemu.
-    * [Dodaj dodatkowe dane wyjściowe](../automation-runbook-output-and-messages.md#message-streams) do elementu Runbook, aby określić, co się dzieje przed wstrzymaniem elementu Runbook.
+    * [Dodaj dodatkowe dane wyjściowe](../automation-runbook-output-and-messages.md#monitor-message-streams) do elementu Runbook, aby określić, co się dzieje przed wstrzymaniem elementu Runbook.
     * [Obsługa wszelkich wyjątków](../automation-runbook-execution.md#exceptions) zgłaszanych przez zadanie.
 
 1. Wykonaj ten krok, jeśli zadanie elementu Runbook lub środowisko w hybrydowym procesie roboczym elementu Runbook nie odpowiada.
@@ -465,7 +465,7 @@ Element webhook, który próbujesz wywołać, jest wyłączony lub wygasł.
 
 ### <a name="resolution"></a>Rozwiązanie
 
-Jeśli element webhook jest wyłączony, możesz go włączyć ponownie za pomocą Azure Portal. Jeśli element webhook wygasł, należy go usunąć, a następnie utworzyć ponownie. Możesz [odnowić element webhook](../automation-webhooks.md#renew-a-webhook) , jeśli jeszcze go nie wygasł. 
+Jeśli element webhook jest wyłączony, możesz go ponownie włączyć za pomocą Azure Portal. Jeśli element webhook wygasł, należy go usunąć, a następnie utworzyć ponownie. Możesz [odnowić element webhook](../automation-webhooks.md#renew-a-webhook) , jeśli jeszcze go nie wygasł. 
 
 ## <a name="scenario-429-the-request-rate-is-currently-too-large"></a><a name="429"></a>Scenariusz: 429: liczba żądań jest obecnie zbyt duża
 
@@ -479,7 +479,7 @@ Podczas uruchamiania polecenia cmdlet zostanie wyświetlony następujący komuni
 
 ### <a name="cause"></a>Przyczyna
 
-Ten błąd może wystąpić podczas pobierania danych wyjściowych zadania z elementu Runbook, który ma wiele [strumieni pełnych](../automation-runbook-output-and-messages.md#verbose-stream).
+Ten błąd może wystąpić podczas pobierania danych wyjściowych zadania z elementu Runbook, który ma wiele [strumieni pełnych](../automation-runbook-output-and-messages.md#monitor-verbose-stream).
 
 ### <a name="resolution"></a>Rozwiązanie
 

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 09/19/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d3d6b33211f6f247d9f30c0f162b388085faabe6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d57bf7fa6d56c1704a78219f8a0af1182ce8a955
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80332544"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83739103"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Omówienie techniczne i funkcje Azure Active Directory B2C
 
@@ -63,7 +63,7 @@ Użytkownik z kontem konsumenta może zalogować się przy użyciu wielu tożsam
 
 ![Tożsamości konta odbiorcy](media/technical-overview/identities.png)<br/>*Rysunek: jedno konto konsumenta z wieloma tożsamościami w Azure AD B2C*
 
-Azure AD B2C umożliwia zarządzanie typowymi atrybutami profilów kont odbiorców, takimi jak nazwa wyświetlana, nazwisko, imię i nazwisko, miasto i inne. Możesz również zwiększyć schemat usługi Azure AD w celu przechowywania dodatkowych informacji o użytkownikach. Na przykład ich kraj lub zamieszkanie, preferowany język i preferencje, takie jak zasubskrybowanie biuletynu lub włączenie uwierzytelniania wieloskładnikowego.
+Azure AD B2C umożliwia zarządzanie typowymi atrybutami profilów kont odbiorców, takimi jak nazwa wyświetlana, nazwisko, imię i nazwisko, miasto i inne. Możesz również zwiększyć schemat usługi Azure AD w celu przechowywania dodatkowych informacji o użytkownikach. Na przykład ich kraj/region lub zamieszkanie, preferowany język i preferencje, takie jak zasubskrybowanie biuletynu lub włączenie uwierzytelniania wieloskładnikowego.
 
 Dowiedz się więcej o typach kont użytkowników w Azure AD B2C w temacie [Omówienie kont użytkowników w programie Azure Active Directory B2C](user-overview.md).
 
@@ -100,7 +100,7 @@ Aby ułatwić szybkie konfigurowanie typowych zadań związanych z tożsamościa
 Można skonfigurować ustawienia przepływu użytkownika, takie jak te, aby kontrolować zachowania dotyczące środowiska tożsamości w aplikacjach:
 
 * Typy kont używane do logowania, takie jak konta społecznościowe, takie jak Facebook lub konta lokalne używające adresu e-mail i hasła do logowania
-* Atrybuty, które mają być zbierane od konsumenta, takie jak imię i nazwisko, kod pocztowy lub kraj zamieszkania
+* Atrybuty, które mają być zbierane od konsumenta, takie jak imię i nazwisko, kod pocztowy lub kraj/region miejsca zamieszkania
 * Azure Multi-Factor Authentication (MFA)
 * Dostosowanie interfejsu użytkownika
 * Zestaw oświadczeń w tokenie odbieranych przez aplikację po zakończeniu przepływu użytkownika przez użytkownika
@@ -136,7 +136,7 @@ Dowiedz się więcej na temat zasad niestandardowych w [zasadach niestandardowyc
 
 Na potrzeby podróży użytkownika usługa Azure AD B2C obsługuje [protokoły OpenID Connect i OAuth 2.0](protocols-overview.md). Podczas wdrażania protokołu OpenID Connect w usłudze Azure AD B2C aplikacja rozpoczyna podróż użytkownika, wysyłając żądania uwierzytelniania do usługi Azure AD B2C.
 
-Wynikiem żądania skierowanego do usługi Azure AD B2C jest token zabezpieczający, taki jak [token identyfikatora lub token dostępu](tokens-overview.md). Ten token zabezpieczający definiuje tożsamość użytkownika. Tokeny są odbierane z Azure AD B2C punktów `/token` końcowych, takich jak lub `/authorize` punkt końcowy. Za pomocą tych tokenów można uzyskiwać dostęp do oświadczeń, które mogą służyć do weryfikowania tożsamości i zezwalania na dostęp do zabezpieczonych zasobów.
+Wynikiem żądania skierowanego do usługi Azure AD B2C jest token zabezpieczający, taki jak [token identyfikatora lub token dostępu](tokens-overview.md). Ten token zabezpieczający definiuje tożsamość użytkownika. Tokeny są odbierane z Azure AD B2C punktów końcowych, takich jak `/token` lub `/authorize` punkt końcowy. Za pomocą tych tokenów można uzyskiwać dostęp do oświadczeń, które mogą służyć do weryfikowania tożsamości i zezwalania na dostęp do zabezpieczonych zasobów.
 
 W przypadku tożsamości zewnętrznych Azure AD B2C obsługuje Federacji z dowolnymi dostawcami tożsamości OAuth 1,0, OAuth 2,0, OpenID Connect Connect, SAML i WS-in.
 

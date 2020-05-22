@@ -1,17 +1,17 @@
 ---
 title: Używanie Azure Policy do implementowania ładu i kontroli dla zasobów Azure Cosmos DB
-description: Dowiedz się, jak używać Azure Policy do implementowania ładu i kontroli dla zasobów Cosmos DB.
+description: Dowiedz się, jak używać Azure Policy do implementowania ładu i kontroli dla zasobów Azure Cosmos DB.
 author: plzm
 ms.author: paelaz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 6b8823b586ae0d0d9f6a2c50286aa754a9ab8025
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2249dbdebecc52a8f5d6decccb83d3b1fc0777f7
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83665159"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747372"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Używanie Azure Policy do implementowania ładu i kontroli dla zasobów Azure Cosmos DB
 
@@ -32,7 +32,7 @@ W kroku, aby wybrać definicję zasad, wprowadź `Cosmos DB` w polu wyszukiwania
 > [!TIP]
 > Do tworzenia przypisań zasad można również użyć wbudowanych nazw definicji zasad widocznych w okienku **dostępne definicje** z Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub szablonów ARM.
 
-:::image type="content" source="./media/policy/available-definitions.png" alt-text="Wyszukaj Cosmos DB wbudowane definicje zasad":::
+:::image type="content" source="./media/policy/available-definitions.png" alt-text="Wyszukaj Azure Cosmos DB wbudowane definicje zasad":::
 
 ## <a name="create-a-custom-policy-definition"></a>Tworzenie niestandardowej definicji zasad
 
@@ -115,7 +115,7 @@ Zrzut ekranu przedstawia następujące wyniki oceny zgodności:
 - Zero z jednego z kont Azure Cosmos DB w określonym zakresie są zgodne z przypisaniem zasad, aby sprawdzić, czy zasoby zostały wdrożone w dozwolonych regionach.
 - Jeden z dwóch Azure Cosmos DB bazy danych lub zasobów kolekcji w określonym zakresie jest zgodny z przypisaniem zasad, aby sprawdzić, czy zainicjowana przepływność przekracza określony limit maksymalny.
 
-:::image type="content" source="./media/policy/compliance.png" alt-text="Wyszukaj Cosmos DB wbudowane definicje zasad":::
+:::image type="content" source="./media/policy/compliance.png" alt-text="Wyszukaj Azure Cosmos DB wbudowane definicje zasad":::
 
 Aby skorygować niezgodne zasoby, zobacz artykuł [skorygowany Azure Policy](../governance/policy/how-to/remediate-resources.md) .
 

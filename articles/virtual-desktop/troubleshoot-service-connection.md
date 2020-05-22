@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 12/13/2019
+ms.date: 05/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a6298b3a9c5769b1d82f89956736b451935b2c5d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 7bf05fe039de2ab9e25495f9e2652fde8fac34e1
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612643"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747701"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Połączenia usługi pulpitu wirtualnego systemu Windows
 
@@ -42,36 +42,6 @@ Get-AzRoleAssignment -SignInName <userupn>
 Upewnij się, że użytkownik loguje się przy użyciu poprawnych poświadczeń.
 
 Jeśli klient sieci Web jest używany, upewnij się, że nie występują problemy z buforowanymi poświadczeniami.
-
-## <a name="windows-10-enterprise-multi-session-virtual-machines-dont-respond"></a>Wielosesyjne maszyny wirtualne z systemem Windows 10 Enterprise nie odpowiadają
-
-Jeśli maszyna wirtualna nie jest w stanie reakcji i nie możesz uzyskać do niej dostępu za pomocą protokołu RDP, musisz rozwiązać ten problem przy użyciu funkcji diagnostyki, sprawdzając stan hosta.
-
-Aby sprawdzić stan hosta, uruchom następujące polecenie cmdlet:
-
-```powershell
-Get-AzWvdSessionHost -HostPoolName <hostpoolname> -ResourceGroupName <resourcegroupname>| Format-List Name, LastHeartBeat, AllowNewSession, Status
-```
-
-Jeśli stan hosta to `NoHeartBeat`, oznacza to, że maszyna wirtualna nie odpowiada, a agent nie może komunikować się z usługą pulpitu wirtualnego systemu Windows.
-
-```powershell
-Name            : 0301HP/win10pd-0.contoso.com 
-LastHeartBeat   : 4/8/2020 1:48:35 AM 
-AllowNewSession : True 
-Status          : Available 
-
-Name            : 0301HP/win10pd-1.contoso.com 
-LastHeartBeat   : 4/8/2020 1:45:44 AM 
-AllowNewSession : True 
-Status          : NoHeartBeat
-```
-
-Istnieje kilka rzeczy, które można zrobić, aby naprawić stan nopuls.
-
-### <a name="update-fslogix"></a>Aktualizacja FSLogix
-
-Jeśli FSLogix nie jest aktualna, szczególnie jeśli jest to wersja 2.9.7205.27375 frxdrvvt. sys, może to spowodować zakleszczenie. Upewnij się [, że Zaktualizowano FSLogix do najnowszej wersji](https://go.microsoft.com/fwlink/?linkid=2084562).
 
 ## <a name="next-steps"></a>Następne kroki
 

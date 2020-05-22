@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: 036ea00362b604957a1887127fca0b8d775d4e7b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: aa76a5773a20a103ceec075a58c79fac691eec6f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75382969"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747330"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Szybki Start: sprawdzanie pisowni za pomocą interfejsu API REST sprawdzanie pisowni Bing i C #
 
@@ -62,7 +62,7 @@ Użyj tego przewodnika Szybki start, aby wykonać pierwsze wywołanie interfejsu
     }
     ```
 
-3. Utwórz zmienną dla parametrów wyszukiwania. Dołącz kod rynkowy po `mkt=`. Kod rynkowy to kraj, z którego pochodzi żądanie. Dodawaj również tryb sprawdzania pisowni po `&mode=`. Tryb jest albo `proof` (przechwytuje większość błędów pisowni/gramatyki `spell` ) lub (przechwytuje większość pisowni, ale nie wiele błędów gramatycznych).
+3. Utwórz zmienną dla parametrów wyszukiwania. Dołącz kod rynkowy po `mkt=` . Kod rynkowy jest krajem/regionem, z którego pochodzi żądanie. Dodawaj również tryb sprawdzania pisowni po `&mode=` . Tryb jest albo `proof` (przechwytuje większość błędów pisowni/gramatyki) lub `spell` (przechwytuje większość pisowni, ale nie wiele błędów gramatycznych).
     
     ```csharp
     static string params_ = "mkt=en-US&mode=proof";

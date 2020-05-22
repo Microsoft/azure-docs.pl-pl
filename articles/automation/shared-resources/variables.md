@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cb89caa0a2fe5cde5bcea92e08c0df117215d916
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 28f69d3ef8301e00b470ce09353be6ae3259bbe3
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83713305"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744963"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Zarządzanie zmiennymi w Azure Automation
 
@@ -194,6 +194,6 @@ Na poniższej ilustracji przedstawiono przykładowe czynności służące do zak
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Zarządzanie modułami w usłudze Azure Automation](modules.md)
-* [Wykonywanie elementu runbook w usłudze Azure Automation](../automation-runbook-execution.md)
-* [Przegląd konfiguracji stanu Azure Automation](../automation-dsc-overview.md) 
+* Aby dowiedzieć się więcej na temat poleceń cmdlet służących do uzyskiwania dostępu do zmiennych, zobacz [Zarządzanie modułami w Azure Automation](modules.md).
+* Aby uzyskać ogólne informacje o elementach Runbook, zobacz [wykonywanie elementów Runbook w Azure Automation](../automation-runbook-execution.md).
+* Aby uzyskać szczegółowe informacje na temat konfiguracji DSC, zobacz [Konfiguracja stanu Azure Automation przegląd](../automation-dsc-overview.md).

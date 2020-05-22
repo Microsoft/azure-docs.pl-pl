@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: adba282a96f9d250569e090e186859c04e89ebda
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8deb3d81895629e817aeb9dbc1eb6520e1fb7aad
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80981549"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747527"
 ---
 # <a name="traffic-analytics"></a>Analiza ruchu
 
@@ -168,7 +168,7 @@ Zarejestruj dostawcę usługi Azure Insights, jeśli nie został jeszcze zarejes
 Register-AzResourceProvider -ProviderNamespace Microsoft.Insights
 ```
 
-Jeśli nie masz jeszcze konta usługi Azure Storage do przechowywania dzienników przepływu sieciowej grupy zabezpieczeń w programie, musisz utworzyć konto magazynu. Można utworzyć konto magazynu za pomocą poniższego polecenia. Przed uruchomieniem polecenia Zamień `<replace-with-your-unique-storage-account-name>` na nazwę, która jest unikatowa we wszystkich lokalizacjach platformy Azure, od 3-24 znaków, używając tylko cyfr i małych liter. W razie potrzeby można również zmienić nazwę grupy zasobów.
+Jeśli nie masz jeszcze konta usługi Azure Storage do przechowywania dzienników przepływu sieciowej grupy zabezpieczeń w programie, musisz utworzyć konto magazynu. Można utworzyć konto magazynu za pomocą poniższego polecenia. Przed uruchomieniem polecenia Zamień na `<replace-with-your-unique-storage-account-name>` nazwę, która jest unikatowa we wszystkich lokalizacjach platformy Azure, od 3-24 znaków, używając tylko cyfr i małych liter. W razie potrzeby można również zmienić nazwę grupy zasobów.
 
 ```azurepowershell-interactive
 New-AzStorageAccount `
@@ -196,7 +196,7 @@ Wybierz poniższe opcje, jak pokazano na ilustracji:
 
     ![Wybór konta magazynu, obszaru roboczego Log Analytics i włączenia Analiza ruchu](./media/traffic-analytics/ta-customprocessinginterval.png)
 
-Powtórz poprzednie kroki dla wszystkich innych sieciowych grup zabezpieczeń, dla których chcesz włączyć funkcję analizy ruchu dla programu. Dane z dzienników przepływów są wysyłane do obszaru roboczego, dlatego należy się upewnić, że lokalne przepisy i regulacje w Twoim kraju zezwalają na przechowywanie danych w regionie, w którym znajduje się obszar roboczy. Jeśli ustawiono różne interwały przetwarzania dla różnych sieciowych grup zabezpieczeń, dane będą zbierane w różnych interwałach. Na przykład: można włączyć interwał przetwarzania równy 10 minut dla sieci wirtualnych krytycznych i 1 godzinę dla niekrytycznego sieci wirtualnychu.
+Powtórz poprzednie kroki dla wszystkich innych sieciowych grup zabezpieczeń, dla których chcesz włączyć funkcję analizy ruchu dla programu. Dane z dzienników przepływów są wysyłane do obszaru roboczego, dlatego należy się upewnić, że lokalne prawa i regulacje w Twoim kraju/regionie zezwalają na przechowywanie danych w regionie, w którym znajduje się obszar roboczy. Jeśli ustawiono różne interwały przetwarzania dla różnych sieciowych grup zabezpieczeń, dane będą zbierane w różnych interwałach. Na przykład: można włączyć interwał przetwarzania równy 10 minut dla sieci wirtualnych krytycznych i 1 godzinę dla niekrytycznego sieci wirtualnychu.
 
 Analiza ruchu można również skonfigurować za pomocą polecenia cmdlet [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) środowiska PowerShell w Azure PowerShell. Uruchom `Get-Module -ListAvailable Az` , aby znaleźć zainstalowaną wersję. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-Az-ps).
 

@@ -1,16 +1,16 @@
 ---
 title: Zarządzanie pakietami Python 2 w Azure Automation
-description: W tym artykule opisano sposób zarządzania pakietami Python 2 w Azure Automation.
+description: W tym artykule opisano, jak zarządzać pakietami Python 2 w Azure Automation.
 services: automation
 ms.subservice: process-automation
 ms.date: 02/25/2019
 ms.topic: conceptual
-ms.openlocfilehash: 701a5aab7a0061f8b5abfaac1b699034db2671b9
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: cc709be7a7f0d46d105e73b0a105a3dec8cc793c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82508993"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746720"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Zarządzanie pakietami Python 2 w Azure Automation
 
@@ -48,10 +48,10 @@ Po pobraniu pakietów można je zaimportować do konta usługi Automation.
 
  Aby uzyskać element Runbook, [zaimportuj pakiety Python 2 z programu PyPi do konta Azure Automation](https://gallery.technet.microsoft.com/scriptcenter/Import-Python-2-packages-57f7d509) z galerii do konta usługi Automation. Upewnij się, że ustawienia uruchomieniowe są ustawione na **platformę Azure** , i uruchom element Runbook za pomocą parametrów. Aby konto usługi Automation działało, element Runbook wymaga konta Uruchom jako. Dla każdego parametru upewnij się, że został on uruchomiony z przełącznikiem, jak pokazano na poniższej liście i obrazie:
 
-* -s \<subskrypcji\>
-* -g \<z zasobów\>
-* -a \<automationAccount\>
-* -m \<modulePackage\>
+* -s \< subskrypcji\>
+* -g z \< zasobów\>
+* -a \< automationAccount\>
+* -m \< modulePackage\>
 
 ![Lista pakietów](media/python-packages/import-python-runbook.png)
 
@@ -61,7 +61,7 @@ Po zakończeniu elementu Runbook można sprawdzić **pakiety języka Python 2** 
 
 ## <a name="use-a-package-in-a-runbook"></a>Korzystanie z pakietu w elemencie Runbook
 
-Po zaimportowaniu pakietu można go używać w elemencie Runbook. W poniższym przykładzie zastosowano [pakiet narzędzi Azure Automation](https://github.com/azureautomation/azure_automation_utility). Ten pakiet ułatwia używanie języka Python z Azure Automation. Aby użyć pakietu, postępuj zgodnie z instrukcjami w repozytorium GitHub i Dodaj je do elementu Runbook. Można na przykład użyć `from azure_automation_utility import get_automation_runas_credential` , aby zaimportować funkcję do pobrania konta Uruchom jako.
+Po zaimportowaniu pakietu można go używać w elemencie Runbook. W poniższym przykładzie zastosowano [pakiet narzędzi Azure Automation](https://github.com/azureautomation/azure_automation_utility). Ten pakiet ułatwia używanie języka Python z Azure Automation. Aby użyć pakietu, postępuj zgodnie z instrukcjami w repozytorium GitHub i Dodaj je do elementu Runbook. Można na przykład użyć, `from azure_automation_utility import get_automation_runas_credential` Aby zaimportować funkcję do pobrania konta Uruchom jako.
 
 ```python
 import azure.mgmt.resource
@@ -89,4 +89,4 @@ Aby tworzyć i testować elementy Runbook języka Python 2 w trybie offline, mo�
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby rozpocząć pracę z elementami Runbook języka Python 2, zobacz [pierwszy element Runbook w języku Python 2](automation-first-runbook-textual-python2.md).
+[Tworzenie elementu runbook języka Python](learn/automation-tutorial-runbook-textual-python2.md)

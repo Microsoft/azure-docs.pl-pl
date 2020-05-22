@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 798da0261dbb692d411f1bb568a272a6bb7dbb03
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 540ae25b22b2c134a47f91ad5b8b19089c7f2acb
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715668"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744993"
 ---
 # <a name="manage-credentials-in-azure-automation"></a>Zarządzanie poświadczeniami w Azure Automation
 
@@ -163,6 +163,6 @@ print cred["password"]
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Zarządzanie modułami w usłudze Azure Automation](modules.md)
-* [Wykonywanie elementu runbook w usłudze Azure Automation](../automation-runbook-execution.md)
-* [Przegląd konfiguracji stanu Azure Automation](../automation-dsc-overview.md) 
+* Aby dowiedzieć się więcej na temat poleceń cmdlet służących do uzyskiwania dostępu do certyfikatów, zobacz [Zarządzanie modułami w Azure Automation](modules.md).
+* Aby uzyskać ogólne informacje o elementach Runbook, zobacz [wykonywanie elementów Runbook w Azure Automation](../automation-runbook-execution.md).
+* Aby uzyskać szczegółowe informacje na temat konfiguracji DSC, zobacz [Konfiguracja stanu Azure Automation przegląd](../automation-dsc-overview.md). 

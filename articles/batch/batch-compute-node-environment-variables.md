@@ -3,12 +3,12 @@ title: Zmienne środowiskowe środowiska uruchomieniowego zadania
 description: Wskazówki dotyczące zmiennych środowiskowych środowiska uruchomieniowego zadań i informacje dotyczące analizy Azure Batch.
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 2027716283ca4910f45ae3e32111896ef0045ce8
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 0b3f00bcae50b0913432b122c85a3725a489679a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726761"
+ms.locfileid: "83745333"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Zmienne środowiskowe środowiska uruchomieniowego Azure Batch
 
@@ -48,7 +48,7 @@ Wiersze poleceń wykonywane przez zadania w węzłach obliczeniowych nie są uru
 | AZ_BATCH_JOB_ID                 | Identyfikator zadania, do którego należy zadanie podrzędne. | Wszystkie zadania poza uruchomieniem zadania. | batchjob001 |
 | AZ_BATCH_JOB_PREP_DIR           | Pełna ścieżka do [katalogu zadania][files_dirs] przygotowania zadania w węźle. | Wszystkie zadania z wyjątkiem zadania uruchamiania zadania i przygotowania zadania. Dostępne tylko wtedy, gdy zadanie zostało skonfigurowane przy użyciu zadania przygotowania zadania. | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation |
 | AZ_BATCH_JOB_PREP_WORKING_DIR   | Pełna ścieżka [katalogu roboczego zadania][files_dirs] przygotowania zadania w węźle. | Wszystkie zadania z wyjątkiem zadania uruchamiania zadania i przygotowania zadania. Dostępne tylko wtedy, gdy zadanie zostało skonfigurowane przy użyciu zadania przygotowania zadania. | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation\wd |
-| AZ_BATCH_MASTER_NODE            | Adres IP i port węzła obliczeniowego, na którym jest uruchamiane podstawowe zadanie z [wieloma wystąpieniami][multi_instance] . | Podstawowe i podrzędne podzadania. | `10.0.0.4:6000` |
+| AZ_BATCH_MASTER_NODE            | Adres IP i port węzła obliczeniowego, na którym jest uruchamiane podstawowe zadanie z [wieloma wystąpieniami][multi_instance] . Nie należy używać portu określonego w tym miejscu dla komunikacji MPI lub NCCL — jest on zarezerwowany dla usługi Azure Batch. Zamiast tego użyj zmiennej MASTER_PORT, ustawiając ją z wartością przekazaną za pomocą argumentu wiersza polecenia (port 6105 jest dobrym wyborem domyślnym) lub korzystając z wartości AML, jeśli tak się stanie. | Podstawowe i podrzędne podzadania. | `10.0.0.4:6000` |
 | AZ_BATCH_NODE_ID                | IDENTYFIKATOR węzła, do którego zadanie jest przypisane. | Wszystkie zadania. | TVM-1219235766_3-20160919t172711z |
 | AZ_BATCH_NODE_IS_DEDICATED      | Jeśli `true` bieżący węzeł jest dedykowanym węzłem. Jeśli `false` jest to [węzeł o niskim priorytecie](batch-low-pri-vms.md). | Wszystkie zadania. | `true` |
 | AZ_BATCH_NODE_LIST              | Lista węzłów, które są przydzielono do [zadania o wiele wystąpień][multi_instance] w formacie `nodeIP;nodeIP` . | Podstawowe i podrzędne podzadania. | `10.0.0.4;10.0.0.5` |

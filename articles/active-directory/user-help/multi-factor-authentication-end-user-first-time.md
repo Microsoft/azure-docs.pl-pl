@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: overview
+ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
-ms.openlocfilehash: 5a7f0e10b23bf1a541fe83c3112962c38f7e1331
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 47220bc721092005c7e4d65a00eb933cd5c49a8c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77062561"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746766"
 ---
 # <a name="what-is-the-additional-verification-page"></a>Co to jest strona Dodatkowa weryfikacja?
 
@@ -24,7 +24,7 @@ Dotarła do Ciebie wiadomość e-mail z działu IT lub przełożonego z informac
 Weryfikacja dwuetapowa jest bezpieczniejsza niż tylko hasło, ponieważ opiera się on na dwóch formach uwierzytelniania: coś znanego i dla Ciebie. Coś, co znasz, to hasło. Coś, co masz, to telefon lub urządzenie, które często masz przy sobie. Weryfikacja dwuetapowa może pomóc w zablokowaniu przez użytkownika złośliwych hakerów, ponieważ nawet jeśli mają swoje hasło, szanse się, że nie mają one również Twojego urządzenia.
 
 >[!Important]
->Ten artykuł jest przeznaczony dla użytkowników próbujących korzystać z weryfikacji dwuskładnikowej przy użyciu konta służbowego (np. alain@contoso.com). Jeśli jesteś administratorem, aby uzyskać informacje na temat sposobu włączania weryfikacji dwuskładnikowej dla pracowników lub innych użytkowników, zapoznaj się z [dokumentacją dotyczącą uwierzytelniania Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/).
+>Ten artykuł jest przeznaczony dla użytkowników próbujących korzystać z weryfikacji dwuskładnikowej przy użyciu konta służbowego (np alain@contoso.com .). Jeśli jesteś administratorem, aby uzyskać informacje na temat sposobu włączania weryfikacji dwuskładnikowej dla pracowników lub innych użytkowników, zapoznaj się z [dokumentacją dotyczącą uwierzytelniania Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/).
 
 ## <a name="who-decides-if-you-use-this-feature"></a>Kto decyduje o możliwości użycia tej funkcji?
 
@@ -35,7 +35,7 @@ W zależności od typu konta o konieczności korzystania z weryfikacji dwuskład
 - **Osobiste konto Microsoft.** Weryfikację dwuskładnikowa można skonfigurować dla osobistych kont Microsoft (na przykład alain@outlook.com). Jeśli masz problemy z weryfikacją dwuetapową i osobistą konto Microsoft, zobacz [Włączanie lub wyłączanie weryfikacji dwuskładnikowej dla konto Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off). Ze względu na to, czy należy używać tej funkcji, możesz ją włączać i wyłączać w dowolnym momencie.
 
     >[!Note]
-    >Jeśli masz problemy z weryfikacją dwuetapową i jednym z osobistych kont Microsoft (na przykład danielle@outlook.com), możesz wypróbować sugestie dotyczące [sposobu korzystania z weryfikacji dwuetapowej z konto Microsoft](https://support.microsoft.com/help/12408/microsoft-account-how-to-use-two-step-verification).
+    >Jeśli masz problemy z weryfikacją dwuetapową i jednym z osobistych kont Microsoft (na przykład danielle@outlook.com ), możesz wypróbować sugestie dotyczące [sposobu korzystania z weryfikacji dwuetapowej z konto Microsoft](https://support.microsoft.com/help/12408/microsoft-account-how-to-use-two-step-verification).
 
 ## <a name="access-the-additional-security-verification-page"></a>Dostęp do strony dodatkowej weryfikacji zabezpieczeń
 

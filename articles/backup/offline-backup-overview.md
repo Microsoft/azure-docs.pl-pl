@@ -3,12 +3,12 @@ title: Przegląd kopii zapasowej offline
 description: Dowiedz się więcej o składnikach kopii zapasowej offline. Obejmują one kopie zapasowe offline na podstawie Azure Data Box i kopii zapasowej offline na podstawie usługi Azure Import/Export.
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: a33810c633d8c7ca79c559355935d3c11853bc0a
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: c3ef79136ca32c24ae6d16057d3195b57e8ced2d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160925"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744638"
 ---
 # <a name="overview-of-offline-backup"></a>Przegląd kopii zapasowej offline
 
@@ -73,11 +73,11 @@ Poniższa tabela zawiera porównanie dwóch dostępnych opcji, dzięki czemu mo�
 | Zabezpieczenia (dane, urządzenia i usługa)                           | [Data](https://docs.microsoft.com/azure/databox/data-box-security#data-box-data-protection) -AES 256-bit szyfrowany <br> Przypadek niezależny od [urządzenia](https://docs.microsoft.com/azure/databox/data-box-security#data-box-device-protection) , własnościowy interfejs oparty na poświadczeniach do kopiowania danych <br> [Usługa](https://docs.microsoft.com/azure/databox/data-box-security#data-box-service-protection) chroniona przez funkcje zabezpieczeń platformy Azure | Dane — szyfrowanie funkcją BitLocker                                 |
 | Tymczasowa lokalizacja tymczasowa aprowizacji                     | Niewymagane                                                | Większy niż lub równy szacowanemu rozmiarowi danych kopii zapasowej        |
 | Obsługiwane regiony                                           | [Azure Data Box regionów dysków](https://docs.microsoft.com/azure/databox/data-box-disk-overview#region-availability) <br> [Azure Data Box regiony](https://docs.microsoft.com/azure/databox/data-box-disk-overview#region-availability) | [Regiony usługi Azure Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-service#region-availability) |
-| Wysyłka między krajami                                     | Nieobsługiwane  <br>    Adres źródłowy i docelowy centrum danych platformy Azure muszą znajdować się w tym samym kraju * | Obsługiwane                                                    |
+| Wysyłka między krajami                                     | Nieobsługiwane  <br>    Adres źródłowy i docelowy centrum danych platformy Azure muszą znajdować się w tym samym kraju/regionie * | Obsługiwane                                                    |
 | Przenoszenie logistyki (dostarczanie, transport, odbiór)           | W pełni zarządzane firmy Microsoft                                     | Zarządzane przez klienta                                            |
 | Cennik                                                      | [Cennik Azure Data Box](https://azure.microsoft.com/pricing/details/databox/) <br> [Azure Data Box ceny dysku](https://azure.microsoft.com/pricing/details/databox/disk/) | [Cennik usługi Azure Import/Export](https://azure.microsoft.com/pricing/details/storage-import-export/) |
 
-* Jeśli kraj nie ma centrum danych platformy Azure, musisz dostarczyć dyski do centrum danych platformy Azure w innym kraju.
+* Jeśli kraj/region nie ma centrum danych platformy Azure, musisz dostarczyć dyski do centrum danych platformy Azure w innym kraju/regionie.
 
 ## <a name="next-steps"></a>Następne kroki
 

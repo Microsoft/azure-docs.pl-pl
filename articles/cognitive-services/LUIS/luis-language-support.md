@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: e859ac18276d10960a5a8488a6051252d90e0fcd
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 69ff3aa3f649b054192f9dd001af83dc8dbc2317
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591050"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745696"
 ---
 # <a name="language-and-region-support-for-luis"></a>Obsługa języka i regionu w programie LUIS
 
@@ -32,7 +32,7 @@ LUIS rozumie wyrażenia długości w następujących językach:
 
 | Język |Regionalne  |  Preskompilowana domena | Wstępnie utworzona jednostka | Zalecenia dotyczące listy fraz | **[Analiza tekstu](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Tonacji i<br>Służąc|
 |--|--|:--:|:--:|:--:|:--:|
-| Angielski (amerykański) |`en-US` | ✔ | ✔  |✔|✔|
+| Angielski (Stany Zjednoczone) |`en-US` | ✔ | ✔  |✔|✔|
 | Arabski (wersja zapoznawcza — nowoczesny Standard arabski) |`ar-AR`|-|-|-|-|
 | *[Chiński](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
 | Niderlandzki |`nl-NL` |✔|-|-|✔|

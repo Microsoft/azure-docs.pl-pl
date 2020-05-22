@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 7d59f00d655bc7b2395c46713a56f52c61ffa42c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 35be2e0b7b5a24261cd8ee15b1964b953c1a3327
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76277105"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747722"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Używanie programu Windows PowerShell dla usługi StorSimple do administrowania urządzeniem
 
@@ -50,7 +50,7 @@ Aby nawiązać połączenie z interfejsem programu Windows PowerShell z poziomu 
 1. W oknie dialogowym wyznaczanie ponownej **konfiguracji** w okienku **Kategoria** wybierz pozycję **Klawiatura**.
 2. Upewnij się, że wybrano następujące opcje (są to ustawienia domyślne podczas uruchamiania nowej sesji).
    
-   | Element klawiatury | Wybierz |
+   | Element klawiatury | Wybierz pozycję |
    | --- | --- |
    | Klawisz Backspace |Kontrolka-? (127) |
    | Główne i końcowe klawisze |Standardowa |
@@ -105,7 +105,7 @@ Można wybrać jedną z następujących ustawień:
      > [!NOTE]
      > Jest to preferowana opcja, jeśli zapomniano hasła administratora urządzenia i nie można nawiązać połączenia za pomocą opcji 1 lub 2.
 
-4. **Zmień język** Ta opcja umożliwia zmianę języka wyświetlania w interfejsie programu Windows PowerShell. Języki obsługiwane są w języku angielskim, japońskim, rosyjskim, francuskim, koreańskim, portugalskim, hiszpańskim, włoskim, niemieckim, chińskim i brazylijskim.
+4. **Zmień język** Ta opcja umożliwia zmianę języka wyświetlania w interfejsie programu Windows PowerShell. Języki obsługiwane są w języku angielskim, japońskim, rosyjskim, francuskim, koreańskim, angielskim, hiszpańskim, włoskim, niemieckim, chińskim i portugalskim.
 
 ## <a name="connect-remotely-to-storsimple-using-windows-powershell-for-storsimple"></a>Zdalne nawiązywanie połączenia z usługą StorSimple przy użyciu program Windows PowerShell dla usługi StorSimple
 
@@ -158,7 +158,7 @@ Poniżej znajduje się krótki opis typów pomocy dla tego interfejsu programu W
 ### <a name="to-get-help-for-a-cmdlet"></a>Aby uzyskać pomoc dotyczącą polecenia cmdlet
 
 * Aby uzyskać pomoc dotyczącą dowolnego polecenia cmdlet lub funkcji, użyj następującego polecenia:`Get-Help <cmdlet-name>`
-* Aby uzyskać pomoc online dotyczącą dowolnego polecenia cmdlet, użyj poprzedniego polecenia cmdlet `-Online` z parametrem:`Get-Help <cmdlet-name> -Online`
+* Aby uzyskać pomoc online dotyczącą dowolnego polecenia cmdlet, użyj poprzedniego polecenia cmdlet z `-Online` parametrem:`Get-Help <cmdlet-name> -Online`
 * Aby uzyskać pełną pomoc, można użyć `–Full` parametru, a na przykład użyć `–Examples` parametru.
 
 ### <a name="to-update-help"></a>Aby zaktualizować pomoc
@@ -169,7 +169,7 @@ Możesz łatwo zaktualizować pomoc w interfejsie programu Windows PowerShell. W
 1. Uruchom program Windows PowerShell przy użyciu opcji **Uruchom jako administrator** .
 2. W wierszu polecenia wpisz:`Update-Help`
 3. Zaktualizowane pliki pomocy zostaną zainstalowane.
-4. Po zainstalowaniu plików pomocy wpisz: `Get-Help Get-Command`. Zostanie wyświetlona lista poleceń cmdlet, dla których pomoc jest dostępna.
+4. Po zainstalowaniu plików pomocy wpisz: `Get-Help Get-Command` . Zostanie wyświetlona lista poleceń cmdlet, dla których pomoc jest dostępna.
 
 > [!NOTE]
 > Aby uzyskać listę wszystkich dostępnych poleceń cmdlet w obszarze działania, zaloguj się do odpowiadającej opcji menu i uruchom `Get-Command` polecenie cmdlet.

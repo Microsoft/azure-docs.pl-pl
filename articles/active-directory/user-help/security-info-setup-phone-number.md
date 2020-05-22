@@ -8,15 +8,15 @@ ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 02/13/2019
 ms.author: curtand
-ms.openlocfilehash: 63774f2f6b600b1f60aefea84e1d5ea0abd63cbb
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 7500b6b146a627dcdebacd9d2e2c7c61bc43c105
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628388"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744444"
 ---
 # <a name="set-up-a-phone-number-as-your-verification-method"></a>Konfigurowanie numeru telefonu jako metody weryfikacji
 

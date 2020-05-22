@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: f9fafc4b03d5ce18fcfedcffaf2d81f847537865
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f0efaf593725fd676ae8e85ff9c190c8b850fef1
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598640"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744680"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Link Synapse platformy Azure dla Azure Cosmos DB: przypadki użycia analizy niemal w czasie rzeczywistym
 
@@ -106,7 +106,7 @@ Usługa Azure Synapse Link umożliwia Azure Cosmos DB nie tylko w przypadku obci
 
 Na poniższej ilustracji przedstawiono wzorce obciążeń przy użyciu Azure Cosmos DB: ![ link Azure Synapse dla wzorców obciążenia Azure Cosmos DB](./media/synapse-link-use-cases/synapse-link-workload-patterns.png)
 
-Poinformuj nas o tym, że CompanyXYZ firmy handlu elektronicznego z operacjami globalnymi w 20 krajach, aby zilustrować korzyści wynikające z wyboru Azure Cosmos DB jako pojedynczej bazy danych w czasie rzeczywistym, co pozwala na spełnienie wymagań transakcyjnych i analitycznych dla platformy zarządzania zapasami.
+Poinformuj nas o tym, że CompanyXYZ firmy handlu elektronicznego z operacjami globalnymi w 20 krajach/regionach, aby zilustrować korzyści wynikające z wyboru Azure Cosmos DB jako pojedynczej bazy danych w czasie rzeczywistym, co pozwala na globalne i analityczne wymagania dotyczące platformy zarządzania zapasami.
 
 * Podstawowa firma CompanyXYZ zależy od systemu zarządzania spisem, dlatego dostępność & niezawodność to wymagania podstawowe filar. Zalety korzystania z Azure Cosmos DB:
 

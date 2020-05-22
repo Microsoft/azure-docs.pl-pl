@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: fdac12350db785e6194cd3d057f4d2adfefa5969
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 113e745e078bd5d345845318af1b10ed98f2aecb
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80335730"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746917"
 ---
 # <a name="what-is-azure-maps"></a>Co to jest usługa Azure Maps?
 
@@ -155,7 +155,7 @@ Aby uzyskać więcej informacji, zobacz [dokumentację interfejsu API ruchu](htt
 
 ### <a name="ip-to-location-service"></a>Adres IP do usługi lokalizacji
 
-Użyj funkcji IP do lokalizacji, aby wyświetlić podgląd pobranego dwuliterowego kodu kraju dla adresu IP. Ta usługa może pomóc zwiększyć komfort pracy użytkowników, dostarczając dostosowanej zawartości aplikacji na podstawie lokalizacji geograficznej.
+Użyj funkcji IP do lokalizacji, aby wyświetlić podgląd pobranego dwuliterowego kodu kraju/regionu dla adresu IP. Ta usługa może pomóc zwiększyć komfort pracy użytkowników, dostarczając dostosowanej zawartości aplikacji na podstawie lokalizacji geograficznej.
 
 Aby uzyskać więcej informacji o usłudze IP do lokalizacji w interfejsie API REST, zapoznaj się z [dokumentacją interfejsu api Azure Maps geolokalizacji](https://docs.microsoft.com/rest/api/maps/geolocation).
 
@@ -165,7 +165,7 @@ Azure Maps jest zbudowana na potrzeby mobilności i mogą pomóc w tworzeniu apl
 
 Ponadto Azure Maps oferuje wygodną [kontrolkę mapy JavaScript](https://docs.microsoft.com/javascript/api/azure-maps-control) z prostym modelem programowania. Programowanie jest szybkie i łatwe w przypadku aplikacji sieci Web i mobilnych.
 
-## <a name="usage"></a>Sposób użycia
+## <a name="usage"></a>Użycie
 
 Uzyskiwanie dostępu do Azure Maps usług jest kwestią przechodzenia do [Azure Portal](https://portal.azure.com) i tworzenia konta Azure Maps.
 
@@ -180,7 +180,7 @@ Interfejsy API Azure Maps są obecnie dostępne we wszystkich krajach i regionac
 * Chiny
 * Korea Południowa
 
-Sprawdź, czy lokalizacja bieżącego adresu IP jest w obsługiwanym kraju.
+Sprawdź, czy lokalizacja bieżącego adresu IP znajduje się w obsługiwanym kraju/regionie.
 
 ## <a name="next-steps"></a>Następne kroki
 

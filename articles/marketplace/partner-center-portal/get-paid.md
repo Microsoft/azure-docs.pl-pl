@@ -6,12 +6,12 @@ ms.author: dsindona
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 12/10/2019
-ms.openlocfilehash: 678c47fc345838f6d1e93ac397a4e54d1c61391f
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: bdef440fb8273dbbc5053d1c4eb6607fba0cdab3
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780501"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744559"
 ---
 # <a name="getting-paid-in-commercial-marketplace"></a>Otrzymywanie na komercyjnej platformie Marketplace
 
@@ -30,7 +30,7 @@ Opłata za Sklep jest stosowana do całej sprzedaży oferowanej przez komercyjn�
 
 ## <a name="price-tiers"></a>Warstwy cenowe
 
-Wybrane warstwy cenowe określają cenę sprzedaży we wszystkich krajach, w których wybrano dystrybucję oferty. Możesz również użyć dodatkowych funkcji cenowych, takich jak wybór różnych cen dla różnych rynków.
+Wybrane warstwy cenowe określają cenę sprzedaży we wszystkich krajach/regionach, w których wybrano dystrybucję oferty. Możesz również użyć dodatkowych funkcji cenowych, takich jak wybór różnych cen dla różnych rynków.
 
 Możesz bezpłatnie zaoferować swoją aplikację. Możesz też wybrać cenę, którą klienci muszą zanieść, aby skorzystać z oferty. Warstwy cenowe zaczynają się od. 99 USD, z dodatkowymi przyrostami (1,09 USD, 1,19 USD itd.). Przyrosty między warstwami cenowymi zwiększają się, gdy cena jest wyższa.
 

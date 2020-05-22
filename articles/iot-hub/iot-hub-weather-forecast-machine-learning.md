@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/10/2020
 ms.author: robinsh
-ms.openlocfilehash: b71b86c14c55c312ef420a4d8517140fdded4072
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5551655843b8d3ed5b6d70f5d6ed3a0eb4d0e92f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77122218"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746976"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Prognoza pogody przy użyciu danych czujników z Centrum IoT Hub w Azure Machine Learning
 
@@ -102,7 +102,7 @@ W tej sekcji można sprawdzić poprawność modelu, skonfigurować predykcyjną 
 
    ![Uruchom eksperyment, aby sprawdzić poprawność kroków](media/iot-hub-weather-forecast-machine-learning/run-experiment.png)
 
-1. Kliknij kolejno pozycje **konfiguracja usługa** > sieci Web**predykcyjna usługa sieci**Web. Zostanie otwarty diagram eksperymentów predykcyjnych.
+1. Kliknij kolejno pozycje **konfiguracja usługa sieci Web**  >  **predykcyjna usługa sieci**Web. Zostanie otwarty diagram eksperymentów predykcyjnych.
 
    ![Wdróż model prognozowania pogody w Azure Machine Learning Studio (klasyczny)](media/iot-hub-weather-forecast-machine-learning/predictive-experiment.png)
 
@@ -181,10 +181,10 @@ W tej sekcji można sprawdzić poprawność modelu, skonfigurować predykcyjną 
 
 ### <a name="add-a-function-to-the-stream-analytics-job-to-call-the-web-service-you-deployed"></a>Dodaj funkcję do zadania Stream Analytics, aby wywołać wdrożoną usługę sieci Web
 
-1. W obszarze **topologia zadania**kliknij pozycję **funkcje** > **Dodaj**.
+1. W obszarze **topologia zadania**kliknij pozycję **funkcje**  >  **Dodaj**.
 1. Wprowadź następujące informacje.
 
-   **Alias funkcji**: ENTER `machinelearning`.
+   **Alias funkcji**: ENTER `machinelearning` .
 
    **Typ funkcji**: wybierz pozycję **Azure ml**.
 
@@ -207,7 +207,7 @@ W tej sekcji można sprawdzić poprawność modelu, skonfigurować predykcyjną 
    WITH machinelearning AS (
       SELECT EventEnqueuedUtcTime, temperature, humidity, machinelearning(temperature, humidity) as result from [YourInputAlias]
    )
-   Select System.Timestamp time, CAST (result.[temperature] AS FLOAT) AS temperature, CAST (result.[humidity] AS FLOAT) AS humidity, CAST (result.[Scored Probabilities] AS FLOAT ) AS 'probabalities of rain'
+   Select System.Timestamp time, CAST (result.[temperature] AS FLOAT) AS temperature, CAST (result.[humidity] AS FLOAT) AS humidity, CAST (result.[scored probabilities] AS FLOAT ) AS 'probabalities of rain'
    Into [YourOutputAlias]
    From machinelearning
    ```
@@ -220,7 +220,7 @@ W tej sekcji można sprawdzić poprawność modelu, skonfigurować predykcyjną 
 
 ### <a name="run-the-stream-analytics-job"></a>Uruchamianie zadania usługi Stream Analytics
 
-W zadaniu Stream Analytics kliknij pozycję **Rozpocznij** > **teraz** > **.** Po pomyślnym uruchomieniu zadania jego stan zmieni się z **Zatrzymano** na **Uruchomiono**.
+W zadaniu Stream Analytics kliknij pozycję **Rozpocznij**  >  **teraz**  >  **Start**. Po pomyślnym uruchomieniu zadania jego stan zmieni się z **Zatrzymano** na **Uruchomiono**.
 
 ![Uruchamianie zadania usługi Stream Analytics](media/iot-hub-weather-forecast-machine-learning/11_run-stream-analytics-job-azure.png)
 

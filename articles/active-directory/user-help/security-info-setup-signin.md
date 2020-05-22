@@ -8,15 +8,15 @@ ms.reviewer: rhicock
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: overview
+ms.topic: end-user-help
 ms.date: 04/07/2020
 ms.author: curtand
-ms.openlocfilehash: eb6b124ea0ec036cd9846652fbd9eac5f81eb560
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7de8a5bcc2f7883b00ec25e2674b1dc6bd6871c9
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81454489"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747266"
 ---
 # <a name="set-up-your-security-info-from-a-sign-in-prompt"></a>Skonfiguruj informacje zabezpieczające na podstawie monitu logowania
 
@@ -136,7 +136,7 @@ W przypadku korzystania z haseł aplikacji ważne jest, aby pamiętać:
 
 1. Po zakończeniu poprzednich sekcji kreatora wybierz pozycję **dalej** i wypełnij sekcję **hasło aplikacji** .
 
-2. Wpisz nazwę aplikacji, która wymaga hasła, na przykład `Outlook 2010`, a następnie wybierz przycisk **dalej**.
+2. Wpisz nazwę aplikacji, która wymaga hasła, na przykład `Outlook 2010` , a następnie wybierz przycisk **dalej**.
 
     ![Dodaj nazwę hasła aplikacji w Kreatorze](media/security-info/app-password-app-password.png)
 

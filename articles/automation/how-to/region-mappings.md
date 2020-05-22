@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/23/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e637aec3c5105bb9628a854b0d4c73988e60daaf
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 24ff69e76736ffa93cecb795be563f172c422355
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714512"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744764"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Obsługiwane regiony połączonego obszaru roboczego usługi Log Analytics
 
@@ -80,6 +80,6 @@ Alternatywnie możesz odłączyć obszar roboczy od konta usługi Automation w o
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Omówienie rozwiązania Update Management](../automation-update-management.md)
-* [Przegląd Change Tracking i spisu](../change-tracking.md)
-* [Przegląd Start/Stop VMs during off-hours](../automation-solution-vm-management.md)
+* Dowiedz się więcej na temat Update Management w [Update Management Omówienie](../automation-update-management.md).
+* Dowiedz się więcej na temat Change Tracking i spisu w temacie [Change Tracking i spisu](../change-tracking.md).
+* Dowiedz się więcej na temat Start/Stop VMs during off-hours w [Start/Stop VMS during off-hours Omówienie](../automation-solution-vm-management.md).

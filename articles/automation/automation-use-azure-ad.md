@@ -1,24 +1,21 @@
 ---
 title: Użycie usługi Azure AD w usłudze Azure Automation do uwierzytelniania na platformie Azure
-description: Dowiedz się, jak używać usługi Azure AD w ramach Azure Automation jako dostawcy do uwierzytelniania na platformie Azure.
+description: W tym artykule opisano, jak używać usługi Azure AD w ramach Azure Automation jako dostawcy do uwierzytelniania na platformie Azure.
 services: automation
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 90338a1ffa79e6c2347832cb2e74633db02ec72d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1361ecf3ab7b726310df9e3b1040e0726d7658e2
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548336"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745253"
 ---
-# <a name="use-azure-ad-in-azure-automation-to-authenticate-to-azure"></a>Użycie usługi Azure AD w usłudze Azure Automation do uwierzytelniania na platformie Azure
+# <a name="use-azure-ad-to-authenticate-to-azure"></a>Uwierzytelnianie na platformie Azure za pomocą usługi Azure AD
 
 Usługa [Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) umożliwia wykonywanie wielu zadań administracyjnych, takich jak zarządzanie użytkownikami, zarządzanie domeną i konfiguracja logowania jednokrotnego. W tym artykule opisano, jak używać usługi Azure AD w ramach Azure Automation jako dostawcy do uwierzytelniania na platformie Azure. 
 
->[!NOTE]
->Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Instrukcje dotyczące instalacji polecenia AZ module w hybrydowym procesie roboczym elementu Runbook znajdują się w temacie [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). W przypadku konta usługi Automation można zaktualizować moduły do najnowszej wersji przy użyciu [sposobu aktualizowania modułów Azure PowerShell w programie Azure Automation](automation-update-azure-modules.md).
-
-## <a name="installing-azure-ad-modules"></a>Instalowanie modułów usługi Azure AD
+## <a name="install-azure-ad-modules"></a>Instalowanie modułów usługi Azure AD
 
 Usługę Azure AD można włączyć za pomocą następujących modułów programu PowerShell:
 
@@ -67,11 +64,11 @@ Przed zainstalowaniem modułów usługi Azure AD na komputerze:
 
 Azure Automation używa klasy [PSCredential](https://docs.microsoft.com/dotnet/api/system.management.automation.pscredential?view=pscore-6.2.0) do reprezentowania zasobu poświadczeń. Skrypty pobierają `PSCredential` obiekty przy użyciu `Get-AutomationPSCredential` polecenia cmdlet. Aby uzyskać więcej informacji, zobacz [zasoby poświadczeń w Azure Automation](shared-resources/credentials.md).
 
-## <a name="assigning-a-subscription-administrator"></a>Przypisywanie administratora subskrypcji
+## <a name="assign-a-subscription-administrator"></a>Przypisywanie administratora subskrypcji
 
 Musisz przypisać administratora dla subskrypcji platformy Azure. Ta osoba ma rolę właściciela dla zakresu subskrypcji. Zobacz [Kontrola dostępu oparta na rolach w Azure Automation](automation-role-based-access-control.md). 
 
-## <a name="changing-the-azure-ad-users-password"></a>Zmiana hasła użytkownika usługi Azure AD
+## <a name="change-the-azure-ad-users-password"></a>Zmień hasło użytkownika usługi Azure AD
 
 Aby zmienić hasło użytkownika usługi Azure AD:
 
@@ -81,11 +78,11 @@ Aby zmienić hasło użytkownika usługi Azure AD:
 
 3. Poprosi administratora o zmianę hasła po wyświetleniu monitu.
 
-## <a name="configuring-azure-automation-to-use-the-azure-ad-user-to-manage-the-azure-subscription"></a>Konfigurowanie Azure Automation do zarządzania subskrypcją platformy Azure za pomocą użytkownika usługi Azure AD
+## <a name="configure-azure-automation-to-manage-the-azure-subscription"></a>Konfigurowanie Azure Automation zarządzania subskrypcją platformy Azure
 
 Aby uzyskać Azure Automation komunikowania się z usługą Azure AD, musisz pobrać poświadczenia skojarzone z połączeniem platformy Azure z usługą Azure AD. Przykładami tych poświadczeń są identyfikator dzierżawy, Identyfikator subskrypcji i podobne. Aby uzyskać więcej informacji na temat połączenia między platformą Azure i usługą Azure AD, zobacz [łączenie organizacji z Azure Active Directory](https://docs.microsoft.com/azure/devops/organizations/accounts/connect-organization-to-azure-ad?view=azure-devops).
 
-## <a name="creating-a-credential-asset"></a>Tworzenie zasobu poświadczeń
+## <a name="create-a-credential-asset"></a>Utwórz zasób poświadczeń
 
 Gdy dostępne są poświadczenia platformy Azure dla usługi Azure AD, należy utworzyć zasób poświadczeń Azure Automation, aby bezpiecznie przechowywać poświadczenia usługi Azure AD, dzięki czemu mogą uzyskiwać dostęp do tych elementów Runbook i skryptów konfiguracji stanu (DSC). Można to zrobić za pomocą poleceń cmdlet programu Azure Portal lub programu PowerShell.
 
@@ -97,9 +94,9 @@ Za pomocą Azure Portal można utworzyć zasób poświadczenia. Wykonaj tę oper
 
 Aby przygotować nowy zasób poświadczeń w programie Windows PowerShell, skrypt najpierw tworzy `PSCredential` Obiekt przy użyciu przypisanej nazwy użytkownika i hasła. Skrypt następnie używa tego obiektu do utworzenia zasobu za pośrednictwem wywołania polecenia cmdlet [New-AzureAutomationCredential](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-4.0.0) . Alternatywnie skrypt może wywołać polecenie cmdlet [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) , aby monitować użytkownika o wpisanie nazwy i hasła. Zobacz [zasoby poświadczeń w Azure Automation](shared-resources/credentials.md). 
 
-## <a name="managing-azure-resources-from-an-azure-automation-runbook"></a>Zarządzanie zasobami platformy Azure z poziomu elementu Runbook Azure Automation
+## <a name="manage-azure-resources-from-an-azure-automation-runbook"></a>Zarządzanie zasobami platformy Azure z poziomu elementu Runbook Azure Automation
 
-Zasobami platformy Azure można zarządzać z poziomu elementów Runbook Azure Automation przy użyciu zasobu Credential. Poniżej znajduje się przykładowy element Runbook programu PowerShell, który zbiera zasoby poświadczeń do zatrzymywania i uruchamiania maszyn wirtualnych w ramach subskrypcji platformy Azure. Ten element Runbook najpierw `Get-AutomationPSCredential` używa do pobierania poświadczeń do uwierzytelniania na platformie Azure. Następnie wywołuje polecenie cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.6.1) w celu nawiązania połączenia z platformą Azure przy użyciu poświadczenia. Skrypt używa polecenia cmdlet [SELECT-AzureSubscription](https://docs.microsoft.com/powershell/module/servicemanagement/azure/select-azuresubscription?view=azuresmps-4.0.0) , aby wybrać subskrypcję, z którą chcesz współpracować. 
+Zasobami platformy Azure można zarządzać z poziomu elementów Runbook Azure Automation przy użyciu zasobu Credential. Poniżej znajduje się przykładowy element Runbook programu PowerShell, który zbiera zasoby poświadczeń do zatrzymywania i uruchamiania maszyn wirtualnych w ramach subskrypcji platformy Azure. Ten element Runbook najpierw używa `Get-AutomationPSCredential` do pobierania poświadczeń do uwierzytelniania na platformie Azure. Następnie wywołuje polecenie cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-3.6.1) w celu nawiązania połączenia z platformą Azure przy użyciu poświadczenia. Skrypt używa polecenia cmdlet [SELECT-AzureSubscription](https://docs.microsoft.com/powershell/module/servicemanagement/azure/select-azuresubscription?view=azuresmps-4.0.0) , aby wybrać subskrypcję, z którą chcesz współpracować. 
 
 ```azurepowershell
 Workflow Stop-Start-AzureVM 
@@ -162,7 +159,7 @@ Workflow Stop-Start-AzureVM
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Informacje o zasobach poświadczeń usługi Automation można znaleźć w obszarze [zasoby poświadczeń w Azure Automation](shared-resources/credentials.md).
-* Zobacz [Zarządzanie modułami w Azure Automation](shared-resources/modules.md) , aby dowiedzieć się, jak korzystać z modułów automatyzacji.
-* Aby dowiedzieć się więcej na temat metod, których można użyć do uruchomienia elementu Runbook w Azure Automation, zobacz [Uruchamianie elementu Runbook w programie Azure Automation](automation-starting-a-runbook.md).
-* Aby uzyskać więcej informacji na temat programu PowerShell, w tym modułów dokumentacji i uczenia dotyczącej języka, zobacz dokumentację [programu PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
+* [Zarządzanie poświadczeniami w Azure Automation](shared-resources/credentials.md)
+* [Zarządzanie modułami w usłudze Azure Automation](shared-resources/modules.md)
+* [Uruchamianie elementu runbook w usłudze Azure Automation](start-runbooks.md)
+* [Dokumentacja programu PowerShell](https://docs.microsoft.com/powershell/scripting/overview)

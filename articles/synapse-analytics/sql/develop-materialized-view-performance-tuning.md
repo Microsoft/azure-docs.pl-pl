@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 30ca03633b9b0788235439204a3c1926fe6b6a6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a07c419ecaa0cb0ec05c7c392a4d5ed9b0bfa491
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81429982"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747409"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Strojenie wydajności za pomocą zmaterializowanych widoków
 
@@ -153,7 +153,7 @@ Aby można było użyć buforowanego wyniku, formularz żądania pamięci podrę
 
 ## <a name="example"></a>Przykład
 
-W tym przykładzie używamy zapytania przypominającego TPCDS, które umożliwia znalezienie klientów, którzy spędzają więcej pieniędzy za pośrednictwem wykazu niż w sklepach. Identyfikuje również preferowanych klientów i ich kraj pochodzenia.   Zapytanie obejmuje wybranie pierwszych 100 rekordów z Unii trzech instrukcji SELECT sub obejmujących SUM () i GROUP BY.
+W tym przykładzie używamy zapytania przypominającego TPCDS, które umożliwia znalezienie klientów, którzy spędzają więcej pieniędzy za pośrednictwem wykazu niż w sklepach. Identyfikuje również preferowanych klientów i ich kraj/region pochodzenia.   Zapytanie obejmuje wybranie pierwszych 100 rekordów z Unii trzech instrukcji SELECT sub obejmujących SUM () i GROUP BY.
 
 ```sql
 WITH year_total AS (

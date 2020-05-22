@@ -6,19 +6,19 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 1bdf2d0e3613af7eec339194d6d8a446be83f365
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 649c9a2e0dd9df21a9a59140d9f2999768aab555
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692407"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745405"
 ---
 # <a name="tutorial-use-sql-on-demand-preview-with-power-bi-desktop--create-a-report"></a>Samouczek: używanie SQL na żądanie (wersja zapoznawcza) z Power BI Desktop & Tworzenie raportu
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 >
@@ -51,10 +51,7 @@ Utwórz demonstracyjną bazę danych (i w razie potrzeby upuść istniejącą ba
 
 ```sql
 -- Drop database if it exists
-IF EXISTS (SELECT * FROM sys.databases WHERE name = 'Demo')
-BEGIN
-    DROP DATABASE Demo
-END;
+DROP DATABASE IF EXISTS Demo
 GO
 
 -- Create new database
@@ -62,23 +59,16 @@ CREATE DATABASE [Demo];
 GO
 ```
 
-## <a name="2---create-credential"></a>2 — Tworzenie poświadczeń
+## <a name="2---create-data-source"></a>2 — Tworzenie źródła danych
 
-Do uzyskiwania dostępu do plików w magazynie jest wymagane poświadczenie usługi SQL na żądanie. Utwórz poświadczenie dla konta magazynu znajdującego się w tym samym regionie, w którym znajduje się punkt końcowy. Mimo że usługa SQL na żądanie może uzyskać dostęp do kont magazynu z różnych regionów, posiadanie magazynu i punktu końcowego w tym samym regionie zapewnia lepszą wydajność.
+Do uzyskiwania dostępu do plików w magazynie przez usługę SQL na żądanie jest wymagane źródło danych. Utwórz źródło danych dla konta magazynu znajdującego się w tym samym regionie, w którym znajduje się punkt końcowy. Mimo że usługa SQL na żądanie może uzyskać dostęp do kont magazynu z różnych regionów, posiadanie magazynu i punktu końcowego w tym samym regionie zapewnia lepszą wydajność.
 
-Utwórz poświadczenie, uruchamiając następujący skrypt języka Transact-SQL (T-SQL):
+Utwórz źródło danych, uruchamiając następujący skrypt języka Transact-SQL (T-SQL):
 
 ```sql
-IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
-DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer];
-GO
-
--- Create credentials for Census Data container which resides in a azure open data storage account
--- There is no secret. We are using public storage account which doesn't need a secret.
-CREATE CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]
-WITH IDENTITY='SHARED ACCESS SIGNATURE',
-SECRET = '';
-GO
+-- There is no credential in data surce. We are using public storage account which doesn't need a secret.
+CREATE EXTERNAL DATA SOURCE AzureOpenData
+WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/')
 ```
 
 ## <a name="3---prepare-view"></a>3 — Przygotuj widok
@@ -96,7 +86,8 @@ SELECT
     *
 FROM
     OPENROWSET(
-        BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        BULK 'censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        DATA_SOURCE = 'AzureOpenData',
         FORMAT='PARQUET'
     ) AS uspv;
 ```
@@ -118,7 +109,7 @@ Utwórz raport dla Power BI Desktop, wykonując następujące czynności:
 
    ![Otwórz aplikację klasyczną Power BI i wybierz pozycję Pobierz dane.](./media/tutorial-connect-power-bi-desktop/step-0-open-powerbi.png)
 
-2. Wybierz pozycję **Azure** > **Azure SQL Database**. 
+2. Wybierz pozycję **Azure**  >  **Azure SQL Database**. 
 
    ![Wybierz pozycję źródło danych.](./media/tutorial-connect-power-bi-desktop/step-1-select-data-source.png)
 
@@ -137,11 +128,11 @@ Utwórz raport dla Power BI Desktop, wykonując następujące czynności:
         ![Użyj logowania SQL.](./media/tutorial-connect-power-bi-desktop/step-2.2-select-sql-auth.png)
 
 
-5. Wybierz widok `usPopulationView`, a następnie wybierz pozycję **Załaduj**. 
+5. Wybierz widok `usPopulationView` , a następnie wybierz pozycję **Załaduj**. 
 
    ![Wybierz widok w wybranej bazie danych.](./media/tutorial-connect-power-bi-desktop/step-3-select-view.png)
 
-6. Poczekaj na zakończenie operacji, a następnie zostanie wyświetlone okno podręczne `There are pending changes in your queries that haven't been applied`. Wybierz pozycję **Zastosuj zmiany**. 
+6. Poczekaj na zakończenie operacji, a następnie zostanie wyświetlone okno podręczne `There are pending changes in your queries that haven't been applied` . Wybierz pozycję **Zastosuj zmiany**. 
 
    ![Kliknij przycisk Zastosuj zmiany.](./media/tutorial-connect-power-bi-desktop/step-4-apply-changes.png)
 
@@ -156,14 +147,14 @@ Utwórz raport dla Power BI Desktop, wykonując następujące czynności:
 
    ![Wybierz kolumny zainteresowania, aby wygenerować raport mapy.](./media/tutorial-connect-power-bi-desktop/step-6-select-columns-of-interest.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu korzystania z tego raportu Usuń zasoby z następującymi krokami:
 
 1. Usuń poświadczenie dla konta magazynu
 
    ```sql
-   DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer];
+   DROP EXTENAL DATA SOURCE AzureOpenData
    ```
 
 2. Usuń widok

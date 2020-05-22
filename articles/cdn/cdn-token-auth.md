@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mazha
-ms.openlocfilehash: 491f413f9bf189b1a46d04042fd7223a47af1f24
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 3539c101b8bf146e9feee6dfc4e90f859f0ef142
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929132"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745459"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Zabezpieczanie zasobów Azure CDN przy użyciu uwierzytelniania tokenów
 
@@ -33,7 +33,7 @@ Uwierzytelnianie tokenu jest mechanizmem, który pozwala zapobiegać wykorzystan
 
 Uwierzytelnianie tokenu weryfikuje, czy żądania są generowane przez zaufaną witrynę przez wymaganie, aby żądania zawierały wartość tokenu, która przechowuje zakodowane informacje o żądającym. Zawartość jest obsługiwana dla żądającego tylko wtedy, gdy zakodowane informacje spełniają wymagania. w przeciwnym razie żądania są odrzucane. Wymagania można skonfigurować przy użyciu co najmniej jednego z następujących parametrów:
 
-- Kraj: Zezwalanie lub odrzucanie żądań pochodzących z krajów/regionów określonych przez [kod kraju](/previous-versions/azure/mt761717(v=azure.100)).
+- Kraj/region: Zezwalanie lub odrzucanie żądań pochodzących z krajów/regionów określonych w [kodzie kraju/regionu](/previous-versions/azure/mt761717(v=azure.100)).
 - URL: Zezwalaj tylko na żądania zgodne z określonym zasobem lub ścieżką.
 - Host: Zezwalanie lub odmawianie żądań, które używają określonych hostów w nagłówku żądania.
 - Odwołujący: Zezwalaj lub Odmów żądania od określonego odwołującego.
@@ -100,31 +100,31 @@ Poniższy schemat blokowy opisuje, jak Azure CDN sprawdza poprawność żądania
       > </tr>
       > <tr>
       >    <td><b>ec_expire</b></td>
-      >    <td>Przypisuje do tokenu czas wygaśnięcia, po upływie którego token wygasa. Żądania przesłane po upłynięciu czasu wygaśnięcia zostaną odrzucone. Ten parametr używa sygnatury czasowej systemu UNIX, która jest oparta na liczbie sekund od czasu standardowej epoki systemu UNIX `1/1/1970 00:00:00 GMT`. (Narzędzia online można użyć do konwersji między czasem standardowym i czasem systemu UNIX).> 
-      >    Na przykład jeśli chcesz, aby token wygaśnie `12/31/2016 12:00:00 GMT`, wprowadź wartość w polu sygnatura czasowa systemu `1483185600`UNIX. 
+      >    <td>Przypisuje do tokenu czas wygaśnięcia, po upływie którego token wygasa. Żądania przesłane po upłynięciu czasu wygaśnięcia zostaną odrzucone. Ten parametr używa sygnatury czasowej systemu UNIX, która jest oparta na liczbie sekund od czasu standardowej epoki systemu UNIX `1/1/1970 00:00:00 GMT` . (Narzędzia online można użyć do konwersji między czasem standardowym i czasem systemu UNIX).> 
+      >    Na przykład jeśli chcesz, aby token wygaśnie `12/31/2016 12:00:00 GMT` , wprowadź wartość w polu sygnatura czasowa systemu UNIX `1483185600` . 
       > </tr>
       > <tr>
       >    <td><b>ec_url_allow</b></td> 
       >    <td>Umożliwia dostosowanie tokenów do określonego zasobu lub ścieżki. Ogranicza dostęp do żądań, których adres URL zaczyna się od określonej ścieżki względnej. Adresy URL są rozróżniane wielkości liter. Wprowadź wiele ścieżek, oddzielając poszczególne ścieżki przecinkami; Nie dodawaj spacji. W zależności od wymagań można skonfigurować różne wartości w celu zapewnienia różnego poziomu dostępu.> 
-      >    Na przykład dla adresu URL `http://www.mydomain.com/pictures/city/strasbourg.png`te żądania są dozwolone dla następujących wartości wejściowych: 
+      >    Na przykład dla adresu URL `http://www.mydomain.com/pictures/city/strasbourg.png` te żądania są dozwolone dla następujących wartości wejściowych: 
       >    <ul>
-      >       <li>Wartość `/`wejściowa: dozwolone są wszystkie żądania.</li>
-      >       <li>Wartość `/pictures`wejściowa są dozwolone następujące żądania: <ul>
+      >       <li>Wartość wejściowa `/` : dozwolone są wszystkie żądania.</li>
+      >       <li>Wartość wejściowa `/pictures` są dozwolone następujące żądania: <ul>
       >          <li>`http://www.mydomain.com/pictures.png`</li>
       >          <li>`http://www.mydomain.com/pictures/city/strasbourg.png`</li>
       >          <li>`http://www.mydomain.com/picturesnew/city/strasbourgh.png`</li>
       >       </ul></li>
-      >       <li>Wartość `/pictures/`wejściowa: dozwolone są tylko `/pictures/` żądania zawierające ścieżkę. Na przykład `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
-      >       <li>Wartość `/pictures/city/strasbourg.png`wejściowa: dozwolone są tylko żądania dla tej konkretnej ścieżki i elementu zawartości.</li>
+      >       <li>Wartość wejściowa `/pictures/` : dozwolone są tylko żądania zawierające `/pictures/` ścieżkę. Na przykład `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
+      >       <li>Wartość wejściowa `/pictures/city/strasbourg.png` : dozwolone są tylko żądania dla tej konkretnej ścieżki i elementu zawartości.</li>
       >    </ul>
       > </tr>
       > <tr>
       >    <td><b>ec_country_allow</b></td> 
-      >    <td>Zezwala tylko na żądania pochodzące z co najmniej jednego określonego kraju/regionu. Żądania pochodzące ze wszystkich innych krajów/regionów są odrzucane. Użyj dwuliterowego [kodu ISO 3166](/previous-versions/azure/mt761717(v=azure.100)) dla każdego kraju i rozdziel je przecinkami; Nie dodawaj odstępu. Na przykład jeśli chcesz zezwolić na dostęp tylko z Stany Zjednoczone i Francji, wprowadź `US,FR`wartość.</td>
+      >    <td>Zezwala tylko na żądania pochodzące z co najmniej jednego określonego kraju/regionu. Żądania pochodzące ze wszystkich innych krajów/regionów są odrzucane. W przypadku każdego kraju/regionu należy użyć dwuliterowego [kodu ISO 3166](/previous-versions/azure/mt761717(v=azure.100)) , a każdy z nich należy oddzielić przecinkami; Nie dodawaj odstępu. Na przykład jeśli chcesz zezwolić na dostęp tylko z Stany Zjednoczone i Francji, wprowadź wartość `US,FR` .</td>
       > </tr>
       > <tr>
       >    <td><b>ec_country_deny</b></td> 
-      >    <td>Odrzuca żądania pochodzące z co najmniej jednego określonego kraju/regionu. Żądania pochodzące ze wszystkich innych krajów/regionów są dozwolone. Implementacja jest taka sama jak parametr <b>ec_country_allow</b> . Jeśli w parametrach <b>ec_country_allow</b> i <b>ec_country_deny</b> występuje kod kraju, pierwszeństwo ma parametr <b>ec_country_allow</b> .</td>
+      >    <td>Odrzuca żądania pochodzące z co najmniej jednego określonego kraju/regionu. Żądania pochodzące ze wszystkich innych krajów/regionów są dozwolone. Implementacja jest taka sama jak parametr <b>ec_country_allow</b> . Jeśli w parametrach <b>ec_country_allow</b> i <b>ec_country_deny</b> jest obecny kod kraju/regionu, parametr <b>ec_country_allow</b> ma pierwszeństwo.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_ref_allow</b></td>
@@ -134,9 +134,9 @@ Poniższy schemat blokowy opisuje, jak Azure CDN sprawdza poprawność żądania
       >       <li>Nazwa hosta lub nazwa hosta i ścieżka.</li>
       >       <li>Wielu odwołujących się. Aby dodać wielu odwołujących, oddziel każdy odwołujący przecinkami; Nie dodawaj odstępu. W przypadku określenia wartości odwołującej, ale informacje o odmowie nie są wysyłane w żądaniu z powodu konfiguracji przeglądarki, żądanie jest domyślnie odrzucane.</li> 
       >       <li>Żądania z brakującymi lub pustymi informacjami o odwołującym się. Domyślnie parametr <b>ec_ref_allow</b> blokuje te typy żądań. Aby zezwolić na te żądania, wprowadź tekst "Brak" lub wprowadź wartość pustą (przy użyciu końcowego przecinka).</li> 
-      >       <li>Poddomen. Aby zezwolić na poddomeny, Wprowadź gwiazdkę (\*). Na przykład, aby zezwolić na wszystkie poddomeny `contoso.com`, wprowadź. `*.contoso.com`</li>
+      >       <li>Poddomen. Aby zezwolić na poddomeny, Wprowadź gwiazdkę ( \* ). Na przykład, aby zezwolić na wszystkie poddomeny `contoso.com` , wprowadź `*.contoso.com` .</li>
       >    </ul> 
-      >    Na przykład, aby zezwolić na dostęp do żądań `www.contoso.com`z, wszystkie poddomeny w `contoso2.com`obszarze i żądania z pustymi lub brakującymi odwołującymi `www.contoso.com,*.contoso.com,missing`, wprowadź.</td>
+      >    Na przykład, aby zezwolić na dostęp do żądań z `www.contoso.com` , wszystkie poddomeny w obszarze `contoso2.com` i żądania z pustymi lub brakującymi odwołującymi, wprowadź `www.contoso.com,*.contoso.com,missing` .</td>
       > </tr>
       > <tr> 
       >    <td><b>ec_ref_deny</b></td>
@@ -144,7 +144,7 @@ Poniższy schemat blokowy opisuje, jak Azure CDN sprawdza poprawność żądania
       > </tr>
       > <tr> 
       >    <td><b>ec_proto_allow</b></td> 
-      >    <td>Zezwala tylko na żądania z określonego protokołu. Prawidłowe wartości to `http`, `https`, lub `http,https`.</td>
+      >    <td>Zezwala tylko na żądania z określonego protokołu. Prawidłowe wartości to `http` , `https` , lub `http,https` .</td>
       > </tr>
       > <tr>
       >    <td><b>ec_proto_deny</b></td>
@@ -195,7 +195,7 @@ Poniższy schemat blokowy opisuje, jak Azure CDN sprawdza poprawność żądania
    - PHP
    - Języku
    - Java
-   - Python 
+   - Python    
 
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Azure CDN funkcje i Cennik dostawcy
 

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: e978771eaafafe4120f9eec802525c293fb9c7c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dc37cb985ae561ddbd06c2236ab77d6d20d9242c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426383"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747636"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics partycjonowanie niestandardowego obiektu BLOB
 
@@ -65,7 +65,7 @@ Zwróć uwagę, że każdy rekord w obiekcie blob ma **client_id** kolumnę pasu
 
 ## <a name="custom-datetime-path-patterns"></a>Niestandardowe wzorce ścieżki DateTime
 
-Niestandardowe wzorce ścieżki DateTime umożliwiają określenie formatu danych wyjściowych, który jest zgodny z konwencjami przesyłania strumieniowego Hive, dając Azure Stream Analytics możliwość wysyłania danych do usługi Azure HDInsight i Azure Databricks do przetwarzania podrzędnego. Niestandardowe wzorce ścieżki DateTime są łatwo implementowane za `datetime` pomocą słowa kluczowego w polu Prefiks ścieżki w danych wyjściowych obiektu BLOB wraz ze specyfikatorem formatu. Na przykład `{datetime:yyyy}`.
+Niestandardowe wzorce ścieżki DateTime umożliwiają określenie formatu danych wyjściowych, który jest zgodny z konwencjami przesyłania strumieniowego Hive, dając Azure Stream Analytics możliwość wysyłania danych do usługi Azure HDInsight i Azure Databricks do przetwarzania podrzędnego. Niestandardowe wzorce ścieżki DateTime są łatwo implementowane za pomocą `datetime` słowa kluczowego w polu Prefiks ścieżki w danych wyjściowych obiektu BLOB wraz ze specyfikatorem formatu. Na przykład `{datetime:yyyy}`.
 
 ### <a name="supported-tokens"></a>Obsługiwane tokeny
 
@@ -77,10 +77,10 @@ Poniższe tokeny specyfikatora formatu mogą być używane autonomicznie lub w p
 |{DateTime: MM}|Miesiąc od 01 do 12|01|
 |{DateTime: M}|Miesiąc od 1 do 12|1|
 |{DateTime: DD}|Dzień od 01 do 31|02|
-|{DateTime: d}|Dzień od 1 do 12|2|
+|{DateTime: d}|Dzień od 1 do 31|2|
 |{DateTime: gg}|Godzina przy użyciu formatu 24-godzinnego, od 00 do 23|10|
-|{DateTime: mm}|Minuty od 00 do 24|06|
-|{DateTime: m}|Minuty od 0 do 24|6|
+|{DateTime: mm}|Minuty od 00 do 60|06|
+|{DateTime: m}|Minuty od 0 do 60|6|
 |{DateTime: SS}|Sekund od 00 do 60|08|
 
 Jeśli nie chcesz używać niestandardowych wzorców DateTime, możesz dodać token {date} i/lub {Time} do prefiksu ścieżki, aby wygenerować listę rozwijaną z wbudowanymi formatami DateTime.
@@ -89,9 +89,9 @@ Jeśli nie chcesz używać niestandardowych wzorców DateTime, możesz dodać to
 
 ### <a name="extensibility-and-restrictions"></a>Rozszerzalność i ograniczenia
 
-Możesz użyć dowolną liczbę tokenów, `{datetime:<specifier>}`tak jak w przypadku wzorca ścieżki, dopóki nie osiągniesz limitu znaków prefiksu ścieżki. Specyfikatory formatu nie mogą być łączone w pojedynczym tokenie poza kombinacje już wymienione na liście rozwijanej daty i godziny. 
+Możesz użyć dowolną liczbę tokenów, `{datetime:<specifier>}` tak jak w przypadku wzorca ścieżki, dopóki nie osiągniesz limitu znaków prefiksu ścieżki. Specyfikatory formatu nie mogą być łączone w pojedynczym tokenie poza kombinacje już wymienione na liście rozwijanej daty i godziny. 
 
-Dla partycji ścieżki `logs/MM/dd`:
+Dla partycji ścieżki `logs/MM/dd` :
 
 |Prawidłowe wyrażenie   |Nieprawidłowe wyrażenie   |
 |----------|-----------|
@@ -101,7 +101,7 @@ Można użyć tego samego specyfikatora formatu wiele razy w prefiksie ścieżki
 
 ### <a name="hive-streaming-conventions"></a>Konwencje przesyłania strumieniowego Hive
 
-Wzorce ścieżki niestandardowej dla magazynu obiektów BLOB mogą być używane z Konwencją przesyłania strumieniowego Hive, która oczekuje, że foldery mają `column=` być oznaczone jako nazwa folderu.
+Wzorce ścieżki niestandardowej dla magazynu obiektów BLOB mogą być używane z Konwencją przesyłania strumieniowego Hive, która oczekuje, że foldery mają być oznaczone jako `column=` Nazwa folderu.
 
 Na przykład `year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}/hour={datetime:HH}`.
 

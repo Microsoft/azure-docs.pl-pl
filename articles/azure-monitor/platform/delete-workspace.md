@@ -5,17 +5,17 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 04/30/2020
-ms.openlocfilehash: 7ed01a57a4c2a55d777907a6cc14b111fb2086e3
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.date: 05/19/2020
+ms.openlocfilehash: 5ab71ee67b66cacbcd1b23fa35d6f424021fa9cc
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731904"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757537"
 ---
 # <a name="delete-and-recover-azure-log-analytics-workspace"></a>Usuwanie i odzyskiwanie obszaru roboczego usługi Azure Log Analytics
 
-W tym artykule wyjaśniono koncepcję nietrwałego usunięcia obszaru roboczego usługi Azure Log Analytics i odzyskiwania usuniętego obszaru roboczego. 
+W tym artykule wyjaśniono koncepcję nietrwałego usunięcia obszaru roboczego usługi Azure Log Analytics i odzyskiwania usuniętego obszaru roboczego.
 
 ## <a name="considerations-when-deleting-a-workspace"></a>Zagadnienia dotyczące usuwania obszaru roboczego
 
@@ -45,12 +45,12 @@ Obszar roboczy można usunąć przy użyciu [programu PowerShell](https://docs.m
 
 ### <a name="azure-portal"></a>Azure Portal
 
-1. Aby się zalogować, przejdź do [Azure Portal](https://portal.azure.com). 
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
 2. W Azure Portal wybierz pozycję **wszystkie usługi**. Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz **log Analytics obszary robocze**.
 3. Na liście obszarów roboczych Log Analytics wybierz obszar roboczy, a następnie kliknij przycisk **Usuń** w górnej części środkowego okienka.
-   ![Opcja usuwania z okienka właściwości obszaru roboczego](media/delete-workspace/log-analytics-delete-workspace.png)
-4. Gdy zostanie wyświetlone okno komunikatu potwierdzenia z prośbą o potwierdzenie usunięcia obszaru roboczego, kliknij przycisk **tak**.
-   ![Potwierdzenie usunięcia obszaru roboczego](media/delete-workspace/log-analytics-delete-workspace-confirm.png)
+4. Zostanie wyświetlona strona potwierdzenia, która pokazuje pozyskiwanie danych w obszarze roboczym w ciągu ostatniego tygodnia. Wpisz nazwę obszaru roboczego, który chcesz potwierdzić, a następnie kliknij przycisk **Usuń**.
+
+   ![Potwierdzenie usunięcia obszaru roboczego](media/delete-workspace/workspace-delete.png)
 
 ### <a name="powershell"></a>PowerShell
 ```PowerShell
@@ -92,10 +92,27 @@ Aby trwale usunąć obszar roboczy, użyj [obszarów roboczych — Usuń]( https
 Gdzie "eyJ0eXAiOiJKV1Qi..." przedstawia pełny Token autoryzacji.
 
 ## <a name="recover-workspace"></a>Odzyskiwanie obszaru roboczego
+Po przypadkowe lub celowe usunięciu obszaru roboczego Log Analytics usługa umieści obszar roboczy w stanie usuwania nietrwałego, dzięki czemu nie będzie dostępny dla żadnej operacji. Nazwa usuniętego obszaru roboczego jest zachowywana w okresie usuwania nietrwałego i nie można jej używać do tworzenia nowego obszaru roboczego. Po okresie usuwania nieodzyskiwalnego obszar roboczy nie jest możliwy do odzyskania, jest zaplanowany do trwałego usunięcia oraz jego nazwy wydanej i można go użyć do utworzenia nowego obszaru roboczego.
 
-Jeśli masz uprawnienia współautora do subskrypcji i grupy zasobów, do której został skojarzony obszar roboczy przed operacją usuwania nietrwałego, możesz odzyskać ją w okresie usuwania nietrwałego, w tym jego dane, konfigurację i połączone agenci. Po okresie usuwania nietrwałego obszar roboczy nie jest możliwy do odzyskania i zostaje przypisany do trwałego usunięcia. Nazwy usuniętych obszarów roboczych są zachowywane w okresie usuwania nietrwałego i nie mogą być używane podczas próby utworzenia nowego obszaru roboczego.  
+Obszar roboczy możesz odzyskać w okresie usuwania nietrwałego, w tym jego dane, konfigurację i połączone agenci. Musisz mieć uprawnienia współautora do subskrypcji i grupy zasobów, w której znajduje się obszar roboczy przed operacją usuwania nietrwałego. Odzyskiwanie obszaru roboczego odbywa się przez utworzenie obszaru roboczego Log Analytics zawierającego szczegółowe informacje o usuniętym obszarze roboczym, w tym:
 
-Aby odzyskać obszar roboczy, można utworzyć obszar roboczy ze szczegółowymi informacjami o usuniętym obszarze roboczym, takich jak *Identyfikator subskrypcji*, *Nazwa grupy zasobów*, *Nazwa obszaru roboczego* i *region*. Jeśli grupa zasobów została również usunięta i nie istnieje, Utwórz grupę zasobów o tej samej nazwie, która została użyta przed usunięciem, a następnie Utwórz obszar roboczy przy użyciu dowolnej z następujących metod: [Azure Portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace), [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) lub [interfejsu API REST](https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate).
+- Identyfikator subskrypcji
+- Nazwa grupy zasobów
+- Nazwa obszaru roboczego
+- Region
+
+### <a name="azure-portal"></a>Azure Portal
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com). 
+2. W Azure Portal wybierz pozycję **wszystkie usługi**. Na liście zasobów wpisz **Log Analytics**. Po rozpoczęciu pisania zawartość listy jest filtrowana w oparciu o wpisywane dane. Wybierz **log Analytics obszary robocze**. Zostanie wyświetlona lista obszarów roboczych, które znajdują się w wybranym zakresie.
+3. Kliknij przycisk **Odzyskaj** w lewym górnym menu, aby otworzyć stronę z obszarami roboczymi w stanie usuwania nietrwałego, który może zostać odzyskany.
+
+   ![Odzyskiwanie obszaru roboczego](media/delete-workspace/recover-menu.png)
+
+4. Wybierz obszar roboczy, a następnie kliknij przycisk **Odzyskaj** , aby odzyskać ten obszar roboczy.
+
+   ![Odzyskiwanie obszaru roboczego](media/delete-workspace/recover-workspace.png)
+
 
 ### <a name="powershell"></a>PowerShell
 ```PowerShell

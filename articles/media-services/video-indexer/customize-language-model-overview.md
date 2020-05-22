@@ -10,16 +10,16 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: b096b9352be65033f2fb782b118e815dc16b43b6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d264b0d35be5114d35713f793b771e42449c9230
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73838318"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745681"
 ---
 # <a name="customize-a-language-model-with-video-indexer"></a>Dostosowywanie modelu języka za pomocą Video Indexer
 
-Video Indexer obsługuje automatyczne rozpoznawanie mowy poprzez integrację z usługą Microsoft [Custom Speech Service](https://azure.microsoft.com/services/cognitive-services/custom-speech-service/). Możesz dostosować model języka, przekazując tekst do adaptacji, czyli tekst z domeny, której słownictwo chcesz dostosować do aparatu. Po przeprowadzeniu szkolenia modelu nowe wyrazy pojawiające się w tekście adaptacyjnym zostaną rozpoznane, przy założeniu, że domyślna wymowa i model języka będzie uczyć się nowych prawdopodobnych sekwencji wyrazów. Niestandardowe modele języków są obsługiwane w języku angielskim, hiszpańskim, francuskim, niemieckim, włoskim, chińskim (uproszczonym), japońskim, rosyjskim, portugalskim portugalskim, hindi i koreańskim. 
+Video Indexer obsługuje automatyczne rozpoznawanie mowy poprzez integrację z usługą Microsoft [Custom Speech Service](https://azure.microsoft.com/services/cognitive-services/custom-speech-service/). Możesz dostosować model języka, przekazując tekst do adaptacji, czyli tekst z domeny, której słownictwo chcesz dostosować do aparatu. Po przeprowadzeniu szkolenia modelu nowe wyrazy pojawiające się w tekście adaptacyjnym zostaną rozpoznane, przy założeniu, że domyślna wymowa i model języka będzie uczyć się nowych prawdopodobnych sekwencji wyrazów. Niestandardowe modele języków są obsługiwane w języku angielskim, hiszpańskim, francuskim, niemieckim, włoskim, chińskim (uproszczonym), japońskim, rosyjskim, portugalskim, hindi i koreańskim. 
 
 Utwórzmy słowo o wysokiej dostępności, takie jak "Kubernetes" (w kontekście usługi Azure Kubernetes Service), na przykład. Ponieważ wyraz jest nowy do Video Indexer, jest rozpoznawany jako "społeczności". Musisz nauczyć model, aby rozpoznawał go jako "Kubernetes". W innych przypadkach słowa istnieją, ale model języka nie oczekuje, że są one wyświetlane w określonym kontekście. Na przykład "Usługa kontenera" nie jest sekwencją 2-słowną, którą Niewyspecjalizowany model języka może rozpoznać jako określony zestaw słów.
 

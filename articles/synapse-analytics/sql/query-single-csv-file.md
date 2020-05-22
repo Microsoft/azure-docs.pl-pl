@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 3d09692c06bcdffbb070f545950092592e417838
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c0e4208f4f9a01bc42d4c6134ec3ec4fb1cb19fd
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81431594"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744282"
 ---
 # <a name="query-csv-files"></a>Pliki CSV zapytania
 
@@ -176,7 +176,7 @@ WHERE
 ```
 
 > [!NOTE]
-> To zapytanie nie powiedzie się, jeśli ESCAPECHAR nie zostanie określony, ponieważ przecinek w "slov, enia" byłby traktowany jako ogranicznik pola zamiast części nazwy kraju. "Slov, enia" byłyby traktowane jak dwie kolumny. W związku z tym, konkretny wiersz może mieć jedną kolumnę więcej niż pozostałe wiersze, a jedna kolumna jest większa niż zdefiniowana w klauzuli WITH.
+> To zapytanie nie powiedzie się, jeśli ESCAPECHAR nie zostanie określony, ponieważ przecinek w "slov, enia" byłby traktowany jako ogranicznik pola zamiast części nazwy kraju/regionu. "Slov, enia" byłyby traktowane jak dwie kolumny. W związku z tym, konkretny wiersz może mieć jedną kolumnę więcej niż pozostałe wiersze, a jedna kolumna jest większa niż zdefiniowana w klauzuli WITH.
 
 ## <a name="tab-delimited-files"></a>Pliki rozdzielane tabulatorami
 
@@ -210,7 +210,7 @@ WHERE
 
 Do tej pory określono schemat plików CSV za pomocą polecenia WITH i lista wszystkich kolumn. W zapytaniu można określić tylko kolumny, które są w rzeczywistości potrzebne, używając numeru porządkowego dla każdej kolumny. Pomijasz również kolumny bez zainteresowania.
 
-Następujące zapytanie zwraca liczbę różnych nazw krajów w pliku, określając tylko te kolumny, które są zbędne:
+Następujące zapytanie zwraca liczbę różnych nazw krajów/regionów w pliku, określając tylko te kolumny, które są zbędne:
 
 > [!NOTE]
 > Zapoznaj się z klauzulą WITH w zapytaniach poniżej i zwróć uwagę na to, że w kolumnie *[country_name]* znajduje się wartość "2" (bez cudzysłowów). Oznacza to, że kolumna *[country_name]* jest drugą kolumną w pliku. Zapytanie zignoruje wszystkie kolumny w pliku poza drugim.

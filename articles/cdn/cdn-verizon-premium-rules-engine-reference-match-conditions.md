@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: allensu
-ms.openlocfilehash: e2361590118668f2cdf22c4a29534b16790b90e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3bc439e3244be63bff1c54d3230eda17dfb9d88d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81253445"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745594"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>Azure CDN z warunków dopasowania aparatu programu Verizon Premium
 
@@ -49,7 +49,7 @@ Warunki dopasowania lokalizacji określają żądania na podstawie lokalizacji o
 Nazwa | Przeznaczenie
 -----|--------
 [Numer AS](#as-number) | Identyfikuje żądania pochodzące z określonej sieci.
-[Country](#country) | Identyfikuje żądania pochodzące z określonych krajów/regionów.
+[Kraj](#country) | Identyfikuje żądania pochodzące z określonych krajów/regionów.
 
 ## <a name="origin-match-conditions"></a>Warunki dopasowania pochodzenia
 
@@ -112,7 +112,7 @@ Warunek zawsze pasujący stosuje domyślny zestaw funkcji do wszystkich żądań
 
 Sieć numeru AS jest definiowana przez numer systemu autonomicznego (ASN). 
 
-Opcja **dopasowania**/nie**zgadza** się określa warunki, w których jest spełniony warunek zgodności z liczbą:
+Opcja **dopasowania**nie / **zgadza** się określa warunki, w których jest spełniony warunek zgodności z liczbą:
 
 - **Dopasowania**: wymaga, aby numer ASN sieci klienta odpowiadał jednemu z określonych numerów WPW. 
 - **Niezgodne**: wymaga, aby numer ASN sieci klienta nie był zgodny z żadnym z określonych numerów WPW.
@@ -157,7 +157,7 @@ Informacje o kluczu:
 
 ### <a name="client-ip-address"></a>Adres IP klienta
 
-Opcja **dopasowania**/nie**zgadza** się określa warunki, w których jest spełniony warunek dopasowania adresu IP klienta:
+Opcja **dopasowania**nie / **zgadza** się określa warunki, w których jest spełniony warunek dopasowania adresu IP klienta:
 
 - **Dopasowuje**: wymaga, aby adres IP klienta odpowiadał jednemu z określonych adresów IP. 
 - Nie **pasuje**: wymaga, aby adres IP klienta nie był zgodny z żadnym z określonych adresów IP. 
@@ -186,7 +186,7 @@ Informacje o kluczu:
 
 ### <a name="cookie-parameter"></a>Parametr cookie
 
-Opcja **dopasowania**/nie**zgadza** się określa warunki, w których jest spełniony warunek dopasowania parametru cookie.
+Opcja **dopasowania**nie / **zgadza** się określa warunki, w których jest spełniony warunek dopasowania parametru cookie.
 
 - **Pasuje**: wymaga żądania, aby zawierało określony plik cookie z wartością, która pasuje do co najmniej jednej z wartości, które są zdefiniowane w tym warunku dopasowywania.
 - **Niezgodne**: wymaga, aby żądanie spełniało jedno z następujących kryteriów:
@@ -220,7 +220,7 @@ Informacje o kluczu:
 
 Warunek dopasowania wyrażenia regularnego parametru cookie definiuje nazwę i wartość pliku cookie. Można użyć [wyrażeń regularnych](cdn-verizon-premium-rules-engine-reference.md#regular-expressions) , aby zdefiniować żądaną wartość pliku cookie.
 
-Opcja **dopasowania**/nie**zgadza** się określa warunki, w których jest spełniony warunek dopasowania wyrażenia regularnego parametru cookie.
+Opcja **dopasowania**nie / **zgadza** się określa warunki, w których jest spełniony warunek dopasowania wyrażenia regularnego parametru cookie.
 
 - **Pasuje**: wymaga żądania, aby zawierało określony plik cookie o wartości zgodnej z określonym wyrażeniem regularnym.
 - **Niezgodne**: wymaga, aby żądanie spełniało jedno z następujących kryteriów:
@@ -253,7 +253,7 @@ Informacje o kluczu:
 
 Kraj można określić za pomocą jego kodu kraju. 
 
-Opcja **dopasowania**/nie**zgadza** się określa warunki, w których jest spełniony warunek dopasowania kraju:
+Opcja **dopasowania**nie / **zgadza** się określa warunki, w których jest spełniony warunek dopasowania kraju:
 
 - **Pasuje**: wymaga, aby żądanie zawierało określone wartości kodu kraju. 
 - Nie **pasuje**: wymaga, aby żądanie nie zawierało określonych wartości kodu kraju.
@@ -279,9 +279,9 @@ Ten warunek dopasowania umożliwia wykonywanie wielu modyfikacji na podstawie lo
 - Dopasowanie symboli wieloznacznych ścieżki adresu URL: Ustaw [warunek dopasowania symboli wieloznacznych dla ścieżki URL](#url-path-wildcard) do katalogu, który ma być zabezpieczony. 
     Dołącz gwiazdkę do końca ścieżki względnej, aby upewnić się, że dostęp do wszystkich jej elementów podrzędnych będzie ograniczony przez tę regułę.
 
-- Dopasowanie kraju: Ustaw warunek dopasowania kraju na żądany zestaw krajów.
-  - Zezwalaj: Ustaw warunek dopasowania kraju na **niezgodne** , aby zezwolić tylko określonym krajom na dostęp do zawartości przechowywanej w lokalizacji zdefiniowanej przez warunek dopasowania symboli wieloznacznych ścieżki adresu URL.
-  - Blokuj: Ustaw warunek dopasowania kraju na **dopasowania** , aby zablokować określonym krajom dostęp do zawartości przechowywanej w lokalizacji zdefiniowanej przez warunek dopasowania symboli wieloznacznych ścieżki adresu URL.
+- Dopasowanie kraju: Ustaw warunek dopasowania kraju na żądany zestaw krajów/regionów.
+  - Zezwalaj: Ustaw warunek dopasowania kraju na **niezgodne** , aby zezwalać na dostęp tylko określonym krajom/regionom do zawartości przechowywanej w lokalizacji zdefiniowanej przez warunek dopasowania symboli wieloznacznych ścieżki adresu URL.
+  - Blokuj: Ustaw warunek dopasowania kraju na **dopasowania** , aby zablokować określonym krajom/regionom dostęp do zawartości przechowywanej w lokalizacji zdefiniowanej przez warunek dopasowania symboli wieloznacznych ścieżki adresu URL.
 
 - Funkcja Odmów dostępu (403): Włącz [funkcję Odmów dostępu (403)](cdn-verizon-premium-rules-engine-reference-features.md#deny-access-403) , aby replikować część zezwalania lub blokowania funkcji filtrowania krajów.
 
@@ -311,7 +311,7 @@ Informacje o kluczu:
 
 Warunek dopasowania urządzenia identyfikuje żądania wysyłane z urządzenia przenośnego na podstawie jego właściwości. Wykrywanie urządzeń przenośnych jest realizowane za poorednictwem [WURFL](http://wurfl.sourceforge.net/). 
 
-Opcja **dopasowania**/nie**zgadza** się określa warunki, w których jest spełniony warunek dopasowania urządzenia:
+Opcja **dopasowania**nie / **zgadza** się określa warunki, w których jest spełniony warunek dopasowania urządzenia:
 
 - **Dopasowuje**: wymaga, aby urządzenie żądające pasowało do określonej wartości. 
 - **Niezgodne**: wymaga, aby urządzenie żądające nie odpowiadało określonej wartości.
@@ -398,7 +398,7 @@ Informacje o kluczu:
 
 Nazwa hosta skojarzona z odciskiem, za pomocą którego zażądano wymagania, określa, czy odwołuje się do niej warunek domeny.
 
-Opcja **dopasowania**/nie**zgadza** się określa warunki, w których jest spełniony warunek dopasowania domeny odwołującej:
+Opcja **dopasowania**nie / **zgadza** się określa warunki, w których jest spełniony warunek dopasowania domeny odwołującej:
 
 - **Dopasowuje**: wymaga, aby nazwa hosta odwołująca się do określonych wartości. 
 - **Niezgodne**: wymaga, aby nazwa odwołującego hosta nie odpowiadała określonej wartości.
@@ -424,7 +424,7 @@ Informacje o kluczu:
 
 ### <a name="request-header-literal"></a>Literał nagłówka żądania
 
-Opcja **dopasowania**/nie**zgadza** się określa warunki, w których jest spełniony warunek dopasowania literału nagłówka żądania.
+Opcja **dopasowania**nie / **zgadza** się określa warunki, w których jest spełniony warunek dopasowania literału nagłówka żądania.
 
 - **Pasuje**: wymaga żądania, aby zawierało określony nagłówek. Jego wartość musi być zgodna z tą, która jest zdefiniowana w tym warunku dopasowywania.
 - **Niezgodne**: wymaga, aby żądanie spełniało jedno z następujących kryteriów:
@@ -449,7 +449,7 @@ Informacje o kluczu:
 
 ### <a name="request-header-regex"></a>Wyrażenie regularne nagłówka żądania
 
-Opcja **dopasowania**/nie**zgadza** się określa warunki, w których jest spełniony warunek dopasowania wyrażenia regularnego nagłówka żądania.
+Opcja **dopasowania**nie / **zgadza** się określa warunki, w których jest spełniony warunek dopasowania wyrażenia regularnego nagłówka żądania.
 
 - **Pasuje**: wymaga żądania, aby zawierało określony nagłówek. Jego wartość musi być zgodna ze wzorcem zdefiniowanym w określonym [wyrażeniu regularnym](cdn-verizon-premium-rules-engine-reference.md#regular-expressions).
 - **Niezgodne**: wymaga, aby żądanie spełniało jedno z następujących kryteriów:
@@ -480,7 +480,7 @@ Informacje o kluczu:
 
 ### <a name="request-header-wildcard"></a>Symbol wieloznaczny nagłówka żądania
 
-Opcja **dopasowania**/nie**zgadza** się określa warunki, w których jest spełniony warunek dopasowania symboli wieloznacznych nagłówka żądania.
+Opcja **dopasowania**nie / **zgadza** się określa warunki, w których jest spełniony warunek dopasowania symboli wieloznacznych nagłówka żądania.
 
 - **Pasuje**: wymaga żądania, aby zawierało określony nagłówek. Wartość musi być zgodna z co najmniej jedną z wartości, które są zdefiniowane w tym warunku dopasowywania.
 - **Niezgodne**: wymaga, aby żądanie spełniało jedno z następujących kryteriów:
@@ -565,7 +565,7 @@ Informacje o kluczu:
 
 Identyfikuje żądanie przy użyciu ścieżki względnej, która wyklucza nazwę pliku żądanego elementu zawartości.
 
-Opcja **dopasowania**/nie**zgadza** się określa warunki, w których jest spełniony warunek dopasowania katalogu ścieżki adresu URL.
+Opcja **dopasowania**nie / **zgadza** się określa warunki, w których jest spełniony warunek dopasowania katalogu ścieżki adresu URL.
 
 - **Pasuje**: wymaga, aby żądanie zawierało względną ścieżkę URL, z wyłączeniem nazwy pliku, która pasuje do określonego wzorca adresu URL.
 - **Niezgodne**: wymaga, aby żądanie zawierało względną ścieżkę URL, z wyłączeniem nazwy pliku, która nie pasuje do określonego wzorca adresu URL.
@@ -577,23 +577,23 @@ Informacje o kluczu:
    Następujące wartości są dostępne dla opcji **względnej** :
   - **Katalog główny**: wskazuje, że punkt porównania adresu URL rozpoczyna się bezpośrednio po nazwie hosta sieci CDN. 
 
-  Na przykład: http:\//WPC.0001. &lt;&gt;domena/**800001/weborigin/**/index.htm
+  Na przykład: http: \/ /WPC.0001. &lt; Domena &gt; / **800001/weborigin/**/index.htm
 
-  - **Źródło**: wskazuje, że punkt porównania adresu URL rozpoczyna się po punkcie dostępu do zawartości (na przykład/000001 lub/800001/myorigin). \*Ponieważ azureedge.NET rekord CNAME jest tworzony względem katalogu pierwotnego na nazwie hosta usługi Verizon CDN domyślnie, Azure CDN użytkownicy powinni używać wartości **pochodzenia** . 
+  - **Źródło**: wskazuje, że punkt porównania adresu URL rozpoczyna się po punkcie dostępu do zawartości (na przykład/000001 lub/800001/myorigin). Ponieważ \* azureedge.NET rekord CNAME jest tworzony względem katalogu pierwotnego na nazwie hosta usługi Verizon CDN domyślnie, Azure CDN użytkownicy powinni używać wartości **pochodzenia** . 
 
-  Na przykład: https:\//&lt;Endpoint&gt;. azureedge.NET/**folder**/index.htm 
+  Na przykład: https: \/ / &lt; Endpoint &gt; . azureedge.NET/**folder**/index.htm 
 
-  Ten adres URL wskazuje na następującą nazwę hosta usługi CDN Verizon:\/http:/WPC.0001. &lt;domena&gt;/800001/myorigin/**folder**/index.htm
+  Ten adres URL wskazuje na następującą nazwę hosta usługi CDN Verizon: http: \/ /WPC.0001. &lt; Domena &gt; /800001/myorigin/**folder**/index.htm
 
 - Adres URL brzegowej CNAME zostanie ponownie zapisany w adresie URL usługi CDN przed porównaniem adresu URL.
 
     Na przykład oba poniższe adresy URL wskazują ten sam element zawartości i dlatego mają tę samą ścieżkę URL.
-  - Adres URL sieci CDN:\/http:/WPC.0001. &lt;domena&gt;/800001/CustomerOrigin/Path/Asset.htm
+  - Adres URL sieci CDN: http: \/ /WPC.0001. &lt; Domena &gt; /800001/CustomerOrigin/Path/Asset.htm
     
-  - Adres URL CNAME krawędzi: http\//&lt;:&gt;Endpoint. azureedge.NET/Path/Asset.htm
+  - Adres URL CNAME krawędzi: http: \/ / &lt; Endpoint &gt; . azureedge.NET/Path/Asset.htm
     
     Informacje dodatkowe:
-  - Domena niestandardowa:\/https:/My.domain.com/Path/Asset.htm
+  - Domena niestandardowa: https: \/ /My.domain.com/Path/Asset.htm
     
     - Ścieżka adresu URL (względem katalogu głównego):/800001/CustomerOrigin/path/
     
@@ -623,7 +623,7 @@ Informacje o kluczu:
 
 Identyfikuje żądania według rozszerzenia pliku żądanego elementu zawartości.
 
-Opcja **dopasowania**/nie**zgadza** się określa warunki, w których jest spełniony warunek dopasowania rozszerzenia ścieżki adresu URL.
+Opcja **dopasowania**nie / **zgadza** się określa warunki, w których jest spełniony warunek dopasowania rozszerzenia ścieżki adresu URL.
 
 - **Dopasowuje**: wymaga, aby adres URL żądania zawierał rozszerzenie pliku, które dokładnie pasuje do określonego wzorca.
 
@@ -666,7 +666,7 @@ Ten warunek dopasowania jest spełniony w przypadku znalezienia adresów URL ko�
 
 Identyfikuje żądania według nazwy pliku żądanego elementu zawartości. Na potrzeby tego warunku dopasowania nazwa pliku składa się z nazwy żądanego zasobu, kropki i rozszerzenia pliku (na przykład index. html).
 
-Opcja **dopasowania**/nie**zgadza** się określa warunki, w których jest spełniony warunek dopasowania nazwy pliku ścieżki URL.
+Opcja **dopasowania**nie / **zgadza** się określa warunki, w których jest spełniony warunek dopasowania nazwy pliku ścieżki URL.
 
 - **Pasuje**: wymaga, aby żądanie zawierało nazwę pliku w jego ścieżce URL, która jest zgodna z określonym wzorcem.
 - **Niezgodne**: wymaga, aby żądanie zawierało nazwę pliku w jego ścieżce URL, która nie jest zgodna z określonym wzorcem.
@@ -697,7 +697,7 @@ Informacje o kluczu:
 
 Porównuje ścieżkę URL żądania, w tym nazwę pliku, z określoną wartością.
 
-Opcja **dopasowania**/nie**zgadza** się określa warunki, w których jest spełniony warunek dopasowania literału ścieżki adresu URL.
+Opcja **dopasowania**nie / **zgadza** się określa warunki, w których jest spełniony warunek dopasowania literału ścieżki adresu URL.
 
 - **Pasuje**: wymaga, aby żądanie zawierało ścieżkę URL zgodną z określonym wzorcem.
 - **Niezgodne**: wymaga, aby żądanie zawierało ścieżkę URL niezgodną z określonym wzorcem.
@@ -709,20 +709,20 @@ Informacje o kluczu:
     Następujące wartości są dostępne dla opcji **względnej** :
   - **Katalog główny**: wskazuje, że punkt porównania adresu URL rozpoczyna się bezpośrednio po nazwie hosta sieci CDN.
 
-    Na przykład: http:\//WPC.0001. &lt;&gt;/**800001/myorigin/MyFolder/index.htm** domeny
+    Na przykład: http: \/ /WPC.0001. &lt; &gt; / **800001/myorigin/MyFolder/index.htm** domeny
 
-  - **Źródło**: wskazuje, że punkt porównania adresu URL rozpoczyna się po punkcie dostępu do zawartości (na przykład/000001 lub/800001/myorigin). \*Ponieważ azureedge.NET rekord CNAME jest tworzony względem katalogu pierwotnego na nazwie hosta usługi Verizon CDN domyślnie, Azure CDN użytkownicy powinni używać wartości **pochodzenia** . 
+  - **Źródło**: wskazuje, że punkt porównania adresu URL rozpoczyna się po punkcie dostępu do zawartości (na przykład/000001 lub/800001/myorigin). Ponieważ \* azureedge.NET rekord CNAME jest tworzony względem katalogu pierwotnego na nazwie hosta usługi Verizon CDN domyślnie, Azure CDN użytkownicy powinni używać wartości **pochodzenia** . 
 
-    Na przykład: https:\//&lt;Endpoint&gt;. azureedge.NET/**MyFolder/index.htm**
+    Na przykład: https: \/ / &lt; Endpoint &gt; . azureedge.NET/**MyFolder/index.htm**
 
-  Ten adres URL wskazuje na następującą nazwę hosta usługi CDN Verizon:\/http:/WPC.0001. &lt;domena&gt;/800001/myorigin/**MyFolder/index.htm**
+  Ten adres URL wskazuje na następującą nazwę hosta usługi CDN Verizon: http: \/ /WPC.0001. &lt; Domena &gt; /800001/myorigin/**MyFolder/index.htm**
 
 - Adres URL brzegowej CNAME zostanie ponownie zapisany w adresie URL usługi CDN przed porównaniem adresu URL.
 
 Na przykład oba poniższe adresy URL wskazują ten sam element zawartości i dlatego mają tę samą ścieżkę URL:
 
-- Adres URL sieci CDN:\/http:/WPC.0001. &lt;domena&gt;/800001/CustomerOrigin/Path/Asset.htm
-- Adres URL CNAME krawędzi: http\//&lt;:&gt;Endpoint. azureedge.NET/Path/Asset.htm
+- Adres URL sieci CDN: http: \/ /WPC.0001. &lt; Domena &gt; /800001/CustomerOrigin/Path/Asset.htm
+- Adres URL CNAME krawędzi: http: \/ / &lt; Endpoint &gt; . azureedge.NET/Path/Asset.htm
 
     Informacje dodatkowe:
     
@@ -746,7 +746,7 @@ Na przykład oba poniższe adresy URL wskazują ten sam element zawartości i dl
 
 Porównuje ścieżkę URL żądania do określonego [wyrażenia regularnego](cdn-verizon-premium-rules-engine-reference.md#regular-expressions).
 
-Opcja **dopasowania**/nie**zgadza** się określa warunki, w których jest spełniony warunek dopasowania wyrażenia regularnego ścieżki adresu URL.
+Opcja **dopasowania**nie / **zgadza** się określa warunki, w których jest spełniony warunek dopasowania wyrażenia regularnego ścieżki adresu URL.
 
 - **Pasuje**: wymaga, aby żądanie zawierało ścieżkę URL zgodną z określonym wyrażeniem regularnym.
 - **Niezgodne**: wymaga, aby żądanie zawierało ścieżkę URL, która nie jest zgodna z określonym wyrażeniem regularnym.
@@ -757,9 +757,9 @@ Informacje o kluczu:
 
     Na przykład oba adresy URL wskazują ten sam element zawartości i dlatego mają tę samą ścieżkę URL.
 
-     - Adres URL sieci CDN:\/http:/WPC.0001. &lt;domena&gt;/800001/CustomerOrigin/Path/Asset.htm
+     - Adres URL sieci CDN: http: \/ /WPC.0001. &lt; Domena &gt; /800001/CustomerOrigin/Path/Asset.htm
 
-     - Adres URL CNAME krawędzi: http\/:/My.domain.com/Path/Asset.htm
+     - Adres URL CNAME krawędzi: http: \/ /My.domain.com/Path/Asset.htm
 
     Informacje dodatkowe:
     
@@ -781,7 +781,7 @@ Informacje o kluczu:
 
 Porównuje względną ścieżkę URL żądania z określonym wzorcem symbolu wieloznacznego.
 
-Opcja **dopasowania**/nie**zgadza** się określa warunki, w których jest spełniony warunek dopasowania symboli wieloznacznych ścieżki adresu URL.
+Opcja **dopasowania**nie / **zgadza** się określa warunki, w których jest spełniony warunek dopasowania symboli wieloznacznych ścieżki adresu URL.
 
 - **Pasuje**: wymaga, aby żądanie zawierało ścieżkę URL zgodną z określonym wzorcem symboli wieloznacznych.
 - **Niezgodne**: wymaga, aby żądanie zawierało ścieżkę URL, która nie jest zgodna z określonym wzorcem symboli wieloznacznych.
@@ -793,19 +793,19 @@ Informacje o kluczu:
    Ta opcja może mieć następujące wartości:
      - **Katalog główny**: wskazuje, że punkt porównania adresu URL rozpoczyna się bezpośrednio po nazwie hosta sieci CDN.
 
-       Na przykład: http:\//WPC.0001. &lt;&gt;/**800001/myorigin/MyFolder/index.htm** domeny
+       Na przykład: http: \/ /WPC.0001. &lt; &gt; / **800001/myorigin/MyFolder/index.htm** domeny
 
-     - **Źródło**: wskazuje, że punkt porównania adresu URL rozpoczyna się po punkcie dostępu do zawartości (na przykład/000001 lub/800001/myorigin). \*Ponieważ azureedge.NET rekord CNAME jest tworzony względem katalogu pierwotnego na nazwie hosta usługi Verizon CDN domyślnie, Azure CDN użytkownicy powinni używać wartości **pochodzenia** . 
+     - **Źródło**: wskazuje, że punkt porównania adresu URL rozpoczyna się po punkcie dostępu do zawartości (na przykład/000001 lub/800001/myorigin). Ponieważ \* azureedge.NET rekord CNAME jest tworzony względem katalogu pierwotnego na nazwie hosta usługi Verizon CDN domyślnie, Azure CDN użytkownicy powinni używać wartości **pochodzenia** . 
 
-       Na przykład: https:\//&lt;Endpoint&gt;. azureedge.NET/**MyFolder/index.htm**
+       Na przykład: https: \/ / &lt; Endpoint &gt; . azureedge.NET/**MyFolder/index.htm**
 
-     Ten adres URL wskazuje na następującą nazwę hosta usługi CDN Verizon:\/http:/WPC.0001. &lt;domena&gt;/800001/myorigin/**MyFolder/index.htm**
+     Ten adres URL wskazuje na następującą nazwę hosta usługi CDN Verizon: http: \/ /WPC.0001. &lt; Domena &gt; /800001/myorigin/**MyFolder/index.htm**
 
 - Adres URL usługi CNAME zostanie ponownie zapisany w adresie URL usługi CDN przed porównaniem adresów URL.
 
     Na przykład oba poniższe adresy URL wskazują ten sam element zawartości i dlatego mają tę samą ścieżkę URL:
-     - Adres URL sieci http://wpc.0001.&ltCDN:&gt;;d omain/800001/CustomerOrigin/Path/Asset.htm
-     - Adres URL CNAME krawędzi: http\//&lt;:&gt;Endpoint. azureedge.NET/Path/Asset.htm
+     - Adres URL sieci CDN: http://wpc.0001.&lt ;d omain &gt; /800001/CustomerOrigin/Path/Asset.htm
+     - Adres URL CNAME krawędzi: http: \/ / &lt; Endpoint &gt; . azureedge.NET/Path/Asset.htm
     
     Informacje dodatkowe:
     
@@ -835,7 +835,7 @@ Wartość                   | Względem    | Wynik
 /80ABCD/origin/text/*   | Główny           | Ten wzorzec jest dopasowywany, gdy żądany zasób spełnia następujące kryteria: <br />-Musi znajdować się w pochodzeniu klienta o nazwie "Origin" (Źródło). <br />-Ścieżka względna musi rozpoczynać się od folderu o nazwie "text". Oznacza to, że żądany zasób może być umieszczony w folderze "text" lub w jednym z jego podfolderów cyklicznych.
 */CSS/* */js/*          | Katalog główny lub Źródło | Ten wzorzec jest dopasowywany przez wszystkie adresy URL sieci CDN lub brzegowe CNAME zawierające folder CSS lub js.
 *. jpg *. gif *. png       | Katalog główny lub Źródło | Ten wzorzec jest dopasowywany przez wszystkie adresy URL sieci CDN lub brzegowe CNAME kończące się na. jpg,. gif lub. png. Alternatywny sposób określenia tego wzorca jest z [warunkiem dopasowania rozszerzenia ścieżki URL](#url-path-extension).
-/images/* /media/*      | Origin         | Ten wzorzec jest dopasowywany przez usługi CDN lub brzegowe adresy URL CNAME, których ścieżka względna rozpoczyna się od folderu "obrazy" lub "Multimedia". <br />-Adres URL usługi CDN:\/http:/WPC.0001. &lt;/800001/myorigin/images/Sales/event1.png&gt;domeny<br />— Przykładowy adres URL CNAME Edge: http\/:/CDN.mydomain.com/images/Sales/event1.png
+/images/* /media/*      | Origin         | Ten wzorzec jest dopasowywany przez usługi CDN lub brzegowe adresy URL CNAME, których ścieżka względna rozpoczyna się od folderu "obrazy" lub "Multimedia". <br />-Adres URL usługi CDN: http: \/ /WPC.0001. &lt; &gt;/800001/myorigin/images/Sales/event1.png domeny<br />— Przykładowy adres URL CNAME Edge: http: \/ /CDN.mydomain.com/images/Sales/event1.png
 
 [Powrót do początku](#reference-for-rules-engine-match-conditions)
 
@@ -847,7 +847,7 @@ Wartość                   | Względem    | Wynik
 
 Porównuje ciąg zapytania żądania do określonej wartości.
 
-Opcja **dopasowania**/nie**zgadza** się określa warunki, w których spełniony jest warunek dopasowania literału zapytania adresu URL.
+Opcja **dopasowania**nie / **zgadza** się określa warunki, w których spełniony jest warunek dopasowania literału zapytania adresu URL.
 
 - **Pasuje**: wymaga, aby żądanie zawierało ciąg zapytania adresu URL, który pasuje do określonego ciągu zapytania.
 - **Niezgodne**: wymaga, aby żądanie zawierało ciąg zapytania adresu URL, który jest niezgodny z określonym ciągiem zapytania.
@@ -884,7 +884,7 @@ Informacje o kluczu:
 
 Identyfikuje żądania zawierające określony parametr ciągu zapytania. Ten parametr jest ustawiony na wartość zgodną z określonym wzorcem. Parametry ciągu zapytania (na przykład parametr = wartość) w adresie URL żądania określają, czy ten warunek jest spełniony. Ten warunek dopasowania identyfikuje parametr ciągu zapytania według jego nazwy i akceptuje co najmniej jedną wartość wartości parametru. 
 
-Opcja **dopasowania**/nie**zgadza** się określa warunki, w których jest spełniony warunek dopasowania parametru zapytania adresu URL.
+Opcja **dopasowania**nie / **zgadza** się określa warunki, w których jest spełniony warunek dopasowania parametru zapytania adresu URL.
 
 - **Pasuje**: wymaga żądania, aby zawierało określony parametr z wartością, która pasuje do co najmniej jednej z wartości, które są zdefiniowane w tym warunku dopasowywania.
 - **Niezgodne**: wymaga, aby żądanie spełniało jedno z następujących kryteriów:
@@ -969,7 +969,7 @@ Poczta e-mail | Jan\* | Ten wzorzec jest dopasowywany, gdy ciąg zapytania dla �
 
 Identyfikuje żądania zawierające określony parametr ciągu zapytania. Ten parametr jest ustawiony na wartość zgodną z określonym [wyrażeniem regularnym](cdn-verizon-premium-rules-engine-reference.md#regular-expressions).
 
-Opcja **dopasowania**/nie**zgadza** się określa warunki, w których spełniony jest warunek dopasowania wyrażenia regularnego zapytania adresu URL.
+Opcja **dopasowania**nie / **zgadza** się określa warunki, w których spełniony jest warunek dopasowania wyrażenia regularnego zapytania adresu URL.
 
 - **Pasuje**: wymaga, aby żądanie zawierało ciąg zapytania adresu URL, który odpowiada określonemu wyrażeniu regularnemu.
 - **Niezgodne**: wymaga, aby żądanie zawierało ciąg zapytania adresu URL, który nie jest zgodny z określonym wyrażeniem regularnym.
@@ -986,12 +986,12 @@ Informacje o kluczu:
 
    Znak | Kodowanie adresu URL | Wartość
    ----------|--------------|------
-   Miejsce     | %20          | \%20
+   Miejsce     | %20          | \%20C
    &         | %25          | \%6,25
 
    Należy zauważyć, że symbole procentowe muszą być zmienione.
 
-- Podwójne ucieczki specjalne znaki wyrażenia regularnego (na przykład \^$. +), aby uwzględnić ukośnik odwrotny w wyrażeniu regularnym.
+- Podwójne ucieczki specjalne znaki wyrażenia regularnego (na przykład \^ $. +), aby uwzględnić ukośnik odwrotny w wyrażeniu regularnym.
 
    Przykład:
 
@@ -1017,7 +1017,7 @@ Informacje o kluczu:
 
 Porównuje określone wartości z ciągiem zapytania żądania.
 
-Opcja **dopasowania**/nie**zgadza** się określa warunki, w których jest spełniony warunek dopasowania symboli wieloznacznych zapytania adresu URL.
+Opcja **dopasowania**nie / **zgadza** się określa warunki, w których jest spełniony warunek dopasowania symboli wieloznacznych zapytania adresu URL.
 
 - **Pasuje**: wymaga, aby żądanie zawierało ciąg zapytania adresu URL, który jest zgodny z określoną wartością symbolu wieloznacznego.
 - **Niezgodne**: wymaga, aby żądanie zawierało ciąg zapytania adresu URL, który nie jest zgodny z określoną wartością symbolu wieloznacznego.
@@ -1056,7 +1056,7 @@ Poniższy przykład ilustruje sposób działania tej opcji w określonych sytuac
  Nazwa                 | Opis
  ---------------------|------------
 Użytkownik = Jan              | Ten wzorzec jest dopasowywany, gdy ciąg zapytania dla żądanego adresu URL to "? User = Jan".
-\*Użytkownik =\* \*optout =\* | Ten wzorzec jest dopasowywany, gdy zapytanie adresu URL sieci CDN zawiera parametr User lub OptOut.
+\*Użytkownik = \* \* optout =\* | Ten wzorzec jest dopasowywany, gdy zapytanie adresu URL sieci CDN zawiera parametr User lub OptOut.
 
 [Powrót do początku](#reference-for-rules-engine-match-conditions)
 

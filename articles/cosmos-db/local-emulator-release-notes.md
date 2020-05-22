@@ -6,25 +6,34 @@ ms.topic: tutorial
 author: milismsft
 ms.author: adrianmi
 ms.date: 06/20/2019
-ms.openlocfilehash: 4dffe169908d0dd3effa4e46140b5f6696805a3e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6dad625bbbcb8279e83ac42e1492c251d5b0299c
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77168650"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747008"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos emulator — informacje o wersji i pobrania
 
 W tym artykule przedstawiono informacje o wersji emulatora usługi Azure Cosmos z listą aktualizacji funkcji, które zostały wprowadzone w poszczególnych wersjach. Znajduje się w nim również Najnowsza wersja emulatora do pobrania i użycia.
 
-## <a name="download"></a>Pliki do pobrania
+## <a name="download"></a>Pobierz
 
 | | |
 |---------|---------|
 |**Pobieranie pliku MSI**|[Centrum pobierania Microsoft](https://aka.ms/cosmosdb-emulator)|
 |**Wprowadzenie**|[Opracowywanie lokalnie za pomocą emulatora usługi Azure Cosmos](local-emulator.md)|
 
-## <a name="release-notes"></a>Informacje o wersji
+## <a name="release-notes"></a>Uwagi do wersji
+
+### <a name="2110"></a>2.11.0
+
+- W tej wersji wprowadzono obsługę przepływności dla aprowizacji automatyczne skalowanie. Te nowe funkcje obejmują możliwość ustawiania niestandardowego maksymalnego poziomu przepływności w jednostkach żądania (RU/s), włączania funkcji automatycznego skalowania w istniejących bazach danych i kontenerach oraz pomocy programistycznej za pomocą zestawów SDK Azure Cosmos DB.
+- Usuń problem podczas wykonywania zapytania w dużej ilości dokumentów (ponad 1 GB), ponieważ emulator zakończy się niepowodzeniem z kodem stanu błędu wewnętrznego 500.
+
+### <a name="292"></a>2.9.2
+
+- W tej wersji rozwiązano błąd podczas włączania obsługi punktu końcowego MongoDb w wersji 3,2. Dodaje również obsługę generowania śladów ETL na potrzeby rozwiązywania problemów przy użyciu funkcji żądanie WP zamiast LOGMAN.
 
 ### <a name="291"></a>2.9.1
 

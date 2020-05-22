@@ -6,15 +6,15 @@ author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: ''
-ms.date: 04/15/2020
+ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 0b272a8c8ce81fc40585014e5930f5d7b1b5f2c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e9731b869b20c7d8cfc3b1e234711c818a2b7422
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81431698"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744256"
 ---
 # <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Wykonywanie zapytań dotyczących plików Parquet przy użyciu funkcji SQL na żądanie (wersja zapoznawcza) w usłudze Azure Synapse Analytics
 
@@ -22,34 +22,11 @@ W tym artykule dowiesz się, jak napisać zapytanie przy użyciu programu SQL na
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed przeczytaniem dalszej części tego artykułu zapoznaj się z następującymi artykułami:
-
-- [Konfiguracja pierwszego czasu](query-data-storage.md#first-time-setup)
-- [Wymagania wstępne](query-data-storage.md#prerequisites)
+Pierwszym krokiem jest **utworzenie bazy danych** ze źródłem danych, która odwołuje się do konta magazynu [NYC Yellow](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) . Następnie zainicjuj obiekty, wykonując [skrypt Instalatora](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) w tej bazie danych. Ten skrypt instalacyjny spowoduje utworzenie źródeł danych, poświadczeń z zakresem bazy danych i zewnętrznych formatów plików, które są używane w tych przykładach.
 
 ## <a name="dataset"></a>Dataset
 
-Pliki Parquet można badać w taki sam sposób jak w przypadku odczytywania plików CSV. Jedyną różnicą jest to, że parametr FILEFORMAT powinien mieć wartość PARQUET. W przykładach w tym artykule przedstawiono szczegółowe informacje dotyczące odczytywania plików Parquet.
-
-> [!NOTE]
-> Nie ma potrzeby określania kolumn w klauzuli OPENROWSET WITH podczas odczytywania plików Parquet. SQL na żądanie będzie używać metadanych w pliku Parquet i powiązywać kolumny według nazwy.
-
-Dla przykładowych zapytań będziesz używać folderu *Parquet/taksówki* . Zawiera NYC taksówki — w przypadku każdej z 2016 lipca Podróżje dane. do czerwca 2018.
-
-Dane są partycjonowane według roku i miesiąca, a struktura folderu jest następująca:
-
-- Year = 2016
-  - miesiąc = 6
-  - ...
-  - miesiąc = 12
-- rok = 2017
-  - miesiąc = 1
-  - ...
-  - miesiąc = 12
-- Year = 2018 r
-  - miesiąc = 1
-  - ...
-  - miesiąc = 6
+W tym przykładzie jest używany [NYC żółtej taksówki](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) . Pliki Parquet można badać w taki sam sposób jak w przypadku [odczytywania plików CSV](query-parquet-files.md). Jedyną różnicą jest to, że `FILEFORMAT` parametr powinien zostać ustawiony na `PARQUET` . W przykładach w tym artykule przedstawiono szczegółowe informacje dotyczące odczytywania plików Parquet.
 
 ## <a name="query-set-of-parquet-files"></a>Zestaw zapytań o pliki Parquet
 
@@ -57,23 +34,24 @@ Podczas wykonywania zapytania dotyczącego plików Parquet można określić tyl
 
 ```sql
 SELECT
-        YEAR(pickup_datetime),
-        passenger_count,
+        YEAR(tpepPickupDateTime),
+        passengerCount,
         COUNT(*) AS cnt
 FROM  
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/*/*/*',
+        BULK 'puYear=2018/puMonth=*/*.snappy.parquet',
+        DATA_SOURCE = 'YellowTaxi',
         FORMAT='PARQUET'
     ) WITH (
-        pickup_datetime DATETIME2,
-        passenger_count INT
+        tpepPickupDateTime DATETIME2,
+        passengerCount INT
     ) AS nyc
 GROUP BY
-    passenger_count,
-    YEAR(pickup_datetime)
+    passengerCount,
+    YEAR(tpepPickupDateTime)
 ORDER BY
-    YEAR(pickup_datetime),
-    passenger_count;
+    YEAR(tpepPickupDateTime),
+    passengerCount;
 ```
 
 ## <a name="automatic-schema-inference"></a>Automatyczne wnioskowanie schematu
@@ -86,13 +64,13 @@ W poniższym przykładzie przedstawiono możliwości automatycznego wnioskowania
 > Nie musisz określać kolumn w klauzuli OPENROWSET WITH podczas odczytywania plików Parquet. W takim przypadku usługa zapytań SQL na żądanie będzie używać metadanych w pliku Parquet i powiązywać kolumny według nazwy.
 
 ```sql
-SELECT
-    COUNT_BIG(*)
-FROM
+SELECT TOP 10 *
+FROM  
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet',
+        BULK 'puYear=2018/puMonth=*/*.snappy.parquet',
+        DATA_SOURCE = 'YellowTaxi',
         FORMAT='PARQUET'
-    ) AS nyc;
+    ) AS nyc
 ```
 
 ### <a name="query-partitioned-data"></a>Wykonywanie zapytań względem danych partycjonowanych
@@ -104,27 +82,25 @@ Zestaw danych podany w tym przykładzie jest podzielony (podzielony na partycje)
 
 ```sql
 SELECT
-    nyc.filepath(1) AS [year],
-    nyc.filepath(2) AS [month],
-    payment_type,
-    SUM(fare_amount) AS fare_total
-FROM
+        YEAR(tpepPickupDateTime),
+        passengerCount,
+        COUNT(*) AS cnt
+FROM  
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=*/month=*/*.parquet',
+        BULK 'puYear=*/puMonth=*/*.snappy.parquet',
+        DATA_SOURCE = 'YellowTaxi',
         FORMAT='PARQUET'
-    ) AS nyc
+    ) nyc
 WHERE
     nyc.filepath(1) = 2017
     AND nyc.filepath(2) IN (1, 2, 3)
-    AND pickup_datetime BETWEEN CAST('1/1/2017' AS datetime) AND CAST('3/31/2017' AS datetime)
+    AND tpepPickupDateTime BETWEEN CAST('1/1/2017' AS datetime) AND CAST('3/31/2017' AS datetime)
 GROUP BY
-    nyc.filepath(1),
-    nyc.filepath(2),
-    payment_type
+    passengerCount,
+    YEAR(tpepPickupDateTime)
 ORDER BY
-    nyc.filepath(1),
-    nyc.filepath(2),
-    payment_type;
+    YEAR(tpepPickupDateTime),
+    passengerCount;
 ```
 
 ## <a name="type-mapping"></a>Mapowanie typu
@@ -141,12 +117,12 @@ Pliki Parquet zawierają opisy typów dla każdej kolumny. W poniższej tabeli o
 | INT64 | | bigint |
 | INT96 | |datetime2 |
 | FIXED_LEN_BYTE_ARRAY | |binarny |
-| BINARNY |KODOWANIA |varchar \*(sortowanie UTF8) |
-| BINARNY |PARAMETRY |varchar \*(sortowanie UTF8) |
-| BINARNY |PODSTAWOWE|varchar \*(sortowanie UTF8) |
+| BINARNY |KODOWANIA |varchar \* (sortowanie UTF8) |
+| BINARNY |PARAMETRY |varchar \* (sortowanie UTF8) |
+| BINARNY |PODSTAWOWE|varchar \* (sortowanie UTF8) |
 | BINARNY |INTERFEJSU |uniqueidentifier |
 | BINARNY |DOKŁADNOŚCI |decimal |
-| BINARNY |JSON |varchar (max) \*(sortowanie UTF8) |
+| BINARNY |JSON |varchar (max) \* (sortowanie UTF8) |
 | BINARNY |BSON |varbinary (max) |
 | FIXED_LEN_BYTE_ARRAY |DOKŁADNOŚCI |decimal |
 | BYTE_ARRAY |DAT |varchar (max), serializacji do formatu standardowego |
@@ -156,7 +132,7 @@ Pliki Parquet zawierają opisy typów dla każdej kolumny. W poniższej tabeli o
 | ELEMENTEM |INT (8, FAŁSZ) |tinyint |
 | ELEMENTEM |INT (16, FAŁSZ) |int |
 | ELEMENTEM |INT (32, false) |bigint |
-| ELEMENTEM |DATE |date |
+| ELEMENTEM |DATE |data |
 | ELEMENTEM |DOKŁADNOŚCI |decimal |
 | ELEMENTEM |CZAS (MŁYNER)|time |
 | INT64 |INT (64, true) |bigint |

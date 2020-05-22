@@ -8,15 +8,15 @@ ms.reviewer: sahenry
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: overview
+ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
-ms.openlocfilehash: c95ae2e48a7d5a3b9e9e28b1d4e14b670205c043
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 60c2b3ed1f367dc5c501a51ed52440f7d9d3ed6b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77062289"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83741190"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>Czym jest aplikacja Microsoft Authenticator?
 
@@ -49,7 +49,7 @@ Aplikacji Microsoft Authenticator można używać na wiele sposobów, na przykł
 
 Weryfikacja dwuskładnikowa współdziała z aplikacją Microsoft Authenticator w następujący sposób:
 
-- **Powiadomienie.** Wpisz nazwę użytkownika i hasło na urządzeniu, za pomocą którego logujesz się do swojego służbowego lub osobistego konta Microsoft, a aplikacja Microsoft Authenticator wyśle powiadomienie z prośbą o **zatwierdzenie logowania**. Wybierz pozycję **Zatwierdź**, jeśli rozpoznajesz próbę logowania. W przeciwnym razie wybierz pozycję **Odmów**. Jeśli wybierzesz pozycję **Odmów**, możesz również oznaczyć żądanie jako fałszywe.
+- **Zawiadomienie.** Wpisz nazwę użytkownika i hasło na urządzeniu, za pomocą którego logujesz się do swojego służbowego lub osobistego konta Microsoft, a aplikacja Microsoft Authenticator wyśle powiadomienie z prośbą o **zatwierdzenie logowania**. Wybierz pozycję **Zatwierdź**, jeśli rozpoznajesz próbę logowania. W przeciwnym razie wybierz pozycję **Odmów**. Jeśli wybierzesz pozycję **Odmów**, możesz również oznaczyć żądanie jako fałszywe.
 
 - **Kod weryfikacyjny.** Wpisz nazwę użytkownika i hasło na urządzeniu, za pomocą którego logujesz się do swojego służbowego lub osobistego konta Microsoft, a następnie skopiuj powiązany kod weryfikacyjny z ekranu **Konta** aplikacji Microsoft Authenticator. Kod weryfikacyjny jest również nazywany uwierzytelnianiem jednorazowym kodem dostępu (OTP).
 

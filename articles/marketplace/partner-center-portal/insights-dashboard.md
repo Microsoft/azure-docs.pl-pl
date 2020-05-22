@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.openlocfilehash: cecff7347189c5e5b964e10439297bce405810b7
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 2d9691279b987f9d45f755ab340ff70671d350c0
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857909"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745655"
 ---
 # <a name="marketplace-insights-dashboard-in-partner-center"></a>Pulpit nawigacyjny usługi Marketplace Insights w centrum partnerskim
 
@@ -89,7 +89,7 @@ Poniższa mapę cieplną przedstawia liczbę **odwiedzin stron**, **wywołań ak
 Mapę cieplną obejmuje następujące możliwości:
 
 - Mapę cieplną ma dodatkową siatkę do wyświetlania szczegółów **odwiedzin strony**, **wywołań akcji** i **unikatowych osób odwiedzających** w określonej lokalizacji; Jeśli to możliwe, możesz powiększyć do określonej lokalizacji.  
-- **Rozmieszczenie krajów** to liczba wszystkich krajów, w których klienci mają zgłoszone wizyty na stronach w wybranym zakresie dat.
+- **Rozmieszczenie krajów/regionów** to liczba wszystkich krajów/regionów, w których klienci mają zgłoszone wizyty na stronach w wybranym zakresie dat.
 - Możesz wyszukać i wybrać kraj w siatce, aby powiększyć do lokalizacji na mapie. Przywróć widok oryginalny, wybierając pozycję **Strona główna** na mapie.
 
 ## <a name="page-visits-versus-unique-visitors-trend"></a>Liczba odwiedzin stron i trend unikatowych osób odwiedzających

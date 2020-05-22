@@ -1,22 +1,19 @@
 ---
 title: Zarządzanie usługami pakietu Office 365 przy użyciu usługi Azure Automation
-description: Informuje, jak używać Azure Automation do zarządzania usługami subskrypcji pakietu Office 365.
+description: W tym artykule opisano, jak za pomocą Azure Automation zarządzać usługami subskrypcji pakietu Office 365.
 services: automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9cb505ced907b143fbd6a5f4f30c818092005bb8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cbd01f3868f44d975e0822a7812262d9e15ca299
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80550424"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745358"
 ---
-# <a name="manage-office-365-services-using-azure-automation"></a>Zarządzanie usługami pakietu Office 365 przy użyciu usługi Azure Automation
+# <a name="manage-office-365-services"></a>Zarządzanie usługami Office 365
 
 Za pomocą Azure Automation do zarządzania usługami subskrypcji pakietu Office 365 w przypadku produktów takich jak Microsoft Word i Microsoft Outlook. Interakcje z pakietem Office 365 są włączane przez [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis). Aby [uwierzytelnić się na platformie Azure, zobacz temat Korzystanie z usługi Azure AD w Azure Automation](automation-use-azure-ad.md).
-
->[!NOTE]
->Ten artykuł został zaktualizowany o korzystanie z nowego modułu Azure PowerShell Az. Nadal możesz używać modułu AzureRM, który będzie nadal otrzymywać poprawki błędów do co najmniej grudnia 2020 r. Aby dowiedzieć się więcej na temat nowego modułu Az i zgodności z modułem AzureRM, zobacz [Wprowadzenie do nowego modułu Az programu Azure PowerShell](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0). Instrukcje dotyczące instalacji polecenia AZ module w hybrydowym procesie roboczym elementu Runbook znajdują się w temacie [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0). W przypadku konta usługi Automation można zaktualizować moduły do najnowszej wersji przy użyciu [sposobu aktualizowania modułów Azure PowerShell w programie Azure Automation](automation-update-azure-modules.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -27,18 +24,18 @@ Aby zarządzać usługami subskrypcji pakietu Office 365 w programie Azure Autom
 * Usługa Azure AD. Aby [uwierzytelnić się na platformie Azure, zobacz temat Korzystanie z usługi Azure AD w Azure Automation](automation-use-azure-ad.md).
 * Dzierżawa pakietu Office 365 z kontem. Zobacz [Konfigurowanie dzierżawy pakietu Office 365](https://docs.microsoft.com/sharepoint/dev/spfx/set-up-your-developer-tenant).
 
-## <a name="installing-the-msonline-and-msonlineext-modules"></a>Instalowanie modułów MSOnline i MSOnlineExt
+## <a name="install-the-msonline-and-msonlineext-modules"></a>Instalowanie modułów MSOnline i MSOnlineExt
 
-Korzystanie z pakietu Office 365 w ramach Azure Automation wymaga Microsoft Azure Active Directory dla środowiska`MSOnline` Windows PowerShell (moduł). Wymagany jest również moduł [`MSOnlineExt`](https://www.powershellgallery.com/packages/MSOnlineExt/1.0.35), który upraszcza zarządzanie usługą Azure AD w środowiskach z jedną i wieloma dzierżawcami. Zainstaluj moduły zgodnie z opisem w temacie [Korzystanie z usługi Azure AD w Azure Automation do uwierzytelniania na platformie Azure](automation-use-azure-ad.md).
+Korzystanie z pakietu Office 365 w ramach Azure Automation wymaga Microsoft Azure Active Directory dla środowiska Windows PowerShell ( `MSOnline` moduł). Wymagany jest również moduł [`MSOnlineExt`](https://www.powershellgallery.com/packages/MSOnlineExt/1.0.35) , który upraszcza zarządzanie usługą Azure AD w środowiskach z jedną i wieloma dzierżawcami. Zainstaluj moduły zgodnie z opisem w temacie [Korzystanie z usługi Azure AD w Azure Automation do uwierzytelniania na platformie Azure](automation-use-azure-ad.md).
 
 >[!NOTE]
 >Aby korzystać z programu MSOnline PowerShell, musisz być członkiem usługi Azure AD. Użytkownicy-Goście nie mogą używać modułu.
 
-## <a name="creating-an-azure-automation-account"></a>Tworzenie konta Azure Automation
+## <a name="create-an-azure-automation-account"></a>Tworzenie konta usługi Azure Automation
 
 Aby wykonać kroki opisane w tym artykule, musisz mieć konto w Azure Automation. Zobacz [Tworzenie konta Azure Automation](automation-quickstart-create-account.md).
  
-## <a name="adding-msonline-and-msonlineext-as-assets"></a>Dodawanie MSOnline i MSOnlineExt jako elementów zawartości
+## <a name="add-msonline-and-msonlineext-as-assets"></a>Dodawanie MSOnline i MSOnlineExt jako elementów zawartości
 
 Teraz Dodaj zainstalowane moduły MSOnline i MSOnlineExt, aby umożliwić korzystanie z funkcji pakietu Office 365. Zapoznaj się z tematem [Zarządzanie modułami w Azure Automation](shared-resources/modules.md).
 
@@ -46,39 +43,39 @@ Teraz Dodaj zainstalowane moduły MSOnline i MSOnlineExt, aby umożliwić korzys
 2. Wybierz konto usługi Automation.
 3. Wybierz pozycję **Galeria modułów** w obszarze **zasoby udostępnione**.
 4. Wyszukaj MSOnline.
-5. Wybierz moduł `MSOnline` PowerShell, a następnie kliknij przycisk **Importuj** , aby zaimportować moduł jako element zawartości.
+5. Wybierz `MSOnline` moduł PowerShell, a następnie kliknij przycisk **Importuj** , aby zaimportować moduł jako element zawartości.
 6. Powtórz kroki 4 i 5, aby zlokalizować i zaimportować `MSOnlineExt` moduł. 
 
-## <a name="creating-a-credential-asset-optional"></a>Tworzenie zasobu poświadczeń (opcjonalnie)
+## <a name="create-a-credential-asset-optional"></a>Utwórz zasób poświadczeń (opcjonalnie)
 
-Jest to opcjonalne, aby utworzyć zasób poświadczeń dla użytkownika administracyjnego pakietu Office 365, który ma uprawnienia do uruchamiania skryptu. Może to pomóc, ale zachować możliwość ujawniania nazw użytkowników i haseł wewnątrz skryptów programu PowerShell. Aby uzyskać instrukcje, zobacz [Tworzenie zasobu poświadczeń](automation-use-azure-ad.md#creating-a-credential-asset).
+Jest to opcjonalne, aby utworzyć zasób poświadczeń dla użytkownika administracyjnego pakietu Office 365, który ma uprawnienia do uruchamiania skryptu. Może to pomóc, ale zachować możliwość ujawniania nazw użytkowników i haseł wewnątrz skryptów programu PowerShell. Aby uzyskać instrukcje, zobacz [Tworzenie zasobu poświadczeń](automation-use-azure-ad.md#create-a-credential-asset).
 
-## <a name="creating-an-office-365-service-account"></a>Tworzenie konta usługi Office 365
+## <a name="create-an-office-365-service-account"></a>Utwórz konto usługi Office 365
 
 Aby móc uruchamiać usługi subskrypcji pakietu Office 365, musisz mieć konto usługi Office 365 z uprawnieniami do wykonywania tych czynności. Można użyć jednego konta administratora globalnego, jednego konta na usługę lub jednej funkcji lub skryptu do wykonania. W każdym przypadku konto usługi wymaga złożonego i bezpiecznego hasła. Zobacz [Konfigurowanie pakietu Office 365 dla firm](https://docs.microsoft.com/microsoft-365/admin/setup/setup?view=o365-worldwide). 
 
-## <a name="connecting-to-the-azure-ad-online-service"></a>Łączenie z usługą Azure AD online
+## <a name="connect-to-the-azure-ad-online-service"></a>Nawiązywanie połączenia z usługą online usługi Azure AD
 
 >[!NOTE]
 >Aby użyć poleceń cmdlet modułu MSOnline, należy uruchomić je z programu Windows PowerShell. Program PowerShell Core nie obsługuje tych poleceń cmdlet.
 
 Możesz użyć modułu MSOnline, aby nawiązać połączenie z usługą Azure AD w ramach subskrypcji pakietu Office 365. Połączenie używa nazwy użytkownika i hasła pakietu Office 365 lub używa uwierzytelniania wieloskładnikowego (MFA). Można nawiązać połączenie za pomocą Azure Portal lub wiersza polecenia programu Windows PowerShell (nie trzeba mieć podwyższonego poziomu uprawnień).
 
-Poniżej przedstawiono przykład programu PowerShell. Polecenie cmdlet [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) wyświetli komunikat z prośbą o poświadczenia `Msolcred` i przechowuje je w zmiennej. Następnie polecenie cmdlet [Connect-MsolService](https://docs.microsoft.com/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) używa poświadczeń do nawiązania połączenia z usługą online usługi Azure Directory. Jeśli chcesz nawiązać połączenie z określonym środowiskiem platformy Azure, użyj `AzureEnvironment` parametru.
+Poniżej przedstawiono przykład programu PowerShell. Polecenie cmdlet [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-7) wyświetli komunikat z prośbą o poświadczenia i przechowuje je w `Msolcred` zmiennej. Następnie polecenie cmdlet [Connect-MsolService](https://docs.microsoft.com/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) używa poświadczeń do nawiązania połączenia z usługą online usługi Azure Directory. Jeśli chcesz nawiązać połączenie z określonym środowiskiem platformy Azure, użyj `AzureEnvironment` parametru.
 
 ```powershell
 $Msolcred = Get-Credential
 Connect-MsolService -Credential $MsolCred -AzureEnvironment "AzureCloud"
 ```
 
-Jeśli nie otrzymasz żadnych błędów, nawiązanie połączenia powiodło się. Szybki test polega na uruchomieniu polecenia cmdlet pakietu Office 365, na przykład `Get-MsolUser`, i wyświetleniu wyników. Jeśli wystąpią błędy, należy pamiętać, że typowy problem jest nieprawidłowym hasłem.
+Jeśli nie otrzymasz żadnych błędów, nawiązanie połączenia powiodło się. Szybki test polega na uruchomieniu polecenia cmdlet pakietu Office 365, na przykład, `Get-MsolUser` i wyświetleniu wyników. Jeśli wystąpią błędy, należy pamiętać, że typowy problem jest nieprawidłowym hasłem.
 
 >[!NOTE]
 >Możesz również użyć modułu AzureRM lub AZ module, aby nawiązać połączenie z usługą Azure AD w ramach subskrypcji pakietu Office 365. Główne polecenie cmdlet połączenia to [Connect-AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0). To polecenie cmdlet obsługuje `AzureEnvironmentName` parametr dla konkretnych środowisk pakietu Office 365.
 
-## <a name="creating-a-powershell-runbook-from-an-existing-script"></a>Tworzenie elementu Runbook programu PowerShell na podstawie istniejącego skryptu
+## <a name="create-a-powershell-runbook-from-an-existing-script"></a>Tworzenie elementu Runbook programu PowerShell na podstawie istniejącego skryptu
 
-Dostęp do funkcjonalności pakietu Office 365 z poziomu skryptu programu PowerShell. Oto przykład skryptu dla poświadczenia o nazwie `Office-Credentials` z nazwą użytkownika. `admin@TenantOne.com` Używa `Get-AutomationPSCredential` do zaimportowania poświadczeń pakietu Office 365.
+Dostęp do funkcjonalności pakietu Office 365 z poziomu skryptu programu PowerShell. Oto przykład skryptu dla poświadczenia o nazwie `Office-Credentials` z nazwą użytkownika `admin@TenantOne.com` . Używa `Get-AutomationPSCredential` do zaimportowania poświadczeń pakietu Office 365.
 
 ```powershell
 $emailFromAddress = "admin@TenantOne.com" 
@@ -95,7 +92,7 @@ Send-MailMessage -Credential $credObject -From $emailFromAddress -To $emailToAdd
 $O365Licenses -SmtpServer $emailSMTPServer -UseSSL
 ```
 
-## <a name="running-the-script-in-a-runbook"></a>Uruchamianie skryptu w elemencie Runbook
+## <a name="run-the-script-in-a-runbook"></a>Uruchamianie skryptu w elemencie Runbook
 
 Możesz użyć skryptu w Azure Automation elemencie Runbook. Na przykład użyjemy typu elementu Runbook programu PowerShell.
 
@@ -108,14 +105,13 @@ Możesz użyć skryptu w Azure Automation elemencie Runbook. Na przykład użyje
 7. Wybierz pozycję **okienko testowania**, a następnie kliknij przycisk **Rozpocznij** , aby rozpocząć testowanie elementu Runbook. Zobacz [Zarządzanie elementami Runbook w Azure Automation](https://docs.microsoft.com/azure/automation/manage-runbooks).
 8. Po zakończeniu testowania Wyjdź z okienka testowania.
 
-## <a name="publishing-and-scheduling-the-runbook"></a>Publikowanie i planowanie elementu Runbook
+## <a name="publish-and-schedule-the-runbook"></a>Publikowanie i planowanie elementu Runbook
 
 Aby opublikować i zaplanować element Runbook, zobacz [Zarządzanie elementami Runbook w Azure Automation](https://docs.microsoft.com/azure/automation/manage-runbooks).
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Informacje o zasobach poświadczeń usługi Automation można znaleźć w obszarze [zasoby poświadczeń w Azure Automation](shared-resources/credentials.md).
-* Zobacz [Zarządzanie modułami w Azure Automation](shared-resources/modules.md) , aby dowiedzieć się, jak korzystać z modułów automatyzacji.
-* Aby zapoznać się z omówieniem zarządzania elementami Runbook, zobacz [Zarządzanie elementami Runbook w programie Azure Automation](https://docs.microsoft.com/azure/automation/manage-runbooks).
-* Aby dowiedzieć się więcej na temat metod, których można użyć do uruchomienia elementu Runbook w Azure Automation, zobacz [Uruchamianie elementu Runbook w programie Azure Automation](automation-starting-a-runbook.md).
-* Aby uzyskać więcej informacji na temat programu PowerShell, w tym modułów dokumentacji i uczenia dotyczącej języka, zobacz dokumentację [programu PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
+* [Zarządzanie elementami Runbook w Azure Automation](https://docs.microsoft.com/azure/automation/manage-runbooks)
+* [Zarządzanie modułami w usłudze Azure Automation](shared-resources/modules.md)
+* [Zarządzanie poświadczeniami w Azure Automation](shared-resources/credentials.md)
+* [Dokumentacja programu PowerShell](https://docs.microsoft.com/powershell/scripting/overview)

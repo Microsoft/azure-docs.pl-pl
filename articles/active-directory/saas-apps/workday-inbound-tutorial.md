@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/23/2020
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fa43eae906c918cad940b8f5efafeea07020098
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 9c953c43ff119d42cdadcd2aba6e15f69765afc2
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82201639"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745436"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie produktu Workday do automatycznego aprowizacji użytkowników
 
@@ -454,11 +454,11 @@ W tym kroku ustanawiamy łączność z produktem Workday i Active Directory w Az
 
 1. Wypełnij sekcję **poświadczenia administratora** w następujący sposób:
 
-   * **Nazwa użytkownika produktu Workday** — wprowadź nazwę użytkownika konta programu integracji z systemem Workday z dołączoną nazwą domeny dzierżawy. Powinien wyglądać następująco: **Nazwa użytkownika\@tenant_name**
+   * **Nazwa użytkownika produktu Workday** — wprowadź nazwę użytkownika konta programu integracji z systemem Workday z dołączoną nazwą domeny dzierżawy. Powinien wyglądać następująco: **Nazwa użytkownika \@ tenant_name**
 
    * **Hasło do produktu Workday —** Wprowadź hasło konta systemu integracji produktu Workday
 
-   * **Adres URL interfejsu API usług sieci Web dla produktu Workday —** Wprowadź adres URL punktu końcowego usług sieci Web Workday dla dzierżawy. Ta wartość powinna wyglądać następująco `https://wd3-impl-services1.workday.com/ccx/service/contoso4`:, gdzie *contoso4* jest zastępowana prawidłową nazwą dzierżawy i *WD3-Impl* jest zastępowana prawidłowym ciągiem środowiska.
+   * **Adres URL interfejsu API usług sieci Web dla produktu Workday —** Wprowadź adres URL punktu końcowego usług sieci Web Workday dla dzierżawy. Ta wartość powinna wyglądać następująco: `https://wd3-impl-services1.workday.com/ccx/service/contoso4` , gdzie *contoso4* jest zastępowana prawidłową nazwą dzierżawy i *WD3-Impl* jest zastępowana prawidłowym ciągiem środowiska.
 
      > [!NOTE]
      > Domyślnie aplikacja używa usług sieci Web programu Workday (WWS) w wersji 21.1, jeśli w adresie URL nie określono żadnych informacji o wersjach. Aby użyć określonej wersji interfejsu API WWS, użyj formatu adresu URL:https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
@@ -561,16 +561,16 @@ W tej sekcji skonfigurujesz sposób przepływu danych przez użytkownika z produ
 | ---------- | ---------- | ---------- | ---------- |
 | **WorkerID**  |  EmployeeID | **Tak** | Zapisywane tylko w przypadku tworzenia |
 | **PreferredNameData**    |  CN    |   |   Zapisywane tylko w przypadku tworzenia |
-| **SelectUniqueValue (join ("\@", join (".", \[FirstName\], \[LastName\]), "contoso.com"), join ("\@", join (".", Mid (\[FirstName\], 1, 1), \[LastName\]), "contoso.com"), join ("\@", join (".", Mid (\[FirstName\], 1, 2), \[LastName\]), "contoso.com")**   | userPrincipalName     |     | Zapisywane tylko w przypadku tworzenia 
+| **SelectUniqueValue (join (" \@ ", join (".", \[ FirstName \] , \[ LastName \] ), "contoso.com"), join (" \@ ", join (".", Mid ( \[ FirstName \] , 1, 1), \[ LastName \] ), "contoso.com"), join (" \@ ", join (".", Mid ( \[ FirstName \] , 1, 2), \[ LastName \] ), "contoso.com")**   | userPrincipalName     |     | Zapisywane tylko w przypadku tworzenia 
 | `Replace(Mid(Replace(\[UserID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )`      |    sAMAccountName            |     |         Zapisywane tylko w przypadku tworzenia |
-| **Switch (\[aktywny\],, "0", "true", "1", "false")** |  accountDisabled      |     | Utwórz i zaktualizuj |
+| **Switch ( \[ aktywny \] ,, "0", "true", "1", "false")** |  accountDisabled      |     | Utwórz i zaktualizuj |
 | **Imię**   | givenName       |     |    Utwórz i zaktualizuj |
 | **Nazwisko**   |   sn   |     |  Utwórz i zaktualizuj |
 | **PreferredNameData**  |  displayName |     |   Utwórz i zaktualizuj |
 | **Przedsiębiorstwo**         | company   |     |  Utwórz i zaktualizuj |
 | **SupervisoryOrganization**  | działu,  |     |  Utwórz i zaktualizuj |
 | **ManagerReference**   | manager  |     |  Utwórz i zaktualizuj |
-| **BusinessTitle**   |  title     |     |  Utwórz i zaktualizuj | 
+| **BusinessTitle**   |  tytuł     |     |  Utwórz i zaktualizuj | 
 | **AddressLineData**    |  streetAddress  |     |   Utwórz i zaktualizuj |
 | **Gmina**   |   l   |     | Utwórz i zaktualizuj |
 | **CountryReferenceTwoLetter**      |   współzarządzania |     |   Utwórz i zaktualizuj |
@@ -580,9 +580,9 @@ W tej sekcji skonfigurujesz sposób przepływu danych przez użytkownika z produ
 | **Pocztowy**  |   Pocztowy  |     | Utwórz i zaktualizuj |
 | **PrimaryWorkTelephone**  |  telephoneNumber   |     | Utwórz i zaktualizuj |
 | **Faks**      | facsimileTelephoneNumber     |     |    Utwórz i zaktualizuj |
-| **Urządzenia przenośne**  |    telefon komórkowy       |     |       Utwórz i zaktualizuj |
+| **Mobilny**  |    telefon komórkowy       |     |       Utwórz i zaktualizuj |
 | **LocalReference** |  preferredLanguage  |     |  Utwórz i zaktualizuj |                                               
-| **Przełącznik (\[gmina miejska\]) OU = użytkownicy standardowi, OU = users, OU = default, OU = Locations, DC = contoso, DC = com "," Dallas "," OU = Standard users, OU = users, OU = Dallas, OU = Locations, DC = contoso, DC = com "," Austin "," OU = users Standards, OU = users, OU = Austin, OU = Locations, DC = contoso, DC = com "," Seattle "," OU = standardowy użytkownicy, OU = users, OU = Seattle, OU = Locations, DC = contoso, DC = com "," Londyn "," OU = użytkownicy Standards, OU = users, OU = Londyn, OU = Locations, DC = contoso, DC = com ")**  | parentDistinguishedName     |     |  Utwórz i zaktualizuj |
+| **Przełącznik ( \[ gmina miejska) \] OU = użytkownicy standardowi, OU = users, OU = default, OU = Locations, DC = contoso, DC = com "," Dallas "," OU = Standard users, OU = users, OU = Dallas, OU = Locations, DC = contoso, DC = com "," Austin "," OU = users Standards, OU = users, OU = Austin, OU = Locations, DC = contoso, DC = com "," Seattle "," OU = standardowy użytkownicy, OU = users, OU = Seattle, OU = Locations, DC = contoso, DC = com "," Londyn "," OU = użytkownicy Standards, OU = users, OU = Londyn, OU = Locations, DC = contoso, DC = com ")**  | parentDistinguishedName     |     |  Utwórz i zaktualizuj |
 
 Po zakończeniu konfiguracji mapowania atrybutów możesz teraz [włączyć i uruchomić usługę aprowizacji użytkowników](#enable-and-launch-user-provisioning).
 
@@ -621,7 +621,7 @@ W poniższych sekcjach opisano kroki konfigurowania aprowizacji użytkowników z
 
    * **Hasło do produktu Workday —** Wprowadź hasło konta systemu integracji produktu Workday
 
-   * **Adres URL interfejsu API usług sieci Web dla produktu Workday —** Wprowadź adres URL punktu końcowego usług sieci Web Workday dla dzierżawy. Ta wartość powinna wyglądać następująco `https://wd3-impl-services1.workday.com/ccx/service/contoso4`:, gdzie *contoso4* jest zastępowana prawidłową nazwą dzierżawy i *WD3-Impl* jest zastępowana prawidłowym ciągiem środowiska. Jeśli ten adres URL nie jest znany, skontaktuj się z partnerem integracji produktu Workday lub przedstawicielem pomocy technicznej, aby określić prawidłowy adres URL do użycia.
+   * **Adres URL interfejsu API usług sieci Web dla produktu Workday —** Wprowadź adres URL punktu końcowego usług sieci Web Workday dla dzierżawy. Ta wartość powinna wyglądać następująco: `https://wd3-impl-services1.workday.com/ccx/service/contoso4` , gdzie *contoso4* jest zastępowana prawidłową nazwą dzierżawy i *WD3-Impl* jest zastępowana prawidłowym ciągiem środowiska. Jeśli ten adres URL nie jest znany, skontaktuj się z partnerem integracji produktu Workday lub przedstawicielem pomocy technicznej, aby określić prawidłowy adres URL do użycia.
 
      > [!NOTE]
      > Domyślnie aplikacja używa usług sieci Web 21.1 w wersji Workday, jeśli w adresie URL nie określono informacji o wersjach. Aby użyć określonej wersji interfejsu API usług sieci Web dla produktu Workday, użyj formatu adresu URL:https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# <br>
@@ -719,11 +719,11 @@ Postępuj zgodnie z tymi instrukcjami, aby skonfigurować Stornowanie adresów e
 
 8. Wypełnij sekcję **poświadczenia administratora** w następujący sposób:
 
-   * **Nazwa użytkownika administratora** — wprowadź nazwę użytkownika konta programu integracji z systemem Workday z dołączoną nazwą domeny dzierżawy. Powinien wyglądać następująco: *username\@contoso4*
+   * **Nazwa użytkownika administratora** — wprowadź nazwę użytkownika konta programu integracji z systemem Workday z dołączoną nazwą domeny dzierżawy. Powinien wyglądać następująco: *username \@ contoso4*
 
    * **Hasło administratora —** Wprowadź hasło konta systemu integracji produktu Workday
 
-   * **Adres URL dzierżawy —** Wprowadź adres URL punktu końcowego usług sieci Web Workday dla dzierżawy. Ta wartość powinna wyglądać następująco `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources`:, gdzie *contoso4* jest zastępowana prawidłową nazwą dzierżawy, a *WD3-Impl* jest zastępowana prawidłowym ciągiem środowiska (w razie potrzeby).
+   * **Adres URL dzierżawy —** Wprowadź adres URL punktu końcowego usług sieci Web Workday dla dzierżawy. Ta wartość powinna wyglądać następująco: `https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources` , gdzie *contoso4* jest zastępowana prawidłową nazwą dzierżawy, a *WD3-Impl* jest zastępowana prawidłowym ciągiem środowiska (w razie potrzeby).
 
    * **Wiadomość e-mail z powiadomieniem —** Wprowadź adres e-mail, a następnie zaznacz pole wyboru "Wyślij wiadomość e-mail, jeśli wystąpi błąd".
 
@@ -823,9 +823,9 @@ Ta funkcja nie jest obecnie obsługiwana. Zalecane obejście polega na wdrożeni
 Obecnie rozwiązanie używa następujących interfejsów API produktu Workday:
 
 * Format **adresu URL interfejsu API usług sieci Web** w programie Workday użyty w sekcji **poświadczenia administratora** określa wersję interfejsu api używaną dla Get_Workers
-  * W przypadku formatu adresu URL: https://\#\#\#\#\.Workday\.com/CCX/Service/dzierżawcname, a następnie używany jest interfejs API v 21.1. 
-  * W przypadku formatu adresu URL: https://\#\#\#\#\.Workday\.com/CCX/Service/dzierżawca/\_kadry, a następnie jest używany interfejs API v 21.1 
-  * W przypadku formatu adresu URL: https://\#\#\#\#\.Workday\.com/CCX/Service/dzierżawca/Human\_Resources\# \# \. \# /v, zostanie użyta określona wersja interfejsu API. (Przykład: Jeśli określono 34.0 v, jest on używany).  
+  * W przypadku formatu adresu URL: https:// \# \# \# \# \. Workday \. com/CCX/Service/dzierżawcname, a następnie używany jest interfejs API v 21.1. 
+  * W przypadku formatu adresu URL: https:// \# \# \# \# \. Workday \. com/CCX/Service/dzierżawca/kadry \_ , a następnie jest używany interfejs API v 21.1 
+  * W przypadku formatu adresu URL: https:// \# \# \# \# \. Workday \. com/CCX/Service/dzierżawca/Human \_ resources/v \# \# \. \# , zostanie użyta określona wersja interfejsu API. (Przykład: Jeśli określono 34.0 v, jest on używany).  
    
 * Funkcja zapisywania zwrotnego poczty E-mail dla produktu Workday używa Change_Work_Contact_Information (v 30.0) 
 * Funkcja zapisywania zwrotnego użytkownika produktu Workday używa Update_Workday_Account (v 31.2) 
@@ -864,7 +864,7 @@ Podczas sugerowania nowego pomysłu Sprawdź, czy ktoś inny już sugerował pod
 #### <a name="how-do-i-know-the-version-of-my-provisioning-agent"></a>Jak mogę znać wersję mojego agenta aprowizacji?
 
 * Zaloguj się do systemu Windows Server, na którym zainstalowano agenta aprowizacji.
-* Przejdź do **panelu** -> sterowania**Odinstaluj lub Zmień menu programu**
+* Przejdź do **Panelu sterowania**  ->  **Odinstaluj lub Zmień menu programu**
 * Wyszukaj wersję odpowiadającą wpisowi **Microsoft Azure AD Połącz agenta aprowizacji**
 
   ![Azure Portal](./media/workday-inbound-tutorial/pa_version.png)
@@ -916,10 +916,10 @@ Tak, jeden Agent aprowizacji można skonfigurować do obsługi wielu domen usłu
 * W Azure Portal Uzyskaj *Identyfikator dzierżawy* dzierżawy usługi Azure AD.
 * Zaloguj się do systemu Windows Server, na którym jest uruchomiony agent aprowizacji.
 * Otwórz program PowerShell jako administrator systemu Windows.
-* Przejdź do katalogu zawierającego skrypty rejestracji i uruchom następujące polecenia, zastępując parametr identyfikatora \[\] dzierżawy wartością identyfikatora dzierżawy.
+* Przejdź do katalogu zawierającego skrypty rejestracji i uruchom następujące polecenia, zastępując \[ parametr identyfikatora dzierżawy \] wartością identyfikatora dzierżawy.
 
   ```powershell
-  cd “C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\RegistrationPowershell\Modules\PSModulesFolder”
+  cd "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\RegistrationPowershell\Modules\PSModulesFolder"
   Import-Module "C:\Program Files\Microsoft Azure AD Connect Provisioning Agent\RegistrationPowershell\Modules\PSModulesFolder\AppProxyPSModule.psd1"
   Get-PublishedResources -TenantId "[tenant ID]"
   ```
@@ -937,7 +937,7 @@ Tak, jeden Agent aprowizacji można skonfigurować do obsługi wielu domen usłu
 #### <a name="how-do-i-uninstall-the-provisioning-agent"></a>Jak mogę odinstalować agenta aprowizacji?
 
 * Zaloguj się do systemu Windows Server, na którym zainstalowano agenta aprowizacji.
-* Przejdź do **panelu** -> sterowania**Odinstaluj lub Zmień menu programu**
+* Przejdź do **Panelu sterowania**  ->  **Odinstaluj lub Zmień menu programu**
 * Odinstaluj następujące programy:
   * Microsoft Azure AD połączyć się z agentem aprowizacji
   * Microsoft Azure AD Aktualizator połączenia z agentem
@@ -979,7 +979,7 @@ Obecnie rozwiązanie nie obsługuje ustawiania atrybutów binarnych, takich jak 
 * Kliknij mapowania atrybutów 
 * W obszarze **mapowania**wybierz pozycję **Synchronizuj procesy robocze programu Workday z lokalnymi Active Directory** (lub **zsynchronizuj procesy robocze z systemem Workday z usługą Azure AD**).
 * Na stronie mapowania atrybutów przewiń w dół i zaznacz pole wyboru "Pokaż opcje zaawansowane".  Kliknij, **Aby edytować listę atrybutów dla produktu Workday**
-* W bloku, który zostanie otwarty, Znajdź atrybut "Mobile" i kliknij wiersz, aby można było edytować ![ **wyrażenie interfejsu API** Mobile Rodo](./media/workday-inbound-tutorial/mobile_gdpr.png)
+* W bloku, który zostanie otwarty, Znajdź atrybut "Mobile" i kliknij wiersz, aby można było edytować **wyrażenie interfejsu API** ![ Mobile Rodo](./media/workday-inbound-tutorial/mobile_gdpr.png)
 
 * Zastąp **wyrażenie interfejsu API** następującym nowym wyrażeniem, które pobiera służbowy numer telefonu, tylko jeśli "Flaga użycia publicznego" jest ustawiona na wartość "true" w programie Workday.
 
@@ -1003,21 +1003,21 @@ Oto jak można obsługiwać takie wymagania dotyczące konstruowania nazwy *posp
      | ----------------- | -------------------- |
      | PreferredFirstName | WD: Worker/WD: Worker_Data/WD: Personal_Data/WD: Name_Data/WD: Preferred_Name_Data/WD: Name_Detail_Data/WD: First_Name/Text () |
      | PreferredLastName | WD: Worker/WD: Worker_Data/WD: Personal_Data/WD: Name_Data/WD: Preferred_Name_Data/WD: Name_Detail_Data/WD: Last_Name/Text () |
-     | Firma | WD: Worker/WD: Worker_Data/WD: Organization_Data/WD: Worker_Organization_Data [WD: Organization_Data/WD: Organization_Type_Reference/WD: ID [@wd:type= "Organization_Type_ID"] = "Company"]/wd:Organization_Reference/@wd:Descriptor |
-     | SupervisoryOrganization | WD: Worker/WD: Worker_Data/WD: Organization_Data/WD: Worker_Organization_Data/WD: Organization_Data [WD: Organization_Type_Reference/WD: ID [@wd:type= "Organization_Type_ID"] = "nadzorcze"]/wd: Organization_Name/Text () |
+     | Firma | WD: Worker/WD: Worker_Data/WD: Organization_Data/WD: Worker_Organization_Data [WD: Organization_Data/WD: Organization_Type_Reference/WD: ID [ @wd:type = "Organization_Type_ID"] = "Company"]/wd:Organization_Reference/@wd:Descriptor |
+     | SupervisoryOrganization | WD: Worker/WD: Worker_Data/WD: Organization_Data/WD: Worker_Organization_Data/WD: Organization_Data [WD: Organization_Type_Reference/WD: ID [ @wd:type = "Organization_Type_ID"] = "nadzorcze"]/WD: Organization_Name/Text () |
   
    Skontaktuj się z zespołem w programie Workday, że wyrażenie interfejsu API powyżej jest prawidłowe dla konfiguracji dzierżawy w Twojej firmie. W razie potrzeby można je edytować zgodnie z opisem w sekcji [Dostosowywanie listy atrybutów użytkownika produktu Workday](#customizing-the-list-of-workday-user-attributes).
 
-* Podobnie informacje o kraju, które znajdują się w usłudze Workday, są pobierane za pomocą następującego wyrażenia XPATH: *WD: Worker/WD: Worker_Data/WD: Employment_Data/WD: Position_Data/WD: Business_Site_Summary_Data/WD: Address_Data/WD: Country_Reference*
+* Podobnie informacje o kraju/regionie obecne w usłudze Workday są pobierane przy użyciu następującej składni XPATH: *WD: Worker/WD: Worker_Data/WD: Employment_Data/WD: Position_Data/WD: Business_Site_Summary_Data/WD: Address_Data/WD: Country_Reference*
 
-     Istnieją 5 atrybutów związanych z krajami, które są dostępne w sekcji Lista atrybutów dnia roboczego.
+     Istnieją 5 atrybutów dotyczących kraju/regionu, które są dostępne w sekcji Lista atrybutów dnia roboczego.
 
      | Atrybut Workday | Wyrażenie XPATH interfejsu API |
      | ----------------- | -------------------- |
-     | CountryReference | WD: Worker/WD: Worker_Data/WD: Employment_Data/WD: Position_Data/WD: Business_Site_Summary_Data/WD: Address_Data/WD: Country_Reference/WD: ID [@wd:type= "ISO_3166-1_Alpha-3_Code"]/text () |
+     | CountryReference | WD: Worker/WD: Worker_Data/WD: Employment_Data/WD: Position_Data/WD: Business_Site_Summary_Data/WD: Address_Data/WD: Country_Reference/WD: ID [ @wd:type = "ISO_3166-1_Alpha-3_Code"]/text () |
      | CountryReferenceFriendly | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Reference/@wd:Descriptor |
-     | CountryReferenceNumeric | WD: Worker/WD: Worker_Data/WD: Employment_Data/WD: Position_Data/WD: Business_Site_Summary_Data/WD: Address_Data/WD: Country_Reference/WD: ID [@wd:type= "ISO_3166-1_Numeric-3_Code"]/text () |
-     | CountryReferenceTwoLetter | WD: Worker/WD: Worker_Data/WD: Employment_Data/WD: Position_Data/WD: Business_Site_Summary_Data/WD: Address_Data/WD: Country_Reference/WD: ID [@wd:type= "ISO_3166-1_Alpha-2_Code"]/text () |
+     | CountryReferenceNumeric | WD: Worker/WD: Worker_Data/WD: Employment_Data/WD: Position_Data/WD: Business_Site_Summary_Data/WD: Address_Data/WD: Country_Reference/WD: ID [ @wd:type = "ISO_3166-1_Numeric-3_Code"]/text () |
+     | CountryReferenceTwoLetter | WD: Worker/WD: Worker_Data/WD: Employment_Data/WD: Position_Data/WD: Business_Site_Summary_Data/WD: Address_Data/WD: Country_Reference/WD: ID [ @wd:type = "ISO_3166-1_Alpha-2_Code"]/text () |
      | CountryRegionReference | wd:Worker/wd:Worker_Data/wd:Employment_Data/wd:Position_Data/wd:Business_Site_Summary_Data/wd:Address_Data/wd:Country_Region_Reference/@wd:Descriptor |
 
   Skontaktuj się z zespołem usługi Workday, że powyższe wyrażenia interfejsu API są prawidłowe dla konfiguracji dzierżawy w Twojej firmie. W razie potrzeby można je edytować zgodnie z opisem w sekcji [Dostosowywanie listy atrybutów użytkownika produktu Workday](#customizing-the-list-of-workday-user-attributes).
@@ -1027,7 +1027,7 @@ Oto jak można obsługiwać takie wymagania dotyczące konstruowania nazwy *posp
     ```
      Append(Join(", ",[PreferredLastName],[PreferredFirstName]), Join(""," (",[SupervisoryOrganization],"-",[CountryReferenceTwoLetter],")"))
     ```
-    Gdy masz odpowiednie wyrażenie, edytuj tabelę mapowania atrybutów i zmodyfikuj Mapowanie atrybutów *DisplayName* , jak pokazano poniżej: ![mapowanie DisplayName](./media/workday-inbound-tutorial/wd_displayname_map.png)
+    Gdy masz odpowiednie wyrażenie, edytuj tabelę mapowania atrybutów i zmodyfikuj Mapowanie atrybutów *DisplayName* , jak pokazano poniżej: ![ Mapowanie DisplayName](./media/workday-inbound-tutorial/wd_displayname_map.png)
 
 * W powyższym przykładzie Załóżmy, że chcesz przekonwertować nazwy miast pochodzące z produktu Workday na wartości skrócone, a następnie użyć ich do kompilowania nazw wyświetlanych *, takich jak Kowalski, Jan (Chi)* lub *Nowak, Janina (NYC)*, a następnie można osiągnąć ten wynik przy użyciu wyrażenia Switch z atrybutem *gminy* firmy Workday jako zmiennej wyznacznikowej.
 
@@ -1210,7 +1210,7 @@ W tej sekcji opisano często występujące błędy podczas aprowizacji użytkown
 |#|Scenariusz błędu |Prawdopodobne przyczyny|Zalecane rozwiązanie|
 |--|---|---|---|
 |1.| Wystąpił błąd podczas instalowania agenta aprowizacji z komunikatem o błędzie: *nie można uruchomić usługi "Microsoft Azure AD połączyć się z agentem aprowizacji" (AADConnectProvisioningAgent). Sprawdź, czy masz wystarczające uprawnienia do uruchamiania systemu.* | Ten błąd jest zwykle wyświetlany, jeśli próbujesz zainstalować agenta aprowizacji na kontrolerze domeny, a zasady grupy uniemożliwiają uruchomienie usługi.  Jest również widoczna, jeśli masz Poprzednia wersja agenta z uruchomioną usługą i nie został on odinstalowany przed rozpoczęciem nowej instalacji.| Zainstaluj agenta aprowizacji na serwerze niebędącym kontrolerem domeny. Przed zainstalowaniem nowego agenta upewnij się, że poprzednie wersje agenta zostały odinstalowane.|
-|2.| Agent aprowizacji usługi systemu Windows "Microsoft Azure AD Connect" jest w stanie *początkowym* i nie przechodzi do stanu *uruchomienia* . | W ramach instalacji Kreator agenta tworzy konto lokalne (**NT Service\\AADConnectProvisioningAgent**) na serwerze i jest to konto logowania używane do uruchamiania usługi. Jeśli zasady zabezpieczeń na serwerze z systemem Windows uniemożliwiają uruchamianie usług na kontach lokalnych, ten błąd zostanie wyświetlony. | Otwórz *konsolę usługi*. Kliknij prawym przyciskiem myszy usługę systemu Windows "Microsoft Azure AD Połącz agenta aprowizacji" i na karcie Logowanie Podaj konto administratora domeny, aby uruchomić usługę. Należy ponownie uruchomić usługę. |
+|2.| Agent aprowizacji usługi systemu Windows "Microsoft Azure AD Connect" jest w stanie *początkowym* i nie przechodzi do stanu *uruchomienia* . | W ramach instalacji Kreator agenta tworzy konto lokalne (**NT Service \\ AADConnectProvisioningAgent**) na serwerze i jest to konto logowania używane do uruchamiania usługi. Jeśli zasady zabezpieczeń na serwerze z systemem Windows uniemożliwiają uruchamianie usług na kontach lokalnych, ten błąd zostanie wyświetlony. | Otwórz *konsolę usługi*. Kliknij prawym przyciskiem myszy usługę systemu Windows "Microsoft Azure AD Połącz agenta aprowizacji" i na karcie Logowanie Podaj konto administratora domeny, aby uruchomić usługę. Należy ponownie uruchomić usługę. |
 |3.| Podczas konfigurowania agenta aprowizacji przy użyciu domeny usługi AD w kroku *łączenie Active Directory*Kreator zajmuje dużo czasu, próbując załadować schemat usługi AD i ostatecznie przekroczyć limit czasu. | Ten błąd jest zazwyczaj wyświetlany, jeśli kreator nie może skontaktować się z serwerem kontrolera domeny usługi AD ze względu na problemy z zaporą. | Na ekranie Kreator *łączenia Active Directory* , podczas podawania poświadczeń dla domeny usługi AD istnieje opcja o nazwie *Wybierz priorytet kontrolera domeny*. Użyj tej opcji, aby wybrać kontroler domeny znajdujący się w tej samej lokacji co serwer agenta i upewnić się, że nie ma żadnych reguł zapory blokujących komunikację. |
 
 #### <a name="connectivity-errors"></a>Błędy łączności
@@ -1268,11 +1268,11 @@ Aby to zmienić, należy użyć programu [Workday Studio](https://community.work
 
     ![Workday Studio](./media/workday-inbound-tutorial/wdstudio1.png)
 
-6. W polu **Lokalizacja** Określ wartość `https://IMPL-CC.workday.com/ccx/service/TENANT/Human_Resources`, ale Zastąp ciąg "Impl-CC" rzeczywistym typem wystąpienia i "dzierżawca" nazwą swojej rzeczywistej dzierżawy.
+6. W polu **Lokalizacja** Określ wartość `https://IMPL-CC.workday.com/ccx/service/TENANT/Human_Resources` , ale Zastąp ciąg "Impl-CC" rzeczywistym typem wystąpienia i "dzierżawca" nazwą swojej rzeczywistej dzierżawy.
 
 7. Ustaw **operację** na **Get_Workers**
 
-8.  Kliknij łącze małe **Konfigurowanie** poniżej okienka żądanie/odpowiedź, aby ustawić poświadczenia dla produktu Workday. Sprawdź pozycję **uwierzytelnianie**, a następnie wprowadź nazwę użytkownika i hasło do konta systemu integracji z programem Workday. Upewnij się, że nazwa użytkownika jest sformatowana\@jako dzierżawca, i pozostaw wybraną opcję **WS-Security UsernameToken** .
+8.    Kliknij łącze małe **Konfigurowanie** poniżej okienka żądanie/odpowiedź, aby ustawić poświadczenia dla produktu Workday. Sprawdź pozycję **uwierzytelnianie**, a następnie wprowadź nazwę użytkownika i hasło do konta systemu integracji z programem Workday. Upewnij się, że nazwa użytkownika jest sformatowana jako \@ dzierżawca, i pozostaw wybraną opcję **WS-Security UsernameToken** .
 
     ![Workday Studio](./media/workday-inbound-tutorial/wdstudio2.png)
 
@@ -1323,9 +1323,9 @@ Aby to zmienić, należy użyć programu [Workday Studio](https://community.work
 
 17. Usuń **/env: Envelope/env: Body/WD: Get_Workers_Response/WD: Response_Data/** prefix z skopiowanego wyrażenia.
 
-18. Jeśli ostatni element w skopiowanym wyrażeniu jest węzłem (przykład: "/WD: Birth_Date"), a następnie Dołącz **/Text ()** na końcu wyrażenia. Nie jest to konieczne, jeśli ostatni element jest atrybutem (przykład: "/@wd: Type").
+18. Jeśli ostatni element w skopiowanym wyrażeniu jest węzłem (przykład: "/WD: Birth_Date"), a następnie Dołącz **/Text ()** na końcu wyrażenia. Nie jest to konieczne, jeśli ostatni element jest atrybutem (przykład: " /@wd: Type").
 
-19. Wynik powinien być podobny `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`do tego. Ta wartość jest kopiowana do Azure Portal.
+19. Wynik powinien być podobny do tego `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()` . Ta wartość jest kopiowana do Azure Portal.
 
 **Aby dodać niestandardowy atrybut użytkownika Workday do konfiguracji aprowizacji:**
 

@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 49b57b213a452d6c594bbc1ca537e68bd7a83864
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 050f95ac98ce1ab36dc4ca537db458e133581925
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80333856"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746043"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Samouczek: Tworzenie lokalizatora sklepu za pomocą Azure Maps
 
-Ten samouczek przeprowadzi Cię przez proces tworzenia prostego lokalizatora sklepów przy użyciu usługi Azure Maps. Lokalizatory sklepów są powszechne. Wiele koncepcji używanych w tego typu aplikacjach można stosować w wielu innych typach aplikacji. Oferowanie lokalizatora sklepów jest koniecznością dla większości firm prowadzących sprzedaż detaliczną bezpośrednio dla klientów. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Ten samouczek przeprowadzi Cię przez proces tworzenia prostego lokalizatora sklepów przy użyciu usługi Azure Maps. Lokalizatory sklepów są powszechne. Wiele koncepcji używanych w tego typu aplikacjach można stosować w wielu innych typach aplikacji. Oferowanie lokalizatora sklepów jest koniecznością dla większości firm prowadzących sprzedaż detaliczną bezpośrednio dla klientów. Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
     
 > [!div class="checklist"]
 > * Tworzenie nowej strony internetowej przy użyciu interfejsu API kontrolki mapy platformy Azure.
@@ -37,7 +37,7 @@ Przejdź dalej do [przykładu lokalizatora sklepów na żywo](https://azuremapsc
 
 Aby wykonać kroki opisane w tym samouczku, musisz najpierw utworzyć konto Azure Maps i uzyskać klucz podstawowy (klucz subskrypcji). Postępuj zgodnie z instrukcjami w temacie [Tworzenie konta](quick-demo-map-app.md#create-an-account-with-azure-maps) , aby utworzyć subskrypcję konta usługi Azure Maps z warstwą cenową S1, i wykonaj kroki opisane w sekcji [Pobieranie klucza podstawowego](quick-demo-map-app.md#get-the-primary-key-for-your-account) , aby uzyskać klucz podstawowy dla konta. Aby uzyskać więcej informacji na temat uwierzytelniania w Azure Maps, zobacz [Zarządzanie uwierzytelnianiem w programie Azure Maps](how-to-manage-authentication.md).
 
-## <a name="design"></a>Projektowanie
+## <a name="design"></a>Projekt
 
 Zanim przejdziesz do kodu, dobrze jest zacząć od projektu. Lokalizator sklepów może być prosty lub złożony — taki, jaki chcesz. W tym samouczku utworzymy prosty lokalizator sklepów. W trakcie tego procesu podamy kilka wskazówek pomocnych w rozszerzeniu niektórych funkcji, jeśli zechcesz to zrobić. Utworzymy lokalizator sklepów dla fikcyjnej firmy o nazwie Contoso Coffee. Na poniższej ilustracji przedstawiono szkielet ogólnego układu lokalizatora sklepów, który utworzymy w tym samouczku:
 
@@ -81,7 +81,7 @@ Patrząc na zrzut ekranu danych, możemy zauważyć następujące rzeczy:
     
 * Informacje o lokalizacji są przechowywane przy użyciu kolumn **AddressLine** (Adres), **City** (Miasto), **Municipality** (Gmina), **AdminDivision** (Województwo), **PostCode** (Kod pocztowy) i **Country** (Kraj).  
 * Kolumny **Latitude** (Szerokość geograficzna) i **Longitude** (Długość geograficzna) zawierają współrzędne dla każdej lokalizacji kawiarni Contoso Coffee. Jeśli nie masz informacji o współrzędnych lokalizacji, możesz je ustalić przy użyciu usług wyszukiwania w usłudze Azure Maps.
-* Niektóre dodatkowe kolumny zawierają metadane związane z kawiarniami: numer telefonu, kolumny logiczne oraz czas otwierania i zamykania w formacie 24-godzinnym. Kolumny logiczne służą do dostępności sieci Wi-Fi i niepełnosprawnych. Możesz utworzyć własne kolumny zawierające metadane, które lepiej odpowiadają Twoim danym lokalizacji.
+* Niektóre dodatkowe kolumny zawierają metadane związane z kawiarniami: numer telefonu, kolumny logiczne oraz czas otwierania i zamykania w formacie 24-godzinnym. Kolumny logiczne służą do dostępności sieci Wi-Fi i niepełnosprawnych. Możesz tworzyć własne kolumny zawierające metadane, które są bardziej odpowiednie dla danych lokalizacji.
 
 > [!Note]
 > Usługa Azure Maps renderuje dane w postaci kulistego odwzorowania walcowego równokątnego „EPSG:3857”, ale odczytuje dane w układzie współrzędnych „EPSG:4325”, który korzysta z systemu odniesienia WGS84. 
@@ -115,7 +115,7 @@ Aby utworzyć projekt, można użyć programu [Visual Studio](https://visualstud
 
 Aby utworzyć interfejs użytkownika, dodaj kod do pliku *index.html*:
 
-1. Dodaj następujące tagi `meta` do elementu `head` pliku *index.html*. `charset` Tag definiuje zestaw znaków (UTF-8). Wartość `http-equiv` instruuje przeglądarkę Internet Explorer i Microsoft Edge, aby używać najnowszych wersji przeglądarki. I ostatni `meta` tag określa okienko ekranu, które dobrze sprawdza się w przypadku odpowiadających układów.
+1. Dodaj następujące tagi `meta` do elementu `head` pliku *index.html*. `charset`Tag definiuje zestaw znaków (UTF-8). Wartość `http-equiv` instruuje przeglądarkę Internet Explorer i Microsoft Edge, aby używać najnowszych wersji przeglądarki. I ostatni `meta` tag określa okienko ekranu, które dobrze sprawdza się w przypadku odpowiadających układów.
 
     ```HTML
     <meta charset="utf-8">
@@ -397,7 +397,7 @@ Wszystko jest teraz skonfigurowane w interfejsie użytkownika. Nadal musimy doda
 
 1. Dodaj kod do pliku *index.js*. Poniższy kod inicjuje mapę. Dodaliśmy [odbiornik zdarzeń](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) czekający na zakończenie ładowania strony. Następnie tworzymy zdarzenia w celu monitorowania ładowania mapy, a następnie przydzielenia funkcji dla przycisku wyszukiwania i przycisku Moje lokalizacje.
 
-   Gdy użytkownik wybierze przycisk Wyszukaj lub wpisze lokalizację w polu wyszukiwania, a następnie naciśnie klawisz ENTER, inicjowane jest Wyszukiwanie rozmyte względem zapytania użytkownika. Przekaż tablicę wartości ISO 2 kraju do `countrySet` opcji, aby ograniczyć wyniki wyszukiwania do tych krajów/regionów. Ograniczenie krajów/regionów do wyszukiwania pomaga zwiększyć dokładność zwracanych wyników. 
+   Gdy użytkownik wybierze przycisk Wyszukaj lub wpisze lokalizację w polu wyszukiwania, a następnie naciśnie klawisz ENTER, inicjowane jest Wyszukiwanie rozmyte względem zapytania użytkownika. Przekaż tablicę wartości ISO 2 kraju/regionu do `countrySet` opcji, aby ograniczyć wyniki wyszukiwania do tych krajów/regionów. Ograniczenie krajów/regionów do wyszukiwania pomaga zwiększyć dokładność zwracanych wyników. 
   
    Po zakończeniu wyszukiwania wykonaj pierwszy wynik i ustaw dla niego kamerę mapy. Gdy użytkownik wybierze przycisk Moja lokalizacja, pobierze lokalizację użytkownika przy użyciu interfejsu API geolokalizacji HTML5. Ten interfejs API jest wbudowany w przeglądarkę. Następnie Wyśrodkuj mapę na swojej lokalizacji.  
 
@@ -453,7 +453,7 @@ Wszystko jest teraz skonfigurowane w interfejsie użytkownika. Nadal musimy doda
         });
     }
 
-    //Create an array of country ISO 2 values to limit searches to. 
+    //Create an array of country/region ISO 2 values to limit searches to. 
     var countrySet = ['US', 'CA', 'GB', 'FR','DE','IT','ES','NL','DK'];
 
     function performSearch() {
@@ -461,7 +461,7 @@ Wszystko jest teraz skonfigurowane w interfejsie użytkownika. Nadal musimy doda
 
         //Perform a fuzzy search on the users query.
         searchURL.searchFuzzy(atlas.service.Aborter.timeout(3000), query, {
-            //Pass in the array of country ISO2 for which we want to limit the search to.
+            //Pass in the array of country/region ISO2 for which we want to limit the search to.
             countrySet: countrySet
         }).then(results => {
             //Parse the response into GeoJSON so that the map can understand.
@@ -922,7 +922,7 @@ Wszystko jest teraz skonfigurowane w interfejsie użytkownika. Nadal musimy doda
 
 Teraz masz w pełni funkcjonalny lokalizator sklepów. W przeglądarce internetowej otwórz plik *index.html* dla lokalizatora sklepów. Gdy klastry zostaną wyświetlone na mapie, możesz wyszukać lokalizację, używając pola wyszukiwania, wybierając przycisk Moja lokalizacja, wybierając klaster lub powiększając mapę, aby wyświetlić poszczególne lokalizacje.
 
-Kiedy użytkownik wybierze przycisk Moja lokalizacja po raz pierwszy, w przeglądarce zostanie wyświetlone ostrzeżenie o zabezpieczeniach z pytaniem o zezwolenie na dostęp do lokalizacji użytkownika. Jeśli użytkownik wyrazi zgodę na udostępnienie swojej lokalizacji, mapa zostanie powiększona na obszarze lokalizacji użytkownika i zostaną wyświetlone pobliskie kawiarnie. 
+Gdy użytkownik wybierze przycisk Moja lokalizacja po raz pierwszy, w przeglądarce zostanie wyświetlone ostrzeżenie o zabezpieczeniach z prośbą o zezwolenie na dostęp do lokalizacji użytkownika. Jeśli użytkownik wyrazi zgodę na udostępnienie swojej lokalizacji, mapa zostanie powiększona na obszarze lokalizacji użytkownika i zostaną wyświetlone pobliskie kawiarnie. 
 
 <center>
 

@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 12/16/2019
 ms.author: aahi
-ms.openlocfilehash: 69c391e6c3f93a998ade7c5721a528d895f8df76
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 72afc4f6e03b24e545ad18948119d418970cddf3
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75382862"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747578"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Szybki Start: sprawdzanie pisowni przy użyciu interfejsu API REST sprawdzanie pisowni Bing i środowiska Node. js
 
@@ -30,7 +30,7 @@ Użyj tego przewodnika Szybki start, aby wykonać pierwsze wywołanie interfejsu
 
 ## <a name="create-and-initialize-a-project"></a>Tworzenie i inicjowanie projektu
 
-1. Utwórz nowy plik JavaScript w ulubionym środowisku IDE lub edytorze. Ustawianie rygorystyczności i wymaganie `https`. Następnie utwórz zmienne dla hosta punktu końcowego interfejsu API, ścieżki i klucza subskrypcji. Możesz użyć poniższego globalnego punktu końcowego lub niestandardowego punktu końcowego [poddomeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) , który jest wyświetlany w Azure Portal dla zasobu.
+1. Utwórz nowy plik JavaScript w ulubionym środowisku IDE lub edytorze. Ustawianie rygorystyczności i wymaganie `https` . Następnie utwórz zmienne dla hosta punktu końcowego interfejsu API, ścieżki i klucza subskrypcji. Możesz użyć poniższego globalnego punktu końcowego lub niestandardowego punktu końcowego [poddomeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) , który jest wyświetlany w Azure Portal dla zasobu.
 
     ```javascript
     'use strict';
@@ -41,7 +41,7 @@ Użyj tego przewodnika Szybki start, aby wykonać pierwsze wywołanie interfejsu
     let key = '<ENTER-KEY-HERE>';
     ```
 
-2. Utwórz zmienne dla parametrów wyszukiwania oraz tekst, który chcesz sprawdzić. Dołącz kod rynkowy po `mkt=`. Kod rynkowy to kraj, z którego pochodzi żądanie. Dodawaj również tryb sprawdzania pisowni po `&mode=`. Tryb jest albo `proof` (przechwytuje większość błędów pisowni/gramatyki `spell` ) lub (przechwytuje większość pisowni, ale nie wiele błędów gramatycznych).
+2. Utwórz zmienne dla parametrów wyszukiwania oraz tekst, który chcesz sprawdzić. Dołącz kod rynkowy po `mkt=` . Kod rynkowy jest krajem/regionem, z którego pochodzi żądanie. Dodawaj również tryb sprawdzania pisowni po `&mode=` . Tryb jest albo `proof` (przechwytuje większość błędów pisowni/gramatyki) lub `spell` (przechwytuje większość pisowni, ale nie wiele błędów gramatycznych).
 
     ```javascript
     let mkt = "en-US";

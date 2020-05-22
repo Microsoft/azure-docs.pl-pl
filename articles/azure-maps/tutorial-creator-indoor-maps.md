@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: a49661ca8776f04d98cc04bbe7a07b8c388f91ee
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 4d150135e15fb167a9c2d56c74e7bc4fc91c0953
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681676"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745939"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Tworzenie map wewnętrznych przy użyciu kreatora
 
@@ -215,7 +215,7 @@ Tileset to zbiór kafelków wektorowych, które są renderowane na mapie. Tilese
     https://atlas.microsoft.com/wfs/datasets/{datasetId}/collections?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
     ```
 
-3. Treść odpowiedzi zostanie dostarczona w formacie GEOJSON i będzie zawierać wszystkie kolekcje w zestawie danych. Dla uproszczenia w tym przykładzie jest wyświetlana tylko `unit` kolekcja. Aby zobaczyć przykład, który zawiera wszystkie kolekcje, zobacz [WFS opisywanie interfejsu API kolekcji](https://docs.microsoft.com/rest/api/maps/wfs/describecollectionspreview). Aby dowiedzieć się więcej na temat dowolnej kolekcji, można kliknąć dowolny z adresów URL wewnątrz `link` elementu.
+3. Treść odpowiedzi zostanie dostarczona w formacie GEOJSON i będzie zawierać wszystkie kolekcje w zestawie danych. Dla uproszczenia w tym przykładzie jest wyświetlana tylko `unit` kolekcja. Aby zobaczyć przykład, który zawiera wszystkie kolekcje, zobacz [WFS opisywanie interfejsu API kolekcji](https://docs.microsoft.com/rest/api/maps/wfs/collectiondescriptionpreview). Aby dowiedzieć się więcej na temat dowolnej kolekcji, można kliknąć dowolny z adresów URL wewnątrz `link` elementu.
 
     ```json
     {
@@ -285,7 +285,7 @@ Tileset to zbiór kafelków wektorowych, które są renderowane na mapie. Tilese
 
 1. W aplikacji pocztowej wybierz pozycję **Nowy**. W oknie **Tworzenie nowego** okna wybierz pozycję **Żądaj**. Wprowadź **nazwę żądania** i wybierz kolekcję. Kliknij przycisk **Zapisz**
 
-2. Wprowadź żądanie **post** do [interfejsu API tworzenia Stateset](https://docs.microsoft.com/rest/api/maps/featurestate/createstatepreview). Użyj `datasetId` zestawu danych, który zawiera stan, który chcesz zmodyfikować. Żądanie powinno wyglądać następująco:
+2. Wprowadź żądanie **post** do [interfejsu API tworzenia Stateset](https://docs.microsoft.com/rest/api/maps/featurestate/createstatesetpreview). Użyj `datasetId` zestawu danych, który zawiera stan, który chcesz zmodyfikować. Żądanie powinno wyglądać następująco:
 
     ```http
     https://atlas.microsoft.com/featureState/stateset?api-version=1.0&datasetId={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}

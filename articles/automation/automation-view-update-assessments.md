@@ -1,18 +1,18 @@
 ---
-title: Wyświetl oceny aktualizacji Update Management Azure Automation
-description: W tym artykule opisano sposób wyświetlania ocen aktualizacji dla wdrożeń aktualizacji.
+title: Wyświetl oceny aktualizacji Azure Automation
+description: W tym artykule opisano sposób wyświetlania ocen aktualizacji dla wdrożeń Update Management.
 services: automation
 ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 75762afc9ae69da81e89ce320f454d9764f82914
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6c66f54b8b01b5131defce6e709af52f9b2732d1
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617392"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745235"
 ---
-# <a name="view-azure-automation-update-management-update-assessments"></a>Wyświetl oceny aktualizacji Update Management Azure Automation
+# <a name="view-update-assessments"></a>Wyświetlanie ocen aktualizacji
 
 Na koncie Azure Automation wybierz pozycję **Update Management** , aby wyświetlić stan maszyn.
 
@@ -28,7 +28,7 @@ Wybierz pozycję **brakujące aktualizacje** , aby wyświetlić listę aktualiza
 
 ![Brakujące aktualizacje](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
 
-## <a name="update-classifications"></a>Klasyfikacje aktualizacji
+## <a name="work-with-update-classifications"></a>Współpraca z klasyfikacjami aktualizacji
 
 W poniższej tabeli wymieniono obsługiwane klasyfikacje aktualizacji w Update Management z definicją dla każdej klasyfikacji.
 
@@ -42,7 +42,7 @@ W poniższej tabeli wymieniono obsługiwane klasyfikacje aktualizacji w Update M
 |Pakiety funkcji     | Nowe funkcje produktu dystrybuowane poza wydaniem produktu.        |
 |Dodatki Service Pack     | Zestawy poprawek, które są stosowane do aplikacji.        |
 |Aktualizacje definicji     | Aktualizacje definicji wirusów lub innych plików definicji.        |
-|Narzędzia     | Narzędzia lub funkcje, które pomagają wykonać jedno lub więcej zadań.        |
+|narzędzia     | Narzędzia lub funkcje, które pomagają wykonać jedno lub więcej zadań.        |
 |Aktualizacje     | Aktualizacje aplikacji lub plików, które są obecnie zainstalowane.        |
 
 ### <a name="linux"></a><a name="linux-2"></a>Linux
@@ -64,4 +64,4 @@ Aby sklasyfikować aktualizacje w systemie Red Hat Enterprise w wersji 6, należ
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po wyświetleniu jakichkolwiek ocen aktualizacji można zaplanować wdrożenie aktualizacji, wykonując czynności opisane w sekcji [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure](automation-tutorial-update-management.md).
+[Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure](automation-tutorial-update-management.md)

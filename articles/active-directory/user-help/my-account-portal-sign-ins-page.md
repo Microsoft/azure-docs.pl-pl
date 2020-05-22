@@ -8,15 +8,15 @@ ms.reviewer: rhicock
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 10/28/2019
 ms.author: curtand
-ms.openlocfilehash: c828878506ee69e90945d1f4be07eb81541b9757
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 0b3b0d686ae10f9b376c977bf165eccddda32239
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82625412"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744526"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-preview-page"></a>Wyświetlanie i wyszukiwanie ostatnich działań związanych z logowaniem ze strony Moje logowania (wersja zapoznawcza)
 
@@ -56,7 +56,7 @@ Jeśli zalogowanie nie powiedzie się, oznacza to, że w obszarze działania ses
 
 Ostatnie działania związane z logowaniem można wyszukać, korzystając z dowolnych dostępnych informacji. Można na przykład wyszukać ostatnie działania związane z logowaniem według systemu operacyjnego, lokalizacji, aplikacji i tak dalej.
 
-1. Na stronie **Przejrzyj ostatnią aktywność** wpisz informacje, które chcesz wyszukać na pasku **wyszukiwania** . Na przykład wpisz `My Account` , aby wyszukać całą aktywność zebraną przez aplikację My account.
+1. Na stronie **Przejrzyj ostatnią aktywność** wpisz informacje, które chcesz wyszukać na pasku **wyszukiwania** . Na przykład wpisz, `My Account` Aby wyszukać całą aktywność zebraną przez aplikację My account.
 
 2. Wybierz przycisk **Wyszukaj** , aby rozpocząć wyszukiwanie.
 

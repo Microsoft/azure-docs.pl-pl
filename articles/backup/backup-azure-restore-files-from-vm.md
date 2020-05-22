@@ -3,12 +3,12 @@ title: Odzyskiwanie plików i folderów z kopii zapasowej maszyny wirtualnej pla
 description: W tym artykule dowiesz się, jak odzyskiwać pliki i foldery z punktu odzyskiwania maszyny wirtualnej platformy Azure.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 0c518c080f3789d36d2ca600ade23a0b4b2ab385
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c72794999abbbf5d29b376615015fb5778b7d9fe
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652112"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757980"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Odzyskiwanie plików z kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -142,14 +142,23 @@ Aby wyświetlić listę wszystkich woluminów logicznych, nazw i ich ścieżek w
 
 ```bash
 #!/bin/bash
-lvdisplay <volume-group-name from the pvs command's results>
+lvdisplay <volume-group-name from the pvs commands results>
 ```
+
+```lvdisplay```Polecenie pokazuje również, czy grupy woluminów są aktywne, nie. Jeśli grupa woluminów jest oznaczona jako nieaktywna, należy ją ponownie aktywować, aby ją zainstalować. Jeśli grupa woluminów jest wyświetlana jako nieaktywna, użyj następującego polecenia, aby ją aktywować.
+
+```bash
+#!/bin/bash
+vgchange –a y  <volume-group-name from the pvs commands results>
+```
+
+Gdy nazwa grupy woluminów jest aktywna, uruchom ```lvdisplay``` polecenie jeszcze raz, aby zobaczyć wszystkie odpowiednie atrybuty.
 
 Aby zainstalować woluminy logiczne do wybranej ścieżki:
 
 ```bash
 #!/bin/bash
-mount <LV path> </mountpath>
+mount <LV path from the lvdisplay cmd results> </mountpath>
 ```
 
 #### <a name="for-raid-arrays"></a>Macierze RAID

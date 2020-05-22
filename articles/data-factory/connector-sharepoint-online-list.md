@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: jingwang
-ms.openlocfilehash: 02b88ae0fa0473ad3d11346f0443582d80e75f5d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 90ceb2b716df429eaf4541f13cfa96cb9e0eac7d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83691131"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745215"
 ---
 # <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory"></a>Kopiowanie danych z listy usługi SharePoint Online przy użyciu Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -55,8 +55,8 @@ W każdym przypadku ten łącznik online listy programu SharePoint używa uwierz
     1. Otwórz łącze witryny usługi SharePoint Online, np. `https://[your_site_url]/_layouts/15/appinv.aspx` (zastąp nazwę dzierżawy i witryny).
     2. Wyszukaj zarejestrowany identyfikator aplikacji, Wypełnij puste pola i kliknij przycisk "Utwórz".
 
-        - Domena aplikacji: localhost.com
-        - Adres URL przekierowania:https://www.localhost.com
+        - Domena aplikacji:`localhost.com`
+        - Adres URL przekierowania:`https://www.localhost.com`
         - KOD XML żądania uprawnień:
 
         ```xml
@@ -69,7 +69,7 @@ W każdym przypadku ten łącznik online listy programu SharePoint używa uwierz
 
     3. Kliknij pozycję "ufaj temu" dla tej aplikacji.
 
-## <a name="get-started"></a>Rozpoczęcie pracy
+## <a name="get-started"></a>Wprowadzenie
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -81,11 +81,11 @@ Następujące właściwości są obsługiwane dla połączonej usługi programu 
 
 | **Właściwość**        | **Opis**                                              | **Wymagane** |
 | ------------------- | ------------------------------------------------------------ | ------------ |
-| typ                | Właściwość Type musi mieć wartość: **SharePointOnlineList**.  | Yes          |
-| siteUrl             | Adres URL witryny usługi SharePoint Online, np. `https://contoso.sharepoint.com/sites/siteName` . | Yes          |
-| servicePrincipalId  | Identyfikator aplikacji (klienta) zarejestrowanej w Azure Active Directory. | Yes          |
-| servicePrincipalKey | Klucz aplikacji. Oznacz to pole jako element **SecureString** , aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Yes          |
-| tenantId            | Identyfikator dzierżawy, pod którym znajduje się Twoja aplikacja.          | Yes          |
+| typ                | Właściwość Type musi mieć wartość: **SharePointOnlineList**.  | Tak          |
+| siteUrl             | Adres URL witryny usługi SharePoint Online, np. `https://contoso.sharepoint.com/sites/siteName` . | Tak          |
+| servicePrincipalId  | Identyfikator aplikacji (klienta) zarejestrowanej w Azure Active Directory. | Tak          |
+| servicePrincipalKey | Klucz aplikacji. Oznacz to pole jako element **SecureString** , aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak          |
+| tenantId            | Identyfikator dzierżawy, pod którym znajduje się Twoja aplikacja.          | Tak          |
 | Właściwością connectvia          | [Integration Runtime](concepts-integration-runtime.md) używany do nawiązywania połączenia z magazynem danych. Więcej informacji znajduje się w sekcji [wymagania wstępne](#prerequisites)w tym artykule. Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. | Nie           |
 
 **Przykład:**
@@ -114,8 +114,8 @@ Aby zapoznać się z pełną listą sekcji i właściwości, które są dostępn
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość **Type** zestawu danych musi być ustawiona na wartość **SharePointOnlineLResource**. | Yes |
-| listName | Nazwa listy usługi SharePoint Online. | Yes |
+| typ | Właściwość **Type** zestawu danych musi być ustawiona na wartość **SharePointOnlineLResource**. | Tak |
+| listName | Nazwa listy usługi SharePoint Online. | Tak |
 
 **Przykład**
 
@@ -147,7 +147,7 @@ Aby skopiować dane z listy usługi SharePoint Online, w sekcji **Źródło** dz
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość **SharePointOnlineListSource**. | Yes |
+| typ | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość **SharePointOnlineListSource**. | Tak |
 | query | Niestandardowe opcje zapytania OData dotyczące filtrowania danych. Przykład: `"$top=10&$select=Title,Number"`. | Nie |
 | httpRequestTimeout | Limit czasu (w drugim) żądania HTTP w celu uzyskania odpowiedzi. Wartość domyślna to 300 (5 minut). | Nie |
 

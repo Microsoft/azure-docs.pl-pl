@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 039fdda4ab8fe636c1eab926c477aea420b59de8
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: f4919bb6856703c5bb5f1c798a8bcf5b2a108cc7
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647484"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747667"
 ---
 # <a name="create-and-use-external-tables-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Tworzenie i używanie tabel zewnętrznych w programie SQL na żądanie (wersja zapoznawcza) przy użyciu usługi Azure Synapse Analytics
 
@@ -112,7 +112,7 @@ CREATE EXTERNAL TABLE Taxi (
 
 W zapytaniach można używać [tabel zewnętrznych](develop-tables-external-tables.md) w taki sam sposób, w jaki są one używane w kwerendach SQL Server.
 
-Poniższe zapytanie ilustruje tę wartość przy użyciu tabeli zewnętrznej *wypełniania* utworzonej w poprzedniej sekcji. Zwraca nazwy krajów z ich populacją w 2019 w kolejności malejącej.
+Poniższe zapytanie ilustruje tę wartość przy użyciu tabeli zewnętrznej *wypełniania* utworzonej w poprzedniej sekcji. Zwraca nazwy kraju/regionu z populacją w 2019 w kolejności malejącej.
 
 > [!NOTE]
 > Zmień pierwszy wiersz zapytania, na przykład [mydbname], tak aby była używana utworzona baza danych.

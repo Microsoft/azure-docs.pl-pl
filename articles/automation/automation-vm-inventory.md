@@ -1,51 +1,51 @@
 ---
-title: Zarządzanie maszyną wirtualną platformy Azure z wykorzystaniem zbierania spisu | Microsoft Docs
-description: Zarządzanie maszyną wirtualną z wykorzystaniem zbierania spisu
+title: Zarządzanie kolekcją Azure Automation spisu z maszyn wirtualnych | Microsoft Docs
+description: W tym artykule opisano sposób zarządzania kolekcją spisu z maszyn wirtualnych.
 services: automation
 ms.subservice: change-inventory-management
 keywords: spis, automatyzacja, zmiana, śledzenie
 ms.date: 01/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0627d2daa70c276535dc43b722e22e1d73b0c8d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5142286bc50620d5a12a0722b3c4f9b8b75f5b73
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617368"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745263"
 ---
-# <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Zarządzanie maszyną wirtualną platformy Azure z wykorzystaniem zbierania spisu
+# <a name="manage-inventory-collection-from-vms"></a>Zarządzanie zbieraniem spisu z maszyn wirtualnych
 
-Istnieje możliwość włączenia śledzenia z użyciem spisu dla maszyny wirtualnej platformy Azure na stronie zasobów tej maszyny wirtualnej. Na komputerach można zbierać i przeglądać następujące informacje dotyczące spisu:
+Śledzenie spisu dla maszyny wirtualnej platformy Azure można włączyć na stronie zasobów maszyny. Na komputerach można zbierać i przeglądać następujące informacje dotyczące spisu:
 
-- Oprogramowanie systemu Windows (aplikacje systemu Windows i aktualizacje systemu Windows), usługi, pliki i klucze rejestru
-- Demony oprogramowania (pakiety) systemu Linux i pliki
+- Aktualizacje systemu Windows, aplikacje systemu Windows, usługi, pliki i klucze rejestru
+- Pakiety oprogramowania, demony i pliki systemu Linux
 
-Ta metoda zapewnia interfejs użytkownika oparty na przeglądarce przeznaczony do instalowania i konfigurowania zbierania spisu.
+Azure Automation Change Tracking i spis udostępnia interfejs użytkownika oparty na przeglądarce służący do konfigurowania i konfigurowania kolekcji spisu.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 Jeśli nie masz subskrypcji platformy Azure, [Utwórz bezpłatne konto](https://azure.microsoft.com/free/).
 
-W tym artykule założono, że masz maszynę wirtualną, na której ma zostać skonfigurowane rozwiązanie. Jeśli nie masz maszyny wirtualnej platformy Azure, utwórz [maszynę wirtualną](../virtual-machines/windows/quick-create-portal.md).
+W tym artykule przyjęto założenie, że masz maszynę wirtualną do włączenia do Change Tracking i spisu. Jeśli nie masz maszyny wirtualnej platformy Azure, możesz [utworzyć maszynę wirtualną](../virtual-machines/windows/quick-create-portal.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
 Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
-## <a name="enable-inventory-collection-from-the-virtual-machine-resource-page"></a>Włączanie zbierania spisu na stronie zasobów maszyny wirtualnej
+## <a name="enable-inventory-collection-from-the-vm-resource-page"></a>Włącz zbieranie spisu na stronie zasobów maszyny wirtualnej
 
 1. W okienku po lewej stronie witryny Azure Portal wybierz pozycję **Maszyny wirtualne**.
-2. Z listy maszyn wirtualnych wybierz maszynę wirtualną.
+2. Z listy maszyn wirtualnych wybierz maszynę.
 3. W menu **zasób** w obszarze **operacje**wybierz pozycję **spis**.
 4. Wybierz obszar roboczy Log Analytics do przechowywania dzienników danych.
     Jeśli w tym regionie nie ma dostępnego dla Ciebie obszaru roboczego, pojawi się monit o utworzenie domyślnego obszaru roboczego i konta usługi Automation.
-5. Aby rozpocząć dołączanie swojego komputera, kliknij pozycję **Włącz**.
+5. Aby rozpocząć włączanie komputera, wybierz pozycję **Włącz**.
 
    ![Widok opcji dołączania](./media/automation-vm-inventory/inventory-onboarding-options.png)
 
-    Pojawi się pasek stanu z informacją o tym, że trwa włączanie rozwiązania. Ten proces może potrwać do 15 minut. W tym czasie możesz zamknąć okno lub pozostawić je otwarte i powiadomić Cię, gdy rozwiązanie zostanie włączone. Stan wdrożenia możesz monitorować w okienku powiadomień.
+    Pasek stanu informuje o tym, że funkcja Change Tracking i spis jest włączona. Ten proces może potrwać do 15 minut. W tym czasie możesz zamknąć okno lub pozostawić je otwarte i powiadomić Cię, gdy ta funkcja jest włączona. Stan wdrożenia możesz monitorować w okienku powiadomień.
 
-   ![Widok rozwiązania spisu natychmiast po dołączeniu](./media/automation-vm-inventory/inventory-onboarded.png)
+   ![Wyświetlanie spisu](./media/automation-vm-inventory/inventory-onboarded.png)
 
 Po zakończeniu wdrażania pasek stanu zniknie. System nadal będzie zbierać dane spisu i dane mogą być jeszcze niewidoczne. Zebranie pełnych danych może zająć 24 godziny.
 
@@ -57,7 +57,7 @@ Domyślnie na potrzeby zbierania skonfigurowane są oprogramowanie, usługi syst
 2. Aby dodać nowe ustawienie kolekcji, przejdź do kategorii ustawień, która ma zostać dodana, wybierając kartę **Rejestr systemu Windows**, **pliki systemu Windows**lub system **Linux** .
 3. Wybierz odpowiednią kategorię, a następnie kliknij przycisk **Dodaj** w górnej części strony.
 
-Poniższe tabele zawierają informacje dotyczące poszczególnych właściwości, które można skonfigurować dla różnych kategorii.
+Poniższe sekcje zawierają informacje dotyczące poszczególnych właściwości, które można skonfigurować dla różnych kategorii.
 
 ### <a name="windows-registry"></a>Rejestr systemu Windows
 
@@ -110,14 +110,14 @@ Jeśli chcesz utworzyć nową grupę maszyn, kliknij pozycję **+ Utwórz grupę
 
 ![Utwórz nową grupę maszyn](./media/automation-vm-inventory/create-new-group.png)
 
-## <a name="disconnect-your-virtual-machine-from-management"></a>Odłączanie maszyny wirtualnej od zarządzania
+## <a name="disconnect-your-vm-from-management"></a>Odłączanie maszyny wirtualnej od zarządzania
 
 Aby usunąć maszynę wirtualną z zarządzania spisem:
 
-1. W okienku po lewej stronie w witrynie Azure Portal kliknij pozycję **Log Analytics**, a następnie wybierz kliknięciem obszar roboczy, który był używany podczas dołączania danej maszyny wirtualnej.
+1. W lewym okienku Azure Portal wybierz pozycję **log Analytics**, a następnie wybierz obszar roboczy, który był używany podczas włączania maszyny wirtualnej na potrzeby Change Tracking i spisu.
 2. Na stronie Log Analytics Otwórz menu **zasobów** .
 3. Wybierz **Virtual Machines** w obszarze **źródła danych obszaru roboczego**.
-4. Z listy wybierz maszynę wirtualną, którą chcesz odłączyć. Maszyna wirtualna ma zielony znacznik wyboru obok pozycji **Ten obszar roboczy** w kolumnie **Połączenie OMS**.
+4. Z listy wybierz maszynę wirtualną, którą chcesz odłączyć. Komputer ma zielony znacznik wyboru obok **tego obszaru roboczego** w kolumnie połączenie pakietu **OMS** .
 
    >[!NOTE]
    >Pakiet Operations Management Suite (OMS) jest teraz nazywany dziennikami Azure Monitor.
@@ -127,5 +127,6 @@ Aby usunąć maszynę wirtualną z zarządzania spisem:
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej o zarządzaniu zmianami w plikach i ustawieniach rejestru na maszynach wirtualnych, zobacz [Track software changes in your environment with the Change Tracking solution](../log-analytics/log-analytics-change-tracking.md) (Śledzenie zmian oprogramowania w środowisku za pomocą rozwiązania do śledzenia zmian).
-* Aby dowiedzieć się więcej na temat zarządzania aktualizacjami systemu Windows i pakietów na maszynach wirtualnych, zobacz [rozwiązanie Update Management na platformie Azure](../operations-management-suite/oms-solution-update-management.md).
+* [Zarządzanie Change Tracking i spisem](change-tracking-file-contents.md)
+* [Śledź zmiany oprogramowania w środowisku za pomocą Change Tracking](../log-analytics/log-analytics-change-tracking.md).
+* [Update Management na platformie Azure](../operations-management-suite/oms-solution-update-management.md).

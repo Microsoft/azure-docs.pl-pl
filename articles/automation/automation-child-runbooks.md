@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: ac3f24e06553fd037ef5deaf374690fb92b0fa8c
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 5c562fb43966fda203e92cc5003ef3c85945364b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715821"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83742833"
 ---
 # <a name="create-modular-runbooks"></a>Tworzenie modułowych elementów runbook
 
@@ -35,7 +35,7 @@ Element Runbook wywoływany śródwierszowo jest uruchamiany w tym samym zadaniu
 
 Po opublikowaniu elementu Runbook wszystkie podrzędne elementy Runbook, które wywołuje, muszą już być opublikowane. Przyczyną jest to, że Azure Automation kompiluje skojarzenie z dowolnymi podrzędnymi elementami Runbook podczas kompilowania elementu Runbook. Jeśli podrzędne elementy Runbook nie zostały jeszcze opublikowane, nadrzędny element Runbook pojawia się w celu poprawnego opublikowania, ale generuje wyjątek podczas jego uruchamiania. W takim przypadku można ponownie opublikować nadrzędny element Runbook, aby prawidłowo odwoływać się do podrzędnych elementów Runbook. Nie trzeba ponownie publikować nadrzędnego elementu Runbook, jeśli jakikolwiek podrzędny element Runbook zostanie zmieniony, ponieważ skojarzenie zostało już utworzone.
 
-Parametry podrzędnego elementu Runbook o nazwie inline mogą być dowolnego typu danych, łącznie z obiektami złożonymi. Nie ma [serializacji JSON](start-runbooks.md#runbook-parameters), ponieważ jest uruchamiany element Runbook przy użyciu Azure Portal lub polecenia cmdlet [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook) .
+Parametry podrzędnego elementu Runbook o nazwie inline mogą być dowolnego typu danych, łącznie z obiektami złożonymi. Nie ma [serializacji JSON](start-runbooks.md#work-with-runbook-parameters), ponieważ jest uruchamiany element Runbook przy użyciu Azure Portal lub polecenia cmdlet [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook) .
 
 ### <a name="runbook-types"></a>Typy elementów Runbook
 
@@ -80,7 +80,7 @@ Podrzędne dane wyjściowe elementu Runbook nie są w sposób wiarygodny zwracan
 
 Jeśli nie chcesz, aby nadrzędny element Runbook był blokowany podczas oczekiwania, możesz uruchomić podrzędny element Runbook przy użyciu `Start-AzAutomationRunbook` bez `Wait` parametru. W takim przypadku element Runbook musi używać [Get-AzAutomationJob](/powershell/module/az.automation/get-azautomationjob) , aby oczekiwać na ukończenie zadania. Do pobrania wyników należy również użyć [Get-AzAutomationJobOutput](/powershell/module/az.automation/get-azautomationjoboutput) i [Get-AzAutomationJobOutputRecord](/powershell/module/az.automation/get-azautomationjoboutputrecord) .
 
-Parametry podrzędnego elementu Runbook uruchomionego za pomocą polecenia cmdlet są podane jako tablica skrótów, zgodnie z opisem w [parametrach elementu Runbook](start-runbooks.md#runbook-parameters). Można używać tylko prostych typów danych. Jeśli element Runbook ma parametr o złożonym typie danych, musi być wywoływany śródwierszowo.
+Parametry podrzędnego elementu Runbook uruchomionego za pomocą polecenia cmdlet są podane jako tablica skrótów, zgodnie z opisem w [parametrach elementu Runbook](start-runbooks.md#work-with-runbook-parameters). Można używać tylko prostych typów danych. Jeśli element Runbook ma parametr o złożonym typie danych, musi być wywoływany śródwierszowo.
 
 Kontekst subskrypcji może zostać utracony podczas uruchamiania podrzędnych elementów Runbook jako oddzielnych zadań. Aby podrzędny element Runbook wykonywał polecenia AZ module dla określonej subskrypcji platformy Azure, element podrzędny musi uwierzytelniać się w tej subskrypcji niezależnie od nadrzędnego elementu Runbook.
 
@@ -117,5 +117,5 @@ Start-AzAutomationRunbook `
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Uruchamianie elementu Runbook w Azure Automation](start-runbooks.md)
+* [Uruchamianie elementu runbook w usłudze Azure Automation](start-runbooks.md)
 * [Dane wyjściowe i komunikaty elementu Runbook w Azure Automation](automation-runbook-output-and-messages.md)

@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 7ba6ea8606fc354527ff4114bc45a0904941ba93
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8a0b3a91d9af119191717aa63a2dedf0797159fd
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77918941"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745797"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Azure Data Box Disk: często zadawane pytania
 
@@ -36,7 +36,7 @@ A.  Usługa Azure Data Box jest przeznaczona do pozyskiwania danych w trybie off
 ### <a name="q-what-are-azure-data-box-disks"></a>PYTANIE: Co to są urządzenia Azure Data Box Disk?
 A. Urządzenia Azure Data Box Disk umożliwiają szybki, niedrogi i bezpieczny transfer terabajtów danych do i z platformy Azure. Firma Microsoft dostarcza od 1 do 5 dysków o maksymalnej pojemności magazynu wynoszącej 35 TB. Za pomocą usługi Data Box w witrynie Azure Portal możesz łatwo konfigurować, łączyć i odblokowywać te dyski.  
 
-Dyski są szyfrowane za pomocą funkcji szyfrowania dysków Microsoft BitLocker, a klucze szyfrowania są zarządzane w witrynie Azure Portal. Następnie kopiujesz dane z serwerów klientów. W centrum danych firma Microsoft migruje dane z dysku do chmury przy użyciu szybkiego połączenia przekazywania w sieci prywatnej i przekazuje je na platformę Azure.
+Dyski są szyfrowane za pomocą funkcji szyfrowania dysków Microsoft BitLocker, a klucze szyfrowania są zarządzane w witrynie Azure Portal. Następnie należy skopiować dane z serwerów klienta. W centrum danych firma Microsoft migruje dane z dysku do chmury przy użyciu szybkiego połączenia przekazywania w sieci prywatnej i przekazuje je na platformę Azure.
 
 ### <a name="q-when-should-i-use-data-box-disks"></a>PYTANIE: Kiedy używać urządzeń Data Box Disk?
 A. Jeśli masz nie więcej niż 40 TB danych, które chcesz przenieść na platformę Azure, korzystne będzie zastosowanie urządzeń Data Box Disk.
@@ -56,8 +56,8 @@ A.  Aby sprawdzić, gdzie urządzenie Data Box dyski są obecnie dostępne, prze
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>PYTANIE: W jakich regionach mogę zapisać dane, korzystając z usługi Data Box Disk?
 A. Data Box Disk jest obsługiwana w przypadku wszystkich regionów w Stanach Zjednoczonych, Kanadzie, Australii, Europa Zachodnia i Europa Północna, Korea i Japonia. Obsługiwane są tylko regiony chmury publicznej Azure. Usługa Azure Government ani inne suwerenne chmury nie są obsługiwane.
 
-### <a name="q-will-my-data-box-disk-cross-country-borders-during-shipping"></a>PYTANIE: Czy my Data Box Disk międzykrajowe obramowania podczas wysyłki?
-A. Data Box Disk są wysyłane z tego samego kraju co ich miejsce docelowe i nie będą przecinać żadnych granic międzynarodowych. Jedyny wyjątek dotyczy zamówień w Unii Europejskiej (UE), w których dyski mogą być dostarczane do i z dowolnego kraju UE.
+### <a name="q-will-my-data-box-disk-cross-countryregion-borders-during-shipping"></a>PYTANIE: Czy my Data Box Disk krzyżowe obramowania kraju/regionu podczas wysyłki?
+A. Data Box Disk są wysyłane z tego samego kraju/regionu co ich lokalizacja docelowa i nie będą przecinać żadnych granic międzynarodowych. Jedyny wyjątek dotyczy zamówień w Unii Europejskiej (UE), w których dyski mogą być dostarczane do i z dowolnego kraju/regionu UE.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>PYTANIE: Z kim należy się skontaktować, gdy pojawią się jakiekolwiek problemy z urządzeniami Data Box Disk?
 A. Jeśli napotkasz jakiekolwiek problemy z usługą Data Box Disk, [skontaktuj się z działem pomocy technicznej firmy Microsoft](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
@@ -159,7 +159,7 @@ A. Azure Files są obsługiwane przez Data Box Disk, ale nie będą dobrze dzia�
 
 ## <a name="verify-and-upload"></a>Weryfikowanie i przekazywanie
 
-### <a name="q-how-soon-can-i-access-my-data-in-azure-once-ive-shipped-the-disks-back"></a>PYTANIE: Jak szybko uzyskam dostęp do moich danych na platformie Azure po odesłaniu dysków? 
+### <a name="q-how-soon-can-i-access-my-data-in-azure-once-ive-shipped-the-disks-back"></a>PYTANIE: Jak szybko mogę uzyskać dostęp do danych na platformie Azure po przełączeniu dysków do tyłu? 
 A.  Dostęp do danych powinien być możliwy natychmiast po zmianie stanu zamówienia dla pozycji Kopiowanie danych na Ukończono.
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>PYTANIE: Gdzie znajdują się moje dane na platformie Azure po przekazaniu?

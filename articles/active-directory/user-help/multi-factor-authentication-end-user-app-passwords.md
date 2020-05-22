@@ -9,16 +9,16 @@ ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
 ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 08/13/2019
 ms.author: curtand
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 5f81181ac3107307a352cdbcd0b5cc4a555deacb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 62723e56bf78a4d80a6e026185d50537fdfa847f
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79253223"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83738899"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Zarządzanie hasłami aplikacji w celu weryfikacji dwuetapowej
 
@@ -42,11 +42,11 @@ Podczas początkowego procesu rejestracji dwuetapowej jest dostępne jedno hasł
 
 Hasła aplikacji można tworzyć i usuwać w zależności od sposobu korzystania z weryfikacji dwuskładnikowej:
 
-- **Twoja organizacja używa weryfikacji dwuskładnikowej i dodatkowej strony weryfikacji zabezpieczeń.** Jeśli używasz konta służbowego (np alain@contoso.com.) w ramach weryfikacji dwuskładnikowej w organizacji, możesz zarządzać hasłami aplikacji na [stronie dodatkowej weryfikacji zabezpieczeń](https://account.activedirectory.windowsazure.com/Proofup.aspx). Aby uzyskać szczegółowe instrukcje, zobacz [Tworzenie i usuwanie haseł aplikacji przy użyciu strony dodatkowej weryfikacji zabezpieczeń](#create-and-delete-app-passwords-from-the-additional-security-verification-page) w tym artykule.
+- **Twoja organizacja używa weryfikacji dwuskładnikowej i dodatkowej strony weryfikacji zabezpieczeń.** Jeśli używasz konta służbowego (np alain@contoso.com .) w ramach weryfikacji dwuskładnikowej w organizacji, możesz zarządzać hasłami aplikacji na [stronie dodatkowej weryfikacji zabezpieczeń](https://account.activedirectory.windowsazure.com/Proofup.aspx). Aby uzyskać szczegółowe instrukcje, zobacz [Tworzenie i usuwanie haseł aplikacji przy użyciu strony dodatkowej weryfikacji zabezpieczeń](#create-and-delete-app-passwords-from-the-additional-security-verification-page) w tym artykule.
 
-- **Twoja organizacja używa weryfikacji dwuskładnikowej i portalu Office 365.** Jeśli używasz konta służbowego (takiego jak, alain@contoso.com), weryfikacji dwuskładnikowej i aplikacji pakietu Office 365 w organizacji, możesz zarządzać hasłami aplikacji ze [strony portalu pakietu Office 365](https://www.office.com). Aby uzyskać szczegółowe instrukcje, zobacz [Tworzenie i usuwanie haseł aplikacji przy użyciu portalu Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) w tym artykule.
+- **Twoja organizacja używa weryfikacji dwuskładnikowej i portalu Office 365.** Jeśli używasz konta służbowego (takiego jak, alain@contoso.com ), weryfikacji dwuskładnikowej i aplikacji pakietu office 365 w organizacji, możesz zarządzać hasłami aplikacji ze [strony portalu pakietu Office 365](https://www.office.com). Aby uzyskać szczegółowe instrukcje, zobacz [Tworzenie i usuwanie haseł aplikacji przy użyciu portalu Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) w tym artykule.
 
-- **Korzystasz z weryfikacji dwuetapowej z konto Microsoft osobistym.** Jeśli używasz osobistego konto Microsoft (na przykład, alain@outlook.com) z weryfikacją dwuskładnikową, możesz zarządzać hasłami aplikacji ze [strony podstawy zabezpieczeń](https://account.microsoft.com/security/). Aby uzyskać szczegółowe instrukcje, zobacz [Używanie haseł aplikacji z aplikacjami, które nie obsługują weryfikacji dwuetapowej](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-and-two-step-verification).
+- **Korzystasz z weryfikacji dwuetapowej z konto Microsoft osobistym.** Jeśli używasz osobistego konto Microsoft (na przykład, alain@outlook.com ) z weryfikacją dwuskładnikową, możesz zarządzać hasłami aplikacji ze [strony podstawy zabezpieczeń](https://account.microsoft.com/security/). Aby uzyskać szczegółowe instrukcje, zobacz [Używanie haseł aplikacji z aplikacjami, które nie obsługują weryfikacji dwuetapowej](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-and-two-step-verification).
 
 ## <a name="create-and-delete-app-passwords-from-the-additional-security-verification-page"></a>Tworzenie i usuwanie haseł aplikacji ze strony dodatkowej weryfikacji zabezpieczeń
 

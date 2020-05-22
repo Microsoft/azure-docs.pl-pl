@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 91177c67c9d24f73934381704bca8259af31adca
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: e7ab15749ccd4ef2808e9cbb362196e38e3d7f4b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858636"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83746079"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Samouczek: zamówienie Azure Data Box Disk
 
@@ -23,6 +23,7 @@ Azure Data Box Disk to hybrydowe rozwiązanie w chmurze, które umożliwia impor
 W tym samouczku opisano sposób zamawiania usługi Azure Data Box Disk. Ten samouczek zawiera informacje dotyczące:
 
 > [!div class="checklist"]
+>
 > * Zamawianie usługi Data Box Disk
 > * Śledzenie zamówienia
 > * Anulowanie zamówienia
@@ -38,21 +39,22 @@ Przed wdrożeniem należy spełnić następujące wymagania wstępne dotyczące 
 ### <a name="for-device"></a>Na potrzeby urządzenia
 
 Przed rozpoczęciem upewnij się, że:
-- Masz dostępny komputer kliencki, z którego możesz skopiować dane. Na komputerze klienckim wymagane jest:
-    - Uruchom [obsługiwany system operacyjny](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
-    - Zainstalowanie innego [wymaganego oprogramowania](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) w przypadku klienta z systemem Windows.  
+
+* Masz dostępny komputer kliencki, z którego możesz skopiować dane. Na komputerze klienckim wymagane jest:
+  * Uruchom [obsługiwany system operacyjny](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
+  * Zainstalowanie innego [wymaganego oprogramowania](data-box-disk-system-requirements.md#other-required-software-for-windows-clients) w przypadku klienta z systemem Windows.  
 
 ## <a name="order-data-box-disk"></a>Zamawianie usługi Data Box Disk
 
 Zaloguj się do:
 
-- Azure Portal pod tym adresem URL: https://portal.azure.com w celu uporządkowania Data Box Disk.
-- Lub Portal Azure Government pod tym adresem URL: https://portal.azure.us. Aby uzyskać więcej informacji, przejdź do [obszaru łączenie z Azure Government przy użyciu portalu](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
+* Azure Portal pod tym adresem URL: https://portal.azure.com w celu uporządkowania Data Box Disk.
+* Lub Portal Azure Government pod tym adresem URL: https://portal.azure.us . Aby uzyskać więcej informacji, przejdź do [obszaru łączenie z Azure Government przy użyciu portalu](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
 Wykonaj następujące kroki, aby zamówić Data Box Disk.
 
 1. W lewym górnym rogu portalu kliknij pozycję **+ Utwórz zasób** i wyszukaj pozycję *Azure Data Box*. Kliknij pozycję **Azure Data Box**.
-    
+
    ![Wyszukiwanie pozycji Azure Data Box 1](media/data-box-disk-deploy-ordered/search-data-box11.png)
 
 2. Kliknij przycisk **Utwórz**.
@@ -65,15 +67,14 @@ Wykonaj następujące kroki, aby zamówić Data Box Disk.
     |---|---|
     |Subskrypcja|Wybierz subskrypcję, w ramach której włączono usługę Data Box.<br> Subskrypcja jest połączona z kontem rozliczeniowym. |
     |Typ transferu| Importuj na platformę Azure|
-    |Kraj źródłowy | Wybierz kraj/region, w którym aktualnie znajdują się dane.|
+    |Kraj/region źródłowy | Wybierz kraj/region, w którym aktualnie znajdują się dane.|
     |Docelowy region platformy Azure|Wybierz region platformy Azure, do którego chcesz przenieść dane.|
-
   
-5.  Wybierz pozycję **Data Box Disk**. Maksymalna pojemność rozwiązania w pojedynczym zamówieniu obejmującym 5 dysków to 35 TB. W przypadku większych ilości danych można utworzyć wiele zamówień.
+4. Wybierz pozycję **Data Box Disk**. Maksymalna pojemność rozwiązania w pojedynczym zamówieniu obejmującym 5 dysków to 35 TB. W przypadku większych ilości danych można utworzyć wiele zamówień.
 
      ![Wybieranie opcji Data Box Disk](media/data-box-disk-deploy-ordered/select-data-box-sku-zoom.png)
 
-6.  W obszarze **Zamówienie** określ **szczegóły zamówienia**. Wprowadź lub wybierz poniższe informacje.
+5. W obszarze **Zamówienie** określ **szczegóły zamówienia**. Wprowadź lub wybierz poniższe informacje.
 
     |Ustawienie|Wartość|
     |---|---|
@@ -81,7 +82,7 @@ Wykonaj następujące kroki, aby zamówić Data Box Disk.
     |Grupa zasobów| Użyj istniejącej grupy lub utwórz nową. <br> Grupa zasobów to kontener logiczny zasobów, które mogą być zarządzane lub wdrażane razem. |
     |Docelowy region platformy Azure| Wybierz region swojego konta magazynu.<br> Obecnie są obsługiwane konta magazynu we wszystkich regionach USA, regionach Europa Zachodnia i Europa Północna, Kanadzie i Australii. |
     |Szacowany rozmiar danych w terabajtach (TB)| Wprowadź szacowany rozmiar w TB. <br>W zależności od rozmiaru danych firma Microsoft wysyła odpowiednią liczbę dysków SSD o pojemności 8 TB (7 TB pojemności do wykorzystania). <br>Maksymalna pojemność do wykorzystania na 5 dyskach to maksymalnie 35 TB. |
-    |Klucz dostępu dla dysków| Jeśli zaznaczono opcję **Użyj niestandardowego klucza dostępu zamiast tego wygenerowanego przez platformę Azure**, podaj klucz dostępu dla dysków. <br> Podaj klucz alfanumeryczny zawierający od 12 do 32 znaków, w tym co najmniej jedną cyfrę i jeden znak specjalny. Dozwolone są następujące znaki specjalne: `@?_+`. <br> Tę opcję możesz pominąć i do odblokowywania dysków korzystać z klucza dostępu wygenerowanego przez platformę Azure.|
+    |Klucz dostępu dla dysków| Jeśli zaznaczono opcję **Użyj niestandardowego klucza dostępu zamiast tego wygenerowanego przez platformę Azure**, podaj klucz dostępu dla dysków. <br> Podaj 12 do 32-znak alfanumeryczny, który ma co najmniej jedną cyfrę i jeden znak specjalny. Dozwolone są następujące znaki specjalne: `@?_+`. <br> Tę opcję możesz pominąć i do odblokowywania dysków korzystać z klucza dostępu wygenerowanego przez platformę Azure.|
     |Miejsce docelowe magazynu     | Wybierz konto magazynu, dyski zarządzane lub obie te opcje. <br> Na podstawie określonego regionu świadczenia usługi Azure wybierz konto magazynu z listy filtrowanej istniejącego konta magazynu. Data Box Disk można połączyć tylko z 1 kontem magazynu. <br> Można również utworzyć nowe **konto ogólnego przeznaczenia w wersji 1**, **konto ogólnego przeznaczenia w wersji 2** lub **konto usługi Blob Storage**. <br>Konta magazynu z sieciami wirtualnymi są obsługiwane. Aby umożliwić usłudze Data Box współpracę z zabezpieczonymi kontami magazynu, włącz usługi zaufane w ustawieniach zapory sieciowej dla konta magazynu. Aby uzyskać więcej informacji, zobacz jak [dodać Azure Data Box jako zaufaną usługę](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).|
 
     Jeśli korzystasz z konta magazynu jako miejsca docelowego magazynu, zobaczysz następujący ekran:
@@ -98,33 +99,34 @@ Wykonaj następujące kroki, aby zamówić Data Box Disk.
 
     Konto magazynu określone dla dysków zarządzanych jest używane jako przejściowe konto magazynu. Usługa urządzenie Data Box przekazuje wirtualne dyski twarde do konta magazynu tymczasowego, a następnie konwertuje je na dyski zarządzane i przenosi do grup zasobów. Aby uzyskać więcej informacji, zobacz [Weryfikowanie przekazania danych na platformę Azure](data-box-disk-deploy-upload-verify.md#verify-data-upload-to-azure).
 
-13. Kliknij przycisk **Dalej**.
+6. Kliknij przycisk **Dalej**.
 
     ![Podawanie szczegółów zamówienia](media/data-box-disk-deploy-ordered/data-box-order-details.png)
 
-14. Na karcie **Adres wysyłkowy** podaj swoje imię i nazwisko, nazwę oraz adres pocztowy firmy i prawidłowy numer telefonu. Kliknij pozycję **Zweryfikuj adres**. Usługa zweryfikuje adres wysyłkowy pod kątem dostępności usługi. Jeśli ta usługa jest dostępna dla podanego adresu wysyłkowego, otrzymasz odpowiednie powiadomienie. Klienci korzystający z usługi w Japonii, Singapur, Korea i Europa Zachodnia mogą wybrać samozarządzaną wysyłkę podczas umieszczania zamówienia. Po pomyślnym złożeniu zamówienia otrzymasz wiadomość e-mail z instrukcjami dotyczącymi wybierania urządzenia z wystawionego centrum danych platformy Azure.
+7. Na karcie **Adres wysyłkowy** podaj swoje imię i nazwisko, nazwę oraz adres pocztowy firmy i prawidłowy numer telefonu. Kliknij pozycję **Zweryfikuj adres**. Usługa zweryfikuje adres wysyłkowy pod kątem dostępności usługi. Jeśli ta usługa jest dostępna dla podanego adresu wysyłkowego, otrzymasz odpowiednie powiadomienie.
+
+   Po przetworzeniu zamówienia otrzymasz powiadomienie e-mail. Aby uzyskać więcej informacji na temat samozarządzanej wysyłki, zobacz [Korzystanie z funkcji samozarządzanej wysyłki](data-box-disk-portal-customer-managed-shipping.md).
 
     ![Podawanie adresu wysyłkowego](media/data-box-disk-deploy-ordered/data-box-shipping-address.png)
-15. W obszarze **Szczegóły powiadomienia** podaj adresy e-mail. Usługa wysyła powiadomienia e-mail dotyczące wszystkich aktualizacji stanu zamówienia na określone adresy e-mail. 
+8. W obszarze **Szczegóły powiadomienia** podaj adresy e-mail. Usługa wysyła powiadomienia e-mail dotyczące wszystkich aktualizacji stanu zamówienia na określone adresy e-mail.
 
     Zalecamy użycie grupowego adresu e-mail, aby otrzymywać powiadomienia, jeśli administrator opuści grupę.
 
-16. Zapoznaj się z informacjami z sekcji **Podsumowanie** związanymi z zamówieniem, kontaktami, powiadomieniami i postanowieniami dotyczącymi prywatności. Zaznacz pole oznaczające wyrażenie zgody na postanowienia dotyczące prywatności.
+9. Zapoznaj się z informacjami z sekcji **Podsumowanie** związanymi z zamówieniem, kontaktami, powiadomieniami i postanowieniami dotyczącymi prywatności. Zaznacz pole oznaczające wyrażenie zgody na postanowienia dotyczące prywatności.
 
-17. Kliknij pozycję **Zamów**. Utworzenie zamówienia trwa kilka minut.
+10. Kliknij pozycję **Zamów**. Utworzenie zamówienia trwa kilka minut.
 
- 
 ## <a name="track-the-order"></a>Śledzenie zamówienia
 
 Po złożeniu zamówienia możesz śledzić jego stan w witrynie Azure Portal. Przejdź do zamówienia, a następnie przejdź do obszaru **Omówienie**, aby sprawdzić stan. Zadanie wyświetlone w portalu ma stan **Zamówione**.
 
-![Data Box Disk — stan Zamówione](media/data-box-disk-deploy-ordered/data-box-portal-ordered.png) 
+![Data Box Disk — stan Zamówione](media/data-box-disk-deploy-ordered/data-box-portal-ordered.png)
 
 Jeśli dyski są niedostępne, otrzymasz powiadomienie. Jeśli dyski są dostępne, firma Microsoft identyfikuje dyski do wysłania i przygotowuje odpowiedni pakiet dysków. Podczas przygotowywania dysków są wykonywane następujące akcje:
 
-- Dyski są szyfrowane przy użyciu szyfrowania AES-128 funkcją BitLocker.  
-- Dyski są blokowane, co ma zapobiec nieautoryzowanemu dostępowi.
-- W trakcie tego procesu jest generowany klucz dostępu, który odblokowuje dyski.
+* Dyski są szyfrowane przy użyciu szyfrowania AES-128 funkcją BitLocker.  
+* Dyski są blokowane, co ma zapobiec nieautoryzowanemu dostępowi.
+* W trakcie tego procesu jest generowany klucz dostępu, który odblokowuje dyski.
 
 Po zakończeniu przygotowywania dysków w portalu zostanie wyświetlone zamówienie w stanie **Przetworzone**.
 
@@ -134,18 +136,18 @@ Firma Microsoft następnie przygotowuje i wysyła dyski za pośrednictwem przewo
 
 Aby anulować to zamówienie, w witrynie Azure Portal przejdź do obszaru **Przegląd**, a następnie kliknij pozycję **Anuluj** na pasku poleceń.
 
-Anulowanie jest możliwe tylko, jeśli zamówiono dyski, a zamówienie jest przetwarzane pod kątem wysyłki. Po przetworzeniu zamówienia nie można go już anulować.
+Można anulować tylko wtedy, gdy dyski są uporządkowane i kolejność jest przetwarzana do wysłania. Po przetworzeniu zamówienia nie można go już anulować.
 
 ![Anulowanie zamówienia](media/data-box-disk-deploy-ordered/cancel-order1.png)
 
 Aby usunąć anulowane zamówienie, w obszarze **Omówienie** kliknij pozycję **Usuń** na pasku poleceń.
-
 
 ## <a name="next-steps"></a>Następne kroki
 
 W tym samouczku przedstawiono zagadnienia dotyczące usługi Azure Data Box, takie jak:
 
 > [!div class="checklist"]
+>
 > * Zamawianie usługi Data Box Disk
 > * Śledzenie zamówienia
 > * Anulowanie zamówienia

@@ -1,41 +1,41 @@
 ---
 title: Zarządzanie Change Tracking i spisem w Azure Automation
-description: W tym artykule opisano sposób używania Change Tracking i spisu do śledzenia zmian oprogramowania i usług firmy Microsoft, które występują w danym środowisku.
+description: W tym artykule opisano sposób używania Change Tracking i spisu do śledzenia zmian oprogramowania i usług firmy Microsoft w danym środowisku.
 services: automation
 ms.subservice: change-inventory-management
 ms.date: 07/03/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8ca1bd7a724d3256bc2e171ce39fd6a06e2e5935
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 8e5ee8df1dfd250a6713d832bf176daecdaef7ea
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779301"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83744405"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Zarządzanie usługą Change Tracking and Inventory
 
-Po dodaniu nowego pliku lub klucza rejestru do śledzenia Program Azure Automation włącza go dla funkcji [Change Tracking i spisu](change-tracking.md) . Ten artykuł zawiera procedury umożliwiające pracę z tą funkcją.
+Azure Automation włącza funkcję [Change Tracking i spis](change-tracking.md) dla maszyn w środowisku. Funkcja śledzi i wprowadza dostępne zmiany w kluczach rejestru, plikach, zawartości i tak samo. Ten artykuł zawiera procedury umożliwiające pracę z tą funkcją.
 
 ## <a name="enable-the-full-change-tracking-and-inventory-feature"></a>Włącz pełną Change Tracking i funkcję spisu
 
-Jeśli włączono funkcję [monitorowania integralności plików Azure Security Center (FIM)](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring), możesz użyć funkcji pełnego Change Tracking i spisu, jak opisano poniżej. Twoje ustawienia nie są usuwane przez ten proces.
+Jeśli włączono funkcję [monitorowania integralności plików Azure Security Center (FIM)](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring), możesz użyć funkcji pełnego Change Tracking i spisu dla maszyn, jak opisano poniżej. Twoje ustawienia nie są usuwane przez ten proces.
 
 > [!NOTE]
 > Włączenie pełnego Change Tracking i funkcji spisu może spowodować naliczenie dodatkowych opłat. Zobacz [Cennik usługi Automation](https://azure.microsoft.com/pricing/details/automation/).
 
 1. Usuń rozwiązanie monitorowania, przechodząc do obszaru roboczego i lokalizowanie go na [liście zainstalowanych rozwiązań monitorowania](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions).
 2. Kliknij nazwę rozwiązania, aby otworzyć jego stronę podsumowania, a następnie kliknij pozycję **Usuń**, zgodnie z opisem w temacie [usuwanie rozwiązania monitorowania](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution).
-3. Aby ponownie włączyć Change Tracking i spis, przejdź do konta usługi Automation i wybierz pozycję **śledzenie zmian** w obszarze **Zarządzanie konfiguracją**.
+3. Aby ponownie włączyć Change Tracking i spis, przejdź do konta usługi Automation i wybierz pozycję **śledzenie zmian** lub **spis** w obszarze **Zarządzanie konfiguracją**.
 4. Wybierz obszar roboczy Log Analytics i konto usługi Automation, Potwierdź ustawienia obszaru roboczego, a następnie kliknij pozycję **Włącz**.
 
-## <a name="onboard-machines-to-change-tracking-and-inventory"></a><a name="onboard"></a>Dołączanie maszyn do Change Tracking i spisu
+## <a name="enable-machines-for-change-tracking-and-inventory"></a><a name="onboard"></a>Włącz maszyny dla Change Tracking i spisu
 
-Aby rozpocząć śledzenie zmian, należy włączyć Change Tracking i spis w Azure Automation. Poniżej przedstawiono zalecane i obsługiwane sposoby dołączania maszyn do tej funkcji: 
+Aby rozpocząć śledzenie zmian, należy włączyć Change Tracking i spis w Azure Automation. Poniżej przedstawiono zalecane i obsługiwane sposoby włączania tej funkcji dla maszyn: 
 
-* [Dołączanie z maszyny wirtualnej](automation-onboard-solutions-from-vm.md)
-* [Dołączanie do przeglądania wielu maszyn](automation-onboard-solutions-from-browse.md)
-* [Dołączanie z konta usługi Automation](automation-onboard-solutions-from-automation-account.md)
-* [Dołączanie do Azure Automation elementu Runbook](automation-onboard-solutions.md)
+* [Włącz z poziomu maszyny wirtualnej](automation-onboard-solutions-from-vm.md)
+* [Zezwalaj na przeglądanie wielu maszyn](automation-onboard-solutions-from-browse.md)
+* [Włącz z konta usługi Automation](automation-onboard-solutions-from-automation-account.md)
+* [Włącz w elemencie Runbook Azure Automation](automation-onboard-solutions.md)
 
 ## <a name="track-files"></a>Śledzenie plików
 
@@ -53,7 +53,7 @@ Wykonaj następujące kroki, aby skonfigurować śledzenie plików na komputerac
     |Enabled (Włączony)     | Ma wartość true, jeśli to ustawienie jest stosowane i w przeciwnym razie zwraca wartość false.        |
     |Nazwa elementu     | Przyjazna nazwa pliku do śledzenia.        |
     |Grupa     | Nazwa grupy do logicznego grupowania plików.        |
-    |Wprowadzanie ścieżki     | Ścieżka do sprawdzania pliku, na przykład **\\\*c:\Temp. txt**. Można również używać zmiennych środowiskowych, takich jak `%winDir%\System32\\\*.*`.       |
+    |Wprowadzanie ścieżki     | Ścieżka do sprawdzania pliku, na przykład **c:\Temp \\ \* . txt**. Można również używać zmiennych środowiskowych, takich jak `%winDir%\System32\\\*.*` .       |
     |Typ ścieżki     | Typ ścieżki. Możliwe wartości to plik i katalog.        |    
     |Rekursja     | Prawda, Jeśli rekursja jest używana podczas wyszukiwania elementu do śledzenia, a w przeciwnym razie ma wartość false.        |    
     |Przekaż zawartość pliku | Wartość true, aby przekazać zawartość pliku do śledzonych zmian, i w przeciwnym razie zwraca wartość false.|
@@ -164,7 +164,7 @@ Poniższy przykład pokazuje, że plik **C:\windows\System32\drivers\etc\HOSTS**
 Skorzystajmy z tego przykładu, aby omówić kroki tworzenia alertów dotyczących zmian.
 
 1. Na koncie usługi Automation wybierz pozycję **śledzenie zmian** w obszarze **Zarządzanie konfiguracją**, a następnie wybierz pozycję **log Analytics**. 
-2. W wyszukiwaniu dzienników Znajdź zmiany zawartości w pliku **hosts** z zapytaniem `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. To zapytanie szuka zmiany zawartości plików z w pełni kwalifikowaną ścieżką zawierającą wyraz "hosty". Możesz również poszukać określonego pliku, zmieniając część ścieżki na jej w pełni kwalifikowaną postać, na przykład używając `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`.
+2. W wyszukiwaniu dzienników Znajdź zmiany zawartości w pliku **hosts** z zapytaniem `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"` . To zapytanie szuka zmiany zawartości plików z w pełni kwalifikowaną ścieżką zawierającą wyraz "hosty". Możesz również poszukać określonego pliku, zmieniając część ścieżki na jej w pełni kwalifikowaną postać, na przykład używając `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"` .
 
 3. Gdy zapytanie zwróci żądane wyniki, kliknij pozycję **Nowa reguła alertu** w przeszukiwaniu dzienników, aby otworzyć stronę tworzenie alertów. Możesz również przejść do tej strony za pomocą **Azure monitor** w Azure Portal. 
 
@@ -178,6 +178,6 @@ Skorzystajmy z tego przykładu, aby omówić kroki tworzenia alertów dotyczący
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Podstawowe informacje dotyczące Change Tracking i spisu znajdują się w temacie [omówienie Change Tracking i spisu](change-tracking.md).
-* Aby rozwiązać problemy związane z zmianami w maszynie wirtualnej platformy Azure, zobacz [Rozwiązywanie problemów dotyczących Change Tracking i spisu](troubleshoot/change-tracking.md).
-* Użyj [wyszukiwania w dzienniku Azure monitor](../log-analytics/log-analytics-log-searches.md) , aby wyświetlić szczegółowe dane śledzenia zmian.
+* [Przegląd Change Tracking i spisu](change-tracking.md)
+* [Rozwiązywanie problemów dotyczących Change Tracking i spisu](troubleshoot/change-tracking.md)
+* [Dzienniki wyszukiwania w dziennikach Azure Monitor](../log-analytics/log-analytics-log-searches.md)

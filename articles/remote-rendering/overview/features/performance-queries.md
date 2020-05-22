@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: 9a28dee2d1e6d1355b729a56e8eeb8447e4ed8c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2e843216bf973033868e75c027b11d27ddfe2e93
+ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80682028"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83757470"
 ---
 # <a name="server-side-performance-queries"></a>Zapytania wydajności po stronie serwera
 
@@ -37,7 +37,7 @@ Ilustracja pokazuje, jak:
 
 Statystyka klatek zawiera pewne informacje wysokiego poziomu dla ostatniej ramki, takie jak opóźnienia. Dane podane w `FrameStatistics` strukturze są mierzone po stronie klienta, więc interfejs API jest wywołaniem synchronicznym:
 
-````c#
+```cs
 void QueryFrameData(AzureSession session)
 {
     FrameStatistics frameStatistics;
@@ -46,7 +46,18 @@ void QueryFrameData(AzureSession session)
         // do something with the result
     }
 }
-````
+```
+
+```cpp
+void QueryFrameData(ApiHandle<AzureSession> session)
+{
+    FrameStatistics frameStatistics;
+    if (*session->GetGraphicsBinding()->GetLastFrameStatistics(&frameStatistics) == Result::Success)
+    {
+        // do something with the result
+    }
+}
+```
 
 Pobrany `FrameStatistics` obiekt zawiera następujące elementy członkowskie:
 
@@ -65,17 +76,17 @@ Pobrany `FrameStatistics` obiekt zawiera następujące elementy członkowskie:
 
 Suma wszystkich wartości opóźnienia jest zwykle znacznie większa niż czas dostępności ramki o 60 Hz. Jest to prawidłowe, ponieważ wiele ramek jest jednocześnie w locie, a nowe żądania ramki są uruchamiane z pożądaną szybkością klatek, jak pokazano na ilustracji. Jednak opóźnienie jest zbyt duże, ma wpływ na jakość [opóźnionego projektu](../../overview/features/late-stage-reprojection.md)i może naruszyć ogólne środowisko pracy.
 
-`videoFramesReceived`, `videoFrameReusedCount`i `videoFramesDiscarded` mogą służyć do oceny wydajności sieci i serwera. Jeśli `videoFramesReceived` jest niska i `videoFrameReusedCount` wysoka, może to wskazywać na przeciążenie sieci lub niską wydajność serwera. Wysoka `videoFramesDiscarded` wartość wskazuje również Przeciążenie sieci.
+`videoFramesReceived`, `videoFrameReusedCount` i `videoFramesDiscarded` mogą służyć do oceny wydajności sieci i serwera. Jeśli `videoFramesReceived` jest niska i `videoFrameReusedCount` wysoka, może to wskazywać na przeciążenie sieci lub niską wydajność serwera. Wysoka `videoFramesDiscarded` wartość wskazuje również Przeciążenie sieci.
 
-Na koniec,, i `videoFrameMaxDelta` daje pomysł odchylenia przychodzących klatek wideo i lokalnych połączeń.`timeSinceLastPresent` `videoFrameMinDelta` Wysoka WARIANCJA oznacza niestabilną szybkość klatek.
+Na koniec, `timeSinceLastPresent` , `videoFrameMinDelta` i `videoFrameMaxDelta` daje pomysł odchylenia przychodzących klatek wideo i lokalnych połączeń. Wysoka WARIANCJA oznacza niestabilną szybkość klatek.
 
-Żadna z powyższych wartości nie daje wyraźnego wskazania czystego opóźnienia sieci (czerwona strzałka na ilustracji), ponieważ dokładna ilość czasu renderowania zajętego serwera musi zostać odjęta od wartości `latencyPoseToReceive`dwukierunkowej. Część ogólnego opóźnienia po stronie serwera to informacje, które są niedostępne dla klienta. Jednak w następnym akapicie wyjaśniono, jak ta wartość jest przybliżona przez dodatkowe dane wejściowe z serwera i uwidaczniane `networkLatency` przez wartość.
+Żadna z powyższych wartości nie daje wyraźnego wskazania czystego opóźnienia sieci (czerwona strzałka na ilustracji), ponieważ dokładna ilość czasu renderowania zajętego serwera musi zostać odjęta od wartości dwukierunkowej `latencyPoseToReceive` . Część ogólnego opóźnienia po stronie serwera to informacje, które są niedostępne dla klienta. Jednak w następnym akapicie wyjaśniono, jak ta wartość jest przybliżona przez dodatkowe dane wejściowe z serwera i uwidaczniane przez `networkLatency` wartość.
 
 ## <a name="performance-assessment-queries"></a>Zapytania dotyczące oceny wydajności
 
 *Zapytania oceny wydajności* zawierają bardziej szczegółowe informacje na temat obciążenia procesora CPU i procesora GPU na serwerze. Ponieważ dane są żądane z serwera, wykonanie zapytania dotyczącego migawki wydajności jest zgodne ze zwykłym wzorcem asynchronicznym:
 
-``` cs
+```cs
 PerformanceAssessmentAsync _assessmentQuery = null;
 
 void QueryPerformanceAssessment(AzureSession session)
@@ -92,7 +103,21 @@ void QueryPerformanceAssessment(AzureSession session)
 }
 ```
 
-W `PerformanceAssessment` przeciwieństwie `FrameStatistics` do obiektu, obiekt zawiera informacje po stronie serwera:
+```cpp
+void QueryPerformanceAssessment(ApiHandle<AzureSession> session)
+{
+    ApiHandle<PerformanceAssessmentAsync> assessmentQuery = *session->Actions()->QueryServerPerformanceAssessmentAsync();
+    assessmentQuery->Completed([] (ApiHandle<PerformanceAssessmentAsync> res)
+    {
+        // do something with the result:
+        PerformanceAssessment result = *res->Result();
+        // ...
+
+    });
+}
+```
+
+W przeciwieństwie do `FrameStatistics` obiektu, `PerformanceAssessment` obiekt zawiera informacje po stronie serwera:
 
 | Członek | Wyjaśnienie |
 |:-|:-|
@@ -102,7 +127,7 @@ W `PerformanceAssessment` przeciwieństwie `FrameStatistics` do obiektu, obiekt 
 | utilizationGPU | Całkowite użycie procesora GPU serwera w procentach |
 | memoryCPU | Łączne wykorzystanie pamięci głównej serwera (w procentach) |
 | memoryGPU | Całkowite Użycie dedykowanej pamięci wideo w procentach procesora GPU serwera |
-| networkLatency | Przybliżone średnie opóźnienie sieci dwukierunkowej w milisekundach. Na powyższej ilustracji odpowiada sumie czerwonych strzałek. Wartość jest obliczana przez odjęcie rzeczywistego czasu renderowania serwera od `latencyPoseToReceive` wartości. `FrameStatistics` Chociaż to przybliżenie nie jest dokładne, daje kilka oznak opóźnienia sieci, odizolowanych od wartości opóźnienia obliczonych na kliencie. |
+| networkLatency | Przybliżone średnie opóźnienie sieci dwukierunkowej w milisekundach. Na powyższej ilustracji odpowiada sumie czerwonych strzałek. Wartość jest obliczana przez odjęcie rzeczywistego czasu renderowania serwera od `latencyPoseToReceive` wartości `FrameStatistics` . Chociaż to przybliżenie nie jest dokładne, daje kilka oznak opóźnienia sieci, odizolowanych od wartości opóźnienia obliczonych na kliencie. |
 | polygonsRendered | Liczba trójkątów renderowanych w jednej ramce. Ta liczba obejmuje również Trójkąty, które są wyłączane później podczas renderowania. Oznacza to, że ta liczba nie różni się od siebie w różnych położeniach kamer, ale wydajność może się nieco różnić w zależności od współczynnika usuwania.|
 
 Aby ułatwić ocenę wartości, każda część zawiera klasyfikację jakości, taką jak **doskonały**, **dobry**, **mediocre**lub **zły**.
@@ -110,9 +135,9 @@ Ta Metryka oceny zapewnia przybliżoną wskazówkę dotyczącą kondycji serwera
 
 ## <a name="statistics-debug-output"></a>Statystyka danych wyjściowych debugowania
 
-Klasa `ARRServiceStats` otacza zarówno zapytania statystyczne klatki, jak i oceny wydajności, a także zapewnia wygodną funkcjonalność do zwracania statystyk jako zagregowanych wartości lub jako wstępnie skompilowanego ciągu. Poniższy kod stanowi najprostszy sposób wyświetlania statystyk po stronie serwera w aplikacji klienckiej.
+Klasa `ARRServiceStats` jest klasą języka C#, która otacza zarówno dane statystyczne ramki, jak i kwerendy oceny wydajności, i zapewnia wygodną funkcjonalność do zwracania statystyk jako zagregowanych wartości lub wstępnie skompilowanego ciągu. Poniższy kod stanowi najprostszy sposób wyświetlania statystyk po stronie serwera w aplikacji klienckiej.
 
-``` cs
+```cs
 ARRServiceStats _stats = null;
 
 void OnConnect()
@@ -142,9 +167,9 @@ Powyższy kod wypełnia etykietę tekstową następującym tekstem:
 
 ![Dane wyjściowe ciągu ArrServiceStats](./media/arr-service-stats.png)
 
-`GetStatsString` Interfejs API formatuje ciąg wszystkich wartości, ale dla każdej pojedynczej wartości można także programowo wykonać zapytanie z `ARRServiceStats` wystąpienia.
+`GetStatsString`Interfejs API formatuje ciąg wszystkich wartości, ale dla każdej pojedynczej wartości można także programowo wykonać zapytanie z `ARRServiceStats` wystąpienia.
 
-Istnieją także warianty elementów członkowskich, które agregują wartości w czasie. Zobacz elementy członkowskie z `*Avg`sufiksem `*Max`, `*Total`lub. Element członkowski `FramesUsedForAverage` wskazuje liczbę ramek, które zostały użyte dla tej agregacji.
+Istnieją także warianty elementów członkowskich, które agregują wartości w czasie. Zobacz elementy członkowskie z sufiksem `*Avg` , `*Max` lub `*Total` . Element członkowski `FramesUsedForAverage` wskazuje liczbę ramek, które zostały użyte dla tej agregacji.
 
 ## <a name="next-steps"></a>Następne kroki
 

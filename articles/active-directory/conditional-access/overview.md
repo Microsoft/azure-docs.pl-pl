@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 09/17/2019
+ms.date: 05/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b044a4fd4e29bfe35abff7a4b36e5bae783328b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2c3082fbd7c02cbb075fd118f8e6021ac951e8e3
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79240912"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83737677"
 ---
 # <a name="what-is-conditional-access"></a>Co to jest dostęp warunkowy?
 
@@ -47,7 +47,7 @@ Typowe sygnały, które mogą być wykonywane przez dostęp warunkowy w przypadk
    - Zasady mogą być wskazywane określonym użytkownikom i grupom, które umożliwiają administratorom precyzyjne sterowanie dostępem.
 - Informacje o lokalizacji adresu IP
    - Organizacje mogą tworzyć zakresy zaufanych adresów IP, które mogą być używane podczas podejmowania decyzji dotyczących zasad. 
-   - Administratorzy mogą określać wszystkie zakresy adresów IP w celu blokowania lub zezwalania na ruch z programu.
+   - Administratorzy mogą określać wszystkie zakresy adresów IP krajów/regionów w celu blokowania lub zezwalania na ruch z programu.
 - Urządzenie
    - Podczas wymuszania zasad dostępu warunkowego można używać użytkowników z urządzeniami o określonych platformach lub oznaczonych przy użyciu określonego stanu.
 - Aplikacja

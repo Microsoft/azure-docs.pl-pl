@@ -3,12 +3,12 @@ title: Jak korzystać z grup zarządzania — Zarządzanie platformą Azure
 description: Dowiedz się, jak wyświetlać, obsługiwać, aktualizować i usuwać hierarchię grup zarządzania.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 423d1837c3d5710e24abb94f5411200319e8a8aa
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.openlocfilehash: e3d92e0785e54c0999b8cc0f055b7de355a4c4f5
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "81381682"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747470"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Zarządzanie zasobami za pomocą grup zarządzania
 
@@ -29,7 +29,7 @@ Nazwę grupy zarządzania można zmienić przy użyciu portalu, programu PowerSh
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com).
 
-1. Wybierz pozycję **wszystkie** > **grupy zarządzania**usług.
+1. Wybierz pozycję **wszystkie**  >  **grupy zarządzania**usług.
 
 1. Wybierz grupę zarządzania, której nazwę chcesz zmienić.
 
@@ -76,7 +76,7 @@ Aby można było usunąć grupę zarządzania, muszą zostać spełnione następ
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com).
 
-1. Wybierz pozycję **wszystkie** > **grupy zarządzania**usług.
+1. Wybierz pozycję **wszystkie**  >  **grupy zarządzania**usług.
 
 1. Wybierz grupę zarządzania, którą chcesz usunąć.
 
@@ -119,7 +119,7 @@ Można wyświetlić dowolną grupę zarządzania, w której jest włączona bezp
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com).
 
-1. Wybierz pozycję **wszystkie** > **grupy zarządzania**usług.
+1. Wybierz pozycję **wszystkie**  >  **grupy zarządzania**usług.
 
 1. Zostanie załadowana strona hierarchii grupy zarządzania. Na tej stronie można eksplorować wszystkie grupy zarządzania i subskrypcje, do których masz dostęp. Wybranie nazwy grupy powoduje przejście do poziomu hierarchii. Nawigacja działa tak samo, jak Eksplorator plików.
 
@@ -223,7 +223,7 @@ Aby sprawdzić, jakie uprawnienia znajdują się w Azure Portal, wybierz grupę 
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com).
 
-1. Wybierz pozycję **wszystkie** > **grupy zarządzania**usług.
+1. Wybierz pozycję **wszystkie**  >  **grupy zarządzania**usług.
 
 1. Wybierz grupę zarządzania, która ma być elementem nadrzędnym.
 
@@ -239,7 +239,7 @@ Aby sprawdzić, jakie uprawnienia znajdują się w Azure Portal, wybierz grupę 
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com).
 
-1. Wybierz pozycję **wszystkie** > **grupy zarządzania**usług.
+1. Wybierz pozycję **wszystkie**  >  **grupy zarządzania**usług.
 
 1. Wybierz zaplanowaną grupę zarządzania, która jest bieżącym elementem nadrzędnym.  
 
@@ -289,7 +289,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com).
 
-1. Wybierz pozycję **wszystkie** > **grupy zarządzania**usług.
+1. Wybierz pozycję **wszystkie**  >  **grupy zarządzania**usług.
 
 1. Wybierz grupę zarządzania, która ma być elementem nadrzędnym.
 
@@ -344,7 +344,7 @@ New-AzRoleAssignment -Scope "/providers/Microsoft.Management/managementGroups/Co
 Ta sama ścieżka zakresu jest używana podczas pobierania definicji zasad w grupie zarządzania.
 
 ```http
-GET https://management.azure.com/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming?api-version=2018-05-01
+GET https://management.azure.com/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming?api-version=2019-09-01
 ```
 
 ## <a name="next-steps"></a>Następne kroki

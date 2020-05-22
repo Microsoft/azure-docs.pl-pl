@@ -1,22 +1,22 @@
 ---
 title: Omówienie Update Management Azure Automation
-description: Omówienie funkcji Update Management, która zarządza aktualizacjami dla maszyn z systemami Windows i Linux.
+description: Ten artykuł zawiera omówienie funkcji Update Management, która implementuje aktualizacje dla maszyn z systemami Windows i Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 05/20/2020
+ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: ba4ce84dca85ea1e3f2385ac280bd82c16aa8fb3
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: b064e22b56d63055cede400fa2b06cee96d21664
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714767"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745299"
 ---
 # <a name="update-management-overview"></a>Omówienie rozwiązania Update Management
 
 Update Management w Azure Automation służy do zarządzania aktualizacjami systemu operacyjnego dla maszyn z systemami Windows i Linux na platformie Azure, w środowiskach lokalnych i w innych środowiskach w chmurze. Można szybko ocenić stan dostępnych aktualizacji na wszystkich komputerach agentów i zarządzać procesem instalowania wymaganych aktualizacji dla serwerów.
 
-Update Management dla maszyn wirtualnych można włączyć przy użyciu następujących metod:
+Update Management dla maszyn wirtualnych można włączyć w następujący sposób:
 
 * Z [konta Azure Automation](automation-onboard-solutions-from-automation-account.md) na co najmniej jednej maszynie platformy Azure.
 * Ręczne dla maszyn spoza platformy Azure.
@@ -31,7 +31,7 @@ Update Management dla maszyn wirtualnych można włączyć przy użyciu następu
 > [!NOTE]
 > Nie można użyć komputera skonfigurowanego przy użyciu Update Management do uruchamiania skryptów niestandardowych z Azure Automation. Na tym komputerze można uruchomić tylko skrypt aktualizacji podpisany przez firmę Microsoft. 
 
-## <a name="update-management-overview"></a>Omówienie rozwiązania Update Management
+## <a name="about-update-management"></a>Informacje o Update Management
 
 Maszyny zarządzane przez Update Management używają następujących konfiguracji do przeprowadzania oceny i aktualizacji wdrożeń:
 
@@ -44,7 +44,7 @@ Na poniższym diagramie przedstawiono sposób, w jaki Update Management ocenia i
 
 ![Przepływ pracy Update Management](./media/automation-update-management/update-mgmt-updateworkflow.png)
 
-Rozwiązanie Update Management pozwala natywnie dołączać maszyny z różnych subskrypcji do jednej dzierżawy.
+Update Management może służyć do natywnego wdrażania maszyn w wielu subskrypcjach w ramach tej samej dzierżawy.
 
 Po wydaniu pakietu trwa od 2 do 3 godzin, aby poprawka była wyświetlana dla maszyn z systemem Linux na potrzeby oceny. W przypadku maszyn z systemem Windows trwa od 12 do 15 godzin, aby poprawka była wyświetlana na potrzeby oceny po jej udostępnieniu.
 
@@ -74,7 +74,7 @@ Posiadanie maszyny zarejestrowanej dla Update Management w więcej niż jednym L
 
 ### <a name="supported-client-types"></a>Obsługiwane typy klientów
 
-W poniższej tabeli wymieniono systemy operacyjne obsługiwane w przypadku ocen aktualizacji. Stosowanie poprawek wymaga hybrydowego procesu roboczego elementu Runbook. Aby uzyskać informacje o wymaganiach hybrydowych procesów roboczych elementu Runbook, zobacz [wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Windows](automation-windows-hrw-install.md) i [wdrażanie hybrydowego procesu roboczego elementu Runbook w systemie Linux](automation-linux-hrw-install.md)
+W poniższej tabeli wymieniono systemy operacyjne obsługiwane w przypadku ocen aktualizacji. Stosowanie poprawek wymaga hybrydowego procesu roboczego elementu Runbook. Aby uzyskać więcej informacji na temat wymagań hybrydowych procesów roboczych elementu Runbook, zobacz [wdrażanie hybrydowego procesu roboczego elementu Runbook systemu Windows](automation-windows-hrw-install.md) i [wdrażanie hybrydowego procesu roboczego elementu Runbook programu Linux](automation-linux-hrw-install.md).
 
 > [!NOTE]
 > Ocena aktualizacji maszyn z systemem Linux jest obsługiwana tylko w niektórych regionach, jak wymieniono w [tabeli mapowania](https://docs.microsoft.com/azure/automation/how-to/region-mappings#supported-mappings)obszaru roboczego konta usługi Automation i log Analytics. 
@@ -89,8 +89,7 @@ W poniższej tabeli wymieniono systemy operacyjne obsługiwane w przypadku ocen 
 |Ubuntu 14,04 LTS, 16,04 LTS i 18,04 (x86/x64)      |Agenci systemu Linux wymagają dostępu do repozytorium aktualizacji.         |
 
 > [!NOTE]
-> Zestawy skalowania maszyn wirtualnych platformy Azure mogą być zarządzane za pomocą Update Management. Update Management działa na samych wystąpieniach, a nie na obrazie podstawowym. Należy zaplanować aktualizacje w sposób przyrostowy, aby nie wszystkie wystąpienia maszyn wirtualnych były aktualizowane jednocześnie.
-> Węzły dla zestawów skalowania maszyn wirtualnych można dodać, wykonując czynności opisane w sekcji [dołączanie maszyny spoza platformy Azure](automation-tutorial-installed-software.md#onboard-a-non-azure-machine).
+> Zestawy skalowania maszyn wirtualnych platformy Azure mogą być zarządzane za pomocą Update Management. Update Management działa na samych wystąpieniach, a nie na obrazie podstawowym. Należy zaplanować aktualizacje w sposób przyrostowy, aby nie wszystkie wystąpienia maszyn wirtualnych były aktualizowane jednocześnie. Węzły dla zestawów skalowania maszyn wirtualnych można dodać, wykonując czynności opisane w sekcji [Dodawanie maszyny spoza platformy Azure do Change Tracking i spisu](automation-tutorial-installed-software.md#add-a-non-azure-machine-to-change-tracking-and-inventory).
 
 ### <a name="unsupported-client-types"></a>Nieobsługiwane typy klientów
 
@@ -98,11 +97,9 @@ W poniższej tabeli wymieniono nieobsługiwane systemy operacyjne:
 
 |System operacyjny  |Uwagi  |
 |---------|---------|
-|Klient systemu Windows     | Systemy operacyjne klienta (takie jak Windows 7 i Windows 10) nie są obsługiwane.<br> W przypadku usługi Azure Windows Virtual Desktop (WVD) zalecana metoda<br> Aby zarządzać aktualizacjami, należy [Windows Update dla programu Business](https://docs.microsoft.com/windows/deployment/update/waas-manage-updates-wufb) for Windows 10 Client Patch Management. |
+|Klient systemu Windows     | Systemy operacyjne klienta (takie jak Windows 7 i Windows 10) nie są obsługiwane.        |
 |Windows Server Nano Server 2016     | Nieobsługiwane.       |
 |Węzły usługi Azure Kubernetes | Nieobsługiwane. Użyj procesu poprawek opisanego w temacie [stosowanie aktualizacji zabezpieczeń i jądra do węzłów systemu Linux w usłudze Azure Kubernetes Service (AKS)](../aks/node-updates-kured.md)|
-
-
 
 ### <a name="client-requirements"></a>Wymagania dotyczące klientów
 
@@ -112,7 +109,7 @@ Poniższe informacje opisują wymagania klienta specyficzne dla systemu operacyj
 
 Agenci systemu Windows muszą być skonfigurowani do komunikowania się z serwerem WSUS lub muszą mieć dostęp do Microsoft Update. Aby uzyskać informacje na temat sposobu instalowania agenta Log Analytics dla systemu Windows, zobacz [łączenie komputerów z systemem Windows w Azure monitor](../log-analytics/log-analytics-windows-agent.md).
 
-Możesz użyć Update Management z usługą Microsoft Endpoint Configuration Manager. Aby dowiedzieć się więcej na temat scenariuszy integracji, zobacz [integracja Configuration Manager z Update Management](updatemgmt-mecmintegration.md#configuration). [Agent log Analytics dla systemu Windows](../azure-monitor/platform/agent-windows.md) jest wymagany dla serwerów z systemem Windows zarządzanych przez lokacje w środowisku Configuration Manager. 
+Możesz użyć Update Management z usługą Microsoft Endpoint Configuration Manager. Aby dowiedzieć się więcej na temat scenariuszy integracji, zobacz [integrowanie Update Management z Configuration Manager punktu końcowego systemu Windows](updatemgmt-mecmintegration.md). [Agent log Analytics dla systemu Windows](../azure-monitor/platform/agent-windows.md) jest wymagany dla serwerów z systemem Windows zarządzanych przez lokacje w środowisku Configuration Manager. 
 
 Domyślnie maszyny wirtualne z systemem Windows wdrożone z portalu Azure Marketplace są ustawione tak, aby otrzymywać aktualizacje automatyczne z usługi Windows Update. Takie zachowanie nie zmienia się po dodaniu maszyn wirtualnych z systemem Windows do obszaru roboczego. Jeśli aktualizacje nie są aktywnie zarządzane przy użyciu Update Management, mają zastosowanie domyślne zachowanie (aby automatycznie zastosować aktualizacje).
 
@@ -239,7 +236,7 @@ Aby sklasyfikować aktualizacje w systemie Red Hat Enterprise w wersji 6, należ
 
 ## <a name="integrate-update-management-with-configuration-manager"></a>Integracja Update Management z usługą Configuration Manager
 
-Klienci, którzy zainwestowali w program Microsoft Endpoint Configuration Manager na potrzeby zarządzania komputerami, serwerami i urządzeniami przenośnymi, również opierają się na sile i dojrzałości Configuration Manager, aby ułatwić zarządzanie aktualizacjami oprogramowania. Aby dowiedzieć się, jak zintegrować Update Management z Configuration Manager, zobacz [integrowanie Configuration Manager z Update Management](updatemgmt-mecmintegration.md).
+Klienci, którzy zainwestowali w program Microsoft Endpoint Configuration Manager na potrzeby zarządzania komputerami, serwerami i urządzeniami przenośnymi, również opierają się na sile i dojrzałości Configuration Manager, aby ułatwić zarządzanie aktualizacjami oprogramowania. Aby dowiedzieć się, jak zintegrować Update Management z Configuration Manager, zobacz [integrowanie Update Management z Configuration Manager punktu końcowego systemu Windows](updatemgmt-mecmintegration.md).
 
 ## <a name="third-party-updates-on-windows"></a>Aktualizacje innych firm w systemie Windows
 
@@ -251,10 +248,10 @@ Dostępny jest [szablon Menedżer zasobów](automation-update-management-deploy-
 
 Poniżej przedstawiono sposoby włączania Update Management i wybierania maszyn, które mają być zarządzane:
 
-* [Z poziomu maszyny wirtualnej](automation-onboard-solutions-from-vm.md).
-* [Przeglądanie wielu maszyn](automation-onboard-solutions-from-browse.md).
-* [Z konta Azure Automation](automation-onboard-solutions.md).
+* [Z maszyny wirtualnej](automation-onboard-solutions-from-vm.md)
+* [Przeglądanie wielu maszyn](automation-onboard-solutions-from-browse.md)
+* [Z konta Azure Automation](automation-onboard-solutions.md)
 
 ## <a name="next-steps"></a>Następne kroki
 
-Zapoznaj się z Azure Automation [często zadawanych](automation-faq.md) pytań, aby przejrzeć typowe pytania dotyczące Update Management.
+[Azure Automation często zadawane pytania](automation-faq.md)
