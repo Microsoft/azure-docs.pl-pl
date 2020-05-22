@@ -3,12 +3,12 @@ title: Udział plików platformy Azure dla pul Azure Batch
 description: Jak zainstalować udział Azure Files z węzłów obliczeniowych w puli systemu Linux lub Windows w Azure Batch.
 ms.topic: how-to
 ms.date: 05/24/2018
-ms.openlocfilehash: 0aa8c8f6dcf1114688e6abaf1a17f2e8af6fa4fe
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: cb7e6f158e246319e851ee2edd5b21bae33c3723
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83723497"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780282"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>Korzystanie z udziału plików platformy Azure z pulą usługi Batch
 
@@ -172,6 +172,5 @@ batch_service_client.task.add(job_id, task)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby poznać inne opcje odczytywania i zapisywania danych w usłudze Batch, zobacz [Omówienie funkcji usługi Batch](batch-api-basics.md) i [zadania trwałe oraz dane wyjściowe zadania](batch-task-output.md)podrzędnego.
-
+* Aby poznać inne opcje odczytywania i zapisywania danych w usłudze Batch, zobacz [trwałe zadanie i dane wyjściowe zadania](batch-task-output.md).
 * Zobacz również zestaw narzędzi do tworzenia [pakietów wsadowych usługi Batch](https://github.com/Azure/batch-shipyard) , który obejmuje [przepisy stoczniowe](https://github.com/Azure/batch-shipyard/tree/master/recipes) do wdrażania systemów plików dla obciążeń kontenerów usługi Batch.

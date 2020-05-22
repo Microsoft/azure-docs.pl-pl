@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: e4cd1595d963330bd5decb366310bf5e97f59bc8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d8aa456a6454dd511b7dcda5d3f74a739033356
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80422362"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774340"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Wyłączanie zapory systemu operacyjnego gościa na maszynie wirtualnej platformy Azure
 
@@ -49,7 +49,7 @@ Jeśli korzystasz z działającego agenta platformy Azure, możesz użyć [niest
 >   ```
 >   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile' -name "EnableFirewall" -Value 0
 >   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile' -name "EnableFirewall" -Value 0
->   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\StandardProfile' name "EnableFirewall" -Value 0
+>   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\StandardProfile' -name "EnableFirewall" -Value 0
 >   Restart-Service -Name mpssvc
 >   ```
 >   Jednak zaraz po ponownym zastosowaniu zasad zostanie rozpoczęta Sesja zdalna. Nieodwracalna poprawka tego problemu polega na zmodyfikowaniu zasad, które są stosowane na tym komputerze.
@@ -90,7 +90,7 @@ Jeśli korzystasz z działającego agenta platformy Azure, możesz użyć [niest
 
 Wykonaj następujące kroki, aby użyć [rejestru zdalnego](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry).
 
-1.  Na maszynie wirtualnej Rozwiązywanie problemów Uruchom Edytor rejestru, a następnie przejdź do **pliku** > **Connect Network Registry**.
+1.  Na maszynie wirtualnej Rozwiązywanie problemów Uruchom Edytor rejestru, a następnie przejdź do **pliku**  >  **Connect Network Registry**.
 
 2.  Otwórz gałąź \System *maszyny docelowej*i określ następujące wartości:
 

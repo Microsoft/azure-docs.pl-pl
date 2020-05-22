@@ -4,12 +4,12 @@ description: Jak utworzyć pulę usługi Batch w sieci wirtualnej platformy Azur
 ms.topic: how-to
 ms.date: 04/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6ca9a8bb60ecbea38da7dfdb44123d7201d6a112
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 5e973968e3396fbe714be5540244b867b7092e00
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726285"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779580"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Tworzenie puli Azure Batch w sieci wirtualnej
 
@@ -64,5 +64,5 @@ Po dodaniu trasy zdefiniowanej przez użytkownika Zdefiniuj trasę dla każdego 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Szczegółowe omówienie usługi Batch można znaleźć w temacie [programowanie równoległych rozwiązań obliczeniowych na dużą skalę za pomocą usługi Batch](batch-api-basics.md).
-- Aby uzyskać więcej informacji na temat tworzenia trasy zdefiniowanej przez użytkownika, zobacz [Tworzenie trasy zdefiniowanej przez użytkownika Azure Portal](../virtual-network/tutorial-create-route-table-portal.md).
+- Dowiedz się więcej o [przepływie pracy usługi Batch i zasobach podstawowych](batch-service-workflow-features.md) , takich jak pule, węzły, zadania i zadania.
+- Aby uzyskać informacje na temat tworzenia trasy zdefiniowanej przez użytkownika, zobacz [Tworzenie trasy zdefiniowanej przez użytkownika Azure Portal](../virtual-network/tutorial-create-route-table-portal.md).

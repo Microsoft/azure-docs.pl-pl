@@ -2,13 +2,13 @@
 title: Funkcje szablonu — zasoby
 description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager do pobierania wartości dotyczących zasobów.
 ms.topic: conceptual
-ms.date: 05/20/2020
-ms.openlocfilehash: d6d98062e2228c22302b250ab3c7bb9683bff232
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.date: 05/21/2020
+ms.openlocfilehash: aea3f654551f66390afa207ac5ce682d23e5bfe9
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715923"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780560"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funkcje zasobów dla szablonów ARM
 
@@ -129,7 +129,7 @@ W poniższej tabeli przedstawiono możliwe zastosowania list *.
 | Typ zasobu | Nazwa funkcji |
 | ------------- | ------------- |
 | Microsoft. AnalysisServices/serwery | [listGatewayStatus](/rest/api/analysisservices/servers/listgatewaystatus) |
-| Microsoft. AppConfiguration] | [ListKeyValue](/rest/api/appconfiguration/configurationstores/listkeyvalue) |
+| Microsoft. AppConfiguration | [ListKeyValue](/rest/api/appconfiguration/configurationstores/listkeyvalue) |
 | Microsoft. AppConfiguration/configurationStores | ListKeys |
 | Microsoft. Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
 | Microsoft. Batch/batchAccounts | [listkeys](/rest/api/batchmanagement/batchaccount/getkeys) |
@@ -202,7 +202,7 @@ W poniższej tabeli przedstawiono możliwe zastosowania list *.
 | Microsoft. Network/applicationSecurityGroups | listIpConfigurations |
 | Microsoft. NotificationHubs/przestrzenie nazw/reguł autoryzacji | [listkeys](/rest/api/notificationhubs/namespaces/listkeys) |
 | Microsoft. NotificationHubs/Namespaces/NotificationHubs/reguł autoryzacji | [listkeys](/rest/api/notificationhubs/notificationhubs/listkeys) |
-| Microsoft. OperationalInsights/obszary robocze | [listKeys](/rest/api/loganalytics/workspaces%202015-03-20/listkeys) |
+| Microsoft. OperationalInsights/obszary robocze | [list](/rest/api/loganalytics/workspaces/list) |
 | Microsoft. PolicyInsights/korygowania | [listDeployments](/rest/api/policy-insights/remediations/listdeploymentsatresourcegroup) |
 | Microsoft. Relay/przestrzenie nazw/reguł autoryzacji | [listkeys](/rest/api/relay/namespaces/listkeys) |
 | Microsoft. Relay/przestrzenie nazw/disasterRecoveryConfigs/reguł autoryzacji | listkeys |
@@ -228,15 +228,15 @@ W poniższej tabeli przedstawiono możliwe zastosowania list *.
 | Microsoft. Web/lokalizacje | listwsdlinterfaces |
 | Microsoft. Web/apimanagementaccounts/interfejsy API/połączenia | listconnectionkeys |
 | Microsoft. Web/apimanagementaccounts/interfejsy API/połączenia | listsecrets |
-| Microsoft. Web/Sites/kopie zapasowe | [staw](/rest/api/appservice/webapps/listbackups) |
-| Microsoft. Web/Sites/config | [staw](/rest/api/appservice/webapps/listconfigurations) |
+| Microsoft. Web/Sites/kopie zapasowe | [list](/rest/api/appservice/webapps/listbackups) |
+| Microsoft. Web/Sites/config | [list](/rest/api/appservice/webapps/listconfigurations) |
 | Microsoft. Web/Sites/Functions | [listkeys](/rest/api/appservice/webapps/listfunctionkeys)
 | Microsoft. Web/Sites/Functions | [listsecrets](/rest/api/appservice/webapps/listfunctionsecrets) |
 | Microsoft. Web/Sites/hybridconnectionnamespaces/Przekaźniki | [listkeys](/rest/api/appservice/appserviceplans/listhybridconnectionkeys) |
 | Microsoft. Web/witryny | [listsyncfunctiontriggerstatus](/rest/api/appservice/webapps/listsyncfunctiontriggers) |
 | Microsoft. Web/Sites/Slots/Functions | [listsecrets](/rest/api/appservice/webapps/listfunctionsecretsslot) |
-| Microsoft. Web/Sites/gniazda/kopie zapasowe | [staw](/rest/api/appservice/webapps/listbackupsslot) |
-| Microsoft. Web/Sites/szczeliny/konfiguracja | [staw](/rest/api/appservice/webapps/listconfigurationsslot) |
+| Microsoft. Web/Sites/gniazda/kopie zapasowe | [list](/rest/api/appservice/webapps/listbackupsslot) |
+| Microsoft. Web/Sites/szczeliny/konfiguracja | [list](/rest/api/appservice/webapps/listconfigurationsslot) |
 | Microsoft. Web/Sites/Slots/Functions | [listsecrets](/rest/api/appservice/webapps/listfunctionsecretsslot) |
 
 Aby określić, które typy zasobów mają operację listy, dostępne są następujące opcje:
@@ -350,6 +350,8 @@ Aby uzyskać token SAS, należy przekazać obiekt przez czas wygaśnięcia. Czas
     }
 }
 ```
+
+Przykład listKeyValue można znaleźć w sekcji [Szybki Start: Wdrażanie maszyny wirtualnej z konfiguracją aplikacji i szablonem Menedżer zasobów](../../azure-app-configuration/quickstart-resource-manager.md#deploy-vm-using-stored-key-values).
 
 ## <a name="providers"></a>dostawców
 
@@ -525,7 +527,7 @@ W przypadku konstruowania w pełni kwalifikowanego odwołania do zasobu kolejno�
 
 **{Resource-Provider-Namespace}/{Parent-Resource-Type}/{Parent-Resource-Name} [/{Child-Resource-Type}/{Child-resource-name}]**
 
-Na przykład:
+Przykład:
 
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt``Microsoft.Compute/virtualMachines/extensions/myVM/myExt`jest niepoprawny
 

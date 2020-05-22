@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 02/06/2020
 ms.author: aahi
-ms.openlocfilehash: d678a29de9dea8a5a2f6d0259a452ca4c69feb03
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 57be24142a8504347f420e5780e9621cd2eac91d
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77086908"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83778259"
 ---
 ## <a name="personal-information-entity-types"></a>Typy jednostek informacji osobistych:
 
@@ -25,7 +25,7 @@ Języki:
 
 | Nazwa podtypu | Opis                                               | Dostępne począwszy od wersji modelu |
 |--------------|-----------------------------------------------------------|----------------------------------------|
-| Nie dotyczy          | Rozpoznawane nazwy, na `Bill Gates`przykład`Marie Curie` | `2020-02-01`                           |
+| Nie dotyczy          | Rozpoznawane `Bill Gates` nazwy, na przykład`Marie Curie` | `2020-02-01`                           |
 
 ### <a name="organization"></a>Organizacja  
 
@@ -37,7 +37,7 @@ Języki:
 
 | Nazwa podtypu | Opis                                                                                       | Dostępne począwszy od wersji modelu|
 |--------------|---------------------------------------------------------------------------------------------------|--------------|
-| Nie dotyczy          | organizacje, na przykład `Microsoft` `NASA`,`National Oceanic and Atmospheric Administration` | `2020-02-01` |
+| Nie dotyczy          | organizacje, na przykład `Microsoft` `NASA` ,`National Oceanic and Atmospheric Administration` | `2020-02-01` |
 
 ### <a name="phone-number"></a>Numer telefonu
 
@@ -109,7 +109,7 @@ Języki:
 
 | Nazwa podtypu | Opis                   | Dostępne począwszy od wersji modelu |
 |--------------|-------------------------------|----------------------------------------|
-| Date         | `May 2nd, 2017`, `05/02/2017` | `2020-02-01`                           |
+| Data         | `May 2nd, 2017`, `05/02/2017` | `2020-02-01`                           |
 
 ### <a name="eu-gps-coordinates"></a>Współrzędne GPS w Unii Europejskiej
 
@@ -127,7 +127,7 @@ Języki:
 
 Identyfikowalne informacje dotyczące platformy Azure, w tym informacje o uwierzytelnianiu i parametry połączenia. 
 
-* Dostępne począwszy od wersji `2019-10-01`modelu.
+* Dostępne począwszy od wersji modelu `2019-10-01` .
 
 Języki:
 
@@ -149,7 +149,7 @@ Języki:
 
 ### <a name="identification"></a>Identyfikacja
 
-* Dostępne począwszy od wersji `2019-10-01`modelu.
+* Dostępne począwszy od wersji modelu `2019-10-01` .
 
 Języki:
 
@@ -164,9 +164,9 @@ Języki:
 | Karta kredytowa                | Numery kart kredytowych.                                                       |
 | Kod IBAN                  | Kody IBAN dla informacji o instrukcji płatności.                            |
 
-#### <a name="government-and-country-specific-identification"></a>Identyfikacja dla instytucji rządowych i krajów
+#### <a name="government-and-countryregion-specific-identification"></a>Identyfikacja specyficzna dla instytucji rządowych i krajów/regionów
 
-Poniższe jednostki są pogrupowane i wyszczególnione według kraju:
+Poniższe jednostki są pogrupowane i wyświetlane według kraju/regionu:
 
 Argentyna
 * Numer tożsamości narodowej (DNI)
@@ -205,7 +205,7 @@ Chorwacja
 * Numer karty identyfikatora
 * Numer osobisty (OIB)
 
-Czechy
+Republika Czeska
 * Numer krajowej karty IDENTYFIKACYJNej
 
 Dania
@@ -316,7 +316,7 @@ Tajwan
 Tajlandia
 * Kod identyfikacji populacji
 
-Wielka Brytania
+Zjednoczone Królestwo
 * Identyfikator paszportu
 * Identyfikator licencji sterownika
 * Krajowy numer ubezpieczenia (NINO)

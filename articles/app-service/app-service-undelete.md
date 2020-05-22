@@ -5,12 +5,12 @@ author: btardif
 ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
-ms.openlocfilehash: 296c8e2dfe99e3b0aea66f364ac6f6d9b2f60a1a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 440f46cbeebee1b552e64eba4ebc8787a47edf56
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81272495"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779208"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>Przywracanie usuniętej aplikacji usługi App Service przy użyciu programu PowerShell
 
@@ -29,7 +29,7 @@ Niektórzy klienci mogą napotkać problem polegający na tym, że pobieranie li
 
 ## <a name="list-deleted-apps"></a>Wyświetlanie listy usuniętych aplikacji
 
-Aby pobrać kolekcję usuniętych aplikacji, można użyć `Get-AzDeletedWebApp`programu.
+Aby pobrać kolekcję usuniętych aplikacji, można użyć programu `Get-AzDeletedWebApp` .
 
 Aby uzyskać szczegółowe informacje dotyczące konkretnej usuniętej aplikacji, można użyć:
 
@@ -48,14 +48,16 @@ Szczegółowe informacje obejmują:
 - **Godzina usunięcia**: Kiedy aplikacja została usunięta  
 
 ## <a name="restore-deleted-app"></a>Przywróć usuniętą aplikację
+>[!NOTE]
+> `Restore-AzDeletedWebApp`nie jest obsługiwana w przypadku aplikacji funkcji.
 
-Gdy aplikacja, którą chcesz przywrócić, została zidentyfikowana, możesz ją przywrócić za pomocą `Restore-AzDeletedWebApp`polecenia.
+Gdy aplikacja, którą chcesz przywrócić, została zidentyfikowana, możesz ją przywrócić za pomocą polecenia `Restore-AzDeletedWebApp` .
 
 ```powershell
 Restore-AzDeletedWebApp -ResourceGroupName <my_rg> -Name <my_app> -TargetAppServicePlanName <my_asp>
 ```
 > [!NOTE]
-> Gniazda wdrożenia nie są przywracane jako część aplikacji. Jeśli musisz przywrócić miejsce przejściowe, `-Slot <slot-name>` Użyj flagi.
+> Gniazda wdrożenia nie są przywracane jako część aplikacji. Jeśli musisz przywrócić miejsce przejściowe, użyj `-Slot <slot-name>` flagi.
 >
 
 Dane wejściowe polecenia są następujące:

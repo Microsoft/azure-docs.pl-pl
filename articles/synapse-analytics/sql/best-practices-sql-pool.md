@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: b3dc111fe62cbae857f3369165ba29cf40e90342
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f6af79a37369fe5775c402af011f4ba59807595d
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81427798"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780430"
 ---
 # <a name="best-practices-for-sql-pools-in-azure-synapse-analytics"></a>Najlepsze rozwiązania dotyczące pul SQL w usłudze Azure Synapse Analytics
 
@@ -44,7 +44,7 @@ Dodatkowe informacje na temat statystyk można znaleźć w artykułach [Zarządz
 
 ## <a name="group-insert-statements-into-batches"></a>Grupowanie instrukcji INSERT w partie
 
-Jednorazowe ładowanie do małej tabeli za pomocą instrukcji INSERT, takiej jak `INSERT INTO MyLookup VALUES (1, 'Type 1')`, może być najlepszym rozwiązaniem w zależności od Twoich potrzeb. Jeśli jednak zachodzi potrzeba ładowania tysięcy lub milionów wierszy w ciągu dnia, prawdopodobnie pojedyncze wstawienia nie są optymalne.
+Jednorazowe ładowanie do małej tabeli za pomocą instrukcji INSERT, takiej jak, `INSERT INTO MyLookup VALUES (1, 'Type 1')` może być najlepszym rozwiązaniem w zależności od Twoich potrzeb. Jeśli jednak zachodzi potrzeba ładowania tysięcy lub milionów wierszy w ciągu dnia, prawdopodobnie pojedyncze wstawienia nie są optymalne.
 
 Jednym ze sposobów rozwiązania tego problemu jest opracowanie jednego procesu, który zapisuje dane do pliku, a następnie inny proces okresowo ładuje ten plik. Aby uzyskać więcej informacji, zapoznaj się z artykułem dotyczącym [wstawiania](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) .
 
@@ -169,7 +169,7 @@ Aby uzyskać dodatkowe informacje na temat klas zasobów, zapoznaj się z artyku
 
 ## <a name="use-smaller-resource-class-to-increase-concurrency"></a>Użyj mniejszej klasy zasobów, aby zwiększyć współbieżność
 
-Jeśli zauważysz długie opóźnienie zapytań użytkowników, użytkownicy mogą pracować w większych klasach zasobów. Ten scenariusz promuje zużycie miejsc współbieżności, co może spowodować Zakolejkowanie innych zapytań.  Aby określić, czy zapytania użytkowników są umieszczane `SELECT * FROM sys.dm_pdw_waits` w kolejce, uruchom polecenie, aby sprawdzić, czy wiersze są zwracane.
+Jeśli zauważysz długie opóźnienie zapytań użytkowników, użytkownicy mogą pracować w większych klasach zasobów. Ten scenariusz promuje zużycie miejsc współbieżności, co może spowodować Zakolejkowanie innych zapytań.  Aby określić, czy zapytania użytkowników są umieszczane w kolejce, uruchom polecenie, `SELECT * FROM sys.dm_pdw_waits` Aby sprawdzić, czy wiersze są zwracane.
 
 [Klasy zasobów dla zarządzania obciążeniami](../sql-data-warehouse/resource-classes-for-workload-management.md) i [sys. dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) zawierają więcej informacji.
 
@@ -193,7 +193,7 @@ Pule SQL mają kilka widoków DMV, których można użyć do monitorowania wykon
 
 Zobacz również artykuł [Rozwiązywanie problemów](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) z typowymi problemami i rozwiązaniami.
 
-Jeśli potrzebujesz informacji, które nie zostały podane w tym artykule, użyj "Wyszukaj dokumenty" po lewej stronie tej strony, aby wyszukać wszystkie dokumenty w puli SQL.  [Forum puli SQL](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) to miejsce, w którym można zadawać pytania innym użytkownikom i grupie produktów puli SQL.  
+Jeśli potrzebujesz informacji, które nie zostały podane w tym artykule, użyj **filtru Filtruj według tytułu** po lewej stronie tej strony, aby przeszukać wszystkie dokumenty w puli SQL.  [Forum puli SQL](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) to miejsce, w którym można zadawać pytania innym użytkownikom i grupie produktów puli SQL.  
 
 Firma Microsoft aktywnie monitoruje to forum, aby mieć pewność, że użytkownicy uzyskują odpowiedzi od innych użytkowników lub pracowników firmy Microsoft.  Jeśli wolisz zadać pytania na Stack Overflow, masz również [Forum usługi Azure SQL pool Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw).
 

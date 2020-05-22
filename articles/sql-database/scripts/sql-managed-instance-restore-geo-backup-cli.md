@@ -3,7 +3,7 @@ title: Przykład operacji przywracania geograficznego interfejsu wiersza polecen
 description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure służący do przywracania bazy danych wystąpienia zarządzanego Azure SQL z geograficznie nadmiarowej kopii zapasowej.
 services: sql-database
 ms.service: sql-database
-ms.subservice: backup-restore
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 07/03/2019
-ms.openlocfilehash: 1bd0322aee83fb980c60382a2ff3eaab1cd1313c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1a46cb537892d4255fd274b5754ab8e8c0278308
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80061745"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774453"
 ---
 # <a name="use-cli-to-restore-a-managed-instance-database-to-another-geo-region"></a>Używanie interfejsu wiersza polecenia do przywracania bazy danych wystąpienia zarządzanego w innym regionie geograficznym
 

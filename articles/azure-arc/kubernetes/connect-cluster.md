@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Łączenie klastra Kubernetes z obsługą usługi Azure ARC przy użyciu usługi Azure Arc
 keywords: Kubernetes, łuk, Azure, K8s, kontenery
-ms.openlocfilehash: dd4e03ac6bdf2e4554f07f2aa5ffca78b1ed1230
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 690955f0e7d18f9a784b4c9a2fa1733442cb70dc
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725622"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780014"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Połącz klaster Kubernetes z obsługą usługi Azure ARC (wersja zapoznawcza)
 
@@ -25,7 +25,7 @@ Sprawdź, czy masz gotowe do spełnienia następujące wymagania:
 
 * Klaster Kubernetes, który jest uruchomiony
 * Będziesz potrzebować dostępu z kubeconfig i dostępem do administratora klastra. 
-* Nazwa główna użytkownika lub usługi używana z `az login` `az connectedk8s connect` poleceniami i musi mieć uprawnienia "read" i "Write" dla typu zasobu "Microsoft. Kubernetes/connectedclusters".
+* Nazwa główna użytkownika lub usługi używana z `az login` `az connectedk8s connect` poleceniami i musi mieć uprawnienia "read" i "Write" dla typu zasobu "Microsoft. Kubernetes/connectedclusters". Rola "Azure Arc for Kubernetes dołączania" z tymi uprawnieniami może służyć do przypisywania ról dla użytkownika lub nazwy głównej usługi używanej z interfejsem wiersza polecenia platformy Azure do dołączania.
 * Najnowsza wersja rozszerzeń *connectedk8s* i *k8sconfiguration*
 
 ## <a name="supported-regions"></a>Obsługiwane regiony

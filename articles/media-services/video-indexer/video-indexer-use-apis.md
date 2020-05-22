@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/13/2020
+ms.date: 05/21/2020
 ms.author: juliako
-ms.openlocfilehash: 82bdb177cf4d9c400d1b13ba7178658089950557
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 62c66f8b787d27b72216eb08b87352d8dbf272fb
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81314330"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774357"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Samouczek: używanie interfejsu API usługi Video Indexer
 
@@ -34,7 +34,7 @@ W tym artykule pokazano, jak deweloperzy mogą korzystać z [interfejsu API usł
    > [!Important]
    > * Musisz użyć tego samego dostawcy, który został użyty podczas tworzenia konta w usłudze Video Indexer.
    > * Osobiste konta Google i Microsoft (Outlook/Live) mogą być używane tylko w przypadku kont próbnych. Konta połączone z platformą Azure wymagają usługi Azure AD.
-   > * Na adres e-mail może istnieć tylko jedno aktywne konto. Jeśli użytkownik próbuje zalogować się przy user@gmail.com użyciu usługi LinkedIn lub nowszej user@gmail.com w przypadku usługi Google, zostanie wyświetlona strona błędu z informacją o tym, że użytkownik już istnieje.
+   > * Na adres e-mail może istnieć tylko jedno aktywne konto. Jeśli użytkownik próbuje zalogować się przy użyciu usługi user@gmail.com LinkedIn lub nowszej w user@gmail.com przypadku usługi Google, zostanie wyświetlona strona błędu z informacją o tym, że użytkownik już istnieje.
 
 2. Subskrybuj.
 
@@ -116,7 +116,7 @@ W poniższym fragmencie kodu języka C# pokazano używanie wszystkich interfejs�
 ```csharp
 var apiUrl = "https://api.videoindexer.ai";
 var accountId = "..."; 
-var location = "westus2";
+var location = "westus2"; // replace with the account's location, or with “trial” if this is a trial account
 var apiKey = "..."; 
 
 System.Net.ServicePointManager.SecurityProtocol = System.Net.ServicePointManager.SecurityProtocol | System.Net.SecurityProtocolType.Tls12;
@@ -207,7 +207,7 @@ Debug.WriteLine(playerWidgetLink);
 
 ```
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 - [Omówienie usługi Video Indexer](video-indexer-overview.md)
 - [Regiony](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)

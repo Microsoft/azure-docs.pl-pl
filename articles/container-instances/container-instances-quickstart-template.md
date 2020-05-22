@@ -6,18 +6,16 @@ ms.service: azure-resource-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 04/30/2020
-ms.openlocfilehash: f9f789d2f2c6c21e38f241b445c72b330c689a8d
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 17f71d1c383c72fab748a9bdb789158095616f2d
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930424"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779871"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-a-resource-manager-template"></a>Szybki Start: Wdrażanie wystąpienia kontenera na platformie Azure przy użyciu szablonu Menedżer zasobów
 
-Używanie Azure Container Instances do uruchamiania kontenerów platformy Docker bez serwera na platformie Azure z prostotą i szybkością. Wdróż aplikację w wystąpieniu kontenera na żądanie, gdy nie potrzebujesz pełnej platformy aranżacji kontenerów, takiej jak usługa Azure Kubernetes.
-
-W tym przewodniku szybki start użyjesz szablonu Azure Resource Manager do wdrożenia izolowanego kontenera platformy Docker i udostępnienia jego aplikacji sieci Web za pomocą publicznego adresu IP. 
+Używanie Azure Container Instances do uruchamiania kontenerów platformy Docker bez serwera na platformie Azure z prostotą i szybkością. Wdróż aplikację w wystąpieniu kontenera na żądanie, gdy nie potrzebujesz pełnej platformy aranżacji kontenerów, takiej jak usługa Azure Kubernetes. W tym przewodniku szybki start użyjesz szablonu Azure Resource Manager do wdrożenia izolowanego kontenera platformy Docker i udostępnienia jego aplikacji sieci Web za pomocą publicznego adresu IP.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -31,9 +29,9 @@ Brak.
 
 ### <a name="review-the-template"></a>Zapoznaj się z szablonem
 
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-linuxcontainer-public-ip).
+Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-aci-linuxcontainer-public-ip/).
 
-[!code-json[<Azure Resource Manager template create geo-replicated registry>](~/quickstart-templates/101-aci-linuxcontainer-public-ip/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-aci-linuxcontainer-public-ip/azuredeploy.json" range="1-107" highlight="61-100":::
 
 Następujący zasób jest zdefiniowany w szablonie:
 
@@ -45,7 +43,7 @@ Więcej przykładów szablonów Azure Container Instances można znaleźć w [ga
 
  1. Wybierz poniższy obraz, aby zalogować się na platformie Azure i otworzyć szablon. Szablon tworzy rejestr i replikę w innej lokalizacji.
 
-    [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aci-linuxcontainer-public-ip%2Fazuredeploy.json)
+    [![Wdróż na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aci-linuxcontainer-public-ip%2Fazuredeploy.json)
 
  2. Wybierz lub wprowadź następujące wartości.
 
@@ -85,11 +83,11 @@ Użyj Azure Portal lub narzędzia, takiego jak [interfejs wiersza polecenia plat
 
 W przypadku rozwiązywania problemów z kontenerem lub uruchomioną w nim aplikacją przydatne jest przeglądanie dzienników wystąpienia kontenera.
 
-Aby wyświetlić dzienniki kontenera, w obszarze **Ustawienia**wybierz pozycję Dzienniki **kontenerów** > **Logs**. Powinno pojawić się żądanie HTTP GET generowane podczas wyświetlania aplikacji w przeglądarce.
+Aby wyświetlić dzienniki kontenera, w obszarze **Ustawienia**wybierz pozycję Dzienniki **kontenerów**  >  **Logs**. Powinno pojawić się żądanie HTTP GET generowane podczas wyświetlania aplikacji w przeglądarce.
 
 ![Dzienniki kontenera w witrynie Azure Portal](media/container-instances-quickstart-template/aci-logs.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu pracy z kontenerem na stronie **Przegląd** dla wystąpienia kontenera wybierz pozycję **Usuń**. Po wyświetleniu monitu potwierdź usunięcie.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: d0bb73b58aa23e5f7eb784772acf37b05df463ba
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 09d15877088fb6356419a9d31f8bef3164e76029
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79456832"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780598"
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Skonfiguruj ustawienia limitu czasu bezczynności protokołu TCP dla Azure Load Balancer
 
@@ -42,6 +42,10 @@ Utrzymywanie aktywności TCP działa w scenariuszach, w których czas pracy bate
 ![Limit czasu TCP](./media/load-balancer-tcp-idle-timeout/image1.png)
 
 W poniższych sekcjach opisano, jak zmienić ustawienia limitu czasu bezczynności dla zasobów publicznego adresu IP i modułu równoważenia obciążenia.
+
+>[!NOTE]
+> Limit czasu bezczynności protokołu TCP nie ma wpływu na reguły równoważenia obciążenia w protokole UDP.
+
 
 ## <a name="configure-the-tcp-timeout-for-your-instance-level-public-ip-to-15-minutes"></a>Skonfiguruj limit czasu protokołu TCP dla publicznego adresu IP na poziomie wystąpienia na 15 minut
 

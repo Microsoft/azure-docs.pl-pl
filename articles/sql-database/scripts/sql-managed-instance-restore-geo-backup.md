@@ -3,7 +3,7 @@ title: Przykład programu PowerShell przywracanie geograficznej kopii zapasowej 
 description: Azure PowerShell przykładowy skrypt do przywrócenia bazy danych wystąpienia zarządzanego Azure SQL z geograficznie nadmiarowej kopii zapasowej.
 services: sql-database
 ms.service: sql-database
-ms.subservice: backup-restore
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 07/03/2019
-ms.openlocfilehash: f1b4166df2290c1250e3807b4a7133c3afae8e44
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 62ed66c52375eb72394949fff384d012af49a7d7
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74304075"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774498"
 ---
 # <a name="use-powershell-to-restore-a-managed-instance-database-to-another-geo-region"></a>Przywracanie bazy danych wystąpienia zarządzanego w innym regionie geograficznym przy użyciu programu PowerShell
 

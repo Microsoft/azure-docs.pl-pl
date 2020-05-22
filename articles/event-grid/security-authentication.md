@@ -8,18 +8,18 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: babanisa
-ms.openlocfilehash: 71d47c83586f7e5e31b148714e2804686422326a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: bca450022322db7a7569fa1dc7ce80ec75a9ce69
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588262"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774310"
 ---
 # <a name="authenticating-access-to-azure-event-grid-resources"></a>Uwierzytelnianie dostępu do zasobów Azure Event Grid
 Ten artykuł zawiera informacje dotyczące następujących scenariuszy:  
 
 - Uwierzytelnianie klientów, którzy publikują zdarzenia do Azure Event Grid tematów przy użyciu sygnatury dostępu współdzielonego (SAS) lub klucza. 
-- Zabezpiecz punkt końcowy elementu webhook przy użyciu Azure Active Directory (Azure AD) do uwierzytelniania Event Grid do **dostarczania** zdarzeń do punktu końcowego.
+- Zabezpiecz punkt końcowy elementu webhook, który jest używany do odbierania zdarzeń z Event Grid przy użyciu Azure Active Directory (Azure AD) lub wspólnego klucza tajnego.
 
 ## <a name="authenticate-publishing-clients-using-sas-or-key"></a>Uwierzytelnianie klientów publikowania przy użyciu sygnatury dostępu współdzielonego lub klucza
 Tematy niestandardowe wykorzystują sygnaturę dostępu współdzielonego (SAS) lub uwierzytelnianie klucza. Zalecamy używanie sygnatury dostępu współdzielonego, ale uwierzytelnianie klucza zapewnia proste programowanie i jest zgodne z wieloma istniejącymi wydawcami elementów webhook.
@@ -89,12 +89,12 @@ Wszystkie zdarzenia lub dane zapisywane na dysku przez usługę Event Grid są s
 W poniższych sekcjach opisano sposób uwierzytelniania dostarczania zdarzeń do punktów końcowych elementu webhook. Musisz użyć mechanizmu uzgadniania poprawności, niezależnie od używanej metody. Aby uzyskać szczegółowe informacje, zobacz [dostarczanie zdarzeń elementu webhook](webhook-event-delivery.md) . 
 
 ### <a name="using-azure-active-directory-azure-ad"></a>Korzystanie z Azure Active Directory (Azure AD)
-Punkt końcowy elementu webhook można zabezpieczyć za pomocą Azure Active Directory (Azure AD) do uwierzytelniania i autoryzowania Event Grid do dostarczania zdarzeń do punktów końcowych. Musisz utworzyć aplikację usługi Azure AD, utworzyć rolę i regułę usługi w aplikacji autoryzując Event Grid i skonfigurować subskrypcję zdarzeń do korzystania z aplikacji usługi Azure AD. [Dowiedz się, jak skonfigurować Azure Active Directory przy użyciu Event Grid](secure-webhook-delivery.md).
+Możesz zabezpieczyć punkt końcowy elementu webhook, który jest używany do odbierania zdarzeń z Event Grid przy użyciu usługi Azure AD. Musisz utworzyć aplikację usługi Azure AD, utworzyć rolę i nazwę główną usługi w aplikacji, która autoryzuje Event Grid, i skonfiguruje subskrypcję zdarzeń do korzystania z aplikacji usługi Azure AD. Dowiedz się, jak [skonfigurować Azure Active Directory przy użyciu Event Grid](secure-webhook-delivery.md).
 
 ### <a name="using-client-secret-as-a-query-parameter"></a>Używanie klucza tajnego klienta jako parametru zapytania
-Punkt końcowy elementu webhook można zabezpieczyć przez dodanie parametrów zapytania do adresu URL elementu webhook podczas tworzenia subskrypcji zdarzeń. Ustaw jeden z tych parametrów zapytania jako klucz tajny klienta, taki jak [token dostępu](https://en.wikipedia.org/wiki/Access_token) lub wspólny klucz tajny. Element webhook może użyć klucza tajnego do rozpoznawania zdarzenia z Event Grid z prawidłowymi uprawnieniami. Event Grid będą zawierać te parametry zapytania w każdym dostarczeniu zdarzenia do elementu webhook. Jeśli klucz tajny klienta zostanie zaktualizowany, należy również zaktualizować subskrypcję zdarzeń. Aby uniknąć niepowodzeń dostarczania w ramach tego samego klucza tajnego, należy sprawić, że element webhook akceptuje stare i nowe wpisy tajne przez ograniczony czas. 
+Punkt końcowy elementu webhook można także zabezpieczyć przez dodanie parametrów zapytania do docelowego adresu URL elementu webhook określonego w ramach tworzenia subskrypcji zdarzeń. Ustaw jeden z parametrów zapytania jako klucz tajny klienta, taki jak [token dostępu](https://en.wikipedia.org/wiki/Access_token) lub wspólny klucz tajny. Usługa Event Grid obejmuje wszystkie parametry zapytania w każdym żądaniu dostarczania zdarzeń do elementu webhook. Usługa elementu webhook może pobrać klucz tajny i sprawdzić jego poprawność. Jeśli klucz tajny klienta zostanie zaktualizowany, należy również zaktualizować subskrypcję zdarzeń. Aby uniknąć niepowodzeń dostarczania w ramach tego samego klucza tajnego, przed zaktualizowaniem subskrypcji zdarzeń przy użyciu nowego klucza tajnego upewnij się, że element webhook zaakceptuje zarówno stare, jak i nowe wpisy tajne. 
 
-Ponieważ parametry zapytania mogą zawierać wpisy tajne klienta, są one obsługiwane z dodatkowymi zapytaniami. Są one przechowywane jako zaszyfrowane i niedostępne dla operatorów usługi. Nie są one rejestrowane w ramach dzienników usługi/śladów. Podczas edytowania subskrypcji zdarzeń parametry zapytania nie są wyświetlane ani zwracane, chyba że w [interfejsie wiersza polecenia](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)platformy Azure jest używany parametr [--include-Full-Endpoint-URL](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) .
+Ponieważ parametry zapytania mogą zawierać wpisy tajne klienta, są one obsługiwane z dodatkowymi zapytaniami. Są one przechowywane jako zaszyfrowane i nie są dostępne dla operatorów usług. Nie są one rejestrowane w ramach dzienników usługi/śladów. Podczas pobierania właściwości subskrypcji zdarzeń, parametry zapytania docelowego nie są domyślnie zwracane. Na przykład: parametr [--include-Full-Endpoint-URL](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) ma być używany w [interfejsie wiersza polecenia](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)platformy Azure.
 
 Aby uzyskać więcej informacji na temat dostarczania zdarzeń do elementów webhook, zobacz [dostarczanie zdarzeń elementu webhook](webhook-event-delivery.md)
 

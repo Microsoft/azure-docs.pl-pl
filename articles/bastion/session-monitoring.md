@@ -5,14 +5,14 @@ services: bastion
 author: charwen
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 02/03/2020
+ms.date: 05/21/2020
 ms.author: charwen
-ms.openlocfilehash: 6bf80be4868295145fa79ae29d5322181b6131d1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 617ec30fc9b97e89b6ccd0de6255d65da94d7b63
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80619191"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780446"
 ---
 # <a name="session-monitoring-and-management-for-azure-bastion"></a>Monitorowanie sesji i zarządzanie nim w usłudze Azure bastionu
 
@@ -30,9 +30,6 @@ Gdy usługa bastionu zostanie zainicjowana i wdrożona w sieci wirtualnej, możn
 
    ![odświeżanie](./media/session-monitoring/refresh.png)
 
->[!IMPORTANT]
-> Włącz port 4443 dla ruchu przychodzącego z Menedżera bramy, aby monitorowanie sesji działało.
->
 
 ## <a name="delete-or-force-disconnect-an-ongoing-remote-session"></a><a name="view"></a>Usuń lub Wymuś rozłączenie trwającej sesji zdalnej
 

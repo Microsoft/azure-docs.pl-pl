@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
-ms.date: 05/08/2020
-ms.openlocfilehash: 9ce6df8491bf4ce7cbb0e12a08816e198f665beb
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.date: 05/20/2020
+ms.openlocfilehash: 5f3b1fcb573358160707c0b29ad9e1806ea8e24c
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124656"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774283"
 ---
 # <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>Składniki i wersje oprogramowania Apache dostępne dla usługi Azure HDInsight
 
@@ -43,7 +43,7 @@ Wersje składników skojarzone z wersjami klastra usługi HDInsight są wymienio
 | Apache Storm           | -             | 1.1.0                       |
 | Apache Mahout          | -             | 0.9.0 +                      |
 | Apache Phoenix         | 5             | 4.7.0                       |
-| Apache Spark           | 2.3.1, 2,4    | 2.3.0, 2.2.0, 2.1.0         |
+| Apache Spark           | 2,4, 2.3.1 *   | 2.3.0, 2.2.0, 2.1.0         |
 | Apache Livy            | 0,5           | 0,4, 0,4, 0,3               |
 | Apache Kafka           | 1.1.1, 2,1    | 1,1, 1,0 * (patrz Uwaga).   |
 | Apache Ambari          | 2.7.0         | 2.6.0                       |
@@ -57,7 +57,7 @@ Wersje składników skojarzone z wersjami klastra usługi HDInsight są wymienio
 
 Wersje składników środowiska Hadoop skojarzone z wersjami klastra usługi HDInsight mogą ulec zmianie przy użyciu aktualizacji usługi HDInsight. Aby sprawdzić składniki usługi Hadoop i sprawdzić, które wersje są używane dla klastra, użyj interfejsu API REST Ambari. Polecenie **GetComponentInformation** pobiera informacje o składnikach usługi. Aby uzyskać więcej informacji, zobacz [dokumentację usługi Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-### <a name="release-notes"></a>Informacje o wersji
+### <a name="release-notes"></a>Uwagi do wersji
 
 Aby uzyskać dodatkowe informacje o wersji dotyczące najnowszych wersji usługi HDInsight, zobacz [Informacje o wersji usługi HDInsight](hdinsight-release-notes.md).
 
@@ -77,8 +77,8 @@ Ta tabela zawiera listę wersji usługi HDInsight dostępnych w Azure Portal i i
 
 | Wersja usługi HDInsight | System operacyjny maszyny wirtualnej | Data wydania | Data wygaśnięcia pomocy technicznej | Data wycofania | Wysoka dostępność |  Dostępność w Azure Portal |
 | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 4.0 |Ubuntu 16.0.4 LTS |Wrzesień 24, 2018 | | |Yes |Yes |
-| HDInsight 3,6 |Ubuntu 16.0.4 LTS |4 kwietnia 2017 | 31 grudnia 2020 |31 grudnia 2020 |Tak |Yes |
+| HDInsight 4.0 |Ubuntu 16.0.4 LTS |Wrzesień 24, 2018 | | |Tak |Tak |
+| HDInsight 3,6 |Ubuntu 16.0.4 LTS |4 kwietnia 2017 | 31 grudnia 2020 |31 grudnia 2020 |Tak |Tak |
 
 Obsługa platformy Spark 2,1, 2,2 i Kafka 1,0 wygaśnie 30 czerwca 2020.
 

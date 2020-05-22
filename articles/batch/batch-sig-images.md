@@ -3,12 +3,12 @@ title: Tworzenie puli niestandardowej za pomocą galerii obrazów udostępnionyc
 description: Utwórz pulę usługi Batch z udostępnioną galerią obrazów, aby udostępnić niestandardowe obrazy do węzłów obliczeniowych zawierających oprogramowanie i dane potrzebne dla aplikacji. Obrazy niestandardowe są wydajnym sposobem konfigurowania węzłów obliczeniowych do uruchamiania obciążeń wsadowych.
 ms.topic: article
 ms.date: 08/28/2019
-ms.openlocfilehash: 1a26aaecc5da0ef348b720919b04d86f8fcfbc70
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: 1f03d637ffc6e443fdd429ca7fd647603b668cc1
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82743574"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780499"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>Tworzenie puli niestandardowej za pomocą galerii obrazów udostępnionych
 
@@ -83,7 +83,7 @@ Po pomyślnym utworzeniu zarządzanego obrazu musisz utworzyć udostępnioną ga
 
 ## <a name="create-a-pool-from-a-shared-image-using-the-azure-cli"></a>Tworzenie puli na podstawie udostępnionego obrazu przy użyciu interfejsu wiersza polecenia platformy Azure
 
-Aby utworzyć pulę na podstawie udostępnionego obrazu przy użyciu interfejsu wiersza `az batch pool create` polecenia platformy Azure, użyj polecenie. Określ identyfikator obrazu udostępnionego w `--image` polu. Upewnij się, że typ systemu operacyjnego i jednostka SKU są zgodne z wersjami określonymi przez`--node-agent-sku-id`
+Aby utworzyć pulę na podstawie udostępnionego obrazu przy użyciu interfejsu wiersza polecenia platformy Azure, użyj `az batch pool create` polecenie. Określ identyfikator obrazu udostępnionego w `--image` polu. Upewnij się, że typ systemu operacyjnego i jednostka SKU są zgodne z wersjami określonymi przez`--node-agent-sku-id`
 
 > [!NOTE]
 > Musisz uwierzytelnić się przy użyciu usługi Azure AD. W przypadku korzystania z uwierzytelniania za pomocą klucza Shared-Key zostanie wyświetlony komunikat o błędzie uwierzytelniania.  
@@ -218,4 +218,4 @@ Jeśli planujesz utworzenie puli z setkami lub tysiącami maszyn wirtualnych lub
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Szczegółowe omówienie usługi Batch można znaleźć w temacie [programowanie równoległych rozwiązań obliczeniowych na dużą skalę za pomocą usługi Batch](batch-api-basics.md).
+* Aby zapoznać się z szczegółowym omówieniem usługi Batch, zobacz temat [przepływ pracy i zasoby usług Batch](batch-service-workflow-features.md).

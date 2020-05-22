@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Korzystanie z GitOps dla konfiguracji klastra z obsługą usługi Azure ARC (wersja zapoznawcza)
 keywords: GitOps, Kubernetes, K8s, Azure, ARC, Azure Kubernetes Service, kontenery
-ms.openlocfilehash: e945a1d39edb6dad43e66ac492eb1e5c36ff58e1
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 954c77503e8adacc4cd27b25b68b50cac1f80458
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684195"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779710"
 ---
 # <a name="use-gitops-for-an-azure-arc-enabled--configuration-preview"></a>Korzystanie z GitOps dla konfiguracji z obsługą usługi Azure ARC (wersja zapoznawcza)
 
@@ -31,7 +31,7 @@ Ten przewodnik wprowadzający przeprowadzi Cię przez proces stosowania zestawu 
 
 ## <a name="create-a-configuration"></a>Utwórz konfigurację
 
-- Przykładowe repozytorium:<https://github.com/slack/cluster-config>
+- Przykładowe repozytorium:<https://github.com/Azure/arc-k8s-demo>
 
 Przykładowe repozytorium jest strukturalne wokół osoby będącej operatorem klastra, który chce udostępnić kilka przestrzeni nazw, wdrożyć typowe obciążenie i udostępnić konfigurację specyficzną dla zespołu. Użycie tego repozytorium powoduje utworzenie następujących zasobów w klastrze:
 
@@ -40,7 +40,7 @@ Przykładowe repozytorium jest strukturalne wokół osoby będącej operatorem k
  **ConfigMap:**`team-a/endpoints`
 
 `config-agent`Sonduje platformę Azure pod kątem nowych lub zaktualizowanych `sourceControlConfiguration` co 30 sekund.  Jest to maksymalny czas na `config-agent` pobranie nowej lub zaktualizowanej konfiguracji przez program.
-W przypadku kojarzenia repozytorium prywatnego należy upewnić się, że wykonano również kroki opisane w temacie [Zastosuj konfigurację z prywatnego repozytorium git](https://github.com/Azure/azure-arc-kubernetes-preview/blob/master/docs/use-gitops-in-connected-cluster.md#apply-configuration-from-a-private-git-repository) .
+W przypadku kojarzenia repozytorium prywatnego należy upewnić się, że wykonano również kroki opisane w temacie [Zastosuj konfigurację z prywatnego repozytorium git](#apply-configuration-from-a-private-git-repository) .
 
 ### <a name="using-azure-cli"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure
 
@@ -145,9 +145,9 @@ Opcje obsługiwane w--operator-params
 
 * Jeśli enableHelmOperator ma wartość true, wówczas ciągi operatorInstanceName + operatorNamespace nie mogą zawierać więcej niż 47 znaków.  W przypadku niepowodzenia przestrzegania tego limitu zostanie wyświetlony następujący błąd:
 
-```console
-{"OperatorMessage":"Error: {failed to install chart from path [helm-operator] for release [<operatorInstanceName>-helm-<operatorNamespace>]: err [release name \"<operatorInstanceName>-helm-<operatorNamespace>\" exceeds max length of 53]} occurred while doing the operation : {Installing the operator} on the config","ClusterState":"Installing the operator"}
-```
+   ```console
+   {"OperatorMessage":"Error: {failed to install chart from path [helm-operator] for release [<operatorInstanceName>-helm-<operatorNamespace>]: err [release name \"<operatorInstanceName>-helm-<operatorNamespace>\" exceeds max length of 53]} occurred while doing the operation : {Installing the operator} on the config","ClusterState":"Installing the operator"}
+   ```
 
 Aby uzyskać więcej informacji, zobacz [dokumentację strumienia](https://aka.ms/FluxcdReadme).
 

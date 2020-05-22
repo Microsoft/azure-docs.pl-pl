@@ -4,12 +4,12 @@ description: Włącz automatyczne skalowanie w puli w chmurze, aby dynamicznie d
 ms.topic: how-to
 ms.date: 10/24/2019
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: 786bd594b3344ce144893161ade9d53d1bddf358
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: ad1bf47cd2b9d8db950154b5a36786c294549566
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726812"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780242"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Utwórz automatyczną formułę skalowania węzłów obliczeniowych w puli usługi Batch
 
@@ -22,7 +22,7 @@ Skalowanie automatyczne można włączyć podczas tworzenia puli lub w istnieją
 W tym artykule omówiono różne jednostki, które tworzą formuły automatycznego skalowania, w tym zmienne, operatory, operacje i funkcje. Omawiamy, jak uzyskać różne metryki zasobów i zadań obliczeniowych w usłudze Batch. Za pomocą tych metryk można dostosować liczbę węzłów puli w zależności od użycia zasobów i stanu zadania. Następnie opisano sposób konstruowania formuły i włączania automatycznego skalowania w puli przy użyciu interfejsów API REST i platformy .NET. Na koniec zakończymy kilka przykładowych formuł.
 
 > [!IMPORTANT]
-> Podczas tworzenia konta usługi Batch można określić [konfigurację konta](batch-api-basics.md#account), która decyduje o tym, czy pule są przydzieleni w ramach subskrypcji usługi Batch (wartość domyślna), czy w ramach subskrypcji użytkownika. Jeśli konto usługi Batch zostało utworzone z domyślną konfiguracją usług Batch, konto jest ograniczone do maksymalnej liczby rdzeni, które mogą być używane do przetwarzania. Usługa Batch skaluje węzły obliczeniowe tylko do tego limitu podstawowego. Z tego powodu usługa Batch może nie dotrzeć do docelowej liczby węzłów obliczeniowych określonych przez formułę skalowania automatycznego. Zobacz [przydziały i limity dla usługi Azure Batch,](batch-quota-limit.md) Aby uzyskać informacje na temat przeglądania i zwiększania limitów przydziału konta.
+> Podczas tworzenia konta usługi Batch można określić [konfigurację konta](accounts.md), która decyduje o tym, czy pule są przydzieleni w ramach subskrypcji usługi Batch (wartość domyślna), czy w ramach subskrypcji użytkownika. Jeśli konto usługi Batch zostało utworzone z domyślną konfiguracją usług Batch, konto jest ograniczone do maksymalnej liczby rdzeni, które mogą być używane do przetwarzania. Usługa Batch skaluje węzły obliczeniowe tylko do tego limitu podstawowego. Z tego powodu usługa Batch może nie dotrzeć do docelowej liczby węzłów obliczeniowych określonych przez formułę skalowania automatycznego. Zobacz [przydziały i limity dla usługi Azure Batch,](batch-quota-limit.md) Aby uzyskać informacje na temat przeglądania i zwiększania limitów przydziału konta.
 >
 >Jeśli konto zostało utworzone przy użyciu konfiguracji subskrypcji użytkownika, Twoje konto ma udział w podstawowym limicie przydziału dla subskrypcji. Aby uzyskać więcej informacji, zobacz sekcję [Virtual Machines limits (Limity maszyn wirtualnych)](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits) w artykule [Azure subscription and service limits, quotas, and constraints (Ograniczenia, przydziały i limity usług i subskrypcji platformy Azure)](../azure-resource-manager/management/azure-subscription-service-limits.md).
 >
@@ -212,7 +212,7 @@ Te wstępnie zdefiniowane **funkcje** są dostępne do użycia podczas definiowa
 | Time (ciąg dateTime = "") |sygnatura czasowa |Zwraca sygnaturę czasową bieżącego czasu, jeśli nie są spełnione żadne parametry lub sygnaturę czasową ciągu dateTime, jeśli został on zakończony. Obsługiwane formaty dateTime to W3C-DTF i RFC 1123. |
 | Val (doubleVec v, podwójne i) |double |Zwraca wartość elementu, który znajduje się w lokalizacji i w wektorze v, z indeksem początkowym równym zero. |
 
-Niektóre funkcje, które są opisane w poprzedniej tabeli, mogą akceptować listę jako argument. Rozdzielana przecinkami lista jest dowolną kombinacją wartości *Double* i *doubleVec*. Na przykład:
+Niektóre funkcje, które są opisane w poprzedniej tabeli, mogą akceptować listę jako argument. Rozdzielana przecinkami lista jest dowolną kombinacją wartości *Double* i *doubleVec*. Przykład:
 
 `doubleVecList := ( (double | doubleVec)+(, (double | doubleVec) )* )?`
 
@@ -232,7 +232,7 @@ $CPUPercent.GetSample(TimeInterval_Minute * 5)
 | GetSamplePeriod() |Zwraca okres próbkowania, które zostały wykonane w historycznym zestawie danych przykładowych. |
 | Count () |Zwraca łączną liczbę próbek w historii metryk. |
 | HistoryBeginTime() |Zwraca sygnaturę czasową najstarszego dostępnego przykładu danych dla metryki. |
-| GetSamplePercent() |Zwraca wartość procentową próbek, które są dostępne dla danego interwału czasu. Na przykład:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Ponieważ `GetSample` Metoda kończy się niepowodzeniem, jeśli wartość procentowa zwracanych próbek jest mniejsza niż `samplePercent` określona, można użyć `GetSamplePercent` metody do sprawdzenia w pierwszej kolejności. Następnie można wykonać alternatywną akcję, jeśli istnieją niewystarczające próbki, bez zatrzymania automatycznej oceny skalowania. |
+| GetSamplePercent() |Zwraca wartość procentową próbek, które są dostępne dla danego interwału czasu. Przykład:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Ponieważ `GetSample` Metoda kończy się niepowodzeniem, jeśli wartość procentowa zwracanych próbek jest mniejsza niż `samplePercent` określona, można użyć `GetSamplePercent` metody do sprawdzenia w pierwszej kolejności. Następnie można wykonać alternatywną akcję, jeśli istnieją niewystarczające próbki, bez zatrzymania automatycznej oceny skalowania. |
 
 ### <a name="samples-sample-percentage-and-the-getsample-method"></a>Przykłady, przykładowa wartość procentowa i Metoda *getsample ()*
 Podstawową operacją formułę skalowania automatycznego jest uzyskanie danych metryk zadania i zasobu, a następnie dopasowanie rozmiaru puli na podstawie tych danych. W związku z tym ważne jest, aby jasno zrozumieć, jak formuły skalowania automatycznego współdziałają z danymi metryk (przykładami).
@@ -257,7 +257,7 @@ Aby to zrobić, użyj funkcji `GetSample(interval look-back start, interval look
 $runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 6 * TimeInterval_Minute);
 ```
 
-Gdy powyższy wiersz jest oceniany przez partię, zwraca zakres próbek jako wektor wartości. Na przykład:
+Gdy powyższy wiersz jest oceniany przez partię, zwraca zakres próbek jako wektor wartości. Przykład:
 
 ```
 $runningTasksSample=[1,1,1,1,1,1,1,1,1,1];
@@ -462,7 +462,7 @@ response = batch_service_client.pool.enable_auto_scale(pool_id, auto_scale_formu
 
 ## <a name="enable-autoscaling-on-an-existing-pool"></a>Włącz Skalowanie automatyczne w istniejącej puli
 
-Każdy zestaw SDK w usłudze Batch umożliwia włączenie skalowania automatycznego. Na przykład:
+Każdy zestaw SDK w usłudze Batch umożliwia włączenie skalowania automatycznego. Przykład:
 
 * [BatchClient. PoolOperations. EnableAutoScaleAsync][net_enableautoscaleasync] (Batch .NET)
 * [Włącz automatyczne skalowanie w puli][rest_enableautoscale] (interfejs API REST)

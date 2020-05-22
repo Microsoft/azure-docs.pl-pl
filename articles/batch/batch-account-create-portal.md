@@ -4,18 +4,18 @@ description: Dowiedz się, jak utworzyć konto usługi Azure Batch w portalu Azu
 ms.topic: how-to
 ms.date: 02/26/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e01c62270fc0195c430150a534df2a141808ffa6
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: adc333498e0b3074aaa40d40e076ae62c1759524
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726931"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83778586"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Tworzenie konta usługi Batch w witrynie Azure Portal
 
 Dowiedz się, jak utworzyć konto usługi Azure Batch w witrynie [Azure Portal][azure_portal] i wybrać właściwości konta pasujące do scenariusza obliczeniowego. Dowiedz się, gdzie znaleźć ważne właściwości konta, takie jak klucze dostępu i adresy URL konta.
 
-Ogólne informacje o kontach usługi Batch i scenariuszach można znaleźć w [omówieniu funkcji](batch-api-basics.md).
+Aby uzyskać ogólne informacje o kontach i scenariuszach usługi Batch, zobacz [przepływ pracy i zasoby usług Batch](batch-service-workflow-features.md).
 
 ## <a name="create-a-batch-account"></a>Tworzenie konta usługi Batch
 
@@ -39,7 +39,7 @@ Ogólne informacje o kontach usługi Batch i scenariuszach można znaleźć w [o
 
     d. **Lokalizacja**: region świadczenia usługi Azure, w którym ma zostać utworzone konto usługi Batch. Tylko regiony obsługiwane przez subskrypcję i grupę zasobów są wyświetlane jako opcje.
 
-    e. **Konto magazynu**: opcjonalne konto magazynu platformy Azure skojarzone z kontem usługi Batch. Aby uzyskać najlepszą wydajność, zaleca się użycie konta magazynu ogólnego przeznaczenia w wersji 2. Opis wszystkich opcji konta magazynu w usłudze Batch można znaleźć w temacie [Omówienie funkcji usługi Batch](batch-api-basics.md#azure-storage-account). W portalu wybierz istniejące konto magazynu lub utwórz nowe.
+    e. **Konto magazynu**: opcjonalne konto magazynu platformy Azure skojarzone z kontem usługi Batch. Aby uzyskać najlepszą wydajność, zaleca się użycie konta magazynu ogólnego przeznaczenia w wersji 2. Opis wszystkich opcji konta magazynu w usłudze Batch można znaleźć w temacie [Omówienie funkcji usługi Batch](accounts.md#azure-storage-accounts). W portalu wybierz istniejące konto magazynu lub utwórz nowe.
 
       ![Tworzenie konta magazynu][storage_account]
 
@@ -136,7 +136,7 @@ Poza korzystaniem z witryny Azure Portal można tworzyć konta usługi Batch i z
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej o zasadach działania i funkcjach usługi Batch, zobacz temat [Omówienie funkcji usługi Batch](batch-api-basics.md). W artykule omówiono podstawowe zasoby usługi Batch, takie jak pule, węzły obliczeniowe, zadania i podzadania, oraz opisano funkcje dla obciążeń zasobów obliczeniowych na dużą skalę.
+* Dowiedz się więcej o [przepływie pracy usługi Batch i zasobach podstawowych](batch-service-workflow-features.md) , takich jak pule, węzły, zadania i zadania.
 * Poznaj podstawy tworzenia aplikacji wykorzystujących usługę Batch za pomocą biblioteki klienta [Batch .NET](quick-run-dotnet.md) lub języka [Python](quick-run-python.md). Te przewodniki Szybki start zawierają omówienie przykładowej aplikacji, która korzysta z usługi Batch do wykonywania obciążenia na wielu węzłach obliczeniowych i stosuje usługę Azure Storage do tymczasowego przechowywania i pobierania pliku obciążenia.
 
 [azure_portal]: https://portal.azure.com

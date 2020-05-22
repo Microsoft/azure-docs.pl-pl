@@ -3,16 +3,16 @@ title: Używanie maszyn wirtualnych platformy Azure intensywnie korzystających 
 description: Jak korzystać z systemu HPC i rozmiaru maszyny wirtualnej procesora GPU w pulach Azure Batch. Dowiedz się więcej o zależnościach systemu operacyjnego i zobacz kilka przykładów scenariusza.
 ms.topic: how-to
 ms.date: 12/17/2018
-ms.openlocfilehash: 04e39678c77604bca4194bebc7968c5c43fb019c
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 7abe3c9bd689b20f608ad40105c1bb4d7108dbc6
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724092"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779745"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Używanie wystąpień RDMA lub GPU w pulach wsadowym
 
-Do uruchamiania pewnych zadań wsadowych można korzystać z rozmiarów maszyn wirtualnych platformy Azure przeznaczonych do obliczeń na dużą skalę. Na przykład:
+Do uruchamiania pewnych zadań wsadowych można korzystać z rozmiarów maszyn wirtualnych platformy Azure przeznaczonych do obliczeń na dużą skalę. Przykład:
 
 * Aby uruchomić wiele wystąpień [obciążeń MPI](batch-mpi.md), wybierz serię H lub inne rozmiary, które mają interfejs sieciowy do zdalnego bezpośredniego dostępu do pamięci (RDMA). Rozmiary te łączą się z siecią InfiniBand w celu komunikacji między węzłami, co umożliwia przyspieszenie aplikacji MPI. 
 
@@ -79,7 +79,7 @@ Aby skonfigurować wyspecjalizowany rozmiar maszyny wirtualnej dla puli usługi 
 
 * Utwórz [niestandardowy obraz maszyny wirtualnej z systemem Windows lub Linux](batch-sig-images.md) , na którym zainstalowano sterowniki, oprogramowanie lub inne ustawienia wymagane dla rozmiaru maszyny wirtualnej. 
 
-* Utwórz [pakiet aplikacji](batch-application-packages.md) usługi Batch na podstawie skompresowanego sterownika lub Instalatora aplikacji, a następnie skonfiguruj usługę Batch do wdrożenia pakietu w węzłach puli i zainstaluj raz podczas tworzenia każdego węzła. Na przykład jeśli pakiet aplikacji jest instalatorem, Utwórz wiersz polecenia [Uruchom zadanie](batch-api-basics.md#start-task) , aby zainstalować aplikację w trybie dyskretnym. Rozważ użycie pakietu aplikacji i zadania uruchamiania puli, jeśli obciążenie zależy od określonej wersji sterownika.
+* Utwórz [pakiet aplikacji](batch-application-packages.md) usługi Batch na podstawie skompresowanego sterownika lub Instalatora aplikacji, a następnie skonfiguruj usługę Batch do wdrożenia pakietu w węzłach puli i zainstaluj raz podczas tworzenia każdego węzła. Na przykład jeśli pakiet aplikacji jest instalatorem, Utwórz wiersz polecenia [Uruchom zadanie](jobs-and-tasks.md#start-task) , aby zainstalować aplikację w trybie dyskretnym. Rozważ użycie pakietu aplikacji i zadania uruchamiania puli, jeśli obciążenie zależy od określonej wersji sterownika.
 
   > [!NOTE] 
   > Zadanie uruchamiania musi działać z podniesionymi uprawnieniami (administratora) i musi oczekiwać na powodzenie. Długotrwałe zadania spowodują wydłużenie czasu na zainicjowanie puli wsadowej.

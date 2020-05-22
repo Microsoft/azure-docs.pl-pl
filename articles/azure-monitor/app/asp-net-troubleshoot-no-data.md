@@ -2,13 +2,13 @@
 title: Rozwiązywanie problemów z brakiem danych — usługa Application Insights dla platformy .NET
 description: Nie widzisz danych w usłudze Azure Application Insights? Spróbuj tutaj.
 ms.topic: conceptual
-ms.date: 07/23/2018
-ms.openlocfilehash: 34fc51f8f656ec0f630bd984ac1b28fbaa5e4dae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/21/2020
+ms.openlocfilehash: 2770888c6cfacedcf186ed1612718133cc1ba363
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80802590"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83778675"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Rozwiązywanie problemów z brakiem danych — Application Insights dla platformy .NET/.NET Core
 
@@ -127,13 +127,13 @@ Wiązane
   ![](./media/asp-net-troubleshoot-no-data/output-window.png)
 * W portalu Application Insights Otwórz pozycję [Wyszukiwanie diagnostyczne](../../azure-monitor/app/diagnostic-search.md). Dane zazwyczaj pojawiają się w tym miejscu jako pierwsze.
 * Kliknij przycisk Odśwież. Blok jest odświeżany okresowo, ale można go również wykonać ręcznie. Interwał odświeżania jest dłuższy dla większych zakresów czasu.
-* Sprawdź, czy klucze Instrumentacji są zgodne. W głównym bloku aplikacji w portalu Application Insights, na liście rozwijanej **podstawowe** , zapoznaj się z **kluczem Instrumentacji**. Następnie w projekcie w programie Visual Studio Otwórz plik ApplicationInsights. config i Znajdź `<instrumentationkey>`. Sprawdź, czy dwa klucze są równe. Jeśli nie:  
+* Sprawdź, czy klucze Instrumentacji są zgodne. W głównym bloku aplikacji w portalu Application Insights, na liście rozwijanej **podstawowe** , zapoznaj się z **kluczem Instrumentacji**. Następnie w projekcie w programie Visual Studio Otwórz plik ApplicationInsights. config i Znajdź `<instrumentationkey>` . Sprawdź, czy dwa klucze są równe. Jeśli nie:  
   * W portalu kliknij Application Insights i wyszukaj zasób aplikacji z właściwym kluczem; oraz
   * W programie Visual Studio Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt, a następnie wybierz pozycję Application Insights, skonfiguruj. Zresetuj aplikację, aby wysłać dane telemetryczne do odpowiedniego zasobu.
   * Jeśli nie możesz znaleźć pasujących kluczy, sprawdź, czy używasz tych samych poświadczeń logowania w programie Visual Studio jak w portalu.
 * Na [głównym pulpicie nawigacyjnym Microsoft Azure](https://portal.azure.com)obejrzyj mapę Service Health. Jeśli istnieją jakieś wskazania alertów, poczekaj, aż powróci do programu OK, a następnie zamknij i ponownie otwórz blok aplikacji Application Insights.
 * Sprawdź również [nasz blog o stanie](https://blogs.msdn.microsoft.com/servicemap-status/).
-* Czy piszesz kod dla [zestawu SDK po stronie serwera](../../azure-monitor/app/api-custom-events-metrics.md) , który może zmienić klucz Instrumentacji w `TelemetryClient` wystąpieniach lub w `TelemetryContext`? Lub napisać [Filtr lub konfigurację próbkowania](../../azure-monitor/app/api-filtering-sampling.md) , która może być zbyt duża?
+* Czy piszesz kod dla [zestawu SDK po stronie serwera](../../azure-monitor/app/api-custom-events-metrics.md) , który może zmienić klucz Instrumentacji w `TelemetryClient` wystąpieniach lub w `TelemetryContext` ? Lub napisać [Filtr lub konfigurację próbkowania](../../azure-monitor/app/api-filtering-sampling.md) , która może być zbyt duża?
 * Jeśli edytowano plik ApplicationInsights. config, należy uważnie sprawdzić konfigurację [TelemetryInitializers i TelemetryProcessors](../../azure-monitor/app/api-filtering-sampling.md). Nieprawidłowo nazwany typ lub parametr może spowodować, że zestaw SDK nie wyśle danych.
 
 ## <a name="no-data-on-page-views-browsers-usage"></a><a name="q04"></a>Brak danych w widokach stron, przeglądarkach, użyciu
@@ -143,7 +143,7 @@ Dane pochodzą ze skryptów na stronach sieci Web.
 
 * Jeśli dodano Application Insights do istniejącego projektu sieci Web, [należy ręcznie dodać skrypty](../../azure-monitor/app/javascript.md).
 * Upewnij się, że w programie Internet Explorer nie jest wyświetlana witryna w trybie zgodności.
-* Użyj funkcji debugowania przeglądarki (F12 w niektórych przeglądarkach, a następnie wybierz sieć), aby sprawdzić, czy dane są wysyłane `dc.services.visualstudio.com`do.
+* Użyj funkcji debugowania przeglądarki (F12 w niektórych przeglądarkach, a następnie wybierz sieć), aby sprawdzić, czy dane są wysyłane do `dc.services.visualstudio.com` .
 
 ## <a name="no-dependency-or-exception-data"></a>Brak zależności lub danych wyjątków
 Zobacz [Telemetria zależności](../../azure-monitor/app/asp-net-dependencies.md) i [telemetrię wyjątku](asp-net-exceptions.md).
@@ -247,6 +247,14 @@ Parametry te można modyfikować stosownie do wymagań:
 Aby uzyskać więcej informacji,
 - [Rejestrowanie śladów wydajności za pomocą narzędzia PerfView](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView).
 - [Application Insights źródła zdarzeń](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/ETW)
+
+## <a name="collect-logs-with-dotnet-trace"></a>Zbieranie dzienników przy użyciu funkcji monitorowania dotnet
+
+Alternatywna metoda zbierania dzienników na potrzeby rozwiązywania problemów, które mogą być szczególnie przydatne w przypadku środowisk opartych na systemie Linux, to[`dotnet-trace`](https://docs.microsoft.com/dotnet/core/diagnostics/dotnet-trace)
+
+```bash
+dotnet-trace collect --process-id <PID> --providers Microsoft-ApplicationInsights-Core,Microsoft-ApplicationInsights-Data,Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel,Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Dependency,Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Web,Microsoft-ApplicationInsights-Extensibility-DependencyCollector,Microsoft-ApplicationInsights-Extensibility-HostingStartup,Microsoft-ApplicationInsights-Extensibility-PerformanceCollector,Microsoft-ApplicationInsights-Extensibility-EventCounterCollector,Microsoft-ApplicationInsights-Extensibility-PerformanceCollector-QuickPulse,Microsoft-ApplicationInsights-Extensibility-Web,Microsoft-ApplicationInsights-Extensibility-WindowsServer,Microsoft-ApplicationInsights-WindowsServer-Core,Microsoft-ApplicationInsights-Extensibility-EventSourceListener,Microsoft-ApplicationInsights-AspNetCore
+```
 
 ## <a name="how-to-remove-application-insights"></a>Jak usunąć Application Insights
 

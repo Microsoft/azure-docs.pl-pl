@@ -4,12 +4,12 @@ description: Skorzystaj z szybkiego wprowadzenia do poleceń usługi Batch w int
 ms.topic: how-to
 ms.date: 07/24/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c9aa9a43dd036b4a547d1bff85b4431afcf74e23
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 2bb3dd2e67c3c3bf9139a25935ab0dd074799c6f
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726795"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780225"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Zarządzanie zasobami usługi Batch przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -28,7 +28,7 @@ Możesz uruchomić najnowszy interfejs wiersza polecenia platformy Azure w usłu
 
 ## <a name="command-help"></a>Pomoc związana z poleceniami
 
-Możesz wyświetlić tekst pomocy dla każdego polecenia w interfejsie wiersza polecenia platformy Azure, dodając do polecenia opcję `-h`. Pomiń wszelkie inne opcje. Na przykład:
+Możesz wyświetlić tekst pomocy dla każdego polecenia w interfejsie wiersza polecenia platformy Azure, dodając do polecenia opcję `-h`. Pomiń wszelkie inne opcje. Przykład:
 
 * Aby uzyskać pomoc dotyczącą polecenia `az`, wprowadź: `az -h`
 * Aby uzyskać listę wszystkich poleceń usługi Batch w interfejsie wiersza polecenia, użyj: `az batch -h`
@@ -111,7 +111,7 @@ Zobacz [przykłady skryptów interfejsów wiersza polecenia](cli-samples.md) dla
 
 ## <a name="json-files-for-resource-creation"></a>Pliki JSON do tworzenia zasobów
 
-Podczas tworzenia zasobów usługi Batch, np. puli i zadań, możesz określić plik JSON zawierający konfiguracje nowego zasobu, zamiast przekazywać parametry zasobu w opcjach wiersza polecenia. Na przykład:
+Podczas tworzenia zasobów usługi Batch, np. puli i zadań, możesz określić plik JSON zawierający konfiguracje nowego zasobu, zamiast przekazywać parametry zasobu w opcjach wiersza polecenia. Przykład:
 
 ```azurecli
 az batch pool create my_batch_pool.json
@@ -162,9 +162,9 @@ Poniższe porady mogą być pomocne w przypadku rozwiązywania problemów związ
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure).
-* Aby uzyskać więcej informacji o zasobach usługi Batch, zobacz [Omówienie usługi Azure Batch dla deweloperów](batch-api-basics.md).
-* Aby uzyskać więcej informacji o tworzeniu pul, zadań i zadań podrzędnych przy użyciu szablonów usługi Batch bez konieczności pisania kodu, zobacz [Use Azure Batch CLI Templates and File Transfer (Korzystanie z szablonów interfejsu wiersza polecenia usługi Azure Batch i transferu plików)](batch-cli-templates.md).
+* Zapoznaj się z [dokumentacją interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure).
+* Dowiedz się więcej o [przepływie pracy usługi Batch i zasobach podstawowych](batch-service-workflow-features.md) , takich jak pule, węzły, zadania i zadania.
+* Dowiedz się więcej o korzystaniu z szablonów usługi Batch do tworzenia pul, zadań i zadań bez pisania kodu w programie [, Azure Batch szablonów interfejsu wiersza polecenia i transfer plików](batch-cli-templates.md).
 
 [github_readme]: https://github.com/Azure/azure-xplat-cli/blob/dev/README.md
 [rest_api]: https://msdn.microsoft.com/library/azure/dn820158.aspx

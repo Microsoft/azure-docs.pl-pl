@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 9e93d4b3f1880f2ac56a32a7b85aa6801fb7c14e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e3d4ca6f8e67f069bffcd27563d7f32b55f6591e
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78205110"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780510"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Samouczek: Konfigurowanie usługi ServiceNow na potrzeby automatycznego aprowizacji użytkowników
 
@@ -141,10 +141,9 @@ Po skonfigurowaniu aprowizacji Użyj następujących zasobów do monitorowania w
 * **InvalidLookupReference:** W przypadku inicjowania obsługi niektórych atrybutów, takich jak dział i lokalizacja w usługi ServiceNow, wartości muszą już istnieć w tabeli referencyjnej w usługi ServiceNow. Na przykład możesz mieć dwie lokalizacje (Seattle, Los Angeles) i trzy działy (sprzedaż, finanse, Marketing) w tabeli **Wstaw nazwę tabeli** w usługi ServiceNow. Jeśli próbujesz zainicjować obsługę administracyjną użytkownika, gdzie jego dział jest "sprzedaż", a lokalizacja to "Seattle", zostanie ona zainicjowana pomyślnie. W przypadku próby aprowizacji użytkownika z działem "sprzedaż" i lokalizacją "LA" użytkownik nie zostanie zainicjowany. Lokalizację LA należy dodać do tabeli referencyjnej w usługi ServiceNow lub atrybut użytkownika w usłudze Azure AD musi zostać zaktualizowany w taki sposób, aby był zgodny z formatem w usługi ServiceNow. 
 * **EntryJoiningPropertyValueIsMissing:** Przejrzyj [mapowania atrybutów](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) , aby zidentyfikować pasujący atrybut. Ta wartość musi być obecna dla użytkownika lub grupy, którą próbujesz udostępnić. 
 * Zapoznaj się z [interfejsem API protokołu SOAP usługi ServiceNow](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) , aby poznać wszelkie wymagania lub ograniczenia (na przykład format, aby określić kod kraju dla użytkownika).
-* Niektóre wdrożenia usługi ServiceNow wymagają zezwolenia na zakresy adresów IP dla usługi Azure AD Provisioning. Zarezerwowane zakresy adresów IP dla usługi Azure AD Provisioning można znaleźć w [tym miejscu](https://www.microsoft.com/download/details.aspx?id=56519) w obszarze "AzureActiveDirectoryDomainServices".
 * Żądania aprowizacji są domyślnie wysyłane do protokołu https://{nazwa wystąpienia}. Service-Now. com/{Table-Name}. Jeśli potrzebujesz niestandardowego adresu URL dzierżawy, możesz podać cały adres URL w polu Nazwa wystąpienia.
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Zarządzanie obsługą kont użytkowników w aplikacjach dla przedsiębiorstw](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: e3af10e5e9b56b537fedf0af7ffa7ddb37030c73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ca5ba8d7b2d78440401e29344361538c3650ba48
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189185"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779179"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Magazyn danych i ruch przychodzący w wersji zapoznawczej Azure Time Series Insights
 
@@ -58,10 +58,10 @@ Obsługiwane typy danych to:
 
 | Typ danych | Opis |
 |---|---|
-| **bool** | Typ danych, który ma jeden z dwóch `true` Stanów `false`: lub. |
+| **bool** | Typ danych, który ma jeden z dwóch stanów: `true` lub `false` . |
 | **Datę** | Reprezentuje chwilę w czasie, zwykle wyrażoną jako datę i godzinę dnia. Wyrażony w formacie [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) . |
 | **double** | Podwójnie precyzyjne 64-bitowe [IEEE 754](https://ieeexplore.ieee.org/document/8766229) zmiennoprzecinkowe. |
-| **parametry** | Wartości tekstowe składające się z znaków Unicode.          |
+| **ciąg** | Wartości tekstowe składające się z znaków Unicode.          |
 
 #### <a name="objects-and-arrays"></a>Obiekty i tablice
 
@@ -78,6 +78,17 @@ Zalecamy stosowanie następujących najlepszych rozwiązań:
 * [Zaplanuj potrzeby skalowania](time-series-insights-update-plan.md) , obliczając przewidywany wskaźnik pozyskiwania i sprawdzając, czy znajduje się on w ramach obsługiwanej stawki wymienionej poniżej.
 
 * Dowiedz się, jak optymalizować i kształtować dane JSON, a także bieżące ograniczenia w wersji zapoznawczej, odczytując [Informacje o sposobie tworzenia kształtu JSON dla](./time-series-insights-update-how-to-shape-events.md)ruchu przychodzącego i zapytań.
+
+* Używaj pozyskiwania strumieniowego w przypadku niemal czasu rzeczywistego i ostatnich danych, ale dane historyczne przesyłania strumieniowego nie są obsługiwane.
+
+#### <a name="historical-data-ingestion"></a>Pozyskiwanie danych historycznych
+
+Korzystanie z potoku przesyłania strumieniowego do importowania danych historycznych nie jest obecnie obsługiwane w wersji zapoznawczej Azure Time Series Insights. Jeśli zachodzi potrzeba zaimportowania wcześniejszych danych do środowiska, postępuj zgodnie z poniższymi wskazówkami:
+
+* Nie przesyłaj jednocześnie danych na żywo i historyczne. Pozyskanie danych z kolejności nie spowoduje obniżenia wydajności zapytań.
+* Pozyskiwanie danych historycznych w uporządkowany czas w celu uzyskania najlepszej wydajności.
+* Poniżej znajdują się limity przepływności pozyskiwania.
+* Wyłącz sklep ciepły, jeśli dane są starsze niż okres przechowywania w sklepie eksploatacyjnym.
 
 ### <a name="ingress-scale-and-preview-limitations"></a>Ograniczenia skali i wersji zapoznawczej
 
@@ -101,7 +112,7 @@ Domyślnie Time Series Insights w wersji zapoznawczej można pozyskać dane przy
  
 * **Przykład 1:**
 
-    Wysyłka firmy Contoso obejmuje 100 000 urządzeń, które emitują wydarzenie trzy razy na minutę. Rozmiar zdarzenia to 200 bajtów. Korzystają one z usługi IoT Hub z czterema partycjami jako źródłem zdarzeń Time Series Insights.
+    Wysyłka firmy Contoso obejmuje 100 000 urządzeń, które emitują wydarzenie trzy razy na minutę. Rozmiar zdarzenia to 200 bajtów. Używają IoT Hub z czterema partycjami jako Time Series Insights źródłem zdarzenia.
 
     * Szybkość pozyskiwania dla środowiska Time Series Insights: **100 000 urządzeń * 200 bajtów/zdarzenia * (3/60 Event/s) = 1 MB/s**.
     * Szybkość pozyskiwania na partycję 0,25 MB/s.
@@ -219,7 +230,7 @@ Time Series Insights w wersji zapoznawczej przechowuje kopie danych w następuj�
 
   `V=1/PT=Time/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
 
-* Druga kopia z podziałem na partycje jest pogrupowana według identyfikatorów szeregów czasowych i znajduje się `PT=TsId` w folderze:
+* Druga kopia z podziałem na partycje jest pogrupowana według identyfikatorów szeregów czasowych i znajduje się w `PT=TsId` folderze:
 
   `V=1/PT=TsId/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
 
@@ -229,14 +240,14 @@ W obu przypadkach Właściwość Time pliku Parquet odpowiada czasowi utworzenia
 >
 > * `<YYYY>`mapuje do czwartej reprezentacji rocznej.
 > * `<MM>`mapuje na dwucyfrowe reprezentację miesiąca.
-> * `<YYYYMMDDHHMMSSfff>`mapuje do sygnatury czasowej z`YYYY`czterocyfrowym rokiem (), dwucyfrowym miesiącem (`MM`), dwucyfrowym dniem (`DD`), dwucyfrowym godzinem`HH`(), dwucyfrowym (`MM`), dwucyfrowym (`SS`) i 3-cyfrowym milisekundy (`fff`).
+> * `<YYYYMMDDHHMMSSfff>`mapuje do sygnatury czasowej z czterocyfrowym rokiem ( `YYYY` ), dwucyfrowym miesiącem ( `MM` ), dwucyfrowym dniem ( `DD` ), dwucyfrowym godzinem ( `HH` ), dwucyfrowym ( `MM` ), dwucyfrowym ( `SS` ) i 3-cyfrowym milisekundy ( `fff` ).
 
 Zdarzenia w wersji zapoznawczej Time Series Insights są mapowane do zawartości pliku Parquet w następujący sposób:
 
 * Każde zdarzenie jest mapowane na jeden wiersz.
 * Każdy wiersz zawiera kolumnę **timestamp** z sygnaturą czasową zdarzenia. Właściwość sygnatury czasowej nigdy nie ma wartości null. Wartość domyślna zdarzenia jest umieszczana w **kolejce czasu** , jeśli właściwość sygnatura czasowa nie została określona w źródle zdarzenia. Sygnatura czasowa przechowywana jest zawsze w formacie UTC.
 * Każdy wiersz zawiera kolumny identyfikatora szeregów czasowych (TSID), zgodnie z definicją podczas tworzenia środowiska Time Series Insights. Nazwa właściwości identyfikatora TSID zawiera `_string` sufiks.
-* Wszystkie inne właściwości wysyłane jako dane telemetryczne są mapowane na nazwy kolumn kończące się `_string` znakiem `_bool` (String), `_datetime` (wartość logiczna), `_double` (DateTime) lub (Double), w zależności od typu właściwości.
+* Wszystkie inne właściwości wysyłane jako dane telemetryczne są mapowane na nazwy kolumn kończące się znakiem `_string` (String), `_bool` (wartość logiczna), `_datetime` (DateTime) lub `_double` (Double), w zależności od typu właściwości.
 * Ten schemat mapowania dotyczy pierwszej wersji formatu pliku, do którego odwołuje się wartość **V = 1** i jest przechowywana w folderze podstawowym o tej samej nazwie. W miarę rozwoju tej funkcji ten schemat mapowania może ulec zmianie, a Nazwa odwołania jest zwiększana.
 
 ## <a name="next-steps"></a>Następne kroki

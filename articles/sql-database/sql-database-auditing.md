@@ -1,5 +1,5 @@
 ---
-title: Inspekcja usługi Azure SQL
+title: Inspekcja usługi Azure SQL dla Azure SQL Database i usługi Azure Synapse Analytics
 description: Funkcja inspekcji usługi Azure SQL Database umożliwia śledzenie zdarzeń bazy danych w dzienniku inspekcji.
 services: sql-database
 ms.service: sql-database
@@ -10,14 +10,14 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/27/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 57c4b22dfe6ef6cf44be64a4b5c042403f64ccf2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6ff888cb1a2f2486fec7b387d9f9f02029b03aab
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82096660"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779062"
 ---
-# <a name="azure-sql-auditing"></a>Inspekcja usługi Azure SQL
+# <a name="azure-sql-auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Inspekcja usługi Azure SQL dla Azure SQL Database i usługi Azure Synapse Analytics
 
 Inspekcja dla usługi Azure [SQL Database](sql-database-technical-overview.md) i [usługi Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) śledzi zdarzenia bazy danych i zapisuje je w dzienniku inspekcji na koncie usługi Azure Storage, log Analytics obszarze roboczym lub Event Hubs. 
 
@@ -174,7 +174,7 @@ W przypadku wybrania opcji zapisania dzienników inspekcji na koncie usługi Azu
 - Użyj funkcji system **sys. fn_get_audit_file** (T-SQL), aby zwrócić dane dziennika inspekcji w formacie tabelarycznym. Aby uzyskać więcej informacji na temat korzystania z tej funkcji, zobacz [sys. fn_get_audit_file](/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 - Użyj **plików inspekcji scalania** w SQL Server Management Studio (począwszy od programu SSMS 17):
-    1. Z menu programu SSMS wybierz pozycję **plik** > **Otwórz** > **pliki inspekcji scalania**.
+    1. Z menu programu SSMS wybierz pozycję **plik**  >  **Otwórz**  >  **pliki inspekcji scalania**.
 
         ![Okienko nawigacji](./media/sql-database-auditing-get-started/9_auditing_get_started_ssms_1.png)
     2. Zostanie otwarte okno dialogowe **Dodawanie plików inspekcji** . Wybierz jedną z opcji **dodawania** , aby wybrać, czy pliki inspekcji mają być scalane z dysku lokalnego, czy też zaimportować je z usługi Azure Storage. Musisz podać szczegóły i klucz konta usługi Azure Storage.

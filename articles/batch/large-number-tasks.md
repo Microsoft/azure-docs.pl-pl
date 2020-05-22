@@ -3,12 +3,12 @@ title: Przesyłanie dużej liczby zadań
 description: Jak efektywnie przesłać bardzo dużą liczbę zadań w pojedynczym Azure Batch zadania
 ms.topic: how-to
 ms.date: 08/24/2018
-ms.openlocfilehash: 42b7d0586139b3d03569374615945047b42a2520
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 46ab5e8879167a1808c51d4c4cd5c7071cb67cff
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725690"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83778954"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Przesyłanie dużej liczby zadań do zadania wsadowego
 
@@ -41,7 +41,7 @@ Maksymalny rozmiar kolekcji zadań, którą można dodać w pojedynczym wywołan
 
 Dodanie dużej kolekcji zadań do zadania może zająć trochę czasu — na przykład do 1 minuty, aby dodać 20 000 zadań za pośrednictwem interfejsu API platformy .NET. W zależności od interfejsu API usługi Batch i obciążenia można zwiększyć przepływność zadania, modyfikując co najmniej jedną z następujących czynności:
 
-* **Rozmiar zadania** — Dodawanie dużych zadań trwa dłużej niż Dodawanie mniejszych. Aby zmniejszyć rozmiar każdego zadania w kolekcji, można uprościć wiersz polecenia zadania, zmniejszyć liczbę zmiennych środowiskowych lub obsłużyć bardziej wydajne wymagania dotyczące wykonywania zadań. Na przykład zamiast używać dużej liczby plików zasobów, należy zainstalować zależności zadań przy użyciu [zadania uruchamiania](batch-api-basics.md#start-task) w puli lub użyć [pakietu aplikacji](batch-application-packages.md) lub [kontenera Docker](batch-docker-container-workloads.md).
+* **Rozmiar zadania** — Dodawanie dużych zadań trwa dłużej niż Dodawanie mniejszych. Aby zmniejszyć rozmiar każdego zadania w kolekcji, można uprościć wiersz polecenia zadania, zmniejszyć liczbę zmiennych środowiskowych lub obsłużyć bardziej wydajne wymagania dotyczące wykonywania zadań. Na przykład zamiast używać dużej liczby plików zasobów, należy zainstalować zależności zadań przy użyciu [zadania uruchamiania](jobs-and-tasks.md#start-task) w puli lub użyć [pakietu aplikacji](batch-application-packages.md) lub [kontenera Docker](batch-docker-container-workloads.md).
 
 * **Liczba operacji równoległych** — w zależności od interfejsu API usługi Batch zwiększenie przepływności przez zwiększenie maksymalnej liczby operacji współbieżnych przez klienta usługi Batch. Skonfiguruj to ustawienie za pomocą właściwości [BatchClientParallelOptions. MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) w interfejsie API platformy .NET lub `threads` parametru metod, takich jak [TaskOperations. add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python) w rozszerzeniu zestawu SDK języka Python dla usługi Batch. (Ta właściwość nie jest dostępna w natywnym zestawie SDK Python w usłudze Batch). Domyślnie ta właściwość jest ustawiona na 1, ale ustawiana jest wyższa, aby zwiększyć przepływność operacji. Zwiększa się przepływność poprzez zużywanie przepustowości sieci i pewnej wydajności procesora CPU. Przepływność zadań zwiększa się o maksymalnie 100 razy `MaxDegreeOfParallelism` lub `threads` . W tym celu należy ustawić liczbę współbieżnych operacji poniżej 100. 
  
@@ -53,7 +53,7 @@ Dodanie dużej kolekcji zadań do zadania może zająć trochę czasu — na prz
 
 Poniższe fragmenty kodu w języku C# pokazują ustawienia do skonfigurowania podczas dodawania dużej liczby zadań przy użyciu interfejsu API usługi Batch platformy .NET.
 
-Aby zwiększyć przepływność zadań, należy zwiększyć wartość właściwości [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet). Na przykład:
+Aby zwiększyć przepływność zadań, należy zwiększyć wartość właściwości [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet). Przykład:
 
 ```csharp
 BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
@@ -63,7 +63,7 @@ BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
 ...
 ```
 Dodaj kolekcję zadań do zadania przy użyciu odpowiedniego przeciążenia metody [AddTaskAsync](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync?view=azure-dotnet) lub [AddTask](/dotnet/api/microsoft.azure.batch.cloudjob.addtask?view=azure-dotnet
-) . Na przykład:
+) . Przykład:
 
 ```csharp
 // Add a list of tasks as a collection
@@ -134,7 +134,7 @@ client = batch.BatchExtensionsClient(
 ...
 ```
 
-Utwórz kolekcję zadań do dodania do zadania. Na przykład:
+Utwórz kolekcję zadań do dodania do zadania. Przykład:
 
 
 ```python

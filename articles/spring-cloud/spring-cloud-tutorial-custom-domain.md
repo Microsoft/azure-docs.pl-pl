@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
-ms.openlocfilehash: 19ccdf85e1753bea202c5c157919ab4e8ff96d06
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ff38f923f7b33c4bc893246970c1e47d33e59269
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660260"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780399"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Mapowanie istniejącej domeny niestandardowej na chmurę z platformą Azure
 Usługa nazw rozproszonych (DNS) to technika przechowywania nazw węzłów sieciowych w całej sieci. Ten samouczek mapuje domenę, taką jak www.contoso.com, przy użyciu rekordu CNAME. Zabezpiecza domenę niestandardową za pomocą certyfikatu i pokazuje, jak wymusić Transport Layer Security (TLS), znane także jako SSL (SSL). 
@@ -37,6 +37,30 @@ Aby przekazać certyfikat do magazynu kluczy:
 1. Kliknij przycisk **Utwórz**.
 
     ![Importuj certyfikat 1](./media/custom-dns-tutorial/import-certificate-a.png)
+
+Aby przyznać usłudze Azure sprężynowy dostęp do magazynu kluczy przed zaimportowaniem certyfikatu:
+1. Przejdź do wystąpienia magazynu kluczy.
+1. W okienku nawigacji po lewej stronie kliknij pozycję **zasady dostępu**.
+1. W górnym menu kliknij pozycję **Dodaj zasady dostępu**.
+1. Wypełnij informacje, a następnie kliknij przycisk **Dodaj** , a następnie **Zapisz** zasady dostępu.
+
+| Uprawnienie tajne | Uprawnienie do certyfikatu | Wybierz podmiot zabezpieczeń |
+|--|--|--|
+| Pobierz, Wyświetl | Pobierz, Wyświetl | Zarządzanie domenami chmury Azure wiosną |
+
+![Importuj certyfikat 2](./media/custom-dns-tutorial/import-certificate-b.png)
+
+Możesz też użyć interfejsu wiersza polecenia platformy Azure, aby przyznać usłudze Azure wiosnę dostępu do magazynu kluczy.
+
+Pobierz identyfikator obiektu za pomocą następującego polecenia.
+```
+az ad sp show --id 03b39d0f-4213-4864-a245-b1476ec03169 --query objectId
+```
+
+Przyznaj usłudze Azure wiosennej chmury dostęp do odczytu do magazynu kluczy, Zastąp identyfikator obiektu w poniższym poleceniu.
+```
+az keyvault set-policy -g <key vault resource group> -n <key vault name>  --object-id <object id> --certificate-permissions get list --secret-permissions get list
+``` 
 
 Aby zaimportować certyfikat do chmury wiosennej platformy Azure:
 1. Przejdź do wystąpienia usługi. 
@@ -145,7 +169,7 @@ az spring-cloud app update -name <app-name> --https-only <true|false> -g <resour
 
 Po zakończeniu operacji przejdź do dowolnego adresu URL HTTPS, który wskazuje aplikację. Należy zauważyć, że adresy URL protokołu HTTP nie działają.
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 * [Co to jest usługa Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
 * [Importowanie certyfikatu](https://docs.microsoft.com/azure/key-vault/certificate-scenarios#import-a-certificate)
 * [Uruchamianie aplikacji w chmurze wiosny przy użyciu interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli)

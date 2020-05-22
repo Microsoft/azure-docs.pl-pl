@@ -4,12 +4,12 @@ description: Funkcja pakietów aplikacji programu Azure Batch umożliwia łatwe 
 ms.topic: how-to
 ms.date: 04/26/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 61e94ade21d8dd6fad2ba10dff87d4ba10333e3a
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: fd5821a7876cc99be41fbb2c5b095b931653c345
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726880"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780310"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Wdrażanie aplikacji w węzłach obliczeniowych za pomocą pakietów aplikacji wsadowych
 
@@ -68,7 +68,7 @@ W przypadku pakietów aplikacji zadanie uruchamiania puli nie musi określać d�
 Za pomocą [Azure Portal][portal] lub interfejsów API zarządzania usługą Batch można zarządzać pakietami aplikacji na koncie w usłudze Batch. W następnych kilku sekcjach najpierw pokazano, jak połączyć konto magazynu, a następnie omówić Dodawanie aplikacji i pakietów oraz zarządzanie nimi za pomocą portalu.
 
 ### <a name="link-a-storage-account"></a>Łączenie konta magazynu
-Aby można było korzystać z pakietów aplikacji, musisz najpierw połączyć [konto usługi Azure Storage](batch-api-basics.md#azure-storage-account) z kontem w usłudze Batch. Jeśli konto magazynu nie zostało jeszcze skonfigurowane, Azure Portal wyświetla ostrzeżenie przy pierwszym kliknięciu **aplikacji** na koncie w usłudze Batch.
+Aby można było korzystać z pakietów aplikacji, musisz najpierw połączyć [konto usługi Azure Storage](accounts.md#azure-storage-accounts) z kontem w usłudze Batch. Jeśli konto magazynu nie zostało jeszcze skonfigurowane, Azure Portal wyświetla ostrzeżenie przy pierwszym kliknięciu **aplikacji** na koncie w usłudze Batch.
 
 
 
@@ -248,7 +248,7 @@ Windows:
 AZ_BATCH_APP_PACKAGE_APPLICATIONID#version
 ```
 
-W węzłach systemu Linux format jest nieco inny. Kropki (.), łączniki (-) i znaki liczbowe (#) są spłaszczone do podkreślenia w zmiennej środowiskowej. Należy również pamiętać, że sprawa identyfikatora aplikacji jest zachowywana. Na przykład:
+W węzłach systemu Linux format jest nieco inny. Kropki (.), łączniki (-) i znaki liczbowe (#) są spłaszczone do podkreślenia w zmiennej środowiskowej. Należy również pamiętać, że sprawa identyfikatora aplikacji jest zachowywana. Przykład:
 
 ```
 Linux:
@@ -285,9 +285,7 @@ CloudTask blenderTask = new CloudTask(taskId, commandLine);
 ```
 
 > [!TIP]
-> Aby uzyskać więcej informacji na temat ustawień środowiska węzłów obliczeniowych, zobacz [Ustawienia środowiska dla zadań](batch-api-basics.md#environment-settings-for-tasks) w temacie [Omówienie funkcji usługi Batch](batch-api-basics.md) .
-> 
-> 
+> Aby uzyskać więcej informacji na temat ustawień środowiska węzłów obliczeniowych, zobacz [Ustawienia środowiska dla zadań](jobs-and-tasks.md#environment-settings-for-tasks). 
 
 ## <a name="update-a-pools-application-packages"></a>Aktualizowanie pakietów aplikacji puli
 Jeśli istniejąca pula została już skonfigurowana przy użyciu pakietu aplikacji, można określić nowy pakiet dla puli. W przypadku określenia nowego odwołania do pakietu dla puli należy zastosować następujące czynności:

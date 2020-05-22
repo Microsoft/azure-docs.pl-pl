@@ -4,21 +4,19 @@ description: Dowiedz się, jak szablony projektów programu Visual Studio mogą 
 ms.topic: how-to
 ms.date: 02/27/2017
 ms.custom: seodec18
-ms.openlocfilehash: 0dac39d1ff463dc4ba5efae50c7fc1ea9d36c829
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 9332684008b45aea39e07d8225bae6450ba57de5
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725826"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779514"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Korzystanie z szablonów projektów programu Visual Studio do szybkiego uruchamiania rozwiązań wsadowych
 
 Szablony programu **Menedżer zadań** i **zadań w programie Visual Studio** dla usługi Batch udostępniają kod, który ułatwia implementowanie i uruchamianie obciążeń intensywnie korzystających z obliczeń w usłudze Batch z mniejszą ilością wysiłku. W tym dokumencie opisano te szablony i przedstawiono wskazówki dotyczące korzystania z nich.
 
 > [!IMPORTANT]
-> W tym artykule omówiono tylko informacje dotyczące tych dwóch szablonów i przyjęto założenie, że znasz usługę Batch i kluczowe pojęcia związane z działem IT: pule, węzły obliczeniowe, zadania i zadania, zadania Menedżera zadań, zmienne środowiskowe i inne istotne informacje. Więcej informacji można znaleźć w [temacie podstawy Azure Batch](batch-technical-overview.md) i [Omówienie funkcji usługi Batch dla deweloperów](batch-api-basics.md).
-> 
-> 
+> W tym artykule omówiono tylko informacje dotyczące tych dwóch szablonów i przyjęto założenie, że znasz usługę Batch i kluczowe pojęcia związane z działem IT: pule, węzły obliczeniowe, zadania i zadania, zadania Menedżera zadań, zmienne środowiskowe i inne istotne informacje. Więcej informacji można znaleźć w [temacie Podstawowe informacje o](batch-technical-overview.md) [przepływie pracy i zasobach usługi Batch](batch-service-workflow-features.md)Azure Batch. 
 
 ## <a name="high-level-overview"></a>Ogólne omówienie
 Szablony Menedżera zadań i procesora zadań mogą służyć do tworzenia dwóch przydatnych składników:
@@ -69,7 +67,7 @@ Szablon Menedżera zadań ułatwia zaimplementowanie zadania Menedżera zadań, 
 * Prześlij te zadania do uruchomienia w usłudze Batch.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji o zadaniach Menedżera zadań, zobacz [Omówienie funkcji usługi Batch dla deweloperów](batch-api-basics.md#job-manager-task).
+> Aby uzyskać więcej informacji o zadaniach Menedżera zadań, zobacz [zadania i zadania](jobs-and-tasks.md#job-manager-task).
 > 
 > 
 
@@ -188,7 +186,7 @@ Zadanie Menedżera zadań zaimplementowane przy użyciu szablonu Menedżera zada
 
 W przypadku niepowodzenia zadania Menedżera zadań niektóre zadania mogły być nadal dodawane do usługi przed wystąpieniem błędu. Te zadania będą wykonywane w zwykły sposób. Zobacz "Niepowodzenie rozdzielacza zadania" powyżej, aby poznać dyskusję o tej ścieżce kodu.
 
-Wszystkie informacje zwrócone przez wyjątki są zapisywane w plikach stdout. txt i stderr. txt. Aby uzyskać więcej informacji, zobacz [Obsługa błędów](batch-api-basics.md#error-handling).
+Wszystkie informacje zwrócone przez wyjątki są zapisywane w plikach stdout. txt i stderr. txt. Aby uzyskać więcej informacji, zobacz [Obsługa błędów](error-handling.md).
 
 ### <a name="client-considerations"></a>Uwagi dotyczące klienta
 W tej sekcji opisano niektóre wymagania dotyczące implementacji klienta podczas wywoływania Menedżera zadań w oparciu o ten szablon. Zobacz [, jak przekazać parametry i zmienne środowiskowe z kodu klienta,](#pass-environment-settings) Aby uzyskać szczegółowe informacje na temat przekazywania parametrów i ustawień środowiska.

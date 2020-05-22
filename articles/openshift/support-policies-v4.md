@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 593cca5fbf0aa6e4c162e541560763c50cbc067e
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: ec27d054055866c72148ad6eb024d4324f063ce8
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83711418"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83774388"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Zasady pomocy technicznej usługi Azure Red Hat OpenShift
 
@@ -29,6 +29,8 @@ Niektóre konfiguracje klastrów usługi Azure Red Hat OpenShift 4 mogą mieć w
 * Nie usuwaj ani nie Modyfikuj rejestrowania usługi Azure Red Hat OpenShift Service (procesem MDSD).
 * Nie usuwaj ani nie Modyfikuj klucza tajnego ściągania klastra "arosvc.azurecr.io".
 * Wszystkie maszyny wirtualne klastra muszą mieć bezpośredni dostęp do Internetu, co najmniej do punktów końcowych Azure Resource Manager (ARM) i rejestrowania usług (Genewa).  Nie jest obsługiwany żaden formularz proxy protokołu HTTPS.
+* Nie należy modyfikować konfiguracji DNS sieci wirtualnej klastra. Należy użyć domyślnego programu rozpoznawania Azure DNS.
+* Nie Przesłoń żadnego z obiektów MachineConfig klastra (na przykład konfiguracja kubelet) w jakikolwiek sposób.
 * Usługa Azure Red Hat OpenShift uzyskuje dostęp do klastra za pośrednictwem usługi linku prywatnego.  Nie usuwaj ani nie Modyfikuj dostępu do usługi.
 * Węzły obliczeniowe inne niż RHCOS nie są obsługiwane. Na przykład nie można użyć węzła obliczeniowego RHEL.
 
@@ -66,3 +68,11 @@ Azure Red Hat OpenShift 4 obsługuje wystąpienia węzłów procesu roboczego na
 |Fsv2|Standard_F8s_v2|8|16|
 |Fsv2|Standard_F16s_v2|16|32|
 |Fsv2|Standard_F32s_v2|32|64|
+
+### <a name="master-nodes"></a>Węzły główne
+
+|Seria|Rozmiar|Procesor wirtualny|Pamięć: GiB|
+|-|-|-|-|
+|Dsv3|Standardowa_D8s_v3|8|32|
+|Dsv3|Standardowa_D16s_v3|16|64|
+|Dsv3|Standard_D32s_v3|32|128|

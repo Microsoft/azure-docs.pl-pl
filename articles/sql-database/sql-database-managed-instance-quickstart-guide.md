@@ -3,20 +3,20 @@ title: Szybki Start — wystąpienie zarządzane SQL
 description: Dowiedz się, jak szybko rozpocząć pracę z usługą Azure SQL Database — wystąpienie zarządzane
 services: sql-database
 ms.service: sql-database
-ms.subservice: managed-instance
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: sstein, carlr
+author: davidtrigano
+ms.author: datrigan
+ms.reviewer: vanto
 ms.date: 07/11/2019
-ms.openlocfilehash: 602de3e23eb5419958f84b071e2220550d1d04d0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b873588393ed765fa21b30dfb3a71486d055373b
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73821715"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780465"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Wprowadzenie do wystąpienia zarządzanego usługi Azure SQL Database
 
@@ -37,7 +37,8 @@ Pierwszym krokiem powinno być utworzenie pierwszego wystąpienia zarządzanego 
   - Skonfiguruj [połączenie sieci VPN typu punkt-lokacja z wystąpieniem zarządzanym](sql-database-managed-instance-configure-p2s.md) na komputerze klienckim, na którym używasz programu SQL Server Management Studio i innych aplikacji łączności klienta. Jest to druga z dwóch opcji łączności z wystąpieniem zarządzanym i jego siecią wirtualną.
 
   > [!NOTE]
-  > Możesz też użyć usługi ExpressRoute lub połączenia lokacja-lokacja z sieci lokalnej, lecz te podejścia są poza zakresem tych przewodników Szybki start.
+  > - Możesz też użyć usługi ExpressRoute lub połączenia lokacja-lokacja z sieci lokalnej, lecz te podejścia są poza zakresem tych przewodników Szybki start.
+  > - Jeśli zmienisz okres przechowywania z 0 (nieograniczony czas przechowywania) na inną wartość, należy pamiętać, że przechowywanie będzie dotyczyło tylko dzienników utworzonych po zmianie wartości przechowywania (dzienniki zapisane w okresie, gdy czas przechowywania był ustawiony na nieograniczony, nawet po włączeniu przechowywania).
 
 Alternatywą dla ręcznego tworzenia wystąpienia zarządzanego jest używanie [programu PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md), [programu PowerShell z szablonem Menedżer zasobów](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)lub [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) do tworzenia skryptów i automatyzowania tego procesu.
 
@@ -66,7 +67,7 @@ Artykuły w tych przewodnikach Szybki start umożliwiają szybkie skonfigurowani
 
 Jednak w celu migrowania produkcyjnej bazy danych, a nawet tworzenia/testowania baz danych, które mają być używane w przypadku niektórych testów wydajności, należy rozważyć użycie pewnych dodatkowych technik, takich jak:
 - Testowanie wydajności — należy mierzyć wydajność linii bazowej na źródłowym wystąpieniu SQL Server i porównać je z wydajnością w docelowym wystąpieniu zarządzanym, w którym przeprowadzono migrację bazy danych. Dowiedz się więcej o [najlepszych rozwiązaniach dotyczących porównywania wydajności](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210).
-- Migracja w trybie online — w `RESTORE` przypadku kodu natywnego opisanego w tym artykule należy zaczekać, aż bazy danych mają zostać przywrócone (i skopiowane do usługi Azure Blob Storage, jeśli jeszcze nie są przechowywane). Może to spowodować przestój aplikacji, szczególnie jeśli bazy danych są duże. Aby przenieść produkcyjną bazę danych, użyj usługi [Data Migration Service (DMS)](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance?toc=/azure/sql-database/toc.json) w celu migrowania bazy danych z minimalnym przestojem. Usługa DMS realizuje to przez przyrostowe wypychanie zmian wprowadzanych w źródłowej bazie danych do przywracanej bazy danych wystąpienia zarządzanego. Dzięki niej można szybko przełączyć aplikację ze źródłowej do docelowej bazy danych z możliwie najkrótszym przestojem.
+- Migracja w trybie online — w przypadku kodu natywnego `RESTORE` opisanego w tym artykule należy zaczekać, aż bazy danych mają zostać przywrócone (i skopiowane do usługi Azure Blob Storage, jeśli jeszcze nie są przechowywane). Może to spowodować przestój aplikacji, szczególnie jeśli bazy danych są duże. Aby przenieść produkcyjną bazę danych, użyj usługi [Data Migration Service (DMS)](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance?toc=/azure/sql-database/toc.json) w celu migrowania bazy danych z minimalnym przestojem. Usługa DMS realizuje to przez przyrostowe wypychanie zmian wprowadzanych w źródłowej bazie danych do przywracanej bazy danych wystąpienia zarządzanego. Dzięki niej można szybko przełączyć aplikację ze źródłowej do docelowej bazy danych z możliwie najkrótszym przestojem.
 
 Dowiedz się więcej o [zalecanym procesie migracji](sql-database-managed-instance-migrate.md).
 

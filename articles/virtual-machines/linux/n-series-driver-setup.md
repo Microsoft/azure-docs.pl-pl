@@ -2,19 +2,18 @@
 title: Konfiguracja sterowników procesora GPU platformy Azure dla systemu Linux
 description: Jak skonfigurować sterowniki NVIDIA GPU dla maszyn wirtualnych serii N z systemem Linux na platformie Azure
 services: virtual-machines-linux
-author: cynthn
-ms.assetid: d91695d0-64b9-4e6b-84bd-18401eaecdde
+author: vikancha
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
-ms.author: cynthn
-ms.openlocfilehash: cb2d5c43b8c04829dd6830126b7bc01bee07133b
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.author: vikancha
+ms.openlocfilehash: e4ee760acb441cdf70e588004d2f380ead07cd34
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628196"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779358"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalowanie sterowników NVIDIA GPU na maszynach wirtualnych serii N z systemem Linux
 
@@ -217,7 +216,7 @@ Aby zainstalować sterowniki siatki NVIDIA na maszynach wirtualnych z serii NV l
    sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
    ```
 
-8. Dodaj następujące elementy `/etc/nvidia/gridd.conf`:
+8. Dodaj następujące elementy `/etc/nvidia/gridd.conf` :
  
    ```
    IgnoreSP=FALSE
@@ -271,7 +270,7 @@ Aby zainstalować sterowniki siatki NVIDIA na maszynach wirtualnych z serii NV l
 
    ```
  
-4. Ponownie nawiąż połączenie z maszyną wirtualną `lspci` i uruchom polecenie. Sprawdź, czy karta NVIDIA M60 lub karty są widoczne jako urządzenia PCI.
+4. Ponownie nawiąż połączenie z maszyną wirtualną i uruchom `lspci` polecenie. Sprawdź, czy karta NVIDIA M60 lub karty są widoczne jako urządzenia PCI.
  
 5. Pobierz i zainstaluj sterownik siatki:
 
@@ -290,7 +289,7 @@ Aby zainstalować sterowniki siatki NVIDIA na maszynach wirtualnych z serii NV l
    sudo cp /etc/nvidia/gridd.conf.template /etc/nvidia/gridd.conf
    ```
   
-8. Dodaj następujące elementy `/etc/nvidia/gridd.conf`:
+8. Dodaj następujące elementy `/etc/nvidia/gridd.conf` :
  
    ```
    IgnoreSP=FALSE
@@ -315,7 +314,7 @@ Jeśli sterownik jest zainstalowany, zostaną wyświetlone dane wyjściowe podob
  
 
 ### <a name="x11-server"></a>Serwer X11
-Jeśli potrzebujesz serwera X11 dla połączeń zdalnych z maszyną wirtualną NV lub NVv2, zaleca się, aby [x11vnc](http://www.karlrunge.com/x11vnc/) , ponieważ umożliwia przyspieszenie sprzętowe grafiki. BusID urządzenia M60 należy dodać ręcznie do pliku konfiguracji X11 (zazwyczaj `etc/X11/xorg.conf`). Dodaj `"Device"` sekcję podobną do następującej:
+Jeśli potrzebujesz serwera X11 dla połączeń zdalnych z maszyną wirtualną NV lub NVv2, zaleca się, aby [x11vnc](http://www.karlrunge.com/x11vnc/) , ponieważ umożliwia przyspieszenie sprzętowe grafiki. BusID urządzenia M60 należy dodać ręcznie do pliku konfiguracji X11 (zazwyczaj `etc/X11/xorg.conf` ). Dodaj `"Device"` sekcję podobną do następującej:
  
 ```
 Section "Device"
@@ -327,7 +326,7 @@ Section "Device"
 EndSection
 ```
  
-Ponadto zaktualizuj `"Screen"` sekcję, aby korzystać z tego urządzenia.
+Ponadto zaktualizuj sekcję, `"Screen"` Aby korzystać z tego urządzenia.
  
 BusID dziesiętną można znaleźć, uruchamiając
 
@@ -351,11 +350,11 @@ else
 fi
 ```
 
-Następnie utwórz wpis dla skryptu aktualizacji w programie `/etc/rc.d/rc3.d` , aby skrypt był wywoływany jako element główny przy rozruchu.
+Następnie utwórz wpis dla skryptu aktualizacji w programie, `/etc/rc.d/rc3.d` aby skrypt był wywoływany jako element główny przy rozruchu.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
-* Można ustawić tryb trwałości przy użyciu `nvidia-smi` , aby dane wyjściowe polecenia były szybsze, gdy zachodzi potrzeba zazapytania o karty. Aby ustawić tryb trwałości, wykonaj `nvidia-smi -pm 1`. Należy pamiętać, że jeśli maszyna wirtualna jest ponownie uruchamiana, ustawienie Tryb zostanie wysunięte. Zawsze możesz wykonać skrypty dla ustawienia Tryb, które ma być wykonywane po uruchomieniu.
+* Można ustawić tryb trwałości przy użyciu `nvidia-smi` , aby dane wyjściowe polecenia były szybsze, gdy zachodzi potrzeba zazapytania o karty. Aby ustawić tryb trwałości, wykonaj `nvidia-smi -pm 1` . Należy pamiętać, że jeśli maszyna wirtualna jest ponownie uruchamiana, ustawienie Tryb zostanie wysunięte. Zawsze możesz wykonać skrypty dla ustawienia Tryb, które ma być wykonywane po uruchomieniu.
 * Jeśli sterowniki NVIDIA CUDA zostały zaktualizowane do najnowszej wersji i wyszukiwanie łączności RDMA nie działa dłużej, należy [ponownie zainstalować sterowniki RDMA](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) w celu ponownego nawiązania połączenia. 
 
 ## <a name="next-steps"></a>Następne kroki

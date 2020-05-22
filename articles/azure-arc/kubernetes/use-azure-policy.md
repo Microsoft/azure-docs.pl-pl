@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Użyj Azure Policy, aby zastosować konfiguracje klastra na dużą skalę
 keywords: Kubernetes, łuk, Azure, K8s, kontenery
-ms.openlocfilehash: 64be872e4e76545c015378417410cbbfad95ebfd
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c017e9422733069ffd93f6dff72ecb884da057c4
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680665"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779947"
 ---
 # <a name="use-azure-policy-to-apply-cluster-configurations-at-scale-preview"></a>Użyj Azure Policy, aby zastosować konfiguracje klastra na dużą skalę (wersja zapoznawcza)
 
@@ -64,4 +64,4 @@ Po utworzeniu przypisania zasad dla każdego nowego `connectedCluster` zasobu (l
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Zarządzanie konfiguracją klastra przy użyciu Azure Policy](./use-azure-policy.md)
+* [Skonfiguruj Azure Monitor dla kontenerów z włączonymi Kubernetes klastrami](./deploy-azure-monitor-for-containers.md)

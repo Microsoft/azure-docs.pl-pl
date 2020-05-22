@@ -1,17 +1,16 @@
 ---
 title: Przykłady użycia wiersza polecenia platformy Azure — Azure Functions
 description: Przykłady użycia wiersza polecenia platformy Azure — Azure Functions
-author: syntaxc4
 ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
 ms.topic: sample
 ms.date: 01/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 365275d291244d3c08f856d2d919c7ee7d79161a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 61ac1b95055b8ec9e65c3009d76f79581721f594
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79239644"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779548"
 ---
 # <a name="azure-cli-samples"></a>Przykłady interfejsu wiersza polecenia platformy Azure
 
@@ -21,9 +20,9 @@ Poniższa tabela zawiera linki do skryptów powłoki Bash dla usługi Azure Func
 
 | Tworzenie aplikacji | Opis |
 |---|---|
-| [Tworzenie aplikacji funkcji do wykonywania bezserwerowego](scripts/functions-cli-create-serverless.md) | Tworzy aplikację funkcji w planie Zużycie.  |
-| [Tworzenie bezserwerowej aplikacji funkcji w języku Python](scripts/functions-cli-create-serverless-python.md) | Utwórz aplikację funkcji w ramach dedykowanego planu usługi App Service. |
-| [Tworzenie aplikacji funkcji w skalowalnym planie Premium](scripts/functions-cli-create-premium-plan.md) | Utwórz aplikację funkcji w ramach dedykowanego planu usługi App Service. |
+| [Tworzenie aplikacji funkcji do wykonywania bezserwerowego](scripts/functions-cli-create-serverless.md) | Utwórz aplikację funkcji w planie zużycia.  |
+| [Tworzenie bezserwerowej aplikacji funkcji w języku Python](scripts/functions-cli-create-serverless-python.md) | Utwórz aplikację funkcji w języku Python w planie zużycia. |
+| [Tworzenie aplikacji funkcji w skalowalnym planie Premium](scripts/functions-cli-create-premium-plan.md) | Tworzenie aplikacji funkcji w planie Premium. |
 | [Tworzenie aplikacji funkcji w ramach dedykowanego planu (App Service)](scripts/functions-cli-create-app-service-plan.md) | Utwórz aplikację funkcji w ramach dedykowanego planu usługi App Service. |
 
 | Integracja | Opis|

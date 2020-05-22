@@ -3,12 +3,12 @@ title: Inicjowanie obsługi administracyjnej puli z obrazu zarządzanego
 description: Utwórz pulę usługi Batch z zasobu obrazu zarządzanego, aby udostępnić węzłom obliczeniowym oprogramowanie i dane aplikacji.
 ms.topic: article
 ms.date: 09/16/2019
-ms.openlocfilehash: 10e3932bc6006e1d91fbc7e4cf58a5d98c043520
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b08c6a609516bcebaca64cf1c186d75887b098e3
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82117322"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780210"
 ---
 # <a name="use-a-managed-image-to-create-a-pool-of-virtual-machines"></a>Tworzenie puli maszyn wirtualnych przy użyciu obrazu zarządzanego
 
@@ -21,7 +21,7 @@ Aby utworzyć niestandardowy obraz dla maszyn wirtualnych puli usługi Batch, mo
 
 - **Zasób obrazu zarządzanego**. Aby utworzyć pulę maszyn wirtualnych przy użyciu obrazu niestandardowego, musisz mieć lub utworzyć zasób obrazu zarządzanego w tej samej subskrypcji i regionie platformy Azure, co konto usługi Batch. Obraz należy utworzyć na podstawie migawek dysku systemu operacyjnego maszyny wirtualnej i opcjonalnie dołączonych dysków danych. Więcej informacji i kroków związanych z przygotowaniem zarządzanego obrazu znajduje się w następującej sekcji.
   - Użyj unikatowego obrazu niestandardowego dla każdej utworzonej puli.
-  - Aby utworzyć pulę z obrazem przy użyciu interfejsów API usługi Batch, określ **Identyfikator zasobu** obrazu, który ma postać `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage`. Aby użyć portalu, użyj **nazwy** obrazu.  
+  - Aby utworzyć pulę z obrazem przy użyciu interfejsów API usługi Batch, określ **Identyfikator zasobu** obrazu, który ma postać `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage` . Aby użyć portalu, użyj **nazwy** obrazu.  
   - Zasób obrazu zarządzanego powinien istnieć dla okresu istnienia puli, aby umożliwić skalowanie w górę i można go usunąć po usunięciu puli.
 
 - **Uwierzytelnianie Azure Active Directory (AAD)**. Interfejs API klienta usługi Batch musi korzystać z uwierzytelniania usługi AAD. Azure Batch obsługa usługi AAD została opisana w temacie [uwierzytelnianie rozwiązań w usłudze Batch przy użyciu Active Directory](batch-aad-auth.md).
@@ -107,10 +107,10 @@ Tworzenie zasobu obrazu zarządzanego bezpośrednio przy użyciu programu Packer
 
 Upewnij się, że zasób użyty do utworzenia obrazu zarządzanego istnieje dla okresów istnienia dowolnej puli odwołującej się do obrazu niestandardowego. Niewykonanie tej operacji może spowodować błędy alokacji puli i/lub zmiany rozmiaru.
 
-Po usunięciu obrazu lub zasobu bazowego może zostać wyświetlony komunikat o błędzie podobny do: `There was an error encountered while performing the last resize on the pool. Please try resizing the pool again. Code: AllocationFailed`. Jeśli zostanie wyświetlony ten błąd, upewnij się, że źródłowy zasób nie został usunięty.
+Po usunięciu obrazu lub zasobu bazowego może zostać wyświetlony komunikat o błędzie podobny do: `There was an error encountered while performing the last resize on the pool. Please try resizing the pool again. Code: AllocationFailed` . Jeśli zostanie wyświetlony ten błąd, upewnij się, że źródłowy zasób nie został usunięty.
 
 Aby uzyskać więcej informacji na temat korzystania z programu Packer w celu utworzenia maszyny wirtualnej, zobacz [Tworzenie obrazu systemu Linux przy użyciu pakietu Packer](../virtual-machines/linux/build-image-with-packer.md) lub [Kompilowanie obrazu z systemem Windows za pomocą programu Packer](../virtual-machines/windows/build-image-with-packer.md).
 
 ## <a name="next-steps"></a>Następne kroki
 
-Szczegółowe omówienie usługi Batch można znaleźć w temacie [programowanie równoległych rozwiązań obliczeniowych na dużą skalę za pomocą usługi Batch](batch-api-basics.md).
+- Aby zapoznać się z szczegółowym omówieniem usługi Batch, zobacz temat [przepływ pracy i zasoby usług Batch](batch-service-workflow-features.md).

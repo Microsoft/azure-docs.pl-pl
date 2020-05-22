@@ -1,14 +1,14 @@
 ---
 title: Azure Batch uruchamia duże zadania równoległe w chmurze
 description: Opis korzystania z usługi Azure Batch na potrzeby dużych obciążeń równoległych oraz HPC
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: f2bdaeec47b50b715920b27d6adf6e078a354964
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c78aec238664520c8c8c02a793298cdc1d3ac7e1
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82116353"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779561"
 ---
 # <a name="what-is-azure-batch"></a>Co to jest Azure Batch?
 
@@ -74,7 +74,7 @@ Na poniższym diagramie przedstawiono kroki typowego przepływu pracy usługi Ba
 
 Pamiętaj, że jest to tylko jeden sposób korzystania z usługi Batch, a w tym scenariuszu opisano tylko część jej dostępnych funkcji. Na przykład można uruchamiać [wiele zadań podrzędnych równolegle](batch-parallel-node-tasks.md) na każdym węźle obliczeniowym. Można też użyć [zadań podrzędnych przygotowywania i kończenia zadań](batch-job-prep-release.md), aby przygotować węzły dla swoich zadań, a po wszystkim je wyczyścić. 
 
-Zobacz [Omówienie usługi Batch dla deweloperów](batch-api-basics.md), aby zapoznać się z bardziej szczegółowymi informacjami o pulach, węzłach, zadaniach i zadaniach podrzędnych oraz wielu funkcjach API, których można używać podczas tworzenia aplikacji usługi Batch. Zobacz też najnowsze [aktualizacje usługi Batch](https://azure.microsoft.com/updates/?product=batch).
+Zobacz [przepływ pracy usługi Batch i zasoby podstawowe](batch-service-workflow-features.md) , aby zapoznać się z omówieniem funkcji, takich jak pule, węzły, zadania i zadania. Zobacz też najnowsze [aktualizacje usługi Batch](https://azure.microsoft.com/updates/?product=batch).
 
 ## <a name="next-steps"></a>Następne kroki
 

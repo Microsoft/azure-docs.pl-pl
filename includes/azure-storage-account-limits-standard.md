@@ -1,25 +1,25 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 03/13/2020
+ms.date: 05/20/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 6cd883289513091ff1a57a130b12e25e012c1160
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 72afa8ebea4cb9bf07cb3ce56583cbdf1849be9e
+ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80334951"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83778290"
 ---
-W poniższej tabeli opisano domyślne limity dla usługi Azure ogólnego przeznaczenia V1, v2, BLOB Storage, Block BLOB Storage i Data Lake Storage Gen2 włączonych kont magazynu. Limit *ruchu* przychodzącego odnosi się do wszystkich danych wysyłanych do konta magazynu. Limit *ruchu* wychodzącego odnosi się do wszystkich danych odebranych z konta magazynu.
+W poniższej tabeli opisano domyślne limity dla kont usługi Azure ogólnego przeznaczenia w wersji 1, v2, BLOB Storage i blokowych obiektów BLOB Storage. Limit *ruchu* przychodzącego odnosi się do wszystkich danych wysyłanych do konta magazynu. Limit *ruchu* wychodzącego odnosi się do wszystkich danych odebranych z konta magazynu.
 
 | Zasób | Limit |
 | --- | --- |
-| Liczba kont magazynu na region na subskrypcję, w tym standardowych, Premium i Data Lake Storage Gen2 włączonych kont magazynu. <sup>3</sup> | 250 |
+| Liczba kont magazynu na region na subskrypcję, w tym konta usługi Standard i Premium Storage.| 250 |
 | Maksymalna pojemność konta magazynu | 5 PiB <sup>1</sup>|
 | Maksymalna liczba kontenerów obiektów blob, obiektów blob, udziałów plików, tabel, kolejek, jednostek lub komunikatów na konto magazynu | Bez ograniczeń |
 | Maksymalna liczba żądań<sup>1</sup> na konto magazynu | 20 000 żądań na sekundę |
@@ -37,7 +37,7 @@ W poniższej tabeli opisano domyślne limity dla usługi Azure ogólnego przezna
 
 [!INCLUDE [azure-storage-redundancy](azure-storage-redundancy.md)]
 
-<sup>3</sup> [Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-introduction.md) to zestaw funkcji przeznaczonych do analizy danych Big Data, opartych na usłudze Azure Blob Storage. Ograniczenia dotyczące usługi Azure Storage i magazynu obiektów BLOB są stosowane do Data Lake Storage Gen2.
+<sup>3</sup> [Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-introduction.md) to zestaw funkcji przeznaczonych do analizy danych Big Data, opartych na usłudze Azure Blob Storage.
 
 > [!NOTE]
 > Firma Microsoft zaleca użycie konta magazynu ogólnego przeznaczenia w wersji 2 dla większości scenariuszy. Możesz łatwo uaktualnić do konta ogólnego przeznaczenia w wersji 1 lub Azure Blob Storage, aby nie było przestoju i bez konieczności kopiowania danych. Aby uzyskać więcej informacji, zobacz [uaktualnianie do konta magazynu ogólnego przeznaczenia w wersji 2](../articles/storage/common/storage-account-upgrade.md).

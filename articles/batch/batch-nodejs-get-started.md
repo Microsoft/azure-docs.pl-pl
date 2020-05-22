@@ -1,15 +1,14 @@
 ---
 title: Samouczek — korzystanie z biblioteki klienta Azure Batch dla środowiska Node. js
 description: Podstawowe pojęcia dotyczące usługi Azure Batch i tworzenie prostego rozwiązania przy użyciu języka Node.js.
-ms.assetid: ''
 ms.topic: tutorial
 ms.date: 05/22/2017
-ms.openlocfilehash: 57b411e3c9c96aab31e85c4022a5954f7215cf02
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 4cecd25346d868dfb27deb9f768342ab2e72ade9
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724211"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780179"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Wprowadzenie do zestawu SDK usługi Batch dla środowiska Node.js
 
@@ -346,6 +345,6 @@ W witrynie Azure Portal zamieszczono szczegółowe widoki stanów zadań i zada�
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Przejrzyj artykuł [Overview of Azure Batch features](batch-api-basics.md) (Omówienie funkcji w usłudze Azure Batch), który zalecamy użytkownikom rozpoczynającym korzystanie z tej usługi.
+- Dowiedz się więcej o [przepływie pracy usługi Batch i zasobach podstawowych](batch-service-workflow-features.md) , takich jak pule, węzły, zadania i zadania.
 - Zobacz [Batch Node.js reference](/javascript/api/overview/azure/batch) (Dokumentacja języka Node.js dla usługi Batch), aby poznać interfejs API usługi Batch.
 

@@ -5,21 +5,21 @@ author: mscurrell
 ms.topic: how-to
 ms.date: 03/19/2020
 ms.custom: seodec18
-ms.openlocfilehash: 39c4674da2ddf63c5fab8b39e16a0cc0d9f299ac
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 90cd6476992eed30abbe9faca5cc66405aa40079
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726591"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780194"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Używanie maszyn wirtualnych o niskim priorytecie z usługą Batch
 
 Azure Batch oferuje maszyny wirtualne o niskim priorytecie, aby zmniejszyć koszty obciążeń wsadowych. Maszyny wirtualne o niskim priorytecie umożliwiają tworzenie nowych typów obciążeń usługi Batch przez umożliwienie użycia dużej ilości mocy obliczeniowej na potrzeby bardzo niskich kosztów.
- 
+
 Maszyny wirtualne o niskim priorytecie wykorzystują nadwyżkę pojemności na platformie Azure. W przypadku określania maszyn wirtualnych o niskim priorytecie w pulach Azure Batch mogą korzystać z tej nadwyżki, jeśli jest dostępna.
- 
+
 Użycie maszyn wirtualnych o niskim priorytecie polega na tym, że te maszyny wirtualne mogą nie być dostępne do przydzielenia lub mogą zostać przeniesione w dowolnym momencie, w zależności od dostępnej pojemności. Z tego powodu maszyny wirtualne o niskim priorytecie są najbardziej odpowiednie dla niektórych typów obciążeń. Używaj maszyn wirtualnych o niskim priorytecie do obsługi wsadowych i asynchronicznych obciążeń obliczeniowych, w których czas ukończenia zadania jest elastyczny, a praca jest dystrybuowana na wielu maszynach wirtualnych.
- 
+
 Maszyny wirtualne o niskim priorytecie są oferowane w znacznie obniżonej cenie w porównaniu z dedykowanymi maszynami wirtualnymi. Aby uzyskać szczegółowe informacje o cenach, zobacz [Cennik usługi Batch](https://azure.microsoft.com/pricing/details/batch/).
 
 > [!NOTE]
@@ -28,7 +28,6 @@ Maszyny wirtualne o niskim priorytecie są oferowane w znacznie obniżonej cenie
 > Pule Azure Batch rozpoczną obsługę maszyn wirtualnych w ciągu kilku miesięcy, które są ogólnie dostępne, z nowymi wersjami [interfejsów API i narzędzi wsadowych](https://docs.microsoft.com/azure/batch/batch-apis-tools). Po udostępnieniu obsługi maszyn wirtualnych o niskim priorytecie zostaną zaniechane — będą one nadal obsługiwane przy użyciu bieżących interfejsów API i wersji narzędzi przez co najmniej 12 miesięcy, aby zapewnić wystarczającą ilość czasu na przeprowadzenia migracji do maszyn wirtualnych. 
 >
 > Maszyny wirtualne na miejscu nie będą obsługiwane dla pul [konfiguracji usługi w chmurze](https://docs.microsoft.com/rest/api/batchservice/pool/add#cloudserviceconfiguration) . Aby można było korzystać z maszyn wirtualnych, pule usług w chmurze muszą zostać zmigrowane do pul [konfiguracji maszyny wirtualnej](https://docs.microsoft.com/rest/api/batchservice/pool/add#virtualmachineconfiguration) .
-
 
 ## <a name="use-cases-for-low-priority-vms"></a>Przypadki użycia dla maszyn wirtualnych o niskim priorytecie
 
@@ -72,8 +71,7 @@ Azure Batch oferuje kilka funkcji, które ułatwiają korzystanie z maszyn wirtu
     Przydział maszyn wirtualnych o niskim priorytecie jest wyższy niż przydział dla dedykowanych maszyn wirtualnych, ponieważ maszyny wirtualne o niskim priorytecie są tańsze. Aby uzyskać więcej informacji, zobacz [przydziały i limity usługi Batch](batch-quota-limit.md#resource-quotas).    
 
 > [!NOTE]
-> Maszyny wirtualne o niskim priorytecie nie są obecnie obsługiwane w przypadku kont usługi Batch utworzonych w [trybie subskrypcji użytkownika](batch-api-basics.md#account).
->
+> Maszyny wirtualne o niskim priorytecie nie są obecnie obsługiwane w przypadku kont usługi Batch utworzonych w [trybie subskrypcji użytkownika](accounts.md).
 
 ## <a name="create-and-update-pools"></a>Tworzenie i aktualizowanie pul
 
@@ -183,6 +181,6 @@ Aby wyświetlić metryki w Azure Portal:
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Przeczytaj artykuł [Batch feature overview for developers](batch-api-basics.md) (Omówienie funkcji usługi Batch dla deweloperów) zawierający informacje kluczowe dla wszystkich osób przygotowujących się do korzystania z usługi Batch. Ten artykuł zawiera bardziej szczegółowe informacje o zasobach usługi Batch, takich jak pule, węzły i zadania oraz wielu funkcjach API, których można używać podczas kompilowania aplikacji usługi Batch.
+* Dowiedz się więcej o [przepływie pracy usługi Batch i zasobach podstawowych](batch-service-workflow-features.md) , takich jak pule, węzły, zadania i zadania.
 * Dowiedz się więcej o [interfejsach API i narzędziach usługi Batch](batch-apis-tools.md) umożliwiających tworzenie rozwiązań usługi Batch.
 * Rozpocznij planowanie przenoszenia z maszyn wirtualnych o niskim priorytecie do maszyn wirtualnych. W przypadku używania maszyn wirtualnych o niskim priorytecie z pulami **konfiguracji usługi w chmurze** należy zaplanować przejście do pul **konfiguracji maszyny wirtualnej** .

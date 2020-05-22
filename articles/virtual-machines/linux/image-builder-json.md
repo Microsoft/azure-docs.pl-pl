@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: c13ace67f18b619d5ad86106ecb648db722be9fa
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: f567114613f484f0765a6e007c3f0ba97480a968
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792449"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779347"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Wersja zapoznawcza: Tworzenie szablonu usługi Azure Image Builder 
 
@@ -54,7 +54,7 @@ Jest to podstawowy format szablonu:
 
 ## <a name="type-and-api-version"></a>Typ i wersja interfejsu API
 
-`type` Jest typem zasobu, który musi być `"Microsoft.VirtualMachineImages/imageTemplates"`. `apiVersion` Zmieni się w miarę upływu czasu, gdy interfejs API ulegnie zmianie `"2019-05-01-preview"` , ale powinien być w wersji zapoznawczej.
+`type`Jest typem zasobu, który musi być `"Microsoft.VirtualMachineImages/imageTemplates"` . Zmieni się w miarę upływu `apiVersion` czasu, gdy interfejs API ulegnie zmianie, ale powinien być `"2019-05-01-preview"` w wersji zapoznawczej.
 
 ```json
     "type": "Microsoft.VirtualMachineImages/imageTemplates",
@@ -144,7 +144,7 @@ Aby uzyskać więcej informacji na temat wdrażania tej funkcji, zobacz [Konfigu
 
 ## <a name="properties-source"></a>Właściwości: Źródło
 
-`source` Sekcja zawiera informacje o obrazie źródłowym, który będzie używany przez Konstruktor obrazów.
+`source`Sekcja zawiera informacje o obrazie źródłowym, który będzie używany przez Konstruktor obrazów.
 
 Interfejs API wymaga elementu "SourceType", który definiuje Źródło dla kompilacji obrazu, obecnie istnieją trzy typy:
 - PlatformImage — wskazuje, że obraz źródłowy jest obrazem portalu Marketplace.
@@ -189,7 +189,7 @@ Ustawia obraz źródłowy jako istniejący obraz zarządzany uogólnionego wirtu
         }
 ```
 
-`imageId` Powinien być identyfikator ResourceID obrazu zarządzanego. Użyj `az image list` , aby wyświetlić listę dostępnych obrazów.
+`imageId`Powinien być identyfikator ResourceID obrazu zarządzanego. Użyj `az image list` , aby wyświetlić listę dostępnych obrazów.
 
 
 ### <a name="sharedimageversion-source"></a>Źródło SharedImageVersion
@@ -202,7 +202,7 @@ Ustawia obraz źródłowy jako istniejącą wersję obrazu w galerii obrazów ud
    } 
 ```
 
-`imageVersionId` Powinien być identyfikator ResourceID wersji obrazu. Użyj [AZ SIG Image-Version list](/cli/azure/sig/image-version#az-sig-image-version-list) , aby wyświetlić listę wersji obrazu.
+`imageVersionId`Powinien być identyfikator ResourceID wersji obrazu. Użyj [AZ SIG Image-Version list](/cli/azure/sig/image-version#az-sig-image-version-list) , aby wyświetlić listę wersji obrazu.
 
 ## <a name="properties-buildtimeoutinminutes"></a>Właściwości: buildTimeoutInMinutes
 
@@ -222,8 +222,8 @@ Jeśli okaże się, że potrzebujesz więcej czasu na ukończenie dostosowanych 
 
 Konstruktor obrazów obsługuje wiele "konfiguratorów". Dostosowania są funkcjami używanymi do dostosowywania obrazu, takich jak uruchamianie skryptów lub ponowne uruchamianie serwerów. 
 
-W przypadku `customize`korzystania z: 
-- Można użyć wielu dostosowań, ale muszą one mieć unikatowy `name`.
+W przypadku korzystania z `customize` : 
+- Można użyć wielu dostosowań, ale muszą one mieć unikatowy `name` .
 - Dostosowania są wykonywane w kolejności określonej w szablonie.
 - Jeśli jeden z ustawień nie powiedzie się, cały składnik dostosowywania zakończy się niepowodzeniem, a raport zostanie zwrócony z powrotem.
 - Zdecydowanie zaleca się dokładne przetestowanie skryptu przed użyciem go w szablonie. Debugowanie skryptu na własnej maszynie wirtualnej będzie łatwiejsze.
@@ -287,7 +287,7 @@ Dostosuj właściwości:
     * Aby wygenerować sha256Checksum, użyj terminalu w systemie Mac/Linux:`sha256sum <fileName>`
 
 
-Aby polecenia były uruchamiane z uprawnieniami administratora, muszą być poprzedzone prefiksem `sudo`.
+Aby polecenia były uruchamiane z uprawnieniami administratora, muszą być poprzedzone prefiksem `sudo` .
 
 > [!NOTE]
 > Podczas uruchamiania konfiguratora powłoki ze źródłem ISO RHEL należy upewnić się, że pierwsza powłoka dostosowania obsługuje rejestrowanie z serwerem uprawnień Red Hat przed wystąpieniem dostosowania. Po zakończeniu dostosowywania skrypt powinien zostać wyrejestrowany na serwerze uprawnień.
@@ -385,7 +385,7 @@ Jest to obsługiwane przez katalogi systemu Windows i ścieżki Linux, ale istni
 Jeśli wystąpi błąd podczas próby pobrania pliku lub umieszczenia go w określonym katalogu, krok dostosowywania zakończy się niepowodzeniem i będzie on znajdować się w pliku customization. log.
 
 > [!NOTE]
-> Program do dostosowywania plików jest odpowiedni dla małych plików do pobrania, < baza. W przypadku większych pobrań plików Użyj skryptu lub polecenia wbudowanego, a następnie użyj kodu do pobrania plików, takich jak `wget` Linux `curl`lub Windows, `Invoke-WebRequest`.
+> Program do dostosowywania plików jest odpowiedni dla małych plików do pobrania, < baza. W przypadku większych pobrań plików Użyj skryptu lub polecenia wbudowanego, a następnie użyj kodu do pobrania plików, takich jak Linux `wget` lub `curl` Windows, `Invoke-WebRequest` .
 
 Pliki w obszarze dostosowywania plików można pobrać z usługi Azure Storage przy użyciu pliku [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
 
@@ -425,13 +425,24 @@ Jeśli usługa Azure Image Builder pomyślnie utworzy obraz niestandardowy syste
 
 #### <a name="default-sysprep-command"></a>Domyślne polecenie programu Sysprep
 ```powershell
-echo '>>> Waiting for GA to start ...'
+Write-Output '>>> Waiting for GA Service (RdAgent) to start ...'
 while ((Get-Service RdAgent).Status -ne 'Running') { Start-Sleep -s 5 }
-while ((Get-Service WindowsAzureTelemetryService).Status -ne 'Running') { Start-Sleep -s 5 }
+Write-Output '>>> Waiting for GA Service (WindowsAzureTelemetryService) to start ...'
+while ((Get-Service WindowsAzureTelemetryService) -and ((Get-Service WindowsAzureTelemetryService).Status -ne 'Running')) { Start-Sleep -s 5 }
+Write-Output '>>> Waiting for GA Service (WindowsAzureGuestAgent) to start ...'
 while ((Get-Service WindowsAzureGuestAgent).Status -ne 'Running') { Start-Sleep -s 5 }
-echo '>>> Sysprepping VM ...'
-if( Test-Path $Env:SystemRoot\\windows\\system32\\Sysprep\\unattend.xml ){ rm $Env:SystemRoot\\windows\\system32\\Sysprep\\unattend.xml -Force} & $Env:SystemRoot\\System32\\Sysprep\\Sysprep.exe /oobe /generalize /quiet /quit
-while($true) { $imageState = Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Setup\\State | Select ImageState; if($imageState.ImageState -ne 'IMAGE_STATE_GENERALIZE_RESEAL_TO_OOBE') { Write-Output $imageState.ImageState; Start-Sleep -s 5  } else { break } }
+Write-Output '>>> Sysprepping VM ...'
+if( Test-Path $Env:SystemRoot\system32\Sysprep\unattend.xml ) {
+  Remove-Item $Env:SystemRoot\system32\Sysprep\unattend.xml -Force
+}
+& $Env:SystemRoot\System32\Sysprep\Sysprep.exe /oobe /generalize /quiet /quit
+while($true) {
+  $imageState = (Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\State).ImageState
+  Write-Output $imageState
+  if ($imageState -eq 'IMAGE_STATE_GENERALIZE_RESEAL_TO_OOBE') { break }
+  Start-Sleep -s 5
+}
+Write-Output '>>> Sysprep complete ...'
 ```
 #### <a name="default-linux-deprovision-command"></a>Domyślne polecenie anulowania aprowizacji systemu Linux
 
@@ -457,7 +468,7 @@ Konstruktor obrazów platformy Azure obsługuje trzy cele dystrybucji:
 
 Można dystrybuować obraz do obu typów docelowych w tej samej konfiguracji, zobacz [przykłady](https://github.com/danielsollondon/azvmimagebuilder/blob/7f3d8c01eb3bf960d8b6df20ecd5c244988d13b6/armTemplates/azplatform_image_deploy_sigmdi.json#L80).
 
-Ponieważ możesz mieć więcej niż jeden element docelowy do dystrybucji, Konstruktor obrazów zachowuje stan dla każdego elementu docelowego dystrybucji, do którego można uzyskać dostęp za pomocą zapytania `runOutputName`.  `runOutputName` Jest obiektem, który można wysłać zapytanie o dystrybucję w celu uzyskania informacji o tej dystrybucji. Można na przykład zbadać lokalizację dysku VHD lub regiony, w których została zreplikowana wersja obrazu, lub utworzyć wersję obrazu SIG. Jest to właściwość każdego celu dystrybucji. `runOutputName` Musi być unikatowa dla każdego celu dystrybucji. Oto przykład, który wykonuje zapytanie do dystrybucji galerii obrazów udostępnionych:
+Ponieważ możesz mieć więcej niż jeden element docelowy do dystrybucji, Konstruktor obrazów zachowuje stan dla każdego elementu docelowego dystrybucji, do którego można uzyskać dostęp za pomocą zapytania `runOutputName` .  `runOutputName`Jest obiektem, który można wysłać zapytanie o dystrybucję w celu uzyskania informacji o tej dystrybucji. Można na przykład zbadać lokalizację dysku VHD lub regiony, w których została zreplikowana wersja obrazu, lub utworzyć wersję obrazu SIG. Jest to właściwość każdego celu dystrybucji. `runOutputName`Musi być unikatowa dla każdego celu dystrybucji. Oto przykład, który wykonuje zapytanie do dystrybucji galerii obrazów udostępnionych:
 
 ```bash
 subscriptionID=<subcriptionID>
@@ -510,7 +521,7 @@ Wyjście obrazu będzie zasobem obrazu zarządzanego.
  
 Dystrybuuj właściwości:
 - **Typ** — managedImage 
-- **imageId** — identyfikator zasobu obrazu docelowego, oczekiwany format:/subscriptions/\<subskrypcji>/ResourceGroups/\<destinationResourceGroupName>/Providers/Microsoft.COMPUTE/images/\<ImageName>
+- **imageId** — identyfikator zasobu obrazu docelowego, oczekiwany format:/subscriptions/ \< subskrypcji>/ResourceGroups/ \< destinationResourceGroupName>/Providers/Microsoft.COMPUTE/images/ \< ImageName>
 - **Lokalizacja** lokalizacji zarządzanego obrazu.  
 - **runOutputName** — unikatowa nazwa identyfikująca dystrybucję.  
 - **artifactTags** — opcjonalne Tagi par wartości klucza określonego przez użytkownika.
@@ -550,7 +561,7 @@ Przed rozpoczęciem dystrybucji do galerii obrazów należy utworzyć galerię i
 Dystrybuuj właściwości dla udostępnionych galerii obrazów:
 
 - **Typ** — sharedImage  
-- **galleryImageId** — identyfikator galerii obrazów udostępnionych. Format to:\</subscriptions/identyfikator subskrypcji>/resourcegroups/\<resourceGroupName>/Providers/Microsoft.COMPUTE/Galleries/\<sharedImageGalleryName>/images/\<imageGalleryName>.
+- **galleryImageId** — identyfikator galerii obrazów udostępnionych. Format to:/subscriptions/identyfikator \< subskrypcji>/ResourceGroups/ \< resourceGroupName>/providers/microsoft.compute/galleries/ \< sharedImageGalleryName>/images/ \< imageGalleryName>.
 - **runOutputName** — unikatowa nazwa identyfikująca dystrybucję.  
 - **artifactTags** — opcjonalne Tagi par wartości klucza określonego przez użytkownika.
 - **replicationRegions** — tablica regionów do replikacji. Jednym z regionów musi być region, w którym została wdrożona Galeria.

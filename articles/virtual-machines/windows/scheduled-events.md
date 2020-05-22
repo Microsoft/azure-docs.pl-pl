@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: mimckitt
-ms.openlocfilehash: b688341b8814c52523821851bef4d7600105cafd
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c8b0d83be0ae464563a06c9307303ee7a5af527f
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83675862"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779779"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata Service: Scheduled Events maszyn wirtualnych z systemem Windows
 
@@ -134,10 +134,10 @@ Każde zdarzenie ma zaplanowaną minimalną ilość czasu w przyszłości w opar
 
 ### <a name="event-scope"></a>Zakres zdarzenia     
 Zaplanowane zdarzenia są dostarczane do:
- - Virtual Machines autonomiczna
- - Wszystkie Virtual Machines w usłudze w chmurze      
- - Wszystkie Virtual Machines w zestawie dostępności      
- - Wszystkie Virtual Machines w grupie przełożeń zestawu skalowania (w tym Batch)        
+ - Autonomiczna Virtual Machines.
+ - Wszystkie Virtual Machines w usłudze w chmurze.     
+ - Wszystkie Virtual Machines w zestawie dostępności.     
+ - Wszystkie Virtual Machines w grupie położenia zestawu skalowania (w tym partii).       
 
 W związku z tym należy zaznaczyć `Resources` pole w zdarzeniu, aby ustalić, które maszyny wirtualne mają mieć wpływ. 
 

@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 4d41ece86240a20afea06bff3469b5c02c6e46ff
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: f0702c09d2803507f07f74d97767c781825bf34f
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121201"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83778560"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Profilowanie aplikacji Azure App Service na żywo za pomocą Application Insights
 
@@ -63,9 +63,9 @@ Jeśli chcesz włączyć Profiler dla innych chmur, możesz użyć poniższych u
 
 ## <a name="disable-profiler"></a>Wyłącz Profiler
 
-Aby zatrzymać lub uruchomić ponownie Profiler dla wystąpienia pojedynczej aplikacji, w obszarze **zadania sieci Web**przejdź do zasobu aplikacji. Aby usunąć program Profiler, przejdź do pozycji **rozszerzenia**.
+Aby zatrzymać lub uruchomić ponownie program Profiler dla wystąpienia pojedynczej aplikacji, w obszarze **zadania** WebJob i Zatrzymaj zadanie drukowania o nazwie ApplicationInsightsProfiler3. Nawet jeśli Profiler jest wyłączony przy użyciu przełącznika na stronie Application Insights, jak opisano powyżej, proces profilera będzie nadal działać. Profiler sprawdzi, czy jest włączony. Jeśli ta wartość jest wyłączona, przejdzie w stan uśpienia przez pewien czas przed ponownym sprawdzeniem. Jeśli jest wyłączone, nie wykonuje żadnego profilowania. W przypadku wyłączenia tego zadania WebJob proces profilera nie będzie działać w ogóle, nawet w celu sprawdzenia, czy jest włączony.
 
-![Wyłącz Profiler dla zadania sieci Web][disable-profiler-webjob]
+  ![Wyłącz Profiler dla zadania sieci Web][disable-profiler-webjob]
 
 Zaleca się, aby na wszystkich Twoich aplikacjach był włączony Profiler, aby odnajdywał jakiekolwiek problemy z wydajnością tak szybko, jak to możliwe.
 

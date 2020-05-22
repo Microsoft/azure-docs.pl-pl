@@ -4,12 +4,12 @@ description: Policz stan Azure Batch zadań i węzłów obliczeniowych, aby pom�
 ms.date: 09/07/2018
 ms.topic: how-to
 ms.custom: seodec18
-ms.openlocfilehash: e063ef56deeb7fa0f2a217f48b1c23a810a9d890
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: d75ff1806f61b54bd058926f95c7c53b66aaf243
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726693"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780152"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Monitorowanie rozwiązań wsadowych przez liczenie zadań i węzłów według stanu
 
@@ -111,12 +111,12 @@ foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts(new ODA
     Console.WriteLine("Low-priority node count in Preempted state: {0}", nodeCounts.LowPriority.Preempted);
 }
 ```
+
 Możesz użyć podobnego wzorca dla REST i innych obsługiwanych języków, aby uzyskać liczbę węzłów dla pul.
  
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby dowiedzieć się więcej o zasadach działania i funkcjach usługi Batch, zobacz temat [Omówienie funkcji usługi Batch](batch-api-basics.md). W tym artykule omówiono podstawowe zasoby usługi Batch, takie jak pule, węzły obliczeniowe, zadania i zadania, a także omówiono funkcje usług.
-
+* Dowiedz się więcej o [przepływie pracy usługi Batch i zasobach podstawowych](batch-service-workflow-features.md) , takich jak pule, węzły, zadania i zadania.
 * Aby uzyskać informacje o stosowaniu filtrów do zapytań dotyczących zasobów usługi Batch, zobacz [Tworzenie zapytań w celu wydajnego wyświetlania listy zasobów usługi Batch](batch-efficient-list-queries.md).
 
 

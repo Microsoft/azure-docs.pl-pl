@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 04/17/2019
-ms.openlocfilehash: 4ac8c01e986cf1f3158c615a0791ba476e5bf1bb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e18c2b0f03f9ac2155c441580d62d6085581de12
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74706161"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779593"
 ---
 # <a name="tutorial-implement-azure-databricks-with-a-cosmos-db-endpoint"></a>Samouczek: implementowanie Azure Databricks przy użyciu punktu końcowego Cosmos DB
 
@@ -58,12 +58,12 @@ Przed rozpoczęciem wykonaj następujące czynności:
    |Ustawienie|Wartość|
    |-------|-----|
    |Subskrypcja|*Twoja subskrypcja*|
-   |Grupa zasobów|*Twoja grupa zasobów*|
+   |Resource Group|*Twoja grupa zasobów*|
    |Nazwa konta|DB-VNET-Service-Endpoint|
    |Interfejs API|Core (SQL)|
    |Lokalizacja|Zachodnie stany USA|
-   |Nadmiarowość geograficzna|Wyłączanie|
-   |Moduły zapisujące obsługujące wiele regionów|Włączanie|
+   |Nadmiarowość geograficzna|Wyłącz|
+   |Moduły zapisujące obsługujące wiele regionów|Włącz|
 
    ![Dodaj punkt końcowy usługi Cosmos DB](./media/service-endpoint-cosmosdb/create-cosmosdb-account-basics.png)
 
@@ -98,7 +98,7 @@ Przed rozpoczęciem wykonaj następujące czynności:
 
     ![Informacje o źródle narzędzia do migracji danych Cosmos DB](./media/service-endpoint-cosmosdb/cosmos-source-information.png)
 
-3. Na karcie **informacje docelowe** wprowadź parametry połączenia. Format ciągu połączenia to `AccountEndpoint=<URL>;AccountKey=<key>;Database=<database>`. AccountEndpoint i AccountKey są zawarte w podstawowych parametrach połączenia, które zostały zapisane w poprzedniej sekcji. Dołącz `Database=<your database name>` na końcu ciągu połączenia i wybierz pozycję **Weryfikuj**. Następnie Dodaj nazwę kolekcji i klucz partycji.
+3. Na karcie **informacje docelowe** wprowadź parametry połączenia. Format ciągu połączenia to `AccountEndpoint=<URL>;AccountKey=<key>;Database=<database>` . AccountEndpoint i AccountKey są zawarte w podstawowych parametrach połączenia, które zostały zapisane w poprzedniej sekcji. Dołącz `Database=<your database name>` na końcu ciągu połączenia i wybierz pozycję **Weryfikuj**. Następnie Dodaj nazwę kolekcji i klucz partycji.
 
     ![Informacje o miejscu docelowym narzędzia do migracji danych Cosmos DB](./media/service-endpoint-cosmosdb/cosmos-target-information.png)
 
@@ -107,8 +107,6 @@ Przed rozpoczęciem wykonaj następujące czynności:
 ## <a name="create-a-cluster-and-add-library"></a>Tworzenie klastra i Dodawanie biblioteki
 
 1. Przejdź do usługi Azure Databricks w obszarze [Azure Portal](https://portal.azure.com) i wybierz pozycję **Uruchom obszar roboczy**.
-
-   ![Uruchom obszar roboczy datakosteks](./media/service-endpoint-cosmosdb/launch-workspace.png)
 
 2. Utwórz nowy klaster. Wybierz nazwę klastra i zaakceptuj pozostałe ustawienia domyślne.
 
@@ -159,7 +157,7 @@ Przed rozpoczęciem wykonaj następujące czynności:
 
     Pomyślnie nawiązano połączenie z obszarem roboczym z wstrzykiwanymi sieciami wirtualnymi z włączonym Cosmos DB zasobem usługi. Aby dowiedzieć się więcej na temat nawiązywania połączenia z usługą Cosmos DB, zobacz [Azure Cosmos DB Connector for Apache Spark](https://github.com/Azure/azure-cosmosdb-spark).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy grupa zasobów, obszar roboczy Azure Databricks i wszystkie pokrewne zasoby nie będą już potrzebne, usuń je. Usunięcie zadania pozwala uniknąć niepotrzebnych rozliczeń. Jeśli planujesz użyć obszaru roboczego Azure Databricks w przyszłości, możesz zatrzymać klaster i ponownie uruchomić go później. Jeśli nie chcesz nadal korzystać z tego obszaru roboczego Azure Databricks, Usuń wszystkie zasoby utworzone w tym samouczku, wykonując następujące czynności:
 

@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 04/13/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b1c755176a62b7e362707da093a899ae96cfe69a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 992aa8a4cb0ff31f7f1657be45fa1a64fdb27e7c
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82128871"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83780546"
 ---
 # <a name="what-is-azure-analysis-services"></a>Co to są usługi Azure Analysis Services?
 
@@ -47,7 +47,7 @@ Ta warstwa jest zalecana w przypadku scenariuszy związanych z oceną, programow
 
 ### <a name="basic-tier"></a>Warstwa Podstawowa
 
-Warstwa polecana w przypadku rozwiązań produkcyjnych z niewielkimi modelami tabelarycznymi, ograniczoną współbieżnością użytkowników i prostymi wymaganiami dotyczącymi odświeżania danych. Skalowanie w poziomie repliki zapytań *jest niedostępne* dla tej warstwy. Perspektywy, wiele partycji ani funkcje modelu tabelarycznego DirectQuery *nie są obsługiwane* w tej warstwie.  
+Ta warstwa jest zalecana w przypadku rozwiązań produkcyjnych z mniejszymi modelami tabelarycznymi, ograniczoną współbieżnością użytkowników i prostymi wymaganiami dotyczącymi odświeżania danych. Skalowanie w poziomie repliki zapytań *jest niedostępne* dla tej warstwy. Perspektywy, wiele partycji ani funkcje modelu tabelarycznego DirectQuery *nie są obsługiwane* w tej warstwie.  
 
 |Planowanie  |Jednostki QPU  |Pamięć (GB)  |
 |---------|---------|---------|
@@ -77,7 +77,7 @@ Ta warstwa jest najlepszym rozwiązaniem w przypadku aplikacji produkcyjnych o k
 
 Usługa Azure Analysis Services jest obsługiwana w regionach na całym świecie. Obsługiwane plany i dostępność repliki zapytania zależą od wybranego regionu. Plan i dostępność repliki zapytania może ulec zmianie w zależności od potrzeb i dostępnych zasobów dla każdego regionu. 
 
-### <a name="americas"></a>Ameryki
+### <a name="americas"></a>Ameryka Północna i Południowa
 
 |Region  | Obsługiwane plany | Repliki zapytania (tylko plany Standard) |
 |---------|---------|:---------:|

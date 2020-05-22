@@ -1,15 +1,15 @@
 ---
 title: Uruchamianie zadań w obszarze konta użytkowników
-description: Warto skonfigurować konto użytkownika, w ramach którego ma zostać uruchomione zadanie. Informacje o typach kont użytkowników i sposobach ich konfigurowania.
+description: Informacje o typach kont użytkowników i sposobach ich konfigurowania.
 ms.topic: how-to
 ms.date: 11/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: f1bd31f9d4881bdc489988d3f955e7143eaf7759
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 14ee675b80e0d9dd24993d7e3ecd255b5568e9cc
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726268"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83779496"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Uruchamianie zadań w obszarze konta użytkowników w usłudze Batch
 
@@ -40,7 +40,7 @@ Zarówno konto użytkownika, jak i konto użytkownika nazwanego mają dostęp do
 
 Jeśli zadanie zostanie uruchomione w ramach tego samego konta, które zostało użyte do uruchomienia zadania podrzędnego, zadanie ma dostęp do odczytu i zapisu do katalogu zadań początkowych. Podobnie, jeśli zadanie zostanie uruchomione w ramach tego samego konta, które zostało użyte do uruchomienia zadania przygotowania zadania, zadanie ma dostęp do odczytu i zapisu do katalogu zadania przygotowania zadania. Jeśli zadanie zostanie uruchomione przy użyciu innego konta niż zadanie uruchom zadanie podrzędne lub przygotowywanie zadania, to zadanie ma dostęp tylko do odczytu do odpowiedniego katalogu.
 
-Aby uzyskać więcej informacji na temat uzyskiwania dostępu do plików i katalogów z zadania, zobacz Opracowywanie rozbudowanych [rozwiązań przetwarzania równoległego przy użyciu usługi Batch](batch-api-basics.md#files-and-directories).
+Aby uzyskać więcej informacji na temat uzyskiwania dostępu do plików i katalogów z zadania, zobacz [pliki i katalogi](files-and-directories.md).
 
 ## <a name="elevated-access-for-tasks"></a>Podwyższony poziom dostępu do zadań 
 
@@ -322,4 +322,5 @@ Usługa Batch w wersji 2017 -01-01.4.0 wprowadza istotną zmianę, zastępując 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Szczegółowe omówienie usługi Batch można znaleźć w temacie [programowanie równoległych rozwiązań obliczeniowych na dużą skalę za pomocą usługi Batch](batch-api-basics.md).
+* Dowiedz się więcej o [przepływie pracy usługi Batch i zasobach podstawowych](batch-service-workflow-features.md) , takich jak pule, węzły, zadania i zadania.
+* Informacje o [plikach i katalogach](files-and-directories.md) w Azure Batch.
