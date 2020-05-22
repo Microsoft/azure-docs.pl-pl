@@ -276,6 +276,8 @@
       items:
         - name: Konfigurowanie integracji z usługą Azure AD
           href: howto-configure-sign-in-azure-ad-authentication.md
+        - name: Nawiązywanie połączenia z tożsamością zarządzaną
+          href: howto-connect-with-managed-identity.md
     - name: Odmowa dostępu do sieci publicznej
       items:
         - name: Azure Portal

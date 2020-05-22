@@ -4,6 +4,8 @@
       href: oracle-overview.md
     - name: Rozwiązania na maszynach wirtualnych platformy Azure
       href: oracle-vm-solutions.md
+    - name: Aplikacje platformy Azure serwera WebLogic
+      href: oracle-weblogic.md
     - name: Rozwiązania z infrastrukturą OCI
       href: oracle-oci-overview.md
 - name: Przewodniki Szybki start

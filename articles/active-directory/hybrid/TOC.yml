@@ -278,6 +278,8 @@
           href: how-to-connect-sync-feature-scheduler.md
         - name: Tworzenie i dostosowywanie reguły synchronizacji
           href: how-to-connect-create-custom-sync-rule.md
+        - name: Interfejs API punktu końcowego synchronizacji programu Azure AD Connect 2
+          href: how-to-connect-sync-endpoint-api-v2.md
         - name: Menedżer usługi programu Azure AD Connect Sync
           items:
             - name: Zarządzanie kartą operacji menedżera usługi

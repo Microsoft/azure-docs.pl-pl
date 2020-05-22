@@ -259,6 +259,20 @@
           href: 'https://docs.microsoft.com/rest/api/maps/traffic'
         - name: Usługa pogody
           href: 'https://docs.microsoft.com/rest/api/maps/weather'
+        - name: Usługa Maps Creator
+          items:
+            - name: Usługa aliasu
+              href: 'https://docs.microsoft.com/rest/api/maps/alias'
+            - name: Usługa konwersji
+              href: 'https://docs.microsoft.com/rest/api/maps/conversion'
+            - name: Usługa zestawów danych
+              href: 'https://docs.microsoft.com/rest/api/maps/dataset'
+            - name: Usługa stanu funkcji
+              href: 'https://docs.microsoft.com/rest/api/maps/featurestate'
+            - name: Usługa zestawów fragmentów
+              href: 'https://docs.microsoft.com/rest/api/maps/tileset'
+            - name: Usługa WFS
+              href: 'https://docs.microsoft.com/rest/api/maps/wfs'
         - name: Zarządzanie kontami usługi Maps
           href: 'https://docs.microsoft.com/rest/api/maps-management'
     - name: JavaScript

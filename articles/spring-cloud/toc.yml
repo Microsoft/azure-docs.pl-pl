@@ -32,6 +32,8 @@
       href: spring-cloud-tutorial-bind-redis.md
     - name: Wiązanie aplikacji z usługą Azure MySQL
       href: spring-cloud-tutorial-bind-mysql.md
+    - name: Pulpit nawigacyjny wyłącznika przy użyciu usługi Azure Spring Cloud
+      href: spring-cloud-tutorial-circuit-breaker.md
     - name: Mapowanie niestandardowej nazwy DNS na usługę Azure Spring Cloud
       href: spring-cloud-tutorial-custom-domain.md
     - name: Wdrażanie aplikacji Azure Spring Cloud za pomocą środowiska IntelliJ
@@ -69,7 +71,6 @@
       href: spring-cloud-howto-log-streaming.md
     - name: Używanie magazynu trwałego w usłudze Azure Spring Cloud
       href: spring-cloud-howto-persistent-storage.md
-    - name: Wdrażanie usługi DevOps w usłudze Azure Spring Cloud
     - name: Integracja usługi Azure Spring Cloud z rozwiązaniami do równoważenia obciążenia platformy Azure
       href: spring-cloud-howto-integrate-azure-load-balancers.md
 - name: Wdrażanie usługi DevOps w usłudze Azure Spring Cloud

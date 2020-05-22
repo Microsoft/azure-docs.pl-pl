@@ -366,7 +366,7 @@
         - name: Tworzenie pulpitów nawigacyjnych i raportów
           items:
             - name: Wizualizowanie przy użyciu usługi Power BI
-              href: /power-bi/service-azure-sql-data-warehouse-with-direct-connect.md
+              href: /power-bi/service-azure-sql-data-warehouse-with-direct-connect
     - name: Rozwiązywanie problemów
       items:
         - name: Łączność
@@ -417,3 +417,5 @@
           href: sql-data-warehouse-partner-data-integration.md
         - name: Zarządzanie danymi
           href: sql-data-warehouse-partner-data-management.md
+        - name: Partnerzy publicznej wersji zapoznawczej
+          href: sql-data-warehouse-partner-launch.md

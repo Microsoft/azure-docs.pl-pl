@@ -42,8 +42,6 @@
         - name: 2. Wyodrębnianie danych użytkowników
           href: tutorial-machine-learned-entity.md
           displayName: 'n-depth, constraint, descriptor, phrase list, entity, feature'
-        - name: 3. Uzyskiwanie tonacji z wypowiedzi użytkowników
-          href: tutorial-publish-settings.md
     - name: Usprawnianie aplikacji
       items:
         - name: Rozwiązywanie problemów z niepewnymi przewidywaniami
@@ -379,7 +377,7 @@
       displayName: 'Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web'
     - name: Dokumentacja jednostek niestandardowych
       items:
-        - name: Jednostka nauczona maszynowo
+        - name: Jednostka uczenia maszynowego
           href: reference-entity-machine-learned-entity.md
         - name: Jednostka złożona
           href: reference-entity-composite.md

@@ -4,15 +4,12 @@
   items:
     - name: Co to jest usługa Azure Arc dla serwerów?
       href: ./servers/overview.md
-- name: Samples
-  items:
-    - name: Elementy wbudowane usługi Azure Policy
-      displayName: 'samples, policies, definitions'
-      href: ./servers/policy-samples.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Łączenie z usługą Azure Arc
       items:
+        - name: Omówienie agenta połączonej maszyny
+          href: ./servers/agent-overview.md
         - name: Łączenie maszyn z usługą Azure Arc z poziomu witryny Azure Portal
           href: ./servers/onboard-portal.md
         - name: Łączenie maszyn na dużą skalę przy użyciu jednostki usługi
@@ -23,3 +20,8 @@
       items:
         - name: Zarządzanie agentem
           href: ./servers/manage-agent.md
+- name: Samples
+  items:
+    - name: Elementy wbudowane usługi Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: ./servers/policy-samples.md

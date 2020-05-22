@@ -190,6 +190,14 @@
           href: storage-files-identity-auth-active-directory-domain-service-enable.md
         - name: Włączanie bezpiecznego protokołu TLS dla klienta usługi Azure Storage
           href: ../common/storage-security-tls.md
+    - name: Transfer
+      items:
+        - name: Wprowadzenie — AzCopy
+          href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Używanie z plikami
+          href: ../common/storage-use-azcopy-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: 'Konfigurowanie, optymalizowanie i rozwiązywanie problemów — AzCopy'
+          href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Rozwiązywanie problemów
       items:
         - name: Rozwiązywanie problemów z usługą Azure Files w systemie Windows

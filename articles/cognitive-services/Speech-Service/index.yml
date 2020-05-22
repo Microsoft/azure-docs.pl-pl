@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: trbye
-  ms.openlocfilehash: c065f3d12f98be85f45ed6233593d9ccab1cefa1
-  ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+  ms.openlocfilehash: 50252d0a308c4232b84bffddd905d8a84e1be0d8
+  ms.sourcegitcommit: a3c6efa4d4a48e9b07ecc3f52a552078d39e5732
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 05/12/2020
-  ms.locfileid: "83201651"
+  ms.lasthandoff: 05/20/2020
+  ms.locfileid: "83707976"
 highlightedContent:
   items:
   - title: Czym jest usługa rozpoznawania mowy?
@@ -47,7 +47,7 @@ conceptualContent:
       text: Podstawy rozpoznawania mowy
       url: speech-to-text-basics.md
     footerLink:
-      text: Zobacz więcej
+      text: Więcej
       url: index-speech-to-text.yml
   - title: Zamiana tekstu na mowę
     links:
@@ -61,7 +61,7 @@ conceptualContent:
       text: Podstawy syntezy mowy
       url: text-to-speech-basics.md
     footerLink:
-      text: Zobacz więcej
+      text: Więcej
       url: index-text-to-speech.yml
   - title: Tłumaczenie mowy
     links:
@@ -75,7 +75,7 @@ conceptualContent:
       text: Podstawy tłumaczenia mowy
       url: speech-translation-basics.md
     footerLink:
-      text: Zobacz więcej
+      text: Więcej
       url: index-speech-translation.yml
   - title: Rozpoznawanie intencji
     links:
@@ -89,7 +89,7 @@ conceptualContent:
       text: Portal usługi Language Understanding (LUIS)
       url: https://www.luis.ai
     footerLink:
-      text: Zobacz więcej
+      text: Więcej
       url: index-intent-recognition.yml
   - title: Scenariusze konwersacji
     links:
@@ -103,7 +103,7 @@ conceptualContent:
       text: Przekształcanie nagrań w centrach telefonicznej obsługi klienta
       url: call-center-transcription.md
     footerLink:
-      text: Zobacz więcej
+      text: Więcej
       url: index-conversation-scenarios.yml
   - title: Asystenci głosowi
     links:
@@ -117,8 +117,16 @@ conceptualContent:
       text: Tworzenie asystenta głosowego przy użyciu platformy Bot Framework
       url: direct-line-speech.md
     footerLink:
-      text: Zobacz więcej
+      text: Więcej
       url: index-voice-assistants.yml
+  - title: Rozpoznawanie osoby mówiącej
+    links:
+    - itemType: how-to-guide
+      text: Informacje na temat funkcji rozpoznawania osoby mówiącej
+      url: ../Speaker-recognition/Home.md
+    - itemType: how-to-guide
+      text: Dokumentacja interfejsu API rozpoznawania osoby mówiącej
+      url: https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c3271984551c84ec6797
   - title: narzędzia
     links:
     - itemType: overview
@@ -142,7 +150,7 @@ conceptualContent:
       text: Kontenery usługi Mowa w usłudze Azure Container Instances
       url: deploy-speech-on-container-instances.md
     footerLink:
-      text: Zobacz więcej
+      text: Więcej
       url: index-hosting.yml
   - title: Urządzenia
     links:
@@ -156,7 +164,7 @@ conceptualContent:
       text: Używanie zestawu Speech Devices SDK
       url: speech-devices-sdk-quickstart.md
     footerLink:
-      text: Zobacz więcej
+      text: Więcej
       url: index-devices.yml
   - title: Migracja
     links:

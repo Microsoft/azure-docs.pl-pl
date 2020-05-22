@@ -88,7 +88,11 @@
         - name: Omówienie zabezpieczeń
           href: azure-stack-edge-security.md
         - name: Przegląd specyfikacji
-          href: azure-stack-edge-technical-specifications-compliance.md
+          items:
+            - name: Specyfikacje urządzeń
+              href: azure-stack-edge-technical-specifications-compliance.md
+            - name: Specyfikacje przewodów zasilających
+              href: azure-stack-edge-technical-specifications-power-cords-regional.md
     - name: Instrukcje
       items:
         - name: 'Tworzenie modułu języka C#'
@@ -133,5 +137,5 @@
       href: 'https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/'
     - name: Produkt Azure Stack Edge/Data Box Gateway
       href: 'https://azure.microsoft.com/services/storage/databox/edge/'
-    - name: Ceny
+    - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/storage/databox/edge/'

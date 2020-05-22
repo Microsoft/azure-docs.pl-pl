@@ -133,6 +133,8 @@
   items:
     - name: Przechodzenie między regionami
       href: move-across-regions.md
+    - name: Dynamiczne dodawanie partycji
+      href: dynamically-add-partitions.md
     - name: Użycie usługi Blob Storage jako magazynu punktów kontrolnych w usłudze Azure Stack Hub
       href: use-blob-storage-checkpoint-store-azure-stack-hub.md
     - name: Migrowanie z interfejsów API usługi Azure Service Manager (klasycznej) do interfejsów API usługi Resource Manager
@@ -205,7 +207,7 @@
           href: event-hubs-ip-filtering.md
         - name: Konfigurowanie punktów końcowych usługi dla sieci wirtualnej
           href: event-hubs-service-endpoints.md
-        - name: Konfigurowanie prywatnych punktów końcowych (wersja zapoznawcza)
+        - name: Konfigurowanie prywatnych punktów końcowych
           href: private-link-service.md
         - name: Konfigurowanie kluczy zarządzanych przez klienta
           href: configure-customer-managed-key.md

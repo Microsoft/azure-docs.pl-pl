@@ -9,12 +9,12 @@ metadata:
   ms.service: active-directory
   ms.subservice: develop
   ms.workload: identity
-  ms.openlocfilehash: f5b1594993a1d4361746847439374dd2b7122510
-  ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+  ms.openlocfilehash: 71f591f04e8762761c449ca4924db5edb4de3f6c
+  ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/31/2020
-  ms.locfileid: "80420100"
+  ms.lasthandoff: 05/20/2020
+  ms.locfileid: "83681763"
 landingContent:
 - title: Informacje o platformie tożsamości firmy Microsoft
   linkLists:
@@ -30,16 +30,14 @@ landingContent:
     links:
     - text: Podstawowe informacje o uwierzytelnianiu
       url: authentication-scenarios.md
-    - text: Wideo obejmujące podstawowe pojęcia
-      url: identity-videos.md
     - text: Przepływy uwierzytelniania i scenariusze aplikacji
       url: authentication-flows-app-scenarios.md
     - text: Najlepsze rozwiązania i zalecenia
       url: identity-platform-integration-checklist.md
-  - linkListType: learn
+  - linkListType: video
     links:
-    - text: One Dev Minute — platforma tożsamości firmy Microsoft
-      url: https://youtu.be/y_fgJAatVhk
+    - text: 'Seria: Platforma tożsamości dla deweloperów'
+      url: identity-videos.md
 - title: Tworzenie aplikacji jednostronicowej
   linkLists:
   - linkListType: get-started
@@ -48,13 +46,17 @@ landingContent:
       url: scenario-spa-overview.md
   - linkListType: quickstart
     links:
-    - text: JavaScript
+    - text: JavaScript — kod uwierzytelniania
+      url: quickstart-v2-javascript-auth-code.md
+    - text: JavaScript — niejawny
       url: quickstart-v2-javascript.md
     - text: Angular
       url: quickstart-v2-angular.md
   - linkListType: tutorial
     links:
-    - text: JavaScript
+    - text: JavaScript — kod uwierzytelniania
+      url: tutorial-v2-javascript-auth-code.md
+    - text: JavaScript — niejawny
       url: tutorial-v2-javascript-spa.md
   - linkListType: download
     links:

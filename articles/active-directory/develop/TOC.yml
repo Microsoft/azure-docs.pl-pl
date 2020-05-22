@@ -28,7 +28,9 @@
       items:
         - name: Angular
           href: quickstart-v2-angular.md
-        - name: JavaScript
+        - name: JavaScript — przepływ kodu uwierzytelniania
+          href: quickstart-v2-javascript-auth-code.md
+        - name: JavaScript — niejawny przepływ
           href: quickstart-v2-javascript.md
     - name: Aplikacje internetowe
       items:
@@ -73,7 +75,9 @@
       items:
         - name: Angular
           href: tutorial-v2-angular.md
-        - name: JavaScript
+        - name: JavaScript — przepływ kodu uwierzytelniania
+          href: tutorial-v2-javascript-auth-code.md
+        - name: JavaScript — niejawny przepływ
           href: tutorial-v2-javascript-spa.md
     - name: Aplikacje internetowe
       items:
@@ -479,6 +483,10 @@
           href: active-directory-optional-claims.md
         - name: Konfigurowanie okresów istnienia tokenu
           href: active-directory-configurable-token-lifetimes.md
+        - name: Obsługa zmian plików cookie SameSite w przeglądarce Chrome
+          href: howto-handle-samesite-cookie-changes-chrome-browser.md
+        - name: Obsługa funkcji ITP w przeglądarce Safari
+          href: reference-third-party-cookies-spas.md
     - name: Konfiguracja aplikacji
       displayName: App configuration
       items:

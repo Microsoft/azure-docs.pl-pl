@@ -60,9 +60,39 @@
 - name: Samples
   items:
     - name: Interfejs wiersza polecenia platformy Azure
-      href: cli-samples.md
+      items:
+        - name: Tworzenie zestawu skalowania maszyn wirtualnych
+          href: ./scripts/cli-sample-create-simple-scale-set.md
+        - name: Tworzenie zestawu skalowania na podstawie niestandardowego obrazu maszyny wirtualnej
+          href: ./scripts/cli-sample-create-scale-set-from-custom-image.md
+        - name: Instalowanie aplikacji w zestawie skalowania
+          href: ./scripts/cli-sample-install-apps.md
+        - name: Tworzenie i dołączanie dysków do zestawu skalowania
+          href: ./scripts/cli-sample-attach-disks.md
+        - name: Włączanie skalowania automatycznego opartego na hoście
+          href: ./scripts/cli-sample-enable-autoscale.md
+        - name: Tworzenie zestawu skalowania z pojedynczą strefą
+          href: ./scripts/cli-sample-single-availability-zone-scale-set.md
+        - name: Tworzenie strefowo nadmiarowego zestawu skalowania
+          href: ./scripts/cli-sample-zone-redundant-scale-set.md
     - name: PowerShell
-      href: powershell-samples.md
+      items:
+        - name: Tworzenie prostego zestawu skalowania maszyn wirtualnych
+          href: ./scripts/powershell-sample-create-simple-scale-set.md
+        - name: Tworzenie pełnego zestawu skalowania maszyn wirtualnych
+          href: ./scripts/powershell-sample-create-complete-scale-set.md
+        - name: Tworzenie zestawu skalowania na podstawie niestandardowego obrazu maszyny wirtualnej
+          href: ./scripts/powershell-sample-create-scale-set-from-custom-image.md
+        - name: Instalowanie aplikacji w zestawie skalowania
+          href: ./scripts/powershell-sample-install-apps.md
+        - name: Tworzenie i dołączanie dysków do zestawu skalowania
+          href: ./scripts/powershell-sample-attach-disks.md
+        - name: Włączanie skalowania automatycznego opartego na hoście
+          href: ./scripts/powershell-sample-enable-autoscale.md
+        - name: Tworzenie zestawu skalowania z pojedynczą strefą
+          href: ./scripts/powershell-single-av-zone-scale-set.md
+        - name: Tworzenie strefowo nadmiarowego zestawu skalowania
+          href: ./scripts/powershell-sample-zone-redundant-scale-set.md
     - name: Elementy wbudowane usługi Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md

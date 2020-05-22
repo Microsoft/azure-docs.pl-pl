@@ -118,10 +118,12 @@
       items:
         - name: Dostęp do laboratoriów na potrzeby zajęć
           href: how-to-use-classroom-lab.md
-        - name: Używanie połączenia pulpitu zdalnego dla maszyn wirtualnych z systemem Linux
+        - name: Nawiązywanie połączenia z maszynami wirtualnymi z systemem Linux
           href: how-to-use-remote-desktop-linux-student.md
         - name: Nawiązywanie połączenia z maszyną wirtualną z komputera Mac przy użyciu protokołu RDP
-          href: connect-virtual-machine-mac-rdp.md
+          href: connect-virtual-machine-mac-remote-desktop.md
+        - name: Nawiązywanie połączenia z maszyną wirtualną z urządzenia Chromebook przy użyciu protokołu RDP
+          href: connect-virtual-machine-chromebook-remote-desktop.md
         - name: Ustawianie lub resetowanie haseł maszyn wirtualnych
           href: how-to-set-virtual-machine-passwords-student.md
         - name: Wyświetlanie informacji o pomocy technicznej (uczeń)

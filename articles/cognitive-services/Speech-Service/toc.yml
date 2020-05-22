@@ -32,6 +32,8 @@
           href: quickstarts/speech-to-text-from-file.md
         - name: Rozpoznawanie mowy przechowywanej w usłudze Blob Storage
           href: quickstarts/from-blob.md
+        - name: Ocena wymowy za pomocą referencyjnych danych wejściowych
+          href: 'rest-speech-to-text.md#pronunciation-assessment-parameters'
     - name: Przewodniki z instrukcjami
       items:
         - name: Wybór trybu rozpoznawania mowy
@@ -61,6 +63,8 @@
           href: how-to-custom-speech-inspect-data.md
         - name: Ocena dokładności usługi Custom Speech
           href: how-to-custom-speech-evaluate-data.md
+        - name: Zwiększanie dokładności usługi Custom Speech
+          href: how-to-custom-speech-improve-accuracy.md
         - name: Trenowanie modelu dla usługi Custom Speech
           href: how-to-custom-speech-train-model.md
         - name: Wdrażanie modelu niestandardowego

@@ -21,6 +21,8 @@
       href: front-door-tutorial-geo-filtering.md
     - name: Konfigurowanie aparatu reguł
       href: front-door-tutorial-rules-engine.md
+    - name: Zapora aplikacji internetowej i usługa Front Door
+      href: front-door-waf.md
 - name: Samples
   items:
     - name: Szablony usługi Resource Manager

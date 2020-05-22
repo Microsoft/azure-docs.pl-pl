@@ -4,8 +4,13 @@
   items:
     - name: Co to jest usługa Azure Firewall Manager?
       href: overview.md
-- name: Samouczki
+- name: Przewodniki Szybki start
   expanded: true
+  items:
+    - name: Bezpieczny koncentrator wirtualny
+      displayName: Resource Manager
+      href: quick-secure-virtual-hub.md
+- name: Samouczki
   items:
     - name: Zabezpieczanie wirtualnej sieci WAN — portal
       href: secure-cloud-network.md
@@ -57,7 +62,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Szablony społeczności
       href: 'https://azure.microsoft.com/documentation/templates'
-    - name: Ceny
+    - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/azure-firewall/'
     - name: Dostępność regionalna
       href: 'https://azure.microsoft.com/regions/services/'

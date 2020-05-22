@@ -200,6 +200,8 @@
               href: howto-create-users.md
             - name: Konfigurowanie integracji z usługą Azure AD
               href: howto-configure-sign-in-aad-authentication.md
+            - name: Nawiązywanie połączenia z tożsamością zarządzaną
+              href: howto-connect-with-managed-identity.md
         - name: Optymalizacja
           items:
             - name: Zbiorcze operacje wstawiania

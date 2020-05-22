@@ -6,8 +6,14 @@
       href: overview-iot-central.md
     - name: Przewodnik po interfejsie użytkownika
       href: overview-iot-central-tour.md
+    - name: Opracowywanie urządzeń
+      href: overview-iot-central-developer.md
     - name: Najnowsze aktualizacje
       items:
+        - name: Nowe funkcje — kwiecień 2020 r.
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-april-2020-new-features/'
+        - name: Aktualizacje — kwiecień 2020 r.
+          href: 'https://azure.microsoft.com/updates/azure-iot-central-april-2020-updates/'
         - name: Marzec 2020 r.
           href: 'https://azure.microsoft.com/updates/azure-iot-central-march-2020-updates/'
 - name: Przewodniki Szybki start
@@ -81,6 +87,8 @@
           href: howto-manage-devices.md
         - name: Konfigurowanie reguł
           href: howto-configure-rules.md
+        - name: Używanie przepływów pracy do integracji z innymi usługami
+          href: howto-configure-rules-advanced.md
         - name: Analizowanie danych urządzenia
           href: howto-create-analytics.md
         - name: Dodawanie kafelków do pulpitu nawigacyjnego

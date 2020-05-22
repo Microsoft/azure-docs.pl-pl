@@ -91,7 +91,7 @@
           items:
             - name: Ograniczanie dostępu przy użyciu prywatnego punktu końcowego
               href: container-registry-private-link.md
-            - name: Konfigurowanie reguł zapory usługi
+            - name: Konfigurowanie dostępu do rejestru publicznego
               href: container-registry-access-selected-networks.md
             - name: Ograniczanie dostępu przy użyciu punktów końcowych usługi (wersja zapoznawcza)
               href: container-registry-vnet.md

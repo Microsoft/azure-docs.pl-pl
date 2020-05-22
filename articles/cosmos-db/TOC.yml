@@ -71,10 +71,8 @@
       href: sql-api-dotnet-samples.md
     - name: Przykłady zestawów SDK dla platformy .NET V3
       href: sql-api-dotnet-v3sdk-samples.md
-    - name: Przykłady w języku Java
-      href: sql-api-java-samples.md
-    - name: Asynchroniczne przykłady w języku Java
-      href: sql-api-async-java-samples.md
+    - name: Przykłady zestawu Java SDK 4
+      href: sql-api-java-sdk-samples.md
     - name: Przykłady dla platformy Node.js
       href: sql-api-nodejs-samples.md
     - name: Przykłady w języku Python
@@ -132,11 +130,13 @@
         - name: Jednostki żądania
           displayName: 'RUs, RU'
           href: request-units.md
-        - name: Aprowizacja przepływności kontenerów i baz danych
+        - name: Wprowadzenie do aprowizowanej przepływności
           displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
           href: set-throughput.md
-        - name: Aprowizacja przepływności — autoskalowanie
+        - name: Aprowizowanie przepływności autoskalowania
           href: provision-throughput-autoscale.md
+        - name: Wybór między autoskalowaniem a standardową (ręczną) przepływnością
+          href: how-to-choose-offer.md
         - name: Autoskalowanie — często zadawane pytania
           href: autoscale-faq.md
     - name: Zapytanie SQL
@@ -492,12 +492,14 @@
           href: change-feed-functions.md
         - name: Model ściągania zestawienia zmian
           href: change-feed-pull-model.md
-    - name: Analiza przy użyciu usługi Synapse Link
+    - name: Analiza przy użyciu usługi Azure Synapse Link
       items:
-        - name: Usługa Synapse Link dla usługi Azure Cosmos DB
+        - name: Usługa Azure Synapse Link dla usługi Cosmos DB
           href: synapse-link.md
         - name: Magazyn analityczny — omówienie
           href: analytical-store-introduction.md
+        - name: Obsługiwane funkcje usługi Synapse Link
+          href: ../synapse-analytics/synapse-link/concept-synapse-link-cosmos-db-support.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Często zadawane pytania dotyczące usługi Synapse Link
           href: synapse-link-frequently-asked-questions.md
         - name: Przypadki użycia usługi Synapse Link
@@ -568,6 +570,8 @@
           href: online-backup-and-restore.md
         - name: Zgodność
           href: compliance.md
+        - name: Obsługa usługi Azure Policy
+          href: policy.md
     - name: Przydziały usług
       href: concepts-limits.md
 - name: 'Cassandra, MongoDB i inne interfejsy API'
@@ -664,8 +668,6 @@
             - name: Xamarin
               href: create-mongodb-xamarin.md
             - name: Golang
-              href: create-mongodb-golang.md
-            - name: Przejdź
               href: create-mongodb-go.md
         - name: Samouczki
           items:
@@ -922,12 +924,15 @@
           href: how-to-convert-session-token.md
     - name: Aprowizowana przepływność
       items:
-        - name: Aprowizowanie przepływności w kontenerze
+        - name: Aprowizowanie standardowe (ręczne) przepływności w kontenerze
           displayName: 'request units, RUs, RU, collection level'
           href: how-to-provision-container-throughput.md
-        - name: Aprowizowanie przepływności w bazie danych
+        - name: Aprowizowanie standardowe (ręczne) przepływności w bazie danych
           displayName: 'request units, RUs, RU, shared throughput, database level'
           href: how-to-provision-database-throughput.md
+        - name: Aprowizowanie przepływności autoskalowania w bazie danych lub kontenerze
+          displayName: 'request units, RUs, RU, shared throughput, database level, collection level, autoscale'
+          href: how-to-provision-autoscale-throughput.md
         - name: Szacowanie liczby jednostek żądania na sekundę za pomocą narzędzia do planowania wydajności rozwiązania Cosmos
           displayName: 'request units, RUs, RU, capacity'
           href: estimate-ru-with-capacity-planner.md
@@ -1020,10 +1025,14 @@
           href: how-to-migrate-from-change-feed-library.md
         - name: Zestawienie zmian — przykład asynchronicznej aplikacji Java
           href: create-sql-api-java-changefeed.md
-    - name: Analiza przy użyciu usługi Synapse Link
+    - name: Analiza przy użyciu usługi Azure Synapse Link
       items:
-        - name: Konfigurowanie usługi Synapse Link
+        - name: Konfigurowanie usługi Azure Synapse Link
           href: configure-synapse-link.md
+        - name: Nawiązywanie połączenia z usługą Azure Synapse Link
+          href: ../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Wykonywanie zapytań za pomocą usługi Azure Synapse Spark
+          href: ../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
     - name: Wbudowana analiza przy użyciu platformy Apache Spark
       items:
         - name: Łącznik platformy Azure Spark w usłudze Azure Databricks
@@ -1034,8 +1043,12 @@
       items:
         - name: Włączanie notesów
           href: enable-notebooks.md
-        - name: Korzystanie z wbudowanych poleceń notesu
-          href: use-notebook-features-and-commands.md
+        - name: Importowanie notesów z usługi GitHub
+          href: import-github-notebooks.md
+        - name: Korzystanie z wbudowanych poleceń notesu języka Python
+          href: use-python-notebook-features-and-commands.md
+        - name: 'Korzystanie z wbudowanych poleceń notesu języka C#'
+          href: use-csharp-notebook-features-and-commands.md
     - name: Programowanie po stronie serwera
       items:
         - name: 'Pisanie procedur składowanych, wyzwalaczy i funkcji zdefiniowanych przez użytkownika'
@@ -1160,6 +1173,8 @@
           href: migrate-relational-to-cosmos-db-sql-api.md
         - name: Migrowanie — baza danych Couchbase do interfejsu API SQL
           href: couchbase-cosmos-migration.md
+        - name: Migrowanie — baza danych DynamoDB do interfejsu API SQL
+          href: dynamo-to-cosmos.md
     - name: Biblioteka funkcji wykonawczej operacji zbiorczych
       items:
         - name: Informacje o funkcji wykonywania zbiorczego
@@ -1182,12 +1197,16 @@
       href: sql-api-sdk-dotnet-changefeed.md
     - name: Biblioteka .NET funkcji wykonywania zbiorczego
       href: sql-api-sdk-bulk-executor-dot-net.md
-    - name: Java
-      href: sql-api-sdk-java.md
     - name: Biblioteka Java funkcji wykonywania zbiorczego
       href: sql-api-sdk-bulk-executor-java.md
-    - name: Java (asynchroniczny)
-      href: sql-api-sdk-async-java.md
+    - name: Zestaw SDK języka Java 4 dla platformy Core
+      href: sql-api-sdk-java-v4.md
+    - name: Starsze zestawy Java SDK dla platformy Core
+      items:
+        - name: Async Java SDK 2
+          href: sql-api-sdk-async-java.md
+        - name: Sync Java SDK 2
+          href: sql-api-sdk-java.md
     - name: Node.js
       href: sql-api-sdk-node.md
     - name: Python

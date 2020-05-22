@@ -17,13 +17,13 @@
 - name: Przewodniki Szybki start
   expanded: true
   items:
-    - name: Wdrażanie przy użyciu grup adresów IP
+    - name: Wdrażanie przy użyciu grup adresów IP — szablon usługi Resource Manager
       displayName: Resource Manager
       href: quick-create-ipgroup-template.md
-    - name: Wdrażanie przy użyciu wielu adresów
+    - name: Wdrażanie przy użyciu wielu adresów— szablon usługi Resource Manager
       displayName: Resource Manager
       href: quick-create-multiple-ip-template.md
-    - name: Wdrażanie przy użyciu stref dostępności
+    - name: Wdrażanie przy użyciu stref dostępności — szablon usługi Resource Manager
       displayName: Resource Manager
       href: deploy-template.md
 - name: Samples

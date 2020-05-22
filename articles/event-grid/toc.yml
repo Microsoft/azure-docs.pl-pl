@@ -132,6 +132,14 @@
               href: event-schema-azure-signalr.md
             - name: Subskrypcje platformy Azure
               href: event-schema-subscriptions.md
+    - name: Tematy partnerów
+      items:
+        - name: Przegląd tematów partnerów
+          href: partner-topics-overview.md
+        - name: Auth0
+          href: auth0-overview.md
+        - name: Zostań partnerem usługi Event Grid
+          href: partner-onboarding-overview.md
     - name: Domeny zdarzeń
       href: event-domains.md
     - name: Formaty schematów zdarzeń
@@ -186,6 +194,8 @@
   items:
     - name: Publikowanie w temacie niestandardowym
       href: post-to-custom-topic.md
+    - name: Subskrybowanie do zdarzeń usługi Auth0
+      href: auth0-how-to.md
     - name: Odbieranie zdarzeń w punkcie końcowym HTTP
       href: receive-events.md
     - name: Utracone wiadomości i ponawianie prób
@@ -214,6 +224,8 @@
           href: configure-firewall.md
         - name: Zabezpieczanie elementu webhook za pomocą usługi AAD
           href: secure-webhook-delivery.md
+        - name: Dostarczanie zdarzeń przy użyciu tożsamości zarządzanej
+          href: managed-service-identity.md
     - name: Rozwiązywanie problemów
       items:
         - name: Włączanie dzienników diagnostycznych
