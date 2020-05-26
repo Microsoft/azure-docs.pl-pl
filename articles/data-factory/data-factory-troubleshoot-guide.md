@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 8/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: f07cc109b21010df89b105576cb9afcf93df774a
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: ac6081f02ad532b512ecca335b949eec71c060ff
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744765"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836162"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Rozwiązywanie problemów Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -102,7 +102,7 @@ W przypadku problemów z łącznikiem, takich jak napotkany błąd przy użyciu 
 
 <br/> 
 
-- **Komunikat**: `User: `SimpleUserContext {userId =..., Name =user@company.com, orgId =...}` is not authorized to access cluster.`
+- **Komunikat**: `User: ` SimpleUserContext {userId =..., Name = user@company.com , orgId =...}` is not authorized to access cluster.`
 
 - **Przyczyna**: użytkownik, który wygenerował token dostępu, nie może uzyskać dostępu do klastra datakostks określonego w połączonej usłudze.
 
@@ -226,7 +226,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 - **Przyczyna**: definicja działania funkcji platformy Azure nie została ukończona.
 
-- **Zalecenie**: Sprawdź, czy WPROWADZONA definicja JSON działania funkcji platformy Azure ma właściwość o `functionKey`nazwie.
+- **Zalecenie**: Sprawdź, czy WPROWADZONA definicja JSON działania funkcji platformy Azure ma właściwość o nazwie `functionKey` .
 
 ### <a name="error-code-3607"></a>Kod błędu: 3607
 
@@ -234,7 +234,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 - **Przyczyna**: definicja działania funkcji platformy Azure nie została ukończona.
 
-- **Zalecenie**: Sprawdź, czy WPROWADZONA definicja JSON działania funkcji platformy Azure ma właściwość o `functionName`nazwie.
+- **Zalecenie**: Sprawdź, czy WPROWADZONA definicja JSON działania funkcji platformy Azure ma właściwość o nazwie `functionName` .
 
 ### <a name="error-code-3608"></a>Kod błędu: 3608
 
@@ -250,7 +250,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 - **Przyczyna**: definicja działania funkcji platformy Azure nie została ukończona.
 
-- **Zalecenie**: Sprawdź, czy WPROWADZONA definicja JSON działania funkcji platformy Azure ma właściwość o `functionAppUrl`nazwie.
+- **Zalecenie**: Sprawdź, czy WPROWADZONA definicja JSON działania funkcji platformy Azure ma właściwość o nazwie `functionAppUrl` .
 
 ### <a name="error-code-3610"></a>Kod błędu: 3610
 
@@ -266,7 +266,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 - **Przyczyna**: definicja działania funkcji platformy Azure nie została ukończona.
 
-- **Zalecenie**: Sprawdź, czy WPROWADZONA definicja JSON działania funkcji platformy Azure ma właściwość o `method`nazwie.
+- **Zalecenie**: Sprawdź, czy WPROWADZONA definicja JSON działania funkcji platformy Azure ma właściwość o nazwie `method` .
 
 ### <a name="error-code-3612"></a>Kod błędu: 3612
 
@@ -282,7 +282,7 @@ Poniższa tabela dotyczy języka U-SQL.
 
 - **Komunikat**:`AzureMLExecutePipeline activity '%activityName;' has invalid value for property '%propertyName;'.`
 
-- **Przyczyna**: Zły format lub Brak definicji właściwości `%propertyName;`.
+- **Przyczyna**: Zły format lub Brak definicji właściwości `%propertyName;` .
 
 - **Zalecenie**: Sprawdź, czy działanie `%activityName;` ma właściwość `%propertyName;` zdefiniowaną z prawidłowymi danymi.
 
@@ -592,7 +592,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 - **Komunikat**:`Failed to submit the job '%jobId;' to the cluster '%cluster;'. Error: %errorMessage;.`
 
-- **Przyczyna**: komunikat o błędzie zawiera komunikat podobny do `The remote name could not be resolved.`. Podany identyfikator URI klastra może być nieprawidłowy.
+- **Przyczyna**: komunikat o błędzie zawiera komunikat podobny do `The remote name could not be resolved.` . Podany identyfikator URI klastra może być nieprawidłowy.
 
 - **Zalecenie**: Sprawdź, czy klaster nie został usunięty i czy podany identyfikator URI jest prawidłowy. Po otwarciu identyfikatora URI w przeglądarce powinien zostać wyświetlony interfejs użytkownika Ambari. Jeśli klaster znajduje się w sieci wirtualnej, identyfikator URI powinien być prywatnym identyfikatorem URI. Aby go otworzyć, użyj maszyny wirtualnej (VM), która jest częścią tej samej sieci wirtualnej.
 
@@ -600,7 +600,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
  
  </br>
 
-- **Przyczyna**: Jeśli komunikat o błędzie zawiera komunikat podobny do `A task was canceled.`, upłynął limit czasu dla zgłoszenia zadania.
+- **Przyczyna**: Jeśli komunikat o błędzie zawiera komunikat podobny do `A task was canceled.` , upłynął limit czasu dla zgłoszenia zadania.
 
 - **Zalecenie**: przyczyną problemu może być ogólna łączność z usługą HDInsight lub łączność sieciowa. Najpierw upewnij się, że interfejs użytkownika usługi HDInsight Ambari jest dostępny z dowolnej przeglądarki. Następnie sprawdź, czy poświadczenia są nadal ważne.
    
@@ -610,7 +610,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
  </br>
 
-- **Przyczyna**: Jeśli komunikat o błędzie zawiera komunikat podobny do `User admin is locked out in Ambari` lub `Unauthorized: Ambari user name or password is incorrect`, poświadczenia usługi HDInsight są nieprawidłowe lub wygasły.
+- **Przyczyna**: Jeśli komunikat o błędzie zawiera komunikat podobny do `User admin is locked out in Ambari` lub `Unauthorized: Ambari user name or password is incorrect` , poświadczenia usługi HDInsight są nieprawidłowe lub wygasły.
 
 - **Zalecenie**: Popraw poświadczenia i ponownie Wdróż połączoną usługę. Najpierw sprawdź, czy poświadczenia działają w usłudze HDInsight, otwierając identyfikator URI klastra w dowolnej przeglądarce i próbując zalogować się. Jeśli poświadczenia nie działają, możesz je zresetować z poziomu Azure Portal.
 
@@ -618,12 +618,12 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
  </br>
 
-- **Przyczyna**: Jeśli komunikat o błędzie zawiera komunikat podobny do `502 - Web server received an invalid response while acting as a gateway or proxy server`, ten błąd jest zwracany przez usługę HDInsight.
+- **Przyczyna**: Jeśli komunikat o błędzie zawiera komunikat podobny do `502 - Web server received an invalid response while acting as a gateway or proxy server` , ten błąd jest zwracany przez usługę HDInsight.
 
 - **Zalecenie**: błąd 502 często występuje, gdy proces serwera Ambari został zamknięty. Usługi Ambari można uruchomić ponownie przez ponowne uruchomienie węzła głównego.
 
     1. Połącz się z jednym z węzłów w usłudze HDInsight przy użyciu protokołu SSH.
-    1. Aby zidentyfikować hosta węzła głównego, należy uruchomić `ping headnodehost`program.
+    1. Aby zidentyfikować hosta węzła głównego, należy uruchomić program `ping headnodehost` .
     1. Połącz się z aktywnym węzłem głównym, gdy serwer Ambari znajduje się w aktywnym węźle głównym przy użyciu protokołu SSH. 
     1. Uruchom ponownie aktywny węzeł główny.
 
@@ -635,11 +635,11 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
  </br>
 
-- **Przyczyna**: Jeśli komunikat o błędzie zawiera komunikat podobny do `Unable to service the submit job request as templeton service is busy with too many submit job requests` lub `Queue root.joblauncher already has 500 applications, cannot accept submission of application`, zbyt wiele zadań jest przesyłanych do usługi HDInsight w tym samym czasie.
+- **Przyczyna**: Jeśli komunikat o błędzie zawiera komunikat podobny do `Unable to service the submit job request as templeton service is busy with too many submit job requests` lub `Queue root.joblauncher already has 500 applications, cannot accept submission of application` , zbyt wiele zadań jest przesyłanych do usługi HDInsight w tym samym czasie.
 
 - **Zalecenie**: Ogranicz liczbę współbieżnych zadań przesyłanych do usługi HDInsight. Zapoznaj się z Data Factory współbieżności działań, jeśli zadania są przesyłane przez to samo działanie. Zmień Wyzwalacze w celu rozłożenia współbieżnych uruchomień potoków w czasie.
 
-   Zapoznaj się z [dokumentacją](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-templeton-webhcat-debug-errors) usługi `templeton.parallellism.job.submit` HDInsight, aby dostosować ją w miarę sugerowania błędu.
+   Zapoznaj się z [dokumentacją usługi HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-templeton-webhcat-debug-errors) , aby dostosować `templeton.parallellism.job.submit` ją w miarę sugerowania błędu.
 
 ### <a name="error-code-2301"></a>Kod błędu: 2301
 
@@ -649,7 +649,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
 
 - **Zalecenie**: ten błąd występuje, gdy usługa ADF nie odbiera odpowiedzi z klastra usługi HDInsight podczas próby zażądania stanu uruchomionego zadania. Ten problem może znajdować się w klastrze lub Usługa HDInsight może mieć awarię.
 
-   Zapoznaj się z dokumentacją rozwiązywania problemów usługi HDInsight w https://docs.microsoft.com/azure/hdinsight/hdinsight-troubleshoot-guidelub skontaktuj się z pomocą techniczną w celu uzyskania dalszej pomocy
+   Zapoznaj się z dokumentacją rozwiązywania problemów usługi HDInsight w https://docs.microsoft.com/azure/hdinsight/hdinsight-troubleshoot-guide lub skontaktuj się z pomocą techniczną w celu uzyskania dalszej pomocy
 
 ### <a name="error-code-2302"></a>Kod błędu: 2302
 
@@ -667,9 +667,9 @@ Poniższa tabela ma zastosowanie do Azure Batch.
  1. Uruchom przykładowe zadanie testowe.
     1. Jeśli uruchamiasz to samo zadanie w zapleczu usługi HDInsight, sprawdź, czy zakończyło się pomyślnie. Przykłady przebiegów przykładowych można znaleźć [w temacie Uruchamianie przykładów MapReduce zawartych w usłudze HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-run-samples-linux) 
  1. Jeśli zadanie nadal nie powiodło się w usłudze HDInsight, Sprawdź dzienniki i informacje dotyczące aplikacji, które mają być obsługiwane:
-    1. Sprawdź, czy zadanie zostało przesłane do PRZĘDZy. Jeśli zadanie nie zostało przesłane do przędzy, `--master yarn`Użyj.
+    1. Sprawdź, czy zadanie zostało przesłane do PRZĘDZy. Jeśli zadanie nie zostało przesłane do przędzy, użyj `--master yarn` .
     1. Jeśli aplikacja została ukończona, Zbierz czas rozpoczęcia i czas zakończenia aplikacji PRZĘDZy. Jeśli aplikacja nie ukończy wykonywania, Zbierz czas rozpoczęcia/czas uruchomienia.
-    1. Sprawdź i zbierz dziennik aplikacji przy `yarn logs -applicationId <Insert_Your_Application_ID>`użyciu programu.
+    1. Sprawdź i zbierz dziennik aplikacji przy użyciu programu `yarn logs -applicationId <Insert_Your_Application_ID>` .
     1. Sprawdź i zbierz dzienniki Menedżer zasobów przędzy w `/var/log/hadoop-yarn/yarn` katalogu.
     1. Jeśli te kroki nie są wystarczające, aby rozwiązać ten problem, skontaktuj się z zespołem usługi Azure HDInsight w celu uzyskania pomocy technicznej i podaj powyższe dzienniki i sygnatury czasowe.
 
@@ -689,9 +689,9 @@ Poniższa tabela ma zastosowanie do Azure Batch.
  1. Uruchom przykładowe zadanie testowe.
     1. Jeśli uruchamiasz to samo zadanie w zapleczu usługi HDInsight, sprawdź, czy zakończyło się pomyślnie. Przykłady przebiegów przykładowych można znaleźć [w temacie Uruchamianie przykładów MapReduce zawartych w usłudze HDInsight](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-run-samples-linux) 
  1. Jeśli zadanie nadal nie powiodło się w usłudze HDInsight, Sprawdź dzienniki i informacje dotyczące aplikacji, które mają być obsługiwane:
-    1. Sprawdź, czy zadanie zostało przesłane do PRZĘDZy. Jeśli zadanie nie zostało przesłane do przędzy, `--master yarn`Użyj.
+    1. Sprawdź, czy zadanie zostało przesłane do PRZĘDZy. Jeśli zadanie nie zostało przesłane do przędzy, użyj `--master yarn` .
     1. Jeśli aplikacja została ukończona, Zbierz czas rozpoczęcia i czas zakończenia aplikacji PRZĘDZy. Jeśli aplikacja nie ukończy wykonywania, Zbierz czas rozpoczęcia/czas uruchomienia.
-    1. Sprawdź i zbierz dziennik aplikacji przy `yarn logs -applicationId <Insert_Your_Application_ID>`użyciu programu.
+    1. Sprawdź i zbierz dziennik aplikacji przy użyciu programu `yarn logs -applicationId <Insert_Your_Application_ID>` .
     1. Sprawdź i zbierz dzienniki Menedżer zasobów przędzy w `/var/log/hadoop-yarn/yarn` katalogu.
     1. Jeśli te kroki nie są wystarczające, aby rozwiązać ten problem, skontaktuj się z zespołem usługi Azure HDInsight w celu uzyskania pomocy technicznej i podaj powyższe dzienniki i sygnatury czasowe.
 
@@ -801,7 +801,7 @@ Poniższa tabela ma zastosowanie do Azure Batch.
     1. Sprawdź, czy poświadczenia są poprawne, otwierając interfejs użytkownika Ambari klastra usługi HDInsight w przeglądarce.
     1. Jeśli klaster znajduje się w Virtual Network (VNet) i jest używany własny IR, adres URL HDI musi być prywatnym adresem URL w sieci wirtualnych i powinien zawierać znak "-int" wymieniony po nazwie klastra.
     
-       Na przykład zmień `https://mycluster.azurehdinsight.net/` na `https://mycluster-int.azurehdinsight.net/`. Zanotuj `-int` po `mycluster`, ale wcześniej`.azurehdinsight.net`
+       Na przykład zmień `https://mycluster.azurehdinsight.net/` na `https://mycluster-int.azurehdinsight.net/` . Zanotuj `-int` po `mycluster` , ale wcześniej`.azurehdinsight.net`
     1. Jeśli klaster znajduje się w sieci wirtualnej, jest używane samoobsługowe środowisko IR, a prywatny adres URL był używany, a mimo to połączenie nadal się nie powiodło, a następnie maszyna wirtualna, na której zainstalowano środowisko IR, ma problemy z połączeniem z HDI. 
     
        Połącz się z maszyną wirtualną, na której zainstalowano środowisko IR, i Otwórz interfejs użytkownika Ambari w przeglądarce. Użyj prywatnego adresu URL klastra. To połączenie powinno być wykonane z przeglądarki. Jeśli nie, skontaktuj się z zespołem pomocy technicznej usługi HDInsight, aby uzyskać dalszą pomoc.
@@ -1016,7 +1016,7 @@ Aby użyć **programu Fiddler** do utworzenia sesji http monitorowanej aplikacji
 
 1. Pobierz, zainstaluj i Otwórz [programu Fiddler](https://www.telerik.com/download/fiddler).
 
-1. Jeśli aplikacja sieci Web używa protokołu HTTPS, przejdź do pozycji **Narzędzia** > **programu Fiddler opcje** > **https**.
+1. Jeśli aplikacja sieci Web używa protokołu HTTPS, przejdź do pozycji **Narzędzia**  >  **programu Fiddler opcje**  >  **https**.
 
    1. Na karcie HTTPS wybierz opcję **Przechwytuj połączenia HTTPS** i **Odszyfruj ruch https**.
 
@@ -1024,9 +1024,9 @@ Aby użyć **programu Fiddler** do utworzenia sesji http monitorowanej aplikacji
 
 1. Jeśli aplikacja używa certyfikatów TLS/SSL, Dodaj do urządzenia certyfikat programu Fiddler.
 
-   Przejdź do: **Narzędzia** > **programu Fiddler opcje** > **https** > **Actions** > **, Eksportuj certyfikat główny do pulpitu**.
+   Przejdź do: **Narzędzia**  >  **programu Fiddler opcje**  >  **https**  >  **Actions**  >  **, Eksportuj certyfikat główny do pulpitu**.
 
-1. Wyłącz przechwytywanie, przechodząc do **File** > **ruchu przechwytywania**plików. Lub naciśnij klawisz **F12**.
+1. Wyłącz przechwytywanie, przechodząc do **File**  >  **ruchu przechwytywania**plików. Lub naciśnij klawisz **F12**.
 
 1. Wyczyść pamięć podręczną przeglądarki, aby wszystkie elementy w pamięci podręcznej zostały usunięte i muszą zostać pobrane ponownie.
 
@@ -1042,7 +1042,7 @@ Aby użyć **programu Fiddler** do utworzenia sesji http monitorowanej aplikacji
 
 1. Włącz ponownie przechwytywanie ruchu i Ukończ problematyczną transakcję na stronie.
 
-1. Przejdź do: **plik** > **Zapisz** > **wszystkie sesje**.
+1. Przejdź do: **plik**  >  **Zapisz**  >  **wszystkie sesje**.
 
 Aby uzyskać więcej informacji, zobacz [Rozpoczynanie pracy z usługą programu Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler).
 
@@ -1055,4 +1055,4 @@ Aby uzyskać więcej informacji dotyczących rozwiązywania problemów, wypróbu
 * [Forum Stack Overflow dla Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 * [Informacje o usłudze Twitter dotyczące Data Factory](https://twitter.com/hashtag/DataFactory)
 * [Wideo dotyczące platformy Azure](https://azure.microsoft.com/resources/videos/index/)
-* [Forum MSDN](https://social.msdn.microsoft.com/Forums/home)
+* [Strona pytania&pytań i odpowiedzi](https://docs.microsoft.com/answers/topics/azure-data-factory.html)

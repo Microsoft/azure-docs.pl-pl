@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 8697c7a82e271919f8d5aaa48160aa93c833809b
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: c5e5437db480646275a8bbe34e1a64c005a32a16
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996898"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827730"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs — często zadawane pytania
 Uzyskaj odpowiedzi na niektóre często zadawane pytania dotyczące Azure DevTest Labs.
@@ -47,7 +47,7 @@ Nasz uchwyt usługi Twitter:[@azlabservices](https://twitter.com/azlabservices)
 Jeśli pytania nie ma na liście, daj nam znać, aby pomóc Ci znaleźć odpowiedź.
 
 - Opublikuj pytanie na końcu tego często zadawanych pytań.
-- Aby dotrzeć do szerszego grona użytkowników, Opublikuj pytanie na [forum Azure DEVTEST Labs MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs). Zaangażuj się z zespołem Azure DevTest Labs i innymi członkami społeczności.
+- Aby dotrzeć do szerszego grona użytkowników, Opublikuj pytanie na [stronie pytania&](https://docs.microsoft.com/answers/topics/azure-devtestlabs.html)pytań i odpowiedzi dla Azure DevTest Labs. Zaangażuj się z zespołem Azure DevTest Labs i innymi członkami społeczności.
 - W przypadku żądań funkcji Prześlij swoje żądania i pomysły dotyczące [Azure DevTest Labs głosu użytkownika](https://feedback.azure.com/forums/320373-azure-devtest-labs).
 
 ### <a name="what-is-a-microsoft-account"></a>Co to jest konto Microsoft?
@@ -307,7 +307,7 @@ Portal Azure Marketplace powinien być używany domyślnie, chyba że istnieją 
 - Warunki zgodności lub przepisy prawne (na przykład zasady zabezpieczeń), które muszą być stosowane dla wszystkich maszyn.
 - Używanie obrazów niestandardowych nie powinno być uznawane za jasne. Wprowadzają one dodatkową złożoność, ponieważ teraz trzeba zarządzać plikami VHD dla tych podstawowych obrazów bazowych. Należy również regularnie uaktualniać te obrazy podstawowe przy użyciu aktualizacji oprogramowania. Aktualizacje te obejmują nowe aktualizacje systemu operacyjnego, a także wszelkie aktualizacje lub zmiany konfiguracji, które są potrzebne dla samego pakietu oprogramowania.
 
-## <a name="artifacts"></a>Artefakty
+## <a name="artifacts"></a>Artifacts
 
 ### <a name="what-are-artifacts"></a>Co to są artefakty?
 Artefakty to dostosowywalne elementy, których można użyć do wdrożenia najnowszych bitów lub wdrożenia narzędzi deweloperskich na maszynie wirtualnej. Dołącz artefakty do maszyny wirtualnej podczas tworzenia maszyny wirtualnej. Po aprowizacji maszyny wirtualnej artefakty wdrażają i konfigurują maszynę wirtualną. Różne istniejące już artefakty są dostępne w naszym [publicznym repozytorium GitHub](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts). Możesz również [tworzyć własne artefakty](devtest-lab-artifact-author.md).

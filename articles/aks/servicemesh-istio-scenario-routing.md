@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 01a7764eb0a353e6842441093f70ad29c9316bbd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 871a764c549de75d5a9e1449ba2e0737d38a4094
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80668275"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799942"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Używanie inteligentnych wersji routingu i oprogramowania Kanaryjskie z Istio w usłudze Azure Kubernetes Service (AKS)
 
@@ -31,9 +31,9 @@ W tym artykule omówiono sposób wykonywania następujących zadań:
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
 > [!NOTE]
-> Ten scenariusz został przetestowany w stosunku `1.3.2`do wersji Istio.
+> Ten scenariusz został przetestowany w stosunku do wersji Istio `1.3.2` .
 
-W krokach przedstawionych w tym artykule przyjęto założenie, że utworzono `1.13` klaster AKS (Kubernetes lub nowszy z WŁĄCZONĄ funkcją RBAC) `kubectl` i nawiązano połączenie z klastrem. Wymagany jest również Istio zainstalowany w klastrze.
+W krokach przedstawionych w tym artykule przyjęto założenie, że utworzono klaster AKS (Kubernetes `1.13` lub nowszy z włączoną funkcją RBAC) i nawiązano `kubectl` połączenie z klastrem. Wymagany jest również Istio zainstalowany w klastrze.
 
 Jeśli potrzebujesz pomocy dotyczącej któregokolwiek z tych elementów, zobacz Przewodnik [Szybki Start AKS][aks-quickstart] i [Install Istio in AKS][istio-install] .
 
@@ -41,13 +41,13 @@ Jeśli potrzebujesz pomocy dotyczącej któregokolwiek z tych elementów, zobacz
 
 Przykładowa aplikacja do głosowania AKS udostępnia dwie opcje głosowania (**koty** lub **psy**) dla użytkowników. Istnieje składnik magazynu, który zachowuje liczbę głosów dla każdej opcji. Ponadto istnieje składnik analityczny, który zawiera szczegółowe informacje na temat rzutowania głosów dla każdej opcji.
 
-W tym scenariuszu aplikacji Zacznij od wdrożenia wersji `1.0` aplikacji do głosowania i wersji `1.0` składnika analitycznego. Składnik analizy oferuje proste liczniki liczby głosów. Aplikacja do głosowania i składnik analizy współdziałają `1.0` z wersją składnika magazynu, która jest obsługiwana przez Redis.
+W tym scenariuszu aplikacji Zacznij od wdrożenia wersji `1.0` aplikacji do głosowania i wersji `1.0` składnika analitycznego. Składnik analizy oferuje proste liczniki liczby głosów. Aplikacja do głosowania i składnik analizy współdziałają z wersją `1.0` składnika magazynu, która jest obsługiwana przez Redis.
 
-Składnik analityczny jest uaktualniany do `1.1`wersji, która zapewnia liczby, a teraz sumuje i wartości procentowe.
+Składnik analityczny jest uaktualniany do wersji `1.1` , która zapewnia liczby, a teraz sumuje i wartości procentowe.
 
 Podzbiór użytkowników, którzy testują wersję `2.0` aplikacji za pośrednictwem wersji systemu kanaryjskiej. Ta nowa wersja używa składnika magazynu, który jest objęty bazą danych MySQL.
 
-Po upewnieniu się, że `2.0` wersja działa zgodnie z oczekiwaniami w podzbiorze użytkowników, możesz wycofać wersję `2.0` do wszystkich użytkowników.
+Po upewnieniu się, że wersja `2.0` działa zgodnie z oczekiwaniami w podzbiorze użytkowników, możesz wycofać wersję `2.0` do wszystkich użytkowników.
 
 ## <a name="deploy-the-application"></a>Wdrażanie aplikacji
 
@@ -73,7 +73,7 @@ Najpierw utwórz przestrzeń nazw w klastrze AKS dla przykładowej aplikacji do 
 kubectl create namespace voting
 ```
 
-Oznacz przestrzeń nazw za `istio-injection=enabled`pomocą. Ta etykieta instruuje Istio, aby automatycznie wstrzyknąć Istio-proxy jako przyczepki do wszystkich swoich zasobników w tej przestrzeni nazw.
+Oznacz przestrzeń nazw za pomocą `istio-injection=enabled` . Ta etykieta instruuje Istio, aby automatycznie wstrzyknąć Istio-proxy jako przyczepki do wszystkich swoich zasobników w tej przestrzeni nazw.
 
 ```console
 kubectl label namespace voting istio-injection=enabled
@@ -105,7 +105,7 @@ Aby wyświetlić utworzone zasobniki, użyj polecenia [polecenia kubectl Get][ku
 kubectl get pods -n voting --show-labels
 ```
 
-Następujące przykładowe dane wyjściowe pokazują, że istnieją trzy wystąpienia elementu `voting-app` a i jednego wystąpienia `voting-analytics` `voting-storage` . Każdy z tych zasobników ma dwa kontenery. Jeden z tych kontenerów jest składnikiem, a drugi to `istio-proxy`:
+Następujące przykładowe dane wyjściowe pokazują, że istnieją trzy wystąpienia elementu `voting-app` a i jednego wystąpienia `voting-analytics` `voting-storage` . Każdy z tych zasobników ma dwa kontenery. Jeden z tych kontenerów jest składnikiem, a drugi to `istio-proxy` :
 
 ```output
 NAME                                    READY     STATUS    RESTARTS   AGE   LABELS
@@ -172,13 +172,13 @@ Otwórz przeglądarkę i wklej adres IP. Zostanie wyświetlona Przykładowa apli
 
 ![Aplikacja do głosowania AKS uruchomiona w naszym Istio włączonym klastrze AKS.](media/servicemesh/istio/scenario-routing-deploy-app-01.png)
 
-Informacje w dolnej części ekranu pokazują, że aplikacja używa `1.0` wersji programu `voting-app` i `1.0` programu `voting-storage` (Redis).
+Informacje w dolnej części ekranu pokazują, że aplikacja używa wersji `1.0` programu `voting-app` i `1.0` programu `voting-storage` (Redis).
 
 ## <a name="update-the-application"></a>Aktualizowanie aplikacji
 
-Wdróżmy nową wersję składnika analizy. W tej nowej `1.1` wersji są wyświetlane sumy i wartości procentowe, a także liczba dla każdej kategorii.
+Wdróżmy nową wersję składnika analizy. W tej nowej wersji `1.1` są wyświetlane sumy i wartości procentowe, a także liczba dla każdej kategorii.
 
-Na poniższym diagramie przedstawiono, co będzie działać na końcu tej sekcji. wersja `1.1` naszego `voting-analytics` składnika zawiera ruch kierowany ze `voting-app` składnika. Mimo że wersja `1.0` naszego `voting-analytics` składnika nadal jest uruchomiona i odwołuje się do niej `voting-analytics` usługa, serwery proxy Istio nie zezwalają na ruch do i z niego.
+Na poniższym diagramie przedstawiono, co będzie działać na końcu tej sekcji `1.1` . wersja naszego `voting-analytics` składnika zawiera ruch kierowany ze `voting-app` składnika. Mimo że wersja `1.0` naszego `voting-analytics` składnika nadal jest uruchomiona i odwołuje się do niej `voting-analytics` Usługa, serwery proxy Istio nie zezwalają na ruch do i z niego.
 
 ![Składniki aplikacji do głosowania i routingu AKS.](media/servicemesh/istio/scenario-routing-components-02.png)
 
@@ -196,7 +196,7 @@ deployment.apps/voting-analytics-1-1 created
 
 Ponownie otwórz przykładową aplikację do głosowania w AKS w przeglądarce przy użyciu adresu IP bramy transferu danych przychodzących Istio uzyskanej w poprzednim kroku.
 
-Twoja przeglądarka jest alternatywna dla dwóch widoków przedstawionych poniżej. Ponieważ używasz [usługi][kubernetes-service] Kubernetes dla `voting-analytics` składnika z tylko jednym selektorem etykiet (`app: voting-analytics`), Kubernetes używa domyślnego zachowania Round-Robin między obszarami, które pasują do tego selektora. W tym przypadku jest to zarówno wersja `1.0` , jak `1.1` i w `voting-analytics` Twoim zasobniku.
+Twoja przeglądarka jest alternatywna dla dwóch widoków przedstawionych poniżej. Ponieważ używasz [usługi][kubernetes-service] Kubernetes dla `voting-analytics` składnika z tylko jednym selektorem etykiet ( `app: voting-analytics` ), Kubernetes używa domyślnego zachowania Round-Robin między obszarami, które pasują do tego selektora. W tym przypadku jest to zarówno wersja, `1.0` jak i `1.1` w Twoim `voting-analytics` zasobniku.
 
 ![Wersja 1,0 składnika analitycznego działającego w naszej aplikacji do głosowania AKS.](media/servicemesh/istio/scenario-routing-deploy-app-01.png)
 
@@ -234,7 +234,7 @@ Poniższe przykładowe dane wyjściowe przedstawiają odpowiednią część zwr�
 
 ### <a name="lock-down-traffic-to-version-11-of-the-application"></a>Zablokuj ruch do wersji 1,1 aplikacji
 
-Teraz Zablokuj ruch `1.1` tylko do wersji `voting-analytics` składnika i wersji `1.0` `voting-storage` składnika. Następnie zdefiniuj reguły routingu dla wszystkich innych składników programu.
+Teraz Zablokuj ruch tylko do wersji `1.1` `voting-analytics` składnika i wersji `1.0` `voting-storage` składnika. Następnie zdefiniuj reguły routingu dla wszystkich innych składników programu.
 
 > * **Usługa wirtualna** definiuje zestaw reguł routingu dla co najmniej jednej usługi docelowej.
 > * **Reguła docelowa** określa zasady ruchu i zasady dotyczące wersji.
@@ -242,7 +242,7 @@ Teraz Zablokuj ruch `1.1` tylko do wersji `voting-analytics` składnika i wersji
 
 Użyj `kubectl apply` polecenia, aby zamienić definicję usługi wirtualnej na `voting-app` i dodać [reguły docelowe][istio-reference-destinationrule] i [usługi wirtualne][istio-reference-virtualservice] dla innych składników. Należy dodać [zasady][istio-reference-policy] do `voting` przestrzeni nazw, aby upewnić się, że wszystkie połączenia między usługami są zabezpieczone przy użyciu wzajemnego protokołu TLS i certyfikatów klienta.
 
-* Zasady zostały `peers.mtls.mode` ustawione tak `STRICT` , aby zapewnić, że wzajemna TLS jest wymuszana między usługami `voting` w ramach przestrzeni nazw.
+* Zasady zostały `peers.mtls.mode` ustawione tak `STRICT` , aby zapewnić, że wzajemna TLS jest wymuszana między usługami w ramach `voting` przestrzeni nazw.
 * Ustawimy również `trafficPolicy.tls.mode` dla `ISTIO_MUTUAL` wszystkich naszych reguł docelowych. Usługa Istio zapewnia usługi z silnymi tożsamościami i zabezpiecza komunikację między usługami przy użyciu protokołu TLS i certyfikatów klientów, które są w sposób niewidoczny do zarządzania.
 
 ```console
@@ -261,11 +261,11 @@ destinationrule.networking.istio.io/voting-storage created
 virtualservice.networking.istio.io/voting-storage created
 ```
 
-Po ponownym otwarciu aplikacji do głosowania w programie AKS w przeglądarce zostanie użyta `1.1` `voting-analytics` `voting-app` tylko nowa wersja składnika.
+Po ponownym otwarciu aplikacji do głosowania w programie AKS w przeglądarce `1.1` zostanie użyta tylko nowa wersja `voting-analytics` składnika `voting-app` .
 
 ![Wersja 1,1 składnika analitycznego działającego w naszej aplikacji do głosowania AKS.](media/servicemesh/istio/scenario-routing-update-app-01.png)
 
-Możesz wizualizować, że jesteś teraz kierowany do wersji `1.1` `voting-analytics` składnika tylko w następujący sposób. Pamiętaj, aby użyć adresu IP własnej bramy Istio Ingres:
+Możesz wizualizować, że jesteś teraz kierowany do wersji składnika tylko `1.1` `voting-analytics` w następujący sposób. Pamiętaj, aby użyć adresu IP własnej bramy Istio Ingres:
 
 ::: zone pivot="client-operating-system-linux"
 
@@ -295,7 +295,7 @@ Poniższe przykładowe dane wyjściowe przedstawiają odpowiednią część zwr�
   <div id="results"> Cats: 2/6 (33%) | Dogs: 4/6 (67%) </div>
 ```
 
-Potwierdźmy, że usługa Istio używa wzajemnego protokołu TLS do zabezpieczania komunikacji między poszczególnymi usługami. W tym celu użyjemy polecenia [authn TLS-Check][istioctl-authn-tls-check] w pliku binarnym `istioctl` klienta, który ma następującą formę:.
+Potwierdźmy, że usługa Istio używa wzajemnego protokołu TLS do zabezpieczania komunikacji między poszczególnymi usługami. W tym celu użyjemy polecenia [authn TLS-Check][istioctl-authn-tls-check] w `istioctl` pliku binarnym klienta, który ma następującą formę:.
 
 ```console
 istioctl authn tls-check <pod-name[.namespace]> [<service>]
@@ -351,14 +351,14 @@ voting-storage.voting.svc.cluster.local:6379     OK         mTLS       mTLS     
 
 ## <a name="roll-out-a-canary-release-of-the-application"></a>Wdrażanie aplikacji w wersji kanaryjskiej
 
-Teraz wdróżmy nową `2.0` wersję składników `voting-app`, `voting-analytics`i. `voting-storage` Nowy `voting-storage` składnik używa programu MySQL zamiast Redis, a składniki `voting-app` i `voting-analytics` są aktualizowane, aby umożliwić im korzystanie z tego nowego `voting-storage` składnika.
+Teraz wdróżmy nową wersję `2.0` `voting-app` `voting-analytics` składników, i `voting-storage` . Nowy `voting-storage` składnik używa programu MySQL zamiast Redis, a `voting-app` `voting-analytics` składniki i są aktualizowane, aby umożliwić im korzystanie z tego nowego `voting-storage` składnika.
 
-`voting-app` Składnik obsługuje teraz funkcję flagi funkcji. Ta flaga funkcji umożliwia przetestowanie możliwości wersji programu Kanaryjskie Istio dla podzbioru użytkowników.
+`voting-app`Składnik obsługuje teraz funkcję flagi funkcji. Ta flaga funkcji umożliwia przetestowanie możliwości wersji programu Kanaryjskie Istio dla podzbioru użytkowników.
 
 Na poniższym diagramie przedstawiono działanie, które zostanie uruchomione na końcu tej sekcji.
 
-* `voting-app` Wersja `1.0` składnika, wersja `1.1` `voting-analytics` składnika i wersja `1.0` `voting-storage` składnika, są w stanie komunikować się ze sobą.
-* `voting-app` Wersja `2.0` składnika, wersja `2.0` `voting-analytics` składnika i wersja `2.0` `voting-storage` składnika, są w stanie komunikować się ze sobą.
+* Wersja składnika `1.0` `voting-app` , wersja `1.1` `voting-analytics` składnika i wersja składnika, `1.0` `voting-storage` są w stanie komunikować się ze sobą.
+* Wersja składnika `2.0` `voting-app` , wersja `2.0` `voting-analytics` składnika i wersja składnika, `2.0` `voting-storage` są w stanie komunikować się ze sobą.
 * Wersja `2.0` `voting-app` składnika jest dostępna tylko dla użytkowników, którzy mają określoną flagę funkcji. Ta zmiana jest zarządzana przy użyciu flagi funkcji za pośrednictwem pliku cookie.
 
 ![Składniki aplikacji do głosowania i routingu AKS.](media/servicemesh/istio/scenario-routing-components-03.png)
@@ -380,7 +380,7 @@ destinationrule.networking.istio.io/voting-storage configured
 virtualservice.networking.istio.io/voting-storage configured
 ```
 
-Następnie Dodajmy obiekty Kubernetes dla nowych składników wersji `2.0` . Należy również zaktualizować `voting-storage` usługę w celu uwzględnienia `3306` portu dla programu MySQL:
+Następnie Dodajmy obiekty Kubernetes dla nowych `2.0` składników wersji. Należy również zaktualizować `voting-storage` usługę w celu uwzględnienia `3306` portu dla programu MySQL:
 
 ```console
 kubectl apply -f kubernetes/step-3-update-voting-app-with-new-storage.yaml --namespace voting
@@ -397,13 +397,13 @@ deployment.apps/voting-analytics-2-0 created
 deployment.apps/voting-app-2-0 created
 ```
 
-Poczekaj, aż `2.0` wszystkie te zasobniki zostaną uruchomione. Użyj [polecenia kubectl GetBinding][kubectl-get] polecenia z przełącznikiem `-w` Watch, aby obejrzeć zmiany we wszystkich zasobnikach w `voting` przestrzeni nazw:
+Poczekaj, aż wszystkie te `2.0` zasobniki zostaną uruchomione. Użyj [polecenia kubectl GetBinding][kubectl-get] polecenia z `-w` przełącznikiem Watch, aby obejrzeć zmiany we wszystkich zasobnikach w `voting` przestrzeni nazw:
 
 ```console
 kubectl get pods --namespace voting -w
 ```
 
-Teraz powinno być możliwe przełączenie między wersją `1.0` i wersją `2.0` (Wyspy Kanaryjskie) aplikacji do głosowania. Flaga funkcji przełącznika w dolnej części ekranu ustawia plik cookie. Ten plik cookie jest używany przez `voting-app` usługę wirtualną do przesyłania użytkownikom nowej wersji `2.0`.
+Teraz powinno być możliwe przełączenie między wersją `1.0` i wersją `2.0` (Wyspy Kanaryjskie) aplikacji do głosowania. Flaga funkcji przełącznika w dolnej części ekranu ustawia plik cookie. Ten plik cookie jest używany przez `voting-app` usługę wirtualną do przesyłania użytkownikom nowej wersji `2.0` .
 
 ![NIE ustawiono wersji 1,0 aplikacji do głosowania AKS — flaga funkcji.](media/servicemesh/istio/scenario-routing-canary-release-01.png)
 
@@ -413,7 +413,7 @@ Liczby głosu są różne w zależności od wersji aplikacji. Ta różnica oznac
 
 ## <a name="finalize-the-rollout"></a>Finalizowanie wdrożenia
 
-Po pomyślnym przetestowaniu wersji programu kanaryjskiej `voting-app` zaktualizuj usługę wirtualną, aby kierować cały ruch `2.0` do wersji `voting-app` składnika. Wszyscy użytkownicy zobaczą wersję `2.0` aplikacji, niezależnie od tego, czy flaga funkcji jest ustawiona, czy nie:
+Po pomyślnym przetestowaniu wersji programu kanaryjskiej zaktualizuj `voting-app` usługę wirtualną, aby kierować cały ruch do wersji `2.0` `voting-app` składnika. Wszyscy użytkownicy zobaczą wersję `2.0` aplikacji, niezależnie od tego, czy flaga funkcji jest ustawiona, czy nie:
 
 ![Składniki aplikacji do głosowania i routingu AKS.](media/servicemesh/istio/scenario-routing-components-04.png)
 
@@ -451,7 +451,7 @@ Dodatkowe scenariusze można eksplorować przy użyciu [przykładu aplikacji Ist
 [istio-docs-concepts]: https://istio.io/docs/concepts/what-is-istio/
 [istio-requirements-pods-and-services]: https://istio.io/docs/setup/kubernetes/prepare/requirements/
 [istio-reference-gateway]: https://istio.io/docs/reference/config/networking/v1alpha3/gateway/
-[istio-reference-policy]: https://istio.io/docs/reference/config/istio.authentication.v1alpha1/#Policy
+[istio-reference-policy]: https://istio.io/docs/reference/config/istio.mesh.v1alpha1/#AuthenticationPolicy
 [istio-reference-virtualservice]: https://istio.io/docs/reference/config/networking/v1alpha3/virtual-service/
 [istio-reference-destinationrule]: https://istio.io/docs/reference/config/networking/v1alpha3/destination-rule/
 [istio-bookinfo-example]: https://istio.io/docs/examples/bookinfo/

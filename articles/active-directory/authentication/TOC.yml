@@ -138,6 +138,8 @@
           href: howto-password-ban-bad-on-premises-agent-versions.md
     - name: Korzystanie z uwierzytelniania opartego na wiadomościach SMS (wersja zapoznawcza)
       href: howto-authentication-sms-signin.md
+    - name: Logowanie przy użyciu adresu e-mail (wersja zapoznawcza)
+      href: howto-authentication-use-email-signin.md
     - name: Inteligentna blokada w usłudze Azure AD
       href: howto-password-smart-lockout.md
     - name: Uwierzytelnianie oparte na certyfikacie
@@ -223,8 +225,8 @@
   items:
     - name: Forum z opiniami na temat platformy Azure
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
-    - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
+    - name: Pytania i odpowiedzi Microsoft — strona pytania
+      href: 'https://docs.microsoft.com/answers/topics/azure-active-directory.html'
     - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/active-directory/'
     - name: Aktualizacje usług

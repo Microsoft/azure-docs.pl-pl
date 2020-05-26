@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6156b28a3baa51e84e2c46b74e63a6c8e81491cc
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 741569740713fef72f714f7cbce38a3c6f075684
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715481"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836689"
 ---
 # <a name="learn-powershell-workflow-for-azure-automation"></a>Informacje o przepływie pracy programu PowerShell dla Azure Automation
 
@@ -296,4 +296,4 @@ Aby uzyskać więcej informacji na temat punktów kontrolnych, zobacz [Dodawanie
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Mój pierwszy element Runbook przepływu pracy programu PowerShell](automation-first-runbook-textual.md)
+* Aby dowiedzieć się więcej o elementach Runbook przepływu pracy programu PowerShell, zobacz [Samouczek: Tworzenie elementu Runbook przepływu pracy programu PowerShell](learn/automation-tutorial-runbook-textual.md).

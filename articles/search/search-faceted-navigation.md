@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 5f4435ca213584fff84f3ddad9bda6f7e06628a1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4d2ee2bccf94dca933981c3070323b659eab6cfa
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79283162"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836094"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Jak wdrożyć nawigację aspektową na platformie Azure Wyszukiwanie poznawcze
 
@@ -38,7 +38,7 @@ W tym artykule jest na przykład wykorzystywany Portal wyszukiwania zadań. Przy
 
 - Pobierz kod z [repozytorium Azure-Samples w witrynie GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 Jeśli dopiero zaczynasz opracowywanie aplikacji, najlepszym sposobem na podejście do nawigowania po aspektach jest wyświetlenie możliwości wyszukiwania z własnym kierowaniem. Jest to typ środowiska wyszukiwania przechodzenia do szczegółów na podstawie wstępnie zdefiniowanych filtrów, służący do szybkiego zawężania wyników wyszukiwania przez akcje typu punkt-kliknięcie. 
 
 ### <a name="interaction-model"></a>Model interakcji
@@ -47,7 +47,7 @@ Jeśli dopiero zaczynasz opracowywanie aplikacji, najlepszym sposobem na podejś
 
 Punkt początkowy to Strona aplikacji, która zapewnia nawigację aspektową, zwykle umieszczaną na obwodzie. Nawigacja aspektowa jest często strukturą drzewa, z polami wyboru dla każdej wartości lub z tekstem, który można kliknąć. 
 
-1. Zapytanie wysyłane do usługi Azure Wyszukiwanie poznawcze określa strukturę nawigacyjną aspektów za pośrednictwem co najmniej jednego parametru zapytania zestawu reguł. Na przykład zapytanie może zawierać `facet=Rating`, ewentualnie z `:values` lub `:sort` opcja, aby dokładniej udoskonalić prezentację.
+1. Zapytanie wysyłane do usługi Azure Wyszukiwanie poznawcze określa strukturę nawigacyjną aspektów za pośrednictwem co najmniej jednego parametru zapytania zestawu reguł. Na przykład zapytanie może zawierać `facet=Rating` , ewentualnie z `:values` lub `:sort` opcja, aby dokładniej udoskonalić prezentację.
 2. Warstwa prezentacji renderuje stronę wyszukiwania, która zapewnia nawigację aspektową przy użyciu zestawów reguł określonych w żądaniu.
 3. Uwzględniając strukturę nawigacyjną aspektów obejmującą klasyfikację, kliknij "4", aby wskazać, że mają być pokazywane tylko produkty z klasyfikacją 4 lub wyższą. 
 4. W odpowiedzi aplikacja wysyła zapytanie zawierające`$filter=Rating ge 4` 
@@ -55,11 +55,11 @@ Punkt początkowy to Strona aplikacji, która zapewnia nawigację aspektową, zw
 
 Aspekt jest parametrem zapytania, ale nie jest mylić z danymi wejściowymi zapytania. Nigdy nie jest używana jako kryterium wyboru w zapytaniu. Zamiast tego należy traktować parametry zapytania zestawu jako dane wejściowe do struktury nawigacji, która wraca do odpowiedzi. Dla każdego podania parametru kwerendy zestawu reguł platforma Azure Wyszukiwanie poznawcze oblicza, ile dokumentów znajduje się w częściowych wynikach dla każdej wartości aspektu.
 
-`$filter` Zwróć uwagę na krok 4. Filtr jest ważnym aspektem nawigacji aspektowej. Chociaż aspekty i filtry są niezależne w interfejsie API, potrzebne są oba te funkcje. 
+Zwróć uwagę na `$filter` krok 4. Filtr jest ważnym aspektem nawigacji aspektowej. Chociaż aspekty i filtry są niezależne w interfejsie API, potrzebne są oba te funkcje. 
 
 ### <a name="app-design-pattern"></a>Wzorzec projektowy aplikacji
 
-W kodzie aplikacji wzorzec ma używać parametrów zapytania zestawu, aby zwrócić strukturę nawigacyjną aspektów wraz z wynikami aspektów oraz wyrażeniem $filter.  Wyrażenie filtru obsługuje zdarzenie kliknięcia dla wartości aspektu. Wyrażenie jest `$filter` uważane za rzeczywiste przycinanie wyników wyszukiwania zwróconych do warstwy prezentacji. Mając zestaw aspektów kolorów, kliknięcie kolor czerwony jest implementowane za `$filter` pomocą wyrażenia, które wybiera tylko te elementy, które mają kolor czerwony. 
+W kodzie aplikacji wzorzec ma używać parametrów zapytania zestawu, aby zwrócić strukturę nawigacyjną aspektów wraz z wynikami aspektów oraz wyrażeniem $filter.  Wyrażenie filtru obsługuje zdarzenie kliknięcia dla wartości aspektu. Wyrażenie jest uważane za `$filter` rzeczywiste przycinanie wyników wyszukiwania zwróconych do warstwy prezentacji. Mając zestaw aspektów kolorów, kliknięcie kolor czerwony jest implementowane za pomocą `$filter` wyrażenia, które wybiera tylko te elementy, które mają kolor czerwony. 
 
 ### <a name="query-basics"></a>Podstawowe informacje o zapytaniach
 
@@ -68,7 +68,7 @@ Na platformie Azure Wyszukiwanie poznawcze żądanie jest określone za pomocą 
 Precyzja zrozumiała jako możliwość odfiltrowania nieistotnych trafień jest realizowana za pomocą jednego lub obu tych wyrażeń:
 
 -   **Wyszukaj =**  
-    Wartość tego parametru stanowi wyrażenie wyszukiwania. Może to być pojedynczy fragment tekstu lub złożone wyrażenie wyszukiwania, które zawiera wiele warunków i operatorów. Na serwerze wyrażenie wyszukiwania służy do wyszukiwania pełnotekstowego, zapytania do pól z możliwością wyszukiwania w indeksie w celu dopasowania warunków, zwracając wyniki w kolejności rangi. `search` W przypadku wybrania wartości null wykonywanie zapytania znajduje się nad całym indeksem (czyli, `search=*`). W takim przypadku inne elementy zapytania `$filter` , takie jak lub profil oceniania, są podstawowym czynnikiem wpływającym na to, które dokumenty są zwracane `($filter`) i w jakiej kolejności (`scoringProfile` lub `$orderby`).
+    Wartość tego parametru stanowi wyrażenie wyszukiwania. Może to być pojedynczy fragment tekstu lub złożone wyrażenie wyszukiwania, które zawiera wiele warunków i operatorów. Na serwerze wyrażenie wyszukiwania służy do wyszukiwania pełnotekstowego, zapytania do pól z możliwością wyszukiwania w indeksie w celu dopasowania warunków, zwracając wyniki w kolejności rangi. W przypadku wybrania `search` wartości null wykonywanie zapytania znajduje się nad całym indeksem (czyli, `search=*` ). W takim przypadku inne elementy zapytania, takie jak `$filter` lub profil oceniania, są podstawowym czynnikiem wpływającym na to, które dokumenty są zwracane `($filter` ) i w jakiej kolejności ( `scoringProfile` lub `$orderby` ).
 
 -   **$filter =**  
     Filtr jest zaawansowanym mechanizmem służącym do ograniczania rozmiaru wyników wyszukiwania na podstawie wartości określonych atrybutów dokumentu. A `$filter` jest oceniane jako pierwszy, a następnie logika aspektów, która generuje dostępne wartości i odpowiadające im zliczenia dla każdej wartości
@@ -91,13 +91,13 @@ W aplikacjach, które zawierają nawigację aspektową, upewnij się, że każde
 ## <a name="build-a-faceted-navigation-app"></a>Tworzenie aplikacji nawigacyjnej aspektowej
 Możesz zaimplementować nawigację aspektową za pomocą usługi Azure Wyszukiwanie poznawcze w kodzie aplikacji, który kompiluje żądanie wyszukiwania. Nawigacja aspektowa opiera się na elementach w schemacie zdefiniowanym wcześniej.
 
-Wstępnie zdefiniowane w indeksie wyszukiwania jest `Facetable [true|false]` atrybutem index ustawionym dla wybranych pól, aby włączyć lub wyłączyć ich użycie w strukturze nawigacji aspektowej. Bez `"Facetable" = true`, nie można używać pola w nawigacji aspektu.
+Wstępnie zdefiniowane w indeksie wyszukiwania jest `Facetable [true|false]` atrybutem index ustawionym dla wybranych pól, aby włączyć lub wyłączyć ich użycie w strukturze nawigacji aspektowej. Bez `"Facetable" = true` , nie można używać pola w nawigacji aspektu.
 
 Warstwa prezentacji w kodzie udostępnia środowisko użytkownika. Powinien on wystawić składniki nawigacji aspektowej, takie jak etykieta, wartości, pola wyboru i liczba. Interfejs API REST platformy Azure Wyszukiwanie poznawcze to niezależny od platformy, dlatego należy używać dowolnego języka i platformy. Ważną kwestią jest dołączenie elementów interfejsu użytkownika, które obsługują odświeżanie przyrostowe, z zaktualizowanym stanem interfejsu użytkownika w miarę zaznaczania każdego dodatkowego aspektu. 
 
-W czasie zapytania, kod aplikacji tworzy żądanie, które zawiera `facet=[string]`parametr żądania, który zawiera pole, według którego ma nawiązać aspekt. Zapytanie może zawierać wiele aspektów, takich jak `&facet=color&facet=category&facet=rating`każdy z nich oddzielony znakiem handlowego "i" (&).
+W czasie zapytania, kod aplikacji tworzy żądanie, które zawiera `facet=[string]` parametr żądania, który zawiera pole, według którego ma nawiązać aspekt. Zapytanie może zawierać wiele aspektów, takich jak `&facet=color&facet=category&facet=rating` każdy z nich oddzielony znakiem handlowego "i" (&).
 
-Kod aplikacji musi również utworzyć `$filter` wyrażenie, aby obsłużyć zdarzenia kliknięcia w nawigacji aspektowej. `$filter` Zmniejsza wyniki wyszukiwania przy użyciu wartości aspektu jako kryterium filtru.
+Kod aplikacji musi również utworzyć `$filter` wyrażenie, aby obsłużyć zdarzenia kliknięcia w nawigacji aspektowej. `$filter`Zmniejsza wyniki wyszukiwania przy użyciu wartości aspektu jako kryterium filtru.
 
 Usługa Azure Wyszukiwanie poznawcze zwraca wyniki wyszukiwania na podstawie co najmniej jednego wprowadzonego terminu wraz z aktualizacją struktury nawigacji aspektowej. Na platformie Azure Wyszukiwanie poznawcze Nawigacja aspektowa jest jednopoziomową budową, z wartościami aspektów i liczbą wyników dla każdego z nich.
 
@@ -106,10 +106,10 @@ W poniższych sekcjach omówiono, jak skompilować każdą część.
 <a name="buildindex"></a>
 
 ## <a name="build-the-index"></a>Kompiluj indeks
-Aspektowanie jest włączone w zależności od pola w indeksie za pośrednictwem tego atrybutu indeksu: `"Facetable": true`.  
-Wszystkie typy pól, które mogą być używane w nawigacji aspektowej, `Facetable` są domyślnie. Takie typy pól obejmują `Edm.String`, `Edm.DateTimeOffset`i wszystkie typy pól liczbowych (zasadniczo, wszystkie typy pól są elementami do, z `Edm.GeographyPoint`wyjątkiem, które nie mogą być używane w nawigacji aspektowej). 
+Aspektowanie jest włączone w zależności od pola w indeksie za pośrednictwem tego atrybutu indeksu: `"Facetable": true` .  
+Wszystkie typy pól, które mogą być używane w nawigacji aspektowej, są `Facetable` domyślnie. Takie typy pól obejmują `Edm.String` , `Edm.DateTimeOffset` i wszystkie typy pól liczbowych (zasadniczo, wszystkie typy pól są elementami do, z wyjątkiem `Edm.GeographyPoint` , które nie mogą być używane w nawigacji aspektowej). 
 
-Podczas kompilowania indeksu najlepszym rozwiązaniem dla nawigacji aspektowej jest jawne wyłączenie reguł dla pól, które nigdy nie powinny być używane jako zestaw reguł.  W szczególności pola ciągów dla pojedynczych wartości, takie jak identyfikator lub nazwa produktu, powinny być ustawione na `"Facetable": false` tak, aby zapobiegać przypadkowemu (i nieskutecznemu) użyciu w nawigacji aspektowej. Włączenie tworzenia aspektów, gdy nie jest to potrzebne, pozwala zachować rozmiar indeksu jako mały i zwykle poprawia wydajność.
+Podczas kompilowania indeksu najlepszym rozwiązaniem dla nawigacji aspektowej jest jawne wyłączenie reguł dla pól, które nigdy nie powinny być używane jako zestaw reguł.  W szczególności pola ciągów dla pojedynczych wartości, takie jak identyfikator lub nazwa produktu, powinny być ustawione na tak, aby `"Facetable": false` zapobiegać przypadkowemu (i nieskutecznemu) użyciu w nawigacji aspektowej. Włączenie tworzenia aspektów, gdy nie jest to potrzebne, pozwala zachować rozmiar indeksu jako mały i zwykle poprawia wydajność.
 
 Poniżej znajduje się część schematu przykładowej aplikacji demonstracyjnej portalu zadań, która została przycięta, aby zmniejszyć rozmiar:
 
@@ -142,7 +142,7 @@ Poniżej znajduje się część schematu przykładowej aplikacji demonstracyjnej
 Jak widać w przykładowym schemacie, `Facetable` jest wyłączone dla pól ciągów, które nie powinny być używane jako aspekty, takie jak wartości identyfikatorów. Włączenie tworzenia aspektów, gdy nie jest to potrzebne, pozwala zachować rozmiar indeksu jako mały i zwykle poprawia wydajność.
 
 > [!TIP]
-> Najlepszym rozwiązaniem jest uwzględnienie pełnego zestawu atrybutów indeksu dla każdego pola. Mimo `Facetable` że funkcja jest domyślnie włączona dla niemal wszystkich pól, to w celu ustawienia każdego atrybutu może pomóc w zawieszeniu się, jakie są konsekwencje każdej decyzji dotyczącej schematu. 
+> Najlepszym rozwiązaniem jest uwzględnienie pełnego zestawu atrybutów indeksu dla każdego pola. Mimo że funkcja `Facetable` jest domyślnie włączona dla niemal wszystkich pól, to w celu ustawienia każdego atrybutu może pomóc w zawieszeniu się, jakie są konsekwencje każdej decyzji dotyczącej schematu. 
 
 <a name="checkdata"></a>
 
@@ -210,7 +210,7 @@ function UpdateBusinessTitleFacets(data) {
 ```
 
 > [!TIP]
-> Podczas projektowania strony wyników wyszukiwania Pamiętaj, aby dodać mechanizm czyszczenia aspektów. Po dodaniu pól wyboru można łatwo zobaczyć, jak wyczyścić filtry. W przypadku innych układów może być potrzebny wzorzec nawigacji lub inne podejście. Na przykład w przykładowej aplikacji Portal wyszukiwania zadań możesz kliknąć przycisk `[X]` po wybranym z nich, aby wyczyścić zestaw reguł.
+> Podczas projektowania strony wyników wyszukiwania Pamiętaj, aby dodać mechanizm czyszczenia aspektów. Po dodaniu pól wyboru można łatwo zobaczyć, jak wyczyścić filtry. W przypadku innych układów może być potrzebny wzorzec nawigacji lub inne podejście. Na przykład w przykładowej aplikacji Portal wyszukiwania zadań możesz kliknąć przycisk po wybranym z nich, `[X]` Aby wyczyścić zestaw reguł.
 
 <a name="buildquery"></a>
 
@@ -230,9 +230,9 @@ SearchParameters sp = new SearchParameters()
 };
 ```
 
-Parametr zapytania aspektu jest ustawiany na pole i w zależności od typu danych, może być dodatkowo sparametryzowane przez listę rozdzielaną przecinkami, która `count:<integer>`zawiera, `sort:<>`, `interval:<integer>`, i. `values:<list>` Lista wartości jest obsługiwana w przypadku danych liczbowych podczas konfigurowania zakresów. Szczegóły dotyczące użycia można znaleźć w temacie [Wyszukiwanie dokumentów (Azure wyszukiwanie POZNAWCZE API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) .
+Parametr zapytania aspektu jest ustawiany na pole i w zależności od typu danych, może być dodatkowo sparametryzowane przez listę rozdzielaną przecinkami, która zawiera `count:<integer>` , `sort:<>` , `interval:<integer>` , i `values:<list>` . Lista wartości jest obsługiwana w przypadku danych liczbowych podczas konfigurowania zakresów. Szczegóły dotyczące użycia można znaleźć w temacie [Wyszukiwanie dokumentów (Azure wyszukiwanie POZNAWCZE API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) .
 
-Wraz z aspektami, żądanie formułowane przez aplikację powinno również kompilować filtry, aby zawęzić zestaw dokumentów kandydujących na podstawie wyboru wartości aspektu. W przypadku sklepu z rowerem funkcja Nawigacja aspektowa zawiera pytania, na przykład *Informacje o kolorach, producentach i typach rowerów, które są dostępne?*. Filtrowanie odpowiedzi na pytania, na przykład *te, które dokładne rowery to Red, Mountain Bikes, w tym zakresie cenowym?*. Po kliknięciu przycisku "Red" (czerwony), aby wskazać, że powinny być wyświetlane tylko czerwone produkty, następne zapytanie `$filter=Color eq 'Red'`wysyłane przez aplikację zawiera.
+Wraz z aspektami, żądanie formułowane przez aplikację powinno również kompilować filtry, aby zawęzić zestaw dokumentów kandydujących na podstawie wyboru wartości aspektu. W przypadku sklepu z rowerem funkcja Nawigacja aspektowa zawiera pytania, na przykład *Informacje o kolorach, producentach i typach rowerów, które są dostępne?*. Filtrowanie odpowiedzi na pytania, na przykład *te, które dokładne rowery to Red, Mountain Bikes, w tym zakresie cenowym?*. Po kliknięciu przycisku "Red" (czerwony), aby wskazać, że powinny być wyświetlane tylko czerwone produkty, następne zapytanie wysyłane przez aplikację zawiera `$filter=Color eq 'Red'` .
 
 Poniższy fragment kodu ze `JobsSearch.cs` strony dodaje wybrany tytuł biznesowy do filtru w przypadku wybrania wartości z zestawu reguł tytułu biznesowego.
 
@@ -248,7 +248,7 @@ if (businessTitleFacet != "")
 ### <a name="indexing-tips"></a>Porady dotyczące indeksowania
 **Zwiększ wydajność indeksu, jeśli nie używasz pola wyszukiwania**
 
-Jeśli aplikacja używa nawigacji aspektowej wyłącznie (to nie pole wyszukiwania), można oznaczyć pole jako `searchable=false`, `facetable=true` aby utworzyć bardziej zwarty indeks. Ponadto indeksowanie odbywa się tylko na wszystkich wartościach aspektów, bez dzielenia wyrazów ani indeksowania części składnika wartości wielowyrazowej.
+Jeśli aplikacja używa nawigacji aspektowej wyłącznie (to nie pole wyszukiwania), można oznaczyć pole jako `searchable=false` , `facetable=true` Aby utworzyć bardziej zwarty indeks. Ponadto indeksowanie odbywa się tylko na wszystkich wartościach aspektów, bez dzielenia wyrazów ani indeksowania części składnika wartości wielowyrazowej.
 
 **Określ, które pola mogą być używane jako aspekty**
 
@@ -256,16 +256,16 @@ Odwołaj, że schemat indeksu określa, które pola są dostępne do użycia jak
 
 Wartości, które pojawiają się w każdej etykiecie, są pobierane z indeksu. Na przykład, jeśli pole aspekt ma *kolor*, wartości dostępne do dodatkowego filtrowania to wartości dla tego pola — czerwony, czarny i tak dalej.
 
-Dla wartości liczbowych i DateTime można jawnie ustawić wartości w polu aspekt (na przykład `facet=Rating,values:1|2|3|4|5`). Lista wartości jest dozwolona dla tych typów pól, aby uprościć rozdzielenie wyników aspektów do zakresów ciągłych (zakresy w oparciu o wartości liczbowe lub okresy). 
+Dla wartości liczbowych i DateTime można jawnie ustawić wartości w polu aspekt (na przykład `facet=Rating,values:1|2|3|4|5` ). Lista wartości jest dozwolona dla tych typów pól, aby uprościć rozdzielenie wyników aspektów do zakresów ciągłych (zakresy w oparciu o wartości liczbowe lub okresy). 
 
 **Domyślnie można mieć tylko jeden poziom nawigacji aspektowej** 
 
-Jak wspomniano, nie ma bezpośredniego wsparcia dla zagnieżdżania aspektów w hierarchii. Domyślnie Nawigacja aspektowa na platformie Azure Wyszukiwanie poznawcze obsługuje tylko jeden poziom filtrów. Istnieją jednak obejścia tego problemu. Hierarchiczną strukturę aspektów można zakodować `Collection(Edm.String)` w jednym punkcie wejścia na hierarchię. Wdrożenie tego obejścia wykracza poza zakres tego artykułu. 
+Jak wspomniano, nie ma bezpośredniego wsparcia dla zagnieżdżania aspektów w hierarchii. Domyślnie Nawigacja aspektowa na platformie Azure Wyszukiwanie poznawcze obsługuje tylko jeden poziom filtrów. Istnieją jednak obejścia tego problemu. Hierarchiczną strukturę aspektów można zakodować w `Collection(Edm.String)` jednym punkcie wejścia na hierarchię. Wdrożenie tego obejścia wykracza poza zakres tego artykułu. 
 
 ### <a name="querying-tips"></a>Porady dotyczące wykonywania zapytań
 **Sprawdzanie poprawności pól**
 
-W przypadku kompilowania listy aspektów dynamicznie na podstawie niezaufanych danych wejściowych użytkownika Sprawdź, czy nazwy pól aspektów są prawidłowe. Możesz `Uri.EscapeDataString()` również wprowadzić nazwy podczas kompilowania adresów URL przy użyciu programu .NET lub równoważnej wybranej platformy.
+W przypadku kompilowania listy aspektów dynamicznie na podstawie niezaufanych danych wejściowych użytkownika Sprawdź, czy nazwy pól aspektów są prawidłowe. Możesz również wprowadzić nazwy podczas kompilowania adresów URL przy użyciu programu `Uri.EscapeDataString()` .NET lub równoważnej wybranej platformy.
 
 ### <a name="filtering-tips"></a>Wskazówki dotyczące filtrowania
 **Zwiększ precyzję wyszukiwania za pomocą filtrów**
@@ -297,7 +297,7 @@ Ogólnie rzecz biorąc, jeśli okaże się, że wyniki aspektów są stale zbyt 
 
 Dla każdego pola aspektu w drzewie nawigacji istnieje domyślny limit 10 wartości. Ta wartość domyślna ma sens dla struktur nawigacyjnych, ponieważ przechowuje listę wartości do rozmiaru możliwego do zarządzania. Ustawienie domyślne można zastąpić, przypisując wartość do zliczenia.
 
-* `&facet=city,count:5`Określa, że tylko pięć pierwszych miast znalezionych w górnych wynikach rankingu są zwracane jako wynik aspektu. Rozważmy przykładowe zapytanie z wyszukiwanym terminem "lotniska" i 32 dopasowań. Jeśli zapytanie określi `&facet=city,count:5`, tylko pięć pierwszych unikatowych miejscowości z większością dokumentów w wynikach wyszukiwania są uwzględniane w wynikach aspektu.
+* `&facet=city,count:5`Określa, że tylko pięć pierwszych miast znalezionych w górnych wynikach rankingu są zwracane jako wynik aspektu. Rozważmy przykładowe zapytanie z wyszukiwanym terminem "lotniska" i 32 dopasowań. Jeśli zapytanie określi `&facet=city,count:5` , tylko pięć pierwszych unikatowych miejscowości z większością dokumentów w wynikach wyszukiwania są uwzględniane w wynikach aspektu.
 
 Zauważ różnice między wynikami aspektów a wynikami wyszukiwania. Wyniki wyszukiwania to wszystkie dokumenty, które pasują do zapytania. Wyniki aspektów są dopasowania dla każdej wartości aspektu. W przykładzie wyniki wyszukiwania obejmują nazwy miast, które nie znajdują się na liście klasyfikacji aspektów (5 w naszym przykładzie). Wyniki odfiltrowane za poorednictwem nawigacji aspektowej stają się widoczne w przypadku wyczyszczenia aspektów lub wybrania innych aspektów oprócz miejscowości. 
 
@@ -307,26 +307,26 @@ Zauważ różnice między wynikami aspektów a wynikami wyszukiwania. Wyniki wys
 * `@colorFacet.count`<br/>
   W kodzie prezentacji powinien zostać wyświetlony parametr Count w aspekcie używany do wyświetlania liczby wyników aspektów. W polu wyniki aspektów licznik wskazuje liczbę dokumentów, które pasują do warunku lub zakresu aspektu.
 * `&facet=City,count:12`<br/>
-  W zapytaniu aspektu można ustawić liczbę na wartość.  Wartość domyślna to 10, ale można ją ustawić na wyższą lub niższą. Ustawienie `count:12` pobiera górne 12 dopasowań w wynikach według liczby dokumentów.
+  W zapytaniu aspektu można ustawić liczbę na wartość.  Wartość domyślna to 10, ale można ją ustawić na wyższą lub niższą. Ustawienie `count:12` Pobiera górne 12 dopasowań w wynikach według liczby dokumentów.
 * "`@odata.count`"<br/>
   W odpowiedzi na zapytanie ta wartość wskazuje liczbę pasujących elementów w wynikach wyszukiwania. Średnio jest większa niż suma wszystkich wyników skojarzonych z aspektami, ze względu na obecność elementów zgodnych z wyszukiwanym terminem, ale nie ma dopasowania wartości aspektu.
 
 **Pobierz liczniki w wynikach aspektu**
 
-Po dodaniu filtru do zapytania aspektowego warto zachować instrukcję facet (na przykład `facet=Rating&$filter=Rating ge 4`). Technicznie, Faseta = klasyfikacja nie jest wymagana, ale utrzymywanie zwraca liczbę wartości aspektów dla klasyfikacji 4 i wyższych. Jeśli na przykład klikniesz pozycję "4", a zapytanie zawiera filtr o wartości większej lub równej "4", liczniki są zwracane dla każdej klasyfikacji, która ma wartość 4 lub wyższą.  
+Po dodaniu filtru do zapytania aspektowego warto zachować instrukcję facet (na przykład `facet=Rating&$filter=Rating ge 4` ). Technicznie, Faseta = klasyfikacja nie jest wymagana, ale utrzymywanie zwraca liczbę wartości aspektów dla klasyfikacji 4 i wyższych. Jeśli na przykład klikniesz pozycję "4", a zapytanie zawiera filtr o wartości większej lub równej "4", liczniki są zwracane dla każdej klasyfikacji, która ma wartość 4 lub wyższą.  
 
 **Upewnij się, że otrzymujesz dokładne liczby aspektów**
 
-W pewnych okolicznościach można stwierdzić, że liczby aspektów nie są zgodne z zestawami wyników (patrz [Nawigacja aspektowa na platformie Azure wyszukiwanie poznawcze (wpis na forum)](https://social.msdn.microsoft.com/Forums/azure/06461173-ea26-4e6a-9545-fbbd7ee61c8f/faceting-on-azure-search?forum=azuresearch)).
+W pewnych okolicznościach można stwierdzić, że liczba aspektów nie jest zgodna z zestawami wyników (patrz [Nawigacja aspektowa na platformie Azure wyszukiwanie poznawcze (strona pytań i odpowiedzi Microsoft&pytań)](https://docs.microsoft.com/answers/topics/azure-cognitive-search.html).
 
 Liczby aspektów mogą być niedokładne ze względu na architekturę fragmentowania. Każdy indeks wyszukiwania ma wiele fragmentów, a każdy fragmentu raportuje pierwsze N zestawów reguł, które są następnie połączone w jeden wynik. Jeśli niektóre fragmentów mają wiele pasujących wartości, a inne mają mniejszą liczbę, może się okazać, że brakuje niektórych wartości aspektów lub są one zliczane w wynikach.
 
-Mimo że takie zachowanie może się zmienić w dowolnym momencie, jeśli wystąpi takie zachowanie, można obejść ten problem, przeciągając sztucznie niepłaską liczbę\<: Number> do dużej liczby, aby wymusić pełne raportowanie z każdego fragmentuu. Jeśli wartość Count: jest większa lub równa liczbie unikatowych wartości w polu, są gwarantowane dokładne wyniki. Jeśli jednak liczba dokumentów jest wysoka, nastąpi spadek wydajności, dlatego należy użyć tej opcji w rozsądny sposób.
+Mimo że takie zachowanie może się zmienić w dowolnym momencie, jeśli wystąpi takie zachowanie, można obejść ten problem, przeciągając sztucznie niepłaską liczbę: \< number> do dużej liczby, aby wymusić pełne raportowanie z każdego fragmentuu. Jeśli wartość Count: jest większa lub równa liczbie unikatowych wartości w polu, są gwarantowane dokładne wyniki. Jeśli jednak liczba dokumentów jest wysoka, nastąpi spadek wydajności, dlatego należy użyć tej opcji w rozsądny sposób.
 
 ### <a name="user-interface-tips"></a>Wskazówki dotyczące interfejsu użytkownika
 **Dodaj etykiety dla każdego pola w nawigacji aspektu**
 
-Etykiety są zwykle zdefiniowane w kodzie HTML lub w postaci`index.cshtml` (w przykładowej aplikacji). Brak interfejsu API na platformie Azure Wyszukiwanie poznawcze dla etykiet nawigacji aspektów lub innych metadanych.
+Etykiety są zwykle zdefiniowane w kodzie HTML lub w postaci ( `index.cshtml` w przykładowej aplikacji). Brak interfejsu API na platformie Azure Wyszukiwanie poznawcze dla etykiet nawigacji aspektów lub innych metadanych.
 
 <a name="rangefacets"></a>
 
@@ -339,7 +339,7 @@ Platforma Azure Wyszukiwanie poznawcze upraszcza konstruowanie zakresu, dostarcz
 Aby ustawić aspekty cen w przyrostach $10, należy określić:`&facet=price,interval:10`
 
 **Podejście 2. Korzystanie z listy wartości**  
-W przypadku danych liczbowych można użyć listy wartości.  Weź pod uwagę zakres aspektów `listPrice` dla pola, renderowany w następujący sposób:
+W przypadku danych liczbowych można użyć listy wartości.  Weź pod uwagę zakres aspektów dla `listPrice` pola, renderowany w następujący sposób:
 
   ![Lista przykładowych wartości](media/search-faceted-navigation/Facet-5-Prices.PNG "Lista przykładowych wartości")
 
@@ -350,7 +350,7 @@ Aby określić zakres aspektów podobny do przedstawionego na poprzednim zrzucie
 Każdy zakres jest tworzony przy użyciu 0 jako punkt początkowy, wartość z listy jako punkt końcowy, a następnie przycięta z poprzedniego zakresu w celu utworzenia odrębnych interwałów. Usługa Azure Wyszukiwanie poznawcze wykonuje te czynności jako część nawigacji aspektowej. Nie trzeba pisać kodu do tworzenia struktury każdego interwału.
 
 ### <a name="build-a-filter-for-a-range"></a>Tworzenie filtru dla zakresu
-Aby filtrować dokumenty w oparciu o wybrany zakres, można użyć operatorów filtrów `"ge"` i `"lt"` w wyrażeniu dwuczęściowym, które definiuje punkty końcowe zakresu. Na przykład, jeśli wybierzesz zakres 10-25 dla `listPrice` pola, będzie to filtr. `$filter=listPrice ge 10 and listPrice lt 25` W przykładowym kodzie wyrażenie filtru używa parametrów **priceFrom** i **priceTo** do ustawiania punktów końcowych. 
+Aby filtrować dokumenty w oparciu o wybrany zakres, można użyć `"ge"` `"lt"` operatorów filtrów i w wyrażeniu dwuczęściowym, które definiuje punkty końcowe zakresu. Na przykład, jeśli wybierzesz zakres 10-25 dla `listPrice` pola, będzie to filtr `$filter=listPrice ge 10 and listPrice lt 25` . W przykładowym kodzie wyrażenie filtru używa parametrów **priceFrom** i **priceTo** do ustawiania punktów końcowych. 
 
   ![Zapytanie dotyczące zakresu wartości](media/search-faceted-navigation/Facet-6-buildfilter.PNG "Zapytanie dotyczące zakresu wartości")
 
@@ -377,7 +377,7 @@ Demonstracja portalu zadań Wyszukiwanie poznawcze platformy Azure zawiera przyk
 
 Podczas pracy z wynikami wyszukiwania Obejrzyj adres URL pod kątem zmian w konstruowaniu zapytań. Ta aplikacja ma na celu dołączenie aspektów do identyfikatora URI podczas wybierania każdego z nich.
 
-1. Aby skorzystać z funkcji mapowania aplikacji demonstracyjnej, Pobierz klucz mapy Bing z [Centrum deweloperów map Bing](https://www.bingmapsportal.com/). Wklej ją na istniejącym kluczu na `index.cshtml` stronie. `BingApiKey` Ustawienie w `Web.config` pliku nie jest używane. 
+1. Aby skorzystać z funkcji mapowania aplikacji demonstracyjnej, Pobierz klucz mapy Bing z [Centrum deweloperów map Bing](https://www.bingmapsportal.com/). Wklej ją na istniejącym kluczu na `index.cshtml` stronie. `BingApiKey`Ustawienie w `Web.config` pliku nie jest używane. 
 
 2. Uruchom aplikację. Zapoznaj się z przewodnikiem opcjonalnym lub Odrzuć okno dialogowe.
    
@@ -391,7 +391,7 @@ Podczas pracy z wynikami wyszukiwania Obejrzyj adres URL pod kątem zmian w kons
    
    ![Wyniki wyszukiwania po wybraniu aspektów](media/search-faceted-navigation/faceted-search-after-facets.png "Wyniki wyszukiwania po wybraniu aspektów")
 
-5. Aby wyczyścić zapytanie aspektowe, dzięki czemu można wypróbować inne zachowania zapytań, kliknij `[X]` przycisk po zaznaczonych zestawach, aby wyczyścić zestawy reguł.
+5. Aby wyczyścić zapytanie aspektowe, dzięki czemu można wypróbować inne zachowania zapytań, kliknij przycisk `[X]` po zaznaczonych zestawach, aby wyczyścić zestawy reguł.
    
 <a name="nextstep"></a>
 

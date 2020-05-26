@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: trbye
-  ms.openlocfilehash: 50252d0a308c4232b84bffddd905d8a84e1be0d8
-  ms.sourcegitcommit: a3c6efa4d4a48e9b07ecc3f52a552078d39e5732
+  ms.openlocfilehash: 87190c5cab772e4b8dc04672066e575b10c14533
+  ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 05/20/2020
-  ms.locfileid: "83707976"
+  ms.lasthandoff: 05/22/2020
+  ms.locfileid: "83800781"
 highlightedContent:
   items:
   - title: Czym jest usługa rozpoznawania mowy?
@@ -130,13 +130,13 @@ conceptualContent:
   - title: narzędzia
     links:
     - itemType: overview
-      text: Informacje o SPX — korzystanie z usługi rozpoznawania mowy bez użycia kodu
+      text: Informacje o interfejsie wiersza polecenia usługi Mowa (narzędzie wiersza polecenia niewymagające pisania kodu)
       url: spx-overview.md
     - itemType: how-to-guide
-      text: SPX — podstawy
+      text: Podstawy interfejsu wiersza polecenia usługi Mowa (instalacja i przykłady)
       url: spx-basics.md
     - itemType: overview
-      text: Informacje o Speech Studio — dostosowywanie usługi rozpoznawania mowy bez użycia kodu
+      text: Informacje o usłudze Speech Studio (dostosowania)
       url: https://speech.microsoft.com
   - title: Hosting
     links:

@@ -159,6 +159,8 @@
               href: manage-self-service-access.md
             - name: Odnajdowanie obszaru głównego
               href: configure-authentication-for-federated-users-portal.md
+        - name: Automatyzowanie logowania jednokrotnego opartego na protokole SAML przy użyciu interfejsów API programu MS Graph
+          href: application-saml-sso-configure-api.md
         - name: Migrowanie aplikacji do usługi Azure AD
           items:
             - name: Zasoby dotyczące migracji

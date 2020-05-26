@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1224aef044c558147f4c7234f6514d0de2f09e0c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5ca3f4b1e1061b0ca86cc836849499b83ee055fe
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82143993"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826523"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Troubleshoot self-service password reset (Rozwiązywanie problemów z samoobsługowym resetowaniem hasła)
 
@@ -25,20 +25,20 @@ Czy masz problem z usługą Azure Active Directory (Azure AD) samoobsługowego r
 
 ## <a name="troubleshoot-self-service-password-reset-errors-that-a-user-might-see"></a>Rozwiązywanie problemów z samoobsługowym resetowaniem haseł, które użytkownik może zobaczyć
 
-| Error | Szczegóły | Szczegóły techniczne |
+| Błąd | Szczegóły | Szczegóły techniczne |
 | --- | --- | --- |
 | TenantSSPRFlagDisabled = 9 | Niestety, nie można teraz zresetować hasła, ponieważ administrator wyłączył Resetowanie hasła dla organizacji. Nie ma dalszych działań, które można podjąć, aby rozwiązać ten problem. Skontaktuj się z administratorem i poproś o włączenie tej funkcji. Aby dowiedzieć się więcej, zobacz [Pomoc I nie pamiętam hasła usługi Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-update-your-own-password#common-problems-and-their-solutions). | SSPR_0009: wykryliśmy, że Resetowanie hasła nie zostało włączone przez administratora. Skontaktuj się z administratorem i poproś o włączenie resetowania hasła dla organizacji. |
 | WritebackNotEnabled = 10 |Niestety, nie można teraz zresetować hasła, ponieważ administrator nie włączył niezbędnej usługi dla Twojej organizacji. Nie ma dalszych działań, które można podjąć, aby rozwiązać ten problem. Skontaktuj się z administratorem i poproś o sprawdzenie konfiguracji swojej organizacji. Aby dowiedzieć się więcej na temat tej niezbędnej usługi, zobacz [Konfigurowanie zapisywania zwrotnego haseł](howto-sspr-writeback.md). | SSPR_0010: wykryto, że funkcja zapisywania zwrotnego haseł nie została włączona. Skontaktuj się z administratorem i poproś o włączenie funkcji zapisywania zwrotnego haseł. |
 | SsprNotEnabledInUserPolicy = 11 | Niestety, nie można teraz zresetować hasła, ponieważ administrator nie skonfigurował resetowania hasła dla Twojej organizacji. Nie ma dalszych działań, które można podjąć, aby rozwiązać ten problem. Skontaktuj się z administratorem i poproś o skonfigurowanie resetowania hasła. Aby dowiedzieć się więcej na temat konfiguracji resetowania haseł, zobacz Szybki Start: funkcja samoobsługowego [resetowania hasła w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started). | SSPR_0011: Twoja organizacja nie określiła zasad resetowania hasła. Skontaktuj się z administratorem i poproś o zdefiniowanie zasad resetowania hasła. |
 | UserNotLicensed = 12 | Niestety, nie można teraz zresetować hasła, ponieważ w organizacji brakuje wymaganych licencji. Nie ma dalszych działań, które można podjąć, aby rozwiązać ten problem. Skontaktuj się z administratorem i poproś o sprawdzenie przypisania licencji. Aby dowiedzieć się więcej o licencjonowaniu, zobacz [wymagania dotyczące licencjonowania dla funkcji samoobsługowego resetowania hasła w usłudze Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-licensing). | SSPR_0012: organizacja nie ma wymaganych licencji niezbędnych do przeprowadzenia resetowania hasła. Skontaktuj się z administratorem i poproś o zapoznanie się z przypisaniami licencji. |
 | UserNotMemberOfScopedAccessGroup = 13 | Niestety, nie można teraz zresetować hasła, ponieważ administrator nie skonfigurował konta do używania resetowania hasła. Nie ma dalszych działań, które można podjąć, aby rozwiązać ten problem. Skontaktuj się z administratorem i poproś o skonfigurowanie konta do resetowania hasła. Aby dowiedzieć się więcej o konfigurowaniu kont na potrzeby resetowania haseł, zobacz artykuł [wdrażanie hasła do resetowania haseł dla użytkowników](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-best-practices). | SSPR_0013: nie jesteś członkiem grupy z włączoną obsługą resetowania hasła. Skontaktuj się z administratorem i poproś o dodanie do grupy. |
-| UserNotProperlyConfigured = 14 | Niestety, nie można teraz zresetować hasła, ponieważ brakuje w nim wymaganych informacji. Nie ma dalszych działań, które można podjąć, aby rozwiązać ten problem. Skontaktuj się z administratorem i poproś o zresetowanie hasła. Po ponownym uzyskaniu dostępu do konta musisz zarejestrować niezbędne informacje. Aby zarejestrować informacje, wykonaj kroki opisane w artykule Rejestracja artykułu samoobsługowego [resetowania hasła](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-reset-register) . | SSPR_0014: dodatkowe informacje zabezpieczające są konieczne do zresetowania hasła. Aby to zrobić, skontaktuj się z administratorem i poproś o zresetowanie hasła. Po uzyskaniu dostępu do konta możesz zarejestrować dodatkowe informacje zabezpieczające pod adresem https://aka.ms/ssprsetup. Administrator może dodać do swojego konta dodatkowe informacje zabezpieczające, wykonując czynności opisane w temacie [Ustawianie i odczytywanie danych uwierzytelniania na potrzeby resetowania haseł](howto-sspr-authenticationdata.md). |
+| UserNotProperlyConfigured = 14 | Niestety, nie można teraz zresetować hasła, ponieważ brakuje w nim wymaganych informacji. Nie ma dalszych działań, które można podjąć, aby rozwiązać ten problem. Skontaktuj się z administratorem i poproś o zresetowanie hasła. Po ponownym uzyskaniu dostępu do konta musisz zarejestrować niezbędne informacje. Aby zarejestrować informacje, wykonaj kroki opisane w artykule Rejestracja artykułu samoobsługowego [resetowania hasła](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-reset-register) . | SSPR_0014: dodatkowe informacje zabezpieczające są konieczne do zresetowania hasła. Aby to zrobić, skontaktuj się z administratorem i poproś o zresetowanie hasła. Po uzyskaniu dostępu do konta możesz zarejestrować dodatkowe informacje zabezpieczające pod adresem https://aka.ms/ssprsetup . Administrator może dodać do swojego konta dodatkowe informacje zabezpieczające, wykonując czynności opisane w temacie [Ustawianie i odczytywanie danych uwierzytelniania na potrzeby resetowania haseł](howto-sspr-authenticationdata.md). |
 | OnPremisesAdminActionRequired = 29 | Niestety, nie można teraz zresetować hasła z powodu problemu z konfiguracją resetowania hasła w organizacji. Nie ma dalszych działań, które można podjąć, aby rozwiązać ten problem. Skontaktuj się z administratorem i poproś o zbadanie. Aby dowiedzieć się więcej o potencjalnym problemie, zobacz [Rozwiązywanie problemów z funkcją zapisywania zwrotnego haseł](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback). | SSPR_0029: nie możemy zresetować hasła z powodu błędu w konfiguracji lokalnej. Skontaktuj się z administratorem i poproś o zbadanie. |
 | OnPremisesConnectivityError = 30 | Niestety, w tej chwili nie możemy zresetować hasła z powodu problemów z łącznością z Twoją organizacją. Nie ma żadnych akcji, które należy wykonać, ale problem może zostać rozwiązany, jeśli spróbujesz ponownie później. Jeśli problem będzie się powtarzać, skontaktuj się z administratorem i poproś o zbadanie. Aby dowiedzieć się więcej o problemach z łącznością, zobacz [Rozwiązywanie problemów z funkcją zapisywania zwrotnego haseł](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback-connectivity) | SSPR_0030: nie można zresetować hasła z powodu słabego połączenia ze środowiskiem lokalnym. Skontaktuj się z administratorem i poproś o zbadanie.|
 
 ## <a name="troubleshoot-the-password-reset-configuration-in-the-azure-portal"></a>Rozwiązywanie problemów z konfiguracją resetowania hasła w Azure Portal
 
-| Error | Rozwiązanie |
+| Błąd | Rozwiązanie |
 | --- | --- |
 | Nie widzę sekcji **resetowania hasła** w usłudze Azure AD w Azure Portal. | Taka sytuacja może wystąpić, jeśli nie masz licencji usługi Azure AD przypisanej do administratora wykonującego operację. <br> <br> Przypisz licencję do danego konta administratora. Można wykonać kroki opisane w artykule [Przypisywanie, weryfikowanie i rozwiązywanie problemów z licencjami](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses) .|
 | Nie widzę określonej opcji konfiguracji. | Wiele elementów interfejsu użytkownika jest ukrytych do momentu, gdy są one zbędne. Spróbuj włączyć wszystkie opcje, które chcesz zobaczyć. |
@@ -46,14 +46,14 @@ Czy masz problem z usługą Azure Active Directory (Azure AD) samoobsługowego r
 
 ## <a name="troubleshoot-password-reset-reporting"></a>Rozwiązywanie problemów z raportowaniem resetowania hasła
 
-| Error | Rozwiązanie |
+| Błąd | Rozwiązanie |
 | --- | --- |
 | Nie widzę żadnych typów działań związanych z zarządzaniem hasłami w kategorii zdarzenia inspekcji samoobsługowego **zarządzania hasłami** . | Taka sytuacja może wystąpić, jeśli nie masz licencji usługi Azure AD przypisanej do administratora wykonującego operację. <br> <br> Ten problem można rozwiązać, przypisując licencję do danego konta administratora. Wykonaj kroki opisane w artykule [Przypisywanie, weryfikowanie i rozwiązywanie problemów z licencjami](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses) . |
 | Rejestracje użytkowników są wyświetlane wiele razy. | Obecnie podczas rejestrowania użytkownika rejestrujemy każdy indywidualny element danych, który jest zarejestrowany jako oddzielne zdarzenie. <br> <br> Jeśli chcesz agregować te dane i mieć większą elastyczność w sposobie ich wyświetlania, możesz pobrać raport i otworzyć dane jako tabelę przestawną w programie Excel.
 
 ## <a name="troubleshoot-the-password-reset-registration-portal"></a>Rozwiązywanie problemów z portalem rejestracji resetowania haseł
 
-| Error | Rozwiązanie |
+| Błąd | Rozwiązanie |
 | --- | --- |
 | W katalogu nie włączono obsługi resetowania hasła. **Administrator nie włączył korzystania z tej funkcji.** | Przełącz flagę włączenia funkcji samoobsługowego **resetowania hasła** na **wybraną** lub **wszystkie** , a następnie wybierz pozycję **Zapisz**. |
 | Użytkownik nie ma przypisanej licencji usługi Azure AD. **Administrator nie włączył korzystania z tej funkcji.** | Taka sytuacja może wystąpić, jeśli nie masz licencji usługi Azure AD przypisanej do administratora wykonującego operację. <br> <br> Ten problem można rozwiązać, przypisując licencję do danego konta administratora. Wykonaj kroki opisane w artykule [Przypisywanie, weryfikowanie i rozwiązywanie problemów z licencjami](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses) .|
@@ -61,7 +61,7 @@ Czy masz problem z usługą Azure Active Directory (Azure AD) samoobsługowego r
 
 ## <a name="troubleshoot-the-password-reset-portal"></a>Rozwiązywanie problemów z portalem resetowania haseł
 
-| Error | Rozwiązanie |
+| Błąd | Rozwiązanie |
 | --- | --- |
 | W katalogu nie włączono obsługi resetowania hasła. | Przełącz flagę włączenia funkcji samoobsługowego **resetowania hasła** na **wybraną** lub **wszystkie** , a następnie wybierz pozycję **Zapisz**. |
 | Użytkownik nie ma przypisanej licencji usługi Azure AD. | Taka sytuacja może wystąpić, jeśli nie masz licencji usługi Azure AD przypisanej do administratora wykonującego operację. <br> <br> Ten problem można rozwiązać, Jeśli przypiszesz licencję do danego konta administratora. Wykonaj kroki opisane w artykule [Przypisywanie, weryfikowanie i rozwiązywanie problemów z licencjami](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses) . |
@@ -79,7 +79,7 @@ Czy masz problem z usługą Azure Active Directory (Azure AD) samoobsługowego r
 
 ## <a name="troubleshoot-password-writeback"></a>Rozwiązywanie problemów z zapisywaniem zwrotnym haseł
 
-| Error | Rozwiązanie |
+| Błąd | Rozwiązanie |
 | --- | --- |
 | Usługa resetowania haseł nie jest uruchamiana lokalnie. Błąd 6800 jest wyświetlany w dzienniku zdarzeń aplikacji maszyny Azure AD Connect. <br> <br> Po dołączeniu, federacyjnym, uwierzytelnianiu lub uwierzytelnianiem w skrócie hasła użytkownicy nie mogą resetować haseł. | Po włączeniu funkcji zapisywania zwrotnego haseł aparat synchronizacji wywołuje bibliotekę zapisywania zwrotnego w celu przeprowadzenia konfiguracji (dołączania), komunikując się z usługą w chmurze. Wszelkie błędy napotkane podczas dołączania lub podczas uruchamiania punktu końcowego Windows Communication Foundation (WCF) na potrzeby zapisywania zwrotnego haseł w dzienniku zdarzeń na komputerze Azure AD Connect. <br> <br> Podczas ponownego uruchamiania usługi Azure AD Sync (ADSync), jeśli został skonfigurowany zapis, zostanie uruchomiony punkt końcowy WCF. Jeśli jednak uruchomienie punktu końcowego nie powiedzie się, będziemy rejestrować zdarzenie 6800 i umożliwić uruchomienie usługi synchronizacji. Obecność tego zdarzenia oznacza, że punkt końcowy zapisywania zwrotnego haseł nie został uruchomiony. Szczegóły dziennika zdarzeń dla tego zdarzenia 6800, a także wpisy dziennika zdarzeń generowane przez składnik PasswordResetService, wskazują dlaczego nie można uruchomić punktu końcowego. Przejrzyj te błędy w dzienniku zdarzeń i spróbuj ponownie uruchomić Azure AD Connect, jeśli zapisywanie zwrotne haseł nadal nie działa. Jeśli problem będzie się powtarzał, spróbuj wyłączyć i ponownie włączyć funkcję zapisywania zwrotnego haseł.
 | Gdy użytkownik podejmie próbę zresetowania hasła lub odblokowania konta z włączoną funkcją zapisywania zwrotnego haseł, operacja kończy się niepowodzeniem. <br> <br> Ponadto zostanie wyświetlone zdarzenie w dzienniku zdarzeń Azure AD Connect zawierający: "aparat synchronizacji zwrócił błąd HR = 800700CE, Message = nazwa pliku lub rozszerzenie jest zbyt długie" po wystąpieniu operacji odblokowywania. | Znajdź konto Active Directory dla Azure AD Connect i zresetuj hasło, tak aby nie zawierało więcej niż 256 znaków. Następnie otwórz **usługę synchronizacji** z menu **Start** . Przejdź do **łączników** i Znajdź **Active Directory łącznik**. Zaznacz go, a następnie wybierz pozycję **Właściwości**. Przejdź do strony **poświadczenia** i wprowadź nowe hasło. Wybierz **przycisk OK** , aby zamknąć stronę. |
@@ -97,7 +97,7 @@ Najlepszym rozwiązaniem w przypadku rozwiązywania problemów z funkcją zapisy
 
 ### <a name="if-the-source-of-the-event-is-adsync"></a>Jeśli źródłem zdarzenia jest ADSync
 
-| Code | Nazwa lub komunikat | Opis |
+| Kod | Nazwa lub komunikat | Opis |
 | --- | --- | --- |
 | 6329 | Poprzednia: MMS (4924) 0x80230619: "ograniczenie uniemożliwia zmianę hasła do bieżącego określonego." | To zdarzenie występuje, gdy usługa zapisywania zwrotnego haseł próbuje ustawić hasło w katalogu lokalnym, które nie spełnia wymagań dotyczących wieku, historii, złożoności i filtrowania. <br> <br> Jeśli użytkownik ma minimalny okres ważności hasła i ostatnio zmienił hasło w tym oknie, nie można ponownie zmienić hasła, dopóki nie osiągnie on określonego wieku w domenie. W celach testowych minimalny wiek powinien być ustawiony na 0. <br> <br> Jeśli włączono wymagania dotyczące historii haseł, należy wybrać hasło, które nie było używane w ciągu ostatnich *N* razy, gdzie *N* jest ustawieniem historii haseł. Jeśli wybierzesz hasło, które zostało użyte w ciągu ostatnich *N* razy, zobaczysz błąd w tym przypadku. W celach testowych historia hasła powinna być ustawiona na 0. <br> <br> Jeśli masz wymagania dotyczące złożoności hasła, wszystkie z nich są wymuszane, gdy użytkownik próbuje zmienić lub zresetować hasło. <br> <br> Jeśli włączono filtry haseł, a użytkownik wybierze hasło, które nie spełnia kryteriów filtrowania, operacja resetowania lub zmiany nie powiedzie się. |
 | 6329 | MMS (3040): admaexport. cpp (2837): serwer nie zawiera kontroli zasad haseł LDAP. | Ten problem występuje, gdy w kontrolerach domen nie jest włączony formant LDAP_SERVER_POLICY_HINTS_OID (1.2.840.113556.1.4.2066). Aby użyć funkcji zapisywania zwrotnego haseł, należy włączyć kontrolkę. W tym celu kontrolery domeny muszą być w systemie Windows Server 2008R2 lub nowszym. |
@@ -105,7 +105,7 @@ Najlepszym rozwiązaniem w przypadku rozwiązywania problemów z funkcją zapisy
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>Jeśli źródłem zdarzenia jest PasswordResetService
 
-| Code | Nazwa lub komunikat | Opis |
+| Kod | Nazwa lub komunikat | Opis |
 | --- | --- | --- |
 | 31001 | PasswordResetStart | To zdarzenie oznacza, że Usługa lokalna wykryła żądanie zresetowania hasła dla federacyjnego, przekazywanego uwierzytelniania lub użytkownika z synchronizacją skrótu hasła, który pochodzi z chmury. To zdarzenie jest pierwszym zdarzeniem w każdej operacji zapisywania zwrotnego resetowania hasła. |
 | 31002 | PasswordResetSuccess | To zdarzenie oznacza, że użytkownik wybrał nowe hasło podczas operacji resetowania hasła. Ustalono, że to hasło spełnia wymagania dotyczące hasła firmowego. Hasło zostało pomyślnie zapisaną w lokalnym środowisku Active Directory. |
@@ -127,7 +127,7 @@ Najlepszym rozwiązaniem w przypadku rozwiązywania problemów z funkcją zapisy
 | 31018| KeyPairCreationSuccess| To zdarzenie wskazuje, że klucz szyfrowania hasła został pomyślnie utworzony. Ten klucz służy do szyfrowania haseł z chmury do wysłania do środowiska lokalnego.|
 | 32000| UnknownError| To zdarzenie wskazuje, że podczas operacji zarządzania hasłami wystąpił nieznany błąd. Aby uzyskać więcej informacji, zobacz tekst wyjątku w zdarzeniu. Jeśli masz problemy, spróbuj wyłączyć i ponownie włączyć funkcję zapisywania zwrotnego haseł. Jeśli to nie pomoże, Dołącz kopię dziennika zdarzeń wraz z IDENTYFIKATORem śledzenia, który został określony dla inżyniera pomocy technicznej.|
 | 32001| Wystąpił błąd| To zdarzenie wskazuje, że wystąpił błąd podczas nawiązywania połączenia z usługą resetowania hasła w chmurze. Ten błąd występuje zazwyczaj, gdy Usługa lokalna nie może nawiązać połączenia z usługą sieci Web resetowania hasła.|
-| 32002| ServiceBusError| To zdarzenie wskazuje, że wystąpił błąd podczas nawiązywania połączenia z wystąpieniem Service Bus dzierżawy. Taka sytuacja może wystąpić, jeśli blokujesz połączenia wychodzące w środowisku lokalnym. Sprawdź zaporę, aby zezwolić na połączenia za pośrednictwem protokołu TCP 443 https://ssprdedicatedsbprodncu.servicebus.windows.neti do programu, a następnie spróbuj ponownie. Jeśli nadal występują problemy, spróbuj wyłączyć i ponownie włączyć funkcję zapisywania zwrotnego haseł.|
+| 32002| ServiceBusError| To zdarzenie wskazuje, że wystąpił błąd podczas nawiązywania połączenia z wystąpieniem Service Bus dzierżawy. Taka sytuacja może wystąpić, jeśli blokujesz połączenia wychodzące w środowisku lokalnym. Sprawdź zaporę, aby zezwolić na połączenia za pośrednictwem protokołu TCP 443 i do programu https://ssprdedicatedsbprodncu.servicebus.windows.net , a następnie spróbuj ponownie. Jeśli nadal występują problemy, spróbuj wyłączyć i ponownie włączyć funkcję zapisywania zwrotnego haseł.|
 | 32003| InPutValidationError| To zdarzenie oznacza, że dane wejściowe przesłane do naszego interfejsu API usługi sieci Web były nieprawidłowe. Spróbuj ponownie wykonać operację.|
 | 32004| DecryptionError| To zdarzenie wskazuje, że wystąpił błąd podczas odszyfrowywania hasła, które dotarło do chmury. Może to być spowodowane niezgodnością klucza odszyfrowywania między usługą w chmurze i środowiskiem lokalnym. Aby rozwiązać ten problem, Wyłącz, a następnie ponownie włącz funkcję zapisywania zwrotnego haseł w środowisku lokalnym.|
 | 32005| ConfigurationError| Podczas dołączania zapisujemy informacje specyficzne dla dzierżawy w pliku konfiguracji w środowisku lokalnym. To zdarzenie wskazuje, że wystąpił błąd podczas zapisywania tego pliku lub gdy usługa została uruchomiona, wystąpił błąd podczas odczytu pliku. Aby rozwiązać ten problem, spróbuj wyłączyć i ponownie włączyć funkcję zapisywania zwrotnego haseł w celu wymuszenia ponownego zapisania pliku konfiguracji.|
@@ -135,8 +135,8 @@ Najlepszym rozwiązaniem w przypadku rozwiązywania problemów z funkcją zapisy
 | 32008| ValidationError| To zdarzenie wskazuje, że odebrano nieprawidłową odpowiedź z usługi sieci Web resetowania hasła. Aby rozwiązać ten problem, spróbuj wyłączyć i ponownie włączyć funkcję zapisywania zwrotnego haseł.|
 | 32009| AuthTokenError| To zdarzenie wskazuje, że nie można uzyskać tokenu autoryzacji dla konta administratora globalnego określonego podczas instalacji Azure AD Connect. Ten błąd może być spowodowany przez nieprawidłową nazwę użytkownika lub hasło określone dla konta administratora globalnego. Ten błąd może również wystąpić, jeśli określone konto administratora globalnego jest federacyjne. Aby rozwiązać ten problem, należy ponownie uruchomić konfigurację przy użyciu prawidłowej nazwy użytkownika i hasła oraz upewnić się, że administrator jest kontem zarządzanym (tylko w chmurze lub z synchronizacją).|
 | 32010| CryptoError| To zdarzenie wskazuje, że wystąpił błąd podczas generowania klucza szyfrowania hasła lub odszyfrowywania hasła przychodzącego z usługi w chmurze. Ten błąd najkorzystnie wskazuje na problem z Twoim środowiskiem. Zapoznaj się ze szczegółowymi informacjami o dzienniku zdarzeń, aby dowiedzieć się więcej o tym, jak rozwiązać ten problem. Możesz również spróbować wyłączyć i ponownie włączyć usługę zapisywania zwrotnego haseł.|
-| 32011| OnBoardingServiceError| To zdarzenie oznacza, że Usługa lokalna nie może prawidłowo skomunikować się z usługą sieci Web resetowania hasła w celu zainicjowania procesu dołączania. Może to być spowodowane regułą zapory lub problemem z uzyskaniem tokenu uwierzytelniania dla dzierżawy. Aby rozwiązać ten problem, upewnij się, że połączenia wychodzące nie są blokowane przez protokoły TCP 443 i https://ssprdedicatedsbprodncu.servicebus.windows.netTCP 9350-9354 lub do. Upewnij się również, że konto administratora usługi Azure AD, które jest używane do dołączania, nie jest federacyjne.|
-| 32013| OffBoardingError| To zdarzenie oznacza, że Usługa lokalna nie może prawidłowo skomunikować się z usługą sieci Web resetowania hasła w celu zainicjowania procesu odłączania. Może to być spowodowane regułą zapory lub problemem z uzyskaniem tokenu autoryzacji dla dzierżawy. Aby rozwiązać ten problem, upewnij się, że nie blokujesz połączeń wychodzących przez 443 lub https://ssprdedicatedsbprodncu.servicebus.windows.netdo i że konto administratora Azure Active Directory, którego używasz do odłączania nie jest federacyjne.|
+| 32011| OnBoardingServiceError| To zdarzenie oznacza, że Usługa lokalna nie może prawidłowo skomunikować się z usługą sieci Web resetowania hasła w celu zainicjowania procesu dołączania. Może to być spowodowane regułą zapory lub problemem z uzyskaniem tokenu uwierzytelniania dla dzierżawy. Aby rozwiązać ten problem, upewnij się, że połączenia wychodzące nie są blokowane przez protokoły TCP 443 i TCP 9350-9354 lub do https://ssprdedicatedsbprodncu.servicebus.windows.net . Upewnij się również, że konto administratora usługi Azure AD, które jest używane do dołączania, nie jest federacyjne.|
+| 32013| OffBoardingError| To zdarzenie oznacza, że Usługa lokalna nie może prawidłowo skomunikować się z usługą sieci Web resetowania hasła w celu zainicjowania procesu odłączania. Może to być spowodowane regułą zapory lub problemem z uzyskaniem tokenu autoryzacji dla dzierżawy. Aby rozwiązać ten problem, upewnij się, że nie blokujesz połączeń wychodzących przez 443 lub do https://ssprdedicatedsbprodncu.servicebus.windows.net i że konto administratora Azure Active Directory, którego używasz do odłączania nie jest federacyjne.|
 | 32014| ServiceBusWarning| To zdarzenie wskazuje, że musiałeś ponowić próbę nawiązania połączenia z wystąpieniem Service Bus dzierżawy. W normalnych warunkach nie powinna to stanowić problemu, ale jeśli widzisz to zdarzenie wiele razy, rozważ sprawdzenie połączenia sieciowego w celu Service Bus, szczególnie jeśli jest to połączenie o dużej opóźnieniu lub niskiej przepustowości.|
 | 32015| ReportServiceHealthError| W celu monitorowania kondycji usługi zapisywania zwrotnego haseł wysyłamy dane pulsu do usługi sieci Web resetowania hasła co pięć minut. To zdarzenie wskazuje, że wystąpił błąd podczas wysyłania informacji o kondycji z powrotem do usługi sieci Web w chmurze. Te informacje o kondycji nie obejmują żadnych danych osobowych i są całkowicie Pulse i podstawowe statystyki usługi, dzięki czemu możemy zapewnić informacje o stanie usługi w chmurze.|
 | 33001| ADUnKnownError| To zdarzenie wskazuje, że wystąpił nieznany błąd zwrócony przez Active Directory. Aby uzyskać więcej informacji, sprawdź dziennik zdarzeń serwera Azure AD Connect pod kątem zdarzeń ze źródła ADSync.|
@@ -230,7 +230,7 @@ Jeśli instalacja najnowszej wersji serwera Azure AD Connect nie rozwiąże prob
 
 Azure AD Connect wymaga uprawnień do Active Directory **resetowania hasła** , aby można było wykonać funkcję zapisywania zwrotnego haseł. Aby dowiedzieć się, czy Azure AD Connect ma wymagane uprawnienie dla danego lokalnego konta użytkownika Active Directory, można użyć funkcji uprawnienia efektywne systemu Windows:
 
-1. Zaloguj się na serwerze Azure AD Connect i uruchom **Synchronization Service Manager** , wybierając pozycję **Uruchom** > **usługę synchronizacji**.
+1. Zaloguj się na serwerze Azure AD Connect i uruchom **Synchronization Service Manager** , wybierając pozycję **Uruchom**  >  **usługę synchronizacji**.
 1. Na karcie **Łączniki** wybierz pozycję lokalna **Active Directory Domain Services** łącznika, a następnie wybierz pozycję **Właściwości**.  
    ![Synchronization Service Manager pokazujący, jak edytować właściwości](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
   
@@ -256,13 +256,13 @@ Azure AD Connect wymaga uprawnień do Active Directory **resetowania hasła** , 
 
 ## <a name="azure-ad-forums"></a>Fora usługi Azure AD
 
-Jeśli masz ogólne pytanie dotyczące usługi Azure AD i funkcji samoobsługowego resetowania hasła, możesz poproś społeczność o pomoc techniczną na [forach usługi Azure AD](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). Członkowie społeczności obejmują inżynierów, menedżerów produktów, MVP i innych specjalistów IT.
+Jeśli masz ogólne pytanie dotyczące usługi Azure AD i funkcji samoobsługowego resetowania hasła, możesz poproś społeczność o pomoc dotyczącą&pytań i odpowiedzi na [stronie pytania dla Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html). Członkowie społeczności obejmują inżynierów, menedżerów produktów, MVP i innych specjalistów IT.
 
 ## <a name="contact-microsoft-support"></a>Kontaktowanie się z pomocą techniczną firmy Microsoft
 
 Jeśli nie możesz znaleźć odpowiedzi na problem, nasze zespoły pomocy technicznej są zawsze dostępne, aby pomóc Ci w dalszej próbie.
 
-Aby prawidłowo pomóc, prosimy o podanie możliwie największej szczegółowości podczas otwierania sprawy. Te szczegóły obejmują:
+Aby prawidłowo pomóc, prosimy o podanie możliwie największej szczegółowości podczas otwierania sprawy. Te szczegóły obejmują następujące elementy:
 
 * **Ogólny opis błędu**: jaki jest błąd? Jak zauważono zachowanie? Jak odtworzyć błąd? Podaj tyle szczegółów, ile to możliwe.
 * **Strona**: jaka strona została zadana, gdy zauważysz błąd? Dołącz adres URL, jeśli możesz i zrzut ekranu strony.
@@ -273,7 +273,7 @@ Aby prawidłowo pomóc, prosimy o podanie możliwie największej szczegółowoś
 
   * Jeśli jesteś na stronie bez kodu pomocy technicznej u dołu, wybierz klawisz F12 i wyszukaj identyfikatory SID i CID i Wyślij te dwa wyniki do inżyniera pomocy technicznej.
 * **Data, godzina i strefa czasowa**: Uwzględnij dokładną datę i godzinę *w strefie czasowej* wystąpienia błędu.
-* **Identyfikator użytkownika**: użytkownik, który wystąpił błąd? Przykładem jest *user\@contoso.com*.
+* **Identyfikator użytkownika**: użytkownik, który wystąpił błąd? Przykładem jest *user \@ contoso.com*.
    * Czy ten użytkownik jest federacyjny?
    * Czy to jest użytkownik uwierzytelniania Pass-through?
    * Czy to jest użytkownik z synchronizacją skrótu hasła?

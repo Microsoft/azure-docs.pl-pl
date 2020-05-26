@@ -5,12 +5,12 @@ ms.date: 05/15/2020
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 9bbf2288ac92c33c2b24af4e6a97882013a4ff1d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0a4dcf749a76623df7f46d77bf3e4877f2c41900
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83673462"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83821505"
 ---
 Standardowe obrazy maszyn wirtualnych (VM) umożliwiają organizacjom Migrowanie do chmury i zapewnianie spójności we wdrożeniach. Obrazy zwykle obejmują wstępnie zdefiniowane ustawienia zabezpieczeń i konfiguracji oraz niezbędne oprogramowanie. Skonfigurowanie własnego potoku obrazu wymaga czasu, infrastruktury i konfiguracji, ale za pomocą konstruktora obrazów maszyn wirtualnych platformy Azure wystarczy utworzyć prostą konfigurację opisującą obraz, przesłać ją do usługi, a obraz został skompilowany i rozdystrybuowany.
  
@@ -80,7 +80,7 @@ Gdy zarejestrujesz się w usłudze (AIB), spowoduje to przyznanie usługi AIB up
 
 Aby umożliwić programowi Azure VM Image Builder dystrybuowanie obrazów do obrazów zarządzanych lub do galerii obrazów udostępnionych, należy utworzyć tożsamość przypisaną przez użytkownika platformy Azure, która ma uprawnienia do odczytu i zapisu obrazów. W przypadku uzyskiwania dostępu do usługi Azure Storage wymagane są uprawnienia do odczytu prywatnych kontenerów.
 
-Początkowo należy [utworzyć dokumentację zarządzanej tożsamości przypisanej przez użytkownika platformy Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli) na temat tworzenia tożsamości.
+Początkowo należy wykonać czynności opisane w dokumentacji [zarządzanej tożsamości przypisanej przez użytkownika platformy Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli) na temat tworzenia tożsamości.
 
 Jeśli masz tożsamość, którą chcesz udzielić uprawnień IT, aby to zrobić, możesz użyć niestandardowej definicji roli platformy Azure, a następnie przypisać tożsamość zarządzaną przypisaną przez użytkownika do korzystania z definicji roli niestandardowej.
 

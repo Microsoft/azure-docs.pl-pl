@@ -3,17 +3,17 @@ title: Tworzenie lub modyfikowanie komunikacji równorzędnej programu Exchange 
 titleSuffix: Azure
 description: Tworzenie lub modyfikowanie komunikacji równorzędnej programu Exchange przy użyciu Azure Portal
 services: internet-peering
-author: prmitiki
+author: derekolo
 ms.service: internet-peering
 ms.topic: article
-ms.date: 11/27/2019
-ms.author: prmitiki
-ms.openlocfilehash: e4f2ee72cbe17c094567aab5c7cc4720b02cde68
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 5/21/2020
+ms.author: derekol
+ms.openlocfilehash: 62aec65498f75e51ecb1df15b525294aef026745
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81680945"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800526"
 ---
 # <a name="create-or-modify-an-exchange-peering-by-using-the-azure-portal"></a>Tworzenie lub modyfikowanie komunikacji równorzędnej programu Exchange przy użyciu Azure Portal
 
@@ -32,10 +32,31 @@ Jeśli wolisz, możesz ukończyć ten przewodnik przy użyciu [programu PowerShe
 
 ### <a name="create-an-exchange-peering"></a><a name=create></a>Tworzenie komunikacji równorzędnej programu Exchange
 
-Nowe żądanie komunikacji równorzędnej można utworzyć przy użyciu zasobu **komunikacji równorzędnej** .
 
-#### <a name="launch-the-resource-and-configure-basic-settings"></a>Uruchom zasób i skonfiguruj ustawienia podstawowe
-[!INCLUDE [direct-peering-basic](./includes/direct-portal-basic.md)]
+Jako internetowy dostawca programu Exchange można utworzyć bezpośrednie żądanie komunikacji równorzędnej, [tworząc komunikację równorzędną]( https://go.microsoft.com/fwlink/?linkid=2129593).
+
+1. Na stronie **Tworzenie komunikacji równorzędnej** na karcie **podstawowe** Wypełnij pola, tak jak pokazano poniżej:
+
+>    [!div class="mx-imgBorder"]
+>   ![Rejestrowanie usługi Peering Service](./media/setup-basics-tab.png)
+
+* Wybierz swoją subskrypcję platformy Azure.
+
+* W obszarze Grupa zasobów można wybrać istniejącą grupę zasobów z listy rozwijanej lub utworzyć nową grupę, wybierając pozycję Utwórz nową. W tym przykładzie utworzymy nową grupę zasobów.
+
+* Nazwa odpowiada nazwie zasobu i może być dowolna.
+
+* Region jest wybierany w przypadku wybrania istniejącej grupy zasobów. Jeśli wybrano opcję utworzenia nowej grupy zasobów, należy również wybrać region platformy Azure, w którym ma się znajdować zasób.
+
+>[!NOTE]
+    Region, w którym znajduje się grupa zasobów, jest niezależny od lokalizacji, w której chcesz utworzyć komunikację równorzędną z firmą Microsoft. Najlepszym rozwiązaniem jest zorganizowanie zasobów komunikacji równorzędnej w grupach zasobów znajdujących się w najbliższych regionach świadczenia usługi Azure. Na przykład w przypadku komunikacji równorzędnej w Ashburn można utworzyć grupę zasobów w regionie Wschodnie stany USA lub Wschodnie stany USA 2.
+
+* W polu **PeerASN** wybierz swój numer ASN.
+
+>[!IMPORTANT] 
+Przed przesłaniem żądania komunikacji równorzędnej można wybrać tylko numer ASN z ValidationState jako zatwierdzony. Jeśli żądanie PeerAsn zostało przesłane, poczekaj przez 12 godzin lub aby można było zatwierdzić skojarzenie ASN. Jeśli wybrany numer ASN oczekuje na weryfikację, zobaczysz komunikat o błędzie. Jeśli nie widzisz numeru ASN, który musisz wybrać, sprawdź, czy wybrano prawidłową subskrypcję. Jeśli tak jest, sprawdź, czy utworzono już PeerAsn za pomocą polecenia **[Skojarz równorzędny numer ASN z subskrypcją platformy Azure](https://go.microsoft.com/fwlink/?linkid=2129592)**.
+
+* Wybierz pozycję **Dalej: Konfiguracja** , aby kontynuować.
 
 #### <a name="configure-connections-and-submit"></a>Konfigurowanie połączeń i przesyłanie
 [!INCLUDE [exchange-peering-configuration](./includes/exchange-portal-configuration.md)]
@@ -54,6 +75,6 @@ Nowe żądanie komunikacji równorzędnej można utworzyć przy użyciu zasobu *
 * [Tworzenie lub modyfikowanie bezpośredniej komunikacji równorzędnej przy użyciu portalu](howto-direct-portal.md)
 * [Konwertowanie starszej bezpośredniej komunikacji równorzędnej na zasób platformy Azure przy użyciu portalu](howto-legacy-direct-portal.md)
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 Aby uzyskać więcej informacji, zobacz temat [często zadawane pytania dotyczące internetowej komunikacji równorzędnej](faqs.md).

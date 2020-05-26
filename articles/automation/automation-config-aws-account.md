@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0c724b1782381c0499991124c359d3e1339109d3
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: acb056fb959fda320a14059e2b36a0f5e3fb0b37
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715804"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837193"
 ---
 # <a name="authenticate-runbooks-with-amazon-web-services"></a>Uwierzytelnianie elementów runbook w usłudze Amazon Web Services
 
@@ -39,4 +39,4 @@ Po utworzeniu i skopiowaniu kluczy zabezpieczeń AWS należy utworzyć zasób po
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Automatyzowanie wdrożenia maszyny wirtualnej w Amazon Web Services](automation-scenario-aws-deployment.md)
+* Aby dowiedzieć się, jak utworzyć elementy Runbook w celu zautomatyzowania zadań w programie AWS, zobacz [Wdrażanie maszyny wirtualnej Amazon Web Services za pomocą elementu Runbook](automation-scenario-aws-deployment.md).

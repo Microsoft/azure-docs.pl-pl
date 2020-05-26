@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: cfdd0beac7d257a424d327df71602b4612c3da3b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: dbace6b93e07571693b221bb3d2a947010b1e476
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79536857"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799994"
 ---
 # <a name="azure-monitor-overview"></a>Omówienie usługi Azure Monitor
 
@@ -23,7 +23,7 @@ Poniżej przedstawiono kilka przykładów tego, co można zrobić z Azure Monito
 - Skorelowanie problemów z infrastrukturą przy użyciu [Azure monitor dla maszyn wirtualnych](insights/vminsights-overview.md) i [Azure monitor dla kontenerów](insights/container-insights-overview.md).
 - Przechodzenie do szczegółów danych monitorowania za pomocą [log Analytics](log-query/log-query-overview.md) na potrzeby rozwiązywania problemów i głębokiej diagnostyki.
 - Obsługa operacji na dużą skalę przy użyciu [inteligentnych alertów](platform/alerts-smartgroups-overview.md) i [zautomatyzowanych akcji](platform/alerts-action-rules.md).
-- Twórz wizualizacje przy użyciu [pulpitów nawigacyjnych](learn/tutorial-logs-dashboards.md) i [skoroszytów](app/usage-workbooks.md)platformy Azure.
+- Twórz wizualizacje przy użyciu [pulpitów nawigacyjnych](learn/tutorial-logs-dashboards.md) i [skoroszytów](platform/workbooks-overview.md)platformy Azure.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4qXeL]
 

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 0b288bf6d987b9db682c8d1439879cf6b499f213
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dae72454cd9c0b3cb7370873619595840b770ed3
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457335"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799973"
 ---
 # <a name="logs-in-azure-monitor"></a>Dzienniki w usłudze Azure Monitor
 
@@ -42,7 +42,7 @@ W poniższej tabeli wymieniono różne sposoby używania dzienników w Azure Mon
 |  |  |
 |:---|:---|
 | Analiza | Użyj [log Analytics](../log-query/get-started-portal.md) w Azure Portal, aby napisać [zapytania dzienników](../log-query/log-query-overview.md) i interaktywnie przeanalizować dane dzienników przy użyciu zaawansowanego aparatu analizy Eksplorator danych.<br>Użyj [konsoli Application Insights Analytics](../app/analytics.md) w Azure Portal, aby napisać zapytania dziennika i interaktywnie przeanalizować dane dziennika z Application Insights. |
-| Wizualizacja | Przypnij wyniki zapytania jako tabele lub wykresy do [pulpitu nawigacyjnego platformy Azure](../../azure-portal/azure-portal-dashboards.md).<br>Utwórz [skoroszyt](../app/usage-workbooks.md) , aby połączyć się z wieloma zestawami danych w raporcie interaktywnym. <br>Eksportuj wyniki zapytania, aby [Power BI](powerbi.md) do używania różnych wizualizacji i udostępniania użytkownikom spoza platformy Azure.<br>Eksportuj wyniki zapytania do [Grafana](grafana-plugin.md) , aby wykorzystać jego pulpit nawigacyjny i połączyć się z innymi źródłami danych.|
+| Wizualizacja | Przypnij wyniki zapytania jako tabele lub wykresy do [pulpitu nawigacyjnego platformy Azure](../../azure-portal/azure-portal-dashboards.md).<br>Utwórz [skoroszyt](../platform/workbooks-overview.md) , aby połączyć się z wieloma zestawami danych w raporcie interaktywnym. <br>Eksportuj wyniki zapytania, aby [Power BI](powerbi.md) do używania różnych wizualizacji i udostępniania użytkownikom spoza platformy Azure.<br>Eksportuj wyniki zapytania do [Grafana](grafana-plugin.md) , aby wykorzystać jego pulpit nawigacyjny i połączyć się z innymi źródłami danych.|
 | Alerty | Skonfiguruj [regułę alertu dziennika](alerts-log.md) , która wysyła powiadomienie lub wykonuje [automatyczne działanie](action-groups.md) , gdy wyniki zapytania pasują do określonego wyniku.<br>Skonfiguruj [regułę alertu metryki](alerts-metric-logs.md) dla niektórych dzienników danych dziennika wyodrębnionych jako metryki. |
 | Odczytać | Uzyskiwanie dostępu do wyników zapytania dziennika z wiersza polecenia przy użyciu [interfejsu CLI platformy Azure](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Uzyskuj dostęp do wyników zapytania dziennika z wiersza polecenia przy użyciu [poleceń cmdlet programu PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Uzyskiwanie dostępu do wyników zapytania dziennika z aplikacji niestandardowej przy użyciu [interfejsu API REST](https://dev.loganalytics.io/). |
 | Eksportowanie | Utwórz przepływ pracy w celu pobrania danych dziennika i skopiuj go do lokalizacji zewnętrznej przy użyciu [Logic Apps](~/articles/logic-apps/index.yml). |
@@ -106,7 +106,7 @@ Azure Monitor może zbierać dane dzienników z różnych źródeł zarówno w r
 | Dane śledzenia | Wyniki [śledzenia rozproszonego](../app/distributed-tracing.md) są przechowywane w tabeli _TRACES_ . |
 | Testy dostępności | Dane podsumowujące z [testów dostępności](../app/monitor-web-app-availability.md) są przechowywane w tabeli _availabilityResults_ . Szczegółowe dane z tych testów znajdują się w osobnych magazynach i uzyskuje do nich dostęp z Application Insights w Azure Portal. |
 
-### <a name="insights"></a>Szczegółowe informacje
+### <a name="insights"></a>Insights
 
 | Dane | Opis |
 |:---|:---|

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/03/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de84f2aee5f59d14ab70cb1687968643c4cdb31e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ec1818fe4fa0a7ea2f57732a4230fd3c2732ba91
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79136384"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799250"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workplace-by-facebook"></a>Samouczek: Azure Active Directory integrację logowania jednokrotnego (SSO) z miejscem pracy w serwisie Facebook
 
@@ -113,7 +113,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
@@ -150,7 +150,7 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
     > [!NOTE]
     > W ramach procesu uwierzytelniania SAML aplikacja Workplace może używać ciągów zapytań o rozmiarze do 2,5 kilobajta w celu przekazania parametrów do usługi Azure AD.
 
-1. W okienku nawigacji po lewej stronie przejdź do karty**uwierzytelnianie** **zabezpieczeń** > .
+1. W okienku nawigacji po lewej stronie przejdź do **Security**  >  karty**uwierzytelnianie** zabezpieczeń.
 
     ![Panel administracyjny](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure01.png)
 
@@ -206,7 +206,7 @@ W tej sekcji użytkownik o nazwie B. Simon został utworzony w miejscu pracy prz
 W tej sekcji nie musisz niczego robić. Jeśli użytkownik nie istnieje w aplikacji Workplace by Facebook, podczas próby uzyskania dostępu do aplikacji Workplace by Facebook zostanie utworzony nowy użytkownik.
 
 >[!Note]
->Jeśli chcesz ręcznie utworzyć użytkownika, skontaktuj się z [zespołem pomocy technicznej klienta aplikacji Workplace by Facebook](https://workplace.fb.com/faq/)
+>Jeśli chcesz ręcznie utworzyć użytkownika, skontaktuj się z [zespołem pomocy technicznej klienta aplikacji Workplace by Facebook](https://www.workplace.com/help/work/)
 
 ## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
 
@@ -228,7 +228,7 @@ Po kliknięciu kafelka Workplace by Facebook w panelu dostępu powinno nastąpi�
 
     ![Raz](./media/workplacebyfacebook-tutorial/test04.png)
 
-4. Kliknij pozycję **Zezwalaj**.
+4. Kliknij przycisk **Zezwalaj**.
 
     ![Zezwalaj](./media/workplacebyfacebook-tutorial/test03.png)
 
@@ -236,7 +236,7 @@ Po kliknięciu kafelka Workplace by Facebook w panelu dostępu powinno nastąpi�
 
     ![Strona główna](./media/workplacebyfacebook-tutorial/test01.png)
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

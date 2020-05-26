@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 4dd42c6eabf02bc7a4eb956b9cd5ab2aec28176b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 20f8e0bea460c20ed3af0c2844ebc3510bd2d6b6
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82186207"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800790"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Komercyjny partner Marketplace i przypisanie użytkowania przez klienta
 
@@ -37,10 +37,10 @@ Przypisanie użycia klienta obsługuje trzy opcje wdrażania:
 
 ## <a name="create-guids"></a>Tworzenie identyfikatorów GUID
 
-Identyfikator GUID jest unikatowym identyfikatorem odwołania, który ma 32 cyfr szesnastkowych. Aby utworzyć identyfikatory GUID do śledzenia, należy użyć generatora GUID. Zespół usługi Azure Storage utworzył [formularz generatora GUID](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3i8TQB_XnRAsV3-7XmQFpFUMVRVVFFLTDFLS0E2QzNYSkFZR1U3WVJCTSQlQCN0PWcu) , który wyśle wiadomość E-mail na identyfikator GUID prawidłowego formatu i może być ponownie używany w różnych systemach śledzenia.
+Identyfikator GUID jest unikatowym identyfikatorem odwołania, który ma 32 cyfr szesnastkowych. Aby utworzyć identyfikatory GUID do śledzenia, należy użyć generatora GUID. Zespół usługi Azure Storage utworzył [formularz generatora GUID](https://aka.ms/StoragePartners) , który wyśle wiadomość E-mail na identyfikator GUID prawidłowego formatu i może być ponownie używany w różnych systemach śledzenia.
 
 > [!NOTE]
-> Zdecydowanie zaleca się użycie [formularza generatora GUID usługi Azure Storage](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3i8TQB_XnRAsV3-7XmQFpFUMVRVVFFLTDFLS0E2QzNYSkFZR1U3WVJCTSQlQCN0PWcu) w celu utworzenia identyfikatora GUID. Aby uzyskać więcej informacji, zobacz nasze [często zadawane pytania](#faq).
+> Zdecydowanie zaleca się użycie [formularza generatora GUID usługi Azure Storage](https://aka.ms/StoragePartners) w celu utworzenia identyfikatora GUID. Aby uzyskać więcej informacji, zobacz nasze [często zadawane pytania](#faq).
 
 Zalecamy utworzenie unikatowego identyfikatora GUID dla każdej oferty i kanału dystrybucji dla każdego produktu. Można wybrać opcję użycia jednego identyfikatora GUID dla wielu kanałów dystrybucji produktu, jeśli nie chcesz, aby raportowanie było podzielone.
 
@@ -61,7 +61,7 @@ Po dodaniu identyfikatora GUID do szablonu lub w agencie użytkownika i zarejest
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard).
 
-1. Zarejestruj się jako [komercyjny wydawca portalu Marketplace](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv).
+1. Zarejestruj się jako [komercyjny wydawca portalu Marketplace](https://aka.ms/JoinMarketplace).
 
    * Partnerzy muszą [mieć profil w centrum partnerskim](https://docs.microsoft.com/azure/marketplace/become-publisher). Zachęcamy do korzystania z oferty w witrynie Azure Marketplace lub AppSource.
    * Partnerzy mogą rejestrować wiele identyfikatorów GUID.
@@ -143,7 +143,7 @@ Aby włączyć przypisanie użycia klienta, podczas projektowania wywołań inte
 
 #### <a name="example-the-python-sdk"></a>Przykład: zestaw SDK języka Python
 
-Dla języka Python Użyj atrybutu **config** . Możesz dodać atrybut tylko do UserAgent. Przykład:
+Dla języka Python Użyj atrybutu **config** . Możesz dodać atrybut tylko do UserAgent. Oto przykład:
 
 ![Dodawanie atrybutu do agenta użytkownika](media/marketplace-publishers-guide/python-for-lu.PNG)
 
@@ -169,7 +169,7 @@ Aby uzyskać więcej informacji, zobacz [Azure SDK dla języka go](https://docs.
 
 ## <a name="use-terraform"></a>Użyj Terraform
 
-Pomoc techniczna dla programu Terraform jest dostępna za pomocą wersji 1.21.0 dostawcy platformy [https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019)Azure:.  Ta pomoc techniczna dotyczy wszystkich partnerów, którzy wdrażają swoje rozwiązania za pośrednictwem usługi Terraform, oraz wszystkich zasobów wdrożonych i naliczanych przez dostawcę platformy Azure (w wersji 1.21.0 lub nowszej).
+Pomoc techniczna dla programu Terraform jest dostępna za pomocą wersji 1.21.0 dostawcy platformy Azure: [https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019) .  Ta pomoc techniczna dotyczy wszystkich partnerów, którzy wdrażają swoje rozwiązania za pośrednictwem usługi Terraform, oraz wszystkich zasobów wdrożonych i naliczanych przez dostawcę platformy Azure (w wersji 1.21.0 lub nowszej).
 
 Dostawca platformy Azure dla Terraform dodał nowe pole opcjonalne o nazwie [*partner_id*](https://www.terraform.io/docs/providers/azurerm/#partner_id) , w którym można określić identyfikator GUID śledzenia, który jest używany dla danego rozwiązania. Wartość tego pola może być również źródłem *ARM_PARTNER_ID* zmiennej środowiskowej.
 
@@ -230,7 +230,7 @@ foreach ($deployment in $deployments){
 
 ## <a name="report"></a>Raport
 
-Raport dotyczący przypisywania użycia klientów można znaleźć na pulpicie nawigacyjnym Centrum partnerskiego ([https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). Aby wyświetlić raport, należy zalogować się przy użyciu poświadczeń Centrum partnerskiego. Jeśli wystąpią problemy z raportem lub zalogowaniem, Utwórz żądanie pomocy technicznej zgodnie z instrukcjami w sekcji Uzyskiwanie pomocy technicznej.
+Raport dotyczący przypisywania użycia klientów można znaleźć na pulpicie nawigacyjnym Centrum partnerskiego ( [https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure) ). Aby wyświetlić raport, należy zalogować się przy użyciu poświadczeń Centrum partnerskiego. Jeśli wystąpią problemy z raportem lub zalogowaniem, Utwórz żądanie pomocy technicznej zgodnie z instrukcjami w sekcji Uzyskiwanie pomocy technicznej.
 
 Wybierz pozycję śledzony szablon na liście rozwijanej Typ powiązania partnera, aby wyświetlić raport.
 
@@ -242,11 +242,11 @@ Partnerzy powinni poinformować klientów o wdrożeniach korzystających z przyp
 
 ### <a name="notification-for-resource-manager-template-deployments"></a>Powiadomienie dotyczące wdrożeń szablonów Menedżer zasobów
 
-Po wdrożeniu tego szablonu firma Microsoft może zidentyfikować instalację \<partnera> oprogramowania przy użyciu wdrożonych zasobów platformy Azure. Firma Microsoft może skorelować zasoby platformy Azure, które są używane do obsługi oprogramowania. Firma Microsoft zbiera te informacje, aby zapewnić najlepsze środowisko dla swoich produktów i prowadzić działalność biznesową. Dane są zbierane i podlegają zasadom zachowania poufności informacji firmy Microsoft, które można znaleźć https://www.microsoft.com/trustcenterw witrynie.
+Po wdrożeniu tego szablonu firma Microsoft może zidentyfikować instalację \< partnera> oprogramowania przy użyciu wdrożonych zasobów platformy Azure. Firma Microsoft może skorelować zasoby platformy Azure, które są używane do obsługi oprogramowania. Firma Microsoft zbiera te informacje, aby zapewnić najlepsze środowisko dla swoich produktów i prowadzić działalność biznesową. Dane są zbierane i podlegają zasadom zachowania poufności informacji firmy Microsoft, które można znaleźć w witrynie https://www.microsoft.com/trustcenter .
 
 ### <a name="notification-for-sdk-or-api-deployments"></a>Powiadomienie o wdrożeniach zestawu SDK lub interfejsu API
 
-Po wdrożeniu \<oprogramowania partnerskiego> firma Microsoft może zidentyfikować instalację oprogramowania \<partnerskiego> przy użyciu wdrożonych zasobów platformy Azure. Firma Microsoft może skorelować zasoby platformy Azure, które są używane do obsługi oprogramowania. Firma Microsoft zbiera te informacje, aby zapewnić najlepsze środowisko dla swoich produktów i prowadzić działalność biznesową. Dane są zbierane i podlegają zasadom zachowania poufności informacji firmy Microsoft, które można znaleźć https://www.microsoft.com/trustcenterw witrynie.
+Po wdrożeniu \< oprogramowania partnerskiego> firma Microsoft może zidentyfikować instalację \< oprogramowania partnerskiego> przy użyciu wdrożonych zasobów platformy Azure. Firma Microsoft może skorelować zasoby platformy Azure, które są używane do obsługi oprogramowania. Firma Microsoft zbiera te informacje, aby zapewnić najlepsze środowisko dla swoich produktów i prowadzić działalność biznesową. Dane są zbierane i podlegają zasadom zachowania poufności informacji firmy Microsoft, które można znaleźć w witrynie https://www.microsoft.com/trustcenter .
 
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 
@@ -271,7 +271,7 @@ Jeśli potrzebujesz pomocy w ogólnym przypisywaniu do portalu Marketplace i/lub
 
 1. Wybierz pozycję **Uruchom żądanie**.
 
-1. Na następnej stronie Wprowadź wymagane wartości. Wybierz przycisk **Kontynuuj**.
+1. Na następnej stronie Wprowadź wymagane wartości. Wybierz pozycję **Continue** (Kontynuuj).
 
 1. Na następnej stronie Wprowadź wymagane wartości.
 
@@ -286,7 +286,7 @@ Możesz również otrzymywać wskazówki techniczne od doradcy technicznej partn
 
 ### <a name="how-to-submit-a-technical-consultation-request"></a>Jak przesłać żądanie konsultacji technicznych
 
-1. Odwiedź [usługę partner Services](https://partner.microsoft.com/training/partner-technical-services).
+1. Odwiedź [usługę partner Services](https://aka.ms/TechnicalJourney).
 1. Wybierz pozycję Infrastruktura i zarządzanie chmurą, a nowa strona zostanie otwarta, aby wyświetlić drogę techniczną.
 1. W obszarze usługi wdrażania kliknij przycisk Prześlij żądanie.
 1. Zaloguj się przy użyciu konta MSA (MPN) lub usługi AAD (konto pulpitu nawigacyjnego partnera). na podstawie poświadczeń logowania zostanie otwarty formularz żądania online:
@@ -295,7 +295,7 @@ Możesz również otrzymywać wskazówki techniczne od doradcy technicznej partn
     * Wprowadź tytuł i opis problemu (Podaj jak najwięcej szczegółów).
 1. Kliknij przycisk Submit (Prześlij).
 
-Zapoznaj się z instrukcjami krok po kroku dotyczącymi zrzutów ekranu [korzystających z usług presprzedaży i wdrażania](https://support.microsoft.com/help/3121537/using-technical-presales-and-deployment-services#request%20a%20technical%20consultation).
+Zapoznaj się z instrukcjami krok po kroku dotyczącymi zrzutów ekranu [korzystających z usług presprzedaży i wdrażania](https://aka.ms/TechConsultInstructions).
 
 ### <a name="whats-next"></a>Co dalej
 
@@ -329,7 +329,7 @@ Formularz generatora GUID usługi Azure Storage jest gwarantowany do wygenerowan
 
 **Czy można użyć prywatnego, niestandardowego wirtualnego dysku twardego dla oferty szablonu rozwiązania w portalu Azure Marketplace?**
 
-Nie. Obraz maszyny wirtualnej musi pochodzić z portalu Azure Marketplace, patrz: [https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines).
+Nie. Obraz maszyny wirtualnej musi pochodzić z portalu Azure Marketplace, patrz: [https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) .
 
 Możesz utworzyć ofertę maszyny wirtualnej w portalu Marketplace przy użyciu niestandardowego wirtualnego dysku twardego i oznaczyć ją jako prywatną, tak aby nikt nie mógł go zobaczyć. Następnie odwołuje się do tej maszyny wirtualnej w szablonie rozwiązania.
 

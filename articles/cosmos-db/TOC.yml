@@ -500,10 +500,10 @@
           href: analytical-store-introduction.md
         - name: Obsługiwane funkcje usługi Synapse Link
           href: ../synapse-analytics/synapse-link/concept-synapse-link-cosmos-db-support.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-        - name: Często zadawane pytania dotyczące usługi Synapse Link
-          href: synapse-link-frequently-asked-questions.md
         - name: Przypadki użycia usługi Synapse Link
           href: synapse-link-use-cases.md
+        - name: Często zadawane pytania dotyczące usługi Synapse Link
+          href: synapse-link-frequently-asked-questions.md
     - name: Wbudowane notesy programu Jupyter
       items:
         - name: Omówienie notesów Jupyter

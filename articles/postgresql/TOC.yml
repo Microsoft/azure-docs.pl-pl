@@ -15,6 +15,9 @@
           href: quickstart-create-server-database-azure-cli.md
         - name: Tworzenie bazy danych — polecenie up interfejsu wiersza polecenia platformy Azure
           href: quickstart-create-server-up-azure-cli.md
+        - name: Tworzenie bazy danych — szablon usługi Resource Manager
+          href: quickstart-create-postgresql-server-database-using-arm-template.md
+          displayName: deploy azure resource manager template
         - name: Nawiązywanie połączeń i wykonywanie zapytań
           items:
             - name: Python
@@ -338,8 +341,8 @@
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
     - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/postgresql/'
-    - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDatabaseforPostgreSQL'
+    - name: Pytania i odpowiedzi Microsoft — strona pytania
+      href: 'https://docs.microsoft.com/answers/topics/azure-database-postgresql.html'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-database-postgresql'
     - name: Filmy wideo

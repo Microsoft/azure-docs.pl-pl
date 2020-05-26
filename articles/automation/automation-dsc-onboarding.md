@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/10/2019
 manager: carmonm
-ms.openlocfilehash: a2693803603e053f06c8b6886c6f6639f0859461
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: f30d15615e4f3c738d969d068bf2864df23e7cdb
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83713152"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836910"
 ---
 # <a name="enable-azure-automation-state-configuration"></a>Włącz konfigurację stanu Azure Automation
 
@@ -22,7 +22,7 @@ W tym temacie opisano, jak można skonfigurować maszyny do zarządzania przy u�
 
 ## <a name="enable-azure-vms"></a>Włączanie maszyn wirtualnych platformy Azure
 
-Azure Automation konfiguracja stanu umożliwia łatwe włączenie maszyn wirtualnych platformy Azure w celu zarządzania konfiguracją przy użyciu Azure Portal, szablonów Azure Resource Manager lub programu PowerShell. Na wyciągnięcieu i bez administratora, który ma zdalny dostęp do maszyny wirtualnej, rozszerzenie konfiguracji żądanego stanu maszyny wirtualnej platformy Azure rejestruje maszynę wirtualną z konfiguracją stanu Azure Automation. Ponieważ rozszerzenie platformy Azure jest uruchomione asynchronicznie, należy wykonać kroki w celu śledzenia postępu lub rozwiązywania problemów, które są dostępne w temacie [Rozwiązywanie problemów z konfiguracją maszyny wirtualnej w celu](#troubleshoot-vm-setup-for-state-configuration)
+Azure Automation konfiguracja stanu umożliwia łatwe włączenie maszyn wirtualnych platformy Azure w celu zarządzania konfiguracją przy użyciu Azure Portal, szablonów Azure Resource Manager lub programu PowerShell. Na wyciągnięcieu i bez administratora, który ma zdalny dostęp do maszyny wirtualnej, rozszerzenie konfiguracji żądanego stanu maszyny wirtualnej platformy Azure rejestruje maszynę wirtualną z konfiguracją stanu Azure Automation. Ponieważ rozszerzenie platformy Azure działa asynchronicznie, kroki śledzenia postępu są dostępne w obszarze [Sprawdź stan instalacji maszyny wirtualnej](#check-status-of-vm-setup).
 
 > [!NOTE]
 >Wdrożenie DSC w węźle systemu Linux używa folderu **/tmp** . Moduły takie jak `nxautomation` są tymczasowo pobierane do weryfikacji przed ich zainstalowaniem w odpowiednich lokalizacjach. Aby zapewnić poprawne zainstalowanie modułów, Agent Log Analytics dla systemu Linux musi mieć uprawnienia do odczytu/zapisu w folderze **/tmp** .<br><br>
@@ -307,27 +307,26 @@ Po zarejestrowaniu maszyny jako węzła DSC w konfiguracji stanu Azure Automatio
 
 Węzeł można ponownie zarejestrować tak jak początkowo zarejestrowano węzeł przy użyciu dowolnej metody opisanej w tym dokumencie. Nie musisz wyrejestrować węzła z konfiguracji stanu Azure Automation przed jego ponownym zarejestrowaniem.
 
-## <a name="troubleshoot-vm-setup-for-state-configuration"></a>Rozwiązywanie problemów z konfiguracją maszyny wirtualnej w celu skonfigurowania stanu
+## <a name="check-status-of-vm-setup"></a>Sprawdź stan konfiguracji maszyny wirtualnej
 
 Konfiguracja stanu umożliwia łatwe włączenie maszyn wirtualnych systemu Windows Azure w celu zarządzania konfiguracją. Pod wyciągnięciem, rozszerzenie konfiguracji żądanego stanu maszyny wirtualnej platformy Azure służy do rejestrowania maszyny wirtualnej z konfiguracją stanu Azure Automation. Ponieważ rozszerzenie konfiguracji żądanego stanu maszyny wirtualnej platformy Azure jest uruchamiane asynchronicznie, śledzenie jego postępu i rozwiązywanie problemów może być ważne.
 
 > [!NOTE]
 > Dowolna Metoda włączania maszyn wirtualnych systemu Windows Azure dla konfiguracji stanu, która używa rozszerzenia konfiguracji żądanego stanu maszyny wirtualnej platformy Azure, może potrwać do godziny w celu Azure Automation wyświetlenia maszyn wirtualnych jako zarejestrowanych. To opóźnienie jest spowodowane instalacją programu WMF 5 na maszynie wirtualnej przez rozszerzenie konfiguracji żądanego stanu maszyny wirtualnej platformy Azure, które jest wymagane do włączenia maszyn wirtualnych do konfiguracji stanu.
 
-Aby rozwiązać problem lub wyświetlić stan rozszerzenia konfiguracji żądanego stanu maszyny wirtualnej platformy Azure:
+Aby wyświetlić stan rozszerzenia konfiguracji żądanego stanu maszyny wirtualnej platformy Azure:
 
 1. W Azure Portal przejdź do maszyny wirtualnej, która jest włączona.
 2. W obszarze **Ustawienia**kliknij pozycję **rozszerzenia** . 
 3. Teraz wybierz opcję **DSC** lub **DSCForLinux**, w zależności od używanego systemu operacyjnego. 
 4. Aby uzyskać więcej informacji, kliknij pozycję **Wyświetl szczegółowy stan**.
 
-Aby uzyskać więcej informacji na temat rozwiązywania problemów, zobacz [Rozwiązywanie problemów z konfiguracją stanu Azure Automation](./troubleshoot/desired-state-configuration.md).
-
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby rozpocząć, zobacz [wprowadzenie do konfiguracji stanu Azure Automation](automation-dsc-getting-started.md).
-- Aby dowiedzieć się więcej na temat kompilowania konfiguracji DSC, aby można było przypisać je do węzłów docelowych, zobacz [Kompilowanie konfiguracji w konfiguracji stanu Azure Automation](automation-dsc-compile.md).
+- Aby rozpocząć, zobacz Wprowadzenie do [konfiguracji stanu Azure Automation](automation-dsc-getting-started.md).
+- Aby dowiedzieć się więcej na temat kompilowania konfiguracji DSC, aby można było przypisać je do węzłów docelowych, zobacz [Kompilowanie konfiguracji DSC w konfiguracji stanu Azure Automation](automation-dsc-compile.md).
 - Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
 ).
 - Aby uzyskać informacje o cenach, zobacz [Cennik konfiguracji stanu Azure Automation](https://azure.microsoft.com/pricing/details/automation/).
-- Aby zapoznać się z przykładem użycia konfiguracji stanu Azure Automation w potoku ciągłego wdrażania, zobacz [przykład użycia: ciągłe wdrażanie na maszynach wirtualnych przy użyciu konfiguracji stanu Azure Automation i czekolady](automation-dsc-cd-chocolatey.md).
+- Przykład użycia konfiguracji stanu Azure Automation w potoku ciągłego wdrażania można znaleźć w temacie [Konfigurowanie ciągłego wdrażania z czekoladą](automation-dsc-cd-chocolatey.md).
+- Aby uzyskać informacje dotyczące rozwiązywania problemów, zobacz [Rozwiązywanie problemów z konfiguracją stanu Azure Automation](./troubleshoot/desired-state-configuration.md).

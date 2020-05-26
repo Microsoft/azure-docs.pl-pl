@@ -48,8 +48,8 @@
       href: 'https://azure.microsoft.com/updates/?product=scheduler'
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/updates/'
-    - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=azurescheduler'
+    - name: Pytania i odpowiedzi Microsoft — strona pytania
+      href: 'https://docs.microsoft.com/answers/topics/azure-scheduler.html'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-scheduler'
     - name: Cennik

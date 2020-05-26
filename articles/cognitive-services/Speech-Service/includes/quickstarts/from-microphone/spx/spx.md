@@ -4,28 +4,28 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/13/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 9f1da13efc9f75d14fdf2d158e8b7547d4a9fa94
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: a9beaea70dd3c8ce852344b11a50c5f20e5f8ca2
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715317"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83806409"
 ---
 ## <a name="enable-microphone"></a>Włącz mikrofon
 
 Podłącz mikrofon komputera i włącz go, a następnie wyłącz wszystkie aplikacje, które mogą również korzystać z mikrofonu. Niektóre komputery mają wbudowany mikrofon, a inne wymagają konfiguracji urządzenia Bluetooth.
 
-## <a name="run-the-spx-tool"></a>Uruchamianie narzędzia SPX
+## <a name="run-the-speech-cli"></a>Uruchamianie interfejsu wiersza polecenia mowy
 
-Teraz wszystko jest gotowe do uruchomienia narzędzia SPX do rozpoznawania mowy z mikrofonu.
+Teraz możesz przystąpić do uruchamiania interfejsu wiersza polecenia mowy, aby rozpoznać mowę z mikrofonu.
 
-1. **Uruchom aplikację** — w wierszu polecenia przejdź do katalogu, który zawiera plik binarny narzędzia SPX, i wpisz:
+1. **Uruchom aplikację** — w wierszu polecenia przejdź do katalogu, który zawiera plik binarny interfejsu CLI mowy, i wpisz:
     ```bash
     spx recognize --microphone
     ```
 
     > [!NOTE]
-    > Domyślnie używany jest język angielski. Możesz wybrać inny język [z tabeli Zamiana mowy na tekst](../../../../language-support.md).
+    > Domyślny interfejs wiersza polecenia mowy w języku angielskim. Możesz wybrać inny język [z tabeli Zamiana mowy na tekst](../../../../language-support.md).
     > Na przykład Dodaj `--source de-DE` do rozpoznawania języka niemieckiego.
 
-2. **Rozpocznij rozpoznawanie** — Zacznij mówić do mikrofonu. W czasie rzeczywistym zobaczysz transkrypcję słów do tekstu. Narzędzie SPX zostanie zatrzymane po upływie okresu wyciszenia lub po naciśnięciu klawiszy CTRL + C.
+2. **Rozpocznij rozpoznawanie** — Zacznij mówić do mikrofonu. W czasie rzeczywistym zobaczysz transkrypcję słów do tekstu. Interfejs wiersza polecenia mowy zostanie zatrzymany po upływie okresu wyciszenia lub po naciśnięciu klawiszy CTRL + C.

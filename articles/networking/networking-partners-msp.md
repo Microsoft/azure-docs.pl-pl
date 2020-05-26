@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: sukishen
-ms.openlocfilehash: 270afa70ca281762d9efabcd7663bf7504a469bd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0db3d46edf1b6bb0b425235654824e26293eb4a9
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654977"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800488"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Informacje o partnerach MSP sieci platformy Azure
 
@@ -42,6 +42,7 @@ Skorzystaj z linków w tej sekcji, aby uzyskać więcej informacji na temat zarz
 |[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/support-your-cloud-strategy/)|[Ocena sieci platformy Azure — 5 dni](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/interxionhq.inxn_azure_networking_assessment)|||||
 |[Liquid Telecom](https://liquidcloud.africa/azure-networking)|[Gotowość do chmury — Ocena 2 godzin](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/liquidtelecommunicationsoperationslimited.liquid_cloud_readiness_assessment)|||||
 |[Macquarie Telecom](https://macquariecloudservices.com/azure-managed-services/)|[Usługi zarządzane przez platformę Azure według chmury Macquarie](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/macquariecloudservices.managed_services?tab=Overview)||[Usługa SD-Sieć wirtualna z systemem Macquarie w chmurze](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/macquariecloudservices.nanaged_network_services?tab=Overview)|||
+|[Megaport](https://www.megaport.com/services/microsoft-expressroute/)||[mcr](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/megaport1582290752989.megaport_mcr?tab=Overview)||||
 |[Cloud Services oncore]( https://www.oncore.cloud/services/ue-for-expressroute/)|[Fundacje chmury przedsiębiorstwa: warsztat (~ 10 dni)](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/oncore_cloud_services-4944214.oncore_cloud_onboard_201810)|[UniversalEdge dla usługi Azure ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/oncore_cloud_services-4944214.universaledge_for_expressroute?tab=Overview)||||
 |[Orixcom]( https://www.orixcom.com/cloud-solutions/)||[Orixcom zarządzane ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/orixcom.orixcom_managed_expressroute?tab=Overview)|[Orixcom SD-WAN](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/orixcom.orixcom_sd_wan?tab=Overview)|||
 |[SoftBank]( https://www.softbank.jp/biz/nw/nwp/cloud_access/direct_access_for_az/)|[Azure Network Consulting Service: 1-tydz Assessment](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/sbmpn.softbank_nw_msp_service_azure); [Usługa Azure assessment: 1Week](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/sbmpn.softbank_msp_service_azure_01?tab=Overview&pub_source=email&pub_status=success)|||||
@@ -50,7 +51,7 @@ Skorzystaj z linków w tej sekcji, aby uzyskać więcej informacji na temat zarz
 |[Czujność](https://vigilant.it/manage-cloud-service/)|[Sprawdzenie kondycji platformy Azure: 5-dniowa Ocena](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.ahc01)|[ExpressRoute: 5-dniowa implementacja](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.erd01)|||
 |[Vandis](https://www.vandis.com/microsoft-azure-practice/)||[Vandis zarządzane ExpressRoute](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_expressroute?tab=Overview)|[Vandis zarządzane VWAN obsługiwane przez Fortinet](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_fortinet?tab=Overview); [Vandis zarządzane VWAN obsługiwane przez Palo Alto Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_palo_alto_networks?tab=Overview)|
 
-Oferty w portalu Azure Marketplace, w tym nowe zarządzane usługi zabezpieczeń i zarządzane usługi MEC, pochodzące z następujących partnerów usługi MSP sieci platformy Azure znajdują się w naszym planie: [Amdocs](https://www.amdocs.com/); [AXESDN](https://www.axesdn.com/en/azure-msp.html); [CenturyLink](https://www.centurylink.com/business/networking/cloud-connectivity.html);  [Deutsche Telekom](https://www.telekom.com/en/media/media-information/archive/deutsche-telekom-offers-managed-network-services-for-microsoft-azure-598406);  [IX zasięg](https://www.ixreach.com/services/sdn-cloud-connect/);  Z [chmurą](https://intercloud.com/partners/microsoft-azure/);  [KINX](https://www.kinx.net/service/cloud/?lang=en); [Megaport](https://www.megaport.com/services/microsoft-expressroute/);  [OmniClouds](https://omniclouds.com/services/);  [Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms);  [Tech Mahindra](https://networkservices.techmahindra.com/pages/default.aspx); [Federacyjna sieć bezprzewodowa](https://www.federatedwireless.com/caas/)
+Oferty w portalu Azure Marketplace, w tym nowe zarządzane usługi zabezpieczeń i zarządzane usługi MEC, pochodzące z następujących partnerów usługi MSP sieci platformy Azure znajdują się w naszym planie: [Amdocs](https://www.amdocs.com/); [AXESDN](https://www.axesdn.com/en/azure-msp.html); [CenturyLink](https://www.centurylink.com/business/networking/cloud-connectivity.html);  [Deutsche Telekom](https://www.telekom.com/en/media/media-information/archive/deutsche-telekom-offers-managed-network-services-for-microsoft-azure-598406);  [IX zasięg](https://www.ixreach.com/services/sdn-cloud-connect/);  Z [chmurą](https://intercloud.com/partners/microsoft-azure/);  [KINX](https://www.kinx.net/service/cloud/?lang=en); [OmniClouds](https://omniclouds.com/services/);  [Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms);  [Tech Mahindra](https://networkservices.techmahindra.com/pages/default.aspx); [Federacyjna sieć bezprzewodowa](https://www.federatedwireless.com/caas/)
 
 ## <a name="expressroute-partners"></a><a name="expressroute"></a>Partnerzy ExpressRoute
 

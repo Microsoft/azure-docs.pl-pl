@@ -3,16 +3,16 @@ title: Tworzenie kopii zapasowej plików w usłudze Azure Files — często zada
 description: W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące ochrony udziałów plików platformy Azure za pomocą usługi Azure Backup.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: aaa0d47b540a1c3eacd9efebda84f22b83529a28
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 1be509f3b82cece3afb1e728a19da4c4d9526195
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680980"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836111"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Pytania dotyczące tworzenia kopii zapasowej plików w usłudze Azure Files
 
-Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące tworzenia kopii zapasowej plików usługi Azure Files. W niektórych odpowiedziach znajdują się linki do artykułów zawierających szczegółowe informacje. Możesz również ogłosić pytania dotyczące usługi Azure Backup w [firmie Microsoft Q&A dla Azure Backup](https://docs.microsoft.com/answers/topics/azure-backup.html).
+Ten artykuł zawiera odpowiedzi na często zadawane pytania dotyczące tworzenia kopii zapasowej plików usługi Azure Files. W niektórych odpowiedziach znajdują się linki do artykułów zawierających szczegółowe informacje. Możesz również ogłosić pytania dotyczące usługi Azure Backup na stronie pytań i odpowiedzi [Microsoft Q&na potrzeby dyskusji](https://docs.microsoft.com/answers/topics/azure-backup.html).
 
 Aby szybko przeskanować sekcje znajdujące się w tym artykule, użyj linków z prawej strony w obszarze **W tym artykule**.
 
@@ -95,13 +95,13 @@ Oto przykład tego, jak to działa:
 
 #### <a name="existing-policy-p1"></a>Istniejące zasady [P1]
 
-|Typ przechowywania |Harmonogram |Przechowywanie  |
+|Typ przechowywania |Zaplanuj |Przechowywanie  |
 |---------|---------|---------|
 |Codziennie    |    Codziennie o godzinie 8 PM    |  100 dni       |
 
 #### <a name="new-policy-modified-p1"></a>Nowe zasady [zmodyfikowano P1]
 
-| Typ przechowywania | Harmonogram                       | Przechowywanie |
+| Typ przechowywania | Zaplanuj                       | Przechowywanie |
 | -------------- | ------------------------------ | --------- |
 | Codziennie          | Codziennie o godzinie 9 PM              | 50 dni   |
 | Co tydzień         | W niedzielę o godzinie 9 PM              | 3 tygodnie   |
@@ -129,14 +129,14 @@ Oto przykład tego, jak to działa:
 
 #### <a name="existing-policy-p2"></a>Istniejące zasady [P2]
 
-| Typ przechowywania | Harmonogram           | Przechowywanie |
+| Typ przechowywania | Zaplanuj           | Przechowywanie |
 | -------------- | ------------------ | --------- |
 | Codziennie          | Codziennie o godzinie 8 PM | 50 dni   |
 | Co tydzień         | W poniedziałek o godzinie 8 PM  | 3 tygodnie   |
 
 #### <a name="new-policy-modified-p2"></a>Nowe zasady [zmodyfikowano P2]
 
-| Typ przechowywania | Harmonogram               | Przechowywanie |
+| Typ przechowywania | Zaplanuj               | Przechowywanie |
 | -------------- | ---------------------- | --------- |
 | Codziennie          | Codziennie o godzinie 9 PM     | 10 dni   |
 | Co tydzień         | W poniedziałek o godzinie 9 PM      | 2 tygodnie   |

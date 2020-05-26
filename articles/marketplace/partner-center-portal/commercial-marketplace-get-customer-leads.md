@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 5d1bf859968c7b7a889abe635c917d0da11bf6e1
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 6234719216c7ef40df99a26153d7677f7a747f55
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837332"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800928"
 ---
 # <a name="customer-leads-from-your-commercial-marketplace-offer"></a>Potencjalni klienci z oferty komercyjnej witryny Marketplace
 
@@ -48,9 +48,9 @@ Poniżej znajdują się miejsca, w których generowany jest potencjalny klient:
 
 ## <a name="understand-lead-data"></a>Informacje o potencjalnych klientach
 
-Każdy potencjalny klient, który otrzymasz w procesie pozyskiwania klientów, ma dane w określonych polach. Pierwsze pole, dla którego ma zostać wyszukane, `LeadSource` to pole, które jest zgodne z następującym formatem:**Oferta** **akcji** | źródłowej.
+Każdy potencjalny klient, który otrzymasz w procesie pozyskiwania klientów, ma dane w określonych polach. Pierwsze pole, dla którego ma zostać wyszukane `LeadSource` , to pole, które jest zgodne z następującym formatem: Oferta **akcji źródłowej**  |  **Offer**.
 
-**Źródła**: wartość tego pola jest wypełniana na podstawie rynku, który wygenerował potencjalnego klienta. Możliwe wartości to `"AzureMarketplace"`, `"AzurePortal"`, i `"AppSource (SPZA)"`.
+**Źródła**: wartość tego pola jest wypełniana na podstawie rynku, który wygenerował potencjalnego klienta. Możliwe wartości to `"AzureMarketplace"` , `"AzurePortal"` , i `"AppSource (SPZA)"` .
 
 **Akcje**: wartość dla tego pola jest wypełniana na podstawie akcji wykonywanej przez klienta w witrynie Marketplace, która wygenerowała potencjalnego klienta.
 
@@ -64,7 +64,7 @@ Możliwe wartości:
 
 **Oferty**: w komercyjnej witrynie Marketplace może być wiele ofert. Wartość tego pola jest wypełniana na podstawie oferty, która wygenerowała potencjalny klient. IDENTYFIKATOR wydawcy i identyfikator oferty są wysyłane w tym polu i są wartościami podanymi podczas opublikowania oferty w portalu Marketplace.
 
-W poniższych przykładach przedstawiono wartości w oczekiwanym `publisherid.offerid`formacie: 
+W poniższych przykładach przedstawiono wartości w oczekiwanym formacie `publisherid.offerid` : 
 
 - `checkpoint.check-point-r77-10sg-byol`
 - `bitnami.openedxcypress`
@@ -76,7 +76,7 @@ Informacje o kliencie są wysyłane za pośrednictwem wielu pól. W poniższym p
 
 - Imię: Jan
 - LastName: Kowalski
-- Poczta e-mail:\@jsmith Microsoft.com
+- Poczta e-mail: jsmith \@ Microsoft.com
 - Telefon: 1234567890
 - Kraj: US
 - Firma: Microsoft
@@ -96,7 +96,7 @@ Informacje o kliencie są wysyłane za pośrednictwem wielu pól. W poniższym p
 
 ### <a name="where-can-i-get-help-in-setting-up-my-lead-destination"></a>Gdzie mogę uzyskać pomoc w konfigurowaniu miejsca docelowego potencjalnego klienta?
 
-Wykonaj kroki opisane w sekcji [łączenie z systemem CRM](#connect-to-your-crm-system)lub Prześlij bilet pomocy technicznej za pomocą [pomocy i obsługi technicznej Centrum partnerskiego](https://partner.microsoft.com/support/v2/?stage=1). Następnie wybierz pozycję **Utwórz** > ofertę**Typ** > oferty**Konfiguracja zarządzania liderem**.
+Wykonaj kroki opisane w sekcji [łączenie z systemem CRM](#connect-to-your-crm-system)lub Prześlij bilet pomocy technicznej za pomocą [pomocy i obsługi technicznej Centrum partnerskiego](https://aka.ms/marketplacepublishersupport). Następnie wybierz pozycję **Utwórz ofertę**  >  **Typ**oferty  >  **Konfiguracja zarządzania liderem**.
 
 ### <a name="am-i-required-to-configure-a-lead-destination-in-order-to-publish-an-offer-in-the-commercial-marketplace"></a>Czy muszę skonfigurować miejsce docelowe potencjalnego klienta w celu opublikowania oferty w portalu komercyjnym?
 
@@ -133,7 +133,7 @@ Usługa Azure Blob Storage nie jest już obsługiwana jako miejsce docelowe pote
 
 ### <a name="i-received-an-email-from-the-commercial-marketplace-but-why-cant-i-find-the-lead-in-my-crm"></a>Z komercyjnej witryny Marketplace otrzymałem wiadomość e-mail, ale dlaczego nie mogę znaleźć potencjalnego klienta w moim programie CRM?
 
-Istnieje możliwość, że domena poczty e-mail użytkownika końcowego pochodzi z. edu. Ze względu na prywatność nie przekazujemy informacji osobistych z domeny. edu. Prześlij bilet pomocy technicznej, korzystając z [pomocy i pomocy technicznej Centrum partnerskiego](https://partner.microsoft.com/support/v2/?stage=1).
+Istnieje możliwość, że domena poczty e-mail użytkownika końcowego pochodzi z. edu. Ze względu na prywatność nie przekazujemy informacji osobistych z domeny. edu. Prześlij bilet pomocy technicznej, korzystając z [pomocy i pomocy technicznej Centrum partnerskiego](https://aka.ms/marketplacepublishersupport).
 
 ### <a name="i-configured-an-azure-table-as-my-lead-destination-how-can-i-view-the-leads"></a>Tabela platformy Azure została skonfigurowana jako lokalizacja docelowa mojego potencjalnego klienta. Jak mogę wyświetlić potencjalnych klientów?
 
@@ -155,11 +155,11 @@ Ze względu na zasady dotyczące informacji osobistych nie można udostępniać 
 
 Dane generowania potencjalnego klienta są niskie. Jest ona mniejsza niż 1 GB dla niemal wszystkich wydawców. Koszt zależy od liczby odebranych potencjalnych klientów. Jeśli na przykład w miesiącu otrzymasz 1 000 potencjalnych klientów, koszt wynosi około 50 centów. Aby uzyskać więcej informacji o cenach magazynu, zobacz [Cennik usługi Azure Storage — Omówienie](https://azure.microsoft.com/pricing/details/storage/).
 
-Jeśli Twoje pytanie nie zostało odebrane, skontaktuj się z firmą pomoc techniczna firmy Microsoft za pomocą [pomocy i pomocy technicznej Centrum partnerskiego](https://aka.ms/marketplacepublishersupport). Następnie wybierz pozycję **Utwórz** > ofertę**Typ** > oferty**Konfiguracja zarządzania liderem**.
+Jeśli Twoje pytanie nie zostało odebrane, skontaktuj się z firmą pomoc techniczna firmy Microsoft za pomocą [pomocy i pomocy technicznej Centrum partnerskiego](https://aka.ms/marketplacepublishersupport). Następnie wybierz pozycję **Utwórz ofertę**  >  **Typ**oferty  >  **Konfiguracja zarządzania liderem**.
 
 ### <a name="im-receiving-email-notifications-when-new-customer-leads-are-received-how-can-i-configure-someone-else-to-receive-these-emails"></a>Otrzymuję powiadomienia e-mail po odebraniu nowych potencjalnych klientów. Jak skonfigurować kogoś innego do otrzymywania tych wiadomości e-mail?
 
-Uzyskaj dostęp do oferty w centrum partnerskim i przejdź do **strony Konfiguracja oferty** > > **Edit** **Zarządzanie potencjalnymi klientami**. Zaktualizuj adresy e-mail w polu **kontaktowy adres e-mail** .
+Uzyskaj dostęp do oferty w centrum partnerskim i przejdź do strony **Konfiguracja oferty** > **Zarządzanie potencjalnymi klientami**  >  **Edit**. Zaktualizuj adresy e-mail w polu **kontaktowy adres e-mail** .
 
 ## <a name="next-steps"></a>Następne kroki
 

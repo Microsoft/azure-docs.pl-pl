@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 95dcc135593c566eb1319ed52df3df6c1ada6609
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4bd01b737c4a80ff286458c122f3b0ab9573a40b
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80067680"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798672"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Szybki Start: Rozpoczynanie pracy z platformą Azure — wskaźnikiem
 
@@ -53,7 +53,7 @@ Główna treść strony Przegląd zapewnia wgląd w informacje o stanie zabezpie
 
 ## <a name="use-built-in-workbooks"></a>Używanie wbudowanych skoroszytów<a name="dashboards"></a>
 
-Wbudowane skoroszyty zapewniają zintegrowane dane z połączonych źródeł danych, co pozwala na głębokie szczegółowe zdarzeń generowanych w ramach tych usług. Wbudowane skoroszyty obejmują usługi Azure AD, zdarzenia aktywności platformy Azure i lokalne, które mogą być danymi z zdarzeń systemu Windows z serwerów, od alertów z pierwszej strony, w tym dzienników ruchu zapory, pakietu Office 365 i niezabezpieczonych protokołów opartych na zdarzeniach systemu Windows. Skoroszyty są oparte na Azure Monitor skoroszytach, aby zapewnić lepszą szerszym i elastyczność projektowania własnych skoroszytów. Aby uzyskać więcej informacji, zobacz [skoroszyty](../azure-monitor/app/usage-workbooks.md).
+Wbudowane skoroszyty zapewniają zintegrowane dane z połączonych źródeł danych, co pozwala na głębokie szczegółowe zdarzeń generowanych w ramach tych usług. Wbudowane skoroszyty obejmują usługi Azure AD, zdarzenia aktywności platformy Azure i lokalne, które mogą być danymi z zdarzeń systemu Windows z serwerów, od alertów z pierwszej strony, w tym dzienników ruchu zapory, pakietu Office 365 i niezabezpieczonych protokołów opartych na zdarzeniach systemu Windows. Skoroszyty są oparte na Azure Monitor skoroszytach, aby zapewnić lepszą szerszym i elastyczność projektowania własnych skoroszytów. Aby uzyskać więcej informacji, zobacz [skoroszyty](../azure-monitor/platform/workbooks-overview.md).
 
 1. W obszarze **Ustawienia**wybierz pozycję **skoroszyty**. W obszarze **zainstalowane**można zobaczyć wszystkie zainstalowane skoroszyty. W obszarze **wszystko**można zobaczyć całą galerię wbudowanych skoroszytów, które są dostępne do zainstalowania. 
 2. Wyszukaj konkretny skoroszyt, aby zobaczyć całą listę i opis poszczególnych ofert. 
@@ -67,7 +67,7 @@ Wbudowane skoroszyty zapewniają zintegrowane dane z połączonych źródeł dan
       ![PAL Alto Dashboard](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-Możesz dostosować skoroszyty, edytując przycisk ![](./media/qs-get-visibility/edit-query-button.png)głównej kwerendy. Możesz kliknąć przycisk ![przycisk,](./media/qs-get-visibility/go-to-la-button.png) aby przejść do log Analytics, [Aby edytować zapytanie](../azure-monitor/log-query/get-started-portal.md)w tym miejscu i można wybrać wielokropek (...), a następnie wybrać opcję **Dostosuj dane kafelka**, co umożliwia edytowanie filtru czasu głównego lub usuwanie określonych kafelków ze skoroszytu.
+Możesz dostosować skoroszyty, edytując przycisk głównej kwerendy ![ ](./media/qs-get-visibility/edit-query-button.png) . Możesz kliknąć przycisk przycisk, ![ ](./media/qs-get-visibility/go-to-la-button.png) Aby przejść do [log Analytics, aby edytować zapytanie](../azure-monitor/log-query/get-started-portal.md)w tym miejscu i można wybrać wielokropek (...), a następnie wybrać opcję **Dostosuj dane kafelka**, co umożliwia edytowanie filtru czasu głównego lub usuwanie określonych kafelków ze skoroszytu.
 
 Aby uzyskać więcej informacji na temat pracy z zapytaniami, zobacz [Samouczek: dane wizualne w log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 

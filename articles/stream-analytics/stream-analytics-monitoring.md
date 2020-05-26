@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 54bff88e9650240a3703e18d583f603cafeb3022
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 11cb598420b4cecf803b17a78f14f9268e1c8be2
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611895"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831283"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Informacje o monitorowaniu zadań Stream Analytics i sposobach monitorowania zapytań
 
@@ -58,8 +58,8 @@ Możesz dostosować typ wykresu, pokazywane metryki i zakres czasu w ustawieniac
 Innym interesującym punktem danych do monitorowania zadania jest czas ostatniego wyjścia przedstawiony na stronie Przegląd.
 Jest to czas aplikacji (tj. czas, który używa sygnatury czasowej z danych zdarzenia) najnowszych danych wyjściowych zadania.
 
-## <a name="get-help"></a>Uzyskiwanie pomocy
-Aby uzyskać dalszą pomoc, skorzystaj z naszego [forum usługi Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+## <a name="get-help"></a>Uzyskaj pomoc
+Aby uzyskać dalszą pomoc, wypróbuj nasze [&stronie pytań na temat Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html)
 
 ## <a name="next-steps"></a>Następne kroki
 * [Wprowadzenie do Azure Stream Analytics](stream-analytics-introduction.md)

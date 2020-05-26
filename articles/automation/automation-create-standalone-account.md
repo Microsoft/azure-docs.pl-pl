@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: ffe7edd5faf5ae4f88f9f3e0c40256bee32395d7
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 0734ac0843eec164ad2207020da9dd1a7e9fa429
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714869"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837097"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Tworzenie autonomicznego konta usługi Azure Automation
 
@@ -101,8 +101,9 @@ Klasyczne konta Uruchom jako nie są już tworzone domyślnie podczas tworzenia 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Tworzenie graficzne w Azure Automation](automation-graphical-authoring-intro.md)
-* [Mój pierwszy element Runbook programu PowerShell](automation-first-runbook-textual-powershell.md)
-* [Mój pierwszy element Runbook przepływu pracy programu PowerShell](automation-first-runbook-textual.md)
-* [Mój pierwszy element Runbook python2](automation-first-runbook-textual-python2.md)
-* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)
+* Aby dowiedzieć się więcej o tworzeniu graficznym, zobacz [Tworzenie graficznych elementów Runbook w programie Azure Automation](automation-graphical-authoring-intro.md).
+* Aby rozpocząć pracę z elementami Runbook programu PowerShell, zobacz [Samouczek: Tworzenie elementu Runbook programu PowerShell](learn/automation-tutorial-runbook-textual-powershell.md).
+* Aby rozpocząć pracę z elementami Runbook przepływu pracy programu PowerShell, zobacz [Samouczek: Tworzenie elementu Runbook przepływu pracy programu PowerShell](learn/automation-tutorial-runbook-textual.md).
+* Aby rozpocząć pracę z elementami Runbook języka Python 2, zobacz [Samouczek: Tworzenie elementu Runbook w języku Python 2](learn/automation-tutorial-runbook-textual-python2.md).
+* Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

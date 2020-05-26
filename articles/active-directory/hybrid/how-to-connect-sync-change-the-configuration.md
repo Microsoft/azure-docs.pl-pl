@@ -12,12 +12,12 @@ ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d77882817934d5ad98f16965aeb9dc246931c495
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9fb43061b42a43755564f825fa01e65dacad3e5
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79261166"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827299"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect Sync: wprowadź zmianę konfiguracji domyślnej
 W tym artykule opisano sposób wprowadzania zmian w konfiguracji domyślnej w programie Azure Active Directory (Azure AD) Connect Sync. Zawiera kroki dla niektórych typowych scenariuszy. Korzystając z tej wiedzy, powinno być możliwe wprowadzanie prostych zmian do własnej konfiguracji w oparciu o własne reguły biznesowe.
@@ -48,7 +48,7 @@ U dołu są przyciski służące do działania na wybranej regule synchronizacji
 Najczęstszymi zmianami są przepływy atrybutów. Dane w katalogu źródłowym mogą nie być takie same jak w usłudze Azure AD. W przykładzie w tej sekcji upewnij się, że dana nazwa użytkownika jest zawsze w *odpowiednim przypadku*.
 
 ### <a name="disable-the-scheduler"></a>Wyłączanie harmonogramu
-[Harmonogram](how-to-connect-sync-feature-scheduler.md) jest domyślnie uruchamiany co 30 minut. Upewnij się, że nie jest on uruchamiany podczas wprowadzania zmian i rozwiązywania problemów dotyczących nowych reguł. Aby tymczasowo wyłączyć harmonogram, uruchom program PowerShell i uruchom `Set-ADSyncScheduler -SyncCycleEnabled $false`polecenie.
+[Harmonogram](how-to-connect-sync-feature-scheduler.md) jest domyślnie uruchamiany co 30 minut. Upewnij się, że nie jest on uruchamiany podczas wprowadzania zmian i rozwiązywania problemów dotyczących nowych reguł. Aby tymczasowo wyłączyć harmonogram, uruchom program PowerShell i uruchom polecenie `Set-ADSyncScheduler -SyncCycleEnabled $false` .
 
 ![Wyłączanie harmonogramu](./media/how-to-connect-sync-change-the-configuration/schedulerdisable.png)  
 
@@ -107,7 +107,7 @@ Otwórz **usługę synchronizacji** z menu **Start** . Kroki opisane w tej sekcj
 ![Wyszukiwanie magazynu metaverse](./media/how-to-connect-sync-change-the-configuration/mvsearch.png)  
 
 ### <a name="enable-the-scheduler"></a>Włącz harmonogram
-Jeśli wszystko jest w oczekiwany sposób, możesz włączyć harmonogram ponownie. W programie PowerShell uruchom `Set-ADSyncScheduler -SyncCycleEnabled $true`polecenie.
+Jeśli wszystko jest w oczekiwany sposób, możesz włączyć harmonogram ponownie. W programie PowerShell uruchom polecenie `Set-ADSyncScheduler -SyncCycleEnabled $true` .
 
 ## <a name="other-common-attribute-flow-changes"></a>Inne typowe zmiany przepływu atrybutów
 W poprzedniej sekcji opisano, jak wprowadzać zmiany w przepływie atrybutu. W tej sekcji podano kilka dodatkowych przykładów. Procedura tworzenia reguły synchronizacji jest skracana, ale można znaleźć wszystkie kroki opisane w poprzedniej sekcji.
@@ -200,7 +200,7 @@ Domyślnie atrybut UserType nie jest włączony dla synchronizacji, ponieważ ni
 
 - Usługa Azure AD akceptuje tylko dwie wartości atrybutu UserType: **member** i **gość**.
 - Jeśli atrybut UserType nie jest włączony do synchronizacji w Azure AD Connect, użytkownicy usługi Azure AD utworzeni za pomocą synchronizacji katalogów będą mieli atrybut UserType ustawiony jako **member**.
-- Usługa Azure AD nie zezwala, aby atrybut UserType istniejących użytkowników usługi Azure AD został zmieniony przez Azure AD Connect. Można ją ustawić tylko podczas tworzenia użytkowników usługi Azure AD i [zmieniać je za pomocą programu PowerShell](/powershell/module/azuread/set-azureaduser?view=azureadps-2.0).
+- W wersji starszej niż 1.5.30.0 usługa Azure AD nie zezwolił na zmianę atrybutu UserType dla istniejących użytkowników usługi Azure AD przez Azure AD Connect. W starszych wersjach można było ustawić je tylko podczas tworzenia użytkowników usługi Azure AD i [zmieniać je za pomocą programu PowerShell](/powershell/module/azuread/set-azureaduser?view=azureadps-2.0).
 
 Przed włączeniem synchronizacji atrybutu UserType należy najpierw zdecydować, jak atrybut pochodzi z Active Directory lokalnego. Poniżej przedstawiono najbardziej typowe podejścia:
 
@@ -208,9 +208,9 @@ Przed włączeniem synchronizacji atrybutu UserType należy najpierw zdecydować
 
     W przypadku wybrania tej metody należy upewnić się, że wyznaczono atrybut jest wypełniony poprawną wartością dla wszystkich istniejących obiektów użytkownika w Active Directory lokalnym, które są synchronizowane z usługą Azure AD przed włączeniem synchronizacji atrybutu UserType.
 
-- Alternatywnie można utworzyć wartość atrybutu UserType z innych właściwości. Na przykład chcesz zsynchronizować wszystkich użytkowników jako **gościa** , jeśli ich lokalny atrybut AD userPrincipalName kończy się częścią <em>@partners.fabrikam123.org</em>domeny. 
+- Alternatywnie można utworzyć wartość atrybutu UserType z innych właściwości. Na przykład chcesz zsynchronizować wszystkich użytkowników jako **gościa** , jeśli ich lokalny atrybut AD userPrincipalName kończy się częścią domeny <em>@partners.fabrikam123.org</em> . 
 
-    Jak wspomniano wcześniej, Azure AD Connect nie zezwala na zmianę atrybutu UserType dla istniejących użytkowników usługi Azure AD przez Azure AD Connect. Z tego względu należy upewnić się, że ustalona logika jest zgodna ze sposobem, w jaki atrybut UserType jest już skonfigurowany dla wszystkich istniejących użytkowników usługi Azure AD w dzierżawie.
+    Jak wspomniano wcześniej, starsze wersje Azure AD Connect nie zezwalają na zmianę atrybutu UserType dla istniejących użytkowników usługi Azure AD przez Azure AD Connect. Z tego względu należy upewnić się, że ustalona logika jest zgodna ze sposobem, w jaki atrybut UserType jest już skonfigurowany dla wszystkich istniejących użytkowników usługi Azure AD w dzierżawie.
 
 Procedurę włączania synchronizacji atrybutu UserType można podsumować jako:
 
@@ -229,8 +229,8 @@ Procedurę włączania synchronizacji atrybutu UserType można podsumować jako:
 Aby uniknąć eksportowania niezamierzonych zmian do usługi Azure AD, należy się upewnić, że synchronizacja nie odbywa się w trakcie aktualizacji reguł synchronizacji. Aby wyłączyć wbudowany harmonogram synchronizacji:
 
  1. Uruchom sesję programu PowerShell na serwerze Azure AD Connect.
- 2. Aby wyłączyć synchronizację zaplanowaną, `Set-ADSyncScheduler -SyncCycleEnabled $false`należy uruchomić polecenie cmdlet.
- 3. Otwórz Synchronization Service Manager, aby **uruchomić** > **usługę synchronizacji**.
+ 2. Aby wyłączyć synchronizację zaplanowaną, należy uruchomić polecenie cmdlet `Set-ADSyncScheduler -SyncCycleEnabled $false` .
+ 3. Otwórz Synchronization Service Manager, aby **uruchomić**  >  **usługę synchronizacji**.
  4. Przejdź do karty **operacje** i upewnij się, że nie ma operacji o stanie *w toku*.
 
 ### <a name="step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema"></a>Krok 2. Dodawanie atrybutu source do schematu lokalnego łącznika usługi AD
@@ -257,7 +257,7 @@ Domyślnie atrybut UserType nie jest importowany do obszaru Azure AD Connect. Ab
 ### <a name="step-4-create-an-inbound-synchronization-rule-to-flow-the-attribute-value-from-on-premises-active-directory"></a>Krok 4. Tworzenie reguły synchronizacji ruchu przychodzącego w celu przepływania wartości atrybutu z lokalnego Active Directory
 Reguła synchronizacji ruchu przychodzącego zezwala na przepływ wartości atrybutu z atrybutu Source z lokalnego Active Directory do obiektu metaverse:
 
-1. Otwórz Edytor **reguł synchronizacji, przechodząc do** > **edytora reguł synchronizacji**.
+1. Otwórz Edytor **reguł synchronizacji, przechodząc do**  >  **edytora reguł synchronizacji**.
 2. Ustaw **kierunek** filtrowania wyszukiwania na **ruch przychodzący**.
 3. Kliknij przycisk **Dodaj nową regułę** , aby utworzyć nową regułę ruchu przychodzącego.
 4. Na karcie **Opis** podaj następującą konfigurację:
@@ -276,7 +276,7 @@ Reguła synchronizacji ruchu przychodzącego zezwala na przepływ wartości atry
 
     | Atrybut | Operator | Wartość |
     | --- | --- | --- |
-    | adminDescription | NOTSTARTWITH | Użytkownicy\_ |
+    | adminDescription | NOTSTARTWITH | Użytkownik\_ |
 
     Filtr określania zakresu określa, do których lokalnych obiektów usługi AD jest stosowana ta reguła synchronizacji ruchu przychodzącego. W tym przykładzie korzystamy z tego samego filtru określania zakresu, który jest używany w regule *w programie z usługi AD — wspólna* wartość synchronizacji użytkownika, która uniemożliwia stosowanie reguły synchronizacji do obiektów użytkownika utworzonych za pomocą funkcji zapisywania zwrotnego użytkownika usługi Azure AD. Może być konieczne dostosowanie filtru określania zakresu zgodnie ze wdrożeniem Azure AD Connect.
 
@@ -284,13 +284,13 @@ Reguła synchronizacji ruchu przychodzącego zezwala na przepływ wartości atry
 
     | Typ przepływu | Atrybut docelowy | Element źródłowy | Zastosuj raz | Typ scalania |
     | --- | --- | --- | --- | --- |
-    | Direct | UserType | extensionAttribute1 | Unchecked | Aktualizowanie |
+    | Direct | UserType | extensionAttribute1 | Unchecked | Aktualizacja |
 
-    W innym przykładzie, chcesz utworzyć wartość atrybutu UserType z innych właściwości. Na przykład chcesz zsynchronizować wszystkich użytkowników jako gościa, jeśli ich lokalny atrybut AD userPrincipalName kończy się częścią <em>@partners.fabrikam123.org</em>domeny. Można zaimplementować wyrażenie podobne do tego:
+    W innym przykładzie, chcesz utworzyć wartość atrybutu UserType z innych właściwości. Na przykład chcesz zsynchronizować wszystkich użytkowników jako gościa, jeśli ich lokalny atrybut AD userPrincipalName kończy się częścią domeny <em>@partners.fabrikam123.org</em> . Można zaimplementować wyrażenie podobne do tego:
 
     | Typ przepływu | Atrybut docelowy | Element źródłowy | Zastosuj raz | Typ scalania |
     | --- | --- | --- | --- | --- |
-    | Wyrażenie | UserType | IIF (isobecny ([userPrincipalName]), IIF (CBool (InStr (LCase ([userPrincipalName]), "@partners.fabrikam123.org") = 0), "member", "Gość"), błąd ("userPrincipalName nie jest obecny w celu określenia typu użytkownika")) | Unchecked | Aktualizowanie |
+    | Wyrażenie | UserType | IIF (isobecny ([userPrincipalName]), IIF (CBool (InStr (LCase ([userPrincipalName]), " @partners.fabrikam123.org ") = 0), "member", "Gość"), błąd ("userPrincipalName nie jest obecny w celu określenia typu użytkownika")) | Unchecked | Aktualizacja |
 
 7. Kliknij przycisk **Dodaj** , aby utworzyć regułę ruchu przychodzącego.
 
@@ -319,7 +319,7 @@ Reguła synchronizacji danych wychodzących zezwala na przepływ wartości atryb
     | Atrybut | Operator | Wartość |
     | --- | --- | --- |
     | sourceObjectType | WIĘKSZY | Użytkownik |
-    | cloudMastered | NOTEQUAL | Prawda |
+    | cloudMastered | NOTEQUAL | True |
 
     Filtr określania zakresu określa, do których obiektów usługi Azure AD jest stosowana ta reguła synchronizacji danych wychodzących. W tym przykładzie używamy tego samego filtru określania zakresu z reguły synchronizacji Out to on-of-Box z *tożsamością użytkownika* . Uniemożliwia stosowanie reguły synchronizacji do obiektów użytkownika, które nie są zsynchronizowane z Active Directory lokalnych. Może być konieczne dostosowanie filtru określania zakresu zgodnie ze wdrożeniem Azure AD Connect.
 
@@ -327,7 +327,7 @@ Reguła synchronizacji danych wychodzących zezwala na przepływ wartości atryb
 
     | Typ przepływu | Atrybut docelowy | Element źródłowy | Zastosuj raz | Typ scalania |
     | --- | --- | --- | --- | --- |
-    | Direct | UserType | UserType | Unchecked | Aktualizowanie |
+    | Direct | UserType | UserType | Unchecked | Aktualizacja |
 
 7. Kliknij przycisk **Dodaj** , aby utworzyć regułę wychodzącą.
 
@@ -389,7 +389,7 @@ Aby sprawdzić zmiany podczas ręcznego wykonywania kroków, które składają s
 Włącz ponownie wbudowany harmonogram synchronizacji:
 
 1. Rozpocznij sesję programu PowerShell.
-2. Ponownie włącz zaplanowaną synchronizację, uruchamiając `Set-ADSyncScheduler -SyncCycleEnabled $true`polecenie cmdlet.
+2. Ponownie włącz zaplanowaną synchronizację, uruchamiając polecenie cmdlet `Set-ADSyncScheduler -SyncCycleEnabled $true` .
 
 
 ## <a name="next-steps"></a>Następne kroki

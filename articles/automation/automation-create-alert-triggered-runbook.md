@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 30ef3e0ccef859ec183d8aad18c0b9910a5d3c9f
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 1feadeaf2a905abee396c09829dab5e06c46d99c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712506"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837114"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Użyj alertu, aby wyzwolić Azure Automation element Runbook
 
@@ -191,8 +191,8 @@ Alerty korzystają z grup akcji, które są kolekcjami akcji wyzwalanych przez a
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Uruchamianie elementu runbook z poziomu elementu webhook](automation-webhooks.md)
-* [Uruchamianie elementu runbook](automation-starting-a-runbook.md)
-* [Tworzenie alertów dziennika aktywności](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)
-* [Utwórz regułę alertu w Azure Portal](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json)
-* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)
+* Aby uruchomić element Runbook za pomocą elementu webhook, zobacz temat [Uruchamianie elementu Runbook z elementu webhook](automation-webhooks.md).
+* Aby poznać różne sposoby uruchamiania elementu Runbook, zobacz temat [Uruchamianie elementu Runbook](automation-starting-a-runbook.md).
+* Aby utworzyć alert dziennika aktywności, zobacz [tworzenie alertów dziennika aktywności](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
+* Aby dowiedzieć się, jak utworzyć alert niemal w czasie rzeczywistym, zobacz [Tworzenie reguły alertu w Azure Portal](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
+* Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).

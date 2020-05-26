@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 56059304026b060e2215ce73e0e94e3200573a14
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 10ea3c68695e7e4fb4950fbcc4a190e9f1d83f49
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77670988"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797700"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Analiza użytkowników, sesji i zdarzeń w Application Insights
 
@@ -19,7 +19,7 @@ Dowiedz się, w jaki sposób użytkownicy korzystają z aplikacji sieci Web, jak
 
 ![Zrzut ekranu przedstawiający Application Insights użytkowników](./media/usage-segmentation/0001-users.png)
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Jeśli nie widzisz jeszcze danych w blokach użytkownicy, sesje lub zdarzenia w portalu Application Insights, [Dowiedz się, jak rozpocząć pracę z narzędziami użycia](usage-overview.md).
 
@@ -62,5 +62,5 @@ Sekcja **zapoznaj się z użytkownikami** zawiera informacje o pięciu przykład
     - [Lejki](usage-funnels.md)
     - [Przechowywanie](usage-retention.md)
     - [Przepływy użytkowników](usage-flows.md)
-    - [Skoroszyty](../../azure-monitor/app/usage-workbooks.md)
+    - [Skoroszyty](../../azure-monitor/platform/workbooks-overview.md)
     - [Dodawanie kontekstu użytkownika](usage-send-user-context.md)

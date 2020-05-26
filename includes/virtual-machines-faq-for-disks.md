@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e87b6ee4739818e25ee069986e299f8205d44a2a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: de8574cd691c77bb764c7e695db1e7c2f23c5f3a
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83343307"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837916"
 ---
 W tym artykule przedstawiono kilka często zadawanych pytań dotyczących usługi Azure Managed Disks i Azure SSD w warstwie Premium Disks.
 
@@ -455,6 +455,6 @@ Obsługiwane jest buforowanie hosta dla odczytu i odczyt/zapis na dysku o rozmia
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Co zrobić, jeśli w tym miejscu nie udzielono odpowiedzi na moje pytanie?
 
-Jeśli pytania nie ma na liście, poinformuj nas o tym, a my pomożemy Ci znaleźć odpowiedź. W komentarzach można opublikować pytanie na końcu tego artykułu. Aby skontaktować się z zespołem usługi Azure Storage i innymi członkami społeczności dotyczącymi tego artykułu, Skorzystaj z forum MSDN dla [usługi Azure Storage](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
+Jeśli pytania nie ma na liście, poinformuj nas o tym, a my pomożemy Ci znaleźć odpowiedź. W komentarzach można opublikować pytanie na końcu tego artykułu. Aby skontaktować się z zespołem usługi Azure Storage i innymi członkami społeczności dotyczącymi tego artykułu, użyj strony pytania i odpowiedzi MSDN [firmy&Microsoft dla usługi Azure Storage](https://docs.microsoft.com/answers/products/azure?product=storage).
 
 Aby zażądać funkcji, Prześlij swoje wnioski i pomysły do [forum opinii o usłudze Azure Storage](https://feedback.azure.com/forums/217298-storage).

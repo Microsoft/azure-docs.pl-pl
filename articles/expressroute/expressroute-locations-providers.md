@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3f19c77d5e2a943ca6c3c9d081cddedd0769c934
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: bfd5d1bfed89d069cbdb74c4df723409ec1f1e77
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83736062"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797992"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partnerzy i lokalizacje komunikacji równorzędnej usługi ExpressRoute
 
@@ -98,15 +98,15 @@ W poniższej tabeli przedstawiono lokalizacje połączeń i dostawców usług dl
 | **Dublin** | [Equinix DB3](https://www.equinix.com/locations/europe-colocation/ireland-colocation/dublin-data-centers/db3/) | 1 | Europa Północna | 10G, 100G | Colt, EIR, Equinix, euNetworks, Interxion, Megaport |
 | **We** | [Interxion FRA11](https://www.interxion.com/Locations/frankfurt/) | 1 | Niemcy Środkowo-Zachodnie | 10G, 100G | W&T teleobligacji, CenturyLink Cloud Connect, Colt, DE-CIX, Equinix, GEANT, Interxion, Megaport, pomarańczowy, Telia |
 | **Genewie** | [Equinix GV2](https://www.equinix.com/locations/europe-colocation/switzerland-colocation/geneva-data-centers/gv2/) | 1 | Szwajcaria Zachodnia | 10G, 100G | Equinix, Megaport |
-| **Hongkong** | [Equinix HK1](https://www.equinix.com/locations/asia-colocation/hong-kong-colocation/hong-kong-data-center/hk1/) | 2 | Azja Wschodnia | nie dotyczy | Sieci aryaka networkse, telekomunikacyjne brytyjskie, CenturyLink Cloud Connect, dyrektor Telecom, Chiny Telecom, Equinix, międzychmurowe, Megaport, NTT Communications, pomarańcze, PCCW Global Limited, Tata Communications, Telia, Verizon |
-| **Kong2 Hongkong** | [I](https://www.iadvantage.net/index.php/locations/mega-i) | 2 | nie dotyczy | ° | China Telecom Global |
+| **Hongkong SAR** | [Equinix HK1](https://www.equinix.com/locations/asia-colocation/hong-kong-colocation/hong-kong-data-center/hk1/) | 2 | Azja Wschodnia | nie dotyczy | Sieci aryaka networkse, telekomunikacyjne brytyjskie, CenturyLink Cloud Connect, dyrektor Telecom, Chiny Telecom, Equinix, międzychmurowe, Megaport, NTT Communications, pomarańcze, PCCW Global Limited, Tata Communications, Telia, Verizon |
+| **Kong2 Hongkong** | [I](https://www.iadvantage.net/index.php/locations/mega-i) | 2 | nie dotyczy | ° | Chiny Telecom Global, PCCW Globally Limited |
 | **Dżakarta** | Telkom Indonezja | 4 | nie dotyczy | ° | |
 | **Johannesburg** | [Teraco JB1](https://www.teraco.co.za/data-centre-locations/johannesburg/#jb1) | 3 | Północna Republika Południowej Afryki | ° | BCX, Brytyjskie Telecom, Internet Solutions — Cloud Connect, ciecz Telecom, pomarańczowy, Teraco |
 | **Kuala Lumpur** | [CZAS dotCom Menara cele](https://www.time.com.my/enterprise/connectivity/direct-cloud) | 2 | nie dotyczy | nie dotyczy | TIME dotCom |
 | **Las Vegas** | [Przełącz LV](https://www.switch.com/las-vegas) | 1 | nie dotyczy | nie dotyczy | CenturyLink Cloud Connect, Megaport |
 | **Londyn** | [Equinix LD5](https://www.equinix.com/locations/europe-colocation/united-kingdom-colocation/london-data-centers/ld5/) | 1 | Południowe Zjednoczone Królestwo | 10G, 100G | W&T teleobligacje, Brytyjskie Telecom, Colt, Equinix, euNetworks, międzychmurowe, rozwiązania internetowe — Cloud Connect, Interxion, JISC, Level 3 Communications, Megaport, MTN, NTT Communications, pomarańczowy, PCCW Global Limited, Tata Communications, teleer-KDDI, firma Telenor, Telia, Verizon |
 | **Londyn2** | [Dwa domowe północ](https://www.telehouse.net/data-centres/emea/uk-data-centres/london-data-centres/north-two) | 1 | Południowe Zjednoczone Królestwo | 10G, 100G | CenturyLink Cloud Connect, Colt, IX zasięg, Equinix, Megaport, teledomu — KDDI |
-| **Los Angeles** | [CoreSite LA1](https://www.coresite.com/data-centers/locations/los-angeles/one-wilshire) | 1 | nie dotyczy | nie dotyczy | CoreSite, Equinix, Megaport, neutrony, NTT, Transtelco, Zayo |
+| **Los Angeles** | [CoreSite LA1](https://www.coresite.com/data-centers/locations/los-angeles/one-wilshire) | 1 | nie dotyczy | ° | CoreSite, Equinix, Megaport, neutrony, NTT, Transtelco, Zayo |
 | **Marsylia** |[Interxion MRS1](https://www.interxion.com/Locations/marseille/) | 1 | Francja Południowa | nie dotyczy | DE-CIX, GEANT, Interxion, Jaguar Network, Ooredoo Cloud Connect |
 | **Melbourne** | [NextDC M1](https://www.nextdc.com/data-centres/m1-melbourne-data-centre) | 2 | Australia Południowo-Wschodnia | 10G, 100G | AARNet, Devoli, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation, TPG Telecom |
 | **Miami** | [Equinix MI1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/miami-data-centers/mi1/) | 1 | nie dotyczy | ° | Claro, C3ntro, Equinix, Megaport, sieci neutronów |

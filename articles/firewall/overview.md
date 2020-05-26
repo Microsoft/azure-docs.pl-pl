@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/19/2020
+ms.date: 05/22/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: b54e8efc4f5f22a89526bb5d529805b33371529f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2f466c71673c9239f6f984f838d050af8bf52182
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655125"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816067"
 ---
 # <a name="what-is-azure-firewall"></a>Co to jest usługa Azure Firewall?
 
@@ -61,15 +61,15 @@ Można centralnie tworzyć reguły filtrowania sieci (*zezwalania* lub *blokowan
 
 ## <a name="fqdn-tags"></a>Tagi w pełni kwalifikowanych nazw domen
 
-Tagi FQDN ułatwiają zapewnienie dobrze znanego ruchu sieciowego usługi platformy Azure przez zaporę. Załóżmy na przykład, że chcesz zezwolić na ruch sieciowy z witryny Windows Update przez zaporę. Tworzysz regułę aplikacji i dołączasz tag „Windows Update”. Teraz ruch sieciowy z witryny Windows Update może przechodzić przez zaporę.
+[Tagi FQDN](fqdn-tags.md) ułatwiają zapewnienie dobrze znanego ruchu sieciowego usługi platformy Azure przez zaporę. Załóżmy na przykład, że chcesz zezwolić na ruch sieciowy z witryny Windows Update przez zaporę. Tworzysz regułę aplikacji i dołączasz tag „Windows Update”. Teraz ruch sieciowy z witryny Windows Update może przechodzić przez zaporę.
 
 ## <a name="service-tags"></a>Tagi usługi
 
-Tag usługi reprezentuje grupę prefiksów adresów IP, aby zminimalizować złożoność tworzenia reguły zabezpieczeń. Nie można utworzyć własnego tagu usługi ani określić, które adresy IP znajdują się w tagu. Firma Microsoft zarządza prefiksami adresów obejmowanymi przez tag usługi i automatycznie aktualizuje tag usługi, gdy adresy ulegną zmianie.
+[Tag usługi](service-tags.md) reprezentuje grupę prefiksów adresów IP, która pomaga zminimalizować złożoność tworzenia reguł zabezpieczeń. Nie można utworzyć własnego tagu usługi ani określić, które adresy IP znajdują się w tagu. Firma Microsoft zarządza prefiksami adresów obejmowanymi przez tag usługi i automatycznie aktualizuje tag usługi, gdy adresy ulegną zmianie.
 
 ## <a name="threat-intelligence"></a>Analiza zagrożeń
 
-Filtrowanie na podstawie analizy zagrożeń może być włączone, aby zapora mogła zgłaszać i odrzucać ruch z/do znanych złośliwych adresów IP i domen. Adresy IP i domeny pochodzą ze źródła analizy zagrożeń firmy Microsoft.
+Filtrowanie na podstawie [analizy zagrożeń](threat-intel.md)może być włączone, aby zapora mogła zgłaszać i odrzucać ruch z/do znanych złośliwych adresów IP i domen. Adresy IP i domeny pochodzą ze źródła analizy zagrożeń firmy Microsoft.
 
 ## <a name="outbound-snat-support"></a>Obsługa translacji adresów sieciowych źródła (SNAT) dla ruchu wychodzącego
 
@@ -83,7 +83,7 @@ Ruch przychodzący w sieci Internet do publicznego adresu IP zapory jest tłumac
 
 ## <a name="multiple-public-ip-addresses"></a>Wiele publicznych adresów IP
 
-Za pomocą zapory można skojarzyć wiele publicznych adresów IP (do 250).
+Za pomocą zapory można skojarzyć [wiele publicznych adresów IP](deploy-multi-public-ip-powershell.md) (do 250).
 
 Dzięki temu można wykonać następujące scenariusze:
 
@@ -92,7 +92,7 @@ Dzięki temu można wykonać następujące scenariusze:
 
 ## <a name="azure-monitor-logging"></a>Rejestrowanie w usłudze Azure Monitor
 
-Wszystkie zdarzenia są zintegrowane z usługą Azure Monitor, co umożliwia archiwizowanie dzienników na koncie magazynu, przesyłanie strumieniowe zdarzeń do centrum Event Hub lub wysyłanie ich do dzienników usługi Azure Monitor.
+Wszystkie zdarzenia są zintegrowane z usługą Azure Monitor, co umożliwia archiwizowanie dzienników na koncie magazynu, przesyłanie strumieniowe zdarzeń do centrum Event Hub lub wysyłanie ich do dzienników usługi Azure Monitor. Aby uzyskać więcej informacji, zobacz [Samouczek: monitorowanie dzienników i metryk zapory platformy Azure](tutorial-diagnostics.md).
 
 ## <a name="forced-tunneling"></a>Wymuszone tunelowanie
 

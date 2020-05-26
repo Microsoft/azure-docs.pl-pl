@@ -1,14 +1,14 @@
 ---
 title: Omówienie przykładu strategii FedRAMP Moderate
 description: Omówienie przykładu strategii FedRAMP Moderate. Ten przykład strategii pomaga klientom ocenić określone mechanizmy kontroli FedRAMP Moderate.
-ms.date: 10/31/2019
+ms.date: 05/14/2020
 ms.topic: sample
-ms.openlocfilehash: 4a94d4ad29fdc79be508deb4bed76a91e8e76168
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.openlocfilehash: b25c000ac9593eb0997ae1d4f1f69a4e20732226
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "74544442"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816220"
 ---
 # <a name="overview-of-the-fedramp-moderate-blueprint-sample"></a>Omówienie przykładu strategii FedRAMP Moderate
 

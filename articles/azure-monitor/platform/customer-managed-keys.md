@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 05/20/2020
-ms.openlocfilehash: aa27ba30c7a403cf70396e219b0619e2e84b0d4f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 6603985df39afaa2fa2871977d6e577c04f7b569
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747735"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800035"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor klucz zarządzany przez klienta 
 
@@ -28,8 +28,6 @@ Azure Monitor gwarantuje, że wszystkie dane są szyfrowane przy użyciu kluczy 
 Azure Monitor korzystania z szyfrowania jest taka sama jak w sposobie działania [szyfrowania usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#about-azure-storage-encryption)   .
 
 CMK umożliwia kontrolowanie dostępu do danych i odwoływanie go w dowolnym momencie. Azure Monitor Storage zawsze uwzględnia zmiany w uprawnieniach klucza w ciągu godziny. Dane pozyskane w ciągu ostatnich 14 dni również są przechowywane w pamięci podręcznej (dysk SSD) w celu wydajnej operacji aparatu zapytań. Te dane pozostają zaszyfrowane przy użyciu kluczy firmy Microsoft bez względu na konfigurację CMK, ale kontrola nad danymi SSD jest zgodna z [odwołaniem klucza](#cmk-kek-revocation). Pracujemy nad zaszyfrowaniem danych SSD z CMK w drugiej połowie 2020.
-
-Dane pozyskane w ciągu ostatnich 14 dni również są przechowywane w pamięci podręcznej (dysk SSD) w celu wydajnej operacji aparatu zapytań. Te dane pozostają zaszyfrowane przy użyciu kluczy firmy Microsoft bez względu na konfigurację CMK, ale kontrola nad danymi SSD jest zgodna z [odwołaniem klucza](#cmk-kek-revocation). Pracujemy nad zaszyfrowaniem danych SSD z CMK w drugiej połowie 2020.
 
 Funkcja CMK jest dostarczana w dedykowanych klastrach Log Analytics. Aby sprawdzić, czy w Twoim regionie jest wymagana pojemność, wymagamy, aby Twoja subskrypcja została listy dozwolonych wcześniej. Skontaktuj się z firmą Microsoft, aby uzyskać listy dozwolonych subskrypcji przed rozpoczęciem konfigurowania usługi CMK.
 

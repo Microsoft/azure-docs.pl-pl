@@ -1,7 +1,7 @@
 ---
-title: Usługa SPX-Speech
+title: Interfejs wiersza polecenia usługi Azure Speech
 titleSuffix: Azure Cognitive Services
-description: SPX to narzędzie wiersza polecenia do korzystania z usługi mowy bez pisania kodu. Protokół SPX wymaga minimalnej konfiguracji i od razu można zacząć eksperymentować z kluczowymi funkcjami usługi mowy, aby sprawdzić, czy można spełnić Twoje przypadki użycia.
+description: Interfejs wiersza polecenia rozpoznawania mowy to narzędzie do obsługi mowy, które umożliwia korzystanie z usługi Speech bez pisania kodu. Interfejs wiersza polecenia mowy wymaga minimalnej konfiguracji i od razu można zacząć eksperymentować z kluczowymi funkcjami usługi mowy, aby sprawdzić, czy można spełnić przypadki użycia.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -10,24 +10,24 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: trbye
-ms.openlocfilehash: b473bdc516c59b55eeb44f227352497142a4383b
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 3fb0b71cbb82b3b9acad1d1ce093baa86c700a51
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83202283"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800334"
 ---
-# <a name="what-is-spx"></a>Co to jest SPX?
+# <a name="what-is-the-speech-cli"></a>Co to jest interfejs wiersza polecenia mowy?
 
-SPX to narzędzie wiersza polecenia do korzystania z usługi mowy bez pisania kodu. Protokół SPX wymaga minimalnej konfiguracji i od razu można zacząć eksperymentować z kluczowymi funkcjami usługi mowy, aby sprawdzić, czy można spełnić przypadki użycia. W ciągu kilku minut można uruchamiać proste testowe przepływy pracy, takie jak przetwarzanie wsadowe mowy — rozpoznawanie z katalogu plików, lub zamiana tekstu na mowę w kolekcji ciągów z pliku. Oprócz prostych przepływów pracy protokół SPX jest gotowy do produkcji i można go skalować w celu uruchomienia większych procesów przy użyciu skryptów zautomatyzowanych `.bat` lub powłoki.
+Interfejs wiersza polecenia rozpoznawania mowy to narzędzie do obsługi mowy, które umożliwia korzystanie z usługi Speech bez pisania kodu. Interfejs wiersza polecenia mowy wymaga minimalnej konfiguracji i od razu można zacząć eksperymentować z kluczowymi funkcjami usługi mowy, aby sprawdzić, czy można spełnić przypadki użycia. W ciągu kilku minut można uruchamiać proste testowe przepływy pracy, takie jak przetwarzanie wsadowe mowy — rozpoznawanie z katalogu plików, lub zamiana tekstu na mowę w kolekcji ciągów z pliku. Oprócz prostych przepływów pracy interfejs wiersza polecenia mowy jest gotowy do produkcji i można go skalować w celu uruchomienia większych procesów przy użyciu skryptów zautomatyzowanych `.bat` lub powłoki.
 
-Większość podstawowych funkcji zestawu Speech SDK jest dostępnych w SPX, ale niektóre zaawansowane funkcje i dostosowania zostały uproszczone w SPX. Należy wziąć pod uwagę następujące wskazówki, aby określić, kiedy należy używać SPX lub zestawu SDK.
+Większość podstawowych funkcji zestawu Speech SDK jest dostępnych w interfejsie wiersza polecenia mowy, ale niektóre zaawansowane funkcje i dostosowania zostały uproszczone w interfejsie wiersza polecenia mowy. Należy wziąć pod uwagę następujące wskazówki, aby określić, kiedy należy używać interfejsu wiersza polecenia mowy lub zestawu Speech SDK.
 
-Użyj SPX, gdy:
+Użyj interfejsu wiersza polecenia mowy, gdy:
 * Chcesz eksperymentować z funkcjami usługi Speech Service przy minimalnej konfiguracji i bez kodu
 * Istnieją stosunkowo proste wymagania dotyczące aplikacji produkcyjnej przy użyciu usługi mowy
 
-Użyj zestawu SDK, gdy:
+Użyj zestawu Speech SDK, gdy:
 * Chcesz zintegrować funkcje usługi mowy z określonym językiem lub platformą (np. C#, Python, C++)
 * Istnieją złożone wymagania, które mogą wymagać zaawansowania żądań obsługi lub opracowywania zachowania niestandardowego, w tym przesyłania strumieniowego odpowiedzi
 
@@ -43,9 +43,9 @@ Użyj zestawu SDK, gdy:
 
 ## <a name="get-started"></a>Rozpoczęcie pracy
 
-Aby rozpocząć pracę z SPX, zapoznaj się z [artykułem podstawowe informacje](spx-basics.md). W tym artykule pokazano, jak uruchomić niektóre podstawowe polecenia w SPX, a także wyświetlić nieco bardziej zaawansowane polecenia do uruchamiania operacji wsadowych na potrzeby zamiany mowy na tekst i zamiany tekstu na mowę. Po przeczytaniu artykułu podstawowe powinno być wystarczające zrozumienie składni SPX, aby rozpocząć pisanie niektórych poleceń niestandardowych lub zautomatyzować proste operacje mowy.
+Aby rozpocząć pracę z interfejsem wiersza polecenia mowy, zapoznaj się z [artykułem podstawowe informacje](spx-basics.md). W tym artykule przedstawiono sposób uruchamiania niektórych podstawowych poleceń za pomocą usługi SPX, a także przedstawiono nieco bardziej zaawansowane polecenia uruchamiania operacji wsadowych w celu zamiany mowy na tekst i zamiany tekstu na mowę. Po przeczytaniu artykułu podstawowe powinno być wystarczające zrozumienie składni SPX, aby rozpocząć pisanie niektórych poleceń niestandardowych lub zautomatyzować proste operacje mowy.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [SPX — podstawy](spx-basics.md)
+- [Podstawowe informacje o interfejsie wiersza polecenia mowy](spx-basics.md)
 - Jeśli Twój przypadek użycia jest bardziej skomplikowany, [Pobierz zestaw Speech SDK](speech-sdk.md)

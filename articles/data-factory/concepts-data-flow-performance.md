@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 04/27/2020
-ms.openlocfilehash: 8ea26fc041f3fa6194ced65b3e3b9055848ead49
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/21/2020
+ms.openlocfilehash: 327fffd807d93fda67ff650954ece65e5db58e63
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188771"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798110"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Przewodnik dotyczący wydajności i dostrajania przepływu danych
 
@@ -41,7 +41,7 @@ Podczas projektowania mapowania przepływów danych można testować poszczegól
 
 Integration Runtime o większej liczbie rdzeni zwiększa liczbę węzłów w środowiskach obliczeniowych platformy Spark i zapewnia większą moc obliczeniową do odczytywania, zapisywania i przekształcania danych. Przepływy danych ADF wykorzystują platformę Spark dla aparatu obliczeniowego. Środowisko Spark działa bardzo dobrze w przypadku zasobów zoptymalizowanych pod kątem pamięci.
 * Wypróbuj klaster **zoptymalizowany pod kątem obliczeń** , jeśli szybkość przetwarzania ma być wyższa niż stawka wejściowa.
-* Wypróbuj klaster **zoptymalizowany pod kątem pamięci** , jeśli chcesz buforować więcej danych w pamięci. Zoptymalizowane pod kątem pamięci ma wyższy poziom cen na rdzeń niż zoptymalizowany od obliczeń, ale prawdopodobnie spowoduje to szybsze przyspieszenie transformacji.
+* Wypróbuj klaster **zoptymalizowany pod kątem pamięci** , jeśli chcesz buforować więcej danych w pamięci. Zoptymalizowane pod kątem pamięci ma wyższy poziom cen na rdzeń niż zoptymalizowany od obliczeń, ale prawdopodobnie spowoduje to szybsze przyspieszenie transformacji. Jeśli podczas wykonywania przepływów danych wystąpią błędy związane z pamięcią, przełącz się do konfiguracji Azure IR zoptymalizowanej pod kątem pamięci.
 
 ![Nowy IR](media/data-flow/ir-new.png "Nowy IR")
 
@@ -140,6 +140,10 @@ Na przykład jeśli masz listę plików danych z lipca 2019, które chcesz przet
 ```DateFiles/*_201907*.txt```
 
 Używając symboli wieloznacznych, potok będzie zawierać tylko jedno działanie przepływu danych. Będzie to wykonywane lepiej niż wyszukiwanie w magazynie obiektów blob, który następnie iteruje we wszystkich dopasowanych plikach za pomocą działania ForEach z działaniem przepływu danych wewnątrz.
+
+Potok dla każdego w trybie równoległym spowoduje duplikowanie wielu klastrów przez odwirowanie klastrów zadań dla każdego wykonanego działania przepływu danych. Może to spowodować ograniczenie usługi platformy Azure o dużą liczbę współbieżnych wykonań. Jednak użycie przepływu danych Execute wewnątrz dla każdego z sekwencyjnym zestawem w potoku spowoduje uniknięcie ograniczenia przepustowości i wyczerpania zasobów. Spowoduje to wymuszenie Data Factory wykonywania każdego z plików względem przepływu danych sekwencyjnie.
+
+Zaleca się, aby w przypadku użycia dla każdego z przepływem danych w sekwencji używać ustawienia czasu wygaśnięcia w Azure Integration Runtime. Wynika to z faktu, że każdy plik będzie miał pełny 5-minutowy czas uruchomienia klastra w iteratoru.
 
 ### <a name="optimizing-for-cosmosdb"></a>Optymalizacja pod kątem CosmosDB
 

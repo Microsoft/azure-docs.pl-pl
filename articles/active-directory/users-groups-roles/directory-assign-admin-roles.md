@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef321e82f1737df4b13d259824acd943a7eea440
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a15de41dc2dce4cae0a6155bfce8a8a2001b9a8b
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649356"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798815"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Uprawnienia ról administratorów w usłudze Azure Active Directory
 
@@ -82,7 +82,7 @@ Użytkownicy z tą rolą mogą ustawiać lub resetować poświadczenia niebędą
 Uprawnienie [administrator uwierzytelniania uprzywilejowanego](#privileged-authentication-administrator) ma uprawnienia do wymuszenia ponownej rejestracji i uwierzytelniania wieloskładnikowego dla wszystkich użytkowników.
 
 > [!IMPORTANT]
-> Użytkownicy z tą rolą mogą zmieniać poświadczenia dla osób, które mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej wewnątrz i na zewnątrz Azure Active Directory. Zmiana poświadczeń użytkownika może oznaczać, że założono, że tożsamość i uprawnienia tego użytkownika. Na przykład:
+> Użytkownicy z tą rolą mogą zmieniać poświadczenia dla osób, które mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej wewnątrz i na zewnątrz Azure Active Directory. Zmiana poświadczeń użytkownika może oznaczać, że założono, że tożsamość i uprawnienia tego użytkownika. Przykład:
 >
 >- Rejestracja aplikacji i właściciele aplikacji przedsiębiorstwa, którzy mogą zarządzać poświadczeniami aplikacji, których są właścicielami. Te aplikacje mogą mieć uprawnienia uprzywilejowane w usłudze Azure AD, a w innym miejscu nie są przyznawane administratorom uwierzytelniania. Za pomocą tej ścieżki administrator uwierzytelniania może założyć tożsamość właściciela aplikacji, a następnie ponownie założyć tożsamość aplikacji uprzywilejowanej przez zaktualizowanie poświadczeń dla aplikacji.
 >- Właściciele subskrypcji platformy Azure, którzy mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej na platformie Azure.
@@ -99,14 +99,6 @@ Wszystkie zasady usługi Azure DevOps dla przedsiębiorstw mogą być zarządzan
 ### <a name="azure-information-protection-administrator"></a>[Azure Information Protection administrator](#azure-information-protection-administrator-permissions)
 
 Użytkownicy z tą rolą mają wszystkie uprawnienia w usłudze Azure Information Protection. Ta rola umożliwia konfigurowanie etykiet dla zasad Azure Information Protection, zarządzanie szablonami ochrony i aktywowanie ochrony. Ta rola nie udziela żadnych uprawnień w centrum programu Identity Protection, Privileged Identity Management, monitoruje pakiet Office 365 Service Health lub pakietem Office 365 Security & Centrum zgodności.
-
-### <a name="b2c-user-flow-administrator"></a>[Administrator przepływu użytkownika B2C](#b2c-user-flow-administrator-permissions)
-
-Użytkownicy z tą rolą mogą tworzyć i zarządzać Przepływy użytkownika B2C (nazywane również zasadami "wbudowanymi") w Azure Portal.Tworząc lub edytując przepływy użytkowników, mogą oni zmienić zawartość HTML/CSS/JavaScript środowiska użytkownika, zmienić wymagania usługi MFA dla przepływu użytkownika, zmienić oświadczenia w tokenie i dostosować ustawienia sesji dla wszystkich zasad w organizacji usługi Azure AD. Z drugiej strony ta rola nie obejmuje możliwości przeglądania danych użytkownika ani wprowadzania zmian w atrybutach, które są zawarte w schemacie organizacji.Zmiany w strukturze środowiska tożsamości (znane również jako niestandardowe) również są poza zakresem tej roli.
-
-### <a name="b2c-user-flow-attribute-administrator"></a>[B2C atrybutu przepływu użytkownika](#b2c-user-flow-attribute-administrator-permissions)
-
-Użytkownicy z tą rolą dodają lub usuwają atrybuty niestandardowe dostępne dla wszystkich przepływów użytkowników w organizacji usługi Azure AD.W związku z tym użytkownicy z tą rolą mogą zmieniać lub dodawać nowe elementy do schematu użytkownika końcowego i wpływać na zachowanie wszystkich przepływów użytkownika, a także pośrednio wprowadzić zmiany w jakie dane mogą być zadawane przez użytkowników końcowych i ostatecznie wysyłane jako oświadczenia do aplikacji.Ta rola nie może edytować przepływów użytkowników.
 
 ### <a name="b2c-ief-keyset-administrator"></a>[Administrator zestawu kluczy B2C IEF](#b2c-ief-keyset-administrator-permissions)
 
@@ -214,6 +206,15 @@ Użytkownicy z tą rolą mają uprawnienia globalne w usłudze Microsoft Exchang
 > [!NOTE]
 > W interfejsie API Microsoft Graph i programie Azure AD PowerShell ta rola jest identyfikowana jako "administrator usługi Exchange". Jest to "Administrator programu Exchange" w [Azure Portal](https://portal.azure.com). Jest to "administrator usługi Exchange Online" w [centrum administracyjnym programu Exchange](https://go.microsoft.com/fwlink/p/?LinkID=529144).
 
+
+### <a name="external-id-user-flow-administrator"></a>[Administrator przepływu użytkownika z identyfikatorem zewnętrznym](#external-id-user-flow-administrator-permissions)
+
+Użytkownicy z tą rolą mogą tworzyć i zarządzać Przepływy użytkownika B2C (nazywane również zasadami "wbudowanymi") w Azure Portal.Tworząc lub edytując przepływy użytkowników, mogą oni zmienić zawartość HTML/CSS/JavaScript środowiska użytkownika, zmienić wymagania usługi MFA dla przepływu użytkownika, zmienić oświadczenia w tokenie i dostosować ustawienia sesji dla wszystkich zasad w organizacji usługi Azure AD. Z drugiej strony ta rola nie obejmuje możliwości przeglądania danych użytkownika ani wprowadzania zmian w atrybutach, które są zawarte w schemacie organizacji.Zmiany w strukturze środowiska tożsamości (znane również jako niestandardowe) również są poza zakresem tej roli.
+
+### <a name="external-id-user-flow-attribute-administrator"></a>[Administrator atrybutów przepływu użytkownika zewnętrznego ID](#external-id-user-flow-attribute-administrator-permissions)
+
+Użytkownicy z tą rolą dodają lub usuwają atrybuty niestandardowe dostępne dla wszystkich przepływów użytkowników w organizacji usługi Azure AD.W związku z tym użytkownicy z tą rolą mogą zmieniać lub dodawać nowe elementy do schematu użytkownika końcowego i wpływać na zachowanie wszystkich przepływów użytkownika, a także pośrednio wprowadzić zmiany w jakie dane mogą być zadawane przez użytkowników końcowych i ostatecznie wysyłane jako oświadczenia do aplikacji.Ta rola nie może edytować przepływów użytkowników.
+
 ### <a name="external-identity-provider-administrator"></a>[Administrator zewnętrznego dostawcy tożsamości](#external-identity-provider-administrator-permissions)
 
 Ten administrator zarządza Federacją między organizacjami usługi Azure AD a zewnętrznymi dostawcami tożsamości.Za pomocą tej roli użytkownicy mogą dodawać nowych dostawców tożsamości i konfigurować wszystkie dostępne ustawienia (np. ścieżkę uwierzytelniania, identyfikator usługi, przypisane kontenery kluczy).Ten użytkownik może włączyć, aby organizacja usługi Azure AD mogła ufać uwierzytelnianiu od zewnętrznych dostawców tożsamości.Wynikowy wpływ na środowisko użytkownika końcowego zależy od typu organizacji:
@@ -237,8 +238,6 @@ Użytkownicy w tej roli mogą odczytywać ustawienia i informacje administracyjn
 > [!NOTE]
 > Globalna rola czytnika ma teraz kilka ograniczeń —
 >
->- [Centrum administracyjne usługi OneDrive](https://admin.onedrive.com/) — centrum administracyjne usługi OneDrive nie obsługuje roli czytnika globalnego.
->- [Portal usługi Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) — globalny czytnik nie może odczytać trybu aprowizacji aplikacji dla przedsiębiorstw.
 >- [Centrum administracyjne M365](https://admin.microsoft.com/Adminportal/Home#/homepage) — globalny czytnik nie może odczytać żądań skrytki klienta. Nie znajdziesz karty **żądania skrytki klienta** w obszarze **Pomoc techniczna** w lewym okienku Centrum administracyjnego M365.
 >- [Centrum zgodności & zabezpieczeń pakietu Office](https://sip.protection.office.com/homepage) — czytnik globalny nie może odczytać dzienników inspekcji SCC, przeprowadzić wyszukiwania zawartości lub zobaczyć zabezpieczony wynik.
 >- [Centrum administracyjne zespołów](https://admin.teams.microsoft.com) — globalny czytnik nie może odczytywać **zespołów cykl życia**, **Analiza & raporty**, **Zarządzanie urządzeniami telefonicznymi IP** i **wykaz aplikacji**.
@@ -267,7 +266,7 @@ Użytkownicy z tą rolą mogą zmieniać hasła, unieważniać tokeny odświeża
 * Czytelnik raportów
 
 > [!IMPORTANT]
-> Użytkownicy z tą rolą mogą zmieniać hasła dla osób, które mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej wewnątrz i na zewnątrz Azure Active Directory. Zmiana hasła użytkownika może oznaczać, że założono, że tożsamość i uprawnienia tego użytkownika. Na przykład:
+> Użytkownicy z tą rolą mogą zmieniać hasła dla osób, które mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej wewnątrz i na zewnątrz Azure Active Directory. Zmiana hasła użytkownika może oznaczać, że założono, że tożsamość i uprawnienia tego użytkownika. Przykład:
 >
 >- Rejestracja aplikacji i właściciele aplikacji przedsiębiorstwa, którzy mogą zarządzać poświadczeniami aplikacji, których są właścicielami. Aplikacje te mogą mieć uprawnienia uprzywilejowane w usłudze Azure AD i nie są przyznawane administratorom pomocy technicznej. Za pomocą tej ścieżki Administrator pomocy technicznej może być w stanie założyć tożsamość właściciela aplikacji, a następnie ponownie założyć tożsamość aplikacji uprzywilejowanej przez zaktualizowanie poświadczeń dla aplikacji.
 >- Właściciele subskrypcji platformy Azure, którzy mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej na platformie Azure.
@@ -478,7 +477,7 @@ Użytkownicy z tą rolą mogą tworzyć użytkowników i zarządzać wszystkimi 
 |Tylko dla użytkowników, którzy nie są administratorami ani w ramach jednej z następujących ograniczonych ról administratora:<ul><li>Czytelnicy katalogów<li>Zapraszający gościa<li>Administrator pomocy technicznej<li>Czytelnik centrum wiadomości<li>Czytelnik raportów<li>Administrator użytkowników|<p>Usuń i Przywróć</p><p>Wyłącz i Włącz</p><p>Unieważnianie tokenów odświeżania</p><p>Zarządzanie wszystkimi właściwościami użytkowników, w tym główną nazwą użytkownika</p><p>Resetowanie hasła</p><p>Aktualizuj klucze urządzeń (FIDO)</p>|
 
 > [!IMPORTANT]
-> Użytkownicy z tą rolą mogą zmieniać hasła dla osób, które mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej wewnątrz i na zewnątrz Azure Active Directory. Zmiana hasła użytkownika może oznaczać, że założono, że tożsamość i uprawnienia tego użytkownika. Na przykład:
+> Użytkownicy z tą rolą mogą zmieniać hasła dla osób, które mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej wewnątrz i na zewnątrz Azure Active Directory. Zmiana hasła użytkownika może oznaczać, że założono, że tożsamość i uprawnienia tego użytkownika. Przykład:
 >
 >- Rejestracja aplikacji i właściciele aplikacji przedsiębiorstwa, którzy mogą zarządzać poświadczeniami aplikacji, których są właścicielami. Aplikacje te mogą mieć uprawnienia uprzywilejowane w usłudze Azure AD, a w innym miejscu nie są przyznawane administratorom użytkowników. Za pomocą tej ścieżki administrator użytkownika może być w stanie założyć tożsamość właściciela aplikacji, a następnie ponownie założyć tożsamość aplikacji uprzywilejowanej przez zaktualizowanie poświadczeń dla aplikacji.
 >- Właściciele subskrypcji platformy Azure, którzy mogą mieć dostęp do poufnych lub prywatnych informacji lub konfiguracji krytycznej na platformie Azure.
@@ -599,22 +598,6 @@ Może zarządzać wszystkimi aspektami usługi Azure Information Protection.
 | Microsoft. Azure. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej systemu Azure i zarządzaj nimi. |
 | Microsoft. Office 365. servicehealth/allEntities/allTasks | Odczytaj i skonfiguruj Service Health pakietu Office 365. |
 | Microsoft. Office 365. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej pakietu Office 365 i zarządzaj nimi. |
-
-### <a name="b2c-user-flow-administrator-permissions"></a>B2C uprawnień administratora przepływu użytkownika
-
-Twórz wszystkie aspekty przepływów użytkowników i zarządzaj nimi.
-
-| **Akcje** | **Opis** |
-| --- | --- |
-| Microsoft. AAD. B2C/userFlows/allTasks | Odczytywanie i Konfigurowanie przepływów użytkowników w Azure Active Directory B2C. |
-
-### <a name="b2c-user-flow-attribute-administrator-permissions"></a>Uprawnienia administratora atrybutu przepływu użytkownika B2C
-
-Utwórz schemat atrybutów dostępny dla wszystkich przepływów użytkowników i Zarządzaj nim.
-
-| **Akcje** | **Opis** |
-| --- | --- |
-| Microsoft. AAD. B2C/userAttributes/allTasks | Odczytywanie i Konfigurowanie atrybutów użytkownika w Azure Active Directory B2C. |
 
 ### <a name="b2c-ief-keyset-administrator-permissions"></a>Uprawnienia administratora zestawu kluczy B2C IEF
 
@@ -1030,6 +1013,22 @@ Może zarządzać wszystkimi aspektami produktu Exchange.
 | Microsoft. Office 365. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej pakietu Office 365 i zarządzaj nimi. |
 | Microsoft. Office 365. usageReports/allEntities/odczyt | Przeczytaj raporty dotyczące użycia pakietu Office 365. |
 | Microsoft. 365. webports/allEntities/Basic/Read | Zapoznaj się z podstawowymi właściwościami wszystkich zasobów w Microsoft. 365. webport. |
+
+### <a name="external-id-user-flow-administrator-permissions"></a>Identyfikator zewnętrzny — uprawnienia administratora przepływu użytkownika
+
+Twórz wszystkie aspekty przepływów użytkowników i zarządzaj nimi.
+
+| **Akcje** | **Opis** |
+| --- | --- |
+| Microsoft. AAD. B2C/userFlows/allTasks | Odczytywanie i Konfigurowanie przepływów użytkowników w Azure Active Directory B2C. |
+
+### <a name="external-id-user-flow-attribute-administrator-permissions"></a>Identyfikator zewnętrzny — uprawnienia administratora atrybutu przepływu użytkownika
+
+Utwórz schemat atrybutów dostępny dla wszystkich przepływów użytkowników i Zarządzaj nim.
+
+| **Akcje** | **Opis** |
+| --- | --- |
+| Microsoft. AAD. B2C/userAttributes/allTasks | Odczytywanie i Konfigurowanie atrybutów użytkownika w Azure Active Directory B2C. |
 
 ### <a name="external-identity-provider-administrator-permissions"></a>Uprawnienia administratora zewnętrznego dostawcy tożsamości
 
@@ -1809,8 +1808,6 @@ Deweloper aplikacji | Deweloper aplikacji | CF1C38E5-3621-4004-A7CB-879624DCED7C
 Administrator uwierzytelniania | Administrator uwierzytelniania | c4e39bd9-1100-46d3-8c65-fb160da0071f
 Administrator usługi Azure DevOps | Administrator usługi Azure DevOps | e3973bdf-4987-49ae-837a-ba8e231c7286
 Azure Information Protection administrator | Azure Information Protection administrator | 7495fdc4-34c4-4d15-a289-98788ce399fd
-Administrator przepływu użytkownika B2C | Administrator przepływu użytkownika B2C | 6e591065-9bad-43ed-90f3-e9424366d2f0
-B2C atrybutu przepływu użytkownika | B2C atrybutu przepływu użytkownika | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
 Administrator zestawu kluczy B2C IEF | Administrator zestawu kluczy B2C IEF | aaf43236-0c0d-4d5f-883a-6955382ac081
 Administrator zasad B2C IEF | Administrator zasad B2C IEF | 3edaf663-341e-4475-9f94-5c398ef6c070
 Administrator rozliczeń | Administrator rozliczeń | b0f54661-2d74-4c50-afa3-1ec803f12efe
@@ -1831,6 +1828,8 @@ Czytelnicy katalogów | Czytelnicy katalogów | 88d8e3e3-8f55-4a1e-953a-9b9898b8
 Konta synchronizacji katalogów | Niewyświetlane, ponieważ nie powinno być używane | d29b2b05-8046-44ba-8758-1e26182fcf32
 Autorzy katalogów | Niewyświetlane, ponieważ nie powinno być używane | 9360feb5-f418-4baa-8175-e2a00bac4301
 Administrator usługi Exchange | Administrator programu Exchange | 29232cdf-9323-42fd-ade2-1d097af3e4de
+Administrator przepływu użytkownika z identyfikatorem zewnętrznym | Administrator przepływu użytkownika z identyfikatorem zewnętrznym | 6e591065-9bad-43ed-90f3-e9424366d2f0
+Administrator atrybutów przepływu użytkownika zewnętrznego ID | Administrator atrybutów przepływu użytkownika zewnętrznego ID | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
 Administrator zewnętrznego dostawcy tożsamości | Administrator zewnętrznego dostawcy tożsamości | be2f45a1-457d-42af-a067-6ec1fa63bc45
 Czytelnik globalny | Czytnik globalny | f2ef992c-3afb-46b9-b7cf-a126ee74c451
 Administrator grup | Administrator grup | fdd7a751-b60b-444a-984c-02652fe8fa1c 

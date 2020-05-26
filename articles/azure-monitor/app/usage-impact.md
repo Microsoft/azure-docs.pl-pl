@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 787221c4df3f06029d19ee779a28bb763723f27d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d775e876a0cce1ba13964d6d4777307a34fdf3f
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77671039"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797904"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Analiza wpływu za pomocą Application Insights
 
@@ -85,5 +85,5 @@ Sposób obliczenia wpływu jest różny w zależności od tego, czy analizujemy 
     - [Lejki](usage-funnels.md)
     - [Przechowywanie](usage-retention.md)
     - [Przepływy użytkowników](usage-flows.md)
-    - [Skoroszyty](../../azure-monitor/app/usage-workbooks.md)
+    - [Skoroszyty](../../azure-monitor/platform/workbooks-overview.md)
     - [Dodawanie kontekstu użytkownika](usage-send-user-context.md)

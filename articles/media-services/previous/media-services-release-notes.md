@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: a3893c8d19c89b639e0584f203cbcd1adf7e2dee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: edea04e15fe5b844654f250a22a05a753f0df123
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80474831"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836400"
 ---
 # <a name="azure-media-services-release-notes"></a>Informacje o wersji Azure Media Services
 
@@ -27,7 +27,7 @@ Te informacje o wersji Azure Media Services podsumowują zmiany z poprzednich we
 > [!NOTE]
 > Do usługi Media Services w wersji 2 nie są już dodawane żadne nowe funkcje. <br/>Zapoznaj się z najnowszą wersją [Media Services wersja 3](https://docs.microsoft.com/azure/media-services/latest/). Zobacz też [wskazówki dotyczące migracji od wersji 2 do V3](../latest/migrate-from-v2-to-v3.md)
 
-Chcemy poznać naszych klientów, aby móc skupić się na rozwiązywaniu problemów, które mają wpływ na Ciebie. Aby zgłosić problem lub zadawać pytania, Prześlij wpis na [forum MSDN Azure Media Services]. 
+Chcemy poznać naszych klientów, aby móc skupić się na rozwiązywaniu problemów, które mają wpływ na Ciebie. Aby zgłosić problem lub zadawać pytania, Prześlij wpis na stronie [Azure Media Services MSDN forum]. 
 
 ## <a name="known-issues"></a><a id="issues"/>Znane problemy
 ### <a name="media-services-general-issues"></a><a id="general_issues"/>Problemy ogólne Media Services
@@ -35,7 +35,7 @@ Chcemy poznać naszych klientów, aby móc skupić się na rozwiązywaniu proble
 | Problem | Opis |
 | --- | --- |
 | W interfejsie API REST nie są dostępne kilka typowych nagłówków HTTP. |W przypadku tworzenia aplikacji Media Services przy użyciu interfejsu API REST można stwierdzić, że niektóre typowe pola nagłówka HTTP (w tym identyfikator żądania klienta, identyfikator żądania i identyfikator klienta żądania) nie są obsługiwane. Nagłówki zostaną dodane w przyszłej aktualizacji. |
-| Procent — kodowanie nie jest dozwolone. |Media Services używa wartości właściwości IAssetFile.Name podczas kompilowania adresów URL dla zawartości przesyłania strumieniowego (na przykład `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`). Z tego powodu nie jest dozwolone kodowanie procentowo. Wartość właściwości Name nie może zawierać żadnego z następujących [znaków:%-Encoding](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters), które są zastrzeżone.! * ' ();: @ &= + $,/?% # [] ". Ponadto dla rozszerzenia nazwy pliku może istnieć tylko jeden ".". |
+| Procent — kodowanie nie jest dozwolone. |Media Services używa wartości właściwości IAssetFile.Name podczas kompilowania adresów URL dla zawartości przesyłania strumieniowego (na przykład `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters` ). Z tego powodu nie jest dozwolone kodowanie procentowo. Wartość właściwości Name nie może zawierać żadnego z następujących [znaków:%-Encoding](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters), które są zastrzeżone.! * ' ();: @ &= + $,/?% # [] ". Ponadto dla rozszerzenia nazwy pliku może istnieć tylko jeden ".". |
 | Metoda ListBlobs, która jest częścią zestawu SDK usługi Azure Storage w wersji 3. x, kończy się niepowodzeniem. |Media Services generuje adresy URL sygnatury dostępu współdzielonego na podstawie wersji [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) . Jeśli chcesz użyć zestawu SDK magazynu do wyświetlania obiektów BLOB w kontenerze obiektów blob, użyj metody [CloudBlobContainer. ListBlobs](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobs) , która jest częścią zestawu SDK magazynu w wersji 2. x. |
 | Mechanizm ograniczania Media Services ogranicza użycie zasobów dla aplikacji, które wysyłają nadmierne żądania do usługi. Usługa może zwrócić kod stanu HTTP "Usługa niedostępna" 503. |Aby uzyskać więcej informacji, zobacz Opis kodu stanu HTTP 503 w [Media Services kody błędów](media-services-encoding-error-codes.md). |
 | Gdy wykonujesz zapytania o jednostki, limit 1 000 jednostek jest zwracany jednocześnie, ponieważ publiczna wersja REST 2 ogranicza wyniki zapytania do 1 000 wyników. |Użyj funkcji Skip i Take (.NET)/Top (REST) zgodnie z opisem w [tym przykładzie platformy .NET](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities) i [przykładowym interfejsem API REST](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities). |
@@ -573,7 +573,7 @@ W wersji z listopada zestawu SDK wprowadzono następujące funkcje:
 <!-- Images. -->
 
 <!--- URLs. --->
-[Forum MSDN Azure Media Services]: https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
+[Microsoft Q&A question page for Azure Media Services]: https://docs.microsoft.com/answers/topics/azure-media-services.html
 [Dokumentacja interfejsu API REST Azure Media Services]: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
 [Media Services pricing details]: https://azure.microsoft.com/pricing/details/media-services/
 [Metadane wejściowe]: https://msdn.microsoft.com/library/azure/dn783120.aspx

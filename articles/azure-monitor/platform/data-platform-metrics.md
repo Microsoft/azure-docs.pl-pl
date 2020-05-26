@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: a02b3df02d455db8a7dfd21f63d659f75a66e446
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 23e4d104697b5b688330c6ab3a93beebf62f3c6a
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457318"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799968"
 ---
 # <a name="metrics-in-azure-monitor"></a>Metryki w usłudze Azure Monitor
 
@@ -32,7 +32,7 @@ W poniższej tabeli wymieniono różne sposoby używania danych metryk w Azure M
 |  |  |
 |:---|:---|
 | Analiza | Użyj [Eksploratora metryk](metrics-charts.md) do analizowania zebranych metryk na wykresie i porównywania metryk z różnych zasobów. |
-| Wizualizacja | Przypinanie wykresu z Eksploratora metryk do [pulpitu nawigacyjnego platformy Azure](../learn/tutorial-app-dashboards.md).<br>Utwórz [skoroszyt](../app/usage-workbooks.md) , aby połączyć się z wieloma zestawami danych w raporcie interaktywnym. Eksportuj wyniki zapytania do [Grafana](grafana-plugin.md) , aby wykorzystać jego pulpit nawigacyjny i połączyć się z innymi źródłami danych. |
+| Wizualizacja | Przypinanie wykresu z Eksploratora metryk do [pulpitu nawigacyjnego platformy Azure](../learn/tutorial-app-dashboards.md).<br>Utwórz [skoroszyt](../platform/workbooks-overview.md) , aby połączyć się z wieloma zestawami danych w raporcie interaktywnym. Eksportuj wyniki zapytania do [Grafana](grafana-plugin.md) , aby wykorzystać jego pulpit nawigacyjny i połączyć się z innymi źródłami danych. |
 | Alerty | Skonfiguruj [regułę alertu metryki](alerts-metric.md) , która wysyła powiadomienie lub wykonuje [automatyczne działanie](action-groups.md) , gdy wartość metryki przekroczy próg. |
 | Automatyzacja |  Użyj funkcji [automatycznego skalowania](autoscale-overview.md) , aby zwiększyć lub zmniejszyć zasoby na podstawie wartości metryki przekraczającej próg. |
 | Eksportowanie | [Kierowanie metryk do dzienników](resource-logs-collect-storage.md) w celu analizowania danych w Azure monitor metryki wraz z danymi w dziennikach Azure monitor i przechowywanie wartości metryk przez dłużej niż 93 dni.<br>Metryki strumienia do [centrum zdarzeń](stream-monitoring-data-event-hubs.md) w celu kierowania ich do systemów zewnętrznych. |

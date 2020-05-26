@@ -10,18 +10,18 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: diberry
-ms.openlocfilehash: 21669a214ff1646a8f331cbe2871b7d8c756f22f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 0c52771573c1df6a7a0efefbf950e88e1f1728f7
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83591764"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800626"
 ---
 # <a name="whats-new-in-personalizer"></a>Co nowego w programie Personalizacja
 
 Dowiedz się, co nowego w usłudze. Te elementy mogą zawierać informacje o wersji, klipy wideo, wpisy w blogu i inne typy informacji. Oznacz Tę stronę zakładką, aby zapewnić aktualność usługi.
 
-## <a name="release-notes"></a>Uwagi do wersji
+## <a name="release-notes"></a>Informacje o wersji
 
 ### <a name="may-2020---build-conference"></a>2020 — Konferencja Build
 
@@ -48,7 +48,7 @@ Następujące funkcje w wersji zapoznawczej zostały wydane na konferencji Build
 
 ### <a name="2019-build-videos"></a>wideo kompilacji 2019
 
-* [Dostarczaj odpowiednie środowiska & zawartości, takiej jak konsola Xbox z Cognitive Services personalizacji](https://mybuild.techcommunity.microsoft.com/sessions/76970?source=sessions#top-anchor)
+* [Dostarczaj odpowiednie środowiska & zawartości, takiej jak konsola Xbox z Cognitive Services personalizacji](https://azure.microsoft.com/resources/videos/build-2019-deliver-the-right-experiences-and-content-with-cognitive-services-personalizer/)
 
 ## <a name="service-updates"></a>Aktualizacje usług
 

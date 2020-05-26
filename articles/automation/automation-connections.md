@@ -6,12 +6,12 @@ ms.subservice: shared-capabilities
 ms.date: 01/13/2020
 ms.topic: conceptual
 ms.custom: has-adal-ref
-ms.openlocfilehash: 2bd4a59ee1b82b8f6eb3bf172b11239af1a9f4c5
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 3c5901dbd45cc0ce82c7fcd8117705eaeed7b4ba
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714274"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837131"
 ---
 # <a name="manage-connections-in-azure-automation"></a>Zarządzanie połączeniami w Azure Automation
 
@@ -192,6 +192,6 @@ azure_credential = get_automation_runas_credential(runas_connection)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Zarządzanie modułami w usłudze Azure Automation](shared-resources/modules.md)
-* [Wykonywanie elementu runbook w usłudze Azure Automation](automation-runbook-execution.md)
-* [Konfiguracja stanu — omówienie](automation-dsc-overview.md)
+* Aby dowiedzieć się więcej na temat poleceń cmdlet służących do uzyskiwania dostępu do połączeń, zobacz [Zarządzanie modułami w Azure Automation](shared-resources/modules.md).
+* Aby uzyskać ogólne informacje o elementach Runbook, zobacz [wykonywanie elementów Runbook w Azure Automation](automation-runbook-execution.md).
+* Aby uzyskać szczegółowe informacje na temat konfiguracji DSC, zobacz [Konfiguracja stanu — przegląd](automation-dsc-overview.md).

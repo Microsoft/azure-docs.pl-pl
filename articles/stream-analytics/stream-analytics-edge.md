@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 8bb1bd018866bda9270b78507f0462b6c4d4ea17
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9d4df4efc6dbee88e80e620860487636cc9210dd
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79475896"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837216"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics na urządzeniach IoT Edge
  
@@ -188,7 +188,7 @@ Aby utworzyć zadanie z danymi referencyjnymi na krawędzi:
 
 3. Przygotuj plik danych referencyjnych na urządzeniu. W przypadku kontenera systemu Windows Umieść plik dane referencyjne na dysku lokalnym i Udostępnij dysk lokalny z kontenerem Docker. W przypadku kontenera systemu Linux Utwórz wolumin platformy Docker i uzupełnij plik danych do woluminu.
 
-4. Ustaw ścieżkę pliku. W przypadku systemu operacyjnego hosta systemu Windows i kontenera systemu Windows użyj ścieżki `E:\<PathToFile>\v1.csv`bezwzględnej:. W przypadku systemu operacyjnego hosta Windows i systemu Linux oraz kontenera systemu operacyjnego Linux i Linux użyj ścieżki w woluminie: `<VolumeName>/file1.txt`.
+4. Ustaw ścieżkę pliku. W przypadku systemu operacyjnego hosta systemu Windows i kontenera systemu Windows użyj ścieżki bezwzględnej: `E:\<PathToFile>\v1.csv` . W przypadku systemu operacyjnego hosta Windows i systemu Linux oraz kontenera systemu operacyjnego Linux i Linux użyj ścieżki w woluminie: `<VolumeName>/file1.txt` .
 
 ![Nowe dane wejściowe danych referencyjnych dla zadania Azure Stream Analytics na IoT Edge](./media/stream-analytics-edge/Reference-Data-New-Input.png)
 
@@ -225,8 +225,8 @@ Informacje o tej wersji zostały ostatnio zaktualizowane w dniu 2019-06-27:
       - system operacyjny: Windows
       
       
-## <a name="get-help"></a>Uzyskiwanie pomocy
-Aby uzyskać dalszą pomoc, wypróbuj [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+## <a name="get-help"></a>Uzyskaj pomoc
+Aby uzyskać dalszą pomoc, wypróbuj&stronie pytań i odpowiedzi [dla Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Następne kroki
 

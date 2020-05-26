@@ -6,12 +6,12 @@ ms.date: 04/04/2019
 ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 8d4cdb87302e12c024e15f8e0a7e3854d6f707a7
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: a07c6ac524aa213519ace1ae204ac2d76db802aa
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715464"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836706"
 ---
 # <a name="create-an-azure-automation-account"></a>Tworzenie konta usługi Azure Automation
 
@@ -70,5 +70,5 @@ Uruchom jeden z elementów runbook z samouczka.
 W tym przewodniku Szybki start wdrożono konto usługi Automation, uruchomiono element runbook i wyświetlono wyniki zadania. Aby dowiedzieć się więcej na temat usługi Azure Automation, przejdź do przewodnika Szybki start dotyczącego tworzenia pierwszego elementu runbook.
 
 > [!div class="nextstepaction"]
-> [Przewodnik Szybki start usługi Automation — tworzenie elementu runbook](./automation-quickstart-create-runbook.md)
+> [Przewodnik Szybki Start dotyczący automatyzacji — tworzenie Azure Automation elementu Runbook](./automation-quickstart-create-runbook.md)
 

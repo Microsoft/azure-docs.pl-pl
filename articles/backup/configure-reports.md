@@ -3,12 +3,12 @@ title: Konfigurowanie raportów usługi Azure Backup
 description: Konfigurowanie i wyświetlanie raportów dla Azure Backup przy użyciu Log Analytics i skoroszytów platformy Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: cd6e0e55f471da83d15e26252b0730ab00f20d3c
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: e0c7418d7141a3b12f367f1b12ee740eaac64703
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83713832"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797525"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurowanie raportów usługi Azure Backup
 
@@ -18,7 +18,7 @@ Typowym wymaganiem dla administratorów kopii zapasowych jest uzyskanie wglądu 
 - Inspekcja kopii zapasowych i przywracania.
 - Identyfikowanie kluczowych trendów na różnych poziomach szczegółowości.
 
-Obecnie Azure Backup udostępnia rozwiązanie do raportowania, które korzysta z [dzienników Azure monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) i [skoroszytów platformy Azure](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks). Te zasoby ułatwiają uzyskiwanie szczegółowych informacji o kopiach zapasowych w całej kopii zapasowej. W tym artykule opisano sposób konfigurowania i wyświetlania raportów Azure Backup.
+Obecnie Azure Backup udostępnia rozwiązanie do raportowania, które korzysta z [dzienników Azure monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) i [skoroszytów platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview). Te zasoby ułatwiają uzyskiwanie szczegółowych informacji o kopiach zapasowych w całej kopii zapasowej. W tym artykule opisano sposób konfigurowania i wyświetlania raportów Azure Backup.
 
 ## <a name="supported-scenarios"></a>Obsługiwane scenariusze
 

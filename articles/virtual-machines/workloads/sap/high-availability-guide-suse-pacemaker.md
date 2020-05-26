@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/07/2020
+ms.date: 05/21/2020
 ms.author: radeltch
-ms.openlocfilehash: 06ee1b6184e69ace68adcbfa36ad2384dc9fdd99
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1dc5cf055e6fee72cb6d73b3c4c5c76eefb037d6
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80811580"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800179"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Konfigurowanie Pacemaker SUSE Linux Enterprise Server na platformie Azure
 
@@ -303,7 +303,7 @@ Następujące elementy są poprzedzone **[A]** -dotyczy wszystkie węzły, **[1]
    [...]
    </code></pre>
 
-   Utwórz plik `softdog` konfiguracji
+   Utwórz `softdog` plik konfiguracji
 
    <pre><code>echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>
@@ -538,12 +538,12 @@ Urządzenie STONITH używa nazwy głównej usługi do autoryzacji przed Microsof
 1. Kliknij Rejestracje aplikacji
 1. Kliknij pozycję Nowa rejestracja
 1. Wprowadź nazwę, wybierz pozycję "konta tylko w tym katalogu organizacji". 
-2. Wybierz pozycję typ aplikacji "sieć Web", wprowadź adres URL logowania (na przykład http:\//localhost), a następnie kliknij przycisk Dodaj.  
+2. Wybierz pozycję typ aplikacji "sieć Web", wprowadź adres URL logowania (na przykład http: \/ /localhost), a następnie kliknij przycisk Dodaj.  
    Adres URL logowania nie jest używany i może być dowolnym prawidłowym adresem URL
 1. Wybierz pozycję Certyfikaty i wpisy tajne, a następnie kliknij pozycję Nowy wpis tajny klienta.
 1. Wprowadź opis nowego klucza, wybierz pozycję "nigdy nie wygasa" i kliknij przycisk Dodaj.
 1. Zapisz wartość. Służy jako **hasło** dla nazwy głównej usługi
-1. Wybierz pozycję Przegląd. Zapisz identyfikator aplikacji. Jest ona używana jako nazwa użytkownika (**Identyfikator logowania** w poniższych krokach) nazwy głównej usługi
+1. Wybierz pozycję Omówienie. Zapisz identyfikator aplikacji. Jest ona używana jako nazwa użytkownika (**Identyfikator logowania** w poniższych krokach) nazwy głównej usługi
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** Utwórz rolę niestandardową dla agenta ogranicznika
 
@@ -598,6 +598,9 @@ sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
 sudo crm configure property stonith-timeout=900
 sudo crm configure property stonith-enabled=true
 </code></pre>
+
+> [!TIP]
+>Agent usługi Azure ogrodzenia wymaga łączności wychodzącej z publicznymi punktami końcowymi zgodnie z opisem, a także z możliwymi rozwiązaniami w [publicznej łączności punktu końcowego dla maszyn wirtualnych używających standardowej ILB](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
 ## <a name="default-pacemaker-configuration-for-sbd"></a>Domyślna konfiguracja Pacemaker dla SBD
 

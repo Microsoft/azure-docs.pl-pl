@@ -5,14 +5,14 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 29d6edd5463de78bba039e4ed6219575d924ac10
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 26a38c0851643fbd6446acddd99a05abf8d5b26c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83749144"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836655"
 ---
-# <a name="remove-vms-from-update-management"></a>Usuń maszyny wirtualne z Update Management
+# <a name="remove-vms-from-update-management"></a>Usuwanie maszyn wirtualnych z rozwiązania Update Management
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -40,12 +40,7 @@ Po zakończeniu wdrażania aktualizacji na maszynach wirtualnych w środowisku p
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure](automation-tutorial-update-management.md)
-* [Odłączanie obszaru roboczego od konta usługi Automation dla Update Management](automation-unlink-workspace-update-management.md)
-* [Włączanie Update Management na podstawie konta usługi Automation](automation-onboard-solutions-from-automation-account.md)
-* [Włącz Update Management z Azure Portal](automation-onboard-solutions-from-browse.md)
-* [Włączanie Update Management z elementu Runbook](automation-onboard-solutions.md)
-* [Włączanie Update Management z maszyny wirtualnej platformy Azure](automation-onboard-solutions-from-vm.md)
-* [Rozwiązywanie problemów dotyczących Update Management](troubleshoot/update-management.md)
-* [Rozwiązywanie problemów z usługą Windows Update Agent](troubleshoot/update-agent-issues.md)
-* [Rozwiązywanie problemów z usługą Linux Update Agent](troubleshoot/update-agent-issues-linux.md)
+* Aby kontynuować pracę z Update Management, zobacz [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure](automation-tutorial-update-management.md).
+* Aby rozwiązać ogólne problemy z funkcjami, zobacz [Rozwiązywanie problemów Update Management](troubleshoot/update-management.md).
+* Problemy związane z usługą Windows Update Agent można znaleźć w temacie [Rozwiązywanie problemów z usługą Windows Update Agent](troubleshoot/update-agent-issues.md).
+* Problemy z agentem aktualizacji systemu Linux można znaleźć w temacie [Rozwiązywanie problemów z usługą Linux Update Agent](troubleshoot/update-agent-issues-linux.md).

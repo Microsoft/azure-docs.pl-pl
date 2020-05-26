@@ -3,12 +3,12 @@ title: Analiza użycia za pomocą usługi Azure Application Insights | Dokumenta
 description: Zapoznaj się z użytkownikami i Dowiedz się, co robią z Twoją aplikacją.
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: e964b1b5b9d5500f2d9f24ed765299389e6dbbb9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7f4f46f183291684fa59e5aa35b65c8ac3352563
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80283960"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797792"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Analiza użycia za pomocą usługi Application Insights
 
@@ -22,7 +22,7 @@ Najlepsze środowisko jest uzyskiwane przez zainstalowanie Application Insights 
 
     * *Nie chcesz instalować kodu serwera? Po prostu [Utwórz zasób usługi Azure Application Insights](../../azure-monitor/app/create-new-resource.md ).*
 
-2. **Kod strony sieci Web:** Przed zamknięciem ``</head>``Dodaj następujący skrypt do strony sieci Web. Zastąp klucz Instrumentacji odpowiednią wartością dla Application Insights zasobu:
+2. **Kod strony sieci Web:** Przed zamknięciem Dodaj następujący skrypt do strony sieci Web ``</head>`` . Zastąp klucz Instrumentacji odpowiednią wartością dla Application Insights zasobu:
     
     ```html
     <script type="text/javascript">
@@ -155,7 +155,7 @@ W inicjatorze aplikacji sieci Web, np. Global.asax.cs:
 **Aplikacje platformy ASP.NET Core**
 
 > [!NOTE]
-> Dodawanie inicjatora `ApplicationInsights.config` przy użyciu `TelemetryConfiguration.Active` lub użycie nie jest prawidłowe dla aplikacji ASP.NET Core. 
+> Dodawanie inicjatora przy użyciu `ApplicationInsights.config` lub użycie `TelemetryConfiguration.Active` nie jest prawidłowe dla aplikacji ASP.NET Core. 
 
 W przypadku aplikacji [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) dodanie nowego `TelemetryInitializer` jest wykonywane przez dodanie go do kontenera iniekcji zależności, jak pokazano poniżej. Jest to wykonywane w `ConfigureServices` metodzie `Startup.cs` klasy.
 
@@ -175,5 +175,5 @@ Wszystkie nowe TelemetryClients automatycznie dodają określoną wartość wła
    - [Lejki](usage-funnels.md)
    - [Przechowywanie](usage-retention.md)
    - [Przepływy użytkowników](usage-flows.md)
-   - [Skoroszyty](../../azure-monitor/app/usage-workbooks.md)
+   - [Skoroszyty](../../azure-monitor/platform/workbooks-overview.md)
    - [Dodawanie kontekstu użytkownika](usage-send-user-context.md)

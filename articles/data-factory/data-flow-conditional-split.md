@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/16/2019
-ms.openlocfilehash: bd9241e526d7cf42f0697afb8635c085a08c80d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/21/2020
+ms.openlocfilehash: eece6f97e82f3800d4f59ac1849b34c2a1e4635b
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606484"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800084"
 ---
 # <a name="conditional-split-transformation-in-mapping-data-flow"></a>Przekształcenie podziału warunkowego w mapowaniu przepływu danych
 
@@ -21,7 +21,9 @@ ms.locfileid: "81606484"
 
 Transformacja podziału warunkowego przekierowuje wiersze danych do różnych strumieni na podstawie pasujących warunków. Przekształcenie podziału warunkowego jest podobne do struktury decyzji CASE w języku programowania. Transformacja oblicza wyrażenia, a na podstawie wyników kieruje wiersz danych do określonego strumienia.
 
-## <a name="configuration"></a>Konfiguracja
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4wKCX]
+
+## <a name="configuration"></a>Konfigurowanie
 
 Ustawienie **Split on** określa, czy wiersz danych jest przepływem do pierwszego zgodnego strumienia lub każdego strumienia, do którego jest zgodny.
 
@@ -45,7 +47,7 @@ Użyj konstruktora wyrażeń przepływu danych, aby wprowadzić wyrażenie dla w
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład to transformacja podziału warunkowego o nazwie `SplitByYear` , która przyjmuje strumień `CleanData`przychodzący. Ta transformacja ma dwa warunki `year < 1960` podziału i `year > 1980`. `disjoint`ma wartość false, ponieważ dane przechodzą do pierwszego warunku dopasowywania. Każdy wiersz pasujący do pierwszego warunku przechodzi do `moviesBefore1960`strumienia wyjściowego. Wszystkie pozostałe wiersze zgodne z drugim warunkiem przechodzą do `moviesAFter1980`strumienia wyjściowego. Wszystkie inne wiersze przepływają przez domyślny `AllOtherMovies`strumień.
+Poniższy przykład to transformacja podziału warunkowego o nazwie `SplitByYear` , która przyjmuje strumień przychodzący `CleanData` . Ta transformacja ma dwa warunki podziału `year < 1960` i `year > 1980` . `disjoint`ma wartość false, ponieważ dane przechodzą do pierwszego warunku dopasowywania. Każdy wiersz pasujący do pierwszego warunku przechodzi do strumienia wyjściowego `moviesBefore1960` . Wszystkie pozostałe wiersze zgodne z drugim warunkiem przechodzą do strumienia wyjściowego `moviesAFter1980` . Wszystkie inne wiersze przepływają przez domyślny strumień `AllOtherMovies` .
 
 W Data Factory środowisku użytkownika Ta transformacja wygląda jak na poniższym obrazie:
 

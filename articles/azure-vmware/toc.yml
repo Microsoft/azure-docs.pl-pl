@@ -30,6 +30,8 @@
       href: concepts-upgrades.md
 - name: Przewodniki z instrukcjami
   items:
+    - name: Konfigurowanie platformy HCX
+      href: hybrid-cloud-extension-installation.md
     - name: Zarządzanie protokołem DHCP
       href: manage-dhcp.md
     - name: Odzyskiwanie po awarii

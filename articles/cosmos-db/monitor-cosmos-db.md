@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: fcdc80e73d11bbc6d94e921548d346ee436b69ac
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 5056762dab18ae23980c7d3b3ebfbb3c3014fa56
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715685"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798711"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Azure Cosmos DB monitorowania
 
@@ -34,7 +34,7 @@ Poniższe sekcje dotyczą tego artykułu, opisując określone dane zebrane z Az
 
 ## <a name="azure-monitor-for-azure-cosmos-db"></a>Azure Monitor Azure Cosmos DB
 
-Azure Monitor dla Azure Cosmos DB jest oparta na [funkcjach skoroszytów Azure monitor](../azure-monitor/app/usage-workbooks.md) i korzysta z tych samych danych monitorowania zebranych dla Cosmos DB opisanych w poniższych sekcjach. Użyj Azure Monitor, aby zapoznać się z ogólną wydajnością, niepowodzeniami, pojemnością i kondycją operacyjną wszystkich zasobów Azure Cosmos DB w ujednoliconym środowisku interaktywnym i wykorzystać inne funkcje Azure Monitor do szczegółowej analizy i generowania alertów. Aby dowiedzieć się więcej, zobacz artykuł [eksplorowanie Azure Monitor Azure Cosmos DB](../azure-monitor/insights/cosmosdb-insights-overview.md) .
+Azure Monitor dla Azure Cosmos DB jest oparta na [funkcjach skoroszytów Azure monitor](../azure-monitor/platform/workbooks-overview.md) i korzysta z tych samych danych monitorowania zebranych dla Cosmos DB opisanych w poniższych sekcjach. Użyj Azure Monitor, aby zapoznać się z ogólną wydajnością, niepowodzeniami, pojemnością i kondycją operacyjną wszystkich zasobów Azure Cosmos DB w ujednoliconym środowisku interaktywnym i wykorzystać inne funkcje Azure Monitor do szczegółowej analizy i generowania alertów. Aby dowiedzieć się więcej, zobacz artykuł [eksplorowanie Azure Monitor Azure Cosmos DB](../azure-monitor/insights/cosmosdb-insights-overview.md) .
 
 > [!NOTE]
 > Podczas tworzenia kontenerów upewnij się, że nie utworzysz dwóch kontenerów o takiej samej nazwie, ale o innej wielkości liter. Wynika to z faktu, że niektóre części platformy Azure nie uwzględniają wielkości liter. może to spowodować pomylenie/kolizję danych telemetrycznych i akcji w kontenerach z takimi nazwami.

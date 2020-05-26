@@ -10,12 +10,12 @@ metadata:
   author: jimzim
   ms.author: jzim
   ms.date: 03/06/2020
-  ms.openlocfilehash: 178faad2aab2f2ef7658a32822899f1e5ca51bd9
-  ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+  ms.openlocfilehash: ec28a8734b48dadad5e7abdbd6e6cba689e41045
+  ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 05/01/2020
-  ms.locfileid: "82628133"
+  ms.lasthandoff: 05/21/2020
+  ms.locfileid: "83773475"
 landingContent:
 - title: Informacje o usłudze Azure Red Hat OpenShift
   linkLists:
@@ -45,7 +45,11 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: Interfejs wiersza polecenia platformy Azure
+    - text: Interfejs wiersza polecenia platformy Azure dla platformy OpenShift 3
+      url: /cli/azure/openshift
+    - text: Interfejs wiersza polecenia platformy Azure dla platformy OpenShift 4
       url: /cli/azure/aro
+    - text: Interfejs API REST
+      url: /rest/api/openshift
     - text: Dokumentacja usługi Red Hat OpenShift
       url: https://docs.openshift.com/aro/4/welcome/index.html

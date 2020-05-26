@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 81309f0b5781e6302887a5b079ed359e70659834
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 86314fd5bfe103cef8332ee3113f46fb0e39dafc
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77658986"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836383"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Role, uprawnienia i zabezpieczenia w Azure Monitor
 
@@ -28,7 +28,7 @@ Osoby, którym przypisano rolę czytelnik monitorowania, mogą wyświetlać wszy
 
 * Wyświetlanie pulpitów nawigacyjnych monitorowania w portalu i tworzenie własnych prywatnych pulpitów nawigacyjnych.
 * Wyświetlanie reguł alertów zdefiniowanych w [alertach platformy Azure](alerts-overview.md)
-* Zapytanie o metryki przy użyciu [interfejsu API REST Azure monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx), [poleceń cmdlet programu PowerShell](powershell-quickstart-samples.md)lub [międzyplatformowego interfejsu wiersza polecenia](cli-samples.md).
+* Zapytanie o metryki przy użyciu [interfejsu API REST Azure monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx), [poleceń cmdlet programu PowerShell](powershell-quickstart-samples.md)lub [międzyplatformowego interfejsu wiersza polecenia](../samples/cli-samples.md).
 * Wykonaj zapytanie dotyczące dziennika aktywności przy użyciu portalu, Azure Monitor interfejsu API REST, poleceń cmdlet programu PowerShell lub międzyplatformowego interfejsu wiersza polecenia.
 * Wyświetlanie [ustawień diagnostycznych](diagnostic-settings.md) dla zasobu.
 * Wyświetl [profil dziennika](activity-log-export.md) dla subskrypcji.
@@ -181,7 +181,7 @@ Azure Monitor potrzebuje dostępu do zasobów platformy Azure w celu zapewnienia
 ### <a name="secured-storage-accounts"></a>Zabezpieczone konta magazynu 
 
 Dane monitorowania są często zapisywane na koncie magazynu. Można upewnić się, że dane skopiowane na konto magazynu nie są dostępne dla nieautoryzowanych użytkowników. Aby uzyskać dodatkowe zabezpieczenia, można zablokować dostęp do sieci, aby zezwolić na dostęp do konta magazynu tylko autoryzowanym zasobom i zaufanym usługom firmy Microsoft, ograniczając konto magazynu do używania "wybranych sieci".
-![Okno dialogowe](./media/roles-permissions-security/secured-storage-example.png) ustawień usługi Azure Storage Azure monitor jest uznawane za jedną z następujących "zaufanych usług firmy Microsoft", Jeśli zezwolisz zaufanym usługom firmy Microsoft na dostęp do bezpiecznego magazynu, usługa Azure monitor będzie mieć dostęp do bezpiecznego konta magazynu; włączenie zapisywania Azure Monitor dzienników zasobów, dziennika aktywności i metryk na koncie magazynu w ramach tych chronionych warunków. Spowoduje to również umożliwienie Log Analytics odczytywania dzienników z bezpiecznego magazynu.   
+![Okno dialogowe ustawień usługi Azure Storage ](./media/roles-permissions-security/secured-storage-example.png) Azure monitor jest uznawane za jedną z następujących "zaufanych usług firmy Microsoft", Jeśli zezwolisz zaufanym usługom firmy Microsoft na dostęp do bezpiecznego magazynu, usługa Azure monitor będzie mieć dostęp do bezpiecznego konta magazynu, co umożliwia zapisywanie Azure monitor dzienników zasobów, dziennika aktywności i metryk na koncie magazynu w ramach tych chronionych warunków. Spowoduje to również umożliwienie Log Analytics odczytywania dzienników z bezpiecznego magazynu.   
 
 
 Aby uzyskać więcej informacji, zobacz [zabezpieczenia sieci i usługa Azure Storage](../../storage/common/storage-network-security.md)

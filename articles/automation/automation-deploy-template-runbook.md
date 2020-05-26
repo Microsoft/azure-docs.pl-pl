@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
 keywords: PowerShell, Runbook, JSON, Automatyzacja Azure
-ms.openlocfilehash: dcb1f5919db71bb233f59cc5b5ba92648b8476d9
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 921d878c585b811700b1c112524e314f0af53c24
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714291"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837080"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-a-powershell-runbook"></a>Wdrażanie szablonu Azure Resource Manager w elemencie Runbook programu PowerShell
 
@@ -229,8 +229,8 @@ Get-AzStorageAccount
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Przegląd Azure Resource Manager](../azure-resource-manager/management/overview.md)
-* [Wprowadzenie do usługi Azure Storage](../storage/common/storage-introduction.md)
-* [Galerie elementów Runbook i modułów dla usługi Azure Automation](automation-runbook-gallery.md)
-* [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/)
-* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)
+* Aby dowiedzieć się więcej na temat szablonów Menedżer zasobów, zobacz [Omówienie usługi Azure Resource Manager](../azure-resource-manager/management/overview.md).
+* Aby rozpocząć pracę z usługą Azure Storage, zobacz [wprowadzenie do usługi Azure Storage](../storage/common/storage-introduction.md).
+* Aby znaleźć inne przydatne Azure Automation elementów Runbook, zobacz temat [Używanie elementów Runbook i modułów w programie Azure Automation](automation-runbook-gallery.md).
+* Aby znaleźć inne przydatne Menedżer zasobów szablonów, zobacz [Szablony szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/).
+* Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).

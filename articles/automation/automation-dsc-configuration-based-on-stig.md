@@ -10,14 +10,14 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e17ae51addce2bb156b6f1c54e29fd777699516f
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: d1b05f9e77d3530f3e883aa3f9d98de09c8f54c2
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83711384"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836995"
 ---
-# <a name="configure-data-based-on-stig-for-azure-automation-state-configuration"></a>Skonfiguruj dane na podstawie konfiguracji stanu Azure Automation STIG
+# <a name="configure-data-based-on-stig"></a>Konfigurowanie danych opartych na STIG
 
 > Dotyczy: Windows PowerShell 5,1
 
@@ -43,6 +43,6 @@ Aby wypróbować PowerSTIG, odwiedź [Galeria programu PowerShell](https://www.p
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Przegląd konfiguracji żądanego stanu programu Windows PowerShell](/powershell/scripting/dsc/overview/overview)
-- [Zasoby DSC](/powershell/scripting/dsc/resources/resources)
-- [Konfigurowanie Configuration Manager lokalnego](/powershell/scripting/dsc/managing-nodes/metaconfig)
+- Aby poznać program PowerShell DSC, zobacz [Omówienie konfiguracji żądanego stanu programu Windows PowerShell](/powershell/scripting/dsc/overview/overview).
+- Dowiedz się więcej o zasobach DSC programu PowerShell w [zasobach DSC](/powershell/scripting/dsc/resources/resources).
+- Aby uzyskać szczegółowe informacje na temat konfiguracji lokalnego Configuration Manager, zobacz [konfigurowanie Configuration Manager lokalnego](/powershell/scripting/dsc/managing-nodes/metaconfig).

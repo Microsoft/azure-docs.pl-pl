@@ -1,19 +1,19 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 02/18/2020
+ms.date: 05/21/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: e950d194ab48cec1a70c7bd17617332cb858a55d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2eb2dbc43c59f4f6301c7f5073a73462639d35b2
+ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77485680"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797142"
 ---
 ## <a name="1-create-the-azure-ad-tenant"></a><a name="tenant"></a>1. Tworzenie dzierżawy usługi Azure AD
 
@@ -56,7 +56,7 @@ Zarejestruj klienta sieci VPN w dzierżawie usługi Azure AD.
     Azure Government
 
     ```
-    https://login-us.microsoftonline.com/common/oauth2/authorize?client_id=51bb15d4-3a4f-4ebf-9dca-40096fe32426&response_type=code&redirect_uri=https://portal.azure.us&nonce=1234&prompt=admin_consent
+    https://login.microsoftonline.us/common/oauth2/authorize?client_id=51bb15d4-3a4f-4ebf-9dca-40096fe32426&response_type=code&redirect_uri=https://portal.azure.us&nonce=1234&prompt=admin_consent
     ````
 
     Microsoft Cloud Niemcy

@@ -10,14 +10,14 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d783ce7193faed4110d07988d3f3f05951c80a45
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 775fae09c4d618551327669362cd28a0ae2cc801
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83711401"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837012"
 ---
-# <a name="create-configurations-from-existing-servers-for-azure-automation-state-configuration"></a>Tworzenie konfiguracji z istniejących serwerów na potrzeby konfiguracji stanu Azure Automation
+# <a name="create-configurations-from-existing-servers"></a>Tworzenie konfiguracji z istniejących serwerów
 
 > Dotyczy: Windows PowerShell 5,1
 
@@ -45,6 +45,6 @@ Aby wypróbować ReverseDSC, odwiedź [Galeria programu PowerShell](https://www.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Przegląd konfiguracji żądanego stanu programu Windows PowerShell](/powershell/scripting/dsc/overview/overview)
-- [Zasoby DSC](/powershell/scripting/dsc/resources/resources)
-- [Konfigurowanie Configuration Manager lokalnego](/powershell/scripting/dsc/managing-nodes/metaconfig)
+- Aby poznać program PowerShell DSC, zobacz [Omówienie konfiguracji żądanego stanu programu Windows PowerShell](/powershell/scripting/dsc/overview/overview).
+- Dowiedz się więcej o zasobach DSC programu PowerShell w [zasobach DSC](/powershell/scripting/dsc/resources/resources).
+- Aby uzyskać szczegółowe informacje na temat konfiguracji lokalnego Configuration Manager, zobacz [konfigurowanie Configuration Manager lokalnego](/powershell/scripting/dsc/managing-nodes/metaconfig).

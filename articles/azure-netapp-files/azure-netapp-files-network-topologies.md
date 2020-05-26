@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/08/2019
-ms.author: b-juche
-ms.openlocfilehash: 12be766f36a0901079a5a26f20ea7dacc75268de
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/21/2020
+ms.author: ramakk
+ms.openlocfilehash: d81ae835fa62c5188c8d71a5ae0563259ab027f3
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80667876"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797432"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Wytyczne dotyczące planowania sieci usługi Azure NetApp Files
 
@@ -36,10 +36,12 @@ Należy pamiętać o kilku kwestiach związanych z planowaniem Azure NetApp File
 Poniższe funkcje nie są obecnie obsługiwane w przypadku Azure NetApp Files: 
 
 * Sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) zastosowane do delegowanej podsieci
-* Trasy zdefiniowane przez użytkownika (UDR) z prefiksem adresu jako podsieć usługi Azure NetApp Files
+* Trasy zdefiniowane przez użytkownika (UDR) zastosowane do delegowanej podsieci
 * Zasady platformy Azure (na przykład niestandardowe zasady nazewnictwa) w interfejsie Azure NetApp Files
 * Usługi równoważenia obciążenia dla ruchu Azure NetApp Filesowego
-* Azure NetApp Files nie jest obsługiwana w przypadku wirtualnej sieci WAN platformy Azure
+* Azure Virtual WAN 
+* Strefy nadmiarowe Virtual Network bramy (jednostki SKU bramy za pomocą AZ) 
+* Aktywne/aktywne Virtual Network GWs 
 
 Następujące ograniczenia dotyczące sieci mają zastosowanie do Azure NetApp Files:
 
@@ -82,9 +84,10 @@ Jeśli sieć wirtualna jest połączona z inną siecią wirtualną, nie można r
 
 ### <a name="udrs-and-nsgs"></a>UDR i sieciowych grup zabezpieczeń
 
-Trasy zdefiniowane przez użytkownika (UDR) i sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) nie są obsługiwane w delegowanych podsieciach dla Azure NetApp Files.
+Trasy zdefiniowane przez użytkownika (UDR) i sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) nie są obsługiwane w delegowanych podsieciach dla Azure NetApp Files. Można jednak zastosować UDR i sieciowych grup zabezpieczeń do innych podsieci, nawet w ramach tej samej sieci wirtualnej co podsieć delegowana do Azure NetApp Files.
 
-Aby obejść ten sposób, można zastosować sieciowych grup zabezpieczeń do innych podsieci, które zezwalają na ruch do i z delegowanej podsieci Azure NetApp Files.  
+* UDR następnie zdefiniuj przepływy ruchu z innych podsieci do delegowanej podsieci Azure NetApp Files. Pomaga to zapewnić, że jest to wyrównane do przepływu ruchu z powrotem z Azure NetApp Files do innych podsieci przy użyciu tras systemowych.  
+* Sieciowych grup zabezpieczeń następnie zezwól lub Odmów ruchu do i z delegowanej podsieci Azure NetApp Files. 
 
 ## <a name="azure-native-environments"></a>Środowiska natywne platformy Azure
 

@@ -131,8 +131,8 @@
           href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
         - name: Harmonogram działania dla platformy Azure
           href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
-        - name: Forum MSDN
-          href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
+        - name: Pytania i odpowiedzi Microsoft — strona pytania
+          href: 'https://docs.microsoft.com/answers/topics/azure-active-directory.html'
         - name: Cennik
           href: 'https://azure.microsoft.com/pricing/details/active-directory/'
         - name: Kalkulator cen

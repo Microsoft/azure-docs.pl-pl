@@ -1,18 +1,18 @@
 ---
-title: Migrowanie z programu Orchestrator do Azure Automation (wersja beta)
+title: Migrowanie z programu Orchestrator do usługi Azure Automation (wersja beta)
 description: W tym artykule opisano, jak migrować elementy Runbook i pakiety integracyjne z programu Orchestrator do Azure Automation.
 services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7e8bb448e88d7aaa3d59ec9392a3b3ac69373c4d
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: b6778c4eab4dee382ec38d6218aa647e8aedc4cc
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715498"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836757"
 ---
-# <a name="migrate-from-orchestrator-to-azure-automation-beta"></a>Migrowanie z programu Orchestrator do Azure Automation (wersja beta)
+# <a name="migrate-from-orchestrator-to-azure-automation-beta"></a>Migrowanie z programu Orchestrator do usługi Azure Automation (wersja beta)
 
 Elementy Runbook w programie [System Center 2012 — Orchestrator](https://technet.microsoft.com/library/hh237242.aspx) bazują na działaniach z pakietów integracyjnych, które są przeznaczone dla programu Orchestrator, natomiast elementy runbook w Azure Automation są oparte na programie Windows PowerShell. [Graficzne elementy Runbook](automation-runbook-types.md#graphical-runbooks) w Azure Automation mają podobny wygląd do elementów Runbook programu Orchestrator, z ich działaniami, które reprezentują polecenia cmdlet środowiska PowerShell, podrzędne elementy Runbook i zasoby. Oprócz konwertowania elementów Runbook, należy przekonwertować pakiety integracyjne na działania, których elementy Runbook używają do modułów integracji za pomocą poleceń cmdlet programu Windows PowerShell. 
 
@@ -130,8 +130,8 @@ Program Orchestrator przechowuje elementy Runbook na serwerze bazy danych i uruc
 
 ## <a name="related-articles"></a>Pokrewne artykuły:
 
-* [System Center 2012 - Orchestrator](https://technet.microsoft.com/library/hh237242.aspx)
-* [Automatyzacja zarządzania usługami](https://technet.microsoft.com/library/dn469260.aspx)
-* [Hybrydowy proces roboczy elementu Runbook](automation-hybrid-runbook-worker.md)
-* [Działania standardowe programu Orchestrator](https://technet.microsoft.com/library/hh403832.aspx)
-* [Pobierz pakiet narzędzi do migracji programu System Center Orchestrator](https://www.microsoft.com/download/details.aspx?id=47323)
+* Aby uzyskać szczegółowe informacje dotyczące programu Orchestrator, zobacz [System Center 2012 — Orchestrator](https://technet.microsoft.com/library/hh237242.aspx).
+* Dowiedz się więcej o automatyzowaniu zarządzania usługami w [Service Management Automation](https://technet.microsoft.com/library/dn469260.aspx).
+* Szczegóły działań programu Orchestrator można znaleźć w temacie [standardowe działania programu Orchestrator](https://technet.microsoft.com/library/hh403832.aspx).
+* Aby uzyskać pakiet narzędzi do migracji programu Orchestrator, zobacz [Pobieranie programu System Center Orchestrator Migration Toolkit](https://www.microsoft.com/download/details.aspx?id=47323).
+* Aby zapoznać się z omówieniem Azure Automation hybrydowego procesu roboczego elementu Runbook, zobacz [Omówienie hybrydowego procesu roboczego elementu Runbook](automation-hybrid-runbook-worker.md).

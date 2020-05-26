@@ -1,6 +1,6 @@
 ---
-title: Usuwanie katalogu usługi Azure AD — Azure Active Directory | Microsoft Docs
-description: Wyjaśnia, jak przygotować katalog usługi Azure AD do usunięcia, w tym katalogi samoobsługowe
+title: Usuwanie organizacji usługi Azure AD (dzierżawa) — Azure Active Directory | Microsoft Docs
+description: Wyjaśnia, jak przygotować organizację usługi Azure AD (dzierżawę) do usunięcia, w tym organizacje samoobsługowe
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -9,50 +9,50 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 05/21/2020
 ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47a60ed44ddf057ef983f8f76f23fd784bc3efd5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e5ea42f5196b2c4ffe06c139e595dd4641752d35
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73961820"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816203"
 ---
-# <a name="delete-a-directory-in-azure-active-directory"></a>Usuwanie katalogu w Azure Active Directory
+# <a name="delete-a-tenant-in-azure-active-directory"></a>Usuwanie dzierżawy w Azure Active Directory
 
-Po usunięciu katalogu usługi Azure AD zostaną również usunięte wszystkie zasoby znajdujące się w katalogu. Przed usunięciem Przygotuj swoją organizację przez zminimalizowanie jej skojarzonych zasobów. Tylko administrator globalny Azure Active Directory (Azure AD) może usunąć katalog usługi Azure AD z portalu.
+Po usunięciu organizacji usługi Azure AD (dzierżawa) wszystkie zasoby zawarte w organizacji również zostaną usunięte. Przed usunięciem Przygotuj swoją organizację przez zminimalizowanie jej skojarzonych zasobów. Tylko administrator globalny Azure Active Directory (Azure AD) może usunąć organizację usługi Azure AD z portalu.
 
-## <a name="prepare-the-directory"></a>Przygotowywanie katalogu
+## <a name="prepare-the-organization"></a>Przygotuj organizację
 
-Nie można usunąć katalogu w usłudze Azure AD, dopóki nie przejdzie kilka sprawdzeń. Te sprawdzenia zmniejszają ryzyko, że usunięcie katalogu usługi Azure AD ma negatywny wpływ na dostęp użytkowników, na przykład możliwość zalogowania się do pakietu Office 365 lub uzyskania dostępu do zasobów na platformie Azure. Jeśli na przykład katalog skojarzony z subskrypcją zostanie przypadkowo usunięty, użytkownicy nie będą mogli uzyskać dostępu do zasobów platformy Azure dla tej subskrypcji. Są sprawdzane następujące warunki:
+Nie można usunąć organizacji w usłudze Azure AD, dopóki nie przejdzie kilka sprawdzeń. Te sprawdzenia zmniejszają ryzyko, że usunięcie organizacji usługi Azure AD wpływa negatywnie na dostęp użytkownika, na przykład możliwość zalogowania się do pakietu Office 365 lub uzyskania dostępu do zasobów na platformie Azure. Jeśli na przykład organizacja skojarzona z subskrypcją zostanie przypadkowo usunięta, użytkownicy nie będą mogli uzyskać dostępu do zasobów platformy Azure dla tej subskrypcji. Są sprawdzane następujące warunki:
 
-* W katalogu nie mogą znajdować się użytkownicy, z wyjątkiem jednego administratora globalnego, który ma zostać usunięty. Wszyscy inni użytkownicy muszą zostać usunięci przed usunięciem katalogu. Jeśli użytkownicy są synchronizowani ze środowiska lokalnego, najpierw należy wyłączyć synchronizację, a użytkownicy muszą zostać usunięci z katalogu w chmurze za pomocą poleceń cmdlet Azure Portal lub Azure PowerShell.
-* W katalogu nie może być aplikacji. Aby można było usunąć katalog, należy usunąć wszystkie aplikacje.
-* Z katalogiem nie mogą być powiązane dostawcy usługi uwierzytelniania wieloskładnikowego.
-* Z katalogiem nie mogą być skojarzone żadne z usług Microsoft Online Services, takie jak platforma Microsoft Azure, usługa Office 365 lub usługa Azure AD w warstwie Premium. Na przykład jeśli domyślny katalog został utworzony na platformie Azure, nie możesz usunąć tego katalogu, jeśli subskrypcja platformy Azure wciąż korzysta z niego na potrzeby uwierzytelniania. Nie można także usunąć katalogu, jeśli inny użytkownik skojarzył z nim subskrypcję.
+* W organizacji usługi Azure AD (dzierżawy) nie mogą istnieć użytkownicy, z wyjątkiem jednego administratora globalnego, który ma zostać usunięty. Aby można było usunąć organizację, należy usunąć wszystkich innych użytkowników. Jeśli użytkownicy są synchronizowani ze środowiska lokalnego, najpierw należy wyłączyć synchronizację, a użytkownicy muszą zostać usunięci z organizacji w chmurze przy użyciu poleceń cmdlet Azure Portal lub Azure PowerShell.
+* W organizacji nie mogą istnieć żadne aplikacje. Aby można było usunąć organizację, należy usunąć wszystkie aplikacje.
+* Z organizacją nie mogą być połączeni dostawcy usługi uwierzytelniania wieloskładnikowego.
+* Nie mogą istnieć żadne subskrypcje usług Microsoft Online Services, takich jak Microsoft Azure, Office 365 lub Azure AD — wersja Premium skojarzonych z organizacją. Jeśli na przykład została utworzona domyślna organizacja usługi Azure AD na platformie Azure, nie można usunąć tej organizacji, jeśli subskrypcja platformy Azure nadal korzysta z tej organizacji na potrzeby uwierzytelniania. Podobnie nie można usunąć organizacji, jeśli inny użytkownik skojarzył z nim subskrypcję.
 
-## <a name="delete-the-directory"></a>Usuń katalog
+## <a name="delete-the-organization"></a>Usuń organizację
 
 1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com) przy użyciu konta, które jest administratorem globalnym w Twojej organizacji.
 
 2. Wybierz pozycję **Azure Active Directory**.
 
-3. Przejdź do katalogu, który chcesz usunąć.
+3. Przejdź do organizacji, którą chcesz usunąć.
   
    ![Potwierdź organizację przed usunięciem](./media/directory-delete-howto/delete-directory-command.png)
 
-4. Wybierz pozycję **Usuń katalog**.
+4. Wybierz pozycję **Usuń dzierżawcę**.
   
    ![Wybierz polecenie, aby usunąć organizację](./media/directory-delete-howto/delete-directory-list.png)
 
-5. Jeśli katalog nie przekaże co najmniej jednego sprawdzenia, zostanie wyświetlony link do dodatkowych informacji na temat sposobu przekazywania. Po przejściu wszystkich testów wybierz pozycję **Usuń** , aby zakończyć proces.
+5. Jeśli Twoja organizacja nie przekaże co najmniej jednego sprawdzenia, zostanie wyświetlony link do dodatkowych informacji na temat sposobu przekazywania. Po przejściu wszystkich testów wybierz pozycję **Usuń** , aby zakończyć proces.
 
-## <a name="if-you-cant-delete-the-directory"></a>Jeśli nie możesz usunąć katalogu
+## <a name="if-you-cant-delete-the-organization"></a>Jeśli nie możesz usunąć organizacji
 
-Po skonfigurowaniu katalogu usługi Azure AD można także aktywować subskrypcje oparte na licencjach dla swojej organizacji, takie jak Azure AD — wersja Premium P2, Office 365 Business Premium lub Enterprise Mobility + Security E5. Aby uniknąć przypadkowej utraty danych, nie można usunąć katalogu, dopóki subskrypcje nie zostaną całkowicie usunięte. Aby można było usunąć **katalogi, subskrypcje** muszą być w stanie niedostępnym. **Wygasła** lub **anulowana** subskrypcja przechodzi do stanu **wyłączone** , a końcowym etapem jest stan **anulowania** aprowizacji.
+Po skonfigurowaniu organizacji usługi Azure AD można także aktywować subskrypcje oparte na licencjach dla swojej organizacji, takie jak Azure AD — wersja Premium P2, Office 365 Business Premium lub Enterprise Mobility + Security E5. Aby uniknąć przypadkowej utraty danych, nie można usunąć organizacji, dopóki subskrypcje nie zostaną całkowicie usunięte. Aby można było usunąć **organizację, subskrypcje** muszą być w stanie niedostępnym. **Wygasła** lub **anulowana** subskrypcja przechodzi do stanu **wyłączone** , a końcowym etapem jest stan **anulowania** aprowizacji.
 
 Informacje o tym, czego można oczekiwać po wygaśnięciu wersji próbnej subskrypcji pakietu Office 365 (bez uwzględnienia płatnego partnera/dostawcy CSP, Umowa Enterprise lub licencjonowania zbiorowego), zobacz poniższą tabelę. Aby uzyskać więcej informacji na temat przechowywania danych i cyklu życia subskrypcji pakietu Office 365, zobacz [co się stanie z danymi i dostępem po zakończeniu subskrypcji pakietu Office 365 dla firm?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
 
@@ -67,7 +67,7 @@ Anulowanie aprowizacji (po upływie 30 dni od wyłączenia) | Usunięte dane (au
 
 Aby można było usunąć subskrypcję w stanie **anulowania** aprowizacji w ciągu trzech dni, należy użyć centrum administracyjnego Microsoft 365.
 
-1. Zaloguj się do [Centrum administracyjnego Microsoft 365](https://admin.microsoft.com) przy użyciu konta, które jest administratorem globalnym w Twojej organizacji. Jeśli próbujesz usunąć katalog "contoso", który ma początkową domyślną domenę contoso.onmicrosoft.com, zaloguj się przy użyciu nazwy UPN, takiej jak admin@contoso.onmicrosoft.com.
+1. Zaloguj się do [Centrum administracyjnego Microsoft 365](https://admin.microsoft.com) przy użyciu konta, które jest administratorem globalnym w Twojej organizacji. Jeśli próbujesz usunąć organizację "contoso" z początkową domyślną domeną contoso.onmicrosoft.com, zaloguj się przy użyciu nazwy UPN, takiej jak admin@contoso.onmicrosoft.com .
 
 2. Wyświetl podgląd nowego centrum administracyjnego Microsoft 365, upewniając się, że jest włączona Nowa funkcja przełączania **Centrum administracyjnego** .
 
@@ -91,18 +91,18 @@ Aby można było usunąć subskrypcję w stanie **anulowania** aprowizacji w ci�
 
 7. Teraz stan subskrypcji został zmieniony i subskrypcja została oznaczona do usunięcia. Subskrypcja wprowadza stan **anulowania** aprowizacji 72 godzin później.
 
-8. Po usunięciu subskrypcji w katalogu i upłynięciu 72 godzin można ponownie zalogować się do centrum administracyjnego usługi Azure AD, a nie powinna istnieć żadna wymagana akcja i nie ma żadnych subskrypcji blokujących usuwanie katalogu. Należy mieć możliwość pomyślnego usunięcia katalogu usługi Azure AD.
+8. Po usunięciu subskrypcji w organizacji i upływie 72 godzin można ponownie zalogować się do centrum administracyjnego usługi Azure AD, a nie powinna istnieć żadna wymagana akcja i nie ma żadnych subskrypcji blokujących usuwanie organizacji. Należy mieć możliwość pomyślnego usunięcia organizacji usługi Azure AD.
   
    ![ekran przekazywania subskrypcji po usunięciu](./media/directory-delete-howto/delete-checks-passed.png)
 
 ## <a name="i-have-a-trial-subscription-that-blocks-deletion"></a>Mam subskrypcję wersji próbnej, która blokuje usuwanie
 
-Istnieją produkty do samodzielnej [rejestracji](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide) , takie jak Microsoft Power BI, Rights Management Services, Microsoft PowerShell Apps lub Dynamics 365, indywidualni użytkownicy mogą zarejestrować się za pośrednictwem pakietu Office 365, co spowoduje również utworzenie użytkownika-gościa na potrzeby uwierzytelniania w katalogu usługi Azure AD. Te produkty samoobsługi blokują operacje usuwania katalogów, dopóki nie zostaną całkowicie usunięte z katalogu, aby uniknąć utraty danych. Mogą zostać usunięte tylko przez administratora usługi Azure AD, niezależnie od tego, czy użytkownik zarejestrował się indywidualnie, czy też został przypisany do produktu.
+Istnieją produkty do samodzielnej [rejestracji](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide) , takie jak Microsoft Power BI, Rights Management Services, Microsoft PowerShell Apps lub Dynamics 365, indywidualni użytkownicy mogą zarejestrować się za pośrednictwem pakietu Office 365, co spowoduje również utworzenie użytkownika-gościa na potrzeby uwierzytelniania w organizacji usługi Azure AD. Te produkty samoobsługi blokują operacje usuwania katalogów, dopóki produkty nie zostaną całkowicie usunięte z organizacji, aby uniknąć utraty danych. Mogą zostać usunięte tylko przez administratora usługi Azure AD, niezależnie od tego, czy użytkownik zarejestrował się indywidualnie, czy też został przypisany do produktu.
 
 W sposobie ich przypisywania istnieją dwa typy produktów do samodzielnej rejestracji: 
 
 * Przypisanie na poziomie organizacji: administrator usługi Azure AD przypisuje produkt do całej organizacji, a użytkownik może aktywnie używać usługi z tym przypisaniem na poziomie organizacji, nawet jeśli nie są indywidualnie licencjonowane.
-* Przypisanie na poziomie użytkownika: indywidualny użytkownik podczas samoobsługowego rejestrowania, zasadniczo przypisuje produkt do samego siebie bez administratora. Gdy organizacja stanie się zarządzana przez administratora (zobacz [przejęcie przez administratora niezarządzanego katalogu](domains-admin-takeover.md), administrator może bezpośrednio przypisać produkt do użytkowników bez rejestracji samoobsługowej).  
+* Przypisanie na poziomie użytkownika: indywidualny użytkownik podczas samoobsługowego rejestrowania, zasadniczo przypisuje produkt do samego siebie bez administratora. Gdy organizacja stanie się zarządzana przez administratora (zobacz [przejęcie przez administratora niezarządzanej organizacji](domains-admin-takeover.md)), administrator może bezpośrednio przypisać produkt użytkownikom bez rejestracji samoobsługowej.  
 
 Po rozpoczęciu usuwania produktu samoobsługowego rejestracji, akcja spowoduje trwałe usunięcie danych i usunięcie wszystkich użytkowników dostępu do usługi. Każdy użytkownik, któremu przypisano ofertę pojedynczą lub na poziomie organizacji, jest zablokowany do logowania się lub uzyskiwania dostępu do istniejących danych. Aby zapobiec utracie danych za pomocą samoobsługowego tworzenia konta, takiego jak [pulpity nawigacyjne firmy Microsoft Power BI](https://docs.microsoft.com/power-bi/service-export-to-pbix) lub [konfiguracja zasad usług Rights Management Services](https://docs.microsoft.com/azure/information-protection/configure-policy#how-to-configure-the-azure-information-protection-policy), należy się upewnić, że kopia zapasowa danych została utworzona i zapisana w innym miejscu.
 
@@ -119,7 +119,7 @@ Usunięte | Usunięte dane | Użytkownicy nie mogą uzyskać dostępu do samoobs
 
 Możesz utworzyć samoobsługowe produkty do rejestracji, takie jak Microsoft Power BI lub Azure Rights Management Services w stanie **usuwania** , aby natychmiast usunąć je w portalu usługi Azure AD.
 
-1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) przy użyciu konta, które jest administratorem globalnym w organizacji. Jeśli próbujesz usunąć katalog "contoso", który ma początkową domyślną domenę contoso.onmicrosoft.com, zaloguj się przy użyciu nazwy UPN, takiej jak admin@contoso.onmicrosoft.com.
+1. Zaloguj się do [Centrum administracyjnego usługi Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) przy użyciu konta, które jest administratorem globalnym w organizacji. Jeśli próbujesz usunąć organizację "contoso" z początkową domyślną domeną contoso.onmicrosoft.com, zaloguj się przy użyciu nazwy UPN, takiej jak admin@contoso.onmicrosoft.com .
 
 2. Wybierz pozycję **licencje**, a następnie wybierz pozycję **produkty do rejestracji**samoobsługowej. Wszystkie produkty do samodzielnej rejestracji można zobaczyć niezależnie od subskrypcji opartych na miejscu. Wybierz produkt, który chcesz trwale usunąć. Oto przykład w programie Microsoft Power BI:
 
@@ -137,7 +137,7 @@ Możesz utworzyć samoobsługowe produkty do rejestracji, takie jak Microsoft Po
 
     ![Nazwa użytkownika jest nieprawidłowa lub nie została znaleziona](./media/directory-delete-howto/product-deleted.png)
 
-6. Po usunięciu wszystkich produktów możesz ponownie zalogować się do centrum administracyjnego usługi Azure AD, a nie powinna istnieć żadna wymagana akcja, a żadne produkty nie blokują usuwania katalogu. Należy mieć możliwość pomyślnego usunięcia katalogu usługi Azure AD.
+6. Po usunięciu wszystkich produktów możesz ponownie zalogować się do centrum administracyjnego usługi Azure AD, a nie powinna istnieć żadna wymagana akcja, a żadne produkty nie blokują usuwania w organizacji. Należy mieć możliwość pomyślnego usunięcia organizacji usługi Azure AD.
 
     ![Nazwa użytkownika jest nieprawidłowa lub nie została znaleziona](./media/directory-delete-howto/delete-organization.png)
 

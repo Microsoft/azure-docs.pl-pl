@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.subservice: alerts
-ms.openlocfilehash: 27510871f9a022cb27c6b03b812ce1d37b47312c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0677c7a0521fe1f63c9c2c9fce65d8dbd8e6d5c4
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79248985"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826914"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Wywoływanie elementu webhook przy użyciu klasycznego alertu metryki w Azure Monitor
 
@@ -26,7 +26,7 @@ Aby dodać lub zaktualizować identyfikator URI elementu webhook, w [Azure Porta
 
 ![Dodawanie okienka reguły alertu](./media/alerts-webhooks/Alertwebhook.png)
 
-Można również skonfigurować alert do publikowania w identyfikatorze URI elementu webhook przy użyciu [poleceń cmdlet Azure PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-metric-alerts), [MIĘDZYPLATFORMOWEGO interfejsu wiersza polecenia](../../azure-monitor/platform/cli-samples.md#work-with-alerts)lub [Azure monitor interfejsów API REST](https://msdn.microsoft.com/library/azure/dn933805.aspx).
+Można również skonfigurować alert do publikowania w identyfikatorze URI elementu webhook przy użyciu [poleceń cmdlet Azure PowerShell](../samples/powershell-samples.md#create-metric-alerts), [MIĘDZYPLATFORMOWEGO interfejsu wiersza polecenia](../samples/cli-samples.md#work-with-alerts)lub [Azure monitor interfejsów API REST](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
 ## <a name="authenticate-the-webhook"></a>Uwierzytelnianie elementu webhook
 Element webhook może być uwierzytelniany przy użyciu autoryzacji opartej na tokenach. Identyfikator URI elementu webhook jest zapisywany z IDENTYFIKATORem tokenu. Na przykład: `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
@@ -73,9 +73,9 @@ Operacja POST zawiera następujący ładunek i schemat JSON dla wszystkich alert
 | status |Tak |Aktywowane, rozwiązane |Stan alertu na podstawie ustawionych warunków. |
 | kontekst |Tak | |Kontekst alertu. |
 | sygnatura czasowa |Tak | |Godzina, o której alert został wyzwolony. |
-| id |Tak | |Każda reguła alertu ma unikatowy identyfikator. |
+| identyfikator |Tak | |Każda reguła alertu ma unikatowy identyfikator. |
 | name |Tak | |Nazwa alertu. |
-| description |Tak | |Opis alertu. |
+| description (opis) |Tak | |Opis alertu. |
 | warunektype |Tak |Metryka, zdarzenie |Obsługiwane są dwa typy alertów: Metryka i zdarzenie. Alerty metryk są oparte na warunku metryki. Alerty zdarzeń są oparte na zdarzeniu w dzienniku aktywności. Użyj tej wartości, aby sprawdzić, czy alert jest oparty na metryce czy zdarzeniu. |
 | rozgrzewa |Tak | |Określone pola do sprawdzenia na podstawie wartości **conditiontype** . |
 | metricName |W przypadku alertów dotyczących metryk | |Nazwa metryki, która definiuje elementy monitorowane przez regułę. |
@@ -92,7 +92,7 @@ Operacja POST zawiera następujący ładunek i schemat JSON dla wszystkich alert
 | resourceId |Tak | |Identyfikator zasobu, którego dotyczy ten zasób. |
 | resourceRegion |Tak | |Region lub lokalizacja zasobu, którego to dotyczy. |
 | portalLink |Tak | |Bezpośredni link do strony podsumowania zasobów portalu. |
-| properties |Nie |Optional |Zestaw par klucz/wartość, które zawierają szczegółowe informacje o zdarzeniu. Na przykład `Dictionary<String, String>`. Pole właściwości jest opcjonalne. W niestandardowym interfejsie użytkownika lub przepływie pracy opartym na aplikacji logiki użytkownicy mogą wprowadzać pary klucz/wartość, które mogą być przekazane za pośrednictwem ładunku. Alternatywny sposób przekazywania właściwości niestandardowych z powrotem do elementu webhook odbywa się za pośrednictwem samego identyfikatora URI elementu webhook (jako parametrów zapytania). |
+| properties |Nie |Opcjonalne |Zestaw par klucz/wartość, które zawierają szczegółowe informacje o zdarzeniu. Na przykład `Dictionary<String, String>`. Pole właściwości jest opcjonalne. W niestandardowym interfejsie użytkownika lub przepływie pracy opartym na aplikacji logiki użytkownicy mogą wprowadzać pary klucz/wartość, które mogą być przekazane za pośrednictwem ładunku. Alternatywny sposób przekazywania właściwości niestandardowych z powrotem do elementu webhook odbywa się za pośrednictwem samego identyfikatora URI elementu webhook (jako parametrów zapytania). |
 
 > [!NOTE]
 > Pole **Właściwości** można ustawić tylko przy użyciu [Azure monitor interfejsów API REST](https://msdn.microsoft.com/library/azure/dn933805.aspx).

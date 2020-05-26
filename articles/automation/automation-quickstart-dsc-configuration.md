@@ -7,12 +7,12 @@ keywords: dsc, konfiguracja, automatyzacja
 ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: ab9210042439e2199d633577c77429573b71d1be
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 28e8f921fa7620d1fec7dec1788ed769026624d7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83711860"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836723"
 ---
 # <a name="configure-a-vm-with-desired-state-configuration"></a>Konfigurowanie maszyny wirtualnej z konfiguracją żądanego stanu
 
@@ -131,7 +131,4 @@ Stan wszystkich węzłów zarządzanych przez konfigurację stanu można wyświe
 W tym przewodniku szybki start włączono maszynę wirtualną z systemem Linux na potrzeby konfiguracji stanu, utworzono konfigurację dla stosu LAMP i wdrożono konfigurację na maszynie wirtualnej. Aby dowiedzieć się, jak można użyć konfiguracji stanu Azure Automation do włączenia ciągłego wdrażania, przejdź do artykułu:
 
 > [!div class="nextstepaction"]
-> [Continuous deployment to a VM using DSC and Chocolatey](./automation-dsc-cd-chocolatey.md) (Ciągłe wdrażanie na maszynie wirtualnej za pomocą DSC i Chocolatey)
-
-* Aby dowiedzieć się więcej na temat programu PowerShell DSC, zobacz [Omówienie konfiguracji żądanego stanu programu PowerShell](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview).
-* Aby dowiedzieć się, jak przekazywać raporty DSC do Azure Monitor dzienników raportowania i alertów, zobacz [przekazywanie raportów DSC do dzienników Azure monitor](automation-dsc-diagnostics.md).
+> [Konfigurowanie ciągłego wdrażania za pomocą narzędzia Chocolatey](./automation-dsc-cd-chocolatey.md)

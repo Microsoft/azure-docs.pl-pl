@@ -5,14 +5,14 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
-ms.openlocfilehash: 63fd65f6a80dec582b9cecc8483bc3425d08c551
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: ec954c2da317e2e4b332b959b9627cf96792da84
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714189"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837063"
 ---
-# <a name="set-up-continuous-deployment-with-chocolatey"></a>Konfigurowanie ciągłego wdrażania z czekoladą
+# <a name="set-up-continuous-deployment-with-chocolatey"></a>Konfigurowanie ciągłego wdrażania za pomocą narzędzia Chocolatey
 
 Na świecie DevOps istnieje wiele narzędzi, które pomagają w różnych punktach w potoku ciągłej integracji. [Konfiguracja stanu](automation-dsc-overview.md) Azure Automation jest nowym uzupełnieniem opcji, które mogą być używane przez zespoły DevOps. 
 
@@ -209,10 +209,9 @@ Od tego momentu do maszyn wirtualnych, które są zależne od tej konfiguracji, 
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby zapoznać się z omówieniem, zobacz [Konfiguracja stanu Azure Automation](automation-dsc-overview.md).
-- Aby rozpocząć, zobacz [wprowadzenie do konfiguracji stanu Azure Automation](automation-dsc-getting-started.md).
-- Aby dowiedzieć się więcej na temat kompilowania konfiguracji DSC, aby można było przypisać je do węzłów docelowych, zobacz [Kompilowanie konfiguracji w konfiguracji stanu Azure Automation](automation-dsc-compile.md).
+- Aby zapoznać się z omówieniem, zobacz [Omówienie konfiguracji stanu Azure Automation](automation-dsc-overview.md).
+- Aby rozpocząć korzystanie z tej funkcji, zobacz Rozpoczynanie [pracy z konfiguracją stanu Azure Automation](automation-dsc-getting-started.md).
+- Aby dowiedzieć się więcej na temat kompilowania konfiguracji DSC, aby można było przypisać je do węzłów docelowych, zobacz [Kompilowanie konfiguracji DSC w konfiguracji stanu Azure Automation](automation-dsc-compile.md).
 - Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
 ).
 - Aby uzyskać informacje o cenach, zobacz [Cennik konfiguracji stanu Azure Automation](https://azure.microsoft.com/pricing/details/automation/).
-- Aby zapoznać się z przykładem użycia konfiguracji stanu Azure Automation w potoku ciągłego wdrażania, zobacz [wdrażanie ciągłe przy użyciu konfiguracji stanu Azure Automation i czekolady](automation-dsc-cd-chocolatey.md).

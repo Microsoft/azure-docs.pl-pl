@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1db133f52a99bd716c2228add0573e8d44255c9e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: cf05532f81d70d4d7b09de2ccbf9807273a85330
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83736521"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799596"
 ---
 # <a name="overview-of-azure-multi-factor-authentication-for-your-organization"></a>Omówienie Multi-Factor Authentication platformy Azure dla Twojej organizacji
 
@@ -32,7 +32,7 @@ W jaki sposób Twoja organizacja włączy uwierzytelnianie wieloskładnikowe naw
 
 Klienci korzystający z bezpłatnych korzyści płynących z usługi Azure AD mogą używać [ustawień domyślnych zabezpieczeń](../fundamentals/concept-fundamentals-security-defaults.md) w celu włączenia uwierzytelniania wieloskładnikowego w swoich środowiskach.
 
-## <a name="office-365-business-premium-e3-or-e5"></a>Pakiet Office 365 Business Premium, E3 lub E5
+## <a name="microsoft-365-business-e3-or-e5"></a>Microsoft 365 Business, E3 lub E5
 
 W przypadku klientów z pakietem Office 365 dostępne są dwie opcje:
 

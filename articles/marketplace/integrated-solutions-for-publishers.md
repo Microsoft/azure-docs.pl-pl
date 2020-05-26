@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: f0a3ea3aebeb9c96d7ccfba9c883ae208d93a44e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a2bce05288d0085306a59f3ff5ee62939941bbaf
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657968"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800614"
 ---
 # <a name="publish-an-integrated-solution"></a>Publikowanie zintegrowanego rozwiązania
 
@@ -52,7 +52,7 @@ Aby zapoznać się z omówieniem programu zintegrowanych rozwiązań, Obejrzyj [
 
 ## <a name="submit-a-nomination"></a>Prześlij nominację.
 
-Partnerzy, którzy chcą uczestniczyć w programie, powinni identyfikować innych partnerów, z którymi chcą współpracować. Powinny one zakończyć [formularz nominacji zintegrowanych rozwiązań](https://assetsprod.microsoft.com/mpn/integrated-solutions-partner-nomination.docx). Zespół programu zintegrowanych rozwiązań przegląda nominację i postępuje zgodnie z upływem 10 dni roboczych. Zespół zapewnia zatwierdzenie i następne kroki.
+Partnerzy, którzy chcą uczestniczyć w programie, powinni identyfikować innych partnerów, z którymi chcą współpracować. Powinny one zakończyć [formularz nominacji zintegrowanych rozwiązań](https://aka.ms/AA5qicu). Zespół programu zintegrowanych rozwiązań przegląda nominację i postępuje zgodnie z upływem 10 dni roboczych. Zespół zapewnia zatwierdzenie i następne kroki.
 
 ## <a name="develop-an-integrated-solution"></a>Opracowywanie zintegrowanego rozwiązania
 
@@ -64,7 +64,7 @@ Po zatwierdzeniu nominacji Użyj zasobów połączonego programu, aby opracować
     * Zakres
     * Klienci docelowi
     * Propozycja wartości
-    * Ceny
+    * Cennik
     * Licencjonowanie
     * Warunki i postanowienia
     * Podejście do pomocy technicznej
@@ -84,8 +84,8 @@ Po zatwierdzeniu nominacji Użyj zasobów połączonego programu, aby opracować
 
     Użyj tych zasobów dla procesu tworzenia:
 
-    * [Przewodnik po dyskusji dla warsztatów dotyczących decyzji służbowych](https://assetsprod.microsoft.com/mpn/integrated-solutions-discussion-guide-for-business-workshop.pptx)
-    * [Przewodnik po dyskusji dla warsztatów dotyczących decyzji technicznej](https://assetsprod.microsoft.com/mpn/integrated-solutions-discussion-guide-for-technical-workshop.pptx)
+    * [Przewodnik po dyskusji dla warsztatów dotyczących decyzji służbowych](https://aka.ms/AA5qicx)
+    * [Przewodnik po dyskusji dla warsztatów dotyczących decyzji technicznej](https://aka.ms/AA5qid1)
     * [Wideo szybkiego startu: zintegrowane warsztaty rozwiązań](https://partner.microsoft.com/asset/detail/integrated-solutions-workshop-quickstart-guide-mp4)
 
 1. Zidentyfikuj międzypartnerskiego menedżera projektu, aby zwiększyć plan projektu i oś czasu opracowaną w ramach warsztatów branżowych i technicznych.
@@ -98,8 +98,8 @@ Po zatwierdzeniu nominacji Użyj zasobów połączonego programu, aby opracować
 
     * Nazwa połączonego rozwiązania.
     * Opis listy zintegrowanego rozwiązania. Skorzystaj z oferty, aby wyświetlić [listę najlepszych](./gtm-offer-listing-best-practices.md)rozwiązań.
-    * Klient korzystający z jednej strony. Użyj szablonu z jednym modułem [stronicowania](https://assetsprod.microsoft.com/mpn/integrated-solutions-customer-one-pager-template.pptx).
-    * Prezentacja klienta. Użyj [szablonu prezentacji](https://assetsprod.microsoft.com/mpn/customer-presentation-template.pptx).
+    * Klient korzystający z jednej strony. Użyj szablonu z jednym modułem [stronicowania](https://aka.ms/AA5s08a).
+    * Prezentacja klienta. Użyj [szablonu prezentacji](https://aka.ms/AA5s7ql).
     * Logo połączonego rozwiązania.
 
 ## <a name="publish-your-integrated-solution"></a>Publikowanie zintegrowanego rozwiązania

@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/17/2018
+ms.date: 05/21/2020
 ms.author: radeltch
-ms.openlocfilehash: 21c551721815847eea4cb1435298ea6f7bf37966
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3b65422a9baf33a2b55de9f1bdfcc85918616d65
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79264481"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800748"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Konfigurowanie Pacemaker Red Hat Enterprise Linux na platformie Azure
 
@@ -206,12 +206,12 @@ Urządzenie STONITH używa nazwy głównej usługi do autoryzacji przed Microsof
 1. Kliknij Rejestracje aplikacji
 1. Kliknij pozycję Nowa rejestracja
 1. Wprowadź nazwę, wybierz pozycję "konta tylko w tym katalogu organizacji". 
-2. Wybierz pozycję typ aplikacji "sieć Web", wprowadź adres URL logowania (na przykład http:\//localhost), a następnie kliknij przycisk Dodaj.  
+2. Wybierz pozycję typ aplikacji "sieć Web", wprowadź adres URL logowania (na przykład http: \/ /localhost), a następnie kliknij przycisk Dodaj.  
    Adres URL logowania nie jest używany i może być dowolnym prawidłowym adresem URL
 1. Wybierz pozycję Certyfikaty i wpisy tajne, a następnie kliknij pozycję Nowy wpis tajny klienta.
 1. Wprowadź opis nowego klucza, wybierz pozycję "nigdy nie wygasa" i kliknij przycisk Dodaj.
 1. Zapisz wartość. Służy jako **hasło** dla nazwy głównej usługi
-1. Wybierz pozycję Przegląd. Zapisz identyfikator aplikacji. Jest ona używana jako nazwa użytkownika (**Identyfikator logowania** w poniższych krokach) nazwy głównej usługi
+1. Wybierz pozycję Omówienie. Zapisz identyfikator aplikacji. Jest ona używana jako nazwa użytkownika (**Identyfikator logowania** w poniższych krokach) nazwy głównej usługi
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]** Utwórz rolę niestandardową dla agenta ogranicznika
 
@@ -273,6 +273,9 @@ Użyj następującego polecenia, aby skonfigurować urządzenie ogrodzenia.
 
 <pre><code>sudo pcs property set stonith-enabled=true
 </code></pre>
+
+> [!TIP]
+>Agent usługi Azure ogrodzenia wymaga łączności wychodzącej z publicznymi punktami końcowymi zgodnie z opisem, a także z możliwymi rozwiązaniami w [publicznej łączności punktu końcowego dla maszyn wirtualnych używających standardowej ILB](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
 ## <a name="next-steps"></a>Następne kroki
 

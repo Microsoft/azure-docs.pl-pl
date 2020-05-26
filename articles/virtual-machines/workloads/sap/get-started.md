@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/12/2020
+ms.date: 05/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5991c6e073001e565a965a8db3cf32ca76d843f4
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: b95112146c0003f3fc5ea563e5561dc26ea064e8
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684420"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800728"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Korzystanie z platformy Azure do hostowania i uruchamiania scenariuszy obciążeń SAP
 
@@ -111,6 +111,7 @@ Aby uzyskać informacje na temat integracji usług platformy Azure z składnikam
 
 ## <a name="change-log"></a>Dziennik zmian
 
+- 05/21/2020: zmiana podczas [konfigurowania Pacemaker na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) i [KONFIGUROWANIA Pacemaker na RHEL na platformie Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) w celu dodania linku do [łączności z publicznym punktem końcowym dla maszyn wirtualnych przy użyciu usługi Azure Standard ILB w scenariuszach dotyczących oprogramowania SAP ha](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)  
 - 05/19/2020: Dodaj ważny komunikat, aby nie używać grupy woluminów głównych przy użyciu LVM dla woluminów związanych z [platformą HANA SAP HANA w konfiguracjach magazynu maszyn wirtualnych platformy Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
 - 05/19/2020: Dodaj nowe obsługiwane systemy operacyjne dla dużego wystąpienia usługi HANA Typ II w [zgodnych systemów operacyjnych dla dużych wystąpień HANA] (https://docs.microsoft.com/
 - Azure/Virtual-Machines/obciążeń/SAP/OS — zgodność-macierz-Hana-duże wystąpienie)

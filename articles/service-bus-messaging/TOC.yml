@@ -196,6 +196,8 @@
           href: service-bus-diagnostic-logs.md
         - name: Wstrzymywanie i ponowne aktywowanie jednostek obsługi komunikatów
           href: entity-suspend.md
+        - name: Wykonywanie operacji na danych w usłudze Service Bus za pomocą narzędzia Service Bus Explorer
+          href: explorer.md
         - name: Korzystanie z szablonów usługi ARM
           href: service-bus-resource-manager-overview.md
           items:

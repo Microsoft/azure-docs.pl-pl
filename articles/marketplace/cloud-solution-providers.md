@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: dsindona
-ms.openlocfilehash: a932f4ec37eda66c353df2c865bb4036ddcc59fa
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 58bfe5cdc58c41c2ead82ac2d280629e4fec9bcd
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83741076"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798145"
 ---
 # <a name="cloud-solution-provider-program"></a>Program dostawcy rozwiązań w chmurze
 
@@ -105,7 +105,7 @@ Jeśli masz autoryzację partnera w programie CSP i ten partner już przekupił 
 
 Jeśli partner w programie CSP nie sprzedał Twojego produktu klientom i chcesz usunąć dostawcę CSP po opublikowaniu oferty, wykonaj następujące instrukcje:
 
-1. Przejdź do [strony support Request](https://partner.microsoft.com/support/v2/?stage=1). Pierwsze niektóre menu rozwijane są wypełniane automatycznie.
+1. Przejdź do [strony support Request](https://aka.ms/marketplacepublishersupport). Pierwsze niektóre menu rozwijane są wypełniane automatycznie.
 
    > [!NOTE]
    > Nie zmieniaj wstępnie wypełnionego menu rozwijanego.
@@ -127,7 +127,7 @@ Ta sekcja umożliwia nawigowanie między opcjami trzech odsprzedawców dostawcy 
 
 Jeśli oferta jest obecnie **opcją 1: każdy partner w programie CSP** i chcesz przejść do jednej z dwóch innych opcji, wykonaj następujące instrukcje, aby utworzyć żądanie:
 
-1. Przejdź do [strony support Request](https://partner.microsoft.com/support/v2/?stage=1). Pierwsze niektóre menu rozwijane są wypełniane automatycznie.
+1. Przejdź do [strony support Request](https://aka.ms/marketplacepublishersupport). Pierwsze niektóre menu rozwijane są wypełniane automatycznie.
 
    > [!NOTE]
    > Nie zmieniaj wstępnie wypełnionego menu rozwijanego.
@@ -145,7 +145,7 @@ Jeśli oferta jest obecnie **opcją 1: każdy partner w programie CSP** i chcesz
 
 Jeśli oferta zawiera obecnie **opcję 2: określeni partnerzy w wybranym programie CSP** i chcesz przejść do **opcji jeden: dowolny partner w programie CSP**, użyj następujących instrukcji, aby utworzyć żądanie:
 
-1. Przejdź do [strony support Request](https://partner.microsoft.com/support/v2/?stage=1). Pierwsze niektóre menu rozwijane są wypełniane automatycznie.
+1. Przejdź do [strony support Request](https://aka.ms/marketplacepublishersupport). Pierwsze niektóre menu rozwijane są wypełniane automatycznie.
 
    > [!NOTE]
    > Nie zmieniaj wstępnie wypełnionego menu rozwijanego.
@@ -158,7 +158,7 @@ Jeśli oferta zawiera obecnie **opcję 2: określeni partnerzy w wybranym progra
 
  Jeśli oferta jest obecnie **opcją 2: konkretni partnerzy w wybranym programie CSP** i chcesz przejść do **opcji 3: brak partnerów w programie CSP**, będziesz mieć możliwość przechodzenia do tej opcji tylko wtedy, gdy partnerzy w programie CSP, który wcześniej został autoryzowany, nie odsprzedali oferty klientom końcowym. Aby utworzyć żądanie, wykonaj następujące instrukcje:
 
-1. Przejdź do [strony support Request](https://partner.microsoft.com/support/v2/?stage=1). Pierwsze niektóre menu rozwijane są wypełniane automatycznie.
+1. Przejdź do [strony support Request](https://aka.ms/marketplacepublishersupport). Pierwsze niektóre menu rozwijane są wypełniane automatycznie.
 
    > [!NOTE]
    > Nie zmieniaj wstępnie wypełnionego menu rozwijanego.

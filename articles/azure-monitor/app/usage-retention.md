@@ -6,18 +6,18 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 05/03/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: e6d9be6bc6d7f90153e2fb58aa404e281568dbdd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 654dba968ba4efec1c30c94082726da04059adc0
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80892414"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797731"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Analiza przechowywania użytkowników dla aplikacji sieci Web za pomocą Application Insights
 
 Funkcja przechowywania w [usłudze Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) pomaga analizować liczbę użytkowników, którzy zwracają do aplikacji, oraz częstotliwość wykonywania określonych zadań lub osiągania celów. Na przykład po uruchomieniu witryny gry można porównać liczby użytkowników, którzy powracają do lokacji po utracie gry z liczbą zwracaną po wygraniu. Ta wiedza może pomóc w ulepszaniu środowiska użytkownika i strategii biznesowej.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 Jeśli nie widzisz jeszcze danych w narzędziu do przechowywania w portalu Application Insights, [Dowiedz się, jak rozpocząć pracę z narzędziami użycia](usage-overview.md).
 
@@ -63,7 +63,7 @@ Lub w kodzie serwera ASP.NET:
     - [Użytkownicy, sesje, zdarzenia](usage-segmentation.md)
     - [Lejki](usage-funnels.md)
     - [Przepływy użytkowników](usage-flows.md)
-    - [Skoroszyty](../../azure-monitor/app/usage-workbooks.md)
+    - [Skoroszyty](../../azure-monitor/platform/workbooks-overview.md)
     - [Dodawanie kontekstu użytkownika](usage-send-user-context.md)
 
 

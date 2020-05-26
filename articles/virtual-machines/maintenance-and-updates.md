@@ -5,14 +5,14 @@ author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 11/18/2019
+ms.date: 05/22/2020
 ms.author: shants
-ms.openlocfilehash: eaf7616b3bd69828829342b4dca9247c009d3475
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 97605b0cdc7ac6368b21e9427f64e4bca7e35d4a
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79250233"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83815948"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Konserwacja maszyn wirtualnych na platformie Azure
 
@@ -21,7 +21,7 @@ Platforma Azure okresowo aktualizuje swoją platformę, aby zwiększyć niezawod
 Aktualizacje rzadko wpływają na hostowane maszyny wirtualne. Gdy aktualizacje mają wpływ, na platformie Azure wybierana jest najmniejsza dostosowana Metoda aktualizacji:
 
 - Jeśli aktualizacja nie wymaga ponownego uruchomienia komputera, maszyna wirtualna jest wstrzymana podczas aktualizowania hosta lub maszyna wirtualna jest migrowana na żywo do już zaktualizowanego hosta. 
-- Jeśli konserwacja wymaga ponownego uruchomienia, zostanie powiadomiona o planowanej konserwacji. Platforma Azure udostępnia również przedział czasu, w którym można samodzielnie uruchomić konserwację, w odpowiednim czasie. Okno samoobsługowe jest zwykle 30 dni, chyba że jest to pilne. Platforma Azure jest inwestować w technologie, aby ograniczyć liczbę przypadków, w których konserwacja planowanej platformy wymaga ponownego uruchomienia maszyn wirtualnych. Aby uzyskać instrukcje dotyczące zarządzania zaplanowaną konserwacją, zobacz Obsługa planowanych powiadomień konserwacyjnych za pomocą [interfejsu wiersza polecenia](maintenance-notifications-cli.md)platformy Azure, [programu PowerShell](maintenance-notifications-powershell.md) lub [portalu](maintenance-notifications-portal.md).
+- Jeśli konserwacja wymaga ponownego uruchomienia, zostanie powiadomiona o planowanej konserwacji. Platforma Azure udostępnia również przedział czasu, w którym można samodzielnie uruchomić konserwację, w odpowiednim czasie. Okno samoobsługowe jest zwykle 35 dni, chyba że konserwacji są pilne. Platforma Azure jest inwestować w technologie, aby ograniczyć liczbę przypadków, w których konserwacja planowanej platformy wymaga ponownego uruchomienia maszyn wirtualnych. Aby uzyskać instrukcje dotyczące zarządzania zaplanowaną konserwacją, zobacz Obsługa planowanych powiadomień konserwacyjnych za pomocą [interfejsu wiersza polecenia](maintenance-notifications-cli.md)platformy Azure, [programu PowerShell](maintenance-notifications-powershell.md) lub [portalu](maintenance-notifications-portal.md).
 
 Na tej stronie opisano, jak platforma Azure wykonuje oba typy konserwacji. Aby uzyskać więcej informacji o nieplanowanych zdarzeniach (przestoju), zobacz [Zarządzanie dostępnością maszyn wirtualnych w systemie Windows](./windows/manage-availability.md) lub odpowiednim artykule dla systemu [Linux](./linux/manage-availability.md).
 
@@ -37,11 +37,11 @@ Większość konserwacji niezerowego wpływu wstrzymuje maszynę wirtualną prze
 
 Konserwacja pamięci jest zachowywana przez ponad 90 procent maszyn wirtualnych platformy Azure. Nie działa dla serii G, M, N i H. Platforma Azure w coraz większym stopniu używa technologii migracji na żywo i zwiększa możliwości konserwacji pamięci, aby skrócić czas trwania przerwy.  
 
-Te operacje konserwacji, które nie wymagają ponownego uruchomienia, są stosowane w jednej domenie błędów jednocześnie. Są one przerywane, jeśli otrzymają ostrzeżenia o kondycji ostrzegawcze. 
+Te operacje konserwacji, które nie wymagają ponownego uruchomienia, są stosowane w jednej domenie błędów jednocześnie. Są one zatrzymane, jeśli otrzymają ostrzeżenia dotyczące kondycji z narzędzi do monitorowania platformy. 
 
 Te typy aktualizacji mogą mieć wpływ na niektóre aplikacje. Gdy maszyna wirtualna jest migrowana na żywo na inny host, niektóre wrażliwe obciążenia mogą pokazać niewielki spadek wydajności w ciągu kilku minut, co prowadzi do wstrzymania maszyny wirtualnej. Aby przygotować się do obsługi maszyny wirtualnej i ograniczyć wpływ na konserwację platformy Azure, spróbuj [użyć Scheduled Events dla systemu Windows](./windows/scheduled-events.md) lub [Linux](./linux/scheduled-events.md) dla takich aplikacji. 
 
-W publicznej wersji zapoznawczej znajduje się również funkcja kontroli konserwacji, która może ułatwić zarządzanie konserwacją, która nie wymaga ponownego uruchomienia. Musisz korzystać z [dedykowanych hostów platformy Azure](./linux/dedicated-hosts.md) lub [izolowanej maszyny wirtualnej](../security/fundamentals/isolation-choices.md). Sterowanie konserwacją udostępnia opcję pomijania aktualizacji platformy i stosowania aktualizacji w wybranym momencie w ciągu 35 dni. Aby uzyskać więcej informacji, zobacz [Kontrolowanie aktualizacji przy użyciu sterowania konserwacją i interfejsu wiersza polecenia platformy Azure](maintenance-control-cli.md).
+Aby uzyskać większą kontrolę nad wszystkimi działaniami konserwacyjnymi, takimi jak negatywny wpływ na aktualizacje i bezrozruchowe, można użyć funkcji kontroli konserwacji. Musisz korzystać z [dedykowanych hostów platformy Azure](./linux/dedicated-hosts.md) lub [izolowanej maszyny wirtualnej](../security/fundamentals/isolation-choices.md). Kontrola konserwacji pozwala pominąć wszystkie aktualizacje platformy i zastosować aktualizacje w wybranym czasie w ciągu dnia 35. Aby uzyskać więcej informacji, zobacz [Kontrolowanie aktualizacji przy użyciu sterowania konserwacją i interfejsu wiersza polecenia platformy Azure](maintenance-control.md).
 
 
 ### <a name="live-migration"></a>Migracja na żywo

@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 76d078d564125db7b6b8ae10909340a52b220407
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: b39fbdf19703d8b4b2f8683577701dcb23900616
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83713220"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836961"
 ---
 # <a name="get-started-with-azure-automation-state-configuration"></a>Wprowadzenie do konfiguracji stanu Azure Automation
 
@@ -231,10 +231,10 @@ Jeśli nie chcesz już zarządzać węzłem za pomocą konfiguracji stanu, może
 
     ![Zrzut ekranu przedstawiający stronę szczegółów węzła z wyróżnionym przyciskiem wyrejestrowywania](./media/automation-dsc-getting-started/UnregisterNode.png)
 
-## <a name="related-articles"></a>Pokrewne artykuły:
+## <a name="next-steps"></a>Następne kroki
 
-- [Przegląd konfiguracji stanu Azure Automation](automation-dsc-overview.md)
-- [Dołączanie maszyn w celu zarządzania przez Azure Automation konfigurację stanu](automation-dsc-onboarding.md)
-- [Przegląd konfiguracji żądanego stanu programu Windows PowerShell](/powershell/scripting/dsc/overview/overview)
-- [Cennik konfiguracji stanu Azure Automation](https://azure.microsoft.com/pricing/details/automation/)
-- [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)
+- Aby zapoznać się z omówieniem, zobacz [Omówienie konfiguracji stanu Azure Automation](automation-dsc-overview.md).
+- Aby włączyć funkcję dla maszyn wirtualnych w środowisku, zobacz [Włączanie konfiguracji stanu Azure Automation](automation-dsc-onboarding.md).
+- Aby poznać program PowerShell DSC, zobacz [Omówienie konfiguracji żądanego stanu programu Windows PowerShell](/powershell/scripting/dsc/overview/overview).
+- Aby uzyskać informacje o cenach, zobacz [Cennik konfiguracji stanu Azure Automation](https://azure.microsoft.com/pricing/details/automation/).
+- Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation).

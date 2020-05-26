@@ -9,12 +9,12 @@ services: automation
 ms.service: automation
 ms.subservice: dsc
 ms.topic: conceptual
-ms.openlocfilehash: 4578e3bff7951293c5ec2f1992e597face84b716
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: b55280dd8ed5ea82cf861e300306db5a787c31e8
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83713203"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836927"
 ---
 # <a name="work-with-azure-desired-state-configuration-extension-version-history"></a>Pracuj z historią wersji rozszerzenia konfiguracji żądanego stanu platformy Azure
 
@@ -251,5 +251,5 @@ Ten artykuł zawiera informacje o każdej wersji rozszerzenia maszyny wirtualnej
 
 - Aby uzyskać więcej informacji na temat programu PowerShell DSC, zobacz [centrum dokumentacji programu PowerShell](/powershell/scripting/dsc/overview/overview).
 - Zapoznaj się z [szablonem Menedżer zasobów dla rozszerzenia DSC](/azure/virtual-machines/extensions/dsc-template).
-- Aby uzyskać więcej funkcji, którymi można zarządzać za pomocą programu PowerShell DSC i więcej zasobów DSC, przejrzyj [galerię programu PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
+- Aby uzyskać więcej funkcji i zasobów, którymi można zarządzać za pomocą programu PowerShell DSC, przejrzyj [galerię programu PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
 - Aby uzyskać szczegółowe informacje o przekazywaniu poufnych parametrów do konfiguracji, zobacz [Zarządzanie poświadczeniami bezpiecznie przy użyciu programu obsługi rozszerzeń DSC](/azure/virtual-machines/extensions/dsc-credentials).

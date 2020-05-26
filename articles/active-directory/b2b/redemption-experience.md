@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0e3a2ddda4529cee584f5eabf6677af940d2bdd
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: d6bf5d40262c5991504d3dc62490fb50f6a20592
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83585899"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826098"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory realizacji zaproszeń do współpracy B2B
 
@@ -42,9 +42,9 @@ Alternatywą dla wiadomości e-mail z zaproszeniem jest nadanie gościa bezpośr
 
 > [!IMPORTANT]
 > Link bezpośredni musi być specyficzny dla dzierżawy. Innymi słowy, musi zawierać identyfikator dzierżawy lub zweryfikowaną domenę, aby można było uwierzytelnić gościa w dzierżawie, gdzie znajduje się aplikacja udostępniona. Wspólny adres URL, taki jak https://myapps.microsoft.com nie będzie działał dla gościa, ponieważ zostanie przekierowany do dzierżawy domowej w celu uwierzytelnienia. Oto kilka przykładów bezpośrednich linków z kontekstem dzierżawy:
- > - Panel dostępu do aplikacji: https://myapps.microsoft.com/?tenantid=&lt ; Identyfikator dzierżawy&gt; 
- > - Panel dostępu do aplikacji dla zweryfikowanej domeny: https://myapps.microsoft.com/&lt ; zweryfikowana domena&gt;
- > - Azure Portal: https://portal.azure.com/&lt ; Identyfikator dzierżawy&gt;
+ > - Panel dostępu do aplikacji:`https://myapps.microsoft.com/?tenantid=<tenant id>`
+ > - Panel dostępu aplikacje dla zweryfikowanej domeny:`https://myapps.microsoft.com/<;verified domain>`
+ > - Witryna Azure Portal: `https://portal.azure.com/<tenant id>`
  > - Poszczególna aplikacja: Zobacz, jak używać [linku bezpośredniego logowania](../manage-apps/end-user-experiences.md#direct-sign-on-links)
 
 Istnieją sytuacje, w których wiadomość e-mail z zaproszeniem zaleca się za pośrednictwem linku bezpośredniego. Jeśli te specjalne przypadki są ważne dla organizacji, zalecamy Zapraszanie użytkowników przy użyciu metod, które nadal wysyłają wiadomość e-mail z zaproszeniem:

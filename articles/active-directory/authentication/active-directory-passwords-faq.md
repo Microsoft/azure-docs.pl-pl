@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1246b5b980f60c2f3e65aa5b32a7d79dd6efc7d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7997359fb29afc876b184b811e0409cfdbeb265a
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81407172"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826472"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Często zadawane pytania dotyczące zarządzania hasłami
 
 Poniżej przedstawiono niektóre często zadawane pytania dotyczące operacji resetowania hasła.
 
-Jeśli masz ogólne pytanie dotyczące Azure Active Directory (Azure AD) i samoobsługowego resetowania hasła (SSPR), które nie są tutaj dostępne, możesz uzyskać pomoc dotyczącą społeczności na [Forum usługi Azure AD](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). Członkowie społeczności obejmują inżynierów, menedżerów produktów, MVP i innych specjalistów IT.
+Jeśli masz ogólne pytanie dotyczące Azure Active Directory (Azure AD) i samoobsługowego resetowania hasła (SSPR), które nie są tutaj dostępne, możesz poproś społeczność o pomoc na stronie pytań i odpowiedzi [Microsoft&pytań](https://docs.microsoft.com/answers/topics/azure-active-directory.html)i odpowiedzi na Azure Active Directory. Członkowie społeczności obejmują inżynierów, menedżerów produktów, MVP i innych specjalistów IT.
 
 Często zadawane pytania są podzielone na następujące sekcje:
 
@@ -36,7 +36,7 @@ Często zadawane pytania są podzielone na następujące sekcje:
 
 * **P: Czy moi użytkownicy rejestrują swoje własne dane resetowania hasła?**
 
-  > **Odpowiedź:** tak. Dopóki funkcja resetowania hasła jest włączona i jest licencjonowana, użytkownicy mogą przejść do portalu rejestracji resetowania haseł (https://aka.ms/ssprsetup) aby zarejestrować swoje informacje uwierzytelniania. Użytkownicy mogą również rejestrować się za pomocą panelu dostępuhttps://myapps.microsoft.com)(. Aby zarejestrować się w panelu dostępu, należy wybrać swój obraz profilu, wybrać pozycję **profil**, a następnie wybrać opcję **zarejestruj do resetowania hasła** .
+  > **Odpowiedź:** tak. Dopóki funkcja resetowania hasła jest włączona i jest licencjonowana, użytkownicy mogą przejść do portalu rejestracji resetowania haseł ( https://aka.ms/ssprsetup) Aby zarejestrować swoje informacje uwierzytelniania. Użytkownicy mogą również rejestrować się za pomocą panelu dostępu ( https://myapps.microsoft.com) . Aby zarejestrować się w panelu dostępu, należy wybrać swój obraz profilu, wybrać pozycję **profil**, a następnie wybrać opcję **zarejestruj do resetowania hasła** .
   >
   >
 * **P: Jeśli włączam funkcję resetowania haseł dla grupy, a następnie zdecyduje się ją włączyć dla wszystkich użytkowników, wymagane jest ponowne zarejestrowanie?**
@@ -101,7 +101,7 @@ Często zadawane pytania są podzielone na następujące sekcje:
   > Jeśli powiadomienie nie zostanie odebrane w tym przedziale czasowym:
   > * Sprawdź folder wiadomości-śmieci.
   > * Sprawdź, czy numer lub adres e-mail, z którym nawiązano kontakt, jest oczekiwany.
-  > * Sprawdź, czy dane uwierzytelniania w katalogu są poprawnie sformatowane, na przykład + 1 4255551234 lub *user\@contoso.com*. 
+  > * Sprawdź, czy dane uwierzytelniania w katalogu są poprawnie sformatowane, na przykład + 1 4255551234 lub *user \@ contoso.com*. 
 * **P: jakie języki są obsługiwane przez zresetowanie hasła?**
 
   > Odp **.:** Interfejs użytkownika służący do resetowania haseł, wiadomości SMS i połączenia głosowe są zlokalizowane w tych samych językach, które są obsługiwane w pakiecie Office 365.

@@ -11,16 +11,16 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb77c2bc1d229ae75da89caae3d8613b27e70b96
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 40266f1b340ebe0ab665c576ff3be0e62ba7c705
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83771336"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798275"
 ---
 # <a name="enable-combined-security-information-registration-in-azure-active-directory"></a>Włącz rejestrację połączonych informacji o zabezpieczeniach w Azure Active Directory
 
-Przed połączoną rejestracją użytkownicy zarejestrowali metody uwierzytelniania dla usługi Azure Multi-Factor Authentication i samoobsługowego resetowania hasła (SSPR). Ktoś został mylić, że podobne metody zostały użyte do Multi-Factor Authentication i SSPR, ale musiały zarejestrować się w przypadku obu funkcji. Teraz dzięki łącznej rejestracji użytkownicy mogą rejestrować się raz i korzystać z zalet zarówno Multi-Factor Authentication, jak i SSPR.
+Przed połączoną rejestracją użytkownicy zarejestrowali metody uwierzytelniania dla usługi Azure Multi-Factor Authentication i samoobsługowego resetowania hasła (SSPR). Ktoś został mylić, że podobne metody były używane dla platformy Azure Multi-Factor Authentication i SSPR, ale musiały zarejestrować się w przypadku obu funkcji. Teraz dzięki łącznej rejestracji użytkownicy mogą rejestrować się raz i korzystać z zalet platformy Azure Multi-Factor Authentication i SSPR.
 
 Przed włączeniem nowego środowiska zapoznaj się z artykułem [rejestracja informacji o zabezpieczeniach](concept-registration-mfa-sspr-combined.md) w celu zapoznania się z funkcjami i efektami tej funkcji.
 
@@ -34,10 +34,10 @@ Wykonaj następujące kroki, aby włączyć rejestrację połączoną:
 2. Przejdź do pozycji **Azure Active Directory**  >  **Ustawienia użytkownika**  >  **Zarządzaj ustawieniami wersji zapoznawczej funkcji użytkownika**.
 3. W obszarze **Użytkownicy mogą używać połączenia rejestracji informacji o zabezpieczeniach**, wybierz opcję Włącz dla **wybranej** grupy użytkowników lub dla **wszystkich** użytkowników.
 
-   ![Włącz środowisko wersji zapoznawczej połączonej informacji zabezpieczeń dla wszystkich użytkowników](media/howto-registration-mfa-sspr-combined/enable-the-combined-security-info-preview.png)
+   ![Włącz obsługę połączonych informacji zabezpieczających dla użytkowników](media/howto-registration-mfa-sspr-combined/enable-the-combined-security-info.png)
 
 > [!NOTE]
-> Po włączeniu połączonej rejestracji użytkownicy, którzy rejestrują lub potwierdzają swój numer telefonu lub aplikację mobilną za pomocą nowego środowiska, mogą używać ich do Multi-Factor Authentication i SSPR, jeśli te metody są włączone w zasadach Multi-Factor Authentication i SSPR. Jeśli wyłączysz to środowisko, użytkownicy, którzy przejdą do poprzedniej strony rejestracji SSPR w programie, `https://aka.ms/ssprsetup` będą musieli przeprowadzić uwierzytelnianie wieloskładnikowe, aby uzyskać dostęp do strony.
+> Po włączeniu łączenia się użytkowników, którzy rejestrują lub potwierdzają swój numer telefonu lub aplikację mobilną za pomocą nowego środowiska, mogą korzystać z nich na platformie Azure Multi-Factor Authentication i SSPR, jeśli te metody są włączone w ramach zasad usługi Azure Multi-Factor Authentication i SSPR. Jeśli wyłączysz to środowisko, użytkownicy, którzy przejdą do poprzedniej strony rejestracji SSPR w programie, `https://aka.ms/ssprsetup` będą musieli przeprowadzić uwierzytelnianie wieloskładnikowe, aby uzyskać dostęp do strony.
 
 Jeśli skonfigurowano listę przypisywania lokacji do strefy w programie Internet Explorer, następujące Lokacje muszą znajdować się w tej samej strefie:
 
@@ -55,8 +55,8 @@ Aby uzyskać więcej informacji na temat tworzenia zaufanych lokalizacji w dost�
 
 Poniższe zasady mają zastosowanie do wszystkich wybranych użytkowników próbujących zarejestrować się przy użyciu połączonego środowiska rejestracji i blokują dostęp, chyba że nawiązują połączenie z lokalizacji oznaczonej jako zaufane sieci.
 
-1. W **Azure Portal**przejdź do **Azure Active Directory**  >  **zabezpieczenia**  >  **dostęp warunkowy**
-1. Wybierz pozycję **+ nowe zasady**
+1. W **Azure Portal**przejdź do **Azure Active Directory**  >  **zabezpieczenia**  >  **dostęp warunkowy**.
+1. Wybierz pozycję **+ nowe zasady**.
 1. Wprowadź nazwę tych zasad, *na przykład rejestrację informacji o zabezpieczeniach w zaufanych sieciach*.
 1. W obszarze **Przypisania** wybierz pozycję **Użytkownicy i grupy**. Wybierz użytkowników i grupy, których mają dotyczyć te zasady, a następnie wybierz pozycję **gotowe**.
 
@@ -68,13 +68,13 @@ Poniższe zasady mają zastosowanie do wszystkich wybranych użytkowników prób
     ![Tworzenie zasad dostępu warunkowego w celu kontrolowania rejestracji informacji zabezpieczających](media/howto-registration-mfa-sspr-combined/require-registration-from-trusted-location.png)
 
 1. W obszarze **warunki**  >  **lokalizacji**skonfiguruj następujące opcje:
-   1. Skonfiguruj **tak**
-   1. Uwzględnij **dowolną lokalizację**
-   1. Wyklucz **wszystkie Zaufane lokalizacje**
+   1. Skonfiguruj **tak**.
+   1. Uwzględnij **dowolną lokalizację**.
+   1. Wyklucz **wszystkie Zaufane lokalizacje**.
 1. Wybierz pozycję **gotowe** w oknie *lokalizacje* , a następnie wybierz pozycję **gotowe** w oknie *warunki* .
-1. W obszarze **Kontrola dostępu**  >  **Przyznaj**wybierz pozycję **Blokuj dostęp**, a następnie **Wybierz pozycję**
-1. Ustaw opcję **Włącz zasady** na wartość **włączone**
-1. Aby sfinalizować zasady, wybierz pozycję **Utwórz** .
+1. W obszarze **Kontrola dostępu**  >  **Przydziel**, wybierz opcję **Blokuj dostęp**, a następnie **Wybierz**.
+1. Ustaw pozycję **Włącz zasady** na wartość **Włączone**.
+1. Aby zakończyć zasady, wybierz pozycję **Utwórz**.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -82,6 +82,6 @@ Jeśli potrzebujesz pomocy, zapoznaj się z tematem jak [rozwiązywać problemy 
 
 Aby włączyć funkcje w dzierżawie usługi Azure AD, zapoznaj się z samouczkami, aby włączyć funkcję samoobsługowego [resetowania hasła](tutorial-enable-sspr.md) i [włączyć usługę Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
 
-Dowiedz się, jak [włączyć rejestrację łączną w dzierżawie](howto-registration-mfa-sspr-combined.md) lub [zmusić użytkowników do ponownego rejestrowania metod uwierzytelniania](howto-mfa-userdevicesettings.md#manage-user-authentication-options).
+Dowiedz się, jak [zmusić użytkowników do ponownego rejestrowania metod uwierzytelniania](howto-mfa-userdevicesettings.md#manage-user-authentication-options).
 
 Możesz również przejrzeć [dostępne metody dla usług Azure Multi-Factor Authentication i SSPR](concept-authentication-methods.md).

@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 9dacbbac1caad33a6ab2f5f09d3f6c9d31c32bb7
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 624bce67e01a0d7dbee382ed77a833705ecd5c89
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871554"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800367"
 ---
 # <a name="support-for-microsoft-commercial-marketplace"></a>Pomoc techniczna dla portalu komercyjnego firmy Microsoft
 
@@ -20,13 +20,13 @@ Masz pytania dotyczące rozpoczynania pracy jako komercyjnego wydawcy portalu Ma
 
 ## <a name="onboarding"></a>Dołączanie
 
-Otwórz bilet z [obsługą wydawcy portalu Microsoft Marketplace](https://partner.microsoft.com/support/v2/?stage=1) , aby uzyskać problemy z dołączaniem i rozpoczęciem pracy.
+Otwórz bilet z [obsługą wydawcy portalu Microsoft Marketplace](https://aka.ms/marketplacepublishersupport) , aby uzyskać problemy z dołączaniem i rozpoczęciem pracy.
 
-## <a name="partner-center"></a>Centrum partnerskie   
+## <a name="partner-center"></a>Centrum partnerskie
 
 | Kanał pomocy technicznej | Opis | Dostępność |  
 |:--- |:--- |:--- |  
-| Aby uzyskać pomoc, odwiedź stronę Tworzenie zdarzenia znajdującą się w [pomocy technicznej portalu Marketplace](https://partner.microsoft.com/support/v2/?stage=1)</li> </ul> | Obsługa Centrum partnerskiego. | Pomoc techniczna jest świadczona 24x5. |  
+| Aby uzyskać pomoc, odwiedź stronę Tworzenie zdarzenia znajdującą się w [pomocy technicznej portalu Marketplace](https://aka.ms/marketplacepublishersupport)</li> </ul> | Obsługa Centrum partnerskiego. | Pomoc techniczna jest świadczona 24x5. |  
 
 ## <a name="technical"></a>Szczegóły techniczne  
 

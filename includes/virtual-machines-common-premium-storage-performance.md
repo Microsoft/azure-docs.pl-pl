@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 1827d44f4d4ac812a33aee4791c2103a10328ba7
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: dba0dd4e52913e0998b088fb2ccf90c98f0a89c2
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204662"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83821518"
 ---
 ## <a name="application-performance-indicators"></a>Wskaźniki wydajności aplikacji
 
@@ -140,9 +140,9 @@ Aby uzyskać więcej informacji o rozmiarach maszyn wirtualnych oraz o liczbie o
 Rozmiar we/wy to jeden z ważniejszych czynników. Rozmiar we/wy to rozmiar żądania operacji wejścia/wyjścia wygenerowanego przez aplikację. Rozmiar we/wy ma znaczny wpływ na wydajność, szczególnie w przypadku operacji wejścia/wyjścia aplikacji. Poniższa formuła przedstawia relację między operacjami IOPS, rozmiarem we/wy i przepustowością/przepływność.  
     ![](media/premium-storage-performance/image1.png)
 
-Niektóre aplikacje umożliwiają zmianę rozmiaru operacji we/wy, podczas gdy niektóre aplikacje nie są. Na przykład SQL Server określa optymalny rozmiar we/wy i nie zapewnia użytkownikom żadnych pokrętłów, aby je zmienić. Z drugiej strony firma Oracle udostępnia parametr o nazwie [\_DataBlock\_size](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) , za pomocą którego można skonfigurować rozmiar żądania we/wy bazy danych.
+Niektóre aplikacje umożliwiają zmianę rozmiaru operacji we/wy, podczas gdy niektóre aplikacje nie są. Na przykład SQL Server określa optymalny rozmiar we/wy i nie zapewnia użytkownikom żadnych pokrętłów, aby je zmienić. Z drugiej strony firma Oracle udostępnia parametr o nazwie [ \_ DataBlock \_ size](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) , za pomocą którego można skonfigurować rozmiar żądania we/wy bazy danych.
 
-Jeśli używasz aplikacji, która nie pozwala na zmianę rozmiaru we/wy, Skorzystaj z wytycznych w tym artykule, aby zoptymalizować wskaźnik KPI wydajności, który jest najbardziej odpowiedni dla aplikacji. Na przykład:
+Jeśli używasz aplikacji, która nie pozwala na zmianę rozmiaru we/wy, Skorzystaj z wytycznych w tym artykule, aby zoptymalizować wskaźnik KPI wydajności, który jest najbardziej odpowiedni dla aplikacji. Na przykład
 
 * Aplikacja OLTP generuje miliony małych i losowych żądań we/wy. Aby obsłużyć te typy żądań we/wy, należy zaprojektować infrastrukturę aplikacji w celu uzyskania większych liczb IOPS.  
 * Aplikacja do magazynowania danych generuje duże i sekwencyjne żądania we/wy. Aby obsługiwać te typy żądań we/wy, należy zaprojektować infrastrukturę aplikacji w celu uzyskania większej przepustowości lub przepływności.
@@ -189,15 +189,15 @@ Załóżmy na przykład, że wymaganie aplikacji jest maksymalnie 4 000 operacji
 *Koszt operacji*  
 W wielu przypadkach istnieje możliwość, że całkowity koszt operacji przy użyciu Premium Storage jest niższy niż przy użyciu magazynu w warstwie Standardowa.
 
-Rozważmy na przykład aplikację wymagającą 16 000 operacji we/wy na sekundę. Aby osiągnąć tę wydajność, potrzebna jest standardowa\_maszyna wirtualna D14 Azure IaaS, która może zapewnić maksymalną liczbę IOPS 16 000 32 przy użyciu dysków magazynu w warstwie Standardowa 1 TB. Każdy dysk magazynu o pojemności 1 TB może osiągać maksymalnie 500 operacji we/wy na sekundę. Szacowany koszt tej maszyny wirtualnej na miesiąc to $1 570. Miesięczny koszt 32 dysków magazynu w warstwie Standardowa to $1 638. Szacowany łączny koszt miesięczny wynosi $3 208.
+Rozważmy na przykład aplikację wymagającą 16 000 operacji we/wy na sekundę. Aby osiągnąć tę wydajność, potrzebna jest standardowa \_ maszyna wirtualna D14 Azure IaaS, która może zapewnić maksymalną liczbę IOPS 16 000 32 przy użyciu dysków magazynu w warstwie Standardowa 1 TB. Każdy dysk magazynu o pojemności 1 TB może osiągać maksymalnie 500 operacji we/wy na sekundę. Szacowany koszt tej maszyny wirtualnej na miesiąc to $1 570. Miesięczny koszt 32 dysków magazynu w warstwie Standardowa to $1 638. Szacowany łączny koszt miesięczny wynosi $3 208.
 
-Jeśli jednak ta sama aplikacja jest hostowana na Premium Storage, potrzebny będzie mniejszy rozmiar maszyny wirtualnej i mniej dysków magazynu Premium Storage, co zmniejsza całkowity koszt. Standardowa\_maszyna wirtualna DS13 może spełnić wymagania dotyczące liczby operacji we/wy 16 000 przy użyciu czterech dysków P30. Maszyna wirtualna DS13 ma maksymalną liczbę IOPS 25 600, a każdy dysk P30 ma maksymalną liczbę IOPS 5 000. Ogólnie Konfiguracja ta może osiągnąć 5 000 x 4 20 000 = liczba operacji we/wy na sekundę. Szacowany koszt tej maszyny wirtualnej na miesiąc to $1 003. Miesięczny koszt czterech dysków magazynu P30 Premium będzie $544,34. Szacowany łączny koszt miesięczny wynosi $1 544.
+Jeśli jednak ta sama aplikacja jest hostowana na Premium Storage, potrzebny będzie mniejszy rozmiar maszyny wirtualnej i mniej dysków magazynu Premium Storage, co zmniejsza całkowity koszt. Standardowa \_ maszyna wirtualna DS13 może spełnić wymagania dotyczące liczby operacji we/wy 16 000 przy użyciu czterech dysków P30. Maszyna wirtualna DS13 ma maksymalną liczbę IOPS 25 600, a każdy dysk P30 ma maksymalną liczbę IOPS 5 000. Ogólnie Konfiguracja ta może osiągnąć 5 000 x 4 20 000 = liczba operacji we/wy na sekundę. Szacowany koszt tej maszyny wirtualnej na miesiąc to $1 003. Miesięczny koszt czterech dysków magazynu P30 Premium będzie $544,34. Szacowany łączny koszt miesięczny wynosi $1 544.
 
 W poniższej tabeli zestawiono podział kosztów tego scenariusza dla standardów i Premium Storage.
 
 | &nbsp; | **Standardowa** | **Premium** |
 | --- | --- | --- |
-| **Koszt maszyny wirtualnej miesięcznie** |$1 570,58 (standardowa\_D14) |$1 003,66 (standardowa\_DS13) |
+| **Koszt maszyny wirtualnej miesięcznie** |$1 570,58 (standardowa \_ D14) |$1 003,66 (standardowa \_ DS13) |
 | **Koszt dysków miesięcznie** |$1 638,40 (32 x 1 TB dysków) |$544,34 (4 x P30 dysków) |
 | **Łączny koszt miesięcznie** |$3 208,98 |$1 544,34 |
 
@@ -237,7 +237,7 @@ Maszyny wirtualne o wysokiej skali wykorzystujące platformę Azure Premium Stor
 > [!WARNING]
 > Buforowanie dysków nie jest obsługiwane w przypadku dysków 4 TiB i większych. Jeśli do maszyny wirtualnej są dołączone wiele dysków, każdy dysk o rozmiarze mniejszym niż 4 TiB będzie obsługiwał buforowanie.
 >
-> Zmienianie ustawień pamięci podręcznej dysku platformy Azure powoduje odłączenie i ponowne dołączenie dysku docelowego. Jeśli jest to dysk systemu operacyjnego, maszyna wirtualna zostanie ponownie uruchomiona. Zatrzymasz wszystkie aplikacje/usługi, na które może mieć wpływ to zakłócenie, przed zmianą ustawień pamięci podręcznej dysku.
+> Zmienianie ustawień pamięci podręcznej dysku platformy Azure powoduje odłączenie i ponowne dołączenie dysku docelowego. Jeśli jest to dysk systemu operacyjnego, maszyna wirtualna zostanie ponownie uruchomiona. Zatrzymasz wszystkie aplikacje/usługi, na które może mieć wpływ to zakłócenie, przed zmianą ustawień pamięci podręcznej dysku. Nie poniższe zalecenia mogą prowadzić do uszkodzenia danych.
 
 Aby dowiedzieć się więcej o tym, jak działa BlobCache, zapoznaj się z wpisem w blogu na [platformie Azure Premium Storage](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/) .
 
@@ -280,9 +280,9 @@ Na przykład można zastosować te wytyczne do SQL Server uruchamiania na Premiu
 
 Dla wszystkich dysków SSD Premium lub Ultra dysków z pamięcią podręczną ustawioną na wartość **ReadOnly** lub **none**należy wyłączyć "bariery" podczas instalowania systemu plików. W tym scenariuszu nie są potrzebne przeszkody, ponieważ zapisy w usłudze Premium Storage są trwałe dla tych ustawień pamięci podręcznej. Po pomyślnym zakończeniu żądania zapisu dane zostały zapisane w magazynie trwałym. Aby wyłączyć "bariery", użyj jednej z poniższych metod. Wybierz jeden z nich dla systemu plików:
   
-* Aby wyłączyć bariery w programie **reiserFS**, użyj `barrier=none` opcji instalacji. (Aby włączyć bariery, `barrier=flush`Użyj.)
-* Aby wyłączyć bariery dla **ext3/ext4**, użyj opcji `barrier=0` instalacji. (Aby włączyć bariery, `barrier=1`Użyj.)
-* Aby wyłączyć bariery w programie **XFS**, użyj `nobarrier` opcji instalacji. (Aby włączyć bariery, `barrier`Użyj.)
+* Aby wyłączyć bariery w programie **reiserFS**, użyj `barrier=none` opcji instalacji. (Aby włączyć bariery, użyj `barrier=flush` .)
+* Aby wyłączyć bariery dla **ext3/ext4**, użyj `barrier=0` opcji instalacji. (Aby włączyć bariery, użyj `barrier=1` .)
+* Aby wyłączyć bariery w programie **XFS**, użyj `nobarrier` opcji instalacji. (Aby włączyć bariery, użyj `barrier` .)
 * W przypadku dysków usługi Premium Storage z pamięcią podręczną ustawioną na **ReadWrite**Włącz bariery dla trwałości zapisu.
 * Aby etykiety woluminów były utrwalane po ponownym uruchomieniu maszyny wirtualnej, należy zaktualizować/etc/fstab przy użyciu unikatowych identyfikatorów uniwersalnych (UUID) do dysków. Aby uzyskać więcej informacji, zobacz [Dodawanie dysku zarządzanego do maszyny wirtualnej z systemem Linux](../articles/virtual-machines/linux/add-disk.md).
 
@@ -384,3 +384,4 @@ W przypadku woluminu rozłożonego należy zachować górną głębokość kolej
 Usługa Azure Premium Storage postanowił określoną liczbę operacji we/wy na sekundę i przepływności w zależności od wybranego rozmiaru maszyny wirtualnej i wybranego rozmiaru dysku. Gdy aplikacja próbuje zwiększyć liczbę operacji we/wy lub przepływności powyżej tych limitów, co może obsłużyć maszyna wirtualna lub dysk, Premium Storage będzie ograniczać ją. Te manifesty mają postać obniżonej wydajności aplikacji. Może to oznaczać większe opóźnienia, niższą przepływność lub mniejsze liczby operacji we/wy na sekundę. Jeśli Premium Storage nie jest ograniczana, aplikacja może zakończyć się niepowodzeniem, przekroczenie możliwości osiągania zasobów. Aby uniknąć problemów z wydajnością ze względu na ograniczenie przepustowości, zawsze Zapewnij odpowiednią ilość zasobów dla aplikacji. Weź pod uwagę to, co omówiono w sekcjach rozmiary maszyn wirtualnych i rozmiary dysków powyżej. Testy porównawcze to najlepszy sposób ustalania zasobów potrzebnych do hostowania aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
+

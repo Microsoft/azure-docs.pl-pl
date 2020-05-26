@@ -1623,20 +1623,6 @@
                     - name: Omówienie uwierzytelniania tokenu usługi Azure AD
                       href: /azure/databricks/dev-tools/api/latest/aad/index
                       maintainContext: true
-                    - name: Uzyskiwanie tokenu usługi Azure AD przy użyciu biblioteki uwierzytelniania usługi Azure AD
-                      href: /azure/databricks/dev-tools/api/latest/aad/app-aad-token
-                      maintainContext: true
-                    - name: Uzyskiwanie tokenu usługi Azure AD przy użyciu jednostki usługi
-                      href: /azure/databricks/dev-tools/api/latest/aad/service-prin-aad-token
-                      maintainContext: true
-                    - name: Rozwiązywanie problemów z tokenami dostępu usługi Azure AD
-                      href: /azure/databricks/dev-tools/api/latest/aad/troubleshoot-aad-token
-                  maintainContext: true
-                - name: Tokeny usługi Azure Active Directory
-                  items:
-                    - name: Omówienie uwierzytelniania tokenu usługi Azure AD
-                      href: /azure/databricks/dev-tools/api/latest/aad/index
-                      maintainContext: true
                     - name: Uzyskiwanie tokenu usługi Azure AD przy użyciu biblioteki uwierzytelniania usługi AAD
                       href: /azure/databricks/dev-tools/api/latest/aad/app-aad-token
                       maintainContext: true
@@ -1996,8 +1982,8 @@
       href: 'https://azure.microsoft.com/roadmap/?category=analytics'
     - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/databricks/'
-    - name: Zadaj pytanie — forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDatabricks'
+    - name: Zadaj pytanie — Pytania i odpowiedzi Microsoft — strona pytania
+      href: 'https://docs.microsoft.com/answers/topics/azure-databricks.html'
     - name: Zadaj pytanie — Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-databricks'
     - name: Dostępność w danym regionie

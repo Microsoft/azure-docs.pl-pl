@@ -32,8 +32,6 @@
           href: quickstarts/speech-to-text-from-file.md
         - name: Rozpoznawanie mowy przechowywanej w usłudze Blob Storage
           href: quickstarts/from-blob.md
-        - name: Ocena wymowy za pomocą referencyjnych danych wejściowych
-          href: 'rest-speech-to-text.md#pronunciation-assessment-parameters'
     - name: Przewodniki z instrukcjami
       items:
         - name: Wybór trybu rozpoznawania mowy
@@ -563,11 +561,14 @@
           href: devices-sdk-release-notes.md
 - name: narzędzia
   items:
-    - name: SPX
+    - name: Interfejs wiersza polecenia usługi Mowa
+      displayName: SPX
       items:
-        - name: Co to jest SPX?
+        - name: Co to jest interfejs wiersza polecenia usługi Mowa?
+          displayName: What is SPX?
           href: spx-overview.md
-        - name: SPX — podstawy
+        - name: Podstawy interfejsu wiersza polecenia usługi Mowa
+          displayName: SPX basics
           href: spx-basics.md
     - name: Speech Studio
       items:

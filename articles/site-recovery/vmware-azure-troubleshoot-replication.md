@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: f91ee5654b4add37d3cce4f875be1f9c2b398ab9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a3d8ee1d0c1625c9e7d3d83b590f38dcd8847fe
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81259497"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836417"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Rozwiązywanie problemów z replikacją dla maszyn wirtualnych VMware i serwerów fizycznych
 
@@ -132,7 +132,7 @@ Aby rozwiązać ten problem, wykonaj następujące kroki w celu sprawdzenia stan
 
 ## <a name="error-id-78144---no-app-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>Identyfikator błędu 78144 — Brak dostępnego na poziomie aplikacji punktu odzyskiwania dla maszyny wirtualnej w ciągu ostatnich "XXX" minut
 
-Wprowadzono ulepszenia w wersjach Agent mobilności [9,23](vmware-physical-mobility-service-overview.md#mobility-service-agent-version-923-and-higher) & [9,27](site-recovery-whats-new.md#update-rollup-39) do obsługi zachowań błędów instalacji usługi VSS. Upewnij się, że korzystasz z najnowszych wersji, aby uzyskać najlepsze wskazówki dotyczące rozwiązywania problemów z usługą VSS.
+Wprowadzono ulepszenia w wersjach Agent mobilności [9,23](vmware-physical-mobility-service-overview.md#mobility-service-agent-version-923-and-higher)  &  [9,27](site-recovery-whats-new.md#update-rollup-39) do obsługi zachowań błędów instalacji usługi VSS. Upewnij się, że korzystasz z najnowszych wersji, aby uzyskać najlepsze wskazówki dotyczące rozwiązywania problemów z usługą VSS.
 
 Poniżej wymieniono niektóre z najczęstszych problemów
 
@@ -193,4 +193,4 @@ Sprawdź, czy typ uruchamiania usługi dostawcy VSS jest ustawiony na wartość 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli potrzebujesz więcej pomocy, Opublikuj swoje pytanie na [forum Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). Mamy aktywną społeczność i jeden z naszych inżynierów może Ci pomóc.
+Jeśli potrzebujesz więcej pomocy, Opublikuj swoje pytanie na [stronie pytania&](https://docs.microsoft.com/answers/topics/azure-site-recovery.html)pytań i odpowiedzi dla Azure Site Recovery. Mamy aktywną społeczność i jeden z naszych inżynierów może Ci pomóc.

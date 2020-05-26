@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 094939ee62046c72f07ac46f0781e687034f731f
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 3c6b8ef04e44a68290f61ed4688e3379130231ef
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690627"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799367"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Jak używać Azure Monitor skoroszytów dla raportów Azure Active Directory
 
@@ -42,13 +42,13 @@ Czy chcesz:
 
 - Uzyskaj dokładniejsze informacje o zapytaniach dziennika logowania, w tym skoroszycie przedstawiono liczbę użytkowników, którym udzielono lub odmówiono dostępu, a także liczbę użytkowników, których zasady dostępu warunkowego zostały pominięte podczas uzyskiwania dostępu do zasobów.
 
-- Aby ułatwić rozwiązanie tych pytań, Azure Active Directory udostępnia skoroszyty do monitorowania. [Azure monitor skoroszyty](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) łączą teksty, zapytania analityczne, metryki i parametry w rozbudowanych raportach interaktywnych.
+- Aby ułatwić rozwiązanie tych pytań, Azure Active Directory udostępnia skoroszyty do monitorowania. [Azure monitor skoroszyty](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) łączą teksty, zapytania analityczne, metryki i parametry w rozbudowanych raportach interaktywnych.
 
 
 
 W tym artykule:
 
-- Przyjęto założenie, że wiesz już, jak [tworzyć interaktywne raporty przy użyciu skoroszytów monitorowania](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).
+- Przyjęto założenie, że wiesz już, jak [tworzyć interaktywne raporty przy użyciu skoroszytów monitorowania](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview).
 
 - Wyjaśnia, jak używać skoroszytów do monitorowania, aby zrozumieć wpływ zasad dostępu warunkowego, rozwiązywać problemy z błędami logowania i identyfikować starsze uwierzytelnienia.
  
@@ -83,7 +83,7 @@ Aby uzyskać dostęp do skoroszytów:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
-1. Przejdź do **Azure Active Directory** > **monitorowanie** > **skoroszytów**. 
+1. Przejdź do **Azure Active Directory**  >  **monitorowanie**  >  **skoroszytów**. 
 
 1. Wybierz raport lub szablon lub na pasku narzędzi wybierz pozycję **Otwórz**. 
 
@@ -302,4 +302,4 @@ Aby pomóc w rozwiązywaniu problemów z logowaniem, Azure Monitor zapewnia podz
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Twórz interaktywne raporty przy użyciu skoroszytów monitorowania](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).
+[Twórz interaktywne raporty przy użyciu skoroszytów monitorowania](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview).

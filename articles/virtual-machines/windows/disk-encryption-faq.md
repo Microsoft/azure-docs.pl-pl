@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 61de52e5a6703682d52d49efe9decb814231dae4
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: a6748ef520b3d03727aca045660f7563f75b200d
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901281"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828342"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>Azure Disk Encryption dla często zadawanych pytań dotyczących maszyn wirtualnych z systemem Windows
 
@@ -136,7 +136,7 @@ Azure Backup udostępnia mechanizm tworzenia kopii zapasowych i przywracania zas
 
 ## <a name="where-can-i-go-to-ask-questions-or-provide-feedback"></a>Gdzie mogę zadawać pytania lub przekazać opinię?
 
-Możesz zadawać pytania lub przekazać Opinie na [forum Azure Disk Encryption](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDiskEncryption).
+Możesz zadawać pytania lub przekazać informacje zwrotne na [stronie pytania&pytań Azure Disk Encryption](https://docs.microsoft.com/answers/topics/azure-disk-encryption.html).
 
 ## <a name="next-steps"></a>Następne kroki
 W tym dokumencie przedstawiono kilka częstych pytań dotyczących Azure Disk Encryption. Aby uzyskać więcej informacji na temat tej usługi, zobacz następujące artykuły:

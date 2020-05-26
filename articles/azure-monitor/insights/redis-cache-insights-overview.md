@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/21/2020
-ms.openlocfilehash: 8c8265242e09938126bfdb28900b64f2c0e7970a
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 0e1bb015025c2ea9c720aca5d72faef01926cc33
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773884"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800011"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis-preview"></a>Eksploruj Azure Monitor dla usługi Azure cache for Redis (wersja zapoznawcza)
 
@@ -186,4 +186,4 @@ Po zapisaniu skoroszytu niestandardowego przejdź do galerii skoroszytów, aby g
 
 * Skonfiguruj [alerty metryk](../platform/alerts-metric.md) i [powiadomienia dotyczące kondycji usługi](../../service-health/alerts-activity-log-service-notifications.md) , aby skonfigurować automatyczne alerty, które ułatwiają wykrywanie problemów.
 
-* Zapoznaj się z scenariuszami obsługiwanymi przez skoroszyty, sposobami tworzenia lub dostosowywania raportów oraz innymi przez przeglądanie raportów [interaktywnych przy użyciu skoroszytów Azure monitor](../app/usage-workbooks.md).
+* Zapoznaj się z scenariuszami obsługiwanymi przez skoroszyty, sposobami tworzenia lub dostosowywania raportów oraz innymi przez przeglądanie raportów [interaktywnych przy użyciu skoroszytów Azure monitor](../platform/workbooks-overview.md).

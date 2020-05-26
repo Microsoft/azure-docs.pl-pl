@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
 ms.date: 1/23/2020
-ms.openlocfilehash: c40aa9b0a94940f48a8edbd046a744678f02cbd2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e5dfdd41d3770cc49ed7a1e40ad6fbb12e5b10ea
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "76775396"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827239"
 ---
 # <a name="azure-iot-support-and-help-options"></a>Opcje wsparcia technicznego i pomocy usługi Azure IoT
 
@@ -53,11 +53,11 @@ Aby omówić technologie i usługi platformy Azure na potrzeby tworzenia rozwią
 
 Jeśli nie możesz znaleźć odpowiedzi na problem za pośrednictwem wyszukiwania, Prześlij nowe pytanie do witryny MSDN na forum dotyczącej usługi:
 
-- [Azure Digital Twins](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredigitaltwins)
-- [Azure IoT Hub](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azureiothub)
-- [Azure IoT Edge](https://social.msdn.microsoft.com/Forums/en-US/home?forum=iotedge)
-- [Azure Maps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelbs)
-- [Azure Time Series Insights](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureTimeSeriesInsights)
+- [Microsoft Q&stronie pytania dotyczącej usługi Azure Digital bliźniaczych reprezentacji](https://docs.microsoft.com/answers/topics/azure-digital-twins.html)
+- [Microsoft Q&stronie pytania dotyczącej platformy Azure IoT Hub](https://docs.microsoft.com/answers/topics/azure-iot-hub.html)
+- [Strona pytania&pytań Azure IoT Edge](https://docs.microsoft.com/answers/topics/azure-iot-edge.html)
+- [Strona pytania&pytań Azure Maps](https://docs.microsoft.com/answers/topics/azure-maps.html)
+- [Strona pytania&pytań Azure Time Series Insights](https://docs.microsoft.com/answers/topics/azure-time-series-insights.html)
 
 ## <a name="submit-feedback-on-azure-feedback"></a>Prześlij opinię na temat opinii na temat platformy Azure
 

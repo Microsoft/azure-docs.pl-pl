@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: 7d0f246a96072a6e433b0762256467f1c20a45fe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 517bdc0846ae56e0db41631f1dc5411471c6c2bd
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77581722"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800141"
 ---
 # <a name="what-is-azure-sentinel"></a>Co to jest usługa Azure Sentinel?
 
@@ -51,7 +51,7 @@ Aby przejść do tablicy wskaźnikowej platformy Azure, musisz najpierw [nawiąz
 
 ## <a name="workbooks"></a>Skoroszyty
 
-Po [nawiązaniu połączenia ze źródłami](quickstart-onboard.md) danych na platformie Azure — dane można monitorować, korzystając z integracji z Azure monitor skoroszytów platformy Azure, które zapewniają uniwersalność tworzenia niestandardowych skoroszytów. Gdy skoroszyty są wyświetlane inaczej na platformie Azure — wskaźnikiem, może być przydatne, aby zobaczyć, jak [tworzyć interaktywne raporty za pomocą skoroszytów Azure monitor](../azure-monitor/app/usage-workbooks.md). System Azure — wskaźnik kontrolny umożliwia tworzenie niestandardowych skoroszytów w danych, a także udostępnia wbudowane szablony skoroszytów umożliwiające szybkie uzyskiwanie szczegółowych informacji na temat danych, gdy tylko nawiążesz połączenie ze źródłem danych.
+Po [nawiązaniu połączenia ze źródłami danych](quickstart-onboard.md)   na platformie Azure — dane można monitorować, korzystając z integracji z Azure monitor skoroszytów platformy Azure, które zapewniają uniwersalność tworzenia niestandardowych skoroszytów. Gdy skoroszyty są wyświetlane inaczej na platformie Azure — wskaźnikiem, może być przydatne, aby zobaczyć, jak [tworzyć interaktywne raporty za pomocą skoroszytów Azure monitor](../azure-monitor/platform/workbooks-overview.md). System Azure — wskaźnik kontrolny umożliwia tworzenie niestandardowych skoroszytów w danych, a także udostępnia wbudowane szablony skoroszytów umożliwiające szybkie uzyskiwanie szczegółowych informacji na temat danych, gdy tylko nawiążesz połączenie ze źródłem danych.
 
 ![Pulpity nawigacyjne](./media/tutorial-monitor-data/access-workbooks.png)
 

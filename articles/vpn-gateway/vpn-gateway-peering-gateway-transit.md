@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: 3917101ee7ac151cf624e5be0f51ccf01c8cb1cc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c243c6ded4057c9e4ac63345f300f3b3b690b363
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77161889"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798940"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Konfigurowanie tranzytu bramy sieci VPN na potrzeby wirtualnych sieci równorzędnych
 
@@ -30,6 +30,11 @@ W tym dokumencie opisano dwa scenariusze:
 
 1. Obie sieci wirtualne korzystają z modelu wdrażania usługi Resource Manager
 2. Promieniście ułożone sieci wirtualne korzystają z modelu klasycznego, a centralna sieć wirtualna z bramą używa modelu usługi Resource Manager
+
+
+>[!NOTE]
+> Jeśli wprowadzisz zmiany w topologii sieci i masz klientów sieci VPN z systemem Windows, pakiet klienta VPN dla klientów systemu Windows musi zostać pobrany i zainstalowany ponownie, aby zmiany zostały zastosowane do klienta programu.
+>
 
 ## <a name="requirements"></a>Wymagania
 
@@ -55,9 +60,9 @@ Konta używane do tworzenia wirtualnych sieci równorzędnych muszą mieć niezb
 |Sieć wirtualna|Model wdrażania|Rola|Uprawnienia|
 |---|---|---|---|
 |Hub-RM|Resource Manager|[Współautor sieci](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
-| |Wdrożenie klasyczne|[Współautor klasycznej sieci](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Nie dotyczy|
+| |Klasyczny|[Współautor klasycznej sieci](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Nie dotyczy|
 |Spoke-Classic|Resource Manager|[Współautor sieci](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
-||Wdrożenie klasyczne|[Współautor klasycznej sieci](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
+||Klasyczny|[Współautor klasycznej sieci](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 
 Dowiedz się więcej na temat [wbudowanych ról](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) i przypisywania określonych uprawnień do [ról niestandardowych](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (tyko usługa Resource Manager).
 
