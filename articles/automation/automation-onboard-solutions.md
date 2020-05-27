@@ -5,14 +5,14 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 8a3f2c231544d07d614e6175bf703f20e4a9d9b0
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 39ebdb6937b03d72365e9d3785af9571ebb66186
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743939"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836060"
 ---
-# <a name="enable-update-management-from-a-runbook"></a>Włączanie Update Management z elementu Runbook
+# <a name="enable-update-management-from-a-runbook"></a>Włączanie rozwiązania Update Management z poziomu elementu runbook
 
 W tym artykule opisano, jak można użyć elementu Runbook, aby włączyć funkcję [Update Management](automation-update-management.md) dla maszyn wirtualnych w środowisku. Aby włączyć maszyny wirtualne platformy Azure na dużą skalę, należy włączyć istniejącą maszynę wirtualną przy użyciu Update Management. 
 
@@ -101,8 +101,9 @@ Aby można było uruchomić ten element Runbook, należy włączyć Update Manag
 
 ## <a name="next-steps"></a>Następne kroki
 
+* Aby zaplanować element Runbook, zobacz [Zarządzanie harmonogramami w Azure Automation](shared-resources/schedules.md).
 * Aby używać Update Management dla maszyn wirtualnych, zobacz [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure](automation-tutorial-update-management.md).
-* Aby poznać konfiguracje zakresów, zobacz [Working with Scope Configurations for Update Management](automation-scope-configurations-update-management.md).
+* Aby poznać konfiguracje zakresów, zobacz [Working with Scope Configurations](automation-scope-configurations-update-management.md).
 * Jeśli obszar roboczy Log Analytics nie jest już potrzebny, zobacz instrukcje w polu [Odłącz obszar roboczy z konta usługi Automation dla Update Management](automation-unlink-workspace-update-management.md).
 * Aby usunąć maszyny wirtualne z Update Management, zobacz [usuwanie maszyn wirtualnych z Update Management](automation-remove-vms-from-update-management.md).
 * Aby rozwiązać ogólne błędy Update Management, zobacz [Rozwiązywanie problemów z Update Management](troubleshoot/update-management.md).

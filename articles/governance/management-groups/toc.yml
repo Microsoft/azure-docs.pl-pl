@@ -14,6 +14,8 @@
       href: ./create.md
     - name: Zarządzanie zasobami
       href: ./manage.md
+    - name: Chronienie hierarchii zasobów
+      href: ./how-to/protect-resource-hierarchy.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure

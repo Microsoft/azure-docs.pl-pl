@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: 9d74ea2b967112a794cda204cbbfcac707e1d7c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: de14f334b2a68d820dbf80f194ac93430c452038
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80879466"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83833374"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Mapa gotowości usługi Azure Security Center
 Ten dokument zapewnia mapę gotowości, która będzie pomocna w rozpoczynaniu pracy z usługą Azure Security Center.
@@ -54,7 +54,7 @@ Użyj następujących zasobów, aby uzyskać pomoc w procesach dołączania.
 Artykuł
 * [Dołączanie do standardu usługi Azure Security Center w celu zapewnienia większego bezpieczeństwa](https://docs.microsoft.com/azure/security-center/security-center-onboarding)
 
-Film wideo
+Wideo
 * [Hybrydowa usługa Azure Security Center — omówienie](https://youtu.be/NMa4L_M597k)
 
 ## <a name="mitigating-security-issues-using-security-center"></a>Zmniejszenie zagrożeń dla bezpieczeństwa przy użyciu usługi Security Center
@@ -69,7 +69,7 @@ Artykuły
 * [Ochrona usługi Azure SQL i danych w usłudze Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
 
 
-Film wideo    
+Wideo    
 * [Zmniejszenie zagrożeń dla bezpieczeństwa przy użyciu usługi Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Mitigating-Security-Issues-using-Azure-Security-Center)
 
 ### <a name="security-center-for-incident-response"></a>Korzystanie z usługi Security Center w celu reagowania na zdarzenia
@@ -119,7 +119,6 @@ Artykuły
 ## <a name="community-resources"></a>Zasoby społeczności
 
 * [Usługa Security Center UserVoice](https://feedback.azure.com/forums/347535-azure-security-center)
-* [Forum społeczności usługi Security Center](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureSecurityCenter)
-
+* [Strona pytania&pytań Security Center](https://docs.microsoft.com/answers/topics/azure-security-center.html)
 
 

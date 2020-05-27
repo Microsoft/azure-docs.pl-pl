@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: dcd5668fa2c6e1840eed13a9ee0cbd30d8d8a25a
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 9613b74b727d27bd47a05fadc1398bf898f667a5
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983248"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835731"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Monitoruj uruchomienia eksperymentów i metryki usługi Azure ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -52,6 +52,7 @@ Następujące metryki można dodać do przebiegu podczas uczenia eksperymentu. A
 Jeśli chcesz śledzić lub monitorować eksperyment, musisz dodać kod, aby rozpocząć rejestrowanie podczas przesyłania przebiegu. Poniżej przedstawiono sposoby wyzwalania przesłania przebiegu:
 * __Uruchom. start_logging__ — Dodaj funkcje rejestrowania do skryptu szkoleniowego i Rozpocznij interaktywną sesję rejestrowania w określonym doświadczeniu. **start_logging** tworzy interaktywny przebieg do użycia w scenariuszach takich jak notesy. Wszystkie metryki, które są rejestrowane w trakcie sesji są dodawane do rekordu uruchomienia w eksperymentie.
 * __ScriptRunConfig__ — Dodaj funkcje rejestrowania do skryptu szkoleniowego i Załaduj cały folder skryptu z przebiegiem.  **ScriptRunConfig** jest klasą do konfigurowania konfiguracji do uruchamiania skryptów. Za pomocą tej opcji można dodać kod monitorowania, aby otrzymywać powiadomienia o zakończeniu lub aby wyświetlić widżet wizualny do monitorowania.
+* __Rejestrowanie projektanta__ — Dodawanie funkcji rejestrowania do potoku projektanta z przeciąganym &m przy użyciu modułu __uruchamiania skryptu języka Python__ . Dodaj kod języka Python do eksperymentów projektanta dzienników. 
 
 ## <a name="set-up-the-workspace"></a>Konfigurowanie obszaru roboczego
 Przed dodaniem rejestrowania i przesłaniem eksperymentu należy skonfigurować obszar roboczy.
@@ -78,7 +79,7 @@ Dodaj śledzenie eksperymentu przy użyciu zestawu SDK Azure Machine Learning i 
 
 [! Notes — Python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb? Name = create_experiment)]
 
-Skrypt kończy się ```run.complete()```znakiem, co oznacza uruchomienie jako ukończone.  Ta funkcja jest zwykle używana w scenariuszach interaktywnego notesu.
+Skrypt kończy się znakiem ```run.complete()``` , co oznacza uruchomienie jako ukończone.  Ta funkcja jest zwykle używana w scenariuszach interaktywnego notesu.
 
 ## <a name="option-2-use-scriptrunconfig"></a>Opcja 2: korzystanie z ScriptRunConfig
 
@@ -86,11 +87,11 @@ Skrypt kończy się ```run.complete()```znakiem, co oznacza uruchomienie jako uk
 
 Ten przykład rozszerza się w oparciu o podstawowy model pierścieniowy skryptu sklearn z powyższych. Wykonuje proste odwzorowanie parametrów, aby wyrównać wartości alfa modelu do przechwytywania metryk i modeli przeszkolonych w ramach przebiegów w ramach eksperymentu. Przykład jest uruchamiany lokalnie w środowisku zarządzanym przez użytkownika. 
 
-1. Utwórz skrypt `train.py`szkoleniowy.
+1. Utwórz skrypt szkoleniowy `train.py` .
 
    [! code-Python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train.py)]
 
-2. Odwołania `train.py` `mylib.py` do skryptów, które umożliwiają uzyskanie listy wartości alfa do użycia w modelu pierścieniowym.
+2. `train.py`Odwołania do skryptów, `mylib.py` które umożliwiają uzyskanie listy wartości alfa do użycia w modelu pierścieniowym.
 
    [! code-Python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/mylib.py)] 
 
@@ -99,12 +100,37 @@ Ten przykład rozszerza się w oparciu o podstawowy model pierścieniowy skryptu
    [! Notes — Python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb? Name = user_managed_env)]
 
 
-4. Prześlij ```train.py``` skrypt do uruchomienia w środowisku zarządzanym przez użytkownika. Ten cały folder skryptu jest przesyłany do szkolenia, łącznie ```mylib.py``` z plikiem.
+4. Prześlij ```train.py``` skrypt do uruchomienia w środowisku zarządzanym przez użytkownika. Ten cały folder skryptu jest przesyłany do szkolenia, łącznie z ```mylib.py``` plikiem.
 
    [! Notes — Python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb? Name = SRC)] [! Notes — Python [] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb? Name = Run)]
 
+## <a name="option-3-log-designer-experiments"></a>Opcja 3: eksperymenty projektanta dzienników
 
+Użyj modułu __skryptu języka Python__ , aby dodać logikę rejestrowania do eksperymentów projektanta. Można rejestrować dowolną wartość przy użyciu tego przepływu pracy, ale jest to szczególnie przydatne do rejestrowania metryk z modułu __oceny modelu__ do śledzenia wydajności modelu w różnych przebiegach.
 
+1. Połącz moduł __Wykonaj skrypt języka Python__ z danymi wyjściowymi modułu " __Oceń model__ ".
+
+    ![Połącz moduł skryptu języka Python w celu oszacowania modułu modelu](./media/how-to-track-experiments/designer-logging-pipeline.png)
+
+1. Wklej następujący kod do edytora kodu __skryptu języka Python__ , aby zarejestrować średni błąd bezwzględny dla Twojego przeszkolonego modelu:
+
+    ```python
+    # dataframe1 contains the values from Evaluate Model
+    def azureml_main(dataframe1 = None, dataframe2 = None):
+        print(f'Input pandas.DataFrame #1: {dataframe1}')
+
+        from azureml.core import Run
+
+        run = Run.get_context()
+
+        # Log the mean absolute error to the current run to see the metric in the module detail pane.
+        run.log(name='Mean_Absolute_Error', value=dataframe1['Mean_Absolute_Error'])
+
+        # Log the mean absolute error to the parent run to see the metric in the run details page.
+        run.parent.log(name='Mean_Absolute_Error', value=dataframe1['Mean_Absolute_Error'])
+    
+        return dataframe1,
+    ```
 
 ## <a name="manage-a-run"></a>Zarządzanie przebiegiem
 
@@ -149,7 +175,7 @@ Gdy używasz metody **ScriptRunConfig** do przesyłania przebiegów, możesz obs
    print(run.get_portal_url())
    ```
 
-2. **[Dla zautomatyzowanych przebiegów uczenia maszynowego]** Aby uzyskać dostęp do wykresów z poprzedniego przebiegu. Zamień `<<experiment_name>>` na odpowiednią nazwę eksperymentu:
+2. **[Dla zautomatyzowanych przebiegów uczenia maszynowego]** Aby uzyskać dostęp do wykresów z poprzedniego przebiegu. Zamień na `<<experiment_name>>` odpowiednią nazwę eksperymentu:
 
    ``` 
    from azureml.widgets import RunDetails
@@ -168,13 +194,13 @@ Aby wyświetlić dalsze szczegóły potoku, kliknij potok, który chcesz zbadać
 
 ### <a name="get-log-results-upon-completion"></a>Pobieranie wyników dziennika po zakończeniu
 
-Modelowanie szkoleń i monitorowania odbywa się w tle, dzięki czemu można uruchamiać inne zadania podczas oczekiwania. Możesz również poczekać, aż model ukończy szkolenie przed uruchomieniem większej liczby kodów. Gdy korzystasz z **ScriptRunConfig**, możesz użyć ```run.wait_for_completion(show_output = True)``` , aby pokazać, kiedy szkolenie modelu zostało zakończone. ```show_output``` Flaga zapewnia pełne dane wyjściowe. 
+Modelowanie szkoleń i monitorowania odbywa się w tle, dzięki czemu można uruchamiać inne zadania podczas oczekiwania. Możesz również poczekać, aż model ukończy szkolenie przed uruchomieniem większej liczby kodów. Gdy korzystasz z **ScriptRunConfig**, możesz użyć, ```run.wait_for_completion(show_output = True)``` Aby pokazać, kiedy szkolenie modelu zostało zakończone. ```show_output```Flaga zapewnia pełne dane wyjściowe. 
 
 <a id="queryrunmetrics"></a>
 
 ### <a name="query-run-metrics"></a>Metryki uruchamiania zapytania
 
-Możesz wyświetlić metryki modelu przeszkolonego za pomocą ```run.get_metrics()```. Teraz można uzyskać wszystkie metryki, które zostały zarejestrowane w powyższym przykładzie, aby określić najlepszy model.
+Możesz wyświetlić metryki modelu przeszkolonego za pomocą ```run.get_metrics()``` . Teraz można uzyskać wszystkie metryki, które zostały zarejestrowane w powyższym przykładzie, aby określić najlepszy model.
 
 <a name="view-the-experiment-in-the-web-portal"></a>
 ## <a name="view-the-experiment-in-your-workspace-in-azure-machine-learning-studio"></a>Wyświetlanie eksperymentu w obszarze roboczym w programie [Azure Machine Learning Studio](https://ml.azure.com)

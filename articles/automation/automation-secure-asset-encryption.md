@@ -9,12 +9,12 @@ ms.author: snmuvva
 ms.date: 01/11/2020
 ms.topic: conceptual
 manager: kmadnani
-ms.openlocfilehash: b26498357db6b1bc006c27285546fd0f3ebe6c4a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 1cb70109657343f41a1b3a19f3426377d97e261e
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743786"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830127"
 ---
 # <a name="encryption-of-secure-assets-in-azure-automation"></a>Szyfrowanie zabezpieczonych zasobów w usłudze Azure Automation
 
@@ -189,8 +189,8 @@ Aby odwołać dostęp do kluczy zarządzanych przez klienta, należy użyć prog
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Co to jest usługa Azure Key Vault?](../key-vault/general/overview.md)
-- [Zarządzanie certyfikatami w Azure Automation](shared-resources/certificates.md)
-- [Zarządzanie poświadczeniami w Azure Automation](shared-resources/credentials.md)
-- [Zarządzanie zmiennymi w Azure Automation](shared-resources/variables.md)
-- [Zarządzanie połączeniami w Azure Automation](automation-connections.md)
+- Aby zrozumieć Azure Key Vault, zobacz [co to jest Azure Key Vault?](../key-vault/general/overview.md).
+- Aby korzystać z certyfikatów, zobacz [Zarządzanie certyfikatami w Azure Automation](shared-resources/certificates.md).
+- Aby obsłużyć poświadczenia, zobacz [Zarządzanie poświadczeniami w Azure Automation](shared-resources/credentials.md).
+- Aby używać zmiennych automatyzacji, [Zarządzaj zmiennymi w Azure Automation](shared-resources/variables.md).
+- Aby uzyskać pomoc podczas pracy z połączeniami, zobacz [Zarządzanie połączeniami w Azure Automation](automation-connections.md).

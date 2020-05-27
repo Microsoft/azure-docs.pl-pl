@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: b84db69f79b1611347a4c55d929e5426141e7ac6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 08c7fa6abac7ed369347f1f496c70174b06edf02
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74791491"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831589"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Uruchamianie akcji na podstawie stanu grupy przy użyciu zakresów w Azure Logic Apps
 
@@ -78,7 +78,7 @@ Aplikację logiki można zapisać w dowolnym momencie, dlatego Zapisz swoją sł
       | **Punkt nawigacyjny 1** | <*Start*> | Wprowadź Początek trasy. | 
       | **Punkt nawigacyjny 2** | <*punktów*> | Wprowadź lokalizację docelową trasy. | 
       | **Unikaj** | Brak | Wprowadź elementy, które mają być unikane na trasie, takie jak Autostrade, opłaty i tak dalej. Aby uzyskać możliwe wartości, zobacz [Obliczanie trasy](https://msdn.microsoft.com/library/ff701717.aspx). | 
-      | **Zoptymalizować** | timeWithTraffic | Wybierz parametr, aby zoptymalizować trasę, na przykład odległość, czas z bieżącymi informacjami o ruchu itd. Ten przykład używa tej wartości: "timeWithTraffic" | 
+      | **Optymalizacja** | timeWithTraffic | Wybierz parametr, aby zoptymalizować trasę, na przykład odległość, czas z bieżącymi informacjami o ruchu itd. Ten przykład używa tej wartości: "timeWithTraffic" | 
       | **Jednostka odległości** | <*Twoje preferencje*> | Wprowadź jednostkę odległości do obliczenia trasy. Ten przykład używa tej wartości: "mila" | 
       | **Tryb podróży** | Jazda samochodem | Wprowadź tryb podróży dla trasy. W tym przykładzie jest stosowana ta wartość "kierowanie" | 
       | **Transport publiczny — data i godzina** | Brak | Dotyczy tylko trybu tranzytowego. | 
@@ -130,7 +130,7 @@ Aplikację logiki można zapisać w dowolnym momencie, dlatego Zapisz swoją sł
 
       ![Wybierz pozycję "ruch w czasie trwania ruchu"](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-2.png)
 
-   1. Gdy pole jest rozpoznawane jako format JSON, Dodaj **przecinek** (```,```), a następnie ```60``` liczbę, aby przekonwertować wartość w polu **ruch związany z ruchem** z sekund na minuty. 
+   1. Gdy pole jest rozpoznawane jako format JSON, Dodaj **przecinek** ( ```,``` ), a następnie liczbę, ```60``` Aby przekonwertować wartość w polu **ruch związany z ruchem** z sekund na minuty. 
    
       ```
       div(body('Get_route')?['travelDurationTraffic'],60)
@@ -161,7 +161,7 @@ Następnie Dodaj zakres, aby można było grupować określone akcje i oszacowa�
 1. Dodaj zakres w pożądanej lokalizacji przepływu pracy. Na przykład aby dodać zakres między istniejącymi krokami przepływu pracy aplikacji logiki, wykonaj następujące kroki: 
 
    1. Przesuń wskaźnik myszy nad strzałkę, w której chcesz dodać zakres. 
-   Wybierz znak **Plus** (**+**), > **dodać akcję**.
+   Wybierz znak **Plus** ( **+** ), > **dodać akcję**.
 
       ![Dodawanie zakresu](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
 
@@ -196,14 +196,14 @@ Następnie Dodaj zakres, aby można było grupować określone akcje i oszacowa�
 
    1. Dla obu wierszy wybierz opcję **jest równa** operatorowi. 
    
-   1. Dla wartości porównania w pierwszym wierszu wprowadź `Failed`. 
-   W drugim wierszu wprowadź `Aborted`. 
+   1. Dla wartości porównania w pierwszym wierszu wprowadź `Failed` . 
+   W drugim wierszu wprowadź `Aborted` . 
 
       Gdy wszystko będzie gotowe, warunek będzie wyglądać następująco:
 
       ![Dodaj wyrażenie, które sprawdza stan zakresu](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status-finished.png)
 
-      Teraz ustaw `runAfter` Właściwość warunek, tak aby warunek sprawdzał stan zakresu i uruchomił akcję dopasowywania zdefiniowaną w dalszych krokach.
+      Teraz ustaw właściwość warunek, `runAfter` tak aby warunek sprawdzał stan zakresu i uruchomił akcję dopasowywania zdefiniowaną w dalszych krokach.
 
    1. W warunku **Jeśli warunek nie powiódł się** , wybierz przycisk **wielokropka** (...), a następnie wybierz pozycję **Skonfiguruj przebieg po**.
 
@@ -388,7 +388,7 @@ Jeśli pracujesz w widoku kodu, możesz zdefiniować w zamian strukturę zakresu
 
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 
-* Jeśli masz pytania, odwiedź [forum usługi Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Pytania można znaleźć w witrynie [Microsoft Q&pytanie dotyczące Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Aby przesłać funkcje i sugestie lub zagłosować na nie, odwiedź [witrynę opinii o Azure Logic Apps użytkownika](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Następne kroki

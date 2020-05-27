@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 0d03c2df720a4e3ccf57fe0be00c2af4fcf72eb0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 03e26c344284541116a5b98bc330804b71a64e28
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78944826"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83833779"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrowanie do Premium Storage przy użyciu Azure Site Recovery
 
@@ -74,13 +74,13 @@ Za pomocą Site Recovery można migrować maszyny wirtualne IaaS platformy Azure
 ### <a name="step-1-create-a-recovery-services-vault"></a>Krok 1. Tworzenie magazynu Recovery Services
 
 1. Otwórz [witrynę Azure Portal](https://portal.azure.com).
-2. Wybierz pozycję **Utwórz zasób** > **Zarządzanie** > **zapasami** i **Site Recovery (OMS)**. Alternatywnie możesz wybrać pozycję **Przeglądaj** > **Recovery Services magazyn** > **Dodaj**. 
+2. Wybierz pozycję **Utwórz zasób**  >  **Zarządzanie**  >  **zapasami** i **Site Recovery (OMS)**. Alternatywnie możesz wybrać pozycję **Przeglądaj**  >  **Recovery Services magazyn**  >  **Dodaj**. 
 3. Określ region, do którego zostaną zreplikowane maszyny wirtualne. Na potrzeby migracji w tym samym regionie wybierz region, w którym źródłowe maszyny wirtualne i źródłowe konta magazynu są. 
 
 ### <a name="step-2-choose-your-protection-goals"></a>Krok 2. Wybieranie celów ochrony 
 
 1. Na maszynie wirtualnej, na której chcesz zainstalować serwer konfiguracji, Otwórz [Azure Portal](https://portal.azure.com).
-2. Przejdź do obszaru Recovery Services**Ustawienia** >  **magazynów** > **Site Recovery** > **krok 1: przygotowanie** > **celu ochrony**infrastruktury.
+2. Przejdź do obszaru **Recovery Services ustawienia magazynów**  >  **Settings**  >  **Site Recovery**  >  **krok 1: przygotowanie**  >  **celu ochrony**infrastruktury.
 
    ![Przeglądanie okienka cel ochrony][2]
 
@@ -90,7 +90,7 @@ Za pomocą Site Recovery można migrować maszyny wirtualne IaaS platformy Azure
 
 ### <a name="step-3-set-up-the-source-environment-configuration-server"></a>Krok 3. Konfigurowanie środowiska źródłowego (serwer konfiguracji)
 
-1. Pobierz **Azure Site Recovery ujednoliconą konfigurację** i klucz rejestracji magazynu, przechodząc do okienka **Przygotowanie infrastruktury** > **Przygotuj Źródło** > **Dodaj serwer** . 
+1. Pobierz **Azure Site Recovery ujednoliconą konfigurację** i klucz rejestracji magazynu, przechodząc do okienka **Przygotowanie infrastruktury**  >  **Przygotuj Źródło**  >  **Dodaj serwer** . 
  
    Do uruchomienia ujednoliconej konfiguracji potrzebny będzie klucz rejestracji magazynu. Klucz jest ważny przez pięć dni po jego wygenerowaniu.
 
@@ -123,7 +123,7 @@ Za pomocą Site Recovery można migrować maszyny wirtualne IaaS platformy Azure
 
 ### <a name="step-4-set-up-the-target-environment"></a>Krok 4. Konfigurowanie środowiska docelowego
 
-Wybierz pozycję **Przygotuj** > **miejsce docelowe**infrastruktury i określ model wdrażania, który ma być używany dla maszyn wirtualnych po przejściu w tryb failover. W zależności od danego scenariusza możesz wybrać opcję **klasyczne** lub **Menedżer zasobów**.
+Wybierz pozycję **Przygotuj**  >  **miejsce docelowe**infrastruktury i określ model wdrażania, który ma być używany dla maszyn wirtualnych po przejściu w tryb failover. W zależności od danego scenariusza możesz wybrać opcję **klasyczne** lub **Menedżer zasobów**.
 
 ![Okienko docelowe][10]
 
@@ -152,7 +152,7 @@ Aby sprawdzić, czy serwer konfiguracji został pomyślnie skojarzony z zasadami
    Maszyna wirtualna w trybie failover będzie miała dwa dyski tymczasowe: jedną z podstawowej maszyny wirtualnej i drugą utworzoną podczas aprowizacji maszyny wirtualnej w regionie odzyskiwania. Aby wykluczyć dysk tymczasowy przed replikacją, należy zainstalować usługę mobilności przed włączeniem replikacji. Aby dowiedzieć się więcej na temat wykluczania dysku tymczasowego, zobacz temat [wykluczanie dysków z replikacji](../../site-recovery/vmware-walkthrough-overview.md).
 
 2. Aby włączyć replikację:
-   1. Wybierz pozycję **Replikuj** > **Źródło**aplikacji. Po włączeniu replikacji po raz pierwszy wybierz pozycję **+ Replikuj** w magazynie, aby włączyć replikację dla dodatkowych maszyn.
+   1. Wybierz pozycję **Replikuj**  >  **Źródło**aplikacji. Po włączeniu replikacji po raz pierwszy wybierz pozycję **+ Replikuj** w magazynie, aby włączyć replikację dla dodatkowych maszyn.
    2. W kroku 1 Skonfiguruj **Źródło** jako serwer przetwarzania.
    3. W kroku 2 Określ model wdrożenia po zakończeniu pracy w trybie failover, konto magazynu w warstwie Premium, do którego chcesz przeprowadzić migrację, konto magazynu w warstwie Standardowa w celu zapisania dzienników i niepowodzenie sieci wirtualnej.
    4. W kroku 3 Dodaj chronione maszyny wirtualne według adresu IP. (Może być potrzebny wewnętrzny adres IP, aby je znaleźć).
@@ -173,14 +173,14 @@ Możesz wybrać model wdrożenia po zakończeniu pracy w trybie failover zgodnie
 
 ### <a name="step-8-run-a-test-failover"></a>Krok 8. Uruchamianie testu pracy w trybie failover
 
-Aby sprawdzić, czy replikacja została ukończona, wybierz wystąpienie Site Recovery a następnie wybierz pozycję **Ustawienia** > **zreplikowane elementy**. Zobaczysz stan i procent procesu replikacji. 
+Aby sprawdzić, czy replikacja została ukończona, wybierz wystąpienie Site Recovery a następnie wybierz pozycję **Ustawienia**  >  **zreplikowane elementy**. Zobaczysz stan i procent procesu replikacji. 
 
 Po zakończeniu replikacji początkowej Uruchom test pracy w trybie failover, aby zweryfikować strategię replikacji. Aby zapoznać się ze szczegółowymi krokami testowego przełączania do trybu failover, zobacz [Uruchamianie testowej pracy w trybie failover w Site Recovery](../../site-recovery/vmware-walkthrough-overview.md). 
 
 > [!NOTE]
 > Przed uruchomieniem dowolnego trybu failover upewnij się, że maszyny wirtualne i strategia replikacji spełniają wymagania. Aby uzyskać więcej informacji o uruchamianiu testowej pracy w trybie failover, zobacz [test pracy w trybie failover na platformie Azure w Site Recovery](../../site-recovery/site-recovery-test-failover-to-azure.md).
 
-Stan testu pracy w trybie failover można sprawdzić w obszarze **Ustawienia** > **zadania** > *YOUR_FAILOVER_PLAN_NAME*. W okienku można zobaczyć podział kroków i wyników powodzeń/niepowodzeń. Jeśli test pracy w trybie failover nie powiedzie się w dowolnym kroku, wybierz krok, aby sprawdzić komunikat o błędzie. 
+Stan testu pracy w trybie failover można sprawdzić w obszarze **Ustawienia**  >  **zadania**  >  *YOUR_FAILOVER_PLAN_NAME*. W okienku można zobaczyć podział kroków i wyników powodzeń/niepowodzeń. Jeśli test pracy w trybie failover nie powiedzie się w dowolnym kroku, wybierz krok, aby sprawdzić komunikat o błędzie. 
 
 ### <a name="step-9-run-a-failover"></a>Krok 9. Uruchamianie trybu failover
 
@@ -203,7 +203,7 @@ Site Recovery utworzy wystąpienie maszyny wirtualnej, którego typ jest taki sa
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
 * [Monitorowanie i rozwiązywanie problemów z ochroną maszyn wirtualnych i serwerów fizycznych](../../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
-* [Forum Site Recovery Microsoft Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)
+* [&Strona pytania dla Microsoft Azure Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html)
 
 ## <a name="next-steps"></a>Następne kroki
 

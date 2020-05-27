@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 83410d5945a7fe462afa86a9d217ee7e005550f4
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 7d9157993e8cdbb6f7976ee2d4ce67b9039e7b52
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83696924"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835839"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Kontrola dostępu do konta magazynu dla programu SQL na żądanie (wersja zapoznawcza)
 
@@ -26,11 +26,7 @@ W tym artykule opisano typy poświadczeń, których można użyć oraz sposób p
 
 ## <a name="supported-storage-authorization-types"></a>Obsługiwane typy autoryzacji magazynu
 
-Użytkownik zalogowany do zasobu na żądanie SQL musi mieć autoryzację, aby uzyskać dostęp do plików w usłudze Azure Storage i wysyłać do nich zapytania, jeśli pliki nie są publicznie dostępne. Obsługiwane są trzy typy autoryzacji:
-
-- [Sygnatura dostępu współdzielonego](?tabs=shared-access-signature)
-- [Tożsamość użytkownika](?tabs=user-identity)
-- [Tożsamość zarządzana](?tabs=managed-identity)
+Użytkownik zalogowany do zasobu na żądanie SQL musi mieć autoryzację, aby uzyskać dostęp do plików w usłudze Azure Storage i wysyłać do nich zapytania, jeśli pliki nie są publicznie dostępne. Możesz użyć trzech typów autoryzacji, aby uzyskać dostęp do [tożsamości użytkownika](?tabs=user-identity)niepublicznego, [sygnatury dostępu współdzielonego](?tabs=shared-access-signature)i [tożsamości zarządzanej](?tabs=managed-identity).
 
 > [!NOTE]
 > [Usługa Azure AD Pass-through](#force-azure-ad-pass-through) to domyślne zachowanie podczas tworzenia obszaru roboczego. Jeśli używasz tego programu, nie musisz tworzyć poświadczeń dla każdego konta magazynu, do którego można uzyskać dostęp za pomocą nazw logowania usługi Azure AD. [To zachowanie można wyłączyć](#disable-forcing-azure-ad-pass-through).
@@ -42,7 +38,7 @@ Użytkownik zalogowany do zasobu na żądanie SQL musi mieć autoryzację, aby u
 Token SYGNATURy dostępu współdzielonego można uzyskać, przechodząc do **konta magazynu Azure Portal-> Storage-> sygnatura dostęp współdzielony-> skonfigurować uprawnienia-> generować sygnatury SAS i parametry połączenia.**
 
 > [!IMPORTANT]
-> Po wygenerowaniu tokenu SAS zawiera znak zapytania ("?") na początku tokenu. Aby użyć tokenu w SQL na żądanie, należy usunąć znak zapytania ("?") podczas tworzenia poświadczenia. Na przykład:
+> Po wygenerowaniu tokenu SAS zawiera znak zapytania ("?") na początku tokenu. Aby użyć tokenu w SQL na żądanie, należy usunąć znak zapytania ("?") podczas tworzenia poświadczenia. Przykład:
 >
 > Token sygnatury dostępu współdzielonego:? SV = 2018 r-03-28&SS = bfqt&narzędzia SRT = SCO&Sp = rwdlacup&SE = 2019-04-18T20:42:12Z&St = 2019-04-18T12:42:12Z&spr = https&SIG = lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78% 3D
 

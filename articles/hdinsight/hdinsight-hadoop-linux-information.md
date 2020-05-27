@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: e9f8fe17fa28cc5fcc4543bfb5e194bd3e7b837d
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 252467a22ba37352cee4c3e7bffcf1ff910c86ba
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594101"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835448"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informacje dotyczące korzystania z usługi HDInsight w systemie Linux
 
@@ -24,7 +24,7 @@ Klastry usługi Azure HDInsight zapewniają Apache Hadoop w znanym środowisku s
 Wiele kroków opisanych w tym dokumencie korzysta z następujących narzędzi, które mogą wymagać zainstalowania w systemie.
 
 * [zwinięcie](https://curl.haxx.se/) — używany do komunikowania się z usługami sieci Web.
-* **JQ**, procesor JSON w wierszu polecenia.  Zobacz [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
+* **JQ**, procesor JSON w wierszu polecenia.  Zobacz [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/) .
 * [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) — służy do zdalnego zarządzania usługami platformy Azure.
 * **Klient SSH**. Aby uzyskać więcej informacji, zobacz [Łączenie się z usługą HDInsight (Apache Hadoop) przy użyciu protokołu SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -36,13 +36,13 @@ Przyłączony do domeny Usługa HDInsight obsługuje wielu użytkowników i bard
 
 ## <a name="domain-names"></a>Nazwy domen
 
-W pełni kwalifikowana nazwa domeny (FQDN) do użycia podczas nawiązywania połączenia z klastrem z Internetu `CLUSTERNAME.azurehdinsight.net` jest `CLUSTERNAME-ssh.azurehdinsight.net` lub (tylko w przypadku protokołu SSH).
+W pełni kwalifikowana nazwa domeny (FQDN) do użycia podczas nawiązywania połączenia z klastrem z Internetu jest `CLUSTERNAME.azurehdinsight.net` lub `CLUSTERNAME-ssh.azurehdinsight.net` (tylko w przypadku protokołu SSH).
 
 Wewnętrznie każdy węzeł w klastrze ma nazwę, która jest przypisana podczas konfiguracji klastra. Aby znaleźć nazwy klastrów, zobacz stronę **hosty** w interfejsie użytkownika sieci Web Ambari. Aby zwrócić listę hostów z interfejsu API REST Ambari, można również użyć następujących elementów:
 
     curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
 
-Zastąp ciąg `CLUSTERNAME` nazwą klastra. Po wyświetleniu monitu wprowadź hasło dla konta administratora. To polecenie zwraca dokument JSON zawierający listę hostów w klastrze. [JQ](https://stedolan.github.io/jq/) służy do wyodrębniania wartości `host_name` elementu dla każdego hosta.
+Zastąp ciąg `CLUSTERNAME` nazwą klastra. Po wyświetleniu monitu wprowadź hasło dla konta administratora. To polecenie zwraca dokument JSON zawierający listę hostów w klastrze. [JQ](https://stedolan.github.io/jq/) służy do wyodrębniania `host_name` wartości elementu dla każdego hosta.
 
 Jeśli konieczne jest znalezienie nazwy węzła dla określonej usługi, można zbadać Ambari dla tego składnika. Na przykład aby znaleźć hosty dla węzła nazwa systemu plików HDFS, użyj następującego polecenia:
 
@@ -86,12 +86,12 @@ Aby uzyskać więcej informacji, zobacz [porty używane przez Apache Hadoop Serv
 
 ## <a name="file-locations"></a>Lokalizacje plików
 
-Pliki związane z usługą Hadoop znajdują się w węzłach klastra `/usr/hdp`pod adresem. Ten katalog zawiera następujące podkatalogi:
+Pliki związane z usługą Hadoop znajdują się w węzłach klastra pod adresem `/usr/hdp` . Ten katalog zawiera następujące podkatalogi:
 
 * **2.6.5.3009-43**: Nazwa katalogu jest wersją platformy Hadoop używanej przez usługi HDInsight. Liczba w klastrze może być różna od wymienionej w tym miejscu.
 * **bieżący**: ten katalog zawiera linki do podkatalogów w katalogu **2.6.5.3009-43** . Ten katalog istnieje, aby nie trzeba było pamiętać numeru wersji.
 
-Przykładowe dane i pliki JAR można znaleźć w rozproszony system plików Hadoop w systemach `/example` i `/HdiSamples`.
+Przykładowe dane i pliki JAR można znaleźć w rozproszony system plików Hadoop w systemach `/example` i `/HdiSamples` .
 
 ## <a name="hdfs-azure-storage-and-data-lake-storage"></a>HDFS, Azure Storage i Data Lake Storage
 
@@ -105,7 +105,7 @@ W przypadku korzystania z usługi HDInsight pliki danych są przechowywane w spo
 
 Aby uzyskać więcej informacji, zobacz [Omówienie obiektów BLOB](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) i [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/).
 
-W przypadku korzystania z usługi Azure Storage lub Data Lake Storage nie trzeba wykonywać żadnych specjalnych działań w usłudze HDInsight, aby uzyskiwać dostęp do danych. Na przykład następujące polecenie wyświetla listę plików w folderze, `/example/data` niezależnie od tego, czy są one przechowywane w usłudze Azure Storage, czy Data Lake Storage:
+W przypadku korzystania z usługi Azure Storage lub Data Lake Storage nie trzeba wykonywać żadnych specjalnych działań w usłudze HDInsight, aby uzyskiwać dostęp do danych. Na przykład następujące polecenie wyświetla listę plików w folderze, niezależnie od tego, `/example/data` czy są one przechowywane w usłudze Azure Storage, czy Data Lake Storage:
 
     hdfs dfs -ls /example/data
 
@@ -136,9 +136,9 @@ Korzystając z [**Azure Data Lake Storage Gen1**](./hdinsight-hadoop-use-data-la
 * `adl://<storage-name>.azuredatalakestore.net/`: Używane podczas komunikowania się z Data Lake Storageem innym niż domyślny. Służy również do uzyskiwania dostępu do danych poza katalogiem głównym klastra usługi HDInsight.
 
 > [!IMPORTANT]  
-> W przypadku używania Data Lake Storage jako domyślnego magazynu dla usługi HDInsight należy określić ścieżkę w sklepie, która ma być używana jako katalog główny magazynu usługi HDInsight. Ścieżka domyślna to `/clusters/<cluster-name>/`.
+> W przypadku używania Data Lake Storage jako domyślnego magazynu dla usługi HDInsight należy określić ścieżkę w sklepie, która ma być używana jako katalog główny magazynu usługi HDInsight. Ścieżka domyślna to `/clusters/<cluster-name>/` .
 >
-> W przypadku `/` korzystania `adl:///` z programu lub do uzyskiwania dostępu do danych można uzyskać dostęp tylko do danych przechowywanych w katalogu `/clusters/<cluster-name>/`głównym (na przykład) klastra. Aby uzyskać dostęp do danych w dowolnym miejscu w sklepie `adl://<storage-name>.azuredatalakestore.net/` , użyj formatu.
+> W przypadku korzystania z `/` `adl:///` programu lub do uzyskiwania dostępu do danych można uzyskać dostęp tylko do danych przechowywanych w katalogu głównym (na przykład `/clusters/<cluster-name>/` ) klastra. Aby uzyskać dostęp do danych w dowolnym miejscu w sklepie, użyj `adl://<storage-name>.azuredatalakestore.net/` formatu.
 
 ### <a name="what-storage-is-the-cluster-using"></a>Magazyn używany przez klaster
 
@@ -149,7 +149,7 @@ curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTER
 ```
 
 > [!NOTE]  
-> To polecenie zwraca pierwszą konfigurację zastosowana do serwera (`service_config_version=1`), która zawiera te informacje. Może być konieczne wyświetlenie listy wszystkich wersji konfiguracji, aby znaleźć najnowsze.
+> To polecenie zwraca pierwszą konfigurację zastosowana do serwera ( `service_config_version=1` ), która zawiera te informacje. Może być konieczne wyświetlenie listy wszystkich wersji konfiguracji, aby znaleźć najnowsze.
 
 To polecenie zwraca wartość podobną do następujących identyfikatorów URI:
 
@@ -163,7 +163,7 @@ To polecenie zwraca wartość podobną do następujących identyfikatorów URI:
     curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.hostname"] | select(. != null)'
     ```
 
-    To polecenie zwraca następującą nazwę hosta: `<data-lake-store-account-name>.azuredatalakestore.net`.
+    To polecenie zwraca następującą nazwę hosta: `<data-lake-store-account-name>.azuredatalakestore.net` .
 
     Aby uzyskać katalog znajdujący się w magazynie, który jest katalogiem głównym usługi HDInsight, użyj następującego wywołania REST:
 
@@ -171,7 +171,7 @@ To polecenie zwraca wartość podobną do następujących identyfikatorów URI:
     curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["dfs.adls.home.mountpoint"] | select(. != null)'
     ```
 
-    To polecenie zwraca ścieżkę podobną do następującej: `/clusters/<hdinsight-cluster-name>/`.
+    To polecenie zwraca ścieżkę podobną do następującej: `/clusters/<hdinsight-cluster-name>/` .
 
 Informacje o magazynie można także znaleźć za pomocą Azure Portal, wykonując następujące czynności:
 
@@ -185,7 +185,7 @@ Istnieją różne sposoby uzyskiwania dostępu do danych spoza klastra usługi H
 
 W przypadku korzystania z __usługi Azure Storage__zobacz następujące linki, aby poznać sposoby dostępu do danych:
 
-* Interfejs wiersza polecenia [platformy Azure](https://docs.microsoft.com/cli/azure/install-az-cli2): polecenia w wierszu poleceń umożliwiające pracę z platformą Azure. Po zainstalowaniu programu Użyj `az storage` polecenia, aby uzyskać pomoc dotyczącą korzystania z `az storage blob` magazynu, lub dla poleceń specyficznych dla obiektu BLOB.
+* Interfejs wiersza polecenia [platformy Azure](https://docs.microsoft.com/cli/azure/install-az-cli2): polecenia w wierszu poleceń umożliwiające pracę z platformą Azure. Po zainstalowaniu programu Użyj `az storage` polecenia, aby uzyskać pomoc dotyczącą korzystania z magazynu, lub `az storage blob` dla poleceń specyficznych dla obiektu BLOB.
 * [blobxfer.py](https://github.com/Azure/blobxfer): skrypt języka Python służący do pracy z obiektami BLOB w usłudze Azure Storage.
 * Różne zestawy SDK:
 
@@ -200,7 +200,7 @@ W przypadku korzystania z __usługi Azure Storage__zobacz następujące linki, a
 Jeśli używasz __Azure Data Lake Storage__, zobacz następujące linki, aby poznać sposoby dostępu do danych:
 
 * [Przeglądarka sieci Web](../data-lake-store/data-lake-store-get-started-portal.md)
-* [PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)
+* [Program PowerShell](../data-lake-store/data-lake-store-get-started-powershell.md)
 * [Interfejs wiersza polecenia platformy Azure](../data-lake-store/data-lake-store-get-started-cli-2.0.md)
 * [Interfejs API REST usługi WebHDFS](../data-lake-store/data-lake-store-get-started-rest-api.md)
 * [Narzędzia Data Lake Tools for Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504)
@@ -239,7 +239,7 @@ Aby użyć innej wersji składnika, Przekaż potrzebną wersję i użyj jej do z
 > [!IMPORTANT]
 > Składniki dostarczane z klastrem usługi HDInsight są w pełni obsługiwane i pomoc techniczna firmy Microsoft ułatwiają izolowanie i rozwiązywanie problemów związanych z tymi składnikami.
 >
-> Składniki niestandardowe otrzymują komercyjnie uzasadnioną pomoc techniczną, która ułatwia dalsze Rozwiązywanie problemu. Może to skutkować rozwiązaniem problemu lub zapytaniem o zaangażowanie dostępnych kanałów dla technologii open source, w których znajduje się Szczegółowa wiedza dla tej technologii. Na przykład istnieje wiele witryn społeczności, które mogą być używane, takich jak: [forum MSDN dla](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)usługi HDInsight [https://stackoverflow.com](https://stackoverflow.com). Również projekty Apache mają witryny projektu, [https://apache.org](https://apache.org)na przykład: [Hadoop](https://hadoop.apache.org/), [Spark](https://spark.apache.org/).
+> Składniki niestandardowe otrzymują komercyjnie uzasadnioną pomoc techniczną, która ułatwia dalsze Rozwiązywanie problemu. Może to skutkować rozwiązaniem problemu lub zapytaniem o zaangażowanie dostępnych kanałów dla technologii open source, w których znajduje się Szczegółowa wiedza dla tej technologii. Na przykład istnieje wiele witryn społeczności, których można użyć, takich jak: [Microsoft Q&stronie pytania dotyczącej usługi HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html) [https://stackoverflow.com](https://stackoverflow.com) . Również projekty Apache mają witryny projektu [https://apache.org](https://apache.org) , na przykład: [Hadoop](https://hadoop.apache.org/), [Spark](https://spark.apache.org/).
 
 ## <a name="next-steps"></a>Następne kroki
 

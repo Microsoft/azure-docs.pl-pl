@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5785377830f7e2cfb159a3090d19b1cd35b07a61
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: c9e602f9ed6a9132c78dbdf0ea3246cbeae80671
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743910"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832354"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Wykonywanie elementu runbook w usłudze Azure Automation
 
@@ -59,7 +59,7 @@ W poniższej tabeli wymieniono niektóre zadania wykonywania elementów Runbook 
 |Uruchamianie skryptów wymagających podniesienia uprawnień|Hybrydowy proces roboczy elementu Runbook|Piaskownice nie umożliwiają podniesienia uprawnień. Przy użyciu hybrydowego procesu roboczego elementu Runbook można wyłączyć funkcję Kontrola konta użytkownika i użyć [polecenia Invoke-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-7) przy uruchamianiu polecenia, które wymaga podniesienia uprawnień.|
 |Uruchamianie skryptów, które wymagają dostępu do Instrumentacja zarządzania Windows (WMI)|Hybrydowy proces roboczy elementu Runbook|Zadania uruchomione w piaskownicach w chmurze nie mogą uzyskać dostępu do dostawcy WMI. |
 
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
 Elementy Runbook muszą zawierać logikę do obsługi [zasobów](https://docs.microsoft.com/rest/api/resources/resources), np. maszyn wirtualnych, sieci i zasobów w sieci. Zasoby są powiązane z subskrypcją platformy Azure, a elementy Runbook wymagają odpowiednich poświadczeń w celu uzyskania dostępu do dowolnego zasobu. Aby zapoznać się z przykładem obsługi zasobów w elemencie Runbook, zobacz temat [Obsługa zasobów](manage-runbooks.md#handle-resources). 
 
@@ -228,6 +228,8 @@ Użycie podrzędnych elementów Runbook zmniejsza łączny czas pracy nadrzędne
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Zarządzanie elementami Runbook w Azure Automation](manage-runbooks.md)
-* [Dokumentacja programu PowerShell](https://docs.microsoft.com/powershell/scripting/overview)
-* [Az.Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation)
+* Aby rozpocząć pracę z elementem Runbook programu PowerShell, zobacz [Samouczek: Tworzenie elementu Runbook programu PowerShell](learn/automation-tutorial-runbook-textual-powershell.md).
+* Aby korzystać z elementów Runbook, zobacz [Zarządzanie elementami Runbook w Azure Automation](manage-runbooks.md).
+* Aby uzyskać szczegółowe informacje na temat programu PowerShell, zobacz dokumentację [programu PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
+* * Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

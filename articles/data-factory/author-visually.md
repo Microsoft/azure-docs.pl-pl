@@ -10,12 +10,12 @@ ms.author: daperlov
 ms.reviewer: ''
 manager: anandsub
 ms.date: 05/15/2020
-ms.openlocfilehash: bf0aeb3b73f2b12e723269a792d67d7f6185894f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 79b89c6a6a7598dd3fbdfc5030fd59fe1aab6625
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83674583"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832788"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Tworzenie wizualne w Azure Data Factory
 
@@ -31,7 +31,7 @@ Aby otworzyć **kanwę tworzenia**, kliknij ikonę ołówka.
 
 ![Kanwa tworzenia](media/author-visually/authoring-canvas.png)
 
-Tutaj utworzysz potoki, działania, zestawy danych, połączone usługi, przepływy danych, wyzwalacze i środowiska Integration Runtime wchodzące w skład Twojego fabryki. Aby rozpocząć tworzenie potoku przy użyciu kanwy tworzenia, zobacz [Kopiowanie danych za pomocą działania kopiowania](tutorial-copy-data-portal.md). 
+Tutaj można tworzyć potoki, działania, zestawy danych, połączone usługi, przepływy danych, wyzwalacze i środowiska Integration Runtime wchodzące w skład Twojego fabryki. Aby rozpocząć tworzenie potoku przy użyciu kanwy tworzenia, zobacz [Kopiowanie danych za pomocą działania kopiowania](tutorial-copy-data-portal.md). 
 
 Domyślne środowisko tworzenia wizualizacji działa bezpośrednio z usługą Data Factory. Azure Repos integracja z usługą Git lub GitHub jest również obsługiwana, aby umożliwić kontrolę źródła i współpracę w ramach potoków usługi Data Factory. Aby dowiedzieć się więcej o różnicach między tymi środowiskami tworzenia, zobacz [Kontrola źródła w Azure Data Factory](source-control.md).
 
@@ -41,7 +41,7 @@ W przypadku zasobów najwyższego poziomu, takich jak potoki, zestawy danych i p
 
 ![Kanwa tworzenia](media/author-visually/properties-pane.png)
 
-Okienko właściwości będzie domyślnie otwierane tylko podczas tworzenia zasobów. Aby go edytować, kliknij ikonę okienka właściwości znajdującą się w prawym górnym rogu kanwy.
+Okienko właściwości zostanie otwarte domyślnie podczas tworzenia zasobu. Aby go edytować, kliknij ikonę okienka właściwości znajdującą się w prawym górnym rogu kanwy.
 
 ## <a name="expressions-and-functions"></a>Wyrażenia i funkcje
 

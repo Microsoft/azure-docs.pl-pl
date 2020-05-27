@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: f6af79a37369fe5775c402af011f4ba59807595d
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 345794eead05a4ff5e5d1396df78878d2693f405
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780430"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834989"
 ---
 # <a name="best-practices-for-sql-pools-in-azure-synapse-analytics"></a>Najlepsze rozwiązania dotyczące pul SQL w usłudze Azure Synapse Analytics
 
@@ -193,7 +193,7 @@ Pule SQL mają kilka widoków DMV, których można użyć do monitorowania wykon
 
 Zobacz również artykuł [Rozwiązywanie problemów](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) z typowymi problemami i rozwiązaniami.
 
-Jeśli potrzebujesz informacji, które nie zostały podane w tym artykule, użyj **filtru Filtruj według tytułu** po lewej stronie tej strony, aby przeszukać wszystkie dokumenty w puli SQL.  [Forum puli SQL](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) to miejsce, w którym można zadawać pytania innym użytkownikom i grupie produktów puli SQL.  
+Jeśli potrzebujesz informacji, które nie zostały podane w tym artykule, przeszukaj [&stronie pytań na temat usługi Azure Synapse](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) , aby zadawać pytania innym użytkownikom i grupie produktów puli SQL.  
 
 Firma Microsoft aktywnie monitoruje to forum, aby mieć pewność, że użytkownicy uzyskują odpowiedzi od innych użytkowników lub pracowników firmy Microsoft.  Jeśli wolisz zadać pytania na Stack Overflow, masz również [Forum usługi Azure SQL pool Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw).
 

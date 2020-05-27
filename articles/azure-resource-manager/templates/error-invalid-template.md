@@ -2,13 +2,13 @@
 title: Nieprawidłowe błędy szablonu
 description: Opisuje sposób rozwiązywania nieprawidłowych błędów szablonów podczas wdrażania szablonów Azure Resource Manager.
 ms.topic: troubleshooting
-ms.date: 03/08/2018
-ms.openlocfilehash: 65cd69d67933d117b51f37b587b276aec2bd635a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/22/2020
+ms.openlocfilehash: bb053f59c417827a7c07ca193ccea0b8509244d6
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76154061"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832525"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Usuwanie błędów związanych z nieprawidłowym szablonem
 
@@ -130,7 +130,7 @@ Podwójne sprawdzanie dozwolonych wartości w szablonie i udostępnianie ich pod
 
 ## <a name="solution-4---too-many-target-resource-groups"></a>Rozwiązanie 4 — zbyt wiele docelowych grup zasobów
 
-W przypadku określenia więcej niż pięciu docelowych grup zasobów w jednym wdrożeniu zostanie wyświetlony ten błąd. Należy rozważyć skonsolidowanie liczby grup zasobów we wdrożeniu lub wdrożenie niektórych szablonów jako oddzielnych wdrożeń. Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów platformy Azure w więcej niż jednej subskrypcji lub grupie zasobów](cross-resource-group-deployment.md).
+Ten błąd może pojawić się we wcześniejszych wdrożeniach, ponieważ ograniczono do pięciu docelowych grup zasobów w jednym wdrożeniu. W maju 2020 limit został zwiększony do 800 grup zasobów. Aby uzyskać więcej informacji, zobacz [wdrażanie zasobów platformy Azure w więcej niż jednej subskrypcji lub grupie zasobów](cross-resource-group-deployment.md).
 
 <a id="circular-dependency" />
 

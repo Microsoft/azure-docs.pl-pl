@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: jlian
 ms.custom: mqtt
-ms.openlocfilehash: 82139eef9708ff8d76e1087c71aa5445ba898385
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: abce9387d4c23cd6cb5ecf73e3d5c8428d83d459
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81759611"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83833663"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Monitorowanie, diagnozowanie i rozwiązywanie problemów z połączeniami z platformą Azure IoT Hub
 
@@ -83,7 +83,7 @@ Po włączeniu dzienników diagnostycznych i alertów dla podłączonych urządz
     | where ( ResourceType == "IOTHUBS" and Category == "Connections" and Level == "Error")
     ```
 
-1. Jeśli istnieją wyniki, Wyszukaj `OperationName`, `ResultType` (kod błędu) i `ResultDescription` (komunikat o błędzie), aby uzyskać więcej szczegółów dotyczących błędu.
+1. Jeśli istnieją wyniki, Wyszukaj `OperationName` , `ResultType` (kod błędu) i `ResultDescription` (komunikat o błędzie), aby uzyskać więcej szczegółów dotyczących błędu.
 
    ![Przykładowy dziennik błędów](./media/iot-hub-troubleshoot-connectivity/diag-logs.png)
 
@@ -105,7 +105,7 @@ Jeśli poprzednie kroki nie były pomocne, spróbuj wykonać następujące czynn
 
 * Jeśli urządzenie korzysta z protokołu MQTT, sprawdź, czy port 8883 jest otwarty. Aby uzyskać więcej informacji, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-* Uzyskaj pomoc dotyczącą [Forum usługi azure IoT Hub](https://social.msdn.microsoft.com/Forums/azure/home?forum=azureiothub), [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-hub)lub [pomocy technicznej platformy Azure](https://azure.microsoft.com/support/options/).
+* Uzyskaj pomoc od [firmy Microsoft pytań&stronie pytań dotyczących usługi azure IoT Hub](https://docs.microsoft.com/answers/topics/azure-iot-hub.html), [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-hub)lub [pomocy technicznej platformy Azure](https://azure.microsoft.com/support/options/).
 
 Aby pomóc w ulepszaniu dokumentacji dla wszystkich użytkowników, należy pozostawić komentarz w sekcji opinii poniżej, jeśli ten przewodnik nie pomoże.
 

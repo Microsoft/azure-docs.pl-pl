@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/28/2019
 ms.topic: conceptual
-ms.openlocfilehash: ab091ba413a8429a8fea131c643cceee7007f927
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 4f6ae1ad5b0f3904b84d47316c11aa1a67531a28
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744362"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835108"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Przegląd Change Tracking i spisu
 
@@ -79,7 +79,7 @@ Możesz kliknąć zmianę lub zdarzenie, aby wyświetlić jego szczegóły. Dost
 
 * Zdarzenia
 * Demonów
-* Pliki
+* Files
 * Rejestr
 * Oprogramowanie
 * Usługi firmy Microsoft
@@ -195,7 +195,10 @@ Kluczową możliwością Change Tracking i spisu jest alert dotyczący zmian sta
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Zarządzanie Change Tracking i spisem](change-tracking-file-contents.md)
-* [Dzienniki wyszukiwania w dziennikach Azure Monitor](../log-analytics/log-analytics-log-searches.md)
-* [Rozwiązywanie problemów dotyczących Change Tracking i spisu](troubleshoot/change-tracking.md)
-* [Rozwiązywanie problemów dotyczących zmian na maszynie wirtualnej platformy Azure](automation-tutorial-troubleshoot-changes.md)
+* Aby uzyskać szczegółowe informacje na temat pracy z Change Tracking i spisem, zobacz [zarządzanie Change Tracking i spisem](change-tracking-file-contents.md).
+* Aby włączyć funkcję z elementu Runbook, zobacz [włączanie Change Tracking i spisu z elementu Runbook](automation-enable-changes-from-runbook.md).
+* Aby włączyć funkcję z konta usługi Automation, zobacz [włączanie Change Tracking i spisu na podstawie konta usługi Automation](automation-enable-changes-from-auto-acct.md).
+* Aby włączyć tę funkcję, przeglądając Azure Portal, zobacz [włączanie Change Tracking i spisu w Azure Portal](automation-onboard-solutions-from-browse.md).
+* Aby włączyć funkcję z maszyny wirtualnej platformy Azure, zobacz [włączanie Change Tracking i spisu z maszyny wirtualnej platformy Azure](automation-enable-changes-from-vm.md).
+* Jeśli musisz przeszukać dzienniki przechowywane w obszarze roboczym Log Analytics, zobacz [Wyszukiwanie w dzienniku w](../log-analytics/log-analytics-log-searches.md)dziennikach Azure monitor.
+* Rozwiązywanie problemów z błędami funkcji można znaleźć w temacie [Rozwiązywanie problemów dotyczących Change Tracking i spisu](troubleshoot/change-tracking.md).

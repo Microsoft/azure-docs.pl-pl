@@ -503,8 +503,8 @@
       href: 'https://github.com/Azure/azure-iot-explorer'
     - name: Narzędzie iothub-diagnostics
       href: 'https://github.com/Azure/iothub-diagnostics'
-    - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azureiothub'
+    - name: Pytania i odpowiedzi Microsoft — strona pytania
+      href: 'https://docs.microsoft.com/answers/topics/azure-iot-hub.html'
     - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
     - name: Kalkulator cen

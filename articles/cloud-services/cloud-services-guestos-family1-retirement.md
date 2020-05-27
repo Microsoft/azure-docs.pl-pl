@@ -9,12 +9,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 5/21/2017
 ms.author: raiye
-ms.openlocfilehash: ae2df6f47d99fc5d452a6d3ea70f2dd2e4e7416b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0e60a8a563819b38bbe67a0b532c6dcada6821b7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "68359585"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835635"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>Powiadomienie o wycofaniu rodziny systemów operacyjnych gościa 1
 Wycofanie rodziny systemów operacyjnych 1 zostało po raz pierwszy ogłoszone 1 czerwca 2013.
@@ -23,7 +23,7 @@ Wycofanie rodziny systemów operacyjnych 1 zostało po raz pierwszy ogłoszone 1
 
 **3 listopada 2014** Zakończono rozszerzoną obsługę rodziny systemów operacyjnych gościa 1 i została ona całkowicie wycofana. Będzie to miało wpływ na wszystkie usługi. Firma Microsoft może zatrzymać te usługi w dowolnym momencie. Nie ma gwarancji, że usługi będą nadal działać, dopóki nie zostaną ręcznie uaktualnione.
 
-Jeśli masz dodatkowe pytania, odwiedź [fora Cloud Services](https://social.msdn.microsoft.com/Forums/home?forum=windowsazuredevelopment&filter=alltypes&sort=lastpostdesc) lub [skontaktuj się z pomocą techniczną platformy Azure](https://azure.microsoft.com/support/options/).
+Jeśli masz dodatkowe pytania, odwiedź [stronę pytania&firmy Microsoft dotyczącą Cloud Services](https://docs.microsoft.com/answers/topics/azure-cloud-services.html) lub [skontaktuj się z pomocą techniczną platformy Azure](https://azure.microsoft.com/support/options/).
 
 ## <a name="are-you-affected"></a>Czy chcesz to mieć na pewno?
 Na Cloud Services mają zastosowanie następujące czynności:

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: b0733cd4f71a734511d5085473047eb7a6d030d3
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 969e60cd08a65adb1dd731aa7c6c3f9872e288fd
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744331"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835040"
 ---
 # <a name="use-the-azure-automation-graphical-runbook-sdk-preview"></a>Korzystanie z Azure Automation graficznego zestawu Runbook SDK (wersja zapoznawcza)
 
@@ -141,4 +141,4 @@ Serializowany format może ulec zmianie w przyszłych wersjach programu `Orchest
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Tworzenie graficznych elementów Runbook w Azure Automation](automation-graphical-authoring-intro.md)
+Aby uzyskać więcej informacji, zobacz [Tworzenie graficznych elementów Runbook w Azure Automation](automation-graphical-authoring-intro.md).

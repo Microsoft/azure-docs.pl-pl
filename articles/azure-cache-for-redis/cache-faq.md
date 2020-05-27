@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/29/2019
-ms.openlocfilehash: 6ba292850c057284fff265c8a77386d21374942a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b95ee80a7a99009918f4869b62a3e3768e6e58d3
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81010226"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828274"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Azure Cache for Redis — często zadawane pytania
 Poznaj odpowiedzi na często zadawane pytania, wzorce oraz najlepsze rozwiązania dotyczące usługi Azure cache for Redis.
@@ -20,7 +20,7 @@ Poznaj odpowiedzi na często zadawane pytania, wzorce oraz najlepsze rozwiązani
 Jeśli pytania nie ma na liście, poinformuj nas o tym, a my pomożemy Ci znaleźć odpowiedź.
 
 * Możesz ogłosić pytanie w komentarzach na końcu często zadawanych pytań i skontaktować się z zespołem usługi Azure cache i innymi członkami społeczności dotyczącymi tego artykułu.
-* Aby dotrzeć do szerszego grona odbiorców, możesz ogłosić pytanie na [forum MSDN usługi Azure cache](https://social.msdn.microsoft.com/forums/azure/home?forum=azurecache) i korzystać z zespołu usługi Azure cache i innych członków społeczności.
+* Aby dotrzeć do szerszego grona odbiorców, możesz ogłosić pytanie na stronie pytań i odpowiedzi [firmy Microsoft dotyczącej usługi Azure cache&](https://docs.microsoft.com/answers/topics/azure-cache-redis.html) i skontaktować się z zespołem usługi Azure cache i innymi członkami społeczności.
 * Jeśli chcesz utworzyć żądanie dotyczące funkcji, możesz przesłać swoje żądania i pomysły do [usługi Azure cache for Redis](https://feedback.azure.com/forums/169382-cache).
 * Możesz również wysłać do nas wiadomość e-mail na temat [zewnętrznej opinii w usłudze Azure cache](mailto:azurecache@microsoft.com).
 
@@ -82,7 +82,7 @@ Istnieje kilka sposobów rozpoczynania pracy z usługą Azure cache for Redis.
 
 * Możesz zapoznać się z jednym z naszych samouczków dostępnych dla [platform .NET](cache-dotnet-how-to-use-azure-redis-cache.md), [ASP.NET](cache-web-app-howto.md), [Java](cache-java-get-started.md), [Node. js](cache-nodejs-get-started.md)i [Python](cache-python-get-started.md).
 * Możesz obejrzeć, [jak tworzyć aplikacje o wysokiej wydajności za pomocą pamięci Podręcznej Microsoft Azure Redis](https://azure.microsoft.com/documentation/videos/how-to-build-high-performance-apps-using-microsoft-azure-cache/).
-* Aby zobaczyć, jak korzystać z usługi Redis, można sprawdzić dokumentację klienta dla klientów zgodnych z językiem programowania projektu. Istnieje wielu klientów Redis, których można używać z usługą Azure cache dla Redis. Listę klientów Redis można znaleźć w temacie [https://redis.io/clients](https://redis.io/clients).
+* Aby zobaczyć, jak korzystać z usługi Redis, można sprawdzić dokumentację klienta dla klientów zgodnych z językiem programowania projektu. Istnieje wielu klientów Redis, których można używać z usługą Azure cache dla Redis. Listę klientów Redis można znaleźć w temacie [https://redis.io/clients](https://redis.io/clients) .
 
 Jeśli nie masz jeszcze konta platformy Azure, możesz:
 
@@ -112,7 +112,7 @@ Poniżej przedstawiono zagadnienia dotyczące wybierania oferty pamięci podręc
 <a name="cache-performance"></a>
 
 ### <a name="azure-cache-for-redis-performance"></a>Pamięć podręczna Azure dla wydajności Redis
-W poniższej tabeli przedstawiono maksymalne wartości przepustowości zaobserwowane podczas testowania różnych rozmiarów pamięci podręcznej w warstwach `redis-benchmark.exe` standardowa i Premium przy użyciu maszyny wirtualnej IaaS w usłudze Azure cache for Redis Endpoint. W przypadku przepływności TLS Redis-test jest używany z stunnel do nawiązywania połączenia z usługą Azure cache for Redis Endpoint.
+W poniższej tabeli przedstawiono maksymalne wartości przepustowości zaobserwowane podczas testowania różnych rozmiarów pamięci podręcznej w warstwach Standardowa i Premium przy użyciu `redis-benchmark.exe` maszyny wirtualnej IaaS w usłudze Azure cache for Redis Endpoint. W przypadku przepływności TLS Redis-test jest używany z stunnel do nawiązywania połączenia z usługą Azure cache for Redis Endpoint.
 
 >[!NOTE] 
 >Te wartości nie są gwarantowane i nie ma umowy SLA dla tych numerów, ale powinny być typowe. Należy przetestować własną aplikację, aby określić odpowiedni rozmiar pamięci podręcznej dla aplikacji.
@@ -142,7 +142,7 @@ Z tej tabeli można narysować następujące wnioski:
 | P4 |  53 GB |  8 | 6 000/750   | 400 000 | 373 000 |
 | P5 | 120 GB | 20 | 6 000/750   | 400 000 | 373 000 |
 
-Instrukcje dotyczące konfigurowania stunnel lub pobierania narzędzi Redis, takich jak `redis-benchmark.exe`, można znaleźć w sekcji [jak uruchomić polecenia Redis?](#cache-commands) .
+Instrukcje dotyczące konfigurowania stunnel lub pobierania narzędzi Redis, takich jak `redis-benchmark.exe` , można znaleźć w sekcji [jak uruchomić polecenia Redis?](#cache-commands) .
 
 <a name="cache-region"></a>
 
@@ -194,14 +194,14 @@ Zwykle wartości domyślne klienta są wystarczające. Możesz dostosować opcje
   * Zastanów się nad obciążeniem i ustaw odpowiednie wartości. Jeśli przechowujesz duże wartości, ustaw limit czasu na wyższą wartość.
   * Ustaw `AbortOnConnectFail` wartość false i zezwól na ponowne łączenie stackexchange. Redis.
   * Użyj pojedynczego wystąpienia ConnectionMultiplexer dla aplikacji. Można użyć LazyConnection do utworzenia pojedynczego wystąpienia, które jest zwracane przez właściwość połączenia, jak pokazano w [Połącz z pamięcią podręczną przy użyciu klasy ConnectionMultiplexer](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
-  * Ustaw `ConnectionMultiplexer.ClientName` właściwość na unikatową nazwę wystąpienia aplikacji dla celów diagnostycznych.
+  * Ustaw `ConnectionMultiplexer.ClientName` Właściwość na unikatową nazwę wystąpienia aplikacji dla celów diagnostycznych.
   * Używaj wielu `ConnectionMultiplexer` wystąpień dla obciążeń niestandardowych.
       * Możesz obsłużyć ten model, jeśli masz różne obciążenia w aplikacji. Przykład:
       * Możesz mieć jeden multiplekser do celów związanych z dużymi kluczami.
       * Można mieć jeden multiplekser do obsługi małych kluczy.
       * Można ustawić różne wartości limitów czasu połączenia i logikę ponowień dla wszystkich używanych ConnectionMultiplexer.
-      * Ustaw właściwość `ClientName` dla każdego multipleksera, aby ułatwić diagnostykę.
-      * Te wskazówki mogą prowadzić do bardziej usprawnionych opóźnień `ConnectionMultiplexer`na.
+      * Ustaw `ClientName` Właściwość dla każdego multipleksera, aby ułatwić diagnostykę.
+      * Te wskazówki mogą prowadzić do bardziej usprawnionych opóźnień na `ConnectionMultiplexer` .
 
 ### <a name="what-azure-cache-for-redis-clients-can-i-use"></a>Do jakiej usługi Azure cache for Redis klienci mogą korzystać?
 Jednym z wspaniałych Redis jest to, że wielu klientów obsługuje wiele różnych języków deweloperskich. Aby uzyskać aktualną listę klientów, zobacz [Redis clients](https://redis.io/clients). Samouczki, które obejmują kilka różnych języków i klientów, znajdują się w temacie [jak używać usługi Azure cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md) i elementów równorzędnych w spisie treści.
@@ -240,11 +240,11 @@ Można użyć dowolnego polecenia wymienionego w [poleceniach Redis](https://red
 * W przypadku pamięci podręcznej standardowej lub Premium można uruchamiać polecenia Redis za pomocą [konsoli Redis](cache-configure.md#redis-console). Konsola Redis zapewnia bezpieczny sposób uruchamiania poleceń Redis w Azure Portal.
 * Można również użyć narzędzi wiersza polecenia Redis. Aby ich użyć, wykonaj następujące czynności:
 * Pobierz [narzędzia wiersza polecenia Redis](https://github.com/MSOpenTech/redis/releases/).
-* Nawiąż połączenie z pamięcią podręczną przy użyciu polecenia `redis-cli.exe`. Przekaż punkt końcowy pamięci podręcznej przy użyciu przełącznika-h i klucza przy użyciu-a, jak pokazano w następującym przykładzie:
+* Nawiąż połączenie z pamięcią podręczną przy użyciu polecenia `redis-cli.exe` . Przekaż punkt końcowy pamięci podręcznej przy użyciu przełącznika-h i klucza przy użyciu-a, jak pokazano w następującym przykładzie:
 * `redis-cli -h <Azure Cache for Redis name>.redis.cache.windows.net -a <key>`
 
 > [!NOTE]
-> Narzędzia wiersza polecenia Redis nie działają z portem TLS, ale można użyć narzędzia, takiego jak `stunnel` aby bezpiecznie połączyć narzędzia z portem TLS, postępując zgodnie z instrukcjami w temacie [jak używać narzędzia wiersza polecenia Redis z usługą Azure cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-redis-cli-tool) .
+> Narzędzia wiersza polecenia Redis nie działają z portem TLS, ale można użyć narzędzia, takiego jak `stunnel` Aby bezpiecznie połączyć narzędzia z portem TLS, postępując zgodnie z instrukcjami w temacie [jak używać narzędzia wiersza polecenia Redis z usługą Azure cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-redis-cli-tool) .
 >
 >
 
@@ -256,7 +256,7 @@ Usługa Microsoft Azure Cache for Redis jest oparta na popularnym rozwiązaniu o
 Ponieważ każdy klient różni się od siebie, w witrynie MSDN nie ma jednego scentralizowanego odwołania do klasy, a każdy klient utrzymuje własną dokumentację referencyjną. Oprócz dokumentacji referencyjnej istnieje kilka samouczków przedstawiających sposób rozpoczynania pracy z usługą Azure cache for Redis przy użyciu różnych języków i klientów pamięci podręcznej. Aby uzyskać dostęp do tych samouczków, zobacz [jak używać usługi Azure cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md) i elementów równorzędnych w spisie treści.
 
 ### <a name="can-i-use-azure-cache-for-redis-as-a-php-session-cache"></a>Czy można używać usługi Azure cache for Redis jako pamięci podręcznej sesji języka PHP?
-Tak, aby używać usługi Azure cache for Redis jako pamięci podręcznej sesji języka PHP, określ parametry połączenia dla wystąpienia Redis w `session.save_path`usłudze Azure cache.
+Tak, aby używać usługi Azure cache for Redis jako pamięci podręcznej sesji języka PHP, określ parametry połączenia dla wystąpienia Redis w usłudze Azure cache `session.save_path` .
 
 > [!IMPORTANT]
 > W przypadku używania usługi Azure cache for Redis jako pamięci podręcznej sesji języka PHP należy zakodować klucz zabezpieczeń używany do nawiązywania połączenia z pamięcią podręczną, jak pokazano w następującym przykładzie:
@@ -289,7 +289,7 @@ Serwer Redis nie obsługuje natywnie protokołu TLS, ale pamięć podręczna pla
 >
 >
 
-Narzędzia Redis, takie `redis-cli` jak nie działają z portem TLS, ale można użyć narzędzia, takiego jak `stunnel` aby bezpiecznie połączyć narzędzia z portem TLS, postępując zgodnie z instrukcjami wyświetlanymi w blogu [dostawca stanu sesji ASP.NET dla Redis wersji zapoznawczej](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) .
+Narzędzia Redis, takie jak `redis-cli` nie działają z portem TLS, ale można użyć narzędzia, takiego jak `stunnel` Aby bezpiecznie połączyć narzędzia z portem TLS, postępując zgodnie z instrukcjami wyświetlanymi w blogu [dostawca stanu sesji ASP.NET dla Redis wersji zapoznawczej](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) .
 
 Instrukcje dotyczące pobierania narzędzi Redis można znaleźć w sekcji [jak uruchomić polecenia Redis?](#cache-commands)
 
@@ -312,7 +312,7 @@ Instrukcje dotyczące pobierania narzędzi Redis można znaleźć w sekcji [jak 
 * Opracowywanie systemu w taki sposób, aby mógł obsługiwać Blips połączeń [z powodu stosowania poprawek i trybu failover](https://gist.github.com/JonCole/317fe03805d5802e31cfa37e646e419d#file-azureredis-patchingexplained-md).
 
 #### <a name="performance-testing"></a>Testowanie wydajności
-* Zacznij od użycia `redis-benchmark.exe` , aby uzyskać dostęp do możliwej przepływności przed napisaniem własnych testów wydajności. Ponieważ `redis-benchmark` program nie obsługuje protokołu TLS, przed uruchomieniem testu należy [włączyć port bez protokołu TLS przez Azure Portal](cache-configure.md#access-ports) . Aby zapoznać się z przykładami, zobacz [Jak sprawdzić i przetestować wydajność mojej pamięci podręcznej?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
+* Zacznij od użycia, `redis-benchmark.exe` Aby uzyskać dostęp do możliwej przepływności przed napisaniem własnych testów wydajności. Ponieważ `redis-benchmark` program nie obsługuje protokołu TLS, przed uruchomieniem testu należy [włączyć port bez protokołu tls przez Azure Portal](cache-configure.md#access-ports) . Aby zapoznać się z przykładami, zobacz [Jak sprawdzić i przetestować wydajność mojej pamięci podręcznej?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 * Maszyna wirtualna klienta użyta do testowania powinna znajdować się w tym samym regionie co usługa Azure cache for Redis.
 * Zalecamy używanie serii maszyn wirtualnych Dv2 dla klienta, ponieważ mają one lepszy sprzęt i powinny dawać najlepsze wyniki.
 * Upewnij się, że wybrana maszyna wirtualna klienta ma co najmniej tyle możliwości obliczeniowych i przepustowości jak w przypadku testowanej pamięci podręcznej.
@@ -352,7 +352,7 @@ Poniższe polecenia zapewniają przykład korzystania z programu Redis-Benchmark
 ### <a name="important-details-about-threadpool-growth"></a>Ważne szczegóły dotyczące wzrostu puli wątków
 W wątkach CLR istnieją dwa typy wątków — wątki "Worker" i "Port zakończenia we/wy" (portu).
 
-* Wątki robocze są używane dla elementów `Task.Run(…)`, takich jak przetwarzanie metod `ThreadPool.QueueUserWorkItem(…)` lub. Te wątki są również używane przez różne składniki w środowisku CLR, gdy działanie musi się zdarzyć w wątku w tle.
+* Wątki robocze są używane dla elementów, takich jak przetwarzanie `Task.Run(…)` `ThreadPool.QueueUserWorkItem(…)` metod lub. Te wątki są również używane przez różne składniki w środowisku CLR, gdy działanie musi się zdarzyć w wątku w tle.
 * Wątki portu są używane, gdy odbywa się asynchroniczne operacje we/wy, takie jak podczas odczytywania z sieci.
 
 Pula wątków udostępnia nowe wątki procesów roboczych lub wątki zakończenia operacji we/wy na żądanie (bez ograniczania przepustowości), dopóki nie osiągnie ustawienia "minimalne" dla każdego typu wątku. Domyślnie minimalna liczba wątków jest ustawiona na liczbę procesorów w systemie.
@@ -381,7 +381,7 @@ Mając te informacje, zdecydowanie zalecamy, aby klienci ustawili minimalną war
 
 Jak skonfigurować to ustawienie:
 
-* Zalecamy zmianę tego ustawienia programowo przy użyciu metody [puli wątków. SetMinThreads — (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) w programie `global.asax.cs`. Przykład:
+* Zalecamy zmianę tego ustawienia programowo przy użyciu metody [puli wątków. SetMinThreads — (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) w programie `global.asax.cs` . Przykład:
 
 ```cs
 private readonly int minThreads = 200;
@@ -398,10 +398,10 @@ void Application_Start(object sender, EventArgs e)
   > [!NOTE]
   > Wartość określona przez tę metodę jest ustawieniem globalnym wpływającym na całą domenę aplikacji. Na przykład jeśli masz maszynę 4-rdzeniową i chcesz ustawić *MinWorkerThreads* i *minIoThreads* na 50 na procesor CPU podczas wykonywania, użyj **puli wątków. SetMinThreads — (200, 200)**.
 
-* Można również określić ustawienie minimalnych wątków przy użyciu [Ustawienia konfiguracji *MinIoThreads* lub *MinWorkerThreads* ](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) w obszarze elementu `<processModel>` konfiguracji w programie `Machine.config`, zwykle znajdującego się pod adresem `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **Ustawienie minimalnej liczby wątków w ten sposób zwykle nie jest zalecane, ponieważ jest to ustawienie na poziomie całego systemu.**
+* Można również określić ustawienie minimalnych wątków przy użyciu [Ustawienia konfiguracji *MinIoThreads* lub *MinWorkerThreads* ](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) w obszarze `<processModel>` elementu konfiguracji w programie `Machine.config` , zwykle znajdującego się pod adresem `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\` . **Ustawienie minimalnej liczby wątków w ten sposób zwykle nie jest zalecane, ponieważ jest to ustawienie na poziomie całego systemu.**
 
   > [!NOTE]
-  > Wartość określona w tym elemencie konfiguracji jest ustawieniem *na rdzeń* . Na przykład jeśli masz maszynę 4-rdzeniową i chcesz, aby ustawienie *minIoThreads* było 200 w czasie wykonywania, użyj `<processModel minIoThreads="50"/>`.
+  > Wartość określona w tym elemencie konfiguracji jest ustawieniem *na rdzeń* . Na przykład jeśli masz maszynę 4-rdzeniową i chcesz, aby ustawienie *minIoThreads* było 200 w czasie wykonywania, użyj `<processModel minIoThreads="50"/>` .
   >
 
 <a name="server-gc"></a>

@@ -6,12 +6,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: b99c1c9348f8442233eeee8fd4442736c78ee4e4
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 82ea6a27d5bd75c180928f6a8b5c9742c54ea5a1
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199044"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834428"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Zarządzanie użyciem i kosztami usługi Application Insights
 
@@ -20,7 +20,7 @@ ms.locfileid: "83199044"
 
 Application Insights zaprojektowano w celu uzyskania wszystkiego, czego potrzebujesz, aby monitorować dostępność, wydajność i użycie aplikacji sieci Web, niezależnie od tego, czy są one hostowane na platformie Azure, czy lokalnie. Application Insights obsługuje popularne języki i struktury, takie jak .NET, Java i Node. js, i integruje się z procesami DevOps i narzędziami, takimi jak Azure DevOps, JIRA i usługi PagerDuty. Ważne jest, aby zrozumieć, co określa koszty monitorowania aplikacji. W tym artykule opisano, jakie dyski są monitorowane przez aplikację oraz jak można je aktywnie monitorować i kontrolować.
 
-Jeśli masz pytania dotyczące sposobu działania cen dla Application Insights, możesz ogłosić pytanie na naszym [forum](https://social.msdn.microsoft.com/Forums/home?forum=ApplicationInsights&filter=alltypes&sort=lastpostdesc).
+Jeśli masz pytania dotyczące sposobu działania cen dla Application Insights, możesz ogłosić pytanie na naszej stronie pytań i odpowiedzi [Microsoft&pytań](https://docs.microsoft.com/answers/topics/azure-monitor.html)i odpowiedzi.
 
 ## <a name="pricing-model"></a>Model cen
 
@@ -331,7 +331,7 @@ Ponieważ ta warstwa ma zastosowanie tylko do klientów z subskrypcją pakietu O
   * Jeśli aplikacja używa zestawu SDK do ustawiania **roleInstance** na wartość niestandardową, domyślnie ta sama wartość jest używana do określenia liczby węzłów.
   * W przypadku korzystania z nowej wersji zestawu SDK z aplikacją uruchomioną z poziomu komputerów klienckich lub urządzeń przenośnych liczba węzłów może zwracać liczbę, która jest duża (z powodu dużej liczby komputerów klienckich lub urządzeń przenośnych).
 
-## <a name="automation"></a>Automatyzacja
+## <a name="automation"></a>Automation
 
 Można napisać skrypt do ustawienia warstwy cenowej za pomocą usługi Azure Resource Management. [Dowiedz się, jak to zrobić](powershell.md#price).
 

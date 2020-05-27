@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/19/2019
 ms.author: danis
-ms.openlocfilehash: 989e265c83cb2a71d93453b0c3bcbc3e41079447
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 9e42229b08d7817b64c66c4ab23877c837339475
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701593"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827322"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Obsługa usługi Cloud-init dla maszyn wirtualnych w systemie Azure
 W tym artykule opisano obsługę funkcji [Cloud-init](https://cloudinit.readthedocs.io) w celu skonfigurowania maszyny wirtualnej lub zestawów skalowania maszyn wirtualnych w czasie aprowizacji na platformie Azure. Te konfiguracje usługi Cloud-init są uruchamiane podczas pierwszego rozruchu po udostępnieniu zasobów przez platformę Azure.  
@@ -53,11 +53,12 @@ Istnieją dwa etapy umożliwiające udostępnienie usługi Cloud-init dla zatwie
 | Wydawca/wersja | Oferta | SKU | Wersja | obraz Cloud-init gotowy | Obsługa pakietu Cloud-init na platformie Azure|
 |:--- |:--- |:--- |:--- |:--- |:--- |
 |RedHat 7,6 |RHEL |7-RAW-CI |7.6.2019072418 |tak | tak — obsługa z wersji pakietu: *18.2-1. el7_6.2*|
-|RedHat 7,7 |RHEL |7-RAW-CI |7.7.2019081601 | tak (Zwróć uwagę na to, że jest to obraz w wersji zapoznawczej, a wszystkie obrazy z systemem RHEL 7,7 obsługują program Cloud-init, zostanie on usunięty 1 września 2020) | tak — obsługa z wersji pakietu: *18.5 -3. el7*|
-|RedHat 7,7 |RHEL |7 — LVM | nie dotyczy| aktualizacje bez obrazu na zakończenie z maja| tak — obsługa z wersji pakietu: *18.5 -3. el7*|
-|RedHat 7,7 |RHEL |7,7 | nie dotyczy| aktualizacje bez obrazu na zakończenie z maja | tak — obsługa z wersji pakietu: *18.5 -3. el7*|
-|RedHat 7,7 (Gen1) |RHEL — BYOS | RHEL — lvm77 | 7.7.2020051912 | aktualizacje bez obrazu w locie do końca maja  | tak — obsługa z wersji pakietu: *18.5 -3. el7*|
-|RedHat 7,7 (Gen2) |RHEL — BYOS | RHEL — lvm77 | 7.7.2020051913 |aktualizacje bez obrazu w locie do końca maja  | tak — obsługa z wersji pakietu: *18.5 -3. el7*|
+|RedHat 7,7 |RHEL |7-RAW-CI |7.7.2019081601 | tak (Zwróć uwagę na to, że jest to obraz w wersji zapoznawczej, a wszystkie obrazy z systemem RHEL 7,7 obsługują program Cloud-init, zostanie on usunięty 1 września 2020) | tak — obsługa z wersji pakietu: *18.5 -6. el7*|
+|RedHat 7,7 (Gen1)|RHEL |7,7 | 7.7.2020051912 | aktualizacje bez obrazu w locie do końca maja | tak — obsługa z wersji pakietu: *18.5 -6. el7*|
+|RedHat 7,7 (Gen2)|RHEL | 77 – Gen2 | 7.7.2020051913 | aktualizacje bez obrazu w locie do końca maja | tak — obsługa z wersji pakietu: *18.5 -6. el7*|
+|RedHat 7,7 (Gen1)|RHEL |7 — LVM | 7.7.2020051921 | aktualizacje bez obrazu w locie do końca maja | tak — obsługa z wersji pakietu: *18.5 -6. el7*|
+|RedHat 7,7 (Gen2)|RHEL | 7lvm — Gen2 | 7.7.2020051922  | aktualizacje bez obrazu w locie do końca maja | tak — obsługa z wersji pakietu: *18.5 -6. el7*|
+|RedHat 7,7 (Gen1) |RHEL — BYOS | RHEL — lvm77 | 7.7.20200416 | aktualizacje bez obrazu w locie do końca maja  | tak — obsługa z wersji pakietu: *18.5 -6. el7*|
 |RedHat 8,1 (Gen1) |RHEL |8,1-Ci |8.1.2020042511 | tak (Zwróć uwagę na to, że jest to obraz w wersji zapoznawczej, a wszystkie obrazy z systemem RHEL 8,1 obsługują program Cloud-init, zostanie on usunięty 1 sierpnia 2020) | Nie, Eat w przypadku pełnej pomocy technicznej 2020 czerwca|
 |RedHat 8,1 (Gen2) |RHEL |81-Ci-Gen2 |8.1.2020042524 | tak (Zwróć uwagę na to, że jest to obraz w wersji zapoznawczej, a wszystkie obrazy z systemem RHEL 8,1 obsługują program Cloud-init, zostanie on usunięty 1 sierpnia 2020) | Nie, Eat w przypadku pełnej pomocy technicznej 2020 czerwca |
 

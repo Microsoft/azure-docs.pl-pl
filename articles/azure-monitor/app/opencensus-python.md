@@ -6,12 +6,12 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: bbc9fe8d53f231f590dba7e2bd493633c39a1383
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 6b8343d08962d8ce749e1160b0226b68571571f8
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701523"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83815727"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Konfigurowanie Azure Monitor dla aplikacji języka Python
 
@@ -39,7 +39,7 @@ Najpierw należy utworzyć zasób Application Insights w Azure Monitor, co spowo
    | Ustawienie        | Wartość           | Opis  |
    | ------------- |:-------------|:-----|
    | **Nazwa**      | Globalnie unikatowa wartość | Nazwa identyfikująca monitorowaną aplikację |
-   | **Grupa zasobów**     | myResourceGroup      | Nazwa nowej grupy zasobów do hostowania danych Application Insights |
+   | **Resource Group**     | myResourceGroup      | Nazwa nowej grupy zasobów do hostowania danych Application Insights |
    | **Lokalizacja** | Wschodnie stany USA | Lokalizacja w sąsiedztwie lub w sąsiedztwie, gdzie aplikacja jest hostowana |
 
 1. Wybierz przycisk **Utwórz**.
@@ -254,13 +254,13 @@ Aby uzyskać szczegółowe informacje na temat modyfikowania śledzonych danych 
 
 Domyślnie eksporter metryk wyśle zestaw metryk standardowych do Azure Monitor. Można ją wyłączyć przez ustawienie `enable_standard_metrics` flagi `False` w konstruktorze konstruktora metryk.
 
-    ```python
-    ...
-    exporter = metrics_exporter.new_metrics_exporter(
-      enable_standard_metrics=False,
-      connection_string='InstrumentationKey=<your-instrumentation-key-here>')
-    ...
-    ```
+```python
+...
+exporter = metrics_exporter.new_metrics_exporter(
+  enable_standard_metrics=False,
+  connection_string='InstrumentationKey=<your-instrumentation-key-here>')
+...
+```
 Poniżej znajduje się lista standardowych metryk, które są obecnie wysyłane:
 
 - Dostępna pamięć (w bajtach)
@@ -338,8 +338,8 @@ Aby uzyskać szczegółowe informacje na temat modyfikowania śledzonych danych 
 
 4. Eksporter wyśle dane dziennika do Azure Monitor. Dane można znaleźć w sekcji `traces` . 
 
-> [!NOTE]
-> `traces`w tym kontekście nie jest taka sama jak `Tracing` . `traces`odnosi się do typu danych telemetrycznych, które będą widoczne w Azure Monitor podczas używania `AzureLogHandler` . `Tracing`odwołuje się do koncepcji w OpenCensus i odnosi się do [śledzenia rozproszonego](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing).
+    > [!NOTE]
+    > `traces`w tym kontekście nie jest taka sama jak `Tracing` . `traces`odnosi się do typu danych telemetrycznych, które będą widoczne w Azure Monitor podczas używania `AzureLogHandler` . `Tracing`odwołuje się do koncepcji w OpenCensus i odnosi się do [śledzenia rozproszonego](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing).
 
 5. Aby sformatować komunikaty dziennika, można użyć `formatters` wbudowanego [interfejsu API rejestrowania](https://docs.python.org/3/library/logging.html#formatter-objects)języka Python.
 
@@ -371,8 +371,8 @@ Aby uzyskać szczegółowe informacje na temat modyfikowania śledzonych danych 
     ```
 
 6. Możesz również dodać właściwości niestandardowe do wiadomości dziennika w argumencie słowa kluczowego *ekstra* przy użyciu pola custom_dimensions. Zostaną one wyświetlone jako pary klucz-wartość w `customDimensions` w Azure monitor.
-> [!NOTE]
-> Aby ta funkcja działała, należy przekazać słownik do pola custom_dimensions. Jeśli przejdziesz argumenty dowolnego innego typu, rejestrator zignoruje je.
+    > [!NOTE]
+    > Aby ta funkcja działała, należy przekazać słownik do pola custom_dimensions. Jeśli przejdziesz argumenty dowolnego innego typu, rejestrator zignoruje je.
 
     ```python
     import logging
@@ -395,25 +395,25 @@ Aby uzyskać szczegółowe informacje na temat modyfikowania śledzonych danych 
 
 OpenCensus Python nie automatycznie śledzi i nie wysyła danych `exception` telemetrycznych. Są one wysyłane za pośrednictwem programu przy `AzureLogHandler` użyciu wyjątków za pośrednictwem biblioteki rejestrowania języka Python. Właściwości niestandardowe można dodawać podobnie jak w przypadku normalnego rejestrowania.
 
-    ```python
-    import logging
-    
-    from opencensus.ext.azure.log_exporter import AzureLogHandler
-    
-    logger = logging.getLogger(__name__)
-    # TODO: replace the all-zero GUID with your instrumentation key.
-    logger.addHandler(AzureLogHandler(
-        connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
-    )
+```python
+import logging
 
-    properties = {'custom_dimensions': {'key_1': 'value_1', 'key_2': 'value_2'}}
+from opencensus.ext.azure.log_exporter import AzureLogHandler
 
-    # Use properties in exception logs
-    try:
-        result = 1 / 0  # generate a ZeroDivisionError
-    except Exception:
-        logger.exception('Captured an exception.', extra=properties)
-    ```
+logger = logging.getLogger(__name__)
+# TODO: replace the all-zero GUID with your instrumentation key.
+logger.addHandler(AzureLogHandler(
+    connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
+)
+
+properties = {'custom_dimensions': {'key_1': 'value_1', 'key_2': 'value_2'}}
+
+# Use properties in exception logs
+try:
+    result = 1 / 0  # generate a ZeroDivisionError
+except Exception:
+    logger.exception('Captured an exception.', extra=properties)
+```
 Ponieważ należy rejestrować wyjątki jawnie, jest on przeznaczony dla użytkowników, w jaki chcą rejestrować Nieobsłużone wyjątki. OpenCensus nie umieszcza ograniczeń w sposobie, w jaki użytkownik chce wykonać tę czynność, o ile jawnie rejestruje dane telemetryczne wyjątku.
 
 #### <a name="sampling"></a>Próbkowanie
@@ -457,7 +457,7 @@ Aby uzyskać szczegółowe informacje na temat korzystania z zapytań i dziennik
 * [Mapa aplikacji](./../../azure-monitor/app/app-map.md)
 * [Kompleksowe monitorowanie wydajności](./../../azure-monitor/learn/tutorial-performance.md)
 
-### <a name="alerts"></a>Alerts (Alerty)
+### <a name="alerts"></a>Alerty
 
 * [Testy dostępności](../../azure-monitor/app/monitor-web-app-availability.md): Utwórz testy, aby upewnić się, że Twoja witryna jest widoczna w sieci Web.
 * [Inteligentne diagnostyki](../../azure-monitor/app/proactive-diagnostics.md): Te testy są uruchamiane automatycznie, więc nie trzeba wykonywać żadnych czynności, aby je skonfigurować. Ta funkcja powiadomi Cię, jeśli w aplikacji występuje nietypowa liczba nieudanych żądań.

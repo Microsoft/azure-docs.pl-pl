@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/02/2019
 ms.author: shvija
-ms.openlocfilehash: 8d461652758dd1fe6bb90a703b7c3fa113c9bd3e
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: e8ae3cbbca926a97bf90f4ac1104d4f082b332fd
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726251"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835618"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs często zadawane pytania
 
@@ -250,7 +250,7 @@ Event Hubs obsługuje dwa typy [dzienników diagnostycznych](event-hubs-diagnost
 
 ### <a name="support-and-sla"></a>Pomoc techniczna i Umowa SLA
 
-Pomoc techniczna dla Event Hubs jest dostępna na [forach społeczności użytkowników](https://social.msdn.microsoft.com/forums/azure/home?forum=servbus). Pomoc dotycząca rozliczeń i subskrypcji jest świadczona bezpłatnie.
+Pomoc techniczna dla Event Hubs jest dostępna za pomocą strony pytań i odpowiedzi [Microsoft&pytań i odpowiedzi na Azure Service Bus](https://docs.microsoft.com/answers/topics/azure-service-bus.html). Pomoc dotycząca rozliczeń i subskrypcji jest świadczona bezpłatnie.
 
 Aby dowiedzieć się więcej o umowie SLA, zobacz stronę [umowy dotyczące poziomu usług](https://azure.microsoft.com/support/legal/sla/) .
 

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 479f9abc667e20a136da5f6231e78a1e4052f087
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 07e8d2b6bd22029a4b6556ada62985167807eb77
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75965669"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83833935"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Korzystanie z usługi Azure Premium Storage z programem SQL Server na maszynach wirtualnych
 
@@ -33,7 +33,7 @@ ms.locfileid: "75965669"
 
 Ten artykuł zawiera informacje o planowaniu i wskazówkach dotyczących migracji maszyny wirtualnej z systemem SQL Server w celu użycia Premium Storage. Obejmuje to tworzenie infrastruktury platformy Azure (sieci, magazynu) i maszyn wirtualnych z systemem Windows gościa. Przykład w [dodatku](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) przedstawia pełną kompleksową migrację sposobu przenoszenia większych maszyn wirtualnych w celu wykorzystania ulepszonego lokalnego magazynu SSD przy użyciu programu PowerShell.
 
-Ważne jest, aby zrozumieć kompleksowy proces wykorzystywania Premium Storage platformy Azure z SQL Server na maszynach wirtualnych IAAS. Obejmuje to następujące działania:
+Ważne jest, aby zrozumieć kompleksowy proces wykorzystywania Premium Storage platformy Azure z SQL Server na maszynach wirtualnych IAAS. Obejmuje to:
 
 * Identyfikacja wymagań wstępnych, które mają być używane Premium Storage.
 * Przykłady wdrażania SQL Server w programie IaaS, aby Premium Storage w przypadku nowych wdrożeń.
@@ -68,7 +68,7 @@ W przypadku maszyn wirtualnych usług DS * należy skonfigurować Virtual Networ
 
 ![RegionalVNET][1]
 
-Możesz zgłosić bilet pomocy technicznej firmy Microsoft w celu przeprowadzenia migracji do regionalnej sieci wirtualnej. Następnie firma Microsoft wprowadza zmianę. Aby ukończyć migrację do sieci wirtualnych regionalnej, Zmień właściwość AffinityGroup w konfiguracji sieci. Najpierw wyeksportuj konfigurację sieci w programie PowerShell, a następnie zastąp Właściwość **AffinityGroup** w elemencie **VirtualNetworkSite** elementem z właściwością **Location** . Określ `Location = XXXX` , `XXXX` gdzie jest regionem świadczenia usługi Azure. Następnie zaimportuj nową konfigurację.
+Możesz zgłosić bilet pomocy technicznej firmy Microsoft w celu przeprowadzenia migracji do regionalnej sieci wirtualnej. Następnie firma Microsoft wprowadza zmianę. Aby ukończyć migrację do sieci wirtualnych regionalnej, Zmień właściwość AffinityGroup w konfiguracji sieci. Najpierw wyeksportuj konfigurację sieci w programie PowerShell, a następnie zastąp Właściwość **AffinityGroup** w elemencie **VirtualNetworkSite** elementem z właściwością **Location** . Określ `Location = XXXX` `XXXX` , gdzie jest regionem świadczenia usługi Azure. Następnie zaimportuj nową konfigurację.
 
 Rozważmy na przykład następującą konfigurację sieci wirtualnej:
 
@@ -142,7 +142,7 @@ Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
 1. Zanotuj wartość diskname i numer LUN.
 
     ![DisknameAndLUN][2]
-1. Pulpit zdalny do maszyny wirtualnej. Następnie przejdź do pozycji **Zarządzanie** | komputerem**Menedżer urządzeń** | **stacje dysków**. Przyjrzyj się właściwościom wszystkich dysków wirtualnych firmy Microsoft
+1. Pulpit zdalny do maszyny wirtualnej. Następnie przejdź do pozycji **Zarządzanie komputerem**  |  **Menedżer urządzeń**  |  **stacje dysków**. Przyjrzyj się właściwościom wszystkich dysków wirtualnych firmy Microsoft
 
     ![VirtualDiskProperties][3]
 1. Numer LUN w tym miejscu jest odwołaniem do numeru LUN wskazanego podczas dołączania wirtualnego dysku twardego do maszyny wirtualnej.
@@ -271,7 +271,7 @@ $pass = "mycomplexpwd4*"
 $vmConfigsl = New-AzureVMConfig -Name $vmName -InstanceSize $newInstanceSize -ImageName $image  -AvailabilitySetName $availabilitySet  ` | Add-AzureProvisioningConfig -Windows ` -AdminUserName $userName -Password $pass | Set-AzureSubnet -SubnetNames $subnet | Set-AzureStaticVNetIP -IPAddress $ipaddr
 
 #Add Data and Log Disks to VM Config
-#Note the size specified ‘-DiskSizeInGB 1023’, this attaches 2 x P30 Premium Storage Disk Type
+#Note the size specified '-DiskSizeInGB 1023', this attaches 2 x P30 Premium Storage Disk Type
 #Utilising the Premium Storage enabled Storage account
 
 $vmConfigsl | Add-AzureDataDisk -CreateNew -DiskSizeInGB 1023 -LUN 0 -HostCaching "ReadOnly"  -DiskLabel "DataDisk1" -MediaLocation "https://$newxiostorageaccountname.blob.core.windows.net/vhds/$vmName-data1.vhd"
@@ -681,7 +681,7 @@ $destcloudsvc = "danNewSvcAms"
 New-AzureService $destcloudsvc -Location $location
 ```
 
-#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Krok 2: zwiększenie dozwolonych błędów dla zasobów \<opcjonalnych>
+#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Krok 2: zwiększenie dozwolonych błędów dla zasobów \< opcjonalnych>
 
 W przypadku niektórych zasobów należących do grupy dostępności zawsze włączone istnieją limity dotyczące liczby błędów, które mogą wystąpić w danym okresie, w których usługa klastra próbuje ponownie uruchomić grupę zasobów. Zaleca się zwiększyć ten proces podczas przechodzenia przez tę procedurę, ponieważ w przypadku nieręcznego przełączenia w tryb failover i wyzwolenia trybu failover w celu zamknięcia maszyn można przejść do tego limitu.
 
@@ -691,7 +691,7 @@ Rozsądne jest podwójne zwiększenie liczby niepowodzeń, aby zrobić to w Mene
 
 Zmień maksymalną liczbę błędów na 6.
 
-#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Krok 3. Dodawanie zasobu adresu IP dla opcjonalnej \<> grupy klastrów
+#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Krok 3. Dodawanie zasobu adresu IP dla \< opcjonalnej> grupy klastrów
 
 Jeśli istnieje tylko jeden adres IP dla grupy klastra i jest on wyrównany do podsieci chmury, uważaj, jeśli przypadkowo przejdziesz do trybu offline wszystkie węzły klastra w chmurze w tej sieci, nie będzie można przełączyć zasobu adresu IP klastra i sieci klastra do trybu online. W takiej sytuacji uniemożliwia ona aktualizowanie innych zasobów klastra.
 
@@ -1246,10 +1246,10 @@ Aby dodać adres IP, zobacz dodatek, Krok 14.
 
     ![Appendix15][25]
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 * [Premium Storage platformy Azure](../disks-types.md)
-* [Maszyny wirtualne](https://azure.microsoft.com/services/virtual-machines/)
+* [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)
 * [SQL Server na platformie Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 
 <!-- IMAGES -->
