@@ -1,14 +1,14 @@
 ---
 title: Tworzenie puli niestandardowej za pomocą galerii obrazów udostępnionych
-description: Utwórz pulę usługi Batch z udostępnioną galerią obrazów, aby udostępnić niestandardowe obrazy do węzłów obliczeniowych zawierających oprogramowanie i dane potrzebne dla aplikacji. Obrazy niestandardowe są wydajnym sposobem konfigurowania węzłów obliczeniowych do uruchamiania obciążeń wsadowych.
-ms.topic: article
-ms.date: 08/28/2019
-ms.openlocfilehash: 1f03d637ffc6e443fdd429ca7fd647603b668cc1
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+description: Obrazy niestandardowe są wydajnym sposobem konfigurowania węzłów obliczeniowych do uruchamiania obciążeń wsadowych.
+ms.topic: conceptual
+ms.date: 05/22/2020
+ms.openlocfilehash: 6731086bfcbe6a671c579593791fb7467b280bca
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780499"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83844492"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>Tworzenie puli niestandardowej za pomocą galerii obrazów udostępnionych
 
@@ -24,50 +24,51 @@ Za pomocą udostępnionego obrazu można zaoszczędzić czas podczas przygotowyw
 
 Używanie udostępnionego obrazu skonfigurowanego dla danego scenariusza może zapewnić kilka korzyści:
 
-* **Używaj tych samych obrazów w różnych regionach.** Można utworzyć udostępnione repliki obrazów w różnych regionach, aby wszystkie pule używały tego samego obrazu.
-* **Skonfiguruj system operacyjny (OS).** Można dostosować konfigurację dysku systemu operacyjnego obrazu.
-* **Aplikacje przed instalacją.** Wstępne Instalowanie aplikacji na dysku systemu operacyjnego jest wydajniejsze i mniej podatne na błędy niż instalowanie aplikacji po zainicjowaniu obsługi administracyjnej węzłów obliczeniowych za pomocą zadania podrzędnego.
-* **Kopiuj duże ilości danych raz.** Utwórz statyczny element danych w zarządzanym obrazie udostępnionym, kopiując go do dysków danych w zarządzanym obrazie. Należy to zrobić tylko raz i udostępnić dane dla każdego węzła puli.
-* **Zwiększaj pule do większych rozmiarów.** Za pomocą galerii obrazów udostępnionych można tworzyć większe pule przy użyciu dostosowanych obrazów wraz z bardziej udostępnionymi replikami obrazu.
-* **Lepsza wydajność niż obraz niestandardowy.** Przy użyciu obrazów udostępnionych czas trwania puli do osiągnięcia stanu stałego jest do 25% szybszy, a opóźnienie maszyny wirtualnej jest krótsze niż 30%.
-* **Przechowywanie wersji obrazów i grupowanie w celu łatwiejszego zarządzania.** Definicja grupowania obrazów zawiera informacje na temat przyczyny utworzenia obrazu, jego systemu operacyjnego oraz informacji o korzystaniu z obrazu. Grupowanie obrazów umożliwia łatwiejsze zarządzanie obrazami. Aby uzyskać więcej informacji, zobacz [definicje obrazu](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
+- **Używaj tych samych obrazów w różnych regionach.** Można utworzyć udostępnione repliki obrazów w różnych regionach, aby wszystkie pule używały tego samego obrazu.
+- **Skonfiguruj system operacyjny (OS).** Można dostosować konfigurację dysku systemu operacyjnego obrazu.
+- **Aplikacje przed instalacją.** Wstępne Instalowanie aplikacji na dysku systemu operacyjnego jest wydajniejsze i mniej podatne na błędy niż instalowanie aplikacji po zainicjowaniu obsługi administracyjnej węzłów obliczeniowych za pomocą zadania podrzędnego.
+- **Kopiuj duże ilości danych raz.** Utwórz statyczny element danych w zarządzanym obrazie udostępnionym, kopiując go do dysków danych w zarządzanym obrazie. Należy to zrobić tylko raz i udostępnić dane dla każdego węzła puli.
+- **Zwiększaj pule do większych rozmiarów.** Za pomocą galerii obrazów udostępnionych można tworzyć większe pule przy użyciu dostosowanych obrazów wraz z bardziej udostępnionymi replikami obrazu.
+- **Lepsza wydajność niż obraz niestandardowy.** Przy użyciu obrazów udostępnionych czas trwania puli do osiągnięcia stanu stałego jest do 25% szybszy, a opóźnienie maszyny wirtualnej jest krótsze niż 30%.
+- **Przechowywanie wersji obrazów i grupowanie w celu łatwiejszego zarządzania.** Definicja grupowania obrazów zawiera informacje na temat przyczyny utworzenia obrazu, jego systemu operacyjnego oraz informacji o korzystaniu z obrazu. Grupowanie obrazów umożliwia łatwiejsze zarządzanie obrazami. Aby uzyskać więcej informacji, zobacz [definicje obrazu](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 > [!NOTE]
 > Musisz uwierzytelnić się przy użyciu usługi Azure AD. W przypadku korzystania z uwierzytelniania za pomocą klucza Shared-Key zostanie wyświetlony komunikat o błędzie uwierzytelniania.  
 
-* **Konto usługi Azure Batch.** Aby utworzyć konto usługi Batch, zobacz Przewodnik Szybki Start w usłudze Batch przy użyciu [Azure Portal](quick-create-portal.md) lub [interfejsu wiersza polecenia platformy Azure](quick-create-cli.md).
+- **Konto usługi Azure Batch.** Aby utworzyć konto usługi Batch, zobacz Przewodnik Szybki Start w usłudze Batch przy użyciu [Azure Portal](quick-create-portal.md) lub [interfejsu wiersza polecenia platformy Azure](quick-create-cli.md).
 
-* **Obraz udostępnionej galerii obrazów**. Aby utworzyć obraz udostępniony, musisz mieć lub utworzyć zasób obrazu zarządzanego. Obraz należy utworzyć na podstawie migawek dysku systemu operacyjnego maszyny wirtualnej i opcjonalnie dołączonych dysków danych. Aby uzyskać więcej informacji, zobacz [Przygotowywanie zarządzanego obrazu](#prepare-a-managed-image).
+- **Obraz udostępnionej galerii obrazów**. Aby utworzyć obraz udostępniony, musisz mieć lub utworzyć zasób obrazu zarządzanego. Obraz należy utworzyć na podstawie migawek dysku systemu operacyjnego maszyny wirtualnej i opcjonalnie dołączonych dysków danych.
 
 > [!NOTE]
-> Udostępniony obraz musi znajdować się w tej samej subskrypcji co konto usługi Batch. Udostępniony obraz może znajdować się w różnych regionach, o ile ma repliki w tym samym regionie, co konto w usłudze Batch.
+> Udostępniony obraz musi znajdować się w tej samej subskrypcji co konto usługi Batch. Obraz może znajdować się w różnych regionach, o ile ma repliki w tym samym regionie, co konto w usłudze Batch.
 
-## <a name="prepare-a-managed-image"></a>Przygotowywanie zarządzanego obrazu
+## <a name="prepare-a-custom-image"></a>Przygotowywanie obrazu niestandardowego
 
-Na platformie Azure można przygotować zarządzany obraz z:
+Na platformie Azure można przygotować obraz niestandardowy z:
 
-* Migawki systemu operacyjnego i dysków danych maszyny wirtualnej platformy Azure
-* Uogólniona maszyna wirtualna platformy Azure z dyskami zarządzanymi
-* Uogólniony, lokalny wirtualny dysk twardy przekazany do chmury
+- Migawki systemu operacyjnego i dysków danych maszyny wirtualnej platformy Azure
+- Uogólniona maszyna wirtualna platformy Azure z dyskami zarządzanymi
+- Uogólniony, lokalny wirtualny dysk twardy przekazany do chmury
 
-Aby w sposób niezawodny skalować pule usługi Batch przy użyciu obrazu niestandardowego, zalecamy utworzenie obrazu zarządzanego przy użyciu *tylko* pierwszej metody: używanie migawek dysków maszyny wirtualnej. Aby przygotować maszynę wirtualną, wykonać migawkę i utworzyć obraz na podstawie migawki, zobacz następujące kroki.
+> [!NOTE]
+> Obecnie w usłudze Batch obsługiwane są tylko uogólnione obrazy udostępnione. W tej chwili nie można utworzyć niestandardowej puli obrazów z wyspecjalizowanego obrazu udostępnionego.
+
+Poniższe kroki pokazują, jak przygotować maszynę wirtualną, wykonać migawkę i utworzyć obraz na podstawie migawki.
 
 ### <a name="prepare-a-vm"></a>Przygotowywanie maszyny wirtualnej
 
 Jeśli tworzysz nową maszynę wirtualną dla obrazu, Użyj obrazu z witryny Azure Marketplace w pierwszej kolejności jako obrazu podstawowego dla zarządzanego obrazu. Jako obrazu podstawowego można używać tylko obrazów pierwszej strony. Aby uzyskać pełną listę odwołań do obrazów w portalu Azure Marketplace obsługiwanych przez Azure Batch, zobacz część operacji [jednostek SKU agenta węzła listy](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus) .
 
 > [!NOTE]
-> Nie można użyć obrazu innej firmy, który ma dodatkową licencję i warunki zakupu jako obraz podstawowy. Aby uzyskać informacje na temat tych obrazów z portalu Marketplace, zobacz Wskazówki dotyczące maszyn wirtualnych z systemem [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
-) lub [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
-) .
+> Nie można użyć obrazu innej firmy, który ma dodatkową licencję i warunki zakupu jako obraz podstawowy. Aby uzyskać informacje na temat tych obrazów z portalu Marketplace, zobacz Wskazówki dotyczące maszyn wirtualnych z systemem [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms) lub [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms) .
 
-* Upewnij się, że maszyna wirtualna została utworzona przy użyciu dysku zarządzanego. Jest to domyślne ustawienie magazynu podczas tworzenia maszyny wirtualnej.
-* Na maszynie wirtualnej nie należy instalować rozszerzeń platformy Azure, takich jak rozszerzenie niestandardowego skryptu. Jeśli obraz zawiera wstępnie zainstalowane rozszerzenie, platforma Azure może napotkać problemy podczas wdrażania puli usługi Batch.
-* W przypadku korzystania z dołączonych dysków danych należy zainstalować i sformatować dyski z poziomu maszyny wirtualnej w celu ich użycia.
-* Upewnij się, że określony obraz podstawowego systemu operacyjnego używa domyślnego dysku tymczasowego. Agent węzła wsadowego aktualnie oczekuje domyślnego dysku tymczasowego.
-* Gdy maszyna wirtualna jest uruchomiona, nawiąż połączenie z nią za pośrednictwem protokołu RDP (dla systemu Windows) lub SSH (system Linux). Zainstaluj wymagane oprogramowanie lub skopiuj wymagane dane.  
+- Upewnij się, że maszyna wirtualna została utworzona przy użyciu dysku zarządzanego. Jest to domyślne ustawienie magazynu podczas tworzenia maszyny wirtualnej.
+- Na maszynie wirtualnej nie należy instalować rozszerzeń platformy Azure, takich jak rozszerzenie niestandardowego skryptu. Jeśli obraz zawiera wstępnie zainstalowane rozszerzenie, platforma Azure może napotkać problemy podczas wdrażania puli usługi Batch.
+- W przypadku korzystania z dołączonych dysków danych należy zainstalować i sformatować dyski z poziomu maszyny wirtualnej w celu ich użycia.
+- Upewnij się, że określony obraz podstawowego systemu operacyjnego używa domyślnego dysku tymczasowego. Agent węzła wsadowego aktualnie oczekuje domyślnego dysku tymczasowego.
+- Gdy maszyna wirtualna jest uruchomiona, nawiąż połączenie z nią za pośrednictwem protokołu RDP (dla systemu Windows) lub SSH (system Linux). Zainstaluj wymagane oprogramowanie lub skopiuj wymagane dane.  
 
 ### <a name="create-a-vm-snapshot"></a>Tworzenie migawki maszyny wirtualnej
 
@@ -212,10 +213,11 @@ Wykonaj następujące kroki, aby utworzyć pulę z udostępnionego obrazu w Azur
 
 Jeśli planujesz utworzenie puli z setkami lub tysiącami maszyn wirtualnych lub więcej przy użyciu udostępnionego obrazu, Skorzystaj z poniższych wskazówek.
 
-* **Numery replik galerii obrazów udostępnionych.**  W przypadku każdej puli z maksymalnie 600 wystąpieniami zalecamy zachowanie co najmniej jednej repliki. Na przykład, jeśli tworzysz pulę z 3000 maszyn wirtualnych, należy pozostawić co najmniej 5 replik obrazu. Zawsze sugerujemy przechowywanie większej liczby replik niż minimalne wymagania w celu uzyskania lepszej wydajności.
+- **Numery replik galerii obrazów udostępnionych.**  W przypadku każdej puli z maksymalnie 600 wystąpieniami zalecamy zachowanie co najmniej jednej repliki. Na przykład, jeśli tworzysz pulę z 3000 maszyn wirtualnych, należy pozostawić co najmniej 5 replik obrazu. Zawsze sugerujemy przechowywanie większej liczby replik niż minimalne wymagania w celu uzyskania lepszej wydajności.
 
-* **Limit czasu zmiany rozmiaru.** Jeśli pula zawiera stałą liczbę węzłów (jeśli nie ma automatycznego skalowania), zwiększ `resizeTimeout` Właściwość puli w zależności od rozmiaru puli. Dla każdego 1000 maszyn wirtualnych zalecany limit rozmiaru wynosi co najmniej 15 minut. Na przykład zalecany limit rozmiaru dla puli z maszynami wirtualnymi 2000 wynosi co najmniej 30 minut.
+- **Limit czasu zmiany rozmiaru.** Jeśli pula zawiera stałą liczbę węzłów (jeśli nie ma automatycznego skalowania), zwiększ `resizeTimeout` Właściwość puli w zależności od rozmiaru puli. Dla każdego 1000 maszyn wirtualnych zalecany limit rozmiaru wynosi co najmniej 15 minut. Na przykład zalecany limit rozmiaru dla puli z maszynami wirtualnymi 2000 wynosi co najmniej 30 minut.
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby zapoznać się z szczegółowym omówieniem usługi Batch, zobacz temat [przepływ pracy i zasoby usług Batch](batch-service-workflow-features.md).
+- Aby zapoznać się z szczegółowym omówieniem usługi Batch, zobacz temat [przepływ pracy i zasoby usług Batch](batch-service-workflow-features.md).
+- Dowiedz się więcej o [galerii obrazów udostępnionych](../virtual-machines/windows/shared-image-galleries.md).

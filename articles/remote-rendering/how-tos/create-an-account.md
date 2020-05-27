@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: b9b72fb9e80c588eb3e6642d0228bffa50b35c6e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 58757dba9a8956d97c19269c2ac913d801f73746
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681300"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83844509"
 ---
 # <a name="create-an-azure-remote-rendering-account"></a>Tworzenie konta usługi Azure Remote Rendering
 
@@ -48,7 +48,7 @@ Zapoznaj się z [listą dostępnych regionów](../reference/regions.md) w celu w
 
 Wartości dla **`arrAccountId`** i **`arrAccountKey`** można znaleźć w portalu, zgodnie z opisem w następujących krokach:
 
-* Przejdź do witryny [Azure Portal](https://www.portal.azure.com).
+* Przejdź do [Azure Portal](https://www.portal.azure.com)
 * Znajdź **"zdalne konto renderowania"** — powinno ono znajdować się na liście **"ostatnie zasoby"** . Możesz również wyszukać ją na pasku wyszukiwania u góry. W takim przypadku upewnij się, że subskrypcja, której chcesz użyć, została wybrana w domyślnym filtrze subskrypcji (ikona filtru obok paska wyszukiwania):
 
 ![Filtr subskrypcji](./media/azure-subscription-filter.png)
@@ -81,9 +81,12 @@ Teraz zakładasz, że masz konto magazynu. Przejdź do konta magazynu w portalu 
 
 ![Konto magazynu w usłudze IAM](./media/azure-add-role-assignment.png)
 
-* Pierwszą rolą do przypisania jest **właściciel** , jak pokazano na poniższym zrzucie ekranu. 
-* Wybierz pozycję **konto renderowania zdalnego** z elementu ***Przypisz dostęp do** listy rozwijanej.
+* Pierwszą rolą do przypisania jest **właściciel** , jak pokazano na poniższym zrzucie ekranu.
+* Wybierz opcję **konto renderowania zdalnego** z listy rozwijanej **Przypisz dostęp do** .
 * Wybierz swoje subskrypcję i konto renderowania zdalnego z ostatnich list rozwijanych.
+
+> [!WARNING]
+> Jeśli konto renderowania zdalnego nie znajduje się na liście, zapoznaj się z [sekcją rozwiązywania problemów](../resources/troubleshoot.md#cant-link-storage-account-to-arr-account).
 
 Powtórz Dodaj nowe role dwa razy dla odpowiednich opcji z listy rozwijanej **rola** :
 * **Współautor konta magazynu**
@@ -95,6 +98,6 @@ Jeśli dodano wszystkie trzy role, konto renderowania zdalnego platformy Azure m
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Uwierzytelnianie](authentication.md)
+* [Authentication](authentication.md)
 * [Używanie interfejsów API frontonu platformy Azure do uwierzytelniania](frontend-apis.md)
 * [Przykładowe skrypty programu PowerShell](../samples/powershell-example-scripts.md)

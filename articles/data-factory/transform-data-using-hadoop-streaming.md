@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/16/2018
-ms.openlocfilehash: c1bba6903fe1cb8cc5bae9a12153553594180b43
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/08/2020
+ms.openlocfilehash: 5acfef94a98f105a7cc09c5b72b65e8c228ed87d
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418885"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83844631"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Przekształcanie danych przy użyciu działania usługi Hadoop streaming w Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -69,19 +69,19 @@ Jeśli jesteś nowym do Azure Data Factory, przeczytaj artykuł [wprowadzenie do
 
 ## <a name="syntax-details"></a>Szczegóły składni
 
-| Właściwość          | Opis                              | Wymagany |
+| Właściwość          | Opis                              | Wymagane |
 | ----------------- | ---------------------------------------- | -------- |
-| name              | Nazwa działania                     | Tak      |
-| description       | Tekst opisujący działanie używanego działania | Nie       |
-| type              | Dla działania przesyłania strumieniowego Hadoop typem działania jest HDInsightStreaming | Tak      |
-| linkedServiceName | Odwołanie do klastra usługi HDInsight zarejestrowanego jako połączona usługa w Data Factory. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz artykuł dotyczący [połączonych usług obliczeniowych](compute-linked-services.md) . | Tak      |
-| wzor            | Określa nazwę pliku wykonywalnego mapowania | Tak      |
-| zmniejszenie           | Określa nazwę pliku wykonywalnego redukcji | Tak      |
+| name              | Nazwa działania                     | Yes      |
+| description (opis)       | Tekst opisujący działanie używanego działania | Nie       |
+| typ              | Dla działania przesyłania strumieniowego Hadoop typem działania jest HDInsightStreaming | Yes      |
+| linkedServiceName | Odwołanie do klastra usługi HDInsight zarejestrowanego jako połączona usługa w Data Factory. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz artykuł dotyczący [połączonych usług obliczeniowych](compute-linked-services.md) . | Yes      |
+| wzor            | Określa nazwę pliku wykonywalnego mapowania | Yes      |
+| zmniejszenie           | Określa nazwę pliku wykonywalnego redukcji | Yes      |
 | połączenie          | Określa nazwę pliku wykonywalnego łączenia | Nie       |
-| fileLinkedService | Odwołanie do połączonej usługi Azure Storage służącej do przechowywania programów mapowania, łączenia i narzędzi do ograniczania do wykonania. Jeśli nie określisz tej połączonej usługi, zostanie użyta połączona usługa Azure Storage zdefiniowana w połączonej usłudze HDInsight. | Nie       |
-| Parametr          | Podaj tablicę ścieżek do programów mapowania, łączenia i redukcji przechowywanych w usłudze Azure Storage, która jest określona przez fileLinkedService. W ścieżce jest rozróżniana wielkość liter. | Tak      |
-| wejście             | Określa ścieżkę WASB do pliku wejściowego dla mapowania. | Tak      |
-| output            | Określa ścieżkę WASB do pliku wyjściowego dla funkcji zmniejszającej. | Tak      |
+| fileLinkedService | Odwołanie do połączonej usługi Azure Storage służącej do przechowywania programów mapowania, łączenia i narzędzi do ograniczania do wykonania. W tym miejscu są obsługiwane tylko połączone usługi **[BLOB Storage platformy Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)** i **[ADLS Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)** . Jeśli nie określisz tej połączonej usługi, zostanie użyta połączona usługa Azure Storage zdefiniowana w połączonej usłudze HDInsight. | Nie       |
+| Parametr          | Podaj tablicę ścieżek do programów mapowania, łączenia i redukcji przechowywanych w usłudze Azure Storage, która jest określona przez fileLinkedService. W ścieżce jest rozróżniana wielkość liter. | Yes      |
+| wejście             | Określa ścieżkę WASB do pliku wejściowego dla mapowania. | Yes      |
+| output            | Określa ścieżkę WASB do pliku wyjściowego dla funkcji zmniejszającej. | Yes      |
 | GetDebugInfo —      | Określa, kiedy pliki dziennika są kopiowane do usługi Azure Storage używanej przez klaster HDInsight (lub) określonej przez elementu scriptlinkedservice. Dozwolone wartości: brak, zawsze lub niepowodzenie. Wartość domyślna: None. | Nie       |
 | argumentu         | Określa tablicę argumentów zadania usługi Hadoop. Argumenty są przesyłane jako argumenty wiersza polecenia do każdego zadania. | Nie       |
 | definiuje           | Określ parametry jako pary klucz/wartość dla odwołania w skrypcie Hive. | Nie       | 
