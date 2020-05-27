@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: b06fe37b63494eb4ee0ca680733a801c26415d67
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ca9a74763715c5c68526ff3213a14d2148f5ad30
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79530057"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834309"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mariadb"></a>Jak użyć WYJAŚNIj, aby uzyskać informacje o wydajności zapytań dotyczących profilów w Azure Database for MariaDB
 **Wyjaśnienie** to przydatne narzędzie do optymalizowania zapytań. Instrukcji WYJAŚNIj można użyć do uzyskania informacji o sposobie wykonywania instrukcji SQL. Poniższe dane wyjściowe przedstawiają przykład wykonania instrukcji WYJAŚNIeń.
@@ -166,4 +166,4 @@ W WYJAŚNIeniu są teraz widoczne, że MariaDB jest w stanie użyć połączoneg
 Użycie WYJAŚNIeń i różnych typów indeksów może znacząco zwiększyć wydajność. Indeks tabeli nie musi oznaczać, że MariaDB będzie mógł użyć jej do wykonywania zapytań. Zawsze Weryfikuj założenia przy użyciu WYJAŚNIeń i Optymalizuj zapytania przy użyciu indeksów.
 
 ## <a name="next-steps"></a>Następne kroki
-- Aby znaleźć odpowiedzi na najczęściej zadawane pytania lub opublikować nowe pytanie/odpowiedź, odwiedź [forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDatabaseforMariadb) lub [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mariadb).
+- Aby znaleźć odpowiedzi na najczęściej zadawane pytania lub opublikować nowe pytanie/odpowiedź, odwiedź stronę pytania lub [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mariadb)w [witrynie Microsoft Q&](https://docs.microsoft.com/answers/topics/azure-database-mariadb.html) .

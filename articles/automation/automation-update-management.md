@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: b064e22b56d63055cede400fa2b06cee96d21664
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 4a48841a1c1f5225e5ce53c46c69bd3d29f6fe59
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745299"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830705"
 ---
 # <a name="update-management-overview"></a>Omówienie rozwiązania Update Management
 
@@ -167,9 +167,9 @@ W poniższej tabeli opisano połączone źródła obsługiwane przez Update Mana
 
 | Połączone źródło | Obsługiwane | Opis |
 | --- | --- | --- |
-| Agenci dla systemu Windows |Tak |Update Management zbiera informacje o aktualizacjach systemu z agentów systemu Windows, a następnie uruchamia instalację wymaganych aktualizacji. |
-| Agenci dla systemu Linux |Tak |Update Management zbiera informacje o aktualizacjach systemu z agentów z systemem Linux, a następnie uruchamia instalację wymaganych aktualizacji w obsługiwanych dystrybucjach. |
-| Grupa zarządzania programu Operations Manager |Tak |Update Management zbiera informacje o aktualizacjach systemu z agentów w połączonej grupie zarządzania.<br/><br/>Bezpośrednie połączenie z agentem Operations Manager do Azure Monitor dzienników nie jest wymagane. Dane są przekazywane z grupy zarządzania do obszaru roboczego Log Analytics. |
+| Agenci dla systemu Windows |Yes |Update Management zbiera informacje o aktualizacjach systemu z agentów systemu Windows, a następnie uruchamia instalację wymaganych aktualizacji. |
+| Agenci dla systemu Linux |Yes |Update Management zbiera informacje o aktualizacjach systemu z agentów z systemem Linux, a następnie uruchamia instalację wymaganych aktualizacji w obsługiwanych dystrybucjach. |
+| Grupa zarządzania programu Operations Manager |Yes |Update Management zbiera informacje o aktualizacjach systemu z agentów w połączonej grupie zarządzania.<br/><br/>Bezpośrednie połączenie z agentem Operations Manager do Azure Monitor dzienników nie jest wymagane. Dane są przekazywane z grupy zarządzania do obszaru roboczego Log Analytics. |
 
 ### <a name="collection-frequency"></a>Częstotliwość zbierania
 
@@ -254,4 +254,14 @@ Poniżej przedstawiono sposoby włączania Update Management i wybierania maszyn
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Azure Automation często zadawane pytania](automation-faq.md)
+* Aby uzyskać szczegółowe informacje na temat pracy z Update Management, zobacz [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure](automation-tutorial-update-management.md).
+* Jeśli musisz wybrać dynamiczną grupę maszyn wirtualnych, aby uzyskać aktualizacje, zobacz [Używanie grup dynamicznych z Update Management](automation-update-management-groups.md).
+* Aby włączyć funkcję przy użyciu szablonu Azure Resource Manager, zobacz [włączanie Update Management przy użyciu szablonu Azure Resource Manager](automation-update-management-deploy-template.md).
+* Aby włączyć funkcję z elementu Runbook, zobacz [włączanie Update Management z elementu Runbook](automation-onboard-solutions.md).
+* Aby włączyć funkcję z konta usługi Automation, zobacz [włączanie Update Management z konta usługi Automation](automation-onboard-solutions-from-automation-account.md).
+* Aby włączyć tę funkcję, przeglądając Azure Portal, zobacz [włączanie Update Management z Azure Portal](automation-onboard-solutions-from-browse.md).
+* Aby włączyć funkcję z maszyny wirtualnej platformy Azure, zobacz [włączanie Update Management z maszyny wirtualnej platformy Azure](automation-onboard-solutions-from-vm.md).
+* Jeśli musisz przeszukać dzienniki przechowywane w obszarze roboczym Log Analytics, zobacz [dzienniki Update Management zapytań](automation-update-management-query-logs.md).
+* Aby rozwiązać problemy z błędami funkcji, zobacz [Rozwiązywanie problemów Update Management](troubleshoot/update-management.md).
+* Rozwiązywanie problemów z błędami programu Windows Update Agent można znaleźć w temacie [Rozwiązywanie problemów z usługą Windows Update Agent](troubleshoot/update-agent-issues.md).
+* Aby rozwiązać problemy z błędami agenta aktualizacji systemu Linux, zobacz [Rozwiązywanie problemów z usługą Linux Update Agent](troubleshoot/update-agent-issues-linux.md).

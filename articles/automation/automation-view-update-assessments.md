@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6c66f54b8b01b5131defce6e709af52f9b2732d1
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 321146364897d46a403bdfd6789fcb219179d88c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745235"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830603"
 ---
 # <a name="view-update-assessments"></a>Wyświetlanie ocen aktualizacji
 
@@ -64,4 +64,4 @@ Aby sklasyfikować aktualizacje w systemie Red Hat Enterprise w wersji 6, należ
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure](automation-tutorial-update-management.md)
+Aby uzyskać ogólne informacje, zobacz [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure](automation-tutorial-update-management.md).

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: a6002ed173ca5358df4257f4c8b41c88bcf60ad8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0703e7cd44a79dd45680e19c8f5f3232be840823
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418383"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826183"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Połączone usługi w usłudze Azure Data Factory
 
@@ -66,11 +66,11 @@ Połączona usługa w Data Factory jest definiowana w formacie JSON w następuj�
 
 W poniższej tabeli opisano właściwości w powyższym kodzie JSON:
 
-Właściwość | Opis | Wymagany |
+Właściwość | Opis | Wymagane |
 -------- | ----------- | -------- |
-name | Nazwa połączonej usługi. Zobacz [reguły nazewnictwa Azure Data Factory](naming-rules.md). |  Tak |
-type | Typ połączonej usługi. Na przykład: Azure Storage (magazyn danych) lub AzureBatch (COMPUTE). Zobacz opis typeProperties. | Tak |
-typeProperties | Właściwości typu są różne dla poszczególnych magazynów danych lub obliczeń. <br/><br/> W przypadku obsługiwanych typów magazynów danych i ich właściwości typów zobacz tabelę [typów zestawu danych](concepts-datasets-linked-services.md#dataset-type) w tym artykule. Przejdź do artykułu łącznika magazynu danych, aby dowiedzieć się więcej o właściwościach typu specyficznych dla magazynu danych. <br/><br/> W przypadku obsługiwanych typów obliczeniowych i ich właściwości typu zobacz [połączone usługi obliczeniowe](compute-linked-services.md). | Tak |
+name | Nazwa połączonej usługi. Zobacz [reguły nazewnictwa Azure Data Factory](naming-rules.md). |  Yes |
+typ | Typ połączonej usługi. Na przykład: Azure Storage (magazyn danych) lub AzureBatch (COMPUTE). Zobacz opis typeProperties. | Yes |
+typeProperties | Właściwości typu są różne dla poszczególnych magazynów danych lub obliczeń. <br/><br/> W przypadku obsługiwanych typów magazynów danych i ich właściwości typów zobacz tabelę [typów zestawu danych](concepts-datasets-linked-services.md#dataset-type) w tym artykule. Przejdź do artykułu łącznika magazynu danych, aby dowiedzieć się więcej o właściwościach typu specyficznych dla magazynu danych. <br/><br/> W przypadku obsługiwanych typów obliczeniowych i ich właściwości typu zobacz [połączone usługi obliczeniowe](compute-linked-services.md). | Yes |
 Właściwością connectvia | [Integration Runtime](concepts-integration-runtime.md) używany do nawiązywania połączenia z magazynem danych. Możesz użyć Azure Integration Runtime lub samodzielnego Integration Runtime (Jeśli magazyn danych znajduje się w sieci prywatnej). Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. | Nie
 
 ## <a name="linked-service-example"></a>Przykład połączonej usługi

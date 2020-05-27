@@ -4,12 +4,12 @@ description: Zarządzanie wydajnością aplikacji i śledzenie użycia działaj�
 ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: 96ac0d81e477f4ac45208971282b3be982bf4fa5
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 6630de971dd9cc7ece2e0f87821db5fd62c39af0
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698233"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828733"
 ---
 # <a name="what-is-application-insights"></a>Co to jest usługa Application Insights?
 Application Insights, funkcja [Azure monitor](../overview.md), to rozszerzalna usługa zarządzania wydajnością aplikacji (APM) dla deweloperów i informatyków DevOps. Służy do monitorowania aplikacji na żywo. Automatycznie wykryje anomalie wydajności i oferuje zaawansowane narzędzia analityczne ułatwiające diagnozowanie problemów oraz zrozumienie, jakie użytkownicy faktycznie są w tej aplikacji.  Usługa ta pomaga w ciągłym doskonaleniu wydajności i użyteczności tworzonych rozwiązań. Działa w przypadku aplikacji na różnych platformach, w tym .NET, Node. js, Java i Python hostowanych lokalnie, hybrydowej lub dowolnej chmurze publicznej. Integruje się ona z procesem DevOps i ma punkty połączenia z szeroką gamą narzędzi programistycznych. Może monitorować i analizować dane telemetryczne z aplikacji mobilnych dzięki integracji z usługą Visual Studio App Center.
@@ -127,7 +127,7 @@ Rozpocznij pracę w czasie programowania za pomocą rozwiązań:
 ## <a name="support-and-feedback"></a>Pomoc techniczna i opinie
 * Pytania i problemy:
   * [Rozwiązywanie problemów][qna]
-  * [Forum MSDN](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
+  * [Strona pytania&pytań i odpowiedzi](https://docs.microsoft.com/answers/topics/azure-monitor.html)
   * [Witryna StackOverflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * Twoje sugestie:
   * [UserVoice](https://feedback.azure.com/forums/357324-application-insights/filters/top)

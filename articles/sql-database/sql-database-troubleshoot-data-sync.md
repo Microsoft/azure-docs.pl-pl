@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: d6ea604446cb9d56bb699685d24c81992bcac3a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 79d7bd57ff4ba5533caba1927703ea545e077f2c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81382894"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830433"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Rozwiązywanie problemów z funkcją SQL Data Sync
 
@@ -78,7 +78,7 @@ Jeden z następujących warunków może spowodować zablokowanie grupy synchroni
     1. Jeśli stan usługi jest **zatrzymany**, kliknij prawym przyciskiem myszy nazwę usługi, a następnie wybierz polecenie **Uruchom**.
 
 > [!NOTE]
-> Jeśli poprzednie informacje nie przeniesieją grupy synchronizacji poza stan przetwarzania, pomoc techniczna firmy Microsoft może zresetować stan grupy synchronizacji. Aby zresetować stan grupy synchronizacji, na [forum Azure SQL Database](https://social.msdn.microsoft.com/Forums/azure/home?forum=ssdsgetstarted)Utwórz wpis. W wpisie Uwzględnij Identyfikator subskrypcji i identyfikator grupy synchronizacji dla grupy, które muszą zostać zresetowane. Inżynier pomoc techniczna firmy Microsoft będzie odpowiadał na Twoje ogłoszenie i informuje o tym, kiedy stan zostanie zresetowany.
+> Jeśli poprzednie informacje nie przeniesieją grupy synchronizacji poza stan przetwarzania, pomoc techniczna firmy Microsoft może zresetować stan grupy synchronizacji. Aby można było zresetować stan grupy synchronizacji, na [stronie pytań i odpowiedzi Microsoft pytań&na Azure SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html)Utwórz wpis. W wpisie Uwzględnij Identyfikator subskrypcji i identyfikator grupy synchronizacji dla grupy, które muszą zostać zresetowane. Inżynier pomoc techniczna firmy Microsoft będzie odpowiadał na Twoje ogłoszenie i informuje o tym, kiedy stan zostanie zresetowany.
 
 ### <a name="i-see-erroneous-data-in-my-tables"></a><a name="sync-baddata"></a>Widzę błędne dane w moich tabelach
 
@@ -138,7 +138,7 @@ Aby rozwiązać problemy z agentem klienta, zobacz [Rozwiązywanie problemów z 
 
 - **Przyczyna**. Komunikat "Brak miejsca na dysku" może pojawić się, gdy należy usunąć pozostałościowe pliki. Może to być spowodowane przez oprogramowanie antywirusowe lub pliki są otwarte w przypadku próby usunięcia operacji usuwania.
 
-- **Rozwiązanie**. Ręcznie usuń pliki synchronizacji, które znajdują się w folderze% temp%`del \*sync\* /s`(). Następnie usuń podkatalogi w folderze% temp%.
+- **Rozwiązanie**. Ręcznie usuń pliki synchronizacji, które znajdują się w folderze% temp% ( `del \*sync\* /s` ). Następnie usuń podkatalogi w folderze% temp%.
 
 > [!IMPORTANT]
 > Nie usuwaj plików, gdy synchronizacja jest w toku.
@@ -193,7 +193,7 @@ Próba usunięcia grupy synchronizacji nie powiedzie się. Niektóre z następuj
 
 - **Rozwiązanie**. Przyznaj do konta użytkownika poświadczenia logowania jako usługa:
 
-  1. Wybierz kolejno pozycje **Start** > **panel** > sterowania**Narzędzia** > **lokalne zasady zabezpieczeń** > **Local Policy** > **użytkownika Rights Management**.
+  1. Wybierz kolejno pozycje **Start**  >  **Panel sterowania**  >  **Narzędzia administracyjne**  >  **lokalne zasady zabezpieczeń**  >  **Local Policy**  >  **użytkownika Rights Management**.
   1. Wybierz pozycję **Zaloguj się jako usługa**.
   1. W oknie dialogowym **Właściwości** Dodaj konto użytkownika.
   1. Wybierz pozycję **Apply** (Zastosuj), a następnie wybierz przycisk **OK**.

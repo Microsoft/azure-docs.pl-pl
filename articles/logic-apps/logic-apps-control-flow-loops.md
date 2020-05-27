@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 5f6c04c9a57dc8c250d99f2fa944203d2d73c404
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 986440db7f8d4e1d4d46832543f58fa2985a4df4
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79270578"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831623"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Tworzenie pętli, które powtarzają akcje przepływu pracy lub tablice procesów w usłudze Azure Logic Apps
 
@@ -50,7 +50,7 @@ Ta przykładowa aplikacja logiki wysyła dzienne Podsumowanie dla kanału inform
 2. Między wyzwalaczem RSS i akcją Wyślij wiadomość e-mail Dodaj pętlę "foreach". 
 
    1. Aby dodać pętlę między krokami, przesuń wskaźnik myszy nad strzałkę między tymi krokami. 
-   Wybierz wyświetlony znak **Plus** (**+**), a następnie wybierz pozycję **Dodaj akcję**.
+   Wybierz wyświetlony znak **Plus** ( **+** ), a następnie wybierz pozycję **Dodaj akcję**.
 
       ![Wybierz pozycję "Dodaj akcję"](media/logic-apps-control-flow-loops/add-for-each-loop.png)
 
@@ -176,7 +176,7 @@ Począwszy od 8:00 każdego dnia, Ta przykładowa aplikacja logiki zwiększa zmi
    | Właściwość | Wartość |
    | -------- | ----- |
    | **Dat** | 1 | 
-   | **Częstotliwość** | Day |
+   | **Częstotliwość** | Dzień |
    | **W tych godzinach** | 8 |
    ||| 
 
@@ -193,7 +193,7 @@ Począwszy od 8:00 każdego dnia, Ta przykładowa aplikacja logiki zwiększa zmi
    | -------- | ----- | ----------- |
    | **Nazwa** | Limit | Nazwa zmiennej | 
    | **Typ** | Liczba całkowita | Typ danych zmiennej | 
-   | **Wartościami** | 0 | Wartość początkowa zmiennej | 
+   | **Wartość** | 0 | Wartość początkowa zmiennej | 
    |||| 
 
 1. W akcji **Inicjuj zmienną** wybierz pozycję **nowy krok**. 
@@ -232,7 +232,7 @@ Począwszy od 8:00 każdego dnia, Ta przykładowa aplikacja logiki zwiększa zmi
 
       | Właściwość | Wartość | Opis |
       | -------- | ----- | ----------- | 
-      | **Do** | *\<adres\@e-mail domeny>* | Adres e-mail adresata. Na potrzeby testowania użyj własnego adresu e-mail. | 
+      | **Do** | *\<adres e-mail \@ domeny>* | Adres e-mail adresata. Na potrzeby testowania użyj własnego adresu e-mail. | 
       | **Temat** | Bieżąca wartość **limitu** | Określ temat wiadomości e-mail. Na potrzeby tego przykładu upewnij się, że dołączysz zmienną **limitu** . | 
       | **Treść** | <*Poczta e-mail — zawartość*> | Określ zawartość wiadomości e-mail, która ma zostać wysłana. Na potrzeby tego przykładu wpisz dowolny tekst. | 
       |||| 
@@ -249,7 +249,7 @@ Pętla "until" ma domyślne limity, które przerywają wykonywanie w przypadku w
 
 | Właściwość | Wartość domyślna | Opis | 
 | -------- | ------------- | ----------- | 
-| **Liczba** | 60 | Największa liczba pętli, które są uruchamiane przed wyjściem z pętli. Wartość domyślna to 60 cykli. | 
+| **Liczbą** | 60 | Największa liczba pętli, które są uruchamiane przed wyjściem z pętli. Wartość domyślna to 60 cykli. | 
 | **Limit czasu** | PT1H | Najwięcej czasu na uruchomienie pętli przed wyjściem z pętli. Wartość domyślna to jedna godzina i jest określona w formacie ISO 8601. <p>Wartość limitu czasu jest obliczana dla każdego cyklu pętli. Jeśli jakakolwiek akcja w pętli trwa dłużej niż limit czasu, bieżący cykl nie zostanie zatrzymany. Jednak następny cykl nie zostanie uruchomiony, ponieważ warunek limitu nie jest spełniony. | 
 |||| 
 
@@ -297,11 +297,11 @@ Jeśli pracujesz w widoku kodu dla aplikacji logiki, możesz zdefiniować `Until
 }
 ```
 
-Ta przykładowa pętla "until" wywołuje punkt końcowy HTTP, który tworzy zasób. Pętla jest zatrzymywana, gdy treść odpowiedzi HTTP `Completed` zostanie zwrócona ze stanem. Aby zapobiec nieskończonym pętlom, pętla również zostaje zatrzymana w przypadku wystąpienia dowolnego z następujących warunków:
+Ta przykładowa pętla "until" wywołuje punkt końcowy HTTP, który tworzy zasób. Pętla jest zatrzymywana, gdy treść odpowiedzi HTTP zostanie zwrócona ze `Completed` stanem. Aby zapobiec nieskończonym pętlom, pętla również zostaje zatrzymana w przypadku wystąpienia dowolnego z następujących warunków:
 
-* Pętla przeprowadziła 10 razy w sposób `count` określony przez atrybut. Wartość domyślna to 60 razy. 
+* Pętla przeprowadziła 10 razy w sposób określony przez `count` atrybut. Wartość domyślna to 60 razy. 
 
-* Pętla była uruchamiana przez dwie godziny, zgodnie `timeout` z definicją atrybutu w formacie ISO 8601. Wartość domyślna to jedna godzina.
+* Pętla była uruchamiana przez dwie godziny, zgodnie z definicją `timeout` atrybutu w formacie ISO 8601. Wartość domyślna to jedna godzina.
   
 ``` json
 "actions": {
@@ -335,7 +335,7 @@ Ta przykładowa pętla "until" wywołuje punkt końcowy HTTP, który tworzy zas�
 
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 
-* Jeśli masz pytania, odwiedź [forum usługi Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Pytania można znaleźć w witrynie [Microsoft Q&pytanie dotyczące Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Aby przesłać lub zagłosować na temat funkcji i sugestii, [Azure Logic Apps witrynie opinii użytkowników](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Następne kroki

@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 04/18/2019
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 69c613de02b9601966cae2d36c13428ca6c7becc
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 565d98bd5f27351f16ff523aa017c4b980fbdd53
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121001"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827270"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Automatyczne skalowanie w pionie za pomocą zestawów skalowania maszyn wirtualnych
 
@@ -153,8 +153,8 @@ Add-AzMetricAlertRule  -Name  $alertName `
 
 Aby uzyskać więcej informacji na temat tworzenia alertów, zobacz następujące artykuły:
 
-* [Przykłady szybkiego startu Azure Monitor PowerShell](../azure-monitor/platform/powershell-quickstart-samples.md)
-* [Przykłady przewodnika Szybki Start dla wieloplatformowego interfejsu wiersza polecenia Azure Monitor](../azure-monitor/platform/cli-samples.md)
+* [Przykłady programu Azure Monitor PowerShell](../azure-monitor/samples/powershell-samples.md)
+* [Azure Monitor Międzyplatformowe przykłady interfejsu wiersza polecenia](../azure-monitor/samples/cli-samples.md)
 
 ## <a name="summary"></a>Podsumowanie
 

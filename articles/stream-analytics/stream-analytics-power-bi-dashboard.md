@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2019
-ms.openlocfilehash: 8466fbcb4325dc244551a3b84fc20581366b7071
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: edc2b1d7d6a97dd7d7ec35dadf946b5b8581bd06
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78851151"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83833136"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Stream Analytics i Power BI: pulpit nawigacyjny analizy w czasie rzeczywistym dla danych przesyłanych strumieniowo
 
@@ -35,11 +35,11 @@ Przed rozpoczęciem upewnij się, że dysponujesz następującymi elementami:
 ## <a name="add-power-bi-output"></a>Dodawanie Power BI danych wyjściowych
 W samouczku wykrywanie oszustw w czasie rzeczywistym dane wyjściowe są wysyłane do usługi Azure Blob Storage. W tej sekcji dodasz dane wyjściowe, które wysyłają informacje do Power BI.
 
-1. W Azure Portal Otwórz utworzone wcześniej zadanie usługi Stream Analytics. Jeśli użyto sugerowanej nazwy, zadanie ma nazwę `sa_frauddetection_job_demo`.
+1. W Azure Portal Otwórz utworzone wcześniej zadanie usługi Stream Analytics. Jeśli użyto sugerowanej nazwy, zadanie ma nazwę `sa_frauddetection_job_demo` .
 
 2. Z menu po lewej stronie wybierz pozycję dane **wyjściowe** w obszarze **topologia zadania**. Następnie wybierz pozycję **+ Dodaj** i wybierz pozycję **Power BI** z menu rozwijanego.
 
-3. Wybierz pozycję **+ Dodaj** > **Power BI**. Następnie wypełnij formularz przy użyciu poniższych wartości i wybierz pozycję **Autoryzuj**:
+3. Wybierz pozycję **+ Dodaj**  >  **Power BI**. Następnie wypełnij formularz przy użyciu poniższych wartości i wybierz pozycję **Autoryzuj**:
 
    |**Ustawienie**  |**Sugerowana wartość**  |
    |---------|---------|
@@ -74,10 +74,10 @@ Aby uzyskać więcej informacji na temat Power BI zestawów danych, zobacz temat
 
 2. Kliknij pole **zapytanie** . 
 
-3. Wprowadź następujące zapytanie. To zapytanie jest podobne do zapytania samosprzężenia utworzonego w samouczku wykrywania oszustwa. Różnica polega na tym, że ta kwerenda wysyła wyniki do nowo utworzonych danych wyjściowych (`CallStream-PowerBI`). 
+3. Wprowadź następujące zapytanie. To zapytanie jest podobne do zapytania samosprzężenia utworzonego w samouczku wykrywania oszustwa. Różnica polega na tym, że ta kwerenda wysyła wyniki do nowo utworzonych danych wyjściowych ( `CallStream-PowerBI` ). 
 
     >[!NOTE]
-    >Jeśli nie `CallStream` nazwijesz danych wejściowych w samouczku wykrywania oszustwa, `CallStream` **Zastąp** jego nazwę w klauzulach **from** i JOIN w zapytaniu.
+    >Jeśli nie nazwijesz danych wejściowych `CallStream` w samouczku wykrywania oszustwa, `CallStream` **Zastąp** jego nazwę w klauzulach **from** i JOIN w zapytaniu.
 
    ```SQL
    /* Our criteria for fraud:
@@ -137,11 +137,11 @@ Zadanie usługi Stream Analytics rozpocznie wyszukiwanie fałszywych wywołań w
 
     ![Lokalizacja zestawu danych przesyłania strumieniowego w Power BI](./media/stream-analytics-power-bi-dashboard/stream-analytics-streaming-dataset.png)
 
-2. W obszarze roboczym kliknij pozycję ** + &nbsp;Utwórz**.
+2. W obszarze roboczym kliknij pozycję ** + &nbsp; Utwórz**.
 
     ![Przycisk Utwórz w obszarze roboczym Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-dashboard.png)
 
-3. Utwórz nowy pulpit nawigacyjny i nadaj `Fraudulent Calls`mu nazwę.
+3. Utwórz nowy pulpit nawigacyjny i nadaj mu nazwę `Fraudulent Calls` .
 
     ![Utwórz pulpit nawigacyjny i nadaj mu nazwę w obszarze roboczym Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-dashboard-name.png)
 
@@ -234,8 +234,8 @@ Podobnie, jeśli zadanie rozpoczyna się po wygaśnięciu tokenu, wystąpi błą
 
 Po odświeżeniu autoryzacji za pomocą Power BI zielony alert pojawi się w obszarze autoryzacji w celu odzwierciedlenia, że problem został rozwiązany.
 
-## <a name="get-help"></a>Uzyskiwanie pomocy
-Aby uzyskać dalszą pomoc, wypróbuj nasze [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+## <a name="get-help"></a>Uzyskaj pomoc
+Aby uzyskać dalszą pomoc, Wypróbuj naszą [stronę pytań firmy&Microsoft dotyczącą Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Następne kroki
 * [Wprowadzenie do Azure Stream Analytics](stream-analytics-introduction.md)

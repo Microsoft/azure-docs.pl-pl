@@ -5,15 +5,15 @@ services: virtual-desktop
 author: HeidiLohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 05/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2541e9e10103d66c6c2fb6978c3029d61b813eab
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: ddfd9346f4a72ceb2e8bf5c336fb3de9b5c8c5c7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614969"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827475"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Konfigurowanie typu przypisania puli hostów pulpitu osobistego
 
@@ -75,6 +75,18 @@ Aby przypisać użytkownika do określonego hosta sesji, uruchom następujące p
 ```powershell
 Set-RdsSessionHost <tenantname> <hostpoolname> -Name <sessionhostname> -AssignedUser <userupn>
 ```
+
+## <a name="remove-a-user-assignment"></a>Usuwanie przypisania użytkownika
+
+Możesz chcieć usunąć przypisanie użytkownika, ponieważ użytkownik nie potrzebuje już pulpitu osobistego, użytkownik opuścił firmę lub chce ponownie użyć pulpitu dla kogoś innego.
+
+Obecnie jedynym sposobem, w jaki można usunąć przypisanie użytkownika dla pulpitu osobistego, jest całkowite usunięcie hosta sesji. Aby usunąć hosta sesji, uruchom następujące polecenie cmdlet:
+
+```powershell
+Remove-RdsSessionHost
+```
+
+Jeśli chcesz dodać hosta sesji z powrotem do puli hostów osobistych, Odinstaluj pulpit wirtualny systemu Windows na tym komputerze, a następnie postępuj zgodnie z instrukcjami w temacie [Tworzenie puli hostów przy użyciu programu PowerShell](create-host-pools-powershell-2019.md) , aby ponownie zarejestrować hosta sesji.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -4,12 +4,12 @@ description: W tym artykule opisano, jak używać usługi Azure AD w ramach Azur
 services: automation
 ms.date: 03/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1361ecf3ab7b726310df9e3b1040e0726d7658e2
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 017341fd72329d0538a3cf2a6ec20d03ee6152cc
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745253"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830569"
 ---
 # <a name="use-azure-ad-to-authenticate-to-azure"></a>Uwierzytelnianie na platformie Azure za pomocą usługi Azure AD
 
@@ -159,7 +159,7 @@ Workflow Stop-Start-AzureVM
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Zarządzanie poświadczeniami w Azure Automation](shared-resources/credentials.md)
-* [Zarządzanie modułami w usłudze Azure Automation](shared-resources/modules.md)
-* [Uruchamianie elementu runbook w usłudze Azure Automation](start-runbooks.md)
-* [Dokumentacja programu PowerShell](https://docs.microsoft.com/powershell/scripting/overview)
+* Aby uzyskać szczegółowe informacje o używaniu poświadczeń, zobacz [Zarządzanie poświadczeniami w Azure Automation](shared-resources/credentials.md).
+* Aby uzyskać informacje o modułach, zobacz [Zarządzanie modułami w Azure Automation](shared-resources/modules.md).
+* Jeśli musisz uruchomić element Runbook, zobacz temat [Uruchamianie elementu Runbook w Azure Automation](start-runbooks.md).
+* Aby uzyskać szczegółowe informacje dotyczące programu PowerShell, zobacz dokumentację [programu PowerShell](https://docs.microsoft.com/powershell/scripting/overview).

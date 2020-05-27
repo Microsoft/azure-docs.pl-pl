@@ -60,17 +60,17 @@
           href: learn/tutorial-app-dashboards.md
 - name: Samples
   items:
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: samples/cli-samples.md
     - name: Azure PowerShell
-      href: platform/powershell-samples.md
+      href: samples/powershell-samples.md
     - name: Elementy wbudowane usługi Azure Policy
       displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
+      href: samples/policy-samples.md
 - name: Pojęcia
   items:
     - name: Co można monitorować?
       href: monitor-reference.md
-    - name: Zarządzanie platformą Azure
-      href: azure-management.md
     - name: Monitorowanie ciągłe
       href: continuous-monitoring.md
     - name: Źródła danych
@@ -90,8 +90,6 @@
           href: platform/data-ingestion-time.md
     - name: Insights
       href: insights/insights-overview.md
-    - name: Rozwiązania do monitorowania
-      href: insights/solutions-inventory.md
     - name: Bezpieczeństwo danych
       items:
         - name: Dane dziennika
@@ -122,33 +120,20 @@
       href: platform/partners.md
 - name: Przewodniki z instrukcjami
   items:
-    - name: Zarządzanie usługą Azure Monitor
+    - name: Scenariusze
       items:
-        - name: Projektowanie wdrożenia obszaru roboczego
-          href: platform/design-logs-deployment.md
+        - name: Monitorowanie zasobu platformy Azure
+          href: insights/monitor-azure-resource.md
+        - name: Monitorowanie maszyn wirtualnych platformy Azure
+          href: insights/monitor-vm-azure.md
+          displayname: VM
+    - name: Zarządzanie i konfigurowanie
+      items:
         - name: Uprawnienia ról i bezpieczeństwo
           href: platform/roles-permissions-security.md
         - name: Adresy IP
           href: app/ip-addresses.md
           displayname: 'firewall, firewall exceptions, whitelist'
-        - name: Obszary robocze usługi Log Analytics
-          items:
-            - name: Tworzenie obszaru roboczego
-              items:
-                - name: Korzystanie z witryny Azure Portal
-                  href: learn/quick-create-workspace.md
-                - name: Interfejs wiersza polecenia platformy Azure
-                  href: learn/quick-create-workspace-cli.md
-                - name: Korzystanie z programu Azure PowerShell
-                  href: learn/quick-create-workspace-posh.md
-            - name: Usuwanie i odzyskiwanie obszaru roboczego
-              href: platform/delete-workspace.md
-            - name: Przenoszenie obszaru roboczego
-              href: platform/move-workspace.md
-            - name: Projekt dla dostawców usług
-              href: platform/service-providers.md
-            - name: Zarządzanie dostępem
-              href: platform/manage-access.md
         - name: Użycie i koszty
           items:
             - name: Użycie i szacunkowe koszty
@@ -157,6 +142,392 @@
               href: app/pricing.md
             - name: Rejestrowanie użycia danych i kosztów
               href: platform/manage-cost-storage.md
+        - name: Obszary robocze usługi Log Analytics
+          items:
+            - name: Projektowanie wdrożenia obszaru roboczego
+              href: platform/design-logs-deployment.md
+            - name: Tworzenie obszaru roboczego
+              items:
+                - name: Korzystanie z witryny Azure Portal
+                  href: learn/quick-create-workspace.md
+                - name: Interfejs wiersza polecenia platformy Azure
+                  href: learn/quick-create-workspace-cli.md
+                - name: Korzystanie z programu PowerShell
+                  href: platform/powershell-workspace-configuration.md
+                - name: Używanie szablonu usługi Resource Manager
+                  href: platform/template-workspace-configuration.md
+            - name: Usuwanie i odzyskiwanie obszaru roboczego
+              href: platform/delete-workspace.md
+            - name: Przenoszenie obszaru roboczego
+              href: platform/move-workspace.md
+            - name: Projekt dla dostawców usług
+              href: platform/service-providers.md
+            - name: Zarządzanie dostępem
+              href: platform/manage-access.md
+        - name: Agenci maszyny wirtualnej
+          items:
+            - name: Omówienie
+              href: platform/agents-overview.md
+            - name: Często zadawane pytania
+              href: 'faq.md#agents'
+            - name: Rozszerzenie Diagnostyki Azure
+              items:
+                - name: Omówienie
+                  href: platform/diagnostics-extension-overview.md
+                - name: Windows
+                  displayname: diagnostics extension
+                  items:
+                    - name: Instalowanie i konfigurowanie
+                      items:
+                        - name: Opcje instalacji
+                          href: platform/diagnostics-extension-windows-install.md
+                        - name: PowerShell
+                          href: ../virtual-machines/extensions/diagnostics-windows.md?toc=/azure/azure-monitor/toc.json
+                        - name: Szablon usługi Resource Manager
+                          href: ../virtual-machines/extensions/diagnostics-template.md?toc=/azure/azure-monitor/toc.json
+                    - name: Wysyłanie do metryk usługi Azure Monitor
+                      items:
+                        - name: Maszyna wirtualna
+                          href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
+                        - name: Zestaw skalowania maszyn wirtualnych
+                          href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
+                        - name: Klasyczna maszyna wirtualna
+                          href: platform/collect-custom-metrics-guestos-vm-classic.md
+                        - name: Usługa w chmurze
+                          href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
+                    - name: Wysyłanie do usługi Event Hubs
+                      href: platform/diagnostics-extension-stream-event-hubs.md
+                    - name: Wysyłanie do dzienników
+                      href: platform/diagnostics-extension-logs.md
+                    - name: Wysyłanie do usługi Application Insights
+                      href: platform/diagnostics-extension-to-application-insights.md
+                    - name: Historia wersji
+                      href: platform/diagnostics-extension-versions.md
+                    - name: Format dzienników zasobów JSON Lines
+                      href: platform/diagnostic-logs-append-blobs.md
+                    - name: Rozwiązywanie problemów
+                      href: platform/diagnostics-extension-troubleshooting.md
+                - name: Linux
+                  displayname: diagnostics extension
+                  items:
+                    - name: Omówienie
+                      href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
+                    - name: Zbieranie metryk za pomocą programu Telegraf
+                      href: platform/collect-custom-metrics-linux-telegraf.md
+            - name: Agent usługi Log Analytics
+              items:
+                - name: Omówienie
+                  href: platform/log-analytics-agent.md
+                - name: Agenci dla systemu Windows
+                  href: platform/agent-windows.md
+                - name: Agenci dla systemu Linux
+                  href: platform/agent-linux.md
+                - name: Rozszerzenie maszyny wirtualnej dla systemu Windows
+                  href: ../virtual-machines/windows/extensions-oms.md?toc=/azure/azure-monitor/toc.json
+                - name: Rozszerzenie maszyny wirtualnej dla systemu Linux
+                  href: ../virtual-machines/linux/extensions-oms.md?toc=/azure/azure-monitor/toc.json
+                - name: Brama usługi Log Analytics
+                  href: platform/gateway.md
+                - name: Agent zarządzania
+                  href: platform/agent-manage.md
+                - name: Kondycja agenta
+                  href: insights/solution-agenthealth.md
+                - name: Źródła danych
+                  items:
+                    - name: Omówienie
+                      href: platform/agent-data-sources.md
+                    - name: Zdarzenia systemu Windows
+                      href: platform/data-sources-windows-events.md
+                    - name: Niestandardowe dane JSON
+                      href: platform/data-sources-json.md
+                    - name: Dane wydajności demona CollectD
+                      href: platform/data-sources-collectd.md
+                    - name: Dziennik systemu
+                      href: platform/data-sources-syslog.md
+                    - name: Liczniki wydajności
+                      href: platform/data-sources-performance-counters.md
+                    - name: Wydajność aplikacji dla systemu Linux
+                      href: platform/data-sources-linux-applications.md
+                    - name: Dzienniki usług IIS
+                      href: platform/data-sources-iis-logs.md
+                    - name: Niestandardowe dzienniki
+                      href: platform/data-sources-custom-logs.md
+                    - name: Niestandardowe pola
+                      href: platform/custom-fields.md
+            - name: Rozwiązywanie problemów
+              items:
+                - name: Rozszerzenie maszyny wirtualnej usługi Log Analytics
+                  displayname: 'troubleshoot, troubleshooting'
+                  href: platform/vmext-troubleshoot.md
+                - name: Agent usługi Log Analytics dla systemu Windows
+                  displayname: 'troubleshoot, troubleshooting'
+                  href: platform/agent-windows-troubleshoot.md
+                - name: Agent usługi Log Analytics dla systemu Linux
+                  displayname: 'troubleshoot, troubleshooting'
+                  href: platform/agent-linux-troubleshoot.md
+    - name: Dzienniki platformy
+      items:
+        - name: Omówienie
+          displayName: 'Platform logs, Resource logs, Activity log'
+          href: platform/platform-logs-overview.md
+        - name: Dziennik aktywności
+          items:
+            - name: Wyświetlanie w witrynie Azure Portal
+              displayName: 'Platform logs, Activity log'
+              href: platform/activity-log-view.md
+            - name: Zbieranie i analizowanie
+              displayName: 'Platform logs, Activity log'
+              href: platform/activity-log-collect.md
+            - name: Eksport (starsza wersja)
+              displayname: Activity log
+              href: platform/activity-log-export.md
+        - name: Wysyłanie do obszaru roboczego usługi Log Analytics
+          displayname: 'Resource logs, Activity log, Platform logs'
+          href: platform/resource-logs-collect-workspace.md
+        - name: Wysyłanie do usługi Azure Storage
+          displayname: 'Resource logs, Activity log, Platform logs'
+          href: platform/resource-logs-collect-storage.md
+        - name: Wysyłanie do usługi Event Hubs
+          displayname: 'Resource logs, Activity log, Platform logs'
+          href: platform/resource-logs-stream-event-hubs.md
+        - name: Tworzenie ustawienia diagnostycznego
+          displayName: 'Platform logs, Resource logs, Activity log'
+          href: platform/diagnostic-settings.md
+        - name: Tworzenie ustawienia diagnostycznego przy użyciu usługi Resource Manager
+          displayName: 'diagnostic setting, Platform logs, Resource logs, Activity log'
+          href: platform/diagnostic-settings-template.md
+        - name: Zmiana na format magazynu obiektów blob
+          displayname: Diagnostic settings
+          href: platform/resource-logs-blob-format.md
+        - name: Przesyłanie strumieniowe danych do usługi Event Hubs
+          href: platform/stream-monitoring-data-event-hubs.md
+    - name: Log Analytics
+      items:
+        - name: Omówienie zapytania dziennika
+          displayname: 'log query, log queries, query, queries'
+          href: log-query/log-query-overview.md
+        - name: Prosta obsługa dzienników
+          href: log-query/simple-logs.md
+        - name: Samouczki
+          items:
+            - name: Samouczek usługi Log Analytics
+              href: log-query/get-started-portal.md
+            - name: Samouczek dotyczący zapytań dzienników
+              href: log-query/get-started-queries.md
+        - name: Dane dziennika
+          items:
+            - name: Struktura danych dziennika
+              href: log-query/logs-structure.md
+            - name: Zakres zapytania
+              href: log-query/scope.md
+            - name: Właściwości standardowe
+              href: platform/log-standard-properties.md
+            - name: Grupy komputerów
+              href: platform/computer-groups.md
+        - name: Język zapytań
+          items:
+            - name: Dokumentacja języka zapytań
+              href: log-query/query-language.md
+            - name: Różnice w językach
+              href: log-query/data-explorer-difference.md
+            - name: Przydatne operatory
+              href: log-query/useful-operators.md
+            - name: Funkcje
+              href: log-query/functions.md
+            - name: Przejście z przeszukiwania dzienników
+              href: log-query/log-search-transition.md
+            - name: Lekcje
+              items:
+                - name: Operacje dotyczące ciągów
+                  href: log-query/string-operations.md
+                - name: Operacje dotyczące daty i godziny
+                  href: log-query/datetime-operations.md
+                - name: Funkcje agregacji
+                  href: log-query/aggregations.md
+                - name: Agregacje zaawansowane
+                  href: log-query/advanced-aggregations.md
+                - name: Sprzężenia
+                  href: log-query/joins.md
+                - name: Notacja JSON i struktury danych
+                  href: log-query/json-data-structures.md
+                - name: Pisanie zapytań zaawansowanych
+                  href: log-query/advanced-query-writing.md
+                - name: Wykresy i diagramy
+                  href: log-query/charts.md
+                - name: Zapytania wyszukiwania
+                  href: log-query/search-queries.md
+            - name: Ściągawki
+              items:
+                - name: SQL
+                  href: log-query/sql-cheatsheet.md
+                - name: Splunk
+                  href: log-query/splunk-cheatsheet.md
+        - name: Obejmujące wiele zasobów
+          items:
+            - name: Zapytania obejmujące wiele zasobów
+              href: log-query/cross-workspace-query.md
+            - name: wyrażenie app
+              href: log-query/app-expression.md
+            - name: wyrażenie workspace
+              href: log-query/workspace-expression.md
+            - name: wyrażenie zasobu
+              href: log-query/resource-expression.md
+            - name: Ujednolicenie zasobów danych aplikacji
+              href: log-query/unify-app-resource-data.md
+        - name: Przykłady i wskazówki
+          items:
+            - name: Przykłady zapytań dziennika
+              href: log-query/examples.md
+            - name: Przykłady inteligentnej analizy
+              href: log-query/smart-analytics.md
+            - name: Optymalizowanie zapytań
+              href: log-query/query-optimization.md
+            - name: Analizowanie danych tekstowych
+              href: log-query/parse-text.md
+    - name: Eksplorator metryk
+      items:
+        - name: Wprowadzenie do Eksploratora metryk
+          href: platform/metrics-getting-started.md
+        - name: Zaawansowane funkcje Eksploratora metryk
+          href: platform/metrics-charts.md
+        - name: Przykładowe wykresy metryk
+          href: platform/metric-chart-samples.md
+        - name: Rozwiązywanie problemów z wykresami metryk
+          href: platform/metrics-troubleshoot.md
+    - name: Automatyczne skalowanie
+      items:
+        - name: Omówienie
+          href: platform/autoscale-overview.md
+        - name: Przewodnik
+          href: platform/autoscale-get-started.md
+        - name: Ustawienia konfiguracji
+          href: platform/autoscale-understanding-settings.md
+        - name: Najlepsze rozwiązania
+          href: platform/autoscale-best-practices.md
+        - name: Często używane metryki
+          href: platform/autoscale-common-metrics.md
+        - name: Często używane wzorce
+          href: platform/autoscale-common-scale-patterns.md
+        - name: Skalowanie za pomocą metryk niestandardowych
+          href: platform/autoscale-custom-metric.md
+        - name: Skalowanie zestawów skalowania maszyn wirtualnych
+          href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
+        - name: Skalowanie zestawów skalowania maszyn wirtualnych przy użyciu szablonów usługi Resource Manager
+          href: platform/autoscale-virtual-machine-scale-sets.md
+        - name: Używanie elementów webhook i powiadomień e-mail
+          href: platform/autoscale-webhook-email.md
+        - name: Rozwiązywanie problemów
+          href: platform/autoscale-troubleshoot.md
+        - name: Schematy dzienników zasobów
+          href: platform/autoscale-resource-log-schema.md
+    - name: Alerty
+      items:
+        - name: Reguły alertów aplikacji
+          items:
+            - name: Dostępność
+              href: app/monitor-web-app-availability.md
+            - name: Alerty dotyczące metryk
+              href: app/alerts.md
+        - name: Reguły alertów metryk
+          items:
+            - name: Zarządzanie alertami metryk
+              href: platform/alerts-metric.md
+            - name: Używanie progów dynamicznych
+              href: platform/alerts-dynamic-thresholds.md
+            - name: Alerty metryk w dziennikach
+              href: platform/alerts-metric-logs.md
+            - name: Korzystanie z szablonu usługi Resource Manager
+              href: platform/alerts-metric-create-templates.md
+        - name: Reguły alertów dziennika
+          items:
+            - name: Konfigurowanie alertów dotyczących zapytań analizy
+              href: platform/alerts-log.md
+            - name: Zapytania
+              href: platform/alerts-log-query.md
+            - name: Akcje elementów webhook
+              href: platform/alerts-log-webhook.md
+            - name: Rozwiązywanie problemów z alertami dzienników
+              href: platform/alert-log-troubleshoot.md
+        - name: Reguły alertów dziennika aktywności
+          items:
+            - name: Alert dotyczący zdarzenia dziennika aktywności
+              href: platform/alerts-activity-log.md
+            - name: Migrowanie zdarzeń zarządzania do alertów dziennika aktywności
+              href: platform/migrate-management-alerts.md
+            - name: Schemat elementów webhook
+              href: platform/activity-log-alerts-webhook.md
+        - name: Alerty o kondycji usługi
+          items:
+            - name: Wyświetlanie powiadomień
+              href: platform/service-notifications.md
+            - name: Konfigurowanie alertów dotyczących zdarzeń powiadomień
+              href: platform/alerts-activity-log-service-notifications.md
+        - name: Powiadomienia i akcje
+          items:
+            - name: Reguły akcji (wersja zapoznawcza)
+              href: platform/alerts-action-rules.md
+            - name: Tworzenie grupy akcji
+              href: platform/action-groups.md
+            - name: Typowe schematy alertów
+              href: platform/alerts-common-schema.md
+            - name: Definicja typowego schematu alertów
+              href: platform/alerts-common-schema-definitions.md
+            - name: Integracja typowego schematu alertów z usługą Logic Apps
+              href: platform/alerts-common-schema-integrations.md
+            - name: Zachowanie alertów SMS
+              href: platform/alerts-sms-behavior.md
+            - name: Ograniczanie częstotliwości powiadomień
+              href: platform/alerts-rate-limiting.md
+            - name: Tworzenie grup akcji przy użyciu usługi Resource Manager
+              href: platform/action-groups-create-resource-manager-template.md
+            - name: Implementowanie akcji aplikacji logiki
+              href: platform/action-groups-logic-app.md
+        - name: Interfejs użytkownika alertu
+          items:
+            - name: Grupy inteligentne — informacje
+              href: platform/alerts-smartgroups-overview.md
+            - name: Zarządzanie wystąpieniami alertów
+              href: platform/alerts-managing-alert-instances.md
+            - name: Zarządzanie grupami inteligentnymi
+              href: platform/alerts-managing-smart-groups.md
+            - name: Zarządzanie stanami alertów i grup inteligentnych
+              href: platform/alerts-managing-alert-states.md
+            - name: Zarządzanie alertami z innych usług monitorowania
+              href: platform/alerts-managing-nagios-zabbix-scom.md
+        - name: Interfejs API alertów
+          href: platform/api-alerts.md
+        - name: Rozwiązywanie problemów z alertami
+          href: platform/alerts-troubleshoot.md
+        - name: Zarządzanie usługami IT
+          items:
+            - name: Łącznik zarządzania usługami IT
+              href: platform/itsmc-overview.md
+            - name: Połączenia zarządzania usługami IT
+              href: platform/itsmc-connections.md
+            - name: Tworzenie aplikacji internetowej programu Service Manager
+              href: platform/itsmc-service-manager-script.md
+            - name: Rozwiązywanie problemów z synchronizacją usługi ServiceNow ITSM
+              href: platform/itsmc-resync-servicenow.md
+        - name: Rozwiązanie usługi Alert Management
+          href: platform/alert-management-solution.md
+        - name: Migrowanie reguł alertów klasycznych
+          items:
+            - name: Alerty klasyczne — informacje
+              href: platform/alerts-classic.overview.md
+            - name: Przygotowanie do migracji
+              href: platform/alerts-prepare-migration.md
+            - name: Omówienie narzędzia do migracji
+              href: platform/alerts-understand-migration.md
+            - name: Korzystanie z narzędzia do migracji
+              href: platform/alerts-using-migration-tool.md
+            - name: Proces automatycznej migracji
+              href: platform/alerts-automatic-migration.md
+            - name: Zarządzanie alertami metryk klasycznych
+              href: platform/alerts-classic-portal.md
+            - name: Tworzenie alertu metryki klasycznej za pomocą szablonu usługi Resource Manager
+              href: platform/alerts-enable-template.md
+            - name: Alert metryki klasycznej wywołujący element webhook
+              href: platform/alerts-webhooks.md
     - name: Application Insights
       items:
         - name: Omówienie usługi Application Insights
@@ -461,6 +832,10 @@
                   href: app/separate-resources.md
                 - name: Jak mogę (...) w usłudze Application Insights?
                   href: app/how-do-i.md
+                - name: Zarządzanie usługą Application Insights
+                  href: app/powershell.md
+                - name: Zarządzanie usługą Azure Cloud Services
+                  href: app/powershell-azure-diagnostics.md
         - name: Eksportowanie
           items:
             - name: Eksport ciągły
@@ -485,476 +860,173 @@
               href: app/sharepoint.md
             - name: Pulpit systemu Windows
               href: app/windows-desktop.md
-    - name: Monitorowanie zasobów platformy Azure
+    - name: Usługa Azure Monitor dla maszyn wirtualnych
       items:
-        - name: Monitorowanie usługi platformy Azure
-          href: insights/monitor-azure-resource.md
-        - name: Monitorowanie grup zasobów
-          href: insights/resource-group-insights.md
-        - name: Dzienniki platformy
+        - name: Omówienie
+          href: insights/vminsights-overview.md
+        - name: Ogólna dostępność — często zadawane pytania
+          href: insights/vminsights-ga-release-faq.md
+        - name: Często zadawane pytania
+          href: 'faq.md#azure-monitor-for-vms'
+        - name: Włączanie monitorowania
           items:
-            - name: Omówienie
-              displayName: 'Platform logs, Resource logs, Activity log'
-              href: platform/platform-logs-overview.md
-            - name: Dziennik aktywności
-              items:
-                - name: Wyświetlanie w witrynie Azure Portal
-                  displayName: 'Platform logs, Activity log'
-                  href: platform/activity-log-view.md
-                - name: Zbieranie i analizowanie
-                  displayName: 'Platform logs, Activity log'
-                  href: platform/activity-log-collect.md
-                - name: Eksport (starsza wersja)
-                  displayname: Activity log
-                  href: platform/activity-log-export.md
-            - name: Wysyłanie do miejsc docelowych
-              items:
-                - name: Obszar roboczy usługi Log Analytics
-                  displayname: 'Resource logs, Activity log, Platform logs'
-                  href: platform/resource-logs-collect-workspace.md
-                - name: Azure Storage
-                  displayname: 'Resource logs, Activity log, Platform logs'
-                  href: platform/resource-logs-collect-storage.md
-                - name: Event Hubs
-                  displayname: 'Resource logs, Activity log, Platform logs'
-                  href: platform/resource-logs-stream-event-hubs.md
-        - name: Ustawienia diagnostyczne
+            - name: Omówienie włączania monitorowania
+              href: insights/vminsights-enable-overview.md
+            - name: Włączanie obsługi pojedynczej maszyny wirtualnej platformy Azure
+              href: insights/vminsights-enable-single-vm.md
+            - name: Włączanie obsługi usługi Azure Policy
+              href: insights/vminsights-enable-at-scale-policy.md
+            - name: Włączanie obsługi programu Azure PowerShell
+              href: insights/vminsights-enable-at-scale-powershell.md
+            - name: Włączanie obsługi środowiska hybrydowego
+              href: insights/vminsights-enable-hybrid-cloud.md
+        - name: Mapowanie zależności
+          href: insights/vminsights-maps.md
+        - name: Monitorowanie wydajności
+          href: insights/vminsights-performance.md
+        - name: Analizowanie danych przy użyciu zapytań dzienników
+          href: insights/vminsights-log-search.md
+        - name: Wizualizowanie danych za pomocą skoroszytów
+          href: insights/vminsights-workbooks.md
+        - name: Tworzenie reguł alertów
+          href: insights/vminsights-alerts.md
+        - name: Uaktualnianie agenta zależności
+          href: insights/vminsights-dependency-agent-maintenance.md
+        - name: Wyłączanie monitorowania
+          href: insights/vminsights-optout.md
+    - name: Usługa Azure Monitor dla kontenerów
+      items:
+        - name: Omówienie
+          href: insights/container-insights-overview.md
+        - name: Często zadawane pytania
+          href: 'faq.md#azure-monitor-for-containers'
+        - name: Włączanie monitorowania
           items:
-            - name: Tworzenie ustawienia diagnostycznego
-              displayName: 'Platform logs, Resource logs, Activity log'
-              href: platform/diagnostic-settings.md
-            - name: Tworzenie przy użyciu usługi Resource Manager
-              displayName: 'diagnostic setting, Platform logs, Resource logs, Activity log'
-              href: platform/diagnostic-settings-template.md
-            - name: Zmiana na format magazynu obiektów blob
-              displayname: Diagnostic settings
-              href: platform/resource-logs-blob-format.md
-        - name: Przesyłanie strumieniowe danych do usługi Event Hubs
-          href: platform/stream-monitoring-data-event-hubs.md
-        - name: Monitorowanie magazynu kluczy
-          href: insights/key-vaults-insights-overview.md
-        - name: Analiza zmian
-          href: app/change-analysis.md
+            - name: Omówienie włączania monitorowania
+              href: insights/container-insights-onboard.md
+            - name: Włączanie dla nowego klastra AKS
+              href: insights/container-insights-enable-new-cluster.md
+            - name: Włączanie dla istniejącego klastra AKS
+              href: insights/container-insights-enable-existing-clusters.md
+            - name: Włączanie dla klastra hybrydowego
+              href: insights/container-insights-hybrid-setup.md
+            - name: Włączanie dla platformy Azure Red Hat OpenShift w wersji 3
+              href: insights/container-insights-azure-redhat-setup.md
+            - name: Włączanie dla platformy Azure Red Hat OpenShift w wersji 4
+              href: insights/container-insights-azure-redhat4-setup.md
+            - name: Mapowania regionów
+              href: insights/container-insights-region-mapping.md
+        - name: Monitorowanie wydajności
+          href: insights/container-insights-analyze.md
+        - name: Monitorowanie kondycji
+          href: insights/container-insights-health.md
+        - name: Monitorowanie wydajności procesora GPU
+          href: insights/container-insights-gpu-monitoring.md
+        - name: Wyświetlanie danych na żywo
+          items:
+            - name: Dane na żywo (wersja zapoznawcza) — omówienie
+              href: insights/container-insights-livedata-overview.md
+            - name: Konfigurowanie
+              href: insights/container-insights-livedata-setup.md
+            - name: Wyświetlanie metryk klastra
+              href: insights/container-insights-livedata-metrics.md
+            - name: Wyświetlanie wdrożeń
+              href: insights/container-insights-livedata-deployments.md
+        - name: Analizowanie danych przy użyciu zapytań dzienników
+          href: insights/container-insights-log-search.md
+        - name: Generowanie alertów
+          href: insights/container-insights-alerts.md
+        - name: Agent zarządzania
+          href: insights/container-insights-manage-agent.md
+        - name: Konfigurowanie wycinania metryk Prometheus
+          href: insights/container-insights-prometheus-integration.md
+        - name: Konfigurowanie ustawień zbierania agenta
+          href: insights/container-insights-agent-config.md
+        - name: Aktualizowanie w celu włączenia metryk
+          href: insights/container-insights-update-metrics.md
+        - name: Konfiguracja monitorowania kondycji
+          href: insights/container-insights-health-monitors-config.md
+        - name: Wyłączanie monitorowania
+          items:
+            - name: Wyłączanie usługi AKS monitorowania
+              href: insights/container-insights-optout.md
+            - name: Wyłączanie platformy Red Hat OpenShift monitorowania w wersji 3
+              href: insights/container-insights-optout-openshift-v3.md
+            - name: Wyłączanie platformy Red Hat OpenShift monitorowania w wersji 4
+              href: insights/container-insights-optout-openshift-v4.md
+            - name: Wyłączanie hybrydowego klastra monitorowania
+              href: insights/container-insights-optout-hybrid.md
+        - name: Rozwiązywanie problemów
+          href: insights/container-insights-troubleshoot.md
+    - name: Szczegółowe informacje
+      items:
         - name: Azure Cache for Redis (wersja zapoznawcza)
           href: insights/redis-cache-insights-overview.md
-    - name: Monitorowanie maszyn wirtualnych i systemu operacyjnego gościa
-      items:
-        - name: Monitorowanie maszyn wirtualnych platformy Azure
-          href: insights/monitor-vm-azure.md
-        - name: Agenci
-          items:
-            - name: Omówienie agentów
-              href: platform/agents-overview.md
-            - name: Często zadawane pytania
-              href: 'faq.md#agents'
-            - name: Rozszerzenie Diagnostyki Azure
-              items:
-                - name: Omówienie
-                  href: platform/diagnostics-extension-overview.md
-                - name: Windows
-                  displayname: diagnostics extension
-                  items:
-                    - name: Instalowanie i konfigurowanie
-                      items:
-                        - name: Opcje instalacji
-                          href: platform/diagnostics-extension-windows-install.md
-                        - name: PowerShell
-                          href: ../virtual-machines/extensions/diagnostics-windows.md?toc=/azure/azure-monitor/toc.json
-                        - name: Szablon usługi Resource Manager
-                          href: ../virtual-machines/extensions/diagnostics-template.md?toc=/azure/azure-monitor/toc.json
-                    - name: Wysyłanie do metryk usługi Azure Monitor
-                      items:
-                        - name: Maszyna wirtualna
-                          href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
-                        - name: Zestaw skalowania maszyn wirtualnych
-                          href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
-                        - name: Klasyczna maszyna wirtualna
-                          href: platform/collect-custom-metrics-guestos-vm-classic.md
-                        - name: Usługa w chmurze
-                          href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
-                    - name: Wysyłanie do usługi Event Hubs
-                      href: platform/diagnostics-extension-stream-event-hubs.md
-                    - name: Wysyłanie do dzienników
-                      href: platform/diagnostics-extension-logs.md
-                    - name: Wysyłanie do usługi Application Insights
-                      href: platform/diagnostics-extension-to-application-insights.md
-                    - name: Historia wersji
-                      href: platform/diagnostics-extension-versions.md
-                    - name: Format dzienników zasobów JSON Lines
-                      href: platform/diagnostic-logs-append-blobs.md
-                    - name: Rozwiązywanie problemów
-                      href: platform/diagnostics-extension-troubleshooting.md
-                - name: Linux
-                  displayname: diagnostics extension
-                  items:
-                    - name: Omówienie
-                      href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
-                    - name: Zbieranie metryk za pomocą programu Telegraf
-                      href: platform/collect-custom-metrics-linux-telegraf.md
-            - name: Agent usługi Log Analytics
-              items:
-                - name: Omówienie
-                  href: platform/log-analytics-agent.md
-                - name: Agenci dla systemu Windows
-                  href: platform/agent-windows.md
-                - name: Agenci dla systemu Linux
-                  href: platform/agent-linux.md
-                - name: Rozszerzenie maszyny wirtualnej dla systemu Windows
-                  href: ../virtual-machines/windows/extensions-oms.md?toc=/azure/azure-monitor/toc.json
-                - name: Rozszerzenie maszyny wirtualnej dla systemu Linux
-                  href: ../virtual-machines/linux/extensions-oms.md?toc=/azure/azure-monitor/toc.json
-                - name: Brama usługi Log Analytics
-                  href: platform/gateway.md
-                - name: Agent zarządzania
-                  href: platform/agent-manage.md
-                - name: Kondycja agenta
-                  href: insights/solution-agenthealth.md
-                - name: Źródła danych
-                  items:
-                    - name: Omówienie
-                      href: platform/agent-data-sources.md
-                    - name: Zdarzenia systemu Windows
-                      href: platform/data-sources-windows-events.md
-                    - name: Niestandardowe dane JSON
-                      href: platform/data-sources-json.md
-                    - name: Dane wydajności demona CollectD
-                      href: platform/data-sources-collectd.md
-                    - name: Dziennik systemu
-                      href: platform/data-sources-syslog.md
-                    - name: Liczniki wydajności
-                      href: platform/data-sources-performance-counters.md
-                    - name: Wydajność aplikacji dla systemu Linux
-                      href: platform/data-sources-linux-applications.md
-                    - name: Dzienniki usług IIS
-                      href: platform/data-sources-iis-logs.md
-                    - name: Niestandardowe dzienniki
-                      href: platform/data-sources-custom-logs.md
-                    - name: Niestandardowe pola
-                      href: platform/custom-fields.md
-            - name: Rozwiązywanie problemów
-              items:
-                - name: Rozszerzenie maszyny wirtualnej usługi Log Analytics
-                  displayname: 'troubleshoot, troubleshooting'
-                  href: platform/vmext-troubleshoot.md
-                - name: Agent usługi Log Analytics dla systemu Windows
-                  displayname: 'troubleshoot, troubleshooting'
-                  href: platform/agent-windows-troubleshoot.md
-                - name: Agent usługi Log Analytics dla systemu Linux
-                  displayname: 'troubleshoot, troubleshooting'
-                  href: platform/agent-linux-troubleshoot.md
-        - name: Usługa Azure Monitor dla maszyn wirtualnych
-          items:
-            - name: Omówienie
-              href: insights/vminsights-overview.md
-            - name: Ogólna dostępność — często zadawane pytania
-              href: insights/vminsights-ga-release-faq.md
-            - name: Często zadawane pytania
-              href: 'faq.md#azure-monitor-for-vms'
-            - name: Włączanie monitorowania
-              items:
-                - name: Omówienie włączania monitorowania
-                  href: insights/vminsights-enable-overview.md
-                - name: Włączanie obsługi pojedynczej maszyny wirtualnej platformy Azure
-                  href: insights/vminsights-enable-single-vm.md
-                - name: Włączanie obsługi usługi Azure Policy
-                  href: insights/vminsights-enable-at-scale-policy.md
-                - name: Włączanie obsługi programu Azure PowerShell
-                  href: insights/vminsights-enable-at-scale-powershell.md
-                - name: Włączanie obsługi środowiska hybrydowego
-                  href: insights/vminsights-enable-hybrid-cloud.md
-            - name: Mapowanie zależności
-              href: insights/vminsights-maps.md
-            - name: Monitorowanie wydajności
-              href: insights/vminsights-performance.md
-            - name: Analizowanie danych przy użyciu zapytań dzienników
-              href: insights/vminsights-log-search.md
-            - name: Wizualizowanie danych za pomocą skoroszytów
-              href: insights/vminsights-workbooks.md
-            - name: Tworzenie reguł alertów
-              href: insights/vminsights-alerts.md
-            - name: Uaktualnianie agenta zależności
-              href: insights/vminsights-dependency-agent-maintenance.md
-            - name: Wyłączanie monitorowania
-              href: insights/vminsights-optout.md
-        - name: Rozwiązania
-          items:
-            - name: Rozwiązanie w zakresie pojemności i wydajności
-              href: insights/capacity-performance.md
-            - name: Rozwiązanie do analizy oprogramowania VMware
-              href: insights/vmware.md
-            - name: Rozwiązanie Dane o komunikacji sieciowej
-              href: insights/wire-data.md
-            - name: Rozwiązanie Service Map
-              href: insights/service-map.md
-            - name: Programy Service Map i Operations Manager
-              href: insights/service-map-scom.md
-        - name: Grupy komputerów
-          href: platform/computer-groups.md
-    - name: Monitorowanie kontenerów
-      items:
-        - name: Usługa Azure Monitor dla kontenerów
-          items:
-            - name: Omówienie
-              href: insights/container-insights-overview.md
-            - name: Często zadawane pytania
-              href: 'faq.md#azure-monitor-for-containers'
-            - name: Włączanie monitorowania
-              items:
-                - name: Omówienie włączania monitorowania
-                  href: insights/container-insights-onboard.md
-                - name: Włączanie dla nowego klastra AKS
-                  href: insights/container-insights-enable-new-cluster.md
-                - name: Włączanie dla istniejącego klastra AKS
-                  href: insights/container-insights-enable-existing-clusters.md
-                - name: Włączanie dla klastra hybrydowego
-                  href: insights/container-insights-hybrid-setup.md
-                - name: Włączanie dla platformy Azure Red Hat OpenShift w wersji 3
-                  href: insights/container-insights-azure-redhat-setup.md
-                - name: Włączanie dla platformy Azure Red Hat OpenShift w wersji 4
-                  href: insights/container-insights-azure-redhat4-setup.md
-                - name: Mapowania regionów
-                  href: insights/container-insights-region-mapping.md
-            - name: Monitorowanie wydajności
-              href: insights/container-insights-analyze.md
-            - name: Monitorowanie kondycji
-              href: insights/container-insights-health.md
-            - name: Monitorowanie wydajności procesora GPU
-              href: insights/container-insights-gpu-monitoring.md
-            - name: Wyświetlanie danych na żywo
-              items:
-                - name: Dane na żywo (wersja zapoznawcza) — omówienie
-                  href: insights/container-insights-livedata-overview.md
-                - name: Konfigurowanie
-                  href: insights/container-insights-livedata-setup.md
-                - name: Wyświetlanie metryk klastra
-                  href: insights/container-insights-livedata-metrics.md
-                - name: Wyświetlanie wdrożeń
-                  href: insights/container-insights-livedata-deployments.md
-            - name: Analizowanie danych przy użyciu zapytań dzienników
-              href: insights/container-insights-log-search.md
-            - name: Generowanie alertów
-              href: insights/container-insights-alerts.md
-            - name: Agent zarządzania
-              href: insights/container-insights-manage-agent.md
-            - name: Konfigurowanie wycinania metryk Prometheus
-              href: insights/container-insights-prometheus-integration.md
-            - name: Konfigurowanie ustawień zbierania agenta
-              href: insights/container-insights-agent-config.md
-            - name: Aktualizowanie w celu włączenia metryk
-              href: insights/container-insights-update-metrics.md
-            - name: Konfiguracja monitorowania kondycji
-              href: insights/container-insights-health-monitors-config.md
-            - name: Wyłączanie monitorowania
-              items:
-                - name: Wyłączanie usługi AKS monitorowania
-                  href: insights/container-insights-optout.md
-                - name: Wyłączanie platformy Red Hat OpenShift monitorowania w wersji 3
-                  href: insights/container-insights-optout-openshift-v3.md
-                - name: Wyłączanie platformy Red Hat OpenShift monitorowania w wersji 4
-                  href: insights/container-insights-optout-openshift-v4.md
-                - name: Wyłączanie hybrydowego klastra monitorowania
-                  href: insights/container-insights-optout-hybrid.md
-            - name: Rozwiązywanie problemów
-              href: insights/container-insights-troubleshoot.md
-        - name: Platforma Docker i monitorowanie kontenerów systemu Windows
-          href: insights/containers.md
-    - name: Monitorowanie innych zasobów
-      items:
-        - name: Magazyn
-          items:
-            - name: Usługa Azure Monitor dla magazynu
-              displayname: 'storage, monitor, insights, storage accounts, azure storage'
-              href: insights/storage-insights-overview.md
-        - name: Bazy danych
-          items:
-            - name: Azure SQL
-              href: insights/azure-sql.md
-            - name: SQL Server
-              href: insights/sql-assessment.md
-            - name: Azure Cosmos DB
-              href: insights/cosmosdb-insights-overview.md
+        - name: Azure Cosmos DB
+          href: insights/cosmosdb-insights-overview.md
+        - name: Usługa Key Vault
+          href: insights/key-vault-insights-overview.md
         - name: Sieci
+          href: insights/network-insights-overview.md
+        - name: Magazyn
+          displayname: 'storage, monitor, insights, storage accounts, azure storage'
+          href: insights/storage-insights-overview.md
+        - name: Grupy zasobów
+          href: insights/resource-group-insights.md
+    - name: Rozwiązania
+      items:
+        - name: Omówienie
+          href: insights/solutions.md
+        - name: Rozwiązania docelowe
+          href: insights/solution-targeting.md
+        - name: Dostępne rozwiązania
           items:
-            - name: Usługa Azure Monitor dla sieci
-              href: insights/network-insights-overview.md
-            - name: Analiza sieci
-              href: insights/azure-networking-analytics.md
-            - name: DNS
-              href: insights/dns-analytics.md
-            - name: Monitor wydajności sieci
-              items:
-                - name: Omówienie rozwiązania
-                  href: insights/network-performance-monitor.md
-                - name: Monitorowanie wydajności
-                  href: insights/network-performance-monitor-performance-monitor.md
-                - name: Monitorowanie łączności usług
-                  href: insights/network-performance-monitor-service-connectivity.md
-                - name: ExpressRoute
-                  href: insights/network-performance-monitor-expressroute.md
-                - name: Cennik
-                  href: insights/network-performance-monitor-pricing-faq.md
-                - name: Często zadawane pytania
-                  href: insights/network-performance-monitor-faq.md
-        - name: Rozwiązania do monitorowania
-          items:
-            - name: Omówienie
-              href: insights/solutions.md
-            - name: Rozwiązania docelowe
-              href: insights/solution-targeting.md
             - name: Ocena kondycji usługi AD
               href: insights/ad-assessment.md
             - name: Stan replikacji usługi AD
               href: insights/ad-replication-status.md
+            - name: Rozwiązanie w zakresie pojemności i wydajności
+              href: insights/capacity-performance.md
+            - name: Platforma Docker i monitorowanie kontenerów systemu Windows
+              href: insights/containers.md
             - name: Key Vault Analytics
               href: insights/azure-key-vault.md
+            - name: Sieci
+              items:
+                - name: Analiza sieci
+                  href: insights/azure-networking-analytics.md
+                - name: DNS
+                  href: insights/dns-analytics.md
+                - name: Monitor wydajności sieci
+                  items:
+                    - name: Omówienie rozwiązania
+                      href: insights/network-performance-monitor.md
+                    - name: Monitorowanie wydajności
+                      href: insights/network-performance-monitor-performance-monitor.md
+                    - name: Monitorowanie łączności usług
+                      href: insights/network-performance-monitor-service-connectivity.md
+                    - name: ExpressRoute
+                      href: insights/network-performance-monitor-expressroute.md
+                    - name: Cennik
+                      href: insights/network-performance-monitor-pricing-faq.md
+                    - name: Często zadawane pytania
+                      href: insights/network-performance-monitor-faq.md
             - name: Office 365
               href: insights/solution-office-365.md
+            - name: Rozwiązanie Service Map
+              href: insights/service-map.md
+            - name: Programy Service Map i Operations Manager
+              href: insights/service-map-scom.md
+            - name: Azure SQL
+              href: insights/azure-sql.md
+            - name: SQL Server
+              href: insights/sql-assessment.md
             - name: Surface Hub
               href: insights/surface-hubs.md
-    - name: Zbieranie danych niestandardowych
-      items:
-        - name: Metryki niestandardowe
-          href: platform/metrics-custom-overview.md
-        - name: Interfejs API REST metryk
-          href: platform/metrics-store-custom-rest-api.md
-        - name: Interfejs API modułu zbierającego dane usługi Log Analytics
-          href: platform/data-collector-api.md
-        - name: Przykładowy potok interfejsu API modułu zbierającego dane usługi Log Analytics
-          href: platform/create-pipeline-datacollector-api.md
-    - name: Analizowanie danych
-      items:
-        - name: Metryki
-          items:
-            - name: Wprowadzenie do Eksploratora metryk
-              href: platform/metrics-getting-started.md
-            - name: Zaawansowane funkcje Eksploratora metryk
-              href: platform/metrics-charts.md
-            - name: Przykładowe wykresy metryk
-              href: platform/metric-chart-samples.md
-            - name: Rozwiązywanie problemów z wykresami metryk
-              href: platform/metrics-troubleshoot.md
-        - name: Dzienniki
-          items:
-            - name: Omówienie zapytania dziennika
-              displayname: 'log query, log queries, query, queries'
-              href: log-query/log-query-overview.md
-            - name: Prosta obsługa dzienników
-              href: log-query/simple-logs.md
-            - name: Samouczki
-              items:
-                - name: Samouczek usługi Log Analytics
-                  href: log-query/get-started-portal.md
-                - name: Samouczek dotyczący zapytań dzienników
-                  href: log-query/get-started-queries.md
-            - name: Dane dziennika
-              items:
-                - name: Struktura danych dziennika
-                  href: log-query/logs-structure.md
-                - name: Zakres zapytania
-                  href: log-query/scope.md
-                - name: Właściwości standardowe
-                  href: platform/log-standard-properties.md
-            - name: Język zapytań
-              items:
-                - name: Dokumentacja języka zapytań
-                  href: log-query/query-language.md
-                - name: Różnice w językach
-                  href: log-query/data-explorer-difference.md
-                - name: Przydatne operatory
-                  href: log-query/useful-operators.md
-                - name: Funkcje
-                  href: log-query/functions.md
-                - name: Przejście z przeszukiwania dzienników
-                  href: log-query/log-search-transition.md
-                - name: Lekcje
-                  items:
-                    - name: Operacje dotyczące ciągów
-                      href: log-query/string-operations.md
-                    - name: Operacje dotyczące daty i godziny
-                      href: log-query/datetime-operations.md
-                    - name: Funkcje agregacji
-                      href: log-query/aggregations.md
-                    - name: Agregacje zaawansowane
-                      href: log-query/advanced-aggregations.md
-                    - name: Sprzężenia
-                      href: log-query/joins.md
-                    - name: Notacja JSON i struktury danych
-                      href: log-query/json-data-structures.md
-                    - name: Pisanie zapytań zaawansowanych
-                      href: log-query/advanced-query-writing.md
-                    - name: Wykresy i diagramy
-                      href: log-query/charts.md
-                    - name: Zapytania wyszukiwania
-                      href: log-query/search-queries.md
-                - name: Ściągawki
-                  items:
-                    - name: SQL
-                      href: log-query/sql-cheatsheet.md
-                    - name: Splunk
-                      href: log-query/splunk-cheatsheet.md
-            - name: Obejmujące wiele zasobów
-              items:
-                - name: Zapytania obejmujące wiele zasobów
-                  href: log-query/cross-workspace-query.md
-                - name: wyrażenie app
-                  href: log-query/app-expression.md
-                - name: wyrażenie workspace
-                  href: log-query/workspace-expression.md
-                - name: wyrażenie zasobu
-                  href: log-query/resource-expression.md
-                - name: Ujednolicenie zasobów danych aplikacji
-                  href: log-query/unify-app-resource-data.md
-            - name: Przykłady i wskazówki
-              items:
-                - name: Przykłady zapytań dziennika
-                  href: log-query/examples.md
-                - name: Przykłady inteligentnej analizy
-                  href: log-query/smart-analytics.md
-                - name: Optymalizowanie zapytań
-                  href: log-query/query-optimization.md
-                - name: Analizowanie danych tekstowych
-                  href: log-query/parse-text.md
-        - name: Logic Apps
-          items:
-            - name: Łącznik dzienników usługi Azure Monitor
-              href: platform/logicapp-flow-connector.md
-            - name: Łącznik usługi Application Insights
-              href: app/automate-with-logic-apps.md
-        - name: Interfejs API REST
-          displayname: 'metrics, analyze'
-          href: platform/rest-api-walkthrough.md
-    - name: Wizualizowanie danych
-      items:
-        - name: Skoroszyty
-          items:
-            - name: Omówienie
-              href: platform/workbooks-overview.md
-            - name: Wizualizacje
-              href: platform/workbooks-visualizations.md
-            - name: Źródła danych
-              href: platform/workbooks-data-sources.md
-            - name: Wdrażanie za pomocą usługi Azure Resource Manager
-              href: platform/workbooks-automate.md
-            - name: Grupy
-              href: platform/workbooks-groups.md
-            - name: Przekształcanie danych JSON przy użyciu wyrażeń JSONPath
-              href: platform/workbooks-jsonpath.md
-            - name: Konfigurowanie
-              items:
-                - name: Kontrola dostępu
-                  href: platform/workbooks-access-control.md
-                - name: Parametry
-                  items:
-                    - name: Podsumowanie parametrów
-                      href: platform/workbooks-parameters.md
-                    - name: Parametry listy rozwijanej
-                      href: platform/workbooks-dropdowns.md
-                    - name: Parametry interaktywne
-                      href: platform/workbooks-interactive.md
-                    - name: Parametry czasu
-                      href: platform/workbooks-time.md
-                    - name: Parametry tekstu
-                      href: platform/workbooks-text.md
+            - name: Rozwiązanie do analizy oprogramowania VMware
+              href: insights/vmware.md
+            - name: Rozwiązanie Dane o komunikacji sieciowej
+              href: insights/wire-data.md
         - name: Widoki
           items:
             - name: Konwertowanie widoków na skoroszyty
@@ -979,6 +1051,48 @@
               href: platform/view-designer-parts.md
             - name: Filtry
               href: platform/view-designer-filters.md
+        - name: Niestandardowe rozwiązania
+          items:
+            - name: Projektowanie i tworzenie
+              href: insights/solutions-creating.md
+            - name: Plik rozwiązania
+              href: insights/solutions-solution-file.md
+            - name: Zasoby automatyzacji
+              href: insights/solutions-resources-automation.md
+            - name: Wyszukiwania w dzienniku i alerty
+              href: insights/solutions-resources-searches-alerts.md
+            - name: Widoki
+              href: insights/solutions-resources-views.md
+            - name: Najlepsze rozwiązania
+              href: insights/solutions-best-practices.md
+    - name: Skoroszyty
+      items:
+        - name: Omówienie
+          href: platform/workbooks-overview.md
+        - name: Wizualizacje
+          href: platform/workbooks-visualizations.md
+        - name: Źródła danych
+          href: platform/workbooks-data-sources.md
+        - name: Wdrażanie za pomocą usługi Azure Resource Manager
+          href: platform/workbooks-automate.md
+        - name: Konfigurowanie
+          items:
+            - name: Kontrola dostępu
+              href: platform/workbooks-access-control.md
+            - name: Parametry
+              items:
+                - name: Podsumowanie parametrów
+                  href: platform/workbooks-parameters.md
+                - name: Parametry listy rozwijanej
+                  href: platform/workbooks-dropdowns.md
+                - name: Parametry interaktywne
+                  href: platform/workbooks-interactive.md
+                - name: Parametry czasu
+                  href: platform/workbooks-time.md
+                - name: Parametry tekstu
+                  href: platform/workbooks-text.md
+    - name: Inne wizualizacje
+      items:
         - name: Power BI
           items:
             - name: Eksportowanie danych dziennika
@@ -993,174 +1107,29 @@
               href: learn/tutorial-app-dashboards.md
         - name: Wysyłanie danych do narzędzia Grafana
           href: platform/grafana-plugin.md
-    - name: Generowanie alertów
+    - name: Zbieranie i analizowanie danych niestandardowych
       items:
-        - name: Rozwiązywanie problemów z alertami
-          href: platform/alerts-troubleshoot.md
-        - name: Reguły alertów aplikacji
+        - name: Metryki niestandardowe
           items:
-            - name: Dostępność
-              href: app/monitor-web-app-availability.md
-        - name: Reguły alertów metryk
+            - name: Metryki niestandardowe
+              href: platform/metrics-custom-overview.md
+            - name: Interfejs API REST metryk
+              href: platform/metrics-store-custom-rest-api.md
+        - name: Niestandardowe dzienniki
           items:
-            - name: Zarządzanie alertami metryk
-              href: platform/alerts-metric.md
-            - name: Używanie progów dynamicznych
-              href: platform/alerts-dynamic-thresholds.md
-            - name: Alerty metryk w dziennikach
-              href: platform/alerts-metric-logs.md
-            - name: Korzystanie z szablonu usługi Resource Manager
-              href: platform/alerts-metric-create-templates.md
-        - name: Reguły alertów dziennika
+            - name: Interfejs API modułu zbierającego dane usługi Log Analytics
+              href: platform/data-collector-api.md
+            - name: Przykładowy potok interfejsu API modułu zbierającego dane usługi Log Analytics
+              href: platform/create-pipeline-datacollector-api.md
+        - name: Logic Apps
           items:
-            - name: Konfigurowanie alertów dotyczących zapytań analizy
-              href: platform/alerts-log.md
-            - name: Zapytania
-              href: platform/alerts-log-query.md
-            - name: Akcje elementów webhook
-              href: platform/alerts-log-webhook.md
-            - name: Rozwiązywanie problemów z alertami dzienników
-              href: platform/alert-log-troubleshoot.md
-        - name: Reguły alertów dziennika aktywności
-          items:
-            - name: Alert dotyczący zdarzenia dziennika aktywności
-              href: platform/alerts-activity-log.md
-            - name: Migrowanie zdarzeń zarządzania do alertów dziennika aktywności
-              href: platform/migrate-management-alerts.md
-            - name: Schemat elementów webhook
-              href: platform/activity-log-alerts-webhook.md
-        - name: Alerty dotyczące kondycji usługi w dzienniku aktywności
-          items:
-            - name: Wyświetlanie powiadomień
-              href: platform/service-notifications.md
-            - name: Konfigurowanie alertów dotyczących zdarzeń powiadomień
-              href: platform/alerts-activity-log-service-notifications.md
-        - name: Powiadomienia i akcje
-          items:
-            - name: Reguły akcji (wersja zapoznawcza)
-              href: platform/alerts-action-rules.md
-            - name: Tworzenie grupy akcji
-              href: platform/action-groups.md
-            - name: Typowe schematy alertów
-              href: platform/alerts-common-schema.md
-            - name: Definicja typowego schematu alertów
-              href: platform/alerts-common-schema-definitions.md
-            - name: Integracja typowego schematu alertów z usługą Logic Apps
-              href: platform/alerts-common-schema-integrations.md
-            - name: Zachowanie alertów SMS
-              href: platform/alerts-sms-behavior.md
-            - name: Ograniczanie częstotliwości powiadomień
-              href: platform/alerts-rate-limiting.md
-            - name: Tworzenie grup akcji przy użyciu usługi Resource Manager
-              href: platform/action-groups-create-resource-manager-template.md
-            - name: Implementowanie akcji aplikacji logiki
-              href: platform/action-groups-logic-app.md
-        - name: Rozwiązanie usługi Alert Management
-          href: platform/alert-management-solution.md
-        - name: Interfejs użytkownika alertu
-          items:
-            - name: Grupy inteligentne — informacje
-              href: platform/alerts-smartgroups-overview.md
-            - name: Zarządzanie wystąpieniami alertów
-              href: platform/alerts-managing-alert-instances.md
-            - name: Zarządzanie grupami inteligentnymi
-              href: platform/alerts-managing-smart-groups.md
-            - name: Zarządzanie stanami alertów i grup inteligentnych
-              href: platform/alerts-managing-alert-states.md
-            - name: Zarządzanie alertami z innych usług monitorowania
-              href: platform/alerts-managing-nagios-zabbix-scom.md
-        - name: Migrowanie reguł alertów klasycznych
-          items:
-            - name: Alerty klasyczne — informacje
-              href: platform/alerts-classic.overview.md
-            - name: Przygotowanie do migracji
-              href: platform/alerts-prepare-migration.md
-            - name: Omówienie narzędzia do migracji
-              href: platform/alerts-understand-migration.md
-            - name: Korzystanie z narzędzia do migracji
-              href: platform/alerts-using-migration-tool.md
-            - name: Proces automatycznej migracji
-              href: platform/alerts-automatic-migration.md
-            - name: Zarządzanie alertami metryk klasycznych
-              href: platform/alerts-classic-portal.md
-            - name: Tworzenie alertu metryki klasycznej za pomocą szablonu usługi Resource Manager
-              href: platform/alerts-enable-template.md
-            - name: Alert metryki klasycznej wywołujący element webhook
-              href: platform/alerts-webhooks.md
-        - name: Interfejs API alertów
-          href: platform/api-alerts.md
-        - name: Zarządzanie usługami IT
-          items:
-            - name: Łącznik zarządzania usługami IT
-              href: platform/itsmc-overview.md
-            - name: Połączenia zarządzania usługami IT
-              href: platform/itsmc-connections.md
-            - name: Tworzenie aplikacji internetowej programu Service Manager
-              href: platform/itsmc-service-manager-script.md
-            - name: Rozwiązywanie problemów z synchronizacją usługi ServiceNow ITSM
-              href: platform/itsmc-resync-servicenow.md
-    - name: Automatyzacja
-      items:
-        - name: Automatyczne skalowanie
-          items:
-            - name: Omówienie
-              href: platform/autoscale-overview.md
-            - name: Przewodnik
-              href: platform/autoscale-get-started.md
-            - name: Ustawienia konfiguracji
-              href: platform/autoscale-understanding-settings.md
-            - name: Najlepsze rozwiązania
-              href: platform/autoscale-best-practices.md
-            - name: Często używane metryki
-              href: platform/autoscale-common-metrics.md
-            - name: Często używane wzorce
-              href: platform/autoscale-common-scale-patterns.md
-            - name: Skalowanie za pomocą metryk niestandardowych
-              href: platform/autoscale-custom-metric.md
-            - name: Skalowanie zestawów skalowania maszyn wirtualnych
-              href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
-            - name: Skalowanie zestawów skalowania maszyn wirtualnych przy użyciu szablonów usługi Resource Manager
-              href: platform/autoscale-virtual-machine-scale-sets.md
-            - name: Używanie elementów webhook i powiadomień e-mail
-              href: platform/autoscale-webhook-email.md
-            - name: Rozwiązywanie problemów
-              href: platform/autoscale-troubleshoot.md
-            - name: Schematy dzienników zasobów
-              href: platform/autoscale-resource-log-schema.md
-        - name: PowerShell
-          items:
-            - name: Zarządzanie przy użyciu programu PowerShell
-              href: platform/powershell-quickstart-samples.md
-            - name: Tworzenie alertów
-              href: app/powershell-alerts.md
-            - name: Zarządzanie usługą Log Analytics
-              href: platform/powershell-workspace-configuration.md
-            - name: Application Insights
-              items:
-                - name: Zarządzanie usługą Application Insights
-                  href: app/powershell.md
-                - name: Zarządzanie usługą Azure Cloud Services
-                  href: app/powershell-azure-diagnostics.md
-        - name: Przykłady interfejsu wiersza polecenia platformy Azure
-          href: platform/cli-samples.md
-        - name: Szablony usługi Resource Manager
-          href: platform/template-workspace-configuration.md
-    - name: Rozszerzanie
-      items:
-        - name: Rozwiązania do monitorowania
-          items:
-            - name: Projektowanie i tworzenie
-              href: insights/solutions-creating.md
-            - name: Plik rozwiązania
-              href: insights/solutions-solution-file.md
-            - name: Zasoby automatyzacji
-              href: insights/solutions-resources-automation.md
-            - name: Wyszukiwania w dzienniku i alerty
-              href: insights/solutions-resources-searches-alerts.md
-            - name: Widoki
-              href: insights/solutions-resources-views.md
-            - name: Najlepsze rozwiązania
-              href: insights/solutions-best-practices.md
+            - name: Łącznik dzienników usługi Azure Monitor
+              href: platform/logicapp-flow-connector.md
+            - name: Łącznik usługi Application Insights
+              href: app/automate-with-logic-apps.md
+        - name: Interfejs API REST
+          displayname: 'metrics, analyze'
+          href: platform/rest-api-walkthrough.md
     - name: Integracja z programem System Center
       items:
         - name: Łączenie programu Operations Manager
@@ -1173,12 +1142,28 @@
   items:
     - name: Limity usługi
       href: service-limits.md
-    - name: Rozszerzenie diagnostyki
-      items:
-        - name: Schemat konfiguracji systemu Windows
-          href: platform/diagnostics-extension-schema-windows.md
     - name: Zmiany terminologii
       href: terminology.md
+    - name: Opis danych
+      href: 'https://docs.microsoft.com/azure/azure-monitor/reference/'
+    - name: Obsługiwane metryki
+      items:
+        - name: Metryki platformy
+          href: platform/metrics-supported.md
+        - name: Metryki w ustawieniach diagnostycznych
+          href: platform/metrics-supported-export-diagnostic-settings.md
+        - name: Metryki w alertach
+          href: platform/alerts-metric-near-real-time.md
+    - name: Dzienniki platformy
+      items:
+        - name: Schematy dzienników zasobów
+          href: platform/diagnostic-logs-schema.md
+        - name: Schemat dziennika aktywności
+          href: platform/activity-log-schema.md
+    - name: Schematy rozszerzenia diagnostycznego
+      items:
+        - name: Rozszerzenie diagnostyki systemu Windows
+          href: platform/diagnostics-extension-schema-windows.md
     - name: Application Insights
       items:
         - name: Automatyczne zbieranie zależności
@@ -1191,6 +1176,8 @@
           href: app/platforms.md
         - name: Przesłonięcia punktów końcowych
           href: app/custom-endpoints.md
+        - name: Azure Functions
+          href: app/azure-functions-supported-features.md
         - name: Model danych
           items:
             - name: Omówienie
@@ -1213,47 +1200,31 @@
               href: app/azure-functions-supported-features.md
             - name: Schemat na podstawie obszaru roboczego
               href: app/apm-tables.md
-    - name: Metryki
-      items:
-        - name: Obsługiwane metryki
-          href: platform/metrics-supported.md
-        - name: Metryki eksportowane z użyciem ustawień diagnostycznych
-          href: platform/metrics-supported-export-diagnostic-settings.md
-        - name: Obsługiwane metryki dla nowszych alertów
-          href: platform/alerts-metric-near-real-time.md
-    - name: Dzienniki platformy
-      items:
-        - name: 'Usługi, kategorie i schematy dziennika zasobów'
-          href: platform/diagnostic-logs-schema.md
-        - name: Schemat dziennika aktywności
-          href: platform/activity-log-schema.md
-    - name: Odwołanie do tabeli dzienników usługi Azure Monitor
-      href: 'https://docs.microsoft.com/azure/azure-monitor/reference/'
-    - name: Interfejs wiersza polecenia platformy Azure
-      href: /cli/azure/monitor?view=azure-cli-latest
-    - name: Interfejs wiersza polecenia platformy Azure — usługa Application Insights (wersja zapoznawcza)
-      href: 'https://docs.microsoft.com/cli/azure/ext/application-insights/monitor?view=azure-cli-latest'
-    - name: Azure Functions
-      href: app/azure-functions-supported-features.md
     - name: Azure PowerShell
       items:
-        - name: 'Alerty, metryki, dziennik aktywności, automatyczne skalowanie'
+        - name: Azure Monitor
           href: /powershell/module/az.monitor
+        - name: Dzienniki usługi Azure Monitor
+          href: /powershell/module/az.operationalinsights
         - name: Application Insights
           href: /powershell/module/az.applicationinsights
-        - name: Log Analytics
-          href: /powershell/module/az.operationalinsights
+    - name: Interfejs wiersza polecenia platformy Azure
+      items:
+        - name: Azure Monitor
+          href: /cli/azure/monitor?view=azure-cli-latest
+        - name: Application Insights
+          href: 'https://docs.microsoft.com/cli/azure/ext/application-insights/monitor?view=azure-cli-latest'
     - name: Interfejs API REST
       items:
-        - name: Monitorowanie
+        - name: Azure Monitor
           href: /rest/api/monitor/
-        - name: Dzienniki
+        - name: Dzienniki usługi Azure Monitor
           href: /rest/api/loganalytics
-    - name: Szablon usługi Resource Manager
+    - name: Szablony usługi Resource Manager
       items:
-        - name: Monitorowanie
+        - name: Azure Monitor
           href: /azure/templates/microsoft.insights/allversions
-        - name: Dzienniki
+        - name: Dzienniki usługi Azure Monitor
           href: /azure/templates/microsoft.operationalinsights/allversions
     - name: Wycofywanie funkcji i interfejsu API
       items:
@@ -1283,21 +1254,7 @@
       href: 'https://azure.microsoft.com/pricing/details/log-analytics/'
     - name: Kalkulator cen
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Wiadomości
-      items:
-        - name: Aktualizacje usługi Application Insights
-          href: 'https://azure.microsoft.com/updates/?product=application-insights'
-        - name: Aktualizacje usługi Log Analytics
-          href: 'https://azure.microsoft.com/updates/?product=log-analytics'
-        - name: Informacje o wersji zestawu SDK
-          href: app/release-notes.md
     - name: Dostępność regionalna
       href: 'https://azure.microsoft.com/regions/services/?products=monitor&regions=all'
-    - name: Filmy wideo
-      href: 'https://azure.microsoft.com/resources/videos/index/?services=monitor'
-    - name: Szablony szybkiego startu
-      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/search?q=monitoring'
-    - name: Przykłady kodu
-      href: 'https://azure.microsoft.com/resources/samples/?service=monitor'
+    - name: Wiadomości
+      href: 'https://azure.microsoft.com/updates/?product=monitor'

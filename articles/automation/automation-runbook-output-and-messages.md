@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 57728c3dcbb0dd88ae954ec711ffa4827e14579d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: fb7ddce34a32d7108587bf1a3d47be4b31214535
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743840"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832286"
 ---
 # <a name="monitor-runbook-output"></a>Monitorowanie wyniku uruchomienia elementu runbook
 
@@ -259,6 +259,7 @@ Aby uzyskać więcej informacji na temat konfigurowania integracji z dziennikami
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Wykonywanie elementu runbook w usłudze Azure Automation](automation-runbook-execution.md)
-* [Tworzenie modułowych elementów runbook](automation-child-runbooks.md)
-* [Dokumentacja programu PowerShell](/powershell/scripting/overview)
+* Aby korzystać z elementów Runbook, zobacz [Zarządzanie elementami Runbook w Azure Automation](manage-runbooks.md).
+* Aby uzyskać szczegółowe informacje na temat programu PowerShell, zobacz dokumentację [programu PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
+* * Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 07/03/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8e5ee8df1dfd250a6713d832bf176daecdaef7ea
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 4b8bf6a3f583e4c17f61e0a46911990ac5cc827c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744405"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830484"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Zarządzanie usługą Change Tracking and Inventory
 
@@ -178,6 +178,5 @@ Skorzystajmy z tego przykładu, aby omówić kroki tworzenia alertów dotyczący
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Przegląd Change Tracking i spisu](change-tracking.md)
-* [Rozwiązywanie problemów dotyczących Change Tracking i spisu](troubleshoot/change-tracking.md)
-* [Dzienniki wyszukiwania w dziennikach Azure Monitor](../log-analytics/log-analytics-log-searches.md)
+* Jeśli musisz przeszukać dzienniki przechowywane w obszarze roboczym Log Analytics, zobacz [Wyszukiwanie w dzienniku w](../log-analytics/log-analytics-log-searches.md)dziennikach Azure monitor.
+* Rozwiązywanie problemów z błędami funkcji można znaleźć w temacie [Rozwiązywanie problemów dotyczących Change Tracking i spisu](troubleshoot/change-tracking.md).

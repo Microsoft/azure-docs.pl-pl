@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
-ms.openlocfilehash: e5b218efd9c8cfaad99d76d8118d181390a977c3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb7be1815364b3def9b22e50454dceabd17e6150
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74789107"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83829651"
 ---
 # <a name="manage-messages-in-twilio-with-azure-logic-apps"></a>Zarządzanie komunikatami w programie Twilio przy użyciu Azure Logic Apps
 
@@ -47,10 +47,10 @@ Za pomocą Azure Logic Apps i łącznika Twilio można tworzyć automatyczne zad
 
      * W ostatnim kroku, w którym chcesz dodać akcję, wybierz pozycję **nowy krok**. 
 
-       — lub —
+       -lub-
 
      * Między krokami, do których chcesz dodać akcję, przesuń wskaźnik myszy nad strzałkę między krokami. 
-     Wybierz wyświetlony znak plus (**+**), a następnie wybierz pozycję **Dodaj akcję**.
+     Wybierz wyświetlony znak plus ( **+** ), a następnie wybierz pozycję **Dodaj akcję**.
      
        W polu wyszukiwania wprowadź ciąg "Twilio" jako filtr. 
        Na liście Akcje wybierz żądaną akcję.
@@ -69,7 +69,7 @@ Aby uzyskać szczegółowe informacje techniczne na temat wyzwalaczy, akcji i li
 
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 
-* Jeśli masz pytania, odwiedź [forum usługi Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Pytania można znaleźć w witrynie [Microsoft Q&pytanie dotyczące Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Aby przesłać pomysły dotyczące funkcji lub zagłosować na nie, odwiedź [witrynę opinii użytkowników usługi Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Następne kroki

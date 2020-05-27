@@ -5,14 +5,14 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: df2de44c2c8831fa4319b80484a119052434f8fb
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 2be702ec6e820fe71dd8d2da7aa4cf831b52402e
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83749109"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828257"
 ---
-# <a name="unlink-workspace-from-automation-account-for-change-tracking-and-inventory"></a>Odłączanie obszaru roboczego od konta usługi Automation dla Change Tracking i spisu
+# <a name="unlink-workspace-from-automation-account"></a>Odłączanie obszaru roboczego od konta usługi Automation
 
 Podczas włączania operacji [Change Tracking i spisu](change-tracking.md) można zdecydować, aby nie zintegrować konta usługi Automation z obszarem roboczym log Analytics. Ten artykuł zawiera informacje dotyczące rozłączenia obszaru roboczego z Twojego konta.
 
@@ -37,7 +37,5 @@ Alternatywnie możesz odłączyć obszar roboczy Log Analytics z konta usługi A
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Zarządzanie Change Tracking i spisem](change-tracking-file-contents.md)
-* [Usuwanie maszyn wirtualnych z Change Tracking i spisu](automation-remove-vms-from-change-tracking.md)
-* [Rozwiązywanie problemów dotyczących zmian na maszynie wirtualnej platformy Azure](automation-tutorial-troubleshoot-changes.md)
-* [Rozwiązywanie problemów dotyczących Change Tracking i spisu](troubleshoot/change-tracking.md)
+* Aby obejść Change Tracking i spis, zobacz [zarządzanie Change Tracking i spisem](change-tracking-file-contents.md).
+* Aby rozwiązać ogólne problemy z funkcjami, zobacz [Rozwiązywanie problemów dotyczących Change Tracking i spisu](troubleshoot/change-tracking.md).

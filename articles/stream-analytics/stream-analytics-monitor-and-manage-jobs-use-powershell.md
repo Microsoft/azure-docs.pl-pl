@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 295141dfd9b84428e2ee69354ab0c249fa46d1b6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 58908b690464396f716801338cb22514ae4b5a66
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80998881"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831266"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Monitoruj Stream Analytics zadania i zarządzaj nimi za pomocą poleceń cmdlet Azure PowerShell
 Dowiedz się, jak monitorować zasoby Stream Analytics i zarządzać nimi za pomocą poleceń cmdlet Azure PowerShell i skryptów programu PowerShell, które wykonują podstawowe Stream Analyticse zadania.
@@ -542,7 +542,7 @@ Test-AzStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-
 To polecenie programu PowerShell testuje stan połączenia wyjściowe wyjściowe w StreamingJob.  
 
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
-Aby uzyskać dalszą pomoc, wypróbuj nasze [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics). 
+Aby uzyskać dalszą pomoc, Wypróbuj naszą [stronę pytań firmy&Microsoft dotyczącą Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html). 
 
 ## <a name="next-steps"></a>Następne kroki
 * [Wprowadzenie do Azure Stream Analytics](stream-analytics-introduction.md)

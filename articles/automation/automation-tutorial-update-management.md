@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 4b47fa873df88bf85c4c56c9f2ac94fce16c63be
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 5b5172df6ed6993742a08d5ac08cf700681dfc6a
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743650"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83829158"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure
 
@@ -176,4 +176,4 @@ Po pomyślnym wdrożeniu aktualizacji zostanie wyświetlony komunikat potwierdza
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Omówienie rozwiązania Update Management](automation-update-management.md)
+* Aby uzyskać szczegółowe informacje na temat Update Management, zobacz [Update Management Omówienie](automation-update-management.md).
