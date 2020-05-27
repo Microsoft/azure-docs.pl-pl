@@ -4,12 +4,12 @@ description: Jak utworzyć pulę usługi Batch w sieci wirtualnej platformy Azur
 ms.topic: how-to
 ms.date: 04/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5e973968e3396fbe714be5540244b867b7092e00
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 559cf3bc145deeed78b91def9d36211f885005d6
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779580"
+ms.locfileid: "83797521"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Tworzenie puli Azure Batch w sieci wirtualnej
 
@@ -49,13 +49,13 @@ Po utworzeniu sieci wirtualnej i przypisaniu do niej podsieci można utworzyć p
 
 W Twojej organizacji mogą istnieć wymagania dotyczące przekierowywania (wymuszania) ruchu związanego z Internetu z podsieci z powrotem do lokalizacji lokalnej na potrzeby inspekcji i rejestrowania. Być może włączono Wymuszone tunelowanie dla podsieci w sieci wirtualnej.
 
-Aby upewnić się, że węzły obliczeniowe puli Azure Batch działają w sieci wirtualnej z włączonym wymuszonym tunelowaniem, należy dodać następujące [trasy zdefiniowane przez użytkownika](../virtual-network/virtual-networks-udr-overview.md) dla tej podsieci:
+Aby upewnić się, że węzły obliczeniowe puli Azure Batch działają w sieci wirtualnej z włączonym wymuszonym tunelowaniem, należy dodać następujące [trasy zdefiniowane przez użytkownika](../virtual-network/virtual-networks-udr-overview.md) (UDR) dla tej podsieci:
 
-* Usługa Batch musi komunikować się z węzłami obliczeniowymi puli na potrzeby planowania zadań. Aby włączyć tę komunikację, Dodaj zdefiniowaną przez użytkownika trasę dla każdego adresu IP używanego przez usługę Batch w regionie, w którym istnieje konto usługi Batch. Aby dowiedzieć się, jak uzyskać listę adresów IP usługi Batch, zobacz [lokalne znaczniki usług](../virtual-network/service-tags-overview.md). Adresy IP usługi Batch zostaną skojarzone z `BatchNodeManagement` tagiem usługi (lub odmianą regionalną zgodną z regionem konta usługi Batch).
+* Usługa Batch musi komunikować się z węzłami obliczeniowymi puli na potrzeby planowania zadań. Aby włączyć tę komunikację, należy dodać UDR dla każdego adresu IP używanego przez usługę Batch w regionie, w którym istnieje konto usługi Batch. Aby dowiedzieć się, jak uzyskać listę adresów IP usługi Batch, zobacz [lokalne znaczniki usług](../virtual-network/service-tags-overview.md).
 
 * Upewnij się, że ruch wychodzący do usługi Azure Storage (w odniesieniu do adresów URL formularza `<account>.table.core.windows.net` , `<account>.queue.core.windows.net` i `<account>.blob.core.windows.net` ) nie jest blokowany za pośrednictwem lokalnego urządzenia sieciowego.
 
-Po dodaniu trasy zdefiniowanej przez użytkownika Zdefiniuj trasę dla każdego powiązanego prefiksu adresu IP partii i ustaw **Typ następnego przeskoku** na **Internet**. Zobacz poniższy przykład:
+Po dodaniu UDR należy zdefiniować trasę dla każdego powiązanego prefiksu adresu IP partii i ustawić **Typ następnego przeskoku** na **Internet**. Zobacz poniższy przykład:
 
 ![Trasa zdefiniowana przez użytkownika](./media/batch-virtual-network/user-defined-route.png)
 

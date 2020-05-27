@@ -16,12 +16,12 @@ ms.date: 04/14/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d59a508d03730a51e793a5e30e2c99a91af77ce8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 87bb08e08bca3a9f715590098cfaa22ce7da8017
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81380188"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799502"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Archiwizuj dzienniki i raporty dotyczące zarządzania prawami usługi Azure AD w Azure Monitor
 
@@ -158,10 +158,10 @@ $subs = Get-AzSubscription
 $subs | ft
 ```
  
-Możesz ponownie uwierzytelnić i skojarzyć sesję programu PowerShell z tą subskrypcją za pomocą polecenia, `Connect-AzAccount –Subscription $subs[0].id`takiego jak. Aby dowiedzieć się więcej o sposobie uwierzytelniania na platformie Azure za pomocą programu PowerShell, w tym nieinteraktywnie, zobacz artykuł [Logowanie przy użyciu Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-3.3.0&viewFallbackFrom=azps-2.5.0
+Możesz ponownie uwierzytelnić i skojarzyć sesję programu PowerShell z tą subskrypcją za pomocą polecenia, takiego jak `Connect-AzAccount –Subscription $subs[0].id` . Aby dowiedzieć się więcej o sposobie uwierzytelniania na platformie Azure za pomocą programu PowerShell, w tym nieinteraktywnie, zobacz artykuł [Logowanie przy użyciu Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-3.3.0&viewFallbackFrom=azps-2.5.0
 ).
 
-Jeśli masz wiele obszarów roboczych Log Analytics w tej subskrypcji, polecenie cmdlet [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) zwraca listę obszarów roboczych. Następnie można znaleźć taki, który zawiera dzienniki usługi Azure AD. `CustomerId` Pole zwrócone przez to polecenie cmdlet jest takie samo jak wartość "identyfikator obszaru roboczego" wyświetlaną w Azure Portal w obszarze roboczym log Analytics Omówienie.
+Jeśli masz wiele obszarów roboczych Log Analytics w tej subskrypcji, polecenie cmdlet [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) zwraca listę obszarów roboczych. Następnie można znaleźć taki, który zawiera dzienniki usługi Azure AD. `CustomerId`Pole zwrócone przez to polecenie cmdlet jest takie samo jak wartość "identyfikator obszaru roboczego" wyświetlaną w Azure Portal w obszarze roboczym log Analytics Omówienie.
  
 ```powershell
 $wks = Get-AzOperationalInsightsWorkspace
@@ -189,5 +189,5 @@ $bResponse.Results |ft
 ```
 
 ## <a name="next-steps"></a>Następne kroki:
-- [Tworzenie interaktywnych raportów przy użyciu skoroszytów Azure Monitor](../../azure-monitor/app/usage-workbooks.md) 
+- [Tworzenie interaktywnych raportów przy użyciu skoroszytów Azure Monitor](../../azure-monitor/platform/workbooks-overview.md) 
 

@@ -1,7 +1,7 @@
 ---
-title: Podstawowe informacje o usłudze SPX — Usługa mowy
+title: Podstawowe informacje o interfejsie wiersza polecenia mowy
 titleSuffix: Azure Cognitive Services
-description: Dowiedz się, jak używać narzędzia wiersza polecenia SPX do pracy z zestawem SDK mowy bez kodu i minimalnej instalacji.
+description: Dowiedz się, jak używać narzędzia poleceń interfejsu wiersza polecenia mowy do pracy z usługą mowy bez kodu i minimalnej konfiguracji.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 31c1d50962b2710fbeb249c61c8b3c144762be43
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 2e75e177c1a5af13c1907b3a1abc9218096e8d45
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715651"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800699"
 ---
-# <a name="learn-the-basics-of-spx"></a>Poznaj podstawy korzystania z SPX
+# <a name="learn-the-basics-of-the-speech-cli"></a>Poznaj podstawowe informacje o interfejsie wiersza polecenia mowy
 
-W tym artykule przedstawiono podstawowe wzorce użycia SPX, narzędzie wiersza polecenia do korzystania z usługi mowy bez pisania kodu. Możesz szybko przetestować główne funkcje usługi mowy, bez tworzenia środowisk programistycznych lub pisania kodu, aby sprawdzić, czy przypadki użycia mogą być odpowiednio spełnione. Ponadto protokół SPX jest gotowy do produkcji i może służyć do automatyzowania prostych przepływów pracy w usłudze mowy, przy użyciu `.bat` skryptów powłoki lub.
+Ten artykuł zawiera informacje o podstawowych wzorcach użycia interfejsu wiersza polecenia mowy, który umożliwia korzystanie z usługi mowy bez pisania kodu. Możesz szybko przetestować główne funkcje usługi mowy, bez tworzenia środowisk programistycznych lub pisania kodu, aby sprawdzić, czy przypadki użycia mogą być odpowiednio spełnione. Ponadto interfejs wiersza polecenia mowy jest gotowy do produkcji i może służyć do automatyzowania prostych przepływów pracy w usłudze mowy przy użyciu `.bat` skryptów powłoki lub.
 
 [!INCLUDE [](includes/spx-setup.md)]
 
@@ -31,15 +31,15 @@ W tej sekcji przedstawiono kilka podstawowych poleceń SPX, które często są p
 spx recognize --microphone
 ```
 
-Po wprowadzeniu polecenia protokół SPX rozpocznie nasłuchiwanie dźwięku na bieżącym aktywnym urządzeniu wejściowym i zatrzymuje się po naciśnięciu klawisza `ENTER` . Zarejestrowane mowę są następnie rozpoznawane i konwertowane na tekst w danych wyjściowych konsoli. Synteza zamiany tekstu na mowę jest również łatwa w użyciu SPX. 
+Po wprowadzeniu polecenia protokół SPX rozpocznie nasłuchiwanie dźwięku na bieżącym aktywnym urządzeniu wejściowym i zatrzymuje się po naciśnięciu klawisza `ENTER` . Zarejestrowane mowę są następnie rozpoznawane i konwertowane na tekst w danych wyjściowych konsoli. Synteza zamiany tekstu na mowę jest również łatwa w użyciu interfejsu wiersza polecenia. 
 
 Uruchomienie następującego polecenia spowoduje wprowadzenie tekstu jako dane wejściowe i wyjście z wydanej zamiany mowy na bieżące aktywne urządzenie wyjściowe.
 
 ```shell
-spx synthesize --text "Testing synthesis using SPX" --speakers
+spx synthesize --text "Testing synthesis using the Speech CLI" --speakers
 ```
 
-Oprócz rozpoznawania mowy i syntezy, można także przeprowadzić Tłumaczenie mowy przy użyciu SPX. Podobnie jak powyżej polecenie rozpoznawania mowy, uruchom następujące polecenie, aby przechwycić dźwięk z domyślnego mikrofonu i wykonać translację do tekstu w języku docelowym.
+Oprócz rozpoznawania mowy i syntezy, można także przeprowadzić Tłumaczenie mowy przy użyciu interfejsu wiersza polecenia mowy. Podobnie jak powyżej polecenie rozpoznawania mowy, uruchom następujące polecenie, aby przechwycić dźwięk z domyślnego mikrofonu i wykonać translację do tekstu w języku docelowym.
 
 ```shell
 spx translate --microphone --source en-US --target ru-RU --output file C:\some\file\path\russian_translation.txt
@@ -59,7 +59,7 @@ Polecenia w poprzedniej sekcji doskonale sprawdzają się, jak działa usługa S
 
 ## <a name="batch-speech-recognition"></a>Rozpoznawanie mowy w usłudze Batch
 
-Jeśli masz katalog plików audio, możesz łatwo korzystać z SPX, aby szybko uruchomić rozpoznawanie mowy w usłudze Batch. Po prostu uruchom następujące polecenie, wskazując katalog za pomocą `--files` polecenia. W tym przykładzie dołączysz `\*.wav` do katalogu, aby rozpoznać wszystkie pliki znajdujące się `.wav` w katalogu. Dodatkowo należy określić `--threads` argument, aby uruchomić rozpoznawanie w przypadku 10 wątków równoległych.
+Jeśli masz katalog plików audio, możesz łatwo uruchomić interfejs wiersza polecenia mowy, aby szybko uruchamiać rozpoznawanie mowy w usłudze Batch. Po prostu uruchom następujące polecenie, wskazując katalog za pomocą `--files` polecenia. W tym przykładzie dołączysz `\*.wav` do katalogu, aby rozpoznać wszystkie pliki znajdujące się `.wav` w katalogu. Dodatkowo należy określić `--threads` argument, aby uruchomić rozpoznawanie w przypadku 10 wątków równoległych.
 
 > [!NOTE]
 > `--threads`Argument może być również używany w następnej sekcji dla `spx synthesize` poleceń, a dostępne wątki będą zależeć od procesora i bieżącego procentu obciążenia.
@@ -76,11 +76,11 @@ Rozpoznane dane wyjściowe mowy są zapisywane `speech_output.tsv` przy użyciu 
 
 ## <a name="batch-text-to-speech-synthesis"></a>Synteza zamiany tekstu na mowę
 
-Najprostszym sposobem uruchomienia funkcji zamiany tekstu na mowę jest utworzenie nowego `.tsv` pliku z wartościami rozdzielanymi znakami tabulacji i użycie `--foreach` polecenia w SPX. Weź pod uwagę następujący plik `text_synthesis.tsv` :
+Najprostszym sposobem uruchomienia funkcji zamiany tekstu na mowę jest utworzenie nowego `.tsv` pliku z wartościami rozdzielanymi znakami tabulacji `--foreach` . Weź pod uwagę następujący plik `text_synthesis.tsv` :
 
     audio.output    text
     C:\batch_wav_output\wav_1.wav    Sample text to synthesize.
-    C:\batch_wav_output\wav_2.wav    Using SPX to run batch-synthesis.
+    C:\batch_wav_output\wav_2.wav    Using the Speech CLI to run batch-synthesis.
     C:\batch_wav_output\wav_3.wav    Some more text to test capabilities.
 
  Następnie należy uruchomić polecenie, aby wskazać `text_synthesis.tsv` , wykonać syntezę dla każdego `text` pola i napisać wynik do odpowiedniej `audio.output` ścieżki jako `.wav` plik. 
@@ -99,7 +99,7 @@ Jednak jeśli masz `.tsv` plik podobny do poniższego przykładu, z nagłówkami
 
     wav_path    str_text
     C:\batch_wav_output\wav_1.wav    Sample text to synthesize.
-    C:\batch_wav_output\wav_2.wav    Using SPX to run batch-synthesis.
+    C:\batch_wav_output\wav_2.wav    Using the Speech CLI to run batch-synthesis.
     C:\batch_wav_output\wav_3.wav    Some more text to test capabilities.
 
 Można zastąpić te nazwy pól prawidłowymi argumentami, używając następującej składni w `--foreach` wywołaniu. Jest to takie samo wywołanie jak powyżej.

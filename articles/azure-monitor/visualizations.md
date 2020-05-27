@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 877616f6fd31bdfbe193bd8f03efb3f79317ad42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2da0cd2ede33abe8ebbe3616192349112fb24bae
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79535373"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797496"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Wizualizowanie danych z Azure Monitor
 Ten artykuł zawiera podsumowanie dostępnych metod wizualizacji danych dziennika i metryk przechowywanych w Azure Monitor.
@@ -19,7 +19,7 @@ Ten artykuł zawiera podsumowanie dostępnych metod wizualizacji danych dziennik
 Wizualizacje, takie jak wykresy i wykresy, mogą ułatwić analizowanie danych monitorowania w celu przechodzenia do szczegółów dotyczących problemów i identyfikowania wzorców. W zależności od używanego narzędzia możesz również mieć możliwość udostępniania wizualizacji innym użytkownikom wewnątrz i na zewnątrz organizacji.
 
 ## <a name="workbooks"></a>Skoroszyty
-[Skoroszyty](../azure-monitor/app/usage-workbooks.md) to interaktywne dokumenty, które zapewniają szczegółowe informacje o danych, badaniu i współpracy w zespole. Konkretne przykłady, w których przydatne są skoroszyty, to przewodniki dotyczące rozwiązywania problemów i postmortem zdarzeń.
+[Skoroszyty](../azure-monitor/platform/workbooks-overview.md) to interaktywne dokumenty, które zapewniają szczegółowe informacje o danych, badaniu i współpracy w zespole. Konkretne przykłady, w których przydatne są skoroszyty, to przewodniki dotyczące rozwiązywania problemów i postmortem zdarzeń.
 
 ![skoroszyt](media/visualizations/workbook.png)
 
@@ -137,7 +137,7 @@ Możesz uzyskać dostęp do danych w dziennikach i danych metryk w Azure Monitor
 - Dowiedz się więcej na temat [danych zbieranych przez Azure monitor](platform/data-platform.md).
 - Dowiedz się więcej o [pulpitach nawigacyjnych platformy Azure](../azure-portal/azure-portal-dashboards.md).
 - Dowiedz się więcej o [widokach w Azure monitor](platform/view-designer.md).
-- Dowiedz się więcej na temat [skoroszytów](../azure-monitor/app/usage-workbooks.md).
+- Dowiedz się więcej na temat [skoroszytów](../azure-monitor/platform/workbooks-overview.md).
 - Dowiedz się więcej [na temat importowania danych dziennika do Power BI](../azure-monitor/platform/powerbi.md).
 - Dowiedz się więcej na temat [wtyczki źródła danych Grafana Azure monitor](../azure-monitor/platform/grafana-plugin.md).
 

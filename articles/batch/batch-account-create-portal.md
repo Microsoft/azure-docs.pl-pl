@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć konto usługi Azure Batch w portalu Azu
 ms.topic: how-to
 ms.date: 02/26/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: adc333498e0b3074aaa40d40e076ae62c1759524
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 6cccef176e3e5ba0f4774a5897f082c4847a4005
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/22/2020
-ms.locfileid: "83778586"
+ms.locfileid: "83800256"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Tworzenie konta usługi Batch w witrynie Azure Portal
 
@@ -52,6 +52,9 @@ Aby uzyskać ogólne informacje o kontach i scenariuszach usługi Batch, zobacz 
 ## <a name="view-batch-account-properties"></a>Wyświetlanie właściwości konta usługi Batch
 
 Po utworzeniu konta wybierz je, aby uzyskać dostęp do jego ustawień i właściwości. Menu po lewej stronie zapewnia dostęp do wszystkich ustawień i właściwości konta.
+
+> [!NOTE]
+> Nazwa konta wsadowego jest jego IDENTYFIKATORem i nie można jej zmienić. Jeśli musisz zmienić nazwę konta w usłudze Batch, musisz usunąć konto i utworzyć nowe z zamierzoną nazwą.
 
 ![Strona konta usługi Batch w witrynie Azure Portal][account_blade]
 

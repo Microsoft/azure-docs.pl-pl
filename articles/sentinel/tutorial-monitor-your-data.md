@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2020
 ms.author: yelevin
-ms.openlocfilehash: f145b75ba351121bf750f90dbc0a7df382ca04b1
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 8d8f1343d92f66dc464ab7064949bbabb813268e
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82739164"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798531"
 ---
 # <a name="tutorial-visualize-and-monitor-your-data"></a>Samouczek: wizualizowanie i monitorowanie danych
 
 
 
-Po [nawiązaniu połączenia ze źródłami](quickstart-onboard.md) danych z platformą Azure — wskaźnikiem możliwości można wizualizować i monitorować dane przy użyciu systemu Azure wskaźnikowego wdrażania Azure monitor skoroszytów, które zapewniają uniwersalność tworzenia niestandardowych pulpitów nawigacyjnych. Gdy skoroszyty są wyświetlane inaczej na platformie Azure — wskaźnikiem, może być przydatne, aby zobaczyć, jak [tworzyć interaktywne raporty przy użyciu skoroszytów Azure monitor](../azure-monitor/app/usage-workbooks.md). System Azure — wskaźnik kontrolny umożliwia tworzenie niestandardowych skoroszytów w danych, a także udostępnia wbudowane szablony skoroszytów umożliwiające szybkie uzyskiwanie szczegółowych informacji na temat danych, gdy tylko nawiążesz połączenie ze źródłem danych.
+Po [nawiązaniu połączenia ze źródłami danych](quickstart-onboard.md)   z platformą Azure — wskaźnikiem możliwości można wizualizować i monitorować dane przy użyciu systemu Azure wskaźnikowego wdrażania Azure monitor skoroszytów, które zapewniają uniwersalność tworzenia niestandardowych pulpitów nawigacyjnych. Gdy skoroszyty są wyświetlane inaczej na platformie Azure — wskaźnikiem, może być przydatne, aby zobaczyć, jak [tworzyć interaktywne raporty przy użyciu skoroszytów Azure monitor](../azure-monitor/platform/workbooks-overview.md). System Azure — wskaźnik kontrolny umożliwia tworzenie niestandardowych skoroszytów w danych, a także udostępnia wbudowane szablony skoroszytów umożliwiające szybkie uzyskiwanie szczegółowych informacji na temat danych, gdy tylko nawiążesz połączenie ze źródłem danych.
 
 
 Ten samouczek ułatwia wizualizowanie danych na platformie Azure — wskaźnikiem.
@@ -52,7 +52,7 @@ Ten samouczek ułatwia wizualizowanie danych na platformie Azure — wskaźnikie
    > Spowoduje to utworzenie zasobu platformy Azure na podstawie odpowiedniego szablonu i zapisanie samego szablonu pliku JSON, a nie danych.
 
 
-1. Wybierz pozycję **Wyświetl skoroszyt**. Następnie kliknij przycisk **Edytuj** znajdujący się u góry. Możesz teraz edytować skoroszyt i dostosować go zgodnie z potrzebami. Aby uzyskać więcej informacji na temat dostosowywania skoroszytu, zobacz jak [tworzyć interaktywne raporty przy użyciu skoroszytów Azure monitor](../azure-monitor/app/usage-workbooks.md).
+1. Wybierz pozycję **Wyświetl skoroszyt**. Następnie kliknij przycisk **Edytuj** znajdujący się u góry. Możesz teraz edytować skoroszyt i dostosować go zgodnie z potrzebami. Aby uzyskać więcej informacji na temat dostosowywania skoroszytu, zobacz jak [tworzyć interaktywne raporty przy użyciu skoroszytów Azure monitor](../azure-monitor/platform/workbooks-overview.md).
 ![Wyświetl skoroszyty](./media/tutorial-monitor-data/workbook-graph.png)
 1. Po wprowadzeniu zmian można zapisać skoroszyt. 
 
@@ -64,7 +64,7 @@ Ten samouczek ułatwia wizualizowanie danych na platformie Azure — wskaźnikie
 1. Przejdź do obszaru **skoroszyty** , a następnie wybierz pozycję **Dodaj skoroszyt** , aby utworzyć nowy skoroszyt od podstaw.
   ![Przejdź do skoroszytów](./media/tutorial-monitor-data/create-workbook.png)
 
-1. Aby edytować skoroszyt, wybierz opcję **Edytuj**, a następnie w razie potrzeby Dodaj tekst, zapytania i parametry. Aby uzyskać więcej informacji na temat dostosowywania skoroszytu, zobacz jak [tworzyć interaktywne raporty przy użyciu skoroszytów Azure monitor](../azure-monitor/app/usage-workbooks.md). 
+1. Aby edytować skoroszyt, wybierz opcję **Edytuj**, a następnie w razie potrzeby Dodaj tekst, zapytania i parametry. Aby uzyskać więcej informacji na temat dostosowywania skoroszytu, zobacz jak [tworzyć interaktywne raporty przy użyciu skoroszytów Azure monitor](../azure-monitor/platform/workbooks-overview.md). 
 
 1. Podczas kompilowania zapytania Ustaw **Źródło danych** na wartość **dzienniki**, **typ zasobu** jest ustawiony na **log Analytics** a następnie wybierz odpowiednie obszary robocze. 
 
@@ -72,7 +72,7 @@ Ten samouczek ułatwia wizualizowanie danych na platformie Azure — wskaźnikie
 
 1. Jeśli chcesz zezwolić innym osobom w organizacji na korzystanie ze skoroszytu, w obszarze **Zapisz** wybierz **raporty udostępnione**. Jeśli chcesz, aby ten skoroszyt był dostępny tylko dla Ciebie, wybierz pozycję **Moje raporty**.
 
-1. Aby przełączać się między skoroszytami w obszarze roboczym, możesz](./media/tutorial-monitor-data/switch.png)wybrać opcję **Otwórz** ![skoroszyty w górnym okienku dowolnego skoroszytu. W oknie, które jest otwierane z prawej strony, przełącz się między skoroszytami.
+1. Aby przełączać się między skoroszytami w obszarze roboczym, możesz wybrać opcję **Otwórz** ![ skoroszyty ](./media/tutorial-monitor-data/switch.png) w górnym okienku dowolnego skoroszytu. W oknie, które jest otwierane z prawej strony, przełącz się między skoroszytami.
 
    ![Przełącz skoroszyty](./media/tutorial-monitor-data/switch-workbooks.png)
 

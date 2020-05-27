@@ -4,23 +4,23 @@ description: Ten artykuł zawiera omówienie i kluczowe zalety interfejsu API et
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/21/2020
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 6c7fcb1429438ee024cb226b63cfcdcab05ed9f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 16aac5c765c36c49919685ee58e8034786ddf1ae
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79498594"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797360"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-etcd-api-preview"></a>Wprowadzenie do interfejsu API Azure Cosmos DB etcd (wersja zapoznawcza)
 
 Azure Cosmos DB to rozproszona globalnie wielomodelowa usługa bazy danych firmy Microsoft do aplikacji o krytycznym znaczeniu. Oferuje ona dystrybucję globalną gotowe, elastyczne skalowanie przepływności i magazynu, milisekundy o pojedynczej liczbie opóźnień w 99 percentylu i gwarantowaną wysoką dostępność, a wszystko to w ramach umowy SLA wiodącej w branży.
 
-[Etcd](https://github.com/etcd-io/etcd) to dystrybuowany Magazyn kluczy/wartości. W [Kubernetes](https://kubernetes.io/), etcd jest używany do przechowywania stanu i konfiguracji klastrów Kubernetes. Zapewnienie dostępności, niezawodności i wydajności etcd ma kluczowe znaczenie dla ogólnej kondycji klastra, skalowalności, dostępności elastyczności i wydajności klastra Kubernetes. 
+[Etcd](https://github.com/etcd-io/etcd) to dystrybuowany Magazyn kluczy/wartości. W [Kubernetes](https://kubernetes.io/), etcd jest używany do przechowywania stanu i konfiguracji klastrów Kubernetes. Zapewnienie dostępności, niezawodności i wydajności etcd ma kluczowe znaczenie dla ogólnej kondycji klastra, skalowalności, dostępności elastyczności i wydajności klastra Kubernetes.
 
-Interfejs API etcd w Azure Cosmos DB umożliwia korzystanie z Azure Cosmos DB jako magazynu zaplecza dla [usługi Azure Kubernetes](../aks/index.yml). Interfejs API etcd w Azure Cosmos DB jest obecnie w wersji zapoznawczej. Azure Cosmos DB implementuje protokół sieci szkieletowej etcd. Dzięki interfejsowi API etcd w Azure Cosmos DB deweloperzy będą automatycznie otrzymywać wysoce niezawodne, [dostępne](high-availability.md), [globalnie dystrybuowane](distribute-data-globally.md) Kubernetes. Ten interfejs API umożliwia deweloperom skalowanie Kubernetesego zarządzania stanem w w pełni zarządzanej natywnej usłudze PaaS w chmurze. 
+Interfejs API etcd w Azure Cosmos DB umożliwia korzystanie z Azure Cosmos DB jako magazynu zaplecza dla usługi Azure Kubernetes. Interfejs API etcd w Azure Cosmos DB jest obecnie w wersji zapoznawczej. Azure Cosmos DB implementuje protokół sieci szkieletowej etcd. Dzięki interfejsowi API etcd w Azure Cosmos DB deweloperzy będą automatycznie otrzymywać wysoce niezawodne, [dostępne](high-availability.md), [globalnie dystrybuowane](distribute-data-globally.md) Kubernetes. Ten interfejs API umożliwia deweloperom skalowanie Kubernetesego zarządzania stanem w w pełni zarządzanej natywnej usłudze PaaS w chmurze. 
 
 > [!NOTE]
 > W przeciwieństwie do innych interfejsów API w Azure Cosmos DB nie można zainicjować obsługi konta interfejsu API etcd za pomocą Azure Portal, interfejsu wiersza polecenia lub zestawów SDK. Konto interfejsu API etcd można zainicjować, wdrażając tylko szablon Menedżer zasobów. Aby uzyskać szczegółowe instrukcje, zobacz artykuł [jak udostępnić usługę Azure Kubernetes w artykule Azure Cosmos DB](bootstrap-kubernetes-cluster.md) . Interfejs API usługi Azure Cosmos DB etcd jest obecnie w ograniczonej wersji zapoznawczej. Możesz [utworzyć konto w wersji zapoznawczej](https://aka.ms/cosmosetcdapi-signup), wypełniając formularz rejestracji.

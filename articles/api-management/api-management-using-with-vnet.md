@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/11/2020
+ms.date: 05/21/2020
 ms.author: apimpm
-ms.openlocfilehash: 93f66f3c030b9845b58083a992e1e1f11aa37f9c
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 92473dc7553286867a33100d7328dd0320d55823
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196986"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799934"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Używanie usługi Azure API Management z sieciami wirtualnymi
 Sieci wirtualne platformy Azure umożliwiają umieszczanie dowolnych zasobów platformy Azure w sieci nieobsługującej routingu internetowego, do której kontrolujesz dostęp. Te sieci mogą następnie być połączone z sieciami lokalnymi przy użyciu różnych technologii sieci VPN. Aby dowiedzieć się więcej na temat sieci wirtualnych platformy Azure, Zacznij od informacji tutaj: [Omówienie usługi azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -136,9 +136,9 @@ Poniżej znajduje się lista typowych problemów z błędami konfiguracji, któr
 
     | Środowisko platformy Azure | Punkty końcowe                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Azure — publiczna      | <ul><li>gcs.prod.monitoring.core.windows.net (**Nowy**)</li><li>prod.warmpath.msftcloudes.com (**jako przestarzałe**)</li><li>shoebox2.metrics.microsoftmetrics.com (**Nowy**)</li><li>shoebox2.metrics.nsatc.net (**jako przestarzałe**)</li><li>prod3.metrics.microsoftmetrics.com (**Nowy**)</li><li>prod3.metrics.nsatc.net (**jako przestarzałe**)</li><li>prod3-black.prod.metrics.microsoftmetrics.com (**Nowy**)</li><li>prod3-black.prod3.metrics.nsatc.net (**jako przestarzałe**)</li><li>prod3-red.prod.metrics.microsoftmetrics.com (**Nowy**)</li><li>prod3-red.prod3.metrics.nsatc.net (**jako przestarzałe**)</li><li>gcs.prod.warm.ingestion.monitoring.azure.com</li></ul> |
-    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.microsoftmetrics.com (**Nowy**)</li><li>shoebox2.metrics.nsatc.net (**jako przestarzałe**)</li><li>prod3.metrics.microsoftmetrics.com (**Nowy**)</li><li>prod3.metrics.nsatc.net (**jako przestarzałe**)</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.metrics.microsoftmetrics.com</li><li>prod5-red.prod.metrics.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.us</li></ul>                                                                                                                                                                                                                                                |
-    | Azure w Chinach — 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.microsoftmetrics.com (**Nowy**)</li><li>shoebox2.metrics.nsatc.net (**jako przestarzałe**)</li><li>prod3.metrics.microsoftmetrics.com (**Nowy**)</li><li>prod3.metrics.nsatc.net (**jako przestarzałe**)</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.metrics.microsoftmetrics.com</li><li>prod5-red.prod.metrics.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.cn</li></ul>                                                                                                                                                                                                                                                |
+    | Azure — publiczna      | <ul><li>gcs.prod.monitoring.core.windows.net (**Nowy**)</li><li>prod.warmpath.msftcloudes.com (**jako przestarzałe**)</li><li>global.prod.microsoftmetrics.com (**Nowy**)</li><li>global.metrics.nsatc.net (**jako przestarzałe**)</li><li>shoebox2.prod.microsoftmetrics.com (**Nowy**)</li><li>shoebox2.metrics.nsatc.net (**jako przestarzałe**)</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>shoebox2-red.shoebox2.metrics.nsatc.net</li><li>shoebox2-black.shoebox2.metrics.nsatc.net</li><li>prod3.prod.microsoftmetrics.com (**Nowy**)</li><li>prod3.metrics.nsatc.net (**jako przestarzałe**)</li><li>prod3-black.prod.microsoftmetrics.com (**Nowy**)</li><li>prod3-black.prod3.metrics.nsatc.net (**jako przestarzałe**)</li><li>prod3-red.prod.microsoftmetrics.com (**Nowy**)</li><li>prod3-red.prod3.metrics.nsatc.net (**jako przestarzałe**)</li><li>gcs.prod.warm.ingestion.monitoring.azure.com</li></ul> |
+    | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>global.prod.microsoftmetrics.com (**Nowy**)</li><li>global.metrics.nsatc.net (**jako przestarzałe**)</li><li>shoebox2.prod.microsoftmetrics.com (**Nowy**)</li><li>shoebox2.metrics.nsatc.net (**jako przestarzałe**)</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>shoebox2-red.shoebox2.metrics.nsatc.net</li><li>shoebox2-black.shoebox2.metrics.nsatc.net</li><li>prod3.prod.microsoftmetrics.com (**Nowy**)</li><li>prod3.metrics.nsatc.net (**jako przestarzałe**)</li><li>prod3-black.prod.microsoftmetrics.com</li><li>prod3-red.prod.microsoftmetrics.com</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.microsoftmetrics.com</li><li>prod5-red.prod.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.us</li></ul>                                                                                                                                                                                                                                                |
+    | Azure w Chinach — 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>global.prod.microsoftmetrics.com (**Nowy**)</li><li>global.metrics.nsatc.net (**jako przestarzałe**)</li><li>shoebox2.prod.microsoftmetrics.com (**Nowy**)</li><li>shoebox2.metrics.nsatc.net (**jako przestarzałe**)</li><li>shoebox2-red.prod.microsoftmetrics.com</li><li>shoebox2-black.prod.microsoftmetrics.com</li><li>shoebox2-red.shoebox2.metrics.nsatc.net</li><li>shoebox2-black.shoebox2.metrics.nsatc.net</li><li>prod3.prod.microsoftmetrics.com (**Nowy**)</li><li>prod3.metrics.nsatc.net (**jako przestarzałe**)</li><li>prod3-black.prod.microsoftmetrics.com</li><li>prod3-red.prod.microsoftmetrics.com</li><li>prod5.prod.microsoftmetrics.com</li><li>prod5-black.prod.microsoftmetrics.com</li><li>prod5-red.prod.microsoftmetrics.com</li><li>gcs.prod.warm.ingestion.monitoring.azure.cn</li></ul>                                                                                                                                                                                                                                                |
 
   >[!IMPORTANT]
   > Zmiana klastrów powyżej przy użyciu strefy DNS **. nsatc.NET** do **. microsoftmetrics.com** jest przede wszystkim zmianą DNS. Adres IP klastra nie ulegnie zmianie.
@@ -203,7 +203,7 @@ Każda dodatkowa jednostka skalowania API Management wymaga dwóch dodatkowych a
 
 Adresy IP są podzielone przez **środowisko platformy Azure**. W przypadku zezwolenia na adres IP żądań przychodzących oznaczony przy użyciu **szablonu globalnego** musi być listy dozwolonych wraz z adresem IP specyficznym dla **regionu** .
 
-| **Środowisko platformy Azure**|   **Okolicy**|  **Adres IP**|
+| **Środowisko platformy Azure**|   **Region**|  **Adres IP**|
 |-----------------|-------------------------|---------------|
 | Azure — publiczna| Południowo-środkowe stany USA (globalne)| 104.214.19.224|
 | Azure — publiczna| Północno-środkowe stany USA (globalne)| 52.162.110.80|
@@ -257,10 +257,10 @@ Adresy IP są podzielone przez **środowisko platformy Azure**. W przypadku zezw
 | Azure w Chinach — 21Vianet| Chiny Wschodnie 2| 40.73.104.4|
 | Azure Government| USGov Wirginia (globalna)| 52.127.42.160|
 | Azure Government| USGov Texas (globalna)| 52.127.34.192|
-| Azure Government| USGov Virginia| 52.227.222.92|
+| Azure Government| USGov Wirginia| 52.227.222.92|
 | Azure Government| USGov Iowa| 13.73.72.21|
 | Azure Government| USGov Arizona| 52.244.32.39|
-| Azure Government| USGov Texas| 52.243.154.118|
+| Azure Government| USGov Teksas| 52.243.154.118|
 | Azure Government| USDoD środkowe| 52.182.32.132|
 | Azure Government| USDoD wschód| 52.181.32.192|
 

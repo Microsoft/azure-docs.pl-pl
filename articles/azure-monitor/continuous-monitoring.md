@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: b9ca8a703ed8a84148abd23e90114402d8806bd6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6df27dde997bd34e86b1bb340817648bfe68f2c4
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77667197"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797596"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Ciągłe monitorowanie za pomocą Azure Monitor
 
@@ -74,7 +74,7 @@ Krytyczny aspekt monitorowania jest aktywnie powiadamiany administratorów o wsz
 Upewnienie się, że Twoje programowanie i operacje mają dostęp do tych samych danych telemetrii i narzędzi, pozwala im wyświetlać wzorce w całym środowisku i zminimalizować średni czas wykrywania (MTTD) oraz średni czas przywracania (MTTR).
 
 - Przygotuj [niestandardowe pulpity nawigacyjne](../azure-monitor/learn/tutorial-app-dashboards.md) oparte na typowych metrykach i dziennikach dla różnych ról w organizacji. Pulpity nawigacyjne mogą łączyć dane ze wszystkich zasobów platformy Azure.
-- Przygotuj [skoroszyty](../azure-monitor/app/usage-workbooks.md) , aby zapewnić udostępnianie wiedzy między programowaniem i operacjami. Mogą one być przygotowane jako dynamiczne raporty z wykresami metryk i dziennikami zapytań, a nawet jako przewodniki dotyczące rozwiązywania problemów przygotowane przez deweloperów pomagają pracownikom działu pomocy technicznej lub operacji w celu obsługi podstawowych problemów.
+- Przygotuj [skoroszyty](../azure-monitor/platform/workbooks-overview.md) , aby zapewnić udostępnianie wiedzy między programowaniem i operacjami. Mogą one być przygotowane jako dynamiczne raporty z wykresami metryk i dziennikami zapytań, a nawet jako przewodniki dotyczące rozwiązywania problemów przygotowane przez deweloperów pomagają pracownikom działu pomocy technicznej lub operacji w celu obsługi podstawowych problemów.
 
 ## <a name="continuously-optimize"></a>Ciągłe Optymalizowanie
  Monitorowanie to jeden z podstawowych aspektów popularnej funkcji budowania-miary, która zaleca ciągłe śledzenie kluczowych wskaźników wydajności i metryk zachowania użytkowników, a następnie striving je w celu optymalizacji za pomocą iteracji planowania. Azure Monitor ułatwia zbieranie metryk i dzienników związanych z Twoją firmą oraz dodawanie nowych punktów danych w następnym wdrożeniu zgodnie z potrzebami.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/13/2019
-ms.openlocfilehash: 2387f14a537c15c891bff968573bf4d698c01770
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 542861afe49d03a179a9740d5a58b9d27e0d7f20
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83211305"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797669"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Monitorowanie usługi magazynu kluczy za pomocą Azure Monitor dla Key Vault (wersja zapoznawcza)
 Azure Monitor dla Key Vault (wersja zapoznawcza) zapewnia kompleksowe monitorowanie magazynów kluczy, udostępniając ujednolicony widok żądań Key Vault, wydajności, błędów i opóźnień.
@@ -212,4 +212,4 @@ Istniejący skoroszyt można edytować za pomocą trybu edycji, a następnie zap
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się, jakie scenariusze skoroszyty są przeznaczone do obsługi, jak tworzyć nowe i dostosowywać istniejące raporty, a inne dzięki przeglądowi [Tworzenie interaktywnych raportów przy użyciu skoroszytów Azure monitor](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).
+Dowiedz się, jakie scenariusze skoroszyty są przeznaczone do obsługi, jak tworzyć nowe i dostosowywać istniejące raporty, a inne dzięki przeglądowi [Tworzenie interaktywnych raportów przy użyciu skoroszytów Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview).

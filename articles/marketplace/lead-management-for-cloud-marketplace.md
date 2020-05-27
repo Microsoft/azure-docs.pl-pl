@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: c41831f528ae425b35a04503180a956f67762b70
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: f8b466dca9f3af55e3c11b39b3fbdac315af3675
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82789848"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83798585"
 ---
 # <a name="lead-management-for-commercial-marketplace"></a>Zarządzanie potencjalnymi klientami w portalu komercyjnym
 
@@ -86,7 +86,7 @@ Potencjalni klienci to klienci, którzy wdrażają produkty z portalu Marketplac
 
 **Gdzie mogę uzyskać pomoc w konfigurowaniu miejsca docelowego potencjalnego klienta?** 
 
-Dokumentację można znaleźć w witrynie [Uzyskaj potencjalnych](./partner-center-portal/commercial-marketplace-get-customer-leads.md) klientów lub przesłać bilet pomocy technicznej w [pomocy i obsłudze technicznej](https://partner.microsoft.com/support/v2/?stage=1). Wybierz pozycję typ oferty i zarządzanie potencjalnymi klientami. 
+Dokumentację można znaleźć w witrynie [Uzyskaj potencjalnych](./partner-center-portal/commercial-marketplace-get-customer-leads.md) klientów lub przesłać bilet pomocy technicznej w [pomocy i obsłudze technicznej](https://aka.ms/marketplacepublishersupport). Wybierz pozycję typ oferty i zarządzanie potencjalnymi klientami. 
 
 **Czy muszę skonfigurować miejsce docelowe potencjalnego klienta w celu opublikowania oferty w portalu Marketplace?**
 
@@ -116,7 +116,7 @@ first_name = MSFT_TEST_636573304831318844
 
 last_name = MSFT_TEST_636573304831318844 
 
-lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844 | \<Nazwa oferty> 
+lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844 | \< Nazwa oferty> 
 
 Identyfikator OID = 00Do0000000ZHog 
 
@@ -183,7 +183,7 @@ Potencjalny klient zostanie zapisany tylko w przypadku wybrania usługi Azure BL
 
 **Dlaczego nie mogę znaleźć potencjalnego klienta w portalu Marketplace?**  
 
-Istnieje możliwość, że domena poczty e-mail użytkownika końcowego pochodzi z. edu. Z przyczyn zachowania poufności informacji dane osobowe nie są przekazywane z domeny. edu. Prześlij bilet pomocy technicznej w [pomocy i obsłudze technicznej](https://partner.microsoft.com/support/v2/?stage=1).
+Istnieje możliwość, że domena poczty e-mail użytkownika końcowego pochodzi z. edu. Z przyczyn zachowania poufności informacji dane osobowe nie są przekazywane z domeny. edu. Prześlij bilet pomocy technicznej w [pomocy i obsłudze technicznej](https://aka.ms/marketplacepublishersupport).
 
 **Mam skonfigurowaną usługę Azure Table/Azure BLOB jako lokalizację docelową mojego potencjalnego klienta, jak mogę wyświetlić potencjalnych klientów?** 
 
@@ -193,7 +193,7 @@ Możesz uzyskać dostęp do obiektu BLOB lub tabeli z Azure Portal lub pobrać i
 
 Tak, postępuj zgodnie z instrukcjami, aby skonfigurować funkcję Azure Table + na [tej dokumentacji.](./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md) 
 
-**Mam skonfigurowaną usługi Salesforce jako lokalizację docelową mojego potencjalnego klienta, dlaczego nie mogę znaleźć potencjalnych klientów?** 
+**Mam skonfigurowaną usługi Salesforce jako lokalizację docelową mojego potencjalnego klienta, dlaczego nie mogę znaleźć potencjalnych klientów?**
 
 Sprawdź, czy formularz sieci Web do realizacji jest polem obowiązkowym opartym na liście wyboru. Jeśli tak, przełącz się na pole do nieobowiązkowego pola tekstowego.  
  

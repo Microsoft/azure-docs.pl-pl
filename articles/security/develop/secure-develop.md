@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: a36ac44fa861b902bfcc370472a2a87e036e5de6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 58f5d2e641cfe4913d6a06621b663d8a61cd00bb
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654999"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800288"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Tworzenie bezpiecznych aplikacji na platformie Azure
 W tym artykule opisano działania związane z bezpieczeństwem i kontrolki, które należy wziąć pod uwagę podczas opracowywania aplikacji w chmurze. Pytania zabezpieczające i pojęcia, które należy wziąć pod uwagę podczas fazy wdrażania i weryfikacji [cyklu życia programu Microsoft Security Development (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) . Celem jest ułatwienie zdefiniowania działań i usług platformy Azure, których można użyć do tworzenia bezpieczniejszej aplikacji.
@@ -38,7 +38,7 @@ Przed zapisaniem kodu Przeprowadź [przeglądy kodu](https://docs.microsoft.com/
 
 ### <a name="perform-static-code-analysis"></a>Wykonywanie statycznej analizy kodu
 
-[Statyczna analiza kodu](https://www.owasp.org/index.php/Static_Code_Analysis) (znana również jako *Analiza kodu źródłowego*) jest zwykle wykonywana w ramach przeglądu kodu. Statyczna analiza kodu często dotyczy uruchamiania narzędzi do analizy kodu statycznego, aby znaleźć potencjalne luki w zabezpieczeniach w nieuruchomionym kodzie przy użyciu technik takich jak [Sprawdzanie](https://en.wikipedia.org/wiki/Taint_checking) zmian i [Analiza przepływu danych](https://en.wikipedia.org/wiki/Data-flow_analysis).
+[Statyczna analiza kodu](https://owasp.org/www-community/controls/Static_Code_Analysis) (znana również jako *Analiza kodu źródłowego*) jest zwykle wykonywana w ramach przeglądu kodu. Statyczna analiza kodu często dotyczy uruchamiania narzędzi do analizy kodu statycznego, aby znaleźć potencjalne luki w zabezpieczeniach w nieuruchomionym kodzie przy użyciu technik takich jak [Sprawdzanie](https://en.wikipedia.org/wiki/Taint_checking) zmian i [Analiza przepływu danych](https://en.wikipedia.org/wiki/Data-flow_analysis).
 
 Portal Azure Marketplace oferuje [Narzędzia programistyczne](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1&search=code%20review) , które wykonują analizę kodu statycznego i pomagają w przeglądach kodu.
 

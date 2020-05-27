@@ -1,16 +1,16 @@
 ---
-title: Dowiedz się Azure Policy Kubernetes
-description: Dowiedz się, w jaki sposób Azure Policy rego i Otwórz agenta zasad, aby zarządzać klastrami z systemem Kubernetes na platformie Azure lub lokalnie.
+title: Wersja zapoznawcza — Dowiedz się Azure Policy Kubernetes
+description: Dowiedz się, w jaki sposób Azure Policy rego i Otwórz agenta zasad, aby zarządzać klastrami z systemem Kubernetes na platformie Azure lub lokalnie. Jest to funkcja w wersji zapoznawczej.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 738b6ae0a2482d1229fdbfe89d0c3dd99a33ec6e
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: fb66510b55f9d3f08ab8e058bb8f67fb1954db6f
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772764"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800353"
 ---
-# <a name="understand-azure-policy-for-kubernetes-clusters"></a>Opis Azure Policy klastrów Kubernetes
+# <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Opis Azure Policy klastrów Kubernetes (wersja zapoznawcza)
 
 Azure Policy rozszerza [strażnik](https://github.com/open-policy-agent/gatekeeper) v3, _element webhook kontrolera Admission_ dla programu [Open Policy Agent](https://www.openpolicyagent.org/) (nieprzez), aby zastosować wymuszanie i zabezpieczenia w klastrach w scentralizowany, spójny sposób. Azure Policy umożliwia zarządzanie stanem zgodności klastrów Kubernetes w jednym miejscu oraz ich raportowanie. Dodatek wprowadza następujące funkcje:
 
@@ -21,7 +21,7 @@ Azure Policy rozszerza [strażnik](https://github.com/open-policy-agent/gatekeep
 Azure Policy for Kubernetes obsługuje następujące środowiska klastra:
 
 - [Azure Kubernetes Service (AKS)](../../../aks/intro-kubernetes.md)
-- [Kubernetes z funkcją Azure Arc](../../../azure-arc/kubernetes/overview.md)
+- [Platforma Kubernetes z włączoną usługą Azure Arc](../../../azure-arc/kubernetes/overview.md)
 - [Aparat AKS](https://github.com/Azure/aks-engine/blob/master/docs/README.md)
 
 > [!IMPORTANT]
@@ -33,7 +33,7 @@ Aby włączyć i użyć Azure Policy z klastrem Kubernetes, wykonaj następując
 
 1. Skonfiguruj klaster Kubernetes i zainstaluj dodatek:
    - [Azure Kubernetes Service (AKS)](#install-azure-policy-add-on-for-aks)
-   - [Kubernetes z funkcją Azure Arc](#install-azure-policy-add-on-for-azure-arc-enabled-kubernetes)
+   - [Platforma Kubernetes z włączoną usługą Azure Arc](#install-azure-policy-add-on-for-azure-arc-enabled-kubernetes)
    - [Aparat AKS](#install-azure-policy-add-on-for-aks-engine)
 
 1. [Opis języka Azure Policy Kubernetes](#policy-language)
@@ -49,6 +49,9 @@ Przed zainstalowaniem dodatku Azure Policy lub włączenia dowolnych funkcji us�
 1. Wymagany jest interfejs wiersza polecenia platformy Azure w wersji 2.0.62 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
 1. Zarejestruj dostawców zasobów i funkcje w wersji zapoznawczej.
+
+   > [!CAUTION]
+   > Po zarejestrowaniu funkcji w ramach subskrypcji nie można wyrejestrować tej funkcji. Po włączeniu niektórych funkcji w wersji zapoznawczej można użyć wartości domyślnych dla wszystkich klastrów AKS utworzonych w ramach subskrypcji. Nie włączaj funkcji w wersji zapoznawczej w ramach subskrypcji produkcyjnych. Korzystaj z oddzielnej subskrypcji, aby testować funkcje w wersji zapoznawczej i zbierać opinie.
 
    - Azure Portal:
 

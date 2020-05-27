@@ -57,6 +57,8 @@
           href: automation-create-account-template.md
         - name: Konfigurowanie uwierzytelniania przy użyciu usługi Amazon Web Services
           href: automation-config-aws-account.md
+        - name: Konfigurowanie uwierzytelniania przy użyciu usługi Azure AD
+          href: automation-use-azure-ad.md
         - name: Zarządzanie kontem Uruchom jako usługi Automation
           href: manage-runas-account.md
         - name: Zarządzanie uprawnieniami ról i zabezpieczeniami

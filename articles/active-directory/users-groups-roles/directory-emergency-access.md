@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80ab7e0603f63fb395832b0da887916dc032c3bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5c26b4e04970dd6c35fc6a71a1aade94d949b520
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74028125"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816186"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Zarządzanie kontami dostępu awaryjnego w usłudze Azure AD
 
@@ -39,12 +39,12 @@ Organizacja może potrzebować używania konta dostępu awaryjnego w następują
 
 ## <a name="create-emergency-access-accounts"></a>Tworzenie kont dostępu awaryjnego
 
-Utwórz dwa lub więcej kont dostępu awaryjnego. Konta te powinny być kontami tylko w chmurze, które \*korzystają z domeny. onmicrosoft.com, które nie są federacyjne ani synchronizowane z poziomu środowiska lokalnego.
+Utwórz dwa lub więcej kont dostępu awaryjnego. Konta te powinny być kontami tylko w chmurze, które korzystają z \* domeny. onmicrosoft.com, które nie są federacyjne ani synchronizowane z poziomu środowiska lokalnego.
 
 Podczas konfigurowania tych kont muszą zostać spełnione następujące wymagania:
 
 - Konta dostępu awaryjnego nie powinny być skojarzone z żadnym użytkownikiem w organizacji. Upewnij się, że Twoje konta nie są połączone z telefonami przenośnymi dostarczonymi przez pracownika, tokenami sprzętowymi, które podróżują z poszczególnymi pracownikami lub innymi poświadczeniami specyficznymi dla pracownika. To zabezpieczenie obejmuje sytuacje, w których pojedynczy pracownik jest nieosiągalny, gdy jest wymagana poświadczenie. Ważne jest, aby upewnić się, że wszystkie zarejestrowane urządzenia są przechowywane w znanej, zabezpieczonej lokalizacji z wieloma środkami komunikacji z usługą Azure AD.
-- Mechanizm uwierzytelniania używany na potrzeby konta dostępu awaryjnego powinien być różny od tego, który jest używany przez inne konta administracyjne, w tym inne konta dostępu awaryjnego.  Jeśli na przykład normalne logowanie administratora jest realizowane za pośrednictwem lokalnej usługi MFA, usługa Azure MFA będzie innym mechanizmem.  Jeśli jednak usługa Azure MFA jest podstawową częścią uwierzytelniania dla kont administracyjnych, należy wziąć pod uwagę inne podejście, takie jak użycie dostępu warunkowego dla dostawcy MFA innej firmy.
+- Mechanizm uwierzytelniania używany na potrzeby konta dostępu awaryjnego powinien być różny od tego, który jest używany przez inne konta administracyjne, w tym inne konta dostępu awaryjnego.  Jeśli na przykład normalne logowanie administratora jest realizowane za pośrednictwem lokalnej usługi MFA, usługa Azure MFA będzie innym mechanizmem.  Jeśli jednak usługa Azure MFA jest podstawową częścią uwierzytelniania dla kont administracyjnych, należy wziąć pod uwagę inne podejście, takie jak używanie dostępu warunkowego z zewnętrznym dostawcą usług MFA za pomocą [niestandardowych kontrolek](https://docs.microsoft.com/azure/active-directory/conditional-access/controls).
 - Urządzenie lub poświadczenia nie mogą wygasnąć lub być w zakresie automatycznego oczyszczania z powodu braku użycia.  
 - Należy zmienić przypisanie roli administratora globalnego na stałe dla kont dostępu awaryjnego. 
 
@@ -79,7 +79,7 @@ Organizacje powinny monitorować aktywność logowania i rejestrowania inspekcji
 ### <a name="obtain-object-ids-of-the-break-glass-accounts"></a>Uzyskaj identyfikatory obiektów dla kont szklanych
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta przypisanego do roli administratora użytkownika.
-1. Wybierz pozycję **Azure Active Directory** > **Użytkownicy**.
+1. Wybierz pozycję **Azure Active Directory**  >  **Użytkownicy**.
 1. Wyszukaj konto ze szkła Break i wybierz nazwę użytkownika.
 1. Skopiuj i Zapisz atrybut identyfikatora obiektu, aby można było go później użyć.
 1. Powtórz poprzednie kroki dla drugiego konta ze szlifem.
@@ -89,7 +89,7 @@ Organizacje powinny monitorować aktywność logowania i rejestrowania inspekcji
 1. Zaloguj się do [Azure Portal](https://portal.azure.com) przy użyciu konta przypisanego do roli współautor monitorowania w programie Azure monitor.
 1. Wybierz pozycję **wszystkie usługi**, wprowadź ciąg "log Analytics" w obszarze wyszukiwania, a następnie wybierz pozycję **log Analytics obszary robocze**.
 1. Wybierz obszar roboczy.
-1. W obszarze roboczym wybierz pozycję **alerty** > **Nowa reguła alertu**.
+1. W obszarze roboczym wybierz pozycję **alerty**  >  **Nowa reguła alertu**.
     1. W obszarze **zasób**Sprawdź, czy subskrypcja jest tą, z którą chcesz skojarzyć regułę alertu.
     1. W obszarze **warunek**wybierz pozycję **Dodaj**.
     1. Wybierz pozycję **niestandardowe wyszukiwanie w dzienniku** w obszarze **Nazwa sygnału**.
@@ -131,7 +131,7 @@ Organizacje powinny monitorować aktywność logowania i rejestrowania inspekcji
 1. Wybierz **Typ akcji** jako **adres e-mail/SMS/wypychanie/głos**.
 1. Wybierz pozycję **Edytuj szczegóły** , aby wybrać metody powiadamiania, które chcesz skonfigurować, i wprowadź wymagane informacje kontaktowe, a następnie wybierz przycisk **OK** , aby zapisać szczegóły.
 1. Dodaj wszelkie dodatkowe akcje, które mają zostać wyzwolone.
-1. Kliknij przycisk **OK**.
+1. Wybierz przycisk **OK**.
 
 ## <a name="validate-accounts-regularly"></a>Regularnie Weryfikuj konta
 

@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 07/17/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: 89440a6385bab5b917a866b686e8d2ba828c92e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 09c1899004bd93d0f2365c3bbc000c37459e8d89
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77671056"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83797835"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Dowiedz się, jak klienci korzystają z aplikacji za pomocą lejków Application Insights
 
@@ -46,7 +46,7 @@ Poprzedni zrzut ekranu zawiera pięć wyróżnionych obszarów. Są to funkcje l
   * [Przegląd użycia](usage-overview.md)
   * [Użytkownicy, sesje i zdarzenia](usage-segmentation.md)
   * [Przechowywanie](usage-retention.md)
-  * [Skoroszyty](../../azure-monitor/app/usage-workbooks.md)
+  * [Skoroszyty](../../azure-monitor/platform/workbooks-overview.md)
   * [Dodawanie kontekstu użytkownika](usage-send-user-context.md)
   * [Eksportowanie do usługi Power BI](../../azure-monitor/app/export-power-bi.md )
 
