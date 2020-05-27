@@ -1,20 +1,20 @@
 ---
 title: Kontrolki przykładowe FedRAMP umiarkowanego planu
 description: Sterowanie mapowaniem przykładowej strategii FedRAMP umiarkowanej. Każda kontrolka jest zamapowana na co najmniej jedną zasadę platformy Azure, która pomaga w ocenie.
-ms.date: 10/31/2019
+ms.date: 05/14/2020
 ms.topic: sample
-ms.openlocfilehash: 3fd6762f4f0a76b560a37dd1ed4f727aa76385fd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c95b47034fbf18f2588e2c4134729162c9bb7cc5
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77150482"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816271"
 ---
 # <a name="control-mapping-of-the-fedramp-moderate-blueprint-sample"></a>Sterowanie mapowaniem przykładowej strategii FedRAMP umiarkowanej
 
 W tym artykule szczegółowo przedstawiono sposób, w jaki usługa Azure Planes FedRAMP umiarkowany plan jest mapowany na FedRAMP umiarkowane. Aby uzyskać więcej informacji na temat kontrolek, zobacz [FedRAMP Security Controls Baseline](https://www.fedramp.gov/).
 
-Następujące mapowania są elementami **FedRAMP umiarkowane** . Użyj nawigacji po prawej stronie, aby przejść bezpośrednio do określonego mapowania formantów. Wiele zamapowanych formantów jest implementowanych z inicjatywą [Azure Policy](../../../policy/overview.md) . Aby zapoznać się z pełną inicjatywą, Otwórz **zasady** w Azure Portal i wybierz stronę **definicje** . Następnie Znajdź i wybierz wersję ** \[\]zapoznawczą: Audit FedRAMP umiarkowane formanty i Wdróż określone rozszerzenia maszyny wirtualnej w celu obsługi funkcji inspekcji wbudowanych wymagań** zasad.
+Następujące mapowania są elementami **FedRAMP umiarkowane** . Użyj nawigacji po prawej stronie, aby przejść bezpośrednio do określonego mapowania formantów. Wiele zamapowanych formantów jest implementowanych z inicjatywą [Azure Policy](../../../policy/overview.md) . Aby zapoznać się z pełną inicjatywą, Otwórz **zasady** w Azure Portal i wybierz stronę **definicje** . Następnie Znajdź i wybierz wersję ** \[ zapoznawczą \] : Audit FedRAMP umiarkowane formanty i Wdróż określone rozszerzenia maszyny wirtualnej w celu obsługi funkcji inspekcji wbudowanych wymagań** zasad.
 
 > [!IMPORTANT]
 > Każda kontrolka poniżej jest skojarzona z co najmniej jedną definicją [Azure Policy](../../../policy/overview.md) . Te zasady mogą pomóc w [ocenie zgodności](../../../policy/how-to/get-compliance-data.md) z kontrolką; Niemniej jednak często nie jest to 1:1 ani kompletna zgodność między kontrolką a co najmniej jedną zasadą. W związku z tym **zgodność** w Azure Policy odnosi się tylko do samych zasad; nie gwarantuje to, że jest w pełni zgodne ze wszystkimi wymaganiami formantu. Ponadto Standard zgodności zawiera kontrolki, które nie są obecnie rozwiązywane przez żadną Azure Policy definicje. W związku z tym zgodność w Azure Policy jest tylko częściowym widokiem ogólnego stanu zgodności. Skojarzenia między kontrolkami i definicjami Azure Policy dla tego przykładowego planu zgodności mogą ulec zmianie z upływem czasu. Aby wyświetlić historię zmian, zobacz [historię zatwierdzeń usługi GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/fedramp-m/control-mapping.md).
@@ -65,8 +65,8 @@ Posiadanie tylko jednego właściciela subskrypcji platformy Azure nie pozwala n
 
 Ten plan ułatwia monitorowanie i kontrolowanie dostępu zdalnego przez przypisanie definicji [Azure Policy](../../../policy/overview.md) do monitorów, że debugowanie zdalne dla Azure App Service aplikacji jest wyłączone i definicje zasad, które przeprowadzają inspekcję maszyn wirtualnych systemu Linux, które zezwalają na połączenia zdalne z kont bez haseł. Ten plan przypisuje również definicję Azure Policy, która ułatwia monitorowanie nieograniczonego dostępu do kont magazynu. Monitorowanie tych wskaźników może pomóc zapewnić zgodność metod dostępu zdalnego z zasadami zabezpieczeń.
 
-- \[Wersja\]zapoznawcza: Inspekcja maszyn wirtualnych systemu Linux, które zezwalają na połączenia zdalne z kont bez hasła
-- \[Wersja\]zapoznawcza: wdrażanie wymagań do inspekcji maszyn wirtualnych z systemem Linux, które zezwalają na połączenia zdalne z kont bez hasła
+- \[Wersja zapoznawcza \] : Inspekcja maszyn wirtualnych systemu Linux, które zezwalają na połączenia zdalne z kont bez hasła
+- \[Wersja zapoznawcza \] : wdrażanie wymagań do inspekcji maszyn wirtualnych z systemem Linux, które zezwalają na połączenia zdalne z kont bez hasła
 - Inspekcja nieograniczonego dostępu sieciowego do kont magazynu
 - Debugowanie zdalne powinno być wyłączone dla aplikacji interfejsu API
 - Zdalne debugowanie powinno zostać wyłączone dla aplikacja funkcji
@@ -85,13 +85,13 @@ Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) , któ
 
 Ten plan pomaga zapewnić, że zdarzenia systemowe są rejestrowane przez przypisanie [Azure Policy](../../../policy/overview.md) definicji, które Przeprowadź inspekcję ustawień dziennika w zasobach platformy Azure. Te definicje zasad przeprowadzają inspekcję i egzekwowanie wdrożenia agenta Log Analytics na maszynach wirtualnych platformy Azure oraz konfigurację ustawień inspekcji dla innych typów zasobów platformy Azure. Te definicje zasad umożliwiają również inspekcję konfiguracji dzienników diagnostycznych w celu zapewnienia wglądu w operacje wykonywane w ramach zasobów platformy Azure. Ponadto na serwerach SQL są konfigurowane inspekcje i zaawansowane zabezpieczenia danych.
 
-- \[Wersja\]zapoznawcza: Inspekcja wdrożenia agenta log Analytics — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
-- \[Wersja\]zapoznawcza: Inspekcja wdrożenia agenta log Analytics w programie VMSS — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
-- \[Wersja\]zapoznawcza: inspekcja log Analytics obszaru roboczego dla maszyny wirtualnej — niezgodność raportów
-- \[Wersja\]zapoznawcza: wdrażanie log Analytics agenta dla systemu Linux VM Scale Sets (VMSS)
-- \[Wersja\]zapoznawcza: wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux
-- \[Wersja\]zapoznawcza: wdrażanie log Analytics agenta dla systemu Windows VM Scale Sets (VMSS)
-- \[Wersja\]zapoznawcza: wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows
+- \[Wersja zapoznawcza \] : Inspekcja wdrożenia agenta log Analytics — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
+- \[Wersja zapoznawcza \] : Inspekcja wdrożenia agenta log Analytics w programie VMSS — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
+- \[Wersja zapoznawcza \] : inspekcja log Analytics obszaru roboczego dla maszyny wirtualnej — niezgodność raportów
+- \[Wersja zapoznawcza \] : wdrażanie log Analytics agenta dla systemu Linux VM Scale Sets (VMSS)
+- \[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux
+- \[Wersja zapoznawcza \] : wdrażanie log Analytics agenta dla systemu Windows VM Scale Sets (VMSS)
+- \[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows
 - Przeprowadzanie inspekcji ustawienia diagnostyki
 - Inspekcja w programie SQL Server powinna być włączona
 - Zaawansowana ochrona danych powinna być włączona w wystąpieniach zarządzanych
@@ -141,29 +141,29 @@ Ten plan pomaga ograniczyć i kontrolować dostęp przez przypisanie definicji [
 
 Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) , które przeprowadzają inspekcję maszyn wirtualnych systemu Linux, które zezwalają na połączenia zdalne z kont bez haseł i/lub mają ustawione nieprawidłowe uprawnienia w pliku haseł. Ten plan przypisuje również definicje zasad, które przeprowadzają inspekcję konfiguracji typu szyfrowania hasła dla maszyn wirtualnych z systemem Windows. Monitorowanie tych wskaźników pomaga upewnić się, że uwierzytelniające systemu są zgodne z zasadami identyfikacji i uwierzytelniania w organizacji.
 
-- \[Wersja\]zapoznawcza: Inspekcja maszyn wirtualnych z systemem Linux, które nie mają uprawnień do pliku haseł ustawione na 0644
-- \[Wersja\]zapoznawcza: Inspekcja maszyn wirtualnych z systemem Linux, które mają konta bez hasła
-- \[Wersja\]zapoznawcza: Inspekcja maszyn wirtualnych systemu Windows, które nie przechowują haseł przy użyciu szyfrowania odwracalnego
-- \[Wersja\]zapoznawcza: wdrażanie wymagań do inspekcji maszyn wirtualnych z systemem Linux, które nie mają uprawnień do pliku haseł ustawione na 0644
-- \[Wersja\]zapoznawcza: wdrażanie wymagań w celu inspekcji maszyn wirtualnych z systemem Linux, które mają konta bez hasła
-- \[Wersja\]zapoznawcza: wdrażanie wymagań w celu inspekcji maszyn wirtualnych z systemem Windows, które nie przechowują haseł przy użyciu szyfrowania odwracalnego
+- \[Wersja zapoznawcza \] : Inspekcja maszyn wirtualnych z systemem Linux, które nie mają uprawnień do pliku haseł ustawione na 0644
+- \[Wersja zapoznawcza \] : Inspekcja maszyn wirtualnych z systemem Linux, które mają konta bez hasła
+- \[Wersja zapoznawcza \] : Inspekcja maszyn wirtualnych systemu Windows, które nie przechowują haseł przy użyciu szyfrowania odwracalnego
+- \[Wersja zapoznawcza \] : wdrażanie wymagań do inspekcji maszyn wirtualnych z systemem Linux, które nie mają uprawnień do pliku haseł ustawione na 0644
+- \[Wersja zapoznawcza \] : wdrażanie wymagań w celu inspekcji maszyn wirtualnych z systemem Linux, które mają konta bez hasła
+- \[Wersja zapoznawcza \] : wdrażanie wymagań w celu inspekcji maszyn wirtualnych z systemem Windows, które nie przechowują haseł przy użyciu szyfrowania odwracalnego
 
 ## <a name="ia-5-1-authenticator-management--password-based-authentication"></a>Zarządzanie wystawą IA-5 (1) | Uwierzytelnianie oparte na hasłach
 
 Ten plan pomaga wymusić silne hasła, przypisując definicje [Azure Policy](../../../policy/overview.md) , które przeprowadzają inspekcję maszyn wirtualnych systemu Windows, które nie wymuszają minimalnej siły i innych wymagań dotyczących haseł. Świadomość maszyn wirtualnych z naruszeniem zasad dotyczących siły haseł pomaga podejmować działania naprawcze w celu zapewnienia zgodności haseł dla wszystkich kont użytkowników maszyny wirtualnej z zasadami haseł obowiązującymi w organizacji.
 
-- \[Wersja\]zapoznawcza: Inspekcja maszyn wirtualnych z systemem Windows, które zezwalają na ponowne korzystanie z poprzednich 24 haseł
-- \[Wersja\]zapoznawcza: Inspekcja maszyn wirtualnych z systemem Windows bez maksymalnego wieku hasła 70 dni
-- \[Wersja\]zapoznawcza: Inspekcja maszyn wirtualnych z systemem Windows bez minimalnego wieku hasła wynoszącego 1 dzień
-- \[Wersja\]zapoznawcza: Inspekcja maszyn wirtualnych z systemem Windows, które nie mają włączonego ustawienia złożoności hasła
-- \[Wersja\]zapoznawcza: Inspekcja maszyn wirtualnych z systemem Windows, które nie ograniczają minimalnej długości hasła do 14 znaków
-- \[Wersja\]zapoznawcza: Inspekcja maszyn wirtualnych systemu Windows, które nie przechowują haseł przy użyciu szyfrowania odwracalnego
-- \[Wersja\]zapoznawcza: wdrażanie wymagań w celu przeprowadzenia inspekcji maszyn wirtualnych z systemem Windows, które zezwalają na ponowne używanie poprzednich 24 haseł
-- \[Wersja\]zapoznawcza: wdrażanie wymagań w celu przeprowadzenia inspekcji maszyn wirtualnych z systemem Windows bez maksymalnego wieku hasła wynoszącego 70 dni
-- \[Wersja\]zapoznawcza: wdrażanie wymagań w celu przeprowadzenia inspekcji maszyn wirtualnych z systemem Windows bez minimalnej wieku hasła wynoszącej 1 dzień
-- \[Wersja\]zapoznawcza: wdrażanie wymagań w celu przeprowadzenia inspekcji maszyn wirtualnych z systemem Windows, które nie mają włączonego ustawienia złożoności hasła
-- \[Wersja\]zapoznawcza: wdrażanie wymagań w celu przeprowadzenia inspekcji maszyn wirtualnych z systemem Windows, które nie ograniczają minimalnej długości hasła do 14 znaków
-- \[Wersja\]zapoznawcza: wdrażanie wymagań w celu inspekcji maszyn wirtualnych z systemem Windows, które nie przechowują haseł przy użyciu szyfrowania odwracalnego
+- \[Wersja zapoznawcza \] : Inspekcja maszyn wirtualnych z systemem Windows, które zezwalają na ponowne korzystanie z poprzednich 24 haseł
+- \[Wersja zapoznawcza \] : Inspekcja maszyn wirtualnych z systemem Windows bez maksymalnego wieku hasła 70 dni
+- \[Wersja zapoznawcza \] : Inspekcja maszyn wirtualnych z systemem Windows bez minimalnego wieku hasła wynoszącego 1 dzień
+- \[Wersja zapoznawcza \] : Inspekcja maszyn wirtualnych z systemem Windows, które nie mają włączonego ustawienia złożoności hasła
+- \[Wersja zapoznawcza \] : Inspekcja maszyn wirtualnych z systemem Windows, które nie ograniczają minimalnej długości hasła do 14 znaków
+- \[Wersja zapoznawcza \] : Inspekcja maszyn wirtualnych systemu Windows, które nie przechowują haseł przy użyciu szyfrowania odwracalnego
+- \[Wersja zapoznawcza \] : wdrażanie wymagań w celu przeprowadzenia inspekcji maszyn wirtualnych z systemem Windows, które zezwalają na ponowne używanie poprzednich 24 haseł
+- \[Wersja zapoznawcza \] : wdrażanie wymagań w celu przeprowadzenia inspekcji maszyn wirtualnych z systemem Windows bez maksymalnego wieku hasła wynoszącego 70 dni
+- \[Wersja zapoznawcza \] : wdrażanie wymagań w celu przeprowadzenia inspekcji maszyn wirtualnych z systemem Windows bez minimalnej wieku hasła wynoszącej 1 dzień
+- \[Wersja zapoznawcza \] : wdrażanie wymagań w celu przeprowadzenia inspekcji maszyn wirtualnych z systemem Windows, które nie mają włączonego ustawienia złożoności hasła
+- \[Wersja zapoznawcza \] : wdrażanie wymagań w celu przeprowadzenia inspekcji maszyn wirtualnych z systemem Windows, które nie ograniczają minimalnej długości hasła do 14 znaków
+- \[Wersja zapoznawcza \] : wdrażanie wymagań w celu inspekcji maszyn wirtualnych z systemem Windows, które nie przechowują haseł przy użyciu szyfrowania odwracalnego
 
 ## <a name="ra-5-vulnerability-scanning"></a>Skanowanie w poszukiwaniu luk w zabezpieczeniach RA-5
 
@@ -260,13 +260,13 @@ Ten plan ułatwia zarządzanie programem Endpoint Protection, w tym złośliwą 
 
 Ten plan ułatwia monitorowanie systemu przez inspekcjonowanie i wymuszanie rejestrowania i zabezpieczeń danych w ramach zasobów platformy Azure. W odniesieniu do zasad są przypisane inspekcje i egzekwowanie wdrożenia agenta Log Analytics oraz ulepszone ustawienia zabezpieczeń baz danych SQL, kont magazynu i zasobów sieciowych. Te możliwości mogą pomóc w wykrywaniu nietypowych zachowań i wskaźników ataków, co pozwala na podejmowanie odpowiednich działań.
 
-- \[Wersja\]zapoznawcza: Inspekcja wdrożenia agenta log Analytics — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
-- \[Wersja\]zapoznawcza: Inspekcja wdrożenia agenta log Analytics w programie VMSS — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
-- \[Wersja\]zapoznawcza: inspekcja log Analytics obszaru roboczego dla maszyny wirtualnej — niezgodność raportów
-- \[Wersja\]zapoznawcza: wdrażanie log Analytics agenta dla systemu Linux VM Scale Sets (VMSS)
-- \[Wersja\]zapoznawcza: wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux
-- \[Wersja\]zapoznawcza: wdrażanie log Analytics agenta dla systemu Windows VM Scale Sets (VMSS)
-- \[Wersja\]zapoznawcza: wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows
+- \[Wersja zapoznawcza \] : Inspekcja wdrożenia agenta log Analytics — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
+- \[Wersja zapoznawcza \] : Inspekcja wdrożenia agenta log Analytics w programie VMSS — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
+- \[Wersja zapoznawcza \] : inspekcja log Analytics obszaru roboczego dla maszyny wirtualnej — niezgodność raportów
+- \[Wersja zapoznawcza \] : wdrażanie log Analytics agenta dla systemu Linux VM Scale Sets (VMSS)
+- \[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux
+- \[Wersja zapoznawcza \] : wdrażanie log Analytics agenta dla systemu Windows VM Scale Sets (VMSS)
+- \[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows
 - Zaawansowana ochrona danych powinna być włączona w wystąpieniach zarządzanych
 - Zaawansowana ochrona danych powinna być włączona na serwerach SQL
 - Wdróż zaawansowane zabezpieczenia danych na serwerach SQL
@@ -283,8 +283,8 @@ Ten plan ułatwia monitorowanie systemu przez inspekcjonowanie i wymuszanie reje
 Po przejrzeniu mapowania kontroli FedRAMP umiarkowanej zapoznaj się z następującymi artykułami, aby dowiedzieć się więcej na temat planu i sposobu wdrażania tego przykładu:
 
 > [!div class="nextstepaction"]
-> [FedRAMP umiarkowany plan — Omówienie](./index.md)
-> [FodRAMP umiarkowanej strategii — wdrażanie kroków](./deploy.md)
+> [FedRAMP umiarkowane — Omówienie](./index.md) 
+>  [FodRAMP umiarkowane — etapy wdrażania](./deploy.md)
 
 Dodatkowe artykuły na temat strategii i sposobu ich używania:
 

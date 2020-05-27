@@ -5,14 +5,14 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: overview
-ms.date: 02/01/2020
+ms.date: 05/22/2020
 ms.author: victorh
-ms.openlocfilehash: c8ff1849668d5effe15b6c25d00f3965a17b8e3e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a437e474a923edc15689639b7180ebed73242bb5
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77915643"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816373"
 ---
 # <a name="azure-web-application-firewall-on-azure-front-door"></a>Zapora aplikacji sieci Web platformy Azure na platformie Azure
 
@@ -26,7 +26,7 @@ WAF zapobiega złośliwym atakom blisko źródeł ataków przed wprowadzeniem do
 
 ## <a name="waf-policy-and-rules"></a>Zasady i reguły WAF
 
-Można skonfigurować zasady WAF i skojarzyć te zasady z co najmniej jednym frontonem czołowym dla ochrony. Zasady WAF obejmują dwa typy reguł zabezpieczeń:
+Można skonfigurować [zasady WAF](waf-front-door-create-portal.md) i skojarzyć te zasady z co najmniej jednym frontonem czołowym dla ochrony. Zasady WAF obejmują dwa typy reguł zabezpieczeń:
 
 - Reguły niestandardowe, które zostały utworzone przez klienta.
 
@@ -117,7 +117,7 @@ Nieznane botów są klasyfikowane przez opublikowanych agentów użytkownika bez
 
 Jeśli ochrona bot jest włączona, przychodzące żądania zgodne z regułami bot są rejestrowane w dzienniku FrontdoorWebApplicationFirewallLog. Użytkownik może uzyskać dostęp do dzienników WAF z konta magazynu, centrum zdarzeń lub usługi log Analytics.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 Można skonfigurować i wdrożyć wszystkie typy reguł WAF za pomocą Azure Portal, interfejsów API REST, szablonów Azure Resource Manager i Azure PowerShell.
 

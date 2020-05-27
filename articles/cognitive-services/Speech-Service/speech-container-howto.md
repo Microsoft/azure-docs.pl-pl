@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
-ms.openlocfilehash: d1df46a5a8de4396011cc18ea062fe2d6b52ca8d
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 1d4fde8dd21911b70d5a1c0f3b23304a3468a2a6
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773965"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816237"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Instalowanie i uruchamianie kontenerów usługi mowy (wersja zapoznawcza)
 
@@ -47,7 +47,7 @@ Poniższe wymagania wstępne przed użyciem kontenerów mowy:
 
 ## <a name="request-access-to-the-container-registry"></a>Zażądaj dostępu do rejestru kontenerów
 
-Wypełnij i prześlij [formularz żądania](https://aka.ms/speechcontainerspreview/) , aby zażądać dostępu do kontenera. 
+Wypełnij i prześlij [formularz żądania](https://aka.ms/cognitivegate) , aby zażądać dostępu do kontenera. 
 
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]

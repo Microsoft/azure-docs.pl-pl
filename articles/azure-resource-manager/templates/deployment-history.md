@@ -3,13 +3,13 @@ title: Historia wdrożenia
 description: Opisuje sposób wyświetlania Azure Resource Manager operacji wdrażania przy użyciu portalu, programu PowerShell, interfejsu wiersza polecenia platformy Azure i usługi API REST.
 tags: top-support-issue
 ms.topic: conceptual
-ms.date: 11/26/2019
-ms.openlocfilehash: b0f196f86bed05094b04bfc20c7cef2248a91c65
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/22/2020
+ms.openlocfilehash: 1f22bdfac5eb12688a5b5778d4da1505e36ef6bf
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79460300"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816288"
 ---
 # <a name="view-deployment-history-with-azure-resource-manager"></a>Wyświetlanie historii wdrożenia za pomocą Azure Resource Manager
 
@@ -37,7 +37,7 @@ Szczegółowe informacje o wdrożeniu można wyświetlić za pomocą programu Az
 
     ![Podsumowanie wdrożenia](./media/deployment-history/show-correlation-id.png)
 
-# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Aby wyświetlić listę wszystkich wdrożeń dla grupy zasobów, użyj polecenia [Get-AzResourceGroupDeployment](/powershell/module/az.resources/Get-AzResourceGroupDeployment) .
 
@@ -123,7 +123,7 @@ Każde wdrożenie może obejmować wiele operacji. Aby wyświetlić więcej szcz
 
     ![Pokaż szczegóły operacji](./media/deployment-history/see-operation-details.png)
 
-# <a name="powershell"></a>[Narzędzia](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Aby wyświetlić operacje wdrażania dla wdrożenia w grupie zasobów, użyj polecenia [Get-AzResourceGroupDeploymentOperation](/powershell/module/az.resources/get-azdeploymentoperation) .
 
@@ -145,22 +145,22 @@ Aby uzyskać komunikat o stanie zakończonych niepowodzeniem operacji, użyj nas
 
 # <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-Aby wyświetlić operacje wdrażania dla wdrożenia w grupie zasobów, użyj polecenia [AZ Deployment Group Operation list](/cli/azure/group/deployment/operation?view=azure-cli-latest#az-deployment-group-operation-list) .
+Aby wyświetlić operacje wdrażania dla wdrożenia w grupie zasobów, użyj polecenia [AZ Deployment Operation Group list](/cli/azure/deployment/operation/group#az-deployment-operation-group-list) . Musisz mieć interfejs wiersza polecenia platformy Azure 2.6.0 lub nowszy.
 
 ```azurecli-interactive
-az deployment group operation list --resource-group ExampleGroup --name ExampleDeployment
+az deployment operation group list --resource-group ExampleGroup --name ExampleDeployment
 ```
 
 Aby wyświetlić operacje zakończone niepowodzeniem, Filtruj operacje z **niepowodzeniem** stanu.
 
 ```azurecli-interactive
-az deployment group operation list --resource-group ExampleGroup --name ExampleDeploy --query "[?properties.provisioningState=='Failed']"
+az deployment operation group list --resource-group ExampleGroup --name ExampleDeploy --query "[?properties.provisioningState=='Failed']"
 ```
 
 Aby uzyskać komunikat o stanie zakończonych niepowodzeniem operacji, użyj następującego polecenia:
 
 ```azurecli-interactive
-az deployment group operation list --resource-group ExampleGroup --name ExampleDeploy --query "[?properties.provisioningState=='Failed'].properties.statusMessage.error"
+az deployment operation group list --resource-group ExampleGroup --name ExampleDeploy --query "[?properties.provisioningState=='Failed'].properties.statusMessage.error"
 ```
 
 # <a name="http"></a>[HTTP](#tab/http)
