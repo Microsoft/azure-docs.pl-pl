@@ -1,7 +1,0 @@
-- name: Azure
-  tocHref: /sql/
-  topicHref: /azure/index
-  items:
-    - name: Uczenie maszynowe SQL
-      tocHref: /sql/machine-learning/
-      topicHref: /azure/sql-database/sql-database-machine-learning-services-overview
