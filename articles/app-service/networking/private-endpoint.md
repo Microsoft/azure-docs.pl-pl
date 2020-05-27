@@ -4,21 +4,22 @@ description: Połącz się prywatnie z aplikacją internetową przy użyciu pryw
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 05/12/2020
+ms.date: 05/25/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6a95c021153a458a4e3f804e64724b73ea1f1937
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 4c48a2fad927812cc45543243b48a2df81acf73b
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198817"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83846957"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Używanie prywatnych punktów końcowych dla usługi Azure Web App (wersja zapoznawcza)
 
 > [!Note]
+> Po odświeżeniu wersji zapoznawczej wydano funkcję ochrony danych eksfiltracji.
 > Wersja zapoznawcza jest dostępna w regionach Wschodnie stany USA i zachodnie stany USA 2 dla wszystkich PremiumV2 systemów Windows i Web Apps Linux oraz funkcji elastycznych w warstwie Premium. 
 
 Możesz użyć prywatnego punktu końcowego dla aplikacji sieci Web platformy Azure, aby umożliwić klientom znajdującym się w sieci prywatnej bezpieczny dostęp do aplikacji za pośrednictwem prywatnego linku. Prywatny punkt końcowy używa adresu IP z przestrzeni adresowej sieci wirtualnej platformy Azure. Ruch sieciowy między klientem w sieci prywatnej a aplikacją sieci Web przechodzi przez sieć wirtualną oraz prywatny link w sieci szkieletowej firmy Microsoft, eliminując ekspozycję z publicznego Internetu.
@@ -27,6 +28,7 @@ Korzystanie z prywatnego punktu końcowego dla aplikacji sieci Web umożliwia:
 
 - Zabezpiecz swoją aplikację sieci Web, konfigurując prywatny punkt końcowy, eliminując ujawnianie opinii publicznej.
 - Bezpiecznie łącz się z aplikacją internetową z sieci lokalnych, które łączą się z siecią wirtualną za pomocą sieci VPN lub prywatnej komunikacji równorzędnej ExpressRoute.
+- Unikaj eksfiltracji danych z sieci wirtualnej. 
 
 Jeśli potrzebujesz bezpiecznego połączenia między siecią wirtualną a aplikacją sieci Web, punkt końcowy usługi jest najprostszym rozwiązaniem. Jeśli trzeba również skontaktować się z aplikacją internetową ze strony lokalnej za pośrednictwem bramy platformy Azure, sieci równorzędnej z regionalną lub wirtualną siecią równorzędną, jest to rozwiązanie.  
 
@@ -52,7 +54,7 @@ Z perspektywy zabezpieczeń:
 - Karta sieciowa prywatnego punktu końcowego nie może mieć skojarzonej sieciowej grupy zabezpieczeń.
 - W podsieci, w której znajduje się prywatny punkt końcowy, może być skojarzona sieciowej grupy zabezpieczeń, ale należy wyłączyć wymuszanie zasad sieciowych dla prywatnego punktu końcowego: zobacz [wyłączanie zasad sieciowych dla prywatnych punktów końcowych][disablesecuritype]. W związku z tym nie można filtrować według sieciowej grupy zabezpieczeń dostępu do prywatnego punktu końcowego.
 - Po włączeniu prywatnego punktu końcowego w aplikacji sieci Web konfiguracja [ograniczeń dostępu][accessrestrictions] aplikacji sieci Web nie jest szacowana.
-- Aby zmniejszyć ryzyko eksfiltracji danych z sieci wirtualnej, Usuń wszystkie reguły sieciowej grupy zabezpieczeń, w których miejsce docelowe jest znacznikiem internetowym lub usługami platformy Azure. Jednak dodanie prywatnego punktu końcowego aplikacji sieci Web w podsieci pozwoli uzyskać dostęp do dowolnej aplikacji sieci Web hostowanej w tej samej sygnaturze wdrożenia i uwidocznić ją w Internecie.
+- Możesz wyeliminować ryzyko związane z eksfiltracji danych z sieci wirtualnej, usuwając wszystkie reguły sieciowej grupy zabezpieczeń, w których miejsce docelowe jest znacznikiem internetowym lub usług platformy Azure. Po wdrożeniu prywatnego punktu końcowego dla aplikacji sieci Web można uzyskać dostęp tylko do tej konkretnej aplikacji sieci Web za pomocą prywatnego punktu końcowego. Jeśli masz inną aplikację sieci Web, musisz wdrożyć inny dedykowany prywatny punkt końcowy dla tej innej aplikacji sieci Web.
 
 W dziennikach HTTP sieci Web aplikacji sieci Web znajduje się adres IP źródła klienta. Jest to implementowane przy użyciu protokołu serwera proxy TCP, przekazując Właściwość IP klienta do aplikacji sieci Web. Aby uzyskać więcej informacji, zobacz [Uzyskiwanie informacji o połączeniu przy użyciu protokołu TCP proxy v2][tcpproxy].
 
@@ -77,7 +79,7 @@ Aby uzyskać szczegółowe informacje o cenach, zobacz [Cennik usługi Azure Pri
 
 Gdy korzystasz z funkcji platformy Azure w elastycznym planie Premium z prywatnym punktem końcowym, aby uruchomić lub wykonać funkcję w portalu internetowym platformy Azure, musisz mieć bezpośredni dostęp do sieci lub otrzymać błąd HTTP 403. Innymi słowy, przeglądarka musi mieć dostęp do prywatnego punktu końcowego, aby wykonać funkcję z portalu sieci Web systemu Azure. 
 
-W wersji zapoznawczej tylko miejsce produkcyjne jest widoczne za prywatnym punktem końcowym, a inne gniazda są dostępne tylko dla publicznego punktu końcowego.
+W trakcie okresu zapoznawczego tylko miejsce produkcyjne jest widoczne za prywatnym punktem końcowym, a inne gniazda muszą być osiągalne przez publiczny punkt końcowy.
 
 Regularnie udoskonalamy funkcję prywatnego linku i prywatnego punktu końcowego. Zapoznaj się z [tym artykułem][pllimitations] , aby uzyskać aktualne informacje o ograniczeniach.
 

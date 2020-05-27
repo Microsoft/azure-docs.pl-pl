@@ -1,5 +1,5 @@
 ---
-title: STARTSWITH w języku zapytań Azure Cosmos DB
+title: StartsWith w języku zapytań Azure Cosmos DB
 description: Dowiedz się więcej o funkcji STARTSWITH systemu SQL w Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/20/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: e915ea4be058f805e938ec8526ca0ee40d556271
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: c64efb92de00291e6381e30af24e76df2b38aee0
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715277"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847118"
 ---
 # <a name="startswith-azure-cosmos-db"></a>STARTSWITH (Azure Cosmos DB)
 
@@ -40,16 +40,22 @@ STARTSWITH(<str_expr1>, <str_expr2> [, <bool_expr>])
   
 ## <a name="examples"></a>Przykłady
   
-  Poniższy przykład sprawdza, czy ciąg "ABC" zaczyna się od "b" i "a".  
+Poniższy przykład sprawdza, czy ciąg "ABC" zaczyna się od "b" i "A".  
   
 ```sql
-SELECT STARTSWITH("abc", "b") AS s1, STARTSWITH("abc", "a") AS s2  
+SELECT STARTSWITH("abc", "b", false) AS s1, STARTSWITH("abc", "A", false) AS s2, STARTSWITH("abc", "A", true) AS s3
 ```  
   
  Tutaj znajduje się zestaw wyników.  
   
 ```json
-[{"s1": false, "s2": true}]  
+[
+    {
+        "s1": false,
+        "s2": false,
+        "s3": true
+    }
+]
 ```  
 
 ## <a name="remarks"></a>Uwagi

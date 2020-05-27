@@ -45,7 +45,7 @@
           href: data-sql-management-studio.md
 - name: Dokumentacja
   items:
-    - name: Konfiguracja
+    - name: Konfigurowanie
       href: configuration.md
     - name: Widoki bazy danych
       href: database-views.md
@@ -59,8 +59,8 @@
       href: 'https://github.com/Azure-Samples/blockchain'
     - name: Blog
       href: 'https://azure.microsoft.com/blog/topics/blockchain/'
-    - name: Forum pomocy technicznej MSDN
-      href: 'https://aka.ms/workbenchforum'
+    - name: Pytania i odpowiedzi Microsoft — strona pytania
+      href: 'https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html'
     - name: Pomoc techniczna w społeczności
       href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
     - name: Pomoc techniczna w witrynie Stack Overflow

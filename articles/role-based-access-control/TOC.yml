@@ -11,15 +11,15 @@
   items:
     - name: Wyświetlanie dostępu dla użytkownika
       href: check-access.md
+    - name: Szablon ARM
+      displayName: Resource Manager
+      href: quickstart-role-assignments-template.md
 - name: Samouczki
   items:
     - name: Udzielanie dostępu użytkownikowi — portal
       href: quickstart-assign-role-user-portal.md
     - name: Udzielanie dostępu użytkownikowi — PowerShell
       href: tutorial-role-assignments-user-powershell.md
-    - name: Udzielanie dostępu użytkownikom — szablon usługi Resource Manager
-      displayName: 'ARM, resource manager template'
-      href: tutorial-role-assignments-user-template.md
     - name: Udzielanie dostępu grupie — PowerShell
       href: tutorial-role-assignments-group-powershell.md
     - name: Tworzenie roli niestandardowej — PowerShell
@@ -67,7 +67,8 @@
           href: role-assignments-cli.md
         - name: Interfejs API REST
           href: role-assignments-rest.md
-        - name: Szablon
+        - name: Szablon ARM
+          displayName: Resource Manager
           href: role-assignments-template.md
     - name: Lista przypisań odmowy
       items:
@@ -113,8 +114,8 @@
       href: /cli/azure/role?view=azure-cli-latest
     - name: Interfejs API REST
       href: /rest/api/authorization/
-    - name: Szablony usługi Resource Manager
-      displayName: ARM
+    - name: Szablony usługi ARM
+      displayName: Resource Manager
       items:
         - name: Przypisania ról
           href: /azure/templates/microsoft.authorization/roleassignments

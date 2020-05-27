@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec59aa830fe314332d17091f17ef81d4a1d65470
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 09399f59e61ded49fef5a2388900b7b478111119
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83833408"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847195"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-maxient-conduct-manager-software"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu oprogramowania Maxients Manager
 
@@ -69,7 +69,7 @@ Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD przy użyciu opr
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD przy użyciu oprogramowania Maxients Manager, wykonaj następujące bloki konstrukcyjne:
 
 1. **[Konfigurowanie logowania jednokrotnego w usłudze Azure AD](#configure-azure-ad-sso)** — aby umożliwić użytkownikom uwierzytelnianie do użytku w oprogramowaniu Maxients Manager
-    1. **[Przypisz wszystkim użytkownikom możliwość korzystania z Maxient](#assign-all-users-to-be-able-to-authenticate-for-the-Maxient-Conduct-Manager-Software)** — aby umożliwić wszystkim członkom Twojej instytucji uwierzytelnianie.
+    1. **[Przypisz wszystkim użytkownikom możliwość korzystania z Maxient](#assign-all-users-to-be-able-to-authenticate-for-the-maxient-conduct-manager-software)** — aby umożliwić wszystkim członkom Twojej instytucji uwierzytelnianie.
 1. **[Testowanie konfiguracji usługi Azure AD za pomocą programu Maxient](#test-with-maxient)** — aby sprawdzić, czy konfiguracja działa, i wydawaniu poprawnych atrybutów
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD

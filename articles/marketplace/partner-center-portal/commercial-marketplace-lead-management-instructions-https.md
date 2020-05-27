@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 7a4fc57b3be8dd59997ef2bfc9624892cf726160
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: a2be74f6c9178577f86e5522e37e7c210643dd07
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82790987"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847821"
 ---
 # <a name="use-an-https-endpoint-to-manage-commercial-marketplace-leads"></a>Używanie punktu końcowego HTTPS do zarządzania komercyjnymi liderami w portalu Marketplace
 
@@ -183,7 +183,7 @@ W tym artykule wyjaśniono, jak utworzyć nowy przepływ w programie PowerShell 
 
 Konfigurację można przetestować za pomocą programu [Poster](https://app.getpostman.com/app/download/win64). Pobieranie online dla programu Poster jest dostępne dla systemu Windows. 
 
-1. Uruchom program Poster i wybierz pozycję **nowe** > **żądanie** , aby skonfigurować narzędzie testowe. 
+1. Uruchom program Poster i wybierz pozycję **nowe**  >  **żądanie** , aby skonfigurować narzędzie testowe. 
 
    ![Żądanie skonfigurowania narzędzia testowego](./media/commercial-marketplace-lead-management-instructions-https/postman-request.png)
 
@@ -229,8 +229,9 @@ Gdy wszystko jest gotowe do skonfigurowania informacji dotyczących zarządzania
 
 1. Wybierz ofertę i przejdź do karty **Konfiguracja oferty** .
 
-1. W sekcji **Zarządzanie potencjalnymi klientami** wybierz pozycję **Połącz**. 
-    ![Przycisk Połącz z zarządzaniem potencjalnym klientem](./media/commercial-marketplace-lead-management-instructions-https/lead-management-connect.png)
+1. W sekcji **potencjalni klienci** wybierz pozycję **Połącz**.
+
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-https/customer-leads.png" alt-text="Potencjalni klienci":::
 
 1. W oknie podręcznym **szczegóły połączenia** wybierz pozycję **punkt końcowy https** dla **miejsca docelowego potencjalnego klienta**. Wklej adres URL POST protokołu HTTP z przepływu utworzonego przez wykonanie wcześniejszych kroków w polu **adres URL punktu końcowego HTTPS** .
     ![Adres e-mail osoby kontaktowej szczegóły połączenia](./media/commercial-marketplace-lead-management-instructions-https/https-connection-details.png)

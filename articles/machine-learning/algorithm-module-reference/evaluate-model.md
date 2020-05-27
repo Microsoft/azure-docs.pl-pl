@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/24/2020
-ms.openlocfilehash: f69a3f61c288b320399d1b3abfc632c93261c540
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: e522291bdf1982ff65a62f028107b15b3249898c
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983367"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847416"
 ---
 # <a name="evaluate-model-module"></a>Oceń moduł modelu
 
@@ -49,7 +49,7 @@ Ten moduł służy do mierzenia dokładności nauczonego modelu. Dostarczasz zes
 
 ## <a name="results"></a>Wyniki
 
-Po uruchomieniu **oceny modelu**kliknij prawym przyciskiem myszy moduł i wybierz polecenie **Wizualizuj wyniki oceny** , aby wyświetlić wyniki.
+Po uruchomieniu **Oceń model**wybierz moduł, aby otworzyć panel nawigacyjny " **Oceń model** " po prawej stronie.  Następnie wybierz kartę dane **wyjściowe + dzienniki** i na tej karcie sekcja **wyprowadzania danych** zawiera kilka ikon.   Ikona **wizualizacji** ma ikonę wykresu słupkowego i jest pierwszym sposobem wyświetlania wyników.
 
 W przypadku łączenia zestawów danych z obydwoma danymi wejściowymi **modelu szacowania**wyniki będą zawierać metryki dla zestawu danych lub obu modeli.
 Model lub dane dołączone do lewego portu są przedstawiane jako pierwsze w raporcie, a następnie metryki dla zestawu danych lub modelu dołączonego do właściwego portu.  

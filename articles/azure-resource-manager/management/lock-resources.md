@@ -3,12 +3,12 @@ title: Zablokuj zasoby, aby uniemożliwić zmiany
 description: Zablokuj użytkownikom możliwość aktualizowania lub usuwania krytycznych zasobów platformy Azure, stosując blokadę dla wszystkich użytkowników i ról.
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 6bd595e3c676c8521470a1f5a00fe782e83dc840
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 2060a7ed2de4956eb15bc85fb1a905705e21f813
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683734"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847671"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Blokowanie zasobów w celu uniemożliwienia nieoczekiwanych zmian
 
@@ -240,7 +240,7 @@ W żądaniu Dołącz obiekt JSON, który określa właściwości blokady.
     } 
 
 ## <a name="next-steps"></a>Następne kroki
-* Aby dowiedzieć się, jak logicznie organizować zasoby, zobacz [Używanie tagów do organizowania zasobów](tag-resources.md)
+* Aby dowiedzieć się, jak logicznie organizować zasoby, zobacz [Używanie tagów do organizowania zasobów](tag-resources.md).
 * Ograniczenia i konwencje w ramach subskrypcji można stosować przy użyciu zasad niestandardowych. Aby uzyskać więcej informacji, zobacz artykuł [Co to jest usługa Azure Policy?](../../governance/policy/overview.md).
 * Aby uzyskać instrukcje dla przedsiębiorstw dotyczące użycia usługi Resource Manager w celu efektywnego zarządzania subskrypcjami, zobacz [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance) (Szkielet platformy Azure dla przedsiębiorstwa — narzucony nadzór subskrypcji).
 

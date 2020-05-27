@@ -3,14 +3,14 @@ title: 'Szybki Start: Tworzenie aplikacji sieci Web w języku PHP'
 description: Wdróż swoje pierwsze Hello world w języku PHP do Azure App Service w ciągu kilku minut. Wdrażasz program przy użyciu narzędzia Git, który jest jednym z wielu sposobów wdrażania w App Service.
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
-ms.date: 08/24/2018
+ms.date: 05/25/2020
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: de51df50995c47800a2084108973c3b009ae3462
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d9ee9ac3abd7dada8e87bdf5a4385185933fc4ae
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82085977"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847874"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Tworzenie aplikacji internetowej w języku PHP na platformie Azure
 
@@ -68,25 +68,25 @@ W oknie terminalu naciśnij kombinację klawiszy **Ctrl + C**, aby zamknąć ser
 
 ## <a name="create-a-web-app"></a>Tworzenie aplikacji internetowej
 
-W Cloud Shell Utwórz aplikację sieci Web w planie `myAppServicePlan` App Service za pomocą [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) polecenia. 
+W Cloud Shell Utwórz aplikację sieci Web w `myAppServicePlan` planie App Service za pomocą [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) polecenia. 
 
-W poniższym przykładzie zastąp ciąg `<app_name>` globalnie unikatową nazwą aplikacji (prawidłowe znaki to `a-z`, `0-9` i `-`). Środowisko uruchomieniowe ma ustawioną wartość `PHP|7.0`. Aby wyświetlić wszystkie obsługiwane środowiska uruchomieniowe, [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes)Uruchom polecenie. 
+W poniższym przykładzie zastąp ciąg `<app-name>` globalnie unikatową nazwą aplikacji (prawidłowe znaki to `a-z`, `0-9` i `-`). Środowisko uruchomieniowe ma ustawioną wartość `PHP|7.0`. Aby wyświetlić wszystkie obsługiwane środowiska uruchomieniowe, uruchom polecenie [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes) . 
 
 
 ```azurecli-interactive
 # Bash
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "PHP|7.0" --deployment-local-git
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "PHP|7.4" --deployment-local-git
 # PowerShell
-az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "PHP|7.0" --deployment-local-git
+az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "PHP|7.4" --deployment-local-git
 ```
 > [!NOTE]
-> Symbol `(--%)`zatrzymania analizowania wprowadzony w programie PowerShell 3,0, nakazuje programowi PowerShell nieprzerwanie interpretacji danych wejściowych jako poleceń lub wyrażeń programu PowerShell. 
+> Symbol zatrzymania analizowania `(--%)` wprowadzony w programie powershell 3,0, nakazuje programowi PowerShell nieprzerwanie interpretacji danych wejściowych jako poleceń lub wyrażeń programu PowerShell. 
 >
 
 Po utworzeniu aplikacji internetowej w interfejsie wiersza polecenia platformy Azure zostaną wyświetlone dane wyjściowe podobne do następujących:
 
 <pre>
-Local git is configured with url of 'https://&lt;username&gt;@&lt;app_name&gt;.scm.azurewebsites.net/&lt;app_name&gt;.git'
+Local git is configured with url of 'https://&lt;username&gt;@&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git'
 {
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
@@ -94,7 +94,7 @@ Local git is configured with url of 'https://&lt;username&gt;@&lt;app_name&gt;.s
   "cloningInfo": null,
   "containerSize": 0,
   "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "&lt;app_name&gt;.azurewebsites.net",
+  "defaultHostName": "&lt;app-name&gt;.azurewebsites.net",
   "enabled": true,
   &lt; JSON data removed for brevity. &gt;
 }
@@ -103,10 +103,10 @@ Local git is configured with url of 'https://&lt;username&gt;@&lt;app_name&gt;.s
 Utworzono pustą nową aplikację sieci Web z włączonym wdrożeniem usługi git.
 
 > [!NOTE]
-> Adres URL zdalnego repozytorium Git jest wyświetlany we właściwości `deploymentLocalGitUrl` w formacie `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`. Zapisz ten adres URL, ponieważ będzie on potrzebny później.
+> Adres URL zdalnego repozytorium Git jest wyświetlany we właściwości `deploymentLocalGitUrl` w formacie `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Zapisz ten adres URL, ponieważ będzie on potrzebny później.
 >
 
-Przejdź do nowo utworzonej aplikacji internetowej. Zastąp _ &lt;nazwę aplikacji>_ unikatową nazwą aplikacji utworzoną w poprzednim kroku.
+Przejdź do nowo utworzonej aplikacji internetowej. Zastąp _ &lt; nazwę aplikacji>_ unikatową nazwą aplikacji utworzoną w poprzednim kroku.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -118,7 +118,7 @@ Tak powinna wyglądać nowa aplikacja internetowa:
 
 [!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
 
-```bash
+<pre>
 Counting objects: 2, done.
 Delta compression using up to 4 threads.
 Compressing objects: 100% (2/2), done.
@@ -139,16 +139,16 @@ remote: Ignoring: .git
 remote: Finished successfully.
 remote: Running post deployment command(s)...
 remote: Deployment successful.
-To https://<app_name>.scm.azurewebsites.net/<app_name>.git
+To https://&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git
    cc39b1e..25f1805  master -> master
-```
+</pre>
 
 ## <a name="browse-to-the-app"></a>Przechodzenie do aplikacji
 
 Przejdź do wdrożonej aplikacji za pomocą przeglądarki sieci Web.
 
 ```
-http://<app_name>.azurewebsites.net
+http://<app-name>.azurewebsites.net
 ```
 
 Przykładowy kod w języku PHP jest uruchamiany w aplikacji internetowej usługi Azure App Service.

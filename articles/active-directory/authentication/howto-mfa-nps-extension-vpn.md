@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f90a6dd94a498b6de6b5e2ec8381180483d0ac8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 28467dbaabb0b84bf7da9f2ae28d6405699b2c6b
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82113157"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845750"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrowanie infrastruktury sieci VPN z usługą Azure MFA przy użyciu rozszerzenia serwera zasad sieciowych dla platformy Azure
 
@@ -228,9 +228,9 @@ W tej sekcji skonfigurujesz serwer sieci VPN do korzystania z uwierzytelniania u
 
 2. W Menedżer serwera wybierz pozycję **Narzędzia**, a następnie wybierz pozycję **Routing i dostęp zdalny**.
 
-3. W oknie **Routing i dostęp zdalny** kliknij prawym przyciskiem ** \<myszy nazwę serwera> (local)**, a następnie wybierz polecenie **Właściwości**.
+3. W oknie **Routing i dostęp zdalny** kliknij prawym przyciskiem myszy ** \< nazwę serwera> (local)**, a następnie wybierz polecenie **Właściwości**.
 
-4. W oknie ** \<właściwości nazwy serwera> (local)** wybierz kartę **zabezpieczenia** .
+4. W oknie ** \< Właściwości nazwy serwera> (local)** wybierz kartę **zabezpieczenia** .
 
 5. Na karcie **zabezpieczenia** w obszarze **dostawca uwierzytelniania**wybierz pozycję **uwierzytelnianie usługi RADIUS**, a następnie wybierz pozycję **Konfiguruj**.
 
@@ -245,9 +245,9 @@ W tej sekcji skonfigurujesz serwer sieci VPN do korzystania z uwierzytelniania u
     b. W polu wspólny **klucz tajny**wybierz pozycję **Zmień**, a następnie wprowadź wcześniej utworzone i zarejestrowane hasło wspólnego klucza tajnego.
 
     c. W polu **limit czasu (w sekundach)** wprowadź wartość **30**.  
-    Wartość limitu czasu jest wymagana, aby zapewnić wystarczającą ilość czasu na wykonanie drugiego czynnika uwierzytelniania.
+    Wartość limitu czasu jest wymagana, aby zapewnić wystarczającą ilość czasu na wykonanie drugiego czynnika uwierzytelniania. Niektóre sieci VPN lub regiony wymagają ustawień limitu czasu więcej niż 30 sekund, aby uniemożliwić użytkownikom otrzymywanie wielu połączeń telefonicznych. Jeśli użytkownicy napotykają ten problem, zwiększ wartość limitu **czasu (w sekundach)** w przyrostach wynoszących 30 sekund, dopóki problem nie wystąpi ponownie.
 
-    ![Dodawanie okna serwera RADIUS Konfigurowanie limitu czasu](./media/howto-mfa-nps-extension-vpn/image16.png)
+    ![Dodawanie okna serwera RADIUS Konfigurowanie limitu czasu](./media/howto-mfa-nps-extension-vpn/image16.png) 
 
 8. Wybierz przycisk **OK**.
 
@@ -376,7 +376,7 @@ Aby użyć skryptu, podaj rozszerzenie przy użyciu poświadczeń administracyjn
 
     ![Uruchamianie skryptu konfiguracji AzureMfsNpsExtnConfigSetup. ps1](./media/howto-mfa-nps-extension-vpn/image38.png)
 
-    Jeśli wystąpi błąd zabezpieczeń ze względu na protokół TLS, Włącz protokół TLS 1,2 `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12` przy użyciu polecenia z poziomu monitu programu PowerShell.
+    Jeśli wystąpi błąd zabezpieczeń ze względu na protokół TLS, Włącz protokół TLS 1,2 przy użyciu `[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12` polecenia z poziomu monitu programu PowerShell.
     
     Po zweryfikowaniu instalacji modułu programu PowerShell przez skrypt zostanie wyświetlone okno logowania modułu Azure Active Directory PowerShell.
 

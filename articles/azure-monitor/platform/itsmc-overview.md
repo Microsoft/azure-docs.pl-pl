@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 50bab4c26046059b993c19a030a8f840ae336ef2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b0ae621791fb989fbb1fdab6a045bc8e9707bc74
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79274543"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83846532"
 ---
-# <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Łączenie platformy Azure z narzędziami narzędzia ITSM przy użyciu łącznik zarządzania usługami IT
+# <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Łączenie platformy Azure z narzędziami ITSM przy użyciu łącznika zarządzania usługami IT
 
 ![Symbol łącznik zarządzania usługami IT](media/itsmc-overview/itsmc-symbol.png)
 
-Łącznik zarządzania usługami IT (ITSMC) umożliwia łączenie z platformą Azure i obsługiwanym produktem/usługą zarządzania usługami IT (narzędzia ITSM).
+Łącznik zarządzania usługami IT (ITSMC, IT Service Management Connector) umożliwia łączenie platformy Azure z obsługiwanym produktem/obsługiwaną usługą zarządzania usługami IT (ITSM).
 
 Usługi platformy Azure, takie jak Log Analytics i Azure Monitor, udostępniają narzędzia umożliwiające wykrywanie, analizowanie i rozwiązywanie problemów z zasobami platformy Azure i spoza niej. Jednak elementy robocze związane z problemem zwykle znajdują się w narzędzia ITSM produktu/usłudze. Łącznik narzędzia ITSM zapewnia dwukierunkową połączenie między narzędziami platformy Azure i narzędzia ITSM, które ułatwiają szybsze rozwiązywanie problemów.
 
@@ -57,7 +57,7 @@ Aby można było utworzyć połączenie, należy dodać rozwiązanie łącznik I
 3. W sekcji **obszar roboczy pakietu OMS** wybierz obszar roboczy usługi Azure log Analytics, w którym chcesz zainstalować rozwiązanie.
    >[!NOTE]
    > * W ramach trwającego przejścia z Microsoft Operations Management Suite (OMS) do Azure Monitor, obszary robocze OMS są teraz określane jako Log Analytics obszary robocze.
-   > * Łącznik ITSM można zainstalować tylko w obszarze roboczym Log Analytics w następujących regionach: Wschodnie stany USA, zachodnie stany USA, Południowo-środkowe stany USA, Europa Zachodnia, Kanada środkowa, Południowo-Wschodnia, Południowo-Wschodnia, wschodnie Zjednoczone Królestwo, Indie Środkowe, Japonia Południowo-Wschodnia.
+   > * Łącznik ITSM można zainstalować tylko w obszarze roboczym Log Analytics w następujących regionach: Wschodnie stany USA, zachodnie stany USA, Południowo-środkowe stany USA, Europa Zachodnia, Fairfax, Indie Środkowe, Japonia Zachodnia, Południowe Zjednoczone Królestwo, Azja Południowo-Wschodnia, Kanada środkowa
 
 4. W sekcji **Ustawienia obszaru roboczego pakietu OMS** wybierz pozycję zasoby, w której chcesz utworzyć zasób rozwiązania.
 
@@ -183,7 +183,7 @@ ServiceDeskWorkItemType_s = "zdarzenie"
 - Wpływ
 - Priorytet
 - Eskalacja
-- Utworzony przez
+- Created By
 - Rozwiązane przez
 - Zamknięte przez
 - Element źródłowy
@@ -205,7 +205,7 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 **Pola**
 - ServiceDeskConnectionName
 - Identyfikator działu obsługi
-- Utworzony przez
+- Created By
 - Zamknięte przez
 - Element źródłowy
 - Przypisano do
@@ -290,7 +290,7 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 2. Jeśli dane z usługi ServiceNow nie są synchronizowane do Log Analytics, upewnij się, że wystąpienie usługi ServiceNow nie jest w stanie uśpienia. Wystąpienia dev usługi ServiceNow czasami przechodzą w stan uśpienia, gdy jest on bezczynny przez długi czas. W przeciwnym razie Zgłoś problem.
 3. Jeśli alerty Log Analytics wyzwalane, ale elementy robocze nie są tworzone w produkcie narzędzia ITSM lub elementy konfiguracji nie są tworzone/połączone z elementami roboczymi lub innymi informacjami ogólnymi, należy poszukać w następujących miejscach:
    -  ITSMC: rozwiązanie pokazuje podsumowanie połączeń/elementów roboczych/komputerów itp. Kliknij kafelek ze **stanem łącznika**, który przeprowadzi Cię przez **Wyszukiwanie** przy użyciu odpowiedniego zapytania. Aby uzyskać więcej informacji, sprawdź rekordy dziennika z LogType_S jako błąd.
-   - Strona **przeszukiwania dzienników** : Wyświetl błędy/powiązane informacje bezpośrednio przy użyciu `*`ServiceDeskLog_CL`*`zapytania.
+   - Strona **przeszukiwania dzienników** : Wyświetl błędy/powiązane informacje bezpośrednio przy użyciu `*` ServiceDeskLog_CL zapytania `*` .
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Rozwiązywanie problemów z wdrażaniem aplikacji sieci Web Service Manager
 1.  W przypadku problemów z wdrażaniem aplikacji sieci Web upewnij się, że masz wystarczające uprawnienia w ramach subskrypcji wymienionej do tworzenia/wdrażania zasobów.
@@ -300,7 +300,7 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 
 ## <a name="contact-us"></a>Skontaktuj się z nami
 
-W przypadku zapytań lub informacji zwrotnych dotyczących łącznik zarządzania usługami IT skontaktuj się z [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com)nami pod adresem.
+W przypadku zapytań lub informacji zwrotnych dotyczących łącznik zarządzania usługami IT skontaktuj się z nami pod adresem [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com) .
 
 ## <a name="next-steps"></a>Następne kroki
 [Dodaj narzędzia ITSM produkty/usługi do łącznik zarządzania usługami IT](../../azure-monitor/platform/itsmc-connections.md).

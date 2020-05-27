@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/01/2020
 ms.author: dsindona
-ms.openlocfilehash: 076edc62a467701eaf0de23f280cdaf2abd945de
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 9ac7640dd8b63c72bac83c98e07cf861fb26c870
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792721"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845797"
 ---
 # <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Korzystanie z usługi Azure Blob Storage do zarządzania komercyjnymi klientami portalu Marketplace
 
@@ -74,9 +74,9 @@ ms.locfileid: "82792721"
 Gdy wszystko jest gotowe do skonfigurowania informacji dotyczących zarządzania potencjalnym liderem oferty w portalu wydawców, wykonaj następujące czynności:
 
 1. Przejdź do strony **Konfiguracja oferty** dla swojej oferty.
-2. Wybierz pozycję **Połącz** w sekcji Zarządzanie potencjalnymi klientami.
+2. W sekcji **potencjalni klienci** wybierz pozycję **Połącz**.
 
-    ![Połącz ofertę](./media/commercial-marketplace-lead-management-instructions-azure-blob/connect-offer.png)
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-blob/customer-leads.png" alt-text="Potencjalni klienci":::
 
 3. W oknie podręcznym szczegóły połączenia wybierz pozycję **obiekt blob platformy Azure** dla miejsca docelowego potencjalnego klienta.
 
@@ -85,7 +85,7 @@ Gdy wszystko jest gotowe do skonfigurowania informacji dotyczących zarządzania
 4. Podaj **nazwę kontenera** i **Parametry połączenia konta magazynu** , które zostały uzyskane z poniższych instrukcji.
 
     * Przykład nazwy kontenera:`marketplaceleadcontainer`
-    * Przykład parametrów połączenia konta magazynu: `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net` ![szczegóły połączenia](./media/commercial-marketplace-lead-management-instructions-azure-blob/connection-details.png) 
+    * Przykład parametrów połączenia konta magazynu: `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net` ![ szczegóły połączenia](./media/commercial-marketplace-lead-management-instructions-azure-blob/connection-details.png) 
 
 5. Wybierz pozycję **Zapisz**.
 

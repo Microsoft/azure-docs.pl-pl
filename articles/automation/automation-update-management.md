@@ -3,14 +3,14 @@ title: Omówienie Update Management Azure Automation
 description: Ten artykuł zawiera omówienie funkcji Update Management, która implementuje aktualizacje dla maszyn z systemami Windows i Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 05/04/2020
+ms.date: 05/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4a48841a1c1f5225e5ce53c46c69bd3d29f6fe59
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 4c27fa26b19b870f90f2e7d6ecd34f1f3c083323
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83830705"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847332"
 ---
 # <a name="update-management-overview"></a>Omówienie rozwiązania Update Management
 
@@ -97,7 +97,7 @@ W poniższej tabeli wymieniono nieobsługiwane systemy operacyjne:
 
 |System operacyjny  |Uwagi  |
 |---------|---------|
-|Klient systemu Windows     | Systemy operacyjne klienta (takie jak Windows 7 i Windows 10) nie są obsługiwane.        |
+|Klient systemu Windows     | Systemy operacyjne klienta (takie jak Windows 7 i Windows 10) nie są obsługiwane.<br> W przypadku usługi Azure Windows Virtual Desktop (WVD) zalecana metoda<br> Aby zarządzać aktualizacjami, należy [Windows Update dla programu Business](https://docs.microsoft.com/windows/deployment/update/waas-manage-updates-wufb) for Windows 10 Client Patch Management. |
 |Windows Server Nano Server 2016     | Nieobsługiwane.       |
 |Węzły usługi Azure Kubernetes | Nieobsługiwane. Użyj procesu poprawek opisanego w temacie [stosowanie aktualizacji zabezpieczeń i jądra do węzłów systemu Linux w usłudze Azure Kubernetes Service (AKS)](../aks/node-updates-kured.md)|
 
@@ -255,13 +255,5 @@ Poniżej przedstawiono sposoby włączania Update Management i wybierania maszyn
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby uzyskać szczegółowe informacje na temat pracy z Update Management, zobacz [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure](automation-tutorial-update-management.md).
-* Jeśli musisz wybrać dynamiczną grupę maszyn wirtualnych, aby uzyskać aktualizacje, zobacz [Używanie grup dynamicznych z Update Management](automation-update-management-groups.md).
-* Aby włączyć funkcję przy użyciu szablonu Azure Resource Manager, zobacz [włączanie Update Management przy użyciu szablonu Azure Resource Manager](automation-update-management-deploy-template.md).
-* Aby włączyć funkcję z elementu Runbook, zobacz [włączanie Update Management z elementu Runbook](automation-onboard-solutions.md).
-* Aby włączyć funkcję z konta usługi Automation, zobacz [włączanie Update Management z konta usługi Automation](automation-onboard-solutions-from-automation-account.md).
-* Aby włączyć tę funkcję, przeglądając Azure Portal, zobacz [włączanie Update Management z Azure Portal](automation-onboard-solutions-from-browse.md).
-* Aby włączyć funkcję z maszyny wirtualnej platformy Azure, zobacz [włączanie Update Management z maszyny wirtualnej platformy Azure](automation-onboard-solutions-from-vm.md).
-* Jeśli musisz przeszukać dzienniki przechowywane w obszarze roboczym Log Analytics, zobacz [dzienniki Update Management zapytań](automation-update-management-query-logs.md).
-* Aby rozwiązać problemy z błędami funkcji, zobacz [Rozwiązywanie problemów Update Management](troubleshoot/update-management.md).
-* Rozwiązywanie problemów z błędami programu Windows Update Agent można znaleźć w temacie [Rozwiązywanie problemów z usługą Windows Update Agent](troubleshoot/update-agent-issues.md).
-* Aby rozwiązać problemy z błędami agenta aktualizacji systemu Linux, zobacz [Rozwiązywanie problemów z usługą Linux Update Agent](troubleshoot/update-agent-issues-linux.md).
+
+* Zapoznaj się z często zadawanymi pytaniami dotyczącymi Update Management w [Azure Automation często zadawanych pytań](automation-faq.md).

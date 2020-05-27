@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/21/2020
-ms.openlocfilehash: 0e1bb015025c2ea9c720aca5d72faef01926cc33
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: d892c58413803ff65fbd8ca8b25a61bc5ffeb26f
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800011"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847365"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis-preview"></a>Eksploruj Azure Monitor dla usługi Azure cache for Redis (wersja zapoznawcza)
 
@@ -34,8 +34,6 @@ Zapewnia:
 - **Analiza przechodzenia do szczegółów** określonej pamięci podręcznej platformy Azure dla zasobu Redis. Można zdiagnozować problemy i zapoznać się ze szczegółową analizą użycia, niepowodzeń, pojemności i operacji. Wybierz dowolną z tych kategorii, aby zobaczyć szczegółowy widok istotnych informacji.  
 
 - **Dostosowanie** tego środowiska, które jest skompilowane Azure monitor szablonów skoroszytów korzystającego. Środowisko pozwala zmienić, jakie metryki są wyświetlane, i modyfikować lub ustawiać progi, które są dostosowywane do limitów. Możesz zapisać zmiany w niestandardowym skoroszycie, a następnie przypiąć wykresy skoroszytu do pulpitów nawigacyjnych platformy Azure.
-
-- **Dostosowanie** tego środowiska jest kompilowane korzystającego Azure monitor szablonów skoroszytów. Środowisko pozwala zmienić, jakie metryki są wyświetlane i zmodyfikować lub ustawić progi, które są wyrównane z limitami. Możesz zapisać zmiany w niestandardowym skoroszycie, a następnie przypiąć wykresy skoroszytu do pulpitów nawigacyjnych platformy Azure.
 
 Ta funkcja nie wymaga włączenia ani skonfigurowania żadnych elementów. Pamięć podręczna platformy Azure dla informacji Redis jest domyślnie zbierana.
 

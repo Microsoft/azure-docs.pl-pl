@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/23/2020
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: 5bd20f98b10989da0a66acbf45b99d724664cf5d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6c2ed68c18cc7845d45bebffc31842879353f2c2
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82208129"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83846940"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Samouczek: Tworzenie aplikacji ASP.NET Core i SQL Database w Azure App Service w systemie Linux
 
@@ -23,7 +23,7 @@ ms.locfileid: "82208129"
 
 ![aplikacja działająca w usłudze App Service w systemie Linux](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie bazy danych SQL Database na platformie Azure
@@ -91,7 +91,7 @@ W tym samouczku jako baza danych SQL jest używana baza danych [Azure SQL Databa
 
 W Cloud Shell Utwórz SQL Database serwera logicznego za pomocą [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) polecenia.
 
-Zastąp * \<ciąg Server-Name>* symbolem zastępczym *unikatową* nazwą SQL Database. Ta nazwa jest używana jako część globalnie unikatowych punktów końcowych SQL Database, `<server-name>.database.windows.net`. Prawidłowe znaki to `a` - `z` `0` -, `9`, `-`. Ponadto Zastąp * \<ciąg DB-username>* i * \<DB-Password>* nazwą użytkownika i wybranym przez Ciebie hasłem. 
+Zastąp * \< ciąg Server-Name>* symbolem zastępczym *unikatową* nazwą SQL Database. Ta nazwa jest używana jako część globalnie unikatowych punktów końcowych SQL Database, `<server-name>.database.windows.net` . Prawidłowe znaki to `a` - `z` , `0` - `9` , `-` . Ponadto Zastąp * \< ciąg DB-username>* i * \< DB-Password>* nazwą użytkownika i wybranym przez Ciebie hasłem. 
 
 
 ```azurecli-interactive
@@ -130,7 +130,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 > Reguła zapory może być jeszcze bardziej restrykcyjna, jeśli [zostaną użyte tylko adresy IP dla ruchu wychodzącego używane przez aplikację](../overview-inbound-outbound-ips.md#find-outbound-ips).
 >
 
-W Cloud Shell ponownie uruchom polecenie, aby zezwolić na dostęp z komputera lokalnego, zastępując * \<adres IP>* z [lokalnym adresem IP IPv4](https://www.whatsmyip.org/).
+W Cloud Shell ponownie uruchom polecenie, aby zezwolić na dostęp z komputera lokalnego, zastępując * \< adres IP>* z [lokalnym adresem IP IPv4](https://www.whatsmyip.org/).
 
 ```azurecli-interactive
 az sql server firewall-rule create --name AllowLocalClient --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address>
@@ -152,7 +152,7 @@ Pobierz parametry połączenia za pomocą [`az sql db show-connection-string`](/
 az sql db show-connection-string --client ado.net --server cephalin-core --name coreDB
 ```
 
-W danych wyjściowych polecenia Zastąp * \<wartość UserName>* i * \<hasło>* z użytymi wcześniej poświadczeniami administratora bazy danych.
+W danych wyjściowych polecenia Zastąp wartość * \< username>* i * \< hasło>* z użytymi wcześniej poświadczeniami administratora bazy danych.
 
 To są parametry połączenia dla aplikacji .NET Core. Skopiuj je w celu późniejszego użycia.
 
@@ -180,7 +180,7 @@ services.AddDbContext<MyDatabaseContext>(options =>
 
 Twoja aplikacja obecnie nawiązuje połączenie z lokalną bazą danych programu SQLite. Teraz, po skonfigurowaniu Azure SQL Database, Utwórz ponownie migrację początkową, aby docelowa. 
 
-W katalogu głównym repozytorium Uruchom następujące polecenia. Zastąp * \<ciąg połączenia>* z utworzonymi wcześniej parametrami połączenia.
+W katalogu głównym repozytorium Uruchom następujące polecenia. Zastąp * \< ciąg połączenia>* z utworzonymi wcześniej parametrami połączenia.
 
 ```
 # Delete old migrations
@@ -237,13 +237,13 @@ W tym kroku wdrożysz aplikację .NET Core połączoną z bazą danych SQL Datab
 
 ### <a name="configure-connection-string"></a>Konfigurowanie parametrów połączenia
 
-Aby ustawić parametry połączenia dla aplikacji platformy Azure, użyj [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) polecenia w Cloud Shell. W poniższym poleceniu Zastąp * \<ciąg App-Name>*, a także parametr * \<>parametrów połączenia* z utworzonymi wcześniej ciągami połączenia.
+Aby ustawić parametry połączenia dla aplikacji platformy Azure, użyj [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) polecenia w Cloud Shell. W poniższym poleceniu Zastąp ciąg * \< App-Name>*, a także parametr * \<>parametrów połączenia* z utworzonymi wcześniej ciągami połączenia.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app-name> --settings MyDbConnection="<connection-string>" --connection-string-type SQLAzure
 ```
 
-W ASP.NET Core można użyć tego nazwanego ciągu połączenia (`MyDbConnection`) przy użyciu wzorca standardowego, takiego jak wszystkie parametry połączenia określone w pliku *appSettings. JSON*. W tym przypadku `MyDbConnection` jest również zdefiniowane w pliku *appSettings. JSON*. W przypadku uruchamiania w App Service parametry połączenia zdefiniowane w App Service mają pierwszeństwo przed parametrami połączenia zdefiniowanymi w pliku *appSettings. JSON*. Kod używa wartości *appSettings. JSON* podczas tworzenia lokalnego i ten sam kod używa wartości App Service po wdrożeniu.
+W ASP.NET Core można użyć tego nazwanego ciągu połączenia ( `MyDbConnection` ) przy użyciu wzorca standardowego, takiego jak wszystkie parametry połączenia określone w pliku *appSettings. JSON*. W tym przypadku `MyDbConnection` jest również zdefiniowane w pliku *appSettings. JSON*. W przypadku uruchamiania w App Service parametry połączenia zdefiniowane w App Service mają pierwszeństwo przed parametrami połączenia zdefiniowanymi w pliku *appSettings. JSON*. Kod używa wartości *appSettings. JSON* podczas tworzenia lokalnego i ten sam kod używa wartości App Service po wdrożeniu.
 
 Aby dowiedzieć się, w jaki sposób w kodzie występuje odwołanie do parametrów połączenia, zobacz [Konfigurowanie aplikacji do nawiązywania połączenia z produkcyjną bazą danych](#configure-app-to-connect-to-production-database).
 
@@ -314,6 +314,10 @@ dotnet ef migrations add AddProperty
 dotnet ef database update
 ```
 
+> [!NOTE]
+> Jeśli otworzysz nowe okno terminalu, należy ustawić parametry połączenia na produkcyjną bazę danych w terminalu, tak jak w przypadku [uruchamiania migracji bazy danych do produkcyjnej bazy danych](#run-database-migrations-to-the-production-database).
+>
+
 ### <a name="use-the-new-property"></a>Używanie nowej właściwości
 
 Wprowadź zmiany kodu, aby użyć właściwości `Done`. Dla uproszczenia w tym samouczku zmienisz tylko widoki `Index` i `Create`, aby zobaczyć, jak działa właściwość.
@@ -368,6 +372,10 @@ Uruchom aplikację lokalnie.
 dotnet run
 ```
 
+> [!NOTE]
+> Jeśli otworzysz nowe okno terminalu, należy ustawić parametry połączenia na produkcyjną bazę danych w terminalu, tak jak w przypadku [uruchamiania migracji bazy danych do produkcyjnej bazy danych](#run-database-migrations-to-the-production-database).
+>
+
 W przeglądarce przejdź do `http://localhost:5000/`. Teraz możesz dodać element do wykonania i zaznaczyć pole **Gotowe**. Następnie powinien zostać on wyświetlony na stronie głównej jako ukończony. Pamiętaj, że widok `Edit` nie zawiera pola `Done`, ponieważ nie zmieniono widoku `Edit`.
 
 ### <a name="publish-changes-to-azure"></a>Publikowanie zmian na platformie Azure
@@ -378,7 +386,7 @@ git commit -m "added done field"
 git push azure master
 ```
 
-`git push` Po zakończeniu przejdź do aplikacji App Service i spróbuj dodać element do wykonania i zaznacz opcję **gotowe**.
+Po `git push` zakończeniu przejdź do aplikacji App Service i spróbuj dodać element do wykonania i zaznacz opcję **gotowe**.
 
 ![Aplikacja platformy Azure po zakończeniu migracji Code First](./media/tutorial-dotnetcore-sqldb-app/this-one-is-done.png)
 
@@ -403,7 +411,7 @@ az webapp log config --name <app-name> --resource-group myResourceGroup --applic
 > Poziom rejestrowania projektu jest już ustawiony na `Information` w pliku *appsettings.json*.
 > 
 
-Aby rozpocząć przesyłanie strumieniowe dzienników, [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) Użyj polecenia znajdującego się w Cloud Shell.
+Aby rozpocząć przesyłanie strumieniowe dzienników, użyj [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) polecenia znajdującego się w Cloud Shell.
 
 ```azurecli-interactive
 az webapp log tail --name <app-name> --resource-group myResourceGroup
@@ -411,7 +419,7 @@ az webapp log tail --name <app-name> --resource-group myResourceGroup
 
 Po rozpoczęciu przesyłania strumieniowego dzienników odśwież aplikację platformy Azure w przeglądarce, aby wywołać pewien ruch w Internecie. Teraz można zobaczyć dzienniki konsoli przesłane potokiem do terminala. Jeśli nie widzisz dzienników konsoli, sprawdź ponownie w ciągu 30 sekund.
 
-Aby zatrzymać przesyłanie strumieniowe dzienników w dowolnym momencie `Ctrl` + `C`, wpisz polecenie.
+Aby zatrzymać przesyłanie strumieniowe dzienników w dowolnym momencie, wpisz polecenie `Ctrl` + `C` .
 
 Aby uzyskać więcej informacji na temat dostosowywania dzienników platformy ASP.NET Core, zobacz [Logging in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging) (Rejestrowanie na platformie ASP.NET Core).
 

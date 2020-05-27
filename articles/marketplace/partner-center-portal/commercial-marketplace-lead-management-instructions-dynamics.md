@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 985b3258eb0b957242d529945f32ed9704a91e7d
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 65139e0842679f59733c34be838d4aad7f3c63e4
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791004"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847954"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Konfigurowanie zarządzania liderem dla usługi Dynamics 365 Customer Engagement
 
@@ -34,7 +34,7 @@ Następujące uprawnienia użytkownika są niezbędne do wykonania kroków opisa
 
 1. Pobierz [rozwiązanie Microsoft Marketplaceego modułu zapisywania](https://mpsapiprodwus.blob.core.windows.net/documentation/MicrosoftMarketplacesLeadIntegrationSolution_1_0_0_0_target_CRM_6.1_managed.zip)i Zapisz je lokalnie na komputerze.
 
-1. Otwórz program Dynamics 365 Customer Engagement, przechodząc do adresu URL dla wystąpienia usługi Dynamics, `https://tenant.crm.dynamics.com`takiego jak.
+1. Otwórz program Dynamics 365 Customer Engagement, przechodząc do adresu URL dla wystąpienia usługi Dynamics, takiego jak `https://tenant.crm.dynamics.com` .
 
 1. Wybierz ikonę koła zębatego na górnym pasku, a następnie wybierz pozycję **Ustawienia zaawansowane**.
  
@@ -77,7 +77,7 @@ Aby skonfigurować Azure Active Directory dla usługi Dynamics 365 Customer Enga
 1. Wybierz pozycję **rejestracje aplikacji** w lewym okienku Azure Active Directory, a następnie wybierz pozycję **Nowa rejestracja** na tej stronie.
 1. Wprowadź opisową nazwę aplikacji.
 1. W obszarze **obsługiwane typy kont**wybierz pozycję **konta w dowolnym katalogu organizacyjnym**.
-1. W obszarze **URI przekierowania (opcjonalnie)** wybierz pozycję **Sieć Web** i wprowadź identyfikator URI `https://contosoapp1/auth`, na przykład. 
+1. W obszarze **URI przekierowania (opcjonalnie)** wybierz pozycję **Sieć Web** i wprowadź identyfikator URI, na przykład `https://contosoapp1/auth` . 
 1. Wybierz pozycję **Zarejestruj**.
 
     ![Rejestrowanie strony aplikacji](./media/commercial-marketplace-lead-management-instructions-dynamics/register-an-application.png)
@@ -98,7 +98,7 @@ Aby skonfigurować Azure Active Directory dla usługi Dynamics 365 Customer Enga
 
     ![Przycisk Dodaj uprawnienia](./media/commercial-marketplace-lead-management-instructions-dynamics/api-permissions.png)
 
-1. Po wykonaniu kroków od 1 do 14 w Azure Portal przejdź do wystąpienia klienta Dynamics 365, przechodząc do adresu URL, na przykład `https://tenant.crm.dynamics.com`.
+1. Po wykonaniu kroków od 1 do 14 w Azure Portal przejdź do wystąpienia klienta Dynamics 365, przechodząc do adresu URL, na przykład `https://tenant.crm.dynamics.com` .
 1. Wybierz ikonę koła zębatego na górnym pasku, a następnie wybierz pozycję **Ustawienia zaawansowane**.
 1. Na stronie **Ustawienia** Otwórz menu **Ustawienia** na górnym pasku i wybierz pozycję **zabezpieczenia**.
 1. Na stronie **zabezpieczenia** wybierz pozycję **Użytkownicy**. Na stronie **Użytkownicy** wybierz listę lista **włączonych użytkowników** , a następnie wybierz pozycję **Użytkownicy aplikacji**.
@@ -139,7 +139,7 @@ Zapisz te wartości, ponieważ musisz podać wartości **nazwy użytkownika** i 
 
 Ostatnim krokiem jest umożliwienie użytkownikowi utworzonego w celu zapisania potencjalnych klientów.
 
-1. Otwórz program Dynamics 365 Customer Engagement, przechodząc do adresu URL dla wystąpienia usługi Dynamics, `https://tenant.crm.dynamics.com`takiego jak.
+1. Otwórz program Dynamics 365 Customer Engagement, przechodząc do adresu URL dla wystąpienia usługi Dynamics, takiego jak `https://tenant.crm.dynamics.com` .
 1. Wybierz ikonę koła zębatego na górnym pasku, a następnie wybierz pozycję **Ustawienia zaawansowane**.
 1. Na stronie **Ustawienia** Otwórz menu **Ustawienia** na górnym pasku i wybierz pozycję **zabezpieczenia**.
 1. Na stronie **zabezpieczenia** wybierz pozycję **Użytkownicy** , a następnie wybierz użytkownika, który został utworzony w sekcji "Konfigurowanie uprawnień użytkownika" tego dokumentu. Następnie wybierz pozycję **Zarządzaj rolami**. 
@@ -165,29 +165,29 @@ Ostatnim krokiem jest umożliwienie użytkownikowi utworzonego w celu zapisania 
 
     ![Karta dostosowania modułu zapisywania klienta Microsoft Marketplace](./media/commercial-marketplace-lead-management-instructions-dynamics/marketplace-lead-writer-customization.png)
 
-1. Wybierz pozycję **Zapisz i Zamknij**.
+1. Wybierz pozycję **Zapisz i zamknij**.
 
 ## <a name="configure-your-offer-to-send-leads-to-dynamics-365-customer-engagement"></a>Skonfiguruj ofertę do wysyłania potencjalnych klientów do programu Dynamics 365 Customer Engagement 
 
 Aby skonfigurować informacje dotyczące zarządzania potencjalnymi klientami dla oferty w portalu wydawców:
 
 1. Przejdź do strony **konfiguracji oferty** oferty.
-1. Wybierz pozycję **Połącz** w sekcji **Zarządzanie potencjalnymi klientami** .
+1. W sekcji **potencjalni klienci** wybierz pozycję **Połącz**.
 
-    ![Przycisk Połącz sekcję zarządzania potencjalnymi klientami](./media/commercial-marketplace-lead-management-instructions-dynamics/connect-lead-management.png)
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-dynamics/customer-leads.png" alt-text="Potencjalni klienci":::
 
 1. W oknie podręcznym szczegóły połączenia wybierz pozycję **Dynamics 365 Customer Engagement** dla miejsca docelowego potencjalnego klienta.
 
     ![Pole docelowe potencjalnego klienta](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-lead-destination.png)
 
-1. Wprowadź **adres URL** wystąpienia usługi Dynamics 365, na przykład `https://contoso.crm4.dynamics.com`.
+1. Wprowadź **adres URL** wystąpienia usługi Dynamics 365, na przykład `https://contoso.crm4.dynamics.com` .
 
 1. Wybierz metodę **uwierzytelniania**, Azure Active Directory lub Office 365. 
-1. W przypadku wybrania **Azure Active Directory**wprowadź **Identyfikator aplikacji (** na przykład `23456052-aaaa-bbbb-8662-1234df56788f`), **Identyfikator katalogu** (na `12345678-8af1-4asf-1234-12234d01db47`przykład) i **klucz tajny klienta** (na przykład `1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=`).
+1. W przypadku wybrania **Azure Active Directory**wprowadź **Identyfikator aplikacji (** na przykład `23456052-aaaa-bbbb-8662-1234df56788f` ), **Identyfikator katalogu** (na przykład `12345678-8af1-4asf-1234-12234d01db47` ) i **klucz tajny klienta** (na przykład `1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=` ).
 
     ![Uwierzytelnianie z wybranym Azure Active Directory](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-application-id.png)
 
-1. W przypadku wybrania **pakietu Office 365**wprowadź **nazwę użytkownika** (na przykład `contoso@contoso.onmicrosoft.com`) i **hasło** (na przykład `P@ssw0rd`).
+1. W przypadku wybrania **pakietu Office 365**wprowadź **nazwę użytkownika** (na przykład `contoso@contoso.onmicrosoft.com` ) i **hasło** (na przykład `P@ssw0rd` ).
 
     ![Pole nazwy użytkownika pakietu Office 365](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-authentication.png)
 

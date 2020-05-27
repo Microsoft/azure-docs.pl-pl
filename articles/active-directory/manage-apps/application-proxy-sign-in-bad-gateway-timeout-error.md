@@ -16,12 +16,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d61f4b4bce9b8287dc13237f071684ea5d135fa
-ms.sourcegitcommit: b1e25a8a442656e98343463aca706f4fde629867
+ms.openlocfilehash: bbb3743251f2818ab1e4255b3dc6e7f4f9cbbcba
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74275466"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83846736"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Błąd "nie można uzyskać dostępu do tej aplikacji firmowej" podczas korzystania z aplikacji serwera proxy aplikacji
 
@@ -50,7 +50,7 @@ Limit czasu bramy występuje, gdy usługa próbuje skontaktować się z łączni
 Nieprawidłowy błąd bramy wskazuje, że łącznik nie może nawiązać połączenia z aplikacją zaplecza. Upewnij się, że aplikacja została opublikowana. Typowe błędy, które powodują wystąpienie tego błędu:
 
 - Literówka lub błąd w wewnętrznym adresie URL
-- Nie publikuje katalogu głównego aplikacji. Na przykład publikowanie <http://expenses/reimbursement> , ale próba uzyskania dostępu<http://expenses>
+- Nie publikuje katalogu głównego aplikacji. Na przykład publikowanie, <http://expenses/reimbursement> ale próba uzyskania dostępu<http://expenses>
 - Problemy z konfiguracją ograniczonego delegowania protokołu Kerberos (KCD)
 - Problemy z aplikacją zaplecza
 
@@ -71,7 +71,7 @@ Pierwszym krokiem jest podwójne sprawdzenie i poprawienie wewnętrznego adresu 
 Aby sprawdzić, czy aplikacja jest przypisana do grupy łączników roboczych:
 
 1. Otwórz aplikację w portalu, przechodząc do **Azure Active Directory**, klikając pozycję **aplikacje dla przedsiębiorstw**, a następnie **wszystkie aplikacje.** Otwórz aplikację, a następnie wybierz pozycję **serwer proxy aplikacji** w menu po lewej stronie.
-1. Sprawdź pole Grupa łączników. Jeśli w grupie nie ma aktywnych łączników, zostanie wyświetlone ostrzeżenie. Jeśli nie widzisz żadnych ostrzeżeń, przejdź do, aby sprawdzić, czy wszystkie wymagane porty są dozwolone.
+1. Sprawdź pole Grupa łączników. Jeśli w grupie nie ma aktywnych łączników, zostanie wyświetlone ostrzeżenie. Jeśli nie widzisz żadnych ostrzeżeń, przejdź do, aby sprawdzić, czy wszystkie [wymagane porty](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectivity-ports-how-to) są dozwolone.
 1. Jeśli pokazywana jest niewłaściwa Grupa łączników, Użyj listy rozwijanej, aby wybrać poprawną grupę i potwierdzić, że nie są już wyświetlane żadne ostrzeżenia. Jeśli zostanie wyświetlona zamierzona Grupa łączników, kliknij komunikat ostrzegawczy, aby otworzyć stronę z zarządzaniem łącznikiem.
 1. W tym miejscu istnieje kilka sposobów szczegółowego przechodzenia do szczegółów:
 
@@ -83,7 +83,7 @@ Po zastosowaniu tych kroków, aby upewnić się, że aplikacja jest przypisana d
 
 ## <a name="check-all-required-ports-are-open"></a>Sprawdź, czy wszystkie wymagane porty są otwarte
 
-Aby sprawdzić, czy wszystkie wymagane porty są otwarte, zapoznaj się z dokumentacją dotyczącą otwierania portów. Jeśli wszystkie wymagane porty są otwarte, przejdź do następnej sekcji.
+Aby sprawdzić, czy wszystkie wymagane porty są otwarte, zapoznaj się z [dokumentacją dotyczącą otwierania portów](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectivity-ports-how-to). Jeśli wszystkie wymagane porty są otwarte, przejdź do następnej sekcji.
 
 ## <a name="check-for-other-connector-errors"></a>Sprawdź inne błędy łącznika
 
