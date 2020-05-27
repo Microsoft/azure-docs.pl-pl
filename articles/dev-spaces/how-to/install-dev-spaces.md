@@ -5,12 +5,12 @@ ms.date: 07/24/2019
 ms.topic: conceptual
 description: Dowiedz się, jak włączyć Azure Dev Spaces w klastrze AKS i zainstalować narzędzia po stronie klienta.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s
-ms.openlocfilehash: a6b3be5ceba5e60b99b2f75e060f3321cd3151f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3666eeb995c73615c522200a3619d785814ea0b5
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78898953"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873521"
 ---
 # <a name="enable-azure-dev-spaces-on-an-aks-cluster-and-install-the-client-side-tools"></a>Włącz Azure Dev Spaces w klastrze AKS i zainstaluj narzędzia po stronie klienta
 
@@ -23,7 +23,7 @@ Aby można było włączyć funkcję Spaces dev przy użyciu interfejsu wiersza 
 * [Zainstalowano interfejs wiersza polecenia platformy Azure][install-cli].
 * [Klaster AKS][create-aks-cli] w [obsługiwanym regionie][supported-regions].
 
-Użyj `use-dev-spaces` polecenia, aby włączyć miejsca deweloperskie w klastrze AKS i postępuj zgodnie z monitami.
+Użyj `use-dev-spaces` polecenia, aby włączyć miejsca deweloperskie w KLASTRZE AKS i postępuj zgodnie z monitami.
 
 ```azurecli
 az aks use-dev-spaces -g myResourceGroup -n myAKSCluster
@@ -47,7 +47,7 @@ Configuring and selecting dev space 'default'...3s
 Managed Kubernetes cluster 'myAKSCluster' in resource group 'myResourceGroup' is ready for development in dev space 'default'. Type `azds prep` to prepare a source directory for use with Azure Dev Spaces and `azds up` to run.
 ```
 
-`use-dev-spaces` Polecenie instaluje również interfejs wiersza polecenia Azure dev Spaces.
+`use-dev-spaces`Polecenie instaluje również interfejs wiersza polecenia Azure dev Spaces.
 
 Aby usunąć Azure Dev Spaces z klastra AKS, użyj `azds remove` polecenia. Przykład:
 
@@ -84,7 +84,6 @@ Za pomocą narzędzi po stronie klienta Azure Dev Spaces można współdziałać
 
 * W [Visual Studio Code][vscode]zainstaluj [rozszerzenie Azure dev Spaces][vscode-extension].
 * W programie [Visual Studio 2019][visual-studio]Zainstaluj obciążenie Programowanie na platformie Azure.
-* W programie Visual Studio 2017 Zainstaluj obciążenie programowanie w sieci Web i [Visual Studio Tools for Kubernetes][visual-studio-k8s-tools].
 * Pobierz i zainstaluj interfejs wiersza polecenia [systemu Windows][cli-win], [Mac][cli-mac]lub [Linux][cli-linux] .
 
 ## <a name="next-steps"></a>Następne kroki

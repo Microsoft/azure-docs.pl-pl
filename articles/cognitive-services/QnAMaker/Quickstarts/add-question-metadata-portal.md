@@ -1,20 +1,14 @@
 ---
 title: 'Szybki Start: dodawanie pytań i odpowiedzi w portalu QnA Maker'
 description: Ten przewodnik Szybki Start przedstawia sposób dodawania zestawów pytań i odpowiedzi za pomocą metadanych, dzięki czemu użytkownicy mogą znaleźć odpowiednią odpowiedź na pytanie.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 02/08/2020
-ms.author: diberry
-ms.openlocfilehash: f067bae55c38fc783c12bf9d0bc6fbcdf881e4e4
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/26/2020
+ms.openlocfilehash: fc8bac425723e9194c447f1cf6ee13547c09d772
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756687"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873686"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Szybki Start: dodawanie pytań i odpowiedzi za pomocą portalu QnA Maker
 
@@ -82,11 +76,11 @@ Dodanie metadanych do zestawu pytań i odpowiedzi umożliwia aplikacji klienckie
 
 1. Wybierz pozycję **Wyświetl opcje**, a następnie wybierz pozycję **Pokaż metadane**.
 
-1. W przypadku dodanej pary QnA wybierz pozycję **Dodaj Tagi metadanych**, a następnie Dodaj nazwę `service` i wartość. `search` Wygląda to następująco: `service:search`.
+1. W przypadku dodanej pary QnA wybierz pozycję **Dodaj Tagi metadanych**, a następnie Dodaj nazwę `service` i wartość `search` . Wygląda to następująco: `service:search` .
 
-1. Dodaj inny tag metadanych o nazwie `link_in_answer` i wartości. `false` Wygląda to następująco: `link_in_answer:false`.
+1. Dodaj inny tag metadanych o nazwie `link_in_answer` i wartości `false` . Wygląda to następująco: `link_in_answer:false` .
 
-1. Wyszukaj pierwszą odpowiedź w tabeli, `How large a knowledge base can I create?`.
+1. Wyszukaj pierwszą odpowiedź w tabeli, `How large a knowledge base can I create?` .
 
 1. Dodaj pary metadanych dla tych samych dwóch tagów metadanych:
 
@@ -105,7 +99,7 @@ Dodanie metadanych do zestawu pytań i odpowiedzi umożliwia aplikacji klienckie
 
 Twoja baza wiedzy została poddana edycji w celu obsługi większej liczby pytań i dostarczonych par nazwa/wartość do obsługi filtrowania podczas wyszukiwania dla najważniejszych odpowiedzi lub dostosujesz, gdy zostanie zwrócona odpowiedź lub odpowiedzi.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz kontynuować korzystania z następnego przewodnika Szybki Start, Usuń QnA Maker i zasoby struktury bot w Azure Portal.
 

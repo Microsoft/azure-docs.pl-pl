@@ -1,89 +1,73 @@
 ---
-title: Weryfikowanie stanu szyfrowania dla systemu Linux
-description: Ten artykuł zawiera instrukcje dotyczące weryfikowania stanu szyfrowania z poziomu platformy i systemu operacyjnego.
+title: Sprawdź stan szyfrowania dla systemu Linux — Azure Disk Encryption
+description: Ten artykuł zawiera instrukcje dotyczące weryfikowania stanu szyfrowania na poziomach platformy i systemu operacyjnego.
 author: kailashmsft
 ms.service: security
 ms.topic: article
 ms.author: kaib
 ms.date: 03/11/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0aaa32c46d915eafffcfac9d95cfdd3a24d4086d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e2916a71f167c415f6bf1dde8ff82a38b0e0557c
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80123424"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83874000"
 ---
-# <a name="how-to-verify-encryption-status-for-linux"></a>Weryfikowanie stanu szyfrowania dla systemu Linux 
+# <a name="verify-encryption-status-for-linux"></a>Sprawdź stan szyfrowania dla systemu Linux 
 
-**Ten scenariusz ma zastosowanie w przypadku rozszerzeń z podwójnym przebiegiem i jednokrotnym przekazaniem.**  
-Ten zakres dokumentu polega na sprawdzeniu stanu szyfrowania maszyny wirtualnej przy użyciu różnych metod.
+Zakres tego artykułu polega na sprawdzeniu stanu szyfrowania maszyny wirtualnej przy użyciu różnych metod: Azure Portal, programu PowerShell, interfejsu wiersza polecenia platformy Azure lub systemu operacyjnego maszyny wirtualnej. 
 
-### <a name="environment"></a>Środowisko
+Podczas szyfrowania lub po nim można sprawdzić stan szyfrowania, wykonując następujące polecenie:
 
-- Dystrybucje systemu Linux
+- Sprawdzanie dysków dołączonych do określonej maszyny wirtualnej. 
+- Przeszukiwanie ustawień szyfrowania na każdym dysku, niezależnie od tego, czy dysk jest dołączony, czy niedołączony.
 
-### <a name="procedure"></a>Procedura
-
-Maszyna wirtualna została zaszyfrowana przy użyciu podwójnego przebiegu lub pojedynczego przebiegu.
-
-Stan szyfrowania można sprawdzić w trakcie lub po szyfrowaniu przy użyciu różnych metod.
+Ten scenariusz ma zastosowanie do Azure Disk Encryption rozszerzeń z podwójnym przebiegiem i jednokrotnym przekazaniem. Dystrybucje systemu Linux są jedynym środowiskiem w tym scenariuszu.
 
 >[!NOTE] 
->Stosujemy zmienne w całym dokumencie, zastępując odpowiednio wartości.
+>Stosujemy zmienne w całym artykule. Zastąp odpowiednie wartości.
 
-### <a name="verification"></a>Weryfikacja
+## <a name="portal"></a>Portal
 
-Weryfikację można przeprowadzić za pomocą portalu, programu PowerShell, polecenia AZ CLI i lub z systemu operacyjnego maszyny wirtualnej. 
+W Azure Portal w sekcji **rozszerzenia** wybierz rozszerzenie Azure Disk Encryption na liście. Informacje dotyczące **komunikatu o stanie** wskazują bieżący stan szyfrowania:
 
-Tę weryfikację można przeprowadzić przez sprawdzenie dysków dołączonych do określonej maszyny wirtualnej. 
+![Sprawdź, czy stan, wersja i komunikat o stanie zostały wyróżnione w portalu](./media/disk-encryption/verify-encryption-linux/portal-check-001.png)
 
-Lub przez przeszukiwanie ustawień szyfrowania na poszczególnych dyskach, niezależnie od tego, czy dysk jest dołączony, czy niedołączony.
+Na liście rozszerzeń zobaczysz odpowiednią wersję rozszerzenia Azure Disk Encryption. Wersja 0. x odpowiada Azure Disk Encryption podwójnego przebiegu, a wersja 1. x odpowiada Azure Disk Encryption pojedynczym przebiegu.
 
-Poniżej różnych metod sprawdzania poprawności:
+Aby uzyskać więcej szczegółów, wybierz rozszerzenie, a następnie wybierz pozycję **Wyświetl szczegółowy stan**. Szczegółowy stan procesu szyfrowania jest wyświetlany w formacie JSON.
 
-## <a name="using-the-portal"></a>Korzystanie z portalu
+![Sprawdzanie portalu z wyróżnionym linkiem "Wyświetl stan szczegółów"](./media/disk-encryption/verify-encryption-linux/portal-check-002.png)
 
-Sprawdź poprawność stanu szyfrowania, sprawdzając sekcję rozszerzenia na Azure Portal.
+![Szczegółowy stan w formacie JSON](./media/disk-encryption/verify-encryption-linux/portal-check-003.png)
 
-W sekcji **rozszerzeń** zobaczysz rozszerzenie ADE. 
+Innym sposobem sprawdzenia stanu szyfrowania jest przejrzenie sekcji **Ustawienia dysku** .
 
-Kliknij go i obejrzyj **komunikat o stanie**, wskazując bieżący stan szyfrowania:
-
-![Numer sprawdzania portalu 1](./media/disk-encryption/verify-encryption-linux/portal-check-001.png)
-
-Na liście rozszerzeń zobaczysz odpowiednią wersję rozszerzenia ADE. Wersja 0. x odpowiada podwójnym serwerowi ADE i wersji 1. x odpowiada jednokrotnemu zajściu.
-
-Aby uzyskać więcej szczegółów, kliknij rozszerzenie, a następnie *Wyświetl szczegółowy stan*.
-
-Zostanie wyświetlony bardziej szczegółowy stan procesu szyfrowania w formacie JSON:
-
-![Numer sprawdzania portalu 2](./media/disk-encryption/verify-encryption-linux/portal-check-002.png)
-
-![Numer sprawdzania portalu 3](./media/disk-encryption/verify-encryption-linux/portal-check-003.png)
-
-Innym sposobem sprawdzania poprawności stanu szyfrowania jest zapoznaj się z sekcją **dysków** .
-
-![Numer sprawdzania portalu 4](./media/disk-encryption/verify-encryption-linux/portal-check-004.png)
+![Stan szyfrowania dysku systemu operacyjnego i dysków z danymi](./media/disk-encryption/verify-encryption-linux/portal-check-004.png)
 
 >[!NOTE] 
-> Ten stan oznacza, że dyski mają ustawione ustawienia szyfrowania, ale nie są w rzeczywistości szyfrowane na poziomie systemu operacyjnego. Po zaprojektowaniu dyski są najpierw znakowane i szyfrowane w późniejszym czasie. Jeśli proces szyfrowania zakończy się niepowodzeniem, dyski mogą kończyć się znakiem, ale nie zaszyfrowanym. Aby sprawdzić, czy dyski są rzeczywiście zaszyfrowane, możesz dwukrotnie sprawdzić szyfrowanie każdego dysku na poziomie systemu operacyjnego.
+> Ten stan oznacza, że dyski mają ustawione ustawienia szyfrowania, a nie zaszyfrowane na poziomie systemu operacyjnego.
+>
+> Po zaprojektowaniu dyski są najpierw znakowane i szyfrowane w późniejszym czasie. Jeśli proces szyfrowania zakończy się niepowodzeniem, dyski mogą kończyć się znakiem, ale nie zaszyfrowanym. 
+>
+> Aby sprawdzić, czy dyski są rzeczywiście zaszyfrowane, możesz dwukrotnie sprawdzić szyfrowanie każdego dysku na poziomie systemu operacyjnego.
 
-## <a name="using-powershell"></a>Korzystanie z programu PowerShell
+## <a name="powershell"></a>PowerShell
 
-**Ogólny** stan szyfrowania zaszyfrowanej maszyny wirtualnej można sprawdzić za pomocą następujących poleceń programu PowerShell:
+Aby sprawdzić *ogólny* stan szyfrowania zaszyfrowanej maszyny wirtualnej, można użyć następujących poleceń programu PowerShell:
 
 ```azurepowershell
    $VMNAME="VMNAME"
    $RGNAME="RGNAME"
    Get-AzVmDiskEncryptionStatus -ResourceGroupName  ${RGNAME} -VMName ${VMNAME}
 ```
-![Sprawdź program PowerShell 1](./media/disk-encryption/verify-encryption-linux/verify-status-ps-01.png)
+![Ogólny stan szyfrowania w programie PowerShell](./media/disk-encryption/verify-encryption-linux/verify-status-ps-01.png)
 
-Ustawienia szyfrowania można przechwycić z poszczególnych dysków przy użyciu następujących poleceń programu PowerShell:
+Ustawienia szyfrowania można przechwycić z każdego dysku za pomocą następujących poleceń programu PowerShell.
 
 ### <a name="single-pass"></a>Pojedynczy przebieg
-W przypadku pojedynczego przebiegu ustawienia szyfrowania są sygnaturami poszczególnych dysków (system operacyjny i dane), a ustawienia szyfrowania dysków systemu operacyjnego można przechwycić w jednym przebiegu w następujący sposób:
+W jednym przebiegu ustawienia szyfrowania są znakowane na wszystkich dyskach (system operacyjny i dane). Ustawienia szyfrowania dla dysku systemu operacyjnego można przechwycić w jednym przebiegu w następujący sposób:
 
 ``` powershell
 $RGNAME = "RGNAME"
@@ -101,13 +85,13 @@ $VM = Get-AzVM -Name ${VMNAME} -ResourceGroupName ${RGNAME}
  Write-Host "Key URL:" $Sourcedisk.EncryptionSettingsCollection.EncryptionSettings.KeyEncryptionKey.KeyUrl
  Write-Host "============================================================================================================================================================="
 ```
-![Weryfikuj pojedynczy przebieg systemu operacyjnego 01](./media/disk-encryption/verify-encryption-linux/verify-os-single-ps-001.png)
+![Ustawienia szyfrowania dla dysku systemu operacyjnego](./media/disk-encryption/verify-encryption-linux/verify-os-single-ps-001.png)
 
-Jeśli dysk nie ma sygnatury ustawień szyfrowania, dane wyjściowe będą puste, jak pokazano poniżej:
+Jeśli dysk nie ma sygnatury ustawień szyfrowania, dane wyjściowe będą puste:
 
-![Ustawienia szyfrowania systemu operacyjnego 2](./media/disk-encryption/verify-encryption-linux/os-encryption-settings-2.png)
+![Puste dane wyjściowe](./media/disk-encryption/verify-encryption-linux/os-encryption-settings-2.png)
 
-Ustawienia szyfrowania dysków danych przechwytywania:
+Użyj następujących poleceń, aby przechwycić ustawienia szyfrowania dla dysków danych:
 
 ```azurepowershell
 $RGNAME = "RGNAME"
@@ -128,12 +112,12 @@ $VM = Get-AzVM -Name ${VMNAME} -ResourceGroupName ${RGNAME}
  Write-Host "============================================================================================================================================================="
  }
 ```
-![Weryfikuj dane pojedynczej PS 001](./media/disk-encryption/verify-encryption-linux/verify-data-single-ps-001.png)
+![Ustawienia szyfrowania dla dysków z danymi](./media/disk-encryption/verify-encryption-linux/verify-data-single-ps-001.png)
 
-### <a name="dual-pass"></a>Podwójny przebieg
-W przypadku dwóch przebiegów ustawienia szyfrowania są znakowane w modelu maszyny wirtualnej, a nie na poszczególnych dyskach.
+### <a name="dual-pass"></a>Podwójna Pass
+W przypadku podwójnego przebiegu ustawienia szyfrowania są znakowane w modelu maszyny wirtualnej, a nie na poszczególnych dyskach.
 
-Aby sprawdzić, czy ustawienia szyfrowania zostały oznaczone jako podwójne, można użyć następujących poleceń:
+Aby sprawdzić, czy ustawienia szyfrowania zostały oznaczone przy użyciu dwóch przebiegów, użyj następujących poleceń:
 
 ```azurepowershell
 $RGNAME = "RGNAME"
@@ -152,7 +136,7 @@ Write-Host "Secret URL:" $Sourcedisk.EncryptionSettingsCollection.EncryptionSett
 Write-Host "Key URL:" $Sourcedisk.EncryptionSettingsCollection.EncryptionSettings.KeyEncryptionKey.KeyUrl
 Write-Host "============================================================================================================================================================="
 ```
-![Weryfikowanie podwójnego przebiegu programu PowerShell 1](./media/disk-encryption/verify-encryption-linux/verify-dual-ps-001.png)
+![Ustawienia szyfrowania w podwójnym przebiegu](./media/disk-encryption/verify-encryption-linux/verify-dual-ps-001.png)
 
 ### <a name="unattached-disks"></a>Niedołączone dyski
 
@@ -171,19 +155,19 @@ Write-Host "Secret URL:" $Sourcedisk.EncryptionSettingsCollection.EncryptionSett
 Write-Host "Key URL:" $Sourcedisk.EncryptionSettingsCollection.EncryptionSettings.KeyEncryptionKey.KeyUrl
 Write-Host "============================================================================================================================================================="
 ```
-## <a name="using-az-cli"></a>Korzystanie z polecenia AZ CLI
+## <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-**Ogólny** stan szyfrowania zaszyfrowanej maszyny wirtualnej można sprawdzić przy użyciu następujących poleceń AZ CLI:
+Aby sprawdzić *ogólny* stan szyfrowania zaszyfrowanej maszyny wirtualnej, można użyć następujących poleceń interfejsu wiersza polecenia platformy Azure:
 
 ```bash
 VMNAME="VMNAME"
 RGNAME="RGNAME"
 az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} --query "substatus"
 ```
-![Sprawdzanie ogólnych przy użyciu interfejsu wiersza polecenia ](./media/disk-encryption/verify-encryption-linux/verify-gen-cli.png)
+![Ogólny stan szyfrowania z poziomu wiersza polecenia platformy Azure ](./media/disk-encryption/verify-encryption-linux/verify-gen-cli.png)
 
 ### <a name="single-pass"></a>Pojedynczy przebieg
-Można sprawdzić poprawność ustawień szyfrowania poszczególnych dysków przy użyciu następujących poleceń AZ CLI:
+Można sprawdzić poprawność ustawień szyfrowania dla każdego dysku, korzystając z następujących poleceń interfejsu wiersza polecenia platformy Azure:
 
 ```bash
 az vm encryption show -g ${RGNAME} -n ${VMNAME} --query "disks[*].[name, statuses[*].displayStatus]"  -o table
@@ -192,9 +176,9 @@ az vm encryption show -g ${RGNAME} -n ${VMNAME} --query "disks[*].[name, statuse
 ![Ustawienia szyfrowania danych](./media/disk-encryption/verify-encryption-linux/data-encryption-settings-2.png)
 
 >[!IMPORTANT]
-> Na wypadek, gdy dysk nie ma sygnatury ustawień szyfrowania, będzie wyświetlany jako "dysk nie jest szyfrowany"
+> Jeśli dysk nie ma sygnatury ustawień szyfrowania, zobaczysz, że dysk tekstowy **nie jest szyfrowany**.
 
-Szczegółowe ustawienia stanu i szyfrowania:
+Użyj następujących poleceń, aby uzyskać szczegółowe ustawienia stanu i szyfrowania.
 
 Dysk systemu operacyjnego:
 
@@ -214,7 +198,7 @@ echo "==========================================================================
 done
 ```
 
-![OSSingleCLI](./media/disk-encryption/verify-encryption-linux/os-single-cli.png)
+![Szczegółowy stan i ustawienia szyfrowania dla dysku systemu operacyjnego](./media/disk-encryption/verify-encryption-linux/os-single-cli.png)
 
 Dyski danych:
 
@@ -234,7 +218,7 @@ echo "==========================================================================
 done
 ```
 
-![Pojedynczy interfejs wiersza polecenia danych ](./media/disk-encryption/verify-encryption-linux/data-single-cli.png)
+![Szczegółowe ustawienia stanu i szyfrowania dla dysków danych](./media/disk-encryption/verify-encryption-linux/data-single-cli.png)
 
 ### <a name="dual-pass"></a>Podwójna Pass
 
@@ -242,7 +226,9 @@ done
 az vm encryption show --name ${VMNAME} --resource-group ${RGNAME} -o table
 ```
 
-![Sprawdź ogólne podwójne użycie interfejsu ](./media/disk-encryption/verify-encryption-linux/verify-gen-dual-cli.png) wiersza polecenia, możesz również sprawdzić ustawienia szyfrowania w profilu magazynu modelu maszyny wirtualnej dysku systemu operacyjnego:
+![Ogólne ustawienia szyfrowania dla podwójnego przekazywania za pośrednictwem interfejsu wiersza polecenia platformy Azure](./media/disk-encryption/verify-encryption-linux/verify-gen-dual-cli.png)
+
+Ustawienia szyfrowania można także sprawdzić w profilu magazynu modelu maszyny wirtualnej dysku systemu operacyjnego:
 
 ```bash
 disk=`az vm show -g ${RGNAME} -n ${VMNAME} --query storageProfile.osDisk.name -o tsv`
@@ -257,7 +243,7 @@ echo "==========================================================================
 done
 ```
 
-![Sprawdzanie profilu maszyny wirtualnej Dual using przy użyciu interfejsu wiersza polecenia ](./media/disk-encryption/verify-encryption-linux/verify-vm-profile-dual-cli.png)
+![Profil maszyny wirtualnej dla podwójnego przebiegu za pośrednictwem interfejsu wiersza polecenia platformy Azure](./media/disk-encryption/verify-encryption-linux/verify-vm-profile-dual-cli.png)
 
 ### <a name="unattached-disks"></a>Niedołączone dyski
 
@@ -280,12 +266,12 @@ echo "==========================================================================
 
 Dyski niezarządzane to pliki VHD, które są przechowywane jako stronicowe obiekty blob na kontach usługi Azure Storage.
 
-Aby uzyskać szczegółowe informacje o określonym dysku, należy podać:
+Aby uzyskać szczegółowe informacje dotyczące określonego dysku, należy podać:
 
-Identyfikator konta magazynu zawierającego dysk.
-Parametry połączenia dla danego konta magazynu.
-Nazwa kontenera, w którym jest przechowywany dysk.
-Nazwa dysku.
+- Identyfikator konta magazynu zawierającego dysk.
+- Parametry połączenia dla danego konta magazynu.
+- Nazwa kontenera, w którym jest przechowywany dysk.
+- Nazwa dysku.
 
 To polecenie wyświetla listę wszystkich identyfikatorów dla wszystkich kont magazynu:
 
@@ -294,13 +280,12 @@ az storage account list --query [].[id] -o tsv
 ```
 Identyfikatory kont magazynu są wymienione w następującej postaci:
 
-Identyfikator\<subskrypcji/subscriptions/>/ResourceGroups/\<nazwa grupy zasobów>/providers/microsoft.storage/storageaccounts/\<nazwa konta magazynu>
+\<Identyfikator subskrypcji/subscriptions/>/ResourceGroups/ \< Nazwa grupy zasobów>/Providers/Microsoft.Storage/storageaccounts/ \< nazwa konta magazynu>
 
 Wybierz odpowiedni identyfikator i Zapisz go na zmiennej:
 ```bash
 id="/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name>"
 ```
-Parametry połączenia.
 
 To polecenie pobiera parametry połączenia dla jednego konkretnego konta magazynu i zapisuje je w zmiennej:
 
@@ -308,57 +293,51 @@ To polecenie pobiera parametry połączenia dla jednego konkretnego konta magazy
 ConnectionString=$(az storage account show-connection-string --ids $id --query connectionString -o tsv)
 ```
 
-Nazwa kontenera.
-
 Następujące polecenie wyświetla listę wszystkich kontenerów w ramach konta magazynu:
 ```bash
 az storage container list --connection-string $ConnectionString --query [].[name] -o tsv
 ```
-Kontener używany dla dysków ma zwykle nazwę "VHD"
+Kontener używany dla dysków ma zwykle nazwę "VHD".
 
-Przechowywanie nazwy kontenera w zmiennej 
+Zapisz nazwę kontenera w zmiennej: 
 ```bash
 ContainerName="name of the container"
 ```
 
-Nazwa dysku.
-
-Użyj tego polecenia, aby wyświetlić listę wszystkich obiektów BLOB w konkretnym kontenerze
+Użyj tego polecenia, aby wyświetlić listę wszystkich obiektów BLOB w określonym kontenerze:
 ```bash 
 az storage blob list -c ${ContainerName} --connection-string $ConnectionString --query [].[name] -o tsv
 ```
-Wybierz dysk, który ma być wysyłany do zapytania, i Zapisz jego nazwę na zmiennej.
+Wybierz dysk, który chcesz wyszukać i zapisać jego nazwę na zmiennej:
 ```bash
 DiskName="diskname.vhd"
 ```
-Tworzenie zapytań dotyczących ustawień szyfrowania dysku
+Wykonaj zapytanie dotyczące ustawień szyfrowania dysku:
 ```bash
 az storage blob show -c ${ContainerName} --connection-string ${ConnectionString} -n ${DiskName} --query metadata.DiskEncryptionSettings
 ```
 
-## <a name="from-the-os"></a>Z systemu operacyjnego
-Sprawdź, czy partycje dysku danych są szyfrowane (a dysk systemu operacyjnego nie jest)
+## <a name="operating-system"></a>System operacyjny
+Sprawdź, czy partycje dysku danych są szyfrowane (i nie jest to dysk systemu operacyjnego).
 
-Gdy partycja/dysk jest zaszyfrowana, jest wyświetlana jako typ **Crypt** , gdy nie jest zaszyfrowana, jest wyświetlana jako typ **części/dysku**
+Gdy partycja lub dysk jest szyfrowany, jest on wyświetlany jako typ **Crypt** . Gdy nie jest szyfrowany, jest on wyświetlany jako typ **części/dysku** .
 
 ``` bash
 lsblk
 ```
 
-![Warstwa Crypt systemu operacyjnego ](./media/disk-encryption/verify-encryption-linux/verify-os-crypt-layer.png)
+![Warstwa Crypt systemu operacyjnego dla partycji](./media/disk-encryption/verify-encryption-linux/verify-os-crypt-layer.png)
 
-Więcej szczegółów można uzyskać, korzystając z następujących wariantów "lsblk". 
+Więcej informacji można uzyskać, korzystając z następującego wariantu **lsblk** . 
 
-Zobaczysz warstwę typu **Crypt** , która jest instalowana przez rozszerzenie.
-
-W poniższym przykładzie przedstawiono woluminy logiczne i normalne dyski z "**kryptografią\_luks fstype**".
+Zobaczysz warstwę typu **Crypt** , która jest instalowana przez rozszerzenie. W poniższym przykładzie przedstawiono woluminy logiczne i normalne dyski z **kryptografią \_ luks fstype**.
 
 ```bash
 lsblk -o NAME,TYPE,FSTYPE,LABEL,SIZE,RO,MOUNTPOINT
 ```
-![OS Crypt — warstwa 2](./media/disk-encryption/verify-encryption-linux/verify-os-crypt-layer-2.png)
+![Warstwa Crypt systemu operacyjnego dla woluminów logicznych i zwykłych dysków](./media/disk-encryption/verify-encryption-linux/verify-os-crypt-layer-2.png)
 
-Dodatkowy krok można także sprawdzić, czy dysk danych ma załadowane klucze
+Dodatkowy krok polega na sprawdzeniu, czy dysk danych ma załadowane klucze:
 
 ``` bash
 cryptsetup luksDump /dev/VGNAME/LVNAME
@@ -368,7 +347,7 @@ cryptsetup luksDump /dev/VGNAME/LVNAME
 cryptsetup luksDump /dev/sdd1
 ```
 
-A które urządzenia DM są wyświetlane jako Crypt
+Można też sprawdzić, które urządzenia **DM** są wyświetlane jako **Crypt**:
 
 ```bash
 dmsetup ls --target crypt

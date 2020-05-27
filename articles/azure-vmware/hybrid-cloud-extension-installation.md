@@ -1,18 +1,18 @@
 ---
 title: Zainstaluj rozszerzenie chmury hybrydowej (HCX)
-description: Skonfiguruj rozwiązanie VMWare hybrydowego Extension (HCX) dla chmury prywatnej dla rozwiązania Azure VMWare (Automatyczna synchronizacja)
+description: Skonfiguruj rozwiązanie VMware hybrydowego Extension (HCX) dla chmury prywatnej dla rozwiązania Azure VMware (Automatyczna synchronizacja)
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.openlocfilehash: 74bc0dece2fc565aebc6e5301ef7a36187d6a250
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: dc5f7f82b83c82538b2d5a7b4c87131afb3fcc20
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83776475"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873647"
 ---
-# <a name="install-hcx-for-azure-vmware-solution"></a>Zainstaluj program HCX for Azure VMWare Solution
+# <a name="install-hcx-for-azure-vmware-solution"></a>Zainstaluj program HCX for Azure VMware Solution
 
-W tym artykule przedstawiono procedury umożliwiające skonfigurowanie rozwiązania VMWare hybrydowego Extension (HCX) dla chmury prywatnej (Automatyczna synchronizacja) rozwiązania VMWare. HCX Advanced (instalacja domyślna) obsługuje maksymalnie trzy Lokacje zewnętrzne, w przypadku których każda lokacja zewnętrzna wymaga zainstalowania i aktywowania programu HCX Enterprise Manager lub łącznika.
+W tym artykule przedstawiono procedury umożliwiające skonfigurowanie rozwiązania VMware hybrydowego Extension (HCX) dla chmury prywatnej (Automatyczna synchronizacja) rozwiązania VMware. HCX Advanced (instalacja domyślna) obsługuje maksymalnie trzy Lokacje zewnętrzne, w przypadku których każda lokacja zewnętrzna wymaga zainstalowania i aktywowania programu HCX Enterprise Manager lub łącznika.
 HCX umożliwia migrowanie obciążeń oprogramowania VMware do chmury i innych połączonych lokacji za pomocą różnych wbudowanych typów migracji obsługiwanych przez program HCX. Jeśli wymagane są więcej niż trzy lokacje, klienci mają możliwość włączenia dodatku HCX Enterprise przez pomoc techniczną. Firma HCX Enterprise wykonuje dodatkowe opłaty dla klientów po ogólnej dostępności (GA), ale udostępnia [dodatkowe funkcje](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
 
 [Przed rozpoczęciem](#before-you-begin)należy dokładnie zapoznać się z [wymaganiami dotyczącymi wersji oprogramowania](#software-version-requirements)i [wymaganiami wstępnymi](#prerequisites) . 

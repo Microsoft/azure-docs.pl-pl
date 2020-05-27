@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 5f3e05752967be8872c0e6fd9008bfae05d950fa
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 9400558f8ea26199a2f7ac406fd6d94647243e11
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76169531"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873801"
 ---
 # <a name="quickstart-use-ruby-to-call-the-bing-web-search-api"></a>Szybki start: wywoływanie interfejsu API wyszukiwania w sieci Web Bing za pomocą języka Ruby  
 
-Ten przewodnik Szybki start umożliwi Ci utworzenie Twojego pierwszego wywołania interfejsu API wyszukiwania w Internecie Bing i odebranie odpowiedzi JSON. Ta aplikacja języka Ruby wysyła żądanie wyszukiwania do interfejsu API i wyświetla odpowiedź. Chociaż ta aplikacja jest napisana w języku Ruby, interfejs API jest usługą internetową zgodną z wzorcem REST i większością języków programowania.
+Użyj tego przewodnika Szybki Start, aby wykonać pierwsze wywołanie do interfejs API wyszukiwania w sieci Web Bing. Ta aplikacja języka Ruby wysyła żądanie wyszukiwania do interfejsu API i wyświetla odpowiedź JSON. Mimo że aplikacja jest zapisywana w języku Ruby, interfejs API jest usługą sieci Web RESTful zgodną z większością języków programowania.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -33,7 +33,7 @@ Oto kilka rzeczy, które są potrzebne przed rozpoczęciem tego przewodnika Szyb
 
 ## <a name="create-a-project-and-declare-required-modules"></a>Tworzenie projektu i deklarowanie wymaganych modułów
 
-Utwórz nowy projekt Ruby w ulubionym środowisku IDE lub edytorze. Następnie zażądaj pakietów: `net/https` do obsługi żądań, `uri` do obsługi identyfikatora URI i `json` do analizowania odpowiedzi.
+Utwórz nowy projekt Ruby w ulubionym środowisku IDE lub edytorze. Następnie Wymagaj `net/https` żądań dla `uri` obsługi identyfikatorów URI i `json` analizowania odpowiedzi.
 
 ```ruby
 require 'net/https'
@@ -43,7 +43,13 @@ require 'json'
 
 ## <a name="define-variables"></a>Definiowanie zmiennych
 
-Zanim będzie można kontynuować, należy ustawić kilka zmiennych. `uri`może to być globalny punkt końcowy poniżej lub niestandardowy punkt końcowy [domeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) podrzędnej wyświetlany w Azure Portal dla zasobu. Upewnij się, że wartości `uri` oraz `path` są prawidłowe, i zamień wartość `accessKey` na odpowiedni klucz subskrypcji ze swojego konta platformy Azure. Możesz dostosować zapytanie wyszukiwania, zamieniając wartość `term`.
+Aby można było kontynuować, należy ustawić kilka zmiennych:
+
+1. Dla `uri` wartości można użyć globalnego punktu końcowego w poniższym kodzie lub użyć niestandardowego punktu końcowego [poddomeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) wyświetlanego w Azure Portal dla zasobu. 
+
+2. Upewnij się, `uri` że `path` wartości i są prawidłowe i Zastąp `accessKey` wartość kluczem subskrypcji na koncie platformy Azure. 
+
+3. Opcjonalnie możesz dostosować zapytanie wyszukiwania, zastępując wartość parametru `term` .
 
 ```ruby
 accessKey = "YOUR_SUBSCRIPTION_KEY"
@@ -60,7 +66,7 @@ end
 
 ## <a name="make-a-request"></a>Wysyłanie żądania
 
-Za pomocą tego kodu wyślij żądanie i obsłuż odpowiedź.
+Użyj tego kodu, aby wykonać żądanie i obsłużyć odpowiedź:
 
 ```ruby
 # Construct the endpoint uri.
@@ -135,7 +141,7 @@ puts "\nJSON Response:\n\n"
 puts JSON::pretty_generate(JSON(response.body))
 ```
 
-## <a name="sample-response"></a>Przykładowa odpowiedź
+## <a name="example-json-response"></a>Przykładowa odpowiedź JSON
 
 Odpowiedzi z interfejsu API wyszukiwania w sieci Web Bing są zwracane w formacie JSON. Ta przykładowa odpowiedź została obcięta w celu pokazania pojedynczego wyniku.
 
@@ -264,6 +270,6 @@ Odpowiedzi z interfejsu API wyszukiwania w sieci Web Bing są zwracane w formaci
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Samouczek dotyczący jednostronicowej aplikacji wyszukiwania w sieci Web Bing](../tutorial-bing-web-search-single-page-app.md)
+> [Samouczek interfejs API wyszukiwania w sieci Web Bing aplikacji jednostronicowej](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

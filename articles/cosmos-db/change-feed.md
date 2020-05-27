@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: e36e95aeb25c83ccd94f11e25bfe9f1b8f7bfdad
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cb3f7f3d641f33e4b4deb1775600595cc382f68e
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80984865"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873976"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Zestawienie zmian w usłudze Azure Cosmos DB
 
@@ -27,14 +27,14 @@ Ta funkcja jest obecnie obsługiwana przez następujące Azure Cosmos DB interfe
 
 | **Sterowniki klienta** | **INTERFEJS API SQL** | **Interfejs API Azure Cosmos DB dla Cassandra** | **Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB** | **Interfejs API języka Gremlin**|**Interfejs API tabel** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | Tak | Tak | Tak | Tak | Nie |
-|Java|Tak|Tak|Tak|Tak|Nie|
-|Python|Tak|Tak|Tak|Tak|Nie|
-|Node/JS|Tak|Tak|Tak|Tak|Nie|
+| .NET | Tak | Tak | Tak | Yes | Nie |
+|Java|Tak|Tak|Tak|Yes|Nie|
+|Python|Tak|Tak|Tak|Yes|Nie|
+|Node/JS|Tak|Tak|Tak|Yes|Nie|
 
 ## <a name="change-feed-and-different-operations"></a>Zmień źródło danych i różne operacje
 
-Dzisiaj zobaczysz wszystkie wstawienia i aktualizacje w kanale zmian. Nie można filtrować źródła zmian dla określonego typu operacji. Jedną z możliwych alternatyw jest dodanie "miękkiego znacznika" w elemencie dla aktualizacji i filtru na podstawie tego, czy podczas przetwarzania elementów ze źródła zmian.
+Dzisiaj zobaczysz wszystkie wstawienia i aktualizacje w kanale zmian. Nie można filtrować kanału informacyjnego zmiany dla określonego typu operacji. Jedną z możliwych alternatyw jest dodanie "miękkiego znacznika" w elemencie dla aktualizacji i filtru na podstawie tego, czy podczas przetwarzania elementów ze źródła zmian.
 
 Obecnie Źródło zmian nie powoduje usunięcia dziennika. Podobnie jak w poprzednim przykładzie, można dodać znacznik elastyczny do elementów, które są usuwane. Na przykład, można dodać atrybut w elemencie o nazwie "usunięty" i ustawić go na "true" i ustawić wartość TTL dla elementu, tak aby można go było automatycznie usunąć. Możesz odczytać Źródło zmian dla elementów historycznych (Ostatnia zmiana odpowiadająca elementowi nie obejmuje zmian pośrednich), na przykład elementów, które zostały dodane pięć lat temu. Można odczytać kanał informacyjny zmiany w odniesieniu do miejsca pochodzenia kontenera, ale jeśli element zostanie usunięty, zostanie on usunięty ze źródła zmian.
 

@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 05/26/2020
 ms.author: jingwang
-ms.openlocfilehash: b33f9a11cee08ea8c4accb683d70960d7f98e776
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 3c65ed7e5fa6bb1652791eee75d4caa4c9c5f1ca
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659572"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873635"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Kopiowanie danych z programu DB2 przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -36,7 +36,7 @@ Ten łącznik bazy danych DB2 jest obsługiwany dla następujących działań:
 
 Dane z bazy danych programu DB2 można kopiować do dowolnego obsługiwanego magazynu danych ujścia. Listę magazynów danych obsługiwanych jako źródła/ujścia przez działanie kopiowania można znaleźć w tabeli [obsługiwane magazyny danych](copy-activity-overview.md#supported-data-stores-and-formats) .
 
-W przypadku tego łącznika bazy danych DB2 obsługiwane są następujące platformy i wersje programu IBM DB2 z użyciem rozproszonej architektury relacyjnej bazy (DRDA) (SQLAM) w wersji 9, 10 i 11:
+W przypadku tego łącznika bazy danych DB2 obsługiwane są następujące platformy i wersje programu IBM DB2 z użyciem rozproszonej architektury relacyjnej bazy (DRDA) (SQLAM) w wersji 9, 10 i 11.  Wykorzystuje protokół DDM/DRDA.
 
 * IBM DB2 dla systemu z/OS 12,1
 * IBM DB2 dla systemu z/OS 11,1
@@ -77,12 +77,12 @@ Typowe właściwości wewnątrz parametrów połączenia:
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| serwer |Nazwa serwera bazy danych DB2. Możesz określić numer portu następujący po nazwie serwera rozdzielany średnikiem, np. `server:port` . |Yes |
+| serwer |Nazwa serwera bazy danych DB2. Możesz określić numer portu następujący po nazwie serwera rozdzielany średnikiem, np. `server:port` .<br>Łącznik DB2 korzysta z protokołu DDM/DRDA i domyślnie używa portu 50000, jeśli nie zostanie określony. Port używany przez określoną bazę danych programu DB2 może różnić się w zależności od wersji i ustawień, np. w przypadku programu DB2 LUW domyślnym portem jest 50000, dla systemu AS400 domyślny port to 446 lub 448 po włączeniu protokołu TLS. Zapoznaj się z następującymi dokumentami programu DB2, na których jest konfigurowany port zazwyczaj: [DB2 z/OS](https://www.ibm.com/support/knowledgecenter/SSEPGG_11.5.0/com.ibm.db2.luw.qb.dbconn.doc/doc/t0008229.html), [DB2 ISERIES](https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_74/ddp/rbal1ports.htm)i [DB2 LUW](https://www.ibm.com/support/knowledgecenter/en/SSEKCU_1.1.3.0/com.ibm.psc.doc/install/psc_t_install_typical_db2_port.html). |Yes |
 | database |Nazwa bazy danych DB2. |Yes |
 | authenticationType |Typ uwierzytelniania używany do łączenia się z bazą danych programu DB2.<br/>Dozwolona wartość to: **podstawowa**. |Yes |
 | nazwa użytkownika |Określ nazwę użytkownika w celu nawiązania połączenia z bazą danych programu DB2. |Yes |
 | hasło |Określ hasło dla konta użytkownika określonego dla nazwy użytkownika. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
-| pakietcollection | Określ w obszarze, w którym mają być tworzone pakiety do automatycznego tworzenia przez ADF podczas wykonywania zapytania dotyczącego bazy danych. | Nie |
+| pakietcollection | Określ w obszarze, w którym mają być tworzone pakiety do automatycznego tworzenia przez ADF podczas wykonywania zapytania dotyczącego bazy danych. Jeśli ta wartość nie jest ustawiona, Data Factory używa {username} jako wartości domyślnej. | Nie |
 | certificateCommonName | Korzystając z szyfrowania SSL (SSL) lub Transport Layer Security (TLS), należy wprowadzić wartość Nazwa pospolita certyfikatu. | Nie |
 
 > [!TIP]
@@ -171,7 +171,7 @@ Aby skopiować dane z bazy danych DB2, obsługiwane są następujące właściwo
 | tabela | Nazwa tabeli. |Nie (Jeśli określono "zapytanie" w źródle aktywności)  |
 | tableName | Nazwa tabeli ze schematem. Ta właściwość jest obsługiwana w celu zapewnienia zgodności z poprzednimi wersjami. Użyj `schema` i `table` dla nowego obciążenia. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
-**Przykład**
+**Przyklad**
 
 ```json
 {
@@ -245,30 +245,30 @@ Podczas kopiowania danych z programu DB2 następujące mapowania są używane z 
 | Typ bazy danych DB2 | Typ danych pośrednich fabryki danych |
 |:--- |:--- |
 | BigInt |Int64 |
-| plików binarnych |Byte [] |
+| Binarne |Byte [] |
 | Obiekt blob |Byte [] |
-| Char |String |
-| Obiektów CLOB |String |
+| Char |String (ciąg) |
+| Obiektów CLOB |String (ciąg) |
 | Data |Datetime (data/godzina) |
-| DB2DynArray |String |
-| DbClob |String |
+| DB2DynArray |String (ciąg) |
+| DbClob |String (ciąg) |
 | Wartość dziesiętna |Wartość dziesiętna |
 | DecimalFloat |Wartość dziesiętna |
 | Double |Double |
 | Float |Double |
-| Zdjęć |String |
+| Zdjęć |String (ciąg) |
 | Liczba całkowita |Int32 |
 | LongVarBinary |Byte [] |
-| LongVarChar |String |
-| LongVarGraphic |String |
-| Numeryczne |Wartość dziesiętna |
+| LongVarChar |String (ciąg) |
+| LongVarGraphic |String (ciąg) |
+| Liczbowe |Wartość dziesiętna |
 | Rzeczywiste |Single |
 | SmallInt |Int16 |
-| Time |przedział_czasu |
-| Znacznik czasu |DateTime |
+| Godzina |przedział_czasu |
+| Znacznik czasu |Data/godzina |
 | Liczby |Byte [] |
-| VarChar |String |
-| VarGraphic |String |
+| VarChar |String (ciąg) |
+| VarGraphic |String (ciąg) |
 | Xml |Byte [] |
 
 ## <a name="lookup-activity-properties"></a>Właściwości działania Lookup

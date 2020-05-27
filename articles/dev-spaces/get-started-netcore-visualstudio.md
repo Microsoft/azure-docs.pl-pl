@@ -7,12 +7,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: W tym samouczku pokazano, jak używać Azure Dev Spaces i programu Visual Studio do debugowania i szybkiej iteracji aplikacji platformy .NET Core w usłudze Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s
-ms.openlocfilehash: f3be10929a9a0df23529348f2c62e35f2ebaa850
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a807af3ffe14da943786051a3ece03b777a0edf5
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75770717"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873622"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-and-net-core-with-azure-dev-spaces"></a>Utwórz przestrzeń Kubernetes dev: Visual Studio i .NET Core z Azure Dev Spaces
 
@@ -50,7 +50,7 @@ Niniejszy przewodnik zawiera informacje na temat wykonywania następujących czy
 1. Wybierz pozycje **Przegląd + utwórz**, a następnie po zakończeniu wybierz pozycję **Utwórz**.
 
 ## <a name="get-the-visual-studio-tools"></a>Pobieranie narzędzi Visual Studio
-Zainstaluj najnowszą wersję programu [Visual Studio](https://www.visualstudio.com/vs/). Dla programu Visual Studio 2019 w systemie Windows należy zainstalować obciążenie Programowanie na platformie Azure. W przypadku programu Visual Studio 2017 w systemie Windows należy zainstalować ASP.NET i obciążenie Programowanie dla sieci Web oraz [Visual Studio Tools for Kubernetes](https://aka.ms/get-azds-visualstudio).
+Zainstaluj najnowszą wersję programu [Visual Studio 2019](https://www.visualstudio.com/vs/) w systemie Windows przy użyciu obciążeń programistycznych platformy Azure.
 
 ## <a name="create-a-web-app-running-in-a-container"></a>Tworzenie aplikacji internetowej uruchomionej w kontenerze
 

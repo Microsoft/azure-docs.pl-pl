@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Opisuje sposób konfigurowania klastra usługi Azure Kubernetes dla Azure Dev Spaces Works
 keywords: Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kontenery
-ms.openlocfilehash: 00f8262f3008ce9ba82726960f78d18395458a2a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6b158ca7f425e8b7c492c27521dba588a508b534
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80241727"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873556"
 ---
 # <a name="how-setting-up-a-cluster-for-azure-dev-spaces-works"></a>Jak skonfigurować klaster dla Azure Dev Spaces działa
 
@@ -18,7 +18,7 @@ Azure Dev Spaces zapewnia wiele sposobów na szybkie Iterowanie i debugowanie ap
 
 ## <a name="prepare-your-aks-cluster"></a>Przygotowywanie klastra AKS
 
-Aby przygotować klaster AKS na potrzeby obszarów programistycznych, należy sprawdzić, czy klaster AKS znajduje się w regionie [obsługiwanym przez Azure dev Spaces][supported-regions] i korzysta z Kubernetes 1.10.3 lub nowszego. Aby włączyć Azure Dev Spaces w klastrze z poziomu Azure Portal, przejdź do klastra, kliknij pozycję *spacje dla deweloperów*, Zmień opcję *Użyj spacji dev* na *tak*, a następnie kliknij przycisk *Zapisz*. Możesz również włączyć Azure Dev Spaces w interfejsie wiersza polecenia platformy Azure `az aks use-dev-spaces`, uruchamiając.
+Aby przygotować klaster AKS na potrzeby obszarów programistycznych, należy sprawdzić, czy klaster AKS znajduje się w regionie [obsługiwanym przez Azure dev Spaces][supported-regions] i korzysta z Kubernetes 1.10.3 lub nowszego. Aby włączyć Azure Dev Spaces w klastrze z poziomu Azure Portal, przejdź do klastra, kliknij pozycję *spacje dla deweloperów*, Zmień opcję *Użyj spacji dev* na *tak*, a następnie kliknij przycisk *Zapisz*. Możesz również włączyć Azure Dev Spaces w interfejsie wiersza polecenia platformy Azure, uruchamiając `az aks use-dev-spaces` .
 
 Aby zapoznać się z przykładem konfigurowania klastra AKS dla funkcji miejsca do użytku deweloperskiego, zapoznaj się z [przewodnikiem Szybki Start dla deweloperów][quickstart-team].
 
@@ -50,7 +50,7 @@ Aby można było użyć Azure Dev Spaces, musi istnieć co najmniej jeden obszar
 
 Gdy przestrzeń nazw jest oznaczona jako przestrzeń dev, kontroler dodaje etykietę *azds.IO/Space=true* do tej przestrzeni nazw, aby zidentyfikować ją jako przestrzeń dev. Początkowe miejsce tworzenia lub wyznaczania jest wybierane domyślnie po przygotowaniu klastra. Gdy jest zaznaczone miejsce, jest używane przez Azure Dev Spaces do tworzenia nowych obciążeń.
 
-Korzystając z narzędzi po stronie klienta, można tworzyć nowe miejsca deweloperskie i usuwać istniejące spacje. Ze względu na ograniczenie w Kubernetes, nie można usunąć *domyślnego* obszaru dev. Kontroler usuwa również wszystkie istniejące przestrzenie nazw Kubernetes o nazwie *azds* , aby uniknąć `azds` konfliktów z poleceniem używanym przez narzędzia po stronie klienta.
+Korzystając z narzędzi po stronie klienta, można tworzyć nowe miejsca deweloperskie i usuwać istniejące spacje. Ze względu na ograniczenie w Kubernetes, nie można usunąć *domyślnego* obszaru dev. Kontroler usuwa również wszystkie istniejące przestrzenie nazw Kubernetes o nazwie *azds* , aby uniknąć konfliktów z `azds` poleceniem używanym przez narzędzia po stronie klienta.
 
 Serwer przyjęcia elementu webhook Kubernetes służy do iniekcji z trzech kontenerów podczas wdrażania Instrumentacji: kontenera devspaces-proxy, kontenera devspaces-proxy-init i kontenera devspaces-Build. **Wszystkie trzy z tych kontenerów działają z dostępem do katalogu głównego w klastrze AKS.** Używają one również tej samej nazwy głównej usługi, która jest używana przez klaster AKS do wykonywania wywołań usługi do innych składników Azure Dev Spaces.
 
@@ -78,7 +78,7 @@ Narzędzia po stronie klienta umożliwiają użytkownikowi:
 
 Gdy aplikacja jest uruchomiona, narzędzia po stronie klienta:
 * Odbiera i wyświetla stdout i stderr z aplikacji działającej w AKS.
-* Używa [portu do przodu](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) w celu zezwalania na dostęp do aplikacji sieci Web\/za pomocą protokołu http:/localhost.
+* Używa [portu do przodu](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) w celu zezwalania na dostęp do aplikacji sieci Web za pomocą protokołu http: \/ /localhost.
 * Dołącza debuger do uruchomionej aplikacji w AKS.
 * Synchronizuje kod źródłowy do obszaru deweloperskiego, gdy zostanie wykryta zmiana dla kompilacji przyrostowych, co pozwala na szybką iterację.
 * Umożliwia połączenie komputera dewelopera bezpośrednio z klastrem AKS.
@@ -86,7 +86,7 @@ Gdy aplikacja jest uruchomiona, narzędzia po stronie klienta:
 Narzędzia po stronie klienta można użyć z wiersza polecenia w ramach `azds` polecenia. Możesz również użyć narzędzi po stronie klienta w programie:
 
 * Visual Studio Code przy użyciu [rozszerzenia Azure dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds).
-* Program Visual Studio z [Visual Studio Tools for Kubernetes](https://aka.ms/get-vsk8stools).
+* Program Visual Studio z obciążeniem programowania na platformie Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 

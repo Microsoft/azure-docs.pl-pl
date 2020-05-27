@@ -3,13 +3,13 @@ title: Tworzenie kontenera systemu Windows Server w klastrze usługi Azure Kuber
 description: Dowiedz się, jak szybko utworzyć klaster Kubernetes, wdrożyć aplikację w kontenerze systemu Windows Server w usłudze Azure Kubernetes Service (AKS) przy użyciu programu PowerShell.
 services: container-service
 ms.topic: article
-ms.date: 05/12/2020
-ms.openlocfilehash: d488935a9f45d775578179cb58423d882a1cee27
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.date: 05/26/2020
+ms.openlocfilehash: c0c4849d76676cf165dbb051fbd904c28a98fa3b
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725027"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873570"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-powershell"></a>Tworzenie kontenera systemu Windows Server w klastrze usługi Azure Kubernetes Service (AKS) przy użyciu programu PowerShell
 
@@ -24,9 +24,6 @@ W tym artykule założono podstawową wiedzę na temat koncepcji Kubernetes. Aby
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 Jeśli zdecydujesz się używać programu PowerShell lokalnie, ten artykuł będzie wymagał instalacji modułu AZ PowerShell i nawiązania połączenia z kontem platformy Azure przy użyciu polecenia cmdlet [Connect-AzAccount](/powershell/module/az.accounts/Connect-AzAccount) . Aby uzyskać więcej informacji na temat instalowania modułu AZ PowerShell module, zobacz [Install Azure PowerShell][install-azure-powershell].
-
-> [!IMPORTANT]
-> W tym artykule jest stosowana wersja zapoznawcza modułu programu PowerShell AZ. AKS. Należy ją zainstalować niezależnie od modułu AZ PowerShell przy użyciu następującego polecenia: `Install-Module -Name Az.AKS -AllowPrerelease -RequiredVersion 1.1.0-preview` . Po udostępnieniu wersji zapoznawczej modułu AZ. AKS PowerShell jest on częścią przyszłych wersji modułu AZ PowerShell i dostępne natywnie z poziomu Azure Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 

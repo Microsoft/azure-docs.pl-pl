@@ -7,19 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: 07fa72f086b676723279ee4b8efd927beb2692f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c232ab06d2b3a28dad7ae98a8f22f457778fd3e6
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81481970"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83874080"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integracja Azure Stream Analytics z Azure Machine Learning (wersja zapoznawcza)
 
 Modele uczenia maszynowego można zaimplementować jako funkcję zdefiniowaną przez użytkownika (UDF) w zadaniach Azure Stream Analytics, aby wykonywać oceny w czasie rzeczywistym i przewidywania dotyczące danych wejściowych przesyłania strumieniowego. [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) umożliwia korzystanie z dowolnego popularnego narzędzia typu "open source", takiego jak Tensorflow, scikit-uczenie się lub PyTorch, do przygotowywania, uczenia i wdrażania modeli.
-
-> [!NOTE]
-> Ta funkcja jest w publicznej wersji zapoznawczej. Możesz uzyskać dostęp do tej funkcji na Azure Portal tylko przy użyciu [linku w wersji zapoznawczej portalu Stream Analytics](https://aka.ms/asaportalpreview). Ta funkcja jest również dostępna w najnowszej wersji [narzędzi Stream Analytics Tools for Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -31,7 +28,7 @@ Przed dodaniem modelu uczenia maszynowego do zadania Stream Analytics należy wy
 
 3. Upewnij się, że usługa sieci Web akceptuje i zwraca dane serializowane JSON.
 
-4. Wdróż swój model w [usłudze Azure Kubernetes Service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) na potrzeby wdrożeń produkcyjnych o dużej skali. Jeśli usługa sieci Web nie może obsłużyć liczby żądań wysyłanych z zadania, wydajność zadania Stream Analytics zostanie obniżona, co wpływa na opóźnienia. Modele wdrożone na Azure Container Instances nie są obecnie obsługiwane, ale staną się dostępne w najbliższych miesiącach.
+4. Wdróż swój model w [usłudze Azure Kubernetes Service](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) na potrzeby wdrożeń produkcyjnych o dużej skali. Jeśli usługa sieci Web nie może obsłużyć liczby żądań wysyłanych z zadania, wydajność zadania Stream Analytics zostanie obniżona, co wpływa na opóźnienia. Modele wdrożone w Azure Container Instances są obsługiwane tylko w przypadku korzystania z Azure Portal.
 
 ## <a name="add-a-machine-learning-model-to-your-job"></a>Dodawanie modelu uczenia maszynowego do zadania
 
@@ -73,7 +70,7 @@ Stream Analytics obsługuje tylko przekazywanie jednego parametru dla funkcji Az
 
 ## <a name="pass-multiple-input-parameters-to-the-udf"></a>Przekazywanie wielu parametrów wejściowych do formatu UDF
 
-Najczęściej spotykane przykłady danych wejściowych modeli uczenia maszynowego to numpy tablice i dataframes. Można utworzyć tablicę przy użyciu formatu UDF języka JavaScript i utworzyć wieloserializowaną ramkę danych JSON przy `WITH` użyciu klauzuli.
+Najczęściej spotykane przykłady danych wejściowych modeli uczenia maszynowego to numpy tablice i dataframes. Można utworzyć tablicę przy użyciu formatu UDF języka JavaScript i utworzyć wieloserializowaną ramkę danych JSON przy użyciu `WITH` klauzuli.
 
 ### <a name="create-an-input-array"></a>Utwórz tablicę wejściową
 
@@ -110,7 +107,7 @@ Poniższy kod JSON jest przykładowym żądaniem:
 
 ### <a name="create-a-pandas-or-pyspark-dataframe"></a>Tworzenie ramki danych Pandas lub PySpark
 
-Możesz użyć klauzuli, `WITH` aby utworzyć serializowaną ramkę JSON, która może być przekazana jako dane wejściowe do Azure Machine Learning UDF, jak pokazano poniżej.
+Możesz użyć klauzuli, `WITH` Aby utworzyć serializowaną ramkę JSON, która może być przekazana jako dane wejściowe do Azure Machine Learning UDF, jak pokazano poniżej.
 
 Następujące zapytanie tworzy ramkę danych, zaznaczając niezbędne pola i używa ramki Dataframe jako dane wejściowe do Azure Machine Learning UDF.
 

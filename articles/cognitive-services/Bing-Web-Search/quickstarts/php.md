@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 58192845e0119ce96ea2577007d211f075d3e419
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: bbb6acd4e976d345daa99cde7635febc3755963f
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76169728"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873824"
 ---
 # <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Szybki start: wywoływanie interfejsu API wyszukiwania w sieci Web Bing za pomocą języka PHP  
 
-Ten przewodnik Szybki start umożliwi Ci utworzenie Twojego pierwszego wywołania interfejsu API wyszukiwania w Internecie Bing i odebranie odpowiedzi JSON. Ta aplikacja Node. js wysyła żądanie wyszukiwania do interfejsu API i wyświetla odpowiedź. Aplikacja jest napisana w języku JavaScript, natomiast interfejs API jest usługą internetową zgodną z wzorcem REST i większością języków programowania.
+Użyj tego przewodnika Szybki Start, aby wykonać pierwsze wywołanie do interfejs API wyszukiwania w sieci Web Bing. Ta aplikacja Node. js wysyła żądanie wyszukiwania do interfejsu API i wyświetla odpowiedź JSON. Mimo że aplikacja jest zapisywana w języku JavaScript, interfejs API jest usługą sieci Web RESTful zgodną z większością języków programowania.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -33,7 +33,7 @@ Oto kilka rzeczy, które są potrzebne przed rozpoczęciem tego przewodnika Szyb
 
 ## <a name="enable-secure-http-support"></a>Włączanie bezpiecznej obsługi protokołu HTTP
 
-Przed rozpoczęciem odszukaj plik `php.ini` i usuń znaczniki komentarza z tego wiersza:
+Przed rozpoczęciem należy zlokalizować plik php. ini i usunąć komentarz z tego wiersza:
 
 ```php
 ; extension=php_openssl.dll
@@ -41,9 +41,13 @@ Przed rozpoczęciem odszukaj plik `php.ini` i usuń znaczniki komentarza z tego 
 
 ## <a name="create-a-project-and-define-variables"></a>Tworzenie projektu i definiowanie zmiennych
 
-Utwórz nowy projekt PHP w ulubionym środowisku IDE lub edytorze. Nie zapomnij o dodaniu tagów otwierających i zamykających: `<?php` i `?>`.
+1. Utwórz nowy projekt PHP w ulubionym środowisku IDE lub edytorze. Dodaj Tagi otwierające i zamykające: `<?php` i `?>` .
 
-Zanim będzie można kontynuować, należy ustawić kilka zmiennych. `$endpoint`może to być globalny punkt końcowy poniżej lub niestandardowy punkt końcowy [domeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) podrzędnej wyświetlany w Azure Portal dla zasobu. Upewnij się, że wartość `$endpoint` jest poprawna, i zamień wartość `$accesskey` na odpowiedni klucz subskrypcji ze swojego konta platformy Azure. Możesz dostosować zapytanie wyszukiwania, zamieniając wartość `$term`.
+2. Dla `$endpoint` wartości można użyć globalnego punktu końcowego w poniższym kodzie lub użyć niestandardowego punktu końcowego [poddomeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) wyświetlanego w Azure Portal dla zasobu. 
+
+3. Upewnij się, że `$endpoint` wartość jest poprawna, i Zastąp `$accesskey` wartość prawidłowym kluczem subskrypcji na koncie platformy Azure. 
+
+4. Opcjonalnie możesz dostosować zapytanie wyszukiwania, zastępując wartość parametru `$term` .
 
 ```php
 $accessKey = 'enter key here';
@@ -53,7 +57,7 @@ $term = 'Microsoft Cognitive Services';
 
 ## <a name="construct-a-request"></a>Konstruowanie żądania
 
-Ten kod deklaruje funkcję o nazwie `BingWebSearch` służącą do skonstruowania żądania skierowanego do interfejsu API wyszukiwania w sieci Web Bing. Przyjmuje ona trzy argumenty: `$url`, `$key` i `$query`.
+Ten kod deklaruje funkcję o nazwie `BingWebSearch` , która jest używana do konstruowania żądań do interfejs API wyszukiwania w sieci Web Bing. Przyjmuje ona trzy argumenty: `$url`, `$key` i `$query`.
 
 ```php
 function BingWebSearch ($url, $key, $query) {
@@ -155,7 +159,7 @@ if (strlen($accessKey) == 32) {
 ?>
 ```
 
-## <a name="sample-response"></a>Przykładowa odpowiedź
+## <a name="example-json-response"></a>Przykładowa odpowiedź JSON
 
 Odpowiedzi z interfejsu API wyszukiwania w sieci Web Bing są zwracane w formacie JSON. Ta przykładowa odpowiedź została obcięta w celu pokazania pojedynczego wyniku.  
 
@@ -284,6 +288,6 @@ Odpowiedzi z interfejsu API wyszukiwania w sieci Web Bing są zwracane w formaci
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Samouczek dotyczący jednostronicowej aplikacji wyszukiwania w sieci Web Bing](../tutorial-bing-web-search-single-page-app.md)
+> [Samouczek interfejs API wyszukiwania w sieci Web Bing aplikacji jednostronicowej](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

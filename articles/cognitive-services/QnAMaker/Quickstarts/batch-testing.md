@@ -1,21 +1,14 @@
 ---
 title: 'Szybki Start: testowa baza wiedzy z pytaniami wsadowymi'
-titleSuffix: Azure Cognitive Services
-description: ''
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
+description: Użyj narzędzia do testowania wsadowego QnA Maker do testowania baz wiedzy w zasobie QnA Maker, aby uzyskać oczekiwane odpowiedzi, wyniki pewności i wyłączać wiele.
 ms.topic: quickstart
-ms.date: 02/08/2020
-ms.author: diberry
-ms.openlocfilehash: 3bc095d8949f177ccb6c4cc111ba4b272027904e
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/26/2020
+ms.openlocfilehash: 9845b7c7cc19550c450a1eb00ec02731ef2d9d44
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80756701"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873672"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>Szybki Start: testowa baza wiedzy z pytaniami wsadowymi i oczekiwanymi odpowiedziami
 
@@ -26,7 +19,7 @@ Użyj narzędzia do testowania wsadowego QnA Maker do testowania baz wiedzy w za
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Utwórz usługę QNA Maker](create-publish-knowledge-base.md) lub Użyj istniejącej usługi, która używa języka angielskiego.
 * Pobieranie [przykładowego `.docx` pliku z obsługą kilku przełączań](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)
-* Pobierz [Narzędzie do testowania wsadowego](https://aka.ms/qnamakerbatchtestingtool), Wyodrębnij plik wykonywalny `.zip` z pliku.
+* Pobierz [Narzędzie do testowania wsadowego](https://aka.ms/qnamakerbatchtestingtool), Wyodrębnij plik wykonywalny z `.zip` pliku.
 
 ## <a name="sign-into-qna-maker-portal"></a>Zaloguj się do portalu QnA Maker
 
@@ -64,7 +57,7 @@ Użyj narzędzia do testowania wsadowego QnA Maker do testowania baz wiedzy w za
     |--|--|
     |Opublikowany Host|`https://YOUR-RESOURCE-NAME.azurewebsites.net`|
     |Klucz publikowany|`XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`(ciąg znaków 32 wyświetlany po `Endpoint` )|
-    |Identyfikator aplikacji|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`(ciąg znaków 36 wyświetlany jako część `POST`) |
+    |Identyfikator aplikacji|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`(ciąg znaków 36 wyświetlany jako część `POST` ) |
 
 ## <a name="create-batch-test-file-with-question-ids"></a>Utwórz plik testu wsadowego z identyfikatorami pytań
 
@@ -72,7 +65,7 @@ Aby użyć narzędzia Test Batch, Utwórz plik o nazwie `batch-test-data-1.tsv` 
 
 |Pola wejściowe plików TSV|Uwagi|Przykład|
 |--|--|--|
-|Identyfikator bazy wiedzy|Identyfikator bazy wiedzy został znaleziony na stronie publikowanie. Przetestuj kilka baz wiedzy w jednej usłudze jednocześnie w pojedynczym pliku przy użyciu różnych identyfikatorów bazy wiedzy w pojedynczym pliku.|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`(ciąg znaków 36 wyświetlany jako część `POST`) |
+|Identyfikator bazy wiedzy|Identyfikator bazy wiedzy został znaleziony na stronie publikowanie. Przetestuj kilka baz wiedzy w jednej usłudze jednocześnie w pojedynczym pliku przy użyciu różnych identyfikatorów bazy wiedzy w pojedynczym pliku.|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`(ciąg znaków 36 wyświetlany jako część `POST` ) |
 |Pytanie|Tekst pytania, który użytkownik wprowadzi. maksymalnie 1 000 znaków.|`How do I sign out?`|
 |Tagi metadanych|optional|`topic:power`używa formatu _wartości klucz: wartość_|
 |Górny parametr|optional|`25`|
@@ -108,7 +101,7 @@ Plik testu wsadowego, po otwarciu w programie Excel wygląda jak na poniższej i
 
 Uruchom program testów wsadowych przy użyciu poniższego formatu interfejsu wiersza polecenia.
 
-`YOUR-RESOURCE-NAME` Zastąp `ENDPOINT-KEY` wartości i własnymi wartościami dla nazwy usługi i klucza punktu końcowego. Te wartości są dostępne na stronie **Ustawienia** w portalu QNA Maker.
+Zastąp `YOUR-RESOURCE-NAME` `ENDPOINT-KEY` wartości i własnymi wartościami dla nazwy usługi i klucza punktu końcowego. Te wartości są dostępne na stronie **Ustawienia** w portalu QNA Maker.
 
 ```console
 batchtesting.exe batch-test-data-1.tsv https://YOUR-RESOURCE-NAME.azurewebsites.net ENDPOINT-KEY out.tsv
@@ -137,7 +130,7 @@ Skorzystaj z poniższej tabeli, aby zrozumieć, jak znaleźć wartości pól dla
 |Numer kolumny|Opcjonalna kolumna|Lokalizacja danych|
 |--|--|--|
 |3|metadane|Eksportuj istniejącą bazę wiedzy dla istniejących _kluczy: par wartości_ .|
-|4|top|Zalecaną wartością `25` domyślną jest.|
+|4|top|`25`Zalecaną wartością domyślną jest.|
 |5|Identyfikator pytania i odpowiedzi|Wyeksportuj istniejącą bazę wiedzy dla wartości identyfikatora. Zauważ również, że identyfikatory zostały zwrócone w pliku wyjściowym.|
 
 ## <a name="add-metadata-to-the-knowledge-base"></a>Dodawanie metadanych do bazy wiedzy
@@ -169,9 +162,9 @@ Istnieją dwa główne scenariusze testowania wsadowego:
 
 W poniższej procedurze przyjęto założenie, że scenariusz polega na przetwarzaniu dzienników rozmowy przy użyciu
 
-1. Utwórz nowy plik testu wsadowego, `batch-test-data-2.tsv`aby uwzględnić opcjonalne dane. Dodaj 6 wierszy z oryginalnego pliku wejściowego testu wsadowego, a następnie Dodaj identyfikator pary metadanych, Top i QnA dla każdego wiersza.
+1. Utwórz nowy plik testu wsadowego, aby uwzględnić opcjonalne dane `batch-test-data-2.tsv` . Dodaj 6 wierszy z oryginalnego pliku wejściowego testu wsadowego, a następnie Dodaj identyfikator pary metadanych, Top i QnA dla każdego wiersza.
 
-    Aby zasymulować zautomatyzowany proces sprawdzania nowego tekstu z dzienników rozmowy względem bazy wiedzy, należy ustawić metadane dla każdej kolumny na taką samą wartość: `topic:power`.
+    Aby zasymulować zautomatyzowany proces sprawdzania nowego tekstu z dzienników rozmowy względem bazy wiedzy, należy ustawić metadane dla każdej kolumny na taką samą wartość: `topic:power` .
 
     > [!div class="mx-imgBorder"]
     > ![Wprowadź drugą wersję pliku TSV z testu wsadowego](../media/batch-test/batch-test-2-input.png)
@@ -197,7 +190,7 @@ Powinny być widoczne te wyniki, aby można było wykonać dziennik rozmowy i u�
 
 Czy filtrowanie za pomocą meta danych jest dobrym pomysłem dla testu? Tak i nie. System testowy powinien tworzyć pliki testowe dla każdej pary meta-danych, a także test bez par metadanych.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz kontynuować testowania bazy wiedzy, Usuń narzędzie plików wsadowych i pliki testowe.
 

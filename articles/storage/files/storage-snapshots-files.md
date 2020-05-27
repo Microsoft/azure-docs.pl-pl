@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e09887b8000a0aeb52879d5306bc0a00da5141f5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b50407b3ea7389388577d229f67a4e4baca4296d
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176145"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873591"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Overview of share snapshots for Azure Files (Omówienie migawek udziałów w usłudze Azure Files) 
 Azure Files zapewnia możliwość tworzenia migawek udziałów plików. Migawki udziału przechwytują stan udziału w tym momencie. W tym artykule opisano, jakie funkcje są udostępniane przez migawki i jak można je wykorzystać w przypadku niestandardowego przypadku użycia.
@@ -37,7 +37,7 @@ Po utworzeniu migawki udziału można ją odczytywać, kopiować lub usuwać, al
 
 Możliwość udostępniania migawek jest dostępna na poziomie udziału plików. Pobieranie jest dostępne na poziomie poszczególnych plików, aby umożliwić przywracanie pojedynczych plików. Można przywrócić pełny udział plików przy użyciu protokołu SMB, interfejsu API REST, portalu, biblioteki klienta lub narzędzi PowerShell/interfejsu wiersza polecenia.
 
-Migawka udziału plików jest identyczna z jej podstawowym udziałem plików. Jedyną różnicą jest to, że wartość **daty i godziny** jest dołączana do identyfikatora URI udziału, aby wskazać godzinę utworzenia migawki udziału. Na przykład jeśli identyfikator URI udziału plików to http:\//storagesample.Core.File.Windows.NET/myshare, identyfikator URI migawki udziału jest podobny do:
+Migawka udziału plików jest identyczna z jej podstawowym udziałem plików. Jedyną różnicą jest to, że wartość **daty i godziny** jest dołączana do identyfikatora URI udziału, aby wskazać godzinę utworzenia migawki udziału. Na przykład jeśli identyfikator URI udziału plików to http: \/ /storagesample.Core.File.Windows.NET/myshare, identyfikator URI migawki udziału jest podobny do:
 ```
 http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
@@ -80,11 +80,11 @@ Gdy korzystasz z infrastruktury na platformie Azure, Automatyzuj kopie zapasowe 
 
 Przed wdrożeniem harmonogramu udziałów migawek należy uważnie uwzględnić częstotliwość tworzenia migawek i ustawienia przechowywania, aby uniknąć ponoszenia niepotrzebnych opłat.
 
-Migawki udziałów zapewniają tylko ochronę na poziomie plików. Migawki udziałów nie uniemożliwiają usuwania przy użyciu programu FAT-Finger w udziale plików lub koncie magazynu. Aby chronić konto magazynu przed przypadkowym usunięciem, można zablokować konto magazynu lub grupę zasobów.
+Migawki udziałów zapewniają tylko ochronę na poziomie plików. Migawki udziałów nie uniemożliwiają usuwania przy użyciu programu FAT-Finger w udziale plików lub koncie magazynu. Aby chronić konto magazynu przed przypadkowym usunięciem, można [włączyć opcję usuwania nietrwałego](storage-files-prevent-file-share-deletion.md)lub zablokować konto magazynu i/lub grupę zasobów.
 
 ## <a name="next-steps"></a>Następne kroki
 - Praca z migawkami udziałów w programie:
-    - [PowerShell](storage-how-to-use-files-powershell.md)
+    - [Program PowerShell](storage-how-to-use-files-powershell.md)
     - [Interfejs wiersza polecenia](storage-how-to-use-files-cli.md)
     - [Windows](storage-how-to-use-files-windows.md#accessing-share-snapshots-from-windows)
     - [Często zadawane pytania dotyczące udostępniania migawek](storage-files-faq.md#share-snapshots)

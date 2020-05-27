@@ -3,12 +3,12 @@ title: Samouczek — wdrażanie klastra vSphere na platformie Azure
 description: Dowiedz się, jak wdrożyć klaster vSphere na platformie Azure przy użyciu rozwiązania Azure VMWare (Automatyczna synchronizacja)
 ms.topic: tutorial
 ms.date: 05/04/2020
-ms.openlocfilehash: 6a192454367f2e6ca071e9cfe0a9f1a94868cbdb
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: fc753f43563650357cf43c102e94f0057b62a406
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82977707"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873732"
 ---
 # <a name="tutorial-deploy-an-avs-private-cloud-in-azure"></a>Samouczek: Wdrażanie chmury prywatnej automatycznej synchronizacji na platformie Azure
 
@@ -16,7 +16,7 @@ Rozwiązanie Azure VMware (Automatyczna synchronizacja) umożliwia wdrażanie kl
 
 Ponieważ funkcja automatycznej synchronizacji nie pozwala na zarządzanie chmurą prywatną przy użyciu lokalnego programu vCenter podczas uruchamiania, należy przeprowadzić dodatkową konfigurację i połączenie z lokalnym wystąpieniem programu vCenter, siecią wirtualną i wieloma innymi. Te procedury i powiązane z nim wymagania wstępne zostaną omówione w tej serii samouczków.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie chmury prywatnej AVS
@@ -30,7 +30,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="register-the-resource-provider"></a>Rejestrowanie dostawcy zasobów
 
-Aby można było korzystać z rozwiązania VMWare na platformie Azure, należy najpierw zarejestrować dostawcę zasobów. Poniższy przykład rejestruje dostawcę zasobów w ramach subskrypcji.
+Aby można było korzystać z rozwiązania VMware na platformie Azure, należy najpierw zarejestrować dostawcę zasobów. Poniższy przykład rejestruje dostawcę zasobów w ramach subskrypcji.
 
 ```azurecli-interactive
 az provider register -n Microsoft.AVS --subscription <your subscription ID>
@@ -48,7 +48,7 @@ Chmurę prywatną można utworzyć za pomocą [Azure Portal](#azure-portal) lub 
 
 ### <a name="azure-portal"></a>Azure Portal
 
-W Azure Portal wybierz pozycję **+ Utwórz nowy zasób**. W polu tekstowym **Wyszukaj w witrynie Marketplace** `Azure VMware Solution`, a następnie wybierz pozycję **Azure VMware Solution** z listy. W oknie **rozwiązanie platformy Azure VMware** wybierz pozycję **Utwórz** .
+W Azure Portal wybierz pozycję **+ Utwórz nowy zasób**. W polu tekstowym **Wyszukaj w witrynie Marketplace** `Azure VMware Solution` , a następnie wybierz pozycję **Azure VMware Solution** z listy. W oknie **rozwiązanie platformy Azure VMware** wybierz pozycję **Utwórz** .
 
 Na karcie **podstawowe** wpisz wartości pól. W poniższej tabeli przedstawiono szczegółową listę właściwości.
 

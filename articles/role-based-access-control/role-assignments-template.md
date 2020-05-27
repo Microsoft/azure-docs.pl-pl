@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 05/26/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 777d11a129f02d1a2f5c796dea0af438ca81ba8c
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: baf309a93f8ba976cb6511c05ba5032ad07a0fc9
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735627"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83874049"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Dodawanie przypisań ról platformy Azure przy użyciu szablonów Azure Resource Manager
 
@@ -26,7 +26,7 @@ ms.locfileid: "82735627"
 
 ## <a name="get-object-ids"></a>Pobierz identyfikatory obiektów
 
-Aby przypisać rolę, należy określić identyfikator użytkownika, grupy lub aplikacji, do której ma zostać przypisana rola. Identyfikator ma format: `11111111-1111-1111-1111-111111111111`. Identyfikator można uzyskać, korzystając z Azure Portal, Azure PowerShell lub interfejsu wiersza polecenia platformy Azure.
+Aby przypisać rolę, należy określić identyfikator użytkownika, grupy lub aplikacji, do której ma zostać przypisana rola. Identyfikator ma format: `11111111-1111-1111-1111-111111111111` . Identyfikator można uzyskać, korzystając z Azure Portal, Azure PowerShell lub interfejsu wiersza polecenia platformy Azure.
 
 ### <a name="user"></a>Użytkownik
 
@@ -77,7 +77,7 @@ Poniższy szablon przedstawia podstawowy sposób dodawania przypisania roli. Nie
 Aby użyć szablonu, należy wykonać następujące czynności:
 
 - Utwórz nowy plik JSON i skopiuj szablon
-- Zamień `<your-principal-id>` na identyfikator użytkownika, grupy lub aplikacji, do której ma zostać przypisana rola
+- Zamień na `<your-principal-id>` Identyfikator użytkownika, grupy lub aplikacji, do której ma zostać przypisana rola
 
 ```json
 {
@@ -173,7 +173,7 @@ Aby użyć szablonu, należy określić następujące dane wejściowe:
 ```
 
 > [!NOTE]
-> Ten szablon nie jest idempotentne, chyba że `roleNameGuid` ta sama wartość jest podana jako parametr dla każdego wdrożenia szablonu. Jeśli nie `roleNameGuid` jest podany, domyślnie nowy identyfikator GUID jest generowany dla każdego wdrożenia, a kolejne wdrożenia zakończą się niepowodzeniem z `Conflict: RoleAssignmentExists` powodu błędu.
+> Ten szablon nie jest idempotentne, chyba że ta sama `roleNameGuid` wartość jest podana jako parametr dla każdego wdrożenia szablonu. Jeśli nie `roleNameGuid` jest podany, domyślnie nowy identyfikator GUID jest generowany dla każdego wdrożenia, a kolejne wdrożenia zakończą się niepowodzeniem z `Conflict: RoleAssignmentExists` powodu błędu.
 
 Zakres przypisania roli jest określany na podstawie poziomu wdrożenia. Oto przykład polecenia [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) i [AZ Group Deployment Create](/cli/azure/group/deployment#az-group-deployment-create) , aby uruchomić wdrożenie w zakresie grupy zasobów.
 
@@ -293,7 +293,7 @@ Poniżej przedstawiono przykład przypisania roli współautor do użytkownika d
 
 ### <a name="new-service-principal"></a>Nowa nazwa główna usługi
 
-Jeśli utworzysz nową nazwę główną usługi i natychmiast spróbujesz przypisać rolę do tej jednostki usługi, w niektórych przypadkach przypisanie roli może zakończyć się niepowodzeniem. Jeśli na przykład utworzysz nową tożsamość zarządzaną, a następnie spróbujesz przypisać rolę do tej jednostki usługi w tym samym szablonie Azure Resource Manager, przypisanie roli może zakończyć się niepowodzeniem. Przyczyną tego błędu jest prawdopodobnie opóźnienie replikacji. Nazwa główna usługi jest tworzona w jednym regionie; jednak przypisanie roli może wystąpić w innym regionie, który jeszcze nie replikuje jednostki usługi. Aby rozwiązać ten scenariusz, należy ustawić `principalType` właściwość na `ServicePrincipal` przy tworzeniu przypisania roli.
+Jeśli utworzysz nową nazwę główną usługi i natychmiast spróbujesz przypisać rolę do tej jednostki usługi, w niektórych przypadkach przypisanie roli może zakończyć się niepowodzeniem. Jeśli na przykład utworzysz nową tożsamość zarządzaną, a następnie spróbujesz przypisać rolę do tej jednostki usługi w tym samym szablonie Azure Resource Manager, przypisanie roli może zakończyć się niepowodzeniem. Przyczyną tego błędu jest prawdopodobnie opóźnienie replikacji. Nazwa główna usługi jest tworzona w jednym regionie; jednak przypisanie roli może wystąpić w innym regionie, który jeszcze nie replikuje jednostki usługi. Aby rozwiązać ten scenariusz, należy ustawić `principalType` Właściwość na `ServicePrincipal` przy tworzeniu przypisania roli.
 
 Poniższy szablon demonstruje:
 
@@ -358,6 +358,15 @@ az group deployment create --resource-group ExampleGroup2 --template-file rbac-t
 Poniżej przedstawiono przykład przypisania roli współautor do nowej jednostki usługi tożsamości zarządzanej po wdrożeniu szablonu.
 
 ![Przypisanie roli dla nowej nazwy głównej usługi tożsamości zarządzanej](./media/role-assignments-template/role-assignment-template-msi.png)
+
+## <a name="remove-a-role-assignment"></a>Usuwanie przypisania roli
+
+W celu usunięcia dostępu do zasobu platformy Azure w usłudze Azure RBAC należy usunąć przypisanie roli. Nie można usunąć przypisania roli przy użyciu szablonu. Aby usunąć przypisanie roli, należy użyć innych narzędzi, takich jak:
+
+- [Azure Portal](role-assignments-portal.md#remove-a-role-assignment)
+- [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)
+- [Interfejs wiersza polecenia platformy Azure](role-assignments-cli.md#remove-a-role-assignment)
+- [Interfejs API REST](role-assignments-rest.md#remove-a-role-assignment)
 
 ## <a name="next-steps"></a>Następne kroki
 

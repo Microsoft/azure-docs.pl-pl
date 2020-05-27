@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 54f4b38e01b51289319390779a140346befc6f0c
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 4a96f31588e199d5696e2d9eff351051d46c1f96
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76168802"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873960"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>Szybki Start: przeszukiwanie sieci Web przy użyciu interfejsu API REST wyszukiwanie w sieci Web Bing i środowiska Node. js
 
-Ten przewodnik Szybki start umożliwi Ci utworzenie Twojego pierwszego wywołania interfejsu API wyszukiwania w Internecie Bing i odebranie odpowiedzi JSON. Ta aplikacja Node. js wysyła żądanie wyszukiwania do interfejsu API i wyświetla odpowiedź. Aplikacja jest napisana w języku JavaScript, natomiast interfejs API jest usługą internetową zgodną z wzorcem REST i większością języków programowania.
+Użyj tego przewodnika Szybki Start, aby wykonać pierwsze wywołanie do interfejs API wyszukiwania w sieci Web Bing. Ta aplikacja Node. js wysyła żądanie wyszukiwania do interfejsu API i wyświetla odpowiedź JSON. Mimo że aplikacja jest zapisywana w języku JavaScript, interfejs API jest usługą sieci Web RESTful zgodną z większością języków programowania.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -33,8 +33,7 @@ Oto kilka rzeczy, które są potrzebne przed rozpoczęciem tego przewodnika Szyb
 
 ## <a name="create-a-project-and-declare-required-modules"></a>Tworzenie projektu i deklarowanie wymaganych modułów
 
-Utwórz nowy projekt Node.js w ulubionym środowisku IDE lub edytorze.
-Następnie skopiuj poniższy fragment kodu do projektu do pliku o nazwie `search.js`.
+Utwórz nowy projekt Node.js w ulubionym środowisku IDE lub edytorze. Następnie skopiuj Poniższy fragment kodu do projektu w pliku o nazwie Search. js:
 
 ```javascript
 // Use this simple app to query the Bing Web Search API and get a JSON response.
@@ -44,9 +43,9 @@ const https = require('https')
 
 ## <a name="set-the-subscription-key"></a>Ustawianie klucza subskrypcji
 
-Ten fragment kodu używa zmiennej środowiskowej `AZURE_SUBSCRIPTION_KEY` do przechowywania klucza subskrypcji. Jest to dobre rozwiązanie pozwalające uniknąć przypadkowego ujawnienia kluczy podczas wdrażania kodu. Przejdź do [strony interfejsów API](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7) , aby wyszukać klucz subskrypcji.
+W tym fragmencie kodu `AZURE_SUBSCRIPTION_KEY` jest stosowana zmienna środowiskowa do przechowywania klucza subskrypcji, co jest dobrym sposobem na uniknięcie przypadkowego narażenia kluczy podczas wdrażania kodu. Aby wyszukać klucz subskrypcji, zobacz [interfejsy API](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7).
 
-Jeśli nie wiesz, jak korzystać ze zmiennych środowiskowych, lub chcesz uruchomić tę aplikację możliwie najszybciej, możesz zastąpić `process.env['AZURE_SUBSCRIPTION_KEY']` kluczem subskrypcji ustawionym jako ciąg.
+Jeśli nie masz doświadczenia w korzystaniu ze zmiennych środowiskowych lub chcesz uruchomić tę aplikację tak szybko, jak to możliwe, Zastąp `process.env['AZURE_SUBSCRIPTION_KEY']` ustawieniem klucz subskrypcji ustawionym jako ciąg.
 
 ```javascript
 const SUBSCRIPTION_KEY = process.env['AZURE_SUBSCRIPTION_KEY']
@@ -57,7 +56,15 @@ if (!SUBSCRIPTION_KEY) {
 
 ## <a name="create-a-function-to-make-the-request"></a>Tworzenie funkcji do wysłania żądania
 
-Ta funkcja wyśle bezpieczne żądanie GET, zapisując zapytanie wyszukiwania jako parametr zapytania w ścieżce. `hostname`może to być globalny punkt końcowy poniżej lub niestandardowy punkt końcowy [domeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) podrzędnej wyświetlany w Azure Portal dla zasobu.  Parametr `encodeURIComponent` ułatwia uniknięcie nieprawidłowych znaków, a klucz subskrypcji jest przekazywany w nagłówku. Wywołanie zwrotne otrzymuje [odpowiedź](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse), która subskrybuje zdarzenia `data` w celu agregowania treści w formacie JSON, zdarzenia `error` do zapisywania wszelkich problemów w dzienniku oraz zdarzenia `end` umożliwiające określenie, kiedy należy uznać komunikat za pełny. Po zakończeniu aplikacja zacznie drukować interesujące nas nagłówki i treść komunikatów. Można poeksperymentować z kolorami i ustawić głębię w zależności od osobistych preferencji. Głębia `1` zapewnia ładne podsumowanie odpowiedzi.
+Ta funkcja dokonuje bezpiecznego żądania GET i zapisuje zapytanie wyszukiwania jako parametr zapytania w ścieżce. 
+
+1. Dla `hostname` wartości można użyć globalnego punktu końcowego w poniższym kodzie lub użyć niestandardowego punktu końcowego [poddomeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) wyświetlanego w Azure Portal dla zasobu.  
+
+2. Użyj `encodeURIComponent` do ucieczki nieprawidłowych znaków. Klucz subskrypcji jest przesyłany w nagłówku. 
+
+3. Wywołanie zwrotne otrzymuje [odpowiedź](https://nodejs.org/dist/latest-v10.x/docs/api/http.html#http_class_http_serverresponse), która subskrybuje zdarzenia `data` w celu agregowania treści w formacie JSON, zdarzenia `error` do zapisywania wszelkich problemów w dzienniku oraz zdarzenia `end` umożliwiające określenie, kiedy należy uznać komunikat za pełny. 
+
+4. Po zakończeniu aplikacja drukuje odpowiednie nagłówki i treść wiadomości. Możesz dostosować kolory i ustawić głębię zgodnie z preferencjami. Głębokość daje dokładniejsze `1` Podsumowanie odpowiedzi.
 
 ```javascript
 function bingWebSearch(query) {
@@ -87,7 +94,7 @@ function bingWebSearch(query) {
 
 ## <a name="get-the-query"></a>Pobieranie zapytania
 
-Przyjrzyjmy się argumentom programu, aby znaleźć zapytanie. Pierwszym argumentem jest ścieżka do węzła, drugim jest nasza nazwa pliku, a trzecim Twoje zapytanie. Jeśli nie podamy zapytania, zostanie użyte domyślne zapytanie usługi „Microsoft Cognitive Services”.
+Przyjrzyjmy się argumentom programu, aby znaleźć zapytanie. Pierwszy argument jest ścieżką do węzła, drugim jest nasze filename, a trzeci to zapytanie. Jeśli nie podamy zapytania, zostanie użyte domyślne zapytanie usługi „Microsoft Cognitive Services”.
 
 ```javascript
 const query = process.argv[2] || 'Microsoft Cognitive Services'
@@ -95,7 +102,7 @@ const query = process.argv[2] || 'Microsoft Cognitive Services'
 
 ## <a name="make-a-request-and-print-the-response"></a>Wysyłanie żądania i wyświetlanie odpowiedzi
 
-Teraz gdy wszystko jest zdefiniowane, wywołajmy naszą funkcję.
+Teraz, gdy wszystko jest zdefiniowane, przyjrzyjmy naszej funkcji.
 
 ```javascript
 bingWebSearch(query)
@@ -103,7 +110,7 @@ bingWebSearch(query)
 
 ## <a name="put-it-all-together"></a>Zebranie wszystkich elementów
 
-Ostatnim krokiem jest uruchomienie kodu: `node search.js "<your query>"`.
+Ostatnim krokiem jest uruchomienie kodu za pomocą polecenia: `node search.js "<your query>"` .
 
 Jeśli chcesz porównać swój kod z naszym, oto pełny program:
 
@@ -140,7 +147,7 @@ const query = process.argv[2] || 'Microsoft Cognitive Services'
 bingWebSearch(query)
 ```
 
-## <a name="sample-response"></a>Przykładowa odpowiedź
+## <a name="example-json-response"></a>Przykładowa odpowiedź JSON
 
 Odpowiedzi z interfejsu API wyszukiwania w sieci Web Bing są zwracane w formacie JSON. Ta przykładowa odpowiedź została obcięta w celu pokazania pojedynczego wyniku.
 
@@ -269,6 +276,6 @@ Odpowiedzi z interfejsu API wyszukiwania w sieci Web Bing są zwracane w formaci
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Samouczek dotyczący jednostronicowej aplikacji wyszukiwania w sieci Web Bing](../tutorial-bing-web-search-single-page-app.md)
+> [Samouczek interfejs API wyszukiwania w sieci Web Bing aplikacji jednostronicowej](../tutorial-bing-web-search-single-page-app.md)
 
 [!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

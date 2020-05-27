@@ -1,20 +1,20 @@
 ---
-title: Samouczek — Konfigurowanie sieci dla Twojej chmury prywatnej VMWare na platformie Azure
+title: Samouczek — Konfigurowanie sieci dla Twojej chmury prywatnej VMware na platformie Azure
 description: Dowiedz się, jak utworzyć i skonfigurować sieć potrzebną do wdrożenia chmury prywatnej na platformie Azure
 ms.topic: tutorial
 ms.date: 05/04/2020
-ms.openlocfilehash: 41043b98a6e270d8d9f4373de7876b3fcae86747
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 5a8086f78f465f52d0f9107932c09c4690f505e8
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837621"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873862"
 ---
 # <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>Samouczek: Konfigurowanie sieci dla Twojej chmury prywatnej VMWare na platformie Azure
 
 Chmura prywatna (Automatyczna synchronizacja) z rozwiązaniem VMware Azure wymaga sieci wirtualnej. Ponieważ wersja zapoznawcza nie obsługuje lokalnego programu vCenter w okresie zapoznawczym, wymagane są dodatkowe kroki integracji ze środowiskiem lokalnym. Konfigurowanie obwodu ExpressRoute i bramy Virtual Network są również wymagane i zostaną uwzględnione w tym samouczku.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Tworzenie sieci wirtualnej
@@ -24,7 +24,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
-Zaloguj się do [portalu Azure](https://portal.azure.com).
+Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
 
@@ -68,7 +68,7 @@ Na karcie podstawowe strony **Tworzenie bramy sieci wirtualnej** podaj wartości
 | **Subskrypcja** | Ta wartość jest już wypełniona z subskrypcją, do której należy Grupa zasobów. |
 | **Grupa zasobów** | Ta wartość jest już wypełniona dla bieżącej grupy zasobów. Powinna to być grupa zasobów utworzona w poprzednim teście. |
 | **Nazwa** | Wprowadź unikatową nazwę bramy sieci wirtualnej. |
-| **Region** | Wybierz lokalizację geograficzną bramy sieci wirtualnej. |
+| **Okolicy** | Wybierz lokalizację geograficzną bramy sieci wirtualnej. |
 | **Typ bramy** | Wybierz pozycję **ExpressRoute**. |
 | **Typ sieci VPN** | wybierz pozycję **Oparte na trasach**. |
 | **Magazyn** | Pozostaw wartość domyślną: **standardowa**. |
@@ -128,4 +128,4 @@ W niniejszym samouczku zawarto informacje na temat wykonywania następujących c
 Przejdź do następnego samouczka, aby dowiedzieć się, jak utworzyć pole skoku używane do nawiązywania połączenia ze środowiskiem, dzięki czemu możesz zarządzać chmurą prywatną lokalnie.
 
 > [!div class="nextstepaction"]
-> [Dostęp do chmury prywatnej](tutorial-access-private-cloud.md)
+> [Uzyskiwanie dostępu do chmury prywatnej](tutorial-access-private-cloud.md)
