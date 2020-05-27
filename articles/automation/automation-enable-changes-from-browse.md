@@ -5,14 +5,14 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: b53c63fc1a14c456e0bca0725ca29b311301ce66
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 0491f10f22e35c81e5bc35d537546001f136be50
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83749081"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826829"
 ---
-# <a name="enable-change-tracking-and-inventory-from-the-azure-portal"></a>Włącz Change Tracking i spis z Azure Portal
+# <a name="enable-change-tracking-and-inventory-from-azure-portal"></a>Włącz Change Tracking i spis z Azure Portal
 
 W tym artykule opisano, jak włączyć funkcję [Change Tracking i spisu](change-tracking.md) dla maszyn wirtualnych, przeglądając Azure Portal. Aby włączyć maszyny wirtualne platformy Azure na dużą skalę, należy włączyć istniejącą maszynę wirtualną przy użyciu Change Tracking i spisu. 
 
@@ -60,10 +60,9 @@ Zaloguj się do platformy Azure pod adresem https://portal.azure.com .
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Zarządzanie Change Tracking i spisem](change-tracking-file-contents.md)
-* [Pracuj z konfiguracjami zakresu dla Change Tracking i spisu](automation-scope-configurations-change-tracking.md)
-* [Identyfikowanie oprogramowania na maszynie wirtualnej](automation-tutorial-installed-software.md)
-* [Odłączanie obszaru roboczego od konta usługi Automation dla Change Tracking i spisu](automation-unlink-workspace-change-tracking.md)
-* [Usuwanie maszyn wirtualnych z Change Tracking i spisu](automation-remove-vms-from-change-tracking.md)
-* [Rozwiązywanie problemów dotyczących zmian na maszynie wirtualnej platformy Azure](automation-tutorial-troubleshoot-changes.md)
-* [Rozwiązywanie problemów dotyczących Change Tracking i spisu](troubleshoot/change-tracking.md)
+* Aby uzyskać szczegółowe informacje na temat pracy z funkcją, zobacz [zarządzanie Change Tracking i spisem](change-tracking-file-contents.md).
+* Aby uzyskać informacje na temat konfiguracji zakresów, zobacz artykuł [współpraca z konfiguracjami zakresów dla Change Tracking i spisu](automation-scope-configurations-change-tracking.md).
+* Aby dowiedzieć się, jak za pomocą funkcji identyfikować oprogramowanie zainstalowane w danym środowisku, zobacz sekcję jak rozpoznać, [jakie oprogramowanie jest zainstalowane na maszynach wirtualnych](automation-tutorial-installed-software.md).
+* Jeśli nie chcesz zintegrować konta usługi Automation z obszarem roboczym Log Analytics podczas włączania funkcji, zobacz [Odłącz obszar roboczy od konta usługi Automation](automation-unlink-workspace-change-tracking.md).
+* Po zakończeniu wdrażania zmian na maszynach wirtualnych można je usunąć zgodnie z opisem w temacie [usuwanie maszyn wirtualnych z Change Tracking i spisu](automation-remove-vms-from-change-tracking.md).
+* Rozwiązywanie ogólnych problemów z funkcją można znaleźć w temacie [Rozwiązywanie problemów dotyczących Change Tracking i spisu](troubleshoot/change-tracking.md).

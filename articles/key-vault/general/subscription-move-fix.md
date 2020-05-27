@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: 94bcba80e5768d57e3dc97bed1a74a8369ac60b9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9e35f5c9288860056a910f54f9601b2178a628bb
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81422893"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828087"
 ---
 # <a name="change-a-key-vault-tenant-id-after-a-subscription-move"></a>Zmiana identyfikatora dzierżawy magazynu kluczy po przeniesieniu subskrypcji
 
@@ -61,4 +61,4 @@ Jeśli używasz pliku MSI, musisz również zaktualizować tożsamość MSI, pon
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli masz pytania dotyczące usługi Azure Key Vault, odwiedź [forum usługi Azure Key Vault](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
+Jeśli masz pytania dotyczące Azure Key Vault, odwiedź [stronę pytań&Microsoft pytań i odpowiedzi na Azure Key Vault](https://docs.microsoft.com/answers/topics/azure-key-vault.html).

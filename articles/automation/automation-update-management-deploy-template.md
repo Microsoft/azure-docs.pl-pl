@@ -7,14 +7,14 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 04/24/2020
-ms.openlocfilehash: 9e4396a1def5b032077c1c15c2d10b7f3452853f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 0a83117d6d58f45d6ee1de2b8d61c2157738fc75
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743461"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830995"
 ---
-# <a name="enable-update-management-using-azure-resource-manager-template"></a>Włączanie Update Management przy użyciu szablonu Azure Resource Manager
+# <a name="enable-update-management-using-azure-resource-manager-template"></a>Włączanie rozwiązania Update Management przy użyciu szablonu usługi Azure Resource Manager
 
 Aby włączyć funkcję Update Management Azure Automation w grupie zasobów, można użyć [szablonu Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md) . Ten artykuł zawiera przykładowy szablon, który automatyzuje następujące czynności:
 
@@ -241,10 +241,9 @@ Należy zapoznać się z poniższymi szczegółami konfiguracji, jeśli jesteś 
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po włączeniu Update Management można włączyć maszyny wirtualne do zarządzania, przejrzeć oceny aktualizacji i wdrożyć aktualizacje, aby zapewnić zgodność.
-
-- Na [koncie usługi Azure Automation](automation-onboard-solutions-from-automation-account.md) dla jednej lub wielu maszyn platformy Azure i ręcznie dla maszyn nienależących do platformy Azure
-
-- Dla jednej maszyny wirtualnej platformy Azure na stronie maszyny wirtualnej w Azure Portal. Ten scenariusz jest dostępny dla maszyn wirtualnych z systemami [Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) i [Windows](../virtual-machines/windows/tutorial-config-management.md#enable-update-management)
-
-- Dla [wielu maszyn wirtualnych platformy Azure](manage-update-multi.md) , wybierając je na stronie **maszyny wirtualne** w Azure Portal 
+* Aby używać Update Management dla maszyn wirtualnych, zobacz [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure](automation-tutorial-update-management.md).
+* Jeśli obszar roboczy Log Analytics nie jest już potrzebny, zobacz instrukcje w polu [Odłącz obszar roboczy z konta usługi Automation dla Update Management](automation-unlink-workspace-update-management.md).
+* Aby usunąć maszyny wirtualne z Update Management, zobacz [usuwanie maszyn wirtualnych z Update Management](automation-remove-vms-from-update-management.md).
+* Aby rozwiązać ogólne błędy Update Management, zobacz [Rozwiązywanie problemów z Update Management](troubleshoot/update-management.md).
+* Aby rozwiązać problemy z usługą Windows Update Agent, zobacz [Rozwiązywanie problemów z usługą Windows Update Agent](troubleshoot/update-agent-issues.md).
+* Aby rozwiązać problemy z agentem aktualizacji systemu Linux, zobacz[Rozwiązywanie problemów z agentem aktualizacji systemu Linux](troubleshoot/update-agent-issues-linux.md).

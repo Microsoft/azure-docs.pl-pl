@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 624bce67e01a0d7dbee382ed77a833705ecd5c89
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: bd973a859ce1fa6a9ce5566b1403331988630960
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800367"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828104"
 ---
 # <a name="support-for-microsoft-commercial-marketplace"></a>Pomoc techniczna dla portalu komercyjnego firmy Microsoft
 
@@ -32,7 +32,7 @@ Otwórz bilet z [obsługą wydawcy portalu Microsoft Marketplace](https://aka.ms
 
 | Kanał pomocy technicznej | Opis |  
 |:--- |:--- |  
-| Fora MSDN: Marketplace w witrynie [Social.MSDN.Microsoft.com/forums/Azure/Home?forum=DataMarket](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Forum Microsoft Developer Network. |  
+| Fora MSDN: Marketplace w witrynie [Microsoft Q&stronie pytania](https://docs.microsoft.com/answers/products/azure) | Forum Microsoft Developer Network. |  
 | Stack Overflow: platforma Azure znajduje się w witrynie [StackOverflow.com/questions/Tagged/Azure](https://stackoverflow.com/questions/tagged/azure) | Stack Overflow środowisko, aby uzyskać rozwiązania i zadawać pytania dotyczące wszystkiego związanego z portalem Azure Marketplace.<ul> <li>Stack Overflow: Witryna Azure Marketplace znajdująca się w witrynie [StackOverflow.com/questions/Tagged/Azure-Marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stack Overflow: Azure Resource Manager znajdujący się w [StackOverflow.com/questions/Tagged/Azure-Resource-Manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stack Overflow: Virtual Machines na platformie Azure, które znajdują się w [StackOverflow.com/questions/Tagged/Azure-Virtual-Machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Stack Overflow: kontenery na platformie Azure zlokalizowane pod adresem [StackOverflow.com/search?q=Azure+Container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
 
 ## <a name="marketing-resources"></a>Zasoby marketingowe  

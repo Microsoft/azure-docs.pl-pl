@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 3ca3e9074f28d66068d49b80915e98600759d9be
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7568a8a80550677e1608e1a8a52ebeacce765c81
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68568279"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826421"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Transakcje rozproszone w bazach danych w chmurze
 
@@ -143,9 +143,9 @@ Użyj dynamicznych widoków zarządzania (widoków DMV) w usłudze SQL DB, aby m
 
 Te widoków DMV są szczególnie przydatne:
 
-* **aktywne\_transakcje\_sys.DM\_przeładunku**: Wyświetla aktualnie aktywne transakcje i ich stan. Kolumna "jednostka pracy" może identyfikować różne transakcje podrzędne należące do tej samej transakcji rozproszonej. Wszystkie transakcje w ramach tej samej transakcji rozproszonej mają tę samą wartość JEDNOSTKowy. Aby uzyskać więcej informacji, zobacz [dokumentację DMV](https://msdn.microsoft.com/library/ms174302.aspx) .
-* **transakcje\_bazy\_danych\_sys.DM przeładunku**: zawiera dodatkowe informacje o transakcjach, takich jak umieszczanie transakcji w dzienniku. Aby uzyskać więcej informacji, zobacz [dokumentację DMV](https://msdn.microsoft.com/library/ms186957.aspx) .
-* **blokady\_sys.DM: zawiera informacje o blokadach, które są obecnie przechowywane przez bieżące transakcje.\_** Aby uzyskać więcej informacji, zobacz [dokumentację DMV](https://msdn.microsoft.com/library/ms190345.aspx) .
+* ** \_ \_ aktywne \_ transakcje sys.DM przeładunku**: Wyświetla aktualnie aktywne transakcje i ich stan. Kolumna "jednostka pracy" może identyfikować różne transakcje podrzędne należące do tej samej transakcji rozproszonej. Wszystkie transakcje w ramach tej samej transakcji rozproszonej mają tę samą wartość JEDNOSTKowy. Aby uzyskać więcej informacji, zobacz [dokumentację DMV](https://msdn.microsoft.com/library/ms174302.aspx) .
+* ** \_ \_ \_ transakcje bazy danych sys.DM przeładunku**: zawiera dodatkowe informacje o transakcjach, takich jak umieszczanie transakcji w dzienniku. Aby uzyskać więcej informacji, zobacz [dokumentację DMV](https://msdn.microsoft.com/library/ms186957.aspx) .
+* ** \_ \_ blokady sys.DM**: zawiera informacje o blokadach, które są obecnie przechowywane przez bieżące transakcje. Aby uzyskać więcej informacji, zobacz [dokumentację DMV](https://msdn.microsoft.com/library/ms190345.aspx) .
 
 ## <a name="limitations"></a>Ograniczenia
 
@@ -157,7 +157,7 @@ Obecnie obowiązują następujące ograniczenia dotyczące transakcji Elastic Da
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać odpowiedzi na pytania, skontaktuj się z nami na [forum SQL Database](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) i o żądaniach dotyczących funkcji, Dodaj je do [forum SQL Database Opinie](https://feedback.azure.com/forums/217321-sql-database/).
+Aby uzyskać odpowiedzi na pytania, skontaktuj się z nami na [stronie pytania firmy&Microsoft dotyczącym SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html) i dla żądań funkcji, Dodaj je do [forum SQL Database opinię](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-transactions-overview/distributed-transactions.png

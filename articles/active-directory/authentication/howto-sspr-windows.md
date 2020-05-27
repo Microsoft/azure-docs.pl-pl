@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4f08161daf1d9c1a4431d9e3fba3ca741d88b16
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 95d1ffec6a849cb97a6151717c3e30dc362b1403
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80743346"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826608"
 ---
 # <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>Instrukcje: Włączanie resetowania hasła na ekranie logowania systemu Windows
 
@@ -30,7 +30,7 @@ W przypadku maszyn z systemem Windows 7, 8, 8,1 i 10 można umożliwić użytkow
 - Niektórzy dostawcy poświadczeń innych firm są znani, aby spowodować problemy z tą funkcją.
 - Wyłączenie funkcji Kontrola konta użytkownika przez modyfikację [klucza rejestru EnableLUA](https://docs.microsoft.com/openspecs/windows_protocols/ms-gpsb/958053ae-5397-4f96-977f-b7700ee461ec) jest znane, aby powodować problemy.
 - Ta funkcja nie działa w przypadku sieci z wdrożonym uwierzytelnianiem sieciowym 802.1 x i opcją "wykonaj bezpośrednio przed logowaniem użytkownika". W sieciach z wdrożonym uwierzytelnianiem sieci 802.1x zalecane jest używanie uwierzytelniania maszynowego w celu włączenia tej funkcji.
-- Hybrydowe maszyny przyłączone do usługi Azure AD muszą mieć linię łączności sieciowej z kontrolerem domeny, aby użyć nowego hasła i zaktualizować buforowane poświadczenia.
+- Hybrydowe maszyny przyłączone do usługi Azure AD muszą mieć linię łączności sieciowej z kontrolerem domeny, aby użyć nowego hasła i zaktualizować buforowane poświadczenia. Oznacza to, że urządzenia muszą znajdować się w sieci wewnętrznej organizacji lub w sieci VPN z dostępem do sieci do lokalnego kontrolera domeny. 
 - Jeśli używasz obrazu, przed uruchomieniem narzędzia Sysprep upewnij się, że pamięć podręczna sieci Web jest wyczyszczona dla wbudowanego administratora przed wykonaniem kroku CopyProfile. Więcej informacji na temat tego kroku można znaleźć w artykule dotyczącym pomocy technicznej [niska w przypadku używania niestandardowego domyślnego profilu użytkownika](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 - Następujące ustawienia są znane, aby zakłócać możliwość używania i resetowania haseł na urządzeniach z systemem Windows 10
     - Jeśli kombinacja klawiszy Ctrl + Alt + Del jest wymagana przez zasady w wersjach systemu Windows 10 przed v1809, **Resetowanie hasła** nie będzie działało.
@@ -66,7 +66,7 @@ Wdrażanie zmiany konfiguracji w celu włączenia możliwości resetowania hasł
 #### <a name="create-a-device-configuration-policy-in-intune"></a>Tworzenie zasad konfiguracji urządzenia w usłudze Intune
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i kliknij pozycję **Intune**.
-1. Utwórz nowy profil konfiguracji urządzenia, przechodząc do profil **Konfiguracja** > urządzenia**Profile** > **Utwórz profil**
+1. Utwórz nowy profil konfiguracji urządzenia, przechodząc do profil **Konfiguracja urządzenia**  >  **Profile**  >  **Utwórz profil**
    - Podaj znaczącą nazwę profilu
    - Opcjonalnie podaj znaczący opis profilu
    - Platforma **Windows 10 i nowsze**
@@ -97,7 +97,7 @@ Dziennik inspekcji usługi Azure AD zawiera informacje dotyczące adresu IP i ty
 
 ![Przykładowe Resetowanie hasła w systemie Windows 7 w dzienniku inspekcji usługi Azure AD](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
 
-Po zresetowaniu hasła przez użytkownika z ekranu logowania na urządzeniu z systemem Windows 10 `defaultuser1` zostaje utworzone konto tymczasowe o niskim poziomie uprawnień. To konto jest używane, aby zapewnić bezpieczeństwo procesu resetowania hasła. Samo konto ma losowo wygenerowane hasło, które nie jest wyświetlane na potrzeby logowania do urządzenia i zostanie automatycznie usunięte po zresetowaniu hasła przez użytkownika. Może `defaultuser` istnieć wiele profilów, ale można je bezpiecznie zignorować.
+Po zresetowaniu hasła przez użytkownika z ekranu logowania na urządzeniu z systemem Windows 10 zostaje utworzone konto tymczasowe o niskim poziomie uprawnień `defaultuser1` . To konto jest używane, aby zapewnić bezpieczeństwo procesu resetowania hasła. Samo konto ma losowo wygenerowane hasło, które nie jest wyświetlane na potrzeby logowania do urządzenia i zostanie automatycznie usunięte po zresetowaniu hasła przez użytkownika. `defaultuser`Może istnieć wiele profilów, ale można je bezpiecznie zignorować.
 
 ## <a name="windows-7-8-and-81-password-reset"></a>Resetowanie hasła dla systemu Windows 7, 8 i 8,1
 
@@ -141,7 +141,7 @@ Jeśli wymagane jest dodatkowe rejestrowanie, klucz rejestru na komputerze możn
 
 `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}`
 
-- Aby włączyć pełne rejestrowanie, Utwórz `REG_DWORD: "EnableLogging"`a i ustaw wartość 1.
+- Aby włączyć pełne rejestrowanie, Utwórz a `REG_DWORD: "EnableLogging"` i ustaw wartość 1.
 - Aby wyłączyć pełne rejestrowanie, Zmień wartość `REG_DWORD: "EnableLogging"` na 0.
 
 ## <a name="what-do-users-see"></a>Co widzą użytkownicy

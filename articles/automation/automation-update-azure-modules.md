@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6b3832662d2d03c7218da20d414a43a99a9bac8e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 892197c79285495f49a870bbe79eb75229af2940
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744199"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831028"
 ---
 # <a name="update-azure-powershell-modules"></a>Aktualizowanie modułów programu Azure PowerShell
 
@@ -50,5 +50,5 @@ Jeśli chcesz użyć określonej Azure PowerShell wersji modułu zamiast najnows
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Zarządzanie modułami w usłudze Azure Automation](shared-resources/modules.md)
-* [Aktualizowanie elementu Runbook modułów platformy Azure](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update)
+* Aby uzyskać szczegółowe informacje dotyczące korzystania z modułów, zobacz [Zarządzanie modułami w Azure Automation](shared-resources/modules.md).
+* Aby uzyskać informacje na temat aktualizacji elementu Runbook, zobacz temat [aktualizowanie elementów Runbook modułów platformy Azure](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update).

@@ -1,14 +1,14 @@
 ---
 title: Zarządzanie platformą Azure — omówienie — zarządzanie platformą Azure
 description: Przegląd obszarów zarządzania dla aplikacji i zasobów platformy Azure z linkami do zawartości w narzędziach zarządzania platformy Azure.
-ms.date: 12/06/2018
+ms.date: 05/22/2020
 ms.topic: overview
-ms.openlocfilehash: 644f4fc3a04f86426c2eb04b02c29882fa39fb88
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e293ab743b7c3b49a13cab97200c136a9bd044f5
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75980896"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828151"
 ---
 # <a name="overview-of-management-services-in-azure"></a>Przegląd usług zarządzania na platformie Azure
 
@@ -18,7 +18,7 @@ Zarządzanie dotyczy zadań i procesów wymaganych do obsługi aplikacji bizneso
 
 Poniższy diagram przedstawia różne obszary zarządzania wymagane do obsługi dowolnej aplikacji lub zasobu. Te różne obszary można traktować jako cykl życia. Każdy obszar jest wymagany w ciągłym pomyślnym przeniesieniu na cykl życia zasobów. Cykl życia zasobów rozpoczyna się od wstępnego wdrożenia, przez kontynuowanie operacji i ostatecznie po wycofaniu.
 
-![Dyscypliny zarządzania na platformie Azure](../monitoring/media/management-overview/management-capabilities.png)
+:::image type="content" source="../monitoring/media/management-overview/management-capabilities.png" alt-text="Dyscypliny zarządzania na platformie Azure" border="false":::
 
 Żadna pojedyncza usługa platformy Azure nie wypełnia wymagań określonego obszaru zarządzania. Zamiast tego każdy jest realizowany przez kilka współpracujących ze sobą usług. Niektóre usługi, takie jak Application Insights, zapewniają funkcje monitorowania dla aplikacji sieci Web. Inne, takie jak dzienniki Azure Monitor, przechowują dane zarządzania dla innych usług. Ta funkcja umożliwia analizowanie danych różnych typów zbieranych przez różne usługi.
 
@@ -36,7 +36,9 @@ Automatyzacja tych zadań pozwala wyeliminować nadmiarowość, zminimalizować 
 ## <a name="govern"></a>Ład
 
 Ład dotyczy mechanizmów i procesów kontrolowania aplikacji i zasobów na platformie Azure. Obejmuje to planowanie inicjatyw i wyznaczanie strategicznych priorytetów.
-Ład na platformie Azure jest zaimplementowany głównie za pomocą dwóch usług. [Azure Policy](./policy/overview.md) umożliwia tworzenie i przypisywanie definicji zasad oraz zarządzanie nimi w celu wymuszania reguł dla zasobów. Ta funkcja zapewnia zgodność tych zasobów ze standardami firmowymi. [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) umożliwia śledzenie użycia i wydatków w chmurze dla zasobów platformy Azure i innych dostawców chmury.
+Ład na platformie Azure jest zaimplementowany głównie za pomocą dwóch usług. [Azure Policy](./policy/overview.md) umożliwia tworzenie i przypisywanie definicji zasad oraz zarządzanie nimi w celu wymuszania reguł dla zasobów.
+Ta funkcja zapewnia zgodność tych zasobów ze standardami firmowymi.
+[Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) umożliwia śledzenie użycia i wydatków w chmurze dla zasobów platformy Azure i innych dostawców chmury.
 
 ## <a name="secure"></a>Bezpieczeństwo
 

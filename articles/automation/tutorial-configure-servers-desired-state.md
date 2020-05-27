@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 93fb896dfc373a7402bbb3d1a38a655088d27fdf
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: a45aa8299d61e89f2a21bc9c53de3a88f88cbb93
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83735917"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827900"
 ---
 # <a name="configure-machines-to-a-desired-state"></a>Konfigurowanie żądanego stanu maszyn
 
@@ -26,8 +26,6 @@ Azure Automation konfiguracja stanu pozwala określić konfiguracje dla serweró
 W tym samouczku używana jest prosta [Konfiguracja DSC](/powershell/scripting/dsc/configurations/configurations) , która zapewnia, że usługi IIS są zainstalowane na maszynie wirtualnej.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-
-Do ukończenia tego samouczka niezbędne są następujące elementy:
 
 - Konto usługi Azure Automation. Aby uzyskać instrukcje dotyczące tworzenia konta Uruchom jako usługi Azure Automation, zobacz [Konto Uruchom jako platformy Azure](automation-sec-configure-azure-runas-account.md).
 - Maszyna wirtualna w Azure Resource Manager (nieklasyczny) z systemem Windows Server 2008 R2 lub nowszym. Aby uzyskać instrukcje dotyczące tworzenia maszyny wirtualnej, zobacz [Tworzenie pierwszej maszyny wirtualnej z systemem Windows w Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md).
@@ -163,9 +161,10 @@ Aby wyrejestrować węzeł z usługi konfiguracji stanu Azure Automation przy u�
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Wprowadzenie do konfiguracji stanu Azure Automation](automation-dsc-getting-started.md)
-* [Włącz konfigurację stanu Azure Automation](automation-dsc-onboarding.md)
-* [Kompiluj konfiguracje w konfiguracji stanu Azure Automation](automation-dsc-compile.md)
-* [Polecenia cmdlet konfiguracji stanu Azure Automation](/powershell/module/azurerm.automation/#automation)
-* [Cennik konfiguracji stanu Azure Automation](https://azure.microsoft.com/pricing/details/automation/)
-- [Konfigurowanie ciągłego wdrażania z czekoladą](automation-dsc-cd-chocolatey.md)
+- Aby rozpocząć, zobacz Wprowadzenie do [konfiguracji stanu Azure Automation](automation-dsc-getting-started.md).
+- Aby dowiedzieć się, jak włączyć węzły, zobacz [Włączanie konfiguracji stanu Azure Automation](automation-dsc-onboarding.md).
+- Aby dowiedzieć się więcej na temat kompilowania konfiguracji DSC, aby można było przypisać je do węzłów docelowych, zobacz [Kompilowanie konfiguracji DSC w konfiguracji stanu Azure Automation](automation-dsc-compile.md).
+- Aby zapoznać się z przykładem użycia konfiguracji stanu Azure Automation w potoku ciągłego wdrażania, zobacz [Konfigurowanie ciągłego wdrażania z czekoladą](automation-dsc-cd-chocolatey.md).
+- Aby uzyskać informacje o cenach, zobacz [Cennik konfiguracji stanu Azure Automation](https://azure.microsoft.com/pricing/details/automation/).
+- Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

@@ -6,12 +6,12 @@ ms.subservice: change-inventory-management
 keywords: spis, automatyzacja, zmiana, śledzenie
 ms.date: 01/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5142286bc50620d5a12a0722b3c4f9b8b75f5b73
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: d237b016b8f3430ed0b28becd2712bd0c41d17b4
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745263"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830620"
 ---
 # <a name="manage-inventory-collection-from-vms"></a>Zarządzanie zbieraniem spisu z maszyn wirtualnych
 
@@ -112,7 +112,7 @@ Jeśli chcesz utworzyć nową grupę maszyn, kliknij pozycję **+ Utwórz grupę
 
 ## <a name="disconnect-your-vm-from-management"></a>Odłączanie maszyny wirtualnej od zarządzania
 
-Aby usunąć maszynę wirtualną z zarządzania spisem:
+Aby usunąć maszynę wirtualną z Change Tracking i zarządzania spisem:
 
 1. W lewym okienku Azure Portal wybierz pozycję **log Analytics**, a następnie wybierz obszar roboczy, który był używany podczas włączania maszyny wirtualnej na potrzeby Change Tracking i spisu.
 2. Na stronie Log Analytics Otwórz menu **zasobów** .
@@ -127,6 +127,6 @@ Aby usunąć maszynę wirtualną z zarządzania spisem:
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Zarządzanie Change Tracking i spisem](change-tracking-file-contents.md)
-* [Śledź zmiany oprogramowania w środowisku za pomocą Change Tracking](../log-analytics/log-analytics-change-tracking.md).
-* [Update Management na platformie Azure](../operations-management-suite/oms-solution-update-management.md).
+* Aby uzyskać szczegółowe informacje na temat pracy z funkcją, zobacz [zarządzanie Change Tracking i spisem](change-tracking-file-contents.md).
+* Aby dowiedzieć się więcej o śledzeniu zmian oprogramowania, zobacz [śledzenie zmian oprogramowania w środowisku przy użyciu Change Tracking](../log-analytics/log-analytics-change-tracking.md).
+* Rozwiązywanie ogólnych problemów z funkcją można znaleźć w temacie [Rozwiązywanie problemów dotyczących Change Tracking i spisu](troubleshoot/change-tracking.md).

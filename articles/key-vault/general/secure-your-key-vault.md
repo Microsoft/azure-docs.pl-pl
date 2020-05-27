@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 6a838455bfda47dee55e8726e5eab071d2dfe4f7
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 348ddb0fa8bd973a7e8ebcf5ae14de1eee57d5a5
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83121154"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827526"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Bezpieczny dostęp do magazynu kluczy
 
@@ -54,8 +54,8 @@ W poniższej tabeli przedstawiono punkty końcowe dla punktów zarządzania i p�
 
 | &nbsp;Płaszczyzna dostępu | Punkty końcowe dostępu | Operacje | &nbsp;Mechanizm kontroli dostępu |
 | --- | --- | --- | --- |
-| Płaszczyzna zarządzania | **Globalne**<br> management.azure.com:443<br><br> **Azure Chiny 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Wersja platformy Azure dla administracji USA:**<br> management.usgovcloudapi.net:443<br><br> **Azure (Niemcy):**<br> management.microsoftazure.de:443 | Tworzenie, odczytywanie, aktualizowanie i usuwanie magazynów kluczy<br><br>Ustawianie zasad dostępu Key Vault<br><br>Ustawianie tagów Key Vault | Azure Resource Manager RBAC |
-| Płaszczyzna danych | **Globalne**<br> &lt;nazwa_magazynu&gt;.vault.azure.net:443<br><br> **Azure Chiny 21Vianet:**<br> &lt;nazwa_magazynu&gt;.vault.azure.cn:443<br><br> **Wersja platformy Azure dla administracji USA:**<br> &lt;nazwa_magazynu&gt;.vault.usgovcloudapi.net:443<br><br> **Azure (Niemcy):**<br> &lt;nazwa_magazynu&gt;.vault.microsoftazure.de:443 | Klucze: Odszyfruj, Szyfruj,<br> odpakowywanie, zawijanie, weryfikowanie, podpisywanie,<br> Pobieranie, wyświetlanie, aktualizowanie, tworzenie,<br> Importuj, Usuń, Utwórz kopię zapasową, Przywróć<br><br> Wpisy tajne: pobieranie, wyświetlanie, Ustawianie, usuwanie | Zasady dostępu Key Vault |
+| Płaszczyzna zarządzania | **Globalne**<br> management.azure.com:443<br><br> **Azure Chiny 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Administracja USA platformy Azure:**<br> management.usgovcloudapi.net:443<br><br> **Azure (Niemcy):**<br> management.microsoftazure.de:443 | Tworzenie, odczytywanie, aktualizowanie i usuwanie magazynów kluczy<br><br>Ustawianie zasad dostępu Key Vault<br><br>Ustawianie tagów Key Vault | Azure Resource Manager RBAC |
+| Płaszczyzna danych | **Globalne**<br> &lt;nazwa_magazynu&gt;.vault.azure.net:443<br><br> **Azure Chiny 21Vianet:**<br> &lt;nazwa_magazynu&gt;.vault.azure.cn:443<br><br> **Administracja USA platformy Azure:**<br> &lt;nazwa_magazynu&gt;.vault.usgovcloudapi.net:443<br><br> **Azure (Niemcy):**<br> &lt;nazwa_magazynu&gt;.vault.microsoftazure.de:443 | Klucze: Odszyfruj, Szyfruj,<br> odpakowywanie, zawijanie, weryfikowanie, podpisywanie,<br> Pobieranie, wyświetlanie, aktualizowanie, tworzenie,<br> Importuj, Usuń, Utwórz kopię zapasową, Przywróć<br><br> Wpisy tajne: pobieranie, wyświetlanie, Ustawianie, usuwanie | Zasady dostępu Key Vault |
 
 ## <a name="management-plane-and-rbac"></a>Płaszczyzna zarządzania i kontrola RBAC
 
@@ -233,4 +233,4 @@ Aby uzyskać więcej informacji na temat rejestrowania użycia Key Vault, zobacz
 
 Aby uzyskać więcej informacji na temat używania kluczy i wpisów tajnych z Azure Key Vault, zobacz [Informacje o kluczach i wpisach tajnych](https://msdn.microsoft.com/library/azure/dn903623.aspx).
 
-Jeśli masz pytania dotyczące Key Vault, odwiedź [fora](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
+Jeśli masz pytania dotyczące Key Vault, odwiedź stronę pytań i odpowiedzi na [stronie Microsoft Q&](https://docs.microsoft.com/answers/topics/azure-key-vault.html).

@@ -388,6 +388,8 @@
               href: service-updates-how-to.md
             - name: Usuwanie magazynu
               href: delete-vault.md
+    - name: Pomoc techniczna usługi Site Recovery dla grup umieszczania w pobliżu
+      href: how-to-enable-replication-proximity-placement-groups.md
     - name: Odzyskiwanie po awarii dla aplikacji
       items:
         - name: Informacje o odzyskiwaniu po awarii dla aplikacji lokalnych
@@ -514,8 +516,8 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Blog
       href: 'https://azure.microsoft.com/blog/tag/azure-site-recovery/'
-    - name: Forum
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr'
+    - name: Pytania i odpowiedzi Microsoft — strona pytania
+      href: 'https://docs.microsoft.com/answers/topics/azure-site-recovery.html'
     - name: Ścieżka szkoleniowa
       href: /learn/azure/
     - name: Cennik

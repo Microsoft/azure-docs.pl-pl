@@ -3,12 +3,12 @@ title: Wersja zapoznawcza — Dowiedz się Azure Policy Kubernetes
 description: Dowiedz się, w jaki sposób Azure Policy rego i Otwórz agenta zasad, aby zarządzać klastrami z systemem Kubernetes na platformie Azure lub lokalnie. Jest to funkcja w wersji zapoznawczej.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: fb66510b55f9d3f08ab8e058bb8f67fb1954db6f
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 0d663d7bf7ce70c605551422f600258943d1efd7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800353"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828631"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Opis Azure Policy klastrów Kubernetes (wersja zapoznawcza)
 
@@ -403,7 +403,7 @@ Znajdź wbudowane definicje zasad służące do zarządzania klastrem za pomocą
 
 1. Ustaw **wartości parametrów** 
 
-   - Aby wykluczyć przestrzenie nazw Kubernetes z oceny zasad, określ listę przestrzeni nazw w **wykluczeniach przestrzeni nazw**parametrów. Zaleca się wykluczenie: _polecenia-system_ 
+   - Aby wykluczyć przestrzenie nazw Kubernetes z oceny zasad, określ listę przestrzeni nazw w **wykluczeniach przestrzeni nazw**parametrów. Zaleca się wykluczenie: _polecenia-system_, _strażnik-system_i _Azure-Arc_.
 
 1. Wybierz pozycję **Przegląd + utwórz**.
 

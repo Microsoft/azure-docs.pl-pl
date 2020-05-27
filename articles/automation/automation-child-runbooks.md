@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5c562fb43966fda203e92cc5003ef3c85945364b
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: c15ed6e9409bee71a778986d8f38ae1ab126c180
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83742833"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828648"
 ---
 # <a name="create-modular-runbooks"></a>Tworzenie modułowych elementów runbook
 
@@ -117,5 +117,5 @@ Start-AzAutomationRunbook `
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Uruchamianie elementu runbook w usłudze Azure Automation](start-runbooks.md)
-* [Dane wyjściowe i komunikaty elementu Runbook w Azure Automation](automation-runbook-output-and-messages.md)
+* Aby uruchomić Uruchamianie elementu Runbook, zobacz temat [Uruchamianie elementu Runbook w Azure Automation](start-runbooks.md).
+* Aby monitorować operację elementu Runbook, zobacz [elementy Runbook Output i messages w Azure Automation](automation-runbook-output-and-messages.md).

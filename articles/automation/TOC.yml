@@ -299,8 +299,8 @@
       href: 'https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/'
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/?category=management-tools&query=automation'
-    - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation'
+    - name: Pytania i odpowiedzi Microsoft — strona pytania
+      href: 'https://docs.microsoft.com/en-us/answers/topics/azure-automation.html'
     - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/automation/'
     - name: Kalkulator cen

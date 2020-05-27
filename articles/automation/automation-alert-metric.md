@@ -4,12 +4,12 @@ description: W tym artykule opisano sposób monitorowania elementów Runbook w o
 services: automation
 ms.date: 11/01/2018
 ms.topic: article
-ms.openlocfilehash: c5f51ec34ea0b31f4c8fc349246b439425112104
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 20aaee5b699e9721bf9083030604df1385da1915
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715855"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828750"
 ---
 # <a name="monitor-runbooks-with-metric-alerts"></a>Monitorowanie elementów runbook za pomocą alertów metryki
 
@@ -77,4 +77,4 @@ Gdy Metryka nie będzie już poza zdefiniowanym progiem, alert zostanie zdezakty
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Użyj alertu, aby wyzwolić Azure Automation element Runbook](automation-create-alert-triggered-runbook.md)
+* Aby uzyskać więcej informacji, zobacz [Używanie alertu do wyzwalania elementu runbook Azure Automation](automation-create-alert-triggered-runbook.md).
