@@ -5,12 +5,12 @@ services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 95563e816fa4f0931e547b6bd163dce23c338a44
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 23ec49f2d68cf376ef0beb118d8bf69ada7bc0de
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83749123"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832031"
 ---
 # <a name="work-with-scope-configurations-for-update-management"></a>Pracuj z konfiguracjami zakresu dla Update Management
 
@@ -52,12 +52,7 @@ Gdy komputer zostanie dodany do Update Management, zostanie również dodany do 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać ogólne informacje na temat tej funkcji, zobacz [Update Management przegląd](automation-update-management.md).
 * Aby korzystać z tej funkcji, zobacz [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure](automation-tutorial-update-management.md).
-* Aby włączyć tę funkcję za pomocą konta usługi Automation, zobacz [włączanie Update Management z konta usługi Automation](automation-onboard-solutions-from-automation-account.md).
-* Aby przeglądać Azure Portal, aby włączyć tę funkcję, zobacz [włączanie Update Management z Azure Portal](automation-onboard-solutions-from-browse.md).
-* Aby włączyć tę funkcję za pomocą elementu Runbook, zobacz [włączanie Update Management z elementu Runbook](automation-onboard-solutions.md).
-* Aby włączyć tę funkcję przy użyciu maszyny wirtualnej platformy Azure, zobacz [włączanie Update Management z maszyny wirtualnej platformy Azure](automation-onboard-solutions-from-vm.md).
 * Aby rozwiązać problemy z błędami funkcji, zobacz [Rozwiązywanie problemów Update Management](troubleshoot/update-management.md).
 * Rozwiązywanie problemów z błędami programu Windows Update Agent można znaleźć w temacie [Rozwiązywanie problemów z usługą Windows Update Agent](troubleshoot/update-agent-issues.md).
 * Aby rozwiązać problemy z błędami agenta aktualizacji systemu Linux, zobacz [Rozwiązywanie problemów z usługą Linux Update Agent](troubleshoot/update-agent-issues-linux.md).

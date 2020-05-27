@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: c0b1519992ba930382a1987aed185ef3c92eded4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f857449d4511b6ae0a5a25bf7aca9e1abc1ae7c0
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75453433"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83833697"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Utwórz lub Przyłącz gałęzie równoległe dla akcji przepływu pracy w Azure Logic Apps
 
@@ -34,14 +34,14 @@ Aby uruchomić niezależne kroki w tym samym czasie, można dodać gałęzie ró
 
 ![Równoległe wykonywanie kroków](media/logic-apps-control-flow-branches/parallel.png)
 
-Aplikacja logiki czeka na zakończenie wszystkich gałęzi przed kontynuowaniem przepływu pracy. Gałęzie równoległe są uruchamiane `runAfter` tylko wtedy, gdy ich wartości właściwości pasują do stanu gotowego kroku nadrzędnego. `branchAction1` Na przykład oba `branchAction2` i są ustawione do uruchamiania tylko po `parentAction` zakończeniu z `Succeeded` stanem.
+Aplikacja logiki czeka na zakończenie wszystkich gałęzi przed kontynuowaniem przepływu pracy. Gałęzie równoległe są uruchamiane tylko wtedy, gdy ich `runAfter` wartości właściwości pasują do stanu gotowego kroku nadrzędnego. Na przykład oba `branchAction1` i `branchAction2` są ustawione do uruchamiania tylko po `parentAction` zakończeniu z `Succeeded` stanem.
 
 > [!NOTE]
 > Przed rozpoczęciem aplikacja logiki musi już mieć krok, w którym można dodać gałęzie równoległe.
 
 1. W <a href="https://portal.azure.com" target="_blank">Azure Portal</a>Otwórz aplikację logiki w Projektancie aplikacji logiki.
 
-1. Umieść wskaźnik myszy nad strzałką powyżej kroku, w którym chcesz dodać gałęzie równoległe. Wybierz wyświetlony znak **Plus** (**+**), a następnie wybierz pozycję **Dodaj gałąź równoległą**. 
+1. Umieść wskaźnik myszy nad strzałką powyżej kroku, w którym chcesz dodać gałęzie równoległe. Wybierz wyświetlony znak **Plus** ( **+** ), a następnie wybierz pozycję **Dodaj gałąź równoległą**. 
 
    ![Dodaj gałąź równoległą](media/logic-apps-control-flow-branches/add-parallel-branch.png)
 
@@ -53,7 +53,7 @@ Aplikacja logiki czeka na zakończenie wszystkich gałęzi przed kontynuowaniem 
 
    ![Znajdź i wybierz żądaną akcję](media/logic-apps-control-flow-branches/added-parallel-branch.png)
 
-1. Teraz w każdej gałęzi równoległej Dodaj odpowiednie kroki. Aby dodać kolejną akcję do gałęzi, Przenieś wskaźnik pod akcję, w której chcesz dodać akcję sekwencyjną. Wybierz wyświetlony **plus** znak plus**+**(), a następnie wybierz pozycję **Dodaj akcję**.
+1. Teraz w każdej gałęzi równoległej Dodaj odpowiednie kroki. Aby dodać kolejną akcję do gałęzi, Przenieś wskaźnik pod akcję, w której chcesz dodać akcję sekwencyjną. Wybierz wyświetlony znak **Plus** ( **+** ), a następnie wybierz pozycję **Dodaj akcję**.
 
    ![Dodawanie sekwencyjnej akcji do gałęzi równoległej](media/logic-apps-control-flow-branches/add-sequential-action.png)
 
@@ -183,7 +183,7 @@ Jeśli pracujesz w widoku kodu, możesz zdefiniować strukturę sprzężenia w d
 
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 
-* Jeśli masz pytania, odwiedź [forum usługi Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Pytania można znaleźć w witrynie [Microsoft Q&pytanie dotyczące Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Aby przesłać funkcje i sugestie lub zagłosować na nie, odwiedź [witrynę opinii o Azure Logic Apps użytkownika](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Następne kroki

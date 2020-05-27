@@ -33,7 +33,7 @@
       href: concepts-events-routing.md
     - name: Limity usługi w publicznej wersji zapoznawczej
       href: concepts-service-limits.md
-    - name: Bezpieczeństwo
+    - name: Zabezpieczenia
       items:
         - name: Najlepsze rozwiązania dotyczące zabezpieczeń
           href: security-best-practices.md
@@ -74,7 +74,7 @@
 - name: Zasoby
   expanded: true
   items:
-    - name: Zasoby deweloperów
+    - name: Zasoby dla deweloperów
       items:
         - name: Azure Digital Twins Graph Viewer
           href: 'https://github.com/Azure/azure-digital-twins-graph-viewer'
@@ -84,7 +84,7 @@
           href: 'https://docs.westcentralus.azuresmartspaces.net/management/swagger'
     - name: Cennik i dostępność
       items:
-        - name: Ceny
+        - name: Cennik
           href: 'https://azure.microsoft.com/pricing/details/digital-twins/'
         - name: Kalkulator cen
           href: 'https://azure.microsoft.com/pricing/calculator/'
@@ -98,14 +98,14 @@
           href: 'https://docs.microsoft.com/azure/iot-fundamentals/iot-support-help'
         - name: Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/azure-digital-twins'
-        - name: Forum MSDN
-          href: 'https://social.msdn.microsoft.com/Forums/home?category=&forum=&filter=&sort=relevancedesc&brandIgnore=true&searchTerm=Azure+Digital+Twins'
+        - name: Pytania i odpowiedzi Microsoft — strona pytania
+          href: 'https://docs.microsoft.com/answers/topics/azure-digital-twins.html'
         - name: Przykłady kodu dla usługi Azure IoT
           href: 'https://docs.microsoft.com/samples/browse/?term=iot'
     - name: Opinie i fora
       items:
-        - name: Forum MSDN
-          href: 'https://social.msdn.microsoft.com/Forums/home?category=&forum=&filter=&sort=relevancedesc&brandIgnore=true&searchTerm=Azure+Digital+Twins'
+        - name: Pytania i odpowiedzi Microsoft — strona pytania
+          href: 'https://docs.microsoft.com/answers/topics/azure-digital-twins.html'
         - name: Prośby i sugestie dotyczące produktu
           href: 'https://feedback.azure.com/forums/916621-azure-digital-twins'
     - name: Historie klientów

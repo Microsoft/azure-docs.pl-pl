@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 3eedfb1e9ec59fbe12ee94a65d3702a7ef8ca95a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b83dbdb928b7b5810864a9202134dee30f9582df
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73823635"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834253"
 ---
 # <a name="elastic-database-tools-frequently-asked-questions-faq"></a>Narzędzia elastycznej bazy danych — często zadawane pytania
 
@@ -34,7 +34,7 @@ Korzystanie z biblioteki klienta Elastic Database nie wiąże się z żadnymi ko
 
 ## <a name="why-are-my-credentials-not-working-when-i-add-a-shard-from-a-different-server"></a>Dlaczego moje poświadczenia nie działają po dodaniu fragmentu z innego serwera
 
-Nie używaj poświadczeń w postaci "User ID =username@servername", zamiast tego po prostu Użyj "User ID = username".  Upewnij się również, że nazwa logowania "username" ma uprawnienia do fragmentu.
+Nie używaj poświadczeń w postaci "User ID = username@servername ", zamiast tego po prostu Użyj "User ID = username".  Upewnij się również, że nazwa logowania "username" ma uprawnienia do fragmentu.
 
 ## <a name="do-i-need-to-create-a-shard-map-manager-and-populate-shards-every-time-i-start-my-applications"></a>Czy muszę utworzyć Menedżera mapy fragmentu i wypełnić fragmentów przy każdym uruchomieniu aplikacji
 
@@ -42,7 +42,7 @@ Nie — tworzenie Menedżera mapy fragmentu (na przykład [ShardMapManagerFactor
 
 ## <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>Mam pytania dotyczące korzystania z narzędzi elastycznych baz danych, jak uzyskać odpowiedzi na nie
 
-Skontaktuj się z nami na [forum SQL Database](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).
+Skontaktuj się z nami na [stronie pytania&pytań SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html).
 
 ## <a name="when-i-get-a-database-connection-using-a-sharding-key-i-can-still-query-data-for-other-sharding-keys-on-the-same-shard--is-this-by-design"></a>Gdy Uzyskuję połączenie z bazą danych przy użyciu klucza fragmentowania, mogę nadal wykonywać zapytania o dane dla innych kluczy fragmentowania w tym samym fragmentu.  Jest to zaprojektowane przez
 

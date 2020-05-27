@@ -4,12 +4,12 @@ description: W tym artykule opisano, jak za pomocą Azure Automation zarządzać
 services: automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: cbd01f3868f44d975e0822a7812262d9e15ca299
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 322e2a3679ed29ab9ecc4cdc3c6e1fe4d0f20276
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745358"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831175"
 ---
 # <a name="manage-office-365-services"></a>Zarządzanie usługami Office 365
 
@@ -21,7 +21,7 @@ Aby zarządzać usługami subskrypcji pakietu Office 365 w programie Azure Autom
 
 * Subskrypcja platformy Azure. Zobacz [Przewodnik po decyzji](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/subscriptions/)dotyczącej subskrypcji.
 * Obiekt automatyzacji na platformie Azure do przechowywania poświadczeń konta użytkownika i elementów Runbook. Zapoznaj [się z wprowadzeniem do Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro).
-* Usługa Azure AD. Aby [uwierzytelnić się na platformie Azure, zobacz temat Korzystanie z usługi Azure AD w Azure Automation](automation-use-azure-ad.md).
+* Azure AD. Aby [uwierzytelnić się na platformie Azure, zobacz temat Korzystanie z usługi Azure AD w Azure Automation](automation-use-azure-ad.md).
 * Dzierżawa pakietu Office 365 z kontem. Zobacz [Konfigurowanie dzierżawy pakietu Office 365](https://docs.microsoft.com/sharepoint/dev/spfx/set-up-your-developer-tenant).
 
 ## <a name="install-the-msonline-and-msonlineext-modules"></a>Instalowanie modułów MSOnline i MSOnlineExt
@@ -111,7 +111,7 @@ Aby opublikować i zaplanować element Runbook, zobacz [Zarządzanie elementami 
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Zarządzanie elementami Runbook w Azure Automation](https://docs.microsoft.com/azure/automation/manage-runbooks)
-* [Zarządzanie modułami w usłudze Azure Automation](shared-resources/modules.md)
-* [Zarządzanie poświadczeniami w Azure Automation](shared-resources/credentials.md)
-* [Dokumentacja programu PowerShell](https://docs.microsoft.com/powershell/scripting/overview)
+* Aby uzyskać szczegółowe informacje o używaniu poświadczeń, zobacz [Zarządzanie poświadczeniami w Azure Automation](shared-resources/credentials.md).
+* Aby uzyskać informacje o modułach, zobacz [Zarządzanie modułami w Azure Automation](shared-resources/modules.md).
+* Jeśli musisz uruchomić element Runbook, zobacz temat [Uruchamianie elementu Runbook w Azure Automation](start-runbooks.md).
+* Aby uzyskać szczegółowe informacje dotyczące programu PowerShell, zobacz dokumentację [programu PowerShell](https://docs.microsoft.com/powershell/scripting/overview).

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: e517516715871f3fbcdcab6383e6452523773363
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 26a4a3dbd54256fbc193fba299d0f7504f407254
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743875"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832269"
 ---
 # <a name="handle-errors-in-graphical-runbooks"></a>Obsługa błędów w graficznych elementach runbook
 
@@ -65,6 +65,4 @@ Linki błędów przepływają z tych działań do jednego `error management` dzi
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Tworzenie graficznych elementów Runbook w Azure Automation](automation-graphical-authoring-intro.md#use-links-for-workflow)
-* [Wykonywanie elementu runbook w usłudze Azure Automation](automation-runbook-execution.md)
-* [Zarządzanie elementami Runbook w Azure Automation](manage-runbooks.md)
+* Informacje o rozwiązywaniu graficznych błędów elementów Runbook można znaleźć w temacie [Rozwiązywanie problemów z elementem Runbook](troubleshoot/runbooks.md).

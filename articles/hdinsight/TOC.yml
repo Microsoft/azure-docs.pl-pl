@@ -289,8 +289,8 @@
           href: ./hdinsight-hadoop-access-yarn-app-logs-linux.md
         - name: Włączanie zrzutów sterty dla usług Apache Hadoop
           href: ./hdinsight-hadoop-collect-debug-heap-dump-linux.md
-        - name: Uzyskiwanie pomocy na forum
-          href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight'
+        - name: Uzyskaj pomoc na stronie pytania Pytania i odpowiedzi Microsoft
+          href: 'https://docs.microsoft.com/answers/topics/azure-hdinsight.html'
         - name: Kalkulator cen
           href: 'https://azure.microsoft.com/pricing/calculator/'
         - name: Narzędzia systemu Windows dla usługi HDInsight

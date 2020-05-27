@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: b34fdc36bd0b1ce294a92b2ae8fa5da01568e5a9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a5c00dc64dd39ba2fdbb734f4e9749fbe42e246e
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74787373"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83831929"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Wywoływanie punktów końcowych REST przy użyciu Azure Logic Apps
 
@@ -82,7 +82,7 @@ Ta wbudowana akcja wysyła żądanie HTTP do adresu URL pliku struktury Swagger 
 
 1. W kroku, w którym chcesz dodać akcję protokołu HTTP + Swagger, wybierz pozycję **nowy krok**.
 
-   Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę między krokami. Wybierz wyświetlony znak plus (**+**), a następnie wybierz pozycję **Dodaj akcję**.
+   Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę między krokami. Wybierz wyświetlony znak plus ( **+** ), a następnie wybierz pozycję **Dodaj akcję**.
 
 1. W projektancie w polu wyszukiwania wprowadź ciąg "Swagger" jako filtr. Z listy **Akcje** wybierz akcję **http + Swagger** .
 
@@ -137,9 +137,9 @@ Można odwołać się do pliku struktury Swagger, który nie jest hostowany lub 
 
 1. [Przekaż plik Swagger do kontenera obiektów BLOB](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob)za pomocą [Azure Portal](https://portal.azure.com) lub [Eksplorator usługi Azure Storage](https://storageexplorer.com/).
 
-1. Aby odwołać się do pliku w kontenerze obiektów blob, Użyj linku HTTPS, który jest zgodny z wielkością liter:
+1. Aby odwołać się do pliku w kontenerze obiektów blob, Pobierz adres URL HTTPS następujący po tym formacie, w którym jest rozróżniana wielkość liter, od Eksplorator usługi Azure Storage:
 
-   `https://<storage-account-name>.blob.core.windows.net/<blob-container-name>/<swagger-file-name>`
+   `https://<storage-account-name>.blob.core.windows.net/<blob-container-name>/<complete-swagger-file-name>?<query-parameters>`
 
 ## <a name="connector-reference"></a>Dokumentacja łączników
 
@@ -147,15 +147,15 @@ Poniżej znajduje się więcej informacji na temat danych wyjściowych wyzwalacz
 
 | Nazwa właściwości | Typ | Opis |
 |---------------|------|-------------|
-| nagłówka | obiekt | Nagłówki żądania |
-| body | obiekt | Obiekt JSON | Obiekt z zawartością treści z żądania |
+| nagłówka | object | Nagłówki żądania |
+| body | object | Obiekt JSON | Obiekt z zawartością treści z żądania |
 | kod stanu | int | Kod stanu z żądania |
 |||
 
 | Kod stanu | Opis |
 |-------------|-------------|
 | 200 | OK |
-| 202 | Zaakceptowane |
+| 202 | Zaakceptowano |
 | 400 | Złe żądanie |
 | 401 | Brak autoryzacji |
 | 403 | Forbidden |

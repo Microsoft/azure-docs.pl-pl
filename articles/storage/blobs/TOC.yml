@@ -585,7 +585,7 @@
             - name: Ułatwienia dostępu Eksploratora usługi Storage
               href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Forum usługi Azure Storage
-          href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
+          href: 'https://docs.microsoft.com/answers/topics/azure-blob-storage.html'
         - name: Usługa Azure Storage w witrynie Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
         - name: Cennik usługi Blob Storage
@@ -853,8 +853,8 @@
               href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Ułatwienia dostępu Eksploratora usługi Storage
               href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Forum
-          href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
+        - name: Pytania i odpowiedzi Microsoft — strona pytania
+          href: 'https://docs.microsoft.com/answers/products/topics/azure-blob-storage.html'
         - name: Usługa Azure Storage w witrynie Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
         - name: Cennik

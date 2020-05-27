@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/18/2019
-ms.openlocfilehash: aa8bd6e89dd47c4e972a860691d1bc3779ba5bc7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78dde3f6706ecbc54daca162ac718911752fa0ca
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75982310"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832966"
 ---
 # <a name="common-query-patterns-in-azure-stream-analytics"></a>Typowe wzorce zapytań w Azure Stream Analytics
 
@@ -205,7 +205,7 @@ Instrukcje **Case** mogą udostępniać różne obliczenia dla różnych pól w 
 | Make1 |Z |2015-01-01T00:00:01.0000000 Z |
 | Make2 |B |2015-01-01T00:00:02.0000000 Z |
 
-**Rozwiązanie 2.**
+**Rozwiązanie**:
 
 ```SQL
 SELECT
@@ -537,14 +537,14 @@ Czas trwania zdarzenia może być obliczany przez wyszukanie ostatniego zdarzeni
 
 **Dane wejściowe**:  
 
-| Użytkownik | Funkcja | Wydarzenie | Time |
+| Użytkownik | Cecha | Wydarzenie | Time |
 | --- | --- | --- | --- |
-| user@location.com |RightMenu |Uruchamianie |2015-01-01T00:00:01.0000000 Z |
+| user@location.com |RightMenu |Rozpocznij |2015-01-01T00:00:01.0000000 Z |
 | user@location.com |RightMenu |End |2015-01-01T00:00:08.0000000 Z |
 
 **Dane wyjściowe**:  
 
-| Użytkownik | Funkcja | Czas trwania |
+| Użytkownik | Cecha | Czas trwania |
 | --- | --- | --- |
 | user@location.com |RightMenu |7 |
 
@@ -928,9 +928,9 @@ Zapytanie umożliwia producentowi automatyczne monitorowanie lokalizacji maszyn,
 
 Aby uzyskać więcej informacji, zapoznaj się z [scenariuszami geoprzestrzennymi i agregacjami geograficznymi przy użyciu Azure Stream Analytics](geospatial-scenarios.md) artykułu.
 
-## <a name="get-help"></a>Uzyskiwanie pomocy
+## <a name="get-help"></a>Uzyskaj pomoc
 
-Aby uzyskać dalszą pomoc, wypróbuj nasze [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Aby uzyskać dalszą pomoc, Wypróbuj naszą [stronę pytań firmy&Microsoft dotyczącą Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Następne kroki
 * [Wprowadzenie do Azure Stream Analytics](stream-analytics-introduction.md)

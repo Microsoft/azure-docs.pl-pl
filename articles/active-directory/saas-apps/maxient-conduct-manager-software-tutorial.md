@@ -16,20 +16,20 @@ ms.topic: tutorial
 ms.date: 12/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1a657a7d57b3e725b0ae92b5110935c0aecf73f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ec59aa830fe314332d17091f17ef81d4a1d65470
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75533853"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83833408"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-maxient-conduct-manager-software"></a>Samouczek: Azure Active Directory Integracja z logowaniem jednokrotnym (SSO) przy użyciu oprogramowania Maxients Manager
 
 W tym samouczku dowiesz się, jak zintegrować oprogramowanie Maxients Manager z usługą Azure Active Directory (Azure AD). Po zintegrowaniu oprogramowania Maxients Manager z usługą Azure AD można:
 
-* Kontrolka w usłudze Azure AD, która ma dostęp do oprogramowania Maxients Manager.
+* Korzystanie z usługi Azure AD do uwierzytelniania użytkowników na potrzeby oprogramowania Maxients Manager
 * Zezwól użytkownikom na automatyczne logowanie do oprogramowania Maxients Manager przy użyciu swoich kont usługi Azure AD.
-* Zarządzaj kontami w jednej centralnej lokalizacji — Azure Portal.
+
 
 Aby dowiedzieć się więcej o integracji aplikacji SaaS z usługą Azure AD, zobacz [co to jest dostęp do aplikacji i logowanie jednokrotne przy użyciu Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -42,8 +42,7 @@ Aby rozpocząć, potrzebne są następujące elementy:
 
 ## <a name="scenario-description"></a>Opis scenariusza
 
-W tym samouczku skonfigurujesz i testujesz Logowanie jednokrotne usługi Azure AD w środowisku testowym.
-
+W tym samouczku skonfigurujesz usługę Azure AD do użycia z oprogramowaniem Maxients Manager.
 
 
 * Oprogramowanie Maxients Manager obsługuje usługę **SP i dostawcy tożsamości** zainicjowano Logowanie jednokrotne
@@ -65,16 +64,13 @@ Aby skonfigurować integrację oprogramowania Maxients Manager z usługą Azure 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-maxient-conduct-manager-software"></a>Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD dla oprogramowania Maxients Manager
 
-Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD za pomocą oprogramowania Maxients Manager przy użyciu użytkownika testowego o nazwie **B. Simon**. Aby logowanie jednokrotne działało, należy ustanowić relację linku między użytkownikiem usługi Azure AD i powiązanym użytkownikiem w oprogramowaniu Maxients Manager.
+Skonfiguruj i przetestuj Logowanie jednokrotne usługi Azure AD przy użyciu oprogramowania Maxients Manager. Aby logowanie jednokrotne działało, należy nawiązać połączenie między usługą Azure AD a oprogramowaniem Maxient.
 
 Aby skonfigurować i przetestować Logowanie jednokrotne usługi Azure AD przy użyciu oprogramowania Maxients Manager, wykonaj następujące bloki konstrukcyjne:
 
-1. **[Skonfiguruj Logowanie jednokrotne usługi Azure AD](#configure-azure-ad-sso)** , aby umożliwić użytkownikom korzystanie z tej funkcji.
-    1. **[Utwórz użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować Logowanie jednokrotne w usłudze Azure AD za pomocą usługi B. Simon.
-    1. **[Przypisz użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić usłudze B. Simon korzystanie z logowania jednokrotnego w usłudze Azure AD.
-1. **[Konfigurowanie logowania JEDNOkrotnego w programie Maxienting Manager](#configure-maxient-conduct-manager-software-sso)** — aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
-    1. **[Utwórz użytkownika testowego programu Maxients Manager](#create-maxient-conduct-manager-software-test-user)** , aby dysponować odpowiednikiem B. Simon w oprogramowaniu Maxient, które jest połączone z reprezentacją użytkownika w usłudze Azure AD.
-1. **[Przetestuj Logowanie jednokrotne](#test-sso)** — aby sprawdzić, czy konfiguracja działa.
+1. **[Konfigurowanie logowania jednokrotnego w usłudze Azure AD](#configure-azure-ad-sso)** — aby umożliwić użytkownikom uwierzytelnianie do użytku w oprogramowaniu Maxients Manager
+    1. **[Przypisz wszystkim użytkownikom możliwość korzystania z Maxient](#assign-all-users-to-be-able-to-authenticate-for-the-Maxient-Conduct-Manager-Software)** — aby umożliwić wszystkim członkom Twojej instytucji uwierzytelnianie.
+1. **[Testowanie konfiguracji usługi Azure AD za pomocą programu Maxient](#test-with-maxient)** — aby sprawdzić, czy konfiguracja działa, i wydawaniu poprawnych atrybutów
 
 ## <a name="configure-azure-ad-sso"></a>Konfigurowanie rejestracji jednokrotnej w usłudze Azure AD
 
@@ -86,34 +82,22 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
 
    ![Edycja podstawowej konfiguracji protokołu SAML](common/edit-urls.png)
 
-1. W sekcji **Podstawowa konfiguracja** SAML aplikacja została wstępnie skonfigurowana w trybie inicjalizacji **dostawcy tożsamości** , a wymagane adresy URL są już wstępnie wypełnione na platformie Azure. Użytkownik musi zapisać konfigurację, klikając przycisk **Zapisz** .
+1. W sekcji **Podstawowa konfiguracja SAML**   aplikacja została wstępnie skonfigurowana w **IDP**   trybie inicjalizacji dostawcy tożsamości, a wymagane adresy URL są już wstępnie wypełnione na platformie Azure. Użytkownik musi zapisać konfigurację, klikając przycisk **Zapisz**   .
 
 1. Kliknij pozycję **Ustaw dodatkowe adresy URL** i wykonaj następujące kroki, jeśli chcesz skonfigurować aplikację w trybie inicjowania programu **SP** :
 
     W polu tekstowym **Adres URL logowania** wpisz adres URL, korzystając z następującego wzorca: `https://cm.maxient.com/<SCHOOLCODE>`
 
     > [!NOTE]
-    > Ta wartość nie jest prawdziwa. Zastąp tę wartość rzeczywistym adresem URL logowania. Skontaktuj się z [zespołem pomocy technicznej programu Maxients Manager](mailto:support@maxient.com) , aby uzyskać wartość. Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Ta wartość nie jest prawdziwa. Zastąp tę wartość rzeczywistym adresem URL logowania. Aby uzyskać wartość, skontaktuj się z przedstawicielem ds. implementacji/pomocy technicznej Maxient.
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** kliknij przycisk Kopiuj, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** kliknij przycisk Kopiuj, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.  W tym adresie URL należy podać przedstawiciela implementacji/pomocy technicznej Maxient.
 
     ![Link do pobierania certyfikatu](common/copy-metadataurl.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD
+### <a name="assign-all-users-to-be-able-to-authenticate-for-the-maxient-conduct-manager-software"></a>Przypisz wszystkim użytkownikom możliwość uwierzytelniania w oprogramowaniu Maxients Manager
 
-W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
-
-1. W lewym okienku w Azure Portal wybierz pozycję **Azure Active Directory**, wybierz pozycję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
-1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
-1. We właściwościach **użytkownika** wykonaj następujące kroki:
-   1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
-   1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
-   1. Kliknij przycisk **Utwórz**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
-
-W tej sekcji włączysz usługę B. Simon do korzystania z logowania jednokrotnego platformy Azure, udzielając dostępu do oprogramowania Maxienting Manager.
+W tej sekcji zostanie udzielony dostęp do wszystkich kont w celu uwierzytelnienia przy użyciu systemu Azure dla oprogramowania Maxients Manager.  Należy pamiętać, że ten krok jest **wymagany** do poprawnego działania programu Maxient.  Maxient wykorzystuje system usługi Azure AD do *uwierzytelniania* użytkowników. *Autoryzacja* użytkowników jest przeprowadzana w systemie Maxient dla konkretnej funkcji, którą próbują wykonać. Maxient nie używa atrybutów z katalogu do podejmowania tych decyzji.
 
 1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Na liście Aplikacje wybierz opcję **oprogramowanie Maxients Manager**.
@@ -125,25 +109,13 @@ W tej sekcji włączysz usługę B. Simon do korzystania z logowania jednokrotne
 
     ![Link Dodaj użytkownika](common/add-assign-user.png)
 
-1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję **B. Simon** z listy Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-1. Jeśli oczekujesz dowolnej wartości roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
-1. W oknie dialogowym **Dodawanie przypisania** kliknij przycisk **Przypisz** .
+1. W oknie dialogowym **Użytkownicy i grupy** wybierz pozycję Wszyscy użytkownicy (lub odpowiednie grupy) i **Przypisz** je do uwierzytelniania za pomocą Maxient.
 
-## <a name="configure-maxient-conduct-manager-software-sso"></a>Konfigurowanie logowania jednokrotnego w programie Maxients Manager
+## <a name="test-with-maxient"></a>Testowanie za pomocą Maxient 
 
-Aby skonfigurować Logowanie jednokrotne na stronie **oprogramowania Maxients Manager** , musisz wysłać **adres URL metadanych federacji aplikacji** do [zespołu pomocy technicznej programu Maxients Manager](mailto:support@maxient.com). Ustawią oni to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
-
-### <a name="create-maxient-conduct-manager-software-test-user"></a>Utwórz użytkownika testowego programu Maxients Manager
-
-W tej sekcji utworzysz użytkownika o nazwie Britta Simon w oprogramowaniu Maxients Manager. Współpraca z [zespołem pomocy technicznej programu Maxients Manager](mailto:support@maxient.com) w celu dodawania użytkowników do platformy oprogramowania Maxients Manager. Użytkownicy muszą być utworzeni i aktywowani przed rozpoczęciem korzystania z logowania jednokrotnego.
-
-## <a name="test-sso"></a>Testuj Logowanie jednokrotne 
-
-W tej sekcji przetestujesz konfigurację logowania jednokrotnego usługi Azure AD przy użyciu panelu dostępu.
-
-Po kliknięciu kafelka oprogramowanie Maxients Manager w panelu dostępu należy automatycznie zalogować się do oprogramowania Maxients Manager, dla którego skonfigurowano Logowanie jednokrotne. Aby uzyskać więcej informacji na temat panelu dostępu, zobacz [wprowadzenie do panelu dostępu](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
-
-## <a name="additional-resources"></a>Dodatkowe zasoby
+Jeśli bilet pomocy technicznej nie został jeszcze otwarty z Maxientem/specjalistą ds. implementacji/pomocy technicznej, Wyślij wiadomość e-mail na adres [support@maxient.com](mailto:support@maxient.com) z tematu "uwierzytelnianie Kampusowe/konfiguracja platformy Azure \< \< \> \> ". W treści wiadomości e-mail Podaj **adres URL metadanych federacji aplikacji**. Personel Maxient odpowie przy użyciu linku testowego, aby sprawdzić, czy są wydane odpowiednie atrybuty.  
+    
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

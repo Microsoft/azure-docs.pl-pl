@@ -14,7 +14,7 @@
       href: quickstart-sql-vm-create-powershell.md
 - name: Pojęcia
   items:
-    - name: Najlepsze praktyki
+    - name: Najlepsze rozwiązania
       items:
         - name: Najlepsze rozwiązania w zakresie wydajności
           href: virtual-machines-windows-sql-performance.md
@@ -79,7 +79,7 @@
           href: virtual-machines-windows-sql-change-edition.md
         - name: Usługa Azure Storage na potrzeby tworzenia kopii zapasowych i przywracania
           href: virtual-machines-windows-use-storage-sql-server-backup-restore.md
-    - name: Migracja
+    - name: Migrate (Migracja)
       items:
         - name: Migracja bazy danych programu SQL Server do maszyny wirtualnej
           href: virtual-machines-windows-migrate-sql.md
@@ -131,7 +131,7 @@
   items:
     - name: Często zadawane pytania
       href: virtual-machines-windows-sql-server-iaas-faq.md
-    - name: Ceny
+    - name: Cennik
       href: virtual-machines-windows-sql-server-pricing-guidance.md
     - name: SQL Server Data Tools (SSDT)
       href: 'https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt'
@@ -141,7 +141,7 @@
       href: 'https://docs.microsoft.com/sql/tools/overview-sql-tools'
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/?category=compute'
-    - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesforWindows&filter=alltypes&brandIgnore=True&sort=relevancedesc&searchTerm=SQL+Server'
+    - name: Pytania i odpowiedzi Microsoft — strona pytania
+      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-machines.html'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/search?q=%5Bazure-virtual-machine%5D+sql+server'

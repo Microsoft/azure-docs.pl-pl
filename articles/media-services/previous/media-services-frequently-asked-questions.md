@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: bdb5a43ad6669bfcd6e93ef4e3bf1646314e4606
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 67c7955316d4c9670509affb478813df0768f261
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76705874"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832558"
 ---
 # <a name="media-services-v2-frequently-asked-questions"></a>Media Services V2 — często zadawane pytania
 
@@ -56,7 +56,7 @@ Odp.: Aby skopiować zasoby z jednego konta Media Services do innego przy użyci
 
 P: Jakie są obsługiwane znaki nazewnictwa plików podczas pracy z usługą AMS?
 
-Odp.: Media Services używa wartości właściwości IAssetFile.Name podczas kompilowania adresów URL dla zawartości przesyłania strumieniowego (na przykład http://{AMSAccount}. Origin. MediaServices. Windows. NET/{GUID}/{IAssetFile. Name}/streamingParameters). Z tego powodu nie jest dozwolone kodowanie procentowo. Wartość właściwości **name** nie może zawierać żadnego z następujących [znaków:%-Encoding](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters), które są zastrzeżone.! * ' ();: @ &= + $,/?% # [] ". Ponadto może istnieć tylko jedno "." dla rozszerzenia nazwy pliku.
+Odp.: Media Services używa wartości właściwości IAssetFile.Name podczas kompilowania adresów URL dla zawartości przesyłania strumieniowego (na przykład http://{AMSAccount}. Origin. MediaServices. Windows. NET/{GUID}/{IAssetFile. Name}/streamingParameters). Z tego powodu nie jest dozwolone kodowanie procentowo. Wartość właściwości **name** nie może zawierać żadnego z następujących [znaków:%-Encoding](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters), które są zastrzeżone.! * ' ();: @ &= + $,/?% # [] ". Ponadto dla rozszerzenia nazwy pliku może istnieć tylko jeden ".".
 
 P: jak nawiązać połączenie przy użyciu REST?
 

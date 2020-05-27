@@ -876,10 +876,10 @@
   items:
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
+    - name: Pytania i odpowiedzi Microsoft — strona pytania
+      href: 'https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html'
     - name: Żądania funkcji
       href: 'https://feedback.azure.com/forums/307516-sql-data-warehouse/'
-    - name: Forum
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse'
     - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/synapse-analytics/'
     - name: Kalkulator cen

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.date: 05/19/2020
 ms.author: b-juche
-ms.openlocfilehash: 7dfc17825fab6c9a5f0d832318cb1d57271c56da
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 6cb3fa56e679bc911f12e99379152fc8e1fb7526
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82625549"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832835"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Tworzenie woluminu SMB dla usługi Azure NetApp Files
 
@@ -40,12 +40,12 @@ Podsieć musi być delegowana do usługi Azure NetApp Files.
 * Odpowiednie porty muszą być otwarte na odpowiednim serwerze Windows Active Directory (AD).  
     Wymagane porty są następujące: 
 
-    |     Usługa           |     Port     |     Protocol (Protokół)     |
+    |     Usługa           |     Port     |     Protokół     |
     |-----------------------|--------------|------------------|
     |    Usługi sieci Web AD    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
     |    DNS                |    53        |    UDP           |
-    |    Ruch             |    Brak       |    Odpowiedź echa    |
+    |    Ruch             |    Nie dotyczy       |    Odpowiedź echa    |
     |    Kerberos           |    464       |    TCP           |
     |    Kerberos           |    464       |    UDP           |
     |    Kerberos           |    88        |    TCP           |
@@ -58,7 +58,7 @@ Podsieć musi być delegowana do usługi Azure NetApp Files.
     |    SAM/LSA            |    445       |    UDP           |
     |    W32Time            |    123       |    UDP           |
 
-* Topologia lokacji dla konkretnych Active Directory Domain Services musi być zgodna z najlepszymi rozwiązaniami, w szczególności z siecią wirtualną platformy Azure, w której wdrożono Azure NetApp Files.  
+* Topologia lokacji dla Active Directory Domain Services przeznaczonych do celów musi być zgodna z wytycznymi, w szczególności z siecią wirtualną platformy Azure, w której wdrożono Azure NetApp Files.  
 
     Przestrzeń adresowa dla sieci wirtualnej, w której wdrożono Azure NetApp Files, musi zostać dodana do nowej lub istniejącej lokacji Active Directory (gdzie kontroler domeny osiągalny przez Azure NetApp Files to). 
 
@@ -79,7 +79,7 @@ Podsieć musi być delegowana do usługi Azure NetApp Files.
 
     For example, if your Active Directory has only the AES-128 capability, you must enable the AES-128 account option for the user credentials. If your Active Directory has the AES-256 capability, you must enable the AES-256 account option (which also supports AES-128). If your Active Directory does not have any Kerberos encryption capability, Azure NetApp Files uses DES by default.  
 
-    You can enable the account options in the properties of the Active Directory Users and Computers MMC console:   
+    You can enable the account options in the properties of the Active Directory Users and Computers Microsoft Management Console (MMC):   
 
     ![Active Directory Users and Computers MMC](../media/azure-netapp-files/ad-users-computers-mmc.png)
 -->
@@ -98,7 +98,7 @@ Dla Azure NetApp Files można użyć preferowanego zakresu [Active Directory wit
 
 Aby znaleźć nazwę witryny podczas korzystania z dodawania, możesz skontaktować się z grupą administracyjną w organizacji, która jest odpowiedzialna za Active Directory Domain Services. W poniższym przykładzie pokazano wtyczka Lokacje i usługi Active Directory, w której wyświetlana jest nazwa lokacji: 
 
-![Lokacje i usługi Active Directory](../media/azure-netapp-files/azure-netapp-files-active-directory-sites-and-services.png)
+![Lokacje i usługi Active Directory](../media/azure-netapp-files/azure-netapp-files-active-directory-sites-services.png)
 
 Podczas konfigurowania połączenia z usługą AD dla Azure NetApp Files należy określić nazwę lokacji w polu zakres dla **nazwy witryny usługi AD** .
 
@@ -111,15 +111,15 @@ Dodatkowe zagadnienia dotyczące AADDS mają zastosowanie do Azure NetApp Files:
 * Upewnij się, że sieć wirtualna lub AADDS jest wdrożona w tym samym regionie platformy Azure co wdrożenie Azure NetApp Files.
 * Jeśli używasz innej sieci wirtualnej w regionie, w którym wdrożono Azure NetApp Files, należy utworzyć komunikację równorzędną między tymi dwoma sieci wirtualnych.
 * Azure NetApp Files obsługuje `user` i `resource forest` typy.
-* Dla typu synchronizacji można wybrać `All` lub. `Scoped`   
-    W przypadku wybrania opcji `Scoped`upewnij się, że wybrano odpowiednią grupę usługi Azure AD do uzyskiwania dostępu do udziałów SMB.  Jeśli nie masz pewności, możesz użyć typu `All` synchronizacji.
+* Dla typu synchronizacji można wybrać `All` lub `Scoped` .   
+    W przypadku wybrania opcji `Scoped` upewnij się, że wybrano odpowiednią grupę usługi Azure AD do uzyskiwania dostępu do udziałów SMB.  Jeśli nie masz pewności, możesz użyć `All` typu synchronizacji.
 * Wymagane jest użycie jednostki SKU przedsiębiorstwa lub Premium. Standardowa jednostka SKU nie jest obsługiwana.
 
 Podczas tworzenia połączenia Active Directory należy zwrócić uwagę na następujące informacje dotyczące AADDS:
 
 * W menu AADDS można znaleźć informacje dotyczące **podstawowej DNS**, **dodatkowej DNS**i **nazwy domeny DNS usługi AD** .  
 W przypadku serwerów DNS dwa adresy IP zostaną użyte do skonfigurowania połączenia Active Directory. 
-* **Ścieżka jednostki organizacyjnej** to `OU=AADDC Computers`.  
+* **Ścieżka jednostki organizacyjnej** to `OU=AADDC Computers` .  
 To ustawienie jest konfigurowane w **Active Directory połączenia** w obszarze **konto NetApp**:
 
   ![Ścieżka jednostki organizacyjnej](../media/azure-netapp-files/azure-netapp-files-org-unit-path.png)
@@ -152,11 +152,20 @@ To ustawienie jest konfigurowane w **Active Directory połączenia** w obszarze 
 
         W razie konieczności usługa utworzy dodatkowe konta komputera w Active Directory.
 
+        > [!IMPORTANT] 
+        > Zmiana nazwy prefiksu serwera SMB po utworzeniu połączenia Active Directory jest zakłócona. Po zmianie nazwy prefiksu serwera SMB należy ponownie zainstalować istniejące udziały SMB.
+
     * **Ścieżka jednostki organizacyjnej**  
         Jest to ścieżka LDAP jednostki organizacyjnej (OU), w której zostaną utworzone konta komputerów serwera SMB. Oznacza to, OU = drugi poziom, OU = pierwszy poziom. 
 
         Jeśli używasz Azure NetApp Files z Azure Active Directory Domain Services, ścieżką jednostki organizacyjnej jest `OU=AADDC Computers` skonfigurowanie Active Directory dla konta NetApp.
-        
+
+     * **Użytkownicy zasad tworzenia kopii zapasowych**  
+        Można uwzględnić dodatkowe konta, które wymagają podwyższonego poziomu uprawnień do konta komputera utworzonego do użytku z Azure NetApp Files. Określone konta będą mogły zmienić uprawnienia systemu plików NTFS na poziomie pliku lub folderu. Na przykład można określić konto usługi bez uprawnień używane do migrowania danych do udziału plików SMB w Azure NetApp Files.  
+
+        > [!IMPORTANT] 
+        > Korzystanie z funkcji użytkownika zasady tworzenia kopii zapasowych wymaga listy dozwolonych. Wyślij wiadomość e-mail anffeedback@microsoft.com z identyfikatorem subskrypcji, aby zażądać tej funkcji. 
+
     * Poświadczenia, w tym **Nazwa użytkownika** i **hasło**
 
     ![Przyłączanie Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
@@ -231,8 +240,8 @@ Dostęp do woluminu SMB jest zarządzany przez uprawnienia.
 
 Domyślnie nowy wolumin ma uprawnienia **Wszyscy/Pełna kontrola** . Członkowie grupy Administratorzy domeny mogą zmieniać uprawnienia udziału za pomocą przystawki Zarządzanie komputerem na koncie komputera, które jest używane dla woluminu Azure NetApp Files.
 
-![Ścieżka](../media/azure-netapp-files/smb-mount-path.png) 
-![instalacji SMB Ustawianie uprawnień udziału](../media/azure-netapp-files/set-share-permissions.png) 
+![Ścieżka instalacji SMB ](../media/azure-netapp-files/smb-mount-path.png) 
+ ![ Ustawianie uprawnień udziału](../media/azure-netapp-files/set-share-permissions.png) 
 
 ### <a name="ntfs-file-and-folder-permissions"></a>Uprawnienia plików i folderów systemu plików NTFS  
 

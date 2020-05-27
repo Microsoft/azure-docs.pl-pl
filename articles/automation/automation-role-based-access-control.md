@@ -6,12 +6,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 05/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9cdde8d1142ec47f835e4a06e7fe2e843d796a3a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: d60885f7dbcd090e4f2172015787bc34d4ee7bcf
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743926"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832507"
 ---
 # <a name="manage-role-permissions-and-security"></a>Zarządzanie uprawnieniami ról i zabezpieczeniami
 
@@ -425,6 +425,6 @@ Gdy użytkownik przypisany do roli operatora usługi w zakresie elementu Runbook
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Zarządzanie RBAC przy użyciu Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
-* [Uruchamianie elementu runbook w usłudze Azure Automation](start-runbooks.md)
-* [Azure Automation typy elementów Runbook](automation-runbook-types.md)
+* Aby uzyskać więcej informacji RBAC programu PowerShell, zobacz [Zarządzanie RBAC przy użyciu Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
+* Aby uzyskać szczegółowe informacje na temat typów elementów Runbook, zobacz [Azure Automation typów elementów Runbook](automation-runbook-types.md).
+* Aby uruchomić element Runbook, zobacz temat [Uruchamianie elementu Runbook w Azure Automation](start-runbooks.md).

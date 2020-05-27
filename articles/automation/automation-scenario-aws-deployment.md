@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8d66a96baa182672ecbfc9d617f82728812f0f27
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 4dcc095648111348a6935225a6aa10798109f76e
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743856"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832236"
 ---
 # <a name="deploy-an-amazon-web-services-vm-with-a-runbook"></a>Wdrażanie maszyny wirtualnej Amazon Web Services za pomocą elementu Runbook
 
@@ -99,6 +99,9 @@ Upewnij się, że moduł AWS PowerShell został zaimportowany do Azure Automatio
 
 ## <a name="next-steps"></a>Następne kroki
  
-* [Azure Automation typy elementów Runbook](automation-runbook-types.md)
-* [Zarządzanie elementami Runbook w Azure Automation](manage-runbooks.md)
-* [Natywna obsługa skryptów programu PowerShell w programie Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/)
+* Aby dowiedzieć się, jakie elementy Runbook są obsługiwane, zobacz[Azure Automation typów elementów Runbook](automation-runbook-types.md).
+* Aby korzystać z elementów Runbook, zobacz [Zarządzanie elementami Runbook w Azure Automation](manage-runbooks.md).
+* Aby uzyskać szczegółowe informacje na temat programu PowerShell, zobacz dokumentację [programu PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
+* Aby uzyskać pomoc techniczną dotyczącą skryptów, zobacz [macierzysta obsługa skryptów programu PowerShell w Azure Automation](https://azure.microsoft.com/blog/announcing-powershell-script-support-azure-automation-2/).
+* Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

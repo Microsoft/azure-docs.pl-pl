@@ -10,12 +10,12 @@ ms.workload: data-services
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 8b7791c5c04e986b30959d2fcae17142fdd8b7ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3955d3b9370a1cd2ee88c27e42b107f5ae0f87c2
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418324"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83833545"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Roles and permissions for Azure Data Factory (Role i uprawnienia w usłudze Data Factory)
 
@@ -84,7 +84,7 @@ Poniżej przedstawiono kilka przykładów demonstrujących to, co można osiągn
 
 - Pozwól użytkownikowi na testowanie połączenia w połączonej usłudze
 
-    Utwórz niestandardową rolę roli z uprawnieniami dla następujących akcji: **Microsoft. DataFactory/Factors/getFeatureValue/Read** i **Microsoft. DataFactory/Factors/getDataPlaneAccess/Read**. Przypisz tę rolę niestandardową do zasobu fabryki danych dla użytkownika.
+    Utwórz niestandardową rolę z uprawnieniami dla następujących akcji: **Microsoft. DataFactory/Factors/getFeatureValue/Read** i **Microsoft. DataFactory/Factors/getDataPlaneAccess/Read**. Przypisz tę rolę niestandardową do zasobu fabryki danych dla użytkownika.
 
 - Zezwól użytkownikowi na aktualizację fabryki danych przy użyciu programu PowerShell lub zestawu SDK, ale nie w Azure Portal.
 

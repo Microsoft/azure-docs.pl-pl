@@ -11,12 +11,12 @@ author: djpmsft
 ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
-ms.openlocfilehash: e5bd3d10e4e43daf3031aae5083ee917cfe65ede
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a0b5fa16658d3e354bcb4f90ad998997fc844a84
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417984"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83832793"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Ustaw aktywność zmiennej w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -25,17 +25,17 @@ Użyj działania Ustaw zmienną, aby ustawić wartość istniejącej zmiennej ty
 
 ## <a name="type-properties"></a>Właściwości typu
 
-Właściwość | Opis | Wymagany
+Właściwość | Opis | Wymagane
 -------- | ----------- | --------
 name | Nazwa działania w potoku | tak
-description | Tekst opisujący działanie działania | nie
-type | Musi być ustawiona na wartość **Setvariable** | tak
-value | Wartość literału ciągu lub obiektu wyrażenia, do którego zostanie przypisana zmienna | tak
-variableName | Nazwa zmiennej, która zostanie ustawiona przez to działanie | tak
+description (opis) | Tekst opisujący działanie działania | nie
+typ | Musi być ustawiona na wartość **Setvariable** | tak
+value | Wartość literału ciągu lub obiektu wyrażenia, do którego jest przypisana zmienna | tak
+variableName | Nazwa zmiennej, która jest ustawiona przez to działanie | tak
 
 ## <a name="incrementing-a-variable"></a>Zwiększanie zmiennej
 
-Typowy scenariusz obejmujący zmienne w Azure Data Factory używa zmiennej jako iteratora w działaniu until lub foreach. W działaniu z ustawioną zmienną nie można odwoływać się do zmiennej `value` ustawionej w polu. Aby obejść to ograniczenie, należy ustawić zmienną tymczasową, a następnie utworzyć drugie działanie zmiennej zestawu. Działanie drugiego zestawu zmiennych ustawia wartość iteratora na zmienną tymczasową. 
+Typowy scenariusz obejmujący zmienne w Azure Data Factory używa zmiennej jako iteratora w działaniu until lub foreach. W działaniu z ustawioną zmienną nie można odwoływać się do zmiennej ustawionej w `value` polu. Aby obejść to ograniczenie, należy ustawić zmienną tymczasową, a następnie utworzyć drugie działanie zmiennej zestawu. Działanie drugiego zestawu zmiennych ustawia wartość iteratora na zmienną tymczasową. 
 
 Poniżej znajduje się przykład tego wzorca:
 
