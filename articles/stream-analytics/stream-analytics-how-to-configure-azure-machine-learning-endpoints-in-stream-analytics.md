@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/11/2019
-ms.openlocfilehash: 239955025f21d8679cbcf0bbfe68f9070f0217c6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c5357397817b9c6712bdb2e35490e2cdd403d13c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426201"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836468"
 ---
 # <a name="azure-machine-learning-studio-classic-integration-in-stream-analytics-preview"></a>Integracja Azure Machine Learning Studio (klasyczny) w Stream Analytics (wersja zapoznawcza)
 Stream Analytics obsługuje funkcje zdefiniowane przez użytkownika, które wywołują Azure Machine Learning Studio (klasyczne) punkty końcowe. Obsługa interfejsu API REST dla tej funkcji jest szczegółowa w [bibliotece interfejsu API rest Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx). Ten artykuł zawiera dodatkowe informacje, które są odpowiednie do pomyślnej implementacji tej możliwości w Stream Analytics. Samouczek został również ogłoszony i jest dostępny w [tym miejscu](stream-analytics-machine-learning-integration-tutorial.md).
@@ -187,8 +187,8 @@ Teraz wykonaj zapytanie dotyczące formatu UDF (tutaj o nazwie scoreTweet) dla k
 ```
 
 
-## <a name="get-help"></a>Uzyskiwanie pomocy
-Aby uzyskać dalszą pomoc, skorzystaj z naszego [forum usługi Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+## <a name="get-help"></a>Uzyskaj pomoc
+Aby uzyskać dalszą pomoc, wypróbuj nasze [&stronie pytań na temat Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html)
 
 ## <a name="next-steps"></a>Następne kroki
 * [Wprowadzenie do Azure Stream Analytics](stream-analytics-introduction.md)

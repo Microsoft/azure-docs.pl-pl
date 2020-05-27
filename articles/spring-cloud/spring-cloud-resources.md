@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: reference
 ms.date: 11/1/2019
 ms.author: brendm
-ms.openlocfilehash: 36e9b272bb4648853829364b22881ab8bec1ff70
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d65bd76fbef66f741f51292b24483e7df5da7c79
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81733051"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836247"
 ---
 # <a name="azure-spring-cloud-developer-resources"></a>Zasoby deweloperów chmury ze sprężyną na platformie Azure
 
@@ -20,7 +20,7 @@ Jako programista mogą być przydatne następujące zasoby chmury wiosennej plat
 * [Plan platformy Azure](https://azure.microsoft.com/updates)
 * [Często zadawane pytania](spring-cloud-faq.md)
 * [Przewodnik rozwiązywania problemów](spring-cloud-troubleshoot.md)
-* [Forum MSDN](https://social.msdn.microsoft.com/Forums/home)
+* [Strona pytania&pytań i odpowiedzi](https://docs.microsoft.com/answers/topics/azure-spring-cloud.html)
 * [Witryna sieci Web chmury wiosennej Java](https://spring.io/)
 * [Struktura sprężyny](https://cloud.spring.io/spring-cloud-azure/)
 * [Oprogramowanie Spring na platformie Azure](https://docs.microsoft.com/azure/developer/java/spring-framework/)

@@ -10,14 +10,14 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 99fd7b2d0581b3eda97ec6fadeb43b55a3ad2bf0
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: b3a49fac5600e6338d5fb56281a3360f0abaa39a
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83711333"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836978"
 ---
-# <a name="convert-configurations-to-composite-resources-for-azure-automation-state-configuration"></a>Konwertuj konfiguracje na zasoby złożone na potrzeby konfiguracji stanu Azure Automation
+# <a name="convert-configurations-to-composite-resources"></a>Konwertowanie konfiguracji do zasobów złożonych
 
 > Dotyczy: Windows PowerShell 5,1
 
@@ -57,6 +57,6 @@ Aby wypróbować automatyzację tworzenia zasobów złożonych dla DSC, odwiedź
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Przegląd konfiguracji żądanego stanu programu Windows PowerShell](/powershell/scripting/dsc/overview/overview)
-- [Zasoby DSC](/powershell/scripting/dsc/resources/resources)
-- [Konfigurowanie Configuration Manager lokalnego](/powershell/scripting/dsc/managing-nodes/metaconfig)
+- Aby poznać program PowerShell DSC, zobacz [Omówienie konfiguracji żądanego stanu programu Windows PowerShell](/powershell/scripting/dsc/overview/overview).
+- Dowiedz się więcej o zasobach DSC programu PowerShell w [zasobach DSC](/powershell/scripting/dsc/resources/resources).
+- Aby uzyskać szczegółowe informacje na temat konfiguracji lokalnego Configuration Manager, zobacz [konfigurowanie Configuration Manager lokalnego](/powershell/scripting/dsc/managing-nodes/metaconfig).

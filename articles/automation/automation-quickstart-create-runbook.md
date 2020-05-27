@@ -6,12 +6,12 @@ ms.date: 02/05/2019
 ms.topic: quickstart
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: a784ddbc2ab1298bec3e2dc21469785163d7a228
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 0717a7ac3cc663ff68ba96864aa5d37732337ca5
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83711996"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836740"
 ---
 # <a name="create-an-azure-automation-runbook"></a>Tworzenie elementu runbook usługi Azure Automation
 
@@ -98,4 +98,4 @@ Gdy element runbook nie będzie już potrzebny, usuń go. Aby to zrobić, zaznac
 W tym przewodniku Szybki start utworzono, edytowano, przetestowano i opublikowano element runbook oraz uruchomiono zadanie elementu runbook. Aby dowiedzieć się więcej o elementach runbook usługi Automation, przejdź do artykułu opisującego różne typy elementów runbook, które można tworzyć i z nich korzystać w usłudze Automation.
 
 > [!div class="nextstepaction"]
-> [Instrukcje dotyczące usługi Automation — typy elementów runbook](./automation-runbook-types.md)
+> [Azure Automation typy elementów Runbook](./automation-runbook-types.md)

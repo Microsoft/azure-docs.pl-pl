@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: a55515be478781a2f2448924c209a3348ae462c5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bd2440ecf04bb4481b5497317e0acd2641710ccf
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133309"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836876"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Rozwiązywanie problemów z zapytaniami Azure Stream Analytics
 
@@ -77,11 +77,11 @@ Następnie można napisać ponownie zapytanie w następujący sposób:
 
 Teraz ponownie Rozpocznij zadanie i pozwól, aby było uruchamiane przez kilka minut. Następnie wykonaj zapytania dotyczące temp1 i temp2 z programem Visual Studio Cloud Explorer, aby utworzyć następujące tabele:
 
-**tabela temp1 należy**
-zaznaczyć w tabeli temp1![kwerendy Stream Analytics](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-1.png)
+**tabela temp1** 
+ ![ Zaznacz w tabeli temp1 Stream Analytics zapytanie](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-1.png)
 
-**tabela temp2 należy**
-zaznaczyć w tabeli temp2![kwerendy Stream Analytics](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-2.png)
+**tabela temp2** 
+ ![ Zaznacz w tabeli temp2 Stream Analytics zapytanie](./media/stream-analytics-select-into/stream-analytics-select-into-temp-table-2.png)
 
 Jak widać, temp1 i temp2 mają dane, a kolumna Name jest wypełniana prawidłowo w temp2. Jednak ze względu na to, że w danych wyjściowych nadal nie ma danych, wystąpił problem:
 
@@ -101,9 +101,9 @@ Tym razem dane w danych wyjściowych są formatowane i wypełniane zgodnie z ocz
 
 ![Wybierz do ostatecznej kwerendy Stream Analytics tabeli](./media/stream-analytics-select-into/stream-analytics-select-into-final-table.png)
 
-## <a name="get-help"></a>Uzyskiwanie pomocy
+## <a name="get-help"></a>Uzyskaj pomoc
 
-Aby uzyskać dalszą pomoc, wypróbuj nasze [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Aby uzyskać dalszą pomoc, Wypróbuj naszą [stronę pytań firmy&Microsoft dotyczącą Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: c4798fa9140f277d5383d2830eefb9bcc8d7c984
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 11902e363428a45bc158a99d251343e13b62540d
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "72598332"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836434"
 ---
 # <a name="azure-media-services-community"></a>Społeczność usługi Azure Media Services  
 
@@ -40,7 +40,7 @@ Ta strona społeczności Azure Media Services (AMS) omawia różne sposoby uzysk
 
 ### <a name="twitter"></a>Twitter
 
-Skontaktuj się [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) z nami przy użyciu uchwytu Twitter lub postępuj zgodnie z aktualizacją w serwisie Twitter. Możesz użyć uchwytu [@AzureSupport](https://twitter.com/azuresupport) Twitter, aby zażądać pomocy technicznej w serwisie Twitter.  
+[@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia)Skontaktuj się z nami przy użyciu uchwytu Twitter lub postępuj zgodnie z aktualizacją w serwisie Twitter. Możesz użyć [@AzureSupport](https://twitter.com/azuresupport) uchwytu Twitter, aby zażądać pomocy technicznej w serwisie Twitter.  
 
 ### <a name="online-forums"></a>Fora online
 
@@ -48,7 +48,7 @@ Poniższe fora mogą służyć do zadawania pytań dotyczących bieżących prod
 
 Obecnie Witryna MSDN jest Media Services głównym forum społeczności zespołu.
 
-[![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
+[![MSDN](./media/media-services-community/msdn.png)](https://docs.microsoft.com/answers/topics/azure-media-services.html) 
 
 Zespół monitoruje również pytania otagowane Stack Overflow z "Azure-Media-Services".
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: 65f21450f194175af37c6c198468978392cee462
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dd32d176b3e8821236f39dd1677d6dbe78b40adb
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195166"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836077"
 ---
 # <a name="open-source-software-support-in-azure-hdinsight"></a>Obsługa oprogramowania Open Source w usłudze Azure HDInsight
 
@@ -40,7 +40,7 @@ Jako użytkownik klastra można zainstalować lub użyć w obciążeniu dowolny 
 > [!WARNING]  
 > Składniki dostarczane z klastrem usługi HDInsight są w pełni obsługiwane. Pomoc techniczna firmy Microsoft pomaga wyizolować i rozwiązać problemy związane z tymi składnikami.
 >
-> Składniki niestandardowe otrzymują komercyjnie uzasadnioną pomoc techniczną, aby ułatwić dalsze Rozwiązywanie problemu. Pomoc techniczna firmy Microsoft może być w stanie rozwiązać ten problem. Mogą też zadawać pytania o zaangażowanie dostępnych kanałów dla technologii open source, w przypadku których zostanie znaleziona Szczegółowa wiedza dla tej technologii. Można użyć wielu witryn społeczności. Przykłady to [forum MSDN dotyczące usługi HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) i [Stack Overflow](https://stackoverflow.com).
+> Składniki niestandardowe otrzymują komercyjnie uzasadnioną pomoc techniczną, aby ułatwić dalsze Rozwiązywanie problemu. Pomoc techniczna firmy Microsoft może być w stanie rozwiązać ten problem. Mogą też zadawać pytania o zaangażowanie dostępnych kanałów dla technologii open source, w przypadku których zostanie znaleziona Szczegółowa wiedza dla tej technologii. Można użyć wielu witryn społeczności. Przykłady to [Microsoft Q&stronie pytania dotyczącej usługi HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html) i [Stack Overflow](https://stackoverflow.com).
 >
 > Projekty Apache zawierają również witryny projektu w [witrynie Apache](https://apache.org). Przykładem jest usługa [Hadoop](https://hadoop.apache.org/).
 
@@ -48,7 +48,7 @@ Jako użytkownik klastra można zainstalować lub użyć w obciążeniu dowolny 
 
 Usługa HDInsight oferuje kilka sposobów korzystania ze składników niestandardowych. Ten sam poziom wsparcia ma zastosowanie, niezależnie od tego, w jaki sposób składnik jest używany lub instalowany w klastrze. W poniższej tabeli opisano najczęstsze sposoby używania składników niestandardowych w klastrach usługi HDInsight:
 
-|Sposób użycia |Opis |
+|Użycie |Opis |
 |---|---|
 |Przesyłanie zadania|Usługa Hadoop lub inne typy zadań, które wykonują lub używają niestandardowych składników można przesłać do klastra.|
 |Dostosowywanie klastra|Podczas tworzenia klastra można określić dodatkowe ustawienia i składniki niestandardowe, które są zainstalowane w węzłach klastra.|

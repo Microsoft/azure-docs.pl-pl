@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: 3c0c29e1793e56efae8d13cb01d57faf257d8805
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 00e1175cc85f1c34260c5e03ed3f81ac25cf7448
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426071"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836502"
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Data-driven debugging by using the job diagram (Debugowanie oparte na danych za pomocą diagramu zadań)
 
@@ -78,8 +78,8 @@ Jeśli poprzedni krok zapytania jest procesorem wejściowym, użyj metryk wejśc
 *   **Zarejestrowane zdarzenia (łącznie)** wskazują, ile więcej komunikatów należy odczytać dla Event Hubs i danych wejściowych platformy Azure IoT Hub. Gdy ta liczba jest większa niż 0, oznacza to, że zadanie nie może przetworzyć danych tak szybko, jak to się dzieje. W takim przypadku może być konieczne zwiększenie liczby jednostek przesyłania strumieniowego i/lub upewnienie się, że zadanie może być równoległe. Więcej informacji na ten temat można znaleźć na [stronie zapytania przetwarzanie równoległe](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization). 
 
 
-## <a name="get-help"></a>Uzyskiwanie pomocy
-Aby uzyskać dodatkową pomoc, wypróbuj nasze [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics). 
+## <a name="get-help"></a>Uzyskaj pomoc
+Aby uzyskać dodatkową pomoc, Wypróbuj naszą [stronę pytań firmy&Microsoft dotyczącą Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html). 
 
 ## <a name="next-steps"></a>Następne kroki
 * [Wprowadzenie do Stream Analytics](stream-analytics-introduction.md)

@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cc68b53137175042f586ee83bc045f0fbbca38f7
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: f7e24e1b4546c76348e61e3c2736fcfe4b66410d
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83713288"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836944"
 ---
 # <a name="integrate-with-azure-monitor-logs"></a>Integracja z dziennikami Azure Monitor
 
@@ -191,15 +191,14 @@ Azure Automation Diagnostics Utwórz dwie kategorie rekordów w dziennikach Azur
 | ResourceType | AUTOMATIONACCOUNTS. |
 | CorrelationId |GUID, który jest IDENTYFIKATORem korelacji raportu zgodności. |
 
-
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby zapoznać się z omówieniem, zobacz [Konfiguracja stanu Azure Automation](automation-dsc-overview.md).
-- Aby rozpocząć, zobacz [wprowadzenie do konfiguracji stanu Azure Automation](automation-dsc-getting-started.md).
-- Aby dowiedzieć się więcej na temat kompilowania konfiguracji DSC, aby można było przypisać je do węzłów docelowych, zobacz [Kompilowanie konfiguracji w konfiguracji stanu Azure Automation](automation-dsc-compile.md).
+- Aby zapoznać się z omówieniem, zobacz [Omówienie konfiguracji stanu Azure Automation](automation-dsc-overview.md).
+- Aby rozpocząć, zobacz Wprowadzenie do [konfiguracji stanu Azure Automation](automation-dsc-getting-started.md).
+- Aby dowiedzieć się więcej na temat kompilowania konfiguracji DSC, aby można było przypisać je do węzłów docelowych, zobacz [Kompilowanie konfiguracji DSC w konfiguracji stanu Azure Automation](automation-dsc-compile.md).
 - Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
 ).
 - Aby uzyskać informacje o cenach, zobacz [Cennik konfiguracji stanu Azure Automation](https://azure.microsoft.com/pricing/details/automation/).
-- Aby zapoznać się z przykładem użycia konfiguracji stanu Azure Automation w potoku ciągłego wdrażania, zobacz [wdrażanie ciągłe przy użyciu konfiguracji stanu Azure Automation i czekolady](automation-dsc-cd-chocolatey.md).
+- Aby zapoznać się z przykładem użycia konfiguracji stanu Azure Automation w potoku ciągłego wdrażania, zobacz [Konfigurowanie ciągłego wdrażania z czekoladą](automation-dsc-cd-chocolatey.md).
 - Aby dowiedzieć się więcej na temat tworzenia różnych zapytań wyszukiwania i przeglądania dzienników konfiguracji stanu usługi Automation za pomocą dzienników Azure Monitor, zobacz [Wyszukiwanie w dzienniku w](../log-analytics/log-analytics-log-searches.md)dziennikach Azure monitor.
 - Aby dowiedzieć się więcej na temat dzienników Azure Monitor i źródeł zbierania danych, zobacz [zbieranie danych usługi Azure Storage w dziennikach Azure monitor Omówienie](../azure-monitor/platform/collect-azure-metrics-logs.md).

@@ -5,18 +5,14 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 1bd94beaa40f6ff793b50e261138cc31453f7016
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 22cb49c414e21e5c47330f2c67fc2cf30e3364b2
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83749165"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836672"
 ---
-# <a name="remove-vms-from-change-tracking-and-inventory"></a>Usuwanie maszyn wirtualnych z Change Tracking i spisu
-
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
-
-Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
+# <a name="remove-vms-from-change-tracking-and-inventory"></a>Usuwanie maszyn wirtualnych ze śledzenia zmian i spisu
 
 Po zakończeniu wdrażania zmian w maszynach wirtualnych w środowisku można je usunąć z funkcji [Change Tracking i spisu](change-tracking.md) .
 
@@ -40,12 +36,5 @@ Po zakończeniu wdrażania zmian w maszynach wirtualnych w środowisku można je
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Przegląd Change Tracking i spisu](change-tracking.md)
-* [Zarządzanie Change Tracking i spisem](change-tracking-file-contents.md)
-* [Odłączanie obszaru roboczego od konta usługi Automation dla Change Tracking i spisu](automation-unlink-workspace-change-tracking.md)
-* [Włączanie Change Tracking i spisu na podstawie konta usługi Automation](automation-enable-changes-from-auto-acct.md)
-* [Włącz Change Tracking i spis z Azure Portal](automation-enable-changes-from-browse.md)
-* [Włączanie Change Tracking i spisu z elementu Runbook](automation-enable-changes-from-runbook.md)
-* [Włączanie Change Tracking i spisu na podstawie maszyny wirtualnej platformy Azure](automation-enable-changes-from-vm.md)
-* [Rozwiązywanie problemów dotyczących zmian na maszynie wirtualnej platformy Azure](automation-tutorial-troubleshoot-changes.md)
-* [Rozwiązywanie problemów dotyczących Change Tracking i spisu](troubleshoot/change-tracking.md)
+* Aby kontynuować pracę z Change Tracking i spisem, zobacz [zarządzanie Change Tracking i spisem](change-tracking-file-contents.md).
+* Aby rozwiązać ogólne problemy z funkcjami, zobacz [Rozwiązywanie problemów dotyczących Change Tracking i spisu](troubleshoot/change-tracking.md).

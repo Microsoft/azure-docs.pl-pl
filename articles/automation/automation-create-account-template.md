@@ -6,13 +6,13 @@ ms.subservice: update-management
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/24/2020
-ms.openlocfilehash: 10b53da1ef277d7a3d6ab7c850192ce8f08ded68
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.date: 05/22/2020
+ms.openlocfilehash: 1418b26a2a498c43ff61f42b2761c59cbca5d0f4
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712676"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83837148"
 ---
 # <a name="create-an-automation-account-using-an-azure-resource-manager-template"></a>Tworzenie konta usługi Automation przy użyciu szablonu Azure Resource Manager
 
@@ -26,6 +26,8 @@ Szablon nie automatyzuje włączania maszyn wirtualnych platformy Azure lub spoz
 
 >[!NOTE]
 >Tworzenie konta Uruchom jako usługi Automation nie jest obsługiwane, jeśli używasz szablonu Azure Resource Manager. Aby ręcznie utworzyć konto Uruchom jako w portalu lub za pomocą programu PowerShell, zobacz [Zarządzanie kontami Uruchom jako](manage-runas-account.md).
+
+Po wykonaniu tych kroków należy [skonfigurować ustawienia diagnostyczne](automation-manage-send-joblogs-log-analytics.md) dla konta usługi Automation, aby wysyłać strumienie stanu zadań elementu Runbook i zadań do połączonego obszaru roboczego log Analytics. 
 
 ## <a name="api-versions"></a>Wersje interfejsu API
 
@@ -310,6 +312,4 @@ Jeśli dopiero zaczynasz Azure Automation i Azure Monitor, ważne jest zapoznani
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Tworzenie elementu runbook programu PowerShell](automation-first-runbook-textual-powershell.md)
-* [Tworzenie elementu Runbook przepływu pracy programu PowerShell](automation-first-runbook-textual.md)
-* [Tworzenie elementu runbook języka Python](automation-first-runbook-textual-python2.md)
+Aby przesłać strumieniowo stan zadań elementu Runbook i zadania do połączonego obszaru roboczego Log Analytics, przejrzyj [Azure Automation dane zadania w celu zarejestrowania Azure monitor](automation-manage-send-joblogs-log-analytics.md). Spowoduje to skonfigurowanie ustawień diagnostycznych konta usługi Automation przy użyciu poleceń Azure PowerShell, aby przeprowadzić integrację w celu wysyłania dzienników do obszaru roboczego w celu przeprowadzenia analizy. 

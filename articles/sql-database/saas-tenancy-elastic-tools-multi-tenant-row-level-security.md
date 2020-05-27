@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: fc08916967b4d64667065373cf2d0828a05069d0
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 0d41e1cb1d022ffd9eff2320d462304c6f1a8a9d
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890945"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836638"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplikacje z wieloma dzierżawcami z narzędziami Elastic Database i zabezpieczeniami na poziomie wierszy
 
@@ -53,18 +53,18 @@ Skompiluj i uruchom aplikację. Spowoduje to uruchomienie Bootstrap Menedżera m
 
 Zwróć uwagę, że ponieważ zabezpieczenia na poziomie wiersza nie zostały jeszcze włączone w bazach danych fragmentu, każdy z tych testów ujawnia problem: dzierżawy mogą wyświetlać Blogi, które nie należą do nich, a aplikacja nie będzie mogła wstawić blogu dla niewłaściwej dzierżawy. W pozostałej części tego artykułu opisano, jak rozwiązać te problemy, wymuszając izolację dzierżawy z poziomu zabezpieczenia na poziomie wiersza. Istnieją dwa kroki:
 
-1. **Warstwa aplikacji**: Zmodyfikuj kod aplikacji w taki sposób, aby zawsze ustawił bieżącą TenantId\_w kontekście sesji po otwarciu połączenia. Przykładowy projekt już ustawia TenantId w ten sposób.
-2. **Warstwa danych**: Utwórz zasady zabezpieczeń na poziomie wiersza w każdej bazie danych fragmentu w celu filtrowania wierszy na podstawie TenantId przechowywanych\_w kontekście sesji. Utwórz zasady dla każdej bazy danych fragmentu, w przeciwnym razie wiersze w wielodostępnym fragmentów nie są filtrowane.
+1. **Warstwa aplikacji**: Zmodyfikuj kod aplikacji w taki sposób, aby zawsze ustawił bieżącą TenantId w \_ kontekście sesji po otwarciu połączenia. Przykładowy projekt już ustawia TenantId w ten sposób.
+2. **Warstwa danych**: Utwórz zasady zabezpieczeń na poziomie wiersza w każdej bazie danych fragmentu w celu filtrowania wierszy na podstawie TenantId przechowywanych w \_ kontekście sesji. Utwórz zasady dla każdej bazy danych fragmentu, w przeciwnym razie wiersze w wielodostępnym fragmentów nie są filtrowane.
 
-## <a name="1-application-tier-set-tenantid-in-the-session_context"></a>1. Warstwa aplikacji: Ustaw TenantId w kontekście sesji\_
+## <a name="1-application-tier-set-tenantid-in-the-session_context"></a>1. Warstwa aplikacji: Ustaw TenantId w kontekście sesji \_
 
-Najpierw Nawiąż połączenie z bazą danych fragmentu przy użyciu interfejsów API routingu zależnego od danych w bibliotece klienta Elastic Database. Aplikacja nadal musi poinformować bazę danych, która TenantId korzysta z tego połączenia. TenantId informuje zasady zabezpieczeń na poziomie wiersza, które wiersze muszą być odfiltrowane jako należące do innych dzierżawców. Zapisz bieżący TenantId w [kontekście sesji\_](https://docs.microsoft.com/sql/t-sql/functions/session-context-transact-sql) połączenia.
+Najpierw Nawiąż połączenie z bazą danych fragmentu przy użyciu interfejsów API routingu zależnego od danych w bibliotece klienta Elastic Database. Aplikacja nadal musi poinformować bazę danych, która TenantId korzysta z tego połączenia. TenantId informuje zasady zabezpieczeń na poziomie wiersza, które wiersze muszą być odfiltrowane jako należące do innych dzierżawców. Zapisz bieżący TenantId w [ \_ kontekście sesji](https://docs.microsoft.com/sql/t-sql/functions/session-context-transact-sql) połączenia.
 
-Alternatywą dla kontekstu\_sesji jest użycie [informacji kontekstowych\_](https://docs.microsoft.com/sql/t-sql/functions/context-info-transact-sql). Ale kontekst\_sesji jest lepszym rozwiązaniem. Kontekst\_sesji jest łatwiejszy w użyciu, domyślnie zwraca wartość null i obsługuje pary klucz-wartość.
+Alternatywą dla \_ kontekstu sesji jest użycie [ \_ informacji kontekstowych](https://docs.microsoft.com/sql/t-sql/functions/context-info-transact-sql). Ale \_ kontekst sesji jest lepszym rozwiązaniem. \_Kontekst sesji jest łatwiejszy w użyciu, domyślnie zwraca wartość null i obsługuje pary klucz-wartość.
 
 ### <a name="entity-framework"></a>Entity Framework
 
-W przypadku aplikacji używających Entity Framework najprostszym podejściem jest ustawienie kontekstu\_sesji w ramach przesłonięcia ElasticScaleContext opisanego w obszarze [Routing zależny od danych za pomocą narzędzia EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext). Utwórz i wykonaj SqlCommand, które ustawia TenantId w kontekście sesji\_dla shardingKey określonego dla połączenia. Następnie należy zwrócić brokera połączeń za pomocą routingu zależnego od danych. W ten sposób wystarczy napisać kod tylko raz, aby ustawić kontekst sesji\_.
+W przypadku aplikacji używających Entity Framework najprostszym podejściem jest ustawienie \_ kontekstu sesji w ramach przesłonięcia ElasticScaleContext opisanego w obszarze [Routing zależny od danych za pomocą narzędzia EF DbContext](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext). Utwórz i wykonaj SqlCommand, które ustawia TenantId w kontekście sesji \_ dla shardingKey określonego dla połączenia. Następnie należy zwrócić brokera połączeń za pomocą routingu zależnego od danych. W ten sposób wystarczy napisać kod tylko raz, aby ustawić \_ kontekst sesji.
 
 ```csharp
 // ElasticScaleContext.cs
@@ -122,7 +122,7 @@ public static SqlConnection OpenDDRConnection(
 // ...
 ```
 
-Teraz kontekst sesji\_jest ustawiany automatycznie przy użyciu określonego TenantId za każdym razem, gdy ElasticScaleContext jest wywoływana:
+Teraz kontekst sesji \_ jest ustawiany automatycznie przy użyciu określonego TenantId za każdym razem, gdy ElasticScaleContext jest wywoływana:
 
 ```csharp
 // Program.cs
@@ -146,7 +146,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 ### <a name="adonet-sqlclient"></a>ADO.NET SqlClient
 
-W przypadku aplikacji korzystających z ADO.NET SqlClient Utwórz funkcję otoki wokół metody ShardMap. OpenConnectionForKey. Przed zwróceniem połączenia otoka automatycznie ustawia TenantId\_w kontekście sesji na bieżącą TenantId. Aby zapewnić, że\_kontekst sesji zawsze jest ustawiony, należy otworzyć tylko połączenia za pomocą tej funkcji otoki.
+W przypadku aplikacji korzystających z ADO.NET SqlClient Utwórz funkcję otoki wokół metody ShardMap. OpenConnectionForKey. Przed zwróceniem połączenia otoka automatycznie ustawia TenantId w \_ kontekście sesji na bieżącą TenantId. Aby zapewnić, że \_ kontekst sesji zawsze jest ustawiony, należy otworzyć tylko połączenia za pomocą tej funkcji otoki.
 
 ```csharp
 // Program.cs
@@ -216,16 +216,16 @@ All blogs for TenantId {0} (using ADO.NET SqlClient):", tenantId4);
 
 ### <a name="create-a-security-policy-to-filter-the-rows-each-tenant-can-access"></a>Utwórz zasady zabezpieczeń, aby odfiltrować wiersze, do których każdy dzierżawca ma dostęp
 
-Teraz, gdy aplikacja ustawia kontekst sesji\_z bieżącym TenantId przed wykonaniem zapytania, zasady zabezpieczeń na poziomie wiersza mogą filtrować zapytania i wykluczać wiersze, które mają różne TenantId.
+Teraz, gdy aplikacja ustawia kontekst sesji \_ z bieżącym TenantId przed wykonaniem zapytania, zasady zabezpieczeń na poziomie wiersza mogą filtrować zapytania i wykluczać wiersze, które mają różne TenantId.
 
 Zabezpieczenia na poziomie wiersza są implementowane w języku Transact-SQL. Zdefiniowana przez użytkownika funkcja definiuje logikę dostępu, a zasady zabezpieczeń wiążą tę funkcję z dowolną liczbą tabel. Dla tego projektu:
 
-1. Funkcja sprawdza, czy aplikacja jest połączona z bazą danych i czy TenantId przechowywanych w kontekście sesji\_jest zgodna z TenantIdem danego wiersza.
+1. Funkcja sprawdza, czy aplikacja jest połączona z bazą danych i czy TenantId przechowywanych w kontekście sesji jest \_ zgodna z TenantIdem danego wiersza.
     - Aplikacja jest połączona, a nie z innym użytkownikiem programu SQL Server.
 
 2. Predykat filtru pozwala na przekazywanie wierszy, które spełniają filtr TenantId w przypadku zapytań SELECT, UPDATE i DELETE.
     - Predykat bloku zapobiega wstawianiu lub aktualizowaniu wierszy, które nie kończą filtrowania.
-    - Jeśli nie\_ustawiono kontekstu sesji, funkcja zwraca wartość null, a wiersze nie są widoczne lub nie można ich wstawiać.
+    - Jeśli \_ nie ustawiono kontekstu sesji, funkcja zwraca wartość null, a wiersze nie są widoczne lub nie można ich wstawiać.
 
 Aby włączyć zabezpieczenia na poziomie wiersza na wszystkich fragmentów, wykonaj następujące polecenie T-SQL, używając programu Visual Studio (SSDT), narzędzia SSMS lub skryptu programu PowerShell zawartego w projekcie. Lub jeśli używasz [zadań Elastic Database](elastic-jobs-overview.md), Możesz zautomatyzować wykonywanie tego T-SQL na wszystkich fragmentów.
 
@@ -268,7 +268,7 @@ GO
 
 ### <a name="add-default-constraints-to-automatically-populate-tenantid-for-inserts"></a>Dodawanie ograniczeń domyślnych w celu automatycznego wypełniania TenantId dla operacji wstawiania
 
-Można ustawić ograniczenie domyślne dla każdej tabeli, aby automatycznie wypełnić TenantId wartością bieżącą przechowywaną w kontekście sesji\_podczas wstawiania wierszy. Poniżej przedstawiono przykład.
+Można ustawić ograniczenie domyślne dla każdej tabeli, aby automatycznie wypełnić TenantId wartością bieżącą przechowywaną w \_ kontekście sesji podczas wstawiania wierszy. Poniżej przedstawiono przykład.
 
 ```sql
 -- Create default constraints to auto-populate TenantId with the
@@ -301,14 +301,14 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 ```
 
 > [!NOTE]
-> Jeśli używasz ograniczeń domyślnych dla projektu Entity Framework, zaleca się, aby *nie* uwzględnić kolumny TenantId w modelu danych EF. To zalecenie wynika z faktu, że Entity Framework zapytania automatycznie dostarczają wartości domyślne, które zastępują ograniczenia domyślne utworzone w języku\_T-SQL, który używa kontekstu sesji.
+> Jeśli używasz ograniczeń domyślnych dla projektu Entity Framework, zaleca się, aby *nie* uwzględnić kolumny TenantId w modelu danych EF. To zalecenie wynika z faktu, że Entity Framework zapytania automatycznie dostarczają wartości domyślne, które zastępują ograniczenia domyślne utworzone w języku T-SQL, który używa \_ kontekstu sesji.
 > Aby użyć ograniczeń domyślnych w projekcie przykładowym, na przykład należy usunąć TenantId z DataClasses.cs (i uruchomić polecenie Add-Migration w konsoli Menedżera pakietów) i użyć języka T-SQL, aby upewnić się, że pole istnieje tylko w tabelach bazy danych. W ten sposób EF automatycznie poda nieprawidłowe wartości domyślne podczas wstawiania danych.
 
 ### <a name="optional-enable-a-superuser-to-access-all-rows"></a>Obowiązkowe Włącz dostęp do *administratora* wszystkich wierszy
 
 Niektóre aplikacje mogą chcieć utworzyć *administratora* , który może uzyskiwać dostęp do wszystkich wierszy. Administratora może włączyć raportowanie dla wszystkich dzierżawców we wszystkich fragmentówach. Lub administratora może wykonywać operacje dzielenia i scalania na fragmentów, które obejmują przeniesienie wierszy dzierżawy między bazami danych.
 
-Aby włączyć administratora, Utwórz nowego użytkownika SQL (`superuser` w tym przykładzie) w każdej bazie danych fragmentu. Następnie Zmień zasady zabezpieczeń za pomocą nowej funkcji predykatu, która umożliwia temu użytkownikowi dostęp do wszystkich wierszy. Ta funkcja jest przyznany dalej.
+Aby włączyć administratora, Utwórz nowego użytkownika SQL ( `superuser` w tym przykładzie) w każdej bazie danych fragmentu. Następnie Zmień zasady zabezpieczeń za pomocą nowej funkcji predykatu, która umożliwia temu użytkownikowi dostęp do wszystkich wierszy. Ta funkcja jest przyznany dalej.
 
 ```sql
 -- New predicate function that adds superuser logic.
@@ -347,7 +347,7 @@ GO
 
 Narzędzia Elastic Database i zabezpieczenia na poziomie wiersza mogą być używane razem w celu skalowania warstwy danych aplikacji z obsługą zarówno wielodostępnych, jak i fragmentów jednej dzierżawy. Fragmentów z wieloma dzierżawami mogą służyć do wydajniejszego przechowywania danych. Ta wydajność jest wymawiana, gdy duża liczba dzierżawców ma tylko kilka wierszy danych. Fragmentów z jedną dzierżawą mogą obsługiwać dzierżawy w warstwie Premium, które mają bardziej rygorystyczne wymagania dotyczące wydajności i izolacji. Aby uzyskać więcej informacji, zobacz [Informacje o zabezpieczeniach na poziomie wiersza][rls].
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Co to jest pula elastyczna Azure?](sql-database-elastic-pool.md)
 - [Scaling out with Azure SQL Database (Skalowanie w poziomie za pomocą usługi Azure SQL Database)](sql-database-elastic-scale-introduction.md)
@@ -357,7 +357,7 @@ Narzędzia Elastic Database i zabezpieczenia na poziomie wiersza mogą być uży
 
 ## <a name="questions-and-feature-requests"></a>Pytania i żądania funkcji
 
-Pytania można uzyskać, kontaktując się z nami na [forum SQL Database](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). I Dodaj dowolne żądania funkcji do [forum opinii SQL Database](https://feedback.azure.com/forums/217321-sql-database/).
+Aby uzyskać odpowiedzi na pytania, skontaktuj się z nami na [stronie pytania firmy&Microsoft dotyczącym SQL Database](https://docs.microsoft.com/answers/topics/azure-sql-database.html). I Dodaj dowolne żądania funkcji do [forum opinii SQL Database](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/saas-tenancy-elastic-tools-multi-tenant-row-level-security/blogging-app.png

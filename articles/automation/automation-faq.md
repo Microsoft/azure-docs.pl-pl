@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 02/25/2020
-ms.openlocfilehash: 46786ff5bd158804ea5d93377fbbcc39a9c8af26
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 1cd20e28d1b36167154059adf728a9cfdf8102bc
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712880"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836621"
 ---
 # <a name="azure-automation-frequently-asked-questions"></a>Azure Automation często zadawane pytania
 
@@ -54,5 +54,5 @@ New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationA
 
 Jeśli na pytanie nie ma odpowiedzi, możesz zapoznać się z poniższymi źródłami w celu uzyskania dodatkowych pytań i odpowiedzi.
 
-- [Azure Automation](https://social.msdn.microsoft.com/Forums/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)
+- [Azure Automation](https://docs.microsoft.com/answers/topics/azure-automation.html)
 - [Forum z opiniami](https://feedback.azure.com/forums/905242-update-management)

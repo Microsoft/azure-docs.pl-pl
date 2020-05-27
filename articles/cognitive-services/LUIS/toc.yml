@@ -181,6 +181,8 @@
       href: luis-get-started-get-intent-from-browser.md
     - name: Migrate (Migracja)
       items:
+        - name: Omówienie
+          href: migration.md
         - name: Migrowanie z jednostki złożonej
           href: migrate-from-composite-entity.md
         - name: Migrowanie do zasobu tworzenia
