@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 7a017f9485ec847c0a2c045e4c511b6a68db0cb2
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 6ba0be3a6fba35e413270dd6770f5d3f47586b5e
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82889961"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873335"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Dostosowywanie zestawu standardów na pulpicie nawigacyjnym zgodności z przepisami
 
@@ -29,7 +29,7 @@ Azure Security Center ciągle porównuje konfigurację zasobów z wymaganiami do
 
 Standardy branżowe, standardy prawne i testy porównawcze są reprezentowane w Security Center jako *pakiety zgodności*.  Każdy pakiet jest inicjatywą zdefiniowaną w Azure Policy. Aby wyświetlić dane zgodności mapowane jako oceny na pulpicie nawigacyjnym, Dodaj pakiet zgodności do grupy zarządzania lub subskrypcji z poziomu strony **zasady zabezpieczeń** . (Dowiedz się więcej na temat Azure Policy i inicjatyw w [pracy z zasadami zabezpieczeń](tutorial-security-policy.md)).
 
-Po dodaniu standardowego lub testu porównawczego do wybranego zakresu Standard pojawia się na pulpicie nawigacyjnym zgodności z przepisami ze wszystkimi skojarzonymi danymi zgodności mapowanymi jako oceny. Można również pobrać raporty podsumowujące dla dowolnych ze standardów, które zostały dołączone.
+Po dodaniu standardowego lub testu porównawczego do wybranego zakresu przypisujemy inicjatywę do zakresu, a standard pojawia się na pulpicie nawigacyjnym zgodności z przepisami ze wszystkimi skojarzonymi danymi zgodności mapowanymi jako oceny. Można również pobrać raporty podsumowujące dla dowolnych ze standardów, które zostały dołączone.
 
 Firma Microsoft śledzi również same standardy prawne i automatycznie ulepsza jego pokrycie w niektórych pakietach z upływem czasu. Gdy firma Microsoft wystawia nową zawartość dla inicjatywy (nowe zasady, które mapują do większej liczby kontrolek w standardzie), dodatkowa zawartość zostanie automatycznie wyświetlona na pulpicie nawigacyjnym.
 

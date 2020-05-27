@@ -9,13 +9,13 @@ ms.custom:
 - seo-python-october2019
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 01/09/2020
-ms.openlocfilehash: c9ea155f3cc71dd961a3780e3b188a6d062606bc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 5/26/2020
+ms.openlocfilehash: 827a34999cc3f4d90344915a9b57492a0f31bafe
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80067900"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83870027"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-with-azure-database-for-mysql"></a>Szybki Start: używanie języka Python do łączenia i wykonywania zapytań dotyczących danych za pomocą Azure Database for MySQL
 
@@ -28,6 +28,9 @@ W tym temacie założono, że wiesz już, jak opracowywać przy użyciu języka 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Serwer Azure Database for MySQL. [Utwórz serwer Azure Database for MySQL przy użyciu Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md) lub [Utwórz serwer Azure Database for MySQL przy użyciu interfejsu wiersza polecenia platformy Azure](quickstart-create-mysql-server-database-using-azure-cli.md).
 
+> [!IMPORTANT] 
+> Upewnij się, że adres IP, z którego nawiązywane jest połączenie, został dodany przy użyciu [Azure Portal](./howto-manage-firewall-using-portal.md) lub [interfejsu wiersza polecenia platformy Azure](./howto-manage-firewall-using-cli.md)
+
 ## <a name="install-python-and-the-mysql-connector"></a>Instalowanie języka Python i łącznika programu MySQL
 
 Zainstaluj środowisko Python i łącznik programu MySQL dla języka Python na komputerze, wykonując następujące czynności: 
@@ -35,13 +38,13 @@ Zainstaluj środowisko Python i łącznik programu MySQL dla języka Python na k
 > [!NOTE]
 > W tym przewodniku szybki start do łączenia się z bazą danych MySQL jest stosowane nieprzetworzone podejście zapytania SQL. Jeśli używasz platformy sieci Web, użyj zalecanego łącznika [dla platformy](https://pypi.org/project/mysqlclient/) , na przykład Django.
 
-1. Pobierz i zainstaluj środowisko [Python 3,7 lub nowsze](https://www.python.org/downloads/) dla systemu operacyjnego. Upewnij się, że dodano Język Python `PATH`do programu, ponieważ łącznik MySQL wymaga tego programu.
+1. Pobierz i zainstaluj środowisko [Python 3,7 lub nowsze](https://www.python.org/downloads/) dla systemu operacyjnego. Upewnij się, że dodano Język Python do programu `PATH` , ponieważ łącznik MySQL wymaga tego programu.
    
-1. Otwórz wiersz polecenia lub `bash` powłokę i sprawdź wersję języka Python, uruchamiając `python -V` polecenie z przełącznikiem Wielka litera V.
+1. Otwórz wiersz polecenia lub `bash` powłokę i sprawdź wersję języka Python, uruchamiając polecenie `python -V` z przełącznikiem Wielka litera V.
    
-1. Instalator `pip` pakietu jest uwzględniony w najnowszych wersjach języka Python. Zaktualizuj `pip` do najnowszej wersji, uruchamiając `pip install -U pip`program. 
+1. `pip`Instalator pakietu jest uwzględniony w najnowszych wersjach języka Python. Zaktualizuj `pip` do najnowszej wersji, uruchamiając program `pip install -U pip` . 
    
-   Jeśli `pip` program nie jest zainstalowany, można go pobrać i zainstalować `get-pip.py`za pomocą programu. Aby uzyskać więcej informacji, zobacz [Instalacja](https://pip.pypa.io/en/stable/installing/). 
+   Jeśli `pip` program nie jest zainstalowany, można go pobrać i zainstalować za pomocą programu `get-pip.py` . Aby uzyskać więcej informacji, zobacz [Instalacja](https://pip.pypa.io/en/stable/installing/). 
    
 1. Służy `pip` do instalowania łącznika programu MySQL dla języka Python i jego zależności:
    
@@ -70,12 +73,12 @@ Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z Azure 
 Dla każdego przykładu kodu w tym artykule:
 
 1. Utwórz nowy plik w edytorze tekstu.
-1. Dodaj przykładowy kod do pliku. W kodzie Zastąp symbole `<mydemoserver>`zastępcze `<myadmin>`, `<mypassword>`, i `<mydatabase>` z wartościami dla serwera MySQL i bazy danych.
+1. Dodaj przykładowy kod do pliku. W kodzie Zastąp `<mydemoserver>` `<myadmin>` `<mypassword>` symbole zastępcze,, i `<mydatabase>` z wartościami dla serwera MySQL i bazy danych.
 1. Zapisz plik w folderze projektu z rozszerzeniem *. PR* , takim jak *C:\pythonmysql\createtable.py* lub */home/username/pythonmysql/CreateTable.py*.
-1. Aby uruchomić kod, Otwórz wiersz polecenia lub `bash` powłokę i zmień katalog na folder projektu, na przykład. `cd pythonmysql` Wpisz `python` polecenie, a po nim nazwę pliku, `python createtable.py`a następnie naciśnij klawisz ENTER. 
+1. Aby uruchomić kod, Otwórz wiersz polecenia lub `bash` powłokę i zmień katalog na folder projektu, na przykład `cd pythonmysql` . Wpisz polecenie, a `python` po nim nazwę pliku, `python createtable.py` a następnie naciśnij klawisz ENTER. 
    
    > [!NOTE]
-   > W systemie Windows, jeśli nie odnaleziono języka *Python. exe* , może zajść potrzeba dodania ścieżki języka Python do zmiennej środowiskowej PATH lub zapewnienia pełnej ścieżki do języka *Python. exe*, na przykład `C:\python27\python.exe createtable.py`.
+   > W systemie Windows, jeśli nie odnaleziono języka *Python. exe* , może zajść potrzeba dodania ścieżki języka Python do zmiennej środowiskowej PATH lub zapewnienia pełnej ścieżki do języka *Python. exe*, na przykład `C:\python27\python.exe createtable.py` .
 
 ## <a name="create-a-table-and-insert-data"></a>Tworzenie tabeli i wstawianie danych
 

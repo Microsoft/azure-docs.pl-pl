@@ -7,14 +7,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: b8492a6740eb9acfa20fbbe5dd5beed5e985fafc
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: dcb9f554b214813439ab8753cf21e7d11a0fba56
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744589"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872568"
 ---
-# <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny klienta w komercyjnej analizie Marketplace
+# <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Pulpit nawigacyjny Klient w analizie komercyjnej platformy handlowej
 
 Ten artykuł zawiera informacje o **pulpicie nawigacyjnym klienta** w centrum partnerskim. Ten pulpit nawigacyjny wyświetla informacje o klientach, w tym trendy wzrostu, prezentowane w formacie graficznym i do pobrania.
 
@@ -99,6 +99,7 @@ W tabeli **szczegóły klienta** zostanie wyświetlona lista numerowanych głów
 - Jeśli liczba rekordów przekracza 1000, eksportowane dane będą asynchroniczne umieszczane na stronie pobierania przez następne 30 dni.
 - Filtry można zastosować do tabeli, aby wyświetlić tylko te dane, które Cię interesują. Dane można filtrować według nazwy firmy, identyfikatora klienta, identyfikatora subskrypcji witryny Marketplace, typu licencji platformy Azure, daty pozyskania, utraty daty, adresu E-mail klienta, kraju/regionu/stanu/miejscowości/pliku zip, języka klienta itd.
 - Po zakupieniu oferty przez chronionego klienta informacje w **szczegółowych danych klienta** będą maskowane (* * * * * * * * * * * *).
+- Szczegóły wymiaru klienta, takie jak nazwa firmy, nazwa klienta i adres E-mail klienta, znajdują się na poziomie identyfikatora organizacji, a nie w witrynie Azure Marketplace lub na poziomie transakcji AppSource.
 
 ### <a name="customer-page-filters"></a>Filtry stron klienta
 

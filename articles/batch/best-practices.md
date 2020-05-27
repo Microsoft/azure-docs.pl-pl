@@ -1,30 +1,22 @@
 ---
 title: Najlepsze rozwiązania
 description: Poznaj najlepsze rozwiązania i przydatne porady dotyczące tworzenia rozwiązań Azure Batch.
-ms.date: 04/03/2020
+ms.date: 05/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: f7d2add5fb30e3efdfb761364babf2211c3c254f
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 0fa6c5e1d7e770468a14c66af9b99b32a7827eb1
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725809"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871355"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch najlepszych praktyk
 
-W tym artykule omówiono zbiór najlepszych rozwiązań dotyczących efektywnego i efektywnego korzystania z usługi Azure Batch. Te najlepsze rozwiązania wynikają z naszych rozwiązań związanych z usługą Batch i klientami usługi Batch. Ważne jest zapoznanie się z tym artykułem, aby uniknąć pułapek projektu, potencjalnych problemów z wydajnością i antywzorców podczas opracowywania usługi Batch i korzystania z niej.
-
-W tym artykule omówiono następujące informacje:
-
-> [!div class="checklist"]
-> - Jakie są najlepsze rozwiązania
-> - Dlaczego należy stosować najlepsze rozwiązania
-> - Co się stanie, jeśli nie można zastosować najlepszych rozwiązań
-> - Jak postępować zgodnie z najlepszymi rozwiązaniami
+W tym artykule omówiono zbiór najlepszych rozwiązań związanych z wydajnym i wydajnym użyciem usługi Azure Batch w oparciu o środowisko pracy w czasie rzeczywistym dzięki usłudze Batch. Przeczytaj ten artykuł, aby uniknąć zaprojektowania pułapek, potencjalnych problemów z wydajnością i antywzorców podczas opracowywania usługi Batch i korzystania z niej.
 
 ## <a name="pools"></a>Pule
 
-Pule usługi Batch to zasoby obliczeniowe służące do wykonywania zadań w usłudze Batch. W poniższych sekcjach przedstawiono wskazówki dotyczące najważniejszych najlepszych rozwiązań, które należy wykonać podczas pracy z pulami wsadowymi.
+[Pule](nodes-and-pools.md#pools) to zasoby obliczeniowe służące do wykonywania zadań w usłudze Batch. W poniższych sekcjach przedstawiono zalecenia dotyczące pracy z pulami usługi Batch.
 
 ### <a name="pool-configuration-and-naming"></a>Konfiguracja puli i nazewnictwo
 
@@ -61,98 +53,121 @@ Błędy alokacji puli mogą wystąpić w dowolnym momencie podczas pierwszego pr
 
 ### <a name="unplanned-downtime"></a>Nieplanowany przestój
 
-Istnieje możliwość, że pule usługi Batch mogą mieć zdarzenia przestoju na platformie Azure. Jest to ważne w przypadku planowania i opracowywania scenariusza lub przepływu pracy dla usługi Batch.
+Istnieje możliwość, że pule usługi Batch mogą mieć zdarzenia przestoju na platformie Azure. Należy pamiętać o tym, gdy planujesz i opracowujesz swój scenariusz lub przepływ pracy dla usługi Batch.
 
-W przypadku awarii węzła funkcja Batch automatycznie próbuje odzyskać te węzły obliczeniowe w Twoim imieniu. Może to spowodować ponowne zaplanowanie uruchomionego zadania w węźle, który został odzyskany. Zobacz temat [projektowanie pod kątem ponownych prób](#designing-for-retries-and-re-execution) , aby dowiedzieć się więcej o przerwanych zadaniach.
+W przypadku awarii węzła funkcja Batch automatycznie próbuje odzyskać te węzły obliczeniowe w Twoim imieniu. Może to spowodować ponowne zaplanowanie uruchomionego zadania w węźle, który został odzyskany. Zobacz temat [projektowanie pod kątem ponownych prób](#design-for-retries-and-re-execution) , aby dowiedzieć się więcej o przerwanych zadaniach.
 
-- **Zależność regionu platformy Azure** Zaleca się, aby nie zależeć od jednego regionu świadczenia usługi Azure, jeśli jest to obciążenie czasochłonne lub produkcyjne. Rzadko występują problemy, które mogą mieć wpływ na cały region. Na przykład jeśli przetwarzanie musi rozpocząć się o określonym czasie, rozważ skalowanie w górę puli w regionie podstawowym *przed upływem czasu rozpoczęcia*. W przypadku niepowodzenia skalowania puli można wrócić do skalowania w górę puli w regionie (lub regionach) kopii zapasowej. Pule na wielu kontach w różnych regionach zapewniają gotową, łatwą do udostępnienia kopię zapasową, jeśli coś się nie udaje z inną pulą. Aby uzyskać więcej informacji, zobacz [projektowanie aplikacji pod kątem wysokiej dostępności](high-availability-disaster-recovery.md).
+### <a name="azure-region-dependency"></a>Zależność regionu platformy Azure
+
+Zaleca się, aby nie zależeć od jednego regionu świadczenia usługi Azure, jeśli jest to obciążenie czasochłonne lub produkcyjne. Rzadko występują problemy, które mogą mieć wpływ na cały region. Na przykład jeśli przetwarzanie musi rozpocząć się o określonym czasie, rozważ skalowanie w górę puli w regionie podstawowym *przed upływem czasu rozpoczęcia*. W przypadku niepowodzenia skalowania puli można wrócić do skalowania w górę puli w regionie (lub regionach) kopii zapasowej. Pule na wielu kontach w różnych regionach zapewniają gotową, łatwą do udostępnienia kopię zapasową, jeśli coś się nie udaje z inną pulą. Aby uzyskać więcej informacji, zobacz [projektowanie aplikacji pod kątem wysokiej dostępności](high-availability-disaster-recovery.md).
 
 ## <a name="jobs"></a>Stanowiska
 
-Zadanie jest kontenerem zaprojektowanym do przechowywania setek, tysięcy lub nawet milionów zadań.
+[Zadanie](jobs-and-tasks.md#jobs) jest kontenerem zaprojektowanym do przechowywania setek, tysięcy lub nawet milionów zadań. Postępuj zgodnie z poniższymi wskazówkami podczas tworzenia zadań.
 
-- **Umieszczanie wielu zadań w zadaniu** Korzystanie z zadania do uruchamiania pojedynczego zadania jest niewydajne. Na przykład wydajniejszym rozwiązaniem jest użycie jednego zadania zawierającego 1000 zadań zamiast tworzenia zadań 100, które zawierają 10 zadań. Uruchamianie zadań 1000, każdy z jednym zadaniem, będzie najmniej wydajnym, najwolniejszym i najtańszym podejściem do wykonania.
+### <a name="fewer-jobs-more-tasks"></a>Mniej zadań, więcej zadań
 
-    Nie należy projektować rozwiązania usługi Batch, które wymaga tysięcy jednocześnie aktywnych zadań. Nie ma przydziału dla zadań, dlatego wykonywanie w miarę jak największej liczby zadań w miarę możliwości efektywnie korzysta z [przydziałów zadań i harmonogramów zadań](batch-quota-limit.md#resource-quotas).
+Korzystanie z zadania do uruchamiania pojedynczego zadania jest niewydajne. Na przykład wydajniejszym rozwiązaniem jest użycie jednego zadania zawierającego 1000 zadań zamiast tworzenia zadań 100, które zawierają 10 zadań. Uruchamianie zadań 1000, każdy z jednym zadaniem, będzie najmniej wydajnym, najwolniejszym i najtańszym podejściem do wykonania.
 
-- **Okres istnienia zadania** Zadanie usługi Batch ma czas nieokreślony, dopóki nie zostanie usunięty z systemu. Stan zadania wyznacza, czy może akceptować więcej zadań związanych z planowaniem, czy nie. Zadanie nie przejdzie automatycznie do stanu ukończenia, chyba że zostanie jawnie zakończone. Może to być automatycznie wyzwalane za pomocą właściwości [onAllTasksComplete](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.onalltaskscomplete?view=azure-dotnet) lub [maxWallClockTime](https://docs.microsoft.com/rest/api/batchservice/job/add#jobconstraints).
+W związku z tym upewnij się, że nie zaprojektowano rozwiązania usługi Batch, które wymaga tysięcy jednocześnie aktywnych zadań. Nie ma przydziału dla zadań, dlatego wykonywanie wielu zadań w ramach możliwie najmniejszej liczby zadań korzysta z [przydziałów zadań i harmonogramów zadań](batch-quota-limit.md#resource-quotas).
+
+### <a name="job-lifetime"></a>Okres istnienia zadania
+
+Zadanie usługi Batch ma czas nieokreślony, dopóki nie zostanie usunięty z systemu. Jego stan określa, czy może akceptować więcej zadań związanych z planowaniem, czy nie.
+
+Zadanie nie przejdzie automatycznie do stanu ukończenia, chyba że zostanie jawnie zakończone. Może to być automatycznie wyzwalane za pomocą właściwości [onAllTasksComplete](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.onalltaskscomplete?view=azure-dotnet) lub [maxWallClockTime](https://docs.microsoft.com/rest/api/batchservice/job/add#jobconstraints).
 
 Istnieje domyślny [limit przydziału aktywnego zadania i harmonogramu zadań](batch-quota-limit.md#resource-quotas). Zadania i harmonogramy zadań w stanie ukończone nie są wliczane do tego przydziału.
 
 ## <a name="tasks"></a>Zadania
 
-Zadania są pojedynczymi jednostkami pracy, które składają się na zadanie. Zadania są przesyłane przez użytkownika i zaplanowane przez zadanie wsadowe na węzłach obliczeniowych. Istnieje kilka zagadnień projektowych, które należy wykonać podczas tworzenia i wykonywania zadań. W poniższych sekcjach objaśniono typowe scenariusze i sposób projektowania zadań do obsługi problemów i wydajnego działania.
+[Zadania](jobs-and-tasks.md#tasks) są pojedynczymi jednostkami pracy, które składają się na zadanie. Zadania są przesyłane przez użytkownika i zaplanowane przez zadanie wsadowe na węzłach obliczeniowych. Istnieje kilka zagadnień projektowych, które należy wykonać podczas tworzenia i wykonywania zadań. W poniższych sekcjach objaśniono typowe scenariusze i sposób projektowania zadań do obsługi problemów i wydajnego działania.
 
-- **Zapisz dane zadania w ramach zadania.**
-    Węzły obliczeniowe są według ich charakterów tymczasowych. Istnieje wiele funkcji usługi Batch, takich jak autopula i automatyczne skalowanie, które ułatwiają węzły. Gdy węzły opuszczają pulę (z powodu zmiany rozmiaru lub usuwania puli), wszystkie pliki w tych węzłach również zostaną usunięte. Z tego powodu zaleca się, aby przed ukończeniem zadania przeniesiono jego wyjście z węzła, który jest uruchomiony w systemie i do magazynu trwałego, podobnie, jeśli zadanie nie powiedzie się, należy przenieść dzienniki wymagane do zdiagnozowania niepowodzenia do trwałego magazynu. Usługa Batch została zintegrowana z obsługą usługi Azure Storage w celu przekazywania danych za pośrednictwem programu [OutputFiles](batch-task-output-files.md), a także wielu udostępnionych systemów plików lub można wykonać przekazywanie samodzielnie w swoich zadaniach.
+### <a name="save-task-data"></a>Zapisz dane zadania
 
-### <a name="task-lifetime"></a>Okres istnienia zadania
+Węzły obliczeniowe są według ich charakterów tymczasowych. Istnieje wiele funkcji usługi Batch, takich jak autopula i automatyczne skalowanie, które ułatwiają węzły. Gdy węzły opuszczają pulę (z powodu zmiany rozmiaru lub usuwania puli), wszystkie pliki w tych węzłach również zostaną usunięte. W związku z tym zadanie powinno przenieść wyjście z węzła, w którym jest uruchomiony, i do magazynu trwałego przed jego ukończeniem. Podobnie, jeśli zadanie nie powiedzie się, należy przenieść dzienniki wymagane do zdiagnozowania niepowodzenia do magazynu trwałego.
 
-- **Usuń zadania po ich zakończeniu.**
-    Usuń zadania, gdy nie są już potrzebne, lub ustaw ograniczenie zadania [retentionTime](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime?view=azure-dotnet) . Jeśli `retentionTime` jest ustawiona, program Batch automatycznie czyści miejsce na dysku używane przez zadanie po `retentionTime` wygaśnięciu.
+Usługa Batch została zintegrowana z obsługą usługi Azure Storage w celu przekazywania danych za pośrednictwem programu [OutputFiles](batch-task-output-files.md), a także wielu udostępnionych systemów plików lub można wykonać przekazywanie samodzielnie w swoich zadaniach.
 
-    Usuwanie zadań ma dwie rzeczy. Gwarantuje to, że nie masz kompilacji zadań w zadaniu, co umożliwia wykonywanie zapytań i znajdowanie zadania, które interesują Cię trudniejsze (ponieważ konieczne będzie przefiltrowanie zadań zakończonych). Czyści również odpowiednie dane zadania w węźle (dostarczony `retentionTime` nie został jeszcze trafiony). Gwarantuje to, że węzły nie wypełniają danych zadania i zabraknie miejsca na dysku.
+### <a name="manage-task-lifetime"></a>Zarządzanie okresem istnienia zadania
 
-### <a name="task-submission"></a>Przesyłanie zadania
+Usuń zadania, gdy nie są już potrzebne, lub ustaw ograniczenie zadania [retentionTime](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime?view=azure-dotnet) . Jeśli `retentionTime` jest ustawiona, program Batch automatycznie czyści miejsce na dysku używane przez zadanie po `retentionTime` wygaśnięciu.
 
-- **Przesyłanie dużej liczby zadań w kolekcji.**
-    Zadania mogą być przesyłane pojedynczo lub w kolekcjach. Przesyłaj zadania w [kolekcjach](https://docs.microsoft.com/rest/api/batchservice/task/addcollection) nawet do 100 w czasie wykonywania zbiorczego przesyłania zadań, aby zmniejszyć obciążenie i czas przesyłania.
+Usuwanie zadań ma dwie rzeczy. Gwarantuje to, że nie masz kompilacji zadań w zadaniu, co może utrudnić wykonanie zapytania/znalezienie żądanego zadania (ponieważ należy przefiltrować zakończone zadania). Czyści również odpowiednie dane zadania w węźle (dostarczony `retentionTime` nie został jeszcze trafiony). Pozwala to zagwarantować, że węzły nie wypełniają danych zadania i nie zabraknie miejsca na dysku.
 
-### <a name="task-execution"></a>Wykonywanie zadania
+### <a name="submit-large-numbers-of-tasks-in-collection"></a>Przesyłanie dużej liczby zadań w kolekcji
 
-- **Wybieranie Maksymalna liczba zadań na węzeł** Zadanie wsadowe obsługuje zadania związane z subskrypcją w węzłach (wykonywanie większej liczby zadań niż węzeł ma rdzenie). Jest to konieczne, aby upewnić się, że zadania "pasują" do węzłów w puli. Można na przykład mieć obniżoną wydajność, Jeśli podjęto próbę zaplanowania ośmiu zadań, za pomocą których każde zużywa 25% użycia procesora CPU w jednym węźle (w puli z `maxTasksPerNode = 8` ).
+Zadania mogą być przesyłane pojedynczo lub w kolekcjach. Przesyłaj zadania w [kolekcjach](https://docs.microsoft.com/rest/api/batchservice/task/addcollection) nawet do 100 w czasie wykonywania zbiorczego przesyłania zadań, aby zmniejszyć obciążenie i czas przesyłania.
 
-### <a name="designing-for-retries-and-re-execution"></a>Projektowanie na potrzeby ponownych prób i ponowne wykonywanie
+### <a name="set-max-tasks-per-node-appropriately"></a>Odpowiednio ustaw maksymalną liczbę zadań na węzeł
+
+Zadanie wsadowe obsługuje zadania związane z subskrypcją w węzłach (wykonywanie większej liczby zadań niż węzeł ma rdzenie). Jest to konieczne, aby upewnić się, że zadania "pasują" do węzłów w puli. Można na przykład mieć obniżoną wydajność, Jeśli podjęto próbę zaplanowania ośmiu zadań, za pomocą których każde zużywa 25% użycia procesora CPU w jednym węźle (w puli z `maxTasksPerNode = 8` ).
+
+### <a name="design-for-retries-and-re-execution"></a>Projektowanie na potrzeby ponownych prób i ponownego wykonywania
 
 Zadania mogą być automatycznie ponawiane przez partię. Istnieją dwa typy ponownych prób: sterowane przez użytkownika i wewnętrzne. Ponowne próby sterowane przez użytkownika są określane przez [maxTaskRetryCount](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount?view=azure-dotnet)zadania. Gdy program określony w zadaniu zostanie zakończony z kodem zakończenia innym niż zero, zadanie zostanie ponowione w celu uzyskania wartości `maxTaskRetryCount` .
 
 Chociaż rzadko, zadanie może być ponawiane wewnętrznie ze względu na błędy w węźle obliczeniowym, na przykład nie można zaktualizować stanu wewnętrznego lub awarii w węźle, gdy zadanie jest uruchomione. Zadanie zostanie ponowione w tym samym węźle obliczeniowym, jeśli jest to możliwe, do wewnętrznego limitu przed zapisaniem zadania i oddanie zadania do ponownego zaplanowania przez partię, potencjalnie w innym węźle obliczeniowym.
 
-- **Tworzenie trwałych zadań** Zadania powinny zostać zaprojektowane w celu wytrzymania awarii i ponowienia próby. Jest to szczególnie ważne w przypadku długotrwałych zadań. W tym celu należy się upewnić, że zadania generują ten sam, pojedynczy wynik nawet wtedy, gdy są uruchamiane więcej niż raz. Jednym ze sposobów osiągnięcia tego celu jest zadanie zadań "szukania celów". Innym sposobem jest upewnienie się, że zadania są idempotentne (zadania będą miały ten sam wynik niezależnie od tego, ile razy są uruchamiane).
+Podczas wykonywania zadań w węzłach dedykowanych lub o niskim priorytecie nie ma żadnych różnic projektowych. Niezależnie od tego, czy zadanie jest zastępują uruchomione w węźle niskiego priorytetu, czy przerywane z powodu błędu w dedykowanym węźle, obie sytuacje są korygowane przez zaprojektowanie zadania w celu wytrzymania błędu.
 
-    Typowym przykładem jest zadanie kopiowania plików do węzła obliczeniowego. Proste podejście to zadanie, które kopiuje wszystkie określone pliki przy każdym uruchomieniu, co jest niewydajne i nie jest skompilowane w celu wytrzymania awarii. Zamiast tego należy utworzyć zadanie, aby upewnić się, że pliki znajdują się w węźle obliczeniowym. zadanie, które nie kopiuje już wcześniej plików. W ten sposób zadanie zostanie odebrane w tym miejscu, w którym zostało przerwane.
+### <a name="build-durable-tasks"></a>Tworzenie trwałych zadań
 
-- **Węzły o niskim priorytecie** Podczas wykonywania zadań w węzłach dedykowanych lub o niskim priorytecie nie ma żadnych różnic projektowych. Niezależnie od tego, czy zadanie jest zastępują uruchomione w węźle niskiego priorytetu, czy przerywane z powodu błędu w dedykowanym węźle, obie sytuacje są korygowane przez zaprojektowanie zadania w celu wytrzymania błędu.
+Zadania powinny zostać zaprojektowane w celu wytrzymania awarii i ponowienia próby. Jest to szczególnie ważne w przypadku długotrwałych zadań. W tym celu należy się upewnić, że zadania generują ten sam, pojedynczy wynik nawet wtedy, gdy są uruchamiane więcej niż raz. Jednym ze sposobów osiągnięcia tego celu jest przeszukanie zadań ". Innym sposobem jest upewnienie się, że zadania są idempotentne (zadania będą miały ten sam wynik niezależnie od tego, ile razy są uruchamiane).
 
-- **Czas wykonywania zadania** Unikaj zadań o krótkim czasie wykonywania. Zadania, które są uruchamiane tylko przez jeden do dwóch sekund, nie są idealnym rozwiązaniem. Należy podjąć próbę wykonania znacznej nakładu pracy w pojedynczym zadaniu (10 sekund minimum, przechodząc do kilku godzin lub dni). Jeśli każde zadanie jest wykonywane przez jedną minutę (lub więcej), obciążenie planowania jako ułamek całkowitego czasu obliczeniowego jest małe.
+Typowym przykładem jest zadanie kopiowania plików do węzła obliczeniowego. Proste podejście to zadanie, które kopiuje wszystkie określone pliki przy każdym uruchomieniu, co jest niewydajne i nie jest skompilowane w celu wytrzymania awarii. Zamiast tego należy utworzyć zadanie, aby upewnić się, że pliki znajdują się w węźle obliczeniowym. zadanie, które nie kopiuje już wcześniej plików. W ten sposób zadanie zostanie odebrane w tym miejscu, w którym zostało przerwane.
+
+### <a name="avoid-short-execution-time"></a>Unikaj krótkiego czasu wykonywania
+
+Zadania, które są uruchamiane tylko przez jeden do dwóch sekund, nie są idealnym rozwiązaniem. Należy podjąć próbę wykonania znacznej nakładu pracy w pojedynczym zadaniu (10 sekund minimum, przechodząc do kilku godzin lub dni). Jeśli każde zadanie jest wykonywane przez jedną minutę (lub więcej), obciążenie planowania jako ułamek całkowitego czasu obliczeniowego jest małe.
+
 
 ## <a name="nodes"></a>Węzły
 
-- **Zadania uruchamiania powinny być idempotentne** Podobnie jak w przypadku innych zadań, zadanie uruchomieniowe węzła powinno być idempotentne, ponieważ zostanie uruchomione ponownie za każdym razem, gdy węzeł zostanie uruchomiony. Zadanie idempotentne jest po prostu jednym, które generuje spójny wynik w przypadku wielokrotnego uruchomienia.
+[Węzeł obliczeniowy](nodes-and-pools.md#nodes) jest maszyną wirtualną platformy Azure lub maszyną wirtualną usługi w chmurze, która jest przeznaczona do przetwarzania części obciążenia aplikacji. Postępuj zgodnie z poniższymi wskazówkami podczas pracy z węzłami.
 
-- **Zarządzanie długotrwałymi usługami za pośrednictwem interfejsu usług systemu operacyjnego.**
-    Czasami istnieje potrzeba uruchomienia innego agenta obok agenta usługi Batch w węźle, np. w celu zebrania danych z węzła i zgłoszenia go. Zalecamy wdrożenie tych agentów jako usług systemu operacyjnego, takich jak usługa systemu Windows lub `systemd` Usługa Linux.
+### <a name="idempotent-start-tasks"></a>Zadania uruchamiania idempotentne
 
-    W przypadku uruchamiania tych usług nie wolno zablokować plików na żadnych plikach w katalogach zarządzanych przez usługę Batch w węźle, ponieważ w przeciwnym razie usługa Batch nie będzie mogła usunąć tych katalogów ze względu na blokady plików. Jeśli na przykład zainstalujesz usługę systemu Windows w zadaniu uruchamiania, zamiast uruchamiania usługi bezpośrednio z katalogu roboczego zadania uruchamiania, skopiuj pliki w inne miejsce (jeśli pliki już istnieją, Pomiń kopię). Zainstaluj usługę z tej lokalizacji. Gdy wsadowe ponownie uruchamia zadanie podrzędne, usunie katalog roboczy zadania uruchamiania i ponownie go utworzy. Dzieje się tak, ponieważ usługa ma blokady plików w innym katalogu, a nie w katalogu roboczym zadania uruchamiania.
+Podobnie jak w przypadku innych zadań, [zadanie uruchomieniowe](jobs-and-tasks.md#start-task) węzła powinno być idempotentne, ponieważ zostanie uruchomione ponownie za każdym razem, gdy węzeł zostanie uruchomiony. Zadanie idempotentne jest po prostu jednym, które generuje spójny wynik w przypadku wielokrotnego uruchomienia.
 
-- **Unikaj tworzenia połączeń katalogów w systemie Windows** Rozgałęzienia katalogów, czasami nazywane twardymi łączami katalogów, są trudne do rozproszenia podczas zadań i czyszczenia zadań. Użyj linków symbolicznych (linki nietrwałe) zamiast twardych linków.
+### <a name="manage-long-running-services-via-the-operating-system-services-interface"></a>Zarządzanie długotrwałymi usługami za pośrednictwem interfejsu usług systemu operacyjnego
 
-- **Zbierz dzienniki agenta wsadowego, jeśli wystąpił problem** Jeśli zauważysz problem związany z zachowaniem węzła lub zadań uruchomionych w węźle, zaleca się zebranie dzienników agenta zadań wsadowych przed cofnięciem przydziału danego węzła. Dzienniki agenta usługi Batch można zbierać przy użyciu interfejsu API przekazywania dzienników usług Batch. Te dzienniki mogą być dostarczane do firmy Microsoft jako część biletu pomocy technicznej i mogą pomóc w rozwiązywaniu problemów z rozwiązaniem.
+Czasami istnieje potrzeba uruchomienia innego agenta obok agenta partii w węźle. Na przykład możesz chcieć zebrać dane z węzła i zgłosić je. Zalecamy wdrożenie tych agentów jako usług systemu operacyjnego, takich jak usługa systemu Windows lub `systemd` Usługa Linux.
 
-## <a name="security"></a>Zabezpieczenia
+W przypadku uruchamiania tych usług nie wolno zablokować plików na żadnych plikach w katalogach zarządzanych przez usługę Batch w węźle, ponieważ w przeciwnym razie usługa Batch nie będzie mogła usunąć tych katalogów ze względu na blokady plików. Jeśli na przykład zainstalujesz usługę systemu Windows w zadaniu uruchamiania, zamiast uruchamiania usługi bezpośrednio z katalogu roboczego zadania uruchamiania, skopiuj pliki w innym miejscu (lub jeśli pliki już istnieją, Pomiń kopię). Następnie zainstaluj usługę z tej lokalizacji. Gdy wsadowe ponownie uruchamia zadanie podrzędne, usunie katalog roboczy zadania uruchamiania i ponownie go utworzy. Dzieje się tak, ponieważ usługa ma blokady plików w innym katalogu, a nie w katalogu roboczym zadania uruchomieniowego.
 
-### <a name="security-isolation"></a>Izolacja zabezpieczeń
+### <a name="avoid-creating-directory-junctions-in-windows"></a>Unikaj tworzenia połączeń katalogów w systemie Windows
 
-W celu przeprowadzenia izolacji, jeśli scenariusz wymaga izolowania zadań od siebie, należy izolować te zadania, umieszczając je w osobnych pulach. Pula to granica izolacji zabezpieczeń w usłudze Batch, a domyślnie dwie pule nie są widoczne ani nie mogą komunikować się ze sobą. Należy unikać używania odrębnych kont usługi Batch jako metody izolacji.
+Rozgałęzienia katalogów, czasami nazywane twardymi łączami katalogów, są trudne do rozproszenia podczas zadań i czyszczenia zadań. Użyj linków symbolicznych (linki nietrwałe) zamiast twardych linków.
 
-## <a name="moving"></a>Noszeniu
+### <a name="collect-the-batch-agent-logs"></a>Zbierz dzienniki agentów wsadowych
 
-### <a name="move-batch-account-across-regions"></a>Przenoszenie konta wsadowego w różnych regionach
+Jeśli zauważysz problem związany z zachowaniem węzła lub zadań uruchomionych w węźle, Zbierz dzienniki agentów wsadowych przed cofnięciem przydziału danego węzła. Dzienniki agenta usługi Batch można zbierać przy użyciu interfejsu API przekazywania dzienników usług Batch. Te dzienniki mogą być dostarczane do firmy Microsoft jako część biletu pomocy technicznej i mogą pomóc w rozwiązywaniu problemów z rozwiązaniem.
 
-Istnieją różne scenariusze, w których należy przenieść istniejące konto usługi Batch z jednego regionu do innego. Na przykład możesz chcieć przejść do innego regionu w ramach planowania odzyskiwania po awarii.
+## <a name="isolation-security"></a>Zabezpieczenia izolacji
 
-Kont Azure Batch nie można przenosić z jednego regionu do innego. Można jednak użyć szablonu Azure Resource Manager, aby wyeksportować istniejącą konfigurację konta w usłudze Batch.  Następnie można przemieścić zasób w innym regionie, eksportując konto wsadowe do szablonu, modyfikując parametry w celu dopasowania do regionu docelowego, a następnie wdrożyć szablon w nowym regionie. Po przekazaniu szablonu do nowego regionu konieczne będzie ponowne utworzenie certyfikatów, harmonogramów zadań i pakietów aplikacji. Aby zatwierdzić zmiany i zakończyć Przenoszenie konta w usłudze Batch, pamiętaj o usunięciu oryginalnego konta partii lub grupy zasobów.
+W celu przeprowadzenia izolacji, jeśli scenariusz wymaga izolowania zadań od siebie, należy to zrobić, umieszczając je w osobnych pulach. Pula to granica izolacji zabezpieczeń w usłudze Batch, a domyślnie dwie pule nie są widoczne ani nie mogą komunikować się ze sobą. Należy unikać używania odrębnych kont usługi Batch jako metody izolacji.
+
+## <a name="moving-batch-accounts-across-regions"></a>Przeniesienie kont wsadowych między regionami
+
+Istnieją scenariusze, w których może być pomocne przeniesienie istniejącego konta usługi Batch z jednego regionu do innego. Na przykład możesz chcieć przejść do innego regionu w ramach planowania odzyskiwania po awarii.
+
+Kont Azure Batch nie można przenosić bezpośrednio z jednego regionu do innego. Można jednak użyć szablonu Azure Resource Manager, aby wyeksportować istniejącą konfigurację konta w usłudze Batch. Następnie można przemieścić zasób w innym regionie, eksportując konto wsadowe do szablonu, modyfikując parametry w celu dopasowania do regionu docelowego, a następnie wdrażając szablon w nowym regionie.
+
+Po przekazaniu szablonu do nowego regionu konieczne będzie ponowne utworzenie certyfikatów, harmonogramów zadań i pakietów aplikacji. Aby zatwierdzić zmiany i zakończyć Przenoszenie konta w usłudze Batch, pamiętaj o usunięciu oryginalnego konta partii lub grupy zasobów.
 
 Aby uzyskać więcej informacji na temat Menedżer zasobów i szablonów, zobacz [Szybki Start: Tworzenie i wdrażanie szablonów Azure Resource Manager przy użyciu Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
-## <a name="connectivity-to-the-batch-service"></a>Łączność z usługą Batch
+## <a name="connectivity"></a>Łączność
+
+Zapoznaj się z poniższymi wskazówkami przy rozważaniu łączności z rozwiązaniami usługi Batch.
 
 ### <a name="network-security-groups-nsgs-and-user-defined-routes-udrs"></a>Sieciowe grupy zabezpieczeń (sieciowych grup zabezpieczeń) i trasy zdefiniowane przez użytkownika (UDR)
 
 Podczas aprowizacji pul usługi [Batch w sieci wirtualnej](batch-virtual-network.md)należy się upewnić, że są one zgodne z wytycznymi dotyczącymi korzystania z `BatchNodeManagement` tagu usług, portów, protokołów i kierunku reguły.
-Użycie znacznika usługi jest zdecydowanie zalecane, a nie adresów IP podstawowych usług Batch, ponieważ mogą one ulec zmianie w czasie. Korzystanie z adresów IP usługi Batch bezpośrednio może zaistnieć jako niestabilność, przerwy lub przestoje dla pul usługi Batch, ponieważ usługa Batch aktualizuje adresy IP używane w czasie. Jeśli obecnie używasz adresów IP usługi Batch w regułach sieciowej grupy zabezpieczeń, zaleca się przełączenie na korzystanie z tagu usługi.
+Użycie znacznika usługi jest zdecydowanie zalecane zamiast korzystania z źródłowych adresów IP usługi Batch. Wynika to z faktu, że adresy IP mogą ulec zmianie z upływem czasu. Korzystanie z adresów IP usługi Batch bezpośrednio może spowodować niestabilność, przerwy lub awarię pul usługi Batch.
 
-W przypadku tras zdefiniowanych przez użytkownika upewnij się, że masz proces w miejscu, aby okresowo aktualizować adresy IP usługi Batch w tabeli tras w miarę zmiany w czasie. Aby dowiedzieć się, jak uzyskać listę adresów IP usługi Batch, zobacz [lokalne znaczniki usług](../virtual-network/service-tags-overview.md). Adresy IP usługi Batch zostaną skojarzone z `BatchNodeManagement` tagiem usługi (lub odmianą regionalną zgodną z regionem konta usługi Batch).
+W przypadku tras zdefiniowanych przez użytkownika (UDR) Upewnij się, że masz proces w miejscu, aby okresowo aktualizować adresy IP usługi Batch w tabeli tras, ponieważ te adresy zmieniają się z upływem czasu. Aby dowiedzieć się, jak uzyskać listę adresów IP usługi Batch, zobacz [lokalne znaczniki usług](../virtual-network/service-tags-overview.md). Adresy IP usługi Batch zostaną skojarzone z `BatchNodeManagement` tagiem usługi (lub odmianą regionalną zgodną z regionem konta usługi Batch).
 
 ### <a name="honoring-dns"></a>Przestrzeganie systemu DNS
 
@@ -164,3 +179,25 @@ Jeśli żądania odbierają odpowiedzi HTTP na poziomie 5xx i istnieje nagłówe
 
 Upewnij się, że klienci usługi Batch mają odpowiednie zasady ponawiania prób w celu automatycznego ponowienia żądań, nawet w trakcie normalnej operacji, a nie wyłącznie w okresach czasu konserwacji usługi. Te zasady ponawiania powinny obejmować interwał wynoszący co najmniej 5 minut. Funkcje automatycznego ponawiania prób są dostarczane z różnymi zestawami SDK partii, takimi jak [Klasa .NET RetryPolicyProvider](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.retrypolicyprovider?view=azure-dotnet).
 
+## <a name="batch-node-underlying-dependencies"></a>Podstawowe zależności węzła wsadowego
+
+Podczas projektowania rozwiązań wsadowych należy wziąć pod uwagę następujące zależności i ograniczenia.
+
+### <a name="system-created-resources"></a>Zasoby utworzone przez system
+
+Azure Batch tworzy i zarządza zestawem użytkowników i grup na maszynie wirtualnej, które nie powinny być modyfikowane. Są one następujące:
+
+#### <a name="windows"></a>Windows
+
+- Użytkownik o nazwie **PoolNonAdmin**
+- Grupa użytkowników o nazwie **WATaskCommon**
+
+#### <a name="linux"></a>Linux
+
+- Użytkownik o nazwie **_azbatch**
+
+### <a name="file-cleanup"></a>Czyszczenie pliku
+
+Zadanie wsadowe aktywnie próbuje oczyścić katalog roboczy, w którym są uruchamiane zadania, po upływie okresu przechowywania. Wszystkie pliki zapisywane poza tym katalogiem są [odpowiedzialne za wyczyszczenie](#manage-task-lifetime) w celu uniknięcia wypełniania miejsca na dysku. 
+
+Automatyczne czyszczenie katalogu roboczego zostanie zablokowane, jeśli uruchomisz usługę w systemie Windows z katalogu roboczego startTask, ponieważ folder nadal jest używany. Spowoduje to spadek wydajności. Aby rozwiązać ten problem, Zmień katalog dla tej usługi na oddzielny katalog, który nie jest zarządzany przez usługę Batch.

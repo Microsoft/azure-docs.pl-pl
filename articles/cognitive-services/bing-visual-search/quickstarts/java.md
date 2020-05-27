@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 05/22/2020
 ms.author: scottwhi
-ms.openlocfilehash: fe323fc27062ad1bee9abdfaf3408430e28523a9
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3d52a58e3e890ff3baff31322096038d06a1bee6
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75446629"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872581"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-java"></a>Szybki Start: uzyskiwanie informacji o obrazie przy użyciu interfejsu API REST wyszukiwanie wizualne Bing i środowiska Java
 
-Użyj tego przewodnika Szybki Start, aby wykonać pierwsze wywołanie do interfejs API wyszukiwania wizualnego Bing i wyświetlić wyniki. Ta aplikacja Java przekazuje obraz do interfejsu API i wyświetla informacje, które zwraca. Chociaż ta aplikacja jest zapisywana w języku Java, interfejs API jest usługą sieci Web RESTful zgodną z większością języków programowania.
+Użyj tego przewodnika Szybki Start, aby wykonać pierwsze wywołanie do interfejs API wyszukiwania wizualnego Bing. Ta aplikacja Java przekazuje obraz do interfejsu API i wyświetla informacje, które zwraca. Mimo że aplikacja jest zapisywana w języku Java, interfejs API jest usługą sieci Web RESTful zgodną z większością języków programowania.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -52,7 +52,7 @@ Użyj tego przewodnika Szybki Start, aby wykonać pierwsze wywołanie do interfe
     import org.apache.http.impl.client.HttpClientBuilder;
     ```
 
-2. Utwórz zmienne dla punktu końcowego interfejsu API, klucz subskrypcji oraz ścieżkę obrazu. `endpoint`może to być globalny punkt końcowy poniżej lub niestandardowy punkt końcowy [domeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) podrzędnej wyświetlany w Azure Portal dla zasobu:
+2. Utwórz zmienne dla punktu końcowego interfejsu API, klucz subskrypcji oraz ścieżkę obrazu. Dla `endpoint` wartości można użyć globalnego punktu końcowego w poniższym kodzie lub użyć niestandardowego punktu końcowego [poddomeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) wyświetlanego w Azure Portal dla zasobu.
 
     ```java
     static String endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch";
@@ -61,7 +61,7 @@ Użyj tego przewodnika Szybki Start, aby wykonać pierwsze wywołanie do interfe
     ```
 
     
-    Po przekazaniu obrazu lokalnego dane formularza muszą zawierać `Content-Disposition` nagłówek. Należy ustawić jego `name` parametr na "Image", a `filename` parametr można ustawić na dowolny ciąg. Zawartość formularza zawiera dane binarne obrazu. Maksymalny rozmiar obrazu, który można przekazać, to 1 MB.
+3. Po przekazaniu obrazu lokalnego dane formularza muszą zawierać `Content-Disposition` nagłówek. Ustaw jej `name` parametr na "Image" i ustaw `filename` parametr na nazwę pliku obrazu. Zawartość formularza zawiera dane binarne obrazu. Maksymalny rozmiar obrazu, który można przekazać, to 1 MB.
     
     ```
     --boundary_1234-abcd
@@ -74,7 +74,7 @@ Użyj tego przewodnika Szybki Start, aby wykonać pierwsze wywołanie do interfe
 
 ## <a name="create-the-json-parser"></a>Tworzenie analizatora składni JSON
 
-Utwórz metodę, aby zapewnić, że odpowiedź JSON z interfejsu API jest bardziej `JsonParser`czytelna przy użyciu:
+Utwórz metodę, aby zapewnić, że odpowiedź JSON z interfejsu API jest bardziej czytelna przy użyciu `JsonParser` .
 
 ```java
 public static String prettify(String json_text) {
@@ -87,13 +87,13 @@ public static String prettify(String json_text) {
 
 ## <a name="construct-the-search-request-and-query"></a>Konstruowanie zapytania i żądania wyszukiwania
 
-1. W głównej metodzie aplikacji Utwórz klienta HTTP przy użyciu `HttpClientBuilder.create().build();`:
+1. W głównej metodzie aplikacji Utwórz klienta HTTP przy użyciu programu `HttpClientBuilder.create().build();` .
 
     ```java
     CloseableHttpClient httpClient = HttpClientBuilder.create().build();
     ```
 
-2. Utwórz `HttpEntity` obiekt do przekazania obrazu do interfejsu API:
+2. Utwórz `HttpEntity` obiekt, aby przekazać obraz do interfejsu API.
 
     ```java
     HttpEntity entity = MultipartEntityBuilder
@@ -102,7 +102,7 @@ public static String prettify(String json_text) {
         .build();
     ```
 
-3. Utwórz `httpPost` obiekt z punktem końcowym i ustaw nagłówek, aby używał klucza subskrypcji:
+3. Utwórz `httpPost` obiekt z punktem końcowym i ustaw nagłówek w taki sposób, aby korzystał z klucza subskrypcji.
 
     ```java
     HttpPost httpPost = new HttpPost(endpoint);
@@ -112,14 +112,14 @@ public static String prettify(String json_text) {
 
 ## <a name="receive-and-process-the-json-response"></a>Odbieranie i przetwarzanie odpowiedzi w formacie JSON
 
-1. Użyj `HttpClient.execute()` metody, aby wysłać żądanie do interfejsu API, i przechować odpowiedź w `InputStream` obiekcie:
+1. Użyj `HttpClient.execute()` metody, aby wysłać żądanie do interfejsu API, i przechować odpowiedź w `InputStream` obiekcie.
     
     ```java
     HttpResponse response = httpClient.execute(httpPost);
     InputStream stream = response.getEntity().getContent();
     ```
 
-2. Zapisz ciąg JSON i wydrukuj odpowiedź:
+2. Zapisz ciąg JSON i wydrukuj odpowiedź.
 
     ```java
     String json = new Scanner(stream).useDelimiter("\\A").next();

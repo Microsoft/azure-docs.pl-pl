@@ -2,14 +2,13 @@
 title: Monitorowanie za pomocą wieloetapowych testów sieci Web — Application Insights platformy Azure
 description: Konfigurowanie wieloetapowych testów sieci Web w celu monitorowania aplikacji sieci Web przy użyciu usługi Azure Application Insights
 ms.topic: conceptual
-ms.date: 10/23/2019
-ms.reviewer: sdash
-ms.openlocfilehash: 3b8baad127b16a1bd9d071d0c3d4df68da8c3304
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/26/2020
+ms.openlocfilehash: 04361f7b3306c5f7c164a849d8b05d7cf4756999
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77655944"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873349"
 ---
 # <a name="multi-step-web-tests"></a>Wieloetapowe testy sieci Web
 
@@ -17,13 +16,16 @@ Można monitorować zarejestrowane sekwencje adresów URL i interakcji z witryn�
 
 > [!NOTE]
 > Wieloetapowe testy sieci Web zależą od plików WebTest programu Visual Studio. Zostało [ogłoszone](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/) , że program Visual Studio 2019 będzie ostatnią wersją z funkcjonalnością WebTest. Ważne jest, aby zrozumieć, że podczas gdy nie zostaną dodane żadne nowe funkcje, funkcja WebTest w programie Visual Studio 2019 nadal jest obsługiwana i będzie nadal obsługiwana w ramach cyklu życia produktu. Azure Monitor zespół produkcyjny zakwestionuje pytania dotyczące przyszłościowych [testów dostępności](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101)wieloetapowej.  
+> </br>
+> Wieloetapowe testy sieci Web **nie są obsługiwane** w chmurze [Azure Government](https://docs.microsoft.com/azure/azure-government/) .
+
 
 ## <a name="pre-requisites"></a>Wymagania wstępne
 
 * Program Visual Studio 2017 Enterprise lub nowszy.
 * Narzędzia do testowania wydajności i obciążenia sieci Web w programie Visual Studio.
 
-Aby zlokalizować wymagania wstępne narzędzi do testowania. Uruchom debugowanie **Instalator programu Visual Studio** > **poszczególnych składników** > **i testowanie** > **narzędzi do testowania wydajności sieci Web i testów obciążenia**.
+Aby zlokalizować wymagania wstępne narzędzi do testowania. Uruchom debugowanie **Instalator programu Visual Studio**  >  **poszczególnych składników**  >  **i testowanie**  >  **narzędzi do testowania wydajności sieci Web i testów obciążenia**.
 
 ![Zrzut ekranu przedstawiający interfejs użytkownika Instalatora programu Visual Studio z pojedynczymi składnikami, które są zaznaczone z CheckBox obok elementu narzędzi do testowania wydajności sieci Web i obciążenia](./media/availability-multistep/web-performance-load-testing.png)
 
@@ -39,7 +41,7 @@ Aby uzyskać wskazówki dotyczące tworzenia testów sieci Web programu Visual S
 
 ## <a name="upload-the-web-test"></a>Przekaż test sieci Web
 
-1. W portalu Application Insights w okienku dostępność wybierz pozycję **Utwórz** > test testowy**Typ** > **wieloetapowego testu sieci Web**.
+1. W portalu Application Insights w okienku dostępność wybierz pozycję **Utwórz**test testowy  >  **Typ**  >  **wieloetapowego testu sieci Web**.
 
 2. Ustaw lokalizacje testu, częstotliwość i parametry alertu.
 
@@ -63,10 +65,10 @@ Aby uzyskać wskazówki dotyczące tworzenia testów sieci Web programu Visual S
 |Ustawienie| Wyjaśnienie
 |----|----|----|
 |**Niemal w czasie rzeczywistym (wersja zapoznawcza)** | Zalecamy korzystanie z alertów niemal w czasie rzeczywistym. Konfigurowanie tego typu alertu odbywa się po utworzeniu testu dostępności.  |
-|**Wdrożenie klasyczne** | Nie zalecamy już używania klasycznych alertów dla nowych testów dostępności.|
-|**Próg lokalizacji alertu**|Zalecamy co najmniej 3/5 lokalizacji. Optymalna relacja między progiem lokalizacji alertu a liczbą lokalizacji testowych to liczba lokalizacji testu w =  **lokalizacji alertów****-2 z co najmniej pięcioma lokalizacjami testów.**|
+|**Klasyczny** | Nie zalecamy już używania klasycznych alertów dla nowych testów dostępności.|
+|**Próg lokalizacji alertu**|Zalecamy co najmniej 3/5 lokalizacji. Optymalna relacja między progiem lokalizacji alertu a liczbą lokalizacji testowych to liczba lokalizacji testu w **lokalizacji alertów**  =  **-2 z co najmniej pięcioma lokalizacjami testów.**|
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 ### <a name="plugging-time-and-random-numbers-into-your-test"></a>Podłączanie czasu i liczb losowych do testu
 

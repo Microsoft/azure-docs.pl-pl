@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 9dce9e2f63afc50e367d650f93f293b974d912e9
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: f07efc8fd77f1c34ef96d31f55089726942d05df
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199548"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871220"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrowanie istniejącej infrastruktury NPS z usługą Azure Multi-Factor Authentication
 
@@ -65,7 +65,7 @@ Te biblioteki są instalowane automatycznie z rozszerzeniem.
 
 Moduł Microsoft Azure Active Directory dla Windows PowerShell jest zainstalowany, jeśli jeszcze nie istnieje, za pomocą skryptu konfiguracji uruchamianego w ramach procesu instalacji. Nie ma potrzeby instalowania tego modułu przed czasem, jeśli nie został jeszcze zainstalowany.
 
-### <a name="azure-active-directory"></a>Azure Active Directory
+### <a name="azure-active-directory"></a>Usługa Azure Active Directory
 
 Każdy użytkownik korzystający z rozszerzenia serwera NPS musi być synchronizowany do Azure Active Directory przy użyciu Azure AD Connect i musi być zarejestrowany dla usługi MFA.
 
@@ -205,9 +205,12 @@ Jeśli poprzedni certyfikat komputera wygasł i został wygenerowany nowy certyf
 
 ### <a name="microsoft-azure-government-additional-steps"></a>Microsoft Azure Government dodatkowych kroków
 
-W przypadku klientów korzystających z Azure Government chmury następujące dodatkowe czynności konfiguracyjne są wymagane na każdym serwerze NPS:
+W przypadku klientów korzystających z Azure Government chmury na każdym serwerze NPS wymagane są następujące dodatkowe czynności konfiguracyjne.
 
-1. Otwórz **Edytor rejestru** na serwerze NPS.
+> [!IMPORTANT]
+> Te ustawienia rejestru należy skonfigurować tylko wtedy, gdy jesteś klientem Azure Government.
+
+1. Jeśli jesteś klientem Azure Government, Otwórz **Edytor rejestru** na serwerze NPS.
 1. Przejdź do adresu `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`. Ustaw następujące wartości klucza:
 
     | Klucz rejestru       | Wartość |
@@ -248,7 +251,7 @@ Po włączeniu uwierzytelniania wieloskładnikowego dla klienta usługi RADIUS p
 
 Jeśli masz użytkowników, którzy nie zostali zarejestrowani na potrzeby uwierzytelniania wieloskładnikowego, możesz określić, co się dzieje podczas próby uwierzytelnienia. Użyj ustawienia rejestru *REQUIRE_USER_MATCH* w ścieżce rejestru *HKLM\Software\Microsoft\AzureMFA* , aby kontrolować zachowanie funkcji. To ustawienie ma jedną opcję konfiguracji:
 
-| Klucz | Wartość | Domyślny |
+| Klucz | Wartość | Domyślne |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | PRAWDA/FAŁSZ | Nie ustawiono (odpowiednik wartości TRUE) |
 

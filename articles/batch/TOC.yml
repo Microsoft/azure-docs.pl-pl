@@ -83,8 +83,6 @@
       href: high-availability-disaster-recovery.md
     - name: Zmienne środowiskowe środowiska uruchomieniowego zadania
       href: batch-compute-node-environment-variables.md
-    - name: Integracja usługi Batch z zasadami platformy Azure
-      href: batch-integration-policies.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Zarządzanie kontami usługi Batch

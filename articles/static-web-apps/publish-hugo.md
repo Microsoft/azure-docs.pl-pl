@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: a6ea758de7f471cb15462d1ebadaecf24c851c70
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 6debf422d0c16a6a2bfe180e6febb4973846e0f0
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773456"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83870698"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Samouczek: publikowanie witryny Hugo w wersji zapoznawczej usługi Azure static Web Apps
 
@@ -153,12 +153,12 @@ Następnie Dodaj ustawienia konfiguracji, które są używane przez proces kompi
 
 1. Otwórz aplikację Hugo w edytorze tekstów i Otwórz plik _. GitHub/przepływy pracy/Azure-Pages-<WORKFLOW_NAME>. yml_ .
 
-1. Zamień wiersz `- uses: actions/checkout@v1` (wiersz 18) na następujący, aby skompilować aplikację Hugo.
+1. Zamień wiersz `- uses: actions/checkout@v2` (wiersz 18) na następujący, aby skompilować aplikację Hugo.
 
    ```yml
    - uses: actions/checkout@v2
-        with:
-          submodules: true
+     with:
+       submodules: true
 
    - name: Setup Hugo
      uses: peaceiris/actions-hugo@v2.4.8

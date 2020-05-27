@@ -8,36 +8,35 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 05/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 1a3e98afacf85bde8180253078cb53eae9a03d2f
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: c3ce10b6d3acb947d3fde6e3c872a2c2a83ddb69
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75383616"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871134"
 ---
 # <a name="quickstart-perform-a-news-search-using-java-and-the-bing-news-search-rest-api"></a>Szybki Start: wykonywanie wyszukiwania w wiadomościach przy użyciu języka Java i interfejsu API REST wyszukiwanie wiadomości Bing
 
-Ten przewodnik Szybki start umożliwi Ci utworzenie Twojego pierwszego wywołania interfejsu API wyszukiwania wiadomości Bing i wyświetlanie odpowiedzi JSON. Ta prosta aplikacja w języku Java wysyła zapytanie wyszukiwania wiadomości do interfejsu API i wyświetla odpowiedź.
+Użyj tego przewodnika Szybki Start, aby wykonać pierwsze wywołanie do interfejs API wyszukiwania wiadomości Bing. Ta prosta aplikacja Java wysyła zapytanie wyszukiwania wiadomości do interfejsu API i wyświetla odpowiedź JSON.
 
-Chociaż ta aplikacja jest napisana w języku Java, interfejs API jest usługą internetową zgodną z wzorcem REST i większością języków programowania.
+Mimo że aplikacja jest zapisywana w języku Java, interfejs API jest usługą sieci Web RESTful zgodną z większością języków programowania.
 
-Kod źródłowy tego przykładu jest dostępny w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingNewsSearchv7.java) 
+Kod źródłowy dla tego przykładu jest dostępny [w witrynie GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingNewsSearchv7.java). 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Zestaw Java Development Kit (JDK) 7 lub 8](https://aka.ms/azure-jdks)
-
-* [Biblioteka Gson](https://github.com/google/gson)
+* [Zestaw Java Development Kit (JDK) 7 lub 8](https://aka.ms/azure-jdks).
+* [Biblioteka Gson](https://github.com/google/gson).
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Tworzenie i inicjowanie projektu
 
-1. Utwórz nowy projekt w języku Java w ulubionym środowisku IDE lub edytorze i zaimportuj poniższe biblioteki.
+1. Utwórz nowy projekt Java w ulubionym środowisku IDE lub edytorze, a następnie zaimportuj następujące biblioteki:
 
     ```java
     import java.net.*;
@@ -50,7 +49,7 @@ Kod źródłowy tego przykładu jest dostępny w usłudze [GitHub](https://githu
     import com.google.gson.JsonParser;
     ```
 
-2. Utwórz nową klasę ze zmiennymi dla punktu końcowego interfejsu API, klucza subskrypcji i wyszukiwanego terminu. Możesz użyć poniższego globalnego punktu końcowego lub niestandardowego punktu końcowego [poddomeny](../../cognitive-services/cognitive-services-custom-subdomains.md) , który jest wyświetlany w Azure Portal dla zasobu.
+2. Utwórz nową klasę. Dodaj zmienne dla punktu końcowego interfejsu API, klucza subskrypcji i terminu wyszukiwania. Możesz użyć globalnego punktu końcowego w poniższym kodzie lub użyć punktu końcowego [niestandardowej domeny](../../cognitive-services/cognitive-services-custom-subdomains.md) podrzędnej wyświetlanego w Azure Portal dla zasobu.
 
     ```java
     public static SearchResults SearchNews (String searchQuery) throws Exception {
@@ -64,7 +63,7 @@ Kod źródłowy tego przykładu jest dostępny w usłudze [GitHub](https://githu
 
 ## <a name="construct-the-search-request-and-receive-a-json-response"></a>Konstruowanie żądania wyszukiwania i odbieranie odpowiedzi JSON
 
-1. Użyj zmiennych utworzonych w ostatnim kroku, aby sformatować adres URL wyszukiwania dla żądania interfejsu API. Należy pamiętać, że termin wyszukiwania musi zostać zakodowany w adresie URL przed dołączeniem go do żądania.
+1. Użyj zmiennych z poprzedniego kroku, aby sformatować adres URL wyszukiwania dla żądania interfejsu API. Adres URL — Koduj termin wyszukiwania przed dołączeniem go do żądania.
 
     ```java
     public static SearchResults SearchNews (String searchQuery) throws Exception {
@@ -75,7 +74,7 @@ Kod źródłowy tego przykładu jest dostępny w usłudze [GitHub](https://githu
     }
     ```
 
-2. Odbierz odpowiedź JSON z interfejsu API wyszukiwania wiadomości Bing i skonstruuj obiekt wyników.
+2. Odbieranie odpowiedzi JSON z interfejs API wyszukiwania wiadomości Bing i Konstruowanie obiektu wynik.
 
     ```java
     // receive JSON body
@@ -88,6 +87,7 @@ Kod źródłowy tego przykładu jest dostępny w usłudze [GitHub](https://githu
 ## <a name="process-the-json-response"></a>Przetwarzanie odpowiedzi w formacie JSON
 
 1. Oddziel nagłówki HTTP związane z usługą Bing od treści JSON, a następnie zamknij strumień i zwróć odpowiedź interfejsu API.
+
     ```java
     // extract Bing-related HTTP headers
     Map<String, List<String>> headers = connection.getHeaderFields();
@@ -101,7 +101,8 @@ Kod źródłowy tego przykładu jest dostępny w usłudze [GitHub](https://githu
     return results;
     ```
 
-2. Tworzenie metody do analizowania i ponownego serializowania danych JSON
+2. Utwórz metodę, aby przeanalizować i ponownie serializować wyniki JSON.
+
     ```java
     // pretty-printer for JSON; uses GSON parser to parse and re-serialize
     public static String prettify(String json_text) {
@@ -112,8 +113,9 @@ Kod źródłowy tego przykładu jest dostępny w usłudze [GitHub](https://githu
     }
     ```
 
-3. W metodzie głównej swojej aplikacji wywołaj metodę wyszukiwania i wyświetl wyniki.
-    ```csharp
+3. W metodzie Main aplikacji Wywołaj metodę Search i Wyświetl wyniki.
+
+    ```java
    public static void main (String[] args) {
        System.out.println("Searching the Web for: " + searchTerm);
        SearchResults result = SearchNews(searchTerm);
@@ -126,7 +128,7 @@ Kod źródłowy tego przykładu jest dostępny w usłudze [GitHub](https://githu
     }
     ```
 
-## <a name="json-response"></a>Odpowiedź w formacie JSON
+## <a name="example-json-response"></a>Przykładowa odpowiedź JSON
 
 Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie JSON, jak pokazano w następującym przykładzie:
 

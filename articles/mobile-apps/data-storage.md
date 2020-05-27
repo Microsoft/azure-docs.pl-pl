@@ -7,12 +7,12 @@ ms.service: vs-appcenter
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: masoucou
-ms.openlocfilehash: 166847325fa9094136f1c2a143f1751420f05f66
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cb76151a3f952f932cc533b771283b5d45382366
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80240910"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873449"
 ---
 # <a name="store-sync-and-query-mobile-application-data-from-the-cloud"></a>Przechowuj, Synchronizuj i badaj dane aplikacji mobilnych z chmury
 Niezależnie od tego, jakiego rodzaju aplikacja została utworzona, prawdopodobnie będziesz generować i przetwarzać dane. Użytkownicy Twojej aplikacji mają duże oczekiwania. Chcą, aby aplikacja działała szybko i bezproblemowo, we wszystkich przypadkach. Większość aplikacji również pracuje na wielu urządzeniach. Możesz uzyskać dostęp do aplikacji z poziomu pulpitu lub urządzenia przenośnego. Wielu użytkowników może korzystać z aplikacji w tym samym czasie i udostępniać dane przy użyciu oczekiwań, aby uzyskiwać dostęp do danych na bieżąco i w czasie rzeczywistym.
@@ -22,21 +22,6 @@ Użytkownicy aplikacji nie będą mieć zawsze łączności z Internetem. Aplika
 Firma Microsoft oferuje różne usługi, które eliminują potrzebę zwiększania liczby serwerów, wybierania bazy danych lub przejmowania się skalowaniem lub zabezpieczeniami w celu zapewnienia jak największej możliwości. Te usługi zapewniają wspaniałe środowisko programistyczne, które umożliwia przechowywanie danych aplikacji w chmurze przy użyciu interfejsów API SQL lub NoSQL. Możesz także synchronizować dane na wszystkich urządzeniach i umożliwić aplikacji działanie z połączeniem sieciowym lub bez niego, aby ułatwić tworzenie skalowalnych i niezawodnych aplikacji.
 
 Użyj następujących usług, aby zarządzać danymi aplikacji mobilnych i przechowywać je w chmurze.
-
-## <a name="visual-studio-app-center"></a>Visual Studio App Center
-[App Center dane](/appcenter/data/) to usługa zarządzania danymi. Umożliwia aplikacjom zarządzanie, utrwalanie i synchronizowanie danych aplikacji w chmurze na różnych urządzeniach i platformach w scenariuszach w trybie online i offline. W oparciu o Azure Cosmos DB, App Center dane są skalowane w miarę rozwoju i liczby aplikacji. Zapewnia ona małe opóźnienia, wysoką dostępność i wysoką skalowalność dla wszystkich danych.
-
-**Najważniejsze funkcje**
-- Łatwa obsługa administracyjna nowej bazy danych Azure Cosmos DB lub istniejącej bazy danych Azure Cosmos DB z poziomu portalu Visual Studio App Center.
-- Obsługa bazy danych NoSQL umożliwia łatwe przechowywanie, synchronizowanie i wykonywanie zapytań dotyczących danych aplikacji.
-- Oparta na Azure Cosmos DB, ta usługa dziedziczy większość najważniejszych funkcji oferowanych przez Azure Cosmos DB i może skalować się globalnie, aby zaspokoić potrzeby biznesowe.
-- Możliwości synchronizacji w trybie online i offline w celu synchronizowania danych między urządzeniami.
-- Zestawy SDK klienta mobilnego, których można użyć do łatwego zarządzania danymi aplikacji prywatnych.
-- Obsługa platformy dla systemów iOS, Android, Xamarin i reagowanie na środowisko natywne.
-
-**Dokumentacja**
-- [Zarejestruj się w usłudze Visual Studio App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs)
-- [Wprowadzenie do danych App Center](/appcenter/data/getting-started)
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) to globalnie dystrybuowana, wielomodelowa usługa bazy danych. Można go użyć do kompilowania aplikacji globalnej. Dzięki Azure Cosmos DB można elastycznie i niezależnie skalować przepływność oraz magazyn w dowolnej liczbie regionów świadczenia usługi Azure na całym świecie. Możesz korzystać z szybkiego, jednocyfrowego dostępu do danych, korzystając z ulubionych powierzchni interfejsu API. Te powierzchnie obejmują SQL, MongoDB, Cassandra, tabele lub Gremlin. Azure Cosmos DB jednoznacznie zapewnia kompleksowe umowy dotyczące poziomu usług (umowy SLA) na potrzeby przepływności, opóźnień, dostępności i spójności.

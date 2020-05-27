@@ -3,26 +3,26 @@ author: aahill
 ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 12/17/2019
-ms.openlocfilehash: 7aa478c764ea1d9720d91068fa04d353e6a4db02
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/19/2020
+ms.openlocfilehash: 0f692588fe539e28cdf6612994b352d25662fc29
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75379503"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83870346"
 ---
 ## <a name="create-an-azure-resource"></a>Tworzenie zasobu platformy Azure
 
-Zacznij korzystać z interfejs API wyszukiwania wizualnego Bing, tworząc jeden z poniższych zasobów platformy Azure.
+Zacznij korzystać z interfejs API wyszukiwania wizualnego Bing, tworząc jeden z następujących zasobów platformy Azure:
 
-* [Utwórz zasób w wersji próbnej](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api):
-    * Nie jest wymagana żadna subskrypcja platformy Azure.
-    * Ważne przez siedem dni bezpłatnie. Po zarejestrowaniu się w [witrynie sieci Web platformy Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/)będzie dostępny klucz wersji próbnej i punkt końcowy.
+[Zasób wersji próbnej](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)
+   * Nie jest wymagana żadna subskrypcja platformy Azure.
+   * Ważne przez siedem dni bezpłatnie. Po zarejestrowaniu się w [witrynie sieci Web platformy Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/)będą dostępne klucze próbne i punkt końcowy.
 
-* [Utwórz zasób wyszukiwanie Bing wersji 7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7):
-    * Dostępne w Azure Portal do momentu usunięcia zasobu.
-    * Wybierz warstwę `S9` cenową.
+[Wyszukiwanie Bing zasób wersji 7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7)
+   * Dostępne w Azure Portal do momentu usunięcia zasobu.
+   * Wybierz `S9` warstwę cenową.
 
-* [Tworzenie zasobu wielousługowego](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne):
-    * Dostępne w Azure Portal do momentu usunięcia zasobu.  
-    * Użyj tego samego klucza i punktu końcowego dla aplikacji w wielu Cognitive Services.
+[Zasób obejmujący wiele usług](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne)
+   * Dostępne w Azure Portal do momentu usunięcia zasobu.  
+   * Użyj tego samego klucza i punktu końcowego dla aplikacji w wielu Cognitive Services.

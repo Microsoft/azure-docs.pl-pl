@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 01fa9c111371c3ede5d3be33f4066f325bad4680
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: d51fd5af5ce553bbe9325154e3f854cdf5410d4d
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929251"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873382"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Rozwiązywanie problemów Azure Machine Learning usługi Azure Kubernetes i wdrożenia Azure Container Instances
 
@@ -102,7 +102,7 @@ Jeśli wystąpią problemy ze wdrożeniem modelu do ACI lub AKS, spróbuj wdroż
 > [!WARNING]
 > Lokalne wdrożenia usługi sieci Web nie są obsługiwane w scenariuszach produkcyjnych.
 
-Aby wdrożyć lokalnie, zmodyfikuj swój kod w celu `LocalWebservice.deploy_configuration()` użycia w celu utworzenia konfiguracji wdrożenia. Następnie użyj `Model.deploy()` do wdrożenia usługi. W poniższym przykładzie jest wdrażany model (zawarty w zmiennej modelu) jako lokalna usługa sieci Web:
+Aby wdrożyć lokalnie, zmodyfikuj swój kod w celu użycia `LocalWebservice.deploy_configuration()` w celu utworzenia konfiguracji wdrożenia. Następnie użyj `Model.deploy()` do wdrożenia usługi. W poniższym przykładzie jest wdrażany model (zawarty w zmiennej modelu) jako lokalna usługa sieci Web:
 
 ```python
 from azureml.core.environment import Environment
@@ -146,10 +146,10 @@ Aby uzyskać więcej informacji na temat dostosowywania środowiska języka Pyth
 
 ### <a name="update-the-service"></a>Aktualizowanie usługi
 
-Podczas testowania lokalnego może być konieczne zaktualizowanie `score.py` pliku w celu dodania rejestrowania lub podjęcia próby rozwiązania problemów, które zostały wykryte. Aby ponownie załadować zmiany do `score.py` pliku, użyj `reload()`. Na przykład poniższy kod ponownie ładuje skrypt dla usługi, a następnie wysyła do niej dane. Dane są oceniane przy użyciu zaktualizowanego `score.py` pliku:
+Podczas testowania lokalnego może być konieczne zaktualizowanie `score.py` pliku w celu dodania rejestrowania lub podjęcia próby rozwiązania problemów, które zostały wykryte. Aby ponownie załadować zmiany do `score.py` pliku, użyj `reload()` . Na przykład poniższy kod ponownie ładuje skrypt dla usługi, a następnie wysyła do niej dane. Dane są oceniane przy użyciu zaktualizowanego `score.py` pliku:
 
 > [!IMPORTANT]
-> `reload` Metoda jest dostępna tylko dla wdrożeń lokalnych. Aby uzyskać informacje na temat aktualizowania wdrożenia do innego obiektu docelowego obliczeń, zobacz sekcję Update ( [Wdrażanie modeli](how-to-deploy-and-where.md#update)).
+> `reload`Metoda jest dostępna tylko dla wdrożeń lokalnych. Aby uzyskać informacje na temat aktualizowania wdrożenia do innego obiektu docelowego obliczeń, zobacz sekcję Update ( [Wdrażanie modeli](how-to-deploy-and-where.md#update)).
 
 ```python
 service.reload()
@@ -180,16 +180,21 @@ print(service.get_logs())
 # if you only know the name of the service (note there might be multiple services with the same name but different version number)
 print(ws.webservices['mysvc'].get_logs())
 ```
+## <a name="container-cannot-be-scheduled"></a>Nie można zaplanować kontenera
+
+W przypadku wdrażania usługi do elementu docelowego obliczeń usługi Azure Kubernetes Azure Machine Learning próbuje zaplanować usługę z żądaną ilością zasobów. Jeśli po 5 minutach nie ma dostępnych węzłów w klastrze z odpowiednią ilością dostępnych zasobów, wdrożenie zakończy się niepowodzeniem z komunikatem `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00` . Ten błąd można rozwiązać, dodając więcej węzłów, zmieniając jednostkę SKU węzłów lub zmieniając wymagania dotyczące zasobów usługi. 
+
+Komunikat o błędzie zazwyczaj wskazuje zasób, którego potrzebujesz więcej — na przykład jeśli zostanie wyświetlony komunikat o błędzie informujący o tym, `0/3 nodes are available: 3 Insufficient nvidia.com/gpu` że usługa wymaga procesorów GPU, a w klastrze istnieją 3 węzły, które nie mają dostępnych procesorów GPU. Można to rozwiązać, dodając więcej węzłów, jeśli używasz jednostki SKU procesora GPU, przełączając się do jednostki SKU z włączoną obsługą procesora GPU, jeśli nie zmienisz środowiska, aby nie wymagały procesora GPU.  
 
 ## <a name="service-launch-fails"></a>Uruchamianie usługi nie powiodło się
 
-Po pomyślnym skompilowaniu obrazu system podejmie próbę uruchomienia kontenera przy użyciu konfiguracji wdrożenia. W ramach procesu uruchamiania kontenera `init()` funkcja w skrypcie oceniania jest wywoływana przez system. Jeśli w `init()` funkcji występują nieprzechwycone wyjątki, w komunikacie o błędzie może pojawić się błąd **CrashLoopBackOff** .
+Po pomyślnym skompilowaniu obrazu system podejmie próbę uruchomienia kontenera przy użyciu konfiguracji wdrożenia. W ramach procesu uruchamiania kontenera `init()` Funkcja w skrypcie oceniania jest wywoływana przez system. Jeśli w funkcji występują nieprzechwycone wyjątki `init()` , w komunikacie o błędzie może pojawić się błąd **CrashLoopBackOff** .
 
 Skorzystaj z informacji w sekcji [sprawdzanie dziennika platformy Docker](#dockerlog) , aby sprawdzić dzienniki.
 
 ## <a name="function-fails-get_model_path"></a>Niepowodzenie funkcji: get_model_path ()
 
-Często w `init()` funkcji w skrypcie oceniania funkcja [model. get_model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) jest wywoływana w celu zlokalizowania pliku modelu lub folderu plików modelu w kontenerze. Jeśli nie można znaleźć pliku lub folderu modelu, funkcja kończy się niepowodzeniem. Najprostszym sposobem debugowania tego błędu jest uruchomienie poniższego kodu w języku Python w ramach powłoki kontenera:
+Często w `init()` funkcji w skrypcie oceniania funkcja [Model. get_model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) jest wywoływana w celu zlokalizowania pliku modelu lub folderu plików modelu w kontenerze. Jeśli nie można znaleźć pliku lub folderu modelu, funkcja kończy się niepowodzeniem. Najprostszym sposobem debugowania tego błędu jest uruchomienie poniższego kodu w języku Python w ramach powłoki kontenera:
 
 ```python
 from azureml.core.model import Model
@@ -198,13 +203,13 @@ logging.basicConfig(level=logging.DEBUG)
 print(Model.get_model_path(model_name='my-best-model'))
 ```
 
-Ten przykład drukuje ścieżkę lokalną (względem `/var/azureml-app`) w kontenerze, w którym skrypt oceniania oczekuje na znalezienie pliku lub folderu modelu. Następnie można sprawdzić, czy plik lub folder jest naprawdę tam, gdzie jest oczekiwany.
+Ten przykład drukuje ścieżkę lokalną (względem `/var/azureml-app` ) w kontenerze, w którym skrypt oceniania oczekuje na znalezienie pliku lub folderu modelu. Następnie można sprawdzić, czy plik lub folder jest naprawdę tam, gdzie jest oczekiwany.
 
 Ustawienie poziomu rejestrowania na debugowanie może spowodować zarejestrowanie dodatkowych informacji, co może być przydatne podczas identyfikowania błędu.
 
 ## <a name="function-fails-runinput_data"></a>Niepowodzenie funkcji: Uruchom (input_data)
 
-Jeśli usługa została pomyślnie wdrożona, ale ulega awarii, gdy dane są ogłaszane w punkcie końcowym oceniania, można dodać instrukcję zwracającą `run(input_data)` błąd w funkcji tak, aby zamiast tego zwracała szczegółowy komunikat o błędzie. Przykład:
+Jeśli usługa została pomyślnie wdrożona, ale ulega awarii, gdy dane są ogłaszane w punkcie końcowym oceniania, można dodać instrukcję zwracającą błąd w `run(input_data)` funkcji tak, aby zamiast tego zwracała szczegółowy komunikat o błędzie. Przykład:
 
 ```python
 def run(input_data):
@@ -219,7 +224,7 @@ def run(input_data):
         return json.dumps({"error": result})
 ```
 
-**Uwaga**: Zwracanie komunikatów o błędach `run(input_data)` z wywołania powinno odbywać się tylko do celów debugowania. Ze względów bezpieczeństwa nie należy zwracać komunikatów o błędach w ten sposób w środowisku produkcyjnym.
+**Uwaga**: Zwracanie komunikatów o błędach z `run(input_data)` wywołania powinno odbywać się tylko do celów debugowania. Ze względów bezpieczeństwa nie należy zwracać komunikatów o błędach w ten sposób w środowisku produkcyjnym.
 
 ## <a name="http-status-code-502"></a>Kod stanu HTTP 502
 
@@ -233,7 +238,7 @@ Istnieją dwie rzeczy, które mogą pomóc w zapobieganiu kodów stanu 503:
 
 * Zmień poziom wykorzystania, przy którym automatyczne skalowanie tworzy nowe repliki.
     
-    Domyślnie skalowanie użycia obiektów docelowych jest ustawione na 70%, co oznacza, że usługa może obsłużyć liczbę żądań na sekundę (RPS pliku) do 30%. Cel wykorzystania można dostosować, ustawiając wartość `autoscale_target_utilization` na niższą.
+    Domyślnie skalowanie użycia obiektów docelowych jest ustawione na 70%, co oznacza, że usługa może obsłużyć liczbę żądań na sekundę (RPS pliku) do 30%. Cel wykorzystania można dostosować, ustawiając `autoscale_target_utilization` wartość na niższą.
 
     > [!IMPORTANT]
     > Ta zmiana nie powoduje *szybszego*tworzenia replik. Zamiast tego są tworzone przy niższym progu wykorzystania. Zamiast czekać, aż usługa zostanie wykorzystana przez 70%, zmiana wartości na 30% powoduje utworzenie replik w przypadku wystąpienia 30%.
@@ -264,7 +269,7 @@ Istnieją dwie rzeczy, które mogą pomóc w zapobieganiu kodów stanu 503:
     > [!NOTE]
     > Jeśli odbierane są żądania większe niż w przypadku nowych replik minimalnych, może dojść do 503s. Na przykład w miarę wzrostu ruchu do usługi może być konieczne zwiększenie minimalnej liczby replik.
 
-Aby uzyskać więcej informacji na `autoscale_target_utilization`temat `autoscale_max_replicas`ustawiania, `autoscale_min_replicas` , i dla, zobacz odwołanie do modułu [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) .
+Aby uzyskać więcej informacji na temat ustawiania `autoscale_target_utilization` , `autoscale_max_replicas` , i `autoscale_min_replicas` dla, zobacz odwołanie do modułu [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) .
 
 ## <a name="http-status-code-504"></a>Kod stanu HTTP 504
 
@@ -277,7 +282,7 @@ Można zwiększyć limit czasu lub spróbować przyspieszyć usługę, modyfikuj
 W niektórych przypadkach może być konieczne interaktywne Debugowanie kodu w języku Python zawartego we wdrożeniu modelu. Na przykład, jeśli skrypt wejścia kończy się niepowodzeniem i powód nie może być określony przez dodatkowe rejestrowanie. Używając Visual Studio Code i Python Tools for Visual Studio (PTVSD), możesz dołączyć do kodu działającego wewnątrz kontenera Docker.
 
 > [!IMPORTANT]
-> Ta metoda debugowania nie działa w przypadku lokalnego wdrażania `Model.deploy()` modelu `LocalWebservice.deploy_configuration` i. Zamiast tego należy utworzyć obraz przy użyciu metody [model. Package ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-) .
+> Ta metoda debugowania nie działa w przypadku `Model.deploy()` `LocalWebservice.deploy_configuration` lokalnego wdrażania modelu i. Zamiast tego należy utworzyć obraz przy użyciu metody [model. Package ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-) .
 
 Lokalne wdrożenia usługi sieci Web wymagają pracy instalacji platformy Docker w systemie lokalnym. Aby uzyskać więcej informacji na temat korzystania z platformy Docker, zapoznaj się z [dokumentacją platformy Docker](https://docs.docker.com/).
 
@@ -295,7 +300,7 @@ Lokalne wdrożenia usługi sieci Web wymagają pracy instalacji platformy Docker
 
     1. W obszarze VS Code wybierz menu __Debuguj__ , a następnie wybierz pozycję __Otwórz konfiguracje__. Zostanie otwarty plik o nazwie __Launch. JSON__ .
 
-    1. W pliku __Launch. JSON__ Znajdź wiersz, który zawiera `"configurations": [`, i Wstaw następujący tekst po nim:
+    1. W pliku __Launch. JSON__ Znajdź wiersz, który zawiera `"configurations": [` , i Wstaw następujący tekst po nim:
 
         ```json
         {
@@ -349,10 +354,10 @@ Lokalne wdrożenia usługi sieci Web wymagają pracy instalacji platformy Docker
     print("Debugger attached...")
     ```
 
-1. Tworzenie obrazu na podstawie definicji środowiska i ściąganie obrazu do rejestru lokalnego. Podczas debugowania, możesz chcieć wprowadzić zmiany w plikach w obrazie bez konieczności ponownego tworzenia go. Aby zainstalować Edytor tekstu (vim) w obrazie platformy Docker, użyj właściwości `Environment.docker.base_image` i `Environment.docker.base_dockerfile` :
+1. Tworzenie obrazu na podstawie definicji środowiska i ściąganie obrazu do rejestru lokalnego. Podczas debugowania, możesz chcieć wprowadzić zmiany w plikach w obrazie bez konieczności ponownego tworzenia go. Aby zainstalować Edytor tekstu (vim) w obrazie platformy Docker, użyj `Environment.docker.base_image` właściwości i `Environment.docker.base_dockerfile` :
 
     > [!NOTE]
-    > W tym przykładzie przyjęto założenie, że `ws` wskazuje obszar roboczy `model` Azure Machine Learning i jest to wdrażany model. `myenv.yml` Plik zawiera zależności Conda utworzone w kroku 1.
+    > W tym przykładzie przyjęto założenie, że `ws` wskazuje obszar roboczy Azure Machine Learning i `model` jest to wdrażany model. `myenv.yml`Plik zawiera zależności Conda utworzone w kroku 1.
 
     ```python
     from azureml.core.conda_dependencies import CondaDependencies
@@ -386,7 +391,7 @@ Lokalne wdrożenia usługi sieci Web wymagają pracy instalacji platformy Docker
 ### <a name="debug-the-service"></a>Debugowanie usługi
 
 > [!TIP]
-> Jeśli ustawisz limit czasu dla połączenia usługi PTVSD w `score.py` pliku, musisz połączyć vs Code z sesją debugowania przed upływem limitu czasu. Rozpocznij VS Code, Otwórz lokalną kopię `score.py`, ustaw punkt przerwania i przygotuj się do użycia przed wykonaniem kroków opisanych w tej sekcji.
+> Jeśli ustawisz limit czasu dla połączenia usługi PTVSD w `score.py` pliku, musisz połączyć vs Code z sesją debugowania przed upływem limitu czasu. Rozpocznij VS Code, Otwórz lokalną kopię `score.py` , ustaw punkt przerwania i przygotuj się do użycia przed wykonaniem kroków opisanych w tej sekcji.
 >
 > Aby uzyskać więcej informacji na temat debugowania i ustawiania punktów przerwania, zobacz [debugowanie](https://code.visualstudio.com/Docs/editor/debugging).
 
@@ -415,7 +420,7 @@ Aby wprowadzić zmiany w plikach w obrazie, można dołączyć do uruchomionego 
     docker exec -it debug /bin/bash
     ```
 
-1. Aby znaleźć pliki używane przez usługę, użyj następującego polecenia z powłoki bash w kontenerze, jeśli domyślny katalog jest inny niż `/var/azureml-app`:
+1. Aby znaleźć pliki używane przez usługę, użyj następującego polecenia z powłoki bash w kontenerze, jeśli domyślny katalog jest inny niż `/var/azureml-app` :
 
     ```bash
     cd /var/azureml-app

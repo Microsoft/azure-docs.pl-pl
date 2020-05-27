@@ -3,12 +3,12 @@ title: Tworzenie pliku parametrów
 description: Utwórz plik parametrów do przekazywania wartości podczas wdrażania szablonu Azure Resource Manager
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: a1a1f703594f8eaa572ea38ecef88b4cd6ba5a4b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9845bbb9e14288a01fb7836db260a2baf484395
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81682892"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873088"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Utwórz plik parametrów Menedżer zasobów
 
@@ -193,7 +193,7 @@ Aby wdrożyć w różnych środowiskach, należy utworzyć więcej niż jeden pl
 
 W tej samej operacji wdrażania można używać wbudowanych parametrów i pliku parametrów lokalnych. Na przykład można określić niektóre wartości w lokalnym pliku parametrów i dodać inne wartości w tekście podczas wdrażania. Jeśli podano wartości dla parametru zarówno w pliku parametrów lokalnych, jak i wewnętrznie, wartość śródwierszowa ma pierwszeństwo.
 
-Jednak w przypadku korzystania z zewnętrznego pliku parametrów nie można przekazać innych wartości wbudowanych lub z pliku lokalnego. Wszystkie wbudowane parametry są ignorowane. Podaj wszystkie wartości parametrów w pliku zewnętrznym.
+Można użyć zewnętrznego pliku parametrów, dostarczając identyfikator URI do pliku. Gdy to zrobisz, nie można przekazać innych wartości w tekście lub z pliku lokalnego. Wszystkie wbudowane parametry są ignorowane. Podaj wszystkie wartości parametrów w pliku zewnętrznym.
 
 ## <a name="parameter-name-conflicts"></a>Konflikty nazw parametrów
 

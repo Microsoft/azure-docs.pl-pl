@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 05/04/2020
 ms.service: security-center
 ms.topic: conceptual
-ms.openlocfilehash: 83ee59ca4353cd1af6c613e7624ee15f21b0a27e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 84b5cd8a59103f60249da861238acb45f8aa2fd5
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650926"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871697"
 ---
 # <a name="suppressing-alerts-from-azure-security-centers-threat-protection"></a>Pomijanie alertów z ochrony przed zagrożeniami w usłudze Azure Security Center
 
@@ -22,8 +22,10 @@ Na tej stronie wyjaśniono, jak można użyć reguł pomijania alertów, aby pom
 ## <a name="availability"></a>Dostępność
 
 - Stan wydania: **wersja zapoznawcza**
-- Wymagane role: administrator zabezpieczeń i właściciel mogą tworzyć/usuwać reguły. Czytelnik zabezpieczeń i czytelnik mogą wyświetlać reguły.
-- Chmury: wszystkie (globalne, krajowe, rządowe i suwerenne)
+- Wymagane role: **administrator zabezpieczeń** i **właściciel** mogą tworzyć/usuwać reguły. **Czytelnik zabezpieczeń** i **czytelnik** mogą wyświetlać reguły.
+- Połączeń 
+    - ✔ Chmury komercyjne
+    - ✔ National/suwerenny (US Gov, Chiny gov, inne gov)
 
 
 ## <a name="introduction-to-suppression-rules"></a>Wprowadzenie do reguł pomijania

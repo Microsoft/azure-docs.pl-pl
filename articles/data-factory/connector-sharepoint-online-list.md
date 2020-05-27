@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: jingwang
-ms.openlocfilehash: 90ceb2b716df429eaf4541f13cfa96cb9e0eac7d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: f560a01c4ec00649157a9c43aedf0ed6cfc2e050
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745215"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871918"
 ---
 # <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory"></a>Kopiowanie danych z listy usługi SharePoint Online przy użyciu Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -52,7 +52,7 @@ W każdym przypadku ten łącznik online listy programu SharePoint używa uwierz
     > [!NOTE]
     > Ta operacja wymaga uprawnienia właściciela witryny usługi SharePoint Online. Właściciela można znaleźć, przechodząc do strony głównej witryny — > kliknij "składowe X" w prawym górnym rogu — > Sprawdź, kto ma rolę "Owner".
 
-    1. Otwórz łącze witryny usługi SharePoint Online, np. `https://[your_site_url]/_layouts/15/appinv.aspx` (zastąp nazwę dzierżawy i witryny).
+    1. Otwórz łącze witryny usługi SharePoint Online, np. `https://[your_site_url]/_layouts/15/appinv.aspx` (Zastąp adres URL witryny).
     2. Wyszukaj zarejestrowany identyfikator aplikacji, Wypełnij puste pola i kliknij przycisk "Utwórz".
 
         - Domena aplikacji:`localhost.com`
@@ -69,7 +69,7 @@ W każdym przypadku ten łącznik online listy programu SharePoint używa uwierz
 
     3. Kliknij pozycję "ufaj temu" dla tej aplikacji.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -81,11 +81,11 @@ Następujące właściwości są obsługiwane dla połączonej usługi programu 
 
 | **Właściwość**        | **Opis**                                              | **Wymagane** |
 | ------------------- | ------------------------------------------------------------ | ------------ |
-| typ                | Właściwość Type musi mieć wartość: **SharePointOnlineList**.  | Tak          |
-| siteUrl             | Adres URL witryny usługi SharePoint Online, np. `https://contoso.sharepoint.com/sites/siteName` . | Tak          |
-| servicePrincipalId  | Identyfikator aplikacji (klienta) zarejestrowanej w Azure Active Directory. | Tak          |
-| servicePrincipalKey | Klucz aplikacji. Oznacz to pole jako element **SecureString** , aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Tak          |
-| tenantId            | Identyfikator dzierżawy, pod którym znajduje się Twoja aplikacja.          | Tak          |
+| typ                | Właściwość Type musi mieć wartość: **SharePointOnlineList**.  | Yes          |
+| siteUrl             | Adres URL witryny usługi SharePoint Online, np. `https://contoso.sharepoint.com/sites/siteName` . | Yes          |
+| servicePrincipalId  | Identyfikator aplikacji (klienta) zarejestrowanej w Azure Active Directory. | Yes          |
+| servicePrincipalKey | Klucz aplikacji. Oznacz to pole jako element **SecureString** , aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Yes          |
+| tenantId            | Identyfikator dzierżawy, pod którym znajduje się Twoja aplikacja.          | Yes          |
 | Właściwością connectvia          | [Integration Runtime](concepts-integration-runtime.md) używany do nawiązywania połączenia z magazynem danych. Więcej informacji znajduje się w sekcji [wymagania wstępne](#prerequisites)w tym artykule. Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. | Nie           |
 
 **Przykład:**
@@ -114,10 +114,10 @@ Aby zapoznać się z pełną listą sekcji i właściwości, które są dostępn
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość **Type** zestawu danych musi być ustawiona na wartość **SharePointOnlineLResource**. | Tak |
-| listName | Nazwa listy usługi SharePoint Online. | Tak |
+| typ | Właściwość **Type** zestawu danych musi być ustawiona na wartość **SharePointOnlineLResource**. | Yes |
+| listName | Nazwa listy usługi SharePoint Online. | Yes |
 
-**Przykład**
+**Przyklad**
 
 ```json
 {
@@ -147,11 +147,11 @@ Aby skopiować dane z listy usługi SharePoint Online, w sekcji **Źródło** dz
 
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| typ | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość **SharePointOnlineListSource**. | Tak |
+| typ | Właściwość **Type** źródła działania Copy musi być ustawiona na wartość **SharePointOnlineListSource**. | Yes |
 | query | Niestandardowe opcje zapytania OData dotyczące filtrowania danych. Przykład: `"$top=10&$select=Title,Number"`. | Nie |
 | httpRequestTimeout | Limit czasu (w drugim) żądania HTTP w celu uzyskania odpowiedzi. Wartość domyślna to 300 (5 minut). | Nie |
 
-**Przykład**
+**Przyklad**
 
 ```json
 "activities":[
@@ -189,16 +189,16 @@ Podczas kopiowania danych z listy usługi SharePoint Online następujące mapowa
 
 | **Typ danych usługi SharePoint Online**                 | **Typ danych OData**                                  | **Azure Data Factory typ danych pośrednich** |
 | ----------------------------------------------- | ---------------------------------------------------- | ---------------------------------------- |
-| Pojedynczy wiersz tekstu                             | Edm.String                                           | String                                   |
-| Wiele wierszy tekstu                          | Edm.String                                           | String                                   |
-| Wybór (menu do wyboru)                    | Edm.String                                           | String                                   |
+| Pojedynczy wiersz tekstu                             | Edm.String                                           | String (ciąg)                                   |
+| Wiele wierszy tekstu                          | Edm.String                                           | String (ciąg)                                   |
+| Wybór (menu do wyboru)                    | Edm.String                                           | String (ciąg)                                   |
 | Liczba (1, 1,0, 100)                            | Edm.Double                                           | Double                                   |
 | Waluta ($, ¥, €)                              | Edm.Double                                           | Double                                   |
-| Data i godzina                                   | EDM. DateTime                                         | DateTime                                 |
+| Data i godzina                                   | EDM. DateTime                                         | Data/godzina                                 |
 | Odnośnik (informacje znajdujące się już w tej lokacji)       | Edm.Int32                                            | Int32                                    |
-| Tak/nie (pole wyboru)                              | Edm.Boolean                                          | Wartość logiczna                                  |
+| Tak/nie (pole wyboru)                              | Edm.Boolean                                          | Boolean (wartość logiczna)                                  |
 | Osoba lub grupa                                 | Edm.Int32                                            | Int32                                    |
-| Hiperłącze lub obraz                            | Edm.String                                           | String                                   |
+| Hiperłącze lub obraz                            | Edm.String                                           | String (ciąg)                                   |
 | Obliczone (obliczanie na podstawie innych kolumn) | EDM. String/EDM. Double/EDM. DateTime/EDM. Boolean | Ciąg/Double/DateTime/wartość logiczna     |
 | Załącznik                                      | Nieobsługiwane                                        |                                          |
 | Wynik zadania                                    | Nieobsługiwane                                        |                                          |

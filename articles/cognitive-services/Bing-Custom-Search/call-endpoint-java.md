@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: 7c9f713d50e31557999c9127cd219bfe9b3a8c82
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 292b94e56d988a1126db83e2f8ce40bbb0af6f42
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199854"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873239"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-java"></a>Szybki Start: wywoływanie punktu końcowego wyszukiwanie niestandardowe Bing przy użyciu języka Java
 
@@ -63,8 +63,8 @@ Skorzystaj z tego przewodnika Szybki Start, aby dowiedzieć się, jak żądać w
 
 3. Utwórz inną klasę o nazwie `SearchResults`, która będzie zawierać odpowiedź z wystąpienia wyszukiwania niestandardowego Bing.
 
-    ```csharp
-    class SearchResults{
+    ```java
+    class SearchResults {
         HashMap<String, String> relevantHeaders;
         String jsonResponse;
         SearchResults(HashMap<String, String> headers, String json) {

@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 05/05/2020
+ms.date: 05/26/2020
 ms.author: victorh
-ms.openlocfilehash: 92011495f5f746b18a7706ed2f9583548cc51286
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: fd5617af2da9aa00cb75deb82f83be29db78d79d
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82836669"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873508"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Często zadawane pytania dotyczące Application Gateway
 
@@ -94,7 +94,7 @@ Zobacz [zagadnienia dotyczące rozmiaru podsieci Application Gateway](https://do
 
 Tak. Oprócz wielu wystąpień danego wdrożenia Application Gateway można zainicjować inny unikatowy zasób Application Gateway do istniejącej podsieci, która zawiera różne zasoby Application Gateway.
 
-Pojedyncza podsieć nie może jednocześnie obsługiwać jednocześnie Standard_v2 i Application Gateway standardowych.
+Jedna podsieć nie obsługuje jednocześnie jednostek SKU w wersji 2 i 1 Application Gateway.
 
 ### <a name="does-application-gateway-v2-support-user-defined-routes-udr"></a>Czy Application Gateway v2 obsługuje trasy zdefiniowane przez użytkownika (UDR)?
 
@@ -211,7 +211,7 @@ Zobacz [Kolejność reguł przetwarzania](https://docs.microsoft.com/azure/appli
 
 ### <a name="for-custom-probes-what-does-the-host-field-signify"></a>W przypadku sond niestandardowych, co oznacza pole hosta?
 
-Pole host Określa nazwę, do której ma zostać wysłana sonda po skonfigurowaniu wielu lokacjach na Application Gateway. W przeciwnym razie użyj "127.0.0.1". Ta wartość różni się od nazwy hosta maszyny wirtualnej. Jego format to \<protokół\>://\<hosta\>:\<ścieżka\>\<\>portu.
+Pole host Określa nazwę, do której ma zostać wysłana sonda po skonfigurowaniu wielu lokacjach na Application Gateway. W przeciwnym razie użyj "127.0.0.1". Ta wartość różni się od nazwy hosta maszyny wirtualnej. Jego format to \< Protokół \> :// \< hosta \> : \< \> \< ścieżka portu \> .
 
 ### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>Czy mogę zezwolić Application Gateway na dostęp tylko do kilku źródłowych adresów IP?
 
@@ -246,7 +246,7 @@ Jeśli jednak chcesz używać Application Gateway v2 tylko z prywatnym adresem I
     
     e. Nie można zablokować wychodzącej łączności z Internetem. W przeciwnym razie będziesz mieć problemy z rejestrowaniem, metrykami itp.
 
-Przykładowa konfiguracja sieciowej grupy zabezpieczeń tylko dla prywatnego adresu IP ![: Application Gateway v2 sieciowej grupy zabezpieczeń Konfiguracja tylko dla prywatnego dostępu do adresu IP](./media/application-gateway-faq/appgw-privip-nsg.png)
+Przykładowa konfiguracja sieciowej grupy zabezpieczeń tylko dla prywatnego adresu IP: ![ Application Gateway v2 sieciowej grupy zabezpieczeń Konfiguracja tylko dla prywatnego dostępu do adresu IP](./media/application-gateway-faq/appgw-privip-nsg.png)
 
 ## <a name="configuration---tls"></a>Konfiguracja — TLS
 
@@ -334,7 +334,7 @@ Nie, używaj tylko znaków alfanumerycznych w haśle pliku PFX.
 
 ### <a name="what-is-an-ingress-controller"></a>Co to jest kontroler transferu danych przychodzących?
 
-Kubernetes umożliwia tworzenie `deployment` i `service` zasób w celu uwidocznienia grupy zasobów w klastrze. Aby udostępnić tę samą usługę zewnętrznie, jest [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) zdefiniowany zasób, który zapewnia Równoważenie obciążenia, zakończenie protokołu TLS i hosting wirtualny oparte na nazwach.
+Kubernetes umożliwia tworzenie `deployment` i `service` zasób w celu uwidocznienia grupy zasobów w klastrze. Aby udostępnić tę samą usługę zewnętrznie, [`Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress/) jest zdefiniowany zasób, który zapewnia Równoważenie obciążenia, zakończenie protokołu TLS i hosting wirtualny oparte na nazwach.
 Aby spełnić ten `Ingress` zasób, wymagany jest kontroler transferu danych przychodzących, który nasłuchuje wszelkich zmian `Ingress` zasobów i konfiguruje zasady usługi równoważenia obciążenia.
 
 Application Gateway kontroler transferu danych przychodzących umożliwia korzystanie z [platformy azure Application Gateway](https://azure.microsoft.com/services/application-gateway/) jako ruchu przychodzącego dla [usługi Azure Kubernetes](https://azure.microsoft.com/services/kubernetes-service/) , znanej również jako klaster AKS.
@@ -357,7 +357,7 @@ Wszystkie dzienniki są zbierane co 60 sekund. Aby uzyskać więcej informacji, 
 
 ### <a name="how-do-i-know-if-my-backend-pool-members-are-healthy"></a>Jak mogę wiedzieć, czy moje elementy członkowskie puli zaplecza są w dobrej kondycji?
 
-Sprawdź kondycję przy użyciu polecenia cmdlet `Get-AzApplicationGatewayBackendHealth` programu PowerShell lub portalu. Aby uzyskać więcej informacji, zobacz [Application Gateway Diagnostics](application-gateway-diagnostics.md).
+Sprawdź kondycję przy użyciu polecenia cmdlet programu PowerShell `Get-AzApplicationGatewayBackendHealth` lub portalu. Aby uzyskać więcej informacji, zobacz [Application Gateway Diagnostics](application-gateway-diagnostics.md).
 
 ### <a name="whats-the-retention-policy-for-the-diagnostic-logs"></a>Jakie są zasady przechowywania dzienników diagnostycznych?
 
@@ -409,7 +409,7 @@ Jeśli jednak chcesz używać Application Gateway v2 tylko z prywatnym adresem I
     
     e. Nie można zablokować wychodzącej łączności z Internetem. W przeciwnym razie będziesz mieć problemy z rejestrowaniem, metrykami i tak dalej.
 
-Przykładowa konfiguracja sieciowej grupy zabezpieczeń tylko dla prywatnego adresu IP ![: Application Gateway v2 sieciowej grupy zabezpieczeń Konfiguracja tylko dla prywatnego dostępu do adresu IP](./media/application-gateway-faq/appgw-privip-nsg.png)
+Przykładowa konfiguracja sieciowej grupy zabezpieczeń tylko dla prywatnego adresu IP: ![ Application Gateway v2 sieciowej grupy zabezpieczeń Konfiguracja tylko dla prywatnego dostępu do adresu IP](./media/application-gateway-faq/appgw-privip-nsg.png)
 
 ### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>Czy Application Gateway plik cookie koligacji jest obsługiwany?
 Tak. [Aktualizacja V80](https://chromiumdash.appspot.com/schedule) [przeglądarki chromu](https://www.chromium.org/Home) wprowadziła upoważnienie dla plików cookie protokołu HTTP bez atrybutu SameSite, który ma być traktowany jako SameSite = swobodny. Oznacza to, że plik cookie koligacji Application Gateway nie będzie wysyłany przez przeglądarkę w kontekście innej firmy. Aby obsłużyć ten scenariusz, Application Gateway dodaje do istniejącego pliku cookie *ApplicationGatewayAffinity* inny plik cookie o nazwie *ApplicationGatewayAffinityCORS* .  Te pliki cookie są podobne, ale plik cookie *ApplicationGatewayAffinityCORS* ma dwa więcej atrybutów: *SameSite = none; Zabezpiecz*. Te atrybuty utrzymują sesje programu Sticky Notes nawet w przypadku żądań między źródłami. Aby uzyskać więcej informacji, zobacz [sekcję koligacja na podstawie plików cookie](configuration-overview.md#cookie-based-affinity) .

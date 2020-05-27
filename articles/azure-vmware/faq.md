@@ -4,12 +4,12 @@ description: Zawiera odpowiedzi na niektóre często zadawane pytania dotyczące
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: 6d8e87dd52871b82109ccc794af04244efe95b06
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: c318a17e433f40b17e3dd9e3e95a655ecb48a160
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854606"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873320"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>Często zadawane pytania dotyczące rozwiązania Azure VMware (automatyczna wersja zapoznawcza)
 
@@ -17,7 +17,7 @@ Odpowiedzi na często zadawane pytania dotyczące rozwiązania Azure VMware (Aut
 
 ## <a name="general"></a>Ogólne
 
-**Co to jest rozwiązanie Azure VMware (AVS)?**
+**Co to jest rozwiązanie Azure VMware (Automatyczna synchronizacja)?**
 
 W miarę jak przedsiębiorstwa wykonują strategie modernizacji, aby poprawić elastyczność biznesową, obniżyć koszty i przyspieszyć innowacje, hybrydowe platformy w chmurze zostały wyznaczone jako klucze do obsługi transformacji cyfrowej klientów. Automatyczna synchronizacja łączy oprogramowanie VMware SDDC (Software Defined Data Center) z Microsoft Azure globalnym ekosystemem usługi w chmurze. Rozwiązanie do automatycznej synchronizacji jest zarządzane w taki sposób, aby spełniało wymagania dotyczące wydajności, dostępności, zabezpieczeń i zgodności.
 
@@ -45,7 +45,7 @@ Konkretne integracje i przypadki użycia mogą być oceniane w zależności od w
 
 **Czy można migrować maszyny wirtualne vSphere z lokalnych środowisk do automatycznej synchronizacji chmur prywatnych?**
 
-Tak. Migracje maszyn wirtualnych i vMotion mogą służyć do przenoszenia maszyn wirtualnych do chmury prywatnej, jeśli zostały spełnione standardowe krzyżowe usługi vCenterhttps://kb.vmware.com/s/article/210695[vMotion] [].
+Tak. Migracje maszyn wirtualnych i vMotion mogą służyć do przenoszenia maszyn wirtualnych do chmury prywatnej, jeśli zostały spełnione standardowe krzyżowe usługi vCenter [vMotion] [ https://kb.vmware.com/s/article/210695 ].
 
 **Czy określona wersja vSphere jest wymagana w środowiskach lokalnych?**
 
@@ -66,6 +66,35 @@ Nie wprowadzono zmian w istniejącym rozwiązaniu VMware platformy Azure przez C
 **Czy mogę przeprowadzić migrację z rozwiązania Azure VMware, CloudSimple do tego nowego rozwiązania?**
 
 Tak, rozwiązanie VMware platformy Azure obsługuje migrację przy użyciu znanych narzędzi VMware, takich jak HCX. W przypadku klientów, którzy chcą przeprowadzić migrację do nowego rozwiązania, skontaktuj się z zespołem konto Microsoft, aby poznać opcje i dostępną pomoc techniczną.
+
+<a name="how-to-request-a-quota-increase-for-existing-avs"></a>**Jak mogę zażądać zwiększenia limitu przydziału hosta dla istniejącego rozwiązania platformy Azure VMware?**
+
+Można zażądać zwiększenia limitu przydziału przez [przesłanie żądania pomocy technicznej](..\azure-portal\supportability\how-to-create-azure-support-request.md). Zespół zarządzający przydziałami oblicza żądanie i zatwierdza go w ciągu trzech dni roboczych.  
+
+> [!IMPORTANT]
+> Przed zażądaniem zwiększenia limitu przydziału upewnij się, że [zarejestrowano dostawcę zasobów **Microsoft. Automatyczna synchronizacja** ](tutorial-create-private-cloud.md) w Azure Portal.  
+> ```azurecli-interactive
+> az provider register -n Microsoft.AVS --subscription <your subscription ID>
+> ```
+> Aby uzyskać dodatkowe sposoby rejestrowania dostawcy zasobów, zobacz [dostawcy zasobów platformy Azure i ich typy](https://review.docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types).
+
+1. W Azure Portal w obszarze **Pomoc i obsługa techniczna**Utwórz **nowe żądanie pomocy technicznej** i podaj następujące informacje dotyczące biletu:
+   - **Typ problemu:** Naukow
+   - **Subskrypcja:** Identyfikator subskrypcji
+   - **Usługa:**  Rozwiązanie VMware platformy Azure 
+   - **Podsumowanie:** Zwiększenie limitu przydziału
+   - **Typ problemu:** Problemy z zarządzaniem pojemnością
+   - **Podtyp problemu:** Żądanie klienta dotyczące dodatkowego przydziału/pojemności hosta
+
+1. W opisie biletu pomocy technicznej na karcie Szczegóły podaj następujące informacje:
+   - Liczba dodatkowych węzłów   
+   - Jednostka SKU węzła
+   - Region
+
+   > [!NOTE] 
+   > Domyślnie zostanie udzielony co najmniej cztery węzły.
+
+1. Kliknij przycisk **Przegląd + Utwórz** , aby przesłać żądanie.
 
 ## <a name="compute-network-and-storage"></a>Obliczenia, Sieć i magazyn
 

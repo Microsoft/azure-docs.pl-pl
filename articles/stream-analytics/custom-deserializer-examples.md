@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
-ms.openlocfilehash: 5cde80bf3205557884dfe8f2b8f5e79031bbca69
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: b7994754d3ca9c43fe7935b2b52c42f2f113b1d3
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612065"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873037"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Odczytaj dane wejściowe w dowolnym formacie przy użyciu niestandardowych deserializacji platformy .NET
 
@@ -20,9 +20,9 @@ Niestandardowe deserializacji .NET umożliwiają zadanie Azure Stream Analytics 
 
 ## <a name="net-custom-deserializer"></a>Deserializacja niestandardowa .NET
 
-Poniższe przykłady kodu są interfejsami, które definiują deserializatory niestandardowe i `StreamDeserializer<T>`implementują.
+Poniższe przykłady kodu są interfejsami, które definiują deserializatory niestandardowe i implementują `StreamDeserializer<T>` .
 
-`UserDefinedOperator`jest klasą bazową dla wszystkich niestandardowych operatorów przesyłania strumieniowego. Jest on `StreamingContext`inicjowany, który zawiera kontekst, który obejmuje mechanizm publikowania diagnostyki, dla którego będzie konieczne debugowanie wszelkich problemów z deserializatorem.
+`UserDefinedOperator`jest klasą bazową dla wszystkich niestandardowych operatorów przesyłania strumieniowego. Jest on inicjowany `StreamingContext` , który zawiera kontekst, który obejmuje mechanizm publikowania diagnostyki, dla którego będzie konieczne debugowanie wszelkich problemów z deserializatorem.
 
 ```csharp
     public abstract class UserDefinedOperator
@@ -33,16 +33,16 @@ Poniższe przykłady kodu są interfejsami, które definiują deserializatory ni
 
 Poniższy fragment kodu jest deserializacji dla danych przesyłanych strumieniowo. 
 
-Błędy, które można pominąć, powinny być `IStreamingDiagnostics` emitowane `UserDefinedOperator`przy użyciu metody inicjacji przekazaną przez. Wszystkie wyjątki będą traktowane jako błędy i Deserializator zostanie utworzony ponownie. Po określonej liczbie błędów zadanie przejdzie w stan niepowodzenia.
+Błędy, które można pominąć, powinny być emitowane przy użyciu `IStreamingDiagnostics` metody inicjacji przekazaną przez `UserDefinedOperator` . Wszystkie wyjątki będą traktowane jako błędy i Deserializator zostanie utworzony ponownie. Po określonej liczbie błędów zadanie przejdzie w stan niepowodzenia.
 
-`StreamDeserializer<T>`deserializacji strumienia do obiektu typu `T`. Muszą zostać spełnione następujące warunki:
+`StreamDeserializer<T>`deserializacji strumienia do obiektu typu `T` . Muszą zostać spełnione następujące warunki:
 
 1. T jest klasą lub strukturą.
 1. Wszystkie pola publiczne w T są
     1. Jeden z [wartości parametrów, Byte, Short, UShort, int, uint, Long, DateTime, String, float, Double] lub ich odpowiedników dopuszczających wartość null.
     1. Inna struktura lub Klasa zgodnie z tymi samymi regułami.
     1. Tablica typu `T2` , która jest zgodna z tymi samymi regułami.
-    1. Elementy`T2` IList, gdzie T2 są zgodne z tymi samymi regułami.
+    1. Elementy IList `T2` , gdzie T2 są zgodne z tymi samymi regułami.
     1. Nie ma żadnych typów cyklicznych.
 
 Parametr `stream` jest strumieniem zawierającym serializowany obiekt. `Deserialize`Zwraca kolekcję `T` wystąpień.
@@ -112,7 +112,7 @@ message MessageBodyProto {
 }
 ```
 
-Uruchamianie `protoc.exe` z narzędzia NuGet usługi **Google. protobuf. Tools** generuje plik. cs z definicją. Wygenerowany plik nie jest tutaj wyświetlany.
+Uruchamianie `protoc.exe` z narzędzia NuGet usługi **Google. protobuf. Tools** generuje plik. cs z definicją. Wygenerowany plik nie jest tutaj wyświetlany. Należy upewnić się, że wersja narzędzia protobuf NuGet używana w projekcie Stream Analytics jest zgodna z wersją protobuf, która została użyta do wygenerowania danych wejściowych. 
 
 Poniższy fragment kodu jest implementacją deserializacji, przy założeniu, że wygenerowany plik zostanie uwzględniony w projekcie. Ta implementacja jest tylko elastyczną otoką w wygenerowanym pliku.
 
@@ -219,7 +219,7 @@ Poniższy kod JavaScript jest przykładem formatu serializacji deserializacji .N
 }  
 ```
 
-`serializationClassName`powinna być klasą implementującą `StreamDeserializer<T>`. Opisano to w poniższej sekcji.
+`serializationClassName`powinna być klasą implementującą `StreamDeserializer<T>` . Opisano to w poniższej sekcji.
 
 ## <a name="region-support"></a>Obsługa regionów
 

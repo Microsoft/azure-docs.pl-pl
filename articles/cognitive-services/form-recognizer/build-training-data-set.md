@@ -9,18 +9,20 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: 71ad7c5dd3ad74082da552cd3c45142bc0c2d624
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9342d87318eb6a5248c75d2333fb5e2a4cbef8f4
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75380630"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873289"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Tworzenie zestawu danych szkoleniowych dla modelu niestandardowego
 
-W przypadku korzystania z niestandardowego modelu aparatu rozpoznawania formularzy należy zapewnić własne dane szkoleniowe, aby model mógł nauczyć się na formularzach specyficznych dla branży. Możesz nauczyć model z pięcioma wypełnionymi formularzami lub pustym formularzem (w nazwie pliku musi znajdować się słowo "Empty") oraz dwie wypełnione formularze. Nawet jeśli masz wystarczającą liczbę wypełnionych formularzy do uczenia się, dodanie pustego formularza do zestawu danych szkoleniowych może poprawić dokładność modelu.
+W przypadku korzystania z niestandardowego modelu aparatu rozpoznawania formularzy należy zapewnić własne dane szkoleniowe, aby model mógł nauczyć się na formularzach specyficznych dla branży. 
 
-Jeśli chcesz używać ręcznie etykietowanych danych szkoleniowych, należy zacząć od co najmniej pięciu form tego samego typu. Nadal można używać formularzy nieoznaczonych etykietami i pustego formularza w tym samym zestawie danych.
+W przypadku szkoleń bez etykiet ręcznych można użyć pięciu wypełnionych formularzy lub pustego formularza (w nazwie pliku musi znajdować się słowo "Empty") oraz dwie wypełnione formularze. Nawet jeśli masz wystarczającą liczbę wypełnionych formularzy, dodanie pustego formularza do zestawu danych szkoleniowych może poprawić dokładność modelu.
+
+Jeśli chcesz używać ręcznie etykietowanych danych szkoleniowych, musisz zacząć od co najmniej pięciu wypełnionych formularzy tego samego typu. Oprócz wymaganego zestawu danych można nadal używać formularzy bez etykiet i pustego formularza.
 
 ## <a name="training-data-tips"></a>Wskazówki dotyczące danych szkoleniowych
 
@@ -42,9 +44,11 @@ Upewnij się, że zestaw danych szkoleniowych jest również zgodny z wymaganiam
 
 Po umieszczeniu zestawu dokumentów formularzy, które będą używane do szkoleń, należy przekazać je do kontenera magazynu obiektów blob platformy Azure. Jeśli nie wiesz, jak utworzyć konto usługi Azure Storage za pomocą kontenera, zapoznaj się z [przewodnikiem Szybki Start dla usługi Azure Storage, aby uzyskać Azure Portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
 
+Jeśli chcesz używać ręcznie oznaczonych danych, musisz również przekazać pliki *labels. JSON* i *. OCR. JSON* , które odpowiadają Twoim dokumentom szkoleniowym. Do wygenerowania tych plików można użyć [przykładowego narzędzia do etykietowania](./quickstarts/label-tool.md) (lub własnego interfejsu użytkownika).
+
 ### <a name="organize-your-data-in-subfolders-optional"></a>Organizuj dane w podfolderach (opcjonalnie)
 
-Domyślnie interfejs API sieci [uczenia niestandardowego](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync) będzie używać tylko dokumentów formularzy znajdujących się w katalogu głównym kontenera magazynu. Można jednak nauczyć się z danymi w podfolderach, jeśli określisz ją w wywołaniu interfejsu API. Zwykle treść wywołania [niestandardowego modelu uczenia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync) ma następującą postać, gdzie `<SAS URL>` jest adresem URL sygnatury dostępu współdzielonego kontenera:
+Domyślnie interfejs API sieci [uczenia niestandardowego](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync) będzie używać tylko dokumentów formularzy znajdujących się w katalogu głównym kontenera magazynu. Można jednak nauczyć się z danymi w podfolderach, jeśli określisz ją w wywołaniu interfejsu API. Zwykle treść wywołania [niestandardowego modelu uczenia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync) ma następujący format, gdzie `<SAS URL>` jest adresem URL sygnatury dostępu współdzielonego kontenera:
 
 ```json
 {
@@ -52,7 +56,7 @@ Domyślnie interfejs API sieci [uczenia niestandardowego](https://westus2.dev.co
 }
 ```
 
-Jeśli dodasz następującą zawartość do treści żądania, interfejs API będzie szkolić z dokumentami znajdującymi się w podfolderach. `"prefix"` Pole jest opcjonalne i ograniczy zestaw danych szkoleniowych do plików, których ścieżki zaczynają się podanym ciągiem. Dlatego wartość `"Test"`, na przykład, spowoduje przeszukanie przez interfejs API tylko plików lub folderów, które zaczynają się od słowa "test".
+Jeśli dodasz następującą zawartość do treści żądania, interfejs API będzie szkolić z dokumentami znajdującymi się w podfolderach. `"prefix"`Pole jest opcjonalne i ograniczy zestaw danych szkoleniowych do plików, których ścieżki zaczynają się podanym ciągiem. Dlatego wartość `"Test"` , na przykład, spowoduje przeszukanie przez interfejs API tylko plików lub folderów, które zaczynają się od słowa "test".
 
 ```json
 {
@@ -69,6 +73,7 @@ Jeśli dodasz następującą zawartość do treści żądania, interfejs API bę
 
 Teraz, gdy wiesz już, jak utworzyć zestaw danych szkoleniowych, postępuj zgodnie z przewodnikiem Szybki Start, aby przeprowadzić uczenie niestandardowego modelu aparatu rozpoznawania formularzy i rozpocząć korzystanie z niego w formularzach.
 
-* [Szybki Start: uczenie modelu i wyodrębnianie danych z formularza przy użyciu Zwinięciea](./quickstarts/curl-train-extract.md)
-* [Szybki Start: uczenie modelu i wyodrębnianie danych formularza przy użyciu interfejsu API REST w języku Python](./quickstarts/python-train-extract.md)
+* [Uczenie modelu i wyodrębnianie danych formularza przy użyciu Zwinięciea](./quickstarts/curl-train-extract.md)
+* [Uczenie modelu i wyodrębnianie danych formularza przy użyciu interfejsu API REST i języka Python](./quickstarts/python-train-extract.md)
+* [Uczenie z etykietami przy użyciu narzędzia do etykietowania przykładowego](./quickstarts/label-tool.md)
 * [Trenowanie z użyciem etykiet za pomocą interfejsu API REST i języka Python](./quickstarts/python-labeled-data.md)

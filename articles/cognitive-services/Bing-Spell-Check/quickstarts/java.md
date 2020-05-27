@@ -8,18 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: 491481156f026e9887244064297d0790a965158e
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: f318a500bd4ce256690ff59f68d99af5d7a25d9e
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735117"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869813"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Szybki Start: sprawdzanie pisowni za pomocą interfejsu API REST sprawdzanie pisowni Bing i środowiska Java
 
-Użyj tego przewodnika Szybki start, aby wykonać pierwsze wywołanie interfejsu API REST sprawdzania pisowni Bing. Ta prosta aplikacja w języku Java wysyła żądanie do interfejsu API i zwraca listę sugerowanych poprawek. Chociaż ta aplikacja jest napisana w języku Java, interfejs API jest usługą internetową zgodną z wzorcem REST i większością języków programowania. Kod źródłowy tej aplikacji jest dostępny w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingSpellCheck.java).
+Użyj tego przewodnika Szybki start, aby wykonać pierwsze wywołanie interfejsu API REST sprawdzania pisowni Bing. Ta prosta aplikacja w języku Java wysyła żądanie do interfejsu API i zwraca listę sugerowanych poprawek. 
+
+Mimo że aplikacja jest zapisywana w języku Java, interfejs API jest usługą sieci Web RESTful zgodną z większością języków programowania. Kod źródłowy tej aplikacji jest dostępny w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingSpellCheck.java).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -31,7 +33,7 @@ Użyj tego przewodnika Szybki start, aby wykonać pierwsze wywołanie interfejsu
 
 ## <a name="create-and-initialize-an-application"></a>Tworzenie i inicjowanie aplikacji
 
-1. Utwórz nowy projekt Java w ulubionym środowisku IDE lub edytorze z wybraną nazwą klasy, a następnie zaimportuj następujące pakiety.
+1. Utwórz nowy projekt Java w ulubionym środowisku IDE lub edytorze z wybraną nazwą klasy, a następnie zaimportuj następujące pakiety:
 
     ```java
     import java.io.*;
@@ -40,7 +42,7 @@ Użyj tego przewodnika Szybki start, aby wykonać pierwsze wywołanie interfejsu
     import javax.net.ssl.HttpsURLConnection;
     ```
 
-2. Utwórz zmienne dla hosta punktu końcowego interfejsu API, ścieżki i klucza subskrypcji. Następnie utwórz zmienne dla rynku i tekstu, w którym ma być sprawdzana pisownia, oraz ciąg dla trybu sprawdzania pisowni. Możesz użyć poniższego globalnego punktu końcowego lub niestandardowego punktu końcowego [poddomeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) , który jest wyświetlany w Azure Portal dla zasobu.
+2. Utwórz zmienne dla hosta punktu końcowego interfejsu API, ścieżki i klucza subskrypcji. Następnie utwórz zmienne dla rynku, tekst, który chcesz sprawdzić pisownię, oraz ciąg dla trybu sprawdzania pisowni. Możesz użyć globalnego punktu końcowego w poniższym kodzie lub użyć punktu końcowego [niestandardowej domeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) podrzędnej wyświetlanego w Azure Portal dla zasobu.
 
     ```java
     static String host = "https://api.cognitive.microsoft.com";
@@ -55,7 +57,11 @@ Użyj tego przewodnika Szybki start, aby wykonać pierwsze wywołanie interfejsu
 
 ## <a name="create-and-send-an-api-request"></a>Tworzenie i wysyłanie żądania interfejsu API
 
-1. Utwórz funkcję o nazwie `check()`, która utworzy i wyśle żądanie interfejsu API. W ramach tej funkcji wykonaj następujące czynności. Utwórz ciąg dla parametrów żądania. Dołącz parametr `?mkt=` do ciągu rynku i parametr `&mode=` do trybu sprawdzania pisowni.  
+1. Utwórz funkcję o nazwie `check()`, która utworzy i wyśle żądanie interfejsu API. W ramach tej funkcji Dodaj kod określony w następnych krokach. Utwórz ciąg dla parametrów żądania:
+
+   a. Przypisz kod rynkowy do `mkt` parametru `=` operatorem. 
+
+   b. Dodaj `mode` parametr z `&` operatorem, a następnie przypisz tryb sprawdzania pisowni. 
 
    ```java
    public static void check () throws Exception {
@@ -64,14 +70,14 @@ Użyj tego przewodnika Szybki start, aby wykonać pierwsze wywołanie interfejsu
    }
    ```
 
-2. Utwórz adres URL, łącząc hosta punktu końcowego, ścieżkę i ciąg parametrów. Utwórz nowy `HttpsURLConnection` obiekt.
+2. Utwórz adres URL, łącząc parametry hosta, ścieżki i parametrów punktu końcowego. Utwórz nowy `HttpsURLConnection` obiekt.
 
     ```java
     URL url = new URL(host + path + params);
     HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
     ```
 
-3. Otwórz połączenie z adresem URL. Ustaw metodę żądania na `POST`. Dodaj parametry żądania. Pamiętaj, aby dodać klucz subskrypcji do nagłówka `Ocp-Apim-Subscription-Key`.
+3. Otwórz połączenie z adresem URL. Ustaw metodę żądania na `POST` i Dodaj parametry żądania. Pamiętaj, aby dodać klucz subskrypcji do `Ocp-Apim-Subscription-Key` nagłówka.
 
     ```java
     connection.setRequestMethod("POST");
@@ -80,7 +86,7 @@ Użyj tego przewodnika Szybki start, aby wykonać pierwsze wywołanie interfejsu
     connection.setDoOutput(true);
     ```
 
-4. Utwórz nowy obiekt `DataOutputStream` i wyślij żądanie do interfejsu API.
+4. Utwórz nowy `DataOutputStream` obiekt i Wyślij żądanie do interfejsu API.
 
     ```java
         DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
@@ -91,7 +97,7 @@ Użyj tego przewodnika Szybki start, aby wykonać pierwsze wywołanie interfejsu
 
 ## <a name="format-and-read-the-api-response"></a>Formatowanie i odczytywanie odpowiedzi interfejsu API
 
-1. Dodaj tę metodę do klasy. Formatuje on kod JSON, aby uzyskać bardziej czytelny wynik.
+1. Dodaj `prettify()` metodę do klasy, która sformatuje kod JSON, aby uzyskać bardziej czytelny wynik.
 
     ``` java
     // This function prettifies the json response.
@@ -117,7 +123,7 @@ Użyj tego przewodnika Szybki start, aby wykonać pierwsze wywołanie interfejsu
 
 ## <a name="call-the-api"></a>Wywoływanie interfejsu API
 
-W funkcji Main aplikacji Wywołaj metodę Check () utworzoną powyżej.
+W funkcji Main aplikacji należy wywołać `check()` metodę utworzoną wcześniej.
 ```java
         public static void main(String[] args) {
             try {
@@ -131,19 +137,19 @@ W funkcji Main aplikacji Wywołaj metodę Check () utworzoną powyżej.
 
 ## <a name="run-the-application"></a>Uruchamianie aplikacji
 
-Skompiluj i Uruchom projekt.
+Skompiluj i Uruchom projekt. Jeśli używasz wiersza polecenia, użyj następujących poleceń, aby skompilować i uruchomić aplikację:
 
-Jeśli używasz wiersza polecenia, użyj następujących poleceń, aby skompilować i uruchomić aplikację.
+1. Kompiluj aplikację:
 
-**Utworzenia**
-```bash
-javac -classpath .;gson-2.2.2.jar\* <CLASS_NAME>.java
-```
+   ```bash
+   javac -classpath .;gson-2.2.2.jar\* <CLASS_NAME>.java
+   ```
 
-**Wykonane**
-```bash
-java -cp .;gson-2.2.2.jar\* <CLASS_NAME>
-```
+2. Uruchom aplikację:
+
+   ```bash
+   java -cp .;gson-2.2.2.jar\* <CLASS_NAME>
+   ```
 
 ## <a name="example-json-response"></a>Przykładowa odpowiedź JSON
 
@@ -193,4 +199,4 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 > [Tworzenie jednostronicowej aplikacji internetowej](../tutorials/spellcheck.md)
 
 - [Czym jest interfejs API sprawdzania pisowni Bing?](../overview.md)
-- [Dokumentacja interfejsu API sprawdzania pisowni Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+- [Dokumentacja wersji 7 interfejsu API sprawdzanie pisowni Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: ac4cacd8233935362ed155dab22a66459ed9126d
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 3c42d520e5e30e57906245b9405b0d445be8ee16
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691334"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871373"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Uczenie modelu aparatu rozpoznawania formularzy z etykietami przy użyciu narzędzia do etykietowania przykładowego
 
@@ -143,6 +143,7 @@ Następnie utworzysz Tagi (etykiety) i zastosujemy je do elementów tekstowych, 
     > * Etykiety wartości w postaci, w jakiej są wyświetlane w formularzu; nie próbuj podzielić wartości na dwie części z dwoma różnymi tagami. Na przykład pole adresu powinno mieć etykietę z pojedynczym tagiem nawet wtedy, gdy obejmuje wiele wierszy.
     > * Nie dołączaj kluczy w oznakowanych polach &mdash; tylko wartości.
     > * Dane tabeli powinny być wykrywane automatycznie i będą dostępne w końcowym wyjściowym pliku JSON. Jeśli jednak model nie wykryje wszystkich danych tabeli, możesz również ręcznie oznaczyć te pola. Oznacz każdą komórkę w tabeli inną etykietą. Jeśli formularze zawierają tabele o różnej liczbie wierszy, upewnij się, że tag zawiera co najmniej jeden formularz o największej możliwej tabeli.
+    > * Aby usunąć zastosowany tag, zaznacz prostokąt w widoku dokumentu i naciśnij klawisz Delete.
 
 ![Główne okno edytora przykładowego narzędzia do etykietowania](../media/label-tool/main-editor.png)
 
@@ -164,6 +165,27 @@ Następujące typy wartości i różnice są obecnie obsługiwane:
     * domyślne, `dmy` , `mdy` ,`ymd`
 * `time`
 * `integer`
+
+> [!NOTE]
+> Zobacz te reguły formatowania dat:
+> 
+> Jako ograniczników dat DMY można używać następujących znaków: `, - / . \` . Nie można użyć odstępu jako ogranicznika. Przykład:
+> * 01, 01, 2020
+> * 01-01-2020
+> * 01/01/2020
+>
+> Każdy dzień i miesiąc mogą być zapisywane jako jedną lub dwie cyfry, a rok może składać się z dwóch lub czterech cyfr:
+> * 1-1-2020
+> * 1-01-20
+>
+> Jeśli ciąg daty DMY ma osiem cyfr, ogranicznik jest opcjonalny:
+> * 01012020
+> * 01 01 2020
+>
+> Miesiąc można również zapisać jako jego pełną lub krótką nazwę. Jeśli nazwa jest używana, znaki ogranicznika są opcjonalne:
+> * 01/Jan/2020
+> * 01Jan2020
+> * 01 stycznia 2020
 
 ## <a name="train-a-custom-model"></a>Trenowanie modelu niestandardowego
 

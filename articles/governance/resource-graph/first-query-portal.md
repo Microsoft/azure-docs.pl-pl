@@ -1,14 +1,14 @@
 ---
 title: 'Szybki Start: pierwsze zapytanie w portalu'
 description: W tym przewodniku szybki start wykonaj kroki, aby uruchomić pierwsze zapytanie z Azure Portal przy użyciu Eksploratora Azure Resource Graph.
-ms.date: 11/21/2019
+ms.date: 05/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 5cf355e78ad51e06d7ba27d48dd352f35b4c0740
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 69fb1262de706185d8968e9381bb34dd0d84a3b7
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74406795"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83872088"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Szybki Start: uruchamianie pierwszego zapytania grafu zasobów przy użyciu Eksploratora Azure Resource Graph
 
@@ -29,25 +29,25 @@ Otwórz [Azure Portal](https://portal.azure.com) , aby znaleźć i użyć Eksplo
 1. W porcji **zapytania 1** okna wprowadź zapytanie `Resources | project name, type | limit 5` i wybierz polecenie **Uruchom zapytanie**.
 
    > [!NOTE]
-   > Ponieważ w tym przykładzie zapytania nie określono modyfikatora sortowania, `order by`takiego jak uruchomienie tego zapytania wiele razy, prawdopodobnie zostanie wyznaczony inny zestaw zasobów dla każdego żądania.
+   > Ponieważ w tym przykładzie zapytania nie określono modyfikatora sortowania, takiego jak `order by` uruchomienie tego zapytania wiele razy, prawdopodobnie zostanie wyznaczony inny zestaw zasobów dla każdego żądania.
 
 1. Zapoznaj się z odpowiedzią zapytania na karcie **wyniki** . Wybierz kartę **komunikaty** , aby wyświetlić szczegółowe informacje o zapytaniu, w tym liczbę wyników i czas trwania zapytania. Błędy, jeśli istnieją, są wyświetlane na tej karcie.
 
-1. Zaktualizuj zapytanie do `order by` właściwości **name** : `Resources | project name, type | limit 5 | order by name asc`. Następnie wybierz pozycję **Uruchom zapytanie**.
+1. Zaktualizuj zapytanie do `order by` właściwości **name** : `Resources | project name, type | limit 5 | order by name asc` . Następnie wybierz pozycję **Uruchom zapytanie**.
 
    > [!NOTE]
-   > Tak samo jak w przypadku pierwszego zapytania, wielokrotne uruchomienie tego zapytania prawdopodobnie zwróci inny zestaw zasobów dla każdego żądania. Kolejność poleceń zapytania jest ważna. W tym przykładzie polecenie `order by` następuje po poleceniu `limit`. Spowoduje to najpierw ograniczenie wyników zapytania, a następnie ich uporządkowanie.
+   > Tak samo jak w przypadku pierwszego zapytania, wielokrotne uruchomienie tego zapytania prawdopodobnie zwróci inny zestaw zasobów dla każdego żądania. Kolejność poleceń zapytania jest ważna. W tym przykładzie polecenie `order by` następuje po poleceniu `limit`. Ta kolejność poleceń najpierw ogranicza wyniki zapytania, a następnie porządkuje je.
 
-1. Zaktualizuj zapytanie do `order by` pierwszej właściwości **nazwy** , a następnie `limit` do pięciu pierwszych wyników:. `Resources | project name, type | order by name asc | limit 5` Następnie wybierz pozycję **Uruchom zapytanie**.
+1. Zaktualizuj zapytanie do pierwszej `order by` właściwości **nazwy** , a następnie `limit` do pięciu pierwszych wyników: `Resources | project name, type | order by name asc | limit 5` . Następnie wybierz pozycję **Uruchom zapytanie**.
 
-Gdy ostateczne zapytanie jest uruchamiane kilka razy, przy założeniu, że żadne zmiany w środowisku nie są zmieniane, zwrócone wyniki są spójne i oczekiwane przez właściwość **name** , ale nadal są ograniczone do pięciu pierwszych wyników.
+Gdy ostateczne zapytanie jest uruchamiane kilka razy, przy założeniu, że nic w środowisku nie zmienia się, zwracane wyniki są spójne i uporządkowane według właściwości **nazwy** , ale nadal są ograniczone do pięciu pierwszych wyników.
 
 ### <a name="schema-browser"></a>Przeglądarka schematów
 
 Przeglądarka schematów znajduje się w lewym okienku Eksploratora grafów zasobów. Ta lista zasobów zawiera wszystkie _typy_ zasobów platformy Azure, które są obsługiwane przez usługę Azure Resource Graph i które istnieją w dzierżawie, do której masz dostęp. Rozszerzanie typu zasobu lub podwłaściwości pokazuje właściwości podrzędne, których można użyć do utworzenia kwerendy wykresu zasobów.
 
 Wybór typu zasobu `where type =="<resource type>"` do pola zapytania. Wybranie jednej z właściwości podrzędnych powoduje dodanie `where <propertyName> == "INSERT_VALUE_HERE"` do pola zapytania.
-Przeglądarka schematów to doskonały sposób odnajdywania właściwości do użycia w zapytaniach. Pamiętaj, aby w _tym\_miejscu\_zastąpić wartość Wstaw_ przy użyciu własnej wartości, Dostosuj zapytanie o warunki, operatory i funkcje, aby osiągnąć zamierzone wyniki.
+Przeglądarka schematów to doskonały sposób odnajdywania właściwości do użycia w zapytaniach. Pamiętaj, aby w _ \_ \_ tym miejscu zastąpić wartość Wstaw_ przy użyciu własnej wartości, Dostosuj zapytanie o warunki, operatory i funkcje, aby osiągnąć zamierzone wyniki.
 
 ## <a name="create-a-chart-from-the-resource-graph-query"></a>Tworzenie wykresu na podstawie zapytania wykresu zasobów
 
@@ -97,7 +97,7 @@ Aby przedstawić przykłady zapytań dotyczących wykresów zasobów i jak możn
   [![Przykład obrazu dla przykładowego pulpitu nawigacyjnego #2](./media/arge-sample2-small.png)](./media/arge-sample2-large.png#lightbox)
 
 > [!NOTE]
-> Liczniki i wykresy w powyższym przykładowym zrzucie ekranu nawigacyjnego będą się różnić w zależności od środowiska platformy Azure.
+> Liczniki i wykresy w powyższym przykładowym zrzucie ekranu nawigacyjnego różnią się w zależności od środowiska platformy Azure.
 
 1. Wybierz i Pobierz przykładowy pulpit nawigacyjny, który chcesz oszacować.
 
@@ -107,7 +107,7 @@ Aby przedstawić przykłady zapytań dotyczących wykresów zasobów i jak możn
 
 Zaimportowany pulpit nawigacyjny jest automatycznie wyświetlany. Ponieważ teraz istnieje ona w Azure Portal, możesz eksplorować i wprowadzać zmiany w miarę potrzeb lub tworzyć nowe pulpity nawigacyjne z przykładu, aby udostępnić swoje zespoły. Aby uzyskać więcej informacji na temat pracy z pulpitami nawigacyjnymi, zobacz [Tworzenie i udostępnianie pulpitów nawigacyjnych w Azure Portal](../../azure-portal/azure-portal-dashboards.md).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli chcesz usunąć przykładowe pulpity nawigacyjne grafu zasobów ze środowiska Azure Portal, możesz to zrobić, wykonując następujące czynności:
 

@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bec28b98a8d2640b5a8034569d49077ce6b4177
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6151bbd9f056ef95c0875b83c7b6fccb732aebfe
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81450993"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83870974"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planowanie Azure Active Directory samoobsługowego resetowania hasła
 
@@ -149,19 +149,19 @@ Aby utworzyć grupę, zobacz jak [utworzyć grupę i dodać członków w Azure A
 
 Następujące ustawienia są wymagane do włączenia SSPR oraz zalecanych wartości.
 
-| Obszar | Ustawienie | Wartość |
+| Warstwowy | Ustawienie | Wartość |
 | --- | --- | --- |
 | **Właściwości SSPR** | Włączono Samoobsługowe resetowanie hasła | **Wybrana** Grupa dla pilotażu/ **wszystko** dla środowiska produkcyjnego |
 | **Metody uwierzytelniania** | Metody uwierzytelniania wymagane do zarejestrowania | Zawsze 1 więcej niż wymagane do zresetowania |
 |   | Metody uwierzytelniania wymagane do zresetowania | Jeden lub dwa |
-| **Rejestracja** | Czy wymagać od użytkowników rejestrowania się podczas logowania? | Tak |
+| **Rejestracja** | Czy wymagać od użytkowników rejestrowania się podczas logowania? | Yes |
 |   | Liczba dni, zanim użytkownicy zostaną poproszeni o ponowne potwierdzenie swoich informacji uwierzytelniania | 90 – 180 dni |
-| **Powiadomienia** | Czy powiadamiać użytkowników o resetowaniu hasła? | Tak |
-|   | Czy powiadamiać wszystkich administratorów, gdy inni administratorzy zresetują swoje hasło? | Tak |
-| **Dostosowywanie** | Dostosuj link do pomocy technicznej | Tak |
+| **Powiadomienia** | Czy powiadamiać użytkowników o resetowaniu hasła? | Yes |
+|   | Czy powiadamiać wszystkich administratorów, gdy inni administratorzy zresetują swoje hasło? | Yes |
+| **Dostosowywanie** | Dostosuj link do pomocy technicznej | Yes |
 |   | Niestandardowa wiadomość e-mail lub adres URL pomocy technicznej | Witryna lub adres e-mail pomocy technicznej |
-| **Integracja lokalna** | Zapisuj hasła do lokalnej usługi AD | Tak |
-|   | Zezwalaj użytkownikom na Odblokowywanie konta bez resetowania hasła | Tak |
+| **Integracja lokalna** | Zapisuj hasła do lokalnej usługi AD | Yes |
+|   | Zezwalaj użytkownikom na Odblokowywanie konta bez resetowania hasła | Yes |
 
 ### <a name="sspr-properties"></a>Właściwości SSPR
 

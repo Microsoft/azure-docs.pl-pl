@@ -7,38 +7,18 @@ ms.service: vs-appcenter
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: masoucou
-ms.openlocfilehash: 820005bca008ea3bdb59659c815da3ec36beb0d4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a20ec1039dc8fc477410891495762395b408f2d6
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80241051"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83870572"
 ---
 # <a name="add-authentication-and-manage-user-identities-in-your-mobile-apps"></a>Dodawanie uwierzytelniania i zarządzanie tożsamościami użytkowników w aplikacjach mobilnych
 
 Udostępnienie użytkownikowi i ich zachowania w aplikacji pozwala deweloperom lepiej zaangażować użytkowników, tworząc dostosowane do nich środowiska. Niezależnie od tego, czy jesteś deweloperem aplikacji tworzącym aplikację do współpracy dla użytkowników w organizacji, czy tworzysz następną platformę sieci społecznościowej, musisz mieć możliwość uwierzytelniania użytkowników i zarządzania tożsamościami użytkowników. Usługa zarządzania tożsamościami jest jedną z najważniejszych funkcji mobilnej usługi zaplecza.
 
 Użyj następujących usług, aby włączyć uwierzytelnianie użytkowników w aplikacjach mobilnych.
-
-## <a name="visual-studio-app-center"></a>Visual Studio App Center
-[App Center auth](/appcenter/auth/) to oparta na chmurze usługa zarządzania tożsamościami, której deweloperzy mogą używać do uwierzytelniania użytkowników i zarządzania tożsamościami użytkowników. Uwierzytelnianie App Center integruje się również z innymi częściami Visual Studio App Center. Deweloperzy mogą używać tożsamości użytkownika do [wyświetlania danych użytkownika](/appcenter/data/index) w innych usługach, a nawet [wysyłać powiadomienia wypychane do użytkowników zamiast poszczególnych urządzeń](/appcenter/push/push-to-user#setting-user-identity). 
-
-**Najważniejsze funkcje**
-- Obsługiwane przez Azure Active Directory B2C (Azure AD B2C). 
-    - Klasy korporacyjnej.
-    - Wysoka dostępność.
-    - Usługa zabezpieczona i globalna.
-- Skorzystaj z własnej tożsamości i opcji, aby korzystać z innych popularnych dostawców zarządzania tożsamościami i dostępem, takich jak rozwiązanie Auth0 i Firebase.
-- Obsługa Azure Active Directory.
-    - Połącz istniejących dzierżawców usługi Azure AD. 
-    - Włącz uwierzytelnianie w domenie firmowej.
-    - Zarządzanie dostępem do poufnych danych.
-- Proste środowisko użytkownika i środowisko Magical SDK dzięki zapakowaniu biblioteki uwierzytelniania firmy Microsoft z zestawem SDK Visual Studio App Center.
-- Obsługa platformy dla systemów iOS, Android, Xamarin i reagowanie na środowisko natywne.
-
-**Dokumentacja**
-- [Zarejestruj się w usłudze Visual Studio App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs) 
-- [Wprowadzenie do uwierzytelniania App Center](/appcenter/auth/)
 
 ## <a name="azure-active-directory-b2c"></a>Azure Active Directory B2C
 [Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/) to usługa zarządzania tożsamościami między konsumentami (B2C), której deweloperzy mogą używać do uwierzytelniania klientów. Ta usługa białych etykiet umożliwia deweloperom Dostosowywanie i kontrolowanie sposobu, w jaki użytkownicy bezpiecznie współdziałają z aplikacjami sieci Web, komputerami przenośnymi lub urządzeniami jednostronicowymi. Za pomocą usługi Azure AD B2C użytkownicy mogą tworzyć konta, logować się, resetować hasła i edytować profile. W usłudze Azure AD B2C zaimplementowano formę protokołów OpenID Connect i OAuth 2.0. 
@@ -58,7 +38,7 @@ Użyj następujących usług, aby włączyć uwierzytelnianie użytkowników w a
 - [Przewodniki Szybki start](/azure/active-directory-b2c/active-directory-b2c-quickstarts-web-app)
 - [Samples](/azure/active-directory-b2c/code-samples)
 
-## <a name="azure-active-directory"></a>Azure Active Directory
+## <a name="azure-active-directory"></a>Usługa Azure Active Directory
 [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) to usługa zarządzania tożsamościami i dostępem w chmurze firmy Microsoft, która ułatwia pracownikom zalogowanie się i uzyskanie dostępu do:
 - Zasoby zewnętrzne, takie jak Microsoft Office 365, Azure Portal i tysiące innych aplikacji oprogramowania jako usługi (SaaS).
 - Zasoby wewnętrzne, takie jak aplikacje w sieci firmowej i intranecie, a także aplikacje w chmurze opracowane przez organizację.

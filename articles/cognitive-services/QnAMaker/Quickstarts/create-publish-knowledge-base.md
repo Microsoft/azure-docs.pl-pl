@@ -2,13 +2,13 @@
 title: 'Szybki Start: Tworzenie, uczenie i publikowanie bazy wiedzy — QnA Maker'
 description: Na podstawie własnej zawartości, takiej jak często zadawane pytania lub podręczniki produktów, możesz utworzyć bazę wiedzy usługi QnA Maker. Ten artykuł zawiera przykład tworzenia bazy wiedzy QnA Makerej na podstawie prostej strony internetowej często zadawanych pytań i odpowiedzi na nie QnA Maker.
 ms.topic: conceptual
-ms.date: 02/08/2020
-ms.openlocfilehash: 5a3cd4a66ae3a7148b517050c3d1a8c6c8e7a712
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/26/2020
+ms.openlocfilehash: a35cbdea2d40e4b0df0ce0f0b36f1b6bf60dd42e
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80756821"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83871466"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Szybki Start: Tworzenie, uczenie i publikowanie bazy wiedzy QnA Maker
 
@@ -17,7 +17,7 @@ Na podstawie własnej zawartości, takiej jak często zadawane pytania lub podr�
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 > [!div class="checklist"]
-> * Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+> * Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 > * Utworzono [zasób](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) QnA Maker w Azure Portal. Pamiętaj o IDENTYFIKATORze Azure Active Directory, subskrypcji, nazwie zasobu QnA wybranym podczas tworzenia zasobu.
 
 ## <a name="create-your-first-qna-maker-knowledge-base"></a>Tworzenie pierwszej QnA Maker bazy wiedzy
@@ -34,8 +34,8 @@ Na podstawie własnej zawartości, takiej jak często zadawane pytania lub podr�
 
 1. W **kroku 3**wybierz pozycję Active Directory, subskrypcję, usługę (zasób) i język dla wszystkich baz wiedzy utworzonych w usłudze.
 
-   ![Zrzut ekranu przedstawiający wybór bazy wiedzy usługi QnA Maker Service](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
-
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/qnaservice-selection.png" alt-text="Zrzut ekranu przedstawiający wybór bazy wiedzy usługi QnA Maker Service":::
+    
 1. W **kroku 3**nazwij swoją bazę wiedzy **QNA KB**.
 
 1. W **kroku 4**Skonfiguruj ustawienia w następującej tabeli:
@@ -64,9 +64,9 @@ Na podstawie własnej zawartości, takiej jak często zadawane pytania lub podr�
 
     ` * Azure QnA Maker service\n* Azure Cognitive Search\n* Azure web app\n* Azure app plan`
 
-    ![ Dodaj pytanie jako tekst i odpowiedź sformatowaną z uwzględnieniem promocji.](../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png)
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png" alt-text="Dodaj pytanie jako tekst i odpowiedź sformatowaną z uwzględnieniem promocji.":::
 
-    Symbol promocji, `*`,, jest używany dla punktów punktorów. `\n` Służy do nowego wiersza.
+    Symbol promocji, `*` ,, jest używany dla punktów punktorów. `\n`Służy do nowego wiersza.
 
     Na stronie **Edytuj** zostanie wyświetlona wartość promocji. Gdy używasz panelu **testowego** później, zobaczysz poprawność wyświetlana w promocji.
 
@@ -81,7 +81,7 @@ W prawym górnym rogu wybierz pozycję **Zapisz i pouczenie** , aby zapisać zmi
 
     `How many Azure services are used by a knowledge base?`
 
-    ![ Wprowadź przykładowe zapytanie użytkownika w polu tekstowym. ](../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png)
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png" alt-text="Wprowadź przykładowe zapytanie użytkownika w polu tekstowym.":::
 
 1. Wybierz pozycję **Zbadaj**, aby bardziej szczegółowo sprawdzić odpowiedź. Okno testowe służy do testowania zmian w bazie wiedzy przed opublikowaniem bazy wiedzy.
 
@@ -131,7 +131,7 @@ Po wprowadzeniu zmian w bazie wiedzy i ponownym opublikowaniu nie trzeba podejmo
 
     Bot rozmowy reaguje na odpowiedź z bazy wiedzy.
 
-    ![Wprowadź zapytanie użytkownika do programu testowego rozmowy w sieci Web.](../media/qnamaker-create-publish-knowledge-base/test-web-chat.png)
+    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/test-web-chat.png" alt-text="Wprowadź zapytanie użytkownika do programu testowego rozmowy w sieci Web.":::
 
 ## <a name="what-did-you-accomplish"></a>Co zostało wykonane?
 
@@ -141,7 +141,7 @@ Po opublikowaniu bazy wiedzy utworzono bot i przetestowano bot.
 
 Zostało to wykonane w ciągu kilku minut bez konieczności pisania kodu lub czyszczenia zawartości.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie chcesz kontynuować korzystania z następnego przewodnika Szybki Start, Usuń QnA Maker i zasoby struktury bot w Azure Portal.
 

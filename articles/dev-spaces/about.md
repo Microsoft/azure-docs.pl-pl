@@ -6,12 +6,12 @@ ms.topic: overview
 description: Dowiedz się, jak Azure Dev Spaces zapewnia szybkie, iteracyjne środowisko programistyczne Kubernetes dla zespołów w klastrach usługi Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, polecenia kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 8b22181bcddda9e4156c0e0dbe61d7d813498d96
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fd757d5392a7cefcacdd1d77807beb72e34c8f89
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80529729"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873363"
 ---
 # <a name="what-is-azure-dev-spaces"></a>Co to jest usługa Azure Dev Spaces?
 
@@ -38,7 +38,7 @@ Aby uzyskać więcej informacji na temat działania Azure Dev Spaces, zobacz [Ho
 
 ## <a name="supported-regions-and-configurations"></a>Obsługiwane regiony i konfiguracje
 
-Azure Dev Spaces jest obsługiwana tylko przez klastry AKS w [niektórych regionach][supported-regions]. Azure Dev Spaces obsługuje używanie [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) lub [Visual Studio Code](https://code.visualstudio.com/download) z [rozszerzeniem Azure dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) zainstalowanym w systemie Linux, macOS lub Windows 8 lub nowszym w celu kompilowania i uruchamiania aplikacji na AKS. Obsługuje ona również korzystanie z [programu Visual Studio](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) zainstalowanego w systemie Windows 8 lub nowszym. W przypadku programu Visual Studio 2019 będzie potrzebne obciążenie Programowanie na platformie Azure. W przypadku programu Visual Studio 2017 będzie potrzebne obciążenie programowanie sieci Web i [Visual Studio Tools for Kubernetes](https://aka.ms/get-vsk8stools).
+Azure Dev Spaces jest obsługiwana tylko przez klastry AKS w [niektórych regionach][supported-regions]. Azure Dev Spaces obsługuje używanie [interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) lub [Visual Studio Code](https://code.visualstudio.com/download) z [rozszerzeniem Azure dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) zainstalowanym w systemie Linux, macOS lub Windows 8 lub nowszym w celu kompilowania i uruchamiania aplikacji na AKS. Obsługuje ona również korzystanie z [programu Visual Studio 2019](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) w systemie Windows przy użyciu obciążeń programistycznych platformy Azure.
 
 ## <a name="next-steps"></a>Następne kroki
 
