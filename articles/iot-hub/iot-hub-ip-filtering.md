@@ -5,14 +5,14 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 05/25/2020
 ms.author: robinsh
-ms.openlocfilehash: 74ee9506d7b21e5f0654c8a46976b4d5c63b5197
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 742706f4daa518faf06e5c8b735e679f345f1279
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649375"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849878"
 ---
 # <a name="use-ip-filters"></a>Korzystanie z filtrów adresów IP
 
@@ -39,17 +39,19 @@ Wszystkie próby połączenia z adresu IP, które pasują do reguły odrzucenia 
 
 Domyślnie siatka **filtrów IP** w portalu Centrum IoT jest pusta. To ustawienie domyślne oznacza, że centrum akceptuje połączenia z dowolnego adresu IP. To ustawienie domyślne jest równoważne z regułą akceptującą zakres adresów IP 0.0.0.0/0.
 
-![IoT Hub domyślnych ustawień filtru IP](./media/iot-hub-ip-filtering/ip-filter-default.png)
+Aby przejść do strony Ustawienia filtru IP, wybierz pozycję **Sieć**, **dostęp publiczny**, a następnie wybierz pozycję **wybrane zakresy adresów IP**:
+
+:::image type="content" source="media/iot-hub-ip-filtering/ip-filter-default.png" alt-text="IoT Hub domyślnych ustawień filtru IP":::
 
 ## <a name="add-or-edit-an-ip-filter-rule"></a>Dodawanie lub Edytowanie reguły filtru IP
 
 Aby dodać regułę filtrowania adresów IP, wybierz pozycję **+ Dodaj regułę filtrowania adresów IP**.
 
-![Dodawanie reguły filtru IP do centrum IoT Hub](./media/iot-hub-ip-filtering/ip-filter-add-rule.png)
+:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-add-rule.png" alt-text="Dodawanie reguły filtru IP do centrum IoT Hub":::
 
 Po wybraniu pozycji **Dodaj regułę filtrowania adresów IP**Wypełnij pola.
 
-![Po wybraniu opcji Dodaj regułę filtrowania adresów IP](./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png)
+:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png" alt-text="Po wybraniu opcji Dodaj regułę filtrowania adresów IP":::
 
 * Podaj **nazwę** dla reguły filtru IP. Musi to być unikatowy ciąg alfanumeryczny bez uwzględniania wielkości liter, do 128 znaków. Akceptowane są tylko znaki alfanumeryczne ASCII 7-bitowe Plus `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` .
 
@@ -59,7 +61,7 @@ Po wybraniu pozycji **Dodaj regułę filtrowania adresów IP**Wypełnij pola.
 
 Po wypełnieniu pól wybierz pozycję **Zapisz** , aby zapisać regułę. Zostanie wyświetlony alert informujący o tym, że aktualizacja jest w toku.
 
-![Powiadomienie o zapisaniu reguły filtru IP](./media/iot-hub-ip-filtering/ip-filter-save-new-rule.png)
+:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-save-new-rule.png" alt-text="Powiadomienie o zapisaniu reguły filtru IP":::
 
 Opcja **Dodaj** jest wyłączona, gdy zostanie osiągnięta maksymalna liczba reguł filtru IP.
 
@@ -69,7 +71,7 @@ Aby edytować istniejącą regułę, wybierz dane, które chcesz zmienić, wprow
 
 Aby usunąć regułę filtrowania adresów IP, wybierz ikonę kosza dla tego wiersza, a następnie wybierz pozycję **Zapisz**. Reguła zostanie usunięta, a zmiana została zapisana.
 
-![Usuwanie reguły filtru IoT Hub IP](./media/iot-hub-ip-filtering/ip-filter-delete-rule.png)
+:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-delete-rule.png" alt-text="Usuwanie reguły filtru IoT Hub IP":::
 
 ## <a name="retrieve-and-update-ip-filters-using-azure-cli"></a>Pobieranie i aktualizowanie filtrów IP przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -159,11 +161,10 @@ Aby zmienić kolejność reguł filtrów IP w siatce, klikaj trzy pionowe kropki
 
 Aby zapisać nową kolejność reguł filtrowania adresów IP, kliknij przycisk **Zapisz**.
 
-![Zmiana kolejności reguł filtrowania IoT Hub IP](./media/iot-hub-ip-filtering/ip-filter-rule-order.png)
+:::image type="content" source="media/iot-hub-ip-filtering/ip-filter-rule-order.png" alt-text="Zmienianie kolejności reguł filtrów IP Centrum IoT HUb":::
 
 ## <a name="next-steps"></a>Następne kroki
 
 Aby dowiedzieć się więcej o możliwościach IoT Hub, zobacz:
 
-* [Monitorowanie operacji](iot-hub-operations-monitoring.md)
 * [Metryki IoT Hub](iot-hub-metrics.md)

@@ -5,13 +5,13 @@ author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
-ms.date: 08/01/2019
-ms.openlocfilehash: 854760ea0158d356cc5449c9f1fdab6161588640
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 05/26/2020
+ms.openlocfilehash: e37bd22e0bd0f750ef7b4ae9cc8465ed5292883e
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68976858"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860991"
 ---
 # <a name="quickstart-create-an-azure-data-catalog"></a>Szybki Start: Tworzenie Azure Data Catalog
 
@@ -22,6 +22,9 @@ Ten przewodnik Szybki Start pomaga rozpocząć tworzenie Azure Data Catalog.
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
+
+> [!Note]
+> Ze względu na wymagania dotyczące zabezpieczeń platformy Azure Azure Data Catalog ma enfored Transport Layer Security (TLS) 1,2. Protokoły TLS 1,0 i TLS 1,1 zostały wyłączone. Jeśli maszyna nie została zaktualizowana w przypadku protokołu TLS 1,2, mogą wystąpić błędy uruchamiania narzędzia rejestracji. Aby zaktualizować maszynę pod kątem protokołu TLS 1,2, zobacz [Enable Transport Layer Security (1,2)](https://docs.microsoft.com/mem/configmgr/core/plan-design/security/enable-tls-1-2) .
 
 Aby rozpocząć, musisz dysponować:
 
@@ -34,7 +37,7 @@ Aby skonfigurować Data Catalog, musisz być właścicielem lub współwłaścic
 
 W ramach organizacji — domeny usługi Azure Active Directory — można aprowizować tylko jeden wykaz danych. W związku z tym, Jeśli właścicielem lub współwłaścicielem subskrypcji platformy Azure należącej do tej domeny Azure Active Directory już utworzono wykaz, nie można ponownie utworzyć katalogu, nawet jeśli masz wiele subskrypcji platformy Azure. Aby zobaczyć, czy w domenie usługi Azure Active Directory został utworzony wykaz danych, przejdź do [strony głównej usługi Azure Data Catalog](http://azuredatacatalog.com) i sprawdź, czy wykaz jest widoczny. Jeśli wykaz został już utworzony, pomiń poniższą procedurę i przejdź do następnej sekcji.
 
-1. Przejdź do [Azure Portal](https://portal.azure.com) > **Utwórz zasób** i wybierz pozycję **Data Catalog**.
+1. Przejdź do [Azure Portal](https://portal.azure.com)  >  **Utwórz zasób** i wybierz pozycję **Data Catalog**.
 
     ![Przycisk tworzenia Azure Data Catalog](media/data-catalog-get-started/data-catalog-create.png)
 

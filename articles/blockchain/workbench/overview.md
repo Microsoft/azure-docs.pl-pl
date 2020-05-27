@@ -1,15 +1,15 @@
 ---
 title: Omówienie usługi Azure łańcucha bloków Workbench w wersji zapoznawczej
 description: Omówienie usługi Azure łańcucha bloków Workbench w wersji zapoznawczej i jej możliwości.
-ms.date: 09/05/2019
+ms.date: 05/22/2020
 ms.topic: overview
 ms.reviewer: brendal
-ms.openlocfilehash: 65eea1b87daf31908d96e95bff0c12b72e4791c6
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 9f2eafb892be4134d4fb178235249e5640544459
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835907"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83850032"
 ---
 # <a name="what-is-azure-blockchain-workbench"></a>Czym jest usługa Azure Blockchain Workbench?
 
@@ -55,7 +55,7 @@ Aby przekazać opinie o produkcie lub zażądać nowych funkcji, Opublikuj głos
 
 Współpracuj z inżynierami firmy Microsoft i ekspertów społeczności Azure łańcucha bloków.
 
-* [Microsoft Q&stronie pytania dotyczącej platformy Azure łańcucha bloków](https://docs.microsoft.com/answers/topics/azure-blockchain-service.html)
+* [Microsoft Q&stronie pytania dotyczącej usługi Azure łańcucha bloków Workbench](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html)
 * [Społeczność techniczna firmy Microsoft](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)
 

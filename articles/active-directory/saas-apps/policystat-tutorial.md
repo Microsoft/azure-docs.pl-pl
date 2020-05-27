@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 327e470d60235e6bf400293e80e3aec5f6144ff4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4f467e061ad52fdcc6d1e8706bb902088b237c24
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68943442"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848774"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Samouczek: integracja Azure Active Directory z usługą PolicyStat
 
@@ -80,10 +80,9 @@ Aby skonfigurować i przetestować Logowanie jednokrotne w usłudze Azure AD za 
 
 1. **[Konfigurowanie logowania jednokrotnego usługi Azure AD](#configure-azure-ad-single-sign-on)** — aby umożliwić użytkownikom korzystanie z tej funkcji.
 2. **[Skonfiguruj logowanie](#configure-policystat-single-sign-on)** jednokrotne w usłudze PolicyStat, aby skonfigurować ustawienia logowania jednokrotnego na stronie aplikacji.
-3. **[Tworzenie użytkownika testowego usługi Azure AD](#create-an-azure-ad-test-user)** — aby przetestować logowanie jednokrotne usługi Azure AD z użytkownikiem Britta Simon.
-4. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
-5. **[Utwórz użytkownika testowego PolicyStat](#create-policystat-test-user)** , aby uzyskać odpowiednik Britta Simon w PolicyStat, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
-6. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
+3. **[Przypisywanie użytkownika testowego usługi Azure AD](#assign-the-azure-ad-test-user)** — aby umożliwić użytkownikowi Britta Simon korzystanie z logowania jednokrotnego usługi Azure AD.
+4. **[Utwórz użytkownika testowego PolicyStat](#create-policystat-test-user)** , aby uzyskać odpowiednik Britta Simon w PolicyStat, który jest połączony z reprezentacją użytkownika w usłudze Azure AD.
+5. **[Testowanie logowania jednokrotnego](#test-single-sign-on)** — aby sprawdzić, czy konfiguracja działa.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurowanie logowania jednokrotnego usługi Azure AD
 
@@ -120,7 +119,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą PolicyStat,
 
 5. Aplikacja PolicyStat oczekuje potwierdzeń SAML w określonym formacie, co wymaga dodania niestandardowych mapowań atrybutów do konfiguracji atrybutów tokenu SAML. Poniższy zrzut ekranu przedstawia listę atrybutów domyślnych. Kliknij przycisk **Edytuj** ikonę, aby otworzyć okno dialogowe **atrybuty użytkownika** .
 
-    ![image](common/edit-attribute.png)
+    ![image (obraz)](common/edit-attribute.png)
 
 6. Oprócz powyższych, aplikacja PolicyStat oczekuje kilku atrybutów do przekazania z powrotem w odpowiedzi SAML. W sekcji **Oświadczenia użytkownika** w oknie dialogowym **Atrybuty użytkownika** wykonaj następujące czynności, aby dodać atrybut tokenu SAML, jak pokazano w poniższej tabeli:
 
@@ -130,9 +129,9 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą PolicyStat,
 
     a. Kliknij przycisk **Dodaj nowe oświadczenie**, aby otworzyć okno dialogowe **Zarządzanie oświadczeniami użytkownika**.
     
-    ![image](common/new-save-attribute.png)
+    ![image (obraz)](common/new-save-attribute.png)
 
-    ![image](./media/policystat-tutorial/attribute01.png)
+    ![image (obraz)](./media/policystat-tutorial/attribute01.png)
 
     b. W polu tekstowym **Nazwa** wpisz nazwę atrybutu pokazaną dla tego wiersza.
 
@@ -164,25 +163,7 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą PolicyStat,
    
     ![Menu administratora](./media/policystat-tutorial/ic808633.png "Menu administratora")
 
-3. W sekcji **Konfiguracja** wybierz opcję **Włącz integrację logowania**jednokrotnego.
-   
-    ![Konfiguracja logowania jednokrotnego](./media/policystat-tutorial/ic808634.png "Konfiguracja logowania jednokrotnego")
-
-4. Kliknij pozycję **Konfiguruj atrybuty**, a następnie w sekcji **Konfigurowanie atrybutów** wykonaj następujące czynności:
-   
-    ![Konfiguracja logowania jednokrotnego](./media/policystat-tutorial/ic808635.png "Konfiguracja logowania jednokrotnego")
-   
-    a. W polu tekstowym **Nazwa użytkownika** wpisz **UID**.
-
-    b. W polu tekstowym **atrybut pierwszej nazwy** wpisz **FirstName** **Britta**użytkownika.
-
-    c. W polu tekstowym nazwisko **atrybutu** wpisz **LastName** of User **Simon**.
-
-    d. W polu tekstowym **atrybut wiadomości e-mail** wpisz **EmailAddress** użytkownika `BrittaSimon@contoso.com`.
-
-    e. Kliknij przycisk **Zapisz zmiany**.
-
-5. Kliknij **swoje metadane dostawcy tożsamości**, a następnie w sekcji **metadane dostawcy tożsamości** wykonaj następujące czynności:
+3. Kliknij **swoje metadane dostawcy tożsamości**, a następnie w sekcji **metadane dostawcy tożsamości** wykonaj następujące czynności:
    
     ![Konfiguracja logowania jednokrotnego](./media/policystat-tutorial/ic808636.png "Konfiguracja logowania jednokrotnego")
    
@@ -190,33 +171,26 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą PolicyStat,
 
     b. Kliknij przycisk **Zapisz zmiany**.
 
-### <a name="create-an-azure-ad-test-user"></a>Tworzenie użytkownika testowego usługi Azure AD 
+4. Kliknij pozycję **Konfiguruj atrybuty**, a następnie w sekcji **Konfigurowanie atrybutów** wykonaj następujące czynności:
+   
+    a. W polu tekstowym **Nazwa użytkownika** wpisz **UID**.
 
-W tej sekcji w witrynie Azure Portal utworzysz użytkownika testowego o nazwie Britta Simon.
+    b. W polu tekstowym **nazwa atrybutu** wpisz swoją pierwszą nazwę z platformy Azure **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname** .
 
-1. W witrynie Azure Portal w okienku po lewej stronie wybierz pozycję **Azure Active Directory**, wybierz opcję **Użytkownicy**, a następnie wybierz pozycję **Wszyscy użytkownicy**.
+    c. W polu tekstowym **nazwa atrybutu** wpisz swoją ostatnią nazwę z platformy Azure **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname** .
 
-    ![Linki „Użytkownicy i grupy” i „Wszyscy użytkownicy”](common/users.png)
+    d. W polu tekstowym **atrybut wiadomości e-mail** wpisz nazwę żądania atrybutu adresu E-mail z platformy Azure **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** .
 
-2. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
+    e. Kliknij przycisk **Zapisz zmiany**.
 
-    ![Przycisk Nowy użytkownik](common/new-user.png)
+5. W sekcji **Konfiguracja** wybierz opcję **Włącz integrację logowania**jednokrotnego.
+   
+    ![Konfiguracja logowania jednokrotnego](./media/policystat-tutorial/ic808634.png "Konfiguracja logowania jednokrotnego")
 
-3. We właściwościach użytkownika wykonaj następujące kroki.
-
-    ![Okno dialogowe Użytkownik](common/user-properties.png)
-
-    a. W polu **Nazwa** wprowadź **BrittaSimon**.
-  
-    b. W polu **Nazwa użytkownika** wpisz brittasimon@yourcompanydomain.extension. Na przykład: BrittaSimon@contoso.com
-
-    c. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu Hasło.
-
-    d. Kliknij przycisk **Utwórz**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Przypisywanie użytkownika testowego usługi Azure AD
 
-W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie Azure przez przyznanie dostępu do usługi PolicyStat.
+W tej sekcji można włączyć własne konto do korzystania z logowania jednokrotnego platformy Azure, przyznając dostęp do PolicyStat.
 
 1. W Azure Portal wybierz pozycję **aplikacje dla przedsiębiorstw**, wybierz pozycję **wszystkie aplikacje**, a następnie wybierz pozycję **PolicyStat**.
 
@@ -234,7 +208,7 @@ W tej sekcji Britta Simon do korzystania z logowania jednokrotnego na platformie
 
     ![Okienko Dodawanie przypisania](common/add-assign-user.png)
 
-5. W oknie dialogowym **Użytkownicy i grupy** wybierz użytkownika **Britta Simon** na liście użytkowników, a następnie kliknij przycisk **Wybierz** u dołu ekranu.
+5. W oknie dialogowym **Użytkownicy i grupy** wybierz swoje konto na liście Użytkownicy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
 6. Jeśli oczekujesz, że masz dowolną wartość roli w potwierdzeniu SAML, w oknie dialogowym **Wybierz rolę** wybierz odpowiednią rolę dla użytkownika z listy, a następnie kliknij przycisk **Wybierz** w dolnej części ekranu.
 
@@ -260,4 +234,3 @@ Po kliknięciu kafelka PolicyStat w panelu dostępu należy automatycznie zalogo
 - [Co to jest dostęp do aplikacji i logowanie jednokrotne za pomocą Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Co to jest dostęp warunkowy w Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

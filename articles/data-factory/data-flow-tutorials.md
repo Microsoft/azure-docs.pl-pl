@@ -5,13 +5,13 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 04/17/2020
-ms.openlocfilehash: 58f74ab060fef32de31cb91653a1bd38ad946934
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.date: 05/25/2020
+ms.openlocfilehash: 87bfd505edcb394bafd70a975b5b3d6bde341cb9
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725639"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848903"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Samouczki wideo dotyczące przepływów mapowania danych
 
@@ -51,6 +51,8 @@ Gdy aktualizacje są stale wprowadzane do produktu, niektóre funkcje zostały d
 
 [Transformacja wyszukiwania](https://www.youtube.com/watch?v=9U-0VPU2ZPU)
 
+[Aktualizacje transformacji wyszukiwania & wskazówki](https://youtu.be/MBskWoeuTLw)
+
 [Przekształcenie tabeli przestawnej](https://www.youtube.com/watch?v=Tua14ZQA3F8&t=34s)
 
 [Przekształcenie tabeli przestawnej: Mapowanie kolumn nadryfu](https://youtu.be/5MygzCX0wnM)
@@ -58,6 +60,8 @@ Gdy aktualizacje są stale wprowadzane do produktu, niektóre funkcje zostały d
 [Wybierz transformację](http://youtu.be/F9VjQ_YyRyU?hd=1)
 
 [Wybierz transformację: mapowanie oparte na regułach](https://youtu.be/5lf1lh1qMwU)
+
+[Wybierz transformację: duże zestawy danych](https://www.youtube.com/watch?v=R5ea2_R0ouc)
 
 [Przekształcanie klucza zastępczego](https://www.youtube.com/watch?v=ISpegL9CbTM)
 

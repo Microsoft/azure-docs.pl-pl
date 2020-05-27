@@ -1,17 +1,17 @@
 ---
 title: Indeksowanie w usłudze Azure Cosmos DB
 description: Dowiedz się, jak indeksowanie działa w Azure Cosmos DB, różne rodzaje indeksów, takie jak zakres, przestrzenny, obsługiwane indeksy złożone.
-author: ThomasWeiss
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/13/2020
-ms.author: thweiss
-ms.openlocfilehash: fb3467e60ada92c90a84d8e89f6b5f5e94ca42e8
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.date: 05/21/2020
+ms.author: tisande
+ms.openlocfilehash: df9135c39c1ff27abe8915c221185fca517a5614
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746426"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849794"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indeksowanie w usłudze Azure Cosmos DB — omówienie
 
@@ -105,7 +105,7 @@ Indeks **zakresu** jest oparty na uporządkowanej strukturze podobnej do drzewa.
    ```
 
    ```sql
-   SELECT * FROM c WHERE STARTSWITH(c.property, "value")
+   SELECT * FROM c WHERE STRINGEQUALS(c.property, "value")
    ```
 
 - `ORDER BY`wybiera

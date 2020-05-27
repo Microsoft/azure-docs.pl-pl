@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03f6e3d6edde51598b1d148469aceb1ff3b3d636
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: ed8c3563f9a17a30e0d5df5f00c35f34510d6029
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203412"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848927"
 ---
 # <a name="bulk-create-users-in-azure-active-directory"></a>Zbiorcze tworzenie użytkowników w Azure Active Directory
 
@@ -39,7 +39,7 @@ Pobierz i wypełnij szablon CSV przekazywanie zbiorcze, aby ułatwić pomyślne 
 Wiersze pobranego szablonu CSV są następujące:
 
 - **Numer wersji**: pierwszy wiersz zawierający numer wersji musi być uwzględniony w pliku CSV przekazywania.
-- **Nagłówki kolumn**: format nagłówków *kolumn jest* &gt; &lt; &lt; *wymagany lub pusty*&gt;. Na przykład `Name [displayName] Required`. Niektóre starsze wersje szablonu mogą mieć niewielkie wahania.
+- **Nagłówki kolumn**: format nagłówków kolumn jest &lt; *Item name* &gt; &lt; *wymagany lub pusty* &gt; . Na przykład `Name [displayName] Required`. Niektóre starsze wersje szablonu mogą mieć niewielkie wahania.
 - **Przykład wiersza**: w szablonie zamieszczono wiersz przykładów dopuszczalnych wartości dla każdej kolumny. Musisz usunąć wiersz przykładów i zastąpić go własnymi wpisami.
 
 ### <a name="additional-guidance"></a>Dodatkowe wskazówki
@@ -52,7 +52,7 @@ Wiersze pobranego szablonu CSV są następujące:
 ## <a name="to-create-users-in-bulk"></a>Aby tworzyć użytkowników zbiorczo
 
 1. [Zaloguj się do swojej organizacji usługi Azure AD](https://aad.portal.azure.com) przy użyciu konta, które jest administratorem użytkownika w organizacji.
-1. W usłudze Azure AD wybierz pozycję **Użytkownicy** > **Tworzenie zbiorcze**.
+1. W usłudze Azure AD wybierz pozycję **Użytkownicy**  >  **Tworzenie zbiorcze**.
 1. Na stronie **Tworzenie zbiorczego użytkownika** wybierz pozycję **Pobierz** , aby otrzymać prawidłowy plik wartości rozdzielanych przecinkami (CSV) właściwości użytkownika, a następnie Dodaj Dodaj użytkowników, których chcesz utworzyć.
 
    ![Wybierz lokalny plik CSV, w którym chcesz wyświetlić listę użytkowników, których chcesz dodać](./media/users-bulk-add/upload-button.png)
@@ -66,7 +66,7 @@ Wiersze pobranego szablonu CSV są następujące:
 1. Gdy plik zostanie pomyślnie zweryfikowany, wybierz pozycję **Prześlij** , aby rozpocząć operację zbiorczą platformy Azure, która importuje nowych użytkowników.
 1. Po zakończeniu operacji importowania zobaczysz powiadomienie o stanie zadania operacji zbiorczej.
 
-W przypadku wystąpienia błędów można pobrać i wyświetlić plik wyników na stronie **wyników operacji zbiorczej** . Plik zawiera przyczynę każdego błędu.
+W przypadku wystąpienia błędów można pobrać i wyświetlić plik wyników na stronie **wyników operacji zbiorczej** . Plik zawiera przyczynę każdego błędu. Przesyłanie pliku musi być zgodne z podanym szablonem i zawierać dokładne nazwy kolumn.
 
 ## <a name="check-status"></a>Sprawdzanie stanu
 

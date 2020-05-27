@@ -3,12 +3,12 @@ title: Konfigurowanie linku prywatnego
 description: Skonfiguruj prywatny punkt końcowy w rejestrze kontenerów i Włącz dostęp za pośrednictwem prywatnego linku w lokalnej sieci wirtualnej
 ms.topic: article
 ms.date: 05/19/2020
-ms.openlocfilehash: 93cdbab8bcdaa9787373407fe8d6619dd5fd49c6
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: da51a35b66b793294f146c5a0a30b6a91d8aa01b
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701399"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83850049"
 ---
 # <a name="configure-azure-private-link-for-an-azure-container-registry"></a>Konfigurowanie prywatnego linku platformy Azure dla usługi Azure Container Registry 
 
@@ -26,7 +26,7 @@ Ta funkcja jest dostępna w warstwie usługi kontenera **Premium** . Aby uzyska�
 
 * Aby skorzystać z kroków interfejsu wiersza polecenia platformy Azure w tym artykule, zaleca się użycie interfejsu wiersza polecenia platformy Azure w wersji 2.6.0 lub nowszej. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli]. Lub Uruchom w [Azure Cloud Shell](../cloud-shell/quickstart.md).
 * Jeśli nie masz jeszcze rejestru kontenerów, utwórz go (wymagana warstwa Premium) i [zaimportuj](container-registry-import-images.md) przykładowy obraz, taki jak `hello-world` z usługi Docker Hub. Na przykład użyj [Azure Portal][quickstart-portal] lub [interfejsu wiersza polecenia platformy Azure][quickstart-cli] , aby utworzyć rejestr.
-* Aby skonfigurować dostęp do rejestru przy użyciu prywatnego linku w innej subskrypcji platformy Azure, należy zarejestrować dostawcę zasobów dla Azure Container Registry w tej subskrypcji. Na przykład:
+* Aby skonfigurować dostęp do rejestru przy użyciu prywatnego linku w innej subskrypcji platformy Azure, należy zarejestrować dostawcę zasobów dla Azure Container Registry w tej subskrypcji. Przykład:
 
   ```azurecli
   az account set --subscription <Name or ID of subscription of private link>
@@ -299,7 +299,7 @@ az acr update --name $REGISTRY_NAME --public-network-enabled false
 ### <a name="disable-public-access---portal"></a>Wyłącz dostęp publiczny — Portal
 
 1. W portalu przejdź do rejestru kontenerów, a następnie wybierz pozycję **ustawienia > sieci**.
-1. Na karcie **dostęp publiczny** w obszarze **Zezwalaj na dostęp publiczny**wybierz pozycję **wyłączone**. Następnie wybierz pozycję **Zapisz**.
+1. Na karcie **dostęp publiczny** w obszarze **Zezwalaj na dostęp do sieci publicznej**wybierz pozycję **wyłączone**. Następnie wybierz pozycję **Zapisz**.
 
 ## <a name="validate-private-link-connection"></a>Weryfikowanie połączenia prywatnego linku
 
@@ -351,7 +351,7 @@ Platforma Docker pomyślnie ściąga obraz do maszyny wirtualnej.
 
 Zarządzanie połączeniami prywatnego punktu końcowego rejestru przy użyciu Azure Portal lub za pomocą poleceń w grupie poleceń [AZ ACR Private-Endpoint-Connection][az-acr-private-endpoint-connection] . Operacje obejmują Zatwierdź, Usuń, Wyświetl, Odrzuć lub Pokaż szczegóły połączeń prywatnych punktów końcowych rejestru.
 
-Na przykład aby wyświetlić listę połączeń prywatnych punktów końcowych rejestru, uruchom polecenie [AZ ACR Private-Endpoint-Connection list][az-acr-private-endpoint-connection-list] . Na przykład:
+Na przykład aby wyświetlić listę połączeń prywatnych punktów końcowych rejestru, uruchom polecenie [AZ ACR Private-Endpoint-Connection list][az-acr-private-endpoint-connection-list] . Przykład:
 
 ```azurecli
 az acr private-endpoint-connection list \

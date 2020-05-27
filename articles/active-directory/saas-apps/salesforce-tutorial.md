@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/17/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a875cee7e6796a2c865bde4a62f2f0463eb12130
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f66a5ba491a5afed4007f73b88a38719ec71fb63
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78967722"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849199"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce"></a>Samouczek Azure Active Directory: integracja z logowaniem jednokrotnym (SSO) w usłudze Salesforce
 
@@ -93,8 +93,14 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne usługi Azure 
     Konto przedsiębiorstwa: `https://<subdomain>.my.salesforce.com`
 
     Konto dewelopera: `https://<subdomain>-dev-ed.my.salesforce.com`
+    
+    b. W polu tekstowym **adres URL odpowiedzi** wpisz wartość przy użyciu następującego wzorca:
 
-    b. W polu tekstowym **Identyfikator** wpisz wartość, korzystając z następującego wzorca:
+    Konto przedsiębiorstwa: `https://<subdomain>.my.salesforce.com`
+
+    Konto dewelopera: `https://<subdomain>-dev-ed.my.salesforce.com`
+
+    c. W polu tekstowym **Identyfikator** wpisz wartość, korzystając z następującego wzorca:
 
     Konto przedsiębiorstwa: `https://<subdomain>.my.salesforce.com`
 
@@ -119,7 +125,7 @@ W tej sekcji utworzysz użytkownika testowego w Azure Portal o nazwie B. Simon.
 1. Wybierz pozycję **nowy użytkownik** w górnej części ekranu.
 1. We właściwościach **użytkownika** wykonaj następujące kroki:
    1. W polu **Nazwa** wprowadź wartość `B.Simon`.  
-   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension. Na przykład `B.Simon@contoso.com`.
+   1. W polu **Nazwa użytkownika** wprowadź wartość username@companydomain.extension . Na przykład `B.Simon@contoso.com`.
    1. Zaznacz pole wyboru **Pokaż hasło** i zanotuj wartość wyświetlaną w polu **Hasło**.
    1. Kliknij przycisk **Utwórz**.
 
@@ -229,9 +235,9 @@ Po kliknięciu kafelka Salesforce w panelu dostępu powinno nastąpić automatyc
 
 1. Na koniec po pomyślnym zalogowaniu zostanie wyświetlona strona główna aplikacji.
 
-    ![Aplikacja mobilna](media/salesforce-tutorial/mobile-app5.png) ![usługi Salesforce dla aplikacji mobilnych](media/salesforce-tutorial/mobile-app6.png)
+    ![Aplikacja mobilna usługi Salesforce dla aplikacji mobilnych ](media/salesforce-tutorial/mobile-app5.png) ![](media/salesforce-tutorial/mobile-app6.png)
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Lista samouczków dotyczących sposobu integrowania aplikacji SaaS z usługą Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

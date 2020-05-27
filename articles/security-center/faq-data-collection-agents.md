@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 0dbad1a94479430426dae47df7ca3a3ecd9dc980
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 53f255c44cded714440f5d524387c4ea1a20d76a
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80436197"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849046"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Często zadawane pytania — pytania dotyczące zbierania danych, agentów i obszarów roboczych
 
@@ -49,6 +49,22 @@ Maszyny wirtualne z systemem Windows lub Linux IaaS kwalifikują się, jeśli:
 - Maszyna wirtualna jest w stanie uruchomienia.
 - [Agent maszyny wirtualnej platformy Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) z systemem Windows lub Linux jest zainstalowany.
 - Maszyna wirtualna nie jest używana jako urządzenie, takie jak Zapora aplikacji sieci Web lub Zapora nowej generacji.
+
+
+## <a name="where-is-the-default-log-analytics-workspace-created"></a>Gdzie jest tworzony domyślny obszar roboczy Log Analytics?
+
+Lokalizacja domyślnego obszaru roboczego zależy od regionu platformy Azure:
+
+- W przypadku maszyn wirtualnych w Stany Zjednoczone i Brazylia lokalizacją obszaru roboczego jest Stany Zjednoczone
+- W przypadku maszyn wirtualnych w Kanadzie lokalizacją obszaru roboczego jest Kanada
+- W przypadku maszyn wirtualnych w Europie lokalizacją obszaru roboczego jest Europa
+- W przypadku maszyn wirtualnych w Wielkiej Brytanii lokalizacją obszaru roboczego jest Zjednoczone Królestwo
+- W przypadku maszyn wirtualnych w Azja Wschodnia i Azja Południowo-Wschodnia Lokalizacja obszaru roboczego to Azja
+- W przypadku maszyn wirtualnych w Korei Lokalizacja obszaru roboczego to Korea
+- W przypadku maszyn wirtualnych w Indiach Lokalizacja obszaru roboczego to Indie
+- W przypadku maszyn wirtualnych w Japonii Lokalizacja obszaru roboczego to Japonia
+- W przypadku maszyn wirtualnych w Chinach Lokalizacja obszaru roboczego to Chiny
+- W przypadku maszyn wirtualnych w Australii lokalizacją obszaru roboczego jest Australia
 
 
 ## <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Czy mogę usunąć domyślne obszary robocze utworzone przez Security Center?

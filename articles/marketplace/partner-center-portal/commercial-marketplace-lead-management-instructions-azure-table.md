@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: dsindona
-ms.openlocfilehash: 2ecca18e9de02bfe5f3bcb972d0b4034ab8012ac
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: c115859c24b2c26ab2c221c4fdc35cb442d652b1
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791021"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848022"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Korzystanie z usługi Azure Table Storage do zarządzania komercyjnymi klientami portalu Marketplace
 
@@ -151,7 +151,7 @@ W przykładzie tworzony jest przepływ, który automatycznie wysyła powiadomien
 
     1. **Do**: wprowadź adres e-mail dla wszystkich użytkowników, którzy otrzymają to powiadomienie.
     1. **Temat**: Podaj temat wiadomości e-mail. Przykładem są **nowi potencjalni klienci!**
-    1. **Treść**: Dodaj tekst, który ma zostać uwzględniony w każdej wiadomości e-mail (opcjonalnie), a następnie wklej `body('Get_entities')?['value']`w.
+    1. **Treść**: Dodaj tekst, który ma zostać uwzględniony w każdej wiadomości e-mail (opcjonalnie), a następnie wklej w `body('Get_entities')?['value']` .
 
     >[!NOTE]
     >Do treści tej wiadomości e-mail można wstawić dodatkowe statyczne lub dynamiczne punkty danych.
@@ -182,8 +182,9 @@ Gdy wszystko jest gotowe do skonfigurowania informacji dotyczących zarządzania
 
 1. Przejdź do strony **konfiguracji oferty** oferty.
 
-1. Wybierz pozycję **Połącz** w sekcji **Zarządzanie potencjalnymi klientami** .
-     ![Zarządzanie potencjalnymi klientami](./media/commercial-marketplace-lead-management-instructions-azure-table/lead-management.png)
+1. W sekcji **potencjalni klienci** wybierz pozycję **Połącz**.
+
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-table/customer-leads.png" alt-text="Potencjalni klienci":::
 
 1. W oknie podręcznym **szczegóły połączenia** wybierz pozycję **tabela Azure** dla **miejsca docelowego potencjalnego klienta**. 
      ![Zarządzanie potencjalnymi klientami, szczegóły połączenia](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)

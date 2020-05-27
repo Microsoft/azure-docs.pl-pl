@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: efb9e8b8abdcb442e2c5c4d8bfd1b2e1e60865ce
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: b7b3556896f2d8bb8fea7ffc4543356e248df60d
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83197854"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848825"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Usuń protokoły TLS 1,0 i 1,1 z używania z usługą Azure cache for Redis
 
@@ -31,12 +31,12 @@ Ten artykuł zawiera ogólne wskazówki dotyczące wykrywania zależności od wc
 
 Daty wprowadzenia tych zmian są następujące:
 
-| Chmurowa               | Data rozpoczęcia fazy 1 | Data rozpoczęcia fazy 2      |
-|---------------------|--------------------|-------------------------|
-| Azure (globalny)      |  13 stycznia 2020  | 11 maja 2020            |
-| Azure Government    |  13 marca 2020    | 11 maja 2020            |
-| Azure (Niemcy)       |  13 marca 2020    | 11 maja 2020            |
-| Azure China         |  13 marca 2020    | 11 maja 2020            |
+| Chmurowa                | Data rozpoczęcia fazy 1 | Data rozpoczęcia fazy 2      |
+|----------------------|--------------------|-------------------------|
+| Azure (globalny)       |  13 stycznia 2020  | 11 maja 2020            |
+| Azure Government     |  13 marca 2020    | 11 maja 2020            |
+| Azure (Niemcy)        |  13 marca 2020    | 11 maja 2020            |
+| Azure w Chinach — 21Vianet |  13 marca 2020    | 11 maja 2020            |
 
 ## <a name="check-whether-your-application-is-already-compliant"></a>Sprawdź, czy aplikacja jest już zgodna
 
@@ -55,7 +55,12 @@ Klienci platformy Redis .NET domyślnie używają najstarszej wersji protokołu 
 
 ### <a name="net-core"></a>.NET Core
 
-Klienci programu Redis .NET Core domyślnie używają najnowszej wersji protokołu TLS.
+Redis klienci .NET Core domyślnie do domyślnej wersji protokołu TLS systemu operacyjnego, która oczywiście zależy od samego systemu operacyjnego. 
+
+W zależności od tego, kiedy system operacyjny został opublikowany, a inne poprawki zmieniły domyślną wersję protokołu TLS, wersja protokołu TLS systemu operacyjnego może być całkiem różna. Chociaż nie ma żadnych kompletnych informacji o tym, w systemie operacyjnym Windows można znaleźć więcej informacji [tutaj](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12). 
+
+Jeśli jednak używasz starego systemu operacyjnego lub przede wszystkim chcesz upewnić się, że zalecamy ręczne skonfigurowanie preferowanej wersji protokołu TLS za pośrednictwem klienta.
+
 
 ### <a name="java"></a>Java
 

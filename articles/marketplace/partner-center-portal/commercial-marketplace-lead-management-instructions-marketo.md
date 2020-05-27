@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: 1f3a097629f8c5f4a3f0ecefa5ee50f2d3e62162
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: f1db7cc34a77c342a3d11e4b509d45a745a200db
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82789882"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849185"
 ---
 # <a name="use-marketo-to-manage-commercial-marketplace-leads"></a>Korzystanie z programu Marketo do zarządzania komercyjnymi klientami portalu Marketplace
 
@@ -59,8 +59,8 @@ W tym artykule opisano, jak skonfigurować system CRM dla programu Marketo, aby 
 
     Innym sposobem ustalenia następujących wartości:
 
-    - Identyfikator serwera znajduje się w adresie URL wystąpienia programu Marketo, na przykład `serverID.marketo.com`.
-    - Aby uzyskać identyfikator Munchkin subskrypcji, przejdź do menu **administratora** > **Munchkin** w polu **Identyfikator konta Munchkin** lub z pierwszej części poddomeny hosta interfejsu API REST usługi Marketo: `https://{Munchkin ID}.mktorest.com`.
+    - Identyfikator serwera znajduje się w adresie URL wystąpienia programu Marketo, na przykład `serverID.marketo.com` .
+    - Aby uzyskać identyfikator Munchkin subskrypcji, przejdź do menu **administratora**  >  **Munchkin** w polu **Identyfikator konta Munchkin** lub z pierwszej części poddomeny hosta interfejsu API REST usługi Marketo: `https://{Munchkin ID}.mktorest.com` .
     - Identyfikator formularza jest IDENTYFIKATORem formularza kodu osadzania utworzonego w kroku 7 do kierowania potencjalnych klientów z portalu Marketplace.
 
 ## <a name="configure-your-offer-to-send-leads-to-marketo"></a>Konfigurowanie oferty do wysyłania potencjalnych klientów do programu Marketo
@@ -71,9 +71,9 @@ Gdy wszystko jest gotowe do skonfigurowania informacji dotyczących zarządzania
 
 1. Wybierz ofertę i przejdź do karty **Konfiguracja oferty** .
 
-1. W sekcji **Zarządzanie potencjalnymi klientami** wybierz pozycję **Połącz**. 
+1. W sekcji **potencjalni klienci** wybierz pozycję **Połącz**.
 
-    ![Przycisk Połącz sekcję zarządzania potencjalnymi klientami](./media/commercial-marketplace-lead-management-instructions-marketo/lead-management-connect.png)
+    :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-marketo/customer-leads.png" alt-text="Potencjalni klienci":::
 
 1. W oknie podręcznym **szczegóły połączenia** wybierz pozycję **Marketo** dla **miejsca docelowego potencjalnego klienta**.
 

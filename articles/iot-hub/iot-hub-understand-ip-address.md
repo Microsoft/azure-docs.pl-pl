@@ -7,19 +7,19 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: c609f2a3843481442e97061739a806de60a680b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1bfae8c7afbfdc6e73dd8bb17b94e6543361e9ce
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79367571"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848232"
 ---
 # <a name="iot-hub-ip-addresses"></a>IoT Hub adresy IP
 
 Prefiksy adresów IP IoT Hub publicznych punktów końcowych są publikowane okresowo w _AzureIoTHub_ [tagu usługi](../virtual-network/service-tags-overview.md)AzureIoTHub.
 
 > [!NOTE]
-> W przypadku urządzeń wdrożonych wewnątrz sieci lokalnych platforma Azure IoT Hub obsługuje integrację łączności sieci wirtualnej z prywatnymi punktami końcowymi. Aby uzyskać więcej informacji, zobacz [IoT Hub obsługi sieci wirtualnej](./virtual-network-support.md#ingress-connectivity-to-iot-hub-using-private-endpoints) .
+> W przypadku urządzeń wdrożonych wewnątrz sieci lokalnych platforma Azure IoT Hub obsługuje integrację łączności sieci wirtualnej z prywatnymi punktami końcowymi. Aby uzyskać więcej informacji, zobacz [obsługa IoT Hub sieci wirtualnej](./virtual-network-support.md) .
 
 
 Te prefiksy adresów IP mogą być używane do kontrolowania łączności między IoT Hub i urządzeniami i zasobami sieciowymi w celu zaimplementowania różnych celów izolacji sieci:

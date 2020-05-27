@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: eb7f527885d1d49fe09407c3cbce109a098056f9
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 3c922675619fc877d9d97a43b69a15f5ca4f393e
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744655"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849114"
 ---
 # <a name="create-a-new-saas-offer-in-the-commercial-marketplace"></a>Utwórz nową ofertę SaaS w portalu komercyjnym
 
@@ -120,7 +120,7 @@ Utwórz listę ofert dla klientów z linkiem do bezpłatnej wersji próbnej, pod
 
 #### <a name="contact-me"></a>Skontaktuj się z nami
 
-Zbierz informacje kontaktowe klienta, łącząc system zarządzania relacjami z klientami (CRM). Klient zostanie poproszony o zgodę na udostępnienie swoich informacji. Te szczegóły klienta, wraz z nazwą oferty, IDENTYFIKATORem i źródłem witryny Marketplace, gdzie znalazły ofertę, zostaną wysłane do skonfigurowanego systemu CRM. Aby uzyskać więcej informacji o konfigurowaniu programu CRM, zobacz [łączenie z usługą Zarządzanie potencjalnymi klientami](#connect-lead-management).
+Zbierz informacje kontaktowe klienta, łącząc system zarządzania relacjami z klientami (CRM). Klient zostanie poproszony o zgodę na udostępnienie swoich informacji. Te szczegóły klienta, wraz z nazwą oferty, IDENTYFIKATORem i źródłem witryny Marketplace, gdzie znalazły ofertę, zostaną wysłane do skonfigurowanego systemu CRM. Aby uzyskać więcej informacji o konfigurowaniu programu CRM, zobacz [Customer potencjalni klienci](#customer-leads).
 
 #### <a name="example-marketplace-offer-listing"></a>Przykładowa lista ofert platformy handlowej
 
@@ -140,7 +140,7 @@ Aby uzyskać dodatkowe informacje, zobacz [testowanie oferty w komercyjnej witry
 - [Najlepsze rozwiązania techniczne](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Przegląd](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (PDF; upewnij się, że blokowanie wyskakujących okienek jest wyłączone)
 
-### <a name="connect-lead-management"></a>Zarządzanie potencjalnymi klientami
+### <a name="customer-leads"></a>Potencjalni klienci
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management-a.md)]
 

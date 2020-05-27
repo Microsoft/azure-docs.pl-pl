@@ -1,19 +1,19 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: active-directory
 author: rolyon
 ms.service: active-directory
 ms.topic: include
-ms.date: 04/29/2019
-ms.author: rolyon
+ms.date: 05/26/2020
+ms.author: barclayn
 ms.custom: include file
-ms.openlocfilehash: d791c4ba46587ac5709d72cb31bc76f087118b03
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ee02200f1fb32d430a858d218e27534561ebc24a
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "67476253"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83868062"
 ---
 ## <a name="create-one-or-more-access-reviews"></a>Utwórz co najmniej jedną weryfikację dostępu
 
@@ -36,13 +36,14 @@ ms.locfileid: "67476253"
     ![Zakres użytkowników do przeglądania członkostwa w roli](./media/active-directory-privileged-identity-management-access-reviews/users.png)
 
     > [!NOTE]
-    > Wybranie więcej niż jednej roli spowoduje utworzenie wielu przeglądów dostępu. Na przykład wybranie pięciu ról spowoduje utworzenie pięciu odrębnych przeglądów dostępu.
+    > - Role wybrane w tym miejscu obejmują zarówno [role trwałe, jak i kwalifikujące się](../articles/active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md).
+    > - Wybranie więcej niż jednej roli spowoduje utworzenie wielu przeglądów dostępu. Na przykład wybranie pięciu ról spowoduje utworzenie pięciu odrębnych przeglądów dostępu.
 
-    Jeśli tworzysz przegląd dostępu ról usługi Azure AD, poniżej przedstawiono przykład listy członkostwo.
+    Jeśli tworzysz przegląd dostępu **ról usługi Azure AD**, poniżej przedstawiono przykład listy członkostwo.
 
     ![Przeglądanie okienka członkostwa lista ról usługi Azure AD, które można wybrać](./media/active-directory-privileged-identity-management-access-reviews/review-membership.png)
 
-    Jeśli tworzysz przegląd dostępu do ról zasobów platformy Azure, poniżej przedstawiono przykład listy członkostwo do przeglądu.
+    Jeśli tworzysz przegląd dostępu do **ról zasobów platformy Azure**, na poniższej ilustracji przedstawiono przykład listy członkostwo na stronie Przegląd.
 
     ![Przeglądanie okienka członkostwa — lista ról zasobów platformy Azure, które można wybrać](./media/active-directory-privileged-identity-management-access-reviews/review-membership-azure-resource-roles.png)
 

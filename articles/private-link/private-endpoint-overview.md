@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: 429a342fcc5dd69e1ae8d0be5611e908e216b2d1
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 51afa118be75c7e9ea2cb6e394d27cc39a58de0b
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659696"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849658"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Co to jest prywatny punkt końcowy platformy Azure?
 
@@ -57,12 +57,13 @@ Zasób link prywatny jest docelowym miejscem docelowym danego prywatnego punktu 
 |**Usługa link prywatny** (Twoja usługa)   |  Microsoft. Network/privateLinkServices       | puste |
 |**Azure SQL Database** | Microsoft. SQL/serwery    |  Program SQL Server (sqlServer)        |
 |**Azure Synapse Analytics** | Microsoft. SQL/serwery    |  Program SQL Server (sqlServer)        | 
-|**Azure Storage**  | Microsoft. Storage/storageAccounts    |  Obiekt BLOB (BLOB, blob_secondary)<BR> Tabela (tabela, table_secondary)<BR> Kolejka (Kolejka, queue_secondary)<BR> Plik (plik, file_secondary)<BR> Sieć Web (sieć Web, web_secondary)        |
+|**Usługa Azure Storage**  | Microsoft. Storage/storageAccounts    |  Obiekt BLOB (BLOB, blob_secondary)<BR> Tabela (tabela, table_secondary)<BR> Kolejka (Kolejka, queue_secondary)<BR> Plik (plik, file_secondary)<BR> Sieć Web (sieć Web, web_secondary)        |
 |**Azure Data Lake Storage Gen2**  | Microsoft. Storage/storageAccounts    |  Obiekt BLOB (BLOB, blob_secondary)<BR> Gen2 systemu plików Data Lake (system plików DFS, dfs_secondary)       |
 |**Azure Cosmos DB** | Microsoft. AzureCosmosDB/databaseAccounts    | SQL, MongoDB, Cassandra, Gremlin, tabela|
 |**Azure Database for PostgreSQL — pojedynczy serwer** | Microsoft. DBforPostgreSQL/serwery    | postgresqlServer |
 |**Azure Database for MySQL** | Microsoft. DBforMySQL/serwery    | Mójserwersql |
 |**Azure Database for MariaDB** | Microsoft. DBforMariaDB/serwery    | mariadbServer |
+|**Azure IoT Hub** | Microsoft. Devices/IotHubs    | iotHub |
 |**W usłudze Azure Key Vault** | Microsoft./magazyny kluczy    | magazyn |
 |**Usługa Azure Kubernetes Service — interfejs API Kubernetes** | Microsoft. ContainerService/managedClusters    | managedCluster |
 |**Azure Search** | Microsoft. Search/searchService| searchService|  

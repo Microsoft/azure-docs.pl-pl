@@ -8,31 +8,31 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: 28c900adadf7d942c9e331e7b77a369db64acf55
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: d9d69d4550a5cd4a162795261b7ab3d8b59b7297
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75382705"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848944"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-c"></a>Szybki Start: wyszukiwanie filmów wideo przy użyciu interfejsu API REST wyszukiwanie wideo Bing i języka C #
 
-Ten przewodnik Szybki start umożliwia wykonanie pierwszego wywołania interfejsu API wyszukiwania wideo Bing i wyświetlenie wyników wyszukiwania na podstawie odpowiedzi JSON. Ta prosta aplikacja w języku C# wysyła zapytanie HTTP wyszukiwania wideo do interfejsu API i wyświetla odpowiedź. Chociaż ta aplikacja jest napisana w języku C#, interfejs API jest usługą internetową zgodną z wzorcem REST i większością języków programowania.
+Użyj tego przewodnika Szybki Start, aby wykonać pierwsze wywołanie do interfejs API wyszukiwania wideo Bing. Ta prosta aplikacja C# wysyła zapytanie wyszukiwania wideo HTTP do interfejsu API i wyświetla odpowiedź JSON. Mimo że aplikacja jest zapisywana w języku C#, interfejs API jest usługą sieci Web RESTful zgodną z większością języków programowania.
 
 Kod źródłowy dla tego przykładu jest dostępny w serwisie [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingVideoSearchv7.cs) wraz z dodatkową obsługą błędów, funkcjami i adnotacjami kodu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 * Dowolna wersja programu [Visual Studio 2017 lub nowszego](https://www.visualstudio.com/downloads/).
 * Struktura [Json.NET](https://www.newtonsoft.com/json) dostępna jako pakiet NuGet.
-* Jeśli używasz systemu Linux/MacOS, możesz uruchomić tę aplikację przy użyciu środowiska [Mono](https://www.mono-project.com/).
+* Jeśli używasz systemu Linux/MacOS, możesz uruchomić tę aplikację za pomocą narzędzia [mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Tworzenie i inicjowanie projektu
 
-1. Utwórz nowe rozwiązanie konsolowe w programie Visual Studio. Dodaj następujące przestrzenie nazw do głównego pliku kodu.
+1. Utwórz nowe rozwiązanie konsolowe w programie Visual Studio. Następnie Dodaj następujące przestrzenie nazw do głównego pliku kodu:
 
     ```csharp
     using System;
@@ -42,7 +42,7 @@ Kod źródłowy dla tego przykładu jest dostępny w serwisie [GitHub](https://g
     using System.Collections.Generic;
     ```
 
-2. Dodaj zmienne dla klucza subskrypcji, punktu końcowego i terminu wyszukiwania. `uriBase`może to być globalny punkt końcowy poniżej lub niestandardowy punkt końcowy [domeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) podrzędnej wyświetlany w Azure Portal dla zasobu.
+2. Dodaj zmienne dla klucza subskrypcji, punktu końcowego i terminu wyszukiwania. Dla `uriBase` wartości można użyć globalnego punktu końcowego w poniższym kodzie lub użyć niestandardowego punktu końcowego [poddomeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) wyświetlanego w Azure Portal dla zasobu.
 
     ```csharp
     const string accessKey = "enter your key here";
@@ -50,33 +50,34 @@ Kod źródłowy dla tego przykładu jest dostępny w serwisie [GitHub](https://g
     const string searchTerm = "kittens";
     ```
 
-### <a name="create-a-struct-to-format-the-bing-video-search-api-response"></a>Tworzenie struktury do formatowania odpowiedzi interfejsu API wyszukiwania wideo Bing
+## <a name="create-a-struct-to-format-the-bing-video-search-api-response"></a>Tworzenie struktury do formatowania odpowiedzi interfejsu API wyszukiwania wideo Bing
 
-1. Zdefiniuj strukturę `SearchResult`, która będzie zawierać wyniki wyszukiwania obrazów i informacje nagłówka JSON.
+Zdefiniuj strukturę `SearchResult`, która będzie zawierać wyniki wyszukiwania obrazów i informacje nagłówka JSON.
 
-    ```csharp
-    struct SearchResult
-        {
-            public String jsonResult;
-            public Dictionary<String, String> relevantHeaders;
-        }
-    ```
+```csharp
+struct SearchResult
+    {
+        public String jsonResult;
+        public Dictionary<String, String> relevantHeaders;
+    }
+```
 
 ## <a name="create-and-handle-a-video-search-request"></a>Tworzenie i obsługa żądania wyszukiwania wideo
 
-Utwórz metodę o nazwie `BingVideoSearch`, która będzie wykonywać wywołanie do interfejsu API i będzie zwracać strukturę `SearchResult`, której typ został utworzony wcześniej. W tej metodzie wykonaj następujące kroki:
+1. Utwórz metodę o nazwie `BingVideoSearch` , aby wykonać wywołanie do interfejsu API, i ustaw typ zwracany na `SearchResult` utworzoną wcześniej strukturę. 
 
-1. Skonstruuj identyfikator URI dla żądania wyszukiwania. Należy pamiętać, że termin wyszukiwania toSearch musi być sformatowany przed dołączeniem do ciągu.
+   Dodaj kod do tej metody w kolejnych krokach.
 
-    ```csharp
-    
+1. Skonstruuj identyfikator URI dla żądania wyszukiwania. Sformatuj termin wyszukiwania `toSearch` przed dołączeniem go do ciągu.
+
+    ```csharp    
     static SearchResult BingVideoSearch(string toSearch){
     
         var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(toSearch);
     //...
     ```
 
-2. Wyślij żądanie internetowe, dodając klucz do nagłówka `Ocp-Acpim-Subscription-Key` i używając obiektu `HttpWebResponse` do zapisania odpowiedzi interfejsu API. Następnie użyj obiektu `StreamReader` do pobrania ciągu JSON.
+2. Wyślij żądanie internetowe, dodając klucz do nagłówka `Ocp-Acpim-Subscription-Key` i używając obiektu `HttpWebResponse` do zapisania odpowiedzi interfejsu API. Następnie użyj elementu, `StreamReader` Aby pobrać ciąg JSON.
 
     ```csharp
     //...
@@ -89,7 +90,7 @@ Utwórz metodę o nazwie `BingVideoSearch`, która będzie wykonywać wywołanie
 
 ## <a name="process-the-result"></a>Przetwarzanie wyniku
 
-1. Utwórz obiekt wyniku wyszukiwania i wyodrębnij nagłówki HTTP usługi Bing. Następnie zwróć obiekt `searchResult`. 
+1. Utwórz obiekt wyniku wyszukiwania i wyodrębnij nagłówki HTTP usługi Bing. Następnie Zwróć `searchResult` obiekt. 
 
     ```csharp
     var searchResult = new SearchResult();
@@ -105,7 +106,7 @@ Utwórz metodę o nazwie `BingVideoSearch`, która będzie wykonywać wywołanie
     return searchResult;
     ```
 
-2. Następnie możesz wyświetlić odpowiedź.
+2. Wydrukuj odpowiedź.
 
     ```csharp
     Console.WriteLine(result.jsonResult);
@@ -226,6 +227,6 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 > [!div class="nextstepaction"]
 > [Tworzenie jednostronicowej aplikacji internetowej](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Zobacz także 
+## <a name="see-also"></a>Zobacz też 
 
  [Co to jest interfejs API wyszukiwania wideo Bing?](../overview.md)

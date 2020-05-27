@@ -8,20 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: fbf20c2d54506b0f314697d6df34f9a430e7c016
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 28d9726bfa1e195fa87b41914841083c56dbc844
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75382688"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849590"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-python"></a>Szybki Start: wyszukiwanie filmów wideo przy użyciu interfejsu API REST wyszukiwanie wideo Bing i języka Python
 
-Ten przewodnik Szybki start umożliwia wykonanie pierwszego wywołania interfejsu API wyszukiwania wideo Bing i wyświetlenie wyników wyszukiwania na podstawie odpowiedzi JSON. Ta prosta aplikacja w języku Python wysyła zapytanie HTTP wyszukiwania wideo do interfejsu API i wyświetla odpowiedź. Chociaż ta aplikacja jest napisana w języku Python, interfejs API jest usługą internetową zgodną z wzorcem REST i większością języków programowania. Kod źródłowy dla tego przykładu jest dostępny w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingVideoSearchv7.py) wraz z dodatkową obsługą błędów i adnotacjami kodu.
+Użyj tego przewodnika Szybki Start, aby wykonać pierwsze wywołanie do interfejs API wyszukiwania wideo Bing. Ta prosta aplikacja języka Python wysyła zapytanie wyszukiwania wideo HTTP do interfejsu API i wyświetla odpowiedź JSON. Mimo że aplikacja jest zapisywana w języku Python, interfejs API jest usługą sieci Web RESTful zgodną z większością języków programowania. 
 
-Ten przykład można uruchomić jako notes programu Jupyter w witrynie [MyBinder](https://mybinder.org). W tym celu należy kliknąć ikonę Launch Binder: 
+Kod źródłowy dla tego przykładu jest dostępny w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingVideoSearchv7.py) wraz z dodatkową obsługą błędów i adnotacjami kodu.
+
+Możesz uruchomić ten przykład jako Notes Jupyter na [oprawie](https://mybinder.org) , wybierając wskaźnik **uruchamiania spinacza** : 
 
 [![Obiekt](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingVideoSearchAPI.ipynb)
 
@@ -34,13 +36,13 @@ Ten przykład można uruchomić jako notes programu Jupyter w witrynie [MyBinder
 
 ## <a name="initialize-the-application"></a>Inicjowanie aplikacji
 
-1. Utwórz nowy plik kodu Python w ulubionym środowisku IDE lub edytorze i zaimportuj poniższe biblioteki.
+1. Utwórz nowy plik w języku Python w ulubionym środowisku IDE lub edytorze i zaimportuj następujące biblioteki:
 
     ```python
     import requests
     from IPython.display import HTML
     ```
-2.  Utwórz zmienne dla klucza subskrypcji, punktu końcowego wyszukiwania i terminu wyszukiwania. `search_url`może to być globalny punkt końcowy poniżej lub niestandardowy punkt końcowy [domeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) podrzędnej wyświetlany w Azure Portal dla zasobu.
+2.  Utwórz zmienne dla klucza subskrypcji, punktu końcowego wyszukiwania i terminu wyszukiwania. Dla `search_url` wartości można użyć globalnego punktu końcowego w poniższym kodzie lub użyć niestandardowego punktu końcowego [poddomeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) wyświetlanego w Azure Portal dla zasobu.
     
     ```python
     subscription_key = None
@@ -57,7 +59,7 @@ Ten przykład można uruchomić jako notes programu Jupyter w witrynie [MyBinder
 
 ## <a name="send-your-request"></a>Wysyłanie żądania
 
-1. Dodaj parametry do żądania, tworząc słownik o nazwie `params`. Dodaj termin wyszukiwania do parametru `q`, licznik wideo równy 5, wartość `free` jako cenę zwróconych wideo i wartość `short` jako długość wideo.
+1. Dodaj parametry do żądania, tworząc słownik o nazwie `params`. Dodaj terminy wyszukiwania do `q` parametru: Liczba filmów wideo 5, `free` dla cennika zwracanych filmów wideo oraz `short` długość wideo.
 
     ```python
     params  = {"q": search_term, "count":5, "pricing": "free", "videoLength":"short"}
@@ -193,6 +195,6 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 > [!div class="nextstepaction"]
 > [Tworzenie jednostronicowej aplikacji internetowej](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Zobacz także 
+## <a name="see-also"></a>Zobacz też 
 
  [Co to jest interfejs API wyszukiwania wideo Bing?](../overview.md)

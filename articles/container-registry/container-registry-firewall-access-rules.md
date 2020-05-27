@@ -3,12 +3,12 @@ title: Reguły dostępu zapory
 description: Skonfiguruj reguły dostępu do usługi Azure Container Registry za zaporą, zezwalając na dostęp do ("listy dozwolonych") interfejsów API REST i nazw domen punktów końcowych danych lub zakresów adresów IP specyficznych dla usługi.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: 109764a5697920547230530de41a3e5acfe0117d
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 4774191087b3e88e657e8dc9bc6a9f9c406153e2
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701919"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849993"
 ---
 # <a name="configure-rules-to-access-an-azure-container-registry-behind-a-firewall"></a>Konfigurowanie reguł dostępu do usługi Azure Container Registry za zaporą
 
@@ -137,7 +137,7 @@ Aby włączyć punkty końcowe danych przy użyciu portalu:
 
 Punkt końcowy danych lub punkty końcowe pojawiają się w portalu.
 
-![Dedykowane punkty końcowe danych w portalu](./media/container-registry-firewall-access-rules/dedicated-data-endpoints-portal.png)
+:::image type="content" source="media/container-registry-firewall-access-rules/dedicated-data-endpoints-portal.png" alt-text="Dedykowane punkty końcowe danych w portalu":::
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 

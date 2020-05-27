@@ -3,12 +3,12 @@ title: Tabela obsługi dla maszyn wirtualnych platformy Azure
 description: Zawiera podsumowanie ustawień i ograniczeń pomocy technicznej podczas tworzenia kopii zapasowych maszyn wirtualnych platformy Azure przy użyciu usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 01c81257ab2cc9882ec1d388702a00f58694a7e4
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: b331fe757fc18029aa270f805c72150161a38f47
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83724262"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849420"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tabela obsługi dla maszyn wirtualnych platformy Azure
 
@@ -172,7 +172,7 @@ Magazyn udostępniony| Tworzenie kopii zapasowych maszyn wirtualnych przy użyci
 
 ### <a name="backup-of-azure-virtual-machines-with-up-to-32-disks"></a>Tworzenie kopii zapasowych maszyn wirtualnych platformy Azure z maksymalnie 32 dyskami
 
-Azure Backup teraz obsługuje tworzenie kopii zapasowych maszyn wirtualnych platformy Azure z maksymalnie 32 dołączonymi dyskami.  Ta funkcja jest dostępna w publicznej wersji zapoznawczej w regionie zachodnie stany USA.  Jeśli interesuje Cię tę funkcję w innych regionach, zarejestruj się w celu uzyskania ograniczonej wersji zapoznawczej, pisząc do nas pod adresem AskAzureBackupTeam@microsoft.com .  
+Azure Backup teraz obsługuje tworzenie kopii zapasowych maszyn wirtualnych platformy Azure z maksymalnie 32 dołączonymi dyskami.  Ta funkcja jest dostępna w publicznej wersji zapoznawczej w regionie Zachodnio-środkowe stany USA, Kanada środkowa, Azja Południowo-Wschodnia, Brazylia Południowa, Kanada Wschodnia, Francja środkowa, Francja Południowa, Indie Środkowe, Indie Południowe, Japonia Wschodnia, Japonia Zachodnia, Korea środkowa, Korea Południowa, Północna Republika Południowej Afryki, Południowe Zjednoczone Królestwo, Zachodnie Zjednoczone Królestwo, Australia Wschodnia.  Jeśli interesuje Cię tę funkcję w innych regionach, zarejestruj się w celu uzyskania ograniczonej wersji zapoznawczej, pisząc do nas pod adresem AskAzureBackupTeam@microsoft.com .  
 
 >[!NOTE]
 >Azure Backup obsługuje maksymalnie 16 dysków dla maszyn wirtualnych platformy Azure z dyskami niezarządzanymi lub klasycznymi maszynami wirtualnymi.
@@ -217,10 +217,10 @@ Bezpieczeństwo danych:
 
 **Maszyna** | **Przesyłanie** | **Magazynowanie**
 --- | --- | ---
-Lokalne maszyny z systemem Windows bez programu DPM/usługi MABS | ![Tak][green] | ![Tak][green]
-Maszyny wirtualne platformy Azure | ![Tak][green] | ![Tak][green]
-Lokalne maszyny wirtualne/maszyny wirtualne platformy Azure z programem DPM | ![Tak][green] | ![Tak][green]
-Lokalne maszyny wirtualne/maszyny wirtualne platformy Azure z usługą MABS | ![Tak][green] | ![Tak][green]
+Lokalne maszyny z systemem Windows bez programu DPM/usługi MABS | ![Yes][green] | ![Yes][green]
+Maszyny wirtualne platformy Azure | ![Yes][green] | ![Yes][green]
+Lokalne maszyny wirtualne/maszyny wirtualne platformy Azure z programem DPM | ![Yes][green] | ![Yes][green]
+Lokalne maszyny wirtualne/maszyny wirtualne platformy Azure z usługą MABS | ![Yes][green] | ![Yes][green]
 
 ## <a name="vm-compression-support"></a>Obsługa kompresji maszyny wirtualnej
 
@@ -231,9 +231,9 @@ Funkcja Backup obsługuje kompresję ruchu kopii zapasowej, jak przedstawiono w 
 
 **Maszyna** | **Kompresja do usługi MABS/programu DPM (TCP)** | **Kompresuj do magazynu (HTTPS)**
 --- | --- | ---
-Lokalne maszyny z systemem Windows bez programu DPM/usługi MABS | NA | ![Tak][green]
+Lokalne maszyny z systemem Windows bez programu DPM/usługi MABS | NA | ![Yes][green]
 Maszyny wirtualne platformy Azure | Nie dotyczy | Nie dotyczy
-Lokalne maszyny wirtualne/maszyny wirtualne platformy Azure z programem DPM | ![Yes][green] | ![Tak][green]
+Lokalne maszyny wirtualne/maszyny wirtualne platformy Azure z programem DPM | ![Yes][green] | ![Yes][green]
 Lokalne maszyny wirtualne/maszyny wirtualne platformy Azure z usługą MABS | ![Yes][green] | ![Tak][green]
 
 ## <a name="next-steps"></a>Następne kroki

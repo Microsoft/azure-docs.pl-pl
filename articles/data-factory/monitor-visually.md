@@ -1,5 +1,5 @@
 ---
-title: Wizualnie Monitoruj Azure Data Factory
+title: Wizualne monitorowanie fabryk danych platformy Azure
 description: Dowiedz się, jak wizualnie monitorować fabryki danych platformy Azure
 services: data-factory
 documentationcenter: ''
@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/15/2020
-ms.openlocfilehash: 9a81ab58335e968e5ce4816de85ed1b63bc93455
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 44a95430ece9c55bb088ae5b968c33691f25b4c5
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83699606"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860836"
 ---
-# <a name="visually-monitor-azure-data-factory"></a>Wizualnie Monitoruj Azure Data Factory
+# <a name="visually-monitor-azure-data-factory"></a>Wizualne monitorowanie fabryk danych platformy Azure
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -142,7 +142,7 @@ Kliknięcie ikony powoduje otwarcie raportu o zużyciu zasobów używanych przez
 
 ![Monitorowanie użycia](media/monitor-visually/monitor-consumption-2.png)
 
-Te wartości można podłączyć do [kalkulatora cen platformy Azure]. ( https://azure.microsoft.com/pricing/details/data-factory/) Aby oszacować koszt uruchomienia potoku. Aby uzyskać więcej informacji na Azure Data Factory cenach, zobacz temat [Omówienie cen](pricing-concepts.md).
+Te wartości można podłączyć do [kalkulatora cen platformy Azure](https://azure.microsoft.com/pricing/details/data-factory/) , aby oszacować koszt uruchomienia potoku. Aby uzyskać więcej informacji na Azure Data Factory cenach, zobacz temat [Omówienie cen](pricing-concepts.md).
 
 > [!NOTE]
 > Te wartości zwracane przez kalkulator cen są szacowane. Nie odzwierciedla dokładnej kwoty, która będzie rozliczana Azure Data Factory 
@@ -166,11 +166,11 @@ Wybierz ikonę **informacji** w lewym dolnym rogu. Następnie wybierz przewodnik
 
 ![Przewodniki](media/monitor-visually/guided-tours.png)
 
-## <a name="alerts"></a>Alerts (Alerty)
+## <a name="alerts"></a>Alerty
 
 Alerty dla obsługiwanych metryk można zgłaszać w Data Factory. Wybierz pozycję **Monitoruj**  >  **alerty & metryki** na stronie monitorowanie Data Factory, aby rozpocząć pracę.
 
-![Strona monitora fabryki danych](media/monitor-visually/alerts01.png)
+![Strona monitora fabryki danych](media/monitor-visually/start-page.png)
 
 Aby zapoznać się z wprowadzeniem do siedmiu minut i demonstracją tej funkcji, Obejrzyj następujące wideo:
 
@@ -180,31 +180,31 @@ Aby zapoznać się z wprowadzeniem do siedmiu minut i demonstracją tej funkcji,
 
 1.  Wybierz pozycję **Nowa reguła alertu** , aby utworzyć nowy Alert.
 
-    ![Przycisk reguły nowego alertu](media/monitor-visually/alerts02.png)
+    ![Przycisk reguły nowego alertu](media/monitor-visually/new-alerts.png)
 
 1.  Określ nazwę reguły i wybierz ważność alertu.
 
-    ![Pola nazwy i ważności reguły](media/monitor-visually/alerts03.png)
+    ![Pola nazwy i ważności reguły](media/monitor-visually/name-and-severity.png)
 
 1.  Wybierz kryteria alertu.
 
-    ![Pole dla kryteriów docelowych](media/monitor-visually/alerts04.png)
+    ![Pole dla kryteriów docelowych](media/monitor-visually/add-criteria-1.png)
 
-    ![Lista kryteriów](media/monitor-visually/alerts05.png)
+    ![Lista kryteriów](media/monitor-visually/add-criteria-2.png)
 
 1.  Skonfiguruj logikę alertów. Można utworzyć alert dla wybranej metryki dla wszystkich potoków i odpowiednich działań. Możesz również wybrać konkretny typ działania, nazwę działania, nazwę potoku lub typ błędu.
 
-    ![Opcje konfigurowania logiki alertu](media/monitor-visually/alerts06.png)
+    ![Opcje konfigurowania logiki alertu](media/monitor-visually/alert-logic.png)
 
 1.  Skonfiguruj wiadomości e-mail, wiadomości SMS, wypychania i powiadomień głosowych dla alertu. Utwórz grupę akcji lub wybierz istniejącą dla powiadomień o alertach.
 
-    ![Opcje konfigurowania powiadomień](media/monitor-visually/alerts07.png)
+    ![Opcje konfigurowania powiadomień](media/monitor-visually/configure-notification-1.png)
 
-    ![Opcje dodawania powiadomienia](media/monitor-visually/alerts08.png)
+    ![Opcje dodawania powiadomienia](media/monitor-visually/configure-notification-2.png)
 
 1.  Utwórz regułę alertu.
 
-    ![Opcje tworzenia reguły alertu](media/monitor-visually/alerts09.png)
+    ![Opcje tworzenia reguły alertu](media/monitor-visually/create-alert-rule.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 05/08/2020
-ms.openlocfilehash: 458925dd9f7f7386a9159256fdb024d027f7016c
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.date: 05/12/2020
+ms.openlocfilehash: b7489c49b7469feacfd5b982615419741d286998
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929319"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849709"
 ---
 # <a name="release-notes"></a>Informacje o wersji
 
@@ -48,13 +48,13 @@ Brak zmian w zachowaniu dla tej wersji. Aby przygotować się do nadchodzących 
 ## <a name="upcoming-changes"></a>Nadchodzące zmiany
 Następujące zmiany zostaną wykonane w przyszłych wydaniach. 
 
-### <a name="deprecate-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>Przestarzałe platformy Spark 2,1 i 2,2 w usłudze HDInsight 3,6 klaster Spark
+### <a name="deprecation-of-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>Wycofanie platformy Spark 2,1 i 2,2 w usłudze HDInsight 3,6 klaster Spark
 Począwszy od lipca 1 2020, klienci nie będą mogli tworzyć nowych klastrów Spark przy użyciu platformy Spark 2,1 i 2,2 w usłudze HDInsight 3,6. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Rozważ przejście do platformy Spark 2,3 w usłudze HDInsight 3,6 do czerwca 30 2020, aby uniknąć potencjalnych przerw w działaniu systemu lub pomocy technicznej.
 
-### <a name="deprecate-spark-23-in-hdinsight-40-spark-cluster"></a>Przestarzałe rozwiązanie Spark 2,3 w klastrze usługi HDInsight 4,0 Spark
+### <a name="deprecation-of-spark-23-in-hdinsight-40-spark-cluster"></a>Wycofanie platformy Spark 2,3 w klastrze usługi HDInsight 4,0 Spark
 Począwszy od lipca 1 2020, klienci nie będą mogli tworzyć nowych klastrów Spark z platformą Spark 2,3 w usłudze HDInsight 4,0. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Rozważ przejście do platformy Spark 2,4 w usłudze HDInsight 4,0 do czerwca 30 2020, aby uniknąć potencjalnych przerw w działaniu systemu lub pomocy technicznej.
 
-### <a name="deprecate-kafka-11-in-hdinsight-40-kafka-cluster"></a>Przestarzałe Kafka 1,1 w klastrze usługi HDInsight 4,0 Kafka
+### <a name="deprecation-of-kafka-11-in-hdinsight-40-kafka-cluster"></a>Wycofanie Kafka 1,1 w klastrze usługi HDInsight 4,0 Kafka
 Począwszy od lipca 1 2020, klienci nie będą mogli tworzyć nowych klastrów Kafka z Kafka 1,1 w usłudze HDInsight 4,0. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Rozważ przeniesienie do Kafka 2,1 w usłudze HDInsight 4,0 do czerwca 30 2020, aby uniknąć potencjalnych przerw w działaniu systemu lub pomocy technicznej.
 
 ### <a name="hbase-20-to-216"></a>HBase 2,0 do 2.1.6
@@ -62,6 +62,9 @@ W nadchodzącym wydaniu usługi HDInsight 4,0 wersja HBase zostanie uaktualniona
 
 ### <a name="spark-240-to-244"></a>Platforma Spark 2.4.0 do 2.4.4
 W nadchodzącym wydaniu usługi HDInsight 4,0 wersja Spark zostanie uaktualniona z wersji 2.4.0 do 2.4.4
+
+### <a name="kafka-210-to-211"></a>Kafka 2.1.0 do 2.1.1
+W nadchodzącym wydaniu usługi HDInsight 4,0 Kafka wersja zostanie uaktualniona z wersji 2.1.0 do 2.1.1
 
 ### <a name="a-minimum-4-core-vm-is-required-for-head-node"></a>Minimalna 4-rdzeniowa maszyna wirtualna jest wymagana dla węzła głównego. 
 Aby węzeł główny zapewniał wysoką dostępność i niezawodność klastrów usługi HDInsight, wymagana jest co najmniej 4 rdzenie maszyny wirtualnej. Począwszy od kwietnia 6 2020, klienci mogą wybrać tylko 4-rdzeniową lub wyższą maszynę wirtualną jako węzeł główny dla nowych klastrów usługi HDInsight. Istniejące klastry będą nadal działać zgodnie z oczekiwaniami. 

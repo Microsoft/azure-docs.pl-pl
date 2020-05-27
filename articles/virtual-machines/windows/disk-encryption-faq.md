@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: a6748ef520b3d03727aca045660f7563f75b200d
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: d9374f83110176e6705e2c6cca6c7794738a8c6e
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828342"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848842"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>Azure Disk Encryption dla często zadawanych pytań dotyczących maszyn wirtualnych z systemem Windows
 
@@ -48,8 +48,6 @@ W artykule [przegląd Azure Disk Encryption](disk-encryption-overview.md) przeds
 ## <a name="can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption"></a>Czy mogę zaszyfrować woluminy rozruchowe i dane za pomocą Azure Disk Encryption?
 
 Można zaszyfrować woluminy rozruchowe i dane, ale nie można szyfrować danych bez wcześniejszego szyfrowania woluminu systemu operacyjnego.
-
-Po zaszyfrowaniu woluminu systemu operacyjnego wyłączenie szyfrowania na woluminie systemu operacyjnego nie jest obsługiwane.
 
 ## <a name="can-i-encrypt-an-unmounted-volume-with-azure-disk-encryption"></a>Czy mogę zaszyfrować wolumin odinstalowany z Azure Disk Encryption?
 

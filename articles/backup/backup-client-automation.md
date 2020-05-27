@@ -3,12 +3,12 @@ title: Używanie programu PowerShell do tworzenia kopii zapasowych systemu Windo
 description: W tym artykule dowiesz się, jak używać programu PowerShell do konfigurowania Azure Backup w systemie Windows Server lub kliencie systemu Windows oraz zarządzania kopiami zapasowymi i odzyskiwaniem.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: fde81aba5a2b74ce25c8f3cd70dc24df6f566420
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 67c80a76720dd544da355ee00540cd11a22bfb10
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597981"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848170"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Wdrażanie kopii zapasowych systemu Windows Server/Windows Client na platformie Azure i zarządzanie nimi przy użyciu programu PowerShell
 
@@ -78,7 +78,7 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 
 ## <a name="installing-the-azure-backup-agent"></a>Instalowanie agenta Azure Backup
 
-Przed zainstalowaniem agenta Azure Backup należy pobrać Instalatora i zaprezentować go w systemie Windows Server. Najnowszą wersję Instalatora można pobrać z [Centrum pobierania Microsoft](https://aka.ms/azurebackup_agent) lub ze strony pulpitu nawigacyjnego magazynu Recovery Services. Zapisz Instalatora w łatwo dostępnej lokalizacji, takiej jak `C:\Downloads\*`.
+Przed zainstalowaniem agenta Azure Backup należy pobrać Instalatora i zaprezentować go w systemie Windows Server. Najnowszą wersję Instalatora można pobrać z [Centrum pobierania Microsoft](https://aka.ms/azurebackup_agent) lub ze strony pulpitu nawigacyjnego magazynu Recovery Services. Zapisz Instalatora w łatwo dostępnej lokalizacji, takiej jak `C:\Downloads\*` .
 
 Można też użyć programu PowerShell do pobrania narzędzia do pobierania:
 
@@ -97,7 +97,7 @@ MARSAgentInstaller.exe /q
 
 Spowoduje to zainstalowanie agenta ze wszystkimi opcjami domyślnymi. Instalacja trwa kilka minut w tle. Jeśli nie określisz opcji */Nu* , zostanie otwarte okno **Windows Update** po zakończeniu instalacji, aby sprawdzić dostępność aktualizacji. Po zainstalowaniu Agent zostanie wyświetlony na liście zainstalowanych programów.
 
-Aby wyświetlić listę zainstalowanych programów, przejdź do pozycji **panel** > sterowania**programy** > **programy i funkcje**.
+Aby wyświetlić listę zainstalowanych programów, przejdź do pozycji **Panel sterowania**  >  **programy**  >  **programy i funkcje**.
 
 ![Agent zainstalowany](./media/backup-client-automation/installed-agent-listing.png)
 
@@ -111,7 +111,7 @@ MARSAgentInstaller.exe /?
 
 Dostępne opcje to:
 
-| Opcja | Szczegóły | Domyślny |
+| Opcja | Szczegóły | Domyślne |
 | --- | --- | --- |
 | /q |Instalacja cicha |- |
 | /p: "Location" |Ścieżka do folderu instalacji agenta Azure Backup. |C:\Program Files\Microsoft Azure Recovery Services Agent |
@@ -187,7 +187,7 @@ Gdy łączność komputera z systemem Windows z Internetem odbywa się za pośre
 
 Użycie przepustowości może być również kontrolowane za pomocą opcji `work hour bandwidth` i `non-work hour bandwidth` dla danego zestawu dni tygodnia.
 
-Ustawianie informacji o serwerze proxy i przepustowości odbywa się przy użyciu polecenia cmdlet [Set-OBMachineSetting](https://docs.microsoft.com/powershell/module/msonlinebackup/set-obmachinesetting?view=winserver2012-ps) :
+Ustawianie informacji o serwerze proxy i przepustowości odbywa się przy użyciu polecenia cmdlet [Set-OBMachineSetting](https://docs.microsoft.com/powershell/module/msonlinebackup/set-obmachinesetting) :
 
 ```powershell
 Set-OBMachineSetting -NoProxy
@@ -209,12 +209,12 @@ Server properties updated successfully.
 
 Dane kopii zapasowej wysyłane do Azure Backup są szyfrowane w celu ochrony poufności danych. Hasło szyfrowania to "hasło" do odszyfrowania danych w momencie przywracania.
 
-Należy wygenerować zabezpieczający numer PIN, wybierając pozycję **Generuj**, w obszarze**Właściwości** >  **Ustawienia** > **zabezpieczenia numer PIN** w sekcji **Magazyn Recovery Services** w Azure Portal. 
+Należy wygenerować zabezpieczający numer PIN, wybierając pozycję **Generuj**, w obszarze właściwości **Ustawienia**  >  **Properties**  >  **zabezpieczenia numer PIN** w sekcji **Magazyn Recovery Services** w Azure Portal. 
 
 >[!NOTE]
 > KOD PIN zabezpieczeń można wygenerować tylko za pośrednictwem Azure Portal.
 
-Następnie użyj tego polecenia jako `generatedPIN` w poleceniu:
+Następnie użyj tego `generatedPIN` polecenia jako w poleceniu:
 
 ```powershell
 $PassPhrase = ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force
@@ -238,7 +238,7 @@ Wszystkie kopie zapasowe z serwerów i klientów z systemem Windows do Azure Bac
 2. **Harmonogram przechowywania** określający, jak długo mają być przechowywane punkty odzyskiwania na platformie Azure.
 3. **Specyfikacja dołączania/wykluczania plików** , która określa, co należy utworzyć kopię zapasową.
 
-W tym dokumencie, ponieważ automatyzujemy tworzenie kopii zapasowych, założono, że nic nie zostanie skonfigurowane. Zaczynamy od utworzenia nowych zasad tworzenia kopii zapasowych za pomocą polecenia cmdlet [New-OBPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/new-obpolicy?view=winserver2012-ps) .
+W tym dokumencie, ponieważ automatyzujemy tworzenie kopii zapasowych, założono, że nic nie zostanie skonfigurowane. Zaczynamy od utworzenia nowych zasad tworzenia kopii zapasowych za pomocą polecenia cmdlet [New-OBPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/new-obpolicy) .
 
 ```powershell
 $NewPolicy = New-OBPolicy
@@ -248,7 +248,7 @@ W tym momencie zasady są puste i potrzebne są inne polecenia cmdlet do definio
 
 ### <a name="configuring-the-backup-schedule"></a>Konfigurowanie harmonogramu tworzenia kopii zapasowych
 
-Pierwszy z trzech części zasad jest harmonogramem tworzenia kopii zapasowych, który jest tworzony przy użyciu polecenia cmdlet [New-OBSchedule](https://docs.microsoft.com/powershell/module/msonlinebackup/new-obschedule?view=winserver2012-ps) . Harmonogram tworzenia kopii zapasowych określa, kiedy należy wykonać kopie zapasowe. Podczas tworzenia harmonogramu należy określić dwa parametry wejściowe:
+Pierwszy z trzech części zasad jest harmonogramem tworzenia kopii zapasowych, który jest tworzony przy użyciu polecenia cmdlet [New-OBSchedule](https://docs.microsoft.com/powershell/module/msonlinebackup/new-obschedule) . Harmonogram tworzenia kopii zapasowych określa, kiedy należy wykonać kopie zapasowe. Podczas tworzenia harmonogramu należy określić dwa parametry wejściowe:
 
 * **Dni tygodnia** , w których ma zostać uruchomiona kopia zapasowa. Zadanie tworzenia kopii zapasowej można uruchomić tylko z jednego dnia lub każdego dnia tygodnia lub dowolnej kombinacji między nimi.
 * **Godzina, o** której ma zostać wykonana kopia zapasowa. Można zdefiniować maksymalnie trzy razy dziennie podczas tworzenia kopii zapasowej.
@@ -259,7 +259,7 @@ Na przykład można skonfigurować zasady tworzenia kopii zapasowych, które są
 $Schedule = New-OBSchedule -DaysOfWeek Saturday, Sunday -TimesOfDay 16:00
 ```
 
-Harmonogram tworzenia kopii zapasowych musi być skojarzony z zasadami. można to osiągnąć za pomocą polecenia cmdlet [Set-OBSchedule](https://docs.microsoft.com/powershell/module/msonlinebackup/set-obschedule?view=winserver2012-ps) .
+Harmonogram tworzenia kopii zapasowych musi być skojarzony z zasadami. można to osiągnąć za pomocą polecenia cmdlet [Set-OBSchedule](https://docs.microsoft.com/powershell/module/msonlinebackup/set-obschedule) .
 
 ```powershell
 Set-OBSchedule -Policy $NewPolicy -Schedule $Schedule
@@ -271,13 +271,13 @@ BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s) DsList : PolicyName :
 
 ### <a name="configuring-a-retention-policy"></a>Konfigurowanie zasad przechowywania
 
-Zasady przechowywania określają, jak długo punkty odzyskiwania utworzone na podstawie zadań kopii zapasowej są zachowywane. Podczas tworzenia nowych zasad przechowywania przy użyciu polecenia cmdlet [New-OBRetentionPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/new-obretentionpolicy?view=winserver2012-ps) możesz określić liczbę dni, przez jaką punkty odzyskiwania kopii zapasowych mają być przechowywane w Azure Backup. W poniższym przykładzie ustawiono zasady przechowywania wynoszące siedem dni.
+Zasady przechowywania określają, jak długo punkty odzyskiwania utworzone na podstawie zadań kopii zapasowej są zachowywane. Podczas tworzenia nowych zasad przechowywania przy użyciu polecenia cmdlet [New-OBRetentionPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/new-obretentionpolicy) możesz określić liczbę dni, przez jaką punkty odzyskiwania kopii zapasowych mają być przechowywane w Azure Backup. W poniższym przykładzie ustawiono zasady przechowywania wynoszące siedem dni.
 
 ```powershell
 $RetentionPolicy = New-OBRetentionPolicy -RetentionDays 7
 ```
 
-Zasady przechowywania muszą być skojarzone z zasadami głównymi przy użyciu polecenia cmdlet [Set-OBRetentionPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/set-obretentionpolicy?view=winserver2012-ps):
+Zasady przechowywania muszą być skojarzone z zasadami głównymi przy użyciu polecenia cmdlet [Set-OBRetentionPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/set-obretentionpolicy):
 
 ```powershell
 Set-OBRetentionPolicy -Policy $NewPolicy -RetentionPolicy $RetentionPolicy
@@ -306,7 +306,7 @@ PolicyState     : Valid
 
 ### <a name="including-and-excluding-files-to-be-backed-up"></a>Uwzględnianie i wykluczanie plików, których kopia zapasowa ma zostać utworzona
 
-`OBFileSpec` Obiekt definiuje pliki do uwzględnienia i wykluczone w kopii zapasowej. Jest to zestaw reguł określających zakres chronionych plików i folderów na komputerze. Istnieje wiele reguł dołączania lub wykluczania plików, które są wymagane i kojarzą je z zasadami. Podczas tworzenia nowego obiektu OBFileSpec można:
+`OBFileSpec`Obiekt definiuje pliki do uwzględnienia i wykluczone w kopii zapasowej. Jest to zestaw reguł określających zakres chronionych plików i folderów na komputerze. Istnieje wiele reguł dołączania lub wykluczania plików, które są wymagane i kojarzą je z zasadami. Podczas tworzenia nowego obiektu OBFileSpec można:
 
 * Określ pliki i foldery do uwzględnienia
 * Określ pliki i foldery, które mają zostać wykluczone
@@ -314,7 +314,7 @@ PolicyState     : Valid
 
 Ta ostatnia zostanie osiągnięta przy użyciu flagi-niecyklicznego w poleceniu New-OBFileSpec.
 
-W poniższym przykładzie będziemy tworzyć kopie zapasowe woluminów C: i D: i wykluczać pliki binarne systemu operacyjnego w folderze systemu Windows i w folderach tymczasowych. W tym celu utworzymy dwie specyfikacje pliku przy użyciu polecenia cmdlet [New-OBFileSpec](https://docs.microsoft.com/powershell/module/msonlinebackup/new-obfilespec?view=winserver2012-ps) -one do włączenia i jednego do wykluczenia. Po utworzeniu specyfikacji plików są one skojarzone z zasadami przy użyciu polecenia cmdlet [Add-OBFileSpec](https://docs.microsoft.com/powershell/module/msonlinebackup/add-obfilespec?view=winserver2012-ps) .
+W poniższym przykładzie będziemy tworzyć kopie zapasowe woluminów C: i D: i wykluczać pliki binarne systemu operacyjnego w folderze systemu Windows i w folderach tymczasowych. W tym celu utworzymy dwie specyfikacje pliku przy użyciu polecenia cmdlet [New-OBFileSpec](https://docs.microsoft.com/powershell/module/msonlinebackup/new-obfilespec) -one do włączenia i jednego do wykluczenia. Po utworzeniu specyfikacji plików są one skojarzone z zasadami przy użyciu polecenia cmdlet [Add-OBFileSpec](https://docs.microsoft.com/powershell/module/msonlinebackup/add-obfilespec) .
 
 ```powershell
 $Inclusions = New-OBFileSpec -FileSpec @("C:\", "D:\")
@@ -410,7 +410,7 @@ PolicyState     : Valid
 
 ### <a name="applying-the-policy"></a>Stosowanie zasad
 
-Teraz obiekt Policy został ukończony i ma skojarzony Harmonogram kopii zapasowych, zasady przechowywania oraz listę plików dołączania/wykluczania. Te zasady można teraz przystąpić do Azure Backup. Przed zastosowaniem nowo utworzonych zasad upewnij się, że nie ma żadnych istniejących zasad kopii zapasowych skojarzonych z serwerem za pomocą polecenia cmdlet [Remove-OBPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/remove-obpolicy?view=winserver2012-ps) . Usunięcie zasad spowoduje wyświetlenie monitu o potwierdzenie. Aby pominąć potwierdzenie, użyj `-Confirm:$false` flagi z poleceniem cmdlet.
+Teraz obiekt Policy został ukończony i ma skojarzony Harmonogram kopii zapasowych, zasady przechowywania oraz listę plików dołączania/wykluczania. Te zasady można teraz przystąpić do Azure Backup. Przed zastosowaniem nowo utworzonych zasad upewnij się, że nie ma żadnych istniejących zasad kopii zapasowych skojarzonych z serwerem za pomocą polecenia cmdlet [Remove-OBPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/remove-obpolicy) . Usunięcie zasad spowoduje wyświetlenie monitu o potwierdzenie. Aby pominąć potwierdzenie, użyj `-Confirm:$false` flagi z poleceniem cmdlet.
 
 ```powershell
 Get-OBPolicy | Remove-OBPolicy
@@ -420,7 +420,7 @@ Get-OBPolicy | Remove-OBPolicy
 Microsoft Azure Backup Are you sure you want to remove this backup policy? This will delete all the backed up data. [Y] Yes [A] Yes to All [N] No [L] No to All [S] Suspend [?] Help (default is "Y"):
 ```
 
-Zatwierdzanie obiektu zasad odbywa się przy użyciu polecenia cmdlet [Set-OBPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/set-obpolicy?view=winserver2012-ps) . Spowoduje to również poproszenie o potwierdzenie. Aby pominąć potwierdzenie, użyj `-Confirm:$false` flagi z poleceniem cmdlet.
+Zatwierdzanie obiektu zasad odbywa się przy użyciu polecenia cmdlet [Set-OBPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/set-obpolicy) . Spowoduje to również poproszenie o potwierdzenie. Aby pominąć potwierdzenie, użyj `-Confirm:$false` flagi z poleceniem cmdlet.
 
 ```powershell
 Set-OBPolicy -Policy $NewPolicy
@@ -468,7 +468,7 @@ RetentionPolicy : Retention Days : 7
 State : Existing PolicyState : Valid
 ```
 
-Szczegóły istniejących zasad tworzenia kopii zapasowych można wyświetlić za pomocą polecenia cmdlet [Get-OBPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/get-obpolicy?view=winserver2012-ps) . Możesz również przejść do szczegółów przy użyciu polecenia cmdlet [Get-OBSchedule](https://docs.microsoft.com/powershell/module/msonlinebackup/get-obschedule?view=winserver2012-ps) dla harmonogramu tworzenia kopii zapasowych i polecenia cmdlet [Get-OBRetentionPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/get-obretentionpolicy?view=winserver2012-ps) dla zasad przechowywania
+Szczegóły istniejących zasad tworzenia kopii zapasowych można wyświetlić za pomocą polecenia cmdlet [Get-OBPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/get-obpolicy) . Możesz również przejść do szczegółów przy użyciu polecenia cmdlet [Get-OBSchedule](https://docs.microsoft.com/powershell/module/msonlinebackup/get-obschedule) dla harmonogramu tworzenia kopii zapasowych i polecenia cmdlet [Get-OBRetentionPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/get-obretentionpolicy) dla zasad przechowywania
 
 ```powershell
 Get-OBPolicy | Get-OBSchedule
@@ -523,7 +523,7 @@ IsRecursive : True
 
 ### <a name="performing-an-on-demand-backup"></a>Wykonywanie kopii zapasowej na żądanie
 
-Po ustawieniu zasad tworzenia kopii zapasowej kopie zapasowe będą wykonywane zgodnie z harmonogramem. Wyzwalanie kopii zapasowej na żądanie jest również możliwe za pomocą polecenia cmdlet [Start-OBBackup](https://docs.microsoft.com/powershell/module/msonlinebackup/start-obbackup?view=winserver2012-ps) :
+Po ustawieniu zasad tworzenia kopii zapasowej kopie zapasowe będą wykonywane zgodnie z harmonogramem. Wyzwalanie kopii zapasowej na żądanie jest również możliwe za pomocą polecenia cmdlet [Start-OBBackup](https://docs.microsoft.com/powershell/module/msonlinebackup/start-obbackup) :
 
 ```powershell
 Get-OBPolicy | Start-OBBackup
@@ -546,7 +546,7 @@ The backup operation completed successfully.
 
 W tej sekcji omówiono polecenie programu PowerShell służące do konfigurowania stanu systemu w agencie serwera usługi MAB
 
-### <a name="schedule"></a>Harmonogram
+### <a name="schedule"></a>Zaplanuj
 
 ```powershell
 $sched = New-OBSchedule -DaysOfWeek Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday -TimesOfDay 2:00
@@ -581,7 +581,7 @@ Ta sekcja przeprowadzi Cię przez procedurę automatyzacji odzyskiwania danych z
 
 ### <a name="picking-the-source-volume"></a>Wybieranie woluminu źródłowego
 
-W celu przywrócenia elementu z Azure Backup należy najpierw zidentyfikować źródło elementu. Ponieważ wykonujemy polecenia w kontekście systemu Windows Server lub klienta systemu Windows, maszyna jest już zidentyfikowana. Następnym krokiem w identyfikacji źródła jest zidentyfikowanie woluminu zawierającego ten element. Listę woluminów lub źródeł, których kopie zapasowe są tworzone z tej maszyny, można pobrać, wykonując polecenie cmdlet [Get-OBRecoverableSource](https://docs.microsoft.com/powershell/module/msonlinebackup/get-obrecoverablesource?view=winserver2012-ps) . To polecenie zwraca tablicę wszystkich źródeł, których kopię zapasową utworzono z tego serwera lub klienta.
+W celu przywrócenia elementu z Azure Backup należy najpierw zidentyfikować źródło elementu. Ponieważ wykonujemy polecenia w kontekście systemu Windows Server lub klienta systemu Windows, maszyna jest już zidentyfikowana. Następnym krokiem w identyfikacji źródła jest zidentyfikowanie woluminu zawierającego ten element. Listę woluminów lub źródeł, których kopie zapasowe są tworzone z tej maszyny, można pobrać, wykonując polecenie cmdlet [Get-OBRecoverableSource](https://docs.microsoft.com/powershell/module/msonlinebackup/get-obrecoverablesource) . To polecenie zwraca tablicę wszystkich źródeł, których kopię zapasową utworzono z tego serwera lub klienta.
 
 ```powershell
 $Source = Get-OBRecoverableSource
@@ -600,7 +600,7 @@ ServerName : myserver.microsoft.com
 
 ### <a name="choosing-a-backup-point-from-which-to-restore"></a>Wybieranie punktu kopii zapasowej, z którego ma zostać przywrócone
 
-Listę punktów kopii zapasowej można pobrać, wykonując polecenie cmdlet [Get-OBRecoverableItem](https://docs.microsoft.com/powershell/module/msonlinebackup/get-obrecoverableitem?view=winserver2012-ps) z odpowiednimi parametrami. W naszym przykładzie wybierzemy najnowszy punkt kopii zapasowej woluminu źródłowego *C:* i użyj go do odzyskania określonego pliku.
+Listę punktów kopii zapasowej można pobrać, wykonując polecenie cmdlet [Get-OBRecoverableItem](https://docs.microsoft.com/powershell/module/msonlinebackup/get-obrecoverableitem) z odpowiednimi parametrami. W naszym przykładzie wybierzemy najnowszy punkt kopii zapasowej woluminu źródłowego *C:* i użyj go do odzyskania określonego pliku.
 
 ```powershell
 $Rps = Get-OBRecoverableItem $Source[0]
@@ -632,7 +632,7 @@ ItemSize             :
 ItemLastModifiedTime :
 ```
 
-Obiekt `$Rps` jest tablicą punktów kopii zapasowych. Pierwszy element jest ostatnim punktem, a n element jest najstarszym punktem. W celu wybrania najnowszego punktu będziemy używać `$Rps[0]`.
+Obiekt `$Rps` jest tablicą punktów kopii zapasowych. Pierwszy element jest ostatnim punktem, a n element jest najstarszym punktem. W celu wybrania najnowszego punktu będziemy używać `$Rps[0]` .
 
 ### <a name="specifying-an-item-to-restore"></a>Określanie elementu do przywrócenia
 
@@ -659,13 +659,13 @@ ItemLastModifiedTime : 21-Jun-14 6:43:02 AM
 
 ### <a name="triggering-the-restore-process"></a>Wyzwalanie procesu przywracania
 
-Aby wyzwolić proces przywracania, najpierw musimy określić opcje odzyskiwania. Można to zrobić za pomocą polecenia cmdlet [New-OBRecoveryOption](https://docs.microsoft.com/powershell/module/msonlinebackup/new-obrecoveryoption?view=winserver2012-ps) . Na potrzeby tego przykładu Załóżmy, że chcemy przywrócić pliki do *C:\Temp*. Załóżmy również, że chcemy pominąć pliki, które już istnieją w folderze docelowym *C:\Temp*. Aby utworzyć taką opcję odzyskiwania, użyj następującego polecenia:
+Aby wyzwolić proces przywracania, najpierw musimy określić opcje odzyskiwania. Można to zrobić za pomocą polecenia cmdlet [New-OBRecoveryOption](https://docs.microsoft.com/powershell/module/msonlinebackup/new-obrecoveryoption) . Na potrzeby tego przykładu Załóżmy, że chcemy przywrócić pliki do *C:\Temp*. Załóżmy również, że chcemy pominąć pliki, które już istnieją w folderze docelowym *C:\Temp*. Aby utworzyć taką opcję odzyskiwania, użyj następującego polecenia:
 
 ```powershell
 $RecoveryOption = New-OBRecoveryOption -DestinationPath "C:\temp" -OverwriteType Skip
 ```
 
-Teraz Wyzwól proces przywracania za pomocą polecenia [Start-OBRecovery](https://docs.microsoft.com/powershell/module/msonlinebackup/start-obrecovery?view=winserver2012-ps) wybranego `$Item` z danych wyjściowych `Get-OBRecoverableItem` polecenia cmdlet:
+Teraz Wyzwól proces przywracania za pomocą polecenia [Start-OBRecovery](https://docs.microsoft.com/powershell/module/msonlinebackup/start-obrecovery) wybranego `$Item` z danych wyjściowych `Get-OBRecoverableItem` polecenia cmdlet:
 
 ```powershell
 Start-OBRecovery -RecoverableItem $Item -RecoveryOption $RecoveryOption

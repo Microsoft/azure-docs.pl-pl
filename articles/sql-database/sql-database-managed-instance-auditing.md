@@ -12,15 +12,15 @@ f1_keywords:
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 03/27/2020
-ms.openlocfilehash: 7656944af16db650ec1fea36f0bdefc81b99922e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.date: 05/26/2020
+ms.openlocfilehash: 66c2c5e52ef81f74f7177af897f33eec4ae1779e
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654622"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860647"
 ---
-# <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Rozpoczynanie pracy z inspekcją wystąpienia zarządzanego usługi Azure SQL Database
+# <a name="azure-sql-database-managed-instance-auditing"></a>Azure SQL Database inspekcji wystąpienia zarządzanego
 
 Inspekcja [wystąpienia zarządzanego](sql-database-managed-instance.md) śledzi zdarzenia bazy danych i zapisuje je w dzienniku inspekcji na koncie usługi Azure Storage. Ponadto inspekcja:
 
@@ -37,7 +37,9 @@ W poniższej sekcji opisano konfigurację inspekcji wystąpienia zarządzanego.
    1. Przejdź do usługi Azure Storage, w której chcesz przechowywać dzienniki inspekcji.
 
       > [!IMPORTANT]
-      > Użyj konta magazynu w tym samym regionie, w którym znajduje się wystąpienie zarządzane, aby uniknąć operacji odczytu/zapisu między regionami. Jeśli konto magazynu znajduje się za Virtual Network lub zaporą, zobacz [udzielanie dostępu z sieci wirtualnej](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-a-virtual-network).
+      > - Użyj konta magazynu w tym samym regionie, w którym znajduje się wystąpienie zarządzane, aby uniknąć operacji odczytu/zapisu między regionami. 
+      > - Jeśli konto magazynu znajduje się za Virtual Network lub zaporą, zobacz [udzielanie dostępu z sieci wirtualnej](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-a-virtual-network).
+      > - Jeśli zmienisz okres przechowywania z 0 (nieograniczony czas przechowywania) na inną wartość, należy pamiętać, że przechowywanie będzie dotyczyło tylko dzienników utworzonych po zmianie wartości przechowywania (dzienniki zapisane w okresie, gdy czas przechowywania był ustawiony na nieograniczony, nawet po włączeniu przechowywania).
 
    1. Na koncie magazynu przejdź do **omówienia** , a następnie kliknij pozycję **obiekty blob**.
 

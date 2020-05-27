@@ -8,25 +8,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: 6ae8afefae9a539812748c0ae5380ddaf1fb084c
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 693b8209498f07928c811fd084eaf259bcbcb5ff
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75382671"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849641"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>Szybki Start: wyszukiwanie filmów wideo przy użyciu interfejsu API REST wyszukiwanie wideo Bing i środowiska Node. js
 
-Ten przewodnik Szybki start umożliwia wykonanie pierwszego wywołania interfejsu API wyszukiwania wideo Bing i wyświetlenie wyników wyszukiwania na podstawie odpowiedzi JSON. Ta prosta aplikacja w języku JavaScript wysyła zapytanie HTTP wyszukiwania wideo do interfejsu API i wyświetla odpowiedź. Ta aplikacja jest napisana w języku JavaScript i używa środowiska Node.js, a interfejs API jest usługą internetową zgodną z wzorcem REST i większością języków programowania. Kod źródłowy dla tego przykładu jest dostępny w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingVideoSearchv7.js) wraz z dodatkową obsługą błędów i adnotacjami kodu.
+Użyj tego przewodnika Szybki Start, aby wykonać pierwsze wywołanie do interfejs API wyszukiwania wideo Bing. Ta prosta aplikacja JavaScript wysyła zapytanie wyszukiwania wideo HTTP do interfejsu API i wyświetla odpowiedź JSON. Mimo że aplikacja jest zapisywana w języku JavaScript i używa środowiska Node. js, interfejs API jest usługą sieci Web RESTful zgodną z większością języków programowania. 
+
+Kod źródłowy dla tego przykładu jest dostępny w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingVideoSearchv7.js) wraz z dodatkową obsługą błędów i adnotacjami kodu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* [Node.js](https://nodejs.org/en/download/)
+* [Node. js](https://nodejs.org/en/download/).
 
-* Moduł żądania dla języka JavaScript
-    * Ten moduł można zainstalować za pomocą polecenia `npm install request`
+* Moduł żądania dla języka JavaScript. Zainstaluj ten moduł przy użyciu programu `npm install request` .
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
@@ -39,7 +40,7 @@ Ten przewodnik Szybki start umożliwia wykonanie pierwszego wywołania interfejs
     let https = require('https');
     ```
 
-2. Utwórz zmienne dla punktu końcowego interfejsu API, klucz subskrypcji oraz termin wyszukiwania. `host`może to być globalny punkt końcowy poniżej lub niestandardowy punkt końcowy [domeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) podrzędnej wyświetlany w Azure Portal dla zasobu.
+2. Utwórz zmienne dla punktu końcowego interfejsu API, klucza subskrypcji i terminu wyszukiwania. Dla `host` wartości można użyć globalnego punktu końcowego w poniższym kodzie lub użyć niestandardowego punktu końcowego [poddomeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) wyświetlanego w Azure Portal dla zasobu.
 
     ```javascript
     let subscriptionKey = 'enter key here';
@@ -50,7 +51,7 @@ Ten przewodnik Szybki start umożliwia wykonanie pierwszego wywołania interfejs
 
 ## <a name="create-a-response-handler"></a>Tworzenie procedury obsługi odpowiedzi
 
-1. Utwórz funkcję o nazwie `response_handler`, która będzie przyjmować odpowiedź z interfejsu API. Utwórz zmienną na potrzeby treści odpowiedzi. Dołącz odpowiedź w przypadku odebrania flagi `data` za pomocą funkcji `response.on()`.
+1. Utwórz funkcję o nazwie `response_handler`, która będzie przyjmować odpowiedź z interfejsu API. Utwórz zmienną na potrzeby treści odpowiedzi. Dołącz odpowiedź w przypadku `data` otrzymania flagi przy użyciu `response.on()` .
 
     ```javascript
     let response_handler = function (response) {
@@ -61,39 +62,40 @@ Ten przewodnik Szybki start umożliwia wykonanie pierwszego wywołania interfejs
     };
     ```
     
-   1. Gdy zostanie zasygnalizowany stan `end`, użyj funkcji `response.on()` do zapisania nagłówków związanych z usługą Bing (począwszy od elementu `bingapis` lub `x-msedge-`). Następnie przeanalizuj kod JSON za pomocą funkcji `JSON.parse()`, skonwertuj go na ciąg przy użyciu funkcji `JSON.stringify()` i wydrukuj go.
+1. W tej funkcji Użyj, `response.on()` gdy `end` jest sygnalizowane przechowywaniem nagłówków związanych z usługą Bing (Zaczynając od `bingapis` lub `x-msedge-` ). Przeanalizuj kod JSON przy użyciu `JSON.parse()` , przekonwertuj go na ciąg z `JSON.stringify()` i wydrukuj go.
 
-       ```javascript
-       response.on('end', function () {
-           for (var header in response.headers)
-               // header keys are lower-cased by Node.js
-               if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
-                    console.log(header + ": " + response.headers[header]);
-           body = JSON.stringify(JSON.parse(body), null, '  ');
-           //JSON Response body
-           console.log(body);
-       });
-       ```
+    ```javascript
+    response.on('end', function () {
+        for (var header in response.headers)
+            // header keys are lower-cased by Node.js
+            if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
+                 console.log(header + ": " + response.headers[header]);
+        body = JSON.stringify(JSON.parse(body), null, '  ');
+        //JSON Response body
+        console.log(body);
+    });
+    ```
 
 ## <a name="create-and-send-the-search-request"></a>Tworzenie i wysyłanie żądania wyszukiwania
 
-1. Utwórz funkcję o nazwie `bing_video_search()`. Dodaj parametry na potrzeby żądania, w tym nazwę hosta i nagłówki. Zakoduj termin wyszukiwania, a następnie dołącz go do parametru ścieżki za pomocą parametru `?q=`. Następnie wyślij żądanie za pomocą funkcji `req.end()`.
+Utwórz funkcję o nazwie `bing_video_search()`. Dodaj parametry na potrzeby żądania, w tym nazwę hosta i nagłówki. Zakoduj termin wyszukiwania, a następnie dołącz go do parametru ścieżki za pomocą parametru `?q=`. Następnie Wyślij żądanie przy użyciu `req.end()` .
 
-    ```javascript
-    let bing_video_search = function (search_term) {
-      console.log('Searching videos for: ' + term);
-      let request_params = {
-            method : 'GET',
-            hostname : host,
-            path : path + '?q=' + encodeURIComponent(search_term),
-            headers : {
-                'Ocp-Apim-Subscription-Key' : subscriptionKey,
-            }
-        };
-        let req = https.request(request_params, response_handler);
-        req.end();
-    }
-    ```
+```javascript
+let bing_video_search = function (search_term) {
+  console.log('Searching videos for: ' + term);
+let request_params = {
+    method : 'GET',
+    hostname : host,
+    path : path + '?q=' + encodeURIComponent(search_term),
+    headers : {
+        'Ocp-Apim-Subscription-Key' : subscriptionKey,
+        }
+    };
+    let req = https.request(request_params,
+      response_handler);
+    req.end();
+}
+```
 
 ## <a name="json-response"></a>Odpowiedź w formacie JSON
 
@@ -210,6 +212,6 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 > [!div class="nextstepaction"]
 > [Tworzenie jednostronicowej aplikacji internetowej](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Zobacz także 
+## <a name="see-also"></a>Zobacz też 
 
  [Co to jest interfejs API wyszukiwania wideo Bing?](../overview.md)

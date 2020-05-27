@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: b7226e5ae8c468339e02dbe87e279266e4609da8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0aab6957f6078a59aafd0c9967b0d88e97e50cda
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80063488"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849437"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Tworzenie replik odczytu i zarządzanie nimi w Azure Database for MySQL przy użyciu Azure Portal
 
@@ -28,7 +28,7 @@ W tym artykule przedstawiono sposób tworzenia replik odczytu i zarządzania nim
 
 Serwer repliki odczytu można utworzyć, wykonując następujące czynności:
 
-1. Zaloguj się do [Azure Portal](https://portal.azure.com/).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 2. Wybierz istniejący serwer Azure Database for MySQL, który ma być używany jako główny. Ta akcja powoduje otwarcie strony **Przegląd** .
 
@@ -52,7 +52,7 @@ Serwer repliki odczytu można utworzyć, wykonując następujące czynności:
 7. Wybierz **przycisk OK** , aby potwierdzić utworzenie repliki.
 
 > [!NOTE]
-> Repliki odczytu są tworzone z tą samą konfiguracją serwera co serwer główny. Konfigurację serwera repliki można zmienić po jego utworzeniu. Zaleca się, aby konfiguracja serwera repliki była utrzymywana z równymi lub większymi wartościami niż wzorzec, aby upewnić się, że replika jest w stanie utrzymać się z serwerem głównym.
+> Repliki odczytu są tworzone z tą samą konfiguracją serwera co serwer główny. Konfigurację serwera repliki można zmienić po jego utworzeniu. Serwer repliki jest zawsze tworzony w tej samej grupie zasobów i tej samej subskrypcji co serwer główny. Jeśli chcesz utworzyć serwer repliki w innej grupie zasobów lub innej subskrypcji, możesz [przenieść serwer repliki](https://docs.microsoft.com/azure/azure-resource-manager/management/move-resource-group-and-subscription) po utworzeniu. Zaleca się, aby konfiguracja serwera repliki była utrzymywana z równymi lub większymi wartościami niż wzorzec, aby upewnić się, że replika jest w stanie utrzymać się z serwerem głównym.
 
 Po utworzeniu serwera repliki można go wyświetlić w bloku **replikacja** .
 

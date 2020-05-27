@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 9b9ce5110a03ec4d67b3e8af6d9b18e5ad6836af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8c921b05dd98c55c8e7db8beac93d1b724de1cd7
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81428721"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869306"
 ---
 # <a name="using-transactions-in-sql-pool"></a>Używanie transakcji w puli SQL
 
@@ -206,4 +206,4 @@ Są one następujące:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej na temat optymalizowania transakcji, zobacz [najlepsze rozwiązania](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)w zakresie transakcji. Dostępne są również dodatkowe przewodniki z najlepszymi rozwiązaniami dla [puli SQL](best-practices-sql-pool.md) i [SQL na żądanie (wersja zapoznawcza)](on-demand-workspace-overview.md).
+Aby dowiedzieć się więcej na temat optymalizowania transakcji, zobacz [najlepsze rozwiązania](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)w zakresie transakcji. Dostępne są również dodatkowe przewodniki z najlepszymi rozwiązaniami dla [puli SQL](best-practices-sql-pool.md) i [SQL na żądanie (wersja zapoznawcza)](best-practices-sql-on-demand.md).

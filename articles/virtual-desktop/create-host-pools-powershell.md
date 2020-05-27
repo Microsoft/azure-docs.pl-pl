@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 474eb4f5247aeb77edce0ebfde1611bf2deef493
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 0a4d0c22318399370b9ec11046c33a4eb5460eb3
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930407"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860124"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Tworzenie puli hostów przy użyciu programu PowerShell
 
@@ -114,7 +114,7 @@ Aby zarejestrować agentów pulpitu wirtualnego systemu Windows, wykonaj następ
 1. [Połącz się z maszyną wirtualną](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) przy użyciu poświadczeń podanych podczas tworzenia maszyny wirtualnej.
 2. Pobierz i Zainstaluj agenta pulpitu wirtualnego systemu Windows.
    - Pobierz [agenta pulpitu wirtualnego systemu Windows](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv).
-   - Uruchom instalatora. Gdy Instalator monituje o token rejestracji, wprowadź wartość uzyskaną z polecenia cmdlet **Export-RdsRegistrationInfo** .
+   - Uruchom instalatora. Gdy Instalator monituje o token rejestracji, wprowadź wartość uzyskaną z polecenia cmdlet **Export-AzWVDRegistrationInfo** .
 3. Pobierz i zainstaluj program inicjujący agenta pulpitu wirtualnego systemu Windows.
    - Pobierz program [inicjujący agenta pulpitu wirtualnego systemu Windows](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH).
    - Uruchom instalatora.

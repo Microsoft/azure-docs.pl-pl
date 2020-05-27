@@ -5,15 +5,15 @@ author: yegu-ms
 ms.service: cache
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 05/23/2018
+ms.date: 05/22/2020
 ms.author: yegu
 ms.custom: mvc, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: df8c827567e116e3be908221b9004eb455b24c8b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 02430e2dfa68ff0ce4bf116666d72a46e1120746
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81010787"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848859"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-java"></a>Szybki Start: korzystanie z usługi Azure cache for Redis za pomocą języka Java
 
@@ -53,7 +53,7 @@ Otwórz plik *pom.xml* i dodaj zależność dla [Jedis](https://github.com/xetor
     <dependency>
         <groupId>redis.clients</groupId>
         <artifactId>jedis</artifactId>
-        <version>2.9.0</version>
+        <version>3.2.0</version>
         <type>jar</type>
         <scope>compile</scope>
     </dependency>
@@ -130,7 +130,7 @@ W poniższym przykładzie widać, że klucz `Message` miał już w pamięci podr
 
 ![Ukończono aplikację Azure cache for Redis](./media/cache-java-get-started/azure-cache-redis-complete.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli zamierzasz przejść do kolejnego samouczka, możesz zachować zasoby utworzone w tym przewodniku Szybki start i użyć ich ponownie.
 

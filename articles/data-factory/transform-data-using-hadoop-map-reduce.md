@@ -9,13 +9,13 @@ author: nabhishek
 ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
-ms.date: 01/16/2018
-ms.openlocfilehash: e3060f7e36f9e2696194da12c3c800555103d271
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/08/2020
+ms.openlocfilehash: 48afff71d4b5241ede1783a270658e56e4b8c242
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418919"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849250"
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Przekształcanie danych przy użyciu działania MapReduce usługi Hadoop w Azure Data Factory
 
@@ -62,15 +62,15 @@ Aby uzyskać szczegółowe informacje na temat uruchamiania skryptów świń/Hiv
 
 ## <a name="syntax-details"></a>Szczegóły składni
 
-| Właściwość          | Opis                              | Wymagany |
+| Właściwość          | Opis                              | Wymagane |
 | ----------------- | ---------------------------------------- | -------- |
-| name              | Nazwa działania                     | Tak      |
-| description       | Tekst opisujący działanie używanego działania | Nie       |
-| type              | Dla działania MapReduce typem działania jest HDinsightMapReduce | Tak      |
-| linkedServiceName | Odwołanie do klastra usługi HDInsight zarejestrowanego jako połączona usługa w Data Factory. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz artykuł dotyczący [połączonych usług obliczeniowych](compute-linked-services.md) . | Tak      |
-| Nazwą         | Nazwa klasy, która ma zostać wykonana         | Tak      |
-| jarLinkedService  | Odwołanie do połączonej usługi Azure Storage użytej do przechowywania plików jar. Jeśli nie określisz tej połączonej usługi, zostanie użyta połączona usługa Azure Storage zdefiniowana w połączonej usłudze HDInsight. | Nie       |
-| jarFilePath       | Podaj ścieżkę do plików jar przechowywanych w magazynie platformy Azure, do których odwołuje się jarLinkedService. W nazwie pliku rozróżniana jest wielkość liter. | Tak      |
+| name              | Nazwa działania                     | Yes      |
+| description (opis)       | Tekst opisujący działanie używanego działania | Nie       |
+| typ              | Dla działania MapReduce typem działania jest HDinsightMapReduce | Yes      |
+| linkedServiceName | Odwołanie do klastra usługi HDInsight zarejestrowanego jako połączona usługa w Data Factory. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz artykuł dotyczący [połączonych usług obliczeniowych](compute-linked-services.md) . | Yes      |
+| Nazwą         | Nazwa klasy, która ma zostać wykonana         | Yes      |
+| jarLinkedService  | Odwołanie do połączonej usługi Azure Storage użytej do przechowywania plików jar. W tym miejscu są obsługiwane tylko połączone usługi **[BLOB Storage platformy Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)** i **[ADLS Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)** . Jeśli nie określisz tej połączonej usługi, zostanie użyta połączona usługa Azure Storage zdefiniowana w połączonej usłudze HDInsight. | Nie       |
+| jarFilePath       | Podaj ścieżkę do plików jar przechowywanych w magazynie platformy Azure, do których odwołuje się jarLinkedService. W nazwie pliku rozróżniana jest wielkość liter. | Yes      |
 | jarlibs           | Tablica ciągów ścieżek do plików z biblioteką jar, do których odwołuje się zadanie przechowywane w magazynie platformy Azure zdefiniowanym w jarLinkedService. W nazwie pliku rozróżniana jest wielkość liter. | Nie       |
 | GetDebugInfo —      | Określa, kiedy pliki dziennika są kopiowane do usługi Azure Storage używanej przez klaster HDInsight (lub) określonej przez jarLinkedService. Dozwolone wartości: brak, zawsze lub niepowodzenie. Wartość domyślna: None. | Nie       |
 | argumentu         | Określa tablicę argumentów zadania usługi Hadoop. Argumenty są przesyłane jako argumenty wiersza polecenia do każdego zadania. | Nie       |
@@ -112,7 +112,7 @@ Możesz użyć działania MapReduce usługi HDInsight, aby uruchomić dowolny pl
     }
 }
 ```
-Można określić dowolne argumenty dla programu MapReduce w sekcji **argumenty** . W czasie wykonywania zobaczysz kilka dodatkowych argumentów (na przykład: MapReduce. job. Tags) ze środowiska MapReduce Framework. Aby odróżnić argumenty od argumentów MapReduce, należy rozważyć użycie obu opcji i wartości jako argumentów, jak pokazano w poniższym przykładzie (-s,--Input,--Output itp., są opcjami natychmiast po ich wartości).
+Można określić dowolne argumenty dla programu MapReduce w sekcji **argumenty** . W czasie wykonywania zobaczysz kilka dodatkowych argumentów (na przykład: MapReduce. job. Tags) ze środowiska MapReduce Framework. Aby odróżnić argumenty od argumentów MapReduce, należy rozważyć użycie zarówno opcji, jak i wartości jako argumentów, jak pokazano w poniższym przykładzie (-s,--dane wejściowe,--danych wyjściowych itp., są opcjami natychmiast po ich wartości).
 
 ## <a name="next-steps"></a>Następne kroki
 Zapoznaj się z następującymi artykułami, które wyjaśniają sposób przekształcania danych w inny sposób:

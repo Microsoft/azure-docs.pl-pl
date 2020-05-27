@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 01/31/2020
-ms.openlocfilehash: 9650bb3214c22926427717569f718ca0426ed729
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cd7f1ba856cb2c58d14f7a2560a7716beff92076
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80618747"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849012"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Korzystanie z emulatora usługi Azure Cosmos na potrzeby lokalnego tworzenia i testowania
 
@@ -27,7 +27,7 @@ Chociaż emulator dokładnie odzwierciedla działanie usługi Azure Cosmos DB, r
 
 Dane można migrować między emulatorem usługi Azure Cosmos i usługą Azure Cosmos DB przy użyciu narzędzia do [migracji danych Azure Cosmos DB](https://github.com/azure/azure-documentdb-datamigrationtool).
 
-Możesz uruchomić emulator Azure Cosmos w kontenerze platformy Docker systemu Windows. Aby uzyskać `Dockerfile` więcej informacji, zobacz [centrum docker](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/) dla Docker pull polecenia i [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker) .
+Możesz uruchomić emulator Azure Cosmos w kontenerze platformy Docker systemu Windows. Aby uzyskać więcej informacji, zobacz [centrum Docker](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/) dla Docker pull polecenia i [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker) `Dockerfile` .
 
 ## <a name="differences-between-the-emulator-and-the-service"></a>Różnice między emulatorem a usługą
 
@@ -40,6 +40,7 @@ Ponieważ emulator usługi Azure Cosmos udostępnia emulowane środowisko dział
 * Emulator usługi Azure Cosmos nie oferuje [wieloregionowej replikacji](distribute-data-globally.md).
 * Ponieważ Twoja kopia emulatora usługi Azure Cosmos może nie być zawsze aktualna przy użyciu najnowszych zmian w usłudze Azure Cosmos DB, należy odwołać się do [Azure Cosmos DB planisty wydajności](https://www.documentdb.com/capacityplanner) , aby dokładnie oszacować wymagania dotyczące przepływności produkcyjnej (jednostek ru) aplikacji.
 * W przypadku korzystania z emulatora usługi Azure Cosmos domyślnie można utworzyć maksymalnie 25 kontenerów o stałym rozmiarze (obsługiwane tylko przy użyciu zestawów SDK Azure Cosmos DB) lub 5 nieograniczonych kontenerów za pomocą emulatora usługi Azure Cosmos. Aby uzyskać więcej informacji na temat zmiany tej wartości, zobacz [Ustawianie wartości PartitionCount](#set-partitioncount).
+* Emulator obsługuje maksymalny rozmiar właściwości identyfikatora wynoszący 254 znaków.
 
 ## <a name="system-requirements"></a>Wymagania systemowe
 
@@ -97,13 +98,13 @@ Account key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZ
 > Klucz główny obsługiwany przez emulator usługi Azure Cosmos jest przeznaczony do użycia tylko z emulatorem. Nie można używać konta i klucza Azure Cosmos DB produkcyjnych z emulatorem usługi Azure Cosmos.
 
 > [!NOTE]
-> Jeśli emulator został uruchomiony przy użyciu opcji/Key, użyj wygenerowanego klucza zamiast `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`. Aby uzyskać więcej informacji na temat opcji/Key, zobacz [informacje dotyczące narzędzia wiersza polecenia.](#command-line)
+> Jeśli emulator został uruchomiony przy użyciu opcji/Key, użyj wygenerowanego klucza zamiast `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==` . Aby uzyskać więcej informacji na temat opcji/Key, zobacz [informacje dotyczące narzędzia wiersza polecenia.](#command-line)
 
 Podobnie jak w przypadku Azure Cosmos DB emulator Azure Cosmos obsługuje tylko bezpieczną komunikację za pośrednictwem protokołu TLS.
 
 ## <a name="running-on-a-local-network"></a>Uruchamianie w sieci lokalnej
 
-Emulator możesz uruchomić w sieci lokalnej. Aby włączyć dostęp do sieci, należy `/AllowNetworkAccess` określić opcję w [wierszu polecenia](#command-line-syntax), która wymaga również określenia `/Key=key_string` lub. `/KeyFile=file_name` Możesz użyć `/GenKeyFile=file_name` do wygenerowania pliku z kluczem losowym z góry. Następnie możesz przekazać ten program do `/KeyFile=file_name` lub `/Key=contents_of_file`.
+Emulator możesz uruchomić w sieci lokalnej. Aby włączyć dostęp do sieci, należy określić `/AllowNetworkAccess` opcję w [wierszu polecenia](#command-line-syntax), która wymaga również określenia `/Key=key_string` lub `/KeyFile=file_name` . Możesz użyć `/GenKeyFile=file_name` do wygenerowania pliku z kluczem losowym z góry. Następnie możesz przekazać ten program do `/KeyFile=file_name` lub `/Key=contents_of_file` .
 
 Aby włączyć dostęp do sieci po raz pierwszy, użytkownik powinien zamknąć emulator i usunąć katalog danych emulatora (%LOCALAPPDATA%\CosmosDBEmulator).
 
@@ -149,7 +150,7 @@ table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowK
 
 ### <a name="cassandra-api"></a>Interfejs API rozwiązania Cassandra
 
-Uruchom emulator z wiersza polecenia administratora z "/EnableCassandraEndpoint". Alternatywnie można również ustawić zmienną `AZURE_COSMOS_EMULATOR_CASSANDRA_ENDPOINT=true`środowiskową.
+Uruchom emulator z wiersza polecenia administratora z "/EnableCassandraEndpoint". Alternatywnie można również ustawić zmienną środowiskową `AZURE_COSMOS_EMULATOR_CASSANDRA_ENDPOINT=true` .
 
 * [Zainstaluj Język Python 2,7](https://www.python.org/downloads/release/python-2716/)
 
@@ -242,38 +243,38 @@ Aby wyświetlić listę opcji, wpisz ciąg `Microsoft.Azure.Cosmos.Emulator.exe 
 |[Help] |Wyświetla listę obsługiwanych argumentów wiersza polecenia.|Microsoft. Azure. Cosmos. emulator. exe/? | |
 | GetStatus |Pobiera stan emulatora usługi Azure Cosmos. Stan jest wskazywany przez kod zakończenia: 1 = uruchamiany, 2 = uruchomiony, 3 = zatrzymany. Kod zakończenia o wartości ujemnej informuje o wystąpieniu błędu. Inne dane wyjściowe nie są generowane. | Microsoft. Azure. Cosmos. emulator. exe/GetStatus| |
 | Zamykanie| Zamyka emulator usługi Azure Cosmos.| Microsoft. Azure. Cosmos. emulator. exe/Shutdown | |
-|DataPath | Określa ścieżkę przechowywania plików danych. Wartość domyślna to%LocalAppdata%\CosmosDBEmulator. | Microsoft. Azure. Cosmos. emulator. exe/DataPath =\<datapath\> | \<ścieżka_do_danych\>: dostępna ścieżka |
-|Port | Określa numer portu używanego przez emulatora. Wartość domyślna to 8081. |Microsoft. Azure. Cosmos. emulator. exe/port =\<port\> | \<port\>: numer pojedynczego portu |
-| ComputePort | Określono numer portu, który ma być używany w przypadku usługi bramy międzyoperacyjności obliczeń. Port sondowania punktu końcowego HTTP bramy jest obliczany jako ComputePort + 79. W związku z tym ComputePort i ComputePort + 79 muszą być otwarte i dostępne. Wartość domyślna to 8900. | Microsoft. Azure. Cosmos. emulator. exe/ComputePort =\<ComputePort\> | \<computeport\>: numer pojedynczego portu |
+|DataPath | Określa ścieżkę przechowywania plików danych. Wartość domyślna to%LocalAppdata%\CosmosDBEmulator. | Microsoft. Azure. Cosmos. emulator. exe/DataPath = \< datapath\> | \<ścieżka_do_danych\>: dostępna ścieżka |
+|Port | Określa numer portu używanego przez emulatora. Wartość domyślna to 8081. |Microsoft. Azure. Cosmos. emulator. exe/port = \< port\> | \<port\>: numer pojedynczego portu |
+| ComputePort | Określono numer portu, który ma być używany w przypadku usługi bramy międzyoperacyjności obliczeń. Port sondowania punktu końcowego HTTP bramy jest obliczany jako ComputePort + 79. W związku z tym ComputePort i ComputePort + 79 muszą być otwarte i dostępne. Wartość domyślna to 8900. | Microsoft. Azure. Cosmos. emulator. exe/ComputePort = \< ComputePort\> | \<computeport \> : numer pojedynczego portu |
 | EnableMongoDbEndpoint = 3.2 | Włącza interfejs API MongoDB 3,2 | Microsoft. Azure. Cosmos. emulator. exe/EnableMongoDbEndpoint = 3.2 | |
 | EnableMongoDbEndpoint = 3.6 | Włącza interfejs API MongoDB 3,6 | Microsoft. Azure. Cosmos. emulator. exe/EnableMongoDbEndpoint = 3.6 | |
-| MongoPort | Określa numer portu używanego w celu zapewnienia zgodności z interfejsem API usługi MongoDB. Wartość domyślna to 10255. |Microsoft. Azure. Cosmos. emulator. exe/MongoPort =\<MongoPort\>|\<port_mongo\>: numer pojedynczego portu|
+| MongoPort | Określa numer portu używanego w celu zapewnienia zgodności z interfejsem API usługi MongoDB. Wartość domyślna to 10255. |Microsoft. Azure. Cosmos. emulator. exe/MongoPort = \< MongoPort\>|\<port_mongo\>: numer pojedynczego portu|
 | EnableCassandraEndpoint | Włącza interfejs API Cassandra | Microsoft. Azure. Cosmos. emulator. exe/EnableCassandraEndpoint | |
-| CassandraPort | Określa numer portu, który ma być używany dla punktu końcowego Cassandra. Wartość domyślna to 10350. | Microsoft. Azure. Cosmos. emulator. exe/CassandraPort =\<CassandraPort\> | \<cassandraport\>: numer pojedynczego portu |
+| CassandraPort | Określa numer portu, który ma być używany dla punktu końcowego Cassandra. Wartość domyślna to 10350. | Microsoft. Azure. Cosmos. emulator. exe/CassandraPort = \< CassandraPort\> | \<cassandraport \> : numer pojedynczego portu |
 | EnableGremlinEndpoint | Włącza interfejs API Gremlin | Microsoft. Azure. Cosmos. emulator. exe/EnableGremlinEndpoint | |
-| GremlinPort | Numer portu do użycia w punkcie końcowym Gremlin. Wartość domyślna to 8901. | Microsoft. Azure. Cosmos. emulator. exe/GremlinPort =\<port\> | \<port\>: numer pojedynczego portu |
+| GremlinPort | Numer portu do użycia w punkcie końcowym Gremlin. Wartość domyślna to 8901. | Microsoft. Azure. Cosmos. emulator. exe/GremlinPort = \< port\> | \<port\>: numer pojedynczego portu |
 |EnableTableEndpoint | Włącza interfejs API tabel platformy Azure | Microsoft. Azure. Cosmos. emulator. exe/EnableTableEndpoint | |
-|TablePort | Numer portu do użycia w punkcie końcowym tabeli platformy Azure. Wartość domyślna to 8902. | Microsoft. Azure. Cosmos. emulator. exe/TablePort =\<port\> | \<port\>: numer pojedynczego portu|
-| KeyFile | Odczytaj klucz autoryzacji z określonego pliku. Użyj opcji/GenKeyFile, aby wygenerować KeyFile | Microsoft. Azure. Cosmos. emulator. exe/KeyFile =\<file_name\> | \<file_name\>: ścieżka do pliku |
-| ResetDataPath | Rekursywnie usuwa wszystkie pliki z określonej ścieżki. Jeśli ścieżka nie zostanie określona, domyślnie%LOCALAPPDATA%\CosmosDbEmulator | Microsoft. Azure. Cosmos. emulator. exe/ResetDataPath =\<Path> | \<ścieżka\>: ścieżka pliku  |
+|TablePort | Numer portu do użycia w punkcie końcowym tabeli platformy Azure. Wartość domyślna to 8902. | Microsoft. Azure. Cosmos. emulator. exe/TablePort = \< port\> | \<port\>: numer pojedynczego portu|
+| KeyFile | Odczytaj klucz autoryzacji z określonego pliku. Użyj opcji/GenKeyFile, aby wygenerować KeyFile | Microsoft. Azure. Cosmos. emulator. exe/KeyFile = \< file_name\> | \<file_name \> : ścieżka do pliku |
+| ResetDataPath | Rekursywnie usuwa wszystkie pliki z określonej ścieżki. Jeśli ścieżka nie zostanie określona, domyślnie%LOCALAPPDATA%\CosmosDbEmulator | Microsoft. Azure. Cosmos. emulator. exe/ResetDataPath = \< path> | \<ścieżka \> : ścieżka pliku  |
 | StartTraces  |  Rozpocznij zbieranie dzienników śledzenia debugowania za pomocą narzędzia LOGMAN. | Microsoft. Azure. Cosmos. emulator. exe/StartTraces | |
 | StopTraces     | Zatrzymaj zbieranie dzienników śledzenia debugowania za pomocą narzędzia LOGMAN. | Microsoft. Azure. Cosmos. emulator. exe/StopTraces  | |
 | StartWprTraces  |  Rozpocznij zbieranie dzienników śledzenia debugowania przy użyciu narzędzia do rejestrowania wydajności systemu Windows. | Microsoft. Azure. Cosmos. emulator. exe/StartWprTraces | |
 | StopWprTraces     | Zatrzymaj zbieranie dzienników śledzenia debugowania przy użyciu narzędzia do nagrywania wydajności systemu Windows. | Microsoft. Azure. Cosmos. emulator. exe/StopWprTraces  | |
 |FailOnSslCertificateNameMismatch | Domyślnie emulator ponownie generuje swój certyfikat TLS/SSL z podpisem własnym, jeśli sieć SAN certyfikatu nie zawiera nazwy domeny hosta emulatora, lokalnego adresu IPv4, "localhost" i "127.0.0.1". W przypadku tej opcji emulator zakończy się niepowodzeniem przy uruchamianiu. Następnie należy użyć opcji/GenCert, aby utworzyć i zainstalować nowy certyfikat TLS/SSL z podpisem własnym. | Microsoft. Azure. Cosmos. emulator. exe/FailOnSslCertificateNameMismatch  | |
-| GenCert | Wygeneruj i zainstaluj nowy certyfikat TLS/SSL z podpisem własnym. Opcjonalnie, w tym rozdzieloną przecinkami listę dodatkowych nazw DNS w celu uzyskania dostępu do emulatora za pośrednictwem sieci. | Microsoft. Azure. Cosmos. emulator. exe/GenCert =\<DNS-Names\> |\<DNS-Names\>: opcjonalna rozdzielana przecinkami lista dodatkowych nazw DNS  |
-| DirectPorts |Określa porty używane przez połączenia bezpośrednie. Wartość domyślna to 10251,10252,10253,10254. | Microsoft. Azure. Cosmos. emulator. exe/DirectPorts:\<DirectPorts\> | \<porty_bezpośrednie\>: lista rozdzielana przecinkami zawierająca cztery porty |
-| Klucz |Klucz autoryzacji dla emulatora. Klucz musi być 64-bajtowym wektorem szyfrowanym algorytmem Base-64. | Microsoft. Azure. Cosmos. emulator. exe/Key:\<klucz\> | \<klucz\>: klucz musi być 64-bajtowym wektorem szyfrowanym algorytmem Base-64|
+| GenCert | Wygeneruj i zainstaluj nowy certyfikat TLS/SSL z podpisem własnym. Opcjonalnie, w tym rozdzieloną przecinkami listę dodatkowych nazw DNS w celu uzyskania dostępu do emulatora za pośrednictwem sieci. | Microsoft. Azure. Cosmos. emulator. exe/GenCert = \< DNS-Names\> |\<DNS-Names \> : opcjonalna rozdzielana przecinkami lista dodatkowych nazw DNS  |
+| DirectPorts |Określa porty używane przez połączenia bezpośrednie. Wartość domyślna to 10251,10252,10253,10254. | Microsoft. Azure. Cosmos. emulator. exe/DirectPorts: \< DirectPorts\> | \<porty_bezpośrednie\>: lista rozdzielana przecinkami zawierająca cztery porty |
+| Klucz |Klucz autoryzacji dla emulatora. Klucz musi być 64-bajtowym wektorem szyfrowanym algorytmem Base-64. | Microsoft. Azure. Cosmos. emulator. exe/Key: \< klucz\> | \<klucz\>: klucz musi być 64-bajtowym wektorem szyfrowanym algorytmem Base-64|
 | EnableRateLimiting | Wskazuje, że ograniczanie szybkości żądania jest włączone. |Microsoft. Azure. Cosmos. emulator. exe/EnableRateLimiting | |
 | DisableRateLimiting |Wskazuje, że ograniczanie szybkości żądania jest wyłączone. |Microsoft. Azure. Cosmos. emulator. exe/DisableRateLimiting | |
 | NoUI | Nie wyświetla interfejsu użytkownika emulatora. | Microsoft. Azure. Cosmos. emulator. exe/NoUI | |
 | NoExplorer | Nie wyświetla Eksploratora danych podczas uruchamiania. |Microsoft. Azure. Cosmos. emulator. exe/NoExplorer | | 
-| PartitionCount | Określa maksymalną liczbę kontenerów podzielonych na partycje. Aby uzyskać więcej informacji [, zobacz Zmiana liczby kontenerów](#set-partitioncount) . | Microsoft. Azure. Cosmos. emulator. exe/PartitionCount =\<PartitionCount\> | \<partitionCount\>: Maksymalna liczba dozwolonych kontenerów pojedynczej partycji. Wartość domyślna to 25. Maksymalna dozwolona wartość to 250.|
-| DefaultPartitionCount| Określa domyślną liczbę partycji dla kontenera partycjonowanego. | Microsoft. Azure. Cosmos. emulator. exe/DefaultPartitionCount =\<DefaultPartitionCount\> | \<defaultpartitioncount\> wartość domyślna to 25.|
-| AllowNetworkAccess | Włącza dostęp do emulatora za pośrednictwem sieci. Aby umożliwić dostęp w sieci, musisz także podać opcję /Key=\<ciąg_klucza\> lub /KeyFile=\<nazwa_pliku\>. | Microsoft. Azure. Cosmos. emulator. exe/AllowNetworkAccess/Key =\<Key_string\> lub Microsoft. Azure. Cosmos. emulator. exe/AllowNetworkAccess/KeyFile =\<file_name\>| |
+| PartitionCount | Określa maksymalną liczbę kontenerów podzielonych na partycje. Aby uzyskać więcej informacji [, zobacz Zmiana liczby kontenerów](#set-partitioncount) . | Microsoft. Azure. Cosmos. emulator. exe/PartitionCount = \< PartitionCount\> | \<partitionCount \> : Maksymalna liczba dozwolonych kontenerów pojedynczej partycji. Wartość domyślna to 25. Maksymalna dozwolona wartość to 250.|
+| DefaultPartitionCount| Określa domyślną liczbę partycji dla kontenera partycjonowanego. | Microsoft. Azure. Cosmos. emulator. exe/DefaultPartitionCount = \< DefaultPartitionCount\> | \<defaultpartitioncount \> wartość domyślna to 25.|
+| AllowNetworkAccess | Włącza dostęp do emulatora za pośrednictwem sieci. Aby umożliwić dostęp w sieci, musisz także podać opcję /Key=\<ciąg_klucza\> lub /KeyFile=\<nazwa_pliku\>. | Microsoft. Azure. Cosmos. emulator. exe/AllowNetworkAccess/Key = \< key_string \> lub Microsoft. Azure. Cosmos. emulator. exe/AllowNetworkAccess/KeyFile = \< file_name\>| |
 | NoFirewall | Nie dostosowuj reguł zapory, gdy jest używana opcja/AllowNetworkAccess. |Microsoft. Azure. Cosmos. emulator. exe/NoFirewall | |
-| GenKeyFile | Generuje nowy klucz autoryzacji i zapisuje go w określonym pliku. Wygenerowanego klucza można używać z opcją /Key lub /KeyFile. | Microsoft. Azure. Cosmos. emulator. exe/GenKeyFile =\<ścieżka do pliku klucza\> | |
-| Spójność | Ustawia domyślny poziom spójności dla konta. | Microsoft. Azure. Cosmos. emulator. exe/Consistency =\<spójność\> | \<spójność\>: wartość musi być jednym z następujących [poziomów spójności](consistency-levels.md): Sesja, Silne, Ostateczne lub Powiązana nieaktualność. Wartość domyślna to Sesja. |
+| GenKeyFile | Generuje nowy klucz autoryzacji i zapisuje go w określonym pliku. Wygenerowanego klucza można używać z opcją /Key lub /KeyFile. | Microsoft. Azure. Cosmos. emulator. exe/GenKeyFile = \< ścieżka do pliku klucza\> | |
+| Spójność | Ustawia domyślny poziom spójności dla konta. | Microsoft. Azure. Cosmos. emulator. exe/Consistency = \< spójność\> | \<spójność\>: wartość musi być jednym z następujących [poziomów spójności](consistency-levels.md): Sesja, Silne, Ostateczne lub Powiązana nieaktualność. Wartość domyślna to Sesja. |
 | ? | Wyświetla komunikat pomocy.| | |
 
 ## <a name="change-the-number-of-containers"></a><a id="set-partitioncount"></a>Zmień liczbę kontenerów
@@ -288,7 +289,7 @@ ActivityId: 12345678-1234-1234-1234-123456789abc "
 Aby zmienić liczbę kontenerów dostępnych w emulatorze usługi Azure Cosmos, uruchom następujące kroki:
 
 1. Usuń wszystkie lokalne dane emulatora usługi Azure Cosmos, klikając prawym przyciskiem myszy ikonę **emulatora Azure Cosmos DB** na pasku zadań, a następnie klikając polecenie **Resetuj dane...**.
-2. Usuń wszystkie dane emulatora z tego `%LOCALAPPDATA%\CosmosDBEmulator`folderu.
+2. Usuń wszystkie dane emulatora z tego folderu `%LOCALAPPDATA%\CosmosDBEmulator` .
 3. Zamknij wszystkie otwarte wystąpienia, klikając prawym przyciskiem myszy ikonę **emulatora usługi Azure Cosmos DB** w obszarze powiadomień, a następnie klikając polecenie **Exit** (Zakończ). Zamykanie wszystkich wystąpień może potrwać około minuty.
 4. Zainstaluj najnowszą wersję [emulatora usługi Azure Cosmos](https://aka.ms/cosmosdb-emulator).
 5. Uruchom emulator z flagą PartitionCount, ustawiając wartość <= 250. Na przykład: `C:\Program Files\Azure Cosmos DB Emulator> Microsoft.Azure.Cosmos.Emulator.exe /PartitionCount=100`.
@@ -312,7 +313,7 @@ Poniżej przedstawiono podsumowanie poleceń umożliwiających sterowanie emulat
 
 ### `Get-CosmosDbEmulatorStatus`
 
-**Obowiązuje**
+**Składnia**
 
 `Get-CosmosDbEmulatorStatus`
 
@@ -322,7 +323,7 @@ Zwraca jedną z następujących wartości ServiceControllerStatus: ServiceContro
 
 ### `Start-CosmosDbEmulator`
 
-**Obowiązuje**
+**Składnia**
 
 `Start-CosmosDbEmulator [-DataPath <string>] [-DefaultPartitionCount <uint16>] [-DirectPort <uint16[]>] [-MongoPort <uint16>] [-NoUI] [-NoWait] [-PartitionCount <uint16>] [-Port <uint16>] [<CommonParameters>]`
 
@@ -332,7 +333,7 @@ Uruchamia emulator. Domyślnie to polecenie czeka, aż emulator zgłosi gotowoś
 
 ### `Stop-CosmosDbEmulator`
 
-**Obowiązuje**
+**Składnia**
 
  `Stop-CosmosDbEmulator [-NoWait]`
 
@@ -342,7 +343,7 @@ Zatrzymuje emulator. Domyślnie to polecenie czeka, aż emulator zostanie w peł
 
 ### `Uninstall-CosmosDbEmulator`
 
-**Obowiązuje**
+**Składnia**
 
 `Uninstall-CosmosDbEmulator [-RemoveData]`
 
@@ -431,7 +432,7 @@ Na maszynie wirtualnej z systemem Windows uruchom poniższe polecenie i Zanotuj 
 ipconfig.exe
 ```
 
-W aplikacji należy zmienić identyfikator URI używany jako punkt końcowy, aby użyć adresu IPv4 zwróconego przez `ipconfig.exe` zamiast. `localhost`
+W aplikacji należy zmienić identyfikator URI używany jako punkt końcowy, aby użyć adresu IPv4 zwróconego przez `ipconfig.exe` zamiast `localhost` .
 
 Następnym krokiem z poziomu maszyny wirtualnej z systemem Windows jest uruchomienie emulatora Cosmos z poziomu wiersza polecenia przy użyciu następujących opcji.
 
@@ -455,7 +456,7 @@ Jeśli pracujesz w systemie Linux, .NET przekazuje na OpenSSL w celu sprawdzenia
    openssl pkcs12 -in YourPFX.pfx -clcerts -nokeys -out YourCTR.crt
    ```
 
-1. Skopiuj plik CRT do folderu, który zawiera niestandardowe certyfikaty w dystrybucji systemu Linux. Często w przypadku dystrybucji Debian znajdują się w `/usr/local/share/ca-certificates/`.
+1. Skopiuj plik CRT do folderu, który zawiera niestandardowe certyfikaty w dystrybucji systemu Linux. Często w przypadku dystrybucji Debian znajdują się w `/usr/local/share/ca-certificates/` .
 
    ```bash
    cp YourCTR.crt /usr/local/share/ca-certificates/
@@ -477,13 +478,13 @@ Jeśli pracujesz na komputerze Mac, wykonaj następujące czynności:
 
 1. Otwórz aplikację *dostęp do łańcucha kluczy* i zaimportuj plik PFX.
 
-1. Otwórz listę certyfikatów i zidentyfikuj ją z nazwą `localhost`.
+1. Otwórz listę certyfikatów i zidentyfikuj ją z nazwą `localhost` .
 
-1. Otwórz menu kontekstowe dla danego elementu, wybierz opcję *Pobierz element* i w obszarze *zaufanie* > w*przypadku korzystania z tego certyfikatu* , wybierz pozycję *Zawsze ufaj*. 
+1. Otwórz menu kontekstowe dla danego elementu, wybierz opcję *Pobierz element* i w obszarze *zaufanie*w  >  *przypadku korzystania z tego certyfikatu* , wybierz pozycję *Zawsze ufaj*. 
 
    ![Otwórz menu kontekstowe dla danego elementu, wybierz pozycję Pobierz element i w obszarze zaufanie — w przypadku korzystania z tego certyfikatu wybierz opcję Zawsze ufaj.](./media/local-emulator/mac-trust-certificate.png)
 
-Po wykonaniu tych kroków środowisko będzie ufać certyfikatowi używanemu przez emulator podczas łączenia się z adresem IP uwidacznianym przez `/AllowNetworkAccess`.
+Po wykonaniu tych kroków środowisko będzie ufać certyfikatowi używanemu przez emulator podczas łączenia się z adresem IP uwidacznianym przez `/AllowNetworkAccess` .
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
 
@@ -493,7 +494,7 @@ Poniższe wskazówki ułatwiają rozwiązywanie problemów napotykanych przez em
 
 - W przypadku awarii emulatora usługi Azure Cosmos należy zebrać pliki zrzutu z folderu "%LOCALAPPDATA%\CrashDumps", je skompresować i otworzyć bilet pomocy technicznej z [Azure Portal](https://portal.azure.com).
 
-- Jeśli wystąpi awaria w `Microsoft.Azure.Cosmos.ComputeServiceStartupEntryPoint.exe`programie, może to być objawem, w którym liczniki wydajności są w stanie uszkodzenia. Zwykle uruchomienie następującego polecenia z poziomu wiersza polecenia administratora rozwiązuje problem:
+- Jeśli wystąpi awaria w programie `Microsoft.Azure.Cosmos.ComputeServiceStartupEntryPoint.exe` , może to być objawem, w którym liczniki wydajności są w stanie uszkodzenia. Zwykle uruchomienie następującego polecenia z poziomu wiersza polecenia administratora rozwiązuje problem:
 
   ```cmd
   lodctr /R

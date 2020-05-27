@@ -8,18 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: 8f6022f03d28362e85fba3fd75e60c4d7032b41b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: cd02a0ea51faa7dae14e0f9d61c446aae55dcbe1
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448381"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849573"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-ruby"></a>Szybki Start: wyszukiwanie filmów wideo przy użyciu interfejsu API REST wyszukiwanie wideo Bing i języka Ruby
 
-Ten przewodnik Szybki start umożliwia wykonanie pierwszego wywołania interfejsu API wyszukiwania wideo Bing i wyświetlenie wyników wyszukiwania na podstawie odpowiedzi JSON. Ta prosta aplikacja w języku Ruby wysyła zapytanie HTTP wyszukiwania wideo do interfejsu API i wyświetla odpowiedź. Chociaż ta aplikacja jest napisana w języku Python, interfejs API jest usługą internetową zgodną z wzorcem REST i większością języków programowania. Kod źródłowy dla tego przykładu jest dostępny w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingVideoSearchv7.rb) wraz z dodatkową obsługą błędów i adnotacjami kodu.
+Użyj tego przewodnika Szybki Start, aby wykonać pierwsze wywołanie do interfejs API wyszukiwania wideo Bing. Ta prosta aplikacja Ruby wysyła zapytanie wyszukiwania wideo HTTP do interfejsu API i wyświetla odpowiedź JSON. Mimo że aplikacja jest zapisywana w języku Python, interfejs API jest usługą sieci Web RESTful zgodną z większością języków programowania. 
+
+Kod źródłowy dla tego przykładu jest dostępny w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingVideoSearchv7.rb) wraz z dodatkową obsługą błędów i adnotacjami kodu.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -29,7 +31,7 @@ Ten przewodnik Szybki start umożliwia wykonanie pierwszego wywołania interfejs
 
 ## <a name="create-and-initialize-the-application"></a>Tworzenie i inicjowanie aplikacji
 
-1. Zaimportuj następujące pakiety do pliku kodu.
+1. Zaimportuj następujące pakiety do pliku kodu:
 
     ```ruby
     require 'net/https'
@@ -37,7 +39,7 @@ Ten przewodnik Szybki start umożliwia wykonanie pierwszego wywołania interfejs
     require 'json'
     ```
 
-2. Utwórz zmienne dla punktu końcowego interfejsu API, ścieżki wyszukiwania interfejsu API wideo, klucza subskrypcji i terminu wyszukiwania. `uri`może to być globalny punkt końcowy poniżej lub niestandardowy punkt końcowy [domeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) podrzędnej wyświetlany w Azure Portal dla zasobu.
+2. Utwórz zmienne dla punktu końcowego interfejsu API, ścieżki wyszukiwania interfejsu API wideo, klucza subskrypcji i terminu wyszukiwania. Dla `url` wartości można użyć globalnego punktu końcowego w poniższym kodzie lub użyć niestandardowego punktu końcowego [poddomeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) wyświetlanego w Azure Portal dla zasobu.
 
     ```ruby
     uri  = "https://api.cognitive.microsoft.com"
@@ -48,20 +50,20 @@ Ten przewodnik Szybki start umożliwia wykonanie pierwszego wywołania interfejs
 
 ## <a name="create-and-send-an-api-request"></a>Tworzenie i wysyłanie żądania interfejsu API
 
-1. Użyj zmiennych utworzonych w ostatnim kroku, aby sformatować adres URL wyszukiwania dla żądania. Połącz identyfikator URI i ścieżkę, a następnie zastosuj kodowanie adresu URL dla terminu wyszukiwania przed dołączeniem go do parametru `?q=`.
+1. Użyj zmiennych z poprzedniego kroku, aby sformatować adres URL wyszukiwania dla żądania. Połącz swój identyfikator URI i ścieżkę, a następnie URL Koduj termin wyszukiwania przed dołączeniem go do `?q=` parametru.
 
     ```ruby
     uri = URI(uri + path + "?q=" + URI.escape(term))
     ```
 
-2. Dodaj pełny adres URL wyszukiwania do żądania i dodaj klucz subskrypcji do nagłówka `Ocp-Apim-Subscription-Key`.
+2. Dodaj pełny adres URL wyszukiwania do żądania i Dodaj swój klucz subskrypcji do `Ocp-Apim-Subscription-Key` nagłówka.
     
     ``` ruby
     request = Net::HTTP::Get.new(uri)
     request['Ocp-Apim-Subscription-Key'] = accessKey
     ```
 
-3. Wyślij żądanie i zapisz odpowiedź.
+3. Wyślij żądanie, a następnie Zapisz odpowiedź.
     
     ```ruby
     response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
@@ -71,11 +73,11 @@ Ten przewodnik Szybki start umożliwia wykonanie pierwszego wywołania interfejs
 
 ## <a name="process-and-view-the-response"></a>Przetwarzanie i wyświetlanie odpowiedzi
 
-1. Po otrzymaniu odpowiedzi możesz wydrukować odpowiedź w formacie JSON.
+Po odebraniu odpowiedzi Wydrukuj odpowiedź JSON.
 
-    ```ruby
-    puts JSON::pretty_generate(JSON(response.body))
-    ```
+```ruby
+puts JSON::pretty_generate(JSON(response.body))
+```
 
 ## <a name="json-response"></a>Odpowiedź w formacie JSON
 
@@ -191,9 +193,9 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Tworzenie internetowej aplikacji jednostronicowej](../tutorial-bing-video-search-single-page-app.md)
+> [Tworzenie jednostronicowej aplikacji internetowej](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Zobacz także 
+## <a name="see-also"></a>Zobacz też 
 
  [Co to jest interfejs API wyszukiwania wideo Bing?](../overview.md)
 

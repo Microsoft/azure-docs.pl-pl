@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 12/24/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 1da862a7994d7db5ee8c9f090119e14f19c6b13a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 05dd9f6c2f1f08ec0e420bd4257d2c26e1963e5b
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80637892"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83850066"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Szybki Start: zbieranie danych z komputera z systemem Linux w środowisku hybrydowym z Azure Monitor
 
@@ -26,7 +26,7 @@ ms.locfileid: "80637892"
 
 Aby zrozumieć obsługiwaną konfigurację, zobacz [obsługiwane systemy operacyjne Windows](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) i [Konfiguracja zapory sieciowej](../../azure-monitor/platform/log-analytics-agent.md#network-requirements).
  
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
@@ -87,7 +87,7 @@ Na przykład: `https://user01:password@proxy01.contoso.com:30443`
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
     ```
 
-    Następujące polecenie zawiera parametr proxy `-p` i składnię przykładową, gdy uwierzytelnianie jest wymagane przez serwer proxy:
+    Następujące polecenie zawiera `-p` parametr proxy i składnię przykładową, gdy uwierzytelnianie jest wymagane przez serwer proxy:
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://][user:password@]proxyhost[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY>
@@ -99,7 +99,7 @@ Na przykład: `https://user01:password@proxy01.contoso.com:30443`
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
     ``` 
 
-    Następujące polecenie zawiera parametr proxy `-p` i składnię przykładową, gdy uwierzytelnianie jest wymagane przez serwer proxy:
+    Następujące polecenie zawiera `-p` parametr proxy i składnię przykładową, gdy uwierzytelnianie jest wymagane przez serwer proxy:
 
    ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -p [protocol://][user:password@]proxyhost[:port] -w <YOUR WORKSPACE ID> -s <YOUR WORKSPACE PRIMARY KEY> -d opinsights.azure.us
@@ -115,11 +115,11 @@ Na przykład: `https://user01:password@proxy01.contoso.com:30443`
 
 Azure Monitor może zbierać zdarzenia z dzienników systemu Linux i liczników wydajności określonych na potrzeby analizy i raportowania w dłuższym czasie. Może również podejmować działania po wykryciu określonego warunku. Wykonaj następujące kroki, aby skonfigurować zbieranie zdarzeń z dziennika Syslog systemu Linux oraz na początek z kilku typowych liczników wydajności.  
 
-1. W lewym dolnym rogu Azure Portal wybierz pozycję **więcej usług**. W polu wyszukiwania wprowadź **log Analytics**. Podczas wpisywania lista jest filtrowana na podstawie danych wejściowych. Wybierz **log Analytics obszary robocze**.
+1. W Azure Portal wybierz pozycję **wszystkie usługi**. Na liście zasobów wpisz Log Analytics. Podczas wpisywania lista jest filtrowana na podstawie danych wejściowych. Wybierz **log Analytics obszary robocze** i na liście log Analytics obszarów roboczych wybierz obszar roboczy, którego szukasz, a następnie wybierz pozycję **Ustawienia zaawansowane** w obszarze roboczym **log Analytics** .
 
 2. Wybierz pozycję **dane**, a następnie wybierz pozycję **Dziennik**systemowy.  
 
-3. Aby dodać dziennik systemowy, wpisz nazwę dziennika. Wprowadź **Dziennik** systemowy, a następnie wybierz **+** znak plus.  
+3. Aby dodać dziennik systemowy, wpisz nazwę dziennika. Wprowadź **Dziennik** systemowy, a następnie wybierz znak plus **+** .  
 
 4. W tabeli usuń zaznaczenie ważności **Informacja**, **Powiadomienie** i **Debugowanie**. 
 
@@ -149,7 +149,7 @@ Teraz, po włączeniu zbierania danych, uruchomimy proste przykładowe wyszukiwa
 
     ![Wynik przeszukiwania dzienników w usłudze Log Analytics](media/quick-collect-linux-computer/log-analytics-search-perf.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie jest już potrzebny, można usunąć agenta z komputera z systemem Linux i usunąć obszar roboczy usługi Log Analytics.  
 

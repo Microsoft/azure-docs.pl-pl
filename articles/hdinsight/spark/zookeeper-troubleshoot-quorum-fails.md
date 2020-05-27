@@ -6,54 +6,124 @@ ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.date: 08/20/2019
-ms.openlocfilehash: 41ac109e5c5379e6085dd57a3fcd8119915558fb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/20/2020
+ms.openlocfilehash: dc93121d7565b95b9bd604160028659f3a741b0c
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133273"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860498"
 ---
 # <a name="apache-zookeeper-server-fails-to-form-a-quorum-in-azure-hdinsight"></a>Serwer Apache ZooKeeper nie może utworzyć kworum w usłudze Azure HDInsight
 
-W tym artykule opisano kroki rozwiązywania problemów oraz możliwe rozwiązania problemów występujących w przypadku współpracy z klastrami usługi Azure HDInsight.
+W tym artykule opisano kroki rozwiązywania problemów i możliwe rozwiązania problemów związanych z Dozorcami w klastrach usługi Azure HDInsight.
 
-## <a name="issue"></a>Problem
+## <a name="symptoms"></a>Objawy
 
-Serwer Apache ZooKeeper jest w złej kondycji, objawy mogą obejmować: Menedżer zasobów/węzły nazw są w trybie wstrzymania, proste operacje HDFS nie działają, `zkFailoverController` są zatrzymane i nie można ich uruchomić, zadania przędzy/Spark/usługi Livy kończą się niepowodzeniem z powodu błędów dozorcy. Nie można uruchomić demonów LLAP w przypadku bezpiecznych klastrów Hive lub interaktywnych. Może zostać wyświetlony komunikat o błędzie podobny do:
+* Menedżer zasobów przejdzie do trybu wstrzymania
+* Namenodes są w trybie wstrzymania
+* Zadania platformy Spark, Hive i przędzy lub zapytania Hive kończą się niepowodzeniem z powodu błędów połączenia dozorcy
+* Nie można uruchomić demonów LLAP w przypadku bezpiecznych klastrów Hive lub bezpiecznych interaktywnych.
 
+## <a name="sample-log"></a>Przykładowy dziennik
+
+Może zostać wyświetlony komunikat o błędzie podobny do:
+
+```output
+2020-05-05 03:17:18.3916720|Lost contact with Zookeeper. Transitioning to standby in 10000 ms if connection is not reestablished.
+Message
+2020-05-05 03:17:07.7924490|Received RMFatalEvent of type STATE_STORE_FENCED, caused by org.apache.zookeeper.KeeperException$NoAuthException: KeeperErrorCode = NoAuth
+...
+2020-05-05 03:17:08.3890350|State store operation failed 
+2020-05-05 03:17:08.3890350|Transitioning to standby state
 ```
-19/06/19 08:27:08 ERROR ZooKeeperStateStore: Fatal Zookeeper error. Shutting down Livy server.
-19/06/19 08:27:08 INFO LivyServer: Shutting down Livy server.
+
+## <a name="related-issues"></a>Pokrewne problemy
+
+* Usługi wysokiej dostępności, takie jak przędza, NameNode i usługi Livy, mogą się z wielu powodów.
+* Potwierdź, że dzienniki są powiązane z połączeniami dozorcy
+* Upewnij się, że problem występuje wielokrotnie (nie używaj tych rozwiązań w jednym przypadku)
+* Zadania mogą tymczasowo kończyć się niepowodzeniem z powodu problemów z połączeniem dozorcy
+
+## <a name="common-causes-for-zookeeper-failure"></a>Typowe przyczyny niepowodzenia dozorcy
+
+* Duże użycie procesora CPU na serwerach dozorcy
+  * W interfejsie użytkownika Ambari, jeśli widzisz niemal 100% czasu użycia procesora CPU na serwerach dozorcy, sesje dozorcy otwarte w tym czasie mogą wygasnąć i przekroczyć limit czasu
+* Klienci dozorcy są raportowane częstych limitów czasu
+  * W dziennikach dla Menedżer zasobów, Namenode i innych, zobaczysz częste limity czasu połączenia klienta
+  * Może to spowodować utratę kworum, częste przełączanie w tryb failover oraz inne problemy
+
+## <a name="check-for-zookeeper-status"></a>Sprawdź stan usługi dozorcy
+
+* Znajdź serwery dozorcy z pliku/etc/hosts lub z interfejsu użytkownika Ambari
+* Uruchom następujące polecenie
+  * `echo stat | nc <ZOOKEEPER_HOST_IP> 2181`(lub 2182)  
+  * Port 2181 to wystąpienie Apache dozorcy
+  * Port 2182 jest używany przez dozorcy usługi HDInsight (w celu zapewnienia wysokiej dostępności dla usług, które nie są natywnie HA)
+  * Jeśli polecenie nie wyświetla danych wyjściowych, oznacza to, że serwery dozorcy nie są uruchomione
+  * Jeśli serwery są uruchomione, wynik będzie zawierać statyczne połączenia klienckie i inne dane statystyczne
+
+```output
+Zookeeper version: 3.4.6-8--1, built on 12/05/2019 12:55 GMT
+Clients:
+ /10.2.0.57:50988[1](queued=0,recved=715,sent=715)
+ /10.2.0.57:46632[1](queued=0,recved=138340,sent=138347)
+ /10.2.0.34:14688[1](queued=0,recved=264653,sent=353420)
+ /10.2.0.52:49680[1](queued=0,recved=134812,sent=134814)
+ /10.2.0.57:50614[1](queued=0,recved=19812,sent=19812)
+ /10.2.0.56:35034[1](queued=0,recved=2586,sent=2586)
+ /10.2.0.52:63982[1](queued=0,recved=72215,sent=72217)
+ /10.2.0.57:53024[1](queued=0,recved=19805,sent=19805)
+ /10.2.0.57:45126[1](queued=0,recved=19621,sent=19621)
+ /10.2.0.56:41270[1](queued=0,recved=1348743,sent=1348788)
+ /10.2.0.53:59097[1](queued=0,recved=72215,sent=72217)
+ /10.2.0.56:41088[1](queued=0,recved=788,sent=802)
+ /10.2.0.34:10246[1](queued=0,recved=19575,sent=19575)
+ /10.2.0.56:40944[1](queued=0,recved=717,sent=717)
+ /10.2.0.57:45466[1](queued=0,recved=19861,sent=19861)
+ /10.2.0.57:59634[0](queued=0,recved=1,sent=0)
+ /10.2.0.34:14704[1](queued=0,recved=264622,sent=353355)
+ /10.2.0.57:42244[1](queued=0,recved=49245,sent=49248)
+
+Latency min/avg/max: 0/3/14865
+Received: 238606078
+Sent: 239139381
+Connections: 18
+Outstanding: 0
+Zxid: 0x1004f99be
+Mode: follower
+Node count: 133212
 ```
 
-W dzienniku serwera dozorcy na dowolnym hoście dozorcy w/var/log/Zookeeper/Zookeeper-Zookeeper-Server-\*. out może zostać wyświetlony następujący błąd:
+## <a name="cpu-load-peaks-up-every-hour"></a>Obciążenie procesora CPU w górę co godzinę
 
-```
-2020-02-12 00:31:52,513 - ERROR [CommitProcessor:1:NIOServerCnxn@178] - Unexpected Exception:
-java.nio.channels.CancelledKeyException
-```
+* Zaloguj się do serwera dozorcy i sprawdź/etc/crontab
+* Jeśli w tym momencie są uruchomione jakieś zadania godzinowe, należy losowo przekroczyć czas rozpoczęcia między różnymi serwerami dozorcy.
+  
+## <a name="purging-old-snapshots"></a>Przeczyszczanie starych migawek
 
-## <a name="cause"></a>Przyczyna
+* Dozorcami są skonfigurowane do autoprzeczyszczania starych migawek
+* Domyślnie ostatnie 30 migawek są zachowywane
+* Liczba zachowywanych migawek jest kontrolowana przez klucz konfiguracji `autopurge.snapRetainCount` . Tę właściwość można znaleźć w następujących plikach:
+  * `/etc/zookeeper/conf/zoo.cfg`w przypadku usługi Hadoop dozorcy
+  * `/etc/hdinsight-zookeeper/conf/zoo.cfg`dla usługi HDInsight dozorcy
+* Ustaw `autopurge.snapRetainCount` wartość 3 i ponownie uruchom serwery dozorcy
+  * Konfigurację usługi Hadoop dozorcy można zaktualizować, a usługa może zostać ponownie uruchomiona za pomocą Ambari
+  * Ręczne zatrzymywanie i ponowne uruchamianie usługi HDInsight dozorcy
+    * `sudo lsof -i :2182`podaje identyfikator procesu do zabicia
+    * `sudo python /opt/startup_scripts/startup_hdinsight_zookeeper.py`
+* Nie Przeczyść migawek ręcznie — ręczne usuwanie migawek może spowodować utratę danych
 
-Gdy ilość plików migawek jest duża lub pliki migawek są uszkodzone, serwer dozorcy nie będzie mógł utworzyć kworum, co spowoduje złej kondycji usługi dozorcy. Serwer dozorcy nie usunie starych plików migawek z jego katalogu danych, ale jest to zadanie okresowe wykonywane przez użytkowników w celu utrzymania healthiness dozorcy. Aby uzyskać więcej informacji, zobacz [dozorcy siły i ograniczenia](https://zookeeper.apache.org/doc/r3.3.5/zookeeperAdmin.html#sc_strengthsAndLimitations).
+## <a name="cancelledkeyexception-in-the-zookeeper-server-log-doesnt-require-snapshot-cleanup"></a>CancelledKeyException w dzienniku serwera dozorcy nie wymaga oczyszczania migawek
 
-## <a name="resolution"></a>Rozwiązanie
-
-Sprawdź katalog `/hadoop/zookeeper/version-2` danych dozorcy, `/hadoop/hdinsight-zookeeper/version-2` aby dowiedzieć się, czy rozmiar pliku migawek jest duży. Jeśli istnieją duże migawki, wykonaj następujące czynności:
-
-1. Sprawdź stan innych serwerów dozorcy w tym samym kworum, aby upewnić się, że działają one prawidłowo z poleceniem`echo stat | nc {zk_host_ip} 2181 (or 2182)`"".  
-
-1. Zalogować się do problematycznego hosta dozorcy, migawek kopii zapasowych i dzienników transakcji w programie `/hadoop/zookeeper/version-2` , a `/hadoop/hdinsight-zookeeper/version-2`następnie Oczyść te pliki w dwóch katalogach. 
-
-1. Uruchom ponownie problematyczny serwer dozorcy w Ambari lub dozorcy. Następnie uruchom ponownie usługę, która ma problemy.
+* Ten wyjątek zwykle oznacza, że klient nie jest już aktywny i serwer nie może wysłać komunikatu
+* Ten wyjątek wskazuje również, że klient dozorcy kończy przedwcześnie sesje
+* Poszukaj innych objawów przedstawionych w tym dokumencie
 
 ## <a name="next-steps"></a>Następne kroki
 
 Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odwiedź jeden z następujących kanałów, aby uzyskać więcej pomocy:
 
 - Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
-
-- Połącz się [@AzureSupport](https://twitter.com/azuresupport) z programem — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
-
+- Połącz się z programem [@AzureSupport](https://twitter.com/azuresupport) — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
 - Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

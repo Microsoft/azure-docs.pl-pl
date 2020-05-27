@@ -8,21 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: 357cc85991ac88aef4fd0958e2bc776373f56dc8
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: c43abc6c87b88e9fc4a15d4ca5d5506389a8a81a
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75448361"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849624"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Szybki Start: wyszukiwanie filmów wideo przy użyciu interfejsu API REST wyszukiwanie wideo Bing i języka PHP
 
-Ten przewodnik Szybki start umożliwia wykonanie pierwszego wywołania interfejsu API wyszukiwania wideo Bing i wyświetlenie wyników wyszukiwania na podstawie odpowiedzi JSON. Ta prosta aplikacja w języku JavaScript wysyła zapytanie HTTP wyszukiwania wideo do interfejsu API i wyświetla odpowiedź. Ta aplikacja jest napisana w języku JavaScript i używa środowiska Node.js, a interfejs API jest usługą internetową zgodną z wzorcem REST i większością języków programowania.
-Przykładowy kod jest zgodny z wersją PHP 5.6.
+Użyj tego przewodnika Szybki Start, aby wykonać pierwsze wywołanie do interfejs API wyszukiwania wideo Bing. Ta prosta aplikacja PHP wysyła zapytanie wyszukiwania wideo HTTP do interfejsu API i wyświetla odpowiedź JSON. Przykładowy kod jest zapisywana w celu pracy w języku PHP 5,6.
 
-Zapoznaj się [dokumentacją interfejsu API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference), aby uzyskać szczegółowe informacje techniczne dotyczące interfejsów API.
+Mimo że aplikacja jest zapisywana w języku PHP, interfejs API jest usługą sieci Web RESTful zgodną z większością języków programowania.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -34,10 +33,10 @@ Zapoznaj się [dokumentacją interfejsu API](https://docs.microsoft.com/rest/api
 
 [Interfejs API wyszukiwania wideo Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) zwraca wyniki wideo z wyszukiwarki Bing.
 
-1. Upewnij się, że w Twoim pliku `php.ini` włączoną obsługę bezpiecznego protokołu HTTP, jak opisano w komentarzu do tego kodu.
+1. Włącz bezpieczną obsługę protokołu HTTP w `php.ini` pliku przez usunięcie komentarza do `;extension=php_openssl.dll` wiersza, zgodnie z opisem w poniższym kodzie.
 2. Utwórz nowy projekt PHP w ulubionym środowisku IDE lub edytorze.
 3. Dodaj kod przedstawiony poniżej.
-4. Zastąp wartość `$accessKey` kluczem dostępu właściwym dla Twojej subskrypcji. `$endpoint`może to być globalny punkt końcowy poniżej lub niestandardowy punkt końcowy [domeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) podrzędnej wyświetlany w Azure Portal dla zasobu.
+4. Zastąp wartość `$accessKey` kluczem dostępu właściwym dla Twojej subskrypcji. Dla `$endpoint` wartości można użyć globalnego punktu końcowego w poniższym kodzie lub użyć niestandardowego punktu końcowego [poddomeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) wyświetlanego w Azure Portal dla zasobu.
 5. Uruchom program.
 
 ```php
@@ -215,6 +214,6 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 > [!div class="nextstepaction"]
 > [Tworzenie jednostronicowej aplikacji internetowej](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Zobacz także 
+## <a name="see-also"></a>Zobacz też 
 
  [Co to jest interfejs API wyszukiwania wideo Bing?](../overview.md)

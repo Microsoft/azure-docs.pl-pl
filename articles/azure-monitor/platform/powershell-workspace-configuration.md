@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/11/2020
-ms.openlocfilehash: 0b2f67424589958d5d81e01c2efee525311ee33c
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.date: 05/26/2020
+ms.openlocfilehash: a03fcf5748eaa215aa90b70dbd11e788e8beb3e4
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836372"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860974"
 ---
 # <a name="create-and-configure-a-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Tworzenie i Konfigurowanie obszaru roboczego Log Analytics w Azure Monitor przy użyciu programu PowerShell
 W tym artykule przedstawiono dwa przykłady kodu, które pokazują, jak utworzyć i skonfigurować obszar roboczy Log Analytics w Azure Monitor.  
@@ -211,6 +211,13 @@ W powyższym przykładzie regexDelimiter został zdefiniowany jako " \\ n" dla n
 | `dd/MMM/yyyy:HH:mm:ss +zzzz` <br> gdzie + is + lub a- <br> gdzie zzzz przesunięcie czasu | `(([0-2][1-9]|[3][0-1])\\/(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\\/((19|20)[0-9][0-9]):([0][0-9]|[1][0-2]):([0-5][0-9]):([0-5][0-9])\\s[\\+|\\-][0-9]{4})` | | |
 | `yyyy-MM-ddTHH:mm:ss` <br> T to litera litera T | `((\\d{2})|(\\d{4}))-([0-1]\\d)-(([0-3]\\d)|(\\d))T((\\d)|([0-1]\\d)|(2[0-4])):[0-5][0-9]:[0-5][0-9]` | | |
 
+## <a name="troubleshooting"></a>Rozwiązywanie problemów
+Podczas tworzenia obszaru roboczego, który został usunięty w ciągu ostatnich 14 dni i w [stanie usuwania nietrwałego](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#soft-delete-behavior), operacja może mieć różny wynik w zależności od konfiguracji obszaru roboczego:
+1. Jeśli podano tę samą nazwę obszaru roboczego, grupę zasobów, subskrypcję i region, jak w usuniętym obszarze roboczym, obszar roboczy zostanie odzyskany, w tym jego dane, konfiguracja i agenci połączone.
+2. W przypadku użycia tej samej nazwy obszaru roboczego, ale innej grupy zasobów, subskrypcji lub regionu zostanie wyświetlony błąd *Nazwa obszaru roboczego "Przestrzeń nazw" nie jest unikatowa*lub powoduje *konflikt*. Aby zastąpić nietrwałe usuwanie i trwałe usuwanie obszaru roboczego i utworzyć nowy obszar roboczy o tej samej nazwie, wykonaj następujące kroki, aby najpierw odzyskać obszar roboczy i wykonać trwałe usuwanie:
+   * [Odzyskiwanie](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#recover-workspace) obszaru roboczego
+   * [Trwałe usuwanie](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace#permanent-workspace-delete) obszaru roboczego
+   * Utwórz nowy obszar roboczy przy użyciu tej samej nazwy obszaru roboczego
 
 
 ## <a name="next-steps"></a>Następne kroki

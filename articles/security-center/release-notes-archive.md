@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2020
 ms.author: memildin
-ms.openlocfilehash: c0883e91d5e806fb166c3ddeafc4ce130ff3f66f
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 253ea748462ec09cd9cf4eab14c05be678cfb82d
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83210845"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860906"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Co nowego w Azure Security Center?
 
-Podstawowe [Informacje o nowościach Azure Active Directory?](release-notes.md) Strona informacje o wersji zawiera aktualizacje dla ostatnich sześciu miesięcy, a ta strona zawiera starsze elementy.
+Podstawowe [Informacje o nowościach Azure Security Center?](release-notes.md) Strona informacje o wersji zawiera aktualizacje dla ostatnich sześciu miesięcy, a ta strona zawiera starsze elementy.
 
 Ta strona zawiera informacje na temat:
 

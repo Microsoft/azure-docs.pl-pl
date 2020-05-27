@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć prywatny klaster usługi Azure Kubernet
 services: container-service
 ms.topic: article
 ms.date: 2/21/2020
-ms.openlocfilehash: a09781efd58c29acbd8ca445b58b89c04daa94f8
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 49776fb50eabeef8238e54c7a2f3128c99c2514b
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83674374"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849692"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Tworzenie prywatnego klastra usługi Azure Kubernetes Service
 
@@ -102,7 +102,8 @@ Jak wspomniano, Komunikacja równorzędna sieci wirtualnej jest jednym ze sposob
 * Nie można zastosować dozwolonych zakresów adresów IP do punktu końcowego serwera prywatnego interfejsu API, są one stosowane tylko do publicznego serwera interfejsu API
 * Strefy dostępności są obecnie obsługiwane w niektórych regionach, zobacz początek tego dokumentu. 
 * [Ograniczenia usługi Azure Private link][private-link-service] są stosowane do klastrów prywatnych.
-* Brak wsparcia dla integracji usługi Azure DevOps z użyciem klastrów prywatnych
+* Brak obsługi węzłów wirtualnych w klastrze prywatnym do Azure Container Instances prywatnego (ACI) w prywatnej sieci wirtualnej platformy Azure
+* Brak obsługi dla agentów hostowanych przez firmę Microsoft dla platformy Azure DevOps z klastrami prywatnymi. Rozważ użycie [agentów samoobsługowych][devops-agents]. 
 * W przypadku klientów, którzy muszą umożliwić Azure Container Registry pracy z prywatnym AKS, Container Registry sieci wirtualnej musi być połączona z siecią wirtualną klastra agentów.
 * Brak bieżącej obsługi Azure Dev Spaces
 * Brak obsługi konwertowania istniejących klastrów AKS do klastrów prywatnych
@@ -120,4 +121,4 @@ Jak wspomniano, Komunikacja równorzędna sieci wirtualnej jest jednym ze sposob
 [virtual-network-peering]: ../virtual-network/virtual-network-peering-overview.md
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
-
+[devops-agents]: https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops

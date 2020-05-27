@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 10/23/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 4063751a71cd9cecc424dfe3daddaecfd9ea4071
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2f8d55669798765cf24e13e95b261cbe4f0e9e3a
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81421929"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83868077"
 ---
 Korzystanie z maszyn wirtualnych na miejscu pozwala korzystać z nieużywanej pojemności przy znaczącym obciążeniu kosztów. W dowolnym momencie, gdy platforma Azure wymaga przywrócenia pojemności, infrastruktura platformy Azure wyłączy maszyny wirtualne. W związku z tym maszyny wirtualne są doskonałe dla obciążeń, które mogą obsłużyć przerwy, takie jak zadania przetwarzania wsadowego, środowiska deweloperskie/testowe, duże obciążenia obliczeniowe i inne.
 
@@ -52,7 +52,7 @@ Dodatkowe maszyny wirtualne można wdrożyć w dowolnym regionie, z wyjątkiem M
 Ceny maszyn wirtualnych na miejscu są zmienne, na podstawie regionu i jednostki SKU. Aby uzyskać więcej informacji, zobacz cennik maszyn wirtualnych dla [systemów](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) i Windows. 
 
 
-W przypadku zmiennych cenowych istnieje możliwość ustawienia maksymalnej ceny w dolarach amerykańskich (USD) przy użyciu maksymalnie 5 miejsc dziesiętnych. Na przykład wartość `0.98765`będzie cena maksymalna $0,98765 USD za godzinę. Jeśli ustawisz maksymalną cenę `-1`, maszyna wirtualna nie zostanie wykluczona na podstawie ceny. Cena maszyny wirtualnej to aktualna cena za ilość miejsca lub cena standardowej maszyny wirtualnej, która kiedykolwiek jest mniejsza, o ile jest dostępna pojemność i przydział.
+W przypadku zmiennych cenowych istnieje możliwość ustawienia maksymalnej ceny w dolarach amerykańskich (USD) przy użyciu maksymalnie 5 miejsc dziesiętnych. Na przykład wartość będzie `0.98765` Cena maksymalna $0,98765 USD za godzinę. Jeśli ustawisz maksymalną cenę `-1` , maszyna wirtualna nie zostanie wykluczona na podstawie ceny. Cena maszyny wirtualnej to aktualna cena za ilość miejsca lub cena standardowej maszyny wirtualnej, która kiedykolwiek jest mniejsza, o ile jest dostępna pojemność i przydział.
 
 
 ##  <a name="frequently-asked-questions"></a>Często zadawane pytania
@@ -85,10 +85,10 @@ Odp **.:** Zapoznaj się z tabelą poniżej, aby uzyskać dostęp do dodatkowych
 
 | Kanały platformy Azure               | Dostępność maszyn wirtualnych na platformie Azure       |
 |------------------------------|-----------------------------------|
-| Enterprise Agreement         | Tak                               |
-| Płatność zgodnie z rzeczywistym użyciem                | Tak                               |
+| Enterprise Agreement         | Yes                               |
+| Płatność zgodnie z rzeczywistym użyciem                | Yes                               |
 | Dostawca usług w chmurze (CSP) | [Skontaktuj się z partnerem](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
-| Umowa klienta firmy Microsoft | Tak                               |
+| Umowa klienta firmy Microsoft | Yes                               |
 | Korzyści                     | Niedostępne                     |
 | Sponsorowan                    | Niedostępne                     |
 | Bezpłatna wersja próbna                   | Niedostępne                     |

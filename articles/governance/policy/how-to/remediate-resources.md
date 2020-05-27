@@ -3,12 +3,12 @@ title: Korygowanie niezgodnych zasobów
 description: Ten przewodnik przeprowadzi Cię przez korygowanie zasobów, które są niezgodne z zasadami w Azure Policy.
 ms.date: 02/26/2020
 ms.topic: how-to
-ms.openlocfilehash: f4846b6eb1ea03c6706a610cab16ec376d19b060
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: acdb067e888ecbe68e3221944568b202f2510c41
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195234"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849964"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Koryguj niezgodne zasoby za pomocą Azure Policy
 
@@ -72,7 +72,7 @@ $resourceGroup = Get-AzResourceGroup -Name 'MyResourceGroup'
 $assignment = New-AzPolicyAssignment -Name 'sqlDbTDE' -DisplayName 'Deploy SQL DB transparent data encryption' -Scope $resourceGroup.ResourceId -PolicyDefinition $policyDef -Location 'westus' -AssignIdentity
 ```
 
-`$assignment` Zmienna zawiera teraz Identyfikator podmiotu zabezpieczeń zarządzanej oraz standardowe wartości zwracane podczas tworzenia przypisania zasad. Dostęp do niego można uzyskać `$assignment.Identity.PrincipalId`za poorednictwem.
+`$assignment`Zmienna zawiera teraz Identyfikator podmiotu zabezpieczeń zarządzanej oraz standardowe wartości zwracane podczas tworzenia przypisania zasad. Dostęp do niego można uzyskać za poorednictwem `$assignment.Identity.PrincipalId` .
 
 ### <a name="grant-defined-roles-with-powershell"></a>Przyznawanie zdefiniowanych ról przy użyciu programu PowerShell
 
@@ -157,7 +157,7 @@ Zasoby wdrożone za pośrednictwem **zadania korygowania** są dodawane do karty
 
 ### <a name="create-a-remediation-task-through-azure-cli"></a>Tworzenie zadania korygującego za pomocą interfejsu wiersza polecenia platformy Azure
 
-Aby utworzyć **zadanie korygowania** przy użyciu interfejsu wiersza polecenia platformy Azure `az policy remediation` , Użyj poleceń. Zastąp `{subscriptionId}` ciąg identyfikatorem subskrypcji `{myAssignmentId}` i identyfikatorem przydziału **deployIfNotExists** lub **zmodyfikuj** zasady.
+Aby utworzyć **zadanie korygowania** przy użyciu interfejsu wiersza polecenia platformy Azure, użyj `az policy remediation` poleceń. Zastąp ciąg `{subscriptionId}` identyfikatorem subskrypcji i `{myAssignmentId}` identyfikatorem przydziału **deployIfNotExists** lub **zmodyfikuj** zasady.
 
 ```azurecli-interactive
 # Login first with az login if not using Cloud Shell
@@ -170,7 +170,7 @@ Aby poznać inne polecenia i przykłady korygowania, zobacz [AZ Policy korygowan
 
 ### <a name="create-a-remediation-task-through-azure-powershell"></a>Utwórz zadanie korygujące za pośrednictwem Azure PowerShell
 
-Aby utworzyć **zadanie korygowania** przy użyciu Azure PowerShell, użyj `Start-AzPolicyRemediation` poleceń. Zastąp `{subscriptionId}` ciąg identyfikatorem subskrypcji `{myAssignmentId}` i identyfikatorem przydziału **deployIfNotExists** lub **zmodyfikuj** zasady.
+Aby utworzyć **zadanie korygowania** przy użyciu Azure PowerShell, użyj `Start-AzPolicyRemediation` poleceń. Zastąp ciąg `{subscriptionId}` identyfikatorem subskrypcji i `{myAssignmentId}` identyfikatorem przydziału **deployIfNotExists** lub **zmodyfikuj** zasady.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -180,6 +180,10 @@ Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptio
 ```
 
 Inne polecenia cmdlet służące do korygowania i przykłady można znaleźć w module [AZ. PolicyInsights](/powershell/module/az.policyinsights/#policy_insights) .
+
+### <a name="create-a-remediation-task-during-policy-assignment-in-the-azure-portal"></a>Utwórz zadanie korygowania podczas przypisywania zasad w Azure Portal
+
+Ulepszony sposób tworzenia zadania korygowania polega na Azure Portal podczas przypisywania zasad. Jeśli definicja zasad do przypisania jest efektem **deployIfNotExists** lub **modyfikacji** , Kreator na karcie **korygowanie** oferuje opcję _tworzenia zadania remedation_ . W przypadku wybrania tej opcji zadanie remedation jest tworzone w tym samym czasie co przypisanie zasady.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,30 +1,30 @@
 ---
 title: Inicjowanie obsługi administracyjnej puli z obrazu zarządzanego
 description: Utwórz pulę usługi Batch z zasobu obrazu zarządzanego, aby udostępnić węzłom obliczeniowym oprogramowanie i dane aplikacji.
-ms.topic: article
-ms.date: 09/16/2019
-ms.openlocfilehash: b08c6a609516bcebaca64cf1c186d75887b098e3
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.topic: conceptual
+ms.date: 05/22/2020
+ms.openlocfilehash: fbb336ff9d3d53cc53004c577e291afdba7702f6
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780210"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83847994"
 ---
 # <a name="use-a-managed-image-to-create-a-pool-of-virtual-machines"></a>Tworzenie puli maszyn wirtualnych przy użyciu obrazu zarządzanego
 
-Aby utworzyć niestandardowy obraz dla maszyn wirtualnych puli usługi Batch, możesz użyć [galerii obrazów udostępnionych](batch-sig-images.md)lub zasobu *obrazu zarządzanego* .
+Aby utworzyć niestandardowy obraz dla maszyn wirtualnych puli usługi Batch, możesz użyć zarządzanego obrazu do utworzenia [galerii obrazów udostępnionych](batch-sig-images.md). Obsługiwane jest również korzystanie tylko z obrazu zarządzanego, ale tylko w przypadku wersji interfejsu API do i włącznie z 2019-08-01.
 
-> [!TIP]
+> [!IMPORTANT]
 > W większości przypadków należy utworzyć obrazy niestandardowe przy użyciu galerii obrazów udostępnionych. Za pomocą galerii obrazów udostępnionych można udostępniać pule szybciej, skalować większe ilości maszyn wirtualnych i zwiększyć niezawodność podczas aprowizacji maszyn wirtualnych. Aby dowiedzieć się więcej, zobacz [Tworzenie puli niestandardowej za pomocą galerii obrazów udostępnionych](batch-sig-images.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- **Zasób obrazu zarządzanego**. Aby utworzyć pulę maszyn wirtualnych przy użyciu obrazu niestandardowego, musisz mieć lub utworzyć zasób obrazu zarządzanego w tej samej subskrypcji i regionie platformy Azure, co konto usługi Batch. Obraz należy utworzyć na podstawie migawek dysku systemu operacyjnego maszyny wirtualnej i opcjonalnie dołączonych dysków danych. Więcej informacji i kroków związanych z przygotowaniem zarządzanego obrazu znajduje się w następującej sekcji.
+- **Zasób obrazu zarządzanego**. Aby utworzyć pulę maszyn wirtualnych przy użyciu obrazu niestandardowego, musisz mieć lub utworzyć zasób obrazu zarządzanego w tej samej subskrypcji i regionie platformy Azure, co konto usługi Batch. Obraz należy utworzyć na podstawie migawek dysku systemu operacyjnego maszyny wirtualnej i opcjonalnie dołączonych dysków danych.
   - Użyj unikatowego obrazu niestandardowego dla każdej utworzonej puli.
-  - Aby utworzyć pulę z obrazem przy użyciu interfejsów API usługi Batch, określ **Identyfikator zasobu** obrazu, który ma postać `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage` . Aby użyć portalu, użyj **nazwy** obrazu.  
+  - Aby utworzyć pulę z obrazem przy użyciu interfejsów API usługi Batch, określ **Identyfikator zasobu** obrazu, który ma postać `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage` .
   - Zasób obrazu zarządzanego powinien istnieć dla okresu istnienia puli, aby umożliwić skalowanie w górę i można go usunąć po usunięciu puli.
 
-- **Uwierzytelnianie Azure Active Directory (AAD)**. Interfejs API klienta usługi Batch musi korzystać z uwierzytelniania usługi AAD. Azure Batch obsługa usługi AAD została opisana w temacie [uwierzytelnianie rozwiązań w usłudze Batch przy użyciu Active Directory](batch-aad-auth.md).
+- **Uwierzytelnianie Azure Active Directory (Azure AD)**. Interfejs API klienta usługi Batch musi korzystać z uwierzytelniania w usłudze Azure AD. Obsługa usługi Azure Batch dla usługi Azure AD jest udokumentowana w temacie [Authenticate Batch service solutions with Active Directory (Uwierzytelnianie rozwiązań usługi Batch za pomocą usługi Active Directory)](batch-aad-auth.md).
 
 ## <a name="prepare-a-custom-image"></a>Przygotowywanie obrazu niestandardowego
 
@@ -34,16 +34,14 @@ Na platformie Azure można przygotować zarządzany obraz z:
 - Uogólniona maszyna wirtualna platformy Azure z dyskami zarządzanymi
 - Uogólniony, lokalny wirtualny dysk twardy przekazany do chmury
 
-Aby w sposób niezawodny skalować pule usługi Batch przy użyciu obrazu niestandardowego, zalecamy utworzenie obrazu zarządzanego przy użyciu *tylko* pierwszej metody: używanie migawek dysków maszyny wirtualnej. Aby przygotować maszynę wirtualną, wykonać migawkę i utworzyć obraz na podstawie migawki, zobacz następujące kroki.
+Aby w sposób niezawodny skalować pule usługi Batch za pomocą zarządzanego obrazu, zalecamy utworzenie obrazu zarządzanego przy użyciu *tylko* pierwszej metody: używanie migawek dysków maszyny wirtualnej. Poniższe kroki pokazują, jak przygotować maszynę wirtualną, wykonać migawkę i utworzyć obraz zarządzany na podstawie migawki.
 
 ### <a name="prepare-a-vm"></a>Przygotowywanie maszyny wirtualnej
 
 Jeśli tworzysz nową maszynę wirtualną dla obrazu, Użyj obrazu z witryny Azure Marketplace w pierwszej kolejności jako obrazu podstawowego dla zarządzanego obrazu. Jako obrazu podstawowego można używać tylko obrazów pierwszej strony. Aby uzyskać pełną listę odwołań do obrazów w portalu Azure Marketplace obsługiwanych przez Azure Batch, zobacz część operacji [jednostek SKU agenta węzła listy](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus) .
 
 > [!NOTE]
-> Nie można użyć obrazu innej firmy, który ma dodatkową licencję i warunki zakupu jako obraz podstawowy. Aby uzyskać informacje na temat tych obrazów z portalu Marketplace, zobacz Wskazówki dotyczące maszyn wirtualnych z systemem [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
-) lub [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
-) .
+> Nie można użyć obrazu innej firmy, który ma dodatkową licencję i warunki zakupu jako obraz podstawowy. Aby uzyskać informacje na temat tych obrazów z portalu Marketplace, zobacz Wskazówki dotyczące maszyn wirtualnych z systemem [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms) lub [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms) .
 
 - Upewnij się, że maszyna wirtualna została utworzona przy użyciu dysku zarządzanego. Jest to domyślne ustawienie magazynu podczas tworzenia maszyny wirtualnej.
 - Na maszynie wirtualnej nie należy instalować rozszerzeń platformy Azure, takich jak rozszerzenie niestandardowego skryptu. Jeśli obraz zawiera wstępnie zainstalowane rozszerzenie, platforma Azure może napotkać problemy podczas wdrażania puli usługi Batch.
@@ -59,29 +57,70 @@ Migawka to pełna kopia tylko do odczytu dysku VHD. Aby utworzyć migawkę syste
 
 Aby utworzyć obraz zarządzany na podstawie migawki, użyj narzędzi wiersza polecenia platformy Azure, takich jak polecenie [AZ Image Create](/cli/azure/image) . Można utworzyć obraz, określając migawkę dysku systemu operacyjnego i opcjonalnie jedną lub więcej migawek dysków danych.
 
-## <a name="create-a-pool-from-a-custom-image-in-the-portal"></a>Tworzenie puli na podstawie obrazu niestandardowego w portalu
+## <a name="create-a-pool-from-a-custom-image"></a>Tworzenie puli na podstawie obrazu niestandardowego
 
-Po zapisaniu obrazu niestandardowego i Poznaniu jego identyfikatora lub nazwy zasobu Utwórz pulę usługi Batch na podstawie tego obrazu. Poniższe kroki pokazują, jak utworzyć pulę na podstawie Azure Portal.
+Po znalezieniu identyfikatora zasobu zarządzanego obrazu Utwórz niestandardową pulę obrazów na podstawie tego obrazu. Poniższe kroki pokazują, jak utworzyć niestandardową pulę obrazów przy użyciu usługi Batch lub zarządzania partiami.
 
 > [!NOTE]
-> Jeśli tworzysz pulę przy użyciu jednego z interfejsów API usługi Batch, upewnij się, że tożsamość używana do uwierzytelniania w usłudze AAD ma uprawnienia do zasobu obrazu. Zobacz temat [uwierzytelnianie rozwiązań usługi Batch za pomocą Active Directory](batch-aad-auth.md).
+> Upewnij się, że tożsamość używana na potrzeby uwierzytelniania w usłudze Azure AD ma uprawnienia do zasobu obrazu. Zobacz temat [uwierzytelnianie rozwiązań usługi Batch za pomocą Active Directory](batch-aad-auth.md).
 >
 > Zasób zarządzanego obrazu musi istnieć dla okresu istnienia puli. W przypadku usunięcia zasobu bazowego nie można skalować puli.
 
-1. W witrynie Azure Portal przejdź do swojego konta usługi Batch. To konto musi znajdować się w tej samej subskrypcji i regionie co grupa zasobów zawierająca obraz niestandardowy.
-2. W oknie **Ustawienia** po lewej stronie wybierz element menu **Pule** .
-3. W oknie **Pule** wybierz polecenie **Dodaj** .
-4. W oknie **Dodawanie puli** wybierz pozycję **obraz niestandardowy (Linux/Windows)** z listy rozwijanej **Typ obrazu** . Z listy rozwijanej **niestandardowy obraz maszyny wirtualnej** wybierz nazwę obrazu (krótką formą identyfikatora zasobu).
-5. Wybierz prawidłową **wersję wydawcy/oferty/jednostki SKU** dla obrazu niestandardowego.
-6. Określ pozostałe wymagane ustawienia, w tym **rozmiar węzła**, **docelowe węzły dedykowane**i **węzły o niskim priorytecie**, a także wszystkie wymagane ustawienia opcjonalne.
+### <a name="batch-service-net-sdk"></a>Zestaw SDK platformy .NET dla usługi Batch
 
-    Na przykład dla niestandardowego obrazu systemu Microsoft Windows Server Datacenter 2016 zostanie wyświetlone okno **Dodawanie puli** , jak pokazano poniżej:
+```csharp
+private static VirtualMachineConfiguration CreateVirtualMachineConfiguration(ImageReference imageReference)
+{
+    return new VirtualMachineConfiguration(
+        imageReference: imageReference,
+        nodeAgentSkuId: "batch.node.windows amd64");
+}
 
-    ![Dodawanie puli z niestandardowego obrazu systemu Windows](media/batch-custom-images/add-pool-custom-image.png)
-  
-Aby sprawdzić, czy istniejąca Pula jest oparta na obrazie niestandardowym, zapoznaj się z właściwością **systemu operacyjnego** w sekcji Podsumowanie zasobów okna **Pula** . Jeśli pula została utworzona na podstawie niestandardowego obrazu, jest ustawiona na **niestandardowy obraz maszyny wirtualnej**.
+private static ImageReference CreateImageReference()
+{
+    return new ImageReference(
+        virtualMachineImageId: "/subscriptions/{sub id}/resourceGroups/{resource group name}/providers/Microsoft.Compute/images/{image definition name}");
+}
 
-Wszystkie obrazy niestandardowe skojarzone z pulą są wyświetlane w oknie **Właściwości** puli.
+private static void CreateBatchPool(BatchClient batchClient, VirtualMachineConfiguration vmConfiguration)
+{
+    try
+    {
+        CloudPool pool = batchClient.PoolOperations.CreatePool(
+            poolId: PoolId,
+            targetDedicatedComputeNodes: PoolNodeCount,
+            virtualMachineSize: PoolVMSize,
+            virtualMachineConfiguration: vmConfiguration);
+
+        pool.Commit();
+    }
+```
+
+### <a name="batch-management-rest-api"></a>Batch Management REST API (Interfejs API REST zarządzania usługą Batch)
+
+Identyfikator URI interfejsu API REST
+
+```http
+ PUT https://management.azure.com/subscriptions/{sub id}/resourceGroups/{resource group name}/providers/Microsoft.Batch/batchAccounts/{account name}/pools/{pool name}?api-version=2020-03-01
+```
+
+Treść żądania
+
+```json
+ {
+   "properties": {
+     "vmSize": "{VM size}",
+     "deploymentConfiguration": {
+       "virtualMachineConfiguration": {
+         "imageReference": {
+           "id": "/subscriptions/{sub id}/resourceGroups/{resource group name}/providers/Microsoft.Compute/images/{image name}"
+         },
+         "nodeAgentSkuId": "{Node Agent SKU ID}"
+       }
+     }
+   }
+ }
+```
 
 ## <a name="considerations-for-large-pools"></a>Zagadnienia dotyczące dużych pul
 
@@ -113,4 +152,5 @@ Aby uzyskać więcej informacji na temat korzystania z programu Packer w celu ut
 
 ## <a name="next-steps"></a>Następne kroki
 
+- Dowiedz się, jak utworzyć pulę niestandardową za pomocą [galerii obrazów udostępnionych](batch-sig-images.md) .
 - Aby zapoznać się z szczegółowym omówieniem usługi Batch, zobacz temat [przepływ pracy i zasoby usług Batch](batch-service-workflow-features.md).

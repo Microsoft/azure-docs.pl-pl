@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a15de41dc2dce4cae0a6155bfce8a8a2001b9a8b
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 3abf7b4acfae5e90d0b3f6781b8fbbf0f6f1427d
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798815"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860600"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Uprawnienia ról administratorów w usłudze Azure Active Directory
 
@@ -306,6 +306,21 @@ Użytkownicy w tej roli mogą monitorować wszystkie powiadomienia w centrum wia
 ### <a name="message-center-reader"></a>[Czytelnik centrum wiadomości](#message-center-reader-permissions)
 
 Użytkownicy w tej roli mogą monitorować powiadomienia i aktualizacje kondycji doradców w [centrum komunikatów pakietu Office 365](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) dla swojej organizacji na skonfigurowanych usługach, takich jak Exchange, Intune i Microsoft Teams. Czytelnicy centrum wiadomości otrzymują cotygodniowe podsumowanie wiadomości e-mail z ogłoszeń, aktualizacji i mogą udostępniać wpisy centrum wiadomości w pakiecie Office 365. W usłudze Azure AD Użytkownicy przypisani do tej roli będą mieli dostęp tylko do odczytu w ramach usług Azure AD, takich jak użytkownicy i grupy. Ta rola nie ma dostępu do wyświetlania biletów pomocy technicznej, tworzenia ich ani zarządzania nimi.
+
+### <a name="modern-commerce-administrator"></a>[Nowoczesny administrator handlowy](#modern-commerce-administrator-permissions)
+Nie używaj. Ta rola jest automatycznie przypisana z handlu i nie jest przeznaczona do użycia ani nie jest obsługiwana w żadnym innym przypadku. Szczegółowe informacje można znaleźć poniżej.
+
+Rola Administrator nowoczesnego oprogramowania zapewnia określonym użytkownikom uprawnienia dostępu do centrum administracyjnego Microsoft 365 i widzi lewe wpisy nawigacyjne dla **domu**, **rozliczeń**i **pomocy technicznej**. Zawartość dostępna w tych obszarach jest kontrolowana przez [role specyficzne dla handlu](https://docs.microsoft.com/azure/cost-management-billing/manage/understand-mca-roles) , które są przypisane do użytkowników w celu zarządzania produktami zakupionymi dla siebie lub w organizacji. Mogą to być takie zadania, jak płacisz rachunki lub dostęp do kont rozliczeń i profilów rozliczeń. 
+
+Użytkownicy korzystający z nowoczesnej roli administratora handlu zazwyczaj mają uprawnienia administracyjne w innych systemach zakupów firmy Microsoft, ale nie mają ról administratora globalnego lub administratora rozliczeń służących do uzyskiwania dostępu do centrum administracyjnego. 
+
+**Kiedy jest przypisana rola administratora oprogramowania Modern?**
+* Samoobsługowe **kupowanie w Microsoft 365 centrum administracyjnego** — zakup samoobsługowy umożliwia użytkownikom wypróbowanie nowych produktów przez ich zakup lub utworzenie. Te produkty są zarządzane w centrum administracyjnym. Użytkownicy, którzy dokonują zakupu samoobsługowego, mają przypisaną rolę w systemie handlowym oraz nowoczesne role administratora handlu, aby mogli zarządzać zakupami w centrum administracyjnym. Administratorzy mogą blokować zakupy samoobsługowe (w przypadku Power BI, aplikacji zaawansowanych, automatyzacji) za poorednictwem [programu PowerShell](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell?view=o365-worldwide). Aby uzyskać więcej informacji, zobacz [często zadawane pytania dotyczące zakupu samoobsługowego](https://docs.microsoft.com/microsoft-365/commerce/subscriptions/self-service-purchase-faq?view=o365-worldwide).  
+* **Zakupy od firmy Microsoft komercyjnej Marketplace** — podobnie jak w przypadku zakupu samoobsługowego, gdy użytkownik kupuje produkt lub usługę od Microsoft AppSource lub Azure Marketplace, rola administratora firmy Modern jest przypisywana, jeśli nie ma roli Administrator globalny lub rozliczenia. W niektórych przypadkach użytkownicy mogą mieć zablokowaną możliwość dokonywania tych zakupów. Aby uzyskać więcej informacji, zobacz [Microsoft Commercial Marketplace](https://docs.microsoft.com/azure/marketplace/marketplace-faq-publisher-guide#what-could-block-a-customer-from-completing-a-purchase).   
+* **Propozycje firmy Microsoft** — propozycja jest formalną ofertą oferowaną przez firmę Microsoft w organizacji do kupowania produktów i usług firmy Microsoft. Gdy osoba akceptująca propozycję nie ma roli administratora globalnego lub administratora rozliczeń w usłudze Azure AD, są oni przypisani do roli specyficznej dla handlu, aby dokończyć propozycję i współczesną rolę administratora handlu w celu uzyskania dostępu do centrum administracyjnego. Gdy uzyskują dostęp do centrum administracyjnego, mogą korzystać tylko z funkcji, które są autoryzowane przez ich rolę specyficzną dla danego handlu. 
+* **Role specyficzne dla handlu** — niektórzy użytkownicy mają przypisane role dotyczące handlu. Jeśli użytkownik nie jest administratorem globalnym lub rozliczeniami, uzyska nowoczesne role administratora handlu, aby mogli uzyskać dostęp do centrum administracyjnego.  
+
+Jeśli administrator nowoczesnej roli administratora firmy nie zostanie przypisany od użytkownika, utraci dostęp do centrum administracyjnego Microsoft 365. W przypadku zarządzania produktami przez siebie lub w organizacji nie będą oni mogli nimi zarządzać. Może to dotyczyć przypisywania licencji, zmiany metod płatności, płacenia rachunków lub innych zadań związanych z zarządzaniem subskrypcjami. 
 
 ### <a name="network-administrator"></a>[Administrator sieci](#network-administrator-permissions)
 
@@ -1318,6 +1333,23 @@ Może odczytywać wiadomości i aktualizacje dla swojej organizacji tylko w cent
 | Microsoft. 365. webports/allEntities/Basic/Read | Zapoznaj się z podstawowymi właściwościami wszystkich zasobów w Microsoft. 365. webport. |
 | Microsoft. Office 365. messageCenter/messages/Read | Odczytuj wiadomości w Microsoft. 365. messageCenter. |
 
+### <a name="modern-commerce-administrator-permissions"></a>Nowoczesne uprawnienia administratora handlowego
+Może zarządzać zakupami komercyjnymi dla firmy, działu lub zespołu. 
+
+> [!NOTE]
+> Ta rola ma dodatkowe uprawnienia poza Azure Active Directory. Aby uzyskać więcej informacji, zobacz opis roli powyżej.
+>
+>
+
+| **Akcje** | **Opis** |
+| --- | --- |
+| Microsoft. Commerce. rozliczenia/partnerzy/odczyt | Odczytaj Właściwość partnera rozliczeń usługi O365. |
+| Microsoft. Commerce. volumeLicenseServiceCenter/allEntities/allTasks | Zarządzaj wszystkimi aspektami usługi Volume Licensing Service Center. |
+| Microsoft. Directory/Organization/Basic/Update | Aktualizuj podstawowe właściwości organizacji w Azure Active Directory. |
+| Microsoft. Office 365. supportTickets/allEntities/allTasks | Twórz bilety pomocy technicznej pakietu Office 365 i zarządzaj nimi. |
+| Microsoft. 365. webports/allEntities/Basic/Read | Zapoznaj się z podstawowymi właściwościami wszystkich zasobów w Microsoft. 365. webport. |
+
+
 ### <a name="network-administrator-permissions"></a>Uprawnienia administratora sieci
 Może zarządzać lokalizacjami sieci i przeglądać szczegółowe informacje o projekcie sieci przedsiębiorstwa dla Microsoft 365 oprogramowania jako aplikacji usługi.
 
@@ -1842,6 +1874,7 @@ Administrator licencji | Administrator licencji | 4d6ac14f-3453-41d0-bef9-a3e0c5
 Administrator usługi Lync | Administrator programu Skype dla firm | 75941009-915A-4869-abe7-691bff18279e
 Czytnik prywatności centrum wiadomości | Czytnik prywatności centrum wiadomości | ac16e43d-7b2d-40e0-ac05-243ff356ab5b
 Czytelnik centrum wiadomości | Czytelnik centrum wiadomości | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
+Nowoczesny administrator handlowy | Nowoczesny administrator handlowy | d24aef57-1500-4070-84db-2666f29cf966
 Administrator sieci | Administrator sieci | d37c8bed-0711-4417-ba38-b4abe66ce4c2
 Administrator aplikacji pakietu Office | Administrator aplikacji pakietu Office | 2b745bdf-0803-4d80-aa65-822c4493daac
 Obsługa pomoc partnera | Niewyświetlane, ponieważ nie powinno być używane | 4ba39ca4-527c-499a-b93d-d9b492c50246

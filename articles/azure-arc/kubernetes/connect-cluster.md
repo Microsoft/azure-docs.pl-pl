@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Łączenie klastra Kubernetes z obsługą usługi Azure ARC przy użyciu usługi Azure Arc
 keywords: Kubernetes, łuk, Azure, K8s, kontenery
-ms.openlocfilehash: 690955f0e7d18f9a784b4c9a2fa1733442cb70dc
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 962b6a17743ea2beed1e16503739c55c83babbce
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780014"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860549"
 ---
 # <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Połącz klaster Kubernetes z obsługą usługi Azure ARC (wersja zapoznawcza)
 
@@ -154,7 +154,7 @@ Helm release deployment succeeded
 Utwórz listę podłączonych klastrów:
 
 ```console
-az connectedk8s list -g AzureArcTest
+az connectedk8s list -g AzureArcTest -o table
 ```
 
 **Rozdzielczości**
@@ -218,5 +218,5 @@ Aby usunąć agentów w klastrze, należy uruchomić `az connectedk8s delete` lu
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Używanie GitOps w podłączonym klastrze](./use-gitops-connected-cluster.md)
+* [Korzystanie z podejścia GitOps w połączonym klastrze](./use-gitops-connected-cluster.md)
 * [Zarządzanie konfiguracją klastra przy użyciu Azure Policy](./use-azure-policy.md)

@@ -12,17 +12,14 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 4b6a2481c18314a44470a020033ffdc4ba1d7259
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f457e876cb9484fce29cba35c7570572b2771aed
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81380029"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860056"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Szybki Start: Logowanie użytkowników i uzyskiwanie tokenu dostępu w jednostronicowej aplikacji pojedynczej
-
-> [!IMPORTANT]
-> Ta funkcja jest obecnie w wersji zapoznawczej. Wersje zapoznawcze są udostępniane pod warunkiem udzielenia zgody na [dodatkowe warunki użytkowania](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Niektóre aspekty tej funkcji mogą ulec zmianie przed ogólnym udostępnieniem.
 
 W tym przewodniku szybki start użyto przykładu kodu, aby dowiedzieć się, w jaki sposób pojedynczej aplikacji jednostronicowej (SPA) może zalogować użytkowników, którzy mają osobiste konta Microsoft, konta służbowe lub szkolne. Zdarzenie SPA może również uzyskać token dostępu, aby wywołać interfejs API Microsoft Graph lub dowolny internetowy interfejs API.
 
@@ -51,7 +48,7 @@ W tym przewodniku szybki start użyto przykładu kodu, aby dowiedzieć się, w j
 > 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 > 1. Jeśli Twoje konto ma dostęp do więcej niż jednej dzierżawy, wybierz swoje konto w prawym górnym rogu i ustaw sesję portalu dla dzierżawy usługi Azure AD, której chcesz użyć.
 > 1. Postępuj zgodnie z instrukcjami, aby [zarejestrować aplikację jednostronicową](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) w Azure Portal.
-> 1. Dodaj nową platformę w okienku **uwierzytelnianie** rejestracji aplikacji i zarejestruj identyfikator URI przekierowania: `http://localhost:4200/`.
+> 1. Dodaj nową platformę w okienku **uwierzytelnianie** rejestracji aplikacji i zarejestruj identyfikator URI przekierowania: `http://localhost:4200/` .
 > 1. Ten przewodnik Szybki Start używa [niejawnego przepływu dotacji](v2-oauth2-implicit-grant-flow.md). Wybierz ustawienia **niejawnego przydzielenia** **tokenów identyfikatorów** i **tokenów dostępu**. Tokeny identyfikatorów i tokeny dostępu są wymagane, ponieważ ta aplikacja loguje się do użytkowników i wywołuje interfejs API.
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -73,7 +70,7 @@ W tym przewodniku szybki start użyto przykładu kodu, aby dowiedzieć się, w j
 > [!div renderon="docs"]
 >#### <a name="step-3-configure-the-javascript-app"></a>Krok 3. Konfigurowanie aplikacji JavaScript
 >
-> W folderze *src/App* Edytuj *aplikację App. module. TS* i ustaw wartości `clientId` i `authority` w obszarze. `MsalModule.forRoot`
+> W folderze *src/App* Edytuj *aplikację App. module. TS* i ustaw `clientId` `authority` wartości i w obszarze `MsalModule.forRoot` .
 >
 >```javascript
 >MsalModule.forRoot({
@@ -102,9 +99,9 @@ W tym przewodniku szybki start użyto przykładu kodu, aby dowiedzieć się, w j
 >|Nazwa wartości|Opis|
 >|---------|---------|
 >|Enter_the_Application_Id_Here|Na stronie **Przegląd** rejestracji aplikacji jest to wartość **identyfikatora aplikacji (klienta)** . |
->|Enter_the_Cloud_Instance_Id_Here|Jest to wystąpienie chmury platformy Azure. W głównej lub globalnej chmurze platformy Azure wprowadź **https://login.microsoftonline.com**wartość. W przypadku chmur narodowych (na przykład Chin), zobacz [chmury narodowe](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).|
+>|Enter_the_Cloud_Instance_Id_Here|Jest to wystąpienie chmury platformy Azure. W głównej lub globalnej chmurze platformy Azure wprowadź wartość **https://login.microsoftonline.com** . W przypadku chmur narodowych (na przykład Chin), zobacz [chmury narodowe](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).|
 >|Enter_the_Tenant_Info_Here| Ustaw jedną z następujących opcji: Jeśli aplikacja obsługuje *konta w tym katalogu organizacji*, Zastąp tę wartość identyfikatorem katalogu (dzierżawy) lub nazwą dzierżawy (na przykład **contoso.Microsoft.com**). Jeśli aplikacja obsługuje *konta w dowolnym katalogu organizacyjnym*, Zastąp tę wartość **organizacją**. Jeśli aplikacja obsługuje *konta w dowolnym katalogu organizacyjnym i osobistych kontach Microsoft*, Zastąp tę wartość **wspólnym**. Aby ograniczyć obsługę *tylko do osobistych kont Microsoft*, Zastąp tę wartość **odbiorcom**. |
->|Enter_the_Redirect_Uri_Here|Zamień na **http://localhost:4200**.|
+>|Enter_the_Redirect_Uri_Here|Zamień na **http://localhost:4200** .|
 >|cacheLocation  | Obowiązkowe Ustaw magazyn przeglądarki dla stanu uwierzytelniania. Wartość domyślna to **sessionStorage**.   |
 >|storeAuthStateInCookie  | Obowiązkowe Zidentyfikuj bibliotekę, w której jest przechowywany stan żądania uwierzytelnienia. Ten stan jest wymagany do weryfikowania przepływów uwierzytelniania w plikach cookie w przeglądarce. Ten plik cookie jest ustawiany dla programu Internet Explorer i programu Edge, aby umożliwić te dwie przeglądarki. Aby uzyskać więcej informacji, zobacz [znane problemy](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues->on-IE-and-Edge-Browser#issues). |
 > > [!TIP]
@@ -129,7 +126,7 @@ Jeśli używasz środowiska Node.js:
    npm start
    ```
 
-1. Przejdź do **http://localhost:4200/**.
+1. Przejdź do **http://localhost:4200/** .
 1. Wybierz pozycję **Zaloguj**.
 1. Wybierz **profil** , aby wywołać Microsoft Graph.
 

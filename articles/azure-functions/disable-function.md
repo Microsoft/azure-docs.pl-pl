@@ -3,12 +3,12 @@ title: Jak wyłączyć funkcje w Azure Functions
 description: Dowiedz się, jak wyłączyć i włączyć funkcje w Azure Functions.
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 8922edb7aaa41bcf50dcce5257b6600f1bde224a
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: ee701e8df8faddef9bbdb16e7a1048c4dc2e40a5
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83115573"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83848743"
 ---
 # <a name="how-to-disable-functions-in-azure-functions"></a>Jak wyłączyć funkcje w Azure Functions
 
@@ -122,7 +122,8 @@ lub
 
 W drugim przykładzie funkcja jest wyłączona, gdy istnieje ustawienie aplikacji o nazwie IS_DISABLED i jest ustawione na `true` lub 1.
 
-Można edytować plik w Azure Portal lub użyć przycisków **Włącz** i **Wyłącz** na stronie **Przegląd** funkcji. Przełącznik portalu działa przez zmianę pliku *Function. JSON* .
+>[!IMPORTANT]  
+>Portal używa teraz ustawień aplikacji do wyłączenia funkcji v1. x. Gdy ustawienie aplikacji powoduje konflikt z plikiem Function. JSON, może wystąpić błąd. Należy usunąć `disabled` Właściwość z pliku Function. JSON, aby uniknąć błędów. 
 
 
 ## <a name="next-steps"></a>Następne kroki

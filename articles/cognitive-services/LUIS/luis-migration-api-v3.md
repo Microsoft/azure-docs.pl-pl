@@ -4,12 +4,12 @@ description: Interfejsy API funkcji przewidywania zapytań w wersji 3 zostały z
 ms.topic: conceptual
 ms.date: 05/15/2020
 ms.author: diberry
-ms.openlocfilehash: d6e5981bcdc81383454c65d3cf7b6c1195b70a4a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 84afcbcd348c3fd91014096877de2315722b53a0
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653866"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849335"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Zmiany przewidywanych punktów końcowych dla wersji 3
 
@@ -283,4 +283,4 @@ Interfejs API v2 nie będzie przestarzały przez co najmniej 9 miesięcy od wers
 
 ## <a name="next-steps"></a>Następne kroki
 
-Użyj dokumentacji interfejsu API v3, aby zaktualizować istniejące wywołania REST do interfejsów API LUIS [punktów końcowych](https://aka.ms/luis-api-v3) .
+Użyj dokumentacji interfejsu API v3, aby zaktualizować istniejące wywołania REST do interfejsów API LUIS [punktów końcowych](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/operations/5cb0a9459a1fe8fa44c28dd8) .

@@ -3,17 +3,17 @@ title: Internet Komunikacja równorzędna a usługa komunikacji równorzędnej
 titleSuffix: Azure
 description: Internet Komunikacja równorzędna a usługa komunikacji równorzędnej
 services: internet-peering
-author: prmitiki
+author: derekolo
 ms.service: internet-peering
 ms.topic: overview
-ms.date: 11/27/2019
-ms.author: prmitiki
-ms.openlocfilehash: 6c1205fcacd3d7228f1aecf1e603b66d9e1fcee5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 5/22/2020
+ms.author: derekol
+ms.openlocfilehash: 3ffef24d459a2864ffd3f2271e6bca9e4bc638cc
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75775705"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849386"
 ---
 # <a name="internet-peering-vs-peering-service"></a>Internet Komunikacja równorzędna a usługa komunikacji równorzędnej
 
@@ -38,17 +38,17 @@ Na rysunku powyżej każdego biura oddziału globalnego przedsiębiorstwa progra
 
 **Korzyści dla klientów usługi Komunikacja równorzędna:**
 * Najlepsza usługa routingu publicznego przez Internet do Microsoft Cloud usług w celu uzyskania optymalnej wydajności i niezawodności.
-* Możliwość wybrania preferowanego SP do połączenia z Microsoft Cloud.
+* Możliwość wybrania preferowanego dostawcy usług w celu nawiązania połączenia z Microsoft Cloud.
 * Informacje o ruchu, takie jak raportowanie opóźnień i monitorowanie prefiksów.
 * Optymalne przeskoki sieciowe (jako przeskoki) z Microsoft Cloud.
 * Kierowanie analiz i statystyk — zdarzenia dla anomalii tras Border Gateway Protocol ([BGP](https://en.wikipedia.org/wiki/Border_Gateway_Protocol)) (Wykrywanie przecieków/przejęcia) i nieoptymalny Routing.
 
 ## <a name="peering-service-partnership-requirements"></a>Wymagania dotyczące powiązań usług komunikacji równorzędnej
-* Łączność z Microsoft Cloud w lokalizacji najbliższej klientowi. Dostawca usług partnerskich będzie kierować ruchem użytkowników do przeglądarki Microsoft Edge znajdującej się najbliżej użytkownika. Podobnie, w przypadku ruchu skierowanego do użytkownika, firma Microsoft kieruje ruchem (przy użyciu znacznika BGP) do lokalizacji krawędzi znajdującej się najbliżej użytkownika, a program SP dostarczy ruch do użytkownika.
+* Łączność z Microsoft Cloud w lokalizacji najbliższej klientowi. Dostawca usług partnerskich będzie kierować ruchem użytkowników do przeglądarki Microsoft Edge znajdującej się najbliżej użytkownika. Podobnie, w przypadku ruchu skierowanego do użytkownika, firma Microsoft kieruje ruchem (przy użyciu znacznika BGP) do lokalizacji brzegowej znajdującej się najbliżej użytkownika i usługodawcy wyśle ten ruch do użytkownika.
 * Partner będzie obsługiwać wysoką dostępność, wysoką przepływność i geograficznie nadmiarową łączność z siecią globalną firmy Microsoft.
-* Partner może korzystać z istniejącej komunikacji równorzędnej w celu obsługi komunikacji równorzędnej, jeśli spełnia wymagania
+* Partner może korzystać z istniejącej komunikacji równorzędnej w celu obsługi komunikacji równorzędnej, jeśli spełnia to wymaganie.
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 Często zadawane pytania można znaleźć w temacie [Usługa Komunikacja równorzędna — często zadawane](service-faqs.md)pytania.
 
 ## <a name="next-steps"></a>Następne kroki

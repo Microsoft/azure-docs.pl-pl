@@ -3,12 +3,12 @@ title: Wdrażanie szablonów Menedżer zasobów przy użyciu akcji GitHub
 description: Opisuje sposób wdrażania szablonów Azure Resource Manager przy użyciu akcji usługi GitHub.
 ms.topic: conceptual
 ms.date: 05/05/2020
-ms.openlocfilehash: 5fe147a9c42e83d5e644b0c08dfa67de88ec05c0
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: f2e0d73c838d16c161605972b87d6f07ef8869b9
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82875196"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869187"
 ---
 # <a name="deploy-azure-resource-manager-templates-by-using-github-actions"></a>Wdrażanie szablonów Azure Resource Manager przy użyciu akcji GitHub
 
@@ -61,7 +61,7 @@ Skrypt wyprowadza obiekt JSON podobny do tego:
 Skopiuj dane wyjściowe JSON i Zapisz je jako wpis tajny usługi GitHub w repozytorium GitHub. Jeśli nie masz jeszcze repozytorium, zapoznaj się z [wymaganiami wstępnymi](#prerequisites) .
 
 1. W repozytorium GitHub wybierz kartę **Ustawienia** .
-1. Wybierz pozycję **klucz tajny** w menu po lewej stronie.
+1. W menu po lewej stronie wybierz pozycję wpisy **tajne** .
 1. Wprowadź następujące wartości:
 
     - **Nazwa**: AZURE_CREDENTIALS

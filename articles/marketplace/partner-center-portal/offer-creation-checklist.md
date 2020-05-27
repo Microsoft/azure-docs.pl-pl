@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 60111b6a23c76314383c5f95be3eb4b38f90d3e2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ec276c765c2a574dbbc2fc14b7b23507b4cc4798
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80281344"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83850015"
 ---
 # <a name="saas-offer-creation-checklist"></a>Lista kontrolna tworzenia oferty SaaS
 
@@ -58,7 +58,7 @@ Na stronie Konfiguracja oferty możesz wybrać różne kanały i sprzedawać ruc
 | Kanały  | Opcjonalny. Wartość domyślna: nie została wybrana w kanale CSP (odsprzedawcy).  |
 | Wersja testowa | Opcjonalny. Wartość domyślna: brak włączonego dysku testowego.  |
 | Typ dysku testowego | Wymagane, jeśli włączono dysk testowy. Wartość domyślna: Brak zaznaczenia. Opcje: Azure Resource Manager, Dynamics 365 dla firm Central, Dynamics 365 do zaangażowania klienta, Dynamics 365 for Operations, Logic App Power BI.  |
-| Zarządzanie potencjalnymi klientami — nawiązywanie połączenia z systemem CRM | Wymagane, jeśli sprzedajesz przez firmę Microsoft lub jeśli lista zawiera oferty "kontakt ze mną". Wartość domyślna: brak połączonego systemu CRM. Opcje programu CRM: tabela Azure, obiekt blob platformy Azure, Dynamics CRM Online, HTTPs, punkt końcowy, Marketo, Salesforce  |
+| Potencjalni klienci — łączenie z systemem CRM | Wymagane, jeśli sprzedajesz przez firmę Microsoft lub jeśli lista zawiera oferty "kontakt ze mną". Wartość domyślna: brak połączonego systemu CRM. Opcje programu CRM: tabela Azure, obiekt blob platformy Azure, Dynamics CRM Online, HTTPs, punkt końcowy, Marketo, Salesforce  |
 
 ## <a name="properties-page"></a>Strona właściwości
 

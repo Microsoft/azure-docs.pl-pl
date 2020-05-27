@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/08/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 57b6bf06e34068b5560829838eb9ee1315df6cde
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 6e7294f10ba094a1adaae399187fb9973397a561
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83778189"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83868047"
 ---
 Azure Shared disks (wersja zapoznawcza) to nowa funkcja dysków zarządzanych przez platformę Azure, która umożliwia równoczesne dołączanie dysku zarządzanego do wielu maszyn wirtualnych. Dołączenie dysku zarządzanego do wielu maszyn wirtualnych pozwala wdrożyć nowe lub migrować istniejące aplikacje klastrowane na platformę Azure.
 
@@ -37,14 +37,14 @@ Udostępnione dyski zarządzane nie oferują natywnie w pełni zarządzanego sys
 
 ### <a name="windows"></a>Windows
 
-Większość klastrów opartych na systemie Windows kompiluje się w usłudze WSFC, która obsługuje wszystkie podstawowe infrastruktury komunikacji węzłów klastra, co umożliwia aplikacjom korzystanie z wzorców dostępu równoległego. W zależności od używanej wersji systemu Windows Server usługi WSFC umożliwiają zarówno używanie woluminów CSV, jak i nieopartych na woluminach CSV. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie klastra trybu failover](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster).
+Większość klastrów opartych na systemie Windows kompiluje się w środowisku WSFC, które obsługuje całą podstawową infrastrukturę komunikacji węzłów klastra, co umożliwia aplikacjom korzystanie z wzorców dostępu równoległego. W zależności od wersji systemu Windows Server środowisko WSFC umożliwia używanie zarówno opcji opartych na woluminach CSV, jak i nieopartych na woluminach CSV. Aby uzyskać szczegółowe informacje, zobacz [Tworzenie klastra trybu failover](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster).
 
-Niektóre popularne aplikacje działające w usłudze WSFC obejmują:
+Niektóre popularne aplikacje działające w środowisku WSFC obejmują:
 
-- SQL Server wystąpienia klastra trybu failover (FCI)
-- Serwer plików skalowalny w poziomie (SoFS)
+- Wystąpienia klastra trybu failover programu SQL Server
+- Serwer plików skalowalny w poziomie
 - Serwer plików do użytku ogólnego (obciążenie IW)
-- Dysk profilu użytkownika serwera Pulpit zdalny (RDS UPD)
+- Dysk profilu użytkownika serwera pulpitu zdalnego (RDS UPD)
 - SAP ASCS/SCS
 
 ### <a name="linux"></a>Linux
@@ -85,7 +85,7 @@ Przepływ jest następujący:
 
 Ultra disks oferuje dodatkową przepustowość w przypadku łącznej liczby dwóch przepustnic. Ze względu na to, przepływ rezerwacji Ultra disks może współdziałać zgodnie z opisem w poprzedniej sekcji lub bardziej szczegółowym Ograniczeniem i dystrybucją wydajności.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text=" ":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="Obraz tabeli, która przedstawia dostęp do odczytu lub zapisu i zapis dla posiadacza rezerwacji, zarejestrowany i innych.":::
 
 ## <a name="ultra-disk-performance-throttles"></a>Ograniczenia wydajności Ultra Disk
 
@@ -119,22 +119,16 @@ W poniższych przykładach przedstawiono kilka scenariuszy, które pokazują, ja
 
 Poniżej znajduje się przykład 2-węzłowego usługi WSFC korzystającej z udostępnionych woluminów klastra. W przypadku tej konfiguracji obie maszyny wirtualne mają jednoczesny dostęp do zapisu do dysku, co powoduje, że ograniczenie ReadWrite jest dzielone na dwie maszyny wirtualne i nie jest używane ograniczenie tylko do odczytu.
 
-:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="Przykładowy plik CSV dwa węzły":::
-
-:::image-end:::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="Przykładowy plik CSV dwa węzły":::
 
 #### <a name="two-node-cluster-without-cluster-share-volumes"></a>Klaster z dwoma węzłami bez woluminów udziałów klastra
 
 Poniżej znajduje się przykład 2-węzłowego usługi WSFC, która nie korzysta z udostępnionych woluminów klastra. W przypadku tej konfiguracji tylko jedna maszyna wirtualna ma dostęp do zapisu na dysku. Powoduje to, że ograniczenie ReadWrite jest używane wyłącznie dla podstawowej maszyny wirtualnej i ograniczenie tylko do odczytu używane przez pomocniczą.
 
-:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="Dwa węzły w formacie CSV — przykład braku dysku CSV":::
-
-:::image-end:::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="Dwa węzły w formacie CSV — przykład braku dysku CSV":::
 
 #### <a name="four-node-linux-cluster"></a>Klaster z systemem Linux z czterema węzłami
 
 Poniżej znajduje się przykładowy klaster z systemem Linux z 4 węzłami z pojedynczym modułem zapisywania i trzema czytnikami skalowalnymi w poziomie. W przypadku tej konfiguracji tylko jedna maszyna wirtualna ma dostęp do zapisu na dysku. Powoduje to, że ograniczenie ReadWrite jest używane wyłącznie dla podstawowej maszyny wirtualnej i ograniczenie tylko do odczytu przez pomocnicze maszyny wirtualne.
 
-:::image type="complex" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Przykład o czterech węzłach Ultra":::
-
-:::image-end:::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Przykład o czterech węzłach Ultra":::

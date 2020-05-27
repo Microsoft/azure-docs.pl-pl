@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a079f42f63e232c21a52bd108b34c3b022dcee5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 778a18edafadc0bd043df1e9a5ab1d660fab6525
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "82176094"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869723"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planowanie wdrażania usługi Azure File Sync
 
@@ -60,7 +60,7 @@ W przypadku wdrażania Azure File Sync zalecamy:
 - Podczas wdrażania udziałów plików platformy Azure należy zwrócić uwagę na ograniczenia IOPS konta magazynu. W idealnym przypadku należy zamapować udziały plików 1:1 z kontami magazynu, ale może to nie zawsze być możliwe z powodu różnych limitów i ograniczeń zarówno z organizacji, jak i z platformy Azure. Gdy nie można mieć tylko jednego udziału plików wdrożonego na jednym koncie magazynu, należy wziąć pod uwagę, które udziały będą wysoce aktywne i które udziały będą mniej aktywne, aby upewnić się, że udziały plików okienko nie zostaną umieszczone w tym samym koncie magazynu jednocześnie.
 
 ## <a name="windows-file-server-considerations"></a>Zagadnienia dotyczące serwera plików systemu Windows
-Aby włączyć funkcję synchronizacji w systemie Windows Server, należy zainstalować Azure File Sync agenta do pobrania. Agent Azure File Sync udostępnia dwa główne składniki: `FileSyncSvc.exe`, usługę w tle systemu Windows, która jest odpowiedzialna za monitorowanie zmian w punktach końcowych serwera i Inicjowanie `StorageSync.sys`sesji synchronizacji, a także filtr systemu plików, który umożliwia obsługę warstw w chmurze i szybkie odzyskiwanie po awarii.  
+Aby włączyć funkcję synchronizacji w systemie Windows Server, należy zainstalować Azure File Sync agenta do pobrania. Agent Azure File Sync udostępnia dwa główne składniki: `FileSyncSvc.exe` , usługę w tle systemu Windows, która jest odpowiedzialna za monitorowanie zmian w punktach końcowych serwera i Inicjowanie sesji synchronizacji, a także `StorageSync.sys` filtr systemu plików, który umożliwia obsługę warstw w chmurze i szybkie odzyskiwanie po awarii.  
 
 ### <a name="operating-system-requirements"></a>Wymagania dotyczące systemu operacyjnego
 Azure File Sync jest obsługiwana w następujących wersjach systemu Windows Server:
@@ -116,7 +116,7 @@ Przed wdrożeniem Azure File Sync należy ocenić, czy jest on zgodny z systemem
 
 Polecenie cmdlet do oceny można zainstalować, instalując moduł AZ PowerShell module, który można zainstalować, postępując zgodnie z instrukcjami tutaj: [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
-#### <a name="usage"></a>Sposób użycia  
+#### <a name="usage"></a>Użycie  
 Narzędzie do oceny można wywołać na kilka różnych sposobów: można wykonać testy systemowe, zestawy danych lub oba te elementy. Aby przeprowadzić testy systemu i zestawu danych: 
 
 ```powershell
@@ -146,7 +146,7 @@ Obsługiwane są tylko woluminy NTFS; Systemy plików ReFS, FAT, FAT32 i inne ni
 
 W poniższej tabeli przedstawiono stan międzyoperacyjności funkcji systemu plików NTFS: 
 
-| Funkcja | Stan obsługi | Uwagi |
+| Cecha | Stan obsługi | Uwagi |
 |---------|----------------|-------|
 | Listy kontroli dostępu (ACL) | W pełni obsługiwane | Poufne listy kontroli dostępu w stylu systemu Windows są zachowywane przez Azure File Sync i są wymuszane przez system Windows Server w punktach końcowych serwera. Listy ACL można również wymuszać podczas bezpośredniego instalowania udziału plików platformy Azure, jednak wymaga to dodatkowej konfiguracji. Aby uzyskać więcej informacji, zobacz sekcję dotyczącą [tożsamości](#identity) . |
 | Twarde linki | Pominięto | |
@@ -275,7 +275,7 @@ Azure File Sync nie współdziała z szyfrowanym systemem plików NTFS (NTFS EFS
 ### <a name="encryption-in-transit"></a>Szyfrowanie podczas transferu
 
 > [!NOTE]
-> Usługa Azure File Sync spowoduje usunięcie obsługi protokołów TLS 1.0 i 1,1 w sierpniu 2020. Wszystkie obsługiwane wersje agentów Azure File Sync używają już domyślnie protokołu TLS 1.2. Użycie starszej wersji protokołu TLS może wystąpić, jeśli protokół TLS 1.2 został wyłączony na serwerze lub używany jest serwer proxy. W przypadku korzystania z serwera proxy zalecamy sprawdzenie konfiguracji serwera proxy. Azure File Sync regiony usługi dodane po 5/1/2020 będą obsługiwały protokół TLS 1.2, a obsługa protokołu TLS 1.0 i 1,1 zostaną usunięte z istniejących regionów w sierpniu 2020.  Aby uzyskać więcej informacji, zobacz [Przewodnik rozwiązywania problemów](storage-sync-files-troubleshoot.md#tls-12-required-for-azure-file-sync).
+> Usługa Azure File Sync spowoduje usunięcie obsługi protokołów TLS 1.0 i 1,1 1 sierpnia 2020. Wszystkie obsługiwane wersje agentów Azure File Sync używają już domyślnie protokołu TLS 1.2. Użycie starszej wersji protokołu TLS może wystąpić, jeśli protokół TLS 1.2 został wyłączony na serwerze lub używany jest serwer proxy. W przypadku korzystania z serwera proxy zalecamy sprawdzenie konfiguracji serwera proxy. Azure File Sync regiony usługi dodane po 5/1/2020 będą obsługiwały protokół TLS 1.2, a obsługa protokołu TLS 1.0 i 1,1 zostaną usunięte z istniejących regionów 1 sierpnia 2020.  Aby uzyskać więcej informacji, zobacz [Przewodnik rozwiązywania problemów](storage-sync-files-troubleshoot.md#tls-12-required-for-azure-file-sync).
 
 Agent Azure File Sync komunikuje się z usługą synchronizacji magazynu i udziałem plików platformy Azure przy użyciu protokołu REST Azure File Sync i protokołu FileREST, z których korzystają zawsze protokół HTTPS przez port 443. Azure File Sync nie wysyła nieszyfrowanych żądań za pośrednictwem protokołu HTTP. 
 
@@ -354,7 +354,7 @@ Jeśli masz istniejący serwer plików systemu Windows, Azure File Sync mogą by
 
 - Utwórz punkty końcowe serwera dla starego udziału plików i nowy udział plików, a Azure File Sync Zsynchronizuj dane między punktami końcowymi serwera. Zaletą tego podejścia jest to, że bardzo łatwo można zasubskrybować magazyn na nowym serwerze plików, ponieważ Azure File Sync to Obsługa warstw w chmurze. Gdy wszystko będzie gotowe, można wyciąć użytkowników końcowych do udziału plików na nowym serwerze i usunąć stary punkt końcowy serwera udziału plików.
 
-- Utwórz punkt końcowy serwera tylko na nowym serwerze plików i skopiuj dane do ze starego udziału plików za pomocą polecenia `robocopy`. W zależności od topologii udziałów plików na nowym serwerze (liczba udziałów w poszczególnych woluminach, jak długo każdy wolumin jest itp.), może być konieczne tymczasowe zainicjowanie dodatkowego magazynu w miarę jak oczekiwano, że `robocopy` ze starego serwera do nowego serwera w lokalnym centrum danych zakończy się szybciej niż Azure File Sync przeniesie dane na platformę Azure.
+- Utwórz punkt końcowy serwera tylko na nowym serwerze plików i skopiuj dane do ze starego udziału plików za pomocą polecenia `robocopy` . W zależności od topologii udziałów plików na nowym serwerze (liczba udziałów w poszczególnych woluminach, jak długo każdy wolumin jest itp.), może być konieczne tymczasowe zainicjowanie dodatkowego magazynu w miarę jak oczekiwano, że `robocopy` ze starego serwera do nowego serwera w lokalnym centrum danych zakończy się szybciej niż Azure File Sync przeniesie dane na platformę Azure.
 
 Można również użyć urządzenie Data Box do migracji danych do wdrożenia Azure File Sync. W większości przypadków, gdy klienci chcą korzystać z urządzenie Data Box do pozyskiwania danych, to zrobią to, ponieważ ich zdaniem zwiększy szybkość wdrożenia lub będzie pomocna w scenariuszach z ograniczoną przepustowością. W związku z tym, że użycie urządzenie Data Box do pozyskiwania danych we wdrożeniu Azure File Sync spowoduje zmniejszenie wykorzystania przepustowości, prawdopodobnie będzie szybsze w przypadku większości scenariuszy w celu przeprowadzenia przekazywania danych online za pomocą jednej z metod opisanych powyżej. Aby dowiedzieć się więcej o tym, jak używać urządzenie Data Box do pozyskiwania danych do wdrożenia Azure File Sync, zobacz [Migrowanie danych do Azure File Sync z Azure Data Box](storage-sync-offline-data-transfer.md).
 

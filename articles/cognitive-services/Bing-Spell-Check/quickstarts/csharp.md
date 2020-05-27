@@ -8,33 +8,39 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 12/16/2019
+ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: aa76a5773a20a103ceec075a58c79fac691eec6f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 3bb126dc31620515c54a653ef595bfc017aaac73
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747330"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83869597"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Szybki Start: sprawdzanie pisowni za pomocą interfejsu API REST sprawdzanie pisowni Bing i C #
 
-Użyj tego przewodnika Szybki start, aby wykonać pierwsze wywołanie interfejsu API REST sprawdzania pisowni Bing. Ta prosta aplikacja w języku C# wysyła żądanie do interfejsu API i zwraca listę sugerowanych poprawek. Chociaż ta aplikacja jest napisana w języku C#, interfejs API jest usługą internetową zgodną z wzorcem REST i większością języków programowania. Kod źródłowy tej aplikacji jest dostępny w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs).
+Użyj tego przewodnika Szybki start, aby wykonać pierwsze wywołanie interfejsu API REST sprawdzania pisowni Bing. Ta prosta aplikacja w języku C# wysyła żądanie do interfejsu API i zwraca listę sugerowanych poprawek. 
+
+Mimo że aplikacja jest zapisywana w języku C#, interfejs API jest usługą sieci Web RESTful zgodną z większością języków programowania. Kod źródłowy tej aplikacji jest dostępny w usłudze [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Dowolna wersja programu [Visual Studio 2017 lub nowszego](https://www.visualstudio.com/downloads/).
-* Aby zainstalować `Newtonsoft.Json` jako pakiet NuGet w programie Visual Studio:
-    1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy plik rozwiązania.
-    1. Wybierz pozycję **Zarządzaj pakietami NuGet dla rozwiązania**.
-    1. Wyszukaj `Newtonsoft.Json` i zainstaluj pakiet.
-* Jeśli używasz systemu Linux/MacOS, możesz uruchomić tę aplikację przy użyciu środowiska [Mono](https://www.mono-project.com/).
+* Pakiet NuGet Newtonsoft. JSON. 
+     
+   Aby zainstalować ten pakiet w programie Visual Studio:
+
+     1. W **Eksplorator rozwiązań**kliknij prawym przyciskiem myszy plik rozwiązania.
+     1. Wybierz pozycję **Zarządzaj pakietami NuGet dla rozwiązania**.
+     1. Wyszukaj plik *Newtonsoft. JSON* i zainstaluj pakiet.
+
+* Jeśli używasz systemu Linux/MacOS, możesz uruchomić tę aplikację za pomocą narzędzia [mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Tworzenie i inicjowanie projektu
 
-1. Utwórz nowe rozwiązanie konsoli o nazwie `SpellCheckSample` w programie Visual Studio. Dodaj następujące przestrzenie nazw do głównego pliku kodu.
+1. Utwórz nowe rozwiązanie konsoli o nazwie SpellCheckSample w programie Visual Studio. Następnie Dodaj następujące przestrzenie nazw do głównego pliku kodu:
     
     ```csharp
     using System;
@@ -46,7 +52,7 @@ Użyj tego przewodnika Szybki start, aby wykonać pierwsze wywołanie interfejsu
     using Newtonsoft.Json;
     ```
 
-2. Utwórz zmienne dla punktu końcowego interfejsu API, swojego klucza subskrypcji i tekstu, dla którego ma być sprawdzana pisownia. Możesz użyć poniższego globalnego punktu końcowego lub niestandardowego punktu końcowego [poddomeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) , który jest wyświetlany w Azure Portal dla zasobu.
+2. Utwórz zmienne dla punktu końcowego interfejsu API, swojego klucza subskrypcji i tekstu, dla którego ma być sprawdzana pisownia. Możesz użyć globalnego punktu końcowego w poniższym kodzie lub użyć punktu końcowego [niestandardowej domeny](../../../cognitive-services/cognitive-services-custom-subdomains.md) podrzędnej wyświetlanego w Azure Portal dla zasobu.
 
     ```csharp
     namespace SpellCheckSample
@@ -62,7 +68,11 @@ Użyj tego przewodnika Szybki start, aby wykonać pierwsze wywołanie interfejsu
     }
     ```
 
-3. Utwórz zmienną dla parametrów wyszukiwania. Dołącz kod rynkowy po `mkt=` . Kod rynkowy jest krajem/regionem, z którego pochodzi żądanie. Dodawaj również tryb sprawdzania pisowni po `&mode=` . Tryb jest albo `proof` (przechwytuje większość błędów pisowni/gramatyki) lub `spell` (przechwytuje większość pisowni, ale nie wiele błędów gramatycznych).
+3. Utwórz ciąg dla parametrów wyszukiwania: 
+
+   a. Przypisz kod rynkowy do `mkt` parametru `=` operatorem. Kod rynkowy to kod kraju/regionu, z którego pochodzi żądanie. 
+
+   b. Dodaj `mode` parametr z `&` operatorem, a następnie przypisz tryb sprawdzania pisowni. Trybem może być albo `proof` (przechwycenie większości błędów pisowni/gramatyki) lub `spell` (przechwycenie większości błędów pisowni, ale nie tyle błędów gramatycznych).
     
     ```csharp
     static string params_ = "mkt=en-US&mode=proof";
@@ -70,7 +80,7 @@ Użyj tego przewodnika Szybki start, aby wykonać pierwsze wywołanie interfejsu
 
 ## <a name="create-and-send-a-spell-check-request"></a>Tworzenie i wysyłanie żądania sprawdzania pisowni
 
-1. Utwórz asynchroniczną funkcję o nazwie `SpellCheck()`, aby wysłać żądanie do interfejsu API. Utwórz obiekt `HttpClient` i dodaj klucz subskrypcji do nagłówka `Ocp-Apim-Subscription-Key`. Następnie wykonaj następujące czynności w ramach tej funkcji.
+1. Utwórz asynchroniczną funkcję o nazwie `SpellCheck()`, aby wysłać żądanie do interfejsu API. Utwórz obiekt `HttpClient` i dodaj klucz subskrypcji do nagłówka `Ocp-Apim-Subscription-Key`. W ramach funkcji postępuj zgodnie z następnymi krokami.
 
     ```csharp
     async static void SpellCheck()
@@ -127,7 +137,7 @@ Console.WriteLine(jsonObj);
 
 ## <a name="call-the-spell-check-function"></a>Wywoływanie funkcji sprawdzania pisowni
 
-W funkcji Main projektu wywołaj funkcję `SpellCheck()`.
+W `Main()` funkcji projektu, wywołaj `SpellCheck()` .
 
 ```csharp
 static void Main(string[] args)
@@ -189,4 +199,4 @@ Po pomyślnym przetworzeniu żądania zostanie zwrócona odpowiedź w formacie J
 > [Tworzenie jednostronicowej aplikacji internetowej](../tutorials/spellcheck.md)
 
 - [Czym jest interfejs API sprawdzania pisowni Bing?](../overview.md)
-- [Dokumentacja interfejsu API sprawdzania pisowni Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+- [Dokumentacja wersji 7 interfejsu API sprawdzanie pisowni Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

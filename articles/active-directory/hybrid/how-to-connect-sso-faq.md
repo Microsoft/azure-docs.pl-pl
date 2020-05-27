@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7241c8dfbedb24f95c29ea9e1c3f763218a5668d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: feea0266b3a724f3d85944073a47e260277cc362
+ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "72025679"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83860022"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory bezproblemowe logowanie jednokrotne: często zadawane pytania
 
@@ -37,32 +37,32 @@ Bezproblemowe logowanie jednokrotne jest bezpłatną funkcją i nie są potrzebn
 
 **P: ma bezproblemowe dostęp do logowania jednokrotnego w [chmurze Microsoft Azure (Niemcy)](https://www.microsoft.de/cloud-deutschland) i w [chmurze Microsoft Azure Government](https://azure.microsoft.com/features/gov/)?**
 
-Nie. Bezproblemowe logowanie jednokrotne jest dostępne tylko w świecie wystąpienia usługi Azure AD.
+Bezproblemowe logowanie jednokrotne jest dostępne dla chmury Azure Governmentej. Aby uzyskać szczegółowe informacje, zobacz [uwagi dotyczące tożsamości hybrydowej dla Azure Government](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud).
 
-**P: Jakie aplikacje wykorzystują funkcję `domain_hint` lub `login_hint` z możliwością parametrów bezproblemowego logowania jednokrotnego?**
+**P: Jakie aplikacje wykorzystują `domain_hint` funkcję lub z `login_hint` możliwością parametrów bezproblemowego logowania jednokrotnego?**
 
 Poniżej wymieniono niekompletną listę aplikacji, które mogą wysyłać te parametry do usługi Azure AD. w związku z tym użytkownicy uzyskują dyskretne środowisko logowania za pomocą bezproblemowego logowania jednokrotnego (tzn. nie ma potrzeby wprowadzania nazw użytkowników ani haseł przez użytkownika):
 
 | Nazwa aplikacji | Adres URL aplikacji do użycia |
 | -- | -- |
-| Panel dostępu | https:\//myapps.Microsoft.com/contoso.com |
-| Program Outlook w sieci Web | https:\//Outlook.office365.com/contoso.com |
-| Portale pakietu Office 365 | https:\//portal.office.com? domain_hint = contoso. com, https:\//www.Office.com? domain_hint = contoso. com |
+| Panel dostępu | https: \/ /myapps.Microsoft.com/contoso.com |
+| Program Outlook w sieci Web | https: \/ /Outlook.office365.com/contoso.com |
+| Portale pakietu Office 365 | https: \/ /Portal.Office.com? domain_hint = contoso. com, https: \/ /www.office.com? domain_hint = contoso. com |
 
-Ponadto użytkownicy uzyskują ciche działania w przypadku, gdy aplikacja wysyła żądania logowania do punktów końcowych usługi Azure AD skonfigurowanych jako dzierżawcy, czyli https:\//login.microsoftonline.com/contoso.com/<.. > lub https:\//login.microsoftonline.com/<tenant_ID>/<.. > — zamiast wspólnego punktu końcowego usługi Azure AD — czyli protokołu https:\//login.microsoftonline.com/common/<... >. Poniżej wymieniono niekompletną listę aplikacji, które tworzą te typy żądań logowania.
+Ponadto użytkownicy uzyskują ciche działania w przypadku, gdy aplikacja wysyła żądania logowania do punktów końcowych usługi Azure AD skonfigurowanych jako dzierżawcy, czyli https: \/ /login.microsoftonline.com/contoso.com/<.. > lub https: \/ /login.microsoftonline.com/<tenant_ID>/<.. > — zamiast wspólnego punktu końcowego usługi Azure AD — czyli protokołu https: \/ /login.microsoftonline.com/common/<... >. Poniżej wymieniono niekompletną listę aplikacji, które tworzą te typy żądań logowania.
 
 | Nazwa aplikacji | Adres URL aplikacji do użycia |
 | -- | -- |
-| SharePoint Online | https:\//contoso.SharePoint.com |
-| Azure Portal | https:\//Portal.Azure.com/contoso.com |
+| SharePoint Online | https: \/ /contoso.SharePoint.com |
+| Azure Portal | https: \/ /Portal.Azure.com/contoso.com |
 
 W powyższych tabelach Zastąp ciąg "contoso.com" nazwą domeny, aby uzyskać dostęp do odpowiednich adresów URL aplikacji dla dzierżawy.
 
 Jeśli chcesz, aby inne aplikacje korzystali z naszych dyskretnych funkcji logowania, poinformuj nas o tym w sekcji opinii.
 
-**P: zapewnia bezproblemową `Alternate ID` obsługę logowania jednokrotnego jako `userPrincipalName`nazwę użytkownika, a nie?**
+**P: zapewnia bezproblemową obsługę logowania jednokrotnego `Alternate ID` jako nazwę użytkownika, a nie `userPrincipalName` ?**
 
-Tak. Bezproblemowe logowanie jednokrotne jest obsługiwane `Alternate ID` jako nazwa użytkownika po skonfigurowaniu w Azure AD Connect, jak pokazano [poniżej](how-to-connect-install-custom.md). Nie wszystkie aplikacje pakietu Office 365 `Alternate ID`. Zapoznaj się z dokumentacją dotyczącą pomocy technicznej dotyczącej określonej aplikacji.
+Tak. Bezproblemowe logowanie jednokrotne `Alternate ID` jest obsługiwane jako nazwa użytkownika po skonfigurowaniu w Azure AD Connect, jak pokazano [poniżej](how-to-connect-install-custom.md). Nie wszystkie aplikacje pakietu Office 365 `Alternate ID` . Zapoznaj się z dokumentacją dotyczącą pomocy technicznej dotyczącej określonej aplikacji.
 
 **P: Jaka jest różnica między środowiskiem logowania jednokrotnego udostępnianym przez [usługę Azure AD Join](../active-directory-azureadjoin-overview.md) i bezproblemowe logowanie jednokrotne?**
 
@@ -74,9 +74,9 @@ W dzierżawie można używać zarówno sprzężenia usługi Azure AD, jak i bezp
 
 Tak, ten scenariusz wymaga wersji 2,1 lub nowszej [klienta dołączania do miejsca pracy](https://www.microsoft.com/download/details.aspx?id=53554).
 
-**P: jak można wycofać klucz odszyfrowujący protokołu Kerberos konta `AZUREADSSOACC` komputera?**
+**P: jak można wycofać klucz odszyfrowujący protokołu Kerberos `AZUREADSSO` konta komputera?**
 
-Ważne jest, aby często przetworzyć klucz odszyfrowujący protokołu Kerberos konta `AZUREADSSOACC` komputera (co reprezentuje usługę Azure AD) utworzony w lokalnym lesie usługi AD.
+Ważne jest, aby często przetworzyć klucz odszyfrowujący protokołu Kerberos `AZUREADSSO` konta komputera (co reprezentuje usługę Azure AD) utworzony w lokalnym lesie usługi AD.
 
 >[!IMPORTANT]
 >Zdecydowanie zalecamy przeprowadzenie klucza odszyfrowywania Kerberos co najmniej co 30 dni.
@@ -87,13 +87,13 @@ Wykonaj następujące kroki na serwerze lokalnym, na którym jest uruchomiony pr
 
    1. Najpierw pobierz i zainstaluj program [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
    2. Przejdź do folderu `%programfiles%\Microsoft Azure Active Directory Connect`.
-   3. Zaimportuj bezproblemowe moduł programu PowerShell dla logowania jednokrotnego za pomocą tego polecenia: `Import-Module .\AzureADSSO.psd1`.
-   4. Uruchom program PowerShell jako administrator. W programie PowerShell Wywołaj `New-AzureADSSOAuthenticationContext`polecenie. To polecenie powinno umożliwić podręczne wprowadzenie poświadczeń administratora globalnego dzierżawy.
-   5. Wywołanie `Get-AzureADSSOStatus | ConvertFrom-Json`. To polecenie umożliwia wyświetlenie listy lasów usługi AD (Zobacz listę "domeny"), na której włączono tę funkcję.
+   3. Zaimportuj bezproblemowe moduł programu PowerShell dla logowania jednokrotnego za pomocą tego polecenia: `Import-Module .\AzureADSSO.psd1` .
+   4. Uruchom program PowerShell jako administrator. W programie PowerShell Wywołaj polecenie `New-AzureADSSOAuthenticationContext` . To polecenie powinno umożliwić podręczne wprowadzenie poświadczeń administratora globalnego dzierżawy.
+   5. Wywołanie `Get-AzureADSSOStatus | ConvertFrom-Json` . To polecenie umożliwia wyświetlenie listy lasów usługi AD (Zobacz listę "domeny"), na której włączono tę funkcję.
 
    **Krok 2. Zaktualizuj klucz odszyfrowujący protokołu Kerberos w każdym lesie usługi AD, na którym został on skonfigurowany**
 
-   1. Wywołanie `$creds = Get-Credential`. Po wyświetleniu monitu wprowadź poświadczenia administratora domeny dla zamierzonego lasu usługi AD.
+   1. Wywołanie `$creds = Get-Credential` . Po wyświetleniu monitu wprowadź poświadczenia administratora domeny dla zamierzonego lasu usługi AD.
 
    > [!NOTE]
    >Należy podać nazwę użytkownika poświadczeń administratora domeny w formacie nazwy konta SAM (contoso\johndoe lub contoso. com\johndoe). Używamy części nazwy użytkownika do lokalizowania kontrolera domeny administratora domeny przy użyciu systemu DNS.
@@ -101,11 +101,11 @@ Wykonaj następujące kroki na serwerze lokalnym, na którym jest uruchomiony pr
    >[!NOTE]
    >Użyte konto administratora domeny nie może być członkiem grupy Chronieni użytkownicy. Jeśli tak, operacja zakończy się niepowodzeniem.
 
-   2. Wywołanie `Update-AzureADSSOForest -OnPremCredentials $creds`. To polecenie aktualizuje klucz odszyfrowujący protokołu Kerberos dla konta `AZUREADSSOACC` komputera w tym określonym lesie usługi AD i aktualizuje go w usłudze Azure AD.
+   2. Wywołanie `Update-AzureADSSOForest -OnPremCredentials $creds` . To polecenie aktualizuje klucz odszyfrowujący protokołu Kerberos dla `AZUREADSSO` konta komputera w tym określonym lesie usługi AD i aktualizuje go w usłudze Azure AD.
    3. Powtórz powyższe kroki dla każdego lasu usługi AD, dla którego skonfigurowano funkcję.
 
    >[!IMPORTANT]
-   >Upewnij się, _don't_ że `Update-AzureADSSOForest` polecenie nie jest uruchamiane więcej niż raz. W przeciwnym razie funkcja przestanie działać do czasu wygaśnięcia biletów protokołu Kerberos użytkowników i zostanie ponownie wystawiona przez Active Directory lokalnych.
+   >Upewnij się, że polecenie _nie_ jest uruchamiane `Update-AzureADSSOForest` więcej niż raz. W przeciwnym razie funkcja przestanie działać do czasu wygaśnięcia biletów protokołu Kerberos użytkowników i zostanie ponownie wystawiona przez Active Directory lokalnych.
 
 **P: Jak mogę wyłączyć bezproblemowe logowanie jednokrotne?**
 
@@ -128,9 +128,9 @@ Wykonaj następujące kroki na serwerze lokalnym, na którym jest uruchomiony pr
 
    1. Najpierw pobierz i zainstaluj program [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
    2. Przejdź do folderu `%programfiles%\Microsoft Azure Active Directory Connect`.
-   3. Zaimportuj bezproblemowe moduł programu PowerShell dla logowania jednokrotnego za pomocą tego polecenia: `Import-Module .\AzureADSSO.psd1`.
-   4. Uruchom program PowerShell jako administrator. W programie PowerShell Wywołaj `New-AzureADSSOAuthenticationContext`polecenie. To polecenie powinno umożliwić podręczne wprowadzenie poświadczeń administratora globalnego dzierżawy.
-   5. Wywołanie `Enable-AzureADSSO -Enable $false`.
+   3. Zaimportuj bezproblemowe moduł programu PowerShell dla logowania jednokrotnego za pomocą tego polecenia: `Import-Module .\AzureADSSO.psd1` .
+   4. Uruchom program PowerShell jako administrator. W programie PowerShell Wywołaj polecenie `New-AzureADSSOAuthenticationContext` . To polecenie powinno umożliwić podręczne wprowadzenie poświadczeń administratora globalnego dzierżawy.
+   5. Wywołanie `Enable-AzureADSSO -Enable $false` .
 
    >[!IMPORTANT]
    >Wyłączenie bezproblemowego logowania jednokrotnego przy użyciu programu PowerShell nie spowoduje zmiany stanu w Azure AD Connect. Bezproblemowe logowanie jednokrotne zostanie wyświetlone jako włączone na stronie **zmiany logowania użytkownika** .
@@ -141,11 +141,11 @@ Wykonaj następujące kroki na serwerze lokalnym, na którym jest uruchomiony pr
 
    1. Najpierw pobierz i zainstaluj program [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
    2. Przejdź do folderu `%programfiles%\Microsoft Azure Active Directory Connect`.
-   3. Zaimportuj bezproblemowe moduł programu PowerShell dla logowania jednokrotnego za pomocą tego polecenia: `Import-Module .\AzureADSSO.psd1`.
-   4. Uruchom program PowerShell jako administrator. W programie PowerShell Wywołaj `New-AzureADSSOAuthenticationContext`polecenie. To polecenie powinno umożliwić podręczne wprowadzenie poświadczeń administratora globalnego dzierżawy.
-   5. Wywołanie `Get-AzureADSSOStatus | ConvertFrom-Json`. To polecenie umożliwia wyświetlenie listy lasów usługi AD (Zobacz listę "domeny"), na której włączono tę funkcję.
+   3. Zaimportuj bezproblemowe moduł programu PowerShell dla logowania jednokrotnego za pomocą tego polecenia: `Import-Module .\AzureADSSO.psd1` .
+   4. Uruchom program PowerShell jako administrator. W programie PowerShell Wywołaj polecenie `New-AzureADSSOAuthenticationContext` . To polecenie powinno umożliwić podręczne wprowadzenie poświadczeń administratora globalnego dzierżawy.
+   5. Wywołanie `Get-AzureADSSOStatus | ConvertFrom-Json` . To polecenie umożliwia wyświetlenie listy lasów usługi AD (Zobacz listę "domeny"), na której włączono tę funkcję.
 
-   **Krok 3. Ręcznie usuń konto `AZUREADSSOACCT` komputera z poszczególnych lasów usługi AD, które są widoczne na liście.**
+   **Krok 3. Ręcznie usuń `AZUREADSSO` konto komputera z poszczególnych lasów usługi AD, które są widoczne na liście.**
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6f7335b92d7c26b33f9b156d434d895a1bca40c2
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: fa1be31f90bd14c1f22d9e389132487094ecb4ff
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835397"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83849760"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Tworzenie graficznych elementów Runbook w Azure Automation
 
@@ -268,7 +268,7 @@ Tworzenie graficzne zapisuje dane utworzone przez dowolne działanie, które nie
 
 ## <a name="work-with-powershell-expressions"></a>Współpraca z wyrażeniami programu PowerShell
 
-Jedną z zalet tworzenia grafiki jest możliwość tworzenia elementu Runbook z minimalną wiedzą o programie PowerShell. Obecnie trzeba znać bit programu PowerShell służący do wypełniania pewnych [wartości parametrów](#use-activities) oraz ustawiania [warunków łączy](#use-links-for-workflow). Ta sekcja zawiera krótkie wprowadzenie do wyrażeń programu PowerShell. Pełne szczegóły programu PowerShell są dostępne w [skryptach przy użyciu programu Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx).
+Jedną z zalet tworzenia grafiki jest możliwość tworzenia elementu Runbook z minimalną wiedzą o programie PowerShell. Obecnie trzeba znać bit programu PowerShell służący do wypełniania pewnych [wartości parametrów](#use-activities) oraz ustawiania [warunków łączy](#use-links-for-workflow). Ta sekcja zawiera krótkie wprowadzenie do wyrażeń programu PowerShell. Pełne szczegóły programu PowerShell są dostępne w [skryptach przy użyciu programu Windows PowerShell](https://docs.microsoft.com/powershell/scripting/overview).
 
 ### <a name="use-a-powershell-expression-as-a-data-source"></a>Używanie wyrażenia programu PowerShell jako źródła danych
 
