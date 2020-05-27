@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: 248cbd42d86371742ad4985b515d70d022722385
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 3cc75fb34f0a828eccfed3951e84a1c463d4cfb7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744931"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828886"
 ---
 # <a name="use-source-control-integration"></a>Korzystanie z integracji kontroli źródła
 
@@ -123,7 +123,7 @@ W poniższej tabeli zdefiniowano wymagania dotyczące minimalnych wartości, kt�
 
 ##### <a name="minimum-pat-permissions-for-azure-repos"></a>Minimalne uprawnienia dla Azure Repos
 
-Poniższa lista zawiera definicje minimalnych uprawnień, które są wymagane do Azure Repos. Aby uzyskać więcej informacji na temat tworzenia elementu w Azure Repos, zobacz temat [uwierzytelnianie dostępu przy użyciu osobistego tokenu dostępu](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate).
+Poniższa lista zawiera definicje minimalnych uprawnień, które są wymagane do Azure Repos. Aby uzyskać więcej informacji na temat tworzenia elementu w Azure Repos, zobacz temat [uwierzytelnianie dostępu przy użyciu osobistego tokenu dostępu](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page).
 
 | Zakres  |  Typ dostępu  |
 |---------| ----------|
@@ -196,16 +196,16 @@ Aby rozłączyć się z repozytorium kontroli źródła:
 
 ## <a name="handle-encoding-issues"></a>Obsługa problemów z kodowaniem
 
-Jeśli wiele osób edytuje elementy Runbook w repozytorium kontroli źródła przy użyciu różnych edytorów, mogą wystąpić problemy z kodowaniem. Aby dowiedzieć się więcej o tej sytuacji, zobacz [typowe przyczyny problemów z kodowaniem](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues).
+Jeśli wiele osób edytuje elementy Runbook w repozytorium kontroli źródła przy użyciu różnych edytorów, mogą wystąpić problemy z kodowaniem. Aby dowiedzieć się więcej o tej sytuacji, zobacz [typowe przyczyny problemów z kodowaniem](https://docs.microsoft.com/powershell/scripting/components/vscode/understanding-file-encoding?view=powershell-7#common-causes-of-encoding-issues).
 
 ## <a name="update-the-pat"></a>Aktualizowanie
 
 Obecnie nie można użyć Azure Portal, aby zaktualizować wartość w kontroli źródła. Po wygaśnięciu lub odwołaniu danych o stanie kontroli źródła można aktualizować przy użyciu nowego tokenu dostępu w jeden z następujących sposobów:
 
 * Użyj [interfejsu API REST](https://docs.microsoft.com/rest/api/automation/sourcecontrol/update).
-* Użyj polecenia cmdlet [Update-AzAutomationSourceControl](/powershell/module/az.automation/update-azautomationsourcecontrol) .
+* Użyj polecenia cmdlet [Update-AzAutomationSourceControl](https://docs.microsoft.com//powershell/module/az.automation/update-azautomationsourcecontrol) .
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Azure Automation: Integracja kontroli źródła w programie Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
-* [Azure Automation: Integrowanie kontroli źródła elementu Runbook za pomocą usługi Azure DevOps](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  
+* Aby zintegrować kontrolę źródła w Azure Automation, zobacz [Azure Automation: Integracja kontroli źródła w Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/).  
+* Aby zintegrować kontrolę źródła elementu Runbook z usługą Visual Studio Online, zobacz [Azure Automation: Integrowanie kontroli źródła elementu Runbook za pomocą usługi Visual Studio Online](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/).

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 1bcc13db3f503c80fda71a2104d0ff8d99e67df6
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 745ec7ebf792fe1165022516be4c83fb9e864cc9
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198011"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83799878"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Instalowanie sterowników AMD GPU na maszynach wirtualnych serii N z systemem Windows
 
@@ -38,13 +38,9 @@ Aby zapoznać się z podstawowymi danymi, pojemnościami magazynu i szczegółam
 
 1. Połącz się Pulpit zdalny z każdą maszyną wirtualną serii NVv4.
 
-2. Jeśli jesteś klientem usługi NVv4 w wersji zapoznawczej, Zatrzymaj maszynę wirtualną i zaczekaj, aż zostanie ona przeniesiona do stanu zatrzymana (cofnięta alokacja).
+2. Pobierz i zainstaluj najnowszą wersję sterownika.
 
-3. Uruchom maszynę wirtualną i Pobierz najnowsze [Narzędzie do oczyszczania AMD](https://download.microsoft.com/download/4/f/1/4f19b714-9304-410f-9c64-826404e07857/AMDCleanupUtilityni.exe). Odinstaluj istniejący sterownik, uruchamiając plik "amdcleanuputility-x64. exe". NIE używaj żadnego istniejącego narzędzia czyszczącego, które zostało zainstalowane z poprzednim sterownikiem.  
-
-4. Pobierz i zainstaluj najnowszą wersję sterownika.
-
-5. Uruchom ponownie maszynę wirtualną.
+3. Uruchom ponownie maszynę wirtualną.
 
 ## <a name="verify-driver-installation"></a>Weryfikuj instalację sterownika
 

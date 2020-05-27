@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/07/2020
 ms.author: mimart
 ms.reviewer: arvinh
-ms.openlocfilehash: 65bbb35d041a48e68d01a50e88e42fbeb73f2ea6
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: 2fbdf947eb36e1591cc9da52a85e389be63c8535
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864287"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826659"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Tworzenie punktu końcowego Standard scim i Konfigurowanie aprowizacji użytkowników przy użyciu usługi Azure AD
 
@@ -100,7 +100,7 @@ Następnie można użyć poniższej tabeli, aby zrozumieć, w jaki sposób atryb
 |IDPracownika|urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: employeeNumber|
 | Faks-numer telefonu |numer telefonu [typ EQ "Fax"]. wartość |
 | givenName |Nazwa. imię |
-| Stanowiska |title |
+| Stanowiska |tytuł |
 | mail (poczta) |wiadomości e-mail [Type EQ "Work"]. Value |
 | mailNickname |externalId |
 | manager |urn: IETF: params: Standard scim: schematy: rozszerzenie: Enterprise: 2.0: User: Manager |
@@ -149,21 +149,21 @@ W [specyfikacji protokołu standard scim 2,0](http://www.simplecloud.info/#Speci
 * Obsługuje tworzenie użytkowników, a także grupy, zgodnie z sekcją [3,3 protokołu Standard scim](https://tools.ietf.org/html/rfc7644#section-3.3).  
 * Obsługuje modyfikowanie użytkowników lub grup przy użyciu żądań poprawek, zgodnie z [sekcją 3.5.2 protokołu Standard scim](https://tools.ietf.org/html/rfc7644#section-3.5.2).  
 * Obsługuje pobieranie znanego zasobu dla użytkownika lub grupy utworzonej wcześniej, zgodnie [z sekcją 1 protokołu Standard scim](https://tools.ietf.org/html/rfc7644#section-3.4.1).  
-* Obsługuje kwerendy użytkowników lub grup, zgodnie z sekcją [3.4.2 protokołu Standard scim](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Domyślnie użytkownicy są pobierani przez `id` ich i sprawdzani według ich `username` `externalid`, a grupy są pytani przez. `displayName`  
+* Obsługuje kwerendy użytkowników lub grup, zgodnie z sekcją [3.4.2 protokołu Standard scim](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Domyślnie użytkownicy są pobierani przez ich i sprawdzani według `id` ich `username` , a `externalid` grupy są pytani przez `displayName` .  
 * Obsługuje zapytania użytkownika według identyfikatora i Menedżera, zgodnie z sekcją 3.4.2 protokołu Standard scim.  
 * Obsługuje wykonywanie zapytań względem grup według identyfikatorów i elementów członkowskich, zgodnie z sekcją 3.4.2 protokołu Standard scim.  
 * Akceptuje pojedynczy token okaziciela na potrzeby uwierzytelniania i autoryzacji usługi Azure AD w aplikacji.
 
 Postępuj zgodnie z ogólnymi wskazówkami dotyczącymi wdrażania punktu końcowego Standard scim, aby zapewnić zgodność z usługą Azure AD:
 
-* `id`jest właściwością wymaganą dla wszystkich zasobów. Każda odpowiedź zwracająca zasób powinna mieć pewność, że każdy zasób ma tę właściwość, `ListResponse` z wyjątkiem z zerowymi elementami członkowskimi.
-* Odpowiedź na żądanie zapytania/filtru zawsze powinna być `ListResponse`.
+* `id`jest właściwością wymaganą dla wszystkich zasobów. Każda odpowiedź zwracająca zasób powinna mieć pewność, że każdy zasób ma tę właściwość, z wyjątkiem `ListResponse` z zerowymi elementami członkowskimi.
+* Odpowiedź na żądanie zapytania/filtru zawsze powinna być `ListResponse` .
 * Grupy są opcjonalne, ale są obsługiwane tylko wtedy, gdy implementacja Standard scim obsługuje żądania PATCH.
 * Nie trzeba uwzględniać całego zasobu w odpowiedzi na POPRAWKĘ.
 * Microsoft Azure AD stosuje tylko następujące operatory:  
     - `eq`
     - `and`
-* Nie wymagaj dopasowania uwzględniającego wielkość liter w elementach konstrukcyjnych w Standard scim, w `op` określonych wartościach operacji patch, https://tools.ietf.org/html/rfc7644#section-3.5.2zgodnie z definicją w. Usługa Azure AD emituje wartości elementu "op" jako `Add`, `Replace`i `Remove`.
+* Nie wymagaj dopasowania uwzględniającego wielkość liter w elementach konstrukcyjnych w Standard scim, w określonych `op` wartościach operacji patch, zgodnie z definicją w https://tools.ietf.org/html/rfc7644#section-3.5.2 . Usługa Azure AD emituje wartości elementu "op" jako `Add` , `Replace` i `Remove` .
 * Microsoft Azure AD wykonuje żądania pobrania losowego użytkownika i grupy, aby upewnić się, że punkt końcowy i poświadczenia są prawidłowe. Jest również wykonywane w ramach przepływu **połączenia testowego** w [Azure Portal](https://portal.azure.com). 
 * Atrybut, w którym można wykonywać zapytania o zasoby, powinien być ustawiony jako pasujący atrybut w aplikacji w [Azure Portal](https://portal.azure.com). Aby uzyskać więcej informacji, zobacz [Dostosowywanie mapowań atrybutów aprowizacji użytkowników](customize-application-attributes.md)
 
@@ -191,32 +191,32 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 > Aby dowiedzieć się, jak i kiedy usługa aprowizacji użytkowników w usłudze Azure AD emituje opisane poniżej operacje, zapoznaj się z sekcją [cykle aprowizacji: początkowe i przyrostowe](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) w [sposobie działania aprowizacji](how-provisioning-works.md).
 
 [Operacje użytkownika](#user-operations)
-  - [Utwórz użytkownika](#create-user) ([Request](#request) / [odpowiedź](#response)na żądanie)
-  - [Pobierz użytkownika](#get-user) ([Request](#request-1) / [odpowiedź](#response-1)na żądanie)
-  - [Pobierz użytkownika według zapytania](#get-user-by-query) ([Request](#request-2) / [odpowiedź](#response-2)żądania)
-  - [Pobierz użytkownika według zapytania — wyniki zerowe](#get-user-by-query---zero-results) ([Request](#request-3)
-/ [odpowiedź](#response-3)na żądanie)
-  - [Aktualizowanie użytkownika [właściwości wielowartościowe]](#update-user-multi-valued-properties) ([odpowiedź](#response-4)na[żądanie](#request-4) /  )
-  - [Aktualizowanie użytkownika [właściwości pojedynczej wartości]](#update-user-single-valued-properties) ([Request](#request-5)
-/ [odpowiedź](#response-5)żądania) 
-  - [Wyłącz użytkownika](#disable-user) ([Request](#request-14) / 
-[odpowiedź](#response-14)na żądanie)
-  - [Usuń użytkownika](#delete-user) ([Request](#request-6) / 
-[odpowiedź](#response-6)na żądanie)
+  - [Utwórz użytkownika](#create-user) ([Request](#request)  /  [odpowiedź](#response)na żądanie)
+  - [Pobierz użytkownika](#get-user) ([Request](#request-1)  /  [odpowiedź](#response-1)na żądanie)
+  - [Pobierz użytkownika według zapytania](#get-user-by-query) ([Request](#request-2)  /  [odpowiedź](#response-2)żądania)
+  - [Pobierz użytkownika według zapytania — wyniki zerowe](#get-user-by-query---zero-results) ([Request](#request-3) 
+/  [odpowiedź](#response-3)na żądanie)
+  - [Aktualizowanie użytkownika [właściwości wielowartościowe]](#update-user-multi-valued-properties) (odpowiedź na[żądanie](#request-4)  /   [Response](#response-4))
+  - [Aktualizowanie użytkownika [właściwości pojedynczej wartości]](#update-user-single-valued-properties) ([Request](#request-5) 
+/  [odpowiedź](#response-5)żądania) 
+  - [Wyłącz użytkownika](#disable-user) ([Request](#request-14)  / 
+ [odpowiedź](#response-14)na żądanie)
+  - [Usuń użytkownika](#delete-user) ([Request](#request-6)  / 
+ [odpowiedź](#response-6)na żądanie)
 
 
 [Operacje grupy](#group-operations)
-  - [Utwórz grupę](#create-group) ( [Request](#request-7) / [odpowiedź](#response-7)na żądanie)
-  - [Pobierz grupę](#get-group) ( [Request](#request-8) / [odpowiedź](#response-8)na żądanie)
-  - [Pobierz grupę według DisplayName](#get-group-by-displayname) ([Request](#request-9) / [odpowiedź](#response-9)na żądanie)
+  - [Utwórz grupę](#create-group) ( [Request](#request-7)  /  [odpowiedź](#response-7)na żądanie)
+  - [Pobierz grupę](#get-group) ( [Request](#request-8)  /  [odpowiedź](#response-8)na żądanie)
+  - [Pobierz grupę według DisplayName](#get-group-by-displayname) ([Request](#request-9)  /  [odpowiedź](#response-9)na żądanie)
   - [Grupa aktualizacji [atrybuty inne niż Członkowskie]](#update-group-non-member-attributes) ([Request](#request-10) /
   [odpowiedź](#response-10)żądania)
-  - [Grupa aktualizacji [Dodaj członków]](#update-group-add-members) ( [żądanie żądania](#request-11) /
-[)](#response-11)
-  - [Grupa aktualizacji [usuwanie członków]](#update-group-remove-members) ( [żądanie żądania](#request-12) /
-[)](#response-12)
-  - [Usuń grupę](#delete-group) ([Request](#request-13) /
-[odpowiedź](#response-13)na żądanie)
+  - [Grupa aktualizacji [Dodaj członków]](#update-group-add-members) ( [żądanie żądania](#request-11)  /
+ [Response](#response-11))
+  - [Grupa aktualizacji [usuwanie członków]](#update-group-remove-members) ( [żądanie żądania](#request-12)  /
+ [Response](#response-12))
+  - [Usuń grupę](#delete-group) ([Request](#request-13)  /
+ [odpowiedź](#response-13)na żądanie)
 
 ### <a name="user-operations"></a>Operacje użytkownika
 
@@ -551,7 +551,7 @@ Ta sekcja zawiera przykładowe żądania Standard scim emitowane przez klienta u
 ### <a name="group-operations"></a>Operacje grupy
 
 * Grupy zawsze są tworzone z pustą listą członków.
-* Do `displayName` grup mogą być wysyłane zapytania według atrybutu.
+* Do grup mogą być wysyłane zapytania według `displayName` atrybutu.
 * Aktualizacja żądania poprawek grupy powinna spowodować, że w odpowiedzi *nie ma żadnej zawartości HTTP 204* . Zwracanie treści z listą wszystkich elementów członkowskich nie jest zalecane.
 * Nie trzeba obsługiwać zwracania wszystkich elementów członkowskich grupy.
 
@@ -803,7 +803,7 @@ Aby uzyskać więcej informacji na temat protokołu HTTPS w ASP.NET Core Użyj n
 
 Żądania od Azure Active Directory zawierają token elementu nośnego OAuth 2,0. Każda usługa otrzymująca żądanie powinna uwierzytelniać wystawcę jako Azure Active Directory dla oczekiwanego Azure Active Directory dzierżawy.
 
-W tokenie wystawca jest identyfikowany przez zgłoszenie ISS, np `"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"`.. W tym przykładzie adres podstawowy wartości `https://sts.windows.net`żądania, określa Azure Active Directory jako wystawca, natomiast segment adresu względnego, _cbb1a5ac-f33b-45fa-9bf5-f37db0fed422_, jest unikatowym identyfikatorem dzierżawy Azure Active Directory, dla którego został wystawiony token.
+W tokenie wystawca jest identyfikowany przez zgłoszenie ISS, np `"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"` .. W tym przykładzie adres podstawowy wartości żądania, `https://sts.windows.net` określa Azure Active Directory jako wystawca, natomiast segment adresu względnego, _cbb1a5ac-f33b-45fa-9bf5-f37db0fed422_, jest unikatowym identyfikatorem dzierżawy Azure Active Directory, dla którego został wystawiony token.
 
 Odbiorcy tokenu będą IDENTYFIKATORem szablonu aplikacji dla aplikacji w galerii, a każda z aplikacji zarejestrowanych w jednej dzierżawie może otrzymać to samo `iss` żądanie z żądaniami Standard scim. Identyfikator szablonu aplikacji dla wszystkich aplikacji niestandardowych to _8adf8e6e-67b2-4cf2-A259-e3dc5476c621_. Tokenu wygenerowanego przez usługę Azure AD Provisioning należy używać tylko do celów testowych. Nie powinna być używana w środowiskach produkcyjnych.
 
@@ -1127,7 +1127,7 @@ Aplikacje obsługujące profil Standard scim opisany w tym artykule mogą być p
 
 1. Zaloguj się do [portalu Azure Active Directory](https://aad.portal.azure.com). Należy pamiętać, że możesz uzyskać dostęp do bezpłatnej wersji próbnej Azure Active Directory z licencjami P2, rejestrując się w [programie dla deweloperów](https://developer.microsoft.com/office/dev-program)
 2. W okienku po lewej stronie wybierz pozycję **aplikacje dla przedsiębiorstw** . Zostanie wyświetlona lista wszystkich skonfigurowanych aplikacji, w tym aplikacji, które zostały dodane z galerii.
-3. Wybierz pozycję **+ Nowa aplikacja** > **wszystkie** > **aplikacje spoza galerii**.
+3. Wybierz pozycję **+ Nowa aplikacja**  >  **wszystkie**  >  **aplikacje spoza galerii**.
 4. Wprowadź nazwę aplikacji, a następnie wybierz pozycję **Dodaj** , aby utworzyć obiekt aplikacji. Nowa aplikacja zostanie dodana do listy aplikacji dla przedsiębiorstw i zostanie otwarta na swoim ekranie zarządzania aplikacjami.
 
    ![Zrzut ekranu przedstawia galerię aplikacji usługi Azure AD](media/use-scim-to-provision-users-and-groups/scim-figure-2a.png)<br/>
@@ -1215,15 +1215,11 @@ Aby zwiększyć świadomość i zapotrzebowanie naszej integracji, Zalecamy zakt
 
 * **Gotowość do obsługi sprzedaży i klienta.** Upewnij się, że zespoły sprzedaży i pomocy technicznej są świadome i mogą mówić do możliwości integracji. W skrócie zespół ds. sprzedaży i pomocy technicznej, Zapewnij im często zadawane pytania i Włącz integrację z materiałami sprzedaży. 
 * **Wpis w blogu i/lub naciśnięcie klawisza.** Umieść wpis w blogu lub wersję próbną opisującą integrację, zalety i sposób rozpoczynania pracy. [Przykład: Niewprowadzenie i Azure Active Directory Press](https://www.imprivata.com/company/press/imprivata-introduces-iam-cloud-platform-healthcare-supported-microsoft) 
-* **Media społecznościowe.** Skorzystaj z mediów społecznościowych, takich jak Twitter, Facebook lub LinkedIn, aby promować integrację z klientami. Pamiętaj, aby dołączać @AzureAD się do Twojego wpisu. [Przykład: Niemniej wpis w serwisie Twitter](https://twitter.com/azuread/status/1123964502909779968)
+* **Media społecznościowe.** Skorzystaj z mediów społecznościowych, takich jak Twitter, Facebook lub LinkedIn, aby promować integrację z klientami. Pamiętaj, aby dołączać się do @AzureAD Twojego wpisu. [Przykład: Niemniej wpis w serwisie Twitter](https://twitter.com/azuread/status/1123964502909779968)
 * **Witryna sieci Web Marketing.** Utwórz lub zaktualizuj strony marketingowe (np. Strona integracji, Strona partnera, Cennik itp.) w celu uwzględnienia dostępności wspólnej integracji. [Przykład: Strona integracji Pingboard](https://pingboard.com/org-chart-for), [Strona integracji narzędzia Smartsheet](https://www.smartsheet.com/marketplace/apps/microsoft-azure-ad), [Strona z cennikiem Monday.com](https://monday.com/pricing/) 
 * **Dokumentacja techniczna.** Utwórz artykuł centrum pomocy lub dokumentację techniczną dotyczącą sposobu, w jaki klienci mogą rozpocząć pracę. [Przykład: wysłannika + Microsoft Azure Active Directory integrację.](https://envoy.help/en/articles/3453335-microsoft-azure-active-directory-integration/
 ) 
 * **Komunikacja z klientem.** Powiadamiaj klientów o nowej integracji za pośrednictwem komunikacji z klientem (Biuletyny Miesięczne, kampanie e-mail i informacje o wersji produktu). 
-
-### <a name="allow-ip-addresses-used-by-the-azure-ad-provisioning-service-to-make-scim-requests"></a>Zezwalaj na adresy IP używane przez usługę Azure AD Provisioning do podejmowania żądań Standard scim
-
-Niektóre aplikacje zezwalają na ruch przychodzący do swojej aplikacji. Aby usługa Azure AD Provisioning działała zgodnie z oczekiwaniami, używane adresy IP muszą być dozwolone. Aby uzyskać listę adresów IP dla każdego tagu usługi/regionu, zobacz plik JSON — [zakresy adresów IP platformy Azure i Tagi usług — chmura publiczna](https://www.microsoft.com/download/details.aspx?id=56519). W razie konieczności można pobrać i obsłużyć te adresy IP w zaporze. Zakresy zarezerwowanych adresów IP dla aprowizacji usługi Azure AD można znaleźć w obszarze "AzureActiveDirectoryDomainServices".
 
 ## <a name="related-articles"></a>Pokrewne artykuły:
 

@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/25/2018
 tags: connectors
-ms.openlocfilehash: 194c08d034d44ba0a4472b3b516fc45d1d262d28
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3023aa72d713dc25351a6e509319e1c4c0ed609a
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74789073"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83829668"
 ---
 # <a name="monitor-and-manage-your-yammer-account-by-using-azure-logic-apps"></a>Monitorowanie konta usługi Yammer i zarządzanie nim przy użyciu Azure Logic Apps
 
@@ -47,16 +47,16 @@ Można użyć wyzwalaczy, które odbierają odpowiedzi z konta usługi Yammer i 
    * W przypadku pustych aplikacji logiki w polu wyszukiwania wprowadź ciąg "Yammer" jako filtr. 
    Na liście Wyzwalacze wybierz wyzwalacz, który chcesz. 
 
-     — lub —
+     -lub-
 
    * Dla istniejących aplikacji logiki: 
    
      * W ostatnim kroku, w którym chcesz dodać akcję, wybierz pozycję **nowy krok**. 
 
-       — lub —
+       -lub-
 
      * Między krokami, do których chcesz dodać akcję, przesuń wskaźnik myszy nad strzałkę między krokami. 
-     Wybierz wyświetlony znak plus (**+**), a następnie wybierz pozycję **Dodaj akcję**.
+     Wybierz wyświetlony znak plus ( **+** ), a następnie wybierz pozycję **Dodaj akcję**.
      
        W polu wyszukiwania wprowadź ciąg "Yammer" jako filtr. 
        Na liście Akcje wybierz żądaną akcję.
@@ -71,7 +71,7 @@ Aby uzyskać szczegółowe informacje techniczne na temat wyzwalaczy, akcji i li
 
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 
-* Jeśli masz pytania, odwiedź [forum usługi Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Pytania można znaleźć w witrynie [Microsoft Q&pytanie dotyczące Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Aby przesłać pomysły dotyczące funkcji lub zagłosować na nie, odwiedź [witrynę opinii użytkowników usługi Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Następne kroki

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: d828103bef8e57f5d0cdfe6c243c52e2d0526663
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d982cc94a9ab0517d6453a30371635c1e3100676
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80257550"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835601"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Skalowanie zadania Azure Stream Analytics w celu zwiększenia przepływności
 W tym artykule opisano sposób dostrajania zapytania Stream Analytics, aby zwiększyć przepływność zadań analizy przesyłania strumieniowego. Poniższy przewodnik umożliwia skalowanie zadania w celu obsługi wyższego obciążenia i wykorzystanie większej ilości zasobów systemowych (takich jak większa przepustowość, więcej zasobów procesora CPU, więcej pamięci).
@@ -77,8 +77,8 @@ W przypadku niektórych przypadków użycia niezależnego dostawcy oprogramowani
 
 
 
-## <a name="get-help"></a>Uzyskiwanie pomocy
-Aby uzyskać dalszą pomoc, wypróbuj nasze [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+## <a name="get-help"></a>Uzyskaj pomoc
+Aby uzyskać dalszą pomoc, Wypróbuj naszą [stronę pytań firmy&Microsoft dotyczącą Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Następne kroki
 * [Wprowadzenie do Azure Stream Analytics](stream-analytics-introduction.md)

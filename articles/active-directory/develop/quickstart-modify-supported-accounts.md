@@ -12,12 +12,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 94fed6f4aa62c7e649cf7d644e571b30561e0da4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 2850ca3f23e61be54702878c0683af9fdb1fad91
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80050241"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826863"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Szybki Start: modyfikowanie kont obsługiwanych przez aplikację
 
@@ -69,6 +69,8 @@ Domyślnie niejawne udzielenie protokołu OAuth 2.0 jest wyłączone dla aplikac
 
 ### <a name="to-enable-oauth-20-implicit-grant"></a>Włączanie przyznawania niejawnego protokołu OAuth 2.0
 
+1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory** a następnie wybierz pozycję **rejestracje aplikacji**.
+1. Znajdź i wybierz aplikację do skonfigurowania. Po wybraniu aplikacji zobaczysz stronę **Przegląd** aplikacji lub główną stronę rejestracji.
 1. Na stronie **Przegląd** aplikacji wybierz sekcję **Uwierzytelnianie**.
 1. W obszarze **Ustawienia zaawansowane** znajdź sekcję **Niejawne udzielenie**.
 1. Wybierz pozycję **Tokeny identyfikatora**, **Tokeny dostępu** lub je obie.

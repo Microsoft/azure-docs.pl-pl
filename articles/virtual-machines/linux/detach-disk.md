@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: f8a0790169b17ad7755386f9bdd4f9372efc83e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c827a19fd2b3e946154a3ee0acf6dddc6ad45a0
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74036368"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830008"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>How to detach a data disk from a Linux virtual machine (Jak odłączyć dysk od maszyny wirtualnej systemu Linux)
 
@@ -106,12 +106,10 @@ Dysk pozostaje w magazynie, ale nie jest już dołączony do maszyny wirtualnej.
 ## <a name="detach-a-data-disk-using-the-portal"></a>Odłączanie dysku danych przy użyciu portalu
 
 1. W menu po lewej stronie wybierz pozycję **Virtual Machines**.
-2. Wybierz maszynę wirtualną zawierającą dysk danych, który chcesz odłączyć, a następnie kliknij przycisk **Zatrzymaj** , aby cofnąć przydział maszyny wirtualnej.
-3. W okienku maszyna wirtualna wybierz pozycję **dyski**.
-4. W górnej części okienka **dyski** wybierz pozycję **Edytuj**.
-5. W okienku **dyski** z prawej strony dysku z danymi, które chcesz odłączyć, kliknij ![przycisk Odłącz obraz](./media/detach-disk/detach.png) przycisku Odłącz.
-5. Po usunięciu dysku kliknij pozycję Zapisz w górnej części okienka.
-6. W okienku maszyna wirtualna kliknij pozycję **Przegląd** , a następnie kliknij przycisk **Uruchom** w górnej części okienka, aby ponownie uruchomić maszynę wirtualną.
+1. W bloku maszyna wirtualna wybierz pozycję **dyski**.
+1. W górnej części bloku **dyski** wybierz pozycję **Edytuj**.
+1. W bloku **dyski** z prawej strony dysku danych, który chcesz odłączyć, kliknij ![ przycisk Odłącz obraz przycisku ](./media/detach-disk/detach.png) Odłącz.
+1. Po usunięciu dysku kliknij pozycję **Zapisz** w górnej części bloku.
 
 Dysk pozostaje w magazynie, ale nie jest już dołączony do maszyny wirtualnej.
 

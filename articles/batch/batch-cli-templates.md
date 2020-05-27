@@ -4,18 +4,21 @@ description: Korzystając tylko z poleceń interfejsu wiersza polecenia, można 
 ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2b1a28c817e0b0aa8047cdd9952065862bda9b73
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 1029d2e156d219c88100a035f2ed4a51afa6ba36
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83726778"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83815999"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Użyj Azure Batch szablonów interfejsu wiersza polecenia i transferu plików
 
-Korzystając z rozszerzenia Azure Batch w interfejsie wiersza polecenia platformy Azure, możliwe jest uruchamianie zadań wsadowych bez pisania kodu.
+Korzystając z rozszerzenia usługi Batch w interfejsie wiersza polecenia platformy Azure, możliwe jest uruchamianie zadań wsadowych bez pisania kodu.
 
 Twórz i używaj plików szablonów JSON przy użyciu interfejsu wiersza polecenia platformy Azure, aby tworzyć pule, zadania i zadania usługi Batch. Użyj poleceń rozszerzenia interfejsu wiersza polecenia, aby łatwo przekazywać pliki wejściowe zadań do konta magazynu skojarzonego z kontem wsadowym, a następnie pobierać pliki wyjściowe zadania.
+
+> [!NOTE]
+> Pliki JSON nie obsługują tych samych funkcji co [Azure Resource Manager szablonów](../azure-resource-manager/templates/template-syntax.md). Są one przeznaczone do formatowania jako pierwotna treść żądania REST. Rozszerzenie interfejsu wiersza polecenia nie zmienia żadnych istniejących poleceń, ale ma podobną opcję szablonu, która dodaje częściową funkcję szablonu Azure Resource Manager. Zobacz [rozszerzenia interfejsu wiersza polecenia Azure Batch dla systemów Windows, Mac i Linux](https://github.com/Azure/azure-batch-cli-extensions).
 
 ## <a name="overview"></a>Omówienie
 
@@ -136,7 +139,7 @@ Jeśli plik szablonu ma nazwę _Pool-narzędzia FFmpeg. JSON_, a następnie Wywo
 az batch pool create --template pool-ffmpeg.json
 ```
 
-Interfejs wiersza polecenia poprosi o podanie wartości `poolId` parametrów i `nodeCount` . Możesz również podać parametry w pliku JSON. Na przykład:
+Interfejs wiersza polecenia poprosi o podanie wartości `poolId` parametrów i `nodeCount` . Możesz również podać parametry w pliku JSON. Przykład:
 
 ```json
 {

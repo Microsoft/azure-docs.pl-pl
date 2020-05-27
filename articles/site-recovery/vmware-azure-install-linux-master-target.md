@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 5b4d625d28584bb601905e9439c112c845219e54
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9ab4db53086046ff831fe91d003599841aa8148c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73954377"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83829787"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalowanie głównego serwera docelowego z systemem Linux na potrzeby powrotu po awarii
 Po przełączeniu maszyn wirtualnych w tryb failover na platformę Azure można wrócić do trybu failover maszyn wirtualnych w lokacji lokalnej. Aby powrócić po awarii, należy ponownie włączyć ochronę maszyny wirtualnej z platformy Azure do lokacji lokalnej. W przypadku tego procesu wymagany jest lokalny główny serwer docelowy do odbierania ruchu. 
@@ -27,7 +27,7 @@ Jeśli chroniona maszyna wirtualna jest maszyną wirtualną z systemem Windows, 
 ## <a name="overview"></a>Omówienie
 Ten artykuł zawiera instrukcje dotyczące instalowania głównego elementu docelowego systemu Linux.
 
-Zamieszczaj komentarze lub pytania na końcu tego artykułu lub na [Forum Recovery Services platformy Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Zamieszczaj komentarze lub pytania na końcu tego artykułu lub na [stronie pytań firmy Microsoft na&pytania dotyczące usługi Azure Recovery Services](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -160,7 +160,7 @@ Aby uzyskać identyfikator dla każdego dysku twardego SCSI na maszynie wirtualn
 
 3. Wybierz kartę **Opcje** .
 
-4. W okienku po lewej stronie wybierz pozycję **Zaawansowane** > **Ogólne**, a następnie wybierz przycisk **Parametry konfiguracji** w prawej dolnej części ekranu.
+4. W okienku po lewej stronie wybierz pozycję **Zaawansowane**  >  **Ogólne**, a następnie wybierz przycisk **Parametry konfiguracji** w prawej dolnej części ekranu.
 
     ![Otwórz parametr konfiguracji](./media/vmware-azure-install-linux-master-target/image24-ubuntu.png) 
 
@@ -244,7 +244,7 @@ Wykonaj następujące kroki, aby utworzyć dysk przechowywania:
 
     ![Identyfikator wielu ścieżek](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Sformatuj dysk, a następnie utwórz system plików na nowym dysku: **mkfs. ext4/dev/mapper/\<identyfikator wielościeżkowy dysku przechowywania>**.
+3. Sformatuj dysk, a następnie utwórz system plików na nowym dysku: **mkfs. ext4/dev/mapper/ \< Identyfikator wielościeżkowy dysku przechowywania>**.
     
     ![System plików](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
@@ -261,7 +261,7 @@ Wykonaj następujące kroki, aby utworzyć dysk przechowywania:
     
     Wybierz pozycję **Wstaw** , aby rozpocząć edycję pliku. Utwórz nowy wiersz, a następnie Wstaw poniższy tekst. Edytuj identyfikator wielościeżkowy dysku na podstawie wyróżnionego identyfikatora wielościeżkowego z poprzedniego polecenia.
 
-    **Identyfikator\<wielościeżkowego przechowywania/dev/mapper/>/mnt/Retention ext4 RW 0 0**
+    **\<Identyfikator wielościeżkowego przechowywania/dev/mapper/>/mnt/Retention ext4 rw 0 0**
 
     Wybierz **klawisz ESC**, a następnie wpisz **: WQ** (Zapisz i Wyjdź), aby zamknąć okno edytora.
 

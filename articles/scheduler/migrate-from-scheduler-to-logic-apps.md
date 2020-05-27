@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 02/29/2020
-ms.openlocfilehash: 90c3cc2e096b9b58465987bc53f718c5d06c6203
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dd61ac9751010d57cbf5b742a5081beb3ac560e9
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78899070"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826064"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migrowanie zadań usługi Azure Scheduler do usługi Azure Logic Apps
 
@@ -53,7 +53,7 @@ Można uruchomić wiele jednorazowych zadań, tworząc tylko jedną aplikację l
 
    Aby zapoznać się z podstawowymi krokami, Skorzystaj z [przewodnika Szybki Start: Tworzenie pierwszej aplikacji logiki](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. W polu wyszukiwania wpisz `when a http request` polecenie, aby znaleźć wyzwalacz żądania. Z listy Wyzwalacze wybierz ten wyzwalacz: **po odebraniu żądania HTTP**
+1. W polu wyszukiwania wpisz polecenie, `when a http request` Aby znaleźć wyzwalacz żądania. Z listy Wyzwalacze wybierz ten wyzwalacz: **po odebraniu żądania HTTP**
 
    ![Dodaj wyzwalacz "żądanie"](./media/migrate-from-scheduler-to-logic-apps/request-trigger.png)
 
@@ -116,7 +116,7 @@ Na przykład przy użyciu aplikacji post można utworzyć żądanie POST z ustaw
 
 | Metoda żądania | Adres URL | Treść | Nagłówki |
 |----------------|-----|------|---------|
-| **POST** | <*punkt końcowy — adres URL*> | **surowców** <p>**JSON (Application/JSON)** <p>W polu **RAW** wprowadź ładunek, który ma zostać wysłany w żądaniu. <p>**Uwaga**: to ustawienie powoduje automatyczne skonfigurowanie wartości **nagłówków** . | **Klucz**: Content-Type <br>**Wartość**: Application/JSON |
+| **POUBOJOWEGO** | <*punkt końcowy — adres URL*> | **surowców** <p>**JSON (Application/JSON)** <p>W polu **RAW** wprowadź ładunek, który ma zostać wysłany w żądaniu. <p>**Uwaga**: to ustawienie powoduje automatyczne skonfigurowanie wartości **nagłówków** . | **Klucz**: Content-Type <br>**Wartość**: Application/JSON |
 |||||
 
 ![Wyślij żądanie ręcznego wyzwalania aplikacji logiki](./media/migrate-from-scheduler-to-logic-apps/postman-send-post-request.png)
@@ -201,7 +201,7 @@ Jeśli nie uda się uruchomić akcji domyślnej w usłudze Azure Scheduler, moż
 
 Aby dowiedzieć się więcej o obsłudze wyjątków, zobacz temat [Obsługa błędów i wyjątków — Właściwość RunAfter](../logic-apps/logic-apps-exception-handling.md#control-run-after-behavior).
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 <a name="retire-date"></a>
 
@@ -239,7 +239,7 @@ Jeśli Twoja subskrypcja platformy Azure ma płatny Plan pomocy technicznej, mo�
 
 **Społeczność**
 
-* [Forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)
+* [Strona pytania&pytań Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-scheduler)
 
 ## <a name="next-steps"></a>Następne kroki

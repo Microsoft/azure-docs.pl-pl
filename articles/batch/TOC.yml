@@ -53,12 +53,26 @@
       items:
         - name: Punkt odniesienia zabezpieczeń
           href: security-baseline.md
-    - name: Funkcje dla deweloperów
-      href: batch-api-basics.md
+    - name: Przepływ pracy i zasoby usługi Batch
+      displayName: developer features
+      href: batch-service-workflow-features.md
+      items:
+        - name: Konta usługi Batch
+          displayName: storage account
+          href: accounts.md
+        - name: Węzły i pule
+          displayName: 'compute node, application package, scaling, schedule, os'
+          href: nodes-and-pools.md
+        - name: Zadania
+          displayName: Batch job
+          href: jobs-and-tasks.md
+        - name: Pliki i katalogi
+          displayName: Batch file
+          href: files-and-directories.md
     - name: Interfejsy API i narzędzia
       href: batch-apis-tools.md
-    - name: Wykrywanie i obsługa błędów usługi Batch
-      href: batch-retry-after-errors.md
+    - name: Obsługa i wykrywanie błędów
+      href: error-handling.md
     - name: Najlepsze rozwiązania
       href: best-practices.md
     - name: Limity przydziału i ograniczenia
@@ -91,6 +105,10 @@
           href: batch-aad-auth-management.md
         - name: Bezpieczny dostęp do usługi Key Vault za pomocą usługi Batch
           href: credential-access-key-vault.md
+        - name: Używanie certyfikatów z usługą Batch
+          href: batch-certificates.md
+    - name: Korzystanie z pakietów aplikacji
+      href: batch-application-packages.md
     - name: Kopiowanie plików i aplikacji do węzłów puli
       items:
         - name: Kopiowanie aplikacji i danych do węzłów puli

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 04/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: f2e9a97dac4d69ea4e470a932cb446d83b425dde
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: b40357e71275d835a200f3bc08c618b6713001d8
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745287"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830773"
 ---
 # <a name="query-update-management-logs"></a>Wykonywanie zapytań względem dzienników rozwiązania Update Management
 
@@ -409,5 +409,5 @@ Update
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Dzienniki usługi Azure Monitor](../log-analytics/log-analytics-log-searches.md)
-* [Konfigurowanie alertów](automation-tutorial-update-management.md#configure-alerts)
+* Aby uzyskać szczegółowe informacje dotyczące dzienników Azure Monitor, zobacz [dzienniki Azure monitor](../log-analytics/log-analytics-log-searches.md).
+* Aby uzyskać pomoc dotyczącą alertów, zobacz [Konfigurowanie alertów](automation-tutorial-update-management.md#configure-alerts).

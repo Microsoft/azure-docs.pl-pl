@@ -56,6 +56,8 @@
               href: data-box-portal-admin.md
             - name: Zarządzanie za pomocą lokalnego interfejsu użytkownika sieci Web
               href: data-box-local-web-ui-admin.md
+            - name: Korzystanie z samodzielnej wysyłki
+              href: data-box-portal-customer-managed-shipping.md
             - name: Włączanie klucza zarządzanego przez klienta
               href: data-box-customer-managed-encryption-key-portal.md
             - name: Przenoszenie danych do warstwy obiektu blob
@@ -117,6 +119,8 @@
           items:
             - name: Zarządzanie za pośrednictwem witryny Azure Portal
               href: data-box-portal-ui-admin.md
+            - name: Korzystanie z samodzielnej wysyłki
+              href: data-box-disk-portal-customer-managed-shipping.md
             - name: Rozwiązywanie problemów
               items:
                 - name: Problemy z odblokowywaniem

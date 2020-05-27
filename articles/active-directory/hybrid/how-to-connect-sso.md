@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1b7e4716e731e6b73e3ac60b64baa71043906fc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 401f8239cded04b6342b706242e970e39118d73d
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77483758"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827169"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory bezproblemowe logowanie jednokrotne
 
@@ -36,7 +36,7 @@ Bezproblemowe logowanie jednokrotne może być łączone z [synchronizacją skr�
 ![Bezproblemowe logowanie jednokrotne](./media/how-to-connect-sso/sso1.png)
 
 >[!IMPORTANT]
->Bezproblemowe logowanie jednokrotne wymaga, aby urządzenie użytkownika zostało przyłączone do **domeny** , ale nie jest używane w [przyłączonych do usługi Azure AD](../devices/concept-azure-ad-join.md) lub w [hybrydowych urządzeniach usługi Azure AD](../devices/concept-azure-ad-join-hybrid.md) . Usługa logowania jednokrotnego w usłudze Azure AD jest dołączona i hybrydowa usługa Azure AD jest oparta na [podstawowym tokenie odświeżania](../devices/concept-primary-refresh-token.md).
+>Bezproblemowe logowanie jednokrotne wymaga, aby urządzenie użytkownika zostało przyłączone do **domeny** , ale nie jest używane w [przyłączonych do usługi Azure AD](../devices/concept-azure-ad-join.md) lub w [hybrydowych urządzeniach usługi Azure AD](../devices/concept-azure-ad-join-hybrid.md) . Logowanie jednokrotne w usłudze Azure AD, dołączona hybrydowa usługa Azure AD oraz zarejestrowane urządzenia usługi Azure AD działają na podstawie [podstawowego tokenu odświeżania](../devices/concept-primary-refresh-token.md).
 
 ## <a name="key-benefits"></a>Najważniejsze korzyści
 
@@ -51,10 +51,10 @@ Bezproblemowe logowanie jednokrotne może być łączone z [synchronizacją skr�
 
 ## <a name="feature-highlights"></a>Najważniejsze funkcje
 
-- Nazwa użytkownika logowania może być lokalną domyślną nazwą użytkownika (`userPrincipalName`) lub innym atrybutem skonfigurowanym w Azure AD Connect (`Alternate ID`). Oba przypadki użycia działają, ponieważ bezproblemowe logowanie jednokrotne korzysta z `securityIdentifier` roszczeń w biletu protokołu Kerberos w celu wyszukania odpowiedniego obiektu użytkownika w usłudze Azure AD.
+- Nazwa użytkownika logowania może być lokalną domyślną nazwą użytkownika ( `userPrincipalName` ) lub innym atrybutem skonfigurowanym w Azure AD Connect ( `Alternate ID` ). Oba przypadki użycia działają, ponieważ bezproblemowe logowanie jednokrotne korzysta z `securityIdentifier` roszczeń w biletu protokołu Kerberos w celu wyszukania odpowiedniego obiektu użytkownika w usłudze Azure AD.
 - Bezproblemowe logowanie jednokrotne jest funkcją oportunistyczną. Jeśli z jakiegoś powodu nie powiedzie się, środowisko logowania użytkownika powróci do regularnego zachowania — oznacza to, że użytkownik musi wprowadzić hasło na stronie logowania.
-- `https://myapps.microsoft.com/contoso.com`Jeśli aplikacja (na przykład) przekaże parametr `domain_hint` (OpenID Connect Connect) lub `whr` (SAML), identyfikujący dzierżawcę lub `login_hint` parametr-identyfikujący użytkownika w żądaniu logowania usługi Azure AD, użytkownicy są automatycznie zalogowani bez wprowadzania nazw użytkowników ani haseł.
-- Użytkownicy mogą również korzystać z dyskretnych funkcji logowania, jeśli aplikacja (na `https://contoso.sharepoint.com`przykład) wysyła żądania logowania do punktów końcowych usługi Azure AD skonfigurowanych jako dzierżawcy — to jest `https://login.microsoftonline.com/contoso.com/<..>` lub `https://login.microsoftonline.com/<tenant_ID>/<..>` zamiast wspólnego punktu końcowego usługi Azure AD, czyli. `https://login.microsoftonline.com/common/<...>`
+- Jeśli aplikacja (na przykład `https://myapps.microsoft.com/contoso.com` ) przekaże `domain_hint` parametr (OpenID Connect Connect) lub `whr` (SAML), identyfikujący dzierżawcę lub `login_hint` parametr-identyfikujący użytkownika w ŻĄDANIU logowania usługi Azure AD, użytkownicy są automatycznie zalogowani bez wprowadzania nazw użytkowników ani haseł.
+- Użytkownicy mogą również korzystać z dyskretnych funkcji logowania, jeśli aplikacja (na przykład `https://contoso.sharepoint.com` ) wysyła żądania logowania do punktów końcowych usługi Azure AD skonfigurowanych jako dzierżawcy — to jest `https://login.microsoftonline.com/contoso.com/<..>` lub `https://login.microsoftonline.com/<tenant_ID>/<..>` zamiast wspólnego punktu końcowego usługi Azure AD, czyli `https://login.microsoftonline.com/common/<...>` .
 - Wylogowywanie jest obsługiwane. Dzięki temu użytkownicy mogą wybrać inne konto usługi Azure AD, aby zalogować się za pomocą programu, a nie automatycznie logować się automatycznie za pomocą bezproblemowego logowania jednokrotnego.
 - Klienci Win32 pakietu Office 365 (Outlook, Word, Excel i inne) z wersjami 16.0.8730. xxxx i nowszymi są obsługiwani przy użyciu nieinteraktywnego przepływu. W przypadku usługi OneDrive konieczne będzie aktywowanie [funkcji konfiguracji dyskretnej usługi OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) w celu zalogowania dyskretnego.
 - Można ją włączyć za pośrednictwem Azure AD Connect.
@@ -63,11 +63,11 @@ Bezproblemowe logowanie jednokrotne może być łączone z [synchronizacją skr�
 
 | OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Tak\*|Tak|Tak|Tak\*\*\*|Nie dotyczy
-|Windows 8.1|Opcję\*|Nie dotyczy|Tak|Tak\*\*\*|Nie dotyczy
-|Windows 8|Opcję\*|Nie dotyczy|Tak|Tak\*\*\*|Nie dotyczy
-|Windows 7|Opcję\*|Nie dotyczy|Tak|Tak\*\*\*|Nie dotyczy
-|System Windows Server 2012 R2 lub nowszy|Opcję\*\*|Nie dotyczy|Tak|Tak\*\*\*|Nie dotyczy
+|Windows 10|Yes\*|Yes|Yes|Tak\*\*\*|Nie dotyczy
+|Windows 8.1|Yes\*|Nie dotyczy|Yes|Tak\*\*\*|Nie dotyczy
+|Windows 8|Yes\*|Nie dotyczy|Yes|Tak\*\*\*|Nie dotyczy
+|Windows 7|Yes\*|Nie dotyczy|Yes|Tak\*\*\*|Nie dotyczy
+|System Windows Server 2012 R2 lub nowszy|Opcję\*\*|Nie dotyczy|Yes|Tak\*\*\*|Nie dotyczy
 |Mac OS X|Nie dotyczy|Nie dotyczy|Tak\*\*\*|Tak\*\*\*|Tak\*\*\*
 
 

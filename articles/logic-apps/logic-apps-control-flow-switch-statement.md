@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/08/2018
-ms.openlocfilehash: 5c40feec2dca65e4bc9617a71a6d0a8e4c872a3a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4f24efc4ea306046ab09119b859fa1d0853b25b6
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74793238"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834530"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Utwórz instrukcje Switch, które uruchamiają akcje przepływu pracy na podstawie określonych wartości w Azure Logic Apps
 
@@ -42,7 +42,7 @@ Załóżmy na przykład, że chcesz, aby aplikacja logiki, która wykonuje róż
 
 1. Na potrzeby tego przykładu Dodaj instrukcję Switch na końcu przykładowego przepływu pracy. Po ostatnim kroku wybierz pozycję **nowy krok**.
 
-   Aby dodać instrukcję Switch między krokami, przesuń wskaźnik myszy nad strzałkę, w której chcesz dodać instrukcję Switch. Wybierz wyświetlony znak **Plus** (**+**), a następnie wybierz pozycję **Dodaj akcję**.
+   Aby dodać instrukcję Switch między krokami, przesuń wskaźnik myszy nad strzałkę, w której chcesz dodać instrukcję Switch. Wybierz wyświetlony znak **Plus** ( **+** ), a następnie wybierz pozycję **Dodaj akcję**.
 
 1. W polu wyszukiwania wprowadź ciąg "switch" jako filtr. Wybierz tę akcję: **formant przełącznika**
 
@@ -57,7 +57,7 @@ Załóżmy na przykład, że chcesz, aby aplikacja logiki, która wykonuje róż
 
    ![Wybierz pozycję "SelectedOption"](./media/logic-apps-control-flow-switch-statement/select-selected-option.png)
 
-1. Aby obsłużyć przypadki, w których osoba `Approve` zatwierdzająca wybiera lub `Reject`Dodaj inną wielkość liter między **wielkością liter** a **wartością domyślną**. 
+1. Aby obsłużyć przypadki, w których osoba zatwierdzająca wybiera `Approve` lub `Reject` Dodaj inną wielkość liter między **wielkością liter** a **wartością domyślną**. 
 
    ![Dodaj inny przypadek](./media/logic-apps-control-flow-switch-statement/switch-plus.png)
 
@@ -67,7 +67,7 @@ Załóżmy na przykład, że chcesz, aby aplikacja logiki, która wykonuje róż
    |--------|--------------------|--------|
    | Przypadek 1 | **Zatwierdzenie** | Dodaj akcję **Wyślij wiadomość e-mail** do programu Outlook w celu wysłania szczegółowych informacji o elemencie RSS tylko wtedy, gdy osoba zatwierdzająca zabrała **zatwierdzenie**. |
    | Przypadek 2 | **Reject** | Dodaj akcję **Wyślij wiadomość e-mail** do programu Outlook, aby poinformować inne osoby zatwierdzające o odrzuceniu elementu RSS. |
-   | Domyślny | Brak | Nie trzeba podejmować żadnych działań. W tym przykładzie **domyślnym** przypadkiem jest pusty, ponieważ **SelectedOption** ma tylko dwie opcje. |
+   | Domyślne | Brak | Nie trzeba podejmować żadnych działań. W tym przykładzie **domyślnym** przypadkiem jest pusty, ponieważ **SelectedOption** ma tylko dwie opcje. |
    |||
 
    ![Zakończono przełączanie instrukcji](./media/logic-apps-control-flow-switch-statement/finished-switch.png)
@@ -121,7 +121,7 @@ Teraz, po utworzeniu aplikacji logiki przy użyciu instrukcji switch, przyjrzyjm
 
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 
-* Jeśli masz pytania, odwiedź [forum usługi Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Pytania można znaleźć w witrynie [Microsoft Q&pytanie dotyczące Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 * Aby przesłać lub zagłosować na temat funkcji lub sugestii, odwiedź [witrynę opinii o Azure Logic Apps użytkownika](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Następne kroki

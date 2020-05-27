@@ -3,12 +3,12 @@ title: Obsługiwane typy zasobów za poorednictwem Azure Resource Health | Micro
 description: Obsługiwane typy zasobów za pomocą usługi Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 5cc80147730fdc97b1181690f6e70fc538d4afcc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 38c7e0754649d650521cc510bcac326496bcec38
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478907"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816102"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Typy zasobów i kontrole kondycji w usłudze Azure Resource Health
 Poniżej znajduje się kompletna lista wszystkich testów wykonywanych przez zasoby według typów zasobów.
@@ -204,7 +204,7 @@ Poniżej znajduje się kompletna lista wszystkich testów wykonywanych przez zas
 |---|
 |<ul><li>Czy baza danych jest w pełni uruchomiona?</li></ul>|
 
-## <a name="microsoftsqlserverdatabases"></a>Microsoft. SQL/serwer/bazy danych
+## <a name="microsoftsqlserversdatabases"></a>Microsoft. SQL/serwery/bazy danych
 |Wykonane sprawdzenia|
 |---|
 |<ul><li>Czy wystąpiły logowania do bazy danych?</li></ul>|

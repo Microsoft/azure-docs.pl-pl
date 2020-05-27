@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: f78161590c897e6337e8694acb9f8a6b34258246
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: d2b9f705c73e667f34e46fdeed3c80af1e65fb12
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743802"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83830110"
 ---
 # <a name="automation-account-authentication-overview"></a>Omówienie uwierzytelniania konta usługi Automation
 
@@ -47,6 +47,6 @@ Elementy Runbook działające w ramach hybrydowego procesu roboczego elementu Ru
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Tworzenie konta usługi Automation w witrynie Azure Portal](automation-create-standalone-account.md)
-* [Tworzenie konta usługi Automation przy użyciu szablonu Azure Resource Manager](automation-create-account-template.md)
-* [Uwierzytelnianie za pomocą Amazon Web Services (AWS)](automation-config-aws-account.md)
+* Aby utworzyć konto usługi Automation na podstawie Azure Portal, zobacz [Tworzenie autonomicznego konta Azure Automation](automation-create-standalone-account.md).
+* Jeśli wolisz utworzyć konto przy użyciu szablonu, zobacz [Tworzenie konta usługi Automation przy użyciu szablonu Azure Resource Manager](automation-create-account-template.md).
+* Aby uzyskać informacje na temat uwierzytelniania przy użyciu Amazon Web Services, zobacz temat [uwierzytelnianie elementów Runbook przy użyciu Amazon Web Services](automation-config-aws-account.md).

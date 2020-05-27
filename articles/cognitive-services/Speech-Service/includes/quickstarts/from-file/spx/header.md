@@ -10,11 +10,11 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 5/13/2020
 ms.author: v-demjoh
-ms.openlocfilehash: d127c4a8dd5b922d5f79efe812528f48c8a3ab74
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 07011132e831c0a567fdc7a05ce9ae42630bdaf8
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714695"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83806495"
 ---
-W tym przewodniku szybki start użyjesz narzędzia SPX z wiersza polecenia, aby rozpoznać mowę zarejestrowaną w pliku dźwiękowym i utworzyć transkrypcję tekstu. Można łatwo używać narzędzia SPX do wykonywania typowych zadań rozpoznawania, takich jak Konwersacje jego przepisywania. Po jednorazowej konfiguracji narzędzie SPX umożliwia interakcyjne transkrypcja audio z użyciem mikrofonu lub plików przy użyciu skryptu wsadowego.
+W tym przewodniku szybki start użyjesz interfejsu wiersza polecenia mowy z wiersza poleceń, aby rozpoznać mowę zarejestrowaną w pliku audio i utworzyć transkrypcję tekstu. Do wykonywania typowych zadań rozpoznawania, takich jak Konwersacje jego przepisywania, można łatwo korzystać z interfejsu wiersza polecenia funkcji rozpoznawania mowy. Po jednorazowej konfiguracji interfejs wiersza polecenia mowy pozwala transkrypcja dźwięk do interaktywnego tekstu za pomocą mikrofonu lub plików przy użyciu skryptu wsadowego.

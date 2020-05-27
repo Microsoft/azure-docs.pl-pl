@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 6902876e066649ae4dff4134fb8cc462f30dd0b7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 14c2a9a2ad818cc358535a91f9a6813ec7b91a6f
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74084870"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83826285"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Dodawanie skryptu programu VMM do planu odzyskiwania
 
 W tym artykule opisano sposób tworzenia skryptu System Center Virtual Machine Manager (VMM) i dodawania go do planu odzyskiwania w programie [Azure Site Recovery](site-recovery-overview.md).
 
-Opublikuj wszelkie komentarze lub pytania w dolnej części tego artykułu lub na [forum Recovery Services platformy Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+Zamieszczaj wszelkie komentarze lub pytania w dolnej części tego artykułu lub na [stronie pytania firmy Microsoft dotyczącej&na platformie Azure Recovery Services](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -29,7 +29,7 @@ W planach odzyskiwania można używać skryptów programu PowerShell. Aby można
     - Jeśli wystąpi błąd, pozostała część skryptu nie zostanie uruchomiona.
     - Jeśli wystąpi błąd podczas uruchamiania nieplanowanego trybu failover, plan odzyskiwania będzie kontynuowany.
     - Jeśli wystąpi błąd podczas uruchamiania planowanej pracy w trybie failover, plan odzyskiwania zostanie zatrzymany. Napraw skrypt, sprawdź, czy działa zgodnie z oczekiwaniami, a następnie ponownie uruchom plan odzyskiwania.
-        - `Write-Host` Polecenie nie działa w skrypcie planu odzyskiwania. Jeśli używasz `Write-Host` polecenia w skrypcie, skrypt zakończy się niepowodzeniem. Aby utworzyć dane wyjściowe, Utwórz skrypt serwera proxy, który z kolei uruchamia główny skrypt. Aby upewnić się, że wszystkie dane wyjściowe są potokowe ** \> ** , użyj polecenia.
+        - `Write-Host`Polecenie nie działa w skrypcie planu odzyskiwania. Jeśli używasz `Write-Host` polecenia w skrypcie, skrypt zakończy się niepowodzeniem. Aby utworzyć dane wyjściowe, Utwórz skrypt serwera proxy, który z kolei uruchamia główny skrypt. Aby upewnić się, że wszystkie dane wyjściowe są potokowe, użyj **\>\>** polecenia.
         - Skrypt przekracza limit czasu, jeśli nie zwróci w ciągu 600 sekund.
         - Jeśli coś jest zapisywana w STDERR, skrypt jest sklasyfikowany jako niepowodzenie. Te informacje są wyświetlane w szczegółach wykonywania skryptu.
 
@@ -41,11 +41,11 @@ W planach odzyskiwania można używać skryptów programu PowerShell. Aby można
     Aby uzyskać więcej informacji, zobacz [wprowadzenie do programu Windows PowerShell i programu VMM](https://technet.microsoft.com/library/hh875013.aspx).
 * Upewnij się, że w wdrożeniu programu VMM istnieje co najmniej jeden serwer biblioteki. Domyślnie ścieżka udziału biblioteki serwera programu VMM znajduje się lokalnie na serwerze programu VMM. Nazwa folderu to MSCVMMLibrary.
 
-  Jeśli ścieżka udziału biblioteki jest zdalna (lub jeśli jest lokalna, ale nie została udostępniona przez MSCVMMLibrary), skonfiguruj udział w następujący sposób, \\używając libserver2. contoso. com\share\ jako przykładu:
+  Jeśli ścieżka udziału biblioteki jest zdalna (lub jeśli jest lokalna, ale nie została udostępniona przez MSCVMMLibrary), skonfiguruj udział w następujący sposób, używając \\ libserver2. contoso. com\share\ jako przykładu:
   
   1. Otwórz Edytor rejestru, a następnie przejdź do **HKEY_LOCAL_MACHINE \Software\microsoft\azure site Recovery\Registration**.
 
-  1. Zmień wartość parametru **ScriptLibraryPath** na ** \\\libserver2.contoso.com\share\\**. Określ pełną nazwę FQDN. Podaj uprawnienia do lokalizacji udziału. Jest to węzeł główny udziału. Aby sprawdzić węzeł główny, w programie VMM przejdź do węzła głównego w bibliotece. Otwierana ścieżka jest katalogiem głównym ścieżki. Jest to ścieżka, której należy użyć w zmiennej.
+  1. Zmień wartość parametru **ScriptLibraryPath** na ** \\ \libserver2.contoso.com\share \\ **. Określ pełną nazwę FQDN. Podaj uprawnienia do lokalizacji udziału. Jest to węzeł główny udziału. Aby sprawdzić węzeł główny, w programie VMM przejdź do węzła głównego w bibliotece. Otwierana ścieżka jest katalogiem głównym ścieżki. Jest to ścieżka, której należy użyć w zmiennej.
 
   1. Przetestuj skrypt przy użyciu konta użytkownika o takim samym poziomie jak konto usługi programu VMM. Korzystając z tych praw użytkownika, program sprawdza, czy te autonomiczne testy są uruchamiane tak samo, jak w planach odzyskiwania. Na serwerze programu VMM Ustaw zasady wykonywania do obejścia w następujący sposób:
 
@@ -60,9 +60,9 @@ W planach odzyskiwania można używać skryptów programu PowerShell. Aby można
 
 Jeśli masz lokację źródłową programu VMM, możesz utworzyć skrypt na serwerze programu VMM. Następnie Dołącz skrypt do planu odzyskiwania.
 
-1. W udziale biblioteki Utwórz nowy folder. Na przykład nazwa \<serwera VMM> \msscvmmlibrary\rpscripts. Umieść folder na źródłowym i docelowym serwerze programu VMM.
+1. W udziale biblioteki Utwórz nowy folder. Na przykład \< Nazwa serwera VMM> \msscvmmlibrary\rpscripts. Umieść folder na źródłowym i docelowym serwerze programu VMM.
 1. Utwórz skrypt. Na przykład Nazwij skrypt RPScript. Sprawdź, czy skrypt działa zgodnie z oczekiwaniami.
-1. Umieść skrypt w nazwie serwera \<programu VMM> folderze \msscvmmlibrary na źródłowym i docelowym serwerze programu VMM.
+1. Umieść skrypt w \< nazwie serwera programu vmm> folderze \msscvmmlibrary na źródłowym i docelowym serwerze programu VMM.
 
 ## <a name="add-the-script-to-a-recovery-plan"></a>Dodawanie skryptu do planu odzyskiwania
 

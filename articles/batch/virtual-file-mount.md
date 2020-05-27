@@ -3,12 +3,12 @@ title: Instalowanie wirtualnego systemu plików w puli
 description: Dowiedz się, jak zainstalować wirtualny system plików w puli wsadowej.
 ms.topic: how-to
 ms.date: 08/13/2019
-ms.openlocfilehash: 4a9ea7d9ecd65ab55c2420015f82e863e45cbd5d
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 4e51e8a1f11d670515893a83398a0c6d7c6e9a46
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83722664"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83816033"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Instalowanie wirtualnego systemu plików w puli partii
 
@@ -64,10 +64,10 @@ new PoolAddParameter
         {
             AzureFileShareConfiguration = new AzureFileShareConfiguration
             {
-                AccountName = "AccountName",
-                AzureFileUrl = "AzureFileShareUrl",
-                AccountKey = "StorageAccountKey",
-                RelativeMountPath = "RelativeMountPath",
+                AccountName = "{storage-account-name}",
+                AzureFileUrl = "https://{storage-account-name}.file.core.windows.net/{file-share-name}",
+                AccountKey = "{storage-account-key}",
+                RelativeMountPath = "S",
                 MountOptions = "-o vers=3.0,dir_mode=0777,file_mode=0777,sec=ntlmssp"
             },
         }

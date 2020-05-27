@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: fac6a3b55f4a9150e827682cb3a134c203231978
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: e550489f34d84946d0a9e3df641a1484b85a60f0
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744943"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83828937"
 ---
 # <a name="use-source-control-integration-in-azure-automation---legacy"></a>Używanie integracji kontroli źródła w programie Azure Automation — Starsza wersja
 
@@ -132,5 +132,5 @@ Aby rozłączyć się z kontem usługi GitHub, Otwórz stronę synchronizacji re
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Azure Automation: Integracja kontroli źródła w programie Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
-* [Azure Automation: Integrowanie kontroli źródła elementu Runbook za pomocą usługi Azure DevOps](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  
+* Aby zintegrować kontrolę źródła w Azure Automation, zobacz [Azure Automation: Integracja kontroli źródła w Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/).  
+* Aby zintegrować kontrolę źródła elementu Runbook z usługą Visual Studio Online, zobacz [Azure Automation: Integrowanie kontroli źródła elementu Runbook za pomocą usługi Visual Studio Online](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/).  

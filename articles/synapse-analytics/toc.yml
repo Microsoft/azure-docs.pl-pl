@@ -44,6 +44,8 @@
       href: quickstart-connect-synapse-link-cosmos-db.md
 - name: Samouczki
   items:
+    - name: Rozpoczęcie pracy
+      href: get-started.md
     - name: Uruchamianie aplikacji Apache Spark na potrzeby pul platformy Spark
       href: ./spark/intellij-tool-synapse.md
     - name: Definicje zadań platformy Spark

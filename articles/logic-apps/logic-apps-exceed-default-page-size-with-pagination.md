@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 04/11/2019
-ms.openlocfilehash: 75d9660eb35b5d7ddc644d177c11ae489e2853dc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9f114dd0428e13b3e1a205fea353b38b1f8a6f97
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74792108"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835363"
 ---
 # <a name="get-more-data-items-or-records-by-using-pagination-in-azure-logic-apps"></a>Uzyskaj więcej danych, elementów lub rekordów przy użyciu stronicowania w Azure Logic Apps
 
@@ -27,7 +27,7 @@ Włączenie ustawienia stronicowania pobiera strony wyników na podstawie rozmia
 
 Poniżej znajduje się lista zawierająca tylko niektóre łączniki, w których można przekroczyć domyślny rozmiar strony dla określonych akcji:
 
-* [Blob Storage platformy Azure](https://docs.microsoft.com/connectors/azureblob/)
+* [Azure Blob Storage](https://docs.microsoft.com/connectors/azureblob/)
 * [Dynamics 365](https://docs.microsoft.com/connectors/dynamicscrmonline/)
 * [Excel](https://docs.microsoft.com/connectors/excel/)
 * [HTTP](https://docs.microsoft.com/azure/connectors/connectors-native-http)
@@ -62,7 +62,7 @@ Aby określić, czy akcja obsługuje stronicowanie w Projektancie aplikacji logi
 
 ## <a name="workflow-definition---pagination"></a>Definicja przepływu pracy — podział na strony
 
-Po włączeniu dzielenia na strony dla akcji, która obsługuje tę możliwość, definicja przepływu pracy aplikacji logiki zawiera `"paginationPolicy"` Właściwość wraz z `"minimumItemCount"` właściwością we `"runtimeConfiguration"` właściwości tej akcji, na przykład:
+Po włączeniu dzielenia na strony dla akcji, która obsługuje tę możliwość, definicja przepływu pracy aplikacji logiki zawiera `"paginationPolicy"` Właściwość wraz z `"minimumItemCount"` właściwością we właściwości tej akcji `"runtimeConfiguration"` , na przykład:
 
 ```json
 "actions": {
@@ -84,4 +84,4 @@ Po włączeniu dzielenia na strony dla akcji, która obsługuje tę możliwość
 
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 
-Jeśli masz pytania, odwiedź [forum usługi Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+Pytania można znaleźć w witrynie [Microsoft Q&pytanie dotyczące Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).

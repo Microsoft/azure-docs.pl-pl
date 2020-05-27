@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2020
 ms.author: spelluru
-ms.openlocfilehash: c877daf3ffdc1f00e90dafb421a7323e05a019ab
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: ce9f8ee592c1fb2f7ac98339bbd14ce57440bc1a
+ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700052"
+ms.lasthandoff: 05/24/2020
+ms.locfileid: "83815710"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services — Podręcznik administratora
 Administratorzy IT, którzy zarządzają zasobami w chmurze University, są zwykle odpowiedzialni za skonfigurowanie konta laboratorium dla swojej szkoły. Po skonfigurowaniu konta Laboratorium Administratorzy lub wykładowcy tworzą laboratoria klas, które są zawarte w ramach konta laboratorium. Ten artykuł zawiera ogólne omówienie związanych zasobów platformy Azure oraz wskazówki dotyczące ich tworzenia.
@@ -179,8 +179,9 @@ Gdy Administratorzy lub twórcy laboratorium tworzą laboratorium zajęć, mogą
 | ---- | ----- | ------ | ------------- |
 | Mały| <ul><li>2 rdzenie</li><li>3,5 GB PAMIĘCI RAM</li> | [Standardowa_A2_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Ten rozmiar najlepiej nadaje się w przypadku wiersza polecenia, otwierania przeglądarki sieci Web, serwerów sieci Web o małym ruchu, małych i średnich baz danych. |
 | Średniaa | <ul><li>4 rdzenie</li><li>7 GB PAMIĘCI RAM</li> | [Standardowa_A4_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Ten rozmiar jest najlepiej dostosowany do relacyjnych baz danych, buforowania w pamięci i analizy. |
-| Średni (Wirtualizacja zagnieżdżona) | <ul><li>4 rdzenie</li><li>16 GB PAMIĘCI RAM</li></ul> | [Standardowa_D4s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | Ten rozmiar jest najlepiej dostosowany do relacyjnych baz danych, buforowania w pamięci i analizy.  Ten rozmiar obsługuje również wirtualizację zagnieżdżoną. |
+| Średni (Wirtualizacja zagnieżdżona) | <ul><li>4 rdzenie</li><li>16 GB PAMIĘCI RAM</li></ul> | [Standardowa_D4s_v3](https://docs.microsoft.com/azure/virtual-machines/dv3-dsv3-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json#dsv3-series) | Ten rozmiar jest najlepiej dostosowany do relacyjnych baz danych, buforowania w pamięci i analizy.
 | Duży | <ul><li>8 rdzeni</li><li>16 GB PAMIĘCI RAM</li></ul>  | [Standardowa_A8_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series) | Ten rozmiar najlepiej nadaje się w przypadku aplikacji wymagających szybszych procesorów CPU, lepszej wydajności dysków lokalnych, dużych baz danych i dużych pamięci podręcznych pamięci.  Ten rozmiar obsługuje również wirtualizację zagnieżdżoną. |
+| Duże (Wirtualizacja zagnieżdżona) | <ul><li>8 rdzeni</li><li>16 GB PAMIĘCI RAM</li></ul>  | [Standardowa_A8_v2](https://docs.microsoft.com/azure/virtual-machines/av2-series) | Ten rozmiar najlepiej nadaje się w przypadku aplikacji wymagających szybszych procesorów CPU, lepszej wydajności dysków lokalnych, dużych baz danych i dużych pamięci podręcznych pamięci. |
 | Mały procesor GPU (wizualizacja) | <ul><li>6 rdzeni</li><li>56 GB PAMIĘCI RAM</li>  | [Standardowa_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | Ten rozmiar najlepiej nadaje się do zdalnej wizualizacji, przesyłania strumieniowego, gier, kodowania przy użyciu struktur, takich jak OpenGL i DirectX. |
 | Mały procesor GPU (obliczenia) | <ul><li>6 rdzeni</li><li>56 GB PAMIĘCI RAM</li></ul>  | [Standardowa_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Ten rozmiar najlepiej nadaje się w przypadku aplikacji intensywnie korzystających z komputerów, takich jak sztuczna inteligencja i uczenie głębokie. |
 | Średni procesor GPU (wizualizacja) | <ul><li>12 rdzeni</li><li>112 GB PAMIĘCI RAM</li></ul>  | [Standardowa_NV12](https://docs.microsoft.com/azure/virtual-machines/nv-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Ten rozmiar najlepiej nadaje się do zdalnej wizualizacji, przesyłania strumieniowego, gier, kodowania przy użyciu struktur, takich jak OpenGL i DirectX. |
@@ -226,7 +227,7 @@ Oto kilka porad ułatwiających Przypisywanie ról:
    - Aby dać nauczycieli możliwość tworzenia nowych laboratoriów zajęć i zarządzania przez nich laboratoriami, wystarczy przypisać dostęp do roli **twórca laboratorium** .
    - Aby dać nauczycieli możliwość zarządzania określonymi laboratoriami, ale *nie* ma możliwości tworzenia nowych laboratoriów; należy przypisać dostęp do roli **właściciel** lub **współautor** dla każdej z laboratoriów klasy, którymi będą zarządzać.  Na przykład możesz chcieć zezwolić zarówno profesor, jak i Asystentowi nauczania na Współtworzenie laboratorium klasy.  Zapoznaj się z przewodnikiem, jak [dodać użytkownika jako właściciela do laboratorium zajęć](https://docs.microsoft.com/azure/lab-services/classroom-labs/how-to-add-user-lab-owner).
 
-## <a name="pricing"></a>Ceny
+## <a name="pricing"></a>Cennik
 
 ### <a name="azure-lab-services"></a>Azure Lab Services
 
