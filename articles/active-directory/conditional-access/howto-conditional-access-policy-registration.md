@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c8081bb8145a6654c168fb2d664e1666b32dc18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4d9eb3c8f34308271eb216cad25a5db4a62d03cb
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457913"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845377"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>Dostęp warunkowy: Zabezpieczanie rejestracji informacji zabezpieczających
 
@@ -26,7 +26,7 @@ Zabezpieczanie, kiedy i jak użytkownicy rejestrują się w usłudze Azure Multi
 
 Poniższe zasady mają zastosowanie do wszystkich wybranych użytkowników, którzy próbują zarejestrować się przy użyciu połączonego środowiska rejestracji i blokują dostęp, chyba że nawiązują połączenie z lokalizacji oznaczonej jako zaufane sieci.
 
-1. W **Azure Portal**przejdź do **Azure Active Directory** > **zabezpieczenia** > **dostęp warunkowy**.
+1. W **Azure Portal**przejdź do **Azure Active Directory**  >  **zabezpieczenia**  >  **dostęp warunkowy**.
 1. Wybierz pozycję **nowe zasady**.
 1. W polu Nazwa wprowadź nazwę dla tych zasad. Na przykład **połączona informacja dotycząca zabezpieczeń Rejestracja w zaufanych sieciach**.
 1. W obszarze **przypisania**wybierz pozycję **Użytkownicy i grupy**, a następnie wybierz użytkowników i grupy, do których te zasady mają być stosowane.
@@ -35,14 +35,14 @@ Poniższe zasady mają zastosowanie do wszystkich wybranych użytkowników, któ
    > Użytkownicy muszą być włączeni do [rejestracji połączonej](../authentication/howto-registration-mfa-sspr-combined.md).
 
 1. W obszarze **aplikacje lub akcje w chmurze**wybierz pozycję **akcje użytkownika**, a następnie sprawdź pozycję **zarejestruj informacje zabezpieczające**.
-1. W obszarze **warunków** > **lokalizacji**.
+1. W obszarze **warunków**  >  **lokalizacji**.
    1. Skonfiguruj **tak**.
    1. Uwzględnij **dowolną lokalizację**.
    1. Wyklucz **wszystkie Zaufane lokalizacje**.
    1. Wybierz pozycję **gotowe** w bloku lokalizacje.
    1. Wybierz pozycję **gotowe** w bloku warunki.
-1. W obszarze **warunki** > **aplikacje klienckie (wersja zapoznawcza)** ustaw wartość **opcji** **Konfiguruj** na tak, a następnie wybierz pozycję **gotowe**.
-1. W obszarze **Kontrola** > dostępu**Udziel**.
+1. W obszarze **warunki**  >  **aplikacje klienckie (wersja zapoznawcza)** ustaw wartość opcji **Konfiguruj** na **tak**, a następnie wybierz pozycję **gotowe**.
+1. W obszarze **Kontrola dostępu**  >  **Udziel**.
    1. Wybierz pozycję **Blokuj dostęp**.
    1. Następnie kliknij pozycję **Wybierz**.
 1. Ustaw pozycję **Włącz zasady** na wartość **Włączone**.
@@ -52,7 +52,7 @@ W kroku 6 tych zasad organizacje mają odpowiednie opcje. Powyższe zasady wymag
 
 Niektóre z nich mogą korzystać z stanu urządzenia zamiast lokalizacji w kroku 6 powyżej:
 
-6. W obszarze **warunki** > **stan urządzenia (wersja zapoznawcza)**.
+6. W obszarze **warunki**  >  **stan urządzenia (wersja zapoznawcza)**.
    1. Skonfiguruj **tak**.
    1. Uwzględnij **wszystkie Stany urządzeń**.
    1. Wykluczenie **hybrydowej urządzenia z usługą Azure AD** i/lub **urządzenia oznaczonego jako zgodne**
@@ -61,6 +61,7 @@ Niektóre z nich mogą korzystać z stanu urządzenia zamiast lokalizacji w krok
 
 > [!WARNING]
 > Jeśli używasz stanu urządzenia jako warunku w zasadach, może to mieć wpływ na użytkowników-Gości w katalogu. [Tryb tylko do raportowania](concept-conditional-access-report-only.md) może pomóc w ustaleniu wpływu decyzji dotyczących zasad.
+> Należy pamiętać, że tryb tylko do raportowania nie dotyczy zasad urzędu certyfikacji z zakresem "akcje użytkownika".
 
 ## <a name="next-steps"></a>Następne kroki
 

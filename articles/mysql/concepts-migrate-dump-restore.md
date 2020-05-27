@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/27/2020
-ms.openlocfilehash: b15da2aa83231bfdc8732995888349b06ab56d15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 158dd5e1f69340e233a0c2392d3f19fd5cf562ea
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78163781"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845550"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrowanie bazy danych MySQL do usługi Azure Database for MySQL przy użyciu zrzutu i przywracania
 W tym artykule opisano dwa typowe sposoby tworzenia kopii zapasowych i przywracania baz danych w Azure Database for MySQL
@@ -24,6 +24,8 @@ Aby krokowo korzystać z tego przewodnika, musisz mieć:
 - Narzędzie wiersza polecenia [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) zainstalowane na komputerze.
 - Narzędzia MySQL Workbench [MySQL Workbench Download](https://dev.mysql.com/downloads/workbench/) lub inne narzędzie MySQL innej firmy do wykonywania poleceń zrzutów i przywracania.
 
+Jeśli chcesz przeprowadzić migrację dużych baz danych o rozmiarze bazy danych więcej niż 1 TBs, możesz rozważyć użycie narzędzi społeczności, takich jak redumper/OnLoad, które obsługują eksport równoległy i import. Równoległy zrzut i przywracanie mogą znacznie skrócić czas migracji dużych baz danych. W naszym [blogu techcommunity](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699) można zapoznać się z najlepszymi rozwiązaniami dotyczącymi migrowania dużych baz danych do usługi Azure Database for MySQL przy użyciu narzędzi do zrzutówer/narzędzia do ładowania.
+
 ## <a name="use-common-tools"></a>Korzystanie z popularnych narzędzi
 Używaj popularnych narzędzi i narzędzi, takich jak MySQL Workbench lub mysqldump, aby zdalnie łączyć i przywracać dane w Azure Database for MySQL. Użyj tych narzędzi na komputerze klienckim z połączeniem internetowym, aby nawiązać połączenie z Azure Database for MySQL. Użyj połączenia szyfrowanego protokołem SSL, aby uzyskać najlepsze rozwiązania w zakresie zabezpieczeń, zobacz również [Konfigurowanie łączności SSL w Azure Database for MySQL](concepts-ssl-connection-security.md). Nie ma potrzeby przenoszenia plików zrzutu do żadnej specjalnej lokalizacji w chmurze podczas migracji do Azure Database for MySQL. 
 
@@ -32,18 +34,18 @@ Możesz użyć narzędzi MySQL, takich jak mysqldump i mysqlpump, aby zrzucić i
 
 - Podczas migrowania całej bazy danych używaj zrzutów baz danych. To zalecenie jest przechowywane podczas przesuwania dużej ilości danych MySQL lub w przypadku, gdy chcesz zminimalizować przerwy w działaniu usługi dla witryn lub aplikacji na żywo. 
 -  Upewnij się, że podczas ładowania danych do usługi Azure Database for MySQL wszystkie tabele w bazie danych korzystają z aparatu magazynu InnoDB. Azure Database for MySQL obsługuje tylko aparat magazynu InnoDB i w związku z tym nie obsługuje alternatywnych aparatów pamięci masowej. Jeśli tabele są skonfigurowane z innymi aparatami magazynu, przed rozpoczęciem migracji do Azure Database for MySQL należy je przekonwertować na format aparatu InnoDB.
-   Jeśli na przykład masz witrynę WordPress lub WebApp przy użyciu tabel MyISAM, najpierw przekonwertuj te tabele przez Migrowanie do formatu InnoDB przed przywróceniem do Azure Database for MySQL. Użyj klauzuli `ENGINE=InnoDB` , aby ustawić aparat używany podczas tworzenia nowej tabeli, a następnie Przenieś dane do zgodnej tabeli przed przywróceniem. 
+   Jeśli na przykład masz witrynę WordPress lub WebApp przy użyciu tabel MyISAM, najpierw przekonwertuj te tabele przez Migrowanie do formatu InnoDB przed przywróceniem do Azure Database for MySQL. Użyj klauzuli, `ENGINE=InnoDB` Aby ustawić aparat używany podczas tworzenia nowej tabeli, a następnie Przenieś dane do zgodnej tabeli przed przywróceniem. 
 
    ```sql
    INSERT INTO innodb_table SELECT * FROM myisam_table ORDER BY primary_key_columns
    ```
-- Aby uniknąć problemów ze zgodnością, upewnij się, że w przypadku zrzucania baz danych w systemach źródłowym i docelowym jest używana ta sama wersja programu MySQL. Na przykład jeśli istniejący serwer MySQL jest w wersji 5,7, należy przeprowadzić migrację do Azure Database for MySQL skonfigurowany do uruchamiania wersji 5,7. `mysql_upgrade` Polecenie nie działa na serwerze Azure Database for MySQL i nie jest obsługiwane. Jeśli musisz przeprowadzić uaktualnienie między wersjami programu MySQL, najpierw wykonaj zrzut lub wyeksportuj niższą wersję bazy danych do nowszej wersji programu MySQL w Twoim środowisku. Następnie uruchom `mysql_upgrade`polecenie, przed podjęciem próby migracji do Azure Database for MySQL.
+- Aby uniknąć problemów ze zgodnością, upewnij się, że w przypadku zrzucania baz danych w systemach źródłowym i docelowym jest używana ta sama wersja programu MySQL. Na przykład jeśli istniejący serwer MySQL jest w wersji 5,7, należy przeprowadzić migrację do Azure Database for MySQL skonfigurowany do uruchamiania wersji 5,7. Polecenie nie działa `mysql_upgrade` na serwerze Azure Database for MySQL i nie jest obsługiwane. Jeśli musisz przeprowadzić uaktualnienie między wersjami programu MySQL, najpierw wykonaj zrzut lub wyeksportuj niższą wersję bazy danych do nowszej wersji programu MySQL w Twoim środowisku. Następnie uruchom `mysql_upgrade` polecenie, przed podjęciem próby migracji do Azure Database for MySQL.
 
 ## <a name="performance-considerations"></a>Zagadnienia dotyczące wydajności
 Aby zoptymalizować wydajność, należy wziąć pod uwagę następujące kwestie w przypadku zatopienia dużych baz danych:
--   Użyj opcji `exclude-triggers` w mysqldump, gdy zrzucane są bazy danych. Wyklucz wyzwalacze z plików zrzutów, aby uniknąć uruchamiania poleceń wyzwalacza podczas przywracania danych. 
--   Użyj `single-transaction` opcji, aby ustawić tryb izolacji transakcji na powtarzalne odczytywanie i wysyłanie instrukcji SQL Start Transaction do serwera przed zatopieniem danych. Zatopienie wielu tabel w ramach jednej transakcji powoduje, że niektóre dodatkowe magazyny mają być zużywane podczas przywracania. `single-transaction` Opcja i `lock-tables` opcja wykluczają się wzajemnie, ponieważ tabele blokad powodują niejawne zatwierdzenie oczekujących transakcji. Aby zrzucić duże tabele, Połącz `single-transaction` opcję z `quick` opcją. 
--   `extended-insert` Użyj składni wielowierszowej, która zawiera kilka list wartości. Powoduje to zmniejszenie pliku zrzutu i przyspieszenie operacji wstawiania podczas ponownego ładowania pliku.
+-   Użyj `exclude-triggers` opcji w mysqldump, gdy zrzucane są bazy danych. Wyklucz wyzwalacze z plików zrzutów, aby uniknąć uruchamiania poleceń wyzwalacza podczas przywracania danych. 
+-   Użyj `single-transaction` opcji, aby ustawić tryb izolacji transakcji na powtarzalne odczytywanie i wysyłanie instrukcji SQL Start Transaction do serwera przed zatopieniem danych. Zatopienie wielu tabel w ramach jednej transakcji powoduje, że niektóre dodatkowe magazyny mają być zużywane podczas przywracania. `single-transaction`Opcja i `lock-tables` opcja wykluczają się wzajemnie, ponieważ tabele blokad powodują niejawne zatwierdzenie oczekujących transakcji. Aby zrzucić duże tabele, Połącz `single-transaction` opcję z `quick` opcją. 
+-   Użyj `extended-insert` składni wielowierszowej, która zawiera kilka list wartości. Powoduje to zmniejszenie pliku zrzutu i przyspieszenie operacji wstawiania podczas ponownego ładowania pliku.
 -  Użyj `order-by-primary` opcji w mysqldump, gdy zrzucane są bazy danych, aby dane były określane w kolejności klucza podstawowego.
 -   Użyj `disable-keys` opcji w mysqldump, gdy zrzucasz dane, aby wyłączyć ograniczenia klucza obcego przed załadowaniem. Wyłączenie kontroli kluczy obcych zapewnia wzrost wydajności. Włącz ograniczenia i sprawdź dane po załadowaniu, aby zapewnić integralność referencyjną.
 -   W razie potrzeby użyj tabel partycjonowanych.
@@ -65,7 +67,7 @@ Parametry, które należy podać:
 - [backupfile. SQL] nazwa pliku kopii zapasowej bazy danych 
 - [--opt] Opcja mysqldump 
 
-Na przykład, aby utworzyć kopię zapasową bazy danych o nazwie "TestDB" na serwerze MySQL przy użyciu nazwy użytkownika "Użytkownik testowy" i bez hasła do pliku testdb_backup. SQL, użyj następującego polecenia. Polecenie tworzy kopię zapasową `testdb` bazy danych w pliku o `testdb_backup.sql`nazwie, który zawiera wszystkie instrukcje SQL wymagane do ponownego utworzenia bazy danych. 
+Na przykład, aby utworzyć kopię zapasową bazy danych o nazwie "TestDB" na serwerze MySQL przy użyciu nazwy użytkownika "Użytkownik testowy" i bez hasła do pliku testdb_backup. SQL, użyj następującego polecenia. Polecenie tworzy kopię zapasową `testdb` bazy danych w pliku o nazwie `testdb_backup.sql` , który zawiera wszystkie instrukcje SQL wymagane do ponownego utworzenia bazy danych. 
 
 ```bash
 $ mysqldump -u root -p testdb > testdb_backup.sql
@@ -90,6 +92,16 @@ Dodaj informacje o połączeniu do usługi MySQL Workbench.
 
 ![Parametry połączenia MySQL Workbench](./media/concepts-migrate-dump-restore/2_setup-new-connection.png)
 
+## <a name="preparing-the-target-azure-database-for-mysql-server-for-fast-data-loads"></a>Przygotowywanie docelowego serwera Azure Database for MySQL na potrzeby szybkiego ładowania danych
+Aby przygotować docelowy serwer Azure Database for MySQL do szybszego ładowania danych, należy zmienić następujące parametry serwera i konfigurację.
+- max_allowed_packet — ustaw na 1073741824 (tj. 1 GB), aby zapobiec wszelkim problemom z przepełnieniem spowodowanym długimi wierszami.
+- slow_query_log — ustaw wartość wyłączone, aby wyłączyć dziennik wolnych zapytań. Pozwoli to wyeliminować obciążenie spowodowane przez wolne rejestrowanie zapytań podczas ładowania danych.
+- query_store_capture_mode — ustaw wartość Brak, aby wyłączyć magazyn zapytań. Pozwoli to wyeliminować obciążenie spowodowane przez działania próbkowania według magazynu zapytań.
+- innodb_buffer_pool_size — Skaluj serwer w górę do 32 rdzeń wirtualny pamięci podręcznej zoptymalizowanej od warstwy cenowej portalu podczas migracji, aby zwiększyć innodb_buffer_pool_size. Innodb_buffer_pool_size można zwiększyć tylko poprzez skalowanie w górę obliczeń dla serwera Azure Database for MySQL.
+- innodb_write_io_threads & innodb_write_io_threads — Zmień na 16 z parametrów serwera w programie Azure Portal, aby zwiększyć szybkość migracji.
+- Skalowanie w górę warstwy magazynowania — liczba operacji we/wy dla serwera Azure Database for MySQL przyrostowo rośnie wraz ze wzrostem warstwy magazynowania. W przypadku szybszych obciążeń warto zwiększyć warstwę magazynowania, aby zwiększyć liczbę operacji we/wy zainicjowanej. Należy pamiętać, że magazyn można skalować w górę, a nie w dół.
+
+Po zakończeniu migracji można przywrócić jej poprzednie wartości parametrów serwera i konfiguracji warstwy obliczeniowej. 
 
 ## <a name="restore-your-mysql-database-using-command-line-or-mysql-workbench"></a>Przywracanie bazy danych MySQL przy użyciu wiersza polecenia lub MySQL Workbench
 Po utworzeniu docelowej bazy danych można użyć polecenia MySQL lub MySQL Workbench do przywrócenia danych do konkretnej nowo utworzonej bazy danych z pliku zrzutu.
@@ -100,7 +112,6 @@ W tym przykładzie Przywróć dane do nowo utworzonej bazy danych na docelowym s
 ```bash
 $ mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p testdb < testdb_backup.sql
 ```
-
 ## <a name="export-using-phpmyadmin"></a>Eksportuj przy użyciu PHPMyAdmin
 W celu wyeksportowania można użyć typowego narzędzia phpMyAdmin, które mogło już być zainstalowane lokalnie w danym środowisku. Aby wyeksportować bazę danych MySQL przy użyciu PHPMyAdmin:
 1. Otwórz phpMyAdmin.
@@ -118,6 +129,9 @@ Importowanie bazy danych jest podobne do eksportowania. Wykonaj następujące cz
 4. Kliknij link **SQL** , aby wyświetlić stronę, na której można wpisywać polecenia SQL, lub Przekaż plik SQL. 
 5. Użyj przycisku **Przeglądaj** , aby znaleźć plik bazy danych. 
 6. Kliknij przycisk **Przejdź** , aby wyeksportować kopię zapasową, wykonać polecenia SQL i ponownie utworzyć bazę danych.
+
+## <a name="known-issues"></a>Znane problemy
+Aby uzyskać znane problemy, porady i wskazówki, zalecamy zapoznanie się z [blogiem usługi techcommunity](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/tips-and-tricks-in-using-mysqldump-and-mysql-restore-to-azure/ba-p/916912).
 
 ## <a name="next-steps"></a>Następne kroki
 - [Połącz aplikacje z Azure Database for MySQL](./howto-connection-string.md).

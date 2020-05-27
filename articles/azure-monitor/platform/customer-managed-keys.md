@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 05/20/2020
-ms.openlocfilehash: 6603985df39afaa2fa2871977d6e577c04f7b569
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 037edb8af6e04a2ff65977a92a66482c9f4f880f
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800035"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845102"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor klucz zarządzany przez klienta 
 
@@ -35,8 +35,10 @@ Funkcja CMK jest dostarczana w dedykowanych klastrach Log Analytics. Aby sprawdz
 
 ## <a name="how-cmk-works-in-azure-monitor"></a>Jak działa CMK w Azure Monitor
 
-Azure Monitor korzysta z zarządzanej tożsamości przypisanej do systemu, aby udzielić dostępu do Azure Key Vault.Tożsamość zarządzana przypisana przez system może być skojarzona tylko z pojedynczym zasobem platformy Azure, podczas gdy tożsamość klastra Log Analytics jest obsługiwana na poziomie klastra.Oznacza to, że funkcja CMK jest dostarczana w dedykowanym klastrze Log Analytics.Aby obsługiwać CMK w wielu obszarach roboczych, nowy zasób *klastra*log Analytics   pełni rolę pośredniego połączenia tożsamości między Key Vault i obszarami roboczymi log Analytics.Magazyn klastra Log Analytics używa tożsamości zarządzanej \' skojarzonej z *Cluster*   zasobem klastra do uwierzytelniania Azure Key Vault za pośrednictwem Azure Active Directory. 
-Po CMK konfiguracji wszystkie dane pozyskiwane w obszarach roboczych skojarzonych z zasobem *klastra*są   szyfrowane za pomocą klucza w Key Vault. W dowolnym momencie możesz usunąć skojarzenie *Cluster*obszarów roboczych z   zasobem klastra.Nowe dane są pobierane do magazynu Log Analytics i szyfrowane za pomocą klucza firmy Microsoft, podczas gdy można bezproblemowo badać nowe i stare dane.
+Azure Monitor korzysta z zarządzanej tożsamości przypisanej do systemu, aby udzielić dostępu do Azure Key Vault. Tożsamość zarządzana przypisana przez system może być skojarzona tylko z pojedynczym zasobem platformy Azure, podczas gdy tożsamość klastra Log Analytics jest obsługiwana na poziomie klastra — to oznacza, że możliwość CMK jest dostarczana w dedykowanym Log Analytics klastrze. Aby obsługiwać CMK w wielu obszarach roboczych, nowy zasób *klastra* log Analytics pełni rolę pośredniego połączenia tożsamości między Key Vault i obszarami roboczymi log Analytics. Magazyn klastra Log Analytics używa tożsamości zarządzanej \' skojarzonej z zasobem *klastra* do uwierzytelniania Azure Key Vault za pośrednictwem Azure Active Directory. 
+
+Po CMK konfiguracji wszystkie dane pozyskiwane w obszarach roboczych skojarzonych z zasobem *klastra* są szyfrowane za pomocą klucza w Key Vault. W dowolnym momencie możesz usunąć skojarzenie obszarów roboczych z zasobem *klastra* . Nowe dane są pobierane do magazynu Log Analytics i szyfrowane za pomocą klucza firmy Microsoft, podczas gdy można bezproblemowo badać nowe i stare dane.
+
 
 ![CMK — Omówienie](media/customer-managed-keys/cmk-overview-8bit.png)
 
@@ -118,6 +120,29 @@ Operacja jest w toku
     "name": "operation-id", 
     "status" : "InProgress", 
     "startTime": "2017-01-06T20:56:36.002812+00:00",
+}
+```
+
+Operacja aktualizacji identyfikatora klucza jest w toku
+```json
+{
+    "id": "Azure-AsyncOperation URL value from the GET operation",
+    "name": "operation-id", 
+    "status" : "Updating", 
+    "startTime": "2017-01-06T20:56:36.002812+00:00",
+    "endTime": "2017-01-06T20:56:56.002812+00:00",
+}
+```
+
+Usuwanie zasobu *klastra* jest w toku — po usunięciu zasobu *klastra* z obszarami roboczymi skojarzonymi obszarami roboczymi jest wykonywana operacja usuwania skojarzenia dla każdego obszaru roboczego w operacjach asynchronicznych, które mogą chwilę potrwać.
+Nie dotyczy to sytuacji, gdy usuwasz *klaster* bez skojarzonego obszaru roboczego — w tym przypadku zasób *klastra* zostanie natychmiast usunięty.
+```json
+{
+    "id": "Azure-AsyncOperation URL value from the GET operation",
+    "name": "operation-id", 
+    "status" : "Deleting", 
+    "startTime": "2017-01-06T20:56:36.002812+00:00",
+    "endTime": "2017-01-06T20:56:56.002812+00:00",
 }
 ```
 

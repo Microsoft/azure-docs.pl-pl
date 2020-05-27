@@ -6,14 +6,14 @@ services: internet-peering
 author: derekolo
 ms.service: internet-peering
 ms.topic: article
-ms.date: 5/21/2020
+ms.date: 5/2/2020
 ms.author: derekol
-ms.openlocfilehash: 62aec65498f75e51ecb1df15b525294aef026745
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 259ced3032eb43a946de7f1cf4dad9abb99d4a11
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800526"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845272"
 ---
 # <a name="create-or-modify-an-exchange-peering-by-using-the-azure-portal"></a>Tworzenie lub modyfikowanie komunikacji równorzędnej programu Exchange przy użyciu Azure Portal
 
@@ -33,14 +33,14 @@ Jeśli wolisz, możesz ukończyć ten przewodnik przy użyciu [programu PowerShe
 ### <a name="create-an-exchange-peering"></a><a name=create></a>Tworzenie komunikacji równorzędnej programu Exchange
 
 
-Jako internetowy dostawca programu Exchange można utworzyć bezpośrednie żądanie komunikacji równorzędnej, [tworząc komunikację równorzędną]( https://go.microsoft.com/fwlink/?linkid=2129593).
+Jako internetowy dostawca programu Exchange można utworzyć żądanie komunikacji równorzędnej programu Exchange, [tworząc komunikację równorzędną]( https://go.microsoft.com/fwlink/?linkid=2129593).
 
 1. Na stronie **Tworzenie komunikacji równorzędnej** na karcie **podstawowe** Wypełnij pola, tak jak pokazano poniżej:
 
->    [!div class="mx-imgBorder"]
->   ![Rejestrowanie usługi Peering Service](./media/setup-basics-tab.png)
+    > [!div class="mx-imgBorder"] 
+    > ![Rejestrowanie usługi Peering Service](./media/setup-basics-tab.png)
 
-* Wybierz swoją subskrypcję platformy Azure.
+*    Wybierz swoją subskrypcję platformy Azure.
 
 * W obszarze Grupa zasobów można wybrać istniejącą grupę zasobów z listy rozwijanej lub utworzyć nową grupę, wybierając pozycję Utwórz nową. W tym przykładzie utworzymy nową grupę zasobów.
 
@@ -49,12 +49,12 @@ Jako internetowy dostawca programu Exchange można utworzyć bezpośrednie żąd
 * Region jest wybierany w przypadku wybrania istniejącej grupy zasobów. Jeśli wybrano opcję utworzenia nowej grupy zasobów, należy również wybrać region platformy Azure, w którym ma się znajdować zasób.
 
 >[!NOTE]
-    Region, w którym znajduje się grupa zasobów, jest niezależny od lokalizacji, w której chcesz utworzyć komunikację równorzędną z firmą Microsoft. Najlepszym rozwiązaniem jest zorganizowanie zasobów komunikacji równorzędnej w grupach zasobów znajdujących się w najbliższych regionach świadczenia usługi Azure. Na przykład w przypadku komunikacji równorzędnej w Ashburn można utworzyć grupę zasobów w regionie Wschodnie stany USA lub Wschodnie stany USA 2.
+>Region, w którym znajduje się grupa zasobów, jest niezależny od lokalizacji, w której chcesz utworzyć komunikację równorzędną z firmą Microsoft. Najlepszym rozwiązaniem jest zorganizowanie zasobów komunikacji równorzędnej w grupach zasobów znajdujących się w najbliższych regionach świadczenia usługi Azure. Na przykład w przypadku komunikacji równorzędnej w Ashburn można utworzyć grupę zasobów w regionie Wschodnie stany USA lub Wschodnie stany USA 2.
 
 * W polu **PeerASN** wybierz swój numer ASN.
 
 >[!IMPORTANT] 
-Przed przesłaniem żądania komunikacji równorzędnej można wybrać tylko numer ASN z ValidationState jako zatwierdzony. Jeśli żądanie PeerAsn zostało przesłane, poczekaj przez 12 godzin lub aby można było zatwierdzić skojarzenie ASN. Jeśli wybrany numer ASN oczekuje na weryfikację, zobaczysz komunikat o błędzie. Jeśli nie widzisz numeru ASN, który musisz wybrać, sprawdź, czy wybrano prawidłową subskrypcję. Jeśli tak jest, sprawdź, czy utworzono już PeerAsn za pomocą polecenia **[Skojarz równorzędny numer ASN z subskrypcją platformy Azure](https://go.microsoft.com/fwlink/?linkid=2129592)**.
+>Przed przesłaniem żądania komunikacji równorzędnej można wybrać tylko numer ASN z ValidationState jako zatwierdzony. Jeśli żądanie PeerAsn zostało przesłane, poczekaj przez 12 godzin lub aby można było zatwierdzić skojarzenie ASN. Jeśli wybrany numer ASN oczekuje na weryfikację, zobaczysz komunikat o błędzie. Jeśli nie widzisz numeru ASN, który musisz wybrać, sprawdź, czy wybrano prawidłową subskrypcję. Jeśli tak jest, sprawdź, czy utworzono już PeerAsn za pomocą polecenia **[Skojarz równorzędny numer ASN z subskrypcją platformy Azure](https://go.microsoft.com/fwlink/?linkid=2129592)**.
 
 * Wybierz pozycję **Dalej: Konfiguracja** , aby kontynuować.
 

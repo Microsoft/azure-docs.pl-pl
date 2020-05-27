@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: negoe
 ms.reviewer: negoe,celested
 ms.custom: aaddev
-ms.openlocfilehash: 20a053369149dc29d6485c49bb091a75bb9fb591
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9a8d9c5c0a24e59c8f6345666f8838aa4c41d0f9
+ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79262999"
+ms.lasthandoff: 05/26/2020
+ms.locfileid: "83845189"
 ---
 # <a name="national-clouds"></a>Chmury narodowe
 
@@ -60,12 +60,12 @@ W poniższej tabeli przedstawiono podstawowe adresy URL dla punktów końcowych 
 
 Możesz tworzyć żądania do autoryzacji usługi Azure AD lub punktów końcowych tokenu przy użyciu odpowiedniego podstawowego adresu URL specyficznego dla regionu. Na przykład w przypadku platformy Azure (Niemcy):
 
-  - Wspólny punkt końcowy autoryzacji `https://login.microsoftonline.de/common/oauth2/authorize`to.
-  - Wspólny punkt końcowy tokenu `https://login.microsoftonline.de/common/oauth2/token`to.
+  - Wspólny punkt końcowy autoryzacji to `https://login.microsoftonline.de/common/oauth2/v2.0/authorize` .
+  - Wspólny punkt końcowy tokenu to `https://login.microsoftonline.de/common/oauth2/v2.0/token` .
 
 W przypadku aplikacji z jedną dzierżawą Zastąp wartość "Common" w poprzednich adresach URL IDENTYFIKATORem dzierżawy lub nazwą. Może to być na przykład `https://login.microsoftonline.de/contoso.com`.
 
-## <a name="microsoft-graph-api"></a>Interfejs API programu Microsoft Graph
+## <a name="microsoft-graph-api"></a>Microsoft Graph API
 
 Aby dowiedzieć się, jak wywołać interfejsy API Microsoft Graph w środowisku chmury krajowej, przejdź do [Microsoft Graph w obszarze wdrożenia w chmurze krajowej](https://developer.microsoft.com/graph/docs/concepts/deployments).
 
