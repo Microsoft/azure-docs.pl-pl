@@ -3,34 +3,20 @@ title: Administracja przy użyciu witryny Azure EA Portal
 description: W tym artykule opisano typowe zadania wykonywane przez administratora w witrynie Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/01/2020
+ms.date: 05/07/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 2b2ec7a5954649c36cf9da5d7933c83eec67faa3
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: a3551b4f09202b33cee768a69f31a6c5d5d36777
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692637"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648193"
 ---
 # <a name="azure-ea-portal-administration"></a>Administracja przy użyciu witryny Azure EA Portal
 
 W tym artykule opisano typowe zadania wykonywane przez administratora w witrynie Azure EA Portal (https://ea.azure.com). Witryna Azure EA Portal to portal zarządzania online, który ułatwia klientom zarządzanie kosztami usług umowy EA na platformie Azure. Aby uzyskać informacje wprowadzające dotyczące witryny Azure EA Portal, zobacz artykuł [Rozpoczynanie pracy w witrynie Azure EA Portal](ea-portal-get-started.md).
-
-## <a name="add-a-new-enterprise-administrator"></a>Dodawanie nowego administratora przedsiębiorstwa
-
-Administratorzy przedsiębiorstwa mają największe uprawnienia podczas zarządzania rejestracją w portalu Azure EA. Początkowy administrator platformy Azure EA został utworzony podczas konfigurowania umowy EA. Można jednak dodawać i usuwać nowych administratorów w dowolnym momencie. Nowi administratorzy są dodawani tylko przez istniejących administratorów. Aby uzyskać więcej informacji na temat dodawania dodatkowych administratorów przedsiębiorstwa, zobacz sekcję [Tworzenie innego administratora przedsiębiorstwa](ea-portal-get-started.md#create-another-enterprise-administrator). Aby uzyskać więcej informacji o rolach i zadaniach dotyczących rozliczeń, zobacz sekcję [Role i zadania profilów rozliczeniowych](understand-mca-roles.md#billing-profile-roles-and-tasks).
-
-## <a name="update-user-state-from-pending-to-active"></a>Aktualizowanie stanu użytkownika z „oczekujące” na „aktywne”
-
-Gdy nowi właściciele konta są po raz pierwszy dodawani do rejestracji w ramach umowy EA, ich stan jest wyświetlany jako _oczekujące_. Gdy nowy właściciel konta otrzymuje powitalną wiadomość e-mail z informacjami o aktywacji, może się zalogować, aby aktywować swoje konto. Po aktywowaniu konta stan konta jest aktualizowany z _oczekujące_ na _aktywne_. Właściciel konta musi odczytać komunikat z ostrzeżeniem, a następnie wybrać pozycję **Kontynuuj**. Nowi użytkownicy mogą zobaczyć monit o wprowadzenie imienia i nazwiska, aby utworzyć konto komercyjne. W takiej sytuacji muszą dodać wymagane informacje, aby kontynuować, a konto jest aktywowane.
-
-## <a name="add-a-department-admin"></a>Dodawanie administratora działu
-
-Po utworzeniu działu przez administratora portalu Azure EA administrator oferty Azure Enterprise może dodać administratorów działu i skojarzyć ich z działem. Administrator działu może tworzyć nowe konta. Nowe konta są potrzebne do tworzenia subskrypcji portalu Azure EA.
-
-Aby uzyskać więcej informacji o dodawaniu administratora działu, zobacz [Tworzenie administratora działu w portalu Azure EA](ea-portal-get-started.md#add-a-department-administrator).
 
 ## <a name="associate-an-account-to-a-department"></a>Kojarzenie konta z działem
 
@@ -114,108 +100,6 @@ Kiedy użytkownik zostanie dodany jako właściciel konta za pośrednictwem witr
 
 Obecnie oferta Tworzenie i testowanie nie ma zastosowania do klientów platformy Azure dla instytucji rządowych.
 
-## <a name="transfer-an-enterprise-account-to-a-new-enrollment"></a>Przenoszenie konta przedsiębiorstwa do nowej rejestracji
-
-Przeniesienie konta powoduje przeniesienie właściciela konta z jednej rejestracji do innej. Wszystkie powiązane subskrypcje należące do właściciela konta zostaną przeniesione do rejestracji docelowej. Użyj procedury przenoszenia konta, gdy masz wiele aktywnych rejestracji i chcesz przenieść tylko wybranych właścicieli kont.
-
-Ta sekcja służy tylko do celów informacyjnych, ponieważ akcji nie może wykonać administrator przedsiębiorstwa. W celu przeniesienia konta przedsiębiorstwa do nowej rejestracji jest wymagany wniosek o pomoc techniczną.
-
-Podczas przenoszenia konta przedsiębiorstwa do nowej rejestracji pamiętaj o następujących kwestiach:
-
-- Przenoszone są tylko konta określone w żądaniu. Jeśli wybierzesz wszystkie konta, wszystkie zostaną przeniesione.
-- Rejestracja źródłowa zachowuje stan jako aktywny lub rozszerzony. Z rejestracji można korzystać do momentu jej wygaśnięcia.
-
-### <a name="prerequisites"></a>Wymagania wstępne
-
-Po zażądaniu przeniesienia konta podaj następujące informacje:
-
-- Numer rejestracji docelowej, nazwa konta i adres e-mail właściciela konta do przeniesienia
-- W przypadku rejestracji źródłowej numer rejestracji i konto do przeniesienia
-
-Inne zagadnienia, które należy wziąć pod uwagę przed przeniesieniem konta:
-
-- Zatwierdzenie od administratora umowy EA jest wymagane w przypadku rejestracji docelowej i źródłowej
-- Jeśli przeniesienie konta nie spełnia Twoich wymagań, rozważ przeniesienie rejestracji.
-- Przenoszenie kont powoduje przeniesienie wszystkich usług i subskrypcji powiązanych z określonymi kontami.
-- Po zakończeniu przenoszenia przeniesione konto będzie widoczne jako nieaktywne w ramach rejestracji źródłowej i jako aktywne w ramach rejestracji docelowej.
-- Data zakończenia widoczna na koncie będzie odpowiadać efektywnej dacie przeniesienia w rejestracji źródłowej oraz dacie rozpoczęcia w rejestracji docelowej.
-- Wszelkie użycie konta przed efektywną datą przeniesienia pozostanie w ramach rejestracji źródłowej.
-
-
-## <a name="transfer-enterprise-enrollment-to-a-new-one"></a>Przenoszenie rejestracji przedsiębiorstwa do nowej rejestracji
-
-Przeniesienie rejestracji rozważa się, gdy:
-
-- Został osiągnięty termin zobowiązania bieżącej rejestracji.
-- Rejestracja ma stan wygasła/rozszerzona i jest negocjowana nowa umowa.
-- Jeśli masz wiele rejestracji i chcesz połączyć wszystkie konta oraz rozliczenia w ramach jednej rejestracji.
-
-Ta sekcja służy tylko do celów informacyjnych, ponieważ akcji nie może wykonać administrator przedsiębiorstwa. Do przeniesienia rejestracji przedsiębiorstwa do nowej rejestracji jest wymagany wniosek o pomoc techniczną.
-
-Po utworzeniu żądania dotyczącego przeniesienia całej rejestracji w przedsiębiorstwie do rejestracji zostaną wykonane następujące akcje:
-
-- Wszystkie usługi, subskrypcje, konta, działy i cała struktura rejestracji, w tym wszyscy administratorzy działu umów EA, zostaną przeniesione do nowej rejestracji docelowej.
-- Stan rejestracji zostanie ustawiono na _Przeniesione_. Przeniesiona rejestracja jest dostępna wyłącznie dla celów raportowania użycia historycznego.
-- Do przeniesionej rejestracji nie można dodawać ról ani subskrypcji. Stan Przeniesione uniemożliwia dodatkowe użycie w odniesieniu do rejestracji.
-- Pozostałe saldo zobowiązania pieniężnego w umowie zostanie utracone, łącznie z przyszłymi okresami.
--    Jeśli rejestracja, z której się przenosisz, obejmuje zakupy wystąpień zarezerwowanych, opłata za zakup wystąpień zarezerwowanych pozostaje w rejestracji źródłowej, jednak wszystkie korzyści wynikające z wystąpienia zarezerwowanego zostaną przeniesione do wykorzystania w nowej rejestracji.
--    Opłata za jednorazowe zakupy w witrynie Marketplace i wszystkie miesięczne opłaty stałe naliczone już w ramach starej rejestracji nie zostaną przeniesione do nowej rejestracji. Opłaty witryny Marketplace naliczone na podstawie użycia zostaną przeniesione.
-
-### <a name="effective-transfer-date"></a>Data obowiązywania przeniesienia
-
-Data obowiązywania przeniesienia może być datą początkową rejestracji docelowej lub późniejszą.
-
-Użycie rejestracji źródłowej jest obciążane opłatą w odniesieniu do zobowiązania pieniężnego lub jako nadwyżka. Użycie, które następuje po dacie obowiązywania przeniesienia, jest transferowane do nowej rejestracji i są naliczane odpowiednie opłaty.
-
-### <a name="prerequisites"></a>Wymagania wstępne
-
-Po zażądaniu przeniesienia rejestracji podaj następujące informacje:
-
-- W przypadku rejestracji źródłowej numer rejestracji.
-- W przypadku rejestracji docelowej numer rejestracji, do której nastąpi przeniesienie.
-- W przypadku daty obowiązywania przeniesienia rejestracji może to być data początkowa rejestracji docelowej lub późniejsza. Wybrana data nie może wpływać na użycie dla żadnej wystawionej już faktury nadwyżkowej.
-
-Inne zagadnienia, które należy wziąć pod uwagę przed przeniesieniem rejestracji:
-
-- Wymagane jest zatwierdzenie od administratorów umowy EA rejestracji docelowej i źródłowej.
-- Jeśli przeniesienie rezerwacji nie spełnia Twoich wymagań, rozważ przeniesienie konta.
-- Stan rejestracji źródłowej zostanie zaktualizowany na „przeniesiona” i będzie dostępny tylko dla celów raportowania użycia historycznego.
-
-### <a name="monetary-commitment"></a>Zobowiązanie pieniężne
-
-Zobowiązania pieniężnego nie można przenosić między rejestracjami. Salda zobowiązania pieniężnego są powiązane z umową w ramach rejestracji, w której zostały zamówione. Zobowiązanie pieniężne nie jest przenoszone jako część procesu przenoszenia konta lub rejestracji.
-
-### <a name="no-services-affected-for-account-and-enrollment-transfers"></a>Brak usług, których dotyczą przeniesienia kont i rejestracji
-
-Podczas przenoszenia konta lub rejestracji nie występują przestoje. Można je wykonać w tym samym dniu żądania, jeśli zostaną podane wszystkie wymagane informacje.
-
-## <a name="change-account-owner"></a>Zmienianie właściciela konta
-
-W witrynie Azure EA Portal można przenosić subskrypcje od jednego właściciela konta do innego. Aby uzyskać więcej informacji, zobacz sekcję [Zmienianie właściciela konta](ea-portal-get-started.md#change-account-owner).
-
-## <a name="subscription-transfer-effects"></a>Efekty przeniesienia subskrypcji
-
-Jeśli subskrypcja platformy Azure zostanie przeniesiona na konto w tej dzierżawie usługi Azure Active Directory, wszyscy użytkownicy, wszystkie grupy i wszystkie jednostki usługi z [kontrolą dostępu na podstawie ról (RBAC)](../../role-based-access-control/overview.md) używaną do zarządzania zasobami, zachowają dostęp.
-
-Aby wyświetlić użytkowników z dostępem RBAC do subskrypcji:
-
-1. W witrynie Azure Portal otwórz pozycję **Subskrypcje**.
-2. Wybierz subskrypcję, którą chcesz wyświetlić, a następnie wybierz pozycję **Kontrola dostępu (Zarządzanie dostępem i tożsamościami)** .
-3. Wybierz pozycję **Przypisania ról**. Na stronie przypisań ról są wyświetlani wszyscy użytkownicy z dostępem RBAC do subskrypcji.
-
-Jeśli subskrypcja zostanie przeniesiona na konto w innej dzierżawie usługi Azure AD, wszyscy użytkownicy, wszystkie grupy i wszystkie jednostki usługi z [dostępem RBAC](../../role-based-access-control/overview.md) do zarządzania zasobami _utracą_ dostęp. Chociaż dostęp RBAC nie istnieje, dostęp do subskrypcji może być dostępny w ramach mechanizmów zabezpieczeń, takich jak przykład:
-
-- Certyfikaty zarządzania, które przyznają użytkownikowi uprawnienia administratora do zasobów subskrypcji. Więcej informacji — zobacz [Tworzenie i przekazywanie certyfikatu zarządzania dla platformy Azure](../../cloud-services/cloud-services-certs-create.md).
-- Klucze dostępu dla usług, takich jak Storage. Aby uzyskać więcej informacji, zobacz [Omówienie konta magazynu platformy Azure](../../storage/common/storage-account-overview.md).
-- Poświadczenia dostępu zdalnego dla usług, takich jak Azure Virtual Machines.
-
-Jeśli odbiorca musi ograniczyć dostęp do swoich zasobów platformy Azure, powinien rozważyć zaktualizowanie wszystkich wpisów tajnych skojarzonych z usługą. Większość zasobów można zaktualizować, wykonując następujące czynności:
-
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
-2. W menu Centrum wybierz pozycję **Wszystkie zasoby**.
-3. Wybierz zasób.
-4. Na stronie zasobu wybierz pozycję **Ustawienia**, aby wyświetlić i zaktualizować istniejące wpisy tajne.
-
 ## <a name="delete-subscription"></a>Usuwanie subskrypcji
 
 Aby usunąć subskrypcję, w której jesteś właścicielem konta:
@@ -260,60 +144,6 @@ Aby dodać kontakt:
 Nowy kontakt dla powiadomień zostanie wyświetlony w sekcji **Kontakt dla powiadomień**. Aby zmienić częstotliwość powiadamiania, wybierz kontakt dla powiadomień i wybierz symbol ołówka po prawej stronie wybranego wiersza. Ustaw częstotliwość na **codziennie**, **co tydzień**, **co miesiąc** lub**brak**.
 
 Możesz pominąć powiadomienia dotyczące cyklu życia ze _zbliżającą się datą zakończenia okresu pokrycia_ oraz _ze zbliżającą się datą wyłączenia i anulowania aprowizacji_. Wyłączenie powiadomień dotyczących cyklu życia powoduje pomijanie powiadomień o okresie pokrycia i dacie zakończenia obowiązywania umowy.
-
-## <a name="manage-partner-administrators"></a>Zarządzanie administratorami partnerów
-
-Każdy administrator partnera w witrynie Azure EA Portal ma możliwość dodawania i usuwania innych administratorów partnerów. Administratorzy partnerów są powiązani z organizacjami partnerskimi rejestracji pośrednich i nie są powiązani bezpośrednio z rejestracjami.
-
-### <a name="add-a-partner-administrator"></a>Dodawanie administratora partnera
-
-Aby wyświetlić listę wszystkich rejestracji skojarzonych z tą samą organizacją partnerską, co bieżący użytkownik, wybierz kartę **Rejestracja** i wybierz odpowiednie pole rejestracji.
-
-1. Zaloguj się jako administrator partnera.
-1. Wybierz pozycję **Zarządzaj** w obszarze nawigacji po lewej.
-1. Wybierz kartę **Partner**.
-1. Wybierz pozycję **+ Dodaj administratora** i wypełnij pole adresu e-mail, kontaktu do powiadomień i szczegółów powiadomienia.
-1. Wybierz pozycję **Dodaj**.
-
-### <a name="remove-a-partner-administrator"></a>Usuwanie administratora partnera
-
-Aby wyświetlić listę wszystkich rejestracji skojarzonych z tą samą organizacją partnerską, co bieżący użytkownik, wybierz kartę **Rejestracja** i wybierz odpowiednie pole rejestracji.
-
-1. Zaloguj się jako administrator partnera.
-1. Wybierz pozycję **Zarządzaj** w obszarze nawigacji po lewej.
-1. Wybierz kartę **Partner**.
-1. W sekcji Administrator wybierz odpowiedni wiersz dla administratora, którego chcesz usunąć.
-1. Wybierz symbol X po prawej stronie.
-1. Potwierdź, że chcesz usunąć.
-
-## <a name="manage-partner-notifications"></a>Zarządzanie powiadomieniami partnerów
-
-Administratorzy partnerów mogą zarządzać częstotliwością otrzymywania powiadomień o użyciu we własnych rejestracjach. Automatycznie otrzymują oni powiadomienia dotyczące nierozliczonego salda. Mogą zmieniać częstotliwość poszczególnych powiadomień na powiadomienia comiesięczne, cotygodniowe lub codzienne albo wyłączać je całkowicie.
-
-Jeśli użytkownik nie otrzymuje powiadomienia, sprawdź, czy ustawienia powiadomień użytkownika są poprawne, wykonując poniższe kroki.
-
-1. Zaloguj się do witryny Azure EA Portal jako administrator partnera.
-2. Wybierz pozycję **Zarządzaj**, a następnie wybierz kartę **Partner**.
-3. Przejrzyj listę administratorów w sekcji Administrator.
-4. Aby edytować preferencje powiadomień, umieść kursor nad odpowiednim administratorem i wybierz symbol ołówka.
-5. Zwiększ częstotliwość powiadamiania i zmodyfikuj powiadomienia dotyczące cyklu życia zgodnie z wymaganiami.
-6. W razie potrzeby dodaj kontakt, a następnie wybierz pozycję **Dodaj**.
-7. Wybierz pozycję **Zapisz**.
-
-![Przykład pokazujący okno dodawania kontaktu ](./media/ea-portal-administration/create-ea-manage-partner-notification.png)
-
-## <a name="view-enrollments-for-partner-administrators"></a>Wyświetlanie rejestracji dla administratorów partnerów
-
-Administratorzy partnerów mogą wyświetlić listę wszystkich swoich bezpośrednich i pośrednich rejestracji w witrynie Azure EA Portal. Pola zawierające przegląd każdej rejestracji będą wyświetlane z numerem rejestracji, nazwą rejestracji, saldem i kwotami nadwyżkowymi.
-
-### <a name="view-a-list-of-enrollments"></a>Wyświetlanie listy rejestracji
-
-1. Zaloguj się jako administrator partnera.
-1. Wybierz pozycję **Zarządzaj** w obszarze nawigacji po lewej stronie.
-1. Wybierz kartę **Rejestracja**.
-1. Wybierz pole dla rejestracji.
-
-Widok wszystkich rejestracji pozostanie w górnej części strony razem z polami dla każdej rejestracji. Ponadto możesz przechodzić między rejestracjami, wybierając numer bieżącej rejestracji w obszarze nawigacji po lewej stronie. Zostanie wyświetlone wyskakujące okienko umożliwiające wyszukiwanie rejestracji lub wybranie innej rejestracji przez wybranie odpowiedniego pola.
 
 ## <a name="azure-sponsorship-offer"></a>Oferta dostępu sponsorowanego Azure
 
