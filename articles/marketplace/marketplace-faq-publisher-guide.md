@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: dsindona
-ms.openlocfilehash: 5abb373d4b3f9c66b2dc2f103e4a89ef0dc5af89
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 1eae45eea35a118be51dc1e2f95055238212560d
+ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744848"
+ms.lasthandoff: 05/22/2020
+ms.locfileid: "83800655"
 ---
 # <a name="common-questions-about-microsoft-commercial-marketplace"></a>Często zadawane pytania dotyczące komercyjnej witryny Microsoft Marketplace
 
@@ -71,7 +71,7 @@ Aby uzyskać więcej informacji, zobacz [Witamy w komercyjnej witrynie Marketpla
 
 ### <a name="how-do-i-get-support-assistance-for-the-commercial-marketplace"></a>Jak mogę uzyskać pomoc techniczną dotyczącą komercyjnej witryny Marketplace?
 
-Aby skontaktować się z naszym zespołem pomocy technicznej wydawcy w portalu Marketplace, możesz [przesłać bilet pomocy technicznej](https://partner.microsoft.com/support/v2/?stage=1) z poziomu Centrum partnerskiego. 
+Aby skontaktować się z naszym zespołem pomocy technicznej wydawcy w portalu Marketplace, możesz [przesłać bilet pomocy technicznej](https://aka.ms/marketplacepublishersupport) z poziomu Centrum partnerskiego. 
 
 Możesz również [dołączyć nasze aktywne forum społeczności](https://www.microsoftpartnercommunity.com/t5/Microsoft-AppSource-and-Azure/bd-p/2222) , aby poznać najlepsze rozwiązania i informacje o udostępnianiu.
 
@@ -302,7 +302,7 @@ Aby uzyskać więcej informacji, przejdź do pozycji [wypłata i formularze poda
 
 Aby otrzymywać zwroty, klienci mogą anulować subskrypcje w określonym przedziale czasu. Miesięczne subskrypcje to 24 godziny, a w przypadku subskrypcji rocznych jest to 14 dni. Oferty, które są rozliczane zgodnie z zużyciem po użyciu rozwiązania, nie kwalifikują się do zwrotów.
 
-## <a name="resources"></a>Resources
+## <a name="resources"></a>Zasoby
 
 ### <a name="where-can-i-find-more-information-about-the-commercial-marketplace"></a>Gdzie mogę znaleźć więcej informacji na temat komercyjnej witryny Marketplace?
 

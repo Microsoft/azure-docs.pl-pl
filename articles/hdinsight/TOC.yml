@@ -330,8 +330,18 @@
           href: ./spark/spark-best-practices.md
         - name: Konfigurowanie ustawień platformy Apache Spark
           href: ./spark/apache-spark-settings.md
-        - name: Optymalizowanie zadań platformy Apache Spark
-          href: ./spark/apache-spark-perf.md
+        - name: Optymalizacja
+          items:
+            - name: Optymalizowanie zadań platformy Apache Spark
+              href: ./spark/apache-spark-perf.md
+            - name: Optymalizowanie przetwarzania danych
+              href: ./spark/optimize-data-processing.md
+            - name: Optymalizowanie magazynu danych
+              href: ./spark/optimize-data-storage.md
+            - name: Optymalizowanie użycia pamięci
+              href: ./spark/optimize-memory-usage.md
+            - name: Optymalizowanie konfiguracji klastra
+              href: ./spark/optimize-cluster-configuration.md
         - name: Migrowanie do platformy Spark 2.3 lub 2.4
           href: ./spark/migrate-versions.md
     - name: Instrukcje

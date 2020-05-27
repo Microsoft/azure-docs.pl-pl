@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 2/21/2019
 ms.author: dekapur
-ms.openlocfilehash: 9133a7087285aa6e01a2431bf1a65dfa3c6f8857
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a42797b51d811ee9427c9b77f8ea59a24c00feee
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82189100"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827968"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Tworzenie klastra autonomicznego działającego w systemie Windows Server
 Za pomocą usługi Azure Service Fabric można tworzyć klastry Service Fabric na wszystkich maszynach wirtualnych lub komputerach z systemem Windows Server. Oznacza to, że można wdrażać i uruchamiać aplikacje Service Fabric w dowolnym środowisku zawierającym zestaw połączonych komputerów z systemem Windows Server, być lokalnym lub dowolnym dostawcą chmury. Service Fabric udostępnia pakiet instalacyjny do tworzenia klastrów Service Fabric o nazwie autonomiczny pakiet systemu Windows Server. Tradycyjne Service Fabric klastrów na platformie Azure są dostępne jako usługa zarządzana, natomiast autonomiczne klastry Service Fabric są samoobsługowe. Aby uzyskać więcej informacji na temat różnic, zobacz [porównywanie klastrów na platformie Azure i autonomicznych Service Fabric](./service-fabric-deploy-anywhere.md).
@@ -25,7 +25,7 @@ W tym artykule omówiono procedurę tworzenia klastra autonomicznego Service Fab
 <a id="getsupport"></a>
 
 ## <a name="get-support-for-the-service-fabric-for-windows-server-package"></a>Uzyskaj pomoc techniczną dotyczącą pakietu Service Fabric dla systemu Windows Server
-* Zwróć się do społeczności o Service Fabric pakiet autonomiczny dla systemu Windows Server na [Forum usługi Azure Service Fabric](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?).
+* Zapoznaj się ze społecznością Service Fabric pakiet autonomiczny dla systemu Windows Server na [stronie pytań i odpowiedzi Microsoft&pytań i odpowiedzi na platformie Azure Service Fabric](https://docs.microsoft.com/answers/topics/azure-service-fabric.html).
 * Otwórz bilet dla [profesjonalnej pomocy technicznej dla Service Fabric](https://support.microsoft.com/oas/default.aspx?prid=16146).  Dowiedz się więcej na temat profesjonalnej pomocy technicznej firmy Microsoft [tutaj](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 * Możesz również uzyskać pomoc techniczną dotyczącą tego pakietu w ramach [programu Microsoft Pomoc techniczna Premier](https://support.microsoft.com/en-us/premier).
 * Aby uzyskać więcej informacji, zobacz [Opcje pomocy technicznej platformy Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
@@ -109,7 +109,7 @@ Administrator klastra wdrażający i konfigurujący klaster musi mieć uprawnien
 
 #### <a name="scenario-c-create-an-offline-internet-disconnected-cluster"></a>Scenariusz C: Tworzenie klastra w trybie offline (odłączony internetowo)
 Pakiet środowiska uruchomieniowego Service Fabric jest pobierany automatycznie podczas tworzenia klastra. W przypadku wdrażania klastra na maszynach, które nie są połączone z Internetem, należy pobrać pakiet środowiska uruchomieniowego Service Fabric oddzielnie i podać ścieżkę do niej podczas tworzenia klastra.
-Pakiet środowiska uruchomieniowego można pobrać oddzielnie, z innej maszyny połączonej z Internetem, przy użyciu [linku pobierania — Service Fabric środowiska uruchomieniowego — Windows Server](https://go.microsoft.com/fwlink/?linkid=839354). Skopiuj pakiet środowiska uruchomieniowego do lokalizacji, w której jest wdrażany klaster trybu offline, i Utwórz klaster `CreateServiceFabricCluster.ps1` , uruchamiając z dołączonym `-FabricRuntimePackagePath` parametrem, jak pokazano w tym przykładzie: 
+Pakiet środowiska uruchomieniowego można pobrać oddzielnie, z innej maszyny połączonej z Internetem, przy użyciu [linku pobierania — Service Fabric środowiska uruchomieniowego — Windows Server](https://go.microsoft.com/fwlink/?linkid=839354). Skopiuj pakiet środowiska uruchomieniowego do lokalizacji, w której jest wdrażany klaster trybu offline, i Utwórz klaster, uruchamiając `CreateServiceFabricCluster.ps1` z `-FabricRuntimePackagePath` dołączonym parametrem, jak pokazano w tym przykładzie: 
 
 ```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -FabricRuntimePackagePath .\MicrosoftAzureServiceFabric.cab
@@ -144,7 +144,7 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersi
 ```
 
 ### <a name="step-3-visualize-the-cluster-using-service-fabric-explorer"></a>Krok 3. wizualizowanie klastra przy użyciu Eksploratora Service Fabric
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) to odpowiednie narzędzie do wizualizowania klastra i zarządzania aplikacjami.  Service Fabric Explorer to usługa uruchamiana w klastrze, do której można uzyskać dostęp za pomocą przeglądarki, przechodząc do `http://localhost:19080/Explorer`programu.
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) to odpowiednie narzędzie do wizualizowania klastra i zarządzania aplikacjami.  Service Fabric Explorer to usługa uruchamiana w klastrze, do której można uzyskać dostęp za pomocą przeglądarki, przechodząc do programu `http://localhost:19080/Explorer` .
 
 Pulpit nawigacyjny klastra zawiera omówienie klastra, w tym podsumowanie kondycji węzła i aplikacji. Widok węzła przedstawia fizyczny układ klastra. Dla danego węzła można sprawdzić, które aplikacje mają kod wdrożony w tym węźle.
 
@@ -172,7 +172,7 @@ Ten skrypt można uruchomić na dowolnym komputerze, który ma dostęp administr
 <a id="telemetry"></a>
 
 ## <a name="telemetry-data-collected-and-how-to-opt-out-of-it"></a>Zebrane dane telemetryczne i sposoby ich wycofania
-Domyślnie produkt zbiera dane telemetryczne dotyczące użycia Service Fabric, aby ulepszyć produkt. Analizator najlepszych rozwiązań, który jest uruchamiany w ramach instalacji, sprawdza połączenia z programem [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1). Jeśli ta opcja jest nieosiągalna, instalacja kończy się niepowodzeniem, chyba że zrezygnujesz z używania telemetrii.
+Domyślnie produkt zbiera dane telemetryczne dotyczące użycia Service Fabric, aby ulepszyć produkt. Analizator najlepszych rozwiązań, który jest uruchamiany w ramach instalacji, sprawdza połączenia z programem [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1) . Jeśli ta opcja jest nieosiągalna, instalacja kończy się niepowodzeniem, chyba że zrezygnujesz z używania telemetrii.
 
 1. Potok telemetrii próbuje przekazać następujące dane do [https://vortex.data.microsoft.com/collect/v1](https://vortex.data.microsoft.com/collect/v1) każdego dnia. Jest to najlepszy przekazanie i nie ma wpływu na funkcjonalność klastra. Dane telemetryczne są wysyłane tylko z węzła, na którym jest uruchomiony Menedżer trybu failover. Żadne inne węzły nie wysyłają danych telemetrycznych.
 2. Dane telemetryczne składają się z następujących elementów:

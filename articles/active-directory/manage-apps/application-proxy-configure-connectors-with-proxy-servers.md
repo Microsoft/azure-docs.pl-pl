@@ -12,12 +12,12 @@ ms.date: 04/07/2020
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28915967dc7697c08b2bbd7118f7e2377418045d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 088a87f4c4eb200cfeecff1d2513fefdb0088a38
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647250"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83827051"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Praca z istniejącymi lokalnymi serwerami proxy
 
@@ -204,4 +204,4 @@ Jeśli zobaczysz inne kody odpowiedzi, na przykład 407 lub 502, oznacza to, że
 ## <a name="next-steps"></a>Następne kroki
 
 * [Omówienie łączników serwer proxy aplikacji usługi Azure AD platformy Azure](application-proxy-connectors.md)
-* Jeśli masz problemy z łącznością łącznika, zadawaj pytanie na [forum Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD&forum=WindowsAzureAD) lub Utwórz bilet z zespołem pomocy technicznej.
+* Jeśli masz problemy z łącznością łącznika, poprosimy o podanie pytania na [stronie pytania firmy&Microsoft dotyczącym Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html) lub utworzenia biletu z zespołem pomocy technicznej.
