@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/25/2019
 ms.topic: conceptual
-ms.openlocfilehash: cc709be7a7f0d46d105e73b0a105a3dec8cc793c
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: c2871c4c988675dd9a1a5749d908805994b6b309
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746720"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835159"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Zarządzanie pakietami Python 2 w Azure Automation
 
@@ -89,4 +89,4 @@ Aby tworzyć i testować elementy Runbook języka Python 2 w trybie offline, mo�
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Tworzenie elementu runbook języka Python](learn/automation-tutorial-runbook-textual-python2.md)
+Aby przygotować element Runbook w języku Python, zobacz [Tworzenie elementu Runbook w języku Python](learn/automation-tutorial-runbook-textual-python2.md).

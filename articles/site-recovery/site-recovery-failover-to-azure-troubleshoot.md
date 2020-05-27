@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 54e44a12f593d2074eefe5b2ff890863db3199f7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9ef38829a18f9e43f38cbdb291a799110d710cd7
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478956"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834734"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Rozwiązywanie problemów z błędami w przypadku przejścia w tryb failover maszyny wirtualnej VMware lub komputera fizycznego na platformę Azure
 
@@ -76,10 +76,10 @@ Aby ręcznie zmienić typ uruchamiania sterowników dla **systemu operacyjnego g
 
 Jeśli przycisk **Połącz** na maszynie wirtualnej w trybie failover na platformie Azure jest wyszarzony i nie masz połączenia z platformą Azure za pośrednictwem usługi Express Route lub sieci VPN typu lokacja-lokacja, a następnie
 
-1. Przejdź do > **sieci** **maszyn wirtualnych**, kliknij nazwę wymaganego interfejsu sieciowego.  ![Interfejs sieciowy](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
+1. Przejdź do **sieci maszyn wirtualnych**  >  **Networking**, kliknij nazwę wymaganego interfejsu sieciowego.  ![Interfejs sieciowy](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
 2. Przejdź do opcji **konfiguracje IP**, a następnie kliknij pole Nazwa wymaganej konfiguracji protokołu IP. ![Ipconfiguration](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
 3. Aby włączyć publiczny adres IP, kliknij pozycję **Włącz**. ![Włącz adres IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
-4. Kliknij pozycję **Konfiguruj wymagane ustawienia** > **Utwórz nowy**. ![Utwórz nowy](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
+4. Kliknij pozycję **Konfiguruj wymagane ustawienia**  >  **Utwórz nowy**. ![Utwórz nowy](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
 5. Wprowadź nazwę publicznego adresu, wybierz opcje domyślne dla **jednostki SKU** i **przypisania**, a następnie kliknij przycisk **OK**.
 6. Teraz, aby zapisać wprowadzone zmiany, kliknij przycisk **Zapisz**.
 7. Zamknij panele i przejdź do sekcji **Omówienie** maszyny wirtualnej, aby nawiązać połączenie/RDP.
@@ -173,4 +173,4 @@ Aby rozwiązać ten problem:
 - Rozwiązywanie problemów z [połączeniem RDP z maszyną wirtualną z systemem Windows](../virtual-machines/windows/troubleshoot-rdp-connection.md)
 - Rozwiązywanie problemów z [połączeniem SSH z maszyną wirtualną z systemem Linux](../virtual-machines/linux/detailed-troubleshoot-ssh-connection.md)
 
-Jeśli potrzebujesz więcej pomocy, Opublikuj zapytanie na [forum Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr) lub pozostaw komentarz na końcu tego dokumentu. Mamy aktywną społeczność, która powinna być w stanie pomóc.
+Jeśli potrzebujesz więcej pomocy, Opublikuj zapytanie na [stronie pytania firmy&Microsoft w celu Site Recovery](https://docs.microsoft.com/answers/topics/azure-site-recovery.html) lub pozostaw komentarz na końcu tego dokumentu. Mamy aktywną społeczność, która powinna być w stanie pomóc.

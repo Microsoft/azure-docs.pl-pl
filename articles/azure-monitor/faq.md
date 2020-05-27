@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: df3e107b111161284c697aa8f619eed96443a893
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4cf851022a2b2b0c9a9781f4d41b40982bf2ad57
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651844"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835346"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor często zadawane pytania
 
@@ -102,7 +102,7 @@ Aby wyświetlić dzienniki maszyn wirtualnych, musisz mieć uprawnienia do odczy
 ### <a name="why-are-metrics-from-the-guest-os-of-my-azure-virtual-machine-not-showing-up-in-metrics-explorer"></a>Dlaczego metryki z systemu operacyjnego gościa maszyny wirtualnej platformy Azure nie są wyświetlane w Eksploratorze metryk?
 [Metryki platformy](insights/monitor-azure-resource.md#monitoring-data) są zbierane automatycznie dla zasobów platformy Azure. Należy wykonać pewne konfiguracje, aby zbierać metryki z systemu operacyjnego gościa maszyny wirtualnej. W przypadku maszyny wirtualnej z systemem Windows zainstaluj rozszerzenie diagnostyczne i skonfiguruj Azure Monitor ujścia zgodnie z opisem w artykule [Instalowanie i Konfigurowanie rozszerzenia diagnostyki systemu Windows Azure (funkcji wad)](platform/diagnostics-extension-windows-install.md). W przypadku systemu Linux Zainstaluj agenta telegraf zgodnie z opisem w temacie [zbieranie niestandardowych metryk dla maszyny wirtualnej z systemem Linux za pomocą agenta InfluxData telegraf](platform/collect-custom-metrics-linux-telegraf.md).
 
-## <a name="alerts"></a>Alerts (Alerty)
+## <a name="alerts"></a>Alerty
 
 ### <a name="what-is-an-alert-in-azure-monitor"></a>Co to jest alert w Azure Monitor?
 Alerty z wyprzedzeniem powiadamiają Cię, gdy w danych monitorowania zostaną znalezione ważne warunki. Umożliwiają identyfikowanie i rozwiązywanie problemów przed zapisaniem ich przez użytkowników systemu. Istnieje wiele rodzajów alertów:
@@ -394,7 +394,7 @@ Każdy element, który jest przesyłany, przenosi `itemCount` Właściwość, kt
 ```
 
 
-### <a name="automation"></a>Automatyzacja
+### <a name="automation"></a>Automation
 
 #### <a name="configuring-application-insights"></a>Konfigurowanie Application Insights
 
@@ -735,7 +735,7 @@ W tym stanie zostanie wyświetlony monit z opcją **Wypróbuj teraz** po otwarci
 ## <a name="next-steps"></a>Następne kroki
 Jeśli na pytanie nie ma odpowiedzi, możesz zapoznać się z następującymi forami, aby uzyskać dodatkowe pytania i odpowiedzi.
 
-- [Log Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)
-- [Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
+- [Log Analytics](https://docs.microsoft.com/answers/topics/azure-monitor.html)
+- [Application Insights](https://docs.microsoft.com/answers/topics/azure-monitor.html)
 
 Aby uzyskać ogólne informacje na temat Azure Monitor odwiedź [forum opinii](https://feedback.azure.com/forums/34192--general-feedback).

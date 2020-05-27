@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 03/31/2020
-ms.openlocfilehash: dea7e8d5679c8c5a14d6a4253b8a4b36343e6ed8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fabc8b7b2a97b75959eb7d82723d6af6bc55bbe5
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80887099"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835482"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Instalowanie i używanie odcienia w klastrach usługi HDInsight Hadoop
 
@@ -33,7 +33,7 @@ Odcień to zestaw aplikacji sieci Web służący do współdziałania z klastrem
 > [!WARNING]  
 > Składniki dostarczane z klastrem usługi HDInsight są w pełni obsługiwane, a pomoc techniczna firmy Microsoft ułatwiają izolowanie i rozwiązywanie problemów związanych z tymi składnikami.
 >
-> Składniki niestandardowe otrzymują komercyjnie uzasadnioną pomoc techniczną, która ułatwia dalsze Rozwiązywanie problemu. Może to skutkować rozwiązaniem problemu lub zapytaniem o zaangażowanie dostępnych kanałów dla technologii open source, w których znajduje się Szczegółowa wiedza dla tej technologii. Na przykład istnieje wiele witryn społeczności, które mogą być używane, takich jak: [forum MSDN dla](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)usługi HDInsight [https://stackoverflow.com](https://stackoverflow.com). Również projekty Apache mają witryny projektu, [https://apache.org](https://apache.org)na przykład: [Hadoop](https://hadoop.apache.org/).
+> Składniki niestandardowe otrzymują komercyjnie uzasadnioną pomoc techniczną, która ułatwia dalsze Rozwiązywanie problemu. Może to skutkować rozwiązaniem problemu lub zapytaniem o zaangażowanie dostępnych kanałów dla technologii open source, w których znajduje się Szczegółowa wiedza dla tej technologii. Na przykład istnieje wiele witryn społeczności, których można użyć, takich jak: [Microsoft Q&stronie pytania dotyczącej usługi HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html) [https://stackoverflow.com](https://stackoverflow.com) . Również projekty Apache mają witryny projektu [https://apache.org](https://apache.org) , na przykład: [Hadoop](https://hadoop.apache.org/).
 
 ## <a name="install-hue-using-script-actions"></a>Instalowanie odcienia przy użyciu akcji skryptu
 
@@ -76,7 +76,7 @@ W zwykłych klastrach można mieć tylko jedno konto użytkownika z odcienią. W
 
     Jest to nazwa hosta głównego węzła głównego, w którym znajduje się witryna internetowa odcienia.
 
-1. Użyj przeglądarki, aby otworzyć Portal odcienia `http://HOSTNAME:8888`pod adresem. Zastąp nazwę hosta nazwą uzyskaną w poprzednim kroku.
+1. Użyj przeglądarki, aby otworzyć Portal odcienia pod adresem `http://HOSTNAME:8888` . Zastąp nazwę hosta nazwą uzyskaną w poprzednim kroku.
 
    > [!NOTE]  
    > Gdy logujesz się po raz pierwszy, zostanie wyświetlony monit o utworzenie konta w celu zalogowania się do portalu odcień. Poświadczenia określone w tym miejscu będą ograniczone do portalu i nie są powiązane z poświadczeniami administratora lub użytkownika SSH określonymi podczas aprowizacji klastra.
@@ -107,7 +107,7 @@ W zwykłych klastrach można mieć tylko jedno konto użytkownika z odcienią. W
 > [!NOTE]  
 > W przeglądarce plików odcienia można wyświetlić tylko zawartość domyślnego kontenera skojarzonego z klastrem usługi HDInsight. Wszystkie dodatkowe konta magazynu/kontenery, które mogą być skojarzone z klastrem, nie będą dostępne przy użyciu przeglądarki plików. Jednak dodatkowe kontenery skojarzone z klastrem będą zawsze dostępne dla zadań Hive. Na przykład, jeśli wprowadzisz polecenie `dfs -ls wasbs://newcontainer@mystore.blob.core.windows.net` w edytorze Hive, zobaczysz również zawartość dodatkowych kontenerów. W tym poleceniu **newcontainer** nie jest domyślnym kontenerem skojarzonym z klastrem.
 
-## <a name="important-considerations"></a>Istotne zagadnienia
+## <a name="important-considerations"></a>Ważne zagadnienia
 
 1. Skrypt służący do instalowania odcienia instaluje go tylko w podstawowym węzła głównego klastra.
 
@@ -123,7 +123,7 @@ W zwykłych klastrach można mieć tylko jedno konto użytkownika z odcienią. W
 
    Jest to spowodowane znanym problemem. W ramach tego problemu należy zmodyfikować Ambari tak, aby aktywne Menedżer zasobów również działały na podstawowym węzła głównego.
 
-1. Odcienie rozumie WebHDFS, podczas gdy klastry HDInsight `wasbs://`używają usługi Azure Storage za pomocą programu. Tak więc skrypt niestandardowy używany z akcją skryptu instaluje WebWasb, która jest usługą zgodną z WebHDFS na potrzeby rozmowy z WASB. W związku z tym, mimo że portal odcienia mówi system plików HDFS w miejscu (na przykład gdy przenosisz wskaźnik myszy nad **przeglądarką pliku**), powinien on być interpretowany jako WASB.
+1. Odcienie rozumie WebHDFS, podczas gdy klastry HDInsight używają usługi Azure Storage za pomocą programu `wasbs://` . Tak więc skrypt niestandardowy używany z akcją skryptu instaluje WebWasb, która jest usługą zgodną z WebHDFS na potrzeby rozmowy z WASB. W związku z tym, mimo że portal odcienia mówi system plików HDFS w miejscu (na przykład gdy przenosisz wskaźnik myszy nad **przeglądarką pliku**), powinien on być interpretowany jako WASB.
 
 ## <a name="next-steps"></a>Następne kroki
 

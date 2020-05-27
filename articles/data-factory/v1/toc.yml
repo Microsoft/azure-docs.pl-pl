@@ -33,7 +33,7 @@
     - name: Tworzenie potoku w celu przekształcania danych
       href: data-factory-build-your-first-pipeline.md
       items:
-        - name: Portalu Azure
+        - name: Azure Portal
           href: data-factory-build-your-first-pipeline-using-editor.md
         - name: Visual Studio
           href: data-factory-build-your-first-pipeline-using-vs.md
@@ -92,7 +92,7 @@
               href: data-factory-onprem-file-system-connector.md
             - name: FTP
               href: data-factory-ftp-connector.md
-            - name: HDFS
+            - name: SYSTEM PLIKÓW HDFS
               href: data-factory-hdfs-connector.md
             - name: HTTP
               href: data-factory-http-connector.md
@@ -116,7 +116,7 @@
               href: data-factory-sap-hana-connector.md
             - name: SFTP
               href: data-factory-sftp-connector.md
-            - name: Oprogramowanie SQL Server
+            - name: SQL Server
               href: data-factory-sqlserver-connector.md
             - name: Sybase
               href: data-factory-onprem-sybase-connector.md
@@ -159,7 +159,7 @@
       items:
         - name: Szablon usługi Azure Resource Manager
           href: data-factory-how-to-use-resource-manager-templates.md
-        - name: Przykłady
+        - name: Samples
           href: data-factory-samples.md
         - name: Funkcje i zmienne systemowe
           href: data-factory-functions-variables.md
@@ -201,9 +201,9 @@
       href: data-factory-customer-case-studies.md
     - name: Ścieżka szkoleniowa
       href: 'https://azure.microsoft.com/documentation/learning-paths/data-factory'
-    - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDataFactory'
-    - name: Ceny
+    - name: Pytania i odpowiedzi Microsoft — strona pytania
+      href: 'https://docs.microsoft.com/answers/topics/azure-data-factory.html'
+    - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/data-factory/'
     - name: Kalkulator cen
       href: 'https://azure.microsoft.com/pricing/calculator/'

@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 4462bf0fc2057922340eb01cb8c786dbc63ce290
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce1121a4a006e4208c76193a38262d4309e67584
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80745354"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834445"
 ---
 # <a name="best-practices-for-synapse-sql-pool-in-azure-synapse-analytics-formerly-sql-dw"></a>Najlepsze rozwiązania dotyczące Synapse puli SQL w usłudze Azure Synapse Analytics (dawniej SQL DW)
 
@@ -54,7 +54,7 @@ Zobacz też [monitorowanie obciążenia przy użyciu widoków DMV](sql-data-ware
 
 ## <a name="group-insert-statements-into-batches"></a>Grupowanie instrukcji INSERT w partie
 
-Jednorazowe ładowanie do małej tabeli za pomocą instrukcji INSERT lub nawet okresowe ponowne ładowanie wyszukiwania może być odpowiednie dla potrzeb przy użyciu instrukcji, takiej jak `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  
+Jednorazowe ładowanie do małej tabeli za pomocą instrukcji INSERT lub nawet okresowe ponowne ładowanie wyszukiwania może być odpowiednie dla potrzeb przy użyciu instrukcji, takiej jak `INSERT INTO MyLookup VALUES (1, 'Type 1')` .  
 
 Jeśli jednak wymagane jest ładowanie tysięcy lub milionów wierszy na dzień, może okazać się, że same instrukcje INSERT zwyczajnie nie nadążą z działaniem.  Zamiast tego należy opracować procesy w taki sposób, aby zapisywały dane do pliku, po czym będzie następować okresowe uruchamianie innego procesu, który będzie ładować wspomniany plik.
 
@@ -180,7 +180,7 @@ Zobacz też [klasy zasobów dla zarządzania obciążeniami](resource-classes-fo
 
 Zobacz artykuł [Rozwiązywanie problemów](sql-data-warehouse-troubleshoot.md), w którym omówiono typowe problemy i ich rozwiązania.
 
-Jeśli nie możesz znaleźć tego, czego szukasz w tym artykule, spróbuj użyć opcji "Wyszukaj dokumenty" w lewej części tej strony, aby przeszukać wszystkie dokumenty usługi Azure Synapse.  [Forum usługi Azure Synapse](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) to miejsce, w którym można ogłaszać pytania do innych użytkowników i do grupy produktów platformy Azure Synapse. Firma Microsoft aktywnie monitoruje to forum, aby mieć pewność, że użytkownicy uzyskują odpowiedzi od innych użytkowników lub pracowników firmy Microsoft.  
+Jeśli nie możesz znaleźć tego, czego szukasz w tym artykule, spróbuj użyć opcji "Wyszukaj dokumenty" w lewej części tej strony, aby przeszukać wszystkie dokumenty usługi Azure Synapse.  [Firma Microsoft&pytań i odpowiedzi na pytania dotyczące usługi Azure Synapse](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) to miejsce, w którym można zadawać pytania innym użytkownikom i grupom produktów platformy Azure Synapse. Firma Microsoft aktywnie monitoruje to forum, aby mieć pewność, że użytkownicy uzyskują odpowiedzi od innych użytkowników lub pracowników firmy Microsoft.  
 
 Jeśli wolisz zadać pytania na Stack Overflow, oferujemy również [Forum usługi Azure Synapse Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw).
 

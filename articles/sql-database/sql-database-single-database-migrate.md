@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: 9cec91ccc80b9072b1a3da756f26f47eb88b951c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 12600b9a5086d785afc8581a9c4382bd3618f0d1
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79268615"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835754"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>SQL Server migrację bazy danych do Azure SQL Database
 
@@ -113,7 +113,7 @@ Może wystąpić wiele różnych problemów ze zgodnością, w zależności od w
 - [Nieobsługiwane funkcje aparatu bazy danych w programie SQL Server 2008 R2](https://msdn.microsoft.com/library/ms144262%28v=sql.105%29)
 - [Nieobsługiwane funkcje aparatu bazy danych w programie SQL Server 2005](https://msdn.microsoft.com/library/ms144262%28v=sql.90%29)
 
-Oprócz wyszukiwania w Internecie i użycia wymienionych zasobów, możesz skorzystać z [forów społeczności programu SQL Server w sieci MSDN](https://social.msdn.microsoft.com/Forums/sqlserver/home?category=sqlserver) lub witryny [StackOverflow](https://stackoverflow.com/).
+Oprócz przeszukiwania Internetu i korzystania z tych zasobów, na potrzeby Azure SQL Database lub [StackOverflow](https://stackoverflow.com/)należy użyć strony pytań i odpowiedzi [Microsoft&pytań](https://docs.microsoft.com/answers/topics/azure-sql-database.html) i odpowiedzi.
 
 > [!IMPORTANT]
 > SQL Database wystąpienie zarządzane umożliwia migrowanie istniejącego wystąpienia SQL Server i jego baz danych z minimalnym brakiem problemów ze zgodnością. Zobacz [, co to jest wystąpienie zarządzane](sql-database-managed-instance.md).

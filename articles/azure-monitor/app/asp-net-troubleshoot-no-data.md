@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z brakiem danych — usługa Application Insigh
 description: Nie widzisz danych w usłudze Azure Application Insights? Spróbuj tutaj.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: 2770888c6cfacedcf186ed1612718133cc1ba363
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 882081f28a53e347612a4b30374e294bb7352796
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83778675"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835142"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Rozwiązywanie problemów z brakiem danych — Application Insights dla platformy .NET/.NET Core
 
@@ -261,4 +261,4 @@ dotnet-trace collect --process-id <PID> --providers Microsoft-ApplicationInsight
 Dowiedz się, jak usunąć Application Insights w programie Visual Studio, wykonując kroki opisane w [artykule](../../azure-monitor/app/remove-application-insights.md)dotyczącego usuwania.
 
 ## <a name="still-not-working"></a>Nadal nie działa...
-* [Forum Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
+* [Strona pytania&pytań Application Insights](https://docs.microsoft.com/answers/topics/azure-monitor.html)

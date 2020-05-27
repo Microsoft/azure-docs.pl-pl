@@ -6,12 +6,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/21/2018
 ms.topic: conceptual
-ms.openlocfilehash: 04e32a88dcfb9f069e51b2f18207155b95da37d6
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: e7a190792714e1dd1a54da7e674e63d4453c548e
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744346"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835074"
 ---
 # <a name="compose-dsc-configurations"></a>Tworzenie konfiguracji DSC
 
@@ -42,8 +42,9 @@ Po pomyślnym zakończeniu kompilacji Nowa konfiguracja zostanie wyświetlona na
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wprowadzenie do konfiguracji stanu Azure Automation](automation-dsc-getting-started.md)
-- [Włącz konfigurację stanu Azure Automation](automation-dsc-onboarding.md)
-- [Kompiluj konfiguracje DSC w konfiguracji stanu Azure Automation](automation-dsc-compile.md)
-- [Konfigurowanie ciągłego wdrażania z czekoladą](automation-dsc-cd-chocolatey.md)
-- [Cennik konfiguracji stanu Azure Automation](https://azure.microsoft.com/pricing/details/automation/)
+- Aby dowiedzieć się, jak włączyć węzły, zobacz [Włączanie konfiguracji stanu Azure Automation](automation-dsc-onboarding.md).
+- Aby dowiedzieć się więcej na temat kompilowania konfiguracji DSC, aby można było przypisać je do węzłów docelowych, zobacz [Kompilowanie konfiguracji DSC w konfiguracji stanu Azure Automation](automation-dsc-compile.md).
+- Aby zapoznać się z przykładem użycia konfiguracji stanu Azure Automation w potoku ciągłego wdrażania, zobacz [Konfigurowanie ciągłego wdrażania z czekoladą](automation-dsc-cd-chocolatey.md).
+- Aby uzyskać informacje o cenach, zobacz [Cennik konfiguracji stanu Azure Automation](https://azure.microsoft.com/pricing/details/automation/).
+- Aby uzyskać informacje dotyczące poleceń cmdlet programu PowerShell, zobacz [AZ. Automation](https://docs.microsoft.com/powershell/module/az.automation/?view=azps-3.7.0#automation
+).

@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: bc2acc4303a270a2bf71f0c9ff249b60a0328a09
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 1ac42a5451da0347779475e96ce557633a02c59f
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983282"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834581"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Często zadawane pytania: odzyskiwanie po awarii z platformy Azure do platformy Azure
 
@@ -163,7 +163,7 @@ Nie, Site Recovery będzie przechowywać wszystkie poprzednie punkty odzyskiwani
 
 ### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>Jak zmienić zasady replikacji po włączeniu replikacji na maszynie wirtualnej?
 
-Przejdź do **magazynu** > Site Recovery**Site Recovery** > **zasady replikacji**infrastruktury. Wybierz zasady, które chcesz edytować, i Zapisz zmiany. Każda zmiana zostanie również zastosowana do wszystkich istniejących replikacji.
+Przejdź do **magazynu Site Recovery**  >  **Site Recovery**  >  **zasady replikacji**infrastruktury. Wybierz zasady, które chcesz edytować, i Zapisz zmiany. Każda zmiana zostanie również zastosowana do wszystkich istniejących replikacji.
 
 ### <a name="are-all-the-recovery-points-a-complete-copy-of-the-vm-or-a-differential"></a>Czy wszystkie punkty odzyskiwania są kompletną kopią maszyny wirtualnej czy różnicą?
 
@@ -315,4 +315,4 @@ Tak, obsługiwane są zarówno szyfrowanie podczas przesyłania, jak i [szyfrowa
 
 - [Przejrzyj wymagania dotyczące pomocy technicznej platformy Azure na platformie Azure](azure-to-azure-support-matrix.md).
 - [Skonfiguruj replikację z platformy Azure na platformę Azure](azure-to-azure-tutorial-enable-replication.md).
-- Jeśli masz pytania po przeczytaniu tego artykułu, Opublikuj je na [Forum usługi Azure Recovery Services](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
+- Jeśli masz pytania po zapoznaniu się z tym artykułem, Opublikuj je na [stronie pytań firmy Microsoft dotyczącym usługi Azure Recovery Services&](https://docs.microsoft.com/answers/topics/azure-site-recovery.html).

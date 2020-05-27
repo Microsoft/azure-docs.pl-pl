@@ -3,14 +3,14 @@ title: Przekazywanie danych zadania usługi Azure Automation do dzienników usł
 description: W tym artykule opisano sposób wysyłania strumieni stanu zadania i zadań elementu Runbook do dzienników Azure Monitor.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/05/2019
+ms.date: 05/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6cd1983a6aa1ea942fb6f3154d8bb99e255f51e9
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: ba498fe9f70664a801172a6ff3705ac41a6371ef
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715447"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835255"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Przekazywanie danych zadania usługi Azure Automation do dzienników usługi Azure Monitor
 
@@ -46,11 +46,11 @@ Aby znaleźć identyfikator zasobu dla obszaru roboczego Log Analytics, uruchom 
 Get-AzResource -ResourceType "Microsoft.OperationalInsights/workspaces"
 ```
 
-Jeśli masz więcej niż jedno konto usługi Automation lub obszar roboczy w danych wyjściowych powyższych poleceń, Znajdź nazwę, która jest wymagana do skonfigurowania i skopiowania wartości identyfikatora zasobu.
+Jeśli masz więcej niż jedno konto usługi Automation lub obszar roboczy w danych wyjściowych powyższych poleceń, możesz znaleźć nazwę i inne powiązane właściwości, które są częścią pełnego identyfikatora zasobu konta usługi Automation, wykonując następujące czynności:
 
-1. W Azure Portal wybierz konto usługi Automation z bloku **konto usługi Automation** , a następnie wybierz pozycję **wszystkie ustawienia**. 
-2. W bloku **wszystkie ustawienia** w obszarze **Ustawienia konta**wybierz pozycję **Właściwości**.  
-3. W bloku **Właściwości** należy zwrócić uwagę na właściwości przedstawione poniżej.
+1. W Azure Portal wybierz konto usługi Automation na stronie **konta usługi Automation** . 
+2. Na stronie wybranego konta usługi Automation w obszarze **Ustawienia konta**wybierz pozycję **Właściwości**.  
+3. Na stronie **Właściwości** Zanotuj wymienione poniżej szczegóły.
 
     ![Właściwości konta usługi Automation](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
 
@@ -105,11 +105,11 @@ Azure Automation Diagnostics Utwórz dwa typy rekordów w dziennikach Azure Moni
 ## <a name="set-up-integration-with-azure-monitor-logs"></a>Konfigurowanie integracji z dziennikami Azure Monitor
 
 1. Na komputerze Uruchom program Windows PowerShell z ekranu **startowego** .
-2. Uruchom następujące polecenia programu PowerShell i edytuj wartości dla `[your resource ID]` i `[resource ID of the log analytics workspace]` z wartościami z poprzedniej sekcji.
+2. Uruchom następujące polecenia programu PowerShell i edytuj wartości dla `$automationAccountId` i `$workspaceId` z wartościami z poprzedniej sekcji.
 
    ```powershell-interactive
-   $workspaceId = "[resource ID of the log analytics workspace]"
-   $automationAccountId = "[resource ID of your Automation account]"
+   $workspaceId = "resource ID of the log analytics workspace"
+   $automationAccountId = "resource ID of your Automation account"
 
    Set-AzDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled 1
    ```
@@ -139,14 +139,16 @@ Aby wyświetlić dzienniki, uruchom następujące zapytanie:`AzureDiagnostics | 
 
 ### <a name="send-an-email-when-a-runbook-job-fails-or-suspends"></a>Wyślij wiadomość e-mail, gdy zadanie elementu Runbook ulegnie awarii lub zostanie zawieszone
 
-Jednym z najważniejszych monitów klienta jest możliwość wysyłania wiadomości e-mail lub tekstu, gdy coś się nie stało z zadaniem elementu Runbook.
+Poniższe kroki pokazują, jak skonfigurować alerty w Azure Monitor, aby powiadomić Cię, gdy coś się nie udaje z zadania elementu Runbook.
 
 Aby utworzyć regułę alertu, Zacznij od utworzenia wyszukiwania w dzienniku dla rekordów zadań elementu Runbook, które powinny wywoływać alert. Kliknij przycisk **alert** , aby utworzyć i skonfigurować regułę alertu.
 
 1. Na stronie Przegląd obszaru roboczego Log Analytics kliknij pozycję **Wyświetl dzienniki**.
+
 2. Utwórz zapytanie przeszukiwania dzienników dla alertu, wpisując następujące polecenie wyszukiwania w polu zapytania:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`<br><br>Można również grupować według nazwy elementu Runbook za pomocą:`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    Jeśli skonfigurujesz dzienniki z więcej niż jednego konta usługi Automation lub subskrypcji w obszarze roboczym, możesz grupować alerty według subskrypcji i konta usługi Automation. Nazwę konta usługi Automation można znaleźć w `Resource` polu wyszukiwania `JobLogs` .
+
 3. Aby otworzyć ekran **Utwórz regułę** , kliknij pozycję **Nowa reguła alertu** u góry strony. Aby uzyskać więcej informacji na temat opcji konfigurowania alertu, zobacz [alerty dzienników na platformie Azure](../azure-monitor/platform/alerts-unified-log.md).
 
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>Znajdź wszystkie zadania, które zostały zakończone z błędami
@@ -154,7 +156,9 @@ Aby utworzyć regułę alertu, Zacznij od utworzenia wyszukiwania w dzienniku dl
 Oprócz alertów dotyczących błędów można znaleźć, kiedy zadanie elementu Runbook ma błąd niepowodujący zakończenia. W takich przypadkach program PowerShell tworzy strumień błędów, ale błędy niepowodujące zakończenia nie powodują zawieszenia zadania lub jego niepowodzenie.
 
 1. W obszarze roboczym Log Analytics kliknij pozycję **dzienniki**.
+
 2. W polu zapytania wpisz `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and StreamType_s == "Error" | summarize AggregatedValue = count() by JobId_g` .
+
 3. Kliknij przycisk **Wyszukaj** .
 
 ### <a name="view-job-streams-for-a-job"></a>Wyświetlanie strumieni zadań dla zadania
@@ -182,8 +186,8 @@ Remove-AzDiagnosticSetting -ResourceId $automationAccountId
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać pomoc w rozwiązywaniu problemów Log Analytics, zobacz [Rozwiązywanie problemów, dlaczego log Analytics nie zbiera już danych](../azure-monitor/platform/manage-cost-storage.md#troubleshooting-why-log-analytics-is-no-longer-collecting-data).
-* Aby dowiedzieć się więcej na temat tworzenia różnych zapytań wyszukiwania i przeglądania dzienników zadań usługi Automation z dziennikami Azure Monitor, zobacz [Wyszukiwanie w dzienniku w](../log-analytics/log-analytics-log-searches.md)dziennikach Azure monitor.
-* Aby dowiedzieć się, jak tworzyć i pobierać dane wyjściowe i komunikaty o błędach z elementów Runbook, zobacz [Runbook Output and messages](automation-runbook-output-and-messages.md).
+* Aby dowiedzieć się, jak tworzyć zapytania wyszukiwania i przeglądać dzienniki zadań usługi Automation za pomocą dzienników Azure Monitor, zobacz [Wyszukiwanie w dzienniku w](../log-analytics/log-analytics-log-searches.md)dziennikach Azure monitor.
+* Aby zrozumieć tworzenie i pobieranie komunikatów wyjściowych i błędów z elementów Runbook, zobacz [monitorowanie danych wyjściowych elementu Runbook](automation-runbook-output-and-messages.md).
 * Aby dowiedzieć się więcej o wykonywaniu elementów Runbook, sposobie monitorowania zadań elementów Runbook i innych szczegółach technicznych, zobacz [wykonywanie elementów Runbook w Azure Automation](automation-runbook-execution.md).
 * Aby dowiedzieć się więcej na temat dzienników Azure Monitor i źródeł zbierania danych, zobacz [zbieranie danych usługi Azure Storage w dziennikach Azure monitor Omówienie](../azure-monitor/platform/collect-azure-metrics-logs.md).
+* Aby uzyskać pomoc w rozwiązywaniu problemów Log Analytics, zobacz [Rozwiązywanie problemów, dlaczego log Analytics nie zbiera już danych](../azure-monitor/platform/manage-cost-storage.md#troubleshooting-why-log-analytics-is-no-longer-collecting-data).

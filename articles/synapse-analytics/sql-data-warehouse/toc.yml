@@ -393,8 +393,8 @@
   items:
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
-    - name: Forum
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse'
+    - name: Pytania i odpowiedzi Microsoft — strona pytania
+      href: 'https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html'
     - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/sql-data-warehouse/'
     - name: Kalkulator cen

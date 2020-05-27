@@ -7,11 +7,11 @@
 - name: Przewodniki Szybki start
   expanded: true
   items:
-    - name: Azure Time Series Insights (ogólna dostępność)
+    - name: Ogólnie dostępna usługa Azure Time Series Insights
       items:
         - name: Poznawanie usługi Time Series Insights
           href: time-series-quickstart.md
-    - name: Wersja zapoznawcza usługi Azure Time Series Insights
+    - name: Azure Time Series Insights (wersja zapoznawcza)
       items:
         - name: Poznawanie usługi Time Series Insights w wersji zapoznawczej
           href: time-series-insights-update-quickstart.md
@@ -21,7 +21,7 @@
       items:
         - name: Tworzenie środowiska usługi Time Series Insights
           href: tutorial-create-populate-tsi-environment.md
-    - name: Wersja zapoznawcza usługi Azure Time Series Insights
+    - name: Azure Time Series Insights (wersja zapoznawcza)
       items:
         - name: Konfigurowanie środowiska wersji zapoznawczej
           href: time-series-insights-update-create-environment.md
@@ -47,7 +47,7 @@
               href: time-series-insights-manage-reference-data-csharp.md
             - name: Udostępnianie widoku niestandardowego
               href: time-series-insights-parameterized-urls.md
-    - name: Wersja zapoznawcza usługi Azure Time Series Insights
+    - name: Azure Time Series Insights (wersja zapoznawcza)
       items:
         - name: Planowanie środowiska
           href: time-series-insights-update-plan.md
@@ -97,7 +97,7 @@
           href: time-series-insights-environment-mitigate-latency.md
         - name: Diagnozowanie i rozwiązywanie problemów
           href: time-series-insights-diagnose-and-solve-problems.md
-    - name: Wersja zapoznawcza usługi Azure Time Series Insights
+    - name: Azure Time Series Insights (wersja zapoznawcza)
       items:
         - name: Aprowizowanie i zarządzanie
           href: time-series-insights-update-how-to-manage.md
@@ -140,7 +140,7 @@
   items:
     - name: Żądania danych klienta
       href: time-series-insights-customer-data-requests.md
-    - name: Zasoby deweloperów
+    - name: Zasoby dla deweloperów
       items:
         - name: Przykłady kodu dla usługi Azure Time Series Insights
           href: 'https://github.com/Azure-Samples/Azure-Time-Series-Insights/'
@@ -152,7 +152,7 @@
           href: 'https://docs.microsoft.com/samples/browse/?term=iot'
     - name: Cennik i dostępność
       items:
-        - name: Ceny
+        - name: Cennik
           href: 'https://azure.microsoft.com/pricing/details/time-series-insights/'
         - name: Kalkulator cen
           href: 'https://azure.microsoft.com/pricing/calculator/'
@@ -166,12 +166,12 @@
           href: 'https://docs.microsoft.com/azure/iot-fundamentals/iot-support-help'
         - name: Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/azure-timeseries-insights'
-        - name: Forum MSDN
-          href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights'
+        - name: Pytania i odpowiedzi Microsoft — strona pytania
+          href: 'https://docs.microsoft.com/answers/topics/azure-time-series-insights.html'
     - name: Opinie i fora
       items:
-        - name: Forum MSDN
-          href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights'
+        - name: Pytania i odpowiedzi Microsoft — strona pytania
+          href: 'https://docs.microsoft.com/answers/topics/azure-time-series-insights.html'
         - name: Prośby i sugestie dotyczące produktu
           href: 'https://feedback.azure.com/forums/906859-azure-time-series-insights'
     - name: Wideo dotyczące platformy Azure

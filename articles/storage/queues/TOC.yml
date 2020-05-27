@@ -282,7 +282,7 @@
         - name: Ułatwienia dostępu Eksploratora usługi Storage
           href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Forum usługi Azure Storage
-      href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
+      href: 'https://docs.microsoft.com/answers/topics/azure-queue-storage.html'
     - name: Usługa Azure Storage w witrynie Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/windows-azure-storage'
     - name: Cennik usługi Azure Storage

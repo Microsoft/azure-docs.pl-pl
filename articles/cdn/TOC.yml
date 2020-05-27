@@ -67,8 +67,6 @@
           href: cdn-restrict-access-by-country.md
         - name: Poprawianie wydajności poprzez kompresowanie plików
           href: cdn-improve-performance.md
-        - name: Wiele źródeł punktu końcowego
-          href: endpoint-multiorigin.md
         - name: Sterowanie zachowaniem buforowania
           items:
             - name: Sterowanie zachowaniem buforowania przy użyciu reguł buforowania
@@ -185,8 +183,8 @@
       href: cdn-billing.md
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=azurecdn'
+    - name: Pytania i odpowiedzi Microsoft — strona pytania
+      href: 'https://docs.microsoft.com/answers/topics/azure-cdn.html'
     - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/cdn/'
     - name: Kalkulator cen

@@ -10,12 +10,12 @@ author: kevinvngo
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: eaa6ceded9893b278b28d517cbddb303f8469e10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0788f978fd25356b230a7923def6cbbea3dc305
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80350894"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835465"
 ---
 # <a name="request-quota-increases-and-get-support-for-azure-synapse-analytics"></a>Zwiększanie limitu przydziału żądań i uzyskiwanie pomocy technicznej dla usługi Azure Synapse Analytics
 
@@ -97,7 +97,7 @@ Jeśli Twoja subskrypcja wymaga dostępu w określonym regionie, użyj **innej o
 
 ## <a name="submit-your-request"></a>Prześlij żądanie
 
-Ostatnim krokiem jest wypełnienie pozostałych szczegółów żądania obsługi SQL Database. Następnie wybierz kolejno pozycje **Dalej: przegląd + utwórz>>** i po przejrzeniu szczegółów żądania kliknij pozycję **Utwórz** , aby przesłać żądanie.
+Ostatnim krokiem jest wypełnienie pozostałych szczegółów żądania obsługi SQL Database. Następnie wybierz pozycję **Dalej: Przeglądanie i tworzenie >>** i po przejrzeniu szczegółów żądania kliknij pozycję **Utwórz**, aby przesłać żądanie.
 
 ## <a name="monitor-a-support-ticket"></a>Monitorowanie biletu pomocy technicznej
 
@@ -107,5 +107,5 @@ Po przesłaniu żądania pomocy technicznej zespół pomocy technicznej systemu 
 
 ## <a name="other-resources"></a>Inne zasoby
 
-Możesz również nawiązać połączenie z społecznością usługi Azure Synapse Analytics na [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse+or+azure-sql-data-warehouse) lub za pomocą [forum MSDN Azure SQL Data Warehouse](https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse/).
+Możesz również nawiązać połączenie z społecznością usługi Azure Synapse Analytics na [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse+or+azure-sql-data-warehouse) lub za pomocą [strony pytań&Microsoft pytań i odpowiedzi na Azure SQL Data Warehouse](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html).
 

@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 858dfa8282a06feab877bcea65de47b8455133dc
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 9a291971ce0edead9ca28a47f7ad0689b0f65547
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697308"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834955"
 ---
 # <a name="development-best-practices-for-synapse-sql"></a>Najlepsze rozwiązania dotyczące programowania Synapse SQL
 W tym artykule opisano wskazówki i najlepsze rozwiązania w zakresie tworzenia rozwiązań magazynu danych. 
@@ -166,7 +166,7 @@ Ponieważ CETAS generuje pliki Parquet, statystyki zostaną automatycznie utworz
 
 ### <a name="next-steps"></a>Następne kroki
 
-Jeśli potrzebujesz informacji, które nie zostały podane w tym artykule, użyj "Wyszukaj dokumenty" po lewej stronie tej strony, aby wyszukać wszystkie dokumenty w puli SQL.  [Forum puli SQL](https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse) to miejsce, w którym można zadawać pytania innym użytkownikom i grupie produktów puli SQL.  
+Jeśli potrzebujesz informacji, które nie zostały podane w tym artykule, użyj "Wyszukaj dokumenty" po lewej stronie tej strony, aby wyszukać wszystkie dokumenty w puli SQL.  [Microsoft Q&stronie pytania dla puli SQL](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) jest miejscem, w którym można zadawać pytania do innych użytkowników i grupy produktów w puli SQL.  
 
 Firma Microsoft aktywnie monitoruje to forum, aby mieć pewność, że użytkownicy uzyskują odpowiedzi od innych użytkowników lub pracowników firmy Microsoft.  Jeśli wolisz zadać pytania na Stack Overflow, masz również [Forum usługi Azure SQL pool Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw).
  

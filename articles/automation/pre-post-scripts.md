@@ -5,14 +5,14 @@ services: automation
 ms.subservice: update-management
 ms.date: 05/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: df7a544601d723170b43b3fbf8466daa6a98be6e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: fd37ccc5850baf1cfb778b6706a76c91bd178922
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745115"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835176"
 ---
-# <a name="manage-pre-scripts-and-post-scripts"></a>Zarządzanie skryptami wstępnymi i skryptami
+# <a name="manage-pre-scripts-and-post-scripts"></a>Zarządzanie skryptami wstępnymi i końcowymi
 
 Przed skryptami i po nim skrypty są elementami Runbook, które są uruchamiane na koncie Azure Automation przed (przed zadaniami) i po nim (po zadaniu) wdrożenia aktualizacji. Przed skryptami i skryptami uruchamianymi w kontekście platformy Azure, a nie lokalnie. Przed rozpoczęciem wdrażania aktualizacji skrypty przeduruchomieniowe są uruchamiane na początku. Po wykonaniu tych czynności skrypty po zakończeniu wdrożenia i po każdym skonfigurowanym ponownym uruchomieniu zostaną uruchomione.
 
@@ -245,4 +245,4 @@ $variable = Get-AutomationVariable -Name $runId
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure](automation-tutorial-update-management.md)
+* Aby uzyskać szczegółowe informacje dotyczące zarządzania aktualizacjami, zobacz [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure](automation-tutorial-update-management.md).

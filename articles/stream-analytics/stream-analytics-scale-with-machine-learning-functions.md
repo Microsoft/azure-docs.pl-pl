@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 4e2c99274df90d232754c862f3174b5767392cec
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: c03b9fbd06b0a9bc4a70b0fb3a78bc9ce136b704
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929047"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835584"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Skalowanie zadania Stream Analytics za pomocą funkcji Azure Machine Learning Studio (klasycznych)
 
@@ -140,7 +140,7 @@ Aby skalować zadanie Stream Analytics za pomocą funkcji Machine Learning, nale
 2. Tolerowane opóźnienie dla uruchomionego zadania Stream Analytics (i w ten sposób rozmiar wsadu Machine Learning żądań usługi sieci Web).
 3. Zainicjowana Stream Analytics usług SUs i liczba żądań usługi sieci Web Machine Learning (dodatkowe koszty związane z funkcją).
 
-W pełni partycjonowane zapytanie Stream Analytics zostało użyte jako przykład. Jeśli potrzebujesz bardziej złożonej kwerendy, [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics) jest doskonałym zasobem do uzyskania dodatkowej pomocy od zespołu Stream Analytics.
+W pełni partycjonowane zapytanie Stream Analytics zostało użyte jako przykład. Jeśli jest wymagana bardziej złożona kwerenda, [firma Microsoft Q&stronę pytania dla Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html) jest doskonałym zasobem do uzyskania dodatkowej pomocy od zespołu Stream Analytics.
 
 ## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się więcej na temat Stream Analytics, zobacz:

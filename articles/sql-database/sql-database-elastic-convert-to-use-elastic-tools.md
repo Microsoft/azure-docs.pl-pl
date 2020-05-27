@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: c776f4ac09626f0abd1eb754cde391a1c5447627
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9c47eebc965319575020eace87825af9d9ad5a18
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "74421225"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835023"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migrowanie istniejących baz danych w celu skalowania w poziomie
 
@@ -167,7 +167,7 @@ Aby uzyskać informacje na temat typowych wzorców architektury danych w aplikac
 
 ## <a name="questions-and-feature-requests"></a>Pytania i żądania funkcji
 
-Aby uzyskać odpowiedzi na pytania, użyj [forum SQL Database](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) i dla żądań funkcji, Dodaj je do [forum SQL Database Opinie](https://feedback.azure.com/forums/217321-sql-database/).
+Pytania można uzyskać, korzystając z [&stronie](https://docs.microsoft.com/answers/topics/azure-sql-database.html) pytań i odpowiedzi dla SQL Database i dla żądań funkcji, Dodaj je do [forum SQL Database opinii](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-convert-to-use-elastic-tools/listmapping.png

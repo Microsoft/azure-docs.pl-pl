@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: cc7babdb7b64b12ecc9ef4590a91c7a3683a6558
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: a92f65bd88a5aec79a179a6e2d53de15c274add4
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83799801"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834564"
 ---
 # <a name="send-an-email-from-a-runbook"></a>Wysyłanie wiadomości e-mail z poziomu elementu runbook
 
@@ -138,7 +138,7 @@ Aby sprawdzić, czy element Runbook został wykonany pomyślnie, możesz wykona�
 
 Jeśli nie widzisz początkowo testową pocztą e-mail, Sprawdź foldery **wiadomości-śmieci** i **spamu** .
 
-## <a name="clean-up-after-the-email-operation"></a>Wyczyść po operacji poczty e-mail
+## <a name="clean-up-resources-after-the-email-operation"></a>Wyczyść zasoby po operacji poczty e-mail
 
 1. Gdy element Runbook nie jest już wymagany, wybierz go na liście elementów Runbook, a następnie kliknij przycisk **Usuń**.
 
@@ -152,7 +152,6 @@ Remove-AzKeyVault -VaultName $VaultName -ResourceGroupName $ResourceGroupName
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Aktualizowanie modułów programu Azure PowerShell](automation-update-azure-modules.md)
-* [Przekazywanie danych zadania usługi Azure Automation do dzienników usługi Azure Monitor](automation-manage-send-joblogs-log-analytics.md)
-* [Użyj alertu, aby wyzwolić Azure Automation element Runbook](automation-create-alert-triggered-runbook.md)
-* [Rozwiązywanie problemów z elementem Runbook](./troubleshoot/runbooks.md)
+* Aby wysłać dane zadania elementu Runbook do obszaru roboczego Log Analytics, zobacz [przesyłanie dalej Azure Automation danych zadania do dzienników Azure monitor](automation-manage-send-joblogs-log-analytics.md).
+* Aby monitorować metryki i dzienniki na poziomie podstawowym, zobacz temat [Używanie alertu do wyzwalania Azure Automation elementu Runbook](automation-create-alert-triggered-runbook.md).
+* Aby rozwiązać problemy związane z operacjami elementu Runbook, zobacz [Rozwiązywanie problemów z elementem Runbook](./troubleshoot/runbooks.md).

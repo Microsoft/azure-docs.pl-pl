@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 47502e693b897a57517d267924cc6c2752c10440
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e26744c2003bd55b33b638b15775c52abbe1dc32
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585325"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83836009"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Przewodnik rozwiązywania problemów z usługą Azure Security Center
 
@@ -81,7 +81,7 @@ Istnieją dwa scenariusze instalacji, które mogą generować różne wyniki pod
 
 **Stan monitorowania** definiuje powód, dla którego usługa Security Center nie może prawidłowo monitorować maszyn wirtualnych i komputerów zainicjowanych do automatycznej aprowizacji. Poniższa tabela zawiera wartości, opisy i kroki związane z rozwiązywaniem problemów z opcją **Stan monitorowania**.
 
-| Stan monitorowania | Opis | Kroki rozwiązywania problemów |
+| Stan monitorowania | Opis | Kroki rozwiązania |
 |---|---|---|
 | Oczekująca instalacja agenta | Instalacja agenta Log Analytics jest nadal uruchomiona.  Instalacja może zająć do kilku godzin. | Poczekaj na zakończenie automatycznej instalacji. |
 | Stan zasilania — wyłączone | Maszyna wirtualna została zatrzymana.  Agenta Log Analytics można zainstalować tylko na maszynie wirtualnej, na której jest uruchomiony program. | Uruchom ponownie maszynę wirtualną. |
@@ -105,10 +105,10 @@ W poniższej tabeli przedstawiono zasoby wymagane do komunikacji.
 
 | Zasób agenta | Porty | Obejście inspekcji HTTPS |
 |---|---|---|
-| *.ods.opinsights.azure.com | 443 | Tak |
-| *.oms.opinsights.azure.com | 443 | Tak |
-| *.blob.core.windows.net | 443 | Tak |
-| *.azure-automation.net | 443 | Tak |
+| *.ods.opinsights.azure.com | 443 | Yes |
+| *.oms.opinsights.azure.com | 443 | Yes |
+| *.blob.core.windows.net | 443 | Yes |
+| *.azure-automation.net | 443 | Yes |
 
 Jeśli wystąpią problemy związane z dołączaniem dotyczące agenta, przeczytaj artykuł [How to troubleshoot Operations Management Suite onboarding issues](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) (Jak rozwiązywać problemy dotyczące przechodzenia do pakietu Operations Management Suite)
 
@@ -132,11 +132,11 @@ Jeśli masz problemy z ładowaniem pulpitu nawigacyjnego usługi Security Center
 
 ## <a name="contacting-microsoft-support"></a>Kontaktowanie się z pomocą techniczną firmy Microsoft
 
-Niektóre problemy można zidentyfikować za pomocą wskazówek znajdujących się w tym artykule. Inne problemy można znaleźć udokumentowane na publicznym [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSecurityCenter) usługi Security Center. Jeśli jednak potrzebujesz dodatkowego rozwiązywania problemów, możesz otworzyć nowe żądanie pomocy technicznej, korzystając z **Azure Portal** jak pokazano poniżej:
+Niektóre problemy można zidentyfikować, korzystając z wskazówek przedstawionych w tym artykule. inne można również znaleźć na stronie Security Center publicznej [&pytań](https://docs.microsoft.com/answers/topics/azure-security-center.html). Jeśli jednak potrzebujesz dodatkowego rozwiązywania problemów, możesz otworzyć nowe żądanie pomocy technicznej, korzystając z **Azure Portal** jak pokazano poniżej:
 
 ![Pomoc techniczna firmy Microsoft](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 W tym dokumencie przedstawiono konfigurowanie zasad zabezpieczeń w Centrum zabezpieczeń Azure. Aby dowiedzieć się więcej na temat Centrum zabezpieczeń Azure, zobacz następujące artykuły:
 

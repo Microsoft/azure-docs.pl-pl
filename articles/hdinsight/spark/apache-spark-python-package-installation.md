@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 13ea1043d05c9f349e25623086c2908e176772a8
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: ec914db1e26e6f052715440c3e418df09fe8a361
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583949"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835975"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Bezpieczne zarządzanie środowiskiem Python w usłudze Azure HDInsight za pomocą akcji skryptu
 
@@ -41,7 +41,7 @@ Istnieją dwa typy składników typu "open source", które są dostępne w usłu
 > [!IMPORTANT]
 > Składniki dostarczane z klastrem usługi HDInsight są w pełni obsługiwane. Pomoc techniczna firmy Microsoft pomaga wyizolować i rozwiązać problemy związane z tymi składnikami.
 >
-> Składniki niestandardowe otrzymują komercyjnie uzasadnioną pomoc techniczną, która ułatwia dalsze Rozwiązywanie problemu. Pomoc techniczna firmy Microsoft może być w stanie rozwiązać ten problem lub zażądać dostępnych kanałów dla technologii open source, w których znajduje się Szczegółowa wiedza dotycząca tej technologii. Na przykład istnieje wiele witryn społeczności, które mogą być używane, takich jak: [forum MSDN dla](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)usługi HDInsight `https://stackoverflow.com`. Również projekty Apache mają witryny projektu `https://apache.org`.
+> Składniki niestandardowe otrzymują komercyjnie uzasadnioną pomoc techniczną, która ułatwia dalsze Rozwiązywanie problemu. Pomoc techniczna firmy Microsoft może być w stanie rozwiązać ten problem lub zażądać dostępnych kanałów dla technologii open source, w których znajduje się Szczegółowa wiedza dotycząca tej technologii. Na przykład istnieje wiele witryn społeczności, których można użyć, takich jak: [Microsoft Q&stronie pytania dotyczącej usługi HDInsight](https://docs.microsoft.com/answers/topics/azure-hdinsight.html) `https://stackoverflow.com` . Również projekty Apache mają witryny projektu `https://apache.org` .
 
 ## <a name="understand-default-python-installation"></a>Opis domyślnej instalacji języka Python
 
@@ -50,8 +50,8 @@ Klaster usługi HDInsight Spark jest tworzony z instalacją Anaconda. W klastrze
 | |Python 2,7|Python 3,5|
 |----|----|----|
 |Ścieżka|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
-|platforma Spark|Domyślnie ustawiona na 2,7|Brak|
-|Livy|Domyślnie ustawiona na 2,7|Brak|
+|platforma Spark|Domyślnie ustawiona na 2,7|Nie dotyczy|
+|Livy|Domyślnie ustawiona na 2,7|Nie dotyczy|
 |Jupyter|Jądro PySpark|Jądro PySpark3|
 
 ## <a name="safely-install-external-python-packages"></a>Bezpieczne Instalowanie zewnętrznych pakietów języka Python
@@ -83,7 +83,7 @@ Klaster usługi HDInsight zależy od wbudowanego środowiska języka Python, zar
         sudo /usr/bin/anaconda/bin/conda install seaborn -n py35new --yes
         ```
 
-    - Lub użyj repozytorium PyPi, aby `seaborn` zmienić `py35new` i odpowiednio:
+    - Lub użyj repozytorium PyPi, aby zmienić `seaborn` i `py35new` odpowiednio:
         ```bash
         sudo /usr/bin/anaconda/env/py35new/bin/pip install seaborn
         ```
@@ -99,13 +99,13 @@ Klaster usługi HDInsight zależy od wbudowanego środowiska języka Python, zar
         sudo /usr/bin/anaconda/bin/conda install numpy=1.16.1 -n py35new --yes
         ```
 
-    - Lub użyj repozytorium PyPi, aby `numpy==1.16.1` zmienić `py35new` i odpowiednio:
+    - Lub użyj repozytorium PyPi, aby zmienić `numpy==1.16.1` i `py35new` odpowiednio:
 
         ```bash
         sudo /usr/bin/anaconda/env/py35new/bin/pip install numpy==1.16.1
         ```
 
-    Jeśli nie znasz nazwy środowiska wirtualnego, możesz przeprowadzić protokół SSH do węzła głównego klastra i uruchomić `/usr/bin/anaconda/bin/conda info -e` polecenie, aby wyświetlić wszystkie środowiska wirtualne.
+    Jeśli nie znasz nazwy środowiska wirtualnego, możesz przeprowadzić protokół SSH do węzła głównego klastra i uruchomić polecenie, `/usr/bin/anaconda/bin/conda info -e` Aby wyświetlić wszystkie środowiska wirtualne.
 
 3. Zmień konfigurację platformy Spark i usługi Livy, a następnie wskaż utworzone środowisko wirtualne.
 
@@ -146,9 +146,9 @@ Klaster usługi HDInsight zależy od wbudowanego środowiska języka Python, zar
 
 ## <a name="known-issue"></a>Znany problem
 
-Istnieje znana usterka dotycząca wersji `4.7.11`Anaconda, `4.7.12`i. `4.8.0` Jeśli zobaczysz akcje skryptu zawieszenia `"Collecting package metadata (repodata.json): ...working..."` i niepowodzeniem w programie. `"Python script has been killed due to timeout after waiting 3600 secs"` Możesz pobrać [ten skrypt](https://gregorysfixes.blob.core.windows.net/public/fix-conda.sh) i uruchomić go jako akcje skryptu na wszystkich węzłach, aby rozwiązać ten problem.
+Istnieje znana usterka dotycząca wersji Anaconda `4.7.11` , `4.7.12` i `4.8.0` . Jeśli zobaczysz akcje skryptu zawieszenia `"Collecting package metadata (repodata.json): ...working..."` i niepowodzeniem w programie `"Python script has been killed due to timeout after waiting 3600 secs"` . Możesz pobrać [ten skrypt](https://gregorysfixes.blob.core.windows.net/public/fix-conda.sh) i uruchomić go jako akcje skryptu na wszystkich węzłach, aby rozwiązać ten problem.
 
-Aby sprawdzić wersję programu Anaconda, można przeprowadzić protokół SSH do węzła nagłówka klastra i uruchomić `/usr/bin/anaconda/bin/conda --v`polecenie.
+Aby sprawdzić wersję programu Anaconda, można przeprowadzić protokół SSH do węzła nagłówka klastra i uruchomić polecenie `/usr/bin/anaconda/bin/conda --v` .
 
 ## <a name="next-steps"></a>Następne kroki
 

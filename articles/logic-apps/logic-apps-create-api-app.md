@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/26/2017
-ms.openlocfilehash: d892dc75d4e745912ceaf444b56494a2e0ed2a19
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 45b53b0e692a1272ba59719655c8d60c90fd6c96
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005247"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834496"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Tworzenie niestandardowych interfejsów API, które można wywołać z Azure Logic Apps
 
@@ -96,23 +96,23 @@ Teraz zmapujmy ten wzorzec sondowania. Piekarni reprezentuje niestandardowy inte
 
 Poniżej przedstawiono kroki, które należy wykonać w przypadku interfejsu API, opisane w perspektywie interfejsu API:
 
-1. Gdy interfejs API pobiera żądanie HTTP, aby rozpocząć pracę, należy natychmiast zwrócić odpowiedź `202 ACCEPTED` http z `location` nagłówkiem opisanym w dalszej części tego kroku. Ta odpowiedź umożliwia aparatowi Logic Apps wiadomo, że interfejs API otrzymał żądanie, zaakceptował ładunek żądania (dane wejściowe) i jest teraz przetwarzany. 
+1. Gdy interfejs API pobiera żądanie HTTP, aby rozpocząć pracę, należy natychmiast zwrócić `202 ACCEPTED` odpowiedź HTTP z `location` nagłówkiem opisanym w dalszej części tego kroku. Ta odpowiedź umożliwia aparatowi Logic Apps wiadomo, że interfejs API otrzymał żądanie, zaakceptował ładunek żądania (dane wejściowe) i jest teraz przetwarzany. 
    
-   `202 ACCEPTED` Odpowiedź powinna zawierać następujące nagłówki:
+   `202 ACCEPTED`Odpowiedź powinna zawierać następujące nagłówki:
    
    * *Wymagane*: `location` nagłówek określający ścieżkę bezwzględną do adresu URL, pod którym aparat Logic Apps może sprawdzić stan zadania interfejsu API
 
    * *Opcjonalnie*: `retry-after` nagłówek określający liczbę sekund oczekiwania przez aparat przed sprawdzeniem `location` adresu URL dla stanu zadania. 
 
-     Domyślnie aparat sprawdza co 20 sekund. Aby określić inny interwał, Dołącz `retry-after` nagłówek i liczbę sekund do następnego sondowania.
+     Domyślnie aparat sprawdza co 20 sekund. Aby określić inny interwał, Dołącz `retry-after` Nagłówek i liczbę sekund do następnego sondowania.
 
 2. Po upływie określonego czasu aparat Logic Apps sonduje `location` adres URL w celu sprawdzenia stanu zadania. Interfejs API powinien wykonać te testy i zwrócić następujące odpowiedzi:
    
-   * Jeśli zadanie zostanie wykonane, zwróć odpowiedź HTTP `200 OK` wraz z ładunkiem odpowiedzi (dane wejściowe dla następnego kroku).
+   * Jeśli zadanie zostanie wykonane, zwróć `200 OK` odpowiedź HTTP wraz z ładunkiem odpowiedzi (dane wejściowe dla następnego kroku).
 
    * Jeśli zadanie jest nadal przetwarzane, zwróć kolejną odpowiedź HTTP `202 ACCEPTED` , ale z takimi samymi nagłówkami jak oryginalna odpowiedź.
 
-Gdy interfejs API jest zgodny z tym wzorcem, nie trzeba wykonywać żadnych czynności w definicji przepływu pracy aplikacji logiki, aby kontynuować sprawdzanie stanu zadania. Gdy aparat otrzymuje odpowiedź HTTP `202 ACCEPTED` i prawidłowy `location` nagłówek, aparat szanuje wzorzec asynchroniczny i sprawdza `location` nagłówek do momentu, gdy interfejs API zwróci odpowiedź różną od 202.
+Gdy interfejs API jest zgodny z tym wzorcem, nie trzeba wykonywać żadnych czynności w definicji przepływu pracy aplikacji logiki, aby kontynuować sprawdzanie stanu zadania. Gdy aparat otrzymuje `202 ACCEPTED` odpowiedź HTTP i prawidłowy `location` nagłówek, aparat szanuje wzorzec asynchroniczny i sprawdza `location` nagłówek do momentu, gdy interfejs API zwróci odpowiedź różną od 202.
 
 > [!TIP]
 > Aby zapoznać się z przykładowym wzorcem asynchronicznym, zapoznaj się z tym przykładem asynchronicznej [odpowiedzi kontrolera w](https://github.com/logicappsio/LogicAppsAsyncResponseSample)witrynie
@@ -140,7 +140,7 @@ Obecnie projektant aplikacji logiki nie obsługuje odnajdywania punktów końcow
 
 Oto kilka innych porad i uwag:
 
-* Aby przekazać adres URL wywołania zwrotnego, można użyć funkcji `@listCallbackUrl()` przepływu pracy w dowolnym z poprzednich pól, zgodnie z potrzebami.
+* Aby przekazać adres URL wywołania zwrotnego, można użyć `@listCallbackUrl()` funkcji przepływu pracy w dowolnym z poprzednich pól, zgodnie z potrzebami.
 
 * Jeśli jesteś zarówno aplikacją logiki, jak i usługą subskrybowaną, nie musisz wywoływać `unsubscribe` punktu końcowego po wywołaniu adresu URL wywołania zwrotnego. W przeciwnym razie środowisko uruchomieniowe Logic Apps musi wywołać `unsubscribe` punkt końcowy, aby sygnalizować, że nie są oczekiwane kolejne wywołania i umożliwiają czyszczenie zasobów po stronie serwera.
 
@@ -166,22 +166,22 @@ Poniżej przedstawiono konkretne kroki dla wyzwalacza sondowania, które opisano
 | Znaleziono nowe dane lub wydarzenie?  | Odpowiedź interfejsu API | 
 | ------------------------- | ------------ |
 | Znaleziono | Zwróć stan HTTP `200 OK` z ładunkiem odpowiedzi (dane wejściowe dla następnego kroku). <br/>Ta odpowiedź tworzy wystąpienie aplikacji logiki i uruchamia przepływ pracy. | 
-| Nie znaleziono | Zwróć stan HTTP `202 ACCEPTED` z `location` nagłówkiem i `retry-after` nagłówkiem. <br/>W przypadku wyzwalaczy `location` nagłówek powinien również zawierać parametr `triggerState` zapytania, który zwykle jest "sygnaturą czasową". Interfejs API może użyć tego identyfikatora do śledzenia czasu ostatniego uruchomienia aplikacji logiki. | 
+| Nie znaleziono | Zwróć stan HTTP `202 ACCEPTED` z `location` nagłówkiem i `retry-after` nagłówkiem. <br/>W przypadku wyzwalaczy `location` nagłówek powinien również zawierać `triggerState` parametr zapytania, który zwykle jest "sygnaturą czasową". Interfejs API może użyć tego identyfikatora do śledzenia czasu ostatniego uruchomienia aplikacji logiki. | 
 ||| 
 
 Na przykład aby okresowo sprawdzać usługę pod kątem nowych plików, można utworzyć wyzwalacz sondowania, który ma następujące zachowania:
 
-| Czy żądanie `triggerState`zawiera? | Odpowiedź interfejsu API | 
+| Czy żądanie zawiera `triggerState` ? | Odpowiedź interfejsu API | 
 | -------------------------------- | -------------| 
-| Nie | Zwróć stan HTTP `202 ACCEPTED` i `location` nagłówek z `triggerState` ustawionym na bieżącą godzinę, a `retry-after` interwał na 15 sekund. | 
-| Yes | Sprawdź, czy usługa zawiera `DateTime` pliki dodane po stronie `triggerState`for. | 
+| Nie | Zwróć stan HTTP `202 ACCEPTED` `location` i nagłówek z `triggerState` ustawionym na bieżącą godzinę, a `retry-after` interwał na 15 sekund. | 
+| Yes | Sprawdź, czy usługa zawiera pliki dodane po stronie `DateTime` for `triggerState` . | 
 ||| 
 
 | Liczba znalezionych plików | Odpowiedź interfejsu API | 
 | --------------------- | -------------| 
 | Pojedynczy plik | Zwróć stan HTTP `200 OK` i ładunek zawartości, zaktualizuj `triggerState` do `DateTime` dla zwróconego pliku i ustaw `retry-after` interwał na 15 sekund. | 
-| Wiele plików | Zwróć jeden plik jednocześnie i stan HTTP `200 OK` , zaktualizuj `triggerState`i ustaw `retry-after` interwał na 0 sekund. </br>Te kroki umożliwiają aparatowi określenie, że dostępne są więcej danych i że aparat powinien natychmiast zażądać danych z adresu URL w `location` nagłówku. | 
-| Brak plików | Zwróć stan HTTP `202 ACCEPTED` , nie zmieniaj `triggerState`i ustaw `retry-after` interwał na 15 sekund. | 
+| Wiele plików | Zwróć jeden plik jednocześnie i `200 OK` stan http, zaktualizuj `triggerState` i ustaw `retry-after` interwał na 0 sekund. </br>Te kroki umożliwiają aparatowi określenie, że dostępne są więcej danych i że aparat powinien natychmiast zażądać danych z adresu URL w `location` nagłówku. | 
+| Brak plików | Zwróć stan HTTP `202 ACCEPTED` , nie zmieniaj `triggerState` i ustaw `retry-after` interwał na 15 sekund. | 
 ||| 
 
 > [!TIP]
@@ -192,7 +192,7 @@ Na przykład aby okresowo sprawdzać usługę pod kątem nowych plików, można 
 ### <a name="wait-and-listen-for-new-data-or-events-with-the-webhook-trigger-pattern"></a>Czekaj i Nasłuchuj nowych danych lub zdarzeń za pomocą wzorca wyzwalacza elementu webhook
 
 Wyzwalacz elementu webhook to *wyzwalacz wypychania* , który czeka i nasłuchuje nowych danych lub zdarzeń w punkcie końcowym usługi. Jeśli nowe dane lub zdarzenie spełniają określony warunek, wyzwalacz uruchamia i tworzy wystąpienie aplikacji logiki, które następnie przetwarza dane jako dane wejściowe.
-Wyzwalacze elementu webhook działają podobnie jak [Akcje elementu webhook](#webhook-actions) opisane wcześniej w tym temacie i są ustawiane `subscribe` za `unsubscribe` pomocą punktów końcowych i. 
+Wyzwalacze elementu webhook działają podobnie jak [Akcje elementu webhook](#webhook-actions) opisane wcześniej w tym temacie i są ustawiane za pomocą `subscribe` `unsubscribe` punktów końcowych i. 
 
 * `subscribe`punkt końcowy: po dodaniu i zapisaniu wyzwalacza elementu webhook w aplikacji logiki aparat Logic Apps wywołuje `subscribe` punkt końcowy. Ten krok powoduje, że aplikacja logiki tworzy adres URL wywołania zwrotnego, który jest przechowywany w interfejsie API. Gdy pojawią się nowe dane lub zdarzenie spełniające określony warunek, interfejs API wywołuje zwrotnie przy użyciu protokołu HTTP POST na adres URL. Ładunek zawartości i nagłówki są przekazywane jako dane wejściowe do aplikacji logiki.
 
@@ -204,7 +204,7 @@ Obecnie projektant aplikacji logiki nie obsługuje odnajdywania punktów końcow
 
 Oto kilka innych porad i uwag:
 
-* Aby przekazać adres URL wywołania zwrotnego, można użyć funkcji `@listCallbackUrl()` przepływu pracy w dowolnym z poprzednich pól, zgodnie z potrzebami.
+* Aby przekazać adres URL wywołania zwrotnego, można użyć `@listCallbackUrl()` funkcji przepływu pracy w dowolnym z poprzednich pól, zgodnie z potrzebami.
 
 * Aby zapobiec wielokrotnemu przetwarzaniu tych samych danych, wyzwalacz powinien czyścić dane, które zostały już odczytane i przesłane do aplikacji logiki.
 
@@ -226,9 +226,9 @@ Aby udostępnić niestandardowe interfejsy API wszystkim użytkownikom w Logic A
 
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 
-* Aby uzyskać pomoc dotyczącą niestandardowych interfejsów API [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com), skontaktuj się z pomocą techniczną.
+* Aby uzyskać pomoc dotyczącą niestandardowych interfejsów API, skontaktuj się z pomocą techniczną [customapishelp@microsoft.com](mailto:customapishelp@microsoft.com) .
 
-* Jeśli masz pytania, odwiedź [forum usługi Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Pytania można znaleźć w witrynie [Microsoft Q&pytanie dotyczące Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
 
 * Aby pomóc w ulepszaniu usługi Logic Apps, przesyłaj pomysły lub głosuj na nie w [witrynie opinii użytkowników usługi Logic Apps](https://aka.ms/logicapps-wish). 
 

@@ -9,12 +9,12 @@ ms.service: azure-supportability
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: kfollis
-ms.openlocfilehash: 2b68b6ddf19d6b07475e7009b47e162bfb2d0d2f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0bd1191c0b92203b100b1713971119ec828352ea
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478988"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835550"
 ---
 # <a name="how-to-create-an-azure-support-request"></a>Jak utworzyć żądanie pomocy technicznej dla platformy Azure
 
@@ -53,7 +53,7 @@ Aby uruchomić żądanie pomocy technicznej z dowolnego miejsca w Azure Portal:
 
    ![Pomoc i obsługa techniczna](./media/how-to-create-azure-support-request/helpandsupportnewlower.png)
 
-2. Wybierz pozycję **nowe żądanie obsługi**. Postępuj zgodnie z monitami, aby przekazać nam informacje o problemie. Zasugerujemy niektóre możliwe rozwiązania, zebranie szczegółowych informacji o problemie i przesłanie i śledzenie żądania pomocy technicznej.
+2. Wybierz pozycję **Nowe żądanie obsługi**. Postępuj zgodnie z monitami, aby przekazać nam informacje o problemie. Zasugerujemy niektóre możliwe rozwiązania, zebranie szczegółowych informacji o problemie i przesłanie i śledzenie żądania pomocy technicznej.
 
    ![Nowe żądanie pomocy technicznej](./media/how-to-create-azure-support-request/newsupportrequest2lower.png)
 
@@ -106,7 +106,7 @@ Agent pomocy technicznej skontaktuje się z Tobą przy użyciu wskazanej metody.
 
 ## <a name="all-support-requests"></a>Wszystkie żądania pomocy technicznej
 
-Szczegóły i stan żądań pomocy technicznej można wyświetlić, przechodząc do pomocy technicznej i **obsługując** >  **wszystkie żądania pomocy**technicznej.
+Szczegóły i stan żądań pomocy technicznej można wyświetlić, przechodząc do pomocy technicznej i **obsługując**  >   **wszystkie żądania pomocy**technicznej.
 
 ![Wszystkie żądania pomocy technicznej](./media/how-to-create-azure-support-request/allrequestslower.png)
 
@@ -128,5 +128,5 @@ Aby dowiedzieć się więcej o opcjach samoobsługowego rozwiązywania problemó
 
 * [Wyślij nam swoją opinię i sugestie](https://feedback.azure.com/forums/266794-support-feedback)
 * Zaangażuj nas w serwisie [Twitter](https://twitter.com/azuresupport)
-* Uzyskaj pomoc od swoich elementów równorzędnych na [forach MSDN](https://social.msdn.microsoft.com/Forums/azure)
+* Uzyskaj pomoc od swoich elementów równorzędnych w [&stronie pytań](https://docs.microsoft.com/answers/products/azure)
 * Dowiedz się więcej na temat [często zadawanych pytań](https://azure.microsoft.com/support/faq)

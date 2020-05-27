@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: 4cb2159b02635e659a8ca7236523e899bf01550c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6cace4bdc1b8558fb7186f6300189c22753cc8bf
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133242"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834853"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Co to jest usługa Azure SQL Database?
 
@@ -254,7 +254,7 @@ SQL Database klienci mają następujące prawa skojarzone z Korzyść użycia hy
 
 - Baza danych [usługi dba Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): zadawanie odpowiedzi na pytania administracyjne.
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/sql-server): zadawaj pytania dotyczące programowania.
-- [Fora MSDN](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): zadawaj pytania techniczne.
+- [Microsoft Q&stronie pytania](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html): zadawaj pytania techniczne.
 - [Opinie](https://aka.ms/sqlfeedback): Zgłoś błędy i funkcję żądania.
 - [Reddit](https://www.reddit.com/r/SQLServer/): Dyskutuj SQL Server.
 

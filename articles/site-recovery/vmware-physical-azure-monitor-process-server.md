@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 54c161c40c881d7626f79fc9bfe1ec1c160480ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 296254db83a065623b692d7947c130dfd71cd413
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79257071"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835057"
 ---
 # <a name="monitor-the-process-server"></a>Monitorowanie serwera przetwarzania
 
@@ -59,11 +59,11 @@ Serwer przetwarzania generuje wiele alertów dotyczących kondycji, które zosta
 ![Ostrzeżenie][yellow] | Wolne miejsce w folderze pamięci podręcznej < 30% dla ostatnich 15 minut
 ![Ostrzeżenie][yellow] | Site Recovery monitoruje dane oczekujące/wychodzące co pięć minut i szacuje, że dane w pamięci podręcznej serwera przetwarzania nie mogą być przekazywane do platformy Azure w ciągu 30 minut.
 ![Ostrzeżenie][yellow] | Usługi serwera przetwarzania nie są uruchomione w ciągu ostatnich 15 minut
-![Krytyczny][red] | Użycie procesora CPU > 95% dla ostatnich 15 minut
-![Krytyczny][red] | Użycie pamięci > 95% dla ostatnich 15 minut
-![Krytyczny][red] | Wolne miejsce w folderze pamięci podręcznej < 25% dla ostatnich 15 minut
-![Krytyczny][red] | Site Recovery monitoruje dane oczekujące/wychodzące co pięć minut i szacuje, że dane w pamięci podręcznej serwera przetwarzania nie mogą zostać przekazane do platformy Azure w ciągu 45 minut.
-![Krytyczny][red] | Brak pulsu z serwera przetwarzania przez 15 minut.
+![Krytyczne][red] | Użycie procesora CPU > 95% dla ostatnich 15 minut
+![Krytyczne][red] | Użycie pamięci > 95% dla ostatnich 15 minut
+![Krytyczne][red] | Wolne miejsce w folderze pamięci podręcznej < 25% dla ostatnich 15 minut
+![Krytyczne][red] | Site Recovery monitoruje dane oczekujące/wychodzące co pięć minut i szacuje, że dane w pamięci podręcznej serwera przetwarzania nie mogą zostać przekazane do platformy Azure w ciągu 45 minut.
+![Krytyczne][red] | Brak pulsu z serwera przetwarzania przez 15 minut.
 
 ![Klucz tabeli](./media/vmware-physical-azure-monitor-process-server/table-key.png)
 
@@ -96,7 +96,7 @@ Możesz również monitorować serwery przetwarzania w magazynie w obszarze **Si
 ## <a name="next-steps"></a>Następne kroki
 
 - Jeśli masz problemy z serwerami przetwarzania, postępuj zgodnie z naszymi [wskazówkami dotyczącymi rozwiązywania problemów](vmware-physical-azure-troubleshoot-process-server.md)
-- Jeśli potrzebujesz więcej pomocy, Opublikuj swoje pytanie na [forum Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). 
+- Jeśli potrzebujesz więcej pomocy, Opublikuj swoje pytanie na [stronie pytania&](https://docs.microsoft.com/answers/topics/azure-site-recovery.html)pytań i odpowiedzi dla Azure Site Recovery. 
 
 [green]: ./media/vmware-physical-azure-monitor-process-server/green.png
 [yellow]: ./media/vmware-physical-azure-monitor-process-server/yellow.png

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 28ddd2a2d75ab8a57dfc3176eefd703f6c43d0b6
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 93b34af0baed89fd312948aeffe8ea4ac8ef806c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745063"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834700"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Zarządzanie elementami Runbook w Azure Automation
 
@@ -338,6 +338,8 @@ foreach($item in $output)
 
 ## <a name="next-steps"></a>Następne kroki
 
-* [Wykonywanie elementu runbook w usłudze Azure Automation](automation-runbook-execution.md)
-* [Edytowanie tekstowych elementów Runbook w Azure Automation](automation-edit-textual-runbook.md)
-* [Tworzenie graficznych elementów Runbook w Azure Automation](automation-graphical-authoring-intro.md)
+* Aby dowiedzieć się więcej o zarządzaniu elementami Runbook, zobacz [wykonywanie elementów Runbook w Azure Automation](automation-runbook-execution.md).
+* Aby przygotować element Runbook programu PowerShell, zobacz [Edytowanie tekstowych elementów Runbook w Azure Automation](automation-edit-textual-runbook.md).
+* Aby uzyskać pomoc dotyczącą pisania elementu Runbook przepływu pracy programu PowerShell, zobacz [Informacje o przepływie pracy programu PowerShell dla Azure Automation](automation-powershell-workflow.md).
+* Aby uzyskać szczegółowe informacje na temat pisania graficznych elementów Runbook, zobacz [Tworzenie graficznych elementów Runbook w Azure Automation](automation-graphical-authoring-intro.md).
+* Aby rozwiązać problemy z wykonywaniem elementu Runbook, zobacz [Rozwiązywanie](troubleshoot/runbooks.md)problemów z elementem Runbook.

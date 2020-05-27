@@ -21,7 +21,7 @@
       href: concepts-roles-permissions.md
     - name: Odzyskiwanie po awarii
       href: disaster-recovery.md
-- name: Przykłady
+- name: Samples
   items:
     - name: Przykłady kodu
       href: 'https://docs.microsoft.com/samples/browse/?service=data-share/'
@@ -53,8 +53,8 @@
       href: /rest/api/datashare
 - name: Zasoby
   items:
-    - name: Forum MSDN
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureDataShare'
+    - name: Pytania i odpowiedzi Microsoft — strona pytania
+      href: 'https://docs.microsoft.com/answers/topics/azure-data-share.html'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-data-share'
     - name: Blog
@@ -63,7 +63,7 @@
       href: 'https://techcommunity.microsoft.com/'
     - name: Opinia dotycząca produktu
       href: 'https://feedback.azure.com/forums/922759-azure-data-share-public-preview'
-    - name: Ceny
+    - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/data-share/'
     - name: Aktualizacje usług
       href: 'https://azure.microsoft.com/updates/?product=data-share'

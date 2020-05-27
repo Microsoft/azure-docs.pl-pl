@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
-ms.openlocfilehash: dbe13b2d1291f212af7da9d1176bc3d90997978b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cd8557a33971be9fd0913bfdf84397d344901581
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81428968"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834382"
 ---
 # <a name="azure-key-vault-security"></a>Zabezpieczenia usługi Azure Key Vault
 
@@ -42,7 +42,7 @@ Model jednego mechanizmu uwierzytelniania w obu płaszczyznach ma kilka zalet:
 
 - Organizacje mogą kontrolować dostęp centralnie do wszystkich magazynów kluczy w organizacji.
 - Jeśli użytkownik opuści te osoby, natychmiast utraci dostęp do wszystkich magazynów kluczy w organizacji.
-- Organizacje mogą dostosowywać uwierzytelnianie przy użyciu opcji w usłudze Azure AD, np. w celu włączenia uwierzytelniania wieloskładnikowego w celu zwiększenia bezpieczeństwa
+- Organizacje mogą dostosowywać uwierzytelnianie przy użyciu opcji w usłudze Azure AD, takich jak włączenie uwierzytelniania wieloskładnikowego w celu zwiększenia bezpieczeństwa.
 
 ### <a name="managing-administrative-access-to-key-vault"></a>Zarządzanie dostępem administracyjnym do Key Vault
 
@@ -97,6 +97,6 @@ Aby uzyskać zalecenie dotyczące bezpiecznego zarządzania kontami magazynu, zo
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Punkty końcowe usługi sieci wirtualnej dla Azure Key Vault](overview-vnet-service-endpoints.md))
+- [Punkty końcowe usługi sieci wirtualnej dla Azure Key Vault](overview-vnet-service-endpoints.md)
 - [RBAC: Wbudowane role](../../role-based-access-control/built-in-roles.md)
-- [punkty końcowe usługi sieci wirtualnej dla Azure Key Vault](overview-vnet-service-endpoints.md))
+- [punkty końcowe usługi sieci wirtualnej dla Azure Key Vault](overview-vnet-service-endpoints.md)

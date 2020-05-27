@@ -7,12 +7,12 @@ ms.service: azure-supportability
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: xingwan
-ms.openlocfilehash: b0f0762ded6804c0b0d90a19223c082f0fb8fd49
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6a88cb4ff2385edd3c867c84774df1d0e21422be
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76843644"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835992"
 ---
 # <a name="region-or-sku-unavailable"></a>Region lub jednostka SKU jest niedostępna
 
@@ -68,7 +68,7 @@ Jeśli nie możesz znaleźć odpowiedniego regionu lub jednostki SKU, Utwórz [�
 
 1. W obszarze **typ problemu**wybierz **pozycję Wybierz typ problemu**.
 
-1. W obszarze **typ problemu wybierz**opcję, na przykład **nie można uzyskać dostępu do mojej subskrypcji lub zasobu** > **mój problem nie jest wymieniony powyżej**. Wybierz pozycję **Zapisz**.
+1. W obszarze **typ problemu wybierz**opcję, na przykład **nie można uzyskać dostępu do mojej subskrypcji lub zasobu**  >  **mój problem nie jest wymieniony powyżej**. Wybierz pozycję **Zapisz**.
 
    ![Określ problem dotyczący żądania](./media/SKU-series-unavailable/support-request-select-problem-type.png)
 
@@ -80,7 +80,7 @@ Jeśli nie możesz znaleźć odpowiedniego regionu lub jednostki SKU, Utwórz [�
 
 ## <a name="send-us-your-suggestions"></a>Wyślij nam swoje sugestie
 
-Zawsze jesteśmy w trakcie korzystania z opinii i sugestii. Wyślij nam swoje [sugestie](https://feedback.azure.com/forums/266794-support-feedback). Ponadto możesz zaangażować się z nami w [serwisie Twitter](https://twitter.com/azuresupport) lub na [forach MSDN](https://social.msdn.microsoft.com/Forums/azure).
+Zawsze jesteśmy w trakcie korzystania z opinii i sugestii. Wyślij nam swoje [sugestie](https://feedback.azure.com/forums/266794-support-feedback). Ponadto możesz zaangażować się z nami w serwisie [Twitter](https://twitter.com/azuresupport) lub stronie pytań i odpowiedzi na [pytania firmy Microsoft&](https://docs.microsoft.com/answers/products/azure).
 
 ## <a name="learn-more"></a>Dowiedz się więcej
 

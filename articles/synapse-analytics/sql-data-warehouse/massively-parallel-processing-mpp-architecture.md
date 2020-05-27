@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: d57f02b9aff56c83aa1c12bd441df2863f6d6fa7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6768bc2420008db1e708cdbe3ef70a6146ed8010
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658484"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835516"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Architektura usługi Azure Synapse Analytics (dawniej SQL DW)
 
@@ -119,6 +119,6 @@ Teraz, gdy znasz już usługę Azure Synapse, Dowiedz się, jak szybko [utworzy�
 - [Żądania funkcji](https://feedback.azure.com/forums/307516-sql-data-warehouse)
 - [Filmy wideo](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 - [Tworzenie biletu pomocy technicznej](sql-data-warehouse-get-started-create-support-ticket.md)
-- [Forum MSDN](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse)
+- [Strona pytania&pytań i odpowiedzi](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html)
 - [Forum Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw)
-- [Ekran](https://twitter.com/hashtag/SQLDW)
+- [Twitter](https://twitter.com/hashtag/SQLDW)

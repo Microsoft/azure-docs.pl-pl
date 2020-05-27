@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 812cd0293f9627b7438e9870d8985e71dae1d147
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7657d614645bb00235db2701773bc15fa260b70d
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79256863"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835805"
 ---
 # <a name="troubleshoot-the-process-server"></a>Rozwiązywanie problemów z serwerem przetwarzania
 
@@ -34,7 +34,7 @@ W celu uzyskania optymalnej wydajności serwerów przetwarzania podsumowano kilk
 
 **Najlepsze rozwiązanie** | **Szczegóły**
 --- |---
-**Wykorzystywani** | Upewnij się, że serwer konfiguracji/autonomiczny serwer procesu są używane tylko na potrzeby zamierzonego celu. Nie uruchamiaj żadnych innych elementów na komputerze.
+**Użycie** | Upewnij się, że serwer konfiguracji/autonomiczny serwer procesu są używane tylko na potrzeby zamierzonego celu. Nie uruchamiaj żadnych innych elementów na komputerze.
 **Adres IP** | Upewnij się, że serwer przetwarzania ma statyczny adres IPv4 i nie ma skonfigurowanego translatora adresów sieciowych.
 **Sterowanie użyciem pamięci/procesora CPU** |Zachowaj użycie procesora i pamięci na 70%.
 **Upewnij się, że ilość wolnego miejsca** | Wolne miejsce odnosi się do miejsca na dysku pamięci podręcznej na serwerze przetwarzania. Dane replikacji są przechowywane w pamięci podręcznej przed przekazaniem ich do platformy Azure.<br/><br/> Zachowaj wolne miejsce powyżej 25%. Jeśli spadnie poniżej 20%, replikacja zostanie ograniczona dla replikowanych maszyn skojarzonych z serwerem przetwarzania.
@@ -54,12 +54,12 @@ Serwer przetwarzania generuje wiele alertów dotyczących kondycji. Te alerty i 
 ![Dobra kondycja][green] | Brak  | Serwer przetwarzania jest podłączony i jest w dobrej kondycji.
 ![Ostrzeżenie][yellow] | Określone usługi nie są uruchomione. | 1. Sprawdź, czy usługi są uruchomione.<br/> 2. Jeśli usługi działają zgodnie z oczekiwaniami, postępuj zgodnie z poniższymi instrukcjami, aby [rozwiązać problemy z łącznością i replikacją](#check-connectivity-and-replication).
 ![Ostrzeżenie][yellow]  | Użycie procesora CPU > 80% dla ostatnich 15 minut. | 1. nie dodawaj nowych maszyn.<br/>2. Sprawdź, czy liczba maszyn wirtualnych używających serwera przetwarzania jest wyrównana do [zdefiniowanych limitów](site-recovery-plan-capacity-vmware.md#capacity-considerations), i rozważ skonfigurowanie [dodatkowego serwera przetwarzania](vmware-azure-set-up-process-server-scale.md).<br/>3. Postępuj zgodnie z poniższymi instrukcjami, aby [rozwiązać problemy z łącznością i replikacją](#check-connectivity-and-replication).
-![Krytyczny][red] |  Użycie procesora CPU > 95% dla ostatnich 15 minut. | 1. nie dodawaj nowych maszyn.<br/>2. Sprawdź, czy liczba maszyn wirtualnych używających serwera przetwarzania jest wyrównana do [zdefiniowanych limitów](site-recovery-plan-capacity-vmware.md#capacity-considerations), i rozważ skonfigurowanie [dodatkowego serwera przetwarzania](vmware-azure-set-up-process-server-scale.md).<br/>3. Postępuj zgodnie z poniższymi instrukcjami, aby [rozwiązać problemy z łącznością i replikacją](#check-connectivity-and-replication).<br/> 4. Jeśli problem będzie się powtarzać, uruchom [planista wdrażania](https://aka.ms/asr-v2a-deployment-planner) na potrzeby replikacji oprogramowania VMware/serwera fizycznego.
+![Krytyczne][red] |  Użycie procesora CPU > 95% dla ostatnich 15 minut. | 1. nie dodawaj nowych maszyn.<br/>2. Sprawdź, czy liczba maszyn wirtualnych używających serwera przetwarzania jest wyrównana do [zdefiniowanych limitów](site-recovery-plan-capacity-vmware.md#capacity-considerations), i rozważ skonfigurowanie [dodatkowego serwera przetwarzania](vmware-azure-set-up-process-server-scale.md).<br/>3. Postępuj zgodnie z poniższymi instrukcjami, aby [rozwiązać problemy z łącznością i replikacją](#check-connectivity-and-replication).<br/> 4. Jeśli problem będzie się powtarzać, uruchom [planista wdrażania](https://aka.ms/asr-v2a-deployment-planner) na potrzeby replikacji oprogramowania VMware/serwera fizycznego.
 ![Ostrzeżenie][yellow] | Użycie pamięci > 80% dla ostatnich 15 minut. |  1. nie dodawaj nowych maszyn.<br/>2. Sprawdź, czy liczba maszyn wirtualnych używających serwera przetwarzania jest wyrównana do [zdefiniowanych limitów](site-recovery-plan-capacity-vmware.md#capacity-considerations), i rozważ skonfigurowanie [dodatkowego serwera przetwarzania](vmware-azure-set-up-process-server-scale.md).<br/>3. Postępuj zgodnie z wszelkimi instrukcjami związanymi z ostrzeżeniem.<br/> 4. Jeśli problem będzie się powtarzać, postępuj zgodnie z poniższymi instrukcjami, aby [rozwiązać problemy z łącznością i replikacją](#check-connectivity-and-replication).
-![Krytyczny][red] | Użycie pamięci > 95% dla ostatnich 15 minut. | 1. nie dodawaj nowych maszyn i rozważ skonfigurowanie [dodatkowego serwera przetwarzania](vmware-azure-set-up-process-server-scale.md).<br/> 2. Postępuj zgodnie z wszelkimi instrukcjami związanymi z ostrzeżeniem.<br/> 3.4. Jeśli problem będzie się powtarzał, postępuj zgodnie z poniższymi instrukcjami, aby [rozwiązać problemy z łącznością i replikacją](#check-connectivity-and-replication).<br/> 4. Jeśli problem będzie się powtarzać, uruchom [planista wdrażania](https://aka.ms/asr-v2a-deployment-planner) w przypadku problemów z replikacją oprogramowania VMware/serwera fizycznego.
+![Krytyczne][red] | Użycie pamięci > 95% dla ostatnich 15 minut. | 1. nie dodawaj nowych maszyn i rozważ skonfigurowanie [dodatkowego serwera przetwarzania](vmware-azure-set-up-process-server-scale.md).<br/> 2. Postępuj zgodnie z wszelkimi instrukcjami związanymi z ostrzeżeniem.<br/> 3.4. Jeśli problem będzie się powtarzał, postępuj zgodnie z poniższymi instrukcjami, aby [rozwiązać problemy z łącznością i replikacją](#check-connectivity-and-replication).<br/> 4. Jeśli problem będzie się powtarzać, uruchom [planista wdrażania](https://aka.ms/asr-v2a-deployment-planner) w przypadku problemów z replikacją oprogramowania VMware/serwera fizycznego.
 ![Ostrzeżenie][yellow] | Wolne miejsce w folderze pamięci podręcznej < 30% dla ostatnich 15 minut. | 1. nie dodawaj nowych maszyn i rozważ skonfigurowanie [dodatkowego serwera przetwarzania](vmware-azure-set-up-process-server-scale.md).<br/>2. Sprawdź, czy liczba maszyn wirtualnych używających serwera przetwarzania jest wyrównana do [wskazówek](site-recovery-plan-capacity-vmware.md#capacity-considerations).<br/> 3. Postępuj zgodnie z poniższymi instrukcjami, aby [rozwiązać problemy z łącznością i replikacją](#check-connectivity-and-replication).
-![Krytyczny][red] |  Wolne miejsce < 25% dla ostatnich 15 minut | 1. Postępuj zgodnie z instrukcjami związanymi z ostrzeżeniem dotyczącym tego problemu.<br/> 2.3. Postępuj zgodnie z poniższymi instrukcjami, aby [rozwiązać problemy z łącznością i replikacją](#check-connectivity-and-replication).<br/> 3. Jeśli problem będzie się powtarzać, uruchom [planista wdrażania](https://aka.ms/asr-v2a-deployment-planner) na potrzeby replikacji oprogramowania VMware/serwera fizycznego.
-![Krytyczny][red] | Brak pulsu z serwera przetwarzania przez 15 minut lub dłużej. Usługa tmansvs nie komunikuje się z serwerem konfiguracji. | 1) Sprawdź, czy serwer przetwarzania jest uruchomiony.<br/> 2. Sprawdź, czy tmassvc jest uruchomiona na serwerze przetwarzania.<br/> 3. Postępuj zgodnie z poniższymi instrukcjami, aby [rozwiązać problemy z łącznością i replikacją](#check-connectivity-and-replication).
+![Krytyczne][red] |  Wolne miejsce < 25% dla ostatnich 15 minut | 1. Postępuj zgodnie z instrukcjami związanymi z ostrzeżeniem dotyczącym tego problemu.<br/> 2.3. Postępuj zgodnie z poniższymi instrukcjami, aby [rozwiązać problemy z łącznością i replikacją](#check-connectivity-and-replication).<br/> 3. Jeśli problem będzie się powtarzać, uruchom [planista wdrażania](https://aka.ms/asr-v2a-deployment-planner) na potrzeby replikacji oprogramowania VMware/serwera fizycznego.
+![Krytyczne][red] | Brak pulsu z serwera przetwarzania przez 15 minut lub dłużej. Usługa tmansvs nie komunikuje się z serwerem konfiguracji. | 1) Sprawdź, czy serwer przetwarzania jest uruchomiony.<br/> 2. Sprawdź, czy tmassvc jest uruchomiona na serwerze przetwarzania.<br/> 3. Postępuj zgodnie z poniższymi instrukcjami, aby [rozwiązać problemy z łącznością i replikacją](#check-connectivity-and-replication).
 
 
 ![Klucz tabeli](./media/vmware-physical-azure-troubleshoot-process-server/table-key.png)
@@ -235,7 +235,7 @@ Sprawdź, czy zapora oparta na adresie IP na serwerze przetwarzania blokuje dost
 
     a) Wyszukaj **Microsoft Azure Backup**.
 
-    b) Otwórz **Microsoft Azure Backup**i wybierz pozycję **Akcja** > **Zmień właściwości**.
+    b) Otwórz **Microsoft Azure Backup**i wybierz pozycję **Akcja**  >  **Zmień właściwości**.
 
     c) na karcie **Konfiguracja serwera proxy** adres serwera proxy powinien być taki sam jak adres serwera proxy, który jest wyświetlany w ustawieniach rejestru. Jeśli nie, Zmień ją na ten sam adres.
 
@@ -246,7 +246,7 @@ Zwiększ przepustowość między serwerem przetwarzania i platformą Azure, a na
 
 ## <a name="next-steps"></a>Następne kroki
 
-Jeśli potrzebujesz więcej pomocy, Opublikuj swoje pytanie na [forum Azure Site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). 
+Jeśli potrzebujesz więcej pomocy, Opublikuj swoje pytanie na [stronie pytania&](https://docs.microsoft.com/answers/topics/azure-site-recovery.html)pytań i odpowiedzi dla Azure Site Recovery. 
 
 [green]: ./media/vmware-physical-azure-troubleshoot-process-server/green.png
 [yellow]: ./media/vmware-physical-azure-troubleshoot-process-server/yellow.png

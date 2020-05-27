@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 04/16/2020
-ms.openlocfilehash: f6dea00bf3b3e8a58f42da8fd8ad59ccec2dea72
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 17c73866a11aae23efea90073f64b61808c13a35
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537801"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834717"
 ---
 # <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Używanie pustych węzłów brzegowych w klastrach Apache Hadoop w usłudze HDInsight
 
@@ -61,17 +61,18 @@ Po utworzeniu węzła brzegowego można nawiązać połączenie z węzłem brzeg
 > [!WARNING]
 > Składniki niestandardowe zainstalowane w węźle brzegowym otrzymują komercyjnie uzasadnioną pomoc techniczną firmy Microsoft. Może to spowodować rozwiązanie napotkanych problemów. Możesz też przystąpić do zasobów społeczności, aby uzyskać dalszą pomoc. Poniżej wymieniono niektóre z najbardziej aktywnych witryn do uzyskiwania pomocy od społeczności:
 >
-> * [Forum MSDN dotyczące usługi HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)
+> * [Microsoft Q&stronie pytania dla usługi HDInsight] (https://docs.microsoft.com/answers/topics/azure-hdinsight.html
+
 > * [https://stackoverflow.com](https://stackoverflow.com).
 >
-> W przypadku korzystania z technologii Apache można znaleźć pomoc w witrynach projektów Apache w systemie [https://apache.org](https://apache.org), takich jak lokacja [Apache Hadoop](https://hadoop.apache.org/) .
+> W przypadku korzystania z technologii Apache można znaleźć pomoc w witrynach projektów Apache w systemie [https://apache.org](https://apache.org) , takich jak lokacja [Apache Hadoop](https://hadoop.apache.org/) .
 
 > [!IMPORTANT]
 > Obrazy Ubuntu są dostępne dla nowego klastra usługi HDInsight w ciągu 3 miesięcy od opublikowania. Począwszy od stycznia 2019, uruchomione klastry (w tym węzły brzegowe) **nie** są poprawiane przez program. Aby zastosować poprawki do działającego klastra, klienci muszą używać akcji skryptu lub innych mechanizmów.  Aby uzyskać więcej informacji, zobacz [poprawka systemu operacyjnego dla usługi HDInsight](./hdinsight-os-patching.md).
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Dodawanie węzła krawędzi do istniejącego klastra
 
-W tej sekcji użyjesz szablonu Menedżer zasobów, aby dodać węzeł brzegowy do istniejącego klastra usługi HDInsight.  Szablon Menedżer zasobów można znaleźć w witrynie [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-add-edge-node/). Szablon Menedżer zasobów wywołuje akcję skryptu znajdującą się w https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. Skrypt nie wykonuje żadnych akcji.  Jest to zademonstrowanie wywoływanej akcji skryptu z szablonu Menedżer zasobów.
+W tej sekcji użyjesz szablonu Menedżer zasobów, aby dodać węzeł brzegowy do istniejącego klastra usługi HDInsight.  Szablon Menedżer zasobów można znaleźć w witrynie [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-add-edge-node/). Szablon Menedżer zasobów wywołuje akcję skryptu znajdującą się w https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh . Skrypt nie wykonuje żadnych akcji.  Jest to zademonstrowanie wywoływanej akcji skryptu z szablonu Menedżer zasobów.
 
 1. Wybierz Poniższy obraz, aby zalogować się do platformy Azure i otworzyć szablon Azure Resource Manager w Azure Portal.
 
@@ -89,11 +90,11 @@ W tej sekcji użyjesz szablonu Menedżer zasobów, aby dodać węzeł brzegowy d
 1. Zaznacz pole wyboru Akceptuję **warunki i postanowienia podane powyżej**, a następnie wybierz pozycję **Kup** , aby utworzyć węzeł brzegowy.
 
 > [!IMPORTANT]  
-> Upewnij się, że wybrano grupę zasobów platformy Azure dla istniejącego klastra usługi HDInsight.  W przeciwnym razie zostanie wyświetlony komunikat o błędzie "nie można wykonać wymaganej operacji na zasobie zagnieżdżonym. Nie znaleziono zasobu&lt;nadrzędnego "clustername>". "
+> Upewnij się, że wybrano grupę zasobów platformy Azure dla istniejącego klastra usługi HDInsight.  W przeciwnym razie zostanie wyświetlony komunikat o błędzie "nie można wykonać wymaganej operacji na zasobie zagnieżdżonym. Nie znaleziono zasobu nadrzędnego " &lt; clustername>". "
 
 ## <a name="add-an-edge-node-when-creating-a-cluster"></a>Dodawanie węzła krawędzi podczas tworzenia klastra
 
-W tej sekcji użyjesz szablonu Menedżer zasobów, aby utworzyć klaster usługi HDInsight z węzłem krawędzi.  Szablon Menedżer zasobów można znaleźć w [galerii szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/). Szablon Menedżer zasobów wywołuje akcję skryptu znajdującą się w https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh. Skrypt nie wykonuje żadnych akcji.  Jest to zademonstrowanie wywoływanej akcji skryptu z szablonu Menedżer zasobów.
+W tej sekcji użyjesz szablonu Menedżer zasobów, aby utworzyć klaster usługi HDInsight z węzłem krawędzi.  Szablon Menedżer zasobów można znaleźć w [galerii szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/documentation/templates/101-hdinsight-linux-with-edge-node/). Szablon Menedżer zasobów wywołuje akcję skryptu znajdującą się w https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-with-edge-node/scripts/EmptyNodeSetup.sh . Skrypt nie wykonuje żadnych akcji.  Jest to zademonstrowanie wywoływanej akcji skryptu z szablonu Menedżer zasobów.
 
 1. Utwórz klaster usługi HDInsight, jeśli jeszcze go nie masz.  Zobacz [Rozpoczynanie korzystania z usługi Hadoop w usłudze HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
@@ -125,7 +126,7 @@ Można dodać wiele węzłów krawędzi do klastra usługi HDInsight.  Konfigura
 
 ## <a name="access-an-edge-node"></a>Dostęp do węzła brzegowego
 
-Punkt końcowy SSH węzła brzegowego &lt;to EdgeNodeName>. &lt;Clustername>-SSH.azurehdinsight.NET:22.  Na przykład new-edgenode.myedgenode0914-ssh.azurehdinsight.net:22.
+Punkt końcowy SSH węzła brzegowego to &lt; EdgeNodeName>. &lt; ClusterName>-ssh.azurehdinsight.net:22.  Na przykład new-edgenode.myedgenode0914-ssh.azurehdinsight.net:22.
 
 Węzeł brzegowy jest wyświetlany jako aplikacja na Azure Portal.  Portal udostępnia informacje umożliwiające dostęp do węzła brzegowego przy użyciu protokołu SSH.
 

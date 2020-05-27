@@ -1,14 +1,14 @@
 ---
 title: Funkcje planów platformy Azure
 description: Zawiera opis funkcji dostępnych do użycia z artefaktami strategii w definicjach i przypisaniach platformy Azure.
-ms.date: 12/09/2019
+ms.date: 05/22/2020
 ms.topic: reference
-ms.openlocfilehash: 0aab2fe0511ccc11842d0e132a83d6e3f7fac27f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e804cc98f7bd6d3e94e6b518f0ed0575f9f8f440
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79280679"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834785"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funkcje do użycia z planami platformy Azure
 
@@ -30,13 +30,13 @@ Obsługiwane są następujące funkcje:
 Zwraca obiekt właściwości wypełniony przez dane wyjściowe artefaktów planu.
 
 > [!NOTE]
-> Nie `artifacts()` można użyć funkcji z wnętrza szablonu Menedżer zasobów. Funkcja może być używana tylko w formacie JSON definicji strategii lub w pliku JSON artefaktu podczas zarządzania planem za pomocą Azure PowerShell lub interfejsu API REST jako części [planów jako kodu](https://github.com/Azure/azure-blueprints/blob/master/README.md).
+> `artifacts()`Nie można użyć funkcji z wnętrza szablonu Menedżer zasobów. Funkcja może być używana tylko w formacie JSON definicji strategii lub w pliku JSON artefaktu podczas zarządzania planem za pomocą Azure PowerShell lub interfejsu API REST jako części [planów jako kodu](https://github.com/Azure/azure-blueprints/blob/master/README.md).
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagany | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| artefaktname |Tak |ciąg |Nazwa artefaktu planu. |
+| artefaktname |Yes |ciąg |Nazwa artefaktu planu. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -125,7 +125,7 @@ Przykłady pobierania danych z przykładu _myTemplateArtifact_ są następujące
 
 | Parametr | Wymagany | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| ciąg1 |Tak |ciąg |Pierwsza wartość dla łączenia. |
+| ciąg1 |Yes |ciąg |Pierwsza wartość dla łączenia. |
 | dodatkowe argumenty |Nie |ciąg |Dodatkowe wartości w kolejności sekwencyjnej dla łączenia |
 
 ### <a name="return-value"></a>Wartość zwracana
@@ -150,7 +150,7 @@ Zwraca wartość parametru planu. Określona nazwa parametru musi być zdefiniow
 
 | Parametr | Wymagany | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| parameterName |Tak |ciąg |Nazwa parametru do zwrócenia. |
+| parameterName |Yes |ciąg |Nazwa parametru do zwrócenia. |
 
 ### <a name="return-value"></a>Wartość zwracana
 
@@ -218,7 +218,7 @@ Zwrócony obiekt ma następujący format:
 
 ### <a name="remarks"></a>Uwagi
 
-Funkcja Azure Blueprint różni się od funkcji szablonu Azure Resource Manager. Nie `resourceGroup()` można użyć funkcji w artefaktie poziomu subskrypcji lub definicji planu. Może być używany tylko w artefaktach planu, które są częścią artefaktu grupy zasobów.
+Funkcja Azure Blueprint różni się od funkcji szablonu Azure Resource Manager. `resourceGroup()`Nie można użyć funkcji w artefaktie poziomu subskrypcji lub definicji planu. Może być używany tylko w artefaktach planu, które są częścią artefaktu grupy zasobów.
 
 Typowym zastosowaniem `resourceGroup()` funkcji jest tworzenie zasobów w tej samej lokalizacji co artefakt grupy zasobów.
 
@@ -265,13 +265,13 @@ Następnie użyj `resourceGroup()` funkcji w kontekście artefaktu planu, który
 
 `resourceGroups(placeholderName)`
 
-Zwraca obiekt, który reprezentuje określony artefakt grupy zasobów. W przeciwieństwie `resourceGroup()`do, który wymaga kontekstu artefaktu, ta funkcja jest używana do pobierania właściwości określonego symbolu zastępczego grupy zasobów, gdy nie znajduje się w kontekście tej grupy zasobów.
+Zwraca obiekt, który reprezentuje określony artefakt grupy zasobów. W przeciwieństwie do `resourceGroup()` , który wymaga kontekstu artefaktu, ta funkcja jest używana do pobierania właściwości określonego symbolu zastępczego grupy zasobów, gdy nie znajduje się w kontekście tej grupy zasobów.
 
 ### <a name="parameters"></a>Parametry
 
 | Parametr | Wymagany | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| Symbol zastępczy |Tak |ciąg |Nazwa symbolu zastępczego artefaktu grupy zasobów do zwrócenia. |
+| Symbol zastępczy |Yes |ciąg |Nazwa symbolu zastępczego artefaktu grupy zasobów do zwrócenia. |
 
 ### <a name="return-value"></a>Wartość zwracana
 

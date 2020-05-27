@@ -7,12 +7,12 @@ keywords: Azure Automation, DSC, PowerShell, konfiguracja stanu, zarządzanie ak
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 5e9d680e2f7d4a0ed3439d5acb6106fa1415aec1
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: e02cfdaac602adfe455c26d9e87939586fd9738a
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83712778"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83835278"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Wprowadzenie do usługi Azure Automation
 
@@ -31,13 +31,13 @@ Automatyzacja procesów obsługuje integrację usług platformy Azure i innych s
 Zarządzanie konfiguracją w programie Azure Automation umożliwia dostęp do dwóch funkcji:
 
 * Śledzenie zmian i spis
-* Azure Automation State Configuration
+* Usługa State Configuration w usłudze Azure Automation
 
 ### <a name="change-tracking-and-inventory"></a>Śledzenie zmian i spis
 
 Change Tracking i spis łączy funkcje śledzenia zmian i spisu, aby umożliwić śledzenie zmian infrastruktury maszyny wirtualnej i serwera. Usługa obsługuje śledzenie zmian w usługach, demonach, oprogramowaniu, rejestrze i plikach w środowisku, aby ułatwić diagnozowanie niepożądanych zmian i zgłaszanie alertów. Obsługa spisu umożliwia wykonywanie zapytań dotyczących zasobów gościa w celu wglądu w zainstalowane aplikacje i inne elementy konfiguracji. Aby uzyskać szczegółowe informacje o tej funkcji, zobacz [Change Tracking i spis](change-tracking.md).
 
-### <a name="azure-automation-state-configuration"></a>Azure Automation State Configuration
+### <a name="azure-automation-state-configuration"></a>Usługa State Configuration w usłudze Azure Automation
 
 [Konfiguracja stanu Azure Automation](automation-dsc-overview.md) to oparta na chmurze funkcja konfiguracji żądanego stanu (DSC) programu PowerShell, która udostępnia usługi dla środowisk przedsiębiorstwa. Korzystając z tej funkcji, można zarządzać zasobami DSC w Azure Automation i stosować konfiguracje na maszynach wirtualnych lub fizycznych z serwera ściągania DSC w chmurze platformy Azure. 
 
@@ -97,5 +97,4 @@ Ceny skojarzone z Azure Automation można sprawdzić na stronie [cennika](https:
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Utwórz konto usługi Automation](automation-quickstart-create-account.md)
-
+> [Tworzenie konta usługi Automation](automation-quickstart-create-account.md)

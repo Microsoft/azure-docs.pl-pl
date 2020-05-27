@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 4b265bb574895e4728ad93ee25c9dad0da226ea4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 60fde4ca1d8aaf47367fcdb4b5dc7c73753b7496
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80240302"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834768"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Analiza opinii w usłudze Twitter w czasie rzeczywistym za pomocą usługi Azure Stream Analytics
 
@@ -56,7 +56,7 @@ W tej sekcji utworzysz przestrzeń nazw centrum zdarzeń i dodasz centrum zdarze
  
 4. Po zakończeniu wdrażania obszaru nazw przejdź do grupy zasobów i Znajdź przestrzeń nazw centrum zdarzeń na liście zasobów platformy Azure. 
 
-5. Z nowej przestrzeni nazw wybierz pozycję ** + &nbsp;centrum zdarzeń**. 
+5. Z nowej przestrzeni nazw wybierz pozycję ** + &nbsp; centrum zdarzeń**. 
 
 6. Nazwij nowe centrum zdarzeń *socialtwitter-EH*. Możesz użyć innej nazwy. Jeśli to zrobisz, zanotuj je, ponieważ potrzebujesz tej nazwy później. Nie trzeba ustawiać żadnych innych opcji centrum zdarzeń.
  
@@ -89,7 +89,7 @@ Aby proces mógł wysyłać dane do centrum zdarzeń, centrum zdarzeń musi mie�
    Endpoint=sb://EVENTHUBS-NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=socialtwitter-access;SharedAccessKey=Gw2NFZw6r...FxKbXaC2op6a0ZsPkI=;EntityPath=socialtwitter-eh
    ```
 
-   Zwróć uwagę, że parametry połączenia zawierają wiele par klucz-wartość, oddzielone średnikami `Endpoint`: `SharedAccessKeyName`, `SharedAccessKey`, i `EntityPath`.  
+   Zwróć uwagę, że parametry połączenia zawierają wiele par klucz-wartość, oddzielone średnikami: `Endpoint` , `SharedAccessKeyName` , `SharedAccessKey` i `EntityPath` .  
 
    > [!NOTE]
    > W celu zapewnienia bezpieczeństwa części ciągu połączenia w przykładzie zostały usunięte.
@@ -129,14 +129,14 @@ Przed uruchomieniem aplikacji wymagane są pewne informacje, takie jak klucze se
 
 2. Użyj edytora tekstów, aby otworzyć plik *App. config* . Wprowadź następujące zmiany do `<appSettings>` elementu:
 
-   * Ustaw `oauth_consumer_key` wartość klucza klienta usługi Twitter (klucz interfejsu API). 
+   * Ustaw wartość `oauth_consumer_key` klucza klienta usługi Twitter (klucz interfejsu API). 
    * Ustaw `oauth_consumer_secret` na wpis tajny klienta usługi Twitter (klucz tajny interfejsu API).
    * Ustaw `oauth_token` na token dostępu w usłudze Twitter.
    * Ustaw `oauth_token_secret` klucz tajny tokenu dostępu w usłudze Twitter.
-   * Ustaw `EventHubNameConnectionString` parametry połączenia.
+   * Ustaw `EventHubNameConnectionString` Parametry połączenia.
    * Ustaw `EventHubName` nazwę centrum zdarzeń (która jest wartością ścieżki jednostki).
 
-3. Otwórz wiersz polecenia i przejdź do katalogu, w którym znajduje się aplikacja TwitterClientCore. Użyj polecenia `dotnet build` , aby skompilować projekt. Następnie użyj polecenia `dotnet run` , aby uruchomić aplikację. Aplikacja wysyła tweety do centrum zdarzeń.
+3. Otwórz wiersz polecenia i przejdź do katalogu, w którym znajduje się aplikacja TwitterClientCore. Użyj polecenia, `dotnet build` Aby skompilować projekt. Następnie użyj polecenia, `dotnet run` Aby uruchomić aplikację. Aplikacja wysyła tweety do centrum zdarzeń.
 
 ## <a name="create-a-stream-analytics-job"></a>Tworzenie zadania usługi Stream Analytics
 
@@ -154,7 +154,7 @@ Teraz, gdy zdarzenia tweetu są przesyłane strumieniowo w czasie rzeczywistym z
 
 1. W zadaniu Stream Analytics wybierz pozycję **dane wejściowe** z menu po lewej stronie w obszarze **topologia zadania**.
 
-2. Wybierz pozycję ** + &nbsp;Dodaj** > **centrum zdarzeń**wejścia strumienia. Wypełnij nowy formularz **wejściowy** z następującymi informacjami:
+2. Wybierz pozycję Dodaj centrum zdarzeń ** + &nbsp; wejścia strumienia**  >  **Event Hub**. Wypełnij nowy formularz **wejściowy** z następującymi informacjami:
 
    |**Ustawienie**  |**Sugerowana wartość**  |**Opis**  |
    |---------|---------|---------|
@@ -205,12 +205,12 @@ W tym przewodniku krok po kroku napiszesz zagregowane zdarzenia tweetu z kwerend
 
 1. W sekcji **topologia zadania** w menu nawigacji po lewej stronie wybierz pozycję dane **wyjściowe**. 
 
-2. Na stronie dane **wyjściowe** kliknij pozycje ** + &nbsp;Dodaj** i **Magazyn obiektów BLOB/Data Lake Storage Gen2**:
+2. Na stronie dane **wyjściowe** kliknij pozycje ** + &nbsp; Dodaj** i **Magazyn obiektów BLOB/Data Lake Storage Gen2**:
 
-   * **Alias wyjściowy**: Użyj nazwy `TwitterStream-Output`. 
+   * **Alias wyjściowy**: Użyj nazwy `TwitterStream-Output` . 
    * **Opcje importowania**: Wybierz **pozycję Wybierz magazyn z subskrypcji**.
    * **Konto magazynu**. Wybierz swoje konto magazynu.
-   * **Kontener**. Wybierz pozycję **Utwórz nowy** i `socialtwitter`wprowadź.
+   * **Kontener**. Wybierz pozycję **Utwórz nowy** i wprowadź `socialtwitter` .
    
 4. Wybierz pozycję **Zapisz**.   
 
@@ -225,7 +225,7 @@ Określono dane wejściowe zadania, zapytania i wyjścia. Możesz przystąpić d
 3. Na stronie **Uruchamianie zadania** , w polu **czas rozpoczęcia zadania**, wybierz pozycję **teraz** , a następnie wybierz pozycję **Uruchom**.
 
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
-Aby uzyskać dalszą pomoc, wypróbuj nasze [forum Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
+Aby uzyskać dalszą pomoc, Wypróbuj naszą [stronę pytań firmy&Microsoft dotyczącą Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Następne kroki
 * [Wprowadzenie do Azure Stream Analytics](stream-analytics-introduction.md)
