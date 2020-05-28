@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/16/2020
-ms.openlocfilehash: 1a764f392402acf9aa405468470d0fb6f680d755
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0a9a00aa6abd35ad723f02a30869e8f7734b1f3
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461112"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020561"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Load data into Azure SQL Data Warehouse by using Azure Data Factory (Ładowanie danych do usługi Azure SQL Data Warehouse przy użyciu usługi Azure Data Factory)
 
@@ -42,12 +42,12 @@ W tym artykule pokazano, jak za pomocą narzędzia Kopiowanie danych Data Factor
 
 * Subskrypcja platformy Azure: Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
 * Azure SQL Data Warehouse: Magazyn danych przechowuje dane skopiowane z bazy danych SQL. Jeśli nie masz Azure SQL Data Warehouse, zapoznaj się z instrukcjami w artykule [tworzenie SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
-* Azure SQL Database: w tym samouczku kopiuje dane z bazy danych Azure SQL Database za pomocą przykładowych danych firmy Adventure Works LT. Bazę danych SQL można utworzyć, postępując zgodnie z instrukcjami zawartymi w temacie [Tworzenie bazy danych Azure SQL Database](../sql-database/sql-database-get-started-portal.md).
+* Azure SQL Database: w tym samouczku kopiuje dane z bazy danych Azure SQL Database za pomocą przykładowych danych firmy Adventure Works LT. Bazę danych SQL można utworzyć, postępując zgodnie z instrukcjami zawartymi w temacie [Tworzenie bazy danych Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
 * Konto usługi Azure Storage: usługa Azure Storage jest używana jako _tymczasowy_ obiekt BLOB w operacji kopiowania zbiorczego. Jeśli nie masz konta usługi Azure Storage, zobacz instrukcje podane w temacie [Tworzenie konta magazynu](../storage/common/storage-account-create.md).
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
-1. W menu po lewej stronie wybierz pozycję **Utwórz zasób** > **dane + analiza** > **Data Factory**:
+1. W menu po lewej stronie wybierz pozycję **Utwórz zasób**  >  **dane + analiza**  >  **Data Factory**:
 
 2. Na stronie **Nowa fabryka danych** podaj wartości następujących elementów:
 

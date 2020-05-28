@@ -11,16 +11,14 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 3275a372e496b79da2c9f31258f557389c5b1ee1
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3da51d1e08676d2794c6e95e7ffb359aff26084a
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82209370"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118401"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Wdrażanie usług sieci Web Azure Machine Learning Studio (klasycznych), które używają modułów importowania danych i eksportu danych
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Podczas tworzenia eksperymentu predykcyjnego zazwyczaj dodawane są dane wejściowe i wyjściowe usługi sieci Web. Podczas wdrażania eksperymentu klienci mogą wysyłać i odbierać dane z usługi sieci Web za pośrednictwem danych wejściowych i wyjściowych. W przypadku niektórych aplikacji dane użytkownika mogą być dostępne ze strumieniowego źródła danych lub już znajdują się w zewnętrznym źródle danych, takim jak Azure Blob Storage. W takich przypadkach nie potrzebują danych odczytu i zapisu przy użyciu wejściowych i wyjściowych usług sieci Web. Mogą zamiast tego używać usługi wykonywania wsadowego (BES) do odczytywania danych ze źródła danych przy użyciu modułu Importuj dane i zapisywania wyników oceniania w innej lokalizacji danych przy użyciu modułu eksport danych.
 
@@ -101,7 +99,7 @@ Aby wdrożyć jako klasyczną usługę sieci Web i utworzyć aplikację w celu j
 2. Po zakończeniu przebiegu kliknij pozycję **Wdróż usługę sieci Web** i wybierz pozycję **Wdróż usługę sieci Web [klasyczny]**.
 3. Na pulpicie nawigacyjnym usługi sieci Web Znajdź klucz interfejsu API. Skopiuj i Zapisz go do późniejszego użycia.
 4. W **domyślnej tabeli punktów końcowych** kliknij link **wykonywania wsadowego** , aby otworzyć stronę pomocy interfejsu API.
-5. W programie Visual Studio Utwórz aplikację konsolową w języku C#: **Nowy** > **projekt** > **Visual C#** > **Windows Classic** > **Aplikacja konsolowa (.NET Framework)**.
+5. W programie Visual Studio Utwórz aplikację konsolową w języku C#: **Nowy**  >  **projekt**  >  **Visual C#**  >  **Windows Classic**  >  **Aplikacja konsolowa (.NET Framework)**.
 6. Na stronie Pomoc interfejsu API Znajdź **przykładową sekcję kod** w dolnej części strony.
 7. Skopiuj i wklej przykładowy kod w języku C# do pliku Program.cs, a następnie usuń wszystkie odwołania do magazynu obiektów BLOB.
 8. Zaktualizuj wartość zmiennej *apiKey* z kluczem interfejsu API zapisanym wcześniej.
@@ -130,7 +128,7 @@ Aby wdrożyć program jako nową usługę sieci Web i utworzyć aplikację do u�
 3. Na stronie wdrażanie eksperymentu wprowadź nazwę usługi sieci Web i wybierz plan cenowy, a następnie kliknij przycisk **Wdróż**.
 4. Na stronie **Szybki Start** **kliknij pozycję**Użyj.
 5. W sekcji **przykładowy kod** kliknij pozycję **Batch**.
-6. W programie Visual Studio Utwórz aplikację konsolową w języku C#: **Nowy** > **projekt** > **Visual C#** > **Windows Classic** > **Aplikacja konsolowa (.NET Framework)**.
+6. W programie Visual Studio Utwórz aplikację konsolową w języku C#: **Nowy**  >  **projekt**  >  **Visual C#**  >  **Windows Classic**  >  **Aplikacja konsolowa (.NET Framework)**.
 7. Skopiuj i wklej przykładowy kod w języku C# do pliku Program.cs.
 8. Zaktualizuj wartość zmiennej *apiKey* przy użyciu **klucza podstawowego** znajdującego się w sekcji **podstawowe informacje o zużyciu** .
 9. Znajdź deklarację *scoreRequest* i zaktualizuj wartości parametrów usługi sieci Web, które są przesyłane do modułów *Importuj dane* i *Eksportuj dane* . W takim przypadku należy użyć oryginalnego zapytania, ale zdefiniować nową nazwę tabeli.

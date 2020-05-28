@@ -4,12 +4,12 @@ description: Jak wdrożyć usługę Azure łańcucha bloków Workbench w wersji 
 ms.date: 01/08/2020
 ms.topic: article
 ms.reviewer: brendal
-ms.openlocfilehash: 141bb8825e47eb2309f9f551990a2976e8f4e209
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2e1a5efe4dd5a6f2a0b016626421f33202ede419
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78943199"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021181"
 ---
 # <a name="deploy-azure-blockchain-workbench-preview"></a>Wdrażanie usługi Azure łańcucha bloków Workbench w wersji zapoznawczej
 
@@ -28,7 +28,7 @@ Aby uzyskać więcej informacji na temat składników łańcucha bloków Workben
 * Event Grid
 * W usłudze Azure Key Vault
 * Service Bus
-* SQL Database (standardowa S0) + serwer logiczny SQL
+* SQL Database (standardowa S0)
 * Konto usługi Azure Storage (standardowa LRS)
 * Zestaw skalowania maszyn wirtualnych o pojemności 1
 * Virtual Network grupę zasobów (z Load Balancer, sieciową grupą zabezpieczeń, publicznym adresem IP, Virtual Network)
@@ -54,7 +54,7 @@ Po zakończeniu kroków wstępnych można przystąpić do wdrożenia łańcucha 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wybierz swoje konto w prawym górnym rogu i przejdź do odpowiedniej dzierżawy usługi Azure AD, w której chcesz wdrożyć usługę Azure łańcucha bloków Workbench.
 1. W lewym górnym rogu witryny Azure Portal wybierz pozycję **Utwórz zasób**.
-1. Wybierz pozycję **łańcucha bloków** > **Azure łańcucha bloków Workbench (wersja zapoznawcza)**.
+1. Wybierz pozycję **łańcucha bloków**  >  **Azure łańcucha bloków Workbench (wersja zapoznawcza)**.
 
     ![Tworzenie usługi Azure łańcucha bloków Workbench](media/deploy/blockchain-workbench-settings-basic.png)
 
@@ -65,7 +65,7 @@ Po zakończeniu kroków wstępnych można przystąpić do wdrożenia łańcucha 
     | Typ uwierzytelniania | Wybierz, jeśli chcesz użyć hasła lub klucza w celu nawiązania połączenia z maszynami wirtualnymi. |
     | Hasło | Hasło służy do łączenia się z maszynami wirtualnymi. |
     | Protokół SSH | Użyj klucza publicznego RSA w formacie jednowierszowym rozpoczynającym się od **protokołu SSH-RSA** lub użyj wielowierszowego formatu PEM. Klucze SSH można generować przy użyciu `ssh-keygen` systemu Linux i OS X lub przy użyciu usługi PuTTYGen w systemie Windows. Więcej informacji na temat kluczy SSH znajduje się w temacie [jak używać kluczy SSH w systemie Windows na platformie Azure](../../virtual-machines/linux/ssh-from-windows.md). |
-    | Baza danych i hasło łańcucha bloków | Określ hasło, które ma być używane na potrzeby dostępu do bazy danych utworzonej w ramach wdrożenia. Hasło musi spełniać trzy z czterech następujących wymagań: długość musi należeć do zakresu od 12 & 72 znaków, 1 małe litery, 1 wielkie litery, 1 cyfra i 1 znak specjalny, który nie jest znakiem numeru (#), procent (%), przecinek (,), gwiazdka (\`), cudzysłów (), podwójny cudzysłów ("), apostrof (), kreska () i semicolumn (;) |
+    | Baza danych i hasło łańcucha bloków | Określ hasło, które ma być używane na potrzeby dostępu do bazy danych utworzonej w ramach wdrożenia. Hasło musi spełniać trzy z czterech następujących wymagań: długość musi należeć do zakresu od 12 & 72 znaków, 1 małe litery, 1 wielkie litery, 1 cyfra i 1 znak specjalny, który nie jest znakiem numeru (#), procent (%), przecinek (,), gwiazdka (), cudzysłów ( \` ), podwójny cudzysłów ("), apostrof (), kreska () i semicolumn (;) |
     | Region wdrożenia | Określ, gdzie mają zostać wdrożone zasoby łańcucha bloków Workbench. Aby zapewnić najlepszą dostępność, powinno to być zgodne z ustawieniem **Lokalizacja** . |
     | Subskrypcja | Określ subskrypcję platformy Azure, której chcesz użyć dla danego wdrożenia. |
     | Grupy zasobów | Utwórz nową grupę zasobów, wybierając pozycję **Utwórz nową** i określić unikatową nazwę grupy zasobów. |
@@ -177,10 +177,9 @@ W przypadku wybrania opcji ręcznego konfigurowania lub weryfikowania ustawień 
 
 Wdrożenie łańcucha bloków Workbench wymaga rejestracji aplikacji usługi Azure AD. Do zarejestrowania aplikacji potrzebna jest dzierżawa usługi Azure Active Directory (Azure AD). Możesz użyć istniejącej dzierżawy lub utworzyć nową dzierżawę. Jeśli używasz istniejącej dzierżawy usługi Azure AD, potrzebujesz wystarczających uprawnień do rejestrowania aplikacji, przyznawania uprawnień interfejs API programu Graph i zezwalania na dostęp gościa w ramach dzierżawy usługi Azure AD. Jeśli nie masz wystarczających uprawnień w istniejącej dzierżawie usługi Azure AD, Utwórz nową dzierżawę.
 
-
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wybierz swoje konto w prawym górnym rogu i przejdź do odpowiedniej dzierżawy usługi Azure AD. Dzierżawa powinna być dzierżawą subskrypcji administratora subskrypcji, w której wdrożono usługę Azure łańcucha bloków Workbench i masz wystarczające uprawnienia do rejestrowania aplikacji.
-1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory**. Wybierz pozycję **rejestracje aplikacji** > **Nowa rejestracja**.
+1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory**. Wybierz pozycję **rejestracje aplikacji**  >  **Nowa rejestracja**.
 
     ![Rejestracja aplikacji](media/deploy/app-registration.png)
 
@@ -194,11 +193,9 @@ Wdrożenie łańcucha bloków Workbench wymaga rejestracji aplikacji usługi Azu
 
 Następnie musisz zmodyfikować manifest, aby użyć ról aplikacji w usłudze Azure AD, aby określić administratorów łańcucha bloków Workbench.  Aby uzyskać więcej informacji na temat manifestów aplikacji, zobacz [Azure Active Directory manifest aplikacji](../../active-directory/develop/reference-app-manifest.md).
 
-
-1. Dla manifestu wymagany jest identyfikator GUID. Identyfikator GUID można wygenerować za pomocą polecenia `[guid]::NewGuid()` programu PowerShell lub `New-GUID` poleceń cmdlet. Innym rozwiązaniem jest użycie witryny sieci Web generatora GUID.
+1. Dla manifestu wymagany jest identyfikator GUID. Identyfikator GUID można wygenerować za pomocą polecenia programu PowerShell `[guid]::NewGuid()` lub poleceń `New-GUID` cmdlet. Innym rozwiązaniem jest użycie witryny sieci Web generatora GUID.
 1. W przypadku zarejestrowanej aplikacji wybierz pozycję **manifest** w sekcji **Zarządzanie** .
-1. Następnie zaktualizuj sekcję **appRoles** manifestu. Zamień `"appRoles": []` na podany kod JSON. Pamiętaj, aby zastąpić wartość pola **ID** identyfikatorem GUID, który został wygenerowany. 
-
+1. Następnie zaktualizuj sekcję **appRoles** manifestu. Zamień `"appRoles": []` na podany kod JSON. Pamiętaj, aby zastąpić wartość `id` pola wygenerowanym identyfikatorem GUID.
     ![Edytuj manifest](media/deploy/edit-manifest.png)
 
     ``` json
@@ -262,7 +259,7 @@ Identyfikator aplikacji i informacje o dzierżawie są wymagane do wdrożenia. Z
 
 ### <a name="get-tenant-domain-name"></a>Pobierz nazwę domeny dzierżawy
 
-Zbierz i Zapisz Active Directory nazwę domeny dzierżawy, w której są zarejestrowane aplikacje. 
+Zbierz i Zapisz Active Directory nazwę domeny dzierżawy, w której są zarejestrowane aplikacje.
 
 W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory**. Wybierz pozycję **Niestandardowe nazwy domen**. Skopiuj i Zapisz nazwę domeny.
 
@@ -274,7 +271,7 @@ Jeśli masz użytkowników-Gości w dzierżawie usługi Azure AD, postępuj zgod
 
 1. Przełącz swoją dzierżawę usługi Azure AD i wybierz pozycję **Azure Active Directory > ustawienia użytkownika > zarządzanie ustawieniami współpracy zewnętrznej**.
 1. Ustawianie **uprawnień użytkownika-gościa jest ograniczone** do **nie**.
-    ![Ustawienia zewnętrznej współpracy](media/deploy/user-collaboration-settings.png)
+    ![Ustawienia współpracy zewnętrznej](media/deploy/user-collaboration-settings.png)
 
 ## <a name="configuring-the-reply-url"></a>Konfigurowanie adresu URL odpowiedzi
 
@@ -284,8 +281,8 @@ Po wdrożeniu usługi Azure łańcucha bloków Workbench należy skonfigurować 
 1. Sprawdź, czy jesteś w dzierżawie, w której zarejestrowano aplikację kliencką usługi Azure AD.
 1. W okienku nawigacji po lewej stronie wybierz usługę **Azure Active Directory**. Wybierz pozycję **Rejestracje aplikacji**.
 1. Wybierz aplikację kliencką usługi Azure AD, która została zarejestrowana w sekcji wymagania wstępne.
-1. Wybierz pozycję **Uwierzytelnianie**.
-1. Określ główny adres URL sieci Web wdrożenia usługi Azure łańcucha bloków Workbench, który został pobrany w sekcji [adresu URL sieci Web łańcucha bloków Workbench](#blockchain-workbench-web-url) . Adres URL odpowiedzi jest poprzedzony prefiksem `https://`. Na przykład: `https://myblockchain2-7v75.azurewebsites.net`
+1. Wybierz pozycję **uwierzytelnianie**.
+1. Określ główny adres URL sieci Web wdrożenia usługi Azure łańcucha bloków Workbench, który został pobrany w sekcji [adresu URL sieci Web łańcucha bloków Workbench](#blockchain-workbench-web-url) . Adres URL odpowiedzi jest poprzedzony prefiksem `https://` . Na przykład: `https://myblockchain2-7v75.azurewebsites.net`
 
     ![Adresy URL odpowiedzi uwierzytelniania](media/deploy/configure-reply-url.png)
 
@@ -299,7 +296,7 @@ Po wdrożeniu usługi Azure łańcucha bloków Workbench należy skonfigurować 
 
 Gdy wdrożenie nie jest już potrzebne, można usunąć wdrożenie, usuwając grupę zasobów łańcucha bloków Workbench.
 
-1. W Azure Portal przejdź do **grupy zasobów** w okienku nawigacji po lewej stronie i wybierz grupę zasobów, którą chcesz usunąć. 
+1. W Azure Portal przejdź do **grupy zasobów** w okienku nawigacji po lewej stronie i wybierz grupę zasobów, którą chcesz usunąć.
 1. Wybierz pozycję **Usuń grupę zasobów**. Sprawdź usuwanie, wprowadzając nazwę grupy zasobów i wybierz pozycję **Usuń**.
 
     ![Usuwanie grupy zasobów](media/deploy/delete-resource-group.png)

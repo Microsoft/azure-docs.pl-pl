@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
 ms.author: rohink
-ms.openlocfilehash: cccd4a6b0b52608a6a17b73688e18f27088df5b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 786b4141ed83121dce069b45ce7ddcd91bb3b00e
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80757191"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020799"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Korzystanie z usług równoważenia obciążenia na platformie Azure
 
@@ -65,7 +65,7 @@ Na poniższym diagramie przedstawiono architekturę tego scenariusza:
 
 ### <a name="step-1-create-a-traffic-manager-profile"></a>Krok 1. Tworzenie profilu Traffic Manager
 
-1. W Azure Portal kliknij pozycję **Utwórz zasób zasobów** > **Networking** > **Traffic Manager profil** > **Utwórz**.
+1. W Azure Portal kliknij pozycję **Utwórz zasób zasobów**  >  **Networking**  >  **Traffic Manager profil**  >  **Utwórz**.
 2. Wprowadź następujące podstawowe informacje:
 
    * **Nazwa**: nadaj profilowi Traffic Manager nazwę prefiksu DNS.
@@ -80,7 +80,7 @@ Na poniższym diagramie przedstawiono architekturę tego scenariusza:
 
 ### <a name="step-2-create-the-application-gateways"></a>Krok 2. Tworzenie bram aplikacji
 
-1. W Azure Portal w lewym okienku kliknij pozycję **Utwórz zasób** > **Networking** > **Application Gateway**sieci.
+1. W Azure Portal w lewym okienku kliknij pozycję **Utwórz zasób**  >  **Networking**  >  **Application Gateway**sieci.
 2. Wprowadź następujące podstawowe informacje o bramie aplikacji:
 
    * **Name**: Nazwa bramy aplikacji.
@@ -96,7 +96,7 @@ Na poniższym diagramie przedstawiono architekturę tego scenariusza:
 
 #### <a name="configure-url-routing-for-application-gateways"></a>Konfigurowanie routingu adresów URL dla bram aplikacji
 
-W przypadku wybrania puli zaplecza Brama aplikacji, która jest skonfigurowana za pomocą reguły opartej na ścieżce, przyjmuje wzorzec ścieżki adresu URL żądania oprócz rozkładu okrężnego. W tym scenariuszu dodajemy regułę opartą na ścieżce, aby skierować dowolny adres URL z "\*/images/" do puli serwera obrazów. Aby uzyskać więcej informacji na temat konfigurowania routingu opartego na ścieżkach URL dla bramy aplikacji, zapoznaj się z tematem [Tworzenie reguły opartej na ścieżce dla bramy aplikacji](../application-gateway/application-gateway-create-url-route-portal.md).
+W przypadku wybrania puli zaplecza Brama aplikacji, która jest skonfigurowana za pomocą reguły opartej na ścieżce, przyjmuje wzorzec ścieżki adresu URL żądania oprócz rozkładu okrężnego. W tym scenariuszu dodajemy regułę opartą na ścieżce, aby skierować dowolny adres URL z "/images/ \* " do puli serwera obrazów. Aby uzyskać więcej informacji na temat konfigurowania routingu opartego na ścieżkach URL dla bramy aplikacji, zapoznaj się z tematem [Tworzenie reguły opartej na ścieżce dla bramy aplikacji](../application-gateway/application-gateway-create-url-route-portal.md).
 
 ![Application Gateway diagram warstwy sieci Web](./media/traffic-manager-load-balancing-azure/web-tier-diagram.png)
 
@@ -127,7 +127,7 @@ W przypadku wybrania puli zaplecza Brama aplikacji, która jest skonfigurowana z
    + **Ustawienie protokołu HTTP**: ustawienia protokołu HTTP, które mają być używane z tą regułą.
 
    > [!IMPORTANT]
-   > Ścieżki: prawidłowe ścieżki muszą zaczynać się od "/". Symbol wieloznaczny "\*" jest dozwolony tylko na końcu. Prawidłowe przykłady to/XYZ,/XYZ\*lub/XYZ/\*.
+   > Ścieżki: prawidłowe ścieżki muszą zaczynać się od "/". Symbol wieloznaczny " \* " jest dozwolony tylko na końcu. Prawidłowe przykłady to/XYZ,/XYZ \* lub/XYZ/ \* .
 
    ![Application Gateway "Dodawanie reguły opartej na ścieżce"](./media/traffic-manager-load-balancing-azure/s2-appgw-pathrule-blade.png)
 
@@ -154,11 +154,11 @@ W tym scenariuszu Traffic Manager jest połączony z bramami aplikacji (zgodnie 
 
 W tym scenariuszu Load Balancer dystrybuuje połączenia z warstwy sieci Web do baz danych w klastrze o wysokiej dostępności.
 
-Jeśli klaster baz danych o wysokiej dostępności korzysta z SQL Server AlwaysOn, zapoznaj się z tematem [Konfigurowanie jednego lub większej liczby odbiorników grupy dostępności](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) , aby uzyskać instrukcje krok po kroku.
+Jeśli klaster baz danych o wysokiej dostępności korzysta z SQL Server AlwaysOn, zapoznaj się z tematem [Konfigurowanie jednego lub większej liczby odbiorników grupy dostępności](../azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure.md) , aby uzyskać instrukcje krok po kroku.
 
 Aby uzyskać więcej informacji o konfigurowaniu wewnętrznego modułu równoważenia obciążenia, zobacz [Tworzenie wewnętrznego modułu równoważenia obciążenia w Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md).
 
-1. W Azure Portal w lewym okienku kliknij pozycję **Utwórz zasób** > **Sieć** > **moduł równoważenia obciążenia**.
+1. W Azure Portal w lewym okienku kliknij pozycję **Utwórz zasób**  >  **Sieć**  >  **moduł równoważenia obciążenia**.
 2. Wybierz nazwę modułu równoważenia obciążenia.
 3. Ustaw **Typ** na **Internal**, a następnie wybierz odpowiednią sieć wirtualną i podsieć dla usługi równoważenia obciążenia, w której ma się znajdować.
 4. W obszarze **przypisywanie adresów IP**wybierz opcję **dynamiczny** lub **statyczny**.

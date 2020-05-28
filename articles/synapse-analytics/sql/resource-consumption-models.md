@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: e078893b3bbe0ef5661cd87bad62b320f78ceb5d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b81f1e49b2209d0a236f1fb453bb7fe679bb3608
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424860"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112753"
 ---
 # <a name="azure-synapse-analytics-sql-resource-consumption"></a>Użycie zasobów SQL usługi Azure Synapse Analytics
 
@@ -37,7 +37,7 @@ Wydajność dla jednostek magazynu danych jest oparta na następujących metryka
 
 - Jak Fast kwerenda magazynu danych w warstwie Standardowa może skanować dużą liczbę wierszy, a następnie przeprowadzać złożoną agregację. Ta operacja jest operacją we/wy i intensywnie wykorzystującą procesor CPU.
 - Jak szybko magazyn danych może pozyskać dane z obiektów BLOB usługi Azure Storage lub Azure Data Lake. Ta operacja jest intensywnie korzystające z sieci i procesora CPU.
-- Jak szybko polecenie [`CREATE TABLE AS SELECT`](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL może skopiować tabelę. Ta operacja obejmuje odczytywanie danych z magazynu, ich dystrybucję w węzłach urządzenia i ponowne zapisywanie w magazynie. Ta operacja polega na procesorach CPU, we/wy i intensywnym wykorzystaniu sieci.
+- Jak szybko [`CREATE TABLE AS SELECT`](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) polecenie T-SQL może skopiować tabelę. Ta operacja obejmuje odczytywanie danych z magazynu, ich dystrybucję w węzłach urządzenia i ponowne zapisywanie w magazynie. Ta operacja polega na procesorach CPU, we/wy i intensywnym wykorzystaniu sieci.
 
 Zwiększanie jednostek dwu:
 
@@ -77,7 +77,7 @@ W miarę zwiększania liczby jednostek magazynu danych zwiększa się liniowo za
 
 #### <a name="capacity-limits"></a>Limity pojemności
 
-Każdy serwer SQL (na przykład myserver.database.windows.net) ma przydział [jednostki transakcji bazy danych (DTU)](../../sql-database/sql-database-service-tiers-dtu.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) , który umożliwia określoną liczbę jednostek magazynu danych. Aby uzyskać więcej informacji, zobacz [limity wydajności zarządzania obciążeniami](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management).
+Każdy serwer SQL (na przykład myserver.database.windows.net) ma przydział [jednostki transakcji bazy danych (DTU)](../../azure-sql/database/service-tiers-dtu.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) , który umożliwia określoną liczbę jednostek magazynu danych. Aby uzyskać więcej informacji, zobacz [limity wydajności zarządzania obciążeniami](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management).
 
 ### <a name="how-many-data-warehouse-units-do-i-need"></a>Ile jest potrzebnych jednostek magazynu danych
 
@@ -106,7 +106,7 @@ Wbudowane role dla zasobów platformy Azure, takie jak współautor bazy danych 
 Aby wyświetlić bieżące ustawienie jednostek dwu:
 
 1. Otwórz Eksplorator obiektów SQL Server w programie Visual Studio.
-2. Nawiąż połączenie z bazą danych Master skojarzoną z serwerem logicznym SQL Database.
+2. Nawiąż połączenie z bazą danych Master skojarzoną z serwerem logicznym SQL.
 3. Wybierz opcję z dynamicznego widoku zarządzania sys. database_service_objectives. Oto przykład:
 
 ```sql
@@ -148,7 +148,7 @@ Przy użyciu języka T-SQL można wyświetlić bieżącą DWUsettings, zmienić 
 
 Aby zmienić jednostek dwu:
 
-1. Nawiąż połączenie z bazą danych Master skojarzoną z serwerem logicznym SQL Database.
+1. Nawiąż połączenie z bazą danych Master skojarzoną z serwerem.
 2. Użyj instrukcji [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) TSQL. Poniższy przykład ustawia cel poziomu usługi DW1000c dla bazy danych MySQLDW.
 
 ```Sql
@@ -184,7 +184,7 @@ Nie można sprawdzić stanu bazy danych dla operacji skalowania w poziomie przy 
 
 Aby sprawdzić stan jednostek dwu zmian:
 
-1. Nawiąż połączenie z bazą danych Master skojarzoną z serwerem logicznym SQL Database.
+1. Nawiąż połączenie z bazą danych Master skojarzoną z serwerem.
 2. Prześlij następujące zapytanie, aby sprawdzić stan bazy danych.
 
 ```sql

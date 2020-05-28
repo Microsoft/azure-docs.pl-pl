@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: nitinme
-ms.openlocfilehash: d71d9c7e6570e562fe4c692ede1d07b70c923cb6
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: ff160c57b86e2269165f5fe1d2808684d2e6e86e
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77118270"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118536"
 ---
 # <a name="tutorial-use-form-recognizer-with-azure-logic-apps-to-analyze-invoices"></a>Samouczek: używanie aparatu rozpoznawania formularzy z Azure Logic Apps do analizowania faktur
 
@@ -58,7 +58,7 @@ Ten kontener służy do przekazywania przykładowych danych, które są wymagane
 
 Pobierz przykładowe dane dostępne w serwisie [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Wyodrębnij dane do folderu lokalnego i przekaż zawartość folderu **/Train** do utworzonego wcześniej **formrecocontainer** . Postępuj zgodnie z instrukcjami w obszarze [Przekaż blokowy obiekt BLOB](../../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob) , aby przekazać dane do kontenera.
 
-Skopiuj adres URL kontenera. Ten adres URL będzie potrzebny w dalszej części tego samouczka. Jeśli utworzono konto magazynu i kontener o takich samych nazwach jak wymienione w tym samouczku, adres URL będzie *https:\//formrecostorage.blob.Core.Windows.NET/formrecocontainer/*.
+Skopiuj adres URL kontenera. Ten adres URL będzie potrzebny w dalszej części tego samouczka. Jeśli utworzono konto magazynu i kontener o takich samych nazwach jak wymienione w tym samouczku, adres URL będzie *https: \/ /formrecostorage.blob.Core.Windows.NET/formrecocontainer/*.
 
 ## <a name="create-a-form-recognizer-resource"></a>Tworzenie zasobu aparatu rozpoznawania formularza
 
@@ -73,20 +73,20 @@ Za pomocą Azure Logic Apps można zautomatyzować i zorganizować zadania i prz
 
 Wykonaj następujące kroki, aby skonfigurować przepływ pracy.
 
-1. W głównym menu platformy Azure wybierz pozycję **Utwórz zasób** > **Integration** > **aplikacja logiki**.
+1. W głównym menu platformy Azure wybierz pozycję **Utwórz zasób**  >  **Integration**  >  **aplikacja logiki**.
 
 1. W obszarze **Tworzenie aplikacji logiki** podaj szczegółowe informacje o aplikacji logiki, jak pokazano poniżej. Po zakończeniu wybierz pozycję **Utwórz**.
 
    | Właściwość | Wartość | Opis |
    |----------|-------|-------------|
-   | **Nazwa** | <*Logic-App-Name*> | Nazwa aplikacji logiki, która może zawierać tylko litery, cyfry,`-`łączniki (), podkreślenia (`_`), nawiasy (`(`, `)`) i kropki (`.`). W tym przykładzie zastosowano "My-First-Logic-App". |
+   | **Nazwa** | <*Logic-App-Name*> | Nazwa aplikacji logiki, która może zawierać tylko litery, cyfry, łączniki ( `-` ), podkreślenia ( `_` ), nawiasy ( `(` , `)` ) i kropki ( `.` ). W tym przykładzie zastosowano "My-First-Logic-App". |
    | **Subskrypcja** | <*Azure — nazwa subskrypcji*> | Nazwa subskrypcji platformy Azure |
    | **Grupa zasobów** | <*Azure-Resource-Group-Name*> | Nazwa [grupy zasobów platformy Azure](./../../azure-resource-manager/management/overview.md) używanej do organizowania powiązanych zasobów. W tym przykładzie jest stosowana wartość "My-First-LA-RG". |
    | **Lokalizacja** | <*Platforma Azure — region*> | Region, w którym są przechowywane informacje o aplikacji logiki. W tym przykładzie zastosowano "zachodnie stany USA". |
    | **Log Analytics** | Wyłączone | Ustawienie **Wyłączone** umożliwia rejestrowanie w celach diagnostycznych. |
    ||||
 
-1. Po wdrożeniu aplikacji przez platformę Azure na pasku narzędzi platformy Azure wybierz pozycję **powiadomienia** > **Przejdź do pozycji zasób** dla wdrożonej aplikacji logiki. Możesz też znaleźć i wybrać aplikację logiki, wpisując nazwę w polu wyszukiwania.
+1. Po wdrożeniu aplikacji przez platformę Azure na pasku narzędzi platformy Azure wybierz pozycję **powiadomienia**  >  **Przejdź do pozycji zasób** dla wdrożonej aplikacji logiki. Możesz też znaleźć i wybrać aplikację logiki, wpisując nazwę w polu wyszukiwania.
 
    Zostanie otwarty Projektant aplikacji usługi Logic Apps wyświetlający stronę z wprowadzającym wideo i najczęściej używanymi wyzwalaczami. W obszarze **Szablony** wybierz pozycję **Pusta aplikacja logiki**.
 
@@ -377,7 +377,6 @@ Aby przetestować aplikację logiki, użyj przykładowych faktur w folderze **/t
       }
     ]
     ```
-    Pomyślnie wykonano ten samouczek!
 
 ## <a name="next-steps"></a>Następne kroki
 

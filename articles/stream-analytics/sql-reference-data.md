@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 9f780ad3d2c95f9d23ea9a0b675b59ba22e25016
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b9a855a89a37cde0be3c30b2428c32db361aa2e8
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83651936"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021691"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Korzystanie z danych referencyjnych z SQL Database dla zadania Azure Stream Analytics
 
@@ -40,7 +40,7 @@ Wykonaj następujące kroki, aby dodać Azure SQL Database jako źródłowe źr�
 
    ![Konfiguracja referencyjna SQL Database](./media/sql-reference-data/sql-input-config.png)
 
-3. Przetestuj zapytanie migawki w edytorze zapytań SQL. Aby uzyskać więcej informacji, zobacz [Używanie edytora zapytań SQL Azure Portal do łączenia i wykonywania zapytań dotyczących danych](../sql-database/sql-database-connect-query-portal.md)
+3. Przetestuj zapytanie migawki w edytorze zapytań SQL. Aby uzyskać więcej informacji, zobacz [Używanie edytora zapytań SQL Azure Portal do łączenia i wykonywania zapytań dotyczących danych](../azure-sql/database/connect-query-portal.md)
 
 ### <a name="specify-storage-account-in-job-config"></a>Określ konto magazynu w konfiguracji zadania
 
@@ -69,7 +69,7 @@ Wykonaj następujące kroki, aby dodać Azure SQL Database jako źródłowe źr�
 
 ### <a name="create-a-sql-database-table"></a>Tworzenie tabeli SQL Database
 
-Użyj SQL Server Management Studio, aby utworzyć tabelę do przechowywania danych referencyjnych. Aby uzyskać szczegółowe informacje, zobacz [projektowanie pierwszej bazy danych Azure SQL Database przy użyciu programu SSMS](../sql-database/sql-database-design-first-database.md) .
+Użyj SQL Server Management Studio, aby utworzyć tabelę do przechowywania danych referencyjnych. Aby uzyskać szczegółowe informacje, zobacz [projektowanie pierwszej bazy danych Azure SQL Database przy użyciu programu SSMS](../azure-sql/database/design-first-database-tutorial.md) .
 
 Przykładowa tabela użyta w poniższym przykładzie została utworzona z następującej instrukcji:
 
@@ -129,7 +129,7 @@ Przed wdrożeniem zadania na platformie Azure można testować logikę zapytania
 
 ## <a name="delta-query"></a>Zapytanie różnicowe
 
-W przypadku korzystania z zapytania różnicowego tabele danych czasowych [w Azure SQL Database](../sql-database/sql-database-temporal-tables.md) są zalecane.
+W przypadku korzystania z zapytania różnicowego tabele danych czasowych [w Azure SQL Database](../azure-sql/temporal-tables.md) są zalecane.
 
 1. Utwórz tabelę danych czasowych w Azure SQL Database.
    

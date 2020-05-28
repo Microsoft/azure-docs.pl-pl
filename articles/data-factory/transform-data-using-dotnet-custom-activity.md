@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
-ms.openlocfilehash: 74e381a9ad32acdaa8cbb719824d74ca6d339f30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 98f0eb89893ff7394390d2fc1fc77497f1bf948d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418953"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019966"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Korzystanie z działań niestandardowych w potoku usługi Azure Data Factory
 
@@ -35,7 +35,7 @@ Aby przenieść dane do/z magazynu danych, który Data Factory nie obsługuje, l
 
 Jeśli jesteś nowym usługą Azure Batch Service, zobacz następujące artykuły:
 
-* [Azure Batch podstawy](../batch/batch-technical-overview.md) dotyczące omówienia usługi Azure Batch.
+* [Azure Batch podstawy](../azure-sql/database/sql-database-paas-overview.md) dotyczące omówienia usługi Azure Batch.
 * Polecenie cmdlet [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) służące do tworzenia konta Azure Batch (lub) [Azure Portal](../batch/batch-account-create-portal.md) do tworzenia konta Azure Batch przy użyciu Azure Portal. Szczegółowe instrukcje dotyczące korzystania z polecenia cmdlet można znaleźć w artykule [Używanie programu PowerShell do zarządzania artykułem konta Azure Batch](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx) .
 * Polecenie cmdlet [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) w celu utworzenia puli Azure Batch.
 
@@ -100,13 +100,13 @@ W tym przykładzie HelloWorld. exe jest aplikacją niestandardową przechowywan�
 
 W poniższej tabeli opisano nazwy i opisy właściwości, które są specyficzne dla tego działania.
 
-| Właściwość              | Opis                              | Wymagany |
+| Właściwość              | Opis                              | Wymagane |
 | :-------------------- | :--------------------------------------- | :------- |
-| name                  | Nazwa działania w potoku     | Tak      |
+| name                  | Nazwa działania w potoku     | Yes      |
 | description           | Tekst opisujący działanie działania.  | Nie       |
-| type                  | W przypadku działania niestandardowego typem działania jest **niestandardowy**. | Tak      |
-| linkedServiceName     | Połączona usługa do Azure Batch. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz artykuł dotyczący [połączonych usług obliczeniowych](compute-linked-services.md) .  | Tak      |
-| command               | Polecenie aplikacji niestandardowej do wykonania. Jeśli aplikacja jest już dostępna w węźle puli Azure Batch, można pominąć resourceLinkedService i folderPath. Na przykład możesz określić polecenie, które ma być `cmd /c dir`natywnie obsługiwane przez węzeł puli usługi Windows Batch. | Tak      |
+| typ                  | W przypadku działania niestandardowego typem działania jest **niestandardowy**. | Yes      |
+| linkedServiceName     | Połączona usługa do Azure Batch. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz artykuł dotyczący [połączonych usług obliczeniowych](compute-linked-services.md) .  | Yes      |
+| command               | Polecenie aplikacji niestandardowej do wykonania. Jeśli aplikacja jest już dostępna w węźle puli Azure Batch, można pominąć resourceLinkedService i folderPath. Na przykład możesz określić polecenie `cmd /c dir` , które ma być natywnie obsługiwane przez węzeł puli usługi Windows Batch. | Yes      |
 | resourceLinkedService | Połączona usługa Azure Storage z kontem magazynu, w którym jest przechowywana aplikacja niestandardowa | Brak &#42;       |
 | folderPath            | Ścieżka do folderu aplikacji niestandardowej i wszystkich jej zależności<br/><br/>Jeśli istnieją zależności przechowywane w podfolderach, czyli w hierarchicznej strukturze folderów w obszarze *folderPath* — struktura folderów jest obecnie spłaszczona, gdy pliki są kopiowane do Azure Batch. Oznacza to, że wszystkie pliki są kopiowane do jednego folderu bez podfolderów. Aby obejść ten problem, rozważ kompresję plików, Skopiowanie skompresowanego pliku, a następnie rozpakowywanie go z niestandardowym kodem w odpowiedniej lokalizacji. | Brak &#42;       |
 | referenceObjects      | Tablica istniejących połączonych usług i zestawów danych. Połączone usługi i zestawy danych, do których istnieją odwołania, są przesyłane do aplikacji niestandardowej w formacie JSON, dzięki czemu kod niestandardowy może odwoływać się do zasobów Data Factory | Nie       |
@@ -298,7 +298,7 @@ Activity Error section:
 "target": "MyCustomActivity"
 ```
 
-Jeśli chcesz korzystać z zawartości stdout. txt w działaniach podrzędnych, możesz uzyskać ścieżkę do pliku stdout. txt w wyrażeniu "\@Activity (" Moja Customs "). Output. wyjść [0]".
+Jeśli chcesz korzystać z zawartości stdout. txt w działaniach podrzędnych, możesz uzyskać ścieżkę do pliku stdout. txt w wyrażeniu " \@ Activity (" Moja Customs "). Output. wyjść [0]".
 
 > [!IMPORTANT]
 > - Plik Activity. JSON, linkedServices. JSON i DataSets. JSON są przechowywane w folderze Runtime zadania wsadowego. W tym przykładzie plik Activity. JSON, linkedServices. JSON i DataSets. JSON są przechowywane w `"https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/"` ścieżce. W razie potrzeby należy je usunąć osobno.
@@ -306,7 +306,7 @@ Jeśli chcesz korzystać z zawartości stdout. txt w działaniach podrzędnych, 
 
 ## <a name="pass-outputs-to-another-activity"></a>Przekazywanie danych wyjściowych do innego działania
 
-Możesz wysyłać niestandardowe wartości z kodu w niestandardowym działaniu z powrotem do Azure Data Factory. Możesz to zrobić, pisząc je do `outputs.json` aplikacji. Data Factory kopiuje zawartość `outputs.json` i dołącza ją do danych wyjściowych działania jako wartość `customOutput` właściwości. (Limit rozmiaru wynosi 2 MB). Jeśli chcesz korzystać z zawartości `outputs.json` w działaniach podrzędnych, możesz uzyskać wartość przy użyciu wyrażenia. `@activity('<MyCustomActivity>').output.customOutput`
+Możesz wysyłać niestandardowe wartości z kodu w niestandardowym działaniu z powrotem do Azure Data Factory. Możesz to zrobić, pisząc je do `outputs.json` aplikacji. Data Factory kopiuje zawartość `outputs.json` i dołącza ją do danych wyjściowych działania jako wartość `customOutput` właściwości. (Limit rozmiaru wynosi 2 MB). Jeśli chcesz korzystać z zawartości `outputs.json` w działaniach podrzędnych, możesz uzyskać wartość przy użyciu wyrażenia `@activity('<MyCustomActivity>').output.customOutput` .
 
 ## <a name="retrieve-securestring-outputs"></a>Pobieranie danych wyjściowych SecureString
 
@@ -323,7 +323,7 @@ Poufne wartości właściwości wyznaczono jako typ *SecureString*, jak pokazano
 
 Ta Serializacja nie jest naprawdę bezpieczna i nie jest przeznaczona do zabezpieczenia. Celem jest podpowiedź Data Factory, aby zamaskować wartość na karcie monitorowanie.
 
-Aby uzyskać dostęp do właściwości typu *SecureString* z działania niestandardowego, zapoznaj `activity.json` się z plikiem umieszczonym w tym samym folderze co plik. EXE, deserializacji pliku JSON, a następnie uzyskać dostęp do właściwości JSON (Właściwości ExtendedProperties => [propertyName] => Value).
+Aby uzyskać dostęp do właściwości typu *SecureString* z działania niestandardowego, zapoznaj się z `activity.json` plikiem umieszczonym w tym samym folderze co plik. EXE, deserializacji pliku JSON, a następnie uzyskać dostęp do właściwości JSON (Właściwości ExtendedProperties => [propertyName] => Value).
 
 ## <a name="compare-v2-custom-activity-and-version-1-custom-dotnet-activity"></a><a name="compare-v2-v1"></a>Porównanie działań niestandardowych w wersji 2 i 1 (niestandardowe) działania DotNet
 
@@ -342,7 +342,7 @@ W poniższej tabeli opisano różnice między działaniem niestandardowym Data F
 |Sposób definiowania logiki niestandardowej      |Dostarczając plik wykonywalny      |Przez implementację biblioteki DLL platformy .NET      |
 |Środowisko wykonawcze logiki niestandardowej      |System Windows lub Linux      |Windows (.NET Framework 4.5.2)      |
 |Wykonywanie skryptów      |Obsługuje wykonywanie skryptów bezpośrednio (na przykład "cmd/c echo Hello World" na maszynie wirtualnej z systemem Windows)      |Wymaga implementacji w bibliotece DLL platformy .NET      |
-|Wymagany zestaw danych      |Optional      |Wymagane do łańcucha działań i przekazywania informacji      |
+|Wymagany zestaw danych      |Opcjonalne      |Wymagane do łańcucha działań i przekazywania informacji      |
 |Przekaż informacje z działania do logiki niestandardowej      |Do ReferenceObjects (LinkedServices i zestawy danych) i właściwości ExtendedProperties (właściwości niestandardowe)      |Za poorednictwem Właściwości ExtendedProperties (właściwości niestandardowe), wejściowych i wyjściowych zestawów danych      |
 |Pobieranie informacji z logiki niestandardowej      |Analizuje dane Activity. JSON, linkedServices. JSON i DataSets. JSON przechowywane w tym samym folderze pliku wykonywalnego.      |Za poorednictwem zestawu .NET SDK (ramka .NET w wersji 4.5.2)      |
 |Rejestrowanie      |Zapisuje bezpośrednio w strumieniu STDOUT      |Implementowanie rejestratora w bibliotece DLL platformy .NET      |
@@ -350,11 +350,11 @@ W poniższej tabeli opisano różnice między działaniem niestandardowym Data F
 Jeśli masz już zapisany kod platformy .NET dla działania programu DotNet w wersji 1 (niestandardowej), musisz zmodyfikować swój kod, aby działał z bieżącą wersją działania niestandardowego. Zaktualizuj swój kod, wykonując następujące wytyczne wysokiego poziomu:
 
   - Zmień projekt z biblioteki klas .NET na aplikację konsolową.
-  - Uruchom aplikację za pomocą `Main` metody. `Execute` Metoda `IDotNetActivity` interfejsu nie jest już wymagana.
+  - Uruchom aplikację za pomocą `Main` metody. `Execute`Metoda `IDotNetActivity` interfejsu nie jest już wymagana.
   - Odczytuj i Analizuj połączone usługi, zestawy danych i działanie z serializatorem JSON, a nie jako obiekty o jednoznacznie określonym typie. Przekaż wartości wymaganych właściwości do głównej logiki kodu niestandardowego. Zapoznaj się z powyższym kodem SampleApp. exe.
   - Obiekt rejestratora nie jest już obsługiwany. Dane wyjściowe z pliku wykonywalnego mogą być wydrukowane w konsoli programu i zapisywane do stdout. txt.
   - Pakiet NuGet Microsoft. Azure. Management. datafactors nie jest już wymagany.
-  - Skompiluj swój kod, Przekaż plik wykonywalny wraz z jego zależnościami do usługi Azure Storage i zdefiniuj ścieżkę `folderPath` we właściwości.
+  - Skompiluj swój kod, Przekaż plik wykonywalny wraz z jego zależnościami do usługi Azure Storage i zdefiniuj ścieżkę we `folderPath` właściwości.
 
 Pełny przykład sposobu, w jaki kompleksowa Biblioteka DLL i potok potoku opisane w artykule Data Factory w wersji 1 [używają działań niestandardowych w potoku Azure Data Factory](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) , można je zapisać jako działanie niestandardowe Data Factory, zobacz [Data Factory aktywność niestandardowa](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFv2CustomActivitySample).
 
