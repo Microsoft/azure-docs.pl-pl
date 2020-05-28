@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: cf0d96414c40784210723e315da5d885d61198c5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 22c982babbed1322e97127379be75e7b070ed81f
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68595576"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994246"
 ---
 # <a name="view-document-details"></a>Wyświetlanie szczegółów dokumentu
 

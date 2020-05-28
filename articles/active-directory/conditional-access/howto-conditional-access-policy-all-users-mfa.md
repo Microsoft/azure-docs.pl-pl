@@ -4,19 +4,19 @@ description: Utwórz niestandardowe zasady dostępu warunkowego, aby wymagać od
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 04/02/2020
+ms.topic: how-to
+ms.date: 05/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60d0ad0a1c0a1b4d13ce4d386df22406a8ab8e51
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7af1347ac57e1a5c5ae99744924ea04fe9757581
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617635"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995351"
 ---
 # <a name="conditional-access-require-mfa-for-all-users"></a>Dostęp warunkowy: Wymagaj uwierzytelniania wieloskładnikowego dla wszystkich użytkowników
 
@@ -44,17 +44,17 @@ Organizacje mogą korzystać z wielu aplikacji w chmurze. Nie wszystkie te aplik
 Poniższe kroki pomogą utworzyć zasady dostępu warunkowego, aby wymagać od wszystkich użytkowników przeprowadzenia uwierzytelniania wieloskładnikowego.
 
 1. Zaloguj się do **Azure Portal** jako Administrator globalny, administrator zabezpieczeń lub administrator dostępu warunkowego.
-1. Przejdź do **Azure Active Directory** > **Security** > **dostępu warunkowego**zabezpieczeń.
+1. Przejdź do **Azure Active Directory**  >  **Security**  >  **dostępu warunkowego**zabezpieczeń.
 1. Wybierz pozycję **nowe zasady**.
 1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
 1. W obszarze **przypisania**wybierz pozycję **Użytkownicy i grupy**
    1. W obszarze **dołączanie**wybierz pozycję **Wszyscy użytkownicy** .
    1. W obszarze **Wyklucz**wybierz pozycję **Użytkownicy i grupy** , a następnie wybierz opcję dostęp awaryjny lub konta w ramach swojej organizacji. 
-   1. Wybierz pozycję **Gotowe**.
-1. W obszarze **aplikacje w chmurze lub akcje** > **Dołącz**wybierz pozycję **wszystkie aplikacje w chmurze**.
+   1. Wybierz pozycję **Done** (Gotowe).
+1. W obszarze **aplikacje w chmurze lub akcje**  >  **Dołącz**wybierz pozycję **wszystkie aplikacje w chmurze**.
    1. W obszarze **Wyklucz**wybierz wszystkie aplikacje, które nie wymagają uwierzytelniania wieloskładnikowego.
-1. W obszarze **warunki** > **aplikacje klienckie (wersja zapoznawcza)** ustaw wartość **opcji** **Konfiguruj** na tak, a następnie wybierz pozycję **gotowe**.
-1. W **obszarze kontrola** > dostępu**przyznawanie**wybierz pozycję **Udziel dostępu**, **Wymagaj uwierzytelniania wieloskładnikowego**, a następnie wybierz pozycję **Wybierz**.
+1. W obszarze **warunki**  >  **aplikacje klienckie (wersja zapoznawcza)** ustaw wartość **Konfiguruj** na **tak**. W obszarze **Wybierz aplikacje klienckie, dla których te zasady będą stosowane** , pozostaw wszystkie ustawienia domyślne, a następnie wybierz pozycję **gotowe**.
+1. W obszarze **Kontrola dostępu**  >  **przyznawanie**wybierz pozycję **Udziel dostępu**, **Wymagaj uwierzytelniania wieloskładnikowego**, a następnie wybierz pozycję **Wybierz**.
 1. Potwierdź ustawienia i ustaw opcję **Włącz zasady** na **włączone**.
 1. Wybierz pozycję **Utwórz** , aby utworzyć zasady.
 
@@ -64,12 +64,12 @@ Organizacje mogą dołączać znane lokalizacje sieciowe znane jako **nazwane lo
 
 W przykładowych zasadach powyżej organizacja może zrezygnować z używania uwierzytelniania wieloskładnikowego w przypadku uzyskiwania dostępu do aplikacji w chmurze z sieci firmowej. W takim przypadku można dodać do zasad następującą konfigurację:
 
-1. W obszarze **przypisania**wybierz pozycję **warunki** > **.**
+1. W obszarze **przypisania**wybierz pozycję **warunki**  >  **Locations**.
    1. Skonfiguruj **tak**.
    1. Uwzględnij **dowolną lokalizację**.
    1. Wyklucz **wszystkie Zaufane lokalizacje**.
-   1. Wybierz pozycję **Gotowe**.
-1. Wybierz pozycję **Gotowe**.
+   1. Wybierz pozycję **Done** (Gotowe).
+1. Wybierz pozycję **Done** (Gotowe).
 1. **Zapisz** zmiany zasad.
 
 ## <a name="next-steps"></a>Następne kroki

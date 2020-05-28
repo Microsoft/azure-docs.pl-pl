@@ -7,12 +7,12 @@ ms.date: 03/08/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
-ms.openlocfilehash: 678e91126c04d5b299d9234a1602580260c5aee6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: aef8c026fad631396e58716e65640f5792ad07c8
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81425091"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116780"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integracja Key Vault z prywatnym łączem platformy Azure
 
@@ -50,7 +50,7 @@ Po skonfigurowaniu podstawy magazynu kluczy wybierz kartę Sieć i wykonaj nast�
 1. Wybierz przycisk radiowy prywatny punkt końcowy na karcie Sieć.
 1. Kliknij przycisk "+ Dodaj", aby dodać prywatny punkt końcowy.
 
-    ![Obraz](../media/private-link-service-1.png)
+    ![Image (Obraz)](../media/private-link-service-1.png)
  
 1. W polu "lokalizacja" bloku Utwórz prywatny punkt końcowy wybierz region, w którym znajduje się Twoja sieć wirtualna. 
 1. W polu "name" (nazwa) Utwórz opisową nazwę, która umożliwi zidentyfikowanie tego prywatnego punktu końcowego. 
@@ -58,7 +58,7 @@ Po skonfigurowaniu podstawy magazynu kluczy wybierz kartę Sieć i wykonaj nast�
 1. Pozostaw opcję "Zintegruj z usługą DNS strefy prywatnej" bez zmian.  
 1. Wybierz pozycję "OK".
 
-    ![Obraz](../media/private-link-service-8.png)
+    ![Image (Obraz)](../media/private-link-service-8.png)
  
 Teraz będzie można zobaczyć skonfigurowany prywatny punkt końcowy. Masz teraz możliwość usunięcia i edytowania tego prywatnego punktu końcowego. Wybierz przycisk "Przejrzyj + Utwórz" i Utwórz magazyn kluczy. Ukończenie wdrożenia zajmie 5-10 minut. 
 
@@ -66,19 +66,19 @@ Teraz będzie można zobaczyć skonfigurowany prywatny punkt końcowy. Masz tera
 
 Jeśli masz już Magazyn kluczy, możesz utworzyć połączenie prywatne, wykonując następujące czynności:
 
-1. Zaloguj się do witryny Azure Portal. 
+1. Zaloguj się do Portalu Azure. 
 1. Na pasku wyszukiwania wpisz ciąg "magazyny kluczy".
 1. Z listy wybierz magazyn kluczy, do którego chcesz dodać prywatny punkt końcowy.
 1. Wybierz kartę "Sieć" w obszarze Ustawienia
 1. Wybierz kartę połączenia prywatnego punktu końcowego w górnej części strony
 1. Wybierz przycisk "+ prywatny punkt końcowy" w górnej części strony.
 
-    ![](../media/private-link-service-3.png) ![Obraz obrazu](../media/private-link-service-4.png)
+    ![](../media/private-link-service-3.png) ![ Obraz obrazu](../media/private-link-service-4.png)
 
 Za pomocą tego bloku można utworzyć prywatny punkt końcowy dla dowolnego zasobu platformy Azure. Możesz użyć menu rozwijanych, aby wybrać typ zasobu i wybrać zasób w katalogu, lub połączyć się z dowolnym zasobem platformy Azure przy użyciu identyfikatora zasobu. Pozostaw opcję "Zintegruj z usługą DNS strefy prywatnej" bez zmian.  
 
 ![](../media/private-link-service-3.png)
-![Obraz obrazu](../media/private-link-service-4.png)
+ ![ Obraz obrazu](../media/private-link-service-4.png)
 
 ## <a name="establish-a-private-link-connection-to-key-vault-using-cli"></a>Nawiązywanie połączenia prywatnego z Key Vault przy użyciu interfejsu wiersza polecenia
 
@@ -124,7 +124,7 @@ az network private-dns zone create --resource-group {RG} --name privatelink.vaul
 ```
 ### <a name="link-private-dns-zone-to-virtual-network"></a>Połącz strefę Prywatna strefa DNS z Virtual Network 
 ```console
-az network private-dns link vnet create --resoruce-group {RG} --virtual-network {vNet NAME} --zone-name privatelink.vaultcore.azure.net --name {dnsZoneLinkName} --registration-enabled true
+az network private-dns link vnet create --resource-group {RG} --virtual-network {vNet NAME} --zone-name privatelink.vaultcore.azure.net --name {dnsZoneLinkName} --registration-enabled true
 ```
 ### <a name="create-a-private-endpoint-automatically-approve"></a>Tworzenie prywatnego punktu końcowego (automatyczne zatwierdzanie) 
 ```console
@@ -149,7 +149,7 @@ Istnieją cztery Stany aprowizacji:
 | Brak | Oczekiwanie | Połączenie jest tworzone ręcznie i oczekuje na zatwierdzenie przez właściciela zasobu link prywatny. |
 | Zatwierdzenie | Approved (Zatwierdzono) | Połączenie zostało automatycznie lub ręcznie zatwierdzone i jest gotowe do użycia. |
 | Reject | Odrzucone | Połączenie zostało odrzucone przez właściciela zasobu link prywatny. |
-| Remove | Odłączony | Połączenie zostało usunięte przez właściciela zasobu link prywatny, a prywatny punkt końcowy zmieni się na format i powinien zostać usunięty do oczyszczenia. |
+| Usuń | Odłączony | Połączenie zostało usunięte przez właściciela zasobu link prywatny, a prywatny punkt końcowy zmieni się na format i powinien zostać usunięty do oczyszczenia. |
  
 ###  <a name="how-to-manage-a-private-endpoint-connection-to-key-vault-using-the-azure-portal"></a>Jak zarządzać połączeniem prywatnego punktu końcowego w celu Key Vault przy użyciu Azure Portal 
 
@@ -162,7 +162,7 @@ Istnieją cztery Stany aprowizacji:
 1. Wybierz przycisk Zatwierdź.
 1. Jeśli istnieją jakieś połączenia prywatnego punktu końcowego, które chcesz odrzucić, niezależnie od tego, czy jest to oczekujące żądanie, czy istniejące połączenie, wybierz połączenie i kliknij przycisk Odrzuć.
 
-    ![Obraz](../media/private-link-service-7.png)
+    ![Image (Obraz)](../media/private-link-service-7.png)
 
 ##  <a name="how-to-manage-a-private-endpoint-connection-to-key-vault-using-azure-cli"></a>Jak zarządzać połączeniem prywatnego punktu końcowego w celu Key Vault przy użyciu interfejsu wiersza polecenia platformy Azure
 

@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: trevorbye
-ms.author: trbye
-ms.reviewer: trbye
+author: aniththa
+ms.author: anumamah
+ms.reviewer: nibaccam
 ms.date: 02/10/2020
-ms.openlocfilehash: 75e61ea3f4fa6c2b346f912a9effd66ad94e7e93
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 97b129bfaa1a8612040e59c6378aa1965c5c49cd
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77116452"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118874"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Samouczek: Używanie automatycznego uczenia maszynowego do przewidywania opłat za taksówkę
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -38,11 +38,11 @@ Jeśli nie masz subskrypcji Azure, przed rozpoczęciem utwórz bezpłatne konto.
 * Ukończ [Samouczek instalacji](tutorial-1st-experiment-sdk-setup.md) , jeśli nie masz jeszcze obszaru roboczego Azure Machine Learning lub maszyny wirtualnej notesu.
 * Po zakończeniu pracy z samouczkiem Instalatora Otwórz Notes *samouczków/Regression-automl-NYC-Taxi-Data/Regression-Automated-ml. ipynb* przy użyciu tego samego serwera notesu.
 
-Ten samouczek jest również dostępny w witrynie [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) , jeśli chcesz uruchomić go w [środowisku lokalnym](how-to-configure-environment.md#local). Uruchom `pip install azureml-sdk[automl] azureml-opendatasets azureml-widgets` , aby pobrać wymagane pakiety.
+Ten samouczek jest również dostępny w witrynie [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) , jeśli chcesz uruchomić go w [środowisku lokalnym](how-to-configure-environment.md#local). Uruchom, `pip install azureml-sdk[automl] azureml-opendatasets azureml-widgets` Aby pobrać wymagane pakiety.
 
 ## <a name="download-and-prepare-data"></a>Pobieranie i przygotowywanie danych
 
-Zaimportuj niezbędne pakiety. Pakiet Open DataSets zawiera klasę reprezentującą każde źródło danych (`NycTlcGreen` na przykład) do łatwego filtrowania parametrów daty przed pobraniem.
+Zaimportuj niezbędne pakiety. Pakiet Open DataSets zawiera klasę reprezentującą każde źródło danych ( `NycTlcGreen` na przykład) do łatwego filtrowania parametrów daty przed pobraniem.
 
 ```python
 from azureml.opendatasets import NycTlcGreen
@@ -850,7 +850,7 @@ for col in columns_to_remove_for_training:
     final_df.pop(col)
 ```
 
-Ponownie `describe()` Wywołaj dane, aby upewnić się, że czyszczenie działało zgodnie z oczekiwaniami. Masz teraz przygotowany i wyczyszczony zestaw danych o taksówkach, dniach wolnych i pogoda, które mają być używane do szkolenia modelu uczenia maszynowego.
+Ponownie wywołaj `describe()` dane, aby upewnić się, że czyszczenie działało zgodnie z oczekiwaniami. Masz teraz przygotowany i wyczyszczony zestaw danych o taksówkach, dniach wolnych i pogoda, które mają być używane do szkolenia modelu uczenia maszynowego.
 
 ```python
 final_df.describe()
@@ -858,7 +858,7 @@ final_df.describe()
 
 ## <a name="configure-workspace"></a>Konfigurowanie obszaru roboczego
 
-Utwórz obiekt obszaru roboczego na podstawie istniejącego obszaru roboczego. [Obszar roboczy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) to Klasa, która akceptuje informacje o subskrypcji i zasobach platformy Azure. Tworzy ona również zasób w chmurze służący do monitorowania i śledzenia przebiegów modelu. `Workspace.from_config()`odczytuje plik **config. JSON** i ładuje szczegóły uwierzytelniania do obiektu o nazwie `ws`. Obiekt `ws` jest używany w kodzie w tym samouczku.
+Utwórz obiekt obszaru roboczego na podstawie istniejącego obszaru roboczego. [Obszar roboczy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) to Klasa, która akceptuje informacje o subskrypcji i zasobach platformy Azure. Tworzy ona również zasób w chmurze służący do monitorowania i śledzenia przebiegów modelu. `Workspace.from_config()`odczytuje plik **config. JSON** i ładuje szczegóły uwierzytelniania do obiektu o nazwie `ws` . Obiekt `ws` jest używany w kodzie w tym samouczku.
 
 ```python
 from azureml.core.workspace import Workspace
@@ -869,7 +869,7 @@ ws = Workspace.from_config()
 
 Podziel dane na zestawy szkoleniowe i testowe przy użyciu `train_test_split` funkcji w `scikit-learn` bibliotece. Ta funkcja dzieli dane na zestaw danych x (**Features**) na potrzeby szkolenia modeli oraz zestawu danych y (**wartości do przewidywania**) na potrzeby testowania.
 
-Parametr `test_size` określa procent danych przydzielanych do testowania. `random_state` Parametr ustawia inicjator dla generatora losowego, dzięki czemu podziały testu pociąga są deterministyczne.
+Parametr `test_size` określa procent danych przydzielanych do testowania. `random_state`Parametr ustawia inicjator dla generatora losowego, dzięki czemu podziały testu pociąga są deterministyczne.
 
 ```python
 from sklearn.model_selection import train_test_split
@@ -898,7 +898,7 @@ Zdefiniuj parametr eksperymentu i ustawienia modelu dla szkolenia. Wyświetl pe�
 |----|----|---|
 |**iteration_timeout_minutes**|2|Limit czasu w minutach dla każdej iteracji. Zmniejszenie tej wartości powoduje skrócenie całkowitego czasu wykonywania.|
 |**experiment_timeout_minutes**|20|Maksymalny czas (w minutach), przez jaki połączone wszystkie iteracje mogą upłynąć przed zakończeniem eksperymentu.|
-|**enable_early_stopping**|Prawda|Oflaguj, aby włączyć wczesne zakończenie, jeśli wynik nie zostanie ulepszony w krótkim czasie.|
+|**enable_early_stopping**|True|Oflaguj, aby włączyć wczesne zakończenie, jeśli wynik nie zostanie ulepszony w krótkim czasie.|
 |**primary_metric**| spearman_correlation | Metryka, który ma być optymalizowana. Na podstawie tej metryki zostanie wybrany model o najlepszym dopasowaniu.|
 |**cechowania**| auto | Przy użyciu **opcji**autoeksperymenty mogą wstępnie przetwarzać dane wejściowe (obsługujące brakujące dane, konwertowanie tekstu na liczbowe itd.)|
 |**verbosity**| logging.INFO | Steruje poziomem rejestrowania.|
@@ -998,7 +998,7 @@ RunDetails(local_run).show()
 
 ### <a name="retrieve-the-best-model"></a>Pobieranie najlepszego modelu
 
-Wybierz najlepszy model z iteracji. `get_output` Funkcja zwraca najlepszy przebieg i zamontowany model dla ostatniego dopasowania wywołania. Korzystając z przeciążeń `get_output`na, można pobrać najlepszy i montowany model dla każdej zarejestrowanej metryki lub konkretnej iteracji.
+Wybierz najlepszy model z iteracji. `get_output`Funkcja zwraca najlepszy przebieg i zamontowany model dla ostatniego dopasowania wywołania. Korzystając z przeciążeń na `get_output` , można pobrać najlepszy i montowany model dla każdej zarejestrowanej metryki lub konkretnej iteracji.
 
 ```python
 best_run, fitted_model = local_run.get_output()
@@ -1008,14 +1008,14 @@ print(fitted_model)
 
 ### <a name="test-the-best-model-accuracy"></a>Testowanie dokładności najlepszego modelu
 
-Użyj najlepszego modelu, aby uruchomić przewidywania na zestawie danych testowych w celu przewidywania opłat za taksówkę. Funkcja `predict` używa najlepszego modelu i przewiduje wartości y, **kosztu podróży**z zestawu `x_test` danych. Wyświetl pierwsze 10 wartości przewidywanego kosztu z zestawu `y_predict`.
+Użyj najlepszego modelu, aby uruchomić przewidywania na zestawie danych testowych w celu przewidywania opłat za taksówkę. Funkcja `predict` używa najlepszego modelu i przewiduje wartości y, **kosztu podróży**z `x_test` zestawu danych. Wyświetl pierwsze 10 wartości przewidywanego kosztu z zestawu `y_predict`.
 
 ```python
 y_predict = fitted_model.predict(x_test.values)
 print(y_predict[:10])
 ```
 
-Oblicz wartość `root mean squared error` dla wyników. `y_test` Przekonwertuj ramkę danych na listę w celu porównania do wartości prognozowanych. Funkcja `mean_squared_error` pobiera dwie tablice wartości i oblicza średnią wartość błędu kwadratowego między nimi. Wyciągnięcie pierwiastka kwadratowego z wyniku powoduje błąd w tych samych jednostkach co zmienna y **koszt**. Wskazuje na to, jak daleko opłaty za taksówkę są wysunięte z rzeczywistych opłat.
+Oblicz wartość `root mean squared error` dla wyników. Przekonwertuj `y_test` ramkę danych na listę w celu porównania do wartości prognozowanych. Funkcja `mean_squared_error` pobiera dwie tablice wartości i oblicza średnią wartość błędu kwadratowego między nimi. Wyciągnięcie pierwiastka kwadratowego z wyniku powoduje błąd w tych samych jednostkach co zmienna y **koszt**. Wskazuje na to, jak daleko opłaty za taksówkę są wysunięte z rzeczywistych opłat.
 
 ```python
 from sklearn.metrics import mean_squared_error
@@ -1026,7 +1026,7 @@ rmse = sqrt(mean_squared_error(y_actual, y_predict))
 rmse
 ```
 
-Uruchom następujący kod, aby obliczyć średni procent bezwzględnego błędu (MAPE) za pomocą `y_actual` zestawów `y_predict` pełnych i danych. Ta metryka oblicza wartości bezwzględne różnic między poszczególnymi wartościami przewidywanymi i rzeczywistymi oraz sumuje wszystkie różnice. Następnie wyrażenie to sumuje jako procent sumy wartości rzeczywistych.
+Uruchom następujący kod, aby obliczyć średni procent bezwzględnego błędu (MAPE) za pomocą `y_actual` zestawów pełnych i `y_predict` danych. Ta metryka oblicza wartości bezwzględne różnic między poszczególnymi wartościami przewidywanymi i rzeczywistymi oraz sumuje wszystkie różnice. Następnie wyrażenie to sumuje jako procent sumy wartości rzeczywistych.
 
 ```python
 sum_actuals = sum_errors = 0
@@ -1058,7 +1058,7 @@ Na podstawie dwóch metryk dokładności przewidywania zobaczysz, że model jest
 
 Tradycyjny proces opracowywania modelu uczenia maszynowego intensywnie korzysta z zasobów. Wymaga dużej wiedzy o danej dziedzinie oraz czasu, który trzeba poświęcić na uruchamianie kilkudziesięciu modeli i porównywanie ich wyników. Użycie automatycznego uczenia maszynowego jest doskonałym sposobem na szybkie przetestowanie wielu różnych modeli w danym scenariuszu.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Nie wykonuj tej sekcji, jeśli planujesz Uruchamianie innych samouczków Azure Machine Learning.
 

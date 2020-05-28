@@ -1,19 +1,19 @@
 ---
 title: Użyj Geth, aby dołączyć do usługi Azure łańcucha bloków Service
 description: Dołącz do wystąpienia Geth w węźle transakcji usługi Azure łańcucha bloków Service
-ms.date: 11/20/2019
+ms.date: 05/26/2020
 ms.topic: quickstart
-ms.reviewer: janders
-ms.openlocfilehash: 9da78eac1dc429bcc0ad52bb9cb2f1fb743a90d4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.reviewer: maheshna
+ms.openlocfilehash: 2c5b6a56d96ac132949052e9879c8f61d41ffb06
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74455833"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994793"
 ---
 # <a name="quickstart-use-geth-to-attach-to-an-azure-blockchain-service-transaction-node"></a>Szybki Start: używanie Geth do dołączania do węzła transakcji usługi Azure łańcucha bloków Service
 
-W tym przewodniku szybki start użyjesz klienta Geth do dołączenia do wystąpienia Geth w węźle transakcji usługi Azure łańcucha bloków. Po dołączeniu należy użyć konsoli JavaScript Geth do wywołania web3 JavaScript Dapp API.
+W tym przewodniku szybki start użyjesz klienta Geth do dołączenia do wystąpienia Geth w węźle transakcji usługi Azure łańcucha bloków. Po dołączeniu należy użyć konsoli Geth do wywołania interfejsu API języka JavaScript Ethereum.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -45,7 +45,7 @@ Parametry połączenia Geth można uzyskać dla węzła transakcji usługi Azure
     geth attach <connection string>
     ```
 
-1. Po nawiązaniu połączenia z konsolą Ethereum węzła transakcji można wywołać interfejs API usługi web3 JavaScript Dapp lub interfejs API administratora.
+1. Po nawiązaniu połączenia z konsolą Ethereum węzła transakcji można użyć interfejsu API języka JavaScript Ethereum.
 
     Na przykład użyj poniższego interfejsu API, aby dowiedzieć się chainId.
 
@@ -57,7 +57,7 @@ Parametry połączenia Geth można uzyskać dla węzła transakcji usługi Azure
 
     ![Opcja usługi Azure łańcucha bloków](./media/connect-geth/geth-attach.png)
 
-1. Aby rozłączyć się z konsolą programu, wpisz `exit`polecenie.
+1. Aby rozłączyć się z konsolą programu, wpisz polecenie `exit` .
 
 ## <a name="next-steps"></a>Następne kroki
 

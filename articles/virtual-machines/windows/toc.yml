@@ -990,6 +990,8 @@
       href: /azure/templates/microsoft.compute/allversions
 - name: Zasoby
   items:
+    - name: Pytania i odpowiedzi
+      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-machines.html'
     - name: Tworzenie szablonów usługi Resource Manager
       displayName: Azure Resource Manager
       href: ../../azure-resource-manager/templates/template-syntax.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json

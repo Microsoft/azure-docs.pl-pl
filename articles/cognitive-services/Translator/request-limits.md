@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 03/17/2020
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 386f34e001457da4c5ae0e170ab2c090725ad5b7
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 100084a244944bcaf0d566e347d56dd4a03ecfae
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592240"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995789"
 ---
 # <a name="request-limits-for-translator"></a>Limity żądań dla translatora
 
@@ -27,14 +27,14 @@ Każde żądanie tłumaczenia jest ograniczone do 5 000 znaków, we wszystkich j
 
 W poniższej tabeli wymieniono limity elementów tablicy i znaków dla każdej operacji translatora.
 
-| Operacja | Maksymalny rozmiar elementu tablicy |   Maksymalna liczba elementów tablicy |  Maksymalny rozmiar żądania (znaki) |
+| Operacja | Maksymalny rozmiar elementu tablicy |    Maksymalna liczba elementów tablicy |    Maksymalny rozmiar żądania (znaki) |
 |:----|:----|:----|:----|
-| Tłumaczenie | 5000 | 100   | 5000 |
-| Transliteracja | 5000 | 10    | 5000 |
-| Wykrywanie | 10 000 | 100 |   50 000 |
-| BreakSentence | 10 000    | 100 | 50 000 |
-| Wyszukiwanie w słowniku| 100 |  10  | 1000 |
-| Przykłady słowników | 100 dla tekstu i 100 dla tłumaczenia (łącznie 200)| 10|   2000 |
+| Tłumaczenie | 5000    | 100    | 5000 |
+| Transliteracja | 5000    | 10    | 5000 |
+| Wykrywanie | 10 000 |    100 |    50 000 |
+| BreakSentence | 10 000    | 100 |    50 000 |
+| Wyszukiwanie w słowniku| 100 |    10    | 1000 |
+| Przykłady słowników | 100 dla tekstu i 100 dla tłumaczenia (łącznie 200)| 10|    2000 |
 
 ## <a name="character-limits-per-hour"></a>Limity znaków na godzinę
 
@@ -82,4 +82,4 @@ W przypadku korzystania z funkcji [BreakSentence](https://docs.microsoft.com/azu
 
 * [Cennik](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
 * [Dostępność regionalna](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
-* [odwołanie do translatora v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
+* [Dokumentacja usługi Translator w wersji 3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

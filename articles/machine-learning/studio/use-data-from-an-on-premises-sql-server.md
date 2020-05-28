@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 648dbdb7e9e9d1b20c55d3fa5b314b7e4657d5e7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 890486214eb67be26479b122c88c7a6b640b8ade
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79204186"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117789"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-an-on-premises-sql-server-database"></a>Wykonywanie analizy z Azure Machine Learning Studio (klasyczny) przy użyciu lokalnej bazy danych SQL Server
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Często przedsiębiorstwa, które współpracują z danymi lokalnymi, mogą wykorzystać skalę i elastyczność chmury na potrzeby obciążeń uczenia maszynowego. Ale nie chcą zakłócać swoich bieżących procesów i przepływów pracy, przenosząc dane lokalne do chmury. Azure Machine Learning Studio (klasyczny) obsługuje teraz odczytywanie danych z lokalnej SQL Server bazy danych, a następnie uczenie i ocenianie modelu przy użyciu tych danych. Nie jest już konieczne ręczne kopiowanie i synchronizowanie danych między chmurą a serwerem lokalnym. Zamiast tego moduł **Importuj dane** w Azure Machine Learning Studio (klasyczny) można teraz odczytywać bezpośrednio z lokalnej bazy danych SQL Server do celów szkoleniowych i oceniających.
 
@@ -70,7 +68,7 @@ Szczegółowe informacje na temat wymagań wstępnych instalacji, kroki instalac
 W tym instruktażu skonfigurujesz Integration Runtime Azure Data Factory w obszarze roboczym Azure Machine Learning, skonfigurujesz ją, a następnie odczytasz dane z lokalnej bazy danych SQL Server.
 
 > [!TIP]
-> Przed rozpoczęciem należy wyłączyć blokowanie wyskakujących okienek w przeglądarce dla `studio.azureml.net`programu. Jeśli używasz przeglądarki Google Chrome, Pobierz i Zainstaluj jedną z kilku wtyczek dostępnych w sklepie Google Chrome webstore [kliknij pozycję po rozszerzeniu aplikacji](https://chrome.google.com/webstore/search/clickonce?_category=extensions).
+> Przed rozpoczęciem należy wyłączyć blokowanie wyskakujących okienek w przeglądarce dla programu `studio.azureml.net` . Jeśli używasz przeglądarki Google Chrome, Pobierz i Zainstaluj jedną z kilku wtyczek dostępnych w sklepie Google Chrome webstore [kliknij pozycję po rozszerzeniu aplikacji](https://chrome.google.com/webstore/search/clickonce?_category=extensions).
 >
 > [!NOTE]
 > Azure Data Factory samoobsługowy Integration Runtime był wcześniej znany jako brama Zarządzanie danymi. Samouczek krok po kroku będzie nadal odwoływać się do niego jako brama.  
@@ -113,7 +111,7 @@ Pierwszym krokiem jest utworzenie i skonfigurowanie bramy w celu uzyskania dost�
 12. W Configuration Manager Microsoft Zarządzanie danymi Gateway przejdź do karty **certyfikat** . Certyfikat określony na tej karcie jest używany do szyfrowania/odszyfrowywania poświadczeń dla lokalnego magazynu danych określonego w portalu. Ten certyfikat jest certyfikatem domyślnym. Firma Microsoft zaleca zmianę tego certyfikatu na własny certyfikat, którego kopię zapasową można utworzyć w systemie zarządzania certyfikatami. Kliknij przycisk **Zmień** , aby zamiast tego użyć własnego certyfikatu.
 
     ![Zmień certyfikat bramy](./media/use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-certificate.png)
-13. obowiązkowe Jeśli chcesz włączyć pełne rejestrowanie w celu rozwiązywania problemów z bramą, w Configuration Manager Microsoft Zarządzanie danymi Gateway przejdź do karty **Diagnostyka** i zaznacz opcję **Włącz pełne rejestrowanie w celu rozwiązywania problemów** . Informacje o rejestrowaniu można znaleźć w Podgląd zdarzeń systemu Windows w - &gt; węźle **Dzienniki aplikacji i usług** **Zarządzanie danymi bramy** . Możesz również użyć karty **Diagnostyka** , aby przetestować połączenie z lokalnym źródłem danych przy użyciu bramy.
+13. obowiązkowe Jeśli chcesz włączyć pełne rejestrowanie w celu rozwiązywania problemów z bramą, w Configuration Manager Microsoft Zarządzanie danymi Gateway przejdź do karty **Diagnostyka** i zaznacz opcję **Włącz pełne rejestrowanie w celu rozwiązywania problemów** . Informacje o rejestrowaniu można znaleźć w Podgląd zdarzeń systemu Windows w węźle **Dzienniki aplikacji i usług**  - &gt; **Zarządzanie danymi bramy** . Możesz również użyć karty **Diagnostyka** , aby przetestować połączenie z lokalnym źródłem danych przy użyciu bramy.
 
     ![Włącz pełne rejestrowanie](./media/use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-verbose-logging.png)
 

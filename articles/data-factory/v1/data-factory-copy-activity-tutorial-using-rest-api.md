@@ -13,20 +13,20 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c6e6d4a38c5ed2afc118b267f253ffc7533f9d82
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6344f2c69e7b6407152e752c61c1928ab651a88c
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75438877"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119229"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Samouczek: korzystanie z interfejsu API REST w celu utworzenia potoku usługi Azure Data Factory do kopiowania danych 
 > [!div class="op_single_selector"]
 > * [Przegląd i wymagania wstępne](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Kreator kopiowania](data-factory-copy-data-wizard-tutorial.md)
-> * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-> * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-> * [Szablon Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+> * [Program Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+> * [Program PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+> * [Szablon usługi Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [Interfejs API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [Interfejs API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 > 
@@ -70,7 +70,7 @@ Potok może obejmować więcej niż jedno działanie. Dwa działania można poł
      ```PowerShell     
      Get-AzSubscription
      ``` 
-  3. Uruchom poniższe polecenie, aby wybrać subskrypcję, z którą chcesz pracować. Zastąp ** &lt;ciąg nameofazuresubscription nazwą** &gt; nazwą swojej subskrypcji platformy Azure. 
+  3. Uruchom poniższe polecenie, aby wybrać subskrypcję, z którą chcesz pracować. Zastąp ** &lt; ciąg nameofazuresubscription nazwą** &gt; nazwą swojej subskrypcji platformy Azure. 
      
      ```PowerShell
      Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
@@ -121,7 +121,7 @@ Aby uzyskać więcej informacji o właściwościach JSON, zobacz temat dotycząc
 
 ### <a name="azuresqllinkedservicejson"></a>azuresqllinkedservice.json
 > [!IMPORTANT]
-> Zastąp parametry **servername**, **databasename**, **username** oraz **password** nazwą serwera SQL Azure, bazy danych, konta użytkownika i hasłem do konta.  
+> Zastąp wartości **servername**, **DatabaseName**, **username**i **Password** nazwą serwera, nazwą bazy danych SQL, kontem użytkownika i hasłem dla konta.  
 > 
 >
 
@@ -179,7 +179,7 @@ Poniższa tabela zawiera opis właściwości kodu JSON użytych w tym fragmencie
 
 | Właściwość | Opis |
 |:--- |:--- |
-| type | Właściwość typu jest ustawiona na wartość **AzureBlob**, ponieważ dane znajdują się w magazynie obiektów blob na platformie Azure. |
+| typ | Właściwość typu jest ustawiona na wartość **AzureBlob**, ponieważ dane znajdują się w magazynie obiektów blob na platformie Azure. |
 | linkedServiceName | Odnosi się do utworzonego wcześniej elementu **AzureStorageLinkedService**. |
 | folderPath | Określa **kontener** obiektów blob i **folder** , który zawiera wejściowe obiekty blob. W tym samouczku kontenerem obiektów blob jest adftutorial, a folderem — katalog główny. | 
 | fileName | Ta właściwość jest opcjonalna. Jeśli pominiesz tę właściwość, zostaną wybrane wszystkie pliki z folderu folderPath. W tym samouczku dla fileName określono plik **emp.txt**, więc tylko on zostanie wybrany do przetwarzania. |
@@ -222,7 +222,7 @@ Poniższa tabela zawiera opis właściwości kodu JSON użytych w tym fragmencie
 
 | Właściwość | Opis |
 |:--- |:--- |
-| type | Właściwość typu jest ustawiona na **AzureSqlTable**, ponieważ dane są kopiowane do tabeli w bazie danych Azure SQL Database. |
+| typ | Właściwość typu jest ustawiona na **AzureSqlTable**, ponieważ dane są kopiowane do tabeli w bazie danych Azure SQL Database. |
 | linkedServiceName | Odnosi się do utworzonego wcześniej elementu **AzureSqlLinkedService**. |
 | tableName | Określa **tabelę** , do której są kopiowane dane. | 
 | frequency/interval | Właściwość frequency (częstotliwość) jest ustawiona na wartość **Hour** (Godzina), a wartość interwału wynosi **1**, co oznacza, że wycinki wyjściowe są tworzone **co godzinę** między godziną rozpoczęcia i zakończenia potoku, a nie przed tą godziną lub po niej.  |
@@ -403,7 +403,7 @@ W tym kroku opisano łączenie konta usługi Azure Storage z fabryką danych. W 
     ```
 
 ### <a name="create-azure-sql-linked-service"></a>Tworzenie połączonej usługi SQL Azure
-W tym kroku opisano łączenie bazy danych Azure SQL Database z fabryką danych. W tej sekcji określa się nazwę serwera usługi Azure SQL, nazwę bazy danych, nazwę użytkownika i hasło użytkownika. Szczegóły dotyczące właściwości JSON używanych do definiowania połączonej usługi Azure SQL zawiera temat [Połączona usługa Azure SQL](data-factory-azure-sql-connector.md#linked-service-properties).
+W tym kroku opisano łączenie bazy danych Azure SQL Database z fabryką danych. W tej sekcji należy określić nazwę logicznego serwera SQL, nazwę bazy danych, nazwę użytkownika i hasło użytkownika. Szczegóły dotyczące właściwości JSON używanych do definiowania połączonej usługi Azure SQL zawiera temat [Połączona usługa Azure SQL](data-factory-azure-sql-connector.md#linked-service-properties).
 
 1. Przypisz polecenie do zmiennej o nazwie **cmd**. 
    

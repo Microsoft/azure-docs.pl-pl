@@ -10,12 +10,12 @@ author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 03/04/2020
-ms.openlocfilehash: 8af412fb2660625ffb413052b06d4429d7844e70
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: cca09f53f90b43713c2b9b764568fb0a6d157c5d
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656515"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118962"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Samouczek: Tworzenie modelu klasyfikacji przy użyciu zautomatyzowanej ML w Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -97,7 +97,7 @@ Należy wykonać następujące czynności w celu skonfigurowania i uruchomienia 
         Nagłówki kolumn| Wskazuje, w jaki sposób nagłówki zestawu danych (jeśli istnieją) będą traktowane.| Wszystkie pliki mają te same nagłówki
         Pomiń wiersze | Wskazuje, ile (jeśli istnieją) wiersze są pomijane w zestawie danych.| Brak
 
-    1. Formularz **schematu** umożliwia dalsze Konfigurowanie danych na potrzeby tego eksperymentu. Na potrzeby tego przykładu wybierz przełącznik przełącznika dla funkcji **day_of_week** , więc nie dodawaj go do tego eksperymentu. Wybierz pozycję **Dalej**.
+    1. Formularz **schematu** umożliwia dalsze Konfigurowanie danych na potrzeby tego eksperymentu. Na potrzeby tego przykładu wybierz przełącznik przełącznika dla funkcji **day_of_week** , więc nie dodawaj go do tego eksperymentu. Wybierz opcję **Dalej**.
 
         ![Konfiguracja karty podglądu](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
 
@@ -126,7 +126,7 @@ Należy wykonać następujące czynności w celu skonfigurowania i uruchomienia 
 
         1. Po utworzeniu wybierz nowe miejsce docelowe obliczeń z listy rozwijanej.
 
-    1. Wybierz pozycję **Dalej**.
+    1. Wybierz opcję **Dalej**.
 
 1. W formularzu **Typ zadania i ustawienia** wybierz pozycję **Klasyfikacja** jako typ zadania Uczenie maszynowe.
 
@@ -138,7 +138,7 @@ Należy wykonać następujące czynności w celu skonfigurowania i uruchomienia 
         Dodatkowe &nbsp; konfiguracje|Opis|Wartość &nbsp; dla &nbsp; samouczka
         ------|---------|---
         Metryka podstawowa| Metryka oceny, według której będzie mierzony algorytm uczenia maszynowego.|AUC_weighted
-        Automatyczne cechowania| Włącza przetwarzanie wstępne. Obejmuje to automatyczne czyszczenie danych, przygotowanie i transformację do generowania funkcji syntetycznych.| Włącz
+        Automatyczne cechowania| Włącza przetwarzanie wstępne. Obejmuje to automatyczne czyszczenie danych, przygotowanie i transformację do generowania funkcji syntetycznych.| Włączanie
         Zablokowane algorytmy | Algorytmy, które mają zostać wykluczone z zadania szkoleniowego| Brak
         Kryterium zakończenia| Jeśli kryteria są spełnione, zadanie szkolenia zostanie zatrzymane. |&nbsp;Czas zadania szkoleniowego &nbsp; (godziny): 1 <br> &nbsp;Próg wyniku metryki &nbsp; : brak
         Walidacja | Wybierz typ i liczbę testów.|Typ walidacji:<br>&nbsp;k — złożenie &nbsp; krzyżowego sprawdzania poprawności <br> <br> Liczba walidacji: 2
@@ -224,7 +224,7 @@ W tym samouczku zautomatyzowanym uczenia maszynowego użyto zautomatyzowanego in
 
 + Dowiedz się więcej o [automatycznym uczeniu maszynowym](concept-automated-ml.md).
 + Aby uzyskać więcej informacji na temat metryk i wykresów klasyfikacji, zobacz artykuł [Omówienie automatycznego uczenia maszynowego](how-to-understand-automated-ml.md#classification) .
-+ Dowiedz się więcej o [cechowania](how-to-use-automated-ml-for-ml-models.md#featurization).
++ Dowiedz się więcej o [cechowania](how-to-configure-auto-features.md#featurization).
 + Dowiedz się więcej na temat [profilowania danych](how-to-use-automated-ml-for-ml-models.md#profile).
 
 

@@ -5,12 +5,12 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 39ebdb6937b03d72365e9d3785af9571ebb66186
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: f21e8ad8944340bf1f6bd97786b2d06c426ad934
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836060"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117214"
 ---
 # <a name="enable-update-management-from-a-runbook"></a>Włączanie rozwiązania Update Management z poziomu elementu runbook
 
@@ -103,7 +103,6 @@ Aby można było uruchomić ten element Runbook, należy włączyć Update Manag
 
 * Aby zaplanować element Runbook, zobacz [Zarządzanie harmonogramami w Azure Automation](shared-resources/schedules.md).
 * Aby używać Update Management dla maszyn wirtualnych, zobacz [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure](automation-tutorial-update-management.md).
-* Aby poznać konfiguracje zakresów, zobacz [Working with Scope Configurations](automation-scope-configurations-update-management.md).
 * Jeśli obszar roboczy Log Analytics nie jest już potrzebny, zobacz instrukcje w polu [Odłącz obszar roboczy z konta usługi Automation dla Update Management](automation-unlink-workspace-update-management.md).
 * Aby usunąć maszyny wirtualne z Update Management, zobacz [usuwanie maszyn wirtualnych z Update Management](automation-remove-vms-from-update-management.md).
 * Aby rozwiązać ogólne błędy Update Management, zobacz [Rozwiązywanie problemów z Update Management](troubleshoot/update-management.md).

@@ -8,23 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: af49e80766d7ac4bd2d9ed677a2571fb0a5a3189
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 99af09ded8759e7f6e2235ce0c1354982568e19d
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80131747"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117513"
 ---
 # <a name="what-is-computer-vision"></a>Czym jest przetwarzanie obrazów?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Usługa przetwarzanie obrazów platformy Azure zapewnia deweloperom dostęp do zaawansowanych algorytmów, które przetwarzają obrazy i zwracają informacje, w zależności od interesujących Cię funkcji wizualizacji. Na przykład przetwarzanie obrazów może określić, czy obraz zawiera zawartość dla dorosłych, czy też może znaleźć wszystkie ludzkie twarzy na obrazie.
+Usługa przetwarzanie obrazów platformy Azure oferuje deweloperom dostęp do zaawansowanych algorytmów, które przetwarzają obrazy i zwracają informacje na podstawie interesujących Cię funkcji wizualizacji. Na przykład przetwarzanie obrazów może określić, czy obraz zawiera zawartość dla dorosłych, znaleźć określone marki lub obiekty, czy też znaleźć ludzkie twarze.
 
-Możesz użyć przetwarzanie obrazów w aplikacji za pomocą natywnego zestawu SDK lub przez wywołanie interfejsu API REST bezpośrednio. Na tej stronie ogólnie omówiono, co można zrobić za pomocą przetwarzania obrazów.
+Możesz użyć przetwarzanie obrazów w aplikacji za pomocą zestawu SDK biblioteki klienta lub bezpośrednio wywołując interfejs API REST. Na tej stronie ogólnie omówiono, co można zrobić za pomocą przetwarzania obrazów.
 
 ## <a name="computer-vision-for-digital-asset-management"></a>przetwarzanie obrazów do zarządzania cyfrowymi zasobami
 
@@ -32,7 +32,7 @@ Przetwarzanie obrazów może obsługiwać wiele scenariuszy zarządzania zasobam
 
 ## <a name="analyze-images-for-insight"></a>Analizowanie obrazów w celu uzyskania szczegółowych informacji
 
-Obrazy można analizować, aby wykrywać cechy wizualne i właściwości obrazów oraz dostarczać szczegółowe informacje na ich temat. Wszystkie funkcje w poniższej tabeli są udostępniane przez interfejs API [analizowania obrazu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa).
+Można analizować obrazy, aby zapewnić wgląd w ich funkcje i cechy wizualne. Wszystkie funkcje w poniższej tabeli są udostępniane przez interfejs API [analizowania obrazu](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa).
 
 | Akcja | Opis |
 | ------ | ----------- |
@@ -50,7 +50,7 @@ Obrazy można analizować, aby wykrywać cechy wizualne i właściwości obrazó
 
 ## <a name="extract-text-from-images"></a>Wyodrębnianie tekstu z obrazów
 
-Możesz użyć przetwarzanie obrazów [odczytu](concept-recognizing-text.md#read-api) interfejsu API, aby wyodrębnić drukowany i odręczny tekst z obrazów do strumienia znaków z możliwością odczytu maszynowego. Interfejs API odczytu korzysta z naszych najnowszych modeli i pracuje z tekstem na różnych powierzchniach i w tle, takich jak paragony, plakaty, karty biznesowe, litery i tablice. Obecnie Języki w języku angielskim i hiszpańskim są jedynymi obsługiwanymi językami.
+Za pomocą interfejsu API [odczytu](concept-recognizing-text.md#read-api) przetwarzanie obrazów można wyodrębnić wydrukowany i odręczny tekst z obrazów do strumienia znaków, który można odczytać. Interfejs API odczytu korzysta z najnowszych modeli i współpracuje z tekstem na różnych powierzchniach i w tle, takich jak paragony, plakaty, karty biznesowe, litery i tablice. Obecnie działa on w przypadku siedmiu różnych języków (zobacz [Obsługa języka](./language-support.md)).
 
 Możesz również użyć interfejsu API [rozpoznawania znaków optycznych (OCR)](concept-recognizing-text.md#ocr-optical-character-recognition-api) do wyodrębniania tekstu drukowanego w kilku językach. Jeśli to konieczne, funkcja optycznego rozpoznawania znaków poprawia kąt obrotu i podaje współrzędne ramki każdego wyrazu. Funkcja optycznego rozpoznawania znaków obsługuje 25 języków i automatycznie wykrywa język rozpoznanego tekstu.
 

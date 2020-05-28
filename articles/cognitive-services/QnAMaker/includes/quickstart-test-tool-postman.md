@@ -10,12 +10,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: 1f47b4532a009694d4167c08f6f04312f8020acc
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 095f3396c483f4b8f80ab6c31ee369f2082f560c
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83673479"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83998117"
 ---
 W tym samouczku Szybki start opisano sposób uzyskiwania odpowiedzi z bazy wiedzy przy użyciu narzędzia Postman.
 
@@ -64,7 +64,7 @@ W poprzednim przewodniku szybki start metadane zostały dodane do dwóch par QnA
     }
     ```
 
-    Pytanie jest tylko pojedynczym słowem, `size` które może zwracać jeden z dwóch zestawów pytań i odpowiedzi. `strictFilters`Tablica informuje odpowiedź, aby zmniejszyć do tylko `qna_maker` odpowiedzi.
+    Pytanie jest tylko pojedynczym słowem, `size` które może zwracać jedną z dwóch par pytań i odpowiedzi. `strictFilters`Tablica informuje odpowiedź, aby zmniejszyć do tylko `qna_maker` odpowiedzi.
 
 1. Odpowiedź zawiera tylko odpowiedź, która spełnia kryteria filtru.
 
@@ -103,12 +103,12 @@ W poprzednim przewodniku szybki start metadane zostały dodane do dwóch par QnA
     }
     ```
 
-    Jeśli istnieje pytanie i odpowiedź, które nie spełniły wyszukiwanego terminu, ale spełniały filtr, nie zostanie on zwrócony. Zamiast tego `No good match found in KB.` jest zwracana ogólna odpowiedź.
+    Jeśli istnieje para pytań i odpowiedzi, która nie spełnia warunków wyszukiwania, ale spełniała filtr, nie zostanie zwrócona. Zamiast tego `No good match found in KB.` jest zwracana ogólna odpowiedź.
 
 ## <a name="use-debug-query-property"></a>Użyj właściwości zapytania debugowania
 
 > [!NOTE]
->Nie zaleca się używania poreperty debugowania dla żadnej zależności. Ta właściwość została dodana, aby ułatwić zespołowi produktu Rozwiązywanie problemów. 
+>Nie zaleca się używania poreperty debugowania dla żadnej zależności. Ta właściwość została dodana, aby ułatwić zespołowi produktu Rozwiązywanie problemów.
 
 Informacje debugowania pomagają zrozumieć, w jaki sposób została określona zwrócona odpowiedź. Chociaż jest to przydatne, nie jest to konieczne. Aby wygenerować odpowiedź z informacjami o debugowaniu, Dodaj `debug` Właściwość:
 

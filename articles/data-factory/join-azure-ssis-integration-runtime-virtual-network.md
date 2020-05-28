@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 3b5f371a936c850ad4d09cfb6a8c75ffad32cba2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b0e18ec4665ede783145cd1aedf38c907f6f2905
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195608"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118482"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Dołączanie środowiska Azure SSIS Integration Runtime do sieci wirtualnej
 
@@ -26,7 +26,7 @@ Korzystając z SQL Server Integration Services (SSIS) w Azure Data Factory, nale
 
 - Chcesz połączyć się z lokalnymi magazynami danych z pakietów SSIS, które są uruchamiane na Azure-SSIS IR bez konfigurowania lub zarządzania własnym hostowanym programem IR jako serwer proxy. 
 
-- Chcesz hostować bazę danych wykazu usług SSIS (SSISDB) w Azure SQL Database z regułami zapory IP/punktami końcowymi usługi sieci wirtualnej lub wystąpieniem zarządzanym z prywatnym punktem końcowym. 
+- Chcesz hostować bazę danych wykazu usług SSIS (SSISDB) w Azure SQL Database z regułami zapory IP/punktami końcowymi usługi sieci wirtualnej lub w wystąpieniu zarządzanym SQL z prywatnym punktem końcowym. 
 
 - Chcesz połączyć się z zasobami platformy Azure skonfigurowanymi za pomocą punktów końcowych usługi sieci wirtualnej z pakietów SSIS, które są uruchomione na Azure-SSIS IR.
 
@@ -65,7 +65,7 @@ Podczas dołączania Azure-SSIS IR do sieci wirtualnej należy pamiętać o nast
 
 Jeśli katalog SSIS jest hostowany w Azure SQL Database za pomocą punktów końcowych usługi sieci wirtualnej, upewnij się, że dołączysz Azure-SSIS IR do tej samej sieci wirtualnej i podsieci.
 
-Jeśli katalog usług SSIS jest hostowany w wystąpieniu zarządzanym z prywatnym punktem końcowym, należy się upewnić, że dołączysz Azure-SSIS IR do tej samej sieci wirtualnej, ale w innej podsieci niż wystąpienie zarządzane. Aby przyłączyć Azure-SSIS IR do innej sieci wirtualnej niż wystąpienie zarządzane, zalecamy wirtualne sieci równorzędne (które są ograniczone do tego samego regionu) lub połączenie z sieci wirtualnej z siecią wirtualną. Aby uzyskać więcej informacji, zobacz [łączenie aplikacji z wystąpieniem zarządzanym Azure SQL Database](../sql-database/sql-database-managed-instance-connect-app.md).
+Jeśli katalog usług SSIS jest hostowany w wystąpieniu zarządzanym SQL z prywatnym punktem końcowym, należy się upewnić, że dołączysz Azure-SSIS IR do tej samej sieci wirtualnej, ale w innej podsieci niż wystąpienie zarządzane. Aby przyłączyć Azure-SSIS IR do innej sieci wirtualnej niż wystąpienie zarządzane SQL, zalecamy wirtualne sieci równorzędne (ograniczone do tego samego regionu) lub połączenie z sieci wirtualnej z siecią wirtualną. Aby uzyskać więcej informacji, zobacz [łączenie aplikacji z wystąpieniem zarządzanym usługi Azure SQL](../azure-sql/managed-instance/connect-application-instance.md).
 
 ## <a name="access-to-azure-services"></a>Dostęp do usług platformy Azure
 
@@ -83,7 +83,7 @@ Poniższe sekcje zawierają więcej szczegółów.
 
 Skonfiguruj sieć wirtualną tak, aby spełniała te wymagania: 
 
-- Upewnij się, `Microsoft.Batch` że jest zarejestrowanym dostawcą w ramach subskrypcji podsieci sieci wirtualnej, która hostuje Azure-SSIS IR. Jeśli używasz klasycznej sieci wirtualnej, Dołącz `MicrosoftAzureBatch` także do roli współautor klasycznej maszyny wirtualnej dla tej sieci wirtualnej. 
+- Upewnij się, że `Microsoft.Batch` jest zarejestrowanym dostawcą w ramach subskrypcji podsieci sieci wirtualnej, która hostuje Azure-SSIS IR. Jeśli używasz klasycznej sieci wirtualnej, Dołącz także `MicrosoftAzureBatch` do roli współautor klasycznej maszyny wirtualnej dla tej sieci wirtualnej. 
 
 - Upewnij się, że masz wymagane uprawnienia. Aby uzyskać więcej informacji, zobacz [Konfigurowanie uprawnień](#perms).
 
@@ -111,9 +111,9 @@ Użytkownik, który tworzy Azure-SSIS IR, musi mieć następujące uprawnienia:
 
 - W przypadku dołączania środowiska IR do programu SSIS do sieci wirtualnej Azure Resource Manager dostępne są dwie opcje:
 
-  - Użyj wbudowanej roli współautor sieci. Ta rola jest dostarczana z _firmą Microsoft.\* Network/_ uprawnieniem o znacznie większym zakresie niż jest to konieczne.
+  - Użyj wbudowanej roli współautor sieci. Ta rola jest dostarczana z _firmą Microsoft. \* Network/_ uprawnieniem o znacznie większym zakresie niż jest to konieczne.
 
-  - Utwórz rolę niestandardową, która zawiera tylko wymagane uprawnienie _Microsoft. Network/\*virtualNetworks//Join/Action_ . Jeśli chcesz również przenieść własne publiczne adresy IP do Azure-SSIS IR podczas dołączania do Azure Resource Manager sieci wirtualnej, w roli należy również uwzględnić uprawnienie _Microsoft. Network/adresów publicipaddress/*/Join/Action_ .
+  - Utwórz rolę niestandardową, która zawiera tylko wymagane uprawnienie _Microsoft. Network/virtualNetworks/ \* /Join/Action_ . Jeśli chcesz również przenieść własne publiczne adresy IP do Azure-SSIS IR podczas dołączania do Azure Resource Manager sieci wirtualnej, w roli należy również uwzględnić uprawnienie _Microsoft. Network/adresów publicipaddress/*/Join/Action_ .
 
 - Jeśli dołączysz środowisko IR usług SSIS do klasycznej sieci wirtualnej, zalecamy użycie wbudowanej roli współautor klasycznej maszyny wirtualnej. W przeciwnym razie musisz zdefiniować rolę niestandardową, która zawiera uprawnienie do przyłączenia do sieci wirtualnej.
 
@@ -125,7 +125,7 @@ Podczas wybierania podsieci:
 
 - Upewnij się, że wybrana podsieć ma wystarczającą ilość dostępnej przestrzeni adresowej dla Azure-SSIS IR do użycia. Pozostaw dostępne adresy IP dla co najmniej dwóch razy numeru węzła IR. Platforma Azure rezerwuje niektóre adresy IP w poszczególnych podsieciach. Nie można użyć tych adresów. Pierwsze i ostatnie adresy IP podsieci są zarezerwowane na potrzeby zgodności protokołów, a dla usług platformy Azure są używane trzy więcej adresów. Aby uzyskać więcej informacji, zobacz [czy istnieją jakieś ograniczenia dotyczące używania adresów IP w tych podsieciach?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets) 
 
-- Nie należy używać podsieci, która jest przeznaczona wyłącznie dla innych usług platformy Azure (na przykład SQL Database wystąpienia zarządzanego, App Service itd.). 
+- Nie należy używać podsieci, która jest przeznaczona wyłącznie dla innych usług platformy Azure (na przykład SQL Database wystąpienia zarządzane SQL, App Service itd.). 
 
 ### <a name="select-the-static-public-ip-addresses"></a><a name="publicIP"></a>Wybierz statyczne publiczne adresy IP
 
@@ -142,7 +142,7 @@ Jeśli chcesz udostępnić własne statyczne publiczne adresy IP dla Azure-SSIS 
 - Te i Sieć wirtualna powinny znajdować się w tej samej subskrypcji i w tym samym regionie.
 
 ### <a name="set-up-the-dns-server"></a><a name="dns_server"></a>Konfigurowanie serwera DNS 
-Jeśli potrzebujesz użyć własnego serwera DNS w sieci wirtualnej przyłączonej przez Azure-SSIS IR w celu rozpoznania prywatnej nazwy hosta, upewnij się, że można również rozpoznać globalne nazwy hostów platformy Azure (na przykład obiekt BLOB usługi Azure Storage o `<your storage account>.blob.core.windows.net`nazwie). 
+Jeśli potrzebujesz użyć własnego serwera DNS w sieci wirtualnej przyłączonej przez Azure-SSIS IR w celu rozpoznania prywatnej nazwy hosta, upewnij się, że można również rozpoznać globalne nazwy hostów platformy Azure (na przykład obiekt BLOB usługi Azure Storage o nazwie `<your storage account>.blob.core.windows.net` ). 
 
 Poniżej przedstawiono zalecane podejście: 
 
@@ -151,7 +151,7 @@ Poniżej przedstawiono zalecane podejście:
 Aby uzyskać więcej informacji, zobacz [rozpoznawanie nazw używające własnego serwera DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server). 
 
 > [!NOTE]
-> Użyj w pełni kwalifikowanej nazwy domeny (FQDN) dla nazwy hosta prywatnego, np. Użyj `<your_private_server>.contoso.com` zamiast tego `<your_private_server>`, ponieważ Azure-SSIS IR nie będzie automatycznie dołączać własnego sufiksu DNS.
+> Użyj w pełni kwalifikowanej nazwy domeny (FQDN) dla nazwy hosta prywatnego, np. Użyj zamiast tego `<your_private_server>.contoso.com` `<your_private_server>` , ponieważ Azure-SSIS IR nie będzie automatycznie dołączać własnego sufiksu DNS.
 
 ### <a name="set-up-an-nsg"></a><a name="nsg"></a>Konfigurowanie sieciowej grupy zabezpieczeń
 Jeśli musisz zaimplementować sieciowej grupy zabezpieczeń dla podsieci używanej przez Azure-SSIS IR, Zezwól na ruch przychodzący i wychodzący przez następujące porty: 
@@ -170,8 +170,8 @@ Jeśli musisz zaimplementować sieciowej grupy zabezpieczeń dla podsieci używa
 |---|---|---|---|---|---|---|
 | Wychodzący | TCP | VirtualNetwork | * | AzureCloud | 443 | Węzły Azure-SSIS IR w sieci wirtualnej używają tego portu do uzyskiwania dostępu do usług platformy Azure, takich jak Azure Storage i Azure Event Hubs. |
 | Wychodzący | TCP | VirtualNetwork | * | Internet | 80 | Obowiązkowe Węzły Azure-SSIS IR w sieci wirtualnej używają tego portu do pobierania listy odwołania certyfikatów z Internetu. Jeśli zablokujesz ten ruch, może wystąpić obniżenie wydajności podczas uruchamiania środowiska IR i utrata możliwości sprawdzenia listy odwołania certyfikatów w celu użycia certyfikatu. Jeśli chcesz jeszcze bardziej zawęzić miejsce docelowe do określonych nazw FQDN, zapoznaj się z sekcją **Korzystanie z usługi Azure ExpressRoute lub UDR** .|
-| Wychodzący | TCP | VirtualNetwork | * | Sql | 1433, 11000-11999 | Obowiązkowe Ta reguła jest wymagana tylko wtedy, gdy węzły Azure-SSIS IR w sieci wirtualnej uzyskują dostęp do SSISDB hostowanego przez serwer SQL Database. Jeśli zasada połączenia serwera SQL Database jest ustawiona na **serwer proxy** zamiast **przekierowania**, wymagany jest tylko port 1433. <br/><br/> Ta reguła zabezpieczeń dla ruchu wychodzącego nie ma zastosowania do SSISDB hostowanego przez wystąpienie zarządzane w sieci wirtualnej lub na serwerze usługi Azure Database skonfigurowanym za pomocą prywatnego punktu końcowego. |
-| Wychodzący | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 | Obowiązkowe Ta reguła jest wymagana tylko wtedy, gdy węzły Azure-SSIS IR w sieci wirtualnej uzyskują dostęp do SSISDB hostowanego przez wystąpienie zarządzane w sieci wirtualnej lub na serwerze usługi Azure Database skonfigurowanym za pomocą prywatnego punktu końcowego. Jeśli zasada połączenia serwera SQL Database jest ustawiona na **serwer proxy** zamiast **przekierowania**, wymagany jest tylko port 1433. |
+| Wychodzący | TCP | VirtualNetwork | * | Sql | 1433, 11000-11999 | Obowiązkowe Ta reguła jest wymagana tylko wtedy, gdy węzły Azure-SSIS IR w sieci wirtualnej uzyskują dostęp do SSISDB hostowanego przez serwer. Jeśli zasada połączenia serwera jest ustawiona na **serwer proxy** zamiast **przekierowania**, wymagany jest tylko port 1433. <br/><br/> Ta reguła zabezpieczeń dla ruchu wychodzącego nie ma zastosowania do SSISDB hostowanego przez wystąpienie zarządzane SQL w sieci wirtualnej lub SQL Database skonfigurowany za pomocą prywatnego punktu końcowego. |
+| Wychodzący | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 | Obowiązkowe Ta reguła jest wymagana tylko wtedy, gdy węzły Azure-SSIS IR w sieci wirtualnej uzyskują dostęp do SSISDB hostowanego przez wystąpienie zarządzane SQL w sieci wirtualnej lub SQL Database skonfigurowany przy użyciu prywatnego punktu końcowego. Jeśli zasada połączenia serwera jest ustawiona na **serwer proxy** zamiast **przekierowania**, wymagany jest tylko port 1433. |
 | Wychodzący | TCP | VirtualNetwork | * | Magazyn | 445 | Obowiązkowe Ta reguła jest wymagana tylko wtedy, gdy chcesz uruchomić pakiet SSIS przechowywany w Azure Files. |
 ||||||||
 
@@ -186,7 +186,7 @@ Należy wykonać następujące czynności, aby wykonać cały scenariusz pracy
 
 Ruch przychodzący między Azure Batch usług zarządzania i Azure-SSIS IR nie może być kierowany do urządzenia zapory, w przeciwnym razie ruch zostanie przerwany z powodu problemu z routingiem asymetrycznym. Trasy muszą być zdefiniowane dla ruchu przychodzącego, aby ruch może oddzwonić w taki sam sposób jak w przypadku. Można zdefiniować określony UDR, aby kierować ruchem między Azure Batch usług zarządzania i Azure-SSIS IR z typem następnego przeskoku jako **Internet**.
 
-Na przykład jeśli Azure-SSIS IR znajduje się w `UK South` lokalizacji i chcesz przeprowadzić inspekcję ruchu wychodzącego za pośrednictwem zapory platformy Azure, należy najpierw pobrać listę zakres adresów IP `BatchNodeManagement.UKSouth` z [zakresu adresów IP znaczników usługi](https://www.microsoft.com/download/details.aspx?id=56519) lub za pośrednictwem [interfejsu API odnajdywania tagów usług](https://aka.ms/discoveryapi). Następnie Zastosuj następującą UDR powiązanych tras zakresów adresów IP z typem następnego przeskoku jako **Internet** wraz z trasą 0.0.0.0/0 z typem następnego przeskoku jako **urządzeniem wirtualnym**.
+Na przykład jeśli Azure-SSIS IR znajduje się w lokalizacji `UK South` i chcesz przeprowadzić inspekcję ruchu wychodzącego za pośrednictwem zapory platformy Azure, należy najpierw pobrać listę zakres adresów IP `BatchNodeManagement.UKSouth` z [zakresu adresów IP znaczników usługi](https://www.microsoft.com/download/details.aspx?id=56519) lub za pośrednictwem [interfejsu API odnajdywania tagów usług](https://aka.ms/discoveryapi). Następnie Zastosuj następującą UDR powiązanych tras zakresów adresów IP z typem następnego przeskoku jako **Internet** wraz z trasą 0.0.0.0/0 z typem następnego przeskoku jako **urządzeniem wirtualnym**.
 
 ![Azure Batch ustawienia UDR](media/join-azure-ssis-integration-runtime-virtual-network/azurebatch-udr-settings.png)
 
@@ -258,7 +258,7 @@ Aby urządzenie zapory zezwalało na ruch wychodzący, należy zezwolić na wych
 
     Jeśli ten ruch nie zostanie zablokowany, może wystąpić obniżenie wydajności podczas uruchamiania Azure-SSIS IR i utrata możliwości sprawdzenia listy odwołania certyfikatów na potrzeby użycia certyfikatów, co nie jest zalecane z punktu widzenia zabezpieczeń.
 
--   Port 1433, 11000-11999 z miejscem docelowym jako Azure SQL (wymagane tylko wtedy, gdy węzły Azure-SSIS IR w sieci wirtualnej uzyskują dostęp do SSISDB hostowanego przez serwer SQL Database).
+-   Port 1433, 11000-11999 z miejscem docelowym jako Azure SQL Database (wymagane tylko wtedy, gdy węzły Azure-SSIS IR w sieci wirtualnej uzyskują dostęp do SSISDB hostowanego przez serwer).
 
     Jeśli używasz zapory platformy Azure, możesz określić regułę sieci przy użyciu tagu usługi Azure SQL. w przeciwnym razie możesz zezwolić na miejsce docelowe jako określony adres URL usługi Azure SQL w urządzeniu zapory.
 
@@ -282,9 +282,9 @@ Jeśli nie potrzebujesz możliwości sprawdzenia ruchu wychodzącego Azure-SSIS 
 ### <a name="set-up-the-resource-group"></a><a name="resource-group"></a>Konfigurowanie grupy zasobów
 
 Azure-SSIS IR musi utworzyć określone zasoby sieciowe w ramach tej samej grupy zasobów co sieć wirtualna. Te zasoby obejmują:
-- Moduł równoważenia obciążenia platformy Azure o nazwie * \<GUID>-azurebatch-cloudserviceloadbalancer*.
-- Publiczny adres IP platformy Azure o nazwie * \<GUID>-azurebatch-cloudservicepublicip*.
-- Grupa zabezpieczeń sieć służbowa o nazwie * \<GUID>-azurebatch-cloudservicenetworksecuritygroup*. 
+- Moduł równoważenia obciążenia platformy Azure o nazwie * \<Guid> -azurebatch-cloudserviceloadbalancer*.
+- Publiczny adres IP platformy Azure o nazwie * \<Guid> -azurebatch-cloudservicepublicip*.
+- Grupa zabezpieczeń sieć służbowa o nazwie * \<Guid> -azurebatch-cloudservicenetworksecuritygroup*. 
 
 > [!NOTE]
 > Możesz teraz przenieść własne statyczne publiczne adresy IP do Azure-SSIS IR. W tym scenariuszu utworzysz tylko usługę Azure load module i sieciową grupę zabezpieczeń w ramach tej samej grupy zasobów co statyczne publiczne adresy IP zamiast sieci wirtualnej.
@@ -454,9 +454,9 @@ Po skonfigurowaniu sieci wirtualnej Azure Resource Manager lub klasycznej sieci 
 
    1. W polu **Typ**wybierz typ sieci wirtualnej: klasyczny lub Azure Resource Manager. Zalecamy wybranie Azure Resource Manager sieci wirtualnej, ponieważ klasyczne sieci wirtualne będą wkrótce przestarzałe.
 
-   1. W polu **Nazwa**sieci wirtualnej wybierz nazwę swojej usługi. Powinna być taka sama, jak ta, która jest używana przez serwer Azure SQL Database z punktami końcowymi usługi sieci wirtualnej lub wystąpieniem zarządzanym z prywatnym punktem końcowym do hostowania SSISDB. Lub powinien być taki sam, jak jeden połączony z siecią lokalną. W przeciwnym razie może to być dowolna Sieć wirtualna do przenoszenia własnych statycznych publicznych adresów IP dla Azure-SSIS IR.
+   1. W polu **Nazwa**sieci wirtualnej wybierz nazwę swojej usługi. Powinien być to ten sam, który służy do SQL Database z punktami końcowymi usługi sieci wirtualnej lub wystąpieniem zarządzanym SQL z prywatnym punktem końcowym do hostowania SSISDB. Lub powinien być taki sam, jak jeden połączony z siecią lokalną. W przeciwnym razie może to być dowolna Sieć wirtualna do przenoszenia własnych statycznych publicznych adresów IP dla Azure-SSIS IR.
 
-   1. W polu **Nazwa podsieci**wybierz nazwę podsieci dla sieci wirtualnej. Powinna być taka sama, jak ta, która jest używana przez serwer Azure SQL Database z punktami końcowymi usługi sieci wirtualnej do hostowania SSISDB. Lub powinien być inną podsiecią niż używana dla wystąpienia zarządzanego z prywatnym punktem końcowym do hostowania SSISDB. W przeciwnym razie może być dowolna podsieć do przenoszenia własnych statycznych publicznych adresów IP dla Azure-SSIS IR.
+   1. W polu **Nazwa podsieci**wybierz nazwę podsieci dla sieci wirtualnej. Powinien być to ten sam, który służy do SQL Database z punktami końcowymi usługi sieci wirtualnej do hostowania SSISDB. Lub powinien być inną podsiecią niż używana do wystąpienia zarządzanego SQL z prywatnym punktem końcowym do hostowania SSISDB. W przeciwnym razie może być dowolna podsieć do przenoszenia własnych statycznych publicznych adresów IP dla Azure-SSIS IR.
 
    1. Zaznacz pole wyboru **Przenieś statyczne publiczne adresy IP dla Azure-SSIS Integration Runtime** , aby wybrać, czy chcesz przenieść własne statyczne publiczne adresy ip dla Azure-SSIS IR, dzięki czemu możesz zezwolić na dostęp do nich w zaporze dla źródeł danych.
 
@@ -485,8 +485,8 @@ $ResourceGroupName = "[your Azure resource group name]"
 $DataFactoryName = "[your data factory name]"
 $AzureSSISName = "[your Azure-SSIS IR name]"
 # Virtual network info: Classic or Azure Resource Manager
-$VnetId = "[your virtual network resource ID or leave it empty]" # REQUIRED if you use an Azure SQL Database server with IP firewall rules/virtual network service endpoints or a managed instance with private endpoint to host SSISDB, or if you require access to on-premises data without configuring a self-hosted IR. We recommend an Azure Resource Manager virtual network, because classic virtual networks will be deprecated soon.
-$SubnetName = "[your subnet name or leave it empty]" # WARNING: Use the same subnet as the one used for your Azure SQL Database server with virtual network service endpoints, or a different subnet from the one used for your managed instance with a private endpoint
+$VnetId = "[your virtual network resource ID or leave it empty]" # REQUIRED if you use SQL Database with IP firewall rules/virtual network service endpoints or SQL Managed Instance with private endpoint to host SSISDB, or if you require access to on-premises data without configuring a self-hosted IR. We recommend an Azure Resource Manager virtual network, because classic virtual networks will be deprecated soon.
+$SubnetName = "[your subnet name or leave it empty]" # WARNING: Use the same subnet as the one used for SQL Database with virtual network service endpoints, or a different subnet from the one used for SQL Managed Instance with a private endpoint
 # Public IP address info: OPTIONAL to provide two standard static public IP addresses with DNS name under the same subscription and in the same region as your virtual network
 $FirstPublicIP = "[your first public IP address resource ID or leave it empty]"
 $SecondPublicIP = "[your second public IP address resource ID or leave it empty]"
@@ -602,6 +602,6 @@ To polecenie zajmie od 20 do 30 minut.
 Aby uzyskać więcej informacji na temat Azure-SSIS IR, zobacz następujące artykuły: 
 - [Azure-SSIS IR](concepts-integration-runtime.md#azure-ssis-integration-runtime). Ten artykuł zawiera ogólne informacje koncepcyjne dotyczące urzędu skarbowego, w tym Azure-SSIS IR. 
 - [Samouczek: Wdrażanie pakietów usług SSIS na platformie Azure](tutorial-create-azure-ssis-runtime-portal.md). Ten samouczek zawiera instrukcje krok po kroku dotyczące tworzenia Azure-SSIS IR. Używa Azure SQL Database do hostowania wykazu usług SSIS. 
-- [Utwórz Azure-SSIS IR](create-azure-ssis-integration-runtime.md). Ten artykuł rozszerza się w samouczku. Zawiera instrukcje dotyczące używania Azure SQL Database z punktami końcowymi usługi sieci wirtualnej lub wystąpieniem zarządzanym w sieci wirtualnej do hostowania wykazu usług SSIS. Przedstawiono sposób przyłączania Azure-SSIS IR do sieci wirtualnej. 
+- [Utwórz Azure-SSIS IR](create-azure-ssis-integration-runtime.md). Ten artykuł rozszerza się w samouczku. Zawiera instrukcje dotyczące używania Azure SQL Database z punktami końcowymi usługi sieci wirtualnej lub wystąpieniem zarządzanym SQL w sieci wirtualnej do hostowania wykazu usług SSIS. Przedstawiono sposób przyłączania Azure-SSIS IR do sieci wirtualnej. 
 - [Monitor an Azure-SSIS IR (Monitorowanie środowiska Azure-SSIS IR)](monitor-integration-runtime.md#azure-ssis-integration-runtime). W tym artykule pokazano, jak uzyskać informacje o Azure-SSIS IR. Zawiera opisy stanu dla zwracanych informacji. 
 - [Manage an Azure-SSIS IR (Zarządzanie środowiskiem Azure-SSIS IR)](manage-azure-ssis-integration-runtime.md). W tym artykule przedstawiono sposób zatrzymywania, uruchamiania lub usuwania Azure-SSIS IR. Przedstawiono w nim również sposób skalowania Azure-SSIS IR przez dodanie węzłów.

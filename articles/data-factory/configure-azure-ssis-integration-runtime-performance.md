@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
-ms.openlocfilehash: ca88e42438c7cb48b062aa67d82053afbb9244bf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 86fa7da695b185f41d134f67eb7d8155a30e1376
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418290"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118928"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Konfigurowanie Azure-SSIS Integration Runtime na potrzeby wysokiej wydajności
 
@@ -57,40 +57,40 @@ $AzureSSISMaxParallelExecutionsPerNode = 8
 # Custom setup info
 $SetupScriptContainerSasUri = "" # OPTIONAL to provide SAS URI of blob container where your custom setup script and its associated files are stored
 # Virtual network info: Classic or Azure Resource Manager
-$VnetId = "[your virtual network resource ID or leave it empty]" # REQUIRED if you use Azure SQL Database with virtual network service endpoints/Managed Instance/on-premises data, Azure Resource Manager virtual network is recommended, Classic virtual network will be deprecated soon
-$SubnetName = "[your subnet name or leave it empty]" # WARNING: Please use the same subnet as the one used with your Azure SQL Database with virtual network service endpoints or a different subnet than the one used for your Managed Instance
+$VnetId = "[your virtual network resource ID or leave it empty]" # REQUIRED if you use Azure SQL Database with virtual network service endpoints/SQL Managed Instance/on-premises data, Azure Resource Manager virtual network is recommended, Classic virtual network will be deprecated soon
+$SubnetName = "[your subnet name or leave it empty]" # WARNING: Please use the same subnet as the one used with your Azure SQL Database with virtual network service endpoints or a different subnet than the one used for your SQL Managed Instance
 
 ### SSISDB info
-$SSISDBServerEndpoint = "[your Azure SQL Database server name or Managed Instance name.DNS prefix].database.windows.net" # WARNING: Please ensure that there is no existing SSISDB, so we can prepare and manage one on your behalf
+$SSISDBServerEndpoint = "[your server name or managed instance name.DNS prefix].database.windows.net" # WARNING: Please ensure that there is no existing SSISDB, so we can prepare and manage one on your behalf
 # Authentication info: SQL or Azure Active Directory (AAD)
 $SSISDBServerAdminUserName = "[your server admin username for SQL authentication or leave it empty for AAD authentication]"
 $SSISDBServerAdminPassword = "[your server admin password for SQL authentication or leave it empty for AAD authentication]"
-$SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…|ELASTIC_POOL(name = <elastic_pool_name>) for Azure SQL Database or leave it empty for Managed Instance]"
+$SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…|ELASTIC_POOL(name = <elastic_pool_name>) for Azure SQL Database or leave it empty for SQL Managed Instance]"
 ```
 
 ## <a name="azuressislocation"></a>AzureSSISLocation
-**AzureSSISLocation** jest lokalizacją dla węzła procesu roboczego Integration Runtime. Węzeł procesu roboczego utrzymuje stałe połączenie z bazą danych wykazu usług SSIS (SSISDB) w usłudze Azure SQL Database. Ustaw **AzureSSISLocation** w tej samej lokalizacji co serwer SQL Database, który hostuje SSISDB, co umożliwia wydajne działanie środowiska Integration Runtime.
+**AzureSSISLocation** jest lokalizacją dla węzła procesu roboczego Integration Runtime. Węzeł procesu roboczego utrzymuje stałe połączenie z bazą danych wykazu usług SSIS (SSISDB) w Azure SQL Database. Ustaw **AzureSSISLocation** na tę samą lokalizację co [logiczny serwer SQL Server](../azure-sql/database/logical-servers.md) , który hostuje SSISDB, co umożliwia wydajne działanie środowiska Integration Runtime.
 
 ## <a name="azuressisnodesize"></a>AzureSSISNodeSize
 Data Factory, w tym Azure-SSIS IR, obsługuje następujące opcje:
--   Standardowa\_a4\_v2
--   Standardowa\_A8\_v2
--   Standardowa\_D1\_v2
--   Standardowa\_D2\_v2
--   Standardowa\_D3\_, wersja 2
--   Standardowa\_D4\_v2
--   Standardowa\_D2\_v3
--   Standardowa\_D4\_v3
--   Standardowa\_D8\_v3
--   Standardowa\_D16\_v3
--   Standardowa\_D32\_v3
--   Standardowa\_D64\_v3
--   Standardowa\_E2\_v3
--   Standardowa\_E4\_v3
--   Standardowa\_E8\_v3
--   Standardowa\_E16\_v3
--   Standardowa\_E32\_v3
--   Standardowa\_E64\_v3
+-   Standardowa \_ a4 \_ v2
+-   Standardowa \_ A8 \_ v2
+-   Standardowa \_ D1 \_ v2
+-   Standardowa \_ D2 \_ v2
+-   Standardowa \_ D3, \_ wersja 2
+-   Standardowa \_ D4 \_ v2
+-   Standardowa \_ D2 \_ v3
+-   Standardowa \_ D4 \_ v3
+-   Standardowa \_ D8 \_ v3
+-   Standardowa \_ D16 \_ v3
+-   Standardowa \_ D32 \_ v3
+-   Standardowa \_ D64 \_ v3
+-   Standardowa \_ E2 \_ v3
+-   Standardowa \_ E4 \_ v3
+-   Standardowa \_ E8 \_ v3
+-   Standardowa \_ E16 \_ v3
+-   Standardowa \_ E32 \_ v3
+-   Standardowa \_ E64 \_ v3
 
 W nieoficjalnym teście prowadzonym przez zespół inżynierów usług SSIS seria D wydaje się bardziej odpowiednia dla wykonywania pakietów SSIS niż w przypadku serii.
 
@@ -123,24 +123,24 @@ Można oszacować odpowiednią wartość w oparciu o koszt pakietu oraz następu
 
 | Rozmiar             | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maksymalna przepływność magazynu tymczasowego: operacje we/wy na sek. / odczyt MB/s / zapis MB/s | Maksymalna liczba dysków danych / przepływność: liczba operacji we/wy na sekundę | Maksymalna liczba kart sieciowych/oczekiwana wydajność sieci (Mb/s) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
-| Standardowa\_D1\_v2 | 1    | 3,5         | 50                     | 3000 / 46 / 23                                             | 2 / 2 x 500                         | 2 / 750                                        |
-| Standardowa\_D2\_v2 | 2    | 7           | 100                    | 6000 / 93 / 46                                             | 4 / 4 x 500                         | 2 / 1500                                       |
-| Standardowa\_D3\_, wersja 2 | 4    | 14          | 200                    | 12000 / 187 / 93                                           | 8 / 8 x 500                         | 4 / 3000                                       |
-| Standardowa\_D4\_v2 | 8    | 28          | 400                    | 24000 / 375 / 187                                          | 16 / 16 x 500                       | 8 / 6000                                       |
-| Standardowa\_a4\_v2 | 4    | 8           | 40                     | 4000 / 80 / 40                                             | 8 / 8 x 500                         | 4 / 1000                                       |
-| Standardowa\_A8\_v2 | 8    | 16          | 80                     | 8000 / 160 / 80                                            | 16 / 16 x 500                       | 8 / 2000                                       |
-| Standardowa\_D2\_v3 | 2    | 8           | 50                     | 3000 / 46 / 23                                             | 4/6x500                         | 2 / 1000                                       |
-| Standardowa\_D4\_v3 | 4    | 16          | 100                    | 6000 / 93 / 46                                             | 8/12x500                        | 2 / 2000                                       |
-| Standardowa\_D8\_v3 | 8    | 32          | 200                    | 12000 / 187 / 93                                           | 16/24x500                       | 4 / 4000                                       |
-| Standardowa\_D16\_v3| 16   | 64          | 400                    | 24000 / 375 / 187                                          | 32/48x500                        | 8 / 8000                                       |
-| Standardowa\_D32\_v3| 32   | 128         | 800                    | 48000 / 750 / 375                                          | 32/96x500                       | 8 / 16 000                                      |
-| Standardowa\_D64\_v3| 64   | 256         | 1600                   | 96000/1000/500                                         | 32/192x500                      | 8 / 30000                                      |
-| Standardowa\_E2\_v3 | 2    | 16          | 50                     | 3000 / 46 / 23                                             | 4/6x500                         | 2 / 1000                                       |
-| Standardowa\_E4\_v3 | 4    | 32          | 100                    | 6000 / 93 / 46                                             | 8/12x500                        | 2 / 2000                                       |
-| Standardowa\_E8\_v3 | 8    | 64          | 200                    | 12000 / 187 / 93                                           | 16/24x500                       | 4 / 4000                                       |
-| Standardowa\_E16\_v3| 16   | 128         | 400                    | 24000 / 375 / 187                                          | 32/48x500                       | 8 / 8000                                       |
-| Standardowa\_E32\_v3| 32   | 256         | 800                    | 48000 / 750 / 375                                          | 32/96x500                       | 8 / 16 000                                      |
-| Standardowa\_E64\_v3| 64   | 432         | 1600                   | 96000/1000/500                                         | 32/192x500                      | 8 / 30000                                      |
+| Standardowa \_ D1 \_ v2 | 1    | 3,5         | 50                     | 3000 / 46 / 23                                             | 2 / 2 x 500                         | 2 / 750                                        |
+| Standardowa \_ D2 \_ v2 | 2    | 7           | 100                    | 6000 / 93 / 46                                             | 4 / 4 x 500                         | 2 / 1500                                       |
+| Standardowa \_ D3, \_ wersja 2 | 4    | 14          | 200                    | 12000 / 187 / 93                                           | 8 / 8 x 500                         | 4 / 3000                                       |
+| Standardowa \_ D4 \_ v2 | 8    | 28          | 400                    | 24000 / 375 / 187                                          | 16 / 16 x 500                       | 8 / 6000                                       |
+| Standardowa \_ a4 \_ v2 | 4    | 8           | 40                     | 4000 / 80 / 40                                             | 8 / 8 x 500                         | 4 / 1000                                       |
+| Standardowa \_ A8 \_ v2 | 8    | 16          | 80                     | 8000 / 160 / 80                                            | 16 / 16 x 500                       | 8 / 2000                                       |
+| Standardowa \_ D2 \_ v3 | 2    | 8           | 50                     | 3000 / 46 / 23                                             | 4/6x500                         | 2 / 1000                                       |
+| Standardowa \_ D4 \_ v3 | 4    | 16          | 100                    | 6000 / 93 / 46                                             | 8/12x500                        | 2 / 2000                                       |
+| Standardowa \_ D8 \_ v3 | 8    | 32          | 200                    | 12000 / 187 / 93                                           | 16/24x500                       | 4 / 4000                                       |
+| Standardowa \_ D16 \_ v3| 16   | 64          | 400                    | 24000 / 375 / 187                                          | 32/48x500                        | 8 / 8000                                       |
+| Standardowa \_ D32 \_ v3| 32   | 128         | 800                    | 48000 / 750 / 375                                          | 32/96x500                       | 8 / 16 000                                      |
+| Standardowa \_ D64 \_ v3| 64   | 256         | 1600                   | 96000/1000/500                                         | 32/192x500                      | 8 / 30000                                      |
+| Standardowa \_ E2 \_ v3 | 2    | 16          | 50                     | 3000 / 46 / 23                                             | 4/6x500                         | 2 / 1000                                       |
+| Standardowa \_ E4 \_ v3 | 4    | 32          | 100                    | 6000 / 93 / 46                                             | 8/12x500                        | 2 / 2000                                       |
+| Standardowa \_ E8 \_ v3 | 8    | 64          | 200                    | 12000 / 187 / 93                                           | 16/24x500                       | 4 / 4000                                       |
+| Standardowa \_ E16 \_ v3| 16   | 128         | 400                    | 24000 / 375 / 187                                          | 32/48x500                       | 8 / 8000                                       |
+| Standardowa \_ E32 \_ v3| 32   | 256         | 800                    | 48000 / 750 / 375                                          | 32/96x500                       | 8 / 16 000                                      |
+| Standardowa \_ E64 \_ v3| 64   | 432         | 1600                   | 96000/1000/500                                         | 32/192x500                      | 8 / 30000                                      |
 
 Poniżej przedstawiono wskazówki dotyczące ustawiania prawidłowej wartości właściwości **AzureSSISMaxParallelExecutionsPerNode** : 
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: f1a4d9af8a1b1095527078dd790e80ef45a5ee9a
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 3e5507069a3e1eeadfaf4c3eeee288b2651e88a1
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82722897"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996044"
 ---
 # <a name="manage-and-find-data-on-azure-blob-storage-with-blob-index-preview"></a>Zarządzanie danymi w usłudze Azure Blob Storage i znajdowanie ich przy użyciu indeksu obiektów BLOB (wersja zapoznawcza)
 
@@ -26,7 +26,7 @@ Indeks obiektów BLOB umożliwia:
 - Określ zachowania warunkowe dla interfejsów API obiektów BLOB na podstawie oceny tagów indeksu
 - Korzystanie z tagów indeksu dla zaawansowanych kontrolek funkcji platformy obiektów blob, takich jak [Zarządzanie cyklem życia](storage-lifecycle-management-concepts.md)
 
-Rozważmy scenariusz, w którym masz miliony obiektów BLOB na koncie magazynu, które są zapisywane i dostępne dla wielu różnych aplikacji. Chcesz znaleźć wszystkie powiązane dane z pojedynczego projektu, ale nie masz pewności, co znajduje się w zakresie, ponieważ dane mogą być rozłożone między wiele kontenerów z różnymi konwencjami nazewnictwa obiektów BLOB. Należy jednak pamiętać, że aplikacje przekazują wszystkie dane za pomocą tagów w oparciu o odpowiedni projekt i identyfikujący opis. Zamiast wyszukiwania przez miliony obiektów blob i porównywania nazw i właściwości, można po prostu użyć `Project = Contoso` jako kryterium odnajdywania. Indeks obiektów BLOB będzie filtrować wszystkie kontenery na całym koncie magazynu, aby szybko znajdować i zwracać tylko zestaw 50 obiektów `Project = Contoso`BLOB z. 
+Rozważmy scenariusz, w którym masz miliony obiektów BLOB na koncie magazynu, które są zapisywane i dostępne dla wielu różnych aplikacji. Chcesz znaleźć wszystkie powiązane dane z pojedynczego projektu, ale nie masz pewności, co znajduje się w zakresie, ponieważ dane mogą być rozłożone między wiele kontenerów z różnymi konwencjami nazewnictwa obiektów BLOB. Należy jednak pamiętać, że aplikacje przekazują wszystkie dane za pomocą tagów w oparciu o odpowiedni projekt i identyfikujący opis. Zamiast wyszukiwania przez miliony obiektów blob i porównywania nazw i właściwości, można po prostu użyć `Project = Contoso` jako kryterium odnajdywania. Indeks obiektów BLOB będzie filtrować wszystkie kontenery na całym koncie magazynu, aby szybko znajdować i zwracać tylko zestaw 50 obiektów blob z `Project = Contoso` . 
 
 Aby rozpocząć pracę z przykładami dotyczącymi używania indeksu obiektów blob, zobacz temat [Korzystanie z indeksu obiektów BLOB w celu zarządzania danymi i znajdowania](storage-blob-index-how-to.md)ich.
 
@@ -43,7 +43,7 @@ Rozważ następujące pięć obiektów BLOB na koncie magazynu:
 > Dzienniki/2020/01/01/plik_dziennika. txt  
 >
 
-Te obiekty blob są obecnie oddzielone przy użyciu prefiksu kontenera/nazwy obiektu BLOB. Za pomocą indeksu obiektów BLOB można ustawić atrybut `Project = Contoso` znacznika indeksu dla tych pięciu obiektów blob, aby wspólnie klasyfikować je przy zachowaniu ich bieżącej organizacji. Eliminuje to konieczność przenoszenia danych przez ujawnienie możliwości filtrowania i znajdowania danych przy użyciu wielowymiarowego indeksu platformy magazynu.
+Te obiekty blob są obecnie oddzielone przy użyciu prefiksu kontenera/nazwy obiektu BLOB. Za pomocą indeksu obiektów BLOB można ustawić atrybut znacznika indeksu dla `Project = Contoso` tych pięciu obiektów blob, aby wspólnie klasyfikować je przy zachowaniu ich bieżącej organizacji. Eliminuje to konieczność przenoszenia danych przez ujawnienie możliwości filtrowania i znajdowania danych przy użyciu wielowymiarowego indeksu platformy magazynu.
 
 ## <a name="setting-blob-index-tags"></a>Ustawianie tagów indeksów obiektów BLOB
 
@@ -70,7 +70,7 @@ Do tagów indeksów obiektów BLOB mają zastosowanie następujące ograniczenia
 - Klucze tagów muszą zawierać od 1 do 128 znaków
 - Wartości tagów muszą zawierać się w przedziale od 0 do 256 znaków
 - Klucze i wartości tagów są rozróżniane wielkości liter
-- Klucze i wartości tagów obsługują tylko typy danych String; wszystkie cyfry i znaki specjalne zostaną zapisane jako ciągi
+- Klucze i wartości tagów obsługują tylko typy danych String; wszystkie liczby, daty, godziny lub znaki specjalne zostaną zapisane jako ciągi
 - Klucze i wartości tagów muszą być zgodne z następującymi regułami nazewnictwa:
   - Znaki alfanumeryczne: a-z, A-Z, 0-9
   - Znaki specjalne: Space, plus, minus, kropka, dwukropek, Equals, podkreślenie, ukośnik
@@ -99,7 +99,7 @@ Poniższa tabela zawiera wszystkie prawidłowe operatory dla FindBlobsByTags:
 
 |  Operator  |  Opis  | Przykład |
 |------------|---------------|---------|
-|     =      |     Równa się     | "Stan" = "w toku" | 
+|     =      |     Równe     | "Stan" = "w toku" | 
 |     >      |  Większe niż |  "Date" > "2018-06-18" |
 |     >=     |  Większe niż lub równe | "Priorytet" >= "5" | 
 |     <      |  Mniejsze niż    | "Wiek" < "32" |
@@ -107,8 +107,15 @@ Poniższa tabela zawiera wszystkie prawidłowe operatory dla FindBlobsByTags:
 |    AND     |  Koniunkcja logiczna i  | "Ranga" >= "010" i "ranga" < "100" |
 | @container |  Zakres do określonego kontenera   | @container= "videofiles" i "status" = "gotowe" |
 
+> [!NOTE]
+> Zapoznaj się z kolejnością lexicographical podczas ustawiania i wykonywania zapytań dotyczących tagów.
+> - Liczby są sortowane przed literami. Liczby są sortowane na podstawie pierwszej cyfry.
+> - Wielkie litery są sortowane przed małymi literami.
+> - Symbole nie są standardami. Niektóre symbole są sortowane przed wartościami liczbowymi. Inne symbole są sortowane przed lub po literach.
+>
+
 ## <a name="conditional-blob-operations-with-blob-index-tags"></a>Warunkowe operacje obiektów blob z tagami indeksów obiektów BLOB
-W systemach REST 2019-10-10 i nowszych większość [interfejsów API usługi BLOB Service](https://docs.microsoft.com/rest/api/storageservices/operations-on-blobs) obsługuje teraz nagłówki warunkowe, x-MS-if-Tags, tak że operacja zakończy się powodzeniem tylko w przypadku spełnienia określonego warunku indeksu obiektów BLOB. Jeśli warunek nie jest spełniony, otrzymasz `error 412: The condition specified using HTTP conditional header(s) is not met`.
+W systemach REST 2019-10-10 i nowszych większość [interfejsów API usługi BLOB Service](https://docs.microsoft.com/rest/api/storageservices/operations-on-blobs) obsługuje teraz nagłówki warunkowe, x-MS-if-Tags, tak że operacja zakończy się powodzeniem tylko w przypadku spełnienia określonego warunku indeksu obiektów BLOB. Jeśli warunek nie jest spełniony, otrzymasz `error 412: The condition specified using HTTP conditional header(s) is not met` .
 
 Nagłówek x-MS-if-Tags może być połączony z innymi istniejącymi nagłówkami warunkowymi HTTP (jeśli-Match, If-None-Match itp.).  Jeśli w żądaniu dostarczono wiele nagłówków warunkowych, wszystkie muszą oszacować wartość true, aby operacja zakończyła się pomyślnie.  Wszystkie nagłówki warunkowe są efektywnie połączone z logicznymi i. 
 
@@ -116,7 +123,7 @@ W poniższej tabeli przedstawiono wszystkie prawidłowe operatory operacji warun
 
 |  Operator  |  Opis  | Przykład |
 |------------|---------------|---------|
-|     =      |     Równa się     | "Stan" = "w toku" |
+|     =      |     Równe     | "Stan" = "w toku" |
 |     <>     |   Nie równa się   | "Status"  <>  "gotowe"  | 
 |     >      |  Większe niż |  "Date" > "2018-06-18" |
 |     >=     |  Większe niż lub równe | "Priorytet" >= "5" | 
@@ -138,7 +145,7 @@ Za pomocą nowego blobIndexMatch jako filtru reguł w ramach zarządzania cyklem
 
 Można ustawić dopasowanie indeksu obiektów BLOB jako autonomicznego zestawu filtrów w regule cyklu życia, aby zastosować akcje dla oznakowanych danych. Można też połączyć dopasowanie prefiksu i indeks obiektów BLOB w celu dopasowania do bardziej szczegółowych zestawów danych. Stosowanie wielu filtrów do reguły cyklu życia traktuje się jako logiczne i operacje w taki sposób, aby akcja dotyczyła tylko wtedy, gdy wszystkie kryteria filtrowania pasują do siebie. 
 
-Następująca przykładowa reguła zarządzania cyklem życia ma zastosowanie do blokowych obiektów BLOB w kontenerze "videofiles" i "warstwowych obiektów BLOB do przechowywania tylko w przypadku, gdy ```"Status" = 'Processed' AND "Source" == 'RAW'```dane są zgodne z kryteriami znacznika indeksu obiektu BLOB.
+Następująca przykładowa reguła zarządzania cyklem życia ma zastosowanie do blokowych obiektów BLOB w kontenerze "videofiles" i "warstwowych obiektów BLOB do przechowywania tylko w przypadku, gdy dane są zgodne z kryteriami znacznika indeksu obiektu BLOB ```"Status" = 'Processed' AND "Source" == 'RAW'``` .
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 ![Przykład reguły dopasowania indeksu obiektów BLOB dla zarządzania cyklem życia w Azure Portal](media/storage-blob-index-concepts/blob-index-lifecycle-management-example.png)
@@ -246,9 +253,11 @@ Cennik indeksów obiektów BLOB jest obecnie dostępny w publicznej wersji zapoz
 
 ## <a name="regional-availability-and-storage-account-support"></a>Obsługa regionalnej dostępności i konta magazynu
 
-Indeks obiektów BLOB jest obecnie dostępny tylko dla kont Ogólnego przeznaczenia v2 (GPv2). W Azure Portal można uaktualnić istniejące konto Ogólnego przeznaczenia (GPv1) do konta GPv2. Aby uzyskać więcej informacji na temat kont magazynu, zobacz [Omówienie konta usługi Azure Storage](../common/storage-account-overview.md).
+Indeks obiektów BLOB jest obecnie dostępny tylko na kontach Ogólnego przeznaczenia v2 (GPv2) z wyłączoną hierarchiczną przestrzenią nazw (SNS). Konta Ogólnego przeznaczenia (GPV1) nie są obsługiwane, ale można uaktualnić dowolne konto GPv1 do konta GPv2. Aby uzyskać więcej informacji na temat kont magazynu, zobacz [Omówienie konta usługi Azure Storage](../common/storage-account-overview.md).
 
 W publicznej wersji zapoznawczej indeks obiektów BLOB jest obecnie dostępny tylko w następujących regionach:
+- Kanada Środkowa
+- Kanada Wschodnia
 - Francja Środkowa
 - Francja Południowa
 
@@ -276,7 +285,7 @@ az provider register --namespace 'Microsoft.Storage'
 W tej sekcji opisano znane problemy i warunki w bieżącej publicznej wersji zapoznawczej indeksu obiektów BLOB. Tak jak w przypadku większości wersji zapoznawczych, ta funkcja nie powinna być używana do obsługi obciążeń produkcyjnych, dopóki nie osiągnie jej w miarę możliwości zmiany.
 
 -   W przypadku wersji zapoznawczej musisz najpierw zarejestrować swoją subskrypcję, aby można było użyć indeksu obiektów BLOB dla konta magazynu w regionach w wersji zapoznawczej.
--   Tylko konta GPv2 są obecnie obsługiwane w wersji zapoznawczej. Konta obiektów blob, BlockBlobStorage i SNS włączone nie są obecnie obsługiwane w indeksie obiektów BLOB.
+-   Tylko konta GPv2 są obecnie obsługiwane w wersji zapoznawczej. Konta obiektów blob, BlockBlobStorage i SNS włączone nie są obecnie obsługiwane w indeksie obiektów BLOB. Konta GPv1 nie będą obsługiwane.
 -   Przekazywanie stronicowych obiektów BLOB za pomocą tagów indeksu obecnie nie zachowuje tagów. Po przekazaniu obiektu BLOB stronicowania należy ustawić Tagi.
 -   Gdy filtrowanie jest ograniczone do jednego kontenera, @container można je przekazywać tylko wtedy, gdy wszystkie Tagi indeksu w wyrażeniu filtru mają kontrolę równości (klucz = wartość). 
 -   W przypadku używania operatora Range z warunkiem i można określić tylko tę samą nazwę klucza znacznika indeksu (wiek > "013" i wiek < "100").
@@ -290,6 +299,9 @@ W tej sekcji opisano znane problemy i warunki w bieżącej publicznej wersji zap
 
 ### <a name="can-blob-index-help-me-filter-and-query-content-inside-my-blobs"></a>Czy indeks obiektów BLOB ułatwia filtrowanie i wykonywanie zapytań dotyczących zawartości wewnątrz obiektów BLOB? 
 Nie, Tagi indeksów obiektów BLOB mogą pomóc w znalezieniu obiektów blob, których szukasz. Jeśli chcesz wyszukać w obiektach Blob, użyj przyspieszenia zapytania lub Azure Search.
+
+### <a name="are-there-any-special-considerations-regarding-blob-index-tag-values"></a>Czy istnieją jakieś specjalne uwagi dotyczące wartości tagów indeksu obiektów BLOB?
+Tagi indeksu obiektów BLOB obsługują tylko typy danych String i zapytania zwraca wyniki z kolejnością lexicographical. W przypadku liczb zaleca się, aby nie przypadać na konsolę. W przypadku daty i godziny zaleca się przechowywanie w formacie zgodnym ze standardem ISO 8601.
 
 ### <a name="are-blob-index-tags-and-azure-resource-manager-tags-related"></a>Czy Tagi indeksów obiektów blob i Azure Resource Manager są powiązane?
 Nie, Azure Resource Manager Tagi ułatwiają organizowanie zasobów płaszczyzny kontroli, takich jak subskrypcje, grupy zasobów i konta magazynu. Tagi indeksu obiektów BLOB zapewniają zarządzanie obiektami i odnajdywanie zasobów płaszczyzny danych, takich jak obiekty blob na koncie magazynu.

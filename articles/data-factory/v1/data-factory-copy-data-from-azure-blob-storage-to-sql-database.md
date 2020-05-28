@@ -13,21 +13,21 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: cc2f0a513219a671dd8a75ee00af4fc9d4c6a68a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7c81c4cd72a34f69632c2b1264ba2d276ff03de4
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75979723"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118583"
 ---
 # <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Samouczek: kopiowanie danych z Blob Storage do SQL Database przy użyciu Data Factory
 > [!div class="op_single_selector"]
 > * [Przegląd i wymagania wstępne](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Kreator kopiowania](data-factory-copy-data-wizard-tutorial.md)
-> * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-> * [Narzędzia](data-factory-copy-activity-tutorial-using-powershell.md)
-> * [Szablon Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-> * [INTERFEJS API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+> * [Program Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+> * [Program PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+> * [Szablon usługi Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+> * [Interfejs API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [Interfejs API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 > [!NOTE]
@@ -66,7 +66,7 @@ Do wykonania tego samouczka potrzebna jest nazwa konta i klucz konta usługi Azu
 7. Zamknij wszystkie bloki, klikając przycisk **X**.
 
 ## <a name="collect-sql-server-database-user-names"></a>Zbierz dane programu SQL Server, bazy danych, nazwy użytkowników
-Do wykonania tego samouczka potrzebne są nazwy programu Azure SQL Server, bazy danych i użytkownika. Zanotuj nazwy **serwera**, **bazy danych**i **użytkownika** usługi Azure SQL Database.
+Do wykonania tego samouczka potrzebne są nazwy logicznego serwera SQL, bazy danych i użytkownika. Zanotuj nazwy **serwera**, **bazy danych**i **użytkownika** usługi Azure SQL Database.
 
 1. W **Azure Portal**kliknij pozycję **wszystkie usługi** po lewej stronie, a następnie wybierz pozycję **bazy danych SQL**.
 2. W **bloku bazy danych SQL**wybierz **bazę danych** , która ma być używana w tym samouczku. Zanotuj **nazwę bazy danych**.  
@@ -75,7 +75,7 @@ Do wykonania tego samouczka potrzebne są nazwy programu Azure SQL Server, bazy 
 5. Zamknij wszystkie bloki, klikając przycisk **X**.
 
 ## <a name="allow-azure-services-to-access-sql-server"></a>Zezwalaj usługom platformy Azure na dostęp do programu SQL Server
-Upewnij się, że ustawienie **Zezwalaj na dostęp do usług platformy Azure** **jest włączone dla** serwera SQL platformy azure, aby usługa Data Factory mogła uzyskiwać dostęp do serwera Azure SQL. W celu sprawdzenia i włączenia tego ustawienia wykonaj następujące kroki:
+Upewnij się, że ustawienie **Zezwalaj na dostęp do usług platformy Azure** **jest włączone dla** serwera, aby usługa Data Factory mogła uzyskać dostęp do serwera. W celu sprawdzenia i włączenia tego ustawienia wykonaj następujące kroki:
 
 1. Kliknij pozycję **wszystkie centrum usług** po lewej stronie, a następnie kliknij pozycję **serwery SQL**.
 2. Wybierz swój serwer, a następnie kliknij przycisk **Zapora** w obszarze **USTAWIENIA**.
@@ -107,18 +107,18 @@ Teraz możesz przygotować usługę Azure Blob Storage i bazę danych SQL Azure 
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-    **Jeśli na komputerze zainstalowano SQL Server 2012/2014:** postępuj zgodnie z instrukcjami [zarządzania Azure SQL Database przy użyciu SQL Server Management Studio](../../sql-database/sql-database-manage-azure-ssms.md) , aby nawiązać połączenie z serwerem Azure SQL i uruchomić skrypt SQL.
+    **Jeśli na komputerze zainstalowano SQL Server 2012/2014:** postępuj zgodnie z instrukcjami [zarządzania Azure SQL Database przy użyciu SQL Server Management Studio](../../sql-database/sql-database-manage-azure-ssms.md) , aby nawiązać połączenie z serwerem i uruchomić skrypt SQL.
 
-    Jeśli klient nie ma dostępu do serwera SQL Azure, musisz skonfigurować zaporę serwera SQL Azure tak, aby dostęp z Twojego komputera (adresu IP) był dozwolony. W [tym artykule](../../sql-database/sql-database-configure-firewall-settings.md) opisano kroki konfigurowania zapory dla serwera SQL Azure.
+    Jeśli klient nie może uzyskać dostępu do logicznego serwera SQL, należy skonfigurować zaporę dla serwera, aby zezwalać na dostęp z komputera (adres IP). Zapoznaj się z [tym artykułem](../../sql-database/sql-database-configure-firewall-settings.md) , aby uzyskać instrukcje dotyczące konfigurowania zapory dla serwera programu.
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 Wymagania wstępne zostały spełnione. Fabrykę danych można utworzyć, korzystając z jednego z następujących sposobów. Kliknij jedną z opcji na liście rozwijanej u góry lub poniższe linki, aby wykonać samouczek.     
 
 * [Kreator kopiowania](data-factory-copy-data-wizard-tutorial.md)
-* [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-* [Narzędzia](data-factory-copy-activity-tutorial-using-powershell.md)
-* [Szablon Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
-* [INTERFEJS API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
+* [Program Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+* [Program PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+* [Szablon usługi Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+* [Interfejs API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 * [Interfejs API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 > [!NOTE]

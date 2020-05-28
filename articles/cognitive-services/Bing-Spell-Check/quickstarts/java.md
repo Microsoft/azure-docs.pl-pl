@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: f318a500bd4ce256690ff59f68d99af5d7a25d9e
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 70ed795032c3d6d46aa57afaf5b5ece94bc74ea9
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83869813"
+ms.locfileid: "83995977"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Szybki Start: sprawdzanie pisowni za pomocą interfejsu API REST sprawdzanie pisowni Bing i środowiska Java
 
@@ -59,9 +59,9 @@ Mimo że aplikacja jest zapisywana w języku Java, interfejs API jest usługą s
 
 1. Utwórz funkcję o nazwie `check()`, która utworzy i wyśle żądanie interfejsu API. W ramach tej funkcji Dodaj kod określony w następnych krokach. Utwórz ciąg dla parametrów żądania:
 
-   a. Przypisz kod rynkowy do `mkt` parametru `=` operatorem. 
+   1. Przypisz kod rynkowy do `mkt` parametru `=` operatorem. 
 
-   b. Dodaj `mode` parametr z `&` operatorem, a następnie przypisz tryb sprawdzania pisowni. 
+   1. Dodaj `mode` parametr z `&` operatorem, a następnie przypisz tryb sprawdzania pisowni. 
 
    ```java
    public static void check () throws Exception {

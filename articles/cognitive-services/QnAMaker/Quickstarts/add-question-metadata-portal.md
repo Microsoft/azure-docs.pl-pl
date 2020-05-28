@@ -1,22 +1,22 @@
 ---
 title: 'Szybki Start: dodawanie pytań i odpowiedzi w portalu QnA Maker'
-description: Ten przewodnik Szybki Start przedstawia sposób dodawania zestawów pytań i odpowiedzi za pomocą metadanych, dzięki czemu użytkownicy mogą znaleźć odpowiednią odpowiedź na pytanie.
+description: W tym przewodniku szybki start pokazano, jak dodać pary pytań i odpowiedzi za pomocą metadanych, aby użytkownicy mogli znaleźć odpowiednią odpowiedź na pytanie.
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: fc8bac425723e9194c447f1cf6ee13547c09d772
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: fc40c6a6e0543d4d558da2c8a17c155fbb7cbf1f
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873686"
+ms.locfileid: "83994667"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Szybki Start: dodawanie pytań i odpowiedzi za pomocą portalu QnA Maker
 
-Po utworzeniu bazy wiedzy Dodaj zestawy pytań i odpowiedzi (QnA) z metadanymi, aby odfiltrować odpowiedź. Pytania zawarte w poniższej tabeli dotyczą limitów usługi platformy Azure, ale każdy z nich musi wykonać inną usługę platformy Azure.
+Po utworzeniu bazy wiedzy Dodaj pary pytań i odpowiedzi (QnA) z metadanymi, aby odfiltrować odpowiedź. Pytania zawarte w poniższej tabeli dotyczą limitów usługi platformy Azure, ale każdy z nich musi wykonać inną usługę platformy Azure.
 
 <a name="qna-table"></a>
 
-|Set|Pytania|Odpowiedź|Metadane|
+|Wzrok|Pytania|Odpowiedź|Metadane|
 |--|--|--|--|
 |1.|`How large a knowledge base can I create?`<br><br>`What is the max size of a knowledge base?`<br><br>`How many GB of data can a knowledge base hold?` |`The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`|`service=qna_maker`<br>`link_in_answer=true`|
 |2.|`How many knowledge bases can I have for my QnA Maker service?`<br><br>`I selected a Azure Cognitive Search tier that holds 15 knowledge bases, but I can only create 14 - what is going on?`<br><br>`What is the connection between the number of knowledge bases in my QnA Maker service and the Azure Cognitive Search service size?` |`Each knowledge base uses 1 index, and all the knowledge bases share a test index. You can have N-1 knowledge bases where N is the number of indexes your Azure Cognitive Search tier supports.`|`service=search`<br>`link_in_answer=false`|
@@ -39,11 +39,11 @@ Po dodaniu metadanych do pary QnA aplikacja kliencka może:
 
 ## <a name="add-additional-alternatively-phrased-questions"></a>Dodawanie dodatkowych pytań z możliwością frazy
 
-Bieżąca baza wiedzy ma QnA Maker QnA Rozwiązywanie problemów. Te zestawy zostały utworzone, gdy adres URL został dodany do bazy wiedzy podczas procesu tworzenia.
+Bieżąca baza wiedzy ma QnA Maker QnA Rozwiązywanie problemów. Te pary zostały utworzone, gdy adres URL został dodany do bazy wiedzy podczas procesu tworzenia.
 
 Po zaimportowaniu tego adresu URL zostanie utworzona tylko jedno pytanie z jedną odpowiedzią. W tej procedurze należy dodać dodatkowe pytania.
 
-1. Na stronie **Edytuj** Użyj pola tekstowego Wyszukaj powyżej zestawów pytań i odpowiedzi, aby znaleźć pytanie`How large a knowledge base can I create?`
+1. Na stronie **Edytuj** Użyj pola tekstowego Wyszukaj powyżej par pytania i odpowiedzi, aby znaleźć pytanie`How large a knowledge base can I create?`
 
 1. W kolumnie **pytania** wybierz pozycję **+ Dodaj alternatywne sformułowanie** , a następnie Dodaj każde nowe sformułowanie, które podano w poniższej tabeli.
 
@@ -70,9 +70,9 @@ Po zaimportowaniu tego adresu URL zostanie utworzona tylko jedno pytanie z jedn�
 
 ## <a name="add-metadata-to-filter-the-answers"></a>Dodawanie metadanych w celu filtrowania odpowiedzi
 
-Dodanie metadanych do zestawu pytań i odpowiedzi umożliwia aplikacji klienckiej żądanie filtrowanych odpowiedzi. Ten filtr jest stosowany przed zastosowaniem [pierwszej i drugiej rangi](../concepts/query-knowledge-base.md#ranker-process) .
+Dodanie metadanych do pary pytań i odpowiedzi umożliwia aplikacji klienckiej żądanie odfiltrowanych odpowiedzi. Ten filtr jest stosowany przed zastosowaniem [pierwszej i drugiej rangi](../concepts/query-knowledge-base.md#ranker-process) .
 
-1. Dodaj drugie pytanie i zestaw odpowiedzi, bez metadanych, z [pierwszej tabeli w tym przewodniku szybki start](#qna-table), a następnie wykonaj poniższe kroki.
+1. Dodaj drugą parę pytania i odpowiedzi, bez metadanych, z [pierwszej tabeli w tym przewodniku szybki start](#qna-table), a następnie wykonaj poniższe kroki.
 
 1. Wybierz pozycję **Wyświetl opcje**, a następnie wybierz pozycję **Pokaż metadane**.
 

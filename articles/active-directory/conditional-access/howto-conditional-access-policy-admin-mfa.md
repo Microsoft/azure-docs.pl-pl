@@ -4,19 +4,19 @@ description: Utwórz niestandardowe zasady dostępu warunkowego, aby wymagać od
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 04/02/2020
+ms.topic: how-to
+ms.date: 05/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90e8a8b0926575b5a40a8c0ca7820e31827434ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: af82a9d19f8dee9062d15a58e83ee3c2a8c59af6
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80755212"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995432"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>Dostęp warunkowy: Wymagaj uwierzytelniania wieloskładnikowego dla administratorów
 
@@ -50,7 +50,7 @@ Zasady dostępu warunkowego to zaawansowane narzędzia, dlatego zalecamy wyklucz
 Poniższe kroki pomogą utworzyć zasady dostępu warunkowego, aby wymagać przypisanych ról administracyjnych do uwierzytelniania wieloskładnikowego.
 
 1. Zaloguj się do **Azure Portal** jako Administrator globalny, administrator zabezpieczeń lub administrator dostępu warunkowego.
-1. Przejdź do **Azure Active Directory** > **Security** > **dostępu warunkowego**zabezpieczeń.
+1. Przejdź do **Azure Active Directory**  >  **Security**  >  **dostępu warunkowego**zabezpieczeń.
 1. Wybierz pozycję **nowe zasady**.
 1. Nadaj zasadom nazwę. Firma Microsoft zaleca, aby organizacje utworzyły znaczący Standard nazw swoich zasad.
 1. W obszarze **przypisania**wybierz pozycję **Użytkownicy i grupy**
@@ -66,10 +66,10 @@ Poniższe kroki pomogą utworzyć zasady dostępu warunkowego, aby wymagać przy
       * Administrator programu SharePoint
       * Administrator użytkowników
    1. W obszarze **Wyklucz**wybierz pozycję **Użytkownicy i grupy** , a następnie wybierz opcję dostęp awaryjny lub konta w ramach swojej organizacji. 
-   1. Wybierz pozycję **Gotowe**.
-1. W obszarze **aplikacje lub akcje** > w chmurze**Wybierz pozycję** **wszystkie aplikacje w chmurze**, a następnie wybierz pozycję **gotowe**.
-1. W obszarze **warunki** > **aplikacje klienckie (wersja zapoznawcza)** ustaw wartość **opcji** **Konfiguruj** na tak, a następnie wybierz pozycję **gotowe**.
-1. W **obszarze kontrola** > dostępu**przyznawanie**wybierz pozycję **Udziel dostępu**, **Wymagaj uwierzytelniania wieloskładnikowego**, a następnie wybierz pozycję **Wybierz**.
+   1. Wybierz pozycję **Done** (Gotowe).
+1. W obszarze **aplikacje lub akcje w chmurze**  >  **Include**wybierz pozycję **wszystkie aplikacje w chmurze**, a następnie wybierz pozycję **gotowe**.
+1. W obszarze **warunki**  >  **aplikacje klienckie (wersja zapoznawcza)** ustaw wartość opcji **Konfiguruj** na **tak**, a następnie wybierz pozycję **gotowe**.
+1. W obszarze **Kontrola dostępu**  >  **przyznawanie**wybierz pozycję **Udziel dostępu**, **Wymagaj uwierzytelniania wieloskładnikowego**, a następnie wybierz pozycję **Wybierz**.
 1. Potwierdź ustawienia i ustaw opcję **Włącz zasady** na **włączone**.
 1. Wybierz pozycję **Utwórz** , aby utworzyć zasady.
 

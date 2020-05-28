@@ -1,52 +1,44 @@
 ---
-title: Pracuj z konfiguracjami zakresu dla Azure Automation Update Management
-description: W tym artykule opisano sposób pracy z konfiguracjami zakresu podczas korzystania z Update Management.
+title: Ogranicz zakres wdrożenia Update Management Azure Automation
+description: W tym artykule opisano sposób korzystania z konfiguracji zakresu w celu ograniczenia zakresu wdrożenia Update Management.
 services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 23ec49f2d68cf376ef0beb118d8bf69ada7bc0de
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 72065b388f348da1d268f875a10d5b13d2f8cf3b
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832031"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117397"
 ---
-# <a name="work-with-scope-configurations-for-update-management"></a>Pracuj z konfiguracjami zakresu dla Update Management
+# <a name="limit-update-management-deployment-scope"></a>Ogranicz zakres wdrożenia Update Management
 
-W tym artykule opisano, jak można korzystać z konfiguracji zakresu podczas korzystania z funkcji [Update Management](automation-update-management.md) na maszynach wirtualnych. 
+W tym artykule opisano sposób pracy z konfiguracjami zakresu podczas korzystania z funkcji [Update Management](automation-update-management.md) w celu wdrażania aktualizacji i poprawek na maszynach wirtualnych. Aby uzyskać więcej informacji, zobacz [ukierunkowane rozwiązania monitorowania w Azure monitor (wersja zapoznawcza)](https://docs.microsoft.com/azure/azure-monitor/insights/solution-targeting). 
 
-## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
+## <a name="about-scope-configurations"></a>Informacje o konfiguracjach zakresu
 
-Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
+Konfiguracja zakresu jest grupą co najmniej jednego zapisanego wyszukiwania (zapytania) służącego do ograniczania zakresu Update Management do określonych komputerów. Konfiguracja zakresu jest używana w obszarze roboczym Log Analytics, aby umożliwić włączanie komputerów. Po dodaniu komputera do odbierania aktualizacji z Update Management, komputer zostanie również dodany do zapisanego wyszukiwania w obszarze roboczym.
 
-## <a name="check-the-scope-configuration"></a><a name="scope-configuration"></a>Sprawdź konfigurację zakresu
+## <a name="set-the-scope-limit"></a>Ustaw limit zakresu
 
-Update Management używa konfiguracji zakresu w obszarze roboczym Log Analytics, aby określić komputery, które mają być włączone dla tej funkcji. Konfiguracja zakresu jest grupą co najmniej jednego zapisanego wyszukiwania, które jest używane do ograniczania zakresu funkcji do określonych komputerów. Aby uzyskać dostęp do konfiguracji zakresu:
+Aby ograniczyć zakres wdrożenia Update Management:
 
-1. Na koncie usługi Automation w obszarze **powiązane zasoby**wybierz pozycję **obszar roboczy**. 
+1. Na koncie usługi Automation wybierz opcję **połączony obszar roboczy** w obszarze **powiązane zasoby**.
 
-2. Wybierz obszar roboczy w obszarze **źródła danych obszaru roboczego**, a następnie wybierz pozycję **konfiguracje zakresów**.
+2. Kliknij pozycję **Przejdź do obszaru roboczego**.
 
-3. Jeśli w wybranym obszarze roboczym nie jest jeszcze włączona funkcja Update Management, zostanie utworzona `MicrosoftDefaultScopeConfig-Updates` Konfiguracja zakresu. 
+3. Wybierz pozycję **konfiguracje zakresu (wersja zapoznawcza)** w obszarze **źródła danych obszaru roboczego**.
 
-4. Jeśli w wybranym obszarze roboczym jest już włączona funkcja, nie zostanie ona wdrożona ponownie i nie zostanie do niej dodana konfiguracja zakresu. 
+4. Wybierz wielokropek z prawej strony `MicrosoftDefaultScopeConfig-Updates` konfiguracji zakresu, a następnie kliknij pozycję **Edytuj**. 
 
-5. Wybierz wielokropek w dowolnej konfiguracji zakresu, a następnie kliknij przycisk **Edytuj**. 
+5. W okienku Edycja rozwiń **pozycję Wybierz grupy komputerów**. W okienku grupy komputerów zostaną wyświetlone zapisane wyszukiwania, które są używane do tworzenia konfiguracji zakresu. Zapisane wyszukiwanie używane przez Update Management to:
 
-6. W okienku Edycja wybierz pozycję **Wybierz grupy komputerów**. W okienku grupy komputerów zostaną wyświetlone zapisane wyszukiwania, które są używane do tworzenia konfiguracji zakresu.
+    |Nazwa     |Kategoria  |Alias  |
+    |---------|---------|---------|
+    |MicrosoftDefaultComputerGroup     | Aktualizacje        | Updates__MicrosoftDefaultComputerGroup         |
 
-## <a name="view-a-saved-search"></a>Wyświetl zapisane wyszukiwanie
-
-Gdy komputer zostanie dodany do Update Management, zostanie również dodany do zapisanego wyszukiwania w obszarze roboczym. Zapisane wyszukiwanie jest kwerendą zawierającą komputery przeznaczone do tworzenia.
-
-1. Przejdź do obszaru roboczego Log Analytics i wybierz pozycję **zapisane wyszukiwania** w obszarze **Ogólne**. Zapisane wyszukiwanie używane przez Update Management to:
-
-|Nazwa     |Kategoria  |Alias  |
-|---------|---------|---------|
-|MicrosoftDefaultComputerGroup     | Aktualizacje        | Updates__MicrosoftDefaultComputerGroup         |
-
-2. Wybierz zapisane wyszukiwanie, aby wyświetlić zapytanie używane do wypełniania grupy. Na poniższej ilustracji przedstawiono zapytanie i jego wyniki:
+6. Wybierz zapisane wyszukiwanie, aby wyświetlić i edytować zapytanie używane do wypełniania grupy. Na poniższej ilustracji przedstawiono zapytanie i jego wyniki:
 
     ![Zapisane wyszukiwania](media/automation-scope-configurations-update-management/logsearch.png)
 

@@ -10,12 +10,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 05/19/2020
-ms.openlocfilehash: 07450f0c1ea85f22d19e59aaa27898cbf34a7978
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 46c11ef3b3a1fa1a1861f9e944c93ffdf94f7c5a
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656573"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118894"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Samouczek: prognozowanie popytu przy użyciu automatycznej uczenia maszynowego
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -89,7 +89,7 @@ Przed skonfigurowaniem eksperymentu Przekaż plik danych do obszaru roboczego w 
 
         1. Również dla tego przykładu pozostaw wartości domyślne **Właściwości** i **typu**. 
         
-        1. Wybierz pozycję **Dalej**.
+        1. Wybierz opcję **Dalej**.
 
     1. Na formularzu **Potwierdź szczegóły** Sprawdź, czy informacje są zgodne z informacjami o tym, co zostało wcześniej wypełnione w **podstawowych informacjach** i ustawieniach oraz w formularzach **wersji zapoznawczej** .
 
@@ -122,7 +122,7 @@ Po załadowaniu i skonfigurowaniu danych skonfiguruj zdalny cel obliczeń i wybi
 
         1. Po utworzeniu wybierz nowe miejsce docelowe obliczeń z listy rozwijanej.
 
-    1. Wybierz pozycję **Dalej**.
+    1. Wybierz opcję **Dalej**.
 
 ## <a name="select-task-type-and-settings"></a>Wybierz typ i ustawienia zadania
 
@@ -138,8 +138,8 @@ Ukończ instalację eksperymentu dotyczącego zautomatyzowanej sieci ML, określ
         Dodatkowe &nbsp; konfiguracje|Opis|Wartość &nbsp; dla &nbsp; samouczka
         ------|---------|---
         Metryka podstawowa| Metryka oceny, według której będzie mierzony algorytm uczenia maszynowego.|Znormalizowany błąd średniego poziomu głównego
-        Automatyczne cechowania| Włącza przetwarzanie wstępne. Obejmuje to automatyczne czyszczenie danych, przygotowanie i transformację do generowania funkcji syntetycznych.| Włącz
-        Wyjaśnij najlepszy model (wersja zapoznawcza)| Automatycznie pokazuje wyjaśnienie najlepszego modelu utworzonego za pomocą zautomatyzowanej ML.| Włącz
+        Automatyczne cechowania| Włącza przetwarzanie wstępne. Obejmuje to automatyczne czyszczenie danych, przygotowanie i transformację do generowania funkcji syntetycznych.| Włączanie
+        Wyjaśnij najlepszy model (wersja zapoznawcza)| Automatycznie pokazuje wyjaśnienie najlepszego modelu utworzonego za pomocą zautomatyzowanej ML.| Włączanie
         Zablokowane algorytmy | Algorytmy, które mają zostać wykluczone z zadania szkoleniowego| Skrajnie losowe drzewa
         Dodatkowe ustawienia prognozowania| Te ustawienia pomagają poprawić dokładność modelu <br><br> _**Przewidywany horyzont**_ czasowy: długość czasu na przyszłość, którą chcesz przewidzieć <br> _**Spowolnienia celu prognozy:**_ jak daleko z powrotem chcesz skonstruować spowolnienia zmiennej docelowej <br> _**Docelowe okno kroczące**_: Określa rozmiar okna stopniowego, nad którym będą generowane funkcje, takie jak *Maksymalna, minimalna* i *sum*. |Horyzont prognoz: 14 <br> &nbsp;Spowolnienia docelowy prognozy &nbsp; : brak <br> &nbsp;Rozmiar stopniowego &nbsp; okna docelowego &nbsp; : brak
         Kryterium zakończenia| Jeśli kryteria są spełnione, zadanie szkolenia zostanie zatrzymane. |&nbsp;Czas zadania szkoleniowego &nbsp; (godziny): 3 <br> &nbsp;Próg wyniku metryki &nbsp; : brak
@@ -229,7 +229,7 @@ Zapoznaj się z tym artykułem, aby zapoznać się z procedurą tworzenia Power 
 
 + Dowiedz się więcej o [automatycznym uczeniu maszynowym](concept-automated-ml.md).
 + Aby uzyskać więcej informacji na temat metryk i wykresów klasyfikacji, zobacz artykuł [Omówienie automatycznego uczenia maszynowego](how-to-understand-automated-ml.md#classification) .
-+ Dowiedz się więcej o [cechowania](how-to-use-automated-ml-for-ml-models.md#featurization).
++ Dowiedz się więcej o [cechowania](how-to-configure-auto-features.md#featurization).
 + Dowiedz się więcej na temat [profilowania danych](how-to-use-automated-ml-for-ml-models.md#profile).
 
 >[!NOTE]

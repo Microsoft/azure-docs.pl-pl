@@ -9,16 +9,14 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 04/25/2019
-ms.openlocfilehash: 6afd222730a9864e0b8edd681b1ce919b03c3be8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 21bb8253d94ca91ee1baffb6de1f47ca34e9a7d0
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79204294"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117556"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio-classic"></a>Moduły programu PowerShell dla Azure Machine Learning Studio (klasyczne)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Korzystając z modułów programu PowerShell, można programowo zarządzać zasobami programu Studio (klasycznymi), takimi jak obszary robocze, zestawy danych i usługi sieci Web.
 
@@ -68,4 +66,4 @@ Aby rozpocząć pracę z klasycznym programem PowerShell, Pobierz [pakiet Releas
 ## <a name="next-steps"></a>Następne kroki
 Zapoznaj się z pełną dokumentacją tego modułu programu PowerShell:
 * [Środowisko klasyczne programu PowerShell](https://aka.ms/amlps)
-* [Azure PowerShell AZ](https://docs.microsoft.com/powershell/module/az.machinelearning/#machine_learning)
+* [Moduł Az programu Azure PowerShell](https://docs.microsoft.com/powershell/module/az.machinelearning/#machine_learning)

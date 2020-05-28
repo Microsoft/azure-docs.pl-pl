@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 9f25c845302d62e3bc9e230b4a6f8f2669f4ac35
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: a9a5fe2eed0c0e6cf990183d321a71a7fabfbbee
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76774268"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118636"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Samouczek: umiarkowane wpisy i polecenia w usłudze Facebook przy użyciu usługi Azure Content Moderator
 
@@ -28,7 +28,7 @@ Ten samouczek przedstawia sposób wykonania następujących czynności:
 > * Tworzenie usługi Azure Functions, która nasłuchuje zdarzeń HTTP z usługi Content Moderator i serwisu Facebook.
 > * Połącz stronę w serwisie Facebook, aby Content Moderator przy użyciu aplikacji w serwisie Facebook.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 Ten diagram ilustruje każdy składnik tego scenariusza:
 
@@ -70,14 +70,14 @@ Zaloguj się do [Azure Portal](https://portal.azure.com/) i wykonaj następując
     
     | Nazwa ustawienia aplikacji | value   | 
     | -------------------- |-------------|
-    | cm:TeamId   | Identyfikator zespołu usługi Content Moderator  | 
-    | cm:SubscriptionKey | Klucz subskrypcji usługi Content Moderator — zobacz [Poświadczenia](review-tool-user-guide/credentials.md) |
-    | cm:region | Nazwa regionu usługi Content Moderator, bez spacji. Można to znaleźć w polu **Lokalizacja** na karcie **Przegląd** zasobu platformy Azure.|
-    | cm:ImageWorkflow | Nazwa przepływu pracy do uruchomienia na obrazach |
-    | cm:TextWorkflow | Nazwa przepływu pracy do uruchomienia na tekście |
-    | cm:CallbackEndpoint | Adres URL CMListener aplikacja funkcji, który zostanie utworzony w dalszej części tego przewodnika |
-    | fb:VerificationToken | Utworzony przez Ciebie token tajny, używany do subskrybowania zdarzeń kanału informacyjnego serwisu Facebook |
-    | fb:PageAccessToken | Token dostępu do interfejsu API Graph serwisu Facebook nie wygasa i umożliwia funkcji ukrywanie i usuwanie wpisów w Twoim imieniu. Ten token zostanie wyświetlony w późniejszym kroku. |
+    | `cm:TeamId`   | Identyfikator zespołu usługi Content Moderator  | 
+    | `cm:SubscriptionKey` | Klucz subskrypcji usługi Content Moderator — zobacz [Poświadczenia](review-tool-user-guide/credentials.md) |
+    | `cm:Region` | Nazwa regionu usługi Content Moderator, bez spacji. Tę nazwę można znaleźć w polu **Lokalizacja** na karcie **Przegląd** zasobu platformy Azure.|
+    | `cm:ImageWorkflow` | Nazwa przepływu pracy do uruchomienia na obrazach |
+    | `cm:TextWorkflow` | Nazwa przepływu pracy do uruchomienia na tekście |
+    | `cm:CallbackEndpoint` | Adres URL CMListener aplikacja funkcji, który zostanie utworzony w dalszej części tego przewodnika |
+    | `fb:VerificationToken` | Utworzony przez Ciebie token tajny, używany do subskrybowania zdarzeń kanału informacyjnego serwisu Facebook |
+    | `fb:PageAccessToken` | Token dostępu do interfejsu API Graph serwisu Facebook nie wygasa i umożliwia funkcji ukrywanie i usuwanie wpisów w Twoim imieniu. Ten token zostanie wyświetlony w późniejszym kroku. |
 
     Kliknij przycisk **Zapisz** znajdujący się u góry strony.
 
@@ -144,7 +144,7 @@ Zaloguj się do [Azure Portal](https://portal.azure.com/) i wykonaj następując
         2. [Postman Environment](https://github.com/MicrosoftContentModerator/samples-fbPageModeration/blob/master/FB%20Page%20Access%20Token%20Environment.postman_environment.json)       
     3. Zaktualizuj te zmienne środowiskowe:
     
-        | Key | Wartość   | 
+        | Klucz | Wartość   | 
         | -------------------- |-------------|
         | appId   | Tutaj wstaw identyfikator aplikacji serwisu Facebook  | 
         | appSecret | Tutaj wstaw wpis tajny aplikacji serwisu Facebook | 

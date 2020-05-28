@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: mbaldwin
-ms.openlocfilehash: ce78ade4df3c5bcea9e4e44750c430065cbfc5b0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c45839d622f4bad5097006a364a36db05ce5dacc
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81454649"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84012980"
 ---
 # <a name="azure-encryption-overview"></a>Omówienie usługi Azure Encryption
 
@@ -28,7 +28,7 @@ Ten artykuł zawiera omówienie sposobu użycia szyfrowania w Microsoft Azure. O
 
 ## <a name="encryption-of-data-at-rest"></a>Szyfrowanie danych magazynowanych
 
-Dane przechowywane w programie obejmują informacje, które znajdują się w magazynie trwałym na nośniku fizycznym, w dowolnym formacie cyfrowym. Nośnik może zawierać pliki na nośnikach magnetycznych lub optycznych, zarchiwizowane dane i kopie zapasowe danych. Microsoft Azure oferuje różne rozwiązania do magazynowania danych, które są zgodne z różnymi potrzebami, w tym plikami, dyskami, obiektami BLOB i magazynem tabel. Firma Microsoft udostępnia również szyfrowanie w celu ochrony [Azure SQL Database](../../sql-database/sql-database-technical-overview.md), [Azure Cosmos DB](../../data-factory/introduction.md)i Azure Data Lake.
+Dane przechowywane w programie obejmują informacje, które znajdują się w magazynie trwałym na nośniku fizycznym, w dowolnym formacie cyfrowym. Nośnik może zawierać pliki na nośnikach magnetycznych lub optycznych, zarchiwizowane dane i kopie zapasowe danych. Microsoft Azure oferuje różne rozwiązania do magazynowania danych, które są zgodne z różnymi potrzebami, w tym plikami, dyskami, obiektami BLOB i magazynem tabel. Firma Microsoft udostępnia również szyfrowanie w celu ochrony [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md), [Azure Cosmos DB](../../data-factory/introduction.md)i Azure Data Lake.
 
 Szyfrowanie danych w spoczynku jest dostępne dla usług dla modeli w chmurze (oprogramowanie jako usługa), platforma jako usługa (PaaS) i infrastruktura jako usługa (IaaS). Ten artykuł zawiera podsumowanie i zasoby ułatwiające korzystanie z opcji szyfrowania platformy Azure.
 
@@ -85,11 +85,11 @@ Na koniec można także użyć biblioteki klienta usługi Azure Storage dla jęz
 
 ### <a name="encryption-of-data-at-rest-with-azure-sql-database"></a>Szyfrowanie danych magazynowanych przy użyciu Azure SQL Database
 
-[Azure SQL Database](../../sql-database/sql-database-technical-overview.md) to usługa relacyjnej bazy danych ogólnego przeznaczenia na platformie Azure, która obsługuje struktury, takie jak dane relacyjne, JSON, przestrzenne i XML. SQL Database obsługuje szyfrowanie po stronie serwera za pomocą funkcji Transparent Data Encryption (TDE) i szyfrowania po stronie klienta za pośrednictwem funkcji Always Encrypted.
+[Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md) to usługa relacyjnej bazy danych ogólnego przeznaczenia na platformie Azure, która obsługuje struktury, takie jak dane relacyjne, JSON, przestrzenne i XML. SQL Database obsługuje szyfrowanie po stronie serwera za pomocą funkcji Transparent Data Encryption (TDE) i szyfrowania po stronie klienta za pośrednictwem funkcji Always Encrypted.
 
 #### <a name="transparent-data-encryption"></a>Niewidoczne szyfrowanie danych
 
-[TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) jest używany do szyfrowania plików danych [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../sql-database/sql-database-technical-overview.md)i [Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) w czasie rzeczywistym przy użyciu klucza szyfrowania bazy danych, który jest przechowywany w rekordzie rozruchowym bazy danych w celu zapewnienia dostępności podczas odzyskiwania.
+[TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) jest używany do szyfrowania plików danych [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md)i [Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) w czasie rzeczywistym przy użyciu klucza szyfrowania bazy danych, który jest przechowywany w rekordzie rozruchowym bazy danych w celu zapewnienia dostępności podczas odzyskiwania.
 
 TDE chroni pliki danych i dziennika przy użyciu algorytmów szyfrowania AES i Triple Data Encryption Standard (3DES). Szyfrowanie pliku bazy danych odbywa się na poziomie strony. Strony w zaszyfrowanej bazie danych są szyfrowane przed zapisaniem ich na dysku i są odszyfrowywane, gdy są one odczytywane w pamięci. Funkcja TDE jest teraz domyślnie włączona w nowo utworzonych bazach danych SQL platformy Azure.
 

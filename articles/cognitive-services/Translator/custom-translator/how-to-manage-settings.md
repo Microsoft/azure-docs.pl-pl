@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: fe2c0eed2d476d01dffd22a61dd431140f26c475
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 50bff8e55d1b125f56696ac485bc1e05193dea55
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587248"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83992950"
 ---
 # <a name="how-to-manage-settings"></a>Jak zarządzać ustawieniami
 
@@ -39,17 +39,17 @@ Jeśli nie masz subskrypcji, wykonaj następujące czynności:
 
 ### <a name="add-existing-key"></a>Dodaj istniejący klucz
 
-1.  Przejdź do strony "Ustawienia" w obszarze roboczym.
-2.  Kliknij pozycję Dodaj klucz
+1.    Przejdź do strony "Ustawienia" w obszarze roboczym.
+2.    Kliknij pozycję Dodaj klucz
 
-    ![Jak dodać klucz subskrypcji](media/how-to/how-to-add-subscription-key.png)
+   ![Jak dodać klucz subskrypcji](media/how-to/how-to-add-subscription-key.png)
 
 3. W oknie dialogowym wprowadź klucz subskrypcji usługi translator, a następnie kliknij przycisk "Dodaj".
 
     ![Jak dodać klucz subskrypcji](media/how-to/how-to-add-subscription-key-dialog.png)
-4.  Po dodaniu klucza można w dowolnym momencie zmodyfikować lub usunąć klucz.
+4.    Po dodaniu klucza można w dowolnym momencie zmodyfikować lub usunąć klucz.
 
-    ![Klucz subskrypcji po dodaniu](media/how-to/subscription-key-after-add.png)
+   ![Klucz subskrypcji po dodaniu](media/how-to/subscription-key-after-add.png)
 
 ## <a name="manage-your-workspace"></a>Zarządzanie obszarem roboczym
 
@@ -59,47 +59,47 @@ Jeśli inna część pracy musi być udostępniana innym osobom, może być przy
 
 ## <a name="create-a-new-workspace"></a>Tworzenie nowego obszaru roboczego
 
-1.  Przejdź do strony obszar roboczy "Ustawienia".
-2.  Kliknij przycisk "nowy obszar roboczy" w sekcji "Tworzenie nowego obszaru roboczego".
+1.    Przejdź do strony obszar roboczy "Ustawienia".
+2.    Kliknij przycisk "nowy obszar roboczy" w sekcji "Tworzenie nowego obszaru roboczego".
 
-    ![Utwórz nowy obszar roboczy](media/how-to/create-new-workspace.png)
+   ![Utwórz nowy obszar roboczy](media/how-to/create-new-workspace.png)
 
-4.  W oknie dialogowym wprowadź nazwę nowego obszaru roboczego.
-5.  Kliknij przycisk "Utwórz".
+4.    W oknie dialogowym wprowadź nazwę nowego obszaru roboczego.
+5.    Kliknij przycisk "Utwórz".
 
-    ![Okno dialogowe Tworzenie nowego obszaru roboczego](media/how-to/create-new-workspace-dialog.png)
+   ![Okno dialogowe Tworzenie nowego obszaru roboczego](media/how-to/create-new-workspace-dialog.png)
 
 ## <a name="share-your-workspace"></a>Udostępnianie obszaru roboczego
 
 W przypadku translatora niestandardowego możesz udostępnić obszar roboczy innym osobom, jeśli inna część pracy musi być udostępniana innym osobom.
 
-1.  Przejdź do strony obszar roboczy "Ustawienia".
-2.  Kliknij przycisk "Udostępnij" w sekcji "Ustawienia udostępniania".
+1.    Przejdź do strony obszar roboczy "Ustawienia".
+2.    Kliknij przycisk "Udostępnij" w sekcji "Ustawienia udostępniania".
 
-    ![Udostępnianie obszaru roboczego](media/how-to/share-workspace.png)
+   ![Udostępnianie obszaru roboczego](media/how-to/share-workspace.png)
 
-3.  W oknie dialogowym wprowadź rozdzieloną przecinkami listę adresów e-mail, które mają być udostępniane przez ten obszar roboczy. Upewnij się, że udostępniasz adres e-mail, za pomocą którego osoba loguje się do usługi Custom translator przy użyciu programu. Następnie wybierz odpowiedni poziom uprawnień do udostępniania.
+3.    W oknie dialogowym wprowadź rozdzieloną przecinkami listę adresów e-mail, które mają być udostępniane przez ten obszar roboczy. Upewnij się, że udostępniasz adres e-mail, za pomocą którego osoba loguje się do usługi Custom translator przy użyciu programu. Następnie wybierz odpowiedni poziom uprawnień do udostępniania.
 
-4.  Jeśli obszar roboczy ma nadal domyślną nazwę "Mój obszar roboczy", musisz go zmienić przed udostępnieniem obszaru roboczego.
-5.  Kliknij przycisk "Zapisz".
+4.    Jeśli obszar roboczy ma nadal domyślną nazwę "Mój obszar roboczy", musisz go zmienić przed udostępnieniem obszaru roboczego.
+5.    Kliknij przycisk "Zapisz".
 
 ## <a name="sharing-permissions"></a>Uprawnienia do udostępniania
 
-1.  **Czytelnik:** Czytnik w obszarze roboczym będzie mógł wyświetlić wszystkie informacje w obszarze roboczym.
+1.    **Czytelnik:** Czytnik w obszarze roboczym będzie mógł wyświetlić wszystkie informacje w obszarze roboczym.
 
-2.  **Edytor:** Edytor w obszarze roboczym będzie mógł dodawać dokumenty, przeszkolić modele i usuwać dokumenty i projekty. Mogą oni dodać klucz subskrypcji, ale nie może modyfikować osoby, którym udostępniono obszar roboczy, usunąć obszar roboczy lub zmienić nazwę obszaru roboczego.
+2.    **Edytor:** Edytor w obszarze roboczym będzie mógł dodawać dokumenty, przeszkolić modele i usuwać dokumenty i projekty. Mogą oni dodać klucz subskrypcji, ale nie może modyfikować osoby, którym udostępniono obszar roboczy, usunąć obszar roboczy lub zmienić nazwę obszaru roboczego.
 
-3.  **Właściciel:** Właściciel ma pełne uprawnienia do obszaru roboczego.
+3.    **Właściciel:** Właściciel ma pełne uprawnienia do obszaru roboczego.
 
 ## <a name="change-sharing-permission"></a>Uprawnienie do zmiany udostępniania
 
 Po udostępnieniu obszaru roboczego w sekcji "Ustawienia udostępniania" są wyświetlane wszystkie adresy e-mail, które są udostępniane przez ten obszar roboczy. Jeśli masz dostęp właściciela do obszaru roboczego, możesz zmienić istniejące uprawnienia do udostępniania dla każdego adresu e-mail.
 
-1.  W sekcji "Ustawienia udostępniania" poszczególnych wiadomości e-mail menu rozwijane zawiera bieżący poziom uprawnień.
+1.    W sekcji "Ustawienia udostępniania" poszczególnych wiadomości e-mail menu rozwijane zawiera bieżący poziom uprawnień.
 
-2.  Kliknij menu rozwijane i wybierz nowy poziom uprawnień, który chcesz przypisać do tego adresu e-mail.
+2.    Kliknij menu rozwijane i wybierz nowy poziom uprawnień, który chcesz przypisać do tego adresu e-mail.
 
-    ![Udostępnianie ustawień uprawnień](media/how-to/sharing-permission-settings.png)
+   ![Udostępnianie ustawień uprawnień](media/how-to/sharing-permission-settings.png)
 
 ## <a name="next-steps"></a>Następne kroki
 

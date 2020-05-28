@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/05/2018
-ms.openlocfilehash: 34333d4fe6e9b34a0c8b56cca8123f4ed93a917a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1ce147ac6c9b21176c738c21114c331b56bf667f
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79218114"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118470"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-workspace-using-azure-resource-manager"></a>Wdróż obszar roboczy Azure Machine Learning Studio (klasyczny) przy użyciu Azure Resource Manager
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Użycie szablonu wdrażania Azure Resource Manager umożliwia zaoszczędzenie czasu, zapewniając skalowalny sposób wdrażania połączonych składników przy użyciu walidacji i mechanizmu ponawiania prób. Aby skonfigurować obszary robocze Azure Machine Learning Studio (klasyczne), na przykład należy najpierw skonfigurować konto usługi Azure Storage, a następnie wdrożyć obszar roboczy. Wyobraź sobie to ręcznie dla setek obszarów roboczych. Łatwiejszym rozwiązaniem jest użycie szablonu Azure Resource Manager do wdrożenia obszaru roboczego programu Studio (klasycznego) i jego wszystkich zależności. W tym artykule przedstawiono krok po kroku. Aby uzyskać więcej informacji na temat Azure Resource Manager, zobacz [Azure Resource Manager omówienie](../../azure-resource-manager/management/overview.md).
 

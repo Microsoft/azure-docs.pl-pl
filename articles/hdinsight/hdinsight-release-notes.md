@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/12/2020
-ms.openlocfilehash: b7489c49b7469feacfd5b982615419741d286998
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: d0f12274f3cbc0cd2726097e0507079cb858d59f
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849709"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116574"
 ---
 # <a name="release-notes"></a>Informacje o wersji
 
@@ -49,13 +49,13 @@ Brak zmian w zachowaniu dla tej wersji. Aby przygotować się do nadchodzących 
 Następujące zmiany zostaną wykonane w przyszłych wydaniach. 
 
 ### <a name="deprecation-of-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>Wycofanie platformy Spark 2,1 i 2,2 w usłudze HDInsight 3,6 klaster Spark
-Począwszy od lipca 1 2020, klienci nie będą mogli tworzyć nowych klastrów Spark przy użyciu platformy Spark 2,1 i 2,2 w usłudze HDInsight 3,6. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Rozważ przejście do platformy Spark 2,3 w usłudze HDInsight 3,6 do czerwca 30 2020, aby uniknąć potencjalnych przerw w działaniu systemu lub pomocy technicznej.
+Od 1 lipca 2020 klienci nie będą mogli tworzyć nowych klastrów Spark przy użyciu platformy Spark 2,1 i 2,2 w usłudze HDInsight 3,6. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Rozważ przejście do platformy Spark 2,3 w usłudze HDInsight 3,6 do 30 czerwca 2020, aby uniknąć potencjalnych przerw w działaniu systemu lub pomocy technicznej. Aby uzyskać więcej informacji, zobacz [Migrowanie obciążeń Apache Spark 2,1 i 2,2 do 2,3 i 2,4](./spark/migrate-versions.md).
 
 ### <a name="deprecation-of-spark-23-in-hdinsight-40-spark-cluster"></a>Wycofanie platformy Spark 2,3 w klastrze usługi HDInsight 4,0 Spark
-Począwszy od lipca 1 2020, klienci nie będą mogli tworzyć nowych klastrów Spark z platformą Spark 2,3 w usłudze HDInsight 4,0. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Rozważ przejście do platformy Spark 2,4 w usłudze HDInsight 4,0 do czerwca 30 2020, aby uniknąć potencjalnych przerw w działaniu systemu lub pomocy technicznej.
+Od 1 lipca 2020 klienci nie będą mogli tworzyć nowych klastrów Spark z platformą Spark 2,3 w usłudze HDInsight 4,0. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Rozważ przejście do platformy Spark 2,4 w usłudze HDInsight 4,0 do 30 czerwca 2020, aby uniknąć potencjalnych przerw w działaniu systemu lub pomocy technicznej. Aby uzyskać więcej informacji, zobacz [Migrowanie obciążeń Apache Spark 2,1 i 2,2 do 2,3 i 2,4](./spark/migrate-versions.md).
 
 ### <a name="deprecation-of-kafka-11-in-hdinsight-40-kafka-cluster"></a>Wycofanie Kafka 1,1 w klastrze usługi HDInsight 4,0 Kafka
-Począwszy od lipca 1 2020, klienci nie będą mogli tworzyć nowych klastrów Kafka z Kafka 1,1 w usłudze HDInsight 4,0. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Rozważ przeniesienie do Kafka 2,1 w usłudze HDInsight 4,0 do czerwca 30 2020, aby uniknąć potencjalnych przerw w działaniu systemu lub pomocy technicznej.
+Od lipca 1 2020 klienci nie będą mogli tworzyć nowych klastrów Kafka z Kafka 1,1 w usłudze HDInsight 4,0. Istniejące klastry będą działać bez pomocy technicznej firmy Microsoft. Rozważ przeniesienie do Kafka 2,1 w usłudze HDInsight 4,0 do czerwca 30 2020, aby uniknąć potencjalnych przerw w działaniu systemu lub pomocy technicznej. Aby uzyskać więcej informacji, zobacz [Migrowanie obciążeń Apache Kafka do usługi Azure HDInsight 4,0](./kafka/migrate-versions.md).
 
 ### <a name="hbase-20-to-216"></a>HBase 2,0 do 2.1.6
 W nadchodzącym wydaniu usługi HDInsight 4,0 wersja HBase zostanie uaktualniona z wersji 2,0 do 2.1.6

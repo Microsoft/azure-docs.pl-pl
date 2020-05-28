@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: da29785547d1b6eb4b38d07f020ba885dc5137ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7bd0afe4d0ea01671c996a0f536151d943e4fca7
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75767590"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84013014"
 ---
 # <a name="run-apache-sqoop-jobs-in-hdinsight-with-curl"></a>Uruchamianie zadań Apache Sqoop w usłudze HDInsight z użyciem zapełniania
 
@@ -26,7 +26,7 @@ Zwinięcie służy do zademonstrowania, w jaki sposób można korzystać z usłu
 
 * Zakończenie [konfigurowania środowiska testowego](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) z [używania platformy Apache Sqoop z usługą Hadoop w usłudze HDInsight](./hdinsight-use-sqoop.md).
 
-* Klient do wykonywania zapytań dotyczących Azure SQL Database. Rozważ użycie [SQL Server Management Studio](../../sql-database/sql-database-connect-query-ssms.md) lub [Visual Studio Code](../../sql-database/sql-database-connect-query-vscode.md).
+* Klient do wykonywania zapytań dotyczących Azure SQL Database. Rozważ użycie [SQL Server Management Studio](../../azure-sql/database/connect-query-ssms.md) lub [Visual Studio Code](../../azure-sql/database/connect-query-vscode.md).
 
 * [Zwinięcie](https://curl.haxx.se/). Zwinięcie to narzędzie służące do transferowania danych z lub do klastra usługi HDInsight.
 
@@ -41,7 +41,7 @@ Aby wyeksportować dane za pomocą zadań Apache Sqoop z usługi Azure Storage d
 > [!NOTE]  
 > Używając programu Curl lub innego połączenia REST z usługą WebHCat, należy uwierzytelnić żądania, podając nazwę użytkownika i hasło administratora klastra usługi HDInsight. Należy również użyć nazwy klastra jako części identyfikatora URI stosowanego przy wysyłaniu żądań do serwera.
 
-Dla poleceń w tej sekcji Zamień `USERNAME` na użytkownika, który ma być uwierzytelniany w klastrze, i Zastąp `PASSWORD` ciąg hasłem konta użytkownika. Zastąp ciąg `CLUSTERNAME` nazwą klastra.
+Dla poleceń w tej sekcji Zamień na `USERNAME` użytkownika, który ma być uwierzytelniany w klastrze, i Zastąp ciąg `PASSWORD` hasłem konta użytkownika. Zastąp ciąg `CLUSTERNAME` nazwą klastra.
 
 Interfejs API REST jest zabezpieczony za pomocą [uwierzytelniania podstawowego](https://en.wikipedia.org/wiki/Basic_access_authentication). Należy zawsze tworzyć żądania przy użyciu protokołu HTTPS (HTTP Secure), aby mieć pewność, że poświadczenia są bezpiecznie wysyłane do serwera.
 
@@ -91,7 +91,7 @@ Interfejs API REST jest zabezpieczony za pomocą [uwierzytelniania podstawowego]
        {"id":"job_1415651640909_0026"}
        ```
 
-1. Aby sprawdzić stan zadania, użyj następującego polecenia. Zamień `JOBID` na wartość zwróconą w poprzednim kroku. Na przykład, jeśli zwrócona wartość to `{"id":"job_1415651640909_0026"}`, to `JOBID` `job_1415651640909_0026`. Popraw lokalizację `jq` w razie konieczności.
+1. Aby sprawdzić stan zadania, użyj następującego polecenia. Zamień na `JOBID` wartość zwróconą w poprzednim kroku. Na przykład, jeśli zwrócona wartość to `{"id":"job_1415651640909_0026"}` , to `JOBID` `job_1415651640909_0026` . Popraw lokalizację `jq` w razie konieczności.
 
     ```cmd
     set JOBID=job_1415651640909_0026
@@ -104,7 +104,7 @@ Interfejs API REST jest zabezpieczony za pomocą [uwierzytelniania podstawowego]
    > [!NOTE]  
    > To żądanie zwinięcie zwraca dokument JavaScript Object Notation (JSON) z informacjami o zadaniu. JQ służy do pobierania tylko wartości stanu.
 
-1. Po zmianie stanu zadania na **powodzenie**można pobrać wyniki zadania z usługi Azure Blob Storage. `statusdir` Parametr przesłany z zapytaniem zawiera lokalizację pliku wyjściowego. w takim przypadku `wasb:///example/data/sqoop/curl`. Ten adres przechowuje dane wyjściowe zadania w `example/data/sqoop/curl` katalogu w domyślnym kontenerze magazynu używanym przez klaster usługi HDInsight.
+1. Po zmianie stanu zadania na **powodzenie**można pobrać wyniki zadania z usługi Azure Blob Storage. `statusdir`Parametr przesłany z zapytaniem zawiera lokalizację pliku wyjściowego; w tym przypadku `wasb:///example/data/sqoop/curl` . Ten adres przechowuje dane wyjściowe zadania w `example/data/sqoop/curl` katalogu w domyślnym kontenerze magazynu używanym przez klaster usługi HDInsight.
 
     Możesz użyć Azure Portal, aby uzyskać dostęp do obiektów BLOB stderr i stdout.
 
@@ -118,7 +118,7 @@ Interfejs API REST jest zabezpieczony za pomocą [uwierzytelniania podstawowego]
 ## <a name="limitations"></a>Ograniczenia
 
 * Eksport zbiorczy — za pomocą usługi HDInsight opartej na systemie Linux łącznik Sqoop używany do eksportowania danych do Microsoft SQL Server lub Azure SQL Database nie obsługuje obecnie operacji wstawiania zbiorczego.
-* Przetwarzanie wsadowe — za pomocą usługi HDInsight opartej na systemie `-batch` Linux, gdy podczas wykonywania operacji wstawiania jest używany przełącznik, Sqoop będzie wykonywał wiele wstawek zamiast wsadowych operacje wstawiania.
+* Przetwarzanie wsadowe — za pomocą usługi HDInsight opartej na systemie Linux, gdy podczas wykonywania operacji wstawiania jest używany `-batch` przełącznik, Sqoop będzie wykonywał wiele wstawek zamiast wsadowych operacje wstawiania.
 
 ## <a name="summary"></a>Podsumowanie
 

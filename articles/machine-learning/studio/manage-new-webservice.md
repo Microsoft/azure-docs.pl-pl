@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 2277aa3de5955efe5a3e4cb938fa557352f89006
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 554e3fa07ef733c443371aca6f1621770686895a
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79217975"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119012"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Zarządzanie usługą sieci Web przy użyciu portalu usług sieci Web Azure Machine Learning Studio (klasyczny)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Machine Learning nowych i klasycznych usług sieci Web można zarządzać przy użyciu portalu Microsoft Azure Machine Learning Web Services. Ponieważ klasyczne usługi sieci Web i nowe usługi sieci Web bazują na różnych podstawowych technologiach, są nieco inne możliwości zarządzania dla każdego z nich.
 

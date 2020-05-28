@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: c4c50ba53bc40ad6ae6fc60b3992f9ab992eb268
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a8ad945e20e1274025595620e08f264863297892
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79204566"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117371"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Szybki Start: Tworzenie pierwszego eksperymentu do nauki o danych w Azure Machine Learning Studio (klasyczny)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -55,7 +53,7 @@ Zestaw ten zawiera dane różnych modeli samochodów, na przykład informacje do
 
 Poniżej przedstawiono procedurę dołączania zestawu danych do eksperymentu.
 
-1. Utwórz nowy eksperyment, klikając pozycję **+ Nowy** u dołu okna Machine Learning Studio (klasycznego). Wybierz pozycję **eksperymentowanie** >  **pusty eksperyment**.
+1. Utwórz nowy eksperyment, klikając pozycję **+ Nowy** u dołu okna Machine Learning Studio (klasycznego). Wybierz pozycję **eksperymentowanie**  >   **pusty eksperyment**.
 
 1. Eksperymentowi zostanie nadana domyślna nazwa, wyświetlana w górnej części obszaru roboczego. Zaznacz ten tekst i wpisz opisową nazwę, na przykład **Prognozowanie cen samochodów**. Nazwa nie musi być unikatowa.
 
@@ -233,7 +231,7 @@ Wyświetlane są następujące statystyki dla modelu:
 
 W przypadku wszystkich powyższych statystyk mniejsze wartości oznaczają lepszą jakość modelu. Mniejsze wartości błędów wskazują na ściślejsze dopasowanie prognoz do rzeczywistych wartości. W przypadku **współczynnika determinacji** prognozy są tym lepsze, im jego wartość jest bliższa jedności (1,0).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [machine-learning-studio-clean-up](../../../includes/machine-learning-studio-clean-up.md)]
 

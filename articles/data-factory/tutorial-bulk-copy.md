@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 0f73095f72d07989cdfa309454a2b54efa8e5f95
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a6a6aaedc1bb4abc5cf02ea1cd081ad48ec78d19
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418766"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118206"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Zbiorcze kopiowanie wielu tabel przy użyciu usługi Azure Data Factory
 
@@ -59,7 +59,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 **Przygotowywanie źródłowej bazy Azure SQL Database**:
 
-Utwórz bazę Azure SQL Database z przykładowymi danymi Adventure Works LT zgodnie z artykułem [Tworzenie bazy danych Azure SQL Database](../sql-database/sql-database-get-started-portal.md). Ten samouczek kopiuje wszystkie tabele z tej przykładowej bazy danych do magazynu danych SQL.
+Utwórz bazę Azure SQL Database z przykładowymi danymi Adventure Works LT zgodnie z artykułem [Tworzenie bazy danych Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md). Ten samouczek kopiuje wszystkie tabele z tej przykładowej bazy danych do magazynu danych SQL.
 
 **Przygotowywanie magazynu ujścia Azure SQL Data Warehouse**:
 
@@ -69,7 +69,7 @@ Utwórz bazę Azure SQL Database z przykładowymi danymi Adventure Works LT zgod
 
 ## <a name="azure-services-to-access-sql-server"></a>Usługi platformy Azure umożliwiające dostęp do serwera SQL
 
-Zarówno dla bazy SQL Database, jak i dla magazynu SQL Data Warehouse, zezwól usługom Azure na dostęp do serwera SQL. Upewnij się, że ustawienie **Zezwalaj na dostęp do usług platformy Azure** dla serwera SQL Azure zostało **WŁĄCZONE**. Ustawienie to pozwala usłudze Data Factory na odczyt danych z bazy Azure SQL Database i zapis danych w magazynie Azure SQL Data Warehouse. W celu sprawdzenia i włączenia tego ustawienia wykonaj następujące kroki:
+Zarówno dla bazy SQL Database, jak i dla magazynu SQL Data Warehouse, zezwól usługom Azure na dostęp do serwera SQL. Upewnij się, że ustawienie **Zezwalaj na dostęp do usług platformy Azure** jest **włączone dla serwera** . Ustawienie to pozwala usłudze Data Factory na odczyt danych z bazy Azure SQL Database i zapis danych w magazynie Azure SQL Data Warehouse. W celu sprawdzenia i włączenia tego ustawienia wykonaj następujące kroki:
 
 1. Kliknij pozycję **Wszystkie usługi** po lewej stronie, a następnie kliknij pozycję **Serwery SQL**.
 2. Wybierz swój serwer, a następnie kliknij przycisk **Zapora** w obszarze **USTAWIENIA**.

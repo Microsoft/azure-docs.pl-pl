@@ -3,12 +3,12 @@ title: Odpowiedzi na często zadawane pytania
 description: 'Odpowiedzi na typowe pytania dotyczące funkcji usługi Azure Backup, w tym magazynów usług Recovery Services, elementów, których kopie zapasowe można tworzyć, sposobu działania, szyfrowania i ograniczeń. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: c82942c17d330eb5f632ef3ce43f00b338ba85f8
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 4ec2f9101f724d0c5c6c5e52bb69fea82513efe5
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196268"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118032"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup — często zadawane pytania
 
@@ -117,7 +117,7 @@ W poniższej tabeli opisano sposób ustalania rozmiaru dla każdego źródła da
 --- | ---
 Wolumin |Ilość danych kopii zapasowej z jednego woluminu maszyny wirtualnej, którego kopia zapasowa jest wykonywana.
 Baza danych programu SQL Server |Rozmiar pojedynczej bazy danych SQL, której kopia zapasowa jest wykonywana.
-SharePoint | Suma baz danych z zawartością i danymi konfiguracyjnymi w farmie programu SharePoint, której kopia zapasowa jest wykonywana.
+Sharepoint | Suma baz danych z zawartością i danymi konfiguracyjnymi w farmie programu SharePoint, której kopia zapasowa jest wykonywana.
 Exchange |Suma wszystkich baz danych programu Exchange w serwerze Exchange, którego kopia zapasowa jest wykonywana.
 Stan systemu/BMR |Każda pojedyncza kopia BMR lub stanu systemu komputera, którego kopia zapasowa jest wykonywana.
 
@@ -208,7 +208,7 @@ Tak. Dane na platformie Azure są szyfrowane w spoczynku.
 
 Firma Microsoft nie odszyfrowuje danych kopii zapasowej w żadnym punkcie.
 
-### <a name="what-is-the-minimum-length-of-encryption-the-key-used-to-encrypt-backup-data"></a>Jaka jest minimalna długość klucza szyfrowania używanego do szyfrowania danych w kopii zapasowej?
+### <a name="what-is-the-minimum-length-of-the-encryption-key-used-to-encrypt-backup-data"></a>Jaka jest minimalna długość klucza szyfrowania używanego do szyfrowania danych kopii zapasowej?
 
 Klucz szyfrowania powinien składać się z co najmniej 16 znaków, gdy używasz agenta usługi Azure Backup. W przypadku maszyn wirtualnych platformy Azure nie ma limitu długości kluczy używanych przez usługę Azure KeyVault.
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: 40e4fed9755edc2204c7b6b24a003995a14212d0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: cfe7a88cd02b109124b9d35247aa2d4cbc5373c5
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81415426"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116600"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Przyrostowe ładowanie danych z bazy danych Azure SQL Database do magazynu Azure Blob Storage z użyciem informacji o śledzeniu zmian
 
@@ -70,11 +70,11 @@ W tym samouczku utworzysz dwa potoki, za pomocą których zostaną wykonane nast
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* **Azure SQL Database**. Baza danych jest używana jako magazyn danych **źródłowych**. Jeśli nie masz bazy danych Azure SQL Database, utwórz ją, wykonując czynności przedstawione w artykule [Create an Azure SQL database (Tworzenie bazy danych Azure SQL Database)](../sql-database/sql-database-get-started-portal.md).
+* **Azure SQL Database**. Baza danych jest używana jako magazyn danych **źródłowych**. Jeśli nie masz bazy danych Azure SQL Database, utwórz ją, wykonując czynności przedstawione w artykule [Create an Azure SQL database (Tworzenie bazy danych Azure SQL Database)](../azure-sql/database/single-database-create-quickstart.md).
 * **Konto usługi Azure Storage**. Magazyn obiektów blob jest używany jako magazyn danych **źródłowych**. Jeśli nie masz konta usługi Azure Storage, utwórz je, wykonując czynności przedstawione w artykule [Tworzenie konta magazynu](../storage/common/storage-account-create.md). Utwórz kontener o nazwie **adftutorial**. 
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Tworzenie tabeli danych źródłowych w bazie danych Azure SQL Database
-1. Uruchom program **SQL Server Management Studio**, a następnie nawiąż połączenie z serwerem Azure SQL Server.
+1. Uruchom **SQL Server Management Studio**i Połącz się z SQL Database.
 2. W **Eksploratorze serwera** kliknij prawym przyciskiem używaną **bazę danych**, a następnie wybierz pozycję **Nowe zapytanie**.
 3. Uruchom poniższe polecenie SQL dla bazy danych Azure SQL Database, aby utworzyć tabelę o nazwie `data_source_table` jako magazyn danych źródłowych.  
 
@@ -154,7 +154,7 @@ Zainstaluj najnowsze moduły programu Azure PowerShell, wykonując instrukcje po
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
 1. Uruchom przeglądarkę internetową **Microsoft Edge** lub **Google Chrome**. Obecnie interfejs użytkownika usługi Data Factory jest obsługiwany tylko przez przeglądarki internetowe Microsoft Edge i Google Chrome.
-1. W menu po lewej stronie wybierz pozycję **Utwórz zasób** > **dane + analiza** > **Data Factory**:
+1. W menu po lewej stronie wybierz pozycję **Utwórz zasób**  >  **dane + analiza**  >  **Data Factory**:
 
    ![Wybór usługi Data Factory w okienku „Nowy”](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -216,8 +216,8 @@ W tym kroku opisano sposób łączenia bazy danych Azure SQL Database z fabryką
 3. W oknie **Nowa połączona usługa** wykonaj następujące czynności:
 
     1. Wprowadź wartość **AzureSqlDatabaseLinkedService** w polu **Nazwa**.
-    2. W polu **Nazwa serwera** wybierz serwer usługi Azure SQL.
-    4. W polu **Nazwa bazy danych** wybierz bazę danych Azure SQL Database.
+    2. W polu **Nazwa serwera** wybierz swój serwer.
+    4. W polu **Nazwa bazy** danych wybierz bazę danych.
     5. W polu **Nazwa użytkownika** podaj nazwę użytkownika.
     6. W polu **Hasło** podaj hasło użytkownika.
     7. Kliknij pozycję **Testuj połączenie** w celu przetestowania połączenia.
@@ -263,7 +263,7 @@ W tym kroku utworzysz zestaw danych reprezentujący dane skopiowane z magazynu d
 
     1. Wybierz pozycję **AzureStorageLinkedService** w polu **Połączona usługa**.
     2. Wprowadź ciąg **adftutorial/incchgtracking** w części **folder** ścieżki **filePath**.
-    3. Wprowadź ** \@concat ("Incremental-", Pipeline (). RunId, ". txt")** dla części **pliku** **FilePath**.  
+    3. Wprowadź ** \@ concat ("Incremental-", Pipeline (). RunId, ". txt")** dla części **pliku** **FilePath**.  
 
        ![Zestaw danych będący ujściem — połączenie](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-connection.png)
 
@@ -419,7 +419,7 @@ W tym kroku utworzysz potok z następującymi działaniami, który będzie okres
         | Nazwa | Typ | Wartość |
         | ---- | ---- | ----- |
         | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} |
-        | TableName | String | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} |
+        | TableName | String (ciąg) | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} |
 
         ![Działanie Stored Procedure (Procedura składowana) — parametry](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
 14. **Połącz działanie Copy z działaniem procedury składowanej**. Przeciągnij i upuść **zielony** przycisk dołączony do działania Copy (Kopiowanie) w obszarze działania Stored Procedure (Procedura składowana).

@@ -6,18 +6,18 @@ ms.author: lcozzens
 ms.date: 02/13/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 3ec30aafe63259237a89de6597970b908fb969cf
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: c2812219e689cb42fd871f85300239a10ab0da0e
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83773444"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116721"
 ---
 # <a name="authorize-access-to-azure-app-configuration-using-azure-active-directory"></a>Autoryzuj dostęp do konfiguracji aplikacji platformy Azure przy użyciu Azure Active Directory
-Usługa Azure App Configuration obsługuje używanie Azure Active Directory (Azure AD) do autoryzacji żądań do wystąpień konfiguracji aplikacji.  Usługa Azure AD umożliwia korzystanie z kontroli dostępu opartej na rolach (RBAC) do przyznawania uprawnień podmiotowi zabezpieczeń.  Podmiot zabezpieczeń może być użytkownikiem lub [podmiotem usługi aplikacji](../active-directory/develop/app-objects-and-service-principals.md).  Aby dowiedzieć się więcej o rolach i przypisaniach ról, zobacz [opis różnych ról](../role-based-access-control/overview.md).
+Oprócz używania kod uwierzytelniania wiadomości opartego na skrótach (HMAC) Konfiguracja aplikacji platformy Azure obsługuje używanie Azure Active Directory (Azure AD) do autoryzacji żądań do wystąpień konfiguracji aplikacji.  Usługa Azure AD umożliwia korzystanie z kontroli dostępu opartej na rolach (RBAC) do przyznawania uprawnień podmiotowi zabezpieczeń.  Podmiotem zabezpieczeń może być użytkownik, [tożsamość zarządzana](../active-directory/managed-identities-azure-resources/overview.md) lub nazwa [główna usługi aplikacji](../active-directory/develop/app-objects-and-service-principals.md).  Aby dowiedzieć się więcej o rolach i przypisaniach ról, zobacz [opis różnych ról](../role-based-access-control/overview.md).
 
 ## <a name="overview"></a>Omówienie
-Żądania wysyłane przez podmiot zabezpieczeń (użytkownika lub aplikacje) w celu uzyskania dostępu do zasobu konfiguracji aplikacji muszą być autoryzowane.  W przypadku usługi Azure AD dostęp do zasobu jest procesem dwuetapowym.
+Żądania wysyłane przez podmiot zabezpieczeń w celu uzyskania dostępu do zasobu konfiguracji aplikacji muszą być autoryzowane. W przypadku usługi Azure AD dostęp do zasobu jest procesem dwuetapowym:
 1. Tożsamość podmiotu zabezpieczeń jest uwierzytelniana i zwracany jest token OAuth 2,0.  Nazwa zasobu do żądania tokenu jest `https://login.microsoftonline.com/{tenantID}` `{tenantID}` zgodna z identyfikatorem dzierżawy Azure Active Directory, do której należy jednostka usługi.
 2. Token jest przesyłany w ramach żądania do usługi konfiguracji aplikacji w celu autoryzowania dostępu do określonego zasobu.
 
@@ -35,8 +35,11 @@ Platforma Azure udostępnia następujące wbudowane role RBAC do autoryzowania d
 
 - **Właściciel danych konfiguracji aplikacji**: Użyj tej roli, aby przyznać dostęp do odczytu/zapisu/usuwania do danych konfiguracji aplikacji. Nie powoduje to przyznania dostępu do zasobu konfiguracji aplikacji.
 - **Czytnik danych konfiguracji aplikacji**: Użyj tej roli, aby zapewnić dostęp do odczytu do danych konfiguracji aplikacji. Nie powoduje to przyznania dostępu do zasobu konfiguracji aplikacji.
-- **Współautor**: Ta rola służy do zarządzania zasobem konfiguracji aplikacji. Podczas gdy dane konfiguracji aplikacji są dostępne przy użyciu kluczy dostępu, ta rola nie udziela dostępu do danych za pomocą usługi Azure AD.
+- **Współautor**: Ta rola służy do zarządzania zasobem konfiguracji aplikacji. Podczas gdy dane konfiguracji aplikacji są dostępne przy użyciu kluczy dostępu, ta rola nie udziela bezpośredniego dostępu do danych za pomocą usługi Azure AD.
 - **Czytelnik**: Ta rola umożliwia dostęp do odczytu do zasobu konfiguracji aplikacji. Nie powoduje to przyznania dostępu do kluczy dostępu zasobu ani do danych przechowywanych w konfiguracji aplikacji.
+
+> [!NOTE]
+> Obecnie Azure Portal i interfejs wiersza polecenia obsługują uwierzytelnianie HMAC tylko w celu uzyskania dostępu do danych konfiguracji aplikacji. Uwierzytelnianie usługi Azure AD nie jest obsługiwane. W związku z tym użytkownicy Azure Portal i interfejsu wiersza polecenia wymagają, aby rola *współautor* mogła pobrać klucze dostępu do zasobu konfiguracji aplikacji. Udzielanie dostępu do *czytnika danych konfiguracji aplikacji* lub roli *właściciela danych konfiguracji aplikacji* nie ma wpływu na dostęp za pomocą portalu i interfejsu wiersza polecenia.
 
 ## <a name="next-steps"></a>Następne kroki
 Dowiedz się więcej o używaniu [tożsamości zarządzanych](howto-integrate-azure-managed-service-identity.md) do administrowania usługą konfiguracji aplikacji.

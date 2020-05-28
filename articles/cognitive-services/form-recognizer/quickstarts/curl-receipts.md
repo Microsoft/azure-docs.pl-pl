@@ -7,26 +7,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: e053222d3b79668c2f6044417e31e104ce0f4222
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: b1f2d97aabfee47110946336c0ad8ad03d86a163
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77118487"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116579"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-curl"></a>Szybki Start: wyodrębnianie danych o odbiorze przy użyciu interfejsu API REST aparatu rozpoznawania formularzy z zwinięciem
 
-W tym przewodniku szybki start użyjesz interfejsu API REST aparatu rozpoznawania formularzy platformy Azure z zwinięciem, aby wyodrębnić i zidentyfikować odpowiednie informacje w odniesieniu do sprzedaży w USA.
+W tym przewodniku szybki start użyjesz interfejsu API REST aparatu rozpoznawania formularzy platformy Azure z zwinięciem, aby wyodrębnić i zidentyfikować odpowiednie informacje z przyjęć sprzedaży w USA.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby ukończyć ten przewodnik Szybki Start, musisz dysponować:
 - zainstalowano [zwinięcie](https://curl.haxx.se/windows/) .
-- Adres URL obrazu potwierdzenia. Możesz użyć [przykładowego obrazu](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg?raw=true) dla tego przewodnika Szybki Start.
+- Adres URL obrazu potwierdzenia. Możesz użyć [przykładowego obrazu](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-allinone.jpg) dla tego przewodnika Szybki Start.
 
 ## <a name="create-a-form-recognizer-resource"></a>Tworzenie zasobu aparatu rozpoznawania formularza
 
@@ -36,7 +36,7 @@ Aby ukończyć ten przewodnik Szybki Start, musisz dysponować:
 
 Aby rozpocząć analizowanie paragonu, należy wywołać interfejs API **[analizy paragonów](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)** przy użyciu poniższego polecenia. Przed uruchomieniem polecenia wprowadź następujące zmiany:
 
-1. Zamień `<Endpoint>` na punkt końcowy uzyskany w ramach subskrypcji aparatu rozpoznawania formularza.
+1. Zamień na `<Endpoint>` punkt końcowy uzyskany w ramach subskrypcji aparatu rozpoznawania formularza.
 1. Zamień `<your receipt URL>` na adres URL obrazu paragonu.
 1. Zamień `<subscription key>` na klucz subskrypcji skopiowany z poprzedniego kroku.
 
@@ -44,7 +44,7 @@ Aby rozpocząć analizowanie paragonu, należy wywołać interfejs API **[analiz
 curl -i -X POST "https://<Endpoint>/formrecognizer/v2.0-preview/prebuilt/receipt/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"url\": \"<your receipt URL>\"}"
 ```
 
-Otrzymasz `202 (Success)` odpowiedź obejmującą nagłówek **operacji** am. Wartość tego nagłówka zawiera identyfikator operacji, którego można użyć do zbadania stanu operacji asynchronicznej i uzyskania wyników. W poniższym przykładzie ciąg po `operations/` to identyfikator operacji.
+Otrzymasz odpowiedź obejmującą `202 (Success)` nagłówek **operacji** am. Wartość tego nagłówka zawiera identyfikator operacji, którego można użyć do zbadania stanu operacji asynchronicznej i uzyskania wyników. W poniższym przykładzie ciąg po `operations/` to identyfikator operacji.
 
 ```console
 https://cognitiveservice/formrecognizer/v2.0-preview/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
@@ -54,8 +54,8 @@ https://cognitiveservice/formrecognizer/v2.0-preview/prebuilt/receipt/operations
 
 Po wywołaniu interfejsu API **Analizowanie paragonów** należy wywołać interfejs API **[wyników uzyskiwania analizy przychodu](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/GetAnalyzeReceiptResult)** , aby uzyskać stan operacji i wyodrębnionych danych. Przed uruchomieniem polecenia wprowadź następujące zmiany:
 
-1. Zamień `<Endpoint>` na punkt końcowy uzyskany za pomocą klucza subskrypcji aparatu rozpoznawania formularza. Można go znaleźć na karcie **Przegląd** zasobów aparatu rozpoznawania formularza.
-1. Zamień `<operationId>` na identyfikator operacji z poprzedniego kroku.
+1. Zamień na `<Endpoint>` punkt końcowy uzyskany za pomocą klucza subskrypcji aparatu rozpoznawania formularza. Można go znaleźć na karcie **Przegląd** zasobów aparatu rozpoznawania formularza.
+1. Zamień na `<operationId>` Identyfikator operacji z poprzedniego kroku.
 1. Zastąp element `<subscription key>` kluczem subskrypcji.
 
 ```bash
@@ -64,13 +64,13 @@ curl -X GET "https://<Endpoint>/formrecognizer/v2.0-preview/prebuilt/receipt/ana
 
 ### <a name="examine-the-response"></a>Sprawdzanie odpowiedzi
 
-Otrzymasz `200 (Success)` odpowiedź z danymi wyjściowymi JSON. Pierwsze pole, `"status"`, wskazuje stan operacji. Jeśli operacja zostanie ukończona, `"recognitionResults"` pole zawiera wszystkie wiersze tekstu wyodrębnione z paragonu, a `"understandingResults"` pole zawiera informacje o kluczu/wartości dla najbardziej odpowiednich części paragonu. Jeśli operacja nie zostanie ukończona, wartość `"status"` będzie `"running"` lub `"notStarted"`i należy ponownie wywołać interfejs API, ręcznie lub za pomocą skryptu. Zalecamy przedziału co najmniej jednej sekundy między wywołaniami.
+Otrzymasz `200 (Success)` odpowiedź z danymi wyjściowymi JSON. Pierwsze pole, `"status"` , wskazuje stan operacji. Jeśli operacja zostanie ukończona, `"recognitionResults"` pole zawiera wszystkie wiersze tekstu wyodrębnione z paragonu, a `"understandingResults"` pole zawiera informacje o kluczu/wartości dla najbardziej odpowiednich części paragonu. Jeśli operacja nie zostanie ukończona, wartość `"status"` będzie `"running"` lub `"notStarted"` i należy ponownie wywołać interfejs API, ręcznie lub za pomocą skryptu. Zalecamy przedziału co najmniej jednej sekundy między wywołaniami.
 
 Zapoznaj się z poniższym obrazem paragonu i odpowiednimi danymi wyjściowymi JSON. Dane wyjściowe zostały skrócone w celu zapewnienia czytelności.
 
 ![Potwierdzenie ze sklepu contoso](../media/contoso-allinone.jpg)
 
-`"recognitionResults"` Węzeł zawiera cały rozpoznany tekst. Tekst jest zorganizowany według strony, następnie według wiersza, a następnie poszczególnych słów. `"understandingResults"` Węzeł zawiera wartości specyficzne dla paragonu wykryte przez model. Tutaj znajdziesz przydatne pary klucz/wartość, takie jak podatek, łączny, adres handlowca itd.
+`"recognitionResults"`Węzeł zawiera cały rozpoznany tekst. Tekst jest zorganizowany według strony, następnie według wiersza, a następnie poszczególnych słów. `"understandingResults"`Węzeł zawiera wartości specyficzne dla paragonu wykryte przez model. Tutaj znajdziesz przydatne pary klucz/wartość, takie jak podatek, łączny, adres handlowca itd.
 
 ```json
 { 

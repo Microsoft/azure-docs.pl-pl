@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: cbf6d42f3b1d130a6bf89f07bd3a7009ff0e8fa8
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d73e895371764d9dd28290648551d84181e022cd
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647523"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117588"
 ---
 # <a name="store-query-results-to-storage-using-sql-on-demand-preview-using-azure-synapse-analytics"></a>Przechowywanie wyników zapytania w magazynie przy użyciu funkcji SQL na żądanie (wersja zapoznawcza) przy użyciu usługi Azure Synapse Analytics
 
@@ -22,17 +22,16 @@ W tym artykule dowiesz się, jak przechowywać wyniki zapytania do magazynu przy
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Pierwszym krokiem jest zapoznanie się z artykułami poniżej i upewnienie się, że spełniono wymagania wstępne:
+Pierwszym krokiem jest **utworzenie bazy danych** , w której będą wykonywane zapytania. Następnie zainicjuj obiekty, wykonując [skrypt Instalatora](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) w tej bazie danych. Ten skrypt instalacyjny utworzy źródła danych, poświadczenia w zakresie bazy danych i zewnętrzne formaty plików, które są używane do odczytywania danych w tych przykładach.
 
-- [Konfiguracja pierwszego czasu](query-data-storage.md#first-time-setup)
-- [Wymagania wstępne](query-data-storage.md#prerequisites)
+Postępuj zgodnie z instrukcjami w tym artykule, aby utworzyć źródła danych, poświadczenia zakresu bazy danych i zewnętrzne formaty plików, które są używane do zapisywania danych w magazynie danych wyjściowych.
 
 ## <a name="create-external-table-as-select"></a>Utwórz tabelę zewnętrzną jako wybraną
 
 Można użyć instrukcji CREATE EXTERNAL TABLE AS SELECT (CETAS), aby przechowywać wyniki zapytania w magazynie.
 
 > [!NOTE]
-> Zmień pierwszy wiersz zapytania, na przykład [mydbname], tak aby była używana utworzona baza danych. Jeśli baza danych nie została utworzona, zapoznaj się z [konfiguracją pierwszego czasu](query-data-storage.md#first-time-setup). Należy zmienić lokalizację zewnętrznego źródła danych webdatasource, aby wskazywało lokalizację, dla której masz uprawnienia do zapisu. 
+> Zmień pierwszy wiersz zapytania, na przykład [mydbname], tak aby była używana utworzona baza danych.
 
 ```sql
 USE [mydbname];
@@ -63,8 +62,9 @@ SELECT
     *
 FROM
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population-unix/population.csv',
-        FORMAT='CSV'
+        BULK 'csv/population-unix/population.csv',
+        DATA_SOURCE = 'sqlondemanddemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
     ) WITH (
         CountryCode varchar(4),
         CountryName varchar(64),
@@ -79,7 +79,7 @@ FROM
 Możesz użyć tabeli zewnętrznej utworzonej za pomocą CETAS, jak zwykła tabela zewnętrzna.
 
 > [!NOTE]
-> Zmień pierwszy wiersz zapytania, na przykład [mydbname], tak aby była używana utworzona baza danych. Jeśli baza danych nie została utworzona, zapoznaj się z [konfiguracją pierwszego czasu](query-data-storage.md#first-time-setup).
+> Zmień pierwszy wiersz zapytania, na przykład [mydbname], tak aby była używana utworzona baza danych.
 
 ```sql
 USE [mydbname];
@@ -96,4 +96,4 @@ ORDER BY
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat wykonywania zapytań o różne typy plików, zapoznaj się z artykułami [Single CSV zapytania](query-single-csv-file.md), [pliki Parquet zapytania](query-parquet-files.md)i [pliki zapytań JSON](query-json-files.md) .
+Aby uzyskać więcej informacji na temat wykonywania zapytań dotyczących różnych typów plików, zobacz artykuł [plik CSV zapytania Single](query-single-csv-file.md), [pliki Parquet zapytań](query-parquet-files.md)i [pliki zapytania JSON](query-json-files.md) .

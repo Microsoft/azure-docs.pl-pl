@@ -3,15 +3,15 @@ title: Konfigurowanie i odczytywanie dzienników z wyzwalaczem Azure Functions d
 description: Dowiedz się, jak uwidocznić dzienniki w potoku rejestrowania Azure Functions podczas korzystania z wyzwalacza Azure Functions dla Cosmos DB
 author: ealsur
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 5ff747b225f8984bcaafd80015e85a9f014bdb50
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8bd53eda7197c1083f5eca70bb8602137c9fb1a8
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75441824"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117125"
 ---
 # <a name="how-to-configure-and-read-the-logs-when-using-azure-functions-trigger-for-cosmos-db"></a>Sposób konfigurowania i odczytywania dzienników przy użyciu wyzwalacza Azure Functions dla Cosmos DB
 
@@ -25,7 +25,7 @@ Dzienniki kondycji opisują sposób, w jaki wyzwalacz Azure Functions dla Cosmos
 
 ## <a name="enabling-logging"></a>Włączanie rejestrowania
 
-Aby włączyć rejestrowanie w przypadku korzystania z wyzwalacza Azure Functions dla Cosmos DB `host.json` , Znajdź plik w Azure Functions projekcie lub aplikacji Azure Functions i [Skonfiguruj poziom wymaganych rejestracji](../azure-functions/functions-monitoring.md#log-configuration-in-hostjson). Musisz włączyć ślady, `Host.Triggers.CosmosDB` tak jak pokazano w następującym przykładzie:
+Aby włączyć rejestrowanie w przypadku korzystania z wyzwalacza Azure Functions dla Cosmos DB, Znajdź `host.json` plik w Azure Functions projekcie lub aplikacji Azure Functions i [Skonfiguruj poziom wymaganych rejestracji](../azure-functions/functions-monitoring.md#log-configuration-in-hostjson). Musisz włączyć ślady, `Host.Triggers.CosmosDB` tak jak pokazano w następującym przykładzie:
 
 ```js
 {
@@ -39,7 +39,7 @@ Aby włączyć rejestrowanie w przypadku korzystania z wyzwalacza Azure Function
 }
 ```
 
-Po wdrożeniu funkcji platformy Azure przy użyciu zaktualizowanej konfiguracji zostanie wyświetlony wyzwalacz Azure Functions dla Cosmos DB dzienników w ramach śladów. Możesz wyświetlić dzienniki w skonfigurowanym dostawcy rejestrowania w *kategorii* `Host.Triggers.CosmosDB`.
+Po wdrożeniu funkcji platformy Azure przy użyciu zaktualizowanej konfiguracji zostanie wyświetlony wyzwalacz Azure Functions dla Cosmos DB dzienników w ramach śladów. Możesz wyświetlić dzienniki w skonfigurowanym dostawcy rejestrowania w *kategorii* `Host.Triggers.CosmosDB` .
 
 ## <a name="query-the-logs"></a>Wysyłanie zapytań do dzienników
 

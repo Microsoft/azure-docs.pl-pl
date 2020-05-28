@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/8/2020
-ms.openlocfilehash: c4790585d089ab287260f74001a8aa3f1cb7e5f7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 5f4988ad5df5507f9d6acd330a8f8bba9062be0d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647503"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84012946"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Poznanie danych wyjściowych z Azure Stream Analytics
 
@@ -42,7 +42,7 @@ W poniższej tabeli wymieniono nazwy właściwości i ich opisy w celu skonfigur
 | Format daty | Opcjonalny. Jeśli token daty jest używany w ścieżce prefiksu, można wybrać format daty, w którym są zorganizowane pliki. Przykład: RRRR/MM/DD |
 |Format czasu | Opcjonalny. Jeśli token czasu jest używany w ścieżce prefiksu, określ format czasu, w którym są zorganizowane pliki. Obecnie jedyną obsługiwaną wartością jest HH. |
 | Format serializacji zdarzeń | Format serializacji danych wyjściowych. Obsługiwane są kod JSON, CSV i Avro.|
-| Encoding | Jeśli używasz formatu CSV lub JSON, należy określić kodowanie. W tym momencie jedynym obsługiwanym formatem kodowania jest UTF-8.|
+| Kodowanie | Jeśli używasz formatu CSV lub JSON, należy określić kodowanie. W tym momencie jedynym obsługiwanym formatem kodowania jest UTF-8.|
 | Ogranicznik | Dotyczy tylko serializacji woluminu CSV. Stream Analytics obsługuje wiele ograniczników na potrzeby serializowania danych woluminu CSV. Obsługiwane wartości to przecinek, średnik, spacja, tabulator i pionowy pasek.|
 | Format | Dotyczy tylko serializacji JSON. **Linia rozdzielona** określa, że dane wyjściowe są formatowane przy użyciu każdego obiektu JSON oddzielonego przez nowy wiersz. W przypadku wybrania opcji **rozdzielone linią**kod JSON jest odczytywany po jednym obiekcie naraz. Cała zawartość nie będzie prawidłowym kodem JSON.  **Tablica** określa, że dane wyjściowe są formatowane jako tablica obiektów JSON. Ta tablica jest zamykana tylko wtedy, gdy zadanie zostało zatrzymane lub Stream Analytics zostało przeniesione do następnego przedziału czasu. Ogólnie rzecz biorąc, zalecane jest użycie kodu JSON rozdzielonego wierszem, ponieważ nie wymaga żadnej specjalnej obsługi, gdy plik wyjściowy jest nadal w trakcie zapisywania.|
 | Tryb uwierzytelniania | Możesz autoryzować dostęp do konta Data Lake Storage przy użyciu [tożsamości zarządzanej](stream-analytics-managed-identities-adls.md) lub tokenu użytkownika. Po udzieleniu dostępu można odwołać dostęp poprzez zmianę hasła konta użytkownika, usunięcie Data Lake Storage danych wyjściowych dla tego zadania lub usunięcie zadania Stream Analytics. |
@@ -59,7 +59,7 @@ W poniższej tabeli wymieniono nazwy właściwości i ich opisy dotyczące tworz
 | --- | --- |
 | Alias danych wyjściowych |Przyjazna nazwa używana w zapytaniach do kierowania danych wyjściowych zapytania do tej bazy danych. |
 | baza danych | Nazwa bazy danych, w której wysyłane są dane wyjściowe. |
-| Nazwa serwera | Nazwa serwera SQL Database. Dla Azure SQL Database wystąpienia zarządzanego wymagane jest określenie portu 3342. Na przykład *sampleserver. Public. Database. Windows. NET, 3342* |
+| Nazwa serwera | Nazwa logicznego serwera SQL lub nazwa wystąpienia zarządzanego. Dla Azure SQL Database wystąpienia zarządzanego wymagane jest określenie portu 3342. Na przykład *sampleserver. Public. Database. Windows. NET, 3342* |
 | Nazwa użytkownika | Nazwa użytkownika, która ma dostęp do zapisu w bazie danych. Stream Analytics obsługuje tylko uwierzytelnianie SQL. |
 | Hasło | Hasło, aby połączyć się z bazą danych. |
 | Tabela | Nazwa tabeli, w której zapisano dane wyjściowe. W nazwie tabeli jest rozróżniana wielkość liter. Schemat tej tabeli powinien dokładnie pasować do liczby pól i ich typów generowanych przez dane wyjściowe zadania. |
@@ -107,13 +107,13 @@ W poniższej tabeli wymieniono nazwy właściwości i ich opisy dotyczące tworz
 | Konto magazynu     | Nazwa konta magazynu, do którego wysyłane są dane wyjściowe.               |
 | Klucz konta magazynu | Klucz tajny skojarzony z kontem magazynu.                              |
 | Kontener magazynu   | Grupowanie logiczne dla obiektów BLOB przechowywanych w usłudze Azure Blob service. Po przekazaniu obiektu BLOB do Blob service należy określić kontener dla tego obiektu BLOB. |
-| Wzorzec ścieżki | Opcjonalny. Wzorzec ścieżki pliku używany do pisania obiektów BLOB w określonym kontenerze. <br /><br /> We wzorcu ścieżki można wybrać, aby użyć jednego lub większej liczby wystąpień zmiennych daty i godziny, aby określić częstotliwość zapisywania obiektów blob: <br /> {Date}, {Time} <br /><br />Możesz użyć niestandardowego partycjonowania obiektów blob, aby określić jedną niestandardową nazwę {Field} z danych zdarzenia do partycjonowania obiektów BLOB. Nazwa pola jest alfanumeryczna i może zawierać spacje, łączniki i podkreślenia. Ograniczenia dotyczące pól niestandardowych są następujące: <ul><li>W nazwach pól nie jest rozróżniana wielkość liter. Na przykład usługa nie może rozróżnić między kolumnami "ID" i kolumną "ID".</li><li>Zagnieżdżone pola są niedozwolone. Zamiast tego należy użyć aliasu w zapytaniu zadania do "Spłaszcz" pola.</li><li>Wyrażenia nie mogą być używane jako nazwa pola.</li></ul> <br />Ta funkcja umożliwia użycie niestandardowych konfiguracji specyfikatora formatu daty i godziny w ścieżce. Niestandardowe formaty daty i godziny muszą być określone pojedynczo, ujęte w słowo kluczowe {DateTime: \< specyfikator>}. Dozwolone dane wejściowe dla \< specyfikatora> to rrrr, mm, m, DD, d, hh, H, mm, m, SS lub s. Słowo kluczowe {DateTime: \< specyfikator>} może być używane wiele razy w ścieżce, aby utworzyć niestandardową konfigurację daty/czasu. <br /><br />Przykłady: <ul><li>Przykład 1: Klaster1/dzienniki/{Date}/{Time}</li><li>Przykład 2: Klaster1/dzienniki/{Date}</li><li>Przykład 3: Klaster1/{client_id}/{Date}/{Time}</li><li>Przykład 4: Klaster1/{DateTime: SS}/{myField}, gdzie zapytanie jest: Wybierz dane. moje pole z danych wejściowych;</li><li>Przykład 5: Klaster1/Year = {DateTime: RRRR}/miesiąc = {DateTime: MM}/Day = {DateTime: DD}</ul><br />Sygnatura czasowa utworzonej struktury folderów następuje po UTC, a nie na czas lokalny.<br /><br />Nazwa pliku używa następującej konwencji: <br /><br />{Wzorzec prefiksu ścieżki}/schemaHashcode_Guid_Number. rozszerzenie<br /><br />Przykładowe pliki wyjściowe:<ul><li>Dane wyjściowe/20170901/00/45434_gguid_1. csv</li>  <li>Dane wyjściowe/20170901/01/45434_gguid_1. csv</li></ul> <br />Aby uzyskać więcej informacji na temat tej funkcji, zobacz [niestandardowe Partycjonowanie danych wyjściowych obiektu blob Azure Stream Analytics](stream-analytics-custom-path-patterns-blob-storage-output.md). |
+| Wzorzec ścieżki | Opcjonalny. Wzorzec ścieżki pliku używany do pisania obiektów BLOB w określonym kontenerze. <br /><br /> We wzorcu ścieżki można wybrać, aby użyć jednego lub większej liczby wystąpień zmiennych daty i godziny, aby określić częstotliwość zapisywania obiektów blob: <br /> {Date}, {Time} <br /><br />Możesz użyć niestandardowego partycjonowania obiektów blob, aby określić jedną niestandardową nazwę {Field} z danych zdarzenia do partycjonowania obiektów BLOB. Nazwa pola jest alfanumeryczna i może zawierać spacje, łączniki i podkreślenia. Ograniczenia dotyczące pól niestandardowych są następujące: <ul><li>W nazwach pól nie jest rozróżniana wielkość liter. Na przykład usługa nie może rozróżnić między kolumnami "ID" i kolumną "ID".</li><li>Zagnieżdżone pola są niedozwolone. Zamiast tego należy użyć aliasu w zapytaniu zadania do "Spłaszcz" pola.</li><li>Wyrażenia nie mogą być używane jako nazwa pola.</li></ul> <br />Ta funkcja umożliwia użycie niestandardowych konfiguracji specyfikatora formatu daty i godziny w ścieżce. Niestandardowe formaty daty i godziny muszą być określone pojedynczo, ujęte w słowo kluczowe {DateTime: \<specifier> }. Dozwolone dane wejściowe \<specifier> to rrrr, mm, m, DD, d, hh, H, mm, m, SS lub s. Słowo kluczowe {DateTime: \<specifier> } może być używane wiele razy w ścieżce, aby utworzyć niestandardową konfigurację daty/godziny. <br /><br />Przykłady: <ul><li>Przykład 1: Klaster1/dzienniki/{Date}/{Time}</li><li>Przykład 2: Klaster1/dzienniki/{Date}</li><li>Przykład 3: Klaster1/{client_id}/{Date}/{Time}</li><li>Przykład 4: Klaster1/{DateTime: SS}/{myField}, gdzie zapytanie jest: Wybierz dane. moje pole z danych wejściowych;</li><li>Przykład 5: Klaster1/Year = {DateTime: RRRR}/miesiąc = {DateTime: MM}/Day = {DateTime: DD}</ul><br />Sygnatura czasowa utworzonej struktury folderów następuje po UTC, a nie na czas lokalny.<br /><br />Nazwa pliku używa następującej konwencji: <br /><br />{Wzorzec prefiksu ścieżki}/schemaHashcode_Guid_Number. rozszerzenie<br /><br />Przykładowe pliki wyjściowe:<ul><li>Dane wyjściowe/20170901/00/45434_gguid_1. csv</li>  <li>Dane wyjściowe/20170901/01/45434_gguid_1. csv</li></ul> <br />Aby uzyskać więcej informacji na temat tej funkcji, zobacz [niestandardowe Partycjonowanie danych wyjściowych obiektu blob Azure Stream Analytics](stream-analytics-custom-path-patterns-blob-storage-output.md). |
 | Format daty | Opcjonalny. Jeśli token daty jest używany w ścieżce prefiksu, można wybrać format daty, w którym są zorganizowane pliki. Przykład: RRRR/MM/DD |
 | Format czasu | Opcjonalny. Jeśli token czasu jest używany w ścieżce prefiksu, określ format czasu, w którym są zorganizowane pliki. Obecnie jedyną obsługiwaną wartością jest HH. |
 | Format serializacji zdarzeń | Format serializacji danych wyjściowych. Obsługiwane są kod JSON, CSV, Avro i Parquet. |
 |Minimalna ilość wierszy (tylko parquet)|Liczba minimalnych wierszy na partię. Dla Parquet każda partia utworzy nowy plik. Bieżąca wartość domyślna to 2 000 wierszy, a maksymalna dozwolona liczba wierszy to 10 000.|
 |Maksymalny czas (tylko parquet)|Maksymalny czas oczekiwania na partię. Po upływie tego czasu partia zostanie zapisywana w danych wyjściowych, nawet jeśli nie spełniono wymagań dotyczących minimalnych wierszy. Bieżąca wartość domyślna to 1 minuta, a maksymalna dozwolona liczba to 2 godziny. Jeśli dane wyjściowe obiektu BLOB mają częstotliwość tworzenia wzorców ścieżki, czas oczekiwania nie może być wyższy niż zakres czasu partycji.|
-| Encoding    | Jeśli używasz formatu CSV lub JSON, należy określić kodowanie. W tym momencie jedynym obsługiwanym formatem kodowania jest UTF-8. |
+| Kodowanie    | Jeśli używasz formatu CSV lub JSON, należy określić kodowanie. W tym momencie jedynym obsługiwanym formatem kodowania jest UTF-8. |
 | Ogranicznik   | Dotyczy tylko serializacji woluminu CSV. Stream Analytics obsługuje wiele ograniczników na potrzeby serializowania danych woluminu CSV. Obsługiwane wartości to przecinek, średnik, spacja, tabulator i pionowy pasek. |
 | Format      | Dotyczy tylko serializacji JSON. **Linia rozdzielona** określa, że dane wyjściowe są formatowane przy użyciu każdego obiektu JSON oddzielonego przez nowy wiersz. W przypadku wybrania opcji **rozdzielone linią**kod JSON jest odczytywany po jednym obiekcie naraz. Cała zawartość nie będzie prawidłowym kodem JSON. **Tablica** określa, że dane wyjściowe są formatowane jako tablica obiektów JSON. Ta tablica jest zamykana tylko wtedy, gdy zadanie zostało zatrzymane lub Stream Analytics zostało przeniesione do następnego przedziału czasu. Ogólnie rzecz biorąc, zalecane jest użycie kodu JSON rozdzielonego wierszem, ponieważ nie wymaga żadnej specjalnej obsługi, gdy plik wyjściowy jest nadal w trakcie zapisywania. |
 
@@ -143,7 +143,7 @@ Potrzebujesz kilku parametrów, aby skonfigurować strumienie danych z centrów 
 | Klucz zasad centrum zdarzeń | Współużytkowany klucz dostępu używany do uwierzytelniania dostępu do przestrzeni nazw centrum zdarzeń. |
 | Kolumna klucza partycji | Opcjonalny. Kolumna zawierająca klucz partycji dla danych wyjściowych centrum zdarzeń. |
 | Format serializacji zdarzeń | Format serializacji danych wyjściowych. Obsługiwane są kod JSON, CSV i Avro. |
-| Encoding | W przypadku plików CSV i JSON jedynym obsługiwanym formatem kodowania jest UTF-8. |
+| Kodowanie | W przypadku plików CSV i JSON jedynym obsługiwanym formatem kodowania jest UTF-8. |
 | Ogranicznik | Dotyczy tylko serializacji woluminu CSV. Stream Analytics obsługuje wiele ograniczników do serializacji danych w formacie CSV. Obsługiwane wartości to przecinek, średnik, spacja, tabulator i pionowy pasek. |
 | Format | Dotyczy tylko serializacji JSON. **Linia rozdzielona** określa, że dane wyjściowe są formatowane przy użyciu każdego obiektu JSON oddzielonego przez nowy wiersz. W przypadku wybrania opcji **rozdzielone linią**kod JSON jest odczytywany po jednym obiekcie naraz. Cała zawartość nie będzie prawidłowym kodem JSON. **Tablica** określa, że dane wyjściowe są formatowane jako tablica obiektów JSON.  |
 | Kolumny właściwości | Opcjonalny. Kolumny oddzielone przecinkami, które muszą być dołączone jako właściwości użytkownika wiadomości wychodzącej zamiast ładunku. Więcej informacji na temat tej funkcji znajduje się w sekcji [właściwości metadanych niestandardowych dla danych wyjściowych](#custom-metadata-properties-for-output). |
@@ -183,7 +183,7 @@ W tej tabeli opisano konwersje typów danych z [Stream Analytics typów danych](
 Z Stream Analytics | Aby Power BI
 -----|-----
 bigint | Int64
-nvarchar (max) | String
+nvarchar (max) | String (ciąg)
 datetime | Datetime (data/godzina)
 float | Double
 Rejestruj tablicę | Typ ciągu, stała wartość "IRecord" lub "IArray"
@@ -194,14 +194,14 @@ Stream Analytics wnioskuje schemat modelu danych na podstawie pierwszego zestawu
 Należy unikać `SELECT *` zapytania, aby zapobiec dynamicznej aktualizacji schematu w wierszach. Oprócz potencjalnego wpływu na wydajność może to spowodować niepewność czasu trwania dla wyników. Wybierz dokładne pola, które mają być wyświetlane na pulpicie nawigacyjnym Power BI. Ponadto wartości danych powinny być zgodne z wybranym typem danych.
 
 
-Poprzedni/bieżący | Int64 | String | Datetime (data/godzina) | Double
+Poprzedni/bieżący | Int64 | String (ciąg) | Datetime (data/godzina) | Double
 -----------------|-------|--------|----------|-------
-Int64 | Int64 | String | String | Double
-Double | Double | String | String | Double
-String | String | String | String | String 
-Datetime (data/godzina) | String | String |  Datetime (data/godzina) | String
+Int64 | Int64 | String (ciąg) | String (ciąg) | Double
+Double | Double | String (ciąg) | String (ciąg) | Double
+String (ciąg) | String (ciąg) | String (ciąg) | String (ciąg) | String (ciąg) 
+Datetime (data/godzina) | String (ciąg) | String (ciąg) |  Datetime (data/godzina) | String (ciąg)
 
-## <a name="table-storage"></a>Table Storage
+## <a name="table-storage"></a>Magazyn tabel
 
 [Usługa Azure Table Storage](../storage/common/storage-introduction.md) oferuje wysoką dostępność i skalowalność magazynu, dzięki czemu aplikacja może automatycznie skalować się w celu spełnienia wymagań użytkownika. Magazyn tabel to Magazyn NoSQL Key/Attribute firmy Microsoft, którego można użyć dla danych ze strukturą z mniejszą liczbą ograniczeń w schemacie. Usługa Azure Table Storage może służyć do przechowywania danych w celu zapewnienia trwałości i wydajnego pobierania.
 
@@ -233,7 +233,7 @@ W poniższej tabeli wymieniono nazwy właściwości i ich opisy dotyczące tworz
 | Nazwa zasad kolejki |Podczas tworzenia kolejki można także utworzyć zasady dostępu współdzielonego na karcie **Konfiguracja** kolejki. Każda zasada dostępu współdzielonego ma określoną nazwę, uprawnienia oraz klucze dostępu. |
 | Klucz zasad kolejki |Współużytkowany klucz dostępu używany do uwierzytelniania dostępu do przestrzeni nazw Service Bus. |
 | Format serializacji zdarzeń |Format serializacji danych wyjściowych. Obsługiwane są kod JSON, CSV i Avro. |
-| Encoding |W przypadku plików CSV i JSON jedynym obsługiwanym formatem kodowania jest UTF-8. |
+| Kodowanie |W przypadku plików CSV i JSON jedynym obsługiwanym formatem kodowania jest UTF-8. |
 | Ogranicznik |Dotyczy tylko serializacji woluminu CSV. Stream Analytics obsługuje wiele ograniczników do serializacji danych w formacie CSV. Obsługiwane wartości to przecinek, średnik, spacja, tabulator i pionowy pasek. |
 | Format |Dotyczy tylko typu JSON. **Linia rozdzielona** określa, że dane wyjściowe są formatowane przy użyciu każdego obiektu JSON oddzielonego przez nowy wiersz. W przypadku wybrania opcji **rozdzielone linią**kod JSON jest odczytywany po jednym obiekcie naraz. Cała zawartość nie będzie prawidłowym kodem JSON. **Tablica** określa, że dane wyjściowe są formatowane jako tablica obiektów JSON. |
 | Kolumny właściwości | Opcjonalny. Kolumny oddzielone przecinkami, które muszą być dołączone jako właściwości użytkownika wiadomości wychodzącej zamiast ładunku. Więcej informacji na temat tej funkcji znajduje się w sekcji [właściwości metadanych niestandardowych dla danych wyjściowych](#custom-metadata-properties-for-output). |
@@ -254,7 +254,7 @@ W poniższej tabeli wymieniono nazwy właściwości i ich opisy dotyczące tworz
 | Nazwa zasad tematu |Podczas tworzenia tematu Service Bus można także utworzyć zasady dostępu współdzielonego na karcie **Konfiguracja** tematu. Każda zasada dostępu współdzielonego ma określoną nazwę, uprawnienia oraz klucze dostępu. |
 | Klucz zasad tematu |Współużytkowany klucz dostępu używany do uwierzytelniania dostępu do przestrzeni nazw Service Bus. |
 | Format serializacji zdarzeń |Format serializacji danych wyjściowych. Obsługiwane są kod JSON, CSV i Avro. |
-| Encoding |Jeśli używasz formatu CSV lub JSON, należy określić kodowanie. W tym momencie jedynym obsługiwanym formatem kodowania jest UTF-8. |
+| Kodowanie |Jeśli używasz formatu CSV lub JSON, należy określić kodowanie. W tym momencie jedynym obsługiwanym formatem kodowania jest UTF-8. |
 | Ogranicznik |Dotyczy tylko serializacji woluminu CSV. Stream Analytics obsługuje wiele ograniczników do serializacji danych w formacie CSV. Obsługiwane wartości to przecinek, średnik, spacja, tabulator i pionowy pasek. |
 | Kolumny właściwości | Opcjonalny. Kolumny oddzielone przecinkami, które muszą być dołączone jako właściwości użytkownika wiadomości wychodzącej zamiast ładunku. Więcej informacji na temat tej funkcji znajduje się w sekcji [właściwości metadanych niestandardowych dla danych wyjściowych](#custom-metadata-properties-for-output). |
 | Kolumny właściwości systemu | Opcjonalny. Pary klucz-wartość właściwości systemu i odpowiednich nazw kolumn, które muszą być dołączone do wiadomości wychodzącej zamiast ładunku. Więcej informacji na temat tej funkcji znajduje się w sekcji [Właściwości systemu dla Service Bus kolejki i danych wyjściowych tematu](#system-properties-for-service-bus-queue-and-topic-outputs) |
@@ -353,7 +353,7 @@ Poniższa tabela zawiera podsumowanie obsługi partycji oraz liczbę modułów z
 | --- | --- | --- | --- |
 | Azure Data Lake Store | Yes | Użyj tokenów {date} i {Time} w wzorcu prefiksu ścieżki. Wybierz format daty, na przykład RRRR/MM/DD, DD/MM/RRRR lub MM-DD-RRRR. HH jest używany w formacie czasu. | Następuje Partycjonowanie danych wejściowych dla w [pełni działania równoległegoych zapytań](stream-analytics-scale-jobs.md). |
 | Azure SQL Database | Tak, musi być włączona. | Na podstawie klauzuli PARTITION BY w zapytaniu. | Gdy opcja dziedziczenia jest włączona, następuje Partycjonowanie danych wejściowych dla w [pełni działania równoległegoych zapytań](stream-analytics-scale-jobs.md). Aby dowiedzieć się więcej o osiągnięciu lepszej wydajności zapisu podczas ładowania danych do Azure SQL Database, zobacz [Azure Stream Analytics dane wyjściowe do Azure SQL Database](stream-analytics-sql-output-perf.md). |
-| Azure Blob Storage | Yes | Użyj tokenów {date} i {Time} z pól zdarzeń we wzorcu ścieżki. Wybierz format daty, na przykład RRRR/MM/DD, DD/MM/RRRR lub MM-DD-RRRR. HH jest używany w formacie czasu. Dane wyjściowe obiektu BLOB mogą być partycjonowane za pomocą pojedynczego niestandardowego atrybutu zdarzenia {FieldName} lub {DateTime: \< specyfikator>}. | Następuje Partycjonowanie danych wejściowych dla w [pełni działania równoległegoych zapytań](stream-analytics-scale-jobs.md). |
+| Azure Blob Storage | Yes | Użyj tokenów {date} i {Time} z pól zdarzeń we wzorcu ścieżki. Wybierz format daty, na przykład RRRR/MM/DD, DD/MM/RRRR lub MM-DD-RRRR. HH jest używany w formacie czasu. Dane wyjściowe obiektu BLOB mogą być podzielone na partycje za pomocą jednego niestandardowego atrybutu zdarzenia {FieldName} lub {DateTime: \<specifier> }. | Następuje Partycjonowanie danych wejściowych dla w [pełni działania równoległegoych zapytań](stream-analytics-scale-jobs.md). |
 | Azure Event Hubs | Yes | Yes | Różni się w zależności od wyrównania partycji.<br /> Gdy klucz partycji dla danych wyjściowych centrum zdarzeń jest równomiernie wyrównany przy użyciu nadrzędnego (poprzedni) kroku zapytania, liczba modułów zapisujących jest taka sama jak liczba partycji w danych wyjściowych centrum zdarzeń. Każdy moduł zapisujący używa [klasy EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) do wysyłania zdarzeń do konkretnej partycji. <br /> Gdy klucz partycji dla danych wyjściowych centrum zdarzeń nie jest wyrównany przy użyciu nadrzędnego (poprzedni) kroku zapytania, liczba modułów zapisujących jest taka sama jak liczba partycji w tym poprzednim kroku. Każdy moduł zapisujący używa [klasy SendBatchAsync](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) w **EventHubClient** do wysyłania zdarzeń do wszystkich partycji wyjściowych. |
 | Power BI | Nie | Brak | Nie dotyczy. |
 | Azure Table Storage | Yes | Dowolna kolumna wyjściowa.  | Następuje Partycjonowanie danych wejściowych w przypadku w [pełni równoległych zapytań](stream-analytics-scale-jobs.md). |

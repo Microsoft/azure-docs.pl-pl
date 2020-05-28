@@ -7,20 +7,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 66668f46595c22426984a02c489297e962d061d0
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 3f8f0ff50138c3b08abd118493cc30a6476640f5
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77118089"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116840"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Szybki Start: uczenie modelu aparatu rozpoznawania formularzy i wyodrębnianie danych formularza przy użyciu interfejsu API REST w języku Python
 
 W tym przewodniku szybki start użyjesz interfejsu API REST aparatu rozpoznawania formularzy platformy Azure w języku Python, aby przeszkolić i wypróbować formularze w celu wyodrębnienia par klucz-wartość i tabel.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -41,10 +41,10 @@ Najpierw będziesz potrzebować zestawu danych szkoleniowych w kontenerze obiekt
 
 Aby przeprowadzić uczenie modelu aparatu rozpoznawania formularzy przy użyciu dokumentów w kontenerze obiektów blob platformy Azure, Wywołaj interfejs API **[niestandardowego modelu uczenia](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/TrainCustomModelAsync)** , uruchamiając następujący kod w języku Python. Przed uruchomieniem kodu wprowadź następujące zmiany:
 
-1. Zamień `<SAS URL>` na adres URL sygnatury dostępu współdzielonego (SAS) kontenera magazynu obiektów blob platformy Azure. Aby pobrać adres URL SAS, Otwórz Eksplorator usługi Microsoft Azure Storage, kliknij prawym przyciskiem myszy kontener i wybierz polecenie **Pobierz sygnaturę dostępu współdzielonego**. Upewnij się, że uprawnienia do **odczytu** i **listy** są zaznaczone, a następnie kliknij przycisk **Utwórz**. Następnie skopiuj wartość z sekcji **URL** . Powinna mieć postać: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+1. Zamień `<SAS URL>` na adres URL sygnatury dostępu współdzielonego (SAS) kontenera magazynu obiektów blob platformy Azure. Aby pobrać adres URL SAS, Otwórz Eksplorator usługi Microsoft Azure Storage, kliknij prawym przyciskiem myszy kontener i wybierz polecenie **Pobierz sygnaturę dostępu współdzielonego**. Upewnij się, że uprawnienia do **odczytu** i **listy** są zaznaczone, a następnie kliknij przycisk **Utwórz**. Następnie skopiuj wartość z sekcji **URL** . Powinna mieć postać: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` .
 1. Zamień `<subscription key>` na klucz subskrypcji skopiowany z poprzedniego kroku.
-1. Zamień `<endpoint>` na adres URL punktu końcowego dla zasobu aparatu rozpoznawania formularza.
-1. Zamień `<Blob folder name>` na ścieżkę do folderu w magazynie obiektów blob, w którym znajdują się Twoje formularze. Jeśli Twoje formularze znajdują się w katalogu głównym kontenera, pozostaw ten ciąg pusty.
+1. Zamień na `<endpoint>` adres URL punktu końcowego dla zasobu aparatu rozpoznawania formularza.
+1. Zamień na `<Blob folder name>` ścieżkę do folderu w magazynie obiektów blob, w którym znajdują się Twoje formularze. Jeśli Twoje formularze znajdują się w katalogu głównym kontenera, pozostaw ten ciąg pusty.
 
     ```python
     ########### Python Form Recognizer Labeled Async Train #############
@@ -66,7 +66,7 @@ Aby przeprowadzić uczenie modelu aparatu rozpoznawania formularzy przy użyciu 
         'Ocp-Apim-Subscription-Key': '<subsription key>',
     }
     
-    body =  {
+    body =     {
         "source": source,
         "sourceFilter": {
             "prefix": prefix,

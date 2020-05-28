@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowej plików w usłudze Azure Files — często zada
 description: W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące ochrony udziałów plików platformy Azure za pomocą usługi Azure Backup.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1be509f3b82cece3afb1e728a19da4c4d9526195
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 70ed8594be09ab74478f4703aa632b9ce966b5ee
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836111"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118003"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Pytania dotyczące tworzenia kopii zapasowej plików w usłudze Azure Files
 
@@ -157,8 +157,4 @@ Oto przykład tego, jak to działa:
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się więcej o innych obszarach Azure Backup, zobacz niektóre z tych innych często zadawanych pytań dotyczących tworzenia kopii zapasowych:
-
-- [Recovery Services vault FAQ (Magazyn usługi Recovery Services — często zadawane pytania)](backup-azure-backup-faq.md)
-- [Azure VM backup FAQ (Tworzenie kopii zapasowych maszyn wirtualnych — często zadawane pytania)](backup-azure-vm-backup-faq.md)
-- [Azure Backup agent FAQ (Agent usługi Azure Backup — często zadawane pytania)](backup-azure-file-folder-backup-faq.md)
+- [Rozwiązywanie problemów podczas tworzenia kopii zapasowych udziałów plików platformy Azure](troubleshoot-azure-files.md)

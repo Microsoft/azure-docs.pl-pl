@@ -5,12 +5,12 @@ author: jeffj6123
 ms.topic: reference
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 6668446363361fbc6d24afc3d11a36a0b786667d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9bc7a5405309e35a36b15f44a1b136b899afbb55
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76906169"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119320"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Uruchamianie, zatrzymywanie i raportowanie w usłudze testowej chaos.
@@ -41,7 +41,7 @@ Aby uzyskać następny segment zdarzeń chaos, możesz określić ContinuationTo
 | --czas zakończenia — UTC | Czas pliku systemu Windows reprezentujący godzinę zakończenia zakresu czasu, dla którego ma zostać wygenerowany raport chaos. Aby uzyskać szczegółowe informacje, zapoznaj się z [metodą DateTime. ToFileTimeUtc](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) . |
 | --Max-Results | Maksymalna liczba wyników do zwrócenia w ramach zapytań stronicowanych. Ten parametr definiuje górną granicę wartości zwracanych wyników. Zwracane wyniki mogą być mniejsze niż określone maksymalne wyniki, jeśli nie mieszczą się w komunikacie zgodnie z maksymalnymi ograniczeniami rozmiaru komunikatów zdefiniowanymi w konfiguracji. Jeśli ten parametr ma wartość zero lub nie zostanie określony, zapytanie stronicowane zawiera tyle wyników, ile to możliwe, które mieszczą się w komunikacie zwrotnym. |
 | --czas rozpoczęcia — UTC | Czas pliku systemu Windows reprezentujący godzinę rozpoczęcia przedziału czasu, dla którego ma zostać wygenerowany raport chaos. Aby uzyskać szczegółowe informacje, zapoznaj się z [metodą DateTime. ToFileTimeUtc](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) . |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -49,8 +49,8 @@ Aby uzyskać następny segment zdarzeń chaos, możesz określić ContinuationTo
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-chaos-get"></a>sfctl chaos Get
@@ -62,7 +62,7 @@ Pobierz stan chaos wskazujący, czy Chaos jest uruchomiony, chaos parametry uży
 
 |Argument|Opis|
 | --- | --- |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -70,8 +70,8 @@ Pobierz stan chaos wskazujący, czy Chaos jest uruchomiony, chaos parametry uży
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-chaos-start"></a>sfctl chaos
@@ -83,18 +83,18 @@ Jeśli chaos nie jest już uruchomiona w klastrze, zaczyna chaos z przekazaniem 
 
 |Argument|Opis|
 | --- | --- |
-| --App-Type-Health-Policy-map | Zakodowana lista JSON z maksymalną wartością procentową aplikacji w złej kondycji dla określonych typów aplikacji. Każdy wpis określa jako klucz nazwy typu aplikacji, a jako wartość liczbę całkowitą reprezentującą wartość procentową MaxPercentUnhealthyApplications używaną do oszacowania aplikacji określonego typu aplikacji. <br><br> Definiuje mapę z maksymalną wartością procentową aplikacji w złej kondycji dla określonych typów aplikacji. Każdy wpis określa jako klucz nazwa typu aplikacji oraz jako wartość liczbę całkowitą reprezentującą wartość procentową MaxPercentUnhealthyApplications używaną do oszacowania aplikacji określonego typu aplikacji. Mapa zasad kondycji typu aplikacji może być używana podczas oceny kondycji klastra do opisywania specjalnych typów aplikacji. Typy aplikacji uwzględnione w mapie są oceniane względem wartości procentowej określonej w mapie, a nie dla globalnych MaxPercentUnhealthyApplications zdefiniowanych w zasadach dotyczących kondycji klastra. Aplikacje typów aplikacji określone w mapie nie są zliczane względem globalnej puli aplikacji. Jeśli na przykład niektóre aplikacje typu mają krytyczne znaczenie, administrator klastra może dodać wpis do mapy dla tego typu aplikacji i przypisać mu wartość 0% (czyli nie należy tolerować żadnych błędów). Wszystkie inne aplikacje można ocenić przy użyciu MaxPercentUnhealthyApplications o wartości 20%, aby tolerować błędy z tysięcy wystąpień aplikacji. Mapa zasad kondycji typu aplikacji jest używana tylko wtedy, gdy manifest klastra umożliwia ocenę kondycji typu aplikacji przy użyciu wpisu ConfigurationManager/EnableApplicationTypeHealthEvaluation. |
+| --App-Type-Health-Policy-map | Zakodowana w formacie JSON tablica wpisów słownika (klucz/wartość) z maksymalną wartością procentową aplikacji w złej kondycji dla określonych typów aplikacji. Każdy wpis słownika określa jako klucz nazwę typu aplikacji oraz liczbę całkowitą dla wartości reprezentującej procent MaxPercentUnhealthyApplications używany do szacowania aplikacji określonego typu aplikacji. <br><br> Definiuje mapę z maksymalną wartością procentową aplikacji w złej kondycji dla określonych typów aplikacji. Mapa zasad kondycji typu aplikacji może być używana podczas oceny kondycji klastra do opisywania poszczególnych typów aplikacji. Typy aplikacji uwzględnione w mapie są oceniane względem wartości procentowej określonej w mapie, a nie dla globalnych MaxPercentUnhealthyApplications zdefiniowanych w zasadach dotyczących kondycji klastra. Aplikacje typów aplikacji określone w mapie nie są zliczane względem globalnej puli aplikacji. Jeśli na przykład niektóre aplikacje typu mają krytyczne znaczenie, administrator klastra może dodać wpis do mapy dla tego typu aplikacji i przypisać mu wartość 0% (nie można tolerować żadnych błędów). Wszystkie inne aplikacje można ocenić przy użyciu MaxPercentUnhealthyApplications o wartości 20%, aby tolerować błędy z tysięcy wystąpień aplikacji. Mapa zasad kondycji typu aplikacji jest używana tylko wtedy, gdy manifest klastra umożliwia ocenę kondycji typu aplikacji przy użyciu wpisu ConfigurationManager/EnableApplicationTypeHealthEvaluation. <br><br> Przykładowy zakodowany ciąg JSON: [{ \" Key \" : \" Fabric:/głosu \" , \" wartość \" : \" 0 \" }] |
 | --Chaos-Target-Filter | Zakodowany słownik JSON z dwoma kluczami typu String. Dwa klucze to NodeTypeInclusionList i ApplicationInclusionList. Oba te klucze są wartościami typu String. chaos_target_filter definiuje wszystkie filtry dla dokierowanych błędów chaos, na przykład błędy tylko niektórych typów węzłów lub błędy tylko dla niektórych aplikacji. <br><br> Jeśli chaos_target_filter nie jest używany, chaos błędów wszystkich jednostek klastra. Jeśli chaos_target_filter jest używany, chaos błędy tylko jednostki, które spełniają wymagania chaos_target_filter. NodeTypeInclusionList i ApplicationInclusionList zezwalają tylko na semantykę Unii. Nie można określić przecięcia z NodeTypeInclusionList i ApplicationInclusionList. Na przykład nie jest możliwe określenie "błąd tej aplikacji tylko wtedy, gdy znajduje się ona w danym typie węzła". Gdy jednostka jest uwzględniona w NodeTypeInclusionList lub ApplicationInclusionList, ta jednostka nie może zostać wykluczona przy użyciu ChaosTargetFilter. Nawet jeśli applicationX nie pojawia się w ApplicationInclusionList, w niektórych chaos iteracji applicationX może być uszkodzona, ponieważ występuje w węźle nodeTypeY, który jest zawarty w NodeTypeInclusionList. Jeśli zarówno NodeTypeInclusionList, jak i ApplicationInclusionList są puste, zostanie zgłoszony ArgumentException. Wszystkie typy błędów (węzeł Uruchom ponownie, uruchom ponownie pakiet kodu, Usuń replikę, replika ponownego uruchomienia, Przenieś podstawowy i Przenieś pomocniczy) są włączone dla węzłów tych typów węzłów. Jeśli typ węzła (Powiedz NodeTypeX) nie jest wyświetlany w NodeTypeInclusionList, wówczas błędy na poziomie węzła (takie jak NodeRestart) nigdy nie będą włączone dla węzłów NodeTypeX, ale pakiet kodu i błędy replik nadal mogą być włączone dla NodeTypeX, jeśli aplikacja w ApplicationInclusionList ma się znajdować w węźle NodeTypeX. Na tej liście można umieścić maksymalnie 100 nazw typów węzłów, aby zwiększyć tę liczbę, do konfiguracji MaxNumberOfNodeTypesInChaosEntityFilter jest wymagane uaktualnienie konfiguracji. Wszystkie repliki należące do usług tych aplikacji są gotowe do błędów replik (ponownie uruchom replikę, Usuń replikę, Przenieś podstawową i Przenieś pomocniczą) przez chaos. Chaos może ponownie uruchomić pakiet kodu tylko wtedy, gdy pakiet kodu hostuje repliki tych aplikacji. Jeśli aplikacja nie jest wyświetlana na tej liście, nadal może być uszkodzona w pewnej iteracji chaos, jeśli aplikacja zostanie zakończona w węźle typu węzła, który jest zawarty w NodeTypeInclusionList. Jeśli jednak applicationX jest powiązany z nodeTypeY za pośrednictwem ograniczeń umieszczania, a applicationX nie jest obecny w ApplicationInclusionList i nodeTypeY nie jest w NodeTypeInclusionList, wówczas applicationX nie będzie nigdy występować. Na tej liście można umieścić maksymalnie 1000 nazw aplikacji, aby zwiększyć tę liczbę, do konfiguracji MaxNumberOfApplicationsInChaosEntityFilter jest wymagane uaktualnienie konfiguracji. |
 | --kontekst | Zakodowana w formacie JSON Tablica par klucz-wartość (String, String). Mapa może służyć do rejestrowania informacji o przebiegu chaos. Nie może być więcej niż 100 takich par, a każdy ciąg (klucz lub wartość) może mieć maksymalnie 4095 znaków. Ta mapa jest ustawiana przez Starter chaos Run, aby opcjonalnie przechowywać kontekst o określonym przebiegu. |
 | --Disable-rereplica-faults | Wyłącza dodatkowe błędy przenoszenia podstawowego i przenoszenia. |
-| -— maks. — stabilizacja klastra | Maksymalny czas oczekiwania, aż wszystkie jednostki klastra staną się stabilne i w dobrej kondycji.  Wartość\: domyślna 60. <br><br> Chaos wykonuje iteracje i na początku każdej iteracji sprawdza kondycję jednostek klastra. Podczas sprawdzania poprawności, jeśli jednostka klastra nie jest stabilna i w dobrej kondycji w ramach MaxClusterStabilizationTimeoutInSeconds, chaos generuje zdarzenie niepowodzenia walidacji. |
-| --Max-współbieżne-błędy | Maksymalna liczba współbieżnych błędów wywołanych na iterację. Chaos wykonuje w iteracjach, a dwie kolejne iteracje są oddzielone etapami walidacji. Im wyższy poziom współbieżności, tym trudniejsze jest iniekcja błędów — wywoływanie bardziej złożonej serii Stanów do odkrywania usterek. Zalecenie ma zacząć się od wartości 2 lub 3 i aby zachować ostrożność podczas przesuwania.  Wartość\: domyślna 1. |
+| -— maks. — stabilizacja klastra | Maksymalny czas oczekiwania, aż wszystkie jednostki klastra staną się stabilne i w dobrej kondycji.  Wartość domyślna \: 60. <br><br> Chaos wykonuje iteracje i na początku każdej iteracji sprawdza kondycję jednostek klastra. Podczas sprawdzania poprawności, jeśli jednostka klastra nie jest stabilna i w dobrej kondycji w ramach MaxClusterStabilizationTimeoutInSeconds, chaos generuje zdarzenie niepowodzenia walidacji. |
+| --Max-współbieżne-błędy | Maksymalna liczba współbieżnych błędów wywołanych na iterację. Chaos wykonuje w iteracjach, a dwie kolejne iteracje są oddzielone etapami walidacji. Im wyższy poziom współbieżności, tym trudniejsze jest iniekcja błędów — wywoływanie bardziej złożonej serii Stanów do odkrywania usterek. Zalecenie ma zacząć się od wartości 2 lub 3 i aby zachować ostrożność podczas przesuwania.  Wartość domyślna \: 1. |
 | --maks-% — zła kondycja — aplikacje | Podczas oceny kondycji klastra podczas chaos, maksymalna dozwolona wartość procentowa aplikacji w złej kondycji przed zgłoszeniem błędu. <br><br> Maksymalny dozwolony procent aplikacji w złej kondycji przed zgłoszeniem błędu. Na przykład, aby umożliwić złej kondycji 10% aplikacji, ta wartość będzie równa 10. Wartość procentowa reprezentuje maksymalny dopuszczalny procent aplikacji, które mogą być w złej kondycji, zanim klaster zostanie uznany za błąd. Jeśli wartość procentowa jest przestrzegana, ale istnieje co najmniej jedna aplikacja w złej kondycji, kondycja jest szacowana jako ostrzeżenie. Jest to obliczane przez podzielenie liczby aplikacji w złej kondycji na łączną liczbę wystąpień aplikacji w klastrze, z wyłączeniem aplikacji typów aplikacji, które są uwzględnione w ApplicationTypeHealthPolicyMap. Obliczenia są zaokrąglane w górę, aby tolerować jeden błąd w niewielkiej liczbie aplikacji. Wartość domyślna to zero. |
 | --maks-procent — zła kondycja — węzły | Podczas oceny kondycji klastra podczas chaos Maksymalna dozwolona wartość procentowa węzłów w złej kondycji przed zgłoszeniem błędu. <br><br> Maksymalny dozwolony procent węzłów w złej kondycji przed zgłoszeniem błędu. Na przykład aby umożliwić złej kondycji 10% węzłów, ta wartość będzie równa 10. Wartość procentowa reprezentuje maksymalny dopuszczalny procent węzłów, które mogą być w złej kondycji, zanim klaster zostanie uznany za błąd. Jeśli wartość procentowa jest przestrzegana, ale istnieje co najmniej jeden węzeł w złej kondycji, kondycja jest szacowana jako ostrzeżenie. Wartość procentowa jest obliczana przez podzielenie liczby węzłów w złej kondycji na łączną liczbę węzłów w klastrze. Obliczenia są zaokrąglane w górę, aby tolerować jeden błąd w niewielkiej liczbie węzłów. Wartość domyślna to zero. W dużych klastrach niektóre węzły będą zawsze wyłączane lub wychodzące w przypadku napraw, więc ta wartość procentowa powinna być skonfigurowana w taki sposób, że. |
-| --czas do uruchomienia | Łączny czas (w sekundach), przez który chaos będzie uruchamiany przed automatycznym zatrzymaniem. Maksymalna dozwolona wartość to 4 294 967 295 (System. UInt32. MaxValue).  Wartość\: domyślna 4294967295. |
-| --timeout-t | Wartość\: domyślna 60. |
-| --czas oczekiwania-między awariami | Czas oczekiwania (w sekundach) między kolejnymi błędami w ramach jednej iteracji.  Domyślnie\: 20. <br><br> Im większa wartość, tym mniejsza liczba błędów i prostsze sekwencje przejść między Stanami, które klaster przejdzie. Zaleca się, aby zacząć od wartości od 1 do 5 i zachować ostrożność podczas przesuwania. |
-| --czas oczekiwania-między iteracjami | Separacja czasu (w sekundach) między dwoma kolejnymi iteracjami chaos. Im większa wartość, tym mniejsza liczba iniekcji błędów.  Wartość\: domyślna to 30. |
+| --czas do uruchomienia | Łączny czas (w sekundach), przez który chaos będzie uruchamiany przed automatycznym zatrzymaniem. Maksymalna dozwolona wartość to 4 294 967 295 (System. UInt32. MaxValue).  Wartość domyślna \: 4294967295. |
+| --timeout-t | Wartość domyślna \: 60. |
+| --czas oczekiwania-między awariami | Czas oczekiwania (w sekundach) między kolejnymi błędami w ramach jednej iteracji.  Domyślnie \: 20. <br><br> Im większa wartość, tym mniejsza liczba błędów i prostsze sekwencje przejść między Stanami, które klaster przejdzie. Zaleca się, aby zacząć od wartości od 1 do 5 i zachować ostrożność podczas przesuwania. |
+| --czas oczekiwania-między iteracjami | Separacja czasu (w sekundach) między dwoma kolejnymi iteracjami chaos. Im większa wartość, tym mniejsza liczba iniekcji błędów.  Wartość domyślna to \: 30. |
 | --Ostrzeżenie-jako błąd | Wskazuje, czy ostrzeżenia są traktowane z taką samą ważnością jak błędy. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
@@ -103,8 +103,8 @@ Jeśli chaos nie jest już uruchomiona w klastrze, zaczyna chaos z przekazaniem 
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 ## <a name="sfctl-chaos-stop"></a>sfctl chaos
@@ -116,7 +116,7 @@ Uniemożliwia chaos wykonywania nowych błędów. Błędy w locie będą nadal w
 
 |Argument|Opis|
 | --- | --- |
-| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość\: domyślna 60. |
+| --timeout-t | Limit czasu serwera na potrzeby wykonywania operacji w sekundach. Ten limit czasu określa czas, przez jaki klient chce czekać na zakończenie wymaganej operacji. Wartość domyślna tego parametru to 60 sekund.  Wartość domyślna \: 60. |
 
 ### <a name="global-arguments"></a>Argumenty globalne
 
@@ -124,8 +124,8 @@ Uniemożliwia chaos wykonywania nowych błędów. Błędy w locie będą nadal w
 | --- | --- |
 | --Debug | Zwiększ Szczegółowość rejestrowania, aby pokazać wszystkie dzienniki debugowania. |
 | --Help-h | Pokaż ten komunikat pomocy i Zakończ. |
-| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości\: JSON, jsonc, Table, TSV.  Domyślny\: kod JSON. |
-| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać\:więcej informacji i przykładów, zobacz http//jmespath.org/. |
+| --Wyjście-o | Format danych wyjściowych.  Dozwolone wartości \: JSON, jsonc, Table, TSV.  Domyślny \: kod JSON. |
+| --zapytanie | Ciąg zapytania JMESPath. Aby uzyskać \: więcej informacji i przykładów, zobacz http//jmespath.org/. |
 | --verbose | Zwiększ Szczegółowość rejestrowania. Użyj--Debug dla pełnych dzienników debugowania. |
 
 

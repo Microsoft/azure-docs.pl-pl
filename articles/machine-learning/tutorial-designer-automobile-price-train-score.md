@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 05/12/2020
 ms.custom: designer
-ms.openlocfilehash: 16f281cce70fb8d2a943b62c796c3037649c3c72
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: f6d684829092d8be97785c46058186f3ca5542b2
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656587"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119035"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Samouczek: przewidywanie ceny za samochód przy użyciu projektanta (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -220,11 +220,9 @@ Nauczenie modelu przez nadanie mu zestawu danych, który zawiera cenę. Algorytm
 
 1. Wybierz **Regression**opcję  >  **regresja liniowa**regresji i przeciągnij ją na kanwę potoku.
 
-1. Połącz dane wyjściowe modułu **regresji liniowej** z lewym wejściem modułu **uczenie modelu** .
-
 1. W palecie modułów rozwiń sekcję **szkolenia modułów**i przeciągnij moduł **uczenie modelu** na kanwę.
 
-1. Wybierz moduł **uczenie modelu** i przeciągnij go na kanwę potoku.
+1. Połącz dane wyjściowe modułu **regresji liniowej** z lewym wejściem modułu **uczenie modelu** .
 
 1. Połącz Wyjście danych szkoleniowych (lewy port) modułu **Split Data (podział danych** ) z prawym wejściem modułu **uczenie modelu** .
     

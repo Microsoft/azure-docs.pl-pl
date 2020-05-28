@@ -12,12 +12,12 @@ ms.date: 04/22/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 59f42f7c1fcdfef29becfb4a046753650ae9d14f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 92b3e12cc078326e98df5f42e36fcaddd56bf0c6
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83737558"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993699"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Instrukcje: dostarczanie opcjonalnych oświadczeń do aplikacji usługi Azure AD
 
@@ -85,7 +85,6 @@ Te oświadczenia są zawsze uwzględniane w tokenach usługi Azure AD w wersji 1
 | `pwd_exp`     | Czas wygaśnięcia hasła        | Data i godzina wygaśnięcia hasła. |       |
 | `pwd_url`     | Zmień adres URL hasła             | Adres URL, który użytkownik może odwiedzić, aby zmienić hasło.   |   |
 | `in_corp`     | Wewnątrz sieci firmowej        | Sygnalizuje, czy klient loguje się z sieci firmowej. W przeciwnym razie oświadczenia nie są uwzględniane.   |  Na podstawie ustawień [zaufanych adresów IP](../authentication/howto-mfa-mfasettings.md#trusted-ips) w usłudze MFA.    |
-| `nickname`    | Pseudonim                        | Dodatkowa nazwa dla użytkownika. Pseudonim jest oddzielony od imienia i nazwiska. Wymaga `profile` zakresu.|
 | `family_name` | Nazwisko                       | Zawiera nazwisko, nazwisko lub nazwę rodziny użytkownika, zgodnie z definicją w obiekcie użytkownika. <br>"family_name": "Miller" | Obsługiwane w usłudze MSA i usłudze Azure AD. Wymaga `profile` zakresu.   |
 | `given_name`  | Imię                      | Określa imię i nazwisko użytkownika, zgodnie z ustawieniem obiektu użytkownika.<br>"given_name": "Piotr"                   | Obsługiwane w usłudze MSA i usłudze Azure AD.  Wymaga `profile` zakresu. |
 | `upn`         | Nazwa główna użytkownika | Identyfikator dla użytkownika, którego można użyć z parametrem username_hint.  Nie jest to trwały identyfikator użytkownika i nie należy go używać do kluczowych danych. | Zapoznaj się z [dodatkowymi właściwościami](#additional-properties-of-optional-claims) poniżej w celu skonfigurowania żądania. Wymaga `profile` zakresu.|

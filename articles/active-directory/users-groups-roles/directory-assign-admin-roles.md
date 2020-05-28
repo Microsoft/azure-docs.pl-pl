@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3abf7b4acfae5e90d0b3f6781b8fbbf0f6f1427d
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: 451d0709a8b0a1c0993ff879d675eb056e721c36
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860600"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116633"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Uprawnienia ról administratorów w usłudze Azure Active Directory
 
@@ -238,6 +238,7 @@ Użytkownicy w tej roli mogą odczytywać ustawienia i informacje administracyjn
 > [!NOTE]
 > Globalna rola czytnika ma teraz kilka ograniczeń —
 >
+>- [Centrum administracyjne usługi OneDrive](https://admin.onedrive.com/) — centrum administracyjne usługi OneDrive nie obsługuje roli czytnika globalnego
 >- [Centrum administracyjne M365](https://admin.microsoft.com/Adminportal/Home#/homepage) — globalny czytnik nie może odczytać żądań skrytki klienta. Nie znajdziesz karty **żądania skrytki klienta** w obszarze **Pomoc techniczna** w lewym okienku Centrum administracyjnego M365.
 >- [Centrum zgodności & zabezpieczeń pakietu Office](https://sip.protection.office.com/homepage) — czytnik globalny nie może odczytać dzienników inspekcji SCC, przeprowadzić wyszukiwania zawartości lub zobaczyć zabezpieczony wynik.
 >- [Centrum administracyjne zespołów](https://admin.teams.microsoft.com) — globalny czytnik nie może odczytywać **zespołów cykl życia**, **Analiza & raporty**, **Zarządzanie urządzeniami telefonicznymi IP** i **wykaz aplikacji**.

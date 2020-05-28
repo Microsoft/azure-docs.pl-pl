@@ -16,16 +16,16 @@ ms.author: mimart
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c58c99faa83d6f04ac37d03789202e111f1b06d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: f879ebd2f3628b8282342d730a5f3957cf2a615f
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611164"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994992"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Co nowego w Azure Active Directory?
 
->Otrzymuj powiadomienia o tym, kiedy należy ponownie odwiedzić Tę stronę pod kątem aktualizacji przez skopiowanie i wklejenie `https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us` tego adresu ![URL: do czytnika](./media/whats-new/feed-icon-16x16.png) kanału informacyjnego kanału informacyjnego RSS.
+>Otrzymuj powiadomienia o tym, kiedy należy ponownie odwiedzić Tę stronę pod kątem aktualizacji przez skopiowanie i wklejenie tego adresu URL: do czytnika kanału informacyjnego kanału informacyjnego `https://docs.microsoft.com/api/search/rss?search=%22Release+notes+-+Azure+Active+Directory%22&locale=en-us` ![ RSS ](./media/whats-new/feed-icon-16x16.png) .
 
 Usługa Azure AD otrzymuje ulepszenia na bieżąco. Aby zachować aktualność w zakresie najnowszych zmian, ten artykuł zawiera informacje na temat:
 
@@ -39,7 +39,7 @@ Ta strona jest aktualizowana co miesiąc, dlatego należy ją regularnie odwiedz
 
 ---
 
-## <a name="april-2020"></a>Kwiecień 2020 r.
+## <a name="april-2020"></a>Kwiecień 2020 r.
 
 ### <a name="combined-security-info-registration-experience-is-now-generally-available"></a>Środowisko rejestracji informacji o zabezpieczeniach jest teraz ogólnie dostępne
 
@@ -487,7 +487,7 @@ Azure Monitor integracja z dziennikami usługi Azure AD jest teraz dostępna w p
 **Kategoria usługi:** Ochrona tożsamości  
 **Możliwość produktu:** Ochrona tożsamości & zabezpieczenia
 
-Przyjemnością się z tym, że udostępnimy teraz odświeżone środowisko [Azure AD Identity Protection](https://aka.ms/IdentityProtectionDocs) w [portalu Microsoft Azure Government](https://portal.azure.us/). Aby uzyskać więcej informacji, zobacz [wpis w blogu dotyczący anonsu](https://techcommunity.microsoft.com/t5/public-sector-blog/identity-protection-refresh-in-microsoft-azure-government/ba-p/1223667).
+Przyjemnością się z tym, że udostępnimy teraz odświeżone środowisko [Azure AD Identity Protection](https://aka.ms/IdentityProtectionDocs)   w [portalu Microsoft Azure Government](https://portal.azure.us/). Aby uzyskać więcej informacji, zobacz [wpis w blogu dotyczący anonsu](https://techcommunity.microsoft.com/t5/public-sector-blog/identity-protection-refresh-in-microsoft-azure-government/ba-p/1223667).
 
 ---
 
@@ -544,7 +544,7 @@ Od tej pory Klienci, którzy mają bezpłatnych dzierżawców, mogą uzyskać do
 **Kategoria usługi:** Zarządzanie grupami  
 **Możliwość produktu:** Społeczności
 
-Aby zapewnić klientom bardziej elastyczny sposób tworzenia grup obejmujących katalogi, które najlepiej odpowiadają potrzebom, zamienisz opcję **grupy w poziomie katalogów** z ustawień**ogólnych** **grupy** > w Azure Portal z linkiem do [dokumentacji grupy dynamicznej](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership). Ulepszono nasze dokumenty w celu uwzględnienia dodatkowych instrukcji, aby administratorzy mogli tworzyć wszystkie grupy użytkowników, które obejmują lub wykluczają użytkowników-Gości.
+Aby zapewnić klientom bardziej elastyczny sposób tworzenia grup obejmujących katalogi, które najlepiej odpowiadają potrzebom, zamienisz opcję **grupy w poziomie katalogów** z **Groups**  >  ustawień**ogólnych** grupy w Azure Portal z linkiem do [dokumentacji grupy dynamicznej](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership). Ulepszono nasze dokumenty w celu uwzględnienia dodatkowych instrukcji, aby administratorzy mogli tworzyć wszystkie grupy użytkowników, które obejmują lub wykluczają użytkowników-Gości.
 
 ---
 
@@ -789,7 +789,7 @@ Aby uzyskać więcej informacji na temat nowych domyślnych ustawień zabezpiecz
 **Kategoria usługi:** Uwierzytelnienia (nazwy logowania)  
 **Możliwość produktu:** Uwierzytelnianie użytkownika
 
-W ramach modelu bezpiecznego i domyślnego dla plików cookie Przeglądarka Chrome 80 zmienia sposób traktowania plików cookie bez `SameSite` atrybutu. Każdy plik cookie, który nie `SameSite` określa atrybutu będzie traktowany jako, który został ustawiony `SameSite=Lax`na, co spowoduje zablokowanie niektórych scenariuszy udostępniania plików cookie między domenami, od których zależy aplikacja. Aby zachować starsze zachowanie programu Chrome, można użyć `SameSite=None` atrybutu i dodać dodatkowy `Secure` atrybut, dzięki czemu dostęp do plików cookie między lokacjami można uzyskać tylko za pośrednictwem połączeń HTTPS. Zaplanowano ukończenie tej zmiany do 4 lutego 2020.
+W ramach modelu bezpiecznego i domyślnego dla plików cookie Przeglądarka Chrome 80 zmienia sposób traktowania plików cookie bez `SameSite` atrybutu. Każdy plik cookie, który nie określa `SameSite` atrybutu będzie traktowany jako, który został ustawiony na `SameSite=Lax` , co spowoduje zablokowanie niektórych scenariuszy udostępniania plików cookie między domenami, od których zależy aplikacja. Aby zachować starsze zachowanie programu Chrome, można użyć `SameSite=None` atrybutu i dodać dodatkowy `Secure` atrybut, dzięki czemu dostęp do plików cookie między lokacjami można uzyskać tylko za pośrednictwem połączeń HTTPS. Zaplanowano ukończenie tej zmiany do 4 lutego 2020.
 
 Zalecamy, aby wszyscy z naszych deweloperów testowali swoje aplikacje, korzystając z tych wskazówek:
 

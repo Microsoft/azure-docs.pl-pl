@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e9c0c88064c00c97de7dc58a500910e81c04eef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3bba37b5d72bd9dca2e10c699f4ba259319a6c71
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79263285"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995097"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Konfigurowanie zarządzania sesjami uwierzytelniania przy użyciu dostępu warunkowego
 
@@ -50,6 +50,10 @@ Ustawienie częstotliwości logowania działa z aplikacjami, które mają wdroż
 - Klient sieci Web dla zespołów
 - Dynamics CRM Online
 - Azure Portal
+
+### <a name="user-sign-in-frequency-and-multi-factor-authentication"></a>Częstotliwość logowania użytkownika i uwierzytelnianie wieloskładnikowe
+
+Częstotliwość logowania została wcześniej zastosowana tylko do uwierzytelniania pierwszego czynnika na urządzeniach, które zostały dołączone do usługi Azure AD, dołączona hybrydowa usługa Azure AD i zarejestrowana usługa Azure AD. W przypadku naszych klientów nie ma łatwego sposobu na ponowne Wymuszanie uwierzytelniania wieloskładnikowego (MFA) na tych urządzeniach. W oparciu o opinie klientów, częstotliwość logowania będzie również dotyczyć usługi MFA.
 
 ### <a name="user-sign-in-frequency-and-device-identities"></a>Częstotliwość logowania użytkownika i tożsamości urządzeń
 
@@ -90,7 +94,7 @@ Dostęp warunkowy jest możliwością Azure AD — wersja Premium i wymaga licen
    > [!NOTE]
    > Zaleca się skonfigurowanie równej częstotliwości monitów uwierzytelniania dla Microsoft Office najważniejszych aplikacji, takich jak Exchange Online i SharePoint Online, w celu zapewnienia najlepszego środowiska użytkownika.
 
-1. Przejdź do > **sesji** **kontroli dostępu**, a następnie kliknij pozycję **częstotliwość logowania**
+1. Przejdź do **sesji kontroli dostępu**  >  **Session** , a następnie kliknij pozycję **częstotliwość logowania**
 1. Wprowadź wymaganą wartość dni i godziny w pierwszym polu tekstowym
 1. Wybierz wartość **godzin** lub **dni** z listy rozwijanej
 1. Zapisywanie zasad
@@ -109,7 +113,7 @@ Jeśli skonfigurowano inną częstotliwość logowania dla różnych aplikacji s
    > [!NOTE]
    > Należy pamiętać, że ta kontrolka wymaga wybrania opcji "wszystkie aplikacje w chmurze" jako warunek. Trwałość sesji przeglądarki jest kontrolowana przez token sesji uwierzytelniania. Wszystkie karty w sesji przeglądarki współdzielą jeden token sesji i w związku z tym wszystkie muszą mieć stan trwałości.
 
-1. Przejdź do > **sesji** **kontroli dostępu**, a następnie kliknij pozycję **trwała sesja przeglądarki**
+1. Przejdź do **sesji kontroli dostępu**  >  **Session** , a następnie kliknij pozycję **trwała sesja przeglądarki**
 1. Wybierz wartość z listy rozwijanej
 1. Zapisz zasady
 

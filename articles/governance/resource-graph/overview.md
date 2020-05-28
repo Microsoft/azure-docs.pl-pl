@@ -3,12 +3,12 @@ title: Omówienie usługi Azure Resource Graph
 description: Dowiedz się, w jaki sposób usługa Azure Resource Graph umożliwia tworzenie złożonych zapytań dotyczących zasobów na dużą skalę między subskrypcjami i dzierżawcami.
 ms.date: 03/02/2020
 ms.topic: overview
-ms.openlocfilehash: f5c091f60faedb76e3ca6cd68505c06f51be21b6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c3ac82c823df8cdde7b616b62ee409de500b5990
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81381516"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995862"
 ---
 # <a name="what-is-azure-resource-graph"></a>Co to jest usługa Azure Resource Graph?
 
@@ -22,8 +22,8 @@ Azure Resource Graph to usługa platformy Azure, która została zaprojektowana 
 W tej dokumentacji każda funkcja zostanie szczegółowo omówiona.
 
 > [!NOTE]
-> Wykres zasobów platformy Azure umożliwia pasek wyszukiwania Azure Portal, nowe środowisko przeglądania "wszystkie zasoby" i Azure Policye
-> _różnic wizualnych_ [historii zmian](../policy/how-to/determine-non-compliance.md#change-history-preview). Jest ona przeznaczona do ułatwienia klientom zarządzania środowiskami w dużej skali.
+> Wykres zasobów platformy Azure umożliwia pasek wyszukiwania Azure Portal, nowe środowisko przeglądania "wszystkie zasoby" i Azure Policye [Change history](../policy/how-to/determine-non-compliance.md#change-history-preview) 
+>  _różnic wizualnych_historii zmian. Jest ona przeznaczona do ułatwienia klientom zarządzania środowiskami w dużej skali.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 
@@ -79,16 +79,17 @@ Aby uzyskać więcej informacji, zobacz [wskazówki dotyczące żądań z ograni
 
 ## <a name="running-your-first-query"></a>Uruchamianie pierwszego zapytania
 
-Eksplorator grafu zasobów platformy Azure, część Azure Portal, umożliwia uruchamianie zapytań wykresów zasobów bezpośrednio w programie Azure Portal. Przypnij wyniki jako wykresy dynamiczne, aby zapewnić dynamiczne informacje w czasie rzeczywistym do przepływu pracy portalu. Aby uzyskać więcej informacji, zobacz [pierwsze zapytanie z Eksploratorem zasobów platformy Azure](first-query-portal.md).
+Eksplorator grafu zasobów platformy Azure, część Azure Portal, umożliwia uruchamianie zapytań wykresów zasobów bezpośrednio w programie Azure Portal. Przypnij wyniki jako wykresy dynamiczne, aby zapewnić dynamiczne informacje w czasie rzeczywistym do przepływu pracy portalu. Aby uzyskać więcej informacji, zobacz [pierwsze zapytanie z Eksploratorem zasobów platformy Azure](./first-query-portal.md).
 
-Wykres zasobów obsługuje interfejs wiersza polecenia platformy Azure, Azure PowerShell, zestaw Azure SDK dla platformy .NET i nie tylko. Zapytanie ma taką samą strukturę dla każdego języka. Dowiedz się, jak włączyć Wykres zasobów przy użyciu:
+Wykres zasobów obsługuje interfejs wiersza polecenia platformy Azure, Azure PowerShell, zestaw Azure SDK dla języka Python i nie tylko. Zapytanie ma taką samą strukturę dla każdego języka. Dowiedz się, jak włączyć Wykres zasobów przy użyciu:
 
-- [Azure Portal i Eksplorator wykresu zasobów](first-query-portal.md) 
-- [Interfejs wiersza polecenia platformy Azure](first-query-azurecli.md#add-the-resource-graph-extension)
-- [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module)
+- [Azure Portal i Eksplorator wykresu zasobów](./first-query-portal.md) 
+- [Interfejs wiersza polecenia platformy Azure](./first-query-azurecli.md#add-the-resource-graph-extension)
+- [Azure PowerShell](./first-query-powershell.md#add-the-resource-graph-module)
+- [Python](./first-query-python.md#add-the-resource-graph-library)
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Uruchom pierwsze zapytanie przy użyciu [Azure Portal](first-query-portal.md).
-- Uruchom pierwsze zapytanie przy użyciu [interfejsu wiersza polecenia platformy Azure](first-query-azurecli.md).
-- Uruchom pierwsze zapytanie przy użyciu [Azure PowerShell](first-query-powershell.md).
+- Dowiedz się więcej o [języku zapytań](./concepts/query-language.md).
+- Zobacz język używany w [zapytaniach początkowych](./samples/starter.md).
+- Zobacz zaawansowane zastosowania w [zaawansowanych zapytaniach](./samples/advanced.md).

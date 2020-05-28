@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 29852eb0920f7bb32464d91e0be65c7dcb03325c
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 9104470a2346052ed17c670ccc39215ff77ef51f
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82627963"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118423"
 ---
 # <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio (klasyczne) usługi sieci Web: wdrażanie i użycie
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Azure Machine Learning Studio (klasyczny) służy do wdrażania przepływów pracy i modeli uczenia maszynowego jako usług sieci Web. Te usługi sieci Web mogą być następnie używane do wywoływania modeli uczenia maszynowego z aplikacji przez Internet, aby wykonywać przewidywania w czasie rzeczywistym lub w trybie wsadowym. Ponieważ usługi sieci Web są RESTful, możesz je wywoływać z różnych języków programowania i platform, takich jak .NET i Java, oraz z aplikacji, takich jak program Excel.
 
@@ -68,7 +66,7 @@ Uruchomienie aplikacji tworzy szablon JSON usługi sieci Web. Aby użyć szablon
 
 Dodaj je do szablonu JSON jako elementy podrzędne węzła *Właściwości* na tym samym poziomie, co węzeł *MachineLearningWorkspace* .
 
-Przykład:
+Oto przykład:
 
     "StorageAccount": {
             "name": "YourStorageAccountName",

@@ -3,12 +3,12 @@ title: Usuwanie nietrwałe dla Azure Backup
 description: Dowiedz się, jak używać funkcji zabezpieczeń w programie Azure Backup, aby tworzyć kopie zapasowe bardziej bezpieczne.
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: d7831488482ef154ce00685e513b36ed235e335e
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 2b0d7a00bce8dfa427958f6db6d7174b9d5f7a79
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791395"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116418"
 ---
 # <a name="soft-delete-for-azure-backup"></a>Usuwanie nietrwałe dla Azure Backup
 
@@ -16,7 +16,10 @@ Problemy dotyczące zabezpieczeń, takie jak złośliwe oprogramowanie, programy
 
 Jedną z tych funkcji jest usuwanie nietrwałe. W przypadku usuwania nietrwałego, nawet jeśli złośliwy aktor usuwa kopię zapasową (lub przypadkowo usunięto dane kopii zapasowej), dane kopii zapasowej są przechowywane przez 14 dodatkowych dni, umożliwiając odzyskanie tego elementu kopii zapasowej bez utraty danych. Dodatkowe 14 dni przechowywania danych kopii zapasowej w stanie "usuwanie nietrwałe" nie wiążą się z kosztem dla klienta.
 
-[Ochrona nietrwałego usuwania dla maszyn wirtualnych platformy Azure](soft-delete-virtual-machines.md) i [usuwania nietrwałego dla programu SQL Server na maszynie wirtualnej platformy Azure oraz nietrwałego usunięcia SAP HANA w ramach obciążeń maszyny wirtualnej platformy Azure](soft-delete-sql-saphana-in-azure-vm.md) są dostępne dla wszystkich użytkowników.
+Dla tych usług jest dostępna ochrona usuwania nietrwałego:
+
+- [Usuwanie nietrwałe dla maszyn wirtualnych platformy Azure](soft-delete-virtual-machines.md)
+- [Usuwanie nietrwałe dla programu SQL Server na maszynie wirtualnej platformy Azure oraz usuwanie nietrwałe dla SAP HANA w obciążeniach maszyn wirtualnych platformy Azure](soft-delete-sql-saphana-in-azure-vm.md)
 
 Ten wykres przepływu przedstawia różne kroki i Stany elementu kopii zapasowej po włączeniu usuwania nietrwałego:
 
@@ -32,8 +35,8 @@ Usuwanie nietrwałe jest domyślnie włączone dla nowo utworzonych magazynów w
 
 Aby wyłączyć usuwanie nietrwałe, wykonaj następujące kroki:
 
-1. W Azure Portal przejdź do magazynu, a następnie przejdź do pozycji **Ustawienia** -> **Właściwości**.
-2. W okienku właściwości wybierz pozycję Aktualizacja **ustawień** -> **Update**zabezpieczeń.  
+1. W Azure Portal przejdź do magazynu, a następnie przejdź do pozycji **Ustawienia**  ->  **Właściwości**.
+2. W okienku właściwości wybierz pozycję Aktualizacja **ustawień zabezpieczeń**  ->  **Update**.  
 3. W okienku ustawienia zabezpieczeń w obszarze **usuwanie nietrwałe**wybierz pozycję **Wyłącz**.
 
 ![Wyłącz usuwanie nietrwałe](./media/backup-azure-security-feature-cloud/disable-soft-delete.png)
@@ -41,7 +44,7 @@ Aby wyłączyć usuwanie nietrwałe, wykonaj następujące kroki:
 ### <a name="disabling-soft-delete-using-azure-powershell"></a>Wyłączanie usuwania nietrwałego przy użyciu Azure PowerShell
 
 > [!IMPORTANT]
-> Wersja AZ. RecoveryServices wymagana do użycia nietrwałego usuwania przy użyciu narzędzia Azure PS to minimalna 2.2.0. Użyj ```Install-Module -Name Az.RecoveryServices -Force``` , aby uzyskać najnowszą wersję.
+> Wersja AZ. RecoveryServices wymagana do użycia nietrwałego usuwania przy użyciu narzędzia Azure PS to minimalna 2.2.0. Użyj, ```Install-Module -Name Az.RecoveryServices -Force``` Aby uzyskać najnowszą wersję.
 
 Aby wyłączyć, użyj polecenia cmdlet [Set-AzRecoveryServicesVaultBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty?view=azps-3.1.0) PS.
 

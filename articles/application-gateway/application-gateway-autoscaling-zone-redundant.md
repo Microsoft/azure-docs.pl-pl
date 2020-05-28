@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/24/2020
 ms.author: victorh
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 18bcd57c804746da5cff2efe8713616174fc794d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: f84098d376f2494805465a8c713a21fceae6438d
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739485"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116850"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Skalowanie automatyczne i strefowo nadmiarowa brama aplikacji (wersja 2) 
 
@@ -45,7 +45,7 @@ W przypadku jednostki SKU v2 model cenowy jest oparty na zużyciu i nie jest ju�
 - **Stała cena** — cena godzinowa (lub częściowa godzina) do aprowizacji Standard_v2 lub WAF_v2 bramy. Należy pamiętać, że 0 dodatkowe wystąpienia w dalszym ciągu zapewniają wysoką dostępność usługi, która jest zawsze dostępna ze stałą ceną.
 - **Cena jednostkowa wydajności** — koszt oparty na zużyciu jest naliczany wraz z kosztem stałym. Opłata za jednostkę wydajności jest również obliczana co godzinę lub częściej godzinowo. Istnieją trzy wymiary jednostki obliczeniowej, trwałe połączenia i przepływność. Jednostka obliczeniowa to miara używanej pojemności procesora. Czynniki wpływające na jednostki obliczeniowe to liczba połączeń TLS/s, obliczenia ponownego zapisu adresu URL oraz przetwarzanie reguł zapory aplikacji internetowej. Połączenie trwałe to miara ustanowionych połączeń TCP z bramą aplikacji w danym interwale rozliczeniowym. Przepływność jest średnimi Megabitami/s przetworzonymi przez system w danym interwale rozliczeniowym.  Rozliczenia odbywają się na poziomie jednostki pojemności dla wszystkiego powyżej liczby wystąpień zarezerwowanych.
 
-Każda jednostka pojemności składa się z maksymalnie: 1 jednostki obliczeniowej lub 2500 połączeń trwałych lub przepływności 2,22 MB/s.
+Każda jednostka pojemności składa się z co najwyżej: 1 jednostka obliczeniowa, 2500 połączeń trwałych i przepływności do 2,22 MB/s.
 
 Wskazówki dotyczące jednostek obliczeniowych:
 

@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 70fafa79c87d19d62ef936b286c82813d8e7fe17
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: a2f55798afe7b817ab366e8fa55f07078277352d
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208520"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117294"
 ---
 # <a name="create-multiple-web-service-endpoints-from-one-experiment-with-ml-studio-classic-and-powershell"></a>Tworzenie wielu punktów końcowych usługi sieci Web na podstawie jednego eksperymentu z ML Studio (klasyczny) i programu PowerShell
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Oto typowy problem uczenia maszynowego: chcesz utworzyć wiele modeli, które mają ten sam przepływ pracy szkoleniowej i korzystać z tego samego algorytmu. Ale chcesz, aby miały różne zestawy danych szkoleniowych jako dane wejściowe. W tym artykule pokazano, jak to zrobić na dużą skalę w Azure Machine Learning Studio (klasyczny) przy użyciu tylko jednego eksperymentu.
 
@@ -96,7 +94,7 @@ Teraz utworzono 10 punktów końcowych i wszystkie zawierają ten sam szkolony m
 ## <a name="update-the-endpoints-to-use-separate-training-datasets-using-powershell"></a>Aktualizowanie punktów końcowych, aby używać oddzielnych zestawów danych szkoleniowych przy użyciu programu PowerShell
 Następnym krokiem jest zaktualizowanie punktów końcowych o modele, które zostały jednoznacznie przeszkolone na poszczególnych klientach. Najpierw należy utworzyć te modele z poziomu usługi sieci Web **szkoleń rowerowych** . Wróćmy do usługi sieci Web **szkoleń rowerowych** . Musisz wywołać swój punkt końcowy BES 10 razy z 10 różnymi zestawami danych szkoleniowych, aby utworzyć 10 różnych modeli. Aby to zrobić, użyj polecenia cmdlet programu **InovkeAmlWebServiceBESEndpoint** PowerShell.
 
-Musisz również podać poświadczenia dla konta usługi BLOB Storage w `$configContent`usłudze. Mianowicie, w polach `AccountName` `AccountKey`, i. `RelativeLocation` Może to być jedna z nazw kont, jak widać na **Azure Portal** (karta Storage).*Storage* `AccountName` Po kliknięciu konta magazynu `AccountKey` można je znaleźć, naciskając przycisk **Zarządzaj kluczami dostępu** u dołu i kopiując *podstawowy klucz dostępu*. `RelativeLocation` Jest ścieżką względną do magazynu, w którym będzie przechowywany nowy model. Na przykład ścieżka `hai/retrain/bike_rental/` w poniższym skrypcie wskazuje kontener o nazwie `hai`i `/retrain/bike_rental/` jest podfolderami. Obecnie nie można tworzyć podfolderów za pomocą interfejsu użytkownika portalu, ale istnieje [kilka eksploratorów usługi Azure Storage](../../storage/common/storage-explorers.md) , które umożliwiają wykonanie tej czynności. Zaleca się utworzenie nowego kontenera w magazynie do przechowywania nowych przeszkolonych modeli (plików iLearner) w następujący sposób: ze strony magazynu kliknij przycisk **Dodaj** u dołu i nadaj mu `retrain`nazwę. Podsumowując, niezbędne zmiany w następującym skrypcie odnoszą się `AccountName`do, `AccountKey`i `RelativeLocation` (:`"retrain/model' + $seq + '.ilearner"`).
+Musisz również podać poświadczenia dla konta usługi BLOB Storage w usłudze `$configContent` . Mianowicie, w polach, `AccountName` `AccountKey` i `RelativeLocation` . `AccountName`Może to być jedna z nazw kont, jak widać na **Azure Portal** (karta*Storage* ). Po kliknięciu konta magazynu `AccountKey` można je znaleźć, naciskając przycisk **Zarządzaj kluczami dostępu** u dołu i kopiując *podstawowy klucz dostępu*. `RelativeLocation`Jest ścieżką względną do magazynu, w którym będzie przechowywany nowy model. Na przykład ścieżka `hai/retrain/bike_rental/` w poniższym skrypcie wskazuje kontener o nazwie `hai` i `/retrain/bike_rental/` jest podfolderami. Obecnie nie można tworzyć podfolderów za pomocą interfejsu użytkownika portalu, ale istnieje [kilka eksploratorów usługi Azure Storage](../../storage/common/storage-explorers.md) , które umożliwiają wykonanie tej czynności. Zaleca się utworzenie nowego kontenera w magazynie do przechowywania nowych przeszkolonych modeli (plików iLearner) w następujący sposób: ze strony magazynu kliknij przycisk **Dodaj** u dołu i nadaj mu nazwę `retrain` . Podsumowując, niezbędne zmiany w następującym skrypcie odnoszą się do `AccountName` , `AccountKey` i `RelativeLocation` (: `"retrain/model' + $seq + '.ilearner"` ).
 
     # Invoke the retraining API 10 times
     # This is the default (and the only) endpoint on the training web service

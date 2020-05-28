@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 8f8af7fab7113e38b91c3f5f1bcc41b4e4fba2c1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb5c01bac512504fc6bee52be7cf619f29bdf959
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457369"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117182"
 ---
 # <a name="query-folders-and-multiple-csv-files"></a>Foldery zapytań i wiele plików CSV  
 
@@ -24,25 +24,10 @@ SQL na żądanie obsługuje odczytywanie wielu plików/folderów przy użyciu sy
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Przed zainstalowaniem pozostałej części tego artykułu Pamiętaj, aby przejrzeć artykuły wymienione poniżej:
+Pierwszym krokiem jest **utworzenie bazy danych** , w której będą wykonywane zapytania. Następnie zainicjuj obiekty, wykonując [skrypt Instalatora](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) w tej bazie danych. Ten skrypt instalacyjny spowoduje utworzenie źródeł danych, poświadczeń z zakresem bazy danych i zewnętrznych formatów plików, które są używane w tych przykładach.
 
-- [Konfiguracja pierwszego czasu](query-data-storage.md#first-time-setup)
-- [Wymagania wstępne](query-data-storage.md#prerequisites)
-
-## <a name="read-multiple-files-in-folder"></a>Odczytaj wiele plików w folderze
-
-Użyjesz folderu *CSV/taksówki* do wykonania przykładowych zapytań. Zawiera NYCe taksówki — w przypadku podróży z listopada są rejestrowane dane z lipca 2016 do 2018 czerwca.
-
-Pliki w *formacie CSV/taksówki* są nazwane po roku i miesiącu:
-
-- yellow_tripdata_2016 -07. csv
-- yellow_tripdata_2016 -08. csv
-- yellow_tripdata_2016 -09. csv
-- ...
-- yellow_tripdata_2018 -04. csv
-- yellow_tripdata_2018 -05. csv
-- yellow_tripdata_2018 -06. csv
-
+Użyjesz folderu *CSV/taksówki* do wykonania przykładowych zapytań. Zawiera NYCe taksówki — w przypadku podróży z listopada są rejestrowane dane z lipca 2016 do 2018 czerwca. Pliki w *formacie CSV/taksówki* są nazwane po roku i miesiącu przy użyciu następującego wzorca: yellow_tripdata_ <year> - <month> . csv
+        
 Każdy plik ma następującą strukturę:
         
     [First 10 rows of the CSV file](./media/querying-folders-and-multiple-csv-files/nyc-taxi.png)
@@ -57,28 +42,14 @@ SELECT
     SUM(passenger_count) AS passengers_total,
     COUNT(*) AS [rides_total]
 FROM OPENROWSET(
-    BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/*.*',
-        FORMAT = 'CSV', 
+        BULK 'csv/taxi/*.csv',
+        DATA_SOURCE = 'sqlondemanddemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIRSTROW = 2
     )
     WITH (
-        vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
-        pickup_datetime DATETIME2, 
-        dropoff_datetime DATETIME2,
-        passenger_count INT,
-           trip_distance FLOAT,
-        rate_code INT,
-        store_and_fwd_flag VARCHAR(100) COLLATE Latin1_General_BIN2,
-        pickup_location_id INT,
-        dropoff_location_id INT,
-           payment_type INT,
-        fare_amount FLOAT,
-        extra FLOAT,
-        mta_tax FLOAT,
-        tip_amount FLOAT,
-        tolls_amount FLOAT,
-        improvement_surcharge FLOAT,
-        total_amount FLOAT
+        pickup_datetime DATETIME2 2, 
+        passenger_count INT 4
     ) AS nyc
 GROUP BY
     YEAR(pickup_datetime)
@@ -98,28 +69,14 @@ SELECT
     payment_type,  
     SUM(fare_amount) AS fare_total
 FROM OPENROWSET(
-    BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/yellow_tripdata_2017-*.csv',
-        FORMAT = 'CSV', 
+        BULK 'csv/taxi/yellow_tripdata_2017-*.csv',
+        DATA_SOURCE = 'sqlondemanddemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIRSTROW = 2
     )
     WITH (
-        vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
-        pickup_datetime DATETIME2, 
-        dropoff_datetime DATETIME2,
-        passenger_count INT,
-        trip_distance FLOAT,
-        rate_code INT,
-        store_and_fwd_flag VARCHAR(100) COLLATE Latin1_General_BIN2,
-        pickup_location_id INT,
-        dropoff_location_id INT,
-        payment_type INT,
-        fare_amount FLOAT,
-        extra FLOAT,
-        mta_tax FLOAT,
-        tip_amount FLOAT,
-        tolls_amount FLOAT,
-        improvement_surcharge FLOAT,
-        total_amount FLOAT
+        payment_type INT 10,
+        fare_amount FLOAT 11
     ) AS nyc
 GROUP BY payment_type
 ORDER BY payment_type;
@@ -147,8 +104,9 @@ SELECT
     SUM(passenger_count) AS passengers_total,
     COUNT(*) AS [rides_total]
 FROM OPENROWSET(
-    BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/taxi/',
-        FORMAT = 'CSV', 
+        BULK 'csv/taxi/',
+        DATA_SOURCE = 'sqlondemanddemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIRSTROW = 2
     )
     WITH (
@@ -184,7 +142,7 @@ ORDER BY
 Istnieje możliwość odczytywania plików z wielu folderów przy użyciu symbolu wieloznacznego. Następujące zapytanie odczytaje wszystkie pliki ze wszystkich folderów znajdujących się w folderze *CSV* o nazwach zaczynających się od *t* i kończące *się na i.*
 
 > [!NOTE]
-> Zwróć uwagę na obecność/na końcu ścieżki w zapytaniu poniżej. Oznacza folder. Jeśli parametr/zostanie pominięty, zapytanie będzie miało pliki docelowe o nazwie *t&ast;i* .
+> Zwróć uwagę na obecność/na końcu ścieżki w zapytaniu poniżej. Oznacza folder. Jeśli parametr/zostanie pominięty, zapytanie będzie miało pliki docelowe o nazwie *t &ast; i* .
 
 ```sql
 SELECT
@@ -192,8 +150,9 @@ SELECT
     SUM(passenger_count) AS passengers_total,
     COUNT(*) AS [rides_total]
 FROM OPENROWSET(
-    BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/t*i/', 
-        FORMAT = 'CSV', 
+        BULK 'csv/t*i/', 
+        DATA_SOURCE = 'sqlondemanddemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIRSTROW = 2
     )
     WITH (
@@ -231,7 +190,7 @@ Ponieważ istnieje tylko jeden folder pasujący do kryteriów, wynik zapytania j
 Można użyć wielu symboli wieloznacznych na różnych poziomach ścieżki. Na przykład możesz wzbogacić poprzednie zapytanie, aby odczytywać pliki tylko z 2017 danymi, ze wszystkich folderów, których nazwy zaczynają się od *t* i kończą z *i*.
 
 > [!NOTE]
-> Zwróć uwagę na obecność/na końcu ścieżki w zapytaniu poniżej. Oznacza folder. Jeśli parametr/zostanie pominięty, zapytanie będzie miało pliki docelowe o nazwie *t&ast;i* .
+> Zwróć uwagę na obecność/na końcu ścieżki w zapytaniu poniżej. Oznacza folder. Jeśli parametr/zostanie pominięty, zapytanie będzie miało pliki docelowe o nazwie *t &ast; i* .
 > Istnieje maksymalny limit 10 symboli wieloznacznych na zapytanie.
 
 ```sql
@@ -240,8 +199,9 @@ SELECT
     SUM(passenger_count) AS passengers_total,
     COUNT(*) AS [rides_total]
 FROM OPENROWSET(
-    BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/t*i/yellow_tripdata_2017-*.csv',
-        FORMAT = 'CSV', 
+        BULK 'csv/t*i/yellow_tripdata_2017-*.csv',
+        DATA_SOURCE = 'sqlondemanddemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIRSTROW = 2
     )
     WITH (

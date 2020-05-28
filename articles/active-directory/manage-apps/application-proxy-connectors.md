@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3737603360d3fce9d6e11e6c4ce9b2de58f76a6d
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: b80d20084f45dd2212cdc03f9c7417a67833d887
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583112"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116609"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Omówienie łączników serwer proxy aplikacji usługi Azure AD platformy Azure
 
@@ -175,9 +175,9 @@ i liczników wydajności systemu Windows.
 
 ![Dodawanie liczników do łącznika przy użyciu Monitora wydajności](./media/application-proxy-connectors/performance-monitor.png)
 
-Łączniki mają zarówno dzienniki administratora, jak i sesji. Dzienniki administracyjne obejmują kluczowe zdarzenia i ich błędy. Dzienniki sesji obejmują wszystkie transakcje i ich szczegóły przetwarzania.
+Łączniki mają zarówno dzienniki **administratora** , jak i **sesji** . Dziennik **administratora** zawiera najważniejsze zdarzenia i ich błędy. Dziennik **sesji** zawiera wszystkie transakcje i ich szczegóły przetwarzania.
 
-Aby wyświetlić dzienniki, przejdź do Podgląd zdarzeń, otwórz menu **Widok** i Włącz opcję **Pokaż dzienniki analityczne i debugowania**. Następnie włącz je, aby rozpocząć zbieranie zdarzeń. Te dzienniki nie są wyświetlane w serwerze proxy aplikacji sieci Web w systemie Windows Server 2012 R2, ponieważ łączniki są oparte na nowszej wersji.
+Aby wyświetlić dzienniki, Otwórz **Podgląd zdarzeń** i przejdź do pozycji **Dzienniki aplikacji i usług**  >  **Microsoft**  >  **AadApplicationProxy**  >  **Connector**. Aby wyświetlić dziennik **sesji** , w menu **Widok** wybierz polecenie **Pokaż dzienniki analityczne i debugowania**. Dziennik **sesji** jest zazwyczaj używany do rozwiązywania problemów i jest domyślnie wyłączony. Włącz, aby rozpocząć zbieranie zdarzeń i wyłączyć je, gdy nie jest już potrzebne.
 
 Stan usługi można przejrzeć w oknie usługi. Łącznik składa się z dwóch usług systemu Windows: rzeczywisty łącznik i Aktualizator. Oba te elementy muszą być uruchomione przez cały czas.
 

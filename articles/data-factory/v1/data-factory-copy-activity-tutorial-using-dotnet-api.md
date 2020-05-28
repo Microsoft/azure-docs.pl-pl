@@ -12,20 +12,20 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b907663971e7a8a7c3b2c6cac95c38131e1ccb26
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 47714be27cd4588b9bdf481750974394d3738985
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74931733"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119288"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Samouczek: tworzenie potoku za pomocą działania kopiowania przy użyciu interfejsu API .NET
 > [!div class="op_single_selector"]
 > * [Przegląd i wymagania wstępne](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Kreator kopiowania](data-factory-copy-data-wizard-tutorial.md)
-> * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
-> * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
-> * [Szablon Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
+> * [Program Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
+> * [Program PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
+> * [Szablon usługi Azure Resource Manager](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 > * [Interfejs API REST](data-factory-copy-activity-tutorial-using-rest-api.md)
 > * [Interfejs API .NET](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
@@ -66,7 +66,7 @@ Utwórz aplikację usługi Azure Active Directory, utwórz nazwę główną usł
     ```powershell
     Get-AzSubscription
     ```
-4. Uruchom poniższe polecenie, aby wybrać subskrypcję, z którą chcesz pracować. Zastąp ** &lt;ciąg nameofazuresubscription nazwą** &gt; nazwą swojej subskrypcji platformy Azure.
+4. Uruchom poniższe polecenie, aby wybrać subskrypcję, z którą chcesz pracować. Zastąp ** &lt; ciąg nameofazuresubscription nazwą** &gt; nazwą swojej subskrypcji platformy Azure.
 
     ```powershell
     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
@@ -134,7 +134,7 @@ Po wykonaniu tych kroków powinny być dostępne cztery następujące wartości:
    2. Uruchom następujące polecenie, aby zainstalować pakiet Azure Active Directory (użyjesz interfejsu API usługi Active Directory w kodzie): `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
 4. Dodaj następującą sekcję **appSetttings** do pliku **App.config**. Te ustawienia są używane przez metodę pomocy **GetAuthorizationHeader**.
 
-    Zastąp wartości dla ** &lt;identyfikatora&gt;aplikacji**, ** &lt;hasła&gt;**, ** &lt;identyfikatora&gt;subskrypcji**i ** &lt;identyfikatora&gt; dzierżawy** własnymi wartościami.
+    Zastąp wartości dla ** &lt; identyfikatora &gt; aplikacji**, ** &lt; hasła &gt; **, ** &lt; identyfikatora &gt; subskrypcji**i ** &lt; identyfikatora &gt; dzierżawy** własnymi wartościami.
 
     ```xml
     <?xml version="1.0" encoding="utf-8" ?>
@@ -240,7 +240,7 @@ Po wykonaniu tych kroków powinny być dostępne cztery następujące wartości:
 9. Dodaj następujący kod, który tworzy **usługę połączoną Azure SQL**, do metody **Main**.
 
    > [!IMPORTANT]
-   > Zastąp wartości **servername**, **databasename**, **username** oraz **password** nazwą serwera SQL Azure, nazwą bazy danych, nazwą użytkownika i hasłem.
+   > Zastąp wartości **servername**, **DatabaseName**, **username**i **Password** nazwami serwera, bazy danych, użytkownika i hasła.
 
     ```csharp
     // create a linked service for output data store: Azure SQL Database
@@ -511,7 +511,7 @@ Po wykonaniu tych kroków powinny być dostępne cztery następujące wartości:
     John, Doe
     Jane, Doe
     ```
-18. Uruchom przykład, klikając polecenie **Debuguj** -> **Rozpocznij debugowanie** w menu. Po wyświetleniu komunikatu **Pobieranie szczegółów uruchomienia wycinka danych** zaczekaj kilka minut, a następnie naciśnij klawisz **ENTER**.
+18. Uruchom przykład, klikając polecenie **Debuguj**  ->  **Rozpocznij debugowanie** w menu. Po wyświetleniu komunikatu **Pobieranie szczegółów uruchomienia wycinka danych** zaczekaj kilka minut, a następnie naciśnij klawisz **ENTER**.
 19. Użyj witryny Azure Portal, aby upewnić się, że fabryka danych **APITutorialFactory** została utworzona z następującymi artefaktami:
     * Połączona usługa: **LinkedService_AzureStorage**
     * Zestaw danych: **InputDataset** i **OutputDataset**.

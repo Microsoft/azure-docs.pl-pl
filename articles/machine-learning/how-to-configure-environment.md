@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: 10ea0002b2e99c4675f56e48a638f3c1cb87e6c0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ab9a02efedb0e002ac13294429c06e39ea18019c
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81399007"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117464"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Skonfiguruj środowisko programistyczne dla Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -88,7 +88,7 @@ Aby użyć DSVM jako środowiska deweloperskiego:
     * Interfejs wiersza polecenia platformy Azure:
 
         > [!IMPORTANT]
-        > * Korzystając z interfejsu wiersza `az login` polecenia platformy Azure, musisz najpierw zalogować się do subskrypcji platformy Azure za pomocą poleceniu.
+        > * Korzystając z interfejsu wiersza polecenia platformy Azure, musisz najpierw zalogować się do subskrypcji platformy Azure za pomocą `az login` poleceniu.
         >
         > * W przypadku korzystania z poleceń w tym kroku należy podać nazwę grupy zasobów, nazwę dla maszyny wirtualnej, nazwa użytkownika i hasło.
 
@@ -136,7 +136,7 @@ Aby uzyskać więcej informacji, zobacz [Virtual Machines analizy danych](https:
 
 ## <a name="local-computer"></a><a id="local"></a>Komputer lokalny
 
-Jeśli używasz komputera lokalnego (co może być również zdalną maszyną wirtualną), Utwórz środowisko Anaconda i Zainstaluj zestaw SDK. Przykład:
+Jeśli używasz komputera lokalnego (co może być również zdalną maszyną wirtualną), Utwórz środowisko Anaconda i Zainstaluj zestaw SDK. Oto przykład:
 
 1. Pobierz i zainstaluj program [Anaconda](https://www.anaconda.com/distribution/#download-section) (wersja języka Python 3,7), jeśli jeszcze go nie masz.
 
@@ -145,7 +145,7 @@ Jeśli używasz komputera lokalnego (co może być również zdalną maszyną wi
     Uruchom następujące polecenie, aby utworzyć środowisko.
 
     ```bash
-    conda create -n myenv python=3.6.5
+    conda create -n myenv python=3.7.7
     ```
 
     Następnie aktywuj środowisko.
@@ -154,7 +154,7 @@ Jeśli używasz komputera lokalnego (co może być również zdalną maszyną wi
     conda activate myenv
     ```
 
-    Ten przykład tworzy środowisko przy użyciu języka Python 3.6.5, ale można wybrać wszystkie konkretne podwersje. Zgodność z zestawem SDK może nie być gwarantowana w niektórych wersjach głównych (zalecane jest 3,5 +) i zaleca się wypróbowanie innej wersji/podwersji w środowisku Anaconda, jeśli wystąpią błędy. Utworzenie środowiska, podczas gdy składniki i pakiety będą pobierane, potrwa kilka minut.
+    Ten przykład tworzy środowisko przy użyciu języka Python 3.7.7, ale można wybrać wszystkie konkretne podwersje. Zgodność z zestawem SDK może nie być gwarantowana w niektórych wersjach głównych (zalecane jest 3,5 +) i zaleca się wypróbowanie innej wersji/podwersji w środowisku Anaconda, jeśli wystąpią błędy. Utworzenie środowiska, podczas gdy składniki i pakiety będą pobierane, potrwa kilka minut.
 
 1. Uruchom następujące polecenia w nowym środowisku, aby włączyć jądra IPython specyficzne dla środowiska. Zapewni to oczekiwane zachowanie dotyczące importu jądra i pakietu podczas pracy z notesami Jupyter w środowiskach Anaconda:
 
@@ -170,7 +170,7 @@ Jeśli używasz komputera lokalnego (co może być również zdalną maszyną wi
 
 1. Użyj następujących poleceń, aby zainstalować pakiety:
 
-    To polecenie powoduje zainstalowanie podstawowego zestawu SDK Azure Machine Learning przy użyciu `automl` notesu i dodatków. `automl` Dodatkowa jest duża instalacja i można ją usunąć z nawiasów, jeśli nie zamierzasz uruchamiać zautomatyzowanych eksperymentów w usłudze Machine Learning. `automl` Dodatkowo zawiera również zestaw SDK przygotowywania danych Azure Machine Learning.
+    To polecenie powoduje zainstalowanie podstawowego zestawu SDK Azure Machine Learning przy użyciu notesu i `automl` dodatków. `automl`Dodatkowa jest duża instalacja i można ją usunąć z nawiasów, jeśli nie zamierzasz uruchamiać zautomatyzowanych eksperymentów w usłudze Machine Learning. `automl`Dodatkowo zawiera również zestaw SDK przygotowywania danych Azure Machine Learning.
 
     ```bash
     pip install azureml-sdk[notebooks,automl]
@@ -181,7 +181,7 @@ Jeśli używasz komputera lokalnego (co może być również zdalną maszyną wi
    >
    >   `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML`
    >
-   > * Począwszy od macOS Catalina, zsh (Z powłoką) jest domyślną powłoką logowania i interaktywną powłoką. W ZSH Użyj następującego polecenia, które wyprowadza nawiasy klamrowe z\\"" (ukośnik odwrotny):
+   > * Począwszy od macOS Catalina, zsh (Z powłoką) jest domyślną powłoką logowania i interaktywną powłoką. W ZSH Użyj następującego polecenia, które wyprowadza nawiasy klamrowe z " \\ " (ukośnik odwrotny):
    >
    >   `pip install --upgrade azureml-sdk\[notebooks,automl\]`
 
@@ -189,13 +189,13 @@ Jeśli używasz komputera lokalnego (co może być również zdalną maszyną wi
 
 1. Zainstaluj inne pakiety na potrzeby eksperymentowania w usłudze Machine Learning.
 
-    Użyj jednego z następujących poleceń i Zastąp * \<nowy pakiet>* pakietem, który chcesz zainstalować. Instalowanie pakietów za `conda install` pośrednictwem programu wymaga, aby pakiet był częścią bieżących kanałów (nowe kanały można dodać w chmurze Anaconda).
+    Użyj jednego z następujących poleceń i Zastąp *\<new package>* pakiet, który chcesz zainstalować. Instalowanie pakietów za pośrednictwem programu `conda install` wymaga, aby pakiet był częścią bieżących kanałów (nowe kanały można dodać w chmurze Anaconda).
 
     ```bash
     conda install <new package>
     ```
 
-    Alternatywnie możesz zainstalować pakiety za pośrednictwem `pip`programu.
+    Alternatywnie możesz zainstalować pakiety za pośrednictwem programu `pip` .
 
     ```bash
     pip install <new package>
@@ -234,7 +234,7 @@ Aby włączyć te składniki w środowisku Jupyter Notebook:
     azureml.core.VERSION
     ```
 
-1. Jeśli wystąpią problemy z importowaniem modułów i `ModuleNotFoundError`odebranie, upewnij się, że jądro Jupyter jest połączone z poprawną ścieżką dla danego środowiska, uruchamiając następujący kod w komórce notesu.
+1. Jeśli wystąpią problemy z importowaniem modułów i odebranie `ModuleNotFoundError` , upewnij się, że jądro Jupyter jest połączone z poprawną ścieżką dla danego środowiska, uruchamiając następujący kod w komórce notesu.
 
     ```python
     import sys
@@ -285,7 +285,7 @@ Utwórz [klaster datakostki](https://docs.microsoft.com/azure/azure-databricks/q
 
 Użyj następujących ustawień:
 
-| Ustawienie |Informacje zawarte w tym artykule dotyczą| Wartość |
+| Ustawienie |Dotyczy| Wartość |
 |----|---|---|
 | Nazwa klastra |zawsze| yourclustername |
 | Środowisko uruchomieniowe usługi Databricks |zawsze|Środowisko uruchomieniowe inne niż ML 6,5 (Scala 2,11, Spark 2.4.3) |
@@ -299,11 +299,11 @@ Przed kontynuowaniem Zaczekaj, aż klaster zostanie uruchomiony.
 ### <a name="install-the-correct-sdk-into-a-databricks-library"></a>Zainstaluj poprawny zestaw SDK w bibliotece datakostks
 Po uruchomieniu klastra [Utwórz bibliotekę](https://docs.databricks.com/user-guide/libraries.html#create-a-library) , aby dołączyć odpowiedni pakiet Azure Machine Learning SDK do klastra.
 
-1. Kliknij prawym przyciskiem myszy folder bieżący obszar roboczy, w którym chcesz przechowywać bibliotekę. Wybierz pozycję **Utwórz** > **bibliotekę**.
+1. Kliknij prawym przyciskiem myszy folder bieżący obszar roboczy, w którym chcesz przechowywać bibliotekę. Wybierz pozycję **Utwórz**  >  **bibliotekę**.
 
 1. Wybierz **tylko jedną** opcję (nie jest obsługiwana żadna inna instalacja zestawu SDK)
 
-   |Dodatki&nbsp;do&nbsp;pakietu SDK|Element źródłowy|Nazwa&nbsp;PyPi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+   |&nbsp;Dodatki do pakietu SDK &nbsp;|Element źródłowy|&nbsp;Nazwa PyPi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |Dla kostek datakostki| Przekaż Język Python lub PyPI | Azure-SDK [datakostki]|
    |Dla kostek datakostks — with-<br> możliwości zautomatyzowanej ML| Przekaż Język Python lub PyPI | Azure-SDK [automl]|
@@ -329,17 +329,17 @@ Po uruchomieniu klastra [Utwórz bibliotekę](https://docs.databricks.com/user-g
 
 Jeśli instalacja zakończyła się pomyślnie, zaimportowana biblioteka powinna wyglądać następująco:
 
-Zestaw SDK dla datakostek **_bez_** ZAUTOMATYZOWANEGO zestawu ![sdk usługi Machine Learning Azure Machine Learning dla datakostki](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
+Zestaw SDK dla datakostek **_bez_** ZAUTOMATYZOWANEGO zestawu SDK usługi machine Learning ![ Azure Machine Learning dla datakostki](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
 
-Zestaw SDK dla zestawów datakostks **z** automatycznym zestawem SDK usługi Machine Learning ![z automatyczną nauką maszynową zainstalowaną w kostkach](./media/how-to-configure-environment/automlonadb.png)
+Zestaw SDK dla zestawów datakostks **z** automatycznym ![ zestawem SDK usługi Machine Learning z automatyczną nauką maszynową zainstalowaną w kostkach](./media/how-to-configure-environment/automlonadb.png)
 
 ### <a name="start-exploring"></a>Rozpocznij eksplorację
 
 Wypróbuj:
 + Chociaż dostępnych jest wiele przykładowych notesów, **tylko [te przykładowe notesy](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) współpracują z Azure Databricks.**
 
-+ Zaimportuj te próbki bezpośrednio z obszaru roboczego. Patrz poniżej: ![wybierz pozycję](./media/how-to-configure-environment/azure-db-screenshot.png)
-![Importuj panel importowania](./media/how-to-configure-environment/azure-db-import.png)
++ Zaimportuj te próbki bezpośrednio z obszaru roboczego. Patrz poniżej: ![ Wybierz pozycję Importuj ](./media/how-to-configure-environment/azure-db-screenshot.png)
+ ![ panel importowania](./media/how-to-configure-environment/azure-db-import.png)
 
 + Dowiedz się [, jak tworzyć potoki z kostkami w ramach obliczeń szkoleniowych](how-to-create-your-first-pipeline.md).
 
@@ -357,7 +357,7 @@ Plik konfiguracji obszaru roboczego to plik JSON, który informuje zestaw SDK, j
 
 Ten plik JSON musi znajdować się w strukturze katalogów zawierającej skrypty języka Python lub notesy Jupyter. Może znajdować się w tym samym katalogu, podkatalogu o nazwie *. Azure*lub w katalogu nadrzędnym.
 
-Aby użyć tego pliku z kodu, użyj `ws=Workspace.from_config()`. Ten kod ładuje informacje z pliku i łączy się z obszarem roboczym.
+Aby użyć tego pliku z kodu, użyj `ws=Workspace.from_config()` . Ten kod ładuje informacje z pliku i łączy się z obszarem roboczym.
 
 Plik konfiguracji można utworzyć na trzy sposoby:
 

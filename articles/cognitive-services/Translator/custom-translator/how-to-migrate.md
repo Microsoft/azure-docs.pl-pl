@@ -6,22 +6,22 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 5705e5f29bc851d615f91d902fd505a69b5cfd12
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: face605d756d2107c04b3df0c072602ac91d147d
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83587005"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83992907"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrowanie obszaru roboczego i projektów centrum do translatora niestandardowego
 
 Można z łatwością migrować obszar roboczy i projekty [centrum usługi Microsoft Translator](https://hub.microsofttranslator.com/) do translatora niestandardowego. Migracja jest inicjowana z centrum Microsoft Hub przez wybranie obszaru roboczego lub projektu, a następnie wybranie obszaru roboczego w usłudze translator niestandardowy, a następnie wybranie szkoleń, które chcesz przenieść. Po rozpoczęciu migracji wybrane ustawienia szkoleniowe zostaną przeniesione ze wszystkimi odpowiednimi dokumentami. Wdrożone modele są przeszkolone i można je wdrożyć ponownie po zakończeniu.
 
 Te akcje są wykonywane podczas migracji:
-* Wszystkie dokumenty i definicje projektu będą przenoszone wraz z dodaniem prefiksu "hub_" poprzedzonego nazwą. Automatycznie generowane dane testów i dostrajania będą mieć nazwę hub_systemtune_ \< modelid> lub hub_systemtest_ \< ModelId>.
+* Wszystkie dokumenty i definicje projektu będą przenoszone wraz z dodaniem prefiksu "hub_" poprzedzonego nazwą. Automatycznie generowane dane testów i dostrajania będą mieć nazwę hub_systemtune_ \<modelid> lub hub_systemtest_ \<modelid> .
 * Wszystkie szkolenia, które były w stanie wdrożenia podczas migracji, zostaną automatycznie przeszkolone przy użyciu dokumentów szkoleń centrum. W przypadku tego szkolenia nie zostanie naliczona opłata za subskrypcję. Jeśli wybrano opcję automatycznego wdrażania dla migracji, model przeszkolony zostanie wdrożony po zakończeniu. Będą stosowane zwykłe opłaty za hosting.
 * Wszystkie zmigrowane szkolenia, które nie były w stanie wdrożonym, zostaną wprowadzone do migrowanej wersji roboczej. W tym stanie będziesz mieć możliwość szkolenia modelu z zmigrowanym definicją, ale będą stosowane zwykłe opłaty szkoleniowe.
 * W dowolnym momencie Ocena BLEU migrowana z szkoleń centrum znajduje się na stronie TrainingDetails modelu w nagłówku "Bleu score in MT Hub".
@@ -132,11 +132,11 @@ Ta tabela zawiera porównanie funkcji usługi Microsoft Translator Hub i transla
 
 |   | Koncentrator | Custom Translator |
 |:-----|:----:|:----:|
-|Stan funkcji dostosowywania   | Ogólna dostępność  | Ogólna dostępność |
-| Wersja interfejsu API tekstu  | Wersja 2    | Czytanie  |
-| Dostosowanie SMT | Yes   | Nie |
-| Dostosowanie NMT | Nie    | Yes |
-| Nowe ujednolicone usługi rozpoznawania mowy | Nie    | Yes |
+|Stan funkcji dostosowywania    | Ogólna dostępność    | Ogólna dostępność |
+| Wersja interfejsu API tekstu    | Wersja 2     | Czytanie  |
+| Dostosowanie SMT    | Yes    | Nie |
+| Dostosowanie NMT    | Nie    | Yes |
+| Nowe ujednolicone usługi rozpoznawania mowy    | Nie    | Yes |
 | Brak śladu | Tak | Tak |
 
 ## <a name="new-languages"></a>Nowe języki

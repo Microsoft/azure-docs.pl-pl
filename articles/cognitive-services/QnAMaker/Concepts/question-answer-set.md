@@ -1,29 +1,29 @@
 ---
 title: Baza wiedzy o projekcie QnA Maker
-description: Baza wiedzy QnA Maker składa się z zestawu zestawów pytań i odpowiedzi (QnA) oraz opcjonalnych metadanych skojarzonych z poszczególnymi parami QnA.
+description: Baza wiedzy QnA Maker składa się z zestawu par pytań i odpowiedzi (QnA) oraz opcjonalnych metadanych skojarzonych z poszczególnymi parami QnA.
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: 1d24434d1343f4174cfbfeb3a30c36737b213168
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e75a9313f02a6b5cc4235cdcccb381585d2192ae
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80756786"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993001"
 ---
-# <a name="question-and-answer-set-concepts"></a>Pojęcia dotyczące ustawiania pytania i odpowiedzi
+# <a name="question-and-answer-pair-concepts"></a>Pojęcia dotyczące pary pytań i odpowiedzi
 
-Baza wiedzy składa się z zestawów pytań i odpowiedzi (QnA).  Każdy zestaw ma jedną odpowiedź, a zestaw zawiera wszystkie informacje skojarzone z tą _odpowiedzią_. Odpowiedź może być luźno podobna do wiersza bazy danych lub wystąpienia struktury danych.
+Baza wiedzy składa się z par pytań i odpowiedzi (QnA).  Każda para ma jedną odpowiedź, a para zawiera wszystkie informacje skojarzone z tą _odpowiedzią_. Odpowiedź może być luźno podobna do wiersza bazy danych lub wystąpienia struktury danych.
 
-## <a name="question-and-answer-sets"></a>Zestawy pytań i odpowiedzi
+## <a name="question-and-answer-pairs"></a>Pary pytań i odpowiedzi
 
-**Wymagane** ustawienia w zestawie pytań i odpowiedzi (QNA) są następujące:
+**Wymagane** ustawienia w parze pytań i odpowiedzi (QNA) są następujące:
 
 * **pytanie** — tekst zapytania użytkownika, używany do QNA Maker uczenia maszynowego w celu wyrównania z tekstem pytania użytkownika z różnymi wyrazami, ale z tą samą odpowiedzią
-* odpowiedź **— odpowiedź** zestawu jest odpowiedzią zwracaną, gdy zapytanie użytkownika jest dopasowane do skojarzonego pytania
+* odpowiedź **— odpowiedź** pary jest odpowiedzią zwracaną, gdy zapytanie użytkownika jest dopasowane do skojarzonego pytania
 
-Każdy zestaw jest reprezentowany przez **Identyfikator**.
+Każda para jest reprezentowana przez **Identyfikator**.
 
-**Opcjonalne** ustawienia dla zestawu obejmują:
+**Opcjonalne** ustawienia dla pary obejmują:
 
 * **Alternatywne formy pytania** — pomaga QNA Maker zwrócić poprawną odpowiedź w celu uzyskania większej liczby pytań frazy
 * **Metadane**: metadane są tagami skojarzonymi z parą QNA i są reprezentowane jako pary klucz-wartość. Tagi metadanych są używane do filtrowania par QnA i ograniczają zestaw, w jakim jest wykonywane Dopasowywanie zapytań.

@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z usługą Azure File Share
 description: W tym artykule znajdują się informacje dotyczące rozwiązywania problemów występujących podczas ochrony udziałów plików platformy Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: a9b3514b4c1a00cc2f9bb1e1922975bf0bb70d24
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 3d04a60b8bab5ba764818eab341ac08836b0dfd1
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562087"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116733"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Rozwiązywanie problemów podczas tworzenia kopii zapasowych udziałów plików platformy Azure
 
@@ -50,7 +50,7 @@ Ponów próbę rejestracji. Jeśli problem będzie się powtarzać, skontaktuj s
 
 ### <a name="unable-to-delete-the-recovery-services-vault-after-unprotecting-a-file-share"></a>Nie można usunąć magazynu Recovery Services po wyłączeniu ochrony udziału plików
 
-W Azure Portal Otwórz > **konta magazynu** **infrastruktury kopii zapasowej** **magazynu** > , a następnie kliknij pozycję **Wyrejestruj** , aby usunąć konta magazynu z magazynu Recovery Services.
+W Azure Portal Otwórz **Vault**  >  konta magazynu**infrastruktury kopii zapasowej**magazynu  >  **Storage accounts** , a następnie kliknij pozycję **Wyrejestruj** , aby usunąć konta magazynu z magazynu Recovery Services.
 
 >[!NOTE]
 >Magazyn usługi Recovery Services można usunąć tylko po wyrejestrowaniu wszystkich kont magazynu zarejestrowanych w magazynie.
@@ -276,6 +276,45 @@ Kod błędu: BMSUserErrorObjectLocked
 Komunikat o błędzie: inna operacja jest w toku dla wybranego elementu.
 
 Poczekaj na zakończenie innej operacji w toku i spróbuj ponownie później.
+
+Z pliku: troubleshoot-azure-files.md
+
+## <a name="common-soft-delete-related-errors"></a>Typowe błędy związane z usuwaniem nietrwałego
+
+### <a name="usererrorrestoreafsinsoftdeletestate--this-restore-point-is-not-available-as-the-snapshot-associated-with-this-point-is-in-a-file-share-that-is-in-soft-deleted-state"></a>UserErrorRestoreAFSInSoftDeleteState — ten punkt przywracania nie jest dostępny, ponieważ migawka skojarzona z tym punktem znajduje się w udziale plików, który jest w stanie nieusuniętym.
+
+Kod błędu: UserErrorRestoreAFSInSoftDeleteState
+
+Komunikat o błędzie: ten punkt przywracania nie jest dostępny, ponieważ migawka skojarzona z tym punktem znajduje się w udziale plików, który jest w stanie nieusuniętym.
+
+Nie można wykonać operacji przywracania, gdy udział plików jest w stanie usunięte nietrwałe. Cofnij usunięcie udziału plików z portalu plików lub za pomocą [skryptu cofania usunięcia](scripts/backup-powershell-script-undelete-file-share.md) , a następnie spróbuj przywrócić.
+
+### <a name="usererrorrestoreafsindeletestate--listed-restore-points-are-not-available-as-the-associated-file-share-containing-the-restore-point-snapshots-has-been-deleted-permanently"></a>Punkty przywracania wymienione na liście UserErrorRestoreAFSInDeleteState nie są dostępne, ponieważ skojarzony udział plików zawierający migawki punktu przywracania został trwale usunięty
+
+Kod błędu: UserErrorRestoreAFSInDeleteState
+
+Komunikat o błędzie: wymienione punkty przywracania nie są dostępne, ponieważ skojarzony udział plików zawierający migawki punktu przywracania został trwale usunięty.
+
+Sprawdź, czy kopia zapasowa udziału plików jest usuwana. Jeśli był w stanie nietrwałego usunięcia, sprawdź, czy okres przechowywania nieprzerwanego usuwania jest wyższy i nie został odzyskany ponownie. W każdym z tych przypadków wszystkie migawki zostaną trwale utracone i nie będzie można odzyskać danych.
+
+>[!NOTE]
+> Zalecamy, aby nie usuwać kopii zapasowej udziału plików lub jeśli jest w stanie nietrwałego usunięcia, cofanie usunięcia przed zakończeniem nietrwałego okresu przechowywania, aby uniknąć utraty wszystkich punktów przywracania.
+
+### <a name="usererrorbackupafsinsoftdeletestate---backup-failed-as-the-azure-file-share-is-in-soft-deleted-state"></a>UserErrorBackupAFSInSoftDeleteState — tworzenie kopii zapasowej nie powiodło się, ponieważ udział plików platformy Azure jest w stanie usuwania nietrwałego
+
+Kod błędu: UserErrorBackupAFSInSoftDeleteState
+
+Komunikat o błędzie: wykonywanie kopii zapasowej nie powiodło się, ponieważ udział plików platformy Azure jest w stanie usuwania nietrwałego
+
+Cofnij usunięcie udziału plików z **portalu plików** lub za pomocą [skryptu cofania usuwania](scripts/backup-powershell-script-undelete-file-share.md) , aby kontynuować tworzenie kopii zapasowej i uniemożliwić trwałe usunięcie danych.
+
+### <a name="usererrorbackupafsindeletestate--backup-failed-as-the-associated-azure-file-share-is-permanently-deleted"></a>UserErrorBackupAFSInDeleteState — tworzenie kopii zapasowej nie powiodło się, ponieważ skojarzony udział plików platformy Azure został trwale usunięty
+
+Kod błędu: UserErrorBackupAFSInDeleteState
+
+Komunikat o błędzie: wykonywanie kopii zapasowej nie powiodło się, ponieważ skojarzony udział plików platformy Azure został trwale usunięty
+
+Sprawdź, czy kopia zapasowa udziału plików została trwale usunięta. Jeśli tak, Zatrzymaj tworzenie kopii zapasowej udziału plików, aby uniknąć błędów kopii zapasowych. Aby dowiedzieć się, jak zatrzymać ochronę, zobacz [Zatrzymywanie ochrony udziału plików platformy Azure](https://docs.microsoft.com/azure/backup/manage-afs-backup#stop-protection-on-a-file-share)
 
 ## <a name="next-steps"></a>Następne kroki
 

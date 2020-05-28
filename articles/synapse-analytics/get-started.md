@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.date: 05/19/2020
-ms.openlocfilehash: dcad90713227e55437523c91997175242078e9e4
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: d5484f5725047201770e5b3cbab89847b27117f9
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836485"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116919"
 ---
 # <a name="getting-started-with-azure-synapse-analytics"></a>Wprowadzenie z usługą Azure Synapse Analytics
 
@@ -22,23 +22,15 @@ Ten samouczek przeprowadzi Cię przez wszystkie podstawowe kroki niezbędne do s
 
 ## <a name="prepare-a-storage-account-for-use-with-a-synapse-workspace"></a>Przygotowywanie konta magazynu do użycia z obszarem roboczym Synapse
 
-1. Otwórz [Azure Portal](https://portal.azure.com)
-1. Utwórz nowe konto magazynu z następującymi ustawieniami:
-    * Na karcie **podstawy**
-
-    |Ustawienie | Sugerowana wartość | Opis |
-    |---|---|---|
-    |**Nazwa konta magazynu**| Możesz nadać mu dowolną nazwę.|W tym dokumencie odwołujemy się do niego jako `contosolake` .
-    |**Rodzaj konta**|Musi być ustawiona na`StorageV2`||
-    |**Lokalizacja**|Możesz wybrać dowolną lokalizację| Zalecamy, aby obszar roboczy Synapse i konto Azure Data Lake Storage (ADLS) Gen2 są w tym samym regionie.|
-    ||||
-    
-    * Na karcie **Zaawansowane**
-    
-    |Ustawienie | Sugerowana wartość | Opis |
-    |---|---|---|
-    |**Usługa Data Lake Storage 2. generacji**|`Enabled`| Usługa Azure Synapse działa tylko z kontami magazynu, na których to ustawienie jest włączone.|
-    ||||
+* Otwórz [Azure Portal](https://portal.azure.com)
+* Utwórz nowe konto magazynu z następującymi ustawieniami:
+    |Tab|Ustawienie | Sugerowana wartość | Opis |
+    |---|---|---|---|
+    |Podstawy|**Nazwa konta magazynu**| Możesz nadać mu dowolną nazwę.|W tym dokumencie odwołujemy się do niego jako `contosolake` .|
+    |Podstawy|**Rodzaj konta**|Musi być ustawiona na`StorageV2`||
+    |Podstawy|**Lokalizacja**|Możesz wybrać dowolną lokalizację| Zalecamy, aby obszar roboczy Synapse i konto Azure Data Lake Storage (ADLS) Gen2 są w tym samym regionie.|
+    |Zaawansowany|**Usługa Data Lake Storage 2. generacji**|`Enabled`| Usługa Azure Synapse działa tylko z kontami magazynu, na których to ustawienie jest włączone.|
+    |||||
 
 1. Po utworzeniu konta magazynu wybierz pozycję **Kontrola dostępu (IAM)** na lewym pasku nawigacyjnym. Następnie przypisz poniższe role lub upewnij się, że zostały już przypisane. 
     a. * Przypisz siebie do roli **właściciela** na koncie magazynu b. * Przypisz siebie do roli **właściciela danych obiektów blob magazynu** na koncie magazynu
@@ -46,16 +38,15 @@ Ten samouczek przeprowadzi Cię przez wszystkie podstawowe kroki niezbędne do s
 
 ## <a name="create-a-synapse-workspace"></a>Tworzenie obszaru roboczego Synapse
 
-1. Otwórz [Azure Portal](https://portal.azure.com) i Znajdź na początku `Synapse` .
-1. W wynikach wyszukiwania w obszarze **usługi**wybierz pozycję **Azure Synapse Analytics (obszary robocze — wersja zapoznawcza)**
-1. Wybierz pozycję **+ Dodaj**
-1. Karta **podstawy** :
+* Otwórz [Azure Portal](https://portal.azure.com) i Znajdź na początku `Synapse` .
+* W wynikach wyszukiwania w obszarze **usługi**wybierz pozycję **Azure Synapse Analytics (obszary robocze — wersja zapoznawcza)**
+* Wybierz pozycję **+ Dodaj** , aby utworzyć nowy obszar roboczy z tymi ustawieniami
 
-    |Ustawienie | Sugerowana wartość | Opis |
-    |---|---|---|
-    |**Nazwa obszaru roboczego**|Możesz wywoływać wszystko.| W tym dokumencie będziemy używać`myworkspace`
-    |**Okolicy**|Dopasuj region konta magazynu||
-    |||
+    |Tab|Ustawienie | Sugerowana wartość | Opis |
+    |---|---|---|---|
+    |Podstawy|**Nazwa obszaru roboczego**|Możesz wywoływać wszystko.| W tym dokumencie będziemy używać`myworkspace`|
+    |Podstawy|**Okolicy**|Dopasuj region konta magazynu|
+    ||||
 
 1. W obszarze **wybierz Data Lake Storage Gen 2**wybierz wcześniej utworzone konto i kontener.
     > [!NOTE]

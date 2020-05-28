@@ -3,12 +3,12 @@ title: Edytowanie bazy wiedzy — QnA Maker
 description: QnA Maker umożliwia zarządzanie zawartością bazy wiedzy przez zapewnienie łatwego w użyciu funkcji edycji.
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 018e733dda06b7785b0a87ea3e08009967213134
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 66adf9e1fe227f11514276147de32e8691db7fab
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83650813"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993579"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Edytuj pary QnA w bazie wiedzy
 
@@ -85,7 +85,7 @@ Wszystkie pola w dowolnej parze QnA można edytować niezależnie od oryginalneg
 
 ## <a name="delete-a-qna-pair"></a>Usuwanie pary QnA
 
-Aby usunąć QnA, kliknij ikonę **Usuń** znajdującą się po prawej stronie wiersza QNA. Jest to trwała operacja. Nie można jej cofnąć. Przed usunięciem zestawów Rozważ wyeksportowanie bazy wiedzy ze strony **publikowania** .
+Aby usunąć QnA, kliknij ikonę **Usuń** znajdującą się po prawej stronie wiersza QNA. Jest to trwała operacja. Nie można jej cofnąć. Przed usunięciem par Rozważ wyeksportowanie bazy wiedzy ze strony **publikowania** .
 
 ![Usuń parę QnA](../media/qnamaker-how-to-edit-kb/delete-qnapair.png)
 
@@ -110,7 +110,7 @@ Nie można połączyć par QnA w metadanych odpowiedzi.
 
 ## <a name="add-metadata"></a>Dodaj metadane
 
-Dodaj zestawy metadanych, zaznaczając najpierw **Opcje widoku**, a następnie wybierając **Pokaż metadane**. Spowoduje to wyświetlenie kolumny metadanych. Następnie wybierz znak, **+** Aby dodać zestaw metadanych. Ten zestaw składa się z jednego klucza i jednej wartości.
+Dodaj pary metadanych, zaznaczając najpierw **Opcje widoku**, a następnie wybierając **Pokaż metadane**. Spowoduje to wyświetlenie kolumny metadanych. Następnie wybierz znak, **+** Aby dodać parę metadanych. Ta para składa się z jednego klucza i jednej wartości.
 
 ## <a name="save-changes-to-the-qna-pairs"></a>Zapisz zmiany w parach QnA
 

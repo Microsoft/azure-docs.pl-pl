@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 53f255c44cded714440f5d524387c4ea1a20d76a
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 022942778b714d5d66ce6eeb2c29351b11c66e40
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849046"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996248"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Często zadawane pytania — pytania dotyczące zbierania danych, agentów i obszarów roboczych
 
@@ -65,6 +65,14 @@ Lokalizacja domyślnego obszaru roboczego zależy od regionu platformy Azure:
 - W przypadku maszyn wirtualnych w Japonii Lokalizacja obszaru roboczego to Japonia
 - W przypadku maszyn wirtualnych w Chinach Lokalizacja obszaru roboczego to Chiny
 - W przypadku maszyn wirtualnych w Australii lokalizacją obszaru roboczego jest Australia
+
+
+## <a name="what-data-is-collected-by-the-log-analytics-agent"></a>Jakie dane są zbierane przez agenta Log Analytics?
+
+Aby uzyskać pełną listę aplikacji i usług monitorowanych przez agenta, zobacz [co to jest monitorowane przez Azure monitor?](https://docs.microsoft.com/azure/azure-monitor/monitor-reference#azure-services).
+
+> [!IMPORTANT]
+> Należy pamiętać, że w przypadku niektórych usług, takich jak Zapora platformy Azure, jeśli włączono rejestrowanie i wybrano zasób z czatem do zarejestrowania (na przykład ustawienie dziennika na *pełne*) może zostać wyświetlony znaczący wpływ na potrzeby magazynu log Analytics obszaru roboczego. 
 
 
 ## <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Czy mogę usunąć domyślne obszary robocze utworzone przez Security Center?
@@ -201,9 +209,17 @@ Aby ręcznie usunąć agenta:
 
 ## <a name="how-do-i-disable-data-collection"></a>Jak mogę wyłączyć zbieranie danych?
 
-Automatyczne Inicjowanie obsługi jest domyślnie wyłączone. Automatyczne Inicjowanie obsługi można wyłączyć z zasobów w dowolnym momencie, wyłączając to ustawienie w zasadach zabezpieczeń. Automatyczna obsługa administracyjna jest zdecydowanie zalecana w celu uzyskania alertów zabezpieczeń i zaleceń dotyczących aktualizacji systemu, luk w zabezpieczeniach systemu operacyjnego i programu Endpoint Protection.
+Automatyczna obsługa administracyjna jest zdecydowanie zalecana w celu uzyskania alertów zabezpieczeń i zaleceń dotyczących aktualizacji systemu, luk w zabezpieczeniach systemu operacyjnego i programu Endpoint Protection. Funkcja autoaprowizacji jest domyślnie wyłączona.
 
-Aby wyłączyć zbieranie danych, [Zaloguj się do Azure Portal](https://portal.azure.com), wybierz pozycję **Przeglądaj**, wybierz pozycję **Security Center**, a następnie wybierz pozycję **Wybierz zasady**. Wybierz subskrypcję, dla której chcesz wyłączyć automatyczną aprowizację. Po wybraniu zasad zabezpieczeń subskrypcji zostanie otwarte **zbieranie danych** . W obszarze **autoinicjowanie obsługi**wybierz pozycję **wyłączone**.
+Jeśli ta funkcja została włączona, ale teraz chcesz ją wyłączyć:
+
+1. W [Azure Portal](https://portal.azure.com)Otwórz **Security Center** i wybierz pozycję **zasady zabezpieczeń**.
+
+1. Wybierz subskrypcję, dla której chcesz wyłączyć automatyczne Inicjowanie obsługi.
+
+    **Zasady zabezpieczeń — zostanie otwarte zbieranie danych** .
+
+1. W obszarze **autoinicjowanie obsługi**wybierz pozycję **wyłączone**.
 
 
 ## <a name="how-do-i-enable-data-collection"></a>Jak mogę włączyć zbieranie danych?
@@ -233,9 +249,6 @@ Aby zebrać dane, każda maszyna wirtualna i serwer muszą łączyć się z Inte
 Agent zużywa nominalną ilość zasobów systemowych i powinien mieć niewielki wpływ na wydajność. Aby uzyskać więcej informacji na temat wpływu na wydajność oraz agenta i rozszerzenia, zobacz [Przewodnik planowania i](security-center-planning-and-operations-guide.md#data-collection-and-storage)obsługi.
 
 
-## <a name="where-is-my-data-stored"></a>Gdzie są przechowywane moje dane?
-
-Dane zbierane z tego agenta są przechowywane w istniejącym obszarze roboczym Log Analytics skojarzonym z subskrypcją lub nowym obszarem roboczym. Aby uzyskać więcej informacji, zobacz [zabezpieczenia danych](security-center-data-security.md).
 
 
 <!--Image references-->

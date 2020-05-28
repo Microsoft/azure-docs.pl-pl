@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: overview
-ms.date: 12/09/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.custom: seodec18
-ms.openlocfilehash: e4a1f2d778fb2b811d4c38dd26956e2eab51258a
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 7044954d2ba67e61172c08c0a77acaaaec3822c6
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592665"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83992678"
 ---
 # <a name="what-is-the-translator"></a>Co to jest translator?
 

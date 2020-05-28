@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 02/19/2020
+ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 0fa6785b2c4029dc5eb3f0397b1144616be357fe
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 59f969a920c30bb017e10d2aa233df02d69918e2
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594172"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116904"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>Uczenie modelu aparatu rozpoznawania formularzy z etykietami przy użyciu interfejsu API REST i języka Python
 
@@ -34,15 +34,15 @@ Aby ukończyć ten przewodnik Szybki Start, musisz dysponować:
 
 ## <a name="set-up-training-data"></a>Skonfiguruj dane szkoleniowe
 
-Następnie musisz skonfigurować wymagane dane wejściowe. Funkcja dane z etykietą ma specjalne wymagania wejściowe poza tymi, które są wymagane do uczenia modelu niestandardowego. 
+Następnie musisz skonfigurować wymagane dane wejściowe. Funkcja dane etykietowane ma specjalne wymagania wejściowe wykraczające poza to, co jest potrzebne do uczenia modelu niestandardowego bez etykiet.
 
 Upewnij się, że wszystkie dokumenty szkoleniowe mają ten sam format. Jeśli masz formularze w wielu formatach, zorganizuj je w podfolderach w oparciu o wspólny format. Podczas uczenia należy skierować interfejs API do podfolderu.
 
 Aby zapewnić uczenie modelu przy użyciu danych z etykietami, potrzebne są następujące pliki jako dane wejściowe w podfolderze. Dowiesz się, jak utworzyć poniższe pliki.
 
 * **Formularze źródłowe** — formularze, z których mają zostać wyodrębnione dane. Obsługiwane typy to JPEG, PNG, PDF lub TIFF.
-* **Pliki układów OCR** — pliki JSON opisujące rozmiary i położenia wszystkich czytelnych tekstu w każdym formularzu źródłowym. Użyjesz interfejsu API układu aparatu rozpoznawania formularzy do wygenerowania tych danych. 
-* **Pliki etykiet** — pliki JSON opisujące etykiety danych wprowadzane ręcznie przez użytkownika.
+* **Pliki układów OCR** — są to pliki JSON opisujące rozmiary i położenia całego tekstu do odczytu w każdym formularzu źródłowym. Użyjesz interfejsu API układu aparatu rozpoznawania formularzy do wygenerowania tych danych. 
+* **Pliki etykiet** — są to pliki JSON opisujące etykiety danych wprowadzone ręcznie przez użytkownika.
 
 Wszystkie te pliki powinny zajmować ten sam podfolder i mieć następujący format:
 
@@ -116,7 +116,7 @@ Potrzebujesz plików wyników OCR, aby usługa mogła rozważyć odpowiednie pli
 
 ### <a name="create-the-label-files"></a>Utwórz pliki etykiet
 
-Pliki etykiet zawierają skojarzenia klucz-wartość wprowadzone ręcznie przez użytkownika. Są one potrzebne do szkolenia danych z etykietami, ale nie każdy plik źródłowy musi mieć odpowiedni plik etykiet. Pliki źródłowe bez etykiet będą traktowane jako zwykłe dokumenty szkoleniowe. Zalecamy używanie co najmniej pięciu plików z etykietą w celu zapewnienia niezawodnego szkolenia.
+Pliki etykiet zawierają skojarzenia klucz-wartość wprowadzone ręcznie przez użytkownika. Są one potrzebne do szkolenia danych z etykietami, ale nie każdy plik źródłowy musi mieć odpowiedni plik etykiet. Pliki źródłowe bez etykiet będą traktowane jako zwykłe dokumenty szkoleniowe. Zalecamy używanie co najmniej pięciu plików z etykietą w celu zapewnienia niezawodnego szkolenia. Aby generować te pliki, można użyć narzędzia interfejsu użytkownika, takiego jak [przykładowe narzędzie do etykietowania](./label-tool.md) .
 
 Podczas tworzenia pliku etykiet można opcjonalnie określić regiony &mdash; dokładne położenia wartości w dokumencie. Zapewni to uczenie nawet wyższą dokładność. Regiony są sformatowane jako zbiór ośmiu wartości odpowiadających czterem X, współrzędnej Y: w lewym górnym rogu, w prawym górnym rogu i w lewym dolnym rogu. Wartości współrzędnych należą do zakresu od zera do jednego, skalowane do wymiarów strony.
 
@@ -187,8 +187,8 @@ Dla każdego formularza źródłowego plik etykiety powinien zawierać oryginaln
                 ...
 ```
 
-> [!NOTE]
-> Do każdego elementu tekstowego można zastosować tylko jedną etykietę, a każda etykieta może zostać zastosowana tylko raz na stronie. Nie można obecnie zastosować etykiety na wielu stronach.
+> [!IMPORTANT]
+> Do każdego elementu tekstowego można zastosować tylko jedną etykietę, a każda etykieta może zostać zastosowana tylko raz na stronie. Nie można zastosować etykiety na wielu stronach.
 
 
 ## <a name="train-a-model-using-labeled-data"></a>Uczenie modelu przy użyciu danych z etykietami
@@ -554,4 +554,7 @@ Rozumiemy, że ten scenariusz jest istotny dla naszych klientów i pracujemy nad
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start przedstawiono sposób korzystania z interfejsu API REST aparatu rozpoznawania formularzy w języku Python w celu uczenia modelu z ręcznymi etykietami danych. Następnie zapoznaj się z [dokumentacją interfejsu API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm) w celu EKSPLOROWANIA interfejsu API rozpoznawania formularzy o większej głębokości.
+W tym przewodniku szybki start przedstawiono sposób korzystania z interfejsu API REST aparatu rozpoznawania formularzy w języku Python w celu uczenia modelu z ręcznymi etykietami danych. Następnie zapoznaj się z dokumentacją interfejsu API w celu eksplorowania interfejsu API rozpoznawania formularzy o większej głębokości.
+
+> [!div class="nextstepaction"]
+> [Dokumentacja interfejsu API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)

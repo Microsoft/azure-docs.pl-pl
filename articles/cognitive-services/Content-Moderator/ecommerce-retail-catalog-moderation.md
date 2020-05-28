@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 5e74eda9e30c536c0eba4e847019344c87e10cce
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 04418e39b1bd0a180a1f1130b2230e31050faa4b
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76774348"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118627"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Samouczek: umiarkowane obrazy produktów handlu elektronicznego za pomocą usługi Azure Content Moderator
 
@@ -32,7 +32,7 @@ Ten samouczek przedstawia sposób wykonania następujących czynności:
 
 Kompletny przykładowy kod jest dostępny w repozytorium [Samples eCommerce Catalog Moderation](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) (Przykłady dotyczące moderowania katalogu handlu elektronicznego) w witrynie GitHub.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -65,7 +65,7 @@ W tym samouczku są stosowane trzy usługi poznawcze: w związku z tym wymaga tr
 
 [!code-csharp[define API keys and endpoint URIs](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=21-29)]
 
-Należy zaktualizować `___Key` pola za pomocą wartości kluczy subskrypcji i należy zmienić `___Uri` pola na prawidłowe adresy URL punktów końcowych (później uzyskasz Custom Vision klucz i punkt końcowy). Te wartości można znaleźć na kartach **szybkiego startu** poszczególnych zasobów platformy Azure. W części `YOURTEAMID` pola `ReviewUri` wpisz identyfikator zespołu do przeprowadzania przeglądu, który utworzono wcześniej. Końcowa część `CustomVisionUri` pola zostanie wypełniona później.
+Należy zaktualizować `___Key` pola za pomocą wartości kluczy subskrypcji i należy zmienić `___Uri` pola na prawidłowe adresy URL punktów końcowych (później uzyskasz Custom Vision klucz i punkt końcowy). Te wartości można znaleźć na kartach **szybkiego startu** poszczególnych zasobów platformy Azure. W części `YOURTEAMID` pola `ReviewUri` wpisz identyfikator zespołu do przeprowadzania przeglądu, który utworzono wcześniej. Końcowa część pola zostanie wypełniona `CustomVisionUri` później.
 
 [!INCLUDE [subdomains note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -93,7 +93,7 @@ Następnie zwróć uwagę na metodę **EvaluateCustomVisionTags**, która klasyf
 
 ![Strona internetowa usługi Custom Vision z obrazami szkoleniowymi przedstawiającymi długopisy, zabawki i flagi](images/tutorial-ecommerce-custom-vision.PNG)
 
-Po przeszkoleniu klasyfikatora Pobierz klucz predykcyjny i adres URL punktu końcowego przewidywania (zobacz [pobieranie adresu URL i klucza predykcyjnego](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key) , jeśli potrzebujesz pomocy przy pobieraniu ich) i przypisz te wartości odpowiednio do `CustomVisionKey` pól `CustomVisionUri` i. Te wartości są używane w tej metodzie do wysyłania zapytań do klasyfikatora. Jeśli klasyfikator znajdzie na obrazie zawartość odpowiadającą co najmniej jednemu z tych tagów niestandardowych, metoda ustawi wartość **True** dla odpowiednich parametrów w tablicy **ReviewTags**.
+Po przeszkoleniu klasyfikatora Pobierz klucz predykcyjny i adres URL punktu końcowego przewidywania (zobacz [pobieranie adresu URL i klucza predykcyjnego](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key) , jeśli potrzebujesz pomocy przy pobieraniu ich) i przypisz te wartości odpowiednio do `CustomVisionKey` `CustomVisionUri` pól i. Te wartości są używane w tej metodzie do wysyłania zapytań do klasyfikatora. Jeśli klasyfikator znajdzie na obrazie zawartość odpowiadającą co najmniej jednemu z tych tagów niestandardowych, metoda ustawi wartość **True** dla odpowiednich parametrów w tablicy **ReviewTags**.
 
 [!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=148-171)]
 

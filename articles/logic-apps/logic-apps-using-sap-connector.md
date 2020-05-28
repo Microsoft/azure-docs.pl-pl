@@ -7,14 +7,14 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 05/27/2020
 tags: connectors
-ms.openlocfilehash: 39ab222f64d964e95b16e043c9cdeccd8170ace3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 36e22fd92d937271a3859d03367e2a7ef80ef3d2
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77651019"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118680"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Łączenie z systemami SAP z usługi Azure Logic Apps
 
@@ -49,23 +49,38 @@ Aby wykonać czynności opisane w tym artykule, potrzebne są następujące elem
 
 * [Serwer aplikacji SAP](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) lub [serwer komunikatów SAP](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm).
 
-* Pobierz i zainstaluj najnowszą [lokalną bramę danych](https://www.microsoft.com/download/details.aspx?id=53127) na komputerze lokalnym. Przed kontynuowaniem upewnij się, że brama została skonfigurowana w Azure Portal. Brama pomaga w bezpiecznym dostępie do danych i zasobów lokalnych. Aby uzyskać więcej informacji, zobacz [Instalowanie lokalnej bramy danych dla Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md).
+* [Pobierz i zainstaluj lokalną bramę danych](../logic-apps/logic-apps-gateway-install.md) na komputerze lokalnym. Następnie [Utwórz zasób bramy platformy Azure](../logic-apps/logic-apps-gateway-connection.md#create-azure-gateway-resource) dla tej bramy w Azure Portal. Brama pomaga w bezpiecznym dostępie do danych i zasobów lokalnych. 
+
+  * Najlepszym rozwiązaniem jest upewnienie się, że jest używana obsługiwana wersja lokalnej bramy danych. Firma Microsoft udostępnia nową wersję co miesiąc. Obecnie firma Microsoft obsługuje sześć ostatnich wersji. Jeśli wystąpi problem z bramą, spróbuj [uaktualnić do najnowszej wersji](https://aka.ms/on-premises-data-gateway-installer), co może obejmować aktualizacje umożliwiające rozwiązanie problemu.
+
+* [Pobierz, zainstaluj i skonfiguruj najnowszą bibliotekę klienta SAP](#sap-client-library-prerequisites) na tym samym komputerze co lokalna Brama danych.
+
+* Zawartość komunikatu, którą można wysłać do serwera SAP, na przykład plik IDoc, musi być w formacie XML i zawierać przestrzeń nazw dla akcji SAP, która ma być używana.
+
+### <a name="sap-client-library-prerequisites"></a>Wymagania wstępne dotyczące biblioteki klienta SAP
+
+* Domyślnie Instalator SAP umieszcza pliki zestawu w domyślnym folderze instalacji. Skopiuj pliki zestawu z domyślnego folderu instalacji do folderu instalacji bramy.
+
+    * Jeśli połączenie SAP zakończy się niepowodzeniem z komunikatem o błędzie "Sprawdź informacje o koncie i/lub uprawnienia i spróbuj ponownie", pliki zestawu mogą znajdować się w niewłaściwej lokalizacji. Upewnij się, że pliki zestawu zostały skopiowane do folderu instalacji bramy. Następnie należy [użyć przeglądarki dzienników powiązań zestawu .NET do rozwiązywania problemów](https://docs.microsoft.com/dotnet/framework/tools/fuslogvw-exe-assembly-binding-log-viewer), co pozwala sprawdzić, czy pliki zestawu znajdują się we właściwym miejscu.
+
+    * Opcjonalnie można wybrać opcję **rejestracji globalnej pamięci podręcznej zestawów** podczas instalowania biblioteki klienta SAP.
+
+* Upewnij się, że zainstalowano najnowszą wersję, [Łącznik SAP (NCo 3,0) dla Microsoft .NET 3.0.22.0 skompilowany przy użyciu .NET Framework 4,0 — Windows 64-bit (x64) z](https://softwaredownloads.sap.com/file/0020000001000932019)następujących powodów:
+
+    * Wcześniejsze wersje oprogramowania SAP NCo mogą stać się zakleszczeni po wysłaniu więcej niż jednego komunikatu IDoc w tym samym czasie. Ten warunek blokuje wszystkie późniejsze komunikaty wysyłane do miejsca docelowego SAP, co powoduje przekroczenie limitu czasu komunikatów.
+    * Lokalna Brama danych działa tylko w systemach 64-bitowych. W przeciwnym razie zostanie wyświetlony komunikat o błędzie "zły obraz", ponieważ usługa hosta bramy danych nie obsługuje zestawów 32-bitowych.
+
+    * Zarówno usługa hosta bramy danych, jak i karta Microsoft SAP używają .NET Framework 4,5. Rozwiązanie SAP NCo dla .NET Framework 4,0 współpracuje z procesami, które korzystają z środowiska uruchomieniowego .NET 4,0 do 4.7.1. Rozwiązanie SAP NCo dla .NET Framework 2,0 współpracuje z procesami korzystającymi z programu .NET Runtime 2,0 do 3,5, ale nie działa już z najnowszą lokalną bramą danych.
+
+### <a name="snc-prerequisites"></a>Wymagania wstępne SNC
+
+Skonfiguruj te ustawienia, jeśli używasz SNC (opcjonalnie):
 
 * Jeśli używasz SNC z logowaniem jednokrotnym, upewnij się, że brama działa jako użytkownik, który jest mapowany na użytkownika SAP. Aby zmienić domyślne konto, wybierz pozycję **Zmień konto**, a następnie wprowadź poświadczenia użytkownika.
 
   ![Zmień konto bramy](./media/logic-apps-using-sap-connector/gateway-account.png)
 
 * W przypadku włączenia SNC z produktem zewnętrznym zabezpieczeń Skopiuj bibliotekę SNC lub pliki na tym samym komputerze, na którym zainstalowano bramę. Niektóre przykłady produktów SNC obejmują [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), Kerberos i NTLM.
-
-* Pobierz i zainstaluj najnowszą bibliotekę klienta SAP, która obecnie jest [łącznikiem SAP (NCo 3,0) dla Microsoft .NET 3.0.22.0 skompilowaną z .NET Framework 4,0 — Windows 64-bit (x64)](https://softwaredownloads.sap.com/file/0020000001000932019)na tym samym komputerze, na którym znajduje się lokalna Brama danych. Zainstaluj tę wersję lub nowszą z następujących powodów:
-
-  * Wcześniejsze wersje oprogramowania SAP NCo mogą stać się zakleszczeni po wysłaniu więcej niż jednego komunikatu IDoc w tym samym czasie. Ten warunek blokuje wszystkie późniejsze komunikaty wysyłane do miejsca docelowego SAP, co powoduje przekroczenie limitu czasu komunikatów.
-  
-  * Lokalna Brama danych działa tylko w systemach 64-bitowych. W przeciwnym razie zostanie wyświetlony komunikat o błędzie "zły obraz", ponieważ usługa hosta bramy danych nie obsługuje zestawów 32-bitowych.
-  
-  * Zarówno usługa hosta bramy danych, jak i karta Microsoft SAP używają .NET Framework 4,5. Rozwiązanie SAP NCo dla .NET Framework 4,0 współpracuje z procesami, które korzystają z środowiska uruchomieniowego .NET 4,0 do 4.7.1. Rozwiązanie SAP NCo dla .NET Framework 2,0 współpracuje z procesami korzystającymi z programu .NET Runtime 2,0 do 3,5, ale nie działa już z najnowszą lokalną bramą danych.
-
-* Zawartość komunikatu, którą można wysłać do serwera SAP, na przykład plik IDoc, musi być w formacie XML i zawierać przestrzeń nazw dla akcji SAP, która ma być używana.
 
 <a name="migrate"></a>
 
@@ -88,6 +103,9 @@ W tym przykładzie zastosowano aplikację logiki, którą można wyzwolić za po
 ### <a name="add-an-http-request-trigger"></a>Dodawanie wyzwalacza żądania HTTP
 
 W Azure Logic Apps każda aplikacja logiki musi rozpoczynać się od [wyzwalacza](../logic-apps/logic-apps-overview.md#logic-app-concepts), który jest uruchamiany w przypadku wystąpienia konkretnego zdarzenia lub spełnienia określonego warunku. Za każdym razem, gdy wyzwala wyzwalacz, aparat Logic Apps tworzy wystąpienie aplikacji logiki i uruchamia przepływ pracy aplikacji.
+
+> [!NOTE]
+> Gdy aplikacja logiki odbiera pakiety IDoc z oprogramowania SAP, [wyzwalacz żądania](https://docs.microsoft.com/azure/connectors/connectors-native-reqres) nie obsługuje "zwykłego" schematu XML wygenerowanego przez dokumentację WE60 IDOC firmy SAP. Jednak schemat XML "zwykły" jest obsługiwany w scenariuszach, które wysyłają komunikaty z aplikacji logiki *do* oprogramowania SAP. Można użyć wyzwalacza żądania z IDoc XML programu SAP, ale nie z IDocem w dokumencie RFC. Można też przekształcić kod XML w niezbędny format. 
 
 W tym przykładzie utworzysz aplikację logiki z punktem końcowym na platformie Azure, aby można było wysyłać *żądania HTTP Post* do aplikacji logiki. Gdy aplikacja logiki otrzymuje te żądania HTTP, wyzwalacz jest uruchamiany i uruchamia następny krok w przepływie pracy.
 
@@ -259,7 +277,7 @@ W tym przykładzie jest stosowana aplikacja logiki, która wyzwala, gdy aplikacj
 
       Logic Apps konfiguruje i testuje połączenie, aby upewnić się, że połączenie działa poprawnie.
 
-1. Podaj wymagane parametry w oparciu o konfigurację systemu SAP.
+1. Podaj [wymagane parametry](#parameters) w oparciu o konfigurację systemu SAP.
 
    Opcjonalnie możesz podać co najmniej jedną akcję SAP. Ta lista akcji określa komunikaty odbierane przez wyzwalacz od serwera SAP za pośrednictwem bramy danych. Pusta lista określa, że wyzwalacz odbiera wszystkie komunikaty. Jeśli lista zawiera więcej niż jeden komunikat, wyzwalacz odbiera tylko komunikaty określone na liście. Wszystkie inne komunikaty wysyłane z serwera SAP są odrzucane przez bramę.
 
@@ -283,6 +301,16 @@ Aplikacja logiki jest teraz gotowa do odbierania komunikatów z systemu SAP.
 
 > [!NOTE]
 > Wyzwalacz SAP nie jest wyzwalaczem sondowania, ale zamiast niego jest wyzwalaczem opartym na elemencie webhook. Wyzwalacz jest wywoływany z bramy tylko wtedy, gdy istnieje komunikat, więc nie jest wymagane sondowanie.
+
+<a name="parameters"></a>
+
+#### <a name="parameters"></a>Parametry
+
+Wraz z prostymi danymi wejściowymi typu String i Number łącznik SAP akceptuje następujące parametry tabeli ( `Type=ITAB` dane wejściowe):
+
+* Parametry kierunku tabeli, dane wejściowe i wyjściowe dla starszych wersji SAP.
+* Zmienianie parametrów, które zastępują parametry kierunku tabeli dla nowszych wersji SAP.
+* Parametry tabeli hierarchicznej
 
 ### <a name="test-your-logic-app"></a>Testowanie aplikacji logiki
 
@@ -466,7 +494,7 @@ Przed rozpoczęciem upewnij się, że spełniono wcześniej wymienione [wymagani
 
    | Właściwość | Opis |
    |----------| ------------|
-   | **Ścieżka biblioteki SNC** | Nazwa biblioteki SNC lub ścieżka względem lokalizacji instalacji NCo lub ścieżki bezwzględnej. Przykłady to `sapsnc.dll` or `.\security\sapsnc.dll` lub `c:\security\sapsnc.dll`. |
+   | **Ścieżka biblioteki SNC** | Nazwa biblioteki SNC lub ścieżka względem lokalizacji instalacji NCo lub ścieżki bezwzględnej. Przykłady to `sapsnc.dll` or `.\security\sapsnc.dll` lub `c:\security\sapsnc.dll` . |
    | **SNC LOGOWANIE JEDNOKROTNE** | Po nawiązaniu połączenia za pomocą usługi SNC tożsamość SNC jest zwykle używana do uwierzytelniania obiektu wywołującego. Kolejną opcją jest przesłonięcie, aby informacje o użytkowniku i haśle mogły być używane do uwierzytelniania obiektu wywołującego, ale wiersz jest wciąż szyfrowany. |
    | **SNC moją nazwę** | W większości przypadków ta właściwość może zostać pominięta. Zainstalowane rozwiązanie SNC zazwyczaj zna własną nazwę SNC. Tylko w przypadku rozwiązań, które obsługują wiele tożsamości, może być konieczne określenie tożsamości, która ma być używana dla danego miejsca docelowego lub serwera. |
    | **Nazwa partnera SNC** | Nazwa SNC zaplecza. |
@@ -480,7 +508,7 @@ Przed rozpoczęciem upewnij się, że spełniono wcześniej wymienione [wymagani
 
 ## <a name="safe-typing"></a>Bezpieczne wpisywanie
 
-Domyślnie podczas tworzenia połączenia SAP jest używane silne wpisywanie w celu sprawdzenia nieprawidłowych wartości przez wykonanie walidacji kodu XML względem schematu. Takie zachowanie może pomóc wykryć problemy wcześniej. Opcja **bezpieczne wpisywanie** jest dostępna w celu zapewnienia zgodności z poprzednimi wersjami i sprawdza tylko długość ciągu. W przypadku wybrania opcji **bezpieczne wpisywanie**typ dats i typ Tims w oprogramowaniu SAP są traktowane jako ciągi, `xs:date` a nie jako odpowiedniki `xs:time`XML i `xmlns:xs="http://www.w3.org/2001/XMLSchema"`, gdzie. Bezpieczne wpisywanie ma wpływ na zachowanie wszystkich generacji schematu, wysyła komunikat dla "wysłano" i "otrzymano" odpowiedź oraz wyzwalacz. 
+Domyślnie podczas tworzenia połączenia SAP jest używane silne wpisywanie w celu sprawdzenia nieprawidłowych wartości przez wykonanie walidacji kodu XML względem schematu. Takie zachowanie może pomóc wykryć problemy wcześniej. Opcja **bezpieczne wpisywanie** jest dostępna w celu zapewnienia zgodności z poprzednimi wersjami i sprawdza tylko długość ciągu. W przypadku wybrania opcji **bezpieczne wpisywanie**typ dats i typ Tims w oprogramowaniu SAP są traktowane jako ciągi, a nie jako odpowiedniki XML `xs:date` i `xs:time` , gdzie `xmlns:xs="http://www.w3.org/2001/XMLSchema"` . Bezpieczne wpisywanie ma wpływ na zachowanie wszystkich generacji schematu, wysyła komunikat dla "wysłano" i "otrzymano" odpowiedź oraz wyzwalacz. 
 
 W przypadku użycia silnego wpisywania (**bezpieczne wpisywanie** nie jest włączone) schemat mapuje typy dats i Tims na bardziej proste typy XML:
 

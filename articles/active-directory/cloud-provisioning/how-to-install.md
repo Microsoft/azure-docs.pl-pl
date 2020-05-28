@@ -45,7 +45,7 @@ Aby zainstalować agenta, wykonaj następujące kroki.
    ![Ekran Microsoft Azure AD łączenia się z pakietem agenta aprowizacji](media/how-to-install/install1.png)</br>
 
 1. Po zakończeniu tej operacji zostanie uruchomiony Kreator konfiguracji. Zaloguj się przy użyciu konta administratora globalnego usługi Azure AD.
-1. Na ekranie **połącz Active Directory** wybierz pozycję **Dodaj katalog**. Następnie zaloguj się przy użyciu konta administratora Active Directory. Ta operacja umożliwia dodanie katalogu lokalnego. Wybierz pozycję **Dalej**.
+1. Na ekranie **połącz Active Directory** wybierz pozycję **Dodaj katalog**. Następnie zaloguj się przy użyciu konta administratora Active Directory. Ta operacja umożliwia dodanie katalogu lokalnego. Wybierz opcję **Dalej**.
 
    ![Ekran Active Directory łączenia](media/how-to-install/install3.png)</br>
 

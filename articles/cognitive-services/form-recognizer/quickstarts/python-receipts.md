@@ -7,26 +7,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 01/27/2020
+ms.date: 05/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 2224ec64712ff9d1745231f39a1521ae941304ff
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 926c15a9b96c2ed7967df2b5918a2f3c5f6c5718
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77118770"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116826"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-python"></a>Szybki Start: wyodrębnianie danych przyjęcia przy użyciu interfejsu API REST aparatu rozpoznawania w języku Python
 
 W tym przewodniku szybki start użyjesz interfejsu API REST aparatu rozpoznawania formularzy platformy Azure w języku Python, aby wyodrębnić i zidentyfikować odpowiednie informacje w blankietach sprzedaży w USA.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby ukończyć ten przewodnik Szybki Start, musisz dysponować:
 - Zainstalowana w języku [Python](https://www.python.org/downloads/) (Jeśli chcesz uruchomić przykład lokalnie).
-- Adres URL obrazu potwierdzenia. Możesz użyć [przykładowego obrazu](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg?raw=true) dla tego przewodnika Szybki Start.
+- Adres URL obrazu potwierdzenia. Możesz użyć [przykładowego obrazu](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-allinone.jpg) dla tego przewodnika Szybki Start.
 
 ## <a name="create-a-form-recognizer-resource"></a>Tworzenie zasobu aparatu rozpoznawania formularza
 
@@ -36,7 +36,7 @@ Aby ukończyć ten przewodnik Szybki Start, musisz dysponować:
 
 Aby rozpocząć analizowanie paragonu, należy wywołać interfejs API **[analizy paragonów](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeReceiptAsync)** przy użyciu poniższego skryptu języka Python. Przed uruchomieniem skryptu wprowadź następujące zmiany:
 
-1. Zamień `<Endpoint>` na punkt końcowy uzyskany w ramach subskrypcji aparatu rozpoznawania formularza.
+1. Zamień na `<Endpoint>` punkt końcowy uzyskany w ramach subskrypcji aparatu rozpoznawania formularza.
 1. Zamień `<your receipt URL>` na adres URL obrazu paragonu.
 1. Zamień `<subscription key>` na klucz subskrypcji skopiowany z poprzedniego kroku.
 
@@ -124,13 +124,13 @@ while n_try < n_tries:
 
 ### <a name="examine-the-response"></a>Sprawdzanie odpowiedzi
 
-Skrypt będzie drukował odpowiedzi do konsoli do momentu zakończenia operacji **analizy paragonu** . Następnie drukuje wyodrębnione dane tekstowe w formacie JSON. `"recognitionResults"` Pole zawiera wszystkie wiersze tekstu wyodrębnione z paragonu, a `"understandingResults"` pole zawiera informacje o kluczu/wartości dla najbardziej odpowiednich części paragonu.
+Skrypt będzie drukował odpowiedzi do konsoli do momentu zakończenia operacji **analizy paragonu** . Następnie drukuje wyodrębnione dane tekstowe w formacie JSON. `"recognitionResults"`Pole zawiera wszystkie wiersze tekstu wyodrębnione z paragonu, a `"understandingResults"` pole zawiera informacje o kluczu/wartości dla najbardziej odpowiednich części paragonu.
 
 Zapoznaj się z poniższym obrazem paragonu i odpowiednimi danymi wyjściowymi JSON. Dane wyjściowe zostały skrócone w celu zapewnienia czytelności.
 
 ![Potwierdzenie ze sklepu contoso](../media/contoso-allinone.jpg)
 
-`"recognitionResults"` Węzeł zawiera cały rozpoznany tekst. Tekst jest zorganizowany według strony, następnie według wiersza, a następnie poszczególnych słów. `"understandingResults"` Węzeł zawiera wartości specyficzne dla paragonu wykryte przez model. Tutaj znajdziesz przydatne pary klucz/wartość, takie jak podatek, łączny, adres handlowca itd.
+`"recognitionResults"`Węzeł zawiera cały rozpoznany tekst. Tekst jest zorganizowany według strony, następnie według wiersza, a następnie poszczególnych słów. `"understandingResults"`Węzeł zawiera wartości specyficzne dla paragonu wykryte przez model. Tutaj znajdziesz przydatne pary klucz/wartość, takie jak podatek, łączny, adres handlowca itd.
 
 ```json
 { 

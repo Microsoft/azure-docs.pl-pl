@@ -5,12 +5,12 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 22cb49c414e21e5c47330f2c67fc2cf30e3364b2
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 23dfad844c17b0b8c8a35b6a94d6a96327afe19c
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836672"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117453"
 ---
 # <a name="remove-vms-from-change-tracking-and-inventory"></a>Usuwanie maszyn wirtualnych ze śledzenia zmian i spisu
 
@@ -24,7 +24,7 @@ Po zakończeniu wdrażania zmian w maszynach wirtualnych w środowisku można je
     az vm show -g MyResourceGroup -n MyVm -d
     ```
 
-3. W obszarze roboczym Log Analytics w obszarze **Ogólne**uzyskaj dostęp do zapisanych wyszukiwań.
+3. W obszarze roboczym Log Analytics w obszarze **Ogólne**uzyskaj dostęp do zapisanych wyszukiwań dla konfiguracji zakresu `MicrosoftDefaultScopeConfig-ChangeTracking` .
 
 4. Dla zapisanego wyszukiwania `MicrosoftDefaultComputerGroup` kliknij wielokropek z prawej strony i wybierz pozycję **Edytuj**. 
 

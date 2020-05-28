@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 41b15cc998a7bacd033ef2fe083fc99f1bff0286
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e976b59c0128adef6536e78985e7cf89d256062c
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68595854"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83992712"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>Wskazówki dotyczące formatów dokumentów i konwencji nazewnictwa
 
@@ -45,7 +45,7 @@ Dokumenty mogą być pogrupowane w jednym pliku zip i przekazywane. Niestandardo
 
 Każdy dokument w pliku zip z rozszerzeniem TXT, HTML, HTM, PDF, DOCX, ALIGN musi być zgodny z tą konwencją nazewnictwa:
 
-{Nazwa dokumentu} \_{Language Code}, gdzie {Document Name} jest nazwą dokumentu, {language Code} to ISO LanguageID (dwa znaki) wskazujący, że dokument zawiera zdania w tym języku. Przed kodem języka musi istnieć podkreślenie (_).
+{Nazwa dokumentu} \_ {Language Code}, gdzie {Document Name} jest nazwą dokumentu, {language Code} to ISO LanguageID (dwa znaki) wskazujący, że dokument zawiera zdania w tym języku. Przed kodem języka musi istnieć podkreślenie (_).
 
 Na przykład aby przekazać dwa dokumenty równoległe w pliku ZIP dla języka angielskiego do hiszpańskiego, pliki powinny mieć nazwę "data_en" i "data_es".
 

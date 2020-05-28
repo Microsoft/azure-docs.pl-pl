@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 02/10/2020
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 955476eefc7575edb90634ce305bbebdf62e2371
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 991a31898bb010dab3db7a545cd115a60bfe3ed1
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592359"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995720"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Samouczek: Tworzenie aplikacji do kolby za pomocą usługi Azure Cognitive Services
 
@@ -182,7 +182,7 @@ Ten kod gwarantuje, że gdy użytkownik nawiguje do `http://your-web-app.com/abo
 
 Chociaż te przykłady ilustrują sposób renderowania stron HTML dla użytkownika, trasy mogą być również używane do wywoływania interfejsów API po naciśnięciu przycisku lub podjęcia dowolnej liczby akcji bez konieczności nawigowania po stronie głównej. Ta akcja zostanie wyświetlona podczas tworzenia tras do translacji, tonacji i syntezy mowy.
 
-### <a name="get-started"></a>Wprowadzenie
+### <a name="get-started"></a>Rozpoczęcie pracy
 
 1. Otwórz projekt w środowisku IDE, a następnie utwórz plik o nazwie `app.py` w katalogu głównym katalogu roboczego. Następnie skopiuj ten kod do `app.py` i Zapisz:
 

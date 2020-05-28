@@ -7,12 +7,12 @@ author: danimir
 ms.author: danil
 ms.date: 02/21/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: 921a05c4dc6c1d5cfa663ac71b469573b8f1925b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 80c03661970ec218dd8b36664ecb67623068ac5d
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275466"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116548"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitoruj Azure SQL Database przy użyciu Azure SQL Analytics (wersja zapoznawcza)
 
@@ -41,20 +41,20 @@ Azure SQL Analytics to rozwiązanie do monitorowania tylko w chmurze obsługują
 
 ## <a name="azure-sql-analytics-options"></a>Opcje Azure SQL Analytics
 
-Poniższa tabela zawiera listę obsługiwanych opcji dla dwóch wersji pulpitu nawigacyjnego Azure SQL Analytics, jednej dla baz danych i pul elastycznych, a druga dla wystąpień zarządzanych i baz danych wystąpień.
+W poniższej tabeli przedstawiono opcje obsługiwane przez dwie wersje pulpitu nawigacyjnego Azure SQL Analytics, jedną dla Azure SQL Database i drugą dla baz danych wystąpienia zarządzanego Azure SQL.
 
-| Opcja Azure SQL Analytics | Opis | Obsługa jednej i puli baz danych i pul elastycznych | Obsługa zarządzanych wystąpień i wystąpień bazy danych |
+| Opcja Azure SQL Analytics | Opis | Obsługa SQL Database | Obsługa wystąpienia zarządzanego SQL |
 | --- | ------- | ----- | ----- |
-| Zasób według typu | Perspektywa, która zlicza wszystkie monitorowane zasoby. | Tak | Tak |
-| Szczegółowe informacje | Zapewnia hierarchiczne przechodzenie do szczegółów w Intelligent Insights wydajności. | Tak | Tak |
-| Errors | Zawiera hierarchiczne przechodzenie do szczegółów błędów SQL, które wystąpiły w bazach danych. | Tak | Tak |
-| Limity czasu | Zawiera hierarchiczne przekroczenia limitów czasu SQL, które wystąpiły w bazach danych. | Tak | Nie |
-| Bloki | Zawiera hierarchiczne przechodzenie do szczegółów w blokach SQL, które wystąpiły w bazach danych. | Tak | Nie |
-| Oczekiwanie na bazę danych | Zawiera hierarchiczne przechodzenie do szczegółów na poziomie bazy danych. Zawiera podsumowanie łącznego czasu oczekiwania i czasu oczekiwania na typ oczekiwania. |Tak | Nie |
-| Czas trwania zapytania | Zawiera hierarchiczne przechodzenie do szczegółów w statystyce wykonywania zapytania, takich jak czas trwania zapytania, użycie procesora CPU, użycie operacji we/wy danych, użycie operacji we/wy dziennika. | Tak | Tak |
-| Query waits (Czas oczekiwania na zapytania) | Zawiera hierarchiczne przechodzenie do szczegółów w celu uwzględnienia statystyk oczekiwania na zapytanie według kategorii oczekiwania. | Tak | Tak |
+| Zasób według typu | Perspektywa, która zlicza wszystkie monitorowane zasoby. | Tak | Yes |
+| Insights | Zapewnia hierarchiczne przechodzenie do szczegółów w Intelligent Insights wydajności. | Tak | Yes |
+| Errors | Zawiera hierarchiczne przechodzenie do szczegółów błędów SQL, które wystąpiły w bazach danych. | Tak | Yes |
+| Limity czasu | Zawiera hierarchiczne przekroczenia limitów czasu SQL, które wystąpiły w bazach danych. | Yes | Nie |
+| Bloki | Zawiera hierarchiczne przechodzenie do szczegółów w blokach SQL, które wystąpiły w bazach danych. | Yes | Nie |
+| Oczekiwanie na bazę danych | Zawiera hierarchiczne przechodzenie do szczegółów na poziomie bazy danych. Zawiera podsumowanie łącznego czasu oczekiwania i czasu oczekiwania na typ oczekiwania. |Yes | Nie |
+| Czas trwania zapytania | Zawiera hierarchiczne przechodzenie do szczegółów w statystyce wykonywania zapytania, takich jak czas trwania zapytania, użycie procesora CPU, użycie operacji we/wy danych, użycie operacji we/wy dziennika. | Tak | Yes |
+| Query waits (Czas oczekiwania na zapytania) | Zawiera hierarchiczne przechodzenie do szczegółów w celu uwzględnienia statystyk oczekiwania na zapytanie według kategorii oczekiwania. | Tak | Yes |
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 Aby dodać Azure SQL Analytics (wersja zapoznawcza) do obszaru roboczego Log Analytics, należy użyć procesu opisanego w temacie [Dodawanie rozwiązań Azure monitor z Galeria rozwiązań](../../azure-monitor/insights/solutions.md) .
 
@@ -62,7 +62,7 @@ Aby dodać Azure SQL Analytics (wersja zapoznawcza) do obszaru roboczego Log Ana
 
 Po utworzeniu rozwiązania Azure SQL Analytics w obszarze roboczym należy **skonfigurować wszystkie** zasoby, które mają być monitorowane, aby przesyłać strumieniowo dane telemetryczne diagnostyki do Azure SQL Analytics. Postępuj zgodnie ze szczegółowymi instrukcjami na tej stronie:
 
-- Włącz Diagnostyka Azure na potrzeby usługi Azure SQL Database, aby [przesyłać dane telemetryczne diagnostyki do Azure SQL Analytics](../../sql-database/sql-database-metrics-diag-logging.md).
+- Włącz Diagnostyka Azure na potrzeby usługi Azure SQL Database, aby [przesyłać dane telemetryczne diagnostyki do Azure SQL Analytics](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md).
 
 Powyższa Strona zawiera również instrukcje dotyczące włączania obsługi monitorowania wielu subskrypcji platformy Azure z jednego obszaru roboczego Azure SQL Analytics jako pojedynczego okienka.
 
@@ -72,13 +72,13 @@ Po dodaniu Azure SQL Analytics do obszaru roboczego kafelek Azure SQL Analytics 
 
 ![Kafelek podsumowania Azure SQL Analytics](./media/azure-sql/azure-sql-sol-tile-01.png)
 
-Po załadowaniu kafelek pokazuje liczbę baz danych i pul elastycznych, wystąpień zarządzanych oraz baz danych wystąpienia zarządzanego, z których Azure SQL Analytics otrzymuje dane telemetryczne diagnostyki.
+Po załadowaniu kafelek pokazuje liczbę baz danych i pul elastycznych w SQL Database i wystąpieniach zarządzanych oraz bazach danych wystąpień w wystąpieniu zarządzanym SQL, z którego Azure SQL Analytics otrzymuje dane telemetryczne diagnostyki.
 
 ![Kafelek Azure SQL Analytics](./media/azure-sql/azure-sql-sol-tile-02.png)
 
-Azure SQL Analytics oferuje dwa osobne widoki — jeden do monitorowania pojedynczych baz danych i baz danych w puli oraz pul elastycznych, a także drugi widok służący do monitorowania wystąpień zarządzanych i baz danych wystąpień.
+Azure SQL Analytics oferuje dwa osobne widoki — jeden do monitorowania SQL Database i drugi widok monitorowania wystąpienia zarządzanego SQL.
 
-Aby wyświetlić pulpit nawigacyjny monitorowania Azure SQL Analytics dla jednej i puli baz danych i pul elastycznych, kliknij górną część kafelka. Aby wyświetlić pulpit nawigacyjny monitorowania Azure SQL Analytics dla wystąpień zarządzanych i baz danych wystąpień, kliknij dolną część kafelka.
+Aby wyświetlić pulpit nawigacyjny monitorowania Azure SQL Analytics dla SQL Database, kliknij górną część kafelka. Aby wyświetlić pulpit nawigacyjny monitorowania Azure SQL Analytics dla wystąpienia zarządzanego SQL, kliknij dolną część kafelka.
 
 ### <a name="viewing-azure-sql-analytics-data"></a>Wyświetlanie danych Azure SQL Analytics
 
@@ -86,7 +86,7 @@ Pulpit nawigacyjny zawiera przegląd wszystkich baz danych, które są monitorow
 
 Jeśli niektóre metryki lub dzienniki nie są przesyłane strumieniowo do Azure Monitor, kafelki w Azure SQL Analytics nie są wypełnione informacjami monitorowania.
 
-### <a name="single-and-pooled-databases-and-elastic-pools-view"></a>Widok pojedynczych baz danych i pul elastycznych
+### <a name="sql-database-view"></a>Widok SQL Database
 
 Po wybraniu Azure SQL Analytics kafelka bazy danych zostanie wyświetlony pulpit nawigacyjny monitorowanie.
 
@@ -98,7 +98,7 @@ Wybranie dowolnego kafelka spowoduje otwarcie raportu przechodzenia do szczegó�
 
 Każda perspektywa w tym widoku zawiera podsumowania na poziomach subskrypcji, serwera, elastycznej puli i bazy danych. Ponadto każda perspektywa pokazuje perspektywę specyficzną dla raportu po prawej stronie. Wybieranie subskrypcji, serwera, puli lub bazy danych z listy kontynuuje przechodzenie do szczegółów.
 
-### <a name="managed-instance-and-instances-databases-view"></a>Widok baz danych wystąpienia zarządzanego i wystąpienia
+### <a name="sql-managed-instance-view"></a>Widok wystąpienia zarządzanego SQL
 
 Po wybraniu Azure SQL Analytics kafelka dla baz danych zostanie wyświetlony pulpit nawigacyjny monitorowanie.
 
@@ -106,13 +106,13 @@ Po wybraniu Azure SQL Analytics kafelka dla baz danych zostanie wyświetlony pul
 
 Wybranie dowolnego kafelka spowoduje otwarcie raportu przechodzenia do szczegółów w określonej perspektywie. Po wybraniu perspektywy zostanie otwarty raport przechodzenia do szczegółów.
 
-Po wybraniu widoku wystąpienia zarządzanego program wyświetli szczegóły dotyczące użycia wystąpienia zarządzanego, baz danych, które zawiera, oraz dane telemetryczne dla zapytań wykonywanych w tym wystąpieniu.
+Wybór widoku wystąpienia zarządzanego SQL zawiera szczegółowe informacje dotyczące użycia wystąpienia zarządzanego, baz danych, które zawiera, oraz dane telemetryczne dla zapytań wykonywanych w ramach wystąpienia.
 
 ![Limity czasu Azure SQL Analytics](./media/azure-sql/azure-sql-sol-metrics-mi.png)
 
 ### <a name="intelligent-insights-report"></a>Raport Intelligent Insights
 
-Azure SQL Database [Intelligent Insights](../../sql-database/sql-database-intelligent-insights.md) pozwala wiedzieć, co dzieje się z wydajnością wszystkich baz danych SQL Azure. Wszystkie zebrane Intelligent Insights można wizualizować i uzyskiwać do nich dostęp za pomocą perspektywy wglądu w szczegółowe dane.
+Azure SQL Database [Intelligent Insights](../../azure-sql/database/intelligent-insights-overview.md) pozwala wiedzieć, co dzieje się z wydajnością wszystkich baz danych SQL Azure. Wszystkie zebrane Intelligent Insights można wizualizować i uzyskiwać do nich dostęp za pomocą perspektywy wglądu w szczegółowe dane.
 
 ![Azure SQL Analytics szczegółowych informacji](./media/azure-sql/azure-sql-sol-insights.png)
 
@@ -170,7 +170,7 @@ Po utworzeniu nowej roli Przypisz tę rolę każdemu użytkownikowi, który będ
 
 ## <a name="analyze-data-and-create-alerts"></a>Analizowanie danych i tworzenie alertów
 
-Analiza danych w Azure SQL Analytics opiera się na [log Analytics języku](../log-query/get-started-queries.md) dla niestandardowych zapytań i raportowania. Znajdź opis dostępnych danych zebranych z zasobu bazy danych na potrzeby niestandardowych zapytań w [dostępnych metrykach i dziennikach](../../sql-database/sql-database-metrics-diag-logging.md#metrics-and-logs-available).
+Analiza danych w Azure SQL Analytics opiera się na [log Analytics języku](../log-query/get-started-queries.md) dla niestandardowych zapytań i raportowania. Znajdź opis dostępnych danych zebranych z zasobu bazy danych na potrzeby niestandardowych zapytań w [dostępnych metrykach i dziennikach](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md#metrics-and-logs-available).
 
 Automatyczne generowanie alertów w Azure SQL Analytics opiera się na pisaniu Log Analytics kwerendy, która wyzwala alert po spełnieniu warunku. Znajdź poniżej kilka przykładów na Log Analytics zapytaniach, na których można skonfigurować alerty w Azure SQL Analytics.
 
@@ -178,7 +178,7 @@ Automatyczne generowanie alertów w Azure SQL Analytics opiera się na pisaniu L
 
 Możesz łatwo [tworzyć alerty](../platform/alerts-metric.md) z danymi pochodzącymi z zasobów Azure SQL Database. Oto kilka przydatnych [zapytań dzienników](../log-query/log-query-overview.md) , których można użyć w przypadku alertu dziennika:
 
-#### <a name="high-cpu-on-azure-sql-database"></a>Wysoki procesor CPU w Azure SQL Database
+#### <a name="high-cpu"></a>Wysokie wykorzystanie procesora CPU
 
 ```
 AzureMetrics
@@ -194,7 +194,7 @@ AzureMetrics
 > - Wymagania wstępne dotyczące konfigurowania tego alertu to, że monitorowane bazy danych przesyłają Podstawowe metryki do Azure SQL Analytics.
 > - Zastąp wartość Metricname cpu_percent z dtu_consumption_percent, aby zamiast tego uzyskać wysokie wyniki jednostek DTU.
 
-#### <a name="high-cpu-on-azure-sql-database-elastic-pools"></a>Duże użycie procesora na Azure SQL Database elastycznych pul
+#### <a name="high-cpu-on-elastic-pools"></a>Duże użycie procesora CPU w elastycznych pulach
 
 ```
 AzureMetrics
@@ -210,7 +210,7 @@ AzureMetrics
 > - Wymagania wstępne dotyczące konfigurowania tego alertu to, że monitorowane bazy danych przesyłają Podstawowe metryki do Azure SQL Analytics.
 > - Zastąp wartość Metricname cpu_percent z dtu_consumption_percent, aby zamiast tego uzyskać wysokie wyniki jednostek DTU.
 
-#### <a name="azure-sql-database-storage-in-average-above-95-in-the-last-1-hr"></a>Magazyn Azure SQL Database w średniej powyżej 95% w ciągu ostatnich 1 HR
+#### <a name="storage-in-average-above-95-in-the-last-1-hr"></a>Średnia ilość miejsca w magazynie powyżej 95% w ostatnich 1 godz.
 
 ```
 let time_range = 1h;
@@ -254,9 +254,9 @@ AzureDiagnostics
 | distinct rootCauseAnalysis_s
 ```
 
-### <a name="creating-alerts-for-managed-instances"></a>Tworzenie alertów dla wystąpień zarządzanych
+### <a name="creating-alerts-for-sql-managed-instance"></a>Tworzenie alertów dla wystąpienia zarządzanego SQL
 
-#### <a name="managed-instance-storage-is-above-90"></a>Magazyn wystąpienia zarządzanego jest powyżej 90%
+#### <a name="storage-is-above-90"></a>Magazyn jest powyżej 90%
 
 ```
 let storage_percentage_threshold = 90;
@@ -272,7 +272,7 @@ AzureDiagnostics
 > - Przed ustawieniem tego alertu w monitorowanym wystąpieniu zarządzanym jest włączone przesyłanie strumieniowe dziennika ResourceUsageStats Azure SQL Analytics.
 > - To zapytanie wymaga skonfigurowania reguły alertu do wyzwolenia alertu, gdy istnieją wyniki (> 0 wyników) z zapytania, co oznacza, że warunek istnieje w wystąpieniu zarządzanym. Dane wyjściowe to użycie procentowe magazynu dla wystąpienia zarządzanego.
 
-#### <a name="managed-instance-cpu-average-consumption-is-above-95-in-the-last-1-hr"></a>Średnie użycie procesora CPU wystąpienia zarządzanego jest powyżej 95% w ciągu ostatnich 1 HR
+#### <a name="cpu-average-consumption-is-above-95-in-the-last-1-hr"></a>Średnie użycie procesora CPU jest powyżej 95% w ostatnich 1 HR
 
 ```
 let cpu_percentage_threshold = 95;

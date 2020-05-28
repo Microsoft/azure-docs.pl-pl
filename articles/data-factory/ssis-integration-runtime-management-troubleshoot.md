@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: 0324044d93f12f6ac6ec96ff1a31be8ee02ada41
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e928a6b54e53f9076ffe184ed4868e7741661d7e
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414695"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118829"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Rozwiązywanie problemów z usługą SSIS Integration Runtime Management w programie Azure Data Factory
 
@@ -30,27 +30,27 @@ W przypadku napotkania dowolnego problemu podczas aprowizacji lub anulowania obs
 
 Jeśli kod błędu to InternalServerError, usługa ma problemy przejściowe i należy ponowić próbę wykonania tej operacji później. Jeśli ponowienie próby nie pomoże, skontaktuj się z zespołem pomocy technicznej Azure Data Factory.
 
-W przeciwnym razie trzy główne zależności zewnętrzne mogą spowodować błędy: serwer Azure SQL Database lub wystąpienie zarządzane, skrypt instalacji niestandardowej i konfigurację sieci wirtualnej.
+W przeciwnym razie trzy główne zależności zewnętrzne mogą spowodować błędy: Azure SQL Database lub wystąpienia zarządzanego usługi Azure SQL, niestandardowego skryptu instalacji i konfiguracji sieci wirtualnej.
 
-## <a name="azure-sql-database-server-or-managed-instance-issues"></a>Problemy z serwerem Azure SQL Database lub wystąpieniem zarządzanym
+## <a name="sql-database-or-sql-managed-instance-issues"></a>Problemy z wystąpieniem zarządzanym SQL Database lub SQL
 
-Jeśli aprowizujesz środowisko SSIS IR z bazą danych katalogu usług SSIS, wymagany jest serwer usługi Azure SQL Database lub wystąpienie zarządzane. Środowisko SSIS IR musi mieć dostęp do serwera usługi Azure SQL Database lub wystąpienia zarządzanego. Ponadto konto serwera usługi Azure SQL Database lub wystąpienia zarządzanego powinno mieć uprawnienia do utworzenia bazy danych katalogu usług SSIS (SSISDB). Jeśli wystąpił błąd, w portalu usługi Data Factory będzie widoczny kod błędu oraz szczegółowy komunikat o wyjątku SQL. Rozwiąż problem, korzystając z informacji z poniższej listy kodów błędu.
+Jeśli zainicjowano program SSIS IR z bazą danych wykazu usług SSIS, wymagane jest wystąpienie zarządzane SQL Database lub SQL. Środowisko IR usług SSIS musi mieć możliwość dostępu do wystąpienia zarządzanego SQL Database lub SQL. Ponadto konto logowania dla SQL Database lub wystąpienia zarządzanego SQL musi mieć uprawnienia do tworzenia bazy danych wykazu usług SSIS (SSISDB). Jeśli wystąpił błąd, w portalu usługi Data Factory będzie widoczny kod błędu oraz szczegółowy komunikat o wyjątku SQL. Rozwiąż problem, korzystając z informacji z poniższej listy kodów błędu.
 
 ### <a name="azuresqlconnectionfailure"></a>AzureSqlConnectionFailure
 
 Ten problem może występować podczas aprowizowania nowego środowiska SSIS IR lub po uruchomieniu środowiska IR. Jeśli błąd wystąpi podczas aprowizacji środowiska IR, komunikat o błędzie może zawierać szczegółowy komunikat SqlException, wskazujący na jeden z następujących problemów:
 
-* Problem z połączeniem sieciowym. Sprawdź, czy można uzyskać dostęp do nazwy hosta serwera SQL lub wystąpienia zarządzanego. Sprawdź też, czy dostęp środowiska SSIS IR do serwera nie jest blokowany przez zaporę lub sieciową grupę zabezpieczeń.
+* Problem z połączeniem sieciowym. Sprawdź, czy nazwa hosta dla SQL Database lub wystąpienia zarządzanego SQL jest dostępna. Sprawdź też, czy dostęp środowiska SSIS IR do serwera nie jest blokowany przez zaporę lub sieciową grupę zabezpieczeń.
 * Niepowodzenie logowania podczas uwierzytelniania SQL. Podane konto nie może zalogować się do bazy danych programu SQL Server. Upewnij się, że podano poprawne konto użytkownika.
 * Niepowodzenie logowania podczas uwierzytelniania usługi Microsoft Azure Active Directory (Azure AD) — tożsamość zarządzana. Dodaj tożsamość zarządzaną swojej fabryki do grupy usługi AAD i upewnij się, że ta tożsamość zarządzana ma uprawnienia dostępu do serwera bazy danych katalogu.
 * Przekroczenie limitu czasu połączenia. Ten błąd jest zawsze spowodowany przez konfigurację związaną z zabezpieczeniami. Zalecamy wykonanie następujących czynności:
   1. Utwórz nową maszynę wirtualną.
   1. Dołącz maszynę wirtualną do tego samego Microsoft Azure Virtual Network, jeśli w sieci wirtualnej znajduje się port IR.
-  1. Zainstaluj program SSMS i sprawdź stan serwera Azure SQL Database lub wystąpienia zarządzanego.
+  1. Zainstaluj program SSMS i sprawdź stan SQL Database lub wystąpienia zarządzanego SQL.
 
-W przypadku innych problemów należy rozwiązać problem wskazany w szczegółowym komunikacie o wyjątku SQL. Jeśli nadal występują problemy, skontaktuj się z zespołem pomocy technicznej serwera usługi Azure SQL Database lub wystąpienia zarządzanego.
+W przypadku innych problemów należy rozwiązać problem wskazany w szczegółowym komunikacie o wyjątku SQL. Jeśli nadal występują problemy, skontaktuj się z zespołem pomocy technicznej dla SQL Database lub wystąpienia zarządzanego SQL.
 
-Jeśli błąd występuje po uruchomieniu środowiska IR, dostęp węzła roboczego środowiska SSIS IR do serwera usługi Azure SQL Database lub wystąpienia zarządzanego jest prawdopodobnie blokowany przez zmiany w zakresie sieciowej grupy zabezpieczeń lub zapory. Odblokuj węzeł roboczy środowiska SSIS IR, aby mógł uzyskać dostęp do serwera usługi Azure SQL Database lub wystąpienia zarządzanego.
+Jeśli zostanie wyświetlony komunikat o błędzie, gdy działa środowisko IR, sieciowe grupy zabezpieczeń lub zmiany zapory prawdopodobnie uniemożliwiają dostęp do SQL Database lub wystąpienia zarządzanego programu SQL przez węzeł proces roboczy SSIS. Odblokuj węzeł procesu roboczego podczerwieni SSIS, aby mógł uzyskać dostęp do SQL Database lub wystąpienia zarządzanego SQL.
 
 ### <a name="catalogcapacitylimiterror"></a>CatalogCapacityLimitError
 
@@ -65,20 +65,20 @@ Możliwe rozwiązania są następujące:
 
 ### <a name="catalogdbbelongstoanotherir"></a>CatalogDbBelongsToAnotherIR
 
-Ten błąd oznacza, że serwer usługi Azure SQL Database lub wystąpienie zarządzane ma już bazę danych SSISDB, która jest używana przez inne środowisko IR. Musisz zmienić serwer usługi Azure SQL Database lub wystąpienie zarządzane albo usunąć istniejącą bazę danych SSISDB i ponownie uruchomić nowe środowisko IR.
+Ten błąd oznacza, że SQL Database lub wystąpienie zarządzane SQL ma już SSISDB i że jest używane przez inny IR. Musisz podać inne SQL Database lub wystąpienie zarządzane SQL lub usunąć istniejące SSISDB i ponownie uruchomić nowe środowisko IR.
 
 ### <a name="catalogdbcreationfailure"></a>CatalogDbCreationFailure
 
 Ten błąd może mieć jedną z następujących przyczyn:
 
 * Konto użytkownika skonfigurowane na potrzeby środowiska SSIS IR nie ma uprawnień wymaganych do utworzenia bazy danych. Możesz przyznać użytkownikowi uprawnienia do tworzenia baz danych.
-* Podczas tworzenia bazy danych nastąpiło przekroczenie limitu czasu, na przykład limitu czasu wykonywania lub limitu czasu operacji bazy danych. Spróbuj ponownie wykonać operację później. Jeśli ponowna próba również kończy się niepowodzeniem, skontaktuj się z zespołem pomocy technicznej serwera usługi Azure SQL Database lub wystąpienia zarządzanego.
+* Podczas tworzenia bazy danych nastąpiło przekroczenie limitu czasu, na przykład limitu czasu wykonywania lub limitu czasu operacji bazy danych. Spróbuj ponownie wykonać operację później. Jeśli ponowienie próby nie zadziała, skontaktuj się z zespołem pomocy technicznej dla SQL Database lub wystąpienia zarządzanego SQL.
 
-W przypadku innych problemów sprawdź komunikat o wyjątku SQL i rozwiąż problem wskazany w szczegółach błędu. Jeśli nadal występują problemy, skontaktuj się z zespołem pomocy technicznej serwera usługi Azure SQL Database lub wystąpienia zarządzanego.
+W przypadku innych problemów sprawdź komunikat o wyjątku SQL i rozwiąż problem wskazany w szczegółach błędu. Jeśli nadal występują problemy, skontaktuj się z zespołem pomocy technicznej dla SQL Database lub wystąpienia zarządzanego SQL.
 
 ### <a name="invalidcatalogdb"></a>InvalidCatalogDb
 
-Ten rodzaj komunikatu o błędzie wygląda następująco: "Nieprawidłowa nazwa obiektu wykazu. catalog_properties". " W takiej sytuacji masz już bazę danych o nazwie SSISDB, ale nie została ona utworzona przez program SSIS IR lub baza danych znajduje się w nieprawidłowym stanie spowodowanym błędami w ostatniej aprowizacji programu SSIS IR. Możesz usunąć istniejącą bazę danych o nazwie SSISDB albo skonfigurować nowy serwer usługi Azure SQL Database lub nowe wystąpienie zarządzane na potrzeby środowiska IR.
+Ten rodzaj komunikatu o błędzie wygląda następująco: "Nieprawidłowa nazwa obiektu wykazu. catalog_properties". " W takiej sytuacji masz już bazę danych o nazwie SSISDB, ale nie została ona utworzona przez program SSIS IR lub baza danych znajduje się w nieprawidłowym stanie spowodowanym błędami w ostatniej aprowizacji programu SSIS IR. Możesz usunąć istniejącą bazę danych o nazwie SSISDB lub skonfigurować nowe SQL Database lub wystąpienie zarządzane SQL dla środowiska IR.
 
 ## <a name="custom-setup-issues"></a>Problemy z instalacją niestandardową
 
