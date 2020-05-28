@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 04/22/2020
 ms.author: errobin
-ms.openlocfilehash: 3be8ce241817b3b2fa03976eebe3147c1dc9c877
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 94a2398879007e7ecd6d2f1920157eb4627f33cb
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005158"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014931"
 ---
 # <a name="frequently-asked-questions"></a>Często zadawane pytania
 
@@ -32,6 +32,9 @@ Zobacz [listę Azure Load Balancer szablonów szybkiego startu](https://docs.mic
 
 ## <a name="how-are-inbound-nat-rules-different-from-load-balancing-rules"></a>Jak różnią się przychodzące reguły NAT od reguł równoważenia obciążenia?
 Reguły NAT są używane do określania zasobu zaplecza, do którego ma być kierowany ruch. Na przykład skonfigurowanie określonego portu usługi równoważenia obciążenia do wysyłania ruchu RDP do określonej maszyny wirtualnej. Reguły równoważenia obciążenia służą do określania puli zasobów zaplecza, do której ma być kierowany ruch, co pozwala zrównoważyć obciążenie dla każdego wystąpienia. Na przykład reguła modułu równoważenia obciążenia może kierować pakiety TCP na porcie 80 modułu równoważenia obciążenia w puli serwerów sieci Web.
+
+## <a name="what-is-ip-1686312916"></a>Co to jest 168.63.129.16 IP?
+Wirtualny adres IP dla hosta oznaczonego jako infrastruktura platformy Azure Load Balancer, z którego pochodzą sondy kondycji platformy Azure. Podczas konfigurowania wystąpień zaplecza muszą zezwalać na ruch z tego adresu IP, aby pomyślnie reagować na sondy kondycji. Ta reguła nie współdziała z dostępem do Load Balancer frontonu. Jeśli nie używasz Azure Load Balancer, możesz zastąpić tę regułę. Więcej informacji na temat tagów usługi można znaleźć [tutaj](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags).
 
 ## <a name="next-steps"></a>Następne kroki
 Jeśli Twoje pytanie nie jest wymienione powyżej, Prześlij opinię na temat tej strony wraz z pytaniem. Spowoduje to utworzenie problemu usługi GitHub dla zespołu produktu, aby upewnić się, że otrzymasz odpowiedzi na wszystkie nasze pytania klientów.

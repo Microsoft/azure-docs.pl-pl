@@ -98,7 +98,7 @@ Aby wyświetlić zaproszenie do udziału danych platformy Azure po raz pierwszy 
 1. Wybierz subskrypcję używaną dla udziału danych platformy Azure.
 1. Kliknij pozycję **dostawcy zasobów**.
 1. Wyszukaj firmę Microsoft. datashare.
-1. Kliknij pozycję **zarejestruj**.
+1. Kliknij pozycję **Zarejestruj**.
 
 ## <a name="next-steps"></a>Następne kroki
 

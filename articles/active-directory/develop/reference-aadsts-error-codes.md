@@ -12,12 +12,12 @@ ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3ec1e7e9aa84c01cd62836f3c09f22cdb143817a
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 51567ff07930599b0c13d8a9546ebeca396c4b45
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82611334"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993545"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Kody błędów autoryzacji i uwierzytelniania usługi Azure AD
 
@@ -58,29 +58,29 @@ Oto przykładowa odpowiedź na błąd:
 | `correlation_id` | Unikatowy identyfikator żądania, które może pomóc w diagnostyce między składnikami. |
 | `error_uri` |  Link do strony wyszukiwania błędów z dodatkowymi informacjami o błędzie.  Jest to przeznaczone tylko dla deweloperów, ale nie są one widoczne dla użytkowników.  Dostępne tylko wtedy, gdy system wyszukiwania błędów zawiera dodatkowe informacje o błędzie — nie wszystkie błędy mają dodatkowe informacje.|
 
-`error` Pole ma kilka możliwych wartości — Przejrzyj łącza do dokumentacji protokołu i specyfikacje OAuth 2,0, aby dowiedzieć się więcej o określonych błędach ( `authorization_pending` na przykład w [przepływie kodu urządzenia](v2-oauth2-device-code.md)) i sposobach reagowania na nie.  Niektóre typowe są wymienione tutaj:
+`error`Pole ma kilka możliwych wartości — Przejrzyj łącza do dokumentacji protokołu i specyfikacje OAuth 2,0, aby dowiedzieć się więcej o określonych błędach (na przykład `authorization_pending` w [przepływie kodu urządzenia](v2-oauth2-device-code.md)) i sposobach reagowania na nie.  Niektóre typowe są wymienione tutaj:
 
 | Kod błędu         | Opis        | Akcja klienta    |
 |--------------------|--------------------|------------------|
 | `invalid_request`  | Błąd protokołu, taki jak brak wymaganego parametru. | Napraw i ponownie prześlij żądanie.|
-| `invalid_grant`    | Niektóre materiały uwierzytelniania (kod uwierzytelniania, token odświeżania, token dostępu, wyzwanie PKCE) były nieprawidłowe, nie można ich przeanalizować, brakować lub w inny sposób nieużyteczny | Wypróbuj nowe żądanie do punktu końcowego `/authorize` , aby uzyskać nowy kod autoryzacji.  Należy rozważyć przejrzenie i sprawdzenie poprawności użycia protokołów przez aplikację. |
+| `invalid_grant`    | Niektóre materiały uwierzytelniania (kod uwierzytelniania, token odświeżania, token dostępu, wyzwanie PKCE) były nieprawidłowe, nie można ich przeanalizować, brakować lub w inny sposób nieużyteczny | Wypróbuj nowe żądanie do `/authorize` punktu końcowego, aby uzyskać nowy kod autoryzacji.  Należy rozważyć przejrzenie i sprawdzenie poprawności użycia protokołów przez aplikację. |
 | `unauthorized_client` | Uwierzytelniony klient nie ma autoryzacji do korzystania z tego typu udzielania autoryzacji. | Zwykle dzieje się tak, gdy aplikacja kliencka nie jest zarejestrowana w usłudze Azure AD lub nie została dodana do dzierżawy usługi Azure AD użytkownika. Aplikacja może monitować użytkownika z instrukcją dotyczącą instalowania aplikacji i dodawania jej do usługi Azure AD. |
 | `invalid_client` | Uwierzytelnianie klienta nie powiodło się.  | Poświadczenia klienta są nieprawidłowe. Aby rozwiązać ten problem, administrator aplikacji aktualizuje poświadczenia.   |
 | `unsupported_grant_type` | Serwer autoryzacji nie obsługuje typu przydzielenia autoryzacji. | Zmień typ dotacji w żądaniu. Ten typ błędu powinien wystąpić tylko podczas opracowywania i być wykrywany podczas wstępnego testowania. |
 | `invalid_resource` | Zasób docelowy jest nieprawidłowy, ponieważ nie istnieje, usługa Azure AD nie może go odnaleźć lub nie jest poprawnie skonfigurowana. | Wskazuje to, że zasób, jeśli istnieje, nie został skonfigurowany w dzierżawie. Aplikacja może monitować użytkownika z instrukcją dotyczącą instalowania aplikacji i dodawania jej do usługi Azure AD.  Podczas programowania zwykle oznacza to, że nieprawidłowa konfiguracja dzierżawy testowej lub literówka w nazwie żądanego zakresu. |
-| `interaction_required` | Żądanie wymaga interakcji z użytkownikiem. Na przykład wymagany jest dodatkowy krok uwierzytelniania. | Spróbuj ponownie wykonać żądanie, używając tego samego zasobu, interactievly, aby użytkownik mógł wykonać wszelkie wymagane wyzwania.  |
+| `interaction_required` | Żądanie wymaga interakcji z użytkownikiem. Na przykład wymagany jest dodatkowy krok uwierzytelniania. | Spróbuj ponownie wykonać żądanie z tym samym zasobem, interaktywnie, aby użytkownik mógł wykonać wszystkie wymagane wyzwania.  |
 | `temporarily_unavailable` | Serwer jest tymczasowo zbyt zajęty, aby obsłużyć żądanie. | Ponów żądanie. Aplikacja kliencka może wyjaśnić użytkownikowi, że jego odpowiedź jest opóźniona ze względu na tymczasowy warunek. |
 
 ## <a name="lookup-current-error-code-information"></a>Wyszukaj bieżące informacje o kodzie błędu
 Kody błędów i komunikaty mogą ulec zmianie.  Aby uzyskać najbardziej aktualne informacje, zapoznaj się ze [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) stroną, aby znaleźć AADSTS opisów błędów, poprawek i sugerowanych rozwiązań.  
 
-Wyszukaj w liczbowej części zwróconego kodu błędu.  Na przykład jeśli wystąpił kod błędu "AADSTS16000", wykonaj wyszukiwanie w [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) "16000".  Możesz również połączyć się bezpośrednio z określonym błędem, dodając numer kodu błędu do adresu URL: [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000).
+Wyszukaj w liczbowej części zwróconego kodu błędu.  Na przykład jeśli wystąpił kod błędu "AADSTS16000", wykonaj wyszukiwanie w [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) "16000".  Możesz również połączyć się bezpośrednio z określonym błędem, dodając numer kodu błędu do adresu URL: [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000) .
 
 ## <a name="aadsts-error-codes"></a>Kody błędów AADSTS
 
-| Error | Opis |
+| Błąd | Opis |
 |---|---|
-| AADSTS16000 | SelectUserAccount — jest to przerwanie zgłoszone przez usługę Azure AD, które powoduje, że użytkownik może wybrać spośród wielu prawidłowych sesji logowania jednokrotnego. Ten błąd jest dość powszechny i może zostać zwrócony do aplikacji, `prompt=none` jeśli jest określony. |
+| AADSTS16000 | SelectUserAccount — jest to przerwanie zgłoszone przez usługę Azure AD, które powoduje, że użytkownik może wybrać spośród wielu prawidłowych sesji logowania jednokrotnego. Ten błąd jest dość powszechny i może zostać zwrócony do aplikacji, jeśli `prompt=none` jest określony. |
 | AADSTS16001 | UserAccountSelectionInvalid — ten błąd zostanie wyświetlony, jeśli użytkownik kliknie kafelek, który został odrzucony przez sesję Selecting Logic. Po wyzwoleniu ten błąd umożliwia użytkownikowi odzyskanie przez pobranie ze zaktualizowanej listy kafelków/sesji lub wybranie innego konta. Ten błąd może wystąpić ze względu na defekt kodu lub sytuację wyścigu. |
 | AADSTS16002 | AppSessionSelectionInvalid — nie spełniono wymagania dotyczącego identyfikatora SID określonego przez aplikację.  |
 | AADSTS16003 | SsoUserAccountNotFoundInResourceTenant — wskazuje, że użytkownik nie został jawnie dodany do dzierżawy. |
@@ -95,7 +95,7 @@ Wyszukaj w liczbowej części zwróconego kodu błędu.  Na przykład jeśli wys
 | AADSTS50000 | TokenIssuanceError — wystąpił problem z usługą logowania. [Otwórz bilet pomocy technicznej](../fundamentals/active-directory-troubleshooting-support-howto.md), aby rozwiązać ten problem. |
 | AADSTS50001 | InvalidResource — zasób jest wyłączony lub nie istnieje. Sprawdź kod aplikacji, aby upewnić się, że został określony dokładny adres URL zasobu dla zasobu, do którego próbujesz uzyskać dostęp.  |
 | AADSTS50002 | NotAllowedTenant — logowanie nie powiodło się z powodu ograniczonego dostępu do serwera proxy w dzierżawie. Jeśli jesteś własnymi zasadami dzierżawy, możesz zmienić ustawienia dzierżawy z ograniczeniami, aby rozwiązać ten problem. |
-| AADSTS50003 | MissingSigningKey — logowanie nie powiodło się z powodu braku klucza podpisywania lub certyfikatu. Może to być spowodowane tym, że w aplikacji nie został skonfigurowany klucz podpisywania. Zapoznaj się z rozwiązaniami opisanymi [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured)pod adresem. Jeśli nadal widzisz problemy, skontaktuj się z właścicielem aplikacji lub administratorem aplikacji. |
+| AADSTS50003 | MissingSigningKey — logowanie nie powiodło się z powodu braku klucza podpisywania lub certyfikatu. Może to być spowodowane tym, że w aplikacji nie został skonfigurowany klucz podpisywania. Zapoznaj się z rozwiązaniami opisanymi pod adresem [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured) . Jeśli nadal widzisz problemy, skontaktuj się z właścicielem aplikacji lub administratorem aplikacji. |
 | AADSTS50005 | DevicePolicyError — użytkownik próbował zalogować się na urządzeniu z platformy, która nie jest obecnie obsługiwana przez zasady dostępu warunkowego. |
 | AADSTS50006 | InvalidSignature — weryfikacja podpisu nie powiodła się z powodu nieprawidłowej sygnatury. |
 | AADSTS50007 | PartnerEncryptionCertificateMissing — certyfikat szyfrowania partnera nie został znaleziony dla tej aplikacji. Aby uzyskać ten problem [, Otwórz bilet pomocy technicznej](../fundamentals/active-directory-troubleshooting-support-howto.md) w firmie Microsoft. |
@@ -139,7 +139,7 @@ Wyszukaj w liczbowej części zwróconego kodu błędu.  Na przykład jeśli wys
 | AADSTS50089 | Token uwierzytelniania wygasł — uwierzytelnianie nie powiodło się. Użytkownik spróbuje ponownie zalogować się przy użyciu nazwy użytkownika i hasła. |
 | AADSTS50097 | DeviceAuthenticationRequired — wymagane jest uwierzytelnianie urządzenia. |
 | AADSTS50099 | PKeyAuthInvalidJwtUnauthorized — podpis JWT jest nieprawidłowy. |
-| AADSTS50105 | EntitlementGrantsNotFound — zalogowany użytkownik nie jest przypisany do roli dla zalogowanej aplikacji. Przypisz użytkownika do aplikacji. Aby uzyskać więcej informacji[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role):. |
+| AADSTS50105 | EntitlementGrantsNotFound — zalogowany użytkownik nie jest przypisany do roli dla zalogowanej aplikacji. Przypisz użytkownika do aplikacji. Aby uzyskać więcej informacji: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role) . |
 | AADSTS50107 | InvalidRealmUri — żądany obiekt Federacji nie istnieje. Skontaktuj się z administratorem dzierżawy. |
 | AADSTS50120 | ThresholdJwtInvalidJwtFormat — wystaw z nagłówkiem JWT. Skontaktuj się z administratorem dzierżawy. |
 | AADSTS50124 | ClaimsTransformationInvalidInputParameter — transformacja oświadczeń zawiera nieprawidłowy parametr wejściowy. Skontaktuj się z administratorem dzierżawy, aby zaktualizować zasady. |
@@ -250,7 +250,7 @@ Wyszukaj w liczbowej części zwróconego kodu błędu.  Na przykład jeśli wys
 | AADSTS90043 | NationalCloudAuthCodeRedirection — funkcja jest wyłączona. |
 | AADSTS90051 | InvalidNationalCloudId — identyfikator chmury krajowej zawiera nieprawidłowy identyfikator chmury. |
 | AADSTS90055 | TenantThrottlingError — zbyt wiele żądań przychodzących. Ten wyjątek jest zgłaszany dla zablokowanych dzierżawców. |
-| AADSTS90056 | BadResourceRequest — aby zrealizować kod dla tokenu dostępu, aplikacja powinna wysłać żądanie POST do `/token` punktu końcowego. Ponadto przed tym należy podać kod autoryzacji i wysłać go w żądaniu POST do `/token` punktu końcowego. Zapoznaj się z tym artykułem, aby uzyskać omówienie przepływu kodu autoryzacji [https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code)OAuth 2,0:. Kierowanie użytkownika do `/authorize` punktu końcowego, który zwróci authorization_code. Po opublikowaniu żądania do `/token` punktu końcowego użytkownik otrzymuje token dostępu. Zaloguj się do Azure Portal i sprawdź **punkty końcowe > rejestracje aplikacji** , aby upewnić się, że dwa punkty końcowe zostały prawidłowo skonfigurowane. |
+| AADSTS90056 | BadResourceRequest — aby zrealizować kod dla tokenu dostępu, aplikacja powinna wysłać żądanie POST do `/token` punktu końcowego. Ponadto przed tym należy podać kod autoryzacji i wysłać go w żądaniu POST do `/token` punktu końcowego. Zapoznaj się z tym artykułem, aby uzyskać omówienie przepływu kodu autoryzacji OAuth 2,0: [https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) . Kierowanie użytkownika do `/authorize` punktu końcowego, który zwróci authorization_code. Po opublikowaniu żądania do `/token` punktu końcowego użytkownik otrzymuje token dostępu. Zaloguj się do Azure Portal i sprawdź **punkty końcowe > rejestracje aplikacji** , aby upewnić się, że dwa punkty końcowe zostały prawidłowo skonfigurowane. |
 | AADSTS90072 | PassThroughUserMfaError — konto zewnętrzne, za pomocą którego loguje się użytkownik, nie istnieje w dzierżawie, do której się zarejestrował; Dlatego użytkownik nie może spełnić wymagań usługi MFA dla dzierżawy. Najpierw należy dodać konto jako użytkownika zewnętrznego w dzierżawie. Wyloguj się i zaloguj się przy użyciu innego konta użytkownika usługi Azure AD. |
 | AADSTS90081 | OrgIdWsFederationMessageInvalid — Wystąpił błąd, gdy usługa podjęła próbę przetworzenia komunikatu protokołu WS-Federation. Komunikat jest nieprawidłowy. |
 | AADSTS90082 | OrgIdWsFederationNotSupported — wybrane zasady uwierzytelniania dla żądania nie są obecnie obsługiwane. |
@@ -266,7 +266,7 @@ Wyszukaj w liczbowej części zwróconego kodu błędu.  Na przykład jeśli wys
 | AADSTS900382 | Klient poufny nie jest obsługiwany w żądaniu między chmurą. |
 | AADSTS90100 | InvalidRequestParameter — parametr jest pusty lub nieprawidłowy. |
 | AADSTS901002 | AADSTS901002: parametr żądania "Resource" nie jest obsługiwany. |
-| AADSTS90101 | InvalidEmailAddress — podane dane nie są prawidłowym adresem e-mail. Adres e-mail musi mieć format `someone@example.com`. |
+| AADSTS90101 | InvalidEmailAddress — podane dane nie są prawidłowym adresem e-mail. Adres e-mail musi mieć format `someone@example.com` . |
 | AADSTS90102 | InvalidUriParameter — wartość musi być prawidłowym bezwzględnym identyfikatorem URI. |
 | AADSTS90107 | InvalidXml — żądanie jest nieprawidłowe. Upewnij się, że dane nie zawierają nieprawidłowych znaków.|
 | AADSTS90114 | InvalidExpiryDate — sygnatura czasowa wygaśnięcia tokenu zbiorczego spowoduje wystawienie wygasłego tokenu. |
@@ -275,10 +275,10 @@ Wyszukaj w liczbowej części zwróconego kodu błędu.  Na przykład jeśli wys
 | AADSTS90120 | InvalidDeviceFlowRequest — żądanie zostało już autoryzowane lub odrzucone. |
 | AADSTS90121 | InvalidEmptyRequest — nieprawidłowe puste żądanie.|
 | AADSTS90123 | IdentityProviderAccessDenied — nie można wystawić tokenu, ponieważ dostawca wystawiania dla tożsamości lub żądania odrzucił żądanie. |
-| AADSTS90124 | V1ResourceV2GlobalEndpointNotSupported — zasób nie jest obsługiwany w punktach `/common` końcowych lub `/consumers` . Zamiast tego `/organizations` Użyj punktu końcowego określonego dla dzierżawy. |
+| AADSTS90124 | V1ResourceV2GlobalEndpointNotSupported — zasób nie jest obsługiwany w `/common` `/consumers` punktach końcowych lub. `/organizations`Zamiast tego użyj punktu końcowego określonego dla dzierżawy. |
 | AADSTS90125 | DebugModeEnrollTenantNotFound — użytkownik nie jest w systemie. Upewnij się, że nazwa użytkownika została wprowadzona prawidłowo. |
 | AADSTS90126 | DebugModeEnrollTenantNotInferred — typ użytkownika nie jest obsługiwany w tym punkcie końcowym. System nie może wywnioskować dzierżawy użytkownika z nazwy użytkownika. |
-| AADSTS90130 | NonConvergedAppV2GlobalEndpointNotSupported — aplikacja nie jest obsługiwana w przypadku `/common` punktów końcowych lub. `/consumers` Zamiast tego `/organizations` Użyj punktu końcowego określonego dla dzierżawy. |
+| AADSTS90130 | NonConvergedAppV2GlobalEndpointNotSupported — aplikacja nie jest obsługiwana w przypadku `/common` `/consumers` punktów końcowych lub. `/organizations`Zamiast tego użyj punktu końcowego określonego dla dzierżawy. |
 | AADSTS120000 | PasswordChangeIncorrectCurrentPassword |
 | AADSTS120002 | PasswordChangeInvalidNewPasswordWeak |
 | AADSTS120003 | PasswordChangeInvalidNewPasswordContainsMemberName |
@@ -309,7 +309,7 @@ Wyszukaj w liczbowej części zwróconego kodu błędu.  Na przykład jeśli wys
 | AADSTS240001 | BulkAADJTokenUnauthorized — użytkownik nie ma uprawnień do rejestrowania urządzeń w usłudze Azure AD. |
 | AADSTS240002 | RequiredClaimIsMissing — id_token nie może być używana jako `urn:ietf:params:oauth:grant-type:jwt-bearer` Grant.|
 | AADSTS530032 | BlockedByConditionalAccessOnSecurityPolicy — Administrator dzierżawy skonfigurował zasadę zabezpieczeń, która blokuje to żądanie. Sprawdź zasady zabezpieczeń zdefiniowane na poziomie dzierżawy, aby określić, czy żądanie spełnia wymagania zasad. |
-| AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest — aplikacja nie została znaleziona w katalogu/dzierżawie. Taka sytuacja może wystąpić, jeśli aplikacja nie została zainstalowana przez administratora dzierżawy lub nie została wysłana przez żadnego użytkownika w dzierżawie. Być może nieprawidłowo skonfigurowano wartość identyfikatora dla aplikacji lub wysłano żądanie uwierzytelnienia do niewłaściwej dzierżawy. |
+| AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest — aplikacja nie została znaleziona w katalogu/dzierżawie. Taka sytuacja może wystąpić, jeśli aplikacja nie została zainstalowana przez administratora dzierżawy lub żaden użytkownik w dzierżawie nie wyraził odpowiedniej zgody. Być może nieprawidłowo skonfigurowano wartość identyfikatora aplikacji lub wysyłano żądanie uwierzytelniania do niewłaściwej dzierżawy. |
 | AADSTS700020 | InteractionRequired — udzielanie dostępu wymaga interakcji. |
 | AADSTS700022 | InvalidMultipleResourcesScope — podana wartość zakresu parametru wejściowego jest nieprawidłowa, ponieważ zawiera więcej niż jeden zasób. |
 | AADSTS700023 | InvalidResourcelessScope — podana wartość dla zakresu parametru wejściowego jest nieprawidłowa podczas żądania tokenu dostępu. |

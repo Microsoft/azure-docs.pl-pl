@@ -31,6 +31,8 @@
       href: storage-files-networking-overview.md
     - name: Informacje o obsłudze warstw w chmurze
       href: storage-sync-cloud-tiering.md
+    - name: Zapobieganie przypadkowemu usuwaniu danych
+      href: storage-files-prevent-file-share-deletion.md
     - name: Informacje o kontach magazynu
       href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Migawki udziałów plików platformy Azure
@@ -118,6 +120,8 @@
           href: storage-sync-files-server-registration.md
         - name: Dodawanie punktu końcowego serwera usługi Azure File Sync
           href: storage-sync-files-server-endpoint.md
+        - name: Włączanie usuwania nietrwałego
+          href: storage-files-enable-soft-delete.md
         - name: Zarządzanie magazynem w chmurach niezależnych od platformy Azure
           href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Zarządzanie nadmiarowością danych

@@ -14,12 +14,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 11/14/2019
-ms.openlocfilehash: f505313b37d5289a5af10c40ede7f376eab4841d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d82f1d4c24820801e31c2b67b9d590367d89485c
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605956"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84114765"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Uruchamianie pakietu SSIS za pomocą działania Wykonaj pakiet SSIS w usłudze Azure Data Factory
 
@@ -59,9 +59,9 @@ W tym kroku użyjesz interfejsu użytkownika Data Factory lub aplikacji w celu u
 
     Alternatywnie możesz użyć wpisów tajnych przechowywanych w magazynie kluczy platformy Azure jako ich wartości. Aby to zrobić, zaznacz pole wyboru **Magazyn kluczy Azure** obok odpowiedniego poświadczenia. Wybierz lub edytuj istniejącą połączoną usługę magazynu kluczy lub Utwórz nową. Następnie wybierz nazwę lub wersję wpisu tajnego dla wartości poświadczenia.
 
-    Podczas tworzenia lub edytowania połączonej usługi magazynu kluczy możesz wybrać lub edytować istniejący magazyn kluczy lub utworzyć nowy. Upewnij się, że Data Factory zarządzana tożsamość do magazynu kluczy, jeśli jeszcze tego nie zrobiono. Możesz również wprowadzić wpisy tajne bezpośrednio w następującym formacie: `<Key vault linked service name>/<secret name>/<secret version>`. Jeśli pakiet wymaga 32-bitowego środowiska uruchomieniowego do uruchomienia, zaznacz pole wyboru **32-bitowe środowisko uruchomieniowe** .
+    Podczas tworzenia lub edytowania połączonej usługi magazynu kluczy możesz wybrać lub edytować istniejący magazyn kluczy lub utworzyć nowy. Upewnij się, że Data Factory zarządzana tożsamość do magazynu kluczy, jeśli jeszcze tego nie zrobiono. Możesz również wprowadzić wpisy tajne bezpośrednio w następującym formacie: `<Key vault linked service name>/<secret name>/<secret version>` . Jeśli pakiet wymaga 32-bitowego środowiska uruchomieniowego do uruchomienia, zaznacz pole wyboru **32-bitowe środowisko uruchomieniowe** .
 
-   W **obszarze Lokalizacja pakietu**wybierz pozycję **SSISDB**, **system plików (pakiet)**, **system plików (projekt)** lub **pakiet osadzony**. W przypadku wybrania opcji **SSISDB** jako lokalizacji pakietu, która jest automatycznie wybierana, jeśli Azure-SSIS IR została zainicjowana przy użyciu wykazu usług SSIS (SSISDB) hostowanego przez serwer Azure SQL Database lub wystąpienie zarządzane, określ pakiet do uruchomienia, który został wdrożony w SSISDB. 
+   W **obszarze Lokalizacja pakietu**wybierz pozycję **SSISDB**, **system plików (pakiet)**, **system plików (projekt)** lub **pakiet osadzony**. W przypadku wybrania opcji **SSISDB** jako lokalizacji pakietu, która jest automatycznie wybierana, jeśli Azure-SSIS IR została zainicjowana przy użyciu hostowanego SQL Database lub wystąpienia zarządzanego SQL katalogu usług SSIS, określ pakiet do uruchomienia, który został wdrożony w SSISDB. 
 
     Jeśli Azure-SSIS IR jest uruchomiona, a pole wyboru **wpisy ręczne** jest wyczyszczone, Przeglądaj i wybierz istniejące foldery, projekty, pakiety lub środowiska z SSISDB. Wybierz pozycję **Odśwież** , aby pobrać nowo dodane foldery, projekty, pakiety lub środowiska z SSISDB, aby były dostępne do przeglądania i wyboru. Aby przeglądać lub wybierać środowiska na potrzeby wykonywania pakietów, musisz wcześniej skonfigurować projekty, aby dodać te środowiska jako odwołania z tych samych folderów w obszarze SSISDB. Aby uzyskać więcej informacji, zobacz [Tworzenie i mapowanie środowisk SSIS](https://docs.microsoft.com/sql/integration-services/create-and-map-a-server-environment?view=sql-server-2014).
 
@@ -69,21 +69,21 @@ W tym kroku użyjesz interfejsu użytkownika Data Factory lub aplikacji w celu u
 
    ![Ustawianie właściwości na karcie Ustawienia — automatyczne](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
 
-   Jeśli Azure-SSIS IR nie jest uruchomiona lub jest zaznaczone pole wyboru **wpisy ręczne** , wprowadź swoje ścieżki pakietu i środowiska z SSISDB bezpośrednio w następujących formatach: `<folder name>/<project name>/<package name>.dtsx` i. `<folder name>/<environment name>`
+   Jeśli Azure-SSIS IR nie jest uruchomiona lub jest zaznaczone pole wyboru **wpisy ręczne** , wprowadź swoje ścieżki pakietu i środowiska z SSISDB bezpośrednio w następujących formatach: `<folder name>/<project name>/<package name>.dtsx` i `<folder name>/<environment name>` .
 
    ![Ustawianie właściwości na karcie Ustawienia — ręczne](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
 
-   Jeśli wybierzesz opcję **system plików (pakiet)** jako lokalizację pakietu, która jest automatycznie wybierana, jeśli Azure-SSIS IR została zainicjowana bez SSISDB, określ pakiet do uruchomienia, podając ścieżkę Universal NAMING Convention (UNC) do pliku pakietu (`.dtsx`) w polu **ścieżka pakietu** . Jeśli na przykład przechowujesz swój pakiet w Azure Files, jego ścieżka pakietu to `\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`. 
+   Jeśli wybierzesz opcję **system plików (pakiet)** jako lokalizację pakietu, która jest automatycznie wybierana, jeśli Azure-SSIS IR została zainicjowana bez SSISDB, określ pakiet do uruchomienia, podając ścieżkę Universal NAMING Convention (UNC) do pliku pakietu ( `.dtsx` ) w polu **ścieżka pakietu** . Jeśli na przykład przechowujesz swój pakiet w Azure Files, jego ścieżka pakietu to `\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx` . 
    
-   W przypadku skonfigurowania pakietu w osobnym pliku należy również podać ścieżkę UNC do pliku konfiguracji (`.dtsConfig`) w polu **ścieżka konfiguracji** . Jeśli na przykład przechowujesz konfigurację w Azure Files, jej Ścieżka konfiguracyjna to `\\<storage account name>.file.core.windows.net\<file share name>\<configuration name>.dtsConfig`.
+   W przypadku skonfigurowania pakietu w osobnym pliku należy również podać ścieżkę UNC do pliku konfiguracji ( `.dtsConfig` ) w polu **ścieżka konfiguracji** . Jeśli na przykład przechowujesz konfigurację w Azure Files, jej Ścieżka konfiguracyjna to `\\<storage account name>.file.core.windows.net\<file share name>\<configuration name>.dtsConfig` .
 
    ![Ustawianie właściwości na karcie Ustawienia — ręczne](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png)
 
-   W przypadku wybrania opcji **system plików (projekt)** jako lokalizacji`.ispac`pakietu Określ pakiet do uruchomienia, podając ścieżkę UNC do pliku projektu () w polu **ścieżka projektu** i plik pakietu (`.dtsx`) z projektu w polu **Nazwa pakietu** . Na przykład jeśli projekt jest przechowywany w Azure Files, jego ścieżka projektu to `\\<storage account name>.file.core.windows.net\<file share name>\<project name>.ispac`.
+   W przypadku wybrania opcji **system plików (projekt)** jako lokalizacji pakietu Określ pakiet do uruchomienia, podając ścieżkę UNC do pliku projektu ( `.ispac` ) w polu **ścieżka projektu** i plik pakietu ( `.dtsx` ) z projektu w polu **Nazwa pakietu** . Na przykład jeśli projekt jest przechowywany w Azure Files, jego ścieżka projektu to `\\<storage account name>.file.core.windows.net\<file share name>\<project name>.ispac` .
 
    ![Ustawianie właściwości na karcie Ustawienia — ręczne](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png)
 
-   Następnie określ poświadczenia, aby uzyskać dostęp do plików projektu, pakietu lub konfiguracji. Jeśli wcześniej wprowadzono wartości poświadczeń wykonywania pakietu (zobacz poprzedni), możesz użyć ich ponownie, zaznaczając pole wyboru **poświadczenia wykonywania pakietu** . W przeciwnym razie wprowadź wartości poświadczeń dostępu do pakietu w polach **domena**, **Nazwa użytkownika**i **hasło** . Na przykład w przypadku przechowywania projektu, pakietu lub konfiguracji w Azure Files domena to `Azure`, nazwa użytkownika `<storage account name>`, a hasło to. `<storage account key>` 
+   Następnie określ poświadczenia, aby uzyskać dostęp do plików projektu, pakietu lub konfiguracji. Jeśli wcześniej wprowadzono wartości poświadczeń wykonywania pakietu (zobacz poprzedni), możesz użyć ich ponownie, zaznaczając pole wyboru **poświadczenia wykonywania pakietu** . W przeciwnym razie wprowadź wartości poświadczeń dostępu do pakietu w polach **domena**, **Nazwa użytkownika**i **hasło** . Na przykład w przypadku przechowywania projektu, pakietu lub konfiguracji w Azure Files domena to, `Azure` Nazwa użytkownika `<storage account name>` , a hasło to `<storage account key>` . 
 
    Alternatywnie możesz użyć wpisów tajnych przechowywanych w magazynie kluczy jako ich wartości (zobacz poprzedni). Te poświadczenia są używane do uzyskiwania dostępu do pakietu i pakietów podrzędnych w zadaniu pakietu, wszystkie z własnej ścieżki lub tego samego projektu, a także konfiguracje, które obejmują te określone w pakietach. 
 
@@ -95,9 +95,9 @@ W tym kroku użyjesz interfejsu użytkownika Data Factory lub aplikacji w celu u
 
    Jeśli użyto poziomu ochrony **EncryptAllWithUserKey** , jest on nieobsługiwany. Należy ponownie skonfigurować pakiet, aby użyć innego poziomu ochrony za pośrednictwem narzędzi SQL Server Data Tools lub `dtutil` narzędzia wiersza polecenia. 
    
-   W obszarze **poziom rejestrowania**Wybierz wstępnie zdefiniowany zakres rejestrowania dla wykonywania pakietu. Zaznacz pole wyboru **dostosowany** , jeśli chcesz wprowadzić zamiast niej dostosowanej nazwy rejestrowania. Jeśli chcesz rejestrować wykonywanie pakietów poza przy użyciu standardowych dostawców dzienników, które można określić w pakiecie, określ folder dziennika, podając jego ścieżkę UNC w polu **ścieżka rejestrowania** . Na przykład w przypadku przechowywania dzienników w Azure Files ścieżka rejestrowania to `\\<storage account name>.file.core.windows.net\<file share name>\<log folder name>`. W tej ścieżce zostanie utworzony podfolder dla każdego pojedynczego pakietu, który jest uruchamiany po IDENTYFIKATORze uruchomienia działania pakietu SSIS, w którym pliki dziennika są generowane co pięć minut. 
+   W obszarze **poziom rejestrowania**Wybierz wstępnie zdefiniowany zakres rejestrowania dla wykonywania pakietu. Zaznacz pole wyboru **dostosowany** , jeśli chcesz wprowadzić zamiast niej dostosowanej nazwy rejestrowania. Jeśli chcesz rejestrować wykonywanie pakietów poza przy użyciu standardowych dostawców dzienników, które można określić w pakiecie, określ folder dziennika, podając jego ścieżkę UNC w polu **ścieżka rejestrowania** . Na przykład w przypadku przechowywania dzienników w Azure Files ścieżka rejestrowania to `\\<storage account name>.file.core.windows.net\<file share name>\<log folder name>` . W tej ścieżce zostanie utworzony podfolder dla każdego pojedynczego pakietu, który jest uruchamiany po IDENTYFIKATORze uruchomienia działania pakietu SSIS, w którym pliki dziennika są generowane co pięć minut. 
    
-   Na koniec określ poświadczenia, aby uzyskać dostęp do folderu dziennika. Jeśli wcześniej wprowadzono wartości poświadczeń dostępu do pakietu (zobacz poprzedni), możesz użyć ich ponownie, zaznaczając pole wyboru **poświadczenia dostępu do pakietu** . W przeciwnym razie wprowadź wartości poświadczeń dostępu do rejestrowania w polach **domena**, **Nazwa użytkownika**i **hasło** . Jeśli na przykład przechowujesz dzienniki w Azure Files, domena ma `Azure`nazwę `<storage account name>`, a hasło to. `<storage account key>` 
+   Na koniec określ poświadczenia, aby uzyskać dostęp do folderu dziennika. Jeśli wcześniej wprowadzono wartości poświadczeń dostępu do pakietu (zobacz poprzedni), możesz użyć ich ponownie, zaznaczając pole wyboru **poświadczenia dostępu do pakietu** . W przeciwnym razie wprowadź wartości poświadczeń dostępu do rejestrowania w polach **domena**, **Nazwa użytkownika**i **hasło** . Jeśli na przykład przechowujesz dzienniki w Azure Files, domena ma `Azure` nazwę, `<storage account name>` a hasło to `<storage account key>` . 
 
     Alternatywnie możesz użyć wpisów tajnych przechowywanych w magazynie kluczy jako ich wartości (zobacz poprzedni). Te poświadczenia są używane do przechowywania dzienników. 
    
@@ -119,7 +119,7 @@ W tym kroku użyjesz interfejsu użytkownika Data Factory lub aplikacji w celu u
 
    ![Ustawianie właściwości na karcie menedżerów połączeń](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
 
-1. Na karcie **Zastępowanie właściwości** dla działania wykonaj pakiet SSIS wprowadź ścieżki istniejących właściwości w wybranym pakiecie po jednym, aby przypisać do nich wartości ręcznie. Upewnij się, że istnieją i zostały poprawnie wprowadzone w celu pomyślnego wykonania pakietu. Na przykład aby zastąpić wartość zmiennej użytkownika, wprowadź jej ścieżkę w następującym formacie: `\Package.Variables[User::<variable name>].Value`. 
+1. Na karcie **Zastępowanie właściwości** dla działania wykonaj pakiet SSIS wprowadź ścieżki istniejących właściwości w wybranym pakiecie po jednym, aby przypisać do nich wartości ręcznie. Upewnij się, że istnieją i zostały poprawnie wprowadzone w celu pomyślnego wykonania pakietu. Na przykład aby zastąpić wartość zmiennej użytkownika, wprowadź jej ścieżkę w następującym formacie: `\Package.Variables[User::<variable name>].Value` . 
    
    Jeśli podczas tworzenia pakietu użyto poziomu ochrony **EncryptSensitiveWithUserKey** za pomocą narzędzi SQL Server Data Tools i **system plików (pakiet)** lub **system plików (projekt)** jest wybrany jako lokalizacja pakietu, należy również ponownie wprowadzić poufne właściwości, aby przypisać do nich wartości w plikach konfiguracyjnych lub na tej karcie. 
    
@@ -129,7 +129,7 @@ W tym kroku użyjesz interfejsu użytkownika Data Factory lub aplikacji w celu u
 
    Wartości przypisane do plików konfiguracji i na karcie **Parametry usług SSIS** można zastąpić przy użyciu kart **menedżerów połączeń** lub **zastąpień właściwości** . Wartości przypisane na karcie **menedżerów połączeń** mogą być również zastępowane przy użyciu karty **zastąpień właściwości** .
 
-1. Aby sprawdzić poprawność konfiguracji potoku, wybierz pozycję **Weryfikuj** na pasku narzędzi. Aby zamknąć **raport weryfikacji potoku**, wybierz **>>** opcję.
+1. Aby sprawdzić poprawność konfiguracji potoku, wybierz pozycję **Weryfikuj** na pasku narzędzi. Aby zamknąć **raport weryfikacji potoku**, wybierz opcję **>>** .
 
 1. Aby opublikować potok do Data Factory, wybierz pozycję **Opublikuj wszystko**. 
 

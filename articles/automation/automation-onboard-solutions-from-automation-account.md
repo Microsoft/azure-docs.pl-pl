@@ -5,14 +5,14 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: a521ff690f59b6beafd1113b177b43193dc7447e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: c5fad03788ee11488748c22d60c150e3de7e516d
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743987"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117248"
 ---
-# <a name="enable-update-management-from-an-automation-account"></a>Włączanie Update Management na podstawie konta usługi Automation
+# <a name="enable-update-management-from-an-automation-account"></a>Włączanie rozwiązania Update Management z poziomu konta usługi Automation
 
 W tym artykule opisano, jak za pomocą konta usługi Automation włączyć funkcję [Update Management](automation-update-management.md) dla maszyn wirtualnych w środowisku. Aby włączyć maszyny wirtualne platformy Azure na dużą skalę, należy włączyć istniejącą maszynę wirtualną przy użyciu Update Management. 
 
@@ -37,9 +37,9 @@ Zaloguj się do platformy Azure pod adresem https://portal.azure.com .
 
     ![Włączanie rozwiązania Update Management](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 
-## <a name="check-the-scope-configuration"></a><a name="scope-configuration"></a>Sprawdź konfigurację zakresu
+## <a name="limit-the-scope-for-the-deployment"></a><a name="scope-configuration"></a>Ograniczanie zakresu wdrożenia
 
-Update Management używa konfiguracji zakresu w obszarze roboczym, aby określić komputery, które mają być włączone dla tej funkcji. Konfiguracja zakresu jest grupą co najmniej jednego zapisanego wyszukiwania, które jest używane do ograniczania zakresu funkcji do określonych komputerów. Aby uzyskać więcej informacji, zobacz [Working with Scope Configurations for Update Management](automation-scope-configurations-update-management.md).
+Update Management używa konfiguracji zakresu w obszarze roboczym, aby określić komputery, na których mają zostać odebrane aktualizacje. Aby uzyskać więcej informacji, zobacz [Ograniczanie zakresu wdrożenia Update Management](automation-scope-configurations-update-management.md).
 
 ## <a name="enable-azure-vms"></a>Włączanie maszyn wirtualnych platformy Azure
 
@@ -80,7 +80,7 @@ Ręcznie zainstalowane maszyny lub maszyny, które są już raportowane do obsza
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby używać Update Management dla maszyn wirtualnych, zobacz [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure](automation-tutorial-update-management.md).
-* Aby poznać konfiguracje zakresów, zobacz [Working with Scope Configurations for Update Management](automation-scope-configurations-update-management.md).
+* Aby poznać konfiguracje zakresów, zobacz [ograniczanie Update Management zakresu wdrożenia](automation-scope-configurations-update-management.md).
 * Jeśli obszar roboczy Log Analytics nie jest już potrzebny, zobacz instrukcje w polu [Odłącz obszar roboczy z konta usługi Automation dla Update Management](automation-unlink-workspace-update-management.md).
 * Aby usunąć maszyny wirtualne z Update Management, zobacz [usuwanie maszyn wirtualnych z Update Management](automation-remove-vms-from-update-management.md).
 * Aby rozwiązać ogólne błędy Update Management, zobacz [Rozwiązywanie problemów z Update Management](troubleshoot/update-management.md).

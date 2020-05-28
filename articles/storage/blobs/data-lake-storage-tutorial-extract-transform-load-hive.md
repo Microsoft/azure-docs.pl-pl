@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: c9ed675dc970b093f6407d15b3db2ac2668c626b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1e408f27d4c9b2686bd9f56ca754f5553a446440
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74327574"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014914"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-hdinsight"></a>Samouczek: Wyodrębnianie, przekształcanie i ładowanie danych przy użyciu usługi Azure HDInsight
 
@@ -128,7 +128,7 @@ W ramach zadania Apache Hive zaimportujesz dane z pliku csv do tabeli Apache Hiv
    nano flightdelays.hql
    ```
 
-2. Zmodyfikuj następujący tekst, zastępując symbole `<container-name>` zastępcze `<storage-account-name>` i nazwą swojego kontenera i konta magazynu. Następnie skopiuj i wklej tekst do konsoli programu nano, klikając prawym przyciskiem myszy przy naciśniętym klawiszu SHIFT.
+2. Zmodyfikuj następujący tekst, zastępując `<container-name>` `<storage-account-name>` symbole zastępcze i nazwą swojego kontenera i konta magazynu. Następnie skopiuj i wklej tekst do konsoli programu nano, klikając prawym przyciskiem myszy przy naciśniętym klawiszu SHIFT.
 
     ```hiveql
     DROP TABLE delays_raw;
@@ -244,12 +244,12 @@ Aby wykonać tę operację, musisz dysponować nazwą serwera bazy danych SQL Da
    sudo apt-get --assume-yes install freetds-dev freetds-bin
    ```
 
-6. Po zakończeniu instalacji użyj poniższego polecenia, aby połączyć się z serwerem usługi SQL Database.
+6. Po zakończeniu instalacji użyj następującego polecenia, aby nawiązać połączenie z usługą SQL Database.
 
    ```bash
    TDSVER=8.0 tsql -H '<server-name>.database.windows.net' -U '<admin-login>' -p 1433 -D '<database-name>'
     ```
-   * Zamień symbol zastępczy `<server-name>` na nazwę serwera usługi SQL Database.
+   * Zastąp `<server-name>` symbol zastępczy nazwą logicznej programu SQL Server.
 
    * Zamień symbol zastępczy `<admin-login>` na identyfikator logowania administratora usługi SQL Database.
 
@@ -335,7 +335,7 @@ W poprzednich sekcjach skopiowano przekształcone dane w lokalizacji `abfs://<co
 
 5. Wpisz polecenie `exit`, aby wyjść z narzędzia tsql.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Wszystkie zasoby używane w tym samouczku istniały już wcześniej. Oczyszczanie nie jest konieczne.
 
@@ -344,4 +344,4 @@ Wszystkie zasoby używane w tym samouczku istniały już wcześniej. Oczyszczani
 Aby poznać więcej sposobów pracy z danymi w usłudze HDInsight, zobacz następujący artykuł:
 
 > [!div class="nextstepaction"]
-> [Używanie Azure Data Lake Storage Gen2 z klastrami usługi Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+> [Korzystanie z usługi Azure Data Lake Storage Gen2 w połączeniu z klastrami usługi Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

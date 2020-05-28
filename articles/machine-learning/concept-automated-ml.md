@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: f328b86d07a997ea761b4381f1d6a2f8a1dae269
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: dc40668ec7008042b5f1600214184cbf8bba4701
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683080"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119086"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Co to jest automatyczne Uczenie maszynowe (AutoML)?
 
@@ -35,14 +35,15 @@ Analitycy danych, analitykowie i deweloperzy w różnych branżach mogą używa�
 
 ### <a name="classification"></a>Klasyfikacja
 
-Klasyfikacja to typowe zadanie uczenia maszynowego. Klasyfikacja to typ nadzorowanych szkoleń, w których modele uczyją się korzystać z danych szkoleniowych i stosują te informacje do nowych danych. Azure Machine Learning oferuje featurizations dla tych zadań, takich jak głębokie neuronowych Network Text featurizers for klasyfikacji. Dowiedz się więcej o [opcjach cechowania](how-to-use-automated-ml-for-ml-models.md#featurization). 
+Klasyfikacja to typowe zadanie uczenia maszynowego. Klasyfikacja to typ nadzorowanych szkoleń, w których modele uczyją się korzystać z danych szkoleniowych i stosują te informacje do nowych danych. Azure Machine Learning oferuje featurizations dla tych zadań, takich jak głębokie neuronowych Network Text featurizers for klasyfikacji. Dowiedz się więcej o [opcjach cechowania](how-to-configure-auto-features.md#featurization). 
 
 Głównym celem modeli klasyfikacji jest przewidywanie, do których kategorii nowe dane będą się opierać na podstawie informacji szkoleniowych. Typowe przykłady klasyfikacji obejmują wykrywanie oszustw, rozpoznawanie pisma ręcznego i wykrywanie obiektów.  Dowiedz się więcej i zapoznaj się z przykładem [klasyfikacji przy użyciu automatycznej uczenia maszynowego](tutorial-train-models-with-aml.md).
 
 Zobacz przykłady klasyfikacji i zautomatyzowane Uczenie maszynowe w tych notesach języka Python: [wykrywanie oszustw](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb), [prognozowanie marketingowe](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)i [Klasyfikacja danych grupy dyskusyjnej](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb)
 
 ### <a name="regression"></a>Regresja
-Podobnie jak w przypadku klasyfikacji, zadania regresji są również typowym nadzorowanym zadaniem szkoleniowym. Azure Machine Learning oferuje [featurizations dla tych zadań](how-to-use-automated-ml-for-ml-models.md#featurization).
+
+Podobnie jak w przypadku klasyfikacji, zadania regresji są również typowym nadzorowanym zadaniem szkoleniowym. Azure Machine Learning oferuje [featurizations dla tych zadań](how-to-configure-auto-features.md#featurization).
 
 Różni się od klasyfikacji, w której przewidywane wartości wyjściowe to kategorii, modele regresji przewidywania liczbowych wartości wyjściowych na podstawie niezależnych predykcyjnych. W regresji celem jest pomoc w ustaleniu relacji między niezależnymi zmiennymi predykcyjnymi przez oszacowanie wpływu jednej zmiennej na inne. Na przykład cena na urządzeniach przenośnych oparta na funkcjach takich jak, kilometry gazu, Ocena bezpieczeństwa itp. Dowiedz się więcej i zobacz przykład [regresji przy użyciu automatycznej uczenia maszynowego](tutorial-auto-train-models.md).
 
@@ -99,18 +100,19 @@ Chociaż Kompilowanie modelu jest zautomatyzowane, można również [dowiedzieć
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2Xc9t]
 
-<a name="preprocess"></a>
 
-## <a name="preprocessing"></a>Przetwarzania wstępnego
+## <a name="feature-engineering"></a>Inżynieria funkcji
 
-W każdym automatycznym doświadczeniu uczenia maszynowego Twoje dane są wstępnie przetwarzane przy użyciu metod domyślnych i opcjonalnie w ramach zaawansowanego przetwarzania wstępnego.
+Inżynieria funkcji to proces polegający na użyciu znajomości domeny danych w celu utworzenia funkcji, które pomagają algorytmom ML uczyć się. W Azure Machine Learning są stosowane techniki skalowania i normalizacji w celu ułatwienia inżynierii funkcji. Wspólnie te techniki i inżynieria funkcji są określane jako cechowania.
+
+W przypadku zautomatyzowanych eksperymentów usługi Machine Learning cechowania jest stosowana automatycznie, ale można ją również dostosować na podstawie danych. [Dowiedz się więcej na temat tego, co obejmuje cechowania](how-to-configure-auto-features.md#featurization).  
 
 > [!NOTE]
-> Zautomatyzowane kroki wstępnego przetwarzania w usłudze Machine Learning (normalizacja funkcji, obsługa brakujących danych, konwertowanie tekstu na liczbowe itp.) staje się częścią modelu źródłowego. Przy użyciu modelu dla prognoz te same kroki przetwarzania wstępnego zastosowane podczas uczenia są automatycznie stosowane do danych wejściowych.
+> Zautomatyzowane kroki cechowania uczenia maszynowego (normalizacja funkcji, obsługa brakujących danych, konwertowanie tekstu na liczbowe itp.) staje się częścią modelu źródłowego. Korzystając z modelu dla prognoz, te same kroki cechowania stosowane podczas uczenia są automatycznie stosowane do danych wejściowych.
 
-### <a name="automatic-preprocessing-standard"></a>Automatyczne przetwarzanie wstępne (standard)
+### <a name="automatic-featurization-standard"></a>Automatyczna cechowania (standardowa)
 
-W każdym automatycznym doświadczeniu uczenia maszynowego Twoje dane są automatycznie skalowane lub znormalizowane w celu zapewnienia prawidłowego wykonywania algorytmów.  Podczas uczenia modelu jedna z następujących technik skalowania lub normalizacji zostanie zastosowana do każdego modelu. Dowiedz się, w jaki sposób usługa autoML pomaga [zapobiegać nadmiernemu dopasowywaniu i niezrównoważonym danych](concept-manage-ml-pitfalls.md) w modelach.
+W każdym automatycznym doświadczeniu uczenia maszynowego Twoje dane są automatycznie skalowane lub znormalizowane w celu zapewnienia prawidłowego wykonywania algorytmów. Podczas uczenia modelu jedna z następujących technik skalowania lub normalizacji zostanie zastosowana do każdego modelu. Dowiedz się, w jaki sposób usługa AutoML pomaga [zapobiegać nadmiernemu dopasowywaniu i niezrównoważonym danych](concept-manage-ml-pitfalls.md) w modelach.
 
 |&nbsp; & &nbsp; Normalizacja skalowania| Opis |
 | ------------- | ------------- |
@@ -122,15 +124,15 @@ W każdym automatycznym doświadczeniu uczenia maszynowego Twoje dane są automa
 | [TruncatedSVDWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.TruncatedSVD.html) |Ta metoda przekształcania dokonuje redukcji liniowej, dzięki obcięciu pojedynczej dekompozycji wartości (SVD). W przeciwieństwie do UPW, ten szacowania nie Wyśrodkowuje danych przed wdrożeniem wielowartościowej dekompozycji, co oznacza, że może wydajnie współpracować z scipy. rozrzedzonych macierzy |
 | [SparseNormalizer](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.Normalizer.html) | Każdy przykład (to oznacza, że każdy wiersz macierzy danych) z co najmniej jednym składnikiem niezerowym jest ponownie skalowany niezależnie od innych próbek, tak aby jego norma (L1 lub L2) była równa 1 |
 
-### <a name="advanced-preprocessing--featurization"></a>Zaawansowane przetwarzanie wstępne & cechowania
+### <a name="customize-featurization"></a>Dostosuj cechowania
 
-Dostępne są również dodatkowe zaawansowane procesy przetwarzania wstępnego i cechowania, takie jak guardrails danych, kodowanie i przekształcenia. [Dowiedz się więcej na temat tego, co obejmuje cechowania](how-to-use-automated-ml-for-ml-models.md#featurization). Włącz to ustawienie przy użyciu:
+Dostępne są również dodatkowe techniki inżynieryjne funkcji, takie jak kodowanie i transformacje. 
 
-+ Azure Machine Learning Studio: Włącz **Automatyczne cechowania** w sekcji **Wyświetl dodatkową konfigurację** , [wykonując następujące kroki](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
+Włącz to ustawienie przy użyciu:
 
-+ Zestaw SDK języka Python: Określanie `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` dla [ `AutoMLConfig` klasy](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
++ Azure Machine Learning Studio: Włącz **Automatyczne cechowania** w sekcji **Wyświetl dodatkową konfigurację** , [wykonując następujące kroki](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
 
-
++ Zestaw SDK języka Python: Określ `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` w obiekcie [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) . Dowiedz się więcej o [Włączanie cechowania] ((How-to-configure-autofeatures.md). 
 
 ## <a name="ensemble-models"></a><a name="ensemble"></a>Modele kompletów
 
@@ -168,7 +170,7 @@ Należy wziąć pod uwagę te zalety i wady, gdy wybierzesz opcję używania lok
 
  Więcej funkcji jest dostępnych w przypadku korzystania ze zdalnych obliczeń, jak pokazano w poniższej tabeli. Niektóre z tych funkcji są dostępne tylko w obszarze roboczym przedsiębiorstwa.
 
-| Cechy                                                    | Remote | Lokalny | KONIECZN <br>Obszar roboczy przedsiębiorstwa |
+| Cecha                                                    | Remote | Lokalny | KONIECZN <br>Obszar roboczy przedsiębiorstwa |
 |------------------------------------------------------------|--------|-------|-------------------------------|
 | Przesyłanie strumieniowe danych (obsługa dużej ilości danych, do 100 GB)          | ✓      |       | ✓                             |
 | DNN BERT tekstu cechowania i szkolenia             | ✓      |       | ✓                             |

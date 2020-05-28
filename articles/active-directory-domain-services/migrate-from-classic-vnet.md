@@ -9,27 +9,27 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: 6acf9301367ae2c6947f6935c43f420d3d7cac65
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fb9e12f29c148ea6854dde57456d8cf796cc8c34
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80655012"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994072"
 ---
 # <a name="migrate-azure-ad-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Przeprowadź migrację Azure AD Domain Services z modelu klasycznej sieci wirtualnej do Menedżer zasobów
 
 Azure Active Directory Domain Services (AD DS) obsługuje jednorazowe przeniesienie dla klientów korzystających obecnie z klasycznego modelu sieci wirtualnej do modelu sieci wirtualnej Menedżer zasobów. Domeny zarządzane AD DS platformy Azure korzystające z modelu wdrażania Menedżer zasobów oferują dodatkowe funkcje, takie jak szczegółowe zasady haseł, dzienniki inspekcji i ochrona blokady konta.
 
-W tym artykule przedstawiono zalety i kwestie związane z migracją, a następnie wymagane kroki w celu pomyślnego przeprowadzenia migracji istniejącego wystąpienia usługi Azure AD DS.
+W tym artykule przedstawiono zagadnienia dotyczące migracji, a następnie wymagane kroki w celu pomyślnego przeprowadzenia migracji istniejącego wystąpienia usługi Azure AD DS. W przypadku niektórych korzyści zapoznaj się [z tematem zalety migracji z klasycznego do Menedżer zasobów modelu wdrażania w usłudze Azure AD DS][migration-benefits].
 
 > [!NOTE]
 > W 2017 Azure AD Domain Services stało się dostępne do hostowania w sieci Azure Resource Manager. Od tego czasu mogliśmy stworzyć bezpieczniejsze usługi przy użyciu nowoczesnych możliwości Azure Resource Manager. Ponieważ wdrożenia Azure Resource Manager w pełni zastępują wdrożenia klasyczne, wdrożenia usługi Azure AD DS klasycznej sieci wirtualnej zostaną wycofane 1 marca 2023.
 >
-> Aby uzyskać więcej informacji, zobacz [oficjalne powiadomienie o zaniechaniu](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/)
+> Aby uzyskać więcej informacji, zobacz [oficjalne powiadomienie o zaniechaniu](https://azure.microsoft.com/updates/we-are-retiring-azure-ad-domain-services-classic-vnet-support-on-march-1-2023/).
 
 ## <a name="overview-of-the-migration-process"></a>Przegląd procesu migracji
 
-Proces migracji obejmuje istniejące wystąpienie usługi Azure AD DS, które działa w klasycznej sieci wirtualnej i przenosi je do istniejącej Menedżer zasobów sieci wirtualnej. Migracja odbywa się przy użyciu programu PowerShell i ma dwa główne etapy wykonywania — *przygotowanie* i *migrację*.
+Proces migracji obejmuje istniejące wystąpienie usługi Azure AD DS, które działa w klasycznej sieci wirtualnej i przenosi je do istniejącej Menedżer zasobów sieci wirtualnej. Migracja odbywa się przy użyciu programu PowerShell i ma dwa główne etapy wykonywania: *przygotowanie* i *migracja*.
 
 ![Przegląd procesu migracji AD DS platformy Azure](media/migrate-from-classic-vnet/migration-overview.png)
 
@@ -40,21 +40,6 @@ Na etapie *przygotowania* usługa Azure AD DS wykonuje kopię zapasową domeny w
 Na etapie *migracji* źródłowe dyski wirtualne dla kontrolerów domeny z klasycznej domeny zarządzanej platformy Azure AD DS są kopiowane w celu utworzenia maszyn wirtualnych przy użyciu Menedżer zasobów modelu wdrażania. Zostanie utworzona ponowna domena zarządzana AD DS platformy Azure, w tym LDAPs i Konfiguracja DNS. Synchronizacja z usługą Azure AD została uruchomiona ponownie, a certyfikaty LDAP są przywracane. Nie ma potrzeby ponownego przyłączania żadnych maszyn do domeny zarządzanej AD DS platformy Azure — są one nadal przyłączone do domeny zarządzanej i uruchamiane bez zmian.
 
 ![Migracja AD DS platformy Azure](media/migrate-from-classic-vnet/migration-process.png)
-
-## <a name="migration-benefits"></a>Zalety migracji
-
-Podczas przenoszenia domeny zarządzanej AD DS platformy Azure przy użyciu tego procesu migracji można uniknąć konieczności ponownego przyłączania maszyn do domeny zarządzanej lub usunięcia wystąpienia usługi Azure AD DS i utworzenia go od podstaw. Maszyny wirtualne nadal są przyłączone do domeny zarządzanej usługi Azure AD DS na końcu procesu migracji.
-
-Po migracji usługa Azure AD DS udostępnia wiele funkcji, które są dostępne tylko dla domen używających Menedżer zasobów sieci wirtualnych, takich jak:
-
-* Szczegółowe wsparcie dla zasad haseł.
-* Ochrona blokady konta usługi AD.
-* Powiadomienia e-mail o alertach w domenie zarządzanej AD DS platformy Azure.
-* Inspekcja dzienników przy użyciu Azure Monitor.
-* Integracja Azure Files
-* Integracja usługi HD Insights
-
-Domeny zarządzane AD DS platformy Azure, które używają Menedżer zasobów sieci wirtualnej, pomagają zapewnić aktualność przy użyciu najnowszych nowych funkcji. Obsługa AD DS platformy Azure przy użyciu klasycznych sieci wirtualnych jest przestarzała w przyszłości.
 
 ## <a name="example-scenarios-for-migration"></a>Przykładowe scenariusze migracji
 
@@ -367,6 +352,7 @@ Po przeprowadzeniu migracji domeny zarządzanej AD DS platformy Azure do modelu 
 [troubleshoot-sign-in]: troubleshoot-sign-in.md
 [tshoot-ldaps]: tshoot-ldaps.md
 [get-credential]: /powershell/module/microsoft.powershell.security/get-credential
+[migration-benefits]: concepts-migration-benefits.md
 
 <!-- EXTERNAL LINKS -->
 [powershell-script]: https://www.powershellgallery.com/packages/Migrate-Aadds/
