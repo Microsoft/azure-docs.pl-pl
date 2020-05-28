@@ -4,15 +4,15 @@ description: Dowiedz się, jak używać kanału informacyjnego zmian w interfejs
 author: TheovanKraay
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/25/2019
 ms.author: thvankra
-ms.openlocfilehash: 43743f62b08bb00403f5dac88682d06daab757a4
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 3707ee81c0e50ae028ad7e0bf8178e2f3eff2c64
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872557"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84115223"
 ---
 # <a name="change-feed-in-the-azure-cosmos-db-api-for-cassandra"></a>Źródło zmian w interfejsie API Azure Cosmos DB dla Cassandra
 
@@ -22,7 +22,7 @@ Poniższy przykład pokazuje, jak uzyskać Źródło zmian dla wszystkich wiersz
 
 W każdej iteracji zapytanie zostaje wznowione w ostatnim momencie odczytu, przy użyciu stanu stronicowania. W obszarze kluczy można zobaczyć ciągły strumień nowych zmian w tabeli. Zobaczymy zmiany w wierszach, które są wstawiane lub aktualizowane. Obserwowanie operacji usuwania przy użyciu źródła zmian w interfejs API Cassandra nie jest obecnie obsługiwane.
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```C#
     //set initial start time for pulling the change feed
@@ -113,7 +113,7 @@ W każdej iteracji zapytanie zostaje wznowione w ostatnim momencie odczytu, przy
 
 Aby uzyskać zmiany w pojedynczym wierszu według klucza podstawowego, można dodać klucz podstawowy w zapytaniu. Poniższy przykład pokazuje, jak śledzić zmiany w wierszu, w którym "user_id = 1"
 
-# <a name="c"></a>[S #](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```C#
     //Return the latest change for all row in 'user' table where user_id = 1

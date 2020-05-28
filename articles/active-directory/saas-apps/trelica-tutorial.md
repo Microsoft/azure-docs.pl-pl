@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17c68a95530f345d1ec0ed077681ec4cd6eb3775
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: 733e7529af5de453462efb1a13c21203681e442c
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402441"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994276"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trelica"></a>Samouczek: Azure Active Directory integracji logowania jednokrotnego (SSO) z usługą Trelica
 
@@ -90,9 +90,11 @@ Wykonaj następujące kroki, aby włączyć logowanie jednokrotne w usłudze Azu
     1. W polu **adres URL odpowiedzi** wprowadź adres URL ze wzorcem `https://app.trelica.com/Id/Saml2/<CUSTOM_IDENTIFIER>/Acs` .
 
     > [!NOTE]
-    > Wartość **adresu URL odpowiedzi** nie jest prawdziwa. Zaktualizuj tę wartość przy użyciu adresu URL rzeczywistej odpowiedzi. Aby uzyskać tę wartość, skontaktuj się z [zespołem obsługi klienta Trelica](mailto:support@trelica.com) . Przydatne mogą się również okazać wzorce przedstawione w sekcji **Podstawowa konfiguracja protokołu SAML** w witrynie Azure Portal.
+    > Wartość adresu URL odpowiedzi nie jest prawdziwa. Zaktualizuj tę wartość za pomocą rzeczywistego adresu URL odpowiedzi (znanego również jako ACS).
+    > Można to sprawdzić, logując się do Trelica i przechodząc do [strony konfiguracji dostawcy tożsamości SAML](https://app.trelica.com/Admin/Profile/SAML) (konto > administratora > SAML). Kliknij przycisk Kopiuj obok **adresu URL usługi konsumenckej odbiorcy (ACS)** , aby umieścić ten element w schowku, gotowy do wklejenia do pola tekstowego **adres URL odpowiedzi** w usłudze Azure AD.
+    > Zapoznaj się z [dokumentacją pomocy Trelica](https://docs.trelica.com/admin/saml/azure-ad) lub skontaktuj się z [zespołem obsługi klienta Trelica](mailto:support@trelica.com) , jeśli masz pytania.
 
-1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu języka SAML** przejdź do sekcji **certyfikat podpisywania SAML** . Z prawej strony **adresu URL metadanych federacji aplikacji**wybierz przycisk Kopiuj, aby skopiować adres URL. Zapisz adres URL na komputerze.
+1. Na stronie **Konfigurowanie logowania jednokrotnego przy użyciu protokołu SAML** w sekcji **certyfikat podpisywania SAML** kliknij przycisk Kopiuj, aby skopiować **adres URL metadanych federacji aplikacji** i zapisać go na komputerze.
 
     ![Sekcja certyfikat podpisywania SAML z wyróżnionym przyciskiem kopiowania obok adresu URL metadanych federacji aplikacji](common/copy-metadataurl.png)
 
@@ -128,11 +130,11 @@ W tej sekcji włączysz usługę B. Simon, aby korzystać z logowania jednokrotn
 
 ## <a name="configure-trelica-sso"></a>Konfigurowanie logowania jednokrotnego Trelica
 
-Aby skonfigurować Logowanie jednokrotne po stronie **Trelica** , Wyślij wartość **adresu URL skopiowanej metadanych federacji aplikacji** do [zespołu pomocy technicznej Trelica](mailto:support@trelica.com). Ustawi on to ustawienie tak, aby połączenie logowania jednokrotnego SAML było ustawione właściwie po obu stronach.
+Aby skonfigurować Logowanie jednokrotne po stronie **Trelica** , przejdź do [strony Konfiguracja dostawców tożsamości saml](https://app.trelica.com/Admin/Profile/SAML) (konto > administratora > SAML). Kliknij przycisk **Nowy** . Wprowadź nazwę **usługi Azure AD** , a następnie wybierz pozycję **metadane z adresu URL** dla typu metadanych. Wklej **adres URL metadanych federacji aplikacji** pochodzący z usługi Azure AD do pola **adres URL metadanych** w Trelica.
+
+Zapoznaj się z [dokumentacją pomocy Trelica](https://docs.trelica.com/admin/saml/azure-ad) lub skontaktuj się z [zespołem obsługi klienta Trelica](mailto:support@trelica.com) , jeśli masz pytania.
 
 ### <a name="create-a-trelica-test-user"></a>Tworzenie użytkownika testowego Trelica
-
-W tej sekcji utworzysz użytkownika o nazwie B. Simon w Trelica.
 
 Trelica obsługuje Inicjowanie obsługi użytkowników just in Time, która jest domyślnie włączona. Nie ma żadnych akcji, które należy wykonać w tej sekcji. Jeśli użytkownik nie istnieje jeszcze w usłudze Trelica, zostanie utworzony nowy po uwierzytelnieniu.
 

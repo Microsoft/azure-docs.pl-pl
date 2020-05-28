@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 02/10/2020
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 15c11a5b94b80a96c520696c45f3eec5c48b7b48
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 359079ad73fcf162fb742afe74c1c1de5896c35c
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592733"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996078"
 ---
 # <a name="language-and-region-support-for-translator"></a>Obsługa języków i regionów w usłudze translator
 
@@ -40,80 +40,80 @@ Translator obsługuje tłumaczenie tekstu na tekst przy użyciu następujących 
 > [!NOTE]
 > Obecnie podzestaw języków neuronowych jest dostępny w usłudze translator niestandardowym i stopniowo dodajemy dodatkowe. [Języki widoku dostępne obecnie w usłudze translator niestandardowym](#customization).
 
-|Język|  Kod języka|  INTERFEJS API V3|
+|Język|    Kod języka|    INTERFEJS API V3|
 |:-----|:-----:|:-----|
-|Afrikaans| `af`|   Neuronowych|
-|Arabski|    `ar`    |   Neuronowych|
-|Języku|    `bn`    |   Neuronowych|
-|Bośniacki (łaciński)|   `bs`    |   Neuronowych|
-|Bułgarski| `bg`    |   Neuronowych|
-|Kantoński (tradycyjny)|   `yue`|  Statystyczn|
-|Kataloński|   `ca`    |   Statystyczn|
+|Afrikaans|    `af`|    Neuronowych|
+|Arabski|    `ar`    |    Neuronowych|
+|Języku|    `bn`    |    Neuronowych|
+|Bośniacki (łaciński)|    `bs`    |    Neuronowych|
+|Bułgarski|    `bg`    |    Neuronowych|
+|Kantoński (tradycyjny)|    `yue`|    Statystyczn|
+|Kataloński|    `ca`    |    Statystyczn|
 |Chiński (uproszczony)|    `zh-Hans`|Neuronowych|
-|Chiński (tradycyjny)|   `zh-Hant`       |Neuronowych|
-|Chorwacki|  `hr`    |Neuronowych|
-|Czeski| `cs`    |   Neuronowych|
+|Chiński (tradycyjny)|    `zh-Hant`        |Neuronowych|
+|Chorwacki|    `hr`    |Neuronowych|
+|Czeski|    `cs`    |    Neuronowych|
 |Duński|    `da`        |Neuronowych|
-|Niderlandzki| `nl`|   Neuronowych|
-|Angielski|   `en`    |   Neuronowych|
-|Estoński|  `et`    |   Neuronowych|
-|Fijian|    `fj`    |   Statystyczn|
-|Filipino|  `fil`   |   Statystyczn|
-|Fiński|   `fi`    |   Neuronowych|
-|Francuski|    `fr`    |   Neuronowych|
-|Niemiecki|    `de`    |   Neuronowych|
-|Grecki| `el`    |   Neuronowych|
-|Gudżarati|  `gu`    |   Neuronowych|
+|Niderlandzki|    `nl`|    Neuronowych|
+|Angielski|    `en`    |    Neuronowych|
+|Estoński|    `et`    |    Neuronowych|
+|Fijian|    `fj`    |    Statystyczn|
+|Filipino|    `fil`    |    Statystyczn|
+|Fiński|    `fi`    |    Neuronowych|
+|Francuski|    `fr`    |    Neuronowych|
+|Niemiecki|    `de`    |    Neuronowych|
+|Grecki|    `el`    |    Neuronowych|
+|Gudżarati|    `gu`    |    Neuronowych|
 |Haitański|    `ht`        |Statystyczn|
-|Hebrajski |`he`   |Neuronowych
-|Hindi| `hi`    |   Neuronowych|
-|Hmong Kowalski| `mww`   |   Statystyczn|
-|Węgierski| `hu`    |   Neuronowych|
-|Islandzki| `is`    |   Neuronowych|
-|Indonezyjski|    `id`    |   Statystyczn|
+|Hebrajski    |`he`    |Neuronowych
+|Hindi|    `hi`    |    Neuronowych|
+|Hmong Kowalski|    `mww`    |    Statystyczn|
+|Węgierski|    `hu`    |    Neuronowych|
+|Islandzki|    `is`    |    Neuronowych|
+|Indonezyjski|    `id`    |    Statystyczn|
 |Irlandzki | `ga`| Neuronowych
-|Włoski|   `it`    |   Neuronowych|
-|Japoński|  `ja`    |   Neuronowych|
+|Włoski|    `it`    |    Neuronowych|
+|Japoński|    `ja`    |    Neuronowych|
 |Kannada|`kn`| Neuronowych
-|Kiswahili| `sw`    |   Statystyczn|
-|Klingon|   `tlh`   |   Statystyczn|
-|Klingon (plqaD)|   `tlh-Qaak`  |   Statystyczn|
-|Koreański |`ko`   |   Neuronowych|
-|Łotewski|   `lv`    |   Neuronowych|
-|Litewski|    `lt`    |   Neuronowych|
-|Madagaskaru|  `mg`    |   Statystyczn|
-|Malajski| `ms`        |Statystyczn|
+|Kiswahili|    `sw`    |    Statystyczn|
+|Klingon|    `tlh`    |    Statystyczn|
+|Klingon (plqaD)|    `tlh-Qaak`    |    Statystyczn|
+|Koreański    |`ko`    |    Neuronowych|
+|Łotewski|    `lv`    |    Neuronowych|
+|Litewski|    `lt`    |    Neuronowych|
+|Madagaskaru|    `mg`    |    Statystyczn|
+|Malajski|    `ms`        |Statystyczn|
 |Malayalam| `ml` | Neuronowych
-|Maltański|   `mt`    |   Statystyczn|
+|Maltański|    `mt`    |    Statystyczn|
 |Maoryjski| `mi`  | Neuronowych|
 |Marathi| `mr`  | Neuronowych|
-|Norweski| `nb`    |   Neuronowych|
-|Perski|   `fa`    |   Neuronowych|
-|Polski|    `pl`    |   Neuronowych|
-|Portugalski (Brazylia)|   `pt-br` |   Neuronowych|
+|Norweski|    `nb`    |    Neuronowych|
+|Perski|    `fa`    |    Neuronowych|
+|Polski|    `pl`    |    Neuronowych|
+|Portugalski (Brazylia)|    `pt-br`    |    Neuronowych|
 |Portugalski (Portugalia)| `pt-pt` | Neuronowych
 |Pendżabski|`pa`|Neuronowych
-|Queretaro Otomi|   `otq`   |   Statystyczn|
-|Rumuński|  `ro`    |   Neuronowych|
-|Rosyjski|   `ru`    |   Neuronowych|
-|Samoan|    `sm`    |   Statystyczn|
-|Serbski (cyrylica)|    `sr-Cyrl`|  Statystyczn|
-|Serbski (łaciński)|   `sr-Latn`       |Statystyczn|
-|Słowacki|    `sk`    |   Neuronowych|
-|Słoweński| `sl`    |   Neuronowych|
-|Hiszpański|   `es`    |   Neuronowych|
-|Szwedzki|   `sv`    |Neuronowych|
-|Tahitian|  `ty`    |Statystyczn|
-|Tamilski| `ta`    |   Neuronowych|
-|Telugu|    `te`    |   Neuronowych|
-|Tajlandzki|  `th`    |   Neuronowych|
-|Tonga|    `to`    |   Statystyczn|
-|Turecki|   `tr`        |Neuronowych|
-|Ukraiński| `uk`    |   Neuronowych|
-|Urdu|  `ur`    |   Statystyczn|
-|Wietnamski|    `vi`    |   Neuronowych|
-|Walijski| `cy`    |   Neuronowych|
-|Yucatec Maya|  `yua`   |   Statystyczn|
+|Queretaro Otomi|    `otq`    |    Statystyczn|
+|Rumuński|    `ro`    |    Neuronowych|
+|Rosyjski|    `ru`    |    Neuronowych|
+|Samoan|    `sm`    |    Statystyczn|
+|Serbski (cyrylica)|    `sr-Cyrl`|    Statystyczn|
+|Serbski (łaciński)|    `sr-Latn`        |Statystyczn|
+|Słowacki|    `sk`    |    Neuronowych|
+|Słoweński|    `sl`    |    Neuronowych|
+|Hiszpański|    `es`    |    Neuronowych|
+|Szwedzki|    `sv`    |Neuronowych|
+|Tahitian|    `ty`    |Statystyczn|
+|Tamilski|    `ta`    |    Neuronowych|
+|Telugu|    `te`    |    Neuronowych|
+|Tajlandzki|    `th`    |    Neuronowych|
+|Tonga|    `to`    |    Statystyczn|
+|Turecki|    `tr`        |Neuronowych|
+|Ukraiński|    `uk`    |    Neuronowych|
+|Urdu|    `ur`    |    Statystyczn|
+|Wietnamski|    `vi`    |    Neuronowych|
+|Walijski|    `cy`    |    Neuronowych|
+|Yucatec Maya|    `yua`    |    Statystyczn|
 
 > [!NOTE]
 > Kod języka `pt` będzie wartością domyślną `pt-br` , portugalski (Brazylia).
@@ -224,7 +224,7 @@ Następujące języki są dostępne do dostosowania do języka angielskiego lub 
 | Bośniacki (łaciński)      | `bs`          |
 | Bułgarski      | `bg`          |
 | Chiński (uproszczony)      | `zh-Hans`          |
-|Chiński (tradycyjny)|   `zh-Hant`   |
+|Chiński (tradycyjny)|    `zh-Hant`    |
 | Chorwacki      | `hr`          |
 | Czeski      | `cs`          |
 | Duński      | `da`          |
@@ -239,15 +239,15 @@ Następujące języki są dostępne do dostosowania do języka angielskiego lub 
 | Hindi      | `hi`          |
 | Węgierski      | `hu`          |
 | Islandzki | `is` |
-| Indonezyjski|   `id`    |
-| Irlandzki | `ga`  |
+| Indonezyjski|    `id`    |
+| Irlandzki | `ga`    |
 | Włoski      | `it`          |
 | Japoński      | `ja`          |
 | Kiswahili|    `sw`    |
 | Koreański      | `ko`          |
 | Łotewski      | `lv`          |
 | Litewski      | `lt`          |
-| Madagaskaru| `mg`    |
+| Madagaskaru|    `mg`    |
 | Maoryjski| `mi`  |
 | Norweski      | `nb`          |
 | Perski      | `fa`          |
@@ -255,7 +255,7 @@ Następujące języki są dostępne do dostosowania do języka angielskiego lub 
 | Portugalski (Brazylia) | `pt-br` |
 | Rumuński      | `ro`          |
 | Rosyjski      | `ru`          |
-| Samoan|   `sm`    |
+| Samoan|    `sm`    |
 | Serbski (łaciński)      | `sr-Latn`          |
 | Słowacki     | `sk`          |
 | Słoweński      | `sl`          |

@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: b7b8606f7f15f8d6fdd66681a1c7ade60ff506f3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9bdf1cd8832d311a71276fa18d407a5b4dd98d24
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79217781"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84115504"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Korzystanie z przykładowych zestawów danych w Azure Machine Learning Studio (klasyczny)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 [top]: #machine-learning-sample-datasets
 
@@ -46,7 +44,7 @@ Podzbiór bazy danych spisu 1994 przy użyciu pracy dla dorosłych w wieku 16 ze
 <p></p>
 <b>Użycie:</b> Klasyfikuj osoby korzystające z demograficznych, aby przewidzieć, czy osoba uzyskuje ponad 50 000 rocznie.
 <p></p>
-<b>Powiązane badania:</b> Kohavi, R., Becker, B., (1996). Machine Learning — repozytorium <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera </td>
+<b>Powiązane badania:</b> Kohavi, R., Becker, B., (1996). Machine Learning — repozytorium <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> . Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera </td>
 </tr>
 
 <tr>
@@ -67,7 +65,7 @@ Ocena ryzyka jest początkowo skojarzona z funkcją autoprice. Następnie jest d
 <p></p>
 <b>Użycie:</b> Przewidywanie oceny ryzyka według funkcji przy użyciu regresji lub klasyfikacji wieloczynnikowa. 
 <p></p>
-<b>Powiązane badania:</b> Schlimmer, J.C. (1987). Machine Learning — repozytorium <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera </td>
+<b>Powiązane badania:</b> Schlimmer, J.C. (1987). Machine Learning — repozytorium <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> . Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera </td>
 </tr>
 
 <tr>
@@ -98,7 +96,7 @@ Dane ofiarodawcy obejmują miesiące od ostatniej darowizny oraz częstotliwoś�
 <p></p>
 <b>Użycie:</b> Celem jest przewidywalność poprzez klasyfikację, czy dawca odnosił się w marcu 2007, gdzie 1 oznacza ofiarodawcę w okresie docelowym i 0 a nie jako ofiarodawcę. 
 <p></p>
-<b>Powiązane badania:</b> Yeh, I.C., (2008). Machine Learning — repozytorium <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera
+<b>Powiązane badania:</b> Yeh, I.C., (2008). Machine Learning — repozytorium <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> . Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera
 <p></p>
 Yeh, I-Cheng, Yang, król-Jang i notowanie, tag-Ming, "odnajdywanie wiedzy na tryb RFM Model przy użyciu sekwencji Bernoulliego" systemy specjalistyczne z aplikacjami, 2008<a href="https://dx.doi.org/10.1016/j.eswa.2008.07.018">https://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
   </td>
@@ -111,7 +109,7 @@ Jeden z trzech zestawów danych związanych z rakiem, dostarczanych przez Instyt
 <p></p>
 <b>Użycie:</b> Klasyfikowanie typu nowotworu w oparciu o 9 atrybutów, niektóre z nich są liniowe, a niektóre z nich są kategorii. 
 <p></p>
-<b>Powiązane badania:</b> Wohlberg, W.H., ulica, W.N., & Mangasarian, O.L. (1995). Machine Learning — repozytorium <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera </td>
+<b>Powiązane badania:</b> Wohlberg, W.H., ulica, W.N., & Mangasarian, O.L. (1995). Machine Learning — repozytorium <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> . Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera </td>
 </tr>
 
 <tr>
@@ -164,7 +162,7 @@ Kolekcja symulowanych profilów energii w oparciu o 12 różnych kształtów kon
 <p></p>
 <b>Użycie:</b> Użycie regresji lub klasyfikacji do przewidywania oceny wydajności energetycznej na podstawie jednej z dwóch rzeczywistych odpowiedzi. W przypadku klasyfikacji wieloklasowej, zmienna odpowiedzi jest zaokrąglana do najbliższej liczby całkowitej. 
 <p></p>
-<b>Powiązane badania:</b> Xifara, A. & Tsanas, A. (2012). Machine Learning — repozytorium <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera </td>
+<b>Powiązane badania:</b> Xifara, A. & Tsanas, A. (2012). Machine Learning — repozytorium <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> . Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera </td>
 </tr>
 
 <tr>
@@ -189,7 +187,7 @@ Rejestry lotów samolotowych i wyjazdów w ramach Stany Zjednoczone od paździer
 <p></p>
 <b>Użycie:</b> Przewidywanie opóźnień lotów. 
 <p></p>
-<b>Powiązane badania:</b> Z działu USA na transport <a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a>.
+<b>Powiązane badania:</b> Z działu USA na transport <a href="https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time</a> .
   </td>
 </tr>
 
@@ -200,9 +198,9 @@ Zawiera dane pogodowe, takie jak indeksy temperatury i wilgotności i szybkość
 <p></p>
 <b>Użycie:</b> Jest to trudne zadanie regresji, gdzie celem jest przewidywanie nagranego obszaru pożarów lasu. 
 <p></p>
-<b>Powiązane badania:</b> Cortez, P., & Morais, A. (2008). Machine Learning — repozytorium <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera
+<b>Powiązane badania:</b> Cortez, P., & Morais, A. (2008). Machine Learning — repozytorium <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> . Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera
 <p></p>
-[Cortez i Morais, 2007] P. Cortez i. Morais. Podejście do wyszukiwania danych do przewidywania pożarów lasów przy użyciu danych meteorologicznych. W J. Neves, M. F. Santos i J. Machado EDS., nowe trendy w sztucznej analizie, postępowania z trzynastej konferencji EPIA 2007-portugalski na sztucznej inteligencję, grudzień, Guimarães, Portugalia, PP. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Dostępne w: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
+[Cortez i Morais, 2007] P. Cortez i. Morais. Podejście do wyszukiwania danych do przewidywania pożarów lasów przy użyciu danych meteorologicznych. W J. Neves, M. F. Santos i J. Machado EDS., nowe trendy w sztucznej analizie, postępowania z trzynastej konferencji EPIA 2007-portugalski na sztucznej inteligencję, grudzień, Guimarães, Portugalia, PP. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. Dostępne w: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a> .
   </td>
 </tr>
 
@@ -229,7 +227,7 @@ Jest to prawdopodobnie Najlepsza znana baza danych, która będzie znajdować si
 <p></p>
 <b>Użycie:</b> Przewidywanie typu Iris z pomiarów.  
 <p></p>
-<b>Powiązane badania:</b> Fisher, R.A. (1988). Machine Learning — repozytorium <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera </td>
+<b>Powiązane badania:</b> Fisher, R.A. (1988). Machine Learning — repozytorium <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> . Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera </td>
 </tr>
 
 <tr>
@@ -248,7 +246,7 @@ Dane przedstawiają zużycie paliwa dla różnych samochodów w kilometrach na g
 <p></p>
 <b>Użycie:</b> Przewidywanie zużycia paliwa w oparciu o trzy atrybuty dyskretne i pięć atrybutów ciągłych. 
 <p></p>
-<b>Powiązane badania:</b> StatLib, Carnegie Mellon University, (1993). Machine Learning — repozytorium <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera </td>
+<b>Powiązane badania:</b> StatLib, Carnegie Mellon University, (1993). Machine Learning — repozytorium <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> . Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera </td>
 </tr>
 
 <tr>
@@ -258,7 +256,7 @@ Podzbiór danych z Narodowego Instytutu cukrzycą oraz baza danych z chorobami t
 <p></p>
 <b>Użycie:</b> Przewidywanie, czy podmiot ma cukrzycą (klasyfikację binarną). 
 <p></p>
-<b>Powiązane badania:</b> Sigillito, V. (1990). Machine Learning <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml— repozytorium</a> Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera </td>
+<b>Powiązane badania:</b> Sigillito, V. (1990). Machine Learning <a href="https://archive.ics.uci.edu/ml"> https://archive.ics.uci.edu/ml — repozytorium</a> Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera </td>
 </tr>
 
 <tr>
@@ -268,7 +266,7 @@ Zestaw metadanych o klientach, w tym dane demograficzne i preferencje.
 <p></p>
 <b>Użycie:</b> Użyj tego zestawu danych, w połączeniu z innymi dwoma zbiorami danych restauracji, do uczenia i przetestowania systemu zalecanego. 
 <p></p>
-<b>Powiązane badania:</b> Bache, K. i Lichman, M. (2013). Machine Learning — repozytorium <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera.
+<b>Powiązane badania:</b> Bache, K. i Lichman, M. (2013). Machine Learning — repozytorium <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> . Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera.
   </td>
 </tr>
 
@@ -279,7 +277,7 @@ Zestaw metadanych dotyczących restauracji i ich funkcji, takich jak typ żywno�
 <p></p>
 <b>Użycie:</b> Użyj tego zestawu danych, w połączeniu z innymi dwoma zbiorami danych restauracji, do uczenia i przetestowania systemu zalecanego. 
 <p></p>
-<b>Powiązane badania:</b> Bache, K. i Lichman, M. (2013). Machine Learning — repozytorium <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera.
+<b>Powiązane badania:</b> Bache, K. i Lichman, M. (2013). Machine Learning — repozytorium <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> . Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera.
   </td>
 </tr>
 
@@ -290,7 +288,7 @@ Zawiera klasyfikacje nadawane przez użytkowników dla restauracji w skali od 0 
 <p></p>
 <b>Użycie:</b> Użyj tego zestawu danych, w połączeniu z innymi dwoma zbiorami danych restauracji, do uczenia i przetestowania systemu zalecanego. 
 <p></p>
-<b>Powiązane badania:</b> Bache, K. i Lichman, M. (2013). Machine Learning — repozytorium <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera.
+<b>Powiązane badania:</b> Bache, K. i Lichman, M. (2013). Machine Learning — repozytorium <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> . Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera.
   </td>
 </tr>
 
@@ -303,7 +301,7 @@ Ten zestaw danych zawiera serię rekordów ze stali symulowana. Zawiera on atryb
 <p></p>
 Klasy stalowe są zgodne z zestawem Standard zdefiniowanym przez SAE i inne organizacje. Szukasz konkretnej klasy "Klasa" (zmienna klasy) i chcesz zrozumieć wymagane wartości. 
 <p></p>
-<b>Powiązane badania:</b> Szterling, D. & Buntine, W. (NA). Machine Learning — repozytorium <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera
+<b>Powiązane badania:</b> Szterling, D. & Buntine, W. (NA). Machine Learning — repozytorium <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> . Irvine, CA: University of Kalifornii, szkolna informacja i nauka komputera
 <p></p>
 Przydatny Przewodnik dotyczący gatunków stali można znaleźć tutaj:<a href="https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf">https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
@@ -324,7 +322,7 @@ Dane zostały wstępnie przetworzone w celu utworzenia wydłużonego klastra z d
 <p></p>
 Należy również zwrócić uwagę na to, że liczba zdarzeń w tle (h, dla hadronic pryszniców) jest nieszacowana. W rzeczywistych pomiarach Klasa h lub hałas reprezentuje większość zdarzeń. 
 <p></p>
-<b>Powiązane badania:</b> Bock, R.K. (1995). Machine Learning — repozytorium <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: University of Kalifornii, Szkoła informacji </td>
+<b>Powiązane badania:</b> Bock, R.K. (1995). Machine Learning — repozytorium <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a> . Irvine, CA: University of Kalifornii, Szkoła informacji </td>
 </tr>
 
 <tr>
@@ -345,7 +343,7 @@ Dane pogodowe obejmują obserwacje z stacji pogodowych portów lotniczych, obejm
 <tr>
   <td>Zestaw danych witryny Wikipedia SP 500</td>
   <td>
-Dane są wyprowadzane z witryny<a href="https://www.wikipedia.org/">https://www.wikipedia.org/</a>Wikipedia () na podstawie artykułów każdej usługi S&P 500 firmy, przechowywanej jako dane XML.
+Dane są wyprowadzane z witryny Wikipedia ( <a href="https://www.wikipedia.org/">https://www.wikipedia.org/</a> ) na podstawie artykułów każdej usługi S&P 500 firmy, przechowywanej jako dane XML.
 <p></p>
 Przed przekazaniem do Azure Machine Learning Studio (klasyczne) zestaw danych został przetworzony w następujący sposób:
 <ul>
@@ -393,7 +391,7 @@ Zestaw danych został pobrany i zapisany w usłudze Azure Blob Storage (<a href=
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2. temats. qrels. csv</a></td>
   <td>
-Przypisania tematu dotyczące artykułów z wiadomościami w zestawie danych RCV1-v2 Reuters News. Artykuł z wiadomościami można przypisać do kilku tematów. Każdy wiersz jest&lt;w formacie "tematu o nazwie&gt; &lt;dokumentu&gt; 1". Zestaw danych zawiera 2,6 M przypisań tematu. Zestaw danych został udostępniony przez David. D. Lewis przedstawiają.
+Przypisania tematu dotyczące artykułów z wiadomościami w zestawie danych RCV1-v2 Reuters News. Artykuł z wiadomościami można przypisać do kilku tematów. Każdy wiersz jest w formacie " &lt; tematu o nazwie &gt; &lt; dokumentu &gt; 1". Zestaw danych zawiera 2,6 M przypisań tematu. Zestaw danych został udostępniony przez David. D. Lewis przedstawiają.
   </td>
 </tr>
 

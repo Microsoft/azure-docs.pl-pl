@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 470cc8cc16c8bdb32bac32a7227690899abb9c51
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 291e81261f8841b3d4629b077f0a244f10aa1fd8
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83644670"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118571"
 ---
 # <a name="what-is-apache-spark-in-azure-synapse-analytics"></a>Co to jest Apache Spark w usłudze Azure Synapse Analytics
 
@@ -32,7 +32,7 @@ Apache Spark zapewnia elementy podstawowe do przetwarzania klastrów w pamięci.
 
 Pule Spark w usłudze Azure Synapse oferują w pełni zarządzaną usługę Spark. Zalety tworzenia puli platformy Spark w usłudze Synapse Analytics są wymienione tutaj.
 
-| Cechy | Opis |
+| Cecha | Opis |
 | --- | --- |
 | Szybkość i wydajność |Wystąpienia platformy Spark zaczynają się około 2 minut przez mniej niż 60 węzłów i około 5 minut przez więcej niż 60 węzłów. Wystąpienie jest zamykane, domyślnie 5 minut od ostatniego wykonanego zadania, chyba że jest ono utrzymywane przez połączenie notesu. |
 | Łatwość tworzenia |Nową pulę platformy Spark można utworzyć na platformie Azure Synapse w ciągu kilku minut, korzystając z zestawu SDK Azure Portal, Azure PowerShell lub Synapse Analytics. Zobacz Rozpoczynanie [pracy z pulami platformy Spark w Synapse Analytics](../quickstart-create-apache-spark-pool-studio.md). |
@@ -41,7 +41,7 @@ Pule Spark w usłudze Azure Synapse oferują w pełni zarządzaną usługę Spar
 | Obsługa Azure Data Lake Storage generacji 2| Pule Spark w usłudze Azure Synapse mogą Azure Data Lake Storage używać generacji 2 oraz magazynu obiektów BLOB. Aby uzyskać więcej informacji o usłudze Data Lake Storage, zobacz temat [Przegląd usługi Azure Data Lake Storage](../../data-lake-store/data-lake-store-overview.md). |
 | Integracja ze zintegrowanymi środowiskami projektowymi innych firm | Usługa Azure Synapse udostępnia wtyczkę IDE dla [JetBrains "IntelliJ"](https://www.jetbrains.com/idea/) , która jest przydatna do tworzenia i przesyłania aplikacji do puli platformy Spark. |
 | Wstępnie załadowane biblioteki Anaconda |Pule platformy Spark w usłudze Azure Synapse są dostarczane z preinstalowanymi bibliotekami Anaconda. Platforma [Anaconda](https://docs.continuum.io/anaconda/) dostarcza prawie 200 bibliotek do uczenia maszynowego, analizy danych, wizualizacji itp. |
-| Skalowalność | Apache Spark w pulach usługi Azure Synapse może mieć włączoną funkcję automatycznego skalowania, dzięki czemu pule są skalowane w górę i w dół odpowiednio do wymagań. Ponadto pule platformy Spark można wyłączyć bez utraty danych, ponieważ wszystkie dane są przechowywane w usłudze Azure Storage lub Data Lake Storage. |
+| Skalowalność | Apache Spark w pulach usługi Azure Synapse może mieć włączoną funkcję automatycznego skalowania, dzięki czemu pule są skalowane przez dodawanie lub usuwanie węzłów zgodnie z potrzebami. Ponadto pule platformy Spark można wyłączyć bez utraty danych, ponieważ wszystkie dane są przechowywane w usłudze Azure Storage lub Data Lake Storage. |
 
 Pule platformy Spark w usłudze Azure Synapse obejmują następujące składniki, które są domyślnie dostępne w pulach.
 

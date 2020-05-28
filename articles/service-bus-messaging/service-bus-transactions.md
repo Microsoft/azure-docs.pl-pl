@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 22744ecbced40b3195f4d047227b1e2a37228102
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f79d0e917ba741e72e2bbecd4a1f94a4c99e5393
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260906"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996061"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Przegląd Service Bus przetwarzania transakcji
 
@@ -36,8 +36,8 @@ Usługa Service Bus obsługuje grupowanie operacji względem jednej jednostki ob
 
 Operacje, które mogą być wykonywane w ramach zakresu transakcji są następujące:
 
-* ** [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**: Send, SendAsync, SendBatch, SendBatchAsync 
-* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**: Complete, CompleteAsync, Abandon, AbandonAsync, utracony, DeadletterAsync, Ustąp, DeferAsync, RenewLock, RenewLockAsync 
+* ** [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**: `Send` , `SendAsync` , `SendBatch` ,`SendBatchAsync`
+* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**:,,,,,,,, `Complete` `CompleteAsync` `Abandon` `AbandonAsync` `Deadletter` `DeadletterAsync` `Defer` `DeferAsync` `RenewLock` ,`RenewLockAsync` 
 
 Operacje odbioru nie są uwzględniane, ponieważ zakłada się, że aplikacja uzyskuje komunikaty przy użyciu trybu [ReceiveMode. PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode) w ramach niektórych pętli Receive lub wywołania zwrotnego [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) , a następnie otwiera zakres transakcji w celu przetworzenia komunikatu.
 
@@ -97,12 +97,15 @@ using (var ts = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
 }
 ```
 
+## <a name="timeout"></a>Limit czasu
+Transakcja zostanie przeprowadzona po upływie 2 minut. Czasomierz transakcji jest uruchamiany po rozpoczęciu pierwszej operacji w transakcji. 
+
 ## <a name="next-steps"></a>Następne kroki
 
 Więcej informacji o kolejkach Service Bus można znaleźć w następujących artykułach:
 
 * [Jak używać kolejek usługi Service Bus](service-bus-dotnet-get-started-with-queues.md)
-* [Łączenie Service Bus jednostek z autoprzekazywaniem](service-bus-auto-forwarding.md)
+* [Łączenie Service Bus jednostek z funkcją autoprzesyłania dalej](service-bus-auto-forwarding.md)
 * [Próbkowanie progresywne](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AutoForward)
 * [Transakcje niepodzielne z przykładem Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions)
 * [Porównanie kolejek platformy Azure i kolejek Service Bus](service-bus-azure-and-service-bus-queues-compared-contrasted.md)

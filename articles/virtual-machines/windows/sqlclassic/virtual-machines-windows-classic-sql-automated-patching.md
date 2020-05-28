@@ -15,17 +15,17 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: efc6d0c25c5186b391deb08ee0e41dcb8ae6edf0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3b977c0900178d64f202d4faa122f5d0ef90187c
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75978080"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014659"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Automatyczne stosowanie poprawek dla SQL Server na platformie Azure Virtual Machines (klasyczne)
 > [!div class="op_single_selector"]
-> * [Resource Manager](../sql/virtual-machines-windows-sql-automated-patching.md)
-> * [Wdrożenie klasyczne](../classic/sql-automated-patching.md)
+> * [Resource Manager](../../../azure-sql/virtual-machines/windows/automated-patching.md)
+> * [Klasyczny](../classic/sql-automated-patching.md)
 > 
 > 
 
@@ -37,7 +37,7 @@ Automatyczne stosowanie poprawek ustanawia okno konserwacji dla maszyny wirtualn
 Automatyczne stosowanie poprawek zależy od [rozszerzenia agenta IaaS w programie SQL Server](../classic/sql-server-agent-extension.md).
 
 > [!IMPORTANT] 
-> Platforma Azure ma dwa różne modele wdrażania służące do tworzenia zasobów i pracy z nimi: [Menedżer zasobów i klasyczne](../../../azure-resource-manager/management/deployment-models.md). W tym artykule opisano korzystanie z klasycznego modelu wdrażania. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager. Aby wyświetlić wersję Menedżer zasobów tego artykułu, zobacz [zautomatyzowane stosowanie poprawek dla SQL Server na platformie Azure Virtual Machines Menedżer zasobów](../sql/virtual-machines-windows-sql-automated-patching.md).
+> Platforma Azure ma dwa różne modele wdrażania służące do tworzenia zasobów i pracy z nimi: [Menedżer zasobów i klasyczne](../../../azure-resource-manager/management/deployment-models.md). W tym artykule opisano korzystanie z klasycznego modelu wdrażania. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager. Aby wyświetlić wersję Menedżer zasobów tego artykułu, zobacz [zautomatyzowane stosowanie poprawek dla SQL Server na platformie Azure Virtual Machines Menedżer zasobów](../../../azure-sql/virtual-machines/windows/automated-patching.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Aby używać zautomatyzowanej poprawki, należy wziąć pod uwagę następujące wymagania wstępne:
@@ -96,5 +96,5 @@ Aby wyłączyć automatyczne stosowanie poprawek, Uruchom ten sam skrypt bez par
 ## <a name="next-steps"></a>Następne kroki
 Aby uzyskać informacje o innych dostępnych zadaniach automatyzacji, zobacz [SQL Server rozszerzenia agenta IaaS](../classic/sql-server-agent-extension.md).
 
-Aby uzyskać więcej informacji na temat uruchamiania SQL Server na maszynach wirtualnych platformy Azure, zobacz [SQL Server na platformie Virtual Machines Azure — omówienie](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Aby uzyskać więcej informacji na temat uruchamiania SQL Server na maszynach wirtualnych platformy Azure, zobacz [SQL Server na platformie Virtual Machines Azure — omówienie](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).
 

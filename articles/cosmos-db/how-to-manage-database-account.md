@@ -3,15 +3,15 @@ title: Dowiedz się, jak zarządzać kontami bazy danych w usłudze Azure Cosmos
 description: Dowiedz się, jak zarządzać zasobami Azure Cosmos DB przy użyciu szablonów Azure Portal, PowerShell, interfejsu wiersza polecenia i Azure Resource Manager
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: mjbrown
-ms.openlocfilehash: 24eec27f0bc6357942420595a1318e3eb0945a5f
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: 76e8167a5d0dc83a5cc1b238d3015594278e344d
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82745029"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116707"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Zarządzanie kontem usługi Azure Cosmos
 
@@ -81,7 +81,7 @@ Zobacz [Włączanie regionów wielu zapisów przy użyciu programu PowerShell](m
 
 ### <a name="resource-manager-template"></a><a id="configure-multiple-write-regions-arm"></a>Szablon usługi Resource Manager
 
-Konto można migrować z jednego serwera głównego do wielu wzorców, wdrażając szablon Menedżer zasobów używany do tworzenia konta i ustawienia `enableMultipleWriteLocations: true`. Następujący szablon Azure Resource Manager jest nieminimalnym szablonem, który spowoduje wdrożenie konta Azure Cosmos dla interfejsu API SQL z dwoma regionami i włączenie wielu lokalizacji zapisu.
+Konto można migrować z jednego serwera głównego do wielu wzorców, wdrażając szablon Menedżer zasobów używany do tworzenia konta i ustawienia `enableMultipleWriteLocations: true` . Następujący szablon Azure Resource Manager jest nieminimalnym szablonem, który spowoduje wdrożenie konta Azure Cosmos dla interfejsu API SQL z dwoma regionami i włączenie wielu lokalizacji zapisu.
 
 ```json
 {

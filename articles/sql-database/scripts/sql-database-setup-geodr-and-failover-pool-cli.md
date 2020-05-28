@@ -1,22 +1,22 @@
 ---
-title: Przykład interfejsu wiersza polecenia — aktywna replikacja geograficzna w puli Azure SQL Database
+title: 'AZ CLI: Konfigurowanie aktywnej replikacji geograficznej dla puli elastycznej'
 description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure służący do konfigurowania aktywnej replikacji geograficznej dla bazy danych w puli w Azure SQL Database i przełączania jej w tryb failover.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: ''
+ms.custom: sqldbrb=1
 ms.devlang: azurecli
 ms.topic: sample
 author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 2646ed98f4a73c69d339df0134e8a565c958c514
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a272564684671e38100e5390e95129121fcbd0f8
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80067357"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019387"
 ---
 # <a name="use-cli-to-configure-active-geo-replication-for-a-pooled-database-in-azure-sql-database"></a>Użyj interfejsu wiersza polecenia, aby skonfigurować aktywną replikację geograficzną dla bazy danych w puli w Azure SQL Database
 
@@ -62,4 +62,4 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 
 Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure).
 
-Więcej przykładowych skryptów interfejsu wiersza polecenia dla usługi SQL Database można znaleźć w [dokumentacji usługi Azure SQL Database](../sql-database-cli-samples.md).
+Więcej przykładowych skryptów interfejsu wiersza polecenia dla usługi SQL Database można znaleźć w [dokumentacji usługi Azure SQL Database](../../azure-sql/database/az-cli-script-samples-content-guide.md).

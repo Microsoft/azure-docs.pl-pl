@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: martinco
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 86b858b628dc2ed9eac730d4c3f090f4d7d6c7e2
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 66a5bceb5b59c0e1b14577176cfed933e4503f31
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593305"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014438"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planowanie aplikacji w chmurze w celu Azure Active Directory aprowizacji użytkowników
 
@@ -52,7 +52,7 @@ Integracja aplikacji w chmurze z obsługą administracyjną użytkowników w us�
 - Wymagaj synchronizacji, przeniesienia i opuszczenia użytkowników do co najmniej jednego Active Directory lasów, domen i jednostek organizacyjnych na podstawie informacji o zmianach wykrytych w aplikacji w chmurze.
 - Użyj pakietu Office 365 do obsługi poczty e-mail.
 
-## <a name="learn"></a>Learn
+## <a name="learn"></a>Informacje
 
 Inicjowanie obsługi użytkowników tworzy podstawę do ciągłego zarządzania tożsamościami. Zwiększa ono jakość procesów biznesowych, które opierają się na autorytatywnych danych tożsamości.
 
@@ -81,10 +81,11 @@ Potrzebna jest również ważna licencja subskrypcyjna na Azure AD — wersja Pr
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-- Dostęp administratora globalnego usługi Azure AD w celu skonfigurowania agenta aprowizacji Azure AD Connect.
+- [Administrator tożsamości hybrydowej](../users-groups-roles/directory-assign-admin-roles.md#hybrid-identity-administrator) usługi Azure AD w celu skonfigurowania agenta aprowizacji Azure AD Connect.
+- Rola [administratora aplikacji](../users-groups-roles/directory-assign-admin-roles.md#application-administrator) usługi Azure AD w celu skonfigurowania aplikacji do aprowizacji w Azure Portal
 - Wystąpienie testowe i produkcyjne aplikacji w chmurze.
 - Uprawnienia administratora w aplikacji KADRowej w chmurze umożliwiającej tworzenie użytkownika integracji systemu i wprowadzanie zmian w celu przetestowania danych pracownika na potrzeby testowania.
-- W celu aprowizacji użytkowników do Active Directory, serwer z systemem Windows Server 2012 lub nowszym z programem .NET 4.7.1 + Runtime jest wymagany do hostowania [agenta aprowizacji Azure AD Connect](https://go.microsoft.com/fwlink/?linkid=847801).
+- W celu aprowizacji użytkowników do Active Directory, na serwerze z systemem Windows Server 2012 lub nowszym z programem .NET 4.7.1 + Runtime wymagany jest hostowanie agenta aprowizacji Azure AD Connect
 - [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) synchronizowania użytkowników między Active Directory i Azure AD.
 
 ### <a name="training-resources"></a>Zasoby szkoleniowe
@@ -248,7 +249,7 @@ Domyślnie atrybut w aplikacji KADRowej w chmurze reprezentujący unikatowy iden
 
 Można ustawić wiele pasujących atrybutów i przypisać priorytet pasujący. Są one oceniane w oparciu o pasujące pierwszeństwo. Po znalezieniu dopasowania nie są oceniane żadne dalsze pasujące atrybuty.
 
-Można również [dostosować domyślne mapowania atrybutów](../app-provisioning/customize-application-attributes.md#understanding-attribute-mapping-types), takie jak zmiana lub usuwanie istniejących mapowań atrybutów. Można również tworzyć nowe mapowania atrybutów zgodnie z potrzebami biznesowymi. Aby uzyskać więcej informacji, zobacz Samouczek dotyczący aplikacji Cloud Kadr (na przykład [Workday](../saas-apps/workday-inbound-tutorial.md#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)), aby zapoznać się z listą atrybutów niestandardowych, które mają być mapowane.
+Można również [dostosować domyślne mapowania atrybutów](../app-provisioning/customize-application-attributes.md#understanding-attribute-mapping-types), takie jak zmiana lub usuwanie istniejących mapowań atrybutów. Można również tworzyć nowe mapowania atrybutów zgodnie z potrzebami biznesowymi. Aby uzyskać więcej informacji, zobacz Samouczek dotyczący aplikacji Cloud Kadr (na przykład [Workday](../saas-apps/workday-inbound-tutorial.md#managing-your-configuration)), aby zapoznać się z listą atrybutów niestandardowych, które mają być mapowane.
 
 ### <a name="determine-user-account-status"></a>Określanie stanu konta użytkownika
 
@@ -285,7 +286,7 @@ Po zainicjowaniu procesu joins-Interleavers należy zebrać poniższe wymagania.
 | | Jakie daty efektywne są brane pod uwagę w przypadku przetwarzania zakończenia użytkownika? |
 | | Jak pracownicy i warunkowe konwersje procesów roboczych wpływają na istniejące Active Directory konta? |
 
-W zależności od wymagań można zmodyfikować mapowania, aby spełniały cele integracji. Aby uzyskać więcej informacji, zobacz Samouczek dotyczący konkretnej aplikacji w chmurze (na przykład [Workday](../saas-apps/workday-inbound-tutorial.md#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)), aby zapoznać się z listą atrybutów niestandardowych, które mają być mapowane.
+W zależności od wymagań można zmodyfikować mapowania, aby spełniały cele integracji. Aby uzyskać więcej informacji, zobacz Samouczek dotyczący konkretnej aplikacji w chmurze (na przykład [Workday](../saas-apps/workday-inbound-tutorial.md#part-4-configure-attribute-mappings)), aby zapoznać się z listą atrybutów niestandardowych, które mają być mapowane.
 
 ### <a name="generate-a-unique-attribute-value"></a>Generuj unikatową wartość atrybutu
 
@@ -365,7 +366,9 @@ Implementacja inicjowania obsługi administracyjnej użytkowników w chmurze mo�
 
 Wybierz aplikację kadr w chmurze, która jest wyrównana do wymagań dotyczących rozwiązania.
 
-**Workday**: Aby zaimportować profile procesów roboczych z produktu Workday do Active Directory i usługi Azure AD, zobacz [Samouczek: Konfigurowanie produktu Workday do automatycznego aprowizacji użytkowników](../saas-apps/workday-inbound-tutorial.md#planning-your-deployment). Opcjonalnie możesz napisać adres e-mail i nazwę użytkownika w usłudze Workday.
+**Workday**: Aby zaimportować profile procesów roboczych z produktu Workday do Active Directory i usługi Azure AD, zobacz [Samouczek: Konfigurowanie produktu Workday do automatycznego aprowizacji użytkowników](../saas-apps/workday-inbound-tutorial.md#planning-your-deployment). Opcjonalnie możesz napisać adres e-mail, nazwę użytkownika i numer telefonu do dnia roboczego.
+
+**SAP SuccessFactors**: Aby zaimportować profile procesów roboczych z usługi SuccessFactors do Active Directory i Azure AD, zobacz [Samouczek: Konfigurowanie SAP SuccessFactors dla automatycznej aprowizacji użytkowników](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md). Opcjonalnie możesz napisać adres e-mail i nazwę użytkownika do SuccessFactors.
 
 ## <a name="manage-your-configuration"></a>Zarządzanie konfiguracją
 

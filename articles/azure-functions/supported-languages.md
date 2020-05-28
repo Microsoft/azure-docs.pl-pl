@@ -1,26 +1,25 @@
 ---
 title: Obsługiwane języki w Azure Functions
-description: Dowiedz się, które języki są obsługiwane (GA) i które są eksperymentalne lub dostępne w wersji zapoznawczej.
+description: Dowiedz się, które języki są obsługiwane (wersja zapoznawcza) i które są dostępne w wersji zapoznawczej oraz jak można rozciągnąć programowanie funkcji do innych języków.
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: 029ea753439dca3093bf214a5adfb6d58a1fe567
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 91a6ea886c3828678771b24d69bb7987af1fb105
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74942260"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994905"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Obsługiwane języki w Azure Functions
 
-W tym artykule opisano poziomy pomocy technicznej oferowane w przypadku języków, których można używać z programem Azure Functions.
+W tym artykule opisano poziomy pomocy technicznej oferowane w przypadku języków, których można używać z programem Azure Functions. Opisano w nim również strategie tworzenia funkcji wykorzystujących Języki, które nie są natywnie obsługiwane.
 
 ## <a name="levels-of-support"></a>Poziomy pomocy technicznej
 
-Istnieją trzy poziomy pomocy technicznej:
+Istnieją dwa poziomy wsparcia:
 
 * **Ogólnie dostępna (ga)** — w pełni obsługiwana i zatwierdzona do użycia w środowisku produkcyjnym.
 * **Wersja zapoznawcza** — nie jest jeszcze obsługiwana, ale oczekuje się, że w przyszłości zostanie osiągnięty stan ga.
-* **Eksperymentalny** — nieobsługiwany i może zostać porzucony w przyszłości; Brak gwarancji dotyczącej wersji zapoznawczej lub stanu GA.
 
 ## <a name="languages-by-runtime-version"></a>Języki według wersji środowiska uruchomieniowego 
 
@@ -28,15 +27,11 @@ Dostępne są [trzy wersje środowiska uruchomieniowego Azure Functions](functio
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
-### <a name="experimental-languages"></a>Języki eksperymentalne
+## <a name="custom-handlers-preview"></a>Niestandardowe programy obsługi (wersja zapoznawcza) 
 
-Języki eksperymentalne w wersji 1. x nie są dobrze skalowane i nie obsługują wszystkich powiązań.
+Niestandardowe programy obsługi to lekkie serwery sieci Web, które odbierają zdarzenia z hosta Azure Functions. Każdy język, który obsługuje elementy podstawowe HTTP, może zaimplementować obsługę niestandardową. Oznacza to, że niestandardowe programy obsługi mogą służyć do tworzenia funkcji w językach, które nie są oficjalnie obsługiwane. Aby dowiedzieć się więcej, zobacz [Azure Functions obsługi niestandardowych (wersja zapoznawcza)](functions-custom-handlers.md).
 
-Nie używaj eksperymentalnych funkcji dla wszystkich elementów, na których polegasz, ponieważ nie ma oficjalnego wsparcia dla nich. Nie należy otwierać przypadków pomocy technicznej w przypadku problemów z językiem eksperymentalnym. 
-
-Nowsze wersje środowiska uruchomieniowego nie obsługują języków eksperymentalnych. Obsługa nowych języków jest dodawana tylko wtedy, gdy język może być obsługiwany w środowisku produkcyjnym. 
-
-### <a name="language-extensibility"></a>Rozszerzalność języka
+## <a name="language-extensibility"></a>Rozszerzalność języka
 
 Począwszy od wersji 2. x, środowisko uruchomieniowe zostało zaprojektowane, aby oferować [rozszerzalność języka](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). Języki JavaScript i Java w środowisku uruchomieniowym 2. x zostały skompilowane przy użyciu tej rozszerzalności.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 622a527d8aae7991edd7cae7da953ec7dd8afa4e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: d583c25afc5c328ef64a8c931e4209f0d88a14a9
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83696508"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84124307"
 ---
 | Kategoria | Magazyn danych |
 |:--- |:--- |
@@ -27,7 +27,7 @@ ms.locfileid: "83696508"
 | &nbsp; |[Azure Database for PostgreSQL](../articles/data-factory/connector-azure-database-for-postgresql.md) |
 | &nbsp; |[Azure Files](../articles/data-factory/connector-azure-file-storage.md) |
 | &nbsp; |[Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) |
-| &nbsp; |[Wystąpienie zarządzane usługi Azure SQL Database](../articles/data-factory/connector-azure-sql-database-managed-instance.md) |
+| &nbsp; |[Wystąpienie zarządzane Azure SQL](../articles/azure-sql/managed-instance/sql-managed-instance-paas-overview.md) |
 | &nbsp; |[Azure Synapse Analytics (dawniej Azure SQL Data Warehouse)](../articles/data-factory/connector-azure-sql-data-warehouse.md) |
 | &nbsp; |[Azure Table Storage](../articles/data-factory/connector-azure-table-storage.md) |
 | **Database** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |
@@ -83,7 +83,7 @@ ms.locfileid: "83696508"
 | &nbsp; |[Oracle Service Cloud (wersja zapoznawcza)](../articles/data-factory/connector-oracle-service-cloud.md) |
 | &nbsp; |[PayPal (wersja zapoznawcza)](../articles/data-factory/connector-paypal.md) |
 | &nbsp; |[QuickBooks (wersja zapoznawcza)](../articles/data-factory/connector-quickbooks.md) |
-| &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |
+| &nbsp; |[SalesForce](../articles/data-factory/connector-salesforce.md) |
 | &nbsp; |[Salesforce Service Cloud](../articles/data-factory/connector-salesforce-service-cloud.md) |
 | &nbsp; |[Salesforce Marketing Cloud](../articles/data-factory/connector-salesforce-marketing-cloud.md) |
 | &nbsp; |[SAP Cloud for Customer (C4C)](../articles/data-factory/connector-sap-cloud-for-customer.md) |

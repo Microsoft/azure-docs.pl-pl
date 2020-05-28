@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 02/08/2020
 ms.author: victorh
-ms.openlocfilehash: e3738da806ff36cdb7e8d561b88a457a5264eb76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7ab4b60747509dfe56ec2e89b38986de747dab69
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80886929"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014540"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Tworzenie zasad zapory aplikacji sieci Web dla Application Gateway
 
@@ -63,13 +63,13 @@ W przypadku tworzenia zasad WAF domyślnie jest on w trybie *wykrywania* . W try
 
 Reguły OWASP zarządzane przez platformę Azure są domyślnie włączone. Aby wyłączyć pojedynczą regułę w grupie reguł, rozwiń reguły w tej grupie reguł, zaznacz pole wyboru przed numerem reguły, a następnie na karcie powyżej wybierz pozycję **Wyłącz** .
 
-[![Zarządzane reguły](../media/create-waf-policy-ag/managed-rules.png)](../media/create-waf-policy-ag/managed-rules-lrg.png#lightbox)
+[![Zarządzane reguły ](../media/create-waf-policy-ag/managed-rules.png)](../media/create-waf-policy-ag/managed-rules-lrg.png#lightbox)
 
 ## <a name="custom-rules"></a>Reguły niestandardowe
 
 Aby utworzyć regułę niestandardową, wybierz pozycję **Dodaj regułę** niestandardową na karcie **reguły niestandardowe** . Spowoduje to otwarcie strony Konfiguracja reguły niestandardowej. Poniższy zrzut ekranu przedstawia przykład niestandardowej reguły skonfigurowanej do blokowania żądania, jeśli ciąg zapytania zawiera tekst *blockme*.
 
-[![Edytuj regułę](../media/create-waf-policy-ag/edit-custom-rule.png) niestandardową](../media/create-waf-policy-ag/edit-custom-rule-lrg.png#lightbox)
+[![Edytuj regułę ](../media/create-waf-policy-ag/edit-custom-rule.png) niestandardową](../media/create-waf-policy-ag/edit-custom-rule-lrg.png#lightbox)
 
 ## <a name="migrate-your-waf-config-to-a-waf-policy"></a><a name="migrate"></a>Migrowanie konfiguracji WAF do zasad WAF
 
@@ -81,7 +81,7 @@ Jeśli masz już istniejącą WAF, być może zauważono pewne zmiany w portalu.
 
 Możesz określić, który stan WAF, przeglądając go w portalu. Jeśli ustawienia WAF są widoczne i można je zmienić z poziomu widoku Application Gateway, WAF jest w stanie 1.
 
-[![Konfiguracja](../media/create-waf-policy-ag/waf-configure.png) WAF](../media/create-waf-policy-ag/waf-configure-lrg.png#lightbox)
+[![Konfiguracja ](../media/create-waf-policy-ag/waf-configure.png) WAF](../media/create-waf-policy-ag/waf-configure-lrg.png#lightbox)
 
 W przypadku wybrania **zapory aplikacji sieci Web** , która zawiera skojarzone zasady, WAF jest w stanie 2 lub 3. Po przejściu do zasad, jeśli są wyświetlane **tylko** reguły niestandardowe i skojarzone bramy aplikacji, są to zasady dotyczące tylko reguł niestandardowych.
 
@@ -97,9 +97,20 @@ Jeśli masz zasady niestandardowe tylko dla zasad WAFymi, możesz chcieć przej�
 
 Zmiany tylko do reguły niestandardowej WAF zasady są wyłączone. Aby edytować wszystkie ustawienia WAF, takie jak wyłączanie reguł, Dodawanie wykluczeń itp., należy przeprowadzić migrację do nowego zasobu zasad zapory najwyższego poziomu.
 
-Aby to zrobić, Utwórz *zasady zapory aplikacji sieci Web* i skojarz je z wybranymi Application Gateway i odbiornikami. Te nowe zasady **muszą** być dokładnie takie same, jak Bieżąca konfiguracja WAF, co oznacza, że każda reguła niestandardowa, wykluczanie, reguła wyłączona itp. musi zostać skopiowana do nowo tworzonych zasad. Po skojarzeniu zasad z Application Gateway można nadal wprowadzać zmiany w regułach i ustawieniach WAF. Można to również zrobić przy użyciu Azure PowerShell. Aby uzyskać więcej informacji, zobacz [kojarzenie zasad WAF z istniejącym Application Gateway](associate-waf-policy-existing-gateway.md).
+Aby to zrobić, Utwórz *zasady zapory aplikacji sieci Web* i skojarz je z wybranymi Application Gateway i odbiornikami. Te nowe zasady muszą być dokładnie takie same, jak Bieżąca konfiguracja WAF, co oznacza, że każda reguła niestandardowa, wykluczanie, reguła wyłączona itp. musi zostać skopiowana do nowo tworzonych zasad. Po skojarzeniu zasad z Application Gateway można nadal wprowadzać zmiany w regułach i ustawieniach WAF. Można to również zrobić przy użyciu Azure PowerShell. Aby uzyskać więcej informacji, zobacz [kojarzenie zasad WAF z istniejącym Application Gateway](associate-waf-policy-existing-gateway.md).
 
 Opcjonalnie możesz użyć skryptu migracji, aby przeprowadzić migrację do zasad WAFymi. Aby uzyskać więcej informacji, zobacz [Migrowanie zasad zapory aplikacji sieci Web przy użyciu Azure PowerShell](migrate-policy.md).
+
+## <a name="force-mode"></a>Tryb wymuszania
+
+Jeśli nie chcesz kopiować wszystkiego do zasad, które są dokładnie takie same jak w przypadku bieżącej konfiguracji, możesz ustawić WAF w tryb "Wymuś". Uruchom następujący kod Azure PowerShell, a WAF będzie w trybie wymuszania. Następnie można skojarzyć wszystkie zasady WAF z WAF, nawet jeśli nie ma dokładnie tych samych ustawień co konfiguracja. 
+
+```azurepowershell-interactive
+$appgw = Get-AzApplicationGateway -Name <your Application Gateway name> -ResourceGroupName <your Resource Group name>
+$appgw.ForceFirewallPolicyAssociation = $true
+```
+
+Następnie procees się z procedurami kojarzenia zasad WAF z bramą aplikacji. Aby uzyskać więcej informacji, zobacz [kojarzenie zasad WAF z istniejącym Application Gateway.](associate-waf-policy-existing-gateway.md)
 
 ## <a name="next-steps"></a>Następne kroki
 

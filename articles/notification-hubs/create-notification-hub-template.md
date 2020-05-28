@@ -10,20 +10,20 @@ ms.author: sethm
 ms.date: 05/15/2020
 ms.reviewer: thsomasu
 ms.lastreviewed: 05/15/2020
-ms.openlocfilehash: aefccb831fe35898962893a173c5bd1125877def
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: ede6b8ae22fb51a9586c6c4465d2cf9ac79f88df
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743526"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996673"
 ---
 # <a name="quickstart-create-a-notification-hub-using-an-azure-resource-manager-template"></a>Szybki Start: tworzenie centrum powiadomień przy użyciu szablonu Azure Resource Manager
 
 Usługa Azure Notification Hubs oferuje łatwy w użyciu i skalowany aparat wypychania, który umożliwia wysyłanie powiadomień do dowolnej platformy (iOS, Android, Windows, Kindle itp.) z dowolnego zaplecza (w chmurze lub lokalnie). Aby uzyskać więcej informacji o usłudze, zobacz artykuł [co to jest usługa Azure Notification Hubs](notification-hubs-push-notification-overview.md).
 
-Ten przewodnik Szybki Start używa szablonu Azure Resource Manager do utworzenia przestrzeni nazw platformy Azure Notification Hubs i centrum powiadomień o nazwie "MyHub" w tej przestrzeni nazw.
-
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Ten przewodnik Szybki Start używa szablonu Azure Resource Manager do utworzenia przestrzeni nazw platformy Azure Notification Hubs i centrum powiadomień o nazwie **MyHub** w tej przestrzeni nazw.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
@@ -32,8 +32,6 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 Brak.
 
 ## <a name="create-a-notification-hubs-namespace-and-hub"></a>Tworzenie Notification Hubs przestrzeni nazw i centrum
-
-<!-- The second H2 must start with "Create a". For example,  'Create a Key Vault', 'Create a virtual machine', etc. -->
 
 ### <a name="review-the-template"></a>Zapoznaj się z szablonem
 
@@ -48,7 +46,7 @@ Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego
 
 Wybierz poniższy obraz, aby zalogować się na platformie Azure i otworzyć szablon. Szablon przyjmuje nazwę przestrzeni nazw Notification Hubs jako parametr. Następnie szablon tworzy przestrzeń nazw o tej nazwie i centrum powiadomień o nazwie **MyHub** w tej przestrzeni nazw.
 
-[![Wdróż na platformie Azure](./media/create-notification-hub-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-notification-hub%2Fazuredeploy.json)
+[![Wdróż na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-notification-hub%2Fazuredeploy.json)
 
 ## <a name="review-deployed-resources"></a>Przejrzyj wdrożone zasoby
 

@@ -10,16 +10,14 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 6fd8573c78d80c950bdeb41ec01e2835def3979a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 09026d7f2aeb25f9a7c4a3c31c4f8d0b4cdb223a
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79204260"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117832"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>Samouczek 1: przewidywanie ryzyka kredytowego — Azure Machine Learning Studio (klasyczny)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
@@ -58,7 +56,7 @@ Aby użyć Machine Learning Studio (klasyczny), musisz mieć obszar roboczy Micr
 
 Aby utworzyć obszar roboczy, zobacz temat [Tworzenie i udostępnianie obszaru roboczego Azure Machine Learning Studio (klasycznego)](create-workspace.md).
 
-Po utworzeniu obszaru roboczego Otwórz Machine Learning Studio (klasyczny) ([https://studio.azureml.net/Home](https://studio.azureml.net/Home)). Jeśli masz więcej niż jeden obszar roboczy, możesz wybrać odpowiedni obszar roboczy na pasku narzędzi w prawym górnym rogu okna.
+Po utworzeniu obszaru roboczego Otwórz Machine Learning Studio (klasyczny) ( [https://studio.azureml.net/Home](https://studio.azureml.net/Home) ). Jeśli masz więcej niż jeden obszar roboczy, możesz wybrać odpowiedni obszar roboczy na pasku narzędzi w prawym górnym rogu okna.
 
 ![Wybieranie obszaru roboczego w programie Studio (klasyczny)](./media/tutorial-part1-credit-risk/open-workspace.png)
 
@@ -113,7 +111,7 @@ W obu przypadkach zostanie utworzona rozdzielana przecinkami wersja danych w pli
 
 Gdy dane zostaną przekonwertowane do formatu CSV, należy przekazać je do Machine Learning Studio (klasyczne). 
 
-1. Otwórz stronę główną Machine Learning Studio ([https://studio.azureml.net](https://studio.azureml.net)). 
+1. Otwórz stronę główną Machine Learning Studio ( [https://studio.azureml.net](https://studio.azureml.net) ). 
 
 2. Kliknij menu ![Menu](./media/tutorial-part1-credit-risk/menu.png) w lewym górnym rogu okna, kliknij pozycję **Azure Machine Learning**, wybierz pozycję **Studio** i zaloguj się.
 
@@ -288,7 +286,7 @@ Nasz eksperyment wygląda teraz mniej więcej tak:
 Aby uzyskać więcej informacji na temat używania skryptów języka R w eksperymentach, zobacz [Rozszerzanie eksperymentu przy użyciu języka R](extend-your-experiment-with-r.md).
 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 [!INCLUDE [machine-learning-studio-clean-up](../../../includes/machine-learning-studio-clean-up.md)]
 

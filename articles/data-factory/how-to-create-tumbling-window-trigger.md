@@ -11,19 +11,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: ed7b01fb83ebd0c494f3f0f06a28dbf4e98c0b2d
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 964190108bb53a349fa1cb1301e2a554c1e32b26
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82592085"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996690"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>Tworzenie wyzwalacza uruchamiającego potok w oknie wirowania
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Ten artykuł zawiera instrukcje dotyczące tworzenia, uruchamiania i monitorowania wyzwalacza okna wirowania. Aby uzyskać ogólne informacje o wyzwalaczach i obsługiwanych typach, zobacz temat [wykonywanie i wyzwalacze potoku](concepts-pipeline-execution-triggers.md).
 
-Wyzwalacze okna wirowania to rodzaj wyzwalaczy uruchamianych w określonych odstępach czasu od wskazanego czasu rozpoczęcia przy zachowaniu stanu. Okna wirowania to ciągłe, nienakładające się na siebie serie odstępów czasu o stałych rozmiarach. Wyzwalacz okna wirowania ma relację jeden do jednego z potokiem i może odwoływać się tylko do pojedynczego potoku.
+Wyzwalacze okna wirowania to rodzaj wyzwalaczy uruchamianych w określonych odstępach czasu od wskazanego czasu rozpoczęcia przy zachowaniu stanu. Okna wirowania to ciągłe, nienakładające się na siebie serie odstępów czasu o stałych rozmiarach. Wyzwalacz okna wirowania ma relację jeden do jednego z potokiem i może odwoływać się tylko do pojedynczego potoku. Wyzwalacz okna wirowania jest bardziej silną alternatywą dla wyzwalacza harmonogramu oferującego zestaw funkcji dla złożonych scenariuszy ([zależność od innych wyzwalaczy okna wirowania](#tumbling-window-trigger-dependency), ponowne [uruchomienie zadania zakończonego niepowodzeniem](tumbling-window-trigger-dependency.md#monitor-dependencies) i [Ustawianie ponowień użytkownika dla potoków](#user-assigned-retries-of-pipelines)). Aby dowiedzieć się więcej o różnicach między wyzwalaczem harmonogramu i wyzwalaczem okna wirowania, odwiedź to [tutaj](concepts-pipeline-execution-triggers.md#trigger-type-comparison).
 
 ## <a name="data-factory-ui"></a>Interfejs użytkownika usługi Data Factory
 
@@ -94,19 +94,19 @@ Okno wirowania ma następujące właściwości typu wyzwalacza:
 
 Poniższa tabela zawiera ogólne omówienie głównych elementów JSON, które są związane z cyklem i harmonogramem wyzwalacza okna wirowania:
 
-| Element JSON | Opis | Typ | Dozwolone wartości | Wymagany |
+| Element JSON | Opis | Typ | Dozwolone wartości | Wymagane |
 |:--- |:--- |:--- |:--- |:--- |
-| **Wprowadź** | Typ wyzwalacza. Typ to stała wartość "TumblingWindowTrigger". | String | "TumblingWindowTrigger" | Tak |
-| **runtimeState** | Bieżący stan czasu uruchomienia wyzwalacza.<br/>**Uwaga**: ten element jest \<tylko do odczytu>. | String | "Uruchomiona", "zatrzymana", "wyłączona" | Tak |
-| **jaką** | Ciąg, który reprezentuje jednostkę częstotliwości (minuty lub godziny), przy której wyzwalacz powtarza się. Jeśli wartości daty **rozpoczęcia** są bardziej szczegółowe niż wartość **częstotliwości** , daty **rozpoczęcia** są brane pod uwagę podczas obliczania granic okna. Na przykład jeśli wartość **częstotliwości** wynosi co godzinę, a wartość **StartTime** to 2017-09-01T10:10:10Z, pierwsze okno to (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | String | "minuta", "godzina"  | Tak |
-| **dat** | Dodatnia liczba całkowita oznaczająca interwał wartości właściwości **frequency**, która określa częstotliwość uruchamiania wyzwalacza. Jeśli na przykład **Interwał** wynosi 3, a **częstotliwość** to "godzina", wyzwalacz powtarza się co 3 godziny. <br/>**Uwaga**: minimalny interwał okna to 5 minut. | Liczba całkowita | Dodatnia liczba całkowita. | Tak |
-| **startTime**| Pierwsze wystąpienie, które może znajdować się w przeszłości. Pierwszy interwał wyzwalacza to (**StartTime**, **startTime** + **Interwał**StartTime). | DateTime | Wartość daty i godziny. | Tak |
-| **endTime**| Ostatnie wystąpienie, które może znajdować się w przeszłości. | DateTime | Wartość daty i godziny. | Tak |
+| **Wprowadź** | Typ wyzwalacza. Typ to stała wartość "TumblingWindowTrigger". | String (ciąg) | "TumblingWindowTrigger" | Yes |
+| **runtimeState** | Bieżący stan czasu uruchomienia wyzwalacza.<br/>**Uwaga**: ten element to \<readOnly> . | String (ciąg) | "Uruchomiona", "zatrzymana", "wyłączona" | Yes |
+| **jaką** | Ciąg, który reprezentuje jednostkę częstotliwości (minuty lub godziny), przy której wyzwalacz powtarza się. Jeśli wartości daty **rozpoczęcia** są bardziej szczegółowe niż wartość **częstotliwości** , daty **rozpoczęcia** są brane pod uwagę podczas obliczania granic okna. Na przykład jeśli wartość **częstotliwości** wynosi co godzinę, a wartość **StartTime** to 2017-09-01T10:10:10Z, pierwsze okno to (2017-09-01T10:10:10Z, 2017-09-01T11:10:10Z). | String (ciąg) | "minuta", "godzina"  | Yes |
+| **dat** | Dodatnia liczba całkowita oznaczająca interwał wartości właściwości **frequency**, która określa częstotliwość uruchamiania wyzwalacza. Jeśli na przykład **Interwał** wynosi 3, a **częstotliwość** to "godzina", wyzwalacz powtarza się co 3 godziny. <br/>**Uwaga**: minimalny interwał okna to 5 minut. | Liczba całkowita | Dodatnia liczba całkowita. | Yes |
+| **startTime**| Pierwsze wystąpienie, które może znajdować się w przeszłości. Pierwszy interwał wyzwalacza to (**StartTime**, **startTime**  +  **Interwał**StartTime). | Data/godzina | Wartość daty i godziny. | Yes |
+| **endTime**| Ostatnie wystąpienie, które może znajdować się w przeszłości. | Data/godzina | Wartość daty i godziny. | Yes |
 | **opóźnienie** | Czas opóźnienia rozpoczęcia przetwarzania danych w oknie. Uruchomienie potoku jest uruchamiane po upływie oczekiwanego czasu wykonania i ilości **opóźnienia**. **Opóźnienie** określa, jak długo wyzwalacz czeka poza czas oczekiwania przed wyzwoleniem nowego uruchomienia. **Opóźnienie** nie zmienia okna **StartTime**. Na przykład wartość **opóźnienia** 00:10:00 oznacza opóźnienie wynoszące 10 minut. | Zakres czasu<br/>(hh: mm: SS)  | Wartość TimeSpan, której wartością domyślną jest 00:00:00. | Nie |
-| **maxConcurrency** | Liczba równoczesnych uruchomień wyzwalaczy, które są teraz uruchamiane dla systemu Windows. Na przykład, aby wypełniać z powrotem przebiegi godzinowe dla wczoraj wyniki w 24 Windows. Jeśli **maxConcurrency** = 10, zdarzenia wyzwalania są uruchamiane tylko dla pierwszych 10 okien (00:00-01:00-09:00-10:00). Po ukończeniu pierwszych 10 wyzwolonych uruchomień potoków uruchomienia wyzwalacza są generowane dla następnych 10 okien (10:00-11:00-19:00-20:00). Kontynuując ten przykład **maxConcurrency** = 10, jeśli jest 10 gotowych do użycia systemu Windows, istnieje 10 całkowitej liczby uruchomień potoku. Jeśli istnieje tylko jedno okno z gotowością, istnieje tylko jedno uruchomienie potoku. | Liczba całkowita | Liczba całkowita z zakresu od 1 do 50. | Tak |
+| **maxConcurrency** | Liczba równoczesnych uruchomień wyzwalaczy, które są teraz uruchamiane dla systemu Windows. Na przykład, aby wypełniać z powrotem przebiegi godzinowe dla wczoraj wyniki w 24 Windows. Jeśli **maxConcurrency** = 10, zdarzenia wyzwalania są uruchamiane tylko dla pierwszych 10 okien (00:00-01:00-09:00-10:00). Po ukończeniu pierwszych 10 wyzwolonych uruchomień potoków uruchomienia wyzwalacza są generowane dla następnych 10 okien (10:00-11:00-19:00-20:00). Kontynuując ten przykład **maxConcurrency** = 10, jeśli jest 10 gotowych do użycia systemu Windows, istnieje 10 całkowitej liczby uruchomień potoku. Jeśli istnieje tylko jedno okno z gotowością, istnieje tylko jedno uruchomienie potoku. | Liczba całkowita | Liczba całkowita z zakresu od 1 do 50. | Yes |
 | **retryPolicy: Count** | Liczba ponownych prób zanim uruchomienie potoku zostanie oznaczone jako "Niepowodzenie".  | Liczba całkowita | Liczba całkowita, gdzie wartość domyślna to 0 (brak ponownych prób). | Nie |
 | **retryPolicy: intervalInSeconds** | Opóźnienie między ponownymi próbami określonymi w sekundach. | Liczba całkowita | Liczba sekund, w których wartość domyślna to 30. | Nie |
-| **dependsOn: typ** | Typ TumblingWindowTriggerReference. Wymagane, jeśli określono zależność. | String |  "TumblingWindowTriggerDependencyReference", "SelfDependencyTumblingWindowTriggerReference" | Nie |
+| **dependsOn: typ** | Typ TumblingWindowTriggerReference. Wymagane, jeśli określono zależność. | String (ciąg) |  "TumblingWindowTriggerDependencyReference", "SelfDependencyTumblingWindowTriggerReference" | Nie |
 | **dependsOn: rozmiar** | Rozmiar okna wirowania zależności. | Zakres czasu<br/>(hh: mm: SS)  | Dodatnia wartość TimeSpan, w której domyślnym rozmiarem okna wyzwalacza podrzędnego  | Nie |
 | **dependsOn: przesunięcie** | Przesunięcie wyzwalacza zależności. | Zakres czasu<br/>(hh: mm: SS) |  Wartość TimeSpan, która musi być ujemna w zależności od siebie. Jeśli żadna wartość nie zostanie określona, okno jest takie samo jak wyzwalacz. | Samozależność: tak<br/>Inne: nie  |
 
@@ -146,13 +146,19 @@ Możesz użyć zmiennych systemowych **WindowStart** i **WindowEnd** wyzwalacza 
 Aby użyć wartości zmiennej systemowej **WindowStart** i **WindowEnd** w definicji potoku, należy odpowiednio użyć parametrów "MyWindowStart" i "MyWindowEnd".
 
 ### <a name="execution-order-of-windows-in-a-backfill-scenario"></a>Kolejność wykonywania systemu Windows w scenariuszu wypełniania
-Jeśli istnieje wiele okien do wykonania (zwłaszcza w scenariuszu wypełniania), kolejność wykonywania dla systemu Windows jest deterministyczna, od najstarszych do najnowszych interwałów. Obecnie nie można zmodyfikować tego zachowania.
+
+Jeśli czas rozpoczęcia wyzwalacza jest w przeszłości, a następnie na podstawie tej formuły, M = (CurrentTime-TriggerStartTime)/TriggerSliceSize, wyzwalacz generuje (w przeszłości) następującą liczbę uruchomień: {M} Kolejność wykonywania dla systemu Windows jest deterministyczna, od najstarszych do najnowszych interwałów. Obecnie nie można zmodyfikować tego zachowania.
 
 ### <a name="existing-triggerresource-elements"></a>Istniejące elementy TriggerResource
-Następujące punkty mają zastosowanie do istniejących elementów **TriggerResource** :
 
-* Jeśli wartość dla elementu **częstotliwości** (lub rozmiaru okna) wyzwalacza ulegnie zmianie, stan systemu Windows, który jest już przetwarzany, *nie* zostanie zresetowany. Wyzwalacz nadal uruchamia system Windows z ostatniego okna, które zostało wykonane przy użyciu nowego rozmiaru okna.
+Następujące punkty mają zastosowanie do aktualizacji istniejących elementów **TriggerResource** :
+
+* Nie można zmienić wartości elementu **częstotliwości** (lub rozmiaru okna) wyzwalacza wraz z elementem **Interval** , gdy wyzwalacz zostanie utworzony. Jest to wymagane do prawidłowego działania triggerRun ponowne uruchomienia i oceny zależności
 * Jeśli wartość elementu **Endtime** wyzwalacza ulegnie zmianie (dodano lub Zaktualizowano), stan systemu Windows, który jest już przetwarzany, *nie* zostanie zresetowany. Wyzwalacz honoruje nową wartość **Endtime** . Jeśli nowa wartość **Endtime** jest wcześniejsza niż system Windows, który jest już wykonywany, wyzwalacz zostaje zatrzymany. W przeciwnym razie wyzwalacz zostaje zatrzymany po napotkaniu nowej wartości **Endtime** .
+
+### <a name="user-assigned-retries-of-pipelines"></a>Użytkownik przypisał ponowną próbę potoków
+
+W przypadku awarii potokowych wyzwalacz okna wirowania może ponowić próbę wykonania potoku, przy użyciu tych samych parametrów wejściowych, bez interwencji użytkownika. Można to określić przy użyciu właściwości "retryPolicy" w definicji wyzwalacza.
 
 ### <a name="tumbling-window-trigger-dependency"></a>Zależność wyzwalacza okna wirowania
 

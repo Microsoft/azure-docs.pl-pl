@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
-ms.openlocfilehash: f5ebb8874b7e277d15ef89aa419c4d26560a6e76
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9ce69e3c783ad8d2fb42be4c358cd1c292bbe026
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75386735"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015373"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Wprowadzenie do usług Azure Cloud Services i programu ASP.NET
 
@@ -152,7 +152,7 @@ Aplikacja uruchomiona w chmurze będzie używać bazy danych opartej na chmurze.
 8. Zaznacz opcję **Zezwalaj usługom platformy Azure na dostęp do serwera**.
 9. Kliknij przycisk **Wybierz** dla nowego serwera.
 
-    ![Nowy serwer usługi SQL Database](./media/cloud-services-dotnet-get-started/newdbserver.png)
+    ![Nowy serwer](./media/cloud-services-dotnet-get-started/newdbserver.png)
 10. Kliknij przycisk **Utwórz**.
 
 ### <a name="create-an-azure-storage-account"></a>Tworzenie konta usługi Azure Storage
@@ -331,7 +331,7 @@ Po utworzeniu rozwiązania można przejrzeć kod unikatowy dla projektów usług
     ![Projekt nowej usługi w chmurze](./media/cloud-services-dotnet-get-started/newcsproj.png)
 5. Po wyświetleniu okna dialogowego **Nowy projekt ASP.NET** dla roli Sieć Web wybierz szablon MVC, a następnie kliknij pozycję **Zmień uwierzytelnianie**.
 
-    ![Zmienianie uwierzytelniania](./media/cloud-services-dotnet-get-started/chgauth.png)
+    ![Zmień metodę uwierzytelniania](./media/cloud-services-dotnet-get-started/chgauth.png)
 6. W oknie dialogowym **Zmienianie uwierzytelniania** wybierz pozycję **Bez uwierzytelniania**, a następnie kliknij przycisk **OK**.
 
     ![Bez uwierzytelniania](./media/cloud-services-dotnet-get-started/noauth.png)
@@ -353,7 +353,7 @@ Po utworzeniu rozwiązania można przejrzeć kod unikatowy dla projektów usług
 6. Znajdź pakiet NuGet *Microsoft.WindowsAzure.ConfigurationManager*, a następnie zainstaluj go w projekcie roli Proces roboczy.
 
 ### <a name="set-project-references"></a>Ustawianie odwołań do projektu
-1. W projekcie ContosoAdsWeb ustaw odwołanie do projektu ContosoAdsCommon. Kliknij prawym przyciskiem myszy projekt ContosoAdsWeb, a następnie kliknij pozycję **odwołania** - **Dodaj odwołania**. W oknie dialogowym **Menedżer odwołań** wybierz pozycję **Rozwiązanie — projekty** w lewym okienku, wybierz pozycję **ContosoAdsCommon**, a następnie kliknij przycisk **OK**.
+1. W projekcie ContosoAdsWeb ustaw odwołanie do projektu ContosoAdsCommon. Kliknij prawym przyciskiem myszy projekt ContosoAdsWeb, a następnie kliknij pozycję **odwołania**  -  **Dodaj odwołania**. W oknie dialogowym **Menedżer odwołań** wybierz pozycję **Rozwiązanie — projekty** w lewym okienku, wybierz pozycję **ContosoAdsCommon**, a następnie kliknij przycisk **OK**.
 2. W projekcie ContosoAdsWorker ustaw odwołanie do projektu ContosoAdsCommon.
 
     Projekt ContosoAdsCommon będzie zawierać klasę kontekstu i model danych platformy Entity Framework, które będą używane dla frontonu i zaplecza.
@@ -398,7 +398,7 @@ W tej sekcji będziesz konfigurować parametry połączenia usługi Azure Storag
 ### <a name="add-code-files"></a>Dodawanie plików kodu
 W tej sekcji skopiujesz pliki kodu z pobranego rozwiązania do nowego rozwiązania. W poniższych sekcjach zostaną również pokazane i objaśnione części tego kodu.
 
-Aby dodać pliki do projektu lub folderu, kliknij prawym przyciskiem myszy projekt lub folder, a następnie kliknij pozycję **Dodaj** - **istniejący element**. Wybierz pliki, a następnie kliknij pozycję **Dodaj**. Jeśli pojawi się pytanie, czy chcesz zastąpić istniejące pliki, kliknij pozycję **Tak**.
+Aby dodać pliki do projektu lub folderu, kliknij prawym przyciskiem myszy projekt lub folder, a następnie kliknij pozycję **Dodaj**  -  **istniejący element**. Wybierz pliki, a następnie kliknij pozycję **Dodaj**. Jeśli pojawi się pytanie, czy chcesz zastąpić istniejące pliki, kliknij pozycję **Tak**.
 
 1. W projekcie ContosoAdsCommon usuń plik *Class1.cs* i dodaj w jego miejsce pliki *Ad.cs* i *ContosoAdscontext.cs* z pobranego projektu.
 2. W projekcie ContosoAdsWeb dodaj poniższe pliki z pobranego projektu.

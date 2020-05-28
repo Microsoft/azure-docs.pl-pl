@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: sideeksh
-ms.openlocfilehash: 27b433ba33d287a183d8ce6cc05d87649b2d0b00
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 367ca77b0f3a142d8aa36143052993d1ed96f052
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891494"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996503"
 ---
 # <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Włącz odzyskiwanie strefy do strefy odzyskiwania po awarii dla maszyn wirtualnych platformy Azure
 
@@ -65,7 +65,7 @@ Jak wspomniano powyżej, funkcja odzyskiwania po awarii strefy do strefy zmniejs
 
 Przed wdrożeniem strefy do odzyskiwania po awarii strefy dla maszyn wirtualnych należy upewnić się, że inne funkcje włączone na maszynie wirtualnej współdziałają ze strefą odzyskiwania po awarii strefy.
 
-|Funkcja  | Instrukcja obsługi  |
+|Cecha  | Instrukcja obsługi  |
 |---------|---------|
 |Klasyczne maszyny wirtualne   |     Nieobsługiwane    |
 |Maszyny wirtualne ARM    |    Obsługiwane    |
@@ -117,6 +117,9 @@ Plan zespołu Site Recovery i zarządzanie pojemnością platformy Azure w celu 
 
 **4. które systemy operacyjne są obsługiwane?**
 Odzyskiwanie po awarii strefy do strefy obsługuje te same systemy operacyjne co platforma Azure do odzyskiwania po awarii platformy Azure. Zapoznaj się z macierzą pomocy technicznej [tutaj](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix).
+
+**5. czy źródłowa i docelowa Grupa zasobów jest taka sama?**
+Nie, musisz przełączyć się w tryb failover do innej grupy zasobów.
 
 ## <a name="next-steps"></a>Następne kroki
 

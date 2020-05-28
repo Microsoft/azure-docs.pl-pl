@@ -11,19 +11,19 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 27d3a242d91a79ea00974748f4a8b5460d2dd247
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d86a0df5265418a28e1fe68de0dc2cd601e71f61
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416053"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015595"
 ---
 # <a name="secure-a-database-in-azure-synapse"></a>Zabezpieczanie bazy danych w usłudze Azure Synapse
 
 > [!div class="op_single_selector"]
 >
 > * [Przegląd zabezpieczeń](sql-data-warehouse-overview-manage-security.md)
-> * [Uwierzytelnianie](sql-data-warehouse-authentication.md)
+> * [Authentication](sql-data-warehouse-authentication.md)
 > * [Szyfrowanie (Portal)](sql-data-warehouse-encryption-tde.md)
 > * [Szyfrowanie (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
@@ -33,23 +33,23 @@ W tym artykule przedstawiono podstawowe informacje dotyczące zabezpieczania pul
 
 Zabezpieczenia połączeń dotyczą sposobu ograniczania i zabezpieczania połączeń z bazą danych przy użyciu reguł zapory i szyfrowania połączeń.
 
-Reguły zapory są używane przez serwer i bazę danych w celu odrzucania prób połączenia z adresów IP, które nie zostały jawnie listy dozwolonych. Aby zezwolić na połączenia z publicznego adresu IP aplikacji lub komputera klienckiego, należy najpierw utworzyć regułę zapory na poziomie serwera przy użyciu Azure Portal, interfejsu API REST lub programu PowerShell.
+Reguły zapory są używane przez [logiczny serwer SQL](../../azure-sql/database/logical-servers.md) i jego bazy danych w celu odrzucania prób połączenia z adresów IP, które nie zostały jawnie listy dozwolonych. Aby zezwolić na połączenia z publicznego adresu IP aplikacji lub komputera klienckiego, należy najpierw utworzyć regułę zapory na poziomie serwera przy użyciu Azure Portal, interfejsu API REST lub programu PowerShell.
 
-Najlepszym rozwiązaniem jest maksymalne ograniczenie zakresu adresów IP przepuszczanych przez zaporę serwera.  Aby można było uzyskać dostęp do puli SQL z komputera lokalnego, należy upewnić się, że Zapora w sieci i komputer lokalny zezwalają na komunikację wychodzącą na porcie TCP 1433.  
+Najlepszym rozwiązaniem jest ograniczenie zakresów adresów IP dozwolonych przez zaporę na poziomie serwera, tak jak to możliwe.  Aby można było uzyskać dostęp do puli SQL z komputera lokalnego, należy upewnić się, że Zapora w sieci i komputer lokalny zezwalają na komunikację wychodzącą na porcie TCP 1433.  
 
-Usługa Azure Synapse Analytics używa reguł zapory adresów IP na poziomie serwera. Nie obsługuje reguł zapory adresów IP na poziomie bazy danych. Aby uzyskać więcej informacji, zobacz temat [Azure SQL Database regułami zapory](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+Usługa Azure Synapse Analytics używa reguł zapory adresów IP na poziomie serwera. Nie obsługuje reguł zapory adresów IP na poziomie bazy danych. Aby uzyskać więcej informacji, zobacz temat [Azure SQL Database regułami zapory](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
 Połączenia z pulą SQL są domyślnie szyfrowane.  Modyfikowanie ustawień połączenia w celu wyłączenia szyfrowania jest ignorowane.
 
-## <a name="authentication"></a>Uwierzytelnianie
+## <a name="authentication"></a>Authentication
 
 Uwierzytelnianie to sposób potwierdzenia tożsamości podczas nawiązywania połączenia z bazą danych. Pula SQL obecnie obsługuje uwierzytelnianie SQL Server przy użyciu nazwy użytkownika i hasła oraz z Azure Active Directory.
 
-Po utworzeniu serwera logicznego bazy danych należy określić nazwę logowania „server admin” przy użyciu nazwy użytkownika i hasła. Przy użyciu tych poświadczeń można uwierzytelniać się w dowolnej bazie danych na tym serwerze jako właściciel bazy danych lub "dbo" za pośrednictwem SQL Server uwierzytelniania.
+Podczas tworzenia serwera dla bazy danych należy określić nazwę logowania "administrator serwera" przy użyciu nazwy użytkownika i hasła. Przy użyciu tych poświadczeń można uwierzytelniać się w dowolnej bazie danych na tym serwerze jako właściciel bazy danych lub "dbo" za pośrednictwem SQL Server uwierzytelniania.
 
 Jednak najlepszym rozwiązaniem jest użycie przez użytkowników w organizacji innego konta do uwierzytelniania. W ten sposób można ograniczyć uprawnienia przyznane aplikacji i zmniejszyć ryzyko złośliwych działań w przypadku, gdy kod aplikacji jest narażony na ataki iniekcji SQL.
 
-Aby utworzyć SQL Server uwierzytelnionego użytkownika, nawiąż połączenie z bazą danych **Master** na serwerze za pomocą identyfikatora logowania administratora serwera i Utwórz nowy identyfikator logowania do serwera.  Dobrym pomysłem jest również utworzenie użytkownika w bazie danych Master. Utworzenie użytkownika w bazie danych Master umożliwia użytkownikowi logowanie się przy użyciu narzędzi, takich jak program SSMS, bez określania nazwy bazy.  Umożliwia także używanie Eksploratora obiektów do wyświetlania wszystkich baz danych w programie SQL Server.
+Aby utworzyć SQL Server uwierzytelnionego użytkownika, nawiąż połączenie z bazą danych **Master** na serwerze za pomocą identyfikatora logowania administratora serwera i Utwórz nowy identyfikator logowania do serwera.  Dobrym pomysłem jest również utworzenie użytkownika w bazie danych Master. Utworzenie użytkownika w bazie danych Master umożliwia użytkownikowi logowanie się przy użyciu narzędzi, takich jak program SSMS, bez określania nazwy bazy.  Umożliwia także używanie Eksploratora obiektów do wyświetlania wszystkich baz danych na serwerze.
 
 ```sql
 -- Connect to master database and create a login
@@ -64,9 +64,9 @@ Następnie nawiąż połączenie z **bazą danych puli SQL** przy użyciu identy
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 ```
 
-Aby przyznać użytkownikowi uprawnienia do wykonywania dodatkowych operacji, takich jak tworzenie nazw logowania lub tworzenie nowych baz danych, przypisz użytkownika do `Loginmanager` ról `dbmanager` i w bazie danych Master.
+Aby przyznać użytkownikowi uprawnienia do wykonywania dodatkowych operacji, takich jak tworzenie nazw logowania lub tworzenie nowych baz danych, przypisz użytkownika do `Loginmanager` `dbmanager` ról i w bazie danych Master.
 
-Aby uzyskać więcej informacji na temat dodatkowych ról i uwierzytelniania do SQL Database, zobacz temat [Zarządzanie bazami danych i logowaniami w Azure SQL Database](../../sql-database/sql-database-manage-logins.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).  Aby uzyskać więcej informacji na temat nawiązywania połączenia przy użyciu Azure Active Directory, zobacz [nawiązywanie połączenia przy użyciu uwierzytelniania Azure Active Directory](sql-data-warehouse-authentication.md).
+Aby uzyskać więcej informacji na temat dodatkowych ról i uwierzytelniania do SQL Database, zobacz temat [Zarządzanie bazami danych i logowaniami w Azure SQL Database](../../azure-sql/database/logins-create-manage.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).  Aby uzyskać więcej informacji na temat nawiązywania połączenia przy użyciu Azure Active Directory, zobacz [nawiązywanie połączenia przy użyciu uwierzytelniania Azure Active Directory](sql-data-warehouse-authentication.md).
 
 ## <a name="authorization"></a>Autoryzacja
 
@@ -92,13 +92,13 @@ Poniższy przykład daje dostęp do odczytu do schematu zdefiniowanego przez uż
 GRANT SELECT ON SCHEMA::Test to ApplicationUser
 ```
 
-Zarządzanie bazami danych i serwerami logicznymi z Azure Portal lub przy użyciu interfejsu API Azure Resource Manager jest kontrolowane przez przypisania roli konta użytkownika portalu. Aby uzyskać więcej informacji, zobacz [Kontrola dostępu oparta na rolach w Azure Portal](../../role-based-access-control/role-assignments-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Zarządzanie bazami danych i serwerami z Azure Portal lub przy użyciu interfejsu API Azure Resource Manager jest kontrolowane przez przypisania roli konta użytkownika portalu. Aby uzyskać więcej informacji, zobacz [Kontrola dostępu oparta na rolach w Azure Portal](../../role-based-access-control/role-assignments-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## <a name="encryption"></a>Szyfrowanie
 
 Transparent Data Encryption (TDE) pomaga chronić przed zagrożeniem złośliwymi działaniami przez szyfrowanie i odszyfrowywanie danych przy użyciu funkcji Rest. Podczas szyfrowania bazy danych skojarzone kopie zapasowe i pliki dziennika transakcji są szyfrowane bez konieczności wprowadzania jakichkolwiek zmian w aplikacjach. Technologia TDE szyfruje magazyn całej bazy danych przy użyciu klucza symetrycznego nazywanego kluczem szyfrowania bazy danych.
 
-W SQL Database klucz szyfrowania bazy danych jest chroniony przez wbudowany certyfikat serwera. Wbudowany certyfikat serwera jest unikatowy dla każdego serwera SQL Database. Firma Microsoft automatycznie obraca te certyfikaty co najmniej co 90 dni. Używany algorytm szyfrowania to AES-256. Ogólny opis TDE można znaleźć w temacie [transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+W SQL Database klucz szyfrowania bazy danych jest chroniony przez wbudowany certyfikat serwera. Wbudowany certyfikat serwera jest unikatowy dla każdego serwera. Firma Microsoft automatycznie obraca te certyfikaty co najmniej co 90 dni. Używany algorytm szyfrowania to AES-256. Ogólny opis TDE można znaleźć w temacie [transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 Bazę danych można zaszyfrować przy użyciu [Azure Portal](sql-data-warehouse-encryption-tde.md) lub [T-SQL](sql-data-warehouse-encryption-tde-tsql.md).
 

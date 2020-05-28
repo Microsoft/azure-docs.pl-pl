@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: jingwang
-ms.openlocfilehash: 344ad8e106c119c1de59570d1ec4e3df5e1cc8af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a59d9291d1eaa4aa87d40914679e39c9cbf29cee
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81417121"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112635"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Działanie pobierania metadanych w Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -47,17 +47,17 @@ Działanie Get Metadata Pobiera zestaw danych jako dane wejściowe i zwraca info
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
 | [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| [Azure Blob Storage](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
+| [Magazyn obiektów blob platformy Azure](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
 | [Usługa Azure Data Lake Storage 1. generacji](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
-| [Usługa Azure Data Lake Storage 2. generacji](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [Azure Files](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | [System plików](connector-file-system.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x | x/x | √ | x | √ | √ | √/√ |
 
 - W przypadku korzystania z działania Get Metadata w odniesieniu do folderu upewnij się, że masz uprawnienie do wyświetlania listy/wykonywania danego folderu.
-- W przypadku usługi Amazon S3 i Google Cloud `lastModified` Storage ma zastosowanie do zasobnika i klucza, ale nie do folderu wirtualnego i `exists` ma zastosowanie do zasobnika i klucza, ale nie do prefiksu lub folderu wirtualnego.
-- W przypadku usługi Azure Blob `lastModified` Storage ma zastosowanie do kontenera i obiektu BLOB, ale nie do folderu wirtualnego.
+- W przypadku usługi Amazon S3 i Google Cloud Storage `lastModified` ma zastosowanie do zasobnika i klucza, ale nie do folderu wirtualnego i `exists` ma zastosowanie do zasobnika i klucza, ale nie do prefiksu lub folderu wirtualnego.
+- W przypadku usługi Azure Blob Storage `lastModified` ma zastosowanie do kontenera i obiektu BLOB, ale nie do folderu wirtualnego.
 - `lastModified`Filtr dotyczy obecnie elementów podrzędnych filtru, ale nie do samego folderu lub samego pliku.
 - Filtr symboli wieloznacznych dla folderów/plików nie jest obsługiwany w przypadku działania pobierania metadanych.
 
@@ -66,7 +66,7 @@ Działanie Get Metadata Pobiera zestaw danych jako dane wejściowe i zwraca info
 | Łącznik/metadane | — struktura | Kolumn | istniejący |
 |:--- |:--- |:--- |:--- |
 | [Azure SQL Database](connector-azure-sql-database.md) | √ | √ | √ |
-| [Azure SQL Database wystąpienie zarządzane](connector-azure-sql-database-managed-instance.md) | √ | √ | √ |
+| [Wystąpienie zarządzane Azure SQL](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) | √ | √ | √ |
 | [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md) | √ | √ | √ |
 | [SQL Server](connector-sql-server.md) | √ | √ | √ |
 
@@ -77,7 +77,7 @@ Aby pobrać odpowiednie informacje, możesz określić następujące typy metada
 | Typ metadanych | Opis |
 |:--- |:--- |
 | itemName | Nazwa pliku lub folderu. |
-| itemType | Typ pliku lub folderu. Zwrócona wartość `File` to `Folder`or. |
+| itemType | Typ pliku lub folderu. Zwrócona wartość to `File` or `Folder` . |
 | size | Rozmiar pliku w bajtach. Dotyczy tylko plików. |
 | utworzony | Utworzono datę i godzinę dla pliku lub folderu. |
 | lastModified | Data i godzina ostatniej modyfikacji pliku lub folderu. |
@@ -85,13 +85,13 @@ Aby pobrać odpowiednie informacje, możesz określić następujące typy metada
 | contentMD5 | MD5 pliku. Dotyczy tylko plików. |
 | — struktura | Struktura danych w tabeli pliku lub relacyjnej bazy danych. Zwracana wartość to lista nazw kolumn i typów kolumn. |
 | Kolumn | Liczba kolumn w pliku lub tabeli relacyjnej. |
-| istniejący| Czy istnieje plik, folder lub tabela. Należy pamiętać, `exists` że jeśli program jest określony na liście Pobierz metadane, działanie nie powiedzie się, nawet jeśli plik, folder lub tabela nie istnieją. Zamiast tego `exists: false` , jest zwracany w danych wyjściowych. |
+| istniejący| Czy istnieje plik, folder lub tabela. Należy pamiętać, że jeśli `exists` program jest określony na liście Pobierz metadane, działanie nie powiedzie się, nawet jeśli plik, folder lub tabela nie istnieją. Zamiast tego, `exists: false` jest zwracany w danych wyjściowych. |
 
 >[!TIP]
 >Aby sprawdzić, czy istnieje plik, folder lub tabela, należy określić `exists` na liście pól Pobieranie metadanych. Następnie można sprawdzić `exists: true/false` wynik w danych wyjściowych działania. Jeśli `exists` nie zostanie określony na liście pól, działanie Pobierz metadane zakończy się niepowodzeniem, jeśli nie zostanie znaleziony obiekt.
 
 >[!NOTE]
->Podczas pobierania metadanych z magazynów plików i konfigurowania `modifiedDatetimeStart` lub `modifiedDatetimeEnd`, `childItems` w danych wyjściowych będzie uwzględniać tylko pliki w danej ścieżce, które mają czas ostatniej modyfikacji w określonym zakresie. W programie nie będą uwzględniane elementy w podfolderach.
+>Podczas pobierania metadanych z magazynów plików i konfigurowania `modifiedDatetimeStart` lub `modifiedDatetimeEnd` , `childItems` w danych wyjściowych będzie uwzględniać tylko pliki w danej ścieżce, które mają czas ostatniej modyfikacji w określonym zakresie. W programie nie będą uwzględniane elementy w podfolderach.
 
 ## <a name="syntax"></a>Składnia
 
@@ -137,16 +137,16 @@ Aby pobrać odpowiednie informacje, możesz określić następujące typy metada
 
 Obecnie działanie Get Metadata może zwracać następujące typy informacji o metadanych:
 
-Właściwość | Opis | Wymagany
+Właściwość | Opis | Wymagane
 -------- | ----------- | --------
-fieldList | Typy wymaganych informacji metadanych. Aby uzyskać szczegółowe informacje na temat obsługiwanych metadanych, zobacz sekcję [Opcje metadanych](#metadata-options) w tym artykule. | Tak 
-zestawu | Zestaw danych referencyjnych, którego metadane mają być pobierane przez działanie pobierania metadanych. Zapoznaj się z sekcją [możliwości](#capabilities) , aby uzyskać informacje na temat obsługiwanych łączników. Zapoznaj się z tematami dotyczącymi szczegółowych informacji o składni zestawu danych. | Tak
+fieldList | Typy wymaganych informacji metadanych. Aby uzyskać szczegółowe informacje na temat obsługiwanych metadanych, zobacz sekcję [Opcje metadanych](#metadata-options) w tym artykule. | Yes 
+zestawu | Zestaw danych referencyjnych, którego metadane mają być pobierane przez działanie pobierania metadanych. Zapoznaj się z sekcją [możliwości](#capabilities) , aby uzyskać informacje na temat obsługiwanych łączników. Zapoznaj się z tematami dotyczącymi szczegółowych informacji o składni zestawu danych. | Yes
 formatSettings | Zastosuj przy użyciu zestawu danych typu format. | Nie
 storeSettings | Zastosuj przy użyciu zestawu danych typu format. | Nie
 
 ## <a name="sample-output"></a>Przykładowe dane wyjściowe
 
-Wyniki pobierania metadanych są wyświetlane w danych wyjściowych działania. Poniżej przedstawiono dwie przykłady przedstawiające rozbudowane opcje metadanych. Aby użyć wyników w kolejnym działaniu, użyj tego wzorca: `@{activity('MyGetMetadataActivity').output.itemName}`.
+Wyniki pobierania metadanych są wyświetlane w danych wyjściowych działania. Poniżej przedstawiono dwie przykłady przedstawiające rozbudowane opcje metadanych. Aby użyć wyników w kolejnym działaniu, użyj tego wzorca: `@{activity('MyGetMetadataActivity').output.itemName}` .
 
 ### <a name="get-a-files-metadata"></a>Pobierz metadane pliku
 

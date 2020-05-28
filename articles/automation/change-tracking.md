@@ -1,16 +1,16 @@
 ---
 title: Przegląd Change Tracking Azure Automation i spisu
-description: W tym artykule opisano Change Tracking i funkcję spisu, która pomaga identyfikować zmiany oprogramowania i usług firmy Microsoft, które występują w danym środowisku.
+description: W tym artykule opisano Change Tracking i funkcję spisu, która pomaga identyfikować zmiany oprogramowania i usług firmy Microsoft w danym środowisku.
 services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/28/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4f6ae1ad5b0f3904b84d47316c11aa1a67531a28
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 7a1c5d5371663f3520e76060c9c2a8df0a18449c
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835108"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117543"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Przegląd Change Tracking i spisu
 
@@ -26,9 +26,7 @@ W tym artykule przedstawiono Change Tracking i spis w Azure Automation. Ta funkc
 > [!NOTE]
 > Aby śledzić zmiany właściwości Azure Resource Manager, zobacz [historię zmian](../governance/resource-graph/how-to/get-resource-changes.md)grafu zasobów platformy Azure.
 
-Change Tracking i zapasy pobierają swoje dane z Azure Monitor. Maszyny wirtualne połączone z obszarami roboczymi Log Analytics używają agentów Log Analytics do zbierania danych o zmianach w zainstalowanym oprogramowaniu, usługach firmy Microsoft, rejestrze i plikach systemu Windows oraz wszystkich demonach z systemem Linux na monitorowanych serwerach. Gdy dane są dostępne, agenci wysyłają je do Azure Monitor do przetwarzania. Azure Monitor stosuje logikę do odbieranych danych, rejestruje ją i udostępnia. 
-
-Funkcja Change Tracking i spis włącza zarówno obszary działania śledzenia zmian, jak i spisu w programie Azure Automation. Ponieważ oba obszary używają tego samego agenta Log Analytics, proces dodawania maszyny wirtualnej jest taki sam w każdym obszarze funkcjonalnym. 
+Change Tracking i zapasy pobierają swoje dane z Azure Monitor. Maszyny wirtualne połączone z obszarami roboczymi Log Analytics używają agentów Log Analytics do zbierania danych o zmianach w zainstalowanym oprogramowaniu, usługach firmy Microsoft, rejestrze i plikach systemu Windows oraz demonach Linux na monitorowanych serwerach. Gdy dane są dostępne, agenci wysyłają je do Azure Monitor do przetwarzania. Azure Monitor stosuje logikę do odbieranych danych, rejestruje ją i udostępnia. 
 
 > [!NOTE]
 > Aby korzystać z funkcji Change Tracking i spisu, należy zlokalizować wszystkie maszyny wirtualne w tej samej subskrypcji i regionie konta usługi Automation.
@@ -43,7 +41,7 @@ Change Tracking i spis nie obsługują obecnie następujących elementów:
 Inne ograniczenia:
 
 * Kolumny **Maksymalny rozmiar pliku** i wartości są nieużywane w bieżącej implementacji.
-* Jeśli zbierasz więcej niż 2500 plików w cyklu zbierania danych o 30 minutach, może to spowodować spadek wydajności śledzenia zmian i spisu.
+* Jeśli zbierasz więcej niż 2500 plików w cyklu zbierania danych o 30 minutach, wydajność Change Tracking i spisu może być obniżona.
 * Gdy ruch sieciowy jest wysoki, wyświetlanie rekordów może potrwać do 6 godzin.
 * Jeśli zmodyfikujesz konfigurację podczas zamykania komputera, komputer może opublikować zmiany należące do poprzedniej konfiguracji.
 
@@ -54,7 +52,7 @@ W Change Tracking i spisu są obecnie występują następujące problemy:
 
 ## <a name="supported-operating-systems"></a>Obsługiwane systemy operacyjne
 
-Change Tracking i spis są obsługiwane we wszystkich systemach operacyjnych, które spełniają wymagania dotyczące Log Analytics agenta. Wersje systemu operacyjnego Windows, które są obsługiwane oficjalnie to Windows Server 2008 z dodatkiem SP1 lub nowszym oraz Windows 7 z dodatkiem SP1 lub nowszym. Obsługiwane są również różne systemy operacyjne Linux. Zobacz [Omówienie agenta log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent). 
+Change Tracking i spis są obsługiwane we wszystkich systemach operacyjnych, które spełniają wymagania dotyczące Log Analytics agenta. Oficjalne wersje systemu operacyjnego to Windows Server 2008 z dodatkiem SP1 lub nowszym oraz system Windows 7 z dodatkiem SP1 lub nowszy. Ta funkcja jest również obsługiwana przez wiele systemów operacyjnych Linux. Aby uzyskać informacje na temat systemów operacyjnych Log Analytics, zobacz [Omówienie agenta usługi log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent). 
 
 ## <a name="network-requirements"></a>Wymagania dotyczące sieci
 
@@ -84,9 +82,20 @@ Możesz kliknąć zmianę lub zdarzenie, aby wyświetlić jego szczegóły. Dost
 * Oprogramowanie
 * Usługi firmy Microsoft
 
-Możesz dodawać, modyfikować lub usuwać każdą zmianę. W poniższym przykładzie można zobaczyć zmianę typu uruchamiania usługi z ręcznego na automatycznie.
+Można dodawać, modyfikować lub usuwać każdą zmianę. W poniższym przykładzie pokazano zmianę typu uruchamiania usługi z ręcznego na automatycznie.
 
-![Szczegóły Change Tracking](./media/change-tracking/change-tracking-details.png)
+![Szczegóły Change Tracking i spisu](./media/change-tracking/change-tracking-details.png)
+
+## <a name="fim-support-in-azure-security-center"></a>Obsługa programu FIM w Azure Security Center
+
+Change Tracking i spis używają [Azure Security Center monitorowania integralności plików (FIM)](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring). Podczas gdy program FIM monitoruje tylko pliki i rejestry, pełna funkcja Change Tracking i spisu obejmuje również śledzenie dla:
+
+- Zmiany oprogramowania
+- Usługi firmy Microsoft
+- Demony systemu Linux
+
+> [!NOTE]
+> Włączenie pełnego Change Tracking i funkcji spisu może spowodować naliczenie dodatkowych opłat. Zobacz [Cennik usługi Automation](https://azure.microsoft.com/pricing/details/automation/). Istnieje możliwość usunięcia programu FIM z [listy zainstalowanych rozwiązań monitorowania](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions) dostępnych w Azure Portal. Zobacz [usuwanie rozwiązania monitorowania](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution).
 
 ## <a name="tracking-of-file-changes"></a>Śledzenie zmian plików
 
@@ -94,24 +103,23 @@ Do śledzenia zmian w plikach w systemach Windows i Linux Change Tracking i spis
 
 ## <a name="tracking-of-file-content-changes"></a>Śledzenie zmian zawartości plików
 
-Change Tracking i spis umożliwia wyświetlenie zawartości pliku systemu Windows lub Linux przed zmianą pliku i po nim. Dla każdej zmiany pliku Change Tracking i spis przechowuje zawartość pliku na [koncie usługi Azure Storage](../storage/common/storage-create-storage-account.md). Podczas śledzenia pliku można wyświetlić jego zawartość przed zmianą lub po niej. Zawartość można wyświetlić w postaci wbudowanej lub obok siebie. 
+Change Tracking i spis umożliwia wyświetlenie zawartości pliku systemu Windows lub Linux. Dla każdej zmiany pliku Change Tracking i spis przechowuje zawartość pliku na [koncie usługi Azure Storage](../storage/common/storage-create-storage-account.md). Podczas śledzenia pliku można wyświetlić jego zawartość przed zmianą lub po niej. Zawartość pliku może być wyświetlana jako wbudowana lub obok siebie. 
 
 ![Wyświetlanie zmian w pliku](./media/change-tracking/view-file-changes.png)
 
 ## <a name="tracking-of-registry-keys"></a>Śledzenie kluczy rejestru
 
-Change Tracking i spis umożliwia monitorowanie zmian w kluczach rejestru. Monitorowanie pozwala wskazać punkty rozszerzalności, w których można aktywować kod i złośliwe oprogramowanie innych firm. W poniższej tabeli wymieniono wstępnie skonfigurowane (ale nie włączone) klucze rejestru. Aby śledzić te klucze, należy włączyć każdą z nich.
+Change Tracking i spis umożliwia monitorowanie zmian kluczy rejestru systemu Windows. Monitorowanie pozwala wskazać punkty rozszerzalności, w których można aktywować kod i złośliwe oprogramowanie innych firm. W poniższej tabeli wymieniono wstępnie skonfigurowane (ale nie włączone) klucze rejestru. Aby śledzić te klucze, należy włączyć każdą z nich.
 
 > [!div class="mx-tdBreakAll"]
 > |Klucz rejestru | Przeznaczenie |
 > | --- | --- |
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Monitoruje typowe wpisy Autostart, które są podłączane bezpośrednio do Eksploratora Windows i zwykle są uruchamiane w procesie przy użyciu programu **Explorer. exe**.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup` | Monitoruje skrypty uruchamiane podczas uruchamiania.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown` | Monitoruje skrypty uruchamiane przy zamykaniu.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run` | Monitoruje klucze, które są ładowane przed zalogowaniem się użytkownika do konta systemu Windows. Ten klucz jest używany dla aplikacji 32-bitowych uruchomionych na komputerach 64-bitowych.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components` | Monitoruje zmiany w ustawieniach aplikacji.
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Monitoruje typowe wpisy Autostart, które są podłączane bezpośrednio do Eksploratora Windows i zwykle są uruchamiane w procesie przy użyciu programu **Explorer. exe**.
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Monitoruje typowe wpisy Autostart, które są podłączane bezpośrednio do Eksploratora Windows i zwykle są uruchamiane w procesie przy użyciu programu **Explorer. exe**.
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Monitoruje programy obsługi menu kontekstowych, które są podłączane bezpośrednio do Eksploratora Windows i zwykle są uruchamiane w procesie przy użyciu programu **Explorer. exe**.
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Monitoruje programy obsługi punktu zaczepienia kopiowania, które są podłączane bezpośrednio do Eksploratora Windows i zwykle są uruchamiane w procesie przy użyciu programu **Explorer. exe**.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Monitory dla rejestracji obsługi nakładki ikon.
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Monitoruje rejestrację obsługi nakładki ikon dla aplikacji 32-bitowych uruchomionych na komputerach 64-bitowych.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Monitoruje nowe wtyczki obiektów pomocników przeglądarki dla programu Internet Explorer. Służy do uzyskiwania dostępu do Document Object Model (DOM) bieżącej strony i kontrolowania nawigacji.
@@ -120,25 +128,17 @@ Change Tracking i spis umożliwia monitorowanie zmian w kluczach rejestru. Monit
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions` | Monitoruje nowe rozszerzenia programu Internet Explorer, takie jak niestandardowe menu narzędzi i niestandardowe przyciski paska narzędzi dla aplikacji 32-bitowych uruchomionych na komputerach 64-bitowych.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitoruje 32-bitowe sterowniki skojarzone z wavemapper, wave1 i Wave2, msacm. imaadpcm,. msadpcm,. msgsm610 i vidc. Podobnie jak w sekcji [Drivers] w pliku **System. ini** .
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitoruje 32-bitowe sterowniki skojarzone z wavemapper, wave1 i Wave2, msacm. imaadpcm,. msadpcm,. msgsm610 i vidc dla aplikacji 32-bitowych uruchomionych na komputerach 64-bitowych. Podobnie jak w sekcji [Drivers] w pliku **System. ini** .
-> |`HKEY\LOCAL\MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls` | Monitoruje listę znanych lub powszechnie używanych systemowych bibliotek DLL. Ten system uniemożliwia osobom wykorzystywanie słabych uprawnień katalogu aplikacji przez porzucanie w systemie plików DLL systemu koń trojański.
+> |`HKEY\LOCAL\MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls` | Monitoruje listę znanych lub powszechnie używanych systemowych bibliotek DLL. Monitorowanie uniemożliwia użytkownikom wykorzystywanie słabych uprawnień katalogu aplikacji przez porzucanie w systemie plików DLL systemu koń trojański.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Monitoruje listę pakietów, które mogą odbierać powiadomienia o zdarzeniach z usługi **Winlogon. exe**, model obsługi logowania interaktywnego dla systemu Windows.
-
-## <a name="support-for-file-integrity-monitoring-in-azure-security-center"></a>Obsługa monitorowania integralności plików w Azure Security Center
-
-Change Tracking i spis używają [Azure Security Center monitorowania integralności plików (FIM)](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring). Podczas gdy program FIM monitoruje tylko pliki i rejestry, pełna funkcja Change Tracking i spisu obejmuje również śledzenie dla:
-
-- Zmiany oprogramowania
-- Usługi firmy Microsoft
-- Demony systemu Linux
 
 ## <a name="recursion-support"></a>Obsługa rekursji
 
 Change Tracking i spis obsługuje rekursję, co pozwala na określenie symboli wieloznacznych, aby uprościć śledzenie w katalogach. Rekursja udostępnia również zmienne środowiskowe umożliwiające śledzenie plików w środowiskach z wieloma lub dynamicznymi nazwami dysków. Poniższa lista zawiera typowe informacje, które należy znać podczas konfigurowania rekursji:
 
 * Do śledzenia wielu plików wymagane są symbole wieloznaczne.
-* Symboli wieloznacznych można używać tylko w ostatnim segmencie ścieżki, na przykład ** \\ plik c:\Folder*** lub **/etc/*. conf**.
+* Symboli wieloznacznych można używać tylko w ostatnim segmencie ścieżki pliku, na przykład **c:\Folder \\ pliku*** lub **/etc/*. conf**.
 * Jeśli zmienna środowiskowa ma nieprawidłową ścieżkę, walidacja powiedzie się, ale ścieżka kończy się niepowodzeniem podczas wykonywania.
-* Należy unikać ogólnych nazw ścieżek podczas ustawiania ścieżki, ponieważ ten typ ustawienia może spowodować przechodzenie przez zbyt wiele folderów.
+* Podczas ustawiania ścieżki należy unikać ogólnych nazw ścieżek, ponieważ ten typ ustawienia może spowodować przechodzenie przez zbyt wiele folderów.
 
 ## <a name="change-tracking-and-inventory-data-collection"></a>Zbieranie danych dotyczących Change Tracking i spisu
 
@@ -165,11 +165,11 @@ W poniższej tabeli przedstawiono limity śledzonych elementów na maszynę dla 
 |Usługi|250|
 |Demonów|250|
 
-Średnie użycie danych Log Analytics dla maszyny przy użyciu Change Tracking i spisu wynosi około 40 MB miesięcznie, w zależności od środowiska. Korzystając z funkcji użycie i szacowane koszty w obszarze roboczym Log Analytics, można wyświetlić dane pozyskane przez Change Tracking i spis na wykresie użycia. Możesz użyć tego widoku danych, aby oszacować użycie danych i określić, jak ma to wpływ na rachunek. Zobacz temat [Omówienie kosztów użytkowania i szacowania](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs).  
+Średnie użycie danych Log Analytics dla maszyny przy użyciu Change Tracking i spisu wynosi około 40 MB miesięcznie, w zależności od środowiska. Za pomocą funkcji użycie i szacowane koszty w obszarze roboczym Log Analytics można wyświetlić dane pozyskane przez Change Tracking i spis na wykresie użycia. Użyj tego widoku danych, aby oszacować użycie danych i określić, jak ma to wpływ na rachunek. Zobacz temat [Omówienie kosztów użytkowania i szacowania](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs). 
 
 ### <a name="microsoft-service-data"></a>Dane usługi firmy Microsoft
 
-Domyślna częstotliwość zbierania danych dla usług firmy Microsoft to 30 minut. Częstotliwość można skonfigurować za pomocą suwaka na karcie **usługi firmy Microsoft** w obszarze **Edytuj ustawienia**. 
+Domyślna częstotliwość zbierania danych dla usług firmy Microsoft to 30 minut. Częstotliwość można skonfigurować za pomocą suwaka na karcie **usługi firmy Microsoft** w obszarze **Edytuj ustawienia**.
 
 ![Suwak usług firmy Microsoft](./media/change-tracking/windowservices.png)
 
@@ -180,7 +180,7 @@ Aby zoptymalizować wydajność, Agent Log Analytics śledzi jedynie zmiany. Ust
 
 ## <a name="support-for-alerts-on-configuration-state"></a>Obsługa alertów dotyczących stanu konfiguracji
 
-Kluczową możliwością Change Tracking i spisu jest alert dotyczący zmian stanu konfiguracji środowiska hybrydowego. Wiele przydatnych akcji jest dostępnych do wyzwalania w odpowiedzi na alerty, na przykład akcji w usłudze Azure Functions, elementów Runbook usługi Automation, elementy webhook i podobne. Alerty dotyczące zmian w pliku **C:\windows\System32\drivers\etc\HOSTS** na komputerze to jedna dobra aplikacja dla Change Tracking i danych spisu. Istnieje wiele więcej scenariuszy dotyczących alertów, łącznie z scenariuszami zapytań zdefiniowanymi w następnej tabeli. 
+Kluczową możliwością Change Tracking i spisu jest alert dotyczący zmian stanu konfiguracji środowiska hybrydowego. Wiele przydatnych akcji jest dostępnych do wyzwalania w odpowiedzi na alerty, na przykład akcji w usłudze Azure Functions, elementów Runbook usługi Automation, elementy webhook i podobne. Alerty dotyczące zmian w pliku **c:\windows\System32\drivers\etc\HOSTS** na komputerze to jedna dobra aplikacja dla Change Tracking i danych spisu. Istnieje wiele więcej scenariuszy dotyczących alertów, łącznie z scenariuszami zapytań zdefiniowanymi w następnej tabeli. 
 
 |Zapytanie  |Opis  |
 |---------|---------|
@@ -195,10 +195,7 @@ Kluczową możliwością Change Tracking i spisu jest alert dotyczący zmian sta
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać szczegółowe informacje na temat pracy z Change Tracking i spisem, zobacz [zarządzanie Change Tracking i spisem](change-tracking-file-contents.md).
-* Aby włączyć funkcję z elementu Runbook, zobacz [włączanie Change Tracking i spisu z elementu Runbook](automation-enable-changes-from-runbook.md).
 * Aby włączyć funkcję z konta usługi Automation, zobacz [włączanie Change Tracking i spisu na podstawie konta usługi Automation](automation-enable-changes-from-auto-acct.md).
 * Aby włączyć tę funkcję, przeglądając Azure Portal, zobacz [włączanie Change Tracking i spisu w Azure Portal](automation-onboard-solutions-from-browse.md).
+* Aby włączyć funkcję z elementu Runbook, zobacz [włączanie Change Tracking i spisu z elementu Runbook](automation-enable-changes-from-runbook.md).
 * Aby włączyć funkcję z maszyny wirtualnej platformy Azure, zobacz [włączanie Change Tracking i spisu z maszyny wirtualnej platformy Azure](automation-enable-changes-from-vm.md).
-* Jeśli musisz przeszukać dzienniki przechowywane w obszarze roboczym Log Analytics, zobacz [Wyszukiwanie w dzienniku w](../log-analytics/log-analytics-log-searches.md)dziennikach Azure monitor.
-* Rozwiązywanie problemów z błędami funkcji można znaleźć w temacie [Rozwiązywanie problemów dotyczących Change Tracking i spisu](troubleshoot/change-tracking.md).

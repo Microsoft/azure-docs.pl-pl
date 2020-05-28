@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 28d7b2955c84833841760e441cd2919181e22bc7
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: a5dce5b53df817bd365d4ce9670ffd556ce365f7
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73572798"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015506"
 ---
 # <a name="manage-analysis-services"></a>Zarządzanie usługami Analysis Services
 Po utworzeniu serwera Analysis Services na platformie Azure mogą istnieć pewne zadania administracyjne i administracyjne, które należy wykonać od razu lub w dół. Na przykład możesz uruchomić przetwarzanie do danych odświeżania, kontrolować, kto może uzyskać dostęp do modeli na serwerze, lub monitorować kondycję serwera. Niektóre zadania zarządzania można wykonywać tylko w Azure Portal, innych w programie SQL Server Management Studio (SSMS), a niektóre zadania można wykonać w dowolnym z nich.
@@ -51,7 +51,7 @@ Aby uzyskać najnowsze funkcje i bezproblemowe środowisko podczas nawiązywania
 
     **Active Directory uwierzytelnianie hasła** w celu korzystania z konta organizacyjnego. Na przykład podczas nawiązywania połączenia z komputera, który nie jest przyłączony do domeny.
 
-    **Active Directory — uniwersalna obsługa usługi MFA** w celu korzystania z [uwierzytelniania nieinterakcyjnego lub wieloskładnikowego](../sql-database/sql-database-ssms-mfa-authentication.md). 
+    **Active Directory — uniwersalna obsługa usługi MFA** w celu korzystania z [uwierzytelniania nieinterakcyjnego lub wieloskładnikowego](../azure-sql/database/authentication-mfa-ssms-overview.md). 
    
     ![Nawiązywanie połączenia w programie SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 

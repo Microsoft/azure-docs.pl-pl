@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: d7c38a44e3111a319e4146b3c9b71a22b0d31bfd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d397e481fcd11e534e4bb5cf98f8c402435e890e
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "72675465"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83997081"
 ---
 # <a name="what-are-parallel-documents"></a>Co to są dokumenty równoległe?
 
