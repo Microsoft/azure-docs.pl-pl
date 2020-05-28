@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.openlocfilehash: eb11a5cc2deef372ca91c23a8b9c82e17143c85b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1f65feee8806b0c8dc85e14cdcd6e2687e040456
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81617710"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119223"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Wybierz warstwę cenową dla usługi Azure Wyszukiwanie poznawcze
 
@@ -27,7 +27,7 @@ Prawie każda funkcja jest dostępna w każdej warstwie, w tym bezpłatna, ale f
 
 W poniższej tabeli opisano ograniczenia funkcji związanych z warstwą.
 
-| Funkcja | Ograniczenia |
+| Cecha | Ograniczenia |
 |---------|-------------|
 | [indeksatorów](search-indexer-overview.md) | Indeksatory nie są dostępne w systemie S3 HD. |
 | [Klucze szyfrowania zarządzane przez klienta](search-security-manage-encryption-keys.md) | Niedostępne w warstwie Bezpłatna. |
@@ -41,7 +41,7 @@ Warstwy są zróżnicowane według:
 
 Wybrana warstwa określa stawkę naliczaną. Poniższy zrzut ekranu z Azure Portal zawiera dostępne warstwy, minus ceny (które można znaleźć w portalu i na [stronie cennika](https://azure.microsoft.com/pricing/details/search/)). Warstwy **bezpłatna**, **podstawowa**i **standardowa** są najczęściej spotykane.
 
-**Bezpłatna** tworzy ograniczoną usługę wyszukiwania dla mniejszych projektów, w tym przewodników Szybki Start i samouczków. Wewnętrznie, repliki i partycje współużytkowane przez wielu subskrybentów. Nie można skalować bezpłatnej usługi ani uruchamiać znaczących obciążeń.
+**Bezpłatna** tworzy ograniczoną usługę wyszukiwania dla mniejszych projektów, w tym przewodników Szybki Start i samouczków. Wewnętrznie repliki i partycje są współużytkowane przez wielu subskrybentów. Nie można skalować bezpłatnej usługi ani uruchamiać znaczących obciążeń.
 
 **Podstawowa** i **standardowa** są najczęściej używanymi warstwami do obciążania, a **standardem** domyślnym. W przypadku dedykowanych zasobów w ramach formantu można wdrożyć większe projekty, zoptymalizować wydajność i ustawić pojemność.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 description: Dowiedz się, jak korzystać z usług Azure Dev Spaces i Azure Kubernetes Services w celu zapewnienia ciągłości działania i przygotowania do odzyskiwania po awarii
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s '
 manager: gwallace
-ms.openlocfilehash: 37c0048bfa7e72b25eb56603fc027045eba25cea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 993866a35f530616c235728cbe59e52e083aa968
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78295831"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996928"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Ciągłość działania i odzyskiwanie po awarii w Azure Dev Spaces
 
@@ -27,14 +27,6 @@ Włączenie funkcji miejsca deweloperskie w klastrach AKS w różnych regionach 
 
 Aby uzyskać ogólne informacje na temat wdrożeń wieloregionowych AKS, zobacz [Planowanie wdrożenia wieloregionowego](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment)
 
-### <a name="enable-dev-spaces-via-the-azure-portal"></a>Włącz przestrzenie deweloperskie za pomocą Azure Portal
-
-Wybierz element menu **dev Spaces** w obszarze Ustawienia poszczególnych klastrów w Azure Portal. Następnie wybierz opcję włączania funkcji miejsca do magazynowania i zapisywania.
-
-![Włączanie funkcji Spaces dev za pośrednictwem Azure Portal](../media/common/enable-dev-spaces.jpg)
-
-Powtórz ten proces dla każdego klastra.
-
 ### <a name="enable-dev-spaces-via-the-azure-cli"></a>Włączanie funkcji Spaces dev za pośrednictwem interfejsu wiersza polecenia platformy Azure
 
 Możesz również włączyć funkcję miejsca deweloperskie w wierszu polecenia:
@@ -45,7 +37,7 @@ az aks use-dev-spaces -g <resource group name> -n <cluster name>
 
 ## <a name="deploy-your-teams-baseline-to-each-cluster"></a>Wdróż linię bazową zespołu w każdym klastrze
 
-Podczas pracy z miejscami programistycznymi zwykle wdrażana jest cała aplikacja w nadrzędnym obszarze deweloperskim w klastrze Kubernetes. Domyślnie jest używane `default` miejsce. Początkowe wdrożenie obejmuje wszystkie usługi, a także zasoby zewnętrzne, od których zależą te usługi, takie jak bazy danych lub kolejki. Ta wartość jest określana jako *linia bazowa*. Po skonfigurowaniu linii bazowej w nadrzędnym obszarze deweloperskim można przechodzić i debugować poszczególne usługi w podrzędnych miejscach deweloperskich.
+Podczas pracy z miejscami programistycznymi zwykle wdrażana jest cała aplikacja w nadrzędnym obszarze deweloperskim w klastrze Kubernetes. Domyślnie `default` jest używane miejsce. Początkowe wdrożenie obejmuje wszystkie usługi, a także zasoby zewnętrzne, od których zależą te usługi, takie jak bazy danych lub kolejki. Ta wartość jest określana jako *linia bazowa*. Po skonfigurowaniu linii bazowej w nadrzędnym obszarze deweloperskim można przechodzić i debugować poszczególne usługi w podrzędnych miejscach deweloperskich.
 
 Najnowsze wersje zestawu bazowych usług należy wdrożyć do klastrów w wielu regionach. Aktualizowanie usług bazowych w ten sposób zapewnia, że w przypadku awarii regionu platformy Azure można nadal korzystać z funkcji miejsca do tworzenia. Na przykład, jeśli plan bazowy zostanie wdrożony za pośrednictwem potoku ciągłej integracji/ciągłego wdrażania, należy zmodyfikować potok, tak aby został wdrożony w wielu klastrach w różnych regionach.
 
@@ -88,9 +80,9 @@ Powtórz te kroki dla wszystkich innych projektów skonfigurowanych do używania
 
 ## <a name="access-a-service-on-a-backup-cluster"></a>Dostęp do usługi w klastrze kopii zapasowej
 
-Jeśli usługa została skonfigurowana pod kątem używania publicznej nazwy DNS, usługa będzie mieć inny adres URL, jeśli zostanie uruchomiony w klastrze kopii zapasowej. Publiczne nazwy DNS są zawsze w formacie `<space name>.s.<root space name>.<service name>.<cluster GUID>.<region>.azds.io`. Jeśli przełączysz się do innego klastra, identyfikator GUID klastra i prawdopodobnie region zmienią się.
+Jeśli usługa została skonfigurowana pod kątem używania publicznej nazwy DNS, usługa będzie mieć inny adres URL, jeśli zostanie uruchomiony w klastrze kopii zapasowej. Publiczne nazwy DNS są zawsze w formacie `<space name>.s.<root space name>.<service name>.<cluster GUID>.<region>.azds.io` . Jeśli przełączysz się do innego klastra, identyfikator GUID klastra i prawdopodobnie region zmienią się.
 
-Miejsca dev Spaces zawsze wyświetlają prawidłowy adres URL usługi podczas `azds up`uruchamiania lub w oknie danych wyjściowych w programie Visual Studio w obszarze **Azure dev Spaces**.
+Miejsca dev Spaces zawsze wyświetlają prawidłowy adres URL usługi podczas uruchamiania `azds up` lub w oknie danych wyjściowych w programie Visual Studio w obszarze **Azure dev Spaces**.
 
 Możesz również znaleźć adres URL, uruchamiając `azds list-uris` polecenie:
 ```

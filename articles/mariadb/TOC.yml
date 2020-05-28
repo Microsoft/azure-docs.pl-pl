@@ -9,10 +9,17 @@
 - name: Przewodniki Szybki start
   expanded: true
   items:
-    - name: Tworzenie bazy danych — portal
-      href: quickstart-create-mariadb-server-database-using-azure-portal.md
-    - name: Tworzenie bazy danych — interfejs wiersza polecenia platformy Azure
-      href: quickstart-create-mariadb-server-database-using-azure-cli.md
+    - name: Tworzenie bazy danych
+      items:
+        - name: Tworzenie bazy danych — portal
+          href: quickstart-create-mariadb-server-database-using-azure-portal.md
+        - name: Tworzenie bazy danych — interfejs wiersza polecenia platformy Azure
+          href: quickstart-create-mariadb-server-database-using-azure-cli.md
+        - name: Tworzenie bazy danych — program Azure PowerShell
+          href: quickstart-create-mariadb-server-database-using-azure-powershell.md
+        - name: Tworzenie bazy danych — szablon usługi Resource Manager
+          href: quickstart-create-mariadb-server-database-arm-template.md
+          displayName: deploy azure resource manager template
     - name: Nawiązywanie połączeń i wykonywanie zapytań
       items:
         - name: MySQL Workbench
@@ -25,6 +32,8 @@
           href: tutorial-design-database-using-portal.md
         - name: Interfejs wiersza polecenia platformy Azure
           href: tutorial-design-database-cli.md
+        - name: Azure PowerShell
+          href: tutorial-design-database-using-powershell.md
 - name: Samples
   items:
     - name: Interfejs wiersza polecenia platformy Azure
@@ -119,6 +128,8 @@
           href: howto-restore-server-portal.md
         - name: Interfejs wiersza polecenia platformy Azure
           href: howto-restore-server-cli.md
+        - name: Azure PowerShell
+          href: howto-restore-server-powershell.md
     - name: Migrowanie bazy danych
       items:
         - name: Zrzucanie i przywracanie
@@ -137,12 +148,16 @@
           href: howto-server-parameters.md
         - name: Interfejs wiersza polecenia platformy Azure
           href: howto-configure-server-parameters-cli.md
+        - name: Azure PowerShell
+          href: howto-configure-server-parameters-using-powershell.md
     - name: Automatyczne zwiększanie rozmiaru magazynu
       items:
         - name: Azure Portal
           href: howto-auto-grow-storage-portal.md
         - name: Interfejs wiersza polecenia platformy Azure
           href: howto-auto-grow-storage-cli.md
+        - name: Azure PowerShell
+          href: howto-auto-grow-storage-powershell.md
     - name: Odmowa dostępu do sieci publicznej
       items:
         - name: Azure Portal
@@ -173,6 +188,8 @@
           href: howto-read-replicas-portal.md
         - name: 'Tworzenie replik do odczytu (interfejs wiersza polecenia platformy Azure, interfejs API REST)'
           href: howto-read-replicas-cli.md
+        - name: Tworzenie replik do odczytu (Azure PowerShell)
+          href: howto-read-replicas-powershell.md
     - name: Rozwiązywanie problemów
       items:
         - name: Rozwiązywanie problemów z błędami połączenia
@@ -201,6 +218,8 @@
           href: howto-restart-server-portal.md
         - name: Interfejs wiersza polecenia platformy Azure
           href: howto-restart-server-cli.md
+        - name: Azure PowerShell
+          href: howto-restart-server-powershell.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure

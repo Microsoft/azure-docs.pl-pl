@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/15/2020
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 0bedc88b78f2ac758d3201965425b42b69580719
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 6e757260c7cd8945ff75dd0e760f3afeffd992f9
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81454258"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84016393"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Samouczek: konfigurowanie ról administratora i użytkowników serwera
 
@@ -59,7 +59,7 @@ W pozostałych zadaniach użyjesz programu SSMS, aby połączyć się z serwerem
     ![Nawiązywanie połączenia w programie SSMS](./media/analysis-services-tutorial-roles/aas-connect-ssms-auth.png)
 
     > [!TIP]
-    > Zalecane jest wybranie opcji Active Directory — Uniwersalne z obsługą uwierzytelniania wieloskładnikowego. Ten typ uwierzytelniania obsługuje [uwierzytelnianie nieinterakcyjne i wieloskładnikowe](../../sql-database/sql-database-ssms-mfa-authentication.md). 
+    > Zalecane jest wybranie opcji Active Directory — Uniwersalne z obsługą uwierzytelniania wieloskładnikowego. Ten typ uwierzytelniania obsługuje [uwierzytelnianie nieinterakcyjne i wieloskładnikowe](../../azure-sql/database/authentication-mfa-ssms-overview.md). 
 
 3. W **Eksploratorze obiektów** rozwiń serwer, aby wyświetlić obiekty serwera. Kliknij prawym przyciskiem myszy, aby wyświetlić właściwości serwera.
    
@@ -67,7 +67,7 @@ W pozostałych zadaniach użyjesz programu SSMS, aby połączyć się z serwerem
 
 ## <a name="add-a-user-account-to-the-server-administrator-role"></a>Dodawanie konta użytkownika do roli administratora serwera
 
-W tym zadaniu dodasz konto użytkownika lub konto grupowe z usługi Azure AD do roli administratora serwera. W przypadku określania grupy zabezpieczeń Użyj `obj:groupid@tenantid`.
+W tym zadaniu dodasz konto użytkownika lub konto grupowe z usługi Azure AD do roli administratora serwera. W przypadku określania grupy zabezpieczeń Użyj `obj:groupid@tenantid` .
 
 1. W **Eksploratorze obiektów** kliknij prawym przyciskiem myszy nazwę serwera, a następnie kliknij pozycję **Właściwości**. 
 2. W oknie **Właściwości serwera programu Analysis Server** kliknij kolejno pozycje **Zabezpieczenia** > **Dodaj**.
@@ -130,13 +130,13 @@ W tym zadaniu użyjesz polecenia [Create](https://docs.microsoft.com/analysis-se
 ## <a name="verify-your-changes"></a>Sprawdzanie zmian
 
 1. W **Eksploratorze obiektów** kliknij prawym przyciskiem myszy nazwę serwera, a następnie kliknij pozycję **Odśwież** lub naciśnij klawisz **F5**.
-2. Rozwiń węzeł **bazy danych** > **adventureworks** > **role**AdventureWorks. Sprawdź, czy jest widoczne konto użytkownika wraz ze zmianami ról wprowadzonymi w poprzednich zadaniach.   
+2. Rozwiń węzeł **bazy danych**  >  **adventureworks**  >  **role**AdventureWorks. Sprawdź, czy jest widoczne konto użytkownika wraz ze zmianami ról wprowadzonymi w poprzednich zadaniach.   
 
     ![Sprawdzenie w Eksploratorze obiektów](./media/analysis-services-tutorial-roles/aas-connect-ssms-verify.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
-Gdy konta i role użytkownika lub grupy nie są już potrzebne, można je usunąć. W tym celu należy użyć > **przynależności** do **właściwości roli**, aby usunąć konta użytkowników, lub kliknij prawym przyciskiem myszy rolę, a następnie kliknij pozycję **Usuń**.
+Gdy konta i role użytkownika lub grupy nie są już potrzebne, można je usunąć. W tym celu należy użyć **Role Properties**  >  **przynależności** do właściwości roli, aby usunąć konta użytkowników, lub kliknij prawym przyciskiem myszy rolę, a następnie kliknij pozycję **Usuń**.
 
 
 ## <a name="next-steps"></a>Następne kroki

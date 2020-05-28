@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 71df537535003fe23902949c70b086a30a6b5049
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 4f026a6a0155f9d4add15adb26951b4913d11685
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698139"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019813"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Źródła danych obsługiwane w usługach Azure Analysis Services.
 
@@ -24,21 +24,22 @@ ms.locfileid: "83698139"
 |---------|---------|---------|---------|
 |Azure SQL Database      |   Tak      |    Yes      |<sup>[2](#azprovider)</sup>, <sup> [3](#azsqlmanaged)</sup>|
 |Analiza usługi Azure Synapse (SQL Data Warehouse)      |   Tak      |   Yes       |<sup>[dwóch](#azprovider)</sup>|
-|Azure Blob Storage      |   Yes       |    Nie      | <sup>[1](#tab1400a)</sup> |
-|Azure Table Storage     |   Yes       |    Nie      | <sup>[1](#tab1400a)</sup>|
-|Azure Cosmos DB     |  Yes        |  Nie        |<sup>[1](#tab1400a)</sup> |
-|Azure Data Lake Store Gen1      |   Yes       |    Nie      |<sup>[1](#tab1400a)</sup> |
+|Azure Blob Storage      |   Yes       |    Nie      | <sup>[jedno](#tab1400a)</sup> |
+|Azure Table Storage     |   Yes       |    Nie      | <sup>[jedno](#tab1400a)</sup>|
+|Azure Cosmos DB     |  Yes        |  Nie        |<sup>[jedno](#tab1400a)</sup> |
+|Azure Data Lake Store Gen1      |   Yes       |    Nie      |<sup>[jedno](#tab1400a)</sup> |
 |Azure Data Lake Store Gen2       |   Yes       |    Nie      |<sup>[1](#tab1400a)</sup>, <sup> [5](#gen2)</sup>|
-|Usługa Azure HDInsight w systemie plików HDFS    |     Yes     |   Nie       |<sup>[1](#tab1400a)</sup> |
+|Usługa Azure HDInsight w systemie plików HDFS    |     Yes     |   Nie       |<sup>[jedno](#tab1400a)</sup> |
 |Azure HDInsight Spark     |   Yes       |   Nie       |<sup>[1](#tab1400a)</sup>, <sup> [4](#databricks)</sup>|
 ||||
 
-**O**   
+**O**
+
 tylko <a name="tab1400a">1</a> -tabelaryczny model 1400 i wyższe.  
-<a name="azprovider">2</a> — Jeśli określono jako źródło danych *dostawcy* w tabelarycznym 1200 i wyższych modelach, zarówno modele w pamięci, jak i zapytania bezpośredniego wymagają sterownika OLE DB firmy Microsoft dla SQL Server MSOLEDBSQL (zalecane), SQL Server Native Client 11,0 lub .NET Framework dostawca danych dla SQL Server.    
-<a name="azsqlmanaged">3</a> -Azure SQL Database wystąpienie zarządzane jest obsługiwane. Ponieważ wystąpienie zarządzane działa w sieci wirtualnej platformy Azure z prywatnym adresem IP, w tym wystąpieniu musi być włączony publiczny punkt końcowy. Jeśli ta funkcja nie jest włączona, wymagana jest [lokalna Brama danych](analysis-services-gateway.md) .    
-<a name="databricks">4</a> Azure Databricks używanie łącznika Spark nie jest obecnie obsługiwane.   
-Program <a name="gen2">5</a> ADLS Gen2 łącznik nie jest obecnie obsługiwany, jednak łącznik usługi Azure Blob Storage może być używany ze źródłem danych ADLS Gen2.   
+<a name="azprovider">2</a> — Jeśli określono jako źródło danych *dostawcy* w tabelarycznym 1200 i wyższych modelach, zarówno modele w pamięci, jak i zapytania bezpośredniego wymagają sterownika OLE DB firmy Microsoft dla SQL Server MSOLEDBSQL (zalecane), SQL Server Native Client 11,0 lub .NET Framework dostawca danych dla SQL Server.  
+<a name="azsqlmanaged">3</a> -Azure SQL Database wystąpienie zarządzane jest obsługiwane. Ponieważ wystąpienie zarządzane działa w sieci wirtualnej platformy Azure z prywatnym adresem IP, w tym wystąpieniu musi być włączony publiczny punkt końcowy. Jeśli ta funkcja nie jest włączona, wymagana jest [lokalna Brama danych](analysis-services-gateway.md) .  
+<a name="databricks">4</a> Azure Databricks używanie łącznika Spark nie jest obecnie obsługiwane.  
+Program <a name="gen2">5</a> ADLS Gen2 łącznik nie jest obecnie obsługiwany, jednak łącznik usługi Azure Blob Storage może być używany ze źródłem danych ADLS Gen2.
 
 ## <a name="other-data-sources"></a>Inne źródła danych
 
@@ -67,7 +68,7 @@ Program <a name="gen2">5</a> ADLS Gen2 łącznik nie jest obecnie obsługiwany, 
 |SAP HANA     |  Yes | Nie |  |
 |SAP Business Warehouse    |  Yes | Nie | <sup>[ust](#tab1400b)</sup> |
 |Listy programu SharePoint      |   Yes | Nie | <sup>[6](#tab1400b)</sup>, <sup> [11](#filesSP)</sup> |
-|SQL Server |Tak   | Yes  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> | 
+|SQL Server |Tak   | Yes  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
 |Magazyn danych SQL Server |Tak   | Yes  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
 |Baza danych Sybase     |  Yes | Nie |  |
 |Teradata | Tak  | Yes  | <sup>[dziesięć](#teradata)</sup> |
@@ -75,15 +76,15 @@ Program <a name="gen2">5</a> ADLS Gen2 łącznik nie jest obecnie obsługiwany, 
 |Tabela XML    |  Yes | Nie | <sup>[ust](#tab1400b)</sup> |
 | | | |
 
-**O**   
+**O**  
 <a name="tab1400b">6</a> -tabelaryczne 1400 i wyższe modele.  
 <a name="sqlim">7</a> — Jeśli określono jako źródło danych *dostawcy* w tabelarycznym 1200 i wyższych modelach, określ Sterownik OLE DB firmy Microsoft dla SQL Server MSOLEDBSQL (zalecane), SQL Server Native Client 11,0 lub .NET Framework dostawca danych dla SQL Server.  
 <a name="instgw">8</a> — Jeśli określono MSOLEDBSQL jako dostawcę danych, może być konieczne pobranie i zainstalowanie [sterownika OLE DB firmy Microsoft w celu SQL Server](https://docs.microsoft.com/sql/connect/oledb/oledb-driver-for-sql-server) na tym samym komputerze, na którym znajduje się lokalna Brama danych.  
 <a name="oracle">9</a> — w przypadku modeli tabelarycznych 1200 lub jako źródła danych *dostawcy* w tabelarycznych modelach modeli, określ dostawca danych Oracle dla platformy .NET.  
-<a name="teradata">10</a> — w przypadku modeli tabelarycznych 1200 lub jako źródła danych *dostawcy* w tabelarycznych modelach modeli, określ dostawca danych programu Teradata dla platformy .NET.   
+<a name="teradata">10</a> — w przypadku modeli tabelarycznych 1200 lub jako źródła danych *dostawcy* w tabelarycznych modelach modeli, określ dostawca danych programu Teradata dla platformy .NET.  
 <a name="filesSP">11</a> — pliki w lokalnym programie SharePoint nie są obsługiwane.
 
-Połączenie z lokalnymi źródłami danych z serwera Azure Analysis Services wymaga [bramy lokalnej](analysis-services-gateway.md). W przypadku korzystania z bramy wymagane są 64-bitowe dostawcy. 
+Połączenie z lokalnymi źródłami danych z serwera Azure Analysis Services wymaga [bramy lokalnej](analysis-services-gateway.md). W przypadku korzystania z bramy wymagane są 64-bitowe dostawcy.
 
 ## <a name="understanding-providers"></a>Informacje o dostawcach
 
@@ -105,7 +106,6 @@ Podobnie jak w przypadku tabelarycznych projektów modelu 1200, użyj **Kreatora
 
 ![Właściwości zaawansowane ze starszymi źródłami danych](media/analysis-services-datasource/aas-import-legacy-advanced.png)
 
-
 ## <a name="impersonation"></a>Personifikacja
 W niektórych przypadkach może być konieczne określenie innego konta personifikacji. Konto personifikacji można określić w programie Visual Studio lub SQL Server Management Studio (SSMS).
 
@@ -120,11 +120,11 @@ W przypadku źródeł danych w chmurze:
 
 ## <a name="oauth-credentials"></a>Poświadczenia uwierzytelniania OAuth
 
-Dla modeli tabelarycznych na poziomie zgodności 1400 i wyższych przy użyciu trybu w pamięci Azure SQL Database, usługa Azure Synapse Analytics (SQL Data Warehouse), Dynamics 365 i lista programu SharePoint obsługują poświadczenia uwierzytelniania OAuth. Azure Analysis Services zarządza odświeżanie tokenów dla źródeł danych OAuth w celu uniknięcia przekroczeń limitu czasu dla długotrwałych operacji odświeżania. Aby wygenerować prawidłowe tokeny, Ustaw poświadczenia za pomocą programu SSMS.
+Dla modeli tabelarycznych na poziomie zgodności 1400 i wyższych przy użyciu trybu w pamięci, Azure SQL Database, Azure Synapse (dawniej SQL Data Warehouse), Dynamics 365 i lista programu SharePoint obsługują poświadczenia uwierzytelniania OAuth. Azure Analysis Services zarządza odświeżanie tokenów dla źródeł danych OAuth w celu uniknięcia przekroczeń limitu czasu dla długotrwałych operacji odświeżania. Aby wygenerować prawidłowe tokeny, Ustaw poświadczenia za pomocą programu SSMS.
 
 Tryb zapytania bezpośredniego nie jest obsługiwany z poświadczeniami uwierzytelniania OAuth.
 
 ## <a name="next-steps"></a>Następne kroki
-[Brama lokalna](analysis-services-gateway.md)   
-[Zarządzanie serwerem](analysis-services-manage.md)   
 
+* [Brama lokalna](analysis-services-gateway.md)
+* [Zarządzanie serwerem](analysis-services-manage.md)

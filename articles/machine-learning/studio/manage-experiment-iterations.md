@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: d2ace48ff1b2027a95aef2100540edc10aebb4cc
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: fc0effa473109cd8d0e0d4fb50f6300ebf435206
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208418"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117618"
 ---
 # <a name="manage-experiment-runs-in-azure-machine-learning-studio-classic"></a>Zarządzanie przebiegami eksperymentów w Azure Machine Learning Studio (klasyczny)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Tworzenie modelu analizy predykcyjnej jest procesem iteracyjnym — w miarę modyfikowania różnych funkcji i parametrów eksperymentu wyniki są zbieżne do momentu, gdy masz nauczone, skuteczny model. Kluczem do tego procesu jest śledzenie różnych iteracji parametrów i konfiguracji eksperymentu.
 
@@ -43,7 +41,7 @@ Załóżmy na przykład, że tworzysz eksperyment z modułem [regresja liniowa][
 | Wartość współczynnika uczenia | Godzina rozpoczęcia przebiegu |
 | --- | --- |
 | 0.1 |9/11/2014 4:18:58 pm |
-| 0.2 |9/11/2014 4:24:33 PM |
+| 0,2 |9/11/2014 4:24:33 PM |
 | 0,4 |9/11/2014 4:28:36 pm |
 | 0,5 |9/11/2014 4:33:31 PM |
 

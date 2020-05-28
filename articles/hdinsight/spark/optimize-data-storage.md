@@ -56,10 +56,10 @@ Podczas tworzenia nowego klastra Spark można wybrać platformę Azure Blob Stor
 
 | Typ sklepu | System plików | Szybkość | Administracyjnej | Przypadki użycia |
 | --- | --- | --- | --- | --- |
-| Azure Blob Storage | **wasb:**//URL/ | **Standardowa** | Tak | Przejściowy klaster |
-| Azure Blob Storage (bezpieczna) | **wasbs:**//URL/ | **Standardowa** | Tak | Przejściowy klaster |
-| Azure Data Lake Storage Gen 2| **ABFS:**//URL/ | **Większej** | Tak | Przejściowy klaster |
-| Azure Data Lake Storage Gen 1| **ADL:**//URL/ | **Większej** | Tak | Przejściowy klaster |
+| Azure Blob Storage | **wasb:**//URL/ | **Standardowa** | Yes | Przejściowy klaster |
+| Azure Blob Storage (bezpieczna) | **wasbs:**//URL/ | **Standardowa** | Yes | Przejściowy klaster |
+| Azure Data Lake Storage Gen 2| **ABFS:**//URL/ | **Większej** | Yes | Przejściowy klaster |
+| Azure Data Lake Storage Gen 1| **ADL:**//URL/ | **Większej** | Yes | Przejściowy klaster |
 | Lokalny system plików HDFS | **HDFS:**//URL/ | **Najlepszy** | Nie | Interaktywny klaster 24/7 |
 
 Pełny opis opcji magazynu można znaleźć w temacie [porównanie opcji magazynu do użycia z klastrami usługi Azure HDInsight](../hdinsight-hadoop-compare-storage-options.md).

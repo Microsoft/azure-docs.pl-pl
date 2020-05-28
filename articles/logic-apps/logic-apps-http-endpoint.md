@@ -6,12 +6,12 @@ ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 05/06/2020
-ms.openlocfilehash: 7f91d8eab2e7a29163dae5ae2a4d34792ddd0cb0
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 6c6191936f76431bd4e7b6f1d4eff2074ce4b04d
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005508"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141793"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Wywoływanie, wyzwalanie lub zagnieżdżanie aplikacji logiki za pomocą punktów końcowych HTTPS w Azure Logic Apps
 
@@ -154,6 +154,9 @@ Aby akceptować wartości parametrów za pomocą adresu URL punktu końcowego, d
 
   Te wartości są przesyłane za pomocą ścieżki względnej w adresie URL punktu końcowego. Należy również jawnie [wybrać metodę](#select-method) oczekiwaną przez wyzwalacz. W kolejnej akcji można pobrać wartości parametrów jako dane wyjściowe wyzwalacza, odwołując się bezpośrednio do tych danych wyjściowych.
 
+> [!NOTE]
+> Adres URL zezwala na użycie symbolu "at" ( **@** ), ale nie symbolu skrótu ( **#** ).
+
 <a name="get-parameters"></a>
 
 ### <a name="accept-values-through-get-parameters"></a>Akceptuj wartości za poorednictwem parametrów GET
@@ -164,7 +167,7 @@ Aby akceptować wartości parametrów za pomocą adresu URL punktu końcowego, d
 
 1. W obszarze wyzwalacza żądania Dodaj akcję, w której chcesz użyć wartości parametru. Na potrzeby tego przykładu Dodaj akcję **odpowiedź** .
 
-   1. W obszarze wyzwalacz żądania wybierz pozycję **nowy krok** > **Dodaj akcję**.
+   1. W obszarze wyzwalacz żądania wybierz pozycję **nowy krok**  >  **Dodaj akcję**.
    
    1. W obszarze **Wybierz akcję**, w polu wyszukiwania wpisz `response` jako filtr. Z listy Akcje wybierz akcję **odpowiedź** .
 
@@ -190,11 +193,11 @@ Aby akceptować wartości parametrów za pomocą adresu URL punktu końcowego, d
 
       `"body": "@{triggerOutputs()['queries']['parameter-name']}",`
 
-      Załóżmy na przykład, że chcesz przekazać wartość dla parametru o nazwie `postalCode`. Właściwość **Body** określa ciąg, `Postal Code: ` z końcowym miejscem, po którym następuje odpowiednie wyrażenie:
+      Załóżmy na przykład, że chcesz przekazać wartość dla parametru o nazwie `postalCode` . Właściwość **Body** określa ciąg, `Postal Code: ` z końcowym miejscem, po którym następuje odpowiednie wyrażenie:
 
       ![Dodaj przykładowe wyrażenie "triggerOutputs ()", które ma zostać wyzwolone](./media/logic-apps-http-endpoint/trigger-outputs-expression-postal-code.png)
 
-1. Aby przetestować możliwy do przetestowania punkt końcowy, skopiuj adres URL wywołania zwrotnego z wyzwalacza żądania, a następnie wklej adres URL do innego okna przeglądarki. W adresie URL Dodaj nazwę parametru i wartość po znaku zapytania (`?`) do adresu URL w następującym formacie, a następnie naciśnij klawisz ENTER.
+1. Aby przetestować możliwy do przetestowania punkt końcowy, skopiuj adres URL wywołania zwrotnego z wyzwalacza żądania, a następnie wklej adres URL do innego okna przeglądarki. W adresie URL Dodaj nazwę parametru i wartość po znaku zapytania ( `?` ) do adresu URL w następującym formacie, a następnie naciśnij klawisz ENTER.
 
    `...?{parameter-name=parameter-value}&api-version=2016-10-01...`
 
@@ -204,11 +207,11 @@ Aby akceptować wartości parametrów za pomocą adresu URL punktu końcowego, d
 
    ![Odpowiedź od wysłania żądania do adresu URL wywołania zwrotnego](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
 
-1. Aby umieścić nazwę i wartość parametru w innej pozycji w adresie URL, upewnij się, że używasz znaku handlowego "`&`i" () jako prefiksu, na przykład:
+1. Aby umieścić nazwę i wartość parametru w innej pozycji w adresie URL, upewnij się, że używasz znaku handlowego "i" ( `&` ) jako prefiksu, na przykład:
 
    `...?api-version=2016-10-01&{parameter-name=parameter-value}&...`
 
-   Ten przykład pokazuje adres URL wywołania zwrotnego z przykładową nazwą parametru `postalCode=123456` i wartością w różnych pozycjach w adresie URL:
+   Ten przykład pokazuje adres URL wywołania zwrotnego z przykładową nazwą parametru i wartością `postalCode=123456` w różnych pozycjach w adresie URL:
 
    * Pozycja 1:`https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?postalCode=123456&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
@@ -222,19 +225,19 @@ Aby akceptować wartości parametrów za pomocą adresu URL punktu końcowego, d
 
    ![Dodaj właściwość "ścieżka względna" do wyzwalacza](./media/logic-apps-http-endpoint/select-add-new-parameter-for-relative-path.png)
 
-1. We właściwości **ścieżka względna** określ ścieżkę względną dla parametru w SCHEMAcie JSON, który ma być akceptowany przez adres URL, na przykład `/address/{postalCode}`.
+1. We właściwości **ścieżka względna** określ ścieżkę względną dla parametru w SCHEMAcie JSON, który ma być akceptowany przez adres URL, na przykład `/address/{postalCode}` .
 
    ![Określ ścieżkę względną dla parametru](./media/logic-apps-http-endpoint/relative-path-url-value.png)
 
 1. W obszarze wyzwalacza żądania Dodaj akcję, w której chcesz użyć wartości parametru. Na potrzeby tego przykładu Dodaj akcję **odpowiedź** .
 
-   1. W obszarze wyzwalacz żądania wybierz pozycję **nowy krok** > **Dodaj akcję**.
+   1. W obszarze wyzwalacz żądania wybierz pozycję **nowy krok**  >  **Dodaj akcję**.
 
    1. W obszarze **Wybierz akcję**, w polu wyszukiwania wpisz `response` jako filtr. Z listy Akcje wybierz akcję **odpowiedź** .
 
 1. We właściwości **treści** akcji odpowiedzi Dołącz token, który reprezentuje parametr określony w ścieżce względnej wyzwalacza.
 
-   Załóżmy na przykład, że akcja odpowiedzi powinna zostać zwrócona `Postal Code: {postalCode}`.
+   Załóżmy na przykład, że akcja odpowiedzi powinna zostać zwrócona `Postal Code: {postalCode}` .
 
    1. We właściwości **Body** wprowadź `Postal Code: ` spację końcową. Pozostaw kursor wewnątrz pola edycji, aby lista zawartości dynamicznej pozostała otwarta.
 
@@ -252,7 +255,7 @@ Aby akceptować wartości parametrów za pomocą adresu URL punktu końcowego, d
 
    `https://prod-07.westus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/{postalCode}?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
-1. Aby przetestować możliwy do przetestowania punkt końcowy, skopiuj zaktualizowany adres URL wywołania zwrotnego z wyzwalacza żądania, wklej adres URL `{postalCode}` do innego okna przeglądarki `123456`, ZAstąp ciąg w adresie URL, a następnie naciśnij klawisz ENTER.
+1. Aby przetestować możliwy do przetestowania punkt końcowy, skopiuj zaktualizowany adres URL wywołania zwrotnego z wyzwalacza żądania, wklej adres URL do innego okna przeglądarki, Zastąp ciąg `{postalCode}` w adresie URL `123456` , a następnie naciśnij klawisz ENTER.
 
    Przeglądarka zwróci odpowiedź z tym tekstem:`Postal Code: 123456`
 
@@ -260,7 +263,7 @@ Aby akceptować wartości parametrów za pomocą adresu URL punktu końcowego, d
 
 ## <a name="call-logic-app-through-endpoint-url"></a>Wywoływanie aplikacji logiki przy użyciu adresu URL punktu końcowego
 
-Po utworzeniu punktu końcowego można wyzwolić aplikację logiki, wysyłając żądanie HTTPS `POST` do pełnego adresu URL punktu końcowego. Aplikacje logiki mają wbudowaną obsługę punktów końcowych dostępu bezpośredniego.
+Po utworzeniu punktu końcowego można wyzwolić aplikację logiki, wysyłając `POST` żądanie HTTPS do pełnego adresu URL punktu końcowego. Aplikacje logiki mają wbudowaną obsługę punktów końcowych dostępu bezpośredniego.
 
 <a name="generated-tokens"></a>
 
@@ -268,7 +271,7 @@ Po utworzeniu punktu końcowego można wyzwolić aplikację logiki, wysyłając 
 
 Po podaniu schematu JSON w wyzwalaczu żądania projektant aplikacji logiki generuje tokeny dla właściwości w tym schemacie. Następnie można użyć tych tokenów do przekazywania danych za pomocą przepływu pracy aplikacji logiki.
 
-Jeśli na przykład dodasz więcej właściwości, takich jak `"suite"`, do schematu JSON, tokeny dla tych właściwości są dostępne do użycia w kolejnych krokach dla aplikacji logiki. Oto kompletny schemat JSON:
+Jeśli na przykład dodasz więcej właściwości, takich jak `"suite"` , do schematu JSON, tokeny dla tych właściwości są dostępne do użycia w kolejnych krokach dla aplikacji logiki. Oto kompletny schemat JSON:
 
 ```json
    {
@@ -302,7 +305,7 @@ Jeśli na przykład dodasz więcej właściwości, takich jak `"suite"`, do sche
 
 Przepływy pracy w aplikacji logiki można zagnieżdżać, dodając inne aplikacje logiki, które mogą odbierać żądania. Aby dołączyć te aplikacje logiki, wykonaj następujące kroki:
 
-1. W kroku, w którym chcesz wywołać inną aplikację logiki, wybierz pozycję **nowy krok** > **Dodaj akcję**.
+1. W kroku, w którym chcesz wywołać inną aplikację logiki, wybierz pozycję **nowy krok**  >  **Dodaj akcję**.
 
 1. W obszarze **Wybierz akcję**wybierz pozycję **wbudowane**. W polu wyszukiwania wprowadź `logic apps` jako filtr. Z listy Akcje wybierz pozycję **Wybierz przepływ pracy Logic Apps**.
 
@@ -316,9 +319,9 @@ Przepływy pracy w aplikacji logiki można zagnieżdżać, dodając inne aplikac
 
 ## <a name="reference-content-from-an-incoming-request"></a>Odwołuje się do zawartości z przychodzącego żądania
 
-Jeśli typ zawartości żądania przychodzącego to `application/json`, można odwołać się do właściwości w żądaniu przychodzącym. W przeciwnym razie ta zawartość jest traktowana jako pojedyncza jednostka binarna, którą można przekazać do innych interfejsów API. Aby odwołać się do tej zawartości w przepływie pracy aplikacji logiki, należy najpierw skonwertować tę zawartość.
+Jeśli typ zawartości żądania przychodzącego to `application/json` , można odwołać się do właściwości w żądaniu przychodzącym. W przeciwnym razie ta zawartość jest traktowana jako pojedyncza jednostka binarna, którą można przekazać do innych interfejsów API. Aby odwołać się do tej zawartości w przepływie pracy aplikacji logiki, należy najpierw skonwertować tę zawartość.
 
-Na przykład jeśli przekazujesz zawartość, która ma `application/xml` typ, możesz użyć [ `@xpath()` wyrażenia](../logic-apps/workflow-definition-language-functions-reference.md#xpath) do przeprowadzenia wyodrębniania XPath lub użyć [ `@json()` wyrażenia](../logic-apps/workflow-definition-language-functions-reference.md#json) do konwertowania XML na notację JSON. Dowiedz się więcej o pracy z obsługiwanymi [typami zawartości](../logic-apps/logic-apps-content-type.md).
+Na przykład jeśli przekazujesz zawartość, która ma `application/xml` Typ, możesz użyć [ `@xpath()` wyrażenia](../logic-apps/workflow-definition-language-functions-reference.md#xpath) do przeprowadzenia wyodrębniania XPath lub użyć [ `@json()` wyrażenia](../logic-apps/workflow-definition-language-functions-reference.md#json) do konwertowania XML na notację JSON. Dowiedz się więcej o pracy z obsługiwanymi [typami zawartości](../logic-apps/logic-apps-content-type.md).
 
 Aby uzyskać dane wyjściowe z przychodzącego żądania, można użyć [ `@triggerOutputs` wyrażenia](../logic-apps/workflow-definition-language-functions-reference.md#triggerOutputs). Załóżmy na przykład, że dane wyjściowe wyglądają podobnie do tego przykładu:
 
@@ -345,7 +348,7 @@ W przypadku zagnieżdżonych aplikacji logiki nadrzędna aplikacja logiki kontyn
 
 ### <a name="construct-the-response"></a>Konstruowanie odpowiedzi
 
-W treści odpowiedzi można uwzględnić wiele nagłówków i zawartość dowolnego typu. Na przykład nagłówek tej odpowiedzi określa, że typ zawartości odpowiedzi to `application/json` i że treść zawiera wartości właściwości `town` i `postalCode` , w oparciu o schemat JSON opisany wcześniej w tym temacie dla wyzwalacza żądania.
+W treści odpowiedzi można uwzględnić wiele nagłówków i zawartość dowolnego typu. Na przykład nagłówek tej odpowiedzi określa, że typ zawartości odpowiedzi to `application/json` i że treść zawiera wartości `town` `postalCode` właściwości i, w oparciu o schemat JSON opisany wcześniej w tym temacie dla wyzwalacza żądania.
 
 ![Podaj zawartość odpowiedzi dla akcji odpowiedzi HTTPS](./media/logic-apps-http-endpoint/content-for-response-action.png)
 
@@ -354,7 +357,7 @@ Odpowiedzi mają następujące właściwości:
 | Właściwość (Display) | Właściwość (JSON) | Opis |
 |--------------------|-----------------|-------------|
 | **Kod stanu** | `statusCode` | Kod stanu protokołu HTTPS, który ma być używany w odpowiedzi dla żądania przychodzącego. Ten kod może być dowolnym prawidłowym kodem stanu zaczynającym się od 2xx, 4xx lub 5xx. Jednak kody stanu 3xx są niedozwolone. |
-| **Nagłówka** | `headers` | Co najmniej jeden nagłówek do uwzględnienia w odpowiedzi |
+| **Nagłówki** | `headers` | Co najmniej jeden nagłówek do uwzględnienia w odpowiedzi |
 | **Treść** | `body` | Obiekt treści, który może być ciągiem, obiektem JSON lub parzystą zawartością binarną, do której odwołuje się poprzedni krok |
 ||||
 

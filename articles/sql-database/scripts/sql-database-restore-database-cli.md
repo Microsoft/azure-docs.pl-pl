@@ -1,6 +1,6 @@
 ---
-title: Przykład interfejsu wiersza polecenia — przywracanie kopii zapasowej — Azure SQL Database
-description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure służący do przywracania pojedynczej bazy danych SQL Azure do wcześniejszego punktu w czasie z automatycznych kopii zapasowych
+title: 'Interfejs wiersza polecenia platformy Azure: Przywracanie kopii zapasowej'
+description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure służący do przywracania bazy danych w Azure SQL Database do wcześniejszego punktu w czasie z automatycznych kopii zapasowych.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -11,16 +11,16 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/27/2019
-ms.openlocfilehash: efb73bc04e3c79740651fecdd98258b8101f84b1
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: c33191097afc54189df1099a2d13f606e1516e54
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774274"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022628"
 ---
-# <a name="use-cli-to-restore-an-azure-sql-single-database-to-an-earlier-point-in-time"></a>Używanie interfejsu wiersza polecenia do przywracania pojedynczej bazy danych SQL platformy Azure do wcześniejszego punktu w czasie
+# <a name="use-cli-to-restore-a-single-database-in-azure-sql-database-to-an-earlier-point-in-time"></a>Używanie interfejsu wiersza polecenia do przywracania pojedynczej bazy danych w Azure SQL Database do wcześniejszego punktu w czasie
 
-Ten przykład interfejsu wiersza polecenia platformy Azure umożliwia przywrócenie bazy danych Azure SQL Database do określonego punktu w czasie.  
+Ten przykład interfejsu wiersza polecenia platformy Azure przywraca pojedynczą bazę danych w Azure SQL Database do określonego punktu w czasie.  
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten artykuł będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
@@ -60,4 +60,4 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 
 Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure).
 
-Więcej przykładowych skryptów interfejsu wiersza polecenia dla usługi SQL Database można znaleźć w [dokumentacji usługi Azure SQL Database](../sql-database-cli-samples.md).
+Więcej przykładowych skryptów interfejsu wiersza polecenia dla usługi SQL Database można znaleźć w [dokumentacji usługi Azure SQL Database](../../azure-sql/database/az-cli-script-samples-content-guide.md).

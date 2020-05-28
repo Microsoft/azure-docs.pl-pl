@@ -1,6 +1,6 @@
 ---
-title: Przykład interfejsu wiersza polecenia — Tworzenie wystąpienia zarządzanego w Azure SQL Database
-description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure do utworzenia wystąpienia zarządzanego w Azure SQL Database
+title: 'Interfejs wiersza polecenia platformy Azure: Tworzenie wystąpienia zarządzanego'
+description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure służący do tworzenia wystąpienia zarządzanego w wystąpieniu zarządzanym Azure SQL
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/25/2019
-ms.openlocfilehash: f52a460be33b23da3da0cb32075ab5f75bb8d129
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: fd2c7a33c0747aa21a8bda53ad5437c9e79a6557
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772628"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84115405"
 ---
-# <a name="use-cli-to-create-an-azure-sql-database-managed-instance"></a>Tworzenie Azure SQL Database wystąpienia zarządzanego przy użyciu interfejsu wiersza polecenia
+# <a name="use-cli-to-create-an-azure-sql-managed-instance"></a>Tworzenie wystąpienia zarządzanego usługi Azure SQL przy użyciu interfejsu wiersza polecenia
 
-Ten przykładowy skrypt interfejsu wiersza polecenia platformy Azure tworzy Azure SQL Database wystąpienie zarządzane w dedykowanej podsieci w ramach nowej sieci wirtualnej. Konfiguruje również tabelę tras i grupę zabezpieczeń sieci dla sieci wirtualnej. Po pomyślnym uruchomieniu skryptu można uzyskać dostęp do wystąpienia zarządzanego z poziomu sieci wirtualnej lub ze środowiska lokalnego. Zobacz [Konfigurowanie maszyny wirtualnej platformy Azure, aby nawiązać połączenie z wystąpieniem zarządzanym Azure SQL Database](../sql-database-managed-instance-configure-vm.md) i [skonfigurować połączenie punkt-lokacja z wystąpieniem Azure SQL Database zarządzanym w środowisku lokalnym](../sql-database-managed-instance-configure-p2s.md).
+Ten przykładowy skrypt interfejsu wiersza polecenia platformy Azure tworzy wystąpienie zarządzane Azure SQL w dedykowanej podsieci w ramach nowej sieci wirtualnej. Konfiguruje również tabelę tras i grupę zabezpieczeń sieci dla sieci wirtualnej. Po pomyślnym uruchomieniu skryptu można uzyskać dostęp do wystąpienia zarządzanego z poziomu sieci wirtualnej lub ze środowiska lokalnego. Zobacz [Konfigurowanie maszyny wirtualnej platformy Azure, aby nawiązać połączenie z wystąpieniem zarządzanym usługi Azure SQL].. /.. /Azure-SQL/Managed-instance/Connect-VM-instance-Configure.MD) i [Skonfiguruj połączenie typu punkt-lokacja z wystąpieniem zarządzanym usługi Azure SQL w środowisku lokalnym](../../azure-sql/managed-instance/point-to-site-p2s-configure.md).
 
 > [!IMPORTANT]
-> Aby uzyskać ograniczenia, zobacz [Obsługiwane regiony](../sql-database-managed-instance-resource-limits.md#supported-regions) i [obsługiwane typy subskrypcji](../sql-database-managed-instance-resource-limits.md#supported-subscription-types).
+> Aby uzyskać ograniczenia, zobacz [Obsługiwane regiony](../../azure-sql/managed-instance/resource-limits.md#supported-regions) i [obsługiwane typy subskrypcji](../../azure-sql/managed-instance/resource-limits.md#supported-subscription-types).
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten artykuł będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
@@ -54,10 +54,10 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 | [AZ Network VNET](/cli/azure/network/vnet) | Polecenia sieci wirtualnej. |
 | [AZ Network VNET Subnet](/cli/azure/network/vnet/subnet) | Polecenia podsieci sieci wirtualnej. |
 | [AZ Network Route-Table](/cli/azure/network/route-table) | Polecenia tabeli tras sieciowych. |
-| [AZ SQL mi](/cli/azure/sql/mi) | Polecenia wystąpienia zarządzanego. |
+| [AZ SQL mi](/cli/azure/sql/mi) | Polecenia wystąpienia zarządzanego SQL. |
 
 ## <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure).
 
-Więcej przykładowych skryptów interfejsu wiersza polecenia dla usługi SQL Database można znaleźć w [dokumentacji usługi Azure SQL Database](../sql-database-cli-samples.md).
+Więcej przykładowych skryptów interfejsu wiersza polecenia dla usługi SQL Database można znaleźć w [dokumentacji usługi Azure SQL Database](../../azure-sql/database/az-cli-script-samples-content-guide.md).

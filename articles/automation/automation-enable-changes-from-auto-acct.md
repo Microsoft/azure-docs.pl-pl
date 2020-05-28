@@ -5,12 +5,12 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 28c61e637a37c158dcd80c0f02b748b4813945fb
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 31390d260f51bdc1e9858d21153aa96ea7c54405
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826846"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116652"
 ---
 # <a name="enable-change-tracking-and-inventory-from-an-automation-account"></a>Włączanie śledzenia zmian i spisu na koncie usługi Automation
 
@@ -37,9 +37,9 @@ Zaloguj się do platformy Azure pod adresem https://portal.azure.com .
 
     ![Włączanie rozwiązania Change Tracking and Inventory](media/automation-enable-changes-from-auto-acct/onboardsolutions.png)
 
-## <a name="check-the-scope-configuration"></a><a name="scope-configuration"></a>Sprawdź konfigurację zakresu
+## <a name="limit-the-scope-for-the-deployment"></a><a name="scope-configuration"></a>Ograniczanie zakresu wdrożenia
 
-Change Tracking i spis używają konfiguracji zakresu w obszarze roboczym, aby określić, że komputery mają otrzymywać zmiany. Konfiguracja zakresu jest grupą co najmniej jednego zapisanego wyszukiwania, które jest używane do ograniczania zakresu funkcji do określonych komputerów. Aby uzyskać więcej informacji, zobacz temat [współpraca z konfiguracjami zakresu dla Change Tracking i spisu](automation-scope-configurations-change-tracking.md).
+Change Tracking i spis używają konfiguracji zakresu w obszarze roboczym, aby określić, że komputery mają otrzymywać zmiany. Aby uzyskać więcej informacji, zobacz [ograniczanie Change Tracking i zakresu wdrożenia spisu](automation-scope-configurations-change-tracking.md).
 
 ## <a name="enable-azure-vms"></a>Włączanie maszyn wirtualnych platformy Azure
 
@@ -47,7 +47,7 @@ Change Tracking i spis używają konfiguracji zakresu w obszarze roboczym, aby o
 
 2. Kliknij pozycję **+ Dodaj maszyny wirtualne platformy Azure** i wybierz co najmniej jedną maszynę wirtualną z listy. Maszyny wirtualne, których nie można włączyć, są wyszarzone i nie można ich wybrać. Maszyny wirtualne platformy Azure mogą istnieć w dowolnym regionie, niezależnie od lokalizacji konta usługi Automation. 
 
-3. Kliknij pozycję **Włącz** , aby dodać wybrane maszyny wirtualne do grupy komputerów zapisane wyszukiwanie funkcji. Aby uzyskać więcej informacji, zobacz temat [współpraca z konfiguracjami zakresu dla Change Tracking i spisu](automation-scope-configurations-change-tracking.md).
+3. Kliknij pozycję **Włącz** , aby dodać wybrane maszyny wirtualne do grupy komputerów zapisane wyszukiwanie funkcji. Aby uzyskać więcej informacji, zobacz [ograniczanie Change Tracking i zakresu wdrożenia spisu](automation-scope-configurations-change-tracking.md).
 
     ![Włączanie maszyn wirtualnych platformy Azure](media/automation-enable-changes-from-auto-acct/enable-azure-vms.png)
 
@@ -80,7 +80,7 @@ Ręcznie zainstalowane maszyny lub maszyny, które są już raportowane do obsza
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby uzyskać szczegółowe informacje o tej funkcji, zobacz [zarządzanie Change Tracking i spisem](change-tracking-file-contents.md).
-* Aby uzyskać informacje na temat konfiguracji zakresów, zobacz artykuł [współpraca z konfiguracjami zakresów dla Change Tracking i spisu](automation-scope-configurations-change-tracking.md).
+* Aby uzyskać informacje na temat konfiguracji zakresów, zobacz [ograniczanie Change Tracking i zakresu wdrożenia spisu](automation-scope-configurations-change-tracking.md).
 * Aby dowiedzieć się, jak za pomocą funkcji identyfikować oprogramowanie zainstalowane w danym środowisku, zobacz sekcję jak rozpoznać, [jakie oprogramowanie jest zainstalowane na maszynach wirtualnych](automation-tutorial-installed-software.md).
 * Jeśli nie chcesz zintegrować konta usługi Automation z obszarem roboczym Log Analytics podczas włączania funkcji, zobacz [Odłącz obszar roboczy od konta usługi Automation](automation-unlink-workspace-change-tracking.md).
 * Po zakończeniu wdrażania zmian na maszynach wirtualnych można je usunąć zgodnie z opisem w temacie [usuwanie maszyn wirtualnych z Change Tracking i spisu](automation-remove-vms-from-change-tracking.md).

@@ -188,6 +188,6 @@ Wyniki są następujące:
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Wprowadzenie](sql-query-getting-started.md)
+- [Pierwsze kroki](sql-query-getting-started.md)
 - [SELECT — klauzula](sql-query-select.md)
 - [Funkcje agregujące](sql-query-aggregates.md)

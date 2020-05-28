@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: absha
-ms.openlocfilehash: 046946bb9d3ce1ae86d49409d024c862d2edb982
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: bd6f04ca7e24e380ad657f967284704ad613375a
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856055"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996401"
 ---
 # <a name="application-gateway-configuration-overview"></a>Przegląd konfiguracji Application Gateway
 
@@ -20,7 +20,7 @@ Usługa Azure Application Gateway obejmuje kilka składników, które można sko
 
 ![Wykres przepływu składników Application Gateway](./media/configuration-overview/configuration-overview1.png)
 
-Ten obraz przedstawia aplikację, która ma trzy detektory. Pierwsze dwa są odbiornikami wielolokacjowymi dla `http://acme.com/*` i `http://fabrikam.com/*`, odpowiednio. Oba nasłuchują na porcie 80. Trzecia to podstawowy odbiornik, który ma kompleksowe zakończenie Transport Layer Security (TLS), wcześniej znane jako zakończenie SSL (SSL).
+Ten obraz przedstawia aplikację, która ma trzy detektory. Pierwsze dwa są odbiornikami wielolokacjowymi dla `http://acme.com/*` i `http://fabrikam.com/*` , odpowiednio. Oba nasłuchują na porcie 80. Trzecia to podstawowy odbiornik, który ma kompleksowe zakończenie Transport Layer Security (TLS), wcześniej znane jako zakończenie SSL (SSL).
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -162,7 +162,7 @@ Wybierz adres IP frontonu, który ma zostać skojarzony z tym odbiornikiem. Odbi
 
 Wybierz port frontonu. Wybierz istniejący port lub Utwórz nowy. Wybierz dowolną wartość z [dozwolonego zakresu portów](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#ports). Można użyć nie tylko dobrze znanych portów, na przykład 80 i 443, ale dowolnego dozwolonego niestandardowego portu, który jest odpowiedni. Port może być używany na potrzeby odbiorników publicznych lub odbiorników prywatnych.
 
-### <a name="protocol"></a>Protocol (Protokół)
+### <a name="protocol"></a>Protokół
 
 Wybierz pozycję HTTP lub HTTPS:
 
@@ -219,14 +219,12 @@ Podczas tworzenia bramy aplikacji przy użyciu Azure Portal należy utworzyć re
 
 Podczas tworzenia reguły wybiera się między [ *podstawową* a *opartą na ścieżce*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rules).
 
-- Wybierz pozycję podstawowa, jeśli chcesz przesłać dalej wszystkie żądania na skojarzonym odbiorniku (na *przykład<i></i>blog.\*contoso.com/)* do jednej puli zaplecza.
+- Wybierz pozycję podstawowa, jeśli chcesz przesłać dalej wszystkie żądania na skojarzonym odbiorniku (na przykład *blog <i></i> . contoso.com/ \* )* do jednej puli zaplecza.
 - Wybierz pozycję oparta na ścieżce, jeśli chcesz kierować żądania z określonych ścieżek URL do określonych pul zaplecza. Wzorzec ścieżki jest stosowany tylko do ścieżki adresu URL, a nie do parametrów zapytania.
 
 #### <a name="order-of-processing-rules"></a>Kolejność reguł przetwarzania
 
-W przypadku jednostki SKU V1 dopasowanie wzorców żądań przychodzących jest przetwarzane w kolejności, w jakiej ścieżki są wyświetlane na mapie ścieżki URL reguły opartej na ścieżce. Jeśli żądanie pasuje do wzorca w co najmniej dwóch ścieżkach w mapie ścieżki, ścieżka, która jest wymieniona jako pierwsza jest dopasowana. A żądanie jest przekazywane do zaplecza, który jest skojarzony z tą ścieżką.
-
-W przypadku jednostki SKU v2 dokładne dopasowanie jest wyższym priorytetem niż kolejność ścieżki w mapie ścieżki URL. Jeśli żądanie pasuje do wzorca w co najmniej dwóch ścieżkach, żądanie jest przekazywane do zaplecza, który jest skojarzony ze ścieżką dokładnie zgodną z żądaniem. Jeśli ścieżka w żądaniu przychodzącym nie dokładnie pasuje do żadnej ścieżki na mapie, dopasowanie wzorca żądania jest przetwarzane na liście kolejności mapowania ścieżki dla reguły opartej na ścieżce.
+W przypadku jednostki SKU w wersji 1 i v2 wzorzec dopasowywania żądań przychodzących jest przetwarzany w kolejności, w jakiej ścieżki są wyświetlane na mapie ścieżki URL reguły opartej na ścieżce. Jeśli żądanie pasuje do wzorca w co najmniej dwóch ścieżkach w mapie ścieżki, ścieżka, która jest wymieniona jako pierwsza jest dopasowana. A żądanie jest przekazywane do zaplecza, który jest skojarzony z tą ścieżką.
 
 ### <a name="associated-listener"></a>Skojarzony odbiornik
 
@@ -250,7 +248,7 @@ Dla reguły opartej na ścieżce Dodaj wiele ustawień protokołu HTTP zaplecza,
 
 ### <a name="redirection-setting"></a>Ustawienie przekierowania
 
-W przypadku skonfigurowania przekierowania dla podstawowej reguły wszystkie żądania na skojarzonym odbiorniku są przekierowywane do obiektu docelowego. To jest przekierowanie *globalne* . Jeśli przekierowanie jest skonfigurowane dla reguły opartej na ścieżce, przekierowywane są tylko żądania w określonym obszarze witryny. Przykładem jest obszar koszyka zakupów, który jest oznaczany przez */Cart/\**. Jest to przekierowanie *oparte na ścieżce* .
+W przypadku skonfigurowania przekierowania dla podstawowej reguły wszystkie żądania na skojarzonym odbiorniku są przekierowywane do obiektu docelowego. To jest przekierowanie *globalne* . Jeśli przekierowanie jest skonfigurowane dla reguły opartej na ścieżce, przekierowywane są tylko żądania w określonym obszarze witryny. Przykładem jest obszar koszyka zakupów, który jest oznaczany przez */Cart/ \* *. Jest to przekierowanie *oparte na ścieżce* .
 
 Aby uzyskać więcej informacji na temat przekierowań, zobacz [Omówienie przekierowania Application Gateway](redirect-overview.md).
 
@@ -311,7 +309,7 @@ Należy pamiętać, że domyślna nazwa pliku cookie koligacji to *ApplicationGa
 
 Opróżnianie połączeń pomaga bezpiecznie usunąć członków puli zaplecza podczas aktualizacji planowanych usług. To ustawienie można zastosować do wszystkich elementów członkowskich puli zaplecza podczas tworzenia reguły. Gwarantuje to, że wszystkie wyrejestrujące się wystąpienia puli zaplecza nadal utrzymują istniejące połączenia i obsługują żądania w celu skonfigurowania limitu czasu i nie otrzymają żadnych nowych żądań ani połączeń. Jedynym wyjątkiem są żądania związane z wyrejestrowywaniem wystąpień z powodu koligacji sesji zarządzanej przez bramę i będzie on nadal przekazywany do wyrejestrowania wystąpień. Opróżnianie połączeń dotyczy wystąpień zaplecza, które są jawnie usuwane z puli zaplecza.
 
-### <a name="protocol"></a>Protocol (Protokół)
+### <a name="protocol"></a>Protokół
 
 Application Gateway obsługuje zarówno protokół HTTP, jak i HTTPS w przypadku żądań routingu do serwerów zaplecza. W przypadku wybrania protokołu HTTP ruch do serwerów zaplecza jest niezaszyfrowany. Jeśli nieszyfrowana komunikacja nie jest akceptowalna, wybierz pozycję HTTPS.
 
@@ -378,7 +376,7 @@ W przypadku domeny niestandardowej, której istniejąca niestandardowa nazwa DNS
 
 Ta funkcja zastępuje nagłówek *hosta* w żądaniu przychodzącym w bramie aplikacji z określoną nazwą hosta.
 
-Na przykład jeśli *www.contoso.com* jest określony w ustawieniu **Nazwa hosta** , oryginalne żądanie *`https://appgw.eastus.cloudapp.azure.com/path1` zostanie zmienione na *`https://www.contoso.com/path1` , gdy żądanie jest przekazywane do serwera zaplecza.
+Na przykład jeśli *www.contoso.com* jest określony w ustawieniu **Nazwa hosta** , oryginalne żądanie * `https://appgw.eastus.cloudapp.azure.com/path1` zostanie zmienione na *, `https://www.contoso.com/path1` gdy żądanie jest przekazywane do serwera zaplecza.
 
 ## <a name="back-end-pool"></a>Pula zaplecza
 

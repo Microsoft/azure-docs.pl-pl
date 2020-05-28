@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: af18a32143ebc9db7be923b09de106b79022321f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0c57e370cf2f43fc5636cc6c70d2a9bdce4a1923
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78969056"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141742"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Szybkie kroki: Tworzenie pary kluczy publiczny-prywatny SSH dla maszyn wirtualnych z systemem Linux na platformie Azure
 
@@ -29,7 +29,7 @@ Aby uzyskać dodatkowe sposoby generowania i używania kluczy SSH na komputerze 
 
 ## <a name="create-an-ssh-key-pair"></a>Tworzenie pary kluczy SSH
 
-Użyj polecenia `ssh-keygen` , aby wygenerować pliki publicznego i prywatnego klucza SSH. Domyślnie te pliki są tworzone w katalogu ~/.SSH. Aby uzyskać dostęp do pliku klucza prywatnego, można określić inną lokalizację i opcjonalne hasło (*hasło*). Jeśli para kluczy SSH o tej samej nazwie istnieje w danej lokalizacji, te pliki są zastępowane.
+Użyj `ssh-keygen` polecenia, aby wygenerować pliki publicznego i prywatnego klucza SSH. Domyślnie te pliki są tworzone w katalogu ~/.SSH. Aby uzyskać dostęp do pliku klucza prywatnego, można określić inną lokalizację i opcjonalne hasło (*hasło*). Jeśli para kluczy SSH o tej samej nazwie istnieje w danej lokalizacji, te pliki są zastępowane.
 
 Następujące polecenie tworzy parę kluczy SSH przy użyciu szyfrowania RSA i długość bitową 4096:
 
@@ -37,7 +37,7 @@ Następujące polecenie tworzy parę kluczy SSH przy użyciu szyfrowania RSA i d
 ssh-keygen -m PEM -t rsa -b 4096
 ```
 
-Jeśli używasz [interfejsu wiersza polecenia platformy Azure](/cli/azure) , aby utworzyć maszynę wirtualną z poleceniem [AZ VM Create](/cli/azure/vm#az-vm-create) , możesz opcjonalnie wygenerować pliki publicznego i prywatnego klucza SSH `--generate-ssh-keys` przy użyciu opcji. Pliki kluczy są przechowywane w katalogu ~/.SSH, chyba że określono inaczej z `--ssh-dest-key-path` opcją. `--generate-ssh-keys` Opcja nie spowoduje zastąpienia istniejących plików kluczy, zamiast zwraca błąd. W poniższym poleceniu Zastąp wartości *VMName* i *RGname* własnymi wartościami:
+Jeśli używasz [interfejsu wiersza polecenia platformy Azure](/cli/azure) , aby utworzyć maszynę wirtualną z poleceniem [AZ VM Create](/cli/azure/vm#az-vm-create) , możesz opcjonalnie wygenerować pliki publicznego i prywatnego klucza SSH przy użyciu `--generate-ssh-keys` opcji. Pliki kluczy są przechowywane w katalogu ~/.SSH, chyba że określono inaczej z `--ssh-dest-key-path` opcją. `--generate-ssh-keys`Opcja nie spowoduje zastąpienia istniejących plików kluczy, zamiast zwraca błąd. W poniższym poleceniu Zastąp wartości *VMName* i *RGname* własnymi wartościami:
 
 ```azurecli
 az vm create --name VMname --resource-group RGname --generate-ssh-keys 
@@ -63,15 +63,21 @@ Typowa wartość klucza publicznego wygląda podobnie do tego przykładu:
 ssh-rsa AAAAB3NzaC1yc2EAABADAQABAAACAQC1/KanayNr+Q7ogR5mKnGpKWRBQU7F3Jjhn7utdf7Z2iUFykaYx+MInSnT3XdnBRS8KhC0IP8ptbngIaNOWd6zM8hB6UrcRTlTpwk/SuGMw1Vb40xlEFphBkVEUgBolOoANIEXriAMvlDMZsgvnMFiQ12tD/u14cxy1WNEMAftey/vX3Fgp2vEq4zHXEliY/sFZLJUJzcRUI0MOfHXAuCjg/qyqqbIuTDFyfg8k0JTtyGFEMQhbXKcuP2yGx1uw0ice62LRzr8w0mszftXyMik1PnshRXbmE2xgINYg5xo/ra3mq2imwtOKJpfdtFoMiKhJmSNHBSkK7vFTeYgg0v2cQ2+vL38lcIFX4Oh+QCzvNF/AXoDVlQtVtSqfQxRVG79Zqio5p12gHFktlfV7reCBvVIhyxc2LlYUkrq4DHzkxNY5c9OGSHXSle9YsO3F1J5ip18f6gPq4xFmo6dVoJodZm9N0YMKCkZ4k1qJDESsJBk2ujDPmQQeMjJX3FnDXYYB182ZCGQzXfzlPDC29cWVgDZEXNHuYrOLmJTmYtLZ4WkdUhLLlt5XsdoKWqlWpbegyYtGZgeZNRtOOdN6ybOPJqmYFd2qRtb4sYPniGJDOGhx4VodXAjT09omhQJpE6wlZbRWDvKC55R2d/CSPHJscEiuudb+1SG2uA/oik/WQ== username@domainname
 ```
 
-Jeśli skopiujesz i wkleisz zawartość pliku klucza publicznego do użycia w Azure Portal lub szablon Menedżer zasobów, pamiętaj, aby nie kopiować żadnych białych znaków. Aby skopiować klucz publiczny w macOS, można przekazać plik klucza publicznego do `pbcopy`programu. Podobnie w systemie Linux można potokować plik klucza publicznego do programów takich jak `xclip`.
+Jeśli skopiujesz i wkleisz zawartość pliku klucza publicznego do użycia w Azure Portal lub szablon Menedżer zasobów, pamiętaj, aby nie kopiować żadnych białych znaków. Aby skopiować klucz publiczny w macOS, można przekazać plik klucza publicznego do programu `pbcopy` . Podobnie w systemie Linux można potokować plik klucza publicznego do programów takich jak `xclip` .
 
-Klucz publiczny umieszczany na maszynie wirtualnej z systemem Linux na platformie Azure jest domyślnie przechowywany w folderze ~/.ssh/id_rsa. pub, chyba że podczas tworzenia pary kluczy określono inną lokalizację. Aby użyć [interfejsu wiersza polecenia platformy Azure 2,0](/cli/azure) do utworzenia maszyny wirtualnej z istniejącym kluczem publicznym, określ wartość i opcjonalnie lokalizację tego klucza publicznego przy użyciu polecenia [AZ VM Create](/cli/azure/vm#az-vm-create) z `--ssh-key-values` opcją. W poniższym poleceniu Zastąp wartości *VMName*, *RGname*i *keyFile* własnymi wartościami:
+Klucz publiczny umieszczany na maszynie wirtualnej z systemem Linux na platformie Azure jest domyślnie przechowywany w folderze ~/.ssh/id_rsa. pub, chyba że podczas tworzenia pary kluczy określono inną lokalizację. Aby użyć [interfejsu wiersza polecenia platformy Azure 2,0](/cli/azure) do utworzenia maszyny wirtualnej z istniejącym kluczem publicznym, określ wartość i opcjonalnie lokalizację tego klucza publicznego przy użyciu polecenia [AZ VM Create](/cli/azure/vm#az-vm-create) z `--ssh-key-values` opcją. W poniższym poleceniu Zastąp *myVM*, *webresources*, *UbuntuLTS*, *azureuser*i *mysshkey. pub* własnymi wartościami:
+
 
 ```azurecli
-az vm create --name VMname --resource-group RGname --ssh-key-values mysshkey.pub
+az vm create \
+  --resource-group myResourceGroup \
+  --name myVM \
+  --image UbuntuLTS \
+  --admin-username azureuser \
+  --ssh-key-values mysshkey.pub
 ```
 
-Jeśli chcesz użyć wielu kluczy SSH z maszyną wirtualną, możesz wprowadzić je w postaci listy rozdzielonej spacjami, np `--ssh-key-values sshkey-desktop.pub sshkey-laptop.pub`..
+Jeśli chcesz użyć wielu kluczy SSH z maszyną wirtualną, możesz wprowadzić je w postaci listy rozdzielonej spacjami, np `--ssh-key-values sshkey-desktop.pub sshkey-laptop.pub` ..
 
 
 ## <a name="ssh-into-your-vm"></a>Łączenie z maszyną wirtualną za pośrednictwem protokołu SSH

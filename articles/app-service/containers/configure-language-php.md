@@ -4,12 +4,12 @@ description: Dowiedz się, jak skonfigurować wstępnie zbudowany kontener PHP d
 ms.devlang: php
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 9e87466f810dc4ebf767c36ad74c358cbf6069e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 97ccc309e6fd4efd48a609ab558e9842f376ccf5
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81758879"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142116"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Konfigurowanie aplikacji PHP w systemie Linux dla Azure App Service
 
@@ -43,11 +43,11 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 
 Jeśli aplikacja zostanie wdrożona za pomocą usługi Git lub zip z włączonym automatyzacją kompilacji, App Service kroki automatyzacji kompilacji w następującej kolejności:
 
-1. Uruchom skrypt niestandardowy, jeśli został `PRE_BUILD_SCRIPT_PATH`określony przez.
+1. Uruchom skrypt niestandardowy, jeśli został określony przez `PRE_BUILD_SCRIPT_PATH` .
 1. Uruchom polecenie `php composer.phar install`.
-1. Uruchom skrypt niestandardowy, jeśli został `POST_BUILD_SCRIPT_PATH`określony przez.
+1. Uruchom skrypt niestandardowy, jeśli został określony przez `POST_BUILD_SCRIPT_PATH` .
 
-`PRE_BUILD_COMMAND`i `POST_BUILD_COMMAND` są zmiennymi środowiskowymi, które są domyślnie puste. Aby uruchomić polecenia przed kompilacją, zdefiniuj `PRE_BUILD_COMMAND`. Aby uruchomić polecenia po kompilacji, zdefiniuj `POST_BUILD_COMMAND`.
+`PRE_BUILD_COMMAND`i `POST_BUILD_COMMAND` są zmiennymi środowiskowymi, które są domyślnie puste. Aby uruchomić polecenia przed kompilacją, zdefiniuj `PRE_BUILD_COMMAND` . Aby uruchomić polecenia po kompilacji, zdefiniuj `POST_BUILD_COMMAND` .
 
 W poniższym przykładzie określono dwie zmienne do szeregu poleceń, oddzielone przecinkami.
 
@@ -62,7 +62,7 @@ Aby uzyskać więcej informacji na temat sposobu uruchamiania i kompilowania apl
 
 ## <a name="customize-start-up"></a>Dostosowywanie uruchamiania
 
-Domyślnie wbudowany kontener PHP uruchamia serwer Apache. Po uruchomieniu działa `apache2ctl -D FOREGROUND"`. Jeśli chcesz, możesz uruchomić inne polecenie podczas uruchamiania, uruchamiając następujące polecenie w [Cloud Shell](https://shell.azure.com):
+Domyślnie wbudowany kontener PHP uruchamia serwer Apache. Po uruchomieniu działa `apache2ctl -D FOREGROUND"` . Jeśli chcesz, możesz uruchomić inne polecenie podczas uruchamiania, uruchamiając następujące polecenie w [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
@@ -85,7 +85,7 @@ Domyślny obraz PHP dla App Service korzysta z platformy Apache i nie pozwala na
 ```
 <IfModule mod_rewrite.c>
     RewriteEngine on
-
+    RewriteCond %{REQUEST_URI} ^/$
     RewriteRule ^(.*)$ /public/$1 [NC,L,QSA]
 </IfModule>
 ```
@@ -134,19 +134,19 @@ Jako alternatywę dla korzystania z *. htaccess*można użyć [ini_set ()](https
 
 ### <a name="customize-php_ini_system-directives"></a><a name="customize-php_ini_system-directives"></a>Dostosuj dyrektywy PHP_INI_SYSTEM
 
-Aby dostosować dyrektywy PHP_INI_SYSTEM (zobacz sekcję [php. ini dyrektywy](https://www.php.net/manual/ini.list.php)), nie można użyć metody *. htaccess* . App Service zapewnia oddzielny mechanizm przy `PHP_INI_SCAN_DIR` użyciu ustawienia aplikacji.
+Aby dostosować dyrektywy PHP_INI_SYSTEM (zobacz sekcję [php. ini dyrektywy](https://www.php.net/manual/ini.list.php)), nie można użyć metody *. htaccess* . App Service zapewnia oddzielny mechanizm przy użyciu `PHP_INI_SCAN_DIR` Ustawienia aplikacji.
 
-Najpierw uruchom następujące polecenie w [Cloud Shell](https://shell.azure.com) , aby dodać ustawienie aplikacji o nazwie `PHP_INI_SCAN_DIR`:
+Najpierw uruchom następujące polecenie w [Cloud Shell](https://shell.azure.com) , aby dodać ustawienie aplikacji o nazwie `PHP_INI_SCAN_DIR` :
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PHP_INI_SCAN_DIR="/usr/local/etc/php/conf.d:/home/site/ini"
 ```
 
-`/usr/local/etc/php/conf.d`jest domyślnym katalogiem, w którym znajduje się *plik php. ini* . `/home/site/ini`jest katalogiem niestandardowym, w którym zostanie dodany niestandardowy plik *. ini* . Wartości należy rozdzielić `:`.
+`/usr/local/etc/php/conf.d`jest domyślnym katalogiem, w którym znajduje się *plik php. ini* . `/home/site/ini`jest katalogiem niestandardowym, w którym zostanie dodany niestandardowy plik *. ini* . Wartości należy rozdzielić `:` .
 
-Przejdź do sesji protokołu SSH sieci Web przy użyciu kontenera systemu`https://<app-name>.scm.azurewebsites.net/webssh/host`Linux ().
+Przejdź do sesji protokołu SSH sieci Web przy użyciu kontenera systemu Linux ( `https://<app-name>.scm.azurewebsites.net/webssh/host` ).
 
-Utwórz katalog w `/home/site` nazwie `ini`, a następnie utwórz plik *. ini* w `/home/site/ini` katalogu (na przykład *Settings. ini)* z dyrektywami, które chcesz dostosować. Użyj tej samej składni, która będzie używana w pliku *php. ini* . 
+Utwórz katalog w `/home/site` nazwie `ini` , a następnie utwórz plik *. ini* w `/home/site/ini` katalogu (na przykład *Settings. ini)* z dyrektywami, które chcesz dostosować. Użyj tej samej składni, która będzie używana w pliku *php. ini* . 
 
 > [!TIP]
 > W wbudowanych kontenerach systemu Linux w App Service */Home* jest używany jako utrwalony magazyn udostępniony. 
@@ -172,7 +172,7 @@ Wbudowane instalacje języka PHP zawierają najczęściej używane rozszerzenia.
 
 Aby włączyć dodatkowe rozszerzenia, wykonaj następujące czynności:
 
-Dodaj `bin` katalog do katalogu głównego aplikacji i umieść w nim pliki `.so` rozszerzeń (na przykład *MongoDB.so*). Upewnij się, że rozszerzenia są zgodne z wersją języka PHP na platformie Azure i są zgodne z VC9 i niebezpiecznym wątkem (nkty przerwania).
+Dodaj `bin` katalog do katalogu głównego aplikacji i umieść `.so` w nim pliki rozszerzeń (na przykład *MongoDB.so*). Upewnij się, że rozszerzenia są zgodne z wersją języka PHP na platformie Azure i są zgodne z VC9 i niebezpiecznym wątkem (nkty przerwania).
 
 Wdróż zmiany.
 
@@ -199,7 +199,7 @@ Gdy działająca aplikacja PHP działa inaczej w App Service lub zawiera błędy
 
 - [Dostęp do strumienia dzienników](#access-diagnostic-logs).
 - Przetestuj aplikację lokalnie w trybie produkcyjnym. App Service uruchamia aplikacje Node. js w trybie produkcyjnym, dlatego należy się upewnić, że projekt działa zgodnie z oczekiwaniami w trybie produkcyjnym lokalnie. Przykład:
-    - W zależności od pliku *Composer. JSON*można zainstalować różne pakiety dla trybu produkcyjnego (`require` vs. `require-dev`).
+    - W zależności od pliku *Composer. JSON*można zainstalować różne pakiety dla trybu produkcyjnego ( `require` vs. `require-dev` ).
     - Niektóre platformy sieci Web mogą wdrażać pliki statyczne inaczej w trybie produkcyjnym.
     - Niektóre platformy sieci Web mogą używać niestandardowych skryptów uruchamiania podczas pracy w trybie produkcyjnym.
 - Uruchom aplikację w App Service w trybie debugowania. Na przykład w [platformy laravel](https://meanjs.org/)można skonfigurować aplikację do wyprowadzania komunikatów debugowania w środowisku produkcyjnym, [ustawiając `APP_DEBUG` ustawienie aplikacji na `true` ](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).

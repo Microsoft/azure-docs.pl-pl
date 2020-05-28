@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Opisuje sposób konfigurowania klastra usługi Azure Kubernetes dla Azure Dev Spaces Works
 keywords: Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, kontenery
-ms.openlocfilehash: 6b158ca7f425e8b7c492c27521dba588a508b534
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 60f6c466e7c016ccd07e37b2f0d1ce9989fb8f9f
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873556"
+ms.locfileid: "83995891"
 ---
 # <a name="how-setting-up-a-cluster-for-azure-dev-spaces-works"></a>Jak skonfigurować klaster dla Azure Dev Spaces działa
 
@@ -18,7 +18,7 @@ Azure Dev Spaces zapewnia wiele sposobów na szybkie Iterowanie i debugowanie ap
 
 ## <a name="prepare-your-aks-cluster"></a>Przygotowywanie klastra AKS
 
-Aby przygotować klaster AKS na potrzeby obszarów programistycznych, należy sprawdzić, czy klaster AKS znajduje się w regionie [obsługiwanym przez Azure dev Spaces][supported-regions] i korzysta z Kubernetes 1.10.3 lub nowszego. Aby włączyć Azure Dev Spaces w klastrze z poziomu Azure Portal, przejdź do klastra, kliknij pozycję *spacje dla deweloperów*, Zmień opcję *Użyj spacji dev* na *tak*, a następnie kliknij przycisk *Zapisz*. Możesz również włączyć Azure Dev Spaces w interfejsie wiersza polecenia platformy Azure, uruchamiając `az aks use-dev-spaces` .
+Aby przygotować klaster AKS na potrzeby obszarów programistycznych, należy sprawdzić, czy klaster AKS znajduje się w regionie [obsługiwanym przez Azure dev Spaces][supported-regions] i korzysta z Kubernetes 1.10.3 lub nowszego. Azure Dev Spaces można włączyć z poziomu interfejsu wiersza polecenia platformy Azure, uruchamiając `az aks use-dev-spaces` .
 
 Aby zapoznać się z przykładem konfigurowania klastra AKS dla funkcji miejsca do użytku deweloperskiego, zapoznaj się z [przewodnikiem Szybki Start dla deweloperów][quickstart-team].
 

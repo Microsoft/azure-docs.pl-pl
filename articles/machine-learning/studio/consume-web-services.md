@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: b97fe6e55e2c36b6f101071e702952f529146281
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 537c7e70176d902c5bc7458b60de7a70ea040c85
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80631661"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117344"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-classic-web-service"></a>Jak korzystać z usługi sieci Web Azure Machine Learning Studio (klasycznej)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Po wdrożeniu modelu predykcyjnego Azure Machine Learning Studio (klasyczny) jako usługi sieci Web można użyć interfejsu API REST do wysyłania danych IT i uzyskiwania prognoz. Dane można wysyłać w czasie rzeczywistym lub w trybie wsadowym.
 
@@ -99,7 +97,7 @@ Aby nawiązać połączenie z usługą sieci Web Machine Learning, należy zains
 **Zainstaluj pakiet NuGet Microsoft. AspNet. WebApi. Client w programie Visual Studio**
 
 1. Opublikuj zestaw danych do pobrania z usługi sieci Web zestaw danych o treści 1.
-2. Kliknij kolejno pozycje **Narzędzia** > **Menedżer pakietów** > NuGet**konsola Menedżera pakietów**.
+2. Kliknij kolejno pozycje **Narzędzia**Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera pakietów**.
 3. Wybierz polecenie **install-package Microsoft. ASPNET. WebApi. Client**.
 
 **Aby uruchomić przykładowy kod**
@@ -306,7 +304,7 @@ print(fromJSON(result))
 
 ### <a name="javascript-sample"></a>Przykładowy kod JavaScript
 
-Aby nawiązać połączenie z usługą sieci Web Machine Learning, Użyj pakietu **Request** npm w projekcie. Możesz również użyć `JSON` obiektu, aby sformatować dane wejściowe i przeanalizować wynik. Zainstaluj `npm install request --save`program lub Dodaj `"request": "*"` do pliku Package. JSON w obszarze `dependencies` i uruchom `npm install`.
+Aby nawiązać połączenie z usługą sieci Web Machine Learning, Użyj pakietu **Request** npm w projekcie. Możesz również użyć obiektu, `JSON` Aby sformatować dane wejściowe i przeanalizować wynik. Zainstaluj `npm install request --save` program lub Dodaj `"request": "*"` do pliku Package. JSON w obszarze `dependencies` i uruchom `npm install` .
 
 **Oto, jak będzie wyglądać pełne żądanie.**
 ```js

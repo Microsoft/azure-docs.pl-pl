@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e99b9b87f939d614679fdecf24c9d36d99bf2938
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1140b65cf56125b23ef3c616e597aafba989b197
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78671885"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993862"
 ---
 # <a name="conditional-access-session"></a>Dostęp warunkowy: sesja
 
@@ -48,7 +48,7 @@ Kontrola dostępu warunkowego aplikacji umożliwia monitorowanie i sterowanie do
 
 Aby uzyskać więcej informacji, zobacz artykuł [wdrażanie kontrola dostępu warunkowego aplikacji dla polecanych aplikacji](/cloud-app-security/proxy-deployment-aad).
 
-## <a name="sign-in-frequency-preview"></a>Częstotliwość logowania (wersja zapoznawcza)
+## <a name="sign-in-frequency"></a>Częstotliwość logowania
 
 Częstotliwość logowania określa czas, po którym użytkownik zostanie poproszony o ponowne zalogowanie przy próbie uzyskania dostępu do zasobu.
 
@@ -66,7 +66,7 @@ Ustawienie częstotliwości logowania działa z aplikacjami, które mają wdroż
 
 Aby uzyskać więcej informacji, zobacz artykuł [Konfigurowanie zarządzania sesją uwierzytelniania przy użyciu dostępu warunkowego](howto-conditional-access-session-lifetime.md#user-sign-in-frequency).
 
-## <a name="persistent-browser-session-preview"></a>Sesja trwałej przeglądarki (wersja zapoznawcza)
+## <a name="persistent-browser-session"></a>Sesja trwałej przeglądarki
 
 W trwałej sesji przeglądarki użytkownicy mogą pozostać zalogowani po zamknięciu i ponownym otwarciu okna przeglądarki.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 0a54416a70a8561edfad5915944100e0ce686bbf
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f911b36d4f38d9b769cf34e4e2326ed1cb52da80
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75771261"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022815"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Wiele frontonów dla Azure Load Balancer
 
@@ -146,7 +146,7 @@ Miejscem docelowym przepływu ruchu przychodzącego jest adres IP frontonu w int
 
 Należy zauważyć, że w tym przykładzie nie jest zmieniany port docelowy. Mimo że jest to przepływający scenariusz IP, Azure Load Balancer obsługuje także Definiowanie reguły, aby ponownie zapisać port docelowy zaplecza i uczynić go innym względem portu docelowego frontonu.
 
-Typ reguły zmiennoprzecinkowy adres IP jest podstawą kilku wzorców konfiguracji usługi równoważenia obciążenia. Jednym z przykładów, które jest obecnie dostępne, jest funkcja [SQL AlwaysOn z wieloma odbiornikami](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) konfiguracji. W miarę upływu czasu będzie można udokumentować więcej takich scenariuszy.
+Typ reguły zmiennoprzecinkowy adres IP jest podstawą kilku wzorców konfiguracji usługi równoważenia obciążenia. Jednym z przykładów, które jest obecnie dostępne, jest funkcja [SQL AlwaysOn z wieloma odbiornikami](../azure-sql/virtual-machines/windows/availability-group-listener-powershell-configure.md) konfiguracji. W miarę upływu czasu będzie można udokumentować więcej takich scenariuszy.
 
 ## <a name="limitations"></a>Ograniczenia
 

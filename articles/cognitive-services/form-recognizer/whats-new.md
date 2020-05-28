@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: c2b67989cbffb03eb182b4de2bf471a02ee33e7b
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: e3bf279142383ccdb3e82ffee49bd593640bb937
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82627997"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996826"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Co nowego w usłudze Rozpoznawanie formularzy?
 
@@ -23,15 +23,14 @@ Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzysta
 > [!NOTE]
 > Przewodniki Szybki Start i wskazówki dla aparatu rozpoznawania formularzy zawsze używają najnowszej wersji interfejsu API, chyba że zostanie to określone.
 
-## <a name="april-2020"></a>Kwiecień 2020 r.
+## <a name="april-2020"></a>Kwiecień 2020 r.
 
 ### <a name="new-features"></a>Nowe funkcje
 * **Obsługa zestawu SDK interfejsu API rozpoznawania formularzy w wersji 2.0** W tym miesiącu rozszerzono obsługę usługi w celu uwzględnienia zestawu SDK w wersji zapoznawczej dla aparatu rozpoznawania dla programu format 2.0 (wersja zapoznawcza). Skorzystaj z poniższych linków, aby rozpocząć pracę z wybranym językiem: 
-   * [Zestaw SDK .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer)
-   * [Zestaw SDK Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/formrecognizer/azure-ai-formrecognizer)
-   * [Zestaw SDK dla języka Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer)
-   * [Zestaw SDK dla języka JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer)
-
+   * [Zestaw SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer?view=azure-dotnet-preview)
+   * [Zestaw SDK Java](https://docs.microsoft.com/java/api/overview/azure/formrecognizer?view=azure-java-preview)
+   * [Zestaw SDK dla języka Python](https://docs.microsoft.com/python/api/overview/azure/formrecognizer?view=azure-python-previewr)
+   * [Zestaw SDK dla języka JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer?view=azure-node-preview)
 
   Nowy zestaw SDK obsługuje wszystkie funkcje interfejsu API REST programu v 2.0 na potrzeby aparatu rozpoznawania formularzy. Na przykład można przeprowadzić uczenie modelu z etykietami lub bez nich oraz Wyodrębnianie tekstu, par klucz-wartość i tabel z formularzy, wyodrębnianie danych z przyjęć przy użyciu wstępnie utworzonych usług przyjęć oraz Wyodrębnianie tekstu i tabel z użyciem usługi układu z dokumentów. Swoją opinię na temat zestawów SDK możesz udostępnić za pomocą [formularza opinii zestawu SDK](https://aka.ms/FR_SDK_v1_feedback).
  
@@ -39,6 +38,10 @@ Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzysta
    * [Generuj autoryzację kopiowania](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/CopyCustomFormModelAuthorization) INTERFEJS API REST
    * [Kopiowanie modelu niestandardowego](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/CopyCustomFormModel) INTERFEJS API REST 
 
+### <a name="security-improvements"></a>Ulepszenia zabezpieczeń
+
+* Klucze zarządzane przez klienta są teraz dostępne dla FormRecognizer. Aby uzyskać więcej informacji, zobacz [szyfrowanie danych w usłudze REST dla aparatu rozpoznawania formularzy](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/form-recognizer-encryption-of-data-at-rest).
+* Korzystaj z tożsamości zarządzanych, aby uzyskiwać dostęp do zasobów platformy Azure za pomocą Azure Active Directory. Aby uzyskać więcej informacji, zobacz [Autoryzuj dostęp do zarządzanych tożsamości](https://docs.microsoft.com/azure/cognitive-services/authentication#authorize-access-to-managed-identities).
 
 ## <a name="march-2020"></a>Marzec 2020 r. 
 
@@ -46,11 +49,11 @@ Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzysta
 
 * **Typy wartości dla etykietowania** Teraz możesz określić typy wartości, które są oznaczone etykietami, za pomocą narzędzia do etykietowania przykładowego aparatu rozpoznawania formularzy. Następujące typy wartości i różnice są obecnie obsługiwane:
   * `string`
-    * domyślne, `no-whitespaces`,`alphanumeric`
+    * domyślne, `no-whitespaces` ,`alphanumeric`
   * `number`
     * wartooć`currency`
   * `date` 
-    * domyślne, `dmy`, `mdy`,`ymd`
+    * domyślne, `dmy` , `mdy` ,`ymd`
   * `time`
   * `integer`
 
@@ -64,7 +67,7 @@ Usługa aparat rozpoznawania formularzy jest regularnie aktualizowana. Skorzysta
   > [!div class="mx-imgBorder"]
   > ![Wizualizacja tabeli przy użyciu narzędzia do etykietowania przykładowego](./media/whats-new/formre-table-viz.png)
 
-    Wyodrębnione tabele są dostępne w danych wyjściowych JSON `"pageResults"`poniżej.
+    Wyodrębnione tabele są dostępne w danych wyjściowych JSON poniżej `"pageResults"` .
 
   > [!IMPORTANT]
   > Tabele etykiet nie są obsługiwane. Jeśli tabele nie są rozpoznawane i extrated automatycznie, można je oznaczyć tylko jako pary klucz/wartość. Podczas etykietowania tabel jako par klucz/wartość, Oznacz każdą komórkę jako wartość unikatową.

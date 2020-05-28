@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 007fe7cb90c651c346bc7fbea46d74aa41605d2d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 999a181a812157a3e408d3e95b3e7fc00e29ecea
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744077"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118387"
 ---
 # <a name="azure-synapse-analytics-workspace-preview-frequently-asked-questions"></a>Usługa Azure Synapse Analytics (wersja zapoznawcza obszaru roboczego) — często zadawane pytania
 
@@ -32,13 +32,6 @@ Odp.: usługa Azure Synapse to Zintegrowana platforma danych dla analizy bizneso
 - Łatwo Monitoruj i szybko Optymalizuj, reaguj i Debuguj zdarzenia występujące w działaniach obszaru roboczego w dowolnej warstwie.
 - Zarządzaj metadanymi w różnych aparatach. Utwórz tabelę platformy Spark i zostanie ona automatycznie udostępniona w bazach danych usługi Azure Synapse.
 - Pracuj z danymi za pomocą ujednoliconego środowiska użytkownika. Synapse Studio zapewnia deweloperom danych Big Data, inżynierów danych, przetwarzający, analityków danych i naukowców z danymi na tej samej platformie.
-
-### <a name="q-how-do-i-get-started-with-azure-synapse-analytics"></a>P: Jak mogę Rozpoczynanie pracy z usługą Azure Synapse Analytics
-
-Odp.: Aby rozpocząć korzystanie z usługi Azure Synapse Analytics, [zarejestruj dostawcę zasobów Synapse platformy Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types) , wybierając pozycję *Microsoft. Synapse* z listy dostawców zasobów. Następnie Utwórz [obszar roboczy Synapse](https://portal.azure.com) (bezpłatnie!) i Utwórz zasoby, które mają być w tym obszarze roboczym. Możesz wykonać jedną z naszych samouczków szybkiego startu, na przykład [utworzyć pulę SQL Synapse](quickstart-create-sql-pool-portal.md) lub [utworzyć obszar roboczy](quickstart-create-workspace.md), który przeprowadzi Cię przez prosty przypadek użycia. Możesz również znaleźć przykładowe Notesy i skrypty SQL w naszym [repozytorium](https://github.com/Azure-Samples/Synapse). Jeśli musisz nawiązać połączenie z publicznym zestawem danych, Utwórz nową połączoną usługę z następującymi atrybutami:
-
-- azure_storage_account_name = "azureopendatastorage"
-- azure_storage_sas_token = "" (Write **""**)
 
 ### <a name="q-what-are-the-main-components-of-azure-synapse-analytics"></a>P: Jakie są główne składniki usługi Azure Synapse Analytics
 

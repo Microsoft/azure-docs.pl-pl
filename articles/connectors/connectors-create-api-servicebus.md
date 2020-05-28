@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/19/2019
 tags: connectors
-ms.openlocfilehash: 1b38b8508dbe17d42bf191149410f5db638cf834
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 50f43283d1113a5beb05b5898514623be37e5de9
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76261623"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141997"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Wymiana komunikatów w chmurze przy użyciu Azure Logic Apps i Azure Service Bus
 
@@ -60,7 +60,7 @@ Upewnij się, że aplikacja logiki ma uprawnienia do uzyskiwania dostępu do prz
       ![Kopiuj parametry połączenia Service Bus przestrzeni nazw](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
 
    > [!TIP]
-   > Aby sprawdzić, czy parametry połączenia są skojarzone z przestrzenią nazw Service Bus, czy z jednostką obsługi komunikatów, taką jak kolejka, Wyszukaj parametry `EntityPath`  połączenia dla parametru. Jeśli ten parametr zostanie znaleziony, ciąg połączenia jest przeznaczony dla określonej jednostki i nie jest poprawnym ciągiem używanym z aplikacją logiki.
+   > Aby sprawdzić, czy parametry połączenia są skojarzone z przestrzenią nazw Service Bus, czy z jednostką obsługi komunikatów, taką jak kolejka, Wyszukaj parametry połączenia dla `EntityPath`   parametru. Jeśli ten parametr zostanie znaleziony, ciąg połączenia jest przeznaczony dla określonej jednostki i nie jest poprawnym ciągiem używanym z aplikacją logiki.
 
 ## <a name="add-service-bus-trigger"></a>Dodaj wyzwalacz Service Bus
 
@@ -114,7 +114,7 @@ Upewnij się, że aplikacja logiki ma uprawnienia do uzyskiwania dostępu do prz
 
 1. W kroku, w którym chcesz dodać akcję, wybierz pozycję **nowy krok**.
 
-   Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę między tymi krokami. Wybierz wyświetlony znak plus (**+**), a następnie wybierz pozycję **Dodaj akcję**.
+   Aby dodać akcję między krokami, przesuń wskaźnik myszy nad strzałkę między tymi krokami. Wybierz wyświetlony znak plus ( **+** ), a następnie wybierz pozycję **Dodaj akcję**.
 
 1. W obszarze **Wybierz akcję**w polu wyszukiwania wprowadź ciąg "Azure Service Bus" jako filtr. Z listy Akcje wybierz żądaną akcję. 
 
@@ -152,11 +152,21 @@ Upewnij się, że aplikacja logiki ma uprawnienia do uzyskiwania dostępu do prz
 
 1. Zapisz aplikację logiki. Na pasku narzędzi projektanta wybierz pozycję **Zapisz**.
 
+<a name="sequential-convoy"></a>
+
+## <a name="send-correlated-messages-in-order"></a>Wysyłanie skorelowanych komunikatów w kolejności
+
+Gdy musisz wysyłać powiązane wiadomości w określonej kolejności, możesz użyć [wzorca *sekwencyjnego konwoju* ](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy) za pomocą [łącznika Azure Service Bus](../connectors/connectors-create-api-servicebus.md). Skorelowane komunikaty mają właściwość definiującą relację między tymi komunikatami, na przykład identyfikator [sesji](../service-bus-messaging/message-sessions.md) w Service Bus.
+
+Podczas tworzenia aplikacji logiki można wybrać **skorelowaną dostawę w kolejności przy użyciu szablonu sesji usługi Service Bus** , który implementuje wzorzec sekwencyjnej konwoju. Aby uzyskać więcej informacji, zobacz [wysyłanie powiązanych komunikatów w kolejności](../logic-apps/send-related-messages-sequential-convoy.md).
+
+<a name="connector-reference"></a>
+
 ## <a name="connector-reference"></a>Dokumentacja łączników
 
 Łącznik Service Bus może zaoszczędzić do 1 500 unikatowych sesji jednocześnie z poziomu usługi Service Bus do pamięci podręcznej łącznika. Jeśli liczba sesji przekracza ten limit, stare sesje są usuwane z pamięci podręcznej. Aby uzyskać więcej informacji, zobacz [sesje komunikatów](../service-bus-messaging/message-sessions.md).
 
-Aby poznać inne szczegóły techniczne dotyczące wyzwalaczy, akcji i limitów, które są opisane przez opis łącznika OpenAPI (dawniej Swagger), przejrzyj [stronę odwołania](/connectors/servicebus/)łącznika. Aby uzyskać więcej informacji na temat Azure Service Bus Messaging, zobacz [co to jest Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)?
+Aby poznać inne szczegóły techniczne dotyczące wyzwalaczy, akcji i limitów, które są opisane w opisie struktury Swagger łącznika, przejrzyj [stronę odwołania łącznika](/connectors/servicebus/). Aby uzyskać więcej informacji na temat Azure Service Bus Messaging, zobacz [co to jest Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)?
 
 ## <a name="next-steps"></a>Następne kroki
 

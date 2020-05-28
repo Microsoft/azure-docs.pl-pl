@@ -16,17 +16,17 @@ ms.date: 02/17/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f878c6f7a59328e2f68ffbaee066bba4a5b6c898
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6c84be9a23713080f348daf8dddf0ad6b0390ded
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75978129"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014705"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Konfigurowanie integracji Azure Key Vault SQL Server na platformie Azure Virtual Machines (klasyczny)
 > [!div class="op_single_selector"]
-> * [Resource Manager](../sql/virtual-machines-windows-ps-sql-keyvault.md)
-> * [Wdrożenie klasyczne](../classic/ps-sql-keyvault.md)
+> * [Resource Manager](../../../azure-sql/virtual-machines/windows/azure-key-vault-integration-configure.md)
+> * [Klasyczny](../classic/ps-sql-keyvault.md)
 > 
 > 
 
@@ -53,7 +53,7 @@ Poniższa tabela zawiera listę parametrów wymaganych do uruchomienia skryptu p
 
 | Parametr | Opis | Przykład |
 | --- | --- | --- |
-| **$akvURL** |**Adres URL magazynu kluczy** |"https:\//contosokeyvault.Vault.Azure.NET/" |
+| **$akvURL** |**Adres URL magazynu kluczy** |"https: \/ /contosokeyvault.Vault.Azure.NET/" |
 | **$spName** |**Nazwa główna usługi** |"fde2b411-33d5-4e11-af04eb07b669ccf2" |
 | **$spSecret** |**Klucz tajny jednostki usługi** |"9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM =" |
 | **$credName** |**Nazwa poświadczenia**: integracja usługi Azure Key Vault powoduje utworzenie poświadczenia w programie SQL Server, co umożliwia maszynie wirtualnej dostęp do magazynu kluczy. Wybierz nazwę tego poświadczenia. |"mycred1" |

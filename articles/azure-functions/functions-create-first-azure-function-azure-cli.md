@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć funkcję z wiersza polecenia, a następ
 ms.date: 03/30/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 7826701a2d328fe40ad75bb3d68b2764d53f9590
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: bfd956a4423031db370eb3a8ad94c59dd0f5931c
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82626262"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996532"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Szybki Start: Tworzenie funkcji na platformie Azure, która odpowiada na żądania HTTP
 
@@ -87,7 +87,7 @@ W pustym folderze uruchom następujące polecenie, aby wygenerować projekt usł
 ```bash
 mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype 
 ```
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/powershell)
 ```powershell
 mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" 
 ```
@@ -105,11 +105,11 @@ Po wyświetleniu monitu podaj następujące wartości:
 | **groupId** | `com.fabrikam` | Wartość, która jednoznacznie identyfikuje projekt we wszystkich projektach, zgodnie z [regułami nazewnictwa pakietów](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) dla języka Java. |
 | **artifactId** | `fabrikam-functions` | Wartość, która jest nazwą jar, bez numeru wersji. |
 | **Wersja** | `1.0-SNAPSHOT` | Wybierz wartość domyślną. |
-| **Package** | `com.fabrikam.functions` | Wartość, która jest pakiet języka Java dla wygenerowanego kodu funkcji. Użyj wartości domyślnej. |
+| **Package** | `com.fabrikam` | Wartość, która jest pakiet języka Java dla wygenerowanego kodu funkcji. Użyj wartości domyślnej. |
 
 Wpisz `Y` lub naciśnij klawisz ENTER, aby potwierdzić.
 
-Maven tworzy pliki projektu w nowym folderze o nazwie _artifactId_, w tym przykładzie `fabrikam-functions`. 
+Maven tworzy pliki projektu w nowym folderze o nazwie _artifactId_, w tym przykładzie `fabrikam-functions` . 
 ::: zone-end  
 Przejdź do folderu projektu:
 
@@ -145,15 +145,15 @@ Zwracany obiekt to element [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.a
 #### <a name="functionjava"></a>Function. Java
 *Funkcja. Java* zawiera `run` metodę, która odbiera dane żądania w `request` zmiennej to [HttpRequestMessage](/java/api/com.microsoft.azure.functions.httprequestmessage) , który jest uzupełniony adnotacją [HttpTrigger](/java/api/com.microsoft.azure.functions.annotation.httptrigger) , która definiuje zachowanie wyzwalacza. 
 
-:::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/src/main/java/com/function/Function.java":::
+:::code language="java" source="~/azure-functions-samples-java/src/main/java/com/functions/Function.java":::
 
 Komunikat odpowiedzi jest generowany przez interfejs API [HttpResponseMessage. Builder](/java/api/com.microsoft.azure.functions.httpresponsemessage.builder) .
 
 #### <a name="pomxml"></a>pliku pom. XML
 
-Ustawienia zasobów platformy Azure utworzonych na potrzeby hostowania aplikacji są definiowane w elemencie **konfiguracji** wtyczki z identyfikatorem **grupy** `com.microsoft.azure` w wygenerowanym pliku pliku pom. XML. Na przykład poniższy element konfiguracji instruuje wdrożenie oparte na Maven, aby utworzyć aplikację funkcji w grupie `java-functions-group` zasobów w `westus` regionie. Sama aplikacja funkcji działa w systemie Windows hostowanym w `java-functions-app-service-plan` planie, który domyślnie jest planem zużycia bezserwerowego.    
+Ustawienia zasobów platformy Azure utworzonych na potrzeby hostowania aplikacji są definiowane w elemencie **konfiguracji** wtyczki z identyfikatorem **grupy** `com.microsoft.azure` w wygenerowanym pliku pliku pom. XML. Na przykład poniższy element konfiguracji instruuje wdrożenie oparte na Maven, aby utworzyć aplikację funkcji w `java-functions-group` grupie zasobów w `westus` regionie. Sama aplikacja funkcji działa w systemie Windows hostowanym w `java-functions-app-service-plan` planie, który domyślnie jest planem zużycia bezserwerowego.    
 
-:::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/pom.xml" range="116-155":::
+:::code language="java" source="~/azure-functions-samples-java/pom.xml" range="62-102":::
 
 Możesz zmienić te ustawienia, aby kontrolować sposób tworzenia zasobów na platformie Azure, na przykład przez zmianę `runtime.os` z `windows` na `linux` przed początkowym wdrożeniem. Aby uzyskać pełną listę ustawień obsługiwanych przez wtyczkę Maven, zobacz [szczegóły konfiguracji](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details).
 
@@ -162,9 +162,9 @@ Możesz zmienić te ustawienia, aby kontrolować sposób tworzenia zasobów na p
 Archetype generuje również test jednostkowy dla funkcji. W przypadku zmiany funkcji w celu dodania powiązań lub dodania nowych funkcji do projektu należy również zmodyfikować testy w pliku *FunctionTest. Java* .
 ::: zone-end  
 ::: zone pivot="programming-language-python"
-#### <a name="__init__py"></a>\_\_init\_\_. PR
+#### <a name="__init__py"></a>\_\_init \_ \_ . PR
 
-*\_\_\_init\_. PR* zawiera funkcję `main()` języka Python, która jest wyzwalana zgodnie z konfiguracją w *funkcji Function. JSON*.
+* \_ \_ init \_ \_ . PR* zawiera `main()` funkcję języka Python, która jest wyzwalana zgodnie z konfiguracją w *funkcji Function. JSON*.
 
 :::code language="python" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/__init__.py":::
 
@@ -209,7 +209,7 @@ Dla wyzwalacza HTTP funkcja otrzymuje dane żądania przekazywane do `$Request` 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-W razie potrzeby `scriptFile` można zmienić w taki sposób, aby wywoływać inny plik Python.
+`scriptFile`W razie potrzeby można zmienić w taki sposób, aby wywoływać inny plik Python.
 
 :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
 ::: zone-end
@@ -223,7 +223,7 @@ W razie potrzeby `scriptFile` można zmienić w taki sposób, aby wywoływać in
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"  
-Każde powiązanie wymaga kierunku, typu i unikatowej nazwy. Wyzwalacz HTTP ma powiązanie wejściowe typu [`httpTrigger`](functions-bindings-http-webhook-trigger.md) i powiązania danych wyjściowych typu. [`http`](functions-bindings-http-webhook-output.md)
+Każde powiązanie wymaga kierunku, typu i unikatowej nazwy. Wyzwalacz HTTP ma powiązanie wejściowe typu [`httpTrigger`](functions-bindings-http-webhook-trigger.md) i powiązania danych wyjściowych typu [`http`](functions-bindings-http-webhook-output.md) .
 ::: zone-end  
 
 [!INCLUDE [functions-run-function-test-local-cli](../../includes/functions-run-function-test-local-cli.md)]
@@ -245,7 +245,7 @@ Jeśli jeszcze tego nie zrobiono, zaloguj się do platformy Azure za pomocą pol
 az login
 ```
     
-Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az-group-create). Poniższy przykład tworzy grupę zasobów o nazwie `AzureFunctionsQuickstart-rg` w `westeurope` regionie. (Zazwyczaj tworzysz grupę zasobów i zasoby w regionie, w którym się znajdujesz, przy użyciu dostępnego regionu `az account list-locations` z tego polecenia).
+Utwórz grupę zasobów za pomocą polecenia [az group create](/cli/azure/group#az-group-create). Poniższy przykład tworzy grupę zasobów o nazwie `AzureFunctionsQuickstart-rg` w `westeurope` regionie. (Zazwyczaj tworzysz grupę zasobów i zasoby w regionie, w którym się znajdujesz, przy użyciu dostępnego regionu z tego `az account list-locations` polecenia).
 
 ```azurecli
 az group create --name AzureFunctionsQuickstart-rg --location westeurope
@@ -263,13 +263,13 @@ az storage account create --name <STORAGE_NAME> --location westeurope --resource
 
 W tym przewodniku szybki start konto magazynu odnosi się tylko do kilku centów (USD).
     
-Utwórz aplikację funkcji przy użyciu polecenia [AZ functionapp Create](/cli/azure/functionapp#az-functionapp-create) . W poniższym przykładzie Zastąp `<STORAGE_NAME>` ciąg nazwą konta, które zostało użyte w poprzednim kroku, i Zastąp `<APP_NAME>` ciąg globalnie unikatową nazwą, która jest odpowiednia dla Ciebie. `<APP_NAME>` jest również domyślną domeną DNS aplikacji funkcji. 
+Utwórz aplikację funkcji przy użyciu polecenia [AZ functionapp Create](/cli/azure/functionapp#az-functionapp-create) . W poniższym przykładzie Zastąp ciąg `<STORAGE_NAME>` nazwą konta, które zostało użyte w poprzednim kroku, i Zastąp ciąg `<APP_NAME>` globalnie unikatową nazwą, która jest odpowiednia dla Ciebie. `<APP_NAME>` jest również domyślną domeną DNS aplikacji funkcji. 
 ::: zone-end  
 
 ::: zone pivot="programming-language-python"  
-Jeśli używasz języka Python 3,8, `--runtime-version` Zmień na `3.8` i `--functions_version` na. `3`
+Jeśli używasz języka Python 3,8, Zmień `--runtime-version` na `3.8` i `--functions_version` na `3` .
 
-Jeśli używasz języka Python 3,6, przejdź `--runtime-version` do. `3.6`
+Jeśli używasz języka Python 3,6, przejdź `--runtime-version` do `3.6` .
 
 ```azurecli
 az functionapp create --resource-group AzureFunctionsQuickstart-rg --os-type Linux --consumption-plan-location westeurope --runtime python --runtime-version 3.7 --functions-version 2 --name <APP_NAME> --storage-account <STORAGE_NAME>
@@ -277,7 +277,7 @@ az functionapp create --resource-group AzureFunctionsQuickstart-rg --os-type Lin
 ::: zone-end  
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-Jeśli używasz środowiska Node. js 8, Zmień `--runtime-version` również na. `8`
+Jeśli używasz środowiska Node. js 8, Zmień również `--runtime-version` na `8` .
 
 
 ```azurecli
@@ -348,7 +348,7 @@ Functions in msdocs-azurefunctions-qs:
 Aplikacja funkcji i powiązane zasoby są tworzone na platformie Azure podczas pierwszego wdrożenia projektu usługi Functions. Ustawienia zasobów platformy Azure utworzonych na potrzeby hostowania aplikacji są zdefiniowane w [pliku pliku pom. XML](#pomxml). W tym artykule zaakceptujesz ustawienia domyślne.
 
 > [!TIP]
-> Aby utworzyć aplikację funkcji działającą w systemie Linux zamiast systemu Windows, Zmień `runtime.os` element w pliku pliku pom. XML z `windows` na. `linux` W [tych regionach](https://github.com/Azure/azure-functions-host/wiki/Linux-Consumption-Regions)jest obsługiwany system Linux w planie zużycia. W tej samej grupie zasobów nie można używać aplikacji działających w systemie Linux i aplikacji działających w ramach systemu Windows.
+> Aby utworzyć aplikację funkcji działającą w systemie Linux zamiast systemu Windows, Zmień `runtime.os` element w pliku pliku pom. XML z `windows` na `linux` . W [tych regionach](https://github.com/Azure/azure-functions-host/wiki/Linux-Consumption-Regions)jest obsługiwany system Linux w planie zużycia. W tej samej grupie zasobów nie można używać aplikacji działających w systemie Linux i aplikacji działających w ramach systemu Windows.
 
 Przed wdrożeniem programu Użyj polecenia [AZ login](/cli/azure/authenticate-azure-cli) Azure CLI, aby zalogować się do subskrypcji platformy Azure. 
 
@@ -374,18 +374,18 @@ Wdrożenie pakuje pliki projektu i wdraża je w nowej aplikacji funkcji przy uż
 
 ## <a name="invoke-the-function-on-azure"></a>Wywoływanie funkcji na platformie Azure
 
-Ponieważ funkcja używa wyzwalacza HTTP, wywołuje ją, wysyłając żądanie HTTP do jego adresu URL w przeglądarce lub przy użyciu narzędzia, takiego jak zwinięcie. W obu wystąpieniach parametr `code` URL jest unikatowym [kluczem funkcji](functions-bindings-http-webhook-trigger.md#authorization-keys) , który autoryzuje wywołanie punktu końcowego funkcji.
+Ponieważ funkcja używa wyzwalacza HTTP, wywołuje ją, wysyłając żądanie HTTP do jego adresu URL w przeglądarce lub przy użyciu narzędzia, takiego jak zwinięcie. W obu wystąpieniach `code` parametr URL jest unikatowym [kluczem funkcji](functions-bindings-http-webhook-trigger.md#authorization-keys) , który autoryzuje wywołanie punktu końcowego funkcji.
 
 # <a name="browser"></a>[Przeglądarka](#tab/browser)
 
-Skopiuj pełny **adres URL Wywołaj** pokazany w danych wyjściowych polecenia Publikuj na pasku adresu przeglądarki, dołączając parametr `&name=Functions`zapytania. Przeglądarka powinna wyświetlać podobne dane wyjściowe, jak w przypadku lokalnego uruchomienia funkcji.
+Skopiuj pełny **adres URL Wywołaj** pokazany w danych wyjściowych polecenia Publikuj na pasku adresu przeglądarki, dołączając parametr zapytania `&name=Functions` . Przeglądarka powinna wyświetlać podobne dane wyjściowe, jak w przypadku lokalnego uruchomienia funkcji.
 
 ![Dane wyjściowe funkcji uruchamianej na platformie Azure w przeglądarce](./media/functions-create-first-azure-function-azure-cli/function-test-cloud-browser.png)
 
 
 # <a name="curl"></a>[odsłon](#tab/curl)
 
-Uruchom [`curl`](https://curl.haxx.se/) polecenie **Invoke URL**, dodając parametr `&name=Functions`. Danymi wyjściowymi polecenia powinien być tekst "Hello Functions".
+Uruchom [`curl`](https://curl.haxx.se/) polecenie **Invoke URL**, dodając parametr `&name=Functions` . Danymi wyjściowymi polecenia powinien być tekst "Hello Functions".
 
 ![Dane wyjściowe funkcji uruchamianej na platformie Azure przy użyciu programu zwinięcie](./media/functions-create-first-azure-function-azure-cli/function-test-cloud-curl.png)
 
@@ -394,7 +394,7 @@ Uruchom [`curl`](https://curl.haxx.se/) polecenie **Invoke URL**, dodając param
 > [!TIP]
 > Aby przeglądać dzienniki niemal w czasie rzeczywistym dla opublikowanej aplikacji funkcji, użyj [Live Metrics Stream Application Insights](functions-monitoring.md#streaming-logs).
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli przejdziesz do następnego kroku, [Dodaj powiązanie danych wyjściowych kolejki usługi Azure Storage](functions-add-output-binding-storage-queue-cli.md), Zachowaj wszystkie Twoje zasoby w miarę kompilowania już wykonanej pracy.
 

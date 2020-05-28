@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 12/13/2019
-ms.openlocfilehash: e450d9ede3b073d2d1a791b341e4376b40919933
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 0d6ab6152d7025098006c580673848fe0268346b
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116465"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141844"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Zautomatyzowane kopie zapasowe — Azure SQL Database & wystąpienia zarządzane SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -49,11 +49,11 @@ Niektóre z tych operacji można wypróbować, korzystając z następujących pr
 
 | | Witryna Azure Portal | Azure PowerShell |
 |---|---|---|
-| Zmień przechowywanie kopii zapasowych | [SQL Database](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [Wystąpienie zarządzane SQL](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [SQL Database](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[Wystąpienie zarządzane SQL](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
-| Zmiana długoterminowego przechowywania kopii zapasowych | [SQL Database](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Wystąpienie zarządzane SQL — nie dotyczy  | [SQL Database](long-term-backup-retention-configure.md)<br/>Wystąpienie zarządzane SQL — nie dotyczy  |
-| Przywracanie bazy danych od punktu w czasie | [SQL Database](recovery-using-backups.md#point-in-time-restore) | [SQL Database](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Wystąpienie zarządzane SQL](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
-| Przywracanie usuniętej bazy danych | [SQL Database](recovery-using-backups.md) | [SQL Database](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Wystąpienie zarządzane SQL](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
-| Przywracanie bazy danych z usługi Azure Blob Storage | SQL Database-N/A <br/>Wystąpienie zarządzane SQL — nie dotyczy  | SQL Database-N/A <br/>[Wystąpienie zarządzane SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
+| Zmień przechowywanie kopii zapasowych | [Pojedyncza baza danych](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) <br/> [Wystąpienie zarządzane](automated-backups-overview.md?tabs=managed-instance#change-the-pitr-backup-retention-period-by-using-the-azure-portal) | [Pojedyncza baza danych](automated-backups-overview.md#change-the-pitr-backup-retention-period-by-using-powershell) <br/>[Wystąpienie zarządzane](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| Zmiana długoterminowego przechowywania kopii zapasowych | [Pojedyncza baza danych](long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Wystąpienie zarządzane — nie dotyczy  | [Pojedyncza baza danych](long-term-backup-retention-configure.md)<br/>Wystąpienie zarządzane — nie dotyczy  |
+| Przywracanie bazy danych od punktu w czasie | [Pojedyncza baza danych](recovery-using-backups.md#point-in-time-restore) | [Pojedyncza baza danych](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Wystąpienie zarządzane](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
+| Przywracanie usuniętej bazy danych | [Pojedyncza baza danych](recovery-using-backups.md) | [Pojedyncza baza danych](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Wystąpienie zarządzane](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
+| Przywracanie bazy danych z usługi Azure Blob Storage | Pojedyncza baza danych — nie dotyczy <br/>Wystąpienie zarządzane — nie dotyczy  | Pojedyncza baza danych — nie dotyczy <br/>[Wystąpienie zarządzane](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
 
 ## <a name="backup-frequency"></a>Częstotliwość wykonywania kopii zapasowych
 
@@ -61,7 +61,7 @@ Niektóre z tych operacji można wypróbować, korzystając z następujących pr
 
 SQL Database i wystąpienie zarządzane SQL obsługują samoobsługowe przywracanie do punktu w czasie (kopie) przez automatyczne tworzenie pełnych kopii zapasowych, różnicowych kopii zapasowych i kopii zapasowych dziennika transakcji. Tworzone są pełne kopie zapasowe bazy danych, a kopie zapasowe baz danych są zwykle tworzone co 12 godzin. Kopie zapasowe dziennika transakcji są zwykle tworzone co 5 – 10 minut. Częstotliwość tworzenia kopii zapasowych dziennika transakcji zależy od rozmiaru obliczeń i liczby działań związanych z bazą danych.
 
-Pierwsza pełna kopia zapasowa jest zaplanowana natychmiast po utworzeniu bazy danych. Ta kopia zapasowa zwykle kończy się w ciągu 30 minut, ale może trwać dłużej, gdy baza danych jest duża. Na przykład początkowa kopia zapasowa może trwać dłużej w przywróconej bazie danych lub kopii bazy danych. Po utworzeniu pierwszej pełnej kopii zapasowej wszystkie kolejne kopie zapasowe są zaplanowane automatycznie i zarządzane w trybie dyskretnym w tle. Dokładny chronometraż wszystkich kopii zapasowych bazy danych jest określany przez SQL Database i wystąpienie zarządzane SQL, ponieważ równoważy całkowite obciążenie systemu. Nie można zmienić ani wyłączyć zadań tworzenia kopii zapasowej.
+Pierwsza pełna kopia zapasowa jest zaplanowana natychmiast po utworzeniu bazy danych. Ta kopia zapasowa zwykle kończy się w ciągu 30 minut, ale może trwać dłużej, gdy baza danych jest duża. Na przykład początkowa kopia zapasowa może trwać dłużej w przywróconej bazie danych lub kopii bazy danych. Po utworzeniu pierwszej pełnej kopii zapasowej wszystkie kolejne kopie zapasowe są zaplanowane automatycznie i zarządzane w trybie dyskretnym w tle. Dokładny chronometraż wszystkich kopii zapasowych bazy danych jest określany przez SQL Database lub usługę wystąpienia zarządzanego SQL, ponieważ równoważy całkowite obciążenie systemu. Nie można zmienić ani wyłączyć zadań tworzenia kopii zapasowej.
 
 ### <a name="default-backup-retention-period"></a>Domyślny okres przechowywania kopii zapasowej
 
@@ -79,20 +79,20 @@ Aby uzyskać więcej informacji na temat LTR, zobacz [długoterminowe przechowyw
 
 ## <a name="backup-storage-consumption"></a>Użycie magazynu kopii zapasowych
 
-W przypadku pojedynczych baz danych w SQL Database i wystąpieniach zarządzanych w wystąpieniu zarządzanym SQL to równanie jest używane do obliczania łącznego użycia magazynu kopii zapasowych:
+W przypadku pojedynczych baz danych i wystąpień zarządzanych to równanie jest używane do obliczania łącznego użycia magazynu kopii zapasowych:
 
 `Total backup storage size = (size of full backups + size of differential backups + size of log backups) – database size`
 
-W przypadku baz danych w puli w SQL Database łączny rozmiar magazynu kopii zapasowych jest agregowany na poziomie puli i obliczany w następujący sposób:
+W przypadku baz danych w puli łączny rozmiar magazynu kopii zapasowych jest agregowany na poziomie puli i obliczany w następujący sposób:
 
 `Total backup storage size = (total size of all full backups + total size of all differential backups + total size of all log backups) - allocated pool data storage`
 
 Kopie zapasowe wykonywane przed okresem przechowywania są automatycznie przeczyszczane na podstawie ich sygnatur czasowych. Ze względu na to, że różnicowe kopie zapasowe i kopie zapasowe dzienników wymagają użycia wcześniejszej pełnej kopii zapasowej, są one usuwane razem w tygodniowych fragmentach.
 
 SQL Database i wystąpienie zarządzane SQL oblicza łączny magazyn kopii zapasowych w magazynie jako wartość zbiorczą. Co godzinę ta wartość jest raportowana w potoku rozliczeń platformy Azure, który jest odpowiedzialny za agregowanie tego użycia godzinowego w celu obliczenia zużycia na koniec każdego miesiąca. Po porzucenia bazy danych zużycie zmniejsza się w miarę starzenia się kopii zapasowych. Gdy kopie zapasowe staną się starsze niż okres przechowywania, rozliczenia zostaną zatrzymane.
-
+   
    > [!IMPORTANT]
-   > Kopie zapasowe bazy danych są przechowywane przez określony okres przechowywania, nawet jeśli baza danych została porzucona. Porzucenie i ponowne utworzenie bazy danych może często zaoszczędzić na kosztach magazynowania i obliczeń, ale może zwiększyć koszty magazynu kopii zapasowych, ponieważ firma Microsoft zachowuje kopię zapasową dla pozostałego okresu przechowywania dla każdej porzuconej bazy danych, za każdym razem, gdy zostanie usunięta.
+   > Kopie zapasowe bazy danych są przechowywane przez określony okres przechowywania, nawet jeśli baza danych została porzucona. Porzucenie i ponowne utworzenie bazy danych może często zaoszczędzić na kosztach magazynowania i obliczeń, ale może zwiększyć koszty magazynu kopii zapasowych, ponieważ firma Microsoft zachowuje kopię zapasową dla pozostałego okresu przechowywania dla każdej porzuconej bazy danych, za każdym razem, gdy zostanie usunięta. 
 
 ### <a name="monitor-consumption"></a>Monitorowanie użycia
 
@@ -142,18 +142,21 @@ Dodaj filtr dla **nazwy usługi**, a następnie na liście rozwijanej wybierz po
 
 ## <a name="backup-retention"></a>Przechowywanie kopii zapasowych
 
-Wszystkie bazy danych w Microsoft Azure SQL mają domyślny okres przechowywania kopii zapasowych wynoszący 7 dni. [Okres przechowywania kopii zapasowej można zmienić](#change-the-pitr-backup-retention-period) na maksymalnie 35 dni.
+Wszystkie bazy danych w Microsoft Azure SQL mają domyślny okres przechowywania kopii zapasowych wynoszący 7 dni. [Okres przechowywania kopii zapasowej można zmienić](#change-the-pitr-backup-retention-period) w dowolnym miejscu między 1-35 dni.
 
 Jeśli usuniesz bazę danych, platforma Azure przechowuje kopie zapasowe w taki sam sposób, jak w przypadku bazy danych w trybie online. Na przykład po usunięciu podstawowej bazy danych, która ma okres przechowywania wynoszący siedem dni, kopia zapasowa, która jest starsza niż cztery dni, jest zapisywana przez trzy więcej dni.
 
 Jeśli chcesz zachować kopie zapasowe dłużej niż maksymalny okres przechowywania, możesz zmodyfikować właściwości kopii zapasowej, aby dodać jeden lub więcej długoterminowych okresów przechowywania do bazy danych. Aby uzyskać więcej informacji, zobacz [Długoterminowe przechowywanie](long-term-retention-overview.md).
 
 > [!IMPORTANT]
-> Usunięcie serwera lub wystąpienia zarządzanego spowoduje również usunięcie wszystkich baz danych zarządzanych przez ten serwer lub wystąpienie zarządzane. Nie można ich odzyskać. Nie można przywrócić usuniętego serwera lub wystąpienia zarządzanego. Ale jeśli skonfigurowano długoterminowe przechowywanie dla SQL Database, kopie zapasowe baz danych z LTR nie zostaną usunięte i te bazy danych mogą zostać przywrócone.
+> Skonfigurowanie okresu przechowywania kopii zapasowych na 1 dzień (lub w dowolnej wartości z zakresu od 1-7) jest obsługiwane tylko za pośrednictwem programu PowerShell lub interfejsu API REST. Minimalna wymagana wersja modułu AZ. SQL to v 2.6.0 lub może być wykonywana przez CloudShell, która zawsze ma najnowszą wersję AZ. SQL.
+
+> [!IMPORTANT]
+> Usunięcie serwera lub wystąpienia zarządzanego spowoduje również usunięcie wszystkich baz danych zarządzanych przez ten serwer lub wystąpienie zarządzane. Nie można ich odzyskać. Nie można przywrócić usuniętego serwera lub wystąpienia zarządzanego. Ale jeśli skonfigurowano długoterminowe przechowywanie dla SQL Database lub dla wystąpienia zarządzanego, kopie zapasowe baz danych z LTR nie zostaną usunięte i te bazy danych mogą zostać przywrócone.
 
 ## <a name="encrypted-backups"></a>Szyfrowane kopie zapasowe
 
-Jeśli baza danych jest zaszyfrowana przy użyciu programu TDE, kopie zapasowe są automatycznie szyfrowane w stanie spoczynku, łącznie z kopiami zapasowymi LTR. Gdy TDE jest włączona dla wystąpienia zarządzanego SQL Database lub SQL, kopie zapasowe również są szyfrowane. Wszystkie nowe bazy danych w usłudze Azure SQL są domyślnie skonfigurowane z włączoną funkcją TDE. Aby uzyskać więcej informacji na temat TDE, zobacz [transparent Data Encryption z SQL Database i wystąpieniem zarządzanym SQL](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
+Jeśli baza danych jest zaszyfrowana przy użyciu programu TDE, kopie zapasowe są automatycznie szyfrowane w stanie spoczynku, łącznie z kopiami zapasowymi LTR. Gdy TDE jest włączona dla wystąpienia zarządzanego SQL Database lub SQL, kopie zapasowe również są szyfrowane. Wszystkie nowe bazy danych w usłudze Azure SQL są domyślnie skonfigurowane z włączoną funkcją TDE. Aby uzyskać więcej informacji na temat TDE, zobacz [transparent Data Encryption z SQL Database & wystąpienie zarządzane SQL](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
 ## <a name="backup-integrity"></a>Integralność kopii zapasowych
 

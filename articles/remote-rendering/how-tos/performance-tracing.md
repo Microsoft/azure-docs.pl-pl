@@ -5,22 +5,22 @@ author: florianborn71
 ms.author: flborn
 ms.date: 12/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1f4207a11f3ae3664023fccf6178b6db7cf253b9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2a10558e76a6e9af7c7571dc4ba3d063ce3e2286
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80681313"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021164"
 ---
 # <a name="create-client-side-performance-traces"></a>Tworzenie śladów wydajności po stronie klienta
 
 Istnieje wiele powodów, dla których wydajność renderowania zdalnego na platformie Azure może być nieodpowiednia. Oprócz czystej wydajności renderowania na serwerze w chmurze, szczególnie jakość połączenia sieciowego ma znaczny wpływ na środowisko pracy. Aby profilować wydajność serwera, zapoznaj się z rozdziałem [zapytania wydajności po stronie serwera](../overview/features/performance-queries.md).
 
-Ten rozdział koncentruje się na sposobach identyfikowania potencjalnych wąskich gardeł po stronie klienta za poorednictwem *śladów wydajności*.
+Ten rozdział koncentruje się na sposobach identyfikowania potencjalnych wąskich gardeł po stronie klienta w programie *:::no-loc text="performance traces":::* .
 
 ## <a name="getting-started"></a>Wprowadzenie
 
-Jeśli dopiero zaczynasz korzystać z funkcji śledzenia wydajności systemu Windows, w tej sekcji przedstawiono najbardziej podstawowe warunki i aplikacje umożliwiające rozpoczęcie pracy.
+Jeśli :::no-loc text="performance tracing"::: dopiero zaczynasz korzystać z funkcji systemu Windows, w tej sekcji przedstawiono najbardziej podstawowe warunki i aplikacje umożliwiające rozpoczęcie pracy.
 
 ### <a name="installation"></a>Instalacja
 
@@ -37,11 +37,11 @@ Podczas wyszukiwania informacji na temat śladów wydajności będzie można w s
 
 Na potrzeby **funkcji ETW** jest przygotowana dla usługi [ **E** **t** **W**indows](https://docs.microsoft.com/windows/win32/etw/about-event-tracing). Jest to po prostu Przełożonej nazwy dla wydajnej funkcji śledzenia poziomu jądra, która jest wbudowana w system Windows. Jest to tzw. śledzenie *zdarzeń* , ponieważ aplikacje obsługujące ETW będą emitować zdarzenia do rejestrowania akcji, które mogą pomóc w śledzeniu problemów z wydajnością. Domyślnie system operacyjny emituje zdarzenia dotyczące takich operacji jak dostęp do dysku, przełączenia zadań. Aplikacje takie jak ARR dodatkowo emitują zdarzenia niestandardowe, na przykład w przypadku gubienia ramek, opóźnienia sieci itp.
 
-**W przypadku**usługi **ETL** odogginga na rasę **T** **1**. Oznacza to po prostu, że ślad został zebrany (zarejestrowany) i dlatego jest zazwyczaj używany jako rozszerzenie pliku dla plików, które przechowują dane śledzenia. W takim przypadku po wykonaniu śledzenia zazwyczaj będzie znajdował się \*plik. etl.
+**W przypadku**usługi **ETL** odogginga na rasę **T** **1**. Oznacza to po prostu, że ślad został zebrany (zarejestrowany) i dlatego jest zazwyczaj używany jako rozszerzenie pliku dla plików, które przechowują dane śledzenia. W takim przypadku po wykonaniu śledzenia zazwyczaj będzie znajdował się \* plik. etl.
 
-**WP** ma wartość [ **w**indows **P**Eksplorator **R**ecorder](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-recorder) i jest nazwą aplikacji, która uruchamia i przerywa nagrywanie śladów zdarzeń. Żądanie WP pobiera plik profilu (\*. wprp), który konfiguruje dokładne zdarzenia do zarejestrowania. Taki `wprp` plik jest dostarczany z zestawem SDK arr. Gdy wykonujesz ślady na komputerze stacjonarnym, możesz uruchomić żądanie WP bezpośrednio. Podczas wykonywania operacji śledzenia na serwerze HoloLens zazwyczaj zamiast tego można przejść przez interfejs sieci Web.
+**WP** ma wartość [ **w**indows **P**Eksplorator **R**ecorder](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-recorder) i jest nazwą aplikacji, która uruchamia i przerywa nagrywanie śladów zdarzeń. Żądanie WP pobiera plik profilu ( \* . wprp), który konfiguruje dokładne zdarzenia do zarejestrowania. Taki `wprp` plik jest dostarczany z zestawem SDK arr. Gdy wykonujesz ślady na komputerze stacjonarnym, możesz uruchomić żądanie WP bezpośrednio. Podczas wykonywania operacji śledzenia na serwerze HoloLens zazwyczaj zamiast tego można przejść przez interfejs sieci Web.
 
-**WPA** oznacza w [ **W**indows **P**Eksplorator nalyzer **A**](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-analyzer) i jest nazwą aplikacji graficznego interfejsu użytkownika, która jest używana do otwierania \*plików ETL i przechodzenia przez dane w celu zidentyfikowania problemów z wydajnością. WPA pozwala sortować dane według różnych kryteriów, wyświetlać dane na kilka sposobów, DIG do szczegółów i skorelować informacje.
+**WPA** oznacza w [ **W**indows **P**Eksplorator nalyzer **A**](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-analyzer) i jest nazwą aplikacji graficznego interfejsu użytkownika, która jest używana do otwierania \* plików ETL i przechodzenia przez dane w celu zidentyfikowania problemów z wydajnością. WPA pozwala sortować dane według różnych kryteriów, wyświetlać dane na kilka sposobów, DIG do szczegółów i skorelować informacje.
 
 Śledzenie ETL można tworzyć na dowolnym urządzeniu z systemem Windows (na komputerze lokalnym, serwerze HoloLens, w chmurze itp.), które są zwykle zapisywane na dysku i analizowane przy użyciu protokołu WPA na komputerze stacjonarnym. Pliki ETL mogą być wysyłane do innych deweloperów, aby mieć do nich wygląd. Należy pamiętać, że informacje poufne, takie jak ścieżki plików i adresy IP, mogą być przechwytywane w śladach ETL. Funkcji ETW można używać na dwa sposoby: do rejestrowania śladów lub analizowania śladów. Rejestrowanie śledzenia jest proste i wymaga minimalnej konfiguracji. Analizowanie śladów z drugiej strony wymaga znośnego zrozumienie zarówno narzędzia WPA, jak i badanego problemu. Poniżej przedstawiono materiał ogólny do uczenia WPA, a także wskazówki dotyczące sposobu interpretacji śladów specyficznych dla ARR.
 
@@ -51,7 +51,7 @@ W celu zidentyfikowania problemów z wydajnością klasy ARR należy wykonać ś
 
 ### <a name="wpr-configuration"></a>ŻĄDANIE konfiguracji
 
-1. Uruchom program [Windows Performance Recorder](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-recorder) z *menu Start*.
+1. Uruchom [:::no-loc text="Windows Performance Recorder":::](https://docs.microsoft.com/windows-hardware/test/wpt/windows-performance-recorder) z *menu Start*.
 1. Rozwiń **więcej opcji**
 1. Kliknij pozycję **Dodaj profile...**
 1. Wybierz plik *AzureRemoteRenderingNetworkProfiling. wprp*. Ten plik można znaleźć w zestawie SDK ARR w obszarze *Narzędzia/ETLProfiles*.
@@ -67,7 +67,7 @@ Następnie konfiguracja WP powinna wyglądać następująco:
 
 ### <a name="recording"></a>Nagrywanie
 
-Kliknij przycisk **Rozpocznij** , aby rozpocząć rejestrowanie śledzenia. Nagrywanie można uruchomić i zatrzymać w dowolnym momencie; przed wykonaniem tej czynności nie trzeba zamykać aplikacji. Jak widać, nie musisz określać aplikacji do śledzenia, ponieważ ETW zawsze rejestruje ślad dla całego systemu. `wprp` Plik określa typy zdarzeń do rejestrowania.
+Kliknij przycisk **Rozpocznij** , aby rozpocząć rejestrowanie śledzenia. Nagrywanie można uruchomić i zatrzymać w dowolnym momencie; przed wykonaniem tej czynności nie trzeba zamykać aplikacji. Jak widać, nie musisz określać aplikacji do śledzenia, ponieważ ETW zawsze rejestruje ślad dla całego systemu. `wprp`Plik określa typy zdarzeń do rejestrowania.
 
 Kliknij przycisk **Zapisz** , aby zatrzymać nagrywanie i określić miejsce przechowywania pliku ETL.
 
@@ -81,7 +81,7 @@ Aby zarejestrować ślad w urządzeniu HoloLens, należy przeprowadzić rozruch 
 
 1. Po lewej stronie przejdź do *> wydajność śledzenie wydajności*.
 1. Wybieranie **profilów niestandardowych**
-1. Kliknij przycisk **Przeglądaj...**
+1. Polecenie**:::no-loc text="Browse...":::**
 1. Wybierz plik *AzureRemoteRenderingNetworkProfiling. wprp*. Ten plik można znaleźć w zestawie SDK ARR w obszarze *Narzędzia/ETLProfiles*.
 1. Kliknij przycisk **Rozpocznij śledzenie**
 1. Urządzenie HoloLens rejestruje teraz śledzenie. Upewnij się, że Wyzwalasz problemy z wydajnością, które chcesz zbadać. Następnie kliknij przycisk **Zatrzymaj śledzenie**.

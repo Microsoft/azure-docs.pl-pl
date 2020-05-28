@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: fd11fd32c4c6901302d1f7960ad38ad426e6a3a6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 156d960571f4d5f28f64823ecbe8f0465739bb23
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83664669"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141725"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-mysql"></a>Połącz się z tożsamością zarządzaną, aby Azure Database for MySQL
 
@@ -22,6 +22,9 @@ W tym artykule przedstawiono sposób użycia tożsamości przypisanej przez uży
 > * Utwórz użytkownika w bazie danych, który reprezentuje tożsamość przypisaną przez użytkownika maszyny wirtualnej
 > * Uzyskiwanie tokenu dostępu przy użyciu tożsamości maszyny wirtualnej i używanie jej do wysyłania zapytań do serwera Azure Database for MySQL
 > * Zaimplementuj pobieranie tokenu w przykładowej aplikacji w języku C#
+
+> [!IMPORTANT]
+> Łączenie się z tożsamością zarządzaną jest dostępne tylko dla MySQL 5,7 i nowszych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

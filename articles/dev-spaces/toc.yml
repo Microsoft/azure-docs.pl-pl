@@ -113,8 +113,6 @@
           href: how-to/ingress-https-nginx.md
         - name: Łączenie komputera programistycznego z klastrem AKS (wersja zapoznawcza)
           href: how-to/connect.md
-        - name: Konfigurowanie klastra usługi Azure Dev Spaces do korzystania z rozwiązania Helm 3 (wersja zapoznawcza)
-          href: how-to/helm-3.md
     - name: Rozwiązywanie problemów
       href: troubleshooting.md
     - name: Często zadawane pytania

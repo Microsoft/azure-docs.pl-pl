@@ -16,17 +16,17 @@ ms.author: mathoma
 ms.reviewer: jroth
 experimental: true
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: 4627d9c4fa5c87e8e80ab80892062dabd77e9229
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0717f6f75b6bd8bb7ba4d53f8240414b5169540d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79249713"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014789"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>Łączenie z maszyną wirtualną programu SQL Server na platformie Azure (wdrażanie klasyczne)
 > [!div class="op_single_selector"]
-> * [Resource Manager](../sql/virtual-machines-windows-sql-connect.md)
-> * [Wdrożenie klasyczne](../classic/sql-connect.md)
+> * [Resource Manager](../../../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md)
+> * [Klasyczny](../classic/sql-connect.md)
 > 
 > 
 
@@ -34,7 +34,7 @@ ms.locfileid: "79249713"
 W tym temacie opisano sposób nawiązywania połączenia z wystąpieniem SQL Server uruchomionym na maszynie wirtualnej platformy Azure. Obejmuje ona niektóre [Ogólne scenariusze łączności](#connection-scenarios) , a następnie zawiera [szczegółowe instrukcje dotyczące konfigurowania łączności SQL Server na maszynie wirtualnej platformy Azure](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm).
 
 > [!IMPORTANT] 
-> Platforma Azure ma dwa różne modele wdrażania służące do tworzenia zasobów i pracy z nimi: [Menedżer zasobów i klasyczne](../../../azure-resource-manager/management/deployment-models.md). W tym artykule opisano korzystanie z klasycznego modelu wdrażania. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager. Jeśli używasz maszyn wirtualnych Menedżer zasobów, zobacz [nawiązywanie połączenia z maszyną wirtualną SQL Server na platformie Azure przy użyciu Menedżer zasobów](../sql/virtual-machines-windows-sql-connect.md).
+> Platforma Azure ma dwa różne modele wdrażania służące do tworzenia zasobów i pracy z nimi: [Menedżer zasobów i klasyczne](../../../azure-resource-manager/management/deployment-models.md). W tym artykule opisano korzystanie z klasycznego modelu wdrażania. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager. Jeśli używasz maszyn wirtualnych Menedżer zasobów, zobacz [nawiązywanie połączenia z maszyną wirtualną SQL Server na platformie Azure przy użyciu Menedżer zasobów](../../../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md).
 
 ## <a name="connection-scenarios"></a>Scenariusze połączeń
 Sposób, w jaki klient nawiązuje połączenie z SQL Server uruchomionym na maszynie wirtualnej, różni się w zależności od lokalizacji klienta i konfiguracji komputera/sieci. Scenariusze obejmują:
@@ -106,9 +106,9 @@ Aby można było nawiązać połączenie z wystąpieniem SQL Server z innej masz
 ## <a name="next-steps"></a>Następne kroki
 Jeśli planujesz również używać Zawsze włączone grupy dostępności do zapewnienia wysokiej dostępności i odzyskiwania po awarii, należy rozważyć implementację odbiornika. Klienci bazy danych nawiązują połączenie z odbiornikiem, a nie bezpośrednio z jednym z wystąpień SQL Server. Odbiornik kieruje klientów do repliki podstawowej w grupie dostępności. Aby uzyskać więcej informacji, zobacz [Konfigurowanie odbiornika ILB na potrzeby zawsze włączone grupy dostępności na platformie Azure](../classic/ps-sql-int-listener.md).
 
-Ważne jest zapoznanie się ze wszystkimi najlepszymi rozwiązaniami w zakresie zabezpieczeń dotyczącymi SQL Server uruchomionych na maszynie wirtualnej platformy Azure. Aby uzyskać więcej informacji, zobacz [Zagadnienia dotyczące zabezpieczeń programu SQL Server w usłudze Azure Virtual Machines](../sql/virtual-machines-windows-sql-security.md).
+Ważne jest zapoznanie się ze wszystkimi najlepszymi rozwiązaniami w zakresie zabezpieczeń dotyczącymi SQL Server uruchomionych na maszynie wirtualnej platformy Azure. Aby uzyskać więcej informacji, zobacz [Zagadnienia dotyczące zabezpieczeń programu SQL Server w usłudze Azure Virtual Machines](../../../azure-sql/virtual-machines/windows/security-considerations-best-practices.md).
 
 [Zbadaj ścieżkę szkoleniową](https://azure.microsoft.com/documentation/learning-paths/sql-azure-vm/) dla programu SQL Server na maszynach wirtualnych Azure. 
 
-Aby poznać inne tematy związane z uruchamianiem SQL Server na maszynach wirtualnych platformy Azure, zobacz [SQL Server na platformie azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Aby poznać inne tematy związane z uruchamianiem SQL Server na maszynach wirtualnych platformy Azure, zobacz [SQL Server na platformie azure Virtual Machines](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).
 

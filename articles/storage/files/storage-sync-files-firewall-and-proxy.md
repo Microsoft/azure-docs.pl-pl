@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a5fc469c3db7da45f818230909026cedf6c71a4c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 37c646e2f08745b2a12df41b6310fb5d3834998b
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82101743"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142558"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Ustawienia serwera proxy i zapory usługi Azure File Sync
 Azure File Sync nawiązuje połączenie z serwerami lokalnymi w celu Azure Files, włączając synchronizację z obsługą wielolokacją i funkcjami obsługi warstw w chmurze. W związku z tym serwer lokalny musi być połączony z Internetem. Administrator IT musi zdecydować najlepszą ścieżkę serwera, aby uzyskać dostęp do usług Azure Cloud Services.
@@ -59,7 +59,7 @@ Aby skonfigurować ustawienia serwera proxy dla całej maszyny, wykonaj następu
      C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config  
      C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
 
-   - Dodaj sekcję <system.net> w plikach Machine. config (poniżej sekcji <system. serviceModel>).  Zmień 127.0.01:8888 na adres IP i port serwera proxy. 
+   - Dodaj sekcję < System. net > w plikach Machine. config (poniżej sekcji < System. serviceModel >).  Zmień 127.0.01:8888 na adres IP i port serwera proxy. 
      ```
       <system.net>
         <defaultProxy enabled="true" useDefaultCredentials="true">
@@ -84,12 +84,12 @@ Aby skonfigurować ustawienia serwera proxy dla całej maszyny, wykonaj następu
 
       Uwaga: usługa agenta synchronizacji magazynu (filesyncsvc) zostanie uruchomiona ponownie po zatrzymaniu.
 
-## <a name="firewall"></a>Zapora
+## <a name="firewall"></a>Firewall
 Jak wspomniano w poprzedniej sekcji, port 443 musi być otwarty dla ruchu wychodzącego. W oparciu o zasady w centrum danych, rozgałęzieniu lub regionie, może być konieczne lub wymagane dalsze ograniczenie ruchu przez ten port do określonych domen.
 
 W poniższej tabeli opisano wymagane domeny do komunikacji:
 
-| Usługa | Punkt końcowy chmury publicznej | Azure Government punkt końcowy | Sposób użycia |
+| Usługa | Punkt końcowy chmury publicznej | Azure Government punkt końcowy | Użycie |
 |---------|----------------|---------------|------------------------------|
 | **Azure Resource Manager** | `https://management.azure.com` | https://management.usgovcloudapi.net | Każde wywołanie użytkownika (na przykład program PowerShell) przechodzi do/za pomocą tego adresu URL, łącznie z początkowym wywołaniem rejestracji serwera. |
 | **Azure Active Directory** | https://login.windows.net<br>`https://login.microsoftonline.com` | https://login.microsoftonline.us | Wywołania Azure Resource Manager muszą być wykonywane przez uwierzytelnionego użytkownika. Aby pomyślnie, ten adres URL jest używany do uwierzytelniania użytkowników. |
@@ -100,41 +100,42 @@ W poniższej tabeli opisano wymagane domeny do komunikacji:
 | **Infrastruktura PKI firmy Microsoft** | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | Po zainstalowaniu agenta Azure File Sync, adres URL infrastruktury PKI jest używany do pobierania certyfikatów pośrednich wymaganych do komunikowania się z usługą Azure File Sync i udziałem plików platformy Azure. Adres URL protokołu OCSP służy do sprawdzania stanu certyfikatu. |
 
 > [!Important]
-> W przypadku zezwolenia na &ast;ruch do. one.Microsoft.com ruch do więcej niż tylko usługi synchronizacji jest możliwy z serwera. W poddomenach poddomen jest dostępnych wiele usług firmy Microsoft.
+> Gdy zezwalasz na ruch do &ast; . AFS.Azure.NET, ruch jest możliwy tylko dla usługi synchronizacji. Nie ma innych usług firmy Microsoft korzystających z tej domeny.
+> W przypadku zezwolenia na ruch do &ast; . one.Microsoft.com ruch do więcej niż tylko usługi synchronizacji jest możliwy z serwera. W poddomenach poddomen jest dostępnych wiele usług firmy Microsoft.
 
-Jeśli &ast;one.Microsoft.com jest zbyt szeroki, można ograniczyć komunikację serwera, zezwalając na komunikację tylko z jawnymi wystąpieniami regionalnymi usługi synchronizacji Azure Files. Jakie wystąpienia są zależne od regionu usługi synchronizacji magazynu wdrożonej i zarejestrowanej na serwerze. Ten region jest nazywany "podstawowym adresem URL punktu końcowego" w poniższej tabeli.
+Jeśli &ast; . AFS.Azure.NET lub &ast; . one.Microsoft.com jest zbyt szeroki, można ograniczyć komunikację serwera, zezwalając na komunikację tylko z jawnymi wystąpieniami regionalnymi usługi synchronizacji Azure Files. Jakie wystąpienia są zależne od regionu usługi synchronizacji magazynu wdrożonej i zarejestrowanej na serwerze. Ten region jest nazywany "podstawowym adresem URL punktu końcowego" w poniższej tabeli.
 
 Ze względu na ciągłość działania i odzyskiwanie po awarii (BCDR), możesz określić udziały plików platformy Azure na koncie magazynu globalnie nadmiarowy (GRS). W takim przypadku udziały plików platformy Azure zostaną przełączone w tryb failover do sparowanego regionu w przypadku długotrwałej awarii regionalnej. Azure File Sync używa tych samych regionalnych par jako magazynu. W przypadku korzystania z kont magazynu GRS należy włączyć dodatkowe adresy URL, aby umożliwić serwerowi komunikowanie się z sparowanym regionem Azure File Sync. Poniższa tabela wywołuje ten "sparowany region". Ponadto istnieje adres URL profilu Menedżera ruchu, który musi zostać włączony. Dzięki temu ruch sieciowy może być bezproblemowo kierowany do sparowanego regionu w przypadku przełączenia w tryb failover i nosi nazwę "adres URL odnajdywania" w poniższej tabeli.
 
-| Chmurowa  | Region | Podstawowy adres URL punktu końcowego | Region sparowany | Adres URL odnajdywania |
+| Chmura  | Region | Podstawowy adres URL punktu końcowego | Region sparowany | Adres URL odnajdywania |
 |--------|--------|----------------------|---------------|---------------|
-| Public |Australia Wschodnia | https:\//Kailani-Aue.one.Microsoft.com | Australia Południowo-Wschodnia | https:\//TM-Kailani-Aue.one.Microsoft.com |
-| Public |Australia Południowo-Wschodnia | https:\//Kailani-aus.one.Microsoft.com | Australia Wschodnia | https:\//TM-Kailani-aus.one.Microsoft.com |
-| Public | Brazylia Południowa | https:\//brazilsouth01.AFS.Azure.NET | Południowo-środkowe stany USA | https:\//TM-brazilsouth01.AFS.Azure.NET |
-| Public | Kanada Środkowa | https:\//Kailani-CAC.one.Microsoft.com | Kanada Wschodnia | https:\//TM-Kailani-CAC.one.Microsoft.com |
-| Public | Kanada Wschodnia | https:\//Kailani-CAE.one.Microsoft.com | Kanada Środkowa | https:\//TM-Kailani.CAE.one.Microsoft.com |
-| Public | Indie Środkowe | https:\//Kailani-CIN.one.Microsoft.com | Indie Południowe | https:\//TM-Kailani-CIN.one.Microsoft.com |
-| Public | Środkowe stany USA | https:\//Kailani-CUS.one.Microsoft.com | Wschodnie stany USA 2 | https:\//TM-Kailani-CUS.one.Microsoft.com |
-| Public | Azja Wschodnia | https:\//kailani11.one.Microsoft.com | Azja Południowo-Wschodnia | https:\//TM-kailani11.one.Microsoft.com |
-| Public | Wschodnie stany USA | https:\//kailani1.one.Microsoft.com | Zachodnie stany USA | https:\//TM-kailani1.one.Microsoft.com |
-| Public | Wschodnie stany USA 2 | https:\//Kailani-ESS.one.Microsoft.com | Środkowe stany USA | https:\//TM-Kailani-ESS.one.Microsoft.com |
-| Public | Japonia Wschodnia | https:\//japaneast01.AFS.Azure.NET | Japonia Zachodnia | https:\//TM-japaneast01.AFS.Azure.NET |
-| Public | Japonia Zachodnia | https:\//japanwest01.AFS.Azure.NET | Japonia Wschodnia | https:\//TM-japanwest01.AFS.Azure.NET |
-| Public | Korea Środkowa | https:\//koreacentral01.AFS.Azure.NET/ | Korea Południowa | https:\//TM-koreacentral01.AFS.Azure.NET/ |
-| Public | Korea Południowa | https:\//koreasouth01.AFS.Azure.NET/ | Korea Środkowa | https:\//TM-koreasouth01.AFS.Azure.NET/ |
-| Public | Północno-środkowe stany USA | https:\//northcentralus01.AFS.Azure.NET | Południowo-środkowe stany USA | https:\//TM-northcentralus01.AFS.Azure.NET |
-| Public | Europa Północna | https:\//kailani7.one.Microsoft.com | Europa Zachodnia | https:\//TM-kailani7.one.Microsoft.com |
-| Public | Południowo-środkowe stany USA | https:\//southcentralus01.AFS.Azure.NET | Północno-środkowe stany USA | https:\//TM-southcentralus01.AFS.Azure.NET |
-| Public | Indie Południowe | https:\//Kailani-Sin.one.Microsoft.com | Indie Środkowe | https:\//TM-Kailani-Sin.one.Microsoft.com |
-| Public | Azja Południowo-Wschodnia | https:\//kailani10.one.Microsoft.com | Azja Wschodnia | https:\//TM-kailani10.one.Microsoft.com |
-| Public | Południowe Zjednoczone Królestwo | https:\//Kailani-UKS.one.Microsoft.com | Zachodnie Zjednoczone Królestwo | https:\//TM-Kailani-UKS.one.Microsoft.com |
-| Public | Zachodnie Zjednoczone Królestwo | https:\//Kailani-UKW.one.Microsoft.com | Południowe Zjednoczone Królestwo | https:\//TM-Kailani-UKW.one.Microsoft.com |
-| Public | Zachodnio-środkowe stany USA | https:\//westcentralus01.AFS.Azure.NET | Zachodnie stany USA 2 | https:\//TM-westcentralus01.AFS.Azure.NET |
-| Public | Europa Zachodnia | https:\//kailani6.one.Microsoft.com | Europa Północna | https:\//TM-kailani6.one.Microsoft.com |
-| Public | Zachodnie stany USA | https:\//Kailani.one.Microsoft.com | Wschodnie stany USA | https:\//TM-Kailani.one.Microsoft.com |
-| Public | Zachodnie stany USA 2 | https:\//westus201.AFS.Azure.NET | Zachodnio-środkowe stany USA | https:\//TM-westus201.AFS.Azure.NET |
-| Instytucje rządowe | US Gov Arizona | https:\//usgovarizona01.AFS.Azure.us | US Gov Teksas | https:\//TM-usgovarizona01.AFS.Azure.us |
-| Instytucje rządowe | US Gov Teksas | https:\//usgovtexas01.AFS.Azure.us | US Gov Arizona | https:\//TM-usgovtexas01.AFS.Azure.us |
+| Public |Australia Wschodnia | https: \/ /australiaeast01.AFS.Azure.NET<br>https: \/ /Kailani-Aue.one.Microsoft.com | Australia Południowo-Wschodnia | https: \/ /TM-australiaeast01.AFS.Azure.NET<br>https: \/ /TM-Kailani-Aue.one.Microsoft.com |
+| Public |Australia Południowo-Wschodnia | https: \/ /australiasoutheast01.AFS.Azure.NET<br>https: \/ /Kailani-aus.one.Microsoft.com | Australia Wschodnia | https: \/ /TM-australiasoutheast01.AFS.Azure.NET<br>https: \/ /TM-Kailani-aus.one.Microsoft.com |
+| Public | Brazylia Południowa | https: \/ /brazilsouth01.AFS.Azure.NET | Południowo-środkowe stany USA | https: \/ /TM-brazilsouth01.AFS.Azure.NET |
+| Public | Kanada Środkowa | https: \/ /canadacentral01.AFS.Azure.NET<br>https: \/ /Kailani-CAC.one.Microsoft.com | Kanada Wschodnia | https: \/ /TM-canadacentral01.AFS.Azure.NET<br>https: \/ /TM-Kailani-CAC.one.Microsoft.com |
+| Public | Kanada Wschodnia | https: \/ /canadaeast01.AFS.Azure.NET<br>https: \/ /Kailani-CAE.one.Microsoft.com | Kanada Środkowa | https: \/ /TM-canadaeast01.AFS.Azure.NET<br>https: \/ /TM-Kailani.CAE.one.Microsoft.com |
+| Public | Indie Środkowe | https: \/ /centralindia01.AFS.Azure.NET<br>https: \/ /Kailani-CIN.one.Microsoft.com | Indie Południowe | https: \/ /TM-centralindia01.AFS.Azure.NET<br>https: \/ /TM-Kailani-CIN.one.Microsoft.com |
+| Public | Środkowe stany USA | https: \/ /centralus01.AFS.Azure.NET<br>https: \/ /Kailani-CUS.one.Microsoft.com | Wschodnie stany USA 2 | https: \/ /TM-centralus01.AFS.Azure.NET<br>https: \/ /TM-Kailani-CUS.one.Microsoft.com |
+| Public | Azja Wschodnia | https: \/ /eastasia01.AFS.Azure.NET<br>https: \/ /kailani11.one.Microsoft.com | Azja Południowo-Wschodnia | https: \/ /TM-eastasia01.AFS.Azure.NET<br>https: \/ /TM-kailani11.one.Microsoft.com |
+| Public | Wschodnie stany USA | https: \/ /eastus01.AFS.Azure.NET<br>https: \/ /kailani1.one.Microsoft.com | Zachodnie stany USA | https: \/ /TM-eastus01.AFS.Azure.NET<br>https: \/ /TM-kailani1.one.Microsoft.com |
+| Public | Wschodnie stany USA 2 | https: \/ /eastus201.AFS.Azure.NET<br>https: \/ /Kailani-ESS.one.Microsoft.com | Środkowe stany USA | https: \/ /TM-eastus201.AFS.Azure.NET<br>https: \/ /TM-Kailani-ESS.one.Microsoft.com |
+| Public | Japonia Wschodnia | https: \/ /japaneast01.AFS.Azure.NET | Japonia Zachodnia | https: \/ /TM-japaneast01.AFS.Azure.NET |
+| Public | Japonia Zachodnia | https: \/ /japanwest01.AFS.Azure.NET | Japonia Wschodnia | https: \/ /TM-japanwest01.AFS.Azure.NET |
+| Public | Korea Środkowa | https: \/ /koreacentral01.AFS.Azure.NET/ | Korea Południowa | https: \/ /TM-koreacentral01.AFS.Azure.NET/ |
+| Public | Korea Południowa | https: \/ /koreasouth01.AFS.Azure.NET/ | Korea Środkowa | https: \/ /TM-koreasouth01.AFS.Azure.NET/ |
+| Public | Północno-środkowe stany USA | https: \/ /northcentralus01.AFS.Azure.NET | Południowo-środkowe stany USA | https: \/ /TM-northcentralus01.AFS.Azure.NET |
+| Public | Europa Północna | https: \/ /northeurope01.AFS.Azure.NET<br>https: \/ /kailani7.one.Microsoft.com | Europa Zachodnia | https: \/ /TM-northeurope01.AFS.Azure.NET<br>https: \/ /TM-kailani7.one.Microsoft.com |
+| Public | Południowo-środkowe stany USA | https: \/ /southcentralus01.AFS.Azure.NET | Północno-środkowe stany USA | https: \/ /TM-southcentralus01.AFS.Azure.NET |
+| Public | Indie Południowe | https: \/ /southindia01.AFS.Azure.NET<br>https: \/ /Kailani-Sin.one.Microsoft.com | Indie Środkowe | https: \/ /TM-southindia01.AFS.Azure.NET<br>https: \/ /TM-Kailani-Sin.one.Microsoft.com |
+| Public | Azja Południowo-Wschodnia | https: \/ /southeastasia01.AFS.Azure.NET<br>https: \/ /kailani10.one.Microsoft.com | Azja Wschodnia | https: \/ /TM-southeastasia01.AFS.Azure.NET<br>https: \/ /TM-kailani10.one.Microsoft.com |
+| Public | Południowe Zjednoczone Królestwo | https: \/ /uksouth01.AFS.Azure.NET<br>https: \/ /Kailani-UKS.one.Microsoft.com | Zachodnie Zjednoczone Królestwo | https: \/ /TM-uksouth01.AFS.Azure.NET<br>https: \/ /TM-Kailani-UKS.one.Microsoft.com |
+| Public | Zachodnie Zjednoczone Królestwo | https: \/ /ukwest01.AFS.Azure.NET<br>https: \/ /Kailani-UKW.one.Microsoft.com | Południowe Zjednoczone Królestwo | https: \/ /TM-ukwest01.AFS.Azure.NET<br>https: \/ /TM-Kailani-UKW.one.Microsoft.com |
+| Public | Zachodnio-środkowe stany USA | https: \/ /westcentralus01.AFS.Azure.NET | Zachodnie stany USA 2 | https: \/ /TM-westcentralus01.AFS.Azure.NET |
+| Public | Europa Zachodnia | https: \/ /westeurope01.AFS.Azure.NET<br>https: \/ /kailani6.one.Microsoft.com | Europa Północna | https: \/ /TM-westeurope01.AFS.Azure.NET<br>https: \/ /TM-kailani6.one.Microsoft.com |
+| Public | Zachodnie stany USA | https: \/ /westus01.AFS.Azure.NET<br>https: \/ /Kailani.one.Microsoft.com | Wschodnie stany USA | https: \/ /TM-westus01.AFS.Azure.NET<br>https: \/ /TM-Kailani.one.Microsoft.com |
+| Public | Zachodnie stany USA 2 | https: \/ /westus201.AFS.Azure.NET | Zachodnio-środkowe stany USA | https: \/ /TM-westus201.AFS.Azure.NET |
+| Instytucje rządowe | US Gov Arizona | https: \/ /usgovarizona01.AFS.Azure.us | US Gov Teksas | https: \/ /TM-usgovarizona01.AFS.Azure.us |
+| Instytucje rządowe | US Gov Teksas | https: \/ /usgovtexas01.AFS.Azure.us | US Gov Arizona | https: \/ /TM-usgovtexas01.AFS.Azure.us |
 
 - W przypadku korzystania z kont magazynu lokalnie nadmiarowego (LRS) lub strefy nadmiarowe (ZRS) należy włączyć tylko adres URL wymieniony w obszarze "podstawowy adres URL punktu końcowego".
 
@@ -142,12 +143,12 @@ Ze względu na ciągłość działania i odzyskiwanie po awarii (BCDR), możesz 
 
 **Przykład:** Należy wdrożyć usługę synchronizacji magazynu w `"West US"` systemie i zarejestrować serwer. Adresy URL umożliwiające serwerowi komunikowanie się w tym przypadku są następujące:
 
-> - https:\//Kailani.one.Microsoft.com (podstawowy punkt końcowy: zachodnie stany USA)
-> - https:\//kailani1.one.Microsoft.com (sparowany region w trybie failover: Wschodnie stany USA)
-> - https:\//TM-Kailani.one.Microsoft.com (adres URL odnajdywania regionu podstawowego)
+> - https: \/ /westus01.AFS.Azure.NET (podstawowy punkt końcowy: zachodnie stany USA)
+> - https: \/ /eastus01.AFS.Azure.NET (sparowany region w trybie failover: Wschodnie stany USA)
+> - https: \/ /TM-westus01.AFS.Azure.NET (adres URL odnajdywania regionu podstawowego)
 
 ### <a name="allow-list-for-azure-file-sync-ip-addresses"></a>Lista dozwolonych adresów IP Azure File Sync
-Azure File Sync obsługuje używanie [tagów usługi](../../virtual-network/service-tags-overview.md), które reprezentują grupę prefiksów adresów IP dla danej usługi platformy Azure. Za pomocą tagów usługi można tworzyć reguły zapory, które umożliwiają komunikację z usługą Azure File Sync. Tag usługi dla Azure File Sync ma wartość `StorageSyncService`.
+Azure File Sync obsługuje używanie [tagów usługi](../../virtual-network/service-tags-overview.md), które reprezentują grupę prefiksów adresów IP dla danej usługi platformy Azure. Za pomocą tagów usługi można tworzyć reguły zapory, które umożliwiają komunikację z usługą Azure File Sync. Tag usługi dla Azure File Sync ma wartość `StorageSyncService` .
 
 Jeśli używasz Azure File Sync w ramach platformy Azure, możesz użyć nazwy tagu usługi bezpośrednio w sieciowej grupie zabezpieczeń, aby zezwolić na ruch. Aby dowiedzieć się więcej o tym, jak to zrobić, zobacz [Network Security Groups](../../virtual-network/security-overview.md).
 
@@ -155,11 +156,11 @@ Jeśli używasz Azure File Sync lokalnie, możesz użyć interfejsu API znacznik
 
 - Bieżąca lista zakresów adresów IP dla wszystkich usług platformy Azure obsługujących znaczniki usług jest publikowana co tydzień w centrum pobierania Microsoft w formie dokumentu JSON. Każda Chmura platformy Azure ma własny dokument JSON z zakresami adresów IP istotnymi dla tej chmury:
     - [Usługa Azure Public](https://www.microsoft.com/download/details.aspx?id=56519)
-    - [Platforma Azure dla instytucji rządowych](https://www.microsoft.com/download/details.aspx?id=57063)
+    - [Wersja platformy Azure dla administracji USA](https://www.microsoft.com/download/details.aspx?id=57063)
     - [Chiny platformy Azure](https://www.microsoft.com/download/details.aspx?id=57062)
     - [Azure (Niemcy)](https://www.microsoft.com/download/details.aspx?id=57064)
 - Interfejs API odnajdowania tagów usługi (wersja zapoznawcza) umożliwia programistyczne pobieranie bieżącej listy tagów usługi. W wersji zapoznawczej interfejs API odnajdowania tagów usługi może zwracać informacje, które są mniej aktualne niż zwracane przez informacje z dokumentów JSON opublikowanych w centrum pobierania Microsoft. Możesz użyć powierzchni interfejsu API na podstawie preferencji automatyzacji:
-    - [INTERFEJS API REST](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
+    - [Interfejs API REST](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
     - [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag)
     - [Interfejs wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/network#az-network-list-service-tags)
 
@@ -260,7 +261,7 @@ if ($found) {
 }
 ```
 
-Następnie można użyć zakresów adresów IP w programie `$ipAddressRanges` , aby zaktualizować zaporę. Aby uzyskać informacje na temat aktualizowania zapory, Sprawdź witrynę sieci Web zapory/urządzenia sieciowego.
+Następnie można użyć zakresów adresów IP w programie, `$ipAddressRanges` Aby zaktualizować zaporę. Aby uzyskać informacje na temat aktualizowania zapory, Sprawdź witrynę sieci Web zapory/urządzenia sieciowego.
 
 ## <a name="test-network-connectivity-to-service-endpoints"></a>Testowanie łączności sieciowej z punktami końcowymi usługi
 Po zarejestrowaniu serwera w usłudze Azure File Sync polecenie cmdlet Test-StorageSyncNetworkConnectivity i ServerRegistration. exe może służyć do testowania komunikacji ze wszystkimi punktami końcowymi (URL) specyficznymi dla tego serwera. To polecenie cmdlet może pomóc w rozwiązywaniu problemów w przypadku niekompletnej komunikacji uniemożliwia serwerowi pełną pracę z Azure File Sync i można go użyć do dostosowania konfiguracji serwera proxy i zapory.

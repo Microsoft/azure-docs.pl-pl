@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/30/2020
 ms.topic: tutorial
-ms.openlocfilehash: 33801316e4c0446865169560bb42f98052acba70
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d68a3b1291d2e001c535a0c5a6b0c754c9d2b2e1
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80679597"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021351"
 ---
 # <a name="tutorial-setting-up-a-unity-project-from-scratch"></a>Samouczek: Konfigurowanie projektu Unity od podstaw
 
@@ -44,7 +44,7 @@ W tym samouczku są potrzebne:
 ## <a name="create-a-new-unity-project"></a>Utwórz nowy projekt aparatu Unity
 
 W centrum Unity Utwórz nowy projekt.
-W tym przykładzie przyjęto założenie, że projekt zostanie utworzony w folderze o nazwie `RemoteRendering`.
+W tym przykładzie przyjęto założenie, że projekt zostanie utworzony w folderze o nazwie `RemoteRendering` .
 
 ![okno nowego projektu](media/new-project.png)
 
@@ -77,9 +77,9 @@ Po zmodyfikowaniu i zapisaniu manifestu aparat Unity zostanie automatycznie odś
 ## <a name="ensure-you-have-the-latest-version-of-the-package"></a>Upewnij się, że masz najnowszą wersję pakietu
 
 Poniższe kroki zapewniają, że Twój projekt używa najnowszej wersji pakietu do renderowania zdalnego.
-1. Wybierz pakiet w oknie projektu i kliknij ikonę pakietu: ![wybierz ikonę pakietu](media/package-icons.png)
-1. W Inspektorze kliknij pozycję "Wyświetl w Menedżerze pakietów": ![Inspektor pakietów](media/package-properties.png)
-1. Na stronie Menedżer pakietów dla pakietu zdalnego renderowania Sprawdź, czy przycisk Aktualizuj jest dostępny. Jeśli tak, to kliknięcie spowoduje zaktualizowanie pakietu do najnowszej dostępnej wersji: ![pakietu ARR w Menedżerze pakietów](media/package-manager.png)
+1. Wybierz pakiet w oknie projektu i kliknij :::no-loc text="package"::: ikonę: Wybierz ![ ikonę pakietu](media/package-icons.png)
+1. W Inspektorze kliknij pozycję "Wyświetl w Menedżerze pakietów": ![ Inspektor pakietów](media/package-properties.png)
+1. Na stronie Menedżer pakietów dla pakietu zdalnego renderowania Sprawdź, czy przycisk Aktualizuj jest dostępny. Jeśli tak, to kliknięcie spowoduje zaktualizowanie pakietu do najnowszej dostępnej wersji: ![ pakietu ARR w Menedżerze pakietów](media/package-manager.png)
 1. Czasami aktualizacja pakietu może prowadzić do błędów w konsoli programu. W takim przypadku spróbuj zamknąć i ponownie otworzyć projekt.
 
 ## <a name="configure-the-camera"></a>Konfigurowanie aparatu
@@ -90,11 +90,11 @@ Wybierz węzeł **główny aparat** .
 
     ![Zresetuj transformację aparatu](media/camera-reset-transform.png)
 
-1. Ustaw **Wyczyść flagi** na *Kolor kryjący*
+1. Ustaw **:::no-loc text="Clear flags":::** na*:::no-loc text="Solid Color":::*
 
-1. Ustaw **tło** na *czerń*
+1. Ustaw **:::no-loc text="Background":::** na*:::no-loc text="Black":::*
 
-1. Ustaw **płaszczyzny przycinające** na wartość *Near = 0,3* i *daleko = 20*. Oznacza to, że renderowanie będzie odcięta geometrii, która jest mniejsza niż 30 cm lub większa niż 20 metrów.
+1. Ustaw wartość **:::no-loc text="Clipping Planes":::** na *blisko = 0,3* i *daleko = 20*. Oznacza to, że renderowanie będzie odcięta geometrii, która jest mniejsza niż 30 cm lub większa niż 20 metrów.
 
     ![Właściwości aparatu Unity](media/camera-properties.png)
 
@@ -109,10 +109,10 @@ Wybierz węzeł **główny aparat** .
 1. Wybierz pozycję **grafika** po lewej stronie.
 1. Zmień ustawienie **potoku renderowania skryptowego** na *HybridRenderingPipeline*. Pomiń ten krok, jeśli nie jest używany potok uniwersalny renderowania.
 
-    ![Zmiana ustawień](media/settings-graphics-lwrp.png) grafiki projektu czasami interfejs użytkownika nie wypełnia listy dostępnych typów potoków z pakietów. w takim przypadku element zawartości *HybridRenderingPipeline* musi być przeciągany do pola ręcznie: ![zmiana ustawień grafiki projektu](media/hybrid-rendering-pipeline.png)
+    ![Zmiana ustawień grafiki projektu ](media/settings-graphics-lwrp.png) czasami interfejs użytkownika nie wypełnia listy dostępnych typów potoków z pakietów. w takim przypadku element zawartości *HybridRenderingPipeline* musi być przeciągany do pola ręcznie: ![ Zmiana ustawień grafiki projektu](media/hybrid-rendering-pipeline.png)
 1. Wybierz **odtwarzacz** po lewej stronie.
 1. Wybierz kartę **ustawienia platforma uniwersalna systemu Windows**
-1. Zmień **Ustawienia XR** , aby obsługiwały rzeczywistość systemu Windows ![: ustawienia odtwarzacza](media/xr-player-settings.png)
+1. Zmień **Ustawienia XR** , aby obsługiwały rzeczywistość systemu Windows: ![ Ustawienia odtwarzacza](media/xr-player-settings.png)
 1. Wybierz ustawienia tak jak na poniższym zrzucie ekranu:
     1. Włącz obsługę **wirtualnej rzeczywistości**
     1. Ustaw **Format głębokości** na *16-bitową głębię*
@@ -309,7 +309,7 @@ Jeśli to się nie powiedzie, upewnij się, że poprawnie wprowadzono szczegół
 
 ![Wyjście rozpoczynające sesję](media/create-session-output.png)
 
-W tym momencie platforma Azure zastrzega sobie serwerowi i uruchamia zdalną maszynę wirtualną. Zwykle trwa to od **3 do 5 minut**. Gdy maszyna wirtualna jest gotowa, zostanie wykonane `OnSessionStatusChanged` wywołanie zwrotne skryptu aparatu Unity i zostanie wydrukowany nowy stan sesji:
+W tym momencie platforma Azure zastrzega sobie serwerowi i uruchamia zdalną maszynę wirtualną. Zwykle trwa to od **3 do 5 minut**. Gdy maszyna wirtualna jest gotowa, zostanie `OnSessionStatusChanged` wykonane wywołanie zwrotne skryptu aparatu Unity i zostanie wydrukowany nowy stan sesji:
 
 ![Wyjście gotowe do sesji](media/create-session-output-2.png)
 
@@ -420,7 +420,7 @@ Po naciśnięciu przycisku *Odtwórz*uzyskasz trzy przyciski w okienku ekranu: *
 Funkcja **AutoStartSessionAsync** służy do symulowania naciśnięcia przycisku poza edytorem.
 
 > [!TIP]
-> Istnieje możliwość otwarcia sesji, które zostały zatrzymane, wygasły lub są w stanie błędu. Chociaż nie można ich użyć do renderowania, można zbadać ich szczegóły, po otwarciu nieaktywnej sesji. Powyższy kod sprawdza stan sesji w programie `ARRService_OnSessionStarted`, aby automatycznie zatrzymywać, gdy sesja stanie się niezdatna do użytku.
+> Istnieje możliwość otwarcia sesji, które zostały zatrzymane, wygasły lub są w stanie błędu. Chociaż nie można ich użyć do renderowania, można zbadać ich szczegóły, po otwarciu nieaktywnej sesji. Powyższy kod sprawdza stan sesji w programie `ARRService_OnSessionStarted` , aby automatycznie zatrzymywać, gdy sesja stanie się niezdatna do użytku.
 
 Korzystając z tej funkcji, można teraz tworzyć i ponownie używać sesji, co znacznie poprawia przepływ pracy programistycznej.
 

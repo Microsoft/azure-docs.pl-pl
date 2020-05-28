@@ -133,7 +133,7 @@ Zastosowanie zalecenia może nie być chwilowo wykonywane. Portal zawiera szczeg
 | Operacji |Zalecenie jest stosowane. |
 | Ponownego |Zalecenie zostało pomyślnie zastosowane i usługa mierzy korzyści. |
 | Powodzenie |Zalecenie zostało pomyślnie zastosowane i korzyści zostały zmierzone. |
-| Error |Wystąpił błąd podczas procesu stosowania zalecenia. Może to być problem przejściowy lub prawdopodobnie zmiana schematu tabeli, a skrypt nie jest już prawidłowy. |
+| Błąd |Wystąpił błąd podczas procesu stosowania zalecenia. Może to być problem przejściowy lub prawdopodobnie zmiana schematu tabeli, a skrypt nie jest już prawidłowy. |
 | Przywracanie |Zalecenie zostało zastosowane, ale zostało uznane za niewykonane i jest automatycznie przywracane. |
 | Przywrócono |Zalecenie zostało cofnięte. |
 

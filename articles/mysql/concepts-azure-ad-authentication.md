@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
-ms.openlocfilehash: 0c56652b4e098213bae0c69d4be5ac77e1b1393c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a94b2897b3e84688cd7dc5c7bca96a0f7a4449d1
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83635288"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142082"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Używanie Azure Active Directory do uwierzytelniania za pomocą programu MySQL
 
@@ -74,6 +74,7 @@ Po uzyskaniu uwierzytelnienia względem Active Directory można pobrać token. T
 
 ## <a name="additional-considerations"></a>Dodatkowe zagadnienia
 
+- Uwierzytelnianie Azure Active Directory jest dostępne tylko dla MySQL 5,7 i nowszych.
 - W dowolnej chwili można skonfigurować tylko jednego administratora usługi Azure AD dla serwera Azure Database for MySQL.
 - Tylko administrator usługi Azure AD dla programu MySQL może początkowo połączyć się z Azure Database for MySQL przy użyciu konta Azure Active Directory. Administrator Active Directory może skonfigurować kolejnych użytkowników bazy danych usługi Azure AD.
 - Jeśli użytkownik zostanie usunięty z usługi Azure AD, nie będzie już można uwierzytelnić się w usłudze Azure AD i w związku z tym nie będzie już możliwe uzyskanie tokenu dostępu dla tego użytkownika. W takim przypadku Chociaż pasujący użytkownik nadal znajduje się w bazie danych, nie będzie możliwe nawiązanie połączenia z serwerem za pomocą tego użytkownika.

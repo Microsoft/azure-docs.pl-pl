@@ -3,12 +3,12 @@ title: Odzyskiwanie plików i folderów z kopii zapasowej maszyny wirtualnej pla
 description: W tym artykule dowiesz się, jak odzyskiwać pliki i foldery z punktu odzyskiwania maszyny wirtualnej platformy Azure.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: c72794999abbbf5d29b376615015fb5778b7d9fe
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 0cb3b588aadcda232d1a9a07fc6d9336448cb5a5
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757980"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118137"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Odzyskiwanie plików z kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -228,7 +228,7 @@ W przypadku uruchamiania skryptu na komputerze z ograniczonym dostępem upewnij 
 
 - `download.microsoft.com`
 - Adresy URL usługi odzyskiwania (nazwa geograficzna odnosi się do regionu, w którym znajduje się magazyn usługi odzyskiwania)
-  - `https://pod01-rec2.geo-name.backup.windowsazure.com`(W przypadku usługi Azure Public Georegiony)
+  - `https://pod01-rec2.geo-name.backup.windowsazure.com`(W przypadku regionów publicznych platformy Azure)
   - `https://pod01-rec2.geo-name.backup.windowsazure.cn`(W przypadku platformy Azure — Chiny)
   - `https://pod01-rec2.geo-name.backup.windowsazure.us`(Dla instytucji rządowych USA platformy Azure)
   - `https://pod01-rec2.geo-name.backup.windowsazure.de`(W przypadku platformy Azure (Niemcy)

@@ -16,12 +16,12 @@ ms.date: 01/10/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5499c8808c3916842071df1f03a865efd98719f6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a711fa522f6b105eb98d57d4f63afb90be255b3f
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79262089"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995041"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Co to są przeglądy dostępu w usłudze Azure AD?
 
@@ -78,6 +78,12 @@ Aby utworzyć przeglądy dostępu, wykonaj następujące kroki:
 
    ![Strona początkowa przeglądów dostępu](./media/access-reviews-overview/access-reviews-overview-create-access-reviews.png) 
 
+### <a name="creating-access-review-on-a-group-that-can-be-assigned-to-azure-ad-role"></a>Tworzenie przeglądu dostępu w grupie, która może być przypisana do roli usługi Azure AD
+Jeśli korzystasz z najnowszej wersji przeglądów dostępu (recenzenci są domyślnie kierowani do **mojego dostępu** ), tylko administrator globalny może utworzyć przegląd dostępu w grupach, które można przypisać do ról. Jeśli jednak korzystasz ze starszej wersji przeglądów dostępu (domyślnie recenzenci są kierowani do **panelu dostępu** ), to zarówno Administrator globalny, jak i administrator użytkownika mogą tworzyć przeglądy dostępu w grupach, które można przypisać do ról.  
+
+Nowe środowisko zostanie udostępnione wszystkim klientom w dniu 1 sierpnia, 2020, ale jeśli chcesz uaktualnić wcześniej, wprowadź tutaj żądanie — [przeglądy dostępu do usługi Azure AD — zaktualizowane środowisko recenzenta podczas rejestracji dostępu](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR5dv-S62099HtxdeKIcgO-NUOFJaRDFDWUpHRk8zQ1BWVU1MMTcyQ1FFUi4u).
+
+[Dowiedz się więcej na temat przypisywania grup do ról usługi Azure AD](https://go.microsoft.com/fwlink/?linkid=2103037).
 
 ## <a name="learn-about-access-reviews"></a>Dowiedz się więcej o przeglądach dostępu
 
@@ -120,7 +126,7 @@ Poniżej przedstawiono kilka przykładowych scenariuszy licencjonowania, które 
 | Administrator tworzy przegląd dostępu grupy B z 500 użytkowników i 3 grup właścicieli, a także przypisuje trzech właścicieli grup jako recenzentów. | 3 licencje dla każdego właściciela grupy jako recenzentów | 3 |
 | Administrator tworzy przegląd dostępu grupy B z 500 użytkowników. Sprawia, że jest to samodzielna przegląd. | 500 licencji dla każdego użytkownika jako samoprzeglądający | 500 |
 | Administrator tworzy przegląd dostępu grupy C z 50 użytkowników-członków i 25 użytkowników-Gości. Sprawia, że jest to samodzielna przegląd. | 50 licencji dla każdego użytkownika jako samoprzeglądający.<br/>(Goście są objęci wymaganym wskaźnikiem 1:5) | 50 |
-| Administrator tworzy przegląd dostępu grupy D z 6 użytkownikami-członkami i 108 użytkowników-Gości. Sprawia, że jest to samodzielna przegląd. | 6 licencji dla każdego użytkownika jako samorecenzentów + 16 dodatkowych licencji obejmujących wszystkich użytkowników-Gości 108 w wymaganym wskaźniku 1:5. 6 licencji, które obejmują 6\*5 = 30 użytkowników-Gości. Pozostałe (108-6\*5) = 78 użytkowników-Gości, 78/5 = 16 dodatkowych licencji są wymagane. W tym przypadku wymagane są 6 + 16 = 22 licencje. | 22 |
+| Administrator tworzy przegląd dostępu grupy D z 6 użytkownikami-członkami i 108 użytkowników-Gości. Sprawia, że jest to samodzielna przegląd. | 6 licencji dla każdego użytkownika jako samorecenzentów + 16 dodatkowych licencji obejmujących wszystkich użytkowników-Gości 108 w wymaganym wskaźniku 1:5. 6 licencji, które obejmują 6 \* 5 = 30 użytkowników-Gości. Pozostałe (108-6 \* 5) = 78 użytkowników-Gości, 78/5 = 16 dodatkowych licencji są wymagane. W tym przypadku wymagane są 6 + 16 = 22 licencje. | 22 |
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -12,12 +12,12 @@ author: nabhishek
 ms.author: abnarain
 manager: anandsub
 robots: noindex
-ms.openlocfilehash: 54cb06f1c77ab68818d8531b57d6eb936deda8d7
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2cea9cd1439bce0c55d701539471c463acb8f7e2
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265729"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020136"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Korzystanie z działań niestandardowych w potoku usługi Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -49,11 +49,11 @@ Poniższy przewodnik zawiera instrukcje krok po kroku dotyczące tworzenia niest
 ### <a name="azure-batch-prerequisites"></a>Wymagania wstępne Azure Batch
 W tym przewodniku uruchomiono niestandardowe działania programu .NET przy użyciu Azure Batch jako zasób obliczeniowy. **Azure Batch** to usługa platformy służąca do wydajnego uruchamiania aplikacji równoległych i o wysokiej wydajności obliczeniowych (HPC) w chmurze. Azure Batch planuje uruchamianie zadań intensywnie korzystających z mocy obliczeniowej na zarządzanych **kolekcjach maszyn wirtualnych**i umożliwia automatyczne skalowanie zasobów obliczeniowych w celu spełnienia potrzeb Twoich obowiązków. Aby zapoznać się z szczegółowym omówieniem usługi Azure Batch, zobacz artykuł dotyczący [Azure Batch podstawowych][batch-technical-overview] .
 
-Aby zapoznać się z samouczkiem, Utwórz konto Azure Batch z pulą maszyn wirtualnych. Oto konkretne kroki:
+Aby zapoznać się z samouczkiem, Utwórz konto Azure Batch z pulą maszyn wirtualnych. Oto odpowiednie kroki:
 
 1. Utwórz **konto Azure Batch** przy użyciu [Azure Portal](https://portal.azure.com). Instrukcje można znaleźć w artykule [Tworzenie artykułu konta Azure Batch i zarządzanie][batch-create-account] nim.
 2. Zanotuj nazwę konta Azure Batch, klucz konta, identyfikator URI i nazwę puli. Są one potrzebne do utworzenia Azure Batch połączonej usługi.
-    1. Na stronie głównej konta Azure Batch zostanie wyświetlony **adres URL** w następującym formacie: `https://myaccount.westus.batch.azure.com`. W tym przykładzie konto **jest nazwą konta Azure Batch** . Identyfikator URI, który jest używany w definicji połączonej usługi, to adres URL bez nazwy konta. Na przykład: `https://<region>.batch.azure.com`.
+    1. Na stronie głównej konta Azure Batch zostanie wyświetlony **adres URL** w następującym formacie: `https://myaccount.westus.batch.azure.com` . W tym przykładzie konto **jest nazwą konta Azure Batch** . Identyfikator URI, który jest używany w definicji połączonej usługi, to adres URL bez nazwy konta. Na przykład: `https://<region>.batch.azure.com`.
     2. W menu po lewej stronie kliknij pozycję **klucze** , a następnie skopiuj **podstawowy klucz dostępu**.
     3. Aby użyć istniejącej puli, kliknij pozycję **Pule** w menu, a następnie zanotuj **Identyfikator** puli. Jeśli nie masz istniejącej puli, przejdź do następnego kroku.
 2. Utwórz **pulę Azure Batch**.
@@ -372,7 +372,7 @@ Metoda zwraca słownik, który może służyć do łańcucha działań niestanda
     > Ustaw wersję 4.5.2 .NET Framework jako platformę docelową dla projektu: kliknij prawym przyciskiem myszy projekt, a następnie kliknij pozycję **Właściwości** , aby ustawić platformę docelową. Data Factory nie obsługuje działań niestandardowych skompilowanych pod kątem .NET Framework wersji nowszych niż 4.5.2.
 
 11. Uruchom **Eksploratora Windows**i przejdź do folderu **bin\Debug** lub **bin\Release** w zależności od typu kompilacji.
-12. Utwórz plik zip pliku **. zip** , który zawiera wszystkie pliki binarne w folderze \<projektu\>\bin\debug. Uwzględnij plik **. pdb** programu "i", aby uzyskać dodatkowe szczegóły, takie jak numer wiersza w kodzie źródłowym, który spowodował problem w przypadku wystąpienia błędu.
+12. Utwórz plik zip pliku **. zip** , który zawiera wszystkie pliki binarne w \<project folder\> folderze \bin\debug. Uwzględnij plik **. pdb** programu "i", aby uzyskać dodatkowe szczegóły, takie jak numer wiersza w kodzie źródłowym, który spowodował problem w przypadku wystąpienia błędu.
 
     > [!IMPORTANT]
     > Wszystkie pliki w archiwum ZIP działania niestandardowego muszą znajdować się na **najwyższym poziomie**, bez podfolderów.
@@ -440,7 +440,7 @@ Połączone usługi łączą magazyny danych lub usługi obliczeniowe z fabryką
 2. Kliknij pozycję **nowy magazyn danych** na pasku poleceń i wybierz pozycję **Azure Storage**. Powinien zostać wyświetlony skrypt JSON do tworzenia połączonej usługi Azure Storage w edytorze.
 
     ![Nowy magazyn danych — Azure Storage](media/data-factory-use-custom-activities/new-data-store-menu.png)
-3. Zastąp `<accountname>` ciąg nazwą konta usługi Azure Storage i `<accountkey>` kluczem dostępu do konta usługi Azure Storage. Aby dowiedzieć się, jak uzyskać klucz dostępu do magazynu, zobacz [Zarządzanie kluczami dostępu do konta magazynu](../../storage/common/storage-account-keys-manage.md).
+3. Zastąp ciąg `<accountname>` nazwą konta usługi Azure Storage i `<accountkey>` kluczem dostępu do konta usługi Azure Storage. Aby dowiedzieć się, jak uzyskać klucz dostępu do magazynu, zobacz [Zarządzanie kluczami dostępu do konta magazynu](../../storage/common/storage-account-keys-manage.md).
 
     ![Usługa polubienia usługi Azure Storage](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
 4. Kliknij przycisk **Wdróż** na pasku poleceń, aby wdrożyć połączoną usługę.
@@ -451,7 +451,7 @@ Połączone usługi łączą magazyny danych lub usługi obliczeniowe z fabryką
     ![Nowe obliczanie Azure Batch](media/data-factory-use-custom-activities/new-azure-compute-batch.png)
 2. Wprowadź następujące zmiany w skrypcie JSON:
 
-   1. Określ nazwę konta Azure Batch dla właściwości **AccountName** . **Adres URL** z **bloku konta Azure Batch** ma następujący format: `http://accountname.region.batch.azure.com`. Dla właściwości **batchUri** w kodzie JSON należy usunąć `accountname.` z adresu URL i użyć `accountname` dla właściwości `accountName` JSON.
+   1. Określ nazwę konta Azure Batch dla właściwości **AccountName** . **Adres URL** z **bloku konta Azure Batch** ma następujący format: `http://accountname.region.batch.azure.com` . Dla właściwości **batchUri** w kodzie JSON należy usunąć `accountname.` z adresu URL i użyć `accountname` dla `accountName` Właściwości JSON.
    2. Określ klucz konta Azure Batch dla właściwości **AccessKey** .
    3. Określ nazwę puli utworzonej w ramach wymagań wstępnych dla właściwości **PoolName** . Możesz również określić identyfikator puli zamiast nazwy puli.
    4. Określ Azure Batch identyfikator URI dla właściwości **batchUri** . Przykład: `https://westus.batch.azure.com`.
@@ -1031,7 +1031,7 @@ Przykład [środowiska Azure Data Factory-Local](https://github.com/gbrueckl/Azu
 
 [batch-net-library]: ../../batch/batch-dotnet-get-started.md
 [batch-create-account]: ../../batch/batch-account-create-portal.md
-[batch-technical-overview]: ../../batch/batch-technical-overview.md
+[batch-technical-overview]:../../azure-sql/database/sql-database-paas-overview.md
 [batch-get-started]: ../../batch/batch-dotnet-get-started.md
 [use-custom-activities]: data-factory-use-custom-activities.md
 [troubleshoot]: data-factory-troubleshoot.md

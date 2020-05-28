@@ -6,16 +6,19 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
-ms.openlocfilehash: 1fa34deaa12400a164602d38b6b2d349a64850c6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 8ef16f581a4b945d3a5e6ef58166eeed900f3bb3
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652251"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140892"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Używanie Azure Active Directory do uwierzytelniania za pomocą programu MySQL
 
 W tym artykule opisano kroki konfigurowania Azure Active Directory dostępu za pomocą Azure Database for MySQL i sposobu nawiązywania połączenia przy użyciu tokenu usługi Azure AD.
+
+> [!IMPORTANT]
+> Uwierzytelnianie Azure Active Directory jest dostępne tylko dla MySQL 5,7 i nowszych.
 
 ## <a name="setting-the-azure-ad-admin-user"></a>Ustawianie użytkownika administratora usługi Azure AD
 

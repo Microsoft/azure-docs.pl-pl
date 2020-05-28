@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6cf00fab14f91b151327b435068d689edab32b2
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: dfdfcda0ce466299d57f79ba1e60a96309078587
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83737728"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014353"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Dostęp warunkowy: aplikacje lub akcje w chmurze
 
@@ -36,7 +36,7 @@ Administratorzy mogą przypisywać zasady dostępu warunkowego do następującyc
 - [Office 365 (wersja zapoznawcza)](#office-365-preview)
 - Azure Analysis Services
 - Azure DevOps
-- [Usługi Azure SQL Database i Data Warehouse](../../sql-database/sql-database-conditional-access.md)
+- [Usługi Azure SQL Database i Data Warehouse](../../azure-sql/database/conditional-access-configure.md)
 - Dynamics CRM Online
 - Analiza Application Insights firmy Microsoft
 - [Microsoft Azure Information Protection](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
