@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: aa7ddb75017a532b436b9a5cfc71d1a7c2832cb6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6981b6acaf0281c1643e2d8ac3933e0fa892e3c2
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77179130"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84124560"
 ---
 W tym artykule wyjaśniono, jak planować tworzenie kopii zapasowych i odzyskiwanie po awarii (DR) maszyn wirtualnych IaaS i dysków na platformie Azure. Ten dokument dotyczy zarówno dysków zarządzanych, jak i niezarządzanych.
 
@@ -146,7 +146,7 @@ Wykonaj następujące kroki, aby włączyć tworzenie kopii zapasowych maszyn wi
 
     b. W menu **magazyny Recovery Services** kliknij pozycję **Dodaj** i postępuj zgodnie z instrukcjami, aby utworzyć nowy magazyn w tym samym regionie co maszyna wirtualna. Na przykład jeśli maszyna wirtualna znajduje się w regionie zachodnie stany USA, wybierz pozycję zachodnie stany USA dla magazynu.
 
-1.  Sprawdź replikację magazynu dla nowo utworzonego magazynu. Uzyskaj dostęp do magazynu w obszarze **magazyny Recovery Services** i przejdź do **Właściwości** > **kopia zapasowa** > **Aktualizacja**konfiguracji. Upewnij się, że opcja **Magazyn Geograficznie nadmiarowy** jest zaznaczona domyślnie. Ta opcja zapewnia, że magazyn zostanie automatycznie zreplikowany do dodatkowego centrum danych. Na przykład magazyn w regionie zachodnie stany USA jest automatycznie replikowany do regionu Wschodnie stany USA.
+1.  Sprawdź replikację magazynu dla nowo utworzonego magazynu. Uzyskaj dostęp do magazynu w obszarze **magazyny Recovery Services** i przejdź do **Właściwości**  >  **kopia zapasowa**  >  **Aktualizacja**konfiguracji. Upewnij się, że opcja **Magazyn Geograficznie nadmiarowy** jest zaznaczona domyślnie. Ta opcja zapewnia, że magazyn zostanie automatycznie zreplikowany do dodatkowego centrum danych. Na przykład magazyn w regionie zachodnie stany USA jest automatycznie replikowany do regionu Wschodnie stany USA.
 
 1.  Skonfiguruj zasady tworzenia kopii zapasowych i wybierz maszynę wirtualną z tego samego interfejsu użytkownika.
 
@@ -231,7 +231,7 @@ W przypadku maszyn wirtualnych z wieloma dyskami należy skopiować wszystkie mi
 
 ### <a name="sql-server"></a>SQL Server
 
-SQL Server uruchomiony na maszynie wirtualnej ma wbudowane funkcje tworzenia kopii zapasowej bazy danych SQL Server w usłudze Azure Blob Storage lub w udziale plików. Jeśli konto magazynu jest magazynem geograficznie nadmiarowym lub magazyn Geograficznie nadmiarowy z dostępem do odczytu, możesz uzyskać dostęp do tych kopii zapasowych w dodatkowym centrum danych konta magazynu w przypadku awarii, z tymi samymi ograniczeniami, które zostały opisane wcześniej. Aby uzyskać więcej informacji, zobacz [wykonywanie kopii zapasowych i przywracanie SQL Server w usłudze Azure Virtual Machines](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md). Oprócz tworzenia kopii zapasowych i przywracania, [SQL Server zawsze włączonych grup dostępności](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md) mogą obsługiwać pomocnicze repliki baz danych. Ta możliwość znacznie skraca czas odzyskiwania po awarii.
+SQL Server uruchomiony na maszynie wirtualnej ma wbudowane funkcje tworzenia kopii zapasowej bazy danych SQL Server w usłudze Azure Blob Storage lub w udziale plików. Jeśli konto magazynu jest magazynem geograficznie nadmiarowym lub magazyn Geograficznie nadmiarowy z dostępem do odczytu, możesz uzyskać dostęp do tych kopii zapasowych w dodatkowym centrum danych konta magazynu w przypadku awarii, z tymi samymi ograniczeniami, które zostały opisane wcześniej. Aby uzyskać więcej informacji, zobacz [wykonywanie kopii zapasowych i przywracanie SQL Server w usłudze Azure Virtual Machines](../articles/azure-sql/virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md). Oprócz tworzenia kopii zapasowych i przywracania, [SQL Server zawsze włączonych grup dostępności](../articles/azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md) mogą obsługiwać pomocnicze repliki baz danych. Ta możliwość znacznie skraca czas odzyskiwania po awarii.
 
 ## <a name="other-considerations"></a>Inne zagadnienia
 

@@ -5,14 +5,14 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: cb3bbf1a7c2e55d152d26c475369f9ccb6fb7d1e
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 039e79f043e4e898ab85f003a84f9f4db2d36d27
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83743982"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117234"
 ---
-# <a name="enable-update-management-from-azure-portal"></a>Włącz Update Management z Azure Portal
+# <a name="enable-update-management-from-the-azure-portal"></a>Włączanie rozwiązania Update Management w witrynie Azure Portal
 
 W tym artykule opisano, jak włączyć funkcję [Update Management](automation-update-management.md) dla maszyn wirtualnych, przeglądając Azure Portal. Aby włączyć maszyny wirtualne platformy Azure na dużą skalę, należy włączyć istniejącą maszynę wirtualną przy użyciu Update Management. 
 
@@ -63,7 +63,6 @@ Zaloguj się do platformy Azure pod adresem https://portal.azure.com .
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby używać Update Management dla maszyn wirtualnych, zobacz [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure](automation-tutorial-update-management.md).
-* Aby poznać konfiguracje zakresów, zobacz [Working with Scope Configurations for Update Management](automation-scope-configurations-update-management.md).
 * Jeśli obszar roboczy Log Analytics nie jest już potrzebny, zobacz instrukcje w polu [Odłącz obszar roboczy z konta usługi Automation dla Update Management](automation-unlink-workspace-update-management.md).
 * Aby usunąć maszyny wirtualne z Update Management, zobacz [usuwanie maszyn wirtualnych z Update Management](automation-remove-vms-from-update-management.md).
 * Aby rozwiązać ogólne błędy Update Management, zobacz [Rozwiązywanie problemów z Update Management](troubleshoot/update-management.md).

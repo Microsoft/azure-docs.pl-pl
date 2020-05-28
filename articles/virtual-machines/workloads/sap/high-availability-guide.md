@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9cf3d739054422d219bb6536129c5eb22a2994a
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 742e1b54499e51fc791a659baaf7072272ef43a6
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594886"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021419"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Wysoka dostępność dla oprogramowania SAP NetWeaver na maszynach wirtualnych platformy Azure
 
@@ -411,7 +411,7 @@ ms.locfileid: "82594886"
 [virtual-machines-ps-create-preconfigure-windows-resource-manager-vms]:../../virtual-machines-windows-ps-create.md
 [virtual-machines-sizes]:../../virtual-machines-windows-sizes.md
 [virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]:../../windows/sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md
-[virtual-machines-windows-portal-sql-alwayson-int-listener]:../../windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md
+[virtual-machines-windows-portal-sql-alwayson-int-listener]:../../../azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure.md
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
@@ -657,7 +657,7 @@ _**Rysunek 9.** Szablon architektoniczny wysokiej dostępności SAP z dedykowany
 
 ### <a name="deployment-scenario-using-architectural-template-3"></a>Scenariusz wdrażania przy użyciu szablonu architektury 3
 
-Na rysunku nr 10 przedstawiono przykład architektury wysokiej dostępności SAP NetWeaver na platformie Azure dla **dwóch** &lt;systemów SAP z&gt; SID1 i &lt;SID2.&gt; Ten scenariusz jest ustawiany w następujący sposób:
+Na rysunku nr 10 przedstawiono przykład architektury wysokiej dostępności SAP NetWeaver na platformie Azure dla **dwóch** systemów SAP z &lt; SID1 &gt; i &lt; SID2 &gt; . Ten scenariusz jest ustawiany w następujący sposób:
 
 - Jeden dedykowany klaster jest używany **dla wystąpienia** SID1 SAP ASCS/SCS *i* wystąpienia SAP ASCS/SCS SID2 (jeden klaster).
 - Jeden dedykowany klaster jest używany w systemie DBMS SID1, a inny dedykowany klaster jest używany dla systemu DBMS SID2 (dwa klastry).
@@ -902,7 +902,7 @@ Można ręcznie utworzyć pozostałe dwie nazwy hostów wirtualnych, **PR1-ASCS-
 ### <a name="set-static-ip-addresses-for-the-sap-virtual-machines"></a><a name="84c019fe-8c58-4dac-9e54-173efd4b2c30"></a>Ustaw statyczne adresy IP dla maszyn wirtualnych SAP
 Po wdrożeniu maszyn wirtualnych do użycia w klastrze należy ustawić statyczne adresy IP dla wszystkich maszyn wirtualnych. Zrób to w konfiguracji Virtual Network platformy Azure, a nie w systemie operacyjnym gościa.
 
-1. W Azure Portal wybierz pozycję **Grupa** > zasobów**Ustawienia** > **karta** > sieciowa**adres IP**.
+1. W Azure Portal wybierz pozycję **Grupa zasobów**  >  ustawienia**karta sieciowa**  >  **Settings**  >  **adres IP**.
 2. W bloku **adresy IP** w obszarze **przypisanie**wybierz pozycję **statyczny**. W polu **adres IP** wprowadź adres IP, którego chcesz użyć.
 
    > [!NOTE]
@@ -1013,7 +1013,7 @@ Ustaw adres IP modułu równoważenia obciążenia **PR1-lb-DBMS** na adres IP n
 
 Jeśli chcesz użyć różnych numerów dla wystąpień SAP ASCS lub SCS, należy zmienić nazwy i wartości ich portów z wartości domyślnych.
 
-1. W Azure Portal wybierz pozycję ** < *SID*>-lb-ASCS** > **reguły równoważenia obciążenia**usługi równoważenia obciążenia.
+1. W Azure Portal wybierz pozycję ** < *SID*>-lb-ASCS**  >  **reguły równoważenia obciążenia**usługi równoważenia obciążenia.
 2. Dla wszystkich reguł równoważenia obciążenia należących do wystąpienia SAP ASCS lub SCS Zmień następujące wartości:
 
    * Nazwa
@@ -1216,7 +1216,7 @@ Konfigurowanie monitora udziału plików klastra obejmuje następujące zadania:
 
    _**Rysunek 36:** Wybierz monitor udziału plików_
 
-4. Wprowadź ścieżkę UNC do udziału plików (w naszym przykładzie \\domcontr-0\FSW). Aby wyświetlić listę zmian, które można wprowadzić, wybierz pozycję **dalej**.
+4. Wprowadź ścieżkę UNC do udziału plików (w naszym przykładzie \\ domcontr-0\FSW). Aby wyświetlić listę zmian, które można wprowadzić, wybierz pozycję **dalej**.
 
    ![Ilustracja 37: definiowanie lokalizacji udziału plików dla udziału monitora][sap-ha-guide-figure-3026]
 
@@ -1228,7 +1228,7 @@ Konfigurowanie monitora udziału plików klastra obejmuje następujące zadania:
 
    _**Rysunek 38:** Potwierdzenie, że klaster został ponownie skonfigurowany_
 
-Po pomyślnym zainstalowaniu klastra trybu failover systemu Windows należy wprowadzić zmiany w niektórych progach w celu dostosowania wykrywania trybu failover do warunków na platformie Azure. Parametry, które mają zostać zmienione, są udokumentowane w [https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834](https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834)tym blogu:. Przy założeniu, że dwie maszyny wirtualne, które tworzą konfigurację klastra systemu Windows dla ASCS/SCS znajdują się w tej samej podsieci, należy zmienić następujące parametry na następujące wartości:  
+Po pomyślnym zainstalowaniu klastra trybu failover systemu Windows należy wprowadzić zmiany w niektórych progach w celu dostosowania wykrywania trybu failover do warunków na platformie Azure. Parametry, które mają zostać zmienione, są udokumentowane w tym blogu: [https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834](https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834) . Przy założeniu, że dwie maszyny wirtualne, które tworzą konfigurację klastra systemu Windows dla ASCS/SCS znajdują się w tej samej podsieci, należy zmienić następujące parametry na następujące wartości:  
 - SameSubNetDelay = 2000  
 - SameSubNetThreshold = 15  
 - RoutingHistoryLength = 30  
@@ -1409,7 +1409,7 @@ Instalowanie oprogramowania SAP z wystąpieniem ASCS/SCS o wysokiej dostępnośc
 1. W Menedżerze DNS systemu Windows Utwórz wpis DNS dla nazwy hosta wirtualnego wystąpienia ASCS/SCS.
 
    > [!IMPORTANT]
-   > Adres IP przypisany do nazwy hosta wirtualnego wystąpienia ASCS/SCS musi być taki sam jak adres IP przypisany do Azure Load Balancer (**<*SID*>-lb-ASCS**).  
+   > Adres IP przypisany do nazwy hosta wirtualnego wystąpienia ASCS/SCS musi być taki sam jak adres IP przypisany do Azure Load Balancer (** < *SID*>-lb-ASCS**).  
    >
    >
 
@@ -1419,7 +1419,7 @@ Instalowanie oprogramowania SAP z wystąpieniem ASCS/SCS o wysokiej dostępnośc
 
    _**Rysunek 56:** Zdefiniuj wpis DNS dla nazwy wirtualnej klastra SAP ASCS/SCS i adresu TCP/IP_
 
-2. Aby zdefiniować adres IP przypisany do nazwy hosta wirtualnego, wybierz pozycję Domena **Menedżera** > **Domain**DNS.
+2. Aby zdefiniować adres IP przypisany do nazwy hosta wirtualnego, wybierz pozycję Domena **Menedżera DNS**  >  **Domain**.
 
    ![Rysunek 57: Nowa nazwa wirtualna i adres TCP/IP dla konfiguracji klastra SAP ASCS/SCS][sap-ha-guide-figure-3047]
 
@@ -1569,7 +1569,7 @@ Należy otworzyć port sondy zapory systemu Windows na obu węzłach klastra. U�
   New-NetFirewallRule -Name AzureProbePort -DisplayName "Rule for Azure Probe Port" -Direction Inbound -Action Allow -Protocol TCP -LocalPort $ProbePort
   ```
 
-**ProbePort** jest ustawiona na **62000**. Teraz możesz uzyskać dostęp do udziału ** \\plików \ascsha-clsap\sapmnt** z innych hostów, takich jak z **ascsha-przetwarzający**.
+**ProbePort** jest ustawiona na **62000**. Teraz możesz uzyskać dostęp do udziału plików ** \\ \ascsha-clsap\sapmnt** z innych hostów, takich jak z **ascsha-przetwarzający**.
 
 ### <a name="install-the-database-instance"></a><a name="85d78414-b21d-4097-92b6-34d8bcb724b7"></a>Instalowanie wystąpienia bazy danych
 
@@ -1593,7 +1593,7 @@ Zainstaluj wystąpienie serwera aplikacji podstawowej (PAS) <*Identyfikator SID*
 
 ### <a name="install-the-sap-additional-application-server"></a><a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a>Zainstaluj dodatkowy serwer aplikacji SAP
 
-Zainstaluj dodatkowy serwer aplikacji SAP (AAS) na wszystkich maszynach wirtualnych, które zostały wskazane do hostowania wystąpienia serwera aplikacji SAP. Na przykład na <*identyfikator sid*>-di-1 w celu <*identyfikatora SID*>-&lt;di&gt;-n.
+Zainstaluj dodatkowy serwer aplikacji SAP (AAS) na wszystkich maszynach wirtualnych, które zostały wskazane do hostowania wystąpienia serwera aplikacji SAP. Na przykład na <*identyfikator sid*>-di-1 w celu <*identyfikatora SID*>-di- &lt; n &gt; .
 
 > [!NOTE]
 > Spowoduje to zakończenie instalacji systemu SAP NetWeaver o wysokiej dostępności. Następnie kontynuuj Testowanie pracy w trybie failover.

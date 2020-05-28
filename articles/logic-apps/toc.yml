@@ -377,6 +377,8 @@
       href: logic-apps-limits-and-config.md
     - name: Model cen i mierzenie użycia
       href: logic-apps-pricing.md
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: /cli/azure/ext/logic/logic?view=azure-cli-latest
     - name: Azure PowerShell
       href: /powershell/module/az.logicapp
     - name: Interfejs API REST

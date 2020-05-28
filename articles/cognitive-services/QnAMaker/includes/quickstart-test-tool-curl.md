@@ -10,12 +10,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: 9b1ee467abcbfb6d91a64abf4e9ad74d7b23e881
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: d890fcb6a43b43e0be0df8e6f6ff0817bdd03115
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203974"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83998088"
 ---
 Ten przewodnik Szybki Start przeprowadzi Cię przez proces uzyskiwania odpowiedzi z bazy wiedzy.
 
@@ -40,7 +40,7 @@ Skorzystaj z bazy wiedzy z poprzedniej szybkiej kwerendy, aby uzyskać odpowiedz
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'top':30, 'question':'size','strictFilters': [{'name':'service','value':'qna_maker'}]}"
     ```
 
-    Pytanie jest tylko pojedynczym słowem, `size`które może zwracać jedną z dwóch par QNA. `strictFilters` Tablica informuje odpowiedź, aby zmniejszyć do tylko `qna_maker` odpowiedzi.
+    Pytanie jest tylko pojedynczym słowem, `size` które może zwracać jedną z dwóch par QNA. `strictFilters`Tablica informuje odpowiedź, aby zmniejszyć do tylko `qna_maker` odpowiedzi.
 
 1. Odpowiedź zawiera tylko odpowiedź, która spełnia kryteria filtru. Następująca odpowiedź programu zwinięcie została sformatowana w celu zapewnienia czytelności:
 
@@ -77,7 +77,7 @@ Skorzystaj z bazy wiedzy z poprzedniej szybkiej kwerendy, aby uzyskać odpowiedz
     }
     ```
 
-    Jeśli istnieje pytanie i odpowiedź, które nie spełniły wyszukiwanego terminu, ale spełniały filtr, nie zostanie on zwrócony. Zamiast tego jest zwracana ogólna `No good match found in KB.` odpowiedź.
+    Jeśli istnieje para pytań i odpowiedzi, która nie spełnia warunków wyszukiwania, ale spełniała filtr, nie zostanie zwrócona. Zamiast tego `No good match found in KB.` jest zwracana ogólna odpowiedź.
 
 ## <a name="use-debug-query-property"></a>Użyj właściwości zapytania debugowania
 
@@ -185,7 +185,7 @@ Debug: {Enable:true}
 
 ## <a name="use-test-knowledge-base"></a>Korzystanie z bazy wiedzy testowej
 
-Jeśli chcesz uzyskać odpowiedź z bazy wiedzy testowej, użyj właściwości `isTest` Body.
+Jeśli chcesz uzyskać odpowiedź z bazy wiedzy testowej, użyj `isTest` Właściwości Body.
 
 Właściwość jest wartością logiczną.
 
@@ -206,7 +206,7 @@ Odpowiedź JSON używa tego samego schematu co opublikowana kwerenda bazy wiedzy
 
 ## <a name="use-curl-to-query-for-a-chit-chat-answer"></a>Użyj Zwinięciea, aby wykonać zapytanie o odpowiedź Chit-Chat
 
-1. W terminalu z włączoną funkcją wypełniania należy użyć instrukcji bot-kończącej konwersację od użytkownika, `Thank you` na przykład w przypadku pytania. Nie ma żadnych innych właściwości do ustawienia.
+1. W terminalu z włączoną funkcją wypełniania należy użyć instrukcji bot-kończącej konwersację od użytkownika, na przykład w `Thank you` przypadku pytania. Nie ma żadnych innych właściwości do ustawienia.
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'thank you'}"
@@ -300,7 +300,7 @@ Odpowiedź JSON używa tego samego schematu co opublikowana kwerenda bazy wiedzy
 
 Możesz poprosić o minimalny próg odpowiedzi. Jeśli próg nie jest spełniony, zostanie zwrócona odpowiedź domyślna.
 
-1. Dodaj `threshold` właściwość w celu uzyskania odpowiedzi na odpowiedź `size` z progiem równym 80% lub lepszym. Baza wiedzy nie powinna znaleźć tej odpowiedzi, ponieważ Ocena pytania wynosi 71%. Wynik zwraca domyślną odpowiedź podaną podczas tworzenia bazy wiedzy.
+1. Dodaj `threshold` Właściwość w celu uzyskania odpowiedzi na odpowiedź `size` z progiem równym 80% lub lepszym. Baza wiedzy nie powinna znaleźć tej odpowiedzi, ponieważ Ocena pytania wynosi 71%. Wynik zwraca domyślną odpowiedź podaną podczas tworzenia bazy wiedzy.
 
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':80.00}"
@@ -325,7 +325,7 @@ Możesz poprosić o minimalny próg odpowiedzi. Jeśli próg nie jest spełniony
     }
     ```
 
-    QnA Maker zwrócił wynik `0`, co oznacza brak pewności. Zwraca również odpowiedź domyślną.
+    QnA Maker zwrócił wynik `0` , co oznacza brak pewności. Zwraca również odpowiedź domyślną.
 
 1. Zmień wartość progową na 60% i ponownie Zażądaj zapytania:
 

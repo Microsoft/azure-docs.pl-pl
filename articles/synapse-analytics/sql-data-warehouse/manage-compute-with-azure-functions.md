@@ -11,12 +11,12 @@ ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: aa2cff552b49bceeaf6fd46510bf78384f0e7bfb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c69d28d2be6b04286bb04a2ede6eebc69400c777
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80631964"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014897"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Używanie Azure Functions do zarządzania zasobami obliczeniowymi w puli SQL usługi Azure Synapse Analytics
 
@@ -29,7 +29,7 @@ Aby można było korzystać z usługi Azure aplikacja funkcji z pulą SQL, nale�
 Aby wdrożyć szablon, potrzebne są następujące informacje:
 
 - Nazwa grupy zasobów, w której znajduje się wystąpienie puli SQL
-- Nazwa serwera logicznego, w którym znajduje się wystąpienie puli SQL
+- Nazwa serwera, na którym znajduje się wystąpienie puli SQL
 - Nazwa wystąpienia puli SQL
 - Identyfikator dzierżawy (identyfikator katalogu ) usługi Azure Active Directory
 - Identyfikator subskrypcji
@@ -101,7 +101,7 @@ Obecnie szablon zawiera tylko dwie funkcje skalowania. Korzystając z tych funkc
 
    ![Tworzenie nowej funkcji](./media/manage-compute-with-azure-functions/create-new-function.png)
 
-2. W polu Język wybierz pozycję *JavaScript*, a następnie wybierz pozycję *TimerTrigger*.
+2. W obszarze Język wybierz pozycję *JavaScript*, a następnie wybierz pozycję *TimerTrigger*.
 
    ![Tworzenie nowej funkcji](./media/manage-compute-with-azure-functions/timertrigger-js.png)
 
@@ -115,7 +115,7 @@ Obecnie szablon zawiera tylko dwie funkcje skalowania. Korzystając z tych funkc
 
 5. Ustaw dla zmiennej operacji odpowiednie zachowanie w następujący sposób:
 
-   ```javascript
+   ```JavaScript
    // Resume the SQL pool instance
    var operation = {
        "operationType": "ResumeDw"
@@ -141,7 +141,7 @@ W tej sekcji przedstawiono krótkie informacje o tym, co jest niezbędne do uzys
 
 Codzienne skalowanie w górę o godz. 8:00 do wartości DW600 i skalowanie w dół o godz. 20:00 do wartości DW200.
 
-| Funkcja  | Harmonogram     | Operacja                                |
+| Funkcja  | Zaplanuj     | Operacja                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW600"}` |
 | Function2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
@@ -150,7 +150,7 @@ Codzienne skalowanie w górę o godz. 8:00 do wartości DW600 i skalowanie w dó
 
 Codzienne skalowanie w górę o 8:00 do wartości DW1000, skalowanie w dół do wartości DW600 w 16:00 i skalowanie w dół o 10pm do wartości DW200.
 
-| Funkcja  | Harmonogram     | Operacja                                |
+| Funkcja  | Zaplanuj     | Operacja                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000"}` |
 | Function2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
@@ -160,7 +160,7 @@ Codzienne skalowanie w górę o 8:00 do wartości DW1000, skalowanie w dół do 
 
 Skalowanie w górę o godz. 8:00 do wartości DW1000, jednokrotne skalowanie w dół do wartości DW600 o godz. 16:00 w dni robocze. Wstrzymanie w piątek o godz. 23:00, wznowienie w poniedziałek rano o godz. 7:00.
 
-| Funkcja  | Harmonogram       | Operacja                                |
+| Funkcja  | Zaplanuj       | Operacja                                |
 | :-------- | :------------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * 1-5  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000"}` |
 | Function2 | 0 0 16 * * 1-5 | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |

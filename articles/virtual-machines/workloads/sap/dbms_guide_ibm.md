@@ -12,17 +12,17 @@ ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4392fcee9b498a14841742e8313b9fa06dcc7983
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: fb9d46adf63f9cd0f4b19e4eace0a2f4a7129226
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82977927"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022611"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Wdrażanie systemu DBMS usługi Azure Virtual Machines programu IBM Db2 dla obciążenia SAP
 
 Za pomocą Microsoft Azure można migrować istniejącą aplikację SAP działającą w systemach IBM DB2 dla systemów Linux, UNIX i Windows (LUW) do maszyn wirtualnych platformy Azure. W przypadku oprogramowania SAP w programie IBM DB2 for LUW Administratorzy i deweloperzy mogą nadal korzystać z tych samych narzędzi programistycznych i administracyjnych, które są dostępne lokalnie.
-Ogólne informacje o uruchamianiu programu SAP Business Suite w programie IBM DB2 for LUW można znaleźć w sieci społeczności SAP (SCN) <https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html>pod adresem.
+Ogólne informacje o uruchamianiu programu SAP Business Suite w programie IBM DB2 for LUW można znaleźć w sieci społeczności SAP (SCN) pod adresem <https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html> .
 
 Aby uzyskać więcej informacji i aktualizacji dotyczących oprogramowania SAP w programie DB2 for LUW na platformie Azure, zobacz temat SAP Note [2233094]. 
 
@@ -54,7 +54,7 @@ Aby uzyskać informacje o obsługiwanych produktach SAP i typach maszyn wirtualn
 
 ## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Wytyczne dotyczące konfiguracji oprogramowania IBM DB2 dla systemów Linux, UNIX i Windows dla instalacji SAP na maszynach wirtualnych platformy Azure
 ### <a name="storage-configuration"></a>Konfiguracja usługi Storage
-Wszystkie pliki bazy danych muszą być przechowywane w systemie plików NTFS na podstawie bezpośrednio dołączonych dysków. Te dyski są instalowane na maszynę wirtualną platformy Azure i są oparte na usłudze Azure Page<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>BLOB Storage ()<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>lub Managed disks (). Wszystkie rodzaje dysków sieciowych lub udziałów zdalnych, takich jak następujące usługi plików platformy Azure, **nie** są obsługiwane w przypadku plików bazy danych: 
+Wszystkie pliki bazy danych muszą być przechowywane w systemie plików NTFS na podstawie bezpośrednio dołączonych dysków. Te dyski są instalowane na maszynę wirtualną platformy Azure i są oparte na usłudze Azure Page BLOB Storage ( <https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs> ) lub Managed disks ( <https://docs.microsoft.com/azure/storage/storage-managed-disks-overview> ). Wszystkie rodzaje dysków sieciowych lub udziałów zdalnych, takich jak następujące usługi plików platformy Azure, **nie** są obsługiwane w przypadku plików bazy danych: 
 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx>
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
@@ -71,7 +71,7 @@ Alternatywnie można użyć pul magazynu systemu Windows (dostępne tylko w syst
 
 <!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
-W przypadku dysków zawierających ścieżki magazynu DB2 dla katalogów sapdata i saptmp należy określić rozmiar sektora dysku fizycznego wynoszący 512 KB. W przypadku korzystania z pul magazynu systemu Windows należy ręcznie utworzyć pule magazynów za pośrednictwem interfejsu wiersza polecenia `-LogicalSectorSizeDefault`za pomocą parametru. Aby uzyskać więcej informacji, zobacz <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
+W przypadku dysków zawierających ścieżki magazynu DB2 dla katalogów sapdata i saptmp należy określić rozmiar sektora dysku fizycznego wynoszący 512 KB. W przypadku korzystania z pul magazynu systemu Windows należy ręcznie utworzyć pule magazynów za pośrednictwem interfejsu wiersza polecenia za pomocą parametru `-LogicalSectorSizeDefault` . Aby uzyskać więcej informacji, zobacz <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>.
 
 W przypadku maszyny wirtualnej z serii M na platformie Azure opóźnienie zapisu w dziennikach transakcji można zmniejszyć o czynniki w porównaniu z wydajnością Premium Storage platformy Azure, korzystając z usługi Azure akcelerator zapisu. W związku z tym należy wdrożyć akcelerator zapisu platformy Azure dla dysków VHD, które tworzą wolumin dla dzienników transakcji bazy danych DB2. Szczegóły można odczytać w dokumencie [Akcelerator zapisu](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator).
 
@@ -375,9 +375,9 @@ Wszystkie inne obszary ogólne, takie jak zestawy dostępności platformy Azure 
 [virtual-machines-sizes-windows]:../../windows/sizes.md
 [virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
 [virtual-machines-windows-classic-ps-sql-int-listener]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
-[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:./../../windows/sql/virtual-machines-windows-sql-high-availability-dr.md
-[virtual-machines-sql-server-infrastructure-services]:./../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md
-[virtual-machines-sql-server-performance-best-practices]:./../../windows/sql/virtual-machines-windows-sql-performance.md
+[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
+[virtual-machines-sql-server-infrastructure-services]:../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
+[virtual-machines-sql-server-performance-best-practices]:../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/resources/templates/sql-server-2014-alwayson-existing-vnet-and-ad/

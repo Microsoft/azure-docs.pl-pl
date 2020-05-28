@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 40078d33d2b89c2fcf3b90cd8a19405b1a29c5d7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 894f3002e292466a460c8f96bb7f35b590cb9552
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660085"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015832"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Zabezpieczanie obszaru roboczego Synapse (wersja zapoznawcza)
 
@@ -130,7 +130,7 @@ Użytkownicy w każdej roli muszą wykonać następujące czynności:
 
 ## <a name="step-8-network-security"></a>Krok 8. zabezpieczenia sieci
 
-W celu skonfigurowania zapory obszaru roboczego, sieci wirtualnej i [linku prywatnego](../../sql-database/sql-database-private-endpoint-overview.md).
+W celu skonfigurowania zapory obszaru roboczego, sieci wirtualnej i [linku prywatnego](../../azure-sql/database/private-endpoint-overview.md).
 
 ## <a name="step-9-completion"></a>Krok 9. uzupełnianie
 

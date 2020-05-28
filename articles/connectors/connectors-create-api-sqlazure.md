@@ -7,12 +7,12 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/12/2020
 tags: connectors
-ms.openlocfilehash: c32e17aaf83c233ad77bbbf607c30cc526253352
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: 5090d772be4f68c696e8dd4882a78ba6954b6058
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402601"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020731"
 ---
 # <a name="automate-workflows-for-sql-server-or-azure-sql-database-by-using-azure-logic-apps"></a>Automatyzowanie przepływów pracy dla SQL Server lub Azure SQL Database przy użyciu Azure Logic Apps
 
@@ -26,7 +26,7 @@ Jeśli dopiero zaczynasz tworzyć aplikacje logiki, zapoznaj [się z tematem Azu
 
 * Subskrypcja platformy Azure. Jeśli nie masz subskrypcji, [zarejestruj się w celu założenia bezpłatnego konta platformy Azure](https://azure.microsoft.com/free/).
 
-* [Baza danych SQL Server](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database) lub baza [danych Azure SQL Database](../sql-database/sql-database-get-started-portal.md)
+* [Baza danych SQL Server](https://docs.microsoft.com/sql/relational-databases/databases/create-a-database) lub baza [danych Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md)
 
   Tabele muszą zawierać dane, aby aplikacja logiki mogła zwracać wyniki podczas wywoływania operacji. W przypadku tworzenia Azure SQL Database można użyć przykładowych baz danych, które są dołączone.
 

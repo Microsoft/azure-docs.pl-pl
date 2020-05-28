@@ -52,8 +52,8 @@ Funkcja Microsoft Authenticator | Dostępność w Chinach
 ------------------------------- | ---------------------
 Rejestracja w usłudze MFA przy użyciu powiadomień wypychanych | Nie
 Istniejące wcześniej konto usługi MFA weryfikujące tożsamość przy użyciu powiadomień wypychanych | Nie
-Wcześniej istniejące konto usługi MFA wykonujące ręczne sprawdzanie powiadomień | Tak
-Rejestracja/uwierzytelnianie usługi MFA przy użyciu tylko kodów TOTP/weryfikacyjnych | Tak
+Wcześniej istniejące konto usługi MFA wykonujące ręczne sprawdzanie powiadomień | Yes
+Rejestracja/uwierzytelnianie usługi MFA przy użyciu tylko kodów TOTP/weryfikacyjnych | Yes
 Rejestracja przy użyciu telefonu | Nie
 Istniejące logowanie za pomocą telefonu przy użyciu powiadomień wypychanych | Nie
 Istniejąca Weryfikacja logowania za pomocą telefonu przez wykonywanie ręcznego sprawdzania żądań uwierzytelniania | Tak

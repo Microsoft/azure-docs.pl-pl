@@ -7,17 +7,17 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 8af33e95c92cf51bdabe3325bd9249b4662b7d28
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 7db3ac13cd4e2f2e2b712f9d53b86f9ccda5e736
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583758"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021725"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Tworzenie prywatnego punktu końcowego przy użyciu Azure PowerShell
 Prywatny punkt końcowy to podstawowy blok konstrukcyjny dla prywatnego linku na platformie Azure. Umożliwia ona korzystanie z zasobów platformy Azure, takich jak Virtual Machines (VM), w celu komunikacji z prywatnymi zasobami łączy prywatnych. 
 
-W tym przewodniku szybki start dowiesz się, jak utworzyć maszynę wirtualną na platformie Azure Virtual Network, SQL Database serwerze z prywatnym punktem końcowym platformy Azure przy użyciu Azure PowerShell. Następnie można bezpiecznie uzyskać dostęp do serwera SQL Database z maszyny wirtualnej.
+W tym przewodniku szybki start dowiesz się, jak utworzyć maszynę wirtualną na platformie Azure Virtual Network, logicznym serwerze SQL z prywatnym punktem końcowym platformy Azure przy użyciu Azure PowerShell. Następnie możesz bezpiecznie uzyskać dostęp do SQL Database z maszyny wirtualnej.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -61,7 +61,7 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
 ```
 
 > [!CAUTION]
-> Można łatwo pomylić `PrivateEndpointNetworkPoliciesFlag` parametr z inną dostępną flagą `PrivateLinkServiceNetworkPoliciesFlag`, ponieważ są one długimi wyrazami i mają podobny wygląd.  Upewnij się, `PrivateEndpointNetworkPoliciesFlag`że używasz jednej z nich.
+> Można łatwo pomylić `PrivateEndpointNetworkPoliciesFlag` parametr z inną dostępną flagą, `PrivateLinkServiceNetworkPoliciesFlag` ponieważ są one długimi wyrazami i mają podobny wygląd.  Upewnij się, że używasz jednej z nich `PrivateEndpointNetworkPoliciesFlag` .
 
 ### <a name="associate-the-subnet-to-the-virtual-network"></a>Skojarz podsieć z Virtual Network
 
@@ -98,9 +98,9 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 1      Long Running... AzureLongRun... Running       True            localhost            New-AzVM
 ```
 
-## <a name="create-a-sql-database-server"></a>Utwórz serwer SQL Database 
+## <a name="create-a-logical-sql-server"></a>Tworzenie logicznego serwera SQL 
 
-Utwórz serwer SQL Database przy użyciu polecenia New-AzSqlServer. Należy pamiętać, że nazwa serwera SQL Database musi być unikatowa w obrębie platformy Azure, więc Zastąp wartość symbolu zastępczego w nawiasach własnym unikatowymi wartościami:
+Utwórz logiczny serwer SQL za pomocą polecenia New-AzSqlServer. Należy pamiętać, że nazwa serwera musi być unikatowa w obrębie platformy Azure, więc Zastąp wartość symbolu zastępczego w nawiasach własnym unikatowymi wartościami:
 
 ```azurepowershell-interactive
 $adminSqlLogin = "SqlAdmin"
@@ -120,7 +120,7 @@ New-AzSqlDatabase  -ResourceGroupName "myResourceGroup" `
 
 ## <a name="create-a-private-endpoint"></a>Tworzenie prywatnego punktu końcowego
 
-Prywatny punkt końcowy dla serwera SQL Database w Virtual Network za pomocą usługi [New-AzPrivateLinkServiceConnection](/powershell/module/az.network/New-AzPrivateLinkServiceConnection): 
+Prywatny punkt końcowy dla serwera w Virtual Network z [dodatkiem New-AzPrivateLinkServiceConnection](/powershell/module/az.network/New-AzPrivateLinkServiceConnection): 
 
 ```azurepowershell
 
@@ -142,7 +142,7 @@ $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName "myResourceGroup" `
 ``` 
 
 ## <a name="configure-the-private-dns-zone"></a>Konfigurowanie strefy Prywatna strefa DNS 
-Utwórz prywatną strefę DNS dla domeny serwera SQL Database i Utwórz link skojarzenia z siecią wirtualną: 
+Utwórz prywatną strefę DNS dla domeny SQL Database i Utwórz link skojarzenia z siecią wirtualną: 
 
 ```azurepowershell
 
@@ -195,10 +195,10 @@ mstsc /v:<publicIpAddress>
 3. Wybierz przycisk **OK**. 
 4. Może zostać wyświetlone ostrzeżenie o certyfikacie. W takim przypadku wybierz pozycję **Tak** lub **Kontynuuj**. 
 
-## <a name="access-sql-database-server-privately-from-the-vm"></a>Dostęp do serwera SQL Database prywatnie z poziomu maszyny wirtualnej
+## <a name="access-sql-database-privately-from-the-vm"></a>Dostęp SQL Database prywatnie z maszyny wirtualnej
 
 1. W Pulpit zdalny myVM Otwórz program PowerShell.
-2. Wprowadź polecenie `nslookup myserver.database.windows.net`. Pamiętaj, aby `myserver` zamienić na nazwę programu SQL Server.
+2. Wprowadź polecenie `nslookup myserver.database.windows.net`. Pamiętaj, aby zamienić na `myserver` nazwę programu SQL Server.
 
     Zostanie wyświetlony komunikat podobny do tego:
     
@@ -220,15 +220,15 @@ mstsc /v:<publicIpAddress>
     | Nazwa serwera | myserver.database.windows.net |
     | Nazwa użytkownika | Wprowadź nazwę użytkownika podaną podczas tworzenia |
     | Hasło | Wprowadź hasło podane podczas tworzenia |
-    | Zapamiętaj hasło | Tak |
+    | Zapamiętaj hasło | Yes |
     
-5. Wybierz przycisk **Połącz**.
+5. Wybierz pozycję **Połącz**.
 6. Przeglądaj **bazy danych** z menu po lewej stronie. 
 7. Zdefiniować Utwórz lub zapytaj informacje z bazy danych.
 8. Zamknij połączenie pulpitu zdalnego z *myVM*. 
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów 
-Gdy skończysz korzystać z prywatnego punktu końcowego, SQL Database serwera i maszyny wirtualnej, użyj polecenia [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) , aby usunąć grupę zasobów i wszystkie jej zasoby:
+## <a name="clean-up-resources"></a>Czyszczenie zasobów 
+Gdy skończysz korzystać z prywatnego punktu końcowego, SQL Database i maszyny wirtualnej, użyj polecenia [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) , aby usunąć grupę zasobów i wszystkie jej zasoby:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force

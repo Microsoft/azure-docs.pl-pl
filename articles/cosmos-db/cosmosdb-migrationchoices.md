@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: bharathb
-ms.openlocfilehash: 34698a215477abdd7d68c3dfe050657ecf049690
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 281cdea42975172b7e2366ab5d3e1606f61d5025
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80984899"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020544"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>Opcje migracji danych lokalnych lub w chmurze do Azure Cosmos DB
 
@@ -22,7 +22,7 @@ Dane z różnych źródeł danych można ładować do Azure Cosmos DB. Ponadto, 
 Wybór narzędzia migracji zależy od następujących czynników:
 * **Migracja**w trybie online i offline: wiele narzędzi migracji udostępnia ścieżkę do przeprowadzenia jednorazowej migracji. Oznacza to, że aplikacje uzyskujące dostęp do bazy danych mogą być wykorzystane przez pewien czas przestoju. Niektóre rozwiązania migracji umożliwiają przeprowadzenie migracji na żywo, w której jest skonfigurowany potok replikacji między źródłem a obiektem docelowym.
 
-* **Źródło danych**: istniejące dane mogą znajdować się w różnych źródłach danych, takich jak Oracle DB2, DataStax Cassanda, Azure SQL Server, PostgreSQL itd. Dane mogą również znajdować się w istniejącym koncie Azure Cosmos DB i zamiar migracji może zmienić model danych lub ponownie podzielić dane w kontener z innym kluczem partycji.
+* **Źródło danych**: istniejące dane mogą znajdować się w różnych źródłach danych, takich jak Oracle DB2, DataStax Cassanda, Azure SQL Database, PostgreSQL itd. Dane mogą również znajdować się w istniejącym koncie Azure Cosmos DB i zamiar migracji może zmienić model danych lub ponownie podzielić dane w kontener z innym kluczem partycji.
 
 * **Azure Cosmos DB API**: w przypadku interfejsu API SQL w programie Azure Cosmos DB istnieją różne narzędzia opracowane przez zespół Azure Cosmos DB, który pomaga w różnych scenariuszach migracji. Wszystkie inne interfejsy API mają własny, wyspecjalizowany zestaw narzędzi opracowanych i konserwowanych przez społeczność. Ponieważ Azure Cosmos DB obsługuje te interfejsy API na poziomie protokołu przewodowego, narzędzia te powinny być wykonywane w trakcie migracji danych do Azure Cosmos DB. Mogą jednak wymagać niestandardowej obsługi dla ograniczania przepustowości, ponieważ ta koncepcja jest specyficzna dla Azure Cosmos DB.
 

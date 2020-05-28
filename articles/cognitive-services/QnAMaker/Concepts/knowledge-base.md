@@ -1,24 +1,24 @@
 ---
 title: Importowanie ze źródeł danych — QnA Maker
-description: Baza wiedzy QnA Maker składa się z zestawu zestawów pytań i odpowiedzi (QnA) oraz opcjonalnych metadanych skojarzonych z poszczególnymi parami QnA.
+description: Baza wiedzy QnA Maker składa się z zestawu par pytań i odpowiedzi (QnA) oraz opcjonalnych metadanych skojarzonych z poszczególnymi parami QnA.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: f648e15be803159dadb3f8bd047b2f46885eec91
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: eaa19cb2abf84f31cda9d8894e91ec1540980b27
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80804286"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993103"
 ---
 # <a name="importing-from-data-sources"></a>Importowanie ze źródeł danych
 
-Baza wiedzy składa się z zestawów pytań i odpowiedzi, które są udostępniane przez publiczne adresy URL i pliki.
+Baza wiedzy składa się z par pytań i odpowiedzi, które są udostępniane przez publiczne adresy URL i pliki.
 
 ## <a name="data-source-locations"></a>Lokalizacje źródła danych
 
 Zawartość jest przenoszona do bazy wiedzy ze źródła danych. Lokalizacje źródeł danych to **publiczne adresy URL lub pliki**, które nie wymagają uwierzytelniania.
 
-Wyjątkiem są [pliki programu SharePoint](../how-to/add-sharepoint-datasources.md)zabezpieczone przy użyciu uwierzytelniania. Zasoby programu SharePoint muszą być plikami, a nie stronami sieci Web. Jeśli adres URL jest zakończony rozszerzeniem sieci Web, na przykład. ASPX nie zostanie on zaimportowany do QnA Maker z programu SharePoint.
+Wyjątkiem są [pliki programu SharePoint](../how-to/add-sharepoint-datasources.md)zabezpieczone przy użyciu uwierzytelniania. Zasoby programu SharePoint muszą być plikami, a nie stronami sieci Web. Jeśli adres URL jest zakończony rozszerzeniem internetowym, na przykład ASPX, nie zostanie on zaimportowany do usługi QnA Maker z programu SharePoint.
 
 ## <a name="chit-chat-content"></a>Zawartość rozmowy Chit
 
@@ -26,7 +26,7 @@ Zestaw zawartości Chit Chat QnA jest oferowany jako kompletne źródło danych 
 
 ## <a name="structured-data-format-through-import"></a>Strukturalny format danych za poorednictwem importu
 
-Importowanie bazy wiedzy zastępuje zawartość istniejącej bazy wiedzy. Import wymaga pliku strukturalnego `.tsv` , który zawiera pytania i odpowiedzi. Te informacje pomagają w QnA Maker zgrupować zestawy odpowiedzi i atrybutów do określonego źródła danych.
+Importowanie bazy wiedzy zastępuje zawartość istniejącej bazy wiedzy. Import wymaga pliku strukturalnego `.tsv` , który zawiera pytania i odpowiedzi. Te informacje pomagają w QnA Maker zgrupować pary odpowiedzi i atrybutów do określonego źródła danych.
 
 | Pytanie  | Odpowiedź  | Element źródłowy| Metadane (1 klucz: 1 wartość) |
 |-----------|---------|----|---------------------|
@@ -35,12 +35,12 @@ Importowanie bazy wiedzy zastępuje zawartość istniejącej bazy wiedzy. Import
 
 ## <a name="structured-multi-turn-format-through-import"></a>Strukturalny format wielowymiarowy przy użyciu importu
 
-W formacie `.tsv` pliku można tworzyć konwersacje wieloskładnikowe. Ten format umożliwia tworzenie wielostopniowych konwersacji przez analizowanie poprzednich dzienników rozmowy (z innymi procesami, a nie za pomocą QnA Maker), a następnie Tworzenie `.tsv` pliku za pośrednictwem automatyzacji. Zaimportuj plik w celu zamienienia istniejącej bazy wiedzy.
+W formacie pliku można tworzyć konwersacje wieloskładnikowe `.tsv` . Ten format umożliwia tworzenie wielostopniowych konwersacji przez analizowanie poprzednich dzienników rozmowy (z innymi procesami, a nie za pomocą QnA Maker), a następnie Tworzenie `.tsv` pliku za pośrednictwem automatyzacji. Zaimportuj plik w celu zamienienia istniejącej bazy wiedzy.
 
 > [!div class="mx-imgBorder"]
 > ![Model koncepcyjny 3 poziomów pytań z obsługą wieloletnich](../media/qnamaker-concepts-knowledgebase/nested-multi-turn.png)
 
-Kolumna dla wielowierszowego `.tsv`, charakterystyczna dla wielowierszowego, jest **wyświetlane**. Przykład `.tsv`pokazany w programie Excel, Pokaż informacje do uwzględnienia w celu zdefiniowania elementów podrzędnych:
+Kolumna dla wielowierszowego, charakterystyczna dla wielowierszowego `.tsv` , jest **wyświetlane**. Przykład `.tsv` pokazany w programie Excel, Pokaż informacje do uwzględnienia w celu zdefiniowania elementów podrzędnych:
 
 ```JSON
 [
@@ -58,14 +58,14 @@ Kolumna dla wielowierszowego `.tsv`, charakterystyczna dla wielowierszowego, jes
 
 Jeśli nie wiesz, jak reprezentować parę QnA w `.tsv` pliku:
 * Użyj tego [przykładu do pobrania z usługi GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Structured-multi-turn-format.xlsx?raw=true)
-* Lub Utwórz zestaw w portalu QnA Maker, Zapisz, a następnie wyeksportuj bazę wiedzy, aby zapoznać się z przykładem sposobu reprezentowania zestawu.
+* Lub Utwórz parę w portalu QnA Maker, Zapisz, a następnie wyeksportuj bazę wiedzy, aby zapoznać się z przykładem sposobu reprezentowania pary.
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
 > [Cykl życia opracowywania bazy wiedzy](./development-lifecycle-knowledge-base.md)
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 Skorzystaj z QnA Maker informacji o [promocji](../reference-markdown-format.md) , aby ułatwić formatowanie odpowiedzi.
 

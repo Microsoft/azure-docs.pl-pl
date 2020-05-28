@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 3c041834b9ad191817cdf1380b0a75efc7639bd0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: caa37dbc3a09236c8e9553eba506e6c0b25e51e2
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79218156"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118438"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Jak oszacować wydajność modelu w Azure Machine Learning Studio (klasyczny)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 W tym artykule przedstawiono sposób oceny wydajności modelu w Azure Machine Learning Studio (klasyczny) i przedstawiono krótkie objaśnienie metryk dostępnych dla tego zadania. Prezentowane są trzy popularne scenariusze uczenia nauki: 
 
@@ -140,7 +138,7 @@ W tym doświadczeniu będziemy używać popularnego zestawu danych [Iris](https:
 ### <a name="creating-the-experiment"></a>Tworzenie eksperymentu
 Dodaj następujące moduły do obszaru roboczego w Azure Machine Learning Studio (klasyczny):
 
-* [Importowanie danych][import-data]
+* [Importuj dane][import-data]
 * [Wieloklasowy las decyzyjny][multiclass-decision-forest]
 * [Dzielenie danych][split]
 * [Trenowanie modelu][train-model]
@@ -151,7 +149,7 @@ Połącz porty, jak pokazano poniżej na rysunku 10.
 
 Ustaw indeks kolumny etykieta modułu [szkolenia model][train-model] na 5. Zestaw danych nie ma wiersza nagłówka, ale wiemy, że etykiety klas znajdują się w piątej kolumnie.
 
-Kliknij moduł [Importuj dane][import-data] i ustaw właściwość *Źródło danych* na *adres URL sieci Web za pośrednictwem protokołu HTTP*i *adres URL* do http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data.
+Kliknij moduł [Importuj dane][import-data] i ustaw właściwość *Źródło danych* na *adres URL sieci Web za pośrednictwem protokołu HTTP*i *adres URL* do http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data .
 
 Ustaw ułamek wystąpień, które mają być używane na potrzeby szkolenia w module [Split Data][split] 0,7 (na przykład).
 

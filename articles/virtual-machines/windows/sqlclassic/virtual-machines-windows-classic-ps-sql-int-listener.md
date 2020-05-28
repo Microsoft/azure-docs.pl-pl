@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f26c5a6c6fc2774d19beaa021015357a1991f0ed
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f05e1d46485b337acbd9390441359e086067db74
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75978166"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014823"
 ---
 # <a name="configure-an-ilb-listener-for-availability-groups-on-azure-sql-server-vms"></a>Konfigurowanie odbiornika ILB dla grup dostępności na maszynach wirtualnych platformy Azure SQL Server
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ ms.locfileid: "75978166"
 > [!IMPORTANT]
 > Platforma Azure ma dwa różne modele wdrażania służące do tworzenia zasobów i pracy z nimi: [Azure Resource Manager i klasyczne](../../../azure-resource-manager/management/deployment-models.md). W tym artykule opisano sposób korzystania z klasycznego modelu wdrażania. Zalecamy, aby większość nowych wdrożeń korzystała z modelu Menedżer zasobów.
 
-Aby skonfigurować odbiornik dla grupy dostępności zawsze włączone w modelu Menedżer zasobów, zobacz sekcję [Konfigurowanie modułu równoważenia obciążenia dla zawsze włączonej grupy dostępności na platformie Azure](../sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md).
+Aby skonfigurować odbiornik dla grupy dostępności zawsze włączone w modelu Menedżer zasobów, zobacz sekcję [Konfigurowanie modułu równoważenia obciążenia dla zawsze włączonej grupy dostępności na platformie Azure](../../../azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure.md).
 
 Twoja grupa dostępności może zawierać repliki tylko lokalnie lub tylko platformę Azure, które obejmują konfiguracje hybrydowe i platformy Azure. Repliki platformy Azure mogą znajdować się w tym samym regionie lub w wielu regionach, w których jest używanych wiele sieci wirtualnych. W procedurach przedstawionych w tym artykule przyjęto założenie, że już [skonfigurowano grupę dostępności](../classic/portal-sql-alwayson-availability-groups.md) , ale jeszcze nie skonfigurowano odbiornika.
 
@@ -105,7 +105,7 @@ Utwórz punkt końcowy o zrównoważonym obciążeniu dla każdej maszyny wirtua
             Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -LBSetName "ListenerEndpointLB" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ILBName -DirectServerReturn $true | Update-AzureVM
         }
 
-13. Po ustawieniu zmiennych skopiuj skrypt z edytora tekstu do sesji programu PowerShell, aby go uruchomić. Jeśli monit nadal pojawia **>>** się, naciśnij klawisz ENTER, aby upewnić się, że skrypt zacznie działać.
+13. Po ustawieniu zmiennych skopiuj skrypt z edytora tekstu do sesji programu PowerShell, aby go uruchomić. Jeśli monit nadal pojawia się **>>** , naciśnij klawisz ENTER, aby upewnić się, że skrypt zacznie działać.
 
 ## <a name="verify-that-kb2854082-is-installed-if-necessary"></a>Upewnij się, że w razie potrzeby jest zainstalowana KB2854082
 [!INCLUDE [kb2854082](../../../../includes/virtual-machines-ag-listener-kb2854082.md)]
@@ -151,7 +151,7 @@ Utwórz odbiornik grupy dostępności w dwóch krokach. Najpierw utwórz zasób 
 
         cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
 
-3. Po ustawieniu zmiennych Otwórz okno programu Windows PowerShell z podwyższonym poziomem uprawnień, wklej skrypt z edytora tekstów do sesji programu PowerShell, aby go uruchomić. Jeśli monit nadal pojawia **>>** się, naciśnij klawisz ENTER, aby upewnić się, że skrypt zacznie działać.
+3. Po ustawieniu zmiennych Otwórz okno programu Windows PowerShell z podwyższonym poziomem uprawnień, wklej skrypt z edytora tekstów do sesji programu PowerShell, aby go uruchomić. Jeśli monit nadal pojawia się **>>** , naciśnij klawisz ENTER, aby upewnić się, że skrypt zacznie działać.
 
 4. Powtórz powyższe kroki dla każdej maszyny wirtualnej.  
     Ten skrypt konfiguruje zasób adresu IP przy użyciu adresu IP usługi w chmurze i ustawia inne parametry, takie jak port sondy. Gdy zasób adresu IP jest przełączany w tryb online, może odpowiedzieć na sondowanie na porcie sondy od utworzonego wcześniej punktu końcowego ze zrównoważonym obciążeniem.

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 07/03/2019
-ms.openlocfilehash: 1a46cb537892d4255fd274b5754ab8e8c0278308
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: c6ae8d79ee40729f47a906561d6c8ae586765f5d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774453"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019847"
 ---
 # <a name="use-cli-to-restore-a-managed-instance-database-to-another-geo-region"></a>Używanie interfejsu wiersza polecenia do przywracania bazy danych wystąpienia zarządzanego w innym regionie geograficznym
 
@@ -28,7 +28,7 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-Istniejąca para wystąpień zarządzanych, zobacz [Używanie interfejsu wiersza polecenia platformy Azure do tworzenia Azure SQL Database wystąpienia zarządzanego](sql-database-create-configure-managed-instance-cli.md).
+Istniejąca para wystąpień zarządzanych, zobacz [Używanie interfejsu wiersza polecenia platformy Azure do tworzenia wystąpienia zarządzanego Azure SQL](sql-database-create-configure-managed-instance-cli.md).
 
 ### <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -64,4 +64,4 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 
 Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure).
 
-Więcej przykładowych skryptów interfejsu wiersza polecenia dla usługi SQL Database można znaleźć w [dokumentacji usługi Azure SQL Database](../sql-database-cli-samples.md).
+Więcej przykładowych skryptów interfejsu wiersza polecenia dla usługi SQL Database można znaleźć w [dokumentacji usługi Azure SQL Database](../../azure-sql/database/az-cli-script-samples-content-guide.md).

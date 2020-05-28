@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: d9283a36d5f7ccb82b2cc211485487d5a3dcce7b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc79d7204ba360696b8d9411cd56efd09d1678dc
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79201029"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021844"
 ---
 # <a name="azure-database-security-checklist"></a>Lista kontrolna zabezpieczeń usługi Azure Database
 
@@ -28,7 +28,7 @@ Aby pomóc w ulepszaniu zabezpieczeń, usługa Azure Database zawiera szereg wbu
 
 Należą do nich:
 
--    Zapora umożliwiająca tworzenie [reguł zapory](../../sql-database/sql-database-firewall-configure.md) ograniczających łączność przy użyciu adresu IP
+-    Zapora umożliwiająca tworzenie [reguł zapory](../../azure-sql/database/firewall-configure.md) ograniczających łączność przy użyciu adresu IP
 -    Zapora na poziomie serwera dostępna z Azure Portal
 -    Reguły zapory na poziomie bazy danych dostępne w programie SSMS
 -    Zabezpieczanie łączności z bazą danych przy użyciu bezpiecznych parametrów połączenia
@@ -50,10 +50,10 @@ Zalecamy zapoznanie się z artykułem [najlepsze rozwiązania w zakresie zabezpi
 | <br> Szyfrowanie w ruchu/tranzycie| <ul><li>[Transport Layer Security](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol)do szyfrowania danych, gdy dane są przenoszone do sieci.</li><li>Baza danych wymaga bezpiecznej komunikacji od klientów opartych na protokole [TDS (strumienia danych tabelarycznych)](https://msdn.microsoft.com/library/dd357628.aspx) za pośrednictwem protokołu TLS (Transport Layer Security).</li></ul> |
 |<br>Szyfrowanie w spoczynku| <ul><li>[Transparent Data Encryption](https://go.microsoft.com/fwlink/?LinkId=526242), gdy nieaktywne dane są przechowywane fizycznie w dowolnym formularzu cyfrowym.</li></ul>|
 |**Kontrola dostępu**||  
-|<br> Dostęp do bazy danych | <ul><li>[Uwierzytelnianie usługi Active Directory (Azure Active Directory](../../sql-database/sql-database-manage-logins.md) Authentication) używa tożsamości zarządzanych przez Azure Active Directory.</li><li>[Autoryzacja](../../sql-database/sql-database-manage-logins.md) użytkowników przyznająca im najmniejsze uprawnienia.</li></ul> |
-|<br>Dostęp do aplikacji| <ul><li>[Zabezpieczenia na poziomie wiersza](https://msdn.microsoft.com/library/dn765131) (przy użyciu zasad zabezpieczeń, jednocześnie ograniczając dostęp na poziomie wierszy na podstawie tożsamości użytkownika, roli lub kontekstu wykonania).</li><li>[Dynamiczne maskowanie danych](../../sql-database/sql-database-dynamic-data-masking-get-started.md) (przy użyciu uprawnień & zasad, ograniczanie ekspozycji danych poufnych przez zamaskowanie ich dla użytkowników bez uprawnień)</li></ul>|
+|<br> Dostęp do bazy danych | <ul><li>[Uwierzytelnianie usługi Active Directory (Azure Active Directory](../../azure-sql/database/logins-create-manage.md) Authentication) używa tożsamości zarządzanych przez Azure Active Directory.</li><li>[Autoryzacja](../../azure-sql/database/logins-create-manage.md) użytkowników przyznająca im najmniejsze uprawnienia.</li></ul> |
+|<br>Dostęp do aplikacji| <ul><li>[Zabezpieczenia na poziomie wiersza](https://msdn.microsoft.com/library/dn765131) (przy użyciu zasad zabezpieczeń, jednocześnie ograniczając dostęp na poziomie wierszy na podstawie tożsamości użytkownika, roli lub kontekstu wykonania).</li><li>[Dynamiczne maskowanie danych](../../azure-sql/database/dynamic-data-masking-overview.md) (przy użyciu uprawnień & zasad, ograniczanie ekspozycji danych poufnych przez zamaskowanie ich dla użytkowników bez uprawnień)</li></ul>|
 |**Proaktywne monitorowanie**||  
-| <br>Śledzenie wykrywania &| <ul><li>[Inspekcja](../../sql-database/sql-database-auditing.md) śledzi zdarzenia bazy danych i zapisuje je w dzienniku inspekcji/dzienniku aktywności na [koncie usługi Azure Storage](../../storage/common/storage-create-storage-account.md).</li><li>Śledź usługę Azure Database Health przy użyciu [dzienników aktywności Azure monitor](../../azure-monitor/platform/platform-logs-overview.md).</li><li>[Wykrywanie zagrożeń](../../sql-database/sql-database-threat-detection.md) wykrywa nietypowe działania bazy danych wskazujące na potencjalne zagrożenia bezpieczeństwa bazy danych. </li></ul> |
+| <br>Śledzenie wykrywania &| <ul><li>[Inspekcja](../../sql-database/sql-database-auditing.md) śledzi zdarzenia bazy danych i zapisuje je w dzienniku inspekcji/dzienniku aktywności na [koncie usługi Azure Storage](../../storage/common/storage-create-storage-account.md).</li><li>Śledź usługę Azure Database Health przy użyciu [dzienników aktywności Azure monitor](../../azure-monitor/platform/platform-logs-overview.md).</li><li>[Wykrywanie zagrożeń](../../azure-sql/database/threat-detection-configure.md) wykrywa nietypowe działania bazy danych wskazujące na potencjalne zagrożenia bezpieczeństwa bazy danych. </li></ul> |
 |<br>Azure Security Center| <ul><li>[Monitorowanie danych](../../security-center/security-center-enable-auditing-on-sql-databases.md) Użyj Azure Security Center jako scentralizowanego rozwiązania do monitorowania zabezpieczeń dla SQL i innych usług platformy Azure.</li></ul>|        
 
 ## <a name="conclusion"></a>Podsumowanie
@@ -62,7 +62,7 @@ Azure Database to niezawodna platforma baz danych z pełnymi funkcjami zabezpiec
 ## <a name="next-steps"></a>Następne kroki
 W kilku prostych krokach możesz poprawić zabezpieczenia bazy danych, aby chronić ją przed złośliwymi użytkownikami i nieautoryzowanym dostępem. Niniejszy samouczek zawiera informacje na temat wykonywania następujących czynności:
 
-- Skonfiguruj [reguły zapory](../../sql-database/sql-database-firewall-configure.md) dla serwera i bazy danych.
+- Skonfiguruj [reguły zapory](../../azure-sql/database/firewall-configure.md) dla serwera i bazy danych.
 - Ochrona danych za pomocą [szyfrowania](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-encryption).
 - Włącz [inspekcję SQL Database](../../sql-database/sql-database-auditing.md).
 

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: borisb
-ms.openlocfilehash: 77a374a83c178639052e8db6fc85c31e366ac0e6
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 070477c638e5a625e0c03751a1778fa0a246cd77
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81683637"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995823"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Tworzenie Oracle Database na maszynie wirtualnej platformy Azure
 
 W tym przewodniku szczegółowo przedstawiono użycie interfejsu wiersza polecenia platformy Azure w celu wdrożenia maszyny wirtualnej platformy Azure z [obrazu galerii Marketplace firmy Oracle](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview) w celu utworzenia bazy danych Oracle 12c. Po wdrożeniu serwera nastąpi połączenie za pośrednictwem protokołu SSH w celu skonfigurowania bazy danych Oracle. 
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten przewodnik szybkiego startu będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.4 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
@@ -55,7 +55,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-Po utworzeniu maszyny wirtualnej w interfejsie wiersza polecenia platformy Azure zostaną wyświetlone informacje podobne do poniższego przykładu. Zwróć uwagę na wartość `publicIpAddress`parametru. Ten adres jest używany do uzyskiwania dostępu do maszyny wirtualnej.
+Po utworzeniu maszyny wirtualnej w interfejsie wiersza polecenia platformy Azure zostaną wyświetlone informacje podobne do poniższego przykładu. Zwróć uwagę na wartość parametru `publicIpAddress` . Ten adres jest używany do uzyskiwania dostępu do maszyny wirtualnej.
 
 ```output
 {
@@ -85,7 +85,7 @@ Oprogramowanie Oracle jest już zainstalowane w obrazie portalu Marketplace. Utw
 1.  Przejdź do administratora firmy *Oracle* , a następnie zainicjuj odbiornik do rejestrowania:
 
     ```bash
-    $ sudo su - oracle
+    $ sudo -su oracle
     $ lsnrctl start
     ```
 
@@ -197,7 +197,7 @@ Aby skorzystać z narzędzia do zarządzania graficznym interfejsem użytkownika
     alter database open;
    ```
 
-Musisz wpisać `quit` , aby zakończyć sesję sqlplus i wpisz `exit` , aby wylogować użytkownika Oracle.
+Musisz wpisać, `quit` Aby zakończyć sesję sqlplus i wpisz, `exit` Aby wylogować użytkownika Oracle.
 
 ## <a name="automate-database-startup-and-shutdown"></a>Automatyzowanie uruchamiania i zamykania bazy danych
 
@@ -209,7 +209,7 @@ Domyślnie baza danych Oracle nie jest uruchamiana automatycznie po ponownym uru
     sudo su -
     ```
 
-2.  Za pomocą ulubionego edytora Edytuj plik `/etc/oratab` i zmień wartość domyślną `N` na: `Y`
+2.  Za pomocą ulubionego edytora Edytuj plik `/etc/oratab` i zmień wartość domyślną `N` na `Y` :
 
     ```bash
     cdb1:/u01/app/oracle/product/12.1.0/dbhome_1:Y
@@ -315,7 +315,7 @@ Możesz zalogować się przy użyciu konta **sys** i zaznaczyć pole wyboru **ja
 
 ![Zrzut ekranu strony logowania do programu Oracle OEM Express](./media/oracle-quick-start/oracle_oem_express_login.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po zakończeniu eksplorowania pierwszej bazy danych Oracle na platformie Azure nie jest już potrzebne, możesz użyć polecenia [AZ Group Delete](/cli/azure/group) , aby usunąć grupę zasobów, maszynę wirtualną i wszystkie powiązane zasoby.
 

@@ -10,12 +10,12 @@ ms.date: 07/25/2018
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 6d2ea5c0b7354867086fc0cce43732f2d73c53ab
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cfb40375fe841dd363681aea3d2cf6355046cd51
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81398963"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84113687"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitor an integration runtime in Azure Data Factory (Monitorowanie środowiska Integration Runtime w usłudze Azure Data Factory)
 
@@ -170,10 +170,10 @@ Azure-SSIS Integration Runtime to w pełni zarządzany klaster maszyn wirtualnyc
 | NodeSize | Rozmiar każdego węzła środowiska Azure-SSIS Integration Runtime. |
 | NodeCount | Liczba węzłów w środowisku Azure-SSIS Integration Runtime. |
 | MaxParallelExecutionsPerNode | Liczba równoległych wykonań na węzeł w środowisku Azure-SSIS Integration Runtime. |
-| CatalogServerEndpoint | Punkt końcowy istniejącego serwera wystąpienia Azure SQL Databaseowego/zarządzanego, który będzie hostować SSISDB. |
-| CatalogAdminUserName | Nazwa użytkownika administratora istniejącego serwera wystąpienia Azure SQL Database/zarządzanego. Usługa Data Factory używa tych informacji do przygotowania i zarządzania usługą SSISDB w Twoim imieniu. |
-| CatalogAdminPassword | Hasło administratora istniejącego serwera wystąpienia Azure SQL Database/zarządzanego. |
-| CatalogPricingTier | Warstwa cenowa usługi SSISDB hostowana przez istniejący serwer Azure SQL Database.  Nie ma zastosowania do Azure SQL Database hostingu wystąpienia zarządzanego SSISDB. |
+| CatalogServerEndpoint | Punkt końcowy istniejącego wystąpienia zarządzanego SQL Database/SQL do hostowania SSISDB. |
+| CatalogAdminUserName | Nazwa użytkownika administratora istniejącego wystąpienia zarządzanego SQL Database/SQL. Usługa Data Factory używa tych informacji do przygotowania i zarządzania usługą SSISDB w Twoim imieniu. |
+| CatalogAdminPassword | Hasło administratora istniejącego wystąpienia zarządzanego SQL Database/SQL. |
+| CatalogPricingTier | Warstwa cenowa dla SSISDB hostowanego przez SQL Database.  Nie dotyczy SSISDB hostingu wystąpienia zarządzanego SQL. |
 | VNetId | Identyfikator zasobu sieci wirtualnej dla środowiska Azure-SSIS Integration Runtime do przyłączenia. |
 | Podsieć | Nazwa podsieci dla środowiska Azure-SSIS Integration Runtime do przyłączenia. |
 | ID | Identyfikator zasobu środowiska Azure-SSIS Integration Runtime. |
@@ -224,8 +224,8 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $A
 Zapoznaj się z następującymi artykułami, aby dowiedzieć się więcej na temat środowiska Azure-SSIS Integration Runtime:
 
 - [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). Ten artykuł zawiera ogólne informacje koncepcyjne dotyczące środowiska Integration Runtime, w tym Azure-SSIS IR. 
-- [Samouczek: Wdrażanie pakietów usług SSIS na platformie Azure](tutorial-create-azure-ssis-runtime-portal.md). Ten artykuł zawiera szczegółowe instrukcje dotyczące tworzenia środowiska Azure-SSIS IR i używania bazy danych Azure SQL Database do hostowania wykazu usług SSIS. 
-- [How to: Create an Azure-SSIS integration runtime (Jak: Tworzenie środowiska Azure SSIS Integration Runtime)](create-azure-ssis-integration-runtime.md). Ten artykuł rozszerza się w samouczku i zawiera instrukcje dotyczące używania wystąpienia zarządzanego Azure SQL Database i dołączania do sieci wirtualnej. 
+- [Samouczek: Wdrażanie pakietów usług SSIS na platformie Azure](tutorial-create-azure-ssis-runtime-portal.md). Ten artykuł zawiera instrukcje krok po kroku dotyczące tworzenia Azure-SSIS IR i używania SQL Database do hostowania wykazu usług SSIS. 
+- [How to: Create an Azure-SSIS integration runtime (Jak: Tworzenie środowiska Azure SSIS Integration Runtime)](create-azure-ssis-integration-runtime.md). Ten artykuł rozszerza się w samouczku i zawiera instrukcje dotyczące używania wystąpienia zarządzanego SQL i przyłączania środowiska IR do sieci wirtualnej. 
 - [Manage an Azure-SSIS IR (Zarządzanie środowiskiem Azure-SSIS IR)](manage-azure-ssis-integration-runtime.md). W tym artykule przedstawiono sposób zatrzymywania, uruchamiania lub usuwania środowiska Azure-SSIS IR. Zawiera on również instrukcje skalowania środowiska Azure-SSIS IR do wewnątrz za pomocą dodawania do niego węzłów. 
 - [Join an Azure-SSIS IR to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md) (Dołączanie środowiska IR Azure SSIS do sieci wirtualnej). Ten artykuł zawiera podstawowe informacje na temat dołączania środowiska IR Azure-SSIS do sieci wirtualnej platformy Azure. Przedstawiono w nim również kroki Azure Portal służące do konfigurowania sieci wirtualnej w taki sposób, aby Azure-SSIS IR mógł dołączyć do sieci wirtualnej. 
 
