@@ -177,7 +177,7 @@ Więcej informacji o definiowaniu harmonogramów indeksatorów znajduje się w t
 
 Jeśli zostanie wyświetlony komunikat o błędzie, gdy indeksator podejmie próbę nawiązania połączenia ze źródłem danych, że klient nie może uzyskać dostępu do serwera, zapoznaj się z [typowymi błędami indeksatora](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting).
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 Dowiedz się więcej o usłudze Azure SQL indeksator:
 * [Indeksator usługi Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)

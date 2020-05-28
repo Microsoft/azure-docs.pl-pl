@@ -89,7 +89,7 @@ Wykonaj następujące kroki, aby zażądać zwiększenia przydziału dla konta u
    
     c. **Typ**  >  limitu przydziału **Partia zadań**
       
-    Wybierz pozycję **Dalej**.
+    Wybierz opcję **Dalej**.
     
 1. W obszarze **Szczegóły**:
       
@@ -109,7 +109,7 @@ Wykonaj następujące kroki, aby zażądać zwiększenia przydziału dla konta u
 
     b. Wybierz **wagę** zgodną z Twoim [wpływem na firmę][support_sev].
 
-    Wybierz pozycję **Dalej**.
+    Wybierz opcję **Dalej**.
 
 1. W **informacjach kontaktowych**:
    

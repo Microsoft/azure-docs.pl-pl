@@ -388,7 +388,7 @@
               href: service-updates-how-to.md
             - name: Usuwanie magazynu
               href: delete-vault.md
-    - name: Pomoc techniczna usługi Site Recovery dla grup umieszczania w pobliżu
+    - name: Usługa Site Recovery dla grup umieszczania w pobliżu
       href: how-to-enable-replication-proximity-placement-groups.md
     - name: Odzyskiwanie po awarii dla aplikacji
       items:

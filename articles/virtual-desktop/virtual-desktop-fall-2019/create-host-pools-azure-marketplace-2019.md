@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 741bd94b290560bdc850cbf7bc24ec57104d8a66
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 8afc8b70257f07c95b34c4e372e0e7425ae20fcd
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614354"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112681"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Samouczek: Tworzenie puli hostów przy użyciu witryny Azure Marketplace
 
@@ -148,7 +148,7 @@ Aby przypisać użytkowników do grupy aplikacji klasycznych:
    Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
    ```
 
-   Nazwa UPN użytkownika powinna być zgodna z tożsamością użytkownika w usłudze Azure AD, na przykład *user1@contoso.com*. Jeśli chcesz dodać wielu użytkowników, uruchom polecenie dla każdego użytkownika.
+   Nazwa UPN użytkownika powinna być zgodna z tożsamością użytkownika w usłudze Azure AD, na przykład *user1@contoso.com* . Jeśli chcesz dodać wielu użytkowników, uruchom polecenie dla każdego użytkownika.
 
 Użytkownicy dodanym do grupy aplikacji klasycznych mogą zalogować się do pulpitu wirtualnego systemu Windows z obsługiwanymi klientami Pulpit zdalny i zobaczyć zasób dla pulpitu sesji.
 
@@ -162,4 +162,4 @@ Oto obecnie obsługiwani klienci:
 Utworzono pulę hostów i przypisano użytkowników do dostępu do jej pulpitu. Pulę hostów można wypełniać za pomocą programów RemoteApp. Aby dowiedzieć się więcej na temat zarządzania aplikacjami w programie Virtual Desktop systemu Windows, zobacz ten samouczek:
 
 > [!div class="nextstepaction"]
-> [Samouczek zarządzania grupami aplikacji](../manage-app-groups.md)
+> [Samouczek zarządzania grupami aplikacji](manage-app-groups-2019.md)

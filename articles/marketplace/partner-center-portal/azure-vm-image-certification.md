@@ -42,7 +42,7 @@ Do tej pracy można użyć nowej lub istniejącej grupy zasobów platformy Azure
 
 Edytuj i uruchom poniższy skrypt Azure PowerShell, aby utworzyć plik certyfikatu (pfx) w folderze lokalnym. Zastąp wartości parametrów przedstawionych w poniższej tabeli.
 
-| **Parametr** | **Opis** |
+| **Konstruktora** | **Opis** |
 | --- | --- |
 | $certroopath | Folder lokalny, w którym ma zostać zapisany plik PFX. |
 | $location | Jedna z lokalizacji geograficznych platformy Azure w warstwie Standardowa. |
@@ -183,7 +183,7 @@ Skopiuj zawartość szablonu poniżej do pliku na komputerze lokalnym. W poniżs
 
 Edytuj i uruchom poniższy skrypt Azure PowerShell, aby utworzyć Azure Key Vault i skojarzoną grupę zasobów. Zastąp wartości parametrów przedstawionych w poniższej tabeli.
 
-| **Parametr** | **Opis** |
+| **Konstruktora** | **Opis** |
 | --- | --- |
 | $postfix | Losowy ciąg liczbowy dołączony do identyfikatorów wdrożenia. |
 | $rgName | Nazwa grupy zasobów platformy Azure (RG) do utworzenia. |
@@ -557,7 +557,7 @@ Skopiuj następujący szablon Azure Resource Manager dla wdrożenia dysku VHD do
 
 Edytuj ten plik, aby podać wartości tych parametrów:
 
-| **Parametr** | **Opis** |
+| **Konstruktora** | **Opis** |
 | --- | --- |
 | ResourceGroupName | Istniejąca nazwa grupy zasobów platformy Azure. Zazwyczaj należy używać tego samego RG, co Magazyn kluczy. |
 | TemplateFile | Pełna nazwa ścieżki do pliku VHDtoImage. JSON. |

@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 7064101c21c11b48d8616dbeaa2fd9075660fd3b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a5814113906aadad01821f78863f5053b8082892
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80473454"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84114830"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>Zarządzanie usługami sieci Web Azure Machine Learning Studio (klasycznymi) za pomocą API Management
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 ## <a name="overview"></a>Omówienie
 W tym przewodniku pokazano, jak szybko rozpocząć korzystanie z API Management do zarządzania usługami sieci Web Azure Machine Learning Studio (klasycznymi).
@@ -65,7 +63,7 @@ Aby utworzyć interfejs API:
 
 1. Kliknij pozycję **Dodaj interfejs API**.
 2. Wprowadź **nazwę interfejsu API sieci Web** (w tym przykładzie jest użyty "interfejs API demonstracyjnej usługi Azure").
-3. W przypadku **adresu URL usługi sieci Web**wpisz "`https://ussouthcentral.services.azureml.net`".
+3. W przypadku **adresu URL usługi sieci Web**wpisz " `https://ussouthcentral.services.azureml.net` ".
 4. Wprowadź znak * * sufiks adresu URL interfejsu API sieci Web. Stanie się ona ostatnią częścią adresu URL, który będzie używany przez klientów do wysyłania żądań do wystąpienia usługi (w tym przykładzie jest używana "usługa Azure-demonstracyjna").
 5. W obszarze **schemat adresu URL interfejsu API sieci Web**wybierz pozycję **https**.
 6. W obszarze **produkty**wybierz pozycję **Starter**.
@@ -84,12 +82,12 @@ Zostanie wyświetlone okno **Nowa operacja** , a karta **podpis** zostanie domy�
 Najpierw utwórz operację dla usługi rekordów zasobów Azure:
 
 1. Dla **zlecenia http**wybierz pozycję **post**.
-2. W polu **Szablon adresu URL**wpisz "`/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}`".
+2. W polu **Szablon adresu URL**wpisz " `/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}` ".
 3. Wprowadź **nazwę wyświetlaną** (w tym przykładzie jest używana funkcja "rerr Execute").
 
    ![Add-RR — operacja-sygnatura](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
 
-4. Kliknij pozycję **odpowiedzi** > **Dodaj** po lewej stronie i wybierz pozycję **200 OK**.
+4. Kliknij pozycję **odpowiedzi**  >  **Dodaj** po lewej stronie i wybierz pozycję **200 OK**.
 5. Kliknij przycisk **Zapisz** , aby zapisać tę operację.
 
    ![Add-RR-Operation-Response](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-response.png)
@@ -103,36 +101,36 @@ Najpierw utwórz operację dla usługi rekordów zasobów Azure:
 
 1. Kliknij przycisk **Dodaj operację** , aby dodać operację BES do interfejsu API.
 2. Dla **zlecenia http**wybierz pozycję **post**.
-3. W polu **Szablon adresu URL**wpisz "`/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}`".
+3. W polu **Szablon adresu URL**wpisz " `/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}` ".
 4. Wprowadź **nazwę wyświetlaną** (w tym przykładzie zostanie użyta wartość "BES Submit").
-5. Kliknij pozycję **odpowiedzi** > **Dodaj** po lewej stronie i wybierz pozycję **200 OK**.
+5. Kliknij pozycję **odpowiedzi**  >  **Dodaj** po lewej stronie i wybierz pozycję **200 OK**.
 6. Kliknij przycisk **Zapisz**.
 
 ### <a name="start-a-batch-execution-job"></a>Uruchom zadanie wykonywania wsadowego
 
 1. Kliknij przycisk **Dodaj operację** , aby dodać operację BES do interfejsu API.
 2. Dla **zlecenia http**wybierz pozycję **post**.
-3. Dla **zlecenia http**wpisz "`/workspaces/{workspace}/services/{service}/jobs/{jobid}/start?api-version={apiversion}`".
+3. Dla **zlecenia http**wpisz " `/workspaces/{workspace}/services/{service}/jobs/{jobid}/start?api-version={apiversion}` ".
 4. Wprowadź **nazwę wyświetlaną** (w tym przykładzie jest stosowana wartość "BES Start").
-6. Kliknij pozycję **odpowiedzi** > **Dodaj** po lewej stronie i wybierz pozycję **200 OK**.
+6. Kliknij pozycję **odpowiedzi**  >  **Dodaj** po lewej stronie i wybierz pozycję **200 OK**.
 7. Kliknij przycisk **Zapisz**.
 
 ### <a name="get-the-status-or-result-of-a-batch-execution-job"></a>Pobieranie stanu lub wyniku zadania wykonywania wsadowego
 
 1. Kliknij przycisk **Dodaj operację** , aby dodać operację BES do interfejsu API.
 2. Dla **zlecenia http**wybierz pozycję **Pobierz**.
-3. W polu **Szablon adresu URL**wpisz "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`".
+3. W polu **Szablon adresu URL**wpisz " `/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}` ".
 4. Wprowadź **nazwę wyświetlaną** (w tym przykładzie jest stosowana wartość "BES status").
-6. Kliknij pozycję **odpowiedzi** > **Dodaj** po lewej stronie i wybierz pozycję **200 OK**.
+6. Kliknij pozycję **odpowiedzi**  >  **Dodaj** po lewej stronie i wybierz pozycję **200 OK**.
 7. Kliknij przycisk **Zapisz**.
 
 ### <a name="delete-a-batch-execution-job"></a>Usuń zadanie wykonywania wsadowego
 
 1. Kliknij przycisk **Dodaj operację** , aby dodać operację BES do interfejsu API.
 2. Dla **zlecenia http**wybierz pozycję **Usuń**.
-3. W polu **Szablon adresu URL**wpisz "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`".
+3. W polu **Szablon adresu URL**wpisz " `/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}` ".
 4. Wprowadź **nazwę wyświetlaną** (w tym przykładzie zostanie użyta wartość "BES Delete").
-5. Kliknij pozycję **odpowiedzi** > **Dodaj** po lewej stronie i wybierz pozycję **200 OK**.
+5. Kliknij pozycję **odpowiedzi**  >  **Dodaj** po lewej stronie i wybierz pozycję **200 OK**.
 6. Kliknij przycisk **Zapisz**.
 
 ## <a name="call-an-operation-from-the-developer-portal"></a>Wywoływanie operacji z portalu dla deweloperów
@@ -153,9 +151,9 @@ Operacje można wywołać bezpośrednio z portalu dla deweloperów, który zapew
 
 4. W polu **parametry żądania**wpisz swój **obszar roboczy** i **usługę**, wpisz "2,0 dla **apiversion**i" true ", aby uzyskać **szczegółowe informacje**. **Obszar roboczy** i **usługę** można znaleźć na pulpicie nawigacyjnym usługi sieci Web Azure (zobacz **Testowanie usługi sieci Web** w dodatku A).
 
-   W przypadku **nagłówków żądania**kliknij pozycję **Dodaj nagłówek** i wpisz "Content-Type" i "Application/JSON". Ponownie kliknij pozycję **Dodaj nagłówek** i wpisz "Authorization" i "Bearer * \<The Service API-\>Key*". Klucz API-KEY można znaleźć na pulpicie nawigacyjnym usługi sieci Web Azure (zobacz **Testowanie usługi sieci Web** w dodatku A).
+   W przypadku **nagłówków żądania**kliknij pozycję **Dodaj nagłówek** i wpisz "Content-Type" i "Application/JSON". Kliknij pozycję **Dodaj nagłówek** ponownie, a następnie wpisz "Authorization" i "Bearer *\<your service API-KEY\>* ". Klucz API-KEY można znaleźć na pulpicie nawigacyjnym usługi sieci Web Azure (zobacz **Testowanie usługi sieci Web** w dodatku A).
 
-   Dla **treści żądania**wpisz `{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}`.
+   Dla **treści żądania**wpisz `{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}` .
 
    ![Azure — Demonstracja — interfejs API](./media/manage-web-service-endpoints-using-api-management/azureml-demo-api.png)
 

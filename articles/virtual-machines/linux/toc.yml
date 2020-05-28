@@ -129,7 +129,7 @@
               href: ./../scripts/virtual-machines-linux-powershell-sample-create-vm-wordpress.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
             - name: Tworzenie maszyny wirtualnej na podstawie zarządzanego dysku systemu operacyjnego
               href: ./../scripts/virtual-machines-linux-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: Tworzenie maszyny wirtualnej z migawki
+            - name: Tworzenie maszyny wirtualnej na podstawie migawki
               href: ./../scripts/virtual-machines-linux-powershell-sample-create-vm-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Zarządzanie magazynem
           items:
@@ -1079,6 +1079,8 @@
       displayName: ARM
 - name: Zasoby
   items:
+    - name: Pytania i odpowiedzi
+      href: 'https://docs.microsoft.com/answers/topics/azure-virtual-machines.html'
     - name: Tworzenie szablonów usługi Resource Manager
       displayName: 'Azure Resource Manager, ARM'
       href: /azure/azure-resource-manager/

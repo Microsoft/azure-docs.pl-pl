@@ -17,6 +17,9 @@
     - name: Uruchamianie pierwszego zapytania — program PowerShell
       displayName: 'module, docker, Az.ResourceGraph'
       href: first-query-powershell.md
+    - name: Uruchamianie pierwszego zapytania — język Python
+      displayName: 'library, azure-mgmt, cli'
+      href: first-query-python.md
     - name: Wdrażanie udostępnionego zapytania — szablon usługi ARM
       displayName: 'resource manager, queries'
       href: shared-query-template.md
@@ -87,13 +90,13 @@
       href: ./reference/supported-tables-resources.md
 - name: Zasoby
   items:
+    - name: GitHub — przykłady ładu
+      href: 'https://github.com/Azure-Samples/Governance/tree/master/src/resource-graph'
+    - name: Kanał dotyczący nadzoru w usłudze YouTube
+      href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Kalkulator cen
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Repozytorium przykładów w usłudze GitHub
-      href: 'https://github.com/Azure-Samples/Governance/tree/master/src/resource-graph'
     - name: UserVoice
       href: 'https://feedback.azure.com/forums/915958-azure-governance?category_id=345061'
-    - name: Kanał dotyczący nadzoru w usłudze YouTube
-      href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'

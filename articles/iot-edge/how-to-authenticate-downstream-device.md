@@ -173,7 +173,7 @@ Wszystkie razem, kompletne parametry połączenia wyglądają następująco:
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz;GatewayHostName=myGatewayDevice
 ```
 
-Jeśli została ustanowiona relacja nadrzędny/podrzędny dla tego urządzenia podrzędnego, można uprościć parametry połączenia przez wywołanie bramy bezpośrednio jako hosta połączenia. Relacje nadrzędny/podrzędny są wymagane do uwierzytelniania X. 509, ale opcjonalne do uwierzytelniania przy kluczu symetrycznym. Na przykład:
+Jeśli została ustanowiona relacja nadrzędny/podrzędny dla tego urządzenia podrzędnego, można uprościć parametry połączenia przez wywołanie bramy bezpośrednio jako hosta połączenia. Relacje nadrzędny/podrzędny są wymagane do uwierzytelniania X. 509, ale opcjonalne do uwierzytelniania przy kluczu symetrycznym. Przykład:
 
 ```
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz

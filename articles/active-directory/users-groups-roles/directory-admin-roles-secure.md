@@ -321,7 +321,7 @@ Zarządzanie tożsamościami uprzywilejowanymi przy użyciu ról administratoró
 Integracja dzienników platformy Azure umożliwia integrowanie nieprzetworzonych dzienników z zasobów platformy Azure z istniejącymi systemami informacji o zabezpieczeniach i zarządzania zdarzeniami (SIEM) w organizacji. [Integracja dzienników platformy Azure](../../security/fundamentals/azure-log-integration-overview.md) zbiera zdarzenia systemu Windows z dzienników Podgląd zdarzeń systemu Windows i zasobów platformy Azure z:
 
 * Dzienniki aktywności platformy Azure
-* Alerty Azure Security Center
+* Alerty usługi Azure Security Center
 * Dzienniki zasobów platformy Azure
 
 ### <a name="additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad"></a>Dodatkowe kroki dla organizacji zarządzających dostępem do innych aplikacji w chmurze za pośrednictwem usługi Azure AD

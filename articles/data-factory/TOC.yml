@@ -543,6 +543,8 @@
       items:
         - name: Zagadnienia związane z zabezpieczeniami podczas przenoszenia danych
           href: data-movement-security-considerations.md
+        - name: Strategie dostępu do danych
+          href: data-access-strategies.md
         - name: Adresy IP usługi Azure Integration Runtime
           href: azure-integration-runtime-ip-addresses.md
         - name: Przechowywanie poświadczeń w usłudze Azure Key Vault

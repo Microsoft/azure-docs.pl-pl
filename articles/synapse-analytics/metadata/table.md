@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3e28a76a559603755d3d72e8d5e27cde72aa9533
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: ff8d82966d479491bc9600a0331f69ffd09253d1
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701060"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112705"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Tabele udostępnione metadanych usługi Azure Synapse Analytics
 
@@ -193,6 +193,6 @@ id | name | birthdate
 ## <a name="next-steps"></a>Następne kroki
 
 - [Dowiedz się więcej o udostępnionych metadanych usługi Azure Synapse Analytics](overview.md)
-- [Dowiedz się więcej o udostępnionych tabelach metadanych usługi Azure Synapse Analytics](table.md)
+- [Dowiedz się więcej o udostępnionej bazie danych metadanych usługi Azure Synapse Analytics](database.md)
 
 

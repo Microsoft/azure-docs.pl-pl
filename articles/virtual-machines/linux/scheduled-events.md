@@ -88,7 +88,7 @@ Konserwacja maszyn wirtualnych zainicjowana przez użytkownika za pośrednictwem
 
 Po ponownym uruchomieniu maszyny wirtualnej `Reboot` zostanie zaplanowana zdarzenie z typem. Po ponownym wdrożeniu maszyny wirtualnej `Redeploy` zostanie zaplanowana zdarzenie z typem.
 
-## <a name="use-the-api"></a>Korzystanie z interfejsu API
+## <a name="use-the-api"></a>Używanie interfejsu API
 
 ### <a name="headers"></a>Nagłówki
 Podczas wykonywania zapytania Metadata Service należy podać nagłówek, `Metadata:true` Aby upewnić się, że żądanie nie zostało przypadkowo przekierowane. `Metadata:true`Nagłówek jest wymagany dla wszystkich żądań zaplanowanych zdarzeń. Niepowodzenie dołączenia nagłówka do żądania skutkuje odpowiedzią "złe żądanie" z Metadata Service.

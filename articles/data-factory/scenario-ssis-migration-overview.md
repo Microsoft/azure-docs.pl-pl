@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 9/3/2019
-ms.openlocfilehash: 2b23ffec76de3fa644abe3b65876a60c65c05eb8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: eecf7ba1471e35e2d9ab26394c7295f324c4ca20
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686002"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116388"
 ---
 # <a name="migrate-on-premises-ssis-workloads-to-ssis-in-adf"></a>Migrowanie lokalnych obciążeń usług SSIS do usług SSIS w podajniku APD
 
@@ -24,7 +24,7 @@ ms.locfileid: "81686002"
 
 ## <a name="overview"></a>Omówienie
 
-W przypadku migrowania obciążeń bazy danych z SQL Server lokalnych do usług Azure Database Services, mianowicie Azure SQL Database lub Azure SQL Database wystąpienia zarządzanego, należy również migrować obciążenia ETL na SQL Server Integration Services (SSIS) jako jedną z głównych usług dodanych.
+W przypadku migrowania obciążeń bazy danych z SQL Server lokalnych do usług Azure Database Services, mianowicie Azure SQL Database lub wystąpienia zarządzanego usługi Azure SQL, można również migrować obciążenia ETL na SQL Server Integration Services (SSIS) jako jedną z głównych usług dodanych.
 
 Azure-SSIS Integration Runtime (IR) w Azure Data Factory (ADF) obsługuje uruchamianie pakietów usług SSIS. Po zainicjowaniu Azure-SSIS IR można używać znanych narzędzi, takich jak SQL Server narzędzia do obsługi danych (SSDT)/SQL Server Management Studio (SSMS) oraz narzędzi wiersza polecenia, takich jak dtinstall/dtutil/dtexec, aby wdrażać i uruchamiać pakiety na platformie Azure. Aby uzyskać więcej informacji, zobacz temat [usługa Azure SSIS Wind-and-Shift — Omówienie](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview).
 
@@ -57,14 +57,14 @@ Uzyskaj [dostęp DMA](https://docs.microsoft.com/sql/dma/dma-overview)i [Przepro
 
 W zależności od [typów magazynu](#four-storage-types-for-ssis-packages) źródłowych pakietów SSIS i lokalizacji docelowej migracji obciążeń bazy danych, kroki służące do migracji **pakietów SSIS** i **SQL Server zadania agenta** , które zaplanują wykonywanie pakietów SSIS. Istnieją dwa scenariusze:
 
-- [**Azure SQL Database wystąpienie zarządzane** jako miejsce docelowe obciążenia bazy danych](#azure-sql-database-managed-instance-as-database-workload-destination)
+- [**Wystąpienie zarządzane usługi Azure SQL** jako miejsce docelowe obciążenia bazy danych](#azure-sql-managed-instance-as-database-workload-destination)
 - [**Azure SQL Database** jako miejsce docelowe obciążeń bazy danych](#azure-sql-database-as-database-workload-destination)
 
-### <a name="azure-sql-database-managed-instance-as-database-workload-destination"></a>**Azure SQL Database wystąpienie zarządzane** jako miejsce docelowe obciążenia bazy danych
+### <a name="azure-sql-managed-instance-as-database-workload-destination"></a>**Wystąpienie zarządzane usługi Azure SQL** jako miejsce docelowe obciążenia bazy danych
 
 | **Typ magazynu pakietów** |Jak przeprowadzić migrację wsadową pakietów SSIS|Jak przeprowadzić migrację wsadową zadań SSIS|
 |-|-|-|
-|SSISDB|[Migruj **SSISDB**](scenario-ssis-migration-ssisdb-mi.md)|[Migrowanie zadań SSIS do Azure SQL Database agenta wystąpienia zarządzanego](scenario-ssis-migration-ssisdb-mi.md#ssis-jobs-to-azure-sql-database-managed-instance-agent)|
+|SSISDB|[Migruj **SSISDB**](scenario-ssis-migration-ssisdb-mi.md)|[Migrowanie zadań SSIS do agenta wystąpienia zarządzanego usługi Azure SQL](scenario-ssis-migration-ssisdb-mi.md#ssis-jobs-to-sql-managed-instance-agent)|
 |System plików|Wdróż je ponownie w udziałach plików/Azure Files za pośrednictwem dtinstall/dtutil/Manual Copy lub aby zachować dostęp do systemów plików za pośrednictwem sieci wirtualnej/samoobsługowego środowiska IR. Aby uzyskać więcej informacji, zobacz [Narzędzie dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility).|<li> Migrowanie za pomocą [Kreatora migracji zadań SSIS w programie SSMS](how-to-migrate-ssis-job-ssms.md) <li>Przekonwertuj je na potoki ADF/działania/wyzwalacze za pośrednictwem skryptów/narzędzia SSMS/ADF Portal. Aby uzyskać więcej informacji, zobacz [Funkcja planowania programu SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
 |SQL Server (MSDB)|Wyeksportuj je do systemów plików/udziałów plików/Azure Files za pośrednictwem programu SSMS/dtutil. Aby uzyskać więcej informacji, zobacz [Eksportowanie pakietów SSIS](https://docs.microsoft.com/sql/integration-services/import-and-export-packages-ssis-service).|Przekonwertuj je na potoki ADF/działania/wyzwalacze za pośrednictwem skryptów/narzędzia SSMS/ADF Portal. Aby uzyskać więcej informacji, zobacz [Funkcja planowania programu SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
 |Magazyn pakietów|Wyeksportuj je do systemów plików/udziałów plików/Azure Files za pomocą narzędzia SSMS/dtutil lub wdróż je ponownie w udziałach plików/Azure Files za pośrednictwem dtinstall/dtutil/ręcznie Skopiuj lub Zachowaj dostęp do systemów plików za pośrednictwem sieci wirtualnej/samoobsługowego środowiska IR. Aby uzyskać więcej informacji, zobacz Narzędzie dtutil. Aby uzyskać więcej informacji, zobacz [Narzędzie dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility).|Przekonwertuj je na potoki ADF/działania/wyzwalacze za pośrednictwem skryptów/narzędzia SSMS/ADF Portal. Aby uzyskać więcej informacji, zobacz [Funkcja planowania programu SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
@@ -78,12 +78,12 @@ W zależności od [typów magazynu](#four-storage-types-for-ssis-packages) źró
 |SQL Server (MSDB)|Wyeksportuj je do systemów plików/udziałów plików/Azure Files za pośrednictwem programu SSMS/dtutil. Aby uzyskać więcej informacji, zobacz [Eksportowanie pakietów SSIS](https://docs.microsoft.com/sql/integration-services/import-and-export-packages-ssis-service).|Przekonwertuj je na potoki ADF/działania/wyzwalacze za pośrednictwem skryptów/narzędzia SSMS/ADF Portal. Aby uzyskać więcej informacji, zobacz [Funkcja planowania programu SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
 |Magazyn pakietów|Wyeksportuj je do systemów plików/udziałów plików/Azure Files za pomocą narzędzia SSMS/dtutil lub wdróż je ponownie w udziałach plików/Azure Files za pośrednictwem dtinstall/dtutil/ręcznie Skopiuj lub Zachowaj dostęp do systemów plików za pośrednictwem sieci wirtualnej/samoobsługowego środowiska IR. Aby uzyskać więcej informacji, zobacz Narzędzie dtutil. Aby uzyskać więcej informacji, zobacz [Narzędzie dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility).|Przekonwertuj je na potoki ADF/działania/wyzwalacze za pośrednictwem skryptów/narzędzia SSMS/ADF Portal. Aby uzyskać więcej informacji, zobacz [Funkcja planowania programu SSMS](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages-ssms).|
 
-## <a name="additional-resources"></a>Dodatkowe zasoby
+## <a name="additional-resources"></a>Zasoby dodatkowe
 
 - [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction)
 - [Asystent migracji bazy danych](https://docs.microsoft.com/sql/dma/dma-overview)
 - [Podnieś i Przenieś obciążenia SSIS do chmury](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview?view=sql-server-2017)
-- [Migrowanie pakietów SSIS do wystąpienia zarządzanego usługi Azure SQL Database](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages-managed-instance)
+- [Migrowanie pakietów usług SSIS do wystąpienia zarządzanego usługi Azure SQL](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages-managed-instance)
 - [Wdróż ponownie pakiety do Azure SQL Database](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages)
 
 ## <a name="next-steps"></a>Następne kroki

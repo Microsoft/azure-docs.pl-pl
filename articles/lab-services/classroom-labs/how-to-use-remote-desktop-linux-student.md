@@ -34,7 +34,7 @@ W tym artykule pokazano, jak uczniowie mogą łączyć się z maszyną wirtualn�
    
 1. Na kafelku Przełącz przycisk, aby uruchomić maszynę wirtualną, jeśli jest ona w stanie zatrzymania. 
 
-2. Wybierz przycisk **Połącz**. Zobaczysz dwie opcje połączenia z maszyną wirtualną: **SSH** i **RDP**.
+2. Wybierz pozycję **Połącz**. Zobaczysz dwie opcje połączenia z maszyną wirtualną: **SSH** i **RDP**.
 
     ![Maszyna wirtualna ucznia — opcje połączeń](../media/how-to-enable-remote-desktop-linux/student-vm-connect-options.png)
 

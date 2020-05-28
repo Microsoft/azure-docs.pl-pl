@@ -9,16 +9,14 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 10/27/2016
-ms.openlocfilehash: 3f22ce3b1fb750e33e35d35ee1fe5ad1893abcfd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4e70467d0ef956802e1ab7f416da7c2cbec37c58
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79204140"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84115562"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio-classic"></a>Zarządzanie cyklem życia aplikacji w Azure Machine Learning Studio (klasyczny)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Azure Machine Learning Studio (klasyczny) to narzędzie służące do opracowywania eksperymentów uczenia maszynowego, które są operacyjne na platformie Azure w chmurze. Podobnie jak w przypadku środowiska IDE programu Visual Studio i skalowalnej usługi w chmurze Scalonej z jedną platformą. Możesz uwzględnić standardowe zasady zarządzania cyklem życia aplikacji (ALM), aby korzystać z różnych zasobów do automatycznego wykonywania i wdrażania, w Azure Machine Learning Studio (klasyczne). W tym artykule omówiono niektóre opcje i metody.
 
@@ -46,7 +44,7 @@ Migawki uruchamiania migawek przechowują niezawodną wersję eksperymentu w Azu
 Plik JSON to tekstowa reprezentacja grafu eksperymentu, która może zawierać odwołanie do zasobów w obszarze roboczym, takim jak zestaw danych lub model szkolony. Nie zawiera serializowanej wersji elementu zawartości. W przypadku próby zaimportowania dokumentu JSON z powrotem do obszaru roboczego, przywoływane zasoby muszą już istnieć z tymi samymi identyfikatorami zasobów, do których odwołuje się eksperyment. W przeciwnym razie nie możesz uzyskać dostępu do zaimportowanego eksperymentu.
 
 ## <a name="versioning-trained-model"></a>Model przeszkolonej wersji
-Model przeszkolony w Azure Machine Learning Studio (klasyczny) jest serializowany do formatu znanego jako plik iLearner (`.iLearner`) i jest przechowywany na koncie usługi Azure Blob Storage skojarzonym z obszarem roboczym. Jednym ze sposobów uzyskania kopii pliku iLearner jest przechodzenie przez interfejs API ponownego uczenia. W [tym artykule](/azure/machine-learning/studio/retrain-machine-learning-model) wyjaśniono, jak działa interfejs API ponownego uczenia. Ogólne czynności:
+Model przeszkolony w Azure Machine Learning Studio (klasyczny) jest serializowany do formatu znanego jako plik iLearner ( `.iLearner` ) i jest przechowywany na koncie usługi Azure Blob Storage skojarzonym z obszarem roboczym. Jednym ze sposobów uzyskania kopii pliku iLearner jest przechodzenie przez interfejs API ponownego uczenia. W [tym artykule](/azure/machine-learning/studio/retrain-machine-learning-model) wyjaśniono, jak działa interfejs API ponownego uczenia. Ogólne czynności:
 
 1. Skonfiguruj eksperyment szkoleniowy.
 2. Dodaj port wyjściowy usługi sieci Web do modułu uczenia modelu lub moduł, który produkuje szkolony model, taki jak dostrajanie modelu lub tworzenie modelu języka R.

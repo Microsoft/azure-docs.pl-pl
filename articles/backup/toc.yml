@@ -393,8 +393,10 @@
       href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
     - name: Interfejs wiersza polecenia platformy Azure
       href: /cli/azure/backup?view=azure-cli-latest
-    - name: PowerShell
+    - name: Azure PowerShell
       href: /powershell/module/az.recoveryservices
+    - name: PowerShell — agent usługi Azure Backup
+      href: /powershell/module/msonlinebackup
     - name: REST — kopia zapasowa
       href: /rest/api/backup/
     - name: REST — magazyn usługi Recovery Services

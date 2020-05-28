@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 8d0b49b73ef6b67653fbf32db1174880a51d432d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3a3d3b990c750e96b840676097bb3677606bf68b
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81412945"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118348"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory — często zadawane pytania
 
@@ -83,7 +83,7 @@ Począwszy od początkowej publicznej wersji zapoznawczej w 2017, Data Factory d
 
 -    Obsługa trzech więcej konfiguracji/wariantów Azure SQL Database do hostowania bazy danych SSIS (SSISDB) projektów/pakietów:
 -    SQL Database z punktami końcowymi usługi sieci wirtualnej
--    Wystąpienie zarządzane
+-    Wystąpienie zarządzane SQL
 -    Elastyczna pula
 -    Obsługa Azure Resource Manager sieci wirtualnej na podstawie klasycznej sieci wirtualnej, która ma zostać wycofana w przyszłości, dzięki czemu można wstrzyknąć lub dołączyć do środowiska Azure-SSIS Integration Runtime do sieci wirtualnej skonfigurowanej do SQL Database za pomocą punktów końcowych usługi sieci wirtualnej/dostępu do danych lokalnych. Aby uzyskać więcej informacji, zobacz również [dołączanie środowiska Azure-SSIS Integration Runtime do sieci wirtualnej](join-azure-ssis-integration-runtime-virtual-network.md).
 -    Obsługa uwierzytelniania Azure Active Directory (Azure AD) i uwierzytelniania SQL w celu łączenia się z SSISDB, co pozwala na uwierzytelnianie usługi Azure AD za pomocą tożsamości zarządzanej Data Factory dla zasobów platformy Azure
@@ -109,7 +109,7 @@ Brak sztywnego limitu liczby wystąpień środowiska Integration Runtime, które
 ## <a name="what-are-the-top-level-concepts-of-azure-data-factory"></a>Jakie są koncepcje najwyższego poziomu Azure Data Factory?
 Subskrypcja platformy Azure może zawierać jedno lub więcej wystąpień usługi Azure Data Factory (lub fabryk danych). Azure Data Factory zawiera cztery kluczowe składniki, które współpracują ze sobą jako platforma, na której można tworzyć przepływy pracy oparte na danych z etapami przenoszenia i przekształcania danych.
 
-### <a name="pipelines"></a>Potoki
+### <a name="pipelines"></a>Pipelines
 Fabryka danych może obejmować jeden lub wiele potoków. Potok jest logicznym grupą działań do wykonania jednostką pracy. które umożliwiają wykonanie zadania. Na przykład potok może zawierać grupę działań, które pobierają dane z obiektu blob platformy Azure, a następnie uruchamiają zapytanie programu Hive w klastrze usługi HDInsight w celu partycjonowania danych. Korzyść polega na tym, że można użyć potoku do zarządzania działaniami jako zestawem, zamiast konieczności oddzielnego zarządzania poszczególnymi działaniami. Można połączyć działania w potoku w celu ich sekwencyjnego działania lub można obsługiwać je niezależnie, równolegle.
 
 ### <a name="data-flows"></a>Przepływy danych
@@ -266,7 +266,7 @@ Przepływ danych przetwarzanie obsługuje następujące typy danych w programie 
 * bigint
 * długi
 * tekst
-* date
+* data
 * datetime
 * datetime2
 * smalldatetime

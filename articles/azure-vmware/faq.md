@@ -4,12 +4,12 @@ description: Zawiera odpowiedzi na niektóre często zadawane pytania dotyczące
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: dikamath
-ms.openlocfilehash: c318a17e433f40b17e3dd9e3e95a655ecb48a160
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 1649b5649bd18b7ab53f3cc0196d7dff0f6f5b2c
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873320"
+ms.locfileid: "84112685"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution-avs-preview"></a>Często zadawane pytania dotyczące rozwiązania Azure VMware (automatyczna wersja zapoznawcza)
 
@@ -67,34 +67,7 @@ Nie wprowadzono zmian w istniejącym rozwiązaniu VMware platformy Azure przez C
 
 Tak, rozwiązanie VMware platformy Azure obsługuje migrację przy użyciu znanych narzędzi VMware, takich jak HCX. W przypadku klientów, którzy chcą przeprowadzić migrację do nowego rozwiązania, skontaktuj się z zespołem konto Microsoft, aby poznać opcje i dostępną pomoc techniczną.
 
-<a name="how-to-request-a-quota-increase-for-existing-avs"></a>**Jak mogę zażądać zwiększenia limitu przydziału hosta dla istniejącego rozwiązania platformy Azure VMware?**
 
-Można zażądać zwiększenia limitu przydziału przez [przesłanie żądania pomocy technicznej](..\azure-portal\supportability\how-to-create-azure-support-request.md). Zespół zarządzający przydziałami oblicza żądanie i zatwierdza go w ciągu trzech dni roboczych.  
-
-> [!IMPORTANT]
-> Przed zażądaniem zwiększenia limitu przydziału upewnij się, że [zarejestrowano dostawcę zasobów **Microsoft. Automatyczna synchronizacja** ](tutorial-create-private-cloud.md) w Azure Portal.  
-> ```azurecli-interactive
-> az provider register -n Microsoft.AVS --subscription <your subscription ID>
-> ```
-> Aby uzyskać dodatkowe sposoby rejestrowania dostawcy zasobów, zobacz [dostawcy zasobów platformy Azure i ich typy](https://review.docs.microsoft.com/en-us/azure/azure-resource-manager/management/resource-providers-and-types).
-
-1. W Azure Portal w obszarze **Pomoc i obsługa techniczna**Utwórz **nowe żądanie pomocy technicznej** i podaj następujące informacje dotyczące biletu:
-   - **Typ problemu:** Naukow
-   - **Subskrypcja:** Identyfikator subskrypcji
-   - **Usługa:**  Rozwiązanie VMware platformy Azure 
-   - **Podsumowanie:** Zwiększenie limitu przydziału
-   - **Typ problemu:** Problemy z zarządzaniem pojemnością
-   - **Podtyp problemu:** Żądanie klienta dotyczące dodatkowego przydziału/pojemności hosta
-
-1. W opisie biletu pomocy technicznej na karcie Szczegóły podaj następujące informacje:
-   - Liczba dodatkowych węzłów   
-   - Jednostka SKU węzła
-   - Region
-
-   > [!NOTE] 
-   > Domyślnie zostanie udzielony co najmniej cztery węzły.
-
-1. Kliknij przycisk **Przegląd + Utwórz** , aby przesłać żądanie.
 
 ## <a name="compute-network-and-storage"></a>Obliczenia, Sieć i magazyn
 
@@ -164,7 +137,7 @@ Nie, nie musisz używać NSX lokalnie.
 
 **Co to jest harmonogram uaktualniania i aktualizacji oprogramowania VMware w chmurze prywatnej?**
 
-Uaktualnienia pakietu oprogramowania w chmurze prywatnej są wykonywane w celu zachowania oprogramowania w ramach jednej wersji najnowszej wersji programu VMware. Wersje oprogramowania w chmurze prywatnej mogą różnić się od najnowszych wersji poszczególnych składników oprogramowania (ESXi, NSX-T, vCenter, sieci vSAN).
+Uaktualnienia pakietu oprogramowania w chmurze prywatnej są wykonywane w celu zachowania oprogramowania w ramach jednej wersji najnowszej wersji pakietu oprogramowania z programu VMware. Wersje oprogramowania w chmurze prywatnej mogą różnić się od najnowszych wersji poszczególnych składników oprogramowania (ESXi, NSX-T, vCenter, sieci vSAN).
 
 **Jak często będzie aktualizowany stos oprogramowania chmury prywatnej?**
 
@@ -233,6 +206,35 @@ Pomoc techniczna dotycząca automatycznej synchronizacji jest dostarczana przez 
 **Jakie konta są potrzebne do utworzenia chmury prywatnej do automatycznej synchronizacji?**
 
 Musisz mieć konto platformy Azure w ramach subskrypcji platformy Azure.
+
+<a name="how-to-request-a-quota-increase-for-avs"></a>**Jak mogę zażądać zwiększenia limitu przydziału hosta dla rozwiązania Azure VMware?**
+
+Można zażądać zwiększenia limitu przydziału przez [przesłanie żądania pomocy technicznej](..\azure-portal\supportability\how-to-create-azure-support-request.md). Zespół zarządzający przydziałami oblicza żądanie i zatwierdza go w ciągu trzech dni roboczych.  
+
+> [!IMPORTANT]
+> Przed zażądaniem zwiększenia limitu przydziału upewnij się, że zarejestrowano dostawcę zasobów **Microsoft. Automatyczna synchronizacja** w Azure Portal.  
+> ```azurecli-interactive
+> az provider register -n Microsoft.AVS --subscription <your subscription ID>
+> ```
+> Aby uzyskać dodatkowe sposoby rejestrowania dostawcy zasobów, zobacz [dostawcy zasobów platformy Azure i ich typy](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
+
+1. W Azure Portal w obszarze **Pomoc i obsługa techniczna**Utwórz **nowe żądanie pomocy technicznej** i podaj następujące informacje dotyczące biletu:
+   - **Typ problemu:** Naukow
+   - **Subskrypcja:** Identyfikator subskrypcji
+   - **Usługa:**  Rozwiązanie VMware platformy Azure 
+   - **Podsumowanie:** Zwiększenie limitu przydziału
+   - **Typ problemu:** Problemy z zarządzaniem pojemnością
+   - **Podtyp problemu:** Żądanie klienta dotyczące dodatkowego przydziału/pojemności hosta
+
+1. W opisie biletu pomocy technicznej na karcie Szczegóły podaj następujące informacje:
+   - Liczba dodatkowych węzłów   
+   - Jednostka SKU węzła
+   - Region
+
+   > [!NOTE] 
+   > Domyślnie zostanie udzielony co najmniej cztery węzły.
+
+1. Kliknij przycisk **Przegląd + Utwórz** , aby przesłać żądanie.
 
 <!-- LINKS - external -->
 [kb2106952]: https://kb.vmware.com/s/article/2106952

@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/16/2019
-ms.openlocfilehash: 32a40f3d4da93318c6d2ec25295c89a7b53141e4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/26/2020
+ms.openlocfilehash: 8189228d6707812fb943e9925dc2bbf1b6da4972
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606438"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112810"
 ---
 # <a name="filter-transformation-in-mapping-data-flow"></a>Przekształcenie filtru w strumieniu danych mapowania
 
@@ -21,7 +21,9 @@ ms.locfileid: "81606438"
 
 Przekształcenia filtru umożliwiają filtrowanie wierszy na podstawie warunku. Strumień wyjściowy zawiera wszystkie wiersze, które pasują do warunku filtrowania. Transformacja filtru jest podobna do klauzuli WHERE w SQL.
 
-## <a name="configuration"></a>Konfiguracja
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4xnxN]
+
+## <a name="configuration"></a>Konfigurowanie
 
 Użyj konstruktora wyrażeń przepływu danych, aby wprowadzić wyrażenie dla warunku filtru. Aby otworzyć Konstruktora wyrażeń, kliknij niebieską ramkę. Warunek filtru musi być typu Boolean. Aby uzyskać więcej informacji na temat tworzenia wyrażenia, zobacz dokumentację programu [Expression Builder](concepts-data-flow-expression-builder.md) .
 
@@ -40,7 +42,7 @@ Użyj konstruktora wyrażeń przepływu danych, aby wprowadzić wyrażenie dla w
 
 ### <a name="example"></a>Przykład
 
-Poniższy przykład to transformacja filtru o nazwie `FilterBefore1960` , która przyjmuje strumień `CleanData`przychodzący. Warunek filtru jest wyrażeniem `year <= 1960`.
+Poniższy przykład to transformacja filtru o nazwie `FilterBefore1960` , która przyjmuje strumień przychodzący `CleanData` . Warunek filtru jest wyrażeniem `year <= 1960` .
 
 W Data Factory środowisku użytkownika Ta transformacja wygląda jak na poniższym obrazie:
 

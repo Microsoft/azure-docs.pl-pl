@@ -16,7 +16,7 @@ ms.contentlocale: pl-PL
 ms.lasthandoff: 05/21/2020
 ms.locfileid: "83744310"
 ---
-# <a name="troubleshoot-runbook-issues"></a>Rozwiązywanie problemów z elementem Runbook
+# <a name="troubleshoot-runbook-issues"></a>Rozwiązywanie problemów z elementami runbook
 
  W tym artykule opisano problemy elementu Runbook, które mogą wystąpić i sposoby ich rozwiązywania. Aby uzyskać ogólne informacje, zobacz [wykonywanie elementów Runbook w Azure Automation](../automation-runbook-execution.md).
 
@@ -191,7 +191,7 @@ Podczas pracy z poleceniem, lub zostanie wyświetlony następujący `Select-Azur
 The subscription named <subscription name> cannot be found.
 ```
 
-### <a name="error"></a>Błąd
+### <a name="error"></a>Error
 
 Ten błąd może wystąpić, jeśli:
 
