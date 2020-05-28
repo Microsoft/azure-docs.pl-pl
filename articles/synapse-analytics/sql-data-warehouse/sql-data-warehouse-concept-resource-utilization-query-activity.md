@@ -11,12 +11,12 @@ ms.date: 04/09/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 7c09e9d9f93ead6f894c954f647ebe33918cf41d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e80ff74ad1dec25c815a9dd28a04133502b82085
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653013"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84012912"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Monitorowanie działania użycia zasobów i zapytań w usłudze Azure Synapse Analytics
 
@@ -49,7 +49,7 @@ Następujące metryki są dostępne w Azure Portal dla programu SQL Synapse. Te 
 Zagadnienia, które należy wziąć pod uwagę podczas przeglądania metryk i ustawień alertów:
 
 - JEDNOSTEK dwu używany reprezentuje tylko **reprezentację poziomu użycia** w ramach puli SQL i nie jest to kompleksowy wskaźnik użycia. Aby określić, czy skalować w górę, czy w dół, należy wziąć pod uwagę wszystkie czynniki, na które może mieć wpływ jednostek dwu, takie jak współbieżność, pamięć, baza danych tempdb i adaptacyjna pojemność pamięci podręcznej. Zalecamy [Uruchamianie obciążeń w różnych ustawieniach jednostek dwu](sql-data-warehouse-manage-compute-overview.md#finding-the-right-size-of-data-warehouse-units) , aby określić, co najlepiej sprawdza się w celu spełnienia celów firmy.
-- Nie powiodło się i pomyślne połączenia są raportowane dla określonego magazynu danych — nie dla serwera logicznego
+- Nie powiodło się i pomyślne połączenia są raportowane dla określonego magazynu danych — nie dla samego serwera.
 - Procent pamięci odzwierciedla użycie, nawet jeśli magazyn danych jest w stanie bezczynności — nie odzwierciedla aktywnego zużycia pamięci obciążeń. Użyj i śledź tę metrykę wraz z innymi (tempdb, Gen2 cache), aby wykonać całościową decyzję, czy skalowanie dla dodatkowej pojemności pamięci podręcznej spowoduje zwiększenie wydajności obciążeń w celu spełnienia wymagań.
 
 ## <a name="query-activity"></a>Działanie zapytania

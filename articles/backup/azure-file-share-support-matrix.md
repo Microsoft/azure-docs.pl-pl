@@ -3,26 +3,26 @@ title: Macierz obsługi dla kopii zapasowej udziału plików platformy Azure
 description: Zawiera podsumowanie ustawień i ograniczeń pomocy technicznej podczas tworzenia kopii zapasowych udziałów plików platformy Azure.
 ms.topic: conceptual
 ms.date: 5/07/2020
-ms.openlocfilehash: 42578cc83ef193801fa700ec7d136385411e5f79
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 09ca5264280c990db8f57400aef1a876f842a210
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684625"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117682"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Macierz obsługi dla kopii zapasowej udziału plików platformy Azure
 
 Za pomocą [usługi Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview) można tworzyć kopie zapasowe udziałów plików platformy Azure. Ten artykuł podsumowuje ustawienia pomocy technicznej podczas tworzenia kopii zapasowych udziałów plików platformy Azure za pomocą Azure Backup.
 
-## <a name="supported-geos"></a>Obsługiwane GEOREGIONY
+## <a name="supported-regions"></a>Obsługiwane regiony
 
-Kopia zapasowa dla udziałów plików platformy Azure jest dostępna w następujących GEOREGIONY:
+### <a name="ga-regions-for-azure-file-shares-backup"></a>Obszary odnoszące się do tworzenia kopii zapasowych udziałów plików platformy Azure
 
-**Regiony ga**:<br>
-Australia Południowo-Wschodnia (ASE), Kanada Środkowa (CNC), zachodnio-środkowe stany USA (WCUS), Południowo-środkowe stany USA (SCUS), zachodnie stany USA 2 (WUS 2), Indie Południowe (INS), Północno-środkowe stany USA (NCUS), Japonia Wschodnia (JPE), Brazylia Południowa (BRS), Południowe Azja Wschodnia (morski), Szwajcaria Zachodnia (szw), Zjednoczone Emiraty Arabskie (UAC), Norwegia Wschodnia (NWE), Indie Zachodnie (inw), Australia Środkowa (ACL), Korea Środkowa (KRC), Japonia Zachodnia Północna Republika Południowej Afryki , Południowe Zjednoczone Królestwo (UKS), Zachodnie Zjednoczone Królestwo (UKW), Korea Południowa (KRS), Europa Północna (NE), Niemcy Północne (GN), Norwegia Zachodnia (NWW), Zachodnia Republika Południowej Afryki (Piła), Szwajcaria Północna (SZN), Niemcy Środkowo-Zachodnie (GWC), Zjednoczone Emiraty Arabskie (UAN), Francja Środkowa (FRC), Indie Środkowe (INC), Kanada Wschodnia (CNE), (EA), Australia Wschodnia (AE), środkowe stany USA (CUS), zachodnie stany USA (WUS) Azja Wschodnia, US gov Arizona (uga) , US Gov Wirginia (UGV), US DoD (region środkowy) (UDC), US DoD (region wschodni) (LUCZ)
+Kopie zapasowe udziałów plików platformy Azure są dostępne we wszystkich regionach **z wyjątkiem** : Niemcy środkowe (suwerenne), Niemcy Wschodnie (suwerenne), Chiny Wschodnie, Chiny Wschodnie 2, Chiny Północne Chiny Północne 2, US gov Iowa
 
-**Obsługiwane regiony (w ramach wersji zapoznawczej), ale nie są jeszcze ga**:<br>
-Wschodnie stany USA (EUS), Wschodnie stany USA 2 (EUS2), Europa Zachodnia (my)
+### <a name="supported-regions-for-accidental-delete-protection"></a>Obsługiwane regiony do przypadkowego usunięcia ochrony
+
+Zachodnio-środkowe stany USA
 
 ## <a name="supported-storage-accounts"></a>Obsługiwane konta magazynu
 

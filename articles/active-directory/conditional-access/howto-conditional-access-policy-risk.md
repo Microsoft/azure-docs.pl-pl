@@ -4,19 +4,19 @@ description: Tworzenie zasad dostępu warunkowego w celu włączenia rozszerzeń
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 03/25/2020
+ms.topic: how-to
+ms.date: 05/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8054d8985596095db32d9262322d7fb0f4aab8c8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b9cfba377aba30d4687bab4ba7c5a311c70c4905
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80295152"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995160"
 ---
 # <a name="conditional-access-risk-based-conditional-access"></a>Dostęp warunkowy: dostęp warunkowy oparty na ryzyku
 
@@ -36,7 +36,7 @@ Włączenie tych zasad będzie wymagało, aby wszyscy użytkownicy rejestrowali 
 1. W obszarze **przypisania**wybierz pozycję **Użytkownicy**.
    1. W obszarze **dołączanie**wybierz pozycję **Wszyscy użytkownicy**.
    1. W obszarze **Wyklucz**wybierz opcję **Wybierz wykluczonych użytkowników**, wybierz pozycję dostęp awaryjny lub konta w firmie, a następnie wybierz pozycję **Wybierz**. 
-   1. Wybierz pozycję **Gotowe**.
+   1. Wybierz pozycję **Done** (Gotowe).
 1. Ustaw ustawienie **Wymuszaj zasady** na **włączone**.
 1. Kliknij przycisk **Zapisz**.
 
@@ -50,10 +50,10 @@ Firma Microsoft współpracuje z naukowcami, organami ścigania, różnymi zespo
 1. W obszarze **przypisania**wybierz pozycję **Użytkownicy** .
    1. W obszarze **dołączanie**wybierz pozycję **Wszyscy użytkownicy**.
    1. W obszarze **Wyklucz**wybierz opcję **Wybierz wykluczonych użytkowników**, wybierz pozycję dostęp awaryjny lub konta w firmie, a następnie wybierz pozycję **Wybierz**.
-   1. Wybierz pozycję **Gotowe**.
+   1. Wybierz pozycję **Done** (Gotowe).
 1. W obszarze **warunki**wybierz pozycję **ryzyko użytkownika**, a następnie wybierz pozycję **wysoki**.
    1. Kliknij przycisk **Wybierz** , a następnie pozycję **gotowe**.
-1. W obszarze **Kontrola** > **dostępu**wybierz pozycję **Zezwalaj na dostęp**, a następnie wybierz pozycję **Wymagaj zmiany hasła**.
+1. W obszarze **Kontrola**  >  **dostępu**wybierz pozycję **Zezwalaj na dostęp**, a następnie wybierz pozycję **Wymagaj zmiany hasła**.
    1. Kliknij pozycję **Wybierz**.
 1. Ustaw ustawienie **Wymuszaj zasady** na **włączone**.
 1. Kliknij przycisk **Zapisz**.
@@ -68,10 +68,10 @@ Większości użytkowników dotyczy zachowanie normalne, które można śledzić
 1. W obszarze **przypisania**wybierz pozycję **Użytkownicy** .
    1. W obszarze **dołączanie**wybierz pozycję **Wszyscy użytkownicy**.
    1. W obszarze **Wyklucz**wybierz opcję **Wybierz wykluczonych użytkowników**, wybierz pozycję dostęp awaryjny lub konta w firmie, a następnie wybierz pozycję **Wybierz**.
-   1. Wybierz pozycję **Gotowe**.
+   1. Wybierz pozycję **Done** (Gotowe).
 1. W obszarze **warunki**wybierz pozycję **ryzyko związane z logowaniem**, a następnie wybierz pozycję **średni i powyżej**.
    1. Kliknij przycisk **Wybierz** , a następnie pozycję **gotowe**.
-1. W obszarze **Kontrola** > **dostępu**wybierz pozycję **Zezwalaj na dostęp**, a następnie wybierz pozycję **Wymagaj uwierzytelniania wieloskładnikowego**.
+1. W obszarze **Kontrola**  >  **dostępu**wybierz pozycję **Zezwalaj na dostęp**, a następnie wybierz pozycję **Wymagaj uwierzytelniania wieloskładnikowego**.
    1. Kliknij pozycję **Wybierz**.
 1. Ustaw ustawienie **Wymuszaj zasady** na **włączone**.
 1. Kliknij przycisk **Zapisz**.

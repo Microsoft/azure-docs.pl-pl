@@ -1,6 +1,6 @@
 ---
-title: Przykład interfejsu wiersza polecenia — Grupa trybu failover — Azure SQL Database wystąpienie zarządzane
-description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure do utworzenia wystąpienia zarządzanego Azure SQL Database, dodania go do grupy trybu failover i przetestowania trybu failover.
+title: Przykład interfejsu wiersza polecenia — Grupa trybu failover — wystąpienie zarządzane Azure SQL
+description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure do utworzenia wystąpienia zarządzanego usługi Azure SQL, dodania go do grupy trybu failover i przetestowania trybu failover.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,14 +11,14 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 8ffe40662ffaf8a1fb35a3d31acfaea78ea0fbeb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e9efb4e222e74f97a4f3d88639b02a86a3a6d660
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80061914"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84115432"
 ---
-# <a name="use-cli-to-add-an-azure-sql-database-managed-instance-to-a-failover-group"></a>Dodawanie Azure SQL Database wystąpienia zarządzanego do grupy trybu failover przy użyciu interfejsu wiersza polecenia
+# <a name="use-cli-to-add-an-azure-sql-managed-instance-to-a-failover-group"></a>Dodawanie wystąpienia zarządzanego Azure SQL do grupy trybu failover przy użyciu interfejsu wiersza polecenia
 
 Ten przykład interfejsu wiersza polecenia platformy Azure tworzy dwa wystąpienia zarządzane, dodaje je do grupy trybu failover, a następnie testuje tryb failover z podstawowego wystąpienia zarządzanego do pomocniczego wystąpienia zarządzanego.
 
@@ -36,7 +36,7 @@ Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z
 
 ### <a name="clean-up-deployment"></a>Czyszczenie wdrożenia
 
-Użyj poniższego polecenia, aby usunąć grupę zasobów i wszystkie skojarzone z nią zasoby. Należy dwukrotnie usunąć grupę zasobów. Usunięcie grupy zasobów po raz pierwszy spowoduje usunięcie wystąpienia zarządzanego i klastrów wirtualnych, ale zakończy się niepowodzeniem z komunikatem `az group delete : Long running operation failed with status 'Conflict'.`o błędzie. Uruchom polecenie AZ Group DELETE po raz drugi, aby usunąć wszystkie zasoby pozostałe oraz grupę zasobów.
+Użyj poniższego polecenia, aby usunąć grupę zasobów i wszystkie skojarzone z nią zasoby. Należy dwukrotnie usunąć grupę zasobów. Usunięcie grupy zasobów po raz pierwszy spowoduje usunięcie wystąpienia zarządzanego i klastrów wirtualnych, ale zakończy się niepowodzeniem z komunikatem o błędzie `az group delete : Long running operation failed with status 'Conflict'.` . Uruchom polecenie AZ Group DELETE po raz drugi, aby usunąć wszystkie zasoby pozostałe oraz grupę zasobów.
 
 ```azurecli-interactive
 az group delete --name $resource
@@ -52,13 +52,13 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 | [AZ Network VNET Subnet](/cli/azure/network/vnet/subnet) | Polecenia podsieci sieci wirtualnej. |
 | [AZ Network sieciowej grupy zabezpieczeń](/cli/azure/network/nsg) | Polecenia sieciowe grupy zabezpieczeń. |
 | [AZ Network Route-Table](/cli/azure/network/route-table) | Kierowanie poleceń tabeli. |
-| [AZ SQL mi](/cli/azure/sql/mi) | Polecenia wystąpienia zarządzanego. |
+| [AZ SQL mi](/cli/azure/sql/mi) | Polecenia wystąpienia zarządzanego SQL. |
 | [AZ Network Public-IP](/cli/azure/network/public-ip) | Polecenia sieciowego publicznego adresu IP. |
 | [AZ Network VNET-Gateway](/cli/azure/network/vnet-gateway) | Virtual Network polecenia bramy. |
-| [AZ SQL instance-failover-Group](/cli/azure/sql/instance-failover-group) | Polecenia grupy trybu failover wystąpienia zarządzanego. |
+| [AZ SQL instance-failover-Group](/cli/azure/sql/instance-failover-group) | Polecenia grupy trybu failover wystąpienia zarządzanego SQL. |
 
 ## <a name="next-steps"></a>Następne kroki
 
 Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure).
 
-Więcej przykładowych skryptów interfejsu wiersza polecenia dla usługi SQL Database można znaleźć w [dokumentacji usługi Azure SQL Database](../sql-database-cli-samples.md).
+Więcej przykładowych skryptów interfejsu wiersza polecenia dla usługi SQL Database można znaleźć w [dokumentacji usługi Azure SQL Database](../../azure-sql/database/az-cli-script-samples-content-guide.md).

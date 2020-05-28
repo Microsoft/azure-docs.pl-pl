@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 05/11/2020
+ms.date: 05/27/2020
 ms.author: anfeldma
-ms.openlocfilehash: 23ba8b12651c4de05fd8fb0b2721839beb36a7a6
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 398f1495fdfc9da7273ff372fbb57a6ba304c490
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660455"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117707"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>Biblioteka modułu wykonawczego platformy .NET: informacje o pobieraniu 
 
@@ -21,7 +21,7 @@ ms.locfileid: "83660455"
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [Źródło zmian platformy .NET](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Node.js](sql-api-sdk-node.md)
+> * [Node. js](sql-api-sdk-node.md)
 > * [Zestaw Java SDK v4](sql-api-sdk-java-v4.md)
 > * [Async Java SDK 2](sql-api-sdk-async-java.md)
 > * [Sync Java SDK 2](sql-api-sdk-java.md)
@@ -73,6 +73,10 @@ ms.locfileid: "83660455"
 ### <a name="200-preview"></a><a name="2.0.0-preview"/>2.0.0 — wersja zapoznawcza
 
 * Dodano .NET Standard 2,0 jako jedną z obsługiwanych platform docelowych, aby Biblioteka wykonawców zbiorczych działała z aplikacjami .NET Core.
+
+### <a name="189"></a><a name="1.8.9"/>1.8.9
+
+* Rozwiązano problem związany z BulkDeleteAsync, gdy wartości ze znakami ucieczki zostały przesłane jako parametry wejściowe.
 
 ### <a name="188"></a><a name="1.8.8"/>1.8.8
 

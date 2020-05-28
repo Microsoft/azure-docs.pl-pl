@@ -10,12 +10,12 @@ ms.workload: cloud-services
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: memccror
-ms.openlocfilehash: e3f0fd88eb302dac208f43d0622ae28b31dcddc2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d4f869c8b4ae6e90cfe64a2bf3d13839d72727be
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77157511"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015305"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>Co zrobić w przypadku przerw w działaniu usługi platformy Azure mających wpływ na platformę Azure Cloud Services
 Firma Microsoft chce, aby upewnić się, że nasze usługi są zawsze dostępne dla Ciebie, gdy będą potrzebne. Siły wykraczające poza nasze kontrolki czasami wpływają na metody, które powodują nieplanowane zakłócenia usługi.
@@ -47,7 +47,7 @@ Aby uzyskać szczegółowe informacje na temat sposobu tworzenia i wdrażania ap
 W zależności od źródeł danych aplikacji może być konieczne sprawdzenie procedur odzyskiwania dla źródła danych aplikacji.
 
 * W przypadku źródeł danych usługi Azure Storage zapoznaj się z opcjami [nadmiarowości usługi Azure Storage](../storage/common/storage-redundancy.md) , aby sprawdzić dostępne opcje w oparciu o wybrany model nadmiarowości dla aplikacji.
-* Aby uzyskać informacje o SQL Database źródłach, przeczytaj artykuł [Omówienie: ciągłość działania w chmurze i odzyskiwanie po awarii bazy danych za pomocą SQL Database](../sql-database/sql-database-business-continuity.md) , aby sprawdzić dostępne opcje w oparciu o wybrany model replikacji dla aplikacji.
+* Aby uzyskać informacje o SQL Database źródłach, przeczytaj artykuł [Omówienie: ciągłość działania w chmurze i odzyskiwanie po awarii bazy danych za pomocą SQL Database](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md) , aby sprawdzić dostępne opcje w oparciu o wybrany model replikacji dla aplikacji.
 
 
 ## <a name="option-3-wait-for-recovery"></a>Opcja 3: Zaczekaj na odzyskanie

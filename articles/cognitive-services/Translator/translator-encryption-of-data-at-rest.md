@@ -7,14 +7,14 @@ manager: venkyv
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 05/26/2020
 ms.author: egeaney
-ms.openlocfilehash: 82b294cbda6e9d4b4cfa5ec560d802c8e5c6c51c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 0a4a1f49735a30d7ad764e7f031610eabd09763e
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83590897"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995772"
 ---
 # <a name="translator-encryption-of-data-at-rest"></a>Szyfrowanie danych w usłudze translator
 

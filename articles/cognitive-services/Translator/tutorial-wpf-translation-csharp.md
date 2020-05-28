@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
-ms.date: 02/10/2020
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 0d500a7c24538adb139a42924134f784973f496b
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f80d22adc432a81fcc88391e71ed7540399fa559
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588565"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995738"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Samouczek: Tworzenie aplikacji do translacji przy użyciu WPF
 
@@ -37,7 +37,7 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 Ta lista zawiera usługi Cognitive Services używane w tym samouczku. Użyj linku, aby przejrzeć dokumentację interfejsu API dla każdej funkcji.
 
-| Usługa | Cechy | Opis |
+| Usługa | Cecha | Opis |
 |---------|---------|-------------|
 | Translator | [Pobieranie języków](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages) | Pobierz pełną listę obsługiwanych języków na potrzeby tłumaczenia tekstu. |
 | Translator | [Przetłumacz](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | Przetłumacz tekst na ponad 60 języków. |

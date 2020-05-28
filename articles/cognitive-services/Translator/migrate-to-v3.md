@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 47136ee9c2f0dee29571f310eb3b07d7c11888c0
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8fae863c03ccbc17e9ec6621e73ddf475f759569
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592716"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996214"
 ---
 # <a name="translator-v2-to-v3-migration"></a>Migracja z usługi Translator do wersji v3
 
@@ -116,10 +116,10 @@ Microsoft Translator v3 domyślnie używa tłumaczenia maszynowego neuronowych. 
 
 Translacja neuronowych z interfejsem API tekstu V3 nie obsługuje korzystania z standardowych kategorii (SMT, Speech, Tech, generalnn).
 
-| |Endpoint|    Zgodność procesora Rodo|  Korzystanie z centrum usługi translator| Korzystanie z translatora niestandardowego (wersja zapoznawcza)|
+| |Endpoint|    Zgodność procesora Rodo|    Korzystanie z centrum usługi translator|    Korzystanie z translatora niestandardowego (wersja zapoznawcza)|
 |:-----|:-----|:-----|:-----|:-----|
-|Translator — wersja 2|  api.microsofttranslator.com|    Nie  |Tak    |Nie|
-|Translator w wersji 3|  api.cognitive.microsofttranslator.com|  Tak|    Nie| Tak|
+|Translator — wersja 2|    api.microsofttranslator.com|    Nie    |Yes    |Nie|
+|Translator w wersji 3|    api.cognitive.microsofttranslator.com|    Yes|    Nie|    Yes|
 
 **Translator w wersji 3**
 * Jest ogólnie dostępna i w pełni obsługiwana.

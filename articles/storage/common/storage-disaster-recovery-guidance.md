@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 6534e7d3a05434855503a9cbf1e675aa11799984
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: aab64e173b02ae991f7071da785434fa742de7de
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857772"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994701"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Odzyskiwanie po awarii i tryb failover konta magazynu
 
@@ -26,8 +26,6 @@ Usługa Azure Storage obsługuje tryb failover dla konta magazynu geograficznie 
 Tryb failover konta jest dostępny dla typów kont ogólnego przeznaczenia w wersji 1, w wersji 2 i dla usługi BLOB Storage z wdrożeniami Azure Resource Manager. Tryb failover konta jest obsługiwany przez wszystkie regiony publiczne, ale nie jest w tej chwili dostępna w chmurach suwerennych lub krajowych.
 
 W tym artykule opisano koncepcje i procesy związane z trybem failover konta oraz omówiono sposób przygotowania konta magazynu do odzyskania przy minimalnym wpływie na klienta. Aby dowiedzieć się, jak zainicjować tryb failover konta w Azure Portal lub PowerShell, zobacz [inicjowanie trybu failover konta](storage-initiate-account-failover.md).
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

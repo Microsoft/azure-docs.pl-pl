@@ -10,16 +10,14 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: c79f6bd63fa5d8d8c6b22ff271d8ca513a94fd64
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5b7d34cd8a841f7931ce85d3f9830c5497bb2f93
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79218080"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118500"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Wykonywanie skryptów w języku Python Machine Learning w Azure Machine Learning Studio (klasyczny)
-
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 
 Język Python jest cennym narzędziem w obszarze klatki narzędzia wielu analityków danych. Jest on używany w każdym etapie typowych przepływów pracy uczenia maszynowego, takich jak Eksploracja danych, wyodrębnianie funkcji, szkolenia modeli i sprawdzanie poprawności oraz wdrażanie.
 
@@ -27,7 +25,7 @@ W tym artykule opisano, jak można użyć modułu skryptu języka Python do uży
 
 ## <a name="using-the-execute-python-script-module"></a>Korzystanie z modułu skryptu języka Python
 
-Interfejs podstawowy do języka Python w programie Studio (klasyczny) polega na użyciu modułu [uruchamiania skryptów języka Python][execute-python-script] . Akceptuje do trzech danych wejściowych i tworzy do dwóch wyjść, podobnie jak moduł [wykonywania skryptu języka R][execute-r-script] . Kod języka Python jest wprowadzany do pola parametru za pomocą specjalnie wywołanej `azureml_main`funkcji punktu wejścia o nazwie.
+Interfejs podstawowy do języka Python w programie Studio (klasyczny) polega na użyciu modułu [uruchamiania skryptów języka Python][execute-python-script] . Akceptuje do trzech danych wejściowych i tworzy do dwóch wyjść, podobnie jak moduł [wykonywania skryptu języka R][execute-r-script] . Kod języka Python jest wprowadzany do pola parametru za pomocą specjalnie wywołanej funkcji punktu wejścia o nazwie `azureml_main` .
 
 ![Wykonaj moduł skryptu języka Python](./media/execute-python-scripts/execute-machine-learning-python-scripts-module.png)
 
@@ -35,7 +33,7 @@ Interfejs podstawowy do języka Python w programie Studio (klasyczny) polega na 
 
 ### <a name="input-parameters"></a>Parametry wejściowe
 
-Dane wejściowe modułu języka Python są ujawniane jako Pandas dataframes. `azureml_main` Funkcja akceptuje do dwóch opcjonalnych ramek dataPandas jako parametry.
+Dane wejściowe modułu języka Python są ujawniane jako Pandas dataframes. `azureml_main`Funkcja akceptuje do dwóch opcjonalnych ramek dataPandas jako parametry.
 
 Mapowanie między portami wejściowymi i parametrami funkcji jest pozycyjne:
 
@@ -49,7 +47,7 @@ Poniżej przedstawiono bardziej szczegółową semantykę sposobu mapowania port
 
 ### <a name="output-return-values"></a>Wyjściowe wartości zwracane
 
-`azureml_main` Funkcja musi zwracać pojedynczą Pandas Dataframe spakowany w [sekwencji](https://docs.python.org/2/c-api/sequence.html) w języku Python, taką jak krotka, lista lub tablica numpy. Pierwszy element tej sekwencji jest zwracany do pierwszego portu wyjściowego modułu. Drugi port wyjściowy modułu jest używany do [wizualizacji](#visualizations) i nie wymaga wartości zwracanej. Ten schemat jest przedstawiony poniżej.
+`azureml_main`Funkcja musi zwracać pojedynczą Pandas Dataframe spakowany w [sekwencji](https://docs.python.org/2/c-api/sequence.html) w języku Python, taką jak krotka, lista lub tablica numpy. Pierwszy element tej sekwencji jest zwracany do pierwszego portu wyjściowego modułu. Drugi port wyjściowy modułu jest używany do [wizualizacji](#visualizations) i nie wymaga wartości zwracanej. Ten schemat jest przedstawiony poniżej.
 
 ![Mapowanie portów wejściowych do parametrów i zwracanie wartości do portu wyjściowego](./media/execute-python-scripts/map-of-python-script-inputs-outputs.png)
 
@@ -71,7 +69,7 @@ Zestawy danych programu Studio nie są takie same jak Panda dataframes. W efekci
 
 Zaplecze używane do wykonywania języka Python opiera się na [Anaconda](https://www.anaconda.com/distribution/), szeroko używanym do nauki dystrybucji języka Python. Jest on dostępny w pobliżu 200 najpopularniejszych pakietów języka Python używanych w obciążeniu zorientowanym na dane. Studio (klasyczny) obecnie nie obsługuje korzystania z systemów zarządzania pakietami, takich jak PIP lub Conda, do instalowania bibliotek zewnętrznych i zarządzania nimi.  Jeśli okaże się, że musisz uwzględnić dodatkowe biblioteki, użyj następującego scenariusza jako przewodnika.
 
-Typowy przypadek użycia polega na uwzględnieniu istniejących skryptów języka Python w programie Studio (klasycznym). Moduł [wykonywania skryptu języka Python][execute-python-script] akceptuje plik zip zawierający moduły Python na trzecim porcie wejściowym. Plik jest rozpakowany przez strukturę wykonywania w czasie wykonywania, a zawartość jest dodawana do ścieżki biblioteki interpretera języka Python. Funkcja `azureml_main` punktu wejścia może następnie zaimportować te moduły bezpośrednio. 
+Typowy przypadek użycia polega na uwzględnieniu istniejących skryptów języka Python w programie Studio (klasycznym). Moduł [wykonywania skryptu języka Python][execute-python-script] akceptuje plik zip zawierający moduły Python na trzecim porcie wejściowym. Plik jest rozpakowany przez strukturę wykonywania w czasie wykonywania, a zawartość jest dodawana do ścieżki biblioteki interpretera języka Python. `azureml_main`Funkcja punktu wejścia może następnie zaimportować te moduły bezpośrednio. 
 
 Rozważmy na przykład plik Hello.py zawierający prostą funkcję "Hello, World".
 

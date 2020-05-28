@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 864f6a6d92306c40713f66b526c8a8df1683d3c4
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 7ebfe766e6362a3f62e70db8bf2dcae370aceee3
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83586800"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996163"
 ---
 # <a name="add-profanity-filtering-with-the-translator"></a>Dodawanie filtrowania niewulgarności przy użyciu translatora
 
@@ -29,7 +29,7 @@ Metoda Przetłumacz () przyjmuje parametr "Options", który zawiera nowy element
 |ProfanityAction wartość | Akcja | Przykład: Źródło — japoński | Przykład: Target — angielski|
 | :---|:---|:---|:---|
 | NoAction | Domyślne. Analogicznie jak ustawienie opcji nie jest możliwe. Niezbyt wulgarne przekazanie z lokalizacji źródłowej do docelowej. | 彼は変態です. | Jest to jerk. |
-| Oznacz | Wyrazy wulgarne są otoczone \< nie>ami tagów XML... \< /profanity>. | 彼は変態です. | Jest to \< wulgarne>Jerk \< /profanity>. |
+| Oznacz | Wyrazy wulgarne są otoczone tagami XML \<profanity> .. \</profanity> . | 彼は変態です. | Jest to \<profanity> Jerk \</profanity> . |
 | Usunięte | Wyrazy wulgarne są usuwane z danych wyjściowych bez zastępowania. | 彼は. | Jest to. |
 
 ## <a name="next-steps"></a>Następne kroki

@@ -4,19 +4,19 @@ description: W tym artykule przedstawiono sposób migracji zasad klasycznych, kt
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 12/04/2019
+ms.topic: how-to
+ms.date: 05/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d637ac464b689a25ce5d5a79cf47da0c85d38d0f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d1dc7b7227dbaee488726a75fe7120bd26614dbf
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74846038"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993732"
 ---
 # <a name="migrate-a-classic-policy-in-the-azure-portal"></a>Migrowanie zasad klasycznych w Azure Portal
 
@@ -32,7 +32,7 @@ Proces migracji obejmuje następujące kroki:
 
 ## <a name="open-a-classic-policy"></a>Otwieranie zasad klasycznych
 
-1. W [Azure Portal](https://portal.azure.com)przejdź do **Azure Active Directory** > **zabezpieczenia** > **dostęp warunkowy**.
+1. W [Azure Portal](https://portal.azure.com)przejdź do **Azure Active Directory**  >  **zabezpieczenia**  >  **dostęp warunkowy**.
 1. Wybierz pozycję **zasady klasyczne**.
 
    ![Widok zasad klasycznych](./media/policy-migration-mfa/12.png)
@@ -41,7 +41,7 @@ Proces migracji obejmuje następujące kroki:
 
 ## <a name="create-a-new-conditional-access-policy"></a>Tworzenie nowych zasad dostępu warunkowego
 
-1. W [Azure Portal](https://portal.azure.com)przejdź do **Azure Active Directory** > **zabezpieczenia** > **dostęp warunkowy**.
+1. W [Azure Portal](https://portal.azure.com)przejdź do **Azure Active Directory**  >  **zabezpieczenia**  >  **dostęp warunkowy**.
 1. Aby utworzyć nowe zasady dostępu warunkowego, wybierz pozycję **nowe zasady**.
 1. Na **nowej** stronie, w polu tekstowym **Nazwa** wpisz nazwę zasady.
 1. W sekcji **przypisania** kliknij pozycję **Użytkownicy i grupy**.

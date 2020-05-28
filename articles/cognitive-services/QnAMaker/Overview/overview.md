@@ -3,12 +3,12 @@ title: Co to jest usługa QnA Maker?
 description: QnA Maker to oparta na chmurze usługa NLP, która w prosty sposób tworzy naturalną komunikację między danymi. Można go użyć, aby znaleźć najbardziej odpowiednią odpowiedź dla danego danych wejściowych języka naturalnego, z niestandardowej bazy wiedzy (KB).
 ms.topic: overview
 ms.date: 05/26/2020
-ms.openlocfilehash: 5962ab2294a19c600beb00816394d96059bd4108
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: d2ff2d789f2ea1ae6018d95ef1d880da87b4ff74
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873720"
+ms.locfileid: "83994871"
 ---
 # <a name="what-is-the-qna-maker-service"></a>Co to jest usługa QnA Maker?
 
@@ -40,9 +40,9 @@ Po opublikowaniu QnA Maker bazy wiedzy aplikacja kliencka wysyła pytanie do pun
 
 ## <a name="what-is-a-knowledge-base"></a>Co to jest baza wiedzy?
 
-QnA Maker [importuje zawartość](../concepts/knowledge-base.md) do bazy wiedzy w zestawach pytań i odpowiedzi. Proces importowania wyodrębnia informacje o relacji między częściami zawartości strukturalnej i częściowo strukturalnej, aby oznaczać relacje między zestawami pytań i odpowiedzi. Można edytować te pytania i zestawy odpowiedzi lub dodawać nowe zestawy.
+QnA Maker [importuje zawartość](../concepts/knowledge-base.md) do bazy wiedzy o parach pytań i odpowiedzi. Proces importowania wyodrębnia informacje o relacji między częściami zawartości strukturalnej i częściowo strukturalnej, aby implikuje relacje między parami pytania i odpowiedzi. Można edytować te pary pytań i odpowiedzi lub dodawać nowe pary.
 
-Zawartość pytania i zestawu odpowiedzi obejmuje:
+Zawartość pary pytań i odpowiedzi obejmuje:
 * Wszystkie alternatywne formy pytania
 * Tagi metadanych używane do filtrowania opcji odpowiedzi podczas wyszukiwania
 * Monity do kontynuowania uściślania wyszukiwania
@@ -53,7 +53,7 @@ Po opublikowaniu bazy wiedzy aplikacja kliencka wysyła do punktu końcowego pyt
 
 ## <a name="create-manage-and-publish-to-a-bot-without-code"></a>Tworzenie i publikowanie bot bez kodu oraz zarządzanie nim
 
-Portal QnA Maker zapewnia pełną obsługę tworzenia bazy wiedzy. Możesz importować dokumenty w ich bieżącym formularzu do bazy wiedzy. Te dokumenty (takie jak często zadawane pytania, Podręcznik produktu, arkusz kalkulacyjny lub strona sieci Web) są konwertowane na zestawy pytań i odpowiedzi. Każdy zestaw jest analizowany pod kątem monitów kolejnych i połączonych z innymi zestawami. Końcowy format _promocji_ obsługuje zaawansowaną prezentację, w tym obrazy i linki.
+Portal QnA Maker zapewnia pełną obsługę tworzenia bazy wiedzy. Możesz importować dokumenty w ich bieżącym formularzu do bazy wiedzy. Te dokumenty (takie jak często zadawane pytania, Podręcznik produktu, arkusz kalkulacyjny lub strona sieci Web) są konwertowane na pary pytań i odpowiedzi. Każda para jest analizowana pod kątem monitów kolejnych i podłączonych do innych par. Końcowy format _promocji_ obsługuje zaawansowaną prezentację, w tym obrazy i linki.
 
 Po edytowaniu bazy wiedzy Opublikuj bazę wiedzy w działającej [aplikacji internetowej platformy Azure bot](https://azure.microsoft.com/services/bot-service/) bez konieczności pisania kodu. Przetestuj swój bot w [Azure Portal](https://portal.azure.com) lub Pobierz i Kontynuuj programowanie.
 
@@ -63,7 +63,7 @@ System QnA Maker jest podejściem z klasyfikacją warstwową. Dane są przechowy
 
 ## <a name="qna-maker-improves-the-conversation-process"></a>QnA Maker usprawnia proces konwersacji
 
-QnA Maker oferuje wielodostępne instrukcje i aktywne uczenie, które pomagają ulepszyć podstawowe zestawy pytań i odpowiedzi.
+QnA Maker zapewnia wielodostępne i aktywne uczenie, aby pomóc w ulepszaniu podstawowych par pytań i odpowiedzi.
 
 Polecenia z **obsługą wielodostępności** umożliwiają połączenie par pytań i odpowiedzi. To połączenie umożliwia aplikacji klienckiej dostarczenie odpowiedzi na największą odpowiedź i zawiera więcej pytań dotyczących wyszukiwania końcowej odpowiedzi.
 

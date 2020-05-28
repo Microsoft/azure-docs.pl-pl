@@ -15,12 +15,12 @@ ms.date: 08/07/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5bfdcfab37091a5f581ce147c0a6af5ccd8147a0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6de80278aa6919fecf67c28356c0917bd6b159d3
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77914793"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014880"
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>Inicjowanie obsługi administracyjnej maszyny wirtualnej SQL Server przy użyciu Azure PowerShell (klasyczny)
 
@@ -31,7 +31,7 @@ W tym artykule przedstawiono procedurę tworzenia SQL Server maszyny wirtualnej 
 > [!NOTE] 
 > Platforma Azure ma dwa różne modele wdrażania służące do tworzenia zasobów i pracy z nimi: [Menedżer zasobów i klasyczne](../../../azure-resource-manager/management/deployment-models.md). W tym artykule opisano korzystanie z klasycznego modelu wdrażania. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager.
 
-Aby uzyskać Menedżer zasobów wersję tego tematu, zobacz [Inicjowanie obsługi SQL Server maszyny wirtualnej przy użyciu Azure PowerShell Menedżer zasobów](../sql/virtual-machines-windows-ps-sql-create.md).
+Aby uzyskać Menedżer zasobów wersję tego tematu, zobacz [Inicjowanie obsługi SQL Server maszyny wirtualnej przy użyciu Azure PowerShell Menedżer zasobów](../../../azure-sql/virtual-machines/windows/create-sql-vm-powershell.md).
 
 ### <a name="install-and-configure-powershell"></a>Instalowanie i Konfigurowanie programu PowerShell:
 1. Jeśli nie masz konta platformy Azure, odwiedź stronę [bezpłatnej wersji próbnej platformy Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -203,8 +203,8 @@ Po zalogowaniu się na komputerze przy użyciu pulpitu zdalnego Skonfiguruj SQL 
 
 Dodatkowe instrukcje dotyczące aprowizacji maszyn wirtualnych za pomocą programu PowerShell można znaleźć w [dokumentacji maszyn wirtualnych](../classic/create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-W wielu przypadkach następnym krokiem jest Migrowanie baz danych do tej nowej maszyny wirtualnej SQL Server. Aby uzyskać wskazówki dotyczące migracji bazy danych, zobacz [Migrowanie bazy danych do SQL Server na maszynie wirtualnej platformy Azure](../sql/virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
+W wielu przypadkach następnym krokiem jest Migrowanie baz danych do tej nowej maszyny wirtualnej SQL Server. Aby uzyskać wskazówki dotyczące migracji bazy danych, zobacz [Migrowanie bazy danych do SQL Server na maszynie wirtualnej platformy Azure](../../../azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
 
-Jeśli interesuje Cię również korzystanie z Azure Portal do tworzenia Virtual Machines SQL, zobacz [Inicjowanie obsługi administracyjnej SQL Server maszyny wirtualnej na platformie Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md). Należy pamiętać, że samouczek, który przeprowadzi Cię przez portal, tworzy maszyny wirtualne przy użyciu zalecanego modelu Menedżer zasobów, a nie modelu klasycznego użytego w tym temacie programu PowerShell.
+Jeśli interesuje Cię również korzystanie z Azure Portal do tworzenia Virtual Machines SQL, zobacz [Inicjowanie obsługi administracyjnej SQL Server maszyny wirtualnej na platformie Azure](../../../azure-sql/virtual-machines/windows/create-sql-vm-portal.md). Należy pamiętać, że samouczek, który przeprowadzi Cię przez portal, tworzy maszyny wirtualne przy użyciu zalecanego modelu Menedżer zasobów, a nie modelu klasycznego użytego w tym temacie programu PowerShell.
 
-Oprócz tych zasobów zalecamy przejrzenie [innych tematów związanych z uruchamianiem SQL Server w usłudze Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Oprócz tych zasobów zalecamy przejrzenie [innych tematów związanych z uruchamianiem SQL Server w usłudze Azure Virtual Machines](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).

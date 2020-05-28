@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c4feeca1cbe7eb88aace811829e4d9c2db5f38e
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 2a2b4864232892f1940de5c8fe46fa23879c92f3
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83641604"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112776"
 ---
 # <a name="conditional-access-insights-and-reporting"></a>Szczegółowe informacje i raportowanie dostępu warunkowego
 
@@ -98,6 +98,23 @@ Wyświetl podział użytkowników lub logowania dla każdego z tych warunków. M
 Możesz również zbadać logowania określonego użytkownika, wyszukując logowania w dolnej części pulpitu nawigacyjnego. Zapytanie po lewej stronie wyświetla najbardziej częste użytkowników. Wybranie użytkownika spowoduje odfiltrowanie zapytania po prawej stronie.  
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
+
+### <a name="why-are-queries-failing-due-to-a-permissions-error"></a>Dlaczego zapytania kończą się niepowodzeniem z powodu błędu uprawnień?
+
+Aby można było uzyskać dostęp do skoroszytu, potrzebne są odpowiednie uprawnienia usługi Azure AD, a także uprawnienia do Log Analytics obszaru roboczego. Aby sprawdzić, czy masz odpowiednie uprawnienia obszaru roboczego, uruchamiając przykładowe zapytanie usługi log Analytics:
+
+1. Zaloguj się w witrynie **Azure Portal**.
+1. Przejdź do **Azure Active Directory**  >  **dzienników**Azure Active Directory.
+1. Wpisz `SigninLogs` w polu zapytania i wybierz polecenie **Uruchom**.
+1. Jeśli zapytanie nie zwraca żadnych wyników, być może obszar roboczy nie został poprawnie skonfigurowany. 
+
+![Rozwiązywanie problemów z nieudanymi zapytaniami](./media/howto-conditional-access-insights-reporting/query-troubleshoot-sign-in-logs.png)
+
+Aby uzyskać więcej informacji o sposobach przesyłania strumieniowego dzienników logowania usługi Azure AD do obszaru roboczego Log Analytics, zobacz artykuł [integracja dzienników usługi Azure AD z dziennikami Azure monitor](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+
+### <a name="why-is-the-conditional-access-policies-parameter-is-empty"></a>Dlaczego parametr zasady dostępu warunkowego jest pusty?
+
+Lista zasad jest generowana przez przejrzenie zasad ocenionych dla ostatniego zdarzenia logowania. Jeśli w dzierżawie nie ma żadnych ostatnich logowań, może być konieczne odczekanie kilku minut, zanim skoroszyt załaduje listę zasad dostępu warunkowego. Może to nastąpić natychmiast po skonfigurowaniu Log Analytics lub może trwać dłużej, jeśli dzierżawa nie ma najnowszego działania związanego z logowaniem.
 
 ### <a name="why-is-the-workbook-taking-a-long-time-to-load"></a>Dlaczego pobieranie skoroszytu trwa dużo czasu?  
 

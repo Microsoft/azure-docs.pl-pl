@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: 78cb58bca9b06b6dcf8549eefa5ebf0eb2b4b01c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: b1660c3a6d3bfe262493722c5aad0a08778b1964
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81409331"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84119153"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Przyrostowe ładowanie danych z bazy danych Azure SQL Database do usługi Azure Blob Storage za pomocą Azure Portal
 
@@ -65,7 +65,7 @@ Poniżej przedstawiono ważne czynności związane z tworzeniem tego rozwiązani
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
-* **Azure SQL Database**. Baza danych jest używana jako źródłowy magazyn danych. Jeśli nie masz bazy danych SQL, utwórz ją, wykonując czynności przedstawione w artykule [Tworzenie bazy danych Azure SQL Database](../sql-database/sql-database-get-started-portal.md).
+* **Azure SQL Database**. Baza danych jest używana jako źródłowy magazyn danych. Jeśli nie masz bazy danych SQL, utwórz ją, wykonując czynności przedstawione w artykule [Tworzenie bazy danych Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
 * **Usługa Azure Storage**. Magazyn obiektów blob jest używany jako magazyn danych ujścia. Jeśli nie masz konta magazynu, utwórz je, wykonując czynności przedstawione w artykule [Tworzenie konta magazynu](../storage/common/storage-account-create.md). Utwórz kontener o nazwie adftutorial. 
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>Tworzenie tabeli danych źródłowych w bazie danych SQL
@@ -152,7 +152,7 @@ END
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
 1. Uruchom przeglądarkę internetową **Microsoft Edge** lub **Google Chrome**. Obecnie interfejs użytkownika usługi Data Factory jest obsługiwany tylko przez przeglądarki internetowe Microsoft Edge i Google Chrome.
-2. Z menu po lewej stronie wybierz pozycję **Utwórz** > **Analytics** > **Data Factory**analizy zasobów:
+2. Z menu po lewej stronie wybierz pozycję **Utwórz**  >  **Analytics**  >  **Data Factory**analizy zasobów:
 
    ![Wybór usługi Data Factory w okienku „Nowy”](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -196,9 +196,9 @@ W tym samouczku utworzysz potok z dwoma działaniami Lookup, jednym działaniem 
 8. W polu **połączona usługa**wybierz pozycję **Nowy**, a następnie wykonaj następujące czynności:
 
     1. Wprowadź wartość **AzureSqlDatabaseLinkedService** w polu **Nazwa**.
-    2. Wybierz serwer Azure SQL Server, aby uzyskać **nazwę serwera**.
+    2. Wybierz serwer dla **nazwy serwera**.
     3. Wybierz **nazwę bazy danych** z listy rozwijanej.
-    4. Wprowadź & **hasło**do **nazwy użytkownika**.
+    4. Wprowadź hasło do **nazwy użytkownika**  &  **Password**.
     5. Aby przetestować połączenie z bazą danych Azure SQL Database, kliknij przycisk **Testuj połączenie**.
     6. Kliknij przycisk **Zakończ**.
     7. Upewnij się, że wybrano **AzureSqlDatabaseLinkedService** dla **połączonej usługi**.
@@ -258,7 +258,7 @@ W tym samouczku utworzysz potok z dwoma działaniami Lookup, jednym działaniem 
 27. W oknie **Ustawianie właściwości** upewnij się, że wybrano opcję **AzureStorageLinkedService** dla **połączonej usługi**. Następnie wybierz pozycję **Zakończ**.
 28. Przejdź do karty **połączenie** w programie SinkDataset i wykonaj następujące czynności:
     1. W polu **ścieżka pliku** wprowadź **adftutorial/incrementalcopy**. Kontenerem obiektów blob jest **adftutorial**, a nazwą folderu — **incrementalcopy**. W tym fragmencie kodu założono, że w masz kontener obiektów blob o nazwie adftutorial w magazynie obiektów blob. Utwórz ten kontener, jeśli nie istnieje, lub zastąp go nazwą istniejącego kontenera. Jeśli folder wyjściowy **incrementalcopy** nie istnieje, usługa Azure Data Factory automatycznie go utworzy. Można również za pomocą przycisku **Przeglądaj** pola **Ścieżka pliku** przejść do folderu w kontenerze obiektów blob.
-    2. Dla części **pliku** w polu **ścieżka pliku** wybierz pozycję **Dodaj zawartość dynamiczną [Alt + P]**, a następnie wprowadź `@CONCAT('Incremental-', pipeline().RunId, '.txt')`w otwartym oknie. Następnie wybierz pozycję **Zakończ**. Nazwa pliku jest generowana dynamicznie przy użyciu wyrażenia. Każde uruchomienie potoku ma unikatowy identyfikator. Działanie kopiowania używa identyfikatora uruchomienia do wygenerowania nazwy pliku.
+    2. Dla części **pliku** w polu **ścieżka pliku** wybierz pozycję **Dodaj zawartość dynamiczną [Alt + P]**, a następnie wprowadź `@CONCAT('Incremental-', pipeline().RunId, '.txt')` w otwartym oknie. Następnie wybierz pozycję **Zakończ**. Nazwa pliku jest generowana dynamicznie przy użyciu wyrażenia. Każde uruchomienie potoku ma unikatowy identyfikator. Działanie kopiowania używa identyfikatora uruchomienia do wygenerowania nazwy pliku.
 
 28. Przejdź do edytora **potoku** , klikając kartę potoku u góry lub klikając nazwę potoku w widoku drzewa po lewej stronie.
 29. W przyborniku **Działania** rozwiń pozycję **Ogólne**, a następnie przeciągnij i upuść działanie **Stored Procedure** (Procedura składowana) z przybornika **Działania** na powierzchnię projektanta potoku. **Połącz** zielone (Powodzenie) wyjście działania **kopiowania** z działaniem **procedury składowanej**.
@@ -274,8 +274,8 @@ W tym samouczku utworzysz potok z dwoma działaniami Lookup, jednym działaniem 
 
         | Nazwa | Typ | Wartość |
         | ---- | ---- | ----- |
-        | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
-        | TableName | String | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
+        | LastModifiedtime | Data/godzina | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
+        | TableName | String (ciąg) | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
     ![Działanie procedury składowanej — ustawienia procedury składowanej](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
 27. Aby zweryfikować ustawienia potoku, kliknij pozycję **Weryfikuj** na pasku narzędzi. Potwierdź, że weryfikacja nie zwróciła błędów. Aby zamknąć okno **Raport weryfikacji potoku**, kliknij pozycję >>.   

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: a31f800ad157e22f3d35abae3d3b714fa29178ef
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 73934521cc68dc8ec2e28f29e35df833651915d2
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562206"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83997013"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Wyzwalacze i wykonywanie potoku w usłudze Azure Data Factory
 
@@ -236,14 +236,14 @@ Aby wyzwalacz harmonogramu uruchamiał potok, należy dołączyć odwołanie do 
 Poniższa tabela zawiera ogólne omówienie głównych elementów schematu odnoszących się do powtarzania i planowania wyzwalacza:
 
 | Właściwość JSON | Opis |
-|:--- |:--- |
+| --- | --- |
 | **startTime** | Wartość daty i godziny. W przypadku podstawowych harmonogramów wartość właściwości **startTime** dotyczy pierwszego wystąpienia. W przypadku harmonogramów złożonych wyzwalacz nie jest uruchamiany wcześniej niż określona wartość właściwości **startTime**. |
 | **endTime** | Data i godzina zakończenia wyzwalacza. Wyzwalacz nie jest wykonywany po określonej dacie i godzinie zakończenia. Wartość właściwości nie może odnosić się do przeszłości. <!-- This property is optional. --> |
 | **timeZone** | Strefa czasowa. Obecnie jest obsługiwana tylko strefa czasowa UTC. |
 | **wystąpieniu** | Obiekt cyklu określający reguły powtarzania wyzwalacza. Obiekt cyklu obsługuje elementy właściwości **frequency**, **interval**, **endTime**, **count** i **schedule**. Po zdefiniowaniu obiektu cyklu wymagany jest element właściwości **frequency**. Inne elementy obiektu cyklu są opcjonalne. |
 | **jaką** | Jednostka częstotliwości powtarzania wyzwalacza. Obsługiwane wartości to „minute” („minuta”), „hour” („godzina”), „day” („dzień”), „week” („tydzień”) i „month” („miesiąc”). |
 | **dat** | Dodatnia liczba całkowita, która określa odstęp czasu dla wartości **frequency**. Wartość **frequency** określa, jak często jest uruchamiany wyzwalacz. Jeśli na przykład właściwość **interval** ma wartość 3, a właściwość **frequency** ma wartość „week” („tydzień”), wyzwalacz jest powtarzany co trzy tygodnie. |
-| **rozkład** | Harmonogram cyklu wyzwalacza. Wyzwalacz z określoną wartością właściwości **frequency** zmienia swój cykl na podstawie harmonogramu cyklu. Właściwość **schedule** zawiera modyfikacje cyklu oparte na minutach, godzinach, dniach tygodnia, dniach miesiąca i numerze tygodnia.
+| **rozkład** | Harmonogram cyklu wyzwalacza. Wyzwalacz z określoną wartością właściwości **frequency** zmienia swój cykl na podstawie harmonogramu cyklu. Właściwość **schedule** zawiera modyfikacje cyklu oparte na minutach, godzinach, dniach tygodnia, dniach miesiąca i numerze tygodnia. |
 
 ### <a name="schedule-trigger-example"></a>Przykładowy wyzwalacz harmonogramu
 
@@ -282,18 +282,18 @@ Poniższa tabela zawiera ogólne omówienie głównych elementów schematu odnos
 ### <a name="schema-defaults-limits-and-examples"></a>Wartości domyślne, limity i przykłady harmonogramów
 
 | Właściwość JSON | Typ | Wymagane | Wartość domyślna | Prawidłowe wartości | Przykład |
-|:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | ciąg | Tak | Brak | Daty i godziny ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **wystąpieniu** | obiekt | Tak | Brak | Obiekt cyklu | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **dat** | numer | Nie | 1 | Od 1 do 1000 | `"interval":10` |
-| **endTime** | ciąg | Tak | Brak | Wartość daty i godziny reprezentująca godzinę w przyszłości | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **rozkład** | obiekt | Nie | Brak | Obiekt harmonogramu | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| --- | --- | --- | --- | --- | --- |
+| **startTime** | ciąg | Yes | Brak | Daty i godziny ISO 8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **wystąpieniu** | object | Yes | Brak | Obiekt cyklu | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **dat** | liczba | Nie | 1 | Od 1 do 1000 | `"interval":10` |
+| **endTime** | ciąg | Yes | Brak | Wartość daty i godziny reprezentująca godzinę w przyszłości | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **rozkład** | object | Nie | Brak | Obiekt harmonogramu | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>Właściwość startTime
 W poniższej tabeli przedstawiono, w jaki sposób właściwość **startTime** kontroluje uruchamianie wyzwalacza:
 
 | Wartość startTime | Cykl bez harmonogramu | Cykl z harmonogramem |
-|:--- |:--- |:--- |
+| --- | --- | --- |
 | **Czas rozpoczęcia jest w przeszłości** | Oblicza pierwszy przyszły czas wykonania po czasie rozpoczęcia i uruchamia wyzwalacz w tym czasie.<br /><br />Uruchamia kolejne wykonania obliczone na podstawie ostatniego czasu wykonania.<br /><br />Zobacz przykład znajdujący się pod tabelą. | Wyzwalacz jest uruchamiany _nie wcześniej niż_ w określonym czasie rozpoczęcia. Pierwsze wystąpienie opiera się na harmonogramie obliczonym na podstawie czasu rozpoczęcia.<br /><br />Kolejne wykonania opierają na harmonogramie cyklu. |
 | **Czas rozpoczęcia jest w przyszłości lub jest to bieżący czas** | Uruchamiany raz o określonym czasie rozpoczęcia.<br /><br />Uruchamia kolejne wykonania obliczone na podstawie ostatniego czasu wykonania. | Wyzwalacz jest uruchamiany _nie wcześniej_ niż w określonym czasie rozpoczęcia. Pierwsze wystąpienie opiera się na harmonogramie obliczonym na podstawie czasu rozpoczęcia.<br /><br />Kolejne wykonania opierają na harmonogramie cyklu. |
 
@@ -315,20 +315,17 @@ Jeśli określono wiele elementów **harmonogramu** , kolejność oceny jest od 
 W poniższej tabeli opisano szczegółowo elementy właściwości **schedule**:
 
 | Element JSON | Opis | Prawidłowe wartości |
-|:--- |:--- |:--- |
-| **minut** | Minuty godziny, o których uruchamiany jest wyzwalacz. |- Liczba całkowita<br />- Tablica liczb całkowitych|
-| **liczb** | Godziny dnia, o których uruchamiany jest wyzwalacz. |- Liczba całkowita<br />- Tablica liczb całkowitych|
-| **weekDays** | Dni tygodnia, w które uruchamiany jest wyzwalacz. Wartość można określić tylko z częstotliwością tygodniową.|<br />- Poniedziałek<br />- Wtorek<br />- Środa<br />- Czwartek<br />- Piątek<br />- Sobota<br />- Niedziela<br />- Tablica wartości dni (maksymalny rozmiar tablicy to 7)<br /><br />W wartościach dni nie jest rozróżniana wielkość liter|
-| **monthlyOccurrences** | Dni miesiąca, w których uruchamiany jest wyzwalacz. Wartość można określić tylko z częstotliwością miesięczną. |-Tablica obiektów **monthlyOccurrence** :`{ "day": day, "occurrence": occurrence }`<br />- Atrybut **day** jest dniem tygodnia, w którym uruchamiany jest wyzwalacz. Na przykład właściwość **monthlyOccurrences** o wartości **day** wynoszącej `{Sunday}` oznacza każdą niedzielę miesiąca. Atrybut **day** jest wymagany.<br />- Atrybut **occurence** jest wystąpieniem określonej wartości **day** w miesiącu. Na przykład właściwość **monthlyOccurrences** o wartościach **day** i **occurence** wynoszących `{Sunday, -1}` oznacza ostatnią niedzielę miesiąca. Atrybut **occurence** jest opcjonalny.|
-| **monthDays** | Dzień miesiąca, w którym uruchamiany jest wyzwalacz. Wartość można określić tylko z częstotliwością miesięczną. |- Dowolna wartość <= -1 i >= -31<br />- Dowolna wartość >= 1 i <= 31<br />- Tablica wartości|
+| --- | --- | --- |
+| **minut** | Minuty godziny, o których uruchamiany jest wyzwalacz. |- Liczba całkowita<br />- Tablica liczb całkowitych |
+| **liczb** | Godziny dnia, o których uruchamiany jest wyzwalacz. |- Liczba całkowita<br />- Tablica liczb całkowitych |
+| **weekDays** | Dni tygodnia, w które uruchamiany jest wyzwalacz. Wartość można określić tylko z częstotliwością tygodniową.|<br />- Poniedziałek<br />- Wtorek<br />- Środa<br />- Czwartek<br />- Piątek<br />- Sobota<br />- Niedziela<br />- Tablica wartości dni (maksymalny rozmiar tablicy to 7)<br /><br />W wartościach dni nie jest rozróżniana wielkość liter |
+| **monthlyOccurrences** | Dni miesiąca, w których uruchamiany jest wyzwalacz. Wartość można określić tylko z częstotliwością miesięczną. |-Tablica obiektów **monthlyOccurrence** :`{ "day": day, "occurrence": occurrence }`<br />- Atrybut **day** jest dniem tygodnia, w którym uruchamiany jest wyzwalacz. Na przykład właściwość **monthlyOccurrences** o wartości **day** wynoszącej `{Sunday}` oznacza każdą niedzielę miesiąca. Atrybut **day** jest wymagany.<br />- Atrybut **occurence** jest wystąpieniem określonej wartości **day** w miesiącu. Na przykład właściwość **monthlyOccurrences** o wartościach **day** i **occurence** wynoszących `{Sunday, -1}` oznacza ostatnią niedzielę miesiąca. Atrybut **occurence** jest opcjonalny. |
+| **monthDays** | Dzień miesiąca, w którym uruchamiany jest wyzwalacz. Wartość można określić tylko z częstotliwością miesięczną. |- Dowolna wartość <= -1 i >= -31<br />- Dowolna wartość >= 1 i <= 31<br />- Tablica wartości |
 
 ## <a name="tumbling-window-trigger"></a>Wyzwalacz okna wirowania
 Wyzwalacze okna wirowania to rodzaj wyzwalaczy uruchamianych w określonych odstępach czasu od wskazanego czasu rozpoczęcia przy zachowaniu stanu. Okna wirowania to ciągłe, nienakładające się na siebie serie odstępów czasu o stałych rozmiarach.
 
 Aby uzyskać więcej informacji na temat wyzwalaczy okna wirowania i dla przykładów, zobacz [Tworzenie wyzwalacza okna wirowania](how-to-create-tumbling-window-trigger.md).
-
-> [!NOTE]
-> Uruchomienie wyzwalacza okna wirowaniaa *czeka na zakończenie wyzwalanego uruchomienia potoku* . Jego stan przebiegu odzwierciedla stan wyzwalanego uruchomienia potoku. Na przykład jeśli wyzwolone uruchomienie potoku zostanie anulowane, odpowiadające mu uruchomienie wyzwalacza okna wirowania zostanie oznaczone jako anulowane. Różni się to od zachowania "pożar i zapomnij" wyzwalacza harmonogramu, który jest oznaczony jako zakończony powodzeniem, o ile uruchomiono uruchomienie potoku.
 
 ## <a name="event-based-trigger"></a>Wyzwalacz oparty na zdarzeniach
 
@@ -342,7 +339,7 @@ Ta sekcja zawiera przykłady harmonogramów cyklu. Koncentruje się ona na obiek
 W przykładach założono, że wartość **interwału** wynosi 1 i że wartość **częstotliwości** jest poprawna zgodnie z definicją harmonogramu. Na przykład nie można mieć wartości **frequency** równej „day” i jednocześnie mieć modyfikacji **monthDays** w obiekcie **schedule**. Tego rodzaju ograniczenia są opisane w tabeli w poprzedniej sekcji.
 
 | Przykład | Opis |
-|:--- |:--- |
+| --- | --- |
 | `{"hours":[5]}` | Uruchamiany o godz. 5:00 każdego dnia. |
 | `{"minutes":[15], "hours":[5]}` | Uruchamiany o godz. 5:15 każdego dnia. |
 | `{"minutes":[15], "hours":[5,17]}` | Uruchamiany o godz. 5:15 i 17:15 każdego dnia. |
@@ -373,15 +370,18 @@ W przykładach założono, że wartość **interwału** wynosi 1 i że wartość
 ## <a name="trigger-type-comparison"></a>Porównanie typów wyzwalaczy
 Zarówno wyzwalacz okna wirowania, jak i wyzwalacz harmonogramu pracują w oparciu o pulsy czasu. Czym się od siebie różnią?
 
+> [!NOTE]
+> Uruchomienie wyzwalacza okna wirowaniaa *czeka na zakończenie wyzwalanego uruchomienia potoku* . Jego stan przebiegu odzwierciedla stan wyzwalanego uruchomienia potoku. Na przykład jeśli wyzwolone uruchomienie potoku zostanie anulowane, odpowiadające mu uruchomienie wyzwalacza okna wirowania zostanie oznaczone jako anulowane. Różni się to od zachowania "pożar i zapomnij" wyzwalacza harmonogramu, który jest oznaczony jako zakończony powodzeniem, o ile uruchomiono uruchomienie potoku.
+
 Poniższa tabela zawiera porównanie wyzwalacza okna wirowania i wyzwalacza harmonogramu:
 
-|  | Wyzwalacz okna wirowania | Wyzwalacz harmonogramu |
-|:--- |:--- |:--- |
+| Element | Wyzwalacz okna wirowania | Wyzwalacz harmonogramu |
+| --- | --- | --- |
 | **Scenariusze wypełniania** | Obsługiwane. Uruchomienia potoków można planować dla okien w przeszłości. | Nieobsługiwane. Uruchomienia potoków można wykonywać tylko w teraźniejszych i przyszłych okresach czasu. |
 | **Niezawodność** | 100-procentowa niezawodność. Uruchomienia potoków można zaplanować dla wszystkich okien od określonej daty rozpoczęcia bez przerw. | Mniej niezawodne. |
 | **Możliwość ponowienia próby** | Obsługiwane. Uruchomienia potoków zakończone niepowodzeniem mają domyślne zasady ponawiania próby ustawione na wartość 0 lub zasady określone przez użytkownika w definicji wyzwalacza. Automatycznie ponawia próbę, gdy uruchomienie potoku nie powiodło się z powodu ograniczeń współbieżności/serwera/ograniczania (czyli kodów stanu 400: błąd użytkownika, 429: zbyt wiele żądań i 500: wewnętrzny błąd serwera). | Nieobsługiwane. |
 | **Współbieżność** | Obsługiwane. Użytkownicy mogą jawnie ustawić limity współbieżności dla wyzwalacza. Umożliwia od 1 do 50 jednocześnie wyzwolonych uruchomień potoków. | Nieobsługiwane. |
-| **Zmienne systemu** | Obsługuje używanie zmiennych systemowych **WindowStart** i **WindowEnd**. Użytkownicy mogą uzyskiwać dostęp do zmiennych `triggerOutputs().windowStartTime` i `triggerOutputs().windowEndTime` jako zmiennych systemu wyzwalacza w definicji wyzwalacza. Wartości są używane odpowiednio jako czas rozpoczęcia okna i czas zakończenia okna. Na przykład w przypadku wyzwalacza okna wirowania uruchamianego co godzinę dla okna od godz. 1:00 do 2:00 definicją jest zmienna `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` i `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | Nieobsługiwane. |
+| **Zmienne systemu** | Wraz z @trigger (). scheduledTime i @trigger (). StartTime obsługuje także użycie zmiennych systemowych **WindowStart** i **WindowEnd** . Użytkownicy mogą uzyskiwać dostęp do zmiennych `triggerOutputs().windowStartTime` i `triggerOutputs().windowEndTime` jako zmiennych systemu wyzwalacza w definicji wyzwalacza. Wartości są używane odpowiednio jako czas rozpoczęcia okna i czas zakończenia okna. Na przykład w przypadku wyzwalacza okna wirowania uruchamianego co godzinę dla okna od godz. 1:00 do 2:00 definicją jest zmienna `triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z` i `triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z`. | Obsługiwane są tylko @trigger zmienne default (). scheduledTime i @trigger (). StartTime. |
 | **Relacja potoku do wyzwalacza** | Obsługuje relację „jeden do jednego”. Można wyzwolić tylko jeden potok. | Obsługuje relacje „wiele do wielu”. Wiele wyzwalaczy może uruchomić jeden potok. Jeden wyzwalacz może uruchamiać wiele potoków. |
 
 ## <a name="next-steps"></a>Następne kroki

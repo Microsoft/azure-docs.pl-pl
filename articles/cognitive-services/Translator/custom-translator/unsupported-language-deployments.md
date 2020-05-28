@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 04/24/2019
+ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 252759139de7f53cd7875efeb7f477219092aa0b
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: ea2761712e4bbb7a3abd1483766f4eae47b7c350
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584703"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996367"
 ---
 # <a name="unsupported-language-deployments"></a>Wdrożenia w nieobsługiwanych językach
 

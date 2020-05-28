@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/01/2020
+ms.date: 05/27/2020
 ms.author: memildin
-ms.openlocfilehash: 9d3fa1e0b62ea6f4762c3df6ac7da310d5703807
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 22f66a7be27f42bfd0305ad1eaf297ca8c8029fa
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79245241"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996758"
 ---
 # <a name="feature-coverage-for-machines"></a>Pokrycie funkcji dla maszyn
 
@@ -30,7 +30,7 @@ W poniższych tabelach przedstawiono funkcje Azure Security Center, które są d
 
 |||||||||
 |----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-|**Funkcja**|**Virtual Machines platformy Azure**|**Azure Virtual Machine Scale Sets**|**Maszyny spoza platformy Azure**|**Cennik**
+|**Cecha**|**Virtual Machines platformy Azure**|**Azure Virtual Machine Scale Sets**|**Maszyny spoza platformy Azure**|**Cennik**
 |[Integracja z programem Microsoft Defender ATP](security-center-wdatp.md)|✔</br>(w obsługiwanych wersjach)|✔</br>(w obsługiwanych wersjach)|✔|Standardowa|
 |[Analiza behawioralna maszyn wirtualnych (i alerty zabezpieczeń)](threat-protection.md)|✔|✔|✔|Zalecenia (bezpłatnie) </br></br> Alerty zabezpieczeń (standard)|
 |[Alerty zabezpieczeń bezplikowych](alerts-reference.md#alerts-windows)|✔|✔|✔|Standardowa|
@@ -56,7 +56,7 @@ W poniższych tabelach przedstawiono funkcje Azure Security Center, które są d
 
 |||||||||
 |----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
-|**Funkcja**|**Virtual Machines platformy Azure**|**Azure Virtual Machine Scale Sets**|**Maszyny spoza platformy Azure**|**Cennik**
+|**Cecha**|**Virtual Machines platformy Azure**|**Azure Virtual Machine Scale Sets**|**Maszyny spoza platformy Azure**|**Cennik**
 |[Integracja z programem Microsoft Defender ATP](security-center-wdatp.md)|-|-|-|Standardowa|
 |[Analiza behawioralna maszyn wirtualnych (i alerty zabezpieczeń)](security-center-alerts-iaas.md)|✔</br>(w obsługiwanych wersjach)|✔</br>(w obsługiwanych wersjach)|✔|Zalecenia (bezpłatnie) </br></br> Alerty zabezpieczeń (standard)|
 |[Alerty zabezpieczeń bezplikowych](alerts-reference.md#alerts-windows)|-|-|-|Standardowa|
@@ -95,26 +95,22 @@ Aby uzyskać informacje o tym, kiedy są generowane zalecenia dla każdej z tych
 
 | Ochrona punktu końcowego| Platformy | Instalacja usługi Security Center | Odnajdywanie usługi Security Center |
 |------|------|-----|-----|
-| Windows Defender (oprogramowanie firmy Microsoft chroniące przed złośliwym kodem)| Windows Server 2016| Nie, wbudowana w system operacyjny| Tak |
-| System Center Endpoint Protection (oprogramowanie firmy Microsoft chroniące przed złośliwym kodem) | Windows Server 2012 R2, 2012, 2008 R2 (Zobacz uwagi poniżej) | Za pomocą rozszerzenia | Tak |
-| Trend Micro — wszystkie wersje * | Rodzina systemów Windows Server  | Nie | Tak |
-| Symantec — w wersji co najmniej 12.1.1100| Rodzina systemów Windows Server  | Nie | Tak |
-| McAfee — w wersji co najmniej 10 | Rodzina systemów Windows Server  | Nie | Tak |
+| Windows Defender (oprogramowanie firmy Microsoft chroniące przed złośliwym kodem)| Windows Server 2016| Nie, wbudowana w system operacyjny| Yes |
+| System Center Endpoint Protection (oprogramowanie firmy Microsoft chroniące przed złośliwym kodem) | Windows Server 2012 R2, 2012, 2008 R2 (Zobacz uwagi poniżej) | Za pomocą rozszerzenia | Yes |
+| Trend Micro — głębokie zabezpieczenia | Rodzina systemów Windows Server  | Nie | Yes |
+| Symantec — w wersji co najmniej 12.1.1100| Rodzina systemów Windows Server  | Nie | Yes |
+| McAfee — w wersji co najmniej 10 | Rodzina systemów Windows Server  | Nie | Yes |
 | McAfee — w wersji co najmniej 10 | Rodzina serwerów z systemem Linux  | Nie | Opcję**\*** |
 | Sophos V9 +| Rodzina serwerów z systemem Linux  | Nie | Opcję**\***  |
 
  **\*** Stan pokrycia i dane pomocnicze są obecnie dostępne tylko w obszarze roboczym Log Analytics skojarzonym z chronionymi subskrypcjami. Nie jest to odzwierciedlone w portalu Azure Security Center.
 
 > [!NOTE]
-> - Wykrywanie programu System Center Endpoint Protection (SCEP) na maszynie wirtualnej z systemem Windows Server 2008 R2 wymaga zainstalowania protokołu SCEP po wystąpieniu programu PowerShell 3,0 (lub w górnej wersji).
-> - Wykrywanie programu Trend Micro Protection jest obsługiwane przez agentów zabezpieczeń systemu głębokiego.  Agenci OfficeScan nie są obsługiwani.
+> Wykrywanie programu System Center Endpoint Protection (SCEP) na maszynie wirtualnej z systemem Windows Server 2008 R2 wymaga zainstalowania protokołu SCEP po wystąpieniu programu PowerShell 3,0 (lub w górnej wersji).
 
 
 ## <a name="next-steps"></a>Następne kroki
 
 - Dowiedz się [, jak Security Center zbiera dane i log Analytics agenta](security-center-enable-data-collection.md).
 - Dowiedz się [, jak Security Center zarządza i zabezpiecza dane](security-center-data-security.md).
-- Dowiedz się, jak [planować i zrozumieć zagadnienia dotyczące projektowania, aby przyjąć Azure Security Center](security-center-planning-and-operations-guide.md).
 - Przejrzyj [platformy, które obsługują Centrum zabezpieczeń](security-center-os-coverage.md).
-- Dowiedz się więcej o [ochronie przed zagrożeniami dla maszyn z systemami Windows i Linux w Azure Security Center](threat-protection.md#windows-machines).
-- Znajdź [często zadawane pytania dotyczące Azure Security Center](faq-general.md).

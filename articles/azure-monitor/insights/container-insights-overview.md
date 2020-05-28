@@ -3,12 +3,12 @@ title: Omówienie Azure Monitor kontenerów | Microsoft Docs
 description: W tym artykule opisano Azure Monitor kontenerów monitorujących rozwiązanie AKS datacontainer Insights i wartość dostarczaną przez monitorowanie kondycji klastrów AKS i Container Instances na platformie Azure.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 3ff2c35ae9f5838447ce90e2a020649427920a43
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5bd951f7dcb2def62893df48709f1e57bd340bb2
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275232"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118081"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Omówienie usługi Azure Monitor dla kontenerów
 
@@ -48,7 +48,7 @@ Azure Monitor for Containers oferuje kompleksowe środowisko monitorowania wykor
 
 Główne różnice w monitorowaniu klastra z systemem Windows Server w porównaniu z klastrem systemu Linux są następujące:
 
-- Metryka RSS pamięci nie jest dostępna dla węzła i kontenerów systemu Windows.
+- System Windows nie ma metryki pamięci RSS i w związku z tym nie jest dostępna dla węzłów i kontenerów systemu Windows. Zestaw roboczy jest dostępny. Dowiedz się więcej o [zarządzaniu pamięcią w systemie Windows](https://docs.microsoft.com/windows/win32/memory/working-set).
 - Informacje o pojemności magazynu dyskowego nie są dostępne dla węzłów systemu Windows.
 - Dzienniki kontenerów nie są dostępne dla kontenerów uruchomionych w węzłach systemu Windows.
 - Obsługa funkcji danych na żywo (wersja zapoznawcza) jest dostępna z wyjątkiem dzienników kontenera systemu Windows.

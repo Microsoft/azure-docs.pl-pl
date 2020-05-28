@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/21/2020
+ms.date: 05/25/2020
 ms.author: chmutali
 ms.reviewer: celested
-ms.openlocfilehash: 1ac45d88c0af33114106f36798fd56473d18ea28
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: d1e432ef99a3c83fe06c00b15acbb00c630e1be1
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798042"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014404"
 ---
 # <a name="workday-attribute-reference"></a>Dokumentacja atrybutów rozwiązania Workday
 
@@ -30,7 +30,7 @@ W poniższej tabeli przechwycono listę atrybutów produktu Workday i odpowiedni
 :::image type="content" source="../saas-apps/media/workday-inbound-tutorial/workday-url-no-version-info.png" alt-text="Brak informacji o wersji produktu Workday":::
 
 
-| \# | Nazwa                                  | Wyrażenie interfejsu API produktu Workday                                                                                                                                                                                                                                                                                                                                                                                       |
+| \# | Nazwa atrybutu produktu Workday                                  | Wyrażenie interfejsu API XPATH elementu Workday                                                                                                                                                                                                                                                                                                                                                                                       |
 |----|---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1  | Aktywne                                | WD: Worker/WD: dane procesu roboczego/ \_ WD: dane o zatrudnieniu \_ /WD: dane stanu procesu roboczego \_ \_ /WD: Active/text\(\)                                                                                                                                                                                                                                                                                                                     |
 | 2  | AddressLine2Data                      | WD: Worker/WD: dane procesu roboczego/ \_ WD: dane o zatrudnieniu \_ /WD: dane pozycji \_ /WD: dane \_ \_ podsumowania witryny biznesowej \_ /WD: \_ dane adresowe/WD: dane linii adresowych \_ \_ \[ @wd:Type = "adres \_ wiersz \_ 2" \] /Text\(\)                                                                                                                                                                                                                             |
@@ -125,7 +125,7 @@ Jeśli używasz WWS API v 30.0 lub nowszego w adresie URL połączenia, jak poka
 Aby skonfigurować dodatkowe wyrażenia XPATH, zapoznaj się z sekcją [Samouczek: zarządzanie konfiguracją](../saas-apps/workday-inbound-tutorial.md#managing-your-configuration). 
 
 
-| \# | Nazwa                                  | Wyrażenie interfejsu API XPATH elementu Workday                                                                                                                                                                                                                                                                                                                                                |
+| \# | Nazwa atrybutu produktu Workday                                  | Wyrażenie interfejsu API XPATH elementu Workday                                                                                                                                                                                                                                                                                                                                                |
 |----|---------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1  | Aktywne                                | WD: Worker/WD: dane procesu roboczego/ \_ WD: dane o zatrudnieniu \_ /WD: dane stanu procesu roboczego \_ \_ /WD: Active/text\(\)                                                                                                                                                                                                                                                                                               |
 | 2  | AddressLine2Data                      | WD: Worker/WD: dane procesu roboczego \_ /WD: dane o zatrudnieniu \_ /WD: dane zadania procesu roboczego \_ \_ \[ @wd:Primary_Job = 1]/WD: \_ dane pozycji/WD: \_ \_ dane podsumowania lokacji biznesowej \_ /WD: \_ dane dotyczące danych/WD: dane linii adresowych \_ \_ \[ @wd:Type = "adres \_ wiersz \_ 2" \] /Text\(\)                                                                                                                                                            |
@@ -208,4 +208,44 @@ Aby skonfigurować dodatkowe wyrażenia XPATH, zapoznaj się z sekcją [Samoucze
 | 79 | Workertype                            | WD: Worker/WD: dane procesu roboczego/ \_ WD: dane o zatrudnieniu \_ /WD: dane zadania procesu roboczego \_ \_ \[ @wd:Primary_Job = 1]/WD: \_ dane pozycji/WD: typ procesu roboczego \_ \_ /WD: ID \[ @wd:type = " \_ ID typu pracownika \_ " \] /Text\(\)                                                                                                                                                                                                 |
 | 80 | WorkSpaceReference                    | WD: Worker/WD: dane procesu roboczego \_ /WD: dane o zatrudnieniu \_ /WD: dane zadania procesu roboczego \_ \_ \[ @wd:Primary_Job = 1]/WD: \_ dane położenia/WD: przestrzeń robocza \_\_\_Reference/@wd:Descriptor                                                                                                                                                                                                                                  |
 
+## <a name="custom-xpath-values"></a>Niestandardowe wartości XPATH
+Poniższa tabela zawiera listę innych często używanych niestandardowych wyrażeń interfejsu API XPATH podczas aprowizacji procesów roboczych z programu Workday do Active Directory lub usługi Azure AD. Przetestuj wyrażenia interfejsu API XPATH podane w tym miejscu w wersji produktu Workday, odwołując się do instrukcji przechwyconych w sekcji [Samouczek: zarządzanie konfiguracją](../saas-apps/workday-inbound-tutorial.md#managing-your-configuration).
+
+Aby dodać więcej atrybutów do tabeli XPATH na korzyść klientów implementujących tę integrację, należy pozostawić komentarz poniżej lub bezpośrednio [uczestniczyć](https://docs.microsoft.com/contribute) w tym artykule. 
+
+> [!div class="mx-tdBreakAll"]
+> | \# | Nazwa atrybutu produktu Workday  | Wersja interfejsu API produktu Workday | Wyrażenie interfejsu API XPATH elementu Workday   |
+> |----|-------------------------|---------------------|--------------------------------|
+> | 1  | Identyfikator uniwersalny  | v 30.0 +   | WD: Worker/WD: Worker_Data/WD: Universal_ID/Text ()      |
+> | 2  | Nazwa użytkownika     | v 30.0 +   | WD: Worker/WD: Worker_Data/WD: User_Account_Data/WD: User_Name/Text () |
+> | 3  | Identyfikator poziomu zarządzania  | v 30.0 +  | WD: Worker/WD: Worker_Data/WD: Employment_Data/WD: Worker_Job_Data [ @wd:Primary_Job = 1]/WD: Position_Data/WD: Job_Profile_Summary_Data/WD: Management_Level_Reference/WD: ID [ @wd:type = "Management_Level_ID"]/text ()  |
+> | 4 | Zatrudnienie zostało odwołane | v 30.0 + | WD: Worker/WD: Worker_Data/WD: Employment_Data/WD: Worker_Status_Data/WD: Hire_Rescinded/Text () |
+> | 5 | Przypisana grupa aprowizacji | v 21.1 + | WD: Worker/WD: Worker_Data/WD: Account_Provisioning_Data/WD: Provisioning_Group_Assignment_Data [WD: status = "Assigned"]/WD: Provisioning_Group/Text () | 
+
+
+## <a name="supported-xpath-functions"></a>Obsługiwane funkcje XPATH
+Podano poniżej lista funkcji XPATH obsługiwanych przez [Microsoft .NETą bibliotekę XPath](https://docs.microsoft.com/previous-versions/dotnet/netframework-4.0/ms256138(v=vs.100)) , której można użyć podczas tworzenia wyrażenia interfejsu API XPath. 
+
+* name
+* ostatni
+* pozycja
+* ciąg
+* podciąg
+* concat
+* podciąg — po
+* rozpoczyna się od
+* Długość ciągu
+* zawiera
+* translate
+* Normalizuj miejsce
+* podciąg — przed
+* wartość logiczna
+* true
+* not
+* fałsz
+* liczba
+* Montaż
+* Suma
+* round
+* wykładzin
 

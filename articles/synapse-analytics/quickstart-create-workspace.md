@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: df7753983cea2ca2cc285f04cd32da6ed065f415
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4d3044ec04a3306efdc3b57c1e5a3149b70fab05
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656134"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84112859"
 ---
 # <a name="quickstart-create-an-azure-synapse-analytics-workspace-preview"></a>Szybki Start: Tworzenie obszaru roboczego usługi Azure Synapse Analytics (wersja zapoznawcza)
 
@@ -25,9 +25,6 @@ Jeśli nie masz subskrypcji platformy Azure, [przed rozpoczęciem utwórz bezpł
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 - [Konto magazynu Azure Data Lake Storage Gen2](../storage/common/storage-account-create.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-
-## <a name="register-azure-synapse-resource-provider"></a>Zarejestruj dostawcę zasobów usługi Azure Synapse
-Jeśli jeszcze tego nie zrobiono, zarejestruj dostawcę zasobów usługi Azure Synapse. Rejestracja dostawcy zasobów umożliwia skonfigurowanie subskrypcji do pracy z dostawcą zasobów. Aby zarejestrować dostawcę zasobów usługi Azure Synapse, zobacz [dostawcy zasobów platformy Azure i ich typy](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types). Po zarejestrowaniu wybierz pozycję *Microsoft. Synapse* z listy dostawców zasobów.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
@@ -46,7 +43,7 @@ Zaloguj się do [Azure Portal](https://portal.azure.com/)
     | **Subskrypcja** | *Twoja subskrypcja* | Aby uzyskać szczegółowe informacje o subskrypcjach, zobacz [Subskrypcje](https://account.windowsazure.com/Subscriptions). |
     | **Grupa zasobów** | *Dowolna Grupa zasobów* | Prawidłowe nazwy grup zasobów opisano w artykule [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (Reguły i ograniczenia nazewnictwa). |
     | **Nazwa obszaru roboczego** | mysampleworkspace | Określa nazwę obszaru roboczego, który będzie również używany dla punktów końcowych połączenia.|
-    | **Region** | Wschodnie stany USA 2 | Określa lokalizację obszaru roboczego.|
+    | **Okolicy** | Wschodnie stany USA 2 | Określa lokalizację obszaru roboczego.|
     | **Usługa Data Lake Storage 2. generacji** | Koncie`storage account name` </br> System plików:`root file system to use` | Określa nazwę konta magazynu ADLS Gen2, która ma być używana jako magazyn podstawowy i system plików do użycia.|
     ||||
 

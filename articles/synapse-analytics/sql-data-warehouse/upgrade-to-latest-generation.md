@@ -11,12 +11,12 @@ ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 13b1f33ffe653627bcf45f6c995e82e741de32ea
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 701f2ac7b7cbba113ead5a6d3e465a4e0c37e024
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80742748"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015713"
 ---
 # <a name="optimize-performance-by-upgrading-azure-synapse-analytics-sql-pool"></a>Optymalizowanie wydajności przez uaktualnienie puli SQL usługi Azure Synapse Analytics
 
@@ -110,7 +110,7 @@ Teraz można bezproblemowo uaktualnić do warstwy Gen2 obliczeń zoptymalizowany
 ## <a name="start-the-upgrade"></a>Rozpocznij uaktualnianie
 
 1. Przejdź do puli programu Gen1 zoptymalizowanej pod kątem obliczeń w Azure Portal. Jeśli pula SQL zoptymalizowana pod kątem obliczeń w warstwie Gen1 do uaktualnienia jest wstrzymana, [Wznów pulę SQL](pause-and-resume-compute-portal.md).
-2. Wybierz pozycję **Uaktualnij do karty Gen2** na karcie zadania ![: Upgrade_1](./media/upgrade-to-latest-generation/upgrade-to-gen2-1.png)
+2. Wybierz pozycję **Uaktualnij do karty Gen2** na karcie zadania: ![ Upgrade_1](./media/upgrade-to-latest-generation/upgrade-to-gen2-1.png)
 
    > [!NOTE]
    > Jeśli nie widzisz karty **uaktualnienie do Gen2** na karcie zadania, typ subskrypcji jest ograniczony w bieżącym regionie.
@@ -238,7 +238,7 @@ $GeoRestoredDatabase.status
 ```
 
 > [!NOTE]
-> Aby skonfigurować bazę danych po zakończeniu przywracania, zobacz [Konfigurowanie bazy danych po odzyskaniu](../../sql-database/sql-database-disaster-recovery.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
+> Aby skonfigurować bazę danych po zakończeniu przywracania, zobacz [Konfigurowanie bazy danych po odzyskaniu](../../azure-sql/database/disaster-recovery-guidance.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery).
 
 Odzyskana baza danych będzie TDE, jeśli źródłowa baza danych jest włączona.
 

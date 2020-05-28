@@ -5,22 +5,23 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 83108c056035b16d26343d82c721b275ebcad0c5
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 69e2b25a16a984445a32f884fab5caec6651df32
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80754328"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84018399"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-arm-templates"></a>Samouczek: Importowanie plików BACPAC SQL za pomocą szablonów ARM
 
 Dowiedz się, jak za pomocą rozszerzeń Azure SQL Database importować plik BACPAC z szablonami Azure Resource Manager (ARM). Artefakty wdrożenia to dowolne pliki, oprócz plików szablonów głównych, które są potrzebne do ukończenia wdrożenia. Plik BACPAC jest tu artefaktem.
 
-W tym samouczku utworzysz szablon służący do wdrażania programu Azure SQL Server i bazy danych SQL i importowania pliku BACPAC. Aby uzyskać informacje o sposobie wdrażania rozszerzeń maszyn wirtualnych platformy Azure przy użyciu szablonów ARM, zobacz [Samouczek: Wdrażanie rozszerzeń maszyn wirtualnych przy użyciu szablonów usługi ARM](./template-tutorial-deploy-vm-extensions.md).
+W tym samouczku utworzysz szablon służący do wdrożenia [logicznego serwera SQL](../../azure-sql/database/logical-servers.md) i pojedynczej bazy danych i zaimportowania pliku BACPAC. Aby uzyskać informacje o sposobie wdrażania rozszerzeń maszyn wirtualnych platformy Azure przy użyciu szablonów ARM, zobacz [Samouczek: Wdrażanie rozszerzeń maszyn wirtualnych przy użyciu szablonów usługi ARM](./template-tutorial-deploy-vm-extensions.md).
 
 Ten samouczek obejmuje następujące zadania:
 
 > [!div class="checklist"]
+>
 > * Przygotuj plik BACPAC.
 > * Otwórz szablon szybkiego startu.
 > * Edytuj szablon.
@@ -34,7 +35,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem [Utwórz bezpł
 Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
 * Program Visual Studio Code z rozszerzeniem Resource Manager Tools. Zobacz [używanie Visual Studio Code do tworzenia szablonów ARM](./use-vs-code-to-create-template.md).
-* Aby zwiększyć bezpieczeństwo, użyj wygenerowanego hasła dla konta administratora usługi Azure SQL Server. Oto przykład, którego można użyć do wygenerowania hasła:
+* Aby zwiększyć bezpieczeństwo, należy użyć wygenerowanego hasła dla konta administratora serwera. Oto przykład, którego można użyć do wygenerowania hasła:
 
     ```console
     openssl rand -base64 32
@@ -44,7 +45,7 @@ Aby ukończyć pracę z tym artykułem, potrzebne są następujące zasoby:
 
 ## <a name="prepare-a-bacpac-file"></a>Przygotowywanie pliku BACPAC
 
-Plik BACPAC jest udostępniany w serwisie [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). Aby utworzyć własny plik, zobacz [Eksportowanie bazy danych Azure SQL Database do pliku BACPAC](../../sql-database/sql-database-export.md). W przypadku wybrania publikowania pliku do własnej lokalizacji musisz zaktualizować szablon w dalszej części tego samouczka.
+Plik BACPAC jest udostępniany w serwisie [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac). Aby utworzyć własny plik, zobacz [Eksportowanie bazy danych Azure SQL Database do pliku BACPAC](../../azure-sql/database/database-export.md). W przypadku wybrania publikowania pliku do własnej lokalizacji musisz zaktualizować szablon w dalszej części tego samouczka.
 
 Plik BACPAC musi być przechowywany na koncie usługi Azure Storage, aby można go było zaimportować przy użyciu szablonu ARM. Poniższy skrypt programu PowerShell przygotowuje plik BACPAC z następującymi krokami:
 
@@ -100,7 +101,7 @@ Plik BACPAC musi być przechowywany na koncie usługi Azure Storage, aby można 
 
 Szablon używany w tym samouczku jest przechowywany w serwisie [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json).
 
-1. W obszarze Visual Studio Code wybierz pozycję **plik** > **Otwórz plik**.
+1. W obszarze Visual Studio Code wybierz pozycję **plik**  >  **Otwórz plik**.
 1. W polu **File name (Nazwa pliku)** wklej następujący adres URL:
 
     ```url
@@ -115,7 +116,7 @@ Szablon używany w tym samouczku jest przechowywany w serwisie [GitHub](https://
    * `Microsoft.SQL.servers/databases`. Zobacz [dokumentację szablonu](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
 
         Warto uzyskać podstawową wiedzę na temat szablonu przed rozpoczęciem jego dostosowywania.
-1. Wybierz pozycję **plik** > **Zapisz jako,** aby zapisać kopię pliku na komputerze lokalnym przy użyciu nazwy *azuredeploy. JSON*.
+1. Wybierz pozycję **plik**  >  **Zapisz jako,** aby zapisać kopię pliku na komputerze lokalnym przy użyciu nazwy *azuredeploy. JSON*.
 
 ## <a name="edit-the-template"></a>Edytowanie szablonu
 
@@ -142,7 +143,7 @@ Szablon używany w tym samouczku jest przechowywany w serwisie [GitHub](https://
 
 1. Dodaj do szablonu dwa dodatkowe zasoby.
 
-    * Aby zezwolić na rozszerzenie SQL Database na importowanie plików BACPAC, należy zezwolić na ruch z usług platformy Azure. Dodaj następującą definicję reguły zapory w definicji programu SQL Server:
+    * Aby zezwolić na rozszerzenie SQL Database na importowanie plików BACPAC, należy zezwolić na ruch z usług platformy Azure. Dodaj następującą definicję reguły zapory w obszarze definicja serwera:
 
         ```json
         "resources": [
@@ -197,7 +198,7 @@ Szablon używany w tym samouczku jest przechowywany w serwisie [GitHub](https://
 
         * **dependsOn**: zasób rozszerzenia musi zostać utworzony po utworzeniu bazy danych SQL.
         * **storageKeyType**: Określ typ klucza magazynu, który ma być używany. Wartością może być `StorageAccessKey` lub `SharedAccessKey`. Użyj `StorageAccessKey` w tym samouczku.
-        * **storageKey**: Określ klucz dla konta magazynu, w którym przechowywany jest plik BACPAC. Jeśli typ klucza magazynu to `SharedAccessKey`, musi być poprzedzony znakiem "?".
+        * **storageKey**: Określ klucz dla konta magazynu, w którym przechowywany jest plik BACPAC. Jeśli typ klucza magazynu to `SharedAccessKey` , musi być poprzedzony znakiem "?".
         * **storageUri**: Określ adres URL pliku BACPAC przechowywanego na koncie magazynu.
         * **administratorLoginPassword**: hasło administratora bazy danych SQL. Użyj wygenerowanego hasła. Zobacz [Wymagania wstępne](#prerequisites).
 
@@ -238,13 +239,13 @@ Użyj wygenerowanego hasła. Zobacz [Wymagania wstępne](#prerequisites).
 
 ## <a name="verify-the-deployment"></a>Weryfikowanie wdrożenia
 
-Aby uzyskać dostęp do programu SQL Server z komputera klienckiego, należy dodać dodatkową regułę zapory. Aby uzyskać więcej informacji, zobacz [Tworzenie reguł zapory IP i zarządzanie nimi](../../sql-database/sql-database-firewall-configure.md#create-and-manage-ip-firewall-rules).
+Aby uzyskać dostęp do serwera z komputera klienckiego, należy dodać dodatkową regułę zapory. Aby uzyskać więcej informacji, zobacz [Tworzenie reguł zapory IP i zarządzanie nimi](../../azure-sql/database/firewall-configure.md#create-and-manage-ip-firewall-rules).
 
 W Azure Portal wybierz bazę danych SQL z nowo wdrożonej grupy zasobów. Wybierz pozycję **Edytor zapytań (wersja zapoznawcza)**, a następnie wprowadź poświadczenia administratora. Zobaczysz dwie tabele zaimportowane do bazy danych.
 
 ![Edytor zapytań (wersja zapoznawcza)](./media/template-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac-query-editor.png)
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby, usuwając grupę zasobów.
 
@@ -255,7 +256,7 @@ Gdy zasoby platformy Azure nie będą już potrzebne, wyczyść wdrożone zasoby
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym samouczku wdrożono program SQL Server i bazę danych SQL oraz zaimportowano plik BACPAC. Aby dowiedzieć się, jak rozwiązywać problemy z wdrażaniem szablonów, zobacz:
+W tym samouczku wdrożono serwer i bazę danych oraz zaimportowano plik BACPAC. Aby dowiedzieć się, jak rozwiązywać problemy z wdrażaniem szablonów, zobacz:
 
 > [!div class="nextstepaction"]
 > [Rozwiązywanie problemów z wdrożeniami szablonów ARM](./template-tutorial-troubleshoot.md)

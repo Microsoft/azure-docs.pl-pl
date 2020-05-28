@@ -9,21 +9,24 @@ editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/30/2019
+ms.date: 05/27/2020
 ms.author: yelevin
-ms.openlocfilehash: 5cbef1f31ea7088d4fab4888f5630af1b765a910
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6f4b5713aed6bae574c30f555ef7f63307138a96
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77588658"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014982"
 ---
 # <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>Połącz wskaźnik platformy Azure z usługą AWS CloudTrail
 
 Za pomocą łącznika AWS można przesyłać strumieniowo wszystkie zdarzenia CloudTrail AWS do platformy Azure. Ten proces połączenia deleguje dostęp do dzienników zasobów usługi Azure AWS, tworząc relacje zaufania między AWS CloudTrail i platformą Azure. Jest to realizowane w witrynie AWS, tworząc rolę, która przyznaje uprawnienia do uzyskiwania dostępu do dzienników AWS na platformie Azure.
+
+> [!NOTE]
+> AWS CloudTrail ma [wbudowane ograniczenia](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html) w interfejsie API LookupEvents. Umożliwia ona nie więcej niż dwie transakcje na sekundę (TPS) na konto, a każde zapytanie może zwrócić maksymalnie 50 rekordów. W związku z tym, jeśli pojedynczy dzierżawca ciągle generuje więcej niż 100 rekordów na sekundę w jednym regionie, to zaległości i opóźnienia w pozyskiwaniu danych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
