@@ -284,13 +284,15 @@
   items:
     - name: GitHub — przykłady dla usługi Azure Blueprints
       href: 'https://github.com/Azure/azure-blueprints'
+    - name: Serwis Pytania i odpowiedzi Microsoft dla usługi Azure Blueprints
+      href: /answers/topics/azure-blueprints.html
+    - name: Kanał dotyczący nadzoru w usłudze YouTube
+      href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
+    - name: Azure Friday — omówienie usługi Azure Blueprints
+      href: 'https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints'
     - name: Harmonogram działania dla platformy Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Kalkulator cen
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: UserVoice
-      href: 'https://feedback.azure.com/forums/915958-azure-governance'
-    - name: Kanał dotyczący nadzoru w usłudze YouTube
-      href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
-    - name: Azure Friday — omówienie usługi Azure Blueprints
-      href: 'https://channel9.msdn.com/Shows/Azure-Friday/An-overview-of-Azure-Blueprints'
+      href: 'https://feedback.azure.com/forums/915958-azure-governance?category_id=345058'

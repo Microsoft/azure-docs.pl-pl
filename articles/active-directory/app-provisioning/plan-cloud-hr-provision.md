@@ -52,7 +52,7 @@ Integracja aplikacji w chmurze z obsługą administracyjną użytkowników w us�
 - Wymagaj synchronizacji, przeniesienia i opuszczenia użytkowników do co najmniej jednego Active Directory lasów, domen i jednostek organizacyjnych na podstawie informacji o zmianach wykrytych w aplikacji w chmurze.
 - Użyj pakietu Office 365 do obsługi poczty e-mail.
 
-## <a name="learn"></a>Informacje
+## <a name="learn"></a>Learn
 
 Inicjowanie obsługi użytkowników tworzy podstawę do ciągłego zarządzania tożsamościami. Zwiększa ono jakość procesów biznesowych, które opierają się na autorytatywnych danych tożsamości.
 
@@ -92,7 +92,7 @@ Potrzebna jest również ważna licencja subskrypcyjna na Azure AD — wersja Pr
 
 | **Zasoby** | **Link i opis** |
 |:-|:-|
-| Filmy wideo | [Co to jest inicjowanie obsługi użytkowników w usłudze Active Directory systemu Azure?](https://youtu.be/_ZjARPpI6NI) |
+| Wideo | [Co to jest inicjowanie obsługi użytkowników w usłudze Active Directory systemu Azure?](https://youtu.be/_ZjARPpI6NI) |
 | | [Jak wdrożyć Inicjowanie obsługi użytkowników w usłudze Active Directory systemu Azure](https://youtu.be/pKzyts6kfrw) |
 | Samouczki | [Lista samouczków dotyczących integrowania aplikacji SaaS z usługą Azure AD](../saas-apps/tutorial-list.md) |
 | | [Samouczek: Konfigurowanie produktu Workday do automatycznego aprowizacji użytkowników](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |

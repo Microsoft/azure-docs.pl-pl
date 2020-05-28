@@ -4,14 +4,14 @@ description: Dowiedz się, jak skonfigurować link prywatny platformy Azure, aby
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/14/2020
+ms.date: 05/27/2020
 ms.author: thweiss
-ms.openlocfilehash: 2c4044fded2d14b8c6a1d92f367de9588b7b2ca3
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: c5b82e8cdea49f8dd761844ff5492df0ad109943
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697884"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84116663"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Konfigurowanie prywatnego linku platformy Azure dla konta usługi Azure Cosmos
 
@@ -61,7 +61,7 @@ Wykonaj następujące kroki, aby utworzyć prywatny punkt końcowy dla istnieją
 
     | Ustawienie | Wartość |
     | ------- | ----- |
-    |**Networking**| |
+    |**Sieć**| |
     | Sieć wirtualna| Wybierz sieć wirtualną. |
     | Podsieć | Wybierz podsieć. |
     |**Integracja Prywatna strefa DNS**||
@@ -398,7 +398,7 @@ $deploymentOutput = New-AzResourceGroupDeployment -Name "PrivateCosmosDbEndpoint
 $deploymentOutput
 ```
 
-W skrypcie programu PowerShell `GroupId` zmienna może zawierać tylko jedną wartość. Ta wartość jest typem interfejsu API konta. Dozwolone wartości to: `Sql` , `MongoDB` , `Cassandra` , `Gremlin` i `Table` . Niektóre typy kont usługi Azure Cosmos są dostępne za pomocą wielu interfejsów API. Na przykład:
+W skrypcie programu PowerShell `GroupId` zmienna może zawierać tylko jedną wartość. Ta wartość jest typem interfejsu API konta. Dozwolone wartości to: `Sql` , `MongoDB` , `Cassandra` , `Gremlin` i `Table` . Niektóre typy kont usługi Azure Cosmos są dostępne za pomocą wielu interfejsów API. Przykład:
 
 * Do konta interfejsu API Gremlin można uzyskać dostęp zarówno z kont usługi Gremlin, jak i interfejsu API SQL.
 * Do konta interfejs API tabel można uzyskać dostęp z poziomu kont interfejsu API zarówno w tabeli, jak i SQL.
@@ -618,9 +618,11 @@ W przypadku korzystania z prywatnego linku w połączeniu z regułami zapory są
 
 * Jeśli nie skonfigurujesz żadnych reguł zapory, domyślnie cały ruch będzie miał dostęp do konta usługi Azure Cosmos.
 
-* W przypadku skonfigurowania ruchu publicznego lub punktu końcowego usługi i utworzenia prywatnych punktów końcowych różne typy ruchu przychodzącego są autoryzowane przez odpowiedni typ reguły zapory.
+* W przypadku skonfigurowania ruchu publicznego lub punktu końcowego usługi i utworzenia prywatnych punktów końcowych różne typy ruchu przychodzącego są autoryzowane przez odpowiedni typ reguły zapory. Jeśli prywatny punkt końcowy jest skonfigurowany w podsieci, w której skonfigurowano również punkt końcowy usługi:
+  * ruch do konta bazy danych mapowanego przez prywatny punkt końcowy jest kierowany za pośrednictwem prywatnego punktu końcowego.
+  * ruch do innych kont bazy danych z podsieci jest kierowany przez punkt końcowy usługi.
 
-* Jeśli nie skonfigurujesz ruchu publicznego lub punktu końcowego usługi i utworzysz prywatne punkty końcowe, konto usługi Azure Cosmos będzie dostępne tylko za pomocą prywatnych punktów końcowych. Jeśli nie skonfigurujesz ruchu publicznego lub punktu końcowego usługi, po odrzuceniu lub usunięciu wszystkich zatwierdzonych prywatnych punktów końcowych konto zostanie otwarte w całej sieci.
+* Jeśli nie skonfigurujesz ruchu publicznego lub punktu końcowego usługi i utworzysz prywatne punkty końcowe, konto usługi Azure Cosmos będzie dostępne tylko za pomocą prywatnych punktów końcowych. Jeśli nie skonfigurujesz ruchu publicznego lub punktu końcowego usługi, po odrzuceniu lub usunięciu wszystkich zatwierdzonych prywatnych punktów końcowych konto jest otwarte dla całej sieci, chyba że PublicNetworkAccess ma wartość wyłączone (zobacz sekcję poniżej).
 
 ## <a name="blocking-public-network-access-during-account-creation"></a>Blokowanie dostępu do sieci publicznej podczas tworzenia konta
 

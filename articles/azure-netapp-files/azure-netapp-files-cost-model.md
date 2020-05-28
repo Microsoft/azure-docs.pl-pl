@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/01/2019
+ms.date: 05/27/2020
 ms.author: b-juche
-ms.openlocfilehash: aea783b818550b8219e1a0498256280f61f678e1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 78af9c12fb54b63e1a94c8b41a7ec2ac5c9b4e27
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70995115"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142150"
 ---
 # <a name="cost-model-for-azure-netapp-files"></a>Model kosztów usługi Azure NetApp Files 
 
@@ -50,6 +50,8 @@ Na poniższym diagramie przedstawiono te koncepcje.
 ## <a name="overage-in-capacity-consumption"></a>Nadwyżkowe użycie pojemności  
 
 Jeśli całkowita używana pojemność puli przekroczy swoją zainicjowaną pojemność, operacje zapisu danych są nadal dozwolone.  Po upływie okresu prolongaty (1 godzina), jeśli używana pojemność puli nadal przekracza swoją zainicjowaną pojemność, rozmiar puli zostanie automatycznie zwiększony w przyrostach 1 TiB, dopóki pojemność nie zostanie osiągnięta.  Na przykład na powyższej ilustracji, jeśli wolumin 3 zostanie powiększony, a rzeczywiste zużycie osiągnie 1,2 TiB, wówczas po okresie prolongaty rozmiar puli zostanie automatycznie zmieniony na 5 TiB.  W efekcie pojemność puli zainicjowanej (5 TiB) przekracza użytą pojemność (4,2 TiB).  
+
+Mimo że rozmiar puli pojemności zostanie automatycznie powiększony, aby spełnić zapotrzebowanie na wolumin, nie jest automatycznie zmniejszany w przypadku zmniejszenia rozmiaru woluminu. Jeśli chcesz zmniejszyć rozmiar puli pojemności po zmniejszeniu rozmiaru woluminu (na przykład po oczyszczeniu danych woluminu), należy _ręcznie_ zmniejszyć rozmiar puli pojemności.
 
 ## <a name="manual-changes-of-the-pool-size"></a>Ręczne zmiany rozmiaru puli  
 

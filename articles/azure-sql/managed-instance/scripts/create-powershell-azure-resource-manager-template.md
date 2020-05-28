@@ -1,0 +1,142 @@
+---
+title: 'Tworzenie wystąpienia (szablon ARM & PowerShell) '
+titleSuffix: Azure SQL Managed Instance
+description: Ten Azure PowerShell przykładowy skrypt służy do tworzenia wystąpienia zarządzanego Azure SQL.
+services: sql-database
+ms.service: sql-database
+ms.subservice: operations
+ms.custom: seo-dt-2019
+ms.devlang: PowerShell
+ms.topic: sample
+author: jovanpop-msft
+ms.author: jovanpop
+ms.reviewer: sstein
+ms.date: 03/12/2019
+ms.openlocfilehash: 55b0c8f569a91075d4cd87541af7aeff5da69f9a
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84053969"
+---
+# <a name="use-powershell-with-azure-resource-manager-template-to-create-an-azure-sql-managed-instance"></a>Użyj programu PowerShell z szablonem Azure Resource Manager, aby utworzyć wystąpienie zarządzane Azure SQL
+[!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqlmi.md)]
+
+Wystąpienie zarządzane Azure SQL można utworzyć przy użyciu bibliotek Azure PowerShell i Azure Resource Manager szablonów.
+
+[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
+
+Jeśli zdecydujesz się zainstalować program PowerShell i używać go lokalnie, ten samouczek wymaga AZ PowerShell 1.4.0 lub nowszego. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Jeśli używasz programu PowerShell lokalnie, uruchom polecenie, `Connect-AzAccount` Aby utworzyć połączenie z platformą Azure.
+
+Polecenia Azure PowerShell mogą rozpocząć wdrażanie przy użyciu wstępnie zdefiniowanego szablonu Azure Resource Manager. W szablonie można określić następujące właściwości:
+
+- Nazwa wystąpienia zarządzanego SQL
+- Nazwa użytkownika i hasło administratora programu SQL
+- Rozmiar wystąpienia (liczba rdzeni i maksymalny rozmiar magazynu)
+- Sieć wirtualna i podsieć, w których zostaną umieszczone wystąpienia
+- Sortowanie wystąpienia na poziomie serwera (wersja zapoznawcza)
+
+Nazwy wystąpienia, nazwy użytkownika administratora SQL, sieci wirtualnej/podsieci i sortowania nie można zmienić później. Inne właściwości wystąpienia można zmienić.
+
+## <a name="prerequisites"></a>Wymagania wstępne
+
+W tym przykładzie przyjęto założenie, że [utworzono prawidłowe środowisko sieciowe](../virtual-network-subnet-create-arm-template.md) lub [zmodyfikowano istniejącą sieć wirtualną](../vnet-existing-add-subnet.md) dla wystąpienia zarządzanego SQL. W razie potrzeby można przygotować środowisko sieciowe przy użyciu oddzielnego [szablonu zarządzanego zasobów platformy Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment). 
+
+
+Przykład korzysta z poleceń cmdlet [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) i [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork) , aby upewnić się, że zainstalowano następujące moduły programu PowerShell:
+
+```powershell
+Install-Module Az.Network
+Install-Module Az.Resources
+```
+
+## <a name="azure-resource-manager-template"></a>Szablon usługi Azure Resource Manager
+
+
+Zapisz następujący skrypt w pliku JSON i zanotuj lokalizację pliku: 
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.1",
+    "parameters": {
+        "instance": {
+            "type": "string"
+        },
+        "user": {
+            "type": "string"
+        },
+        "pwd": {
+            "type": "securestring"
+        },
+        "subnetId": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "name": "[parameters('instance')]",
+            "location": "West Central US",
+            "tags": {
+                "Description":"GP Instance with custom instance collation - Serbian_Cyrillic_100_CS_AS"
+            },
+            "sku": {
+                "name": "GP_Gen5",
+                "tier": "GeneralPurpose"
+            },
+            "properties": {
+                "administratorLogin": "[parameters('user')]",
+                "administratorLoginPassword": "[parameters('pwd')]",
+                "subnetId": "[parameters('subnetId')]",
+                "storageSizeInGB": 256,
+                "vCores": 8,
+                "licenseType": "LicenseIncluded",
+                "hardwareFamily": "Gen5",
+                "collation": "Serbian_Cyrillic_100_CS_AS"
+            },
+            "type": "Microsoft.Sql/managedInstances",
+            "identity": {
+                "type": "SystemAssigned"
+            },
+            "apiVersion": "2015-05-01-preview"
+        }
+    ]
+}
+```
+
+Zaktualizuj następujący skrypt programu PowerShell przy użyciu poprawnej ścieżki pliku pliku JSON, który został zapisany wcześniej, i Zmień nazwy obiektów w skrypcie:
+
+```powershell
+$subscriptionId = "ed827499-xxxx-xxxx-xxxx-xxxxxxxxxx"
+Select-AzSubscription -SubscriptionId $subscriptionId
+
+# Managed Instance properties
+$resourceGroup = "rg_mi"
+$location = "West Central US"
+$name = "managed-instance-name"
+$user = "miSqlAdmin"
+$secpasswd = ConvertTo-SecureString "<Put some strong password here>" -AsPlainText -Force
+
+# Network configuration
+$vNetName = "my_vnet"
+$vNetResourceGroup = "rg_mi_vnet"
+$subnetName = "ManagedInstances"
+$vNet = Get-AzVirtualNetwork -Name $vNetName -ResourceGroupName $vNetResourceGroup
+$subnet = Get-AzVirtualNetworkSubnetConfig -Name $SubnetName -VirtualNetwork $vNet
+$subnetId = $subnet.Id
+
+# Deploy Instance using Azure Resource Manager template:
+New-AzResourceGroupDeployment  -Name MyDeployment -ResourceGroupName $resourceGroup  `
+                                    -TemplateFile 'C:\...\create-managed-instance.json' `
+                                    -instance $name -user $user -pwd $secpasswd -subnetId $subnetId
+```
+
+Po zakończeniu działania skryptu można uzyskać dostęp do wystąpienia zarządzanego SQL ze wszystkich usług platformy Azure i skonfigurowanego adresu IP.
+
+## <a name="next-steps"></a>Następne kroki
+
+Aby uzyskać więcej informacji na temat programu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](/powershell/azure/overview).
+
+Dodatkowe przykłady skryptów programu PowerShell wystąpienia zarządzanego SQL można znaleźć w [skryptach programu PowerShell wystąpienia zarządzanego Azure SQL](../../database/powershell-script-content-guide.md).

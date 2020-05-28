@@ -1,6 +1,6 @@
 ---
 title: Włącz nietrwałe usuwanie udziałów plików platformy Azure
-description: Dowiedz się, jak włączyć usuwanie nietrwałe w udziałach plików platformy Azure na potrzeby odzyskiwania danych i uniemożliwiając Przypadkowe usunięcie.
+description: Dowiedz się, jak włączyć usuwanie nietrwałe (wersja zapoznawcza) w udziałach plików platformy Azure na potrzeby odzyskiwania danych i uniemożliwiając Przypadkowe usunięcie.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
@@ -8,16 +8,16 @@ ms.date: 05/26/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 70081114995d46e7c5db7c9549cfce2fdff42975
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: a31fc675ca32697ece1fe7240112bb5610feda9d
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116497"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142099"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Włącz usuwanie nietrwałe w udziałach plików platformy Azure
 
-Usługa Azure Storage oferuje nietrwałe usuwanie udziałów plików, dzięki czemu można łatwiej odzyskać dane w przypadku ich błędnego usunięcia przez aplikację lub innego użytkownika konta magazynu. Aby dowiedzieć się więcej na temat usuwania nietrwałego, zobacz [jak zapobiec przypadkowemu usunięciu udziałów plików platformy Azure](storage-files-prevent-file-share-deletion.md).
+Usługa Azure Storage oferuje nietrwałe usuwanie udziałów plików (wersja zapoznawcza), dzięki czemu można łatwiej odzyskać dane w przypadku ich błędnego usunięcia przez aplikację lub innego użytkownika konta magazynu. Aby dowiedzieć się więcej na temat usuwania nietrwałego, zobacz [jak zapobiec przypadkowemu usunięciu udziałów plików platformy Azure](storage-files-prevent-file-share-deletion.md).
 
 W poniższych sekcjach pokazano, jak włączyć i użyć usuwania nietrwałego dla udziałów plików platformy Azure na istniejącym koncie magazynu:
 

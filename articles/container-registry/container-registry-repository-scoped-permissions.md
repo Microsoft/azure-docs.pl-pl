@@ -2,13 +2,13 @@
 title: Uprawnienia do repozytoriów w Azure Container Registry
 description: Utwórz token z uprawnieniami ograniczonymi do określonych repozytoriów w rejestrze w celu ściągania lub wypychania obrazów lub wykonywania innych akcji
 ms.topic: article
-ms.date: 02/13/2020
-ms.openlocfilehash: eeb2155e035dd4a3a7aa09f634c229676cd87db3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 05/27/2020
+ms.openlocfilehash: 8534c62db862f5c929d0145948fc4049c036d412
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683468"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142217"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>Tworzenie tokenu z uprawnieniami do zakresu repozytorium
 
@@ -20,12 +20,13 @@ Scenariusze tworzenia tokenu obejmują:
 * Udostępnianie zewnętrznej organizacji z uprawnieniami do określonego repozytorium 
 * Ogranicz dostęp do repozytorium do różnych grup użytkowników w organizacji. Na przykład zapewniają dostęp do zapisu i odczytu do deweloperów, którzy tworzą obrazy przeznaczone do określonych repozytoriów, oraz dostęp do odczytu do zespołów, które wdrażają te repozytoria.
 
+Ta funkcja jest dostępna w rejestrach kontenerów w **warstwie Premium** . Aby uzyskać informacje o warstwach i ograniczeniach usługi Registry, zobacz [Azure Container Registry warstwy usług](container-registry-skus.md).
+
 > [!IMPORTANT]
 > Ta funkcja jest obecnie dostępna w wersji zapoznawczej, a niektóre [ograniczenia mają zastosowanie](#preview-limitations). Wersje zapoznawcze są udostępniane pod warunkiem udzielenia zgody na [dodatkowe warunki użytkowania][terms-of-use]. Niektóre cechy funkcji mogą ulec zmianie, zanim stanie się ona ogólnie dostępna.
 
 ## <a name="preview-limitations"></a>Ograniczenia wersji zapoznawczej
 
-* Ta funkcja jest dostępna w rejestrach kontenerów w **warstwie Premium** . Aby uzyskać informacje o warstwach i ograniczeniach usługi Registry, zobacz [Azure Container Registry warstwy usług](container-registry-skus.md).
 * Obecnie nie można przypisać uprawnień o zakresie repozytorium do tożsamości Azure Active Directory, takiej jak nazwa główna usługi lub tożsamość zarządzana.
 * Nie można utworzyć mapy zakresu w rejestrze z włączonym [dostępem do ściągania](container-registry-faq.md#how-do-i-enable-anonymous-pull-access).
 
@@ -52,7 +53,7 @@ Aby skonfigurować uprawnienia do zakresu repozytorium, należy utworzyć *token
     * Konfigurowanie wielu tokenów z identycznymi uprawnieniami z zestawem repozytoriów
     * Aktualizowanie uprawnień tokenu po dodaniu lub usunięciu akcji repozytorium w mapie zakresu lub zastosowaniu innej mapy zakresu 
 
-  Azure Container Registry udostępnia również kilka zdefiniowanych w systemie mapowań zakresu, z stałymi uprawnieniami dla wszystkich repozytoriów.
+  Azure Container Registry oferuje także kilka zdefiniowanych przez system map zakresu, które można zastosować podczas tworzenia tokenów. Uprawnienia mapowań zakresu zdefiniowane przez system mają zastosowanie do wszystkich repozytoriów w rejestrze.
 
 Na poniższej ilustracji przedstawiono relacje między tokenami i mapami zakresów. 
 
@@ -68,7 +69,7 @@ Na poniższej ilustracji przedstawiono relacje między tokenami i mapami zakres�
 
 ### <a name="create-token-and-specify-repositories"></a>Tworzenie tokenu i określanie repozytoriów
 
-Utwórz token za pomocą polecenia [AZ ACR token Create][az-acr-token-create] . Podczas tworzenia tokenu można określić jeden lub więcej repozytoriów i skojarzonych akcji w każdym repozytorium. Repozytoria nie muszą jeszcze znajdować się w rejestrze. Aby utworzyć token przez określenie istniejącej mapy zakresu, zobacz następną sekcję.
+Utwórz token za pomocą polecenia [AZ ACR token Create][az-acr-token-create] . Podczas tworzenia tokenu można określić jeden lub więcej repozytoriów i skojarzonych akcji w każdym repozytorium. Repozytoria nie muszą jeszcze znajdować się w rejestrze. Aby utworzyć token przez określenie istniejącej mapy zakresu, zobacz [następną sekcję](#create-token-and-specify-scope-map).
 
 Poniższy przykład tworzy token *w rejestrze rejestru z następującymi* uprawnieniami w `samples/hello-world` repozytorium: `content/write` i `content/read` . Domyślnie polecenie ustawia domyślny stan tokenu na `enabled` , ale w dowolnym momencie można zaktualizować stan `disabled` .
 
@@ -78,7 +79,7 @@ az acr token create --name MyToken --registry myregistry \
   content/write content/read
 ```
 
-W danych wyjściowych znajdują się szczegółowe informacje o tokenie, w tym dwa wygenerowane hasła. Zaleca się zapisanie haseł w bezpiecznym miejscu do użycia w celu późniejszego uwierzytelniania. Hasła nie mogą zostać pobrane ponownie, ale można generować nowe.
+Dane wyjściowe zawierają szczegółowe informacje o tokenie. Domyślnie są generowane dwa hasła. Zaleca się zapisanie haseł w bezpiecznym miejscu do użycia w celu późniejszego uwierzytelniania. Hasła nie mogą zostać pobrane ponownie, ale można generować nowe.
 
 ```console
 {
@@ -111,6 +112,9 @@ W danych wyjściowych znajdują się szczegółowe informacje o tokenie, w tym d
   "type": "Microsoft.ContainerRegistry/registries/tokens"
 ```
 
+> [!NOTE]
+> Jeśli chcesz ponownie wygenerować hasła tokenu i ustawić okresy ważności hasła, zobacz Ponowne [generowanie haseł tokenu](#regenerate-token-passwords) w dalszej części tego artykułu.
+
 Dane wyjściowe zawierają szczegóły dotyczące zakresu mapowania utworzonego polecenia. Można użyć mapy zakresu, tutaj o nazwie `MyToken-scope-map` , aby zastosować te same akcje repozytorium do innych tokenów. Można też zaktualizować mapowanie zakresu później, aby zmienić uprawnienia skojarzonych tokenów.
 
 ### <a name="create-token-and-specify-scope-map"></a>Tworzenie tokenu i określanie mapy zakresu
@@ -134,7 +138,10 @@ az acr token create --name MyToken \
   --scope-map MyScopeMap
 ```
 
-W danych wyjściowych znajdują się szczegółowe informacje o tokenie, w tym dwa wygenerowane hasła. Zaleca się zapisanie haseł w bezpiecznym miejscu do użycia w celu późniejszego uwierzytelniania. Hasła nie mogą zostać pobrane ponownie, ale można generować nowe.
+Dane wyjściowe zawierają szczegółowe informacje o tokenie. Domyślnie są generowane dwa hasła. Zaleca się zapisanie haseł w bezpiecznym miejscu do użycia w celu późniejszego uwierzytelniania. Hasła nie mogą zostać pobrane ponownie, ale można generować nowe.
+
+> [!NOTE]
+> Jeśli chcesz ponownie wygenerować hasła tokenu i ustawić okresy ważności hasła, zobacz Ponowne [generowanie haseł tokenu](#regenerate-token-passwords) w dalszej części tego artykułu.
 
 ## <a name="create-token---portal"></a>Tworzenie tokenu — Portal
 
@@ -143,14 +150,16 @@ Za pomocą Azure Portal można tworzyć tokeny i mapy zakresów. Podobnie jak w 
 Poniższy przykład tworzy token i tworzy mapę zakresu z następującymi uprawnieniami w `samples/hello-world` repozytorium: `content/write` i `content/read` .
 
 1. W portalu przejdź do rejestru kontenerów.
-1. W obszarze **usługi**wybierz pozycję **tokeny (wersja zapoznawcza) > + Dodaj**.
-  ![Utwórz token w portalu](media/container-registry-repository-scoped-permissions/portal-token-add.png)
+1. W obszarze **uprawnienia repozytorium**wybierz pozycję **tokeny (wersja zapoznawcza) > + Dodaj**.
+
+      :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-add.png" alt-text="Utwórz token w portalu":::
 1. Wprowadź nazwę tokenu.
 1. W obszarze **Mapa zakresu**wybierz pozycję **Utwórz nowy**.
 1. Skonfiguruj mapę zakresu:
     1. Wprowadź nazwę i opis mapy zakresu. 
     1. W obszarze **repozytoria**wprowadź i `samples/hello-world` w obszarze **uprawnienia**wybierz pozycję `content/read` i `content/write` . Następnie wybierz pozycję **+ Dodaj**.  
-    ![Tworzenie mapy zakresu w portalu](media/container-registry-repository-scoped-permissions/portal-scope-map-add.png)
+
+        :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-scope-map-add.png" alt-text="Tworzenie mapy zakresu w portalu":::
 
     1. Po dodaniu repozytoriów i uprawnień wybierz pozycję **Dodaj** , aby dodać mapę zakresu.
 1. Zaakceptuj domyślny **status** tokenu **włączone** , a następnie wybierz pozycję **Utwórz**.
@@ -159,26 +168,26 @@ Po sprawdzeniu poprawności i utworzeniu tokenu na ekranie **tokeny** pojawią s
 
 ### <a name="add-token-password"></a>Dodawanie hasła tokenu
 
-Generuj hasło po utworzeniu tokenu. Aby można było uwierzytelnić się w rejestrze, token musi być włączony i mieć prawidłowe hasło.
-
-Można wygenerować jedno lub dwa hasła i ustawić datę wygaśnięcia dla każdej z nich. 
+Aby użyć tokenu utworzonego w portalu, należy wygenerować hasło. Można wygenerować jedno lub dwa hasła i ustawić datę wygaśnięcia dla każdej z nich. 
 
 1. W portalu przejdź do rejestru kontenerów.
-1. W obszarze **usługi**wybierz pozycję **tokeny (wersja zapoznawcza)**, a następnie wybierz token.
+1. W obszarze **uprawnienia repozytorium**wybierz pozycję **tokeny (wersja zapoznawcza)**, a następnie wybierz token.
 1. W obszarze Szczegóły tokenu wybierz pozycję **password1** lub **password2**, a następnie wybierz ikonę Generuj.
-1. Na ekranie hasła opcjonalnie Ustaw datę wygaśnięcia hasła i wybierz pozycję **Generuj**.
+1. Na ekranie hasła opcjonalnie Ustaw datę wygaśnięcia hasła i wybierz pozycję **Generuj**. Zalecane jest ustawienie daty wygaśnięcia.
 1. Po wygenerowaniu hasła skopiuj je i Zapisz w bezpiecznej lokalizacji. Nie można pobrać wygenerowanego hasła po zamknięciu ekranu, ale można wygenerować nowy.
 
-    ![Tworzenie hasła tokenu w portalu](media/container-registry-repository-scoped-permissions/portal-token-password.png)
+    :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-password.png" alt-text="Tworzenie hasła tokenu w portalu":::
 
 ## <a name="authenticate-with-token"></a>Uwierzytelnianie za pomocą tokenu
 
-Gdy użytkownik lub usługa używa tokenu do uwierzytelniania w rejestrze docelowym, udostępnia nazwę tokenu jako nazwę użytkownika i jedno z wygenerowanych haseł. Metoda uwierzytelniania zależy od skonfigurowanej akcji lub akcji skojarzonych z tokenem.
+Gdy użytkownik lub usługa używa tokenu do uwierzytelniania w rejestrze docelowym, udostępnia nazwę tokenu jako nazwę użytkownika i jedno z wygenerowanych haseł. 
+
+Metoda uwierzytelniania zależy od skonfigurowanej akcji lub akcji skojarzonych z tokenem.
 
 |Akcja  |Jak uwierzytelniać  |
   |---------|---------|
-  |`content/delete`    | `az acr repository delete`w interfejsie wiersza polecenia platformy Azure |
-  |`content/read`     |  `docker login`<br/><br/>`az acr login`w interfejsie wiersza polecenia platformy Azure  |
+  |`content/delete`    | `az acr repository delete`w interfejsie wiersza polecenia platformy Azure<br/><br/>Przykład: `az acr repository delete --name myregistry --repository myrepo --username MyToken --password xxxxxxxxxx`|
+  |`content/read`     |  `docker login`<br/><br/>`az acr login`w interfejsie wiersza polecenia platformy Azure<br/><br/>Przykład: `az acr login --name myregistry --username MyToken --password xxxxxxxxxx`  |
   |`content/write`     |  `docker login`<br/><br/>`az acr login`w interfejsie wiersza polecenia platformy Azure     |
   |`metadata/read`    | `az acr repository show`<br/><br/>`az acr repository show-tags`<br/><br/>`az acr repository show-manifests`w interfejsie wiersza polecenia platformy Azure   |
   |`metadata/write`     |  `az acr repository untag`<br/><br/>`az acr repository update`w interfejsie wiersza polecenia platformy Azure |
@@ -200,7 +209,7 @@ docker tag hello-world myregistry.azurecr.io/samples/alpine:v1
 
 ### <a name="authenticate-using-token"></a>Uwierzytelnianie przy użyciu tokenu
 
-Uruchom `docker login` polecenie, aby uwierzytelnić się w rejestrze, podaj nazwę tokenu jako nazwę użytkownika i podaj jedno z jego haseł. Token musi mieć `Enabled` stan.
+Uruchom `docker login` lub, `az acr login` aby uwierzytelnić się w rejestrze w celu wypychania lub ściągania obrazów. Podaj nazwę tokenu jako nazwę użytkownika i podaj jedno z jego haseł. Token musi mieć `Enabled` stan.
 
 Poniższy przykład jest sformatowany dla powłoki bash i zawiera wartości przy użyciu zmiennych środowiskowych.
 
@@ -231,7 +240,7 @@ Token nie ma uprawnień do `samples/alpine` repozytorium, więc następująca pr
 docker push myregistry.azurecr.io/samples/alpine:v1
 ```
 
-### <a name="change-pushpull-permissions"></a>Zmień uprawnienia wypychania/ściągania
+### <a name="update-token-permissions"></a>Aktualizowanie uprawnień tokenu
 
 Aby zaktualizować uprawnienia tokenu, zaktualizuj uprawnienia w skojarzonej mapie zakresów. Zaktualizowana Mapa zakresu jest stosowana natychmiast do wszystkich skojarzonych tokenów. 
 
@@ -250,7 +259,7 @@ az acr scope-map update \
 W witrynie Azure Portal:
 
 1. Przejdź do rejestru kontenerów.
-1. W obszarze **usługi**wybierz pozycję **mapy zakresu (wersja zapoznawcza)**, a następnie wybierz mapę zakresu do zaktualizowania.
+1. W obszarze **uprawnienia repozytorium**wybierz pozycję **mapy zakresu (wersja zapoznawcza)**, a następnie wybierz mapę zakresu do zaktualizowania.
 1. W obszarze **repozytoria**wprowadź i `samples/alpine` w obszarze **uprawnienia**wybierz pozycję `content/read` i `content/write` . Następnie wybierz pozycję **+ Dodaj**.
 1. W obszarze **repozytoria**wybierz pozycję `samples/hello-world` i w obszarze **uprawnienia**Usuń zaznaczenie `content/write` . Następnie wybierz pozycję **Zapisz**.
 
@@ -285,9 +294,9 @@ az acr scope-map update \
   --add samples/alpine content/delete
 ``` 
 
-Aby zaktualizować mapę zakresu przy użyciu portalu, zobacz poprzednią sekcję.
+Aby zaktualizować mapę zakresu przy użyciu portalu, zobacz [poprzednią sekcję](#update-token-permissions).
 
-Aby usunąć repozytorium, użyj następującego polecenia [AZ ACR Repository Delete][az-acr-repository-delete] `samples/alpine` . Aby usunąć obrazy lub repozytoria, token nie jest uwierzytelniany przez `docker login` . Zamiast tego należy przekazać nazwę i hasło tokenu do polecenia. W poniższym przykładzie zastosowano zmienne środowiskowe utworzone wcześniej w artykule:
+Aby usunąć repozytorium, użyj następującego polecenia [AZ ACR Repository Delete][az-acr-repository-delete] `samples/alpine` . Aby usunąć obrazy lub repozytoria, przekaż nazwę i hasło tokenu do polecenia. W poniższym przykładzie zastosowano zmienne środowiskowe utworzone wcześniej w artykule:
 
 ```azurecli
 az acr repository delete \
@@ -308,11 +317,11 @@ az acr scope-map update \
   --add samples/hello-world metadata/read 
 ```  
 
-Aby zaktualizować mapę zakresu przy użyciu portalu, zobacz poprzednią sekcję.
+Aby zaktualizować mapę zakresu przy użyciu portalu, zobacz [poprzednią sekcję](#update-token-permissions).
 
 Aby odczytać metadane w `samples/hello-world` repozytorium, uruchom polecenie [AZ ACR Repository show-Manifests][az-acr-repository-show-manifests] lub [AZ ACR Repository show-Tags][az-acr-repository-show-tags] . 
 
-Do odczytu metadanych token nie jest uwierzytelniany przez `docker login` . Zamiast tego należy przekazać nazwę i hasło tokenu do dowolnego polecenia. W poniższym przykładzie zastosowano zmienne środowiskowe utworzone wcześniej w artykule:
+Aby odczytać metadane, przekaż nazwę i hasło tokenu do dowolnego polecenia. W poniższym przykładzie zastosowano zmienne środowiskowe utworzone wcześniej w artykule:
 
 ```azurecli
 az acr repository show-tags \
@@ -327,18 +336,19 @@ Przykładowe dane wyjściowe:
   "v1"
 ]
 ```
+
 ## <a name="manage-tokens-and-scope-maps"></a>Zarządzanie tokenami i mapami zakresu
 
 ### <a name="list-scope-maps"></a>Mapowanie listy zakresów
 
-Aby wyświetlić listę wszystkich map zakresu skonfigurowanych w rejestrze, użyj polecenia [AZ ACR Scope-map list][az-acr-scope-map-list] lub okna **map zakresu (wersja zapoznawcza)** w portalu. Na przykład:
+Aby wyświetlić listę wszystkich map zakresu skonfigurowanych w rejestrze, użyj polecenia [AZ ACR Scope-map list][az-acr-scope-map-list] lub okna **map zakresu (wersja zapoznawcza)** w portalu. Przykład:
 
 ```azurecli
 az acr scope-map list \
   --registry myregistry --output table
 ```
 
-Dane wyjściowe pokazują zdefiniowane przez siebie mapy zakresu i kilka zdefiniowanych w systemie mapowań zakresu, których można użyć do skonfigurowania tokenów:
+Dane wyjściowe składają się z trzech zdefiniowanych w systemie mapowań zakresu i innych map zakresu wygenerowanych przez użytkownika. Tokeny można skonfigurować przy użyciu dowolnego z tych map zakresu.
 
 ```
 NAME                 TYPE           CREATION DATE         DESCRIPTION
@@ -351,22 +361,22 @@ MyScopeMap           UserDefined    2019-11-15T21:17:34Z  Sample scope map
 
 ### <a name="show-token-details"></a>Pokaż szczegóły tokenu
 
-Aby wyświetlić szczegóły tokenu, takie jak jego stan i daty wygaśnięcia hasła, uruchom polecenie [AZ ACR token show][az-acr-token-show] lub wybierz token na ekranie **tokeny (wersja zapoznawcza)** w portalu. Na przykład:
+Aby wyświetlić szczegóły tokenu, takie jak jego stan i daty wygaśnięcia hasła, uruchom polecenie [AZ ACR token show][az-acr-token-show] lub wybierz token na ekranie **tokeny (wersja zapoznawcza)** w portalu. Przykład:
 
 ```azurecli
 az acr scope-map show \
   --name MyScopeMap --registry myregistry
 ```
 
-Użyj polecenia [AZ ACR token list][az-acr-token-list] lub ekranu **tokenów (wersja zapoznawcza)** w portalu, aby wyświetlić listę wszystkich tokenów skonfigurowanych w rejestrze. Na przykład:
+Użyj polecenia [AZ ACR token list][az-acr-token-list] lub ekranu **tokenów (wersja zapoznawcza)** w portalu, aby wyświetlić listę wszystkich tokenów skonfigurowanych w rejestrze. Przykład:
 
 ```azurecli
 az acr token list --registry myregistry --output table
 ```
 
-### <a name="generate-passwords-for-token"></a>Generuj hasła dla tokenu
+### <a name="regenerate-token-passwords"></a>Ponowne generowanie haseł tokenu
 
-Jeśli nie masz hasła do tokenu lub chcesz wygenerować nowe hasła, uruchom polecenie [AZ ACR token Credential Generate][az-acr-token-credential-generate] . 
+Jeśli nie Wygenerowano hasła tokenu lub chcesz wygenerować nowe hasła, uruchom polecenie [AZ ACR token Credential Generate][az-acr-token-credential-generate] . 
 
 Poniższy przykład generuje nową wartość dla *password1 tokena tokena* z okresem ważności wynoszącym 30 dni. Hasło jest przechowywane w zmiennej środowiskowej `TOKEN_PWD` . Ten przykład jest sformatowany dla powłoki bash.
 
@@ -380,7 +390,7 @@ Aby użyć Azure Portal do wygenerowania hasła tokenu, zapoznaj się z instrukc
 
 ### <a name="update-token-with-new-scope-map"></a>Aktualizowanie tokenu przy użyciu nowej mapy zakresu
 
-Jeśli chcesz zaktualizować token z inną mapą zakresu, uruchom polecenie [AZ ACR token Update][az-acr-token-update] i określ nową mapę zakresu. Na przykład:
+Jeśli chcesz zaktualizować token z inną mapą zakresu, uruchom polecenie [AZ ACR token Update][az-acr-token-update] i określ nową mapę zakresu. Przykład:
 
 ```azurecli
 az acr token update --name MyToken --registry myregistry \
