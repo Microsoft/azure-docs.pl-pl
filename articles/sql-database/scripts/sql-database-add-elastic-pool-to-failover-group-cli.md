@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 2d6f18e373327b758e766dffba341c080622301f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 42cc10398fce831b6343f69df03104d428700ac3
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80061939"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022781"
 ---
 # <a name="use-cli-to-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Dodawanie Azure SQL Database elastycznej puli do grupy trybu failover przy użyciu interfejsu wiersza polecenia
 
@@ -61,4 +61,4 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 
 Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure/overview).
 
-SQL Database dodatkowe przykłady skryptów interfejsu wiersza polecenia platformy Azure można znaleźć w [Azure SQL Database skryptach interfejsu wiersza polecenia platformy Azure](../sql-database-cli-samples.md).
+SQL Database dodatkowe przykłady skryptów interfejsu wiersza polecenia platformy Azure można znaleźć w [Azure SQL Database skryptach interfejsu wiersza polecenia platformy Azure](../../azure-sql/database/az-cli-script-samples-content-guide.md).

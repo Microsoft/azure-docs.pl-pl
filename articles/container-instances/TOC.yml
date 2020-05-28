@@ -52,8 +52,12 @@
       href: container-instances-region-availability.md
     - name: Relacja z koordynatorami
       href: container-instances-orchestrator-relationship.md
-    - name: Zagadnienia związane z zabezpieczeniami
-      href: container-instances-image-security.md
+    - name: Zabezpieczenia
+      items:
+        - name: Punkt odniesienia zabezpieczeń
+          href: security-baseline.md
+        - name: Zagadnienia związane z zabezpieczeniami
+          href: container-instances-image-security.md
     - name: Sieć wirtualna
       href: container-instances-virtual-network-concepts.md
 - name: Przewodniki z instrukcjami

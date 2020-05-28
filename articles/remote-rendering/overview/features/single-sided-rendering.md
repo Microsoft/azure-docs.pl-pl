@@ -5,29 +5,29 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: 97e0456e274adee7d678e373cfd92b5003f3d801
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 1a9f80166e47b17644b37d4bc9b93e1abefe3432
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759102"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022764"
 ---
-# <a name="single-sided-rendering"></a>Renderowanie jednostronne
+# <a name="no-loc-textsingle-sided-rendering"></a>:::no-loc text="Single-sided":::dawania
 
 Większość renderowania korzysta z [odtwarzania z tyłu](https://en.wikipedia.org/wiki/Back-face_culling) , aby zwiększyć wydajność. Jeśli jednak siatki są obcinane jako otwarte z [płaszczyznami wycinania](cut-planes.md), użytkownicy często będą oglądać z tyłu trójkątów. Jeśli te trójkąty są odrzucane, wynik nie wygląda na przekonujący.
 
 Sposobem nieniezawodnego zapobiegania temu problemowi jest renderowanie trójkątów *dwukrotnie*. Jako że nie korzystasz z funkcji usuwania z tyłu, ma to wpływ na wydajność, ponieważ domyślne renderowanie zdalne platformy Azure przełącza się tylko na dwustronne Renderowanie siatek, które są przecinane z płaszczyzną wycinania.
 
-Ustawienie *renderowania jednostronnego* pozwala dostosować to zachowanie.
+Ustawienie * :::no-loc text="single-sided"::: renderowania* pozwala dostosować to zachowanie.
 
 > [!CAUTION]
-> Ustawienie renderowania jednostronnego jest funkcją eksperymentalną. Może zostać ponownie usunięta w przyszłości. Nie zmieniaj ustawienia domyślnego, chyba że naprawdę rozwiąże problem krytyczny w aplikacji.
+> :::no-loc text="single-sided":::Ustawienie renderowania jest funkcją eksperymentalną. Może zostać ponownie usunięta w przyszłości. Nie zmieniaj ustawienia domyślnego, chyba że naprawdę rozwiąże problem krytyczny w aplikacji.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Ustawienie renderowania jednostronnego ma wpływ tylko na siatki, które zostały [przekonwertowane](../../how-tos/conversion/configure-model-conversion.md) przy użyciu `opaqueMaterialDefaultSidedness` opcji ustawionej na `SingleSided` . Domyślnie ta opcja jest ustawiona na `DoubleSided` .
+:::no-loc text="single-sided":::Ustawienie renderowania ma wpływ tylko na siatki, które zostały [przekonwertowane](../../how-tos/conversion/configure-model-conversion.md) przy użyciu `opaqueMaterialDefaultSidedness` opcji ustawionej na `SingleSided` . Domyślnie ta opcja jest ustawiona na `DoubleSided` .
 
-## <a name="single-sided-rendering-setting"></a>Ustawienie renderowania jednostronnego
+## <a name="no-loc-textsingle-sided-rendering-setting"></a>:::no-loc text="Single-sided":::ustawienie renderowania
 
 Istnieją trzy różne tryby:
 
@@ -35,9 +35,9 @@ Istnieją trzy różne tryby:
 
 **DynamicDoubleSiding:** W tym trybie, gdy płaszczyzna wycinania przecina siatkę, zostanie ona automatycznie przełączona na Render dwustronny. Ten tryb jest trybem domyślnym.
 
-**AlwaysDoubleSided:** Wymusza, aby cała geometria jednostronna była renderowana dwustronnie przez cały czas. Ten tryb jest głównie narażony, dzięki czemu można łatwo porównać wpływ na wydajność między renderowaniem jednostronnym i dwustronnym.
+**AlwaysDoubleSided:** Wymusza, aby cała geometria jednostronna była renderowana dwustronnie przez cały czas. Ten tryb jest głównie narażony, dzięki czemu można łatwo porównać wpływ na wydajność między :::no-loc text="single-sided"::: i :::no-loc text="double-sided"::: renderingu.
 
-Zmiana ustawień renderowania jednostronnego można wykonać w następujący sposób:
+Zmiany :::no-loc text="single-sided"::: ustawień renderowania można wykonać w następujący sposób:
 
 ```cs
 void ChangeSingleSidedRendering(AzureSession session)

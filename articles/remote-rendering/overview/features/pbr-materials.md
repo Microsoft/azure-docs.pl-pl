@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 64553506f75451c50a87932904f00a7275ea9286
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e4ee6abe7481fef4d56c980da80e319624975384
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80680260"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021317"
 ---
 # <a name="pbr-materials"></a>Materiały PBR
 
@@ -26,7 +26,7 @@ Materiały PBR nie są rozwiązaniem uniwersalnym, chociaż. Istnieją materiał
 
 Te właściwości są wspólne dla wszystkich materiałów:
 
-* **albedoColor:** Ten kolor jest mnożony przez inne kolory, takie jak *albedoMap* lub *kolor wierzchołka*. Jeśli *przezroczystość* jest włączona w materiale, kanał alfa jest używany do dostosowywania nieprzezroczystości, `1` co oznacza całkowite nieprzezroczystość i `0` znaczenie w pełni przezroczyste. Wartość domyślna to biały.
+* **albedoColor:** Ten kolor jest mnożony przez inne kolory, takie jak *albedoMap* lub * :::no-loc text="vertex "::: kolory*. Jeśli *przezroczystość* jest włączona w materiale, kanał alfa jest używany do dostosowywania nieprzezroczystości, `1` co oznacza całkowite nieprzezroczystość i `0` znaczenie w pełni przezroczyste. Wartość domyślna to biały.
 
   > [!NOTE]
   > Gdy materiał PBR jest całkowicie przezroczysty, podobnie jak idealnie czysty fragment, nadal odzwierciedla środowisko. Jasne plamy, takie jak słońce, są nadal widoczne w odbiciu. Różni się to w przypadku [materiałów kolorowych](color-materials.md).
@@ -37,9 +37,9 @@ Te właściwości są wspólne dla wszystkich materiałów:
 
 * **textureCoordinateScale** i **textureCoordinateOffset:** Skala jest mnożona do współrzędnych tekstury UV, przesunięcie jest dodawane do niego. Może służyć do rozciągnięcia i przesunięcia tekstur. Domyślna Skala to (1, 1), a przesunięcie to (0, 0).
 
-* **useVertexColor:** Jeśli siatka zawiera kolory wierzchołków, a ta opcja jest włączona, kolory wierzchołka siatki są mnożone do *albedoColor* i *albedoMap*. Domyślnie kolory wierzchołków są wyłączone.
+* **useVertexColor:** Jeśli siatka zawiera :::no-loc text="vertex"::: kolory, a ta opcja jest włączona, :::no-loc text="vertex"::: kolor siatki jest mnożony do *albedoColor* i *albedoMap*. Domyślnie *useVertexColor* jest wyłączone.
 
-* **isDoubleSided:** Jeśli jest ustawiona wartość true, Trójkąty z tym materiałem są renderowane, nawet jeśli lampa jest oglądana na ich powierzchni. W przypadku oświetlenia materiałów PBR również jest obliczana prawidłowo dla twarzy z tyłu. Domyślnie ta opcja jest wyłączona. Zobacz również [renderowanie jednostronne](single-sided-rendering.md).
+* **isDoubleSided:** Jeśli jest ustawiona wartość true, Trójkąty z tym materiałem są renderowane, nawet jeśli lampa jest oglądana na ich powierzchni. W przypadku oświetlenia materiałów PBR również jest obliczana prawidłowo dla twarzy z tyłu. Domyślnie ta opcja jest wyłączona. Zobacz też [ :::no-loc text="Single-sided"::: renderowanie](single-sided-rendering.md).
 
 ## <a name="pbr-material-properties"></a>Właściwości materiału PBR
 
@@ -47,11 +47,11 @@ Podstawowy pomysł renderowania opartego na fizycznie polega na użyciu właści
 
 * **baseColor:** W materiałach PBR *kolor albedo* jest określany jako *kolor podstawowy*. W przypadku renderowania zdalnego na platformie Azure Właściwość *Color albedo* jest już obecna za pomocą wspólnych właściwości materiału, więc nie istnieje dodatkowa Właściwość koloru podstawowego.
 
-* **niesztywność** i **roughnessMap:** sztywność definiuje, jak sztywne lub gładkie powierzchni. Nieprzemieszczone powierzchnie rozpraszają światło w większej liczbie kierunków niż gładkie powierzchnie, co sprawia, że odbicia są rozmyte, a nie ostre. Zakres wartości jest z `0.0` do. `1.0` Gdy `roughness` jest `0.0`równe, odbicia będzie ostro. Gdy `roughness` jest `0.5`równe, odbicia staną się zamazane.
+* **niesztywność** i **roughnessMap:** sztywność definiuje, jak sztywne lub gładkie powierzchni. Nieprzemieszczone powierzchnie rozpraszają światło w większej liczbie kierunków niż gładkie powierzchnie, co sprawia, że odbicia są rozmyte, a nie ostre. Zakres wartości jest z `0.0` do `1.0` . Gdy `roughness` jest równe `0.0` , odbicia będzie ostro. Gdy `roughness` jest równe `0.5` , odbicia staną się zamazane.
 
   W przypadku podania zarówno wartości nieilościowej, jak i mapy o niesztywnej wartości końcowej będzie iloczyn dwóch.
 
-* **metalu** i **metalnessMap:** w fizyka, ta właściwość odnosi się do tego, czy powierzchnia jest przeprowadzona czy nieruchoma. Materiały przewodzące mają różne właściwości odbijające i mają być odzwierciedlane bez koloru albedo. W materiałach PBR ta właściwość ma wpływ na to, ile powierzchni odzwierciedla otoczenie otoczenia. Zakres wartości od `0.0` do `1.0`. Gdy metalu jest `0.0`, kolor albedo jest w pełni widoczny i materiał wygląda jak plastikowe lub ceramiczne. Gdy metale jest `0.5`, wygląda na to, że jest to kolor malowany. Gdy metalowy jest `1.0`, powierzchnia niemal całkowicie traci kolor albedo i odzwierciedla tylko otoczenie. `metalness` Na przykład jeśli `1.0` jest i `roughness` jest `0.0` to powierzchnia wygląda podobnie jak w świecie rzeczywistym.
+* **metalu** i **metalnessMap:** w fizyka, ta właściwość odnosi się do tego, czy powierzchnia jest przeprowadzona czy nieruchoma. Materiały przewodzące mają różne właściwości odbijające i mają być odzwierciedlane bez koloru albedo. W materiałach PBR ta właściwość ma wpływ na to, ile powierzchni odzwierciedla otoczenie otoczenia. Zakres wartości od `0.0` do `1.0` . Gdy metalu jest `0.0` , kolor albedo jest w pełni widoczny i materiał wygląda jak plastikowe lub ceramiczne. Gdy metale jest `0.5` , wygląda na to, że jest to kolor malowany. Gdy metalowy jest `1.0` , powierzchnia niemal całkowicie traci kolor albedo i odzwierciedla tylko otoczenie. Na przykład jeśli `metalness` jest `1.0` i jest `roughness` to `0.0` powierzchnia wygląda podobnie jak w świecie rzeczywistym.
 
   Jeśli zostanie podana zarówno wartość metalu, jak i mapa metalu, końcowa wartość będzie iloczynem dwóch.
 
@@ -61,7 +61,7 @@ Podstawowy pomysł renderowania opartego na fizycznie polega na użyciu właści
 
 * **normalMap:** Aby symulować szczegółowe informacje, można podać [mapę normalną](https://en.wikipedia.org/wiki/Normal_mapping) .
 
-* **occlusionMap** i **aoScale:** otoczenie [zamknięcia](https://en.wikipedia.org/wiki/Ambient_occlusion) sprawia, że obiekty z crevices wyglądają bardziej realistycznie przez dodanie cieni do obszarów zamknięte. Zamknięcia zakres wartości z `0.0` do `1.0`, gdzie `0.0` oznacza zaciemnienie (zamknięte) `1.0` i oznacza brak Occlusions. Jeśli tekstura 2D jest określona jako mapa zamknięcia, efekt jest włączony i *aoScale* działa jako mnożnik.
+* **occlusionMap** i **aoScale:** otoczenie [zamknięcia](https://en.wikipedia.org/wiki/Ambient_occlusion) sprawia, że obiekty z crevices wyglądają bardziej realistycznie przez dodanie cieni do obszarów zamknięte. Zamknięcia zakres wartości z `0.0` do `1.0` , gdzie `0.0` oznacza zaciemnienie (zamknięte) i `1.0` oznacza brak Occlusions. Jeśli tekstura 2D jest określona jako mapa zamknięcia, efekt jest włączony i *aoScale* działa jako mnożnik.
 
   ![Mapa zamknięcia](./media/boom-box-ao2.gif)
 
@@ -69,7 +69,7 @@ Podstawowy pomysł renderowania opartego na fizycznie polega na użyciu właści
 
   Renderowanie przezroczystej geometrii jest kosztowne. Jeśli potrzebujesz tylko otworów na powierzchni, na przykład dla liści drzewa, lepiej jest użyć przycinania alfa.
 
-  ![Na](./media/transparency.png) powyższym obrazie powinna zostać wyświetlona informacja o przezroczystości, w jaki sposób najbardziej przejrzysty jest zakres z prawej strony, ale odbicie jest nadal widoczne.
+  ![Na ](./media/transparency.png) powyższym obrazie powinna zostać wyświetlona informacja o przezroczystości, w jaki sposób najbardziej przejrzysty jest zakres z prawej strony, ale odbicie jest nadal widoczne.
 
   > [!IMPORTANT]
   > Jeśli dowolny materiał ma być przełączany z nieprzezroczystego na przezroczysty w czasie wykonywania, moduł renderowania musi używać [trybu renderowania](../../concepts/rendering-modes.md) *TileBasedComposition* . To ograniczenie nie ma zastosowania do materiałów, które są konwertowane jako przezroczyste materiały, aby zaczynać się od.

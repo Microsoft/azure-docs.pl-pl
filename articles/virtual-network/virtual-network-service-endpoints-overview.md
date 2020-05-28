@@ -13,24 +13,24 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: ae9d219c376aa704be34088a4f7c48c35baa9669
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: 4a2a7af23005e3c033d455d52f61cef2b7564b7f
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509503"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84018756"
 ---
 # <a name="virtual-network-service-endpoints"></a>Punkty końcowe usługi dla sieci wirtualnej
 
 Punkty końcowe usługi Virtual Network (VNet) zwiększają prywatną przestrzeń adresową sieci wirtualnej. Punkty końcowe również zwiększają tożsamość sieci wirtualnej do usług platformy Azure za pośrednictwem bezpośredniego połączenia. Punkty końcowe umożliwiają zabezpieczanie krytycznych zasobów usługi platformy Azure tylko do sieci wirtualnych. Ruch z sieci wirtualnej do usługi platformy Azure zawsze pozostaje w sieci szkieletowej platformy Microsoft Azure.
 
-Ta funkcja jest dostępna dla następujących regionów i usług platformy Azure. *Microsoft.\* * Resource znajduje się w nawiasach. Włącz ten zasób ze strony podsieci podczas konfigurowania punktów końcowych usługi dla usługi:
+Ta funkcja jest dostępna dla następujących regionów i usług platformy Azure. *Microsoft. \* * Resource znajduje się w nawiasach. Włącz ten zasób ze strony podsieci podczas konfigurowania punktów końcowych usługi dla usługi:
 
 **Ogólnie dostępne**
 
 - **[Usługa Azure Storage](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)** (*Microsoft. Storage*): ogólnie dostępna we wszystkich regionach świadczenia usługi Azure.
-- **[Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): ogólnie dostępna we wszystkich regionach świadczenia usługi Azure.
-- **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): ogólnie dostępna we wszystkich regionach świadczenia usługi Azure.
+- **[Azure SQL Database](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): ogólnie dostępna we wszystkich regionach świadczenia usługi Azure.
+- **[Azure SQL Data Warehouse](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): ogólnie dostępna we wszystkich regionach świadczenia usługi Azure.
 - **[Serwer Azure Database for PostgreSQL](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): ogólnie dostępny w regionach platformy Azure, w których usługa bazy danych jest dostępna.
 - **[Serwer Azure Database for MySQL](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): ogólnie dostępny w regionach platformy Azure, w których usługa bazy danych jest dostępna.
 - **[Azure Database for MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)** (*Microsoft. SQL*): ogólnie dostępna w regionach platformy Azure, w których usługa bazy danych jest dostępna.
@@ -80,7 +80,7 @@ Punkty końcowe usługi oferują następujące korzyści:
 
 ![Zabezpieczanie usług platformy Azure w sieciach wirtualnych](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
-### <a name="configuration"></a>Konfiguracja
+### <a name="configuration"></a>Konfigurowanie
 
 - Skonfiguruj punkty końcowe usługi w podsieci w sieci wirtualnej. Punkty końcowe współpracują z wystąpieniami obliczeniowymi dowolnego typu uruchomionymi w danej podsieci.
 - W podsieci można skonfigurować wiele punktów końcowych usługi dla wszystkich obsługiwanych usług platformy Azure (na przykład Azure Storage lub Azure SQL Database).
@@ -147,9 +147,9 @@ Często zadawane pytania można znaleźć w temacie [Virtual Network często zad
 
 - [Konfigurowanie punktów końcowych usługi dla sieci wirtualnej](tutorial-restrict-network-access-to-resources.md)
 - [Zabezpieczanie konta usługi Azure Storage w sieci wirtualnej](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Zabezpieczanie Azure SQL Database w sieci wirtualnej](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Zabezpieczanie Azure SQL Data Warehouse w sieci wirtualnej](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
+- [Zabezpieczanie Azure SQL Database w sieci wirtualnej](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Zabezpieczanie Azure SQL Data Warehouse w sieci wirtualnej](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 - [Integracja usług platformy Azure w sieciach wirtualnych](virtual-network-for-azure-services.md)
 - [Zasady punktu końcowego usługi Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
-- [Szablon Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)
+- [Szablon usługi Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)
 

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 12/04/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: c2f171c79423e0cfe8b57c05b8248679f9ada9f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 25517b48ad7dcddffaaeb4ac2f86397d99e0be2c
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79472745"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017515"
 ---
 # <a name="azure-activity-log-event-schema"></a>Schemat zdarzeń dziennika aktywności platformy Azure
 [Dziennik aktywności platformy Azure](platform-logs-overview.md) zawiera szczegółowe informacje o wszystkich zdarzeniach na poziomie subskrypcji, które wystąpiły na platformie Azure. W tym artykule opisano schemat zdarzeń dla każdej kategorii. 
@@ -287,7 +287,7 @@ Ta kategoria zawiera rekord wszystkich zdarzeń związanych z kondycją zasobów
 
 
 ## <a name="alert"></a>Alerty
-Ta kategoria zawiera rekord wszystkich aktywacji alertów platformy Azure. Przykładem typu zdarzenia, które zobaczysz w tej kategorii jest "procesor CPU% na myVM został przekroczony 80 dla ostatnich 5 minut". Różne systemy platformy Azure mają koncepcję alertów — można zdefiniować regułę określonego sortowania i otrzymywać powiadomienie, gdy warunki są zgodne z tą regułą. Za każdym razem, gdy obsługiwany typ alertu platformy Azure "aktywuje" lub warunki są spełnione, aby wygenerować powiadomienie, rekord aktywacji jest również wypychany do tej kategorii dziennika aktywności.
+Ta kategoria zawiera rekord wszystkich aktywacji klasycznych alertów platformy Azure. Przykładem typu zdarzenia, które zobaczysz w tej kategorii jest "procesor CPU% na myVM został przekroczony 80 dla ostatnich 5 minut". Różne systemy platformy Azure mają koncepcję alertów — można zdefiniować regułę określonego sortowania i otrzymywać powiadomienie, gdy warunki są zgodne z tą regułą. Za każdym razem, gdy obsługiwany typ alertu platformy Azure "aktywuje" lub warunki są spełnione, aby wygenerować powiadomienie, rekord aktywacji jest również wypychany do tej kategorii dziennika aktywności.
 
 ### <a name="sample-event"></a>Przykładowe zdarzenie
 

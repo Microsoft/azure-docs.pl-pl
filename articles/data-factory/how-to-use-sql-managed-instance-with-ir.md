@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: 74cad0ab9ffc3eb05219cb9e2c2585e73498c9bd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: cd07bf86852d608a6d872f4c6b973b0a81b2a1c3
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83664858"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015288"
 ---
 # <a name="use-azure-sql-database-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Użyj Azure SQL Database wystąpienia zarządzanego z SQL Server Integration Services (SSIS) w Azure Data Factory
 
@@ -24,17 +24,17 @@ ms.locfileid: "83664858"
 
 Teraz możesz przenosić projekty, pakiety i obciążenia SQL Server Integration Services (SSIS) do chmury platformy Azure. Wdrażaj i uruchamiaj projekty SSIS oraz pakiety na Azure SQL Database lub SQL Database zarządzanej instancji przy użyciu znanych narzędzi, takich jak SQL Server Management Studio (SSMS). W tym artykule przedstawiono następujące obszary dotyczące korzystania z Azure SQL Database wystąpienia zarządzanego z usługą Azure-SSIS Integration Runtime (IR):
 
-- [Inicjowanie obsługi Azure-SSIS IR przy użyciu wykazu usług SSIS (SSISDB) hostowanego przez wystąpienie zarządzane Azure SQL Database](#provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-database-managed-instance)
+- [Inicjowanie obsługi Azure-SSIS IR przy użyciu wykazu usług SSIS (SSISDB) hostowanego przez wystąpienie zarządzane Azure SQL Database](#provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance)
 - [Wykonywanie pakietów usług SSIS za pomocą zadania agenta wystąpienia zarządzanego usługi Azure SQL](how-to-invoke-ssis-package-managed-instance-agent.md)
 - [Czyszczenie dzienników SSISDB za pomocą zadania agenta wystąpienia zarządzanego Azure SQL](#clean-up-ssisdb-logs)
 - [Azure-SSIS IR trybu failover z wystąpieniem Azure SQL Database zarządzanym](configure-bcdr-azure-ssis-integration-runtime.md#azure-ssis-ir-failover-with-a-sql-database-managed-instance)
-- [Migrowanie lokalnych obciążeń usług SSIS do usług SSIS w podajniku APD z Azure SQL Database wystąpieniem zarządzanym jako miejsce docelowe obciążeń bazy danych](scenario-ssis-migration-overview.md#azure-sql-database-managed-instance-as-database-workload-destination)
+- [Migrowanie lokalnych obciążeń usług SSIS do usług SSIS w podajniku APD z Azure SQL Database wystąpieniem zarządzanym jako miejsce docelowe obciążeń bazy danych](scenario-ssis-migration-overview.md#azure-sql-managed-instance-as-database-workload-destination)
 
-## <a name="provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-database-managed-instance"></a>Udostępnianie Azure-SSIS IR z usługą SSISDB hostowaną przez Azure SQL Database wystąpienie zarządzane
+## <a name="provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance"></a>Udostępnianie Azure-SSIS IR z usługą SSISDB hostowaną przez wystąpienie zarządzane Azure SQL
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
-1. [Włącz Azure Active Directory (Azure AD) na wystąpieniu zarządzanym Azure SQL Database](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-database-managed-instance), wybierając Azure Active Directory uwierzytelnianie.
+1. [Włącz Azure Active Directory (Azure AD) na wystąpieniu zarządzanym Azure SQL Database](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance), wybierając Azure Active Directory uwierzytelnianie.
 
 1. Wybierz sposób połączenia wystąpienia zarządzanego SQL, za pośrednictwem prywatnego punktu końcowego lub za pośrednictwem publicznego punktu końcowego:
 
@@ -90,8 +90,8 @@ Teraz możesz przenosić projekty, pakiety i obciążenia SQL Server Integration
     1. Upewnij się, że grupa zasobów sieci wirtualnej umożliwia tworzenie i usuwanie niektórych zasobów sieci platformy Azure.
 
         Azure-SSIS IR musi utworzyć określone zasoby sieciowe w ramach tej samej grupy zasobów co sieć wirtualna. Te zasoby obejmują:
-        - Moduł równoważenia obciążenia platformy Azure o nazwie * \< GUID>-azurebatch-cloudserviceloadbalancer*
-        - Sieciową grupę zabezpieczeń o nazwie * \< Guid>-azurebatch-cloudservicenetworksecuritygroup
+        - Moduł równoważenia obciążenia platformy Azure o nazwie * \<Guid> -azurebatch-cloudserviceloadbalancer*
+        - Sieciową grupę zabezpieczeń o nazwie * \<Guid> -azurebatch-cloudservicenetworksecuritygroup
         - Publiczny adres IP platformy Azure o nazwie-azurebatch-cloudservicepublicip
 
         Te zasoby zostaną utworzone po rozpoczęciu Azure-SSIS IR. Zostaną one usunięte po zatrzymaniu Azure-SSIS IR. Aby zapobiec zablokowaniu Azure-SSIS IR z zatrzymywania, nie używaj ponownie tych zasobów sieciowych w innych zasobach.
@@ -147,7 +147,7 @@ Teraz możesz przenosić projekty, pakiety i obciążenia SQL Server Integration
 
     ![wykaz — publiczny — punkt końcowy](./media/how-to-use-sql-managed-instance-with-ir/catalog-aad.png)
 
-    Aby uzyskać więcej informacji o sposobie włączania uwierzytelniania usługi Azure AD, zobacz [Włączanie usługi Azure AD na Azure SQL Database wystąpienia zarządzanego](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-database-managed-instance).
+    Aby uzyskać więcej informacji o sposobie włączania uwierzytelniania usługi Azure AD, zobacz [Włączanie usługi Azure AD na Azure SQL Database wystąpienia zarządzanego](enable-aad-authentication-azure-ssis-ir.md#configure-azure-ad-authentication-for-azure-sql-managed-instance).
 
 1. Dołącz Azure-SSIS IR do sieci wirtualnej, jeśli ma zastosowanie.
 

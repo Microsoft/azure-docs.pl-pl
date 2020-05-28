@@ -80,7 +80,7 @@ W grupie akcji może istnieć ograniczona liczba akcji elementu Runbook.
 ### <a name="azure-app-push-notifications"></a>Powiadomienia push aplikacji platformy Azure
 W grupie akcji może istnieć ograniczona liczba akcji aplikacji platformy Azure.
 
-### <a name="email"></a>Poczta e-mail
+### <a name="email"></a>Adres e-mail
 Wiadomości e-mail będą wysyłane z następujących adresów e-mail. Upewnij się, że filtrowanie poczty e-mail jest skonfigurowane odpowiednio
 - azure-noreply@microsoft.com
 - azureemail-noreply@microsoft.com

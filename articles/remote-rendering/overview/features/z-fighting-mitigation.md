@@ -5,16 +5,16 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: 69774c0014aac26c7266620bbe7d06ba37d6023b
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: f4c49be5f5a0f2c89831891dc2640b64fee9fc44
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758813"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022422"
 ---
 # <a name="z-fighting-mitigation"></a>Ograniczanie efektu Z-fighting
 
-Gdy dwie powierzchnie nakładają się, nie jest jasne, które powinny być renderowane na drugim. Wynik jest nawet różny dla pikseli, co powoduje artefakty zależne od widoku. W związku z tym, gdy kamera lub siatka przesunie się, te wzorce migotają zauważalnie. Ten artefakt jest nazywany *z-walką*. W przypadku aplikacji AR i VR problem został wzmocniony, ponieważ urządzenia z zainstalowanym głową są zawsze przenoszone. Aby uniemożliwić podgląd niewygodną funkcję ograniczania ochrony przed walką z usługą Azure, zdalne renderowanie jest dostępne.
+Gdy dwie powierzchnie nakładają się, nie jest jasne, które powinny być renderowane na drugim. Wynik jest nawet różny w pikselach, co powoduje artefakty zależne od widoku. W związku z tym, gdy kamera lub siatka przesunie się, te wzorce migotają zauważalnie. Ten artefakt jest nazywany *z-walką*. W przypadku aplikacji AR i VR problem został wzmocniony, ponieważ urządzenia z zainstalowanym głową są zawsze przenoszone. Aby uniemożliwić podgląd niewygodną funkcję ograniczania ochrony przed walką z usługą Azure, zdalne renderowanie jest dostępne.
 
 ## <a name="z-fighting-mitigation-modes"></a>Tryby ograniczania do walki Z
 

@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: dff2acba63eaa2caabaddb0228424744be6ded16
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 80f7ba4a4493299d9d1795631401689f4619d873
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82101692"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014631"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>Samouczek: tworzenie sieci wirtualnych platformy Azure i zarządzanie nimi za pomocą programu Azure PowerShell na maszynach wirtualnych z systemem Windows
 
@@ -31,7 +31,7 @@ Maszyny wirtualne platformy Azure korzystają z sieci platformy Azure do wewnęt
 
 ## <a name="vm-networking-overview"></a>Omówienie sieci maszyn wirtualnych
 
-Sieci wirtualne platformy Azure umożliwiają nawiązywanie bezpiecznych połączeń sieciowych pomiędzy maszynami wirtualnymi, Internetem i innymi usługami platformy Azure, na przykład bazą danych Azure SQL Database. Sieci wirtualne są podzielone na logiczne segmenty nazywane podsieciami. Podsieci są używane do sterowania przepływem sieciowym oraz pełnią funkcję granicy zabezpieczeń. Wdrażana maszyna wirtualna zwykle zawiera wirtualny interfejs sieciowy dołączony do podsieci.
+Sieci wirtualne platformy Azure umożliwiają bezpieczne połączenia sieciowe między maszynami wirtualnymi, Internetem i innymi usługami platformy Azure, takimi jak Azure SQL Database. Sieci wirtualne są podzielone na logiczne segmenty nazywane podsieciami. Podsieci są używane do sterowania przepływem sieciowym oraz pełnią funkcję granicy zabezpieczeń. Wdrażana maszyna wirtualna zwykle zawiera wirtualny interfejs sieciowy dołączony do podsieci.
 
 Podczas pracy z tym samouczkiem zostaną utworzone następujące zasoby:
 
@@ -52,7 +52,7 @@ Podczas pracy z tym samouczkiem zostaną utworzone następujące zasoby:
 
 Usługa Azure Cloud Shell to bezpłatna interaktywna powłoka, której możesz używać do wykonywania kroków opisanych w tym artykule. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie. 
 
-Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Cloud Shell można również uruchomić na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
+Aby otworzyć usługę Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Cloud Shell można również uruchomić na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/powershell](https://shell.azure.com/powershell) . Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
 
 
 ## <a name="create-subnet"></a>Tworzenie podsieci 

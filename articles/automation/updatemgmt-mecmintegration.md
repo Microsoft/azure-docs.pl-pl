@@ -7,12 +7,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 12/11/2019
 ms.topic: conceptual
-ms.openlocfilehash: 183189253d11638751e1f8283b202f122131b005
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: ae8c4f09c0133dde7b0a73b7c2fcd0a28aa22ae3
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836315"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84013201"
 ---
 # <a name="integrate-update-management-with-windows-endpoint-configuration-manager"></a>Integracja Update Management z punktem końcowym systemu Windows Configuration Manager
 
@@ -38,7 +38,7 @@ Aby kontynuować Zarządzanie wdrożeniami aktualizacji z punktu Configuration M
 1. W Azure Automation wybierz pozycję **Update Management**. Utwórz nowe wdrożenie, postępując zgodnie z krokami opisanymi w temacie [Tworzenie wdrożenia aktualizacji](automation-tutorial-update-management.md#schedule-an-update-deployment) i wybierz pozycję **zaimportowane grupy** na liście rozwijanej **Typ** , aby wybrać odpowiednią kolekcję Configuration Manager punktu końcowego systemu Windows. Należy pamiętać o następujących ważnych kwestiach: a. Jeśli okno obsługi jest zdefiniowane w wybranej kolekcji urządzeń z systemem Windows Configuration Manager, elementy członkowskie kolekcji uznają je za ustawienie **czasu trwania** zdefiniowane w zaplanowanym wdrożeniu.
     b. Elementy członkowskie kolekcji docelowej muszą mieć połączenie z Internetem (bezpośrednio, za pośrednictwem serwera proxy lub z bramą Log Analytics).
 
-Po zakończeniu wdrażania aktualizacji za pośrednictwem Azure Automation komputery docelowe, które są członkami wybranej grupy komputerów, będą instalować aktualizacje w zaplanowanym czasie z ich lokalnej pamięci podręcznej klienta. Możesz [wyświetlić stan wdrożenia aktualizacji](automation-tutorial-update-management.md#view-results-of-an-update-deployment), aby monitorować wyniki swojego wdrożenia.
+Po zakończeniu wdrażania aktualizacji za pośrednictwem Azure Automation komputery docelowe, które są członkami wybranej grupy komputerów, będą instalować aktualizacje w zaplanowanym czasie z ich lokalnej pamięci podręcznej klienta. Możesz [wyświetlić stan wdrożenia aktualizacji](automation-tutorial-update-management.md#check-deployment-status), aby monitorować wyniki swojego wdrożenia.
 
 ## <a name="manage-software-updates-from-azure-automation"></a>Zarządzaj aktualizacjami oprogramowania z programu Azure Automation
 

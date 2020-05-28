@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: f4de4c25cea251ea0db72bcb435ceb63eb308ff0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 22fa0e1cc6bdad109c5dcb82cc08b81d91674f9a
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81409226"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022458"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-powershell"></a>Przyrostowe ładowanie danych z bazy danych Azure SQL Database do usługi Azure Blob Storage przy użyciu programu PowerShell
 
@@ -63,7 +63,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* **Azure SQL Database**. Baza danych jest używana jako źródłowy magazyn danych. Jeśli nie masz bazy danych SQL, utwórz ją, wykonując czynności przedstawione w artykule [Tworzenie bazy danych Azure SQL Database](../sql-database/sql-database-get-started-portal.md).
+* **Azure SQL Database**. Baza danych jest używana jako źródłowy magazyn danych. Jeśli nie masz bazy danych SQL, utwórz ją, wykonując czynności przedstawione w artykule [Tworzenie bazy danych Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
 * **Usługa Azure Storage**. Magazyn obiektów blob jest używany jako magazyn danych ujścia. Jeśli nie masz konta magazynu, utwórz je, wykonując czynności przedstawione w artykule [Tworzenie konta magazynu](../storage/common/storage-account-create.md). Utwórz kontener o nazwie adftutorial. 
 * **Azure PowerShell**. Wykonaj instrukcje podane w temacie [Instalowanie i konfigurowanie programu Azure PowerShell](/powershell/azure/install-Az-ps).
 
@@ -199,7 +199,7 @@ Pamiętaj o następujących kwestiach:
 Połączone usługi tworzy się w fabryce danych w celu połączenia magazynów danych i usług obliczeniowych z fabryką danych. W tej sekcji utworzysz usługi połączone ze swoim kontem magazynu i bazą danych SQL.
 
 ### <a name="create-a-storage-linked-service"></a>Tworzenie połączonej usługi Storage
-1. W folderze C:\ADF utwórz plik JSON o nazwie AzureStorageLinkedService.json z następującą zawartością. (Utwórz folder ADF, jeśli jeszcze nie istnieje). Przed `<accountName>` zapisaniem pliku Zastąp wartości i `<accountKey>` nazwą i kluczem konta magazynu.
+1. W folderze C:\ADF utwórz plik JSON o nazwie AzureStorageLinkedService.json z następującą zawartością. (Utwórz folder ADF, jeśli jeszcze nie istnieje). `<accountName>` `<accountKey>` Przed zapisaniem pliku Zastąp wartości i nazwą i kluczem konta magazynu.
 
     ```json
     {
@@ -230,7 +230,7 @@ Połączone usługi tworzy się w fabryce danych w celu połączenia magazynów 
     ```
 
 ### <a name="create-a-sql-database-linked-service"></a>Tworzenie połączonej usługi bazy danych SQL
-1. W folderze C:\ADF utwórz plik JSON o nazwie AzureSQLDatabaseLinkedService.json z następującą zawartością. (Utwórz folder ADF, jeśli jeszcze nie istnieje). Przed &lt;zapisaniem pliku &lt;Zastąp&gt;wartości Server &lt;&gt;,&gt; &lt;Database&gt;, User ID i Password nazwą serwera, bazy danych, identyfikatora użytkownika i hasła.
+1. W folderze C:\ADF utwórz plik JSON o nazwie AzureSQLDatabaseLinkedService.json z następującą zawartością. (Utwórz folder ADF, jeśli jeszcze nie istnieje). &lt; &gt; &lt; Przed zapisaniem pliku Zastąp wartości Server, Database &gt; , &lt; User ID &gt; i Password &lt; &gt; nazwą serwera, bazy danych, identyfikatora użytkownika i hasła.
 
     ```json
     {

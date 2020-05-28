@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.subservice: metrics
-ms.openlocfilehash: 4891d7272516caf4944219907d81ee4fb89e0189
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: b2d2d14f89fa25bba1a19538c758aa0c930b3964
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82837315"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84018535"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Metryki niestandardowe w Azure Monitor (wersja zapoznawcza)
 
@@ -28,7 +28,7 @@ Niestandardowe metryki mogą być wysyłane do Azure Monitor za pomocą kilku me
 - Instrumentacja aplikacji przy użyciu zestawu Azure Application Insights SDK i wysyłania niestandardowej telemetrii do Azure Monitor. 
 - Zainstaluj rozszerzenie Windows Diagnostyka Azure (funkcji wad) na [maszynie wirtualnej platformy Azure](collect-custom-metrics-guestos-resource-manager-vm.md), [zestawie skalowania maszyn wirtualnych](collect-custom-metrics-guestos-resource-manager-vmss.md), [klasycznej maszynie wirtualnej](collect-custom-metrics-guestos-vm-classic.md)lub [klasycznej Cloud Services](collect-custom-metrics-guestos-vm-cloud-service-classic.md) i Wyślij liczniki wydajności do Azure monitor. 
 - Zainstaluj [agenta InfluxData telegraf](collect-custom-metrics-linux-telegraf.md) na maszynie wirtualnej z systemem Linux systemu Azure i wysyłaj metryki przy użyciu wtyczki danych wyjściowych Azure monitor.
-- Wysyłać niestandardowe metryki [bezpośrednio do interfejsu API REST Azure monitor](../../azure-monitor/platform/metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
+- Wysyłać niestandardowe metryki [bezpośrednio do interfejsu API REST Azure monitor](../../azure-monitor/platform/metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics` .
 
 ## <a name="pricing-model-and-rentention"></a>Model cen i przechowywania
 
@@ -51,7 +51,7 @@ Aby przesłać niestandardowe metryki do Azure Monitor, jednostka, która przesy
 Aby uwierzytelnić żądanie, Azure Monitor sprawdza poprawność tokenu aplikacji przy użyciu kluczy publicznych usługi Azure AD. Istniejące rola **wydawcy metryk monitorowania** ma już to uprawnienie. Jest on dostępny w Azure Portal. Nazwa główna usługi, w zależności od tego, jakie zasoby emitują metryki niestandardowe, może mieć rolę **wydawcy metryk monitorowania** w wymaganym zakresie. Przykłady to subskrypcja, Grupa zasobów lub określony zasób.
 
 > [!TIP]  
-> Po zażądaniu tokenu usługi Azure AD do emitowania metryk niestandardowych upewnij się, że dla odbiorców lub zasobów jest żądany token `https://monitoring.azure.com/`. Pamiętaj, aby uwzględnić końcowy znak "/".
+> Po zażądaniu tokenu usługi Azure AD do emitowania metryk niestandardowych upewnij się, że dla odbiorców lub zasobów jest żądany token `https://monitoring.azure.com/` . Pamiętaj, aby uwzględnić końcowy znak "/".
 
 ### <a name="subject"></a>Podmiot
 Ta właściwość służy do przechwytywania identyfikatora zasobu platformy Azure, dla którego jest raportowana Metryka niestandardowa. Te informacje zostaną zakodowane w adresie URL wywoływanego wywołania interfejsu API. Każdy interfejs API może przesyłać tylko wartości metryk dla pojedynczego zasobu platformy Azure.
@@ -189,31 +189,31 @@ W publicznej wersji zapoznawczej możliwość publikowania metryk niestandardowy
 |Region platformy Azure |Prefiks regionu punktu końcowego|
 |---|---|
 | **Stany Zjednoczone i Kanada** | |
-|Zachodnio-środkowe stany USA | https:\//westcentralus.Monitoring.Azure.com/ |
-|Zachodnie stany USA 2       | https:\//westus2.Monitoring.Azure.com/ |
-|Północno-środkowe stany USA | https:\//northcentralus.Monitoring.Azure.com
-|Południowo-środkowe stany USA| https:\//southcentralus.Monitoring.Azure.com/ |
-|Środkowe stany USA      | https:\//centralus.Monitoring.Azure.com |
-|Kanada Środkowa | https:\//canadacentral.Monitoring.Azure.Comc
-|Wschodnie stany USA| https:\//eastus.Monitoring.Azure.com/ |
+|Zachodnio-środkowe stany USA | https: \/ /westcentralus.Monitoring.Azure.com/ |
+|Zachodnie stany USA 2       | https: \/ /westus2.Monitoring.Azure.com/ |
+|Północno-środkowe stany USA | https: \/ /northcentralus.Monitoring.Azure.com
+|Południowo-środkowe stany USA| https: \/ /southcentralus.Monitoring.Azure.com/ |
+|Środkowe stany USA      | https: \/ /centralus.Monitoring.Azure.com |
+|Kanada Środkowa | https: \/ /canadacentral.Monitoring.Azure.Comc
+|Wschodnie stany USA| https: \/ /eastus.Monitoring.Azure.com/ |
 | **Europa** | |
-|Europa Północna    | https:\//northeurope.Monitoring.Azure.com/ |
-|Europa Zachodnia     | https:\//westeurope.Monitoring.Azure.com/ |
-|Południowe Zjednoczone Królestwo | https:\//uksouth.Monitoring.Azure.com
-|Francja Środkowa | https:\//francecentral.Monitoring.Azure.com |
+|Europa Północna    | https: \/ /northeurope.Monitoring.Azure.com/ |
+|Europa Zachodnia     | https: \/ /westeurope.Monitoring.Azure.com/ |
+|Południowe Zjednoczone Królestwo | https: \/ /uksouth.Monitoring.Azure.com
+|Francja Środkowa | https: \/ /francecentral.Monitoring.Azure.com |
 | **Afryka** | |
-|Północna Republika Południowej Afryki | https:\//southafricanorth.Monitoring.Azure.com
-| **Wsch** | |
-|Indie Środkowe | https:\//centralindia.Monitoring.Azure.com
-|Australia Wschodnia | https:\//australiaeast.Monitoring.Azure.com
-|Japonia Wschodnia | https:\//japaneast.Monitoring.Azure.com
-|Azja Południowo-Wschodnia  | https:\//southeastasia.Monitoring.Azure.com |
-|Azja Wschodnia | https:\//eastasia.Monitoring.Azure.com
-|Korea Środkowa   | https:\//koreacentral.Monitoring.Azure.com
+|Północna Republika Południowej Afryki | https: \/ /southafricanorth.Monitoring.Azure.com
+| **Azja** | |
+|Indie Środkowe | https: \/ /centralindia.Monitoring.Azure.com
+|Australia Wschodnia | https: \/ /australiaeast.Monitoring.Azure.com
+|Japonia Wschodnia | https: \/ /japaneast.Monitoring.Azure.com
+|Azja Południowo-Wschodnia  | https: \/ /southeastasia.Monitoring.Azure.com |
+|Azja Wschodnia | https: \/ /eastasia.Monitoring.Azure.com
+|Korea Środkowa   | https: \/ /koreacentral.Monitoring.Azure.com
 
 ## <a name="latency-and-storage-retention"></a>Opóźnienie i przechowywanie magazynu
 
-Dodawanie nowej metryki lub dodanie nowego wymiaru do metryki może potrwać do 2 minut. Raz w systemie dane powinny być apear przez czas krótszy niż 30 sekund przez 99% czasu. 
+Dodawanie nowej metryki lub dodanie nowego wymiaru do metryki może potrwać do 2 minut. Raz w systemie dane powinny być wyświetlane w mniej niż 30 sekund przez 99% czasu. 
 
 Jeśli usuniesz metrykę lub usuniesz wymiar, zmiana może potrwać tydzień do miesiąca do usunięcia z systemu.
 
@@ -230,7 +230,7 @@ Aktywna seria czasowa jest definiowana jako każda unikatowa kombinacja metryki,
 
 ## <a name="next-steps"></a>Następne kroki
 Użyj niestandardowych metryk z różnych usług: 
- - [Maszyny wirtualne](collect-custom-metrics-guestos-resource-manager-vm.md)
+ - [Virtual Machines](collect-custom-metrics-guestos-resource-manager-vm.md)
  - [Zestaw skalowania maszyn wirtualnych](collect-custom-metrics-guestos-resource-manager-vmss.md)
  - [Virtual Machines platformy Azure (wersja klasyczna)](collect-custom-metrics-guestos-vm-classic.md)
  - [Maszyna wirtualna z systemem Linux przy użyciu agenta telegraf](collect-custom-metrics-linux-telegraf.md)

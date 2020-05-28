@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/30/2020
-ms.openlocfilehash: aa4dbfbaff620c25042d2603dab543661ec2cd14
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 84df242cdbfedd0cd1442ac4c4da7f4b6139d244
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81410006"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020748"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Przyrostowe ładowanie danych z wielu tabel w SQL Server do Azure SQL Database
 
@@ -70,7 +70,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * **SQL Server**. Użyj lokalnej bazy danych SQL Server jako źródłowego magazynu danych w tym samouczku. 
-* **Azure SQL Database**. Jako magazyn danych ujścia używana jest baza danych SQL. Jeśli nie masz bazy danych SQL, utwórz ją, wykonując czynności przedstawione w artykule [Tworzenie bazy danych Azure SQL Database](../sql-database/sql-database-get-started-portal.md). 
+* **Azure SQL Database**. Jako magazyn danych ujścia używana jest baza danych SQL. Jeśli nie masz bazy danych SQL, utwórz ją, wykonując czynności przedstawione w artykule [Tworzenie bazy danych Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md). 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Tworzenie tabel źródłowych w bazie danych SQL Server
 
@@ -374,7 +374,7 @@ W tym kroku połączysz lokalną bazę danych programu SQL Server z fabryką dan
 
 ### <a name="create-the-sql-database-linked-service"></a>Tworzenie połączonej usługi bazy danych SQL
 
-1. Utwórz plik JSON o nazwie **AzureSQLDatabaseLinkedService. JSON** w folderze C:\ADFTutorials\IncCopyMultiTableTutorial o następującej zawartości. (Utwórz folder ADF, jeśli jeszcze nie istnieje). Przed &lt;zapisaniem pliku Zastąp &lt;wartości ServerName&gt; &lt;&gt;, &lt;nazwa&gt;bazy&gt; danych, nazwa użytkownika i hasło nazwą bazy danych SQL Server, nazwą bazy danych, nazwą użytkownika i hasłem. 
+1. Utwórz plik JSON o nazwie **AzureSQLDatabaseLinkedService. JSON** w folderze C:\ADFTutorials\IncCopyMultiTableTutorial o następującej zawartości. (Utwórz folder ADF, jeśli jeszcze nie istnieje). &lt; &gt; &lt; Przed zapisaniem pliku Zastąp wartości ServerName, nazwa bazy danych &gt; , &lt; Nazwa użytkownika &gt; i &lt; hasło &gt; nazwą bazy danych SQL Server, nazwą bazy danych, nazwą użytkownika i hasłem. 
 
     ```json
     {  

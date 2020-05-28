@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: 40857e83457222365e61a224ead19bd1d1d31ae7
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 5ef5af77831c01ae484398c1f2d8905e5e2bc11e
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758983"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021334"
 ---
 # <a name="hierarchical-state-override"></a>Hierarchiczne zastępowanie stanu
 
@@ -27,23 +27,23 @@ Na przykład rozważmy model samochodu i chcesz przełączyć cały samochód, a
 
 Stały zestaw Stanów, które mogą zostać zastąpione, to:
 
-* **Ukryte**: odpowiednie siatki w grafie sceny są ukryte lub pokazane.
-* **Kolor odcienia**: renderowany obiekt może być odbarwione kolorami z odcieniami poszczególnych kolorów i grubości odcienia. Na poniższym obrazie pokazano kolor tinty obręczy koła.
+* **`Hidden`**: Odpowiednie siatki w grafie sceny są ukryte lub pokazywane.
+* **`Tint color`**: Renderowany obiekt może być odbarwione kolorami z odcieniami poszczególnych kolorów i odcienia. Na poniższym obrazie pokazano kolor tinty obręczy koła.
   
   ![Odcień koloru](./media/color-tint.png)
 
-* Zapoznaj się z **tematem**: geometria jest renderowana częściowo w sposób przezroczysty, na przykład w celu ujawnienia wewnętrznych części obiektu. Na poniższej ilustracji przedstawiono cały samochód, który jest renderowany w trybie Zobacz, z wyjątkiem czerwonych Caliper hamulców:
+* **`See-through`**: Geometria jest renderowany częściowo w sposób przezroczysty, na przykład w celu ujawnienia wewnętrznych części obiektu. Na poniższej ilustracji przedstawiono cały samochód, który jest renderowany w trybie Zobacz, z wyjątkiem czerwonych Caliper hamulców:
 
   ![Zapoznaj się z artykułem](./media/see-through.png)
 
   > [!IMPORTANT]
   > Efekt uboczny działa tylko wtedy, gdy używany jest [tryb renderowania](../../concepts/rendering-modes.md) *TileBasedComposition* .
 
-* **Zaznaczone**: geometria jest renderowana z [konturem zaznaczenia](outlines.md).
+* **`Selected`**: Geometria jest renderowana z [konturem zaznaczenia](outlines.md).
 
   ![Kontur zaznaczenia](./media/selection-outline.png)
 
-* **DisableCollision**: geometria jest wykluczona z [zapytań przestrzennych](spatial-queries.md). Flaga **Ukryta** nie wyłącza kolizji, dlatego te dwie flagi są często ustawiane razem.
+* **`DisableCollision`**: Geometria jest wykluczona z [zapytań przestrzennych](spatial-queries.md). **`Hidden`** Flaga nie ma wpływu na flagę stanu kolizji, dlatego te dwie flagi są często ustawiane razem.
 
 ## <a name="hierarchical-overrides"></a>Zastąpienia hierarchiczne
 
@@ -87,7 +87,7 @@ component->SetState(
 
 ### <a name="tint-color"></a>Kolor tinty
 
-Zastępowanie koloru tinty jest nieco specjalne w przypadku, gdy istnieje zarówno stan on/off/dziedziczenia, jak i kolor tinty. Część alfa koloru tinty definiuje wagę efektu tinty: w przypadku ustawienia na 0,0, kolor tinty nie jest widoczny i jeśli zostanie ustawiony na 1,0, obiekt będzie renderowany z czystym kolorem tinty. Dla wartości in-between kolor końcowy zostanie zmieszany z kolorem odcienia. Kolor odcienia można zmienić na poszczególnych klatkach, aby osiągnąć animację koloru.
+`tint color`Przesłonięcie jest nieco specjalne w tym, że istnieje zarówno stan włączania/wyłączania/dziedziczenia, jak i kolor tinty. Część alfa koloru tinty definiuje wagę efektu tinty: w przypadku ustawienia na 0,0, kolor tinty nie jest widoczny i jeśli zostanie ustawiony na 1,0, obiekt będzie renderowany z czystym kolorem tinty. Dla wartości in-between kolor końcowy zostanie zmieszany z kolorem odcienia. Kolor odcienia można zmienić na poszczególnych klatkach, aby osiągnąć animację koloru.
 
 ## <a name="performance-considerations"></a>Zagadnienia dotyczące wydajności
 

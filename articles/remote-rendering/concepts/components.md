@@ -5,18 +5,18 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 42efc1395fee28a3854420f15c2ad08b301cc1f7
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: bd2a6e16d34bf6c5b59ce7fa5c99975d44947770
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758745"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021674"
 ---
 # <a name="components"></a>Składniki
 
 Renderowanie zdalne na platformie Azure używa wzorca [systemu składników jednostki](https://en.wikipedia.org/wiki/Entity_component_system) . Chociaż [jednostki](entities.md) reprezentują położenie i hierarchiczne składowe obiektów, składniki są odpowiedzialne za wdrożenie zachowań.
 
-Najczęściej używane typy składników to [składniki siatki](meshes.md), które umożliwiają dodawanie siatek do potoku renderowania. Podobnie [składniki światła](../overview/features/lights.md) są używane do dodawania oświetlenia i [wycinania składników płaszczyzny](../overview/features/cut-planes.md) są używane do wycinania otwartych siatek.
+Najczęściej używane typy składników to [:::no-loc text="mesh components":::](meshes.md) , które dodają oczka do potoku renderowania. Podobnie [składniki światła](../overview/features/lights.md) są używane do dodawania oświetlenia i [wycinania składników płaszczyzny](../overview/features/cut-planes.md) są używane do wycinania otwartych siatek.
 
 Wszystkie te składniki używają transformacji (położenia, obrotu i skali) jednostki, do której są dołączone, jako punktu odniesienia.
 

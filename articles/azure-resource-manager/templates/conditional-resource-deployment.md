@@ -3,16 +3,16 @@ title: Wdrożenie warunkowe z szablonami
 description: Opisuje sposób warunkowego wdrażania zasobu w szablonie Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: f170710118c0e3de6f3643b6216ed55b83b5c7df
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 001a1a7d6d15fe29b0f3184b75892f4ec75cef27
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80153424"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017498"
 ---
 # <a name="conditional-deployment-in-arm-templates"></a>Wdrożenie warunkowe w szablonach ARM
 
-Czasami trzeba opcjonalnie wdrożyć zasób w szablonie Azure Resource Manager (ARM). Użyj elementu `condition` , aby określić, czy zasób został wdrożony. Wartość dla tego elementu jest rozpoznawana jako true lub false. Gdy wartość jest równa true, zasób jest tworzony. Gdy wartość jest równa false, zasób nie zostanie utworzony. Wartość może zostać zastosowana tylko do całego zasobu.
+Czasami trzeba opcjonalnie wdrożyć zasób w szablonie Azure Resource Manager (ARM). Użyj `condition` elementu, aby określić, czy zasób został wdrożony. Wartość dla tego elementu jest rozpoznawana jako true lub false. Gdy wartość jest równa true, zasób jest tworzony. Gdy wartość jest równa false, zasób nie zostanie utworzony. Wartość może zostać zastosowana tylko do całego zasobu.
 
 ## <a name="new-or-existing-resource"></a>Nowy lub istniejący zasób
 
@@ -35,7 +35,7 @@ Przy użyciu wdrożenia warunkowego można utworzyć nowy zasób lub użyć istn
 
 Gdy parametr **newOrExisting** ma wartość **New**, warunek ma wartość true. Konto magazynu zostało wdrożone. Jeśli jednak **newOrExisting** jest ustawiona na **istniejące**, warunek zwróci wartość false, a konto magazynu nie jest wdrożone.
 
-Aby zapoznać się z kompletnym przykładowym `condition` szablonem, który używa elementu, zobacz [maszyna wirtualna z nowym lub istniejącym Virtual Network, magazynem i publicznym adresem IP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions).
+Aby zapoznać się z kompletnym przykładowym szablonem, który używa `condition` elementu, zobacz [maszyna wirtualna z nowym lub istniejącym Virtual Network, magazynem i publicznym adresem IP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions).
 
 ## <a name="allow-condition"></a>Zezwalaj na warunek
 

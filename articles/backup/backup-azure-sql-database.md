@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych baz danych programu SQL Server na platformie A
 description: W tym artykule opisano sposób tworzenia kopii zapasowych SQL Server na platformie Azure. W artykule objaśniono również proces odzyskiwania programu SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: 537257733d7693598fd8007da6ce12c28fbeb02a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0a555125e50a974ae51a08d7870cdc3ec12fd39
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79408764"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021096"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Informacje o kopii zapasowej programu SQL Server na maszynach wirtualnych platformy Azure
 
@@ -25,9 +25,9 @@ Aby wyświetlić scenariusze tworzenia kopii zapasowych i przywracania, które o
 
 To rozwiązanie wykorzystuje natywne interfejsy API SQL do wykonywania kopii zapasowych baz danych SQL.
 
-* Po określeniu maszyny wirtualnej SQL Server, która ma być chroniona, i zapytania dotyczącej baz danych, usługa Azure Backup Service zainstaluje rozszerzenie kopii zapasowej obciążenia na maszynie wirtualnej `AzureBackupWindowsWorkload` o rozszerzeniu nazwy.
+* Po określeniu maszyny wirtualnej SQL Server, która ma być chroniona, i zapytania dotyczącej baz danych, usługa Azure Backup Service zainstaluje rozszerzenie kopii zapasowej obciążenia na maszynie wirtualnej o `AzureBackupWindowsWorkload` rozszerzeniu nazwy.
 * To rozszerzenie składa się z koordynatora i wtyczki SQL. Chociaż koordynator jest odpowiedzialny za wyzwalanie przepływów pracy dla różnych operacji, takich jak konfigurowanie kopii zapasowej, tworzenie kopii zapasowej i przywracanie, wtyczka jest odpowiedzialna za rzeczywisty przepływ danych.
-* Aby móc odnajdywać bazy danych na tej maszynie wirtualnej, Azure Backup tworzy konto `NT SERVICE\AzureWLBackupPluginSvc`. To konto jest używane na potrzeby tworzenia kopii zapasowych i przywracania oraz wymaga uprawnień administratora systemu SQL. Konto `NT SERVICE\AzureWLBackupPluginSvc` jest [kontem usługi wirtualnej](https://docs.microsoft.com/windows/security/identity-protection/access-control/service-accounts#virtual-accounts)i w związku z tym nie wymaga zarządzania hasłami. Azure Backup korzysta z `NT AUTHORITY\SYSTEM` konta do odnajdywania i wyszukiwania bazy danych, więc to konto musi być publicznym logowaniem na serwerze SQL. Jeśli nie utworzono maszyny wirtualnej programu SQL Server z witryny Azure Marketplace, może wystąpić błąd **UserErrorSQLNoSysadminMembership**. W takim przypadku [wykonaj te instrukcje](#set-vm-permissions).
+* Aby móc odnajdywać bazy danych na tej maszynie wirtualnej, Azure Backup tworzy konto `NT SERVICE\AzureWLBackupPluginSvc` . To konto jest używane na potrzeby tworzenia kopii zapasowych i przywracania oraz wymaga uprawnień administratora systemu SQL. `NT SERVICE\AzureWLBackupPluginSvc`Konto jest [kontem usługi wirtualnej](https://docs.microsoft.com/windows/security/identity-protection/access-control/service-accounts#virtual-accounts)i w związku z tym nie wymaga zarządzania hasłami. Azure Backup korzysta z `NT AUTHORITY\SYSTEM` konta do odnajdywania i wyszukiwania bazy danych, więc to konto musi być publicznym logowaniem na serwerze SQL. Jeśli nie utworzono maszyny wirtualnej programu SQL Server z witryny Azure Marketplace, może wystąpić błąd **UserErrorSQLNoSysadminMembership**. W takim przypadku [wykonaj te instrukcje](#set-vm-permissions).
 * Po zainicjowaniu konfigurowania ochrony dla wybranych baz danych usługa tworzenia kopii zapasowych konfiguruje koordynatora przy użyciu harmonogramów tworzenia kopii zapasowych i innych szczegółów zasad, które są buforowane lokalnie na maszynie wirtualnej.
 * W zaplanowanym czasie koordynator komunikuje się z wtyczką i zaczyna przesyłać strumieniowo dane kopii zapasowej z programu SQL Server przy użyciu infrastruktury VDI.  
 * Wtyczka wysyła dane bezpośrednio do magazynu usługi Recovery Services, co eliminuje konieczność lokalizacji tymczasowej. Dane są szyfrowane i przechowywane przez usługę Azure Backup na kontach magazynu.
@@ -39,7 +39,7 @@ To rozwiązanie wykorzystuje natywne interfejsy API SQL do wykonywania kopii zap
 
 Przed rozpoczęciem Sprawdź, czy:
 
-1. Upewnij się, że masz wystąpienie programu SQL Server uruchomione na platformie Azure. Możesz [szybko utworzyć wystąpienie programu SQL Server](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md) w witrynie Marketplace.
+1. Upewnij się, że masz wystąpienie programu SQL Server uruchomione na platformie Azure. Możesz [szybko utworzyć wystąpienie programu SQL Server](../azure-sql/virtual-machines/windows/sql-vm-create-portal-quickstart.md) w witrynie Marketplace.
 2. Zapoznaj się z [zagadnieniami](sql-support-matrix.md#feature-consideration-and-limitations) [dotyczącymi funkcji i scenariuszem](sql-support-matrix.md#scenario-support).
 3. [Przejrzyj często zadawane pytania](faq-backup-sql-server.md) dotyczące tego scenariusza.
 
@@ -109,7 +109,7 @@ Dodaj logowania **NT NT\SYSTEM** i **NT Service\AzureWLBackupPluginSvc** do wyst
 
 7. Kliknij przycisk OK.
 8. Powtórz tę samą sekwencję kroków (1-7 powyżej), aby dodać logowanie NT Service\AzureWLBackupPluginSvc do wystąpienia SQL Server. Jeśli logowanie już istnieje, upewnij się, że ma ona rolę serwera sysadmin i w obszarze stan, przyznaje uprawnienia do nawiązywania połączenia z aparatem bazy danych i logowanie jako włączone.
-9. Po udzieleniu uprawnień ponownie **odkryj baz danych** w portalu: obciążenie infrastruktury **->** **->** kopii zapasowej magazynu na maszynie wirtualnej platformy Azure:
+9. Po udzieleniu uprawnień ponownie **odkryj baz danych** w portalu: **->** obciążenie infrastruktury kopii zapasowej magazynu **->** na maszynie wirtualnej platformy Azure:
 
     ![Odnajdź baz danych w Azure Portal](media/backup-azure-sql-database/sql-rediscover-dbs.png)
 

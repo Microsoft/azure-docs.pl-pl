@@ -4,12 +4,12 @@ description: Linki do przykładowych scenariuszy migracji firmy Contoso na potrz
 ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: raynew
-ms.openlocfilehash: c57a9f85e8b12bd4e1e66a4fcd5d08ab5f7b9118
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 6e19bcbd041232504a81ac0799e71cae2f459428
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81676323"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84016920"
 ---
 # <a name="contoso-migration-series"></a>Seria dotycząca migracji w firmie Contoso
 
@@ -26,7 +26,7 @@ Artykuły z tej serii są podsumowane w poniższej tabeli.
 - W każdym scenariuszu wdrażania udostępniamy informacje o sterownikach i celach firmy, proponowanej architekturze, krokach do przeprowadzenia migracji oraz zaleceniach dotyczących czyszczenia i następnych kroków po zakończeniu migracji.
 
 
-**Art** | **Szczegóły** 
+**Artykuł** | **Szczegóły** 
 --- | --- 
 [Artykuł 1: Omówienie](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-overview) | Omówienie serii artykułów, strategii migracji firmy Contoso i przykładowych aplikacji, które są używane w tej serii. 
 [Artykuł 2. wdrażanie infrastruktury platformy Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-infrastructure) | Firma Contoso przygotowuje infrastrukturę lokalną i infrastrukturę platformy Azure do migracji. Ta sama infrastruktura jest używana dla wszystkich artykułów w serii. 
@@ -36,7 +36,7 @@ Artykuły z tej serii są podsumowane w poniższej tabeli.
 [Artykuł 6: rehostowanie aplikacji na maszynach wirtualnych platformy Azure i w SQL Server zawsze włączonych grupach dostępności](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm-sql-ag) | Firma Contoso migruje aplikację SmartHotel360. Firma Contoso używa Azure Migrate do migrowania maszyn wirtualnych aplikacji. Używa Database Migration Service do migrowania bazy danych aplikacji do klastra SQL Server, który jest chroniony przez grupę dostępności AlwaysOn. 
 [Artykuł 7: przehostaj aplikację systemu Linux na maszynach wirtualnych platformy Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-linux-vm) | Firma Contoso wykonuje migrację do maszyn wirtualnych platformy Azure w celu podnoszenia i przesunięcia z Azure Migrate funkcji osTicket.
 [Artykuł 8: przehostaj aplikację systemu Linux na maszynach wirtualnych platformy Azure i Azure Database for MySQL](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-linux-vm-mysql) | Firma Contoso migruje swoją aplikację osTicket systemu Linux do maszyn wirtualnych platformy Azure przy użyciu Azure Migrate. Migruje bazę danych aplikacji do usługi Azure Database for MySQ przy użyciu Azure Database Migration Service (zawiera alternatywną opcję przy użyciu programu MySQL Workbench).
-[Artykuł 9: Refaktoryzacja aplikacji w aplikacji sieci Web platformy Azure i Azure SQL Database](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-refactor-web-app-sql) | Firma Contoso migruje swoją aplikację SmartHotel360 do aplikacji sieci Web platformy Azure i migruje bazę danych aplikacji do wystąpienia usługi Azure SQL Server przy użyciu Azure Database Migration Service.
+[Artykuł 9: Refaktoryzacja aplikacji w aplikacji sieci Web platformy Azure i Azure SQL Database](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-refactor-web-app-sql) | Firma Contoso migruje swoją aplikację SmartHotel360 do aplikacji sieci Web platformy Azure i migruje bazę danych aplikacji do Azure SQL Database przy użyciu Azure Database Migration Service.
 [Artykuł 10: Refaktoryzacja aplikacji systemu Windows przy użyciu usługi Azure App Services i wystąpienia zarządzanego SQL](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-refactor-web-app-sql-managed-instance) | Firma Contoso migruje lokalną aplikację opartą na systemie Windows do aplikacji sieci Web platformy Azure i migruje bazę danych aplikacji do wystąpienia zarządzanego usługi Azure SQL przy użyciu Azure Database Migration Service.
 [Artykuł 11: Refaktoryzacja aplikacji systemu Linux w aplikacji internetowej platformy Azure i Azure Database for MySQL](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-refactor-linux-app-service-mysql) | Firma Contoso migruje swoją aplikację z systemem Linux osTicket do aplikacji internetowej platformy Azure w wielu regionach platformy Azure przy użyciu usługi Azure Traffic Manager zintegrowanej z usługą GitHub w celu ciągłego dostarczania. Firma Contoso migruje bazę danych aplikacji do wystąpienia Azure Database for MySQL. 
 [Artykuł 12: Refaktoryzacja Team Foundation Server na Azure DevOps Services](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-tfs-vsts) | Firma Contoso migruje swoje lokalne wdrożenie Team Foundation Server do Azure DevOps Services na platformie Azure.

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 83f80f893620a225c928be2ad7ad1679b3a9c465
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 104a583122fa08cf145191b8bcee49ce5f042599
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652238"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021402"
 ---
 # <a name="configure-the-model-conversion"></a>Konfigurowanie konwersji modelu
 
@@ -74,7 +74,7 @@ Końcowy współczynnik skalowania jest stosowany do wierzchołków geometrii i 
 Wyśrodkowanie jest ważne, jeśli model źródłowy jest odsunięty od źródła, ponieważ w tym przypadku problemy z dokładnością do liczby zmiennoprzecinkowej mogą powodować artefakty renderowania.
 
 * `opaqueMaterialDefaultSidedness`-Aparat renderowania zakłada, że nieprzezroczyste materiały są dwustronne.
-Jeśli to nie jest zamierzone zachowanie, ten parametr powinien być ustawiony na wartość "SingleSided". Aby uzyskać więcej informacji, zobacz [renderowanie jednostronne](../../overview/features/single-sided-rendering.md).
+Jeśli to nie jest zamierzone zachowanie, ten parametr powinien być ustawiony na wartość "SingleSided". Aby uzyskać więcej informacji, zobacz [ :::no-loc text="single sided"::: renderowanie](../../overview/features/single-sided-rendering.md).
 
 ### <a name="material-overrides"></a>Zastępowanie materiału
 
@@ -90,7 +90,7 @@ Aparat renderowania oczekuje, że wartości koloru mają być w przestrzeni lini
 Jeśli model jest zdefiniowany przy użyciu przestrzeni gamma, te opcje powinny być ustawione na wartość true.
 
 * `gammaToLinearMaterial`— Konwertuj kolory materiału z przestrzeni gamma na miejsce liniowe
-* `gammaToLinearVertex`— Konwertuj kolory wierzchołków z przestrzeni gamma na miejsce liniowe
+* `gammaToLinearVertex`— Konwertuj :::no-loc text="vertex"::: kolory z przestrzeni gamma na miejsce liniowe
 
 > [!NOTE]
 > Dla plików FBX te ustawienia są domyślnie ustawione na `true` . Dla wszystkich innych typów plików wartością domyślną jest `false` .
@@ -127,12 +127,12 @@ Każdy tryb ma inną wydajność środowiska uruchomieniowego. W `dynamic` trybi
 
 * `axis`-Aby przesłonić jednostkę układu współrzędnych. Wartości domyślne to `["+x", "+y", "+z"]` . Teoretycznie format FBX ma nagłówek, w którym są zdefiniowane te wektory, a konwersja używa tych informacji do przekształcenia sceny. Format glTF definiuje również stały układ współrzędnych. W ramach tej działalności niektóre elementy zawartości mają nieprawidłowe informacje w nagłówku lub zostały zapisane z inną Konwencją systemu współrzędnych. Ta opcja umożliwia przesłonięcie układu współrzędnych w celu zrekompensowania. Na przykład: `"axis" : ["+x", "+z", "-y"]` program zamieni osi z i oś y i utrzymuje skrętności układu współrzędnych, odwracając kierunek osi y.
 
-### <a name="vertex-format"></a>Format wierzchołka
+### <a name="no-loc-textvertex-format"></a>:::no-loc text="Vertex":::Formatowanie
 
-Istnieje możliwość dostosowania formatu wierzchołka dla siatki w celu uzyskania dokładności handlowej dla oszczędności pamięci. Zmniejszenie ilości pamięci umożliwia załadowanie większych modeli lub osiągnięcie lepszej wydajności. Jednak w zależności od danych niewłaściwy format może znacząco wpływać na jakość renderowania.
+Można dostosować :::no-loc text="vertex"::: format siatki do dokładności handlowej w przypadku oszczędności pamięci. Zmniejszenie ilości pamięci umożliwia załadowanie większych modeli lub osiągnięcie lepszej wydajności. Jednak w zależności od danych niewłaściwy format może znacząco wpływać na jakość renderowania.
 
 > [!CAUTION]
-> Zmiana formatu wierzchołka powinna być ostatnim etapem, gdy modele nie mieszczą się w pamięci lub w przypadku optymalizacji pod kątem najlepszej możliwej wydajności. Zmiany mogą łatwo wprowadzać artefakty renderowania, zarówno oczywiste, jak i delikatne. Nie należy zmieniać ustawień domyślnych, chyba że wiesz, co należy wyszukać.
+> Zmiana :::no-loc text="vertex"::: formatu powinna być ostatnim etapem, gdy modele nie mieszczą się w pamięci lub w przypadku optymalizacji pod kątem najlepszej możliwej wydajności. Zmiany mogą łatwo wprowadzać artefakty renderowania, zarówno oczywiste, jak i delikatne. Nie należy zmieniać ustawień domyślnych, chyba że wiesz, co należy wyszukać.
 
 Możliwe są następujące korekty:
 
@@ -159,11 +159,11 @@ Następująca `vertex` sekcja w `.json` pliku jest opcjonalna. Dla każdej czę�
 
 Wymuszając składnik do `NONE` , jest gwarantowane, że siatka wyjściowa nie ma odpowiedniego strumienia.
 
-#### <a name="component-formats-per-vertex-stream"></a>Formaty składników na strumień wierzchołków
+#### <a name="component-formats-per-no-loc-textvertex-stream"></a>Formaty składników na :::no-loc text="vertex"::: strumień
 
 Formaty te są dozwolone dla odpowiednich składników:
 
-| Składnik wierzchołka | Obsługiwane formaty (pogrubienie = domyślne) |
+| :::no-loc text="Vertex"::: cm6long | Obsługiwane formaty (pogrubienie = domyślne) |
 |:-----------------|:------------------|
 |pozycja| **32_32_32_FLOAT**, 16_16_16_16_FLOAT |
 |color0| **8_8_8_8_UNSIGNED_NORMALIZED**, brak |
@@ -178,7 +178,7 @@ Formaty te są dozwolone dla odpowiednich składników:
 
 Są to następujące pamięci:
 
-| Format | Opis | Bajty na wierzchołek |
+| Format | Opis | Bajtów na:::no-loc text="vertex"::: |
 |:-------|:------------|:---------------|
 |32_32_FLOAT|Pełna precyzja zmiennoprzecinkowa dwóch składników|8
 |16_16_FLOAT|dwuskładnikowa precyzja zmiennoprzecinkowa|4
@@ -197,11 +197,11 @@ Są to następujące pamięci:
 
 #### <a name="example"></a>Przykład
 
-Załóżmy, że masz model photogrammetry, który ma oświetlenie rozszerzania do tekstury. Wszystko, co jest konieczne do renderowania modelu, to położenia wierzchołków i Współrzędne tekstury.
+Załóżmy, że masz model photogrammetry, który ma oświetlenie rozszerzania do tekstury. Wszystko, co jest konieczne do renderowania modelu, to :::no-loc text="vertex"::: położenia i Współrzędne tekstury.
 
-Domyślnie konwerter musi założyć, że w pewnym momencie możesz chcieć używać materiałów PBR w modelu, aby generować `normal` `tangent` dane, i `binormal` . W związku z tym użycie pamięci dla wierzchołków wynosi `position` (12 bajtów) + `texcoord0` (8 bajtów) + `normal` (4 bajty) + `tangent` (4 bajty) + `binormal` (4 bajty) = 32 bajtów. Większe modele tego typu mogą w łatwy sposób zawierać wiele milionów wierzchołków, które będą miały wiele gigabajtów pamięci. Takie duże ilości danych wpłynie na wydajność i nawet zabrakło pamięci.
+Domyślnie konwerter musi założyć, że w pewnym momencie możesz chcieć używać materiałów PBR w modelu, aby generować `normal` `tangent` dane, i `binormal` . W związku z tym użycie pamięci dla wierzchołków wynosi `position` (12 bajtów) + `texcoord0` (8 bajtów) + `normal` (4 bajty) + `tangent` (4 bajty) + `binormal` (4 bajty) = 32 bajtów. Większe modele tego typu mogą łatwo mieć wiele milionów :::no-loc text="vertices"::: wyników wynikających z modeli, które mogą przyjmować wiele gigabajtów pamięci. Takie duże ilości danych wpłynie na wydajność i nawet zabrakło pamięci.
 
-Wiedząc, że nie potrzebujesz dynamicznego oświetlenia na modelu i wiedzą, że wszystkie Współrzędne tekstury znajdują się w `[0; 1]` zakresie, można ustawić `normal` , `tangent` , i `binormal` do `NONE` i `texcoord0` do połowy precyzji ( `16_16_FLOAT` ), co spowoduje, że tylko 16 bajtów na wierzchołek. Wycinanie danych siatki na pół umożliwia załadowanie większych modeli i zwiększenie wydajności.
+Wiedząc, że nie potrzebujesz dynamicznego oświetlenia na modelu i wiedzą, że wszystkie Współrzędne tekstury znajdują się w `[0; 1]` zakresie, można ustawić `normal` , `tangent` , i `binormal` do `NONE` i `texcoord0` do połowy precyzji (), co spowoduje, że `16_16_FLOAT` tylko 16 bajtów na :::no-loc text="vertex"::: . Wycinanie danych siatki na pół umożliwia załadowanie większych modeli i zwiększenie wydajności.
 
 ## <a name="typical-use-cases"></a>Typowe przypadki użycia
 
@@ -215,7 +215,7 @@ Istnieją pewne klasy przypadków użycia, które kwalifikują się do określon
 
 * Gdy konieczne jest przeniesienie części wokół, zazwyczaj oznacza to, że konieczna jest obsługa raycasts lub innych [zapytań przestrzennych](../../overview/features/spatial-queries.md), dzięki czemu można wybierać te części w pierwszym miejscu. Z drugiej strony, jeśli nie zamierzasz poruszać się wokół siebie, szanse są wysokie, ale nie potrzebujesz jej do uczestniczenia w zapytania przestrzenne, dlatego można wyłączyć `generateCollisionMesh` flagę. Ten przełącznik ma znaczny wpływ na czasy konwersji, czasy ładowania, a także koszty aktualizacji poszczególnych klatek.
 
-* Jeśli aplikacja nie używa [wyciętych płaszczyzn](../../overview/features/cut-planes.md), `opaqueMaterialDefaultSidedness` flaga powinna być wyłączona. Wzrost wydajności jest zwykle 20%-30%. Nadal mogą być używane wycięte płaszczyzny, ale nie będzie można używać ich ponownie podczas wyszukiwania w wewnętrznych częściach obiektów, które wyglądają na intuicyjne. Aby uzyskać więcej informacji, zobacz [renderowanie jednostronne](../../overview/features/single-sided-rendering.md).
+* Jeśli aplikacja nie używa [wyciętych płaszczyzn](../../overview/features/cut-planes.md), `opaqueMaterialDefaultSidedness` flaga powinna być wyłączona. Wzrost wydajności jest zwykle 20%-30%. Nadal mogą być używane wycięte płaszczyzny, ale nie będzie można używać ich ponownie podczas wyszukiwania w wewnętrznych częściach obiektów, które wyglądają na intuicyjne. Aby uzyskać więcej informacji, zobacz [ :::no-loc text="single sided"::: renderowanie](../../overview/features/single-sided-rendering.md).
 
 ### <a name="use-case-photogrammetry-models"></a>Przypadek użycia: modele photogrammetry
 

@@ -68,7 +68,7 @@ W poniższej tabeli wymieniono oświadczenia, których można oczekiwać w token
 | Zakres | `scp` | `Read`| Uprawnienia przyznane do zasobu dla tokenu dostępu. Wiele przyznanych uprawnień jest rozdzielonych spacją. |
 | Uprawniony podmiot | `azp` | `975251ed-e4f5-4efd-abcb-5f1a8f566ab7` | **Identyfikator aplikacji** klienckiej, która zainicjowała żądanie. |
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 Następujące właściwości są używane do [zarządzania okresami istnienia tokenów zabezpieczających](configure-tokens.md) emitowanych przez Azure AD B2C:
 

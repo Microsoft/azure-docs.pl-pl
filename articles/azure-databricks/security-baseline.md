@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 23057723d46ed5d9203741ab2eb1a15edb5bd510
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 229485b5aa1bf3a97429c8d82c4c962cd9fab5c7
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681696"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84016342"
 ---
 # <a name="azure-security-baseline-for-azure-databricks"></a>Podstawa zabezpieczeń platformy Azure dla Azure Databricks
 
@@ -200,7 +200,7 @@ W przypadku rejestrowania inspekcji Azure Databricks zapewnia kompleksowe dzienn
 
 Uwaga: dzienniki diagnostyczne Azure Databricks wymagają planu Azure Databricks w warstwie Premium
 
-* [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy))
+* [Jak włączyć ustawienia diagnostyczne dla dziennika aktywności platformy Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
 
 * [Jak włączyć ustawienia diagnostyczne dla Azure Databricks](https://docs.microsoft.com/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs)
 
@@ -262,7 +262,7 @@ Alternatywnie możesz włączyć i dołączyć dane do usługi Azure wskaźnikow
 
 Uwaga: dzienniki diagnostyczne Azure Databricks wymagają planu Azure Databricks w warstwie Premium
 
-* [Jak wysłać dzienniki Azure Databricks do log Analytics obszaru roboczego](https://docs.microsoft.com/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs#configure-diagnostic-log-delivery))
+* [Jak wysłać dzienniki Azure Databricks do Log Analytics obszaru roboczego](https://docs.microsoft.com/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs#configure-diagnostic-log-delivery)
 
 * [Jak skonfigurować alerty w obszarze roboczym Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log)
 

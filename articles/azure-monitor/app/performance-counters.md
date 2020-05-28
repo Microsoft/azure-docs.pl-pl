@@ -146,7 +146,7 @@ Obsługa liczników wydajności w ASP.NET Core jest ograniczona:
 * W przypadku aplikacji przeznaczonych dla .NET Framework wszystkie wersje zestawu SDK obsługują liczniki wydajności.
 * Wersje SDK 2.8.0 i nowsze obsługują licznik procesora/pamięci w systemie Linux. Żaden inny licznik nie jest obsługiwany w systemie Linux. Zalecanym sposobem uzyskiwania liczników systemowych w systemie Linux (i innych środowiskach innych niż Windows) jest użycie [EventCounters](eventcounters.md)
 
-## <a name="alerts"></a>Alerts (Alerty)
+## <a name="alerts"></a>Alerty
 Podobnie jak w przypadku innych metryk, można [ustawić alert](../../azure-monitor/platform/alerts-log.md) ostrzegający o tym, czy licznik wydajności wykracza poza określony limit. Otwórz okienko alerty, a następnie kliknij pozycję Dodaj alert.
 
 ## <a name="next-steps"></a><a name="next"></a>Następne kroki

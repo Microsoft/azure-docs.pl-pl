@@ -11,12 +11,12 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: carlrab, vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: 9f15c4a8b0410003bccd9fb42aa2c34c42d9b56b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 34cbba15f5798286be63171da0173f6214fe7822
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80061884"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022730"
 ---
 # <a name="use-cli-to-configure-sql-database-auditing-and-advanced-threat-protection"></a>Użyj interfejsu wiersza polecenia, aby skonfigurować inspekcję SQL Database i zaawansowaną ochronę przed zagrożeniami
 
@@ -61,4 +61,4 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 
 Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure).
 
-Więcej przykładowych skryptów interfejsu wiersza polecenia dla usługi SQL Database można znaleźć w [dokumentacji usługi Azure SQL Database](../sql-database-cli-samples.md).
+Więcej przykładowych skryptów interfejsu wiersza polecenia dla usługi SQL Database można znaleźć w [dokumentacji usługi Azure SQL Database](../../azure-sql/database/az-cli-script-samples-content-guide.md).

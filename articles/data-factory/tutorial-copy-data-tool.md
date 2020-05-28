@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 03/03/2020
-ms.openlocfilehash: be9395b908461b54b607fff32747ca0d9f20f45c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a0ed57657a461e4af8e58931b133437e5897796a
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418664"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022065"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Kopiowanie danych z usługi Azure Blob Storage do SQL Database przy użyciu narzędzia Kopiowanie danych
 
@@ -42,7 +42,7 @@ Ten samouczek obejmuje wykonanie następujących kroków:
 
 * **Subskrypcja platformy Azure**: jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 * **Konto usługi Azure Storage**: Użyj magazynu obiektów BLOB jako _źródłowego_ magazynu danych. Jeśli nie masz konta usługi Azure Storage, zapoznaj się z instrukcjami w temacie [Tworzenie konta magazynu](../storage/common/storage-account-create.md).
-* **Azure SQL Database**: Użyj SQL Database jako magazynu danych _ujścia_ . Jeśli nie masz SQL Database, zapoznaj się z instrukcjami w artykule [tworzenie SQL Database](../sql-database/sql-database-get-started-portal.md).
+* **Azure SQL Database**: Użyj SQL Database jako magazynu danych _ujścia_ . Jeśli nie masz SQL Database, zapoznaj się z instrukcjami w artykule [tworzenie SQL Database](../azure-sql/database/single-database-create-quickstart.md).
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Tworzenie obiektu blob i tabeli SQL
 
@@ -76,11 +76,11 @@ Wykonaj następujące kroki, aby przygotować magazyn obiektów blob i SQL Datab
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Zezwól usługom platformy Azure na dostęp do programu SQL Server. Sprawdź, czy ustawienie **Zezwalaj usługom i zasobom platformy Azure na dostęp do tego serwera** jest włączone dla serwera, na którym działa SQL Database. To ustawienie umożliwia usłudze Data Factory zapisywanie danych w danym wystąpieniu bazy danych. Aby sprawdzić i włączyć to ustawienie, przejdź do pozycji Azure SQL Server > zabezpieczenia > zapory i sieci wirtualne > ustaw opcję **Zezwalaj usługom i zasobom platformy Azure na dostęp do tego serwera** **w systemie**.
+2. Zezwól usługom platformy Azure na dostęp do programu SQL Server. Sprawdź, czy ustawienie **Zezwalaj usługom i zasobom platformy Azure na dostęp do tego serwera** jest włączone dla serwera, na którym działa SQL Database. To ustawienie umożliwia usłudze Data Factory zapisywanie danych w danym wystąpieniu bazy danych. Aby sprawdzić i włączyć to ustawienie, przejdź do pozycji logiczne SQL Server > zabezpieczenia > zapory i sieci wirtualne > ustaw opcję **Zezwól usługom i zasobom platformy Azure na dostęp do tego serwera** **w systemie**.
 
 ## <a name="create-a-data-factory"></a>Tworzenie fabryki danych
 
-1. Z menu po lewej stronie wybierz pozycję **Utwórz** > **Analytics** > **Data Factory**analizy zasobów:
+1. Z menu po lewej stronie wybierz pozycję **Utwórz**  >  **Analytics**  >  **Data Factory**analizy zasobów:
 
     ![Tworzenie nowej fabryki danych](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. Na stronie **Nowa fabryka danych** w polu **Nazwa** wprowadź wartość **ADFTutorialDataFactory**.
@@ -134,7 +134,7 @@ Wykonaj następujące kroki, aby przygotować magazyn obiektów blob i SQL Datab
 
     b. Kliknij przycisk **Dalej**, aby przejść do następnego kroku.
 
-1. Na stronie **Ustawienia formatu pliku** zaznacz pole wyboru *pierwszy wiersz jako nagłówek*. Należy zauważyć, że narzędzie automatycznie wykrywa ograniczniki kolumn i wierszy. Wybierz pozycję **Dalej**. Możesz także wyświetlić podgląd danych i wyświetlić schemat danych wejściowych na tej stronie.
+1. Na stronie **Ustawienia formatu pliku** zaznacz pole wyboru *pierwszy wiersz jako nagłówek*. Należy zauważyć, że narzędzie automatycznie wykrywa ograniczniki kolumn i wierszy. Wybierz opcję **Dalej**. Możesz także wyświetlić podgląd danych i wyświetlić schemat danych wejściowych na tej stronie.
 
     ![Ustawienia formatu pliku](./media/tutorial-copy-data-tool/file-format-settings-page.png)
 1. Na stronie **Docelowy magazyn danych** wykonaj następujące czynności:

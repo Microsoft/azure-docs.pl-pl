@@ -3,12 +3,12 @@ title: Dostawcy zasobów według usług platformy Azure
 description: Wyświetla listę wszystkich przestrzeni nazw dostawcy zasobów dla Azure Resource Manager i pokazuje usługę platformy Azure dla tej przestrzeni nazw.
 ms.topic: conceptual
 ms.date: 03/17/2020
-ms.openlocfilehash: 9bb8d91d141997a7dd466d247ddcb0bd364e1c80
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 95846a74f9556fcccb3f583f365679c8ebadecee
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559855"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020153"
 ---
 # <a name="resource-providers-for-azure-services"></a>Dostawcy zasobów dla usług platformy Azure
 
@@ -20,7 +20,7 @@ W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na
 | --------------------------- | ------------- |
 | Microsoft. AAD | [Azure Active Directory Domain Services](../../active-directory-domain-services/index.yml) |
 | Microsoft. Dodatki | Procesor |
-| Microsoft. ADHybridHealthService | [Usługa Azure Active Directory](/azure/active-directory/) |
+| Microsoft. ADHybridHealthService | [Azure Active Directory](/azure/active-directory/) |
 | Microsoft. Advisor | [Azure Advisor](../../advisor/index.yml) |
 | Microsoft. AlertsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft. AnalysisServices | [Azure Analysis Services](/azure/analysis-services/) |
@@ -51,7 +51,7 @@ W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na
 | Microsoft. ClassicSubscription | Klasyczny model wdrażania |
 | Microsoft. CognitiveServices | [Cognitive Services](/azure/cognitive-services/) |
 | Microsoft. Commerce | Procesor |
-| Microsoft.Compute | [Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/) |
+| Microsoft.Compute | [Virtual Machines](/azure/virtual-machines/)<br />[Zestawy skali maszyn wirtualnych](/azure/virtual-machine-scale-sets/) |
 | Microsoft. zużycie | [Cost Management](/azure/cost-management/) |
 | Microsoft. ContainerInstance | [Container Instances](/azure/container-instances/) |
 | Microsoft. ContainerRegistry | [Container Registry](/azure/container-registry/) |
@@ -120,7 +120,7 @@ W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na
 | Microsoft. OffAzure | [Azure Migrate](../../migrate/migrate-overview.md) |
 | Microsoft. OperationalInsights | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft. OperationsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
-| Microsoft. Komunikacja równorzędna | [Usługa komunikacji równorzędnej Azure](../../peering-service/index.yml) |
+| Microsoft. Komunikacja równorzędna | [Usługa Azure Peering Service](../../peering-service/index.yml) |
 | Microsoft.PolicyInsights | [Azure Policy](../../governance/policy/index.yml) |
 | Microsoft. Portal | [Azure Portal](/azure/azure-portal/) |
 | Microsoft. PowerBI | [Power BI](/power-bi/power-bi-overview) |
@@ -143,13 +143,13 @@ W tym artykule pokazano, jak przestrzenie nazw dostawcy zasobów są mapowane na
 | Microsoft. SignalRService | [Usługa Azure SignalR Service](../../azure-signalr/index.yml) |
 | Microsoft. SoftwarePlan | Licencja |
 | Microsoft. Solutions | [Azure Managed Applications](../managed-applications/index.yml) |
-| Microsoft.Sql | [Azure SQL Database](../../sql-database/index.yml)<br />[Azure Synapse Analytics](/azure/sql-data-warehouse/) |
-| Microsoft. SqlVirtualMachine | [Program SQL Server na maszynach wirtualnych platformy Azure](../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md) |
+| Microsoft.Sql | [Azure SQL Database](../../azure-sql/database/index.yml)<br /> [Wystąpienie zarządzane Azure SQL](../../azure-sql/managed-instance/index.yml) <br />[Azure Synapse Analytics](/azure/sql-data-warehouse/) |
+| Microsoft. SqlVirtualMachine | [Program SQL Server na maszynach wirtualnych platformy Azure](../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) |
 | Microsoft.Storage | [Storage](../../storage/index.yml) |
 | Microsoft. StorageCache | [Azure HPC Cache](/azure/hpc-cache/) |
 | Microsoft. StorageSync | [Storage](../../storage/index.yml) |
 | Microsoft. StorSimple | [Magazyn StorSimple](/azure/storsimple/) |
-| Microsoft. StreamAnalytics | [Usługa Azure Stream Analytics](../../stream-analytics/index.yml) |
+| Microsoft. StreamAnalytics | [Azure Stream Analytics](../../stream-analytics/index.yml) |
 | Microsoft. Subscription | Procesor |
 | Microsoft. Support | Procesor |
 | Microsoft. Synapse | [Azure Synapse Analytics](/azure/sql-data-warehouse/) |

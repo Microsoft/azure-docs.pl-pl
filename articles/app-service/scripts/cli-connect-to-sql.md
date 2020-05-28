@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 74e5af6c295ffada0fbb8d1ded63177afadad285
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: aa922930314d630e1aece004bab0c74adaf8eb2f
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80058134"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015492"
 ---
 # <a name="connect-an-app-service-app-to-a-sql-database-using-cli"></a>Łączenie aplikacji usługi App Service z usługą SQL Database przy użyciu interfejsu wiersza polecenia
 
@@ -41,8 +41,8 @@ W tym skrypcie użyto następujących poleceń do utworzenia grupy zasobów, apl
 | [`az group create`](/cli/azure/group?view=azure-cli-latest#az-group-create) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
 | [`az appservice plan create`](/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | Tworzy plan usługi App Service. |
 | [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) | Tworzy aplikację usługi App Service. |
-| [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) | Tworzy serwer usługi SQL Database.  |
-| [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create) | Tworzy nową bazę danych na serwerze usługi SQL Database. |
+| [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) | Tworzy serwer.  |
+| [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create) | Tworzy nową bazę danych. |
 | [`az sql db show-connection-string`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-show-connection-string) | Generuje ciąg połączenia dla bazy danych. |
 | [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) | Tworzy lub aktualizuje ustawienia aplikacji dla aplikacji usługi App Service. Ustawienia aplikacji są dostępne dla aplikacji jako zmienne środowiskowe. |
 

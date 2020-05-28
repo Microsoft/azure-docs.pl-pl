@@ -3,17 +3,18 @@ author: garyericson
 ms.service: sql-database
 ms.subservice: machine-learning
 ms.topic: include
-ms.date: 11/20/2019
+ms.date: 05/27/2020
 ms.author: garye
-ms.openlocfilehash: 3e8bdafd8f024e7bd2ab0c9f894bb9d714094ab6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 235aa6b50ef413dacb461320e50dceac7cce460d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80345760"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014200"
 ---
 > [!IMPORTANT]
 > Azure SQL Database Machine Learning Services jest obecnie w wersji zapoznawczej. Rejestracja w celu uzyskania podglądu jest obecnie **ZAMKNIĘTA**.
-> 
-> Ta wersja zapoznawcza nie jest objęta umową dotyczącą poziomu usług i nie zalecamy korzystania z niej w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone.
-> Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+> Od 30 czerwca 2020 pomoc techniczna zostanie wycofana, a wersja zapoznawcza nie zostanie udostępniona w celu uzyskania ogólnej dostępności. Skrypty języka R używane po 30 czerwca 2020 nie będą działały.
+>
+> Aby kontynuować pracę z uczeniem maszynowym w usłudze Azure SQL, zobacz [ **Machine Learning Services w wystąpieniu zarządzanym usługi Azure SQL** (wersja zapoznawcza)](../articles/azure-sql/managed-instance/machine-learning-services-overview.md).

@@ -5,12 +5,12 @@ ms.assetid: f7091b25-b2b6-48da-8d4a-dcf9b7baccab
 ms.topic: article
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: dfd9297e80836978b8a185df3fc4659676383802
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b8545c4f8c0dc86d83e0711147a1bda608c2897f
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75659903"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020170"
 ---
 # <a name="scale-up-an-app-in-azure-app-service"></a>Skalowanie aplikacji w górę w Azure App Service
 
@@ -62,7 +62,7 @@ Jeśli aplikacja zależy od innych usług, takich jak Azure SQL Database lub us�
    
     ![Przejdź do strony grupy zasobów, aby skalować w górę aplikację platformy Azure](./media/web-sites-scale/ResourceGroup.png)
 
-    Aby skalować w górę powiązane zasoby, zapoznaj się z dokumentacją dla określonego typu zasobu. Na przykład aby skalować w górę pojedyncze SQL Database, zobacz [skalowanie zasobów pojedynczej bazy danych w Azure SQL Database](../sql-database/sql-database-single-database-scale.md). Aby skalować zasób Azure Database for MySQL, zobacz [skalowanie zasobów MySQL](../mysql/concepts-pricing-tiers.md#scale-resources).
+    Aby skalować w górę powiązane zasoby, zapoznaj się z dokumentacją dla określonego typu zasobu. Na przykład aby skalować w górę pojedyncze SQL Database, zobacz [skalowanie zasobów pojedynczej bazy danych w Azure SQL Database](../azure-sql/database/single-database-scale.md). Aby skalować zasób Azure Database for MySQL, zobacz [skalowanie zasobów MySQL](../mysql/concepts-pricing-tiers.md#scale-resources).
 
 <a name="OtherFeatures"></a>
 <a name="devfeatures"></a>
@@ -75,7 +75,7 @@ Aby zapoznać się z tabelą limity usług, przydziałów i ograniczeń oraz obs
 
 <a name="Next Steps"></a>
 
-## <a name="more-resources"></a>Więcej zasobów
+## <a name="more-resources"></a>Dodatkowe zasoby
 
 [Ręczne lub automatyczne skalowanie liczby wystąpień](../monitoring-and-diagnostics/insights-how-to-scale.md)  
 [Konfigurowanie warstwy PremiumV2 dla App Service](app-service-configure-premium-tier.md)

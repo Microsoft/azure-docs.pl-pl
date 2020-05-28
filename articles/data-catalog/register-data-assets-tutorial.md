@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 08/01/2019
-ms.openlocfilehash: 4bd2b7093100ff24b21b67ea84613ac9b2ec8299
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1c3987e4f2f31dd0c2395f9b40cc40780c40a518
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68950245"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021606"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Samouczek: rejestrowanie zasobów danych w Azure Data Catalog
 
@@ -39,7 +39,7 @@ Aby skonfigurować Data Catalog, musisz być właścicielem lub współwłaścic
 
 ### <a name="register-a-data-source"></a>Rejestrowanie źródła danych
 
-Możesz zarejestrować zasoby danych (tabele) z [przykładowej bazy danych SQL Azure](../sql-database/sql-database-single-database-get-started.md), ale możesz użyć dowolnego obsługiwanego źródła danych, jeśli wolisz pracować z danymi, które są znane i istotne dla Twojej roli. Aby uzyskać listę obsługiwanych źródeł danych, zobacz [Supported data sources](data-catalog-dsr.md) (Obsługiwane źródła danych).
+Możesz zarejestrować zasoby danych (tabele) z [przykładowej bazy danych SQL Azure](../azure-sql/database/single-database-create-quickstart.md), ale możesz użyć dowolnego obsługiwanego źródła danych, jeśli wolisz pracować z danymi, które są znane i istotne dla Twojej roli. Aby uzyskać listę obsługiwanych źródeł danych, zobacz [Supported data sources](data-catalog-dsr.md) (Obsługiwane źródła danych).
 
 Nazwa usługi Azure SQL Database używana w tym samouczku to *RLSTest*.
 
@@ -71,7 +71,7 @@ Teraz można rejestrować zasoby danych z przykładu usługi Azure SQL Database 
 
     2. Wybierz pozycję **Product**, **ProductCategory**, **ProductDescription**i **ProductModel** za pomocą kombinacji klawiszy CTRL + SELECT.
 
-    3. Wybierz **strzałkę w dół** (**>**). Spowoduje to przeniesienie wszystkich wybranych obiektów na listę **Obiekty do zarejestrowania**.
+    3. Wybierz **strzałkę w dół** ( **>** ). Spowoduje to przeniesienie wszystkich wybranych obiektów na listę **Obiekty do zarejestrowania**.
 
           ![Samouczek dotyczący usługi Azure Data Catalog — przeglądanie i wybieranie obiektów](media/register-data-assets-tutorial/data-catalog-server-hierarchy.png)
 
@@ -190,7 +190,7 @@ W tym ćwiczeniu Portal Azure Data Catalog jest używany do dodawania adnotacji 
 
 W tym ćwiczeniu adnotacje zostaną dodane do pojedynczego zasobu danych (tabeli ProductPhoto). Do zasobu danych ProductPhoto zostanie dodana przyjazna nazwa oraz opis.  
 
-1. Przejdź do [strony głównej Azure Data Catalog](https://www.azuredatacatalog.com) i Wyszukaj w usłudze `tags:product` , aby znaleźć zarejestrowane zasoby danych.
+1. Przejdź do [strony głównej Azure Data Catalog](https://www.azuredatacatalog.com) i Wyszukaj w usłudze, `tags:product` Aby znaleźć zarejestrowane zasoby danych.
 
 2. Wybierz pozycję **ProductModel** w wynikach wyszukiwania.  
 

@@ -5,12 +5,12 @@ author: sebastianpick
 ms.author: sepick
 ms.date: 02/04/2020
 ms.topic: article
-ms.openlocfilehash: 4aa1148e544ff3451aa1cb956bc4a5fb932b9611
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d42087008f1812bc3713456025ed3be351d0917
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80680988"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022184"
 ---
 # <a name="late-stage-reprojection"></a>Reprojekcja na późnym etapie
 
@@ -24,7 +24,7 @@ Oba tryby LSR zwiększają stabilność hologramu, chociaż mają odrębne ogran
 
 ## <a name="choose-lsr-mode-in-unity"></a>Wybieranie trybu LSR w środowisku Unity
 
-W edytorze aparatu Unity przejdź do *pliku > ustawienia kompilacji*. Wybierz pozycję *Ustawienia odtwarzacza* w lewym dolnym rogu, a następnie sprawdź w obszarze *Player > ustawienia XR > wirtualne zestawy SDK > Windows Mixed Reality* , czy jest zaznaczone pole wyboru **Włącz udostępnianie buforu głębokości** :
+W edytorze aparatu Unity przejdź do *:::no-loc text="File > Build Settings":::* . Zaznacz *:::no-loc text="Player Settings":::* w lewym dolnym rogu, a następnie sprawdź, *:::no-loc text="Player > XR Settings > Virtual Reality SDKs > Windows Mixed Reality":::* czy **:::no-loc text="Enable Depth Buffer Sharing":::** jest zaznaczone:
 
 ![Flaga włączenia udostępniania buforu głębokości](./media/unity-depth-buffer-sharing-enabled.png)
 
@@ -44,9 +44,9 @@ Planarny LSR reprojektuje obiekty najlepiej, które znajdują się blisko podane
 
 ### <a name="configure-planar-lsr-in-unity"></a>Konfigurowanie planarnych LSR w środowisku Unity
 
-Parametry płaszczyzny są wyprowadzane z tak zwanego *punktu fokusu*, który należy dostarczyć każdą klatkę `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame`. Aby uzyskać szczegółowe informacje, zobacz [interfejs API punktu fokusu aparatu Unity](https://docs.microsoft.com/windows/mixed-reality/focus-point-in-unity) . Jeśli nie ustawisz punktu fokusu, zostanie wybrana opcja powrotu. Jednak automatyczna rezerwa często prowadzi do nieoptymalnych wyników.
+Parametry płaszczyzny są wyprowadzane z tak zwanego *punktu fokusu*, który należy dostarczyć każdą klatkę `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame` . Aby uzyskać szczegółowe informacje, zobacz [interfejs API punktu fokusu aparatu Unity](https://docs.microsoft.com/windows/mixed-reality/focus-point-in-unity) . Jeśli nie ustawisz punktu fokusu, zostanie wybrana opcja powrotu. Jednak automatyczna rezerwa często prowadzi do nieoptymalnych wyników.
 
-Punkt fokusu można obliczyć samodzielnie, ale może się to okazać podstawą dla tego, który jest obliczany przez hosta renderowania zdalnego. Wywołanie `RemoteManagerUnity.CurrentSession.GraphicsBinding.GetRemoteFocusPoint` w celu uzyskania tego. Zostanie wyświetlony monit o podanie ramki współrzędnej, w której ma zostać wyświetlona punkt fokusu. W większości przypadków należy jedynie podać wynik z `UnityEngine.XR.WSA.WorldManager.GetNativeISpatialCoordinateSystemPtr` tego miejsca.
+Punkt fokusu można obliczyć samodzielnie, ale może się to okazać podstawą dla tego, który jest obliczany przez hosta renderowania zdalnego. Wywołanie `RemoteManagerUnity.CurrentSession.GraphicsBinding.GetRemoteFocusPoint` w celu uzyskania tego. Zostanie wyświetlony monit o podanie ramki współrzędnej, w której ma zostać wyświetlona punkt fokusu. W większości przypadków należy jedynie podać wynik z tego `UnityEngine.XR.WSA.WorldManager.GetNativeISpatialCoordinateSystemPtr` miejsca.
 
 Zazwyczaj zarówno klient, jak i Host renderują zawartość, której nie zna druga strona, na przykład elementy interfejsu użytkownika na komputerze klienckim. W związku z tym warto połączyć zdalny punkt skupienia z lokalnym obliczanym elementem.
 

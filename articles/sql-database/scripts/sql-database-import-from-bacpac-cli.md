@@ -1,6 +1,6 @@
 ---
-title: Przykład polecenia importowania pliku BACPAC w usłudze Azure SQL Database
-description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure do zaimportowania pliku BACPAC do bazy danych SQL
+title: 'Interfejs wiersza polecenia platformy Azure: Importowanie pliku BACPAC do bazy danych w Azure SQL Database'
+description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure do zaimportowania pliku BACPAC do bazy danych w Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,16 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 05/24/2019
-ms.openlocfilehash: f47d0ec2edf54aaa708c176e92a9e1026b446882
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9e3638c9823ed0fbae61a0dc5a93dff2e211d3f3
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80061829"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022645"
 ---
-# <a name="use-cli-to-import-a-bacpac-file-into-an-azure-sql-database"></a>Importowanie pliku BACPAC do bazy danych Azure SQL przy użyciu interfejsu wiersza polecenia
+# <a name="use-cli-to-import-a-bacpac-file-into-a-database-in-sql-database"></a>Użyj interfejsu wiersza polecenia, aby zaimportować plik BACPAC do bazy danych w SQL Database
 
-Ten przykładowy skrypt interfejsu wiersza polecenia platformy Azure importuje bazę danych z pliku *BACPAC* do bazy danych Azure SQL Database.  
+Ten przykładowy skrypt interfejsu wiersza polecenia platformy Azure importuje bazę danych z pliku *. BACPAC* do bazy danych w SQL Database.  
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten artykuł będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
 
@@ -55,4 +55,4 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 
 Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure).
 
-Więcej przykładowych skryptów interfejsu wiersza polecenia dla usługi SQL Database można znaleźć w [dokumentacji usługi Azure SQL Database](../sql-database-cli-samples.md).
+Więcej przykładowych skryptów interfejsu wiersza polecenia dla usługi SQL Database można znaleźć w [dokumentacji usługi Azure SQL Database](../../azure-sql/database/az-cli-script-samples-content-guide.md).

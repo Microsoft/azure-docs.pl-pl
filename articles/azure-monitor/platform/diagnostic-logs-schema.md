@@ -4,12 +4,12 @@ description: Poznaj obsługiwane usługi i schemat zdarzeń dla dzienników zaso
 ms.subservice: logs
 ms.topic: reference
 ms.date: 10/22/2019
-ms.openlocfilehash: 7183c0b268342d08fe7c0ed79c7fa589e3e28afe
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9b7b51417814e74cc7e3559029c9af8c35cbf6f2
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128467"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84016359"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Obsługiwane usługi, schematy i kategorie dla dzienników zasobów platformy Azure
 
@@ -18,35 +18,35 @@ ms.locfileid: "82128467"
 
 [Dzienniki zasobów Azure monitor](../../azure-monitor/platform/platform-logs-overview.md) to dzienniki wysyłane przez usługi platformy Azure opisujące operacje tych usług lub zasobów. Wszystkie dzienniki zasobów dostępne za pomocą Azure Monitor współdzielą wspólny schemat najwyższego poziomu, z elastycznością dla każdej usługi do emitowania unikatowych właściwości dla własnych zdarzeń.
 
-Kombinacja typu zasobu (dostępnego we `resourceId` właściwości) i `category` unikatowo identyfikujący schemat. W tym artykule opisano schemat najwyższego poziomu dla dzienników zasobów i linki do schematu dla każdej usługi.
+Kombinacja typu zasobu (dostępnego we `resourceId` Właściwości) i `category` unikatowo identyfikujący schemat. W tym artykule opisano schemat najwyższego poziomu dla dzienników zasobów i linki do schematu dla każdej usługi.
 
 ## <a name="top-level-resource-logs-schema"></a>Schemat dzienników zasobów najwyższego poziomu
 
 | Nazwa | Wymagane/Opcjonalne | Opis |
 |---|---|---|
-| time | Wymagany | Sygnatura czasowa zdarzenia (UTC). |
-| resourceId | Wymagany | Identyfikator zasobu, który emituje zdarzenie. W przypadku usług dzierżawców jest to forma/tenants/tenant-ID/Providers/Provider-Name. |
+| time | Wymagane | Sygnatura czasowa zdarzenia (UTC). |
+| resourceId | Wymagane | Identyfikator zasobu, który emituje zdarzenie. W przypadku usług dzierżawców jest to forma/tenants/tenant-ID/Providers/Provider-Name. |
 | tenantId | Wymagane w przypadku dzienników dzierżawy | Identyfikator dzierżawy dzierżawy Active Directory, z którym jest powiązane to zdarzenie. Ta właściwość jest używana tylko w przypadku dzienników na poziomie dzierżawy, ale nie jest wyświetlana w dziennikach na poziomie zasobów. |
-| operationName | Wymagany | Nazwa operacji reprezentowanej przez to zdarzenie. Jeśli zdarzenie reprezentuje operację RBAC, jest to nazwa operacji RBAC (np. Microsoft. Storage/storageAccounts/blobServices/obiekty blob/odczyt). Zwykle modelowane w formie Menedżer zasobów operacji, nawet jeśli nie są rzeczywiste udokumentowane operacje Menedżer zasobów (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
-| operationVersion | Optional | Wersja interfejsu API skojarzona z operacją, jeśli operacjaname została wykonana przy użyciu interfejsu API (np. `http://myservice.windowsazure.net/object?api-version=2016-06-01`). Jeśli nie ma interfejsu API odpowiadającego tej operacji, wersja reprezentuje wersję tej operacji w przypadku, gdy właściwości skojarzone z operacją zmieniają się w przyszłości. |
-| category | Wymagany | Kategoria dziennika zdarzenia. Kategoria to stopień szczegółowości, w którym można włączyć lub wyłączyć dzienniki dla określonego zasobu. Właściwości, które pojawiają się w obiekcie blob właściwości zdarzenia są takie same w określonej kategorii dziennika i typie zasobu. Typowe kategorie dzienników to "inspekcja" "działania" "wykonywanie" i "żądanie". |
-| resultType | Optional | Stan zdarzenia. Typowe wartości to: rozpoczęte, w toku, zakończone powodzeniem, zakończone niepowodzeniem, aktywne i rozwiązane. |
-| resultSignature | Optional | Stan podrzędny zdarzenia. Jeśli ta operacja odnosi się do wywołania interfejsu API REST, jest to kod stanu HTTP odpowiedniego wywołania REST. |
-| resultDescription | Optional | Opis tekstu statycznego tej operacji, np. "Pobierz plik magazynu". |
-| durationMs | Optional | Czas trwania operacji w milisekundach. |
-| callerIpAddress | Optional | Adres IP wywołującego, jeśli operacja odnosi się do wywołania interfejsu API, które mogłoby pochodzić z jednostki z publicznie dostępnym adresem IP. |
-| correlationId | Optional | Identyfikator GUID służący do grupowania razem z zestawem powiązanych zdarzeń. Zazwyczaj Jeśli dwa zdarzenia mają tę samą wartość OperationName, ale dwa różne stany (np. "Uruchomiono" i "powodzenie") współużytkują ten sam identyfikator korelacji. Może to również reprezentować inne relacje między zdarzeniami. |
-| identity | Optional | Obiekt BLOB JSON, który opisuje tożsamość użytkownika lub aplikacji, która wykonała operację. Zwykle będzie to obejmować Token autoryzacji i oświadczeń/tokenu JWT z usługi Active Directory. |
-| Poziom | Optional | Poziom ważności zdarzenia. Musi to być jeden z informacji, ostrzegawczy, błąd lub krytyczny. |
-| location | Optional | Region zasobu emitującego zdarzenie, np. "Wschodnie stany USA" lub "Francja Południowa" |
-| properties | Optional | Wszystkie rozszerzone właściwości powiązane z tą określoną kategorią zdarzeń. Wszystkie właściwości niestandardowe/unikatowe należy umieścić w tym "części B" schematu. |
+| operationName | Wymagane | Nazwa operacji reprezentowanej przez to zdarzenie. Jeśli zdarzenie reprezentuje operację RBAC, jest to nazwa operacji RBAC (np. Microsoft. Storage/storageAccounts/blobServices/obiekty blob/odczyt). Zwykle modelowane w formie Menedżer zasobów operacji, nawet jeśli nie są rzeczywiste udokumentowane operacje Menedżer zasobów ( `Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>` ) |
+| operationVersion | Opcjonalne | Wersja interfejsu API skojarzona z operacją, jeśli operacjaname została wykonana przy użyciu interfejsu API (np. `http://myservice.windowsazure.net/object?api-version=2016-06-01`). Jeśli nie ma interfejsu API odpowiadającego tej operacji, wersja reprezentuje wersję tej operacji w przypadku, gdy właściwości skojarzone z operacją zmieniają się w przyszłości. |
+| category | Wymagane | Kategoria dziennika zdarzenia. Kategoria to stopień szczegółowości, w którym można włączyć lub wyłączyć dzienniki dla określonego zasobu. Właściwości, które pojawiają się w obiekcie blob właściwości zdarzenia są takie same w określonej kategorii dziennika i typie zasobu. Typowe kategorie dzienników to "inspekcja" "działania" "wykonywanie" i "żądanie". |
+| resultType | Opcjonalne | Stan zdarzenia. Typowe wartości to: rozpoczęte, w toku, zakończone powodzeniem, zakończone niepowodzeniem, aktywne i rozwiązane. |
+| resultSignature | Opcjonalne | Stan podrzędny zdarzenia. Jeśli ta operacja odnosi się do wywołania interfejsu API REST, jest to kod stanu HTTP odpowiedniego wywołania REST. |
+| resultDescription | Opcjonalne | Opis tekstu statycznego tej operacji, np. "Pobierz plik magazynu". |
+| durationMs | Opcjonalne | Czas trwania operacji w milisekundach. |
+| callerIpAddress | Opcjonalne | Adres IP wywołującego, jeśli operacja odnosi się do wywołania interfejsu API, które mogłoby pochodzić z jednostki z publicznie dostępnym adresem IP. |
+| correlationId | Opcjonalne | Identyfikator GUID służący do grupowania razem z zestawem powiązanych zdarzeń. Zazwyczaj Jeśli dwa zdarzenia mają tę samą wartość OperationName, ale dwa różne stany (np. "Uruchomiono" i "powodzenie") współużytkują ten sam identyfikator korelacji. Może to również reprezentować inne relacje między zdarzeniami. |
+| identity | Opcjonalne | Obiekt BLOB JSON, który opisuje tożsamość użytkownika lub aplikacji, która wykonała operację. Zwykle będzie to obejmować Token autoryzacji i oświadczeń/tokenu JWT z usługi Active Directory. |
+| Poziom | Opcjonalne | Poziom ważności zdarzenia. Musi to być jeden z informacji, ostrzegawczy, błąd lub krytyczny. |
+| location | Opcjonalne | Region zasobu emitującego zdarzenie, np. "Wschodnie stany USA" lub "Francja Południowa" |
+| properties | Opcjonalne | Wszystkie rozszerzone właściwości powiązane z tą określoną kategorią zdarzeń. Wszystkie właściwości niestandardowe/unikatowe należy umieścić w tym "części B" schematu. |
 
 ## <a name="service-specific-schemas-for-resource-logs"></a>Schematy dotyczące usługi dla dzienników zasobów
 Schemat dzienników diagnostycznych zasobów różni się w zależności od kategorii zasobów i dzienników. Ta lista zawiera wszystkie usługi, które udostępniają dostępne dzienniki zasobów i linki do usługi i schematu specyficznego dla kategorii, gdzie są dostępne.
 
 | Usługa | Dokumentacja & schematu |
 | --- | --- |
-| Azure Active Directory | [Przegląd](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [schemat dziennika inspekcji](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) i [schemat logowania](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
+| Usługa Azure Active Directory | [Przegląd](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [schemat dziennika inspekcji](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) i [schemat logowania](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | API Management | [Dzienniki zasobów API Management](../../api-management/api-management-howto-use-azure-monitor.md#resource-logs) |
 | Bramy aplikacji |[Rejestrowanie Application Gateway](../../application-gateway/application-gateway-diagnostics.md) |
@@ -63,7 +63,7 @@ Schemat dzienników diagnostycznych zasobów różni się w zależności od kate
 | Data Lake Analytics |[Uzyskiwanie dostępu do dzienników dla Azure Data Lake Analytics](../../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Uzyskiwanie dostępu do dzienników dla Azure Data Lake Store](../../data-lake-store/data-lake-store-diagnostic-logs.md) |
 | Event Hubs |[Dzienniki usługi Azure Event Hubs](../../event-hubs/event-hubs-diagnostic-logs.md) |
-| ExpressRoute | Schemat jest niedostępny. |
+| Express Route | Schemat jest niedostępny. |
 | Azure Firewall | Schemat jest niedostępny. |
 | Usługa IoT Hub | [Operacje IoT Hub](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Usługa Key Vault |[Rejestrowanie Azure Key Vault](../../key-vault/general/logging.md) |
@@ -74,9 +74,9 @@ Schemat dzienników diagnostycznych zasobów różni się w zależności od kate
 | Ochrona przed atakami DDOS | [Zarządzanie Azure DDoS Protection Standard](../../virtual-network/manage-ddos-protection.md) |
 | Power BI — warstwa Dedykowana | [Rejestrowanie Power BI Embedded na platformie Azure](https://docs.microsoft.com/power-bi/developer/azure-pbie-diag-logs) |
 | Recovery Services | [Model danych dla Azure Backup](../../backup/backup-azure-reports-data-model.md)|
-| Wyszukaj |[Włączanie i używanie Analiza ruchu wyszukiwania](../../search/search-traffic-analytics.md) |
+| Wyszukiwanie |[Włączanie i używanie Analiza ruchu wyszukiwania](../../search/search-traffic-analytics.md) |
 | Service Bus |[Dzienniki Azure Service Bus](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
-| Baza danych SQL | [Rejestrowanie Azure SQL Database](../../sql-database/sql-database-metrics-diag-logging.md) |
+| SQL Database | [Rejestrowanie Azure SQL Database](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Stream Analytics |[Dzienniki zadań](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | Traffic Manager | [Traffic Manager schematu dziennika](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | Sieci wirtualne | Schemat jest niedostępny. |
@@ -84,7 +84,7 @@ Schemat dzienników diagnostycznych zasobów różni się w zależności od kate
 
 ## <a name="supported-log-categories-per-resource-type"></a>Obsługiwane kategorie dzienników według typu zasobu
 
-Niektóre kategorie mogą być obsługiwane tylko dla określonych typów zasobów. Jest to lista wszystkich, które są dostępne w pewnym formularzu.  Na przykład kategorie Microsoft. SQL/serwery/bazy danych nie są dostępne dla wszystkich typów baz danych. Aby uzyskać więcej informacji, zobacz [Informacje o rejestrowaniu diagnostyki SQL Database](../../sql-database/sql-database-metrics-diag-logging.md). 
+Niektóre kategorie mogą być obsługiwane tylko dla określonych typów zasobów. Jest to lista wszystkich, które są dostępne w pewnym formularzu.  Na przykład kategorie Microsoft. SQL/serwery/bazy danych nie są dostępne dla wszystkich typów baz danych. Aby uzyskać więcej informacji, zobacz [Informacje o rejestrowaniu diagnostyki SQL Database](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md). 
 
 |Typ zasobu|Kategoria|Nazwa wyświetlana kategorii|
 |---|---|---|

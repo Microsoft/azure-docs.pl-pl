@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/26/2020
-ms.openlocfilehash: 214d97822bdb2efbe164c3526939ddbe78777e59
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: eb5e15f5387628fea293c767202ece77b14f656c
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890738"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84113330"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Infrastruktura Integration Runtime w usłudze Azure Data Factory 
 
@@ -108,14 +108,14 @@ Aby zmniejszyć i przenieść obecne obciążenie SSIS, można utworzyć środow
 
 ### <a name="azure-ssis-ir-compute-resource-and-scaling"></a>Zasoby obliczeniowe i skalowanie środowiska IR Azure-SSIS
 
-Azure-SSIS IR to w pełni zarządzany klaster maszyn wirtualnych platformy Azure, których przeznaczeniem jest uruchamianie pakietów SSIS. Możesz przenieść własne Azure SQL Database lub serwer wystąpienia zarządzanego, aby hostować wykaz projektów usług SSIS/pakietów (SSISDB), które mają zostać do niego dołączone. Możesz skalować moc obliczeniową, określając rozmiar węzłów, a także liczbę węzłów w klastrze. Kosztem pracy produktu Azure-SSIS Integration Runtime można zarządzać, uruchamiając go i zatrzymując zgodnie z potrzebami.
+Azure-SSIS IR to w pełni zarządzany klaster maszyn wirtualnych platformy Azure, których przeznaczeniem jest uruchamianie pakietów SSIS. Możesz przenieść swoje własne Azure SQL Database lub wystąpienie zarządzane SQL dla katalogu projektów SSIS/pakietów (SSISDB). Możesz skalować moc obliczeniową, określając rozmiar węzłów, a także liczbę węzłów w klastrze. Kosztem pracy produktu Azure-SSIS Integration Runtime można zarządzać, uruchamiając go i zatrzymując zgodnie z potrzebami.
 
 Więcej informacji można znaleźć w artykule przewodnika How to create and configure Azure-SSIS IR (Jak utworzyć i skonfigurować środowisko Azure-SSIS IR).  Po utworzeniu możesz wdrażać istniejące pakiety SSIS i zarządzać nimi praktycznie bez zmian, przy użyciu znanych narzędzi, takich jak SQL Server Data Tools (SSDT) i SQL Server Management Studio (SSMS), co przypomina lokalne zastosowanie SSIS.
 
 Aby uzyskać więcej informacji o środowisku uruchomieniowym Azure-SSIS, zobacz następujące artykuły: 
 
 - [Samouczek: Wdrażanie pakietów usług SSIS na platformie Azure](tutorial-create-azure-ssis-runtime-portal.md). Ten artykuł zawiera instrukcje krok po kroku dotyczące tworzenia Azure-SSIS IR i używania Azure SQL Database do hostowania wykazu usług SSIS. 
-- [How to: Create an Azure-SSIS integration runtime (Jak: Tworzenie środowiska Azure SSIS Integration Runtime)](create-azure-ssis-integration-runtime.md). Ten artykuł rozszerza się w samouczku i zawiera instrukcje dotyczące używania wystąpienia zarządzanego Azure SQL Database i dołączania do sieci wirtualnej. 
+- [How to: Create an Azure-SSIS integration runtime (Jak: Tworzenie środowiska Azure SSIS Integration Runtime)](create-azure-ssis-integration-runtime.md). Ten artykuł rozszerza się w samouczku i zawiera instrukcje dotyczące używania wystąpienia zarządzanego SQL i przyłączania środowiska IR do sieci wirtualnej. 
 - [Monitor an Azure-SSIS IR (Monitorowanie środowiska Azure-SSIS IR)](monitor-integration-runtime.md#azure-ssis-integration-runtime). W tym artykule przedstawiono sposób pobierania informacji o środowisku Azure-SSIS IR i opisów stanów w pobranych informacjach. 
 - [Manage an Azure-SSIS IR (Zarządzanie środowiskiem Azure-SSIS IR)](manage-azure-ssis-integration-runtime.md). W tym artykule przedstawiono sposób zatrzymywania, uruchamiania lub usuwania środowiska Azure-SSIS IR. Zawiera on również instrukcje skalowania środowiska Azure-SSIS IR do wewnątrz za pomocą dodawania do niego węzłów. 
 - [Join an Azure-SSIS IR to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md) (Dołączanie środowiska IR Azure SSIS do sieci wirtualnej). Ten artykuł zawiera podstawowe informacje na temat dołączania środowiska IR Azure-SSIS do sieci wirtualnej platformy Azure. Opisano w nim kroki konfigurowania sieci wirtualnej za pomocą witryny Azure Portal tak, aby umożliwić dołączanie środowiska IR Azure-SSIS do sieci wirtualnej. 
@@ -161,9 +161,9 @@ W przypadku zastosowania do wykonania przenoszenia danych, środowisko IR (Self-
 
 Wybór odpowiedniej lokalizacji dla środowiska IR Azure-SSIS jest kluczowy dla osiągnięcia wysokiej wydajności obciążeń wyodrębnianie-przekształcanie-ładowanie (ETL).
 
-- Lokalizacja Azure-SSIS IR nie musi być taka sama jak lokalizacja fabryki danych, ale powinna być taka sama jak lokalizacja własnego Azure SQL Database lub serwera wystąpienia zarządzanego, gdzie SSISDB ma być hostowana. Dzięki temu środowisko IR Azure-SSIS może z łatwością uzyskać dostęp do bazy SSISDB bez wytwarzania dużego ruchu między różnymi lokalizacjami.
-- Jeśli nie masz istniejącego serwera Azure SQL Database lub wystąpienia zarządzanego do hostowania SSISDB, ale masz lokalne źródła danych/miejsca docelowe, należy utworzyć nowy Azure SQL Database lub zarządzany serwer wystąpienia w tej samej lokalizacji sieci wirtualnej podłączonej do sieci lokalnej.  W ten sposób można utworzyć Azure-SSIS IR przy użyciu nowego Azure SQL Database lub serwera wystąpienia zarządzanego i dołączenia do tej sieci wirtualnej, a wszystko to w tej samej lokalizacji, co skutecznie minimalizuje ruchy danych w różnych lokalizacjach.
-- Jeśli lokalizacja istniejącego Azure SQL Database lub serwera wystąpienia zarządzanego, gdzie SSISDB jest hostowany, nie jest taka sama jak lokalizacja sieci wirtualnej podłączonej do sieci lokalnej, najpierw utwórz Azure-SSIS IR przy użyciu istniejącego Azure SQL Database lub serwera wystąpienia zarządzanego i przyłączania do innej sieci wirtualnej w tej samej lokalizacji, a następnie skonfiguruj sieć wirtualną do połączenia sieci wirtualnej między różnymi lokalizacjami.
+- Lokalizacja Azure-SSIS IR nie musi być taka sama jak lokalizacja fabryki danych, ale powinna być taka sama jak lokalizacja własnego Azure SQL Database lub wystąpienia zarządzanego SQL, gdzie SSISDB. Dzięki temu środowisko IR Azure-SSIS może z łatwością uzyskać dostęp do bazy SSISDB bez wytwarzania dużego ruchu między różnymi lokalizacjami.
+- Jeśli nie masz istniejącego SQL Database lub wystąpienia zarządzanego SQL, ale masz lokalne źródła danych/miejsca docelowe, należy utworzyć nowe Azure SQL Database lub wystąpienie zarządzane SQL w tej samej lokalizacji sieci wirtualnej podłączonej do sieci lokalnej.  W ten sposób można utworzyć Azure-SSIS IR przy użyciu nowego Azure SQL Database lub wystąpienia zarządzanego SQL i dołączenia do tej sieci wirtualnej, a wszystko to w tej samej lokalizacji, co skutecznie minimalizuje ruchy danych w różnych lokalizacjach.
+- Jeśli lokalizacja istniejącego Azure SQL Database lub wystąpienia zarządzanego SQL nie jest taka sama jak lokalizacja sieci wirtualnej podłączonej do sieci lokalnej, najpierw utwórz Azure-SSIS IR przy użyciu istniejącego Azure SQL Database lub wystąpienia zarządzanego SQL i dołączenia do innej sieci wirtualnej w tej samej lokalizacji, a następnie skonfiguruj sieć wirtualną do połączenia sieci wirtualnej między różnymi lokalizacjami.
 
 Na poniższym diagramie przedstawiono ustawienia lokalizacji usługi Data Factory i jej czasy uruchomienia integracji:
 
@@ -197,4 +197,4 @@ Zobacz następujące artykuły:
 
 - [Tworzenie środowiska Azure Integration Runtime](create-azure-integration-runtime.md)
 - [Tworzenie własnego środowiska Integration Runtime](create-self-hosted-integration-runtime.md)
-- [Utwórz środowisko Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). Ten artykuł rozszerza się w samouczku i zawiera instrukcje dotyczące używania wystąpienia zarządzanego Azure SQL Database i dołączania do sieci wirtualnej. 
+- [Utwórz środowisko Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md). Ten artykuł rozszerza się w samouczku i zawiera instrukcje dotyczące używania wystąpienia zarządzanego SQL i przyłączania środowiska IR do sieci wirtualnej. 

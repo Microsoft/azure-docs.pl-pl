@@ -29,7 +29,7 @@ Samoobsługowa wysyłka jest dostępna jako opcja w przypadku [zamówienia Azure
 * Singapur
 * Korea Południowa
 
-## <a name="use-self-managed-shipping"></a>Korzystanie z samozarządzanej wysyłki
+## <a name="use-self-managed-shipping"></a>Korzystanie z samodzielnej wysyłki
 
 Po umieszczeniu zamówienia Data Box Disk można wybrać opcję samodzielna wysyłka.
 
