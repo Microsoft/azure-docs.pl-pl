@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: cb04a8e5a6d8c982a35cb5c448e4b6d93825bf73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7a888d95a97e30e7d663b528e8d9941aec1f51e9
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81460226"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015849"
 ---
 # <a name="frequently-asked-questions"></a>Często zadawane pytania
 Masz pytania? Zapoznaj się z poniższymi PYTANIAmi, aby uzyskać więcej informacji.
@@ -48,7 +48,7 @@ W większości przypadków zadania kompilacji Azure DevOps są bezpośrednimi ot
 
 Zauważalne różnice:
 
-- Narzędzia są uruchamiane z folderu źródłowego agenta $ (Build. SourcesDirectory) lub z% BUILD_SOURCESDIRECTORY%. Przykładem jest C:\agent\_work\1\s.
+- Narzędzia są uruchamiane z folderu źródłowego agenta $ (Build. SourcesDirectory) lub z% BUILD_SOURCESDIRECTORY%. Przykładem jest C:\agent \_ work\1\s.
 - Ścieżki w argumentach mogą być względne względem katalogu głównego katalogu źródłowego wymienionego wcześniej. Ścieżki mogą być również bezwzględne. Ścieżki bezwzględne są uzyskiwane przy użyciu zmiennych kompilacji DevOps platformy Azure lub przez uruchomienie agenta lokalnego z znanymi lokalizacjami wdrożenia zasobów lokalnych.
 - Narzędzia automatycznie zapewniają ścieżkę lub folder pliku wyjściowego. Jeśli podano lokalizację wyjściową dla zadania kompilacji, Ta lokalizacja zostanie zastąpiona ścieżką do dobrze znanej lokalizacji dzienników w agencie kompilacji.
 - Niektóre dodatkowe argumenty wiersza polecenia są zmieniane dla niektórych narzędzi. Jednym z przykładów jest dodanie lub usunięcie opcji, które zapewniają, że nie jest uruchamiany graficzny interfejs użytkownika.
@@ -63,7 +63,7 @@ Zadania kompilacji filtrują niektóre dane wejściowe użytkownika. Dla tego py
 
 ### <a name="where-are-the-output-files-generated-by-the-tools-saved"></a>Gdzie znajdują się pliki wyjściowe generowane przez narzędzia? 
 
-Zadania kompilacji automatycznie dodają ścieżki wyjściowe do tej dobrze znanej lokalizacji na agencie kompilacji: $ (Agent. BuildDirectory)\_sdt\logs. Ze względu na to, że firma Microsoft stosuje się do tej lokalizacji, wszystkie zespoły, które tworzą lub zużywają dzienniki analizy kodu, mają dostęp do danych wyjściowych.
+Zadania kompilacji automatycznie dodają ścieżki wyjściowe do tej dobrze znanej lokalizacji na agencie kompilacji: $ (Agent. BuildDirectory) \_ sdt\logs. Ze względu na to, że firma Microsoft stosuje się do tej lokalizacji, wszystkie zespoły, które tworzą lub zużywają dzienniki analizy kodu, mają dostęp do danych wyjściowych.
 
 ### <a name="can-i-queue-a-build-to-run-these-tasks-on-a-hosted-build-agent"></a>Czy można kolejkować kompilację, aby uruchamiać te zadania na hostowanym agencie kompilacji? 
 
@@ -123,11 +123,11 @@ Klucz skrótu wpisu tajnego z pliku wyjściowego CredScan jest wymagany, jak pok
 
 Wyrażeniem pliku może być nazwa pliku. Może to być również część podstawowa elementu pełnej ścieżki pliku lub nazwy pliku. Symbole wieloznaczne nie są obsługiwane.
 
-W poniższych przykładach pokazano, jak pominąć plik \<inputPath> \src\js\lib\angular.js
+W poniższych przykładach pokazano, jak pominąć plik \<InputPath> \src\JS\lib\angular.js
 
 Przykłady prawidłowych reguł pomijania:
 
-- \<InputPath> \src\JS\lib\angular.js — pomija plik w określonej ścieżce
+- \<InputPath>\src\JS\lib\angular.js — pomija plik w określonej ścieżce
 - \src\JS\lib\angular.js
 - \JS\lib\angular.js
 - \lib\angular.js
@@ -155,7 +155,7 @@ Przykłady prawidłowych reguł pomijania:
 Poniższe zasoby ułatwiają bezpieczne zarządzanie kluczami tajnymi i dostęp do poufnych informacji z poziomu aplikacji:
 
  - [W usłudze Azure Key Vault](../../key-vault/index.yml)
- - [Azure Active Directory (Azure AD)](../../sql-database/sql-database-aad-authentication.md)
+ - [Azure Active Directory (Azure AD)](../../azure-sql/database/authentication-aad-overview.md)
  - [Usługa Azure AD tożsamość usługi zarządzanej (MSI)](https://azure.microsoft.com/blog/keep-credentials-out-of-code-introducing-azure-ad-managed-service-identity/)
  - [Tożsamości zarządzane dla zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/overview.md)
  - [Zarządzane tożsamości w Azure App Service i Azure Functions](../../app-service/overview-managed-identity.md)
@@ -173,7 +173,7 @@ Wyszukiwanie zawartości jest zdefiniowane w następujący sposób:
 - **Nazwa**: nazwa opisowa wyszukiwania, który ma być używany w plikach wyjściowych skanera poświadczeń. Zalecamy użycie konwencji nazewnictwa notacji CamelCase-Case dla nazw usługi Search.
 - **RuleID**: stabilny identyfikator nieprzezroczystego elementu wyszukiwania:
     - Domyślnym analitykiem skanera poświadczeń jest przypisana wartość **RuleID** , na przykład CSCAN0010, CSCAN0020 lub CSCAN0030. Ostatnia cyfra jest zarezerwowana dla potencjalnie łączących lub dzielących grupy wyszukiwania za pomocą wyrażeń regularnych (wyrażenie regularne).
-    - Wartość **RuleID** niestandardowego wyszukiwania powinna mieć własną przestrzeń nazw. Przykłady obejmują CSCAN-\<przestrzeń\>nazw 0,010, CSCAN\<-\>przestrzeń nazw 0020 i CSCAN\<-\>Namespace 0030.
+    - Wartość **RuleID** niestandardowego wyszukiwania powinna mieć własną przestrzeń nazw. Przykłady obejmują CSCAN- \<Namespace\> 0,010, CSCAN- \<Namespace\> 0020 i CSCAN- \<Namespace\> 0030.
     - W pełni kwalifikowana nazwa wyszukiwania to kombinacja wartości **RuleID** i nazwy szukanej. Przykłady obejmują CSCAN0010. KeyStoreFiles i CSCAN0020. Base64EncodedCertificate.
 - **ResourceMatchPattern**: wyrażenie regularne rozszerzeń plików do sprawdzenia dla wyszukiwania.
 - **ContentSearchPatterns**: tablica ciągów zawierających instrukcje wyrażenia regularnego do dopasowania. Jeśli nie zdefiniowano żadnych wzorców wyszukiwania, zwracane są wszystkie pliki zgodne z wartością **ResourceMatchPattern** .
@@ -202,13 +202,13 @@ Krok między głównymi krokami kompilowania i Roslynów może spowodować umies
 
 Pełny komunikat o błędzie:
 
-Zakończono działanie "CSC. exe" z kodem błędu 1 — nie można utworzyć wystąpienia analizatora *AAAA* w języku C:\\*bbbb*. dll: nie udało się załadować pliku lub zestawu "Microsoft. CodeAnalysis, Version =*X. x. x. x*, Culture = neutral, PublicKeyToken = 31bf3856ad364e35" lub jednej z jego zależności. System nie może odnaleźć określonego pliku. "
+Zakończono działanie "CSC. exe" z kodem błędu 1 — nie można utworzyć wystąpienia analizatora *AAAA* w języku C: \\ *bbbb*. dll: nie udało się załadować pliku lub zestawu "Microsoft. CodeAnalysis, Version =*X. x. x. x*, Culture = neutral, PublicKeyToken = 31bf3856ad364e35" lub jednej z jego zależności. System nie może odnaleźć określonego pliku. "
 
 Upewnij się, że kompilator obsługuje analizatory Roslyn. Uruchomienie polecenia **CSC. exe/Version** powinno spowodować zgłoszenie wartości wersji 2,6 lub nowszej.
 
 Czasami plik. csproj może zastąpić instalację programu Visual Studio na maszynie kompilacji, odwołując się do pakietu z Microsoft.Net. Kompilators. Jeśli nie zamierzasz używać określonej wersji kompilatora, Usuń odwołania do Microsoft.Net. Kompilators. W przeciwnym razie upewnij się, że wersja przywoływanego pakietu jest również 2,6 lub nowsza.
 
-Spróbuj uzyskać ścieżkę dziennika błędów, która jest określona w opcji **CSC. exe/ErrorLog** . Opcja i ścieżka są wyświetlane w dzienniku dla zadania kompilacji analizatory Roslyn. Mogą wyglądać podobnie do **/ErrorLog: f:\ts-services-\_123 work\456\s\Some\Project\Code\Code.csproj.Sarif**
+Spróbuj uzyskać ścieżkę dziennika błędów, która jest określona w opcji **CSC. exe/ErrorLog** . Opcja i ścieżka są wyświetlane w dzienniku dla zadania kompilacji analizatory Roslyn. Mogą wyglądać podobnie do **/ErrorLog: f:\ts-services-123 \_ work\456\s\Some\Project\Code\Code.csproj.Sarif**
 
 ##### <a name="the-c-compiler-version-isnt-recent-enough"></a>Wersja kompilatora C# jest zbyt mała
 

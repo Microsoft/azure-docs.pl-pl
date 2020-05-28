@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: twooley
-ms.openlocfilehash: cf3893706afcb4c4cc5b90dd3d2431ecedc71d0a
-ms.sourcegitcommit: 6a4fbc5ccf7cca9486fe881c069c321017628f20
+ms.openlocfilehash: 154f8f1923874a3221597f1c0017fe99b5d31844
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "73839057"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015934"
 ---
 # <a name="copy-data-between-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>Kopiuj dane między Data Lake Storage Gen1 i Azure SQL Database przy użyciu Sqoop
 
@@ -35,7 +35,7 @@ Przed rozpoczęciem należy wykonać następujące czynności:
 
 ## <a name="create-sample-tables-in-the-azure-sql-database"></a>Tworzenie przykładowych tabel w bazie danych SQL Azure
 
-1. Aby rozpocząć, Utwórz dwie przykładowe tabele w bazie danych SQL Azure. Użyj [SQL Server Management Studio](../sql-database/sql-database-connect-query-ssms.md) lub Visual Studio, aby nawiązać połączenie z bazą danych, a następnie uruchom następujące zapytania.
+1. Aby rozpocząć, Utwórz dwie przykładowe tabele w bazie danych SQL Azure. Użyj [SQL Server Management Studio](../azure-sql/database/connect-query-ssms.md) lub Visual Studio, aby nawiązać połączenie z bazą danych, a następnie uruchom następujące zapytania.
 
     **Utwórz tabelę Tabela1**
 
@@ -81,7 +81,7 @@ Dla klastra HDInsight An dostępne są już pakiety Sqoop. Jeśli klaster usług
 
 ### <a name="import-data-from-azure-sql-database-into-data-lake-storage-gen1"></a>Importuj dane z Azure SQL Database do Data Lake Storage Gen1
 
-1. Przejdź do katalogu, w którym są dostępne pakiety Sqoop. Zwykle jest `/usr/hdp/<version>/sqoop/bin`to lokalizacja.
+1. Przejdź do katalogu, w którym są dostępne pakiety Sqoop. Zwykle jest to lokalizacja `/usr/hdp/<version>/sqoop/bin` .
 
 1. Zaimportuj dane z programu **Tabela1** do konta Data Lake Storage Gen1. Użyj następującej składni:
 
@@ -89,7 +89,7 @@ Dla klastra HDInsight An dostępne są już pakiety Sqoop. Jeśli klaster usług
 
    Symbol zastępczy **SQL-Database-Server-Name** reprezentuje nazwę serwera, na którym działa baza danych SQL Azure. Symbol zastępczy **SQL-Database-Name** reprezentuje rzeczywistą nazwę bazy danych.
 
-   Na przykład:
+   Na przykład
 
        sqoop-import --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=twooley@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table1 --target-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1
 
@@ -113,11 +113,11 @@ Dla klastra HDInsight An dostępne są już pakiety Sqoop. Jeśli klaster usług
 
        sqoop-export --connect "jdbc:sqlserver://<sql-database-server-name>.database.windows.net:1433;username=<username>@<sql-database-server-name>;password=<password>;database=<sql-database-name>" --table Table2 --export-dir adl://<data-lake-storage-gen1-name>.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
 
-   Na przykład:
+   Na przykład
 
        sqoop-export --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=twooley@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table2 --export-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
 
-1. Sprawdź, czy dane zostały przekazane do tabeli SQL Database. Użyj [SQL Server Management Studio](../sql-database/sql-database-connect-query-ssms.md) lub Visual Studio, aby nawiązać połączenie z Azure SQL Database, a następnie uruchom następujące zapytanie.
+1. Sprawdź, czy dane zostały przekazane do tabeli SQL Database. Użyj [SQL Server Management Studio](../azure-sql/database/connect-query-ssms.md) lub Visual Studio, aby nawiązać połączenie z Azure SQL Database, a następnie uruchom następujące zapytanie.
 
        SELECT * FROM TABLE2
 

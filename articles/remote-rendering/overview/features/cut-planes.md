@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: article
-ms.openlocfilehash: 5d641b573a1cad5cac6db6199f5bad5c06151c62
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 7adf9a9701eb2492f0b13a26af1dbaf8de631373
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83759085"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021368"
 ---
 # <a name="cut-planes"></a>Wycięte płaszczyzny
 
@@ -60,11 +60,11 @@ void CreateCutPlane(ApiHandle<AzureSession> session, ApiHandle<Entity> ownerEnti
 
 Następujące właściwości są uwidocznione w składniku wycinania płaszczyzny:
 
-* **Włączone:** Możesz tymczasowo wyłączyć wycięte płaszczyzny, wyłączając składnik. Wyłączone płaszczyzny wycinania nie wiążą się z obciążeniem renderowania, a także nie są wliczane do limitu globalnej płaszczyzny wycinania.
+* `Enabled`: Możesz tymczasowo wyłączyć wycięte płaszczyzny, wyłączając składnik. Wyłączone płaszczyzny wycinania nie wiążą się z obciążeniem renderowania, a także nie są wliczane do limitu globalnej płaszczyzny wycinania.
 
-* **Normalne:** Określa kierunek (+ X,-X, + Y,-Y, + Z,-Z) jest używany jako normalna płaszczyzna. Ten kierunek jest określany względem orientacji jednostki właściciela. Przenieś i obróć jednostkę Owner w celu dokładnego umieszczania.
+* `Normal`: Określa kierunek (+ X,-X, + Y,-Y, + Z,-Z) jest używany jako normalne. Ten kierunek jest określany względem orientacji jednostki właściciela. Przenieś i obróć jednostkę Owner w celu dokładnego umieszczania.
 
-* **FadeColor** i **FadeLength:**
+* `FadeColor` i `FadeLength`:
 
   Jeśli wartość alfa *FadeColor* jest różna od zera, piksele blisko płaszczyzny wycinania przestaną się na część RGB części FadeColor. Siła kanału alfa decyduje o tym, czy przejdzie w pełni do koloru zanikania, czy tylko częściowo. *FadeLength* definiuje odległość tego zaniku.
 

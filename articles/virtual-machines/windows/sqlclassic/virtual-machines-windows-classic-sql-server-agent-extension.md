@@ -15,24 +15,24 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b76ade40db1e85abc0fb42af2e6f4ab88cb092c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 384b66020b3d18064ea1cd9f162911878caa598d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75982283"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017546"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-classic"></a>Automatyzowanie zadań zarządzania na platformie Azure Virtual Machines przy użyciu rozszerzenia agenta SQL Server (klasycznego)
 > [!div class="op_single_selector"]
-> * [Resource Manager](../sql/virtual-machines-windows-sql-server-agent-extension.md)
-> * [Wdrożenie klasyczne](../classic/sql-server-agent-extension.md)
+> * [Resource Manager](../../../azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md)
+> * [Klasyczny](virtual-machines-windows-classic-sql-server-agent-extension.md)
 > 
 >
  
 Rozszerzenie IaaS Agent (SQLIaaSAgent) jest uruchamiane na maszynach wirtualnych platformy Azure w celu zautomatyzowania zadań administracyjnych. SQL Server Ten temat zawiera omówienie usług obsługiwanych przez rozszerzenie oraz instrukcje dotyczące instalacji, stanu i usuwania.
 
 > [!IMPORTANT] 
-> Platforma Azure ma dwa różne modele wdrażania służące do tworzenia zasobów i pracy z nimi: [Menedżer zasobów i klasyczne](../../../azure-resource-manager/management/deployment-models.md). W tym artykule opisano korzystanie z klasycznego modelu wdrażania. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager. Aby wyświetlić wersję Menedżer zasobów tego artykułu, zapoznaj się z tematem [SQL Server rozszerzenia agenta dla maszyn wirtualnych SQL Server Menedżer zasobów](../sql/virtual-machines-windows-sql-server-agent-extension.md).
+> Platforma Azure ma dwa różne modele wdrażania służące do tworzenia zasobów i pracy z nimi: [Menedżer zasobów i klasyczne](../../../azure-resource-manager/management/deployment-models.md). W tym artykule opisano korzystanie z klasycznego modelu wdrażania. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager. Aby wyświetlić wersję Menedżer zasobów tego artykułu, zapoznaj się z tematem [SQL Server rozszerzenia agenta dla maszyn wirtualnych SQL Server Menedżer zasobów](../../../azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md).
 
 ## <a name="supported-services"></a>Obsługiwane usługi
 Rozszerzenie agenta SQL Server IaaS obsługuje następujące zadania administracyjne:
@@ -82,7 +82,7 @@ W przypadku aktualizacji do najnowszej wersji rozszerzenia programu SQL IaaS Age
 > Klasyczne maszyny wirtualne nie mają opcji instalacji i konfiguracji rozszerzenia agenta SQL IaaS za pomocą portalu.
 
 > [!NOTE]
-> Rozszerzenie agenta SQL Server IaaS jest obsługiwane tylko w [obrazach z galerii maszyn wirtualnych SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms) (płatność zgodnie z rzeczywistym użyciem lub do własnego użycia licencji). Nie jest obsługiwana w przypadku ręcznej instalacji SQL Server na maszynie wirtualnej z systemem Windows Server lub w przypadku wdrożenia dostosowanego SQL Server wirtualnego dysku twardego maszyny wirtualnej. W takich przypadkach może być możliwe ręczne zainstalowanie rozszerzenia i zarządzanie nim przy użyciu programu PowerShell, ale zdecydowanie zaleca się zainstalowanie obrazu SQL Server VM Gallery, a następnie dostosowanie go.
+> Rozszerzenie agenta SQL Server IaaS jest obsługiwane tylko w [obrazach z galerii maszyn wirtualnych SQL Server](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-vms) (płatność zgodnie z rzeczywistym użyciem lub do własnego użycia licencji). Nie jest obsługiwana w przypadku ręcznej instalacji SQL Server na maszynie wirtualnej z systemem Windows Server lub w przypadku wdrożenia dostosowanego SQL Server wirtualnego dysku twardego maszyny wirtualnej. W takich przypadkach może być możliwe ręczne zainstalowanie rozszerzenia i zarządzanie nim przy użyciu programu PowerShell, ale zdecydowanie zaleca się zainstalowanie obrazu SQL Server VM Gallery, a następnie dostosowanie go.
 
 ## <a name="status"></a>Stan
 Jednym ze sposobów sprawdzenia, czy rozszerzenie jest zainstalowane, jest wyświetlenie stanu agenta w witrynie Azure Portal. Wybierz maszynę wirtualną w bloku maszyna wirtualna, a następnie kliknij pozycję **rozszerzenia**. Powinna zostać wyświetlona lista rozszerzeń **SQLIaaSAgent** .
@@ -105,5 +105,5 @@ Można również użyć polecenia cmdlet **Remove-AzureVMSqlServerExtension** pr
 ## <a name="next-steps"></a>Następne kroki
 Rozpocznij korzystanie z jednej z usług obsługiwanych przez rozszerzenie. Aby uzyskać więcej informacji, zobacz tematy wymienione w sekcji [obsługiwane usługi](#supported-services) w tym artykule.
 
-Aby uzyskać więcej informacji na temat uruchamiania SQL Server na platformie Azure Virtual Machines, zobacz [SQL Server na platformie Virtual Machines Azure — omówienie](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Aby uzyskać więcej informacji na temat uruchamiania SQL Server na platformie Azure Virtual Machines, zobacz [SQL Server na platformie Virtual Machines Azure — omówienie](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).
 

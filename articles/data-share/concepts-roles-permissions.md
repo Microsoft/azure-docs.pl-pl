@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 36a492f6a3e86cfb2fc9505550cc2d9f4746e070
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 96a5d3d5c894dda4270c5a8832f188ead56a1ce4
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79265508"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020901"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Role i wymagania dotyczące usługi Azure Data Share 
 
@@ -24,6 +24,7 @@ Za pomocą usługi Azure Data Share można udostępniać dane bez wymieniania po
 Tożsamość zarządzana zasobu udziału danych platformy Azure musi mieć przyznany dostęp do magazynu danych platformy Azure. Usługa udostępniania danych platformy Azure używa tej tożsamości zarządzanej do odczytu i zapisu danych na potrzeby udostępniania opartego na migawce oraz do ustanawiania symbolicznego linku do udostępniania miejscowego. 
 
 Aby udostępnić lub odebrać dane z magazynu danych platformy Azure, użytkownik musi mieć co najmniej następujące uprawnienia. W przypadku udostępniania opartego na języku SQL wymagane są dodatkowe uprawnienia.
+
 * Uprawnienie do zapisu w magazynie danych platformy Azure. Zwykle to uprawnienie istnieje w roli **współautor** .
 * Uprawnienie do tworzenia przypisania roli w magazynie danych Azure. Zazwyczaj uprawnienia do tworzenia przypisań ról istnieją w roli **właściciela** , roli administrator dostępu użytkowników lub roli niestandardowej z firmą Microsoft. uprawnienia do przypisywania ról/uprawnień do zapisu. To uprawnienie nie jest wymagane, jeśli zarządzana tożsamość zasobu udziału danych ma już dostęp do magazynu danych platformy Azure. W poniższej tabeli znajduje się wymagana rola.
 
@@ -35,7 +36,7 @@ Poniżej znajduje się Podsumowanie ról przypisanych do zarządzanej tożsamoś
 |Azure Blob Storage| Czytnik danych obiektów blob magazynu | Współautor danych obiektu blob magazynu
 |Azure Data Lake Gen1 | Właściciel | Nieobsługiwane
 |Azure Data Lake Gen2 | Czytnik danych obiektów blob magazynu | Współautor danych obiektu blob magazynu
-|SQL Server platformy Azure | Współautor bazy danych SQL | Współautor bazy danych SQL
+|Serwer usługi SQL Azure | Współautor bazy danych SQL | Współautor bazy danych SQL
 |Klaster Eksplorator danych platformy Azure | Współautor | Współautor
 |
 
@@ -48,8 +49,8 @@ W przypadku udostępniania opartego na języku SQL użytkownik musi zostać utwo
 |Azure Synapse Analytics (dawniej SQL DW) | db_datareader | db_datareader, db_datawriter, db_ddladmin
 |
 
+### <a name="data-provider"></a>Dostawca danych
 
-### <a name="data-provider"></a>Dostawca danych 
 Aby dodać zestaw danych w udziale danych platformy Azure, zarządzana tożsamość zasobu udziału danych dostawcy musi mieć przyznane uprawnienia dostępu do źródłowego magazynu danych platformy Azure. Na przykład w przypadku konta magazynu zarządzana tożsamość zasobu udziału danych jest przyznana roli czytnika danych obiektu blob magazynu. 
 
 Jest to wykonywane automatycznie przez usługę udziału danych platformy Azure, gdy użytkownik dodaje zestaw danych za pośrednictwem Azure Portal i użytkownik ma odpowiednie uprawnienia. Na przykład użytkownik jest właścicielem magazynu danych platformy Azure lub jest członkiem roli niestandardowej, która ma przypisane uprawnienie Microsoft. Autoryzacja/przydziały/uprawnienia do zapisu. 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 63db1810cbdd2133bc0577530325351997b31f30
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2b0238d8026bff435fce9c03b6517efb6a55311d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "70139258"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019915"
 ---
 # <a name="azure-data-factory---samples"></a>Azure Data Factory — przykłady
 > [!NOTE]
@@ -62,7 +62,7 @@ Możesz użyć kafelka **przykładowe potoki** na stronie głównej fabryki dany
 3. W bloku **przykładowe potoki** kliknij **próbkę** , którą chcesz wdrożyć.
 
     ![Blok przykładowych potoków](./media/data-factory-samples/SampleTile.png)
-4. Określ ustawienia konfiguracji dla przykładu. Na przykład nazwa konta usługi Azure Storage i klucz konta, nazwa programu Azure SQL Server, baza danych, identyfikator użytkownika i hasło itp.
+4. Określ ustawienia konfiguracji dla przykładu. Na przykład nazwa konta usługi Azure Storage i klucz konta, logiczna Nazwa programu SQL Server, baza danych, identyfikator użytkownika i hasło itp.
 
     ![Przykładowy blok](./media/data-factory-samples/SampleBlade.png)
 5. Po określeniu ustawień konfiguracji kliknij pozycję **Utwórz** , aby utworzyć/wdrożyć przykładowe potoki i połączone usługi/tabele używane przez potoki.
@@ -80,7 +80,7 @@ Na komputerze muszą być zainstalowane następujące elementy:
 
 * Visual Studio 2013 lub Visual Studio 2015
 * Pobierz zestaw Azure SDK dla programu Visual Studio 2013 lub Visual Studio 2015. Przejdź do [strony plików do pobrania Azure](https://azure.microsoft.com/downloads/) i kliknij pozycję **VS 2013** lub **VS 2015** w sekcji **.NET**.
-* Pobierz najnowszą wtyczkę usługi Azure Data Factory dla programu Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) lub [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Jeśli używasz Visual Studio 2013, możesz także zaktualizować wtyczkę, wykonując następujące czynności: w menu kliknij kolejno opcje **Narzędzia** -> **rozszerzenia i aktualizacje** -> **online** -> **Galeria** -> Visual Studio**Microsoft Azure Data Factory Tools for Visual Studio** -> **Update**.
+* Pobierz najnowszą wtyczkę usługi Azure Data Factory dla programu Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) lub [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Jeśli używasz Visual Studio 2013, możesz także zaktualizować wtyczkę, wykonując następujące czynności: w menu kliknij kolejno opcje **Narzędzia**  ->  **rozszerzenia i aktualizacje**  ->  **online**  ->  **Galeria Visual Studio**  ->  **Microsoft Azure Data Factory Tools for Visual Studio**  ->  **Update**.
 
 ### <a name="use-data-factory-templates"></a>Korzystanie z szablonów Data Factory
 1. Kliknij menu **plik** , wskaż polecenie **Nowy**, a następnie kliknij pozycję **projekt**.

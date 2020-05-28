@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tag: azure-synapse
-ms.openlocfilehash: 86cd3d2f7675ca5111c29be278c9433ec7f66945
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 868130b23bc29acf0f1271f68a45f44cee98fe98
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653050"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015628"
 ---
 # <a name="authenticate-to-azure-synapse-analytics"></a>Uwierzytelnianie w usłudze Azure Synapse Analytics
 
@@ -54,16 +54,16 @@ Uwierzytelnianie [Azure Active Directory](../../active-directory/fundamentals/ac
 Korzyści Azure Active Directory obejmują:
 
 * Stanowi alternatywę dla SQL Server uwierzytelniania.
-* Pomaga zatrzymać rozprzestrzenianie tożsamości użytkowników na serwerach baz danych.
+* Pomaga zatrzymać rozprzestrzenianie tożsamości użytkowników między serwerami.
 * Umożliwia rotację haseł w jednym miejscu
 * Zarządzanie uprawnieniami bazy danych przy użyciu zewnętrznych grup (Azure AD).
-* Eliminuje przechowywanie haseł, włączając zintegrowane uwierzytelnianie systemu Windows i inne formy uwierzytelniania obsługiwane przez Azure Active Directory.
+* Eliminuje przechowywanie haseł, włączając zintegrowane uwierzytelnianie systemu Windows i formy uwierzytelniania obsługiwane przez Azure Active Directory.
 * Używa użytkowników zawartej bazy danych do uwierzytelniania tożsamości na poziomie bazy danych.
 * Obsługuje uwierzytelnianie oparte na tokenach dla aplikacji łączących się z pulą SQL.
-* Obsługuje uwierzytelnianie wieloskładnikowe za Active Directory uniwersalnego uwierzytelniania dla różnych narzędzi, w tym [SQL Server Management Studio](../../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) i [SQL Server narzędzi](/sql/ssdt/azure-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)do obsługi danych.
+* Obsługuje uwierzytelnianie wieloskładnikowe za Active Directory uniwersalnego uwierzytelniania dla różnych narzędzi, w tym [SQL Server Management Studio](../../azure-sql/database/authentication-mfa-ssms-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) i [SQL Server narzędzi](/sql/ssdt/azure-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)do obsługi danych.
 
 > [!NOTE]
-> Azure Active Directory nadal jest stosunkowo nowy i ma pewne ograniczenia. Aby upewnić się, że Azure Active Directory jest dobrze dopasowane do danego środowiska, zobacz [funkcje i ograniczenia usługi Azure AD](../../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#azure-ad-features-and-limitations), w tym dodatkowe zagadnienia.
+> Azure Active Directory nadal jest stosunkowo nowy i ma pewne ograniczenia. Aby upewnić się, że Azure Active Directory jest dobrze dopasowane do danego środowiska, zobacz [funkcje i ograniczenia usługi Azure AD](../../azure-sql/database/authentication-aad-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#azure-ad-features-and-limitations), w tym dodatkowe zagadnienia.
 
 ### <a name="configuration-steps"></a>Kroki konfiguracji
 
@@ -80,7 +80,7 @@ Obecnie Azure Active Directory użytkownicy nie są wyświetlani w Eksplorator o
 
 ### <a name="find-the-details"></a>Znajdź szczegóły
 
-* Kroki konfigurowania i używania uwierzytelniania Azure Active Directory są niemal identyczne dla Azure SQL Database i Synapse SQL na platformie Azure Synapse. Postępuj zgodnie ze szczegółowymi instrukcjami w temacie [nawiązywanie połączenia z usługą SQL Database lub pulą SQL przy użyciu uwierzytelniania Azure Active Directory](../../sql-database/sql-database-aad-authentication.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+* Kroki konfigurowania i używania uwierzytelniania Azure Active Directory są niemal identyczne dla Azure SQL Database i Synapse SQL na platformie Azure Synapse. Postępuj zgodnie ze szczegółowymi instrukcjami w temacie [nawiązywanie połączenia z usługą SQL Database lub pulą SQL przy użyciu uwierzytelniania Azure Active Directory](../../azure-sql/database/authentication-aad-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 * Utwórz niestandardowe role bazy danych i Dodaj użytkowników do ról. Następnie przyznaj uprawnienia szczegółowe do ról. Aby uzyskać więcej informacji, zobacz [wprowadzenie z uprawnieniami aparatu bazy danych](/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ## <a name="next-steps"></a>Następne kroki

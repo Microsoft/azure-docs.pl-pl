@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: sawinark
-ms.openlocfilehash: 7a935fa4c4e91cf8adcd6df467ac56eeecaf46c9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9309f431a820b800e652d7fa8afcea8f03a46062
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81605939"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84114521"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Uruchamianie pakietu SSIS za pomocą działania Procedura składowana w usłudze Azure Data Factory
 
@@ -29,7 +29,7 @@ W tym artykule opisano sposób uruchamiania pakietu usług SSIS w potoku Azure D
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 ### <a name="azure-sql-database"></a>Azure SQL Database 
-W przewodniku w tym artykule jest stosowana baza danych Azure SQL Database, która hostuje wykaz usług SSIS. Można również użyć Azure SQL Database wystąpienia zarządzanego.
+W przewodniku w tym artykule używa się Azure SQL Database do hostowania wykazu usług SSIS. Można również użyć wystąpienia zarządzanego Azure SQL.
 
 ## <a name="create-an-azure-ssis-integration-runtime"></a>Tworzenie środowiska Azure SSIS Integration Runtime
 Utwórz środowisko Azure-SSIS Integration Runtime, jeśli go nie masz, postępując zgodnie z instrukcjami krok po kroku w [samouczku: Wdrażanie pakietów usług SSIS](tutorial-create-azure-ssis-runtime-portal.md).
@@ -86,7 +86,7 @@ W tym kroku użyjesz interfejsu użytkownika Data Factory do utworzenia potoku. 
 4. W oknie **Nowa połączona usługa** wykonaj następujące czynności: 
 
     1. Wybierz **Azure SQL Database** dla **typu**.
-    2. Wybierz **domyślną** Azure Integration Runtime, aby nawiązać połączenie z Azure SQL Database, który `SSISDB` hostuje bazę danych.
+    2. Wybierz **domyślną** Azure Integration Runtime, aby nawiązać połączenie z Azure SQL Database, który hostuje `SSISDB` bazę danych.
     3. W polu **Nazwa serwera** wybierz Azure SQL Database, który hostuje bazę danych SSISDB.
     4. Wybierz pozycję **SSISDB** dla **nazwy bazy danych**.
     5. W polu **Nazwa użytkownika**wprowadź nazwę użytkownika, który ma dostęp do bazy danych.
@@ -98,7 +98,7 @@ W tym kroku użyjesz interfejsu użytkownika Data Factory do utworzenia potoku. 
 5. W oknie właściwości przejdź do karty **procedura składowana** na karcie **konto SQL** i wykonaj następujące czynności: 
 
     1. Wybierz pozycję **Edit** (Edytuj). 
-    2. W polu **nazwa procedury składowanej** wprowadź `sp_executesql`wartość. 
+    2. W polu **nazwa procedury składowanej** wprowadź wartość `sp_executesql` . 
     3. Kliknij pozycję **+ Nowy** w sekcji **parametry procedury składowanej** . 
     4. W polu **Nazwa** parametru wprowadź **stmt**. 
     5. Dla **typu** parametru wprowadź **ciąg**. 
@@ -134,7 +134,7 @@ W tej sekcji zostanie wyzwolone uruchomienie potoku, a następnie jego monitorow
 
     ![Uruchomienia działania](./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-runs.png)
 
-4. Aby sprawdzić, czy pakiet został uruchomiony, możesz uruchomić następujące **zapytanie** względem bazy danych SSISDB na serwerze Azure SQL. 
+4. Można uruchomić następujące **zapytanie** względem bazy danych SSISDB w SQL Database, aby sprawdzić, czy pakiet został uruchomiony. 
 
     ```sql
     select * from catalog.executions
@@ -201,7 +201,7 @@ Utwórz połączoną usługę w celu połączenia bazy danych Azure SQL Database
 1. Utwórz plik JSON o nazwie **AzureSqlDatabaseLinkedService. JSON** w folderze **C:\ADF\RunSSISPackage** o następującej zawartości: 
 
     > [!IMPORTANT]
-    > Zastąp &lt;wartości&gt;ServerName &lt;,&gt;username i &lt;Password&gt; wartościami Azure SQL Database przed zapisaniem pliku.
+    > Zastąp &lt; &gt; wartości ServerName, &lt; username &gt; i &lt; Password &gt; wartościami Azure SQL Database przed zapisaniem pliku.
 
     ```json
     {
@@ -229,7 +229,7 @@ W tym kroku utworzysz potok z działaniem procedury składowanej. Działanie wyw
 1. Utwórz plik JSON o nazwie **RunSSISPackagePipeline. JSON** w folderze **C:\ADF\RunSSISPackage** o następującej zawartości:
 
     > [!IMPORTANT]
-    > Przed &lt;zapisaniem pliku Zastąp &lt;wartość Nazwa&gt; &gt;folderu, &lt;nazwa&gt;projektu, nazwa pakietu z nazwami folderu, projektu i pakietu w wykazie usług SSIS. 
+    > &lt; &gt; Przed zapisaniem pliku Zastąp wartość Nazwa folderu, &lt; Nazwa projektu &gt; , &lt; Nazwa pakietu &gt; z nazwami folderu, projektu i pakietu w wykazie usług SSIS. 
 
     ```json
     {
@@ -353,7 +353,7 @@ W poprzednim kroku został wywołany potok na żądanie. Możesz również utwor
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-06" -TriggerRunStartedBefore "2017-12-09"
     ```
 
-    Aby sprawdzić, czy pakiet został uruchomiony, możesz uruchomić następujące zapytanie względem bazy danych SSISDB na serwerze Azure SQL. 
+    Można uruchomić następujące zapytanie względem bazy danych SSISDB w SQL Database, aby sprawdzić, czy pakiet został uruchomiony. 
 
     ```sql
     select * from catalog.executions

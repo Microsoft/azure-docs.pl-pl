@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 416be7de4b3cef4fb6e1bcfd09d934937f8c96d8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 240e0a6469f16adee971492e70d88479c6a0bbd9
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80297725"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020918"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-offline-using-dms"></a>Samouczek: Migrowanie SQL Server do wystąpienia zarządzanego Azure SQL Database w trybie offline za pomocą usługi DMS
 
-Za pomocą Azure Database Migration Service można migrować bazy danych z wystąpienia lokalnego SQL Server do [wystąpienia zarządzanego Azure SQL Database](../sql-database/sql-database-managed-instance.md). Dodatkowe metody, które mogą wymagać ręcznej pracy, są dostępne w artykule [Migracja wystąpienia programu SQL Server do wystąpienia zarządzanego usługi Azure SQL Database](../sql-database/sql-database-managed-instance-migrate.md).
+Za pomocą Azure Database Migration Service można migrować bazy danych z wystąpienia lokalnego SQL Server do [wystąpienia zarządzanego Azure SQL Database](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md). Dodatkowe metody, które mogą wymagać ręcznej pracy, są dostępne w artykule [Migracja wystąpienia programu SQL Server do wystąpienia zarządzanego usługi Azure SQL Database](../azure-sql/managed-instance/migrate-to-instance-from-sql-server.md).
 
 W tym samouczku przeprowadzisz migrację bazy danych **Adventureworks2012** z wystąpienia lokalnego SQL Server do wystąpienia zarządzanego SQL Database przy użyciu Azure Database Migration Service.
 
@@ -243,5 +243,5 @@ Po utworzeniu wystąpienia usługi znajdź je w witrynie Azure Portal, otwórz j
 ## <a name="next-steps"></a>Następne kroki
 
 - Samouczek pokazujący, jak przeprowadzić migrację bazy danych do wystąpienia zarządzanego przy użyciu polecenia przywracania T-SQL, zobacz [przywracanie kopii zapasowej do wystąpienia zarządzanego przy użyciu polecenia Restore](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
-- Aby uzyskać informacje o wystąpieniu zarządzanym, zobacz [co to jest wystąpienie zarządzane](../sql-database/sql-database-managed-instance.md).
-- Aby uzyskać informacje na temat łączenia aplikacji z wystąpieniem zarządzanym, zobacz [łączenie aplikacji](../sql-database/sql-database-managed-instance-connect-app.md).
+- Aby uzyskać informacje o wystąpieniu zarządzanym, zobacz [co to jest wystąpienie zarządzane](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
+- Aby uzyskać informacje na temat łączenia aplikacji z wystąpieniem zarządzanym, zobacz [łączenie aplikacji](../azure-sql/managed-instance/connect-application-instance.md).

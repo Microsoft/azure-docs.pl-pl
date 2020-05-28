@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a23fb981e24f6152d99b76bd72115f8159f5d60f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 15f94e93c270c8d62436b81a7caedbf181c1aeb8
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75645848"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022546"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Wdrożenie systemu Azure Virtual Machines DBMS dla obciążeń SAP
 
@@ -281,9 +281,9 @@ ms.locfileid: "75645848"
 [virtual-machines-sizes-windows]:../../windows/sizes.md
 [virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
 [virtual-machines-windows-classic-ps-sql-int-listener]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
-[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:./../../windows/sql/virtual-machines-windows-sql-high-availability-dr.md
-[virtual-machines-sql-server-infrastructure-services]:./../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md
-[virtual-machines-sql-server-performance-best-practices]:./../../windows/sql/virtual-machines-windows-sql-performance.md
+[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
+[virtual-machines-sql-server-infrastructure-services]:../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
+[virtual-machines-sql-server-performance-best-practices]:../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/resources/templates/sql-server-2014-alwayson-existing-vnet-and-ad/
@@ -374,10 +374,10 @@ Minimalna konfiguracja jest następująca:
 
 | Składnik | Dysk | Buforowanie | Pula magazynu |
 | --- | ---| --- | --- |
-| \oracle\<SID> \Origlogaa & mirrlogB | Premium | Brak | Nie jest wymagany |
-| \oracle\<SID> \Origlogab & mirrlogA | Premium | Brak | Nie jest wymagany |
-| Identyfikator\<SID \oracle> \sapdata1... Azotan | Premium | Tylko odczyt | Mogą być używane |
-| Identyfikator\<SID \oracle> \oraarch | Standardowa | Brak | Nie jest wymagany |
+| \oracle \<SID> \origlogaA & mirrlogB | Premium | Brak | Nie jest wymagany |
+| \oracle \<SID> \origlogaB & mirrlogA | Premium | Brak | Nie jest wymagany |
+| \oracle \<SID> \sapdata1... Azotan | Premium | Tylko odczyt | Mogą być używane |
+| \oracle \<SID> \oraarch | Standardowa | Brak | Nie jest wymagany |
 | Strona główna firmy Oracle, saptrace,... | Dysk systemu operacyjnego | | Nie jest wymagany |
 
 
@@ -387,13 +387,13 @@ Konfiguracja wydajności jest następująca:
 
 | Składnik | Dysk | Buforowanie | Pula magazynu |
 | --- | ---| --- | --- |
-| Identyfikator\<SID \Oracle> \origlogaa | Premium | Brak | Mogą być używane  |
-| Identyfikator\<SID \Oracle> \origlogab | Premium | Brak | Mogą być używane |
-| Identyfikator\<SID \Oracle> \mirrlogab | Premium | Brak | Mogą być używane |
-| Identyfikator\<SID \Oracle> \mirrlogba | Premium | Brak | Mogą być używane |
-| Identyfikator\<SID \oracle> \sapdata1... Azotan | Premium | Tylko odczyt | Zalecane  |
+| \oracle \<SID> \origlogaA | Premium | Brak | Mogą być używane  |
+| \oracle \<SID> \origlogaB | Premium | Brak | Mogą być używane |
+| \oracle \<SID> \mirrlogAB | Premium | Brak | Mogą być używane |
+| \oracle \<SID> \mirrlogBA | Premium | Brak | Mogą być używane |
+| \oracle \<SID> \sapdata1... Azotan | Premium | Tylko odczyt | Zalecane  |
 | \oracle\SID\sapdata (n + 1) * | Premium | Brak | Mogą być używane |
-| Identyfikator\<SID \oracle> \oraarch * | Premium | Brak | Nie jest wymagany |
+| \oracle \<SID> \oraarch * | Premium | Brak | Nie jest wymagany |
 | Strona główna firmy Oracle, saptrace,... | Dysk systemu operacyjnego | Nie jest wymagany |
 
 * (n + 1): hostowanie systemu, TEMP i COFAnie tabel. Wzorzec we/wy systemowych i cofania tabel przeszukanych różni się od innych tabel przechowujących dane aplikacji. Żadne buforowanie nie jest najlepszą opcją dla wydajności systemu i cofania tabel.
@@ -464,10 +464,10 @@ Minimalna konfiguracja:
 
 | Składnik | Dysk | Buforowanie | Obcięcie |
 | --- | ---| --- | --- |
-| /Oracle/\<SID>/Origlogaa & mirrlogB | Premium | Brak | Nie jest wymagany |
-| /Oracle/\<SID>/Origlogab & mirrlogA | Premium | Brak | Nie jest wymagany |
-| Identyfikator\<SID/Oracle/>/sapdata1... Azotan | Premium | Tylko odczyt | Mogą być używane |
-| Identyfikator\<SID/Oracle/>/oraarch | Standardowa | Brak | Nie jest wymagany |
+| /Oracle/ \<SID> /origlogaA & mirrlogB | Premium | Brak | Nie jest wymagany |
+| /Oracle/ \<SID> /origlogaB & mirrlogA | Premium | Brak | Nie jest wymagany |
+| /Oracle/ \<SID> /sapdata1... Azotan | Premium | Tylko odczyt | Mogą być używane |
+| /Oracle/ \<SID> /oraarch | Standardowa | Brak | Nie jest wymagany |
 | Strona główna firmy Oracle, saptrace,... | Dysk systemu operacyjnego | | Nie jest wymagany |
 
 * Odcięcie: LVM lub MDADM przy użyciu RAID0
@@ -478,13 +478,13 @@ Konfiguracja wydajności:
 
 | Składnik | Dysk | Buforowanie | Obcięcie |
 | --- | ---| --- | --- |
-| Identyfikator\<SID/Oracle/>/origlogaa | Premium | Brak | Mogą być używane  |
-| Identyfikator\<SID/Oracle/>/origlogab | Premium | Brak | Mogą być używane |
-| Identyfikator\<SID/Oracle/>/mirrlogab | Premium | Brak | Mogą być używane |
-| Identyfikator\<SID/Oracle/>/mirrlogba | Premium | Brak | Mogą być używane |
-| Identyfikator\<SID/Oracle/>/sapdata1... Azotan | Premium | Tylko odczyt | Zalecane  |
-| Identyfikator\<SID/Oracle/>/sapdata (n + 1) * | Premium | Brak | Mogą być używane |
-| Identyfikator\<SID/Oracle/>/oraarch * | Premium | Brak | Nie jest wymagany |
+| /Oracle/ \<SID> /origlogaA | Premium | Brak | Mogą być używane  |
+| /Oracle/ \<SID> /origlogaB | Premium | Brak | Mogą być używane |
+| /Oracle/ \<SID> /mirrlogAB | Premium | Brak | Mogą być używane |
+| /Oracle/ \<SID> /mirrlogBA | Premium | Brak | Mogą być używane |
+| /Oracle/ \<SID> /sapdata1... Azotan | Premium | Tylko odczyt | Zalecane  |
+| /Oracle/ \<SID> /sapdata (n + 1) * | Premium | Brak | Mogą być używane |
+| /Oracle/ \<SID> /oraarch * | Premium | Brak | Nie jest wymagany |
 | Strona główna firmy Oracle, saptrace,... | Dysk systemu operacyjnego | Nie jest wymagany |
 
 * Odcięcie: LVM lub MDADM przy użyciu RAID0

@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/20/2019
-ms.openlocfilehash: 3587ee711864eb33fea9bc4e61fe226562e8f612
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 26ba4c3da0bcfa36874e7b31241839c138809cec
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81418868"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019898"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Tworzenie potoków predykcyjnych przy użyciu usług Azure Machine Learning i Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -67,7 +67,7 @@ Tworzysz **Azure Machine Learning** połączonej usługi, aby połączyć usług
 
 Informacje o właściwościach w definicji JSON można znaleźć w artykule dotyczącym [połączonych usług obliczeniowych](compute-linked-services.md) .
 
-Azure Machine Learning obsługują zarówno klasyczne usługi sieci Web, jak i nowe usługi sieci Web na potrzeby eksperymentu predykcyjnego. Możesz wybrać jeden z nich, który ma być używany przez Data Factory. Aby uzyskać informacje wymagane do utworzenia połączonej usługi Azure Machine Learning, przejdź do lokalizacji https://services.azureml.net, w której znajdują się wszystkie (nowe) usługi sieci Web i klasyczne usługi sieci Web. Kliknij usługę sieci Web, do której chcesz uzyskać dostęp, a następnie **kliknij pozycję Użyj** strony. Skopiuj **klucz podstawowy** dla właściwości **ApiKey** oraz **żądania wsadowe** dla właściwości **mlEndpoint** .
+Azure Machine Learning obsługują zarówno klasyczne usługi sieci Web, jak i nowe usługi sieci Web na potrzeby eksperymentu predykcyjnego. Możesz wybrać jeden z nich, który ma być używany przez Data Factory. Aby uzyskać informacje wymagane do utworzenia połączonej usługi Azure Machine Learning, przejdź do https://services.azureml.net lokalizacji, w której znajdują się wszystkie (nowe) usługi sieci Web i klasyczne usługi sieci Web. Kliknij usługę sieci Web, do której chcesz uzyskać dostęp, a następnie **kliknij pozycję Użyj** strony. Skopiuj **klucz podstawowy** dla właściwości **ApiKey** oraz **żądania wsadowe** dla właściwości **mlEndpoint** .
 
 ![Azure Machine Learning usług sieci Web](./media/transform-data-using-machine-learning/web-services.png)
 
@@ -125,12 +125,12 @@ Poniższy fragment kodu JSON definiuje działanie wykonywania wsadowego Azure Ma
 }
 ```
 
-| Właściwość          | Opis                              | Wymagany |
+| Właściwość          | Opis                              | Wymagane |
 | :---------------- | :--------------------------------------- | :------- |
-| name              | Nazwa działania w potoku     | Tak      |
+| name              | Nazwa działania w potoku     | Yes      |
 | description       | Tekst opisujący działanie działania.  | Nie       |
-| type              | W przypadku Data Lake Analytics działania U-SQL typ działania to **AzureMLBatchExecution**. | Tak      |
-| linkedServiceName | Połączone usługi z połączoną usługą Azure Machine Learning. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz artykuł dotyczący [połączonych usług obliczeniowych](compute-linked-services.md) . | Tak      |
+| typ              | W przypadku Data Lake Analytics działania U-SQL typ działania to **AzureMLBatchExecution**. | Yes      |
+| linkedServiceName | Połączone usługi z połączoną usługą Azure Machine Learning. Aby dowiedzieć się więcej o tej połączonej usłudze, zobacz artykuł dotyczący [połączonych usług obliczeniowych](compute-linked-services.md) . | Yes      |
 | webServiceInputs  | Klucz, pary wartości, Mapowanie nazw danych wejściowych usługi sieci Web Azure Machine Learning. Klucz musi być zgodny z parametrami wejściowymi zdefiniowanymi w opublikowanej usłudze sieci Web Azure Machine Learning. Wartość to para właściwości usług połączonych i FilePath usługi Azure Storage określających wejściowe lokalizacje obiektów BLOB. | Nie       |
 | webServiceOutputs | Klucz, pary wartości, Mapowanie nazw danych wyjściowych usługi sieci Web Azure Machine Learning. Klucz musi być zgodny z parametrami wyjściowymi zdefiniowanymi w opublikowanej usłudze sieci Web Azure Machine Learning. Wartość to para właściwości usług połączonych i FilePath usługi Azure Storage określających wyjściowe lokalizacje obiektów BLOB. | Nie       |
 | globalParameters  | Klucz i pary wartości, które mają zostać przesłane do punktu końcowego usługi wykonywania wsadowego w Azure Machine Learning Studio (klasycznym). Klucze muszą być zgodne z nazwami parametrów usługi sieci Web zdefiniowanych w opublikowanej usłudze sieci Web Azure Machine Learning Studio (klasycznej). Wartości są przesyłane we Azure Machine Learning Studio właściwości GlobalParameters (klasyczne) żądania wykonania partii | Nie       |
@@ -192,7 +192,7 @@ W tym scenariuszu usługa sieci Web Azure Machine Learning wykonuje prognozowani
 ### <a name="scenario-2-experiments-using-readerwriter-modules-to-refer-to-data-in-various-storages"></a>Scenariusz 2: eksperymenty korzystające z modułów czytnika/składnika zapisywania do odwoływania się do danych w różnych magazynach
 Innym typowym scenariuszem podczas tworzenia Azure Machine Learning Studio (klasycznego) eksperymentów jest użycie danych import i danych wyjściowych. Moduł Importuj dane jest używany do ładowania danych do eksperymentu, a moduł danych wyjściowych polega na zapisywaniu danych z eksperymentów. Aby uzyskać szczegółowe informacje na temat importowania danych i modułów danych wyjściowych, zobacz temat [Importowanie danych](https://msdn.microsoft.com/library/azure/dn905997.aspx) i [danych wyjściowych](https://msdn.microsoft.com/library/azure/dn905984.aspx) w bibliotece MSDN.
 
-W przypadku korzystania z modułów import danych i danych wyjściowych dobrym sposobem jest użycie parametru usługi sieci Web dla każdej właściwości tych modułów. Te parametry sieci Web umożliwiają skonfigurowanie wartości w czasie wykonywania. Można na przykład utworzyć eksperyment z modułem import danych, który używa Azure SQL Database: XXX.database.windows.net. Po wdrożeniu usługi sieci Web, aby umożliwić użytkownikom usługi sieci Web określenie innej SQL Server platformy Azure `YYY.database.windows.net`. Możesz użyć parametru usługi sieci Web, aby umożliwić skonfigurowanie tej wartości.
+W przypadku korzystania z modułów import danych i danych wyjściowych dobrym sposobem jest użycie parametru usługi sieci Web dla każdej właściwości tych modułów. Te parametry sieci Web umożliwiają skonfigurowanie wartości w czasie wykonywania. Można na przykład utworzyć eksperyment z modułem import danych, który używa Azure SQL Database: XXX.database.windows.net. Po wdrożeniu usługi sieci Web należy umożliwić klientom usługi sieci Web określenie innego serwera logicznego programu SQL Server o nazwie `YYY.database.windows.net` . Możesz użyć parametru usługi sieci Web, aby umożliwić skonfigurowanie tej wartości.
 
 > [!NOTE]
 > Dane wejściowe i wyjściowe usługi sieci Web różnią się od parametrów usługi sieci Web. W pierwszym scenariuszu pokazano, jak można określić dane wejściowe i wyjściowe dla usługi sieci Web Azure Machine Learning Studio (klasyczna). W tym scenariuszu przekazywane są parametry usługi sieci Web odpowiadające właściwościom modułów danych import/dane wyjściowe.

@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/07/2020
 ms.topic: article
-ms.openlocfilehash: 8f64c4a9a438b07fef428a5ed044985736055525
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 3f808d45197f7d9ee23d3f809a2ab0452e92c20e
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758847"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021300"
 ---
 # <a name="spatial-queries"></a>Zapytania przestrzenne
 
@@ -88,9 +88,9 @@ void CastRay(ApiHandle<AzureSession> session)
 
 Istnieją trzy tryby kolekcji trafień:
 
-* **Najbliższy:** W tym trybie będzie raportowany tylko najbliższy trafi.
-* **Dowolny:** Preferuj ten tryb, gdy chcesz wiedzieć, *czy* promień dochodzi do wszystkiego, ale nie Zadbaj o to, co zostało natrafione dokładnie. To zapytanie może być znacznie tańsze do obliczenia, ale również ma tylko kilka aplikacji.
-* **Wszystkie:** W tym trybie są raportowane wszystkie trafienia na promieniu, posortowane według odległości. Nie używaj tego trybu, chyba że naprawdę potrzebujesz więcej niż pierwsze trafienie. Ogranicz liczbę raportowanych trafień za pomocą `MaxHits` opcji.
+* ** `Closest` :** W tym trybie będzie raportowany tylko najbliższy trafi.
+* ** `Any` :** Preferuj ten tryb, gdy wszystko, co chcesz wiedzieć, jest to, *czy* promień uderzy w sobie, ale nie Zadbaj o to, co zostało natrafione dokładnie. To zapytanie może być znacznie tańsze do obliczenia, ale również ma tylko kilka aplikacji.
+* ** `All` :** W tym trybie wszystkie trafienia na promieniu są raportowane według odległości. Nie używaj tego trybu, chyba że naprawdę potrzebujesz więcej niż pierwsze trafienie. Ogranicz liczbę raportowanych trafień za pomocą `MaxHits` opcji.
 
 Aby wykluczyć obiekty selektywnie z uwzględnienia w przypadku rzutowania promieniowego, można użyć składnika [HierarchicalStateOverrideComponent](override-hierarchical-state.md) .
 
@@ -106,11 +106,11 @@ Wynik zapytania Cast Ray jest tablicą trafień. Tablica jest pusta, jeśli żad
 
 Trafienie ma następujące właściwości:
 
-* **HitEntity:** Który [obiekt](../../concepts/entities.md) został trafiony.
-* **Podpartia:** Która *Podsiatka* została trafiona w [MeshComponent](../../concepts/meshes.md). Może służyć do indeksowania `MeshComponent.UsedMaterials` i wyszukiwania [materiału](../../concepts/materials.md) w tym momencie.
-* **HitPosition:** Miejsce na świecie, w którym Ray przecina obiekt.
-* **HitNormal:** Powierzchnia świata jest normalna dla siatki w pozycji przecięcia.
-* **DistanceToHit:** Odległość od promień pozycji początkowej do trafienia.
+* ** `HitEntity` :** Który [obiekt](../../concepts/entities.md) został trafiony.
+* ** `SubPartId` :** Która *Podsiatka* została trafiona w [MeshComponent](../../concepts/meshes.md). Może służyć do indeksowania `MeshComponent.UsedMaterials` i wyszukiwania [materiału](../../concepts/materials.md) w tym momencie.
+* ** `HitPosition` :** Miejsce na świecie, w którym Ray przecina obiekt.
+* ** `HitNormal` :** Powierzchnia świata jest normalna dla siatki w pozycji przecięcia.
+* ** `DistanceToHit` :** Odległość od promień pozycji początkowej do trafienia.
 
 ## <a name="next-steps"></a>Następne kroki
 

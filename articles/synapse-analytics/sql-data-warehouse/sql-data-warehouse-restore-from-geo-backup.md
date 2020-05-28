@@ -11,12 +11,12 @@ ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7e0980a9142dc966916d5a4df898ea53b0ddeae5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 99a6373c314530741bbff67a4573005ff2523d6d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80745082"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020221"
 ---
 # <a name="geo-restore-for-sql-pool"></a>Przywracanie geograficzne dla puli SQL
 
@@ -26,7 +26,7 @@ W tym artykule dowiesz się, jak przywrócić pulę SQL z geograficznej kopii za
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-**Sprawdź pojemność jednostek DTU.** Każda pula SQL jest hostowana przez program SQL Server (na przykład myserver.database.windows.net), który ma domyślny limit przydziału jednostek DTU. Sprawdź, czy program SQL Server ma wystarczający limit przydziału jednostek DTU dla przywracanej bazy danych. Aby dowiedzieć się, jak obliczyć liczbę jednostek DTU potrzebnych lub aby zażądać większej liczby jednostek DTU, zobacz [żądanie zmiany limitu przydziału jednostek DTU](sql-data-warehouse-get-started-create-support-ticket.md).
+**Sprawdź pojemność jednostek DTU.** Każda pula SQL jest hostowana przez [logiczny serwer SQL](../../azure-sql/database/logical-servers.md) (na przykład MyServer.Database.Windows.NET), który ma domyślny limit przydziału jednostek DTU. Sprawdź, czy program SQL Server ma wystarczający limit przydziału jednostek DTU dla przywracanej bazy danych. Aby dowiedzieć się, jak obliczyć liczbę jednostek DTU potrzebnych lub aby zażądać większej liczby jednostek DTU, zobacz [żądanie zmiany limitu przydziału jednostek DTU](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## <a name="restore-from-an-azure-geographical-region-through-powershell"></a>Przywracanie z regionu geograficznego platformy Azure za pomocą programu PowerShell
 
@@ -49,7 +49,7 @@ Aby przywrócić z geograficznej kopii zapasowej, należy użyć polecenia cmdle
 $SubscriptionName="<YourSubscriptionName>"
 $ResourceGroupName="<YourResourceGroupName>"
 $ServerName="<YourServerNameWithoutURLSuffixSeeNote>"  # Without database.windows.net
-$TargetResourceGroupName="<YourTargetResourceGroupName>" # Restore to a different logical server.
+$TargetResourceGroupName="<YourTargetResourceGroupName>" # Restore to a different server.
 $TargetServerName="<YourtargetServerNameWithoutURLSuffixSeeNote>"  
 $DatabaseName="<YourDatabaseName>"
 $NewDatabaseName="<YourDatabaseName>"
@@ -81,7 +81,7 @@ Wykonaj kroki opisane poniżej, aby przywrócić pulę SQL z kopii zapasowej geo
 
    ![Nowy magazyn DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
 
-3. Kliknij pozycję **bazy danych** , a następnie * * Azure Synapse Analytics (dawniej SQL DW) * *.
+3. Kliknij przycisk **bazy danych** , a następnie pozycję **Azure Synapse Analytics (wcześniej SQL DW)**.
 
    ![Nowy DW 2](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new-02.png)
 

@@ -11,12 +11,12 @@ ms.date: 03/04/2020
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: 1d82c7c22bb5aeb2740884b0d7ede4a4d8f07f86
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ea9a9430f9abee6179bacd4f999b7eeca92a8129
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80631216"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020850"
 ---
 # <a name="backup-and-restore-in-azure-synapse-sql-pool"></a>Tworzenie kopii zapasowych i przywracanie danych w puli SQL Synapse platformy Azure
 
@@ -30,7 +30,7 @@ Dowiedz się, jak używać funkcji tworzenia kopii zapasowych i przywracania w p
 
 ## <a name="automatic-restore-points"></a>Automatyczne punkty przywracania
 
-Migawki to wbudowana funkcja usługi, która tworzy punkty przywracania. Nie musisz włączać tej funkcji. Jednak Pula SQL powinna znajdować się w stanie aktywnym do tworzenia punktów przywracania. Jeśli pula SQL została wstrzymana często, automatyczne punkty przywracania mogą nie zostać utworzone, dlatego należy utworzyć punkt przywracania zdefiniowany przez użytkownika przed wstrzymaniem puli SQL. Automatyczne punkty przywracania obecnie nie mogą zostać usunięte przez użytkowników, ponieważ usługa używa tych punktów przywracania do obsługi umowy SLA na potrzeby odzyskiwania.
+Migawki to wbudowana funkcja, która tworzy punkty przywracania. Nie musisz włączać tej funkcji. Jednak Pula SQL powinna znajdować się w stanie aktywnym do tworzenia punktów przywracania. Jeśli pula SQL została wstrzymana często, automatyczne punkty przywracania mogą nie zostać utworzone, dlatego należy utworzyć punkt przywracania zdefiniowany przez użytkownika przed wstrzymaniem puli SQL. Automatyczne punkty przywracania obecnie nie mogą zostać usunięte przez użytkowników, ponieważ usługa używa tych punktów przywracania do obsługi umowy SLA na potrzeby odzyskiwania.
 
 Migawki magazynu danych są wykonywane przez cały dzień tworzenia punktów przywracania dostępnych przez siedem dni. Nie można zmienić tego okresu przechowywania. Pula SQL obsługuje osiem godzin cel punktu odzyskiwania (RPO). Magazyn danych można przywrócić w regionie podstawowym z jednej z migawek wykonanych w ciągu ostatnich siedmiu dni.
 
@@ -65,7 +65,7 @@ Poniżej znajdują się szczegółowe informacje dotyczące okresów przechowywa
 Po strąceniu puli SQL tworzona jest Ostatnia migawka, która jest zapisywana przez siedem dni. Pulę SQL można przywrócić do końcowego punktu przywracania utworzonego podczas usuwania. Jeśli pula SQL zostanie porzucona w stanie wstrzymania, migawka nie jest wykonywana. W tym scenariuszu należy utworzyć zdefiniowany przez użytkownika punkt przywracania przed usunięciem puli SQL.
 
 > [!IMPORTANT]
-> Usunięcie logicznego wystąpienia programu SQL Server spowoduje również usunięcie wszystkich baz danych, które należą do wystąpienia, i nie będzie można ich odzyskać. Nie można przywrócić usuniętego serwera.
+> Jeśli usuniesz serwer hostujący pulę SQL, wszystkie bazy danych, które należą do serwera, również zostaną usunięte i nie będzie można go odzyskać. Nie można przywrócić usuniętego serwera.
 
 ## <a name="geo-backups-and-disaster-recovery"></a>Tworzenie kopii zapasowych i odzyskiwanie po awarii
 
@@ -96,7 +96,7 @@ Aby przywrócić usunięty lub wstrzymany magazyn danych, możesz [utworzyć bil
 
 ## <a name="cross-subscription-restore"></a>Przywracanie między subskrypcjami
 
-Jeśli musisz bezpośrednio przywrócić subskrypcję, zagłosuj na tę funkcję w [tym miejscu](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Przywróć na inny serwer logiczny i ["Przenieś"](/azure/azure-resource-manager/resource-group-move-resources?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) serwer między subskrypcjami, aby przeprowadzić przywracanie między subskrypcjami.
+Jeśli musisz bezpośrednio przywrócić subskrypcję, zagłosuj na tę funkcję w [tym miejscu](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/36256231-enable-support-for-cross-subscription-restore). Przywróć na inny serwer i ["Przenieś"](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) serwer między subskrypcjami, aby przeprowadzić przywracanie między subskrypcjami.
 
 ## <a name="geo-redundant-restore"></a>Przywracanie nadmiarowe geograficznie
 
@@ -107,4 +107,4 @@ Możesz [przywrócić pulę SQL](sql-data-warehouse-restore-from-geo-backup.md#r
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat planowania awarii, zobacz temat [ciągłość](../../sql-database/sql-database-business-continuity.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) działania — Omówienie
+Aby uzyskać więcej informacji na temat planowania awarii, zobacz temat [ciągłość](../../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) działania — Omówienie

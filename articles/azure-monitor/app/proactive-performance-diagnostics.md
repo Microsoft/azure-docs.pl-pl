@@ -4,18 +4,18 @@ description: Application Insights przeprowadza inteligentnej analizy telemetrii 
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: ad4341993d92052123eacd3d37500905a0b25179
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 22c1eeb00372b9b3c67d6a87f2300225a071438e
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697177"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84016852"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Wykrywanie inteligentne — anomalie wydajności
 
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) automatycznie analizuje wydajność aplikacji sieci Web i może ostrzec o potencjalnych problemach. Może się to zdarzyć z powodu odebrania jednego z naszych powiadomień dotyczących wykrywania inteligentnego.
 
-Ta funkcja nie wymaga żadnych specjalnych ustawień, innych niż Konfigurowanie aplikacji do Application Insights (w [ASP.NET](../../azure-monitor/app/asp-net.md), [Java](../../azure-monitor/app/java-get-started.md)lub [Node. js](../../azure-monitor/app/nodejs.md)oraz w [kodzie strony sieci Web](../../azure-monitor/app/javascript.md)). Jest ona aktywna, gdy aplikacja generuje wystarczającą ilość danych telemetrycznych.
+Ta funkcja nie wymaga żadnych specjalnych ustawień, innych niż Konfigurowanie aplikacji do Application Insights dla [obsługiwanego języka](../../azure-monitor/app/platforms.md). Jest ona aktywna, gdy aplikacja generuje wystarczającą ilość danych telemetrycznych.
 
 ## <a name="when-would-i-get-a-smart-detection-notification"></a>Kiedy otrzymuję powiadomienie o wykryciu Smart Detect?
 
@@ -57,7 +57,7 @@ Powiadomienia inteligentnego wykrywania są domyślnie włączone i wysyłane do
 
 Wiadomości e-mail dotyczące anomalii dotyczących wydajności wykrywania inteligentnego są ograniczone do jednej wiadomości e-mail dziennie na Application Insights zasób. Wiadomość e-mail zostanie wysłana tylko wtedy, gdy w tym dniu wykryjesz co najmniej jeden nowy problem. Nie zostaną powtórzone żadne komunikaty. 
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 * *Tak więc personel firmy Microsoft szuka moich danych?*
   * Nie. Usługa jest całkowicie automatyczna. Tylko otrzymujesz powiadomienia. Twoje dane są [prywatne](../../azure-monitor/app/data-retention-privacy.md).

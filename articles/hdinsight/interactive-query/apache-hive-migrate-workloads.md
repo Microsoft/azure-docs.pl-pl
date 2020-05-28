@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/13/2019
-ms.openlocfilehash: 14849dd1f68f281009808d1bd1dc1cae62927ab4
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 003ee13220e9e8aae252e1a976d579beac870052
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82594240"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015016"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrowanie obciążeń platformy Azure HDInsight 3,6 do usługi HDInsight 4,0
 
@@ -34,12 +34,12 @@ Jedną z zalet programu Hive jest możliwość eksportowania metadanych do zewn�
 Tabele KWASów HDInsight 3,6 i HDInsight 4,0 są w inny sposób zrozumiałe dla różnic KWASowych. Jedyną akcją wymaganą przed migracją jest uruchomienie "Wielkiej" kompaktowania dla każdej tabeli KWASowej w klastrze 3,6. Szczegółowe informacje na temat kompaktowania można znaleźć w [podręczniku języka Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-AlterTable/Partition/Compact) .
 
 ### <a name="2-copy-sql-database"></a>2. Kopiowanie bazy danych SQL
-Utwórz nową kopię zewnętrznego magazynu metadanych. Jeśli używasz zewnętrznego magazynu metadanych, jeden z bezpiecznych i łatwych sposobów tworzenia kopii magazynu metadanych polega na [przywróceniu bazy danych](../../sql-database/sql-database-recovery-using-backups.md#point-in-time-restore) z inną nazwą przy użyciu funkcji przywracania SQL Database.  Zobacz [Używanie zewnętrznych magazynów metadanych w usłudze Azure HDInsight](../hdinsight-use-external-metadata-stores.md) , aby dowiedzieć się więcej na temat dołączania zewnętrznego magazynu Metadata do klastra usługi HDInsight.
+Utwórz nową kopię zewnętrznego magazynu metadanych. Jeśli używasz zewnętrznego magazynu metadanych, jeden z bezpiecznych i łatwych sposobów tworzenia kopii magazynu metadanych polega na [przywróceniu bazy danych](../../azure-sql/database/recovery-using-backups.md#point-in-time-restore) z inną nazwą przy użyciu funkcji przywracania SQL Database.  Zobacz [Używanie zewnętrznych magazynów metadanych w usłudze Azure HDInsight](../hdinsight-use-external-metadata-stores.md) , aby dowiedzieć się więcej na temat dołączania zewnętrznego magazynu Metadata do klastra usługi HDInsight.
 
 ### <a name="3-upgrade-metastore-schema"></a>3. Uaktualnij schemat magazynu metadanych
 Po zakończeniu **kopiowania** magazynu metadanych Uruchom skrypt uaktualnienia schematu w [akcji skryptu](../hdinsight-hadoop-customize-cluster-linux.md) w istniejącym klastrze usługi HDInsight 3,6, aby uaktualnić nowy magazyn metadanych do schematu Hive 3. (Ten krok nie wymaga połączenia nowego magazynu metadanych z klastrem). Umożliwia to dołączenie bazy danych jako magazynu metadanych usługi HDInsight 4,0.
 
-Skorzystaj z wartości w tabeli poniżej. Zamień `SQLSERVERNAME DATABASENAME USERNAME PASSWORD` na odpowiednie wartości magazyn metadanych Hive **kopii**, rozdzielone spacjami. Podczas określania nazwy serwera SQL nie dodawaj ". database.windows.net".
+Skorzystaj z wartości w tabeli poniżej. Zamień na `SQLSERVERNAME DATABASENAME USERNAME PASSWORD` odpowiednie wartości magazyn metadanych Hive **kopii**, rozdzielone spacjami. Podczas określania nazwy serwera SQL nie dodawaj ". database.windows.net".
 
 |Właściwość | Wartość |
 |---|---|
@@ -103,7 +103,7 @@ Klastry HDInsight 3,6 i 4,0 muszą korzystać z tego samego konta magazynu.
 >
 > * Po zakończeniu tego skryptu zakłada się, że stary klaster nie będzie już używany do uzyskiwania dostępu do dowolnych tabel lub baz danych, do których odwołuje się w skrypcie.
 >
-> * Wszystkie tabele zarządzane staną się transakcyjne w usłudze HDInsight 4,0. Opcjonalnie należy zachować tabelę nietransakcyjną przez wyeksportowanie danych do tabeli zewnętrznej z właściwością "External. Table. przeczyszczanie" = "true". Na przykład:
+> * Wszystkie tabele zarządzane staną się transakcyjne w usłudze HDInsight 4,0. Opcjonalnie należy zachować tabelę nietransakcyjną przez wyeksportowanie danych do tabeli zewnętrznej z właściwością "External. Table. przeczyszczanie" = "true". Na przykład
 >
 >    ```SQL
 >    create table tablename_backup like tablename;
@@ -124,7 +124,7 @@ Klastry HDInsight 3,6 i 4,0 muszą korzystać z tego samego konta magazynu.
     chmod 755 exporthive_hdi_3_6.sh
     ```
 
-    * W przypadku zwykłego klastra usługi HDInsight bez ESP po prostu `exporthive_hdi_3_6.sh`wykonaj polecenie.
+    * W przypadku zwykłego klastra usługi HDInsight bez ESP po prostu wykonaj polecenie `exporthive_hdi_3_6.sh` .
 
     * W przypadku klastra z partycją ESP narzędzie kinit i zmodyfikuj argumenty z usługi Beeline: Uruchom następujące polecenie, określając użytkownika i domenę dla użytkownika usługi Azure AD z pełnymi uprawnieniami Hive.
 
@@ -221,14 +221,14 @@ W usłudze HDInsight 3,6 klient z graficznym interfejsem użytkownika służący
 |Identyfikator URI skryptu bash|`https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh`|
 |Typy węzłów|Head|
 
-Odczekaj od 10 do 15 minut, a następnie uruchom program Data Analytics Studio `https://CLUSTERNAME.azurehdinsight.net/das/`przy użyciu tego adresu URL:.
+Odczekaj od 10 do 15 minut, a następnie uruchom program Data Analytics Studio przy użyciu tego adresu URL: `https://CLUSTERNAME.azurehdinsight.net/das/` .
 
 Przed uzyskaniem dostępu do obiektu DAS może być wymagane odświeżenie interfejsu użytkownika Ambari i/lub ponowne uruchomienie wszystkich składników programu Ambari.
 
 Jeśli nie widzisz zapytań, które zostały uruchomione w podglądzie zapytań, należy wykonać następujące czynności:
 
 1. Ustaw konfiguracje dla programu Hive, tez i DAS, jak opisano w [tym przewodniku dotyczące rozwiązywania problemów z instalacją Das](https://docs.hortonworks.com/HDPDocuments/DAS/DAS-1.2.0/troubleshooting/content/das_queries_not_appearing.html).
-2. Upewnij się, że następujące konfiguracje katalogów usługi Azure Storage są stronicowymi obiektami BLOB i są wyświetlane w obszarze `fs.azure.page.blob.dirs`:
+2. Upewnij się, że następujące konfiguracje katalogów usługi Azure Storage są stronicowymi obiektami BLOB i są wyświetlane w obszarze `fs.azure.page.blob.dirs` :
     * `hive.hook.proto.base-directory`
     * `tez.history.logging.proto-base-dir`
 3. Uruchom ponownie System HDFS, Hive, tez i DAS na obu węzłów głównychach.

@@ -1,0 +1,238 @@
+---
+title: Używanie łącznika Spark z Microsoft Azure SQL i SQL Server
+description: Dowiedz się, jak używać łącznika Spark z Microsoft Azure SQL i SQL Server
+services: sql-database
+ms.service: sql-database
+ms.subservice: development
+ms.custom: sqldbrb=2
+ms.devlang: ''
+ms.topic: conceptual
+author: denzilribeiro
+ms.author: denzilr
+ms.reviewer: carlrab
+ms.date: 09/25/2018
+ms.openlocfilehash: b2e042f2c3a7c6e1528ff96fb4fb96f392274855
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.translationtype: MT
+ms.contentlocale: pl-PL
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84041227"
+---
+# <a name="accelerate-real-time-big-data-analytics-using-the-spark-connector"></a>Przyspieszenie analizy danych Big Data w czasie rzeczywistym za pomocą łącznika Spark 
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+
+Łącznik platformy Spark umożliwia Azure SQL Database, wystąpienia zarządzane SQL Azure i bazy danych SQL Server do działania jako dane wejściowe źródła danych lub ujścia danych wyjściowych dla zadań platformy Spark. Umożliwia ona korzystanie z danych transakcyjnych w czasie rzeczywistym w analizie danych Big Data i utrwalanie wyników dla zapytań ad hoc lub raportów. W porównaniu do wbudowanego łącznika JDBC ten łącznik umożliwia zbiorcze Wstawianie danych do Microsoft Azure baz danych SQL i SQL Server. Może outperform wiersz po wstawieniu wierszy z 10X, aby 20x wyższą wydajność. Łącznik platformy Spark obsługuje uwierzytelnianie w usłudze AAD na potrzeby łączenia się z bazami danych Azure SQL. Umożliwia ona bezpieczne nawiązywanie połączenia z usługą Azure SQL Database z Azure Databricks przy użyciu konta usługi AAD. Zapewnia podobne interfejsy za pomocą wbudowanego łącznika JDBC. Migracja istniejących zadań platformy Spark w celu korzystania z tego nowego łącznika jest łatwa.
+
+## <a name="download-and-build-spark-connector"></a>Pobieranie i kompilowanie łącznika platformy Spark
+
+Aby rozpocząć, Pobierz łącznik platformy Spark z [repozytorium Azure-SQLDB-Spark](https://github.com/Azure/azure-sqldb-spark) w witrynie GitHub.
+
+### <a name="official-supported-versions"></a>Oficjalne obsługiwane wersje
+
+| Składnik                             | Wersja                  |
+| :-----------------------------------  | :----------------------- |
+| Apache Spark                          | 2.0.2 lub nowszy           |
+| Scala                                 | 2,10 lub nowszy            |
+| Sterownik JDBC firmy Microsoft dla SQL Server  | 6,2 lub nowszy             |
+| Microsoft SQL Server                  | SQL Server 2008 lub nowsza wersja |
+| Azure SQL Database                    | Obsługiwane                |
+| Wystąpienie zarządzane Azure SQL            | Obsługiwane                |
+
+Łącznik platformy Spark używa SQL Server sterownika JDBC firmy Microsoft do przenoszenia danych między węzłami procesów roboczych Spark i bazami danych SQL:
+
+Przepływu danych jest następujący:
+
+1. Węzeł główny platformy Spark nawiązuje połączenie z bazą danych Azure SQL lub SQL Server i ładuje dane z określonej tabeli lub przy użyciu określonego zapytania SQL
+2. Węzeł główny platformy Spark dystrybuuje dane do węzłów procesu roboczego na potrzeby transformacji.
+3. Węzeł procesu roboczego nawiązuje połączenie z bazą danych Azure SQL lub SQL Server i zapisuje dane w bazie danych. Użytkownik może wybrać użycie wstawiania wiersz po wierszu lub wstawianie zbiorcze.
+
+Na poniższym diagramie przedstawiono przepływ danych.
+
+   ![architektura](./media/spark-connector/architecture.png)
+
+### <a name="build-the-spark-connector"></a>Kompilowanie łącznika Spark
+
+Obecnie projekt łącznika używa Maven. Aby skompilować łącznik bez zależności, można uruchomić:
+
+- MVN czysty pakiet
+- Pobierz najnowsze wersje JAR z folderu wersja
+- Uwzględnij SQL Database JAR
+
+## <a name="connect-and-read-data-using-the-spark-connector"></a>Łączenie i odczytywanie danych przy użyciu łącznika Spark
+
+Możesz połączyć się z bazą danych Azure SQL lub SQL Server z zadania platformy Spark, odczytywać lub zapisywać dane. Można również uruchomić zapytanie DML lub DDL w bazie danych w usłudze Azure SQL i SQL Server.
+
+### <a name="read-data-from-azure-sql-and-sql-server"></a>Odczytywanie danych z usług Azure SQL i SQL Server
+
+```scala
+import com.microsoft.azure.sqldb.spark.config.Config
+import com.microsoft.azure.sqldb.spark.connect._
+
+val config = Config(Map(
+  "url"            -> "mysqlserver.database.windows.net",
+  "databaseName"   -> "MyDatabase",
+  "dbTable"        -> "dbo.Clients",
+  "user"           -> "username",
+  "password"       -> "*********",
+  "connectTimeout" -> "5", //seconds
+  "queryTimeout"   -> "5"  //seconds
+))
+
+val collection = sqlContext.read.sqlDB(config)
+collection.show()
+```
+
+### <a name="read-data-from-azure-sql-and-sql-server-with-specified-sql-query"></a>Odczytaj dane z usługi Azure SQL i SQL Server przy użyciu określonego zapytania SQL
+
+```scala
+import com.microsoft.azure.sqldb.spark.config.Config
+import com.microsoft.azure.sqldb.spark.connect._
+
+val config = Config(Map(
+  "url"          -> "mysqlserver.database.windows.net",
+  "databaseName" -> "MyDatabase",
+  "queryCustom"  -> "SELECT TOP 100 * FROM dbo.Clients WHERE PostalCode = 98074" //Sql query
+  "user"         -> "username",
+  "password"     -> "*********",
+))
+
+//Read all data in table dbo.Clients
+val collection = sqlContext.read.sqlDB(config)
+collection.show()
+```
+
+### <a name="write-data-to-azure-sql-and-sql-server"></a>Zapisywanie danych w usłudze Azure SQL i SQL Server
+
+```scala
+import com.microsoft.azure.sqldb.spark.config.Config
+import com.microsoft.azure.sqldb.spark.connect._
+
+// Aquire a DataFrame collection (val collection)
+
+val config = Config(Map(
+  "url"          -> "mysqlserver.database.windows.net",
+  "databaseName" -> "MyDatabase",
+  "dbTable"      -> "dbo.Clients",
+  "user"         -> "username",
+  "password"     -> "*********"
+))
+
+import org.apache.spark.sql.SaveMode
+collection.write.mode(SaveMode.Append).sqlDB(config)
+```
+
+### <a name="run-dml-or-ddl-query-in-azure-sql-and-sql-server"></a>Uruchamianie zapytania DML lub DDL w usłudze Azure SQL i SQL Server
+
+```scala
+import com.microsoft.azure.sqldb.spark.config.Config
+import com.microsoft.azure.sqldb.spark.query._
+val query = """
+              |UPDATE Customers
+              |SET ContactName = 'Alfred Schmidt', City = 'Frankfurt'
+              |WHERE CustomerID = 1;
+            """.stripMargin
+
+val config = Config(Map(
+  "url"          -> "mysqlserver.database.windows.net",
+  "databaseName" -> "MyDatabase",
+  "user"         -> "username",
+  "password"     -> "*********",
+  "queryCustom"  -> query
+))
+
+sqlContext.sqlDBQuery(config)
+```
+
+## <a name="connect-from-spark-to-azure-sql-using-aad-authentication"></a>Łączenie z platformy Spark z usługą Azure SQL przy użyciu uwierzytelniania w usłudze AAD
+
+Możesz nawiązać połączenie z usługą Azure SQL przy użyciu uwierzytelniania Azure Active Directory (AAD). Uwierzytelnianie przy użyciu usługi AAD umożliwia centralne zarządzanie tożsamościami użytkowników baz danych i alternatywą dla SQL Server uwierzytelniania.
+
+### <a name="connecting-using-activedirectorypassword-authentication-mode"></a>Nawiązywanie połączenia przy użyciu trybu uwierzytelniania ActiveDirectoryPassword
+
+#### <a name="setup-requirement"></a>Wymagania dotyczące konfiguracji
+
+W przypadku korzystania z trybu uwierzytelniania ActiveDirectoryPassword należy pobrać pozycję [Azure-ActiveDirectory-Library-for-Java](https://github.com/AzureAD/azure-activedirectory-library-for-java) i jej zależności oraz uwzględnić je w ścieżce kompilacji Java.
+
+```scala
+import com.microsoft.azure.sqldb.spark.config.Config
+import com.microsoft.azure.sqldb.spark.connect._
+
+val config = Config(Map(
+  "url"            -> "mysqlserver.database.windows.net",
+  "databaseName"   -> "MyDatabase",
+  "user"           -> "username",
+  "password"       -> "*********",
+  "authentication" -> "ActiveDirectoryPassword",
+  "encrypt"        -> "true"
+))
+
+val collection = sqlContext.read.sqlDB(config)
+collection.show()
+```
+
+### <a name="connecting-using-access-token"></a>Łączenie przy użyciu tokenu dostępu
+
+#### <a name="setup-requirement"></a>Wymagania dotyczące konfiguracji
+
+Jeśli używasz trybu uwierzytelniania opartego na tokenach dostępu, musisz pobrać pozycję [Azure-ActiveDirectory-Library-for-Java](https://github.com/AzureAD/azure-activedirectory-library-for-java) i jej zależności oraz uwzględnić je w ścieżce kompilacji Java.
+
+Aby dowiedzieć się, jak uzyskać token dostępu do bazy danych w Azure SQL Database lub wystąpieniu zarządzanym Azure SQL, zobacz temat [używanie uwierzytelniania Azure Active Directory](authentication-aad-overview.md) .
+
+```scala
+import com.microsoft.azure.sqldb.spark.config.Config
+import com.microsoft.azure.sqldb.spark.connect._
+
+val config = Config(Map(
+  "url"                   -> "mysqlserver.database.windows.net",
+  "databaseName"          -> "MyDatabase",
+  "accessToken"           -> "access_token",
+  "hostNameInCertificate" -> "*.database.windows.net",
+  "encrypt"               -> "true"
+))
+
+val collection = sqlContext.read.sqlDB(config)
+collection.show()
+```
+
+## <a name="write-data-to-azure-sql-and-sql-server-using-bulk-insert"></a>Zapisz dane w usłudze Azure SQL i SQL Server przy użyciu instrukcji BULK INSERT
+
+Tradycyjny łącznik JDBC zapisuje dane w usłudze Azure SQL i SQL Server przy użyciu wstawiania wiersz po wierszu. Łącznika Spark służy do zapisywania danych w usłudze Azure SQL i SQL Server przy użyciu instrukcji BULK INSERT. Znacznie poprawia wydajność zapisu podczas ładowania dużych zestawów danych lub ładowania danych do tabel, w których jest używany indeks magazynu kolumn.
+
+```scala
+import com.microsoft.azure.sqldb.spark.bulkcopy.BulkCopyMetadata
+import com.microsoft.azure.sqldb.spark.config.Config
+import com.microsoft.azure.sqldb.spark.connect._
+
+/**
+  Add column Metadata.
+  If not specified, metadata is automatically added
+  from the destination table, which may suffer performance.
+*/
+var bulkCopyMetadata = new BulkCopyMetadata
+bulkCopyMetadata.addColumnMetadata(1, "Title", java.sql.Types.NVARCHAR, 128, 0)
+bulkCopyMetadata.addColumnMetadata(2, "FirstName", java.sql.Types.NVARCHAR, 50, 0)
+bulkCopyMetadata.addColumnMetadata(3, "LastName", java.sql.Types.NVARCHAR, 50, 0)
+
+val bulkCopyConfig = Config(Map(
+  "url"               -> "mysqlserver.database.windows.net",
+  "databaseName"      -> "MyDatabase",
+  "user"              -> "username",
+  "password"          -> "*********",
+  "dbTable"           -> "dbo.Clients",
+  "bulkCopyBatchSize" -> "2500",
+  "bulkCopyTableLock" -> "true",
+  "bulkCopyTimeout"   -> "600"
+))
+
+df.bulkCopyToSqlDB(bulkCopyConfig, bulkCopyMetadata)
+//df.bulkCopyToSqlDB(bulkCopyConfig) if no metadata is specified.
+```
+
+## <a name="next-steps"></a>Następne kroki
+
+Jeśli jeszcze tego nie zrobiono, Pobierz łącznik platformy Spark z [repozytorium Azure-SQLDB-Spark GitHub](https://github.com/Azure/azure-sqldb-spark) i przejrzyj dodatkowe zasoby w repozytorium:
+
+- [Przykładowe notesy Azure Databricks](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/notebooks)
+- [Przykładowe skrypty (Scala)](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/scripts)
+
+Warto również zapoznać się z [podręcznikiem Apache Spark SQL, Dataframes i zestawami danych](https://spark.apache.org/docs/latest/sql-programming-guide.html) oraz [dokumentacją Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/).

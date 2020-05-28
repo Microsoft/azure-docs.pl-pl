@@ -1,18 +1,18 @@
 ---
-title: Światła
+title: Oświetlenie sceny
 description: Opis i właściwości źródła światła
 author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: 0a4a226af1347b5302b0c3964889fc072f89e7f8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e33e012480c876dc5befbb93404bdb131ea9329a
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80680949"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022150"
 ---
-# <a name="lights"></a>Światła
+# <a name="scene-lighting"></a>Oświetlenie sceny
 
 Domyślnie zdalnie renderowane obiekty są zapalane przy użyciu [światła](sky.md)w sieci. W przypadku większości aplikacji jest to już wystarczające, ale możesz dodać do sceny dalsze źródła światła.
 
@@ -24,7 +24,7 @@ Domyślnie zdalnie renderowane obiekty są zapalane przy użyciu [światła](sky
 
 ## <a name="common-light-component-properties"></a>Właściwości wspólnego składnika oświetlenia
 
-Wszystkie typy świateł pochodzą z abstrakcyjnej klasy `LightComponent` podstawowej i współdzielą te właściwości:
+Wszystkie typy świateł pochodzą z abstrakcyjnej klasy podstawowej `LightComponent` i współdzielą te właściwości:
 
 * **Kolor:** Kolor światła w [obszarze gamma](https://en.wikipedia.org/wiki/SRGB). Alfa jest ignorowany.
 
@@ -32,7 +32,7 @@ Wszystkie typy świateł pochodzą z abstrakcyjnej klasy `LightComponent` podsta
 
 ## <a name="point-light"></a>Światło punktowe
 
-W przypadku renderowania zdalnego na `PointLightComponent` platformie Azure nie można wyemitować światła z pojedynczego punktu, ale również z małej sfery lub małej rury, aby symulować miękkie źródła światła.
+W przypadku renderowania zdalnego na platformie Azure `PointLightComponent` nie można wyemitować światła z pojedynczego punktu, ale również z małej sfery lub małej rury, aby symulować miękkie źródła światła.
 
 ### <a name="pointlightcomponent-properties"></a>Właściwości PointLightComponent
 
@@ -40,29 +40,29 @@ W przypadku renderowania zdalnego na `PointLightComponent` platformie Azure nie 
 
 * **Długość:** Jeśli oba `Length` i `Radius` są inne niż zero, światło działa jako światło przewodowe. Może to służyć do symulowania rur Neon.
 
-* **AttenuationCutoff:** W przypadku pozostałej do (0, 0) tłumienie światła zależy od jego `Intensity`. Można jednak zapewnić niestandardową, minimalną/maksymalną odległość, w której natężenie światła jest skalowane liniowo do 0. Ta funkcja może służyć do wymuszania mniejszego zakresu oddziaływania określonego światła.
+* **AttenuationCutoff:** W przypadku pozostałej do (0, 0) tłumienie światła zależy od jego `Intensity` . Można jednak zapewnić niestandardową, minimalną/maksymalną odległość, w której natężenie światła jest skalowane liniowo do 0. Ta funkcja może służyć do wymuszania mniejszego zakresu oddziaływania określonego światła.
 
 * **ProjectedCubemap:** Jeśli ustawiono prawidłowy [mapy sześciennej](../../concepts/textures.md), tekstura jest rzutowana na wokół geometrii otaczającej. Kolor mapy sześciennej jest modulowany kolorem światła.
 
 ## <a name="spot-light"></a>Światło punktowe
 
-`SpotLightComponent` Jest podobna do, `PointLightComponent` ale światło jest ograniczone do kształtu stożka. Orientacja stożkowa jest definiowana przez *ujemną oś z jednostki właściciela*.
+`SpotLightComponent`Jest podobna do, `PointLightComponent` ale światło jest ograniczone do kształtu stożka. Orientacja stożkowa jest definiowana przez *ujemną oś z jednostki właściciela*.
 
 ### <a name="spotlightcomponent-properties"></a>Właściwości SpotLightComponent
 
-* **Promień:** Analogicznie jak w `PointLightComponent`przypadku.
+* **Promień:** Analogicznie jak w przypadku `PointLightComponent` .
 
 * **SpotAngleDeg:** Ten interwał definiuje wewnętrzny i zewnętrzny Kąt stożkowy, mierzony w stopniu. Wszystko w obrębie kąta wewnętrznego jest oświetlone z pełną jasnością. Zanik jest stosowany do kąta zewnętrznego, który generuje efekt przypominający Penumbra.
 
 * **FalloffExponent:** Definiuje, jak ostro przechodzi przejścia między wewnętrznym a zewnętrznym kątem stożkowym. Wyższa wartość powoduje ostrzejsze przejście. Wartość domyślna 1,0 powoduje przejście liniowe.
 
-* **AttenuationCutoff:** Analogicznie jak w `PointLightComponent`przypadku.
+* **AttenuationCutoff:** Analogicznie jak w przypadku `PointLightComponent` .
 
 * **Projected2dTexture:** W przypadku wybrania prawidłowej [tekstury 2D](../../concepts/textures.md)obraz jest rzutowany na geometrię, na której świecą światła. Kolor tekstury jest modulowany kolorem światła.
 
 ## <a name="directional-light"></a>Światło kierunkowe
 
-Symuluje Źródło światła, które jest nieograniczone od `DirectionalLightComponent` razu. Światło jest ukierunkowane na kierunek *negatywnej osi z jednostki właściciela*. Pozycja jednostki jest ignorowana.
+`DirectionalLightComponent`Symuluje Źródło światła, które jest nieograniczone od razu. Światło jest ukierunkowane na kierunek *negatywnej osi z jednostki właściciela*. Pozycja jednostki jest ignorowana.
 
 Brak dodatkowych właściwości.
 

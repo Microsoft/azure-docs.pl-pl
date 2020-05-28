@@ -7,22 +7,22 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 8353c0fba034022a79570d09b320b7b5c4c3e60a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 091ce1cc0b2540a02e62e1e85c5515f6aa62b93c
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74951857"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84018841"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Korzystanie z programu Apache Sqoop za pomocą platformy Hadoop w usłudze HDInsight
 
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Dowiedz się, jak używać platformy Apache Sqoop w usłudze HDInsight do importowania i eksportowania danych między klastrem usługi HDInsight i bazą danych Azure SQL.
+Dowiedz się, jak importować i eksportować dane między klastrem usługi HDInsight a Azure SQL Database za pomocą usługi Apache Sqoop w usłudze HDInsight.
 
 Chociaż Apache Hadoop jest naturalnym wyborem do przetwarzania danych bez struktury i z częściową strukturą, takich jak dzienniki i pliki, może być również konieczna przetwarzanie danych strukturalnych przechowywanych w relacyjnych bazach danych.
 
-[Apache Sqoop](https://sqoop.apache.org/docs/1.99.7/user.html) to narzędzie przeznaczone do przesyłania danych między klastrami usługi Hadoop a relacyjnymi bazami danych. Można go użyć do zaimportowania danych z systemu zarządzania relacyjnymi bazami danych (RDBMS), takiego jak SQL Server, MySQL lub Oracle do rozproszonego systemu plików Hadoop (HDFS), Przekształć dane w usłudze Hadoop z MapReduce lub Apache Hive, a następnie wyeksportować dane z powrotem do RDBMS. W tym artykule jest używana SQL Server baza danych dla relacyjnej bazy danych.
+[Apache Sqoop](https://sqoop.apache.org/docs/1.99.7/user.html) to narzędzie przeznaczone do przesyłania danych między klastrami usługi Hadoop a relacyjnymi bazami danych. Można go użyć do zaimportowania danych z systemu zarządzania relacyjnymi bazami danych (RDBMS), takiego jak SQL Server, MySQL lub Oracle do rozproszonego systemu plików Hadoop (HDFS), Przekształć dane w usłudze Hadoop z MapReduce lub Apache Hive, a następnie wyeksportować dane z powrotem do RDBMS. W tym artykule są używane Azure SQL Database do relacyjnej bazy danych.
 
 > [!IMPORTANT]  
 > W tym artykule opisano środowisko testowe do przeprowadzenia transferu danych. Następnie wybierz metodę transferu danych dla tego środowiska z jednej z metod w sekcji [Uruchamianie zadań Sqoop](#run-sqoop-jobs)w dalszej części.
@@ -33,7 +33,7 @@ Aby poznać wersje Sqoop, które są obsługiwane w klastrach usługi HDInsight,
 
 Klaster usługi HDInsight zawiera kilka przykładowych danych. Używasz dwóch następujących próbek:
 
-* Plik dziennika Apache Log4J, który znajduje się w lokalizacji `/example/data/sample.log`. Następujące dzienniki są wyodrębniane z pliku:
+* Plik dziennika Apache Log4J, który znajduje się w lokalizacji `/example/data/sample.log` . Następujące dzienniki są wyodrębniane z pliku:
 
 ```text
 2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
@@ -42,7 +42,7 @@ Klaster usługi HDInsight zawiera kilka przykładowych danych. Używasz dwóch n
 ...
 ```
 
-* Tabela programu Hive o `hivesampletable`nazwie, która odwołuje się do pliku `/hive/warehouse/hivesampletable`danych znajdującego się w. Tabela zawiera niektóre dane urządzeń przenośnych.
+* Tabela programu Hive o nazwie `hivesampletable` , która odwołuje się do pliku danych znajdującego się w `/hive/warehouse/hivesampletable` . Tabela zawiera niektóre dane urządzeń przenośnych.
   
   | Pole | Typ danych |
   | --- | --- |
@@ -62,7 +62,7 @@ W tym artykule opisano te dwa zestawy danych do testowania Sqoop import i Export
 
 ## <a name="set-up-test-environment"></a><a name="create-cluster-and-sql-database"></a>Konfigurowanie środowiska testowego
 
-Klaster, baza danych SQL i inne obiekty są tworzone za pośrednictwem Azure Portal przy użyciu szablonu Azure Resource Manager. Szablon można znaleźć w [szablonach szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). Szablon Menedżer zasobów wywołuje pakiet BACPAC, aby wdrożyć schematy tabeli w bazie danych SQL.  Pakiet BACPAC znajduje się w publicznym kontenerze obiektów blob, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Jeśli chcesz użyć prywatnego kontenera dla plików BACPAC, użyj następujących wartości w szablonie:
+Klaster, baza danych SQL i inne obiekty są tworzone za pośrednictwem Azure Portal przy użyciu szablonu Azure Resource Manager. Szablon można znaleźć w [szablonach szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). Szablon Menedżer zasobów wywołuje pakiet BACPAC, aby wdrożyć schematy tabeli w bazie danych SQL.  Pakiet BACPAC znajduje się w publicznym kontenerze obiektów blob, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac . Jeśli chcesz użyć prywatnego kontenera dla plików BACPAC, użyj następujących wartości w szablonie:
 
 ```json
 "storageKeyType": "Primary",
@@ -84,18 +84,18 @@ Klaster, baza danych SQL i inne obiekty są tworzone za pośrednictwem Azure Por
     |Grupa zasobów |Wybierz grupę zasobów z listy rozwijanej lub Utwórz nową|
     |Lokalizacja |Wybierz region z listy rozwijanej.|
     |Nazwa klastra |Wprowadź nazwę klastra usługi Hadoop. Używaj tylko małych liter.|
-    |Nazwa użytkownika logowania klastra |Zachowaj wstępnie wypełnioną wartość `admin`.|
+    |Nazwa użytkownika logowania klastra |Zachowaj wstępnie wypełnioną wartość `admin` .|
     |Hasło logowania klastra |Wprowadź hasło.|
-    |Nazwa użytkownika SSH |Zachowaj wstępnie wypełnioną wartość `sshuser`.|
+    |Nazwa użytkownika SSH |Zachowaj wstępnie wypełnioną wartość `sshuser` .|
     |Hasło ssh |Wprowadź hasło.|
-    |Logowanie administratora SQL |Zachowaj wstępnie wypełnioną wartość `sqluser`.|
+    |Logowanie administratora SQL |Zachowaj wstępnie wypełnioną wartość `sqluser` .|
     |Hasło administratora SQL |Wprowadź hasło.|
     |Lokalizacja _artifacts | Użyj wartości domyślnej, chyba że chcesz użyć własnego pliku BACPAC w innej lokalizacji.|
     |Token SAS lokalizacji _artifacts |Pozostaw to pole puste.|
     |Nazwa pliku BACPAC |Użyj wartości domyślnej, chyba że chcesz użyć własnego pliku BACPAC.|
     |Lokalizacja |Użyj wartości domyślnej.|
 
-    Nazwa usługi Azure SQL Server będzie `<ClusterName>dbserver`. Nazwa bazy danych `<ClusterName>db`. Domyślną nazwą konta magazynu będzie `e6qhezrh2pdqu`.
+    Nazwa [serwera logicznego SQL](../../azure-sql/database/logical-servers.md) `<ClusterName>dbserver` . Nazwa bazy danych `<ClusterName>db` . Domyślną nazwą konta magazynu będzie `e6qhezrh2pdqu` .
 
 3. Wybierz opcję **Akceptuję warunki i postanowienia podane powyżej**.
 
@@ -113,8 +113,8 @@ Usługa HDInsight może uruchamiać zadania Sqoop przy użyciu różnych metod. 
 
 ## <a name="limitations"></a>Ograniczenia
 
-* Eksport zbiorczy — za pomocą usługi HDInsight opartej na systemie Linux łącznik Sqoop używany do eksportowania danych do Microsoft SQL Server lub Azure SQL Database nie obsługuje obecnie operacji wstawiania zbiorczego.
-* Przetwarzanie wsadowe — za pomocą usługi HDInsight opartej na systemie `-batch` Linux, gdy podczas wykonywania operacji wstawiania jest używany przełącznik, Sqoop wykonuje wielokrotne wstawienia zamiast wsadowe operacje wstawiania.
+* Eksport zbiorczy — za pomocą usługi HDInsight opartej na systemie Linux łącznik Sqoop używany do eksportowania danych do Microsoft SQL Server lub SQL Database nie obsługuje obecnie operacji wstawiania zbiorczego.
+* Przetwarzanie wsadowe — za pomocą usługi HDInsight opartej na systemie Linux, gdy podczas wykonywania operacji wstawiania jest używany `-batch` przełącznik, Sqoop wykonuje wielokrotne wstawienia zamiast wsadowe operacje wstawiania.
 
 ## <a name="next-steps"></a>Następne kroki
 

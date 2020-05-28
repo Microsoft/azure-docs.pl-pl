@@ -4,12 +4,12 @@ description: Użyj Azure Functions, aby zaplanować zadanie, które łączy się
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 2e3f53943d45e90b8aff8e386ce8d0e28670673f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 18e310559cb0b88aac53b1020172847968616f97
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79366817"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020340"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Użyj Azure Functions, aby nawiązać połączenie z Azure SQL Database
 
@@ -21,13 +21,13 @@ Jeśli jest to pierwsze środowisko pracy z funkcjami języka C#, należy przecz
 
 + Wykonaj kroki opisane w artykule [Tworzenie pierwszej funkcji przy użyciu programu Visual Studio](functions-create-your-first-function-visual-studio.md) , aby utworzyć lokalną aplikację funkcji, która jest przeznaczona dla wersji 2. x lub nowszej wersji środowiska uruchomieniowego. Musisz również opublikować projekt w aplikacji funkcji na platformie Azure.
 
-+ W tym artykule przedstawiono polecenie języka Transact-SQL, które wykonuje operację oczyszczania zbiorczego w tabeli **SalesOrderHeader** w przykładowej bazie danych AdventureWorksLT. Aby utworzyć przykładową bazę danych AdventureWorksLT, wykonaj kroki opisane w artykule [Tworzenie bazy danych Azure SQL Database w Azure Portal](../sql-database/sql-database-get-started-portal.md).
++ W tym artykule przedstawiono polecenie języka Transact-SQL, które wykonuje operację oczyszczania zbiorczego w tabeli **SalesOrderHeader** w przykładowej bazie danych AdventureWorksLT. Aby utworzyć przykładową bazę danych AdventureWorksLT, wykonaj kroki opisane w artykule [Tworzenie bazy danych Azure SQL Database w Azure Portal](../azure-sql/database/single-database-create-quickstart.md).
 
 + Należy dodać [regułę zapory na poziomie serwera](../sql-database/sql-database-get-started-portal-firewall.md) dla publicznego adresu IP komputera, który jest używany w tym przewodniku Szybki Start. Ta reguła jest wymagana, aby można było uzyskać dostęp do wystąpienia bazy danych SQL z komputera lokalnego.  
 
 ## <a name="get-connection-information"></a>Pobieranie informacji o połączeniu
 
-Należy uzyskać parametry połączenia dla bazy danych utworzonej po zakończeniu [tworzenia bazy danych Azure SQL Database w Azure Portal](../sql-database/sql-database-get-started-portal.md).
+Należy uzyskać parametry połączenia dla bazy danych utworzonej po zakończeniu [tworzenia bazy danych Azure SQL Database w Azure Portal](../azure-sql/database/single-database-create-quickstart.md).
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
@@ -43,7 +43,7 @@ Aplikacja funkcji obsługuje wykonywanie funkcji na platformie Azure. Najlepszym
 
 Aplikacja musi być wcześniej opublikowana na platformie Azure. Jeśli jeszcze tego nie zrobiono, [Opublikuj swoją aplikację funkcji na platformie Azure](functions-develop-vs.md#publish-to-azure).
 
-1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt aplikacji funkcji i wybierz polecenie **Publikuj** > **Edytuj ustawienia Azure App Service**. Wybierz pozycję **Dodaj ustawienie**, w polu **Nazwa ustawienia nowej aplikacji**wpisz `sqldb_connection`nazwę, a następnie wybierz **przycisk OK**.
+1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt aplikacji funkcji i wybierz polecenie **Publikuj**  >  **Edytuj ustawienia Azure App Service**. Wybierz pozycję **Dodaj ustawienie**, w polu **Nazwa ustawienia nowej aplikacji wpisz nazwę**, `sqldb_connection` a następnie wybierz **przycisk OK**.
 
     ![Ustawienia aplikacji dla aplikacji funkcji.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
 
@@ -63,7 +63,7 @@ Należy dodać pakiet NuGet zawierający bibliotekę SqlClient. Ta biblioteka do
 
 1. Na karcie **Przeglądaj** wyszukaj pozycję ```System.Data.SqlClient``` i po znalezieniu wybierz ją.
 
-1. Na stronie **System. Data. SqlClient** wybierz pozycję wersja `4.5.1` , a następnie kliknij pozycję **Zainstaluj**.
+1. Na stronie **System. Data. SqlClient** wybierz pozycję wersja, `4.5.1` a następnie kliknij pozycję **Zainstaluj**.
 
 1. Po zakończeniu instalacji przejrzyj zmiany, a następnie kliknij przycisk **OK**, aby zamknąć okno **Podgląd**.
 
@@ -73,7 +73,7 @@ Teraz można dodać kod funkcji w języku C#, który łączy się z SQL Database
 
 ## <a name="add-a-timer-triggered-function"></a>Dodawanie funkcji wyzwalanej czasomierzem
 
-1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt aplikacji funkcji i wybierz polecenie **Dodaj** > **nową funkcję platformy Azure**.
+1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy projekt aplikacji funkcji i wybierz polecenie **Dodaj**  >  **nową funkcję platformy Azure**.
 
 1. Po wybraniu szablonu **Azure Functions** Nazwij nowy element, `DatabaseCleanup.cs` a następnie wybierz pozycję **Dodaj**.
 
@@ -110,7 +110,7 @@ Teraz można dodać kod funkcji w języku C#, który łączy się z SQL Database
     }
     ```
 
-    Ta funkcja jest uruchamiana co 15 sekund, `Status` aby zaktualizować kolumnę na podstawie daty wysyłki. Aby dowiedzieć się więcej na temat wyzwalacza czasomierza, zobacz [wyzwalacz czasomierza dla Azure Functions](functions-bindings-timer.md).
+    Ta funkcja jest uruchamiana co 15 sekund, aby zaktualizować `Status` kolumnę na podstawie daty wysyłki. Aby dowiedzieć się więcej na temat wyzwalacza czasomierza, zobacz [wyzwalacz czasomierza dla Azure Functions](functions-bindings-timer.md).
 
 1. Naciśnij klawisz **F5** , aby uruchomić aplikację funkcji. Zostanie otwarte okno wykonywania [Azure Functions Core Tools](functions-develop-local.md) za Visual Studio.
 
@@ -118,9 +118,9 @@ Teraz można dodać kod funkcji w języku C#, który łączy się z SQL Database
 
     ![Wyświetl dzienniki funkcji.](./media/functions-scenario-database-table-cleanup/function-execution-results-log.png)
 
-    Po pierwszym wykonaniu należy zaktualizować 32 wierszy danych. Następujące uruchomienia aktualizują Brak wierszy danych, chyba że wprowadzisz zmiany w danych tabeli SalesOrderHeader, tak aby więcej wierszy zostało wybranych `UPDATE` przez instrukcję.
+    Po pierwszym wykonaniu należy zaktualizować 32 wierszy danych. Następujące uruchomienia aktualizują Brak wierszy danych, chyba że wprowadzisz zmiany w danych tabeli SalesOrderHeader, tak aby więcej wierszy zostało wybranych przez `UPDATE` instrukcję.
 
-Jeśli planujesz [opublikowanie tej funkcji](functions-develop-vs.md#publish-to-azure), pamiętaj o zmianie `TimerTrigger` atrybutu na bardziej uzasadniony harmonogram firmy [cronus](functions-bindings-timer.md#ncrontab-expressions) niż co 15 sekund.
+Jeśli planujesz [opublikowanie tej funkcji](functions-develop-vs.md#publish-to-azure), pamiętaj o zmianie `TimerTrigger` atrybutu na bardziej uzasadniony [harmonogram firmy CRONUS](functions-bindings-timer.md#ncrontab-expressions) niż co 15 sekund.
 
 ## <a name="next-steps"></a>Następne kroki
 

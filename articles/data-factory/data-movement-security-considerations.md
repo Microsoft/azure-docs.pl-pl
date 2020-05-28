@@ -1,5 +1,5 @@
 ---
-title: Zagadnienia dotyczące bezpieczeństwa
+title: Zagadnienia związane z zabezpieczeniami
 description: Opisuje podstawową infrastrukturę zabezpieczeń, za pomocą której usługi przenoszenia danych w Azure Data Factory używać w celu zabezpieczania danych.
 services: data-factory
 ms.author: abnarain
@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/11/2020
-ms.openlocfilehash: bb3f22223bd64c06cfa4a5f6ffabe7b128dff1d5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/26/2020
+ms.openlocfilehash: 6496e5c953b3dd5e387a79906b22645ba4a24b4f
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416463"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019983"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Zagadnienia dotyczące zabezpieczeń dotyczące przenoszenia danych w Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -47,7 +47,7 @@ Data Factory został certyfikowany dla:
 | **[SOC 1, 2, 3](https://www.microsoft.com/trustcenter/compliance/soc)** |
 | **[HIPAA BAA](https://www.microsoft.com/trustcenter/compliance/hipaa)** |
 
-Jeśli interesuje Cię zgodność z platformą Azure i sposób zabezpieczania infrastruktury przez platformę Azure, odwiedź [Centrum zaufania firmy Microsoft](https://microsoft.com/en-us/trustcenter/default.aspx). Aby uzyskać najnowszą listę wszystkich kontroli zgodności z platformą Azure — https://aka.ms/AzureCompliance.
+Jeśli interesuje Cię zgodność z platformą Azure i sposób zabezpieczania infrastruktury przez platformę Azure, odwiedź [Centrum zaufania firmy Microsoft](https://microsoft.com/en-us/trustcenter/default.aspx). Aby uzyskać najnowszą listę wszystkich kontroli zgodności z platformą Azure — https://aka.ms/AzureCompliance .
 
 W tym artykule opisano zagadnienia dotyczące zabezpieczeń w następujących dwóch scenariuszach przenoszenia danych: 
 
@@ -155,6 +155,12 @@ Na poniższych ilustracjach przedstawiono użycie własnego środowiska Integrat
 
 ### <a name="firewall-configurations-and-allow-list-setting-up-for-ip-addresses"></a><a name="firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway"></a>Konfiguracja zapory i lista dozwolonych ustawień dla adresów IP
 
+> [!NOTE] 
+> Może być konieczne zarządzanie portami lub Konfigurowanie listy dozwolonych domen na poziomie zapory firmowej zgodnie z wymaganiami odpowiednich źródeł danych. W tej tabeli są stosowane przykłady Azure SQL Database, Azure SQL Data Warehouse i Azure Data Lake Store.
+
+> [!NOTE] 
+> Aby uzyskać szczegółowe informacje na temat strategii dostępu do danych za poorednictwem Azure Data Factory, zobacz [ten artykuł](https://docs.microsoft.com/azure/data-factory/data-access-strategies#data-access-strategies-through-azure-data-factory).
+
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Wymagania dotyczące zapory dla sieci lokalnej/prywatnej    
 W przedsiębiorstwie firmowa Zapora jest uruchamiana na centralnym routerze organizacji. Zapora systemu Windows jest uruchamiana jako demon na komputerze lokalnym, na którym jest zainstalowany własny środowisko Integration Runtime. 
 
@@ -178,7 +184,7 @@ Niektóre magazyny danych w chmurze wymagają również, aby adres IP komputera 
 
 Następujące magazyny danych w chmurze wymagają zezwolenia na adres IP komputera Integration Runtime. Niektóre z tych magazynów danych domyślnie mogą nie wymagać listy dozwolonych. 
 
-- [Azure SQL Database](../sql-database/sql-database-firewall-configure.md) 
+- [Azure SQL Database](../azure-sql/database/firewall-configure.md) 
 - [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
 - [Azure Data Lake Store](../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../cosmos-db/firewall-support.md)

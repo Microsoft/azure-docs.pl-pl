@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: overview
-ms.openlocfilehash: a06c63152cb56be6d94cccc472d2e1d65651d6ce
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e40109a3c43fa30d70b7a13243723d717b4003c4
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80679954"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021447"
 ---
 # <a name="about-azure-remote-rendering"></a>Azure Remote Rendering — informacje
 
@@ -22,7 +22,11 @@ ms.locfileid: "80679954"
 
 ![Przykładowy model](../media/arr-engine.png)
 
-Urządzenia nietetheringowe mają ograniczoną moc obliczeniową do renderowania złożonych modeli. W przypadku wielu aplikacji byłoby to nieakceptowalne, ale w celu zmniejszenia wyglądu wizualizacji w dowolny sposób.
+Urządzenia nietetheringowe mają ograniczoną moc obliczeniową do renderowania złożonych modeli. W przypadku wielu aplikacji byłoby to nieakceptowalne, ale w celu zmniejszenia wyglądu wizualizacji w dowolny sposób. Poniższy zrzut ekranu porównuje model z pełną szczegółowością z modelem, który został Decimated przy użyciu wspólnego narzędzia do tworzenia zawartości:
+
+![Przykładowy model](./media/engine-model-decimated.png)
+
+Zredukowany model składa się z około 200 000 trójkątów (łącznie ze szczegółowymi częściami wewnętrznymi), a nie więcej niż 18 000 000 trójkątów w oryginalnym modelu.
 
 *Zdalne renderowanie* rozwiązuje ten problem przez przeniesienie obciążenia renderowania do wysokiej klasy procesorów GPU w chmurze. Aparat grafiki hostowany w chmurze renderuje obraz, koduje go jako strumień wideo i strumienie dla urządzenia docelowego.
 

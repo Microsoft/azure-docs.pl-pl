@@ -1,5 +1,5 @@
 ---
-title: Przykład interfejsu wiersza polecenia — kopia zapasowa — Azure SQL Database
+title: 'Interfejs wiersza polecenia platformy Azure: Tworzenie kopii zapasowej bazy danych w Azure SQL Database'
 description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure do tworzenia kopii zapasowej pojedynczej bazy danych SQL Azure w kontenerze usługi Azure Storage
 services: sql-database
 ms.service: sql-database
@@ -10,16 +10,16 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/27/2019
-ms.openlocfilehash: 68af42bd83565243dad5d48f227fa5cef3115cf6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 605b2690f85ea8c800e6485b0eb998b795ea9d10
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80061859"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022713"
 ---
 # <a name="use-cli-to-backup-an-azure-sql-single-database-to-an-azure-storage-container"></a>Tworzenie kopii zapasowej pojedynczej bazy danych SQL Azure w kontenerze usługi Azure Storage przy użyciu interfejsu wiersza polecenia
 
-Ten przykład interfejsu wiersza polecenia platformy Azure tworzy kopię zapasową bazy danych Azure SQL Database w kontenerze usługi Azure Storage.  
+Ten przykład interfejsu wiersza polecenia platformy Azure tworzy kopię zapasową bazy danych w SQL Database do kontenera usługi Azure Storage.  
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten artykuł będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
@@ -60,4 +60,4 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 
 Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure).
 
-Więcej przykładowych skryptów interfejsu wiersza polecenia dla usługi SQL Database można znaleźć w [dokumentacji usługi Azure SQL Database](../sql-database-cli-samples.md).
+Więcej przykładowych skryptów interfejsu wiersza polecenia dla usługi SQL Database można znaleźć w [dokumentacji usługi Azure SQL Database](../../azure-sql/database/az-cli-script-samples-content-guide.md).

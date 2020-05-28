@@ -14,8 +14,8 @@ ms.locfileid: "77123221"
 Agent Azure File Sync jest regularnie aktualizowany, aby można było dodać nowe funkcje i rozwiązać problemy. Zalecamy skonfigurowanie Microsoft Update do pobierania aktualizacji dla agenta Azure File Sync, gdy są one dostępne.
 
 #### <a name="major-vs-minor-agent-versions"></a>Wersje agenta głównego a pomocniczego
-* Wersje głównych agentów często zawierają nowe funkcje i mają rosnącą liczbę jako pierwszą część numeru wersji. Na przykład: \*2.\*.\*\*
-* Wersje agentów pomocniczych są również nazywane "poprawkami" i są wydawane częściej niż wersje główne. Często zawierają poprawki błędów i mniejsze ulepszenia, ale nie nowe funkcje. Na przykład: \* \*. 3.\*\*
+* Wersje głównych agentów często zawierają nowe funkcje i mają rosnącą liczbę jako pierwszą część numeru wersji. Na przykład: \* 2. \* .\*\*
+* Wersje agentów pomocniczych są również nazywane "poprawkami" i są wydawane częściej niż wersje główne. Często zawierają poprawki błędów i mniejsze ulepszenia, ale nie nowe funkcje. Na przykład: \* \* . 3.\*\*
 
 #### <a name="upgrade-paths"></a>Ścieżki uaktualniania
 Istnieją cztery zatwierdzone i przetestowane sposoby instalowania aktualizacji agenta Azure File Sync. 
@@ -43,7 +43,7 @@ cd 'C:\Program Files\Azure\StorageSyncAgent'
 Import-Module -Name .\StorageSync.Management.ServerCmdlets.dll
 ```
 
-Można uruchomić `Get-StorageSyncAgentAutoUpdatePolicy` , aby sprawdzić bieżące ustawienie zasad i określić, czy chcesz je zmienić.
+Można uruchomić, `Get-StorageSyncAgentAutoUpdatePolicy` Aby sprawdzić bieżące ustawienie zasad i określić, czy chcesz je zmienić.
 
 Aby zmienić bieżące ustawienie zasad na ścieżkę opóźnionej aktualizacji, można użyć:
 ```powershell

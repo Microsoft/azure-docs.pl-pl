@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.author: cshoe
 ms.date: 3/18/2020
 ms.topic: article
-ms.openlocfilehash: 5abc216e182d7becd9d6f42e0f566ee96d09c2a5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f0b738f394c4a544ddb31e25b4570890ccfa9235
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79479256"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83995874"
 ---
 # <a name="azure-functions-custom-handlers-preview"></a>Niestandardowe programy obsługi Azure Functions (wersja zapoznawcza)
 
@@ -20,9 +20,9 @@ Niestandardowe programy obsługi to lekkie serwery sieci Web, które odbierają 
 
 Niestandardowe programy obsługi są najlepiej dostosowane do sytuacji, w których chcesz:
 
-- Zaimplementuj aplikację funkcji w języku niż oficjalnie obsługiwane języki
-- Zaimplementuj aplikację funkcji w wersji językowej lub środowisko uruchomieniowe nie jest obsługiwane domyślnie
-- Posiadanie szczegółowej kontroli nad środowiskiem wykonywania aplikacji
+- Zaimplementuj aplikację funkcji w języku, który nie jest oficjalnie obsługiwany.
+- Zaimplementuj aplikację funkcji w wersji językowej lub środowisko uruchomieniowe nie jest obsługiwane domyślnie.
+- Zapewnienie bardziej szczegółowej kontroli nad środowiskiem wykonywania aplikacji funkcji.
 
 W przypadku obsługi niestandardowych wszystkie [wyzwalacze i powiązania wejściowe i wyjściowe](./functions-triggers-bindings.md) są obsługiwane przez [zbiory rozszerzeń](./functions-bindings-register.md).
 
@@ -56,11 +56,11 @@ Na poniższym diagramie przedstawiono, jak te pliki wyglądają w systemie plik�
 | host.json
 ```
 
-### <a name="configuration"></a>Konfiguracja
+### <a name="configuration"></a>Konfigurowanie
 
 Aplikacja jest konfigurowana za pośrednictwem pliku *host. JSON* . Ten plik informuje hosta funkcji, gdzie wysyłać żądania, wskazując na serwer sieci Web, który może przetwarzać zdarzenia HTTP.
 
-Niestandardowa procedura obsługi jest definiowana przez skonfigurowanie pliku *host. JSON* ze szczegółowymi informacjami na temat sposobu uruchamiania serwera sieci `httpWorker` Web za pośrednictwem sekcji.
+Niestandardowa procedura obsługi jest definiowana przez skonfigurowanie pliku *host. JSON* ze szczegółowymi informacjami na temat sposobu uruchamiania serwera sieci Web za pośrednictwem `httpWorker` sekcji.
 
 ```json
 {
@@ -73,7 +73,7 @@ Niestandardowa procedura obsługi jest definiowana przez skonfigurowanie pliku *
 }
 ```
 
-`httpWorker` Sekcja wskazuje element docelowy określony przez `defaultExecutablePath`. Obiektem docelowym wykonywania może być polecenie, plik wykonywalny lub plik, w którym jest zaimplementowany serwer sieci Web.
+`httpWorker`Sekcja wskazuje element docelowy określony przez `defaultExecutablePath` . Obiektem docelowym wykonywania może być polecenie, plik wykonywalny lub plik, w którym jest zaimplementowany serwer sieci Web.
 
 W przypadku aplikacji ze skryptami `defaultExecutablePath` wskazuje środowisko uruchomieniowe języka skryptu i `defaultWorkerPath` wskazuje lokalizację pliku skryptu. Poniższy przykład pokazuje, jak aplikacja JavaScript w języku Node. js jest skonfigurowana jako procedura obsługi niestandardowej.
 
@@ -123,11 +123,11 @@ W przypadku użycia z niestandardową obsługą zawartość pliku *Function. JSO
 
 Każdy inny typ funkcji, który zawiera dane wejściowe, powiązania wyjściowe lub wyzwalane za pośrednictwem źródła zdarzeń innego niż HTTP ma niestandardowy ładunek żądania.
 
-Poniższy kod przedstawia przykładowy ładunek żądania. Ładunek zawiera strukturę JSON z dwoma elementami członkowskimi: `Data` i `Metadata`.
+Poniższy kod przedstawia przykładowy ładunek żądania. Ładunek zawiera strukturę JSON z dwoma elementami członkowskimi: `Data` i `Metadata` .
 
-`Data` Element członkowski zawiera klucze, które pasują do nazw wejściowych i wyzwalaczy, zgodnie z definicją w tablicy powiązań w pliku *Function. JSON* .
+`Data`Element członkowski zawiera klucze, które pasują do nazw wejściowych i wyzwalaczy, zgodnie z definicją w tablicy powiązań w pliku *Function. JSON* .
 
-`Metadata` Element członkowski zawiera [metadane wygenerowane ze źródła zdarzeń](./functions-bindings-expressions-patterns.md#trigger-metadata).
+`Metadata`Element członkowski zawiera [metadane wygenerowane ze źródła zdarzeń](./functions-bindings-expressions-patterns.md#trigger-metadata).
 
 Dane powiązania zdefiniowane w następującym pliku *Function. JSON* :
 
@@ -181,9 +181,9 @@ Zgodnie z Konwencją, odpowiedzi funkcji są formatowane jako pary klucz/wartoś
 
 | <nobr>Klucz ładunku</nobr>   | Typ danych | Uwagi                                                      |
 | ------------- | --------- | ------------------------------------------------------------ |
-| `Outputs`     | JSON      | Przechowuje wartości odpowiedzi zdefiniowane przez `bindings` tablicę w pliku *Function. JSON* .<br /><br />Na przykład jeśli funkcja jest skonfigurowana za pomocą powiązania danych wyjściowych usługi BLOB Storage o nazwie "BLOB" `Outputs` , a następnie zawiera `blob`klucz o nazwie, który jest ustawiony na wartość obiektu BLOB. |
+| `Outputs`     | JSON      | Przechowuje wartości odpowiedzi zdefiniowane przez `bindings` tablicę w pliku *Function. JSON* .<br /><br />Na przykład jeśli funkcja jest skonfigurowana za pomocą powiązania danych wyjściowych usługi BLOB Storage o nazwie "BLOB", a następnie `Outputs` zawiera klucz o nazwie `blob` , który jest ustawiony na wartość obiektu BLOB. |
 | `Logs`        | tablica     | Komunikaty są wyświetlane w dziennikach wywołania funkcji.<br /><br />W przypadku uruchamiania na platformie Azure komunikaty są wyświetlane w Application Insights. |
-| `ReturnValue` | ciąg    | Służy do dostarczania odpowiedzi w przypadku skonfigurowania danych wyjściowych `$return` jako w pliku *Function. JSON* . |
+| `ReturnValue` | ciąg    | Służy do dostarczania odpowiedzi w przypadku skonfigurowania danych wyjściowych jako `$return` w pliku *Function. JSON* . |
 
 Zapoznaj się z [przykładowym ładunkiem](#bindings-implementation).
 
@@ -233,7 +233,7 @@ W folderze o nazwie *http*plik *Function. JSON* konfiguruje funkcję wyzwalaną 
 }
 ```
 
-Funkcja jest skonfigurowana tak, aby `GET` akceptowała `POST` zarówno żądania, jak i wartość wynik, jest podawana `res`za pośrednictwem argumentu o nazwie.
+Funkcja jest skonfigurowana tak, aby akceptowała zarówno `GET` `POST` żądania, jak i wartość wynik, jest podawana za pośrednictwem argumentu o nazwie `res` .
 
 W katalogu głównym aplikacji plik *host. JSON* jest skonfigurowany do uruchamiania środowiska Node. js i wskazuje `server.js` plik.
 
@@ -274,18 +274,18 @@ app.post("/hello", (req, res) => {
 });
 ```
 
-W tym przykładzie program Express służy do tworzenia serwera sieci Web do obsługi zdarzeń HTTP i jest skonfigurowany do nasłuchiwania żądań za pośrednictwem `FUNCTIONS_HTTPWORKER_PORT`.
+W tym przykładzie program Express służy do tworzenia serwera sieci Web do obsługi zdarzeń HTTP i jest skonfigurowany do nasłuchiwania żądań za pośrednictwem `FUNCTIONS_HTTPWORKER_PORT` .
 
-Funkcja jest definiowana w ścieżce `/hello`. `GET`żądania są obsługiwane przez zwrócenie prostego obiektu JSON, a `POST` żądania mają dostęp do treści żądania za pośrednictwem `req.body`.
+Funkcja jest definiowana w ścieżce `/hello` . `GET`żądania są obsługiwane przez zwrócenie prostego obiektu JSON, a `POST` żądania mają dostęp do treści żądania za pośrednictwem `req.body` .
 
-Trasa dla funkcji Order w tym miejscu to `/hello` , a `/api/hello` nie ponieważ Host usługi Functions jest serwerem proxy żądania do obsługi niestandardowej.
+Trasa dla funkcji Order w tym miejscu to `/hello` , a nie `/api/hello` ponieważ Host usługi Functions jest serwerem proxy żądania do obsługi niestandardowej.
 
 >[!NOTE]
->Nie `FUNCTIONS_HTTPWORKER_PORT` jest to port publiczny używany do wywołania funkcji. Ten port jest używany przez hosta funkcji do wywoływania niestandardowej procedury obsługi.
+>`FUNCTIONS_HTTPWORKER_PORT`Nie jest to port publiczny używany do wywołania funkcji. Ten port jest używany przez hosta funkcji do wywoływania niestandardowej procedury obsługi.
 
 ## <a name="function-with-bindings"></a>Funkcja z powiązaniami
 
-Scenariusz zaimplementowany w tym przykładzie cechuje funkcję o nazwie `order` , która akceptuje `POST` element z ładunkiem reprezentującym zamówienie produktu. W przypadku opublikowania zamówienia w funkcji zostanie utworzony komunikat Queue Storage i zostanie zwrócona odpowiedź HTTP.
+Scenariusz zaimplementowany w tym przykładzie cechuje funkcję o nazwie `order` , która akceptuje element `POST` z ładunkiem reprezentującym zamówienie produktu. W przypadku opublikowania zamówienia w funkcji zostanie utworzony komunikat Queue Storage i zostanie zwrócona odpowiedź HTTP.
 
 ```http
 POST http://127.0.0.1:7071/api/order HTTP/1.1
@@ -379,18 +379,18 @@ app.post("/order", (req, res) => {
 });
 ```
 
-W tym przykładzie program Express służy do tworzenia serwera sieci Web do obsługi zdarzeń HTTP i jest skonfigurowany do nasłuchiwania żądań za pośrednictwem `FUNCTIONS_HTTPWORKER_PORT`.
+W tym przykładzie program Express służy do tworzenia serwera sieci Web do obsługi zdarzeń HTTP i jest skonfigurowany do nasłuchiwania żądań za pośrednictwem `FUNCTIONS_HTTPWORKER_PORT` .
 
-Funkcja jest definiowana w ścieżce `/order` .  Trasa dla funkcji Order w tym miejscu to `/order` , a `/api/order` nie ponieważ Host usługi Functions jest serwerem proxy żądania do obsługi niestandardowej.
+Funkcja jest definiowana w ścieżce `/order` .  Trasa dla funkcji Order w tym miejscu to `/order` , a nie `/api/order` ponieważ Host usługi Functions jest serwerem proxy żądania do obsługi niestandardowej.
 
 Po `POST` wysłaniu żądań do tej funkcji dane są udostępniane za pomocą kilku punktów:
 
 - Treść żądania jest dostępna za pośrednictwem`req.body`
 - Dane ogłoszone do funkcji są dostępne za pośrednictwem`req.body.Data.req.Body`
 
-Odpowiedź funkcji jest formatowana do pary klucz/wartość, `Outputs` gdzie składowa zawiera wartość JSON, gdzie klucze są zgodne z wynikami zdefiniowanymi w pliku *Function. JSON* .
+Odpowiedź funkcji jest formatowana do pary klucz/wartość, gdzie `Outputs` składowa zawiera wartość JSON, gdzie klucze są zgodne z wynikami zdefiniowanymi w pliku *Function. JSON* .
 
-Zgodnie z `message` ustawieniem równym komunikatowi, który został dostarczony z żądania `res` , i do oczekiwanej odpowiedzi HTTP, ta funkcja wyprowadza komunikat do queue storage i zwraca odpowiedź HTTP.
+Zgodnie z ustawieniem `message` równym komunikatowi, który został dostarczony z żądania, i `res` do oczekiwanej odpowiedzi HTTP, ta funkcja wyprowadza komunikat do queue storage i zwraca odpowiedź HTTP.
 
 ## <a name="debugging"></a>Debugowanie
 

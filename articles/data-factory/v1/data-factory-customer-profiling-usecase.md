@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: c570f988dea894b8106405f4e427edb386a3e74a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5436e50a23b73e1a10cf42b3dd8790c5b0620ac3
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75969285"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021895"
 ---
 # <a name="use-case---customer-profiling"></a>Przypadek użycia — profilowanie klientów
 Azure Data Factory jest jedną z wielu usług służących do implementowania Cortana Intelligence Suite akceleratorów rozwiązań.  Aby uzyskać więcej informacji na temat Cortana Intelligence, odwiedź [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics). W tym dokumencie opisano prosty przypadek użycia, który pomoże Ci rozpocząć zrozumienie, jak Azure Data Factory może rozwiązać typowe problemy z analizą.
@@ -38,7 +38,7 @@ Wystarczy uzyskać dostęp do tego prostego przypadku użycia i wypróbować go 
 3. W bloku **przykładowe potoki** kliknij **profilowanie klienta** , który chcesz wdrożyć.
 
     ![Blok przykładowych potoków](./media/data-factory-samples/SampleTile.png)
-4. Określ ustawienia konfiguracji dla przykładu. Na przykład nazwa i klucz konta usługi Azure Storage, nazwa serwera SQL Azure, baza danych, identyfikator użytkownika i hasło.
+4. Określ ustawienia konfiguracji dla przykładu. Na przykład nazwa i klucz konta usługi Azure Storage, nazwa logiczna serwera SQL, baza danych, identyfikator użytkownika i hasło.
 
     ![Przykładowy blok](./media/data-factory-samples/SampleBlade.png)
 5. Po określeniu ustawień konfiguracji kliknij pozycję **Utwórz** , aby utworzyć/wdrożyć przykładowe potoki i połączone usługi/tabele używane przez potoki.

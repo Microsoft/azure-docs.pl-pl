@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: 2604d5b357feacce3493b4a4ded971144262611d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8f68bbb4e73758e44e775e1c0c23ad007ca60aa2
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77161940"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84016937"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Regionalne odzyskiwanie po awarii dla klastrów Azure Databricks
 
@@ -150,7 +150,7 @@ Aby utworzyć własną regionalną topologię odzyskiwania po awarii, wykonaj na
    clusters_list = []
    ##for cluster_info in clusters_info_list: clusters_list.append(cluster_info.split(None, 1)[0])
 
-   for cluster_info in clusters_info_list: 
+   for cluster_info in clusters_info_list:
       if cluster_info != '':
          clusters_list.append(cluster_info.split(None, 1)[0])
 
@@ -176,7 +176,7 @@ Aby utworzyć własną regionalną topologię odzyskiwania po awarii, wykonaj na
       cluster_json_keys = cluster_req_json.keys()
 
       #Don't migrate Job clusters
-      if cluster_req_json['cluster_source'] == u'JOB' : 
+      if cluster_req_json['cluster_source'] == u'JOB' :
          print ("Skipping this cluster as it is a Job cluster : " + cluster_req_json['cluster_id'] )
          print ("---------------------------------------------------------")
          continue
@@ -188,10 +188,10 @@ Aby utworzyć własną regionalną topologię odzyskiwania po awarii, wykonaj na
       # Create the cluster, and store the mapping from old to new cluster ids
 
       #Create a temp file to store the current cluster info as JSON
-      strCurrentClusterFile = "tmp_cluster_info.json" 
+      strCurrentClusterFile = "tmp_cluster_info.json"
 
       #delete the temp file if exists
-      if os.path.exists(strCurrentClusterFile) : 
+      if os.path.exists(strCurrentClusterFile) :
          os.remove(strCurrentClusterFile)
 
       fClusterJSONtmp = open(strCurrentClusterFile,"w+")
@@ -207,7 +207,7 @@ Aby utworzyć własną regionalną topologię odzyskiwania po awarii, wykonaj na
       print ("---------------------------------------------------------")
 
       #delete the temp file if exists
-      if os.path.exists(strCurrentClusterFile) : 
+      if os.path.exists(strCurrentClusterFile) :
          os.remove(strCurrentClusterFile)
 
    print ("Cluster mappings: " + json.dumps(cluster_old_new_mappings))
@@ -225,7 +225,7 @@ Aby utworzyć własną regionalną topologię odzyskiwania po awarii, wykonaj na
 
    Konfiguracja zadania wymaga ustawień dla nowego lub istniejącego klastra. W przypadku korzystania z istniejącego klastra skrypt/Code poniżej podejmie próbę zastąpienia starego identyfikatora klastra nowym IDENTYFIKATORem klastra.
 
-   Skopiuj i Zapisz Poniższy skrypt w języku Python do pliku. Zastąp wartość dla `old_cluster_id` i `new_cluster_id`, z danymi wyjściowymi z migracji klastra wykonaną w poprzednim kroku. Uruchom ją w wierszu polecenia datakosteks-CLI, na przykład `python scriptname.py`.
+   Skopiuj i Zapisz Poniższy skrypt w języku Python do pliku. Zastąp wartość dla `old_cluster_id` i `new_cluster_id` , z danymi wyjściowymi z migracji klastra wykonaną w poprzednim kroku. Uruchom ją w wierszu polecenia datakosteks-CLI, na przykład `python scriptname.py` .
 
    ```python
    from subprocess import call, check_output
@@ -290,7 +290,7 @@ Aby utworzyć własną regionalną topologię odzyskiwania po awarii, wykonaj na
 
 9. **Migruj skrypty inicjowania klastra**
 
-   Wszystkie skrypty inicjowania klastrów można migrować ze starego do nowego obszaru roboczego za pomocą [interfejsu wiersza polecenia DBFS](https://github.com/databricks/databricks-cli#dbfs-cli-examples). Najpierw skopiuj odpowiednie skrypty z `dbfs:/dat abricks/init/..` programu do pulpitu lokalnego lub maszyny wirtualnej. Następnie skopiuj te skrypty do nowego obszaru roboczego w tej samej ścieżce.
+   Wszystkie skrypty inicjowania klastrów można migrować ze starego do nowego obszaru roboczego za pomocą [interfejsu wiersza polecenia DBFS](https://github.com/databricks/databricks-cli#dbfs-cli-examples). Najpierw skopiuj odpowiednie skrypty z programu `dbfs:/dat abricks/init/..` do pulpitu lokalnego lub maszyny wirtualnej. Następnie skopiuj te skrypty do nowego obszaru roboczego w tej samej ścieżce.
 
    ```bash
    // Primary to local
@@ -308,7 +308,7 @@ Aby utworzyć własną regionalną topologię odzyskiwania po awarii, wykonaj na
 
 ## <a name="disaster-recovery-for-your-azure-ecosystem"></a>Odzyskiwanie po awarii dla ekosystemu platformy Azure
 
-Jeśli używasz innych usług platformy Azure, pamiętaj o tym również zaimplementować najlepsze rozwiązania dotyczące odzyskiwania po awarii. Na przykład jeśli zdecydujesz się na korzystanie z wystąpienia zewnętrznego magazyn metadanych Hive, należy wziąć pod uwagę odzyskiwanie awaryjne dla [SQL Server platformy Azure](../sql-database/sql-database-disaster-recovery.md), [usługi Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md)i/lub [Azure Database for MySQL](../mysql/concepts-business-continuity.md). Aby uzyskać ogólne informacje na temat odzyskiwania po awarii, zobacz [odzyskiwanie po awarii dla aplikacji platformy Azure](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
+Jeśli używasz innych usług platformy Azure, pamiętaj o tym również zaimplementować najlepsze rozwiązania dotyczące odzyskiwania po awarii. Na przykład jeśli zdecydujesz się na korzystanie z wystąpienia zewnętrznego magazyn metadanych Hive, należy rozważyć możliwość odzyskiwania po awarii dla [Azure SQL Database](../azure-sql/database/disaster-recovery-guidance.md), [usługi Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md)i/lub [Azure Database for MySQL](../mysql/concepts-business-continuity.md). Aby uzyskać ogólne informacje na temat odzyskiwania po awarii, zobacz [odzyskiwanie po awarii dla aplikacji platformy Azure](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
 ## <a name="next-steps"></a>Następne kroki
 

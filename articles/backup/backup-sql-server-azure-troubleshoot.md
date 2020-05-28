@@ -3,12 +3,12 @@ title: Rozwiązywanie problemów z kopiami zapasowymi SQL Server Database
 description: Informacje dotyczące rozwiązywania problemów dotyczących tworzenia kopii zapasowych SQL Server baz danych działających na maszynach wirtualnych platformy Azure z Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: cec3f8530d8a48a870c672d418d42d12a62aa2a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 93e06cc3219d5588c1740220af01950a25fcb52f
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82183334"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017022"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Rozwiązywanie problemów z kopiami zapasowymi SQL Server Database przy użyciu Azure Backup
 
@@ -46,7 +46,7 @@ Czasami przypadkowe błędy mogą wystąpić podczas operacji wykonywania kopii 
 
     `C:\Program Files\Azure Workload Backup` `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.WorkloadBackup.Edp.AzureBackupWindowsWorkload`
 
-    Zamień `C:\` *na literę dysku.*
+    Zamień na `C:\` literę dysku. *SystemDrive*
 
 1. Wyklucz następujące trzy procesy działające w ramach maszyny wirtualnej ze skanowania oprogramowania antywirusowego:
 
@@ -209,7 +209,7 @@ Teraz Rozmieść je w następującym formacie:
 [{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]}
 ```
 
-Przykład:
+Oto przykład:
 
 ```json
 [{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]}
@@ -219,7 +219,7 @@ Jeśli rozmiar ciągu zawartości przekracza 20 000 bajtów, pliki bazy danych s
 
 ### <a name="override-the-default-target-restore-file-path"></a>Zastąp domyślną ścieżkę pliku docelowego przywracania
 
-Docelową ścieżkę pliku przywracania można zastąpić podczas operacji przywracania, umieszczając plik JSON zawierający mapowanie pliku bazy danych do docelowej ścieżki przywracania. Utwórz `database_name.json` plik i umieść go w lokalizacji `C:\Program Files\Azure Workload Backup\bin\plugins\SQL*`.
+Docelową ścieżkę pliku przywracania można zastąpić podczas operacji przywracania, umieszczając plik JSON zawierający mapowanie pliku bazy danych do docelowej ścieżki przywracania. Utwórz `database_name.json` plik i umieść go w lokalizacji `C:\Program Files\Azure Workload Backup\bin\plugins\SQL*` .
 
 Zawartość pliku powinna mieć następujący format:
 
@@ -238,7 +238,7 @@ Zawartość pliku powinna mieć następujący format:
 ]
 ```
 
-Przykład:
+Oto przykład:
 
 ```json
 [
@@ -267,4 +267,4 @@ Ten plik powinien zostać umieszczony przed wywołaniem operacji przywracania.
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat Azure Backup dla SQL Server maszyn wirtualnych (publiczna wersja zapoznawcza), zobacz [Azure Backup dla maszyn wirtualnych SQL](../virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md#azbackup).
+Aby uzyskać więcej informacji na temat Azure Backup dla SQL Server maszyn wirtualnych (publiczna wersja zapoznawcza), zobacz [Azure Backup dla maszyn wirtualnych SQL](../azure-sql/virtual-machines/windows/backup-restore.md#azbackup).

@@ -11,12 +11,12 @@ ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: 16263a23c978e3486ff7c5d9281117f850cb885c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 14868b2642b2b77ce6bc7315e58a7ae2dc0f115d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80744363"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019932"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Samouczek: ładowanie danych do puli SQL usługi Azure Synapse Analytics
 
@@ -46,7 +46,7 @@ Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-blank-data-warehouse-in-sql-pool"></a>Tworzenie pustego magazynu danych w puli SQL
 
-Zostanie utworzona Pula SQL ze zdefiniowanym zestawem [zasobów obliczeniowych](memory-concurrency-limits.md). Pula SQL jest tworzona w [grupie zasobów platformy Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) oraz na [serwerze logicznym usługi Azure SQL](../../sql-database/sql-database-features.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Zostanie utworzona Pula SQL ze zdefiniowanym zestawem [zasobów obliczeniowych](memory-concurrency-limits.md). Pula SQL jest tworzona w [grupie zasobów platformy Azure](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) i w [logicznym serwerze SQL](../../azure-sql/database/logical-servers.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 Wykonaj następujące kroki, aby utworzyć pustą pulę SQL.
 
@@ -73,11 +73,11 @@ Wykonaj następujące kroki, aby utworzyć pustą pulę SQL.
     | **Hasło** | Dowolne prawidłowe hasło | Hasło musi mieć co najmniej osiem znaków i musi zawierać znaki z trzech z następujących kategorii: wielkie litery, małe litery, cyfry i znaki inne niż alfanumeryczne. |
     | **Lokalizacja** | Dowolna prawidłowa lokalizacja | Aby uzyskać informacje na temat regionów, zobacz temat [Regiony systemu Azure](https://azure.microsoft.com/regions/). |
 
-    ![tworzenie serwera bazy danych](./media/load-data-wideworldimportersdw/create-database-server.png)
+    ![Utwórz serwer](./media/load-data-wideworldimportersdw/create-database-server.png)
 
 1. **Wybierz pozycję poziom wydajności**. Suwak domyślnie jest ustawiony na **DW1000c**. Przesuń suwak w górę i w dół, aby wybrać żądaną skalę wydajności.
 
-    ![tworzenie serwera bazy danych](./media/load-data-wideworldimportersdw/create-data-warehouse.png)
+    ![Utwórz serwer 2](./media/load-data-wideworldimportersdw/create-data-warehouse.png)
 
 1. Na stronie **Ustawienia dodatkowe** ustaw opcję **Użyj istniejących danych** na brak i Pozostaw domyślne ustawienie *SQL_Latin1_General_CP1_CI_AS*. **Collation**
 
@@ -87,10 +87,10 @@ Wykonaj następujące kroki, aby utworzyć pustą pulę SQL.
 
 ## <a name="create-a-server-level-firewall-rule"></a>Tworzenie reguły zapory na poziomie serwera
 
-Usługa Azure Synapse Analytics tworzy zaporę na poziomie serwera, która uniemożliwia zewnętrznym aplikacjom i narzędziom łączenie się z serwerem lub dowolnymi bazami danych na serwerze. Aby umożliwić łączność, możesz dodać reguły zezwalające na połączenia dla konkretnych adresów IP.  Wykonaj następujące kroki, aby utworzyć [regułę zapory na poziomie serwera](../../sql-database/sql-database-firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) dla Twojego adresu IP klienta.
+Usługa Azure Synapse Analytics tworzy zaporę na poziomie serwera, która uniemożliwia zewnętrznym aplikacjom i narzędziom łączenie się z serwerem lub dowolnymi bazami danych na serwerze. Aby umożliwić łączność, możesz dodać reguły zezwalające na połączenia dla konkretnych adresów IP.  Wykonaj następujące kroki, aby utworzyć [regułę zapory na poziomie serwera](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) dla Twojego adresu IP klienta.
 
 > [!NOTE]
-> Pula SQL usługi Azure Synapse Analytics komunikuje się przez port 1433. Jeśli próbujesz nawiązać połączenie z sieci firmowej, ruch wychodzący na porcie 1433 może być blokowany przez zaporę sieciową. Jeśli nastąpi taka sytuacja, nie będzie można nawiązać połączenia z serwerem usługi Azure SQL Database, chyba że dział IT otworzy port 1433.
+> Pula SQL usługi Azure Synapse Analytics komunikuje się przez port 1433. Jeśli próbujesz nawiązać połączenie z sieci firmowej, ruch wychodzący na porcie 1433 może być blokowany przez zaporę sieciową. W takim przypadku nie można nawiązać połączenia z serwerem, chyba że dział IT otworzy port 1433.
 >
 
 1. Po zakończeniu wdrożenia Wyszukaj nazwę puli w polu wyszukiwania w menu nawigacji, a następnie wybierz zasób puli SQL. Wybierz nazwę serwera.
@@ -100,7 +100,7 @@ Usługa Azure Synapse Analytics tworzy zaporę na poziomie serwera, która uniem
 1. Wybierz nazwę serwera.
     ![nazwa serwera](././media/load-data-wideworldimportersdw/find-server-name.png)
 
-1. Wybierz pozycję **Pokaż ustawienia zapory**. Zostanie otwarta strona **Ustawienia zapory** dla serwera puli SQL.
+1. Wybierz pozycję **Pokaż ustawienia zapory**. Zostanie otwarta strona **Ustawienia zapory** dla serwera.
 
     ![ustawienia serwera](./media/load-data-wideworldimportersdw/server-settings.png)
 
@@ -108,9 +108,9 @@ Usługa Azure Synapse Analytics tworzy zaporę na poziomie serwera, która uniem
 
     ![reguła zapory serwera](./media/load-data-wideworldimportersdw/server-firewall-rule.png)
 
-1. Wybierz pozycję **Zapisz**. Dla bieżącego adresu IP zostanie utworzona reguła zapory na poziomie serwera otwierająca port 1433 na serwerze logicznym.
+1. Wybierz pozycję **Zapisz**. Reguła zapory na poziomie serwera jest tworzona dla bieżącego adresu IP otwierającego port 1433 na serwerze.
 
-Teraz możesz nawiązać połączenie z serwerem SQL przy użyciu adresu IP klienta. Połączenie działa z programu SQL Server Management Studio lub dowolnego innego narzędzia. Przy łączeniu się używaj wcześniej utworzonego konta administratora serwera.  
+Teraz możesz nawiązać połączenie z serwerem przy użyciu adresu IP klienta. Połączenie działa z programu SQL Server Management Studio lub dowolnego innego narzędzia. Przy łączeniu się używaj wcześniej utworzonego konta administratora serwera.  
 
 > [!IMPORTANT]
 > Domyślnie dostęp za pośrednictwem zapory usługi SQL Database jest włączony dla wszystkich usług platformy Azure. Kliknij pozycję **WYŁĄCZ** na tej stronie, a następnie kliknij przycisk **Zapisz**, aby wyłączyć zaporę dla wszystkich usług platformy Azure.
@@ -123,7 +123,7 @@ W pełni kwalifikowana nazwa serwera jest używana do nawiązywania połączenia
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Nawiąż połączenie z serwerem jako administrator serwera
 
-W tej sekcji używany jest program [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) do nawiązywania połączenia z serwerem SQL platformy Azure.
+Ta sekcja używa [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (SSMS) do nawiązywania połączenia z serwerem.
 
 1. Otwórz program SQL Server Management Studio.
 
@@ -133,8 +133,8 @@ W tej sekcji używany jest program [SQL Server Management Studio](/sql/ssms/down
     | ------------ | --------------- | ----------- |
     | Typ serwera | Aparat bazy danych | Ta wartość jest wymagana |
     | Nazwa serwera | W pełni kwalifikowana nazwa serwera | Na przykład **sqlpoolservername.Database.Windows.NET** to w pełni kwalifikowana nazwa serwera. |
-    | Uwierzytelnianie | Uwierzytelnianie programu SQL Server | Uwierzytelnianie SQL to jedyny typ uwierzytelniania skonfigurowany w tym samouczku. |
-    | Logowanie | Konto administratora serwera | To konto określono podczas tworzenia serwera. |
+    | Authentication | Uwierzytelnianie programu SQL Server | Uwierzytelnianie SQL to jedyny typ uwierzytelniania skonfigurowany w tym samouczku. |
+    | Zaloguj się | Konto administratora serwera | To konto określono podczas tworzenia serwera. |
     | Hasło | Hasło konta administratora serwera | To hasło określono podczas tworzenia serwera. |
 
     ![łączenie z serwerem](./media/load-data-wideworldimportersdw/connect-to-server.png)
@@ -1073,7 +1073,7 @@ Aby uzyskać wysoką wydajność zapytań, ważne jest tworzenie statystyk dotyc
     EXEC [dbo].[prc_sqldw_create_stats] 1, NULL;
     ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Opłaty są naliczane za zasoby obliczeniowe i dane załadowane do magazynu danych. Są one rozliczane osobno.  
 
@@ -1081,13 +1081,13 @@ Wykonaj następujące kroki, aby wyczyścić zasoby zgodnie z potrzebami.
 
 1. Zaloguj się do witryny [Azure Portal](https://portal.azure.com) i kliknij swój magazyn danych.
 
-    ![Oczyszczanie zasobów](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
+    ![Czyszczenie zasobów](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 2. Jeśli chcesz przechowywać dane w magazynie, możesz wstrzymać obliczenia, gdy nie korzystasz z magazynu danych. Dzięki wstrzymaniu obliczeń opłaty są naliczane tylko za magazyn danych i można wznowić obliczenia za każdym razem, gdy wszystko będzie gotowe do pracy z danymi. Aby wstrzymać obliczenia, kliknij przycisk **Wstrzymaj**. Gdy magazyn danych jest wstrzymany, widoczny jest przycisk **Uruchom**.  Aby wznowić obliczenia, kliknij przycisk **Uruchom**.
 
 3. Aby uniknąć opłat w przyszłości, możesz usunąć magazyn danych. Aby usunąć magazyn danych i nie płacić za obliczenia oraz magazynowanie, kliknij przycisk **Usuń**.
 
-4. Aby usunąć utworzony serwer SQL, kliknij pozycję **sample-svr.database.windows.net** na poprzednim obrazie, a następnie kliknij pozycję **Usuń**.  Należy zachować ostrożność, ponieważ usunięcie serwera spowoduje usunięcie wszystkich baz danych przypisanych do tego serwera.
+4. Aby usunąć utworzony serwer, kliknij pozycję **Sample-SVR.Database.Windows.NET** na poprzednim obrazie, a następnie kliknij pozycję **Usuń**.  Należy zachować ostrożność, ponieważ usunięcie serwera spowoduje usunięcie wszystkich baz danych przypisanych do tego serwera.
 
 5. Aby usunąć grupę zasobów, kliknij pozycję **SampleRG**, a następnie kliknij pozycję **Usuń grupę zasobów**.
 

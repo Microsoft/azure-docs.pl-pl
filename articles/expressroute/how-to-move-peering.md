@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 12/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: 48ecfcc0d6241e7926892a3ca1c9925b0dc07241
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fc5740fef87497d881f689f888e446dbf4d100e1
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75436840"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84019455"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>Move a public peering to Microsoft peering (Przechodzenie z publicznej komunikacji równorzędnej do komunikacji równorzędnej firmy Microsoft)
 
@@ -33,7 +33,7 @@ Aby nawiązać połączenie z usługą komunikacji równorzędnej firmy Microsof
 
 Zapoznaj się z [routingiem asymetrycznym z wieloma ścieżkami sieciowymi](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing) , aby zapamiętać Routing asymetryczny przed skonfigurowaniem komunikacji równorzędnej firmy Microsoft.
 
-* Jeśli używasz publicznej komunikacji równorzędnej i masz obecnie reguły sieci IP dla publicznych adresów IP, które są używane do uzyskiwania dostępu do [usługi Azure Storage](../storage/common/storage-network-security.md) lub [Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md), musisz upewnić się, że pula adresów IP translatora adresów sieciowych skonfigurowana za pomocą komunikacji równorzędnej firmy Microsoft jest uwzględniona na liście publicznych adresów IP konta usługi Azure Storage lub konta usługi Azure SQL.<br>
+* Jeśli używasz publicznej komunikacji równorzędnej i masz obecnie reguły sieci IP dla publicznych adresów IP, które są używane do uzyskiwania dostępu do [usługi Azure Storage](../storage/common/storage-network-security.md) lub [Azure SQL Database](../azure-sql/database/vnet-service-endpoint-rule-overview.md), musisz upewnić się, że pula adresów IP translatora adresów sieciowych skonfigurowana za pomocą komunikacji równorzędnej firmy Microsoft jest uwzględniona na liście publicznych adresów IP konta usługi Azure Storage lub konta usługi Azure SQL.<br>
 * Aby przejść do komunikacji równorzędnej firmy Microsoft bez przestojów, wykonaj kroki opisane w tym artykule w kolejności, w jakiej zostały przedstawione.
 
 ## <a name="1-create-microsoft-peering"></a><a name="create"></a>1. Utwórz komunikację równorzędną firmy Microsoft

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 77fa8f72d4d4d929d15859fde71f112de1ddd14e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7746726775cd5230f48842ad9a9260efe0e540b5
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81418732"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022116"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Rozgałęzianie działań i tworzenie łańcuchów działań w potoku usługi Data Factory
 
@@ -42,13 +42,13 @@ W tym samouczku przedstawiono sposób wykonywania następujących zadań:
 
 W tym samouczku jest używany zestaw SDK platformy .NET. Można użyć innych mechanizmów do współpracy z Azure Data Factory. Aby uzyskać Data Factory przewodników Szybki Start, zobacz [5-minutowe Przewodniki Szybki Start](/azure/data-factory/quickstart-create-data-factory-portal).
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Konto usługi Azure Storage. Magazyn obiektów BLOB jest używany jako magazyn danych źródłowych. Jeśli nie masz konta usługi Azure Storage, zobacz [Tworzenie konta magazynu](../storage/common/storage-account-create.md).
 * Eksplorator usługi Azure Storage. Aby zainstalować to narzędzie, zobacz [Eksplorator usługi Azure Storage](https://storageexplorer.com/).
-* usługą Azure SQL Database. Baza danych jest używana jako magazyn danych będący ujściem. Jeśli nie masz Azure SQL Database, zobacz [Tworzenie bazy danych Azure SQL Database](../sql-database/sql-database-get-started-portal.md).
+* usługą Azure SQL Database. Baza danych jest używana jako magazyn danych będący ujściem. Jeśli nie masz Azure SQL Database, zobacz [Tworzenie bazy danych Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
 * Program Visual Studio. W tym artykule jest wykorzystywany program Visual Studio 2019.
 * Zestaw Azure .NET SDK. Pobierz i zainstaluj [zestaw Azure .NET SDK](https://azure.microsoft.com/downloads/).
 
@@ -79,7 +79,7 @@ Tworzenie aplikacji konsolowej .NET w języku C#:
 
 ### <a name="install-nuget-packages"></a>Instalowanie pakietów NuGet
 
-1. Wybierz kolejno pozycje **Narzędzia** > **Menedżer pakietów** > NuGet**konsola Menedżera pakietów**.
+1. Wybierz kolejno pozycje **Narzędzia**Menedżer  >  **pakietów NuGet**  >  **konsola Menedżera pakietów**.
 1. W oknie **Konsola menedżera pakietów** uruchom następujące polecenia, aby zainstalować pakiety. Aby uzyskać szczegółowe informacje, zapoznaj się z [pakietem NuGet Microsoft. Azure. Management. DataFactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) .
 
    ```powershell
@@ -270,7 +270,7 @@ Zwróć uwagę na użycie parametrów dla *FolderPath*. `sourceBlobContainer`jes
 
 ## <a name="create-a-c-class-emailrequest"></a>Tworzenie klasy języka C#: EmailRequest
 
-W projekcie w języku C# Utwórz klasę o nazwie `EmailRequest`. Ta klasa definiuje właściwości, które potok wysyła w żądaniu treści podczas wysyłania wiadomości e-mail. W tym samouczku potok wysyła cztery właściwości z potoku do wiadomości e-mail:
+W projekcie w języku C# Utwórz klasę o nazwie `EmailRequest` . Ta klasa definiuje właściwości, które potok wysyła w żądaniu treści podczas wysyłania wiadomości e-mail. W tym samouczku potok wysyła cztery właściwości z potoku do wiadomości e-mail:
 
 * Komunikat. Treść wiadomości e-mail. W przypadku pomyślnego kopiowania ta właściwość zawiera ilość zapisanych danych. W przypadku kopii zakończonej niepowodzeniem ta właściwość zawiera szczegóły błędu.
 * Nazwa fabryki danych. Nazwa fabryki danych.
@@ -308,7 +308,7 @@ Aby wyzwolić wysyłanie wiadomości e-mail, zdefiniuj przepływ pracy przy uży
 
 ### <a name="success-email-workflow"></a>Przepływ pracy wiadomości e-mail z informacją o powodzeniu
 
-W [Azure Portal](https://portal.azure.com)Utwórz przepływ pracy Logic Apps o nazwie *CopySuccessEmail*. Zdefiniuj wyzwalacz przepływu pracy jako `When an HTTP request is received`. W wyzwalaczu żądania wypełnij pole `Request Body JSON Schema` przy użyciu następującego kodu JSON:
+W [Azure Portal](https://portal.azure.com)Utwórz przepływ pracy Logic Apps o nazwie *CopySuccessEmail*. Zdefiniuj wyzwalacz przepływu pracy jako `When an HTTP request is received` . W wyzwalaczu żądania wypełnij pole `Request Body JSON Schema` przy użyciu następującego kodu JSON:
 
 ```json
 {
@@ -336,7 +336,7 @@ Przepływ pracy wygląda podobnie do poniższego przykładu:
 
 Zawartość JSON jest wyrównywana z `EmailRequest` klasą utworzoną w poprzedniej sekcji.
 
-Dodaj akcję `Office 365 Outlook – Send an email`. W przypadku akcji **Wyślij wiadomość e-mail** Dostosuj sposób formatowania wiadomości e-mail przy użyciu właściwości przekazaną w schemacie JSON **treści** żądania. Przykład:
+Dodaj akcję `Office 365 Outlook – Send an email` . W przypadku akcji **Wyślij wiadomość e-mail** Dostosuj sposób formatowania wiadomości e-mail przy użyciu właściwości przekazaną w schemacie JSON **treści** żądania. Oto przykład:
 
 ![Projektant aplikacji logiki — wysyłanie akcji poczty e-mail](media/tutorial-control-flow/customize-send-email-action.png)
 
@@ -470,7 +470,7 @@ Parameters = new Dictionary<string, ParameterSpecification>
 
 ### <a name="web-activity"></a>Aktywność sieci Web
 
-Działanie sieci Web umożliwia wywołanie dowolnego punktu końcowego REST. Aby uzyskać więcej informacji na temat działania, zobacz [aktywność sieci Web w Azure Data Factory](control-flow-web-activity.md). Ten potok używa działania sieci Web do wywołania przepływu pracy Logic Apps poczty e-mail. Tworzysz dwa działania sieci Web: jeden, który wywołuje `CopySuccessEmail` przepływ pracy i jeden wywołuje. `CopyFailWorkFlow`
+Działanie sieci Web umożliwia wywołanie dowolnego punktu końcowego REST. Aby uzyskać więcej informacji na temat działania, zobacz [aktywność sieci Web w Azure Data Factory](control-flow-web-activity.md). Ten potok używa działania sieci Web do wywołania przepływu pracy Logic Apps poczty e-mail. Tworzysz dwa działania sieci Web: jeden, który wywołuje `CopySuccessEmail` przepływ pracy i jeden wywołuje `CopyFailWorkFlow` .
 
 ```csharp
         new WebActivity
@@ -490,12 +490,12 @@ Działanie sieci Web umożliwia wywołanie dowolnego punktu końcowego REST. Aby
         }
 ```
 
-W `Url` właściwości wklej punkty końcowe **adresu URL post protokołu HTTP** z przepływów pracy Logic Apps. We `Body` właściwości należy przekazać wystąpienie `EmailRequest` klasy. Żądanie wiadomości e-mail zawiera następujące właściwości:
+W `Url` Właściwości wklej punkty końcowe **adresu URL post protokołu HTTP** z przepływów pracy Logic Apps. We `Body` właściwości należy przekazać wystąpienie `EmailRequest` klasy. Żądanie wiadomości e-mail zawiera następujące właściwości:
 
-* Komunikat. Przekazuje wartość `@{activity('CopyBlobtoBlob').output.dataWritten`. Uzyskuje dostęp do właściwości poprzedniego działania kopiowania i przekazuje wartość `dataWritten`. W przypadku wiadomości dotyczącej niepowodzenia przekaż dane wyjściowe błędu zamiast elementu `@{activity('CopyBlobtoBlob').error.message`.
+* Komunikat. Przekazuje wartość `@{activity('CopyBlobtoBlob').output.dataWritten` . Uzyskuje dostęp do właściwości poprzedniego działania kopiowania i przekazuje wartość `dataWritten` . W przypadku wiadomości dotyczącej niepowodzenia przekaż dane wyjściowe błędu zamiast elementu `@{activity('CopyBlobtoBlob').error.message`.
 * Nazwa Data Factory. Przekazuje wartość `@{pipeline().DataFactory}` tej zmiennej systemowej, pozwala uzyskać dostęp do odpowiedniej nazwy fabryki danych. Aby uzyskać listę zmiennych systemowych, zobacz [zmienne systemowe](control-flow-system-variables.md).
-* Nazwa potoku. Przekazuje wartość `@{pipeline().Pipeline}`. Ta zmienna systemowa umożliwia dostęp do odpowiedniej nazwy potoku.
-* Nadajnik. Przekazuje wartość `"@pipeline().parameters.receiver"`. Uzyskuje dostęp do parametrów potoku.
+* Nazwa potoku. Przekazuje wartość `@{pipeline().Pipeline}` . Ta zmienna systemowa umożliwia dostęp do odpowiedniej nazwy potoku.
+* Nadajnik. Przekazuje wartość `"@pipeline().parameters.receiver"` . Uzyskuje dostęp do parametrów potoku.
 
 Ten kod tworzy nową zależność działania, która zależy od poprzedniego działania kopiowania.
 

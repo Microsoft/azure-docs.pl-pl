@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 8ec4c87dc4f19c140c5ac02779c5551016dfb0b3
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 855feaf9b5b47b7b725ee7927418a2b3a9e25393
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714325"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017776"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Ulepszanie syntezy przy użyciu języka znaczników syntezy mowy (SSML)
 
@@ -154,7 +154,7 @@ speechConfig.setProperty(
     "SpeechServiceResponse_Synthesis_WordBoundaryEnabled", "false");
 ```
 
-# <a name="objective-c"></a>[Objective-C](#tab/objectivec)
+# <a name="objective-c"></a>[Obiektowy C](#tab/objectivec)
 
 Aby uzyskać więcej informacji, <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>Zobacz.
 
@@ -330,7 +330,7 @@ Alfabety fonetyczne składają się z telefonów, które składają się z liter
 
 | Atrybut | Opis | Wymagane/opcjonalne |
 |-----------|-------------|---------------------|
-| `alphabet` | Określa alfabet fonetyczny do użycia podczas syntezowania wymowy ciągu w `ph` atrybucie. Ciąg określający alfabet musi być określony małymi literami. Poniżej przedstawiono możliwe litery, które można określić.<ul><li>`ipa`&ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">Międzynarodowy alfabet <span class="docon docon-navigate-external x-hidden-focus"></span> fonetyczny</a></li><li>`sapi`&ndash; [Mowa — alfabet fonetyczny](speech-ssml-phonetic-sets.md)</li><li>`ups`&ndash;Uniwersalny zestaw telefonu</li></ul><br>Alfabet ma zastosowanie tylko do `phoneme` elementu w elemencie.. | Opcjonalne |
+| `alphabet` | Określa alfabet fonetyczny do użycia podczas syntezowania wymowy ciągu w `ph` atrybucie. Ciąg określający alfabet musi być określony małymi literami. Poniżej przedstawiono możliwe litery, które można określić.<ul><li>`ipa`&ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">Międzynarodowy alfabet <span class="docon docon-navigate-external x-hidden-focus"></span> fonetyczny</a></li><li>`sapi`&ndash; [Mowa — alfabet fonetyczny](speech-ssml-phonetic-sets.md)</li><li>`ups`&ndash; <a href="https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm" target="_blank">Uniwersalny zestaw telefonu</a></li></ul><br>Alfabet ma zastosowanie tylko do `phoneme` elementu w elemencie.. | Opcjonalne |
 | `ph` | Ciąg zawierający telefony, które określają wymowę wyrazu w `phoneme` elemencie. Jeśli określony ciąg zawiera nierozpoznane telefony, usługa zamiany tekstu na mowę (TTS) odrzuci cały dokument SSML i nie wygeneruje żadnych danych wyjściowych mowy określonych w dokumencie. | Wymagany, jeśli jest używany fonemów. |
 
 **Przykłady**
@@ -403,7 +403,7 @@ Aby zdefiniować sposób odczytywania wielu jednostek, możesz utworzyć niestan
 
 `lexicon`Element zawiera co najmniej jeden `lexeme` element. Każdy `lexeme` element zawiera co najmniej jeden `grapheme` element i jeden lub więcej `grapheme` `alias` elementów,, i `phoneme` . `grapheme`Element zawiera tekst opisujący <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">orthography <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. `alias`Elementy są używane do wskazania wymowy akronimu lub skróconego terminu. `phoneme`Element zawiera tekst opisujący sposób `lexeme` wymawiania.
 
-Należy pamiętać, że nie można bezpośrednio ustawić wymowy słowa przy użyciu leksykonu niestandardowego. Jeśli musisz ustawić wymowę dla elementu, najpierw Podaj `alias` wartość, a następnie skojarz ją `phoneme` z `alias` . Na przykład:
+Należy pamiętać, że nie można bezpośrednio ustawić wymowy słowa przy użyciu leksykonu niestandardowego. Jeśli musisz ustawić wymowę dla elementu, najpierw Podaj `alias` wartość, a następnie skojarz ją `phoneme` z `alias` . Przykład:
 
 ```xml
   <lexeme>
@@ -492,7 +492,7 @@ Ponieważ wartości atrybutów granicę prozodyczną mogą się różnić w ró�
 | Atrybut | Opis | Wymagane/opcjonalne |
 |-----------|-------------|---------------------|
 | `pitch` | Wskazuje gęstość linii bazowej dla tekstu. Możesz wyrazić gęstość jako:<ul><li>Wartość bezwzględna wyrażona jako liczba, po której następuje "Hz" (Hz). Na przykład 600 Hz.</li><li>Wartość względna, wyrażona jako liczba poprzedzona znakiem "+" lub "-", po której następuje "Hz" lub "St", która określa ilość, aby zmienić gęstość. Na przykład: + 80 Hz lub-2st. "St" wskazuje, że jednostka zmiany to semitone, czyli połowę tonu (pół kroku) w standardowej skali Diatonic.</li><li>Stała wartość:<ul><li>x — niska</li><li>małą</li><li>średni</li><li>wysoka</li><li>x — wysoka</li><li>default</li></ul></li></ul>. | Opcjonalne |
-| `contour` |Rozkład obsługuje teraz zarówno neuronowych, jak i standardowe głosy. Rozkład reprezentuje zmiany w wysokości. Te zmiany są reprezentowane jako tablica obiektów docelowych w określonych miejscach w danych wyjściowych mowy. Każdy element docelowy jest definiowany przez zestawy par parametrów. Na przykład: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Pierwsza wartość w każdym zestawie parametrów określa lokalizację zmiany w postaci procentu czasu trwania tekstu. Druga wartość określa wielkość, aby podnieść lub obniżyć gęstość, przy użyciu wartości względnej lub wartości wyliczenia dla skoku (zobacz `pitch` ). | Opcjonalne |
+| `contour` |Rozkład obsługuje teraz zarówno neuronowych, jak i standardowe głosy. Rozkład reprezentuje zmiany w wysokości. Te zmiany są reprezentowane jako tablica obiektów docelowych w określonych miejscach w danych wyjściowych mowy. Każdy element docelowy jest definiowany przez zestawy par parametrów. Przykład: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Pierwsza wartość w każdym zestawie parametrów określa lokalizację zmiany w postaci procentu czasu trwania tekstu. Druga wartość określa wielkość, aby podnieść lub obniżyć gęstość, przy użyciu wartości względnej lub wartości wyliczenia dla skoku (zobacz `pitch` ). | Opcjonalne |
 | `range` | Wartość, która reprezentuje zakres skoku dla tekstu. Można wyrazić `range` przy użyciu tych samych wartości bezwzględnych, wartości względnych lub wartości wyliczenia, które są używane do opisywania `pitch` . | Opcjonalne |
 | `rate` | Wskazuje stawkę głosu tekstu. Można wyrazić `rate` jako:<ul><li>Wartość względna wyrażona jako liczba, która działa jako mnożnik wartości domyślnej. Na przykład wartość *1* powoduje brak zmian w szybkości. Wartość *0,5* skutkuje halving szybkością. Wartość *3* powoduje przekroczenie stawki.</li><li>Stała wartość:<ul><li>x — powolne</li><li>opóźnienie</li><li>średni</li><li>szybki</li><li>x — Fast</li><li>default</li></ul></li></ul> | Opcjonalne |
 | `duration` | Okres, który powinien upłynąć, gdy usługa synteza mowy (TTS) odczytuje tekst w sekundach lub milisekundach. Na przykład *2S* lub *1800ms*. | Opcjonalne |

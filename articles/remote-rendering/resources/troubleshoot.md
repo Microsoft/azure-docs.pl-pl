@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: b6cb9c70de27e40c62d6a7adeece5cb39554c090
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 59dc64c952aab6b37e6a779ab1e7e85b9a8ab4b7
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83844572"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84018824"
 ---
 # <a name="troubleshoot"></a>Rozwiązywanie problemów
 
@@ -29,7 +29,7 @@ Upewnij się, że zapory (na urządzeniu, wewnątrz routerów itp.) nie blokują
 * **8266 (TCP + UDP)** — wymagane do transferu danych
 * **5000 (TCP)**, **5433 (tcp)**, **8443 (TCP)** — wymagane dla [ArrInspector](tools/arr-inspector.md)
 
-## <a name="error-disconnected-videoformatnotavailable"></a>Błąd "Rozłączono: VideoFormatNotAvailable"
+## <a name="error-disconnected-videoformatnotavailable"></a>Błąd " `Disconnected: VideoFormatNotAvailable` "
 
 Sprawdź, czy procesor GPU obsługuje sprzętowe dekodowanie wideo. Zobacz [komputer deweloperski](../overview/system-requirements.md#development-pc).
 
@@ -37,7 +37,7 @@ Jeśli pracujesz na laptopie z dwoma procesorami GPU, istnieje możliwość, że
 
 ## <a name="h265-codec-not-available"></a>Koder-dekoder H265 niedostępny
 
-Istnieją dwa powody, dla których serwer może odmówić połączenia z **niedostępnym koderem-dekoder** .
+Istnieją dwa powody, dla których serwer może odmówić połączenia z `codec not available` błędem.
 
 **Koder-dekoder H265 nie jest zainstalowany:**
 
@@ -107,7 +107,7 @@ Jeśli te dwa kroki nie były pomocne, należy sprawdzić, czy ramki wideo są o
 
 Zapoznaj się z określonymi [ograniczeniami rozmiaru maszyny wirtualnej](../reference/limits.md#overall-number-of-polygons).
 
-**Model nie znajduje się w widoku frustum:**
+**Model nie znajduje się w frustumu aparatu:**
 
 W wielu przypadkach model jest wyświetlany poprawnie, ale znajduje się poza kamerą frustum. Typowym powodem jest to, że model został wyeksportowany z daleko wyśrodkowanego przedziału. Pomaga w programistycznym zbadaniu pola powiązanego z modelem i wizualizowania pola z użyciem aparatu Unity jako pola wiersza lub drukowania jego wartości w dzienniku debugowania.
 
@@ -142,7 +142,7 @@ W przypadku tego pola ograniczenia mogą występować dwa problemy, które prowa
 
 **Potok renderowania aparatu Unity nie obejmuje punktów zaczepienia renderowania:**
 
-Renderowanie zdalne na platformie Azure jest podłączane do potoku renderowania aparatu Unity, aby wykonać transkompozycję ramki z filmem wideo i przeprojektować. Aby sprawdzić, czy te punkty zaczepie istnieją, Otwórz *okno menu > analizy > debuger ramek*. Włącz ją i upewnij się, że `HolographicRemotingCallbackPass` w potoku istnieją dwa wpisy:
+Renderowanie zdalne na platformie Azure jest podłączane do potoku renderowania aparatu Unity, aby wykonać transkompozycję ramki z filmem wideo i przeprojektować. Aby sprawdzić, czy te punkty zaczepie istnieją, otwórz menu *:::no-loc text="Window > Analysis > Frame debugger":::* . Włącz ją i upewnij się, że `HolographicRemotingCallbackPass` w potoku istnieją dwa wpisy:
 
 ![Debuger ramki aparatu Unity](./media/troubleshoot-unity-pipeline.png)
 

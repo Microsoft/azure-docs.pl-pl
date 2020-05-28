@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/25/2020
-ms.openlocfilehash: efa4ec42396a51cbbc93a53e5892177bad0d87fb
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 0689a7705e91b8fcaf9ca31887e6cefbf90f1e59
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649655"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021011"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w Azure Data Lake Storage Gen2 przy użyciu Azure Data Factory
 
@@ -176,7 +176,7 @@ Aby używać tożsamości zarządzanych do uwierzytelniania zasobów platformy A
 >Jeśli używasz interfejsu użytkownika Data Factory do tworzenia, a tożsamość zarządzana nie jest ustawiona z rolą "czytelnik danych BLOB/współautor" w usłudze IAM, podczas testowania połączenia lub przeglądania/nawigowania w folderach wybierz opcję "Test connection do ścieżki pliku" lub "Przeglądaj z określonej ścieżki" i określ ścieżkę z uprawnieniem **Odczyt i wykonywanie** , aby kontynuować.
 
 >[!IMPORTANT]
->W przypadku korzystania z bazy danych Base, aby załadować dane z Data Lake Storage Gen2 do SQL Data Warehouse, podczas korzystania z uwierzytelniania tożsamości zarządzanej dla Data Lake Storage Gen2, należy wykonać kroki 1 i 2 w [niniejszych wskazówkach](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) do 1) zarejestrować serwer SQL Database z Azure Active Directory (Azure AD) i 2) przypisać rolę współautor danych obiektów blob magazynu do serwera SQL Database; pozostałe są obsługiwane przez Data Factory. Jeśli Data Lake Storage Gen2 jest skonfigurowany za pomocą punktu końcowego Virtual Network platformy Azure, aby można było załadować z niego dane, należy użyć uwierzytelniania tożsamości zarządzanej zgodnie z wymaganiami firmy Base.
+>W przypadku korzystania z bazy danych w celu ładowania Data Lake Storage Gen2 do SQL Data Warehouse przy użyciu uwierzytelniania tożsamości zarządzanej na potrzeby Data Lake Storage Gen2 należy również wykonać kroki 1 i 2 w [tym przewodniku](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) , aby zarejestrować się w usłudze z Azure Active Directory (Azure AD) i 2) przypisać rolę współautor danych obiektów blob magazynu do serwera; pozostałe są obsługiwane przez Data Factory. Jeśli Data Lake Storage Gen2 jest skonfigurowany za pomocą punktu końcowego Virtual Network platformy Azure, aby można było załadować z niego dane, należy użyć uwierzytelniania tożsamości zarządzanej zgodnie z wymaganiami firmy Base.
 
 Te właściwości są obsługiwane dla połączonej usługi:
 

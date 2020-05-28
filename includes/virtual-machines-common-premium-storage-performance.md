@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: dba0dd4e52913e0998b088fb2ccf90c98f0a89c2
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: 2c8c0430e8a1f54daa99d3fd986bae0c3eaf7f61
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83821518"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017612"
 ---
 ## <a name="application-performance-indicators"></a>Wskaźniki wydajności aplikacji
 
@@ -333,7 +333,7 @@ Ważną konfiguracją w obłożonym dysku jest rozmiar paska. Rozmiar obszaru ro
 
 Na przykład jeśli żądanie we/wy wygenerowane przez aplikację jest większe niż rozmiar rozłożonego dysku, system magazynu zapisuje go między granicami jednostki na więcej niż jednym dysku. Gdy dostęp do tych danych jest czas, będzie musiał poszukiwać więcej niż jednej jednostki rozłożonej, aby wykonać żądanie. Skumulowany efekt takiego zachowania może prowadzić do znacznego obniżenia wydajności. Z drugiej strony, jeśli rozmiar żądania we/wy jest mniejszy niż rozmiar paska, a jeśli ma charakter losowy, żądania we/wy mogą zostać dodane na tym samym dysku powodującym wąskie gardło i ostatecznie spadek wydajności operacji we/wy.
 
-W zależności od typu obciążenia, w którym działa aplikacja, wybierz odpowiedni rozmiar paska. W przypadku bardzo małych żądań we/wy Użyj mniejszego rozmiaru. W przypadku duże sekwencyjne żądania we/wy używają większego rozmiaru paska. Zapoznaj się z zaleceniami dotyczącymi rozmiaru paska aplikacji, które będą działać na Premium Storage. W przypadku SQL Server Skonfiguruj rozmiar rozłożenia 64 KB dla obciążeń OLTP i 256 KB na potrzeby obciążeń związanych z magazynowaniem danych. Aby dowiedzieć się więcej, zobacz [najlepsze rozwiązania w zakresie wydajności dotyczące SQL Server na maszynach wirtualnych platformy Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance) .
+W zależności od typu obciążenia, w którym działa aplikacja, wybierz odpowiedni rozmiar paska. W przypadku bardzo małych żądań we/wy Użyj mniejszego rozmiaru. W przypadku duże sekwencyjne żądania we/wy używają większego rozmiaru paska. Zapoznaj się z zaleceniami dotyczącymi rozmiaru paska aplikacji, które będą działać na Premium Storage. W przypadku SQL Server Skonfiguruj rozmiar rozłożenia 64 KB dla obciążeń OLTP i 256 KB na potrzeby obciążeń związanych z magazynowaniem danych. Aby dowiedzieć się więcej, zobacz [najlepsze rozwiązania w zakresie wydajności dotyczące SQL Server na maszynach wirtualnych platformy Azure](../articles/azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md#disks-guidance) .
 
 > [!NOTE]
 > Na maszynach wirtualnych serii z serii GS można rozdzielić maksymalnie 32 dysków usługi Premium Storage 64, a także dyski magazynu w warstwie Premium

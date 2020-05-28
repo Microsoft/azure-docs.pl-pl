@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: genli
-ms.openlocfilehash: becbf88aeda164f7d916cbc1f1ace89262cc1a3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 11d1a4743f9aaf70d96e6cfd1f22ff31def440f1
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77921627"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021266"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Resetowanie lokalnego hasła systemu Windows dla maszyny wirtualnej platformy Azure w trybie offline
 Możesz zresetować lokalne hasło systemu Windows maszyny wirtualnej na platformie Azure przy użyciu [Azure Portal lub Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) pod warunkiem, że zainstalowano agenta gościa platformy Azure. Ta metoda jest podstawowym sposobem resetowania hasła dla maszyny wirtualnej platformy Azure. Jeśli wystąpią problemy z agentem gościa platformy Azure, który nie odpowiada, lub instalacja nie powiedzie się po przesłaniu obrazu niestandardowego, można ręcznie zresetować hasło systemu Windows. W tym artykule szczegółowo opisano sposób resetowania hasła do konta lokalnego przez dołączenie źródłowego dysku wirtualnego systemu operacyjnego do innej maszyny wirtualnej. Kroki opisane w tym artykule nie dotyczą kontrolerów domeny systemu Windows. 
@@ -45,12 +45,12 @@ Przed podjęciem próby wykonania poniższych kroków zawsze należy spróbować
 
 1. Utwórz migawkę dysku systemu operacyjnego z zaatakowaną maszyną wirtualną, Stwórz dysk na podstawie migawki, a następnie Dołącz dysk do maszyny wirtualnej rozwiązywania problemów. Aby uzyskać więcej informacji, zobacz [Rozwiązywanie problemów z maszyną wirtualną z systemem Windows przez dołączenie dysku systemu operacyjnego do maszyny wirtualnej odzyskiwania przy użyciu Azure Portal](troubleshoot-recovery-disks-portal-windows.md).
 2. Nawiąż połączenie z maszyną wirtualną rozwiązywania problemów przy użyciu Pulpit zdalny.
-3. `\Windows\System32\GroupPolicy` Utwórz `gpt.ini` na dysku źródłowej maszyny wirtualnej (jeśli istnieje tabela GPT. ini, Zmień nazwę na GPT. ini. bak):
+3. Utwórz `gpt.ini` na `\Windows\System32\GroupPolicy` dysku ŹRÓDŁOWEJ maszyny wirtualnej (jeśli istnieje tabela GPT. ini, Zmień nazwę na GPT. ini. bak):
    
    > [!WARNING]
    > Upewnij się, że nie utworzysz przypadkowo następujących plików w folderze C:\Windows, dysk systemu operacyjnego do rozwiązywania problemów z maszyną wirtualną. Utwórz następujące pliki na dysku systemu operacyjnego dla źródłowej maszyny wirtualnej, która jest dołączana jako dysk danych.
    
-   * Dodaj następujące wiersze do utworzonego `gpt.ini` pliku:
+   * Dodaj następujące wiersze do `gpt.ini` utworzonego pliku:
      
      ```
      [General]
@@ -61,9 +61,9 @@ Przed podjęciem próby wykonania poniższych kroków zawsze należy spróbować
      
      ![Utwórz plik GPT. ini](./media/reset-local-password-without-agent/create-gpt-ini.png)
 
-4. Utwórz `scripts.ini` w `\Windows\System32\GroupPolicy\Machines\Scripts\`. Upewnij się, że ukryte foldery są wyświetlane. W `Machine` razie konieczności Utwórz foldery lub `Scripts` .
+4. Utwórz `scripts.ini` w `\Windows\System32\GroupPolicy\Machine\Scripts\` . Upewnij się, że ukryte foldery są wyświetlane. W razie konieczności Utwórz `Machine` foldery lub `Scripts` .
    
-   * Dodaj następujący wiersz utworzonego `scripts.ini` pliku:
+   * Dodaj następujący wiersz `scripts.ini` utworzonego pliku:
      
      ```
      [Startup]
@@ -73,7 +73,7 @@ Przed podjęciem próby wykonania poniższych kroków zawsze należy spróbować
      
      ![Utwórz skrypt. ini](./media/reset-local-password-without-agent/create-scripts-ini.png)
 
-5. Utwórz `FixAzureVM.cmd` w `\Windows\System32` programie, używając następującej zawartości, `<username>` zastępując `<newpassword>` i korzystając z własnych wartości:
+5. Utwórz `FixAzureVM.cmd` w programie `\Windows\System32` , używając następującej zawartości, zastępując `<username>` i `<newpassword>` korzystając z własnych wartości:
    
     ```
     net user <username> <newpassword> /add
@@ -115,9 +115,9 @@ Przed podjęciem próby wykonania poniższych kroków zawsze należy spróbować
      
      ![Usuń istniejącą maszynę wirtualną](./media/reset-local-password-without-agent/delete-vm-classic.png)
 
-2. Dołącz dysk systemu operacyjnego źródłowej maszyny wirtualnej do rozwiązywania problemów z maszyną wirtualną. Maszyna wirtualna rozwiązywania problemów musi znajdować się w tym samym regionie co dysk systemu operacyjnego źródłowej `West US`maszyny wirtualnej (np.):
+2. Dołącz dysk systemu operacyjnego źródłowej maszyny wirtualnej do rozwiązywania problemów z maszyną wirtualną. Maszyna wirtualna rozwiązywania problemów musi znajdować się w tym samym regionie co dysk systemu operacyjnego źródłowej maszyny wirtualnej (np `West US` .):
    
-   1. Wybierz maszynę wirtualną Rozwiązywanie problemów w Azure Portal. Kliknij pozycję *dyski* | *Dołącz istniejące*:
+   1. Wybierz maszynę wirtualną Rozwiązywanie problemów w Azure Portal. Kliknij pozycję *dyski*  |  *Dołącz istniejące*:
      
       ![Dołącz istniejący dysk](./media/reset-local-password-without-agent/disks-attach-existing-classic.png)
      
@@ -149,12 +149,12 @@ Przed podjęciem próby wykonania poniższych kroków zawsze należy spróbować
      
       ![Wyświetl dołączony dysk danych](./media/reset-local-password-without-agent/troubleshooting-vm-file-explorer-classic.png)
 
-4. `\Windows\System32\GroupPolicy` Utwórz `gpt.ini` na dysku źródłowej maszyny wirtualnej (Jeśli `gpt.ini` istnieje, Zmień nazwę na `gpt.ini.bak`):
+4. Utwórz `gpt.ini` na `\Windows\System32\GroupPolicy` dysku ŹRÓDŁOWEJ maszyny wirtualnej (Jeśli `gpt.ini` istnieje, Zmień nazwę na `gpt.ini.bak` ):
    
    > [!WARNING]
-   > Upewnij się, że nie utworzysz przypadkowo następujących plików w programie `C:\Windows`, dysk systemu operacyjnego do rozwiązywania problemów z maszyną wirtualną. Utwórz następujące pliki na dysku systemu operacyjnego dla źródłowej maszyny wirtualnej, która jest dołączana jako dysk danych.
+   > Upewnij się, że nie utworzysz przypadkowo następujących plików w programie `C:\Windows` , dysk systemu operacyjnego do rozwiązywania problemów z maszyną wirtualną. Utwórz następujące pliki na dysku systemu operacyjnego dla źródłowej maszyny wirtualnej, która jest dołączana jako dysk danych.
    
-   * Dodaj następujące wiersze do utworzonego `gpt.ini` pliku:
+   * Dodaj następujące wiersze do `gpt.ini` utworzonego pliku:
      
      ```
      [General]
@@ -165,9 +165,9 @@ Przed podjęciem próby wykonania poniższych kroków zawsze należy spróbować
      
      ![Utwórz plik GPT. ini](./media/reset-local-password-without-agent/create-gpt-ini-classic.png)
 
-5. Utwórz `scripts.ini` w `\Windows\System32\GroupPolicy\Machines\Scripts\`. Upewnij się, że ukryte foldery są wyświetlane. W `Machine` razie konieczności Utwórz foldery lub `Scripts` .
+5. Utwórz `scripts.ini` w `\Windows\System32\GroupPolicy\Machines\Scripts\` . Upewnij się, że ukryte foldery są wyświetlane. W razie konieczności Utwórz `Machine` foldery lub `Scripts` .
    
-   * Dodaj następujący wiersz utworzonego `scripts.ini` pliku:
+   * Dodaj następujący wiersz `scripts.ini` utworzonego pliku:
 
      ```
      [Startup]
@@ -177,7 +177,7 @@ Przed podjęciem próby wykonania poniższych kroków zawsze należy spróbować
      
      ![Utwórz skrypt. ini](./media/reset-local-password-without-agent/create-scripts-ini-classic.png)
 
-6. Utwórz `FixAzureVM.cmd` w `\Windows\System32` programie, używając następującej zawartości, `<username>` zastępując `<newpassword>` i korzystając z własnych wartości:
+6. Utwórz `FixAzureVM.cmd` w programie `\Windows\System32` , używając następującej zawartości, zastępując `<username>` i `<newpassword>` korzystając z własnych wartości:
    
     ```
     net user <username> <newpassword> /add
@@ -218,7 +218,7 @@ Przed podjęciem próby wykonania poniższych kroków zawsze należy spróbować
     * Wniosek`%windir%\System32\GroupPolicy\Machine\Scripts`
       * usuwa`scripts.ini`
     * Wniosek`%windir%\System32\GroupPolicy`
-      * Usuń `gpt.ini` (Jeśli `gpt.ini` istniały wcześniej i zmieniono jego nazwę na `gpt.ini.bak`, Zmień nazwę `.bak` pliku z powrotem na `gpt.ini`)
+      * Usuń `gpt.ini` (Jeśli `gpt.ini` istniały wcześniej i zmieniono jego nazwę na `gpt.ini.bak` , Zmień nazwę `.bak` pliku z powrotem na `gpt.ini` )
 
 ## <a name="next-steps"></a>Następne kroki
 Jeśli nadal nie można nawiązać połączenia przy użyciu Pulpit zdalny, zobacz [Przewodnik rozwiązywania problemów](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)z protokołem RDP. [Szczegółowy przewodnik rozwiązywania problemów](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) z PROTOKOŁem RDP dotyczy metod rozwiązywania problemów, a nie konkretnych kroków. Możesz również [otworzyć żądanie pomocy technicznej platformy Azure](https://azure.microsoft.com/support/options/) , aby uzyskać pomoc techniczną.

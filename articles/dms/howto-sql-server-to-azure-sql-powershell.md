@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: f63f79402b457017257f1762c6ddc7e04c0ee1af
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 323d6b006d3e790a7517e90f34241976904b3ba3
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77650694"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021487"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-database-using-azure-powershell"></a>Migrowanie SQL Server lokalnie do Azure SQL Database przy użyciu Azure PowerShell
 
@@ -109,7 +109,7 @@ $sourceConnInfo = New-AzDmsConnInfo -ServerType SQL `
   -TrustServerCertificate:$true
 ```
 
-W następnym przykładzie pokazano tworzenie informacji o połączeniu dla serwera usługi Azure SQL Database o nazwie SQLAzureTarget przy użyciu uwierzytelniania SQL:
+W następnym przykładzie pokazano tworzenie informacji o połączeniu dla serwera o nazwie SQLAzureTarget przy użyciu uwierzytelniania SQL:
 
 ```powershell
 $targetConnInfo = New-AzDmsConnInfo -ServerType SQL `
@@ -131,7 +131,7 @@ $dbList = @($dbInfo1)
 
 ### <a name="create-a-project-object"></a>Utwórz obiekt projektu
 
-Na koniec można utworzyć projekt migracji bazy danych platformy Azure o nazwie *MyDMSProject* , który `New-AzDataMigrationProject` znajduje się w *regionie Wschodnie stany USA* przy użyciu i dodając wcześniej utworzone połączenie źródłowe i docelowe oraz listę baz danych do migracji.
+Na koniec można utworzyć projekt migracji bazy danych platformy Azure o nazwie *MyDMSProject* , który znajduje się w *regionie Wschodnie stany USA* przy użyciu `New-AzDataMigrationProject` i dodając wcześniej utworzone połączenie źródłowe i docelowe oraz listę baz danych do migracji.
 
 ```powershell
 $project = New-AzDataMigrationProject -ResourceGroupName myResourceGroup `
@@ -186,7 +186,7 @@ $selectedDbs = New-AzDmsSelectedDB -MigrateSqlServerSqlDb -Name AdventureWorks20
 
 ### <a name="create-the-migration-task-and-start-it"></a>Utwórz zadanie migracji i uruchom je
 
-Użyj polecenia `New-AzDataMigrationTask` cmdlet, aby utworzyć i uruchomić zadanie migracji. To polecenie cmdlet oczekuje następujących parametrów:
+Użyj `New-AzDataMigrationTask` polecenia cmdlet, aby utworzyć i uruchomić zadanie migracji. To polecenie cmdlet oczekuje następujących parametrów:
 
 * *TaskType*. Typ zadania migracji, które ma zostać utworzone dla SQL Server do Azure SQL Database migracji typu *MigrateSqlServerSqlDb* jest oczekiwany. 
 * *Nazwa grupy zasobów*. Nazwa grupy zasobów platformy Azure, w której ma zostać utworzone zadanie.

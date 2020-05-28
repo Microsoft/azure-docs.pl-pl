@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: f5bb2b97d7da770828c2f4f03167483ad2044c79
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 10d9053e082a995085fa255cc0d9f63a2b4e2b17
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75426402"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020612"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Pojęcia dotyczące punktów kontrolnych i powtarzania w zadaniach Azure Stream Analytics
 W tym artykule opisano wewnętrzne punkty kontrolne i koncepcje powtarzania w programie Azure Stream Analytics oraz wpływ na odzyskiwanie zadań. Przy każdym uruchomieniu zadania Stream Analytics informacje o stanie są obsługiwane wewnętrznie. Informacje o stanie są zapisywane okresowo w punkcie kontrolnym. W niektórych scenariuszach informacje o punkcie kontrolnym są używane do odzyskiwania zadań, jeśli wystąpi błąd lub uaktualnienie zadania. W innych sytuacjach punkt kontrolny nie może być używany do odzyskiwania, a odtwarzanie jest konieczne.
@@ -47,7 +47,7 @@ Firma Microsoft czasami uaktualnia pliki binarne, które uruchamiają zadania St
 
 Obecnie format punktu kontrolnego odzyskiwania nie jest zachowywany między uaktualnieniami. W związku z tym stan zapytania przesyłania strumieniowego musi być przywracany całkowicie przy użyciu techniki powtarzania. Aby umożliwić Stream Analytics zadania odtwarzania dokładnie tych samych danych wejściowych z wcześniej, należy ustawić zasady przechowywania dla danych źródłowych na co najmniej rozmiary okien w zapytaniu. Niewykonanie tej czynności może spowodować nieprawidłowe lub częściowe wyniki podczas uaktualniania usługi, ponieważ dane źródłowe mogą nie być przechowywane wystarczająco długo, aby uwzględnić pełny rozmiar okna.
 
-Ogólnie rzecz biorąc, ilość wymaganego odtwarzania jest proporcjonalna do rozmiaru okna pomnożonego przez średnią częstotliwość zdarzeń. Przykładowo w przypadku zadania z szybkością wprowadzania 1000 zdarzeń na sekundę rozmiar okna o rozmiarze większym niż godzina jest traktowany jak rozmiar dużego powtórzenia. Do zainicjowania stanu może być konieczne ponowne przetworzenie danych do jednej godziny, aby umożliwić wygenerowanie pełnych i poprawnych wyników, co może spowodować opóźnione wyjście (Brak danych wyjściowych) przez dłuższy czas. Zapytania bez okien ani innych operatorów czasowych, takich `JOIN` jak `LAG`lub, nie będą odtwarzane.
+Ogólnie rzecz biorąc, ilość wymaganego odtwarzania jest proporcjonalna do rozmiaru okna pomnożonego przez średnią częstotliwość zdarzeń. Przykładowo w przypadku zadania z szybkością wprowadzania 1000 zdarzeń na sekundę rozmiar okna o rozmiarze większym niż godzina jest traktowany jak rozmiar dużego powtórzenia. Do zainicjowania stanu może być konieczne ponowne przetworzenie danych do jednej godziny, aby umożliwić wygenerowanie pełnych i poprawnych wyników, co może spowodować opóźnione wyjście (Brak danych wyjściowych) przez dłuższy czas. Zapytania bez okien ani innych operatorów czasowych, takich jak `JOIN` lub `LAG` , nie będą odtwarzane.
 
 ## <a name="estimate-replay-catch-up-time"></a>Oszacowanie czasu przechwytywania ponownego odtwarzania
 Aby oszacować długość opóźnienia z powodu uaktualnienia usługi, możesz wykonać tę technikę:
@@ -58,7 +58,7 @@ Aby oszacować długość opóźnienia z powodu uaktualnienia usługi, możesz w
 
 3. Zmierz czas między czasem rozpoczęcia i po wygenerowaniu pierwszego danych wyjściowych. Czas pozostały do poprawienia opóźnienia zadania podczas uaktualniania usługi.
 
-4. Jeśli opóźnienie jest zbyt długie, spróbuj podzielić zadanie na partycje i zwiększyć liczbę serwerów, aby obciążenie było rozłożone na więcej węzłów. Alternatywnie należy rozważyć zmniejszenie rozmiarów okna w kwerendzie i przeprowadzenie dalszej agregacji lub innego przetwarzania stanowego na podstawie danych wyjściowych wytwarzanych przez zadanie Stream Analytics w zlewie podrzędnym (na przykład przy użyciu usługi Azure SQL Database).
+4. Jeśli opóźnienie jest zbyt długie, spróbuj podzielić zadanie na partycje i zwiększyć liczbę serwerów, aby obciążenie było rozłożone na więcej węzłów. Alternatywnie należy rozważyć zmniejszenie rozmiarów okna w zapytaniu i przeprowadzenie dalszej agregacji lub innego przetwarzania stanowego na podstawie danych wyjściowych generowanych przez zadanie Stream Analytics w zlewie podrzędnym (na przykład przy użyciu Azure SQL Database).
 
 Aby uzyskać ogólne problemy dotyczące stabilności usługi podczas uaktualniania zadań o znaczeniu krytycznym, należy rozważyć uruchomienie zduplikowanych zadań w sparowanych regionach platformy Azure. Aby uzyskać więcej informacji, zobacz temat [gwarancja Stream Analytics niezawodność zadania podczas aktualizacji usługi](stream-analytics-job-reliability.md).
 

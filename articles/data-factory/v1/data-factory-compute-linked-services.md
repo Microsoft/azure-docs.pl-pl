@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 0cc7c3b7d8b364e0bcca671efaff2cf324695428
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cdb913434d7aab3ceadbbf19d7a95000abf6776c
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281550"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022014"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Środowiska obliczeniowe obsługiwane przez Azure Data Factory
 > [!NOTE]
@@ -49,7 +49,7 @@ Firma Microsoft aktualizuje listę obsługiwanych wersji usługi HDInsight z naj
 Po 15 grudnia 2017:
 
 - Nie można już tworzyć klastrów opartych na systemie Linux w wersji 3,3 (lub starszych) przy użyciu połączonej usługi HDInsight na żądanie w Data Factory wersji 1. 
-- Jeśli właściwości [ **osType** i **Version** ](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) nie zostały jawnie określone w definicji JSON dla istniejącej połączonej usługi HDInsight Data Factory wersja 1 na żądanie, wartość domyślna zostanie zmieniona z **wersji = 3.1, osType = Windows** to **Version =\<Najnowsza wersja\>domyślna HDi (https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning), osType = Linux**.
+- Jeśli właściwości [ **OsType** i **Version** ](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) nie zostały jawnie określone w definicji JSON dla istniejącej połączonej usługi HDInsight Data Factory wersja 1 na żądanie, wartość domyślna zostanie zmieniona z **wersji = 3.1, osType = Windows** na **wersję = \<latest HDI default version\> ( https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning) , osType = Linux**.
 
 Po 31 lipca 2018:
 
@@ -119,13 +119,13 @@ Poniższy kod JSON definiuje połączoną usługę HDInsight na żądanie z syst
 > 
 
 ### <a name="properties"></a>Właściwości
-| Właściwość                     | Opis                              | Wymagany |
+| Właściwość                     | Opis                              | Wymagane |
 | ---------------------------- | ---------------------------------------- | -------- |
-| type                         | Ustaw Właściwość Type na **HDInsightOnDemand**. | Tak      |
-| clusterSize                  | Liczba węzłów procesu roboczego i danych w klastrze. Klaster usługi HDInsight jest tworzony z 2 węzłami głównymi, a także z liczbą węzłów procesu roboczego określonych dla tej właściwości. Węzły mają rozmiar Standard_D3, który ma 4 rdzenie. Klaster węzeł 4-proces roboczy przyjmuje 24 rdzenie (\*4 4 = 16 rdzeni dla węzłów procesu roboczego,\*a 2 4 = 8 rdzeni dla węzłów głównych). Aby uzyskać szczegółowe informacje na temat warstwy Standard_D3, zobacz [Tworzenie klastrów Hadoop opartych na systemie Linux w usłudze HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). | Tak      |
-| timeToLive                   | Dozwolony czas bezczynności dla klastra usługi HDInsight na żądanie. Określa, jak długo klaster usługi HDInsight na żądanie pozostaje aktywny po zakończeniu uruchomienia działania, jeśli nie ma żadnych innych aktywnych zadań w klastrze.<br /><br />Na przykład, Jeśli uruchomienie działania trwa 6 minut, a **TimeToLive** jest ustawiony na 5 minut, klaster pozostaje aktywny przez 5 minut po 6 minutach przetwarzania działania. Jeśli w oknie 6-minutowy zostanie wykonane inne uruchomienie działania, jest ono przetwarzane przez ten sam klaster.<br /><br />Tworzenie klastra usługi HDInsight na żądanie jest kosztowną operacją (może to potrwać trochę czasu). Użyj tego ustawienia, aby zwiększyć wydajność fabryki danych przez ponowne użycie klastra usługi HDInsight na żądanie.<br /><br />Jeśli wartość **TimeToLive** jest ustawiona na **0**, klaster zostanie usunięty zaraz po zakończeniu uruchomienia działania. Jeśli jednak ustawisz wysoką wartość, klaster może pozostać bezczynny, niekoniecznie powodując wysokie koszty. Ważne jest, aby ustawić odpowiednią wartość na podstawie Twoich potrzeb.<br /><br />Jeśli wartość **TimeToLive** jest odpowiednio ustawiona, wiele potoków może współdzielić wystąpienie klastra usługi HDInsight na żądanie. | Tak      |
-| Wersja                      | Wersja klastra usługi HDInsight. Aby uzyskać dozwolone wersje usługi HDInsight, zobacz [obsługiwane wersje usługi HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions). Jeśli ta wartość nie jest określona, używana jest [Najnowsza wersja HDI](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning) . | Nie       |
-| linkedServiceName            | Połączona usługa Azure Storage, która będzie używana przez klaster na żądanie do przechowywania i przetwarzania danych. Klaster usługi HDInsight jest tworzony w tym samym regionie, w którym znajduje się to konto magazynu.<p>Obecnie nie można utworzyć klastra usługi HDInsight na żądanie, który używa Azure Data Lake Store jako magazynu. Jeśli chcesz przechowywać dane wynikowe z przetwarzania usługi HDInsight w Data Lake Store, Użyj działania kopiowania, aby skopiować dane z magazynu obiektów BLOB do Data Lake Store. </p> | Tak      |
+| typ                         | Ustaw Właściwość Type na **HDInsightOnDemand**. | Yes      |
+| clusterSize                  | Liczba węzłów procesu roboczego i danych w klastrze. Klaster usługi HDInsight jest tworzony z 2 węzłami głównymi, a także z liczbą węzłów procesu roboczego określonych dla tej właściwości. Węzły mają rozmiar Standard_D3, który ma 4 rdzenie. Klaster węzeł 4-proces roboczy przyjmuje 24 rdzenie (4 \* 4 = 16 rdzeni dla węzłów procesu roboczego, a 2 \* 4 = 8 rdzeni dla węzłów głównych). Aby uzyskać szczegółowe informacje na temat warstwy Standard_D3, zobacz [Tworzenie klastrów Hadoop opartych na systemie Linux w usłudze HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md). | Yes      |
+| timeToLive                   | Dozwolony czas bezczynności dla klastra usługi HDInsight na żądanie. Określa, jak długo klaster usługi HDInsight na żądanie pozostaje aktywny po zakończeniu uruchomienia działania, jeśli nie ma żadnych innych aktywnych zadań w klastrze.<br /><br />Na przykład, Jeśli uruchomienie działania trwa 6 minut, a **TimeToLive** jest ustawiony na 5 minut, klaster pozostaje aktywny przez 5 minut po 6 minutach przetwarzania działania. Jeśli w oknie 6-minutowy zostanie wykonane inne uruchomienie działania, jest ono przetwarzane przez ten sam klaster.<br /><br />Tworzenie klastra usługi HDInsight na żądanie jest kosztowną operacją (może to potrwać trochę czasu). Użyj tego ustawienia, aby zwiększyć wydajność fabryki danych przez ponowne użycie klastra usługi HDInsight na żądanie.<br /><br />Jeśli wartość **TimeToLive** jest ustawiona na **0**, klaster zostanie usunięty zaraz po zakończeniu uruchomienia działania. Jeśli jednak ustawisz wysoką wartość, klaster może pozostać bezczynny, niekoniecznie powodując wysokie koszty. Ważne jest, aby ustawić odpowiednią wartość na podstawie Twoich potrzeb.<br /><br />Jeśli wartość **TimeToLive** jest odpowiednio ustawiona, wiele potoków może współdzielić wystąpienie klastra usługi HDInsight na żądanie. | Yes      |
+| version                      | Wersja klastra usługi HDInsight. Aby uzyskać dozwolone wersje usługi HDInsight, zobacz [obsługiwane wersje usługi HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#supported-hdinsight-versions). Jeśli ta wartość nie jest określona, używana jest [Najnowsza wersja HDI](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning) . | Nie       |
+| linkedServiceName            | Połączona usługa Azure Storage, która będzie używana przez klaster na żądanie do przechowywania i przetwarzania danych. Klaster usługi HDInsight jest tworzony w tym samym regionie, w którym znajduje się to konto magazynu.<p>Obecnie nie można utworzyć klastra usługi HDInsight na żądanie, który używa Azure Data Lake Store jako magazynu. Jeśli chcesz przechowywać dane wynikowe z przetwarzania usługi HDInsight w Data Lake Store, Użyj działania kopiowania, aby skopiować dane z magazynu obiektów BLOB do Data Lake Store. </p> | Yes      |
 | additionalLinkedServiceNames | Określa dodatkowe konta magazynu dla połączonej usługi HDInsight. Data Factory rejestruje konta magazynu w Twoim imieniu. Te konta magazynu muszą znajdować się w tym samym regionie co klaster usługi HDInsight. Klaster usługi HDInsight jest tworzony w tym samym regionie co konto magazynu określone przez właściwość **linkedServiceName** . | Nie       |
 | osType                       | Typ systemu operacyjnego. Dozwolone wartości to **Linux** i **Windows**. Jeśli ta wartość nie jest określona, zostanie użyty system **Linux** .  <br /><br />Zdecydowanie zalecamy korzystanie z klastrów usługi HDInsight opartych na systemie Linux. Data wycofania usługi HDInsight w systemie Windows to 31 lipca 2018. | Nie       |
 | hcatalogLinkedServiceName    | Nazwa połączonej usługi Azure SQL, która wskazuje bazę danych HCatalog. Klaster usługi HDInsight na żądanie jest tworzony przy użyciu bazy danych SQL jako magazynu metadanych. | Nie       |
@@ -142,7 +142,7 @@ Poniższy kod JSON definiuje połączoną usługę HDInsight na żądanie z syst
 ### <a name="advanced-properties"></a>Właściwości zaawansowane
 Aby uzyskać szczegółową konfigurację klastra usługi HDInsight na żądanie, można określić następujące właściwości:
 
-| Właściwość               | Opis                              | Wymagany |
+| Właściwość               | Opis                              | Wymagane |
 | :--------------------- | :--------------------------------------- | :------- |
 | coreConfiguration      | Określa podstawowe parametry konfiguracji (pliku Core-site. xml) dla klastra usługi HDInsight, który ma zostać utworzony. | Nie       |
 | hBaseConfiguration     | Określa parametry konfiguracji HBase (HBase-site. xml) dla klastra usługi HDInsight. | Nie       |
@@ -195,7 +195,7 @@ Aby uzyskać szczegółową konfigurację klastra usługi HDInsight na żądanie
 ### <a name="node-sizes"></a>Rozmiary węzłów
 Aby określić rozmiar węzłów głowy, danych i dozorcy, użyj następujących właściwości: 
 
-| Właściwość          | Opis                              | Wymagany |
+| Właściwość          | Opis                              | Wymagane |
 | :---------------- | :--------------------------------------- | :------- |
 | Dodano      | Ustawia rozmiar węzła głównego. Wartość domyślna to **Standard_D3**. Aby uzyskać szczegółowe informacje, zobacz [Określanie rozmiarów węzłów](#specify-node-sizes). | Nie       |
 | dataNodeSize      | Ustawia rozmiar węzła danych. Wartość domyślna to **Standard_D3**. | Nie       |
@@ -255,20 +255,20 @@ Można utworzyć połączoną usługę HDInsight, aby zarejestrować własny kla
 ```
 
 ### <a name="properties"></a>Właściwości
-| Właściwość          | Opis                              | Wymagany |
+| Właściwość          | Opis                              | Wymagane |
 | ----------------- | ---------------------------------------- | -------- |
-| type              | Ustaw Właściwość Type na **HDInsight**. | Tak      |
-| clusterUri        | Identyfikator URI klastra usługi HDInsight.        | Tak      |
-| nazwa użytkownika          | Nazwa konta użytkownika, które ma zostać użyte do nawiązania połączenia z istniejącym klastrem usługi HDInsight. | Tak      |
-| hasło          | Hasło konta użytkownika.   | Tak      |
-| linkedServiceName | Nazwa połączonej usługi Storage odwołująca się do magazynu obiektów BLOB używanego przez klaster usługi HDInsight. <p>Obecnie nie można określić Data Lake Store połączonej usługi dla tej właściwości. Jeśli klaster usługi HDInsight ma dostęp do Data Lake Store, możesz uzyskać dostęp do danych w Data Lake Store ze skryptów Hive lub świńskiej. </p> | Tak      |
+| typ              | Ustaw Właściwość Type na **HDInsight**. | Yes      |
+| clusterUri        | Identyfikator URI klastra usługi HDInsight.        | Yes      |
+| nazwa użytkownika          | Nazwa konta użytkownika, które ma zostać użyte do nawiązania połączenia z istniejącym klastrem usługi HDInsight. | Yes      |
+| hasło          | Hasło konta użytkownika.   | Yes      |
+| linkedServiceName | Nazwa połączonej usługi Storage odwołująca się do magazynu obiektów BLOB używanego przez klaster usługi HDInsight. <p>Obecnie nie można określić Data Lake Store połączonej usługi dla tej właściwości. Jeśli klaster usługi HDInsight ma dostęp do Data Lake Store, możesz uzyskać dostęp do danych w Data Lake Store ze skryptów Hive lub świńskiej. </p> | Yes      |
 
 ## <a name="azure-batch-linked-service"></a>Azure Batch połączona usługa
 Można utworzyć połączoną usługę Batch, aby zarejestrować pulę usługi Batch maszyn wirtualnych w fabryce danych. Działania niestandardowe można uruchamiać Microsoft .NET przy użyciu usługi Batch lub usługi HDInsight.
 
 Jeśli dopiero zaczynasz korzystać z usługi Batch:
 
-* Dowiedz się więcej na temat [Azure Batch podstawowych](../../batch/batch-technical-overview.md).
+* Dowiedz się więcej na temat [Azure Batch podstawowych](../../azure-sql/database/sql-database-paas-overview.md).
 * Dowiedz się więcej na temat polecenia cmdlet [New-AzureBatchAccount](https://msdn.microsoft.com/library/mt125880.aspx) . Użyj tego polecenia cmdlet, aby utworzyć konto w usłudze Batch. Można też utworzyć konto usługi Batch przy użyciu [Azure Portal](../../batch/batch-account-create-portal.md). Aby uzyskać szczegółowe informacje na temat korzystania z polecenia cmdlet, zobacz [Używanie programu PowerShell do zarządzania kontem usługi Batch](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
 * Dowiedz się więcej na temat polecenia cmdlet [New-AzureBatchPool](https://msdn.microsoft.com/library/mt125936.aspx) . Użyj tego polecenia cmdlet, aby utworzyć pulę wsadową.
 
@@ -289,7 +289,7 @@ Jeśli dopiero zaczynasz korzystać z usługi Batch:
 }
 ```
 
-Dla właściwości **AccountName** Dołącz wartość **.\< Nazwa\> regionu** dla nazwy konta w usłudze Batch. Przykład:
+Dla właściwości **AccountName** Dołącz wartość **. \<region name\> ** Nazwa konta w usłudze Batch. Przykład:
 
 ```json
 "accountName": "mybatchaccount.eastus"
@@ -303,13 +303,13 @@ Innym rozwiązaniem jest dostarczenie punktu końcowego **batchUri** . Przykład
 ```
 
 ### <a name="properties"></a>Właściwości
-| Właściwość          | Opis                              | Wymagany |
+| Właściwość          | Opis                              | Wymagane |
 | ----------------- | ---------------------------------------- | -------- |
-| type              | Ustaw Właściwość Type na **AzureBatch**. | Tak      |
-| accountName       | Nazwa konta wsadowego.         | Tak      |
-| accessKey         | Klucz dostępu dla konta usługi Batch.  | Tak      |
-| poolName          | Nazwa puli maszyn wirtualnych.    | Tak      |
-| linkedServiceName | Nazwa połączonej usługi Storage, która jest skojarzona z tą połączoną usługą Batch. Ta połączona usługa jest używana w przypadku plików tymczasowych wymaganych do uruchomienia działania oraz do przechowywania dzienników wykonywania działania. | Tak      |
+| typ              | Ustaw Właściwość Type na **AzureBatch**. | Yes      |
+| accountName       | Nazwa konta wsadowego.         | Yes      |
+| accessKey         | Klucz dostępu dla konta usługi Batch.  | Yes      |
+| poolName          | Nazwa puli maszyn wirtualnych.    | Yes      |
+| linkedServiceName | Nazwa połączonej usługi Storage, która jest skojarzona z tą połączoną usługą Batch. Ta połączona usługa jest używana w przypadku plików tymczasowych wymaganych do uruchomienia działania oraz do przechowywania dzienników wykonywania działania. | Yes      |
 
 ## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning połączona usługa
 Możesz utworzyć połączoną usługę Machine Learning, aby zarejestrować punkt końcowy oceniania Machine Learning partii do fabryki danych.
@@ -332,19 +332,19 @@ Możesz utworzyć połączoną usługę Machine Learning, aby zarejestrować pun
 ### <a name="properties"></a>Właściwości
 | Właściwość   | Opis                              | Wymagany |
 | ---------- | ---------------------------------------- | -------- |
-| Typ       | Ustaw Właściwość Type na **Azure**. | Tak      |
-| mlEndpoint | Adres URL oceniania partii.                   | Tak      |
-| apiKey     | Interfejs API opublikowanego modelu obszaru roboczego.     | Tak      |
+| Typ       | Ustaw Właściwość Type na **Azure**. | Yes      |
+| mlEndpoint | Adres URL oceniania partii.                   | Yes      |
+| apiKey     | Interfejs API opublikowanego modelu obszaru roboczego.     | Yes      |
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics połączona usługa
 Można utworzyć Data Lake Analytics połączonej usługi, aby połączyć usługę obliczeniową Data Lake Analytics z fabryką danych Azure. Działanie Data Lake Analytics U-SQL w potoku odwołuje się do tej połączonej usługi. 
 
 W poniższej tabeli opisano ogólne właściwości, które są używane w definicji JSON:
 
-| Właściwość                 | Opis                              | Wymagany                                 |
+| Właściwość                 | Opis                              | Wymagane                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| type                 | Ustaw Właściwość Type na **AzureDataLakeAnalytics**. | Tak                                      |
-| accountName          | Nazwa konta Data Lake Analytics.  | Tak                                      |
+| typ                 | Ustaw Właściwość Type na **AzureDataLakeAnalytics**. | Yes                                      |
+| accountName          | Nazwa konta Data Lake Analytics.  | Yes                                      |
 | dataLakeAnalyticsUri | Identyfikator URI Data Lake Analytics.           | Nie                                       |
 | subscriptionId       | Identyfikator subskrypcji platformy Azure.                    | Nie<br /><br />(Jeśli nie zostanie określony, używana jest subskrypcja usługi Data Factory). |
 | resourceGroupName    | Nazwa grupy zasobów platformy Azure.                | Nie<br /><br /> (Jeśli nie zostanie określony, używana jest Grupa zasobów Fabryka danych). |
@@ -360,11 +360,11 @@ Aby użyć uwierzytelniania nazwy głównej usługi, zarejestruj jednostkę apli
 
 Użyj uwierzytelniania nazwy głównej usługi, określając następujące właściwości:
 
-| Właściwość                | Opis                              | Wymagany |
+| Właściwość                | Opis                              | Wymagane |
 | :---------------------- | :--------------------------------------- | :------- |
-| servicePrincipalId  | Identyfikator klienta aplikacji.     | Tak      |
-| servicePrincipalKey | Klucz aplikacji.           | Tak      |
-| dzierżaw              | Informacje o dzierżawie (nazwa domeny lub identyfikator dzierżawy), w których znajduje się aplikacja. Aby uzyskać te informacje, umieść wskaźnik myszy w prawym górnym rogu Azure Portal. | Tak      |
+| servicePrincipalId  | Identyfikator klienta aplikacji.     | Yes      |
+| servicePrincipalKey | Klucz aplikacji.           | Yes      |
+| dzierżaw              | Informacje o dzierżawie (nazwa domeny lub identyfikator dzierżawy), w których znajduje się aplikacja. Aby uzyskać te informacje, umieść wskaźnik myszy w prawym górnym rogu Azure Portal. | Yes      |
 
 **Przykład: Uwierzytelnianie jednostki usługi**
 ```json
@@ -388,10 +388,10 @@ Użyj uwierzytelniania nazwy głównej usługi, określając następujące wła�
 #### <a name="user-credential-authentication"></a>Uwierzytelnianie poświadczeń użytkownika
 W przypadku uwierzytelniania poświadczeń użytkowników dla Data Lake Analytics określ następujące właściwości:
 
-| Właściwość          | Opis                              | Wymagany |
+| Właściwość          | Opis                              | Wymagane |
 | :---------------- | :--------------------------------------- | :------- |
-| autoryzacja | W edytorze Data Factory wybierz przycisk **Autoryzuj** . Wprowadź poświadczenia, które przypisuje automatycznie wygenerowany adres URL autoryzacji do tej właściwości. | Tak      |
-| sessionId     | Identyfikator sesji OAuth z sesji autoryzacji OAuth. Każdy identyfikator sesji jest unikatowy i może być używany tylko raz. To ustawienie jest generowane automatycznie, gdy jest używany Edytor Data Factory. | Tak      |
+| autoryzacja | W edytorze Data Factory wybierz przycisk **Autoryzuj** . Wprowadź poświadczenia, które przypisuje automatycznie wygenerowany adres URL autoryzacji do tej właściwości. | Yes      |
+| sessionId     | Identyfikator sesji OAuth z sesji autoryzacji OAuth. Każdy identyfikator sesji jest unikatowy i może być używany tylko raz. To ustawienie jest generowane automatycznie, gdy jest używany Edytor Data Factory. | Yes      |
 
 **Przykład: uwierzytelnianie poświadczeń użytkownika**
 ```json

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2020
 ms.author: terrylan
-ms.openlocfilehash: ad6d3992f03802174eb03aa30b57b8d3dac1d6c4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e0e7089e7c674f324c2c3d293661c518b41731b9
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78942955"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021861"
 ---
 # <a name="azure-sql-database-security-features"></a>Azure SQL Database funkcje zabezpieczeń    
 Azure SQL Database zapewnia usługi relacyjnej bazy danych na platformie Azure. W celu ochrony danych klienta i zapewnienia mocnych funkcji zabezpieczeń, których klienci oczekują od usługi relacyjnej bazy danych, SQL Database mają własne zestawy funkcji zabezpieczeń. Te możliwości są kompilowane na kontrolkach, które są dziedziczone z platformy Azure.
@@ -31,13 +31,13 @@ Azure SQL Database zapewnia usługi relacyjnej bazy danych na platformie Azure. 
 Azure SQL Database obsługuje tylko protokół strumienia danych tabelarycznych (TDS), który wymaga dostępu do bazy danych tylko przez domyślny port TCP/1433.
 
 ### <a name="azure-sql-database-firewall"></a>Zapora Azure SQL Database
-Aby chronić dane klientów, Azure SQL Database obejmuje funkcje zapory, które domyślnie uniemożliwiają dostęp do serwera SQL Database, jak pokazano poniżej.
+Aby chronić dane klientów, Azure SQL Database obejmuje funkcje zapory, które domyślnie uniemożliwiają cały dostęp do SQL Database, jak pokazano poniżej.
 
 ![Zapora Azure SQL Database](./media/infrastructure-sql/sql-database-firewall.png)
 
 Zapora bramy może ograniczyć adresy, co pozwala klientom szczegółowo kontrolować Określanie zakresów akceptowalnych adresów IP. Zapora przyznaje dostęp na podstawie źródłowego adresu IP każdego żądania.
 
-Klienci mogą uzyskać konfigurację zapory przy użyciu portalu zarządzania lub programowo przy użyciu interfejsu API REST zarządzania Azure SQL Database. Zapora Azure SQL Database Gateway domyślnie uniemożliwia wszystkim klientom dostęp do wystąpień usługi Azure SQL Database. Klienci muszą skonfigurować dostęp przy użyciu list kontroli dostępu (ACL), aby zezwalać na połączenia Azure SQL Database przez źródłowe i docelowe adresy internetowe, protokoły i numery portów.
+Klienci mogą uzyskać konfigurację zapory przy użyciu portalu zarządzania lub programowo przy użyciu interfejsu API REST zarządzania Azure SQL Database. Zapora Azure SQL Database Gateway domyślnie uniemożliwia wszystkim klientom dostęp do Azure SQL Database. Klienci muszą skonfigurować dostęp przy użyciu list kontroli dostępu (ACL), aby zezwalać na połączenia Azure SQL Database przez źródłowe i docelowe adresy internetowe, protokoły i numery portów.
 
 ### <a name="dosguard"></a>DoSGuard
 Ataki typu "odmowa usługi" (DoS) są redukowane przez usługę bramy SQL Database o nazwie DoSGuard. DoSGuard aktywnie śledzi nieudane logowania z adresów IP. W przypadku wystąpienia wielu nieudanych logowań z określonego adresu IP w danym okresie adres IP nie ma dostępu do dowolnych zasobów usługi w ramach wstępnie zdefiniowanego okresu.

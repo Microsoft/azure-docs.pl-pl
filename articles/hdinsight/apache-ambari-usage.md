@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/05/2020
-ms.openlocfilehash: 466c170985715be52a90d579c19ca23aefefe2e5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8e40367e07fcda572cca73a3c01d9036e322c85c
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77067398"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020102"
 ---
 # <a name="apache-ambari-usage-in-azure-hdinsight"></a>Użycie oprogramowania Apache Ambari w usłudze Azure HDInsight
 
@@ -56,7 +56,7 @@ Jest to sekwencja uruchamiania usługi podczas rozruchu:
 
 ## <a name="ambari-database"></a>Baza danych Ambari
 
-Usługa HDInsight tworzy bazę danych usługi SQL Azure pod okapem, która będzie działać jako baza danych dla serwera Ambari. Domyślną [warstwą usług jest S0](../sql-database/sql-database-elastic-pool-scale.md).
+Usługa HDInsight tworzy bazę danych usługi SQL Azure pod okapem, która będzie działać jako baza danych dla serwera Ambari. Domyślną [warstwą usług jest S0](../azure-sql/database/elastic-pool-scale.md).
 
 W przypadku każdego klastra z liczbą węzłów procesu roboczego większą niż 16 podczas tworzenia klastra S2 jest warstwą usługi bazy danych.
 
@@ -75,6 +75,6 @@ Jeśli problem nie został wyświetlony lub nie można rozwiązać problemu, odw
 
 * Uzyskaj odpowiedzi od ekspertów platformy Azure za pośrednictwem [pomocy technicznej dla społeczności platformy Azure](https://azure.microsoft.com/support/community/).
 
-* Połącz się [@AzureSupport](https://twitter.com/azuresupport) z programem — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
+* Połącz się z programem [@AzureSupport](https://twitter.com/azuresupport) — oficjalnego konta Microsoft Azure, aby zwiększyć komfort obsługi klienta. Połączenie społeczności platformy Azure z właściwymi zasobami: odpowiedziami, wsparciem i ekspertami.
 
 * Jeśli potrzebujesz więcej pomocy, możesz przesłać żądanie pomocy technicznej z [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Na pasku menu wybierz pozycję **Obsługa** , a następnie otwórz Centrum **pomocy i obsługi technicznej** . Aby uzyskać szczegółowe informacje, zapoznaj [się z tematem jak utworzyć żądanie pomocy technicznej platformy Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Dostęp do pomocy w zakresie zarządzania subskrypcjami i rozliczeń jest dostępny w ramach subskrypcji Microsoft Azure, a pomoc techniczna jest świadczona za pomocą jednego z [planów pomocy technicznej systemu Azure](https://azure.microsoft.com/support/plans/).

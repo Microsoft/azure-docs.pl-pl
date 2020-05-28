@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory
+title: Usługa Azure Active Directory
 description: Dowiedz się, jak używać Azure Active Directory do uwierzytelniania za pomocą SQL Database, wystąpienia zarządzanego i Synapse SQL
 services: synapse-analytics
 author: vvasic-msft
@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: db80c11c3b6eab3b7e682878e479729f4787a40b
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 894eecc7746ddb1352708f2dfe5d6d2d53cdd8c9
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82086100"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021657"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-synapse-sql"></a>Uwierzytelnianie za pomocą usługi Synapse SQL przy użyciu uwierzytelniania Azure Active Directory
 
@@ -22,7 +22,7 @@ Azure Active Directory uwierzytelnianiem jest mechanizm łączenia się z [usłu
 Za pomocą uwierzytelniania w usłudze Azure AD można centralnie zarządzać tożsamościami użytkowników mającymi dostęp do usługi Azure Synapse, aby uprościć zarządzanie uprawnieniami. Oto przykładowe korzyści:
 
 - Stanowi alternatywę dla zwykłego uwierzytelniania nazwy użytkownika i hasła.
-- Pomaga zatrzymać rozprzestrzenianie tożsamości użytkowników na serwerach baz danych.
+- Pomaga zatrzymać rozprzestrzenianie tożsamości użytkowników między serwerami.
 - Umożliwia obrót hasła w jednym miejscu.
 - Klienci mogą zarządzać uprawnieniami przy użyciu zewnętrznych grup (Azure AD).
 - Może on wyeliminować przechowywanie haseł, włączając zintegrowane uwierzytelnianie systemu Windows i inne formy uwierzytelniania obsługiwane przez Azure Active Directory.
@@ -70,7 +70,7 @@ Użycie konta grupy jako administrator zwiększa możliwości zarządzania, umo�
 
 ## <a name="permissions"></a>Uprawnienia
 
-Aby utworzyć nowych użytkowników, musisz mieć odpowiednie `ALTER ANY USER` uprawnienia w bazie danych programu. `ALTER ANY USER` Uprawnienie można przyznać każdemu użytkownikowi bazy danych. `ALTER ANY USER` Uprawnienie jest również przechowywane przez konta administratora serwera oraz użytkowników bazy danych z uprawnieniami `CONTROL ON DATABASE` lub `ALTER ON DATABASE` dla tej bazy danych oraz przez członków roli `db_owner` bazy danych.
+Aby utworzyć nowych użytkowników, musisz mieć odpowiednie `ALTER ANY USER` uprawnienia w bazie danych programu. `ALTER ANY USER`Uprawnienie można przyznać każdemu użytkownikowi bazy danych. `ALTER ANY USER`Uprawnienie jest również przechowywane przez konta administratora serwera oraz użytkowników bazy danych z `CONTROL ON DATABASE` `ALTER ON DATABASE` uprawnieniami lub dla tej bazy danych oraz przez członków `db_owner` roli bazy danych.
 
 Aby utworzyć użytkownika zawartej bazy danych w programie Synapse SQL, należy połączyć się z bazą danych lub wystąpieniem przy użyciu tożsamości usługi Azure AD. Aby utworzyć pierwszego zawartego użytkownika bazy danych, musisz nawiązać połączenie z bazą danych przy użyciu administratora usługi Azure AD (który jest właścicielem bazy danych). 
 
@@ -85,11 +85,11 @@ Każde uwierzytelnianie usługi Azure AD jest możliwe tylko wtedy, gdy administ
   - Zaimportowani członkowie z innej usługi Azure AD są członkami domeny natywnej lub federacyjnej.
   - Grupy Active Directory utworzone jako grupy zabezpieczeń.
 
-- Użytkownicy usługi Azure AD będący częścią grupy, która `db_owner` ma rolę serwera, nie mogą używać składni **[poświadczeń tworzenia zakresu bazy danych](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)** dla Synapse SQL. Zostanie wyświetlony następujący błąd:
+- Użytkownicy usługi Azure AD będący częścią grupy, która ma `db_owner` rolę serwera, nie mogą używać SKŁADNI **[poświadczeń tworzenia zakresu bazy danych](/sql/t-sql/statements/create-database-scoped-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)** dla Synapse SQL. Zostanie wyświetlony następujący błąd:
 
     `SQL Error [2760] [S0001]: The specified schema name 'user@mydomain.com' either does not exist or you do not have permission to use it.`
 
-    Przyznaj `db_owner` roli bezpośrednio użytkownikowi usługi Azure AD, aby wyeliminować problem z **POŚWIADCZENIAMI tworzenia zakresu bazy danych** .
+    Przyznaj `db_owner` roli bezpośrednio użytkownikowi usługi Azure AD, aby wyeliminować problem z **poświadczeniami tworzenia zakresu bazy danych** .
 
 - Te funkcje systemowe zwracają wartości NULL, jeśli są wykonywane w ramach podmiotów zabezpieczeń usługi Azure AD:
 

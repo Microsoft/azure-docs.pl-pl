@@ -1,6 +1,6 @@
 ---
-title: Przykład interfejsu wiersza polecenia — Kopiowanie bazy danych Azure SQL Database — nowy serwer
-description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure do kopiowania bazy danych SQL na nowy serwer
+title: 'Interfejs wiersza polecenia platformy Azure: Kopiowanie bazy danych w Azure SQL Database na nowy serwer'
+description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure do kopiowania bazy danych w Azure SQL Database na nowy serwer
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,14 +11,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: b7e04d7b1ed51a45e132d088b0dd29377312027c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e7a83478654b848b8e001dd3fea276c5cc9e125a
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80067475"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022696"
 ---
-# <a name="use-cli-to-copy-a-sql-database-to-a-new-server"></a>Kopiowanie bazy danych SQL na nowy serwer przy użyciu interfejsu wiersza polecenia
+# <a name="use-cli-to-copy-a-database-in-azure-sql-database-to-a-new-server"></a>Użyj interfejsu wiersza polecenia, aby skopiować bazę danych w Azure SQL Database na nowy serwer
 
 Ten przykładowy skrypt interfejsu wiersza polecenia platformy Azure tworzy kopię istniejącej bazy danych na nowym serwerze.
 
@@ -61,4 +61,4 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 
 Aby uzyskać więcej informacji na temat interfejsu wiersza polecenia platformy Azure, zobacz [dokumentację interfejsu wiersza polecenia platformy Azure](/cli/azure).
 
-Więcej przykładowych skryptów interfejsu wiersza polecenia dla usługi SQL Database można znaleźć w [dokumentacji usługi Azure SQL Database](../sql-database-cli-samples.md).
+Więcej przykładowych skryptów interfejsu wiersza polecenia dla usługi SQL Database można znaleźć w [dokumentacji usługi Azure SQL Database](../../azure-sql/database/az-cli-script-samples-content-guide.md).

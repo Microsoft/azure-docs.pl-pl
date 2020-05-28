@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a0fbed1f4dd62b2d75d39f475d2fe124c55a2b97
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 011904d7ce14f346b678c753c10a8f3258730ee1
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75645807"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014523"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SQL Server wdrożenie systemu Azure Virtual Machines DBMS dla oprogramowania SAP NetWeaver
 
@@ -281,9 +281,9 @@ ms.locfileid: "75645807"
 [virtual-machines-sizes-windows]:../../windows/sizes.md
 [virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
 [virtual-machines-windows-classic-ps-sql-int-listener]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
-[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:./../../windows/sql/virtual-machines-windows-sql-high-availability-dr.md
-[virtual-machines-sql-server-infrastructure-services]:./../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md
-[virtual-machines-sql-server-performance-best-practices]:./../../windows/sql/virtual-machines-windows-sql-performance.md
+[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
+[virtual-machines-sql-server-infrastructure-services]:../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
+[virtual-machines-sql-server-performance-best-practices]:../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/eresources/templates/sql-server-2014-alwayson-existing-vnet-and-ad/
@@ -332,7 +332,7 @@ Poniżej znajdują się pewne SQL Server informacje, które należy znać przed 
 
 
 ## <a name="recommendations-on-vmvhd-structure-for-sap-related-sql-server-deployments"></a>Zalecenia dotyczące struktury maszyn wirtualnych/VHD dla wdrożeń SQL Server związanych z systemem SAP
-Zgodnie z ogólnym opisem SQL Server pliki wykonywalne powinny być zlokalizowane lub instalowane na dysku systemowym dysku systemu operacyjnego maszyny wirtualnej (dysk C:\).  Zazwyczaj większość baz danych systemu SQL Server nie jest używana na wysokim poziomie przez obciążenie SAP NetWeaver. W efekcie systemowe bazy danych SQL Server (Master, msdb i model) mogą pozostawać w C:\ także dysk. Wyjątek powinien mieć wartość tempdb, która w przypadku obciążeń SAP może wymagać wyższego woluminu danych lub woluminu operacji we/wy. Obciążenie we/wy, które nie powinno być stosowane do wirtualnego dysku twardego systemu operacyjnego. W przypadku takich systemów należy wykonać następujące czynności:
+Zgodnie z ogólnym opisem SQL Server pliki wykonywalne powinny być zlokalizowane lub instalowane na dysku systemowym dysku systemu operacyjnego maszyny wirtualnej (dysk C: \) .  Zazwyczaj większość baz danych systemu SQL Server nie jest używana na wysokim poziomie przez obciążenie SAP NetWeaver. W efekcie systemowe bazy danych SQL Server (Master, msdb i model) mogą pozostawać w C:\ także dysk. Wyjątek powinien mieć wartość tempdb, która w przypadku obciążeń SAP może wymagać wyższego woluminu danych lub woluminu operacji we/wy. Obciążenie we/wy, które nie powinno być stosowane do wirtualnego dysku twardego systemu operacyjnego. W przypadku takich systemów należy wykonać następujące czynności:
 
 
 * Wszystkie typy maszyn wirtualnych z certyfikatem SAP (patrz Uwaga: [1928533]), z wyjątkiem maszyn wirtualnych serii a, danych tempdb i plików dziennika, można umieścić na nieutrwalonym D:\ litera. 
@@ -439,7 +439,7 @@ W przypadku korzystania z wielu klientów SAP nie było możliwości rozpoczęci
 ## <a name="using-a-sql-server-image-out-of-the-microsoft-azure-marketplace"></a><a name="1b353e38-21b3-4310-aeb6-a77e7c8e81c8"></a>Używanie SQL Server obrazu z Microsoft Azure Marketplace
 Firma Microsoft oferuje maszyny wirtualne w portalu Azure Marketplace, które zawierają już wersje SQL Server. W przypadku klientów SAP, którzy wymagają licencji dla SQL Server i systemu Windows, korzystanie z tych obrazów może stanowić okazję do pokrycia potrzebnych licencji przez nawirowanie maszyn wirtualnych z SQL Server już zainstalowanymi. Aby można było używać takich obrazów dla oprogramowania SAP, należy wykonać następujące zagadnienia:
 
-* SQL Server wersje nieewaluacyjne uzyskują wyższe koszty niż maszyna wirtualna "tylko Windows" wdrożona w witrynie Azure Marketplace. Zobacz następujące artykuły, aby porównać ceny <https://azure.microsoft.com/pricing/details/virtual-machines/windows/> : <https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/>i. 
+* SQL Server wersje nieewaluacyjne uzyskują wyższe koszty niż maszyna wirtualna "tylko Windows" wdrożona w witrynie Azure Marketplace. Zobacz następujące artykuły, aby porównać ceny: <https://azure.microsoft.com/pricing/details/virtual-machines/windows/> i <https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/> . 
 * Można używać tylko wydań SQL Server, które są obsługiwane przez system SAP.
 * Sortowanie wystąpienia SQL Server, które jest instalowane na maszynach wirtualnych oferowanych w portalu Azure Marketplace, nie jest sortowaniem SAP NetWeaver wymaga uruchomienia wystąpienia SQL Server. Sortowanie można zmienić, korzystając z instrukcji w poniższej sekcji.
 
@@ -448,7 +448,7 @@ Ponieważ obrazy SQL Server w portalu Azure Marketplace nie są skonfigurowane d
 
 * Otwórz okno poleceń systemu Windows, jako administrator.
 * Zmień katalog na C:\Program Files\Microsoft SQL Server\110\Setup Bootstrap\SQLServer2012.
-* Wykonaj polecenie: Setup. exe/QUIET/ACTION = REBUILDDATABASE/INSTANCENAME = MSSQLSERVER/SQLSYSADMINACCOUNTS =`<local_admin_account_name`>/SQLCOLLATION = SQL_Latin1_General_Cp850_BIN2   
+* Wykonaj polecenie: Setup. exe/QUIET/ACTION = REBUILDDATABASE/INSTANCENAME = MSSQLSERVER/SQLSYSADMINACCOUNTS = `<local_admin_account_name` >/SQLCOLLATION = SQL_Latin1_General_Cp850_BIN2   
   * `<local_admin_account_name`> to konto, które zostało zdefiniowane jako konto administratora podczas pierwszego wdrażania maszyny wirtualnej za pomocą galerii.
 
 Proces powinien trwać tylko kilka minut. Aby upewnić się, że krok zakończył się z prawidłowym wynikiem, wykonaj następujące czynności:

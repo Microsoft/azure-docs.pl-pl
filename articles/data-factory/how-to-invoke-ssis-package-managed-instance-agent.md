@@ -1,6 +1,6 @@
 ---
-title: Zaplanuj wykonywanie pakietów SSIS za pomocą Azure SQL Database agenta wystąpienia zarządzanego
-description: Dowiedz się, jak planować wykonywanie pakietów SSIS za pomocą Azure SQL Database agenta wystąpienia zarządzanego.
+title: Uruchamianie pakietów SSIS przy użyciu agenta wystąpienia zarządzanego usługi Azure SQL
+description: Dowiedz się, jak uruchamiać pakiety usług SSIS za pomocą Azure SQL Database agenta wystąpienia zarządzanego.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -9,16 +9,14 @@ ms.topic: conceptual
 ms.author: lle
 author: lle
 ms.date: 04/14/2020
-ms.openlocfilehash: f230e4d33686b006b20e856d5e8033847e3f3d67
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 1a0015c12f942eebb0a26738f5d7144bbe28ef1c
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628490"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022294"
 ---
-# <a name="schedule-ssis-package-executions-by-using-azure-sql-database-managed-instance-agent"></a>Zaplanuj wykonywanie pakietów SSIS za pomocą Azure SQL Database agenta wystąpienia zarządzanego
-
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+# <a name="run-ssis-packages-by-using-azure-sql-managed-instance-agent"></a>Uruchamianie pakietów SSIS za pomocą agenta wystąpienia zarządzanego usługi Azure SQL
 
 W tym artykule opisano sposób uruchamiania pakietu SQL Server Integration Services (SSIS) przy użyciu agenta wystąpienia zarządzanego Azure SQL Database. Ta funkcja udostępnia zachowania podobne do sytuacji, w której pakiety SSIS są planowane przy użyciu agenta SQL Server w środowisku lokalnym.
 
@@ -81,7 +79,7 @@ W tej procedurze użyto Azure SQL Database agenta wystąpienia zarządzanego do 
 
         ![Opcje dla typu źródła pliku](./media/how-to-invoke-ssis-package-managed-instance-agent/package-source-file-system.png)
       
-        Ścieżka pakietu to **`\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`**.
+        Ścieżka pakietu to **`\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`** .
       
         W obszarze **poświadczenia dostępu do pliku pakietu**wprowadź nazwę konta i klucz konta usługi Azure File, aby uzyskać dostęp do pliku platformy Azure. Domena jest ustawiona na **platformę Azure**.
 
@@ -92,14 +90,14 @@ W tej procedurze użyto Azure SQL Database agenta wystąpienia zarządzanego do 
         Wprowadź odpowiednią domenę, nazwę użytkownika i hasło, aby uzyskać dostęp do pliku pakietu udziału sieciowego.
    1. Jeśli plik pakietu jest szyfrowany przy użyciu hasła, wybierz opcję **hasło szyfrowania** i wprowadź hasło.
 1. Na karcie **konfiguracje** wprowadź ścieżkę pliku konfiguracji, jeśli potrzebujesz pliku konfiguracji do uruchomienia pakietu usług SSIS.
-   Jeśli konfiguracja zostanie przechowana w Azure Files, jej ścieżka konfiguracji będzie **`\\<storage account name>.file.core.windows.net\<file share name>\<configuration name>.dtsConfig`**.
+   Jeśli konfiguracja zostanie przechowana w Azure Files, jej ścieżka konfiguracji będzie **`\\<storage account name>.file.core.windows.net\<file share name>\<configuration name>.dtsConfig`** .
 1. Na karcie **Opcje wykonywania** , możesz wybrać, czy użyć **uwierzytelniania systemu Windows** lub **32-bitowego środowiska uruchomieniowego** , aby uruchomić pakiet SSIS.
 1. Na karcie **Rejestrowanie** możesz wybrać ścieżkę rejestrowania i odpowiednie poświadczenia dostępu do rejestrowania do przechowywania plików dziennika. 
    Domyślnie ścieżka rejestrowania jest taka sama jak ścieżka folderu pakietu, a poświadczenia dostępu do logowania są takie same, jak poświadczenia dostępu do pakietu.
-   W przypadku przechowywania dzienników w Azure Files ścieżka rejestrowania będzie **`\\<storage account name>.file.core.windows.net\<file share name>\<log folder name>`**.
+   W przypadku przechowywania dzienników w Azure Files ścieżka rejestrowania będzie **`\\<storage account name>.file.core.windows.net\<file share name>\<log folder name>`** .
 1. Na karcie **ustawienia wartości** możesz wprowadzić ścieżkę i wartość właściwości, aby zastąpić właściwości pakietu.
  
-   Na przykład aby zastąpić wartość zmiennej użytkownika, wprowadź jej ścieżkę w następującym formacie: **`\Package.Variables[User::<variable name>].Value`**.
+   Na przykład aby zastąpić wartość zmiennej użytkownika, wprowadź jej ścieżkę w następującym formacie: **`\Package.Variables[User::<variable name>].Value`** .
 1. Wybierz **przycisk OK** , aby zapisać konfigurację zadania agenta.
 1. Uruchom zadanie agenta, aby uruchomić pakiet SSIS.
 

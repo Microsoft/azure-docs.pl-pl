@@ -7,18 +7,18 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: 9c9ad45ac1cf59f05454cba0babff8c3b7368f72
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: 3d166c8fd893f38d587dbeff1d86530c46f89630
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82839117"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84018790"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Azure Stream Analytics dane wyjściowe do Azure SQL Database
 
 W tym artykule omówiono porady ułatwiające lepszą wydajność zapisu podczas ładowania danych do usługi SQL Azure Database przy użyciu Azure Stream Analytics.
 
-Dane wyjściowe SQL w Azure Stream Analytics obsługują pisanie równoległe jako opcję. Ta opcja umożliwia korzystanie z w [pełni równoległych](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) topologii zadań, w przypadku których wiele partycji wyjściowych jest jednocześnie zapisywać do tabeli docelowej. Włączenie tej opcji w Azure Stream Analytics może być jednak niewystarczające do osiągnięcia wyższej przepływności, ponieważ zależy ona znacząco od konfiguracji bazy danych SQL Azure i schematu tabeli. Wybór indeksów, klucza klastrowania, współczynnika wypełnienia indeksu i kompresja ma wpływ na czas ładowania tabel. Aby uzyskać więcej informacji na temat optymalizowania bazy danych SQL Azure w celu zwiększenia wydajności zapytań i obciążenia na podstawie wewnętrznych testów porównawczych, zobacz [wskazówki dotyczące wydajności usługi SQL Database](../sql-database/sql-database-performance-guidance.md). Porządkowanie zapisów nie jest gwarantowane podczas zapisu równoległego do bazy danych SQL Azure.
+Dane wyjściowe SQL w Azure Stream Analytics obsługują pisanie równoległe jako opcję. Ta opcja umożliwia korzystanie z w [pełni równoległych](stream-analytics-parallelization.md#embarrassingly-parallel-jobs) topologii zadań, w przypadku których wiele partycji wyjściowych jest jednocześnie zapisywać do tabeli docelowej. Włączenie tej opcji w Azure Stream Analytics może być jednak niewystarczające do osiągnięcia wyższej przepływności, ponieważ zależy ona znacząco od konfiguracji bazy danych SQL Azure i schematu tabeli. Wybór indeksów, klucza klastrowania, współczynnika wypełnienia indeksu i kompresja ma wpływ na czas ładowania tabel. Aby uzyskać więcej informacji na temat optymalizowania bazy danych SQL Azure w celu zwiększenia wydajności zapytań i obciążenia na podstawie wewnętrznych testów porównawczych, zobacz [wskazówki dotyczące wydajności usługi SQL Database](../azure-sql/database/performance-guidance.md). Porządkowanie zapisów nie jest gwarantowane podczas zapisu równoległego do bazy danych SQL Azure.
 
 Poniżej przedstawiono konfiguracje w ramach każdej usługi, która może pomóc w zwiększeniu ogólnej przepływności rozwiązania.
 
@@ -37,7 +37,7 @@ Poniżej przedstawiono konfiguracje w ramach każdej usługi, która może pomó
 
 - **Partycjonowane tabele i indeksy** — za pomocą [partycjonowanej](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-2017) tabeli SQL i indeksów partycjonowanych w tabeli z tą samą kolumną, co klucz partycji (na przykład PartitionID), może znacznie zmniejszyć rywalizację między partycjami podczas operacji zapisu. W przypadku partycjonowanej tabeli należy utworzyć [funkcję partycji](https://docs.microsoft.com/sql/t-sql/statements/create-partition-function-transact-sql?view=sql-server-2017) i [schemat partycji](https://docs.microsoft.com/sql/t-sql/statements/create-partition-scheme-transact-sql?view=sql-server-2017) w podstawowej grupie plików. Spowoduje to również zwiększenie dostępności istniejących danych podczas ładowania nowych danych. Limit operacji we/wy dziennika można uzyskać na podstawie liczby partycji, które można zwiększyć, uaktualniając jednostkę SKU.
 
-- **Unikaj unikatowych naruszeń klucza** — Jeśli w dzienniku aktywności Azure Stream Analytics występuje [wiele komunikatów ostrzegawczych naruszenia klucza](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) , upewnij się, że na zadaniu nie ma wpływu unikatowe naruszenia ograniczenia, które prawdopodobnie wystąpią w przypadku przypadków odzyskiwania. Można to uniknąć przez ustawienie opcji [\_Ignoruj DUP\_klucza](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) w indeksach.
+- **Unikaj unikatowych naruszeń klucza** — Jeśli w dzienniku aktywności Azure Stream Analytics występuje [wiele komunikatów ostrzegawczych naruszenia klucza](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) , upewnij się, że na zadaniu nie ma wpływu unikatowe naruszenia ograniczenia, które prawdopodobnie wystąpią w przypadku przypadków odzyskiwania. Można to uniknąć przez ustawienie opcji [Ignoruj \_ DUP \_ klucza](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) w indeksach.
 
 ## <a name="azure-data-factory-and-in-memory-tables"></a>Azure Data Factory i tabele w pamięci
 

@@ -6,15 +6,15 @@ author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 02/21/2019
+ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: cf5b2b84142c9104ea5b3afa3ad179fd0ec07449
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c8c4bbcfdd8f06d4c2b4759b84a72c5b3cff5a5d
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80370135"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83996350"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Parowanie i wyrównanie zdań w dokumentach równoległych
 
@@ -26,7 +26,7 @@ Translator niestandardowy uzyskuje translację zdań z jednego zdania w danym mo
 
 ## <a name="pre-aligned-documents"></a>Wstępnie wyrównane dokumenty
 
-Jeśli wiesz, że masz dokumenty równoległe, możesz zastąpić wyrównanie zdania, dostarczając wstępnie wyrównane pliki tekstowe. Można wyodrębnić wszystkie zdania z dokumentów do pliku tekstowego, zorganizować jedno zdanie na wiersz i przekazać je z `.align` rozszerzeniem. `.align` Rozszerzenie sygnalizuje translatorowi niestandardowemu, że powinien pominąć wyrównanie zdania.
+Jeśli wiesz, że masz dokumenty równoległe, możesz zastąpić wyrównanie zdania, dostarczając wstępnie wyrównane pliki tekstowe. Można wyodrębnić wszystkie zdania z dokumentów do pliku tekstowego, zorganizować jedno zdanie na wiersz i przekazać je z `.align` rozszerzeniem. `.align`Rozszerzenie sygnalizuje translatorowi niestandardowemu, że powinien pominąć wyrównanie zdania.
 
 Aby uzyskać najlepsze wyniki, należy się upewnić, że w plikach znajduje się jedno zdanie na wiersz.Nie mają znaków nowego wiersza w obrębie zdania, ponieważ spowoduje to słabą wyrównania.
 

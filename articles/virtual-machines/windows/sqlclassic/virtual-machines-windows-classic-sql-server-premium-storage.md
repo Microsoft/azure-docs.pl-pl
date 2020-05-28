@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 07e8d2b6bd22029a4b6556ada62985167807eb77
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: ca11fce252192cbf8e5f0bc2cfb5fcd38f5d4443
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83833935"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020884"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Korzystanie z usługi Azure Premium Storage z programem SQL Server na maszynach wirtualnych
 
@@ -41,7 +41,7 @@ Ważne jest, aby zrozumieć kompleksowy proces wykorzystywania Premium Storage p
 * Możliwe podejścia migracji.
 * Pełny przykład do końca przedstawiający platformę Azure, Windows i SQL Server kroki migracji istniejącej zawsze włączonej implementacji.
 
-Aby uzyskać więcej informacji na temat SQL Server na platformie Azure Virtual Machines, zobacz [SQL Server na platformie azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Aby uzyskać więcej informacji na temat SQL Server na platformie Azure Virtual Machines, zobacz [SQL Server na platformie azure Virtual Machines](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).
 
 **Autor:** Daniel peruwiański **Technical rewidenci:** Luis Carlos Vargas, Sanjay Mishra, Pravin Mital, Juergen Thomas, Gonzalo Ruiz.
 
@@ -681,7 +681,7 @@ $destcloudsvc = "danNewSvcAms"
 New-AzureService $destcloudsvc -Location $location
 ```
 
-#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Krok 2: zwiększenie dozwolonych błędów dla zasobów \< opcjonalnych>
+#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Krok 2: zwiększenie dozwolonych błędów w zasobach\<Optional>
 
 W przypadku niektórych zasobów należących do grupy dostępności zawsze włączone istnieją limity dotyczące liczby błędów, które mogą wystąpić w danym okresie, w których usługa klastra próbuje ponownie uruchomić grupę zasobów. Zaleca się zwiększyć ten proces podczas przechodzenia przez tę procedurę, ponieważ w przypadku nieręcznego przełączenia w tryb failover i wyzwolenia trybu failover w celu zamknięcia maszyn można przejść do tego limitu.
 
@@ -691,7 +691,7 @@ Rozsądne jest podwójne zwiększenie liczby niepowodzeń, aby zrobić to w Mene
 
 Zmień maksymalną liczbę błędów na 6.
 
-#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Krok 3. Dodawanie zasobu adresu IP dla \< opcjonalnej> grupy klastrów
+#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Krok 3. Dodawanie zasobu adresu IP dla grupy klastrów\<Optional>
 
 Jeśli istnieje tylko jeden adres IP dla grupy klastra i jest on wyrównany do podsieci chmury, uważaj, jeśli przypadkowo przejdziesz do trybu offline wszystkie węzły klastra w chmurze w tej sieci, nie będzie można przełączyć zasobu adresu IP klastra i sieci klastra do trybu online. W takiej sytuacji uniemożliwia ona aktualizowanie innych zasobów klastra.
 
@@ -1250,7 +1250,7 @@ Aby dodać adres IP, zobacz dodatek, Krok 14.
 
 * [Premium Storage platformy Azure](../disks-types.md)
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)
-* [SQL Server na platformie Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
+* [SQL Server na platformie Azure Virtual Machines](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
 
 <!-- IMAGES -->
 [1]: ./media/virtual-machines-windows-classic-sql-server-premium-storage/1_VNET_Portal.png

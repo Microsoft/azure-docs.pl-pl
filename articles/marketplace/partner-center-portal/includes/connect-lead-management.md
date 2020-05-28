@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 documentationcenter: partner-center-commercial-marketplace
 author: qianw211
 ms.service: marketplace

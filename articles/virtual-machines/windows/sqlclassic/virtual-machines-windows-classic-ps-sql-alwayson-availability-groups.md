@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: ba6f1300353247ef2de99b2bd903bc82665d9a52
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7f20d79ea353830b41290c7b91d8d1de2b1b3abe
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75978158"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84014863"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Konfigurowanie grupy dostępności zawsze włączone na maszynie wirtualnej platformy Azure przy użyciu programu PowerShell
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "75978158"
 > * [Klasyczny: PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
 <br/>
 
-Przed rozpoczęciem należy zastanowić się, że możesz teraz wykonać to zadanie w modelu usługi Azure Resource Manager. Zalecamy model usługi Azure Resource Manager dla nowych wdrożeń. [SQL Server zobacz zawsze włączone grupy dostępności na maszynach wirtualnych platformy Azure](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
+Przed rozpoczęciem należy zastanowić się, że możesz teraz wykonać to zadanie w modelu usługi Azure Resource Manager. Zalecamy model usługi Azure Resource Manager dla nowych wdrożeń. [SQL Server zobacz zawsze włączone grupy dostępności na maszynach wirtualnych platformy Azure](../../../azure-sql/virtual-machines/windows/availability-group-overview.md).
 
 > [!IMPORTANT]
 > Zalecamy, aby większość nowych wdrożeń korzystała z modelu Menedżer zasobów. Platforma Azure ma dwa różne modele wdrażania związane z tworzeniem zasobów i pracą z nimi: [Resource Manager i model klasyczny](../../../azure-resource-manager/management/deployment-models.md). Ten artykuł dotyczy klasycznego modelu wdrożenia.
@@ -158,7 +158,7 @@ Ten samouczek jest przeznaczony do wyświetlania czynności, które są wymagane
    * Polecenie **Add-AzureDataDisk** dodaje dysk danych, który będzie używany do przechowywania danych Active Directory, z opcją buforowania ustawionym na none.
    * **New-AzureVM** tworzy nową usługę w chmurze i tworzy nową maszynę wirtualną platformy Azure w nowej usłudze w chmurze.
 
-7. Poczekaj, aż Nowa maszyna wirtualna będzie w pełni zainicjowana, i Pobierz plik pulpitu zdalnego do katalogu roboczego. Ponieważ nowa maszyna wirtualna platformy Azure zajmuje dużo czasu, `while` pętla kontynuuje sondowanie nowej maszyny wirtualnej, dopóki nie będzie gotowa do użycia.
+7. Poczekaj, aż Nowa maszyna wirtualna będzie w pełni zainicjowana, i Pobierz plik pulpitu zdalnego do katalogu roboczego. Ponieważ nowa maszyna wirtualna platformy Azure zajmuje dużo czasu, `while` Pętla kontynuuje sondowanie nowej maszyny wirtualnej, dopóki nie będzie gotowa do użycia.
 
         $VMStatus = Get-AzureVM -ServiceName $dcServiceName -Name $dcServerName
 
@@ -354,7 +354,7 @@ Pomyślnie zainicjowano teraz serwer kontrolera domeny. Następnie skonfigurujes
    * **Set-AzureSubnet** umieszcza maszynę wirtualną w podsieci zaplecza.
    * **Add-AzureEndpoint** dodaje punkty końcowe dostępu, dzięki czemu aplikacje klienckie mogą uzyskiwać dostęp do tych wystąpień SQL Server usług w Internecie. Różne porty są przekazywane do ContosoSQL1 i ContosoSQL2.
    * **New-AzureVM** tworzy nową maszynę wirtualną SQL Server w tej samej usłudze w chmurze co ContosoQuorum. Należy umieścić maszyny wirtualne w tej samej usłudze w chmurze, jeśli chcesz, aby były one w tym samym zestawie dostępności.
-4. Poczekaj, aż wszystkie maszyny wirtualne zostaną w pełni zainicjowane, a każda maszyna wirtualna pobierze plik pulpitu zdalnego do katalogu roboczego. `for` Pętla przechodzi przez trzy nowe maszyny wirtualne i wykonuje polecenia wewnątrz nawiasów klamrowych najwyższego poziomu dla każdej z nich.
+4. Poczekaj, aż wszystkie maszyny wirtualne zostaną w pełni zainicjowane, a każda maszyna wirtualna pobierze plik pulpitu zdalnego do katalogu roboczego. `for`Pętla przechodzi przez trzy nowe maszyny wirtualne i wykonuje polecenia wewnątrz nawiasów klamrowych najwyższego poziomu dla każdej z nich.
 
         Foreach ($VM in $VMs = Get-AzureVM -ServiceName $sqlServiceName)
         {
@@ -481,7 +481,7 @@ Na koniec możesz skonfigurować grupę dostępności. Użyjesz dostawcy SQL Ser
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
         $svc2.Start();
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
-7. Pobierz **CreateAzureFailoverCluster. ps1** z [tworzenia klastra trybu failover dla zawsze dostępnych grup dostępności na maszynie wirtualnej platformy Azure](https://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) do lokalnego katalogu roboczego. Ten skrypt służy do tworzenia funkcjonalnego klastra trybu failover. Aby uzyskać ważne informacje dotyczące sposobu, w jaki klaster trybu failover systemu Windows współdziała z siecią platformy Azure, zobacz [wysoka dostępność i odzyskiwanie po awarii dla SQL Server na platformie azure Virtual Machines](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
+7. Pobierz **CreateAzureFailoverCluster. ps1** z [tworzenia klastra trybu failover dla zawsze dostępnych grup dostępności na maszynie wirtualnej platformy Azure](https://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) do lokalnego katalogu roboczego. Ten skrypt służy do tworzenia funkcjonalnego klastra trybu failover. Aby uzyskać ważne informacje dotyczące sposobu, w jaki klaster trybu failover systemu Windows współdziała z siecią platformy Azure, zobacz [wysoka dostępność i odzyskiwanie po awarii dla SQL Server na platformie azure Virtual Machines](../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
 8. Przejdź do katalogu roboczego i Utwórz klaster trybu failover z pobranym skryptem.
 
         Set-ExecutionPolicy Unrestricted -Force
@@ -567,4 +567,4 @@ Na koniec możesz skonfigurować grupę dostępności. Użyjesz dostawcy SQL Ser
 ## <a name="next-steps"></a>Następne kroki
 Teraz pomyślnie zaimplementowano SQL Server zawsze włączone przez utworzenie grupy dostępności na platformie Azure. Aby skonfigurować odbiornik dla tej grupy dostępności, zobacz [Konfigurowanie odbiornika ILB dla zawsze włączonych grup dostępności na platformie Azure](../classic/ps-sql-int-listener.md).
 
-Aby uzyskać więcej informacji na temat korzystania z SQL Server na platformie Azure, zobacz [SQL Server w usłudze Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Aby uzyskać więcej informacji na temat korzystania z SQL Server na platformie Azure, zobacz [SQL Server w usłudze Azure Virtual Machines](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).

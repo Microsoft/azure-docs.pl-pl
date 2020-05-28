@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: bd67c3b7eed6b3ce3730bd48cda69d85aa276df4
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: a3b03c5999454e101640d931a0bef98aa642a8c7
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930594"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021470"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Punkty końcowe usługi sieci wirtualnej dla Azure Key Vault
 
@@ -70,7 +70,7 @@ Poniżej znajduje się lista zaufanych usług, które mogą uzyskiwać dostęp d
 |Usługa Exchange Online & SharePoint Online|Zezwalaj na dostęp do klucza klienta dla usługi Azure szyfrowanie usługi Storage przy użyciu [klucza klienta](/microsoft-365/compliance/customer-key-overview).|
 |Azure Information Protection|Zezwalaj na dostęp do klucza dzierżawy dla [Azure Information Protection.](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
 |Azure App Service|[Wdróż certyfikat aplikacji sieci Web platformy Azure za pomocą Key Vault](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
-|Azure SQL Database|[Transparent Data Encryption z obsługą Bring Your Own Key Azure SQL Database i magazynem danych](../../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
+|Azure SQL Database|[Transparent Data Encryption z obsługą Bring Your Own Key Azure SQL Database i magazynem danych](../../azure-sql/database/transparent-data-encryption-byok-overview.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
 |Azure Storage|[Szyfrowanie usługi Storage przy użyciu kluczy zarządzanych przez klienta w programie Azure Key Vault](../../storage/common/storage-service-encryption-customer-managed-keys.md).|
 |Azure Data Lake Store|[Szyfrowanie danych w Azure Data Lake Store](../../data-lake-store/data-lake-store-encryption.md) z kluczem zarządzanym przez klienta.|
 |Azure Databricks|[Szybka, łatwa i wydajna usługa analizy oparta na Apache Sparkach](../../azure-databricks/what-is-azure-databricks.md)|

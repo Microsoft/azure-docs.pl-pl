@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/28/2020
 ms.author: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 9014d446b29b9a81a807c002cd7f83a2c3bdaa51
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 124aac96550b5d462c0794053452ed28dba27452
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231343"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84013218"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Regiony i Strefy dostępności na platformie Azure
 
@@ -112,7 +112,7 @@ Jak wspomniano wcześniej, platforma Azure klasyfikuje usługi w trzy kategorie:
 > | Service Bus | Azure Firewall | Data Box Heavy |
 > | Service Fabric | Azure Functions | Data Catalog |
 > | Zestawy skali maszyn wirtualnych | Azure HPC Cache | Data Factory: Data Factory v1 |
-> | Maszyny wirtualne | Azure IoT Hub | Data Lake Analytics |
+> | Virtual Machines | Azure IoT Hub | Data Lake Analytics |
 > | Virtual Machines: Seria Av2 | Azure Kubernetes Service (AKS) | Machine Learning Studio |
 > | Virtual Machines: BS — seria | Azure Machine Learning | Microsoft Genomics |
 > | Virtual Machines: Seria DSv2 | Link prywatny platformy Azure | Remote Rendering |
@@ -166,7 +166,7 @@ Nie ma dodatkowych opłat za maszyny wirtualne wdrożone w strefie dostępności
 - [Równoważenie obciążenia maszyn wirtualnych między strefami przy użyciu usługa Load Balancer w warstwie Standardowa ze strefowo nadmiarowy fronton](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
 - [Równoważenie obciążenia maszyn wirtualnych w strefie przy użyciu usługa Load Balancer w warstwie Standardowa z strefą frontonu](../load-balancer/load-balancer-standard-public-zonal-cli.md)
 - [Magazyn strefowo nadmiarowy](../storage/common/storage-redundancy-zrs.md)
-- [SQL Database](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
+- [SQL Database](../azure-sql/database/high-availability-sla.md#zone-redundant-configuration)
 - [Geograficzne odzyskiwanie po awarii w usłudze Event Hubs](../event-hubs/event-hubs-geo-dr.md#availability-zones)
 - [Geograficzne odzyskiwanie po awarii w usłudze Service Bus](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
 - [Tworzenie strefowo nadmiarowej bramy sieci wirtualnej](../vpn-gateway/create-zone-redundant-vnet-gateway.md)

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc
 ms.date: 07/02/2019
-ms.openlocfilehash: 7413a32fdddb579bad61c9cfe539be6aaeae9881
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 431cd5efbb1087d99fc8521cec7a5c604856dac5
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81313742"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021742"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-interactive-query-in-azure-hdinsight"></a>Samouczek: Wyodrębnianie, przekształcanie i ładowanie danych przy użyciu interakcyjnych zapytań w usłudze Azure HDInsight
 
@@ -54,7 +54,7 @@ Ten samouczek obejmuje następujące zadania:
 
 Istnieje wiele sposobów przekazywania danych do magazynu skojarzonego z klastrem usługi HDInsight. W tej sekcji przekażesz dane za pomocą polecenia `scp`. Aby dowiedzieć się więcej o innych sposobach przekazywania danych, zobacz [Upload data to HDInsight (przekazywanie danych do usługi HDInsight)](../hdinsight-upload-data.md).
 
-1. Przekaż plik zip do węzła głównego klastra usługi HDInsight. Edytuj poniższe polecenie, zastępując `FILENAME` je nazwą pliku zip i `CLUSTERNAME` nazwą klastra usługi HDInsight. Następnie otwórz wiersz polecenia, Ustaw katalog roboczy na lokalizację pliku, a następnie wprowadź polecenie.
+1. Przekaż plik zip do węzła głównego klastra usługi HDInsight. Edytuj poniższe polecenie, zastępując je `FILENAME` nazwą pliku zip i `CLUSTERNAME` nazwą klastra usługi HDInsight. Następnie otwórz wiersz polecenia, Ustaw katalog roboczy na lokalizację pliku, a następnie wprowadź polecenie.
 
     ```cmd
     scp FILENAME.zip sshuser@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.zip
@@ -62,13 +62,13 @@ Istnieje wiele sposobów przekazywania danych do magazynu skojarzonego z klastre
 
     Jeśli zostanie wyświetlony monit, wprowadź wartość tak lub nie, aby kontynuować. Tekst nie jest widoczny w oknie podczas pisania.
 
-2. Po zakończeniu przekazywania połącz się z klastrem przy użyciu protokołu SSH. Edytuj poniższe polecenie, zastępując `CLUSTERNAME` je nazwą klastra usługi HDInsight. Wprowadź następujące polecenie:
+2. Po zakończeniu przekazywania połącz się z klastrem przy użyciu protokołu SSH. Edytuj poniższe polecenie, zastępując je `CLUSTERNAME` nazwą klastra usługi HDInsight. Wprowadź następujące polecenie:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-3. Skonfiguruj zmienną środowiskową po nawiązaniu połączenia SSH. Zamień `FILE_NAME`, `SQL_SERVERNAME`, `SQL_DATABASE`, `SQL_USER`i `SQL_PASWORD` z odpowiednimi wartościami. Następnie wprowadź polecenie:
+3. Skonfiguruj zmienną środowiskową po nawiązaniu połączenia SSH. Zamień `FILE_NAME` , `SQL_SERVERNAME` , `SQL_DATABASE` , `SQL_USER` i `SQL_PASWORD` z odpowiednimi wartościami. Następnie wprowadź polecenie:
 
     ```bash
     export FILENAME=FILE_NAME
@@ -205,7 +205,7 @@ Istnieje wiele sposobów nawiązywania połączenia z bazą danych SQL i tworzen
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-2. Po zakończeniu instalacji użyj poniższego polecenia, aby połączyć się z serwerem usługi SQL Database.
+2. Po zakończeniu instalacji użyj następującego polecenia, aby nawiązać połączenie z usługą SQL Database.
 
     ```bash
     TDSVER=8.0 tsql -H $SQLSERVERNAME.database.windows.net -U $SQLUSER -p 1433 -D $DATABASE -P $SQLPASWORD
@@ -260,15 +260,15 @@ W poprzednich sekcjach skopiowano przekształcone dane w lokalizacji `/tutorials
     sqoop list-databases --connect jdbc:sqlserver://$SQLSERVERNAME.database.windows.net:1433 --username $SQLUSER --password $SQLPASWORD
     ```
 
-    To polecenie zwraca listę baz danych, w tym bazę danych, w której utworzono wcześniej `delays` tabelę.
+    To polecenie zwraca listę baz danych, w tym bazę danych, w której utworzono `delays` wcześniej tabelę.
 
-2. Wyeksportuj `/tutorials/flightdelays/output` dane z `delays` do tabeli, wprowadzając następujące polecenie:
+2. Wyeksportuj dane z `/tutorials/flightdelays/output` do `delays` tabeli, wprowadzając następujące polecenie:
 
     ```bash
     sqoop export --connect "jdbc:sqlserver://$SQLSERVERNAME.database.windows.net:1433;database=$DATABASE" --username $SQLUSER --password $SQLPASWORD --table 'delays' --export-dir '/tutorials/flightdelays/output' --fields-terminated-by '\t' -m 1
     ```
 
-    Sqoop nawiązuje połączenie z bazą danych, `delays` która zawiera tabelę, i eksportuje `/tutorials/flightdelays/output` dane z katalogu `delays` do tabeli.
+    Sqoop nawiązuje połączenie z bazą danych, która zawiera `delays` tabelę, i eksportuje dane z `/tutorials/flightdelays/output` katalogu do `delays` tabeli.
 
 3. Po zakończeniu wykonywania polecenia Sqoop Użyj narzędzia TSQL, aby nawiązać połączenie z bazą danych, wprowadzając następujące polecenie:
 
@@ -287,7 +287,7 @@ W poprzednich sekcjach skopiowano przekształcone dane w lokalizacji `/tutorials
 
     Wpisz `exit`, aby zakończyć działanie narzędzia tsql.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po ukończeniu korzystania z samouczka warto usunąć klaster. Dzięki usłudze HDInsight dane są przechowywane w usłudze Azure Storage, dzięki czemu można bezpiecznie usunąć klaster, gdy nie jest używany. Opłata jest naliczana również za klaster usługi HDInsight, nawet wtedy, gdy nie jest używana. Ze względu na to, że opłaty za klaster są dużo razy większe niż opłaty za magazyn, sprawia to, że należy usunąć klastry, gdy nie są używane.
 

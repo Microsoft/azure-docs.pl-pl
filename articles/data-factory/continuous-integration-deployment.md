@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 0feab5c4c03ddce6fb4df2395316484bf35bae81
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 77cba087ec578a478f4de9c8eebec3eb1e8d41b2
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772866"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022405"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Ciągła integracja i dostarczanie w Azure Data Factory
 
@@ -569,26 +569,6 @@ Aby użyć połączonych szablonów zamiast szablonu pełnego Menedżer zasobów
 Pamiętaj, aby dodać skrypty Data Factory w potoku ciągłej integracji/ciągłego wdrażania przed i po wykonaniu zadania wdrożenia.
 
 Jeśli nie masz skonfigurowanego narzędzia Git, możesz uzyskać dostęp do połączonych szablonów za pośrednictwem **szablonu** usługi ARM na liście **szablonów ARM** .
-
-## <a name="exclude-azure-ssis-integration-runtimes-from-cicd"></a>Wyklucz środowiska Azure-SSIS Integration Runtime z napędu CI/CD
-
-Jeśli Twoja fabryka programistyczna ma środowisko Azure-SSIS Integration Runtime, możesz wykluczyć wszystkie środowiska Azure-SSIS Integration Runtime z procesu ciągłej integracji/ciągłego wdrażania w poniższym scenariuszu:
-
-- Infrastruktura Azure-SSIS IR jest złożona i różni się w każdym środowisku.  
-- Azure-SSIS IR jest skonfigurowany ręcznie dla każdego środowiska o tej samej nazwie. W przeciwnym razie publikowanie będzie kończyć się niepowodzeniem, jeśli istnieje aktywność w zależności od Azure-SSIS IR.
-
-Aby wykluczyć środowisko Azure-SSIS Integration Runtime:
-
-1. Dodaj plik publish_config. JSON do folderu głównego w gałęzi współpracy, jeśli nie istnieje.
-1. Dodaj poniższe ustawienie do pliku publish_config. JSON: 
-
-```json
-{
-    " excludeIRs": "true"
-}
-```
-
-Podczas publikowania z gałęzi współpracy środowiska Azure-SSIS Integration Runtime zostaną wykluczone z wygenerowanego szablonu Menedżer zasobów.
 
 ## <a name="hotfix-production-branch"></a>Gałąź produkcyjna poprawek
 

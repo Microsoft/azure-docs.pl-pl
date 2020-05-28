@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: eba5df587d6bd6dda6083314cfb94836c6669393
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c40b58dfb63ac6bf1b5532eb06bfd2ad0cdccde9
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "73683143"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022031"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Tworzenie potoków predykcyjnych przy użyciu usług Azure Machine Learning i Azure Data Factory
 
@@ -80,7 +80,7 @@ W tym scenariuszu usługa sieci Web Azure Machine Learning wykonuje prognozowani
 > [!IMPORTANT]
 > Jeśli usługa sieci Web przyjmuje wiele danych wejściowych, użyj właściwości **webServiceInputs** zamiast opcji **webServiceInput**. Aby zapoznać się z przykładem użycia właściwości webServiceInputs, [Usługa sieci Web wymaga wielu danych wejściowych](#web-service-requires-multiple-inputs) .
 >
-> Zestawy danych, do których odwołują się właściwości **webServiceInput**/**webServiceInputs** i **webServiceOutputs** (w **typeProperties**), muszą również znajdować się w **danych wejściowych** i **wyjściowych**działania.
+> Zestawy danych, do których odwołują się właściwości **webServiceInput** / **webServiceInputs** i **webServiceOutputs** (w **typeProperties**), muszą również znajdować się w **danych wejściowych** i **wyjściowych**działania.
 >
 > W przypadku eksperymentu Azure Machine Learning Studio, porty wejściowe i wyjściowe usługi sieci Web oraz parametry globalne mają nazwy domyślne ("INPUT1", "input2"), które można dostosować. Nazwy używane dla ustawień webServiceInputs, webServiceOutputs i globalParameters muszą dokładnie pasować do nazw eksperymentów. Przykładowy ładunek żądania można wyświetlić na stronie pomocy wykonywania wsadowego dla punktu końcowego Azure Machine Learning Studio, aby zweryfikować oczekiwane mapowanie.
 >
@@ -311,7 +311,7 @@ Zalecamy zapoznanie się z samouczkiem [Kompilowanie pierwszego potoku przy uży
 ### <a name="scenario-experiments-using-readerwriter-modules-to-refer-to-data-in-various-storages"></a>Scenariusz: eksperymenty używające modułów czytnika/składnika zapisywania do odwoływania się do danych w różnych magazynach
 Innym typowym scenariuszem podczas tworzenia eksperymentów Azure Machine Learning Studio jest użycie modułów czytnika i składnika zapisywania. Moduł czytnika służy do ładowania danych do eksperymentu, a Moduł zapisywania służy do zapisywania danych z eksperymentów. Aby uzyskać szczegółowe informacje na temat modułów czytnika i składnika zapisywania, zobacz tematy dotyczące [czytelnika](https://msdn.microsoft.com/library/azure/dn905997.aspx) i [składnika zapisywania](https://msdn.microsoft.com/library/azure/dn905984.aspx) w bibliotece MSDN.
 
-W przypadku korzystania z modułów czytnika i składnika zapisywania warto użyć parametru usługi sieci Web dla każdej właściwości tych modułów czytnika/składnika zapisywania. Te parametry sieci Web umożliwiają skonfigurowanie wartości w czasie wykonywania. Można na przykład utworzyć eksperyment z modułem czytnika korzystającym z Azure SQL Database: XXX.database.windows.net. Po wdrożeniu usługi sieci Web należy umożliwić użytkownikom usługi sieci Web określenie innego SQL Server platformy Azure o nazwie YYY.database.windows.net. Możesz użyć parametru usługi sieci Web, aby umożliwić skonfigurowanie tej wartości.
+W przypadku korzystania z modułów czytnika i składnika zapisywania warto użyć parametru usługi sieci Web dla każdej właściwości tych modułów czytnika/składnika zapisywania. Te parametry sieci Web umożliwiają skonfigurowanie wartości w czasie wykonywania. Można na przykład utworzyć eksperyment z modułem czytnika korzystającym z Azure SQL Database: XXX.database.windows.net. Po wdrożeniu usługi sieci Web należy umożliwić użytkownikom usługi sieci Web określenie innego logicznego serwera SQL o nazwie YYY.database.windows.net. Możesz użyć parametru usługi sieci Web, aby umożliwić skonfigurowanie tej wartości.
 
 > [!NOTE]
 > Dane wejściowe i wyjściowe usługi sieci Web różnią się od parametrów usługi sieci Web. W pierwszym scenariuszu pokazano, jak można określić dane wejściowe i wyjściowe dla usługi sieci Web Azure Machine Learning Studio. W tym scenariuszu przekazywane są parametry usługi sieci Web odpowiadające właściwościom modułów czytnika/składnika zapisywania.
@@ -347,7 +347,7 @@ Możesz również użyć [funkcji Data Factory](data-factory-functions-variables
 ### <a name="using-a-reader-module-to-read-data-from-multiple-files-in-azure-blob"></a>Używanie modułu czytnika do odczytywania danych z wielu plików w obiekcie blob platformy Azure
 Potoki danych Big Data z działaniami, takimi jak świnie i Hive, mogą generować jeden lub więcej plików wyjściowych bez rozszerzeń. Na przykład podczas określania zewnętrznej tabeli programu Hive dane dla zewnętrznej tabeli programu Hive mogą być przechowywane w usłudze Azure Blob Storage o następującej nazwie 000000_0. Możesz użyć modułu czytnika w eksperymentie, aby odczytać wiele plików i użyć ich do przewidywania.
 
-W przypadku korzystania z modułu czytnika w Azure Machine Learning eksperymentu można określić obiekt blob platformy Azure jako dane wejściowe. Pliki w magazynie obiektów blob platformy Azure mogą być plikami wyjściowymi (przykład: 000000_0), które są tworzone przez skrypt trzody chlewnej i Hive działający w usłudze HDInsight. Moduł czytnika umożliwia odczytywanie plików (bez rozszerzeń) przez skonfigurowanie **ścieżki do kontenera, katalogu/obiektu BLOB**. **Ścieżka do kontenerów** wskazuje kontener i **Katalog/obiekt BLOB** do folderu, który zawiera pliki, jak pokazano na poniższej ilustracji. Gwiazdka oznacza, \*że **wszystkie pliki w kontenerze/folderze (czyli dane/aggregateddata/Year = 2014/miesiąc-6/\*)** są odczytywane w ramach eksperymentu.
+W przypadku korzystania z modułu czytnika w Azure Machine Learning eksperymentu można określić obiekt blob platformy Azure jako dane wejściowe. Pliki w magazynie obiektów blob platformy Azure mogą być plikami wyjściowymi (przykład: 000000_0), które są tworzone przez skrypt trzody chlewnej i Hive działający w usłudze HDInsight. Moduł czytnika umożliwia odczytywanie plików (bez rozszerzeń) przez skonfigurowanie **ścieżki do kontenera, katalogu/obiektu BLOB**. **Ścieżka do kontenerów** wskazuje kontener i **Katalog/obiekt BLOB** do folderu, który zawiera pliki, jak pokazano na poniższej ilustracji. Gwiazdka oznacza, że \* **wszystkie pliki w kontenerze/folderze (czyli dane/aggregateddata/Year = 2014/miesiąc-6/ \* )** są odczytywane w ramach eksperymentu.
 
 ![Właściwości obiektów blob platformy Azure](./media/data-factory-create-predictive-pipelines/azure-blob-properties.png)
 

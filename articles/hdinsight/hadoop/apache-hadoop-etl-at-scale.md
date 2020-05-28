@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: 5d6d4a41deb1ef96789a48eefba306be4dfb20eb
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 3cf16c2cd119eb3eec64104b2573ff7de2cc76c4
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745133"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020085"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Wyodrębnianie, przekształcanie i ładowanie (ETL) na dużą skalę
 
@@ -106,9 +106,9 @@ HBase adaptacja zależy od liczby węzłów w klastrze usługi HDInsight.
 
 Platforma Azure oferuje trzy relacyjne bazy danych PaaS:
 
-- [Azure SQL Database](../../sql-database/sql-database-technical-overview.md) jest implementacją Microsoft SQL Server. Aby uzyskać więcej informacji na temat wydajności, zobacz [dostrajanie wydajności w Azure SQL Database](../../sql-database/sql-database-performance-guidance.md).
-- [Azure Database for MySQL](../../mysql/overview.md) to implementacja programu Oracle MySQL.
-- [Azure Database for PostgreSQL](../../postgresql/quickstart-create-server-database-portal.md) to implementacja PostgreSQL.
+* [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md) jest implementacją Microsoft SQL Server. Aby uzyskać więcej informacji na temat wydajności, zobacz [dostrajanie wydajności w Azure SQL Database](../../azure-sql/database/performance-guidance.md).
+* [Azure Database for MySQL](../../mysql/overview.md) to implementacja programu Oracle MySQL.
+* [Azure Database for PostgreSQL](../../postgresql/quickstart-create-server-database-portal.md) to implementacja PostgreSQL.
 
 Dodaj więcej procesorów i pamięci, aby skalować te produkty.  Możesz również użyć dysków Premium z produktami w celu uzyskania lepszej wydajności operacji we/wy.
 

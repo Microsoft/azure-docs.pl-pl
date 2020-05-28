@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: 1a2b9c739f3583fb5d842bd9d3834252d542cb7d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 20b030079121104fe7bd75924a63ab0e12be9b19
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739281"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020867"
 ---
 # <a name="introduction"></a>Wprowadzenie
 
@@ -59,7 +59,7 @@ EXEC sp_addrolemember 'db_exporter', 'Mary';
 
 Instrukcje import nie są wymagane, ale są wstępnie zaimportowane do środowiska notesu.
 
-### <a name="transferring-data-to-or-from-a-sql-pool-in-the-logical-server-dw-instance-attached-with-the-workspace"></a>Transferowanie danych do lub z puli SQL na serwerze logicznym (wystąpienie DW) dołączonym do obszaru roboczego
+### <a name="transferring-data-to-or-from-a-sql-pool-attached-with-the-workspace"></a>Transferowanie danych do lub z puli SQL dołączonej do obszaru roboczego
 
 > [!NOTE]
 > **Importy niewymagane w środowisku notesu**
@@ -92,7 +92,7 @@ df.write.sqlanalytics("[DBName].[Schema].[TableName]", Constants.EXTERNAL)
 
 Uwierzytelnianie do magazynu i SQL Server są wykonywane
 
-### <a name="if-you-are-transferring-data-to-or-from-a-sql-pool-or-database-in-a-logical-server-outside-the-workspace"></a>W przypadku transferu danych do lub z puli SQL lub bazy danych na serwerze logicznym poza obszarem roboczym
+### <a name="if-you-are-transferring-data-to-or-from-a-sql-pool-or-database-outside-the-workspace"></a>W przypadku transferu danych do lub z puli SQL lub bazy danych poza obszarem roboczym
 
 > [!NOTE]
 > Importy niewymagane w środowisku notesu

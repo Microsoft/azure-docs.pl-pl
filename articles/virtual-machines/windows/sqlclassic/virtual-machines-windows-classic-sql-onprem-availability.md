@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 4521c2c112c93e83144cfc84d600208817b2ccac
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 928162282ca973811315728a07b4fbe40100324e
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75978046"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017583"
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Rozszerzanie lokalnych, zawsze dostępnych grup dostępności na platformę Azure
 Zawsze włączone grupy dostępności zapewniają wysoką dostępność dla grup baz danych, dodając repliki pomocnicze. Te repliki umożliwiają przechodzenie w tryb failover baz danych w przypadku awarii. Ponadto mogą służyć do odciążania obciążeń odczytu lub zadań tworzenia kopii zapasowych.
@@ -41,7 +41,7 @@ W tej sekcji pokazano, jak za pomocą **Kreatora dodawania repliki systemu Azure
 > [!IMPORTANT]
 > **Kreator dodawania repliki platformy Azure** obsługuje tylko maszyny wirtualne utworzone przy użyciu klasycznego modelu wdrażania. Nowe wdrożenia maszyn wirtualnych powinny używać nowszego modelu Menedżer zasobów. Jeśli używasz maszyn wirtualnych z Menedżer zasobów, musisz ręcznie dodać pomocniczą replikę platformy Azure przy użyciu poleceń języka Transact-SQL (nie pokazano tutaj). Ten Kreator nie będzie działał w Menedżer zasobów scenariuszu.
 
-1. W obszarze SQL Server Management Studio rozwiń węzeł **zawsze włączone** > **grupy** > dostępności o wysokiej dostępności **[nazwa grupy dostępności]**.
+1. W obszarze SQL Server Management Studio rozwiń węzeł **zawsze włączone grupy dostępności o wysokiej dostępności**  >  **Availability Groups**  >  **[nazwa grupy dostępności]**.
 2. Kliknij prawym przyciskiem myszy pozycję **repliki dostępności**, a następnie kliknij polecenie **Dodaj replikę**.
 3. Domyślnie zostanie wyświetlony **Kreator dodawania repliki do grupy dostępności** . Kliknij przycisk **Dalej**.  Jeśli wybrano opcję **nie pokazuj tej strony ponownie** w dolnej części strony podczas poprzedniego uruchomienia tego kreatora, ten ekran nie zostanie wyświetlony.
    
@@ -57,7 +57,7 @@ W tej sekcji pokazano, jak za pomocą **Kreatora dodawania repliki systemu Azure
    
    | Ustawienie | Opis |
    | --- | --- |
-   | **Obraz** |Wybierz żądaną kombinację systemów operacyjnych i SQL Server |
+   | **Image (Obraz)** |Wybierz żądaną kombinację systemów operacyjnych i SQL Server |
    | **Rozmiar maszyny wirtualnej** |Wybierz rozmiar maszyny wirtualnej, który najlepiej odpowiada potrzebom biznesowym |
    | **Nazwa maszyny wirtualnej** |Określ unikatową nazwę nowej maszyny wirtualnej. Nazwa musi zawierać od 3 do 15 znaków, może zawierać tylko litery, cyfry i łączniki, a także musi zaczynać się literą i kończyć literą lub cyfrą. |
    | **Nazwa użytkownika maszyny wirtualnej** |Określ nazwę użytkownika, która stanie się kontem administratora na maszynie wirtualnej |
@@ -90,7 +90,7 @@ W tej sekcji pokazano, jak za pomocą **Kreatora dodawania repliki systemu Azure
 Po utworzeniu grupy dostępności należy utworzyć odbiornik, dla którego klienci mają łączyć się z replikami. Odbiorniki kierują bezpośrednie połączenia przychodzące do podstawowej lub pomocniczej repliki w trybie tylko do odczytu. Aby uzyskać więcej informacji na temat odbiorników, zobacz [Konfigurowanie odbiornika ILB dla zawsze włączonych grup dostępności na platformie Azure](../classic/ps-sql-int-listener.md).
 
 ## <a name="next-steps"></a>Następne kroki
-Oprócz korzystania z **Kreatora dodawania repliki platformy Azure** w celu przełączenia zawsze włączonej grupy dostępności na platformę Azure można całkowicie przenieść niektóre SQL Server obciążenia na platformę Azure. Aby rozpocząć, zobacz [Inicjowanie obsługi administracyjnej SQL Server maszyny wirtualnej na platformie Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md).
+Oprócz korzystania z **Kreatora dodawania repliki platformy Azure** w celu przełączenia zawsze włączonej grupy dostępności na platformę Azure można całkowicie przenieść niektóre SQL Server obciążenia na platformę Azure. Aby rozpocząć, zobacz [Inicjowanie obsługi administracyjnej SQL Server maszyny wirtualnej na platformie Azure](../../../azure-sql/virtual-machines/windows/create-sql-vm-portal.md).
 
-Aby poznać inne tematy związane z uruchamianiem SQL Server na maszynach wirtualnych platformy Azure, zobacz [SQL Server na platformie azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md).
+Aby poznać inne tematy związane z uruchamianiem SQL Server na maszynach wirtualnych platformy Azure, zobacz [SQL Server na platformie azure Virtual Machines](../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md).
 

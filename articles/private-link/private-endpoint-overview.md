@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: 51afa118be75c7e9ea2cb6e394d27cc39a58de0b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: f75b080ce31a5c954471d277aad354879c16c6b3
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849658"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022201"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Co to jest prywatny punkt końcowy platformy Azure?
 
@@ -86,7 +86,7 @@ Możesz całkowicie zablokować obciążenia, aby uzyskać dostęp do publicznyc
  
 ## <a name="access-to-a-private-link-resource-using-approval-workflow"></a>Dostęp do prywatnego zasobu linku przy użyciu przepływu pracy zatwierdzania 
 Możesz połączyć się z zasobem link prywatny przy użyciu następujących metod zatwierdzania połączeń:
-- **Automatycznie** zatwierdzane podczas posiadania lub masz uprawnienia do określonego zasobu łącza prywatnego. Wymagane uprawnienie jest oparte na typie zasobu link prywatny w następującym formacie: Microsoft. \< Dostawca>/<resource_type>/privateEndpointConnectionApproval/action
+- **Automatycznie** zatwierdzane podczas posiadania lub masz uprawnienia do określonego zasobu łącza prywatnego. Wymagane uprawnienie jest oparte na typie zasobu link prywatny w następującym formacie: Microsoft. \<Provider> /<resource_type>/privateEndpointConnectionApproval/action
 - **Ręczne** żądanie, gdy nie masz wymaganego uprawnienia i chcesz zażądać dostępu. Zostanie zainicjowany przepływ pracy zatwierdzania. Prywatny punkt końcowy i kolejne połączenie prywatnego punktu końcowego zostaną utworzone ze stanem „Oczekiwanie”. Właściciel zasobu linku prywatnego jest odpowiedzialny za zaakceptowanie połączenia. Po jego zatwierdzeniu prywatny punkt końcowy jest włączony do wysyłania ruchu normalnie, jak pokazano na poniższym diagramie przepływu pracy zatwierdzania.  
 
 ![zatwierdzenie przepływu pracy](media/private-endpoint-overview/private-link-paas-workflow.png)
@@ -124,9 +124,9 @@ Poniższa tabela zawiera listę znanych ograniczeń dotyczących używania prywa
 
 
 ## <a name="next-steps"></a>Następne kroki
-- [Tworzenie prywatnego punktu końcowego dla serwera SQL Database przy użyciu portalu](create-private-endpoint-portal.md)
-- [Tworzenie prywatnego punktu końcowego dla serwera SQL Database przy użyciu programu PowerShell](create-private-endpoint-powershell.md)
-- [Tworzenie prywatnego punktu końcowego dla serwera SQL Database przy użyciu interfejsu wiersza polecenia](create-private-endpoint-cli.md)
+- [Tworzenie prywatnego punktu końcowego dla SQL Database przy użyciu portalu](create-private-endpoint-portal.md)
+- [Tworzenie prywatnego punktu końcowego dla SQL Database przy użyciu programu PowerShell](create-private-endpoint-powershell.md)
+- [Tworzenie prywatnego punktu końcowego dla SQL Database przy użyciu interfejsu wiersza polecenia](create-private-endpoint-cli.md)
 - [Tworzenie prywatnego punktu końcowego dla konta magazynu przy użyciu portalu](create-private-endpoint-storage-portal.md)
 - [Tworzenie prywatnego punktu końcowego dla konta usługi Azure Cosmos za pomocą portalu](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Tworzenie własnej usługi linku prywatnego przy użyciu Azure PowerShell](create-private-link-service-powershell.md)

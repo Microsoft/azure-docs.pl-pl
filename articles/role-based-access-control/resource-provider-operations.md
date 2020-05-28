@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 05/04/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 3d8851004c5d976961d96ca7d9f315780765fcde
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 679b5e60f65daac2006598c6bf12c9cdeec5541d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199561"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84015917"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operacje dostawcy zasobów Azure Resource Manager
 
@@ -50,7 +50,7 @@ Usługa platformy Azure: [Azure Active Directory Domain Services](../active-dire
 
 ## <a name="microsoftaadiam"></a>Microsoft. aadiam
 
-Azure Active Directory
+Usługa Azure Active Directory
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Typ akcji | Operacja | Opis |
@@ -2727,7 +2727,7 @@ Usługa platformy Azure: [Cost Management](../cost-management-billing/index.yml)
 > | Akcja | Microsoft. CostManagement/externalSubscriptions/Prognoza/odczyt | Prognozowanie danych użycia dla zewnętrznego BillingAccounts. |
 > |  | **externalSubscriptions/zapytanie** |  |
 > | Akcja | Microsoft. CostManagement/externalSubscriptions/Query/Read | Wykonywanie zapytań dotyczących danych użycia dla zewnętrznej subskrypcji. |
-> |  | **prognozy** |  |
+> |  | **forecast** |  |
 > | Akcja | Microsoft. CostManagement/Prognoza/odczyt | Prognozowanie danych użycia według zakresu. |
 > |  | **składowa** |  |
 > | Akcja | Microsoft. CostManagement/Operations/Read | Wyświetl listę wszystkich obsługiwanych operacji przez dostawcę zasobów Microsoft. CostManagement. |
@@ -5444,7 +5444,7 @@ Usługa platformy Azure: [Azure Lab Services](../lab-services/index.yml)
 > | Akcja | Microsoft. LabServices/labAccounts/sharedImages/Write | Dodaj lub zmodyfikuj Sharedimages. |
 > |  | **Lokalizacje/operacje** |  |
 > | Akcja | Microsoft. LabServices/Locations/Operations/Read | Operacje odczytu. |
-> |  | **użytkownikowi** |  |
+> |  | **users** |  |
 > | Akcja | Microsoft. LabServices/users/rejestr/akcja | Rejestrowanie użytkownika w zarządzanym laboratorium |
 > | Akcja | Microsoft. LabServices/users/ListAllEnvironments/akcja | Wyświetl listę wszystkich środowisk dla użytkownika |
 > | Akcja | Microsoft. LabServices/users/StartEnvironment/akcja | Uruchamia środowisko przez uruchomienie wszystkich zasobów w środowisku. |
@@ -6992,7 +6992,7 @@ Usługa platformy Azure: [Notification Hubs](../notification-hubs/index.yml)
 > | Akcja | Microsoft. NotificationHubs/Register/Action | Rejestruje subskrypcję dostawcy zasobów NotificationHubs i umożliwia tworzenie przestrzeni nazw i NotificationHubs |
 > | Akcja | Microsoft. NotificationHubs/Unregister/Action | Wyrejestrowuje subskrypcję dostawcy zasobów NotificationHubs i umożliwia tworzenie przestrzeni nazw i NotificationHubs |
 > | Akcja | Microsoft. NotificationHubs/CheckNamespaceAvailability/Action | Sprawdza, czy dana nazwa zasobu przestrzeni nazw jest dostępna w ramach usługi NotificationHub. |
-> |  | **Namespaces** |  |
+> |  | **Przestrzenie nazw** |  |
 > | Akcja | Microsoft. NotificationHubs/przestrzenie nazw/zapis | Utwórz zasób przestrzeni nazw i zaktualizuj jego właściwości. Tagi i pojemność przestrzeni nazw to właściwości, które można zaktualizować. |
 > | Akcja | Microsoft. NotificationHubs/przestrzenie nazw/odczyt | Pobierz listę opisów zasobów przestrzeni nazw |
 > | Akcja | Microsoft. NotificationHubs/przestrzenie nazw/usuwanie | Usuń zasób przestrzeni nazw |
@@ -9055,7 +9055,7 @@ Usługa platformy Azure: [Azure Managed Applications](../azure-resource-manager/
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
-Usługa platformy Azure: [Azure SQL Database](../sql-database/index.yml), [SQL Data Warehouse](../sql-data-warehouse/index.yml)
+Usługa platformy Azure: [Azure SQL Database](../azure-sql/database/index.yml), [wystąpienie zarządzane SQL Azure](../azure-sql/managed-instance/index.yml) [SQL Data Warehouse](../sql-data-warehouse/index.yml)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Typ akcji | Operacja | Opis |
@@ -9333,7 +9333,7 @@ Usługa platformy Azure: [Azure SQL Database](../sql-database/index.yml), [SQL D
 > | Akcja | Microsoft. SQL/Operations/Read | Pobiera dostępne operacje REST |
 > |  | **serwerem** |  |
 > | Akcja | Microsoft. SQL/serwery/tdeCertificates/akcja | Utwórz/zaktualizuj certyfikat TDE |
-> | Akcja | Microsoft. SQL/serwery/disableAzureADOnlyAuthentication/akcja | Wyłącz uwierzytelnianie tylko Azure Active Directory na serwerze logicznym |
+> | Akcja | Microsoft. SQL/serwery/disableAzureADOnlyAuthentication/akcja | Wyłącz uwierzytelnianie tylko Azure Active Directory na serwerze w programie Azure SQL Database|
 > | Akcja | Microsoft. SQL/serwery/odczyt | Zwróć listę serwerów lub pobiera właściwości dla określonego serwera. |
 > | Akcja | Microsoft. SQL/serwery/zapis | Tworzy serwer z określonymi parametrami lub aktualizuje właściwości lub Tagi dla określonego serwera. |
 > | Akcja | Microsoft. SQL/serwery/usuwanie | Usuwa istniejący serwer. |
@@ -9628,7 +9628,7 @@ Usługa platformy Azure: [Azure SQL Database](../sql-database/index.yml), [SQL D
 > |  | **serwery/importExportOperationResults** |  |
 > | Akcja | Microsoft. SQL/serwery/importExportOperationResults/odczyt | Pobiera operacje importu/eksportu w toku |
 > |  | **serwery/inaccessibleDatabases** |  |
-> | Akcja | Microsoft. SQL/serwery/inaccessibleDatabases/odczyt | Zwraca listę niedostępnych baz danych na serwerze logicznym. |
+> | Akcja | Microsoft. SQL/serwery/inaccessibleDatabases/odczyt | Zwróć listę niedostępnych baz danych na serwerze w usłudze Azure SQL Datbase. |
 > |  | **serwery/interfaceEndpointProfiles** |  |
 > | Akcja | Microsoft. SQL/serwery/interfaceEndpointProfiles/Write | Tworzy profil punktu końcowego interfejsu z określonymi parametrami lub aktualizuje właściwości lub Tagi dla określonego punktu końcowego interfejsu |
 > | Akcja | Microsoft. SQL/serwery/interfaceEndpointProfiles/odczyt | Zwraca właściwości dla określonego profilu punktu końcowego interfejsu |
@@ -9699,7 +9699,7 @@ Usługa platformy Azure: [Azure SQL Database](../sql-database/index.yml), [SQL D
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft. SqlVirtualMachine
 
-Usługa platformy Azure: [SQL Server na platformie azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
+Usługa platformy Azure: [SQL Server na platformie azure Virtual Machines](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Typ akcji | Operacja | Opis |
@@ -10342,7 +10342,7 @@ Usługa platformy Azure: [Azure DevOps](https://docs.microsoft.com/azure/devops/
 > | Akcja | Microsoft. VisualStudio/rozszerzenie/zapis | Ustaw rozszerzenie |
 > | Akcja | Microsoft. VisualStudio/rozszerzenie/usuwanie | Usuń rozszerzenie |
 > | Akcja | Microsoft. VisualStudio/rozszerzenie/odczyt | Odczyt rozszerzenia |
-> |  | **Projekt** |  |
+> |  | **Project** |  |
 > | Akcja | Microsoft. VisualStudio/Project/Write | Ustaw projekt |
 > | Akcja | Microsoft. VisualStudio/Project/Delete | Usuń projekt |
 > | Akcja | Microsoft. VisualStudio/Project/Read | Odczytaj projekt |

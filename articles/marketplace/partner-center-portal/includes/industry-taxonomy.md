@@ -1,5 +1,5 @@
 ---
-title: dołączanie pliku
+title: Plik dyrektywy include
 description: Uwzględnij plik dla taksonomii branżowej
 documentationcenter: partner-center-commercial-marketplace
 author: qianw211
@@ -26,7 +26,7 @@ Opcjonalnie możesz wybrać maksymalnie dwie branże i dwie pionowe w poszczegó
 | * Motoryzacyjne     | * Motoryzacyjne |
 | Rolnictwo     | * Inne — niesegmentacja |
 | Dystrybucja    | * Sprzedaż hurtowa <br> * Wysyłka pakietu & paczki |
-| Edukacja     | * Wyższe Edukacja <br> * Podstawowe & Edukacja dodatkowa/K-12 <br> * Biblioteki & muzea |
+| Education     | * Wyższe Edukacja <br> * Podstawowe & Edukacja dodatkowa/K-12 <br> * Biblioteki & muzea |
 | Usługi finansowe     | * Rynki kapitałowe & Bank <br> * Ubezpieczenie |
 | Instytucje rządowe    | * Podwyższenie & obrony (używane do nazywania bezpieczeństwa narodowego i publicznego) <br> * Bezpieczeństwo publiczne & sprawiedliwości <br> * Rząd cywilny |
 | Opieka zdrowotna (używana do nazywania kondycji)   | * Płatnik kondycji <br> * Dostawca kondycji <br> * Środki farmaceutyczne |

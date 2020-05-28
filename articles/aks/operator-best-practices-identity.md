@@ -5,12 +5,12 @@ description: Poznaj najlepsze rozwiązania operatora klastra dotyczące zarządz
 services: container-service
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: 0e3569be769fcf70a65cbfee62a3b80a5abdc3b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e02b542f74a2dd7b7e88f1fa075ad6a736895e76
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80668314"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020051"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Najlepsze rozwiązania dotyczące uwierzytelniania i autoryzacji w usłudze Azure Kubernetes Service (AKS)
 
@@ -19,6 +19,7 @@ Podczas wdrażania i konserwowania klastrów w usłudze Azure Kubernetes Service
 Te najlepsze rozwiązania koncentrują się na sposobie zarządzania dostępem i tożsamością klastrów AKS przez operator klastra. W tym artykule omówiono sposób wykonywania następujących zadań:
 
 > [!div class="checklist"]
+>
 > * Uwierzytelnianie użytkowników klastrów AKS za pomocą Azure Active Directory
 > * Kontrola dostępu do zasobów za pomocą kontroli dostępu opartej na rolach (RBAC)
 > * Używanie tożsamości zarządzanej do samodzielnego uwierzytelniania z innymi usługami
@@ -62,7 +63,7 @@ rules:
   verbs: ["*"]
 ```
 
-Następnie utworzono Rolębinding, która wiąże użytkownika usługi Azure AD *developer1\@contoso.com* z roląbinding, jak pokazano w następującym manifeście YAML:
+Następnie utworzono Rolębinding, która wiąże użytkownika usługi Azure AD *developer1 \@ contoso.com* z roląbinding, jak pokazano w następującym manifeście YAML:
 
 ```yaml
 kind: RoleBinding
@@ -80,7 +81,7 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ```
 
-Gdy *developer1\@contoso.com* jest uwierzytelniany w klastrze AKS, mają pełne uprawnienia do zasobów w przestrzeni nazw *"Finanse aplikacji"* . Dzięki temu można logicznie oddzielić i kontrolować dostęp do zasobów. Kubernetes RBAC należy używać w połączeniu z usługą Azure AD — integrację, zgodnie z opisem w poprzedniej sekcji.
+Gdy *developer1 \@ contoso.com* jest uwierzytelniany w klastrze AKS, mają pełne uprawnienia do zasobów w przestrzeni nazw *"Finanse aplikacji"* . Dzięki temu można logicznie oddzielić i kontrolować dostęp do zasobów. Kubernetes RBAC należy używać w połączeniu z usługą Azure AD — integrację, zgodnie z opisem w poprzedniej sekcji.
 
 Aby dowiedzieć się, jak za pomocą grup usługi Azure AD kontrolować dostęp do zasobów Kubernetes za pomocą RBAC, zobacz [Kontrola dostępu do zasobów klastra przy użyciu kontroli dostępu opartej na rolach i tożsamości Azure Active Directory w AKS][azure-ad-rbac].
 
@@ -97,14 +98,14 @@ Zarządzane tożsamości dla zasobów platformy Azure (obecnie zaimplementowane 
 
 Gdy usługa podst żąda dostępu do usługi platformy Azure, reguły sieci przekierowują ruch do serwera tożsamości zarządzania węzłami (NMI). Serwer NMI identyfikuje zasobniki, które żądają dostępu do usług platformy Azure na podstawie ich adresów zdalnych, a następnie wysyła zapytanie do zarządzanego kontrolera tożsamości (MIC). MIKROFON sprawdza mapowania tożsamości platformy Azure w klastrze AKS, a następnie serwer NMI żąda tokenu dostępu od Azure Active Directory (AD) w oparciu o mapowanie tożsamości pod. Usługa Azure AD zapewnia dostęp do serwera NMI, który jest zwracany do usługi pod. Ten token dostępu może być używany przez usługę pod, a następnie żądać dostępu do usług na platformie Azure.
 
-W poniższym przykładzie deweloper tworzy pod, który używa tożsamości zarządzanej, aby zażądać dostępu do wystąpienia usługi Azure SQL Server:
+W poniższym przykładzie deweloper tworzy pod, który używa tożsamości zarządzanej, aby zażądać dostępu do Azure SQL Database:
 
 ![Tożsamości pod pozwalają na automatyczne zażądanie dostępu do innych usług](media/operator-best-practices-identity/pod-identities.png)
 
 1. Operator klastra najpierw tworzy konto usługi, które może służyć do mapowania tożsamości, gdy identyfikatory zasobów żądają dostępu do usług.
 1. Serwer NMI i mikrofon są wdrażane w celu przekazywania żądań dostępu do usługi Azure AD na żądanie.
 1. Deweloper wdraża usługę pod za pomocą tożsamości zarządzanej, która żąda tokenu dostępu za pomocą serwera NMI.
-1. Token jest zwracany do i używany do uzyskiwania dostępu do wystąpienia usługi Azure SQL Server.
+1. Token jest zwracany do i używany do uzyskiwania dostępu do Azure SQL Database
 
 > [!NOTE]
 > Tożsamości zarządzane pod to projekt open source, który nie jest obsługiwany przez pomoc techniczną platformy Azure.

@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 01/29/2020
-ms.openlocfilehash: fa7750a6e7888b6ca13c1ec32cabee9bcf803e65
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: d97fae777b06625488234eb6d48a74a60a83f4d6
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81382741"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84018722"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Samouczek: Wyodrębnianie, przekształcanie i ładowanie danych przy użyciu Azure Databricks
 
@@ -37,7 +37,7 @@ Ten samouczek obejmuje następujące zadania:
 > * Przekształcanie danych w usłudze Azure Databricks.
 > * Ładowanie danych do usługi Azure Synapse.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!Note]
 > Tego samouczka nie można przeprowadzić za pomocą **subskrypcji bezpłatnej wersji próbnej platformy Azure**.
@@ -93,7 +93,7 @@ W tej sekcji utworzysz usługę Azure Databricks przy użyciu witryny Azure Port
 
     ![Utwórz zasób na Azure Portal](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-on-portal.png)
 
-    Następnie wybierz pozycję **Analytics** > **Azure Databricks**.
+    Następnie wybierz pozycję **Analytics**  >  **Azure Databricks**.
 
     ![Utwórz Azure Databricks na Azure Portal](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-resource-create.png)
 
@@ -370,7 +370,7 @@ Jak wspomniano wcześniej, łącznik usługi Azure Synapse używa usługi Azure 
    > [!NOTE]
    > W tym przykładzie użyto `forward_spark_azure_storage_credentials` flagi, która powoduje, że usługa Azure Synapse uzyskuje dostęp do danych z usługi BLOB Storage przy użyciu klucza dostępu. Jest to jedyna obsługiwana metoda uwierzytelniania.
    >
-   > Jeśli Blob Storage platformy Azure jest ograniczone do wybranych sieci wirtualnych, usługa Azure Synapse wymaga [tożsamość usługi zarządzanej zamiast kluczy dostępu](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Spowoduje to wystąpienie błędu "to żądanie nie ma autoryzacji do wykonania tej operacji".
+   > Jeśli Blob Storage platformy Azure jest ograniczone do wybranych sieci wirtualnych, usługa Azure Synapse wymaga [tożsamość usługi zarządzanej zamiast kluczy dostępu](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Spowoduje to wystąpienie błędu "to żądanie nie ma autoryzacji do wykonania tej operacji".
 
 6. Połącz się z usługą SQL Database i sprawdź, czy jest widoczna baza danych o nazwie **SampleTable**.
 
@@ -380,7 +380,7 @@ Jak wspomniano wcześniej, łącznik usługi Azure Synapse używa usługi Azure 
 
     ![Sprawdzanie zawartości przykładowej tabeli](./media/databricks-extract-load-sql-data-warehouse/verify-sample-table-content.png "Sprawdzanie zawartości przykładowej tabeli")
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po ukończeniu tego samouczka możesz przerwać działanie klastra. W obszarze roboczym usługi Azure Databricks wybierz pozycję **Klastry** po lewej stronie. Aby przerwać działanie klastra, w obszarze **Akcje** wskaż wielokropek (...) i wybierz ikonę **Przerwij**.
 

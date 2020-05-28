@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 90de49ae3137735683bae6a18b5f7c8951b021ae
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5a7343bcf6ba4388beda118b242fa47d13baaa89
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75645875"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022594"
 ---
 # <a name="sap-maxdb-livecache-and-content-server-deployment-on-azure-vms"></a>Wdrażanie oprogramowania SAP MaxDB, liveCache i Content Server na maszynach wirtualnych platformy Azure
 
@@ -281,9 +281,9 @@ ms.locfileid: "75645875"
 [virtual-machines-sizes-windows]:../../windows/sizes.md
 [virtual-machines-windows-classic-ps-sql-alwayson-availability-groups]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md
 [virtual-machines-windows-classic-ps-sql-int-listener]:./../../windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener.md
-[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:./../../windows/sql/virtual-machines-windows-sql-high-availability-dr.md
-[virtual-machines-sql-server-infrastructure-services]:./../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md
-[virtual-machines-sql-server-performance-best-practices]:./../../windows/sql/virtual-machines-windows-sql-performance.md
+[virtual-machines-sql-server-high-availability-and-disaster-recovery-solutions]:../../../azure-sql/virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
+[virtual-machines-sql-server-infrastructure-services]:../../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
+[virtual-machines-sql-server-performance-best-practices]:../../../azure-sql/virtual-machines/windows/performance-guidelines-best-practices.md
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
 [virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/resources/templates/sql-server-2014-alwayson-existing-vnet-and-ad/
@@ -313,8 +313,8 @@ W tym dokumencie omówiono kilka różnych obszarów, które należy wziąć pod
 
 ## <a name="specifics-for-the-sap-maxdb-deployments-on-windows"></a>Specyficzne dla wdrożeń SAP MaxDB w systemie Windows
 ### <a name="sap-maxdb-version-support-on-azure"></a>Obsługa wersji SAP MaxDB na platformie Azure
-System SAP obecnie obsługuje oprogramowanie SAP MaxDB w wersji 7,9 lub nowszej do użycia z produktami opartymi na oprogramowaniu SAP NetWeaver na platformie Azure. Wszystkie aktualizacje sterowników oprogramowania SAP MaxDB Server lub JDBC i ODBC, które mają być używane z produktami opartymi na oprogramowaniu SAP NetWeaver, są dostarczane wyłącznie za <https://support.sap.com/swdc>pośrednictwem platformy SAP Service Marketplace pod adresem.
-Ogólne informacje na temat uruchamiania oprogramowania SAP NetWeaver w systemie SAP MaxDB można <https://www.sap.com/community/topic/maxdb.html>znaleźć pod adresem.
+System SAP obecnie obsługuje oprogramowanie SAP MaxDB w wersji 7,9 lub nowszej do użycia z produktami opartymi na oprogramowaniu SAP NetWeaver na platformie Azure. Wszystkie aktualizacje sterowników oprogramowania SAP MaxDB Server lub JDBC i ODBC, które mają być używane z produktami opartymi na oprogramowaniu SAP NetWeaver, są dostarczane wyłącznie za pośrednictwem platformy SAP Service Marketplace pod adresem <https://support.sap.com/swdc> .
+Ogólne informacje na temat uruchamiania oprogramowania SAP NetWeaver w systemie SAP MaxDB można znaleźć pod adresem <https://www.sap.com/community/topic/maxdb.html> .
 
 ### <a name="supported-microsoft-windows-versions-and-azure-vm-types-for-sap-maxdb-dbms"></a>Obsługiwane wersje systemu Microsoft Windows i typy maszyn wirtualnych platformy Azure dla systemu SAP MaxDB DBMS
 Aby znaleźć obsługiwaną wersję systemu Microsoft Windows dla oprogramowania SAP MaxDB DBMS na platformie Azure, zobacz:
@@ -328,7 +328,7 @@ Zdecydowanie zaleca się użycie najnowszej wersji systemu operacyjnego Microsof
 Zaktualizowaną listę dokumentacji SAP MaxDB można znaleźć w następującej uwadze dotyczącej oprogramowania SAP [767598]
 
 ### <a name="sap-maxdb-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Wskazówki dotyczące konfiguracji oprogramowania SAP MaxDB na maszynach wirtualnych platformy Azure
-#### <a name="storage-configuration"></a><a name="b48cfe3b-48e9-4f5b-a783-1d29155bd573"></a>Konfiguracja usługi Storage
+#### <a name="storage-configuration"></a><a name="b48cfe3b-48e9-4f5b-a783-1d29155bd573"></a>Konfiguracja magazynu
 Najlepsze rozwiązania dotyczące usługi Azure Storage dla oprogramowania SAP MaxDB są zgodne z ogólnymi zaleceniami wymienionymi w rozdziale [Storage Structure The VM for RDBMS Deployments](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#65fa79d6-a85f-47ee-890b-22e794f51a64).
 
 > [!IMPORTANT]
