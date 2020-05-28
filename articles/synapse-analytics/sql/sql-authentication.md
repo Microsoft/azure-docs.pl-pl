@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: ff29b9ab87b2cd48297f5f1ee195f11fb56b428a
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 7295bb2e87373a80c6b105ab7284a43e6f0804da
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700319"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020776"
 ---
 # <a name="sql-authentication"></a>Uwierzytelnianie SQL
 
@@ -164,9 +164,9 @@ EXEC sp_addrolemember 'db_owner', 'Mary';
 ```
 
 > [!NOTE]
-> Jednym z typowych przyczyn tworzenia użytkownika bazy danych na podstawie nazwy logowania SQL Database serwera jest użytkownicy, którzy muszą mieć dostęp do wielu baz danych. Ponieważ użytkownicy zawartej bazy danych są poszczególnymi jednostkami, każda baza danych utrzymuje własnego użytkownika i jego własne hasło. Może to spowodować obciążenie, ponieważ użytkownik musi pamiętać każde hasło dla każdej bazy danych i może stać się untenable w przypadku konieczności zmiany wielu haseł dla wielu baz danych. Jednak w przypadku korzystania z SQL Server logowań i wysokiej dostępności (aktywnej replikacji geograficznej i grup trybu failover) SQL Server logowania należy ustawić ręcznie na każdym serwerze. W przeciwnym razie użytkownik bazy danych nie będzie już mapowany na logowanie do serwera po przejściu w tryb failover i nie będzie mógł uzyskać dostępu do przełączenia do trybu failover dla bazy danych. 
+> Jednym z typowych przyczyn tworzenia użytkownika bazy danych na podstawie nazwy logowania serwera jest użytkownicy, którzy potrzebują dostępu do wielu baz danych. Ponieważ użytkownicy zawartej bazy danych są poszczególnymi jednostkami, każda baza danych utrzymuje własnego użytkownika i jego własne hasło. Może to spowodować obciążenie, ponieważ użytkownik musi pamiętać każde hasło dla każdej bazy danych i może stać się untenable w przypadku konieczności zmiany wielu haseł dla wielu baz danych. Jednak w przypadku korzystania z SQL Server logowań i wysokiej dostępności (aktywnej replikacji geograficznej i grup trybu failover) SQL Server logowania należy ustawić ręcznie na każdym serwerze. W przeciwnym razie użytkownik bazy danych nie będzie już mapowany na logowanie do serwera po przejściu w tryb failover i nie będzie mógł uzyskać dostępu do przełączenia do trybu failover dla bazy danych. 
 
-Aby uzyskać więcej informacji na temat konfigurowania nazw logowania dla replikacji geograficznej, zobacz [Konfigurowanie i zarządzanie zabezpieczeniami Azure SQL Database na potrzeby przywracania geograficznego lub przełączania do trybu failover](../../sql-database/sql-database-geo-replication-security-config.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Aby uzyskać więcej informacji na temat konfigurowania nazw logowania dla replikacji geograficznej, zobacz [Konfigurowanie i zarządzanie zabezpieczeniami Azure SQL Database na potrzeby przywracania geograficznego lub przełączania do trybu failover](../../azure-sql/database/active-geo-replication-security-configure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ### <a name="configuring-the-database-level-firewall"></a>Konfigurowanie zapory na poziomie bazy danych
 

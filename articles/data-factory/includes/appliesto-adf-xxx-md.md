@@ -6,4 +6,4 @@ ms.contentlocale: pl-PL
 ms.lasthandoff: 04/28/2020
 ms.locfileid: "81398810"
 ---
-<Token>**Dotyczy:** ![tak](../media/applies-to/yes.png)Azure Data Factory ![nie ma](../media/applies-to/no.png)usługi Azure Synapse Analytics (wersja zapoznawcza)</Token>
+<Token>**dotyczy:** ![ tak ](../media/applies-to/yes.png) Azure Data Factory ![ nie ma ](../media/applies-to/no.png) usługi Azure Synapse Analytics (wersja zapoznawcza)</Token>

@@ -6,18 +6,18 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/21/2018
 ms.topic: conceptual
-ms.openlocfilehash: e7a190792714e1dd1a54da7e674e63d4453c548e
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: ef8145f0b447f24265ff4576884b0977190b063e
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835074"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84020357"
 ---
 # <a name="compose-dsc-configurations"></a>Tworzenie konfiguracji DSC
 
 Jeśli potrzebujesz zarządzać zasobem z więcej niż jedną konfiguracją żądanego stanu (DSC), najlepszą ścieżką jest użycie [zasobów złożonych](/powershell/scripting/dsc/resources/authoringresourcecomposite). Zasób złożony jest zagnieżdżoną i sparametryzowana konfiguracją używaną jako zasób DSC w innej konfiguracji. Użycie zasobów złożonych umożliwia tworzenie złożonych konfiguracji, a jednocześnie umożliwia zarządzanie i kompilowanie podstawowych zasobów złożonych.
 
-Azure Automation umożliwia [Importowanie i kompilowanie zasobów złożonych](automation-dsc-compile.md). Po zaimportowaniu zasobów złożonych na konto usługi Automation możesz użyć konfiguracji stanu Azure Automation za pomocą funkcji **Konfiguracja stanu (DSC** ) w Azure Portal.
+Azure Automation umożliwia [Importowanie i kompilowanie zasobów złożonych](automation-dsc-compile.md). Po zaimportowaniu zasobów złożonych na konto usługi Automation możesz użyć konfiguracji stanu Azure Automation za pomocą funkcji **Konfiguracja stanu (DSC)** w Azure Portal.
 
 ## <a name="compose-a-configuration"></a>Redaguj konfigurację
 

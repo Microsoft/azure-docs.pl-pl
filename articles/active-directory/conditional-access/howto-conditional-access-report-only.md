@@ -4,19 +4,19 @@ description: Używanie trybu tylko do raportowania w przypadku dostępu warunkow
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: conceptual
-ms.date: 05/01/2020
+ms.topic: how-to
+ms.date: 05/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb13eb699f770d4d7f896b8179888d1514b1c46d
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 46a00d55c58992be1009da1de5441ebe4e589a70
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690373"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83994973"
 ---
 # <a name="configure-a-conditional-access-policy-in-report-only-mode"></a>Konfigurowanie zasad dostępu warunkowego w trybie tylko do raportowania
 
@@ -26,7 +26,7 @@ Aby skonfigurować zasady dostępu warunkowego w trybie tylko do raportowania:
 > Jeśli Twoja organizacja jeszcze nie została [skonfigurowana, skonfiguruj Azure monitor integrację z usługą Azure AD](#set-up-azure-monitor-integration-with-azure-ad). Ten proces musi zostać wykonany, aby dane były dostępne do przejrzenia.
 
 1. Zaloguj się do **Azure Portal** jako administrator dostępu warunkowego, administrator zabezpieczeń lub Administrator globalny.
-1. Przejdź do **Azure Active Directory** > **Security** > **dostępu warunkowego**zabezpieczeń.
+1. Przejdź do **Azure Active Directory**  >  **Security**  >  **dostępu warunkowego**zabezpieczeń.
 1. Wybierz pozycję **nowe zasady**.
 1. Skonfiguruj warunki zasad i wymagane kontrole dotacji zgodnie z potrzebami.
 1. W obszarze **Włączanie zasad** ustaw opcję Przełącz do trybu **tylko raportowanie** .
@@ -40,7 +40,7 @@ Wyświetl raport — wynik tylko w dziennikach logowania usługi Azure AD.
 Aby wyświetlić wynik zasad dotyczących tylko raportów dotyczących określonego logowania:
 
 1. Zaloguj się do **Azure Portal** jako czytelnik raportów, czytelnik zabezpieczeń, administrator zabezpieczeń lub Administrator globalny.
-1. Przejdź do **Azure Active Directory** > **logowania**.
+1. Przejdź do **Azure Active Directory**  >  **logowania**.
 1. Wybierz pozycję Zaloguj lub Dodaj filtry, aby zawęzić wyniki.
 1. W szufladzie **szczegółów** wybierz kartę **tylko raport** , aby wyświetlić zasady oceniane podczas logowania.
 
@@ -61,7 +61,7 @@ Więcej informacji o cenach Azure Monitor można znaleźć na [stronie cennika A
 Po zintegrowaniu dzienników usługi Azure AD z Azure Monitor można monitorować wpływ zasad dostępu warunkowego na nowe skoroszyty usługi Dostęp warunkowy.
 
 1. Zaloguj się do **Azure Portal** jako administrator zabezpieczeń lub Administrator globalny.
-1. Przejdź do **Azure Active Directory** > **skoroszytów**.
+1. Przejdź do **Azure Active Directory**  >  **skoroszytów**.
 1. Wybierz pozycję **dostęp warunkowy szczegółowe informacje**.
 1. Wybierz co najmniej jedną zasadę z listy rozwijanej **zasady dostępu warunkowego** . Wszystkie włączone zasady są domyślnie zaznaczone.
 1. Wybierz zakres czasu (Jeśli zakres czasu przekracza dostęp do dostępnego zestawu danych, raport będzie zawierać wszystkie dostępne dane). Po ustawieniu **zasad dostępu warunkowego** i parametrów **zakresu czasu** raport zostanie załadowany.

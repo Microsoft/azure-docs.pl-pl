@@ -66,7 +66,7 @@ Liczniki wydajności zostaną zaktualizowane przez wszystkie operacje pamięci p
 * Tworzenie kategorii wydajności i liczników należy wykonać tylko raz przed utworzeniem obiektu ShardMapManager. Każde wykonanie polecenia CreatePerformanceCategoryAndCounters () czyści poprzednie liczniki (tracące dane zgłaszane przez wszystkie wystąpienia) i tworzy nowe.  
 * Wystąpienia liczników wydajności są tworzone dla poszczególnych procesów. Wszystkie awarie aplikacji lub usunięcie mapy fragmentu z pamięci podręcznej spowodują usunięcie wystąpień liczników wydajności.  
 
-### <a name="see-also"></a>Zobacz też
+### <a name="see-also"></a>Zobacz także
 
 [Elastic Database features overview (Omówienie funkcji Elastic Database)](elastic-scale-introduction.md)  
 

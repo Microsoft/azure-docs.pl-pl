@@ -9,17 +9,17 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: e18fc765385e6d703e735a1ca15c539c32f36e93
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8501f9d07ffa2d04915d4d1a351317cc145f9844
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82116251"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84118265"
 ---
 # <a name="overview-query-data-in-storage"></a>Przegląd: wykonywanie zapytań dotyczących danych w magazynie
 
 Ta sekcja zawiera przykładowe zapytania, których można użyć w celu wypróbowania zasobu SQL na żądanie (wersja zapoznawcza) w ramach usługi Azure Synapse Analytics.
-Obecnie obsługiwane są następujące pliki: 
+Obecnie obsługiwane formaty plików:  
 - CSV
 - Parquet
 - JSON
@@ -44,67 +44,13 @@ Dodatkowo parametry są następujące:
 
 ## <a name="first-time-setup"></a>Konfiguracja pierwszego czasu
 
-Przed użyciem przykładów zamieszczonych w dalszej części tego artykułu, należy wykonać dwie czynności:
-
-- Tworzenie bazy danych dla widoków (w przypadku, gdy chcesz używać widoków)
-- Utwórz poświadczenia, które będą używane przez SQL na żądanie do uzyskiwania dostępu do plików w magazynie
-
-### <a name="create-database"></a>Tworzenie bazy danych
-
-Do tworzenia widoków potrzebna jest baza danych. Ta baza danych będzie używana dla niektórych przykładowych zapytań w tej dokumentacji.
+Pierwszym krokiem jest **utworzenie bazy danych** , w której będą wykonywane zapytania. Następnie zainicjuj obiekty, wykonując [skrypt Instalatora](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) w tej bazie danych. Ten skrypt instalacyjny utworzy źródła danych, poświadczenia w zakresie bazy danych i zewnętrzne formaty plików, które są używane do odczytywania danych w tych przykładach.
 
 > [!NOTE]
 > Bazy danych są używane tylko do wyświetlania metadanych, a nie dla rzeczywistych danych.  Zapisz nazwę używanej bazy danych, która będzie potrzebna później.
 
 ```sql
 CREATE DATABASE mydbname;
-```
-
-### <a name="create-credentials"></a>Utwórz poświadczenia
-
-Aby można było uruchamiać zapytania, należy utworzyć poświadczenia. To poświadczenie będzie używane przez usługę SQL na żądanie do uzyskiwania dostępu do plików w magazynie.
-
-> [!NOTE]
-> W celu pomyślnego uruchomienia tego tematu należy użyć tokenu SAS.
->
-> Aby rozpocząć korzystanie z tokenów SAS, należy porzucić tożsamość użytkownika, który został wyjaśniony w następującym [artykule](develop-storage-files-storage-access-control.md#disable-forcing-azure-ad-pass-through).
->
-> Funkcja SQL on-Demand domyślnie zawsze używa przekazywania w usłudze AAD.
-
-Aby uzyskać więcej informacji na temat zarządzania kontrolą dostępu do magazynu, zaznacz ten [link](develop-storage-files-storage-access-control.md).
-
-Aby utworzyć poświadczenia dla kontenerów CSV, JSON i Parquet, uruchom poniższy kod:
-
-```sql
--- create credentials for CSV container in our demo storage account
-IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://sqlondemandstorage.blob.core.windows.net/csv')
-DROP CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/csv];
-GO
-
-CREATE CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/csv]
-WITH IDENTITY='SHARED ACCESS SIGNATURE',  
-SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D';
-GO
-
--- create credentials for JSON container in our demo storage account
-IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://sqlondemandstorage.blob.core.windows.net/json')
-DROP CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/json];
-GO
-
-CREATE CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/json]
-WITH IDENTITY='SHARED ACCESS SIGNATURE',  
-SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D';
-GO
-
--- create credentials for PARQUET container in our demo storage account
-IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://sqlondemandstorage.blob.core.windows.net/parquet')
-DROP CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/parquet];
-GO
-
-CREATE CREDENTIAL [https://sqlondemandstorage.blob.core.windows.net/parquet]
-WITH IDENTITY='SHARED ACCESS SIGNATURE',  
-SECRET = 'sv=2018-03-28&ss=bf&srt=sco&sp=rl&st=2019-10-14T12%3A10%3A25Z&se=2061-12-31T12%3A10%3A00Z&sig=KlSU2ullCscyTS0An0nozEpo4tO5JAgGBvw%2FJX2lguw%3D';
-GO
 ```
 
 ## <a name="provided-demo-data"></a>Podane dane demonstracyjne
@@ -132,24 +78,6 @@ Dane demonstracyjne zawierają następujące zestawy danych:
 | kodu                                                       | Folder nadrzędny dla danych w formacie JSON                        |
 | /json/books/                                                 | Pliki JSON z danymi książek                                   |
 
-## <a name="validation"></a>Walidacja
-
-Wykonaj następujące trzy zapytania i sprawdź, czy poświadczenia zostały utworzone prawidłowo.
-
-> [!NOTE]
-> Wszystkie identyfikatory URI w przykładowych zapytaniach używają konta magazynu znajdującego się w regionie platformy Azure Europa Północna. Upewnij się, że utworzono odpowiednie poświadczenie. Uruchom poniższe zapytanie i upewnij się, że konto magazynu jest wymienione na liście.
-
-```sql
-SELECT name
-FROM sys.credentials
-WHERE
-     name IN ( 'https://sqlondemandstorage.blob.core.windows.net/csv',
-     'https://sqlondemandstorage.blob.core.windows.net/parquet',
-     'https://sqlondemandstorage.blob.core.windows.net/json');
-```
-
-Jeśli nie możesz znaleźć odpowiedniego poświadczenia, zapoznaj się z tematem [Konfiguracja pierwszego czasu](#first-time-setup).
-
 ### <a name="sample-query"></a>Przykładowe zapytanie
 
 Ostatnim krokiem weryfikacji jest wykonanie następującej kwerendy:
@@ -159,7 +87,8 @@ SELECT
     COUNT_BIG(*)
 FROM  
     OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet',
+        BULK 'parquet/taxi/year=2017/month=9/*.parquet',
+        DATA_SOURCE = 'sqlondemanddemo',
         FORMAT='PARQUET'
     ) AS nyc;
 ```

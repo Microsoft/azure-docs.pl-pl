@@ -139,7 +139,7 @@ Reguły sieci wirtualnej są łatwiejsze do ustanowienia i zarządzania dostępe
 > [!NOTE]
 > Nie można jeszcze mieć SQL Database w podsieci. Jeśli serwer był węzłem w podsieci w sieci wirtualnej, wszystkie węzły w sieci wirtualnej mogą komunikować się z SQL Database. W takim przypadku maszyny wirtualne mogą komunikować się z SQL Database bez konieczności używania reguł sieci wirtualnej ani reguł adresów IP.
 
-## <a name="private-link"></a>Link prywatny
+## <a name="private-link"></a>Private Link
 
 Link prywatny umożliwia nawiązanie połączenia z serwerem za pośrednictwem **prywatnego punktu końcowego**. Prywatny punkt końcowy to prywatny adres IP w ramach określonego [Virtual Network](../../virtual-network/virtual-networks-overview.md) i podsieci.
 

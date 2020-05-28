@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 02/10/2020
+ms.date: 05/26/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: e8f0f3ff1b34701d45b0138a3c11795520c30a2f
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 4fc4f1bc32f520bd0300a6532b6c09268088d92a
+ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83586653"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83993234"
 ---
 # <a name="quickstart-use-the-translator-to-translate-text"></a>Szybki Start: tłumaczenie tekstu przy użyciu translatora
 
@@ -44,7 +44,7 @@ Ten przewodnik Szybki Start wymaga [konta Cognitive Services platformy Azure](ht
 [!INCLUDE [Python quickstart](includes/translate-python.md)]
 ::: zone-end
 
-## <a name="see-also"></a>Zobacz także
+## <a name="see-also"></a>Zobacz też
 
 * [Transliteracja tekstu](quickstart-transliterate.md)
 * [Identyfikowanie język na podstawie danych wejściowych](quickstart-detect.md)

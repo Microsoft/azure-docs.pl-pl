@@ -8,18 +8,18 @@ ms.date: 05/26/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 96e3d5001d11455337ae092776a1a4c5c3738012
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 9ffc065cb877c7f87cd38671f586f0754a42b2b8
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83883072"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141589"
 ---
 # <a name="prevent-accidental-deletion-of-azure-file-shares"></a>Zapobiegaj przypadkowemu usunięciu udziałów plików platformy Azure
 
-Usługa Azure Storage oferuje teraz nietrwałe usuwanie udziałów plików. Funkcja usuwania nietrwałego umożliwia odzyskanie danych w przypadku pomyłkowego usunięcia ich przez aplikację lub innego użytkownika konta magazynu.
+Usługa Azure Storage oferuje teraz nietrwałe usuwanie udziałów plików (wersja zapoznawcza). Funkcja usuwania nietrwałego umożliwia odzyskanie danych w przypadku pomyłkowego usunięcia ich przez aplikację lub innego użytkownika konta magazynu.
 
-## <a name="how-soft-delete-works"></a>Jak działa usuwanie nietrwałe
+## <a name="how-soft-delete-preview-works"></a>Jak działa usuwanie nietrwałe (wersja zapoznawcza)
 
 Po włączeniu funkcja usuwania nietrwałego pozwala zapisywać i odzyskiwać udziały plików po ich usunięciu. Po usunięciu danych następuje przejście do nietrwałego stanu usuniętego zamiast wyczyszczenia. Można skonfigurować ilość czasu nietrwałego usuwania danych, zanim zostanie on trwale usunięty.
 
@@ -29,7 +29,7 @@ W przypadku nietrwałego usuwania udziałów plików w warstwie Premium przydzia
 
 ### <a name="availability"></a>Dostępność
 
-Usuwanie nietrwałe dla udziałów plików platformy Azure jest dostępne we wszystkich warstwach magazynowania, wszystkich typach kont magazynu i w każdym regionie, w którym Azure Files jest dostępny w systemie.
+Usuwanie nietrwałe dla udziałów plików platformy Azure (wersja zapoznawcza) jest dostępne we wszystkich warstwach magazynowania, wszystkich typach kont magazynu i w każdym regionie, w którym Azure Files jest dostępna.
 
 ## <a name="configuration-settings"></a>Ustawienia konfiguracji
 

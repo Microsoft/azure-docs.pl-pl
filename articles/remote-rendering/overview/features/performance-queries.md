@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: 2e843216bf973033868e75c027b11d27ddfe2e93
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 3207ffca6fd0fbc943f4a2873b8b6c9029d565af
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83757470"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022798"
 ---
 # <a name="server-side-performance-queries"></a>Zapytania wydajności po stronie serwera
 
@@ -18,7 +18,7 @@ Lepsza wydajność renderowania na serwerze ma kluczowe znaczenie dla stabilnych
 
 Najbardziej wpływ na wydajność renderowania to dane wejściowe modelu. Dane wejściowe można dostosować zgodnie z opisem w temacie [Konfigurowanie konwersji modelu](../../how-tos/conversion/configure-model-conversion.md).
 
-Wydajność aplikacji po stronie klienta może być również wąskim gardłem. Aby uzyskać szczegółową analizę wydajności po stronie klienta, zaleca się wykonanie [śledzenia wydajności](../../how-tos/performance-tracing.md).
+Wydajność aplikacji po stronie klienta może być również wąskim gardłem. Aby zapoznać się ze szczegółową analizą wydajności po stronie klienta, zaleca się wykonanie [:::no-loc text="performance trace":::](../../how-tos/performance-tracing.md) .
 
 ## <a name="clientserver-timeline"></a>Oś czasu klient/serwer
 

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 2143546e10b413d1492b8734d2594de42fd37cf3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c6fb590cbb57e8798bf65d0aa30585ae3db3691d
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684406"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84021538"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Przetwarzanie zestawów danych na dużą skalę przy użyciu Data Factory i usługi Batch
 > [!NOTE]
@@ -38,8 +38,8 @@ W usłudze Batch definiuje się zasoby obliczeniowe Azure do wykonywania aplikac
 
  Jeśli nie znasz programu Batch, następujące artykuły ułatwiają zrozumienie architektury/implementacji rozwiązania opisanego w tym artykule:   
 
-* [Podstawowe informacje o usłudze Batch](../../batch/batch-technical-overview.md)
-* [Omówienie funkcji usługi Batch](../../batch/batch-api-basics.md)
+* [Podstawowe informacje o usłudze Batch](../../azure-sql/database/sql-database-paas-overview.md)
+* [Omówienie funkcji usługi Batch](../../batch/batch-service-workflow-features.md)
 
 Opcjonalnie, aby dowiedzieć się więcej o usłudze Batch, zapoznaj [się z dokumentacją zbiorczą](https://docs.microsoft.com/azure/batch/).
 
@@ -578,7 +578,7 @@ W tym kroku utworzysz połączoną usługę dla konta usługi Batch, która jest
    d. Wprowadź identyfikator URI usługi Batch dla właściwości JSON **batchUri** .
 
       > [!IMPORTANT]
-      > Adres URL w bloku **konta usługi Batch** ma następujący format: \< AccountName \> . \< Region \> . Batch.Azure.com. Dla właściwości **batchUri** w skrypcie JSON należy usunąć A88 "AccountName". * * w adresie URL. Może to być na przykład `"batchUri": "https://eastus.batch.azure.com"`.
+      > Adres URL w bloku **konta usługi Batch** ma następujący format: \<accountname\> . \<region\> . batch.azure.com. Dla właściwości **batchUri** w skrypcie JSON należy usunąć A88 "AccountName". * * w adresie URL. Może to być na przykład `"batchUri": "https://eastus.batch.azure.com"`.
       >
       >
 
@@ -793,9 +793,9 @@ W tym kroku utworzysz potok z jednym działaniem, utworzonym wcześniej działan
 
    * W potoku jest tylko jedno działanie i jest ono typu **dotnet**.
    * Nazwa **AssemblyName** jest ustawiona na nazwę pliku DLL **. dll**.
-   * **Punkt wejścia** jest ustawiony na **MyDotNetActivityNS..** Jest to zasadniczo \< przestrzeń nazw \> . \< ClassName \> w kodzie.
+   * **Punkt wejścia** jest ustawiony na **MyDotNetActivityNS..** Zasadniczo \<namespace\> .\<classname\> w kodzie.
    * **PackageLinkedService** jest ustawiona na **StorageLinkedService**, która wskazuje na magazyn obiektów blob, który zawiera plik zip działania niestandardowego. Jeśli używasz innych kont magazynu dla plików wejściowych/wyjściowych i pliku zip działania niestandardowego, musisz utworzyć kolejną połączoną usługę Storage. W tym artykule przyjęto założenie, że jest używane to samo konto magazynu.
-   * **PackageFile** jest ustawiona na **Customactivitycontainer/mój dotnet. zip**. Jest to format \< containerforthezip \> / \< nameofthezip. zip \> .
+   * **PackageFile** jest ustawiona na **Customactivitycontainer/mój dotnet. zip**. Jest w formacie \<containerforthezip\> / \<nameofthezip.zip\> .
    * Działanie niestandardowe przyjmuje **InputDataset** jako dane wejściowe i **OutputDataset** jako dane wyjściowe.
    * Właściwość **linkedServiceName** niestandardowego działania wskazuje wartość **AzureBatchLinkedService**, która informuje Data Factory, że działanie niestandardowe musi być uruchamiane w usłudze Batch.
    * Ustawienie **współbieżności** jest ważne. Jeśli zostanie użyta wartość domyślna, która jest równa 1, nawet jeśli w puli wsadowej znajdują się co najmniej dwa węzły obliczeniowe, wycinki są przetwarzane jeden po drugim. W związku z tym nie jest możliwe korzystanie z możliwości przetwarzania równoległego w usłudze Batch. Jeśli ustawisz **współbieżność** na wyższą wartość, powiedzmy 2, co oznacza, że dwa wycinki (odnoszą się do dwóch zadań w partii) mogą być przetwarzane w tym samym czasie. W takim przypadku wykorzystywane są zarówno maszyny wirtualne w puli usługi Batch. Ustaw odpowiednio Właściwość współbieżności.
@@ -964,7 +964,7 @@ Po przeprowadzeniu danych można korzystać z nich za pomocą narzędzi online, 
 * [Odśwież dane w Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
 * [Azure i Power BI: omówienie podstawowe](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
-## <a name="references"></a>Odwołania
+## <a name="references"></a>Dokumentacja
 * [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 
   * [Wprowadzenie do usługi Data Factory](data-factory-introduction.md)
@@ -972,8 +972,8 @@ Po przeprowadzeniu danych można korzystać z nich za pomocą narzędzi online, 
   * [Korzystanie z działań niestandardowych w potoku Data Factory](data-factory-use-custom-activities.md)
 * [Azure Batch](https://azure.microsoft.com/documentation/services/batch/)
 
-  * [Podstawowe informacje o usłudze Batch](../../batch/batch-technical-overview.md)
-  * [Omówienie funkcji usługi Batch](../../batch/batch-api-basics.md)
+  * [Podstawowe informacje o usłudze Batch](../../azure-sql/database/sql-database-paas-overview.md)
+  * [Omówienie funkcji usługi Batch](../../batch/batch-service-workflow-features.md)
   * [Utwórz konto wsadowe i Zarządzaj nim w Azure Portal](../../batch/batch-account-create-portal.md)
   * [Wprowadzenie do biblioteki klienta usługi Batch dla platformy .NET](../../batch/quick-run-dotnet.md)
 

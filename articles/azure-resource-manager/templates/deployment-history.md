@@ -3,17 +3,19 @@ title: Historia wdrożenia
 description: Opisuje sposób wyświetlania Azure Resource Manager operacji wdrażania przy użyciu portalu, programu PowerShell, interfejsu wiersza polecenia platformy Azure i usługi API REST.
 tags: top-support-issue
 ms.topic: conceptual
-ms.date: 05/22/2020
-ms.openlocfilehash: 1f22bdfac5eb12688a5b5778d4da1505e36ef6bf
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.date: 05/26/2020
+ms.openlocfilehash: b7439a70a3bd802a5f8a7c371fc04ab3eed31a5b
+ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816288"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84117849"
 ---
 # <a name="view-deployment-history-with-azure-resource-manager"></a>Wyświetlanie historii wdrożenia za pomocą Azure Resource Manager
 
-Azure Resource Manager umożliwia wyświetlanie historii wdrożenia i sprawdzanie określonych operacji w poprzednich wdrożeniach. Możesz zobaczyć wdrożone zasoby i uzyskać informacje o błędach.
+Azure Resource Manager umożliwia wyświetlenie historii wdrażania. Można sprawdzić określone operacje w poprzednich wdrożeniach i zobaczyć, które zasoby zostały wdrożone. Ta historia zawiera informacje o błędach.
+
+Historia wdrożenia dla grupy zasobów jest ograniczona do 800 wdrożeń. Gdy zbliżasz się do limitu, wdrożenia są automatycznie usuwane z historii. Aby uzyskać więcej informacji, zobacz [Automatyczne usuwanie z historii wdrażania](deployment-history-deletions.md).
 
 Aby uzyskać pomoc dotyczącą rozwiązywania określonych błędów wdrażania, zobacz [Rozwiązywanie typowych błędów podczas wdrażania zasobów na platformie Azure za pomocą Azure Resource Manager](common-deployment-errors.md).
 
@@ -117,7 +119,7 @@ Każde wdrożenie może obejmować wiele operacji. Aby wyświetlić więcej szcz
 
 1. Na stronie Podsumowanie wdrożenia wybierz pozycję **szczegóły operacji**.
 
-    ![Wybierz operacje wdrażania](./media/deployment-history/get-operation-details.png)
+    ![Wybierz szczegóły operacji](./media/deployment-history/get-operation-details.png)
 
 1. Zobaczysz szczegóły dotyczące tego kroku wdrożenia. W przypadku wystąpienia błędu szczegóły obejmują komunikat o błędzie.
 
@@ -210,6 +212,6 @@ Odpowiedź zawiera komunikat o błędzie.
 ## <a name="next-steps"></a>Następne kroki
 
 * Aby uzyskać pomoc dotyczącą rozwiązywania określonych błędów wdrażania, zobacz [Rozwiązywanie typowych błędów podczas wdrażania zasobów na platformie Azure za pomocą Azure Resource Manager](common-deployment-errors.md).
-* Aby dowiedzieć się więcej o korzystaniu z dzienników aktywności do monitorowania innych typów akcji, zobacz [Wyświetlanie dzienników aktywności w celu zarządzania zasobami platformy Azure](../management/view-activity-logs.md).
+* Aby dowiedzieć się, jak są zarządzane wdrożenia w historii, zobacz [Automatyczne usuwanie z historii wdrażania](deployment-history-deletions.md).
 * Aby sprawdzić poprawność wdrożenia przed jego wykonaniem, zobacz [wdrażanie grupy zasobów przy użyciu szablonu Azure Resource Manager](deploy-powershell.md).
 

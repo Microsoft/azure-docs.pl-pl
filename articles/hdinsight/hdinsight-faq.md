@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: 8a69cb83492fabc692886fe6966a147de3bcbb04
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: c0efdda24ae47ae65f0d469b50feaefdf6350678
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82780848"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84022218"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Często zadawane pytania
 
@@ -44,6 +44,14 @@ Aby uzyskać więcej informacji, zobacz [Planowanie pojemności klastrów usług
 
 Zobacz [typy zasobów w klastrach usługi Azure HDInsight](hdinsight-virtual-network-architecture.md#resource-types-in-azure-hdinsight-clusters).
 
+### <a name="what-are-the-best-practices-for-creating-large-hdinsight-clusters"></a>Jakie są najlepsze rozwiązania dotyczące tworzenia dużych klastrów usługi HDInsight?
+
+1. Zalecamy skonfigurowanie klastrów usługi HDInsight za pomocą [niestandardowej bazy danych Ambari](https://docs.microsoft.com/azure/hdinsight/hdinsight-custom-ambari-db) w celu zwiększenia skalowalności klastra.
+2. Użyj [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) , aby utworzyć klastry usługi HDInsight, aby wykorzystać wyższą przepustowość i inne cechy wydajności Azure Data Lake Storage Gen2.
+3. Węzłów głównych powinny być wystarczająco duże, aby zapewnić obsługę wielu usług głównych uruchomionych w tych węzłach.
+4. Niektóre określone obciążenia, takie jak zapytanie interaktywne, również będą potrzebować większych węzłów dozorcy. Należy rozważyć minimalnie 8 podstawowych maszyn wirtualnych.
+5. W przypadku gałęzi Hive i Spark Użyj [magazyn metadanych Hive zewnętrznych](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-external-metadata-stores).
+
 ## <a name="individual-components"></a>Pojedyncze składniki
 
 ### <a name="can-i-install-additional-components-on-my-cluster"></a>Czy mogę zainstalować dodatkowe składniki w klastrze?
@@ -68,7 +76,7 @@ Nie, nie można uruchamiać Apache Kafka i Apache Spark w tym samym klastrze us�
 
 ### <a name="how-do-i-change-timezone-in-ambari"></a>Jak mogę zmienić strefę czasową w Ambari?
 
-1. Otwórz interfejs użytkownika sieci Web Ambari `https://CLUSTERNAME.azurehdinsight.net`w lokalizacji, gdzie ClusterName jest nazwą klastra.
+1. Otwórz interfejs użytkownika sieci Web Ambari w lokalizacji `https://CLUSTERNAME.azurehdinsight.net` , gdzie ClusterName jest nazwą klastra.
 2. W prawym górnym rogu wybierz pozycję Administrator | Ustawienia. 
 
    ![Ustawienia Ambari](media/hdinsight-faq/ambari-settings.png)
@@ -79,9 +87,9 @@ Nie, nie można uruchamiać Apache Kafka i Apache Spark w tym samym klastrze us�
 
 ## <a name="metastore"></a>Magazyn metadanych
 
-### <a name="how-can-i-migrate-from-the-existing-metastore-to-azure-sql-server"></a>Jak przeprowadzić migrację z istniejącego magazynu metadanych do usługi Azure SQL Server? 
+### <a name="how-can-i-migrate-from-the-existing-metastore-to-azure-sql-database"></a>Jak przeprowadzić migrację z istniejącego magazynu metadanych do Azure SQL Database? 
 
-Aby przeprowadzić migrację z SQL Server do usługi Azure SQL Server, zobacz [Samouczek: migrowanie SQL Server do pojedynczej bazy danych lub bazy danych w puli w Azure SQL Database offline przy użyciu usługi DMS](../dms/tutorial-sql-server-to-azure-sql.md).
+Aby przeprowadzić migrację z SQL Server do Azure SQL Database, zobacz [Samouczek: migrowanie SQL Server do pojedynczej bazy danych lub bazy danych w puli w Azure SQL Database offline przy użyciu usługi DMS](../dms/tutorial-sql-server-to-azure-sql.md).
 
 ### <a name="is-the-hive-metastore-deleted-when-the-cluster-is-deleted"></a>Czy magazyn metadanych Hive został usunięty po usunięciu klastra?
 
@@ -133,7 +141,7 @@ Tak, można wdrożyć dodatkową maszynę wirtualną w tej samej podsieci, w kt�
 
 - Węzły brzegowe: można dodać kolejny węzeł krawędzi do klastra, zgodnie z opisem w temacie [używanie pustych węzłów brzegowych w klastrach Apache Hadoop w usłudze HDInsight](hdinsight-apps-use-edge-node.md).
 
-- Węzły autonomiczne: można dodać autonomiczną maszynę wirtualną do tej samej podsieci i uzyskać dostęp do klastra z tej maszyny wirtualnej przy użyciu prywatnego punktu `https://<CLUSTERNAME>-int.azurehdinsight.net`końcowego. Aby uzyskać więcej informacji, zobacz [sterowanie ruchem sieciowym](./control-network-traffic.md).
+- Węzły autonomiczne: można dodać autonomiczną maszynę wirtualną do tej samej podsieci i uzyskać dostęp do klastra z tej maszyny wirtualnej przy użyciu prywatnego punktu końcowego `https://<CLUSTERNAME>-int.azurehdinsight.net` . Aby uzyskać więcej informacji, zobacz [sterowanie ruchem sieciowym](./control-network-traffic.md).
 
 ### <a name="should-i-store-data-on-the-local-disk-of-an-edge-node"></a>Czy należy przechowywać dane na dysku lokalnym węzła krawędzi?
 
@@ -182,9 +190,9 @@ W przypadku wymagań inspekcji firma Microsoft zaleca włączenie dzienników Az
 
 ### <a name="can-i-disable-clamscan-on-my-cluster"></a>Czy mogę wyłączyć `Clamscan` w moim klastrze?
 
-`Clamscan`Program jest oprogramowaniem antywirusowym uruchamianym w klastrze usługi HDInsight i jest używany przez zabezpieczenia platformy Azure (azsecd) do ochrony klastrów przed atakami z wykorzystaniem wirusów. Firma Microsoft zdecydowanie zaleca, aby użytkownicy nie mogli wprowadzać zmian do konfiguracji `Clamscan` domyślnej.
+`Clamscan`Program jest oprogramowaniem antywirusowym uruchamianym w klastrze usługi HDInsight i jest używany przez zabezpieczenia platformy Azure (azsecd) do ochrony klastrów przed atakami z wykorzystaniem wirusów. Firma Microsoft zdecydowanie zaleca, aby użytkownicy nie mogli wprowadzać zmian do `Clamscan` konfiguracji domyślnej.
 
-Ten proces nie zakłóca działania ani nie podejmuje żadnych cykli od innych procesów. Zawsze będzie ona podlegać innemu procesowi. Wartości skoków procesora `Clamscan` CPU z powinny być widoczne tylko wtedy, gdy system jest w stanie bezczynności.  
+Ten proces nie zakłóca działania ani nie podejmuje żadnych cykli od innych procesów. Zawsze będzie ona podlegać innemu procesowi. Wartości skoków procesora CPU z `Clamscan` powinny być widoczne tylko wtedy, gdy system jest w stanie bezczynności.  
 
 W scenariuszach, w których należy kontrolować harmonogram, można wykonać następujące czynności:
 
@@ -203,7 +211,7 @@ LLAP jest włączona ze względów bezpieczeństwa (Apache Ranger), a nie wydajn
 
 ### <a name="how-can-i-add-additional-aad-groups-after-creating-an-esp-cluster"></a>Jak mogę dodać dodatkowe grupy usługi AAD po utworzeniu klastra ESP?
 Istnieją dwa sposoby osiągnięcia tego celu: 1 — można utworzyć ponownie klaster i dodać dodatkową grupę podczas tworzenia klastra. Jeśli używasz synchronizacji w zakresie w usłudze AAD-DS, upewnij się, że Grupa B jest uwzględniona w synchronizacji z zakresem.
-2. Dodaj grupę jako zagnieżdżoną podgrupę poprzedniej grupy, która została użyta do utworzenia klastra ESP. Na przykład, jeśli utworzono klaster ESP z grupą `A`, można później dodać grupę `B` jako zagnieżdżoną podgrupę `A` i po upływie około godziny, będzie ona synchronizowana i dostępna w klastrze automatycznie. 
+2. Dodaj grupę jako zagnieżdżoną podgrupę poprzedniej grupy, która została użyta do utworzenia klastra ESP. Na przykład, jeśli utworzono klaster ESP z grupą `A` , można później dodać grupę `B` jako zagnieżdżoną podgrupę `A` i po upływie około godziny, będzie ona synchronizowana i dostępna w klastrze automatycznie. 
 
 ## <a name="storage"></a>Magazyn
 
@@ -276,14 +284,14 @@ Za pomocą utrwalonych skryptów można dostosować nowe węzły procesu robocze
 
 Aby ściągnąć niezbędne informacje w formacie JSON, można użyć następujących punktów końcowych REST. Użyj nagłówków uwierzytelniania podstawowego, aby wykonać żądania.
 
-- `Tez Query View`: *https:\//\<Nazwa klastra>. azurehdinsight.NET/WS/V1/Timeline/HIVE_QUERY_ID/*
-- `Tez Dag View`: *https:\//\<Nazwa klastra>. azurehdinsight.NET/WS/V1/Timeline/TEZ_DAG_ID/*
+- `Tez Query View`: *https: \/ / \<cluster name> . azurehdinsight.NET/WS/V1/Timeline/HIVE_QUERY_ID/*
+- `Tez Dag View`: *https: \/ / \<cluster name> . azurehdinsight.NET/WS/V1/Timeline/TEZ_DAG_ID/*
 
 ### <a name="how-do-i-retrieve-the-configuration-details-from-hdi-cluster-by-using-an-azure-active-directory-user"></a>Jak mogę pobrać szczegółów konfiguracji z klastra HDI przy użyciu użytkownika Azure Active Directory?
 
 Aby wynegocjować odpowiednie tokeny uwierzytelniania z użytkownikiem usługi AAD, przejdź przez bramę, używając następującego formatu:
 
-* https://`<cluster dnsname>`. azurehdinsight.NET/API/V1/Clusters/testclusterdem/stack_versions/1/repository_versions/1 
+* https:// `<cluster dnsname>` . azurehdinsight.NET/API/V1/Clusters/testclusterdem/stack_versions/1/repository_versions/1 
 
 ### <a name="how-do-i-use-ambari-restful-api-to-monitor-yarn-performance"></a>Jak mogę używać Ambari RESTful API do monitorowania wydajności PRZĘDZy?
 

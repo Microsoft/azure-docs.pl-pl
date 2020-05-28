@@ -2,13 +2,13 @@
 title: Ciągły eksport danych telemetrycznych z Application Insights | Microsoft Docs
 description: Wyeksportuj dane diagnostyczne i użycia do magazynu w Microsoft Azure i Pobierz je stamtąd.
 ms.topic: conceptual
-ms.date: 05/20/2020
-ms.openlocfilehash: 7284e6305b1028cbcb62041ff8196d06250f4414
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.date: 05/26/2020
+ms.openlocfilehash: 42a96cf014d7d02e440af03bc3a9c1d40e5f0cbc
+ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744861"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "84017542"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Eksportowanie telemetrii z usługi Application Insights
 Chcesz utrzymać dane telemetryczne dłużej niż w przypadku standardowego okresu przechowywania? Lub przetwarzać je w sposób wyspecjalizowany? Eksport ciągły jest idealnym rozwiązaniem. Zdarzenia wyświetlane w portalu Application Insights mogą zostać wyeksportowane do magazynu w Microsoft Azure w formacie JSON. Z tego miejsca możesz pobrać dane i napisać dowolny kod, który jest potrzebny do jego przetworzenia.  
@@ -53,7 +53,8 @@ Eksport ciągły **nie obsługuje** następujących funkcji/konfiguracji usługi
 
 4. Utwórz lub wybierz kontener w magazynie.
 
-Po utworzeniu eksportu zostanie on uruchomiony. Uzyskasz tylko dane, które nadeszły po utworzeniu eksportu.
+> [!NOTE]
+> Po utworzeniu eksportu nowo wprowadzone dane zaczynają przepływać do usługi Azure Blob Storage. Eksport ciągły będzie przesyłał tylko nowe dane telemetryczne, które zostały utworzone/pozyskane po włączeniu eksportu ciągłego. Wszelkie dane, które istniały przed włączeniem eksportu ciągłego, nie zostaną wyeksportowane i nie jest obsługiwany sposób wstecznego eksportowania wcześniej utworzonych danych przy użyciu eksportu ciągłego.
 
 Dane w magazynie mogą być opóźnione o godzinę.
 
@@ -62,7 +63,7 @@ Po zakończeniu pierwszego eksportu znajdziesz strukturę podobną do następuj�
 |Nazwa | Opis |
 |:----|:------|
 | [Dostępność](export-data-model.md#availability) | Raportuje [testy sieci Web dostępności](../../azure-monitor/app/monitor-web-app-availability.md).  |
-| [Zdarzenie](export-data-model.md#events) | Zdarzenia niestandardowe wygenerowane przez [poleceń trackEvent ()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent). 
+| [Wydarzenie](export-data-model.md#events) | Zdarzenia niestandardowe wygenerowane przez [poleceń trackEvent ()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent). 
 | [Wyjątki](export-data-model.md#exceptions) |Zgłasza [wyjątki](../../azure-monitor/app/asp-net-exceptions.md) na serwerze i w przeglądarce.
 | [Komunikaty](export-data-model.md#trace-messages) | Wysyłane przez [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace)i [karty rejestrowania](../../azure-monitor/app/asp-net-trace-logs.md).
 | [Metryki](export-data-model.md#metrics) | Generowane przez wywołania interfejsu API metryk.

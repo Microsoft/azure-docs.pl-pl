@@ -149,8 +149,8 @@ Zostanie otwarta strona przegląd dla Twojego serwera. Pokazuje w pełni kwalifi
 | [sys.firewall_rules](/sql/relational-databases/system-catalog-views/sys-firewall-rules-azure-sql-database) |Serwer |Wyświetla bieżące reguły zapory adresów IP na poziomie serwera |
 | [sp_set_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-firewall-rule-azure-sql-database) |Serwer |Tworzy lub aktualizuje reguły zapory adresów IP na poziomie serwera |
 | [sp_delete_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-delete-firewall-rule-azure-sql-database) |Serwer |Usuwa reguły zapory adresów IP na poziomie serwera |
-| [sys.database_firewall_rules](/sql/relational-databases/system-catalog-views/sys-database-firewall-rules-azure-sql-database) |baza danych |Wyświetla bieżące reguły zapory adresów IP na poziomie bazy danych |
-| [sp_set_database_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) |baza danych |Tworzy lub aktualizuje reguły zapory adresów IP na poziomie bazy danych |
+| [sys.database_firewall_rules](/sql/relational-databases/system-catalog-views/sys-database-firewall-rules-azure-sql-database) |Baza danych |Wyświetla bieżące reguły zapory adresów IP na poziomie bazy danych |
+| [sp_set_database_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) |Baza danych |Tworzy lub aktualizuje reguły zapory adresów IP na poziomie bazy danych |
 | [sp_delete_database_firewall_rule](/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database) |Bazy danych |Usuwa reguły zapory adresów IP na poziomie bazy danych |
 
 Poniższy przykład przegląda istniejące reguły, włącza zakres adresów IP na serwerze *contoso*i usuwa regułę zapory IP:
