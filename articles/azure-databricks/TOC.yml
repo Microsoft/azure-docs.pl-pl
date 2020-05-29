@@ -7,12 +7,15 @@
 - name: Przewodniki Szybki start
   expanded: true
   items:
-    - name: Tworzenie obszaru roboczego usługi Databricks — portal
-      href: quickstart-create-databricks-workspace-portal.md
-    - name: Tworzenie obszaru roboczego usługi Databricks — szablon usługi Resource Manager
-      href: quickstart-create-databricks-workspace-resource-manager-template.md
-    - name: Tworzenie obszaru roboczego usługi Databricks — sieć wirtualna
-      href: quickstart-create-databricks-workspace-vnet-injection.md
+    - name: Tworzenie obszaru roboczego
+      items:
+        - name: Portal
+          href: quickstart-create-databricks-workspace-portal.md
+        - name: Szablon ARM
+          displayName: Resource Manager
+          href: quickstart-create-databricks-workspace-resource-manager-template.md
+        - name: Sieć wirtualna
+          href: quickstart-create-databricks-workspace-vnet-injection.md
 - name: Samouczki
   items:
     - name: Wykonywanie zapytań kierowanych do serwera SQL Server działającego w kontenerze platformy Docker

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 4f467e061ad52fdcc6d1e8706bb902088b237c24
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 3e0e220467c8c16deb413f6c70f236f6de67f980
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848774"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142048"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Samouczek: integracja Azure Active Directory z usługą PolicyStat
 
@@ -175,11 +175,11 @@ Aby skonfigurować Logowanie jednokrotne usługi Azure AD za pomocą PolicyStat,
    
     a. W polu tekstowym **Nazwa użytkownika** wpisz **UID**.
 
-    b. W polu tekstowym **nazwa atrybutu** wpisz swoją pierwszą nazwę z platformy Azure **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname** .
+    b. W polu tekstowym **nazwa atrybutu** wpisz swoją pierwszą nazwę z platformy Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`** .
 
-    c. W polu tekstowym **nazwa atrybutu** wpisz swoją ostatnią nazwę z platformy Azure **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname** .
+    c. W polu tekstowym **nazwa atrybutu** wpisz swoją ostatnią nazwę z platformy Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`** .
 
-    d. W polu tekstowym **atrybut wiadomości e-mail** wpisz nazwę żądania atrybutu adresu E-mail z platformy Azure **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** .
+    d. W polu tekstowym **atrybut wiadomości e-mail** wpisz nazwę żądania atrybutu adresu E-mail z platformy Azure **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`** .
 
     e. Kliknij przycisk **Zapisz zmiany**.
 

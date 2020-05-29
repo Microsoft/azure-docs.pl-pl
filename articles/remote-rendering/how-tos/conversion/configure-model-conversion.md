@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: 104a583122fa08cf145191b8bcee49ce5f042599
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e3be1f9ec900655f4dae45abd402ff8e6a56e283
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021402"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84147951"
 ---
 # <a name="configure-the-model-conversion"></a>Konfigurowanie konwersji modelu
 
@@ -202,6 +202,51 @@ Załóżmy, że masz model photogrammetry, który ma oświetlenie rozszerzania d
 Domyślnie konwerter musi założyć, że w pewnym momencie możesz chcieć używać materiałów PBR w modelu, aby generować `normal` `tangent` dane, i `binormal` . W związku z tym użycie pamięci dla wierzchołków wynosi `position` (12 bajtów) + `texcoord0` (8 bajtów) + `normal` (4 bajty) + `tangent` (4 bajty) + `binormal` (4 bajty) = 32 bajtów. Większe modele tego typu mogą łatwo mieć wiele milionów :::no-loc text="vertices"::: wyników wynikających z modeli, które mogą przyjmować wiele gigabajtów pamięci. Takie duże ilości danych wpłynie na wydajność i nawet zabrakło pamięci.
 
 Wiedząc, że nie potrzebujesz dynamicznego oświetlenia na modelu i wiedzą, że wszystkie Współrzędne tekstury znajdują się w `[0; 1]` zakresie, można ustawić `normal` , `tangent` , i `binormal` do `NONE` i `texcoord0` do połowy precyzji (), co spowoduje, że `16_16_FLOAT` tylko 16 bajtów na :::no-loc text="vertex"::: . Wycinanie danych siatki na pół umożliwia załadowanie większych modeli i zwiększenie wydajności.
+
+## <a name="memory-optimizations"></a>Optymalizacje pamięci
+
+Użycie pamięci przez załadowanej zawartości może stać się wąskim gardłem w systemie renderowania. Jeśli ładunek pamięci stał się zbyt duży, może dojść do naruszenia wydajności renderowania lub spowodować, że model nie zostanie załadowany całkowicie. W tym artykule omówiono niektóre ważne strategie zmniejszania rozmiaru pamięci.
+
+### <a name="instancing"></a>Tworzenie wystąpienia
+
+Tworzenie wystąpień jest koncepcją, w której siatki są ponownie używane dla części z oddzielnymi przekształceniami przestrzennymi, a nie z każdą częścią, która odwołuje się do własnej unikatowej geometrii. Tworzenie wystąpienia ma znaczny wpływ na rozmiary pamięci.
+Przykładowe przypadki użycia związane z tworzeniem wystąpień są wkrętami w modelu silnika lub krzesłami w modelu architektury.
+
+> [!NOTE]
+> Tworzenie wystąpienia może znacząco poprawić użycie pamięci (i w ten sposób załadować czas), jednak ulepszenia po stronie wydajności renderowania są nieznaczące.
+
+Usługa konwersji uwzględnia tworzenie wystąpień, jeśli części są oznaczone odpowiednio w pliku źródłowym. Jednak konwersja nie wykonuje dodatkowej dokładnej analizy danych siatki w celu zidentyfikowania części wielokrotnego użytku. W ten sposób narzędzie tworzenia zawartości i jego potoku eksportu są decydującymi kryteriami dla właściwej konfiguracji tworzenia wystąpień.
+
+Prosty sposób na przetestowanie, czy informacje o utworzeniu wystąpienia są zachowywane podczas konwersji, mają na celu wyszukanie [statystyk wyjściowych](get-information.md#example-info-file), w tym `numMeshPartsInstanced` elementów członkowskich. Jeśli wartość dla `numMeshPartsInstanced` jest większa od zera, wskazuje, że siatki są współdzielone między wystąpieniami.
+
+#### <a name="example-instancing-setup-in-3ds-max"></a>Przykład: Konfiguracja wystąpienia w programie 3ds Max
+
+W programie [Autodesk 3ds Max](https://www.autodesk.de/products/3ds-max) istnieją różne tryby klonowania obiektów o nazwie, **`Copy`** **`Instance`** i **`Reference`** które zachowywać się inaczej w odniesieniu do wystąpienia w wyeksportowanym `.fbx` pliku.
+
+![Klonowanie w tabeli 3ds Max](./media/3dsmax-clone-object.png)
+
+* **`Copy`**: W tym trybie siatka jest klonowana, dlatego nie są używane żadne wystąpienia ( `numMeshPartsInstanced` = 0).
+* **`Instance`**: Te dwa obiekty mają tę samą siatkę, więc jest używane Tworzenie wystąpień ( `numMeshPartsInstanced` = 1).
+* **`Reference`**: Modyfikatory DISTINCT można zastosować do geometrie, aby eksporter wybierał podejście i nie używa wystąpień ( `numMeshPartsInstanced` = 0).
+
+
+### <a name="depth-based-composition-mode"></a>Tryb kompozycji oparty na głębokości
+
+Jeśli pamięć jest istotna, skonfiguruj moduł renderowania z [trybem kompozycji opartym na głębokości](../../concepts/rendering-modes.md#depthbasedcomposition-mode). W tym trybie ładunek procesora GPU jest dystrybuowany między wieloma procesorami GPU.
+
+### <a name="decrease-vertex-size"></a>Zmniejsz rozmiar wierzchołka
+
+Zgodnie z opisem w sekcji [najlepsze rozwiązania dotyczące zmian w formacie składnika](configure-model-conversion.md#best-practices-for-component-format-changes) dostosowanie formatu wierzchołka może zmniejszyć rozmiar pamięci. Jednak ta opcja powinna być ostatnią możliwością.
+
+### <a name="texture-sizes"></a>Rozmiary tekstury
+
+W zależności od typu scenariusza ilość danych tekstury może być większa niż ilość pamięci używanej przez dane siatki. Modele photogrammetry są kandydatami.
+Konfiguracja konwersji nie umożliwia automatycznego skalowania tekstur w dół. W razie potrzeby skalowanie tekstury musi odbywać się jako krok wstępnego przetwarzania po stronie klienta. Krok konwersji pozwala jednak wybrać odpowiedni [Format kompresji tekstury](https://docs.microsoft.com/windows/win32/direct3d11/texture-block-compression-in-direct3d-11):
+
+* `BC1`dla nieprzezroczystych tekstur kolorów
+* `BC7`dla tekstur kolorów źródłowych z kanałem alfa
+
+Ponieważ format `BC7` ma dwukrotnie wpływ na pamięć w porównaniu z `BC1` , ważne jest, aby upewnić się, że tekstury wejściowe nie zapewniają niepotrzebnych kanałów alfa.
 
 ## <a name="typical-use-cases"></a>Typowe przypadki użycia
 

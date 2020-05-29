@@ -9,24 +9,24 @@ ms.topic: include
 ms.date: 03/17/2020
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
-ms.openlocfilehash: 31afb7bc00250887841adccc8c3cc4dc69462d55
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: bd070300427716634d786e685cfe1cf8e45a246c
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81642889"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140745"
 ---
 <a name="HOLTop"></a>
 
-[Reference documentation](https://aka.ms/azsdk-java-textanalytics-ref-docs) |  | [Przykłady](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics) [pakietów](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0-beta.4)[kodu](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics) | źródłowego biblioteki dokumentacji
+[Dokumentacja](https://aka.ms/azsdk-java-textanalytics-ref-docs)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/textanalytics/azure-ai-textanalytics)  |  źródłowy biblioteki [Pakiet](https://mvnrepository.com/artifact/com.azure/azure-ai-textanalytics/1.0.0-beta.4)  |  [Przykłady](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/textanalytics/azure-ai-textanalytics/src/samples/java/com/azure/ai/textanalytics)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
 * [Zestaw Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html) (JDK) z wersją 8 lub nowszą
-* Gdy masz subskrypcję platformy Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Utwórz zasób analiza tekstu"  target="_blank">Utwórz zasób <span class="docon docon-navigate-external x-hidden-focus"></span> </a> analiza tekstu w Azure Portal, aby uzyskać klucz i punkt końcowy.  Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
+* Gdy masz subskrypcję platformy Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title=" Utwórz zasób analiza tekstu "  target="_blank"> utwórz zasób analiza tekstu <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy.  Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
     * Będziesz potrzebować klucza i punktu końcowego z zasobu, który tworzysz, aby połączyć aplikację z interfejs API analizy tekstu. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
-    * Możesz użyć warstwy cenowej bezpłatna (`F0`) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
+    * Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
 
 ## <a name="setting-up"></a>Konfigurowanie
 
@@ -39,7 +39,7 @@ Utwórz projekt Maven w preferowanym środowisku IDE lub środowiska dewelopersk
      <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-ai-textanalytics</artifactId>
-        <version>1.0.0-beta.4</version>
+        <version>1.0.0-beta.5</version>
     </dependency>
 </dependencies>
 ```
@@ -47,7 +47,7 @@ Utwórz projekt Maven w preferowanym środowisku IDE lub środowiska dewelopersk
 > [!TIP]
 > Chcesz wyświetlić cały plik kodu szybkiego startu jednocześnie? Można je znaleźć [w usłudze GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/TextAnalytics/TextAnalyticsSamples.java), która zawiera przykłady kodu w tym przewodniku Szybki Start. 
 
-Utwórz plik języka Java o `TextAnalyticsSamples.java`nazwie. Otwórz plik i Dodaj następujące `import` instrukcje:
+Utwórz plik języka Java o nazwie `TextAnalyticsSamples.java` . Otwórz plik i Dodaj następujące `import` instrukcje:
 
 ```java
 import com.azure.core.credential.AzureKeyCredential;
@@ -89,7 +89,7 @@ Klient analiza tekstu jest `TextAnalyticsClient` obiektem, który jest uwierzyte
 ## <a name="code-examples"></a>Przykłady kodu
 
 * [Uwierzytelnianie klienta](#authenticate-the-client)
-* [analiza tonacji](#sentiment-analysis) 
+* [Analiza tonacji](#sentiment-analysis) 
 * [Wykrywanie języka](#language-detection)
 * [Rozpoznawanie jednostek nazwanych](#named-entity-recognition-ner) 
 * [Łączenie jednostek](#entity-linking)
@@ -102,7 +102,7 @@ Utwórz metodę, aby utworzyć wystąpienie `TextAnalyticsClient` obiektu za pom
 ```java
 static TextAnalyticsClient authenticateClient(String key, String endpoint) {
     return new TextAnalyticsClientBuilder()
-        .apiKey(new AzureKeyCredential(key))
+        .credential(new AzureKeyCredential(key))
         .endpoint(endpoint)
         .buildClient();
 }
@@ -135,8 +135,8 @@ static void sentimentAnalysisExample(TextAnalyticsClient client)
             sentenceSentiment.getConfidenceScores().getPositive(),
             sentenceSentiment.getConfidenceScores().getNeutral(),
             sentenceSentiment.getConfidenceScores().getNegative());
+        }
     }
-}
 ```
 
 ### <a name="output"></a>Dane wyjściowe
@@ -152,7 +152,7 @@ Recognized sentence sentiment: neutral, positive score: 0.21, neutral score: 0.7
 Utwórz nową funkcję o nazwie `detectLanguageExample()` , która przybiera wcześniej utworzoną klienta i Wywołaj `detectLanguage()` funkcję. Zwrócony `DetectLanguageResult` obiekt będzie zawierał wykryty język podstawowy, listę innych języków wykrytych w przypadku powodzenia `errorMessage` .
 
 > [!Tip]
-> W niektórych przypadkach może być trudno odróżnić Języki w oparciu o dane wejściowe. Możesz użyć parametru, `countryHint` aby określić 2-literowy kod kraju. Domyślnie interfejs API używa "US" jako domyślnego countryHint, aby usunąć to zachowanie, można zresetować ten parametr, ustawiając tę wartość na pusty ciąg `countryHint = ""`. Aby ustawić inne ustawienia domyślne, należy ustawić `TextAnalyticsClientOptions.DefaultCountryHint` Właściwość i przekazać ją podczas inicjowania klienta.
+> W niektórych przypadkach może być trudno odróżnić Języki w oparciu o dane wejściowe. Możesz użyć parametru, `countryHint` Aby określić 2-literowy kod kraju. Domyślnie interfejs API używa "US" jako domyślnego countryHint, aby usunąć to zachowanie, można zresetować ten parametr, ustawiając tę wartość na pusty ciąg `countryHint = ""` . Aby ustawić inne ustawienia domyślne, należy ustawić `TextAnalyticsClientOptions.DefaultCountryHint` Właściwość i przekazać ją podczas inicjowania klienta.
 
 ```java
 static void detectLanguageExample(TextAnalyticsClient client)
@@ -164,7 +164,7 @@ static void detectLanguageExample(TextAnalyticsClient client)
     System.out.printf("Detected primary language: %s, ISO 6391 name: %s, score: %.2f.%n",
         detectedLanguage.getName(),
         detectedLanguage.getIso6391Name(),
-        detectedLanguage.getScore());
+        detectedLanguage.getConfidenceScore());
 }
 ```
 
@@ -176,11 +176,11 @@ Detected primary language: French, ISO 6391 name: fr, score: 1.00.
 ## <a name="named-entity-recognition-ner"></a>Rozpoznawanie jednostek nazwanych (NER)
 
 > [!NOTE]
-> W wersji `3.0-preview`:
+> W wersji `3.0` :
 > * NER obejmuje oddzielne metody wykrywania informacji osobistych. 
 > * Łączenie jednostek to oddzielne żądanie niż NER.
 
-Utwórz nową funkcję o nazwie `recognizeEntitiesExample()` , która przybiera wcześniej utworzoną klienta i Wywołaj `recognizeEntities()` funkcję. Zwrócony `RecognizeEntitiesResult` obiekt będzie zawierać listę, `NamedEntity` Jeśli powiodła się, lub `errorMessage` Jeśli nie.
+Utwórz nową funkcję o nazwie `recognizeEntitiesExample()` , która przybiera wcześniej utworzoną klienta i Wywołaj `recognizeEntities()` funkcję. Zwrócony `RecognizeEntitiesResult` obiekt będzie zawierać listę `NamedEntity` , jeśli powiodła się, lub `errorMessage` Jeśli nie.
 
 ```java
 static void recognizeEntitiesExample(TextAnalyticsClient client)
@@ -193,7 +193,7 @@ static void recognizeEntitiesExample(TextAnalyticsClient client)
             "Recognized entity: %s, entity category: %s, entity sub-category: %s, score: %s.%n",
             entity.getText(),
             entity.getCategory(),
-            entity.getSubCategory(),
+            entity.getSubcategory(),
             entity.getConfidenceScore());
     }
 }
@@ -202,36 +202,37 @@ static void recognizeEntitiesExample(TextAnalyticsClient client)
 ### <a name="output"></a>Dane wyjściowe
 
 ```console
-Recognized entity: Seattle, entity category: Location, entity sub-category: GPE, score: 0.92.
+Recognized entity: trip, entity category: Event, entity sub-category: null, score: 0.61.
+Recognized entity: Seattle, entity category: Location, entity sub-category: GPE, score: 0.82.
 Recognized entity: last week, entity category: DateTime, entity sub-category: DateRange, score: 0.8.
 ```
 
 ## <a name="entity-linking"></a>Łączenie jednostek
 
-Utwórz nową funkcję o nazwie `recognizeLinkedEntitiesExample()` , która przybiera wcześniej utworzoną klienta i Wywołaj `recognizeLinkedEntities()` funkcję. Zwrócony `RecognizeLinkedEntitiesResult` obiekt będzie zawierać listę, `LinkedEntity` Jeśli powiodła się, lub `errorMessage` Jeśli nie. Ponieważ połączone jednostki są jednoznacznie identyfikowane, wystąpienia tej samej jednostki są pogrupowane pod `LinkedEntity` obiektem jako lista `LinkedEntityMatch` obiektów.
+Utwórz nową funkcję o nazwie `recognizeLinkedEntitiesExample()` , która przybiera wcześniej utworzoną klienta i Wywołaj `recognizeLinkedEntities()` funkcję. Zwrócony `RecognizeLinkedEntitiesResult` obiekt będzie zawierać listę `LinkedEntity` , jeśli powiodła się, lub `errorMessage` Jeśli nie. Ponieważ połączone jednostki są jednoznacznie identyfikowane, wystąpienia tej samej jednostki są pogrupowane pod `LinkedEntity` obiektem jako lista `LinkedEntityMatch` obiektów.
 
 ```java
 static void recognizeLinkedEntitiesExample(TextAnalyticsClient client)
 {
     // The text that need be analyzed.
     String text = "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, " +
-            "to develop and sell BASIC interpreters for the Altair 8800. " +
-            "During his career at Microsoft, Gates held the positions of chairman, " +
-            "chief executive officer, president and chief software architect, " +
-            "while also being the largest individual shareholder until May 2014.";
+        "to develop and sell BASIC interpreters for the Altair 8800. " +
+        "During his career at Microsoft, Gates held the positions of chairman, " +
+        "chief executive officer, president and chief software architect, " +
+        "while also being the largest individual shareholder until May 2014.";
 
     System.out.printf("Linked Entities:%n");
     for (LinkedEntity linkedEntity : client.recognizeLinkedEntities(text)) {
         System.out.printf("Name: %s, ID: %s, URL: %s, Data Source: %s.%n",
-                linkedEntity.getName(),
-                linkedEntity.getDataSourceEntityId(),
-                linkedEntity.getUrl(),
-                linkedEntity.getDataSource());
+            linkedEntity.getName(),
+            linkedEntity.getDataSourceEntityId(),
+            linkedEntity.getUrl(),
+            linkedEntity.getDataSource());
         System.out.printf("Matches:%n");
-        for (LinkedEntityMatch linkedEntityMatch : linkedEntity.getLinkedEntityMatches()) {
+        for (LinkedEntityMatch linkedEntityMatch : linkedEntity.getMatches()) {
             System.out.printf("Text: %s, Score: %.2f%n",
-                    linkedEntityMatch.getText(),
-                    linkedEntityMatch.getConfidenceScore());
+            linkedEntityMatch.getText(),
+            linkedEntityMatch.getConfidenceScore());
         }
     }
 }
@@ -243,24 +244,24 @@ static void recognizeLinkedEntitiesExample(TextAnalyticsClient client)
 Linked Entities:
 Name: Altair 8800, ID: Altair 8800, URL: https://en.wikipedia.org/wiki/Altair_8800, Data Source: Wikipedia.
 Matches:
-Text: Altair 8800, Score: 0.78
+Text: Altair 8800, Score: 0.88
 Name: Bill Gates, ID: Bill Gates, URL: https://en.wikipedia.org/wiki/Bill_Gates, Data Source: Wikipedia.
 Matches:
-Text: Bill Gates, Score: 0.55
-Text: Gates, Score: 0.55
+Text: Bill Gates, Score: 0.63
+Text: Gates, Score: 0.63
 Name: Paul Allen, ID: Paul Allen, URL: https://en.wikipedia.org/wiki/Paul_Allen, Data Source: Wikipedia.
 Matches:
-Text: Paul Allen, Score: 0.53
+Text: Paul Allen, Score: 0.60
 Name: Microsoft, ID: Microsoft, URL: https://en.wikipedia.org/wiki/Microsoft, Data Source: Wikipedia.
 Matches:
-Text: Microsoft, Score: 0.47
-Text: Microsoft, Score: 0.47
+Text: Microsoft, Score: 0.55
+Text: Microsoft, Score: 0.55
 Name: April 4, ID: April 4, URL: https://en.wikipedia.org/wiki/April_4, Data Source: Wikipedia.
 Matches:
-Text: April 4, Score: 0.25
+Text: April 4, Score: 0.32
 Name: BASIC, ID: BASIC, URL: https://en.wikipedia.org/wiki/BASIC, Data Source: Wikipedia.
 Matches:
-Text: BASIC, Score: 0.28
+Text: BASIC, Score: 0.33
 ```
 ## <a name="key-phrase-extraction"></a>Wyodrębnianie kluczowych fraz
 

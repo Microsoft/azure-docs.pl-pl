@@ -9,23 +9,23 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
-ms.openlocfilehash: 8bcc919aee7548e8596d1f44c8a357d3f84dfb14
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 0d2a4a8338880dc8063d6a3f088c0cd44e314e43
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82096079"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140744"
 ---
 <a name="HOLTop"></a>
 
-#### <a name="version-30-preview"></a>[Wersja 3,0-Preview](#tab/version-3)
+#### <a name="version-30"></a>[Wersja 3,0](#tab/version-3)
 
-[Wersja V3 dokumentacja dotycząca](https://aka.ms/azsdk-js-textanalytics-ref-docs) | [kodu](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics) | źródłowego v3 Library[(npm)](https://www.npmjs.com/package/@azure/ai-text-analytics) | [v3 — przykłady](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
+Dokumentacja referencyjna [v3](https://aka.ms/azsdk-js-textanalytics-ref-docs)  |  kod źródłowy biblioteki [v3](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics)  |  [pakiet v3 (npm)](https://www.npmjs.com/package/@azure/ai-text-analytics)  |  [przykłady wersji 3](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/textanalytics/ai-text-analytics/samples)
 
 
 #### <a name="version-21"></a>[Wersja 2,1](#tab/version-2)
 
-[Wersja 2 Dokumentacja dotycząca](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics) | wersji 2[kodu](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesTextAnalytics) | źródłowego v2[(npm)](https://www.npmjs.com/package/@azure/cognitiveservices-textanalytics) | [v2 — przykłady](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
+Dokumentacja referencyjna w [wersji 2](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics)  |  kod źródłowy biblioteki [v2](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesTextAnalytics)  |  [Pakiet v2 (npm)](https://www.npmjs.com/package/@azure/cognitiveservices-textanalytics)  |  [przykłady w wersji 2](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
 
 ---
 
@@ -33,9 +33,9 @@ ms.locfileid: "82096079"
 
 * Subskrypcja platformy Azure — [Utwórz ją bezpłatnie](https://azure.microsoft.com/free/)
 * Bieżąca wersja środowiska [Node. js](https://nodejs.org/).
-* Gdy masz subskrypcję platformy Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="Utwórz zasób analiza tekstu"  target="_blank">Utwórz zasób <span class="docon docon-navigate-external x-hidden-focus"></span> </a> analiza tekstu w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
+* Gdy masz subskrypcję platformy Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title=" Utwórz zasób analiza tekstu "  target="_blank"> utwórz zasób analiza tekstu <span class="docon docon-navigate-external x-hidden-focus"></span> </a> w Azure Portal, aby uzyskać klucz i punkt końcowy. Po wdrożeniu programu kliknij pozycję **Przejdź do zasobu**.
     * Będziesz potrzebować klucza i punktu końcowego z zasobu, który tworzysz, aby połączyć aplikację z interfejs API analizy tekstu. Klucz i punkt końcowy zostaną wklejone do poniższego kodu w dalszej części przewodnika Szybki Start.
-    * Możesz użyć warstwy cenowej bezpłatna (`F0`) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
+    * Możesz użyć warstwy cenowej bezpłatna ( `F0` ) w celu wypróbowania usługi i później przeprowadzić uaktualnienie do warstwy płatnej dla środowiska produkcyjnego.
 
 ## <a name="setting-up"></a>Konfigurowanie
 
@@ -56,12 +56,12 @@ npm init
 ```
 ### <a name="install-the-client-library"></a>Zainstaluj bibliotekę kliencką
 
-#### <a name="version-30-preview"></a>[Wersja 3,0-Preview](#tab/version-3)
+#### <a name="version-30"></a>[Wersja 3,0](#tab/version-3)
 
-Zainstaluj pakiety `@azure/ai-text-analytics` npm:
+Zainstaluj `@azure/ai-text-analytics` pakiety npm:
 
 ```console
-npm install --save @azure/ai-text-analytics@1.0.0-preview.4
+npm install --save @azure/ai-text-analytics@1.0.0-preview.5
 ```
 
 > [!TIP]
@@ -69,7 +69,7 @@ npm install --save @azure/ai-text-analytics@1.0.0-preview.4
 
 #### <a name="version-21"></a>[Wersja 2,1](#tab/version-2)
 
-Zainstaluj pakiety `@azure/cognitiveservices-textanalytics` npm:
+Zainstaluj `@azure/cognitiveservices-textanalytics` pakiety npm:
 
 ```console
 npm install --save @azure/cognitiveservices-textanalytics
@@ -80,10 +80,10 @@ npm install --save @azure/cognitiveservices-textanalytics
 
 ---
 
-`package.json` Plik aplikacji zostanie zaktualizowany z zależnościami.
+`package.json`Plik aplikacji zostanie zaktualizowany z zależnościami.
 Utwórz plik o nazwie `index.js` i Dodaj następujące elementy:
 
-#### <a name="version-30-preview"></a>[Wersja 3,0-Preview](#tab/version-3)
+#### <a name="version-30"></a>[Wersja 3,0](#tab/version-3)
 
 ```javascript
 "use strict";
@@ -113,14 +113,14 @@ const endpoint = '<paste-your-text-analytics-endpoint-here>';
 
 Klient analiza tekstu jest `TextAnalyticsClient` obiektem, który jest uwierzytelniany na platformie Azure przy użyciu klucza. Klient udostępnia kilka metod analizowania tekstu, w postaci pojedynczego ciągu lub partii.
 
-Tekst jest wysyłany do interfejsu API jako lista obiektów `documents`, które są `dictionary` obiektami zawierającymi kombinację `id`atrybutów `text`, i `language` , w zależności od używanej metody. Ten `text` atrybut zawiera tekst, który ma być analizowany w pochodzeniu `language`i `id` może być dowolną wartością. 
+Tekst jest wysyłany do interfejsu API jako lista `documents` obiektów, które są `dictionary` obiektami zawierającymi kombinację `id` atrybutów, i, w `text` zależności od `language` używanej metody. Ten `text` atrybut zawiera tekst, który ma być analizowany w pochodzeniu `language` i `id` może być dowolną wartością. 
 
 Obiekt Response jest listą zawierającą informacje o analizie dla każdego dokumentu. 
 
 ## <a name="code-examples"></a>Przykłady kodu
 
 * [Uwierzytelnianie klienta](#client-authentication)
-* [analiza tonacji](#sentiment-analysis) 
+* [Analiza tonacji](#sentiment-analysis) 
 * [Wykrywanie języka](#language-detection)
 * [Rozpoznawanie jednostek nazwanych](#named-entity-recognition-ner)
 * [Łączenie jednostek](#entity-linking)
@@ -128,7 +128,7 @@ Obiekt Response jest listą zawierającą informacje o analizie dla każdego dok
 
 ## <a name="client-authentication"></a>Uwierzytelnianie klienta
 
-#### <a name="version-30-preview"></a>[Wersja 3,0-Preview](#tab/version-3)
+#### <a name="version-30"></a>[Wersja 3,0](#tab/version-3)
 
 Utwórz nowy `TextAnalyticsClient` obiekt z kluczem i punktem końcowym jako parametry.
 
@@ -146,9 +146,9 @@ Utwórz nowy obiekt [TextAnalyticsClient](https://docs.microsoft.com/javascript/
 
 ## <a name="sentiment-analysis"></a>Analiza tonacji
 
-#### <a name="version-30-preview"></a>[Wersja 3,0-Preview](#tab/version-3)
+#### <a name="version-30"></a>[Wersja 3,0](#tab/version-3)
 
-Utwórz tablicę ciągów zawierających dokument, który chcesz przeanalizować. Wywołaj `analyzeSentiment()` metodę klienta i Pobierz zwracany `SentimentBatchResult` obiekt. Wykonaj iterację na liście wyników i wydrukuj każdy dokument o IDENTYFIKATORze, tonacji na poziomie dokumentu z wynikami pewności. Dla każdego dokumentu wynik zawiera tonacji na poziomie zdania wraz z przesunięciami, długością i wynikami pewności.
+Utwórz tablicę ciągów zawierających dokument, który chcesz przeanalizować. Wywołaj metodę klienta `analyzeSentiment()` i Pobierz zwracany `SentimentBatchResult` obiekt. Wykonaj iterację na liście wyników i wydrukuj każdy dokument o IDENTYFIKATORze, tonacji na poziomie dokumentu z wynikami pewności. Dla każdego dokumentu wynik zawiera tonacji na poziomie zdania wraz z przesunięciami, długością i wynikami pewności.
 
 ```javascript
 async function sentimentAnalysis(client){
@@ -213,9 +213,9 @@ Uruchom swój kod `node index.js` w oknie konsoli.
 
 ## <a name="language-detection"></a>Wykrywanie języka
 
-#### <a name="version-30-preview"></a>[Wersja 3,0-Preview](#tab/version-3)
+#### <a name="version-30"></a>[Wersja 3,0](#tab/version-3)
 
-Utwórz tablicę ciągów zawierających dokument, który chcesz przeanalizować. Wywołaj `detectLanguage()` metodę klienta i otrzymaj zwracaną `DetectLanguageResultCollection`wartość. Następnie można wykonać iterację w wynikach i wydrukować każdy dokument o IDENTYFIKATORze przy użyciu odpowiedniego języka podstawowego.
+Utwórz tablicę ciągów zawierających dokument, który chcesz przeanalizować. Wywołaj metodę klienta `detectLanguage()` i otrzymaj zwracaną wartość `DetectLanguageResultCollection` . Następnie można wykonać iterację w wynikach i wydrukować każdy dokument o IDENTYFIKATORze przy użyciu odpowiedniego języka podstawowego.
 
 ```javascript
 async function languageDetection(client) {
@@ -262,13 +262,13 @@ Document ID: 3 , Language: Chinese_Simplified
 
 ## <a name="named-entity-recognition-ner"></a>Rozpoznawanie jednostek nazwanych (NER)
 
-#### <a name="version-30-preview"></a>[Wersja 3,0-Preview](#tab/version-3)
+#### <a name="version-30"></a>[Wersja 3,0](#tab/version-3)
 
 > [!NOTE]
-> W wersji `3.0-preview`:
+> W wersji `3.0-preview` :
 > * Łączenie jednostek to oddzielne żądanie niż NER.
 
-Utwórz tablicę ciągów zawierających dokument, który chcesz przeanalizować. Wywołaj `recognizeEntities()` metodę klienta i Pobierz `RecognizeEntitiesResult` obiekt. Wykonaj iterację na liście wyników, a następnie wydrukuj nazwę jednostki, typ, podtyp, przesunięcie, długość i wynik.
+Utwórz tablicę ciągów zawierających dokument, który chcesz przeanalizować. Wywołaj metodę klienta `recognizeEntities()` i Pobierz `RecognizeEntitiesResult` obiekt. Wykonaj iterację na liście wyników, a następnie wydrukuj nazwę jednostki, typ, podtyp, przesunięcie, długość i wynik.
 
 ```javascript
 async function entityRecognition(client){
@@ -283,7 +283,7 @@ async function entityRecognition(client){
         console.log(`Document ID: ${document.id}`);
         document.entities.forEach(entity => {
             console.log(`\tName: ${entity.text} \tCategory: ${entity.category} \tSubcategory: ${entity.subCategory ? entity.subCategory : "N/A"}`);
-            console.log(`\tScore: ${entity.score}`);
+            console.log(`\tScore: ${entity.confidenceScore}`);
         });
     });
 }
@@ -297,31 +297,25 @@ Uruchom swój kod `node index.js` w oknie konsoli.
 ```console
 Document ID: 0
         Name: Microsoft         Category: Organization  Subcategory: N/A
-        Score: 1
+        Score: 0.29
         Name: Bill Gates        Category: Person        Subcategory: N/A
-        Score: 0.67
+        Score: 0.78
         Name: Paul Allen        Category: Person        Subcategory: N/A
-        Score: 0.81
+        Score: 0.82
         Name: April 4, 1975     Category: DateTime      Subcategory: Date
         Score: 0.8
-        Name: interpreters      Category: PersonType    Subcategory: N/A
-        Score: 0.6
         Name: 8800      Category: Quantity      Subcategory: Number
         Score: 0.8
 Document ID: 1
-        Name: Microsoft         Category: Organization  Subcategory: N/A
-        Score: 0.96
-        Name: Redmond   Category: Location      Subcategory: GPE
-        Score: 0.09
         Name: 21        Category: Quantity      Subcategory: Number
         Score: 0.8
         Name: Seattle   Category: Location      Subcategory: GPE
-        Score: 0.31
+        Score: 0.25
 ```
 
 ## <a name="entity-linking"></a>Łączenie jednostek
 
-Utwórz tablicę ciągów zawierających dokument, który chcesz przeanalizować. Wywołaj `recognizeLinkedEntities()` metodę klienta i Pobierz `RecognizeLinkedEntitiesResult` obiekt. Wykonaj iterację na liście wyników, a następnie wydrukuj nazwę jednostki, identyfikator, źródło danych, adres URL i dopasowania. Każdy obiekt w `matches` tablicy będzie zawierać przesunięcie, długość i wynik dla tego dopasowania.
+Utwórz tablicę ciągów zawierających dokument, który chcesz przeanalizować. Wywołaj metodę klienta `recognizeLinkedEntities()` i Pobierz `RecognizeLinkedEntitiesResult` obiekt. Wykonaj iterację na liście wyników, a następnie wydrukuj nazwę jednostki, identyfikator, źródło danych, adres URL i dopasowania. Każdy obiekt w `matches` tablicy będzie zawierać przesunięcie, długość i wynik dla tego dopasowania.
 
 ```javascript
 async function linkedEntityRecognition(client){
@@ -337,8 +331,8 @@ async function linkedEntityRecognition(client){
             console.log(`\tName: ${entity.name} \tID: ${entity.dataSourceEntityId} \tURL: ${entity.url} \tData Source: ${entity.dataSource}`);
             console.log(`\tMatches:`)
             entity.matches.forEach(match => {
-                console.log(`\t\tText: ${match.text} \tScore: ${match.score.toFixed(2)}`);
-            });
+                console.log(`\t\tText: ${match.text} \tScore: ${match.confidenceScore.toFixed(2)}`);
+        })
         });
     });
 }
@@ -353,24 +347,24 @@ Uruchom swój kod `node index.js` w oknie konsoli.
 Document ID: 0
         Name: Altair 8800       ID: Altair 8800         URL: https://en.wikipedia.org/wiki/Altair_8800  Data Source: Wikipedia
         Matches:
-                Text: Altair 8800       Score: 0.78
+                Text: Altair 8800       Score: 0.88
         Name: Bill Gates        ID: Bill Gates  URL: https://en.wikipedia.org/wiki/Bill_Gates   Data Source: Wikipedia
         Matches:
-                Text: Bill Gates        Score: 0.55
-                Text: Gates     Score: 0.55
+                Text: Bill Gates        Score: 0.63
+                Text: Gates     Score: 0.63
         Name: Paul Allen        ID: Paul Allen  URL: https://en.wikipedia.org/wiki/Paul_Allen   Data Source: Wikipedia
         Matches:
-                Text: Paul Allen        Score: 0.53
+                Text: Paul Allen        Score: 0.60
         Name: Microsoft         ID: Microsoft   URL: https://en.wikipedia.org/wiki/Microsoft    Data Source: Wikipedia
         Matches:
-                Text: Microsoft         Score: 0.47
-                Text: Microsoft         Score: 0.47
+                Text: Microsoft         Score: 0.55
+                Text: Microsoft         Score: 0.55
         Name: April 4   ID: April 4     URL: https://en.wikipedia.org/wiki/April_4      Data Source: Wikipedia
         Matches:
-                Text: April 4   Score: 0.25
+                Text: April 4   Score: 0.32
         Name: BASIC     ID: BASIC       URL: https://en.wikipedia.org/wiki/BASIC        Data Source: Wikipedia
         Matches:
-                Text: BASIC     Score: 0.28
+                Text: BASIC     Score: 0.33
 ```
 
 #### <a name="version-21"></a>[Wersja 2,1](#tab/version-2)
@@ -418,9 +412,9 @@ Document ID: 2
 
 ## <a name="key-phrase-extraction"></a>Wyodrębnianie kluczowych fraz
 
-#### <a name="version-30-preview"></a>[Wersja 3,0-Preview](#tab/version-3)
+#### <a name="version-30"></a>[Wersja 3,0](#tab/version-3)
 
-Utwórz tablicę ciągów zawierających dokument, który chcesz przeanalizować. Wywołaj `extractKeyPhrases()` metodę klienta i Pobierz zwracany `ExtractKeyPhrasesResult` obiekt. Wykonaj iterację w wynikach i wydrukuj identyfikatory każdego dokumentu oraz wszystkie wykryte frazy klucza.
+Utwórz tablicę ciągów zawierających dokument, który chcesz przeanalizować. Wywołaj metodę klienta `extractKeyPhrases()` i Pobierz zwracany `ExtractKeyPhrasesResult` obiekt. Wykonaj iterację w wynikach i wydrukuj identyfikatory każdego dokumentu oraz wszystkie wykryte frazy klucza.
 
 ```javascript
 async function keyPhraseExtraction(client){

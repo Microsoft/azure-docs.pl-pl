@@ -2,14 +2,14 @@
 title: 'Szybki Start: punkt końcowy przewidywania zapytań zestawu SDK — LUIS'
 description: W tym przewodniku szybki start pokazano, jak za pomocą zestawu SDK wysyłać wypowiedź użytkownika do aplikacji LUIS platformy Azure Cognitive Services i otrzymywać przewidywania.
 ms.topic: quickstart
-ms.date: 04/20/2020
+ms.date: 05/27/2020
 zone_pivot_groups: programming-languages-set-diberry-3core
-ms.openlocfilehash: 2b85e3085a7265fa007422180ff1cfe93d4fef57
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 69c9dce1c1b48ebf21e90ff9a4d3db6ac5b889c0
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732040"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141334"
 ---
 # <a name="quickstart-query-v3-prediction-endpoint-with-sdk"></a>Szybki Start: zapytanie dotyczące punktu końcowego przewidywania v3 z zestawem SDK
 

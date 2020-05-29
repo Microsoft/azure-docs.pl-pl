@@ -2,13 +2,13 @@
 title: Jak włączyć Azure Monitor dla kontenerów | Microsoft Docs
 description: W tym artykule opisano sposób włączania i konfigurowania Azure Monitor dla kontenerów, dzięki czemu można zrozumieć, jak działa kontener i jakie problemy związane z wydajnością zostały zidentyfikowane.
 ms.topic: conceptual
-ms.date: 04/21/2020
-ms.openlocfilehash: 284668dfe2aec809ce9a94e15f7c83cf0f2025b3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/28/2020
+ms.openlocfilehash: 0348d580a42d4a522ac05f929c96547a47e831a9
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82185935"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84147906"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>Jak włączyć Azure Monitor dla kontenerów
 
@@ -66,7 +66,6 @@ Informacje w poniższej tabeli zawierają informacje o konfiguracji serwera prox
 | *.ods.opinsights.azure.com | 443 |  
 | *.oms.opinsights.azure.com | 443 |
 | dc.services.visualstudio.com | 443 |
-| *.microsoftonline.com | 443 |
 | *. monitoring.azure.com | 443 |
 | login.microsoftonline.com | 443 |
 
@@ -76,7 +75,6 @@ W poniższej tabeli przedstawiono informacje o konfiguracji serwera proxy i zapo
 |--------------|------|-------------|
 | *. ods.opinsights.azure.cn | 443 | Wprowadzanie danych |
 | *. oms.opinsights.azure.cn | 443 | Przechodzenie do pakietu OMS |
-| microsoft.com | 80 | Używany do łączności sieciowej. Jest to wymagane tylko wtedy, gdy wersja obrazu agenta to ciprod09262019 lub wcześniejsza. |
 | dc.services.visualstudio.com | 443 | Dla programu na potrzeby telemetrii agenta przy użyciu publicznej chmury Application Insights platformy Azure. |
 
 Informacje w poniższej tabeli zawierają informacje o konfiguracji serwera proxy i zapory dla instytucji rządowych USA platformy Azure.
@@ -85,7 +83,6 @@ Informacje w poniższej tabeli zawierają informacje o konfiguracji serwera prox
 |--------------|------|-------------|
 | *. ods.opinsights.azure.us | 443 | Wprowadzanie danych |
 | *. oms.opinsights.azure.us | 443 | Przechodzenie do pakietu OMS |
-| microsoft.com | 80 | Używany do łączności sieciowej. Jest to wymagane tylko wtedy, gdy wersja obrazu agenta to ciprod09262019 lub wcześniejsza. |
 | dc.services.visualstudio.com | 443 | W przypadku telemetrii agenta przy użyciu Application Insights publicznej chmury platformy Azure. |
 
 ## <a name="components"></a>Składniki

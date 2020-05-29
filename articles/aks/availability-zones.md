@@ -5,12 +5,12 @@ services: container-service
 ms.custom: fasttrack-edit
 ms.topic: article
 ms.date: 02/27/2020
-ms.openlocfilehash: 35aaad31728f4a0cd73913ecf397d8123b3f909a
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 20b796e2da7fe602a8987d3de98bd3a5d9fafb5c
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725100"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148178"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Tworzenie klastra usługi Azure Kubernetes Service (AKS) korzystającego ze stref dostępności
 
@@ -48,7 +48,7 @@ Podczas tworzenia klastra AKS przy użyciu stref dostępności są stosowane nas
 
 ### <a name="azure-disks-limitations"></a>Ograniczenia dotyczące dysków platformy Azure
 
-Woluminy korzystające z usługi Azure Managed disks nie są obecnie strefowo nadmiarowe. Woluminów nie można dołączać między strefami i muszą one znajdować się w tej samej strefie co dany węzeł obsługujący element docelowy pod.
+Woluminy korzystające z usługi Azure Managed disks nie są obecnie strefowo nadmiarowe. Nie można dołączać woluminów między strefami i muszą one znajdować się w tej samej strefie co węzeł obsługujący element docelowy pod.
 
 Jeśli konieczne jest uruchamianie obciążeń stanowych, należy użyć przydziałów i tolerowania puli węzłów w ramach specyfikacji ze specyfikacją grupowanie w tej samej strefie co dyski. Alternatywnie możesz korzystać z magazynu opartego na sieci, takiego jak Azure Files, które można dołączyć do zasobników, gdy są one planowane między strefami.
 

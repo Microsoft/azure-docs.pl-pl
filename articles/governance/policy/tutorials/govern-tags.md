@@ -3,16 +3,16 @@ title: 'Samouczek: zarządzanie tagami tagów'
 description: W tym samouczku użyjesz efektu Modyfikuj Azure Policy, aby utworzyć i wymusić model ładu znacznika dla nowych i istniejących zasobów.
 ms.date: 04/21/2020
 ms.topic: tutorial
-ms.openlocfilehash: 6319bbde2fdc8f78e2743dd5f1565c8680433fea
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8b3d0db100a601950ec82824897a3ba3e5145b79
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81759069"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142269"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>Samouczek: Zarządzanie zarządzaniem tagów przy użyciu Azure Policy
 
-[Tagi](../../../azure-resource-manager/management/tag-resources.md) są kluczową częścią organizowania zasobów platformy Azure w taksonomię. Po zastosowaniu [najlepszych rozwiązań w zakresie zarządzania tagami](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources)Tagi mogą być podstawą stosowania zasad firmowych z Azure Policy lub [śledzeniem kosztów z Cost Management](../../../cost-management-billing/costs/cost-mgt-best-practices.md#organize-and-tag-your-resources).
+[Tagi](../../../azure-resource-manager/management/tag-resources.md) są kluczową częścią organizowania zasobów platformy Azure w taksonomię. Po zastosowaniu [najlepszych rozwiązań w zakresie zarządzania tagami](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources)Tagi mogą być podstawą stosowania zasad firmowych z Azure Policy lub [śledzeniem kosztów z Cost Management](../../../cost-management-billing/costs/cost-mgt-best-practices.md#tag-shared-resources).
 Niezależnie od tego, jak i dlaczego używasz tagów, ważne jest, aby można je szybko dodawać, zmieniać i usuwać z zasobów platformy Azure. Aby sprawdzić, czy zasób platformy Azure obsługuje tagowanie, zobacz [obsługa tagów](../../../azure-resource-manager/management/tag-support.md).
 
 Efekt [modyfikacji](../concepts/effects.md#modify) Azure Policy został zaprojektowany w celu ułatwienia zarządzania tagami niezależnie od tego, jaki etap nadzoru zasobów należy do Ciebie. **Modyfikuj** ułatwia:
@@ -100,7 +100,7 @@ Druga _CostCenter_ potrzebna jest dla wszystkich zasobów, aby odziedziczyć tag
 }
 ```
 
-Ta reguła zasad używa operacji **dodawania** zamiast **addOrReplace** , ponieważ nie chcemy zmieniać wartości tagu, jeśli występuje, gdy [korygowaniem](../how-to/remediate-resources.md) istniejące zasoby. Używa również funkcji szablonu `[resourcegroup()]` , aby pobrać wartość tagu z nadrzędnej grupy zasobów.
+Ta reguła zasad używa operacji **dodawania** zamiast **addOrReplace** , ponieważ nie chcemy zmieniać wartości tagu, jeśli występuje, gdy [korygowaniem](../how-to/remediate-resources.md) istniejące zasoby. Używa również `[resourcegroup()]` funkcji szablonu, aby pobrać wartość tagu z nadrzędnej grupy zasobów.
 
 > [!NOTE]
 > Ponieważ ta reguła zasad odwołuje się do zasobów, które obsługują Tagi, _tryb_ w definicji zasad musi mieć wartość "Indexed". Ta konfiguracja gwarantuje również, że te zasady pomijają grupy zasobów.
@@ -148,7 +148,7 @@ Zasady [modyfikowania](../concepts/effects.md#modify) są wymagane dla każdego 
 > [!NOTE]
 > Ponieważ ta reguła zasad jest przeznaczona dla grupy zasobów, _tryb_ definicji zasad musi mieć wartość "All", a nie "Indexed".
 
-Te zasady są zgodne z grupami zasobów z przykładowym schematem nazewnictwa używanym w przypadku zasobów produkcyjnych programu `prd-`. Bardziej skomplikowany schemat nazewnictwa można osiągnąć przy użyciu kilku warunków **dopasowania** zamiast jednego **takiego jak** w tym przykładzie.
+Te zasady są zgodne z grupami zasobów z przykładowym schematem nazewnictwa używanym w przypadku zasobów produkcyjnych programu `prd-` . Bardziej skomplikowany schemat nazewnictwa można osiągnąć przy użyciu kilku warunków **dopasowania** zamiast jednego **takiego jak** w tym przykładzie.
 
 ### <a name="modify-resources-to-inherit-the-env-tag"></a>Modyfikuj zasoby, aby dziedziczyły tag ENV
 
@@ -194,7 +194,7 @@ Po utworzeniu powyższych zasad dotyczących tagów Dołącz je do jednej inicja
 
 Podobnie jak zasady [deployIfNotExists](../concepts/effects.md#deployifnotexists) , zasady **modyfikowania** używają zadań korygowania do zmiany istniejących niezgodnych zasobów. Postępuj zgodnie z instrukcjami dotyczącymi [sposobu korygowania zasobów](../how-to/remediate-resources.md) w celu zidentyfikowania niezgodnych zasobów **modyfikacji** i skorygowania tagów do zdefiniowanej taksonomii.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie planujesz dalszej pracy z zasobami utworzonymi w tym samouczku, wykonaj poniższe kroki, aby usunąć wszystkie utworzone powyżej przypisania lub definicje:
 

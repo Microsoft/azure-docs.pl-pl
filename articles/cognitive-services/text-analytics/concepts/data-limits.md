@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 04/27/2020
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: 4af2d060c11b804c5fa09bfdabbcb9753f7d5885
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 79a12505ccc7cea709a88818513ba95710989954
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82204414"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84142371"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Limity danych i szybkości dla interfejs API analizy tekstu
 <a name="data-limits"></a>
@@ -36,7 +36,7 @@ Skorzystaj z tego artykułu, aby znaleźć limity rozmiaru i stawek, które umo�
 
 Maksymalna liczba dokumentów, które można wysłać w ramach pojedynczego żądania, będzie zależeć od używanej wersji interfejsu API i funkcji.
 
-#### <a name="version-30-preview"></a>[Wersja 3,0-Preview](#tab/version-3)
+#### <a name="version-3"></a>[Wersja 3](#tab/version-3)
 
 > [!NOTE]
 > Jeśli żądanie interfejsu API v3 przekracza te limity, ale znajduje się w granicach v2, w odpowiedzi interfejsu API zostanie zwrócone ostrzeżenie. Począwszy od 7/15/2020, zamiast tego zostanie zwrócony kod błędu 400. 
@@ -44,7 +44,7 @@ Maksymalna liczba dokumentów, które można wysłać w ramach pojedynczego żą
 W wersji 3 interfejsu API wprowadzono następujące limity. Przekroczenie poniższych limitów spowoduje wygenerowanie ostrzeżenia w odpowiedzi interfejsu API.
 
 
-| Funkcja | Maksymalna liczba dokumentów na żądanie | 
+| Cechy | Maksymalna liczba dokumentów na żądanie | 
 |----------|-----------|
 | Wykrywanie języka | 1000 |
 | Analiza tonacji | 10 |
@@ -54,7 +54,7 @@ W wersji 3 interfejsu API wprowadzono następujące limity. Przekroczenie poniż
 
 #### <a name="version-2"></a>[Wersja 2](#tab/version-2)
 
-| Funkcja | Maksymalna liczba dokumentów na żądanie | 
+| Cechy | Maksymalna liczba dokumentów na żądanie | 
 |----------|-----------|
 | Wykrywanie języka | 1000 |
 | Analiza tonacji | 1000 |
