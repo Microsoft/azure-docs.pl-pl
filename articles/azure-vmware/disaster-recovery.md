@@ -3,18 +3,18 @@ title: Wykonaj odzyskiwanie po awarii maszyn wirtualnych
 description: W tym artykule pokazano, jak wykonać odzyskiwanie po awarii maszyn wirtualnych przy użyciu funkcji automatycznej synchronizacji
 ms.topic: how-to
 ms.date: 05/04/2020
-ms.openlocfilehash: 86f823444d4fff3edf8651f4d949c71d2c981ec7
-ms.sourcegitcommit: d9cd51c3a7ac46f256db575c1dfe1303b6460d04
+ms.openlocfilehash: 5fdfc252486d94fcc22ebba9705fa5e259539921
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82740553"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148161"
 ---
-# <a name="complete-a-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Kończenie odzyskiwania po awarii maszyn wirtualnych przy użyciu rozwiązania Azure VMWare
+# <a name="complete-a-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Kończenie odzyskiwania po awarii maszyn wirtualnych przy użyciu rozwiązania Azure VMware
 
-Ten artykuł zawiera proces przeprowadzania odzyskiwania po awarii maszyn wirtualnych przy użyciu rozwiązania VMWare hybryd Cloud Extension (HCX) i korzystania z chmury prywatnej rozwiązania VMWare platformy Azure jako lokacji odzyskiwania lub docelowej.
+Ten artykuł zawiera proces przeprowadzania odzyskiwania po awarii maszyn wirtualnych przy użyciu rozwiązania VMware hybryd Cloud Extension (HCX) i korzystania z chmury prywatnej rozwiązania VMware platformy Azure jako lokacji odzyskiwania lub docelowej.
 
-Program VMWare HCX udostępnia różne operacje zapewniające ścisłą kontrolę i stopień szczegółowości zasad replikacji. Dostępne są następujące operacje:
+Program VMware HCX udostępnia różne operacje zapewniające ścisłą kontrolę i stopień szczegółowości zasad replikacji. Dostępne są następujące operacje:
 
 - Wstecz — po wystąpieniu awarii. Odwróć pomaga utworzyć lokację w lokacji źródłowej i lokacji A, w której znajduje się chroniona maszyna wirtualna.
 
@@ -144,7 +144,7 @@ Replikację można monitorować w sekcji Szczegóły każdej maszyny wirtualnej.
 
 ## <a name="disaster-recovery-plan-automation"></a>Automatyzacja planu odzyskiwania po awarii
 
-Program VMWare HCX obecnie nie ma wbudowanego mechanizmu do tworzenia i automatyzowania planu odzyskiwania po awarii. Ta funkcja nie istnieje w HCX. Udostępnia on jednak zestaw interfejsów API REST, w tym interfejsy API dla operacji odzyskiwania po awarii.
+Program VMware HCX obecnie nie ma wbudowanego mechanizmu do tworzenia i automatyzowania planu odzyskiwania po awarii. Ta funkcja nie istnieje w HCX. Udostępnia on jednak zestaw interfejsów API REST, w tym interfejsy API dla operacji odzyskiwania po awarii.
 
 Specyfikacja interfejsu API może mieć dostęp w programie HCX Manager w adresie URL.
 

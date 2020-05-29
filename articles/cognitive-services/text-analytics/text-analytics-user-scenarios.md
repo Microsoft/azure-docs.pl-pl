@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 03/04/2020
+ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: 6847059de2a8685a56719f07a041a40456f2aa06
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: eb82422aa0e3d45743539da623fcb919e8e77bbc
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79219248"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141821"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Przykładowe scenariusze użytkowników dla interfejs API analizy tekstu
 
@@ -50,6 +50,13 @@ Monitoruj Opinie użytkowników o produkcie na stronie serwisu Twitter lub w ser
 Użyj nazwanego rozpoznawania jednostek do identyfikowania osobistych i poufnych informacji w dokumentach. Dane służą do klasyfikowania dokumentów lub redagowania ich, aby mogły być bezpiecznie udostępniane.
 
 ![Obraz opisujący sposób użycia NER do wykrywania informacji osobistych oraz klasyfikowania i redagowania dokumentów](media/use-cases/sensitive-docs.jpg)
+
+## <a name="perform-opinion-mining"></a>Przeprowadź wyszukiwanie opinii
+
+Zapoznaj się z opiniami dotyczącymi konkretnych aspektów produktu lub usługi w ankietach, opinii klientów lub wszędzie tam, gdzie tekst zawiera opinię na temat aspektu. Ułatwiają one tworzenie i ulepszanie produktów, podejmowanie działań marketingowych oraz wyróżnianie sposobu działania produktu lub usługi. 
+
+> [!div class="mx-imgBorder"] 
+> :::image type="content" source="media/use-cases/aspect-based-sentiment.png" alt-text="Przykładowe opinie dotyczące hotelu.":::
 
 ## <a name="next-steps"></a>Następne kroki
 

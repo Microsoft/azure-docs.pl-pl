@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 55bc4ff05b650884ef17e0de10d7156cbf458a9c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7c9dd20aea410aecb34811ca6e08e0f641be292b
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81640961"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148348"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Rozwiązywanie problemów z włączaniem lub wyświetlaniem Application Insights Profiler
 
@@ -48,7 +48,7 @@ Profiler zapisuje komunikaty śledzenia i zdarzenia niestandardowe do zasobu App
 * Upewnij się, że aplikacja działa na .NET Framework 4,6.
 * Jeśli aplikacja sieci Web jest aplikacją ASP.NET Core, musi być uruchomiona co najmniej ASP.NET Core 2,0.
 * Jeśli dane, które próbujesz wyświetlić, są starsze niż kilka tygodni, spróbuj ograniczyć filtr czasu i spróbuj ponownie. Ślady są usuwane po upływie siedmiu dni.
-* Upewnij się, że serwery proxy lub zapora nie zablokowali dostępu do https://gateway.azureserviceprofiler.netprogramu.
+* Upewnij się, że serwery proxy lub zapora nie zablokowali dostępu do programu https://gateway.azureserviceprofiler.net .
 * Profiler nie jest obsługiwany w planach usługi App Service w warstwie Bezpłatna lub współdzielona. Jeśli używasz jednego z tych planów, spróbuj przeprowadzić skalowanie do jednego z podstawowych planów i profilera powinien zacząć pracę.
 
 ### <a name="double-counting-in-parallel-threads"></a><a id="double-counting"></a>Podwójne zliczanie w wątkach równoległych
@@ -87,7 +87,7 @@ Aby Profiler działał prawidłowo:
 
       ![Profiler-WebJob-log]
 
-Jeśli nie możesz ustalić, dlaczego Profiler nie działa, możesz pobrać dziennik i wysłać go do naszego zespołu w celu uzyskania pomocy serviceprofilerhelp@microsoft.com. 
+Jeśli nie możesz ustalić, dlaczego Profiler nie działa, możesz pobrać dziennik i wysłać go do naszego zespołu w celu uzyskania pomocy serviceprofilerhelp@microsoft.com . 
     
 ### <a name="manual-installation"></a>Instalacja ręczna
 
@@ -110,11 +110,11 @@ Podczas konfigurowania programu Profiler są wprowadzane aktualizacje ustawień 
 
 Obecnie można włączyć program Profiler dla maksymalnie czterech usługi Azure Web Apps i miejsc wdrożenia, które działają w ramach tego samego planu usługi. Jeśli masz więcej niż cztery aplikacje sieci Web działające w ramach jednego planu usługi App Service, profiler może zgłosić element *Microsoft. Serviceprofiling. Exceptions. TooManyETWSessionException*. Profiler jest uruchamiany oddzielnie dla każdej aplikacji sieci Web i podejmuje próbę uruchomienia sesji śledzenia zdarzeń systemu Windows (ETW) dla każdej aplikacji. Jednak w tej chwili może być aktywna ograniczona liczba sesji ETW. Jeśli zadanie WebJob profilera raportuje zbyt wiele aktywnych sesji profilowania, przenieś niektóre aplikacje sieci Web do innego planu usługi.
 
-### <a name="deployment-error-directory-not-empty-dhomesitewwwrootapp_datajobs"></a>Błąd wdrożenia: katalog nie jest pusty.\\:\\Witryna\\główna\\wwwroot\\App_Data zadania "
+### <a name="deployment-error-directory-not-empty-dhomesitewwwrootapp_datajobs"></a>Błąd wdrożenia: katalog nie jest pusty. \\ : \\ witryna główna \\ wwwroot \\ App_Data \\ zadania "
 
 W przypadku ponownego wdrażania aplikacji sieci Web w ramach zasobu Web Apps z włączonym profilerem może zostać wyświetlony następujący komunikat:
 
-*Katalog nie jest pusty:\\Witryna\\\\główna katalogu\\wwwroot\\App_Data zadania "*
+*Katalog nie jest pusty: \\ witryna główna katalogu \\ \\ wwwroot \\ App_Data \\ zadania "*
 
 Ten błąd występuje w przypadku uruchamiania Web Deploy ze skryptów lub z potoku wdrażania usługi Azure DevOps. Rozwiązaniem jest dodanie następujących dodatkowych parametrów wdrażania do zadania Web Deploy:
 
@@ -128,7 +128,7 @@ Te parametry usuwają folder, który jest używany przez Application Insights Pr
 
 Profiler działa jako ciągły element WebJob w aplikacji sieci Web. Możesz otworzyć zasób aplikacji sieci Web w [Azure Portal](https://portal.azure.com). W okienku **Zadania WebJob** Sprawdź stan **ApplicationInsightsProfiler**. Jeśli nie jest uruchomiona, Otwórz **dzienniki** , aby uzyskać więcej informacji.
 
-## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>Rozwiązywanie problemów z programem Profiler i Diagnostyka Azure
+## <a name="troubleshoot-vms-and-cloud-services"></a>Rozwiązywanie problemów z maszynami wirtualnymi i Cloud Services
 
 >**Usterka w profilerze, która jest dostarczana w funkcji wad dla Cloud Services, została naprawiona.** Najnowsza wersja programu funkcji wad (1.12.2.0) dla Cloud Services współpracuje ze wszystkimi najnowszymi wersjami zestawu SDK usługi App Insights. Hosty usługi w chmurze uaktualniają funkcji wad automatycznie, ale nie będą natychmiast. Aby wymusić uaktualnienie, można ponownie wdrożyć usługę lub przeprowadzić ponowny rozruch węzła.
 
@@ -141,27 +141,45 @@ Aby sprawdzić, czy Profiler jest skonfigurowany prawidłowo Diagnostyka Azure, 
 
 Aby sprawdzić ustawienia, które zostały użyte do skonfigurowania Diagnostyka Azure:
 
-1. Zaloguj się do maszyny wirtualnej, a następnie otwórz plik dziennika w tej lokalizacji. (Może to być dysk c: lub d:, a wersja wtyczki może być inna).
-
-    ```
-    c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log  
-    ```
-    lub
+1. Zaloguj się do maszyny wirtualnej, a następnie otwórz plik dziennika w tej lokalizacji. Wersja wtyczki może być nowsza na maszynie.
+    
+    Dla maszyn wirtualnych:
     ```
     c:\WindowsAzure\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log
+    ```
+    
+    Dla Cloud Services:
+    ```
+    c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.log  
     ```
 
 1. W pliku można wyszukać ciąg **WadCfg** , aby znaleźć ustawienia, które zostały przesłane do maszyny wirtualnej w celu skonfigurowania Diagnostyka Azure. Możesz sprawdzić, czy iKey używany przez ujścia profilera jest prawidłowy.
 
-1. Sprawdź wiersz polecenia, który służy do uruchamiania profilera. Argumenty, które są używane do uruchamiania profilera, znajdują się w następującym pliku. (Dysk może mieć wartość c: lub d:)
+1. Sprawdź wiersz polecenia, który służy do uruchamiania profilera. Argumenty, które są używane do uruchamiania profilera, znajdują się w następującym pliku. (Może to być dysk c: lub d:, a katalog może być ukryty).
 
+    Dla maszyn wirtualnych:
+    ```
+    C:\ProgramData\ApplicationInsightsProfiler\config.json
+    ```
+    
+    dla Cloud Services:
     ```
     D:\ProgramData\ApplicationInsightsProfiler\config.json
     ```
 
 1. Upewnij się, że iKey w wierszu polecenia profilera jest prawidłowy. 
 
-1. Przy użyciu ścieżki znalezionej w poprzednim pliku *config. JSON* Sprawdź plik dziennika profilera. Wyświetla informacje o debugowaniu, które wskazują ustawienia, które są używane przez profiler. Wyświetla również komunikaty o stanie i błędach z profilera.  
+1. Przy użyciu ścieżki znalezionej w poprzednim pliku *config. JSON* Sprawdź plik dziennika profilera o nazwie **BootstrapN. log**. Wyświetla informacje o debugowaniu, które wskazują ustawienia, które są używane przez profiler. Wyświetla również komunikaty o stanie i błędach z profilera.  
+
+    W przypadku maszyn wirtualnych plik jest zwykle tutaj:
+    ```
+    C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.17.0.6\ApplicationInsightsProfiler
+    ```
+
+    Dla Cloud Services:
+    ```
+    C:\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.17.0.6\ApplicationInsightsProfiler
+    ```
 
     Jeśli profiler jest uruchomiony, gdy aplikacja otrzymuje żądania, zostanie wyświetlony następujący komunikat: *działanie wykryte z iKey*. 
 

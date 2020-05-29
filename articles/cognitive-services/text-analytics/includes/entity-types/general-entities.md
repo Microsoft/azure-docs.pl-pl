@@ -6,184 +6,53 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 02/06/2020
+ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: 60cd6b8ba2cbfca497ae1b92113b12e85a34bf26
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 32e80c50ff6f543679852cbd7e5ce9bda92d01e1
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83778205"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140944"
 ---
-## <a name="general-entity-types"></a>Ogólne typy jednostek:
-
-### <a name="person"></a>Person (Osoba)
-
-Rozpoznawaj nazwiska osób w tekście.
-
-Języki:
-* Publiczna wersja zapoznawcza:,,,,,,,,,,,,,,,,,, `Arabic` `Czech` `Chinese-Simplified` `Danish` `Dutch` `English` `Finnish` `French` `German` `Hungarian` `Italian` `Japanese` `Korean` `Norwegian (Bokmål)` `Polish` `Portuguese (Portugal)` `Portuguese (Brazil)` `Russian` `Spanish` , `Swedish` i`Turkish`
-
-| Nazwa podtypu | Opis                                                      | Dostępne począwszy od wersji modelu |
-|--------------|------------------------------------------------------------------|---------------------------------------|
-| Nie dotyczy          | Rozpoznawane nazwy `Bill Gates` osób, na przykład`Marie Curie` | `2019-10-01`                          | 
-
-### <a name="persontype"></a>Persontype
-Typ zadania lub rola zatrzymywana przez osobę.
-
-Języki:
-* Publiczna wersja zapoznawcza:`English`
-
-| Nazwa podtypu | Opis                                                                                | Dostępne począwszy od wersji modelu |
-|--------------|--------------------------------------------------------------------------------------------|----------------------------------------|
-| Nie dotyczy          | Typy zadań `civil engineer` na przykład,,, `salesperson` `chef` `librarian``nursing aide` | `2020-02-01`                           |
-
-### <a name="location"></a>Lokalizacja
-
-Tereny, struktury, funkcje geograficzne i geopolityczne.
-
-Języki:
-
-* Publiczna wersja zapoznawcza:,,,,,,,,,,,,,,,,,, `Arabic` `Czech` `Chinese-Simplified` `Danish` `Dutch` `English` `Finnish` `French` `German` `Hungarian` `Italian` `Japanese` `Korean` `Norwegian (Bokmål)` `Polish` `Portuguese (Portugal)` `Portuguese (Brazil)` `Russian` `Spanish` , `Swedish` i`Turkish`
-
-| Nazwa podtypu              | Opis                                                                              | Dostępne począwszy od wersji modelu |
-|---------------------------|------------------------------------------------------------------------------------------|----------------------------------------|
-| Nie dotyczy                       | lokalizacje, `Atlantic Ocean` na przykład, `library` , `Eiffel Tower``Statue of Liberty`  | `2019-10-01`                           |
-| Jednostka geopolityczna (GPE) — tylko w języku angielskim| Miasta, kraje/regiony, Stany na przykład,, `Seattle` `Pennsylvania` `South Africa` ,`Tokyo` | `2020-02-01`                           |
-
-### <a name="organization"></a>Organizacja  
-
-Uznawane organizacje, korporacje, agencje i inne grupy osób. Na przykład: firmy, grupy polityczne, zespoły muzyczne, trefle sportowe, instytucje rządowe i organizacje publiczne. Narodowe i religijne nie są uwzględnione w tym typie jednostki. 
-
-Języki: 
-
-* Publiczna wersja zapoznawcza:,,,,,,,,,,,,,,,,,, `Arabic` `Czech` `Chinese-Simplified` `Danish` `Dutch` `English` `Finnish` `French` `German` `Hungarian` `Italian` `Japanese` `Korean` `Norwegian (Bokmål)` `Polish` `Portuguese (Portugal)` `Portuguese (Brazil)` `Russian` `Spanish` , `Swedish` i`Turkish`
-
-| Nazwa podtypu | Opis                                                                                             | Dostępne począwszy od wersji modelu |
-|--------------|---------------------------------------------------------------------------------------------------------|----------------------------------------|
-| Nie dotyczy          | organizacje, `Microsoft` na przykład, `NASA` , `National Oceanic and Atmospheric Administration``VOA` | `2019-10-01`                           |
-
-### <a name="event"></a>Zdarzenie  
-
-Zdarzenia historyczne, społeczne i naturalne.  
-
-Języki: 
-
-* Publiczna wersja zapoznawcza:`English`
-
-| Nazwa podtypu | Opis                                                            | Dostępne począwszy od wersji modelu |
-|--------------|------------------------------------------------------------------------|----------------------------------------|
-| Nie dotyczy          | Zdarzenia takie jak `wedding` , `hurricane` ,,, `car accident` `solar eclipse``American Revolution` | `2020-02-01`                           |
-
-### <a name="product"></a>Produkt  
-
-Obiekty fizyczne różnych kategorii.  
-
-Języki: 
-
-* Publiczna wersja zapoznawcza:`English`
-
-| Nazwa podtypu | Opis                                                                        | Dostępne począwszy od wersji modelu |
-|--------------|------------------------------------------------------------------------------------|----------------------------------------|
-| Nie dotyczy          | Na `Microsoft Surface laptop` przykład,, `sunglasses` , `motorcycle` , `bag``Xbox` | `2020-02-01`                           |
-| Obliczanie    | `Azure Cosmos DB`, `Azure Kubernetes Service`                                     | `2020-02-01`                           |
-
-### <a name="skill"></a>Czy  
-
-Jednostka opisująca możliwości lub wiedzę fachową.  
-
-Języki: 
-
-* Publiczna wersja zapoznawcza:`English`
-
-| Nazwa podtypu | Opis                                                                 | Dostępne począwszy od wersji modelu |
-|--------------|-----------------------------------------------------------------------------|----------------------------------------|
-| Nie dotyczy          | `nursing`, `data mining`, `linguistics`, `critical thinking`, `photography` | `2020-02-01`                           |
-
-### <a name="phone-number"></a>Numer telefonu
-
-Numery telefonów (tylko numery telefonów USA). 
-
-Języki:
-
-* Publiczna wersja zapoznawcza:`English`
-
-| Nazwa podtypu | Opis                                    | Dostępne począwszy od wersji modelu |
-|--------------|------------------------------------------------|----------------------------------------|
-| Nie dotyczy          | Numery telefonów US, na przykład`(312) 555-0176` | `2019-10-01`                           |
-
-### <a name="email"></a>Poczta e-mail
-
-Adres e-mail. 
-
-Języki:
-
-* Publiczna wersja zapoznawcza:`English`
-
-| Nazwa podtypu | Opis                                      | Dostępne począwszy od wersji modelu |
-|--------------|--------------------------------------------------|----------------------------------------|
-| Nie dotyczy          | Adres e-mail, na przykład`support@contoso.com` | `2019-10-01`                           |
-
-### <a name="url"></a>Adres URL
-
-Internetowe adresy URL.
-
-Języki:
-
-* Publiczna wersja zapoznawcza:`English`
-
-| Nazwa podtypu | Opis                                          | Dostępne począwszy od wersji modelu |
-|--------------|------------------------------------------------------|----------------------------------------|
-| Nie dotyczy          | Adresy URL do witryn sieci Web, na przykład`https://www.bing.com` | `2019-10-01`                           |
-
-### <a name="ip-address"></a>Adres IP
-
-Adres protokołu internetowego
-
-Języki:
-
-* Publiczna wersja zapoznawcza:`English`
-
-| Nazwa podtypu | Opis                              | Dostępne począwszy od wersji modelu |
-|--------------|------------------------------------------|----------------------------------------|
-| Nie dotyczy          | Adres sieciowy na przykład`10.0.0.101` | `2019-10-01`                           |
-
-###  <a name="datetime"></a>DateTime
-
-Jednostki daty i godziny. 
-
-* Dostępne począwszy od wersji modelu`2019-10-01`
-
-Języki:
-
-* Publiczna wersja zapoznawcza: `Chinese-Simplified` ,, `English` `French` `German` i`Spanish`
-
-| Nazwa podtypu    | Przykłady                     |
-|-------------|------------------------------|
-| Nie dotyczy         | `6:30PM February 4, 2012`, `4/1/2011 2:45`                   |
-| Data  | `May 2nd, 2017`, `05/02/2017`       |
-| Time     | `8:15`, `6AM`              |
-| DateRange    | `August 2nd to August 5th`         |
-| TimeRange   | `4-6PM`, `10:00AM to Noon`          |
-| Czas trwania | `2.5 minutes`, `one and a half hours`         |
-| Set | `every Saturday`         |
-
-###  <a name="quantity"></a>Liczba
-
-Liczby i ilości liczbowe. 
-
-* Dostępne począwszy od wersji modelu`2019-10-01`
-
-Języki:
-
-* Publiczna wersja zapoznawcza: `Chinese-Simplified` ,, `English` `French` `German` i`Spanish`
-
-| Nazwa podtypu    | Przykłady                     |
-|-------------|------------------------------|
-| Liczba         | `6`, `six`                   |
-| Procentowe  | `50%`, `fifty percent`       |
-| Liczbą     | `2nd`, `second`              |
-| Wiek         | `90 day old`, `30 years old` |
-| Waluta    | `$10.99`, `&euro;30.00`           |
-| Wymiar   | `10 miles`, `40 cm`          |
-| Temperatura | `32 degrees`, `10°C`         |
+Następujące kategorie jednostek są zwracane podczas wysyłania żądań do `/entities/recognition/general` punktu końcowego.
+
+| Kategoria   | Subcategory | Opis                          | Uruchamianie wersji modelu                                                    | Uwagi |
+|------------|-------------|--------------------------------------|-------------------------------------------------------------|--------------------------------------|
+| Person (Osoba)     | Nie dotyczy         | Nazwy osób.  | `2019-10-01`  | Zwrócone także przez NER v 2.1 |
+| Persontype | Nie dotyczy         | Typy zadań lub role przechowywane przez osobę. | `2020-02-01` | |
+|Lokalizacja    | Nie dotyczy         | Punkty orientacyjne, struktury, funkcje geograficzne i geopolityczne, w naturalny i ludzki sposób     |  `2019-10-01` | Zwrócone także przez NER v 2.1 |
+|Lokalizacja     | Jednostka geopolityczna (GPE)        | Miasta, kraje/regiony, Stany.      | `2020-02-01` | |
+|Lokalizacja     | Strukturalnych                       | Struktury zbudowanych. | `2020-04-01` | |
+|Lokalizacja     | Geograficznych       | Funkcje geograficzne i naturalne, takie jak rzek, oceany i Deserts. |  `2020-04-01` | |
+|Organizacja  | Nie dotyczy | Firmy, grupy polityczne, zespoły muzyczne, trefle sportowe, instytucje rządowe i organizacje publiczne.  | `2019-10-01` | Narodowe i religijne nie są uwzględnione w tym typie jednostki. Zwrócone także przez NER v 2.1 |
+|Organizacja | Leczniczych | Firmy medyczne i grupy. | `2020-04-01` |  |
+|Organizacja | Wymiana zapasowa | Giełdowe grupy wymiany. | `2020-04-01` | |
+| Organizacja | Sports | Organizacje dotyczące sportu. | `2020-04-01` |  |
+| Zdarzenie  | Nie dotyczy | Zdarzenia historyczne, społeczne i wystąpienia naturalne. | `2020-02-01` |  |
+| Zdarzenie  | Twórcz | Wydarzenia i święta kulturowe. | `2020-04-01` | |
+| Zdarzenie  | Tocz | Zdarzenia występujące w naturalny sposób. | `2020-04-01` |  |
+| Zdarzenie  | Sports | Wydarzenia sportowe.  | `2020-04-01` | |
+| Produkt | Nie dotyczy | Obiekty fizyczne różnych kategorii. | `2020-02-01` | |
+| Produkt | Produkty obliczeniowe | Produkty obliczeniowe. |  `2020-02-01 ` | |
+| Czy | Nie dotyczy | Możliwość, umiejętność lub doświadczenie. | `2020-02-01` |  |
+| Adres | Nie dotyczy | Pełne adresy wysyłkowe.  | `2020-04-01` |  |
+| PhoneNumber | Nie dotyczy | Numery telefonów (tylko numery telefonów USA i UE). | `2019-10-01` | Zwrócone także przez NER v 2.1 |
+| E-mail | Nie dotyczy | Adresy e-mail. | `2019-10-01` | Zwrócone także przez NER v 2.1 |
+| Adres URL | Nie dotyczy | Adresy URL do witryn sieci Web. | `2019-10-01` | Zwrócone także przez NER v 2.1  |
+| Adres IP | Nie dotyczy | Adresy IP sieci. | `2019-10-01` | Zwrócone także przez NER v 2.1 |
+| DateTime | Nie dotyczy | Daty i godziny dnia. | `2019-10-01` | Zwrócone także przez NER v 2.1 | 
+| DateTime | Data | Daty kalendarzowe. | `2019-10-01` | Zwrócone także przez NER v 2.1 |
+| DateTime | Godzina | Razy dziennie | `2019-10-01` | Zwrócone także przez NER v 2.1 |
+| DateTime | DateRange | Zakresy dat. | `2019-10-01` | Zwrócone także przez NER v 2.1 |
+| DateTime | TimeRange | Zakresy czasu. | `2019-10-01` | Zwrócone także przez NER v 2.1 |
+| DateTime | Czas trwania | Czasów trwania. | `2019-10-01` | Zwrócone także przez NER v 2.1 |
+| DateTime | Set | Ustawianie, powtarzające się czasy. |  `2019-10-01` | Zwrócone także przez NER v 2.1 |
+| Liczba | Nie dotyczy | Liczby i ilości liczbowe. | `2019-10-01` | Zwrócone także przez NER v 2.1  |
+| Liczba | Liczba | Numery. | `2019-10-01` | Zwrócone także przez NER v 2.1 |
+| Liczba | Procentowe | Wartości procentowe.| `2019-10-01` | Zwrócone także przez NER v 2.1 |
+| Liczba | Liczbą | Liczby porządkowe. | `2019-10-01` | Zwrócone także przez NER v 2.1 |
+| Liczba | Wiek | Ważności. | `2019-10-01` |  Zwrócone także przez NER v 2.1 |
+| Liczba | Waluta | Waluty. | `2019-10-01` | Zwrócone także przez NER v 2.1 |
+| Liczba | Wymiar | Wymiary i pomiary. | `2019-10-01` | Zwrócone także przez NER v 2.1 |
+| Liczba | Temperatura | Nosząc. | `2019-10-01` | Zwrócone także przez NER v 2.1 |

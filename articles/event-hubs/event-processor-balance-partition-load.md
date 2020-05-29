@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/16/2020
+ms.date: 05/28/2020
 ms.author: shvija
-ms.openlocfilehash: e7f17c589b043a055bd541a0850d9efc8e1d96be
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 4851a3edad9726230a8fc0dd3085caa172c8d5f3
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82628865"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84147872"
 ---
 # <a name="balance-partition-load-across-multiple-instances-of-your-application"></a>Równoważenie obciążenia partycji w wielu wystąpieniach aplikacji
 Aby skalować aplikację do przetwarzania zdarzeń, można uruchomić wiele wystąpień aplikacji i zrównoważyć obciążenie między sobą. W starszych wersjach [klasy eventprocessorhost](event-hubs-event-processor-host.md) można zrównoważyć obciążenie między wieloma wystąpieniami zdarzeń programu i punktów kontrolnych podczas otrzymywania. W nowszych wersjach (5,0), **EventProcessorClient** (.NET i Java) lub **EventHubConsumerClient** (Python i JavaScript) umożliwiają wykonywanie tych samych czynności. Model programistyczny jest prostszy przy użyciu zdarzeń. Zasubskrybuj zdarzenia, które Cię interesują, rejestrując procedurę obsługi zdarzeń.
@@ -44,7 +44,7 @@ Podczas projektowania użytkownika w środowisku rozproszonym scenariusz musi ob
 
 ## <a name="event-processor-or-consumer-client"></a>Procesor zdarzeń lub klient klienta
 
-Nie musisz tworzyć własnego rozwiązania, aby spełnić te wymagania. Te funkcje są oferowane przez zestawy SDK platformy Azure Event Hubs. W zestawach SDK platformy .NET lub Java można używać klienta procesora zdarzeń (EventProcessorClient), a także w zestawach SDK skryptów języka Python i Java, korzystając z EventHubConsumerClient. W starej wersji zestawu SDK była to host procesora zdarzeń (klasy eventprocessorhost), który obsługuje te funkcje.
+Nie musisz tworzyć własnego rozwiązania, aby spełnić te wymagania. Te funkcje są oferowane przez zestawy SDK platformy Azure Event Hubs. W zestawach SDK platformy .NET lub Java można używać klienta procesora zdarzeń (EventProcessorClient), a także w języku Python i JavaScript SDK, używając EventHubConsumerClient. W starej wersji zestawu SDK była to host procesora zdarzeń (klasy eventprocessorhost), który obsługuje te funkcje.
 
 W przypadku większości scenariuszy produkcyjnych zaleca się używanie klienta procesora zdarzeń do odczytu i przetwarzania zdarzeń. Klient procesora ma zapewnić niezawodne środowisko do przetwarzania zdarzeń we wszystkich partycjach centrum zdarzeń w sposób bezpieczny i odporny na uszkodzenia, a jednocześnie zapewniając możliwość tworzenia punktów kontrolnych postępu. Klienci procesora zdarzeń mogą również pracować wspólnie w kontekście grupy odbiorców dla danego centrum zdarzeń. Klienci będą automatycznie zarządzać dystrybucją i zrównoważeniem pracy, ponieważ wystąpienia stają się dostępne lub niedostępne dla grupy.
 
@@ -92,7 +92,7 @@ Gdy punkt kontrolny jest wykonywany do oznaczania zdarzenia jako przetworzone, w
 
 ## <a name="thread-safety-and-processor-instances"></a>Bezpieczeństwo wątków i wystąpienia procesora
 
-Domyślnie procesor zdarzeń lub odbiorca jest bezpieczny wątkowo i zachowuje się synchronicznie. Po nadejściu zdarzeń dla partycji jest wywoływana funkcja, która przetwarza zdarzenia. Kolejne komunikaty i wywołania tej funkcji są kolejki w tle, gdy pompa komunikatów działa w tle w innych wątkach. Bezpieczeństwo wątków eliminuje konieczność stosowania kolekcji bezpiecznych dla wątków i znacząco zwiększa wydajność.
+Domyślnie funkcja, która przetwarza zdarzenia jest wywoływana sekwencyjnie dla danej partycji. Kolejne zdarzenia i wywołania tej funkcji z tej samej kolejki partycji w tle, gdy pompa zdarzeń będzie działać w tle w innych wątkach. Należy pamiętać, że zdarzenia z różnych partycji mogą być przetwarzane współbieżnie, a każdy współużytkowany stan, do którego uzyskuje się dostęp między partycjami, musi być synchronizowany.
 
 ## <a name="next-steps"></a>Następne kroki
 Zobacz następujące przewodniki szybki start:

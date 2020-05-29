@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 3c42d520e5e30e57906245b9405b0d445be8ee16
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: cedc400ac6659cf2b2d0e9c499bf8789a6311e32
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871373"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84141895"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Uczenie modelu aparatu rozpoznawania formularzy z etykietami przy użyciu narzędzia do etykietowania przykładowego
 
@@ -143,7 +143,8 @@ Następnie utworzysz Tagi (etykiety) i zastosujemy je do elementów tekstowych, 
     > * Etykiety wartości w postaci, w jakiej są wyświetlane w formularzu; nie próbuj podzielić wartości na dwie części z dwoma różnymi tagami. Na przykład pole adresu powinno mieć etykietę z pojedynczym tagiem nawet wtedy, gdy obejmuje wiele wierszy.
     > * Nie dołączaj kluczy w oznakowanych polach &mdash; tylko wartości.
     > * Dane tabeli powinny być wykrywane automatycznie i będą dostępne w końcowym wyjściowym pliku JSON. Jeśli jednak model nie wykryje wszystkich danych tabeli, możesz również ręcznie oznaczyć te pola. Oznacz każdą komórkę w tabeli inną etykietą. Jeśli formularze zawierają tabele o różnej liczbie wierszy, upewnij się, że tag zawiera co najmniej jeden formularz o największej możliwej tabeli.
-    > * Aby usunąć zastosowany tag, zaznacz prostokąt w widoku dokumentu i naciśnij klawisz Delete.
+    > * Użyj przycisków z prawej strony, **+** Aby przeszukać, zmienić nazwę, Zmień kolejność i usunąć Tagi.
+    > * Aby usunąć zastosowany tag bez usuwania samego tagu, zaznacz znacznik oznakowany w widoku dokumentu i naciśnij klawisz Delete.
 
 ![Główne okno edytora przykładowego narzędzia do etykietowania](../media/label-tool/main-editor.png)
 

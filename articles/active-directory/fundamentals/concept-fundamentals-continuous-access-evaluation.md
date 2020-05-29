@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3713901dd3dd5d17c4e1ddcef529c663b68f5b43
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bdf904bb2c0d133ea07cd32274fad5b6601da5d9
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82112579"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148127"
 ---
 # <a name="continuous-access-evaluation"></a>Ciągła weryfikacja dostępu
 
@@ -50,13 +50,13 @@ W przyszłości mamy nadzieję, że dodasz więcej zdarzeń, w tym zdarzenia, ta
 Przed ciągłą oceną dostępu klienci będą zawsze próbować odtworzyć token dostępu z jego pamięci podręcznej, o ile nie wygasł. Dzięki CAE wprowadzamy nowy przypadek, że dostawca zasobów może odrzucić token nawet wtedy, gdy nie wygasł. Aby poinformować klientów o konieczności obejścia swojej pamięci podręcznej, nawet jeśli tokeny w pamięci podręcznej nie wygasły, wprowadzimy mechanizm o nazwie **wyzwanie dla żądania**. CAE wymaga aktualizacji klienta w celu zrozumienia wyzwania żądania. Najnowsza wersja następujących aplikacji poniżej obsługuje wyzwanie dla żądania:
 
 - Program Outlook dla systemu Windows 
-- Outlook iOS 
-- Program Outlook Android 
-- Komputer Mac z programem Outlook 
+- Program Outlook dla systemu iOS 
+- Program Outlook dla systemu Android 
+- Outlook dla komputerów Mac 
 - Zespoły dla systemu Windows
-- Zespoły systemu iOS 
-- Zespoły systemu Android 
-- Teams Mac 
+- Zespoły dla systemu iOS 
+- Zespoły dla systemu Android 
+- Zespoły dla komputerów Mac 
 
 ## <a name="token-lifetime"></a>Czas życia tokenu
 

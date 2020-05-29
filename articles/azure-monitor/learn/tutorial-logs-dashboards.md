@@ -5,14 +5,14 @@ ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
-ms.date: 06/19/2019
+ms.date: 05/28/2020
 ms.custom: mvc
-ms.openlocfilehash: 76ba79561df4a75004369d24c4c6af82de9b1cfc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7bc2da2043c6607cfff62ff524be88efb79c6f18
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77661536"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148263"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Tworzenie i udostępnianie pulpitów nawigacyjnych z danymi usługi Log Analytics
 
@@ -35,6 +35,14 @@ Wybierz pozycję **pulpit nawigacyjny** , aby otworzyć domyślny [pulpit nawiga
 ![Pulpit nawigacyjny witryny Azure Portal](media/tutorial-logs-dashboards/log-analytics-portal-dashboard.png)
 
 W tym miejscu możesz zebrać najważniejsze dla działu IT dane operacyjne dotyczące wszystkich zasobów platformy Azure, w tym dane telemetryczne z usługi Azure Log Analytics.  Przed przejściem do wizualizacji zapytania dziennika najpierw Utwórz pulpit nawigacyjny i udostępnij go.  Możemy skupić się na naszym przykładowym zapytaniu dziennika wydajności, które będzie renderowane jako wykres liniowy, i dodać go do pulpitu nawigacyjnego.  
+
+> [!NOTE]
+> Następujące typy wykresów są obsługiwane na pulpitach nawigacyjnych platformy Azure przy użyciu zapytań dzienników:
+> - areachart
+> - columnchart
+> - piechart (będzie renderowany na pulpicie nawigacyjnym jako pierścień)
+> - scatterchart
+> - timechart
 
 Aby utworzyć pulpit nawigacyjny, wybierz przycisk **Nowy pulpit nawigacyjny** obok nazwy bieżącego pulpitu nawigacyjnego.
 
