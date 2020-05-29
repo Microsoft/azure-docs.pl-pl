@@ -236,8 +236,8 @@
           href: connector-azure-file-storage.md
         - name: Azure SQL Database
           href: connector-azure-sql-database.md
-        - name: Wystąpienie zarządzane usługi Azure SQL Database
-          href: connector-azure-sql-database-managed-instance.md
+        - name: Wystąpienie zarządzane Azure SQL
+          href: connector-azure-sql-managed-instance.md
         - name: Azure Synapse Analytics (dawniej Azure SQL Data Warehouse)
           href: connector-azure-sql-data-warehouse.md
         - name: Azure Table Storage
@@ -697,7 +697,7 @@
       items:
         - name: Migracja za pomocą usług SSIS — omówienie
           href: scenario-ssis-migration-overview.md
-        - name: Migrowanie bazy danych SSISDB do wystąpienia zarządzanego usługi Azure SQL Database
+        - name: Migracja bazy danych za pomocą usług SSIS do wystąpienia zarządzanego Azure SQL
           href: scenario-ssis-migration-ssisdb-mi.md
 - name: Dokumentacja
   items:

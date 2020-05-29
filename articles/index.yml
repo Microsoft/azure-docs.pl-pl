@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 9232082e845ef651d188adcc2ccd5cd3b96d90b4
-  ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+  ms.openlocfilehash: 8dd70bbe8b3e495473523a662e0501613703354f
+  ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 05/26/2020
-  ms.locfileid: "83849607"
+  ms.lasthandoff: 05/27/2020
+  ms.locfileid: "84021776"
 highlightedContent:
   items:
   - title: Wprowadzenie — przewodnik dla deweloperów platformy Azure
@@ -597,14 +597,26 @@ productDirectory:
     - databases
     - migration
     url: dms/index.yml
+  - title: Azure SQL
+    summary: Nowoczesna rodzina rozwiązań SQL do migracji i modernizacji aplikacji
+    imageSrc: https://static.docs.com/ui/media/product/azure/sql-database.svg
+    azureCategories:
+    - featured
+    - hybrid
+    - databases
+    url: azure-sql/index.yml
   - title: Azure SQL Database
     summary: Zarządzane, inteligentne rozwiązanie SQL w chmurze
     imageSrc: https://static.docs.com/ui/media/product/azure/sql-database.svg
     azureCategories:
-    - featured
     - databases
-    - hybrid
-    url: sql-database/index.yml
+    url: azure-sql/database/index.yml
+  - title: Wystąpienie zarządzane Azure SQL
+    summary: Zarządzane, zawsze aktualne wystąpienie rozwiązania SQL w chmurze
+    imageSrc: https://static.docs.com/ui/media/product/azure/sql-managed-instance.svg
+    azureCategories:
+    - databases
+    url: azure-sql/managed-instance/index.yml
   - title: Usługa Azure SQL Edge (wersja zapoznawcza)
     summary: Zoptymalizowany pod kątem działania na brzegu sieci aparat danych o niewielkim zużyciu zasobów z wbudowaną sztuczną inteligencją
     imageSrc: https://static.docs.com/ui/media/product/azure/sql-database-edge.svg

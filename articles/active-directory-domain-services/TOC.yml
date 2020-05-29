@@ -47,6 +47,8 @@
       href: synchronization.md
     - name: Jak działa synchronizacja skrótów haseł
       href: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
+    - name: Korzyści z migracji wdrożenia klasycznego
+      href: concepts-migration-benefits.md
     - name: Co to jest usługa Azure Active Directory?
       href: ../active-directory/fundamentals/active-directory-whatis.md?context=/azure/active-directory-domain-services/context/azure-ad-ds-context
     - name: Architektura usługi Azure Active Directory

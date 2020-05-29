@@ -972,6 +972,8 @@
           href: insights/container-insights-update-metrics.md
         - name: Konfiguracja monitorowania kondycji
           href: insights/container-insights-health-monitors-config.md
+        - name: Zarządzanie kosztami i użyciem
+          href: insights/container-insights-cost.md
         - name: Wyłączanie monitorowania
           items:
             - name: Wyłączanie usługi AKS monitorowania
@@ -991,7 +993,7 @@
         - name: Azure Cosmos DB
           href: insights/cosmosdb-insights-overview.md
         - name: Usługa Key Vault
-          href: insights/key-vault-insights-overview.md
+          href: insights/key-vaults-insights-overview.md
         - name: Sieci
           href: insights/network-insights-overview.md
         - name: Magazyn

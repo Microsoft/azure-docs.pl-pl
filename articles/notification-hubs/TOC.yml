@@ -13,7 +13,7 @@
       href: create-notification-hub-portal.md
     - name: Tworzenie centrum powiadomień — interfejs wiersza polecenia platformy Azure
       href: create-notification-hub-azure-cli.md
-    - name: Tworzenie centrum powiadomień — szablon usługi Azure Resource Manager
+    - name: Tworzenie centrum powiadomień — szablon ARM
       href: create-notification-hub-template.md
     - name: Konfigurowanie centrum powiadomień
       href: configure-notification-hub-portal-pns-settings.md

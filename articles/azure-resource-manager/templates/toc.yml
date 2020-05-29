@@ -156,6 +156,8 @@
       href: templates-cloud-consistency.md
     - name: Tryby wdrażania
       href: deployment-modes.md
+    - name: Usunięcia historii wdrażania
+      href: deployment-history-deletions.md
     - name: Usuwanie w trybie pełnym
       href: complete-mode-deletion.md
     - name: Deployment Manager

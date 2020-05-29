@@ -772,6 +772,8 @@
               href: ./hadoop/hdinsight-use-hive.md
             - name: Korzystanie z widoku Apache Hive
               href: ./hadoop/apache-hadoop-use-hive-ambari-view.md
+            - name: Nawiązywanie połączenia z usługą Apache Beeline
+              href: ./hadoop/connect-install-beeline.md
             - name: Korzystanie z usługi Apache Hive Beeline
               href: ./hadoop/apache-hadoop-use-hive-beeline.md
             - name: Korzystanie z narzędzia Grafana

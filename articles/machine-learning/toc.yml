@@ -311,11 +311,14 @@
           displayName: automl automated auto ml
           href: how-to-auto-train-remote.md
         - name: Definiowanie zadań uczenia maszynowego
-          displayName: 'machine learning, task type'
+          displayName: 'machine learning, task type, automl'
           href: how-to-define-task-type.md
         - name: Automatyczne trenowanie modelu prognozy
           displayName: time series
           href: how-to-auto-train-forecast.md
+        - name: Cechowanie w zautomatyzowanym uczeniu maszynowym (Python)
+          displayName: 'automl, feature engineering, feature importance'
+          href: how-to-configure-auto-features.md
         - name: Używanie zautomatyzowanego uczenia maszynowego w potokach uczenia maszynowego (Python)
           displayName: machine learning automl
           href: how-to-use-automlstep-in-pipelines.md
