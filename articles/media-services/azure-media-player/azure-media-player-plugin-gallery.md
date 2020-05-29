@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: ee29d1c45896583ef5aa5837e8383159db855d52
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 4ca74e9c10175f2c34133886e1c8a06782b588c2
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124622"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148229"
 ---
 # <a name="azure-media-player-plugin-gallery"></a>Galeria wtyczek Azure Media Player #
 

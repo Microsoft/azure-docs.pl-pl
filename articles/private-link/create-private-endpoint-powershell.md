@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 7db3ac13cd4e2f2e2b712f9d53b86f9ccda5e736
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 81dbbeda9d0132de63180cc13f6243761e0ba865
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021725"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171586"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Tworzenie prywatnego punktu końcowego przy użyciu Azure PowerShell
 Prywatny punkt końcowy to podstawowy blok konstrukcyjny dla prywatnego linku na platformie Azure. Umożliwia ona korzystanie z zasobów platformy Azure, takich jak Virtual Machines (VM), w celu komunikacji z prywatnymi zasobami łączy prywatnych. 
@@ -211,7 +211,7 @@ mstsc /v:<publicIpAddress>
     Aliases:   myserver.database.windows.net
     ```
     
-3. Zainstaluj SQL Server Management Studio.
+3. Zainstaluj [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15).
 4. W obszarze **Połącz z serwerem**wprowadź lub wybierz następujące informacje:
 
     | Ustawienie | Wartość |
@@ -220,7 +220,7 @@ mstsc /v:<publicIpAddress>
     | Nazwa serwera | myserver.database.windows.net |
     | Nazwa użytkownika | Wprowadź nazwę użytkownika podaną podczas tworzenia |
     | Hasło | Wprowadź hasło podane podczas tworzenia |
-    | Zapamiętaj hasło | Yes |
+    | Zapamiętaj hasło | Tak |
     
 5. Wybierz pozycję **Połącz**.
 6. Przeglądaj **bazy danych** z menu po lewej stronie. 

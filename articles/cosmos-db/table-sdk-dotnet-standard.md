@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
-ms.openlocfilehash: f7c6829d858e36b55f079f8ee03e431f67995e66
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 097868c0f6c64ad8b58dce365a2232bb02b786e2
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81272580"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84168203"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB tabelę .NET Standard interfejs API: pobieranie i informacje o wersji
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "81272580"
 |   |   |
 |---|---|
 |**Pobieranie zestawu SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)|
-|**Przykład**|[Przykład Cosmos DB interfejs API tabel .NET](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
+|**Northwind**|[Przykład Cosmos DB interfejs API tabel .NET](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
 |**Szybki start**|[Szybki start](create-table-dotnet.md)|
 |**Samouczek**|[Samouczek](tutorial-develop-table-dotnet.md)|
 |**Bieżąca obsługiwana platforma**|[Microsoft .NET Standard 2,0](https://www.nuget.org/packages/NETStandard.Library)|
@@ -36,51 +36,51 @@ ms.locfileid: "81272580"
 ## <a name="release-notes-for-200-series"></a>Informacje o wersji dla serii 2.0.0
 Seria 2.0.0 jest zależna od [Microsoft. Azure. Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/), a ulepszenia wydajności i konsolidacja przestrzeni nazw do punktu końcowego Cosmos DB.
 
-### <a name="200-preview"></a><a name="2.0.0-preview"/>2.0.0 — wersja zapoznawcza
+### <a name="200-preview"></a><a name="2.0.0-preview"></a>2.0.0 — wersja zapoznawcza
 * wstępna wersja zapoznawcza zestawu SDK tabeli 2.0.0, która jest zależna od elementu [Microsoft. Azure. Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)z ulepszeniami wydajności i konsolidacją przestrzeni nazw do Cosmos DBego punktu końcowego. Publiczny interfejs API pozostaje taki sam.
 
 ## <a name="release-notes-for-100-series"></a>Informacje o wersji dla serii 1.0.0
 Seria 1.0.0 jest zależna od [Microsoft. Azure. DocumentDB. Core](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/).
 
-### <a name="107"></a><a name="1.0.7"/>1.0.7
+### <a name="107"></a><a name="1.0.7"></a>1.0.7
 * Zwiększenie wydajności przez ustawienie domyślnego poziomu śledzenia zestawu SDK tabeli na SourceLevels. off, który można wybrać za pomocą pliku App. config
 
-### <a name="105"></a><a name="1.0.5"/>1.0.5
+### <a name="105"></a><a name="1.0.5"></a>1.0.5
 * Wprowadź nową konfigurację w obszarze TableClientConfiguration, aby używać modułu wykonawczego REST do komunikowania się z Cosmos DB interfejs API tabel
 
-### <a name="105-preview"></a><a name="1.0.5-preview"/>1.0.5 — wersja zapoznawcza
+### <a name="105-preview"></a><a name="1.0.5-preview"></a>1.0.5 — wersja zapoznawcza
 * Poprawki błędów
 
-### <a name="104"></a><a name="1.0.4"/>1.0.4
-* Poprawki błędów
-* Podaj opcję HttpClientTimeout dla RestExecutorConfiguration.
-
-### <a name="104-preview"></a><a name="1.0.4-preview"/>1.0.4 — wersja zapoznawcza
+### <a name="104"></a><a name="1.0.4"></a>1.0.4
 * Poprawki błędów
 * Podaj opcję HttpClientTimeout dla RestExecutorConfiguration.
 
-### <a name="101"></a><a name="1.0.1"/>1.0.1
+### <a name="104-preview"></a><a name="1.0.4-preview"></a>1.0.4 — wersja zapoznawcza
+* Poprawki błędów
+* Podaj opcję HttpClientTimeout dla RestExecutorConfiguration.
+
+### <a name="101"></a><a name="1.0.1"></a>1.0.1
 * Poprawki błędów
 
-### <a name="100"></a><a name="1.0.0"/>1.0.0
+### <a name="100"></a><a name="1.0.0"></a>1.0.0
 * Wersja ogólna dostępności
 
-### <a name="0110-preview"></a><a name="0.11.0-preview"/>0.11.0 — wersja zapoznawcza
+### <a name="0110-preview"></a><a name="0.11.0-preview"></a>0.11.0 — wersja zapoznawcza
 * Wprowadzono zmiany w sposobie konfigurowania CloudTableClient. Teraz pobiera obiekt TableClientConfiguration w trakcie konstruowania. TableClientConfiguration udostępnia różne właściwości do konfigurowania zachowania klienta w zależności od tego, czy docelowy punkt końcowy jest Cosmos DB interfejs API tabel czy interfejs API tabel usługi Azure Storage.
 * Dodano obsługę do TableQuery w celu zwrócenia wyników w kolejności posortowanej w kolumnie niestandardowej. Ta funkcja jest obsługiwana tylko dla punktów końcowych tabeli Cosmos DB.
 * Dodano obsługę w celu udostępnienia RequestCharges na różnych typach wyników. Ta funkcja jest obsługiwana tylko dla punktów końcowych tabeli Cosmos DB.
 
-### <a name="0101-preview"></a><a name="0.10.1-preview"/>0.10.1 — wersja zapoznawcza
+### <a name="0101-preview"></a><a name="0.10.1-preview"></a>0.10.1 — wersja zapoznawcza
 * Dodano obsługę tokenów SAS, operacji TablePermissions, serviceproperties i servicestatystyk względem punktów końcowych tabeli usługi Azure Storage. 
    > [!NOTE]
    > Niektóre funkcje w poprzednich zestawach SDK tabeli usługi Azure Storage nie są jeszcze obsługiwane, takie jak szyfrowanie po stronie klienta.
 
-### <a name="0100-preview"></a><a name="0.10.0-preview"/>0.10.0 — wersja zapoznawcza
+### <a name="0100-preview"></a><a name="0.10.0-preview"></a>0.10.0 — wersja zapoznawcza
 * Dodawanie obsługi podstawowych operacji CRUD, Batch i zapytań do punktów końcowych tabeli usługi Azure Storage. 
    > [!NOTE]
    > Niektóre funkcje w poprzednich zestawach SDK tabeli usługi Azure Storage nie są jeszcze obsługiwane, takie jak szyfrowanie po stronie klienta.
 
-### <a name="091-preview"></a><a name="0.9.1-preview"/>od 0.9.1 — wersja zapoznawcza
+### <a name="091-preview"></a><a name="0.9.1-preview"></a>od 0.9.1 — wersja zapoznawcza
 * Azure Cosmos DB Table .NET Standard SDK to międzyplatformowa biblioteka platformy .NET, która zapewnia wydajny dostęp do modelu danych tabeli w Cosmos DB. Ta wersja wstępna obsługuje pełny zestaw funkcji zapytania CRUD + Entity z podobnymi interfejsami API jako [zestaw SDK tabeli Cosmos DB dla .NET Framework](table-sdk-dotnet.md). 
    > [!NOTE]
    >  Punkty końcowe tabeli usługi Azure Storage nie są jeszcze obsługiwane w wersji od 0.9.1-Preview.
@@ -111,7 +111,7 @@ Ta międzyplatformowa biblioteka .NET Standard [Microsoft. Azure. Cosmos. Table]
 | [od 0.9.1 — wersja zapoznawcza](#0.9.1-preview) |18 października 2018 |--- |
 
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 

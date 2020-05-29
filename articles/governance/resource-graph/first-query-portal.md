@@ -3,12 +3,12 @@ title: 'Szybki Start: pierwsze zapytanie w portalu'
 description: W tym przewodniku szybki start wykonaj kroki, aby uruchomić pierwsze zapytanie z Azure Portal przy użyciu Eksploratora Azure Resource Graph.
 ms.date: 05/20/2020
 ms.topic: quickstart
-ms.openlocfilehash: 69fb1262de706185d8968e9381bb34dd0d84a3b7
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: a4b8e0b792dfda1bbd1866444ddc6c4ec8d289b6
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872088"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84148042"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Szybki Start: uruchamianie pierwszego zapytania grafu zasobów przy użyciu Eksploratora Azure Resource Graph
 
@@ -51,7 +51,7 @@ Przeglądarka schematów to doskonały sposób odnajdywania właściwości do u�
 
 ## <a name="create-a-chart-from-the-resource-graph-query"></a>Tworzenie wykresu na podstawie zapytania wykresu zasobów
 
-Po uruchomieniu ostatniego zapytania powyżej, jeśli wybierzesz kartę **wykresy** , zostanie wyświetlony komunikat "zestaw wyników nie jest zgodny z wizualizacją wykresu kołowego". Zapytania, które nie mogą zostać wprowadzone do wykresu, mogą zawierać kwerendy, które zapewniają liczbę zasobów. Korzystając z [przykładowych maszyn wirtualnych typu zapytanie-liczba](./samples/starter.md#count-virtual-machines-by-os-type), Utwórz wizualizację z zapytania grafu zasobów.
+Po uruchomieniu ostatniego zapytania powyżej, jeśli wybierzesz kartę **wykresy** , zostanie wyświetlony komunikat "zestaw wyników nie jest zgodny z wizualizacją wykresu kołowego". Zapytania, które nie mogą zostać wprowadzone do wykresu, mogą zawierać kwerendy, które zapewniają liczbę zasobów. Korzystając z [przykładowych maszyn wirtualnych typu zapytanie-liczba](./samples/starter.md#count-os), Utwórz wizualizację z zapytania grafu zasobów.
 
 1. W części **kwerenda 1** okna wprowadź następujące zapytanie i wybierz polecenie **Uruchom zapytanie**.
 

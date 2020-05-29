@@ -12,16 +12,16 @@ ms.date: 02/12/2020
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: has-adal-ref
-ms.openlocfilehash: 74c6951a718d15a9ca7b84e92662272ba1bfd182
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: c3efd94e741124d5e662ac17e9c1daaf66d4c1c5
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610296"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84168813"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-ad-application-proxy"></a>Bezpieczny dostęp do lokalnych interfejsów API przy użyciu usługi Azure serwer proxy aplikacji usługi Azure AD
 
-Mogą być dostępne interfejsy API logiki biznesowej działające lokalnie lub hostowane na maszynach wirtualnych w chmurze. Natywne aplikacje dla systemów Android, iOS, Mac lub Windows muszą współdziałać z punktami końcowymi interfejsu API w celu korzystania z danych lub zapewnienia interakcji z użytkownikiem. Usługa Azure serwer proxy aplikacji usługi Azure AD i [biblioteki uwierzytelniania Azure Active Directory (ADAL)](/azure/active-directory/develop/active-directory-authentication-libraries) umożliwiają bezpieczne uzyskiwanie dostępu do lokalnych interfejsów API przez natywne aplikacje. Serwer proxy aplikacji usługi Azure Active Directory to szybsze i bardziej bezpieczne rozwiązanie niż otwieranie portów zapory i kontrolowanie uwierzytelniania i autoryzacji w warstwie aplikacji.
+Mogą być dostępne interfejsy API logiki biznesowej działające lokalnie lub hostowane na maszynach wirtualnych w chmurze. Natywne aplikacje dla systemów Android, iOS, Mac lub Windows muszą współdziałać z punktami końcowymi interfejsu API w celu korzystania z danych lub zapewnienia interakcji z użytkownikiem. Usługa Azure serwer proxy aplikacji usługi Azure AD i [Biblioteka Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/active-directory-authentication-libraries) umożliwiają bezpieczne dostęp do lokalnych interfejsów API przez natywne aplikacje. Serwer proxy aplikacji usługi Azure Active Directory to szybsze i bardziej bezpieczne rozwiązanie niż otwieranie portów zapory i kontrolowanie uwierzytelniania i autoryzacji w warstwie aplikacji.
 
 W tym artykule przedstawiono sposób konfigurowania rozwiązania serwer proxy aplikacji usługi Azure AD platformy Azure do hostowania usługi internetowego interfejsu API, do której aplikacje natywne mogą uzyskać dostęp.
 
@@ -54,7 +54,7 @@ Aby opublikować interfejs API sieci Web SecretAPI za pomocą serwera proxy apli
 
 1. Kompilowanie i publikowanie przykładowego projektu SecretAPI jako aplikacji sieci Web ASP.NET na komputerze lokalnym lub w intranecie. Upewnij się, że masz dostęp do aplikacji sieci Web lokalnie.
 
-1. W [Azure Portal](https://portal.azure.com)wybierz pozycję **Azure Active Directory**. Następnie wybierz pozycję **aplikacje dla przedsiębiorstw**.
+1. W witrynie [Azure Portal](https://portal.azure.com) wybierz pozycję **Azure Active Directory**. Następnie wybierz pozycję **aplikacje dla przedsiębiorstw**.
 
 1. W górnej części strony **aplikacje dla przedsiębiorstw — wszystkie aplikacje** wybierz pozycję **Nowa aplikacja**.
 
@@ -113,7 +113,7 @@ Aby zarejestrować aplikację natywną AppProxyNativeAppSample:
 
    1. W obszarze **Obsługiwane typy kont** wybierz pozycję **Konta w dowolnym katalogu organizacyjnym i konta osobiste Microsoft**.
 
-   1. W obszarze **adres URL przekierowania**wybierz pozycję **Klient publiczny (Mobile & Desktop)**, a następnie wprowadź *https:\//appproxynativeapp*.
+   1. W obszarze **adres URL przekierowania**wybierz pozycję **Klient publiczny (Mobile & Desktop)**, a następnie wprowadź *https://login.microsoftonline.com/common/oauth2/nativeclient* .
 
    1. Wybierz pozycję **zarejestruj**i poczekaj na pomyślne zarejestrowanie aplikacji.
 
@@ -121,7 +121,7 @@ Aby zarejestrować aplikację natywną AppProxyNativeAppSample:
 
 Aplikacja AppProxyNativeAppSample została już zarejestrowana w Azure Active Directory. Aby zapewnić aplikacji natywnej dostęp do interfejsu API sieci Web SecretAPI:
 
-1. Na stronie Azure Active Directory **Przegląd** > **rejestracji aplikacji** wybierz aplikację **AppProxyNativeAppSample** .
+1. Na stronie Azure Active Directory **Przegląd**  >  **rejestracji aplikacji** wybierz aplikację **AppProxyNativeAppSample** .
 
 1. Na stronie **AppProxyNativeAppSample** wybierz pozycję **uprawnienia interfejsu API** na lewym pasku nawigacyjnym.
 
@@ -139,28 +139,44 @@ Aplikacja AppProxyNativeAppSample została już zarejestrowana w Azure Active Di
 
 Ostatnim krokiem jest skonfigurowanie aplikacji natywnej. Poniższy fragment kodu z pliku *Form1.cs* w przykładowej aplikacji NativeClient powoduje, że biblioteka ADAL uzyskuje token do żądania wywołania interfejsu API i dołącza go do nagłówka aplikacji.
 
-   ```csharp
-       AuthenticationResult result = null;
-       HttpClient httpClient = new HttpClient();
-       authContext = new AuthenticationContext(authority);
-       result = await authContext.AcquireTokenAsync(todoListResourceId, clientId, redirectUri, new PlatformParameters(PromptBehavior.Auto));
-
-       // Append the token as bearer in the request header.
-       httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
-
-       // Call the API.
-       HttpResponseMessage response = await httpClient.GetAsync(todoListBaseAddress + "/api/values/4");
-
-       // MessageBox.Show(response.RequestMessage.ToString());
-       string s = await response.Content.ReadAsStringAsync();
-       MessageBox.Show(s);
    ```
+   // Acquire Access Token from AAD for Proxy Application
+ IPublicClientApplication clientApp = PublicClientApplicationBuilder
+.Create(<App ID of the Native app>)
+.WithDefaultRedirectUri() // will automatically use the default Uri for native app
+.WithAuthority("https://login.microsoftonline.com/{<Tenant ID>}")
+.Build();
+
+AuthenticationResult authResult = null;
+var accounts = await clientApp.GetAccountsAsync();
+IAccount account = accounts.FirstOrDefault();
+
+IEnumerable<string> scopes = new string[] {"<Scope>"};
+
+try
+ {
+    authResult = await clientApp.AcquireTokenSilent(scopes, account).ExecuteAsync();
+ }
+    catch (MsalUiRequiredException ex)
+ {
+     authResult = await clientApp.AcquireTokenInteractive(scopes).ExecuteAsync();                
+ }
+ 
+if (authResult != null)
+ {
+  //Use the Access Token to access the Proxy Application
+  
+  HttpClient httpClient = new HttpClient();
+  HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
+  HttpResponseMessage response = await httpClient.GetAsync("<Proxy App Url>");
+ }
+```
 
 Aby skonfigurować natywną aplikację do nawiązywania połączeń z usługą Azure Active Directory i wywoływać serwer proxy aplikacji interfejsu API, zaktualizuj wartości symboli zastępczych w pliku *App. config* przykładowej aplikacji NativeClient przy użyciu wartości z usługi Azure AD:
 
-- Wklej w `<add key="ida:Tenant" value="" />` polu **Identyfikator katalogu (dzierżawcy)** . Tę wartość (identyfikator GUID) można znaleźć i skopiować na stronie **Przegląd** dowolnej aplikacji.
+- Wklej w polu **Identyfikator katalogu (dzierżawcy)** `<add key="ida:Tenant" value="" />` . Tę wartość (identyfikator GUID) można znaleźć i skopiować na stronie **Przegląd** dowolnej aplikacji.
 
-- Wklej w `<add key="ida:ClientId" value="" />` polu **Identyfikator aplikacji AppProxyNativeAppSample (klienta)** . Tę wartość (identyfikator GUID) można znaleźć i skopiować na stronie **Przegląd** AppProxyNativeAppSample.
+- Wklej w polu **Identyfikator aplikacji AppProxyNativeAppSample (klienta)** `<add key="ida:ClientId" value="" />` . Tę wartość (identyfikator GUID) można znaleźć i skopiować na stronie **Przegląd** AppProxyNativeAppSample.
 
 - Wklej **Identyfikator URI przekierowania** AppProxyNativeAppSample w `<add key="ida:RedirectUri" value="" />` polu. Tę wartość (identyfikator URI) można znaleźć i skopiować na stronie **uwierzytelnianie** AppProxyNativeAppSample.
 

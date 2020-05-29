@@ -13,12 +13,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 24e18f5b1766f0dde5e677ac40d24edd5597a20d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 5ba82b34da8e4c3156d6854934ad873428bf121a
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82609956"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84168730"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Zdalny dostęp do aplikacji lokalnych przy użyciu serwera proxy aplikacji Azure Active Directory
 
@@ -41,7 +41,7 @@ Serwer proxy aplikacji współpracuje z:
 * Aplikacje sieci Web korzystające z dostępu opartego na formularzach lub [nagłówkach](application-proxy-configure-single-sign-on-with-ping-access.md)
 * Interfejsy API sieci Web, które mają zostać ujawnione w rozbudowanych aplikacjach na różnych urządzeniach
 * Aplikacje hostowane za [bramą pulpit zdalny](application-proxy-integrate-with-remote-desktop-services.md)
-* Rozbudowane aplikacje klienckie zintegrowane z Active Directory Authentication Library (ADAL)
+* Rozbudowane aplikacje klienckie zintegrowane z biblioteką uwierzytelniania firmy Microsoft (MSAL)
 
 Serwer proxy aplikacji obsługuje logowanie jednokrotne. Aby uzyskać więcej informacji na temat obsługiwanych metod, zobacz [Wybieranie metody logowania](what-is-single-sign-on.md#choosing-a-single-sign-on-method)jednokrotnego.
 

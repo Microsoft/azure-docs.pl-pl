@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.author: inhenkel
 author: IngridAtMicrosoft
 ms.date: 04/16/2020
-ms.openlocfilehash: 74aa17fb17d682449bd817945c3b8bbf3f95363e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 671609fc1db7325823e8ac40b2b8153682596588
+ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81726613"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84147821"
 ---
 # <a name="create-an-azure-media-services-live-stream-with-obs"></a>Tworzenie strumienia Azure Media Services na żywo za pomocą OBS
 
@@ -28,7 +28,7 @@ W tym przewodniku szybki start omówiono następujące zagadnienia:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logowanie się do witryny Azure Portal
 
@@ -147,7 +147,7 @@ W następnej procedurze powrócisz do Azure Media Services w przeglądarce, aby 
 
    ![Ustawienia wyjściowe OBS](media/live-events-obs-quickstart/live-event-obs-advanced-output-settings.png)
 
-1. Pozostaw pozostałe ustawienia, a następnie kliknij przycisk **OK**.
+1. Pozostaw pozostałe ustawienia bez zmian i kliknij przycisk **OK**.
 
 ### <a name="start-streaming"></a>Rozpocznij przesyłanie strumieniowe
 
@@ -203,7 +203,7 @@ Utworzone dane wyjściowe są teraz dostępne do przesyłania strumieniowego na 
 1. Wybierz pozycję **Aktualizuj odtwarzacz**.
 1. Wybierz ikonę **odtwarzania** na filmie wideo, aby wyświetlić zasób na żądanie.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 > [!IMPORTANT]
 > Zatrzymaj usługi! Po wykonaniu kroków opisanych w tym przewodniku szybki start Pamiętaj, aby zatrzymać wydarzenie na żywo i punkt końcowy przesyłania strumieniowego, lub naliczanie opłat za czas, w którym pozostaną one uruchomione. Aby zatrzymać wydarzenie na żywo, zobacz procedurę [zatrzymania emisji](#stop-the-broadcast) , kroki 2 i 3.

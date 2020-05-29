@@ -2,13 +2,13 @@
 title: Oceny w Azure Migrate oceny serwera
 description: Dowiedz się więcej na temat ocen w Azure Migrate oceny serwera
 ms.topic: conceptual
-ms.date: 02/17/2020
-ms.openlocfilehash: 2f76ea5f195be2914cdcdb4de9e93af38504d66e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 05/27/2020
+ms.openlocfilehash: bfae3f23dd16b0d1a09b49f56efbca88a7bea08f
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81769918"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171008"
 ---
 # <a name="assessments-in-azure-migrate-server-assessment"></a>Oceny w Azure Migrate: Ocena serwera
 
@@ -110,7 +110,7 @@ Właściwość | Szczegóły
 **Lokalizacja docelowa** | Lokalizacja, do której chcesz przeprowadzić migrację. Ocena serwera obsługuje obecnie następujące docelowe regiony platformy Azure:<br/><br/> Australia Wschodnia, Australia Południowo-Wschodnia, Brazylia Południowa, Kanada środkowa, Kanada Wschodnia, Indie Środkowe, środkowe stany USA, Chiny Wschodnie, Chiny Północne, Azja Wschodnia, Wschodnie stany USA, Wschodnie stany USA 2, Niemcy środkowe, Niemcy Południowo-Wschodnia, Japonia Południowo-Wschodnia, Japonia Zachodnia, Korea środkowa, Południowe stany USA, Europa Północna, Południowo-środkowe stany USA, Azja Południowo-Wschodnia, Zachodnie Zjednoczone Królestwo Południowe Zjednoczone Królestwo Indie Południowe , Zachodnio-środkowe stany USA, Europa Zachodnia, Indie Zachodnie, zachodnie stany USA i zachodnie stany USA 2.
 **Docelowy dysk magazynujący (w przypadku zmiany wielkości liter)** | Typ dysku do użycia na potrzeby magazynu na platformie Azure. <br/><br/> Określ docelowy dysk magazynujący jako zarządzany przez usługę Premium, zarządzany SSD w warstwie Standardowa lub HDD w warstwie Standardowa.
 **Docelowy dysk magazynujący (ustalanie wielkości na podstawie wydajności)** | Określa typ docelowego dysku magazynującego, który ma być zarządzany przez funkcję automatycznej, w warstwie Premium — zarządzany HDD w warstwie Standardowa lub SSD w warstwie Standardowa.<br/><br/> **Automatyczne**: zalecenie dysku opiera się na danych wydajności dysków, co oznacza liczbę IOPS i przepływność.<br/><br/>**Premium lub standard**: Ocena zaleca użycie jednostki SKU dysku w wybranym typie magazynu.<br/><br/> Jeśli chcesz uzyskać umowę na poziomie usług (SLA) na jednym wystąpieniu maszyny wirtualnej o wartości 99,9%, rozważ użycie dysków zarządzanych w warstwie Premium. Pozwala to zagwarantować, że wszystkie dyski w ocenie są zalecane jako dyski zarządzane w warstwie Premium.<br/><br/> Azure Migrate obsługuje tylko dyski zarządzane na potrzeby oceny migracji.
-**Azure Reserved Virtual Machine Instances** | Określa [wystąpienia zarezerwowane](https://azure.microsoft.com/pricing/reserved-vm-instances/) , aby oszacować koszt w ocenie wziąć pod uwagę.<br/><br/> Azure Migrate obecnie obsługuje Azure Reserved VM Instances tylko w przypadku ofert z opcją płatność zgodnie z rzeczywistym użyciem.
+**Azure Reserved VM Instances** | Określa [wystąpienia zarezerwowane](https://azure.microsoft.com/pricing/reserved-vm-instances/) , aby oszacować koszt w ocenie wziąć pod uwagę.<br/><br/> Jeśli wybrane są zarezerwowane wystąpienia, Pozostaw domyślne ustawienia w polu Rabat (%) i właściwości czasu działania maszyny wirtualnej.<br/><br/> Azure Migrate obecnie obsługuje Azure Reserved VM Instances tylko w przypadku ofert z opcją płatność zgodnie z rzeczywistym użyciem.
 **Kryteria ustalania wielkości** | Używane do rightsize maszyny wirtualnej platformy Azure.<br/><br/> Używaj wielkości liter lub wielkości na podstawie wydajności.
 **Historia wydajności** | Używane z rozmiarem opartym na wydajności. Historia wydajności określa czas trwania używany podczas oceniania danych wydajności.
 **Użycie percentyla** | Używane z rozmiarem opartym na wydajności. Użycie percentylu określa wartość percentylości próbki wydajności używanej dla odpowiedniej zmiany.
@@ -121,6 +121,8 @@ Właściwość | Szczegóły
 **Rabat (%)** | Wszystkie zniżki związane z subskrypcją, które otrzymujesz w ramach oferty platformy Azure. Ustawienie domyślne to 0%.
 **Czas pracy maszyny wirtualnej** | Czas trwania w dniach miesięcznie i godzin dziennie maszyn wirtualnych platformy Azure, które nie będą działać w sposób ciągły. Oszacowania kosztów bazują na tym czasie.<br/><br/> Wartości domyślne to 31 dni miesięcznie i 24 godziny dziennie.
 **Korzyść użycia hybrydowego platformy Azure** | Określa, czy masz program Software Assurance i kwalifikujesz się do [korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Jeśli ustawienie ma wartość domyślną "tak", ceny platformy Azure dla systemów operacyjnych innych niż Windows są brane pod uwagę w przypadku maszyn wirtualnych z systemem Windows.
+**Subskrypcja EA** | Określa, że subskrypcja Umowa Enterprise (EA) jest używana do szacowania kosztów. Uwzględnia rabat dotyczący subskrypcji. <br/><br/> Pozostaw ustawienia dla wystąpień zarezerwowanych, Rabat (%) i właściwości czasu działania maszyny wirtualnej z ustawieniami domyślnymi.
+
 
 [Zapoznaj się z najlepszymi rozwiązaniami](best-practices-assessment.md) dotyczącymi tworzenia ocen przy użyciu oceny serwera.
 
@@ -143,9 +145,9 @@ Właściwość | Szczegóły | Stan gotowości platformy Azure
 --- | --- | ---
 **Typ rozruchu** | Platforma Azure obsługuje maszyny wirtualne z typem rozruchowym systemu BIOS, a nie z interfejsem UEFI. | Warunkowo gotowe, jeśli typ rozruchu to UEFI
 **Rdzenie** | Każda maszyna nie może mieć więcej niż 128 rdzeni, co jest maksymalną liczbą obsługiwaną przez maszynę wirtualną platformy Azure.<br/><br/> Jeśli historia wydajności jest dostępna, Azure Migrate traktuje wykorzystane rdzenie do porównania. Jeśli ustawienia oceny określają współczynnik komfortu, Liczba użytych rdzeni jest mnożona przez współczynnik komfortu.<br/><br/> Jeśli nie ma historii wydajności, Azure Migrate używa przyznanych rdzeni bez zastosowania współczynnika komfortu. | Gotowe, jeśli liczba rdzeni przekracza limit
-**NIEGO** | Każda maszyna nie może mieć więcej niż 3 892 GB pamięci RAM, czyli maksymalnego rozmiaru obsługiwanego przez maszynę wirtualną z&nbsp;serii M Standard_M128m<sup>2</sup> . [Dowiedz się więcej](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Jeśli historia wydajności jest dostępna, Azure Migrate uwzględnia wykorzystanie pamięci RAM do porównania. W przypadku określenia współczynnika komfortu wykorzystanie pamięci RAM jest mnożone przez współczynnik komfortu.<br/><br/> Jeśli nie ma żadnej historii, przydzieloną pamięć RAM jest używana bez zastosowania współczynnika komfortu.<br/><br/> | Gotowe, jeśli ilość pamięci RAM mieści się w limicie
+**NIEGO** | Każda maszyna nie może mieć więcej niż 3 892 GB pamięci RAM, czyli maksymalnego rozmiaru obsługiwanego przez maszynę wirtualną z serii M Standard_M128m &nbsp; <sup>2</sup> . [Dowiedz się więcej](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Jeśli historia wydajności jest dostępna, Azure Migrate uwzględnia wykorzystanie pamięci RAM do porównania. W przypadku określenia współczynnika komfortu wykorzystanie pamięci RAM jest mnożone przez współczynnik komfortu.<br/><br/> Jeśli nie ma żadnej historii, przydzieloną pamięć RAM jest używana bez zastosowania współczynnika komfortu.<br/><br/> | Gotowe, jeśli ilość pamięci RAM mieści się w limicie
 **Dysk magazynu** | Przydzielony rozmiar dysku nie może być większy niż 32 TB. Mimo że platforma Azure obsługuje dyski 64 TB z dyskami SSD w warstwie Ultra platformy Azure, Azure Migrate: Ocena serwera obecnie sprawdza, czy rozmiar dysku wynosi 32 TB, ponieważ nie obsługuje jeszcze SSD w warstwie Ultra. <br/><br/> Liczba dysków dołączonych do maszyny, łącznie z dyskiem systemu operacyjnego, nie może być większa niż 65. | Gotowe, jeśli rozmiar i liczba dysków przekraczają limity
-**Networking** | Komputer nie może mieć więcej niż 32 interfejsów sieciowych (nic). | Gotowe, jeśli liczba kart sieciowych mieści się w limicie
+**Sieć** | Komputer nie może mieć więcej niż 32 interfejsów sieciowych (nic). | Gotowe, jeśli liczba kart sieciowych mieści się w limicie
 
 ### <a name="guest-operating-system"></a>System operacyjny gościa
 

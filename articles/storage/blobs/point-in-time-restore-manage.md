@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/06/2020
+ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: cbfc5667fb35b8f807a3a806dda4647af10e9392
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: fe98e04c37172dc6b91c86fab8200022ed860d4f
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83118214"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170107"
 ---
 # <a name="enable-and-manage-point-in-time-restore-for-block-blobs-preview"></a>Włącz przywracanie do punktu w czasie i zarządzaj nimi w przypadku blokowych obiektów BLOB (wersja zapoznawcza)
 
@@ -99,14 +99,19 @@ Get-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
 
 ## <a name="perform-a-restore-operation"></a>Wykonaj operację przywracania
 
-Aby zainicjować operację przywracania, wywołaj polecenie Restore-AzStorageBlobRange, określając punkt przywracania jako wartość **daty i godziny** UTC. Można określić co najmniej jeden zakres lexicographical obiektów BLOB do przywrócenia lub pominąć zakres, aby przywrócić wszystkie obiekty blob we wszystkich kontenerach na koncie magazynu. Wykonanie operacji przywracania może potrwać kilka minut.
+Aby zainicjować operację przywracania, wywołaj polecenie Restore-AzStorageBlobRange, określając punkt przywracania jako wartość **daty i godziny** UTC. Można określić zakresy lexicographical obiektów BLOB do przywrócenia lub pominąć zakres, aby przywrócić wszystkie obiekty blob we wszystkich kontenerach na koncie magazynu. Dla operacji przywracania obsługiwane są maksymalnie 10 zakresów lexicographical. Wykonanie operacji przywracania może potrwać kilka minut.
 
 Należy pamiętać o następujących regułach podczas określania zakresu obiektów BLOB do przywrócenia:
 
 - Wzorzec kontenera określony dla zakresu początkowego i zakresu końcowego musi zawierać co najmniej trzy znaki. Ukośnik (/), który jest używany do oddzielenia nazwy kontenera od nazwy obiektu BLOB, nie jest uwzględniany w tym minimalnym.
-- Można określić tylko jeden zakres dla operacji przywracania.
+- Dla każdej operacji przywracania można określić maksymalnie 10 zakresów.
 - Symbole wieloznaczne nie są obsługiwane. Są one traktowane jako znaki standardowe.
 - Obiekty blob można przywrócić w `$root` `$web` kontenerach i, jawnie określając je w zakresie przekazanym do operacji przywracania. `$root` `$web` Kontenery i są przywracane tylko wtedy, gdy są jawnie określone. Nie można przywrócić innych kontenerów systemu.
+
+> [!IMPORTANT]
+> Podczas wykonywania operacji przywracania usługa Azure Storage blokuje operacje na danych w obiektach Blob w zakresach przywracanych przez czas trwania operacji. Operacje odczytu, zapisu i usuwania są blokowane w lokalizacji podstawowej. Z tego powodu operacje, takie jak kontenery list w Azure Portal, mogą nie działać zgodnie z oczekiwaniami podczas operacji przywracania.
+>
+> Operacje odczytu z lokalizacji pomocniczej mogą być przetwarzane w trakcie operacji przywracania, jeśli konto magazynu ma replikację geograficzną.
 
 ### <a name="restore-all-containers-in-the-account"></a>Przywróć wszystkie kontenery na koncie
 
@@ -147,7 +152,7 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
 
 ### <a name="restore-multiple-ranges-of-block-blobs"></a>Przywróć wiele zakresów blokowych obiektów BLOB
 
-Aby przywrócić wiele zakresów blokowych obiektów blob, określ tablicę zakresów dla `-BlobRestoreRange` parametru. Poniższy przykład przywraca kompletną zawartość *container1* i *container4*:
+Aby przywrócić wiele zakresów blokowych obiektów blob, określ tablicę zakresów dla `-BlobRestoreRange` parametru. Dla operacji przywracania obsługiwane są maksymalnie 10 zakresów. W poniższym przykładzie określono dwa zakresy, aby przywrócić kompletną zawartość *container1* i *container4*:
 
 ```powershell
 $range1 = New-AzStorageBlobRangeToRestore -StartRange container1 -EndRange container2

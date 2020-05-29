@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 84b36c1357bedfc120cec72af84fdd79f52a2f57
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8f259ba9c7da3d7c37ed3eb63c63d17b74f7fbdd
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79238163"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745850"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Przeniesienie własności rozliczeń subskrypcji platformy Azure na inne konto
 
@@ -144,8 +144,8 @@ Jeśli nie wiesz, kto jest administratorem konta dla subskrypcji, wykonaj poniż
 
 Wszystkie zasoby, takie jak maszyny wirtualne, dyski i witryny internetowe, są przenoszone na nowe konto. Jeśli jednak przeniesiesz subskrypcję do konta w innej dzierżawie usługi Azure AD, żadne [role administratora](add-change-subscription-administrator.md) ani przypisania [kontroli dostępu na podstawie ról (RBAC, role-based access control)](../../role-based-access-control/role-assignments-portal.md) w ramach subskrypcji [nie zostaną przeniesione](#transfer-a-subscription-to-another-azure-ad-tenant-account). Ponadto [rejestracje aplikacji](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) ani inne usługi specyficzne dla dzierżawy nie są przenoszone razem z subskrypcją.
 
-### <a name="can-i-transfer-ownership-to-an-account-in-another-country"></a>Czy mogę przenieść własność na konto w innym kraju?
-Niestety, w witrynie Azure Portal nie można wykonywać przeniesień między krajami. Aby przenieść swoją subskrypcję między krajami [skontaktuj się z pomocą techniczną](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+### <a name="can-i-transfer-ownership-to-an-account-in-another-countryregion"></a>Czy mogę przenieść własność na konto w innym kraju/regionie?
+Niestety, w witrynie Azure Portal nie można wykonywać przeniesień między krajami/regionami. Aby przenieść swoją subskrypcję między krajami/regionami [skontaktuj się z pomocą techniczną](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="i-am-an-administrator-on-two-accounts-can-i-transfer-a-subscription-from-one-of-my-accounts-to-another"></a>Jestem administratorem na dwóch kontach. Czy mogę przenieść subskrypcję z jednego ze swoich kont na inne?
 Tak, możesz przenieść subskrypcję między kontami. Twoje konta są koncepcyjnie uznawane za konta dwóch różnych użytkowników, możesz zatem wykonać powyższe kroki w celu przeniesienia subskrypcji między kontami.

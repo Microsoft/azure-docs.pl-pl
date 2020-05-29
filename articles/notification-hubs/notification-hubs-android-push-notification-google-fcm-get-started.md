@@ -1,6 +1,6 @@
 ---
-title: Wysyłanie powiadomień wypychanych do systemu Android przy użyciu usługi Azure Notification Hubs i Firebase | Microsoft Docs
-description: Korzystając z tego samouczka, dowiesz się, jak za pomocą usług Azure Notification Hubs i Google Firebase Cloud Messaging wysyłać powiadomienia push do urządzeń z systemem Android.
+title: Wysyłanie powiadomień wypychanych do systemu Android przy użyciu usługi Azure Notification Hubs i zestawu SDK Firebase w wersji 0,6 | Microsoft Docs
+description: W tym samouczku dowiesz się, jak wysyłać powiadomienia wypychane do urządzeń z systemem Android przy użyciu usług Azure Notification Hubs i Google Firebase Cloud Messaging.
 services: notification-hubs
 documentationcenter: android
 keywords: powiadomienia wypychane, powiadomienie wypychane, powiadomienia wypychane w systemie android, firebase cloud messaging
@@ -16,20 +16,20 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/11/2019
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: e6bc4ed94c8b8e62740f81497231a163283ebcb7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7dbe9faabcb7a46ae3862ac7da6504b6b0407d86
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80521554"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170447"
 ---
-# <a name="tutorial-send-push-notifications-to-android-devices-using-firebase"></a>Samouczek: wysyłanie powiadomień wypychanych do urządzeń z systemem Android przy użyciu usługi Firebase
+# <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-06"></a>Samouczek: wysyłanie powiadomień wypychanych do urządzeń z systemem Android przy użyciu zestawu Firebase SDK w wersji 0,6
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
-Korzystając z tego samouczka, dowiesz się, jak wysyłać powiadomienia push do aplikacji dla systemu Android przy użyciu usług Azure Notification Hubs i Firebase Cloud Messaging (FCM). W tym samouczku tworzysz pustą aplikację dla systemu Android służącą do odbierania powiadomień push przy użyciu usługi Firebase Cloud Messaging (FCM).
+W tym samouczku pokazano, jak używać usługi Azure Notification Hubs i zestawu SDK Firebase Cloud Messaging (FCM) w wersji 0,6 do wysyłania powiadomień wypychanych do aplikacji systemu Android. W tym samouczku tworzysz pustą aplikację dla systemu Android służącą do odbierania powiadomień push przy użyciu usługi Firebase Cloud Messaging (FCM).
 
 Ukończony kod dla tego samouczka można pobrać [z witryny GitHub](https://github.com/Azure/azure-notificationhubs-android/tree/master/FCMTutorialApp).
 
@@ -146,7 +146,7 @@ Twoje centrum jest teraz skonfigurowane do pracy z usługą Firebase Cloud Messa
 
 ### <a name="update-the-androidmanifestxml-file"></a>Aktualizowanie pliku pliku AndroidManifest. XML
 
-1. Po otrzymaniu tokenu rejestracji usługi FCM można użyć go do [zarejestrowania się w usłudze Azure Notification Hubs](notification-hubs-push-notification-registration-management.md). Ta rejestracja jest obsługiwana w tle przy użyciu `IntentService` nazwy. `RegistrationIntentService` Ta usługa odświeża również token rejestracji FCM. Należy również utworzyć klasę o nazwie `FirebaseService` jako podklasę `FirebaseMessagingService` i zastąpić `onMessageReceived` metodę, aby otrzymywać i obsługiwać powiadomienia. 
+1. Po otrzymaniu tokenu rejestracji usługi FCM można użyć go do [zarejestrowania się w usłudze Azure Notification Hubs](notification-hubs-push-notification-registration-management.md). Ta rejestracja jest obsługiwana w tle przy użyciu `IntentService` nazwy `RegistrationIntentService` . Ta usługa odświeża również token rejestracji FCM. Należy również utworzyć klasę o nazwie `FirebaseService` jako podklasę `FirebaseMessagingService` i zastąpić `onMessageReceived` metodę, aby otrzymywać i obsługiwać powiadomienia. 
 
     Dodaj następującą definicję usługi do pliku AndroidManifest.xml wewnątrz tagu `<application>`.
 
@@ -173,7 +173,7 @@ Twoje centrum jest teraz skonfigurowane do pracy z usługą Firebase Cloud Messa
 
 ### <a name="add-code"></a>Dodaj kod
 
-1. W widoku projektu rozwiń węzeł **App** > **src** > **Main** > **Java**. Kliknij prawym przyciskiem myszy folder pakietu w obszarze **Java**, wybierz pozycję **Nowy**, a następnie wybierz pozycję **Klasa języka Java**. Wprowadź **NotificationSettings** jako nazwę, a następnie wybierz przycisk **OK**.
+1. W widoku projektu rozwiń węzeł **App**  >  **src**  >  **Main**  >  **Java**. Kliknij prawym przyciskiem myszy folder pakietu w obszarze **Java**, wybierz pozycję **Nowy**, a następnie wybierz pozycję **Klasa języka Java**. Wprowadź **NotificationSettings** jako nazwę, a następnie wybierz przycisk **OK**.
 
     Zaktualizuj te trzy symbole zastępcze w poniższym kodzie dla klasy `NotificationSettings`:
 
@@ -368,7 +368,7 @@ Twoje centrum jest teraz skonfigurowane do pracy z usługą Firebase Cloud Messa
     }
     ```
 
-8. Aby zweryfikować stan aplikacji i raport w aplikacji, Dodaj następujące dodatkowe metody do `MainActivity`:
+8. Aby zweryfikować stan aplikacji i raport w aplikacji, Dodaj następujące dodatkowe metody do `MainActivity` :
 
     ```java
     @Override
@@ -407,7 +407,7 @@ Twoje centrum jest teraz skonfigurowane do pracy z usługą Firebase Cloud Messa
     }
     ```
 
-9. Metoda `ToastNotify` używa kontrolki *"Hello World"* `TextView` do trwałego zgłaszania stanu i powiadomień w aplikacji. W układzie **res** > **layout** > **activity_main. XML** , Dodaj następujący identyfikator dla tej kontrolki.
+9. Metoda `ToastNotify` używa kontrolki *"Hello World"* `TextView` do trwałego zgłaszania stanu i powiadomień w aplikacji. W układzie **res**  >  **layout**  >  **activity_main. XML** , Dodaj następujący identyfikator dla tej kontrolki.
 
     ```java
     android:id="@+id/text_hello"
@@ -435,7 +435,7 @@ Twoje centrum jest teraz skonfigurowane do pracy z usługą Firebase Cloud Messa
     import androidx.core.app.NotificationCompat;
     ```
 
-12. Dodaj następujący kod dla `FirebaseService` klasy, tworząc podklasę. `FirebaseMessagingService`
+12. Dodaj następujący kod dla `FirebaseService` klasy, tworząc podklasę `FirebaseMessagingService` .
 
     Ten kod zastępuje `onMessageReceived` otrzymane powiadomienia. wysyła również Powiadomienie wypychane do Menedżera powiadomień systemu Android za pomocą `sendNotification()` metody. Wywołaj `sendNotification()` metodę, gdy aplikacja nie jest uruchomiona i otrzymasz powiadomienie.
 
@@ -522,7 +522,7 @@ Twoje centrum jest teraz skonfigurowane do pracy z usługą Firebase Cloud Messa
     }
     ```
 
-13. W Android Studio na pasku menu wybierz kolejno opcje **Kompiluj** > **Skompiluj projekt** , aby upewnić się, że w kodzie nie występują błędy. Jeśli zostanie wyświetlony komunikat o błędzie o `ic_launcher` ikonie, Usuń następujące instrukcje z pliku pliku AndroidManifest. XML: 
+13. W Android Studio na pasku menu wybierz kolejno opcje **Kompiluj**  >  **Skompiluj projekt** , aby upewnić się, że w kodzie nie występują błędy. Jeśli zostanie wyświetlony komunikat o błędzie o `ic_launcher` ikonie, Usuń następujące instrukcje z pliku pliku AndroidManifest. XML: 
 
     ```
         android:icon="@mipmap/ic_launcher"
@@ -534,7 +534,7 @@ Twoje centrum jest teraz skonfigurowane do pracy z usługą Firebase Cloud Messa
 15. Uruchom aplikację na wybranym urządzeniu i sprawdź, czy została ona pomyślnie zarejestrowana w centrum.
 
     > [!NOTE]
-    > Rejestracja może zakończyć się niepowodzeniem podczas początkowego uruchomienia `onTokenRefresh()` , dopóki nie zostanie wywołana metoda usługi identyfikatora wystąpienia. Odświeżenie powinno zainicjować pomyślną rejestrację w centrum powiadomień.
+    > Rejestracja może zakończyć się niepowodzeniem podczas początkowego uruchomienia, dopóki nie `onTokenRefresh()` zostanie wywołana metoda usługi identyfikatora wystąpienia. Odświeżenie powinno zainicjować pomyślną rejestrację w centrum powiadomień.
 
     ![Rejestrowanie urządzenia powiodło się.](./media/notification-hubs-android-push-notification-google-fcm-get-started/device-registration.png)
 
@@ -556,9 +556,9 @@ Powiadomienia wypychane można wysyłać z [Azure Portal] , wykonując następuj
 [!INCLUDE [notification-hubs-sending-notifications-from-the-portal](../../includes/notification-hubs-sending-notifications-from-the-portal.md)]
 
 ### <a name="run-the-mobile-app-on-emulator"></a>Uruchamianie aplikacji mobilnej na emulatorze
-Przed przetestowaniem powiadomień wypychanych wewnątrz emulatora upewnij się, że obraz emulatora obsługuje poziom interfejsu API Google wybrany dla aplikacji. Jeśli obraz nie obsługuje natywnych interfejsów API Google, może wystąpić wyjątek **usługi\_\_** niedostępne.
+Przed przetestowaniem powiadomień wypychanych wewnątrz emulatora upewnij się, że obraz emulatora obsługuje poziom interfejsu API Google wybrany dla aplikacji. Jeśli obraz nie obsługuje natywnych interfejsów API Google, może wystąpić wyjątek **usługi \_ niedostępne \_ ** .
 
-Upewnij się również, że konto Google zostało dodane do działającego emulatora w obszarze **Ustawienia** > **konta**. W przeciwnym razie próby zarejestrowania się w usłudze FCM mogą spowodować **wyjątek\_niepowodzenia uwierzytelniania** .
+Upewnij się również, że konto Google zostało dodane do działającego emulatora w obszarze **Ustawienia**  >  **konta**. W przeciwnym razie próby zarejestrowania się w usłudze FCM mogą spowodować **wyjątek \_ niepowodzenia uwierzytelniania** .
 
 ## <a name="next-steps"></a>Następne kroki
 W tym samouczku użyto usługi Firebase Cloud Messaging do rozgłaszania powiadomień do wszystkich urządzeń z systemem Android, które zostały zarejestrowane w usłudze. Aby dowiedzieć się, jak wysyłać powiadomienia push do konkretnych urządzeń, przejdź do następującego samouczka:

@@ -3,12 +3,12 @@ title: Omówienie usługi Azure Resource Graph
 description: Dowiedz się, w jaki sposób usługa Azure Resource Graph umożliwia tworzenie złożonych zapytań dotyczących zasobów na dużą skalę między subskrypcjami i dzierżawcami.
 ms.date: 03/02/2020
 ms.topic: overview
-ms.openlocfilehash: c3ac82c823df8cdde7b616b62ee409de500b5990
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: a084215f6f2d1b5a8ed34ca59266e1c0087f608b
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995862"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167268"
 ---
 # <a name="what-is-azure-resource-graph"></a>Co to jest usługa Azure Resource Graph?
 
@@ -22,7 +22,7 @@ Azure Resource Graph to usługa platformy Azure, która została zaprojektowana 
 W tej dokumentacji każda funkcja zostanie szczegółowo omówiona.
 
 > [!NOTE]
-> Wykres zasobów platformy Azure umożliwia pasek wyszukiwania Azure Portal, nowe środowisko przeglądania "wszystkie zasoby" i Azure Policye [Change history](../policy/how-to/determine-non-compliance.md#change-history-preview) 
+> Wykres zasobów platformy Azure umożliwia pasek wyszukiwania Azure Portal, nowe środowisko przeglądania "wszystkie zasoby" i Azure Policye [Change history](../policy/how-to/determine-non-compliance.md#change-history) 
 >  _różnic wizualnych_historii zmian. Jest ona przeznaczona do ułatwienia klientom zarządzania środowiskami w dużej skali.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]

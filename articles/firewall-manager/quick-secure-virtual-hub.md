@@ -5,20 +5,19 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 05/19/2020
 ms.author: victorh
-ms.openlocfilehash: b9839e51fcea1e8fe4adc4760e16ae2d73b163ee
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 9c51fdb5142159e390ac4fcf59a04aa3dd747469
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83694235"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167200"
 ---
 # <a name="quickstart-secure-your-virtual-hub-using-azure-firewall-manager---resource-manager-template"></a>Szybki Start: Zabezpieczanie koncentratora wirtualnego przy użyciu Menedżera zapory platformy Azure — Menedżer zasobów szablonu
 
-W tym przewodniku szybki start użyjesz szablonu Menedżer zasobów, aby zabezpieczyć centrum wirtualne przy użyciu wersji zapoznawczej Menedżera zapory platformy Azure.
-
-Wdrożona Zapora ma regułę aplikacji, która umożliwia nawiązywanie połączeń z usługą `www.microsoft.com` . Dwie maszyny wirtualne z systemem Windows Server 2019 są wdrażane w celu przetestowania zapory. Jeden serwer skoku jest używany do nawiązywania połączenia z serwerem obciążeń. Z serwera obciążenia można łączyć się tylko z usługą `www.microsoft.com` .
+W tym przewodniku szybki start użyjesz szablonu Menedżer zasobów, aby zabezpieczyć centrum wirtualne przy użyciu wersji zapoznawczej Menedżera zapory platformy Azure. Wdrożona Zapora ma regułę aplikacji, która umożliwia nawiązywanie połączeń z usługą `www.microsoft.com` . Dwie maszyny wirtualne z systemem Windows Server 2019 są wdrażane w celu przetestowania zapory. Jeden serwer skoku jest używany do nawiązywania połączenia z serwerem obciążeń. Z serwera obciążenia można łączyć się tylko z usługą `www.microsoft.com` .
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -34,23 +33,23 @@ Ten szablon służy do tworzenia bezpiecznego koncentratora wirtualnego przy uż
 
 ### <a name="review-the-template"></a>Zapoznaj się z szablonem
 
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/fwm-docs-qs/azuredeploy.json).
+Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/fwm-docs-qs/).
 
 :::code language="json" source="~/quickstart-templates/fwm-docs-qs/azuredeploy.json" range="001-477" highlight="47-76":::
 
 W szablonie zdefiniowano wiele zasobów platformy Azure:
 
-- [**Microsoft. Network/adresów publicipaddress**](/azure/templates/microsoft.network/publicipaddresses)
-- [**Microsoft. Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
-- [**Microsoft. Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
-- [**Microsoft. COMPUTE/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
-- [**Microsoft. Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
-- [**Microsoft. Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
-- [**Microsoft. Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
-- [**Microsoft. Network/firewallPolicies**](/azure/templates/microsoft.network/firewallPolicies)
-- [**Microsoft. Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 - [**Microsoft. Network/virtualWans**](/azure/templates/microsoft.network/virtualWans)
 - [**Microsoft. Network/virtualHubs**](/azure/templates/microsoft.network/virtualHubs)
+- [**Microsoft. Network/firewallPolicies**](/azure/templates/microsoft.network/firewallPolicies)
+- [**Microsoft. Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
+- [**Microsoft. Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
+- [**Microsoft. COMPUTE/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
+- [**Microsoft. Storage/storageAccounts**](/azure/templates/microsoft.storage/storageAccounts)
+- [**Microsoft. Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces)
+- [**Microsoft. Network/networkSecurityGroups**](/azure/templates/microsoft.network/networksecuritygroups)
+- [**Microsoft. Network/adresów publicipaddress**](/azure/templates/microsoft.network/publicipaddresses)
+- [**Microsoft. Network/routeTables**](/azure/templates/microsoft.network/routeTables)
 
 ### <a name="deploy-the-template"></a>Wdrożenie szablonu
 

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 09/19/2019
+ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d57bf7fa6d56c1704a78219f8a0af1182ce8a955
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 4a4d52ee3f39daef0e89ccb08cf5ab6a4ebfb735
+ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739103"
+ms.lasthandoff: 05/28/2020
+ms.locfileid: "84140801"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Omówienie techniczne i funkcje Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ Podstawowe zasoby, z którymi pracujesz w dzierżawie Azure AD B2C są następuj
   * Dostawcy tożsamości *społecznościowej* , takich jak Facebook, LinkedIn lub Twitter, które mają być obsługiwane w aplikacjach.
   * *Zewnętrzni* dostawcy tożsamości, którzy obsługują standardowe protokoły tożsamości, takie jak OAuth 2,0, OpenID Connect Connect i inne.
   * Konta *lokalne* , które umożliwiają użytkownikom rejestrowanie się i logowanie przy użyciu nazwy użytkownika (lub adresu e-mail lub innego identyfikatora) i hasła.
-* **Klucze** — Dodawanie kluczy szyfrowania do podpisywania i weryfikowania tokenów oraz zarządzanie nimi.
+* **Klucze** — Dodawanie kluczy szyfrowania do podpisywania i weryfikowania tokenów, kluczy tajnych klienta, certyfikatów i haseł oraz zarządzanie nimi.
 
 Dzierżawa Azure AD B2C to pierwszy zasób, który należy utworzyć, aby rozpocząć pracę z Azure AD B2C. Dowiedz się [, jak w samouczku: Tworzenie dzierżawy Azure Active Directory B2C](tutorial-create-tenant.md).
 
@@ -69,7 +69,7 @@ Dowiedz się więcej o typach kont użytkowników w Azure AD B2C w temacie [Omó
 
 ## <a name="external-identity-providers"></a>Zewnętrzni dostawcy tożsamości
 
-Można skonfigurować Azure AD B2C, aby umożliwić użytkownikom logowanie się do aplikacji przy użyciu poświadczeń od zewnętrznych dostawców tożsamości społecznościowych lub korporacyjnych (dostawcy tożsamości). Azure AD B2C obsługuje zewnętrznych dostawców tożsamości, takich jak Facebook, konto Microsoft, Google, Twitter i dowolny dostawca tożsamości, który obsługuje protokoły OAuth 1,0, OAuth 2,0, OpenID Connect Connect, SAML lub WS-Federation.
+Można skonfigurować Azure AD B2C, aby umożliwić użytkownikom logowanie się do aplikacji przy użyciu poświadczeń od zewnętrznych dostawców tożsamości społecznościowych lub korporacyjnych (dostawcy tożsamości). Azure AD B2C obsługuje zewnętrznych dostawców tożsamości, takich jak Facebook, konto Microsoft, Google, Twitter i dowolny dostawca tożsamości, który obsługuje protokół OAuth 1,0, OAuth 2,0, OpenID Connect Connect i protokołu SAML.
 
 ![Zewnętrzni dostawcy tożsamości](media/technical-overview/external-idps.png)
 
@@ -134,15 +134,13 @@ Dowiedz się więcej na temat zasad niestandardowych w [zasadach niestandardowyc
 
 ## <a name="protocols-and-tokens"></a>Protokoły i tokeny
 
-Na potrzeby podróży użytkownika usługa Azure AD B2C obsługuje [protokoły OpenID Connect i OAuth 2.0](protocols-overview.md). Podczas wdrażania protokołu OpenID Connect w usłudze Azure AD B2C aplikacja rozpoczyna podróż użytkownika, wysyłając żądania uwierzytelniania do usługi Azure AD B2C.
+- W przypadku aplikacji Azure AD B2C obsługuje protokoły [OAuth 2,0](protocols-overview.md), [OpenID Connect Connect](openid-connect.md)i [SAML](connect-with-saml-service-providers.md) na potrzeby podróży użytkownika. Aplikacja uruchamia pracę użytkownika, wydając żądania uwierzytelniania do Azure AD B2C. Wynikiem żądania Azure AD B2C jest token zabezpieczający, taki jak [token identyfikatora, token dostępu](tokens-overview.md)lub token SAML. Ten token zabezpieczający definiuje tożsamość użytkownika w aplikacji.
 
-Wynikiem żądania skierowanego do usługi Azure AD B2C jest token zabezpieczający, taki jak [token identyfikatora lub token dostępu](tokens-overview.md). Ten token zabezpieczający definiuje tożsamość użytkownika. Tokeny są odbierane z Azure AD B2C punktów końcowych, takich jak `/token` lub `/authorize` punkt końcowy. Za pomocą tych tokenów można uzyskiwać dostęp do oświadczeń, które mogą służyć do weryfikowania tożsamości i zezwalania na dostęp do zabezpieczonych zasobów.
+- W przypadku tożsamości zewnętrznych Azure AD B2C obsługuje Federacji z dowolnymi dostawcami OAuth 1,0, OAuth 2,0, OpenID Connect Connect i SAML Identity.
 
-W przypadku tożsamości zewnętrznych Azure AD B2C obsługuje Federacji z dowolnymi dostawcami tożsamości OAuth 1,0, OAuth 2,0, OpenID Connect Connect, SAML i WS-in.
+Na poniższym diagramie przedstawiono sposób, w jaki Azure AD B2C może komunikować się przy użyciu różnych protokołów w ramach tego samego przepływu uwierzytelniania:
 
 ![Diagram aplikacji klienckiej opartej na OIDC federowanie z użyciem protokołu SAML dostawcy tożsamości](media/technical-overview/protocols.png)
-
-Na powyższym diagramie przedstawiono sposób, w jaki Azure AD B2C może komunikować się przy użyciu różnych protokołów w ramach tego samego przepływu uwierzytelniania:
 
 1. Aplikacja jednostki uzależnionej inicjuje żądanie autoryzacji, aby Azure AD B2C przy użyciu połączenia OpenID Connect.
 1. Gdy użytkownik aplikacji zdecyduje się na zalogowanie się przy użyciu zewnętrznego dostawcy tożsamości korzystającego z protokołu SAML, Azure AD B2C wywołuje protokół SAML, aby komunikować się z tym dostawcą tożsamości.

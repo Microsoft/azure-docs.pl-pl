@@ -3,12 +3,12 @@ title: Ograniczenia dotyczące nazw zasobów
 description: Pokazuje reguły i ograniczenia dotyczące nazewnictwa zasobów platformy Azure.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: 553d0e33c4b9bc1aa238cf582f37be1e148eea5e
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 73e5f7ce7f5c13a0ce456372d299e49033c7e704
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758898"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170583"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Reguły i ograniczenia nazewnictwa zasobów platformy Azure
 
@@ -81,9 +81,9 @@ W poniższych tabelach termin alfanumeryczny odnosi się do:
 > | Jednostka | Zakres | Długość | Prawidłowe znaki |
 > | --- | --- | --- | --- |
 > | Zamki | zakres przypisania | 1-90 | Alfanumeryczne, kropki, podkreślenia, łączniki i nawiasy.<br><br>Nie można zakończyć w okresie. |
-> | policyassignments | zakres przypisania | 1-128 wyświetlana nazwa<br><br>Nazwa zasobu 1-260 | Nazwa wyświetlana może zawierać dowolne znaki.<br><br>Nazwa zasobu nie może zawierać `%` i nie może kończyć się kropką ani spacją. |
-> | policydefinitions | zakres definicji | 1-128 wyświetlana nazwa<br><br>Nazwa zasobu 1-260 | Nazwa wyświetlana może zawierać dowolne znaki.<br><br>Nazwa zasobu nie może zawierać `%` i nie może kończyć się kropką ani spacją. |
-> | policySetDefinitions | zakres definicji | 1-128 wyświetlana nazwa<br><br>Nazwa zasobu 1-260 | Nazwa wyświetlana może zawierać dowolne znaki.<br><br>Nazwa zasobu nie może zawierać `%` i nie może kończyć się kropką ani spacją.  |
+> | policyAssignments | zakres przypisania | 1-128 wyświetlana nazwa<br><br>Nazwa zasobu 1-64 | Nazwa wyświetlana może zawierać dowolne znaki.<br><br>Nazwa zasobu nie może zawierać `%` i nie może kończyć się kropką ani spacją. |
+> | policyDefinitions | zakres definicji | 1-128 wyświetlana nazwa<br><br>Nazwa zasobu 1-64 | Nazwa wyświetlana może zawierać dowolne znaki.<br><br>Nazwa zasobu nie może zawierać `%` i nie może kończyć się kropką ani spacją. |
+> | policySetDefinitions | zakres definicji | 1-128 wyświetlana nazwa<br><br>Nazwa zasobu 1-64<br><br>1-24 nazwa zasobu w zakresie grupy zarządzania | Nazwa wyświetlana może zawierać dowolne znaki.<br><br>Nazwa zasobu nie może zawierać `%` i nie może kończyć się kropką ani spacją.  |
 
 ## <a name="microsoftautomation"></a>Microsoft. Automation
 

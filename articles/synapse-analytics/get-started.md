@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.date: 05/19/2020
-ms.openlocfilehash: d5484f5725047201770e5b3cbab89847b27117f9
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 75c8d52a750567d3b34ad2aea236477ca8c97245
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116919"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171416"
 ---
 # <a name="getting-started-with-azure-synapse-analytics"></a>Wprowadzenie z usługą Azure Synapse Analytics
 
@@ -29,8 +29,7 @@ Ten samouczek przeprowadzi Cię przez wszystkie podstawowe kroki niezbędne do s
     |Podstawy|**Nazwa konta magazynu**| Możesz nadać mu dowolną nazwę.|W tym dokumencie odwołujemy się do niego jako `contosolake` .|
     |Podstawy|**Rodzaj konta**|Musi być ustawiona na`StorageV2`||
     |Podstawy|**Lokalizacja**|Możesz wybrać dowolną lokalizację| Zalecamy, aby obszar roboczy Synapse i konto Azure Data Lake Storage (ADLS) Gen2 są w tym samym regionie.|
-    |Zaawansowany|**Usługa Data Lake Storage 2. generacji**|`Enabled`| Usługa Azure Synapse działa tylko z kontami magazynu, na których to ustawienie jest włączone.|
-    |||||
+    |Zaawansowany|**Data Lake Storage Gen2**|`Enabled`| Usługa Azure Synapse działa tylko z kontami magazynu, na których to ustawienie jest włączone.|
 
 1. Po utworzeniu konta magazynu wybierz pozycję **Kontrola dostępu (IAM)** na lewym pasku nawigacyjnym. Następnie przypisz poniższe role lub upewnij się, że zostały już przypisane. 
     a. * Przypisz siebie do roli **właściciela** na koncie magazynu b. * Przypisz siebie do roli **właściciela danych obiektów blob magazynu** na koncie magazynu
@@ -45,8 +44,7 @@ Ten samouczek przeprowadzi Cię przez wszystkie podstawowe kroki niezbędne do s
     |Tab|Ustawienie | Sugerowana wartość | Opis |
     |---|---|---|---|
     |Podstawy|**Nazwa obszaru roboczego**|Możesz wywoływać wszystko.| W tym dokumencie będziemy używać`myworkspace`|
-    |Podstawy|**Okolicy**|Dopasuj region konta magazynu|
-    ||||
+    |Podstawy|**Region**|Dopasuj region konta magazynu|
 
 1. W obszarze **wybierz Data Lake Storage Gen 2**wybierz wcześniej utworzone konto i kontener.
     > [!NOTE]
@@ -79,10 +77,9 @@ Po utworzeniu obszaru roboczego Synapse masz dwa sposoby otwierania Synapse Stud
 1. Wybierz pozycję **+ Nowy** i wprowadź następujące ustawienia:
 
     |Ustawienie | Sugerowana wartość | 
-    |---|---|---|
+    |---|---|
     |**Nazwa puli SQL**| `SQLDB1`|
     |**Poziom wydajności**|`DW100C`|
-    |||
 
 1. Wybierz pozycję **Recenzja + Utwórz** , a następnie wybierz pozycję **Utwórz**.
 1. Pula SQL będzie gotowa w ciągu kilku minut.
@@ -100,11 +97,10 @@ Po utworzeniu puli SQL zostanie ona skojarzona z bazą danych puli SQL o nazwie 
 1. Wybierz pozycję **+ Nowy** i wprowadź następujące ustawienia:
 
     |Ustawienie | Sugerowana wartość | 
-    |---|---|---|
+    |---|---|
     |**Nazwa puli Apache Spark**|`Spark1`
     |**Rozmiar węzła**| `Small`|
     |**Liczba węzłów**| Ustaw wartość minimalną na 3 i wartość maksymalną na 3.|
-    |||
 
 1. Wybierz pozycję **Recenzja + Utwórz** , a następnie wybierz pozycję **Utwórz**.
 1. Pula Apache Spark będzie gotowa w ciągu kilku sekund.
@@ -333,11 +329,10 @@ Obszar roboczy Power BI można połączyć z obszarem roboczym Synapse. Dzięki 
 1. Wybierz pozycję **+ Nowy** i wybierz pozycję **Połącz z Power BI** i ustaw następujące pola:
 
     |Ustawienie | Sugerowana wartość | 
-    |---|---|---|
+    |---|---|
     |**Nazwa**|`NYCTaxiWorkspace1`|
     |**Nazwa obszaru roboczego**|`NYCTaxiWorkspace1`|
-    |||
-    
+        
 1. Wybierz przycisk **Utwórz**.
 
 ### <a name="create-a-power-bi-dataset-that-uses-data-in-your-synapse-workspace"></a>Tworzenie Power BI zestawu danych, który używa danych w obszarze roboczym Synapse

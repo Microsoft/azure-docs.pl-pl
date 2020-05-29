@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
 ms.custom: designer
-ms.openlocfilehash: 7a756a09e135f664074e64a611755845d8dfb8b7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 7dcd2015a669d9640f4163e6decc96689bb4ca7b
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654928"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167064"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>Co to jest projektant usługi Azure Machine Learning (wersja zapoznawcza)? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -27,7 +27,7 @@ Projektant Azure Machine Learning umożliwia wizualne łączenie [zestawów dany
 Projektant używa [obszaru roboczego](concept-workspace.md) Azure Machine Learning do organizowania zasobów udostępnionych, takich jak:
 
 + [Pipelines](#pipeline)
-+ [Zestawów danych](#datasets)
++ [Zestawy danych](#datasets)
 + [Zasoby obliczeniowe](#compute)
 + [Zarejestrowane modele](concept-azure-machine-learning-architecture.md#models)
 + [Opublikowane potoki](#publish)
@@ -38,19 +38,19 @@ Projektant używa [obszaru roboczego](concept-workspace.md) Azure Machine Learni
 Projektant umożliwia wizualizację kanwy do kompilowania, testowania i wdrażania modeli uczenia maszynowego. Za pomocą projektanta można:
 
 + Przeciągnij i upuść [zestawy danych](#datasets) i [moduły](#module) na kanwę.
-+ Połącz moduły ze sobą, aby utworzyć [wersję roboczą potoku](#pipeline-draft).
++ Połącz moduły, aby utworzyć [wersję roboczą potoku](#pipeline-draft).
 + Prześlij [przebieg potoku](#pipeline-run) przy użyciu zasobów obliczeniowych w obszarze roboczym Azure Machine Learning.
 + Przekonwertuj **potoki szkoleniowe** na **potoki wnioskowania**.
-+ [Opublikuj](#publish) potoki w **punkcie końcowym potoku** REST, aby przesłać nowe uruchomienia potoku z innymi parametrami i zestawami danych.
++ [Opublikuj](#publish) potoki w **punkcie końcowym potoku** REST, aby przesłać nowy potok, który jest uruchamiany z innymi parametrami i zestawami danych.
     + Publikuj **potok szkoleniowy** , aby ponownie wykorzystać pojedynczy potok do uczenia wielu modeli przy zmianie parametrów i zestawów danych.
     + Publikuj **potok wnioskowania o partiach** , aby przetworzyć prognozy dotyczące nowych danych przy użyciu wcześniej nauczonego modelu.
-+ [Wdróż](#deploy) **potok wnioskowania** w czasie rzeczywistym do punktu końcowego w czasie rzeczywistym, aby przetworzyć prognozy dotyczące nowych danych w czasie rzeczywistym.
++ [Wdróż](#deploy) **potok wnioskowania** w czasie rzeczywistym do punktu końcowego w czasie rzeczywistym, aby tworzyć prognozy dotyczące nowych danych w czasie rzeczywistym.
 
 ![Diagram przepływu pracy na potrzeby szkoleń, wnioskowania partii i wnioskowania w czasie rzeczywistym w projektancie](./media/concept-designer/designer-workflow-diagram.png)
 
 ## <a name="pipeline"></a>Potok
 
-[Potok](concept-azure-machine-learning-architecture.md#ml-pipelines) składa się z zestawów danych i modułów analitycznych, które łączą się ze sobą. Potoki mają wiele użycia: można utworzyć potok, który pociąga za sobą jeden model, lub jeden z wielu modeli. Można utworzyć potok, który dokonuje prognoz w czasie rzeczywistym lub w partii, lub utworzyć potok, który czyści dane. Potoki umożliwiają ponowne użycie pracy i zorganizowanie projektów.
+[Potok](concept-azure-machine-learning-architecture.md#ml-pipelines) składa się z zestawów danych i modułów analitycznych, które są połączone. Potoki mają wiele użycia: można utworzyć potok, który pociąga za sobą jeden model, lub jeden z wielu modeli. Można utworzyć potok, który wykonuje przewidywania w czasie rzeczywistym lub w partii, lub utworzyć potok, który czyści dane. Potoki umożliwiają ponowne użycie pracy i zorganizowanie projektów.
 
 ### <a name="pipeline-draft"></a>Wersja robocza potoku
 
@@ -73,11 +73,11 @@ Uruchomienia potoków są pogrupowane w [eksperymenty](concept-azure-machine-lea
 
 ## <a name="datasets"></a>Zestawy danych
 
-Zestaw danych uczenia maszynowego ułatwia uzyskiwanie dostępu do danych i korzystanie z nich. W projektancie zawarto kilka przykładowych zestawów danych, za pomocą których można eksperymentować. W razie potrzeby możesz [zarejestrować](how-to-create-register-datasets.md) więcej zestawów danych.
+Zestaw danych uczenia maszynowego ułatwia uzyskiwanie dostępu do danych i korzystanie z nich. W projektancie dołączono kilka przykładowych zestawów danych. W razie potrzeby możesz [zarejestrować](how-to-create-register-datasets.md) więcej zestawów danych.
 
 ## <a name="module"></a>Moduł
 
-Moduł jest algorytmem, który można wykonać na danych. Projektant ma wiele modułów niż funkcje transferu danych przychodzących do szkoleń, oceniania i procesów walidacji.
+Moduł jest algorytmem, który można wykonać na danych. Projektant ma kilka modułów z przedziału od funkcji transferu danych do szkoleń, oceniania i weryfikacji.
 
 Moduł może zawierać zestaw parametrów, za pomocą których można konfigurować wewnętrzne algorytmy modułu. Po wybraniu modułu na kanwie parametry tego modułu są wyświetlane w okienku Properties (Właściwości) po prawej stronie kanwy. Te parametry można modyfikować w okienku, aby dostosowywać model. Można ustawić zasoby obliczeniowe dla poszczególnych modułów w projektancie. 
 
@@ -89,7 +89,7 @@ Aby uzyskać pomoc dotyczącą przechodzenia przez bibliotekę dostępnych algor
 
 Użyj zasobów obliczeniowych z obszaru roboczego, aby uruchomić potok i hostować wdrożone modele jako punkty końcowe w czasie rzeczywistym lub punkty końcowe potoku (na potrzeby wnioskowania wsadowego). Obsługiwane elementy docelowe obliczeń są następujące:
 
-| Docelowy zasób obliczeniowy | Szkolenie | Wdrożenie |
+| Docelowy zasób obliczeniowy | Szkolenia | Wdrożenie |
 | ---- |:----:|:----:|
 | Azure Machine Learning obliczeń | ✓ | |
 | Wystąpienie obliczeniowe Azure Machine Learning | ✓ | |
@@ -138,4 +138,3 @@ Istniejące eksperymenty interfejsu wizualizacji i usługi sieci Web można prze
 
 * Poznaj podstawy analizy predykcyjnej i uczenia maszynowego za pomocą [samouczka: przewidywanie ceny za samochód z użyciem projektanta](tutorial-designer-automobile-price-train-score.md)
 * Dowiedz się, jak modyfikować istniejące [przykłady projektanta](samples-designer.md) , aby dostosować je do swoich potrzeb.
-

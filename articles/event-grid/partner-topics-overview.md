@@ -7,29 +7,29 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: babanisa
-ms.openlocfilehash: 4546874b8a6cd8a7e45c3e6957a5181d66c7433f
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: f47d63ce79846e94e992df93af1768aad3c17e67
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83691124"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170957"
 ---
 # <a name="partner-topics-in-azure-event-grid-preview"></a>Tematy dotyczące partnerów w Azure Event Grid (wersja zapoznawcza)
-Tematy dotyczące partnerów umożliwiają łączenie źródeł zdarzeń innych firm bezpośrednio z Event Grid. Ta Integracja umożliwia subskrybowanie zdarzeń od partnerów w taki sam sposób, w jaki subskrybujesz zdarzenia z usług platformy Azure. 
+Korzystając z tematów partnerskich, można połączyć źródła zdarzeń innych firm bezpośrednio z Azure Event Grid. Ta Integracja umożliwia subskrybowanie zdarzeń od partnerów w taki sam sposób, w jaki subskrybujesz zdarzenia z usług platformy Azure. 
 
 ## <a name="available-partners"></a>Dostępni partnerzy
-Pierwszy partner dostępny za pomocą tematów Event Grid Partners to rozwiązanie Auth0. [Temat partner rozwiązanie Auth0](auth0-overview.md) umożliwia łączenie kont rozwiązanie Auth0 i Azure. Integracja do reagowania na zdarzenia rozwiązanie Auth0, rejestrowania ich i monitorowania w czasie rzeczywistym.
+Pierwszy partner dostępny za pomocą tematów Event Grid Partners to rozwiązanie Auth0. Możesz użyć [tematu partnera rozwiązanie Auth0](auth0-overview.md) , aby połączyć swoje konta rozwiązanie Auth0 i platformy Azure. Integracja umożliwia reagowanie na zdarzenia rozwiązanie Auth0, rejestrowanie ich i monitorowanie w czasie rzeczywistym.
 
-[Wypróbuj ją](auth0-how-to.md) dzisiaj, logując się do konta rozwiązanie Auth0 i tworząc integrację Event Grid. Po kliknięciu przycisku Utwórz w programie rozwiązanie Auth0 zobaczysz oczekujący temat rozwiązanie Auth0 w Twoim koncie platformy Azure. Kliknij pozycję Aktywuj, aby utworzyć subskrypcje zdarzeń, trasy, filtrować i dostarczać zdarzenia w taki sam sposób, jak wszystkie inne źródła zdarzeń.
+[Aby ją wypróbować](auth0-how-to.md), zaloguj się do konta rozwiązanie Auth0 i Utwórz integrację Event Grid. Po wybraniu opcji **Utwórz** w programie rozwiązanie Auth0 zobaczysz oczekujący temat rozwiązanie Auth0 w Twoim koncie platformy Azure. Wybierz pozycję **Activate (Aktywuj**), a następnie możesz tworzyć subskrypcje Event Grid do kierowania, filtrowania i dostarczania zdarzeń tak samo jak w przypadku każdego innego źródła zdarzeń.
 
-## <a name="pricing"></a>Ceny
+## <a name="pricing"></a>Cennik
 Tematy dotyczące partnerów są rozliczone według tego samego współczynnika operacji jak tematy systemowe.
 
 ## <a name="limits"></a>Limity
 Tematy dotyczące partnerów znajdują się w publicznej wersji zapoznawczej. W publicznej wersji zapoznawczej tematy dotyczące partnerów podlegają tym [samym limitom](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#event-grid-limits) , które są tematami systemowymi i tematami niestandardowymi.
 
 ## <a name="how-do-i-become-an-event-grid-partner"></a>Jak mogę zostać partnerem Event Grid?
-Infrastruktura utworzona w celu obsługi tego uruchomienia ułatwia nowym partnerom integrację ich funkcji zdarzeń z Event Grid. Zapoznaj się z dokumentacją dołączania [partnera](partner-onboarding-overview.md) , aby uzyskać więcej informacji.
+Infrastruktura utworzona w celu obsługi tego uruchomienia ułatwia nowym partnerom integrację ich funkcji zdarzeń z Event Grid. Aby uzyskać więcej informacji, zapoznaj się z dokumentacją dołączania do [partnera](partner-onboarding-overview.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

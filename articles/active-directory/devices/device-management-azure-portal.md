@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 05/28/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e09de5911ca0946bfcbcb77d1ad4131c8feac9f0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 79474d85d9b2349c79aeff0c33ffed9afad690fb
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79262245"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84169749"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Zarządzanie tożsamościami urządzeń przy użyciu Azure Portal
 
@@ -27,12 +27,14 @@ W tym artykule:
 - Przyjęto założenie, że wiesz już, jak zapoznać się z [wprowadzeniem do zarządzania tożsamościami urządzeń w Azure Active Directory](overview.md)
 - Zawiera informacje dotyczące zarządzania tożsamościami urządzeń przy użyciu portalu usługi Azure AD
 
+![Widok wszystkie urządzenia w Azure Portal](./media/device-management-azure-portal/all-devices-azure-portal.png)
+
 ## <a name="manage-device-identities"></a>Zarządzanie tożsamościami urządzeń
 
 Portal usługi Azure AD udostępnia centralne miejsce do zarządzania tożsamościami urządzeń. Możesz to zrobić za pomocą [linku bezpośredniego](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) lub:
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1. Przejdź do **Azure Active Directory** > **urządzeń**.
+1. Przejdź do **Azure Active Directory**  >  **urządzeń**.
 
 Na stronie **urządzenia** można:
 
@@ -47,7 +49,7 @@ Aby zarządzać tożsamościami urządzeń za pomocą portalu usługi Azure AD, 
 
 Strona Ustawienia urządzenia umożliwia konfigurowanie ustawień związanych z tożsamościami urządzeń:
 
-![Zarządzanie urządzeniem usługi Intune](./media/device-management-azure-portal/21.png)
+![Ustawienia urządzenia związane z usługą Azure AD](./media/device-management-azure-portal/device-settings-azure-portal.png)
 
 - **Użytkownicy mogą dołączać urządzenia do usługi Azure AD** — to ustawienie umożliwia wybranie użytkowników, którzy mogą rejestrować swoje urządzenia jako urządzenia przyłączone do usługi Azure AD. Wartością domyślną jest **wszystkich**.
 
@@ -55,7 +57,7 @@ Strona Ustawienia urządzenia umożliwia konfigurowanie ustawień związanych z 
 > **Użytkownicy mogą dołączać urządzenia do ustawienia usługi Azure AD** mają zastosowanie tylko do usługi Azure AD JOIN w systemie Windows 10.
 
 - **Dodatkowi Administratorzy lokalni na urządzeniach dołączonych do usługi Azure AD** — możesz wybrać użytkowników, którym udzielono uprawnień administratora lokalnego na urządzeniu. Użytkownicy dodani w tym miejscu zostaną dodani do roli *Administratorzy urządzenia* w usłudze Azure AD. Administratorzy globalni w usłudze Azure AD i właściciele urządzeń mają domyślnie przyznane prawa administratora lokalnego. Ta opcja to funkcja wersji Premium dostępna za pomocą produktów, takich jak Azure AD — wersja Premium lub pakiet Enterprise Mobility Suite (EMS).
-- **Użytkownicy mogą zarejestrować swoje urządzenia w usłudze Azure AD** — należy skonfigurować to ustawienie, aby zezwolić na rejestrację urządzeń z systemem Windows 10 Personal, iOS, Android i macOs w usłudze Azure AD. W przypadku wybrania opcji **Brak**urządzenia nie mogą zarejestrować się w usłudze Azure AD. Rejestracja przy użyciu Microsoft Intune lub zarządzania urządzeniami przenośnymi (MDM) dla pakietu Office 365 wymaga rejestracji. W przypadku skonfigurowania jednej z tych usług jest zaznaczona opcja **wszystkie** nie **jest dostępna** .
+- **Użytkownicy mogą zarejestrować swoje urządzenia w usłudze Azure AD** — należy skonfigurować to ustawienie, aby zezwolić na rejestrację urządzeń z systemem Windows 10 Personal, iOS, Android i macOS w usłudze Azure AD. W przypadku wybrania opcji **Brak**urządzenia nie mogą zarejestrować się w usłudze Azure AD. Rejestracja przy użyciu Microsoft Intune lub zarządzania urządzeniami przenośnymi (MDM) dla pakietu Office 365 wymaga rejestracji. W przypadku skonfigurowania jednej z tych usług jest zaznaczona opcja **wszystkie** nie **jest dostępna** .
 - **Wymagaj uwierzytelniania wieloskładnikowego do dołączania urządzeń** — możesz określić, czy użytkownicy muszą podać dodatkowy czynnik uwierzytelniania, aby przyłączyć urządzenie do usługi Azure AD. Wartość domyślna to **nie**. Zalecamy wymaganie uwierzytelniania wieloskładnikowego podczas rejestrowania urządzenia. Przed włączeniem uwierzytelniania wieloskładnikowego dla tej usługi należy się upewnić, że uwierzytelnianie wieloskładnikowe jest skonfigurowane dla użytkowników, którzy rejestrują swoje urządzenia. Aby uzyskać więcej informacji na temat różnych usług Azure wieloskładnikowe Authentication, zobacz [wprowadzenie do usługi Azure](../authentication/concept-mfa-whichversion.md)MFA. 
 
 > [!NOTE]
@@ -82,13 +84,9 @@ W przypadku obu opcji można przejść do widoku, który:
 - Zawiera szczegółowy przegląd zarejestrowanych i dołączonych urządzeń
 - Umożliwia wykonywanie typowych zadań związanych z zarządzaniem urządzeniami
 
-![Wszystkie urządzenia](./media/device-management-azure-portal/51.png)
-
 >[!TIP]
 >
 >* Jeśli zostanie wyświetlone urządzenie z informacją o stanie "oczekujące" w ramach zarejestrowanej kolumny, oznacza to, że urządzenie zostało zsynchronizowane z programu Azure AD Connect i oczekuje na ukończenie rejestracji z poziomu klienta. Przeczytaj więcej na temat [planowania implementacji hybrydowego dołączania do usługi Azure AD](hybrid-azuread-join-plan.md). Dodatkowe informacje znajdują się w artykule [często zadawane pytania dotyczące urządzeń](faq.md).
->
->   ![Urządzenia oczekujące](./media/device-management-azure-portal/75.png)
 >
 >* W przypadku niektórych urządzeń z systemem iOS nazwy urządzeń zawierające apostrofy mogą potencjalnie używać różnych znaków, które wyglądają jak apostrofy. Dlatego wyszukiwanie takich urządzeń jest nieco trudne — jeśli wyniki wyszukiwania nie są prawidłowo wyświetlane, upewnij się, że ciąg wyszukiwania zawiera pasujący znak apostrofu.
 
@@ -103,7 +101,7 @@ Ta sekcja zawiera informacje o typowych zadaniach związanych z zarządzaniem to
 
 ### <a name="manage-an-intune-device"></a>Zarządzanie urządzeniem usługi Intune
 
-Jeśli jesteś administratorem usługi Intune, możesz zarządzać urządzeniami oznaczonymi jako **Microsoft Intune**. Jeśli urządzenie nie jest zarejestrowane w Microsoft Intune opcja "Zarządzaj" będzie wyszarzona.
+Jeśli jesteś administratorem usługi Intune, możesz zarządzać urządzeniami oznaczonymi jako **Microsoft Intune**. Jeśli urządzenie nie jest zarejestrowane w Microsoft Intune, opcja "Zarządzaj" będzie wyszarzona.
 
 ![Zarządzanie urządzeniem usługi Intune](./media/device-management-azure-portal/31.png)
 
@@ -170,6 +168,27 @@ Aby wyświetlić lub skopiować klucze funkcji BitLocker, musisz być właścici
 
 > [!NOTE]
 > Hybrydowe urządzenia z systemem Windows 10 połączone z usługą Azure AD nie mają właściciela. Jeśli więc szukasz urządzenia według właściciela i nie znajdziesz go, wyszukaj identyfikator urządzenia.
+
+### <a name="device-list-filtering-preview"></a>Filtrowanie listy urządzeń (wersja zapoznawcza)
+
+Wcześniej można było filtrować tylko listę urządzeń według działania i stanu włączenia. Ta wersja zapoznawcza umożliwia teraz filtrowanie listy urządzeń przez następujące atrybuty na urządzeniu:
+
+- Włączony stan
+- Stan zgodności
+- Typ sprzężenia (przyłączony do usługi Azure AD, dołączona hybrydowa usługa Azure AD, rejestracja usługi Azure AD)
+- Znacznik czasu aktywności
+- System operacyjny
+- Typ urządzenia (drukarki, bezpieczne maszyny wirtualne, urządzenia udostępnione, zarejestrowane urządzenia)
+
+Aby włączyć funkcję filtrowania wersji zapoznawczej w widoku **wszystkie urządzenia** :
+
+![Włącz funkcję filtrowania filtru](./media/device-management-azure-portal/device-filter-preview-enable.png)
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Przejdź do **Azure Active Directory**  >  **urządzeń**.
+1. Wybierz baner, który brzmi, **Wypróbuj ulepszenia filtrowania nowych urządzeń. Kliknij, aby włączyć podgląd.**
+
+Teraz można **dodawać filtry** do widoku **wszystkie urządzenia** .
 
 ## <a name="audit-logs"></a>Dzienniki inspekcji
 

@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f633c1816e9e2e977c52ab99b66a26f7d2c4d8e2
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 3405a322b8498b0b1a29399811ddf188ea766ca8
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800760"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170600"
 ---
 # <a name="object-replication-for-block-blobs-preview"></a>Replikacja obiektów dla blokowych obiektów BLOB (wersja zapoznawcza)
 
@@ -54,7 +54,7 @@ Podczas tworzenia reguły replikacji domyślnie kopiowane są tylko nowe blokowe
 
 Można również określić jeden lub więcej filtrów jako część reguły replikacji, aby odfiltrować blokowe obiekty blob według prefiksu. Po określeniu prefiksu tylko obiekty blob pasujące do tego prefiksu w kontenerze źródłowym zostaną skopiowane do kontenera docelowego.
 
-Oba kontenery źródłowe i docelowe muszą istnieć przed określeniem ich w regule. Po utworzeniu zasad replikacji kontener docelowy jest tylko do odczytu. Wszystkie próby zapisu w kontenerze docelowym kończą się niepowodzeniem z kodem błędu 409 (konflikt). Można jednak wywołać operację [ustawiania warstwy obiektów BLOB](/rest/api/storageservices/set-blob-tier) na obiekcie BLOB w kontenerze docelowym, aby przenieść go do innej warstwy dostępu. Na przykład możesz przenieść obiekty blob w kontenerze docelowym do warstwy archiwum, aby zaoszczędzić koszty.
+Oba kontenery źródłowe i docelowe muszą istnieć przed określeniem ich w regule. Po utworzeniu zasad replikacji kontener docelowy jest tylko do odczytu. Wszystkie próby zapisu w kontenerze docelowym kończą się niepowodzeniem z kodem błędu 409 (konflikt). Można jednak wywołać operację [ustawiania warstwy obiektów BLOB](/rest/api/storageservices/set-blob-tier) na obiekcie BLOB w kontenerze docelowym, aby przenieść ją do warstwy archiwum. Aby uzyskać więcej informacji o warstwie archiwum, zobacz [Azure Blob Storage: warstwy dostępu gorąca, chłodna i archiwalna](storage-blob-storage-tiers.md#archive-access-tier).
 
 ## <a name="about-the-preview"></a>Informacje o wersji zapoznawczej
 

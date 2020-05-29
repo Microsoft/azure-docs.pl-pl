@@ -5,13 +5,13 @@ services: logic-apps
 ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 05/06/2020
-ms.openlocfilehash: 6c6191936f76431bd4e7b6f1d4eff2074ce4b04d
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.date: 05/28/2020
+ms.openlocfilehash: b5c4005c95a88a40a836b9c0f6d1fd01e0417ed0
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141793"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170277"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Wywoływanie, wyzwalanie lub zagnieżdżanie aplikacji logiki za pomocą punktów końcowych HTTPS w Azure Logic Apps
 
@@ -154,9 +154,6 @@ Aby akceptować wartości parametrów za pomocą adresu URL punktu końcowego, d
 
   Te wartości są przesyłane za pomocą ścieżki względnej w adresie URL punktu końcowego. Należy również jawnie [wybrać metodę](#select-method) oczekiwaną przez wyzwalacz. W kolejnej akcji można pobrać wartości parametrów jako dane wyjściowe wyzwalacza, odwołując się bezpośrednio do tych danych wyjściowych.
 
-> [!NOTE]
-> Adres URL zezwala na użycie symbolu "at" ( **@** ), ale nie symbolu skrótu ( **#** ).
-
 <a name="get-parameters"></a>
 
 ### <a name="accept-values-through-get-parameters"></a>Akceptuj wartości za poorednictwem parametrów GET
@@ -217,6 +214,9 @@ Aby akceptować wartości parametrów za pomocą adresu URL punktu końcowego, d
 
    * drugie położenie:`https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?api-version=2016-10-01&postalCode=123456&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
+> [!NOTE]
+> Jeśli chcesz uwzględnić skrót lub symbol funta ( **#** ) w identyfikatorze URI, zamiast tego użyj tej kodowanej wersji:`%25%23`
+
 <a name="relative-path"></a>
 
 ### <a name="accept-values-through-a-relative-path"></a>Akceptowanie wartości za pomocą ścieżki względnej
@@ -260,6 +260,9 @@ Aby akceptować wartości parametrów za pomocą adresu URL punktu końcowego, d
    Przeglądarka zwróci odpowiedź z tym tekstem:`Postal Code: 123456`
 
    ![Odpowiedź od wysłania żądania do adresu URL wywołania zwrotnego](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
+
+> [!NOTE]
+> Jeśli chcesz uwzględnić skrót lub symbol funta ( **#** ) w identyfikatorze URI, zamiast tego użyj tej kodowanej wersji:`%25%23`
 
 ## <a name="call-logic-app-through-endpoint-url"></a>Wywoływanie aplikacji logiki przy użyciu adresu URL punktu końcowego
 

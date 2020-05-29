@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 05/28/2020
 tags: connectors
-ms.openlocfilehash: 1e1a7f2e82ba2e90a641a6559062348f8d4d3aea
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 1eb017740fb13dbc4f67b11ad8768e48e5b29010
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142456"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171535"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Odbieranie przychodzących żądań HTTPS i odpowiadanie na nie w Azure Logic Apps
 
@@ -185,9 +185,9 @@ Ten wbudowany wyzwalacz tworzy ręcznie możliwy do przełączenia punkt końcow
    Ten krok generuje adres URL służący do wysyłania żądania wyzwalającego aplikację logiki. Aby skopiować ten adres URL, wybierz ikonę kopiowania obok adresu URL.
 
    ![Adres URL używany do wyzwalania aplikacji logiki](./media/connectors-native-reqres/generated-url.png)
-   
+
    > [!NOTE]
-   > Adres URL zezwala na użycie symbolu "at" ( **@** ), ale nie symbolu skrótu ( **#** ).
+   > Jeśli chcesz uwzględnić skrót lub symbol funta ( **#** ) w identyfikatorze URI podczas wykonywania wywołania wyzwalacza żądania, Użyj tej zakodowanej wersji:`%25%23`
 
 1. Aby wyzwolić aplikację logiki, Wyślij HTTP POST do wygenerowanego adresu URL.
 

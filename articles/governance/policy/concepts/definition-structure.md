@@ -3,12 +3,12 @@ title: Szczegóły struktury definicji zasad
 description: Opisuje, w jaki sposób definicje zasad są używane do ustanawiania Konwencji dla zasobów platformy Azure w organizacji.
 ms.date: 04/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: d4c1c10dfbf384815c34af8436acdbb45cb8e242
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: a4f136bc805cd48d05c2378b47966b4e4e4c60fb
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746978"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84168509"
 ---
 # <a name="azure-policy-definition-structure"></a>Struktura definicji zasad platformy Azure
 
@@ -24,7 +24,7 @@ Aby utworzyć definicję zasad, należy użyć formatu JSON. Definicja zasad zaw
 - tryb
 - parameters
 - Nazwa wyświetlana
-- description (opis)
+- description
 - Reguła zasad
   - Ocena logiczna
   - skuteczność
@@ -82,7 +82,7 @@ Zaleca się, aby **mode** `all` w większości przypadków ustawić tryb. Wszyst
 
 `indexed`należy używać podczas tworzenia zasad, które wymuszają Tagi lub lokalizacje. Chociaż nie jest to wymagane, uniemożliwiają one nie obsługujące tagów i lokalizacji, ponieważ nie są one zgodne z wynikami sprawdzania zgodności. Wyjątkiem są **grupy zasobów** i **subskrypcje**. Definicje zasad, które wymuszają lokalizację lub Tagi w grupie zasobów lub subskrypcji, powinny ustawiać **tryb** na `all` i przeznaczony dla tego `Microsoft.Resources/subscriptions/resourceGroups` `Microsoft.Resources/subscriptions` typu. Aby zapoznać się z przykładem, zobacz [wzorzec: Tags — przykład #1](../samples/pattern-tags.md). Aby uzyskać listę zasobów, które obsługują Tagi, zobacz [obsługa tagów dla zasobów platformy Azure](../../../azure-resource-manager/management/tag-support.md).
 
-### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes" />Tryby dostawcy zasobów (wersja zapoznawcza)
+### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes"></a>Tryby dostawcy zasobów (wersja zapoznawcza)
 
 Następujące tryby dostawcy zasobów są obecnie obsługiwane w wersji zapoznawczej:
 
@@ -284,11 +284,11 @@ Obsługiwane są następujące pola:
 - `tags`
 - `tags['<tagName>']`
   - Ta składnia nawiasów umożliwia obsługę nazw tagów, które mają znaki interpunkcyjne, takie jak łącznik, kropka lub spacja.
-  - Gdzie ** \< TagName \> ** jest nazwą tagu, aby zweryfikować warunek.
+  - Gdzie **\<tagName\>** jest nazwą tagu do walidacji warunku.
   - Przykłady: `tags['Acct.CostCenter']` gdzie **ACCT. CostCenter** jest nazwą tagu.
 - `tags['''<tagName>''']`
   - Ta składnia nawiasów umożliwia obsługę nazw tagów, które zawierają apostrofy przez ucieczki z podwójnym apostrofem.
-  - Gdzie **" \< TagName \> "** jest nazwą tagu, aby zweryfikować warunek.
+  - Gdzie **" \<tagName\> "** jest nazwą tagu, aby zweryfikować warunek.
   - Przykład: `tags['''My.Apostrophe.Tag''']` gdzie **"My. apostrof. tag"** jest nazwą tagu.
 - Aliasy właściwości — Aby uzyskać listę, zobacz [aliasy](#aliases).
 
@@ -432,7 +432,7 @@ Następujące właściwości są używane z funkcją **Count**:
 - **Count. pole** (wymagane): zawiera ścieżkę do tablicy i musi być aliasem tablicy. Jeśli brakuje tablicy, wyrażenie jest oceniane na _wartość false_ bez uwzględniania wyrażenia warunku.
 - **Count. WHERE** (opcjonalnie): wyrażenie warunku do pojedynczej ocenia każdego elementu członkowskiego tablicy [ \[ \* \] aliasów](#understanding-the--alias) w **polu Count.** Jeśli ta właściwość nie jest określona, wszystkie elementy członkowskie tablicy ze ścieżką "pole" są oceniane na _wartość true_. Dowolny [warunek](../concepts/definition-structure.md#conditions) może być używany wewnątrz tej właściwości.
   [Operatory logiczne](#logical-operators) mogą być używane wewnątrz tej właściwości, aby utworzyć złożone wymagania dotyczące oceny.
-- ** \< warunek \> ** (wymagany): wartość jest porównywana z liczbą elementów, które osiągnęły liczbę **.** wyrażenie warunku WHERE. Należy użyć [warunku](../concepts/definition-structure.md#conditions) liczbowego.
+- **\<condition\>**(wymagane): wartość jest porównywana z liczbą elementów, które osiągnęły liczbę **.** wyrażenie warunku WHERE. Należy użyć [warunku](../concepts/definition-structure.md#conditions) liczbowego.
 
 #### <a name="count-examples"></a>Liczba przykładów
 

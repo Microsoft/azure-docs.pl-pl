@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 6cb83a87f2e96eb62696e5d92095ef2b8d7c7def
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4559cd40bf9482ece80d0b6123ca73b7a0cbb3aa
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81677322"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170906"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Rozwiązywanie problemów z urządzeniem Azure Migrate i odnajdywanie
 
@@ -31,7 +31,7 @@ Jeśli zostanie wyświetlony komunikat o błędzie "podany plik manifestu jest n
 2. Jeśli wdrożenie nadal kończy się niepowodzeniem i używasz klienta VMware vSphere do wdrożenia pliku OVF, spróbuj wdrożyć go za pośrednictwem klienta sieci Web vSphere. Jeśli wdrożenie nadal kończy się niepowodzeniem, spróbuj użyć innej przeglądarki sieci Web.
 3. Jeśli używasz klienta sieci Web vSphere i podjęto próbę jego wdrożenia na vCenter Server 6,5 lub 6,7, spróbuj wdrożyć komórki jajowe bezpośrednio na hoście ESXi:
    - Połącz się bezpośrednio z hostem ESXi (zamiast vCenter Server) z klientem sieci Web (https://<*adres IP hosta*>/UI).
-   -  > W **obszarze****spis sprzętu**wybierz **pozycję plik** > **Wdróż OVF szablon**. Przejdź do komórek jajowych i Ukończ wdrożenie.
+   - W **obszarze**  >  **spis sprzętu**wybierz pozycję **plik**  >  **Wdróż OVF szablon**. Przejdź do komórek jajowych i Ukończ wdrożenie.
 4. Jeśli wdrożenie nadal kończy się niepowodzeniem, skontaktuj się z pomocą techniczną Azure Migrate.
 
 ## <a name="cant-connect-to-the-internet"></a>Nie można nawiązać połączenia z Internetem
@@ -135,7 +135,7 @@ Jeśli to nie zadziała, a będziesz odnajdywać serwery VMware:
 
 Jeśli odnalezione maszyny wirtualne nie są wyświetlane w portalu lub dane maszyny wirtualnej są nieaktualne, odczekaj kilka minut. Zmiany w wykrytych konfiguracjach maszyn wirtualnych mogą pojawić się w portalu dopiero po 30 minutach. Zmiany w danych aplikacji mogą pojawić się dopiero po kilku godzinach. Jeśli po tym czasie nie ma danych, spróbuj odświeżyć w następujący sposób.
 
-1. W obszarze **serwery** > **Azure Migrate oceny serwera**wybierz pozycję **Przegląd**.
+1. W obszarze **serwery**  >  **Azure Migrate oceny serwera**wybierz pozycję **Przegląd**.
 2. W obszarze **Zarządzaj**wybierz pozycję **Agent Health**.
 3. Wybierz pozycję **Odśwież agenta**.
 4. Poczekaj na zakończenie operacji odświeżania. Informacje powinny być teraz wyświetlane na bieżąco.
@@ -151,7 +151,7 @@ Azure Migrate obsługuje odnajdywanie aplikacji, ról i funkcji przy użyciu Azu
 Typowe błędy odnajdowania aplikacji zostały podsumowane w tabeli. 
 
 **Błąd** | **Przyczyna** | **Akcja**
---- | --- | --- | ---
+--- | --- | --- 
 10000: "nie można odnaleźć aplikacji zainstalowanych na serwerze". | Taka sytuacja może wystąpić, jeśli system operacyjny komputera nie jest w systemie Windows lub Linux. | Funkcja odnajdywania aplikacji jest używana tylko w systemie Windows/Linux.
 10001: "nie można pobrać aplikacji zainstalowanych na serwerze". | Błąd wewnętrzny — niektóre brakujące pliki w urządzeniu. | Contact Microsoft Support.
 10002: "nie można pobrać aplikacji zainstalowanych na serwerze". | Agent odnajdywania na urządzeniu może nie działać prawidłowo. | Jeśli problem nie rozwiąże się w ciągu 24 godzin, skontaktuj się z pomocą techniczną.
@@ -170,8 +170,8 @@ Typowe błędy odnajdowania aplikacji zostały podsumowane w tabeli.
 9010: "nie można pobrać aplikacji zainstalowanych na serwerze". | Może być błędem wewnętrznym.  | TF problem nie rozwiąże się w ciągu 24 godzin, skontaktuj się z pomocą techniczną.
 9011: "nie znaleziono pliku do pobrania z gościa na maszynie wirtualnej gościa" | Problem może wystąpić z powodu błędu wewnętrznego. | Problem powinien zostać rozwiązany automatycznie w ciągu 24 godzin. Jeśli problem nadal występuje, skontaktuj się z pomoc techniczna firmy Microsoft.
 9012: "zawartość pliku wynikowego jest pusta". | Problem może wystąpić z powodu błędu wewnętrznego. | Problem powinien zostać rozwiązany automatycznie w ciągu 24 godzin. Jeśli problem nadal występuje, skontaktuj się z pomoc techniczna firmy Microsoft.
-9013: "nowy profil tymczasowy jest tworzony dla każdej nazwy logowania na maszynie wirtualnej VMware" | Nowy profil tymczasowy jest tworzony dla każdej nazwy logowania na maszynie wirtualnej | Upewnij się, że nazwa użytkownika podana w poświadczeniach maszyny wirtualnej gościa jest w formacie nazwy UPN.
-9015: "nie można nawiązać połączenia z maszynami wirtualnymi VMware z powodu niewystarczających uprawnień w programie vCenter" | Rola operacji gościa nie jest włączona na koncie użytkownika vCenter | Upewnij się, że rola operacje gościa jest włączona na koncie użytkownika vCenter.
+9013: "nowy profil tymczasowy jest tworzony dla każdej nazwy logowania na maszynie wirtualnej VMware" | Nowy profil tymczasowy jest tworzony dla każdej nazwy logowania na maszynie wirtualnej. | Upewnij się, że nazwa użytkownika podana w poświadczeniach maszyny wirtualnej gościa jest w formacie nazwy UPN. Po zmianie nazwy użytkownika, która jest podana w poświadczeniach maszyny wirtualnej gościa w formacie nazwy UPN, w Menedżerze zadań na urządzeniu Uruchom ponownie Microsoft Azure usługę odnajdywania VMWare, aby znaleźć nowe odnajdywanie.
+9015: "nie można nawiązać połączenia z maszynami wirtualnymi VMware z powodu niewystarczających uprawnień w programie vCenter" | Rola operacji gościa nie jest włączona na koncie użytkownika vCenter. | Upewnij się, że rola operacje gościa jest włączona na koncie użytkownika vCenter.
 9016: "nie można nawiązać połączenia z maszynami wirtualnymi VMware, ponieważ agent operacji gościa nie ma danych" | Narzędzia VMware nie są poprawnie zainstalowane lub są nieaktualne. | Upewnij się, że narzędzia VMware są prawidłowo zainstalowane i aktualne.
 9017: "plik z odnalezionymi metadanymi nie został znaleziony na maszynie wirtualnej". | Problem może wystąpić z powodu błędu wewnętrznego. | Skontaktuj się pomoc techniczna firmy Microsoft, aby uzyskać rozwiązanie.
 9018: "program PowerShell nie jest zainstalowany na maszynach wirtualnych gościa". | Program PowerShell nie jest dostępny na maszynie wirtualnej gościa. | Zainstaluj program PowerShell na maszynie wirtualnej gościa.
@@ -182,7 +182,7 @@ Typowe błędy odnajdowania aplikacji zostały podsumowane w tabeli.
 9023: "wartość zmiennej środowiskowej główny_katalog_systemowy jest pusta". | Nieznane | Skontaktuj się z pomoc techniczna firmy Microsoft.
 9024: "wartość zmiennej środowiskowej TEMP jest pusta". | Nieznane | Skontaktuj się z pomoc techniczna firmy Microsoft.
 9025: "program PowerShell jest uszkodzony na maszynach wirtualnych gościa". | Nieznane | Zainstaluj ponownie program PowerShell na maszynie wirtualnej gościa i sprawdź, czy można uruchomić środowisko PowerShell na maszynie wirtualnej gościa.
-8084: "nie można odnaleźć aplikacji z powodu błędu VMware: <Exception from VMware>" | Urządzenie Azure Migrate używa interfejsów API VMware do odnajdywania aplikacji. Ten problem może wystąpić, jeśli wyjątek jest zgłaszany przez vCenter Server podczas próby odnalezienia aplikacji. W oknie portalu zostanie wyświetlony komunikat o błędzie z programu VMware. | Wyszukaj komunikat w [dokumentacji programu VMware](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html)i postępuj zgodnie z instrukcjami, aby rozwiązać ten problem. Jeśli nie możesz rozwiązać tego problemu, skontaktuj się z pomocą techniczną firmy Microsoft.
+8084: "nie można odnaleźć aplikacji z powodu błędu VMware:  <Exception from VMware> " | Urządzenie Azure Migrate używa interfejsów API VMware do odnajdywania aplikacji. Ten problem może wystąpić, jeśli wyjątek jest zgłaszany przez vCenter Server podczas próby odnalezienia aplikacji. W oknie portalu zostanie wyświetlony komunikat o błędzie z programu VMware. | Wyszukaj komunikat w [dokumentacji programu VMware](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html)i postępuj zgodnie z instrukcjami, aby rozwiązać ten problem. Jeśli nie możesz rozwiązać tego problemu, skontaktuj się z pomocą techniczną firmy Microsoft.
 
 
 

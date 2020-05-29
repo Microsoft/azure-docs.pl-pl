@@ -6,12 +6,12 @@ author: joannapea
 ms.author: joanpo
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 624bb45de3e2ff184326949611d437f71f3e2def
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a7b4de3b1d2998a1b6083283c3f397fc77fe9670
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79501805"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167591"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Obsługiwane magazyny danych w udziale danych platformy Azure
 
@@ -26,7 +26,7 @@ Poniższa tabela zawiera szczegółowe informacje o obsługiwanych źródłach d
 | Magazyn danych | Udostępnianie oparte na migawce | Udostępnianie w miejscu 
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | Azure Blob Storage |✓ | |
-| Usługa Azure Data Lake Storage 1. generacji |✓ | |
+| Azure Data Lake Storage Gen1 |✓ | |
 | Usługa Azure Data Lake Storage 2. generacji |✓ ||
 | Azure SQL Database |Publiczna wersja zapoznawcza | |
 | Azure Synapse Analytics (dawniej: Azure SQL DW) |Publiczna wersja zapoznawcza | |
@@ -41,13 +41,13 @@ Poniższa tabela zawiera szczegółowe informacje o różnych kombinacjach i wyb
 |  | Azure Blob Storage | Usługa Azure Data Lake Storage 1. generacji | Usługa Azure Data Lake Storage 2. generacji | Azure SQL Database | Azure Synapse Analytics 
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | Azure Blob Storage | ✓ || ✓|
-| Usługa Azure Data Lake Storage 1. generacji | ✓ | | ✓|
+| Azure Data Lake Storage Gen1 | ✓ | | ✓|
 | Usługa Azure Data Lake Storage 2. generacji | ✓ | | ✓|
 | Azure SQL Database | ✓ | | ✓| ✓| ✓|
 | Azure Synapse Analytics (dawniej: Azure SQL DW) | ✓ | | ✓| ✓| ✓|
 
 ## <a name="share-from-a-storage-account"></a>Udostępnianie z konta magazynu
-Udział danych platformy Azure obsługuje udostępnianie plików, folderów i systemów plików z Azure Data Lake Gen1 i Azure Data Lake Gen2. Obsługuje także udostępnianie obiektów blob, folderów i kontenerów z usługi Azure Blob Storage. Obecnie jest obsługiwany tylko blokowy obiekt BLOB. Jeśli foldery są udostępniane w ramach udostępniania opartego na migawce, odbiorca danych może utworzyć pełną kopię danych udziału lub wykorzystać funkcję migawki przyrostowej do kopiowania tylko nowych lub zaktualizowanych plików. Istniejące pliki o tej samej nazwie zostaną zastąpione.
+Udział danych platformy Azure obsługuje udostępnianie plików, folderów i systemów plików z Azure Data Lake Gen1 i Azure Data Lake Gen2. Obsługuje także udostępnianie obiektów blob, folderów i kontenerów z usługi Azure Blob Storage. Obecnie jest obsługiwany tylko blokowy obiekt BLOB. Gdy foldery są udostępniane w ramach udostępniania opartego na migawce, konsument danych może wybrać pełną kopię danych udziału lub użyć funkcji przyrostowej migawki w celu skopiowania tylko nowych lub zaktualizowanych plików. Istniejące pliki o tej samej nazwie zostaną zastąpione.
 
 ## <a name="share-from-a-sql-based-source"></a>Udostępnianie z poziomu źródła opartego na języku SQL
 Udział danych platformy Azure obsługuje udostępnianie tabel lub widoków z usług Azure SQL Database i Azure Synapse Analytics (dawniej Azure SQL DW). Konsumenci danych mogą zdecydować się na zaakceptowanie danych do Azure Data Lake Store Gen2 lub Blob Storage platformy Azure jako pliku CSV lub Parquet. Należy pamiętać, że domyślnie formaty plików to CSV. Odbiorca danych może wybrać, aby w razie potrzeby odbierać dane w formacie Parquet. Można to zrobić w ustawieniach mapowania zestawu danych podczas otrzymywania danych. 

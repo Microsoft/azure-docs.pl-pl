@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 05/14/2020
 ms.author: banders
-ms.openlocfilehash: 4aa02dae521844f2654a50f77be9b2ee3c46a74f
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ee2de33fadb068ee2697f79c1ebcb1b2fa4e5fcc
+ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199521"
+ms.lasthandoff: 05/20/2020
+ms.locfileid: "83715889"
 ---
 # <a name="change-your-azure-subscription-to-a-different-offer"></a>Zmienianie subskrypcji platformy Azure na inną ofertę
 
@@ -51,10 +51,10 @@ Możesz przełączać się z pojedynczej subskrypcji z płatnością zgodnie z r
 1. **Wybierz żądaną ofertę** na liście ofert, na które można przełączyć Twoją subskrypcję. Ta lista różni się w zależności od członkostwa, z którym jest skojarzone Twoje konto. Jeśli żadna oferta nie jest dostępna, sprawdź [listę dostępnych ofert, na które możesz się przełączyć](#whats-supported) i upewnij się, że masz właściwe członkostwo.
 
    ![Wybór oferty, do której ma nastąpić przełączenie](./media/switch-azure-offer/selectoffer.png)
-1. W zależności od wybranej oferty możesz zobaczyć uwagę dotyczącą wpływu przełączenia. Przed kontynuowaniem przejrzyj tę listę uważnie i postępuj zgodnie z instrukcjami.
+1. W zależności od wybranej oferty możesz zobaczyć uwagę dotyczącą wpływu przełączenia. Przed przejściem dalej przejrzyj tę listę uważnie i postępuj zgodnie z instrukcjami.
 
    ![Przeglądanie uwag](./media/switch-azure-offer/thingstonote.png)
-1. Możesz zmienić nazwę subskrypcji. Domyślnie jest ustawiona nowa nazwa oferty. Kliknij przycisk **Przełącz ofertę**, aby zakończyć proces.
+1. Możesz zmienić nazwę subskrypcji. Domyślnie nie jest ustawiona nowa nazwa oferty. Kliknij przycisk **Przełącz ofertę**, aby zakończyć proces.
 
    ![Kliknięcie zielonego przycisku](./media/switch-azure-offer/confirmpage.png)
 1. To wszystko! Twoja subskrypcja została przełączona do nowej oferty.
@@ -86,7 +86,7 @@ Opcja **Przełącz na inną ofertę** może nie być widoczna z następujących 
 
 Poniżej znajdują się szczegółowe informacje o tym, co się dzieje po przełączeniu ofert platformy Azure w Centrum konta.
 
-#### <a name="no-service-downtime"></a>Bez przestoju usługi
+#### <a name="no-service-downtime"></a>Brak przestojów usługi
 
 Usługa będą działać bez przestojów dla wszystkich użytkowników skojarzonych z subskrypcją. Jednak oferta, na którą się przełączysz, może mieć ograniczenia. Na przykład niektóre oferty zabraniają użycia produkcyjnego, dlatego konieczne jest przeniesienie zasobów produkcyjnych do innej subskrypcji.
 
@@ -100,7 +100,7 @@ W dniu przełączenia ofert zostanie wygenerowana faktura na wszystkie zaległe 
 
 ### <a name="can-i-migrate-from-a-subscription-with-pay-as-you-go-rates-to-cloud-solution-provider-csp-or-enterprise-agreement-ea"></a>Czy mogę przeprowadzić migrację z subskrypcji ze stawkami płatności zgodnie z rzeczywistym użyciem do programu Cloud Solution Provider (CSP) lub umowy Enterprise Agreement (EA)?
 
-* Aby przeprowadzić migrację do programu CSP, zobacz [Migracja subskrypcji z płatnością zgodnie z rzeczywistym użyciem do programu CSP](https://docs.microsoft.com/azure/cloud-solution-provider/migration/migration-from-payg-to-csp).
+* Jeśli chcesz przeprowadzić migrację do programu CSP, zobacz [Przenoszenie subskrypcji platformy Azure między subskrybentami i dostawcami usług w chmurze](transfer-subscriptions-subscribers-csp.md).
 * Aby przeprowadzić migrację do umowy EA, poproś administratora rejestracji o dodanie Twojego konta do umowy EA. Postępuj zgodnie z instrukcjami w wiadomości e-mail z zaproszeniem, aby przenieść swoje subskrypcje do rejestracji w ramach umowy EA. Aby dowiedzieć się więcej, zobacz [Kojarzenie istniejącego konta](https://ea.azure.com/helpdocs/associateExistingAccount) w witrynie EA Portal.
 
 ### <a name="can-i-migrate-data-and-services-to-a-new-subscription"></a>Czy mogę zmigrować dane i usługi do nowej subskrypcji?

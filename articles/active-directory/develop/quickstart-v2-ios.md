@@ -12,12 +12,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 47485d8d9007a6cf6432b7bf401c7c1c34a9863a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5ade4701c53287de5d5815531f12850b3dc839de
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81536135"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84169852"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Szybki Start: Logowanie użytkowników i wywoływanie interfejsu API Microsoft Graph z aplikacji dla systemu iOS lub macOS
 
@@ -57,8 +57,8 @@ Ten przewodnik Szybki Start dotyczy zarówno aplikacji iOS, jak i macOS. Niektó
 >      - W sekcji **Nazwa** wprowadź zrozumiałą nazwę aplikacji, która będzie wyświetlana użytkownikom aplikacji podczas logowania lub wyrażania zgody na aplikację.
 >      - Pomiń inne konfiguracje na tej stronie.
 >      - Wybierz pozycję `Register`.
-> 1. W sekcji **Zarządzanie** `Authentication`  >  `Add Platform`  >  `iOS`wybierz pozycję.
->      - Wprowadź ***Identyfikator pakietu*** dla swojej aplikacji. Identyfikator pakietu jest tylko unikatowym ciągiem, który jednoznacznie identyfikuje aplikację, na przykład `com.<yourname>.identitysample.MSALMacOS`. Zanotuj wartość, której używasz.
+> 1. W sekcji **Zarządzanie** wybierz pozycję `Authentication`  >  `Add Platform`  >  `iOS` .
+>      - Wprowadź ***Identyfikator pakietu*** dla swojej aplikacji. Identyfikator pakietu jest tylko unikatowym ciągiem, który jednoznacznie identyfikuje aplikację, na przykład `com.<yourname>.identitysample.MSALMacOS` . Zanotuj wartość, której używasz.
 >      - Należy pamiętać, że konfiguracja systemu iOS ma również zastosowanie do aplikacji macOS.
 > 1. Wybierz `Configure` i Zapisz szczegóły ***konfiguracji MSAL*** w dalszej części tego przewodnika Szybki Start.
 > [!div renderon="portal" class="sxs-lookup"]
@@ -78,7 +78,7 @@ Ten przewodnik Szybki Start dotyczy zarówno aplikacji iOS, jak i macOS. Niektó
 
 #### <a name="step-3-install-dependencies"></a>Krok 3. Instalacja zależności
 
-W oknie terminalu przejdź do folderu z pobranym przykładem kodu i uruchom `pod install` polecenie, aby zainstalować najnowszą bibliotekę MSAL.
+W oknie terminalu przejdź do folderu z pobranym przykładem kodu i uruchom polecenie, `pod install` Aby zainstalować najnowszą bibliotekę MSAL.
 
 #### <a name="step-4-configure-your-project"></a>Krok 4. Konfigurowanie projektu
 
@@ -100,7 +100,7 @@ W oknie terminalu przejdź do folderu z pobranym przykładem kodu i uruchom `pod
 >    let kGraphEndpoint = "Enter_the_MS_Graph_Endpoint_Host_Here"
 >    ```
 > 1. Otwórz ustawienia projektu. W sekcji **tożsamość** wprowadź **Identyfikator pakietu** wprowadzony w portalu.
-> 1. Tylko dla systemu iOS kliknij prawym przyciskiem myszy pozycję **info. plist** i wybierz polecenie **Otwórz jako** > **kod źródłowy**.
+> 1. Tylko dla systemu iOS kliknij prawym przyciskiem myszy pozycję **info. plist** i wybierz polecenie **Otwórz jako**  >  **kod źródłowy**.
 > 1. Tylko dla systemu iOS w węźle głównym DICT Zastąp `CFBundleURLSchemes` wartość ***identyfikatorem pakietu*** wprowadzonym w portalu.
 >
 >    ```xml
@@ -126,18 +126,18 @@ W oknie terminalu przejdź do folderu z pobranym przykładem kodu i uruchom `pod
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
 > 1. Jeśli tworzysz aplikację dla [chmur narodowych usługi Azure AD](https://docs.microsoft.com/graph/deployments#app-registration-and-token-service-root-endpoints), Zastąp wiersz zaczynający się od "Let kGraphEndpoint" i "Let kAuthority" z prawidłowymi punktami końcowymi. W przypadku dostępu globalnego należy użyć wartości domyślnych:
->     ```objective-c
+>     ```swift
 >     let kGraphEndpoint = "https://graph.microsoft.com/"
 >     let kAuthority = "https://login.microsoftonline.com/common"
 >     ```
 > 1. Inne punkty końcowe są udokumentowane [tutaj](https://docs.microsoft.com/graph/deployments#app-registration-and-token-service-root-endpoints). Na przykład w celu uruchomienia przewodnika Szybki Start z usługą Azure AD (Niemcy) Użyj następujących sposobów:
->     ```objective-c
+>     ```swift
 >     let kGraphEndpoint = "https://graph.microsoft.de/"
 >     let kAuthority = "https://login.microsoftonline.de/common"
 >     ```
 > 1. Otwórz ustawienia projektu. W sekcji **tożsamość** wprowadź **Identyfikator pakietu** wprowadzony w portalu.
-> 1. Tylko dla systemu iOS kliknij prawym przyciskiem myszy pozycję **info. plist** i wybierz polecenie **Otwórz jako** > **kod źródłowy**.
-> 1. Tylko dla systemu iOS w węźle głównym DICT Zastąp `Enter_the_bundle_Id_Here` ciąg ***identyfikatorem pakietu*** użytym w portalu.
+> 1. Tylko dla systemu iOS kliknij prawym przyciskiem myszy pozycję **info. plist** i wybierz polecenie **Otwórz jako**  >  **kod źródłowy**.
+> 1. Tylko dla systemu iOS w węźle głównym DICT Zastąp ciąg `Enter_the_bundle_Id_Here` ***identyfikatorem pakietu*** użytym w portalu.
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
@@ -205,7 +205,7 @@ self.applicationContext = try MSALPublicClientApplication(configuration: msalCon
 
 ### <a name="for-ios-only-additional-app-requirements"></a>Tylko dla systemu iOS, dodatkowe wymagania dotyczące aplikacji
 
-Twoja aplikacja musi mieć również następujące elementy `AppDelegate`. Dzięki temu MSAL SDK obsługuje odpowiedzi tokenów z aplikacji brokera uwierzytelniania podczas uwierzytelniania.
+Twoja aplikacja musi mieć również następujące elementy `AppDelegate` . Dzięki temu MSAL SDK obsługuje odpowiedzi tokenów z aplikacji brokera uwierzytelniania podczas uwierzytelniania.
 
  ```swift
  func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -216,7 +216,7 @@ Twoja aplikacja musi mieć również następujące elementy `AppDelegate`. Dzię
  ```
 
 > [!NOTE]
-> W systemie iOS 13 +, jeśli zostanie `UISceneDelegate` przyjęte zamiast `UIApplicationDelegate`, zamiast tego należy umieścić ten `scene:openURLContexts:` kod w wywołaniu zwrotnym (zobacz [dokumentację firmy Apple](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc)).
+> W systemie iOS 13 +, jeśli zostanie przyjęte zamiast, zamiast tego należy `UISceneDelegate` `UIApplicationDelegate` umieścić ten kod w `scene:openURLContexts:` wywołaniu zwrotnym (zobacz [dokumentację firmy Apple](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc)).
 > W przypadku zapewnienia zgodności zarówno UISceneDelegate, jak i UIApplicationDelegate ze starszymi wersjami systemu iOS, wywołanie zwrotne MSAL musi zostać umieszczone w obu miejscach.
 
  ```swift
@@ -233,7 +233,7 @@ Twoja aplikacja musi mieć również następujące elementy `AppDelegate`. Dzię
     }
  ```
 
-Na koniec aplikacja musi mieć wpis ***info. plist*** obok elementu `CFBundleURLTypes` `LSApplicationQueriesSchemes` . Przykład zawiera.
+Na koniec aplikacja musi mieć `LSApplicationQueriesSchemes` wpis ***info. plist*** obok elementu `CFBundleURLTypes` . Przykład zawiera.
 
    ```xml
    <key>LSApplicationQueriesSchemes</key>
@@ -249,7 +249,7 @@ Biblioteka MSAL oferuje dwie metody uzyskiwania tokenów: `acquireToken` i `acqu
 
 #### <a name="acquiretoken-get-a-token-interactively"></a>acquireToken: uzyskiwanie tokenu interaktywnie
 
-Niektóre sytuacje wymagają, aby użytkownicy mogli korzystać z platformy tożsamości firmy Microsoft. W takich przypadkach może być wymagane, aby użytkownik końcowy mógł wybrać swoje konto, wprowadzić swoje poświadczenia lub wyrazić zgodę na uprawnienia aplikacji. Na przykład:
+Niektóre sytuacje wymagają, aby użytkownicy mogli korzystać z platformy tożsamości firmy Microsoft. W takich przypadkach może być wymagane, aby użytkownik końcowy mógł wybrać swoje konto, wprowadzić swoje poświadczenia lub wyrazić zgodę na uprawnienia aplikacji. Na przykład
 
 * Gdy nowi użytkownicy logują się do aplikacji po raz pierwszy.
 * Jeśli użytkownik resetuje hasło, musi wprowadzić swoje poświadczenia
@@ -263,7 +263,7 @@ self.applicationContext!.acquireToken(with: parameters) { (result, error) in /* 
 
 > |Gdzie:||
 > |---------|---------|
-> | `scopes` | Zawiera żądane zakresy (czyli `[ "user.read" ]` dla Microsoft Graph lub `[ "<Application ID URL>/scope" ]` niestandardowych interfejsów API sieci Web ()`api://<Application ID>/access_as_user` |
+> | `scopes` | Zawiera żądane zakresy (czyli `[ "user.read" ]` dla Microsoft Graph lub `[ "<Application ID URL>/scope" ]` niestandardowych interfejsów API sieci Web ( `api://<Application ID>/access_as_user` ) |
 
 #### <a name="acquiretokensilent-get-an-access-token-silently"></a>acquireTokenSilent: Uzyskaj token dostępu dyskretnie
 
@@ -283,8 +283,8 @@ self.applicationContext!.getCurrentAccount(with: nil) { (currentAccount, previou
 
 > |Gdzie: ||
 > |---------|---------|
-> | `scopes` | Zawiera żądane zakresy (czyli `[ "user.read" ]` dla Microsoft Graph lub `[ "<Application ID URL>/scope" ]` niestandardowych interfejsów API sieci Web ()`api://<Application ID>/access_as_user` |
-> | `account` | Konto, dla którego jest żądany token. Ten przewodnik Szybki Start dotyczy aplikacji o pojedynczym koncie. Jeśli chcesz utworzyć aplikację obejmującą wiele kont, musisz zdefiniować logikę, aby zidentyfikować konto, które będzie używane w żądaniach tokenów `accountsFromDeviceForParameters:completionBlock:` używające i przekazując poprawne`accountIdentifier` |
+> | `scopes` | Zawiera żądane zakresy (czyli `[ "user.read" ]` dla Microsoft Graph lub `[ "<Application ID URL>/scope" ]` niestandardowych interfejsów API sieci Web ( `api://<Application ID>/access_as_user` ) |
+> | `account` | Konto, dla którego jest żądany token. Ten przewodnik Szybki Start dotyczy aplikacji o pojedynczym koncie. Jeśli chcesz utworzyć aplikację obejmującą wiele kont, musisz zdefiniować logikę, aby zidentyfikować konto, które będzie używane w żądaniach tokenów używające `accountsFromDeviceForParameters:completionBlock:` i przekazując poprawne`accountIdentifier` |
 
 ## <a name="next-steps"></a>Następne kroki
 

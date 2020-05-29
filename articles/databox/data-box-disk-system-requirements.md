@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/04/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: fb2fd89664517e44cf5128a5c82e583f03087061
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6ac1fb1a69433be240e4250ea37835037f0b2ffa
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "79214262"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873937"
 ---
 ::: zone target="docs"
 
@@ -56,7 +56,7 @@ W przypadku klienta z systemem Windows należy również zainstalować następuj
 | --- | --- |
 | Windows PowerShell |5.0 |
 | .NET Framework |4.5.1 |
-| Windows Management Framework |5.0|
+| Windows Management Framework |5.1|
 | BitLocker| - |
 
 ## <a name="other-required-software-for-linux-clients"></a>Inne wymagane oprogramowanie dla klientów z systemem Linux
@@ -79,10 +79,6 @@ Poniżej znajduje się lista obsługiwanych typów magazynów dla urządzenia Da
 | Wdrożenie klasyczne | Standardowa (Standard) |
 | Ogólnego przeznaczenia  |Standardowe; obsługiwane są wersje V1 i V2. Obsługiwane są warstwy Gorąca i Chłodna. |
 | Konto magazynu obiektów blob | |
-
->[!NOTE]
-> Konta usługi Azure Data Lake Storage Gen 2 nie są obsługiwane.
-
 
 ## <a name="supported-storage-types-for-upload"></a>Obsługiwane typy magazynu dla przekazywania
 

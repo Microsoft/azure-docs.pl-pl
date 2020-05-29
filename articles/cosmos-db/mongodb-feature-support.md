@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/16/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 94b65b4e7947bc02b1fdaae90c8f774ec216e7bb
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e0a495093e89312f316401b191c916406668f600
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80981889"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171688"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-32-version-supported-features-and-syntax"></a>Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB (wersja 3.2): obsługiwane funkcje i składnia
 
@@ -73,7 +73,7 @@ Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB obsługuje następ
 - listDatabases
 - whatsmyuri
 
-<a name="aggregation-pipeline"/>
+<a name="aggregation-pipeline"></a>
 
 ## <a name="aggregation-pipelinea"></a>Potok agregacji</a>
 
@@ -332,7 +332,7 @@ cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | Dokumenty bez klucza so
 
 ## <a name="unique-indexes"></a>Indeksy unikatowe
 
-Usługa Cosmos DB indeksuje każde pole w dokumentach, które są domyślnie zapisywane w bazie danych. Unikatowe indeksy zapewniają, że określone pole nie ma zduplikowanych wartości we wszystkich dokumentach w kolekcji, podobnie jak unikatowość jest zachowywana w kluczu domyślnym `_id` . Indeksy niestandardowe można tworzyć w Cosmos DB przy użyciu polecenia CREATE INDEX, łącznie z ograniczeniem "Unique".
+Usługa Cosmos DB indeksuje każde pole w dokumentach, które są domyślnie zapisywane w bazie danych. Unikatowe indeksy zapewniają, że określone pole nie ma zduplikowanych wartości we wszystkich dokumentach w kolekcji, podobnie jak unikatowość jest zachowywana w `_id` kluczu domyślnym. Indeksy niestandardowe można tworzyć w Cosmos DB przy użyciu polecenia CREATE INDEX, łącznie z ograniczeniem "Unique".
 
 Unikatowe indeksy są dostępne dla wszystkich kont usługi Cosmos używających interfejsu API usługi Azure Cosmos DB dla bazy danych MongoDB.
 

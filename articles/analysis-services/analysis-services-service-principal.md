@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 638ba26c8c8aed9385e10242b86a7587c1d9a7c5
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 9797b4c8f8059f9cfefbb70672aa202c7a3f4825
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83871169"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84168339"
 ---
 # <a name="automation-with-service-principals"></a>Automatyzacja przy użyciu jednostek usługi
 
@@ -26,7 +26,7 @@ Analysis Services obsługuje również operacje wykonywane przez zarządzane to�
  
 Nazwy główne usługi można tworzyć w Azure Portal lub przy użyciu programu PowerShell. Aby dowiedzieć się więcej, zobacz:
 
-[Tworzenie nazwy głównej usługi — Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md)   
+[Tworzenie jednostki usługi — Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md)   
 [Tworzenie jednostki usługi — PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="store-credential-and-certificate-assets-in-azure-automation"></a>Przechowuj poświadczenia i zasoby certyfikatów w Azure Automation
@@ -48,7 +48,7 @@ Identyfikator appID i hasło i certyfikat jednostki usługi mogą być używane 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-#### <a name="using-azanalysisservices-module"></a><a name="azmodule" />Korzystanie z modułu AZ. AnalysisServices
+#### <a name="using-azanalysisservices-module"></a><a name="azmodule"></a>Korzystanie z modułu AZ. AnalysisServices
 
 W przypadku używania jednostki usługi do operacji zarządzania zasobami z modułem [AZ. AnalysisServices](/powershell/module/az.analysisservices) należy użyć `Connect-AzAccount` polecenia cmdlet. 
 
@@ -92,9 +92,9 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 ### <a name="amo-and-adomd"></a>AMO i ADOMD 
 
-Podczas nawiązywania połączenia z aplikacjami klienckimi i aplikacjami sieci Web, [bibliotekami klienckimi biblioteki AMO i ADOMD](analysis-services-data-providers.md) w wersji 15.0.2 i wyższych, które mają być instalowalne, z poziomu usług NuGet w parametrach połączenia przy użyciu następującej składni: `app:AppID` i hasła lub `cert:thumbprint` . 
+Nawiązując połączenie z aplikacjami klienta i aplikacjami internetowymi instalowalne pakiety NuGet [bibliotek klienta AMO i ADOMD](analysis-services-data-providers.md) w wersji 15.0.2 lub nowszej obsługują jednostki usługi w parametrach połączenia przy użyciu następującej składni: `app:AppID` i password lub `cert:thumbprint`. 
 
-W poniższym przykładzie `appID` i `password` są używane do wykonywania operacji odświeżania bazy danych modelu:
+W poniższym przykładzie parametry `appID` i `password` są używane do wykonania operacji odświeżania bazy danych modelu:
 
 ```csharp
 string appId = "xxx";

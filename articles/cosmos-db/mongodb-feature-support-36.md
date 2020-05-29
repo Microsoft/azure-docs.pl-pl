@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 01/15/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 5df21b2c1926803a65eca911c66b059f36ee18aa
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 92c94b08602fb32ccebf6115306a5000665affe2
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81393613"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171705"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB (wersja 3.6): obsługiwane funkcje i składnia
 
@@ -22,7 +22,7 @@ Za pomocą interfejsu API Azure Cosmos DB dla MongoDB można korzystać z zalet 
 
 ## <a name="protocol-support"></a>Obsługa protokołu
 
-Interfejs API Azure Cosmos DB dla MongoDB jest domyślnie zgodny z serwerem MongoDB w wersji **3,6** dla nowych kont. Poniżej wymieniono obsługiwane operacje wraz z ewentualnymi ograniczeniami lub wyjątkami. Dowolny sterownik klienta działający zgodnie z tymi protokołami umożliwia połączenie z interfejsem API usługi Azure Cosmos DB dla bazy danych MongoDB. Należy pamiętać, że w przypadku korzystania z interfejsu API Azure Cosmos DB dla kont MongoDB, wersja 3,6 kont ma punkt końcowy w `*.mongo.cosmos.azure.com` formacie, podczas gdy wersja 3,2 kont ma punkt końcowy w formacie `*.documents.azure.com`.
+Interfejs API Azure Cosmos DB dla MongoDB jest domyślnie zgodny z serwerem MongoDB w wersji **3,6** dla nowych kont. Poniżej wymieniono obsługiwane operacje wraz z ewentualnymi ograniczeniami lub wyjątkami. Dowolny sterownik klienta działający zgodnie z tymi protokołami umożliwia połączenie z interfejsem API usługi Azure Cosmos DB dla bazy danych MongoDB. Należy pamiętać, że w przypadku korzystania z interfejsu API Azure Cosmos DB dla kont MongoDB, wersja 3,6 kont ma punkt końcowy w formacie, `*.mongo.cosmos.azure.com` podczas gdy wersja 3,2 kont ma punkt końcowy w formacie `*.documents.azure.com` .
 
 ## <a name="query-language-support"></a>Obsługa języka zapytań
 
@@ -106,7 +106,7 @@ Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB obsługuje następ
 |top     |    Nie     |
 |whatsmyuri     |   Tak      |
 
-<a name="aggregation-pipeline"/>
+<a name="aggregation-pipeline"></a>
 
 ## <a name="aggregation-pipelinea"></a>Potok agregacji</a>
 
@@ -331,14 +331,14 @@ Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB obsługuje następ
 |Polecenie  |Obsługiwane |
 |---------|---------|
 |Double    |Tak    |
-|String    |Tak    |
+|String (ciąg)    |Tak    |
 |Obiekt    |Tak    |
 |Tablica    |Tak    |
 |Dane binarne    |Tak|    
 |ObjectId    |Tak    |
-|Boolean    |Tak    |
-|Date    |Tak    |
-|Zero    |Tak    |
+|Boolean (wartość logiczna)    |Tak    |
+|Data    |Tak    |
+|Null    |Tak    |
 |32-bitowa liczba całkowita (int)    |Tak    |
 |Znacznik czasu    |Tak    |
 |64-bitowa liczba całkowita (Long)    |Tak    |
@@ -406,7 +406,7 @@ Interfejs API usługi Azure Cosmos DB dla bazy danych MongoDB obsługuje następ
 
 W zapytaniach $regex wyrażenia zakotwiczone w lewo umożliwiają wyszukiwanie indeksu. Jednak użycie modyfikatora „i” (wielkość liter nie ma znaczenia) oraz modyfikatora „m” (wiele wierszy) powoduje skanowanie kolekcji we wszystkich wyrażeniach.
 
-Jeśli istnieje potrzeba dołączenia „$” lub „|”, najlepiej utworzyć dwa lub więcej zapytań regex. Na przykład, uwzględniając następujące oryginalne zapytanie: ```find({x:{$regex: /^abc$/})```, należy je zmodyfikować w następujący sposób:
+Jeśli istnieje potrzeba dołączenia „$” lub „|”, najlepiej utworzyć dwa lub więcej zapytań regex. Na przykład, uwzględniając następujące oryginalne zapytanie: ```find({x:{$regex: /^abc$/})``` , należy je zmodyfikować w następujący sposób:
 
 ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
 

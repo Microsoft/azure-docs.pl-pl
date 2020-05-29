@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 78b49b8b7e17f12d49825390a302e28a61e10d16
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9b7df06ea7ff07907a292bdcc32e66aafa44ae68
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770835"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170787"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrowanie aplikacji z siecią wirtualną platformy Azure
 
@@ -117,17 +117,17 @@ W przypadku korzystania z integracji sieci wirtualnej wymaganej przez bramę z u
 
 1. Dodaj połączenie komunikacji równorzędnej w sieci wirtualnej, z którą łączy się aplikacja. Po dodaniu połączenia komunikacji równorzędnej Włącz **dostęp do sieci wirtualnej** i wybierz opcję **Zezwalaj na przekazywanie dalej ruchu** i **Zezwalaj na tranzyt bramy**.
 1. Dodaj połączenie komunikacji równorzędnej w sieci wirtualnej, która jest połączona z siecią wirtualną, z którą nawiązano połączenie. Po dodaniu połączenia komunikacji równorzędnej w docelowej sieci wirtualnej Włącz **dostęp do usługi Virtual Network** i wybierz opcję **Zezwalaj na przekazywanie dalej ruchu** i **Zezwalaj na bramy zdalne**.
-1. Przejdź do **App Service planowanie** > interfejsu użytkownika integracji**sieci** > **wirtualnej** w portalu. Wybierz sieć wirtualną, z którą aplikacja nawiązuje połączenie. W sekcji Routing Dodaj zakres adresów sieci wirtualnej, która jest połączona z siecią wirtualną.
+1. Przejdź do **App Service planowanie**  >  **Networking**  >  interfejsu użytkownika**integracji sieci wirtualnej** w portalu. Wybierz sieć wirtualną, z którą aplikacja nawiązuje połączenie. W sekcji Routing Dodaj zakres adresów sieci wirtualnej, która jest połączona z siecią wirtualną.
 
 ## <a name="manage-vnet-integration"></a>Zarządzanie integracją sieci wirtualnej
 
-Łączenie i rozłączanie z siecią wirtualną jest na poziomie aplikacji. Operacje, które mogą mieć wpływ na integrację sieci wirtualnej w wielu aplikacjach, są na poziomie planu App Service. W portalu integracji **sieci** > **wirtualnej** z aplikacją > Networking możesz uzyskać szczegółowe informacje dotyczące sieci wirtualnej. Podobne informacje można wyświetlić na poziomie planu App Service w portalu integracji**sieci** > **wirtualnej** **App Service plan** > .
+Łączenie i rozłączanie z siecią wirtualną jest na poziomie aplikacji. Operacje, które mogą mieć wpływ na integrację sieci wirtualnej w wielu aplikacjach, są na poziomie planu App Service. W portalu integracji sieci wirtualnej z aplikacją > **Networking**  >  **VNet Integration** możesz uzyskać szczegółowe informacje dotyczące sieci wirtualnej. Podobne informacje można wyświetlić na poziomie planu App Service w **App Service plan**  >  **Networking**  >  portalu**integracji sieci wirtualnej** App Service plan.
 
 Jedyną operacją, którą można wykonać w widoku aplikacji wystąpienia integracji sieci wirtualnej, jest rozłączenie aplikacji z sieci wirtualnej, z którą jest ona aktualnie połączona. Aby odłączyć aplikację od sieci wirtualnej, wybierz pozycję **Rozłącz**. Aplikacja zostanie uruchomiona ponownie po rozłączeniu z siecią wirtualną. Rozłączanie nie zmienia sieci wirtualnej. Podsieć lub Brama nie jest usuwana. Jeśli chcesz usunąć sieć wirtualną, najpierw Odłącz aplikację od sieci wirtualnej i Usuń z niej zasoby, takie jak bramy.
 
 W interfejsie użytkownika integracji z siecią wirtualną App Service są wyświetlane wszystkie integracje sieci wirtualnej używane przez aplikacje w planie App Service. Aby wyświetlić szczegółowe informacje o każdej sieci wirtualnej, wybierz sieć wirtualną, która Cię interesuje. Istnieją dwie akcje, które można wykonać w tym miejscu dla integracji z siecią wirtualną wymagana przez bramę:
 
-* **Synchronizacja sieci**: operacja synchronizacji sieci jest używana tylko w przypadku funkcji integracji wirtualnej zależnej od bramy. Wykonanie operacji synchronizacji sieci gwarantuje, że certyfikaty i informacje o sieci są zsynchronizowane. W przypadku dodania lub zmiany serwera DNS sieci wirtualnej wykonaj operację synchronizacji sieci. Ta operacja uruchamia ponownie wszystkie aplikacje używające tej sieci wirtualnej.
+* **Synchronizacja sieci**: operacja synchronizacji sieci jest używana tylko w przypadku funkcji integracji wirtualnej zależnej od bramy. Wykonanie operacji synchronizacji sieci gwarantuje, że certyfikaty i informacje o sieci są zsynchronizowane. W przypadku dodania lub zmiany serwera DNS sieci wirtualnej wykonaj operację synchronizacji sieci. Ta operacja uruchamia ponownie wszystkie aplikacje używające tej sieci wirtualnej. Ta operacja nie będzie działała, jeśli używasz aplikacji i sieci wirtualnej należącej do różnych subskrypcji.
 * **Dodawanie tras**: Dodawanie tras dysków ruch wychodzący do sieci wirtualnej.
 
 ### <a name="gateway-required-vnet-integration-routing"></a>Routing integracji sieci wirtualnej wymagane przez bramę
