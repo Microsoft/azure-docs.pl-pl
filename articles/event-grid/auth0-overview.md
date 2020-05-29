@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/18/2020
 ms.author: babanisa
-ms.openlocfilehash: e193b272460fe97f599adff414fcac6e80648104
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 6025c4c694da1e036201aef35ab73500429f7e2c
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83738374"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170566"
 ---
 # <a name="auth0-partner-topics"></a>Tematy dotyczące partnerów rozwiązanie Auth0
 ![Logo rozwiązanie Auth0](./media/auth0-overview/auth0-logo.png)
@@ -26,18 +26,21 @@ Integracja umożliwia przesyłanie strumieniowe zdarzeń dziennika rozwiązanie 
 W przypadku organizacji korzystających z usług rozwiązanie Auth0 i Azure Integracja ta pozwala bezproblemowo integrować dane w całym stosie. 
  
 ## <a name="available-event-types"></a>Dostępne typy zdarzeń
-Pełna lista dostępnych typów zdarzeń rozwiązanie Auth0 oraz ich opisy są dostępne [tutaj](https://auth0.com/docs/logs/references/log-event-type-codes).
+Pełna lista dostępnych typów zdarzeń rozwiązanie Auth0 oraz ich opisy są dostępne w [tej witrynie sieci Web](https://auth0.com/docs/logs/references/log-event-type-codes).
 
 ## <a name="use-cases"></a>Przypadki zastosowań
 
 ### <a name="engage-with-your-users"></a>Zaangażuj użytkowników
-Dostarczanie silnego środowiska użytkownika ma kluczowe znaczenie dla zmniejszenia liczby zmian i utrzymywania użytkowników. Dostarczaj bardziej dostosowane środowiska aplikacji przy użyciu zdarzeń rozwiązanie Auth0 z Azure Functions i Logic Apps. 
+Dostarczanie silnego środowiska użytkownika ma kluczowe znaczenie dla zmniejszenia liczby zmian i utrzymywania użytkowników. Dostarczaj bardziej dostosowane środowiska aplikacji przy użyciu zdarzeń rozwiązanie Auth0 z Azure Functions i Azure Logic Apps. 
 
 ### <a name="understand-user-behavior"></a>Zrozumienie zachowania użytkowników
-Informacje o tym, kiedy użytkownicy uzyskują dostęp do produktu, gdzie są zalogowani i jakie urządzenia używają. Opracowuj zrozumienie obszarów produktu, które są najbardziej przydatne przez śledzenie tych sygnałów. Sygnały te pomagają określić, które przeglądarki i urządzenia mają być obsługiwane, Języki umożliwiające zlokalizowanie aplikacji w programie oraz czas szczytowego ruchu sieciowego. 
+Informacje o tym, kiedy użytkownicy uzyskują dostęp do produktu, gdzie są zalogowani i jakie urządzenia używają. Opracowuj zrozumienie obszarów produktu, które są najbardziej przydatne przez śledzenie tych sygnałów. Sygnały te pomagają określić:
+- Jakie przeglądarki i urządzenia mają być obsługiwane. 
+- Języki, w których należy lokalizować aplikację. 
+- W przypadku szczytowego natężenia ruchu sieciowego. 
 
-### <a name="manage-user-data"></a>Zarządzanie danymi użytkownika
-Utrzymywanie i inspekcja działań użytkownika ma kluczowe znaczenie dla utrzymania bezpieczeństwa i następujących przepisów branżowych. Możliwość edytowania, usuwania lub eksportowania danych użytkownika staje się coraz bardziej ważna, aby przestrzegać ustawodawstwa dotyczącego ochrony prywatności, takiego jak Ogólne rozporządzenie o ochronie danych Unii Europejskiej (Rodo).
+### <a name="manage-user-data"></a>Zarządzanie danymi użytkowników
+Utrzymywanie i inspekcja działań użytkownika ma kluczowe znaczenie dla utrzymania bezpieczeństwa i następujących przepisów branżowych. Możliwość edytowania, usuwania lub eksportowania danych użytkownika jest coraz bardziej ważna dla następujących przepisów dotyczących ochrony prywatności, takich jak Ogólne rozporządzenie o ochronie danych Unii Europejskiej (Rodo).
 
 ### <a name="secure-your-application"></a>Zabezpieczanie aplikacji
 Łączenie procedur monitorowania zabezpieczeń i reagowania na zdarzenia jest ważne w przypadku ochrony systemu rozproszonego. Z tego powodu ważne jest, aby zachować wszystkie dane w jednym miejscu i monitorować cały stos. 

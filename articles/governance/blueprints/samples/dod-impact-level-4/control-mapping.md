@@ -1,20 +1,20 @@
 ---
 title: Poziom wpływu 4 — przykładowe kontrolki planu
 description: Sterowanie mapowaniem przykładu planu wpływu na poziom 4. Każda kontrolka jest zamapowana na co najmniej jedną zasadę platformy Azure, która pomaga w ocenie.
-ms.date: 03/06/2020
+ms.date: 05/12/2020
 ms.topic: sample
-ms.openlocfilehash: a11a8637618bb42831ccf1a7001e4da40529ba74
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 48734e62f47c38feb8bc34409f9ba41af2648e7a
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82024833"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84168985"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>Sterowanie mapowaniem przykładu planu wpływu na poziom DoD 4
 
 W tym artykule szczegółowo przedstawiono sposób, w jaki dział planu usługi Azure planuje wpływ obrony na poziom 4 (DoD IL4) jest mapowany na kontrolki poziomu 4. Aby uzyskać więcej informacji na temat kontrolek, zobacz [dod Cloud obliczeniowe Requirements Guide (SRG)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/Cloud_Computing_SRG_v1r3.pdf). Agencja ds. systemów informatycznych (DISA) jest agencją Departamentu Obrony Stanów Zjednoczonych (DoD), która jest odpowiedzialna za opracowywanie i utrzymywanie przewodnika dotyczącego wymagań w zakresie zabezpieczeń w chmurze DoD (SRG). SRG definiuje podstawowe wymagania dotyczące zabezpieczeń dla dostawców usług w chmurze (CSP), którzy hostią informacje, systemy i aplikacje, oraz do korzystania z usług w chmurze w wysokości DoD.  
 
-Następujące mapowania są przyłączone do formantów **poziomu wpływu na wartość dod 4** . Użyj nawigacji po prawej stronie, aby przejść bezpośrednio do określonego mapowania formantów. Wiele zamapowanych formantów jest implementowanych z inicjatywą [Azure Policy](../../../policy/overview.md) . Aby zapoznać się z pełną inicjatywą, Otwórz **zasady** w Azure Portal i wybierz stronę **definicje** . Następnie Znajdź i wybierz wersję ** \[zapoznawczą\]: poziom wpływu na 4** .
+Następujące mapowania są przyłączone do formantów **poziomu wpływu na wartość dod 4** . Użyj nawigacji po prawej stronie, aby przejść bezpośrednio do określonego mapowania formantów. Wiele zamapowanych formantów jest implementowanych z inicjatywą [Azure Policy](../../../policy/overview.md) . Aby zapoznać się z pełną inicjatywą, Otwórz **zasady** w Azure Portal i wybierz stronę **definicje** . Następnie Znajdź i wybierz wersję ** \[ zapoznawczą \] : poziom wpływu na 4** .
 
 > [!IMPORTANT]
 > Każda kontrolka poniżej jest skojarzona z co najmniej jedną definicją [Azure Policy](../../../policy/overview.md) . Te zasady mogą pomóc w [ocenie zgodności](../../../policy/how-to/get-compliance-data.md) z kontrolką; Niemniej jednak często nie jest to 1:1 ani kompletna zgodność między kontrolką a co najmniej jedną zasadą. W związku z tym **zgodność** w Azure Policy odnosi się tylko do samych zasad; nie gwarantuje to, że jest w pełni zgodne ze wszystkimi wymaganiami formantu. Ponadto Standard zgodności zawiera kontrolki, które nie są obecnie rozwiązywane przez żadną Azure Policy definicje. W związku z tym zgodność w Azure Policy jest tylko częściowym widokiem ogólnego stanu zgodności. Skojarzenia między kontrolkami i definicjami Azure Policy dla tego przykładowego planu zgodności mogą ulec zmianie z upływem czasu.
@@ -76,8 +76,8 @@ Platforma Azure implementuje funkcję [kontroli dostępu opartej na rolach](../.
 
 Ten plan ułatwia monitorowanie i kontrolowanie dostępu zdalnego przez przypisanie definicji [Azure Policy](../../../policy/overview.md) do monitorów, że debugowanie zdalne dla Azure App Service aplikacji jest wyłączone i definicje zasad, które przeprowadzają inspekcję maszyn wirtualnych systemu Linux, które zezwalają na połączenia zdalne z kont bez haseł. Ten plan przypisuje również definicję Azure Policy, która ułatwia monitorowanie nieograniczonego dostępu do kont magazynu. Monitorowanie tych wskaźników może pomóc zapewnić zgodność metod dostępu zdalnego z zasadami zabezpieczeń.
 
-- \[Wersja\]zapoznawcza: Inspekcja maszyn wirtualnych systemu Linux, które zezwalają na połączenia zdalne z kont bez hasła
-- \[Wersja\]zapoznawcza: wdrażanie wymagań do inspekcji maszyn wirtualnych z systemem Linux, które zezwalają na połączenia zdalne z kont bez hasła
+- \[Wersja zapoznawcza \] : Inspekcja maszyn wirtualnych systemu Linux, które zezwalają na połączenia zdalne z kont bez hasła
+- \[Wersja zapoznawcza \] : wdrażanie wymagań do inspekcji maszyn wirtualnych z systemem Linux, które zezwalają na połączenia zdalne z kont bez hasła
 - Inspekcja nieograniczonego dostępu sieciowego do kont magazynu
 - Debugowanie zdalne powinno być wyłączone dla aplikacji interfejsu API
 - Zdalne debugowanie powinno zostać wyłączone dla aplikacja funkcji
@@ -101,13 +101,13 @@ Ten plan zawiera definicje zasad pomagające zapewnić prawidłowe włączenie p
 
 Dane dziennika zbierane przez Azure Monitor są przechowywane w Log Analytics obszarze roboczym, co pozwala na scentralizowaną konfigurację i zarządzanie. Ten plan pomaga zapewnić, że zdarzenia są rejestrowane przez przypisanie [Azure Policy](../../../policy/overview.md) definicji, które przeprowadzają inspekcję i egzekwowanie wdrożenia agenta log Analytics na maszynach wirtualnych platformy Azure.
 
-- \[Wersja\]zapoznawcza: Inspekcja wdrożenia agenta log Analytics — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
-- \[Wersja\]zapoznawcza: Inspekcja wdrożenia agenta log Analytics w programie VMSS — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
-- \[Wersja\]zapoznawcza: inspekcja log Analytics obszaru roboczego dla maszyny wirtualnej — niezgodność raportów
-- \[Wersja\]zapoznawcza: wdrażanie log Analytics agenta dla systemu Linux VM Scale Sets (VMSS)
-- \[Wersja\]zapoznawcza: wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux
-- \[Wersja\]zapoznawcza: wdrażanie log Analytics agenta dla systemu Windows VM Scale Sets (VMSS)
-- \[Wersja\]zapoznawcza: wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows
+- \[Wersja zapoznawcza \] : Inspekcja wdrożenia agenta log Analytics — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
+- \[Wersja zapoznawcza \] : Inspekcja wdrożenia agenta log Analytics w programie VMSS — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
+- \[Wersja zapoznawcza \] : inspekcja log Analytics obszaru roboczego dla maszyny wirtualnej — niezgodność raportów
+- \[Wersja zapoznawcza \] : wdrażanie log Analytics agenta dla systemu Linux VM Scale Sets (VMSS)
+- \[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux
+- \[Wersja zapoznawcza \] : wdrażanie log Analytics agenta dla systemu Windows VM Scale Sets (VMSS)
+- \[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows
 
 ## <a name="au-5-response-to-audit-processing-failures"></a>Odpowiedź na błędy przetwarzania inspekcji w usłudze AU-5
 
@@ -122,21 +122,19 @@ Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) , któ
 
 Dane dziennika zbierane przez Azure Monitor są przechowywane w Log Analytics obszarze roboczym, co umożliwia scentralizowane raportowanie i analizę. Ten plan pomaga zapewnić, że zdarzenia są rejestrowane przez przypisanie [Azure Policy](../../../policy/overview.md) definicji, które przeprowadzają inspekcję i egzekwowanie wdrożenia agenta log Analytics na maszynach wirtualnych platformy Azure.
 
-- \[Wersja\]zapoznawcza: Inspekcja wdrożenia agenta log Analytics — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
-- \[Wersja\]zapoznawcza: Inspekcja wdrożenia agenta log Analytics w programie VMSS — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
-- \[Wersja\]zapoznawcza: inspekcja log Analytics obszaru roboczego dla maszyny wirtualnej — niezgodność raportów
-- \[Wersja\]zapoznawcza: wdrażanie log Analytics agenta dla systemu Linux VM Scale Sets (VMSS)
-- \[Wersja\]zapoznawcza: wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux
-- \[Wersja\]zapoznawcza: wdrażanie log Analytics agenta dla systemu Windows VM Scale Sets (VMSS)
-- \[Wersja\]zapoznawcza: wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows
+- \[Wersja zapoznawcza \] : Inspekcja wdrożenia agenta log Analytics — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
+- \[Wersja zapoznawcza \] : Inspekcja wdrożenia agenta log Analytics w programie VMSS — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
+- \[Wersja zapoznawcza \] : inspekcja log Analytics obszaru roboczego dla maszyny wirtualnej — niezgodność raportów
+- \[Wersja zapoznawcza \] : wdrażanie log Analytics agenta dla systemu Linux VM Scale Sets (VMSS)
+- \[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux
+- \[Wersja zapoznawcza \] : wdrażanie log Analytics agenta dla systemu Windows VM Scale Sets (VMSS)
+- \[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows
 
 ## <a name="au-6-5-audit-review-analysis-and-reporting--integration--scanning-and-monitoring-capabilities"></a>AU-6 (5) przegląd inspekcji, analiza i raportowanie | Możliwości integracji/skanowania i monitorowania
 
-Ten plan zawiera definicje zasad, które przeprowadzają inspekcję rekordów z analizą ocen luk w zabezpieczeniach maszyn wirtualnych, zestawów skalowania maszyn wirtualnych, wystąpień zarządzanych SQL i serwerów SQL.
-Te definicje zasad umożliwiają również inspekcję konfiguracji dzienników diagnostycznych w celu zapewnienia wglądu w operacje wykonywane w ramach zasobów platformy Azure. Te szczegółowe dane zapewniają informacje o stanie zabezpieczeń wdrożonych zasobów i umożliwiają określanie priorytetów akcji korygowania.
-Aby zapoznać się ze szczegółowym skanowaniem i monitorowaniem luk w zabezpieczeniach, zalecamy korzystanie z platformy Azure, a także Azure Security Center.
+Ten plan zawiera definicje zasad, które przeprowadzają inspekcję rekordów z analizą ocen luk w zabezpieczeniach maszyn wirtualnych, zestawów skalowania maszyn wirtualnych, serwerów SQL Database i serwerów wystąpienia zarządzanego SQL. Te definicje zasad umożliwiają również inspekcję konfiguracji dzienników diagnostycznych w celu zapewnienia wglądu w operacje wykonywane w ramach zasobów platformy Azure. Te szczegółowe dane zapewniają informacje o stanie zabezpieczeń wdrożonych zasobów i umożliwiają określanie priorytetów akcji korygowania. Aby zapoznać się ze szczegółowym skanowaniem i monitorowaniem luk w zabezpieczeniach, zalecamy korzystanie z platformy Azure, a także Azure Security Center.
 
-- \[Wersja\]zapoznawcza: Ocena luk w zabezpieczeniach powinna być włączona na Virtual Machines
+- \[Wersja zapoznawcza \] : Ocena luk w zabezpieczeniach powinna być włączona na Virtual Machines
 - Ocena luk w zabezpieczeniach powinna być włączona na serwerach SQL
 - Przeprowadzanie inspekcji ustawienia diagnostyki
 - Ocena luk w zabezpieczeniach powinna być włączona w wystąpieniach zarządzanych SQL
@@ -145,21 +143,21 @@ Aby zapoznać się ze szczegółowym skanowaniem i monitorowaniem luk w zabezpie
 - Luki w zabezpieczeniach baz danych SQL należy skorygować
 - Usterki należy skorygować przez rozwiązanie do oceny luk w zabezpieczeniach
 - Luki w zabezpieczeniach konfiguracji zabezpieczeń w zestawach skalowania maszyn wirtualnych należy skorygować
-- \[Wersja\]zapoznawcza: Inspekcja wdrożenia agenta log Analytics — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
-- \[Wersja\]zapoznawcza: Inspekcja wdrożenia agenta log Analytics w programie VMSS — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
+- \[Wersja zapoznawcza \] : Inspekcja wdrożenia agenta log Analytics — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
+- \[Wersja zapoznawcza \] : Inspekcja wdrożenia agenta log Analytics w programie VMSS — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
 
 ## <a name="au-12-audit-generation"></a>Generowanie inspekcji w usłudze AU-12
 
 Ten plan zawiera definicje zasad, które przeprowadzają inspekcję i egzekwowanie wdrożenia agenta Log Analytics na maszynach wirtualnych platformy Azure oraz konfigurację ustawień inspekcji dla innych typów zasobów platformy Azure.
 Te definicje zasad umożliwiają również inspekcję konfiguracji dzienników diagnostycznych w celu zapewnienia wglądu w operacje wykonywane w ramach zasobów platformy Azure. Ponadto na serwerach SQL są konfigurowane inspekcje i zaawansowane zabezpieczenia danych.
 
-- \[Wersja\]zapoznawcza: Inspekcja wdrożenia agenta log Analytics — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
-- \[Wersja\]zapoznawcza: Inspekcja wdrożenia agenta log Analytics w programie VMSS — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
-- \[Wersja\]zapoznawcza: inspekcja log Analytics obszaru roboczego dla maszyny wirtualnej — niezgodność raportów
-- \[Wersja\]zapoznawcza: wdrażanie log Analytics agenta dla systemu Linux VM Scale Sets (VMSS)
-- \[Wersja\]zapoznawcza: wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux
-- \[Wersja\]zapoznawcza: wdrażanie log Analytics agenta dla systemu Windows VM Scale Sets (VMSS)
-- \[Wersja\]zapoznawcza: wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows
+- \[Wersja zapoznawcza \] : Inspekcja wdrożenia agenta log Analytics — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
+- \[Wersja zapoznawcza \] : Inspekcja wdrożenia agenta log Analytics w programie VMSS — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
+- \[Wersja zapoznawcza \] : inspekcja log Analytics obszaru roboczego dla maszyny wirtualnej — niezgodność raportów
+- \[Wersja zapoznawcza \] : wdrażanie log Analytics agenta dla systemu Linux VM Scale Sets (VMSS)
+- \[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux
+- \[Wersja zapoznawcza \] : wdrażanie log Analytics agenta dla systemu Windows VM Scale Sets (VMSS)
+- \[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows
 - Przeprowadzanie inspekcji ustawienia diagnostyki
 - Inspekcja powinna być włączona w zaawansowanych ustawieniach zabezpieczeń danych na SQL Server
 - Zaawansowana ochrona danych powinna być włączona w wystąpieniach zarządzanych
@@ -226,29 +224,29 @@ Ten plan pomaga ograniczyć i kontrolować dostęp przez przypisanie definicji [
 
 Ten plan przypisuje definicje [Azure Policy](../../../policy/overview.md) , które przeprowadzają inspekcję maszyn wirtualnych systemu Linux, które zezwalają na połączenia zdalne z kont bez haseł i/lub mają ustawione nieprawidłowe uprawnienia w pliku haseł. Ten plan przypisuje również definicje zasad, które przeprowadzają inspekcję konfiguracji typu szyfrowania hasła dla maszyn wirtualnych z systemem Windows. Monitorowanie tych wskaźników pomaga upewnić się, że uwierzytelniające systemu są zgodne z zasadami identyfikacji i uwierzytelniania w organizacji.
 
-- \[Wersja\]zapoznawcza: Inspekcja maszyn wirtualnych z systemem Linux, które nie mają uprawnień do pliku haseł ustawione na 0644
-- \[Wersja\]zapoznawcza: Inspekcja maszyn wirtualnych z systemem Linux, które mają konta bez hasła
-- \[Wersja\]zapoznawcza: Inspekcja maszyn wirtualnych systemu Windows, które nie przechowują haseł przy użyciu szyfrowania odwracalnego
-- \[Wersja\]zapoznawcza: wdrażanie wymagań do inspekcji maszyn wirtualnych z systemem Linux, które nie mają uprawnień do pliku haseł ustawione na 0644
-- \[Wersja\]zapoznawcza: wdrażanie wymagań w celu inspekcji maszyn wirtualnych z systemem Linux, które mają konta bez hasła
-- \[Wersja\]zapoznawcza: wdrażanie wymagań w celu inspekcji maszyn wirtualnych z systemem Windows, które nie przechowują haseł przy użyciu szyfrowania odwracalnego
+- \[Wersja zapoznawcza \] : Inspekcja maszyn wirtualnych z systemem Linux, które nie mają uprawnień do pliku haseł ustawione na 0644
+- \[Wersja zapoznawcza \] : Inspekcja maszyn wirtualnych z systemem Linux, które mają konta bez hasła
+- \[Wersja zapoznawcza \] : Inspekcja maszyn wirtualnych systemu Windows, które nie przechowują haseł przy użyciu szyfrowania odwracalnego
+- \[Wersja zapoznawcza \] : wdrażanie wymagań do inspekcji maszyn wirtualnych z systemem Linux, które nie mają uprawnień do pliku haseł ustawione na 0644
+- \[Wersja zapoznawcza \] : wdrażanie wymagań w celu inspekcji maszyn wirtualnych z systemem Linux, które mają konta bez hasła
+- \[Wersja zapoznawcza \] : wdrażanie wymagań w celu inspekcji maszyn wirtualnych z systemem Windows, które nie przechowują haseł przy użyciu szyfrowania odwracalnego
 
 ## <a name="ia-5-1-authenticator-management--password-based-authentication"></a>Zarządzanie wystawą IA-5 (1) | Uwierzytelnianie oparte na hasłach
 
 Ten plan pomaga wymusić silne hasła, przypisując definicje [Azure Policy](../../../policy/overview.md) , które przeprowadzają inspekcję maszyn wirtualnych systemu Windows, które nie wymuszają minimalnej siły i innych wymagań dotyczących haseł. Świadomość maszyn wirtualnych z naruszeniem zasad dotyczących siły haseł pomaga podejmować działania naprawcze w celu zapewnienia zgodności haseł dla wszystkich kont użytkowników maszyny wirtualnej z zasadami haseł obowiązującymi w organizacji.
 
-- \[Wersja\]zapoznawcza: Inspekcja maszyn wirtualnych z systemem Windows, które zezwalają na ponowne korzystanie z poprzednich 24 haseł
-- \[Wersja\]zapoznawcza: Inspekcja maszyn wirtualnych z systemem Windows bez maksymalnego wieku hasła 70 dni
-- \[Wersja\]zapoznawcza: Inspekcja maszyn wirtualnych z systemem Windows bez minimalnego wieku hasła wynoszącego 1 dzień
-- \[Wersja\]zapoznawcza: Inspekcja maszyn wirtualnych z systemem Windows, które nie mają włączonego ustawienia złożoności hasła
-- \[Wersja\]zapoznawcza: Inspekcja maszyn wirtualnych z systemem Windows, które nie ograniczają minimalnej długości hasła do 14 znaków
-- \[Wersja\]zapoznawcza: Inspekcja maszyn wirtualnych systemu Windows, które nie przechowują haseł przy użyciu szyfrowania odwracalnego
-- \[Wersja\]zapoznawcza: wdrażanie wymagań w celu przeprowadzenia inspekcji maszyn wirtualnych z systemem Windows, które zezwalają na ponowne używanie poprzednich 24 haseł
-- \[Wersja\]zapoznawcza: wdrażanie wymagań w celu przeprowadzenia inspekcji maszyn wirtualnych z systemem Windows bez maksymalnego wieku hasła wynoszącego 70 dni
-- \[Wersja\]zapoznawcza: wdrażanie wymagań w celu przeprowadzenia inspekcji maszyn wirtualnych z systemem Windows bez minimalnej wieku hasła wynoszącej 1 dzień
-- \[Wersja\]zapoznawcza: wdrażanie wymagań w celu przeprowadzenia inspekcji maszyn wirtualnych z systemem Windows, które nie mają włączonego ustawienia złożoności hasła
-- \[Wersja\]zapoznawcza: wdrażanie wymagań w celu przeprowadzenia inspekcji maszyn wirtualnych z systemem Windows, które nie ograniczają minimalnej długości hasła do 14 znaków
-- \[Wersja\]zapoznawcza: wdrażanie wymagań w celu inspekcji maszyn wirtualnych z systemem Windows, które nie przechowują haseł przy użyciu szyfrowania odwracalnego
+- \[Wersja zapoznawcza \] : Inspekcja maszyn wirtualnych z systemem Windows, które zezwalają na ponowne korzystanie z poprzednich 24 haseł
+- \[Wersja zapoznawcza \] : Inspekcja maszyn wirtualnych z systemem Windows bez maksymalnego wieku hasła 70 dni
+- \[Wersja zapoznawcza \] : Inspekcja maszyn wirtualnych z systemem Windows bez minimalnego wieku hasła wynoszącego 1 dzień
+- \[Wersja zapoznawcza \] : Inspekcja maszyn wirtualnych z systemem Windows, które nie mają włączonego ustawienia złożoności hasła
+- \[Wersja zapoznawcza \] : Inspekcja maszyn wirtualnych z systemem Windows, które nie ograniczają minimalnej długości hasła do 14 znaków
+- \[Wersja zapoznawcza \] : Inspekcja maszyn wirtualnych systemu Windows, które nie przechowują haseł przy użyciu szyfrowania odwracalnego
+- \[Wersja zapoznawcza \] : wdrażanie wymagań w celu przeprowadzenia inspekcji maszyn wirtualnych z systemem Windows, które zezwalają na ponowne używanie poprzednich 24 haseł
+- \[Wersja zapoznawcza \] : wdrażanie wymagań w celu przeprowadzenia inspekcji maszyn wirtualnych z systemem Windows bez maksymalnego wieku hasła wynoszącego 70 dni
+- \[Wersja zapoznawcza \] : wdrażanie wymagań w celu przeprowadzenia inspekcji maszyn wirtualnych z systemem Windows bez minimalnej wieku hasła wynoszącej 1 dzień
+- \[Wersja zapoznawcza \] : wdrażanie wymagań w celu przeprowadzenia inspekcji maszyn wirtualnych z systemem Windows, które nie mają włączonego ustawienia złożoności hasła
+- \[Wersja zapoznawcza \] : wdrażanie wymagań w celu przeprowadzenia inspekcji maszyn wirtualnych z systemem Windows, które nie ograniczają minimalnej długości hasła do 14 znaków
+- \[Wersja zapoznawcza \] : wdrażanie wymagań w celu inspekcji maszyn wirtualnych z systemem Windows, które nie przechowują haseł przy użyciu szyfrowania odwracalnego
 
 ## <a name="ir-6-2-incident-reporting--vulnerabilities-related-to-incidents"></a>Raportowanie zdarzeń IR-6 (2) | Luki w zabezpieczeniach dotyczące zdarzeń
 
@@ -358,7 +356,7 @@ Ten plan przypisuje definicje zasad, które ułatwiają zapewnienie, że aplikac
 - Najnowsza wersja protokołu TLS powinna być używana w aplikacji interfejsu API
 - Najnowsza wersja protokołu TLS powinna być używana w aplikacja funkcji
 - Najnowsza wersja protokołu TLS powinna być używana w aplikacji sieci Web
-- \[Wersja\]zapoznawcza: usługi Kubernetes należy uaktualnić do niezagrożonej wersji Kubernetes
+- \[Wersja zapoznawcza \] : usługi Kubernetes należy uaktualnić do niezagrożonej wersji Kubernetes
 
 ## <a name="si-3-malicious-code-protection"></a>Ochrona przed złośliwym kodem SI-3
 
@@ -379,13 +377,13 @@ Ten plan ułatwia zarządzanie programem Endpoint Protection, w tym złośliwą 
 
 Ten plan ułatwia monitorowanie systemu przez inspekcjonowanie i wymuszanie rejestrowania i zabezpieczeń danych w ramach zasobów platformy Azure. W odniesieniu do zasad są przypisane inspekcje i egzekwowanie wdrożenia agenta Log Analytics oraz ulepszone ustawienia zabezpieczeń baz danych SQL, kont magazynu i zasobów sieciowych. Te możliwości mogą pomóc w wykrywaniu nietypowych zachowań i wskaźników ataków, co pozwala na podejmowanie odpowiednich działań.
 
-- \[Wersja\]zapoznawcza: Inspekcja wdrożenia agenta log Analytics — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
-- \[Wersja\]zapoznawcza: Inspekcja wdrożenia agenta log Analytics w programie VMSS — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
-- \[Wersja\]zapoznawcza: inspekcja log Analytics obszaru roboczego dla maszyny wirtualnej — niezgodność raportów
-- \[Wersja\]zapoznawcza: wdrażanie log Analytics agenta dla systemu Linux VM Scale Sets (VMSS)
-- \[Wersja\]zapoznawcza: wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux
-- \[Wersja\]zapoznawcza: wdrażanie log Analytics agenta dla systemu Windows VM Scale Sets (VMSS)
-- \[Wersja\]zapoznawcza: wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows
+- \[Wersja zapoznawcza \] : Inspekcja wdrożenia agenta log Analytics — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
+- \[Wersja zapoznawcza \] : Inspekcja wdrożenia agenta log Analytics w programie VMSS — lista obrazów maszyn wirtualnych (OS) nie została wystawiona
+- \[Wersja zapoznawcza \] : inspekcja log Analytics obszaru roboczego dla maszyny wirtualnej — niezgodność raportów
+- \[Wersja zapoznawcza \] : wdrażanie log Analytics agenta dla systemu Linux VM Scale Sets (VMSS)
+- \[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Linux
+- \[Wersja zapoznawcza \] : wdrażanie log Analytics agenta dla systemu Windows VM Scale Sets (VMSS)
+- \[Wersja zapoznawcza \] : wdrażanie agenta log Analytics dla maszyn wirtualnych z systemem Windows
 - Zaawansowana ochrona danych powinna być włączona w wystąpieniach zarządzanych
 - Zaawansowana ochrona danych powinna być włączona na serwerach SQL
 - Wdróż zaawansowane zabezpieczenia danych na serwerach SQL
@@ -422,8 +420,8 @@ Zaawansowana ochrona przed zagrożeniami dla usługi Azure Storage wykrywa niety
 Po przejrzeniu mapowania kontroli planu "4" poziomu wpływu na plan, odwiedź następujące artykuły, aby dowiedzieć się więcej na temat planu i sposobu wdrażania tego przykładu:
 
 > [!div class="nextstepaction"]
-> [Poziom wpływu na plan 4 — Omówienie](./index.md)
-> poziomu[wpływu na 4. plan — etapy wdrażania](./deploy.md)
+> [Poziom wpływu na plan 4 — Omówienie](./index.md) 
+>  [Poziom wpływu na plan 4 — etapy wdrażania](./deploy.md)
 
 Dodatkowe artykuły na temat strategii i sposobu ich używania:
 

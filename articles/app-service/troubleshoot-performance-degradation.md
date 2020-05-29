@@ -7,12 +7,12 @@ ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.topic: article
 ms.date: 08/03/2016
 ms.custom: seodec18
-ms.openlocfilehash: 98c11a72b5aea0fac15d943977402289dc33a970
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2ef4862b629f5d192049c2cb9236a3da2b411960
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74688314"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170770"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Rozwiązywanie problemów z wydajnością wolniejszych aplikacji w Azure App Service
 Ten artykuł pomaga rozwiązywać problemy związane z wydajnością aplikacji w [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
@@ -39,7 +39,7 @@ Rozwiązywanie problemów można podzielić na trzy różne zadania, w kolejnoś
 
 [App Service](overview.md) oferuje różne opcje w każdym kroku.
 
-<a name="observe" />
+<a name="observe"></a>
 
 ### <a name="1-observe-and-monitor-application-behavior"></a>1. Obserwuj i monitoruj zachowanie aplikacji
 #### <a name="track-service-health"></a>Śledzenie kondycji usługi
@@ -84,7 +84,7 @@ Każda aplikacja App Service udostępnia rozszerzalny punkt końcowy zarządzani
 
 [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) to rozszerzenie witryny do monitorowania wydajności, które jest również dostępne. Aby użyć Application Insights, należy ponownie skompilować kod przy użyciu zestawu SDK. Można także zainstalować rozszerzenie, które zapewnia dostęp do dodatkowych danych. Zestaw SDK umożliwia pisanie kodu do monitorowania użycia i wydajności aplikacji w bardziej szczegółowy sposób. Aby uzyskać więcej informacji, zobacz [monitorowanie wydajności w aplikacjach sieci Web](../azure-monitor/app/web-monitor-performance.md).
 
-<a name="collect" />
+<a name="collect"></a>
 
 ### <a name="2-collect-data"></a>2. Zbierz dane
 App Service udostępnia funkcje diagnostyczne do rejestrowania informacji z serwera sieci Web i aplikacji sieci Web. Informacje są rozdzielone na diagnostykę serwera sieci Web i diagnostykę aplikacji.
@@ -126,7 +126,7 @@ Aby uzyskać dostęp do diagnostyki App Service, przejdź do aplikacji App Servi
 #### <a name="use-the-kudu-debug-console"></a>Korzystanie z konsoli debugowania kudu
 App Service obejmuje konsolę debugowania, której można użyć do debugowania, eksplorowania, przekazywania plików, a także punktów końcowych JSON do uzyskiwania informacji o środowisku. Ta konsola jest nazywana *konsolą kudu* lub *pulpitem nawigacyjnym SCM* dla aplikacji.
 
-Możesz uzyskać dostęp do tego pulpitu nawigacyjnego, przechodząc do linku **https://&lt;nazwę aplikacji>. SCM.azurewebsites.NET/**.
+Możesz uzyskać dostęp do tego pulpitu nawigacyjnego, przechodząc do linku **https:// &lt; nazwę aplikacji>. SCM.azurewebsites.NET/**.
 
 Dostępne są następujące elementy kudu:
 
@@ -139,7 +139,7 @@ Kolejną przydatną funkcją kudu jest to, że w przypadku, gdy aplikacja zgłas
 
 Aby uzyskać więcej informacji na temat funkcji dostępnych w programie kudu, zobacz [temat narzędzia DevOps platformy Azure, których należy wiedzieć](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
-<a name="mitigate" />
+<a name="mitigate"></a>
 
 ### <a name="3-mitigate-the-issue"></a>3. Zmniejsz problem
 #### <a name="scale-the-app"></a>Skalowanie aplikacji

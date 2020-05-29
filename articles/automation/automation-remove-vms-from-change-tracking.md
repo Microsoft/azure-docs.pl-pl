@@ -5,16 +5,18 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 23dfad844c17b0b8c8a35b6a94d6a96327afe19c
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 8e9b80c60c098e4daf247db07fa48baa322aa7f0
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117453"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84169458"
 ---
 # <a name="remove-vms-from-change-tracking-and-inventory"></a>Usuwanie maszyn wirtualnych ze śledzenia zmian i spisu
 
 Po zakończeniu wdrażania zmian w maszynach wirtualnych w środowisku można je usunąć z funkcji [Change Tracking i spisu](change-tracking.md) .
+
+## <a name="to-remove-your-vms"></a>Aby usunąć maszyny wirtualne
 
 1. Z poziomu konta usługi Automation wybierz pozycję **śledzenie zmian** lub **spis** w obszarze **Zarządzanie konfiguracją**.
 

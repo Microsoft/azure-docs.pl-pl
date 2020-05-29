@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1319583569a8abc619ad902a87ee551b476f88eb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a2906c947e24bf5053760e9b83429ae7c6ecd3f4
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79254627"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170124"
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Włączanie lub wyłączanie urządzenia z serii StorSimple 8000
 
@@ -86,12 +86,12 @@ Awaria lub przerwy w zasilaniu mogą wyłączyć urządzenie StorSimple. Awaria 
 * [Tylko urządzenie z podstawową obudową](#8100)
 * [Urządzenie z obudową EBOD](#8600)
 
-### <a name="device-with-primary-enclosure-only-a-name8100"></a>Tylko urządzenie z podstawową obudową<a name="8100">
+### <a name="device-with-primary-enclosure-only"></a>Tylko urządzenie z podstawową obudową<a name="8100"></a>
 System może kontynuować swoją normalną operację, jeśli nastąpi utrata mocy do jednego z jego zasilaczy. Aby jednak zapewnić wysoką dostępność urządzenia, należy przywrócić zasilanie do zasilacza najszybciej, jak to możliwe.
 
 W przypadku awarii lub przerwy w zasilaniu obu zasilaczach system zostanie zamknięty w sposób uporządkowany i kontrolowany. Po przywróceniu napięcia system zostanie automatycznie włączony.
 
-### <a name="device-with-ebod-enclosure-a-name8600"></a>Urządzenie z obudową EBOD<a name="8600">
+### <a name="device-with-ebod-enclosure"></a>Urządzenie z obudową EBOD<a name="8600"></a>
 #### <a name="power-loss-on-one-power-supply"></a>Utrata mocy w jednym zasilaczu
 System może kontynuować swoją normalną operację, jeśli nastąpi utrata mocy do jednej z jej zasilaczy podstawowego lub obudowy EBOD. Aby zapewnić wysoką dostępność urządzenia, Przywróć zasilanie do zasilacza tak szybko, jak to możliwe.
 
@@ -140,21 +140,21 @@ Uruchomienie urządzenia StorSimple może być konieczne w przypadku jego przeni
 * [Urządzenie z obudową podstawową](#8100a)
 * [Urządzenie z obudową EBOD](#8600a)
 
-### <a name="device-with-primary-enclosure-a-name8100a"></a>Urządzenie z obudową podstawową<a name="8100a">
+### <a name="device-with-primary-enclosure"></a>Urządzenie z obudową podstawową<a name="8100a"></a>
 Aby wyłączyć urządzenie w sposób uporządkowany i kontrolowany, można to zrobić za pośrednictwem Azure Portal lub za pośrednictwem program Windows PowerShell dla usługi StorSimple. 
 
 > [!IMPORTANT]
 > Nie zamykaj uruchomionego urządzenia przy użyciu przycisku energia z tyłu urządzenia.
 > 
-> Przed zamknięciem urządzenia upewnij się, że wszystkie składniki urządzenia są w dobrej kondycji. W Azure Portal przejdź do **urządzeń** > **Monitoruj** > **kondycję sprzętu**i sprawdź, czy stan wszystkich składników jest zielony. Jest to prawdziwe tylko w przypadku systemu w dobrej kondycji. Jeśli system jest zamykany w celu zastąpienia nieprawidłowego składnika, w **stanie sprzętu**zostanie wyświetlony stan "Niepowodzenie" (czerwony) lub zdegradowany (żółty) dla odpowiedniego składnika.
+> Przed zamknięciem urządzenia upewnij się, że wszystkie składniki urządzenia są w dobrej kondycji. W Azure Portal przejdź do **urządzeń**  >  **Monitoruj**  >  **kondycję sprzętu**i sprawdź, czy stan wszystkich składników jest zielony. Jest to prawdziwe tylko w przypadku systemu w dobrej kondycji. Jeśli system jest zamykany w celu zastąpienia nieprawidłowego składnika, w **stanie sprzętu**zostanie wyświetlony stan "Niepowodzenie" (czerwony) lub zdegradowany (żółty) dla odpowiedniego składnika.
 > 
 > 
 
 Po uzyskaniu dostępu do program Windows PowerShell dla usługi StorSimple lub Azure Portal, wykonaj kroki opisane w [sekcji wyłączanie urządzenia StorSimple](storsimple-8000-manage-device-controller.md#shut-down-a-storsimple-device). 
 
-### <a name="device-with-ebod-enclosure-a-name8600a"></a>Urządzenie z obudową EBOD<a name="8600a">
+### <a name="device-with-ebod-enclosure"></a>Urządzenie z obudową EBOD<a name="8600a"></a>
 > [!IMPORTANT]
-> Przed zamknięciem obudowy podstawowej i obudowy EBOD upewnij się, że wszystkie składniki urządzenia są w dobrej kondycji. W Azure Portal przejdź do **urządzeń** > **Monitoruj** > **kondycję sprzętu**i sprawdź, czy wszystkie składniki są w dobrej kondycji.
+> Przed zamknięciem obudowy podstawowej i obudowy EBOD upewnij się, że wszystkie składniki urządzenia są w dobrej kondycji. W Azure Portal przejdź do **urządzeń**  >  **Monitoruj**  >  **kondycję sprzętu**i sprawdź, czy wszystkie składniki są w dobrej kondycji.
 
 
 #### <a name="to-shut-down-a-running-device-with-ebod-enclosure"></a>Aby zamknąć uruchomione urządzenie przy użyciu obudowy EBOD

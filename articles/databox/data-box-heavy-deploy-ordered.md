@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 4e9077d06341ce5ecf6b2238374ce1ac8e13dca3
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 91d78975106299c3b3a6df6d8dee05f337dd339a
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81415159"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83742990"
 ---
 # <a name="tutorial-order-azure-data-box-heavy"></a>Samouczek: Zamawianie urządzenia Azure Data Box Heavy
 
@@ -75,7 +75,7 @@ Wykonaj poniższe czynności w witrynie Azure Portal, aby zamówić urządzenie.
     |---------|---------|
     |Subskrypcja     | Wybierz subskrypcję EA, CSP lub dostęp sponsorowany Azure dla usługi Data Box. <br> Subskrypcja jest połączona z kontem rozliczeniowym.       |
     |Typ transferu     | Wybierz pozycję **Importuj na platformę Azure**.        |
-    |Kraj źródłowy     | Wybierz kraj/region, w którym aktualnie znajdują się dane.         |
+    |Kraj/region źródłowy     | Wybierz kraj/region, w którym aktualnie znajdują się dane.         |
     |Docelowy region platformy Azure     | Wybierz region platformy Azure, do którego chcesz przenieść dane.        |
 
     [![Wybieranie dostępności rodziny produktów Data Box](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
@@ -91,7 +91,7 @@ Wykonaj poniższe czynności w witrynie Azure Portal, aby zamówić urządzenie.
     |Nazwa     | Podaj przyjazną nazwę, aby śledzić zamówienie. <br> Nazwa może zawierać od 3 do 24 znaków, które mogą być literami, cyframi i łącznikami. <br> Nazwa musi zaczynać i kończyć się literą lub cyfrą.      |
     |Grupa zasobów     | Użyj istniejącej grupy lub utwórz nową. <br> Grupa zasobów to kontener logiczny zasobów, które mogą być zarządzane lub wdrażane razem.         |
     |Docelowy region platformy Azure     | Wybierz region swojego konta magazynu. <br> Aby uzyskać więcej informacji, przejdź do sekcji [Dostępność regionalna](https://azure.microsoft.com/global-infrastructure/services/?products=databox).        |
-    |Miejsce docelowe magazynu     | Wybierz konto magazynu, dyski zarządzane lub obie te opcje. <br> W oparciu o wybrany region platformy Azure wybierz z listy filtrowanej istniejących kont magazynu co najmniej jedno z nich. <br>Urządzenie Data Box Heavy można połączyć z maksymalnie 10 kontami magazynu. <br> Można również utworzyć nowe **konto ogólnego przeznaczenia w wersji 1**, **konto ogólnego przeznaczenia w wersji 2** lub **konto usługi Blob Storage**. <br> Konta usługi Azure Data Lake Storage Gen 2 nie są obsługiwane. Przejrzyj [konta magazynu obsługiwane z urządzeniem](data-box-heavy-system-requirements.md#supported-storage-accounts). <br>Konta magazynu z sieciami wirtualnymi są obsługiwane. Aby umożliwić usłudze Data Box współpracę z zabezpieczonymi kontami magazynu, włącz usługi zaufane w ustawieniach zapory sieciowej dla konta magazynu. Aby uzyskać więcej informacji, zobacz, jak [dodać usługę Azure Data Box jako usługę zaufaną](../storage/common/storage-network-security.md#exceptions).|
+    |Miejsce docelowe magazynu     | Wybierz konto magazynu, dyski zarządzane lub obie te opcje. <br> W oparciu o wybrany region platformy Azure wybierz z listy filtrowanej istniejących kont magazynu co najmniej jedno z nich. <br>Urządzenie Data Box Heavy można połączyć z maksymalnie 10 kontami magazynu. <br> Można również utworzyć nowe **konto ogólnego przeznaczenia w wersji 1**, **konto ogólnego przeznaczenia w wersji 2** lub **konto usługi Blob Storage**. <br>Przejrzyj [konta magazynu obsługiwane z urządzeniem](data-box-heavy-system-requirements.md#supported-storage-accounts). <br>Konta magazynu z sieciami wirtualnymi są obsługiwane. Aby umożliwić usłudze Data Box współpracę z zabezpieczonymi kontami magazynu, włącz usługi zaufane w ustawieniach zapory sieciowej dla konta magazynu. Aby uzyskać więcej informacji, zobacz, jak [dodać usługę Azure Data Box jako usługę zaufaną](../storage/common/storage-network-security.md#exceptions).|
 
     Jeśli korzystasz z konta magazynu jako miejsca docelowego magazynu, zobaczysz następujący ekran:
 

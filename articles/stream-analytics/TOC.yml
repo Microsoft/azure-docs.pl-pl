@@ -9,14 +9,18 @@
 - name: Przewodniki Szybki start
   expanded: true
   items:
-    - name: Tworzenie zadania — Azure Portal
-      href: stream-analytics-quick-create-portal.md
-    - name: Tworzenie zadania — PowerShell
-      href: stream-analytics-quick-create-powershell.md
-    - name: Tworzenie zadania — Visual Studio
-      href: stream-analytics-quick-create-vs.md
-    - name: Tworzenie zadania — Visual Studio Code
-      href: quick-create-vs-code.md
+    - name: Tworzenie zadania
+      items:
+        - name: Azure Portal
+          href: stream-analytics-quick-create-portal.md
+        - name: Szablon ARM
+          href: quick-create-azure-resource-manager.md
+        - name: PowerShell
+          href: stream-analytics-quick-create-powershell.md
+        - name: Visual Studio
+          href: stream-analytics-quick-create-vs.md
+        - name: Visual Studio Code
+          href: quick-create-vs-code.md
 - name: Samouczki
   items:
     - name: 1 — Tworzenie zadania i zarządzanie nim

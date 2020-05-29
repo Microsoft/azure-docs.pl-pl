@@ -5,12 +5,12 @@ services: automation
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 3220c364a4c94f95fa26d334a95f8e0d3155d5ab
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 2728964d5bbf83b42251068ffbdea223ff6bd85e
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117995"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171093"
 ---
 # <a name="enable-change-tracking-and-inventory-from-a-runbook"></a>Włączanie śledzenia zmian i spisu z poziomu elementu runbook
 
@@ -104,7 +104,4 @@ Aby można było uruchomić ten element Runbook, należy włączyć Change Track
 
 * Aby zaplanować element Runbook, zobacz [Zarządzanie harmonogramami w Azure Automation](shared-resources/schedules.md).
 * Aby uzyskać szczegółowe informacje na temat pracy z funkcją, zobacz [zarządzanie Change Tracking i spisem](change-tracking-file-contents.md).
-* Aby dowiedzieć się, jak za pomocą funkcji identyfikować oprogramowanie zainstalowane w danym środowisku, zobacz sekcję jak rozpoznać, [jakie oprogramowanie jest zainstalowane na maszynach wirtualnych](automation-tutorial-installed-software.md).
-* Jeśli nie chcesz zintegrować konta usługi Automation z obszarem roboczym Log Analytics podczas włączania funkcji, zobacz [Odłącz obszar roboczy od konta usługi Automation](automation-unlink-workspace-change-tracking.md).
-* Po zakończeniu wdrażania zmian na maszynach wirtualnych można je usunąć zgodnie z opisem w temacie [usuwanie maszyn wirtualnych z Change Tracking i spisu](automation-remove-vms-from-change-tracking.md).
 * Rozwiązywanie ogólnych problemów z funkcją można znaleźć w temacie [Rozwiązywanie problemów dotyczących Change Tracking i spisu](troubleshoot/change-tracking.md).

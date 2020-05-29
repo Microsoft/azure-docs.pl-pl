@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: b812ae10b3462dbeff05c8a67e7ebb725281e7e8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 45a313318bc8005b433536d1b109f6153bc79e01
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81535761"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170617"
 ---
 # <a name="back-up-your-app-in-azure"></a>Tworzenie kopii zapasowej aplikacji na platformie Azure
 Funkcja tworzenia kopii zapasowych i przywracania w [Azure App Service](overview.md) umożliwia łatwe tworzenie kopii zapasowych aplikacji ręcznie lub zgodnie z harmonogramem. Kopie zapasowe można skonfigurować tak, aby były przechowywane przez czas nieokreślony. Możesz przywrócić aplikację do migawki poprzedniego stanu, zastępując istniejącą aplikację lub przywracając ją do innej aplikacji.
@@ -41,7 +41,7 @@ Następujące rozwiązania bazy danych są obsługiwane z funkcją tworzenia kop
 <a name="requirements"></a>
 
 ## <a name="requirements-and-restrictions"></a>Wymagania i ograniczenia
-* Funkcja tworzenia kopii zapasowych i przywracania wymaga, aby plan App Service znajdował się w warstwie **standardowa** lub **Premium** . Aby uzyskać więcej informacji na temat skalowania planu App Service w celu korzystania z wyższej warstwy, zobacz [skalowanie w górę aplikacji na platformie Azure](manage-scale-up.md). Warstwa **Premium** umożliwia większą liczbę codziennych przez siebie danych niż w warstwie **standardowa** .
+* Funkcja tworzenia kopii zapasowych i przywracania wymaga, aby plan App Service znajdował się w warstwie **standardowa**, **Premium** lub **izolowanej** . Aby uzyskać więcej informacji na temat skalowania planu App Service w celu korzystania z wyższej warstwy, zobacz [skalowanie w górę aplikacji na platformie Azure](manage-scale-up.md). Warstwy **Premium** i **izolowane** umożliwiają większą liczbę codziennych przez siebie danych niż w warstwie **standardowa** .
 * Potrzebujesz konta usługi Azure Storage i kontenera w tej samej subskrypcji co aplikacja, dla której chcesz utworzyć kopię zapasową. Aby uzyskać więcej informacji na temat kont usługi Azure Storage, zobacz [Omówienie konta usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 * Kopie zapasowe mogą mieć do 10 GB zawartości aplikacji i bazy danych. Jeśli rozmiar kopii zapasowej przekracza ten limit, zostanie wyświetlony komunikat o błędzie.
 * Kopie zapasowe z włączonym protokołem TLS Azure Database for MySQL nie są obsługiwane. W przypadku skonfigurowania kopii zapasowej zostaną wyświetlone nieudane kopie zapasowe.
@@ -120,13 +120,13 @@ Częściowe kopie zapasowe umożliwiają wybranie dokładnie tych plików, dla k
 ### <a name="exclude-files-from-your-backup"></a>Wyklucz pliki z kopii zapasowej
 Załóżmy, że masz aplikację, która zawiera pliki dziennika i obrazy statyczne, których kopie zapasowe zostały utworzone raz i nie będą zmieniane. W takich przypadkach można wykluczyć te foldery i pliki, które mają być przechowywane w przyszłych kopiach zapasowych. Aby wykluczyć pliki i foldery z kopii zapasowych, Utwórz `_backup.filter` plik w `D:\home\site\wwwroot` folderze aplikacji. Określ listę plików i folderów, które mają zostać wykluczone w tym pliku. 
 
-Dostęp do plików można uzyskać, przechodząc do `https://<app-name>.scm.azurewebsites.net/DebugConsole`programu. Jeśli zostanie wyświetlony monit, zaloguj się do konta platformy Azure.
+Dostęp do plików można uzyskać, przechodząc do programu `https://<app-name>.scm.azurewebsites.net/DebugConsole` . Jeśli zostanie wyświetlony monit, zaloguj się do konta platformy Azure.
 
 Zidentyfikuj foldery, które mają zostać wykluczone z kopii zapasowych. Na przykład, chcesz odfiltrować wyróżniony folder i pliki.
 
 ![Folder obrazów](./media/manage-backup/kudu-images.png)
 
-Utwórz plik o nazwie `_backup.filter` i umieść poprzednią listę w pliku, ale Usuń `D:\home`. Wyświetl listę jednego katalogu lub pliku w każdym wierszu. Dlatego zawartość pliku powinna być:
+Utwórz plik o nazwie `_backup.filter` i umieść poprzednią listę w pliku, ale Usuń `D:\home` . Wyświetl listę jednego katalogu lub pliku w każdym wierszu. Dlatego zawartość pliku powinna być:
 
  ```
 \site\wwwroot\Images\brand.png
@@ -148,7 +148,7 @@ Uruchom kopie zapasowe w taki sam sposób, jak zwykle, [ręcznie](#create-a-manu
 <a name="aboutbackups"></a>
 
 ## <a name="how-backups-are-stored"></a>Jak są przechowywane kopie zapasowe
-Po wykonaniu co najmniej jednej kopii zapasowej dla aplikacji kopie zapasowe są widoczne na stronie **kontenery** Twojego konta magazynu i aplikacji. Na koncie magazynu każda kopia zapasowa składa się`.zip` z pliku zawierającego dane kopii zapasowej i `.xml` pliku, który zawiera manifest zawartości `.zip` pliku. Można rozpakować i przeglądać te pliki, jeśli chcesz uzyskać dostęp do kopii zapasowych bez rzeczywistego wykonywania przywracania aplikacji.
+Po wykonaniu co najmniej jednej kopii zapasowej dla aplikacji kopie zapasowe są widoczne na stronie **kontenery** Twojego konta magazynu i aplikacji. Na koncie magazynu każda kopia zapasowa składa się z `.zip` pliku zawierającego dane kopii zapasowej i `.xml` pliku, który zawiera manifest `.zip` zawartości pliku. Można rozpakować i przeglądać te pliki, jeśli chcesz uzyskać dostęp do kopii zapasowych bez rzeczywistego wykonywania przywracania aplikacji.
 
 Kopia zapasowa bazy danych aplikacji jest przechowywana w katalogu głównym pliku zip. W przypadku bazy danych SQL jest to plik BACPAC (bez rozszerzenia pliku) i można go zaimportować. Aby utworzyć bazę danych SQL na podstawie eksportu BACPAC, zobacz [Importowanie pliku BACPAC w celu utworzenia nowej bazy danych użytkownika](https://technet.microsoft.com/library/hh710052.aspx).
 

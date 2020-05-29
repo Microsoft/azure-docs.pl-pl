@@ -7,12 +7,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 0eeddc26ac1a1f286d8ed253f3fe097f0e7de91f
-ms.sourcegitcommit: 27bbda320225c2c2a43ac370b604432679a6a7c0
+ms.openlocfilehash: 7cf42950bc25ad501fd11b1b28c74b5f63066c32
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80409388"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745526"
 ---
 # <a name="troubleshoot-a-declined-card-at-azure-sign-up"></a>Rozwiązywanie problemów z kartą odrzuconą podczas tworzenia konta platformy Azure
 
@@ -20,9 +20,9 @@ Może wystąpić problem lub błąd polegający na tym, że karta kredytowa zost
 
 Aby rozwiązać problem, wybierz poniżej temat, który najlepiej odpowiada występującemu błędowi.
 
-## <a name="the-credit-card-provider-is-not-accepted-for-your-country"></a>Dostawca karty kredytowej nie został zaakceptowany w Twoim kraju
+## <a name="the-credit-card-provider-is-not-accepted-for-your-countryregion"></a>Dostawca karty kredytowej nie jest akceptowany w Twoim kraju/regionie
 
-Po wybraniu karty na platformie Azure są wyświetlane opcje karty, które są prawidłowe w wybranym kraju. Skontaktuj się z bankiem lub wystawcą karty, aby upewnić się, że karta kredytowa została włączona dla transakcji międzynarodowych. Aby uzyskać więcej informacji o obsługiwanych krajach i walutach, zapoznaj się z [często zadawanymi pytaniami dotyczącymi zakupu platformy Azure](https://azure.microsoft.com/pricing/faq/).
+Po wybraniu karty na platformie Azure są wyświetlane opcje karty, które są prawidłowe w wybranym kraju/regionie. Skontaktuj się z bankiem lub wystawcą karty, aby upewnić się, że karta kredytowa została włączona dla transakcji międzynarodowych. Aby uzyskać więcej informacji o obsługiwanych krajach/regionach i walutach, zapoznaj się z [często zadawanymi pytaniami dotyczącymi zakupu platformy Azure](https://azure.microsoft.com/pricing/faq/).
 
 >[!Note]
 >Karty kredytowe American Express nie są obecnie obsługiwane jako instrument płatniczy w Indiach. Nie mamy informacji dotyczącej terminu, kiedy kart te staną się akceptowaną formą płatności.
@@ -60,7 +60,7 @@ Aby uzyskać informacje o sposobach zarządzania informacjami o karcie, w tym o 
 Inne artykuły dotyczące rozwiązywania problemów z rozliczeniami i subskrypcjami platformy Azure
 
 - [Problemy dotyczące rejestrowania](troubleshoot-azure-sign-up.md)
-- [Subscription sign-in issues (Problemy z logowaniem do subskrypcji)](troubleshoot-sign-in-issue.md)
+- [Problemy z logowaniem do subskrypcji](troubleshoot-sign-in-issue.md)
 - [No subscriptions found (Nie odnaleziono żadnych subskrypcji)](no-subscriptions-found.md)
 - [Wyłączony widok kosztów przedsiębiorstwa](enterprise-mgmt-grp-troubleshoot-cost-view.md)
 

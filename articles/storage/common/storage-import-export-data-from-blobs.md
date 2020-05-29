@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/12/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: a5afa6439caa6b7c1572447e3b212f3357bf296a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: fe58f59147db43b1c15298f83a2945b50766f8a8
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80282515"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84169206"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Eksportowanie danych z usługi Azure Blob Storage za pomocą usługi Azure Import/Export
 
@@ -27,10 +27,10 @@ Należy:
 - Mieć aktywną subskrypcję platformy Azure, która może być używana w usłudze Import/Export.
 - Mieć co najmniej jedno konto usługi Azure Storage. Zapoznaj się z listą [obsługiwanych kont magazynu i typów magazynów dla usługi Import/Export](storage-import-export-requirements.md). Aby uzyskać informacje dotyczące tworzenia nowego konta magazynu, zobacz [jak utworzyć konto magazynu](storage-account-create.md).
 - Ma wystarczającą liczbę dysków [obsługiwanych typów](storage-import-export-requirements.md#supported-disks).
-- Mieć konto FedEx/DHL. Jeśli chcesz użyć operatora innego niż FedEx/DHL, skontaktuj się z zespołem operacyjnym Azure Data Box `adbops@microsoft.com`.
+- Mieć konto FedEx/DHL. Jeśli chcesz użyć operatora innego niż FedEx/DHL, skontaktuj się z zespołem operacyjnym Azure Data Box `adbops@microsoft.com` .
   - Konto musi być prawidłowe, powinno mieć saldo i musi mieć możliwości wysyłki zwrotnej.
   - Generuj numer śledzenia dla zadania eksportu.
-  - Każde zadanie powinno mieć oddzielny numer śledzenia. Wiele zadań o tym samym numerze śledzenia nie są obsługiwane.
+  - Każde zadanie powinno mieć oddzielny numer śledzenia. Nie ma możliwości obsługi wielu zadań o tym samym numerze śledzenia.
   - Jeśli nie masz konta nośnego, przejdź do:
     - [Utwórz konto FedEx](https://www.fedex.com/en-us/create-account.html)lub
     - [Utwórz konto DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
@@ -39,7 +39,7 @@ Należy:
 
 Wykonaj następujące kroki, aby utworzyć zadanie eksportu w Azure Portal.
 
-1. Zaloguj się do https://portal.azure.com/.
+1. Zaloguj się do https://portal.azure.com/ .
 2. Przejdź do obszaru **wszystkie usługi > magazyn > zadania importowania/eksportowania**.
 
     ![Przejdź do zadań importu/eksportu](./media/storage-import-export-data-from-blobs/export-from-blob1.png)
@@ -83,7 +83,7 @@ Wykonaj następujące kroki, aby utworzyć zadanie eksportu w Azure Portal.
 
 6. W oknie **Informacje o wysyłce zwrotu**:
 
-    - Wybierz operatora z listy rozwijanej. Jeśli chcesz użyć operatora innego niż FedEx/DHL, wybierz istniejącą opcję z listy rozwijanej. Skontaktuj się z zespołem `adbops@microsoft.com` ds. operacyjnych Azure Data Box z informacjami dotyczącymi przewoźnika, którego zamierzasz używać.
+    - Wybierz operatora z listy rozwijanej. Jeśli chcesz użyć operatora innego niż FedEx/DHL, wybierz istniejącą opcję z listy rozwijanej. Skontaktuj się z zespołem ds. operacyjnych Azure Data Box `adbops@microsoft.com` z informacjami dotyczącymi przewoźnika, którego zamierzasz używać.
     - Wprowadź prawidłowy numer konta nośnego, który został utworzony za pomocą tego operatora. Firma Microsoft korzysta z tego konta do dostarczania dysków z powrotem po zakończeniu zadania eksportowania.
     - Podaj pełną i poprawną nazwę kontaktu, numer telefonu, adres e-mail, ulica, miasto, kod pocztowy, Województwo i kraj/region.
 
@@ -129,7 +129,7 @@ Eksportowanie zostało zakończone.
 
 Jeśli używasz wersji 1.4.0.300 narzędzia WAImportExport, użyj następującego polecenia, aby odblokować dysk:
 
-    `WAImportExport Unlock /externalKey:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>`  
+   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>`  
 
 Jeśli używasz wcześniejszych wersji tego narzędzia, użyj okna dialogowego BitLocker do odblokowania dysku.
 
@@ -140,7 +140,7 @@ W tej chwili można usunąć zadanie lub pozostawić je. Zadania są usuwane aut
 Ten *opcjonalny* krok pozwala określić liczbę dysków wymaganych dla zadania eksportu. Wykonaj ten krok w systemie operacyjnym Windows z [obsługiwaną wersją systemu operacyjnego](storage-import-export-requirements.md#supported-operating-systems).
 
 1. [Pobierz wersję WAImportExport 1](https://www.microsoft.com/download/details.aspx?id=42659) w systemie Windows.
-2. Rozpakuj do folderu `waimportexportv1`domyślnego. Na przykład `C:\WaImportExportV1`.
+2. Rozpakuj do folderu domyślnego `waimportexportv1` . Na przykład `C:\WaImportExportV1`.
 3. Otwórz okno programu PowerShell lub wiersza polecenia z uprawnieniami administracyjnymi. Aby zmienić katalog na folder niespakowany, uruchom następujące polecenie:
 
     `cd C:\WaImportExportV1`

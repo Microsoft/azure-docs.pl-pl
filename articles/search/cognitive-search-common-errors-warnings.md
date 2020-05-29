@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: b5e18fcc5dc23bdbd9027de62a5bee0fb7d4ceff
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 00494a4e071cb3e8b18f04ad7f201935e20c6b3d
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125098"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171110"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Rozwiązywanie problemów z typowymi błędami indeksatora i ostrzeżeniami w usłudze Azure Wyszukiwanie poznawcze
 
@@ -40,7 +40,7 @@ Począwszy od wersji interfejsu API `2019-05-06` , błędy indeksatora na poziom
 | uzyskać | Wszelkie dodatkowe szczegóły, które mogą być pomocne w diagnozowaniu problemu, takie jak odpowiedź WebApi w przypadku niepowodzenia wykonywania niestandardowej umiejętności. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 Źródło, Func `2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.` ... Pozostałe ślady stosu... |
 | documentationLink | Link do odpowiedniej dokumentacji ze szczegółowymi informacjami na temat debugowania i rozwiązywania problemu. Ten link będzie często wskazywał jedną z poniższych sekcji na tej stronie. | https://go.microsoft.com/fwlink/?linkid=2106475 |
 
-<a name="could-not-read-document"/>
+<a name="could-not-read-document"></a>
 
 ## <a name="error-could-not-read-document"></a>Błąd: nie można odczytać dokumentu
 
@@ -52,7 +52,7 @@ Indeksator nie mógł odczytać dokumentu ze źródła danych. Przyczyną może 
 | błędy usługi źródłowej źródła danych | (z Cosmos DB)`{"Errors":["Request rate is large"]}` | Sprawdź wystąpienie magazynu, aby upewnić się, że jest w dobrej kondycji. Może być konieczne dostosowanie skalowania/partycjonowania. |
 | problemy przejściowe | Wystąpił błąd poziomu transportu podczas otrzymywania wyników z serwera. (Dostawca: Dostawca TCP, błąd: 0 — istniejące połączenie zostało wymuszone przez hosta zdalnego | Sporadycznie występują nieoczekiwane problemy z łącznością. Spróbuj ponownie uruchomić dokument za pomocą indeksatora później. |
 
-<a name="could-not-extract-document-content"/>
+<a name="could-not-extract-document-content"></a>
 
 ## <a name="error-could-not-extract-content-or-metadata-from-your-document"></a>Błąd: nie można wyodrębnić zawartości lub metadanych z dokumentu
 Indeksator ze źródłem danych obiektu BLOB nie mógł wyodrębnić zawartości lub metadanych z dokumentu (na przykład pliku PDF). Przyczyną może być:
@@ -64,7 +64,7 @@ Indeksator ze źródłem danych obiektu BLOB nie mógł wyodrębnić zawartości
 | Obiekt BLOB jest zaszyfrowany | Nie można przetworzyć dokumentu — może on być zaszyfrowany lub chroniony hasłem. | Możesz pominąć obiekt BLOB za pomocą [ustawień obiektu BLOB](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed). |
 | problemy przejściowe | "Błąd przetwarzania obiektu BLOB: żądanie zostało przerwane: żądanie zostało anulowane." "Dokument przekroczył limit czasu podczas przetwarzania". | Sporadycznie występują nieoczekiwane problemy z łącznością. Spróbuj ponownie uruchomić dokument za pomocą indeksatora później. |
 
-<a name="could-not-parse-document"/>
+<a name="could-not-parse-document"></a>
 
 ## <a name="error-could-not-parse-document"></a>Błąd: nie można przeanalizować dokumentu
 Indeksator odczytuje dokument ze źródła danych, ale wystąpił problem podczas konwertowania zawartości dokumentu do określonego schematu mapowania pól. Przyczyną może być:
@@ -76,12 +76,12 @@ Indeksator odczytuje dokument ze źródła danych, ale wystąpił problem podcza
 | Nie można zastosować mapowania pola do pola | Nie można zastosować funkcji mapowania `'functionName'` do pola `'fieldName'` . Tablica nie może mieć wartości null. Nazwa parametru: bajty | Dokładnie sprawdź [mapowania pól](search-indexer-field-mappings.md) zdefiniowane w indeksatorze i porównaj z danymi określonego pola dokumentu, który się nie powiódł. Może być konieczne zmodyfikowanie mapowań pól lub danych dokumentu. |
 | Nie można odczytać wartości pola | Nie można odczytać wartości kolumny `'fieldName'` w indeksie `'fieldIndex'` . Wystąpił błąd poziomu transportu podczas otrzymywania wyników z serwera. (Dostawca: Dostawca TCP, błąd: 0 — istniejące połączenie zostało wymuszone przez hosta zdalnego). | Te błędy są zwykle spowodowane nieoczekiwanymi problemami z łącznością z usługą źródłową źródła danych. Spróbuj ponownie uruchomić dokument za pomocą indeksatora później. |
 
-<a name="Could not map output field '`xyz`' to search index due to deserialization problem while applying mapping function '`abc`'"/>
+<a name="Could not map output field '`xyz`' to search index due to deserialization problem while applying mapping function '`abc`'"></a>
 
 ## <a name="error-could-not-map-output-field-xyz-to-search-index-due-to-deserialization-problem-while-applying-mapping-function-abc"></a>Błąd: nie można zmapować pola wyjściowego " `xyz` " na indeks wyszukiwania z powodu problemu deserializacji podczas stosowania funkcji mapowania " `abc` "
 Mapowanie danych wyjściowych mogło się nie powieść, ponieważ dane wyjściowe są w niewłaściwym formacie dla używanej funkcji mapowania. Na przykład zastosowanie funkcji mapowania Base64Encode na danych binarnych spowoduje wygenerowanie tego błędu. Aby rozwiązać ten problem, należy ponownie uruchomić indeksator bez określania funkcji mapowania lub upewnić się, że funkcja mapowania jest zgodna z typem danych wyjściowych. Szczegóły można znaleźć w temacie [Mapowanie pola danych wyjściowych](cognitive-search-output-field-mapping.md) .
 
-<a name="could-not-execute-skill"/>
+<a name="could-not-execute-skill"></a>
 
 ## <a name="error-could-not-execute-skill"></a>Błąd: nie można wykonać umiejętności
 Indeksator nie mógł uruchomić umiejętności w zestawu umiejętności.
@@ -92,19 +92,19 @@ Indeksator nie mógł uruchomić umiejętności w zestawu umiejętności.
 | Potencjalna usterka produktu | Wystąpił nieoczekiwany błąd. | Oznacza to nieznaną klasę błędu i może oznaczać, że występuje usterka produktu. Zapoznaj się z [biletem pomocy technicznej](https://ms.portal.azure.com/#create/Microsoft.Support) , aby uzyskać pomoc. |
 | Umiejętność napotkała błąd podczas wykonywania | (Z poziomu umiejętności scalania) Co najmniej jedna wartość przesunięcia była nieprawidłowa i nie można jej przeanalizować. Wstawiono elementy na końcu tekstu | Aby rozwiązać ten problem, użyj informacji w komunikacie o błędzie. Ten rodzaj błędu będzie wymagał działania do rozwiązania. |
 
-<a name="could-not-execute-skill-because-the-web-api-request-failed"/>
+<a name="could-not-execute-skill-because-the-web-api-request-failed"></a>
 
 ## <a name="error-could-not-execute-skill-because-the-web-api-request-failed"></a>Błąd: nie można wykonać umiejętności, ponieważ żądanie internetowego interfejsu API nie powiodło się
 Wykonanie kwalifikacji nie powiodło się, ponieważ wywołanie interfejsu API sieci Web nie powiodło się. Zazwyczaj ta klasa awarii występuje, gdy są używane niestandardowe umiejętności, w takim przypadku konieczne będzie debugowanie niestandardowego kodu w celu rozwiązania problemu. Jeśli zamiast tego błąd pochodzi z wbudowanej umiejętności, zapoznaj się z komunikatem o błędzie, aby uzyskać pomoc w rozwiązywaniu problemu.
 
 Podczas debugowania tego problemu należy zwrócić uwagę na wszelkie [ostrzeżenia dotyczące danych wejściowych](#warning-skill-input-was-invalid) dotyczących umiejętności. Punkt końcowy interfejsu API sieci Web może się nie powieść, ponieważ indeksator przekazuje nieoczekiwane dane wejściowe.
 
-<a name="could-not-execute-skill-because-web-api-skill-response-is-invalid"/>
+<a name="could-not-execute-skill-because-web-api-skill-response-is-invalid"></a>
 
 ## <a name="error-could-not-execute-skill-because-web-api-skill-response-is-invalid"></a>Błąd: nie można wykonać umiejętności, ponieważ odpowiedź dotycząca umiejętności interfejsu API sieci Web jest nieprawidłowa
 Wykonanie kwalifikacji nie powiodło się, ponieważ wywołanie interfejsu API sieci Web zwróciło nieprawidłową odpowiedź. Zazwyczaj ta klasa awarii występuje, gdy są używane niestandardowe umiejętności, w takim przypadku konieczne będzie debugowanie niestandardowego kodu w celu rozwiązania problemu. Jeśli zamiast tego niepowodzenie pochodzi z wbudowanej umiejętności, Utwórz [bilet pomocy technicznej](https://ms.portal.azure.com/#create/Microsoft.Support) , aby uzyskać pomoc.
 
-<a name="skill-did-not-execute-within-the-time-limit"/>
+<a name="skill-did-not-execute-within-the-time-limit"></a>
 
 ## <a name="error-skill-did-not-execute-within-the-time-limit"></a>Błąd: umiejętność nie została wykonana w ramach limitu czasu
 Istnieją dwa przypadki, w których może wystąpić ten komunikat o błędzie, z których każdy powinien być traktowany inaczej. Postępuj zgodnie z poniższymi instrukcjami, w zależności od tego, jaką umiejętność zwróciła ten błąd.
@@ -141,7 +141,7 @@ Jeśli wystąpi błąd przekroczenia limitu czasu z utworzoną niestandardową u
 
 Maksymalna wartość, którą można ustawić dla `timeout` parametru to 230 sekund.  Jeśli niestandardowa umiejętność nie może zostać wykonana spójnie w ciągu 230 sekund, możesz rozważyć zmniejszenie umiejętności niestandardowych, aby było możliwe `batchSize` Przetwarzanie mniejszej liczby dokumentów w ramach jednego wykonania.  Jeśli ustawiono już wartość `batchSize` 1, należy ponownie napisać umiejętność, aby można było wykonać ją w mniej niż 230 sekund lub w inny sposób podzielić ją na wiele umiejętności niestandardowych, tak aby czas wykonywania dla każdej pojedynczej umiejętności niestandardowej wynosił maksymalnie 230 sekund. Zapoznaj się z dokumentacją dotyczącą [niestandardowych umiejętności](cognitive-search-custom-skill-web-api.md) , aby uzyskać więcej informacji.
 
-<a name="could-not-mergeorupload--delete-document-to-the-search-index"/>
+<a name="could-not-mergeorupload--delete-document-to-the-search-index"></a>
 
 ## <a name="error-could-not-mergeorupload--delete-document-to-the-search-index"></a>Błąd: nie można " `MergeOrUpload` " | `Delete`dokument "" w indeksie wyszukiwania
 
@@ -157,7 +157,7 @@ Dokument został odczytany i przetworzony, ale indeksator nie mógł go dodać d
 | Niepowodzenie w źródłowym zasobów obliczeniowych/sieciowych (rzadkich) | Nie można ustanowić połączenia w celu zaktualizowania indeksu. Wystąpił nieznany błąd. | Skonfiguruj indeksatory do [uruchomienia zgodnie z harmonogramem](search-howto-schedule-indexers.md) , aby przeprowadzić pobieranie z niepowodzenia.
 | Żądanie indeksowania wprowadzone do indeksu docelowego nie zostało potwierdzone w przedziale czasu z powodu problemów z siecią. | Nie można nawiązać połączenia z indeksem wyszukiwania w odpowiednim czasie. | Skonfiguruj indeksatory do [uruchomienia zgodnie z harmonogramem](search-howto-schedule-indexers.md) , aby przeprowadzić pobieranie z niepowodzenia. Ponadto spróbuj zmniejszyć [rozmiar wsadu](https://docs.microsoft.com/rest/api/searchservice/create-indexer#parameters) indeksatora, jeśli ten błąd będzie się utrzymywał.
 
-<a name="could-not-index-document-because-the-indexer-data-to-index-was-invalid"/>
+<a name="could-not-index-document-because-the-indexer-data-to-index-was-invalid"></a>
 
 ## <a name="error-could-not-index-document-because-some-of-the-documents-data-was-not-valid"></a>Błąd: nie można indeksować dokumentu, ponieważ niektóre dane dokumentu były nieprawidłowe
 
@@ -177,13 +177,13 @@ We wszystkich tych przypadkach należy zapoznać się z [obsługiwanymi typami d
 
 Dotyczy to tabel SQL i zwykle ma miejsce, gdy klucz jest zdefiniowany jako klucz złożony lub, gdy tabela ma zdefiniowany unikatowy indeks klastrowany (jak w indeksie SQL, a nie indeks Azure Search). Głównym powodem jest to, że atrybut klucza jest modyfikowany jako złożony klucz podstawowy w przypadku [unikatowego indeksu klastrowanego](https://docs.microsoft.com/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15). W takim przypadku upewnij się, że tabela SQL nie ma unikatowego indeksu klastrowanego lub że pole klucza zostało zamapowane na pole, które nie ma zduplikowanych wartości.
 
-<a name="could-not-process-document-within-indexer-max-run-time"/>
+<a name="could-not-process-document-within-indexer-max-run-time"></a>
 
 ## <a name="error-could-not-process-document-within-indexer-max-run-time"></a>Błąd: nie można przetworzyć dokumentu w maksymalnym czasie wykonywania indeksatora
 
 Ten błąd występuje, gdy indeksator nie może zakończyć przetwarzania pojedynczego dokumentu ze źródła danych w dozwolonym czasie wykonywania. [Maksymalny czas działania](search-limits-quotas-capacity.md#indexer-limits) jest krótszy, gdy są używane umiejętności. W przypadku wystąpienia tego błędu, jeśli maxFailedItems ustawiono wartość inną niż 0, Indeksator pomija dokument w przyszłych uruchomieniach, tak aby indeksowanie mogło postępować. Jeśli nie możesz mieć możliwości pominięcia jakiegokolwiek dokumentu lub jeśli ten błąd występuje w sposób ciągły, rozważ przerwanie dokumentów w mniejszych dokumentach, aby można było wykonać częściowe postępy w ramach jednego wykonywania indeksatora.
 
-<a name="could-not-project-document"/>
+<nazwa = "nie może być dokumentem projektu></a>
 
 ## <a name="error-could-not-project-document"></a>Błąd: nie można projektować dokumentu
 
@@ -195,7 +195,7 @@ Ten błąd występuje, gdy indeksator próbuje [projektować dane w sklepie z wi
 | Nie można zaktualizować obiektu BLOB projekcji `'blobUri'` w kontenerze`'containerName'` |Nie można zapisać danych do połączenia transportowego: wykryto, że istniejące połączenie zostało wymuszone przez hosta zdalnego. | Jest to oczekiwany błąd przejściowy usługi Azure Storage, dlatego należy rozwiązać ten problem przez ponowne uruchomienie indeksatora. Jeśli ten błąd wystąpi konsekwentnie, Utwórz [bilet pomocy technicznej](https://ms.portal.azure.com/#create/Microsoft.Support) , aby można było go dokładniej zbadać.  |
 | Nie można zaktualizować wiersza `'projectionRow'` w tabeli`'tableName'` | Serwer jest zajęty. | Jest to oczekiwany błąd przejściowy usługi Azure Storage, dlatego należy rozwiązać ten problem przez ponowne uruchomienie indeksatora. Jeśli ten błąd wystąpi konsekwentnie, Utwórz [bilet pomocy technicznej](https://ms.portal.azure.com/#create/Microsoft.Support) , aby można było go dokładniej zbadać.  |
 
-<a name="could-not-execute-skill-because-a-skill-input-was-invalid"/>
+<a name="could-not-execute-skill-because-a-skill-input-was-invalid"></a>
 
 ## <a name="warning-skill-input-was-invalid"></a>Ostrzeżenie: dane wejściowe dotyczące umiejętności były nieprawidłowe
 Brak danych wejściowych dla umiejętności, nieprawidłowy typ lub w inny sposób nieprawidłowy. Komunikat ostrzegawczy będzie wskazywał wpływ:
@@ -232,7 +232,7 @@ Jeśli chcesz podać wartość domyślną w przypadku braku danych wejściowych,
 | Brak danych wejściowych kwalifikacji | Brak "wymaganych danych wejściowych umiejętności. Name: `text` , source: `/document/merged_content` "" brak wartości " `/document/normalized_images/0/imageTags` .  "Nie można wybrać `0` w tablicy `/document/pages` o długości `0` ". | Jeśli wszystkie dokumenty otrzymają to ostrzeżenie, prawdopodobnie występuje literówka w ścieżkach wejściowych i należy dokładnie sprawdzić wielkość liter nazwy właściwości, dodatkowe lub brakujące `*` w ścieżce, i upewnić się, że dokumenty ze źródła danych zawierają wymagane dane wejściowe. |
 | Dane wejściowe kodu języka umiejętności są nieprawidłowe | Dane wejściowe kwalifikacji `languageCode` mają następujące kody języka: co `X,Y,Z` najmniej jeden z nich jest nieprawidłowy. | Zobacz więcej szczegółów [poniżej](cognitive-search-common-errors-warnings.md#skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid) |
 
-<a name="skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"/>
+<a name="skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"></a>
 
 ## <a name="warning--skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"></a>Ostrzeżenie: dane wejściowe umiejętności "languageCode" zawierają następujące kody języka: "X, Y, Z", co najmniej jeden z nich jest nieprawidłowy.
 Co najmniej jedna wartość przeniesiona do opcjonalnego `languageCode` danych wejściowych z poziomu umiejętności podrzędnej nie jest obsługiwana. Taka sytuacja może wystąpić, jeśli przekazujesz dane wyjściowe [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) do kolejnych umiejętności, a dane wyjściowe składają się z większej liczby języków niż jest to obsługiwane w tych umiejętnościach podrzędnych.
@@ -259,7 +259,7 @@ Poniżej przedstawiono niektóre odwołania do obecnie obsługiwanych języków 
 * [Języki obsługiwane przez translatora](https://docs.microsoft.com/azure/cognitive-services/translator/language-support) (dla [tekstu TranslationSkill](cognitive-search-skill-text-translation.md))
 * [SplitSkill tekstu](cognitive-search-skill-textsplit.md) Obsługiwane języki:`da, de, en, es, fi, fr, it, ko, pt`
 
-<a name="skill-input-was-truncated"/>
+<a name="skill-input-was-truncated"></a>
 
 ## <a name="warning-skill-input-was-truncated"></a>Ostrzeżenie: dane wejściowe dotyczące umiejętności zostały obcięte
 Umiejętności poznawcze mają ograniczone długość tekstu, który można analizować jednocześnie. Jeśli wprowadzanie tekstu tych umiejętności przekracza ten limit, spowoduje to obcinanie tekstu w celu spełnienia limitu, a następnie przeprowadzenie wzbogacania tego tekstu. Oznacza to, że umiejętność jest wykonywana, ale nie na wszystkich Twoich danych.
@@ -281,12 +281,12 @@ W poniższym przykładzie LanguageDetectionSkill `'text'` pole wejściowe może 
 
 Jeśli chcesz upewnić się, że cały tekst jest analizowany, rozważ użycie opcji [Podziel umiejętność](cognitive-search-skill-textsplit.md).
 
-<a name="web-api-skill-response-contains-warnings"/>
+<a name="web-api-skill-response-contains-warnings"></a>
 
 ## <a name="warning-web-api-skill-response-contains-warnings"></a>Ostrzeżenie: odpowiedź na umiejętność interfejsu API sieci Web zawiera ostrzeżenia
 Indeksator mógł uruchomić umiejętność w zestawu umiejętności, ale odpowiedź z żądania internetowego interfejsu API wskazywała, że wystąpiły ostrzeżenia podczas wykonywania. Zapoznaj się z ostrzeżeniami, aby zrozumieć, w jaki sposób wpływają dane oraz czy nie są wymagane akcje.
 
-<a name="the-current-indexer-configuration-does-not-support-incremental-progress"/>
+<a name="the-current-indexer-configuration-does-not-support-incremental-progress"></a>
 
 ## <a name="warning-the-current-indexer-configuration-does-not-support-incremental-progress"></a>Ostrzeżenie: Bieżąca konfiguracja indeksatora nie obsługuje przyrostowego postępu
 
@@ -300,20 +300,20 @@ Istnieje możliwość zastąpienia tego zachowania, co pozwala na przyrostowy po
 
 Aby uzyskać więcej informacji, zobacz [przyrostowy postęp i zapytania niestandardowe](search-howto-index-cosmosdb.md#IncrementalProgress).
 
-<a name="some-data-was-lost-during projection-row-x-in-table-y-has-string-property-z-which-was-too-long"/>
+<a name="some-data-was-lost-during projection-row-x-in-table-y-has-string-property-z-which-was-too-long"></a>
 
 ## <a name="warning-some-data-was-lost-during-projection-row-x-in-table-y-has-string-property-z-which-was-too-long"></a>Ostrzeżenie: niektóre dane zostały utracone podczas projekcji. Wiersz "X" w tabeli "Y" ma właściwość ciągu "Z", która jest zbyt długa.
 
 [Usługa Table Storage](https://azure.microsoft.com/services/storage/tables) ma limity dotyczące sposobu, w jaki mogą być [Właściwości dużych jednostek](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model#property-types) . Ciągi mogą zawierać co najwyżej 32 000 znaków. Jeśli wiersz z właściwością ciągu dłuższą niż 32 000 znaków jest rzutowany, zachowywane są tylko pierwsze znaki 32 000. Aby obejść ten problem, należy unikać tworzenia projektów wierszy z właściwościami ciągu dłuższymi niż 32 000 znaków.
 
-<a name="truncated-extracted-text-to-x-characters"/>
+<a name="truncated-extracted-text-to-x-characters"></a>
 
 ## <a name="warning-truncated-extracted-text-to-x-characters"></a>Ostrzeżenie: obcięto wyodrębniony tekst do X znaków
 Indeksatory ograniczają ilość tekstu, który można wyodrębnić z dowolnego dokumentu. Ten limit zależy od warstwy cenowej: 32 000 znaków dla warstwy Bezpłatna, 64 000 dla wersji podstawowa, 4 000 000 dla Standard, 8 000 000 dla standardu S2 i 16 000 000 dla standardowego S3. Tekst, który został obcięty, nie będzie indeksowany. Aby uniknąć tego ostrzeżenia, spróbuj rozdzielić dokumenty z dużymi ilościami tekstu na kilka mniejszych dokumentów. 
 
 Aby uzyskać więcej informacji, zobacz [limity indeksatora](search-limits-quotas-capacity.md#indexer-limits).
 
-<a name="could-not-map-output-field-x-to-search-index"/>
+<a name="could-not-map-output-field-x-to-search-index"></a>
 
 ## <a name="warning-could-not-map-output-field-x-to-search-index"></a>Ostrzeżenie: nie można zmapować pola wyjściowego "X" na indeks wyszukiwania
 Mapowania pól wyjściowych, które odwołują się do nieistniejących/niepustych danych, będą generować ostrzeżenia dla każdego dokumentu i powodować puste pole indeksu. Aby obejść ten problem, należy dokładnie sprawdzić ścieżki źródłowe mapowania pól wyjściowych dla możliwych błędów lub ustawić wartość domyślną przy użyciu [umiejętności warunkowej](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist). Szczegóły można znaleźć w temacie [Mapowanie pola danych wyjściowych](cognitive-search-output-field-mapping.md) .
@@ -323,18 +323,18 @@ Mapowania pól wyjściowych, które odwołują się do nieistniejących/niepusty
 | Nie można wykonać iteracji w przypadku niearray | "Nie można wykonać iteracji w przypadku braku tablicy `/document/normalized_images/0/imageCelebrities/0/detail/celebrities` ". | Ten błąd występuje, gdy wyjście nie jest tablicą. Jeśli uważasz, że dane wyjściowe powinny być tablicą, sprawdź wskazane wyjściowe ścieżki pola źródłowego pod kątem błędów. Na przykład `*` w nazwie pola źródłowego mogą znajdować się brakujące lub dodatkowe. Istnieje również możliwość, że dane wejściowe tej umiejętności mają wartość null, co oznacza pustą tablicę. Znajdź podobne szczegóły w polu [dane wejściowe dotyczące umiejętności były nieprawidłowe](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) .    |
 | Nie można wybrać `0` w niearray | "Nie można wybrać `0` w nie Array `/document/pages` ". | Może się tak zdarzyć, jeśli dane wyjściowe umiejętności nie generują tablicy, a wynikowa nazwa pola źródłowego ma indeks tablicy lub `*` ścieżkę. Sprawdź dokładnie ścieżki podane w nazwach pól źródłowych danych wyjściowych i wartość pola dla wskazanej nazwy pola. Znajdź podobne szczegóły w polu [dane wejściowe dotyczące umiejętności były nieprawidłowe](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) .  |
 
-<a name="the-data-change-detection-policy-is-configured-to-use-key-column-x"/>
+<a name="the-data-change-detection-policy-is-configured-to-use-key-column-x"></a>
 
 ## <a name="warning-the-data-change-detection-policy-is-configured-to-use-key-column-x"></a>Ostrzeżenie: zasady wykrywania zmian danych są skonfigurowane do korzystania z kolumny klucza "X"
 [Zasady wykrywania zmian danych](https://docs.microsoft.com/rest/api/searchservice/create-data-source#data-change-detection-policies) mają określone wymagania dotyczące kolumn, których używają do wykrywania zmian. Jedno z tych wymagań polega na tym, że ta kolumna jest aktualizowana za każdym razem, gdy element źródłowy zostanie zmieniony. Innym wymaganiem jest to, że nowa wartość dla tej kolumny jest większa niż Poprzednia wartość. Kolumny kluczy nie spełniają tego wymagania, ponieważ nie zmieniają w każdej aktualizacji. Aby obejść ten problem, wybierz inną kolumnę dla zasad wykrywania zmian.
 
-<a name="document-text-appears-to-be-utf-16-encoded-but-is-missing-a-byte-order-mark"/>
+<a name="document-text-appears-to-be-utf-16-encoded-but-is-missing-a-byte-order-mark"></a>
 
 ## <a name="warning-document-text-appears-to-be-utf-16-encoded-but-is-missing-a-byte-order-mark"></a>Ostrzeżenie: tekst dokumentu jest zakodowany w formacie UTF-16, ale brakuje znacznika kolejności bajtów
 
 [Tryby analizowania indeksatora](https://docs.microsoft.com/rest/api/searchservice/create-indexer#blob-configuration-parameters) muszą wiedzieć, jak kodowanie tekstu przed jego przeanalizą. Dwa najczęstsze sposoby kodowania tekstu to UTF-16 i UTF-8. UTF-8 to kodowanie o zmiennej długości, gdzie każdy znak ma długość od 1 do 4 bajtów. UTF-16 to kodowanie o stałej długości, gdzie każdy znak ma długość 2 bajtów. UTF-16 ma dwa różne warianty, "big endian" i "little endian". Kodowanie tekstu jest określane na podstawie "znacznika kolejności bajtów", serii bajtów przed tekstem.
 
-| Kodowanie | Znacznik kolejności bajtów |
+| Encoding | Znacznik kolejności bajtów |
 | --- | --- |
 | Big endian UTF-16 | 0xFE 0xFF |
 | Little endian UTF-16 | 0xFF 0xFE |
@@ -344,7 +344,7 @@ Jeśli nie ma znacznika kolejności bajtów, przyjmuje się, że tekst zostanie 
 
 Aby obejść to ostrzeżenie, należy określić, co ma być kodowanie tekstu dla tego obiektu BLOB, i dodać odpowiedni znacznik kolejności bajtów.
 
-<a name="cosmos-db-collection-has-a-lazy-indexing-policy"/>
+<a name="cosmos-db-collection-has-a-lazy-indexing-policy"></a>
 
 ## <a name="warning-cosmos-db-collection-x-has-a-lazy-indexing-policy-some-data-may-be-lost"></a>Ostrzeżenie: Kolekcja Cosmos DB "X" ma opóźnione zasady indeksowania. Niektóre dane mogą zostać utracone
 

@@ -3,16 +3,16 @@ title: Rozwiązywanie problemów z dostępem do portalu Umowy Enterprise platfor
 description: W tym artykule opisano najczęstsze problemy z Umową Enterprise (EA) w portalu EA platformy Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/01/2020
+ms.date: 05/07/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: fdcce868cb53c0fdd6a51f2b351491e1ee998d61
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 97ba4e77c96859115c974b630a455f4bea62051a
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691182"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83654746"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Rozwiązywanie problemów z dostępem do portalu Umowy Enterprise platformy Azure
 
@@ -64,15 +64,15 @@ Komunikat _Nieprawidłowy użytkownik_ może być też spowodowany użyciem bł�
   - Jeśli musisz sprawdzić alias podstawowy, przejdź do strony [https://account.live.com](https://account.live.com). Następnie kliknij **swoje informacje**, a potem pozycję **Zarządzaj logowaniem do firmy Microsoft**. Postępuj zgodnie z monitami, aby zweryfikować alternatywny adres e-mail i uzyskać kod umożliwiający dostęp do poufnych informacji. Wprowadź kod zabezpieczeń. Jeśli nie chcesz konfigurować uwierzytelniania dwuskładnikowego, wybierz opcję **Skonfiguruj je później**.
   - Zostanie wyświetlona strona **Zarządzanie logowaniem do firmy Microsoft**, na której możesz zobaczyć swoje aliasy kont. Sprawdź, czy do logowania się do portalu EA platformy Azure jest używany alias podstawowy. Jeśli nie, możesz go ustawić jako alias podstawowy. Możesz też użyć zamiast niego podstawowego aliasu dla portalu EA platformy Azure.
 
-## <a name="no-activation-email-received"></a>Nie odebrano wiadomości e-mail dotyczącej aktywacji
+## <a name="azure-ea-activation-faq"></a>Aktywacja rejestracji Azure EA — często zadawane pytania
+
+W tej sekcji artykułu przedstawiono rozwiązania typowych problemów związanych z aktywacją rejestracji Azure EA.
+
+### <a name="i-didnt-receive-an-activation-email"></a>Nie otrzymano wiadomości e-mail dotyczącej aktywacji
 
 Wiadomość e-mail dotycząca aktywacji z portalu EA platformy Azure jest wysyłana z adresu *waep@microsoft.com* . Jeśli nie otrzymasz takiej wiadomości, sprawdź folder spamu lub wiadomości-śmieci. Temat wiadomości to _Zaproszenie do wyświetlenia usługi Microsoft Azure i zarządzania nią_. Wiadomość jest wysyłana do każdego nowo dodanego administratora EA.
 
 Jeśli masz pewność, że skonfigurowano Cię jako administratora EA, nie musisz czekać na otrzymanie wiadomości e-mail dotyczącej aktywacji w celu zalogowania się do portalu EA platformy Azure. Zamiast tego możesz przejść do strony https://ea.azure.com i zalogować się przy użyciu adresu e-mail (służbowego, szkolnego lub konta Microsoft) i hasła.
-
-## <a name="azure-ea-activation-faq"></a>Aktywacja rejestracji Azure EA — często zadawane pytania
-
-W tej sekcji artykułu przedstawiono rozwiązania typowych problemów związanych z aktywacją rejestracji Azure EA.
 
 ### <a name="i-would-like-to-add-a-new-ea-administrator-to-my-enrollment"></a>Chcę dodać nowego administratora EA do mojej rejestracji
 

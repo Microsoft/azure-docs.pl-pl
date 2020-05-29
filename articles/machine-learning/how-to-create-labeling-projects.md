@@ -7,12 +7,12 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 04/09/2020
-ms.openlocfilehash: 6a2dd84ec091a2e862dd788a740585827b5cbde1
-ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
+ms.openlocfilehash: 40c31d4dd4a6c675691f75d3717f7865d6b847f7
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/11/2020
-ms.locfileid: "83007546"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171565"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Utwórz projekt etykietowania danych i Eksportuj etykiety 
 
@@ -44,7 +44,7 @@ W tym artykule dowiesz się, jak:
 * Dane, które chcesz oznaczyć, w plikach lokalnych lub w usłudze Azure Blob Storage.
 * Zestaw etykiet, które mają zostać zastosowane.
 * Instrukcje dotyczące etykietowania.
-* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://aka.ms/AMLFree) .
+* Subskrypcja platformy Azure. Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://aka.ms/AMLFree).
 * Obszar roboczy Machine Learning. Zobacz [Tworzenie obszaru roboczego Azure Machine Learning](how-to-manage-workspace.md).
 
 ## <a name="create-a-labeling-project"></a>Tworzenie projektu etykietowania
@@ -55,8 +55,7 @@ Jeśli dane są już w usłudze Azure Blob Storage, należy udostępnić ją jak
 
 Aby utworzyć projekt, wybierz pozycję **Dodaj projekt**. Nadaj projektowi odpowiednią nazwę i wybierz pozycję **etykieta typ zadania**.
 
-![Kreator tworzenia etykiet dla projektu](./media/how-to-create-labeling-projects/labeling-creation-wizard.png)
-
+:::image type="content" source="media/how-to-create-labeling-projects/labeling-creation-wizard.png" alt-text="Kreator tworzenia etykiet dla projektu":::
 
 * Wybierz **wiele klas klasyfikacji obrazów** dla projektów, gdy chcesz zastosować tylko *jedną klasę* z zestawu klas do obrazu.
 * Wybierz opcję **Klasyfikacja obrazu wieloetykietowego** dla projektów, gdy chcesz zastosować *jedną lub więcej* etykiet z zestawu klas do obrazu. Na przykład zdjęcie psa może mieć etykietę z obu *pies* i *Daytime*.
@@ -75,15 +74,15 @@ W wielu przypadkach warto tylko przekazać pliki lokalne. Jednak [Eksplorator us
 
 Aby utworzyć zestaw danych na podstawie danych, które zostały już zapisane w usłudze Azure Blob Storage:
 
-1. Wybierz pozycję **Utwórz zestaw danych** > **ze sklepu datastore**.
+1. Wybierz pozycję **Utwórz zestaw danych**  >  **ze sklepu datastore**.
 1. Przypisz **nazwę** do zestawu danych.
 1. Wybierz pozycję **plik** jako **Typ zestawu danych**.  
 1. Wybierz magazyn danych.
 1. Jeśli dane są w podfolderze w magazynie obiektów blob, wybierz pozycję **Przeglądaj** , aby wybrać ścieżkę.
     * Dołącz "/* *" do ścieżki, aby uwzględnić wszystkie pliki w podfolderach wybranej ścieżki.
-    * Dołącz "**/*. *", aby uwzględnić wszystkie dane w bieżącym kontenerze i jego podfolderach.
+    * Dołącz "* */* . *", aby uwzględnić wszystkie dane w bieżącym kontenerze i jego podfolderach.
 1. Podaj opis zestawu danych.
-1. Wybierz pozycję **Dalej**.
+1. Wybierz przycisk **Dalej**.
 1. Potwierdź szczegóły. Wybierz pozycję **Wstecz** , aby zmodyfikować ustawienia, lub **Utwórz** , aby utworzyć zestaw danych.
 
 > [!NOTE]
@@ -93,13 +92,13 @@ Aby utworzyć zestaw danych na podstawie danych, które zostały już zapisane w
 
 Aby bezpośrednio przekazać dane:
 
-1. Wybierz pozycję **Utwórz zestaw danych** > **z plików lokalnych**.
+1. Wybierz pozycję **Utwórz zestaw danych**  >  **z plików lokalnych**.
 1. Przypisz **nazwę** do zestawu danych.
 1. Wybierz opcję "plik" jako **Typ zestawu danych**.
 1. *Opcjonalne:* Wybierz pozycję **Ustawienia zaawansowane** , aby dostosowywać magazyn danych, kontener i ścieżkę do swoich potrzeb.
 1. Wybierz pozycję **Przeglądaj** , aby wybrać pliki lokalne do przekazania.
 1. Podaj opis zestawu danych.
-1. Wybierz pozycję **Dalej**.
+1. Wybierz przycisk **Dalej**.
 1. Potwierdź szczegóły. Wybierz pozycję **Wstecz** , aby zmodyfikować ustawienia, lub **Utwórz** , aby utworzyć zestaw danych.
 
 Dane są przekazywane do domyślnego magazynu obiektów BLOB ("workspaceblobstore") obszaru roboczego Machine Learning.
@@ -173,7 +172,7 @@ Po zainicjowaniu projektu platforma Azure rozpocznie działanie. Wybierz projekt
 
 Na karcie **dane** można zobaczyć zestaw danych i przejrzeć dane z etykietami. Jeśli zobaczysz nieprawidłowe etykiety danych, zaznacz ją i wybierz polecenie **Odrzuć**, co spowoduje usunięcie etykiet i umieszczenie danych z powrotem w kolejce bez etykiety.
 
-Aby wstrzymać lub ponownie uruchomić projekt, wybierz przycisk **Wstrzymaj**/**Start** . Dane można etykietować tylko wtedy, gdy projekt jest uruchomiony.
+Aby wstrzymać lub ponownie uruchomić projekt, wybierz przycisk **Wstrzymaj** / **Start** . Dane można etykietować tylko wtedy, gdy projekt jest uruchomiony.
 
 Dane można oznaczyć bezpośrednio na stronie **szczegółów projektu** , wybierając pozycję **dane etykiet**.
 
@@ -187,7 +186,7 @@ Wykonaj następujące kroki, aby dodać jedną lub więcej etykiet do projektu:
 1. W górnej części strony wybierz pozycję **Wstrzymaj** , aby zatrzymać etykietki w swoich działaniach.
 1. Wybierz kartę **Szczegóły**.
 1. Na liście po lewej stronie wybierz pozycję **klasy etykiet**.
-1. W górnej części listy wybierz pozycję **+ Dodaj etykiety** ![Dodaj etykietę](media/how-to-create-labeling-projects/add-label.png)
+1. W górnej części listy wybierz pozycję **+ Dodaj etykiety** ![ Dodaj etykietę](media/how-to-create-labeling-projects/add-label.png)
 1. W formularzu Dodaj nową etykietę i wybierz sposób wykonywania czynności.  Ze względu na to, że zmieniono etykiety dostępne dla obrazu, wybierz sposób traktowania danych, które zostały oznaczone etykietą:
     * Zacznij od początku, usuwając wszystkie istniejące etykiety.  Wybierz tę opcję, jeśli chcesz zacząć od początku do nowego pełnego zestawu etykiet. 
     * Zacznij od początku, zachowując wszystkie istniejące etykiety.  Wybierz tę opcję, aby oznaczyć wszystkie dane jako bez etykiet, ale zachować istniejące etykiety jako tag domyślny dla obrazów, które zostały wcześniej oznaczone etykietami.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 4/17/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 8075574556375b7c07de2abd6c5aff792880b497
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: b88b6d1ea4b9d9fc2b33849157968ee1c2f8c620
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83738822"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170464"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Tworzenie grup akcji i zarządzanie nimi w Azure Portal
 Grupa akcji to zbiór preferencji powiadomień definiowanych przez właściciela subskrypcji platformy Azure. Alerty Azure Monitor i Service Health umożliwiają Powiadamianie użytkowników o wyzwoleniu alertu. Różne alerty mogą korzystać z tej samej grupy akcji lub różnych grup akcji w zależności od wymagań użytkownika. W ramach subskrypcji można skonfigurować maksymalnie 2 000 grup akcji.
@@ -80,7 +80,7 @@ W grupie akcji może istnieć ograniczona liczba akcji elementu Runbook.
 ### <a name="azure-app-push-notifications"></a>Powiadomienia push aplikacji platformy Azure
 W grupie akcji może istnieć ograniczona liczba akcji aplikacji platformy Azure.
 
-### <a name="email"></a>Adres e-mail
+### <a name="email"></a>E-mail
 Wiadomości e-mail będą wysyłane z następujących adresów e-mail. Upewnij się, że filtrowanie poczty e-mail jest skonfigurowane odpowiednio
 - azure-noreply@microsoft.com
 - azureemail-noreply@microsoft.com
@@ -118,7 +118,7 @@ Akcja elementu webhook grup akcji umożliwia korzystanie z Azure Active Director
     > Aby wykonać ten skrypt, musisz być członkiem [roli administratora aplikacji usługi Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles) .
     
     - Zmodyfikuj wywołanie Connect-AzureAD skryptu programu PowerShell, aby użyć identyfikatora dzierżawy usługi Azure AD.
-    - Zmodyfikuj zmienną $myAzureADApplicationObjectId skryptu programu PowerShell, aby użyć identyfikatora obiektu aplikacji usługi Azure AD
+    - Zmodyfikuj zmienną $myAzureADApplicationObjectId skryptu programu PowerShell, aby użyć identyfikatora obiektu aplikacji usługi Azure AD.
     - Uruchom zmodyfikowany skrypt.
     
 1. Skonfiguruj akcję bezpiecznego elementu webhook grupy akcji.
@@ -245,7 +245,7 @@ W grupie akcji może istnieć ograniczona liczba akcji elementu webhook.
 ## <a name="next-steps"></a>Następne kroki
 * Dowiedz się więcej na temat [zachowania alertu programu SMS](../../azure-monitor/platform/alerts-sms-behavior.md).  
 * Uzyskaj [informacje na temat schematu elementu webhook alertu dziennika aktywności](../../azure-monitor/platform/activity-log-alerts-webhook.md).  
-* Dowiedz się więcej o [Łącznik ITSM](../../azure-monitor/platform/itsmc-overview.md)
+* Dowiedz się więcej o [Łącznik ITSM](../../azure-monitor/platform/itsmc-overview.md).
 * Dowiedz się więcej o [ograniczaniu](../../azure-monitor/platform/alerts-rate-limiting.md) liczby alertów.
 * Zapoznaj się z [omówieniem alertów dziennika aktywności](../../azure-monitor/platform/alerts-overview.md)i Dowiedz się, jak otrzymywać alerty.  
 * Informacje o sposobie [konfigurowania alertów za każdym razem, gdy jest ogłaszane powiadomienie o kondycji usługi](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).

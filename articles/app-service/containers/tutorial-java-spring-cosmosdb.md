@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: mvc, seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 0b65e8f470b36ab1642e9144e081253a577dabc3
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 10a637400c513f05d59af74942df49ac6626c70f
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82202506"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170379"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>Samouczek: Tworzenie aplikacji sieci Web do rozruchu ze sprężyną Java za pomocą Azure App Service w systemie Linux i Azure Cosmos DB
 
@@ -77,7 +77,7 @@ Wykonaj następujące kroki, aby utworzyć bazę danych Azure Cosmos DB w ramach
         -n <your-azure-COSMOS-DB-name-in-lower-case-letters>
     ```
 
-4. Pobierz klucz bazy danych Azure Cosmos DB, aby nawiązać połączenie z aplikacją. Zachowaj `primaryMasterKey`, w `documentEndpoint` pobliżu, gdy będziesz ich potrzebować w następnym kroku.
+4. Pobierz klucz bazy danych Azure Cosmos DB, aby nawiązać połączenie z aplikacją. Zachowaj `primaryMasterKey` , w `documentEndpoint` pobliżu, gdy będziesz ich potrzebować w następnym kroku.
 
     ```bash
     az cosmosdb list-keys -g <your-azure-group-name> -n <your-azure-COSMOSDB-name>
@@ -185,7 +185,7 @@ Otwórz `pom.xml` plik w `initial/spring-boot-todo` katalogu i Dodaj następują
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.9.0</version>
+        <version>1.9.1</version>
         <configuration>
             <schemaVersion>v2</schemaVersion>
 
@@ -250,7 +250,9 @@ bash-3.2$ mvn azure-webapp:deploy
 [INFO] Building spring-todo-app 2.0-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
 [INFO] 
-[INFO] --- azure-webapp-maven-plugin:1.9.0:deploy (default-cli) @ spring-todo-app ---
+[INFO] --- azure-webapp-maven-plugin:1.9.1:deploy (default-cli) @ spring-todo-app ---
+[INFO] Auth Type : AZURE_CLI, Auth Files : [C:\Users\testuser\.azure\azureProfile.json, C:\Users\testuser\.azure\accessTokens.json]
+[INFO] Subscription : xxxxxxxxx
 [INFO] Target Web App doesn't exist. Creating a new one...
 [INFO] Creating App Service Plan 'ServicePlanb6ba8178-5bbb-49e7'...
 [INFO] Successfully created App Service Plan.
@@ -295,7 +297,7 @@ az appservice plan update --number-of-workers 2 \
    --resource-group <your-azure-group-name>
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Jeśli nie potrzebujesz tych zasobów w innym samouczku (zobacz [Następne kroki](#next)), możesz je usunąć, uruchamiając następujące polecenie w usłudze Cloud Shell: 
   
@@ -307,8 +309,8 @@ az group delete --name <your-azure-group-name>
 
 ## <a name="next-steps"></a>Następne kroki
 
-[Platforma Azure dla deweloperów](/java/azure/)
-języka Java[sprężynowe rozruchowe](https://spring.io/projects/spring-boot), [sprężynowe dane dla Cosmos DB](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?view=azure-java-stable), [Azure Cosmos DB](/azure/cosmos-db/sql-api-introduction) i [App Service Linux](app-service-linux-intro.md).
+[Platforma Azure dla deweloperów](/java/azure/) 
+ języka Java [Sprężynowe rozruchowe](https://spring.io/projects/spring-boot), [sprężynowe dane dla Cosmos DB](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?view=azure-java-stable), [Azure Cosmos DB](/azure/cosmos-db/sql-api-introduction) i [App Service Linux](app-service-linux-intro.md).
 
 Dowiedz się więcej na temat uruchamiania aplikacji w języku Java w usłudze App Service dla systemu Linux w przewodniku dla deweloperów.
 

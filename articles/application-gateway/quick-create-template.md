@@ -6,15 +6,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 03/23/2020
+ms.date: 05/28/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: cce3ef20a93c6d7a24bfa312501d2f8cc8ed9273
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 986e061c03634fe33af985c9d11569848500862c
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81604903"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170498"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---resource-manager-template"></a>Szybki Start: bezpośredni ruch internetowy za pomocą usługi Azure Application Gateway — Menedżer zasobów szablon
 
@@ -57,16 +57,18 @@ Wdróż szablon Menedżer zasobów na platformie Azure:
 
 1. Wybierz pozycję **Wdróż na platformie Azure** , aby zalogować się do platformy Azure i otworzyć szablon. Ten szablon umożliwia utworzenie bramy aplikacji, infrastruktury sieciowej i dwóch maszyn wirtualnych w puli zaplecza z uruchomionymi usługami IIS.
 
-   [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-qs%2Fazuredeploy.json)
+   [![Wdróż na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-qs%2Fazuredeploy.json)
 
 2. Wybierz lub Utwórz grupę zasobów, wpisz nazwę użytkownika i hasło administratora maszyny wirtualnej.
-3. Wybierz pozycję **Zgadzam się na powyższe warunki i** postanowienia, a następnie wybierz pozycję **Kup**. Wdrożenie może potrwać 20 minut lub dłużej.
+3. Wybierz pozycję **Recenzja + Utwórz** , a następnie wybierz pozycję **Utwórz**.
+
+   Wdrożenie może potrwać 20 minut lub dłużej.
 
 ## <a name="validate-the-deployment"></a>Weryfikowanie wdrożenia
 
 Mimo że Usługa IIS nie jest wymagana do utworzenia bramy aplikacji, jest zainstalowana w celu sprawdzenia, czy platforma Azure pomyślnie utworzyła bramę aplikacji. Użyj usług do przetestowania bramy aplikacji:
 
-1. Na stronie **przeglądowej** Znajdź publiczny adres IP bramy aplikacji. ![Zarejestruj publiczny adres](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) IP bramy aplikacji lub, wybierz pozycję **wszystkie zasoby**, wpisz *myAGPublicIPAddress* w polu wyszukiwania, a następnie wybierz go w wynikach wyszukiwania. Platforma Azure wyświetla publiczny adres IP na stronie **Omówienie**.
+1. Na stronie **przeglądowej** Znajdź publiczny adres IP bramy aplikacji. ![ Zarejestruj publiczny adres IP bramy aplikacji ](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) lub, wybierz pozycję **wszystkie zasoby**, wpisz *myAGPublicIPAddress* w polu wyszukiwania, a następnie wybierz go w wynikach wyszukiwania. Platforma Azure wyświetla publiczny adres IP na stronie **Omówienie**.
 2. Skopiuj publiczny adres IP, a następnie wklej go na pasku adresu przeglądarki, aby przeglądać ten adres IP.
 3. Sprawdź odpowiedź. Prawidłowa odpowiedź weryfikuje, czy Brama aplikacji została pomyślnie utworzona i może pomyślnie nawiązać połączenie z zapleczem.
 
@@ -74,7 +76,7 @@ Mimo że Usługa IIS nie jest wymagana do utworzenia bramy aplikacji, jest zains
 
    Wielokrotnie Odświeżaj przeglądarkę i powinny być widoczne połączenia zarówno myVM1, jak i myVM2.
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Gdy nie potrzebujesz już zasobów utworzonych przy użyciu bramy aplikacji, Usuń grupę zasobów. Spowoduje to usunięcie bramy aplikacji i wszystkich powiązanych zasobów.
 

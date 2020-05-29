@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: da01d0f7d2313b9700c5aae08edbda9e355b3774
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 93f1da7db3962994611f70fc145d0e9b62cd4f26
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801777"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167863"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Jak korzystać z wyników wyszukiwania w usłudze Azure Wyszukiwanie poznawcze
 
@@ -23,7 +23,7 @@ Struktura odpowiedzi jest określana przez parametry w pliku Query: [Search](htt
 
 ## <a name="result-composition"></a>Kompozycja wyniku
 
-Chociaż dokument wyszukiwania może składać się z dużej liczby pól, zazwyczaj jest konieczne, aby reprezentować każdy dokument w zestawie wyników. W żądaniu zapytania Dołącz `$select=<field list>` , aby określić, które pola są wyświetlane w odpowiedzi. Pole musi być przypisywane jako możliwe do **pobierania** w indeksie, który ma zostać uwzględniony w wyniku. 
+Chociaż dokument wyszukiwania może składać się z dużej liczby pól, zazwyczaj jest konieczne, aby reprezentować każdy dokument w zestawie wyników. W żądaniu zapytania Dołącz, `$select=<field list>` Aby określić, które pola są wyświetlane w odpowiedzi. Pole musi być przypisywane jako możliwe do **pobierania** w indeksie, który ma zostać uwzględniony w wyniku. 
 
 Pola, które najlepiej sprawdzają się, obejmują te, które różnią się od dokumentów, i zawierają wystarczające informacje, aby zaprosić odpowiedź na kliknięcie w części użytkownika. W witrynie handlu elektronicznego może to być nazwa produktu, opis, marka, kolor, rozmiar, Cena i klasyfikacja. W przypadku przykładu hoteli-Sample-index wbudowane może być polami w następującym przykładzie:
 
@@ -43,13 +43,13 @@ POST /indexes/hotels-sample-index/docs/search?api-version=2019-05-06
 
 Domyślnie aparat wyszukiwania zwraca do pierwszych 50 dopasowań, zgodnie z ustaleniami wynik wyszukiwania, jeśli zapytanie jest wyszukiwaniem pełnotekstowym lub w dowolnej kolejności w celu dokładnego dopasowania zapytań.
 
-Aby zwrócić inną liczbę pasujących dokumentów, Dodaj `$top` parametry i `$skip` do żądania zapytania. Poniższa lista zawiera opis logiki.
+Aby zwrócić inną liczbę pasujących dokumentów, Dodaj `$top` Parametry i `$skip` do żądania zapytania. Poniższa lista zawiera opis logiki.
 
-+ Dodaj `$count=true` , aby uzyskać licznik łącznej liczby pasujących dokumentów w indeksie.
++ Dodaj, `$count=true` Aby uzyskać licznik łącznej liczby pasujących dokumentów w indeksie.
 
 + Zwróć pierwszy zestaw 15 pasujących dokumentów oraz liczbę wszystkich dopasowań:`GET /indexes/<INDEX-NAME>/docs?search=<QUERY STRING>&$top=15&$skip=0&$count=true`
 
-+ Zwróć drugi zestaw, pomijając pierwsze 15, aby uzyskać następny 15: `$top=15&$skip=15`. Wykonaj te same czynności dla trzeciego zestawu 15:`$top=15&$skip=30`
++ Zwróć drugi zestaw, pomijając pierwsze 15, aby uzyskać następny 15: `$top=15&$skip=15` . Wykonaj te same czynności dla trzeciego zestawu 15:`$top=15&$skip=30`
 
 Wyniki zapytań z podziałem na strony nie są gwarantowane w przypadku zmiany podstawowego indeksu. Stronicowanie zmienia wartość `$skip` dla każdej strony, ale każde zapytanie jest niezależne i działa w bieżącym widoku danych, tak jak istnieje w indeksie w czasie zapytania (innymi słowy, nie istnieje buforowanie ani migawka wyników, na przykład te znajdujące się w bazie danych ogólnego przeznaczenia).
  
@@ -60,12 +60,12 @@ Poniżej znajduje się przykład, w jaki sposób można uzyskać duplikaty. Zał
     { "id": "3", "rating": 2 }
     { "id": "4", "rating": 1 }
  
-Teraz Załóżmy, że wyniki zwracane są dwa naraz, uporządkowane według klasyfikacji. Wykonanie tego zapytania spowoduje uzyskanie pierwszej strony z wynikami: `$top=2&$skip=0&$orderby=rating desc`, generując następujące wyniki:
+Teraz Załóżmy, że wyniki zwracane są dwa naraz, uporządkowane według klasyfikacji. Wykonanie tego zapytania spowoduje uzyskanie pierwszej strony z wynikami: `$top=2&$skip=0&$orderby=rating desc` , generując następujące wyniki:
 
     { "id": "1", "rating": 5 }
     { "id": "2", "rating": 3 }
  
-Załóżmy, że w usłudze zostanie dodany piąty dokument do indeksu między wywołaniami zapytań: `{ "id": "5", "rating": 4 }`.  Wkrótce należy wykonać zapytanie w celu pobrania drugiej strony: `$top=2&$skip=2&$orderby=rating desc`i uzyskać następujące wyniki:
+Załóżmy, że w usłudze zostanie dodany piąty dokument do indeksu między wywołaniami zapytań: `{ "id": "5", "rating": 4 }` .  Wkrótce należy wykonać zapytanie w celu pobrania drugiej strony: `$top=2&$skip=2&$orderby=rating desc` i uzyskać następujące wyniki:
 
     { "id": "2", "rating": 3 }
     { "id": "3", "rating": 2 }
@@ -94,11 +94,11 @@ Inną opcją jest użycie [niestandardowego profilu oceniania](index-add-scoring
 
 Podświetlanie trafień odnosi się do formatowania tekstu (takiego jak pogrubienie lub żółtych świateł) stosowanych do dopasowywania warunków w wyniku, co ułatwia dopasowanie. Instrukcje wyróżniania trafień są dostępne w [żądaniu zapytania](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
 
-Aby włączyć podświetlanie trafień, `highlight=[comma-delimited list of string fields]` Dodaj, aby określić, które pola będą używać wyróżniania. Wyróżnianie jest przydatne w przypadku dłuższych pól zawartości, takich jak pole opisu, gdzie dopasowanie nie jest od razu oczywiste. Tylko definicje pól, które są przypisywane jako **kryterium wyszukiwania** , kwalifikują się do wyróżniania trafień.
+Aby włączyć podświetlanie trafień, Dodaj, `highlight=[comma-delimited list of string fields]` Aby określić, które pola będą używać wyróżniania. Wyróżnianie jest przydatne w przypadku dłuższych pól zawartości, takich jak pole opisu, gdzie dopasowanie nie jest od razu oczywiste. Tylko definicje pól, które są przypisywane jako **kryterium wyszukiwania** , kwalifikują się do wyróżniania trafień.
 
 Domyślnie usługa Azure Wyszukiwanie poznawcze zwraca maksymalnie pięć świateł na pole. Możesz dostosować tę liczbę, dołączając do pola średnik, po którym następuje liczba całkowita. Na przykład `highlight=Description-10` zwraca do 10 świateł na pasującej zawartości w polu Opis.
 
-Formatowanie jest stosowane do zapytań w całym okresie. Typ formatowania jest określany przez Tagi `highlightPreTag` i `highlightPostTag`, a kod obsługuje odpowiedź (na przykład zastosowanie pogrubionej czcionki lub żółtego tła).
+Formatowanie jest stosowane do zapytań w całym okresie. Typ formatowania jest określany przez Tagi `highlightPreTag` i `highlightPostTag` , a kod obsługuje odpowiedź (na przykład zastosowanie pogrubionej czcionki lub żółtego tła).
 
 W poniższym przykładzie warunki "piaskowobrązowy", "piasek", "plażach", "sekwencje" Znalezione w polu opisu są oznaczone do wyróżniania. Zapytania wyzwalające rozszerzanie zapytania w aparacie, takie jak rozmyte i wieloznaczne wyszukiwanie, mają ograniczoną obsługę wyróżniania trafień.
 
@@ -126,8 +126,6 @@ Z nowym zachowaniem:
     '<em>super bowl</em> is super awesome with a bowl of chips'
     ```
   Należy zauważyć, że termin " *pucharowe wióry* " nie ma żadnego wyróżnienia, ponieważ nie pasuje do pełnej frazy.
-  
-* Możliwe jest określenie rozmiaru fragmentu zwracanego dla wyróżnienia. Rozmiar fragmentu jest określony jako liczba znaków (maksymalna długość to 1000 znaków).
 
 Podczas pisania kodu klienta, który implementuje podświetlanie trafień, należy pamiętać o tej zmianie. Należy zauważyć, że nie będzie to miało wpływu na to, chyba że zostanie utworzona zupełnie nowa usługa wyszukiwania.
 

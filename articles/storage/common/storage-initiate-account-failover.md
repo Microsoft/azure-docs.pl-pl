@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/05/2020
+ms.date: 05/28/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 2d07195e28c964a540eafdfba94a958e6c9f6981
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 905554d1763bdd3c5990a43c5c8d98f336e1c442
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871344"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171212"
 ---
 # <a name="initiate-a-storage-account-failover"></a>Inicjowanie trybu failover konta magazynu
 
@@ -48,21 +48,21 @@ Aby zainicjować tryb failover konta z Azure Portal, wykonaj następujące kroki
 
     ![Zrzut ekranu przedstawiający replikację geograficzną i stan trybu failover](media/storage-initiate-account-failover/portal-failover-prepare.png)
 
-3. Sprawdź, czy konto magazynu jest skonfigurowane pod kątem magazynu geograficznie nadmiarowego (GRS) lub magazynu geograficznie nadmiarowego do odczytu (RA-GRS). Jeśli tak nie jest, wybierz pozycję **Konfiguracja** w obszarze **Ustawienia** , aby zaktualizować konto tak, aby było geograficznie nadmiarowe. 
-4. Właściwość **czas ostatniej synchronizacji** wskazuje, jak daleko pomocnicza jest poza podstawową. **Czas ostatniej synchronizacji** to oszacowanie zakresu utraty danych, który będzie dostępny po zakończeniu pracy w trybie failover.
+3. Sprawdź, czy konto magazynu jest skonfigurowane pod kątem magazynu geograficznie nadmiarowego (GRS) lub magazynu geograficznie nadmiarowego do odczytu (RA-GRS). Jeśli tak nie jest, wybierz pozycję **Konfiguracja** w obszarze **Ustawienia** , aby zaktualizować konto tak, aby było geograficznie nadmiarowe.
+4. Właściwość **czas ostatniej synchronizacji** wskazuje, jak daleko pomocnicza jest poza podstawową. **Czas ostatniej synchronizacji** to oszacowanie zakresu utraty danych, który będzie dostępny po zakończeniu pracy w trybie failover. Aby uzyskać więcej informacji na temat sprawdzania właściwości **czas ostatniej synchronizacji** , zobacz [Sprawdzanie właściwości ostatniej synchronizacji dla konta magazynu](last-sync-time-get.md).
 5. Wybierz pozycję **Przygotuj do przejścia w tryb failover**.
 6. Przejrzyj okno dialogowe potwierdzenia. Gdy wszystko będzie gotowe, wprowadź **wartość tak** , aby potwierdzić i zainicjować tryb failover.
 
     ![Zrzut ekranu przedstawiający okno dialogowe potwierdzenia dla konta w trybie failover](media/storage-initiate-account-failover/portal-failover-confirm.png)
 
-## <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+## <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 Funkcja trybu failover konta jest ogólnie dostępna, ale nadal bazuje na module w wersji zapoznawczej dla programu PowerShell. Aby można było zainicjować tryb failover konta przy użyciu programu PowerShell, należy najpierw zainstalować moduł AZ. Storage [1.1.1-Preview](https://www.powershellgallery.com/packages/Az.Storage/1.1.1-preview) . Wykonaj następujące kroki, aby zainstalować moduł:
 
 1. Odinstaluj wszystkie poprzednie instalacje Azure PowerShell:
 
     - Usuń wszystkie poprzednie instalacje Azure PowerShell z systemu Windows za pomocą ustawienia **aplikacje & funkcje** w obszarze **Ustawienia**.
-    - Usuń wszystkie moduły **platformy Azure** z programu `%Program Files%\WindowsPowerShell\Modules`.
+    - Usuń wszystkie moduły **platformy Azure** z programu `%Program Files%\WindowsPowerShell\Modules` .
 
 1. Upewnij się, że masz zainstalowaną najnowszą wersję programu PowerShellGet. Otwórz okno programu Windows PowerShell i uruchom następujące polecenie, aby zainstalować najnowszą wersję:
 
@@ -105,7 +105,7 @@ az storage account failover \ --name accountName
 
 Po zainicjowaniu konta magazynu w trybie failover rekordy DNS dla pomocniczego punktu końcowego są aktualizowane, tak aby pomocniczy punkt końcowy stał się podstawowym punktem końcowym. Przed zainicjowaniem trybu failover upewnij się, że rozumiesz potencjalny wpływ na konto magazynu.
 
-Aby oszacować zakres prawdopodobnej utraty danych przed zainicjowaniem trybu failover, należy sprawdzić Właściwość **godzina ostatniej synchronizacji** przy użyciu `Get-AzStorageAccount` polecenia cmdlet programu PowerShell i uwzględnić `-IncludeGeoReplicationStats` parametr. Następnie sprawdź `GeoReplicationStats` Właściwość konta.
+Aby oszacować zakres prawdopodobnej utraty danych przed zainicjowaniem trybu failover, należy sprawdzić Właściwość **godzina ostatniej synchronizacji** . Aby uzyskać więcej informacji na temat sprawdzania właściwości **czas ostatniej synchronizacji** , zobacz [Sprawdzanie właściwości ostatniej synchronizacji dla konta magazynu](last-sync-time-get.md).
 
 Po przejściu w tryb failover typ konta magazynu zostanie automatycznie przekonwertowany na magazyn lokalnie nadmiarowy (LRS) w nowym regionie podstawowym. Można ponownie włączyć magazyn Geograficznie nadmiarowy (GRS) lub magazyn Geograficznie nadmiarowy do odczytu (RA-GRS) dla konta. Należy pamiętać, że konwersja z LRS na GRS lub RA-GRS wiąże się z dodatkowymi kosztami. Aby uzyskać dodatkowe informacje, zobacz [szczegóły cennika](https://azure.microsoft.com/pricing/details/bandwidth/)dotyczącego przepustowości.
 
@@ -114,5 +114,6 @@ Po ponownym włączeniu GRS dla konta magazynu firma Microsoft rozpocznie replik
 ## <a name="next-steps"></a>Następne kroki
 
 - [Odzyskiwanie po awarii i tryb failover konta magazynu](storage-disaster-recovery-guidance.md)
+- [Sprawdź Właściwość godzina ostatniej synchronizacji dla konta magazynu](last-sync-time-get.md)
 - [Projektowanie aplikacji o wysokiej dostępności przy użyciu nadmiarowości geograficznej](geo-redundant-design.md)
 - [Samouczek: Tworzenie aplikacji o wysokiej dostępności przy użyciu magazynu obiektów BLOB](../blobs/storage-create-geo-redundant-storage.md)

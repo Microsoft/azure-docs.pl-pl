@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 0cf0911193cd379da60edb3064d3c6f195cf0190
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 99b6d86a65ec05a1299abfffae779113e573310c
+ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199861"
+ms.lasthandoff: 05/25/2020
+ms.locfileid: "83834972"
 ---
 # <a name="add-update-or-remove-a-credit-card-for-azure"></a>Dodawanie, aktualizowanie lub usuwanie karty kredytowej dla platformy Azure
 
@@ -29,9 +29,9 @@ W przypadku Umowy z Klientem Microsoft formy płatności są skojarzone z profil
 
 ## <a name="manage-credit-cards-for-an-azure-subscription"></a>Zarządzanie kartami kredytowymi dla subskrypcji platformy Azure
 
-Poniższe sekcje dotyczą klientów, którzy mają konto rozliczeniowe programu Microsoft Online Services. Dowiedz się, jak [sprawdzić typ konta rozliczeniowego](#check-the-type-of-your-account). Jeśli typ konta rozliczeniowego to Program Microsoft Online Services, formy płatności są skojarzone z poszczególnymi subskrypcjami platformy Azure.
+Poniższe sekcje dotyczą klientów, którzy mają konto rozliczeniowe programu Microsoft Online Services. Dowiedz się, jak [sprawdzić typ konta rozliczeniowego](#check-the-type-of-your-account). Jeśli typ konta rozliczeniowego to Program Microsoft Online Services, formy płatności są skojarzone z poszczególnymi subskrypcjami platformy Azure. Jeśli po dodaniu karty kredytowej wystąpi błąd, zobacz [Karta kredytowa została odrzucona podczas tworzenia konta platformy Azure](../../billing/billing-credit-card-fails-during-azure-sign-up.md).
 
-### <a name="change-credit-card-for-a-subscription"></a>Zmienianie karty kredytowej dla subskrypcji
+### <a name="change-credit-card-for-a-subscription-by-adding-a-new-credit-card"></a>Zmienianie karty kredytowej dla subskrypcji przez dodanie nowej karty kredytowej
 
 Możesz zmienić domyślną kartę kredytową platformy Azure na nową lub wcześniej zapisaną w witrynie Azure Portal. Aby zmienić kartę kredytową, musisz być administratorem konta. Jeśli więcej niż jedna subskrypcja ma aktywną tę samą formę płatności, zmiana aktywnej formy płatności dowolnej z tych subskrypcji spowoduje także zaktualizowanie aktywnej formy płatności pozostałych subskrypcji.
 
@@ -57,7 +57,7 @@ Możesz zmienić domyślną kartę kredytową subskrypcji na nową, wykonując n
 
 1. Wybierz opcję **Dalej**.
 
-Jeśli po dodaniu karty kredytowej wystąpi błąd, zobacz [Karta kredytowa została odrzucona podczas tworzenia konta platformy Azure](../../billing/billing-credit-card-fails-during-azure-sign-up.md).
+### <a name="change-credit-card-for-a-subscription-to-a-previously-saved-credit-card"></a>Zmienianie karty kredytowej dla subskrypcji na wcześniej zapisaną kartę kredytową
 
 Możesz również zmienić domyślną kartę kredytową subskrypcji na taką, która jest już zapisana na koncie, wykonując następujące kroki:
 
@@ -116,13 +116,14 @@ Jeśli karta kredytowa jest aktywną formą płatności dla którejkolwiek z sub
 Poniższe sekcje dotyczą klientów, którzy mają Umowę z Klientem Microsoft i zarejestrowali się w usłudze Azure w trybie online przy użyciu karty kredytowej. [Dowiedz się, jak sprawdzić, czy masz dostęp do Umowy z Klientem Microsoft](#check-the-type-of-your-account).
 
 ### <a name="change-default-credit-card"></a>Zmienianie domyślnej karty kredytowej
+
 Jeśli masz Umowę z Klientem Microsoft, Twoja karta kredytowa jest skojarzona z profilem rozliczeniowym. Aby zmienić formę płatności dla profilu rozliczeniowego, musisz być osobą, która zarejestrowała się na platformie Azure i utworzyła konto rozliczeniowe.
 
 Jeśli chcesz zmienić domyślną formę płatności profilu rozliczeniowego na czek/przelew, zobacz [Płacenie za subskrypcje platformy Azure za pomocą faktury](pay-by-invoice.md).
 
 Aby zmienić kartę kredytową, wykonaj następujące kroki:
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.
 1. W menu po lewej stronie kliknij pozycję **Profile rozliczeniowe**.
 1. Wybierz profil rozliczeniowy.
@@ -142,7 +143,7 @@ Możesz edytować szczegóły kart kredytowych (na przykład zaktualizować dat�
 
 Aby edytować lub usunąć kartę kredytową, wykonaj następujące kroki:
 
-1. Zaloguj się do [Azure portal](https://portal.azure.com).
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wyszukaj pozycję **Zarządzanie kosztami i rozliczenia**.
 1. W menu po lewej stronie kliknij pozycję **Profile rozliczeniowe**.
 1. Wybierz profil rozliczeniowy.
@@ -159,9 +160,11 @@ Aby edytować lub usunąć kartę kredytową, wykonaj następujące kroki:
 1. Aby usunąć kartę kredytową, wybierz pozycję **Usuń** z menu kontekstowego.
 
 ## <a name="troubleshooting"></a>Rozwiązywanie problemów
+
 Nie obsługujemy kart wirtualnych i przedpłaconych. Jeśli podczas dodawania lub aktualizowania ważnej karty kredytowej pojawiają się błędy, spróbuj otworzyć przeglądarkę w trybie prywatnym.
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
+
 W poniższych sekcjach zamieszczono odpowiedzi na często zadawane pytania dotyczące zmiany danych karty kredytowej.
 
 ### <a name="my-subscription-is-disabled-why-cant-i-remove-my-credit-card-now"></a>Moja subskrypcja jest wyłączona. Dlaczego nie mogę teraz usunąć karty kredytowej?
@@ -189,6 +192,7 @@ W przypadku [płatności przy użyciu faktury](pay-by-invoice.md) wyślij płatn
 Aby dodać lub zaktualizować numer NIP, zaktualizuj swój profil w [Centrum konta platformy Azure](https://account.azure.com/Profile), a następnie wybierz pozycję **Rejestr podatkowy**. Numer NIP jest używany do obliczenia kwoty zwolnienia z podatku i pojawia się na fakturze.
 
 ## <a name="check-the-type-of-your-account"></a>Sprawdzanie typu konta
+
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-account-type.md)]
 
 ## <a name="need-help-contact-us"></a>Potrzebujesz pomocy? Skontaktuj się z nami.
@@ -196,4 +200,5 @@ Aby dodać lub zaktualizować numer NIP, zaktualizuj swój profil w [Centrum kon
 Jeśli masz pytania lub potrzebujesz pomocy, [utwórz wniosek o pomoc techniczną](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Następne kroki
+
 - Zapoznaj się z [rezerwacjami platformy Azure](../reservations/save-compute-costs-reservations.md), aby dowiedzieć się, czy możesz oszczędzić pieniądze.

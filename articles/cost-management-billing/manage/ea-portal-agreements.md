@@ -3,34 +3,26 @@ title: Umowy EA platformy Azure i poprawki
 description: W tym artykule wyjaśniono, w jaki sposób umowy EA platformy Azure i ich poprawki wpływają na Twoje korzystanie z witryny Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/01/2020
+ms.date: 05/07/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 570a7b3bef702d0e42e23bc4b7af41cc431b9cc8
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 356b08526d96b6aa51a537a3dd1f7266cbf47141
+ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690992"
+ms.lasthandoff: 05/19/2020
+ms.locfileid: "83648182"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Umowy EA platformy Azure i poprawki
 
 W tym artykule opisano możliwy wpływ umów EA platformy Azure i ich poprawek na sposób, w jaki uzyskujesz dostęp do usług platformy Azure, korzystasz z nich i za nie płacisz.
 
-## <a name="amendment-status"></a>Stan poprawek
-
-Wszelkie poprawki dotyczące klientów platformy Azure muszą zostać przekazane do ich partnera lub zespołu obsługi klientów firmy Microsoft, a następnie przetworzone w regionalnym centrum operacyjnym. Jeśli sądzisz, że poprawka nie została przetworzona, skontaktuj się z partnerem, doradcą ds. oprogramowania lub zespołem obsługi klientów firmy Microsoft.
-
 ## <a name="enrollment-provisioning-status"></a>Stan aprowizacji rejestracji
 
 Data rozpoczęcia nowego zobowiązania pieniężnego zależy od daty przetworzenia go w regionalnym centrum operacyjnym. Ponieważ zobowiązania finansowe wynikające z zamówień składanych za pośrednictwem witryny Azure EA Portal są przetwarzane w strefie czasowej UTC, może wystąpić pewne opóźnienie, jeśli Twoje zobowiązanie pieniężne wynikające z zamówień zakupów zostało przetworzone w innym regionie. Data rozpoczęcia obsługi w zamówieniu dostępnym pod adresem https://www.explore.ms wskazuje datę rozpoczęcia zobowiązania pieniężnego. Data rozpoczęcia obsługi odpowiada momentowi wyświetlenia zobowiązania pieniężnego w witrynie Azure EA Portal.
 
-## <a name="support-offer-not-provisioned"></a>Brak aprowizacji oferty pomocy technicznej
-
-Możesz zamówić usługę pomocy technicznej w wariancie Standard lub Pro-Direct, kupując odpowiednie jednostki SKU. Ten proces jest podobny do zamówienia jednostki SKU zobowiązania pieniężnego platformy Azure z umową EA. Na przykład 6QK-00001. Numery jednostek SKU pomocy technicznej to W6T-00002 (Pro-Direct) i W6T-00003 (Standard). Zapoznaj się z bieżącymi ofertami pomocy technicznej przed zakupem jednostek SKU pomocy technicznej.
-
-Aby oferta pomocy technicznej została aprowizowana, w rejestracji musi istnieć co najmniej jedno aktywne konto.
+## <a name="support-for-enterprise-customers"></a>Pomoc techniczna dla klientów korporacyjnych
 
  Dla niektórych klientów jest dostępna [Oferta planu pomocy technicznej dla umów Enterprise Agreement](https://azure.microsoft.com/offers/enterprise-agreement-support/) platformy Azure.
 
@@ -158,24 +150,6 @@ W dowolnym momencie możesz poprosić o zwiększenie limitu przydziału przez pr
 - Identyfikator subskrypcji portalu deweloperów platformy Azure skojarzony z Twoją usługą.
   - Aby uzyskać informacje na temat sposobu uzyskiwania identyfikatora subskrypcji, [skontaktuj się z pomocą techniczną](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
-## <a name="azure-compute-pre-purchase-plan-cpp"></a>Plan zakupu z góry usługi Azure Compute (CPP)
-
-Plan zakupu z góry usługi Azure Compute (CPP — wcześniej znany jako Promocja usługi Azure Compute) to oferta, która zapewnia klientom stały stan, przewidywalne obciążenia i możliwość uzyskania znacznego rabatu na usługi obliczeniowe przez zakup obliczeń na platformie Azure z góry na 12 miesięcy. Jest ona dostępna dla klientów z umową EA i widoczna w witrynie EA Portal.
-
-Jeśli zamówiono jednostkę SKU CPP, jest ona przeznaczona dla konkretnego typu maszyny w określonym centrum danych. Na chwilę obecną dla tej usługi nie udostępniamy listy wszystkich zakupów CPP dokonanych przez klienta, dlatego nie ma listy oczekujących środków. Jednak w przypadku skonfigurowania zakupionych typów maszyn w centrum danych w witrynie EA Portal w raporcie Podsumowanie użycia zostanie wyświetlona miesięczna alokacja.
-
-Kwota zakupów dokonanych z góry będzie wyświetlana jako środki w kolumnie „Uwzględnione jednostki”. Rozliczane użycie nie spowoduje naliczania opłat za użycie, dopóki nie zostaną zużyte „Uwzględnione jednostki”. Po ich wykorzystaniu za dodatkowe użycie będą naliczane opłaty według wynegocjowanych stawek w normalnym arkuszu cen klienta umowy EA.
-
-Sposób zakupu środków jest oparty na liczbie maszyn danej klasy miesięcznie. Na przykład jeśli zakupiono 70 maszyn wirtualnych A2 na rok w regionie Wschodnie stany USA 2, ten zakup nie będzie tak samo widoczny w witrynie EA Portal.
-
-Na potrzeby obliczeń przyjmuje się, że przez miesiąc maszyny działają przez 744 godziny. Po konwersji na godziny otrzymamy 70 razy 744, czyli 52 080 zakupionych godzin maszyn wirtualnych A2 miesięcznie. W obszarze podsumowania użycia w witrynie EA Portal maszyny wirtualne A2 są uwidocznione w 100-godzinnych przyrostach, co przekłada się na środki w liczbie 520,8 (52 080/100) uwzględnionych jednostek na miesiąc. Są tam też wyświetlane zużyte do tej pory jednostki w miesiącu. Opłaty za użycie powinny wynosić zero do czasu, kiedy liczba użytych przez miesiąc jednostek przekroczy liczbę uwzględnionych jednostek miesięcznie.
-
-Różne typy maszyn używają różnych jednostek miary. Na przykład maszyny wirtualne D3 i D4 używają 10-godzinnej jednostki miary w naszym raporcie podsumowania użycia, w związku z czym zakup 70 z nich będzie obejmował 5208 uwzględnionych jednostek na miesiąc (52 080/10).
-
-Ogólnie poniższa formuła pozwoli obliczyć liczbę zakupionych maszyn wirtualnych w oparciu o jednostki miary:
-
-<center><b> („Uwzględniona ilość” * „Jednostki miary”) / 744 </b></center>
-
 ## <a name="plan-skus"></a>Jednostki SKU planu
 
 Jednostki SKU planu oferują możliwość zakupu zestawu zintegrowanych usług po obniżonej stawce. Jednostki SKU planu są zaprojektowane tak, aby uzupełniać się wzajemnie w ramach dalszych zintegrowanych ofert i tworzyć zestaw w celu zwiększenia oszczędności.
@@ -191,35 +165,6 @@ Administratorzy przedsiębiorstwa mogą nadawać właścicielom kont prawa do ap
 1. Kliknij kartę **Arkusz cen**.
 1. Kliknij ikonę „Pobierz” w prawym górnym rogu.
 1. Znajdź odpowiednie numery części jednostek SKU planu, korzystając z filtru w kolumnie „Uwzględniona ilość”, i wybierz wartości większe niż „0”.
-
-### <a name="provision-the-plan-skus"></a>Aprowizowanie jednostek SKU planu
-
-Administratorzy przedsiębiorstwa mogą dodawać nowych właścicieli kont, kojarzyć istniejącego właściciela konta lub żądać istniejących właścicieli kont mogących logować się do witryny Azure EA Portal w celu aprowizowania zakupionych wcześniej w witrynie Azure EA Portal jednostek SKU planu, wykonując poniższe kroki.  
-
-**Dodawanie nowego właściciela konta (czynność wykonana przez administratora witryny EA):**
-
-1. W witrynie Azure EA Portal wybierz pozycję **Zarządzanie** w obszarze nawigacji po lewej stronie.
-1. Kliknij kartę **Konto**.
-1. Na stronie Konto kliknij pozycję **+ Dodaj konto**.
-1. Wybierz dział lub pozostaw jako nieprzypisane.
-1. Wybierz odpowiedni typ uwierzytelniania.
-1. Podaj przyjazną nazwę, której chcesz używać do identyfikowania tego konta na potrzeby raportowania.
-1. Wprowadź adres e-mail właściciela konta, który ma zostać skojarzony z nowym kontem.
-1. Potwierdź adres e-mail, który ma zostać skojarzony z nowym kontem.
-1. Kliknij pozycję **Add** (Dodaj).
-1. Możesz dodać kolejne konto, klikając pozycję **Dodaj kolejne konto** lub klikając przycisk **Dodaj** w prawym dolnym rogu na lewym pasku narzędzi.
-1. Teraz właściciel konta może się zalogować, aby dodać odpowiednie subskrypcje w celu aprowizacji jednostek SKU planu
-
-**Kojarzenie istniejącego właściciela konta:**
-
-1. W witrynie Enterprise Portal kliknij pozycję **Zarządzanie**.
-1. Kliknij kartę **Konto**.
-1. Kliknij pozycję **+ Dodaj konto**. Wprowadź konto Microsoft lub konto służbowe skojarzone z istniejącym kontem.
-1. Potwierdź konto Microsoft lub konto służbowe skojarzone z istniejącym kontem.
-1. Podaj nazwę, której chcesz używać do identyfikowania tego konta na potrzeby raportowania.
-1. Kliknij pozycję **Add** (Dodaj).
-1. Możesz dodać kolejne konto, wybierając ponownie opcję **+ Dodaj konto**, lub wrócić do strony głównej, wybierając przycisk **Administrator**.  
-1. Jeśli klikniesz, aby wyświetlić stronę konta, nowo dodane konto zostanie wyświetlone w stanie „Oczekiwanie”. Jego stan zmieni się na „Aktywny” po pierwszym zalogowaniu się właściciela konta do witryny EA Portal.
 
 ### <a name="existingnew-account-owners-to-create-new-subscriptions"></a>Tworzenie nowych subskrypcji przez istniejących lub nowych właścicieli kont
 

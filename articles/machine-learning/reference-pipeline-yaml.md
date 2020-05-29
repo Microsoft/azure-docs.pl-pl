@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: sanpil
 author: sanpil
 ms.date: 11/11/2019
-ms.openlocfilehash: cee6de8fda45c429d0c74a3ecdc966b49e092567
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 0bf5a722c611f4d1c5446eb739fdd95b7edbc934
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208503"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170532"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>Definiowanie potoków uczenia maszynowego w YAML
 
@@ -26,6 +26,7 @@ W poniższej tabeli przedstawiono, co jest i nie jest obecnie obsługiwane podcz
 | Typ kroku | Obsługiwane? |
 | ----- | :-----: |
 | PythonScriptStep | Tak |
+| ParallelRunStep | Tak |
 | AdlaStep | Tak |
 | AzureBatchStep | Tak |
 | DatabricksStep | Tak |
@@ -50,14 +51,14 @@ Definicja potoku używa następujących kluczy, które odpowiadają klasie [poto
 
 ## <a name="parameters"></a>Parametry
 
-`parameters` Sekcja używa następujących kluczy, które odpowiadają klasie [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?view=azure-ml-py) :
+`parameters`Sekcja używa następujących kluczy, które odpowiadają klasie [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?view=azure-ml-py) :
 
 | Klucz YAML | Opis |
 | ---- | ---- |
-| `type` | Typ wartości parametru. Prawidłowe typy to `string`, `int`, `float`, `bool`lub `datapath`. |
+| `type` | Typ wartości parametru. Prawidłowe typy to `string` , `int` , `float` , `bool` lub `datapath` . |
 | `default` | Wartość domyślna. |
 
-Każdy parametr ma nazwę. Na przykład poniższy fragment kodu YAML definiuje trzy parametry o `NumIterationsParameter`nazwach `DataPathParameter`, i `NodeCountParameter`:
+Każdy parametr ma nazwę. Na przykład poniższy fragment kodu YAML definiuje trzy parametry o nazwach `NumIterationsParameter` , `DataPathParameter` i `NodeCountParameter` :
 
 ```yaml
 pipeline:
@@ -78,14 +79,14 @@ pipeline:
 
 ## <a name="data-reference"></a>Opis danych
 
-`data_references` Sekcja używa następujących kluczy, które odnoszą się do [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py):
+`data_references`Sekcja używa następujących kluczy, które odnoszą się do [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py):
 
 | Klucz YAML | Opis |
 | ----- | ----- |
 | `datastore` | Magazyn danych do odwołania. |
 | `path_on_datastore` | Ścieżka względna w magazynie zapasowym dla odwołania do danych. |
 
-Każde odwołanie do danych jest zawarte w kluczu. Na przykład poniższy fragment kodu YAML definiuje odwołanie do danych przechowywane w kluczu o nazwie `employee_data`:
+Każde odwołanie do danych jest zawarte w kluczu. Na przykład poniższy fragment kodu YAML definiuje odwołanie do danych przechowywane w kluczu o nazwie `employee_data` :
 
 ```yaml
 pipeline:
@@ -111,12 +112,13 @@ Kroki definiują środowisko obliczeniowe, a także pliki do uruchomienia w śro
 | `DatabricsStep` | Dodaje Notes, skrypt w języku Python lub JAR. Odpowiada klasie [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricksstep?view=azure-ml-py) . |
 | `DataTransferStep` | Przesyła dane między opcjami magazynu. Odpowiada klasie [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py) . |
 | `PythonScriptStep` | Uruchamia skrypt języka Python. Odpowiada klasie [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py) . |
+| `ParallelRunStep` | Uruchamia skrypt języka Python w celu asynchronicznego i równoległego przetwarzania dużych ilości danych. Odpowiada klasie [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?view=azure-ml-py) . |
 
 ### <a name="adla-step"></a>ADLA — krok
 
 | Klucz YAML | Opis |
 | ----- | ----- |
-| `script_name` | Nazwa skryptu U-SQL (względem `source_directory`). |
+| `script_name` | Nazwa skryptu U-SQL (względem `source_directory` ). |
 | `compute_target` | Obiekt docelowy obliczeń Azure Data Lake do użycia w tym kroku. |
 | `parameters` | [Parametry](#parameters) do potoku. |
 | `inputs` | Dane wejściowe mogą być [InputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py), [DataReference](#data-reference), [PortDataReference](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py), [DataSet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py)lub [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py). |
@@ -176,7 +178,7 @@ pipeline:
 | `delete_batch_job_after_finish` | Flagę logiczną, aby wskazać, czy zadanie ma zostać usunięte z konta usługi Batch po zakończeniu. |
 | `delete_batch_pool_after_finish` | Flaga logiczna wskazująca, czy należy usunąć pulę po zakończeniu zadania. |
 | `is_positive_exit_code_failure` | Flaga logiczna wskazująca, czy zadanie kończy się niepowodzeniem, jeśli zadanie zostanie zakończone z kodem pozytywnym. |
-| `vm_image_urn` | Jeśli `create_pool` jest `True`, a maszyna wirtualna `VirtualMachineConfiguration`używa. |
+| `vm_image_urn` | Jeśli `create_pool` jest `True` , a maszyna wirtualna używa `VirtualMachineConfiguration` . |
 | `pool_id` | Identyfikator puli, w której zostanie uruchomione zadanie. |
 | `allow_reuse` | Określa, czy krok ma ponownie używać poprzednich wyników po ponownym uruchomieniu z tymi samymi ustawieniami. |
 
@@ -321,7 +323,7 @@ pipeline:
 | ----- | ----- |
 | `inputs` | Dane wejściowe mogą być [InputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py), [DataReference](#data-reference), [PortDataReference](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py), [DataSet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py)lub [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py). |
 | `outputs` | Wynikami może być [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) lub [OutputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?view=azure-ml-py). |
-| `script_name` | Nazwa skryptu języka Python (względem `source_directory`). |
+| `script_name` | Nazwa skryptu języka Python (względem `source_directory` ). |
 | `source_directory` | Katalog zawierający skrypt, środowisko Conda itp. |
 | `runconfig` | Ścieżka do `.runconfig` pliku. Ten plik jest reprezentacją YAML klasy [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) . Aby uzyskać więcej informacji na temat struktury tego pliku, zobacz [runconfig. JSON](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). |
 | `allow_reuse` | Określa, czy krok ma ponownie używać poprzednich wyników po ponownym uruchomieniu z tymi samymi ustawieniami. |
@@ -362,11 +364,63 @@ pipeline:
                     bind_mode: mount
 ```
 
+### <a name="parallel-run-step"></a>Krok przebiegu równoległego
+
+| Klucz YAML | Opis |
+| ----- | ----- |
+| `inputs` | Dane wejściowe mogą być [zestawami danych](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py)lub [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py). |
+| `outputs` | Wynikami może być [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) lub [OutputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?view=azure-ml-py). |
+| `script_name` | Nazwa skryptu języka Python (względem `source_directory` ). |
+| `source_directory` | Katalog zawierający skrypt, środowisko Conda itp. |
+| `parallel_run_config` | Ścieżka do `parallel_run_config.yml` pliku. Ten plik jest reprezentacją YAML klasy [ParallelRunConfig](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig?view=azure-ml-py) . |
+| `allow_reuse` | Określa, czy krok ma ponownie używać poprzednich wyników po ponownym uruchomieniu z tymi samymi ustawieniami. |
+
+Poniższy przykład zawiera krok przebiegu równoległego:
+
+```yaml
+pipeline:
+    description: SamplePipelineFromYaml
+    default_compute: cpu-cluster
+    data_references:
+        MyMinistInput:
+            dataset_name: mnist_sample_data
+    parameters:
+        PipelineParamTimeout:
+            type: int
+            default: 600
+    steps:        
+        Step1:
+            parallel_run_config: "yaml/parallel_run_config.yml"
+            type: "ParallelRunStep"
+            name: "parallel-run-step-1"
+            allow_reuse: True
+            arguments:
+            - "--progress_update_timeout"
+            - parameter:timeout_parameter
+            - "--side_input"
+            - side_input:SideInputData
+            parameters:
+                timeout_parameter:
+                    source: PipelineParamTimeout
+            inputs:
+                InputData:
+                    source: MyMinistInput
+            side_inputs:
+                SideInputData:
+                    source: Output4
+                    bind_mode: mount
+            outputs:
+                OutputDataStep2:
+                    destination: Output5
+                    datastore: workspaceblobstore
+                    bind_mode: mount
+```
+
 ### <a name="pipeline-with-multiple-steps"></a>Potok z wieloma krokami 
 
 | Klucz YAML | Opis |
 | ----- | ----- |
-| `steps` | Sekwencja co najmniej jednej definicji PipelineStep. Należy zauważyć, `destination` że klucze jednego kroku `outputs` stają się `source` kluczami do `inputs` następnego kroku.| 
+| `steps` | Sekwencja co najmniej jednej definicji PipelineStep. Należy zauważyć, że `destination` klucze jednego kroku `outputs` stają się `source` kluczami do `inputs` następnego kroku.| 
 
 ```yaml
 pipeline:
@@ -435,8 +489,8 @@ Podczas definiowania harmonogramu dla potoku może to być magazyn danych — wy
 | `datastore_name` | Magazyn danych do monitorowania dla zmodyfikowanych/dodanych obiektów BLOB. |
 | `polling_interval` | Czas trwania sondowania dla zmodyfikowanych/dodanych obiektów BLOB w minutach. Wartość domyślna: 5 minut. Obsługiwane tylko w przypadku harmonogramów magazynu danych. |
 | `data_path_parameter_name` | Nazwa parametru potoku ścieżki danych do ustawienia ze zmienioną ścieżką obiektu BLOB. Obsługiwane tylko w przypadku harmonogramów magazynu danych. |
-| `continue_on_step_failure` | Czy kontynuować wykonywanie innych kroków w przesłanych PipelineRun w przypadku niepowodzenia kroku. Jeśli ta `continue_on_step_failure` opcja jest określona, zastąpi ustawienie potoku.
-| `path_on_datastore` | Opcjonalny. Ścieżka do magazynu danych do monitorowania dla zmodyfikowanych/dodanych obiektów BLOB. Ścieżka znajduje się w kontenerze dla magazynu danych, więc rzeczywista ścieżka monitorów harmonogramu to Container/`path_on_datastore`. Jeśli nie, kontener magazynu danych jest monitorowany. Dodatki/modyfikacje wprowadzone w podfolderze nie `path_on_datastore` są monitorowane. Obsługiwane tylko w przypadku harmonogramów magazynu danych. |
+| `continue_on_step_failure` | Czy kontynuować wykonywanie innych kroków w przesłanych PipelineRun w przypadku niepowodzenia kroku. Jeśli ta opcja jest określona, zastąpi `continue_on_step_failure` ustawienie potoku.
+| `path_on_datastore` | Opcjonalny. Ścieżka do magazynu danych do monitorowania dla zmodyfikowanych/dodanych obiektów BLOB. Ścieżka znajduje się w kontenerze dla magazynu danych, więc rzeczywista ścieżka monitorów harmonogramu to Container/ `path_on_datastore` . Jeśli nie, kontener magazynu danych jest monitorowany. Dodatki/modyfikacje wprowadzone w podfolderze `path_on_datastore` nie są monitorowane. Obsługiwane tylko w przypadku harmonogramów magazynu danych. |
 
 Poniższy przykład zawiera definicję harmonogramu wyzwalanego przez magazyn danych:
 
@@ -454,18 +508,18 @@ Schedule:
       path_on_datastore: "file/path" 
 ```
 
-Podczas definiowania **harmonogramu cyklicznego**Użyj następujących kluczy w obszarze `recurrence`:
+Podczas definiowania **harmonogramu cyklicznego**Użyj następujących kluczy w obszarze `recurrence` :
 
 | Klucz YAML | Opis |
 | ----- | ----- |
-| `frequency` | Częstotliwość powtarzania harmonogramu. Prawidłowe wartości to `"Minute"`, `"Hour"`, `"Day"`, `"Week"`lub `"Month"`. |
+| `frequency` | Częstotliwość powtarzania harmonogramu. Prawidłowe wartości to `"Minute"` , `"Hour"` , `"Day"` , `"Week"` lub `"Month"` . |
 | `interval` | Jak często wyzwalany jest harmonogram. Wartość całkowita to liczba jednostek czasu oczekiwania do momentu ponownego uruchomienia harmonogramu. |
-| `start_time` | Godzina rozpoczęcia harmonogramu. Format ciągu wartości to `YYYY-MM-DDThh:mm:ss`. Jeśli nie podano czasu rozpoczęcia, pierwsze obciążenie jest uruchamiane natychmiast, a przyszłe obciążenia są uruchamiane zgodnie z harmonogramem. Jeśli czas rozpoczęcia jest w przeszłości, pierwsze obciążenie zostanie uruchomione przy następnym obliczonym czasie wykonywania. |
+| `start_time` | Godzina rozpoczęcia harmonogramu. Format ciągu wartości to `YYYY-MM-DDThh:mm:ss` . Jeśli nie podano czasu rozpoczęcia, pierwsze obciążenie jest uruchamiane natychmiast, a przyszłe obciążenia są uruchamiane zgodnie z harmonogramem. Jeśli czas rozpoczęcia jest w przeszłości, pierwsze obciążenie zostanie uruchomione przy następnym obliczonym czasie wykonywania. |
 | `time_zone` | Strefa czasowa godziny rozpoczęcia. Jeśli nie podano strefy czasowej, używany jest czas UTC. |
-| `hours` | Jeśli `frequency` jest `"Day"` lub `"Week"`, możesz określić co najmniej jedną liczbę całkowitą z zakresu od 0 do 23, rozdzieloną przecinkami, jako godziny dnia, w którym ma zostać uruchomiony potok. Tylko `time_of_day` lub `hours` i `minutes` mogą być używane. |
-| `minutes` | Jeśli `frequency` jest `"Day"` lub `"Week"`, można określić co najmniej jedną liczbę całkowitą z przedziału od 0 do 59, oddzieloną przecinkami, jako minuty godziny, kiedy potok powinien zostać uruchomiony. Tylko `time_of_day` lub `hours` i `minutes` mogą być używane. |
-| `time_of_day` | Jeśli `frequency` jest `"Day"` lub `"Week"`, możesz określić godzinę, o której ma być uruchamiany harmonogram. Format ciągu wartości to `hh:mm`. Tylko `time_of_day` lub `hours` i `minutes` mogą być używane. |
-| `week_days` | Jeśli `frequency` jest `"Week"`, możesz określić jeden lub więcej dni rozdzielonych przecinkami, gdy harmonogram powinien zostać uruchomiony. Prawidłowe wartości to `"Monday"`, `"Tuesday"`, `"Wednesday"`, `"Thursday"` `"Friday"` `"Saturday"`,, i `"Sunday"`. |
+| `hours` | Jeśli `frequency` jest `"Day"` lub `"Week"` , możesz określić co najmniej jedną liczbę całkowitą z zakresu od 0 do 23, rozdzieloną przecinkami, jako godziny dnia, w którym ma zostać uruchomiony potok. Tylko `time_of_day` lub `hours` i `minutes` mogą być używane. |
+| `minutes` | Jeśli `frequency` jest `"Day"` lub `"Week"` , można określić co najmniej jedną liczbę całkowitą z przedziału od 0 do 59, oddzieloną przecinkami, jako minuty godziny, kiedy potok powinien zostać uruchomiony. Tylko `time_of_day` lub `hours` i `minutes` mogą być używane. |
+| `time_of_day` | Jeśli `frequency` jest `"Day"` lub `"Week"` , możesz określić godzinę, o której ma być uruchamiany harmonogram. Format ciągu wartości to `hh:mm` . Tylko `time_of_day` lub `hours` i `minutes` mogą być używane. |
+| `week_days` | Jeśli `frequency` jest `"Week"` , możesz określić jeden lub więcej dni rozdzielonych przecinkami, gdy harmonogram powinien zostać uruchomiony. Prawidłowe wartości to `"Monday"` , `"Tuesday"` , `"Wednesday"` ,,, `"Thursday"` `"Friday"` `"Saturday"` i `"Sunday"` . |
 
 Poniższy przykład zawiera definicję harmonogramu cyklicznego:
 

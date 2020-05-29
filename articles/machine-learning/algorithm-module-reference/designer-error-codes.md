@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: bfb70aaa092cc62fbff87e9e3e327ee7364f8701
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 540c3eace72a1692a927916a48f772047115375f
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83833817"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84167251"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Wyjątki i kody błędów dla projektanta (wersja zapoznawcza)
 
@@ -1106,7 +1106,7 @@ Zapoznaj się z następującymi artykułami, aby uzyskać pomoc dotyczącą zapy
 
  Jeśli w wyjątku modułu jest raportowany komunikat generowany przez program SQL, należy wykonać akcję na podstawie zgłoszonego błędu. Na przykład komunikaty o błędach czasami zawierają określone wskazówki dotyczące przyczyny błędu:
 + *Nie ma takiej kolumny ani brakującej bazy danych*, co oznacza, że być może wpisano nieprawidłową nazwę kolumny. Jeśli masz pewność, że nazwa kolumny jest poprawna, spróbuj użyć nawiasów lub znaków cudzysłowu, aby ująć identyfikator kolumny.
-+ *Błąd logiki SQL w sąsiedztwie \< Słowo kluczowe \> SQL*, wskazujące, że może wystąpić błąd składniowy przed określonym słowem kluczowym
++ *Błąd logiki SQL w \<SQL keyword\> sąsiedztwie *, wskazujący, że może wystąpić błąd składniowy przed określonym słowem kluczowym
 
   
 |Komunikaty o wyjątkach|
@@ -1500,7 +1500,7 @@ Rozwiązanie:
 
 
 ## <a name="error-0159"></a>Błąd 0159
- Wyjątek występuje, jeśli przeszedł do katalogu modelu modułu jest nieprawidłowy. 
+ Wyjątek występuje, jeśli katalog modelu modułu jest nieprawidłowy. 
 
 |Komunikaty o wyjątkach|
 |------------------------------------------------------------|

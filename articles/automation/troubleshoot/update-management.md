@@ -8,14 +8,14 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 35049e148af09376667a55e2f0bb4a28cf728245
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 2989d85ddfca036a27ff6b886bd3b13a981c27a3
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83735892"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170260"
 ---
-# <a name="troubleshoot-update-management-issues"></a>Rozwiązywanie problemów dotyczących Update Management
+# <a name="troubleshoot-update-management-issues"></a>Rozwiązywanie problemów z usługą Update Management
 
 W tym artykule omówiono problemy, które można napotkać podczas wdrażania funkcji Update Management na maszynach. Istnieje narzędzie do rozwiązywania problemów z agentem dla agenta hybrydowego procesu roboczego elementu Runbook w celu ustalenia podstawowego problemu. Aby dowiedzieć się więcej na temat narzędzia do rozwiązywania problemów, zobacz [Rozwiązywanie problemów z usługą Windows Update Agent](update-agent-issues.md) i [Rozwiązywanie problemów z usługą Linux Update Agent](update-agent-issues-linux.md). Inne problemy z wdrażaniem funkcji można znaleźć w temacie [Rozwiązywanie problemów z wdrażaniem funkcji](onboarding.md).
 
@@ -50,7 +50,7 @@ Ten błąd może wystąpić z następujących powodów:
 
 * Przejdź do pozycji [Konfiguracja sieci](../../azure-monitor/platform/log-analytics-agent.md#network-requirements) , aby dowiedzieć się, które adresy i porty muszą być dozwolone do działania agenta log Analytics.
 
-* Sprawdź, czy występują problemy z konfiguracją zakresu. [Konfiguracja zakresu](../automation-onboard-solutions-from-automation-account.md#scope-configuration) określa, które maszyny są skonfigurowane do Update Management. Jeśli Twoja maszyna jest wyświetlana w obszarze roboczym, ale nie w portalu Update Management, musisz ustawić konfigurację zakresu, aby wskazać maszyny docelowe. Aby dowiedzieć się więcej na temat konfiguracji zakresu, zobacz [Włączanie maszyn w obszarze roboczym](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace).
+* Sprawdź, czy występują problemy z konfiguracją zakresu. [Konfiguracja zakresu](../automation-scope-configurations-update-management.md) określa, które maszyny są skonfigurowane do Update Management. Jeśli Twoja maszyna jest wyświetlana w obszarze roboczym, ale nie w portalu Update Management, musisz ustawić konfigurację zakresu, aby wskazać maszyny docelowe. Aby dowiedzieć się więcej na temat konfiguracji zakresu, zobacz [Włączanie maszyn w obszarze roboczym](../automation-onboard-solutions-from-automation-account.md#enable-machines-in-the-workspace).
 
 * Usuń konfigurację procesu roboczego, wykonując czynności opisane w sekcji [usuwanie hybrydowego procesu roboczego elementu Runbook z lokalnego komputera z systemem Windows](../automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) lub [usuwanie hybrydowego procesu roboczego elementu Runbook z lokalnego komputera](../automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker)z systemem Linux. 
 

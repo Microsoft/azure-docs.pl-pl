@@ -7,12 +7,12 @@ ms.assetid: 51cd331a-a3fa-438f-90ef-385e755e50d5
 ms.topic: article
 ms.date: 07/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 9345b6fb28aa282e85f1167f6f2531e5f990e3a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9cb672f2ada88b1fc67bcd8f022c5faeeac6dddf
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74688324"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170804"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>Rozwiązywanie problemów z błędami HTTP "502 złej Gateway" i "503 Usługa niedostępna" w Azure App Service
 "502 zła brama" i "503 Usługa niedostępna" to typowe błędy w aplikacji hostowanej w [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Ten artykuł pomaga rozwiązywać te błędy.
@@ -38,7 +38,7 @@ Rozwiązywanie problemów można podzielić na trzy różne zadania, w kolejnoś
 
 [App Service](overview.md) oferuje różne opcje w każdym kroku.
 
-<a name="observe" />
+<a name="observe"></a>
 
 ### <a name="1-observe-and-monitor-application-behavior"></a>1. Obserwuj i monitoruj zachowanie aplikacji
 #### <a name="track-service-health"></a>Śledzenie kondycji usługi
@@ -62,7 +62,7 @@ Aby uzyskać więcej informacji, zobacz:
 * [Monitorowanie aplikacji w Azure App Service](web-sites-monitor.md)
 * [Otrzymywanie powiadomień o alertach](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
-<a name="collect" />
+<a name="collect"></a>
 
 ### <a name="2-collect-data"></a>2. Zbierz dane
 #### <a name="use-the-diagnostics-tool"></a>Korzystanie z narzędzia diagnostycznego
@@ -73,7 +73,7 @@ Aby uzyskać dostęp do diagnostyki App Service, przejdź do aplikacji App Servi
 #### <a name="use-the-kudu-debug-console"></a>Korzystanie z konsoli debugowania kudu
 App Service obejmuje konsolę debugowania, której można użyć do debugowania, eksplorowania, przekazywania plików, a także punktów końcowych JSON do uzyskiwania informacji o środowisku. Jest to nazywane *konsolą kudu* lub *pulpitem nawigacyjnym usługi SCM* dla aplikacji.
 
-Możesz uzyskać dostęp do tego pulpitu nawigacyjnego, przechodząc do linku **https://&lt;nazwę aplikacji>. SCM.azurewebsites.NET/**.
+Możesz uzyskać dostęp do tego pulpitu nawigacyjnego, przechodząc do linku **https:// &lt; nazwę aplikacji>. SCM.azurewebsites.NET/**.
 
 Dostępne są następujące elementy kudu:
 
@@ -86,7 +86,7 @@ Kolejną przydatną funkcją kudu jest to, że w przypadku, gdy aplikacja zgłas
 
 Aby uzyskać więcej informacji na temat funkcji dostępnych w programie kudu, zobacz [temat narzędzia online usługi Azure Websites, które należy wiedzieć](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
-<a name="mitigate" />
+<a name="mitigate"></a>
 
 ### <a name="3-mitigate-the-issue"></a>3. Zmniejsz problem
 #### <a name="scale-the-app"></a>Skalowanie aplikacji

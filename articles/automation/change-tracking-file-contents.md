@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 07/03/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6afa3d4d2d62541a51c3bab85843d41b48397100
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 2738605680a7035e4e2da95b0f53b4d5e227304b
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118773"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170294"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Zarządzanie usługą Change Tracking and Inventory
 
@@ -22,6 +22,10 @@ Przed rozpoczęciem korzystania z procedur opisanych w tym artykule upewnij się
 * [Włącz Change Tracking i spis, przeglądając Azure Portal](automation-enable-changes-from-browse.md)
 * [Włączanie śledzenia zmian i spisu z poziomu elementu runbook](automation-enable-changes-from-runbook.md)
 * [Włączanie śledzenia zmian i spisu na maszynie wirtualnej platformy Azure](automation-enable-changes-from-vm.md)
+
+## <a name="limit-the-scope-for-the-deployment"></a><a name="scope-configuration"></a>Ograniczanie zakresu wdrożenia
+
+Change Tracking i spis używają konfiguracji zakresu w obszarze roboczym, aby określić, że komputery mają otrzymywać zmiany. Aby uzyskać więcej informacji, zobacz [ograniczanie Change Tracking i zakresu wdrożenia spisu](automation-scope-configurations-change-tracking.md).
 
 ## <a name="track-files"></a>Śledzenie plików
 
@@ -165,5 +169,8 @@ Skorzystajmy z tego przykładu, aby omówić kroki tworzenia alertów dotyczący
 
 ## <a name="next-steps"></a>Następne kroki
 
+* Aby uzyskać informacje na temat konfiguracji zakresów, zobacz [ograniczanie Change Tracking i zakresu wdrożenia spisu](automation-scope-configurations-change-tracking.md).
 * Jeśli musisz przeszukać dzienniki przechowywane w obszarze roboczym Log Analytics, zobacz [Wyszukiwanie w dzienniku w](../log-analytics/log-analytics-log-searches.md)dziennikach Azure monitor.
+* Jeśli zakończono wdrożenia, zobacz [Odłącz obszar roboczy z konta usługi Automation dla Change Tracking i spisu](automation-unlink-workspace-change-tracking.md).
+* Aby usunąć maszyny wirtualne ze Change Tracking i spisu, zobacz [usuwanie maszyn wirtualnych z Change Tracking i spisu](automation-remove-vms-from-change-tracking.md).
 * Rozwiązywanie problemów z błędami funkcji można znaleźć w temacie [Rozwiązywanie problemów dotyczących Change Tracking i spisu](troubleshoot/change-tracking.md).

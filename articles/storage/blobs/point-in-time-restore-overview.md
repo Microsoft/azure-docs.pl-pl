@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 66682e953e4e262604d1b0c07720ebaab5995364
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 38f6cfef60cf3bfe66742cba204d74db1c22ca77
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83195215"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84169291"
 ---
 # <a name="point-in-time-restore-for-block-blobs-preview"></a>Przywracanie do punktu w czasie dla blokowych obiektów BLOB (wersja zapoznawcza)
 
@@ -26,15 +26,13 @@ Aby dowiedzieć się, jak włączyć przywracanie do punktu w czasie dla konta m
 
 Aby włączyć przywracanie do określonego momentu, należy utworzyć zasady zarządzania dla konta magazynu i określić okres przechowywania. W okresie przechowywania można przywrócić blokowe obiekty blob ze stanu obecne do stanu w określonym punkcie czasu.
 
-Aby zainicjować przywracanie do określonego momentu, wywołaj operację [Przywróć zakresy obiektów BLOB](/rest/api/storagerp/storageaccounts/restoreblobranges) i określ punkt przywracania w czasie UTC. Możesz określić zakres lexicographical nazw kontenerów i obiektów BLOB do przywrócenia lub pominąć zakres, aby przywrócić wszystkie kontenery na koncie magazynu. Operacja **przywracania zakresów obiektów BLOB** zwraca identyfikator przywracania, który jednoznacznie identyfikuje operację.
+Aby zainicjować przywracanie do określonego momentu, wywołaj operację [Przywróć zakresy obiektów BLOB](/rest/api/storagerp/storageaccounts/restoreblobranges) i określ punkt przywracania w czasie UTC. Można określić zakresy lexicographical nazw kontenerów i obiektów BLOB do przywrócenia lub pominąć zakres, aby przywrócić wszystkie kontenery na koncie magazynu. Dla operacji przywracania obsługiwane są maksymalnie 10 zakresów lexicographical.
 
 Usługa Azure Storage analizuje wszystkie zmiany wprowadzone w określonych obiektach Blob między żądanym punktem przywracania, określonym w polu czas UTC, a obecnym chwilą. Operacja przywracania jest niepodzielna, dlatego w całości przywraca wszystkie zmiany lub nie powiedzie się. Jeśli istnieją jakiekolwiek obiekty blob, których nie można przywrócić, operacja kończy się niepowodzeniem, a operacje odczytu i zapisu w kontenerach, których dotyczy problem, są wznawiane.
 
-Po zażądaniu operacji przywracania usługa Azure Storage blokuje operacje na danych w obiektach Blob w zakresie przywracanym przez czas trwania operacji. Operacje odczytu, zapisu i usuwania są blokowane w lokalizacji podstawowej. Operacje odczytu z lokalizacji pomocniczej mogą być przetwarzane w trakcie operacji przywracania, jeśli konto magazynu ma replikację geograficzną.
-
 Jednocześnie można uruchomić tylko jedną operację przywracania na koncie magazynu. Nie można anulować operacji przywracania, gdy jest w toku, ale w celu cofnięcia pierwszej operacji można wykonać drugą operację przywracania.
 
-Aby sprawdzić stan przywracania do punktu w czasie, wywołaj operację **Pobierz stan przywracania** z identyfikatorem przywracania zwróconym z operacji **przywracania zakresów obiektów BLOB** .
+Operacja **przywracania zakresów obiektów BLOB** zwraca identyfikator przywracania, który jednoznacznie identyfikuje operację. Aby sprawdzić stan przywracania do punktu w czasie, wywołaj operację **Pobierz stan przywracania** z identyfikatorem przywracania zwróconym z operacji **przywracania zakresów obiektów BLOB** .
 
 Należy pamiętać o następujących ograniczeniach dotyczących operacji przywracania:
 
@@ -42,6 +40,11 @@ Należy pamiętać o następujących ograniczeniach dotyczących operacji przywr
 - Nie można przywrócić obiektu BLOB z aktywną dzierżawą. Jeśli obiekt BLOB z aktywną dzierżawą znajduje się w zakresie obiektów BLOB do przywrócenia, operacja przywracania zakończy się niepowodzeniem.
 - Migawki nie są tworzone ani usuwane w ramach operacji przywracania. Tylko podstawowy obiekt BLOB zostanie przywrócony do poprzedniego stanu.
 - Jeśli obiekt BLOB został przeniesiony między warstwami gorąca i chłodna w okresie między obecnym chwilą a punktem przywracania, obiekt BLOB zostanie przywrócony do poprzedniej warstwy. Jednak obiekt BLOB przeniesiony do warstwy archiwum nie zostanie przywrócony.
+
+> [!IMPORTANT]
+> Podczas wykonywania operacji przywracania usługa Azure Storage blokuje operacje na danych w obiektach Blob w zakresach przywracanych przez czas trwania operacji. Operacje odczytu, zapisu i usuwania są blokowane w lokalizacji podstawowej. Z tego powodu operacje, takie jak kontenery list w Azure Portal, mogą nie działać zgodnie z oczekiwaniami podczas operacji przywracania.
+>
+> Operacje odczytu z lokalizacji pomocniczej mogą być przetwarzane w trakcie operacji przywracania, jeśli konto magazynu ma replikację geograficzną.
 
 > [!CAUTION]
 > Przywracanie do punktu w czasie obsługuje operacje przywracania tylko dla blokowych obiektów BLOB. Nie można przywrócić operacji na kontenerach. W przypadku usunięcia kontenera z konta magazynu przez wywołanie operacji [usuwania kontenera](/rest/api/storageservices/delete-container) w podglądzie przywracania do punktu w czasie nie można przywrócić tego kontenera przy użyciu operacji przywracania. W trakcie okresu zapoznawczego zamiast usuwania kontenera Usuń pojedyncze obiekty blob, jeśli chcesz je przywrócić.

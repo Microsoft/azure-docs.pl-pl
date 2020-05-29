@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 54379c65850fa210e5523b53a64fe89705ed1f15
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f998cc238b997f2dfb8e8043693379e4c5a53546
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79532114"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170413"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Używanie reguł i punktów końcowych usługi dla sieci wirtualnej w przypadku usługi Azure Database for MariaDB
 
@@ -24,7 +24,7 @@ Aby utworzyć regułę sieci wirtualnej, musi być to [Sieć wirtualna][vm-virtu
 > [!NOTE]
 > Ta funkcja jest dostępna we wszystkich regionach platformy Azure, w których wdrożono Azure Database for MariaDB dla serwerów Ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci.
 
-<a name="anch-terminology-and-description-82f" />
+<a name="anch-terminology-and-description-82f"></a>
 
 ## <a name="terminology-and-description"></a>Terminologia i opis
 
@@ -44,7 +44,7 @@ Reguła sieci wirtualnej instruuje serwer Azure Database for MariaDB, aby akcept
 
 
 
-<a name="anch-benefits-of-a-vnet-rule-68b" />
+<a name="anch-benefits-of-a-vnet-rule-68b"></a>
 
 ## <a name="benefits-of-a-virtual-network-rule"></a>Zalety reguły sieci wirtualnej
 
@@ -68,7 +68,7 @@ Jeśli serwer **Microsoft. SQL** był węzłem w podsieci w sieci wirtualnej, ws
 
 Jednak od sierpnia 2018 usługa Azure Database for MariaDB nie należy jeszcze do usług, które mogą być bezpośrednio przypisane do podsieci.
 
-<a name="anch-details-about-vnet-rules-38q" />
+<a name="anch-details-about-vnet-rules-38q"></a>
 
 ## <a name="details-about-virtual-network-rules"></a>Szczegóły dotyczące reguł sieci wirtualnej
 
@@ -89,7 +89,7 @@ Każda reguła sieci wirtualnej ma zastosowanie do całego serwera Azure Databas
 Istnieje separacja ról zabezpieczeń w administrowaniu punktami końcowymi usługi Virtual Network. Wymagana jest akcja z każdej z następujących ról:
 
 - **Administrator sieci:** &nbsp; Włącz punkt końcowy.
-- **Administrator bazy danych:** &nbsp; zaktualizuj listę kontroli dostępu (ACL), aby dodać daną podsieć do serwera Azure Database for MariaDB.
+- **Administrator bazy danych:** &nbsp; Zaktualizuj listę kontroli dostępu (ACL), aby dodać daną podsieć do serwera Azure Database for MariaDB.
 
 *Alternatywa RBAC:*
 

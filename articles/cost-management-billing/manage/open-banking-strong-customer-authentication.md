@@ -8,16 +8,16 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: banders
-ms.openlocfilehash: 1c4522bed191ef4142cc603bf0e1d22f086111ee
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 847e9b692ddbd7880c37d1068d61447dcccb9c80
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200592"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83747163"
 ---
 # <a name="open-banking-psd2-and-strong-customer-authentication-sca-for-azure-customers"></a>Otwarta bankowość (PSD2) i silne uwierzytelnianie klienta (SCA) dla klientów platformy Azure
 
-Od 14 września 2019 r. banki w 31 krajach [Europejskiego Obszaru Gospodarczego](https://en.wikipedia.org/wiki/European_Economic_Area) są zobowiązane do zweryfikowania tożsamości osoby dokonującej zakupu w trybie online przed przetworzeniem płatności. Ta weryfikacja wymaga uwierzytelniania wieloskładnikowego, aby pomóc w zagwarantowaniu, że zakupy online są bezpieczne i chronione. W niektórych krajach data wejścia w życie tych wymagań zostanie przesunięta. Aby uzyskać więcej informacji, zobacz [często zadawane pytania dotyczące dyrektywy PSD2](https://support.microsoft.com/en-us/help/4517854?preview).
+Od 14 września 2019 r. banki w 31 krajach/regionach [Europejskiego Obszaru Gospodarczego](https://en.wikipedia.org/wiki/European_Economic_Area) są zobowiązane do zweryfikowania tożsamości osoby dokonującej zakupu w trybie online przed przetworzeniem płatności. Ta weryfikacja wymaga uwierzytelniania wieloskładnikowego, aby pomóc w zagwarantowaniu, że zakupy online są bezpieczne i chronione. W niektórych krajach/regionach data wejścia w życie tych wymagań zostanie przesunięta. Aby uzyskać więcej informacji, zobacz [często zadawane pytania dotyczące dyrektywy PSD2](https://support.microsoft.com/en-us/help/4517854?preview).
 
 ## <a name="what-psd2-means-for-azure-customers"></a>Jakie znaczenie ma dyrektywa PSD2 dla klientów platformy Azure
 

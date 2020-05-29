@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: aab64e173b02ae991f7071da785434fa742de7de
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 4b1abe8efb4baaf260005df1a4ee5b6d1645715a
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83994701"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84169223"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Odzyskiwanie po awarii i tryb failover konta magazynu
 
@@ -102,6 +102,8 @@ Właściwość **czas ostatniej synchronizacji** wskazuje, że ostatni czas, w k
 
 Najlepszym rozwiązaniem jest zaprojektowanie aplikacji tak, aby można było użyć czasu ostatniej synchronizacji do oszacowania oczekiwanej utraty danych. Na przykład, Jeśli rejestrujesz wszystkie operacje zapisu, można porównać czas ostatniej operacji zapisu w czasie ostatniej synchronizacji, aby określić, które zapisy nie zostały zsynchronizowane z serwerem pomocniczym.
 
+Aby uzyskać więcej informacji na temat sprawdzania właściwości **czas ostatniej synchronizacji** , zobacz [Sprawdzanie właściwości ostatniej synchronizacji dla konta magazynu](last-sync-time-get.md).
+
 ### <a name="use-caution-when-failing-back-to-the-original-primary"></a>Należy zachować ostrożność w przypadku powrotu po awarii do oryginalnego podstawowego
 
 Po przełączeniu w tryb failover z poziomu podstawowego do regionu pomocniczego konto magazynu zostanie skonfigurowane jako lokalnie nadmiarowy w nowym regionie podstawowym. Następnie można ponownie skonfigurować konto pod kątem nadmiarowości geograficznej. Gdy konto zostanie ponownie skonfigurowane pod kątem nadmiarowości geograficznej po przejściu w tryb failover, nowy region podstawowy natychmiast rozpocznie kopiowanie danych do nowego regionu pomocniczego, który był podstawą przed pierwotnym trybem failover. Jednak może upłynąć trochę czasu, zanim istniejące dane w podstawowym są w całości kopiowane do nowej pomocniczej.
@@ -169,8 +171,9 @@ Jeśli konto magazynu jest skonfigurowane pod kątem dostępu do odczytu do elem
 
 W skrajnych okolicznościach, gdy region zostanie utracony ze względu na znaczną awarię, firma Microsoft może zainicjować regionalną pracę w trybie failover. W takim przypadku nie jest wymagana żadna akcja z Twojej strony. Do momentu ukończenia pracy w trybie failover zarządzanej przez firmę Microsoft nie będziesz mieć dostępu do zapisu na koncie magazynu. Aplikacje mogą odczytywać z regionu pomocniczego, jeśli konto magazynu jest skonfigurowane dla usługi RA-GRS lub RA-GZRS.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Projektowanie aplikacji o wysokiej dostępności przy użyciu nadmiarowości geograficznej](geo-redundant-design.md)
 - [Inicjowanie trybu failover konta](storage-initiate-account-failover.md)
+- [Sprawdź Właściwość godzina ostatniej synchronizacji dla konta magazynu](last-sync-time-get.md)
 - [Samouczek: Tworzenie aplikacji o wysokiej dostępności przy użyciu magazynu obiektów BLOB](../blobs/storage-create-geo-redundant-storage.md)

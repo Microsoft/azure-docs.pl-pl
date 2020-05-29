@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
-ms.openlocfilehash: 9356ab0aec375a046a8f200838df296b2cf74bce
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 419c3f21c8606bb16112fd18cfe141655fd7b868
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80984984"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84168152"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Interfejs API platformy .NET tabeli Azure Cosmos DB: pobieranie i informacje o wersji
 
@@ -37,42 +37,42 @@ ms.locfileid: "80984984"
 > Jeśli utworzono konto interfejsu API tabel w trakcie okresu próbnego, utwórz [nowe konto interfejsu API tabel](create-table-dotnet.md#create-a-database-account), aby móc korzystać z ogólnie dostępnych zestawów SDK interfejsu API tabel.
 >
 
-## <a name="release-notes"></a>Uwagi do wersji
+## <a name="release-notes"></a>Informacje o wersji
 
-### <a name="212"></a><a name="2.1.2"/>2.1.2
-
-* Poprawki błędów
-
-### <a name="210"></a><a name="2.1.0"/>2.1.0
+### <a name="212"></a><a name="2.1.2"></a>2.1.2
 
 * Poprawki błędów
 
-### <a name="200"></a><a name="2.0.0"/>2.0.0
+### <a name="210"></a><a name="2.1.0"></a>2.1.0
+
+* Poprawki błędów
+
+### <a name="200"></a><a name="2.0.0"></a>2.0.0
 
 * Dodano obsługę zapisu dla wieloregionu
 * Stałe zależności pakietów NuGet w witrynie Microsoft. Azure. DocumentDB, Microsoft. OData. Core, Microsoft. OData. EDM, Microsoft. przestrzenny
 
-### <a name="113"></a><a name="1.1.3"/>1.1.3
+### <a name="113"></a><a name="1.1.3"></a>1.1.3
 
 * Stałe zależności pakietów NuGet w programie Microsoft. Azure. Storage. Common i Microsoft. Azure. DocumentDB.
 * Poprawki podczas serializacji tabeli podczas konfigurowania JsonConvert. DefaultSettings.
 
-### <a name="111"></a><a name="1.1.1"/>ppkt
+### <a name="111"></a><a name="1.1.1"></a>ppkt
 
 * Dodano weryfikację dla nieprawidłowo sformułowanych elementów ETAG w trybie bezpośrednim.
 * Stała usterka zapytania LINQ w trybie bramy.
 * Synchroniczne interfejsy API działają teraz w puli wątków z SynchronizationContext.
 
-### <a name="110"></a><a name="1.1.0"/>1.1.0
+### <a name="110"></a><a name="1.1.0"></a>1.1.0
 
 * Dodaj TableQueryMaxItemCount, TableQueryEnableScan, TableQueryMaxDegreeOfParallelism i TableQueryContinuationTokenLimitInKb do TableRequestOptions
 * Poprawki błędów
 
-### <a name="100"></a><a name="1.0.0"/>1.0.0
+### <a name="100"></a><a name="1.0.0"></a>1.0.0
 
 * Wersja ogólna dostępności
 
-### <a name="090-preview"></a><a name="0.1.0-preview"/>0.9.0 — wersja zapoznawcza
+### <a name="090-preview"></a><a name="0.1.0-preview"></a>0.9.0 — wersja zapoznawcza
 
 * Początkowa wersja zapoznawcza
 
@@ -80,7 +80,7 @@ ms.locfileid: "80984984"
 
 Firma Microsoft zapewnia powiadomienie co najmniej **12 miesięcy** przed WYCOFANIEM zestawu SDK w celu zapewnienia sprawnego przejścia do nowszej/obsługiwanej wersji.
 
-`Microsoft.Azure.CosmosDB.Table` Biblioteka jest obecnie dostępna tylko dla .NET Framework i jest w trybie konserwacji i zostanie wkrótce wycofana. Nowe funkcje i możliwości i optymalizacje są dodawane tylko do biblioteki .NET Standard [Microsoft. Azure. Cosmos. Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table). w związku z tym zaleca się uaktualnienie do [Microsoft. Azure. Cosmos. Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table).
+`Microsoft.Azure.CosmosDB.Table`Biblioteka jest obecnie dostępna tylko dla .NET Framework i jest w trybie konserwacji i zostanie wkrótce wycofana. Nowe funkcje i możliwości i optymalizacje są dodawane tylko do biblioteki .NET Standard [Microsoft. Azure. Cosmos. Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table). w związku z tym zaleca się uaktualnienie do [Microsoft. Azure. Cosmos. Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table).
 
 Pakiet [windowsazure. Storage-Premium](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) w wersji zapoznawczej został uznany za przestarzały. Zestaw SDK WindowsAzure. Storage-Premium zostanie wycofany 15 listopada 2018, gdy żądania do wycofanego zestawu SDK nie będą dozwolone. 
 
@@ -118,7 +118,7 @@ podczas próby użycia pakietu NuGet Microsoft. Azure. CosmosDB. Table dostępne
     
 * Przed zainstalowaniem Microsoft. Azure. CosmosDB. Table przy użyciu preferowanego narzędzia do zarządzania pakietami NuGet Zainstaluj pakiet NuGet Microsoft. Azure. Storage. Common.
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 

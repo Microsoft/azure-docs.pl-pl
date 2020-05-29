@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/17/2019
 ms.author: allensu
-ms.openlocfilehash: d419c213b3bcfef3631d68eb9d4cb485291bed31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e6c7464eb1bf51a4e42d0db98d92459dc39fbb11
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78304195"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170821"
 ---
 # <a name="load-balancer-outbound-rules"></a>Load Balancer reguły ruchu wychodzącego
 
@@ -42,7 +42,7 @@ Reguły ruchu wychodzącego rozszerzają [Scenariusz 2](load-balancer-outbound-c
 
 Podobnie jak w przypadku wszystkich reguł Load Balancer, reguły wychodzące mają taką samą znaną składnię jak równoważenie obciążenia i reguły NAT dla ruchu przychodzącego:
 
-**frontend** + **parameters** + **Pula zaplecza** parametrów frontonu
+**fronton**  +  **Parametry**  +  **Pula zaplecza**
 
 Reguła ruchu wychodzącego konfiguruje wychodzące NAT dla _wszystkich maszyn wirtualnych identyfikowanych przez pulę zaplecza_ , które mają zostać przetłumaczone na _fronton_.  I _Parametry_ zapewniają dodatkową kontrolę nad algorytmem NAT dla ruchu wychodzącego.
 
@@ -66,7 +66,7 @@ Wersja interfejsu API "2018-07-01" zezwala na strukturę definicji reguły ruchu
 
 ### <a name="scale-outbound-nat-with-multiple-ip-addresses"></a><a name="scale"></a>Skalowanie ruchu wychodzącego NAT z wieloma adresami IP
 
-Reguła ruchu wychodzącego może być używana z tylko jednym publicznym adresem IP, ale reguły ruchu wychodzącego ułatwiają skalowanie w ramach ruchu wychodzącego NAT. Można użyć wielu adresów IP do zaplanowania scenariuszy o dużej skali i można użyć reguł ruchu wychodzącego, aby wyeliminować wzorce podatności na ruch [wydechowy](load-balancer-outbound-connections.md#snatexhaust) .  
+Reguła ruchu wychodzącego może być używana z tylko jednym publicznym adresem IP, ale reguły ruchu wychodzącego ułatwiają skalowanie w ramach ruchu wychodzącego NAT. Można użyć wielu adresów IP do zaplanowania scenariuszy o dużej skali i można użyć reguł ruchu wychodzącego, aby wyeliminować wzorce podatności na ruch [wydechowy](troubleshoot-outbound-connection.md#snatexhaust) .  
 
 Każdy dodatkowy adres IP dostarczony przez fronton zapewnia 64 000 portów tymczasowych Load Balancer do użycia jako portów protokołu integracyjnego. Mimo że reguły równoważenia obciążenia lub ruchu przychodzącego NAT mają jedną fronton, reguła wychodząca rozszerza koncepcję frontonu i zezwala na wiele frontonów dla każdej reguły.  W przypadku wielu frontonów dla każdej reguły liczba dostępnych portów adresów IP jest mnożona przy użyciu każdego publicznego adresu i można obsługiwać duże scenariusze.
 
@@ -95,7 +95,7 @@ Użyj następującego parametru, aby ustawić limit czasu bezczynności dla ruch
 
           "idleTimeoutInMinutes": 60
 
-### <a name="enable-tcp-reset-on-idle-timeout"></a><a name="tcprst"></a><a name="tcpreset"></a> Włącz Resetowanie limitu czasu bezczynności dla protokołu TCP
+### <a name="enable-tcp-reset-on-idle-timeout"></a><a name="tcprst"></a><a name="tcpreset"></a>Włącz Resetowanie limitu czasu bezczynności dla protokołu TCP
 
 Domyślnym zachowaniem Load Balancer jest odrzucanie przepływu w trybie dyskretnym, gdy osiągnięto limit czasu bezczynności wychodzący.  Za pomocą parametru enableTCPReset można włączyć bardziej przewidywalne zachowanie aplikacji i kontrolować, czy należy wysyłać dwukierunkowe Resetowanie protokołu TCP (TCP RST) w czasie poza limit czasu bezczynności ruchu wychodzącego. 
 

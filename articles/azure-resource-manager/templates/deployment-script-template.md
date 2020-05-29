@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 05/28/2020
 ms.author: jgao
-ms.openlocfilehash: 24a0891b57f67bfb78cf3699bddbcf8d345ee679
-ms.sourcegitcommit: a3c6efa4d4a48e9b07ecc3f52a552078d39e5732
+ms.openlocfilehash: e3f3301ac78480c4d8ebbf909bafcefa025ff395
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83708010"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84168577"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Używanie skryptów wdrażania w szablonach (wersja zapoznawcza)
 
@@ -60,7 +60,7 @@ Zasób skryptu wdrożenia jest dostępny tylko w regionach, w których usługa A
   read resourceGroupName &&
   echo "Enter the managed identity name:" &&
   read idName &&
-  az identity show -g jgaoidentity1008rg -n jgaouami --query id
+  az identity show -g $resourceGroupName -n $idName --query id
   ```
 
   # <a name="powershell"></a>[Program PowerShell](#tab/PowerShell)
@@ -166,7 +166,7 @@ Następujący szablon ma zdefiniowany jeden zasób z `Microsoft.Resources/deploy
 :::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json" range="1-54" highlight="34-40":::
 
 > [!NOTE]
-> Ponieważ wbudowane skrypty wdrażania są ujęte w podwójne cudzysłowy, ciągi wewnątrz skryptów wdrażania muszą być ujęte w apostrofy. Znak ucieczki dla programu PowerShell jest **&#92;**. Można również rozważyć użycie podstawienia ciągów, tak jak pokazano w poprzednim przykładzie JSON. Zobacz wartość domyślną parametru name.
+> Ponieważ wbudowane skrypty wdrażania są ujęte w podwójne cudzysłowy, ciągi wewnątrz skryptów wdrażania muszą być wyprowadzane przy użyciu **&#92;** lub ujęte w apostrofy. Można również rozważyć użycie podstawienia ciągów, tak jak pokazano w poprzednim przykładzie JSON.
 
 Skrypt przyjmuje jeden parametr i wyprowadza wartość parametru. **DeploymentScriptOutputs** jest używany do przechowywania danych wyjściowych.  W sekcji dane wyjściowe wiersz **wartości** pokazuje, jak uzyskać dostęp do przechowywanych wartości. `Write-Output`jest używany do celów debugowania. Aby dowiedzieć się, jak uzyskać dostęp do pliku wyjściowego, zobacz [debugowanie skryptów wdrażania](#debug-deployment-scripts).  Aby zapoznać się z opisami właściwości, zobacz [przykładowe szablony](#sample-templates).
 
@@ -190,7 +190,7 @@ Dane wyjściowe wyglądają następująco:
 
 ## <a name="use-external-scripts"></a>Korzystanie ze skryptów zewnętrznych
 
-Oprócz skryptów wbudowanych można również używać zewnętrznych plików skryptów. Obsługiwane są tylko podstawowe skrypty programu PowerShell z rozszerzeniem pliku **ps1** . W przypadku skryptów interfejsu wiersza polecenia skrypty podstawowe mogą mieć dowolne rozszerzenia (lub bez rozszerzenia), o ile skrypty są prawidłowymi skryptami bash. Aby użyć zewnętrznych plików skryptu, Zamień `scriptContent` na `primaryScriptUri` . Na przykład:
+Oprócz skryptów wbudowanych można również używać zewnętrznych plików skryptów. Obsługiwane są tylko podstawowe skrypty programu PowerShell z rozszerzeniem pliku **ps1** . W przypadku skryptów interfejsu wiersza polecenia skrypty podstawowe mogą mieć dowolne rozszerzenia (lub bez rozszerzenia), o ile skrypty są prawidłowymi skryptami bash. Aby użyć zewnętrznych plików skryptu, Zamień `scriptContent` na `primaryScriptUri` . Przykład:
 
 ```json
 "primaryScriptURI": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
@@ -306,7 +306,20 @@ Aby wyświetlić zasób deploymentScripts w portalu, wybierz pozycję **Pokaż u
 
 Konto magazynu i wystąpienie kontenera są niezbędne do wykonania skryptu i rozwiązywania problemów. Dostępne są opcje określania istniejącego konta magazynu. w przeciwnym razie konto magazynu oraz wystąpienie kontenera są tworzone automatycznie przez usługę skryptów. Wymagania dotyczące korzystania z istniejącego konta magazynu:
 
-- Obsługiwane rodzaje kont magazynu: ogólnego przeznaczenia w wersji 2, ogólnego przeznaczenia w wersji 1 i FileStorage. Tylko FileStorage obsługuje jednostkę SKU w warstwie Premium. Aby uzyskać więcej informacji, zobacz [typy kont magazynu](../../storage/common/storage-account-overview.md).
+- Obsługiwane rodzaje kont magazynu:
+
+    | SKU             | Obsługiwany rodzaj     |
+    |-----------------|--------------------|
+    | Premium_LRS     | FileStorage        |
+    | Premium_ZRS     | FileStorage        |
+    | Standard_GRS    | Magazyn, StorageV2 |
+    | Standard_GZRS   | StorageV2          |
+    | Standard_LRS    | Magazyn, StorageV2 |
+    | Standard_RAGRS  | Magazyn, StorageV2 |
+    | Standard_RAGZRS | StorageV2          |
+    | Standard_ZRS    | StorageV2          |
+
+    Te kombinacje obsługują udział plików.  Aby uzyskać więcej informacji, zobacz [Tworzenie udziału plików platformy Azure](../../storage/files/storage-how-to-create-file-share.md) i [typów kont magazynu](../../storage/common/storage-account-overview.md).
 - Reguły zapory konta magazynu nie są jeszcze obsługiwane. Aby uzyskać więcej informacji, zobacz [Konfigurowanie zapór i sieci wirtualnych usługi Azure Storage](../../storage/common/storage-network-security.md).
 - Tożsamość zarządzana przypisana przez użytkownika skryptu wdrożenia musi mieć uprawnienia do zarządzania kontem magazynu, które obejmuje odczyt, tworzenie i usuwanie udziałów plików.
 
@@ -320,7 +333,7 @@ Aby określić istniejące konto magazynu, Dodaj następujący kod JSON do eleme
 ```
 
 - **storageAccountName**: Określ nazwę konta magazynu.
-- **storageAccountKey "**: Określ jeden z kluczy konta magazynu. Możesz użyć funkcji, [`listKeys()`](./template-functions-resource.md#listkeys) Aby pobrać klucz. Na przykład:
+- **storageAccountKey "**: Określ jeden z kluczy konta magazynu. Możesz użyć funkcji, [`listKeys()`](./template-functions-resource.md#listkeys) Aby pobrać klucz. Przykład:
 
     ```json
     "storageAccountSettings": {

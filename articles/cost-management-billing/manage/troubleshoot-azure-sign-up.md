@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: v-miegge
-ms.openlocfilehash: 7bcf3197ae218c469983200814cecf551dc42a6b
-ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+ms.openlocfilehash: 2ccb2b7fca8a5615d56c25b9ea09a26caf295a2b
+ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/24/2020
-ms.locfileid: "82133181"
+ms.lasthandoff: 05/21/2020
+ms.locfileid: "83745545"
 ---
 # <a name="troubleshoot-issues-when-you-sign-up-for-a-new-account-in-azure-portal-or-azure-account-center"></a>Rozwiązywanie problemów podczas tworzenia nowego konta w witrynie Azure Portal lub Centrum konta platformy Azure
 
@@ -63,7 +63,7 @@ Wykonaj następujące kroki, aby zaktualizować ustawienia plików cookie przegl
 
 ### <a name="credit-card-form-doesnt-support-my-billing-address"></a>Formularz karty kredytowej nie obsługuje adresu rozliczeniowego
 
-Adres rozliczeniowy musi znajdować się w kraju wybranym w sekcji **Informacje o użytkowniku**. Upewnij się, że wybrano prawidłowy kraj.
+Adres rozliczeniowy musi znajdować się w kraju/regionie wybranym w sekcji **Informacje o użytkowniku**. Upewnij się, że wybrano prawidłowy kraj/region.
 
 ### <a name="no-text-messages-or-calls-during-sign-up-account-verification"></a>Brak komunikatów tekstowych lub połączeń podczas weryfikacji konta rejestracji
 
@@ -72,7 +72,7 @@ Chociaż proces jest zwykle szybki, dostarczenie kodu weryfikacyjnego może potr
 Oto kilka dodatkowych porad:
 
 - W procesie weryfikacji telefonu nie można używać numeru telefonu VoiP (Voice-over-IP).
-- Sprawdź ponownie wprowadzony numer telefonu, w tym kod kraju wybrany w menu rozwijanym.
+- Sprawdź ponownie wprowadzony numer telefonu, w tym kod kraju/regionu wybrany w menu rozwijanym.
 - Jeśli telefon nie odbiera wiadomości tekstowych (SMS), spróbuj użyć opcji **Zadzwoń do mnie**.
 - Upewnij się, że telefon może odbierać połączenia lub wiadomości SMS z numeru telefonu w Stanach Zjednoczonych.
 

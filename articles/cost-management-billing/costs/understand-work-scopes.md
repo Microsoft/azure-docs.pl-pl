@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: ebae9d1c66a721926ca07b21059ec57b05b99a0f
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.openlocfilehash: 2f61345cd55fc9541f9e1b707389d0b9d06685b0
+ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80877936"
+ms.lasthandoff: 05/27/2020
+ms.locfileid: "83873431"
 ---
 # <a name="understand-and-work-with-scopes"></a>Opis zakresów i praca z nimi
 
@@ -67,9 +67,12 @@ Usługa Cost Management obsługuje następujące wbudowane role dla poszczególn
 
 Cost Management — współautor jest zalecaną rolą o najniższych uprawnieniach. Umożliwia ona użytkownikom dostęp niezbędny do tworzenia budżetów i eksportów oraz zarządzania nimi w celu skuteczniejszego monitorowania i tworzenia raportów dotyczących kosztów. Użytkownicy mający rolę Cost Management — współautor mogą również wymagać dodatkowych ról w celu obsługi kompleksowych scenariuszy zarządzania kosztami. Poniżej przedstawiono przykładowe scenariusze:
 
+- **Raportowanie użycia zasobów** — koszty z usługi Azure Cost Management można znaleźć w witrynie Azure Portal, a dane dotyczące użycia związanego z kosztami można uzyskać i pobrać za pomocą interfejsu API użycia i opłat, ale dobrym rozwiązaniem może być też wyświetlenie szczegółowych metryk użycia w usłudze Azure Monitor, co pozwoli dokładniej poznać dane. Rozważ przyznanie roli [Czytelnika monitorowania](../../role-based-access-control/built-in-roles.md#monitoring-reader) w przypadku każdego zakresu, w którym potrzebujesz także raportów dotyczących szczegółowych metryk użycia.
 - **Działanie w przypadku przekroczenia budżetów** — użytkownicy mający rolę Cost Management — współautor potrzebują również dostępu do tworzenia grup akcji i/lub zarządzania nimi w celu automatycznego reagowania na nadwyżki. Rozważ przyznanie roli [Współautor monitorowania](../../role-based-access-control/built-in-roles.md#monitoring-contributor) do grupy zasobów zawierającej grupę akcji, która ma być używana w przypadku przekroczenia progów budżetu. Automatyzacja określonych akcji wymaga dodatkowych ról dla określonych usług, które są używane, takich jak Automation i Azure Functions.
 - **Planowanie eksportu danych dotyczących kosztów** — użytkownicy mający rolę Cost Management — współautor potrzebują także dostępu do zarządzania kontami magazynu, aby zaplanować eksport w celu skopiowania danych na konto magazynu. Rozważ przyznanie roli [Współautor konta magazynu](../../role-based-access-control/built-in-roles.md#storage-account-contributor) do grupy zasobów zawierającej konto magazynu, do którego są eksportowane dane dotyczące kosztów.
 - **Wyświetlanie rekomendacji dotyczących obniżenia kosztów** — użytkownicy mający rolę Cost Management — czytelnik i Cost Management — współautor domyślnie mają dostęp do *wyświetlania* rekomendacji dotyczących kosztów. Jednak dostęp do działania zgodnie z rekomendacjami dotyczącymi kosztów wymaga dostępu do poszczególnych zasobów. Jeśli chcesz skorzystać z rekomendacji dotyczącej kosztów, rozważ przyznanie [roli specyficznej dla usługi](../../role-based-access-control/built-in-roles.md#all).
+
+Grupy zarządzania są obsługiwane tylko wtedy, gdy zawierają subskrypcje z umową Enterprise, z płatnością zgodnie z rzeczywistym użyciem lub wewnętrzne subskrypcje firmy Microsoft. Grupy zarządzania z innymi typami subskrypcji, takimi jak umowa z Klientem Microsoft czy subskrypcja usługi Azure Active Directory, nie obsługują wyświetlania kosztów. Jeśli masz subskrypcje różnych typów, przenieś nieobsługiwane subskrypcje do oddzielnego odgałęzienia hierarchii grup zarządzania, aby umożliwić korzystanie z usługi Cost Management z obsługiwanymi subskrypcjami. Możesz na przykład utworzyć dwie grupy zarządzania w ramach głównej grupy zarządzania: **Azure AD** i **Moja organizacja**. Przenieś subskrypcję usługi Azure AD do grupy zarządzania **Azure AD**, a następnie wyświetlaj koszty i zarządzaj nimi w grupie zarządzania **Moja organizacja**.
 
 ## <a name="enterprise-agreement-scopes"></a>Zakresy umowy Enterprise Agreement
 
