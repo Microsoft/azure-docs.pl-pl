@@ -452,8 +452,6 @@
     - name: Odwołanie do modułu projektanta
       displayName: 'module, reference, algorithm, studio'
       href: algorithm-module-reference/module-reference.md
-    - name: Uczenie maszynowe na dużą skalę
-      href: /azure/architecture/data-guide/big-data/machine-learning-at-scale
     - name: Monitorowanie odwołań do danych
       href: monitor-resource-reference.md
     - name: Dokumentacja języka YAML potoku uczenia maszynowego

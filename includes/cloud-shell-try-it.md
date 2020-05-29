@@ -13,22 +13,22 @@ ms.locfileid: "76766491"
 ---
 ## <a name="use-azure-cloud-shell"></a>Używanie usługi Azure Cloud Shell
 
-Platforma Azure obsługuje Azure Cloud Shell, interaktywne środowisko powłoki, z którego można korzystać w przeglądarce. Do pracy z usługami platformy Azure można używać bash lub PowerShell z Cloud Shell. Możesz użyć wstępnie zainstalowanych poleceń Cloud Shell, aby uruchomić kod w tym artykule bez konieczności instalowania niczego w środowisku lokalnym.
+Na platforma Azure hostowane jest Azure Cloud Shell, interaktywne środowisko powłoki, z którego można korzystać w przeglądarce. Do pracy z usługami platformy Azure można używać programu Bash lub PowerShell w środowisku Cloud Shell. Aby uruchomić kod z tego artykułu bez konieczności instalowania narzędzi w środowisku lokalnym, można użyć wstępnie zainstalowanych poleceń środowiska Cloud Shell.
 
-Aby rozpocząć Azure Cloud Shell:
+Aby uruchomić środowisko Azure Cloud Shell:
 
 | Opcja | Przykład/link |
 |-----------------------------------------------|---|
-| Wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Wybranie przycisku **Wypróbuj** nie powoduje automatycznego skopiowania kodu do Cloud Shell. | ![Przykład try dla Azure Cloud Shell](./media/cloud-shell-try-it/hdi-azure-cli-try-it.png) |
-| Przejdź do [https://shell.azure.com](https://shell.azure.com) lub wybierz przycisk **Uruchom Cloud Shell** , aby otworzyć Cloud Shell w przeglądarce. | [![Uruchom Cloud Shell w nowym oknie](media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com) |
-| Wybierz przycisk **Cloud Shell** na pasku menu w prawym górnym rogu [Azure Portal](https://portal.azure.com). | ![Przycisk Cloud Shell w witrynie Azure Portal](./media/cloud-shell-try-it/hdi-cloud-shell-menu.png) |
+| Wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Wybranie pozycji **Wypróbuj** nie spowoduje automatycznego skopiowania kodu do środowiska Cloud Shell. | ![Przykład funkcji Wypróbuj w środowisku Azure Cloud Shell](./media/cloud-shell-try-it/hdi-azure-cli-try-it.png) |
+| Przejdź do witryny [https://shell.azure.com](https://shell.azure.com) lub wybierz przycisk **Uruchom Cloud Shell**, aby otworzyć środowisko Cloud Shell w przeglądarce. | [![Uruchamianie środowiska Cloud Shell w nowym oknie](media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com) |
+| Wybierz przycisk **Cloud Shell** na pasku menu w prawym górnym rogu witryny [Azure Portal](https://portal.azure.com). | ![Przycisk Cloud Shell w witrynie Azure Portal](./media/cloud-shell-try-it/hdi-cloud-shell-menu.png) |
 
-Aby uruchomić kod w tym artykule w Azure Cloud Shell:
+Aby uruchomić kod z tego artykułu w środowisku Azure Cloud Shell:
 
-1. Rozpocznij Cloud Shell.
+1. Uruchom usługę Cloud Shell.
 
-1. Aby skopiować kod, wybierz przycisk **Kopiuj** w bloku kodu.
+1. Wybierz przycisk **Kopiuj** w bloku kodu, aby skopiować kod.
 
-1. Wklej kod do sesji Cloud Shell, wybierając pozycję **Ctrl** + **SHIFT** + **v** w systemach Windows i Linux lub wybierając pozycję **cmd** + **SHIFT** + **v** w macOS.
+1. Wklej kod w sesji Cloud Shell, naciskając klawisze **Ctrl**+**Shift**+**V** w systemach Windows i Linux lub klawisze **Cmd**+**Shift**+**V** w systemie macOS.
 
-1. Wybierz **klawisz ENTER** , aby uruchomić kod.
+1. Naciśnij klawisz **Enter**, aby uruchomić kod.
