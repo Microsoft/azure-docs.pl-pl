@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 05/19/2020
-ms.openlocfilehash: f0b64dd9f752a2d574a04022c84eae05d9ff6445
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 2dd5af1a23618b063f094e4974f705a51a1b2bcf
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597415"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171025"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model-in-azure-sql-edge-preview"></a>Wdrażanie i Tworzenie prognoz przy użyciu modelu ONNX w usłudze Azure SQL Edge (wersja zapoznawcza)
 
@@ -384,7 +384,7 @@ AS (
     )
 SELECT predict_input.id
     , p.variable1 AS MEDV
-FROM PREDICT(MODEL = @model, DATA = predict_input) WITH (variable1 FLOAT) AS p
+FROM PREDICT(MODEL = @model, DATA = predict_input, RUNTIME=ONNX) WITH (variable1 FLOAT) AS p
 ```
 
 ## <a name="next-steps"></a>Następne kroki

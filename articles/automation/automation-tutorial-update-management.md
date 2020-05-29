@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: mvc
-ms.openlocfilehash: 5bc71c5462ed1c721d2c94f889146400a07dd19e
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 917a7ccbf17fdb1e2691f1a3a8368b40006f6d7b
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84119196"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170311"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure
 
@@ -26,6 +26,10 @@ Przed rozpoczęciem korzystania z procedur opisanych w tym artykule upewnij się
 * [Włącz Update Management, przeglądając Azure Portal](automation-onboard-solutions-from-browse.md)
 * [Włączanie rozwiązania Update Management z poziomu elementu runbook](automation-onboard-solutions.md)
 * [Włączanie rozwiązania Update Management z poziomu maszyny wirtualnej platformy Azure](automation-onboard-solutions-from-vm.md)
+
+## <a name="limit-the-scope-for-the-deployment"></a><a name="scope-configuration"></a>Ograniczanie zakresu wdrożenia
+
+Update Management używa konfiguracji zakresu w obszarze roboczym, aby określić komputery, na których mają zostać odebrane aktualizacje. Aby uzyskać więcej informacji, zobacz [Ograniczanie zakresu wdrożenia Update Management](automation-scope-configurations-update-management.md).
 
 ## <a name="view-update-assessment"></a>Wyświetlanie oceny aktualizacji
 
@@ -201,5 +205,10 @@ Po zakończeniu wdrażania aktualizacji zostanie wyświetlony alert, który zost
 
 ## <a name="next-steps"></a>Następne kroki
 
+* Aby uzyskać informacje na temat konfiguracji zakresu, zobacz [ograniczanie Update Management zakresu wdrożenia](automation-scope-configurations-update-management.md).
+* Jeśli musisz przeszukać dzienniki przechowywane w obszarze roboczym Log Analytics, zobacz [Wyszukiwanie w dzienniku w](../log-analytics/log-analytics-log-searches.md)dziennikach Azure monitor.
 * Jeśli zakończono wdrożenia, zobacz [Odłącz obszar roboczy z konta usługi Automation dla Update Management](automation-unlink-workspace-update-management.md).
 * Aby usunąć maszyny wirtualne z Update Management, zobacz [usuwanie maszyn wirtualnych z Update Management](automation-remove-vms-from-update-management.md).
+* Aby rozwiązać ogólne błędy Update Management, zobacz [Rozwiązywanie problemów z Update Management](troubleshoot/update-management.md).
+* Aby rozwiązać problemy z usługą Windows Update Agent, zobacz [Rozwiązywanie problemów z usługą Windows Update Agent](troubleshoot/update-agent-issues.md).
+* Aby rozwiązać problemy z agentem aktualizacji systemu Linux, zobacz[Rozwiązywanie problemów z agentem aktualizacji systemu Linux](troubleshoot/update-agent-issues-linux.md).

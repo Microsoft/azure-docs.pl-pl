@@ -9,12 +9,12 @@ metadata:
   author: florianborn71
   ms.author: flborn
   ms.date: 03/26/2020
-  ms.openlocfilehash: e379515ea34206e21f80ceb23a465858d6d4da81
-  ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+  ms.openlocfilehash: 9f27118bfe3e01ce8d1cfc8c60c46c416b39c846
+  ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 05/21/2020
-  ms.locfileid: "83773223"
+  ms.lasthandoff: 05/28/2020
+  ms.locfileid: "84142133"
 landingContent:
 - title: Azure Remote Rendering — informacje
   linkLists:
@@ -54,7 +54,7 @@ landingContent:
       url: quickstarts/deploy-to-desktop.md
     - text: Konwertowanie modelu do renderowania
       url: quickstarts/convert-model.md
-- title: Dowiedz się, jak utworzyć własną aplikację w środowisku Unity
+- title: Dowiedz się, jak utworzyć własną aplikację
   linkLists:
   - linkListType: tutorial
     links:

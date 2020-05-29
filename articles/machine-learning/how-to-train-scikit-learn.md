@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 03/09/2020
 ms.custom: seodec18
-ms.openlocfilehash: b078d39978e81180b6f52290241487a072d34782
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: c842e0ea126ffe4c3328c4fd237e2891d6cff229
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996282"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84168798"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Kompiluj scikit — Poznaj modele na dużą skalę dzięki Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -141,7 +141,7 @@ script_params = {
 estimator = SKLearn(source_directory=project_folder, 
                     script_params=script_params,
                     compute_target=compute_target,
-                    entry_script='train_iris.py'
+                    entry_script='train_iris.py',
                     pip_packages=['joblib']
                    )
 ```

@@ -6,29 +6,29 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.date: 02/14/2020
+ms.date: 05/28/2020
 ms.topic: include
 ms.custom: include file
 ms.author: diberry
-ms.openlocfilehash: eabec50f57785bde6760db053eb3b12f6f5b6452
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 8aeb6b964ab38a68a6d8681a4e5c93e1650c6a69
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81732072"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171287"
 ---
 Użyj biblioteki klienta przewidywania Language Understanding (LUIS) dla języka Python, aby:
 
 * Pobierz prognozowanie według miejsca
 * Pobierz prognozowanie według wersji
 
-[Dokumentacja](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python) | referencyjna[biblioteki źródłowej](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis) | [PyPi](https://pypi.org/project/azure-cognitiveservices-language-luis/)  |  [ ](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/LUIS)
+[Dokumentacja](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/index?view=azure-python)  |  referencyjna [Kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis)  |  źródłowy biblioteki [Pakiet środowiska uruchomieniowego przewidywania (PyPi)](https://pypi.org/project/azure-cognitiveservices-language-luis/)  |  [Przykłady](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/LUIS)
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Language Understanding (LUIS) — konto portalu — [Utwórz je bezpłatnie](https://www.luis.ai)
 * [Python 3.x](https://www.python.org/)
-* Identyfikator aplikacji LUIS — Użyj publicznego identyfikatora aplikacji IoT `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. Zapytanie użytkownika używane w kodzie szybkiego startu jest specyficzne dla tej aplikacji.
+* Identyfikator aplikacji LUIS — Użyj publicznego identyfikatora aplikacji IoT `df67dcdb-c37d-46af-88e1-8b97951ca1c2` . Zapytanie użytkownika używane w kodzie szybkiego startu jest specyficzne dla tej aplikacji.
 
 ## <a name="setting-up"></a>Konfigurowanie
 
@@ -40,7 +40,7 @@ Pobierz swój [klucz środowiska uruchomieniowego](../luis-how-to-azure-subscrip
 
 ### <a name="create-a-new-python-file"></a>Utwórz nowy plik w języku Python
 
-Utwórz nowy plik w języku Python za pomocą preferowanego edytora lub środowiska `prediction_quickstart.py`IDE o nazwie.
+Utwórz nowy plik w języku Python za pomocą preferowanego edytora lub środowiska IDE o nazwie `prediction_quickstart.py` .
 
 ### <a name="install-the-sdk"></a>Instalacja zestawu SDK
 
@@ -69,26 +69,26 @@ Te fragmenty kodu pokazują, jak wykonać następujące czynności za pomocą bi
 
 W katalogu projektu Otwórz `prediction_quickstart.py` plik w preferowanym edytorze lub w środowisku IDE. Dodaj następujące zależności:
 
-[!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=Dependencies)]
+[!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/python-sdk-authoring-prediction/prediction_quickstart.py?name=Dependencies)]
 
 ## <a name="authenticate-the-client"></a>Uwierzytelnianie klienta
 
 1. Utwórz zmienne dla własnych wymaganych informacji LUIS:
 
-    Dodaj zmienne, aby zarządzać kluczem predykcyjnym ściąganym ze zmiennej środowiskowej `LUIS_RUNTIME_KEY`o nazwie. Jeśli zmienna środowiskowa została utworzona po uruchomieniu aplikacji, należy zamknąć i ponownie załadować Edytor, środowisko IDE lub powłokę, aby uzyskać dostęp do zmiennej. Metody zostaną utworzone później.
+    Dodaj zmienne, aby zarządzać kluczem predykcyjnym ściąganym ze zmiennej środowiskowej o nazwie `LUIS_RUNTIME_KEY` . Jeśli zmienna środowiskowa została utworzona po uruchomieniu aplikacji, należy zamknąć i ponownie załadować Edytor, środowisko IDE lub powłokę, aby uzyskać dostęp do zmiennej. Metody zostaną utworzone później.
 
-    Utwórz zmienną do przechowywania nazwy `LUIS_RUNTIME_ENDPOINT`zasobu.
+    Utwórz zmienną do przechowywania nazwy zasobu `LUIS_RUNTIME_ENDPOINT` .
 
-    [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=AuthorizationVariables)]
+    [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/python-sdk-authoring-prediction/prediction_quickstart.py?name=AuthorizationVariables)]
 
-1. Utwórz zmienną dla identyfikatora aplikacji jako zmienną środowiskową o nazwie `LUIS_APP_ID`. Ustaw zmienną środowiskową na publiczną aplikację IoT **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`** . Utwórz zmienną, aby ustawić `production` opublikowane gniazdo.
+1. Utwórz zmienną dla identyfikatora aplikacji jako zmienną środowiskową o nazwie `LUIS_APP_ID` . Ustaw zmienną środowiskową na publiczną aplikację IoT **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`** . Utwórz zmienną, aby ustawić `production` opublikowane gniazdo.
 
-    [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=OtherVariables)]
+    [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/python-sdk-authoring-prediction/prediction_quickstart.py?name=OtherVariables)]
 
 
-1. Utwórz obiekt poświadczeń przy użyciu klucza i użyj go w punkcie końcowym, aby utworzyć obiekt [LUISRuntimeClientConfiguration]https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.luisruntimeclientconfiguration?view=azure-python() .
+1. Utwórz obiekt poświadczeń przy użyciu klucza i użyj go w punkcie końcowym, aby utworzyć obiekt [LUISRuntimeClientConfiguration] https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.luisruntimeclientconfiguration?view=azure-python() .
 
-    [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=Client)]
+    [!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/python-sdk-authoring-prediction/prediction_quickstart.py?name=Client)]
 
 ## <a name="get-prediction-from-runtime"></a>Pobierz prognozowanie z środowiska uruchomieniowego
 
@@ -98,7 +98,7 @@ Wypowiedź użytkownika jest częścią obiektu [prediction_request](https://doc
 
 Metoda **[get_slot_prediction](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.operations.predictionoperations?view=azure-python#get-slot-prediction-app-id--slot-name--prediction-request--verbose-none--show-all-intents-none--log-none--custom-headers-none--raw-false----operation-config-)** wymaga kilku parametrów, takich jak identyfikator aplikacji, nazwa gniazda i obiekt żądania prognozowania w celu spełnienia żądania. Inne opcje, takie jak verbose, pokazują wszystkie intencje i dzienniki są opcjonalne. Żądanie zwraca obiekt [PredictionResponse](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.models.predictionresponse?view=azure-python) .
 
-[!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/prediction_quickstart.py?name=predict)]
+[!code-python[Dependency statements](~/cognitive-services-quickstart-code/python/LUIS/python-sdk-authoring-prediction/prediction_quickstart.py?name=predict)]
 
 ## <a name="main-code-for-the-prediction"></a>Kod główny do prognozowania
 
@@ -125,6 +125,6 @@ Intents:
 Entities: {'HomeAutomation.Operation': ['on']}
 ```
 
-## <a name="clean-up-resources"></a>Oczyszczanie zasobów
+## <a name="clean-up-resources"></a>Czyszczenie zasobów
 
 Po wykonaniu prognoz Wyczyść prace z tego przewodnika Szybki Start, usuwając plik i jego podkatalogi.

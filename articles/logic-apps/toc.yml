@@ -82,6 +82,8 @@
           href: logic-apps-exceed-default-page-size-with-pagination.md
         - name: Komunikaty przetwarzania wsadowego
           href: logic-apps-batch-process-send-receive-messages.md
+        - name: Wysyłanie komunikatów w kolejności — sekwencyjny konwój
+          href: send-related-messages-sequential-convoy.md
         - name: Tworzenie definicji JSON
           href: logic-apps-author-definitions.md
         - name: Obsługa typów zawartości
