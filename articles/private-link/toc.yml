@@ -12,6 +12,8 @@
       href: create-private-endpoint-powershell.md
     - name: Tworzenie prywatnego punktu końcowego — interfejs wiersza polecenia platformy Azure
       href: create-private-endpoint-cli.md
+    - name: Tworzenie prywatnego punktu końcowego — szablon usługi Resource Manager
+      href: create-private-endpoint-template.md
     - name: Tworzenie usługi Private Link — portal
       href: create-private-link-service-portal.md
     - name: Tworzenie usługi Private Link — PowerShell

@@ -7,7 +7,7 @@
 - name: Przewodniki Szybki start
   expanded: true
   items:
-    - name: Bezpieczny koncentrator wirtualny
+    - name: Bezpieczny koncentrator wirtualny — szablon usługi Resource Manager
       displayName: Resource Manager
       href: quick-secure-virtual-hub.md
 - name: Samouczki

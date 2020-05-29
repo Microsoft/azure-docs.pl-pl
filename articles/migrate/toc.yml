@@ -128,6 +128,8 @@
       href: how-to-migrate.md
     - name: Migrowanie maszyn wirtualnych VMware do maszyn wirtualnych platformy Azure zaszyfrowanych przy użyciu szyfrowania usługi Storage i klucza zarządzanego przez klienta
       href: how-to-migrate-vmware-vms-with-cmk-disks.md
+    - name: Przygotowywanie serwerów z systemem Windows 2003 do migracji
+      href: prepare-windows-server-2003-migration.md
     - name: Przygotowanie maszyn do migracji
       href: prepare-for-migration.md
     - name: Usuwanie projektu usługi Azure Migrate
