@@ -54,6 +54,8 @@
       href: concepts/text-offsets.md
     - name: Limity danych
       href: concepts/data-limits.md
+    - name: Wersje modelu danych
+      href: concepts/model-versioning.md
 - name: Przewodniki z instrukcjami
   items:
     - name: Wywoływanie interfejsu API usługi Text Analytics
@@ -76,6 +78,8 @@
           href: how-tos/text-analytics-how-to-use-container-instances.md
         - name: Korzystanie z usługi Kubernetes Service (AKS)
           href: how-tos/text-analytics-how-to-use-kubernetes-service.md
+    - name: Migrowanie do wersji 3 interfejsu API
+      href: migration-guide.md
 - name: Dokumentacja
   items:
     - name: Dokumentacja interfejsu wiersza polecenia
@@ -118,7 +122,7 @@
       href: text-analytics-resource-external-community.md
     - name: Często zadawane pytania
       href: text-analytics-resource-faq.md
-    - name: Ceny
+    - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/'
     - name: Dostępność regionalna
       href: 'https://azure.microsoft.com/global-infrastructure/services/'

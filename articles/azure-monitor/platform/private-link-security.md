@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.subservice: ''
-ms.openlocfilehash: a1b111ddfc134d2ec51fb2d0e9787a6eac8648f2
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 4ef7e4058c4f9cb458f4036ad4b315f5e85036b1
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996452"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170719"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Użyj prywatnego linku platformy Azure, aby bezpiecznie połączyć sieci z Azure Monitor
 
@@ -201,7 +201,7 @@ $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <workspace k
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Aby korzystać z środowisk Azure Monitor Portal, takich jak Application Insights i Log Analytics, należy zezwolić na dostęp rozszerzeń Azure Portal i Azure Monitor w sieciach prywatnych. Dodaj do zapory [Tagi](../../firewall/service-tags.md) **usługi azureactivedirectory**, **AzureResourceManager**, * * AzureFrontDoor. FirstParty i **AzureFrontDoor.**
+Aby korzystać z środowisk Azure Monitor Portal, takich jak Application Insights i Log Analytics, należy zezwolić na dostęp rozszerzeń Azure Portal i Azure Monitor w sieciach prywatnych. Dodaj do zapory [znaczniki usługi](../../firewall/service-tags.md) **usługi azureactivedirectory**, **AzureResourceManager**, **AzureFrontDoor. FirstParty**i **AzureFrontDoor** .
 
 ### <a name="programmatic-access"></a>Dostęp programowy
 

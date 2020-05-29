@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 229485b5aa1bf3a97429c8d82c4c962cd9fab5c7
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e6c51e80a0a9a68dc6ec11e03c133f3480eb4329
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84016342"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170481"
 ---
 # <a name="azure-security-baseline-for-azure-databricks"></a>Podstawa zabezpieczeń platformy Azure dla Azure Databricks
 
@@ -968,7 +968,7 @@ Skanuj wstępnie wszystkie pliki przekazywane do Azure Databricks węzłów klas
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9,2: wykonaj kompletne kopie zapasowe systemu i Utwórz kopię zapasową wszystkich kluczy zarządzanych przez klienta
 
-**Wskazówki**: Utwórz kopię zapasową wszystkich kluczy zarządzanych przez klienta związanych z implementacją Azure Databricks w programie Azure Key Vault. Do tworzenia codziennej kopii zapasowej konfiguracji elementów datakostki można także użyć interfejsu API REST i wiersza polecenia. Do tworzenia codziennej kopii zapasowej konfiguracji elementów datakostki można także użyć interfejsu API REST/CLI.
+**Wskazówki**: Utwórz kopię zapasową wszystkich kluczy zarządzanych przez klienta związanych z implementacją Azure Databricks w programie Azure Key Vault. Można również użyć interfejsu API REST i/lub interfejsu wiersza polecenia, aby utworzyć codzienne kopie zapasowe konfiguracji elementów datakostki.
 
 * [Jak utworzyć kopię zapasową kluczy magazynu kluczy na platformie Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 

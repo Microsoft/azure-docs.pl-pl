@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 61016597310e6bb160999981216190e8caa34fc8
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 53ae3217e77a9301cbe0d3d63ce0712a0b9b7f1e
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83656750"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171620"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK dla interfejsu API SQL: informacje o wersji i zasoby
 > [!div class="op_single_selector"]
@@ -42,59 +42,59 @@ Jest to oryginalny Azure Cosmos DB synchronizacji zestawu Java SDK V2 dla interf
 |**Pobieranie zestawu SDK**|[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
 |**Dokumentacja interfejsu API**|[Dokumentacja interfejsu API języka Java](/java/api/com.microsoft.azure.documentdb)|
 |**Współtworzenie zestawu SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
-|**Rozpoczęcie pracy**|[Wprowadzenie do zestawu Java SDK](sql-api-java-get-started.md)|
+|**Wprowadzenie**|[Wprowadzenie do zestawu Java SDK](sql-api-java-get-started.md)|
 |**Samouczek aplikacji sieci Web**|[Tworzenie aplikacji sieci Web za pomocą Azure Cosmos DB](sql-api-java-application.md)|
 |**Minimalne obsługiwane środowisko uruchomieniowe**|[Java Development Kit (JDK) 7 +](/java/azure/jdk/?view=azure-java-stable)|
 
 ## <a name="release-notes"></a>Informacje o wersji
 
-### <a name="247"></a><a name="2.4.7"/>2.4.7
+### <a name="247"></a><a name="2.4.7"></a>2.4.7
 * Rozwiązuje problem z limitem czasu puli połączeń.
 * Naprawia odświeżanie tokenu uwierzytelniania podczas wewnętrznych ponownych prób.
 
-### <a name="246"></a><a name="2.4.6"/>2.4.6
+### <a name="246"></a><a name="2.4.6"></a>2.4.6
 * Zaktualizowano prawidłowy tag zasad repliki po stronie klienta na databaseAccount i databaseAccounte odczyty konfiguracji z pamięci podręcznej.
 
-### <a name="245"></a><a name="2.4.5"/>2.4.5
+### <a name="245"></a><a name="2.4.5"></a>2.4.5
 * Unikaj ponawiania próby przy nieprawidłowym błędzie zakresu kluczy partycji, jeśli użytkownik poda pkRangeId.
 
-### <a name="244"></a><a name="2.4.4"/>2.4.4
+### <a name="244"></a><a name="2.4.4"></a>2.4.4
 * Odświeżone pamięci podręcznej zakresów kluczy partycji.
 * Poprawka w scenariuszu, w którym zestaw SDK nie obsługuje wskazówki podziału partycji z serwera i powoduje nieprawidłowe Odświeżanie pamięci podręcznych routingu po stronie klienta.
 
-### <a name="242"></a><a name="2.4.2"/>2.4.2
+### <a name="242"></a><a name="2.4.2"></a>2.4.2
 * Odświeżone Odświeżanie pamięci podręcznej kolekcji.
 
-### <a name="241"></a><a name="2.4.1"/>2.4.1
+### <a name="241"></a><a name="2.4.1"></a>2.4.1
 * Dodano obsługę pobierania komunikatu o wyjątku wewnętrznym z ciągu diagnostyki żądania.
 
-### <a name="240"></a><a name="2.4.0"/>2.4.0
+### <a name="240"></a><a name="2.4.0"></a>2.4.0
 * Wprowadzono wersję interfejsu API w systemie PartitionKeyDefinition.
 
-### <a name="230"></a><a name="2.3.0"/>2.3.0
+### <a name="230"></a><a name="2.3.0"></a>2.3.0
 * Dodano obsługę oddzielnego limitu czasu dla trybu bezpośredniego.
 
-### <a name="223"></a><a name="2.2.3"/>Regulamin
+### <a name="223"></a><a name="2.2.3"></a>Regulamin
 * Zużywanie pustego komunikatu o błędzie z usługi i Tworzenie wyjątku klienta dokumentu.
 
-### <a name="222"></a><a name="2.2.2"/>ppkt
+### <a name="222"></a><a name="2.2.2"></a>ppkt
 * Udoskonalenie połączenia gniazda, Dodawanie SoKeepAlive domyślnego true.
 
-### <a name="220"></a><a name="2.2.0"/>2.2.0
+### <a name="220"></a><a name="2.2.0"></a>2.2.0
 * Dodano obsługę ciągu diagnostyki żądania.
 
-### <a name="213"></a><a name="2.1.3"/>2.1.3
+### <a name="213"></a><a name="2.1.3"></a>2.1.3
 * Naprawiono usterkę w PartitionKey dla skrótu v2.
 
-### <a name="212"></a><a name="2.1.2"/>2.1.2
+### <a name="212"></a><a name="2.1.2"></a>2.1.2
 * Dodano obsługę indeksów złożonych.
 * Naprawiono usterkę w programie Global Endpoint Manager, aby wymusić odświeżanie.
 * Stała usterka dla upserts z warunkiem wstępnym w trybie bezpośrednim.
 
-### <a name="211"></a><a name="2.1.1"/>2.1.1
+### <a name="211"></a><a name="2.1.1"></a>2.1.1
 * Naprawiono usterkę w pamięci podręcznej adresów bramy.
 
-### <a name="210"></a><a name="2.1.0"/>2.1.0
+### <a name="210"></a><a name="2.1.0"></a>2.1.0
 * Dodano obsługę zapisu wieloregionowego dla trybu bezpośredniego.
 * Dodano obsługę obsługi IOExceptions zgłoszonych jako wyjątki serviceavailable z serwera proxy.
 * Naprawiono usterkę w zasadach ponawiania odnajdywania punktów końcowych.
@@ -102,30 +102,30 @@ Jest to oryginalny Azure Cosmos DB synchronizacji zestawu Java SDK V2 dla interf
 * Rozwiązano błąd, aby upewnić się, że QueryIterator nie zwraca wartości null.
 * Rozwiązano błąd w celu zapewnienia, że jest dozwolony duży PartitionKey
 
-### <a name="200"></a><a name="2.0.0"/>2.0.0
+### <a name="200"></a><a name="2.0.0"></a>2.0.0
 * Dodano obsługę zapisu wieloregionowego dla trybu bramy.
 
-### <a name="1164"></a><a name="1.16.4"/>1.16.4
+### <a name="1164"></a><a name="1.16.4"></a>1.16.4
 * Naprawiono usterkę w zakresach kluczy partycji odczytu dla zapytania.
 
 ### <a name="1163"></a><a name="1.16.3"/>1.16.3
 * Rozwiązano błąd podczas ustawiania rozmiaru nagłówka tokenu kontynuacji w trybie DirectHttps.
 
-### <a name="1162"></a><a name="1.16.2"/>1.16.2
+### <a name="1162"></a><a name="1.16.2"></a>1.16.2
 * Dodano obsługę przesyłania strumieniowego w trybie failover.
 * Dodano obsługę metadanych niestandardowych.
 * Ulepszona logika obsługi sesji.
 * Naprawiono usterkę w pamięci podręcznej zakresów kluczy partycji.
 * Naprawiono usterkę aparatu NPE w trybie bezpośrednim.
 
-### <a name="1161"></a><a name="1.16.1"/>1.16.1
+### <a name="1161"></a><a name="1.16.1"></a>1.16.1
 * Dodano obsługę unikatowego indeksu.
 * Dodano obsługę ograniczania rozmiaru tokenu kontynuacji w opcjach źródła danych.
 * Naprawiono usterkę w serializacji JSON (Sygnatura czasowa).
 * Naprawiono usterkę w serializacji JSON (enum).
 * Zależność od modelu com. fasterxml. Jacksona. Core: Jacksona-DataBind uaktualnionego do 2.9.5.
 
-### <a name="1160"></a><a name="1.16.0"/>1.16.0
+### <a name="1160"></a><a name="1.16.0"></a>1.16.0
 * Ulepszono obsługę puli połączeń dla trybu bezpośredniego.
 * Ulepszone ulepszenie pobierania z wyprzedzeniem dla zapytania obejmującego wiele partycji.
 * Ulepszone generowanie identyfikatora UUID.
@@ -134,35 +134,35 @@ Jest to oryginalny Azure Cosmos DB synchronizacji zestawu Java SDK V2 dla interf
 * Dodano obsługę statystyk zakresu kluczy partycji dla kolekcji.
 * Rozwiązano usterkę w obsłudze wieloregionowej.
 
-### <a name="1150"></a><a name="1.15.0"/>1.15.0
+### <a name="1150"></a><a name="1.15.0"></a>1.15.0
 * Ulepszona wydajność serializacji JSON.
 * Ta wersja zestawu SDK wymaga najnowszej wersji [emulatora Azure Cosmos DB](https://aka.ms/cosmosdb-emulator).
 
-### <a name="1140"></a><a name="1.14.0"/>1.14.0
+### <a name="1140"></a><a name="1.14.0"></a>1.14.0
 * Wewnętrzne zmiany w bibliotekach zaprzyjaźnionych firmy Microsoft.
 
-### <a name="1130"></a><a name="1.13.0"/>1.13.0
+### <a name="1130"></a><a name="1.13.0"></a>1.13.0
 * Rozwiązano problem podczas odczytywania zakresów kluczy pojedynczej partycji.
 * Rozwiązano problem związany z analizą ResourceID, który ma wpływ na bazę danych z krótkimi nazwami.
 * Rozwiązano problem spowodowany przez kodowanie klucza partycji.
 
-### <a name="1120"></a><a name="1.12.0"/>1.12.0
+### <a name="1120"></a><a name="1.12.0"></a>1.12.0
 * Krytyczne poprawki błędów do przetwarzania żądań podczas dzielenia partycji.
 * Rozwiązano problem z poziomami spójności silny i BoundedStaleness.
 
-### <a name="1110"></a><a name="1.11.0"/>1.11.0
+### <a name="1110"></a><a name="1.11.0"></a>1.11.0
 * Dodano obsługę nowego poziomu spójności o nazwie ConsistentPrefix.
 * Rozwiązano błąd podczas odczytywania kolekcji w trybie sesji.
 
-### <a name="1100"></a><a name="1.10.0"/>1.10.0
+### <a name="1100"></a><a name="1.10.0"></a>1.10.0
 * Włączono obsługę partycjonowanych kolekcji z niską ilością 2 500 RU/s i skalą przyrostową 100 RU/s.
 * Naprawiono usterkę w zestawie natywnym, co może spowodować wyjątek NullRef w niektórych zapytaniach.
 
-### <a name="196"></a><a name="1.9.6"/>1.9.6
+### <a name="196"></a><a name="1.9.6"></a>1.9.6
 * Naprawiono usterkę w konfiguracji aparatu zapytań, która może spowodować wyjątki dla zapytań w trybie bramy.
 * Rozwiązano kilka usterek w kontenerze sesji, które mogą spowodować wyjątek "nie znaleziono zasobu właściciela" dla żądań natychmiast po utworzeniu kolekcji.
 
-### <a name="195"></a><a name="1.9.5"/>1.9.5
+### <a name="195"></a><a name="1.9.5"></a>1.9.5
 * Dodano obsługę zapytań agregacji (COUNT, MIN, MAX, SUM i AVG). Zobacz [Obsługa agregacji](sql-query-aggregates.md).
 * Dodano obsługę źródła zmian.
 * Dodano obsługę informacji o limicie przydziału kolekcji za pomocą RequestOptions. setPopulateQuotaInfo.
@@ -172,7 +172,7 @@ Jest to oryginalny Azure Cosmos DB synchronizacji zestawu Java SDK V2 dla interf
 * Rozwiązano błąd, który może spowodować NullReferenceException w elemencie HttpContext, gdy liczba żądań jest wysoka.
 * Ulepszona wydajność trybu DirectHttps.
 
-### <a name="194"></a><a name="1.9.4"/>1.9.4
+### <a name="194"></a><a name="1.9.4"></a>1.9.4
 * Dodano obsługę prostego serwera proxy opartego na wystąpieniu klienta z interfejsem API ConnectionPolicy. SetProxy ().
 * Dodano interfejs API DocumentClient. Close () do prawidłowego zamknięcia wystąpienia DocumentClient.
 * Ulepszona wydajność zapytań w trybie bezpośredniej łączności przez wytworzenie planu zapytania z zestawu natywnego zamiast bramy.
@@ -180,22 +180,22 @@ Jest to oryginalny Azure Cosmos DB synchronizacji zestawu Java SDK V2 dla interf
 * Refaktoryzacja rejestrowania do użycia SLF4J.
 * Rozwiązano kilka innych usterek w czytniku spójności.
 
-### <a name="193"></a><a name="1.9.3"/>1.9.3
+### <a name="193"></a><a name="1.9.3"></a>1.9.3
 * Naprawiono usterkę w zarządzaniu połączeniami, aby zapobiec przeciekom połączeń w trybie bezpośredniej łączności.
 * Rozwiązano usterkę w zapytaniu TOP, w której może zgłosić wyjątek NullReference.
 * Zwiększona wydajność dzięki zmniejszeniu liczby wywołań sieciowych dla wewnętrznych pamięci podręcznych.
 * Dodano kod stanu, ActivityID i identyfikator URI żądania w programie DocumentClientException w celu lepszego rozwiązywania problemów.
 
-### <a name="192"></a><a name="1.9.2"/>1.9.2
+### <a name="192"></a><a name="1.9.2"></a>1.9.2
 * Rozwiązano problem związany z zarządzaniem połączeniem w celu zapewnienia stabilności.
 
-### <a name="191"></a><a name="1.9.1"/>1.9.1
+### <a name="191"></a><a name="1.9.1"></a>1.9.1
 * Dodano obsługę poziomu spójności BoundedStaleness.
 * Dodano obsługę bezpośredniej łączności dla operacji CRUD dla kolekcji partycjonowanych.
 * Rozwiązano błąd podczas wykonywania zapytania dotyczącego bazy danych SQL.
 * Naprawiono usterkę w pamięci podręcznej sesji, w której token sesji może być ustawiony nieprawidłowo.
 
-### <a name="190"></a><a name="1.9.0"/>1.9.0
+### <a name="190"></a><a name="1.9.0"></a>1.9.0
 * Dodano obsługę zapytań równoległych między partycjami.
 * Dodano obsługę funkcji TOP/ORDER przez zapytania dotyczące kolekcji partycjonowanych.
 * Dodano obsługę silnej spójności.
@@ -205,46 +205,46 @@ Jest to oryginalny Azure Cosmos DB synchronizacji zestawu Java SDK V2 dla interf
 * Dodano wielokąta i LineString typy danych podczas określania zasad indeksowania kolekcji dla zapytań przestrzennych geograficznych.
 * Rozwiązano problemy z dokumentem Java w języku Java 1,8.
 
-### <a name="181"></a><a name="1.8.1"/>1.8.1
+### <a name="181"></a><a name="1.8.1"></a>1.8.1
 * Naprawiono usterkę w PartitionKeyDefinitionMap, która umożliwia buforowanie pojedynczych kolekcji partycji i nie tworzy dodatkowych żądań dotyczących kluczy partycji pobierania.
 * Rozwiązano błąd, aby nie ponawiać próby w przypadku podanej nieprawidłowej wartości klucza partycji.
 
-### <a name="180"></a><a name="1.8.0"/>1.8.0
+### <a name="180"></a><a name="1.8.0"></a>1.8.0
 * Dodano obsługę wieloregionowych kont baz danych.
 * Dodano obsługę automatycznego ponawiania prób w żądaniach ograniczających z opcjami, aby dostosować maksymalną liczbę ponownych prób i maksymalny czas oczekiwania na ponowienie próby.  Zobacz RetryOptions i ConnectionPolicy. getRetryOptions ().
 * Przestarzały kod partycjonowania niestandardowego oparty na IPartitionResolver. Użyj partycjonowanych kolekcji w celu zapewnienia większego magazynu i przepływności.
 
-### <a name="171"></a><a name="1.7.1"/>1.7.1
+### <a name="171"></a><a name="1.7.1"></a>1.7.1
 * Dodano obsługę zasad ponawiania dla ograniczania szybkości.  
 
-### <a name="170"></a><a name="1.7.0"/>1.7.0
+### <a name="170"></a><a name="1.7.0"></a>1.7.0
 * Dodano obsługę czasu wygaśnięcia (TTL) dla dokumentów.
 
-### <a name="160"></a><a name="1.6.0"/>1.6.0
+### <a name="160"></a><a name="1.6.0"></a>1.6.0
 * Wdrożone [kolekcje partycjonowane](partition-data.md) i [poziomy wydajności zdefiniowane przez użytkownika](performance-levels.md).
 
-### <a name="151"></a><a name="1.5.1"/>1.5.1
+### <a name="151"></a><a name="1.5.1"></a>1.5.1
 * Naprawiono usterkę w HashPartitionResolver, aby generować wartości skrótu w postaci little-endian, aby były spójne z innymi zestawami SDK.
 
-### <a name="150"></a><a name="1.5.0"/>1.5.0
+### <a name="150"></a><a name="1.5.0"></a>1.5.0
 * Dodaj & rozpoznawania partycji zakresu skrótów, aby pomóc w fragmentowania aplikacji na wielu partycjach.
 
-### <a name="140"></a><a name="1.4.0"/>1.4.0
+### <a name="140"></a><a name="1.4.0"></a>1.4.0
 * Zaimplementuj upsert. Nowe metody upsertXXX dodane do obsługi funkcji upsert.
 * Implementowanie routingu opartego na IDENTYFIKATORach. Brak publicznych zmian interfejsu API, wszystkie zmiany wewnętrzne.
 
-### <a name="130"></a><a name="1.3.0"/>1.3.0
+### <a name="130"></a><a name="1.3.0"></a>1.3.0
 * Wersja pominięta, aby wprowadzić numer wersji w wyrównaniu z innymi zestawami SDK
 
-### <a name="120"></a><a name="1.2.0"/>1.2.0
+### <a name="120"></a><a name="1.2.0"></a>1.2.0
 * Obsługuje indeks geoprzestrzenny
 * Weryfikuje Właściwość identyfikatora dla wszystkich zasobów. Identyfikatory dla zasobów nie mogą zawierać znaków?,/, #, \, ani kończyć się spacją.
 * Dodaje nowy nagłówek "postęp transformacji indeksu" do ResourceResponse.
 
-### <a name="110"></a><a name="1.1.0"/>1.1.0
+### <a name="110"></a><a name="1.1.0"></a>1.1.0
 * Implementuje zasady indeksowania v2
 
-### <a name="100"></a><a name="1.0.0"/>1.0.0
+### <a name="100"></a><a name="1.0.0"></a>1.0.0
 * ZESTAW SDK GA
 
 ## <a name="release-and-retirement-dates"></a>Daty wydania i wycofania
@@ -322,7 +322,7 @@ Każde żądanie Cosmos DB za pomocą wycofanego zestawu SDK zostanie odrzucone 
 | od 0.9.1 — przedlease |19 grudnia 2014 |29 lutego 2016 |
 | 0.9.0 — przedlease |10 grudnia 2014 |29 lutego 2016 |
 
-## <a name="faq"></a>Najczęściej zadawane pytania
+## <a name="faq"></a>Często zadawane pytania
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Zobacz także

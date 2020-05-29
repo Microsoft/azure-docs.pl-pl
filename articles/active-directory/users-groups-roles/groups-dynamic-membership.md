@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab6be101e33fb29f96e2e5ea0fd2e79aa1cf0d09
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 8f5e4e80af106de7c4bc8f09bdbecbc84199c2b3
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744692"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84171161"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Reguły członkostwa dynamicznego dla grup w Azure Active Directory
 
@@ -78,8 +78,8 @@ Kolejność części w wyrażeniu jest ważna, aby uniknąć błędów składnio
 
 Istnieją trzy typy właściwości, których można użyć do skonstruowania reguły członkostwa.
 
-- Wartość logiczna
-- String
+- Boolean (wartość logiczna)
+- String (ciąg)
 - Kolekcja ciągów
 
 Poniżej przedstawiono właściwości użytkownika, których można użyć do utworzenia jednego wyrażenia.
@@ -384,7 +384,7 @@ Można użyć następujących atrybutów urządzeń.
  deviceManufacturer | dowolna wartość ciągu | (Device. deviceManufacturer-EQ "Samsung")
  deviceModel | dowolna wartość ciągu | (Device. deviceModel-EQ "iPad Air")
  deviceOwnership | Osobiste, firma, nieznane | (Device. deviceOwnership-EQ "Company")
- enrollmentProfileName | Profil rejestracji urządzeń firmy Apple, rejestracja urządzeń — identyfikatory urządzeń firmowych (Android-kiosk) lub nazwa profilu autopilotażu systemu Windows | (Device. enrollmentProfileName-EQ "telefony iPhone")
+ enrollmentProfileName | Nazwa profilu rejestracji urządzeń firmy Apple, nazwa profilu rejestracji dedykowanego urządzenia z systemem Android Enterprise lub nazwa profilu autopilotażu systemu Windows | (Device. enrollmentProfileName-EQ "telefony iPhone")
  isrootd | PRAWDA FAŁSZ | (Device. isrootd-EQ true)
  managementtype | MDM (dla urządzeń przenośnych)<br>Komputer PC (dla komputerów zarządzanych przez agenta komputera usługi Intune) | (Device. managementtype-EQ "MDM")
  deviceId | prawidłowy identyfikator urządzenia usługi Azure AD | (Device. deviceId-EQ "d4fe7726-5966-431c-b3b8-cddc8fdb717d")

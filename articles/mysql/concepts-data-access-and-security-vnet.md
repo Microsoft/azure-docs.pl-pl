@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 4ca8fe3e217d3b4affc1bc0bda9ed193e91b2104
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2c0714bf27897de72246461ae3ad3250c55390e1
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79537146"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170668"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Używanie reguł i punktów końcowych usługi dla sieci wirtualnej w przypadku usługi Azure Database for MySQL
 
@@ -25,7 +25,7 @@ Aby utworzyć regułę sieci wirtualnej, musi być to [Sieć wirtualna][vm-virtu
 > Ta funkcja jest dostępna we wszystkich regionach platformy Azure, w których wdrożono Azure Database for MySQL dla serwerów Ogólnego przeznaczenia i zoptymalizowanych pod kątem pamięci.
 > W przypadku komunikacji równorzędnej sieci wirtualnych, jeśli ruch odbywa się za pomocą wspólnej bramy sieci wirtualnej z punktami końcowymi usługi i powinien przepływać do elementu równorzędnego, Utwórz regułę listy ACL/sieci wirtualnej, aby umożliwić usłudze Azure Virtual Machines w sieci wirtualnej bramy dostęp do serwera Azure Database for MySQL.
 
-<a name="anch-terminology-and-description-82f" />
+<a name="anch-terminology-and-description-82f"></a>
 
 ## <a name="terminology-and-description"></a>Terminologia i opis
 
@@ -45,7 +45,7 @@ Reguła sieci wirtualnej instruuje serwer Azure Database for MySQL, aby akceptow
 
 
 
-<a name="anch-benefits-of-a-vnet-rule-68b" />
+<a name="anch-benefits-of-a-vnet-rule-68b"></a>
 
 ## <a name="benefits-of-a-virtual-network-rule"></a>Zalety reguły sieci wirtualnej
 
@@ -69,7 +69,7 @@ Jeśli serwer **Microsoft. SQL** był węzłem w podsieci w sieci wirtualnej, ws
 
 Jednak od sierpnia 2018 usługa Azure Database for MySQL nie należy jeszcze do usług, które mogą być bezpośrednio przypisane do podsieci.
 
-<a name="anch-details-about-vnet-rules-38q" />
+<a name="anch-details-about-vnet-rules-38q"></a>
 
 ## <a name="details-about-virtual-network-rules"></a>Szczegóły dotyczące reguł sieci wirtualnej
 
@@ -90,7 +90,7 @@ Każda reguła sieci wirtualnej ma zastosowanie do całego serwera Azure Databas
 Istnieje separacja ról zabezpieczeń w administrowaniu punktami końcowymi usługi Virtual Network. Wymagana jest akcja z każdej z następujących ról:
 
 - **Administrator sieci:** &nbsp; Włącz punkt końcowy.
-- **Administrator bazy danych:** &nbsp; zaktualizuj listę kontroli dostępu (ACL), aby dodać daną podsieć do serwera Azure Database for MySQL.
+- **Administrator bazy danych:** &nbsp; Zaktualizuj listę kontroli dostępu (ACL), aby dodać daną podsieć do serwera Azure Database for MySQL.
 
 *Alternatywa RBAC:*
 

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 37a458aea659cb6215cf29e6abcbc3341c7e0b7b
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 64acfcffed597640402df557ae419a67ff1e0dcb
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83643253"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170396"
 ---
 # <a name="outbound-connections-in-azure"></a>Połączenia wychodzące na platformie Azure
 
-Platforma Azure zapewnia łączność wychodzącą dla wdrożeń klientów przy użyciu kilku różnych mechanizmów. W tym artykule opisano scenariusze, w których są one stosowane, jak działają i jak nimi zarządzać.
+Azure Load Balancer zapewnia łączność wychodzącą dla wdrożeń klientów przy użyciu kilku różnych mechanizmów. W tym artykule opisano scenariusze, w których są one stosowane, jak działają i jak nimi zarządzać. Jeśli występują problemy z łącznością wychodzącą za pośrednictwem Azure Load Balancer, zobacz [Przewodnik rozwiązywania problemów dla połączeń wychodzących] (.. /load-balancer/troubleshoot-outbound-connection.md).
 
 >[!NOTE] 
 >W tym artykule omówiono tylko wdrożenia Menedżer zasobów. Przejrzyj [połączenia wychodzące (klasyczne)](load-balancer-outbound-connections-classic.md) dla wszystkich klasycznych scenariuszy wdrażania na platformie Azure.
@@ -31,7 +31,7 @@ Wdrożenie na platformie Azure może komunikować się z punktami końcowymi poz
 
 Na platformie Azure do wykonania tej funkcji jest stosowany translator adresów sieciowych (Resources). Gdy wiele prywatnych adresów IP jest rozliczanych za pojedynczym publicznym adresem IP, platforma Azure używa [translatora adresów portu (Binding)](#pat) do zamaskowanego prywatnych adresów IP. Porty tymczasowe są używane na potrzeby usługi i są [wstępnie przydzieloną](#preallocatedports) na podstawie rozmiaru puli.
 
-Istnieje wiele [scenariuszy wychodzących](#scenarios). Te scenariusze można połączyć zgodnie z wymaganiami. Uważnie przejrzyj je, aby zrozumieć możliwości, ograniczenia i wzorce, które mają zastosowanie do modelu wdrożenia i scenariusza aplikacji. Zapoznaj się ze wskazówkami dotyczącymi [zarządzania tymi scenariuszami](#snatexhaust).
+Istnieje wiele [scenariuszy wychodzących](#scenarios). Te scenariusze można połączyć zgodnie z wymaganiami. Uważnie przejrzyj je, aby zrozumieć możliwości, ograniczenia i wzorce, które mają zastosowanie do modelu wdrożenia i scenariusza aplikacji. Zapoznaj się ze wskazówkami dotyczącymi [zarządzania tymi scenariuszami](../load-balancer/troubleshoot-outbound-connection.md#snatexhaust).
 
 >[!IMPORTANT] 
 >Usługa Load Balancer w warstwie Standardowa i Standard publiczny adres IP wprowadzają nowe możliwości i inne zachowania łączności wychodzącej.  Nie są one takie same jak podstawowe jednostki SKU.  Jeśli chcesz mieć łączność wychodzącą podczas pracy z standardowymi jednostkami SKU, musisz jawnie zdefiniować ją przy użyciu standardowych publicznych adresów IP lub standardowych Load Balancer publicznych.  Obejmuje to tworzenie łączności wychodzącej przy użyciu wewnętrznego usługa Load Balancer w warstwie Standardowa.  Zalecamy, aby zawsze używać reguł ruchu wychodzącego dla standardowej Load Balancer publicznej.  [Scenariusz 3](#defaultsnat) nie jest dostępny w przypadku standardowej jednostki SKU.  Oznacza to, że w przypadku użycia wewnętrznego usługa Load Balancer w warstwie Standardowa należy wykonać kroki w celu utworzenia łączności wychodzącej dla maszyn wirtualnych w puli zaplecza, jeśli jest wymagana łączność wychodząca.  W kontekście łączności wychodzącej, pojedynczej autonomicznej maszyny wirtualnej, wszystkie maszyny wirtualne w zestawie dostępności, wszystkie wystąpienia w VMSS działają jako Grupa. Oznacza to, że jeśli jedna maszyna wirtualna w zestawie dostępności jest skojarzona ze standardową jednostką SKU, wszystkie wystąpienia maszyn wirtualnych w tym zestawie dostępności są teraz zgodne z tymi samymi regułami, tak jakby były one skojarzone ze standardową jednostką SKU, nawet jeśli pojedyncze wystąpienie nie jest bezpośrednio skojarzone z nim. To zachowanie jest również zaobserwowane w przypadku autonomicznej maszyny wirtualnej z wieloma kartami interfejsu sieciowego podłączonymi do modułu równoważenia obciążenia. Jeśli jedna karta sieciowa zostanie dodana jako autonomiczna, będzie miała takie samo zachowanie. Uważnie przejrzyj ten cały dokument, aby poznać ogólne koncepcje, przejrzyj [Usługa Load Balancer w warstwie Standardowa](load-balancer-standard-overview.md) pod kątem różnic między jednostkami SKU i przejrzyj [reguły ruchu wychodzącego](load-balancer-outbound-rules-overview.md).  Użycie reguł ruchu wychodzącego umożliwia precyzyjne sterowanie wszystkimi aspektami łączności wychodzącej.
@@ -54,7 +54,7 @@ W tym scenariuszu maszyna wirtualna ma przypisany publiczny adres IP. Jeśli cho
 
 Publiczny adres IP przypisany do maszyny wirtualnej jest relacją 1:1 (a nie 1: wiele) i zaimplementowaną jako bezstanowe urządzenie NAT 1:1.  Nie jest używane zamaskowane portów, a maszyna wirtualna ma dostęp do wszystkich tymczasowych portów do użycia.
 
-Jeśli aplikacja inicjuje wiele przepływów wychodzących i jest używany wyczerpanie portów, należy rozważyć przypisanie [publicznego adresu IP do ograniczania ograniczeń dotyczących translatora adresów sieciowych](#assignilpip). Zapoznaj się z [zarządzaniem wyczerpaniem spalin](#snatexhaust) w całości.
+Jeśli aplikacja inicjuje wiele przepływów wychodzących i jest używany wyczerpanie portów, należy rozważyć przypisanie [publicznego adresu IP do ograniczania ograniczeń dotyczących translatora adresów sieciowych](../load-balancer/troubleshoot-outbound-connection.md#assignilpip). Zapoznaj się z [zarządzaniem wyczerpaniem spalin](../load-balancer/troubleshoot-outbound-connection.md#snatexhaust) w całości.
 
 ### <a name="scenario-2-load-balanced-vm-without-a-public-ip-address"></a><a name="lb"></a>Scenariusz 2. maszyna wirtualna o zrównoważonym obciążeniu bez publicznego adresu IP
 
@@ -66,7 +66,7 @@ Gdy maszyna wirtualna o zrównoważonym obciążeniu tworzy przepływ wychodząc
 
 Tymczasowe porty frontonu publicznego adresu IP modułu równoważenia obciążenia są używane do rozróżniania poszczególnych przepływów pochodzących z maszyny wirtualnej. W przypadku tworzenia przepływów ruchu wychodzącego w ramach strumienia danych dynamicznie [przydzielono wstępnie przydzieloną porty](#preallocatedports) tymczasowe. W tym kontekście porty, które są używane do przystawcy adresów sieciowych, są nazywane portami.
 
-Porty przystawek adresów sieciowych są wstępnie przydzielonymi zgodnie z opisem w sekcji [Omówienie i poznanie adresów sieciowych](#snat) . Są to skończone zasoby, które mogą być wyczerpane. Ważne jest, aby zrozumieć, jak są [używane](#pat). Aby dowiedzieć się, jak projektować w tym zużyciu i w razie potrzeby rozwiązać problem, przejrzyj [Zarządzanie wyczerpaniem](#snatexhaust)zasobów.
+Porty przystawek adresów sieciowych są wstępnie przydzielonymi zgodnie z opisem w sekcji [Omówienie i poznanie adresów sieciowych](#snat) . Są to skończone zasoby, które mogą być wyczerpane. Ważne jest, aby zrozumieć, jak są [używane](#pat). Aby dowiedzieć się, jak projektować w tym zużyciu i w razie potrzeby rozwiązać problem, przejrzyj [Zarządzanie wyczerpaniem](../load-balancer/troubleshoot-outbound-connection.md#snatexhaust)zasobów.
 
 Gdy [wiele publicznych adresów IP jest skojarzonych z Load Balancer podstawowa](load-balancer-multivip-overview.md), każdy z tych publicznych adresów IP jest kandydatem do przepływów wychodzących, a jeden jest wybierany losowo.  
 
@@ -81,13 +81,13 @@ W tym scenariuszu maszyna wirtualna nie jest częścią publicznej puli Load Bal
 
 Aby można było wykonać tę funkcję, Platforma[PAT](#pat)Azure używa podszywającego się na portach. Ten scenariusz jest podobny do [scenariusza 2](#lb), z tą różnicą, że nie ma kontroli nad używanym adresem IP. Jest to scenariusz rezerwowy dla sytuacji, gdy scenariusze 1 i 2 nie istnieją. Nie zalecamy tego scenariusza, jeśli chcesz kontrolować adres wychodzący. Jeśli połączenia wychodzące są krytyczną częścią aplikacji, należy wybrać inny scenariusz.
 
-Porty przydziałów adresów sieciowych są wstępnie przydzielonymi, zgodnie z opisem w sekcji [Omówienie adresów i](#snat) elementów.  Liczba maszyn wirtualnych, które udostępniają zestaw dostępności, określa, która warstwa alokacji wstępnej ma zastosowanie.  Autonomiczna maszyna wirtualna bez zestawu dostępności jest skuteczną pulą 1 na potrzeby określania wstępnego przydziału (porty podrzędnego 1024). Porty przyłączone do sieci to skończone zasoby, które mogą być wyczerpane. Ważne jest, aby zrozumieć, jak są [używane](#pat). Aby dowiedzieć się, jak projektować w tym zużyciu i w razie potrzeby rozwiązać problem, przejrzyj [Zarządzanie wyczerpaniem](#snatexhaust)zasobów.
+Porty przydziałów adresów sieciowych są wstępnie przydzielonymi, zgodnie z opisem w sekcji [Omówienie adresów i](#snat) elementów.  Liczba maszyn wirtualnych, które udostępniają zestaw dostępności, określa, która warstwa alokacji wstępnej ma zastosowanie.  Autonomiczna maszyna wirtualna bez zestawu dostępności jest skuteczną pulą 1 na potrzeby określania wstępnego przydziału (porty podrzędnego 1024). Porty przyłączone do sieci to skończone zasoby, które mogą być wyczerpane. Ważne jest, aby zrozumieć, jak są [używane](#pat). Aby dowiedzieć się, jak projektować w tym zużyciu i w razie potrzeby rozwiązać problem, przejrzyj [Zarządzanie wyczerpaniem](../load-balancer/troubleshoot-outbound-connection.md#snatexhaust)zasobów.
 
 ### <a name="multiple-combined-scenarios"></a><a name="combinations"></a>Wiele połączonych scenariuszy
 
 Możesz połączyć scenariusze opisane w poprzednich sekcjach, aby osiągnąć konkretny wynik. Jeśli istnieją wiele scenariuszy, obowiązuje kolejność pierwszeństwa: [scenariusz 1](#ilpip) ma pierwszeństwo przed [Scenariusz 2](#lb) i [3](#defaultsnat). [Scenariusz 2](#lb) przesłania [Scenariusz 3](#defaultsnat).
 
-Przykładem jest wdrożenie Azure Resource Manager, w którym aplikacja opiera się silnie na połączeniach wychodzących do ograniczonej liczby miejsc docelowych, ale również odbiera przepływy przychodzące w ramach Load Balancer frontonu. W takim przypadku można połączyć scenariusze 1 i 2 w celu zwolnienia. Aby uzyskać dodatkowe wzorce, przejrzyj temat [Zarządzanie wyczerpaniem adresów źródłowego](#snatexhaust).
+Przykładem jest wdrożenie Azure Resource Manager, w którym aplikacja opiera się silnie na połączeniach wychodzących do ograniczonej liczby miejsc docelowych, ale również odbiera przepływy przychodzące w ramach Load Balancer frontonu. W takim przypadku można połączyć scenariusze 1 i 2 w celu zwolnienia. Aby uzyskać dodatkowe wzorce, przejrzyj temat [Zarządzanie wyczerpaniem adresów źródłowego](../load-balancer/troubleshoot-outbound-connection.md#snatexhaust).
 
 ### <a name="multiple-frontends-for-outbound-flows"></a><a name="multife"></a>Wiele frontonów dla przepływów wychodzących
 
@@ -139,11 +139,11 @@ Gdy port zostanie wystawiony, port będzie dostępny do ponownego użycia w razi
  
 #### <a name="exhaustion"></a>Wyczerpania
 
-W przypadku wyczerpania zasobów portów współdziałania przepływy wychodzące kończą się niepowodzeniem, dopóki istniejące przepływy nie zwolnią portów. Load Balancer przejmowanie portów protokołu równorzędnego, gdy przepływ zostanie zamknięty i korzysta z [4-minutowego limitu czasu bezczynności](#idletimeout) w przypadku odzyskiwania portów ze STRUMIENIAMI adresów sieciowych z bezczynnych przepływów.
+W przypadku wyczerpania zasobów portów współdziałania przepływy wychodzące kończą się niepowodzeniem, dopóki istniejące przepływy nie zwolnią portów. Load Balancer przejmowanie portów protokołu równorzędnego, gdy przepływ zostanie zamknięty i korzysta z [4-minutowego limitu czasu bezczynności](../load-balancer/troubleshoot-outbound-connection.md#idletimeout) w przypadku odzyskiwania portów ze STRUMIENIAMI adresów sieciowych z bezczynnych przepływów.
 
 Porty protokołu przesyłania adresów sieciowych UDP zwykle są znacznie szybsze niż porty protokołu przesyłania adresów sieciowych TCP ze względu na różnice w używanym algorytmie. Należy zaprojektować i skalować test z uwzględnieniem tej różnicy.
 
-Aby uzyskać wzorce ograniczające warunki, które zwykle prowadzą do wyczerpania portów, przejrzyj sekcję [Zarządzanie](#snatexhaust) reportem adresów sieciowych.
+Aby uzyskać wzorce ograniczające warunki, które zwykle prowadzą do wyczerpania portów, przejrzyj sekcję [Zarządzanie](../load-balancer/troubleshoot-outbound-connection.md#snatexhaust) reportem adresów sieciowych.
 
 ### <a name="ephemeral-port-preallocation-for-port-masquerading-snat-pat"></a><a name="preallocatedports"></a>Wstępne przydzielanie portów tymczasowych dla podszywającego się portu
 
@@ -154,7 +154,7 @@ Ta sama liczba portów przydziałów adresów sieciowych jest wstępnie przypisa
 >[!IMPORTANT]
 >Programowanie źródłowego adresu IP jednostki SKU jest określane na podstawie protokołu transportowego i pochodzące z reguły równoważenia obciążenia.  Jeśli istnieje tylko reguła równoważenia obciążenia TCP, jest on dostępny tylko dla protokołu TCP. Jeśli masz tylko regułę równoważenia obciążenia TCP i potrzebujesz wychodzącego ruchu źródłowego dla protokołu UDP, Utwórz regułę równoważenia obciążenia UDP z tego samego frontonu w tej samej puli zaplecza.  Spowoduje to wyzwolenie programu do tworzenia adresów API dla protokołu UDP.  Reguła robocza lub sonda kondycji nie jest wymagana.  Podstawowy kluczowy adres IP jednostki SKU zawsze programuje w przypadku protokołu transportowego IPv4, niezależnie od protokołu transportu określonego w regule równoważenia obciążenia.
 
-Platforma Azure wstępnie przydziela porty do konfiguracji protokołu IP kart sieciowych każdej maszyny wirtualnej. Po dodaniu konfiguracji adresu IP do puli, porty przydziałów adresów IP są wstępnie przydzielony do tej konfiguracji protokołu adresów IPv4 na podstawie rozmiaru puli zaplecza. Gdy przepływy wychodzące są [tworzone, za](#pat) pomocą tego portu są dynamicznie zużywane (do wstępnie przydzielonych limitów) i zwalniają te porty, gdy następuje zamknięcie przepływu lub [przekroczenie limitu czasu bezczynności](#idletimeout) .
+Platforma Azure wstępnie przydziela porty do konfiguracji protokołu IP kart sieciowych każdej maszyny wirtualnej. Po dodaniu konfiguracji adresu IP do puli, porty przydziałów adresów IP są wstępnie przydzielony do tej konfiguracji protokołu adresów IPv4 na podstawie rozmiaru puli zaplecza. Gdy przepływy wychodzące są [tworzone, za](#pat) pomocą tego portu są dynamicznie zużywane (do wstępnie przydzielonych limitów) i zwalniają te porty, gdy następuje zamknięcie przepływu lub [przekroczenie limitu czasu bezczynności](../load-balancer/troubleshoot-outbound-connection.md#idletimeout) .
 
 W poniższej tabeli przedstawiono alokacje wstępne portów adresów sieciowych dla warstw rozmiaru puli zaplecza:
 
@@ -170,7 +170,7 @@ W poniższej tabeli przedstawiono alokacje wstępne portów adresów sieciowych 
 >[!NOTE]
 > W przypadku korzystania z usługa Load Balancer w warstwie Standardowa z [wieloma frontonami](load-balancer-multivip-overview.md)każdy adres IP frontonu mnoży liczbę dostępnych portów w poprzedniej tabeli. Na przykład Pula zaplecza z 50 maszyn wirtualnych z 2 regułami równoważenia obciążenia, z których każdy ma oddzielny adres IP frontonu, będzie używać portów adresów sieciowych 2048 (2x 1024) dla każdej reguły. Zobacz szczegóły dotyczące [wielu frontonów](#multife).
 
-Należy pamiętać, że liczba dostępnych portów nie jest tłumaczona bezpośrednio na liczbę przepływów. Można ponownie użyć pojedynczego portu źródłowego dla wielu unikatowych miejsc docelowych. Porty są używane tylko wtedy, gdy konieczne jest przeprowadzenie unikatowych przepływów. Aby zapoznać się z zaleceniami dotyczącymi projektowania i rozwiązywania problemów, zapoznaj się z sekcją [jak zarządzać tym zasobem exhaustible](#snatexhaust) i sekcją opisującą [.](#pat)
+Należy pamiętać, że liczba dostępnych portów nie jest tłumaczona bezpośrednio na liczbę przepływów. Można ponownie użyć pojedynczego portu źródłowego dla wielu unikatowych miejsc docelowych. Porty są używane tylko wtedy, gdy konieczne jest przeprowadzenie unikatowych przepływów. Aby zapoznać się z zaleceniami dotyczącymi projektowania i rozwiązywania problemów, zapoznaj się z sekcją [jak zarządzać tym zasobem exhaustible](../load-balancer/troubleshoot-outbound-connection.md#snatexhaust) i sekcją opisującą [.](#pat)
 
 Zmiana rozmiaru puli zaplecza może mieć wpływ na niektóre z określonych przepływów. Jeśli rozmiar puli zaplecza zwiększy się i przejdzie do następnej warstwy, połowa wstępnie przydzielonego portu ze współdzielonym zestawem danych jest odzyskiwana podczas przejścia do następnej większej warstwy puli zaplecza. Przepływy skojarzone z odwiązanym portem wiązania adresów sieciowych przekroczą limit czasu i muszą zostać ponownie nawiązane. Jeśli zostanie podjęta próba nowego przepływu, przepływ zakończy się pomyślnie, o ile dostępne są wstępnie przydzieloną porty.
 
@@ -187,62 +187,6 @@ Alokacje portów przydziałów adresów IP są zależne od protokołu NNTP (TCP 
 ### <a name="udp-snat-port-release"></a>Wydanie portu przychodzący protokołu UDP
 
 - Po osiągnięciu limitu czasu bezczynności port zostanie wystawiony.
-
-## <a name="problem-solving"></a><a name="problemsolving"></a>Rozwiązywanie problemów 
-
-Ta sekcja ma pomóc w ograniczeniu wyczerpania ruchu w zabezpieczeniach i może wystąpić w przypadku połączeń wychodzących na platformie Azure.
-
-### <a name="managing-snat-pat-port-exhaustion"></a><a name="snatexhaust"></a>Zarządzanie wyczerpaniem portów (z)
-[Porty](#preallocatedports) tymczasowe [używane do](#pat) nadania to zasób exhaustible, zgodnie z opisem w [autonomicznej maszynie wirtualnej bez publicznego adresu IP](#defaultsnat) i [maszyny wirtualnej ze zrównoważonym obciążeniem bez publicznego adresu IP](#lb). Możesz monitorować użycie portów tymczasowych i porównać z bieżącą alokacją, aby określić ryzyko dla lub potwierdzić wyczerpanie adresów w [tym](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) przewodniku.
-
-Jeśli wiesz, że masz wiele wychodzących połączeń TCP lub UDP z tym samym docelowym adresem IP i portem, a następnie zauważysz, że połączenia wychodzące są zakończone niepowodzeniem lub są zalecane w przypadku wyczerpania [portów przydzielonego](#preallocatedports) [dostępu do danych](#pat)wyjściowych, masz kilka ogólnych opcji zaradczych. Zapoznaj się z tymi opcjami i zdecyduj, co jest dostępne i najlepsze dla Twojego scenariusza. Istnieje możliwość, że co najmniej jedna może pomóc w zarządzaniu tym scenariuszem.
-
-Jeśli masz problemy z zrozumieniem zachowania połączenia wychodzącego, możesz użyć statystyk stosu IP (netstat). Może być również pomocne w obserwowanie zachowań połączenia za pomocą przechwytywania pakietów. Można wykonać te przechwycenia pakietu w systemie operacyjnym gościa wystąpienia lub użyć [Network Watcher do przechwytywania pakietów](../network-watcher/network-watcher-packet-capture-manage-portal.md). 
-
-#### <a name="manually-allocate-snat-ports-to-maximize-snat-ports-per-vm"></a><a name ="manualsnat"></a>Ręcznie Przydziel porty podrzędnego TRANSLATORa adresów sieciowych na maszynę wirtualną
-Zgodnie z definicją w wstępnie [przydzielone porty](#preallocatedports)moduł równoważenia obciążenia automatycznie przydzieli porty na podstawie liczby maszyn wirtualnych w zapleczu. Domyślnie jest to wykonywane ostrożnie w celu zapewnienia skalowalności. Jeśli znasz maksymalną liczbę maszyn wirtualnych, które będą znajdować się w zapleczu, możesz ręcznie przydzielić porty przystawek w ramach każdej reguły ruchu wychodzącego. Na przykład, Jeśli wiesz, że masz maksymalnie 10 maszyn wirtualnych, możesz przydzielić 6 400 porty na maszynę wirtualną, a nie domyślną 1 024. 
-
-#### <a name="modify-the-application-to-reuse-connections"></a><a name="connectionreuse"></a>Modyfikowanie aplikacji w celu ponownego użycia połączeń 
-Można zmniejszyć zapotrzebowanie na porty tymczasowe, które są używane w przypadku usługi reportcy, przez ponowną obsługę połączeń w aplikacji. Jest to szczególnie prawdziwe w przypadku protokołów takich jak HTTP/1.1, w przypadku których użycie połączenia jest domyślne. Inne protokoły używające protokołu HTTP jako transportu (na przykład REST) mogą korzystać z tej usługi. 
-
-Ponowne użycie jest zawsze lepsze niż pojedyncze, niepodzielne połączenia TCP dla każdego żądania. Wielokrotne użycie powoduje skuteczniejsze, bardzo wydajne transakcje TCP.
-
-#### <a name="modify-the-application-to-use-connection-pooling"></a><a name="connection pooling"></a>Modyfikowanie aplikacji tak, aby używała puli połączeń
-Można użyć schematu puli połączeń w aplikacji, w którym żądania są dystrybuowane wewnętrznie w ramach ustalonego zestawu połączeń (z każdym z nich, gdzie to możliwe). Ten schemat ogranicza liczbę używanych portów tymczasowych i tworzy bardziej przewidywalne środowisko. Ten schemat może również zwiększyć przepływność żądań przez umożliwienie wielu równoczesnych operacji, gdy jedno połączenie blokuje odpowiedzi na odpowiedź operacji.  
-
-Pule połączeń mogą już istnieć w ramach platformy, która jest używana do tworzenia aplikacji lub ustawień konfiguracji aplikacji. Pulę połączeń można połączyć z wielokrotnym użyciem połączenia. Wiele żądań korzysta z ustalonej, przewidywalnej liczby portów na ten sam docelowy adres IP i port. Żądania korzystają również z efektywnego wykorzystania transakcji TCP redukujących opóźnienia i wykorzystanie zasobów. Transakcje UDP mogą również być korzystne, ponieważ zarządzanie liczbą przepływów UDP może mieć na celu uniknięcie przekroczenia warunków i zarządzanie wykorzystaniem portów przystawek.
-
-#### <a name="modify-the-application-to-use-less-aggressive-retry-logic"></a><a name="retry logic"></a>Modyfikowanie aplikacji tak, aby była używana mniej agresywna logika ponawiania
-Gdy [wstępnie alokowany porty](#preallocatedports) tymczasowe są używane na potrzeby odbierania [lub występują błędy](#pat) aplikacji, agresywne lub bezproblemowe wymuszanie ponawiania prób bez pozostałego działania lub logiki wycofywania. Możesz zmniejszyć zapotrzebowanie na tymczasowe porty przy użyciu mniej agresywnej logiki ponawiania. 
-
-Porty tymczasowe mają 4-minutowy limit czasu bezczynności (nieregulowane). Jeśli ponowna próba jest zbyt agresywna, wyczerpanie nie ma możliwości samodzielnego wyczyszczenia. W związku z tym rozważać, jak i jak często — transakcje ponawiania prób aplikacji są istotną częścią projektu.
-
-#### <a name="assign-a-public-ip-to-each-vm"></a><a name="assignilpip"></a>Przypisz publiczny adres IP do każdej maszyny wirtualnej
-Przypisanie publicznego adresu IP zmienia Twój Scenariusz na [publiczny adres IP na maszynę wirtualną](#ilpip). Wszystkie tymczasowe porty publicznego adresu IP, które są używane dla każdej maszyny wirtualnej, są dostępne dla maszyny wirtualnej. (W przeciwieństwie do scenariuszy, w których porty tymczasowe publicznego adresu IP są udostępniane wszystkim maszynom wirtualnym skojarzonym z odpowiednią pulą zaplecza). Istnieją branże, które należy wziąć pod uwagę, takie jak dodatkowe koszty publicznych adresów IP i potencjalny wpływ listy dozwolonych dużej liczby pojedynczych adresów IP.
-
->[!NOTE] 
->Ta opcja nie jest dostępna dla ról procesów roboczych sieci Web.
-
-#### <a name="use-multiple-frontends"></a><a name="multifesnat"></a>Korzystanie z wielu frontonów
-
-W przypadku korzystania z publicznej usługa Load Balancer w warstwie Standardowa należy przypisać [wiele adresów IP frontonu dla połączeń wychodzących](#multife) i [pomnożyć liczbę dostępnych portów](#preallocatedports).  Utwórz konfigurację adresu IP frontonu, regułę i pulę zaplecza, aby wyzwolić programowanie do publicznego adresu IP frontonu.  Reguła nie musi działać i sonda kondycji nie musi się powieść.  Jeśli używasz również wielu frontonów dla ruchu przychodzącego (a nie tylko dla ruchu wychodzącego), użyj niestandardowych sond kondycji, aby zapewnić niezawodność.
-
->[!NOTE]
->W większości przypadków wyczerpanie portów z podsiecią adresów sieciowych jest znakiem nieprawidłowego projektu.  Upewnij się, że rozumiesz, dlaczego są wyczerpani portów przed użyciem większej liczby frontonów do dodawania portów.  Może wystąpić problem z maską problemu, który może prowadzić do późniejszego błędu.
-
-#### <a name="scale-out"></a><a name="scaleout"></a>Skalowanie w poziomie
-
-Wstępnie [przydzielone porty](#preallocatedports) są przypisywane w oparciu o rozmiar puli zaplecza i pogrupowane w warstwy, aby zminimalizować zakłócenia, gdy niektóre porty muszą zostać ponownie przydzielone w celu uwzględnienia kolejnej większej warstwy rozmiaru puli zaplecza.  Może być dostępna opcja zwiększenia intensywności wykorzystania portów dla danego frontonu przez przeskalowanie puli zaplecza do maksymalnego rozmiaru danej warstwy.  Jest to wymagane w celu wydajnego skalowania aplikacji.
-
-Na przykład dwie maszyny wirtualne w puli zaplecza będą mieć 1024 portów protokołu reportowego dla każdej konfiguracji IP, co pozwoli na całkowite porty przyłączone do 2048 dla wdrożenia.  Jeśli wdrożenie zostało zwiększone do 50 maszyn wirtualnych, mimo że liczba wstępnie przydzielonych portów pozostaje stała na maszynę wirtualną, wdrożenie może być używane przez łącznie 51 200 (50 x 1024) portów.  Jeśli chcesz skalować wdrożenie, sprawdź liczbę [wstępnie przydzieloną portów](#preallocatedports) na warstwę, aby upewnić się, że skalujesz skalę do wartości maksymalnej dla odpowiedniej warstwy.  W poprzednim przykładzie, jeśli wybrano opcję skalowania w poziomie do 51 zamiast wystąpień 50, należy postępować do następnej warstwy i zakończyć z mniejszą liczbą portów przystawek adresów sieciowych na maszynę wirtualną, a także łącznie.
-
-W przypadku skalowania w poziomie do następnej większej warstwy rozmiaru puli zaplecza dla niektórych połączeń wychodzących istnieje możliwość przekroczenia limitu czasu w przypadku konieczności ponownej alokowania przyznanych portów.  Jeśli używasz tylko niektórych portów podzestawów adresów sieciowych, skalowanie w poziomie w następnym większym rozmiarze puli zaplecza jest nieaktualne.  Połowa istniejących portów zostanie przydzielona przy każdym przejściu do następnej warstwy puli zaplecza.  Jeśli nie chcesz, aby to zrobić, musisz pomieścić wdrożenie w rozmiarze warstwy.  Lub upewnij się, że aplikacja może wykryć i ponowić próbę w razie potrzeby.  Utrzymywanie aktywności protokołu TCP może pomóc w wykrywaniu, kiedy porty protokołu reportowego już nie działają z powodu ich ponownie przydzielenia.
-
-### <a name="use-keepalives-to-reset-the-outbound-idle-timeout"></a><a name="idletimeout"></a>Aby zresetować limit czasu bezczynności dla ruchu wychodzącego, użyj utrzymywania aktywności
-
-Połączenia wychodzące mają 4-minutowy limit czasu bezczynności. Ten limit czasu jest dostosowywany za pośrednictwem [reguł ruchu wychodzącego](../load-balancer/load-balancer-outbound-rules-overview.md#idletimeout). W razie potrzeby można również użyć transportu (na przykład aktywności protokołu TCP) lub warstwy aplikacji, aby odświeżyć przepływ bezczynności i zresetować ten limit czasu bezczynności.  
-
-W przypadku korzystania z funkcji utrzymywania aktywności protokołu TCP wystarczy włączyć je po jednej stronie połączenia. Na przykład wystarczy włączyć je po stronie serwera tylko w celu zresetowania czasomierza bezczynności przepływu i nie jest konieczne dla obu stron w celu zainicjowania obsługi protokołu TCP.  Podobne pojęcia istnieją dla warstwy aplikacji, w tym konfiguracje klienta bazy danych.  Sprawdź, czy po stronie serwera znajdują się opcje dotyczące nieaktywności specyficznych dla aplikacji.
 
 ## <a name="discovering-the-public-ip-that-a-vm-uses"></a><a name="discoveroutbound"></a>Odnajdywanie publicznego adresu IP używanego przez maszynę wirtualną
 Istnieje wiele sposobów określenia publicznego źródłowego adresu IP połączenia wychodzącego. OpenDNS zapewnia usługę, która może wyświetlać publiczny adres IP maszyny wirtualnej. 

@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 11/07/2019
 ms.author: abnarain
-ms.openlocfilehash: 94e214c55a0109beb85cd08ce87303e5bd0f8016
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: f27132eb21d245d0d26de910abba088ba3b8efde
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83835431"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84170979"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Rozwiązywanie problemów z własnym hostowanym środowiskiem Integration Runtime
 
@@ -102,40 +102,44 @@ To zachowanie występuje, gdy węzły nie mogą komunikować się ze sobą.
 
 1. Sprawdź, czy dziennik błędów zawiera następujący błąd: 
     
-    ```System.ServiceModel.EndpointNotFoundException: Could not connect to net.tcp://xxxxxxx.bwld.com:8060/ExternalService.svc/WorkerManager. The connection attempt lasted for a time span of 00:00:00.9940994. TCP error code 10061: No connection could be made because the target machine actively refused it 10.2.4.10:8060. 
+    ```
+    System.ServiceModel.EndpointNotFoundException: Could not connect to net.tcp://xxxxxxx.bwld.com:8060/ExternalService.svc/WorkerManager. The connection attempt lasted for a time span of 00:00:00.9940994. TCP error code 10061: No connection could be made because the target machine actively refused it 10.2.4.10:8060. 
     System.Net.Sockets.SocketException: No connection could be made because the target machine actively refused it. 
     10.2.4.10:8060
-        
     at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
-               
     at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
-               
     at System.ServiceModel.Channels.SocketConnectionInitiator.Connect(Uri uri, TimeSpan timeout)
+    ```
        
-1. If you see this error, run the following on a command line: 
+1. Jeśli ten błąd jest wyświetlany, uruchom następujące polecenie w wierszu polecenia: 
 
-   **telnet 10.2.4.10 8060**.
-1. If you receive the following error, contact your IT department for help with fixing this issue. After you can successfully telnet, contact Microsoft Support if you still have issues with the integrative runtime node status.
+   ```
+   telnet 10.2.4.10 8060
+   ```
+   
+1. Jeśli wystąpi następujący błąd, skontaktuj się z działem IT w celu uzyskania pomocy w rozwiązaniu tego problemu. Po pomyślnym zalogowaniu się w programie Telnet skontaktuj się z firmą pomoc techniczna firmy Microsoft, jeśli nadal występują problemy ze stanem węzła środowiska uruchomieniowego integracyjne.
         
-   ![Command-line error](media/self-hosted-integration-runtime-troubleshoot-guide/command-line-error.png)
+   ![Błąd wiersza polecenia](media/self-hosted-integration-runtime-troubleshoot-guide/command-line-error.png)
         
-1.    Check whether the error log contains the following:
+1. Sprawdź, czy dziennik błędów zawiera następujące elementy:
 
-    ```Error log: Cannot connect to worker manager: net.tcp://xxxxxx:8060/ExternalService.svc/ No DNS entries exist for host azranlcir01r1. No such host is known Exception detail: System.ServiceModel.EndpointNotFoundException: No DNS entries exist for host xxxxx. ---> System.Net.Sockets.SocketException: No such host is known at System.Net.Dns.GetAddrInfo(String name) at System.Net.Dns.InternalGetHostByName(String hostName, Boolean includeIPv6) at System.Net.Dns.GetHostEntry(String hostNameOrAddress) at System.ServiceModel.Channels.DnsCache.Resolve(Uri uri) --- End of inner exception stack trace --- Server stack trace: at System.ServiceModel.Channels.DnsCache.Resolve(Uri uri)```
+    ```
+    Error log: Cannot connect to worker manager: net.tcp://xxxxxx:8060/ExternalService.svc/ No DNS entries exist for host azranlcir01r1. No such host is known Exception detail: System.ServiceModel.EndpointNotFoundException: No DNS entries exist for host xxxxx. ---> System.Net.Sockets.SocketException: No such host is known at System.Net.Dns.GetAddrInfo(String name) at System.Net.Dns.InternalGetHostByName(String hostName, Boolean includeIPv6) at System.Net.Dns.GetHostEntry(String hostNameOrAddress) at System.ServiceModel.Channels.DnsCache.Resolve(Uri uri) --- End of inner exception stack trace --- Server stack trace: at System.ServiceModel.Channels.DnsCache.Resolve(Uri uri)
+    ```
     
-1. To resolve the issue, try one or both of the following methods:
-    - Put all the nodes in the same domain.
-    - Add the IP to host mapping in all the hosted VM's host files.
+1. Aby rozwiązać ten problem, wypróbuj jedną lub obie następujące metody:
+    - Umieść wszystkie węzły w tej samej domenie.
+    - Dodaj adres IP do mapowania hosta we wszystkich plikach hosta hostowanej maszyny wirtualnej.
 
 
-## Next steps
+## <a name="next-steps"></a>Następne kroki
 
-For more help with troubleshooting, try the following resources:
+Aby uzyskać pomoc dotyczącą rozwiązywania problemów, wypróbuj następujące zasoby:
 
-*  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Data Factory feature requests](https://feedback.azure.com/forums/270578-data-factory)
-*  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
-*  [Stack overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
-*  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
-*  [Mapping data flows performance guide](concepts-data-flow-performance.md)
+*  [Blog Data Factory](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+*  [Żądania funkcji Data Factory](https://feedback.azure.com/forums/270578-data-factory)
+*  [Wideo dotyczące platformy Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+*  [Strona pytania&pytań i odpowiedzi](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
+*  [Forum przepełnienia stosu dla Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
+*  [Informacje o usłudze Twitter dotyczące Data Factory](https://twitter.com/hashtag/DataFactory)
+*  [Przewodnik wydajności dotyczący mapowania przepływów danych](concepts-data-flow-performance.md)
