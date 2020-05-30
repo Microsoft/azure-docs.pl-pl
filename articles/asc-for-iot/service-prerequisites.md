@@ -15,12 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2019
 ms.author: mlottner
-ms.openlocfilehash: fb5c42ad490ed04f14ff150093a44b552434ed9e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: references_regions
+ms.openlocfilehash: 19e4ea37aa10c90d15a2b7dcdf962c131c8e473d
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81310578"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193212"
 ---
 # <a name="azure-security-center-for-iot-prerequisites"></a>Azure Security Center wymagań wstępnych usługi IoT
 

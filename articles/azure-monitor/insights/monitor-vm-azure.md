@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 1121b5324368f8b8c6c062868f5072f4a0e7ac86
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ebb25d49250b71ab8d948833ac982ef244225539
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83654379"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84216439"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Monitorowanie maszyn wirtualnych platformy Azure za pomocą Azure Monitor
 W tym artykule opisano, jak za pomocą Azure Monitor zbierać i analizować dane monitorowania z maszyn wirtualnych platformy Azure w celu utrzymania ich kondycji. Maszyny wirtualne mogą być monitorowane pod kątem dostępności i wydajności przy użyciu Azure Monitor jak dowolnego [innego zasobu platformy Azure](monitor-azure-resource.md), ale są unikatowe z innych zasobów, ponieważ konieczne jest również monitorowanie systemu operacyjnego i systemów gościa oraz obciążeń, które są w nim uruchomione. 
@@ -110,9 +110,7 @@ Można wyświetlić metryki platformy i dziennik aktywności zebrane dla każdeg
 Zbieraj metryki platformy z ustawieniem diagnostycznym dla maszyny wirtualnej. W przeciwieństwie do innych zasobów platformy Azure, nie można utworzyć ustawienia diagnostycznego dla maszyny wirtualnej w Azure Portal, ale musi użyć [innej metody](../platform/diagnostic-settings.md#create-diagnostic-settings-using-powershell). W poniższych przykładach pokazano, jak zbierać metryki dla maszyny wirtualnej przy użyciu programu PowerShell i interfejsu wiersza polecenia.
 
 ```powershell
-Set-AzDiagnosticSetting -Name vm-diagnostics -ResourceId "/subscriptions/monitor diagnostic-settings create \
-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachines/my-vm" -Enabled $true -MetricCategory AllMetrics -workspaceId "/subscriptions/monitor diagnostic-settings create \
-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace"
+Set-AzDiagnosticSetting -Name vm-diagnostics -ResourceId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachines/my-vm" -Enabled $true -MetricCategory AllMetrics -workspaceId "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace"
 ```
 
 ```CLI
@@ -137,7 +135,7 @@ Po skonfigurowaniu kolekcji danych monitorowania dla maszyny wirtualnej masz wie
 | Omówienie | Przedstawia [metryki platformy](../platform/data-platform-metrics.md) dla hosta maszyny wirtualnej. Kliknij wykres, aby korzystać z tych danych w [Eksploratorze metryk](../platform/metrics-getting-started.md). |
 | Dziennik aktywności | Wpisy [dziennika aktywności](../platform/activity-log-view.md) odfiltrowane dla bieżącej maszyny wirtualnej. |
 | Insights | Otwiera [Azure monitor dla maszyn wirtualnych](../insights/vminsights-overview.md) z mapą dla zaznaczonej bieżącej maszyny wirtualnej. |
-| Alerts (Alerty) | Wyświetla [alerty](../platform/alerts-overview.md) dla bieżącej maszyny wirtualnej.  |
+| Alerty | Wyświetla [alerty](../platform/alerts-overview.md) dla bieżącej maszyny wirtualnej.  |
 | Metryki | Otwórz [Eksploratora metryk](../platform/metrics-getting-started.md) z zakresem ustawionym na bieżącą maszynę wirtualną. |
 | Ustawienia diagnostyczne | Włącz i skonfiguruj [rozszerzenie diagnostyki](../platform/diagnostics-extension-overview.md) dla bieżącej maszyny wirtualnej. |
 | Zalecenia doradcy | Zalecenia dotyczące bieżącej maszyny wirtualnej z [Azure Advisor](/azure/advisor/). |
@@ -175,7 +173,7 @@ Azure Monitor dla maszyn wirtualnych umożliwia zbieranie wstępnie określonego
 > Dane wydajności zbierane przez agenta Log Analytics są zapisywane w tabeli *wydajności* , podczas gdy Azure monitor dla maszyn wirtualnych zbiera je do tabeli *InsightsMetrics* . Są to te same dane, ale tabele mają inną strukturę. Jeśli masz istniejące zapytania na podstawie *wydajności*, trzeba będzie je ponownie napisać, aby użyć *InsightsMetrics*.
 
 
-## <a name="alerts"></a>Alerts (Alerty)
+## <a name="alerts"></a>Alerty
 [Alerty](../platform/alerts-overview.md) w usłudze Azure monitor aktywnie powiadamiają użytkownika, gdy w danych monitorowania zostaną znalezione ważne warunki i mogą oni uruchamiać akcje, takie jak uruchamianie aplikacji logiki lub wywoływanie elementu webhook. Reguły alertów definiują logikę używaną do określania, kiedy należy utworzyć alert. Azure Monitor zbiera dane używane przez reguły alertów, ale należy utworzyć reguły definiowania warunków alertów w ramach subskrypcji platformy Azure.
 
 W poniższych sekcjach opisano typy reguł alertów i zaleceń, które należy wykonać w przypadku każdej z nich. To zalecenie jest zależne od funkcjonalności i kosztu typu reguły alertu. Aby uzyskać szczegółowe informacje na temat cennika alertów, zobacz [Cennik usługi Azure monitor](https://azure.microsoft.com/pricing/details/monitor/).

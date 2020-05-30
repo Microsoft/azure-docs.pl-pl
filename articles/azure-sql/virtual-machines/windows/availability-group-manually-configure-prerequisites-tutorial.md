@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f7fdced5a777c5303e402a5cc58048e076b104b4
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: bfb273ec0013925076669c99f08933bd10ffc465
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84049267"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84197124"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Wymagania wstępne dotyczące tworzenia zawsze dostępnych grup dostępności na SQL Server na maszynach wirtualnych platformy Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -230,7 +230,7 @@ W poniższych krokach skonfiguruj komputer **AD-Primary-DC** jako kontroler dome
 12. W kolumnie **Akcja** okna dialogowego **wszystkie szczegóły zadania serwera** kliknij pozycję **Podnieś poziom tego serwera do poziomu kontrolera domeny**.
 13. W **Kreatorze konfiguracji Active Directory Domain Services**Użyj następujących wartości:
 
-    | **Stronic** | Ustawienie |
+    | **Strona** | Ustawienie |
     | --- | --- |
     | **Konfiguracja wdrażania** |**Dodawanie nowego lasu**<br/> **Nazwa domeny głównej** = Corp.contoso.com |
     | **Opcje kontrolera domeny** |**Hasło DSRM** = contoso! 0000<br/>**Potwierdź hasło** = contoso! 0000 |
@@ -262,7 +262,7 @@ Po utworzeniu pierwszego kontrolera domeny i włączeniu usługi DNS na pierwszy
 
 3. Kliknij pozycję **niestandardowe**i wpisz prywatny adres IP podstawowego kontrolera domeny.
 
-4. Kliknij przycisk **Zapisz**.
+4. Kliknij pozycję **Zapisz**.
 
 ### <a name="configure-the-second-domain-controller"></a>Skonfiguruj drugi kontroler domeny
 Po ponownym uruchomieniu podstawowego kontrolera domeny można skonfigurować drugi kontroler domeny. Ten opcjonalny krok zapewnia wysoką dostępność. Wykonaj następujące kroki, aby skonfigurować drugi kontroler domeny:
@@ -314,8 +314,8 @@ W następnych krokach skonfigurujesz konta Active Directory. W poniższej tabeli
 
 | |Konto instalacji<br/> |SqlServer-0 <br/>Konto usługi SQL Server i programu SQL Agent |SqlServer-1<br/>Konto usługi SQL Server i programu SQL Agent
 | --- | --- | --- | ---
-|**Imię** |Instalowanie |SQLSvc1 | SQLSvc2
-|**Nazwa SamAccountName użytkownika** |Instalowanie |SQLSvc1 | SQLSvc2
+|**Imię** |Zainstaluj |SQLSvc1 | SQLSvc2
+|**Nazwa SamAccountName użytkownika** |Zainstaluj |SQLSvc1 | SQLSvc2
 
 Aby utworzyć każde konto, wykonaj następujące czynności.
 
@@ -376,7 +376,7 @@ Następnie utwórz trzy maszyny wirtualne — dwie SQL Server maszyny wirtualne 
 <br/>
 
 > [!NOTE]
-> Proponowane tutaj rozmiary maszyn są przeznaczone do testowania grup dostępności na maszynach wirtualnych platformy Azure. Aby uzyskać najlepszą wydajność w obciążeniu produkcyjnym, zapoznaj się z zaleceniami dotyczącymi rozmiarów SQL Server maszyn i konfiguracji w obszarze [najlepsze rozwiązania w zakresie wydajności dla SQL Server na maszynach wirtualnych platformy Azure](performance-guidelines-best-practices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> Proponowane tutaj rozmiary maszyn są przeznaczone do testowania grup dostępności na maszynach wirtualnych platformy Azure. Aby uzyskać najlepszą wydajność w obciążeniu produkcyjnym, zapoznaj się z zaleceniami dotyczącymi SQL Server rozmiary i konfigurację maszyny wirtualnej w [najlepszych rozwiązaniach dotyczących wydajności dla SQL Server na maszynach wirtualnych platformy Azure](performance-guidelines-best-practices.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 >
 >
 

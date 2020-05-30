@@ -6,13 +6,13 @@ ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: ccompy
-ms.custom: seodec18
-ms.openlocfilehash: 4c25c64268b38e5929c73891f7c48e79b9b8593e
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.custom: seodec18, references_regions
+ms.openlocfilehash: e56e5878c2f3528bee50137b4d40d947feda3ece
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82856044"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84197164"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Blokowanie App Service Environment
 
@@ -225,7 +225,7 @@ Za pomocą zapory platformy Azure automatycznie otrzymujesz wszystko skonfigurow
 
 | Endpoint |
 |----------|
-|gr-prod-\*. cloudapp.NET:443 |
+|gr-prod- \* . cloudapp.NET:443 |
 | \*. management.azure.com:443 |
 | \*. update.microsoft.com:443 |
 | \*. windowsupdate.microsoft.com:443 |

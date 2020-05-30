@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: 97e8a34f3b8639990f8de736a8f1f7429ebfd448
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 26816a545cb83e0a3d996a8056b96154830e58b6
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739145"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195510"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>Use dependency injection in .NET Azure Functions (Korzystanie z wstrzykiwania zależności w usłudze Azure Functions na platformie .NET)
 
@@ -251,7 +251,7 @@ public class HttpTrigger
 Zapoznaj się z [wzorcem opcji w ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options) , aby uzyskać więcej informacji dotyczących pracy z opcjami.
 
 > [!WARNING]
-> Należy unikać próby odczytu wartości z plików, takich jak *Local. Settings. JSON* lub *appSettings. { środowisko}. JSON* w planie zużycia. Wartości odczytane z tych plików związanych z połączeniami wyzwalaczy nie są dostępne, ponieważ aplikacja jest skalowana, ponieważ infrastruktura hostingu nie ma dostępu do informacji o konfiguracji.
+> Należy unikać próby odczytu wartości z plików, takich jak *Local. Settings. JSON* lub *appSettings. { środowisko}. JSON* w planie zużycia. Wartości odczytane z tych plików związanych z połączeniami wyzwalaczy są niedostępne, ponieważ infrastruktura hostingu nie ma dostępu do informacji o konfiguracji, ponieważ kontroler skalowania tworzy nowe wystąpienia aplikacji.
 
 ## <a name="next-steps"></a>Następne kroki
 

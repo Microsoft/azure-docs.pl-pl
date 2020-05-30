@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 03/13/2020
-ms.openlocfilehash: dd3e77610749eb5d146b0c0b7cf9d307fba0dd83
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e63f073c4f7166cd205b85ef06589f6056b2a70f
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79370240"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195688"
 ---
 # <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>Szybki Start: Tworzenie wystąpienia trybu hybrydowego z Azure Portal & Azure Database Migration Service
 
@@ -26,7 +26,7 @@ Azure Database Migration Service Tryb hybrydowy zarządza migracjami baz danych 
 >[!NOTE]
 >Obecnie Azure Database Migration Service działające w trybie hybrydowym obsługuje migracje SQL Server do programu:
 >
->- Azure SQL Database wystąpienie zarządzane z niemal zerowym przestojem (online).
+>- Wystąpienie zarządzane Azure SQL z bliskim przestojem (online).
 >- Azure SQL Database pojedynczą bazę danych z czasem przestoju (offline).
 >- MongoDb do platformy Azure CosmosDB z niemal zerowym przestojem (online).
 >- MongoDb do usługi Azure CosmosDB z pewnym przestojem (offline).
@@ -191,5 +191,5 @@ Wypełnij parametry w górnej części skryptu, a następnie uruchom skrypt z wy
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Migrowanie SQL Server do Azure SQL Database wystąpienia zarządzanego online](tutorial-sql-server-managed-instance-online.md)
-> [Migrowanie SQL Server do pojedynczej bazy danych lub bazy danych w puli w Azure SQL Database offline](tutorial-sql-server-to-azure-sql.md)
+> [Migrowanie SQL Server do wystąpienia zarządzanego usługi Azure SQL w trybie online](tutorial-sql-server-managed-instance-online.md) 
+>  [Migrowanie SQL Server do Azure SQL Database w trybie offline](tutorial-sql-server-to-azure-sql.md)

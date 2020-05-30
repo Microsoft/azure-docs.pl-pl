@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 4559cd40bf9482ece80d0b6123ca73b7a0cbb3aa
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 14503299b241b87459517818b0d0b2be6dde9072
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170906"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219245"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Rozwiązywanie problemów z urządzeniem Azure Migrate i odnajdywanie
 
@@ -143,6 +143,23 @@ Jeśli odnalezione maszyny wirtualne nie są wyświetlane w portalu lub dane mas
 ## <a name="deleted-vms-appear-in-portal"></a>Usunięte maszyny wirtualne pojawiają się w portalu
 
 Jeśli usuniesz maszyny wirtualne i nadal pojawią się one w portalu, odczekaj 30 minut. Jeśli nadal są wyświetlane, Odśwież zgodnie z powyższym opisem.
+
+## <a name="error-the-file-uploaded-is-not-in-the-expected-format"></a>Błąd: przekazany plik ma nieoczekiwany format
+Niektóre narzędzia mają ustawienia regionalne, które tworzą plik CSV z średnikiem jako ogranicznikiem. Zmień ustawienia, aby upewnić się, że ogranicznik jest przecinkiem.
+
+## <a name="i-imported-a-csv-but-i-see-discovery-is-in-progress"></a>Zaimportowano wolumin CSV, ale widzę "odnajdywanie jest w toku"
+Ten stan jest wyświetlany, jeśli przekazywanie pliku CSV nie powiodło się z powodu błędu walidacji. Spróbuj ponownie zaimportować wolumin CSV. Możesz pobrać raport o błędach poprzedniego przekazywania i postępować zgodnie z zaleceniami w pliku, aby naprawić błędy. Raport o błędach można pobrać z sekcji "Importuj szczegóły" na stronie "odnajdywanie maszyn".
+
+## <a name="do-not-see-application-details-even-after-updating-guest-credentials"></a>Nie wyświetlaj szczegółów aplikacji nawet po zaktualizowaniu poświadczeń gościa
+Odnajdywanie aplikacji jest uruchamiane co 24 godziny. Jeśli chcesz natychmiast zobaczyć szczegóły, Odśwież w następujący sposób. Może to potrwać kilka minut, w zależności od tego, czy nie. wykrytych maszyn wirtualnych.
+
+1. W obszarze **serwery**  >  **Azure Migrate oceny serwera**wybierz pozycję **Przegląd**.
+2. W obszarze **Zarządzaj**wybierz pozycję **Agent Health**.
+3. Wybierz pozycję **Odśwież agenta**.
+4. Poczekaj na zakończenie operacji odświeżania. Informacje powinny być teraz wyświetlane na bieżąco.
+
+## <a name="unable-to-export-application-inventory"></a>Nie można wyeksportować spisu aplikacji
+Upewnij się, że użytkownik pobierający spis z portalu ma uprawnienia współautora w ramach subskrypcji.
 
 ## <a name="common-app-discovery-errors"></a>Typowe błędy funkcji odnajdywania aplikacji
 

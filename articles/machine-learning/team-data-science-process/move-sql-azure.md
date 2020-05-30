@@ -1,6 +1,6 @@
 ---
 title: Przenoszenie danych do procesu nauki o danych Azure SQL Database zespołowej
-description: Przenoszenie danych z plików prostych (format CSV lub TSV) lub z danych przechowywanych w SQL Server lokalnym do Azure SQL Database.
+description: Przenoszenie danych z plików prostych (format CSV lub TSV) lub z danych przechowywanych w SQL Server do Azure SQL Database.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -11,18 +11,18 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f9a1424f2afe6c5153e208601b21dff9651880a8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 99e637099e54698e9d6eabb14920251a9d4a81f5
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76722462"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194396"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Przenoszenie danych do usługi Azure SQL Database dla usługi Azure Machine Learning
 
-W tym artykule opisano opcje przeniesienia danych z plików prostych (format CSV lub TSV) lub z danych przechowywanych w SQL Server lokalnym do Azure SQL Database. Te zadania dotyczące przeniesienia danych do chmury są częścią procesu nauki o danych zespołowych.
+W tym artykule opisano opcje przeniesienia danych z plików prostych (format CSV lub TSV) lub z danych przechowywanych w SQL Server do Azure SQL Database. Te zadania dotyczące przeniesienia danych do chmury są częścią procesu nauki o danych zespołowych.
 
-Temat przedstawiający opcje przenoszenia danych do SQL Server lokalnych dla Machine Learning można znaleźć w temacie [przenoszenie danych do SQL Server na maszynie wirtualnej platformy Azure](move-sql-server-virtual-machine.md).
+Temat przedstawiający opcje przenoszenia danych do SQL Server dla Machine Learning można znaleźć [w temacie Przenoszenie danych do SQL Server na maszynie wirtualnej platformy Azure](move-sql-server-virtual-machine.md).
 
 Poniższa tabela zawiera podsumowanie opcji przeniesienia danych do Azure SQL Database.
 
@@ -41,7 +41,7 @@ Procedury opisane w tym miejscu wymagają:
 
 **Dane**: procesy migracji są przedstawiane za pomocą [zestawu danych NYC taksówki](https://chriswhong.com/open-data/foil_nyc_taxi/). Zestaw danych NYC taksówki zawiera informacje na temat danych o podróży i ich Targi i jest dostępny w usłudze Azure Blob Storage: [NYCe dane z taksówką](https://www.andresmh.com/nyctaxitrips/). Przykład i opis tych plików znajdują się w [opisie zestawu danych NYC taksówki](sql-walkthrough.md#dataset).
 
-Można dostosować procedury opisane w tym miejscu do zestawu własnych danych lub postępować zgodnie z instrukcjami opisanymi przy użyciu zestawu danych NYC taksówki. Aby przekazać zestaw danych NYC taksówki do lokalnej bazy danych SQL Server, postępuj zgodnie z procedurą opisaną w temacie [zbiorcze Importowanie danych do SQL Server Database](sql-walkthrough.md#dbload). Te instrukcje dotyczą SQL Server na maszynie wirtualnej platformy Azure, ale procedura przekazywania do SQL Server lokalnych jest taka sama.
+Można dostosować procedury opisane w tym miejscu do zestawu własnych danych lub postępować zgodnie z instrukcjami opisanymi przy użyciu zestawu danych NYC taksówki. Aby przekazać zestaw danych NYC taksówki do bazy danych SQL Server, wykonaj procedurę opisaną w temacie [zbiorcze Importowanie danych do SQL Server Database](sql-walkthrough.md#dbload).
 
 ## <a name="moving-data-from-a-flat-file-source-to-an-azure-sql-database"></a><a name="file-to-azure-sql-database"></a>Przeniesienie danych z prostego źródła pliku do Azure SQL Database
 Dane w plikach prostych (CSV lub TSV) można przenieść do Azure SQL Database przy użyciu zbiorczego zapytania SQL.
@@ -49,8 +49,8 @@ Dane w plikach prostych (CSV lub TSV) można przenieść do Azure SQL Database p
 ### <a name="bulk-insert-sql-query"></a><a name="bulk-insert-sql-query"></a>Wstaw zbiorczo zapytanie SQL
 Kroki procedury korzystającej z zapytania BULK INSERT SQL są podobne do wskazówek dotyczących przeniesienia danych z prostego źródła pliku do SQL Server na maszynie wirtualnej platformy Azure. Aby uzyskać szczegółowe informacje, zobacz [Bulk Wstaw zapytanie SQL](move-sql-server-virtual-machine.md#insert-tables-bulkquery).
 
-## <a name="moving-data-from-on-premises-sql-server-to-an-azure-sql-database"></a><a name="sql-on-prem-to-sazure-sql-database"></a>Przeniesienie danych z SQL Server lokalnego do Azure SQL Database
-Jeśli dane źródłowe są przechowywane w SQL Server lokalnym, istnieją różne możliwości przeniesienia danych do Azure SQL Database:
+## <a name="moving-data-from-sql-server-to-an-azure-sql-database"></a><a name="sql-on-prem-to-sazure-sql-database"></a>Przeniesienie danych z SQL Server do Azure SQL Database
+Jeśli dane źródłowe są przechowywane w SQL Server, istnieją różne możliwości przeniesienia danych do Azure SQL Database:
 
 1. [Eksportuj do pliku prostego](#export-flat-file)
 2. [Kreator migracji SQL Database](#insert-tables-bcp)
@@ -69,6 +69,6 @@ Kroki opisane w Kreatorze migracji SQL Database są podobne do tych, które opis
 Procedura tworzenia kopii zapasowej i przywracania bazy danych przypomina te wskazówki wymienione w temacie [Tworzenie kopii zapasowej i przywracanie bazy danych](move-sql-server-virtual-machine.md#sql-backup).
 
 ### <a name="azure-data-factory"></a><a name="adf"></a>Azure Data Factory
-Dowiedz się, jak przenieść dane do Azure SQL Database z Azure Data Factory (ADF) w tym temacie. [Przenieś dane z lokalnego programu SQL Server do usługi SQL Azure za pomocą Azure Data Factory](move-sql-azure-adf.md). W tym temacie pokazano, jak za pomocą funkcji ADF przenieść dane z lokalnej bazy danych SQL Server do Azure SQL Database za pośrednictwem usługi Azure Blob Storage.
+Dowiedz się, jak przenieść dane do Azure SQL Database z Azure Data Factory (ADF) w tym temacie. [Przenieś dane z SQL Server do usługi SQL Azure z Azure Data Factory](move-sql-azure-adf.md). W tym temacie pokazano, jak za pomocą funkcji ADF przenieść dane z bazy danych SQL Server do Azure SQL Database za pośrednictwem usługi Azure Blob Storage.
 
 Należy rozważyć użycie funkcji ADF, gdy dane wymagają ciągłego migrowania przy użyciu hybrydowych źródeł lokalnych i chmurowych.  Moduł ADF również pomaga, gdy dane wymagają przekształceń lub wymagają nowej logiki biznesowej podczas migracji. ADF umożliwia planowanie i monitorowanie zadań przy użyciu prostych skryptów JSON, które regularnie zarządzają przenoszeniem danych. Funkcja ADF oferuje również inne funkcje, takie jak obsługa złożonych operacji.

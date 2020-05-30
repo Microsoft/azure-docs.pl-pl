@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/14/2018
-ms.openlocfilehash: eb0c88797dc23c912ce360dbcfd10f210b694fbd
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 4d0800d109d17c1233a18966d84a498596e8e834
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84043940"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84188206"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatyzowanie replikacji zmian schematu w usłudze Azure SQL Data Sync
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -209,7 +209,7 @@ Jeśli chcesz wyczyścić rekordy w tabeli śledzenia zmian schematu, użyj pole
 
 -   W bazie danych, w której jest tworzony wyzwalacz DDL, można wprowadzać tylko zmiany w schemacie.
 
--   W przypadku wprowadzania zmian w lokalnej bazie danych SQL Server upewnij się, że zmiana schematu jest obsługiwana w Azure SQL Database.
+-   W przypadku wprowadzania zmian w bazie danych SQL Server upewnij się, że zmiana schematu jest obsługiwana w Azure SQL Database.
 
 -   W przypadku wprowadzenia zmian schematu w bazach danych innych niż baza danych, w której jest tworzony wyzwalacz DDL, zmiany nie są replikowane. Aby uniknąć tego problemu, można utworzyć wyzwalacze DDL do blokowania zmian w innych punktach końcowych.
 
@@ -225,7 +225,7 @@ Aby uzyskać więcej informacji na temat usługi SQL Data Sync, zobacz:
 
 -   Omówienie — [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-data-sync-data-sql-server-sql-database.md) (Synchronizowanie danych między wieloma bazami danych w chmurze i lokalnie za pomocą usługi Azure SQL Data Sync)
 -   Konfigurowanie synchronizacji danych
-    - W portalu — [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](sql-data-sync-sql-server-configure.md) (Samouczek: konfigurowanie usługi SQL Data Sync w celu synchronizowania danych między usługą Azure SQL Database i lokalnym programem SQL Server)
+    - W portalu — [Samouczek: skonfiguruj SQL Data Sync, aby synchronizować dane między Azure SQL Database i SQL Server](sql-data-sync-sql-server-configure.md)
     - Z programem PowerShell
         -  [Synchronizowanie wielu baz danych w Azure SQL Database przy użyciu programu PowerShell](scripts/sql-data-sync-sync-data-between-sql-databases.md)
         -  [Używanie programu PowerShell do synchronizowania bazy danych w Azure SQL Database i bazy danych w wystąpieniu SQL Server](scripts/sql-data-sync-sync-data-between-azure-onprem.md)

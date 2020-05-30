@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/22/2020
-ms.openlocfilehash: 945ef895304a151ea7e0ef5b94ed0b42757743ad
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: ac351e688eba274c989b4b475c6d61607b9ea5c1
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890616"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219303"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Kopiowanie danych z SAP HANA przy użyciu Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -65,9 +65,9 @@ Poniższe sekcje zawierają szczegółowe informacje o właściwościach, które
 
 Następujące właściwości są obsługiwane dla SAP HANA połączonej usługi:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type musi mieć wartość: **SapHana** | Tak |
+| typ | Właściwość Type musi mieć wartość: **SapHana** | Tak |
 | Parametry połączenia | Określ informacje, które są konieczne do nawiązania połączenia z SAP HANA przy użyciu **uwierzytelniania podstawowego** lub **uwierzytelniania systemu Windows**. Zapoznaj się z poniższymi przykładami.<br>W parametrach połączenia wymagany jest serwer/port (port domyślny to 30015), a nazwa użytkownika i hasło są wymagane w przypadku uwierzytelniania podstawowego. Aby uzyskać dodatkowe ustawienia zaawansowane, zapoznaj się z tematem [SAP HANA właściwości połączenia ODBC](<https://help.sap.com/viewer/0eec0d68141541d1b07893a39944924e/2.0.02/en-US/7cab593774474f2f8db335710b2f5c50.html>)<br/>Możesz również wprowadzić hasło w Azure Key Vault i ściągnąć konfigurację hasła z parametrów połączenia. Aby uzyskać więcej informacji, zobacz artykuł [przechowywanie poświadczeń w Azure Key Vault](store-credentials-in-key-vault.md) artykule. | Tak |
 | userName | Określ nazwę użytkownika w przypadku korzystania z uwierzytelniania systemu Windows. Przykład: `user@domain.com` | Nie |
 | hasło | Określ hasło dla konta użytkownika. Oznacz to pole jako element SecureString, aby bezpiecznie przechowywać go w Data Factory, lub [odwoływać się do wpisu tajnego przechowywanego w Azure Key Vault](store-credentials-in-key-vault.md). | Nie |
@@ -146,9 +146,9 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z SAP HANA, obsługiwane są następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type zestawu danych musi być ustawiona na wartość: **SapHanaTable** | Tak |
+| typ | Właściwość Type zestawu danych musi być ustawiona na wartość: **SapHanaTable** | Tak |
 | schematy | Nazwa schematu w bazie danych SAP HANA. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 | tabela | Nazwa tabeli w bazie danych SAP HANA. | Nie (Jeśli określono "zapytanie" w źródle aktywności) |
 
@@ -185,13 +185,13 @@ Aby uzyskać pełną listę sekcji i właściwości dostępnych do definiowania 
 
 Aby skopiować dane z SAP HANA, w sekcji **Źródło** działania kopiowania są obsługiwane następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
-| type | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **SapHanaSource** | Tak |
+| typ | Właściwość Type źródła działania Copy musi być ustawiona na wartość: **SapHanaSource** | Tak |
 | query | Określa zapytanie SQL do odczytu danych z wystąpienia SAP HANA. | Tak |
-| partitionOptions | Określa opcje partycjonowania danych, które są używane do pozyskiwania danych z SAP HANA. Dowiedz się więcej z sekcji [SAP HANA Copy (kopiowanie równoległe](#parallel-copy-from-sap-hana) ).<br>Zezwalaj na wartości: **none** (wartość domyślna), **PhysicalPartitionsOfTable**, **SapHanaDynamicRange**. Dowiedz się więcej z sekcji [SAP HANA Copy (kopiowanie równoległe](#parallel-copy-from-sap-hana) ). `PhysicalPartitionsOfTable`mogą być używane tylko podczas kopiowania danych z tabeli, ale nie do zapytania. <br>Gdy opcja partycji jest włączona (to nie `None`jest), stopień równoległości do współbieżnego ładowania danych z SAP HANA jest kontrolowany przez [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) ustawienie działania kopiowania. | False |
-| partitionSettings | Określ grupę ustawień partycjonowania danych.<br>Zastosuj, gdy opcja partycji `SapHanaDynamicRange`jest. | False |
-| partitionColumnName | Określ nazwę kolumny źródłowej, która będzie używana przez partycję do kopiowania równoległego. Jeśli nie zostanie określony, indeks lub klucz podstawowy tabeli są wykrywane i używane jako kolumny partycji.<br>Zastosuj, gdy opcja partycji to `SapHanaDynamicRange`. Jeśli używasz zapytania do pobierania danych źródłowych, hak `?AdfHanaDynamicRangePartitionCondition` w klauzuli WHERE. Zobacz przykład w sekcji [Kopiowanie równoległe z SAP HANA](#parallel-copy-from-sap-hana) . | Tak, gdy `SapHanaDynamicRange` jest używana partycja. |
+| partitionOptions | Określa opcje partycjonowania danych, które są używane do pozyskiwania danych z SAP HANA. Dowiedz się więcej z sekcji [SAP HANA Copy (kopiowanie równoległe](#parallel-copy-from-sap-hana) ).<br>Zezwalaj na wartości: **none**   (wartość domyślna), **PhysicalPartitionsOfTable**, **SapHanaDynamicRange**. Dowiedz się więcej z sekcji [SAP HANA Copy (kopiowanie równoległe](#parallel-copy-from-sap-hana) ). `PhysicalPartitionsOfTable`mogą być używane tylko podczas kopiowania danych z tabeli, ale nie do zapytania. <br>Gdy opcja partycji jest włączona (to nie jest `None` ), stopień równoległości do współbieżnego ładowania danych z SAP HANA jest kontrolowany przez [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) ustawienie działania kopiowania. | Fałsz |
+| partitionSettings | Określ grupę ustawień partycjonowania danych.<br>Zastosuj, gdy opcja partycji jest `SapHanaDynamicRange` . | Fałsz |
+| partitionColumnName | Określ nazwę kolumny źródłowej, która będzie używana przez partycję do kopiowania równoległego. Jeśli nie zostanie określony, indeks lub klucz podstawowy tabeli są wykrywane i używane jako kolumny partycji.<br>Zastosuj, gdy opcja partycji to  `SapHanaDynamicRange` . Jeśli używasz zapytania do pobierania danych źródłowych, hak  `?AdfHanaDynamicRangePartitionCondition` w klauzuli WHERE. Zobacz przykład w sekcji [Kopiowanie równoległe z SAP HANA](#parallel-copy-from-sap-hana) . | Tak, gdy jest używana `SapHanaDynamicRange` partycja. |
 | packetSize | Określa rozmiar pakietu sieciowego (w kilobajtach), aby podzielić dane na wiele bloków. Jeśli masz dużą ilość danych do skopiowania, zwiększenie rozmiaru pakietu może zwiększyć szybkość odczytywania SAP HANA w większości przypadków. Podczas dopasowywania rozmiaru pakietu zaleca się testowanie wydajności. | Nie.<br>Wartość domyślna to 2048 (2 MB). |
 
 **Przykład:**
@@ -241,7 +241,7 @@ Zalecane jest włączenie kopiowania równoległego przy użyciu partycjonowania
 | Scenariusz                                           | Sugerowane ustawienia                                           |
 | -------------------------------------------------- | ------------------------------------------------------------ |
 | Pełne ładowanie z dużej tabeli.                        | **Opcja partycji**: partycje fizyczne tabeli. <br><br/>Podczas wykonywania Data Factory automatycznie wykrywa typ partycji fizycznej określonej tabeli SAP HANA i wybiera odpowiednią strategię partycji:<br>- **Partycjonowanie zakresu**: Pobierz kolumny partycji i zakresy partycji zdefiniowane dla tabeli, a następnie skopiuj dane według zakresu. <br>- **Partycjonowanie skrótów**: Użyj klucza partycji skrótu jako kolumny partycji, a następnie Podziel je na partycje i skopiuj dane na podstawie zakresów obliczeniowych ADF. <br>- **Partycjonowanie** działające w trybie okrężnym lub **Brak partycji**: Użyj klucza podstawowego jako kolumny partycji, a następnie Podziel dane na partycje i skopiuj je na podstawie zakresów obliczeniowych ADF. |
-| Załaduj dużą ilość danych przy użyciu kwerendy niestandardowej. | **Opcja partycji**: dynamiczna partycja zakresu.<br>**Zapytanie**: `SELECT * FROM <TABLENAME> WHERE ?AdfHanaDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**Kolumna partycji**: określ kolumnę używaną do stosowania dynamicznej partycji zakresów. <br><br>Podczas wykonywania, Data Factory po raz pierwsze oblicza zakresy wartości określonej kolumny partycji, przez równomierne dystrybuowanie wierszy w wielu zasobnikach zgodnie z liczbą unikatowych wartości kolumn partycji i ustawieniem kopiowania współbieżności ADF, a następnie zamienia `?AdfHanaDynamicRangePartitionCondition` z filtrowaniem zakresu wartości kolumny partycji dla każdej partycji i wysyła do SAP HANA.<br><br>Jeśli chcesz użyć wielu kolumn jako kolumny partycji, możesz połączyć wartości każdej kolumny jako jedną kolumnę w zapytaniu i określić ją jako kolumnę partycji w ADF, na przykład `SELECT * FROM (SELECT *, CONCAT(<KeyColumn1>, <KeyColumn2>) AS PARTITIONCOLUMN FROM <TABLENAME>) WHERE ?AdfHanaDynamicRangePartitionCondition`. |
+| Załaduj dużą ilość danych przy użyciu kwerendy niestandardowej. | **Opcja partycji**: dynamiczna partycja zakresu.<br>**Zapytanie**: `SELECT * FROM <TABLENAME> WHERE ?AdfHanaDynamicRangePartitionCondition AND <your_additional_where_clause>` .<br>**Kolumna partycji**: określ kolumnę używaną do stosowania dynamicznej partycji zakresów. <br><br>Podczas wykonywania, Data Factory po raz pierwsze oblicza zakresy wartości określonej kolumny partycji, przez równomierne dystrybuowanie wierszy w wielu zasobnikach zgodnie z liczbą unikatowych wartości kolumn partycji i ustawieniem kopiowania współbieżności ADF, a następnie zamienia `?AdfHanaDynamicRangePartitionCondition` z filtrowaniem zakresu wartości kolumny partycji dla każdej partycji i wysyła do SAP HANA.<br><br>Jeśli chcesz użyć wielu kolumn jako kolumny partycji, możesz połączyć wartości każdej kolumny jako jedną kolumnę w zapytaniu i określić ją jako kolumnę partycji w ADF, na przykład `SELECT * FROM (SELECT *, CONCAT(<KeyColumn1>, <KeyColumn2>) AS PARTITIONCOLUMN FROM <TABLENAME>) WHERE ?AdfHanaDynamicRangePartitionCondition` . |
 
 **Przykład: zapytanie z partycjami fizycznymi tabeli**
 
@@ -271,35 +271,35 @@ Podczas kopiowania danych z SAP HANA następujące mapowania są używane z SAP 
 
 | Typ danych SAP HANA | Typ danych pośrednich fabryki danych |
 | ------------------ | ------------------------------ |
-| ALPHANUM           | String                         |
+| ALPHANUM           | String (ciąg)                         |
 | BIGINT             | Int64                          |
 | BINARNY             | Byte []                         |
-| Dwuntext            | String                         |
+| Dwuntext            | String (ciąg)                         |
 | TWORZENIA               | Byte []                         |
 | LOGICZNA               | Byte                           |
-| OBIEKTÓW CLOB               | String                         |
+| OBIEKTÓW CLOB               | String (ciąg)                         |
 | DATE               | DateTime                       |
 | DOKŁADNOŚCI            | Wartość dziesiętna                        |
 | DOUBLE             | Double                         |
 | FLOAT              | Double                         |
 | LICZBA CAŁKOWITA            | Int32                          |
-| NCLOB              | String                         |
-| NVARCHAR           | String                         |
+| NCLOB              | String (ciąg)                         |
+| NVARCHAR           | String (ciąg)                         |
 | LICZBA RZECZYWISTA               | Single                         |
 | SECONDDATE         | DateTime                       |
-| SHORTTEXT          | String                         |
+| SHORTTEXT          | String (ciąg)                         |
 | SMALLDECIMAL       | Wartość dziesiętna                        |
 | SMALLINT           | Int16                          |
 | STGEOMETRYTYPE     | Byte []                         |
 | STPOINTTYPE        | Byte []                         |
-| TEKST               | String                         |
+| TEKST               | String (ciąg)                         |
 | CZAS               | przedział_czasu                       |
 | TINYINT            | Byte                           |
-| VARCHAR            | String                         |
+| VARCHAR            | String (ciąg)                         |
 | ZNACZNIK czasu          | DateTime                       |
 | LICZBY          | Byte []                         |
 
-### <a name="sap-hana-sink"></a>SAP HANA ujścia
+## <a name="sap-hana-sink"></a>SAP HANA ujścia
 
 Obecnie łącznik SAP HANA nie jest obsługiwany jako obiekt ujścia, podczas gdy można używać uniwersalnego łącznika ODBC z sterownikiem SAP HANA do zapisywania danych w SAP HANA. 
 

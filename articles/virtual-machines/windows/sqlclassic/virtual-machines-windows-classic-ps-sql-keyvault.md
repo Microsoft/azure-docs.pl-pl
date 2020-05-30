@@ -16,17 +16,17 @@ ms.date: 02/17/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6c84be9a23713080f348daf8dddf0ad6b0390ded
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 7439aa360395490f31a638ac690ed7e5cad1054b
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84014705"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195834"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Konfigurowanie integracji Azure Key Vault SQL Server na platformie Azure Virtual Machines (klasyczny)
 > [!div class="op_single_selector"]
 > * [Resource Manager](../../../azure-sql/virtual-machines/windows/azure-key-vault-integration-configure.md)
-> * [Klasyczny](../classic/ps-sql-keyvault.md)
+> * [Wdrożenie klasyczne](../classic/ps-sql-keyvault.md)
 > 
 > 
 
@@ -36,7 +36,7 @@ Istnieje wiele funkcji szyfrowania SQL Server, takich jak [przezroczyste szyfrow
 > [!IMPORTANT] 
 > Platforma Azure ma dwa różne modele wdrażania służące do tworzenia zasobów i pracy z nimi: [Menedżer zasobów i klasyczne](../../../azure-resource-manager/management/deployment-models.md). W tym artykule opisano korzystanie z klasycznego modelu wdrażania. Firma Microsoft zaleca, aby w przypadku większości nowych wdrożeń korzystać z modelu opartego na programie Resource Manager.
 
-W przypadku uruchamiania SQL Server z maszynami lokalnymi istnieją [kroki, które można wykonać, aby uzyskać dostęp do Azure Key Vault z lokalnej maszyny SQL Server](https://msdn.microsoft.com/library/dn198405.aspx). Jednak w przypadku SQL Server na maszynach wirtualnych platformy Azure można zaoszczędzić czas, korzystając z funkcji *integracji Azure Key Vault* . Aby włączyć tę funkcję za pomocą kilku poleceń cmdlet Azure PowerShell, można zautomatyzować konfigurację niezbędną do uzyskania dostępu do magazynu kluczy w maszynie wirtualnej SQL.
+W przypadku uruchamiania SQL Server z maszynami lokalnymi istnieją [kroki, które można wykonać, aby uzyskać dostęp do Azure Key Vault z lokalnego komputera SQL Server](https://msdn.microsoft.com/library/dn198405.aspx). Jednak w przypadku SQL Server na maszynach wirtualnych platformy Azure można zaoszczędzić czas, korzystając z funkcji *integracji Azure Key Vault* . Aby włączyć tę funkcję za pomocą kilku poleceń cmdlet Azure PowerShell, można zautomatyzować konfigurację niezbędną do uzyskania dostępu do magazynu kluczy w maszynie wirtualnej SQL.
 
 Po włączeniu tej funkcji program automatycznie zainstaluje SQL Server Connector, skonfiguruje dostawcę EKM w celu uzyskania dostępu Azure Key Vault i utworzy poświadczenie, aby umożliwić dostęp do magazynu. Jeśli zostały przedstawione kroki opisane wcześniej w dokumentacji lokalnej, można zobaczyć, że ta funkcja automatyzuje kroki 2 i 3. Jedyną czynnością, którą należy wykonać ręcznie, jest utworzenie magazynu kluczy i kluczy. Z tego miejsca cała konfiguracja maszyny wirtualnej SQL jest zautomatyzowana. Po ukończeniu tej funkcji można wykonać instrukcje języka T-SQL, aby rozpocząć szyfrowanie baz danych lub kopii zapasowych w zwykły sposób.
 

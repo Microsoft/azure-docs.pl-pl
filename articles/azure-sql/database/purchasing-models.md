@@ -12,17 +12,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/09/2020
-ms.openlocfilehash: a2f1ee064660b8a34d97875cdf5ddd3a2ac2959f
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a437cd1b3cb8018229cf6445e23314cf17bf10a2
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84048147"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219857"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database--sql-managed-instance"></a>Wybór między modelami zakupów rdzeń wirtualny i DTU — Azure SQL Database & wystąpienie zarządzane SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Azure SQL Database & zarządzania stanem SQL umożliwia łatwe zakupienie aparatu bazy danych w pełni zarządzanej platformy jako usługi (PaaS), który spełnia Twoje wymagania dotyczące wydajności i kosztów. W zależności od modelu wdrażania, który został wybrany dla Azure SQL Database, można wybrać model zakupu, który działa dla Ciebie:
+Azure SQL Database & wystąpienie zarządzane SQL pozwala łatwo zakupić aparat bazy danych w pełni zarządzanej platformy jako usługi (PaaS), który spełnia wymagania dotyczące wydajności i kosztów. W zależności od modelu wdrażania, który został wybrany dla Azure SQL Database, można wybrać model zakupu, który działa dla Ciebie:
 
 - [Model zakupu oparty na wirtualnym rdzeniu (rdzeń wirtualny)](service-tiers-vcore.md) (zalecane). Ten model zakupów zapewnia wybór między zainicjowaną warstwą obliczeniową a warstwą obliczeniową bezserwerową. W przypadku alokowanej warstwy obliczeniowej należy wybrać dokładną ilość zasobów obliczeniowych, które są zawsze obsługiwane dla obciążenia. W przypadku warstwy obliczeń bezserwerowych należy określić skalowanie zasobów obliczeniowych w ramach konfigurowalnego zakresu obliczeń. Za pomocą tej warstwy obliczeniowej można również automatycznie wstrzymywać i wznawiać bazę danych w oparciu o aktywność obciążeń. Cena jednostkowa rdzeń wirtualny na jednostkę czasu jest niższa w przypadku alokowanej warstwy obliczeniowej niż w warstwie obliczeniowej bezserwerowej.
 - [Model zakupu oparty na jednostkach transakcji bazy danych (DTU)](service-tiers-dtu.md). Ten model zakupów zawiera powiązane pakiety obliczeniowe i magazynowe, które są zrównoważone dla typowych obciążeń.

@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: b2694d83f3059ac9d291f5164a76acd8b011c9a7
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a462c3480d58a7895429863cb3d09874cd6ef0f8
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84049995"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84217918"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database--sql-managed-instance"></a>Element PlayBook do rozwiązywania typowych wymagań dotyczących zabezpieczeń z Azure SQL Database & wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -35,7 +35,7 @@ Ten dokument zawiera wskazówki dotyczące sposobu rozwiązywania typowych wymag
 
 - Azure SQL Data Warehouse
 - Maszyny wirtualne Azure SQL (IaaS)
-- SQL Server lokalne
+- SQL Server
 
 ### <a name="audience"></a>Grupy odbiorców
 
@@ -267,7 +267,7 @@ Następujące najlepsze rozwiązania są opcjonalne, ale spowodują lepsze zarz�
 
 - Należy pamiętać, że uprawnienia w aparacie bazy danych mogą być stosowane w następujących zakresach (mniejszym zakresie, mniejszym wpływem przyznanych uprawnień):
   - Serwer (specjalne role w bazie danych Master) na platformie Azure
-  - baza danych
+  - Baza danych
   - Schemat
     - Najlepszym rozwiązaniem jest użycie schematów do przyznawania uprawnień w bazie danych. (Zobacz również: [projektowanie schematu: zalecenia dotyczące projektowania schematu z bezpieczeństwem](http://andreas-wolter.com/en/schema-design-for-sql-server-recommendations-for-schema-design-with-security-in-mind/))
   - Obiekt (tabela, widok, procedura, itp.)

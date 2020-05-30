@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 127c924da44c7e596d93b21d89ff4591a90ba7cf
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: b2f2939c6b7d07e128688f43e98b2a6b29595e1f
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83827679"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204393"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Konfigurowanie Start/Stop VMs during off-hours
 
@@ -44,11 +44,15 @@ Można włączyć opcję określania wartości docelowej dla subskrypcji i grupy
 
 ### <a name="target-the-start-and-stop-action-by-vm-list"></a>Kierowanie akcji Rozpocznij i Zatrzymaj według maszyny wirtualnej
 
-1. Uruchom **ScheduledStartStop_Parent** element Runbook z ustawioną **akcją** **Start**, Dodaj rozdzieloną przecinkami listę maszyn wirtualnych w polu parametr **VMList** , a następnie ustaw dla pola parametru **WHATIF** wartość true. Wyświetl podgląd zmian.
+1. Uruchom **ScheduledStartStop_Parent** element Runbook z **akcją** ustawioną na **początek**.
 
-2. Skonfiguruj `External_ExcludeVMNames` zmienną z rozdzieloną przecinkami listą maszyn wirtualnych (VM1, VM2, VM3).
+2. Dodaj rozdzieloną przecinkami listę maszyn wirtualnych (bez odstępów) w polu parametr **VMList** . Przykładową listą jest `vm1,vm2,vm3` .
 
-3. W tym scenariuszu nie są `External_Start_ResourceGroupNames` uwzględniane `External_Stop_ResourceGroupnames` zmienne i. W tym scenariuszu należy utworzyć własny harmonogram automatyzacji. Aby uzyskać szczegółowe informacje, zobacz [Planowanie elementu Runbook w Azure Automation](shared-resources/schedules.md).
+3. Dla pola parametru **WHATIF** ustaw wartość true.
+
+4. Skonfiguruj `External_ExcludeVMNames` zmienną z rozdzieloną przecinkami listą maszyn wirtualnych (VM1, VM2, VM3).
+
+5. W tym scenariuszu nie są `External_Start_ResourceGroupNames` uwzględniane `External_Stop_ResourceGroupnames` zmienne i. W tym scenariuszu należy utworzyć własny harmonogram automatyzacji. Aby uzyskać szczegółowe informacje, zobacz [Planowanie elementu Runbook w Azure Automation](shared-resources/schedules.md).
 
     > [!NOTE]
     > Wartość **docelowej nazwy obiektu** do odniesień jest przechowywana jako wartości dla obu `External_Start_ResourceGroupNames` i `External_Stop_ResourceGroupNames` . Aby uzyskać więcej stopnia szczegółowości, można zmodyfikować każdą z tych zmiennych dla różnych grup zasobów. Dla akcji Rozpocznij akcję, użyj `External_Start_ResourceGroupNames` , i Użyj `External_Stop_ResourceGroupNames` do zatrzymania działania. Maszyny wirtualne są automatycznie dodawane do harmonogramów uruchamiania i zatrzymywania.
@@ -71,13 +75,17 @@ W środowisku zawierającym co najmniej dwa składniki na wielu maszynach wirtua
 
 1. Dodaj `sequencestart` `sequencestop` tag i z dodatnimi wartościami całkowitymi do maszyn wirtualnych, które zamierzasz dodać do `VMList` parametru.
 
-2. Uruchom **SequencedStartStop_Parent** element Runbook z **akcją** ustawioną na **początek**, Dodaj rozdzieloną przecinkami listę maszyn wirtualnych w polu parametr **VMList** , a następnie ustaw wartość **WHATIF** na true. Wyświetl podgląd zmian.
+2. Uruchom **SequencedStartStop_Parent** element Runbook z **akcją** ustawioną na **początek**.
 
-3. Skonfiguruj `External_ExcludeVMNames` zmienną z rozdzieloną przecinkami listą maszyn wirtualnych (VM1, VM2, VM3).
+3. Dodaj rozdzieloną przecinkami listę maszyn wirtualnych (bez odstępów) w polu parametr **VMList** . Przykładową listą jest `vm1,vm2,vm3` .
 
-4. W tym scenariuszu nie są `External_Start_ResourceGroupNames` uwzględniane `External_Stop_ResourceGroupnames` zmienne i. W tym scenariuszu należy utworzyć własny harmonogram automatyzacji. Aby uzyskać szczegółowe informacje, zobacz [Planowanie elementu Runbook w Azure Automation](shared-resources/schedules.md).
+4. Dla opcji **WHATIF** ustaw wartość true. 
 
-5. Wyświetl podgląd akcji i wprowadź wszelkie niezbędne zmiany przed wdrożeniem na maszynach wirtualnych w środowisku produkcyjnym. Gdy wszystko będzie gotowe, ręcznie wykonaj polecenie **monitoring-and-Diagnostics/monitoring-Action-groupsrunbook** z parametrem ustawionym na **wartość false**. Alternatywnie, można zezwolić usłudze Automation Schedules **Sequenced-StartVM** i **Sequenced-StopVM** działać automatycznie zgodnie z określonym harmonogramem.
+5. Skonfiguruj `External_ExcludeVMNames` zmienną z rozdzieloną przecinkami listą maszyn wirtualnych.
+
+6. W tym scenariuszu nie są `External_Start_ResourceGroupNames` uwzględniane `External_Stop_ResourceGroupnames` zmienne i. W tym scenariuszu należy utworzyć własny harmonogram automatyzacji. Aby uzyskać szczegółowe informacje, zobacz [Planowanie elementu Runbook w Azure Automation](shared-resources/schedules.md).
+
+7. Wyświetl podgląd akcji i wprowadź wszelkie niezbędne zmiany przed wdrożeniem na maszynach wirtualnych w środowisku produkcyjnym. Gdy wszystko będzie gotowe, ręcznie wykonaj polecenie **monitoring-and-Diagnostics/monitoring-Action-groupsrunbook** z parametrem ustawionym na **wartość false**. Alternatywnie, można zezwolić usłudze Automation Schedules **Sequenced-StartVM** i **Sequenced-StopVM** działać automatycznie zgodnie z określonym harmonogramem.
 
 ## <a name="scenario-3-start-or-stop-automatically-based-on-cpu-utilization"></a><a name="cpuutil"></a>Scenariusz 3. Uruchamianie lub zatrzymywanie automatyczne na podstawie użycia procesora CPU
 

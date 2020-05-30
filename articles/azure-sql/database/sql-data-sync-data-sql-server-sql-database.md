@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: f4bec780fcf40b4fbee7ccf6c59463a5efb1adc0
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 73f0a733d4f32042e5ea3439282f88db0c065433
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84048777"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84188712"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Co to jest SQL Data Sync dla platformy Azure?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,7 +34,7 @@ Synchronizacja danych opiera się na koncepcji grupy synchronizacji. Grupa synch
 Synchronizacja danych używa topologii gwiazdy do synchronizowania danych. Jedną z baz danych w grupie synchronizacji należy zdefiniować jako bazę danych centrum. Pozostałe bazy danych są członkami baz danych. Synchronizacja odbywa się tylko między węzłem i indywidualnymi elementami członkowskimi.
 
 - **Baza danych centrum** musi być Azure SQL Database.
-- **Bazy danych elementów członkowskich** mogą być Azure SQL Database, lokalne SQL Server baz danych lub wystąpienia SQL Server na maszynach wirtualnych platformy Azure.
+- **Bazy danych elementów członkowskich** mogą być albo bazami danych w Azure SQL Database, albo w wystąpieniach SQL Server.
 - **Baza danych synchronizacji** zawiera metadane i Dziennik synchronizacji danych. Baza danych synchronizacji musi być Azure SQL Database umieszczona w tym samym regionie, w którym znajduje się baza danych centrów. Baza danych synchronizacji jest tworzona przez klienta i jest własnością klienta.
 
 > [!NOTE]
@@ -64,7 +64,7 @@ Synchronizacja danych nie jest preferowanym rozwiązaniem dla następujących sc
 | Odzyskiwanie po awarii | [Geograficznie nadmiarowe platformy Azure](automated-backups-overview.md) |
 | Skala odczytu | [Używanie replik tylko do odczytu do równoważenia obciążenia obciążeń zapytań tylko do odczytu (wersja zapoznawcza)](read-scale-out.md) |
 | ETL (OLTP do OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) lub [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) |
-| Migracja z SQL Server lokalnych do Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
+| Migracja z SQL Server do Azure SQL Database | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
 |||
 
 
@@ -184,9 +184,9 @@ SQL Data Sync jest dostępna we wszystkich regionach.
 
 Tak. Aby hostować bazę danych centrów, musisz mieć konto SQL Database.
 
-### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>Czy można używać synchronizacji danych do synchronizowania tylko SQL Server lokalnych baz danych
+### <a name="can-i-use-data-sync-to-sync-between-sql-server-databases-only"></a>Czy synchronizacja danych może być używana do synchronizacji tylko między bazami danych SQL Server
 
-Nie bezpośrednio. Istnieje możliwość synchronizacji między SQL Server lokalnymi bazami danych, jednak przez utworzenie centralnej bazy danych na platformie Azure, a następnie dodanie lokalnych baz danych do grupy synchronizacji.
+Nie bezpośrednio. Istnieje jednak możliwość synchronizacji między bazami danych SQL Server, ale przez utworzenie centralnej bazy danych na platformie Azure, a następnie dodanie lokalnych baz danych do grupy synchronizacji.
 
 ### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-subscriptions"></a>Czy można używać synchronizacji danych do synchronizacji między bazami danych SQL, które należą do różnych subskrypcji
 

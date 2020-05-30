@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: f93bea240ee3f139c9be84199d116f9f3f231261
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 1642c90f0a345bdaf5dd69ddb6c0e26c34faba91
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281524"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196003"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Potoki i działania w Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -34,7 +34,7 @@ Ten artykuł ułatwia zapoznanie się z potokami i działaniami w usłudze Azure
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Omówienie
-Fabryka danych może obejmować jeden lub wiele potoków. Potoki to logiczne grupy działań, które wspólnie wykonują zadanie. Działania w potoku definiują akcje do wykonania na danych. Możesz na przykład użyć działania kopiowania w celu skopiowania danych z lokalnego programu SQL Server do usługi Azure Blob Storage. Następnie użyj działania usługi Hive, które uruchamia skrypt Hive w klastrze usługi Apache HDInsight w celu przetworzenia/przekształcenia danych z magazynu obiektów blob, aby utworzyć dane wyjściowe. Na koniec użyj drugiego działania kopiowania w celu skopiowania danych wyjściowych do usługi Microsoft Azure SQL Data Warehouse, na podstawie której tworzone są rozwiązania raportowania analizy biznesowej (BI).
+Fabryka danych może obejmować jeden lub wiele potoków. Potoki to logiczne grupy działań, które wspólnie wykonują zadanie. Działania w potoku definiują akcje do wykonania na danych. Na przykład możesz użyć działania kopiowania, aby skopiować dane z bazy danych SQL Server do Blob Storage platformy Azure. Następnie użyj działania usługi Hive, które uruchamia skrypt Hive w klastrze usługi Apache HDInsight w celu przetworzenia/przekształcenia danych z magazynu obiektów blob, aby utworzyć dane wyjściowe. Na koniec użyj drugiego działania kopiowania w celu skopiowania danych wyjściowych do usługi Microsoft Azure SQL Data Warehouse, na podstawie której tworzone są rozwiązania raportowania analizy biznesowej (BI).
 
 Dane działanie może — ale nie musi — korzystać z wejściowych [zestawów danych](data-factory-create-datasets.md) i generować co najmniej jeden wyjściowy [zestaw danych](data-factory-create-datasets.md). Na poniższym diagramie przedstawiono relację między potokiem, działaniem i zestawem danych w usłudze Data Factory:
 
@@ -92,13 +92,13 @@ Przyjrzyjmy się bliżej definicji potoku w formacie JSON. Ogólna struktura pot
 }
 ```
 
-| Tag | Opis | Wymagany |
+| Tag | Opis | Wymagane |
 | --- | --- | --- |
-| name |Nazwa potoku. Określ nazwę, która reprezentuje akcję wykonywaną przez potok. <br/><ul><li>Maksymalna liczba znaków: 260</li><li>Musi zaczynać się cyfrą lub znakiem podkreślenia (\_)</li><li>Następujące znaki nie są dozwolone: ".", "+", "?", "/", "<", ">", "\*", "%", "&", ":", "\\"</li></ul> |Tak |
+| name |Nazwa potoku. Określ nazwę, która reprezentuje akcję wykonywaną przez potok. <br/><ul><li>Maksymalna liczba znaków: 260</li><li>Musi zaczynać się cyfrą lub znakiem podkreślenia ( \_ )</li><li>Następujące znaki nie są dozwolone: ".", "+", "?", "/", "<", ">", " \* ", "%", "&", ":", " \\ "</li></ul> |Tak |
 | description | Wprowadź tekst opisujący przeznaczenie potoku. |Tak |
 | activities | W sekcji **activities** można zdefiniować jedno lub więcej działań. Zobacz następną sekcję, aby uzyskać szczegółowe informacje o elemencie JSON. | Tak |
-| rozpoczynanie | Data i godzina rozpoczęcia potoku. Musi być w [formacie ISO](https://en.wikipedia.org/wiki/ISO_8601). Na przykład: `2016-10-14T16:32:41Z`. <br/><br/>Można określić czas lokalny, na przykład czas EST. Oto przykład: `2016-02-27T06:00:00-05:00`", czyli 6.<br/><br/>Właściwości Start i End wspólnie określają aktywny okres dla potoku. Wycinki wyjściowe są tworzone tylko w tym aktywnym okresie. |Nie<br/><br/>W przypadku określenia wartości właściwości End należy określić wartość właściwości Start.<br/><br/>Aby można było utworzyć potok, oba czasy rozpoczęcia i zakończenia mogą być puste. Należy określić obie wartości, aby ustawić aktywny okres uruchomienia potoku. Jeśli nie określisz godzin początkowych i końcowych podczas tworzenia potoku, możesz je ustawić przy użyciu polecenia cmdlet Set-AzDataFactoryPipelineActivePeriod. |
-| end | Data i godzina zakończenia potoku. Jeśli ta wartość jest określona, musi być w formacie ISO. Na przykład: `2016-10-14T17:32:41Z` <br/><br/>Można określić czas lokalny, na przykład czas EST. Oto przykład: `2016-02-27T06:00:00-05:00`, czyli 6.<br/><br/>Aby uruchomić potok bezterminowo, określ 9999-09-09 jako wartość właściwości end. <br/><br/> Potok jest aktywny tylko między jego czasem rozpoczęcia i czasem zakończenia. Nie jest wykonywane przed czasem rozpoczęcia lub po zakończeniu. Jeśli potok jest wstrzymany, nie jest wykonywany niezależnie od jego czasu rozpoczęcia i zakończenia. Do uruchomienia potoku nie należy wstrzymywać. Zapoznaj się z tematem [Planowanie i wykonywanie](data-factory-scheduling-and-execution.md) , aby zrozumieć, jak planowanie i wykonywanie działa w Azure Data Factory. |Nie <br/><br/>W przypadku określenia wartości właściwości Start należy określić wartość właściwości end.<br/><br/>Zobacz uwagi dotyczące właściwości **Start** . |
+| rozpoczynanie | Data i godzina rozpoczęcia potoku. Musi być w [formacie ISO](https://en.wikipedia.org/wiki/ISO_8601). Na przykład: `2016-10-14T16:32:41Z`. <br/><br/>Można określić czas lokalny, na przykład czas EST. Oto przykład: `2016-02-27T06:00:00-05:00` ", czyli 6.<br/><br/>Właściwości Start i End wspólnie określają aktywny okres dla potoku. Wycinki wyjściowe są tworzone tylko w tym aktywnym okresie. |Nie<br/><br/>W przypadku określenia wartości właściwości End należy określić wartość właściwości Start.<br/><br/>Aby można było utworzyć potok, oba czasy rozpoczęcia i zakończenia mogą być puste. Należy określić obie wartości, aby ustawić aktywny okres uruchomienia potoku. Jeśli nie określisz godzin początkowych i końcowych podczas tworzenia potoku, możesz je ustawić przy użyciu polecenia cmdlet Set-AzDataFactoryPipelineActivePeriod. |
+| end | Data i godzina zakończenia potoku. Jeśli ta wartość jest określona, musi być w formacie ISO. Na przykład: `2016-10-14T17:32:41Z` <br/><br/>Można określić czas lokalny, na przykład czas EST. Oto przykład: `2016-02-27T06:00:00-05:00` , czyli 6.<br/><br/>Aby uruchomić potok bezterminowo, określ 9999-09-09 jako wartość właściwości end. <br/><br/> Potok jest aktywny tylko między jego czasem rozpoczęcia i czasem zakończenia. Nie jest wykonywane przed czasem rozpoczęcia lub po zakończeniu. Jeśli potok jest wstrzymany, nie jest wykonywany niezależnie od jego czasu rozpoczęcia i zakończenia. Do uruchomienia potoku nie należy wstrzymywać. Zapoznaj się z tematem [Planowanie i wykonywanie](data-factory-scheduling-and-execution.md) , aby zrozumieć, jak planowanie i wykonywanie działa w Azure Data Factory. |Nie <br/><br/>W przypadku określenia wartości właściwości Start należy określić wartość właściwości end.<br/><br/>Zobacz uwagi dotyczące właściwości **Start** . |
 | isPaused | W przypadku ustawienia wartości true potok nie zostanie uruchomiony. Jest w stanie wstrzymania. Wartość domyślna = false. Ta właściwość służy do włączania lub wyłączania potoku. |Nie |
 | potokmode | Metoda planowania przebiegów dla potoku. Dozwolone wartości to: zaplanowane (wartość domyślna), jednorazowej.<br/><br/>Wartość "zaplanowany" wskazuje, że potok jest uruchamiany w określonym przedziale czasu, zgodnie z jego aktywnym okresem (godzina rozpoczęcia i zakończenia). Element "jednorazowej" wskazuje, że potok jest uruchamiany tylko raz. Nie można obecnie modyfikować/aktualizować potoków jednorazowej utworzonych po utworzeniu. Zobacz [potok jednorazowej](#onetime-pipeline) , aby uzyskać szczegółowe informacje na temat ustawienia jednorazowej. |Nie |
 | expirationTime | Czas trwania okresu, w którym [potok jednorazowy](#onetime-pipeline) jest prawidłowy i powinien pozostać zainicjowany. Jeśli nie ma żadnych aktywnych, zakończonych niepowodzeniem lub oczekujących uruchomień, potok jest automatycznie usuwany po osiągnięciu czasu wygaśnięcia. Wartość domyślna:`"expirationTime": "3.00:00:00"`|Nie |
@@ -130,11 +130,11 @@ W sekcji **activities** można zdefiniować jedno lub więcej działań. Każde 
 
 Poniższa tabela zawiera opis właściwości w definicji JSON działania:
 
-| Tag | Opis | Wymagany |
+| Tag | Opis | Wymagane |
 | --- | --- | --- |
-| name | Nazwa działania. Określ nazwę, która reprezentuje akcję wykonywaną przez działanie. <br/><ul><li>Maksymalna liczba znaków: 260</li><li>Musi zaczynać się cyfrą lub znakiem podkreślenia (\_)</li><li>Następujące znaki nie są dozwolone: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\\"</li></ul> |Tak |
+| name | Nazwa działania. Określ nazwę, która reprezentuje akcję wykonywaną przez działanie. <br/><ul><li>Maksymalna liczba znaków: 260</li><li>Musi zaczynać się cyfrą lub znakiem podkreślenia ( \_ )</li><li>Następujące znaki nie są dozwolone: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \\ "</li></ul> |Tak |
 | description | Tekst opisujący przeznaczenie działania |Tak |
-| type | Typ działania. Zapoznaj się z sekcjami [działania przenoszenia danych](#data-movement-activities) i [działania przekształcania danych](#data-transformation-activities) dla różnych typów działań. |Tak |
+| typ | Typ działania. Zapoznaj się z sekcjami [działania przenoszenia danych](#data-movement-activities) i [działania przekształcania danych](#data-transformation-activities) dla różnych typów działań. |Tak |
 | danych wejściowych |Tabele wejściowe używane przez działanie<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Tak |
 | wydajności |Tabele wyjściowe używane przez działanie.<br/><br/>`// one output table`<br/>`"outputs":  [ { "name": "outputtable1" } ],`<br/><br/>`//two output tables`<br/>`"outputs":  [ { "name": "outputtable1" }, { "name": "outputtable2" }  ],` |Tak |
 | linkedServiceName |Nazwa połączonej usługi używana na potrzeby działania. <br/><br/>Działanie może wymagać określenia połączonej usługi, która stanowi łącze do wymaganego środowiska obliczeniowego. |Tak dla działania usługi HDInsight i działania oceniania partii Azure Machine Learning <br/><br/>Nie dla wszystkich innych |
@@ -261,7 +261,7 @@ Pamiętaj o następujących kwestiach:
 
 * W sekcji działań jest tylko jedno działanie, którego parametr **type** został ustawiony na wartość **HDInsightHive**.
 * Plik skryptu programu Hive **partitionweblogs.hql** jest przechowywany na koncie usługi Azure Storage (określonym za pomocą elementu scriptLinkedService o nazwie **AzureStorageLinkedService**) oraz w folderze **script** w kontenerze **adfgetstarted**.
-* Sekcja służy do określania ustawień środowiska uruchomieniowego, które są przesyłane do skryptu programu Hive jako wartości konfiguracyjne programu `${hiveconf:partitionedtable}`Hive `${hiveconf:inputtable}`(np.). `defines`
+* `defines`Sekcja służy do określania ustawień środowiska uruchomieniowego, które są przesyłane do skryptu programu Hive jako wartości konfiguracyjne programu Hive (np `${hiveconf:inputtable}` `${hiveconf:partitionedtable}` .).
 
 Sekcja **typeProperties** jest inna dla każdego działania przekształcania. Aby uzyskać informacje na temat właściwości typu obsługiwanych dla działania przekształcania, kliknij działanie przekształcania w tabeli [działania przekształcania danych](#data-transformation-activities) .
 
@@ -344,7 +344,7 @@ Można utworzyć i zaplanować okresowe uruchamianie potoku (na przykład: co go
 }
 ```
 
-Pamiętaj o następujących kwestiach:
+. Weź pod uwagę następujące kwestie:
 
 * Nie określono czasu **rozpoczęcia** i **zakończenia** potoku.
 * Określono **dostępność** zestawów danych wejściowych i wyjściowych (**częstotliwość** i **interwał**), mimo że Data Factory nie używa wartości.

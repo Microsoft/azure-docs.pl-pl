@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 9cb1149073247b7f5fc3e74a1aef6f96388c7135
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6d072cd03fa0e5c8da4593d8633a268d3b5a50fb
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648114"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84197065"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>Synchronizowanie repozytorium GitHub z konfiguracją aplikacji
 
@@ -92,7 +92,7 @@ jobs:
 ```
 ## <a name="sync-multiple-files-in-one-action"></a>Synchronizuj wiele plików w jednej akcji 
 
-Jeśli konfiguracja znajduje się w wielu plikach, można użyć poniższego wzorca, aby wyzwolić synchronizację w przypadku zmodyfikowania pliku. Ten wzorzec używa biblioteki globalizowaniahttps://www.npmjs.com/package/glob 
+Jeśli konfiguracja znajduje się w wielu plikach, można użyć poniższego wzorca, aby wyzwolić synchronizację w przypadku zmodyfikowania pliku. Ten wzorzec używa biblioteki globalizowania https://www.npmjs.com/package/glob . Należy pamiętać, że jeśli nazwa pliku konfiguracji zawiera przecinek, można użyć ukośnika odwrotnego, aby wypróbować przecinek. 
 
 ```json
 on:
@@ -308,10 +308,10 @@ Parametry wejściowe określają dane używane przez akcję podczas środowiska 
 
 | Nazwa wejściowa | Wymagane? | Wartość |
 |----|----|----|
-| configurationFile | Yes | Ścieżka względna do pliku konfiguracji w repozytorium.  Wzorce globalizowania są obsługiwane i mogą zawierać wiele plików. |
-| format | Yes | Format pliku konfiguracji.  Prawidłowe formaty to: JSON, YAML i właściwości. |
-| Parametry połączenia | Yes | Parametry połączenia dla wystąpienia konfiguracji aplikacji. Parametry połączenia powinny być przechowywane jako wpis tajny w repozytorium GitHub, a w przepływie pracy powinna być użyta tylko nazwa klucza tajnego. |
-| rozdzielając | Yes | Separator używany podczas spłaszczania pliku konfiguracji do par klucz-wartość.  Prawidłowe wartości to:. , ; : - _ __ / |
+| configurationFile | Tak | Ścieżka względna do pliku konfiguracji w repozytorium.  Wzorce globalizowania są obsługiwane i mogą zawierać wiele plików. |
+| format | Tak | Format pliku konfiguracji.  Prawidłowe formaty to: JSON, YAML i właściwości. |
+| Parametry połączenia | Tak | Parametry połączenia dla wystąpienia konfiguracji aplikacji. Parametry połączenia powinny być przechowywane jako wpis tajny w repozytorium GitHub, a w przepływie pracy powinna być użyta tylko nazwa klucza tajnego. |
+| rozdzielając | Tak | Separator używany podczas spłaszczania pliku konfiguracji do par klucz-wartość.  Prawidłowe wartości to:. , ; : - _ __ / |
 | prefiks | Nie | Prefiks, który ma zostać dodany do początku kluczy. |
 | label | Nie | Etykieta użyta podczas ustawiania par klucz-wartość. Jeśli nie zostanie określony, zostanie użyta etykieta o wartości null. |
 | ściśle | Nie | Wartość logiczna określająca, czy tryb Strict jest włączony. Wartość domyślna to false. |

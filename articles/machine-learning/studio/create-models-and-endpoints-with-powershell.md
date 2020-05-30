@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: a2f55798afe7b817ab366e8fa55f07078277352d
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 1dd17d3ac715c2b32f645602203aa2551c91b42a
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117294"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195343"
 ---
 # <a name="create-multiple-web-service-endpoints-from-one-experiment-with-ml-studio-classic-and-powershell"></a>Tworzenie wielu punktów końcowych usługi sieci Web na podstawie jednego eksperymentu z ML Studio (klasyczny) i programu PowerShell
 
@@ -50,7 +50,7 @@ Należy zauważyć, że moduł **danych wyjściowych usługi sieci Web** został
 Gdy ten eksperyment zostanie wdrożony jako usługa sieci Web, punkt końcowy skojarzony z tym wyjściem zwraca model przeszkolony w formacie pliku. ilearner.
 
 Należy również pamiętać, że należy skonfigurować parametr usługi sieci Web, który określa adres URL, który jest wykorzystywany przez moduł **importu danych** . Dzięki temu można użyć parametru, aby określić indywidualne zestawy danych szkoleniowych do uczenia modelu dla każdej lokalizacji.
-Można to zrobić na inne sposoby. Możesz użyć zapytania SQL z parametrem usługi sieci Web, aby pobrać dane z bazy danych SQL Azure. Można też użyć modułu **danych wejściowych usługi sieci Web** do przekazywania zestawu danych do usługi sieci Web.
+Można to zrobić na inne sposoby. Możesz użyć zapytania SQL z parametrem usługi sieci Web, aby pobrać dane z bazy danych w Azure SQL Database. Można też użyć modułu **danych wejściowych usługi sieci Web** do przekazywania zestawu danych do usługi sieci Web.
 
 ![Przeszkolone dane wyjściowe modułu modelu do modułu wyjściowego usługi sieci Web](./media/create-models-and-endpoints-with-powershell/web-service-output.png)
 

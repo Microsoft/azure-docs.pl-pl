@@ -13,17 +13,17 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
-ms.openlocfilehash: dc7d1140014b3d8aca327c54139b743e3740f5f6
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 16f761c7b9f4b78c252d6acb533ba95a43625f28
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84049127"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196653"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Tworzenie i przywracanie kopii zapasowej za pomocą usługi Azure Storage dla programu SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Począwszy od SQL Server 2012 z dodatkiem SP1 ZASTOSUJESZ pakietu CU2, można teraz pisać SQL Server kopie zapasowe bezpośrednio do usługi Azure Blob Storage. Za pomocą tej funkcji można tworzyć kopie zapasowe i przywracać z Blob service platformy Azure przy użyciu lokalnej bazy danych SQL Server lub bazy danych SQL Server na maszynie wirtualnej platformy Azure. Tworzenie kopii zapasowych w chmurze zapewnia korzyści z dostępności, nieograniczonego magazynu poza lokacją i ułatwia migrację danych do i z chmury. Instrukcje tworzenia kopii zapasowej lub przywracania można wydać przy użyciu języka Transact-SQL lub SMO.
+Począwszy od SQL Server 2012 z dodatkiem SP1 ZASTOSUJESZ pakietu CU2, można teraz pisać SQL Server kopie zapasowe bezpośrednio do usługi Azure Blob Storage. Za pomocą tej funkcji można tworzyć kopie zapasowe i przywracać z Blob service platformy Azure i bazy danych SQL Server. Tworzenie kopii zapasowych w chmurze zapewnia korzyści z dostępności, nieograniczonego magazynu poza lokacją i ułatwia migrację danych do i z chmury. Instrukcje tworzenia kopii zapasowej lub przywracania można wydać przy użyciu języka Transact-SQL lub SMO.
 
 
 ## <a name="overview"></a>Omówienie
@@ -38,7 +38,7 @@ Istnieje kilka wyzwań, które należy uwzględnić podczas tworzenia kopii zapa
 * **Archiwum kopii zapasowych**: usługa Azure Blob Storage oferuje lepszą alternatywę dla często używanej opcji taśmy do archiwizowania kopii zapasowych. Magazyn taśm może wymagać fizycznego transportu do funkcji poza lokacją i środków ochrony multimediów. Przechowywanie kopii zapasowych w usłudze Azure Blob Storage zapewnia natychmiastową, wysoką dostępność i trwałą opcję archiwizowania.
 * **Zarządzany sprzęt**: nie ma żadnych nakładów związanych z zarządzaniem sprzętem w ramach usług platformy Azure. Usługi platformy Azure zarządzają sprzętem i zapewniają replikację geograficzną w celu zapewnienia nadmiarowości i ochrony przed awariami sprzętu.
 * **Nieograniczony magazyn**: dzięki włączeniu bezpośredniej kopii zapasowej obiektów blob platformy Azure masz dostęp do praktycznie nieograniczonego magazynu. Alternatywnie tworzenie kopii zapasowej na dysku maszyny wirtualnej platformy Azure ma limity na podstawie rozmiaru maszyny. Istnieje ograniczenie liczby dysków, które można dołączyć do maszyny wirtualnej platformy Azure na potrzeby tworzenia kopii zapasowych. Ten limit wynosi 16 dysków dla bardzo dużego wystąpienia i mniej dla mniejszych wystąpień.
-* **Dostępność kopii zapasowych**: kopie zapasowe przechowywane w obiektach Blob platformy Azure są dostępne z dowolnego miejsca i w dowolnym czasie i mogą być łatwo dostępne dla przywrócenia do lokalnego SQL Server lub innego SQL Server uruchomionego na maszynie wirtualnej platformy Azure, bez konieczności dołączania/odłączania ani pobierania i dołączania dysku VHD.
+* **Dostępność kopii zapasowych**: kopie zapasowe przechowywane w obiektach Blob platformy Azure są dostępne z dowolnego miejsca i w dowolnym czasie i mogą być łatwo dostępne dla przywrócenia do wystąpienia SQL Server, bez konieczności dołączania/odłączania ani pobierania i dołączania dysku VHD.
 * **Koszt**: Płatność wyłącznie za usługę, która jest używana. Może być opłacalne jako opcja archiwum poza lokacją i kopiami zapasowymi. Aby uzyskać więcej informacji, zobacz [Kalkulator cen platformy Azure](https://go.microsoft.com/fwlink/?LinkId=277060 "Kalkulator cen")i artykuł dotyczący [cen platformy Azure](https://go.microsoft.com/fwlink/?LinkId=277059 "Artykuł dotyczący cen") .
 * **Migawki magazynu**: gdy pliki bazy danych są przechowywane w obiekcie blob platformy Azure i używasz SQL Server 2016, możesz użyć [kopii zapasowej migawek plików](https://msdn.microsoft.com/library/mt169363.aspx) , aby wykonywać niemal chwilowe kopie zapasowe i niezwykle szybkie przywracanie.
 

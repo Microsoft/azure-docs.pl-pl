@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: ea4b201cd9ad6fa295bbccafe445733aadcf31c1
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 12e53e6960cbd55b78c8459ae9db080f32e2ffb6
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84054317"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84189652"
 ---
 # <a name="quickstarts-azure-sql-database-connect-and-query"></a>Przewodniki Szybki Start: łączenie Azure SQL Database i zapytania
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,24 +27,24 @@ Poniższy dokument zawiera linki do przykładów platformy Azure, w których pok
 
 | |  |
 |---|---|
-|[SQL Server Management Studio](connect-query-ssms.md)|Ten przewodnik Szybki Start przedstawia sposób nawiązywania połączenia z usługą Azure SQL Database przy użyciu programu SSMS, a następnie używania instrukcji języka Transact-SQL do wykonywania zapytań, wstawiania, aktualizowania i usuwania danych w bazie danych.|
-|[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)|W tym przewodniku szybki start pokazano, jak za pomocą Azure Data Studio połączyć się z Azure SQL Database, a następnie użyć instrukcji języka Transact-SQL (T-SQL) w celu utworzenia TutorialDB używanych w samouczkach Azure Data Studio.|
-|[Azure Portal](connect-query-portal.md)|W tym przewodniku Szybki start pokazano, jak używać edytora zapytań w celu nawiązywania połączenia z bazą danych SQL, a następnie, korzystając z instrukcji Transact-SQL, wysyłać zapytania o dane oraz wstawiać, aktualizować i usuwać dane z bazy danych.|
-|[Visual Studio Code](connect-query-vscode.md)|W tym przewodniku szybki start pokazano, jak za pomocą Visual Studio Code połączyć się z Azure SQL Database, a następnie użyć instrukcji języka Transact-SQL do wykonywania zapytań, wstawiania, aktualizowania i usuwania danych w bazie danych.|
-|[.NET przy użyciu programu Visual Studio](connect-query-dotnet-visual-studio.md)|W tym przewodniku szybki start pokazano, jak za pomocą programu .NET Framework utworzyć program w języku C# z programem Visual Studio, aby połączyć się z usługą Azure SQL Database i użyć instrukcji języka Transact-SQL do wykonywania zapytań dotyczących danych.|
-|[.NET Core](connect-query-dotnet-core.md)|Ten przewodnik Szybki Start przedstawia sposób korzystania z platformy .NET Core w systemie Windows/Linux/macOS w celu utworzenia programu w języku C# do łączenia się z Azure SQL Database i używania instrukcji języka Transact-SQL do wykonywania zapytań dotyczących danych.|
-|[Przejdź](connect-query-go.md)|W tym przewodniku szybki start pokazano, jak używać języka go do nawiązywania połączenia z Azure SQL Database. Ponadto przedstawiono instrukcje języka Transact-SQL umożliwiające wykonywanie zapytań i modyfikowanie danych.|
-|[Java](connect-query-java.md)|Ten przewodnik Szybki Start przedstawia sposób nawiązywania połączeń z usługą Azure SQL Database przy użyciu języka Java, a następnie używania instrukcji języka Transact-SQL do wykonywania zapytań dotyczących danych.|
-|[Node. js](connect-query-nodejs.md)|Ten przewodnik Szybki Start przedstawia sposób tworzenia przez program środowiska Node. js programu w celu nawiązania połączenia z usługą Azure SQL Database i używania instrukcji języka Transact-SQL do wykonywania zapytań dotyczących danych.|
-|[PHP](connect-query-php.md)|Ten przewodnik Szybki Start przedstawia sposób tworzenia programu w celu nawiązania połączenia z usługą Azure SQL Database i używania instrukcji języka Transact-SQL do wykonywania zapytań dotyczących danych.|
-|[Python](connect-query-python.md)|Ten przewodnik Szybki Start przedstawia sposób nawiązywania połączeń z usługą Azure SQL Database i używania instrukcji języka Transact-SQL do wykonywania zapytań dotyczących danych. |
-|[Ruby](connect-query-ruby.md)|Ten przewodnik Szybki Start przedstawia sposób tworzenia programu w celu nawiązania połączenia z usługą Azure SQL Database i używania instrukcji języka Transact-SQL do wykonywania zapytań dotyczących danych.|
-|[R](connect-query-r.md)|W tym przewodniku szybki start pokazano, jak używać języka R z Azure SQL Database Machine Learning Services do tworzenia programu w celu nawiązania połączenia z Azure SQL Database i używania instrukcji języka Transact-SQL do wykonywania zapytań dotyczących danych.|
+|[SQL Server Management Studio](connect-query-ssms.md)|Ten przewodnik Szybki Start przedstawia sposób nawiązywania połączeń z bazą danych w Azure SQL Database przy użyciu programu SSMS, a następnie używania instrukcji języka Transact-SQL do wykonywania zapytań, wstawiania, aktualizowania i usuwania danych w bazie danych.|
+|[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)|W tym przewodniku szybki start pokazano, jak za pomocą Azure Data Studio połączyć się z bazą danych w Azure SQL Database, a następnie użyć instrukcji Transact-SQL (T-SQL) w celu utworzenia TutorialDB używanych w samouczkach Azure Data Studio.|
+|[Azure Portal](connect-query-portal.md)|W tym przewodniku szybki start pokazano, jak używać edytora zapytań do łączenia się z bazą danych w Azure SQL Database, a następnie używać instrukcji języka Transact-SQL do wykonywania zapytań, wstawiania, aktualizowania i usuwania danych w bazie danych.|
+|[Visual Studio Code](connect-query-vscode.md)|W tym przewodniku szybki start pokazano, jak za pomocą Visual Studio Code połączyć się z bazą danych w Azure SQL Database, a następnie użyć instrukcji języka Transact-SQL do wykonywania zapytań, wstawiania, aktualizowania i usuwania danych w bazie danych.|
+|[.NET przy użyciu programu Visual Studio](connect-query-dotnet-visual-studio.md)|W tym przewodniku szybki start pokazano, jak za pomocą programu .NET Framework utworzyć program w języku C# z programem Visual Studio, aby połączyć się z bazą danych w Azure SQL Database i użyć instrukcji języka Transact-SQL do wykonywania zapytań dotyczących danych.|
+|[.NET Core](connect-query-dotnet-core.md)|Ten przewodnik Szybki Start przedstawia sposób korzystania z platformy .NET Core w systemie Windows/Linux/macOS w celu utworzenia programu w języku C# do łączenia się z bazą danych w Azure SQL Database i używania instrukcji języka Transact-SQL do wykonywania zapytań dotyczących danych.|
+|[Przejdź](connect-query-go.md)|W tym przewodniku szybki start pokazano, jak używać języka go do nawiązywania połączeń z bazą danych w Azure SQL Database. Ponadto przedstawiono instrukcje języka Transact-SQL umożliwiające wykonywanie zapytań i modyfikowanie danych.|
+|[Java](connect-query-java.md)|W tym przewodniku szybki start pokazano, jak używać języka Java do łączenia się z bazą danych w Azure SQL Database a następnie używać instrukcji języka Transact-SQL do wykonywania zapytań dotyczących danych.|
+|[Node.js](connect-query-nodejs.md)|W tym przewodniku szybki start pokazano, jak za pomocą środowiska Node. js utworzyć program do łączenia się z bazą danych w Azure SQL Database i używać instrukcji języka Transact-SQL do wykonywania zapytań dotyczących danych.|
+|[PHP](connect-query-php.md)|Ten przewodnik Szybki Start przedstawia sposób tworzenia programu w celu nawiązania połączenia z bazą danych w programie Azure SQL Database i używania instrukcji języka Transact-SQL do wykonywania zapytań dotyczących danych.|
+|[Python](connect-query-python.md)|Ten przewodnik Szybki Start przedstawia sposób nawiązywania połączeń z bazą danych w programie Azure SQL Database i używanie instrukcji języka Transact-SQL do wykonywania zapytań dotyczących danych. |
+|[Ruby](connect-query-ruby.md)|Ten przewodnik Szybki Start przedstawia sposób tworzenia programu w celu nawiązania połączenia z bazą danych w programie Azure SQL Database i używania instrukcji języka Transact-SQL do wykonywania zapytań dotyczących danych.|
+|[R](connect-query-r.md)|Ten przewodnik Szybki Start przedstawia sposób używania języka R z Azure SQL Database Machine Learning Services do tworzenia programu w celu nawiązania połączenia z bazą danych w Azure SQL Database i używania instrukcji języka Transact-SQL do wykonywania zapytań dotyczących danych.|
 |||
 
 ## <a name="tls-considerations-for-sql-database-connectivity"></a>Zagadnienia dotyczące protokołu TLS na potrzeby łączności z usługą SQL Database
 
-Protokół TLS (Transport Layer Security) jest używany przez wszystkie sterowniki dostarczane lub obsługiwane przez firmę Microsoft na potrzeby nawiązywania połączenia z usługą Azure SQL Database. Nie jest konieczna żadna specjalna konfiguracja. W przypadku wszystkich połączeń do SQL Server, Azure SQL Database lub wystąpienia zarządzanego usługi Azure SQL zaleca się, aby wszystkie aplikacje ustawili następujące konfiguracje lub ich odpowiedniki:
+Transport Layer Security (TLS) jest używany przez wszystkie sterowniki dostarczone lub obsługiwane przez firmę Microsoft w celu nawiązania połączenia z bazą danych w programie Azure SQL Database. Nie jest konieczna żadna specjalna konfiguracja. W przypadku wszystkich połączeń z wystąpieniem SQL Server, bazy danych w Azure SQL Database lub wystąpienia zarządzanego wystąpienia usługi Azure SQL zaleca się, aby wszystkie aplikacje ustawili następujące konfiguracje lub ich odpowiedniki:
 
 - **Encrypt = On**
 - **TrustServerCertificate = Off**
@@ -86,8 +86,8 @@ W poniższej tabeli przedstawiono przykłady struktur mapowania obiektów (ORM) 
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby uzyskać informacje na temat architektury łączności, zobacz artykuł [Azure SQL Database Connectivity Architecture (Architektura łączności usługi Azure SQL Database)](connectivity-architecture.md).
-- Znajdź [sterowniki programu SQL Server](https://msdn.microsoft.com/library/mt654049.aspx) służące do łączenia się z aplikacji klienckich
-- Łączenie z usługą SQL Database:
+- Znajdź [SQL Server sterowniki](https://msdn.microsoft.com/library/mt654049.aspx) , które są używane do nawiązywania połączenia z aplikacji klienckich.
+- Połącz z Azure SQL Database:
   - [Nawiązywanie połączenia z bazą danych SQL Database przy użyciu platformy .NET (C#)](connect-query-dotnet-core.md)
   - [Nawiązywanie połączenia z bazą danych SQL Database przy użyciu języka PHP](connect-query-php.md)
   - [Nawiązywanie połączenia z bazą danych SQL Database przy użyciu języka Node.js](connect-query-nodejs.md)
@@ -95,8 +95,8 @@ W poniższej tabeli przedstawiono przykłady struktur mapowania obiektów (ORM) 
   - [Nawiązywanie połączenia z bazą danych SQL Database przy użyciu języka Python](connect-query-python.md)
   - [Nawiązywanie połączenia z bazą danych SQL Database przy użyciu języka Ruby](connect-query-ruby.md)
 - Przykłady kodu logiki ponawiania próby:
-  - [Nawiązywanie połączeń odpornych na błędy z bazą danych SQL za pomocą środowiska ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
-  - [nawiązywanie połączeń odpornych na błędy z bazą danych SQL za pomocą języka PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
+  - [Odłączaj się do SQL Database za pomocą ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+  - [Odłączanie się do SQL Database przy użyciu języka PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <!-- Link references. -->
 

@@ -11,12 +11,13 @@ ms.topic: conceptual
 ms.date: 09/26/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3df0f581d0d2a1e5ca02202b4eeaede5a1dd5362
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: references_regions
+ms.openlocfilehash: 46d8fb33c59fc5f0b6d844831e5ee1c937654afb
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78188854"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193793"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: dostępność regionu & dane miejsca do zamieszkania
 

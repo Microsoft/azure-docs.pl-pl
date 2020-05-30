@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/10/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 4b6def2ce2b0c1ba6d3a45e64bb7f82b5948a524
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 315bab473ccb42c3ca7b481c16bf8d8fbcfaac67
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83642186"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193460"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Znane problemy z Azure Data Lake Storage Gen2
 
@@ -60,7 +60,7 @@ Te interfejsy API REST obiektów BLOB nie są obsługiwane:
 
 Niezarządzane dyski maszyny wirtualnej nie są obsługiwane na kontach z hierarchiczną przestrzenią nazw. Jeśli chcesz włączyć hierarchiczną przestrzeń nazw na koncie magazynu, umieść niezarządzane dyski maszyn wirtualnych na koncie magazynu, w którym nie jest włączona funkcja hierarchicznej przestrzeni nazw.
 
-<a id="api-scope-data-lake-client-library" />
+<a id="api-scope-data-lake-client-library"></a>
 
 ## <a name="file-system-support-in-sdks-powershell-and-azure-cli"></a>Obsługa systemu plików w zestawach SDK, programie PowerShell i interfejsie wiersza polecenia platformy Azure
 
@@ -79,25 +79,25 @@ Obecnie występuje usterka wpływająca na warstwę dostępu archiwizowania.
 
 Blobfuse nie jest obsługiwana.
 
-<a id="known-issues-tools" />
+<a id="known-issues-tools"></a>
 
 ## <a name="azcopy"></a>AzCopy
 
 Użyj tylko najnowszej wersji AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)).Wcześniejsze wersje AzCopy, takie jak AzCopy v 8.1, nie są obsługiwane.
 
-<a id="storage-explorer" />
+<a id="storage-explorer"></a>
 
 ## <a name="azure-storage-explorer"></a>Eksplorator usługi Azure Storage
 
 Używaj tylko wersji  `1.6.0`   lub nowszej.
 
-<a id="explorer-in-portal" />
+<a id="explorer-in-portal"></a>
 
 ## <a name="storage-explorer-in-the-azure-portal"></a>Eksplorator usługi Storage w Azure Portal
 
 Listy ACL nie są jeszcze obsługiwane.
 
-<a id="third-party-apps" />
+<a id="third-party-apps"></a>
 
 ## <a name="thirdpartyapplications"></a>Aplikacje innych firm
 
@@ -111,7 +111,7 @@ Jeśli [anonimowy dostęp do odczytu](storage-manage-access-to-resources.md) zos
 
 ### <a name="diagnostic-logs"></a>Dzienniki diagnostyczne
 
-Nie można jeszcze włączyć dzienników diagnostycznych przy użyciu Azure Portal. Można je włączyć przy użyciu programu PowerShell. Na przykład:
+Nie można jeszcze włączyć dzienników diagnostycznych przy użyciu Azure Portal. Można je włączyć przy użyciu programu PowerShell. Przykład:
 
 ```powershell
 #To login

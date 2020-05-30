@@ -12,12 +12,12 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: carlrab; jrasnick
 ms.date: 03/10/2020
-ms.openlocfilehash: 8536c1cfbeefc36774b5423aee39f345dc23cd18
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 50322f69ff1cbb58cd5461646ca057718696e0eb
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84042708"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193876"
 ---
 # <a name="tune-applications-and-databases-for-performance-in-azure-sql-database-and-azure-sql-managed-instance"></a>Dostrajanie aplikacji i baz danych pod kątem wydajności w Azure SQL Database i wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -31,7 +31,7 @@ W tym artykule przyjęto założenie, że już pracujesz z [zaleceniami](databas
 
 ## <a name="tune-your-application"></a>Dostrajanie aplikacji
 
-W tradycyjnych SQL Server lokalnych, proces wstępnego planowania pojemności jest często oddzielony od procesu uruchamiania aplikacji w środowisku produkcyjnym. Najpierw zakupione są licencje sprzętowe i produktowe, a następnie dostrojenie wydajności odbywa się później. W przypadku korzystania z Azure SQL Database lub wystąpienia zarządzanego usługi Azure SQL jest dobrym pomysłem, aby przetwarzać proces uruchamiania aplikacji i dostrajania go. Dzięki modelowi płacenia za pojemność na żądanie możesz dostosować swoją aplikację do korzystania z minimalnych zasobów wymaganych teraz, zamiast nadmiernej aprowizacji sprzętu na podstawie odgadnięcia przyszłych planów wzrostu dla aplikacji, które często są nieprawidłowe. Niektórzy klienci mogą zrezygnować z dostrajania aplikacji, a zamiast tego wybrać opcję nadmierne udostępnianie zasobów sprzętowych. Takie podejście może być dobrym pomysłem, jeśli nie chcesz zmieniać kluczowych aplikacji w okresie zajętości. Jednak dostrajanie aplikacji może zminimalizować wymagania dotyczące zasobów i obniżyć miesięczne rachunki w przypadku używania warstw usług w Azure SQL Database i wystąpieniu zarządzanym usługi Azure SQL.
+W tradycyjnych SQL Server lokalnych, proces wstępnego planowania pojemności jest często oddzielony od procesu uruchamiania aplikacji w środowisku produkcyjnym. Najpierw zakupione są licencje sprzętowe i produktowe, a następnie dostrojenie wydajności odbywa się później. Gdy korzystasz z usługi Azure SQL, dobrym pomysłem jest przekazanie procesu uruchamiania aplikacji i dostosowanie go. Dzięki modelowi płacenia za pojemność na żądanie możesz dostosować swoją aplikację do korzystania z minimalnych zasobów wymaganych teraz, zamiast nadmiernej aprowizacji sprzętu na podstawie odgadnięcia przyszłych planów wzrostu dla aplikacji, które często są nieprawidłowe. Niektórzy klienci mogą zrezygnować z dostrajania aplikacji, a zamiast tego wybrać opcję nadmierne udostępnianie zasobów sprzętowych. Takie podejście może być dobrym pomysłem, jeśli nie chcesz zmieniać kluczowych aplikacji w okresie zajętości. Jednak dostrajanie aplikacji może zminimalizować wymagania dotyczące zasobów i obniżyć miesięczne rachunki w przypadku używania warstw usług w Azure SQL Database i wystąpieniu zarządzanym usługi Azure SQL.
 
 ### <a name="application-characteristics"></a>Charakterystyka aplikacji
 

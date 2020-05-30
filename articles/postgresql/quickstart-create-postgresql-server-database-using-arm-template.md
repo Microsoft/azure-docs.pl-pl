@@ -7,14 +7,14 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/14/2020
-ms.openlocfilehash: 6273043fc50938961caaf9f5a84273ec93c7521c
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 70def2584cf8855e8fdf4a74081dc5a9a8c46f68
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83801748"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84205113"
 ---
-# <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---single-server"></a>Szybki Start: używanie szablonu ARM do tworzenia Azure Database for PostgreSQL-pojedynczego serwera
+# <a name="quickstart-use-a-resource-manager-template-to-create-an-azure-database-for-postgresql---single-server"></a>Szybki Start: Użyj szablonu Menedżer zasobów, aby utworzyć jeden serwer Azure Database for PostgreSQL
 
 Azure Database for PostgreSQL to usługa zarządzana, która służy do uruchamiania i skalowania w chmurze baz danych PostgreSQL o wysokiej dostępności, a także zarządzania nimi. W tym przewodniku szybki start użyjesz szablonu ARM w celu utworzenia serwera Azure Database for PostgreSQL-pojedynczego w Azure Portal, programie PowerShell lub interfejsie wiersza polecenia platformy Azure.
 
@@ -42,9 +42,9 @@ Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://
 
 Tworzysz serwer Azure Database for PostgreSQL ze skonfigurowanym zestawem zasobów obliczeniowych i magazynu. Aby dowiedzieć się więcej, zobacz [warstwy cenowe w Azure Database for PostgreSQL — pojedynczy serwer](concepts-pricing-tiers.md). Serwer jest tworzony w ramach [grupy zasobów Azure](../azure-resource-manager/management/overview.md).
 
-### <a name="review-the-template"></a>Zapoznaj się z szablonem
+### <a name="review-the-template"></a>Przegląd szablonu
 
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-postgresql-with-vnet/).
+Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-managed-postgresql-with-vnet/).
 
 :::code language="json" source="~/quickstart-templates/101-managed-postgresql-with-vnet/azuredeploy.json" range="001-233" highlight="151,164,178,201,215":::
 
@@ -58,13 +58,13 @@ Szablon definiuje pięć zasobów platformy Azure:
 
 Więcej przykładów szablonów Azure Database for PostgreSQL można znaleźć w [szablonach szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbforpostgresql&pageNumber=1&sort=Popular).
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+### <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Wybierz następujący link, aby wdrożyć szablon Azure Database for PostgreSQL Server w Azure Portal:
 
-[![Wdróż na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
+[![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
 
 Na stronie **wdrażanie Azure Database for PostgreSQL przy użyciu sieci wirtualnej** :
 
@@ -173,7 +173,7 @@ read -p "Press [ENTER] to continue: "
 
 ---
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy nie jest już potrzebne, Usuń grupę zasobów, która spowoduje usunięcie zasobów z grupy zasobów.
 

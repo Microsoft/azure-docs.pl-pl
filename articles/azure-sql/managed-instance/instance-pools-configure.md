@@ -1,5 +1,5 @@
 ---
-title: Wdrażanie wystąpienia zarządzanego SQL w puli wystąpień
+title: Wdróż wystąpienie zarządzane SQL w puli wystąpień
 titleSuffix: Azure SQL Managed Instance
 description: W tym artykule opisano sposób tworzenia pul wystąpienia zarządzanego usługi Azure SQL (wersja zapoznawcza) i zarządzania nimi.
 services: sql-database
@@ -12,17 +12,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: c781e23b23f5dbaf8eba9efe4c27428ef35c7be1
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 9b59f6e091143e5c10be393620e4cc042faac36a
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84113626"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84216373"
 ---
-# <a name="deploy-an-azure-sql-managed-instance-to-an-instance-pool"></a>Wdrażanie wystąpienia zarządzanego usługi Azure SQL w puli wystąpień
+# <a name="deploy-azure-sql-managed-instance-to-an-instance-pool"></a>Wdróż wystąpienie zarządzane Azure SQL w puli wystąpień
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Ten artykuł zawiera szczegółowe informacje na temat tworzenia [pul wystąpień](instance-pools-overview.md) i wdrażania wystąpienia zarządzanego usługi Azure SQL. 
+Ten artykuł zawiera szczegółowe informacje na temat tworzenia [puli wystąpień](instance-pools-overview.md) i wdrażania wystąpienia zarządzanego usługi Azure SQL. 
 
 ## <a name="instance-pool-operations"></a>Operacje puli wystąpień
 
@@ -31,17 +31,17 @@ W poniższej tabeli przedstawiono dostępne operacje związane z pulami wystąpi
 |Polecenie|Azure Portal|PowerShell|
 |:---|:---|:---|
 |Tworzenie puli wystąpień|Nie|Yes|
-|Aktualizuj pulę wystąpień (ograniczoną liczbę właściwości)|Nie |Yes |
-|Sprawdź użycie i właściwości puli wystąpień|Nie|Yes |
-|Usuń pulę wystąpień|Nie|Yes|
-|Utwórz wystąpienie zarządzane SQL w ramach puli wystąpień|Nie|Yes|
-|Aktualizuj użycie zasobów wystąpienia zarządzanego SQL|Yes |Tak|
-|Sprawdź użycie i właściwości wystąpienia zarządzanego przez program SQL|Yes|Tak|
-|Usuń wystąpienie zarządzane SQL z puli|Yes|Tak|
-|Tworzenie bazy danych w wystąpieniu w puli|Yes|Tak|
-|Usuwanie bazy danych z wystąpienia zarządzanego SQL|Yes|Tak|
+|Zaktualizuj pulę wystąpień (ograniczoną liczbę właściwości)|Nie |Yes |
+|Sprawdź użycie puli wystąpień i właściwości|Nie|Yes |
+|Usuwanie puli wystąpień|Nie|Yes|
+|Tworzenie wystąpienia zarządzanego wewnątrz puli wystąpień|Nie|Yes|
+|Aktualizowanie użycia zasobów dla wystąpienia zarządzanego|Tak |Tak|
+|Sprawdzanie użycia i właściwości wystąpienia zarządzanego|Tak|Tak|
+|Usuwanie wystąpienia zarządzanego z puli|Tak|Tak|
+|Tworzenie bazy danych w wystąpieniu w puli|Tak|Tak|
+|Usuwanie bazy danych z wystąpienia zarządzanego SQL|Tak|Tak|
 
-Dostępne [polecenia programu PowerShell](https://docs.microsoft.com/powershell/module/az.sql/)
+Dostępne [polecenia programu PowerShell](https://docs.microsoft.com/powershell/module/az.sql/):
 
 |Polecenie cmdlet |Opis |
 |:---|:---|
@@ -58,13 +58,13 @@ W przypadku operacji związanych z wystąpieniami zarówno wewnątrz pul, jak i 
 
 ## <a name="deployment-process"></a>Proces wdrażania
 
-Aby wdrożyć wystąpienie zarządzane SQL w puli wystąpień, należy najpierw wdrożyć pulę wystąpień, czyli jednorazową operacją długotrwałą, w której czas trwania jest taki sam jak wdrożenie [pojedynczego wystąpienia utworzonego w pustej podsieci](sql-managed-instance-paas-overview.md#management-operations). Następnie można wdrożyć wystąpienia zarządzane SQL w puli, która jest stosunkowo szybką operacją, która zazwyczaj trwa do pięciu minut. Parametr puli wystąpień musi być jawnie określony jako część tej operacji.
+Aby wdrożyć wystąpienie zarządzane w puli wystąpień, należy najpierw wdrożyć pulę wystąpień, czyli jednorazową operacją długotrwałą, w której czas trwania jest taki sam jak wdrożenie [pojedynczego wystąpienia utworzonego w pustej podsieci](sql-managed-instance-paas-overview.md#management-operations). Następnie można wdrożyć wystąpienie zarządzane w puli, która jest stosunkowo szybką operacją, która zazwyczaj trwa do pięciu minut. Parametr puli wystąpień musi być jawnie określony jako część tej operacji.
 
-W publicznej wersji zapoznawczej obie akcje są obsługiwane tylko przy użyciu programu PowerShell i szablonów Menedżer zasobów. Azure Portal środowisko nie jest obecnie dostępne.
+W publicznej wersji zapoznawczej obie akcje są obsługiwane tylko przy użyciu programu PowerShell i szablonów Azure Resource Manager. Azure Portal środowisko nie jest obecnie dostępne.
 
-Po wdrożeniu wystąpienia zarządzanego SQL w puli *można* użyć Azure Portal, aby zmienić jego właściwości na stronie warstwa cenowa.
+Po wdrożeniu wystąpienia zarządzanego w puli *można* użyć Azure Portal, aby zmienić jego właściwości na stronie warstwa cenowa.
 
-## <a name="create-virtual-network-with-a-subnet"></a>Tworzenie sieci wirtualnej z podsiecią 
+## <a name="create-a-virtual-network-with-a-subnet"></a>Tworzenie sieci wirtualnej z podsiecią 
 
 Aby umieścić wiele pul wystąpień w ramach tej samej sieci wirtualnej, zapoznaj się z następującymi artykułami:
 
@@ -72,15 +72,15 @@ Aby umieścić wiele pul wystąpień w ramach tej samej sieci wirtualnej, zapozn
 - Utwórz nową sieć wirtualną i podsieć przy użyciu [szablonu Azure Portal](virtual-network-subnet-create-arm-template.md) lub postępuj zgodnie z instrukcjami dotyczącymi [przygotowania istniejącej sieci wirtualnej](vnet-existing-add-subnet.md).
  
 
-## <a name="create-instance-pool"></a>Tworzenie puli wystąpień 
+## <a name="create-an-instance-pool"></a>Tworzenie puli wystąpień 
 
 Po wykonaniu powyższych kroków można przystąpić do utworzenia puli wystąpień.
 
 Do pul wystąpień mają zastosowanie następujące ograniczenia:
 
 - Tylko Ogólnego przeznaczenia i 5 rdzeń są dostępne w publicznej wersji zapoznawczej.
-- Nazwa puli może zawierać tylko małe litery, cyfry i łączniki oraz nie może rozpoczynać się od łącznika.
-- Jeśli chcesz użyć AHB (Korzyść użycia hybrydowego platformy Azure), jest on stosowany na poziomie puli wystąpień. Można ustawić typ licencji podczas tworzenia puli lub zaktualizować ją w dowolnym momencie po utworzeniu.
+- Nazwa puli może zawierać tylko małe litery, cyfry i łączniki i nie może rozpoczynać się od łącznika.
+- Jeśli chcesz użyć Korzyść użycia hybrydowego platformy Azure, zostanie ona zastosowana na poziomie puli wystąpień. Można ustawić typ licencji podczas tworzenia puli lub zaktualizować ją w dowolnym momencie po utworzeniu.
 
 > [!IMPORTANT]
 > Wdrożenie puli wystąpień jest długotrwałą operacją, która trwa około 4,5 godzin.
@@ -109,11 +109,11 @@ $instancePool = New-AzSqlInstancePool `
 > [!IMPORTANT]
 > Ponieważ wdrożenie puli wystąpień jest długotrwałą operacją, przed uruchomieniem któregokolwiek z poniższych kroków w tym artykule należy poczekać na jego zakończenie.
 
-## <a name="create-sql-managed-instance"></a>Tworzenie wystąpienia zarządzanego SQL
+## <a name="create-a-managed-instance"></a>Tworzenie wystąpienia zarządzanego
 
-Po pomyślnym wdrożeniu puli wystąpień należy utworzyć w niej wystąpienie zarządzane SQL.
+Po pomyślnym wdrożeniu puli wystąpień należy utworzyć w niej wystąpienie zarządzane.
 
-Aby utworzyć wystąpienie zarządzane SQL, wykonaj następujące polecenie:
+Aby utworzyć wystąpienie zarządzane, wykonaj następujące polecenie:
 
 ```powershell
 $instanceOne = $instancePool | New-AzSqlInstance -Name "mi-pool-name" -VCore 2 -StorageSizeInGB 256
@@ -127,9 +127,9 @@ $instanceTwo = $instancePool | New-AzSqlInstance -Name "mi-pool-name" -VCore 4 -
 
 ## <a name="create-a-database"></a>Tworzenie bazy danych 
 
-Aby utworzyć i zarządzać bazami danych w wystąpieniu zarządzanym SQL, które znajduje się wewnątrz puli, Użyj poleceń z pojedynczym wystąpieniem.
+Aby utworzyć i zarządzać bazami danych w wystąpieniu zarządzanym należącym do puli, Użyj poleceń z pojedynczym wystąpieniem.
 
-Aby utworzyć bazę danych wewnątrz wystąpienia zarządzanego SQL:
+Aby utworzyć bazę danych wewnątrz wystąpienia zarządzanego:
 
 ```powershell
 $poolinstancedb = New-AzSqlInstanceDatabase -Name "mipooldb1" -InstanceName "poolmi-001" -ResourceGroupName "myResourceGroup"
@@ -172,8 +172,8 @@ $databases = Get-AzSqlInstanceDatabase -InstanceName "pool-mi-001" -ResourceGrou
 ## <a name="scale"></a>Skalowanie 
 
 
-Po wypełnieniu wystąpienia zarządzanego SQL z bazami danych mogą trafiać limity wystąpienia dotyczące magazynu lub wydajności. W takim przypadku, jeśli użycie puli nie zostało przekroczone, można skalować wystąpienie.
-Skalowanie wystąpienia zarządzanego SQL wewnątrz puli jest operacją, która trwa kilka minut. Wymagania wstępne dotyczące skalowania są dostępne rdzeni wirtualnych i magazyn na poziomie puli wystąpień.
+Po wypełnieniu wystąpienia zarządzanego z bazami danych mogą trafiać limity wystąpienia dotyczące magazynu lub wydajności. W takim przypadku, jeśli użycie puli nie zostało przekroczone, można skalować wystąpienie.
+Skalowanie wystąpienia zarządzanego w puli jest operacją, która trwa kilka minut. Wymagania wstępne dotyczące skalowania są dostępne rdzeni wirtualnych i magazyn na poziomie puli wystąpień.
 
 Aby zaktualizować liczbę rdzeni wirtualnych i rozmiar magazynu:
 
@@ -190,14 +190,14 @@ $instance | Set-AzSqlInstance -StorageSizeInGB 1024 -InstancePoolName "mi-pool-n
 
 ## <a name="connect"></a>Połącz 
 
-Aby nawiązać połączenie z wystąpieniem zarządzanym SQL w puli, wymagane są następujące dwa kroki:
+Aby połączyć się z wystąpieniem zarządzanym w puli, wymagane są następujące dwa kroki:
 
-1. [Włącz publiczny punkt końcowy dla tego wystąpienia](#enable-public-endpoint).
+1. [Włącz publiczny punkt końcowy dla tego wystąpienia](#enable-the-public-endpoint).
 2. [Dodaj regułę ruchu przychodzącego do sieciowej grupy zabezpieczeń (sieciowej grupy zabezpieczeń)](#add-an-inbound-rule-to-the-network-security-group).
 
 Po zakończeniu obu kroków można nawiązać połączenie z wystąpieniem przy użyciu publicznego adresu punktu końcowego, portu i poświadczeń podanych podczas tworzenia wystąpienia. 
 
-### <a name="enable-public-endpoint"></a>Włącz publiczny punkt końcowy
+### <a name="enable-the-public-endpoint"></a>Włączanie publicznego punktu końcowego
 
 W celu umożliwienia publicznego punktu końcowego dla wystąpienia można wykonać Azure Portal lub za pomocą następującego polecenia programu PowerShell:
 
@@ -215,7 +215,7 @@ Ten krok można wykonać za pośrednictwem Azure Portal lub za pomocą poleceń 
 Aby uzyskać szczegółowe informacje, zobacz [Zezwalanie na ruch publicznego punktu końcowego w sieciowej grupie zabezpieczeń](public-endpoint-configure.md#allow-public-endpoint-traffic-on-the-network-security-group).
 
 
-## <a name="move-existing-single-instance-to-pool"></a>Przenieś istniejące pojedyncze wystąpienie do puli
+## <a name="move-an-existing-single-instance-to-a-pool"></a>Przenoszenie istniejącego pojedynczego wystąpienia do puli
  
 Przeniesienie wystąpień do i z puli jest jednym z publicznych ograniczeń w wersji zapoznawczej. Obejście polega na przywracaniu danych z dowolnego momentu z wystąpienia poza pulą do wystąpienia, które jest już w puli. 
 
@@ -225,7 +225,7 @@ Ten proces ma pewien okres przestoju.
 
 Aby przenieść istniejące bazy danych:
 
-1. Wstrzymywanie obciążeń w wystąpieniu zarządzanym SQL, z którego jest przeprowadzana migracja.
+1. Wstrzymywanie obciążeń w wystąpieniu zarządzanym, z którego jest przeprowadzana migracja.
 2. Generuj skrypty umożliwiające tworzenie systemowych baz danych i wykonywanie ich w wystąpieniu znajdującym się wewnątrz puli wystąpień.
 3. Wykonaj przywracanie do punktu w czasie dla każdej bazy danych z jednego wystąpienia do wystąpienia w puli.
 
@@ -248,7 +248,7 @@ Aby przenieść istniejące bazy danych:
       -TargetInstanceName $targetInstanceName
     ```
 
-4. Wskaż aplikację nowym wystąpieniem i Wznów obciążenie.
+4. Wskaż aplikację nowym wystąpieniem i Wznów swoje obciążenia.
 
 Jeśli istnieje wiele baz danych, należy powtórzyć proces dla każdej bazy danych.
 
@@ -257,7 +257,7 @@ Jeśli istnieje wiele baz danych, należy powtórzyć proces dla każdej bazy da
 
 - Aby zapoznać się z funkcjami i listą porównania, zobacz [funkcje wspólne SQL](../database/features-comparison.md).
 - Aby uzyskać więcej informacji na temat konfiguracji sieci wirtualnej, zobacz [Konfiguracja sieci wirtualnej wystąpienia zarządzanego SQL](connectivity-architecture-overview.md).
-- Przewodnik Szybki Start, który tworzy wystąpienie zarządzane i przywraca bazę danych z pliku kopii zapasowej, znajduje się w temacie [Tworzenie wystąpienia zarządzanego SQL](instance-create-quickstart.md).
-- Aby zapoznać się z samouczkiem korzystającym z Azure Database Migration Service (DMS) do migracji, zobacz [migracja wystąpienia zarządzanego SQL za pomocą usługi DMS](../../dms/tutorial-sql-server-to-managed-instance.md).
+- W przypadku szybkiego startu, który tworzy wystąpienie zarządzane i przywraca bazę danych z pliku kopii zapasowej, zobacz [Tworzenie wystąpienia zarządzanego](instance-create-quickstart.md).
+- Aby zapoznać się z samouczkiem dotyczącym korzystania z Azure Database Migration Service migracji, zobacz [migracja wystąpienia zarządzanego SQL przy użyciu Database Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md).
 - Aby uzyskać zaawansowane monitorowanie wydajności bazy danych wystąpień zarządzanych przez usługę SQL z wbudowaną analizą rozwiązywania problemów, zobacz temat [monitorowanie wystąpienia zarządzanego Azure SQL przy użyciu Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md).
 - Aby uzyskać informacje o cenach, zobacz [Cennik wystąpienia zarządzanego SQL](https://azure.microsoft.com/pricing/details/sql-database/managed/).

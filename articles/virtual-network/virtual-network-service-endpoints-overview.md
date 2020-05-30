@@ -13,16 +13,16 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 4a2a7af23005e3c033d455d52f61cef2b7564b7f
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 9dd4bc79760dde00808358fe489f6e539c2b9a2e
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84018756"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220427"
 ---
 # <a name="virtual-network-service-endpoints"></a>Punkty końcowe usługi dla sieci wirtualnej
 
-Punkty końcowe usługi Virtual Network (VNet) zwiększają prywatną przestrzeń adresową sieci wirtualnej. Punkty końcowe również zwiększają tożsamość sieci wirtualnej do usług platformy Azure za pośrednictwem bezpośredniego połączenia. Punkty końcowe umożliwiają zabezpieczanie krytycznych zasobów usługi platformy Azure tylko do sieci wirtualnych. Ruch z sieci wirtualnej do usługi platformy Azure zawsze pozostaje w sieci szkieletowej platformy Microsoft Azure.
+Punkt końcowy usługi Virtual Network (VNet) zapewnia bezpieczną i bezpośrednią łączność z usługami platformy Azure za pośrednictwem zoptymalizowanej trasy za pośrednictwem sieci szkieletowej platformy Azure. Punkty końcowe umożliwiają zabezpieczanie krytycznych zasobów usługi platformy Azure tylko do sieci wirtualnych. Punkty końcowe usługi umożliwiają używanie prywatnych adresów IP w sieci wirtualnej w celu uzyskania dostępu do punktu końcowego usługi platformy Azure bez konieczności publicznego adresu IP w sieci wirtualnej.
 
 Ta funkcja jest dostępna dla następujących regionów i usług platformy Azure. *Microsoft. \* * Resource znajduje się w nawiasach. Włącz ten zasób ze strony podsieci podczas konfigurowania punktów końcowych usługi dla usługi:
 
@@ -88,7 +88,7 @@ Punkty końcowe usługi oferują następujące korzyści:
 - Sieć wirtualna, w której konfigurowany jest punkt końcowy, może należeć do tej samej subskrypcji, co zasób usługi platformy Azure, lub innej. Aby uzyskać więcej informacji na temat uprawnień wymaganych do konfigurowania punktów końcowych i zabezpieczania usług platformy Azure, zobacz [Aprowizowanie](#provisioning).
 - W przypadku obsługiwanych usług można zabezpieczyć nowe lub istniejące zasoby w sieciach wirtualnych za pomocą punktów końcowych usługi.
 
-### <a name="considerations"></a>Zagadnienia do rozważenia
+### <a name="considerations"></a>Istotne zagadnienia
 
 - Po włączeniu punktu końcowego usługi źródłowe adresy IP maszyn wirtualnych w przełączniku podsieci. Źródłowe adresy IP przełączają się z używania publicznych adresów IPv4 podczas komunikacji z usługą z tej podsieci. Wszystkie otwarte połączenia TCP z usługą są zamykane podczas tego przełączania. Upewnij się, że żadne krytyczne zadania nie działają podczas włączania lub wyłączania punktu końcowego w usłudze dla podsieci. Upewnij się również, czy aplikacje mogą automatycznie połączyć się z usługami platformy Azure po przełączeniu adresu IP.
 
@@ -151,5 +151,5 @@ Często zadawane pytania można znaleźć w temacie [Virtual Network często zad
 - [Zabezpieczanie Azure SQL Data Warehouse w sieci wirtualnej](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 - [Integracja usług platformy Azure w sieciach wirtualnych](virtual-network-for-azure-services.md)
 - [Zasady punktu końcowego usługi Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
-- [Szablon usługi Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)
+- [Szablon Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)
 

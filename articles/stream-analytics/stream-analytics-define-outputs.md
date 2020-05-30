@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/8/2020
-ms.openlocfilehash: 5f4988ad5df5507f9d6acd330a8f8bba9062be0d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ead7361ba48a9a1b646310d3a47850545fff3ade
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84012946"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195616"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Poznanie danych wyjściowych z Azure Stream Analytics
 
@@ -47,19 +47,19 @@ W poniższej tabeli wymieniono nazwy właściwości i ich opisy w celu skonfigur
 | Format | Dotyczy tylko serializacji JSON. **Linia rozdzielona** określa, że dane wyjściowe są formatowane przy użyciu każdego obiektu JSON oddzielonego przez nowy wiersz. W przypadku wybrania opcji **rozdzielone linią**kod JSON jest odczytywany po jednym obiekcie naraz. Cała zawartość nie będzie prawidłowym kodem JSON.  **Tablica** określa, że dane wyjściowe są formatowane jako tablica obiektów JSON. Ta tablica jest zamykana tylko wtedy, gdy zadanie zostało zatrzymane lub Stream Analytics zostało przeniesione do następnego przedziału czasu. Ogólnie rzecz biorąc, zalecane jest użycie kodu JSON rozdzielonego wierszem, ponieważ nie wymaga żadnej specjalnej obsługi, gdy plik wyjściowy jest nadal w trakcie zapisywania.|
 | Tryb uwierzytelniania | Możesz autoryzować dostęp do konta Data Lake Storage przy użyciu [tożsamości zarządzanej](stream-analytics-managed-identities-adls.md) lub tokenu użytkownika. Po udzieleniu dostępu można odwołać dostęp poprzez zmianę hasła konta użytkownika, usunięcie Data Lake Storage danych wyjściowych dla tego zadania lub usunięcie zadania Stream Analytics. |
 
-## <a name="sql-database"></a>SQL Database
+## <a name="sql-database"></a>Baza danych SQL
 
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) jako dane wyjściowe można użyć jako danych wyjściowych, które są relacyjne, lub dla aplikacji, które są zależne od zawartości hostowanej w relacyjnej bazie danych. Stream Analytics zadania zapisu do istniejącej tabeli w SQL Database. Schemat tabeli musi dokładnie pasować do pól i ich typów w danych wyjściowych zadania. Możesz również określić [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) jako dane wyjściowe za pośrednictwem opcji SQL Database Output. Aby dowiedzieć się więcej na temat sposobów zwiększania przepływności zapisu, zobacz artykuł [Stream Analytics z Azure SQL Database jako dane wyjściowe](stream-analytics-sql-output-perf.md) .
 
-Możesz również użyć [Azure SQL Database wystąpienia zarządzanego](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) jako danych wyjściowych. Należy [skonfigurować publiczny punkt końcowy w Azure SQL Database wystąpieniu zarządzanym](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) , a następnie ręcznie skonfigurować poniższe ustawienia w programie Azure Stream Analytics. Maszyna wirtualna platformy Azure z systemem SQL Server z dołączoną bazą danych jest również obsługiwana przez ręczne skonfigurowanie ustawień poniżej.
+Możesz również użyć [wystąpienia zarządzanego usługi Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) jako danych wyjściowych. Należy [skonfigurować publiczny punkt końcowy w wystąpieniu zarządzanym SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) , a następnie ręcznie skonfigurować poniższe ustawienia w Azure Stream Analytics. Maszyna wirtualna platformy Azure z systemem SQL Server z dołączoną bazą danych jest również obsługiwana przez ręczne skonfigurowanie ustawień poniżej.
 
 W poniższej tabeli wymieniono nazwy właściwości i ich opisy dotyczące tworzenia SQL Database danych wyjściowych.
 
 | Nazwa właściwości | Opis |
 | --- | --- |
 | Alias danych wyjściowych |Przyjazna nazwa używana w zapytaniach do kierowania danych wyjściowych zapytania do tej bazy danych. |
-| baza danych | Nazwa bazy danych, w której wysyłane są dane wyjściowe. |
-| Nazwa serwera | Nazwa logicznego serwera SQL lub nazwa wystąpienia zarządzanego. Dla Azure SQL Database wystąpienia zarządzanego wymagane jest określenie portu 3342. Na przykład *sampleserver. Public. Database. Windows. NET, 3342* |
+| Baza danych | Nazwa bazy danych, w której wysyłane są dane wyjściowe. |
+| Nazwa serwera | Nazwa logicznego serwera SQL lub nazwa wystąpienia zarządzanego. W przypadku wystąpienia zarządzanego SQL wymagane jest określenie portu 3342. Na przykład *sampleserver. Public. Database. Windows. NET, 3342* |
 | Nazwa użytkownika | Nazwa użytkownika, która ma dostęp do zapisu w bazie danych. Stream Analytics obsługuje tylko uwierzytelnianie SQL. |
 | Hasło | Hasło, aby połączyć się z bazą danych. |
 | Tabela | Nazwa tabeli, w której zapisano dane wyjściowe. W nazwie tabeli jest rozróżniana wielkość liter. Schemat tej tabeli powinien dokładnie pasować do liczby pól i ich typów generowanych przez dane wyjściowe zadania. |
@@ -87,7 +87,7 @@ W poniższej tabeli wymieniono nazwy właściwości i ich opisy dotyczące tworz
 |Nazwa właściwości|Opis|
 |-|-|
 |Alias danych wyjściowych |Przyjazna nazwa używana w zapytaniach do kierowania danych wyjściowych zapytania do tej bazy danych. |
-|baza danych |Nazwa puli SQL, do której wysyłane są dane wyjściowe. |
+|Baza danych |Nazwa puli SQL, do której wysyłane są dane wyjściowe. |
 |Nazwa serwera |Nazwa serwera usługi Azure Synapse.  |
 |Nazwa użytkownika |Nazwa użytkownika, która ma dostęp do zapisu w bazie danych. Stream Analytics obsługuje tylko uwierzytelnianie SQL. |
 |Hasło |Hasło, aby połączyć się z bazą danych. |
@@ -279,7 +279,7 @@ W poniższej tabeli opisano właściwości tworzenia Azure Cosmos DB danych wyj�
 | Opcja importu | Wybierz opcję **wybierz Cosmos DB z subskrypcji** lub **podaj ręcznie ustawienia Cosmos DB**.
 | Identyfikator konta | Nazwa lub identyfikator URI punktu końcowego konta Azure Cosmos DB. |
 | Klucz konta | Współużytkowany klucz dostępu dla konta Azure Cosmos DB. |
-| baza danych | Nazwa bazy danych Azure Cosmos DB. |
+| Baza danych | Nazwa bazy danych Azure Cosmos DB. |
 | Nazwa kontenera | Nazwa kontenera do użycia, która musi istnieć w Cosmos DB. Przykład:  <br /><ul><li> Obiekt _Webcontainerer_: kontener o nazwie "The containerer" musi istnieć.</li>|
 | Identyfikator dokumentu |Opcjonalny. Nazwa pola w zdarzeniach wyjściowych, które służy do określania klucza podstawowego, na którym bazują operacje wstawiania lub aktualizacji.
 
@@ -351,16 +351,16 @@ Poniższa tabela zawiera podsumowanie obsługi partycji oraz liczbę modułów z
 
 | Typ danych wyjściowych | Obsługa partycjonowania | Klucz partycji  | Liczba modułów zapisywania danych wyjściowych |
 | --- | --- | --- | --- |
-| Azure Data Lake Store | Yes | Użyj tokenów {date} i {Time} w wzorcu prefiksu ścieżki. Wybierz format daty, na przykład RRRR/MM/DD, DD/MM/RRRR lub MM-DD-RRRR. HH jest używany w formacie czasu. | Następuje Partycjonowanie danych wejściowych dla w [pełni działania równoległegoych zapytań](stream-analytics-scale-jobs.md). |
+| Azure Data Lake Store | Tak | Użyj tokenów {date} i {Time} w wzorcu prefiksu ścieżki. Wybierz format daty, na przykład RRRR/MM/DD, DD/MM/RRRR lub MM-DD-RRRR. HH jest używany w formacie czasu. | Następuje Partycjonowanie danych wejściowych dla w [pełni działania równoległegoych zapytań](stream-analytics-scale-jobs.md). |
 | Azure SQL Database | Tak, musi być włączona. | Na podstawie klauzuli PARTITION BY w zapytaniu. | Gdy opcja dziedziczenia jest włączona, następuje Partycjonowanie danych wejściowych dla w [pełni działania równoległegoych zapytań](stream-analytics-scale-jobs.md). Aby dowiedzieć się więcej o osiągnięciu lepszej wydajności zapisu podczas ładowania danych do Azure SQL Database, zobacz [Azure Stream Analytics dane wyjściowe do Azure SQL Database](stream-analytics-sql-output-perf.md). |
-| Azure Blob Storage | Yes | Użyj tokenów {date} i {Time} z pól zdarzeń we wzorcu ścieżki. Wybierz format daty, na przykład RRRR/MM/DD, DD/MM/RRRR lub MM-DD-RRRR. HH jest używany w formacie czasu. Dane wyjściowe obiektu BLOB mogą być podzielone na partycje za pomocą jednego niestandardowego atrybutu zdarzenia {FieldName} lub {DateTime: \<specifier> }. | Następuje Partycjonowanie danych wejściowych dla w [pełni działania równoległegoych zapytań](stream-analytics-scale-jobs.md). |
-| Azure Event Hubs | Yes | Yes | Różni się w zależności od wyrównania partycji.<br /> Gdy klucz partycji dla danych wyjściowych centrum zdarzeń jest równomiernie wyrównany przy użyciu nadrzędnego (poprzedni) kroku zapytania, liczba modułów zapisujących jest taka sama jak liczba partycji w danych wyjściowych centrum zdarzeń. Każdy moduł zapisujący używa [klasy EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) do wysyłania zdarzeń do konkretnej partycji. <br /> Gdy klucz partycji dla danych wyjściowych centrum zdarzeń nie jest wyrównany przy użyciu nadrzędnego (poprzedni) kroku zapytania, liczba modułów zapisujących jest taka sama jak liczba partycji w tym poprzednim kroku. Każdy moduł zapisujący używa [klasy SendBatchAsync](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) w **EventHubClient** do wysyłania zdarzeń do wszystkich partycji wyjściowych. |
+| Azure Blob Storage | Tak | Użyj tokenów {date} i {Time} z pól zdarzeń we wzorcu ścieżki. Wybierz format daty, na przykład RRRR/MM/DD, DD/MM/RRRR lub MM-DD-RRRR. HH jest używany w formacie czasu. Dane wyjściowe obiektu BLOB mogą być podzielone na partycje za pomocą jednego niestandardowego atrybutu zdarzenia {FieldName} lub {DateTime: \<specifier> }. | Następuje Partycjonowanie danych wejściowych dla w [pełni działania równoległegoych zapytań](stream-analytics-scale-jobs.md). |
+| Azure Event Hubs | Tak | Tak | Różni się w zależności od wyrównania partycji.<br /> Gdy klucz partycji dla danych wyjściowych centrum zdarzeń jest równomiernie wyrównany przy użyciu nadrzędnego (poprzedni) kroku zapytania, liczba modułów zapisujących jest taka sama jak liczba partycji w danych wyjściowych centrum zdarzeń. Każdy moduł zapisujący używa [klasy EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) do wysyłania zdarzeń do konkretnej partycji. <br /> Gdy klucz partycji dla danych wyjściowych centrum zdarzeń nie jest wyrównany przy użyciu nadrzędnego (poprzedni) kroku zapytania, liczba modułów zapisujących jest taka sama jak liczba partycji w tym poprzednim kroku. Każdy moduł zapisujący używa [klasy SendBatchAsync](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) w **EventHubClient** do wysyłania zdarzeń do wszystkich partycji wyjściowych. |
 | Power BI | Nie | Brak | Nie dotyczy. |
-| Azure Table Storage | Yes | Dowolna kolumna wyjściowa.  | Następuje Partycjonowanie danych wejściowych w przypadku w [pełni równoległych zapytań](stream-analytics-scale-jobs.md). |
-| Temat usługi Azure Service Bus | Yes | Wybrana automatycznie. Liczba partycji jest określana na podstawie [Service Bus jednostki SKU i rozmiaru](../service-bus-messaging/service-bus-partitioning.md). Klucz partycji jest unikatową wartością całkowitą dla każdej partycji.| Wartość taka sama jak liczba partycji w temacie danych wyjściowych.  |
-| Kolejka usługi Azure Service Bus | Yes | Wybrana automatycznie. Liczba partycji jest określana na podstawie [Service Bus jednostki SKU i rozmiaru](../service-bus-messaging/service-bus-partitioning.md). Klucz partycji jest unikatową wartością całkowitą dla każdej partycji.| Wartość taka sama jak liczba partycji w kolejce wyjściowej. |
-| Azure Cosmos DB | Yes | Na podstawie klauzuli PARTITION BY w zapytaniu. | Następuje Partycjonowanie danych wejściowych w przypadku w [pełni równoległych zapytań](stream-analytics-scale-jobs.md). |
-| Azure Functions | Yes | Na podstawie klauzuli PARTITION BY w zapytaniu. | Następuje Partycjonowanie danych wejściowych w przypadku w [pełni równoległych zapytań](stream-analytics-scale-jobs.md). |
+| Azure Table Storage | Tak | Dowolna kolumna wyjściowa.  | Następuje Partycjonowanie danych wejściowych w przypadku w [pełni równoległych zapytań](stream-analytics-scale-jobs.md). |
+| Temat usługi Azure Service Bus | Tak | Wybrana automatycznie. Liczba partycji jest określana na podstawie [Service Bus jednostki SKU i rozmiaru](../service-bus-messaging/service-bus-partitioning.md). Klucz partycji jest unikatową wartością całkowitą dla każdej partycji.| Wartość taka sama jak liczba partycji w temacie danych wyjściowych.  |
+| Kolejka usługi Azure Service Bus | Tak | Wybrana automatycznie. Liczba partycji jest określana na podstawie [Service Bus jednostki SKU i rozmiaru](../service-bus-messaging/service-bus-partitioning.md). Klucz partycji jest unikatową wartością całkowitą dla każdej partycji.| Wartość taka sama jak liczba partycji w kolejce wyjściowej. |
+| Azure Cosmos DB | Tak | Na podstawie klauzuli PARTITION BY w zapytaniu. | Następuje Partycjonowanie danych wejściowych w przypadku w [pełni równoległych zapytań](stream-analytics-scale-jobs.md). |
+| Azure Functions | Tak | Na podstawie klauzuli PARTITION BY w zapytaniu. | Następuje Partycjonowanie danych wejściowych w przypadku w [pełni równoległych zapytań](stream-analytics-scale-jobs.md). |
 
 Liczba modułów zapisywania danych wyjściowych może być również kontrolowana za pomocą `INTO <partition count>` klauzuli (patrz [do](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) w zapytaniu, co może być przydatne w osiągnięciu odpowiedniej topologii zadań. Jeśli karta wyjściowa nie zostanie podzielona na partycje, Brak danych w jednej partycji wejściowej spowoduje opóźnienie do późnego przybycia. W takich przypadkach dane wyjściowe są scalane z pojedynczym składnikiem zapisywania, co może powodować wąskie gardła w potoku. Aby dowiedzieć się więcej na temat zasad późnego przybycia, zobacz temat [Azure Stream Analytics uwagi dotyczące kolejności zdarzeń](stream-analytics-out-of-order-and-late-events.md).
 

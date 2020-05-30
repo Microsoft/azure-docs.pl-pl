@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych maszyn wirtualnych VMware przy użyciu Azure B
 description: W tym artykule dowiesz się, jak używać Azure Backup Server do tworzenia kopii zapasowych maszyn wirtualnych VMware działających na serwerze VMware vCenter/ESXi.
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: 92846f9bb9259e55a2c957716676ff42c032b2b5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c4bf61e2a02200b2e6af814ef4509081649e202d
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81537410"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204722"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Tworzenie kopii zapasowych maszyn wirtualnych VMware przy użyciu Azure Backup Server
 
@@ -26,6 +26,10 @@ W tym artykule wyjaśniono, jak:
 
 - Sprawdź, czy korzystasz z wersji programu vCenter/ESXi, która jest obsługiwana na potrzeby tworzenia kopii zapasowych. Zapoznaj się z macierzą pomocy technicznej [tutaj](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix).
 - Upewnij się, że skonfigurowano Azure Backup Server. Jeśli jeszcze tego nie zrobiono, [zrób to](backup-azure-microsoft-azure-backup.md) przed rozpoczęciem. Należy uruchomić Azure Backup Server z najnowszymi aktualizacjami.
+- Upewnij się, że następujące porty sieciowe są otwarte:
+    - TCP 443 między serwera usługi MAB i vCenter
+    - TCP 443 i TCP 902 między serwera usługi MAB i hostem ESXi
+
 
 ## <a name="create-a-secure-connection-to-the-vcenter-server"></a>Utwórz bezpieczne połączenie z vCenter Server
 
@@ -58,7 +62,7 @@ Skonfiguruj bezpieczny kanał w następujący sposób:
 
 4. Zapisz plik na maszynie Azure Backup Server z rozszerzeniem. zip.
 
-5. Kliknij prawym przyciskiem myszy pozycję **Pobierz. zip** > **Wyodrębnij wszystko**. Plik. zip wyodrębnia jego zawartość do folderu **certs** , który zawiera następujące elementy:
+5. Kliknij prawym przyciskiem myszy pozycję **Pobierz. zip**  >  **Wyodrębnij wszystko**. Plik. zip wyodrębnia jego zawartość do folderu **certs** , który zawiera następujące elementy:
    - Plik certyfikatu głównego z rozszerzeniem rozpoczynającym się od numerowanej sekwencji takiej jak. 0 i. 1.
    - Plik listy CRL ma rozszerzenie zaczynające się od sekwencji like. r0 lub. R1. Plik listy CRL jest skojarzony z certyfikatem.
 
@@ -115,11 +119,11 @@ Azure Backup Server musi mieć konto użytkownika z uprawnieniami dostępu do ho
 
     ![Administracja](./media/backup-azure-backup-server-vmware/vmware-navigator-panel.png)
 
-3. W obszarze**role** **administracyjne** > kliknij ikonę Dodaj rolę (symbol +).
+3. W **Administration**obszarze  >  **role**administracyjne kliknij ikonę Dodaj rolę (symbol +).
 
     ![Dodaj rolę](./media/backup-azure-backup-server-vmware/vmware-define-new-role.png)
 
-4. W polu **Utwórz** > **nazwę roli**roli wprowadź *BackupAdminRole*. Nazwa roli może być dowolnie taka, ale powinna być rozpoznawalna dla celu roli.
+4. W polu **Utwórz**  >  **nazwę roli**roli wprowadź *BackupAdminRole*. Nazwa roli może być dowolnie taka, ale powinna być rozpoznawalna dla celu roli.
 
 5. Wybierz uprawnienia, które zostały podsumowane w poniższej tabeli, a następnie kliknij przycisk **OK**.  Nowa rola zostanie wyświetlona na liście w panelu **role** .
    - Kliknij ikonę obok etykiety nadrzędnej, aby rozwinąć element nadrzędny i wyświetlić uprawnienia podrzędne.
@@ -221,11 +225,11 @@ Azure Backup Server musi mieć konto użytkownika z uprawnieniami dostępu do ho
 
     ![Wybierz użytkownika lub grupę](./media/backup-azure-backup-server-vmware/vmware-add-new-global-perm.png)
 
-6. W obszarze **Wybierz użytkowników/grupy**wybierz pozycję **BackupAdmin** > **Dodaj**. W obszarze **Użytkownicy**, w przypadku konta użytkownika jest używany format *domena \ nazwa_użytkownika* . Jeśli chcesz użyć innej domeny, wybierz ją z listy **domen** . Kliknij przycisk **OK** , aby dodać wybranych użytkowników do okna dialogowego **Dodawanie uprawnienia** .
+6. W obszarze **Wybierz użytkowników/grupy**wybierz pozycję **BackupAdmin**  >  **Dodaj**. W obszarze **Użytkownicy**, w przypadku konta użytkownika jest używany format *domena \ nazwa_użytkownika* . Jeśli chcesz użyć innej domeny, wybierz ją z listy **domen** . Kliknij przycisk **OK** , aby dodać wybranych użytkowników do okna dialogowego **Dodawanie uprawnienia** .
 
     ![Dodawanie użytkownika BackupAdmin](./media/backup-azure-backup-server-vmware/vmware-assign-account-to-role.png)
 
-7. Z listy rozwijanej z **przypisaną rolą**wybierz pozycję **BackupAdminRole** > **OK**.
+7. Z listy rozwijanej z **przypisaną rolą**wybierz pozycję **BackupAdminRole**  >  **OK**.
 
     ![Przypisywanie użytkownika do roli](./media/backup-azure-backup-server-vmware/vmware-choose-role.png)
 
@@ -237,7 +241,7 @@ Na karcie **Zarządzanie** w panelu **uprawnienia globalne** na liście zostanie
 
     ![Ikona Azure Backup Server](./media/backup-azure-backup-server-vmware/mabs-icon.png)
 
-2. W konsoli Azure Backup Server kliknij pozycję **Zarządzanie** >  **serwery** > produkcyjne**Zarządzanie programem VMware**.
+2. W konsoli Azure Backup Server kliknij pozycję **Zarządzanie**  >   **serwery produkcyjne**  >  **Zarządzanie programem VMware**.
 
     ![Konsola Azure Backup Server](./media/backup-azure-backup-server-vmware/add-vmware-credentials.png)
 
@@ -257,11 +261,11 @@ Na karcie **Zarządzanie** w panelu **uprawnienia globalne** na liście zostanie
 
 Dodaj vCenter Server do Azure Backup Server.
 
-1. W konsoli Azure Backup Server kliknij pozycję **Zarządzanie** > **serwerami** > produkcyjnymi**Dodaj**.
+1. W konsoli Azure Backup Server kliknij pozycję **Zarządzanie**  >  **serwerami produkcyjnymi**  >  **Dodaj**.
 
     ![Kreator otwierania dodawania serwera produkcyjnego](./media/backup-azure-backup-server-vmware/add-vcenter-to-mabs.png)
 
-2.  > W **Kreatorze dodawania do serwera produkcyjnego****Wybierz opcję Typ serwera produkcyjnego** , wybierz pozycję **serwery VMware**, a następnie kliknij przycisk **dalej**.
+2. W **Kreatorze dodawania do serwera produkcyjnego**  >  **Wybierz opcję Typ serwera produkcyjnego** , wybierz pozycję **serwery VMware**, a następnie kliknij przycisk **dalej**.
 
     ![Kreator dodawania do serwera produkcyjnego](./media/backup-azure-backup-server-vmware/production-server-add-wizard.png)
 

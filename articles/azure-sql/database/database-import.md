@@ -1,6 +1,6 @@
 ---
-title: Importowanie pliku BACPAC w celu utworzenia bazy danych w usłudze Azure SQL
-description: Utwórz nową Azure SQL Database lub bazę danych wystąpienia zarządzanego Azure SQL z pliku BACPAC.
+title: Zaimportuj plik BACPAC, aby utworzyć bazę danych w Azure SQL Database
+description: Utwórz nową bazę danych w Azure SQL Database lub wystąpienia zarządzanego Azure SQL z pliku BACPAC.
 services: sql-database
 ms.service: sql-database
 ms.subservice: migration
@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/20/2019
-ms.openlocfilehash: 25e8790ed0fd5a9a9d93458c3c247632defa778a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 81a77e3a5fac19b4d6116a74221d3506d603bff9
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84050674"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84218828"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Szybki Start: Importowanie pliku BACPAC do bazy danych w Azure SQL Database lub wystąpienia zarządzanego Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Bazę danych SQL Server można zaimportować do wystąpienia zarządzanego Azure SQL Database lub SQL przy użyciu pliku [BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) . Dane można zaimportować z `BACPAC` pliku przechowywanego w usłudze Azure Blob Storage (tylko w przypadku magazynu w warstwie Standardowa) lub z magazynu lokalnego w lokalizacji lokalnej. Aby maksymalnie zwiększyć szybkość importowania przez zapewnienie większej ilości szybszych zasobów, przeprowadź skalowanie bazy danych do wyższej warstwy usługi i rozmiaru obliczeniowego na czas trwania procesu importowania. Po pomyślnym zakończeniu importowania możesz przeprowadzić skalowanie w dół.
+Bazę danych SQL Server można zaimportować do wystąpienia zarządzanego Azure SQL Database lub SQL przy użyciu pliku [BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) . Dane można zaimportować z pliku BACPAC przechowywanego w usłudze Azure Blob Storage (tylko w przypadku magazynu w warstwie Standardowa) lub z magazynu lokalnego. Aby maksymalnie zwiększyć szybkość importowania przez zapewnienie większej ilości szybszych zasobów, przeprowadź skalowanie bazy danych do wyższej warstwy usługi i rozmiaru obliczeniowego na czas trwania procesu importowania. Po pomyślnym zakończeniu importowania możesz przeprowadzić skalowanie w dół.
 
 > [!NOTE]
 > Poziom zgodności zaimportowanej bazy danych jest oparty na poziomie zgodności źródłowej bazy danych.
@@ -35,7 +35,7 @@ Obejrzyj ten film wideo, aby dowiedzieć się, jak importować z pliku BACPAC w 
 
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Its-just-SQL-Restoring-a-database-to-Azure-SQL-DB-from-backup/player?WT.mc_id=dataexposed-c9-niner]
 
-[Azure Portal](https://portal.azure.com) obsługuje *tylko* tworzenie pojedynczego Azure SQL Database i *tylko* z pliku BACPAC przechowywanego w usłudze Azure Blob Storage.
+[Azure Portal](https://portal.azure.com) obsługuje *tylko* Tworzenie pojedynczej bazy danych w programie Azure SQL Database i *tylko* z pliku BACPAC przechowywanego w usłudze Azure Blob Storage.
 
 Aby przeprowadzić migrację bazy danych do [wystąpienia zarządzanego usługi Azure SQL](../managed-instance/sql-managed-instance-paas-overview.md) z pliku BACPAC, użyj SQL Server Management Studio lub sqlpackage, używając Azure Portal lub Azure PowerShell nie jest obecnie obsługiwane.
 
@@ -48,7 +48,7 @@ Aby przeprowadzić migrację bazy danych do [wystąpienia zarządzanego usługi 
 
 1. Wybierz konto magazynu i kontener dla pliku BACPAC, a następnie wybierz plik BACPAC, z którego ma zostać zaimportowany.
 
-1. Określ nowy rozmiar bazy danych (zwykle taki sam jak pierwotny) i podaj miejsce docelowe SQL Server poświadczenia. Aby uzyskać listę możliwych wartości dla nowego Azure SQL Database, zobacz [CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).
+1. Określ nowy rozmiar bazy danych (zwykle taki sam jak pierwotny) i podaj miejsce docelowe SQL Server poświadczenia. Aby uzyskać listę możliwych wartości dla nowej bazy danych w Azure SQL Database, zobacz [CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).
 
    ![Import2 bazy danych](./media/database-import/sql-server-import-database-settings.png)
 
@@ -157,7 +157,7 @@ Możesz również użyć tych kreatorów.
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby dowiedzieć się, jak nawiązać połączenie z Azure SQL Database i wykonać zapytania, zobacz [Szybki Start: Azure SQL Database: używanie SQL Server Management Studio do nawiązywania połączeń i wykonywania zapytań dotyczących danych](connect-query-ssms.md).
+- Aby dowiedzieć się, jak nawiązać połączenie z bazą danych i zbadać ją w Azure SQL Database, zobacz [Szybki Start: Azure SQL Database: użyj SQL Server Management Studio, aby nawiązać połączenie z danymi i wysyłać do nich zapytania](connect-query-ssms.md).
 - Aby poczytać o migracji za pomocą plików BACPAC na blogu SQL Server Customer Advisory Team, zobacz [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://techcommunity.microsoft.com/t5/DataCAT/Migrating-from-SQL-Server-to-Azure-SQL-Database-using-Bacpac/ba-p/305407) (Migrowanie z programu SQL Server do usługi Azure SQL Database za pomocą plików BACPAC).
 - Aby zapoznać się z omówieniem całego procesu migracji bazy danych SQL Server, łącznie z zaleceniami dotyczącymi wydajności, zobacz [SQL Server migracji bazy danych do Azure SQL Database](migrate-to-database-from-sql-server.md).
 - Aby dowiedzieć się, jak bezpiecznie zarządzać i udostępniać klucze magazynu i sygnatury dostępu współdzielonego, zobacz [Przewodnik po zabezpieczeniach usługi Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-security-guide).

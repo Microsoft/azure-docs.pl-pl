@@ -3,16 +3,17 @@ title: Wyświetlanie danych na żywo (wersja zapoznawcza) za pomocą Azure Monit
 description: W tym artykule opisano widok Kubernetes dzienników, zdarzeń i metryk w czasie rzeczywistym bez używania polecenia kubectl w Azure Monitor for Containers.
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 38615acf079c33c49e27394bfdb9b8104e5a68ac
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.custom: references_regions
+ms.openlocfilehash: 80bf3e50ac63ae9b48d6f3b314bc52bcb209072f
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82872114"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196055"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Jak wyświetlać dzienniki Kubernetes, zdarzenia i metryki pod względem czasu rzeczywistego
 
-Azure Monitor dla kontenerów zawiera funkcję danych na żywo (wersja zapoznawcza), która jest zaawansowaną funkcją diagnostyczną umożliwiającą bezpośredni dostęp do dzienników kontenerów usługi Azure Kubernetes Service (AKS), zdarzeń i metryk pod. Udostępnia bezpośredni dostęp do `kubectl logs -c`, `kubectl get` zdarzeń i. `kubectl top pods` W okienku konsoli są wyświetlane dzienniki, zdarzenia i metryki wygenerowane przez aparat kontenera, aby dodatkowo pomóc w rozwiązywaniu problemów w czasie rzeczywistym.
+Azure Monitor dla kontenerów zawiera funkcję danych na żywo (wersja zapoznawcza), która jest zaawansowaną funkcją diagnostyczną umożliwiającą bezpośredni dostęp do dzienników kontenerów usługi Azure Kubernetes Service (AKS), zdarzeń i metryk pod. Udostępnia bezpośredni dostęp do `kubectl logs -c` , `kubectl get` zdarzeń i `kubectl top pods` . W okienku konsoli są wyświetlane dzienniki, zdarzenia i metryki wygenerowane przez aparat kontenera, aby dodatkowo pomóc w rozwiązywaniu problemów w czasie rzeczywistym.
 
 Ten artykuł zawiera szczegółowe omówienie i pomaga zrozumieć, jak korzystać z tej funkcji. 
 
@@ -26,7 +27,7 @@ Aby uzyskać pomoc w konfigurowaniu lub rozwiązywaniu problemów dotyczących a
 
 ## <a name="live-data-preview-functionality-overview"></a>Przegląd funkcji danych na żywo (wersja zapoznawcza)
 
-### <a name="search"></a>Wyszukaj
+### <a name="search"></a>Wyszukiwanie
 
 ![Przykład filtru okienka konsoli danych dynamicznych](./media/container-insights-livedata-overview/livedata-pane-filter-example.png)
 
@@ -57,7 +58,7 @@ Dane dzienników w czasie rzeczywistym można wyświetlić w miarę ich generowa
 4. Wybierz obiekt z siatki wydajności i w okienku właściwości, które znajdują się po prawej stronie, wybierz opcję **Wyświetl dane na żywo (wersja zapoznawcza)** . Jeśli klaster AKS jest skonfigurowany z logowaniem jednokrotnym przy użyciu usługi Azure AD, zostanie wyświetlony monit o uwierzytelnienie przy pierwszym użyciu podczas tej sesji przeglądarki. Wybierz swoje konto i Ukończ uwierzytelnianie na platformie Azure.  
 
     >[!NOTE]
-    >Podczas przeglądania danych z obszaru roboczego Log Analytics, wybierając opcję **Wyświetl w analizie** z okienka właściwości, wyniki wyszukiwania dzienników będą potencjalnie wyświetlać **węzły**, **zestawy demonów**, **zestawy replik**, **zadania**, zadania firmy **cronus**, **zasobniki**i **kontenery** , które mogą już nie istnieć. Próba przeszukania dzienników dla kontenera, który nie jest dostępny `kubectl` w programie, również zakończy się niepowodzeniem. Przejrzyj [Widok w funkcji Analiza](container-insights-log-search.md#search-logs-to-analyze-data) , aby dowiedzieć się więcej na temat wyświetlania dzienników historycznych, zdarzeń i metryk.  
+    >Podczas przeglądania danych z obszaru roboczego Log Analytics, wybierając opcję **Wyświetl w analizie** z okienka właściwości, wyniki wyszukiwania dzienników będą potencjalnie wyświetlać **węzły**, **zestawy demonów**, **zestawy replik**, **zadania**, zadania firmy **cronus**, **zasobniki**i **kontenery** , które mogą już nie istnieć. Próba przeszukania dzienników dla kontenera, który nie jest dostępny w programie, `kubectl` również zakończy się niepowodzeniem. Przejrzyj [Widok w funkcji Analiza](container-insights-log-search.md#search-logs-to-analyze-data) , aby dowiedzieć się więcej na temat wyświetlania dzienników historycznych, zdarzeń i metryk.  
 
 Po pomyślnym uwierzytelnieniu okienko konsoli dane dynamiczne (wersja zapoznawcza) zostanie wyświetlone poniżej siatki danych wydajności, w której można wyświetlić dane dziennika w strumieniu ciągłym. Jeśli wskaźnik stanu pobierania zawiera zielony znacznik wyboru, który znajduje się po prawej stronie okienka, oznacza to, że dane mogą być pobierane i rozpoczyna przesyłanie strumieniowe do konsoli programu.  
 
@@ -78,7 +79,7 @@ Dane zdarzeń w czasie rzeczywistym można wyświetlać w miarę ich generowania
 4. Wybierz obiekt z siatki wydajności i w okienku właściwości, które znajdują się po prawej stronie, wybierz opcję **Wyświetl dane na żywo (wersja zapoznawcza)** . Jeśli klaster AKS jest skonfigurowany z logowaniem jednokrotnym przy użyciu usługi Azure AD, zostanie wyświetlony monit o uwierzytelnienie przy pierwszym użyciu podczas tej sesji przeglądarki. Wybierz swoje konto i Ukończ uwierzytelnianie na platformie Azure.  
 
     >[!NOTE]
-    >Podczas przeglądania danych z obszaru roboczego Log Analytics, wybierając opcję **Wyświetl w analizie** z okienka właściwości, wyniki wyszukiwania dzienników będą potencjalnie wyświetlać **węzły**, **zestawy demonów**, **zestawy replik**, **zadania**, zadania firmy **cronus**, **zasobniki**i **kontenery** , które mogą już nie istnieć. Próba przeszukania dzienników dla kontenera, który nie jest dostępny `kubectl` w programie, również zakończy się niepowodzeniem. Przejrzyj [Widok w funkcji Analiza](container-insights-log-search.md#search-logs-to-analyze-data) , aby dowiedzieć się więcej na temat wyświetlania dzienników historycznych, zdarzeń i metryk.  
+    >Podczas przeglądania danych z obszaru roboczego Log Analytics, wybierając opcję **Wyświetl w analizie** z okienka właściwości, wyniki wyszukiwania dzienników będą potencjalnie wyświetlać **węzły**, **zestawy demonów**, **zestawy replik**, **zadania**, zadania firmy **cronus**, **zasobniki**i **kontenery** , które mogą już nie istnieć. Próba przeszukania dzienników dla kontenera, który nie jest dostępny w programie, `kubectl` również zakończy się niepowodzeniem. Przejrzyj [Widok w funkcji Analiza](container-insights-log-search.md#search-logs-to-analyze-data) , aby dowiedzieć się więcej na temat wyświetlania dzienników historycznych, zdarzeń i metryk.  
 
 Po pomyślnym uwierzytelnieniu okienko konsoli dane dynamiczne (wersja zapoznawcza) zostanie wyświetlone poniżej siatki danych wydajności. Jeśli wskaźnik stanu pobierania zawiera zielony znacznik wyboru, który znajduje się po prawej stronie okienka, oznacza to, że dane mogą być pobierane i rozpoczyna przesyłanie strumieniowe do konsoli programu. 
     
@@ -105,7 +106,7 @@ Dane metryki w czasie rzeczywistym można wyświetlić w miarę ich generowania 
 4. Wybierz obiekt **pod** z siatki wydajności i w okienku właściwości, które znajdują się po prawej stronie, wybierz opcję **Wyświetl dane dynamiczne (wersja zapoznawcza)** . Jeśli klaster AKS jest skonfigurowany z logowaniem jednokrotnym przy użyciu usługi Azure AD, zostanie wyświetlony monit o uwierzytelnienie przy pierwszym użyciu podczas tej sesji przeglądarki. Wybierz swoje konto i Ukończ uwierzytelnianie na platformie Azure.  
 
     >[!NOTE]
-    >Podczas przeglądania danych z obszaru roboczego Log Analytics, wybierając opcję **Wyświetl w analizie** z okienka właściwości, wyniki wyszukiwania dzienników będą potencjalnie wyświetlać **węzły**, **zestawy demonów**, **zestawy replik**, **zadania**, zadania firmy **cronus**, **zasobniki**i **kontenery** , które mogą już nie istnieć. Próba przeszukania dzienników dla kontenera, który nie jest dostępny `kubectl` w programie, również zakończy się niepowodzeniem. Przejrzyj [Widok w funkcji Analiza](container-insights-log-search.md#search-logs-to-analyze-data) , aby dowiedzieć się więcej na temat wyświetlania dzienników historycznych, zdarzeń i metryk.  
+    >Podczas przeglądania danych z obszaru roboczego Log Analytics, wybierając opcję **Wyświetl w analizie** z okienka właściwości, wyniki wyszukiwania dzienników będą potencjalnie wyświetlać **węzły**, **zestawy demonów**, **zestawy replik**, **zadania**, zadania firmy **cronus**, **zasobniki**i **kontenery** , które mogą już nie istnieć. Próba przeszukania dzienników dla kontenera, który nie jest dostępny w programie, `kubectl` również zakończy się niepowodzeniem. Przejrzyj [Widok w funkcji Analiza](container-insights-log-search.md#search-logs-to-analyze-data) , aby dowiedzieć się więcej na temat wyświetlania dzienników historycznych, zdarzeń i metryk.  
 
 Po pomyślnym uwierzytelnieniu okienko konsoli dane dynamiczne (wersja zapoznawcza) zostanie wyświetlone poniżej siatki danych wydajności. Dane metryk są pobierane i rozpoczynają przesyłanie strumieniowe do konsoli programu w celu przedstawienia ich na dwóch wykresach. W tytule okienka wyświetlana jest nazwa, pod którą jest zgrupowany kontener.
 

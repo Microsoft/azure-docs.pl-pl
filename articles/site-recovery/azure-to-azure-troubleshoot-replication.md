@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 04/03/2020
-ms.openlocfilehash: 3c7d4f0a6d33a52fd972815923e60b33ce8a7448
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: c27bf9a29bdb6e75e10fcafc597f40a88f995461
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901353"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196089"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Rozwiązywanie problemów z replikacją w ramach odzyskiwania po awarii maszyny wirtualnej Azure
 
@@ -28,7 +28,7 @@ W poniższych sekcjach opisano przyczyny i rozwiązania.
 
 ## <a name="high-data-change-rate-on-the-source-virtual-machine"></a>Wysoki współczynnik zmian danych na źródłowej maszynie wirtualnej
 
-Azure Site Recovery tworzy zdarzenie, jeśli współczynnik zmian danych na źródłowej maszynie wirtualnej jest większy niż obsługiwane limity. Aby sprawdzić, czy problem jest spowodowany dużym zmianą, przejdź do **pozycji zreplikowane elementy** > zdarzenia**maszyny wirtualnej** > **— ostatnie 72 godzin**.
+Azure Site Recovery tworzy zdarzenie, jeśli współczynnik zmian danych na źródłowej maszynie wirtualnej jest większy niż obsługiwane limity. Aby sprawdzić, czy problem jest spowodowany dużym zmianą, przejdź do **pozycji zreplikowane elementy**  >  zdarzenia**maszyny wirtualnej**  >  **— ostatnie 72 godzin**.
 Powinna zostać wyświetlona **częstotliwość zmian danych zdarzeń poza obsługiwanymi limitami**:
 
 :::image type="content" source="./media/site-recovery-azure-to-azure-troubleshoot/data_change_event.png" alt-text="Strona Azure Site Recovery, która pokazuje zbyt wysoki współczynnik zmian danych.":::
@@ -105,6 +105,10 @@ Poniżej przedstawiono niektóre z najczęściej spotykanych problemów.
 ### <a name="youre-using-azure-storage-spaces-direct-configuration"></a>Używasz konfiguracji usługi Azure Bezpośrednie miejsca do magazynowania
 
 **Jak naprawić**: Azure Site Recovery nie może utworzyć punktu odzyskiwania spójnego na poziomie aplikacji dla konfiguracji bezpośrednie miejsca do magazynowania. [Skonfiguruj zasady replikacji](azure-to-azure-how-to-enable-replication-s2d-vms.md).
+
+### <a name="app-consistency-not-enabled-on-linux-servers"></a>Nie włączono spójności aplikacji na serwerach z systemem Linux
+
+**Jak naprawić** : Azure Site Recovery dla systemu operacyjnego Linux obsługuje niestandardowe skrypty aplikacji na potrzeby spójności aplikacji. Skrypt niestandardowy z opcjami pre i post będzie używany przez agenta mobilności Azure Site Recovery w celu zapewnienia spójności aplikacji. [Poniżej](https://docs.microsoft.com/azure/site-recovery/site-recovery-faq#replication) przedstawiono kroki, które należy włączyć.
 
 ### <a name="more-causes-because-of-vss-related-issues"></a>Więcej przyczyn spowodowanych problemami związanymi z usługą VSS:
 

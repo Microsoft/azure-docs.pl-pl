@@ -4,12 +4,12 @@ description: Zawiera podsumowanie ustawień i ograniczeń pomocy technicznej dla
 ms.topic: conceptual
 ms.date: 04/19/2020
 ms.author: raynew
-ms.openlocfilehash: ec267053a0bc675d05e6488665f77467da9370e0
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: c1ed127834b826488d02b39304dd943866171441
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746849"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193573"
 ---
 # <a name="azure-migrate-support-matrix"></a>Macierz obsługi Azure Migrate
 
@@ -40,7 +40,7 @@ Migracja serwera usługi Azure Migrate | NA | Migrowanie [maszyn wirtualnych VMw
 [Cloudamize](https://www.cloudamize.com/platform#tab-0)| Oceniaj maszyny wirtualne VMware, maszyny wirtualne funkcji Hyper-V, serwery fizyczne, obciążenia chmury publicznej. | NA
 [Corent Technology](https://go.microsoft.com/fwlink/?linkid=2084928) | Ocenianie i migrowanie maszyn wirtualnych VMware, maszyn wirtualnych funkcji Hyper-V, serwerów fizycznych, obciążeń chmury publicznej. |  Migrowanie maszyn wirtualnych VMware, maszyn wirtualnych funkcji Hyper-V, serwerów fizycznych, obciążeń chmury publicznej.
 [Urządzenie 42](https://go.microsoft.com/fwlink/?linkid=2097158) | Oceniaj maszyny wirtualne VMware, maszyny wirtualne funkcji Hyper-V, serwery fizyczne, obciążenia chmury publicznej.| NA
-[Narzędzie DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | Oceniaj lokalne bazy danych SQL Server. | NA
+[Narzędzie DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | Oceń SQL Server baz danych. | NA
 [DMS](https://docs.microsoft.com/azure/dms/dms-overview) | NA | Migrowanie SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Ocenianie infrastruktury pulpitu wirtualnego (VDI) | NA
 [Movere](https://www.movere.io/) | Oceniaj maszyny wirtualne VMWare, maszyny wirtualne funkcji Hyper-V, maszyny wirtualne Xen, maszyny fizyczne, stacje robocze (w tym infrastruktury VDI), obciążenia chmury publicznej | NA

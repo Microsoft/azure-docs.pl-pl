@@ -1,7 +1,7 @@
 ---
 title: Autoryzuj dostęp serwera i bazy danych przy użyciu nazw logowania i kont użytkowników
 titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
-description: Dowiedz się, jak Azure SQL Database, wystąpienie zarządzane SQL i usługa Azure Synapse uwierzytelniają użytkowników w celu uzyskania dostępu przy użyciu nazw logowania i kont użytkowników. Dowiedz się również, jak role bazy danych i jawne uprawnienia do autoryzacji logowań i użytkowników w celu wykonywania akcji i danych zapytań.
+description: Dowiedz się, jak Azure SQL Database, wystąpienie zarządzane SQL i usługa Azure Synapse uwierzytelniają użytkowników w celu uzyskania dostępu przy użyciu nazw logowania i kont użytkowników. Dowiedz się również, jak przyznać role bazy danych i jawne uprawnienia do autoryzacji logowań i użytkowników w celu wykonywania akcji i danych zapytań.
 keywords: zabezpieczenia bazy danych sql, zarządzanie zabezpieczeniami bazy danych, zabezpieczenia logowania, zabezpieczenia bazy danych, dostęp do bazy danych
 services: sql-database
 ms.service: sql-database
@@ -13,20 +13,20 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/23/2020
-ms.openlocfilehash: 0bf5a16624579a5dc15382b3ec9f2b5641a3b9fc
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 296bf84c22313723c328e1775f697ee19dcb8f04
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84048392"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220550"
 ---
-# <a name="authorizing-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autoryzowanie dostępu do bazy danych do SQL Database, wystąpienia zarządzanego SQL i usługi Azure Synapse Analytics
+# <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autoryzuj dostęp do bazy danych do SQL Database, wystąpienia zarządzanego SQL i usługi Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 W tym artykule omówiono następujące informacje:
 
 - Opcje konfigurowania Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL i usługi Azure Synapse Analytics (dawniej Azure SQL Data Warehouse) w celu umożliwienia użytkownikom wykonywania zadań administracyjnych i uzyskiwania dostępu do danych przechowywanych w tych bazach danych.
-- Konfiguracja dostępu i autoryzacji po pierwszym utworzeniu nowego serwera. 
+- Konfiguracja dostępu i autoryzacji po pierwszym utworzeniu nowego serwera.
 - Jak dodać nazwy logowania i konta użytkowników w bazie danych Master i konta użytkowników, a następnie przyznać te konta uprawnienia administracyjne.
 - Jak dodać konta użytkowników w bazach danych użytkowników, skojarzone z nazwami logowania lub kontami użytkowników.
 - Skonfiguruj konta użytkowników z uprawnieniami w bazach danych użytkowników, korzystając z ról bazy danych i jawnych uprawnień.
@@ -44,7 +44,7 @@ Gdy użytkownik próbuje nawiązać połączenie z bazą danych, udostępnia inf
   Przy użyciu tej metody uwierzytelniania użytkownik przesyła nazwę konta użytkownika i skojarzone hasło w celu nawiązania połączenia. To hasło jest przechowywane w bazie danych Master dla kont użytkowników połączonych z logowaniem lub przechowywanych w bazie danych zawierającej konta użytkowników, które *nie* są połączone z logowaniem.
 - [Uwierzytelnianie Azure Active Directory](authentication-aad-overview.md)
 
-  Przy użyciu tej metody uwierzytelniania użytkownik przesyła nazwę konta użytkownika i żąda, aby usługa korzystała z informacji poświadczenie przechowywanych w Azure Active Directory.
+  Przy użyciu tej metody uwierzytelniania użytkownik przesyła nazwę konta użytkownika i żąda, aby usługa korzystała z informacji poświadczenie przechowywanych w Azure Active Directory (Azure AD).
 
 **Logowania i użytkownicy**: konto użytkownika w bazie danych może być skojarzone z nazwą logowania przechowywaną w bazie danych Master lub może być nazwą użytkownika przechowywaną w pojedynczej bazie danych.
 
@@ -57,8 +57,8 @@ Gdy użytkownik próbuje nawiązać połączenie z bazą danych, udostępnia inf
 
 Podczas pierwszego wdrażania usługi Azure SQL należy określić nazwę logowania administratora i skojarzone hasło dla tej nazwy logowania. To konto administracyjne nosi nazwę **administrator serwera**. Następująca konfiguracja nazw logowania i użytkowników w bazach danych Master i User odbywa się podczas wdrażania:
 
-- Logowanie SQL z uprawnieniami administracyjnymi jest tworzone przy użyciu podanej nazwy logowania. [Logowanie](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine#sa-login) do SQL Database, wystąpienia zarządzanego SQL i usługi Azure Synapse są pojedyncze konta użytkowników.
-- Ta nazwa logowania ma przyznane pełne uprawnienia administracyjne do wszystkich baz danych jako [podmiot zabezpieczeń na poziomie serwera](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine). Ta nazwa logowania ma wszystkie dostępne uprawnienia i nie może być ograniczona. W wystąpieniu zarządzanym SQL ta nazwa logowania jest dodawana do [stałej roli serwera sysadmin](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) (Ta rola nie istnieje w Azure SQL Database).
+- Logowanie SQL z uprawnieniami administracyjnymi jest tworzone przy użyciu podanej nazwy logowania. [Identyfikator logowania](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine#sa-login) to pojedyncze konto użytkownika służące do logowania się do SQL Database, wystąpienia zarządzanego SQL i usługi Azure Synapse.
+- Ta nazwa logowania ma przyznane pełne uprawnienia administracyjne do wszystkich baz danych jako [podmiot zabezpieczeń na poziomie serwera](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine). Nazwa logowania ma wszystkie dostępne uprawnienia i nie może być ograniczona. W wystąpieniu zarządzanym SQL ta nazwa logowania jest dodawana do [stałej roli serwera sysadmin](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) (Ta rola nie istnieje w Azure SQL Database).
 - [user account](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions#database-users) `dbo` Dla tej nazwy logowania w każdej bazie danych użytkownika zostanie utworzone konto użytkownika o nazwie. Użytkownik [dbo](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine) ma wszystkie uprawnienia baz danych w bazie danych i jest mapowany na `db_owner` stałą rolę bazy danych. Dodatkowe role stałych baz danych zostały omówione w dalszej części tego artykułu.
 
 Aby zidentyfikować konta administratorów dla bazy danych, Otwórz Azure Portal i przejdź do karty **Właściwości** serwera lub wystąpienia zarządzanego.
@@ -74,23 +74,23 @@ Aby zidentyfikować konta administratorów dla bazy danych, Otwórz Azure Portal
 
 W tym momencie serwer lub wystąpienie zarządzane jest konfigurowane tylko na potrzeby dostępu przy użyciu jednego identyfikatora logowania SQL i konta użytkownika. Aby utworzyć dodatkowe nazwy logowania z pełnymi lub częściowymi uprawnieniami administracyjnymi, dostępne są następujące opcje (w zależności od trybu wdrożenia):
 
-- **Tworzenie konta administratora Azure Active Directory z pełnymi uprawnieniami administracyjnymi**
+- **Utwórz konto administratora Azure Active Directory z pełnymi uprawnieniami administracyjnymi**
 
-  Włącz uwierzytelnianie Azure Active Directory i Utwórz identyfikator logowania administratora usługi Azure AD. Jedno konto Azure Active Directory można skonfigurować jako administrator wdrożenia SQL z pełnymi uprawnieniami administracyjnymi. To konto może być kontem użytkownika lub grupy zabezpieczeń. **Należy** skonfigurować administratora usługi Azure AD, jeśli chcesz używać kont usługi Azure AD do nawiązywania połączeń z usługą SQL Database, wystąpieniem zarządzanym SQL lub usługą Azure Synapse. Aby uzyskać szczegółowe informacje na temat włączania uwierzytelniania usługi Azure AD dla wszystkich typów wdrożeń SQL, zobacz następujące artykuły:
+  Włącz uwierzytelnianie Azure Active Directory i Utwórz identyfikator logowania administratora usługi Azure AD. Jedno konto Azure Active Directory można skonfigurować jako administrator wdrożenia usługi Azure SQL z pełnymi uprawnieniami administracyjnymi. To konto może być kontem użytkownika lub grupy zabezpieczeń. **Należy** skonfigurować administratora usługi Azure AD, jeśli chcesz używać kont usługi Azure AD do nawiązywania połączeń z usługą SQL Database, wystąpieniem zarządzanym SQL lub usługą Azure Synapse. Aby uzyskać szczegółowe informacje na temat włączania uwierzytelniania usługi Azure AD dla wszystkich typów wdrożeń usługi Azure SQL, zobacz następujące artykuły:
 
   - [Używanie uwierzytelniania Azure Active Directory na potrzeby uwierzytelniania przy użyciu programu SQL Server](authentication-aad-overview.md)
   - [Configure and manage Azure Active Directory authentication with SQL (Konfigurowanie uwierzytelniania w usłudze Azure Active Directory i zarządzanie nim przy użyciu języka SQL)](authentication-aad-configure.md)
 
 - **W wystąpieniu zarządzanym SQL utwórz identyfikatory logowania SQL z pełnymi uprawnieniami administracyjnymi**
 
-  - Utwórz dodatkową nazwę logowania SQL w bazie danych Master
+  - Utwórz dodatkową nazwę logowania SQL w bazie danych Master.
   - Dodaj nazwę logowania do [stałej roli serwera sysadmin](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) przy użyciu instrukcji [ALTER Server role](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql) . Ta nazwa logowania będzie miała pełne uprawnienia administracyjne.
   - Alternatywnie możesz utworzyć [Identyfikator logowania usługi Azure AD](authentication-aad-configure.md)#provision-Azure-AD-admin-SQL-Managed-Instance) przy użyciu SKŁADNI [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) .
 
-- **W SQL Database utwórz identyfikatory logowania SQL mające ograniczone uprawnienia administracyjne**
+- **W SQL Database Utwórz nazwy logowania SQL z ograniczonymi uprawnieniami administracyjnymi**
 
-  - Utwórz dodatkową nazwę logowania SQL w bazie danych Master
-  - Utwórz konto użytkownika w bazie danych Master skojarzone z nowym logowaniem
+  - Utwórz dodatkową nazwę logowania SQL w bazie danych Master.
+  - Utwórz konto użytkownika w bazie danych Master skojarzonej z nowym logowaniem.
   - Dodaj konto użytkownika do programu `dbmanager` , `loginmanager` roli lub obu w `master` bazie danych, korzystając z instrukcji [ALTER Server role](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql) (dla usługi Azure Synapse, użyj instrukcji [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) ).
 
   > [!NOTE]
@@ -115,10 +115,10 @@ Można utworzyć konta dla użytkowników niebędących administratorami przy u�
   - Za pomocą SQL Database można zawsze utworzyć ten typ konta użytkownika.
   - Korzystając z wystąpienia zarządzanego SQL, które obsługuje [podmioty zabezpieczeń serwera usługi Azure AD](authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities), można utworzyć konta użytkowników w celu uwierzytelniania w wystąpieniu zarządzanym SQL bez konieczności tworzenia użytkowników bazy danych jako zawartych użytkowników bazy danych.
 
-  W ramach tego podejścia informacje o uwierzytelnianiu użytkownika są przechowywane w poszczególnych bazach danych i automatycznie replikowane do baz danych replikowanych geograficznie. Jeśli jednak to samo konto istnieje w wielu bazach danych i używasz uwierzytelniania SQL, należy zachować ręczne Synchronizowanie haseł. Ponadto, jeśli użytkownik ma konto w różnych bazach danych z różnymi hasłami, zapamiętanie tych haseł może stać się problemem.
+  W ramach tego podejścia informacje o uwierzytelnianiu użytkownika są przechowywane w poszczególnych bazach danych i automatycznie replikowane do baz danych replikowanych geograficznie. Jeśli jednak to samo konto istnieje w wielu bazach danych i używasz uwierzytelniania SQL platformy Azure, hasła należy synchronizować ręcznie. Ponadto, jeśli użytkownik ma konto w różnych bazach danych z różnymi hasłami, zapamiętanie tych haseł może stać się problemem.
 
 > [!IMPORTANT]
-> Aby utworzyć zawartych użytkowników mapowanych na tożsamości usługi Azure AD, musisz zalogować się przy użyciu konta usługi Azure AD, które jest administratorem w SQL Database. W wystąpieniu zarządzanym SQL logowanie do `sysadmin` usługi Azure AD z uprawnieniami może również tworzyć dane logowania lub użytkownika w usłudze Active Directory.
+> Aby utworzyć zawartych użytkowników mapowanych na tożsamości usługi Azure AD, musisz zalogować się przy użyciu konta usługi Azure AD, które jest administratorem w bazie danych programu w Azure SQL Database. W wystąpieniu zarządzanym SQL logowanie do `sysadmin` usługi Azure AD z uprawnieniami może również tworzyć dane logowania lub użytkownika w usłudze Active Directory.
 
 Przykłady pokazujące sposób tworzenia logowań i użytkowników znajdują się w temacie:
 
@@ -171,4 +171,4 @@ Należy zapoznać się z następującymi funkcjami, których można użyć do og
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby zapoznać się z omówieniem wszystkich funkcji zabezpieczeń SQL Database i wystąpienia zarządzanego SQL, zobacz [Omówienie zabezpieczeń SQL](security-overview.md).
+Aby zapoznać się z omówieniem wszystkich Azure SQL Database i funkcji zabezpieczeń wystąpienia zarządzanego SQL, zobacz [Omówienie zabezpieczeń](security-overview.md).

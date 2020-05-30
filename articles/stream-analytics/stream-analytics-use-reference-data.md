@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 5/11/2020
-ms.openlocfilehash: 524fc747e8e3dc70bdcc594a38b2a083b8381daa
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 8aae9a0ff3ffdbd4f6bc93db5c6f15dcb938080e
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124078"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196438"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Używanie danych referencyjnych do wyszukiwania w Stream Analytics
 
@@ -96,13 +96,13 @@ Przy użyciu opcji zapytania Delta Stream Analytics początkowo uruchamia zapyta
 
 Aby skonfigurować dane referencyjne SQL Database, musisz najpierw utworzyć dane **referencyjne** . W poniższej tabeli objaśniono każdą właściwość, która będzie potrzebna podczas tworzenia danych referencyjnych, z opisem. Aby uzyskać więcej informacji, zobacz [Korzystanie z danych referencyjnych z SQL Database dla zadania Azure Stream Analytics](sql-reference-data.md).
 
-Można użyć [Azure SQL Database wystąpienia zarządzanego](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) jako dane wejściowe danych referencyjnych. Należy [skonfigurować publiczny punkt końcowy w Azure SQL Database wystąpieniu zarządzanym](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) , a następnie ręcznie skonfigurować poniższe ustawienia w programie Azure Stream Analytics. Maszyna wirtualna platformy Azure z systemem SQL Server z dołączoną bazą danych jest również obsługiwana przez ręczne skonfigurowanie ustawień poniżej.
+[Wystąpienia zarządzanego usługi Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) można użyć jako danych wejściowych referencyjnych. Należy [skonfigurować publiczny punkt końcowy w wystąpieniu zarządzanym SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) , a następnie ręcznie skonfigurować poniższe ustawienia w Azure Stream Analytics. Maszyna wirtualna platformy Azure z systemem SQL Server z dołączoną bazą danych jest również obsługiwana przez ręczne skonfigurowanie ustawień poniżej.
 
 |**Nazwa właściwości**|**Opis**  |
 |---------|---------|
 |Alias danych wejściowych|Przyjazna nazwa, która zostanie użyta w zapytaniu zadania, aby odwołać się do tego danych wejściowych.|
 |Subskrypcja|Wybierz subskrypcję|
-|baza danych|Azure SQL Database, który zawiera dane referencyjne. Dla Azure SQL Database wystąpienia zarządzanego wymagane jest określenie portu 3342. Na przykład *sampleserver. Public. Database. Windows. NET, 3342*|
+|Baza danych|Azure SQL Database, który zawiera dane referencyjne. W przypadku wystąpienia zarządzanego SQL wymagane jest określenie portu 3342. Na przykład *sampleserver. Public. Database. Windows. NET, 3342*|
 |Nazwa użytkownika|Nazwa użytkownika skojarzona z Azure SQL Database.|
 |Hasło|Hasło skojarzone z Twoim Azure SQL Database.|
 |Odświeżaj okresowo|Ta opcja pozwala wybrać częstotliwość odświeżania. Wybranie opcji "włączone" pozwoli określić częstotliwość odświeżania w DD: HH: MM.|

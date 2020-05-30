@@ -1,7 +1,7 @@
 ---
 title: 'PowerShell: Migruj SQL Server do SQL Database'
 titleSuffix: Azure Database Migration Service
-description: Dowiedz się, jak przeprowadzić migrację z SQL Server lokalnych do Azure SQL Database przy użyciu Azure PowerShell z Azure Database Migration Service.
+description: Dowiedz się, jak migrować datagbase z SQL Server do Azure SQL Database przy użyciu Azure PowerShell z Azure Database Migration Service.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 323d6b006d3e790a7517e90f34241976904b3ba3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 494ef67938df161915390d9adc74093bafa550f5
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021487"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84192661"
 ---
-# <a name="migrate-sql-server-on-premises-to-azure-sql-database-using-azure-powershell"></a>Migrowanie SQL Server lokalnie do Azure SQL Database przy użyciu Azure PowerShell
+# <a name="migrate-a-sql-server-database-to-azure-sql-database-using-azure-powershell"></a>Migrowanie bazy danych SQL Server do Azure SQL Database przy użyciu Azure PowerShell
 
-W tym artykule przeprowadzisz migrację bazy danych **Adventureworks2012** do lokalnego wystąpienia SQL Server 2016 lub nowszego do Azure SQL Database przy użyciu Microsoft Azure PowerShell. Bazy danych można migrować z wystąpienia SQL Server lokalnego do Azure SQL Database przy użyciu `Az.DataMigration` modułu w Microsoft Azure PowerShell.
+W tym artykule przeprowadzisz migrację bazy danych **Adventureworks2012** do lokalnego wystąpienia SQL Server 2016 lub nowszego do Azure SQL Database przy użyciu Microsoft Azure PowerShell. Bazy danych można migrować z wystąpienia SQL Server do Azure SQL Database przy użyciu `Az.DataMigration` modułu w Microsoft Azure PowerShell.
 
 W tym artykule omówiono sposób wykonywania następujących zadań:
 > [!div class="checklist"]

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: be797f76988c924503e11b6f66cce899b515e3a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7f07f08cd320d94495403b0f5ae65d60d8dc93b5
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75982201"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195991"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Przenoszenie danych między źródłami lokalnymi i chmurą przy użyciu bramy Zarządzanie danymi
 > [!NOTE]
@@ -47,7 +47,7 @@ Przed rozpoczęciem tego instruktażu należy spełnić następujące wymagania 
 
 * **Subskrypcja platformy Azure**.  Jeśli nie masz subskrypcji, możesz utworzyć konto bezpłatnej wersji próbnej w zaledwie kilka minut. Szczegółowe informacje można znaleźć w artykule dotyczącym [bezpłatnej wersji próbnej](https://azure.microsoft.com/pricing/free-trial/) .
 * **Konto usługi Azure Storage**. Magazyn obiektów BLOB jest używany jako magazyn danych **docelowych/ujścia** w tym samouczku. Jeśli nie masz konta usługi Azure Storage, zapoznaj się z artykułem [Tworzenie konta magazynu](../../storage/common/storage-account-create.md) , aby dowiedzieć się, jak go utworzyć.
-* **SQL Server**. Użyj lokalnej bazy danych programu SQL Server jako **źródła** magazynu danych w tym samouczku.
+* **SQL Server**. W tym samouczku używasz bazy danych SQL Server jako **źródła** magazynu danych.
 
 ## <a name="create-data-factory"></a>Tworzenie fabryki danych
 W tym kroku użyjesz Azure Portal, aby utworzyć wystąpienie Azure Data Factory o nazwie **ADFTutorialOnPremDF**.
@@ -138,7 +138,7 @@ W tym kroku użyjesz Azure Portal, aby utworzyć wystąpienie Azure Data Factory
    * Wyświetl lub wyeksportuj certyfikat używany przez bramę.
    * Zmień punkt końcowy HTTPS używany przez bramę.    
    * Ustaw serwer proxy HTTP, który ma być używany przez bramę.     
-9. obowiązkowe Przejdź do karty **Diagnostyka** , zaznacz opcję **Włącz pełne rejestrowanie** , jeśli chcesz włączyć pełne rejestrowanie, którego można użyć do rozwiązywania problemów z bramą. Informacje o rejestrowaniu można znaleźć w **Podgląd zdarzeń** w obszarze ->  **Dzienniki aplikacji i usług****Zarządzanie danymi węźle bramy** .
+9. obowiązkowe Przejdź do karty **Diagnostyka** , zaznacz opcję **Włącz pełne rejestrowanie** , jeśli chcesz włączyć pełne rejestrowanie, którego można użyć do rozwiązywania problemów z bramą. Informacje o rejestrowaniu można znaleźć w **Podgląd zdarzeń** w obszarze **Dzienniki aplikacji i usług**  ->  **Zarządzanie danymi węźle bramy** .
 
     ![Karta Diagnostyka](./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png)
 
@@ -152,9 +152,9 @@ W tym kroku użyjesz Azure Portal, aby utworzyć wystąpienie Azure Data Factory
 12. W widoku drzewa po lewej stronie powinien być widoczny **adftutorialgateway** w obszarze **bramy danych** .  Jeśli klikniesz ją, zobaczysz skojarzony kod JSON.
 
 ## <a name="create-linked-services"></a>Tworzenie połączonych usług
-W tym kroku utworzysz dwie połączone usługi: **AzureStorageLinkedService** i **SqlServerLinkedService**. **SqlServerLinkedService** łączy lokalną bazę danych SQL Server, a połączona usługa **AzureStorageLinkedService** łączy magazyn obiektów blob platformy Azure z fabryką danych. W tym instruktażu utworzysz potok, który kopiuje dane z lokalnej bazy danych SQL Server do magazynu obiektów blob platformy Azure.
+W tym kroku utworzysz dwie połączone usługi: **AzureStorageLinkedService** i **SqlServerLinkedService**. **SqlServerLinkedService** łączy SQL Server bazą danych, a połączona usługa **AzureStorageLinkedService** łączy magazyn obiektów blob platformy Azure z fabryką danych. W tym instruktażu utworzysz potok, który kopiuje dane z bazy danych SQL Server do magazynu obiektów blob platformy Azure.
 
-#### <a name="add-a-linked-service-to-an-on-premises-sql-server-database"></a>Dodawanie połączonej usługi do lokalnej bazy danych SQL Server
+#### <a name="add-a-linked-service-to-a-sql-server-database"></a>Dodawanie połączonej usługi do bazy danych SQL Server
 1. W **edytorze Data Factory**kliknij pozycję **nowy magazyn danych** na pasku narzędzi i wybierz pozycję **SQL Server**.
 
    ![Nowa SQL Server połączona usługa](./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png)
@@ -189,7 +189,7 @@ W tym kroku utworzysz zestawy danych wejściowych i wyjściowych, które repreze
 * Utwórz kontener obiektów blob o nazwie **adftutorial** na koncie usługi Azure Blob Storage dodanym jako połączona usługa do fabryki danych.
 
 ### <a name="prepare-on-premises-sql-server-for-the-tutorial"></a>Przygotowywanie SQL Server lokalnych dla samouczka
-1. W bazie danych określonej dla lokalnej połączonej usługi SQL Server (**SqlServerLinkedService**) użyj następującego skryptu SQL w celu utworzenia tabeli **emp** w bazie danych.
+1. W bazie danych określonej dla SQL Server połączonej usługi (**SqlServerLinkedService**) Użyj poniższego skryptu SQL, aby utworzyć tabelę **EMP** w bazie danych.
 
     ```SQL   
     CREATE TABLE dbo.emp
@@ -359,7 +359,7 @@ W tym kroku utworzysz **potok** z jednym **działaniem kopiowania** , który uż
    * W sekcji działania jest tylko działanie, którego **Typ** jest ustawiony na **Kopiuj**.
    * **Dane wejściowe** dla działania są ustawione na wartość **EmpOnPremSQLTable** , a **dane wyjściowe** dla działania są ustawione na **OutputBlobTable**.
    * W sekcji **typeProperties** , **sqlsource** jest określony jako **Typ źródła** , a **wartość blobsink** jest określony jako **Typ ujścia**.
-   * Zapytanie `select * from emp` SQL jest określone dla właściwości **SqlReaderQuery** elementu **sqlsource**.
+   * Zapytanie SQL `select * from emp` jest określone dla właściwości **sqlReaderQuery** elementu **sqlsource**.
 
    Zarówno data/godzina rozpoczęcia, jak i data/godzina zakończenia muszą być w [formacie ISO](https://en.wikipedia.org/wiki/ISO_8601). Na przykład: 2014-10-14T16:32:41Z. Czas **end** jest opcjonalny, ale w tym samouczku zostanie użyty.
 

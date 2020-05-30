@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: e2b37e0f3ccf5fcebe4723c05d644f2cbb7c1d56
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: f9e0a137dff6fc2376d156f9c72066055b1f59af
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83596946"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196960"
 ---
 # <a name="configure-replication-to-azure-sql-edge-preview"></a>Konfigurowanie replikacji do usługi Azure SQL Edge (wersja zapoznawcza) 
 
@@ -25,12 +25,12 @@ Wystąpienie usługi Azure SQL Edge można skonfigurować jako subskrybenta wypy
 - Wystąpienie usługi Azure SQL Edge musi być subskrybentem wypychanym dla wydawcy.
 - Wydawca i dystrybutor może być albo
    - Wystąpienie SQL Server uruchomione lokalnie lub w wystąpieniu SQL Server uruchomionego na maszynie wirtualnej platformy Azure. Aby uzyskać więcej informacji, zobacz [SQL Server na platformie Azure — omówienie Virtual Machines](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-infrastructure-services/). Wystąpienia SQL Server muszą używać wersji nowszej niż SQL Server 2016.
-   - Wystąpienie Azure SQL Database wystąpienia zarządzanego. Wystąpienie zarządzane może hostować bazy danych wydawcy, dystrybutora i subskrybentów. Aby uzyskać więcej informacji, zobacz [replikacja z wystąpieniem zarządzanym SQL Database](https://docs.microsoft.com/azure/sql-database/replication-with-sql-database-managed-instance/).
+   - Wystąpienie wystąpienia zarządzanego usługi Azure SQL. Wystąpienie zarządzane może hostować bazy danych wydawcy, dystrybutora i subskrybentów. Aby uzyskać więcej informacji, zobacz [replikacja z wystąpieniem zarządzanym SQL Database](https://docs.microsoft.com/azure/sql-database/replication-with-sql-database-managed-instance/).
 
 - Nie można umieścić bazy danych dystrybucji i agentów replikacji w wystąpieniu usługi Azure SQL Edge.  
 
 > [!NOTE]
-> Próba skonfigurowania replikacji za pomocą nieobsługiwanej wersji może spowodować wystąpienie błędu MSSQL_REPL20084 (proces nie mógł nawiązać połączenia z subskrybentem) i MSSQL_REPL40532 (nie można otworzyć \< nazwy serwera> żądanej przez nazwę logowania. Logowanie nie powiodło się.  
+> Próba skonfigurowania replikacji za pomocą nieobsługiwanej wersji może spowodować wystąpienie błędu MSSQL_REPL20084 (proces nie mógł nawiązać połączenia z subskrybentem) i MSSQL_REPL40532 (nie można otworzyć serwera \<name> żądanego przez login. Logowanie nie powiodło się.  
 
 Aby korzystać ze wszystkich funkcji usługi Azure SQL Edge, musisz używać najnowszych wersji narzędzi [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) i [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
 
@@ -40,20 +40,20 @@ Aby korzystać ze wszystkich funkcji usługi Azure SQL Edge, musisz używać naj
 - Replikacja może być SQL Server używana tylko w celu nawiązania połączenia z wystąpieniem usługi Azure SQL Edge.
 - Zreplikowane tabele muszą mieć klucz podstawowy.
 - Jedna publikacja na SQL Server może obsługiwać zarówno usługi Azure SQL Edge, jak i SQL Server (lokalne i SQL Server w ramach maszyn wirtualnych platformy Azure).  
-- Zarządzanie replikacją, monitorowanie i rozwiązywanie problemów należy wykonać z SQL Server lokalnych.  
+- Zarządzanie replikacją, monitorowanie i rozwiązywanie problemów należy wykonać z wystąpienia SQL Server.  
 - Obsługiwane są tylko subskrypcje wypychane do usługi Azure SQL Edge.  
 - `@subscriber_type = 0`Obsługiwane tylko w **Sp_addsubscription** dla usługi Azure SQL Edge.  
 - Usługa Azure SQL Edge nie obsługuje dwukierunkowej, natychmiastowej lub aktualizowalnej replikacji równorzędnej.
-- Usługa Azure SQL Edge obsługuje tylko podzestaw funkcji dostępnych w SQL Server lub Azure SQL Database wystąpieniu zarządzanym, ponieważ próba replikacji bazy danych (lub obiektów w bazie danych), która zawiera co najmniej jedną nieobsługiwaną funkcję, spowoduje wystąpienie błędu. Na przykład próba replikacji bazy danych zawierającej obiekty z danymi przestrzennymi spowoduje wystąpienie błędu. Aby uzyskać więcej informacji o funkcjach obsługiwanych przez usługę Azure SQL Edge, zobacz [obsługiwane funkcje usługi Azure SQL Edge](features.md).
+- Usługa Azure SQL Edge obsługuje tylko podzestaw funkcji dostępnych w SQL Server lub wystąpieniu zarządzanym SQL, ponieważ próba replikacji bazy danych (lub obiektów w bazie danych), która zawiera co najmniej jedną nieobsługiwaną funkcję, spowoduje wystąpienie błędu. Na przykład próba replikacji bazy danych zawierającej obiekty z danymi przestrzennymi spowoduje wystąpienie błędu. Aby uzyskać więcej informacji o funkcjach obsługiwanych przez usługę Azure SQL Edge, zobacz [obsługiwane funkcje usługi Azure SQL Edge](features.md).
 
 ## <a name="scenarios"></a>Scenariusze  
 
 ### <a name="initializing-reference-data-on-an-edge-instance"></a>Inicjowanie danych referencyjnych w wystąpieniu krawędzi
 
-Typowy scenariusz, w którym replikacja może być przydatna, ma miejsce, gdy istnieje potrzeba zainicjowania wystąpienia brzegowego z danymi referencyjnymi, które zmieniają się w czasie. Na przykład aktualizacja modeli ML w wystąpieniu brzegowym po przeszkoleniu w lokalnym wystąpieniu SQL Server.
+Typowy scenariusz, w którym replikacja może być przydatna, ma miejsce, gdy istnieje potrzeba zainicjowania wystąpienia brzegowego z danymi referencyjnymi, które zmieniają się w czasie. Na przykład podczas nauczenia się na wystąpieniu SQL Server należy zaktualizować modele ML w wystąpieniu krawędzi.
 
-1. Utwórz publikację z replikacją transakcyjną w lokalnej bazie danych SQL Server.  
-2. Na SQL Server lokalnym Użyj **Kreatora nowej subskrypcji** lub instrukcji języka Transact-SQL, aby utworzyć wypychanie do subskrypcji usługi Azure SQL Edge.  
+1. Utwórz publikację z replikacją transakcyjną w bazie danych SQL Server.  
+2. Na wystąpieniu SQL Server Użyj **Kreatora nowej subskrypcji** lub instrukcji języka Transact-SQL, aby utworzyć wypychanie do subskrypcji usługi Azure SQL Edge.  
 3. Replikowana baza danych w usłudze Azure SQL Edge może zostać zainicjowana za pomocą migawki wygenerowanej przez agenta migawek i dystrybuowanej i dostarczonej przez agenta dystrybucji albo przy użyciu kopii zapasowej bazy danych od wydawcy. Jeśli kopia zapasowa bazy danych zawiera obiekty/funkcje, które nie są obsługiwane przez usługę Azure SQL Edge, operacja przywracania zakończy się niepowodzeniem.
 
 ## <a name="limitations"></a>Ograniczenia

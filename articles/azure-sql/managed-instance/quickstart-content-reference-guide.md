@@ -12,17 +12,17 @@ author: davidtrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 07/11/2019
-ms.openlocfilehash: 2ef242b95bdafd1781e4db6e72a6374ecf8298c5
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 105c7ae2b0e7f39c29500634391b4388fa2a4723
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84054347"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194948"
 ---
 # <a name="getting-started-with-azure-sql-managed-instance"></a>Wprowadzenie do wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-[Wystąpienie zarządzane Azure SQL](sql-managed-instance-paas-overview.md) tworzy bazę danych o prawie 100% zgodności z najnowszym SQL Server lokalnym (Enterprise Edition) aparat bazy danych, zapewniając natywną implementację [sieci wirtualnej (VNET)](../../virtual-network/virtual-networks-overview.md) , która rozwiązuje typowe problemy z zabezpieczeniami, oraz [model biznesowy](https://azure.microsoft.com/pricing/details/sql-database/) preferowany dla klientów lokalnych SQL Server.
+[Wystąpienie zarządzane Azure SQL](sql-managed-instance-paas-overview.md) tworzy bazę danych o prawie 100% zgodności z najnowszym aparatem bazy danych SQL Server (Enterprise Edition), zapewniając natywną implementację [sieci wirtualnej (VNET)](../../virtual-network/virtual-networks-overview.md) , która rozwiązuje typowe problemy związane z bezpieczeństwem, oraz [model biznesowy](https://azure.microsoft.com/pricing/details/sql-database/) preferowany dla istniejących SQL Server klientów.
 
 W tym artykule znajdziesz odwołania do zawartości, która uczy Cię, jak szybko skonfigurować i utworzyć wystąpienie zarządzane SQL oraz przeprowadzić migrację baz danych.
 
@@ -48,7 +48,7 @@ Alternatywą dla ręcznego tworzenia wystąpienia zarządzanego SQL jest używan
 
 ### <a name="migrate-your-databases"></a>Migrowanie baz danych
 
-Po utworzeniu wystąpienia zarządzanego SQL i skonfigurowaniu dostępu można rozpocząć migrację baz danych z SQL Server lokalnych lub maszyn wirtualnych platformy Azure. Migracja może zakończyć się niepowodzeniem f w źródłowej bazie danych, którą chcesz zmigrować, znajdują się Nieobsługiwane funkcje. Aby uniknąć błędów i sprawdzania zgodności, można użyć [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) do analizowania baz danych na SQL Server i znaleźć wszelkie problemy, które mogą blokować migrację do wystąpienia zarządzanego SQL, takie jak obecność [FILESTREAM](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) lub wiele plików dziennika. W przypadku rozwiązania tych problemów bazy danych są gotowe do migracji do wystąpienia zarządzanego SQL. [Asystent eksperymentowania z bazą danych](/sql/dea/database-experimentation-assistant-overview) to kolejne przydatne narzędzie, które może rejestrować obciążenie na SQL Server i powtarzać je w wystąpieniu zarządzanym SQL, dzięki czemu można określić, czy podczas migracji do wystąpienia zarządzanego SQL zostaną nawiązane jakiekolwiek problemy z wydajnością.
+Po utworzeniu wystąpienia zarządzanego SQL i skonfigurowaniu dostępu można rozpocząć migrację baz danych SQL Server. Migracja może zakończyć się niepowodzeniem f w źródłowej bazie danych, którą chcesz zmigrować, znajdują się Nieobsługiwane funkcje. Aby uniknąć błędów i sprawdzania zgodności, można użyć [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) do analizowania baz danych na SQL Server i znaleźć wszelkie problemy, które mogą blokować migrację do wystąpienia zarządzanego SQL, takie jak obecność [FILESTREAM](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) lub wiele plików dziennika. W przypadku rozwiązania tych problemów bazy danych są gotowe do migracji do wystąpienia zarządzanego SQL. [Asystent eksperymentowania z bazą danych](/sql/dea/database-experimentation-assistant-overview) to kolejne przydatne narzędzie, które może rejestrować obciążenie na SQL Server i powtarzać je w wystąpieniu zarządzanym SQL, dzięki czemu można określić, czy podczas migracji do wystąpienia zarządzanego SQL zostaną nawiązane jakiekolwiek problemy z wydajnością.
 
 Po upewnieniu się, że można przeprowadzić migrację bazy danych do wystąpienia zarządzanego SQL, można użyć funkcji przywracania natywnego SQL Server, aby przywrócić bazę danych do wystąpienia zarządzanego SQL z `.bak` pliku. Tej metody możesz użyć do migracji baz danych z aparatu bazy danych programu SQL Server zainstalowanego lokalnie lub na maszynie wirtualnej platformy Azure. Aby zapoznać się z przewodnikiem Szybki Start, zobacz [przywracanie z kopii zapasowej do wystąpienia zarządzanego SQL](restore-sample-database-quickstart.md). W tym przewodniku Szybki start wykonasz przywracanie z pliku `.bak` przechowywanego w usłudze Azure Blob Storage przy użyciu polecenia języka Transact-SQL `RESTORE`.
 

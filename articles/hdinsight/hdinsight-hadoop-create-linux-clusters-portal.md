@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 8d4e9a1e255884b9250879ab486d7a4e2849473a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a2a9b149bd76ed276f3210f27ea0f60bbc7b7662
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82192097"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84190890"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Tworzenie klastrów opartych na systemie Linux w usłudze HDInsight przy użyciu Azure Portal
 
@@ -25,7 +25,7 @@ Azure Portal to oparte na sieci Web narzędzie do zarządzania usługami i zasob
 
 Azure Portal uwidacznia większość właściwości klastra. Za pomocą szablonów Azure Resource Manager można ukryć wiele szczegółów. Aby uzyskać więcej informacji, zobacz [Tworzenie klastrów Apache Hadoop w usłudze HDInsight przy użyciu szablonów Menedżer zasobów](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="create-clusters"></a>Tworzenie klastrów
 
@@ -37,9 +37,9 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
     ![Utwórz nowy klaster w Azure Portal](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-create-resource.png "Tworzenie nowego klastra w Azure Portal")
 
-1. Wybierz pozycję **Analiza** > **Azure HDInsight** , aby przejść do strony **Tworzenie klastra usługi HDInsight** .
+1. Wybierz pozycję **Analiza**  >  **Azure HDInsight** , aby przejść do strony **Tworzenie klastra usługi HDInsight** .
 
-## <a name="basics"></a>Podstawy
+## <a name="basics"></a>Informacje podstawowe
 
 ![Podstawowe informacje dotyczące tworzenia klastra usługi HDInsight](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-basics.png "Tworzenie nowego klastra w Azure Portal")
 
@@ -62,6 +62,9 @@ Na karcie **podstawowe** podaj następujące informacje:
 Wybierz pozycję **Dalej: >>magazynu** , aby przejść do następnej karty.
 
 ## <a name="storage"></a>Magazyn
+
+> [!WARNING] 
+> Od 15 czerwca 2020 klienci nie będą mogli utworzyć nowej jednostki usługi za pomocą usługi HDInsight. Zobacz [Tworzenie nazwy głównej usługi i certyfikatów](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) przy użyciu Azure Active Directory.
 
 ![Magazyn tworzenia klastra usługi HDInsight](./media/hdinsight-hadoop-create-linux-clusters-portal/azure-portal-cluster-storage.png "Tworzenie nowego klastra w magazynie Azure Portal")
 
@@ -139,7 +142,7 @@ Niektóre ikony w oknie są wyjaśnione w następujący sposób:
 |Omówienie|Zawiera wszystkie podstawowe informacje o klastrze. Przykładami są nazwa, Grupa zasobów, do której należy, lokalizacja, system operacyjny i adres URL pulpitu nawigacyjnego klastra.|
 |Pulpity nawigacyjne klastra|Kieruje użytkownika do portalu Ambari skojarzonego z klastrem.|
 |SSH + logowanie do klastra|Zapewnia informacje konieczne do uzyskania dostępu do klastra przy użyciu protokołu SSH.|
-|Usuwanie|Usuwa klaster usługi HDInsight.|
+|Usuń|Usuwa klaster usługi HDInsight.|
 
 ## <a name="delete-the-cluster"></a>Usuwanie klastra
 

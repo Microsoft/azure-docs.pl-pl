@@ -8,13 +8,13 @@ ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc
-ms.openlocfilehash: 113e745e078bd5d345845318af1b10ed98f2aecb
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.custom: mvc, references_regions
+ms.openlocfilehash: 4b53c4d1a26d8e4b8d784087dcb9b9feba9c7ded
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746917"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84191753"
 ---
 # <a name="what-is-azure-maps"></a>Co to jest usługa Azure Maps?
 

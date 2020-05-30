@@ -3,12 +3,12 @@ title: Macierz obsługi dla oprogramowania VMware/fizycznego odzyskiwania po awa
 description: Podsumowuje obsługę odzyskiwania po awarii maszyn wirtualnych programu VMware i serwera fizycznego na platformie Azure przy użyciu Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 2/24/2020
-ms.openlocfilehash: d8e7b2f8f6483d462f781d95011ef7b972e83b87
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 52c5b20a4411d865f88a5010ed1b0b3b309345ac
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801794"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84190628"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Macierz obsługi odzyskiwania po awarii maszyn wirtualnych VMware i serwerów fizycznych na platformie Azure
 
@@ -117,7 +117,7 @@ Debian 8 | [9,29][9.29 UR] | 3.16.0-4-amd64 do 3.16.0-10-amd64, 4.9.0 -0. BPO. 4
 
 ### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>SUSE Linux Enterprise Server 12 obsługiwanych wersji jądra
 
-**Release** | **Wersja usługi mobilności** | **Wersja jądra** |
+**Usuwanie** | **Wersja usługi mobilności** | **Wersja jądra** |
 --- | --- | --- |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9,28][9.28 UR] | SP1 3.12.49-11 — domyślnie 3.12.74-60.64.40-default</br></br> SP1 (LTSS) 3.12.74-60.64.45 — domyślnie 3.12.74-60.64.118-default</br></br> SP2 4.4.21-69-domyślnie 4.4.120-92.70-default</br></br>SP2 (LTSS) 4.4.121-92.73 — domyślnie 4.4.121-92.117-default</br></br>SP3 4.4.73-5 — domyślnie 4.4.180-94.100-default</br></br>SP3 4.4.138-4.7-Azure to 4.4.180-4.31-Azure</br></br>SP4 4.12.14-94.41-domyślnie 4.12.14-95.29-default</br>SP4 4.12.14-6.3-Azure to 4.12.14-6.23-Azure |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9,27][9.27 UR] | SP1 3.12.49-11 — domyślnie 3.12.74-60.64.40-default</br></br> SP1 (LTSS) 3.12.74-60.64.45 — domyślnie 3.12.74-60.64.115-default</br></br> SP2 4.4.21-69-domyślnie 4.4.120-92.70-default</br></br>SP2 (LTSS) 4.4.121-92.73 — domyślnie 4.4.121-92.114-default</br></br>SP3 4.4.73-5 — domyślnie 4.4.180-94.97-default</br></br>SP3 4.4.138-4.7-Azure to 4.4.180-4.31-Azure</br></br>SP4 4.12.14-94.41-domyślnie 4.12.14-95.19-default</br>SP4 4.12.14-6.3-Azure to 4.12.14-6.15-Azure |
@@ -126,7 +126,7 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9,25][9.25 UR] | SP1 3.1
 
 ### <a name="suse-linux-enterprise-server-15-supported-kernel-versions"></a>SUSE Linux Enterprise Server 15 obsługiwanych wersji jądra
 
-**Release** | **Wersja usługi mobilności** | **Wersja jądra** |
+**Usuwanie** | **Wersja usługi mobilności** | **Wersja jądra** |
 --- | --- | --- |
 SUSE Linux Enterprise Server 15 i 15 SP1 | [9,32](https://support.microsoft.com/help/4550047/) | Domyślnie obsługiwane są wszystkie [jądra systemu SUSE 15 i 15](https://www.suse.com/support/kb/doc/?id=000019587) . </br></br> 4.12.14-5,5-Azure do 4.12.14-8.22 — Azure
 
@@ -215,7 +215,7 @@ Gość/serwer — wykluczanie dysku | Tak
 Wielościeżkowa gość/serwer (MPIO) | Nie
 Partycje typu GPT/serwer | Z [pakietem zbiorczym aktualizacji 37](https://support.microsoft.com/help/4508614/) są obsługiwane pięć partycji (wersja 9,25 usługi mobilności). Cztery dawniej były obsługiwane.
 ReFS | System plików jest odporny na błędy w wersji 9,23 lub nowszej
-Gość/serwer EFI/rozruch UEFI | -Obsługiwane dla systemu Windows Server 2012 lub nowszego, SLES 12 SP4 i RHEL 8,0 z agentem mobilności w wersji 9,30 lub nowszej<br/> -Bezpieczny typ rozruchu UEFI nie jest obsługiwany.
+Gość/serwer EFI/rozruch UEFI | -Obsługiwane dla systemu Windows Server 2012 lub nowszego, SLES 12 SP4 i RHEL 8,0 z agentem mobilności w wersji 9,30 lub nowszej<br/> -Bezpieczny typ rozruchu UEFI nie jest obsługiwany. [Dowiedz się więcej.](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#on-premises-vs-azure-generation-2-vms)
 
 ## <a name="replication-channels"></a>Kanały replikacji
 
@@ -244,7 +244,7 @@ Konta magazynu ogólnego przeznaczenia w wersji 2 (warstwy gorąca i chłodna) |
 
 ## <a name="azure-compute"></a>Obliczenia na platformie Azure
 
-**Funkcja** | **Obsługiwał**
+**Cechy** | **Obsługiwał**
 --- | ---
 Zestawy dostępności | Tak
 Strefy dostępności | Nie
@@ -266,7 +266,7 @@ Rozmiar dysku danych | Do 8 192 GB podczas replikowania na dysk zarządzany (wer
 Karty sieciowe | Obsługiwane są wiele kart. |
 Udostępniony wirtualny dysk twardy | Nieobsługiwane. | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
 Dysk FC | Nieobsługiwane. | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
-Funkcja BitLocker | Nieobsługiwane. | Aby włączyć replikację dla maszyny, należy wyłączyć funkcję BitLocker. |
+BitLocker | Nieobsługiwane. | Aby włączyć replikację dla maszyny, należy wyłączyć funkcję BitLocker. |
 Nazwa maszyny wirtualnej | Od 1 do 63 znaków.<br/><br/> Ograniczone do liter, cyfr i łączników.<br/><br/> Nazwa maszyny musi rozpoczynać się i kończyć literą lub cyfrą. |  Zaktualizuj wartość we właściwościach komputera w Site Recovery.
 
 ## <a name="resource-group-limits"></a>Limity grupy zasobów

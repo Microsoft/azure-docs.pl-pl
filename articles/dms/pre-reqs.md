@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/25/2020
-ms.openlocfilehash: 904ebb2e97ef84e1b0c2a83e5cb153bdb7e44746
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 9aaf334b328b2e20ed94f0c7c87727add1f2baee
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84018926"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195666"
 ---
 # <a name="overview-of-prerequisites-for-using-the-azure-database-migration-service"></a>Omówienie wymagań wstępnych dotyczących używania usługi Azure Database Migration Service
 
@@ -125,9 +125,9 @@ W przypadku używania Azure Database Migration Service do przeprowadzenia SQL Se
    > Aby zapoznać się z pełną listą wymagań wstępnych wymaganych Azure Database Migration Service do przeprowadzenia migracji z SQL Server do Azure SQL Database, zapoznaj się z samouczkiem [migrowanie SQL Server do Azure SQL Database](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-azure-sql).
    >
 
-## <a name="prerequisites-for-migrating-sql-server-to-an-azure-sql-database-managed-instance"></a>Wymagania wstępne dotyczące migrowania SQL Server do wystąpienia zarządzanego Azure SQL Database
+## <a name="prerequisites-for-migrating-sql-server-to-azure-sql-managed-instance"></a>Wymagania wstępne dotyczące migrowania SQL Server do wystąpienia zarządzanego usługi Azure SQL
 
-* Utwórz Azure SQL Database wystąpienie zarządzane, postępując zgodnie ze szczegółowymi informacjami w artykule [tworzenie Azure SQL Database wystąpienia zarządzanego w Azure Portal](https://aka.ms/sqldbmi).
+* Utwórz wystąpienie zarządzane SQL, postępując zgodnie ze szczegółowymi informacjami w artykule [Tworzenie wystąpienia zarządzanego usługi Azure SQL w Azure Portal](https://aka.ms/sqldbmi).
 * Otwórz zaporę, aby zezwolić na ruch SMB na porcie 445 dla adresu IP lub zakresu podsieci Azure Database Migration Service.
 * Otwarcie zapory systemu Windows w celu zezwolenia usłudze Azure Database Migration Service na dostęp do źródłowego wystąpienia programu SQL Server, czyli domyślnie portu TCP 1433.
 * Jeśli uruchomiono wiele nazwanych wystąpień programu SQL Server przy użyciu portów dynamicznych, konieczne może być włączenie usługi SQL Browser Service i zezwolenie na dostęp do portu UDP 1434 przez zapory, tak aby usługa Azure Database Migration Service mogła połączyć się z nazwanym wystąpieniem na serwerze źródłowym.
@@ -138,7 +138,7 @@ W przypadku używania Azure Database Migration Service do przeprowadzenia SQL Se
 * Utwórz kontener obiektów blob i Pobierz jego identyfikator URI sygnatury dostępu współdzielonego, wykonując kroki opisane w artykule [Zarządzanie zasobami BLOB Storage platformy Azure przy użyciu Eksplorator usługi Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container). Pamiętaj, aby podczas tworzenia identyfikatora URI SAS wybrać opcję wszystkie uprawnienia (odczyt, zapis, usuwanie, lista) w oknie zasady.
 
    > [!NOTE]
-   > Aby zapoznać się z pełną listą wymagań wstępnych potrzebnych do korzystania z Azure Database Migration Service w celu przeprowadzenia migracji z SQL Server do Azure SQL Database wystąpienia zarządzanego, zobacz samouczek [migrowanie SQL Server do Azure SQL Database wystąpienia zarządzanego](https://aka.ms/migratetomiusingdms).
+   > Aby zapoznać się z pełną listą wymagań wstępnych potrzebnych do korzystania z Azure Database Migration Service w celu przeprowadzenia migracji z SQL Server do wystąpienia zarządzanego SQL, zobacz samouczek [migrowanie SQL Server do wystąpienia zarządzanego SQL](https://aka.ms/migratetomiusingdms).
 
 ## <a name="next-steps"></a>Następne kroki
 

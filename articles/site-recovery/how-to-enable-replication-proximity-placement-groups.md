@@ -5,12 +5,12 @@ author: Sharmistha-Rai
 manager: gaggupta
 ms.topic: how-to
 ms.date: 05/25/2020
-ms.openlocfilehash: 204ac3be46ac7ba0e1ea96e50379ca417b1299ce
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 1a9e38d2718643212848105e09c60d93f497a34a
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83847637"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193547"
 ---
 # <a name="replicate-azure-virtual-machines-running-in-proximity-placement-groups-to-another-region"></a>Replikowanie maszyn wirtualnych platformy Azure działających w grupach umieszczania w sąsiedztwie w innym regionie
 
@@ -22,11 +22,14 @@ W tym artykule opisano sposób replikowania maszyn wirtualnych, trybu failover i
 
 W typowym scenariuszu maszyny wirtualne mogą działać w grupie umieszczania bliskości, aby uniknąć opóźnień sieci między różnymi warstwami aplikacji. Chociaż może to zapewnić optymalne opóźnienia sieci aplikacji, należy chronić te aplikacje przy użyciu Site Recovery dla dowolnego błędu poziomu regionu. Site Recovery replikuje dane z jednego regionu do innego regionu platformy Azure i łączy maszyny w regionie odzyskiwania po awarii w przypadku przejścia w tryb failover.
 
-## <a name="considerations"></a>Zagadnienia do rozważenia
+## <a name="considerations"></a>Istotne zagadnienia
 
 - Najlepszym nakładem pracy jest przełączenie w tryb failover i powrót po awarii maszyn wirtualnych do grupy umieszczania sąsiedztwa. Jeśli jednak maszyna wirtualna nie może zostać przełączona w tryb failover lub powrotu po awarii, nastąpi przejście do trybu failover/powrotu po awarii, a maszyny wirtualne zostaną utworzone poza grupą położenia sąsiedztwa.
 -  Jeśli zestaw dostępności jest przypięty do grupy umieszczania bliskości, a podczas pracy w trybie failover/powrotu po awarii w zestawie dostępności istnieją ograniczenia alokacji, maszyny wirtualne zostaną utworzone poza zestaw dostępności i grupę umieszczania sąsiedztwa.
 -  Site Recovery dla grup umieszczania zbliżeniowe nie jest obsługiwana w przypadku dysków niezarządzanych.
+
+> [!Note]
+> Azure Site Recovery nie obsługuje powrotu po awarii z dysków zarządzanych dla scenariuszy funkcji Hyper-V do platformy Azure. Z tego powodu powrót po awarii z grupy umieszczania sąsiedztwa na platformie Azure do funkcji Hyper-V nie jest obsługiwany.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

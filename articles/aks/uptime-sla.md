@@ -4,12 +4,13 @@ description: Dowiedz się więcej o opcjonalnej ofercie SLA dla usługi Azure Ku
 services: container-service
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: e0e1399f69640dddfd618ac99637023390f28a92
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.custom: references_regions
+ms.openlocfilehash: 986bb835f319cebf3006d7e1bd31bd7f04a1ae82
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683218"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194005"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Umowa SLA dla usługi Azure Kubernetes Service (AKS)
 

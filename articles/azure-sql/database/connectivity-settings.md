@@ -9,12 +9,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 7b8fc2145c8b1c9da67f0ef44397b0e765b03de2
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: d36cfc711d7a4c5e5c936550f0a6adb783d4bf3b
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84046607"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219001"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Ustawienia łączności usługi Azure SQL
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -107,10 +107,10 @@ Login failed with invalid TLS version
 Poniższy skrypt programu PowerShell przedstawia sposób `Get` i `Set` Właściwość **minimalnej wersji protokołu TLS** na poziomie serwera logicznego:
 
 ```powershell
-#Get the Public Network Access property
-(Get-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).PublicNetworkAccess
+#Get the Minimal TLS Version property
+(Get-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).MinimalTlsVersion
 
-# Update Public Network Access to Disabled
+# # Update Minimal TLS Version to 1.2
 $SecureString = ConvertTo-SecureString "password" -AsPlainText -Force
 
 Set-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group -SqlAdministratorPassword $SecureString  -MinimalTlsVersion "1.2"

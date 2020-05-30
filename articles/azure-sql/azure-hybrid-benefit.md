@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/13/2019
-ms.openlocfilehash: d57eb2718f79e9243426a59245abc44c98dc6249
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: e5af5c6b30c6f03930a61200a11bfa0bd2f72093
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118604"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196446"
 ---
 # <a name="azure-hybrid-benefit---azure-sql-database--sql-managed-instance"></a>Korzyść użycia hybrydowego platformy Azure-Azure SQL Database & wystąpienie zarządzane SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
-W warstwie obliczeniowej z zainicjowaną obsługą modelu zakupu opartego na rdzeń wirtualny można wymienić istniejące licencje dla obniżonych stawek na Azure SQL Database i wystąpienie zarządzane usługi Azure SQL przy użyciu [korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/). Ta korzyść na korzystanie z platformy Azure pozwala zaoszczędzić do 30 procent lub nawet w przypadku SQL Database & wystąpienia zarządzanego SQL przy użyciu lokalnych licencji SQL Server z programem Software Assurance. Na stronie [korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) znajduje się Kalkulator ułatwiający określenie oszczędności.  Należy pamiętać, że Korzyść użycia hybrydowego platformy Azure nie ma zastosowania do Azure SQL Database bezserwerowe.
+W warstwie obliczeniowej z zainicjowaną obsługą modelu zakupu opartego na rdzeń wirtualny można wymienić istniejące licencje dla obniżonych stawek na Azure SQL Database i wystąpienie zarządzane usługi Azure SQL przy użyciu [korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/). Ta korzyść na korzystanie z platformy Azure pozwala zaoszczędzić do 30 procent lub nawet w przypadku SQL Database & wystąpienia zarządzanego SQL przy użyciu licencji SQL Server z programem Software Assurance. Na stronie [korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) znajduje się Kalkulator ułatwiający określenie oszczędności.  Należy pamiętać, że Korzyść użycia hybrydowego platformy Azure nie ma zastosowania do Azure SQL Database bezserwerowe.
 
 > [!NOTE]
 > Zmiana na Korzyść użycia hybrydowego platformy Azure nie wymaga żadnych przestojów.
@@ -77,7 +77,7 @@ Firma Microsoft oferuje korzyści z zakresu mobilności licencji do SQL Server k
 Korzyść użycia hybrydowego platformy Azure SQL Server różni się od przenoszenia licencji w dwóch kluczowych obszarach:
 
 - Zapewnia ekonomiczne korzyści związane z przenoszenium wysoce zwirtualizowanych obciążeń na platformę Azure. Klienci wersji SQL Server Enterprise Edition mogą uzyskać cztery rdzenie na platformie Azure w jednostce SKU Ogólnego przeznaczenia dla każdego rdzenia, które są lokalnie przeznaczone dla wysoce zwirtualizowanych aplikacji. Mobilność licencji nie pozwala na przenoszenie zwirtualizowanych obciążeń do chmury z uwzględnieniem specjalnych kosztów.
-- Zapewnia miejsce docelowe PaaS na platformie Azure (SQL Database wystąpienia zarządzanego), które jest wysoce zgodne z SQL Server lokalnymi.
+- Zapewnia miejsce docelowe PaaS na platformie Azure (SQL Database wystąpienia zarządzanego), które jest wysoce zgodne z SQL Server.
 
 #### <a name="what-are-the-specific-rights-of-the-azure-hybrid-benefit-for-sql-server"></a>Jakie są określone prawa Korzyść użycia hybrydowego platformy Azure dla SQL Server?
 

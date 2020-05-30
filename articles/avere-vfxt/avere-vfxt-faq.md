@@ -6,12 +6,13 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: rohogue
-ms.openlocfilehash: 186b2c048a9de42318e4af287393d731a4eb16f1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: references_regions
+ms.openlocfilehash: 55423119e55401d5176e228eba784f2eb498bfef
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76153466"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196342"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Avere vFXT for Azure — często zadawane pytania
 
@@ -268,7 +269,7 @@ Szyfrowanie obiektów BLOB można skonfigurować na platformie Azure (preferowan
 
 Domyślnie dane są szyfrowane za pomocą kluczy zarządzanych przez firmę Microsoft dla obiektów blob, tabel i kolejek platformy Azure, a także Azure Files. Możesz przenieść własny klucz do szyfrowania dla usługi BLOB Storage i Azure Files. Jeśli zdecydujesz się używać szyfrowania avere vFXT, musisz użyć klucza wygenerowanego przez avere i zapisać go lokalnie.
 
-## <a name="purchasing"></a>Zakupy
+## <a name="purchasing"></a>Zakup
 
 ### <a name="how-do-i-get-avere-vfxt-for-azure-licensing"></a>Jak mogę pobrać avere vFXT dla licencjonowania platformy Azure?
 

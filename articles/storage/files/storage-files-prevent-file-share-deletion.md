@@ -4,16 +4,16 @@ description: Dowiedz się więcej o usuwaniu nietrwałego dla udziałów plików
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: 9ffc065cb877c7f87cd38671f586f0754a42b2b8
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 6ee38dd6f9a2e254c57d6f79c09eee7bccfcd0aa
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141589"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204688"
 ---
 # <a name="prevent-accidental-deletion-of-azure-file-shares"></a>Zapobiegaj przypadkowemu usunięciu udziałów plików platformy Azure
 
@@ -21,27 +21,29 @@ Usługa Azure Storage oferuje teraz nietrwałe usuwanie udziałów plików (wers
 
 ## <a name="how-soft-delete-preview-works"></a>Jak działa usuwanie nietrwałe (wersja zapoznawcza)
 
-Po włączeniu funkcja usuwania nietrwałego pozwala zapisywać i odzyskiwać udziały plików po ich usunięciu. Po usunięciu danych następuje przejście do nietrwałego stanu usuniętego zamiast wyczyszczenia. Można skonfigurować ilość czasu nietrwałego usuwania danych, zanim zostanie on trwale usunięty.
+Po włączeniu usuwania nietrwałego dla udziałów plików platformy Azure, jeśli udział plików zostanie usunięty, przechodzi do nietrwałego stanu usuniętego, a nie na stałe wymazywanie. Można skonfigurować ilość czasu nietrwałego usuwania danych, zanim zostanie on trwale usunięty.
 
 Usuwanie nietrwałe można włączyć dla nowych lub istniejących udziałów plików. Usuwanie nietrwałe jest również zgodne z poprzednimi wersjami, więc nie musisz wprowadzać żadnych zmian w aplikacjach, aby korzystać z ochrony usuwania nietrwałego. 
 
+Aby trwale usunąć udział plików w stanie usuwania nietrwałego przed upływem jego czasu, należy cofnąć usunięcie tego udziału, wyłączyć usuwanie nietrwałe, a następnie usunąć udział ponownie. Następnie należy ponownie włączyć usuwanie trwałe, ponieważ wszystkie inne udziały plików na tym koncie magazynu będą narażone na przypadkowe usunięcie, podczas gdy usuwanie nietrwałe jest wyłączone.
+
 W przypadku nietrwałego usuwania udziałów plików w warstwie Premium przydział udziału plików (udostępniony rozmiar udziału plików) jest używany w łącznym obliczaniu limitu przydziału konta magazynu do momentu usunięcia nietrwałej daty wygaśnięcia udziałów, gdy udział zostanie całkowicie usunięty.
 
-### <a name="availability"></a>Dostępność
+## <a name="availability"></a>Dostępność
 
 Usuwanie nietrwałe dla udziałów plików platformy Azure (wersja zapoznawcza) jest dostępne we wszystkich warstwach magazynowania, wszystkich typach kont magazynu i w każdym regionie, w którym Azure Files jest dostępna.
 
 ## <a name="configuration-settings"></a>Ustawienia konfiguracji
 
-Usuwanie nietrwałe dla udziałów plików jest włączone na poziomie konta magazynu, ustawienia usuwania nietrwałego mają zastosowanie do wszystkich udziałów plików na koncie magazynu. Podczas tworzenia nowego konta magazynu, usuwanie nietrwałe jest domyślnie wyłączone. Usuwanie nietrwałe jest również domyślnie wyłączone dla istniejących kont magazynu. Można w dowolnym momencie włączyć lub wyłączyć funkcję usuwania nietrwałego.
+### <a name="enabling-or-disabling-soft-delete"></a>Włączanie lub wyłączanie usuwania nietrwałego
+
+Usuwanie nietrwałe dla udziałów plików jest włączone na poziomie konta magazynu. z tego powodu ustawienia usuwania nietrwałego mają zastosowanie do wszystkich udziałów plików na koncie magazynu. Można włączać lub wyłączać usuwanie nietrwałe w dowolnym momencie. Podczas tworzenia nowego konta magazynu, usuwanie nietrwałe dla udziałów plików jest domyślnie wyłączone. Usuwanie nietrwałe jest również domyślnie wyłączone dla istniejących kont magazynu. Jeśli skonfigurowano [kopię zapasową udziału plików platformy](../../backup/azure-file-share-backup-overview.md) Azure dla udziału plików platformy Azure, usuwanie nietrwałe dla udziałów plików platformy Azure zostanie automatycznie włączone na koncie magazynu tego udziału.
 
 Jeśli włączysz usuwanie nietrwałe dla udziałów plików, usuń niektóre udziały plików, a następnie Wyłącz usuwanie nietrwałe, jeśli udziały zostały zapisane w tym okresie, możesz nadal uzyskiwać dostęp do tych udziałów plików i odzyskiwać je. Po włączeniu usuwania nietrwałego należy również skonfigurować okres przechowywania.
 
-Okres przechowywania wskazuje ilość czasu, przez który nietrwałe usunięte udziały plików są przechowywane i dostępne do odzyskania. W przypadku jawnie usuniętych udziałów plików zegar okresu przechowywania jest uruchamiany, gdy dane zostaną usunięte. Obecnie można zachować udziały nietrwałego usunięcia z zakresu od 1 do 365 dni.
+### <a name="retention-period"></a>Okres przechowywania
 
-Okres przechowywania nietrwałego usuwania można zmienić w dowolnym momencie. Zaktualizowany okres przechowywania będzie dotyczył tylko udziałów usuniętych po zaktualizowaniu okresu przechowywania. Udziały usunięte przed aktualizacją okresu przechowywania wygasną na podstawie okresu przechowywania, który został skonfigurowany podczas usuwania tych danych.
-
-Aby trwale usunąć udział plików w stanie usuwania nietrwałego przed upływem jego czasu, należy cofnąć usunięcie tego udziału, wyłączyć usuwanie nietrwałe, a następnie usunąć udział ponownie. Następnie należy ponownie włączyć usuwanie nietrwałe, ponieważ wszystkie inne udziały plików na tym koncie magazynu będą narażone na przypadkowe usunięcie, podczas gdy usuwanie nietrwałe jest wyłączone.
+Okres przechowywania to czas, przez który nietrwałe usunięte udziały plików są przechowywane i dostępne do odzyskania. W przypadku jawnie usuniętych udziałów plików zegar okresu przechowywania jest uruchamiany, gdy dane zostaną usunięte. Obecnie można określić okres przechowywania od 1 do 365 dni. Okres przechowywania nietrwałego usuwania można zmienić w dowolnym momencie. Zaktualizowany okres przechowywania będzie dotyczył tylko udziałów usuniętych po zaktualizowaniu okresu przechowywania. Udziały usunięte przed aktualizacją okresu przechowywania wygasną na podstawie okresu przechowywania, który został skonfigurowany podczas usuwania tych danych.
 
 ## <a name="pricing-and-billing"></a>Cennik i rozliczenia
 
@@ -53,4 +55,4 @@ Po pierwszym włączeniu usuwania nietrwałego zalecamy użycie małego okresu p
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby dowiedzieć się, jak włączyć i użyć usuwania nietrwałego, Kontynuuj [Włączanie usuwania nietrwałego](storage-files-enable-soft-delete.md)
+Aby dowiedzieć się, jak włączyć i użyć usuwania nietrwałego, Kontynuuj [Włączanie usuwania nietrwałego](storage-files-enable-soft-delete.md).

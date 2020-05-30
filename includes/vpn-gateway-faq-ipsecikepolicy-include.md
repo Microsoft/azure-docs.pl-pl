@@ -1,6 +1,6 @@
 ---
-title: dołączanie pliku
-description: dołączanie pliku
+title: Plik dyrektywy include
+description: Plik dyrektywy include
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/05/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 80c961c1aa4da199fa87b97bc8e0a37e60c2235f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e17eee8de789b813e5aab726207233e8607ec97f
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74903096"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84200329"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>Czy niestandardowe zasady protokołu IPsec/IKE są obsługiwane na wszystkich jednostkach SKU bramy sieci VPN platformy Azure?
 Niestandardowe zasady protokołu IPsec/IKE są obsługiwane we wszystkich jednostkach SKU platformy Azure z wyjątkiem podstawowej jednostki SKU.
@@ -104,7 +104,7 @@ Tak. Tunel połączenia między sieciami wirtualnymi zawiera dwa zasoby połącz
 Nie. Zasady protokołu IPsec/IKE działają tylko dla połączeń sieci VPN S2S i połączeń między sieciami wirtualnymi za pośrednictwem bram sieci VPN platformy Azure.
 
 ### <a name="how-do-i-create-connections-with-ikev1-or-ikev2-protocol-type"></a>Jak mogę utworzyć połączenia z typem protokołu IKEv1 lub IKEv2?
-Połączenia protokołu IKEv1 można tworzyć dla wszystkich jednostek SKU typu sieci VPN RouteBased, z wyjątkiem podstawowej jednostki SKU. Podczas tworzenia połączeń można określić typ protokołu połączenia IKEv1 lub IKEv2. Jeśli nie określisz typu protokołu połączenia, w razie potrzeby zostanie użyta opcja IKEv2. Aby uzyskać więcej informacji, zobacz dokumentację [poleceń cmdlet programu PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?) . W przypadku typów jednostek SKU i obsługi protokołu IKEv1/IKEv2 zobacz [łączenie bram z urządzeniami sieci VPN opartymi na zasadach](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
+Połączenia protokołu IKEv1 można tworzyć na wszystkich jednostkach SKU typu sieci VPN RouteBased, z wyjątkiem starszej wersji. Podczas tworzenia połączeń można określić typ protokołu połączenia IKEv1 lub IKEv2. Jeśli nie określisz typu protokołu połączenia, w razie potrzeby zostanie użyta opcja IKEv2. Aby uzyskać więcej informacji, zobacz dokumentację [poleceń cmdlet programu PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?) . W przypadku typów jednostek SKU i obsługi protokołu IKEv1/IKEv2 zobacz [łączenie bram z urządzeniami sieci VPN opartymi na zasadach](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md).
 
 ### <a name="is-transit-between-between-ikev1-and-ikev2-connections-allowed"></a>Czy między połączeniami protokołu IKEv1 i IKEv2 jest dozwolony transfer?
 Tak. Przesyłanie między połączeniami IKEv1 i IKEv2 jest obsługiwane.

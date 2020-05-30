@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: c1a7f22314af472037194150b78e881395c14c2e
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 518c4b83721e80aeaadfbdf5b03cddc62ae5479f
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117384"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84216343"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Często zadawane pytania dotyczące wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -30,7 +30,7 @@ Ten artykuł zawiera najbardziej typowe pytania dotyczące [wystąpienia zarząd
 
 Aby uzyskać listę obsługiwanych funkcji w wystąpieniu zarządzanym SQL, zobacz [funkcje wystąpienia zarządzanego usługi Azure SQL](../database/features-comparison.md).
 
-Różnice dotyczące składni i zachowań między wystąpieniem zarządzanym usługi Azure SQL i lokalnym SQL Server można znaleźć w temacie [różnice w języku T-SQL w programie SQL Server](transact-sql-tsql-differences-sql-server.md).
+Różnice dotyczące składni i zachowań między wystąpieniem zarządzanym i SQL Server usługi Azure SQL można znaleźć w temacie [różnice w języku T-SQL z SQL Server](transact-sql-tsql-differences-sql-server.md).
 
 
 ## <a name="tech-spec--resource-limits"></a>Specyfikacja techniczna & limity zasobów
@@ -60,7 +60,7 @@ Oczekiwany czas utworzenia wystąpienia zarządzanego SQL lub zmiany warstwy us�
 
 ## <a name="naming-convention"></a>Konwencja nazewnictwa
 
-**Czy wystąpienie zarządzane SQL może mieć taką samą nazwę jak SQL Server lokalnego?**
+**Czy wystąpienie zarządzane SQL może mieć taką samą nazwę jak lokalne wystąpienie SQL Server?**
 
 Zmiana nazwy wystąpienia zarządzanego SQL nie jest obsługiwana.
 
@@ -240,3 +240,44 @@ Po udostępnieniu funkcji ochrony szyfrowania wystąpieniem zarządzanym SQL mo�
 **Jak przeprowadzić migrację z Azure SQL Database do wystąpienia zarządzanego SQL?**
 
 Wystąpienie zarządzane SQL zapewnia te same poziomy wydajności dla wielkości zasobów obliczeniowych i magazynu, co Azure SQL Database. Jeśli chcesz skonsolidować dane w jednym wystąpieniu lub po prostu potrzebna jest funkcja obsługiwana wyłącznie w wystąpieniu zarządzanym SQL, można migrować dane przy użyciu funkcji eksportu/importu (BACPAC).
+
+## <a name="password-policy"></a>Zasady dotyczące haseł 
+
+**Jakie zasady haseł są stosowane dla nazw logowania SQL wystąpienia zarządzanego SQL?**
+
+Zasady haseł wystąpienia zarządzanego SQL dla nazw logowania SQL dziedziczą zasady platformy Azure, które są stosowane do maszyn wirtualnych tworzących klaster wirtualny przechowujący wystąpienie zarządzane. W tej chwili nie można zmienić któregokolwiek z tych ustawień, ponieważ te ustawienia są zdefiniowane przez platformę Azure i dziedziczone przez wystąpienie zarządzane.
+
+ > [!IMPORTANT]
+ > Platforma Azure może zmieniać wymagania dotyczące zasad bez powiadamiania usług korzystających z tych zasad.
+
+**Co to są bieżące zasady platformy Azure?**
+
+Każda nazwa logowania musi ustawić swoje hasło po zalogowaniu i zmienić hasło po osiągnięciu maksymalnego wieku.
+
+| **Zasady** | **Ustawienie zabezpieczeń** |
+| --- | --- |
+| Maksymalny wiek hasła | 42 dni |
+| Minimalny wiek hasła | 1 dzień |
+| Minimalna długość hasła | 10 znaków |
+| Hasło musi spełniać wymagania dotyczące złożoności | Enabled (Włączony) |
+
+**Czy możliwe jest wyłączenie złożoności hasła i wygaśnięcia w wystąpieniu zarządzanym SQL na poziomie logowania?**
+
+Tak, istnieje możliwość kontrolowania pól CHECK_POLICY i CHECK_EXPIRATION na poziomie logowania. Bieżące ustawienia można sprawdzić, wykonując następujące polecenie T-SQL:
+
+```sql
+SELECT *
+FROM sys.sql_logins
+```
+
+Następnie można zmodyfikować określone ustawienia logowania, wykonując następujące polecenie:
+
+```sql
+ALTER LOGIN test WITH CHECK_POLICY = ON;
+ALTER LOGIN test WITH CHECK_EXPIRATION = ON;
+```
+
+(Zastąp element "test" pożądaną nazwą logowania)
+
+ > [!Note]
+ > Wartości domyślne dla CHECK_POLICY i CHECK_EXPIRATION są ustawione na wartość OFF.

@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: 327aadbc2996e91ef0f7639da86a647ddd42247c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 937b836582cfcbf11564aa28b11cd8647afa835c
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81410939"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84191112"
 ---
 # <a name="what-is-azure-data-factory"></a>Czym jest usługa Azure Data Factory?
 
@@ -83,7 +83,7 @@ Połączone usługi działają podobnie do parametrów połączenia, umożliwiaj
 
 Połączone usługi w usłudze Fabryka danych służą do dwóch celów:
 
-- Reprezentowanie **magazynu danych**, w tym między innymi bazy danych na lokalnym serwerze SQL Server, bazy danych Oracle, udziału plików lub konta usługi Azure Blob Storage. Listę obsługiwanych magazynów danych zamieszczono w artykule na temat [działania kopiowania](copy-activity-overview.md).
+- Do reprezentowania **magazynu danych** , który zawiera, ale nie jest ograniczony do, SQL Server bazy danych, bazy danych Oracle, udziału plików lub konta usługi Azure Blob Storage. Listę obsługiwanych magazynów danych zamieszczono w artykule na temat [działania kopiowania](copy-activity-overview.md).
 
 - Reprezentowanie **zasobu obliczeniowego**, który może hostować wykonywanie działania. Na przykład działanie HDInsightHive jest wykonywane w klastrze HDInsight na platformie Hadoop. Listę działań przekształcania i obsługiwanych środowisk obliczeniowych zamieszczono w artykule dotyczącym [przekształcania danych](transform-data.md).
 
@@ -115,7 +115,7 @@ Poniżej przedstawiono ważne dokumenty w następnym kroku umożliwiające Ekspl
 - [Przepływy danych mapowania](concepts-data-flow-overview.md)
 - [Interfejs użytkownika usługi Data Factory w witrynie Azure Portal](quickstart-create-data-factory-portal.md)
 - [Narzędzie do kopiowania danych w witrynie Azure Portal](quickstart-create-data-factory-copy-data-tool.md)
-- [PowerShell](quickstart-create-data-factory-powershell.md)
+- [Program PowerShell](quickstart-create-data-factory-powershell.md)
 - [.NET](quickstart-create-data-factory-dot-net.md)
 - [Python](quickstart-create-data-factory-python.md)
 - [REST](quickstart-create-data-factory-rest-api.md)

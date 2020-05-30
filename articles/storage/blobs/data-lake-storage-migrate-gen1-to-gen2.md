@@ -8,12 +8,12 @@ ms.date: 03/11/2020
 ms.service: storage
 ms.reviewer: rukmani-msft
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 55ef2ee7d39d68804fe44c9d7a6eb0ee199e6109
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: c2db8c41d29b3fd8cb40744708ff87d7f4ec5b12
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84019864"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193490"
 ---
 # <a name="migrate-azure-data-lake-storage-from-gen1-to-gen2"></a>Migrowanie Azure Data Lake Storage z Gen1 do Gen2
 
@@ -87,7 +87,7 @@ Migrowanie danych, obciążeń i aplikacji przy użyciu preferowanego wzorca. Za
 
 Po upewnieniu się, że Twoje aplikacje i obciążenia są stabilne w Gen2, możesz zacząć korzystać z Gen2, aby zaspokoić scenariusze biznesowe. Wyłącz wszystkie pozostałe potoki, które działają w Gen1 i likwidowanie konta Gen1. 
 
-<a id="gen1-gen2-feature-comparison" />
+<a id="gen1-gen2-feature-comparison"></a>
 
 ## <a name="gen1-vs-gen2-capabilities"></a>Możliwości Gen1 vs Gen2
 
@@ -105,7 +105,7 @@ W tej tabeli porównano możliwości Gen1 z Gen2.
 |Dzienniki zasobów|Dzienniki klasyczne<br>[Azure Monitor zintegrowany](../../data-lake-store/data-lake-store-diagnostic-logs.md)|[Dzienniki klasyczne](../common/storage-analytics-logging.md) — ogólnie dostępne<br>Integracja ze monitorem platformy Azure — do opracowania na osi czasu|
 |Ekosystem|[HDInsight (3,6)](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md), [Azure Databricks (3,1 i nowsze)](https://docs.databricks.com/data/data-sources/azure/azure-datalake.html), [SQL DW](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store), [ADF](../../data-factory/load-azure-data-lake-store.md)|[HDInsight (3,6, 4,0)](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md), [Azure Databricks (5,1 i nowsze)](https://docs.microsoft.com/azure/databricks/data/data-sources/azure/azure-datalake-gen2), [SQL DW](../../azure-sql/database/vnet-service-endpoint-rule-overview.md), [ADF](../../data-factory/load-azure-data-lake-storage-gen2.md)|
 
-<a id="migration-patterns" />
+<a id="migration-patterns"></a>
 
 ## <a name="gen1-to-gen2-patterns"></a>Gen1 Gen2 wzorców
 

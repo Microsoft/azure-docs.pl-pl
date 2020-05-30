@@ -7,12 +7,13 @@ ms.service: multiple
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: barbkess
-ms.openlocfilehash: be6d2fb590dfefb170b3f23378c507b4d6b2295d
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.custom: references_regions
+ms.openlocfilehash: b720d9dd824018d885ccc9860ee9fd8a90a46051
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82980052"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194318"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Ciągłość działalności biznesowej i odzyskiwanie po awarii (BCDR): regiony sparowane platformy Azure
 

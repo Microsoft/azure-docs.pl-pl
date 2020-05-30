@@ -4,12 +4,12 @@ description: Dowiedz się, jak utworzyć funkcję z wiersza polecenia, a następ
 ms.date: 03/30/2020
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: bfd956a4423031db370eb3a8ad94c59dd0f5931c
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 8b720a34268a1a43b65ef8a7b8afbf61b753f79a
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83996532"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195017"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Szybki Start: Tworzenie funkcji na platformie Azure, która odpowiada na żądania HTTP
 
@@ -394,7 +394,7 @@ Uruchom [`curl`](https://curl.haxx.se/) polecenie **Invoke URL**, dodając param
 > [!TIP]
 > Aby przeglądać dzienniki niemal w czasie rzeczywistym dla opublikowanej aplikacji funkcji, użyj [Live Metrics Stream Application Insights](functions-monitoring.md#streaming-logs).
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli przejdziesz do następnego kroku, [Dodaj powiązanie danych wyjściowych kolejki usługi Azure Storage](functions-add-output-binding-storage-queue-cli.md), Zachowaj wszystkie Twoje zasoby w miarę kompilowania już wykonanej pracy.
 
@@ -415,3 +415,4 @@ az group delete --name java-functions-group
 
 > [!div class="nextstepaction"]
 > [Nawiązywanie połączenia z kolejką usługi Azure Storage](functions-add-output-binding-storage-queue-cli.md)
+ 

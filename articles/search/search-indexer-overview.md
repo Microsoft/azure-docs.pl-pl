@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2719bba0e88ba3125bd5ba163804e31885b286a2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2faadc962b31560e9e2eb10372493a483bf06905
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79282993"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84203889"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indeksatory w usłudze Azure Cognitive Search
 
@@ -46,13 +46,13 @@ Wszystkie operacje związane z indeksatorami, w tym żądania pobrania dla stanu
 
 Indeksatory przeszukują magazyny danych na platformie Azure.
 
-* [Blob Storage platformy Azure](search-howto-indexing-azure-blob-storage.md)
+* [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md) (w wersji zapoznawczej)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Program SQL Server na maszynach wirtualnych platformy Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
-* [Wystąpienia zarządzane SQL na platformie Azure](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
+* [Wystąpienie zarządzane SQL](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 
 ## <a name="basic-configuration-steps"></a>Podstawowe kroki konfiguracji
 Indeksatory oferują funkcje, które są unikatowe dla źródła danych. W związku z tym niektóre aspekty konfiguracji indeksatora lub źródła danych różnią się w zależności od typu indeksatora. Wszystkie indeksatory korzystają jednak z takich samych kompozycji i wymagań. Kroki, które są wspólne dla wszystkich indeksatorów, znajdują się poniżej.
@@ -130,7 +130,7 @@ Teraz, gdy masz już podstawowe informacje, następnym krokiem jest przegląd wy
 
 * [Usługa Azure SQL Database lub program SQL Server na maszynie wirtualnej platformy Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
-* [Blob Storage platformy Azure](search-howto-indexing-azure-blob-storage.md)
+* [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
 * [Indeksowanie obiektów BLOB woluminów CSV za pomocą indeksatora usługi Azure Wyszukiwanie poznawcze BLOB](search-howto-index-csv-blobs.md)
 * [Indeksowanie obiektów BLOB JSON za pomocą indeksatora usługi Azure Wyszukiwanie poznawcze BLOB](search-howto-index-json-blobs.md)

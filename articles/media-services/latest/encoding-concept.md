@@ -10,15 +10,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 6e1c9aa5c2e049d5fc1ebd8bf745417f56d232ec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 04706de4b1cc18a4f3146f75442de84340319cef
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80366574"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220157"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Kodowanie wideo i audio przy użyciu Media Services
 
@@ -98,7 +98,10 @@ Obecnie obsługiwane są następujące ustawienia wstępne:
 
 - **EncoderNamedPreset. AACGoodQualityAudio**: tworzy pojedynczy plik MP4 zawierający tylko dźwięk stereo zakodowany przy 192 kb/s.
 - **EncoderNamedPreset. AdaptiveStreaming** (zalecane): Aby uzyskać więcej informacji, zobacz [Autogenerowanie drabiny szybkości transmisji bitów](autogen-bitrate-ladder.md).
-- **EncoderNamedPreset. ContentAwareEncodingExperimental**: uwidacznia eksperymentalne ustawienie wstępne dla kodowania obsługującego zawartość. Mając daną zawartość wejściową, usługa próbuje automatycznie określić optymalną liczbę warstw oraz odpowiednie ustawienia szybkości transmisji bitów i rozdzielczości do dostarczenia przez adaptacyjne przesyłanie strumieniowe. Algorytmy bazowe będą nadal rozwijane z upływem czasu. Dane wyjściowe będą zawierać pliki MP4 z przeplotem wideo i audio. Aby uzyskać więcej informacji, zobacz [eksperymentalne ustawienie wstępne dla kodowania z obsługą zawartości](content-aware-encoding.md).
+- **EncoderNamedPreset. ContentAwareEncoding**: uwidacznia ustawienia wstępne dla kodowania obsługującego zawartość. Mając daną zawartość wejściową, usługa próbuje automatycznie określić optymalną liczbę warstw oraz odpowiednie ustawienia szybkości transmisji bitów i rozdzielczości do dostarczenia przez adaptacyjne przesyłanie strumieniowe. Algorytmy bazowe będą nadal rozwijane z upływem czasu. Dane wyjściowe będą zawierać pliki MP4 z przeplotem wideo i audio. Aby uzyskać więcej informacji, zobacz [kodowanie z uwzględnieniem zawartości](content-aware-encoding.md).
+
+  > [!NOTE]
+  > Upewnij się, że używasz **ContentAwareEncoding** not ContentAwareEncodingExperimental.
 - **EncoderNamedPreset. H264MultipleBitrate1080p**: tworzy zestaw OŚMIU plików MP4 wyrównanych do grupę GOP, od 6000 KB/s do 400 KB/s oraz stereo AAC audio. Rozdzielczość rozpocznie się o 1080p i przejdzie w dół do 360p.
 - **EncoderNamedPreset. H264MultipleBitrate720p**: tworzy zestaw sześciu grupę GOP wyrównanych plików MP4, od 3400 KB/s do 400 KB/s oraz stereo AAC audio. Rozdzielczość zaczyna się od 720 i przejdzie w dół do 360p.
 - **EncoderNamedPreset. H264MultipleBitrateSD**: tworzy zestaw pięciu plików MP4 wyrównanych do grupę GOP, od 1600 KB/s do 400 KB/s oraz stereo AAC audio. Rozwiązanie rozpocznie się o 480p i przejdzie w dół do 360p.
@@ -114,7 +117,7 @@ Aby zobaczyć, jak są używane ustawienia wstępne, zobacz [przekazywanie, kodo
 
 [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) opisuje ustawienia, które mają być używane podczas kodowania wejściowego wideo za pomocą kodera standardowego. Użyj tego ustawienia wstępnego podczas dostosowywania ustawień predefiniowanych transformacji.
 
-#### <a name="considerations"></a>Zagadnienia do rozważenia
+#### <a name="considerations"></a>Istotne zagadnienia
 
 Podczas tworzenia niestandardowych ustawień wstępnych są stosowane następujące zagadnienia:
 

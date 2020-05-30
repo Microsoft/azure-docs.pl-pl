@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 8354be28203f1d466df6a22159fef87c9ae6f803
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 4d4b2f0305e1069ac7873df24d834ab55512aff7
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83199741"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219728"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Automatyczne skalowanie klastrów usługi Azure HDInsight
 
@@ -39,7 +39,7 @@ Podczas wybierania typu skalowania należy wziąć pod uwagę następujące czyn
 
 Automatyczne skalowanie w sposób ciągły monitoruje klaster i zbiera następujące metryki:
 
-|Metryka|Opis|
+|Metric|Opis|
 |---|---|
 |Łączny czas oczekiwania na procesor|Łączna liczba rdzeni wymaganych do rozpoczęcia wykonywania wszystkich oczekujących kontenerów.|
 |Całkowita liczba oczekujących pamięci|Całkowita ilość pamięci (w MB) wymagana do uruchomienia wszystkich oczekujących kontenerów.|
@@ -74,10 +74,10 @@ W poniższej tabeli opisano typy i wersje klastra, które są zgodne z funkcją 
 
 | Wersja | platforma Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3,6 bez ESP | Tak | Tak | Yes | Tak* | Nie | Nie | Nie |
-| HDInsight 4,0 bez ESP | Tak | Tak | Yes | Tak* | Nie | Nie | Nie |
-| HDInsight 3,6 z ESP | Tak | Tak | Yes | Tak* | Nie | Nie | Nie |
-| HDInsight 4,0 z ESP | Tak | Tak | Yes | Tak* | Nie | Nie | Nie |
+| HDInsight 3,6 bez ESP | Tak | Tak | Tak | Tak* | Nie | Nie | Nie |
+| HDInsight 4,0 bez ESP | Tak | Tak | Tak | Tak* | Nie | Nie | Nie |
+| HDInsight 3,6 z ESP | Tak | Tak | Tak | Tak* | Nie | Nie | Nie |
+| HDInsight 4,0 z ESP | Tak | Tak | Tak | Tak* | Nie | Nie | Nie |
 
 \*Klastry HBase można konfigurować tylko dla skalowania opartego na harmonogramie, a nie na podstawie obciążenia.
 
@@ -182,12 +182,12 @@ Można utworzyć klaster usługi HDInsight z użyciem harmonogramu automatyczneg
             "minInstanceCount": 10,
             "maxInstanceCount": 10
           }
-        },
+        }
       ]
     }
   },
   "name": "workernode",
-  "targetInstanceCount": 4,
+  "targetInstanceCount": 4
 }
 ```
 
@@ -210,7 +210,7 @@ https://management.azure.com/subscriptions/{subscription Id}/resourceGroups/{res
 Użyj odpowiednich parametrów w ładunku żądania. Poniżej można włączyć automatyczne skalowanie przy użyciu poniższego ładunku JSON. Użyj ładunku, `{autoscale: null}` Aby wyłączyć automatyczne skalowanie.
 
 ```json
-{ autoscale: { capacity: { minInstanceCount: 3, maxInstanceCount: 2 } } }
+{ "autoscale": { "capacity": { "minInstanceCount": 3, "maxInstanceCount": 2 } } }
 ```
 
 Zobacz poprzednią sekcję na temat [włączania automatycznego skalowania na podstawie obciążenia](#load-based-autoscaling) , aby uzyskać pełny opis wszystkich parametrów ładunku.
@@ -231,7 +231,7 @@ Na poniższej liście objaśniono wszystkie komunikaty o stanie klastra, które 
 | Aktualizowanie  | Trwa aktualizowanie konfiguracji automatycznego skalowania klastra.  |
 | Konfiguracja usługi HDInsight  | Operacja skalowania w górę lub w dół w dół jest w toku.  |
 | Błąd aktualizacji  | Usługa HDInsight napotkała problemy podczas aktualizacji konfiguracji skalowania automatycznego. Klienci mogą zrezygnować z aktualizacji lub wyłączyć automatyczne skalowanie.  |
-| Error  | Wystąpił problem z klastrem i nie można go użyć. Usuń ten klaster i Utwórz nowy.  |
+| Błąd  | Wystąpił problem z klastrem i nie można go użyć. Usuń ten klaster i Utwórz nowy.  |
 
 Aby wyświetlić bieżącą liczbę węzłów w klastrze, przejdź do wykresu **rozmiar klastra** na stronie **Przegląd** klastra. Lub wybierz **rozmiar klastra** w obszarze **Ustawienia**.
 

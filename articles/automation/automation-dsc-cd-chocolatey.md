@@ -5,12 +5,13 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
-ms.openlocfilehash: ec954c2da317e2e4b332b959b9627cf96792da84
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.custom: references_regions
+ms.openlocfilehash: 1bab503004876a2680286204de28631ce26b9069
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837063"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84197103"
 ---
 # <a name="set-up-continuous-deployment-with-chocolatey"></a>Konfigurowanie ciągłego wdrażania za pomocą narzędzia Chocolatey
 

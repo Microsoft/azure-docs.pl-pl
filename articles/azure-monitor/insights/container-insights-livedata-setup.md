@@ -3,12 +3,13 @@ title: Skonfiguruj Azure Monitor dla kontenerów dane dynamiczne (wersja zapozna
 description: W tym artykule opisano sposób konfigurowania widoku w czasie rzeczywistym dzienników kontenerów (stdout/stderr) i zdarzeń bez używania polecenia kubectl z Azure Monitor dla kontenerów.
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: f19071ca642cd229cbd7d49b4eab90c970672eee
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: references_regions
+ms.openlocfilehash: ec75cc0a014b8a4f8c9b9d89a5bdca93936eb68a
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79275375"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196038"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Jak skonfigurować funkcję Live Data (wersja zapoznawcza)
 
@@ -36,12 +37,12 @@ W tym artykule wyjaśniono, jak skonfigurować uwierzytelnianie, aby kontrolowa�
 
 ## <a name="authentication-model"></a>Model uwierzytelniania
 
-Funkcja dane dynamiczne (wersja zapoznawcza) korzysta z interfejsu API Kubernetes, identycznego z narzędziem wiersza `kubectl` polecenia. Punkty końcowe interfejsu API Kubernetes używają certyfikatu z podpisem własnym, którego przeglądarka nie będzie mogła zweryfikować. Ta funkcja wykorzystuje wewnętrzny serwer proxy do weryfikowania certyfikatu za pomocą usługi AKS, co zapewnia, że ruch jest zaufany.
+Funkcja dane dynamiczne (wersja zapoznawcza) korzysta z interfejsu API Kubernetes, identycznego z `kubectl` narzędziem wiersza polecenia. Punkty końcowe interfejsu API Kubernetes używają certyfikatu z podpisem własnym, którego przeglądarka nie będzie mogła zweryfikować. Ta funkcja wykorzystuje wewnętrzny serwer proxy do weryfikowania certyfikatu za pomocą usługi AKS, co zapewnia, że ruch jest zaufany.
 
-Azure Portal poprosi o zweryfikowanie poświadczeń logowania do klastra Azure Active Directory i przekieruje użytkownika do konfiguracji rejestracji klienta podczas tworzenia klastra (i ponownie skonfigurowany w tym artykule). To zachowanie jest podobne do procesu uwierzytelniania wymaganego przez `kubectl`program. 
+Azure Portal poprosi o zweryfikowanie poświadczeń logowania do klastra Azure Active Directory i przekieruje użytkownika do konfiguracji rejestracji klienta podczas tworzenia klastra (i ponownie skonfigurowany w tym artykule). To zachowanie jest podobne do procesu uwierzytelniania wymaganego przez program `kubectl` . 
 
 >[!NOTE]
->Autoryzacja klastra jest zarządzana przez program Kubernetes oraz model zabezpieczeń, z którym jest on skonfigurowany. Użytkownicy, którzy uzyskują dostęp do tej funkcji, wymagają uprawnień*kubeconfig*do pobrania konfiguracji Kubernetes (kubeconfig `az aks get-credentials -n {your cluster name} -g {your resource group}`), podobnie jak w przypadku uruchamiania programu. Ten plik konfiguracji zawiera token autoryzacji i uwierzytelniania dla **roli użytkownika klastra usługi Azure Kubernetes Service**, w przypadku klastrów z obsługą kontroli RBAC platformy Azure i AKS bez włączonej autoryzacji RBAC. Zawiera informacje o rejestracji w usłudze Azure AD i klientach, gdy AKS jest włączona z logowaniem jednokrotnym opartym na protokole SAML Azure Active Directory (AD).
+>Autoryzacja klastra jest zarządzana przez program Kubernetes oraz model zabezpieczeń, z którym jest on skonfigurowany. Użytkownicy, którzy uzyskują dostęp do tej funkcji, wymagają uprawnień do pobrania konfiguracji Kubernetes (*kubeconfig*), podobnie jak w przypadku uruchamiania programu `az aks get-credentials -n {your cluster name} -g {your resource group}` . Ten plik konfiguracji zawiera token autoryzacji i uwierzytelniania dla **roli użytkownika klastra usługi Azure Kubernetes Service**, w przypadku klastrów z obsługą kontroli RBAC platformy Azure i AKS bez włączonej autoryzacji RBAC. Zawiera informacje o rejestracji w usłudze Azure AD i klientach, gdy AKS jest włączona z logowaniem jednokrotnym opartym na protokole SAML Azure Active Directory (AD).
 
 >[!IMPORTANT]
 >Użytkownicy tych funkcji muszą mieć [rolę użytkownika klastra usługi Azure Kubernetes](../../azure/role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role permissions) w celu pobrania `kubeconfig` i użycia tej funkcji. Użytkownicy **nie** wymagają dostępu współautora do klastra w celu korzystania z tej funkcji. 
@@ -96,7 +97,7 @@ W poniższych przykładowych krokach pokazano, jak skonfigurować powiązanie ro
       apiGroup: rbac.authorization.k8s.io 
     ```
 
-2. Aby zaktualizować konfigurację, uruchom następujące polecenie: `kubectl apply -f LogReaderRBAC.yaml`.
+2. Aby zaktualizować konfigurację, uruchom następujące polecenie: `kubectl apply -f LogReaderRBAC.yaml` .
 
 >[!NOTE] 
 > Jeśli w klastrze zastosowano poprzednią wersję `LogReaderRBAC.yaml` pliku, zaktualizuj ją, kopiując i wklejając nowy kod przedstawiony w kroku 1 powyżej, a następnie uruchom polecenie przedstawione w kroku 2, aby zastosować je do klastra.
@@ -118,10 +119,10 @@ Aby uzyskać więcej informacji na temat zaawansowanej konfiguracji zabezpiecze�
 
 2. Wybierz pozycję **uwierzytelnianie** w okienku po lewej stronie. 
 
-3. Dodaj dwa adresy URL przekierowania do tej listy jako typy aplikacji **sieci Web** . Pierwszą podstawową wartością adresu URL powinna być `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` , a druga podstawowa wartość adresu URL `https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`.
+3. Dodaj dwa adresy URL przekierowania do tej listy jako typy aplikacji **sieci Web** . Pierwszą podstawową wartością adresu URL powinna być `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` , a druga podstawowa wartość adresu URL `https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` .
 
     >[!NOTE]
-    >Jeśli używasz tej funkcji w Chinach platformy Azure, pierwszą podstawową wartością adresu URL powinna być `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` , a druga podstawowa wartość adresu URL. `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` 
+    >Jeśli używasz tej funkcji w Chinach platformy Azure, pierwszą podstawową wartością adresu URL powinna być, `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` a druga podstawowa wartość adresu URL `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` . 
     
 4. Po zarejestrowaniu adresów URL przekierowania, w obszarze **niejawne przyznanie**, wybierz opcje tokeny **dostępu** i **tokeny identyfikatora** , a następnie Zapisz zmiany.
 

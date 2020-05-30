@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 4287bd766d73d7fae42aec54950ad5a3f09b5ba3
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: bf22e10bc0a4b969c41d4a377ddba7fcadd9c147
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83120423"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193395"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Obsługa kanału informacyjnego zmiany w usłudze Azure Blob Storage (wersja zapoznawcza)
 
@@ -37,7 +37,7 @@ Obsługa kanałów informacyjnych zmian jest odpowiednia dla scenariuszy, które
 
   - Twórz połączone potoki aplikacji, które reagują na zmiany zdarzeń lub Zaplanuj wykonania na podstawie utworzonego lub zmienionego obiektu.
   
-Funkcja kanału informacyjnego zmian jest funkcją wymaganą wstępnie do [przywracania do punktu w czasie dla blokowych obiektów BLOB](point-in-time-restore-overview.md).
+Źródło zmian jest funkcją wymaganą wstępnie do [replikacji obiektów](object-replication-overview.md) oraz [przywracania do punktu w czasie dla blokowych obiektów BLOB](point-in-time-restore-overview.md).
 
 > [!NOTE]
 > Źródło zmian zawiera trwały, uporządkowany model dziennika zmian, które występują w obiekcie blob. Zmiany są zapisywane i udostępniane w dzienniku kanału informacyjnego zmiany w kolejności kilku minut od zmiany. Jeśli aplikacja musi reagować na zdarzenia znacznie szybciej niż tutaj, zamiast tego Rozważ użycie [zdarzeń BLOB Storage](storage-blob-event-overview.md) . [Zdarzenia BLOB Storage](storage-blob-event-overview.md) zawierają zdarzenia jednorazowe w czasie rzeczywistym, które umożliwiają Azure Functions lub aplikacjom szybkie reagowanie na zmiany, które wystąpiły w obiekcie blob. 

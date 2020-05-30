@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mathoma
-ms.openlocfilehash: 209445378b71b4d6da2f40ea2744d3a2da0d8c45
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 4b4a852f0f102277701191eb24158763998e7b5d
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84046327"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195762"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Wzorce aplikacji i strategie programowania dla SQL Server na platformie Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -59,8 +59,9 @@ Przed rozpoczęciem odczytywania tego artykułu należy znać podstawowe koncepc
 W tym artykule opisano kilka wzorców aplikacji, które mogą być odpowiednie dla aplikacji prostych oraz wysoce złożonych aplikacji dla przedsiębiorstw. Przed szczegółami dotyczącymi poszczególnych wzorców zalecamy zapoznanie się z dostępnymi usługami magazynu danych na platformie Azure, takimi jak [Azure Storage](../../../storage/common/storage-introduction.md), [Azure SQL Database](../../database/sql-database-paas-overview.md)i [SQL Server na maszynie wirtualnej platformy Azure](sql-server-on-azure-vm-iaas-what-is-overview.md). Aby zapewnić najlepszą decyzję projektową dla aplikacji, należy zrozumieć, kiedy należy używać usługi magazynu danych jasno.
 
 ### <a name="choose-sql-server-in-an-azure-virtual-machine-when"></a>Wybierz SQL Server na maszynie wirtualnej platformy Azure, gdy:
+
 * Musisz mieć kontrolę nad SQL Server i Windows. Przykładowo może to być wersja SQL Server, specjalna poprawka, Konfiguracja wydajności itp.
-* Wymagana jest pełna zgodność z SQL Server lokalnie i chcesz przenieść istniejące aplikacje na platformę Azure jako-is.
+* Wymagana jest pełna zgodność z SQL Server i chcemy przenieść istniejące aplikacje na platformę Azure jako-is.
 * Chcesz korzystać z możliwości środowiska platformy Azure, ale Azure SQL Database nie obsługują wszystkich funkcji wymaganych przez aplikację. Może to obejmować następujące obszary:
   
   * **Rozmiar bazy danych**: w momencie aktualizacji tego artykułu SQL Database obsługuje bazę danych o rozmiarze do 1 TB. Jeśli aplikacja wymaga więcej niż 1 TB danych i nie chcesz zaimplementować niestandardowych rozwiązań fragmentowania, zaleca się używanie SQL Server na maszynie wirtualnej platformy Azure. Aby uzyskać najnowsze informacje, zobacz [skalowanie](https://msdn.microsoft.com/library/azure/dn495641.aspx)w poziomie Azure SQL Database, [model zakupów oparty na](../../database/service-tiers-dtu.md)jednostkach DTU oraz [model zakupu oparty na rdzeń wirtualny](../../database/service-tiers-vcore.md)(wersja zapoznawcza).

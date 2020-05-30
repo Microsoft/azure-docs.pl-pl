@@ -1,6 +1,6 @@
 ---
 title: Zaawansowane zabezpieczenia danych
-description: Dowiedz się więcej na temat funkcji odnajdywania i klasyfikowania poufnych danych, zarządzania lukami w bazie danych oraz wykrywania nietypowych działań, które mogą wskazywać na zagrożenia dla Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL lub Azure Synapse.
+description: Dowiedz się więcej na temat funkcji odnajdywania i klasyfikowania poufnych danych, zarządzania lukami w bazie danych oraz wykrywania nietypowych działań, które mogą wskazywać na zagrożenie dla bazy danych w Azure SQL Database, wystąpieniu zarządzanym Azure SQL lub Azure Synapse.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,32 +12,31 @@ author: memildin
 manager: rkarlin
 ms.reviewer: vanto
 ms.date: 04/23/2020
-ms.openlocfilehash: ed7d4b10219f4d4a3c437331bd1daf870495949d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: d600d174aa37c5c4d5d1011b9cb61e4487256c13
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84047853"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195145"
 ---
 # <a name="advanced-data-security"></a>Zaawansowane zabezpieczenia danych
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 
-Zaawansowane zabezpieczenia danych (ADS) to ujednolicony pakiet zaawansowanych funkcji zabezpieczeń SQL. Usługa ADS jest dostępna dla programu na potrzeby Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL i usługi Azure Synapse. Obejmuje to funkcję wykrywania i klasyfikowania danych poufnych, uwidacznianie i korygowanie potencjalnych luk w zabezpieczeniach bazy danych oraz wykrywanie nietypowych działań, które mogą wskazywać, że baza danych jest zagrożona. Zapewnia ona pojedynczą lokalizację, w której można włączać te możliwości i zarządzać nimi.
+Zaawansowane zabezpieczenia danych (ADS) to ujednolicony pakiet zaawansowanych funkcji zabezpieczeń SQL. Usługa ADS jest dostępna dla Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL i usługi Azure Synapse Analytics. Obejmuje to funkcję wykrywania i klasyfikowania danych poufnych, uwidacznianie i korygowanie potencjalnych luk w zabezpieczeniach bazy danych oraz wykrywanie nietypowych działań, które mogą wskazywać, że baza danych jest zagrożona. Zapewnia ona pojedynczą lokalizację, w której można włączać te możliwości i zarządzać nimi.
 
 ## <a name="overview"></a>Omówienie
 
-Usługa Advanced Data Security (ADS) oferuje zestaw zaawansowanych funkcji zabezpieczeń SQL, takich jak funkcja odnajdywania danych & klasyfikacji, oceny luk w zabezpieczeniach i zaawansowanej ochrony przed zagrożeniami.
+Usługa ADS oferuje zestaw zaawansowanych funkcji zabezpieczeń SQL, takich jak funkcja odnajdywania danych & klasyfikacja, Ocena luk w zabezpieczeniach i zaawansowana ochrona przed zagrożeniami.
+- [Funkcja odnajdywania danych &](data-discovery-and-classification-overview.md) obejmuje funkcje wbudowane w Azure SQL Database, wystąpienie zarządzane Azure SQL i usługa Azure Synapse na potrzeby odnajdywania, klasyfikowania, etykietowania i raportowania poufnych danych w bazach danych. Za jej pomocą można zapewniać wgląd w stan klasyfikacji bazy danych oraz śledzić dostęp do danych poufnych w bazie danych i poza jej granicami.
+- [Ocena luk w zabezpieczeniach](sql-vulnerability-assessment.md) to prosta w konfiguracji usługa, która umożliwia odnajdywanie, śledzenie i rozwiązywanie problemów z potencjalnymi lukami w zabezpieczeniach bazy danych. Zapewnia wgląd w stan zabezpieczeń i obejmuje czynności do wykonania w celu rozwiązywania problemów z zabezpieczeniami i ulepszania bazy danych FORTIFICATIONS.
+- Usługa [Advanced Threat Protection](threat-detection-overview.md) wykrywa nietypowe działania wskazujące na nieprawidłowe i potencjalnie szkodliwe próby uzyskania dostępu do bazy danych lub wykorzystania jej. Ciągle monitoruje bazę danych pod kątem podejrzanych działań i zapewnia natychmiastowe alerty zabezpieczeń dotyczące potencjalnych luk w zabezpieczeniach, ataki iniekcji SQL Azure oraz nietypowe wzorce dostępu do bazy danych. Alerty usługi Advanced Threat Protection zawierają szczegółowe informacje o podejrzanych działaniach i zalecane czynności dotyczące sposobu badania i ograniczenia zagrożenia.
 
-- [Funkcja odnajdywania danych &](data-discovery-and-classification-overview.md) obejmuje funkcje wbudowane w Azure SQL Database, wystąpienie zarządzane Azure SQL i usługa Azure Synapse na potrzeby odnajdywania, klasyfikowania i etykietowania & raportowania poufnych danych w bazach danych. Za jej pomocą można zapewniać wgląd w stan klasyfikacji bazy danych oraz śledzić dostęp do danych poufnych w bazie danych i poza jej granicami.
-- [Ocena luk w zabezpieczeniach](sql-vulnerability-assessment.md) to łatwa do skonfigurowania usługa umożliwiająca odnajdywanie i śledzenie potencjalnych luk w zabezpieczeniach bazy danych oraz pomagająca w ich usuwaniu. Zapewnia wgląd w stan zabezpieczeń i zapewnia kroki, które można wykonać w celu rozwiązania problemów z zabezpieczeniami oraz zwiększenia bezpieczeństwa bazy danych.
-- Usługa [Advanced Threat Protection](threat-detection-overview.md) wykrywa nietypowe działania wskazujące na nieprawidłowe i potencjalnie szkodliwe próby uzyskania dostępu do bazy danych lub wykorzystania jej. Stale monitoruje Twoją bazę danych pod kątem podejrzanych działań i zapewnia natychmiastowe alerty zabezpieczeń dotyczące potencjalnych luk w zabezpieczeniach, ataków polegających na wstrzyknięciu kodu SQL oraz anomalii we wzorcach dostępu do bazy danych. Alerty usługi Advanced Threat Protection zawierają szczegółowe informacje o podejrzanych działaniach i zalecane czynności dotyczące sposobu badania i ograniczenia zagrożenia.
-
-Aby włączyć wszystkie te funkcje, Włącz opcję SQL AD. Jednym kliknięciem można włączyć reklamy dla wszystkich baz danych na [serwerze](logical-servers.md) na platformie Azure (które hosty SQL Database lub Azure Synapse Analytics) lub w wystąpieniu w wystąpieniu zarządzanym Azure SQL. Włączanie ustawień ADS lub zarządzanie nimi wymaga przynależności do roli [programu SQL Security Manager](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) , roli administratora bazy danych SQL lub roli administratora programu SQL Server.
+Włącz opcję Zaawansowane zabezpieczenia danych, aby włączyć wszystkie te funkcje. Jednym kliknięciem jest możliwość włączenia reklam dla wszystkich baz danych na [serwerze](logical-servers.md) na platformie Azure lub w wystąpieniu zarządzanym SQL. Włączanie i zarządzanie ustawieniami ADS wymaga przynależności do roli [programu SQL Security Manager](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) lub jednej z ról administratora bazy danych lub serwera.
 
 Cennik programu ADS jest wyrównany do warstwy Standardowa Azure Security Center, gdzie każdy chroniony serwer lub wystąpienie zarządzane jest liczony jako jeden węzeł. Nowo chronione zasoby kwalifikują się do bezpłatnej wersji próbnej Security Center warstwy Standardowa. Aby uzyskać więcej informacji, zobacz [stronę z cennikiem Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="getting-started-with-ads"></a>Wprowadzenie z REKLAMami
+## <a name="getting-started-with-ads"></a>Wprowadzenie do reklam
 
 Poniższe kroki ułatwiają rozpoczęcie pracy z usługą ADS.
 

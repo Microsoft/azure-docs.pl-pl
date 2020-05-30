@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 64acfcffed597640402df557ae419a67ff1e0dcb
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 988434a72359ebe6ef84c4fd94041b2d4b90d5d9
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170396"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84221089"
 ---
 # <a name="outbound-connections-in-azure"></a>Połączenia wychodzące na platformie Azure
 
@@ -43,7 +43,7 @@ Azure Load Balancer i powiązane zasoby są jawnie definiowane podczas korzystan
 | Jednostki SKU | Scenariusz | Metoda | Protokoły IP | Opis |
 | --- | --- | --- | --- | --- |
 | Standardowa, podstawowa | [1. maszyna wirtualna z publicznym adresem IP na poziomie wystąpienia (z lub bez Load Balancer)](#ilpip) | Reportcy adresów sieciowych, nie użyto zamaskowanego portu | TCP, UDP, ICMP, ESP | Platforma Azure używa publicznego adresu IP przypisanego do konfiguracji protokołu IP karty sieciowej tego wystąpienia. Dla tego wystąpienia są dostępne wszystkie porty tymczasowe. W przypadku korzystania z usługa Load Balancer w warstwie Standardowa [reguły wychodzące](load-balancer-outbound-rules-overview.md) nie są obsługiwane, jeśli publiczny adres IP jest przypisany do maszyny wirtualnej. |
-| Standardowa, podstawowa | [2. publiczne Load Balancer skojarzone z maszyną wirtualną (brak publicznego adresu IP w wystąpieniu)](#lb) | Reportcy adresów sieciowych z użyciem zamaskowanego portu przy użyciu Load Balancer frontonów | TCP, UDP |Platforma Azure udostępnia publiczny adres IP publicznych frontonów Load Balancer z wieloma prywatnymi adresami IP. Platforma Azure używa tymczasowych portów frontonów do usługi. Aby jawnie zdefiniować łączność wychodzącą, należy użyć [reguł ruchu wychodzącego](load-balancer-outbound-rules-overview.md) . |
+| Standardowa, podstawowa | [2. publiczne Load Balancer skojarzone z maszyną wirtualną (brak publicznego adresu IP w wystąpieniu)](#lb) | Reportcy adresów sieciowych z użyciem zamaskowanego portu przy użyciu Load Balancer frontonów | TCP, UDP |Platforma Azure udostępnia publiczny adres IP publicznych frontonów Load Balancer z wieloma prywatnymi adresami IP. Platforma Azure używa tymczasowych portów frontonów do usługi. W przypadku korzystania z usługa Load Balancer w warstwie Standardowa należy zastosować [reguły ruchu](load-balancer-outbound-rules-overview.md) wychodzącego, aby jawnie zdefiniować łączność wychodzącą. |
 | Brak lub podstawowa | [3. autonomiczna maszyna wirtualna (bez Load Balancer, brak publicznego adresu IP)](#defaultsnat) | Reportcy adresów sieciowych z zamaskowanem portów | TCP, UDP | Platforma Azure automatycznie wyznacza publiczny adres IP dla translatora adresów sieciowych, udostępnia ten publiczny adres IP z wieloma prywatnymi adresami IP zestawu dostępności i korzysta z portów tymczasowych tego publicznego adresu IP. Ten scenariusz jest alternatywą dla powyższych scenariuszy. Nie zalecamy jej, jeśli potrzebujesz widoczności i kontroli. |
 
 Jeśli nie chcesz, aby maszyna wirtualna mogła komunikować się z punktami końcowymi poza platformą Azure w publicznej przestrzeni adresów IP, możesz użyć sieciowych grup zabezpieczeń (sieciowych grup zabezpieczeń) w celu zablokowania dostępu zgodnie z potrzebami. Sekcja [zapobiegająca łączności wychodzącej](#preventoutbound) omawia sieciowych grup zabezpieczeń bardziej szczegółowo. Wskazówki dotyczące projektowania i wdrażania sieci wirtualnej oraz zarządzania nią bez dostępu wychodzącego wykraczają poza zakres tego artykułu.

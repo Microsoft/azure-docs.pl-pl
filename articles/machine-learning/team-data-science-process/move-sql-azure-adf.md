@@ -1,5 +1,5 @@
 ---
-title: SQL Server dane do platformy SQL Azure za pomocą procesu nauki o danych Azure Data Factory-Team
+title: SQL Server dane do SQL Database za pomocą procesu nauki o danych w zespole Azure Data Factory
 description: Skonfiguruj potok ADF składający się z dwóch działań związanych z migracją danych, które razem regularnie przenoś dane między bazami danych i w chmurze.
 services: machine-learning
 author: marktab
@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8f696f1c6c414cd9db082e79e0f34c56156e1ee0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a484a6c9a55eac4d166a711a9eae7990c4305cb4
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76722496"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194404"
 ---
-# <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Przenoszenie danych z lokalnego programu SQL Server do platformy SQL Azure za pomocą Azure Data Factory
+# <a name="move-data-from-a-sql-server-database-to-sql-database-with-azure-data-factory"></a>Przenoszenie danych z bazy danych SQL Server do SQL Database za pomocą Azure Data Factory
 
-W tym artykule pokazano, jak przenieść dane z lokalnej bazy danych SQL Server do bazy danych SQL Azure za pośrednictwem platformy Azure Blob Storage przy użyciu Azure Data Factory (ADF): Ta metoda jest obsługiwanym starszym podejściem, które ma zalety zreplikowanej kopii przemieszczania, ale [sugerujemy zajrzeć na stronę migracji danych, aby uzyskać najnowsze opcje](https://datamigration.microsoft.com/scenario/sql-to-azuresqldb?step=1).
+W tym artykule pokazano, jak przenieść dane z bazy danych SQL Server do Azure SQL Database za pośrednictwem usługi Azure Blob Storage przy użyciu Azure Data Factory (ADF): Ta metoda jest obsługiwanym starszym podejściem, które ma zalety zreplikowanej kopii przemieszczania, ale [sugerujemy zapoznaj się z naszą stroną migracji danych, aby uzyskać najnowsze opcje](https://datamigration.microsoft.com/scenario/sql-to-azuresqldb?step=1).
 
 W przypadku tabeli podsumowującej różne opcje przenoszenia danych do Azure SQL Database, zobacz [przenoszenie danych do Azure SQL Database Azure Machine Learning](move-sql-azure.md).
 
@@ -37,13 +37,13 @@ Rozważ użycie funkcji ADF:
 ADF umożliwia planowanie i monitorowanie zadań przy użyciu prostych skryptów JSON, które regularnie zarządzają przenoszeniem danych. Funkcja ADF oferuje również inne funkcje, takie jak obsługa złożonych operacji. Aby uzyskać więcej informacji na temat ADF, zapoznaj się z dokumentacją w [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/).
 
 ## <a name="the-scenario"></a><a name="scenario"></a>Scenariusz
-Skonfigurujemy potok ADF składający się z dwóch działań związanych z migracją danych. Jednocześnie przenosimy dane codziennie między SQL Databaseami lokalnymi i Azure SQL Database w chmurze. Te dwie działania są następujące:
+Skonfigurujemy potok ADF składający się z dwóch działań związanych z migracją danych. Jednocześnie przenosimy dane codziennie między SQL Server bazą danych i Azure SQL Database. Te dwie działania są następujące:
 
-* Kopiowanie danych z lokalnej bazy danych SQL Server na konto usługi Azure Blob Storage
-* Skopiuj dane z konta usługi Azure Blob Storage do Azure SQL Database.
+* Kopiowanie danych z bazy danych SQL Server na konto usługi Azure Blob Storage
+* Skopiuj dane z konta usługi Azure Blob Storage, aby Azure SQL Database.
 
 > [!NOTE]
-> Kroki przedstawione w tym miejscu zostały dostosowane z bardziej szczegółowego samouczka dostarczonego przez zespół usługi ADF: [Kopiowanie danych z lokalnej bazy danych SQL Server do usługi Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) odwołania do odpowiednich sekcji tego tematu są udostępniane w razie potrzeby.
+> Przedstawione tutaj kroki zostały dostosowane z bardziej szczegółowego samouczka dostarczonego przez zespół usługi ADF: [Kopiowanie danych z bazy danych SQL Server do usługi Azure Blob Storage](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) odwołania do odpowiednich sekcji tego tematu są udostępniane w razie potrzeby.
 >
 >
 
@@ -60,10 +60,10 @@ W tym samouczku założono, że masz:
 >
 >
 
-## <a name="upload-the-data-to-your-on-premises-sql-server"></a><a name="upload-data"></a>Przekaż dane do lokalnego SQL Server
+## <a name="upload-the-data-to-your-sql-server-instance"></a><a name="upload-data"></a>Przekaż dane do wystąpienia SQL Server
 Używamy [zestawu danych NYC taksówki](https://chriswhong.com/open-data/foil_nyc_taxi/) w celu zademonstrowania procesu migracji. Zestaw danych NYC taksówki jest dostępny w tym wpisie w przypadku [danych o taksówkach](https://www.andresmh.com/nyctaxitrips/)w usłudze Azure Blob Storage NYC. Dane mają dwa pliki, plik CSV trip_data, zawierający szczegóły dotyczące wyjazdu i plik trip_far. csv, który zawiera szczegółowe informacje o opłatach za każdą podróż. Przykład i opis tych plików znajdują się w [opisie zestawu danych NYC taksówki](sql-walkthrough.md#dataset).
 
-Można dostosować procedurę podaną tutaj do zestawu własnych danych lub postępować zgodnie z instrukcjami w sposób opisany przy użyciu zestawu danych NYC taksówki. Aby przekazać zestaw danych NYC taksówki do lokalnej bazy danych SQL Server, postępuj zgodnie z procedurą opisaną w temacie [zbiorcze Importowanie danych do SQL Server Database](sql-walkthrough.md#dbload). Te instrukcje dotyczą SQL Server na maszynie wirtualnej platformy Azure, ale procedura przekazywania do SQL Server lokalnych jest taka sama.
+Można dostosować procedurę podaną tutaj do zestawu własnych danych lub postępować zgodnie z instrukcjami w sposób opisany przy użyciu zestawu danych NYC taksówki. Aby przekazać zestaw danych NYC taksówki do bazy danych SQL Server, wykonaj procedurę opisaną w temacie [zbiorcze Importowanie danych do SQL Server Database](sql-walkthrough.md#dbload).
 
 ## <a name="create-an-azure-data-factory"></a><a name="create-adf"></a>Tworzenie Azure Data Factory
 Poniżej [Azure Data Factory](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory)przedstawiono instrukcje dotyczące tworzenia nowych Azure Data Factory i grupy zasobów w [Azure Portal](https://portal.azure.com/) . Nazwij nowe wystąpienie ADF *adfdsp* i Nazwij grupę zasobów utworzoną *adfdsprg*.
@@ -93,7 +93,7 @@ Utwórz tabele określające strukturę, lokalizację i dostępność zestawów 
 
 W definicjach opartych na notacji JSON w tabelach są używane następujące nazwy:
 
-* **Nazwa tabeli** w lokalnym programie SQL server jest *nyctaxi_data*
+* **Nazwa tabeli** w SQL Server jest *nyctaxi_data*
 * **nazwa kontenera** na koncie usługi Azure Blob Storage to *ContainerName*
 
 Dla tego potoku APD jest wymaganych trzy definicje tabel:
@@ -108,7 +108,7 @@ Dla tego potoku APD jest wymaganych trzy definicje tabel:
 >
 
 ### <a name="sql-on-premises-table"></a><a name="adf-table-onprem-sql"></a>Tabela lokalna SQL
-Definicja tabeli dla SQL Server lokalnego jest określona w następującym pliku JSON:
+Definicja tabeli dla SQL Server jest określona w następującym pliku JSON:
 
 ```json
 {
@@ -226,12 +226,12 @@ Korzystając z podanych wcześniej definicji tabeli, definicja potoku dla ADF je
     "name": "AMLDSProcessPipeline",
     "properties":
     {
-        "description" : "This pipeline has one Copy activity that copies data from an on-premises SQL to Azure blob",
+        "description" : "This pipeline has one Copy activity that copies data from SQL Server to Azure blob",
         "activities":
         [
             {
                 "name": "CopyFromSQLtoBlob",
-                "description": "Copy data from on-premises SQL server to blob",
+                "description": "Copy data from SQL Server to blob",
                 "type": "CopyActivity",
                 "inputs": [ {"name": "OnPremSQLTable"} ],
                 "outputs": [ {"name": "OutputBlobTable"} ],

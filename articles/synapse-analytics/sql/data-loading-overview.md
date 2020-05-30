@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 596f4bcf2e3f829430fdc90eb1806a44a84b2bc5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 750898d8b3bb74672a44b8073563a4fca0b7eade
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81429592"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194101"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Projektowanie strategii ładowania danych bazowych dla puli SQL Synapse platformy Azure
 
@@ -69,12 +69,12 @@ Jeśli eksportujesz z SQL Server, możesz użyć [narzędzia wiersza polecenia B
 |        ciąg         |                           varchar                            |
 |        binarny         |                            binarny                            |
 |        binarny         |                          varbinary                           |
-|       sygnatura czasowa       |                             date                             |
+|       sygnatura czasowa       |                             data                             |
 |       sygnatura czasowa       |                        smalldatetime                         |
 |       sygnatura czasowa       |                          datetime2                           |
 |       sygnatura czasowa       |                           datetime                           |
 |       sygnatura czasowa       |                             time                             |
-|       date            |                             date                             |
+|       data            |                             data                             |
 |        decimal        |                            decimal                           |
 
 ## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. wyląduj dane do usługi Azure Blob Storage lub Azure Data Lake Store
@@ -121,7 +121,7 @@ Najlepszym rozwiązaniem jest załadowanie danych do tabeli przejściowej. Tabel
 Aby załadować dane za pomocą bazy danych Base, można użyć dowolnej z następujących opcji ładowania:
 
 - Baza danych w języku [T-SQL](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) działa prawidłowo, gdy dane są przechowywane w usłudze Azure Blob storage lub Azure Data Lake Store. Zapewnia ona największą kontrolę nad procesem ładowania, ale wymaga również zdefiniowania zewnętrznych obiektów danych. Inne metody definiują te obiekty w tle podczas mapowania tabel źródłowych do tabel docelowych.  Aby zorganizować obciążenia T-SQL, można użyć Azure Data Factory, SSIS lub Azure Functions.
-- [Baza](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) danych programu SSIS działa dobrze, gdy dane źródłowe są w SQL Server, SQL Server lokalnie lub w chmurze. Program SSIS definiuje mapowania tabeli źródłowej do docelowej, a także organizuje obciążenie. Jeśli masz już pakiety SSIS, możesz zmodyfikować pakiety, aby współpracowały z nowym miejscem docelowym magazynu danych.
+- [Baza](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) danych programu SSIS działa prawidłowo, gdy dane źródłowe są w SQL Server. Program SSIS definiuje mapowania tabeli źródłowej do docelowej, a także organizuje obciążenie. Jeśli masz już pakiety SSIS, możesz zmodyfikować pakiety, aby współpracowały z nowym miejscem docelowym magazynu danych.
 - [Baza z Azure Data Factory (ADF)](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) to inne narzędzie aranżacji.  Definiuje potok i planuje zadania.
 - [Baza danych z Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) transferuje dane z tabeli SQL Data Warehouse do Databases dataframes i/lub zapisuje dane z ramki Databases do tabeli SQL Data Warehouse przy użyciu bazy danych.
 

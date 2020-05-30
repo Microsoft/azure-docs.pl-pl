@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 04/10/2020
-ms.openlocfilehash: 023f00e30809126a1be7df5330f27453477ed9cf
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 05bd4b83a6387eefb243ed8058c3fe833615cfb4
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84048035"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84188295"
 ---
 # <a name="transparent-data-encryption-for-sql-database-sql-managed-instance--azure-synapse"></a>Przezroczyste szyfrowanie danych dla SQL Database, wystąpienie zarządzane SQL & Azure Synapse
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -65,7 +65,7 @@ Nie trzeba odszyfrowywać baz danych dla operacji na platformie Azure. Ustawieni
 
 Podczas eksportowania bazy danych chronionej przez TDE wyeksportowana zawartość bazy danych nie jest zaszyfrowana. Ta wyeksportowana zawartość jest przechowywana w niezaszyfrowanych plikach BACPAC. Pamiętaj, aby odpowiednio chronić pliki BACPAC i włączyć TDE po zakończeniu importowania nowej bazy danych.
 
-Na przykład, jeśli plik BACPAC zostanie wyeksportowany z wystąpienia SQL Server lokalnego, zaimportowana zawartość nowej bazy danych nie zostanie automatycznie zaszyfrowana. Podobnie, jeśli plik BACPAC zostanie wyeksportowany do wystąpienia SQL Server lokalnego, Nowa baza danych również nie zostanie automatycznie zaszyfrowana.
+Na przykład jeśli plik BACPAC zostanie wyeksportowany z wystąpienia SQL Server, zaimportowana zawartość nowej bazy danych nie zostanie automatycznie zaszyfrowana. Podobnie, jeśli plik BACPAC zostanie zaimportowany do wystąpienia SQL Server, Nowa baza danych również nie będzie automatycznie szyfrowana.
 
 Jedynym wyjątkiem jest wyeksportowanie do i z SQL Database. TDE jest włączona w nowej bazie danych, ale sam plik BACPAC nadal nie jest szyfrowany.
 

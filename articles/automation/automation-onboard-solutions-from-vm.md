@@ -5,12 +5,12 @@ services: automation
 ms.date: 03/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: bcb457cd9c2e1bb829ddb90008cc5334db0def8b
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 481d59bd2a06103629dee88868d9e33de810fdab
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167370"
+ms.locfileid: "84204909"
 ---
 # <a name="enable-update-management-from-an-azure-vm"></a>Włączanie rozwiązania Update Management z poziomu maszyny wirtualnej platformy Azure
 
@@ -48,4 +48,4 @@ Zaloguj się do witryny Azure Portal pod adresem https://portal.azure.com.
 * Aby używać Update Management dla maszyn wirtualnych, zobacz [Zarządzanie aktualizacjami i poprawkami dla maszyn wirtualnych platformy Azure](automation-tutorial-update-management.md).
 * Aby rozwiązać ogólne błędy Update Management, zobacz [Rozwiązywanie problemów z Update Management](troubleshoot/update-management.md).
 * Aby rozwiązać problemy z usługą Windows Update Agent, zobacz [Rozwiązywanie problemów z usługą Windows Update Agent](troubleshoot/update-agent-issues.md).
-* Aby rozwiązać problemy z agentem aktualizacji systemu Linux, zobacz[Rozwiązywanie problemów z agentem aktualizacji systemu Linux](troubleshoot/update-agent-issues-linux.md).
+* Aby rozwiązać problemy z agentem aktualizacji systemu Linux, zobacz [Rozwiązywanie problemów z agentem aktualizacji systemu Linux](troubleshoot/update-agent-issues-linux.md).

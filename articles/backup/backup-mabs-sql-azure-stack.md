@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowych obciążeń SQL Server na Azure Stack
 description: W tym artykule dowiesz się, jak skonfigurować serwer Microsoft Azure Backup (serwera usługi MAB) w celu ochrony SQL Serverymi bazami danych w Azure Stack.
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: 03211e1147f96429a8406c4c95654161ed2bf308
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b2d41bdccd67539205b74a0ce277b3b01a685c6c
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74172310"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84192977"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Tworzenie kopii zapasowej SQL Server na Azure Stack
 
@@ -38,7 +38,7 @@ Zarządzanie kopią zapasową bazy danych SQL Server na platformie Azure i odzys
 
     ![Wybierz typ grupy ochrony — "serwery"](./media/backup-azure-backup-sql/pg-servers.png)
 
-4. Na ekranie **Wybieranie członków grupy** na liście dostępne elementy członkowskie są wyświetlane różne źródła danych. Kliknij **+** , aby rozwinąć folder i wyświetlić podfoldery. Kliknij pole wyboru, aby wybrać element.
+4. Na ekranie **Wybieranie członków grupy** na liście dostępne elementy członkowskie są wyświetlane różne źródła danych. Kliknij, **+** Aby rozwinąć folder i wyświetlić podfoldery. Kliknij pole wyboru, aby wybrać element.
 
     ![Wybierz bazę danych SQL](./media/backup-azure-backup-sql/pg-databases.png)
 
@@ -65,7 +65,7 @@ Zarządzanie kopią zapasową bazy danych SQL Server na platformie Azure i odzys
 
     ![Metoda replikacji początkowej](./media/backup-azure-backup-sql/pg-manual.png)
 
-    Początkowa kopia zapasowa wymaga przeniesienia całego źródła danych (SQL Server Database) z serwera produkcyjnego (SQL Server) do Azure Backup Server. Te dane mogą być duże, a transfer danych przez sieć może przekroczyć przepustowość. Z tego powodu możesz wybrać opcję transferu początkowej kopii zapasowej: **ręcznie** (przy użyciu nośnika wymiennego), aby uniknąć przeciążenia przepustowości lub **automatycznie za pośrednictwem sieci** (w określonym czasie).
+    Początkowa kopia zapasowa wymaga przeniesienia całego źródła danych (SQL Server Database) z serwera produkcyjnego (SQL Server komputera) do Azure Backup Server. Te dane mogą być duże, a transfer danych przez sieć może przekroczyć przepustowość. Z tego powodu możesz wybrać opcję transferu początkowej kopii zapasowej: **ręcznie** (przy użyciu nośnika wymiennego), aby uniknąć przeciążenia przepustowości lub **automatycznie za pośrednictwem sieci** (w określonym czasie).
 
     Po zakończeniu początkowej kopii zapasowej pozostałe kopie zapasowe są przyrostowymi kopiami zapasowymi na początkowej kopii zapasowej. Przyrostowe kopie zapasowe mają być małe i łatwo przesyłane przez sieć.
 
@@ -73,7 +73,7 @@ Zarządzanie kopią zapasową bazy danych SQL Server na platformie Azure i odzys
 
     ![Sprawdzanie spójności](./media/backup-azure-backup-sql/pg-consistent.png)
 
-    Azure Backup Server przeprowadza sprawdzanie spójności na integralność punktu kopii zapasowej. Azure Backup Server oblicza sumę kontrolną pliku kopii zapasowej na serwerze produkcyjnym SQL Server (w tym scenariuszu), a następnie dane kopii zapasowej dla tego pliku. W przypadku konfliktu zakłada się, że plik kopii zapasowej w Azure Backup Server jest uszkodzony. Azure Backup Server wznawia dane kopii zapasowej, wysyłając bloki odpowiadające niezgodności sumy kontrolnej. Ze względu na to, że sprawdzanie spójności ma intensywną wydajność, można zaplanować sprawdzanie spójności lub uruchomić je automatycznie.
+    Azure Backup Server przeprowadza sprawdzanie spójności na integralność punktu kopii zapasowej. Azure Backup Server oblicza sumę kontrolną pliku kopii zapasowej na serwerze produkcyjnym (SQL Server komputerze w tym scenariuszu) oraz dane kopii zapasowej dla tego pliku. W przypadku konfliktu zakłada się, że plik kopii zapasowej w Azure Backup Server jest uszkodzony. Azure Backup Server wznawia dane kopii zapasowej, wysyłając bloki odpowiadające niezgodności sumy kontrolnej. Ze względu na to, że sprawdzanie spójności ma intensywną wydajność, można zaplanować sprawdzanie spójności lub uruchomić je automatycznie.
 
 10. Aby określić ochronę w trybie online dla źródeł danych, wybierz te, które mają być chronione na platformie Azure, a następnie kliknij przycisk **dalej**.
 

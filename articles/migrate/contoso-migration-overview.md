@@ -4,12 +4,12 @@ description: Linki do przykładowych scenariuszy migracji firmy Contoso na potrz
 ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: raynew
-ms.openlocfilehash: 6e19bcbd041232504a81ac0799e71cae2f459428
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 2cc03462fd72db1a50434d3d6de0851660414cd9
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84016920"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195851"
 ---
 # <a name="contoso-migration-series"></a>Seria dotycząca migracji w firmie Contoso
 
@@ -26,12 +26,12 @@ Artykuły z tej serii są podsumowane w poniższej tabeli.
 - W każdym scenariuszu wdrażania udostępniamy informacje o sterownikach i celach firmy, proponowanej architekturze, krokach do przeprowadzenia migracji oraz zaleceniach dotyczących czyszczenia i następnych kroków po zakończeniu migracji.
 
 
-**Artykuł** | **Szczegóły** 
+**Art** | **Szczegóły** 
 --- | --- 
 [Artykuł 1: Omówienie](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-overview) | Omówienie serii artykułów, strategii migracji firmy Contoso i przykładowych aplikacji, które są używane w tej serii. 
 [Artykuł 2. wdrażanie infrastruktury platformy Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-infrastructure) | Firma Contoso przygotowuje infrastrukturę lokalną i infrastrukturę platformy Azure do migracji. Ta sama infrastruktura jest używana dla wszystkich artykułów w serii. 
 [Artykuł 3: Ocena zasobów lokalnych na potrzeby migracji na platformę Azure](https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/azure-migration-guide/assess?tabs=Tools)  | Firma Contoso wykonuje ocenę swojej lokalnej aplikacji SmartHotel360 działającej w oprogramowaniu VMware. Firma Contoso ocenia maszyny wirtualne aplikacji przy użyciu usługi Azure Migrate, a aplikacja SQL Server bazy danych przy użyciu Data Migration Assistant.
-[Artykuł 4: przehostaj aplikację na maszynę wirtualną platformy Azure i SQL Database wystąpienia zarządzanego](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm-sql-managed-instance) | Firma Contoso wykonuje migrację do platformy Azure w celu przeprowadzenia przejścia i przesunięcia do swojej lokalnej aplikacji SmartHotel360. Firma Contoso migruje maszynę wirtualną aplikacji frontonu przy użyciu [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-services-overview). Firma Contoso migruje bazę danych aplikacji do Azure SQL Database wystąpienia zarządzanego przy użyciu [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview).
+[Artykuł 4: przehostaj aplikację na maszynie wirtualnej platformy Azure i wystąpieniu zarządzanym SQL](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm-sql-managed-instance) | Firma Contoso wykonuje migrację do platformy Azure w celu przeprowadzenia przejścia i przesunięcia do swojej lokalnej aplikacji SmartHotel360. Firma Contoso migruje maszynę wirtualną aplikacji frontonu przy użyciu [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-services-overview). Firma Contoso migruje bazę danych aplikacji do wystąpienia zarządzanego SQL przy użyciu [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview).
 [Artykuł 5: Hostowanie aplikacji na maszynach wirtualnych platformy Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm) | Firma Contoso migruje maszyny wirtualne aplikacji SmartHotel360 do maszyn wirtualnych platformy Azure przy użyciu usługi Azure Migrate. 
 [Artykuł 6: rehostowanie aplikacji na maszynach wirtualnych platformy Azure i w SQL Server zawsze włączonych grupach dostępności](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm-sql-ag) | Firma Contoso migruje aplikację SmartHotel360. Firma Contoso używa Azure Migrate do migrowania maszyn wirtualnych aplikacji. Używa Database Migration Service do migrowania bazy danych aplikacji do klastra SQL Server, który jest chroniony przez grupę dostępności AlwaysOn. 
 [Artykuł 7: przehostaj aplikację systemu Linux na maszynach wirtualnych platformy Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-linux-vm) | Firma Contoso wykonuje migrację do maszyn wirtualnych platformy Azure w celu podnoszenia i przesunięcia z Azure Migrate funkcji osTicket.

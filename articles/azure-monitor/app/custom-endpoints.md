@@ -3,16 +3,17 @@ title: Usługa Azure Application Insights przesłania domyślne punkty końcowe 
 description: Zmodyfikuj domyślne Azure Monitor Application Insights punktów końcowych zestawu SDK dla regionów takich jak Azure Government.
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: f5bf5b07f7c058b4778e7695f150fdc71e048182
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.custom: references_regions
+ms.openlocfilehash: d0c9467497a8bd108d37a340d2cdbb887061e3a6
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629188"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194829"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Application Insights Przesłanianie domyślnych punktów końcowych
 
-Aby wysłać dane z Application Insights do określonych regionów, należy zastąpić domyślne adresy punktów końcowych. Każdy zestaw SDK wymaga nieco różnych modyfikacji, które zostały opisane w tym artykule. Te zmiany wymagają dostosowania przykładowego kodu i zastąpienia wartości zastępczych dla `QuickPulse_Endpoint_Address`, `TelemetryChannel_Endpoint_Address`i `Profile_Query_Endpoint_address` z rzeczywistymi adresami punktów końcowych dla danego regionu. Koniec tego artykułu zawiera linki do adresów punktów końcowych dla regionów, w których ta konfiguracja jest wymagana.
+Aby wysłać dane z Application Insights do określonych regionów, należy zastąpić domyślne adresy punktów końcowych. Każdy zestaw SDK wymaga nieco różnych modyfikacji, które zostały opisane w tym artykule. Te zmiany wymagają dostosowania przykładowego kodu i zastąpienia wartości zastępczych dla `QuickPulse_Endpoint_Address` , `TelemetryChannel_Endpoint_Address` i `Profile_Query_Endpoint_address` z rzeczywistymi adresami punktów końcowych dla danego regionu. Koniec tego artykułu zawiera linki do adresów punktów końcowych dla regionów, w których ta konfiguracja jest wymagana.
 
 > [!NOTE]
 > [Parametry połączenia](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) to nowa preferowana metoda ustawiania niestandardowych punktów końcowych w Application Insights.
@@ -59,7 +60,7 @@ Zmodyfikuj plik appSettings. JSON w projekcie w następujący sposób, aby dosto
   }
 ```
 
-Wartości metryk na żywo i punkt końcowy zapytania profilu można ustawić tylko za pośrednictwem kodu. Aby zastąpić wartości domyślne dla wszystkich wartości punktów końcowych za pośrednictwem kodu, wprowadź następujące zmiany `ConfigureServices` w metodzie `Startup.cs` pliku:
+Wartości metryk na żywo i punkt końcowy zapytania profilu można ustawić tylko za pośrednictwem kodu. Aby zastąpić wartości domyślne dla wszystkich wartości punktów końcowych za pośrednictwem kodu, wprowadź następujące zmiany w `ConfigureServices` metodzie `Startup.cs` pliku:
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId;
@@ -76,7 +77,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 
 # <a name="azure-functions"></a>[Azure Functions](#tab/functions)
 
-W przypadku Azure Functions teraz zaleca się używanie [parametrów połączenia](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) ustawionych w ustawieniach aplikacji funkcji. Aby uzyskać dostęp do ustawień aplikacji dla funkcji, w okienku funkcje wybierz pozycję **Ustawienia** > **Konfiguracja** > **aplikacji ustawienia**. 
+W przypadku Azure Functions teraz zaleca się używanie [parametrów połączenia](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) ustawionych w ustawieniach aplikacji funkcji. Aby uzyskać dostęp do ustawień aplikacji dla funkcji, w okienku funkcje wybierz pozycję **Ustawienia**  >  **Konfiguracja**  >  **aplikacji ustawienia**. 
 
 Nazwa: `APPLICATIONINSIGHTS_CONNECTION_STRING` wartość:`Connection String Value`
 

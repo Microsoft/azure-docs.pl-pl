@@ -4,16 +4,16 @@ description: Dowiedz się, jak włączyć usuwanie nietrwałe (wersja zapoznawcz
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 05/28/2020
 ms.author: rogarana
 ms.subservice: files
 services: storage
-ms.openlocfilehash: a31fc675ca32697ece1fe7240112bb5610feda9d
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 582a3603ad80ec1312429ed7cbd140d4310fadcb
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84142099"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196197"
 ---
 # <a name="enable-soft-delete-on-azure-file-shares"></a>Włącz usuwanie nietrwałe w udziałach plików platformy Azure
 

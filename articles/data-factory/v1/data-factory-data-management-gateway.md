@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 76f8b741eb49949bb59ab5e1a4b7279f84b77111
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a2d4c9ad5a64fecaad023907351101942c4edac2
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021572"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84188303"
 ---
 # <a name="data-management-gateway"></a>Brama zarządzania danymi
 > [!NOTE]
@@ -28,7 +28,7 @@ ms.locfileid: "84021572"
 
 Brama zarządzania danymi jest agentem klienta, który należy zainstalować w środowisku lokalnym w celu kopiowania danych między magazynami danych w chmurze i lokalnymi. Lokalne magazyny danych obsługiwane przez Data Factory są wymienione w sekcji [obsługiwane źródła danych](data-factory-data-movement-activities.md#supported-data-stores-and-formats) .
 
-Ten artykuł zawiera uzupełnienie przewodnika po artykule [przenoszenie danych między lokalnym i magazynem danych w chmurze](data-factory-move-data-between-onprem-and-cloud.md) . W tym przewodniku utworzysz potok, który używa bramy do przenoszenia danych z lokalnej bazy danych SQL Server do obiektu blob platformy Azure. Ten artykuł zawiera szczegółowe informacje na temat bramy zarządzania danymi.
+Ten artykuł zawiera uzupełnienie przewodnika po artykule [przenoszenie danych między lokalnym i magazynem danych w chmurze](data-factory-move-data-between-onprem-and-cloud.md) . W tym przewodniku utworzysz potok, który używa bramy do przenoszenia danych z bazy danych SQL Server do obiektu blob platformy Azure. Ten artykuł zawiera szczegółowe informacje na temat bramy zarządzania danymi.
 
 Bramę zarządzania danymi można skalować w poziomie, kojarząc wiele maszyn lokalnych z bramą. Możesz skalować w górę, zwiększając liczbę zadań przenoszenia danych, które mogą być uruchamiane współbieżnie w węźle. Ta funkcja jest również dostępna dla bramy logicznej z pojedynczym węzłem. Aby uzyskać szczegółowe informacje, zobacz temat [skalowanie bramy zarządzania danymi w artykule Azure Data Factory](data-factory-data-management-gateway-high-availability-scalability.md) .
 
@@ -103,7 +103,7 @@ Bramę zarządzania danymi można zainstalować w następujący sposób:
 10. Na stronie **Rejestrowanie bramy** **Zarządzanie danymi bramy Configuration Manager** uruchomionej na maszynie wykonaj następujące czynności:
     1. Wklej klucz w tekście.
     2. Opcjonalnie kliknij pozycję **Pokaż klucz bramy** , aby zobaczyć tekst klucza.
-    3. Kliknij pozycję **zarejestruj**.
+    3. Kliknij pozycję **Zarejestruj**.
 
 ### <a name="register-gateway-using-key"></a>Rejestrowanie bramy przy użyciu klucza
 #### <a name="if-you-havent-already-created-a-logical-gateway-in-the-portal"></a>Jeśli nie utworzono jeszcze bramy logicznej w portalu
@@ -164,7 +164,7 @@ Na przykład, aby skopiować z **lokalnego magazynu danych do ujścia Azure SQL 
 * Skonfiguruj ustawienia zapory dla logicznego programu SQL Server, aby dodać adres IP maszyny bramy do listy dozwolonych adresów IP.
 
 > [!NOTE]
-> Jeśli Zapora nie zezwala na port wychodzący 1433, Brama nie może bezpośrednio uzyskać dostępu do usługi Azure SQL. W takim przypadku można użyć [kopii przygotowanej](https://docs.microsoft.com/azure/data-factory/data-factory-copy-activity-performance#staged-copy) do bazy danych SQL Azure/DW usługi SQL Azure. W tym scenariuszu do przenoszenia danych jest wymagany tylko protokół HTTPS (port 443).
+> Jeśli Zapora nie zezwala na port wychodzący 1433, Brama nie może bezpośrednio uzyskać dostępu do usługi Azure SQL. W takim przypadku można użyć [kopii przygotowanej](https://docs.microsoft.com/azure/data-factory/data-factory-copy-activity-performance#staged-copy) do SQL Database/wystąpienia zarządzanego SQL/DW usługi SQL Azure. W tym scenariuszu do przenoszenia danych jest wymagany tylko protokół HTTPS (port 443).
 >
 >
 
@@ -543,4 +543,4 @@ Remove-AzDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_Re
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-* Zobacz [przenoszenie danych między środowiskiem lokalnym i magazynem danych w chmurze](data-factory-move-data-between-onprem-and-cloud.md) . W tym przewodniku utworzysz potok, który używa bramy do przenoszenia danych z lokalnej bazy danych SQL Server do obiektu blob platformy Azure.
+* Zobacz [przenoszenie danych między środowiskiem lokalnym i magazynem danych w chmurze](data-factory-move-data-between-onprem-and-cloud.md) . W tym przewodniku utworzysz potok, który używa bramy do przenoszenia danych z bazy danych SQL Server do obiektu blob platformy Azure.

@@ -1,6 +1,6 @@
 ---
-title: Ładowanie danych do usługi Azure SQL Data Warehouse
-description: Używanie Azure Data Factory do kopiowania danych do Azure SQL Data Warehouse
+title: Ładowanie danych do usługi Azure Synapse Analytics
+description: Używanie Azure Data Factory do kopiowania danych do usługi Azure Synapse Analytics
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -10,38 +10,38 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/16/2020
-ms.openlocfilehash: e0a9a00aa6abd35ad723f02a30869e8f7734b1f3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 05/29/2020
+ms.openlocfilehash: 2f3932f3374367e260685ae5145da8858384c3a2
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020561"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194769"
 ---
-# <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Load data into Azure SQL Data Warehouse by using Azure Data Factory (Ładowanie danych do usługi Azure SQL Data Warehouse przy użyciu usługi Azure Data Factory)
+# <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>Ładowanie danych do usługi Azure Synapse Analytics przy użyciu Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-[Azure SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) to oparta na chmurze baza danych skalowalna w poziomie, która umożliwia przetwarzanie dużych ilości danych, zarówno relacyjnych, jak i nierelacyjnych. SQL Data Warehouse jest oparty na architekturze wysoce Parallel Processing (MPP) zoptymalizowanej pod kątem obciążeń magazynu danych w przedsiębiorstwie. Oferuje elastyczność chmury i umożliwia niezależne skalowanie magazynu i obliczanie.
+[Azure Synapse Analytics (dawniej SQL DW)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) to oparta na chmurze baza danych skalowalna w poziomie, która umożliwia przetwarzanie dużych ilości danych, zarówno relacyjnych, jak i nierelacyjnych. Usługa Azure Synapse Analytics jest oparta na architekturze wysoce Parallel Processing (MPP) zoptymalizowanej pod kątem obciążeń związanych z magazynem danych w przedsiębiorstwie. Oferuje elastyczność chmury i umożliwia niezależne skalowanie magazynu i obliczanie.
 
-Wprowadzenie do Azure SQL Data Warehouse jest teraz łatwiejsze niż kiedykolwiek wcześniej podczas korzystania z Azure Data Factory. Azure Data Factory to w pełni zarządzana usługa integracji danych oparta na chmurze. Za pomocą usługi można wypełnić SQL Data Warehouse danymi z istniejącego systemu i zaoszczędzić czas podczas kompilowania rozwiązań analitycznych.
+Wprowadzenie do usługi Azure Synapse Analytics jest teraz łatwiejsze niż kiedykolwiek, gdy używasz Azure Data Factory. Azure Data Factory to w pełni zarządzana usługa integracji danych oparta na chmurze. Możesz użyć usługi, aby wypełnić analizę usługi Azure Synapse przy użyciu danych z istniejącego systemu i zaoszczędzić czas podczas kompilowania rozwiązań analitycznych.
 
-Azure Data Factory oferuje następujące korzyści związane z ładowaniem danych do Azure SQL Data Warehouse:
+Azure Data Factory oferuje następujące korzyści związane z ładowaniem danych do usługi Azure Synapse Analytics:
 
 * **Łatwa konfiguracja**: Intuicyjny kreator 5-etapowy bez konieczności wykonywania skryptów.
 * **Obsługa rozbudowanych magazynów danych**: Wbudowana obsługa bogatego zestawu lokalnych i opartych na chmurze magazynów danych. Aby uzyskać szczegółową listę, zobacz tabelę [obsługiwanych magazynów danych](copy-activity-overview.md#supported-data-stores-and-formats).
 * **Bezpieczeństwo i zgodność**: dane są przesyłane za pośrednictwem protokołu HTTPS lub ExpressRoute. Globalna obecność usługi gwarantuje, że dane nigdy nie opuszczą granicy geograficznej.
-* **Niezrównana wydajność przy użyciu bazy danych bazowych**: baza jest najbardziej wydajnym sposobem, aby przenieść dane do Azure SQL Data Warehouse. Funkcja tymczasowych obiektów BLOB umożliwia uzyskanie dużej szybkości ładowania ze wszystkich typów magazynów danych, w tym usługi Azure Blob Storage i Data Lake Store. (Baza danych jest domyślnie obsługiwana w usłudze Azure Blob Storage i Azure Data Lake Store). Aby uzyskać szczegółowe informacje, zobacz [wydajność działania kopiowania](copy-activity-performance.md).
+* **Niezrównana wydajność przy użyciu bazy danych bazowych**: baza jest najbardziej wydajnym sposobem, aby przenieść dane do usługi Azure Synapse Analytics. Funkcja tymczasowych obiektów BLOB umożliwia uzyskanie dużej szybkości ładowania ze wszystkich typów magazynów danych, w tym usługi Azure Blob Storage i Data Lake Store. (Baza danych jest domyślnie obsługiwana w usłudze Azure Blob Storage i Azure Data Lake Store). Aby uzyskać szczegółowe informacje, zobacz [wydajność działania kopiowania](copy-activity-performance.md).
 
-W tym artykule pokazano, jak za pomocą narzędzia Kopiowanie danych Data Factory _załadować dane z Azure SQL Database do Azure SQL Data Warehouse_. Możesz wykonać podobne kroki, aby skopiować dane z innych typów magazynów danych.
+W tym artykule pokazano, jak za pomocą narzędzia Kopiowanie danych Data Factory _załadować dane z Azure SQL Database do usługi Azure Synapse Analytics_. Możesz wykonać podobne kroki, aby skopiować dane z innych typów magazynów danych.
 
 > [!NOTE]
-> Aby uzyskać więcej informacji, zobacz [Kopiowanie danych do lub z Azure SQL Data Warehouse przy użyciu Azure Data Factory](connector-azure-sql-data-warehouse.md).
+> Aby uzyskać więcej informacji, zobacz [Kopiowanie danych do lub z usługi Azure Synapse Analytics przy użyciu Azure Data Factory](connector-azure-sql-data-warehouse.md).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 * Subskrypcja platformy Azure: Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/) .
-* Azure SQL Data Warehouse: Magazyn danych przechowuje dane skopiowane z bazy danych SQL. Jeśli nie masz Azure SQL Data Warehouse, zapoznaj się z instrukcjami w artykule [tworzenie SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
+* Azure Synapse Analytics: Magazyn danych przechowuje dane skopiowane z bazy danych SQL. Jeśli nie masz usługi Azure Synapse Analytics, zapoznaj się z instrukcjami zawartymi w temacie [Tworzenie usługi Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
 * Azure SQL Database: w tym samouczku kopiuje dane z bazy danych Azure SQL Database za pomocą przykładowych danych firmy Adventure Works LT. Bazę danych SQL można utworzyć, postępując zgodnie z instrukcjami zawartymi w temacie [Tworzenie bazy danych Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md).
 * Konto usługi Azure Storage: usługa Azure Storage jest używana jako _tymczasowy_ obiekt BLOB w operacji kopiowania zbiorczego. Jeśli nie masz konta usługi Azure Storage, zobacz instrukcje podane w temacie [Tworzenie konta magazynu](../storage/common/storage-account-create.md).
 
@@ -57,14 +57,14 @@ W tym artykule pokazano, jak za pomocą narzędzia Kopiowanie danych Data Factor
     * **Wersja**: wybierz pozycję **v2**.
     * **Lokalizacja**: Wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych używane przez fabrykę danych mogą znajdować się w innych lokalizacjach i regionach. Te magazyny danych obejmują Azure Data Lake Store, Azure Storage, Azure SQL Database i tak dalej.
 
-3. Wybierz przycisk **Utwórz**.
+3. Wybierz pozycję **Utwórz**.
 4. Po zakończeniu tworzenia przejdź do fabryki danych. Zostanie wyświetlona strona główna **Data Factory** , jak pokazano na poniższej ilustracji:
 
    ![Strona główna fabryki danych](./media/doc-common-process/data-factory-home-page.png)
 
    Wybierz kafelek **Tworzenie i monitorowanie**, aby w osobnej karcie uruchomić aplikację Integracja danych.
 
-## <a name="load-data-into-azure-sql-data-warehouse"></a>Ładowanie danych do usługi Azure SQL Data Warehouse
+## <a name="load-data-into-azure-synapse-analytics"></a>Ładowanie danych do usługi Azure Synapse Analytics
 
 1. Na stronie **Wprowadzenie** wybierz kafelek **Kopiowanie danych**, aby uruchomić narzędzie do kopiowania danych.
 
@@ -115,7 +115,7 @@ W tym artykule pokazano, jak za pomocą narzędzia Kopiowanie danych Data Factor
 1. Na stronie **Mapowanie tabeli** przejrzyj zawartość, a następnie wybierz przycisk **dalej**. Zostanie wyświetlone inteligentne Mapowanie tabeli. Tabele źródłowe są mapowane do tabel docelowych na podstawie nazw tabel. Jeśli tabela źródłowa nie istnieje w miejscu docelowym, Azure Data Factory domyślnie utworzy tabelę docelową o tej samej nazwie. Możesz również zmapować tabelę źródłową do istniejącej tabeli docelowej.
 
    > [!NOTE]
-   > Automatyczne tworzenie tabeli dla ujścia SQL Data Warehouse ma zastosowanie, gdy SQL Server lub Azure SQL Database jest źródłem. W przypadku kopiowania danych z innego źródłowego magazynu danych przed wykonaniem kopii danych należy wstępnie utworzyć schemat w Azure SQL Data Warehouse ujścia.
+   > Automatyczne tworzenie tabeli dla ujścia usługi Azure Synapse Analytics ma zastosowanie, gdy SQL Server lub Azure SQL Database jest źródłem. W przypadku kopiowania danych z innego źródłowego magazynu danych należy wstępnie utworzyć schemat w usłudze Azure Synapse Analytics przed wykonaniem kopii danych.
 
    ![Strona Mapowanie tabeli](./media/load-azure-sql-data-warehouse/table-mapping.png)
 
@@ -125,7 +125,7 @@ W tym artykule pokazano, jak za pomocą narzędzia Kopiowanie danych Data Factor
 
 1. Na stronie **Ustawienia** wykonaj następujące czynności:
 
-    a. W sekcji **Ustawienia przemieszczania** kliknij pozycję **+ Nowy** , aby nowe miejsce w magazynie tymczasowym. Magazyn jest używany do przemieszczania danych przed załadowaniem ich do SQL Data Warehouse przy użyciu bazy. Po zakończeniu kopiowania zostaną automatycznie oczyszczone dane tymczasowe Blob Storage platformy Azure.
+    a. W sekcji **Ustawienia przemieszczania** kliknij pozycję **+ Nowy** , aby nowe miejsce w magazynie tymczasowym. Magazyn jest używany do przemieszczania danych przed załadowaniem ich do usługi Azure Synapse Analytics przy użyciu bazy. Po zakończeniu kopiowania zostaną automatycznie oczyszczone dane tymczasowe Blob Storage platformy Azure.
 
     b. Na stronie **Nowa połączona usługa** wybierz konto magazynu, a następnie wybierz pozycję **Utwórz** , aby wdrożyć połączoną usługę.
 
@@ -152,7 +152,7 @@ W tym artykule pokazano, jak za pomocą narzędzia Kopiowanie danych Data Factor
 
 ## <a name="next-steps"></a>Następne kroki
 
-Przejdź do poniższego artykułu, aby dowiedzieć się więcej o pomocy technicznej Azure SQL Data Warehouse:
+Przejdź do poniższego artykułu, aby dowiedzieć się więcej o obsłudze usługi Azure Synapse Analytics:
 
 > [!div class="nextstepaction"]
->[Łącznik Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md)
+>[Łącznik usługi Azure Synapse Analytics](connector-azure-sql-data-warehouse.md)

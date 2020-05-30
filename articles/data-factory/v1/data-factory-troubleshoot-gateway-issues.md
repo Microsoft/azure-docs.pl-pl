@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 09d51de3ae0bd4baca585d2abdd936b1a29567d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 390cddf557905e95e313896f9f172e30b81352b9
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80065026"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195945"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Rozwiązywanie problemów z używaniem bramy zarządzania danymi
 Ten artykuł zawiera informacje dotyczące rozwiązywania problemów z usługą Zarządzanie danymi Gateway.
@@ -24,7 +24,7 @@ Ten artykuł zawiera informacje dotyczące rozwiązywania problemów z usługą 
 > [!NOTE]
 > Ten artykuł dotyczy wersji 1 usługi Azure Data Factory. Jeśli używasz bieżącej wersji usługi Data Factory, zobacz [własne środowisko Integration Runtime w programie Data Factory](../create-self-hosted-integration-runtime.md).
 
-Aby uzyskać szczegółowe informacje o bramie, zobacz artykuł dotyczący [bramy zarządzanie danymi](data-factory-data-management-gateway.md) . Zapoznaj się z artykułem [przenoszenie danych między środowiskiem lokalnym i chmurą](data-factory-move-data-between-onprem-and-cloud.md) , aby zapoznać się z przewodnikiem przenoszenia danych z lokalnej bazy danych SQL Server do Microsoft Azure usługi BLOB Storage przy użyciu bramy.
+Aby uzyskać szczegółowe informacje o bramie, zobacz artykuł dotyczący [bramy zarządzanie danymi](data-factory-data-management-gateway.md) . Zapoznaj się z artykułem [przenoszenie danych między środowiskiem lokalnym i chmurą](data-factory-move-data-between-onprem-and-cloud.md) , aby zapoznać się z przewodnikiem przenoszenia danych z bazy danych SQL Server do Microsoft Azure usługi BLOB Storage przy użyciu bramy.
 
 ## <a name="failed-to-install-or-register-gateway"></a>Nie można zainstalować lub zarejestrować bramy
 ### <a name="1-problem"></a>1. problem
@@ -279,7 +279,7 @@ Kliknij link **archiwizuj dzienniki bramy** , aby zarchiwizować i zapisać dzie
 Szczegółowe informacje dziennika bramy można znaleźć w dziennikach zdarzeń systemu Windows.
 
 1. Uruchom **Podgląd zdarzeń**systemu Windows.
-2. Zlokalizuj dzienniki w folderze **aplikacje i usługi Dzienniki** > **Zarządzanie danymi bramy** .
+2. Zlokalizuj dzienniki w folderze **aplikacje i usługi Dzienniki**  >  **Zarządzanie danymi bramy** .
 
    W przypadku rozwiązywania problemów związanych z bramą Znajdź zdarzenia poziomu błędu w Podglądzie zdarzeń.
 

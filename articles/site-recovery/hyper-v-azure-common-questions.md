@@ -3,12 +3,12 @@ title: Często zadawane pytania dotyczące odzyskiwania po awarii funkcji Hyper-
 description: W tym artykule podsumowano typowe pytania dotyczące konfigurowania odzyskiwania po awarii dla lokalnych maszyn wirtualnych funkcji Hyper-V na platformie Azure przy użyciu witryny Azure Site Recovery.
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7c5f55fbea67567ddf7a2afa6a61f6c76568d829
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b175e7157364f0471192dd713db8767e074dd483
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75498192"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195259"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Często zadawane pytania — odzyskiwanie po awarii z funkcji Hyper-V do platformy Azure
 
@@ -46,7 +46,7 @@ Jeśli chcesz przeprowadzić replikację do dodatkowego centrum danych, maszyny 
 
 
 ### <a name="can-i-replicate-hyper-v-generation-2-virtual-machines-to-azure"></a>Czy można replikować maszyny wirtualne funkcji Hyper-V drugiej generacji do platformy Azure?
-Tak. Site Recovery konwertuje z generacji 2 do generacji 1 podczas pracy w trybie failover. Po awarii maszyna zostanie przekonwertowana z powrotem do generacji 2. [Dowiedz się więcej](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
+Tak. Site Recovery konwertuje z generacji 2 do generacji 1 podczas pracy w trybie failover. Po awarii maszyna zostanie przekonwertowana z powrotem do generacji 2. [Przeczytaj więcej](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).
 
 
 ### <a name="can-i-deploy-site-recovery-with-vmm-if-i-only-have-one-vmm-server"></a>Czy mogę wdrożyć usługę Site Recovery z programem VMM, jeśli mam tylko jeden serwer VMM?
@@ -159,7 +159,7 @@ W przypadku replikacji na maszynie wirtualnej funkcji Hyper-V musi być uruchomi
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>Jak często mogę przeprowadzić replikację do platformy Azure?
 
-Maszyny wirtualne funkcji Hyper-V mogą być replikowane co 30 sekund (z wyjątkiem magazynu Premium Storage), 5 minut lub 15 minut.
+Maszyny wirtualne funkcji Hyper-V mogą być replikowane co 30 sekund (z wyjątkiem magazynu Premium Storage) lub 5 minut.
 
 ### <a name="can-i-extend-replication"></a>Czy mogę zwiększyć replikację?
 Replikacja rozszerzona lub łańcuchowa nie jest obsługiwana. Zażądaj tej funkcji na [forum opinii](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).

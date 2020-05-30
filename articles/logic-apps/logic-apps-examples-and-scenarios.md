@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: ad5cc696892764ce68d4714ead98b8afd9c37669
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 786655f8e8ee7e21f2615361b0bb1ea336ccb479
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82144154"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84190736"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Typowe scenariusze, przykłady, samouczki i przewodniki dotyczące Azure Logic Apps
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) ułatwia organizację i integrację różnych usług, zapewniając [setki gotowych do użycia łączników](../connectors/apis-list.md), od lokalnych SQL Server lub SAP do platformy Azure Cognitive Services. Usługa Logic Apps jest "bezserwerowa", więc nie trzeba martwić się o skalowanie ani wystąpienia. Wystarczy zdefiniować przepływ pracy z wyzwalaczem i akcjami wykonywanymi przez przepływ pracy. Bazowa Platforma obsługuje skalowanie, dostępność i wydajność. Logic Apps jest szczególnie przydatna w przypadku przypadków użycia i scenariuszy, w których należy koordynować akcje w wielu systemach i usługach.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) ułatwia organizację i integrację różnych usług, zapewniając [setki gotowych do użycia łączników](../connectors/apis-list.md), od SQL Server lub SAP do platformy Azure Cognitive Services. Usługa Logic Apps jest "bezserwerowa", więc nie trzeba martwić się o skalowanie ani wystąpienia. Wystarczy zdefiniować przepływ pracy z wyzwalaczem i akcjami wykonywanymi przez przepływ pracy. Bazowa Platforma obsługuje skalowanie, dostępność i wydajność. Logic Apps jest szczególnie przydatna w przypadku przypadków użycia i scenariuszy, w których należy koordynować akcje w wielu systemach i usługach.
 
 Aby ułatwić zapoznanie się z możliwościami i wzorcami obsługiwanymi przez Azure Logic Apps, w tym artykule opisano typowe punkty wyjścia, przykłady i scenariusze.
 
@@ -126,9 +126,9 @@ Możesz w pełni opracowywać i wdrażać aplikacje logiki za pomocą programu V
 
 ## <a name="handle-content-types-conversions-and-transformations"></a>Obsługa typów zawartości, konwersji i transformacji
 
-Można uzyskać dostęp do, konwertować i przetwarzać wiele typów zawartości za pomocą wielu funkcji w Azure Logic Apps [języku definicji przepływu pracy](https://aka.ms/logicappsdocs). Na przykład można dokonać konwersji między ciągami, JSON i XML za pomocą wyrażeń `@json()` i. `@xml()` Aparat Logic Apps zachowuje typy zawartości obsługujące transfer zawartości w sposób bezstratny między usługami.
+Można uzyskać dostęp do, konwertować i przetwarzać wiele typów zawartości za pomocą wielu funkcji w Azure Logic Apps [języku definicji przepływu pracy](https://aka.ms/logicappsdocs). Na przykład można dokonać konwersji między ciągami, JSON i XML za pomocą `@json()` `@xml()` wyrażeń i. Aparat Logic Apps zachowuje typy zawartości obsługujące transfer zawartości w sposób bezstratny między usługami.
 
-* [Obsługa typów zawartości w Azure Logic Apps](../logic-apps/logic-apps-content-type.md), takich jak `application/`, `application/octet-stream`, i`multipart/formdata`
+* [Obsługa typów zawartości w Azure Logic Apps](../logic-apps/logic-apps-content-type.md), takich jak `application/` , `application/octet-stream` , i`multipart/formdata`
 * [Przewodnik referencyjny dotyczący używania funkcji w wyrażeniach dla Azure Logic Apps i automatyzacji](../logic-apps/workflow-definition-language-functions-reference.md)
 * [Schemat języka definicji przepływu pracy dla Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md)
 

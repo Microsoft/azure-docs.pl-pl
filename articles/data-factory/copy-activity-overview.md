@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: jingwang
-ms.openlocfilehash: 2557ce7be44f0505b96df06cd2b44a2fa3ce3fdb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 74210864332319dabb16eda865da9dc9793e3dbd
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414216"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84187671"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Działanie kopiowania w Azure Data Factory
 
@@ -55,7 +55,7 @@ Aby skopiować dane ze źródła do ujścia, usługa, która uruchamia działani
 
 Możesz użyć działania kopiowania, aby skopiować pliki między dwoma magazynami danych opartymi na plikach. w takim przypadku dane są kopiowane efektywnie bez serializacji ani deserializacji. Ponadto można również analizować lub generować pliki danego formatu, na przykład, można wykonać następujące czynności:
 
-* Skopiuj dane z lokalnej bazy danych SQL Server i Zapisz do Azure Data Lake Storage Gen2 w formacie Parquet.
+* Skopiuj dane z bazy danych SQL Server i Zapisz do Azure Data Lake Storage Gen2 w formacie Parquet.
 * Skopiuj pliki w formacie tekstu (CSV) z lokalnego systemu plików i Zapisz w usłudze Azure Blob Storage w formacie Avro.
 * Skopiuj pliki spakowane z lokalnego systemu plików, Dekompresuj je na bieżąco i napisz wyodrębnione pliki do Azure Data Lake Storage Gen2.
 * Skopiuj dane w formacie skompresowanego tekstu (CSV) w usłudze Azure Blob Storage i Zapisz je w Azure SQL Database.
@@ -65,7 +65,7 @@ Możesz użyć działania kopiowania, aby skopiować pliki między dwoma magazyn
 
 Usługa, która umożliwia działanie kopiowania, jest dostępna globalnie w regionach i lokalizacje geograficzne na liście [lokalizacji w usłudze Azure Integration Runtime](concepts-integration-runtime.md#integration-runtime-location). Topologia dostępna globalnie zapewnia wydajne przenoszenie danych, które zwykle pozwala uniknąć przeskoków między regionami. Zobacz [produkty według regionów](https://azure.microsoft.com/regions/#services) , aby sprawdzić dostępność Data Factory i przenoszenia danych w określonym regionie.
 
-## <a name="configuration"></a>Konfiguracja
+## <a name="configuration"></a>Konfigurowanie
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -129,7 +129,7 @@ Następujący szablon działania kopiowania zawiera pełną listę obsługiwanyc
 
 | Właściwość | Opis | Wymagane? |
 |:--- |:--- |:--- |
-| type | Dla działania kopiowania ustaw wartość na`Copy` | Tak |
+| typ | Dla działania kopiowania ustaw wartość na`Copy` | Tak |
 | danych wejściowych | Określ utworzony zestaw danych, który wskazuje na dane źródłowe. Działanie kopiowania obsługuje tylko pojedyncze dane wejściowe. | Tak |
 | wydajności | Określ utworzony zestaw danych, który wskazuje na dane ujścia. Działanie kopiowania obsługuje tylko pojedyncze dane wyjściowe. | Tak |
 | typeProperties | Określ właściwości, aby skonfigurować działanie kopiowania. | Tak |
@@ -196,11 +196,11 @@ Na karcie Źródło działania kopiowania można znaleźć następującą konfig
 >[!TIP]
 >Ta funkcja działa z najnowszym modelem zestawu danych. Jeśli ta opcja nie jest widoczna z poziomu interfejsu użytkownika, spróbuj utworzyć nowy zestaw danych.
 
-Aby programowo skonfigurować go, Dodaj `additionalColumns` właściwość w źródle działania kopiowania:
+Aby programowo skonfigurować go, Dodaj `additionalColumns` Właściwość w źródle działania kopiowania:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
-| additionalColumns | Dodaj dodatkowe kolumny danych do skopiowania do ujścia.<br><br>Każdy obiekt w `additionalColumns` tablicy reprezentuje dodatkową kolumnę. `name` Definiuje nazwę kolumny i `value` wskazuje wartość danych tej kolumny.<br><br>Dozwolone wartości danych to:<br>- **`$$FILEPATH`**-Zmienna zastrzeżona wskazuje na przechowywanie ścieżki względnej plików źródłowych do ścieżki folderu określonej w zestawie danych. Zastosuj do źródła opartego na plikach.<br>- **Wyrażenia**<br>- **Wartość statyczna** | Nie |
+| additionalColumns | Dodaj dodatkowe kolumny danych do skopiowania do ujścia.<br><br>Każdy obiekt w `additionalColumns` tablicy reprezentuje dodatkową kolumnę. `name`Definiuje nazwę kolumny i `value` wskazuje wartość danych tej kolumny.<br><br>Dozwolone wartości danych to:<br>- **`$$FILEPATH`**-Zmienna zastrzeżona wskazuje na przechowywanie ścieżki względnej plików źródłowych do ścieżki folderu określonej w zestawie danych. Zastosuj do źródła opartego na plikach.<br>- **Wyrażenia**<br>- **Wartość statyczna** | Nie |
 
 **Przykład:**
 
@@ -250,4 +250,4 @@ Zobacz następujące Przewodniki Szybki Start, samouczki i przykłady:
 
 - [Skopiuj dane z jednej lokalizacji do innej lokalizacji na tym samym koncie usługi Azure Blob Storage](quickstart-create-data-factory-dot-net.md)
 - [Kopiowanie danych z usługi Azure Blob Storage do Azure SQL Database](tutorial-copy-data-dot-net.md)
-- [Kopiowanie danych z lokalnej bazy danych SQL Server na platformę Azure](tutorial-hybrid-copy-powershell.md)
+- [Kopiowanie danych z bazy danych SQL Server na platformę Azure](tutorial-hybrid-copy-powershell.md)

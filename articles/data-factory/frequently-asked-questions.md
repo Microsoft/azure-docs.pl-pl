@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 3a3d3b990c750e96b840676097bb3677606bf68b
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: b8bd471c5fd5346fcc7e95b9afb49e833e7c6384
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118348"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84187292"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory — często zadawane pytania
 
@@ -87,7 +87,7 @@ Począwszy od początkowej publicznej wersji zapoznawczej w 2017, Data Factory d
 -    Elastyczna pula
 -    Obsługa Azure Resource Manager sieci wirtualnej na podstawie klasycznej sieci wirtualnej, która ma zostać wycofana w przyszłości, dzięki czemu można wstrzyknąć lub dołączyć do środowiska Azure-SSIS Integration Runtime do sieci wirtualnej skonfigurowanej do SQL Database za pomocą punktów końcowych usługi sieci wirtualnej/dostępu do danych lokalnych. Aby uzyskać więcej informacji, zobacz również [dołączanie środowiska Azure-SSIS Integration Runtime do sieci wirtualnej](join-azure-ssis-integration-runtime-virtual-network.md).
 -    Obsługa uwierzytelniania Azure Active Directory (Azure AD) i uwierzytelniania SQL w celu łączenia się z SSISDB, co pozwala na uwierzytelnianie usługi Azure AD za pomocą tożsamości zarządzanej Data Factory dla zasobów platformy Azure
--    Obsługa tworzenia własnej lokalnej licencji SQL Server w celu zdobycia znacznego oszczędności kosztów z poziomu opcji Korzyść użycia hybrydowego platformy Azure
+-    Pomoc techniczna dotycząca dołączania istniejącej licencji SQL Server w celu zdobycia znacznego oszczędności kosztów z poziomu opcji Korzyść użycia hybrydowego platformy Azure
 -    Obsługa wersji Enterprise środowiska Azure-SSIS Integration Runtime, która umożliwia korzystanie z funkcji Advanced/Premium, niestandardowego interfejsu instalacji służącego do instalowania dodatkowych składników/rozszerzeń i ekosystemu partnerów. Aby uzyskać więcej informacji, zobacz również [Enterprise Edition, Konfiguracja niestandardowa i rozszerzalność innych firm dla usług SSIS w podajniku ADF](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/). 
 -    Głębia Integracja usług SSIS w Data Factory, która umożliwia wywoływanie i wyzwalanie działań pakietu SSIS pierwszej klasy w potokach Data Factory i planowanie ich za pośrednictwem programu SSMS. Aby uzyskać więcej informacji, zobacz również modernizowanie [i zwiększanie przepływów pracy ETL/ELT za pomocą działań SSIS w potokach ADF](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/).
 
@@ -126,7 +126,7 @@ Połączone usługi działają podobnie do parametrów połączenia, umożliwiaj
 
 Połączone usługi mają dwa cele w Data Factory:
 
-- Do reprezentowania *magazynu danych* , który zawiera, ale nie jest ograniczony do, lokalnego wystąpienia SQL Server, wystąpienia bazy danych Oracle, udziału plików lub konta usługi Azure Blob Storage. Listę obsługiwanych magazynów danych można znaleźć w temacie [copy Activity in Azure Data Factory](copy-activity-overview.md).
+- Do reprezentowania *magazynu danych* , który zawiera, ale nie jest ograniczony do, wystąpienia SQL Server, wystąpienia bazy danych Oracle, udziału plików lub konta usługi Azure Blob Storage. Listę obsługiwanych magazynów danych można znaleźć w temacie [copy Activity in Azure Data Factory](copy-activity-overview.md).
 - Reprezentowanie *zasobu obliczeniowego*, który może hostować wykonywanie działania. Na przykład działanie programu Hive w usłudze HDInsight działa w klastrze usługi HDInsight Hadoop. Listę działań przekształcania i obsługiwanych środowisk obliczeniowych można znaleźć [w temacie Przekształcanie danych w Azure Data Factory](transform-data.md).
 
 ### <a name="triggers"></a>Wyzwalacze

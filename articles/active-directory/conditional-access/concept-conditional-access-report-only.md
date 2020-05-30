@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c5643b0ce9d93c28372b30e6fc114816cafbce6
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: b45b2294d56de896849dca0f387a4e26b845aa93
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82690468"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204195"
 ---
 # <a name="what-is-conditional-access-report-only-mode"></a>Co to jest tryb tylko do raportowania dostępu warunkowego?
 
@@ -30,7 +30,7 @@ Tryb tylko do raportowania jest nowym stanem zasad dostępu warunkowego, który 
 - Klienci z subskrypcją Azure Monitor mogą monitorować wpływ ich zasad dostępu warunkowego za pomocą skoroszytu dostępu warunkowego usługi Insights.
 
 > [!WARNING]
-> Zasady w trybie tylko do raportowania, które wymagają zgodnych urządzeń, mogą monitować użytkowników o komputery Mac, iOS i Android w celu wybrania certyfikatu urządzenia podczas obliczania zasad, nawet jeśli zgodność urządzenia nie jest wymuszana. Te polecenia mogą powtarzać się, dopóki urządzenie nie zostanie zgodne. Aby uniemożliwić użytkownikom końcowym otrzymywanie pojawiających się w trakcie logowania, należy wykluczyć platformy urządzeń Mac, iOS i Android z zasad tylko do raportowania, które wykonują testy zgodności urządzeń.
+> Zasady w trybie tylko do raportowania, które wymagają zgodnych urządzeń, mogą monitować użytkowników o komputery Mac, iOS i Android w celu wybrania certyfikatu urządzenia podczas obliczania zasad, nawet jeśli zgodność urządzenia nie jest wymuszana. Te polecenia mogą powtarzać się, dopóki urządzenie nie zostanie zgodne. Aby uniemożliwić użytkownikom końcowym otrzymywanie pojawiających się w trakcie logowania, należy wykluczyć platformy urządzeń Mac, iOS i Android z zasad tylko do raportowania, które wykonują testy zgodności urządzeń. Należy pamiętać, że tryb tylko do raportowania nie dotyczy zasad urzędu certyfikacji z zakresem "akcje użytkownika".
 
 ![Karta tylko raport w dzienniku logowania usługi Azure AD](./media/concept-conditional-access-report-only/report-only-detail-in-sign-in-log.png)
 

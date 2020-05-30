@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/12/2020
-ms.openlocfilehash: 94aa82090e03377a9a55af430fcdc944632ed109
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.date: 05/28/2020
+ms.openlocfilehash: 7f937c18e2012baa430129ff16200a5e6b215f28
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148331"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220306"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Kopiowanie i Przekształcanie danych w Azure SQL Database przy użyciu Azure Data Factory
 
@@ -42,16 +42,16 @@ W przypadku działania kopiowania ten łącznik Azure SQL Database obsługuje na
 
 - Kopiowanie danych przy użyciu uwierzytelniania SQL i usługi Azure Active Directory (Azure AD) uwierzytelnianie tokenu aplikacji z jednostką usług lub tożsamościami zarządzanymi dla zasobów platformy Azure.
 - Jako źródło, pobieranie danych przy użyciu zapytania SQL lub procedury składowanej.
-- Jako ujścia Dodaj dane do tabeli docelowej lub wywoływanie procedury składowanej z logiką niestandardową podczas kopiowania.
+- Jako ujścia, automatyczne tworzenie tabeli docelowej, jeśli nie istnieje, na podstawie schematu źródłowego; Dołączanie danych do tabeli lub wywoływanie procedury składowanej z logiką niestandardową podczas kopiowania.
 
 >[!NOTE]
-> [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-current) Azure SQL Database nie jest teraz obsługiwana przez ten łącznik. Aby obejść ten krok, można użyć [ogólnego łącznika ODBC](connector-odbc.md) i sterownika SQL Server ODBC za pośrednictwem własnego środowiska Integration Runtime. Postępuj zgodnie z [tymi wskazówkami](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-current) przy użyciu opcji pobierania sterowników ODBC i parametrów połączenia.
+> [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-current) Azure SQL Database nie jest teraz obsługiwana przez ten łącznik. Aby obejść ten krok, można użyć [ogólnego łącznika ODBC](connector-odbc.md) i sterownika SQL Server ODBC za pośrednictwem własnego środowiska Integration Runtime. Dowiedz się więcej z sekcji [używanie Always Encrypted](#using-always-encrypted) . 
 
 > [!IMPORTANT]
-> W przypadku kopiowania danych przy użyciu środowiska Integration Runtime Azure Data Factory należy skonfigurować [regułę zapory na poziomie serwera](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) , tak aby usługi platformy Azure mogły uzyskiwać dostęp do serwera.
+> W przypadku kopiowania danych przy użyciu środowiska Azure Integration Runtime Skonfiguruj [regułę zapory na poziomie serwera](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) tak, aby usługi platformy Azure mogły uzyskiwać dostęp do serwera.
 > W przypadku kopiowania danych przy użyciu własnego środowiska Integration Runtime Skonfiguruj zaporę tak, aby zezwalała na odpowiedni zakres adresów IP. Ten zakres obejmuje adres IP maszyny, który jest używany do nawiązywania połączenia z Azure SQL Database.
 
-## <a name="get-started"></a>Wprowadzenie
+## <a name="get-started"></a>Rozpoczęcie pracy
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -197,7 +197,7 @@ Aby korzystać z uwierzytelniania tożsamości zarządzanej, wykonaj następują
 
 4. Skonfiguruj połączoną usługę Azure SQL Database w Azure Data Factory.
 
-**Przykład**
+**Przyklad**
 
 ```json
 {
@@ -367,14 +367,14 @@ Aby skopiować dane do Azure SQL Database, w sekcji **ujścia** działania kopio
 | Właściwość | Opis | Wymagane |
 |:--- |:--- |:--- |
 | typ | Właściwość **Type** ujścia działania Copy musi być ustawiona na wartość **AzureSqlSink**. Typ "sqlsink" jest nadal obsługiwany w celu zapewnienia zgodności z poprzednimi wersjami. | Tak |
-| writeBatchSize | Liczba wierszy do wstawienia do tabeli SQL *na partię*.<br/> Dozwolona wartość to liczba **całkowita** (liczba wierszy). Domyślnie Azure Data Factory dynamicznie określa odpowiedni rozmiar wsadu na podstawie rozmiaru wiersza. | Nie |
-| writeBatchTimeout | Czas oczekiwania na zakończenie operacji wstawiania wsadowego przed przekroczeniem limitu czasu.<br/> Dozwolona wartość to **TimeSpan**. Przykładem jest "00:30:00" (30 minut). | Nie |
 | preCopyScript | Określ zapytanie SQL dla działania kopiowania, które ma zostać uruchomione przed zapisaniem danych w Azure SQL Database. Jest on wywoływany tylko raz dla każdego przebiegu kopiowania. Ta właściwość służy do czyszczenia wstępnie załadowanych danych. | Nie |
-| sqlWriterStoredProcedureName | Nazwa procedury składowanej, która definiuje sposób zastosowania danych źródłowych do tabeli docelowej. <br/>Ta procedura składowana jest *wywoływana na partię*. W przypadku operacji, które są uruchamiane tylko raz i nie mają niczego do wykonania z danymi źródłowymi, na przykład Usuń lub Obetnij, użyj `preCopyScript` właściwości. | Nie |
+| tableOption | Określa, czy tabela ujścia ma być automatycznie tworzona, jeśli nie istnieje na podstawie schematu źródłowego. <br>Funkcja autotworzenia tabeli nie jest obsługiwana, gdy obiekt ujścia określa procedurę przechowywaną lub kopię etapową skonfigurowaną w działaniu kopiowania. <br>Dozwolone wartości to: `none` (domyślnie), `autoCreate` . | Nie |
+| sqlWriterStoredProcedureName | Nazwa procedury składowanej, która definiuje sposób zastosowania danych źródłowych do tabeli docelowej. <br/>Ta procedura składowana jest *wywoływana na partię*. W przypadku operacji, które są uruchamiane tylko raz i nie mają niczego do wykonania z danymi źródłowymi, na przykład Usuń lub Obetnij, użyj `preCopyScript` właściwości.<br>Zobacz przykład od [wywołania procedury składowanej z ujścia bazy danych SQL](#invoke-a-stored-procedure-from-a-sql-sink). | Nie |
 | storedProcedureTableTypeParameterName |Nazwa parametru typu tabeli określona w procedurze składowanej.  |Nie |
 | sqlWriterTableType |Nazwa typu tabeli, która ma zostać użyta w procedurze składowanej. Działanie kopiowania sprawia, że dane są dostępne w tabeli tymczasowej z tym typem tabeli. Kod procedury składowanej może następnie scalić dane, które są kopiowane z istniejącymi danymi. |Nie |
 | storedProcedureParameters |Parametry procedury składowanej.<br/>Dozwolone wartości to pary nazw i wartości. Nazwy i wielkość liter parametrów muszą być zgodne z nazwami i wielkością liter parametrów procedury składowanej. | Nie |
-| tableOption | Określa, czy tabela ujścia ma być automatycznie tworzona, jeśli nie istnieje na podstawie schematu źródłowego. Funkcja autotworzenia tabeli nie jest obsługiwana, gdy obiekt ujścia określa procedurę przechowywaną lub kopię etapową skonfigurowaną w działaniu kopiowania. Dozwolone wartości to: `none` (domyślnie), `autoCreate` . |Nie |
+| writeBatchSize | Liczba wierszy do wstawienia do tabeli SQL *na partię*.<br/> Dozwolona wartość to liczba **całkowita** (liczba wierszy). Domyślnie Azure Data Factory dynamicznie określa odpowiedni rozmiar wsadu na podstawie rozmiaru wiersza. | Nie |
+| writeBatchTimeout | Czas oczekiwania na zakończenie operacji wstawiania wsadowego przed przekroczeniem limitu czasu.<br/> Dozwolona wartość to **TimeSpan**. Przykładem jest "00:30:00" (30 minut). | Nie |
 | disableMetricsCollection | Data Factory zbiera metryki, takie jak Azure SQL Database DTU na potrzeby optymalizacji wydajności kopiowania i zaleceń. W przypadku tego zachowania należy określić, `true` aby je wyłączyć. | Nie (domyślnie `false` ) |
 
 **Przykład 1: Dołączanie danych**
@@ -402,8 +402,8 @@ Aby skopiować dane do Azure SQL Database, w sekcji **ujścia** działania kopio
             },
             "sink": {
                 "type": "AzureSqlSink",
-                "writeBatchSize": 100000,
-                "tableOption": "autoCreate"
+                "tableOption": "autoCreate",
+                "writeBatchSize": 100000
             }
         }
     }
@@ -467,12 +467,11 @@ Dołączanie danych jest domyślnym zachowaniem tego łącznika Azure SQL Databa
 
 ### <a name="upsert-data"></a>Wykonywanie operacji upsert dla danych
 
-**Opcja 1:** Jeśli masz dużą ilość danych do skopiowania, użyj następującego podejścia, aby wykonać upsert:
+**Opcja 1:** W przypadku dużej ilości danych do skopiowania można zbiorczo ładować wszystkie rekordy do tabeli przemieszczania za pomocą działania kopiowania, a następnie uruchamiać działanie procedury składowanej w celu zastosowania instrukcji [merge](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) lub Insert/Update w jednym zrzucie. 
 
-- Najpierw należy użyć [tymczasowej tabeli o zakresie bazy danych](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current#database-scoped-global-temporary-tables-azure-sql-database) do ładowania zbiorczego wszystkich rekordów przy użyciu działania kopiowania. Ponieważ operacje dotyczące tabel tymczasowych z zakresem bazy danych nie są rejestrowane, można ładować miliony rekordów w kilka sekund.
-- Uruchom działanie procedury składowanej w Azure Data Factory, aby zastosować instrukcję [merge](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current) lub Insert/Update. Użyj tabeli tymczasowej jako źródła, aby wykonać wszystkie aktualizacje lub wstawioną jako pojedynczą transakcję. W ten sposób liczba operacji błądzenia i dzienników jest ograniczona. Na końcu działania procedury składowanej tabela tymczasowa może zostać obcięta, aby była gotowa do następnego cyklu upsert.
+Działania kopiowania obecnie nie obsługują natywnie ładowania danych do tabeli tymczasowej bazy danych. Istnieje zaawansowany sposób skonfigurowania rozwiązania z wieloma działaniami, zapoznaj się z tematem [optymalizacja Azure SQL Database zbiorczych scenariuszy upsert](https://github.com/scoriani/azuresqlbulkupsert). Poniżej przedstawiono przykład użycia trwałej tabeli jako przejściowej.
 
-Przykładowo w Azure Data Factory można utworzyć potok z **działaniem kopiowania** łańcucha z **działaniem procedury składowanej**. Dawniej kopiuje dane z magazynu źródłowego do Azure SQL Database tabeli tymczasowej, na przykład **# #UpsertTempTable**, jako nazwę tabeli w zestawie danych. Następnie drugi wywołuje procedurę przechowywaną, aby scalić dane źródłowe z tabeli tymczasowej do tabeli docelowej i oczyścić tabelę tymczasową.
+Przykładowo w Azure Data Factory można utworzyć potok z **działaniem kopiowania** łańcucha z **działaniem procedury składowanej**. Dawniej kopiuje dane z magazynu źródłowego do Azure SQL Database tabeli tymczasowej, na przykład **UpsertStagingTable**, jako nazwę tabeli w zestawie danych. Następnie drugi wywołuje procedurę przechowywaną w celu scalenia danych źródłowych z tabeli przemieszczania do tabeli docelowej i wyczyszczenia tabeli przemieszczania.
 
 ![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
 
@@ -483,18 +482,20 @@ CREATE PROCEDURE [dbo].[spMergeData]
 AS
 BEGIN
    MERGE TargetTable AS target
-   USING ##UpsertTempTable AS source
+   USING UpsertStagingTable AS source
    ON (target.[ProfileID] = source.[ProfileID])
    WHEN MATCHED THEN
       UPDATE SET State = source.State
     WHEN NOT matched THEN
        INSERT ([ProfileID], [State], [Category])
       VALUES (source.ProfileID, source.State, source.Category);
-    TRUNCATE TABLE ##UpsertTempTable
+    TRUNCATE TABLE UpsertStagingTable
 END
 ```
 
-**Opcja 2:** Możesz również wybrać opcję [wywołania procedury składowanej w ramach działania kopiowania](#invoke-a-stored-procedure-from-a-sql-sink). Takie podejście uruchamia każdą partię (zgodnie z `writeBatchSize` właściwością) w tabeli źródłowej, zamiast używać instrukcji BULK INSERT jako podejścia domyślnego w działaniu kopiowania.
+**Opcja 2:** Można wybrać opcję [wywołania procedury składowanej w ramach działania kopiowania](#invoke-a-stored-procedure-from-a-sql-sink). Takie podejście uruchamia każdą partię (zgodnie z `writeBatchSize` właściwością) w tabeli źródłowej, zamiast używać instrukcji BULK INSERT jako podejścia domyślnego w działaniu kopiowania.
+
+**Opcja 3:** Możesz użyć [przepływu danych mapowania](#sink-transformation) , który oferuje wbudowane metody INSERT/upsert/Update.
 
 ### <a name="overwrite-the-entire-table"></a>Zastąp całą tabelę
 
@@ -502,10 +503,7 @@ Właściwość **preCopyScript** można skonfigurować w ujścia działania kopi
 
 ### <a name="write-data-with-custom-logic"></a>Zapisz dane za pomocą logiki niestandardowej
 
-Kroki zapisu danych za pomocą logiki niestandardowej są podobne do tych opisanych w sekcji [dane upsert](#upsert-data) . Jeśli musisz zastosować dodatkowe przetwarzanie przed ostatnim wstawieniem danych źródłowych do tabeli docelowej, możesz wykonać jedną z dwóch czynności:
-
-- Załaduj do tabeli tymczasowej z zakresem bazy danych, a następnie Wywołaj procedurę składowaną.
-- Wywołaj procedurę przechowywaną podczas kopiowania.
+Kroki zapisu danych za pomocą logiki niestandardowej są podobne do tych opisanych w sekcji [dane upsert](#upsert-data) . Jeśli trzeba zastosować dodatkowe przetwarzanie przed ostatnim wstawieniem danych źródłowych do tabeli docelowej, można załadować do tabeli przemieszczania, a następnie wywołać działanie procedury składowanej lub wywołać procedurę składowaną w ujścia działania kopiowania, aby zastosować dane, lub użyć przepływu danych mapowania.
 
 ## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a><a name="invoke-a-stored-procedure-from-a-sql-sink"></a>Wywoływanie procedury składowanej z ujścia SQL
 
@@ -655,6 +653,35 @@ Aby dowiedzieć się więcej o właściwościach, sprawdź [działanie Lookup (w
 ## <a name="getmetadata-activity-properties"></a>Właściwości działania GetMetadata
 
 Aby uzyskać szczegółowe informacje na temat właściwości, sprawdź [działanie GetMetadata](control-flow-get-metadata-activity.md)
+
+## <a name="using-always-encrypted"></a>Używanie Always Encrypted
+
+Podczas kopiowania danych z/do Azure SQL Database z [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-current), użyj [ogólnego łącznika ODBC](connector-odbc.md) i SQL Server sterownika ODBC za pośrednictwem samoobsługowego Integration Runtime. Ten łącznik Azure SQL Database nie obsługuje Always Encrypted teraz. 
+
+Więcej szczegółów:
+
+1. Skonfiguruj samodzielny Integration Runtime, jeśli go nie masz. Aby uzyskać szczegółowe informacje, zobacz artykuł [Integration Runtime samodzielny](create-self-hosted-integration-runtime.md) .
+
+2. Pobierz sterownik 64-bitowy ODBC dla SQL Server z tego [miejsca](https://docs.microsoft.com/sql/connect/odbc/download-odbc-driver-for-sql-server?view=azuresqldb-current)i zainstaluj go na maszynie Integration Runtime. Dowiedz się więcej o tym, w jaki sposób ten sterownik działa z [wykorzystaniem Always Encrypted ze sterownikiem ODBC dla SQL Server](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-current#using-the-azure-key-vault-provider).
+
+3. Utwórz połączoną usługę z typem ODBC, aby połączyć się z bazą danych SQL, zapoznaj się z poniższymi przykładami:
+
+    - Aby używać **uwierzytelniania SQL**: Określ parametry połączenia ODBC poniżej, a następnie wybierz pozycję uwierzytelnianie **podstawowe** , aby ustawić nazwę użytkownika i hasło.
+
+        ```
+        Driver={ODBC Driver 17 for SQL Server};Server=<serverName>;Database=<databaseName>;ColumnEncryption=Enabled;KeyStoreAuthentication=KeyVaultClientSecret;KeyStorePrincipalId=<servicePrincipalKey>;KeyStoreSecret=<servicePrincipalKey>
+        ```
+
+    - Aby użyć **Data Factory uwierzytelniania tożsamości zarządzanej**: 
+
+        1. Wykonaj te same [prerequistes](#managed-identity) , aby utworzyć użytkownika bazy danych dla tożsamości zarządzanej i udzielić odpowiedniej roli w bazie danych.
+        2. W polu połączona usługa Określ parametry połączenia ODBC poniżej, a następnie wybierz opcję uwierzytelnianie **anonimowe** jako parametry połączenia `Authentication=ActiveDirectoryMsi` .
+
+        ```
+        Driver={ODBC Driver 17 for SQL Server};Server=<serverName>;Database=<databaseName>;ColumnEncryption=Enabled;KeyStoreAuthentication=KeyVaultClientSecret;KeyStorePrincipalId=<servicePrincipalKey>;KeyStoreSecret=<servicePrincipalKey>; Authentication=ActiveDirectoryMsi;
+        ```
+
+4. Utwórz odpowiednio zestaw danych i działanie Copy z typem ODBC. Dowiedz się więcej z artykułu [łącznika ODBC](connector-odbc.md) .
 
 ## <a name="next-steps"></a>Następne kroki
 

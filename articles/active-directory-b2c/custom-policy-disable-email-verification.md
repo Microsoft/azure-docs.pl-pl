@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 13a5fa6a030d876d92651ca587e37fdc6a3ec600
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 51cb46d3ce1b74681c2ee3e53104cc57e73f1c5d
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79136146"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84192230"
 ---
 # <a name="disable-email-verification-during-customer-sign-up-using-a-custom-policy-in-azure-active-directory-b2c"></a>Wyłącz weryfikację poczty e-mail podczas rejestracji klienta przy użyciu zasad niestandardowych w programie Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Wykonaj kroki opisane w temacie Wprowadzenie [do zasad niestandardowych](custom-
 
 Profil techniczny **LocalAccountSignUpWithLogonEmail** jest [automatycznie potwierdzony](self-asserted-technical-profile.md), który jest wywoływany podczas przepływu rejestracji. Aby wyłączyć weryfikację adresu e-mail, ustaw `EnforceEmailVerification` dla metadanych wartość false. Zastąp profile techniczne LocalAccountSignUpWithLogonEmail w pliku rozszerzenia. 
 
-1. Otwórz plik rozszerzeń zasad. Na przykład <em> `SocialAndLocalAccounts/` </em>.
+1. Otwórz plik rozszerzeń zasad. Na przykład <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em> .
 1. Znajdź `ClaimsProviders` element. Jeśli element nie istnieje, Dodaj go.
 1. Dodaj następującego dostawcę oświadczeń do `ClaimsProviders` elementu:
 
@@ -38,7 +38,7 @@ Profil techniczny **LocalAccountSignUpWithLogonEmail** jest [automatycznie potwi
 <ClaimsProvider>
   <DisplayName>Local Account</DisplayName>
   <TechnicalProfiles>
-    <TechnicalProfile Id="SelfAsserted-LocalAccountSignin-Email">
+    <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
       <Metadata>
         <Item Key="EnforceEmailVerification">false</Item>
       </Metadata>

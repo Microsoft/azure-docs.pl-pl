@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 0703e7cd44a79dd45680e19c8f5f3232be840823
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 7d071a98b8d82d6f11278b59e1dfc91882a9bfcc
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826183"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84192862"
 ---
 # <a name="linked-services-in-azure-data-factory"></a>Połączone usługi w usłudze Azure Data Factory
 
@@ -32,7 +32,7 @@ Jeśli dopiero zaczynasz Data Factory, zobacz [wprowadzenie do Azure Data Factor
 
 ## <a name="overview"></a>Omówienie
 
-Fabryka danych może obejmować jeden lub wiele potoków. **Potok** jest logicznym grupą **działań** , które wspólnie wykonują zadanie. Działania w potoku definiują akcje do wykonania na danych. Można na przykład użyć działania kopiowania w celu skopiowania danych z SQL Server lokalnego do usługi Azure Blob Storage. Następnie możesz użyć działania programu Hive, które uruchamia skrypt programu Hive w klastrze usługi Azure HDInsight, aby przetwarzać dane z magazynu obiektów BLOB w celu utworzenia danych wyjściowych. Na koniec możesz użyć drugiego działania kopiowania, aby skopiować dane wyjściowe do Azure SQL Data Warehouse, na podstawie których są tworzone rozwiązania do raportowania analizy biznesowej (BI). Aby uzyskać więcej informacji na temat potoków i działań, zobacz [potoki i działania](concepts-pipelines-activities.md) w Azure Data Factory.
+Fabryka danych może obejmować jeden lub wiele potoków. **Potok** jest logicznym grupą **działań** , które wspólnie wykonują zadanie. Działania w potoku definiują akcje do wykonania na danych. Można na przykład użyć działania kopiowania w celu skopiowania danych z SQL Server do magazynu obiektów blob platformy Azure. Następnie możesz użyć działania programu Hive, które uruchamia skrypt programu Hive w klastrze usługi Azure HDInsight, aby przetwarzać dane z magazynu obiektów BLOB w celu utworzenia danych wyjściowych. Na koniec możesz użyć drugiego działania kopiowania, aby skopiować dane wyjściowe do Azure SQL Data Warehouse, na podstawie których są tworzone rozwiązania do raportowania analizy biznesowej (BI). Aby uzyskać więcej informacji na temat potoków i działań, zobacz [potoki i działania](concepts-pipelines-activities.md) w Azure Data Factory.
 
 Teraz **zestaw** danych to nazwany widok zawierający dane, które po prostu wskazuje lub odwołuje się do danych, które mają być używane w **działaniach** jako dane wejściowe i wyjściowe.
 
@@ -68,9 +68,9 @@ W poniższej tabeli opisano właściwości w powyższym kodzie JSON:
 
 Właściwość | Opis | Wymagane |
 -------- | ----------- | -------- |
-name | Nazwa połączonej usługi. Zobacz [reguły nazewnictwa Azure Data Factory](naming-rules.md). |  Yes |
-typ | Typ połączonej usługi. Na przykład: Azure Storage (magazyn danych) lub AzureBatch (COMPUTE). Zobacz opis typeProperties. | Yes |
-typeProperties | Właściwości typu są różne dla poszczególnych magazynów danych lub obliczeń. <br/><br/> W przypadku obsługiwanych typów magazynów danych i ich właściwości typów zobacz tabelę [typów zestawu danych](concepts-datasets-linked-services.md#dataset-type) w tym artykule. Przejdź do artykułu łącznika magazynu danych, aby dowiedzieć się więcej o właściwościach typu specyficznych dla magazynu danych. <br/><br/> W przypadku obsługiwanych typów obliczeniowych i ich właściwości typu zobacz [połączone usługi obliczeniowe](compute-linked-services.md). | Yes |
+name | Nazwa połączonej usługi. Zobacz [reguły nazewnictwa Azure Data Factory](naming-rules.md). |  Tak |
+typ | Typ połączonej usługi. Na przykład: Azure Storage (magazyn danych) lub AzureBatch (COMPUTE). Zobacz opis typeProperties. | Tak |
+typeProperties | Właściwości typu są różne dla poszczególnych magazynów danych lub obliczeń. <br/><br/> W przypadku obsługiwanych typów magazynów danych i ich właściwości typów zobacz tabelę [typów zestawu danych](concepts-datasets-linked-services.md#dataset-type) w tym artykule. Przejdź do artykułu łącznika magazynu danych, aby dowiedzieć się więcej o właściwościach typu specyficznych dla magazynu danych. <br/><br/> W przypadku obsługiwanych typów obliczeniowych i ich właściwości typu zobacz [połączone usługi obliczeniowe](compute-linked-services.md). | Tak |
 Właściwością connectvia | [Integration Runtime](concepts-integration-runtime.md) używany do nawiązywania połączenia z magazynem danych. Możesz użyć Azure Integration Runtime lub samodzielnego Integration Runtime (Jeśli magazyn danych znajduje się w sieci prywatnej). Jeśli nie zostanie określony, zostanie użyta domyślna Azure Integration Runtime. | Nie
 
 ## <a name="linked-service-example"></a>Przykład połączonej usługi

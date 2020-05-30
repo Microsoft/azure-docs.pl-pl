@@ -12,19 +12,19 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 11d7958e5d1f39c0284fd702e08eaf1fd9fff14b
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 1c20cf427087fffadf184cbe108237844456da1c
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020953"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194307"
 ---
-# <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>Samouczek: Migrowanie SQL Server RDS do Azure SQL Database lub Azure SQL Database wystąpienia zarządzanego w trybie online za pomocą usługi DMS
-Azure Database Migration Service można użyć do migrowania baz danych z wystąpienia RDS SQL Server do [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) lub [Azure SQL Database wystąpienia zarządzanego](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) o minimalnym przestoju. W tym samouczku przeprowadzisz migrację bazy danych **Adventureworks2012** do wystąpienia usługi RDS SQL Server SQL Server 2012 (lub nowszego) do Azure SQL Database lub Azure SQL Database wystąpienia zarządzanego przy użyciu Azure Database Migration Service.
+# <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-managed-instance-online-using-dms"></a>Samouczek: Migrowanie SQL Server RDS do Azure SQL Database lub wystąpienia zarządzanego Azure SQL w trybie online za pomocą usługi DMS
+Za pomocą Azure Database Migration Service można migrować bazy danych z wystąpienia RDS SQL Server do [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) lub [wystąpienia zarządzanego Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) o minimalnym przestoju. W tym samouczku przeprowadzisz migrację bazy danych **Adventureworks2012** do wystąpienia usługi RDS SQL Server SQL Server 2012 (lub nowszego) do SQL Database lub wystąpienia zarządzanego SQL przy użyciu Azure Database Migration Service.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
-> * Utwórz wystąpienie Azure SQL Database lub Azure SQL Database wystąpienia zarządzanego. 
+> * Utwórz wystąpienie Azure SQL Database lub wystąpienia zarządzanego SQL. 
 > * Migrowanie przykładowego schematu przy użyciu programu Data Migration Assistant.
 > * Tworzenie wystąpienia usługi Azure Database Migration Service.
 > * Tworzenie projektu migracji za pomocą usługi Azure Database Migration Service.
@@ -40,7 +40,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
-W tym artykule opisano migrację w trybie online z usług RDS SQL Server do Azure SQL Database lub Azure SQL Database wystąpienia zarządzanego.
+W tym artykule opisano migrację w trybie online z usług RDS SQL Server do Azure SQL Database lub wystąpienia zarządzanego SQL.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 Do ukończenia tego samouczka niezbędne są następujące elementy:
@@ -49,10 +49,10 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 * Utworzenie wystąpienia usługi Azure SQL Database — szczegółowe instrukcje znajdują w artykule [Tworzenie bazy danych Azure SQL Database w witrynie Azure Portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 
     > [!NOTE]
-    > Jeśli przeprowadzasz migrację do wystąpienia zarządzanego Azure SQL Database, postępuj zgodnie z instrukcjami w artykule [Tworzenie wystąpienia zarządzanego Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started), a następnie Utwórz pustą bazę danych o nazwie **AdventureWorks2012**. 
+    > W przypadku migrowania do wystąpienia zarządzanego SQL postępuj zgodnie z instrukcjami w artykule [Tworzenie wystąpienia zarządzanego SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started), a następnie Utwórz pustą bazę danych o nazwie **AdventureWorks2012**. 
  
 * Pobrany i zainstalowany program [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) w wersji 3.3 lub nowszej.
-* Utwórz Microsoft Azure Virtual Network dla Azure Database Migration Service przy użyciu modelu wdrażania Azure Resource Manager. W przypadku migrowania do wystąpienia zarządzanego Azure SQL Database upewnij się, że utworzono wystąpienie DMS w tej samej sieci wirtualnej, która jest używana do Azure SQL Database wystąpienia zarządzanego, ale w innej podsieci.  Alternatywnie, jeśli używasz innej sieci wirtualnej dla usługi DMS, musisz utworzyć komunikację równorzędną sieci wirtualnej między dwiema sieciami wirtualnymi. Aby uzyskać więcej informacji na temat tworzenia sieci wirtualnej, zapoznaj się z [dokumentacją Virtual Network](https://docs.microsoft.com/azure/virtual-network/), a w szczególności artykuły szybkiego startu z szczegółowymi szczegółami.
+* Utwórz Microsoft Azure Virtual Network dla Azure Database Migration Service przy użyciu modelu wdrażania Azure Resource Manager. Jeśli przeprowadzasz migrację do wystąpienia zarządzanego SQL, upewnij się, że utworzono wystąpienie DMS w tej samej sieci wirtualnej używanej przez wystąpienie zarządzane SQL, ale w innej podsieci.  Alternatywnie, jeśli używasz innej sieci wirtualnej dla usługi DMS, musisz utworzyć komunikację równorzędną sieci wirtualnej między dwiema sieciami wirtualnymi. Aby uzyskać więcej informacji na temat tworzenia sieci wirtualnej, zapoznaj się z [dokumentacją Virtual Network](https://docs.microsoft.com/azure/virtual-network/), a w szczególności artykuły szybkiego startu z szczegółowymi szczegółami.
 
     > [!NOTE]
     > Jeśli podczas konfigurowania sieci wirtualnej używasz usługi ExpressRoute z usługą Komunikacja równorzędna z firmą Microsoft, Dodaj następujące [punkty końcowe](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) do podsieci, w której zostanie zainicjowana usługa:
@@ -68,7 +68,7 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 * Otwórz zaporę systemu Windows, aby zezwolić usłudze Azure Database Migration Service na dostęp do źródłowego wystąpienia programu SQL Server, czyli domyślnie portu TCP 1433.
 * Utwórz [regułę zapory](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) na poziomie serwera dla Azure SQL Database, aby umożliwić Azure Database Migration Service dostęp do docelowych baz danych. Podaj zakres podsieci sieci wirtualnej używanej dla Azure Database Migration Service.
 * Upewnij się, że poświadczenia użyte do nawiązania połączenia ze źródłowym wystąpieniem usług pulpitu zdalnego programu SQL Server są powiązane z kontem będącym członkiem roli serwera „Processadmin” i członkiem ról bazy danych „db_owner” dla wszystkich baz danych, które mają zostać poddane migracji.
-* Upewnij się, że poświadczenia używane do nawiązywania połączenia z docelowym wystąpieniem Azure SQL Database mają uprawnienia do kontroli bazy danych w docelowych bazach danych Azure SQL i członkiem roli sysadmin w przypadku migrowania do Azure SQL Database wystąpienia zarządzanego.
+* Upewnij się, że poświadczenia używane do nawiązywania połączenia z docelowym wystąpieniem Azure SQL Database mają uprawnienia do kontroli bazy danych w docelowych bazach danych Azure SQL i członkiem roli sysadmin w przypadku migrowania do wystąpienia zarządzanego SQL.
 * Źródłowe usługi pulpitu zdalnego programu SQL Server muszą być w wersji SQL Server 2012 lub nowszej. Aby określić wersję uruchomionego wystąpienia programu SQL Server, zobacz artykuł [Jak określić wersję, wydanie i poziom aktualizacji programu SQL Server i jego składników](https://support.microsoft.com/help/321185/how-to-determine-the-version-edition-and-update-level-of-sql-server-an).
 * Włącz przechwytywanie zmian danych w bazie danych usług pulpitu zdalnego programu SQL Server i wszystkich tabelach użytkownika wybranych do migracji.
     > [!NOTE]
@@ -194,7 +194,7 @@ Po utworzeniu usługi znajdź ją w witrynie Azure Portal, otwórz ją, a nastę
 4. Na ekranie **Nowy projekt migracji** wpisz nazwę projektu, w polu tekstowym **Typ serwera źródłowego** wybierz pozycję **AWS RDS for SQL Server**, w polu tekstowym **Typ serwera docelowego** wybierz pozycję **Azure SQL Database**.
 
     > [!NOTE]
-    > Dla typu serwer docelowy wybierz opcję **Azure SQL Database** migracji do Azure SQL Database zarówno pojedynczej bazy danych, jak i do Azure SQL Database wystąpienia zarządzanego.
+    > W obszarze Typ serwera docelowego wybierz **Azure SQL Database** do migracji do Azure SQL Database pojedynczej bazy danych oraz do wystąpienia zarządzanego SQL.
 
 5. W sekcji **Wybierz typ działania** wybierz pozycję **migracja danych w trybie online**.
 
@@ -291,7 +291,7 @@ Po zakończeniu początkowego pełnego ładowania bazy danych są oznaczone jako
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby uzyskać informacje o znanych problemach i ograniczeniach związanych z wykonywaniem migracji w trybie online do usługi Azure SQL Database, zobacz artykuł [Znane problemy i obejścia problemów związanych z migracjami online usługi Azure SQL Database](known-issues-azure-sql-online.md).
-* Aby uzyskać informacje o usłudze Azure Database Migration Service, zobacz artykuł [Czym jest usługa Azure Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview).
-* Aby uzyskać informacje o usłudze Azure SQL Database, zobacz artykuł [Co to jest usługa Azure SQL Database?](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview).
-* Aby uzyskać informacje o Azure SQL Database wystąpieniach zarządzanych, zobacz stronę [Azure SQL Database wystąpienie zarządzane](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index).
+* Informacje o znanych problemach i ograniczeniach podczas przeprowadzania migracji w trybie online do usługi Azure SQL Database znajdują się w artykule [znane problemy i rozwiązania dotyczące migracji SQL Database online](known-issues-azure-sql-online.md).
+* Aby uzyskać informacje na temat Database Migration Service, zobacz artykuł [co to jest Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview).
+* Aby uzyskać informacje na temat SQL Database, zobacz artykuł [co to jest usługa SQL Database?](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview).
+* Aby uzyskać informacje o wystąpieniach zarządzanych przez program SQL, zobacz stronę [wystąpienia zarządzanego SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index).

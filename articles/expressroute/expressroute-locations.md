@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 70f90026e4a67fe1f8b1d5f790aed87652975045
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 9d60a17207f06333f81da9b28acd9aabe7e8db47
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798624"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84221233"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partnerzy i lokalizacje komunikacji równorzędnej usługi ExpressRoute
 
@@ -127,7 +127,7 @@ W poniższej tabeli przedstawiono lokalizacje według dostawcy usług. Jeśli ch
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Obsługiwane |Obsługiwane |Amsterdam, Chicago, Dallas, Londyn, Newport (Walia), Sao Paulo, Seattle, Dolina Krzemowa, Singapur, Waszyngton |
 | **LG CNS** |Obsługiwane |Obsługiwane |Busan, Seul |
 | **[Liquid Telecom](https://www.liquidtelecom.com/products-and-services/cloud.html)** |Obsługiwane |Obsługiwane |Kapsztad, Johannesburg |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Obsługiwane |Obsługiwane |Amsterdam, Atlanta, Auckland, Chicago, Dallas, Denver, Dubai2, Dublin, Frankfurt, Genewa, Hongkong SAR, Las Vegas, Londyn, London2, Los Angeles, Melbourne, Miami, Montrealu, Nowy Jork, Oslo, Perth, Quebec City, San Antonio, Seattle, Dolina Krzemowa, Singapur, singapur2, Sydney, Sydney2, Tokio, Toronto, Waszyngton DC, Zurych |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Obsługiwane |Obsługiwane |Amsterdam, Atlanta, Auckland, Chicago, Dallas, Denver, Dubai2, Dublin, Frankfurt, Genewa, Hongkong SAR, Las Vegas, Londyn, London2, Los Angeles, Melbourne, Miami, Montrealu, Nowy Jork, Oslo, Perth, Quebec City, San Antonio, Seattle, Singapur2 Stavanger, Waszyngton DC, Sydney2 |
 | **[MTN](https://www.mtnbusiness.com/en/enterprise/Pages/microsoft-express-route.aspx)** |Obsługiwane |Obsługiwane |Londyn |
 | **[Neutrona Networks](https://www.neutrona.com/index.php/azure-expressroute/)** |Obsługiwane |Obsługiwane |Dallas, Los Angeles, Miami, Wyspy świętegoł Paulo, Waszyngton |
 | **[Dane nowej generacji](https://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |Obsługiwane |Obsługiwane |Newport (Walia) |
@@ -160,7 +160,7 @@ W poniższej tabeli przedstawiono lokalizacje według dostawcy usług. Jeśli ch
 | **[Telus](https://www.telus.com)** |Obsługiwane |Obsługiwane |Montrealu, Seattle, Toronto |
 | **[Teraco](https://www.teraco.co.za/services/africa-cloud-exchange/)** |Obsługiwane |Obsługiwane |Kapsztad, Johannesburg |
 | **[TIME dotCom](https://www.time.com.my/enterprise/connectivity/direct-cloud)** | Obsługiwane | Obsługiwane | Kuala Lumpur |
-| **[Transtelco](https://transtelco.net/enterprise-services/)** |Obsługiwane |Obsługiwane |Dallas, Los Angeles|
+| **[Transtelco](https://transtelco.net/enterprise-services/)** |Obsługiwane |Obsługiwane |Dallas, Meksyk, Los Angeles|
 | **[UOLDIVEO](https://www.uoldiveo.com.br/)** |Obsługiwane |Obsługiwane |Sao Paulo |
 | **[Verizon](https://enterprise.verizon.com/products/network/application-enablement/secure-cloud-interconnect/)** |Obsługiwane |Obsługiwane |Amsterdam, Chicago, Dallas, Hongkong SAR, Londyn, Mumbaj (Washington), Dolina Krzemowa, Singapur, Sydney, Tokio, Toronto, Waszyngton |
 | **[Viasat](http://www.directcloud.viasatbusiness.com/)** | Obsługiwane | Obsługiwane | Waszyngton 2 |

@@ -8,12 +8,12 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 8f2e99ffc9f9ee5c5553e8d933d82f83999c8ab2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4c65160cb648954ef97bd2a3d3e9ac0d38440ce7
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81732895"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193848"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Szybki Start: Tworzenie aplikacji Java na Azure App Service w systemie Linux
 
@@ -95,9 +95,9 @@ Confirm (Y/N)? : Y
 
 Przejdź `pom.xml` ponownie, aby zobaczyć, że konfiguracja wtyczki została zaktualizowana, w razie potrzeby można zmodyfikować inne konfiguracje dla App Service bezpośrednio w pliku pliku pom:
 
- Właściwość | Wymagany | Opis | Wersja
+ Właściwość | Wymagane | Opis | Wersja
 ---|---|---|---
-`<schemaVersion>` | fałsz | Określ wersję schematu konfiguracji. Obsługiwane są następujące wartości `v1`: `v2`,. | 1.5.2
+`<schemaVersion>` | fałsz | Określ wersję schematu konfiguracji. Obsługiwane są następujące wartości: `v1` , `v2` . | 1.5.2
 `<resourceGroup>` | true | Grupa zasobów platformy Azure dla aplikacji sieci Web. | 0.1.0 +
 `<appName>` | true | Nazwa aplikacji sieci Web. | 0.1.0 +
 `<region>` | true | Określa region, w którym będzie hostowana aplikacja sieci Web; wartość domyślna to **westeurope**. Wszystkie prawidłowe regiony w sekcji [Obsługiwane regiony](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) . | 0.1.0 +
@@ -147,7 +147,7 @@ Wykonanie tego polecenia może potrwać około minutę.
 > [Nawiązywanie połączenia z usługą Azure DB for PostgreSQL za pomocą języka Java](/azure/postgresql/connect-java)
 
 > [!div class="nextstepaction"]
-> [Konfigurowanie aplikacji Java](configure-custom-container.md)
+> [Konfigurowanie aplikacji Java](configure-language-java.md)
 
 > [!div class="nextstepaction"]
 > [Ciągła integracja/ciągłe wdrażanie przy użyciu narzędzia Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fbaa8c3544b35978786404619879f59ab91a6979
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a48a6de406f14c5339a4e6d92cd09a12357b73f5
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79281888"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195967"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Przenoszenie danych za pomocą działania kopiowania
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -81,7 +81,7 @@ Działanie Copy odczytuje również dane z i zapisuje je w plikach w określonyc
 
 Można na przykład wykonać następujące działania kopiowania:
 
-* Skopiuj dane do SQL Server lokalnego i Zapisz je w Azure Data Lake Store w formacie ORC.
+* Skopiuj dane w bazie danych SQL Server i Zapisz do Azure Data Lake Store w formacie ORC.
 * Skopiuj pliki w formacie tekstu (CSV) z lokalnego systemu plików i Zapisz do obiektu blob platformy Azure w formacie Avro.
 * Skopiuj pliki spakowane z lokalnego systemu plików, a następnie zdekompresuj je do Azure Data Lake Store.
 * Skopiuj dane w formacie tekstu skompresowanego (CSV) z obiektu blob platformy Azure i Zapisz je w Azure SQL Database.
@@ -107,7 +107,7 @@ Gdy magazyny danych źródła i ujścia znajdują się w chmurze, Data Factory u
 | Brazylia | Brazylia Południowa | Brazylia Południowa |
 | Europa | Europa Północna | Europa Północna |
 | &nbsp; | Europa Zachodnia | Europa Zachodnia |
-| Wielka Brytania | Zachodnie Zjednoczone Królestwo | Południowe Zjednoczone Królestwo |
+| Zjednoczone Królestwo | Zachodnie Zjednoczone Królestwo | Południowe Zjednoczone Królestwo |
 | &nbsp; | Południowe Zjednoczone Królestwo | Południowe Zjednoczone Królestwo |
 | Azja i Pacyfik | Azja Południowo-Wschodnia | Azja Południowo-Wschodnia |
 | &nbsp; | Azja Wschodnia | Azja Południowo-Wschodnia |
@@ -121,10 +121,10 @@ Gdy magazyny danych źródła i ujścia znajdują się w chmurze, Data Factory u
 | Korea | Korea Środkowa | Korea Środkowa |
 | &nbsp; | Korea Południowa | Korea Środkowa |
 
-Alternatywnie można jawnie wskazać region usługi Data Factory, który ma być używany do wykonywania kopii, określając `executionLocation` właściwość w obszarze działanie `typeProperties`kopiowania. Obsługiwane wartości dla tej właściwości są wymienione w powyższym **regionie używanym do przenoszenia danych** . Zwróć uwagę na to, że dane przechodzą przez ten region przez sieć podczas kopiowania. Na przykład, aby skopiować między sklepami z platformą Azure w Korei `"executionLocation": "Japan East"` , możesz określić, aby przekierować do regionu Japonii (zobacz [przykładowy kod JSON](#by-using-json-scripts) jako odwołanie).
+Alternatywnie można jawnie wskazać region usługi Data Factory, który ma być używany do wykonywania kopii, określając `executionLocation` Właściwość w obszarze działanie kopiowania `typeProperties` . Obsługiwane wartości dla tej właściwości są wymienione w powyższym **regionie używanym do przenoszenia danych** . Zwróć uwagę na to, że dane przechodzą przez ten region przez sieć podczas kopiowania. Na przykład, aby skopiować między sklepami z platformą Azure w Korei, możesz określić `"executionLocation": "Japan East"` , aby przekierować do regionu Japonii (zobacz [przykładowy kod JSON](#by-using-json-scripts) jako odwołanie).
 
 > [!NOTE]
-> Jeśli region docelowego magazynu danych nie znajduje się na poprzedniej liście lub nie można go wykryć, domyślnie działanie kopiowania kończy się niepowodzeniem zamiast przechodzenia przez region alternatywny, `executionLocation` chyba że jest określony. Lista obsługiwanych regionów zostanie rozszerzona z upływem czasu.
+> Jeśli region docelowego magazynu danych nie znajduje się na poprzedniej liście lub nie można go wykryć, domyślnie działanie kopiowania kończy się niepowodzeniem zamiast przechodzenia przez region alternatywny, chyba że `executionLocation` jest określony. Lista obsługiwanych regionów zostanie rozszerzona z upływem czasu.
 >
 
 ### <a name="copy-data-between-an-on-premises-data-store-and-a-cloud-data-store"></a>Kopiowanie danych między lokalnym magazynem danych i magazynem danych w chmurze
@@ -196,7 +196,7 @@ Zobacz [Przewodnik dotyczący wydajności i dostrajania działania kopiowania](d
 ## <a name="fault-tolerance"></a>Odporność na uszkodzenia
 Domyślnie działanie kopiowania spowoduje zatrzymanie kopiowania danych i zwrócenie błędu w przypadku wystąpienia niezgodnych danych między źródłem i ujściam; Mimo że można jawnie skonfigurować program, aby pominąć i zarejestrować niezgodne wiersze i skopiować te zgodne dane, aby kopie powiodło się. Zobacz [odporność na błędy działania kopiowania](data-factory-copy-activity-fault-tolerance.md) , aby uzyskać więcej szczegółów.
 
-## <a name="security-considerations"></a>Zagadnienia dotyczące bezpieczeństwa
+## <a name="security-considerations"></a>Zagadnienia związane z zabezpieczeniami
 Zapoznaj się z [zagadnieniami](data-factory-data-movement-security-considerations.md)dotyczącymi zabezpieczeń, które opisują infrastrukturę zabezpieczeń, która w Azure Data Factory używać usług przenoszenia danych w celu zabezpieczania danych.
 
 ## <a name="scheduling-and-sequential-copy"></a>Planowanie i kopiowanie sekwencyjne

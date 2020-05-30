@@ -3,16 +3,17 @@ title: Wyświetl metryki w czasie rzeczywistym za pomocą Azure Monitor dla kont
 description: W tym artykule opisano widok metryk w czasie rzeczywistym bez używania polecenia kubectl z Azure Monitor for Containers.
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 4604635c985057ec0b7f49a0d1cca7111dfc8eec
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: references_regions
+ms.openlocfilehash: 54d751769005dabb4708eb198bcc765d830ba605
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79216584"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196147"
 ---
 # <a name="how-to-view-metrics-in-real-time"></a>Jak wyświetlać metryki w czasie rzeczywistym
 
-Funkcja Azure Monitor dla kontenerów dane dynamiczne (wersja zapoznawcza) umożliwia wizualizację metryk dotyczących stanu węzła i pod w klastrze w czasie rzeczywistym. Emuluje bezpośredni dostęp do poleceń `kubectl top nodes`, `kubectl get pods –all-namespaces`i `kubectl get nodes` umożliwia wywoływanie, analizowanie i wizualizowanie danych w wykresach wydajności, które są zawarte w tym temacie. 
+Funkcja Azure Monitor dla kontenerów dane dynamiczne (wersja zapoznawcza) umożliwia wizualizację metryk dotyczących stanu węzła i pod w klastrze w czasie rzeczywistym. Emuluje bezpośredni dostęp do `kubectl top nodes` `kubectl get pods –all-namespaces` poleceń, i `kubectl get nodes` umożliwia wywoływanie, analizowanie i wizualizowanie danych w wykresach wydajności, które są zawarte w tym temacie. 
 
 Ten artykuł zawiera szczegółowe omówienie i pomaga zrozumieć, jak korzystać z tej funkcji.  
 
@@ -28,7 +29,7 @@ Aby uzyskać pomoc dotyczącą konfigurowania lub rozwiązywania problemów doty
 
 Funkcja dane dynamiczne (wersja zapoznawcza) bezpośrednio uzyskuje dostęp do interfejsu API Kubernetes. dodatkowe informacje o modelu uwierzytelniania można znaleźć [tutaj](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
 
-Ta funkcja wykonuje operację sondowania dla punktów końcowych metryk (w `/api/v1/nodes`tym `/apis/metrics.k8s.io/v1beta1/nodes`, i `/api/v1/pods`), co jest domyślnie co pięć sekund. Te dane są przechowywane w pamięci podręcznej w przeglądarce i przedstawiane na czterech wykresach wydajności zawartych w Azure Monitor dla kontenerów na karcie **klaster** , wybierając pozycję **Przejdź na żywo (wersja zapoznawcza)**. Każda kolejna sonda jest przedstawiana w stopniowanym oknie wizualizacji. 
+Ta funkcja wykonuje operację sondowania dla punktów końcowych metryk (w tym `/api/v1/nodes` , `/apis/metrics.k8s.io/v1beta1/nodes` i `/api/v1/pods` ), co jest domyślnie co pięć sekund. Te dane są przechowywane w pamięci podręcznej w przeglądarce i przedstawiane na czterech wykresach wydajności zawartych w Azure Monitor dla kontenerów na karcie **klaster** , wybierając pozycję **Przejdź na żywo (wersja zapoznawcza)**. Każda kolejna sonda jest przedstawiana w stopniowanym oknie wizualizacji. 
 
 ![Opcja Przejdź na żywo w widoku klastra](./media/container-insights-livedata-metrics/cluster-view-go-live-example-01.png)
 
@@ -48,7 +49,7 @@ Te wykresy nie mogą zostać przypięte do ostatniego pulpitu nawigacyjnego plat
 
 ### <a name="node-cpu-utilization---node-memory-utilization-"></a>Użycie procesora CPU przez węzeł%/procent wykorzystania pamięci węzła% 
 
-Te dwa wykresy wydajności są mapowane na równoważność wywoływania `kubectl top nodes` i przechwytywania wyników dla% kolumn **procesora CPU** i **pamięci%** do odpowiednich wykresów. 
+Te dwa wykresy wydajności są mapowane na równoważność wywoływania `kubectl top nodes` i przechwytywania wyników dla **% kolumn procesora CPU** i **pamięci%** do odpowiednich wykresów. 
 
 ![Przykładowe wyniki polecenia kubectl głównych węzłów](./media/container-insights-livedata-metrics/kubectl-top-nodes-example.png)
 

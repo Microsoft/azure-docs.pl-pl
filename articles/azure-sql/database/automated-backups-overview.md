@@ -13,14 +13,15 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 12/13/2019
-ms.openlocfilehash: 0d6ab6152d7025098006c580673848fe0268346b
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 7ee69feccb59270d14e86185d0cd6112e5e2ab4a
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141844"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84190067"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Zautomatyzowane kopie zapasowe — Azure SQL Database & wystąpienia zarządzane SQL
+
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Zarówno Azure SQL Database, jak i wystąpienie zarządzane usługi Azure SQL, tworzą kopie zapasowe bazy danych, które są przechowywane na czas trwania skonfigurowanego okresu przechowywania. Korzystają one z [magazynu geograficznie nadmiarowego (RA-GRS)](../../storage/common/storage-redundancy.md) platformy Azure, aby zapewnić, że kopie zapasowe są zachowywane nawet wtedy, gdy centrum danych jest niedostępne.
@@ -43,7 +44,7 @@ Tych kopii zapasowych można użyć w następujących celach:
 Aby wykonać przywracanie, zobacz [przywracanie bazy danych z kopii zapasowych](recovery-using-backups.md).
 
 > [!NOTE]
-> W usłudze Azure Storage termin *replikacja* dotyczy kopiowania plików z jednej lokalizacji do innej. W programie SQL *Replikacja bazy danych* dotyczy zachowania wielu pomocniczych baz danych zsynchronizowanych z podstawową bazą danych.
+> W usłudze Azure Storage termin *replikacja* dotyczy kopiowania plików z jednej lokalizacji do innej. W Azure SQL Database i wystąpieniu zarządzanym SQL *Replikacja bazy danych* odnosi się do zachowania wielu pomocniczych baz danych zsynchronizowanych z podstawową bazą danych.
 
 Niektóre z tych operacji można wypróbować, korzystając z następujących przykładów:
 
@@ -61,7 +62,7 @@ Niektóre z tych operacji można wypróbować, korzystając z następujących pr
 
 SQL Database i wystąpienie zarządzane SQL obsługują samoobsługowe przywracanie do punktu w czasie (kopie) przez automatyczne tworzenie pełnych kopii zapasowych, różnicowych kopii zapasowych i kopii zapasowych dziennika transakcji. Tworzone są pełne kopie zapasowe bazy danych, a kopie zapasowe baz danych są zwykle tworzone co 12 godzin. Kopie zapasowe dziennika transakcji są zwykle tworzone co 5 – 10 minut. Częstotliwość tworzenia kopii zapasowych dziennika transakcji zależy od rozmiaru obliczeń i liczby działań związanych z bazą danych.
 
-Pierwsza pełna kopia zapasowa jest zaplanowana natychmiast po utworzeniu bazy danych. Ta kopia zapasowa zwykle kończy się w ciągu 30 minut, ale może trwać dłużej, gdy baza danych jest duża. Na przykład początkowa kopia zapasowa może trwać dłużej w przywróconej bazie danych lub kopii bazy danych. Po utworzeniu pierwszej pełnej kopii zapasowej wszystkie kolejne kopie zapasowe są zaplanowane automatycznie i zarządzane w trybie dyskretnym w tle. Dokładny chronometraż wszystkich kopii zapasowych bazy danych jest określany przez SQL Database lub usługę wystąpienia zarządzanego SQL, ponieważ równoważy całkowite obciążenie systemu. Nie można zmienić ani wyłączyć zadań tworzenia kopii zapasowej.
+Pierwsza pełna kopia zapasowa jest zaplanowana natychmiast po utworzeniu bazy danych. Ta kopia zapasowa zwykle kończy się w ciągu 30 minut, ale może trwać dłużej, gdy baza danych jest duża. Na przykład początkowa kopia zapasowa może trwać dłużej w przywróconej bazie danych lub kopii bazy danych. Po utworzeniu pierwszej pełnej kopii zapasowej wszystkie kolejne kopie zapasowe są zaplanowane automatycznie i zarządzane w trybie dyskretnym w tle. Dokładny chronometraż wszystkich kopii zapasowych bazy danych jest określany przez SQL Database lub wystąpienie zarządzane SQL, ponieważ równoważy całkowite obciążenie systemu. Nie można zmienić ani wyłączyć zadań tworzenia kopii zapasowej.
 
 ### <a name="default-backup-retention-period"></a>Domyślny okres przechowywania kopii zapasowej
 
@@ -142,7 +143,7 @@ Dodaj filtr dla **nazwy usługi**, a następnie na liście rozwijanej wybierz po
 
 ## <a name="backup-retention"></a>Przechowywanie kopii zapasowych
 
-Wszystkie bazy danych w Microsoft Azure SQL mają domyślny okres przechowywania kopii zapasowych wynoszący 7 dni. [Okres przechowywania kopii zapasowej można zmienić](#change-the-pitr-backup-retention-period) w dowolnym miejscu między 1-35 dni.
+Wszystkie bazy danych w SQL Database i wystąpieniu zarządzanym SQL mają domyślny okres przechowywania kopii zapasowych wynoszący 7 dni. [Okres przechowywania kopii zapasowej można zmienić](#change-the-pitr-backup-retention-period) na maksymalnie 35 dni.
 
 Jeśli usuniesz bazę danych, platforma Azure przechowuje kopie zapasowe w taki sam sposób, jak w przypadku bazy danych w trybie online. Na przykład po usunięciu podstawowej bazy danych, która ma okres przechowywania wynoszący siedem dni, kopia zapasowa, która jest starsza niż cztery dni, jest zapisywana przez trzy więcej dni.
 
@@ -156,7 +157,7 @@ Jeśli chcesz zachować kopie zapasowe dłużej niż maksymalny okres przechowyw
 
 ## <a name="encrypted-backups"></a>Szyfrowane kopie zapasowe
 
-Jeśli baza danych jest zaszyfrowana przy użyciu programu TDE, kopie zapasowe są automatycznie szyfrowane w stanie spoczynku, łącznie z kopiami zapasowymi LTR. Gdy TDE jest włączona dla wystąpienia zarządzanego SQL Database lub SQL, kopie zapasowe również są szyfrowane. Wszystkie nowe bazy danych w usłudze Azure SQL są domyślnie skonfigurowane z włączoną funkcją TDE. Aby uzyskać więcej informacji na temat TDE, zobacz [transparent Data Encryption z SQL Database & wystąpienie zarządzane SQL](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
+Jeśli baza danych jest zaszyfrowana przy użyciu programu TDE, kopie zapasowe są automatycznie szyfrowane w stanie spoczynku, łącznie z kopiami zapasowymi LTR. Gdy TDE jest włączona dla wystąpienia zarządzanego SQL Database lub SQL, kopie zapasowe również są szyfrowane. Wszystkie nowe bazy danych w SQL Database i wystąpieniu zarządzanym SQL mają domyślnie włączoną funkcję TDE. Aby uzyskać więcej informacji na temat TDE, zobacz [transparent Data Encryption z SQL Database & wystąpienie zarządzane SQL](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
 ## <a name="backup-integrity"></a>Integralność kopii zapasowych
 

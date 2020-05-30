@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowej SQL Server przy użyciu Azure Backup Server
 description: W tym artykule poznasz konfigurację tworzenia kopii zapasowych SQL Server baz danych przy użyciu serwera Microsoft Azure Backup Server (serwera usługi MAB).
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: 9cd6a8b76e4618031f4d21dc04a82a78fad0076d
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: 2bb172ca36f3f932fdaaf5b71e8fa183c04d1510
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82159254"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194179"
 ---
 # <a name="back-up-sql-server-to-azure-by-using-azure-backup-server"></a>Tworzenie kopii zapasowych SQL Server na platformie Azure przy użyciu Azure Backup Server
 
@@ -32,11 +32,11 @@ Aby chronić SQL Server bazy danych na platformie Azure, najpierw utwórz zasady
 1. Wybierz pozycję **Nowy** , aby utworzyć grupę ochrony.
 
     ![Tworzenie grupy ochrony w Azure Backup Server](./media/backup-azure-backup-sql/protection-group.png)
-1. Na stronie startowej zapoznaj się ze wskazówkami dotyczącymi tworzenia grupy ochrony. Następnie wybierz przycisk **dalej**.
+1. Na stronie startowej zapoznaj się ze wskazówkami dotyczącymi tworzenia grupy ochrony. Następnie wybierz pozycję **Dalej**.
 1. W polu Typ grupy ochrony wybierz pozycję **serwery**.
 
     ![Wybierz typ grupy ochrony serwerów](./media/backup-azure-backup-sql/pg-servers.png)
-1. Rozwiń maszynę SQL Server, na której znajdują się bazy danych, których kopię zapasową chcesz utworzyć. Zostaną wyświetlone źródła danych, których kopię zapasową można utworzyć z tego serwera. Rozwiń **wszystkie udziały SQL** , a następnie wybierz bazy danych, dla których chcesz utworzyć kopię zapasową. W tym przykładzie wybieramy polecenie ReportServer $ MSDPM2012 i ReportServer $ MSDPM2012TempDB. Wybierz opcję **Dalej**.
+1. Rozwiń wystąpienie SQL Server, w którym znajdują się bazy danych, których kopię zapasową chcesz utworzyć. Zostaną wyświetlone źródła danych, których kopię zapasową można utworzyć z tego serwera. Rozwiń **wszystkie udziały SQL** , a następnie wybierz bazy danych, dla których chcesz utworzyć kopię zapasową. W tym przykładzie wybieramy polecenie ReportServer $ MSDPM2012 i ReportServer $ MSDPM2012TempDB. Wybierz opcję **Dalej**.
 
     ![Wybierz bazę danych SQL Server](./media/backup-azure-backup-sql/pg-databases.png)
 1. Nadaj nazwę grupie ochrony, a następnie wybierz opcję **Chcę chronić w trybie online**.
@@ -60,19 +60,19 @@ Aby chronić SQL Server bazy danych na platformie Azure, najpierw utwórz zasady
     Domyślnie serwera usługi MAB tworzy jeden wolumin na źródło danych (SQL Server Database). Wolumin jest używany na potrzeby początkowej kopii zapasowej. W tej konfiguracji Menedżer dysków logicznych (LDM) ogranicza ochronę serwera usługi MAB do źródeł danych 300 (bazy danych SQL Server). Aby obejść to ograniczenie, wybierz pozycję **Umieść dane w puli magazynów programu DPM**. W przypadku użycia tej opcji serwera usługi MAB korzysta z pojedynczego woluminu dla wielu źródeł danych. Ta konfiguracja umożliwia serwera usługi MAB ochronę do SQL Server 2 000 baz danych.
 
     W przypadku wybrania opcji **automatycznie Zwiększ woluminy**program serwera usługi MAB może obsłużyć zwiększony wolumin kopii zapasowej w miarę rozwoju danych produkcyjnych. Jeśli nie wybrano opcji **automatycznie Zwiększ woluminy**, program serwera usługi MAB ogranicza magazyn kopii zapasowych do źródeł danych w grupie ochrony.
-1. Jeśli jesteś administratorem, możesz zdecydować się na automatyczne przeniesienie tej początkowej kopii zapasowej **za pośrednictwem sieci** i wybranie czasu transferu. Lub **ręcznie** przetransferować kopię zapasową. Następnie wybierz przycisk **dalej**.
+1. Jeśli jesteś administratorem, możesz zdecydować się na automatyczne przeniesienie tej początkowej kopii zapasowej **za pośrednictwem sieci** i wybranie czasu transferu. Lub **ręcznie** przetransferować kopię zapasową. Następnie wybierz pozycję **Dalej**.
 
     ![Wybierz metodę tworzenia repliki w serwera usługi MAB](./media/backup-azure-backup-sql/pg-manual.png)
 
-    Początkowa kopia zapasowa wymaga przeniesienia całego źródła danych (SQL Server Database). Dane kopii zapasowej są przenoszone z serwera produkcyjnego (SQL Server Machine) do serwera usługi MAB. Jeśli ta kopia zapasowa jest duża, przeniesienie danych przez sieć może spowodować Przeciążenie przepustowości. Z tego powodu Administratorzy mogą zdecydować się na **Ręczne**przetransferowanie początkowej kopii zapasowej za pomocą nośnika wymiennego. Lub mogą automatycznie przesyłać dane **przez sieć** w określonym czasie.
+    Początkowa kopia zapasowa wymaga przeniesienia całego źródła danych (SQL Server Database). Dane kopii zapasowej są przenoszone z serwera produkcyjnego (SQL Server komputera) do serwera usługi MAB. Jeśli ta kopia zapasowa jest duża, przeniesienie danych przez sieć może spowodować Przeciążenie przepustowości. Z tego powodu Administratorzy mogą zdecydować się na **Ręczne**przetransferowanie początkowej kopii zapasowej za pomocą nośnika wymiennego. Lub mogą automatycznie przesyłać dane **przez sieć** w określonym czasie.
 
     Po zakończeniu początkowej kopii zapasowej kopie zapasowe będą wykonywane przyrostowo na początkowej kopii zapasowej. Przyrostowe kopie zapasowe mają być małe i łatwo przesyłane przez sieć.
-1. Wybierz, kiedy ma zostać uruchomione sprawdzanie spójności. Następnie wybierz przycisk **dalej**.
+1. Wybierz, kiedy ma zostać uruchomione sprawdzanie spójności. Następnie wybierz pozycję **Dalej**.
 
     ![Wybierz, kiedy ma zostać uruchomione sprawdzanie spójności](./media/backup-azure-backup-sql/pg-consistent.png)
 
-    SERWERA usługi MAB może uruchomić sprawdzanie spójności na integralność punktu kopii zapasowej. Oblicza sumę kontrolną pliku kopii zapasowej na serwerze produkcyjnym (w tym przykładzie maszynę SQL Server) oraz dane kopii zapasowej dla tego pliku w serwera usługi MAB. Jeśli zaznaczenie spowoduje znalezienie konfliktu, zakłada się, że plik kopii zapasowej w serwera usługi MAB jest uszkodzony. SERWERA usługi MAB naprawia kopię zapasową danych przez wysłanie bloków, które odpowiadają niezgodności sumy kontrolnej. Ze względu na to, że sprawdzanie spójności jest operacją intensywnie wykorzystującą wydajność, Administratorzy mogą zdecydować się na zaplanowanie kontroli spójności lub uruchomić ją automatycznie.
-1. Wybierz źródła danych, które mają być chronione na platformie Azure. Następnie wybierz przycisk **dalej**.
+    SERWERA usługi MAB może uruchomić sprawdzanie spójności na integralność punktu kopii zapasowej. Oblicza sumę kontrolną pliku kopii zapasowej na serwerze produkcyjnym (w tym przykładzie komputer SQL Server) oraz dane kopii zapasowej dla tego pliku w serwera usługi MAB. Jeśli zaznaczenie spowoduje znalezienie konfliktu, zakłada się, że plik kopii zapasowej w serwera usługi MAB jest uszkodzony. SERWERA usługi MAB naprawia kopię zapasową danych przez wysłanie bloków, które odpowiadają niezgodności sumy kontrolnej. Ze względu na to, że sprawdzanie spójności jest operacją intensywnie wykorzystującą wydajność, Administratorzy mogą zdecydować się na zaplanowanie kontroli spójności lub uruchomić ją automatycznie.
+1. Wybierz źródła danych, które mają być chronione na platformie Azure. Następnie wybierz pozycję **Dalej**.
 
     ![Wybierz źródła danych do ochrony na platformie Azure](./media/backup-azure-backup-sql/pg-sqldatabases.png)
 1. Jeśli jesteś administratorem, możesz wybrać harmonogramy kopii zapasowych i zasady przechowywania odpowiednie dla zasad organizacji.
@@ -136,12 +136,12 @@ Aby odzyskać chronioną jednostkę, taką jak baza danych SQL Server, z platfor
 1. Kliknij prawym przyciskiem myszy nazwę bazy danych i wybierz polecenie **Odzyskaj**.
 
     ![Odzyskiwanie bazy danych z platformy Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-1. Program DPM wyświetla szczegóły punktu odzyskiwania. Wybierz opcję **Dalej**. Aby zastąpić bazę danych, wybierz typ odzyskiwania **Odzyskaj do oryginalnego wystąpienia SQL Server**. Następnie wybierz przycisk **dalej**.
+1. Program DPM wyświetla szczegóły punktu odzyskiwania. Wybierz opcję **Dalej**. Aby zastąpić bazę danych, wybierz typ odzyskiwania **Odzyskaj do oryginalnego wystąpienia SQL Server**. Następnie wybierz pozycję **Dalej**.
 
     ![Odzyskiwanie bazy danych do jej oryginalnej lokalizacji](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
     W tym przykładzie program DPM umożliwia odzyskiwanie bazy danych do innego wystąpienia SQL Server lub do autonomicznego folderu sieciowego.
-1. Na stronie **Określ opcje odzyskiwania** możesz wybrać opcje odzyskiwania. Na przykład można wybrać ograniczenie przepustowości **sieci** , aby ograniczyć przepustowość wykorzystywaną przez funkcję odzyskiwania. Następnie wybierz przycisk **dalej**.
+1. Na stronie **Określ opcje odzyskiwania** możesz wybrać opcje odzyskiwania. Na przykład można wybrać ograniczenie przepustowości **sieci** , aby ograniczyć przepustowość wykorzystywaną przez funkcję odzyskiwania. Następnie wybierz pozycję **Dalej**.
 1. Na stronie **Podsumowanie** zostanie wyświetlona bieżąca Konfiguracja odzyskiwania. Wybierz pozycję **Odzyskaj**.
 
     Stan odzyskiwania przedstawia odzyskaną bazę danych. Możesz wybrać przycisk **Zamknij** , aby zamknąć kreatora i wyświetlić postęp w obszarze roboczym **monitorowanie** .

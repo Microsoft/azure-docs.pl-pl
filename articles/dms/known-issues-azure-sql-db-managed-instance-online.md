@@ -1,6 +1,6 @@
 ---
-title: Znane problemy i ograniczenia dotyczące migracji w trybie online w celu Azure SQL Database wystąpienia zarządzanego
-description: Informacje na temat znanych problemów/ograniczeń migracji skojarzonych z migracją online w celu Azure SQL Database wystąpienia zarządzanego.
+title: Znane problemy i ograniczenia dotyczące migracji online do wystąpienia zarządzanego Azure SQL
+description: Informacje o znanych problemach/ograniczeniach migracji skojarzonych z migracją online do wystąpienia zarządzanego usługi Azure SQL.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 88e2b5894686ee93caecf33e04940803eb75f394
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 65bbc9f66ceb732a8f773f0b49cd46f99750a7d5
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77648669"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196304"
 ---
-# <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-database-managed-instance"></a>Znane problemy/ograniczenia migracji z migracją online do Azure SQL Database wystąpienia zarządzanego
+# <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-managed-instance"></a>Znane problemy/ograniczenia migracji z migracją online do wystąpienia zarządzanego Azure SQL
 
-Poniżej opisano znane problemy i ograniczenia związane z migracją online z SQL Server do Azure SQL Database wystąpienia zarządzanego.
+Poniżej opisano znane problemy i ograniczenia związane z migracją online z programu SQL Server do wystąpienia zarządzanego usługi Azure SQL.
 
 > [!IMPORTANT]
 > W przypadku migracji w trybie online SQL Server do Azure SQL Database migracja SQL_variant typów danych nie jest obsługiwana.
@@ -29,7 +29,7 @@ Poniżej opisano znane problemy i ograniczenia związane z migracją online z SQ
 
 - **Kopie zapasowe z sumą kontrolną**
 
-    Azure Database Migration Service używa metody Backup i Restore do migrowania lokalnych baz danych do SQL Database wystąpienia zarządzanego. Azure Database Migration Service obsługuje tylko kopie zapasowe utworzone przy użyciu sum kontrolnych.
+    Azure Database Migration Service używa metody Backup i Restore do migrowania lokalnych baz danych do wystąpienia zarządzanego SQL. Azure Database Migration Service obsługuje tylko kopie zapasowe utworzone przy użyciu sum kontrolnych.
 
     [Włącz lub Wyłącz sumy kontrolne kopii zapasowych podczas wykonywania kopii zapasowej lub przywracania (SQL Server)](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017)
 
@@ -52,16 +52,16 @@ Poniżej opisano znane problemy i ograniczenia związane z migracją online z SQ
 
 - **FileStream/FileTable**
 
-    SQL Database wystąpienie zarządzane obecnie nie obsługuje plików FileStream i FileTable. W przypadku obciążeń zależnych od tych funkcji Zalecamy wybór serwerów SQL działających na maszynach wirtualnych platformy Azure jako element docelowy platformy Azure.
+    Wystąpienie zarządzane SQL obecnie nie obsługuje plików FileStream i FileTable. W przypadku obciążeń zależnych od tych funkcji Zalecamy wybór serwerów SQL działających na maszynach wirtualnych platformy Azure jako element docelowy platformy Azure.
 
 - **Tabele w pamięci**
 
-    Pakiet OLTP w pamięci jest dostępny w warstwach Premium i Krytyczne dla działania firmy dla SQL Database wystąpienia zarządzanego; warstwa Ogólnego przeznaczenia nie obsługuje przetwarzania OLTP w pamięci.
+    Pakiet OLTP w pamięci jest dostępny w warstwach Premium i Krytyczne dla działania firmy dla wystąpienia zarządzanego SQL; warstwa Ogólnego przeznaczenia nie obsługuje przetwarzania OLTP w pamięci.
 
 ## <a name="migration-resets"></a>Resetowanie migracji
 
 - **Wdrożenia**
 
-    SQL Database wystąpienie zarządzane to usługa PaaS z automatyczną poprawką poprawek i aktualizacjami wersji. Podczas migracji SQL Database wystąpienia zarządzanego, aktualizacje niekrytyczne są łatwiejsze do 36 godzin. Następnie (i w przypadku aktualizacji krytycznych), jeśli migracja zostanie zakłócona, proces resetuje do stanu pełnego przywracania.
+    Wystąpienie zarządzane SQL to usługa PaaS z automatyczną poprawką poprawek i aktualizacjami wersji. Podczas migracji wystąpienia zarządzanego SQL aktualizacje niekrytyczne są łatwiejsze do 36 godzin. Następnie (i w przypadku aktualizacji krytycznych), jeśli migracja zostanie zakłócona, proces resetuje do stanu pełnego przywracania.
 
     Uruchomienie produkcyjne migracji można wywołać tylko po przywróceniu pełnej kopii zapasowej i przejściu do wszystkich kopii zapasowych dziennika. Jeśli dotyczy to jednorazowe migracji produkcyjnej, skontaktuj się z [aliasem opinii platformy Azure](mailto:dmsfeedback@microsoft.com).

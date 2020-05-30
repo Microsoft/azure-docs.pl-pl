@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/14/2019
-ms.openlocfilehash: 968a880568743867c2bdfc11f98de322a591c009
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 13ca1ed4abef1eb367239a60ee7fe3d40ffee8d5
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117270"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195538"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Konfigurowanie grupy trybu failover dla Azure SQL Database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -131,7 +131,7 @@ Testowanie pracy w trybie failover grupy trybu failover przy użyciu Azure Porta
    ![Praca awaryjna grupy trybu failover zawierającej bazę danych](./media/auto-failover-group-configure/failover-sql-db.png)
 
 1. Sprawdź, który serwer jest teraz podstawowy i który serwer jest serwerem pomocniczym. Jeśli praca awaryjna zakończyła się pomyślnie, te dwa serwery powinny mieć zamienione role.
-1. Wybierz ponownie **tryb failover** , aby powrócić do awarii serwerów z powrotem do ich pierwotnych ról.
+1. Wybierz ponownie **tryb failover** , aby powrócić do błędów serwerów do ich oryginalnych ról.
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
@@ -344,9 +344,9 @@ Przejdź do trybu failover na serwerze pomocniczym:
 
 ## <a name="sql-managed-instance"></a>Wystąpienie zarządzane SQL
 
-Utwórz grupę trybu failover między dwoma wystąpieniami zarządzanymi w wystąpieniu zarządzanym SQL przy użyciu Azure Portal lub programu PowerShell.
+Utwórz grupę trybu failover między dwoma wystąpieniami zarządzanymi w wystąpieniu zarządzanym usługi Azure SQL przy użyciu Azure Portal lub programu PowerShell.
 
-Należy skonfigurować [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) lub utworzyć bramę dla sieci wirtualnej dla każdego wystąpienia zarządzanego, połączyć dwie bramy, a następnie utworzyć grupę trybu failover.
+Należy skonfigurować [ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) lub utworzyć bramę dla sieci wirtualnej dla każdego wystąpienia zarządzanego SQL, połączyć dwie bramy, a następnie utworzyć grupę trybu failover.
 
 ### <a name="prerequisites"></a>Wymagania wstępne
 
@@ -382,10 +382,10 @@ Utwórz bramę podstawowej sieci wirtualnej przy użyciu Azure Portal.
     | --- | --- |
     | **Subskrypcja** |  Subskrypcja, w której znajduje się główne wystąpienie zarządzane. |
     | **Nazwa** | Nazwa bramy sieci wirtualnej. |
-    | **Okolicy** | Region, w którym znajduje się główne wystąpienie zarządzane. |
+    | **Region** | Region, w którym znajduje się główne wystąpienie zarządzane. |
     | **Typ bramy** | wybierz pozycję **VPN**. |
     | **Typ sieci VPN** | Wybierz pozycję **oparta na trasach** |
-    | **Magazyn**| Pozostaw wartość domyślną `VpnGw1` . |
+    | **SKU**| Pozostaw wartość domyślną `VpnGw1` . |
     | **Lokalizacja**| Lokalizacja, w której znajduje się pomocnicze wystąpienie zarządzane i pomocnicza Sieć wirtualna.   |
     | **Sieć wirtualna**| Wybierz sieć wirtualną dla pomocniczego wystąpienia zarządzanego. |
     | **Publiczny adres IP**| Wybierz pozycję**Utwórz nowy**. |
@@ -444,10 +444,10 @@ W poniższej tabeli przedstawiono wartości niezbędne dla bramy dla pomocniczeg
    | --- | --- |
    | **Subskrypcja** |  Subskrypcja, w której znajduje się pomocnicze wystąpienie zarządzane. |
    | **Nazwa** | Nazwa bramy sieci wirtualnej, na przykład `secondary-mi-gateway` . |
-   | **Okolicy** | Region, w którym znajduje się pomocnicze wystąpienie zarządzane. |
+   | **Region** | Region, w którym znajduje się pomocnicze wystąpienie zarządzane. |
    | **Typ bramy** | wybierz pozycję **VPN**. |
    | **Typ sieci VPN** | Wybierz pozycję **oparta na trasach** |
-   | **Magazyn**| Pozostaw wartość domyślną `VpnGw1` . |
+   | **SKU**| Pozostaw wartość domyślną `VpnGw1` . |
    | **Lokalizacja**| Lokalizacja, w której znajduje się pomocnicze wystąpienie zarządzane i pomocnicza Sieć wirtualna.   |
    | **Sieć wirtualna**| Wybierz sieć wirtualną, która została utworzona w sekcji 2, na przykład `vnet-sql-mi-secondary` . |
    | **Publiczny adres IP**| Wybierz pozycję**Utwórz nowy**. |
@@ -557,7 +557,7 @@ Utwórz grupę trybu failover dla wystąpień zarządzanych przy użyciu Azure P
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Utwórz grupę trybu failover dla wystąpień zarządzanych przy użyciu Azure Portal.
+Utwórz grupę trybu failover dla wystąpień zarządzanych SQL przy użyciu Azure Portal.
 
 1. Wybierz pozycję **Azure SQL** w menu po lewej stronie [Azure Portal](https://portal.azure.com). Jeśli na liście nie ma **usługi Azure SQL** , wybierz pozycję **wszystkie usługi**, a następnie wpisz SQL Azure w polu wyszukiwania. Obowiązkowe Wybierz gwiazdkę obok pozycji **Azure SQL** , aby ją dodać do ulubionych, i Dodaj ją jako element w nawigacji po lewej stronie.
 1. Wybierz główne wystąpienie zarządzane, które chcesz dodać do grupy trybu failover.  

@@ -8,12 +8,13 @@ author: mlearned
 ms.author: mlearned
 description: ''
 keywords: Kubernetes, łuk, Azure, kontenery
-ms.openlocfilehash: 3b3b184ff7b18e05dfeb1052c0d6b4aa406a8787
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.custom: references_regions
+ms.openlocfilehash: badade7e89d0b03f330bfbe3578d02429220001b
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83666258"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194856"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes-preview"></a>Co to jest usługa Azure Arc w Kubernetes (wersja zapoznawcza)
 

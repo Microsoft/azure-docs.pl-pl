@@ -7,12 +7,13 @@ ms.topic: overview
 ms.date: 04/13/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 992aa8a4cb0ff31f7f1657be45fa1a64fdb27e7c
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.custom: references_regions
+ms.openlocfilehash: 0fb0e9e2611ed882bffa1df62adeb617e7211354
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780546"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84191984"
 ---
 # <a name="what-is-azure-analysis-services"></a>Co to są usługi Azure Analysis Services?
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6740ea320f2d950386da12eb44726e2c826b60a4
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d263a1fb329f5a18fec760413300296643768c1d
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80386093"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84200402"
 ---
 ## <a name="premium-ssd"></a>Dysk SSD w warstwie Premium
 
@@ -70,6 +70,6 @@ W przypadku korzystania z usługi Managed disks obowiązują następujące zagad
 - Wychodzące transfery danych
 - Liczba transakcji
 
-**Rozmiar dysku zarządzanego**: dyski zarządzane są rozliczane zgodnie z rozmiarem aprowizacji. Platforma Azure mapuje przydziały (zaokrąglone w górę) do najbliższego dostępnego rozmiaru dysku. Szczegółowe informacje o oferowanych rozmiarach dysków można znaleźć w poprzednich tabelach. Każdy dysk jest mapowany do obsługiwanej oferty rozmiaru dysku i jest rozliczany zgodnie z potrzebami. Na przykład, jeśli udostępnisz 200 GiB SSD w warstwie Standardowa, mapuje do oferty rozmiaru dysku E15 (256 GiB). Opłaty za dowolny dysk z zainicjowaną obsługą są naliczane proporcjonalnie do liczby godzin przy użyciu ceny miesięcznej oferty Premium Storage. Na przykład jeśli udostępnisz dysk E10 i usuniesz go po 20 godzinach, opłaty są naliczane za ofertę E10, która jest naliczana proporcjonalnie do 20 godzin. Jest to niezależne od ilości danych, które są zapisywane na dysku.
+**Rozmiar dysku zarządzanego**: dyski zarządzane są rozliczane zgodnie z rozmiarem aprowizacji. Platforma Azure mapuje przydziały (zaokrąglone w górę) do najbliższego dostępnego rozmiaru dysku. Szczegółowe informacje o oferowanych rozmiarach dysków można znaleźć w poprzednich tabelach. Każdy dysk jest mapowany do obsługiwanej oferty rozmiaru dysku i jest rozliczany zgodnie z potrzebami. Na przykład, jeśli udostępnisz 200 GiB SSD w warstwie Standardowa, mapuje do oferty rozmiaru dysku E15 (256 GiB). Opłaty za dowolny dysk z zainicjowaną obsługą są naliczane proporcjonalnie do liczby godzin przy użyciu ceny miesięcznej oferty magazynu. Na przykład jeśli udostępnisz dysk E10 i usuniesz go po 20 godzinach, opłaty są naliczane za ofertę E10, która jest naliczana proporcjonalnie do 20 godzin. Jest to niezależne od ilości danych, które są zapisywane na dysku.
 
 **Migawki**: rozliczanie migawek odbywa się na podstawie używanego rozmiaru. Na przykład, jeśli utworzysz migawkę dysku zarządzanego o pojemności 64 GiB i rzeczywistej używanej wielkości danych wynoszącej 10 GiB, dla migawki zostanie naliczona tylko za użyty rozmiar danych wynoszący 10 GiB.

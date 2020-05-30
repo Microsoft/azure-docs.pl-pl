@@ -3,12 +3,12 @@ title: Dodawanie narzędzi do oceny w Azure Migrate
 description: Dowiedz się, jak dodać narzędzia do oceny w Azure Migrate.
 ms.topic: how-to
 ms.date: 04/26/2020
-ms.openlocfilehash: 7e7d7cf26cab30cd7449e4643fdfb59faece47f2
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: 10e8b66575893bc8e63aa94392c872acc04407c4
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901057"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195630"
 ---
 # <a name="add-assessment-tools"></a>Dodawanie narzędzi oceny
 
@@ -23,7 +23,7 @@ W tym artykule opisano sposób dodawania narzędzi do oceny w [Azure Migrate](mi
 2. Wybierz scenariusz oceny, którego chcesz użyć:
 
     - Aby odnajdywać i oceniać maszyny i obciążenia do migracji na platformę Azure, wybierz pozycję **Oceń i Przeprowadź migrację serwerów**.
-    - Aby ocenić lokalne maszyny SQL, wybierz pozycję **Oceń i Przeprowadź migrację baz danych**.
+    - Aby ocenić lokalne bazy danych SQL Server, wybierz pozycję **Oceń i Przeprowadź migrację baz danych**.
     - Aby ocenić lokalne aplikacje sieci Web, wybierz pozycję **Oceń i Migruj aplikacje sieci Web**.
 
     ![Scenariusz oceny](./media/how-to-assess/assess-scenario.png)

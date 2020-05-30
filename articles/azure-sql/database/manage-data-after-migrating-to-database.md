@@ -12,12 +12,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: fd7900eb9de55b29cc06ed338514e5a46d160f11
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e36e11e4150c977b72b445e5bda7dce410c77925
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84047454"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193925"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Nowa usługa DBA w chmurze — zarządzanie Azure SQL Database po migracji
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -66,7 +66,7 @@ Nie można tworzyć kopii zapasowych na Azure SQL Database, ponieważ nie jest t
 |Warstwa usług|Okres przechowywania w dniach|
 |---|:---:|
 |Podstawowy|7|
-|Standardowa|35|
+|Standardowa (Standard)|35|
 |Premium|35|
 |||
 
@@ -82,7 +82,7 @@ Jeśli grupa autotrybu failover nie zostanie skonfigurowana, aplikacja musi akty
 
 ### <a name="how-does-my-disaster-recovery-plan-change-from-on-premises-to-sql-database"></a>Jak zmienia się plan odzyskiwania po awarii z lokalnego na SQL Database
 
-Na przykład tradycyjna konfiguracja SQL Server lokalnego wymagała aktywnego zarządzania dostępnością przy użyciu funkcji, takich jak klaster trybu failover, dublowanie bazy danych, replikacja transakcji lub wysyłanie dzienników oraz zarządzanie kopiami zapasowymi w celu zapewnienia ciągłości działalności biznesowej. Dzięki SQL Database platforma zarządza tymi elementami, dzięki czemu możesz skupić się na tworzeniu i optymalizowaniu aplikacji bazy danych i nie martw się o zarządzanie awarią. Można skonfigurować plany odzyskiwania i tworzenia kopii zapasowych oraz pracę z kilkoma kliknięciami Azure Portal (lub kilkoma poleceniami przy użyciu interfejsów API programu PowerShell).
+Podsumowując, konfiguracja SQL Server wymaga, aby aktywnie zarządzać dostępnością przy użyciu funkcji, takich jak klaster trybu failover, dublowanie bazy danych, replikacja transakcji lub wysyłanie dzienników oraz zarządzanie kopiami zapasowymi w celu zapewnienia ciągłości działalności biznesowej. Dzięki SQL Database platforma zarządza tymi elementami, dzięki czemu możesz skupić się na tworzeniu i optymalizowaniu aplikacji bazy danych i nie martw się o zarządzanie awarią. Można skonfigurować plany odzyskiwania i tworzenia kopii zapasowych oraz pracę z kilkoma kliknięciami Azure Portal (lub kilkoma poleceniami przy użyciu interfejsów API programu PowerShell).
 
 Aby dowiedzieć się więcej na temat odzyskiwania po awarii, zobacz: [Azure SQL Database odzyskiwania po awarii 101](https://azure.microsoft.com/blog/azure-sql-databases-disaster-recovery-101/)
 
@@ -125,7 +125,7 @@ Istnieje wiele technik do dyspozycji, których można użyć do uzyskania optyma
 - Punkty końcowe usługi sieci wirtualnej
 - Zastrzeżone adresy IP
 
-#### <a name="firewall"></a>Firewall
+#### <a name="firewall"></a>Zapora
 
 Zapora uniemożliwia dostęp do serwera z zewnętrznej jednostki, zezwalając na dostęp tylko określonym podmiotom do serwera. Domyślnie wszystkie połączenia z bazami danych znajdującymi się na serwerze są niedozwolone, z wyjątkiem połączeń (optionally7) pochodzących z innych usług platformy Azure. Za pomocą reguły zapory można otworzyć dostęp do serwera tylko do jednostek (na przykład na komputerze dewelopera), które zostały zatwierdzone przez zezwolenie na ten komputer za pomocą zapory. Pozwala także określić zakres adresów IP, które mają zezwalać na dostęp do serwera. Na przykład adresy IP komputerów deweloperów w organizacji można dodać jednocześnie, określając zakres na stronie Ustawienia zapory.
 
@@ -302,7 +302,7 @@ SQL Database oferuje różne warstwy usług w warstwach Podstawowa, standardowa 
 |**Warstwa usług**|**Typowe scenariusze przypadków użycia**|
 |---|---|
 |**Podstawowe**|Aplikacje z kilku użytkownikami i bazą danych, która nie ma wysokich wymagań dotyczących współbieżności, skalowania i wydajności. |
-|**Standardowa**|Aplikacje mające znaczące wymagania dotyczące współbieżności, skalowania i wydajności, powiązane z niskimi i średnimi wymaganiami we/wy. |
+|**Standardowa (Standard)**|Aplikacje mające znaczące wymagania dotyczące współbieżności, skalowania i wydajności, powiązane z niskimi i średnimi wymaganiami we/wy. |
 |**Premium**|Aplikacje z dużą liczbą równoczesnych użytkowników, dużym procesorem CPU/pamięci i wysokimi wymaganiami we/wy. Duże współbieżność, Wysoka przepływność i wrażliwe na opóźnienia aplikacje mogą korzystać z poziomu Premium. |
 |||
 
@@ -330,8 +330,8 @@ SQL Database używa niektórych inteligentnych technik, które umożliwiają obs
 
 Możesz to osiągnąć na kilka sposobów:
 
-- **[Synchronizacja danych](sql-data-sync-data-sql-server-sql-database.md)** — ta funkcja ułatwia synchronizowanie danych dwukierunkowych między wieloma lokalnymi bazami danych SQL Server i SQL Database. Aby zsynchronizować z lokalnymi bazami danych SQL Server, należy zainstalować i skonfigurować agenta synchronizacji na komputerze lokalnym i otworzyć wychodzący port TCP 1433.
-- **[Replikacja transakcji](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** — z replikacją transakcji można synchronizować dane ze swojej firmy w celu Azure SQL Database z lokalnym wydawcą i Azure SQL Databaseem subskrybenta. Na razie tylko ta konfiguracja jest obsługiwana. Aby uzyskać więcej informacji na temat sposobu migrowania danych z lokalnego do platformy Azure SQL z minimalnym czasem przestoju, zobacz: [Korzystanie z replikacji transakcji](migrate-to-database-from-sql-server.md#method-2-use-transactional-replication) .
+- **[Synchronizacja danych](sql-data-sync-data-sql-server-sql-database.md)** — ta funkcja ułatwia synchronizowanie danych dwukierunkowych między wieloma bazami danych SQL Server i SQL Database. Aby przeprowadzić synchronizację z bazami danych SQL Server, należy zainstalować i skonfigurować agenta synchronizacji na komputerze lokalnym lub maszynie wirtualnej i otworzyć wychodzący port TCP 1433.
+- **[Replikacja transakcji](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** — z replikacją transakcji można synchronizować dane z bazy danych SQL Server, aby Azure SQL Database z wystąpieniem SQL Server wydawcą i Azure SQL Databaseem subskrybenta. Na razie tylko ta konfiguracja jest obsługiwana. Aby uzyskać więcej informacji na temat migrowania danych z bazy danych SQL Server do usługi Azure SQL z minimalnym czasem przestoju, zobacz: [Korzystanie z replikacji transakcji](migrate-to-database-from-sql-server.md#method-2-use-transactional-replication) .
 
 ## <a name="next-steps"></a>Następne kroki
 

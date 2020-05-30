@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c4ca328aa0ddc61d86a435b93fe775f294287b98
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 12deb51cb2c0efc1bef77a3ff2c8d5150ba13cde
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79527388"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196102"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Copy Activity performance and tuning guide (Przewodnik dotyczący wydajności i dostosowywania działania kopiowania)
 
@@ -202,10 +202,10 @@ W przypadku aktywowania przenoszenia danych przy użyciu magazynu przemieszczani
 
 Obecnie nie można kopiować danych między dwoma lokalnymi magazynami danych przy użyciu magazynu przemieszczania. Oczekujemy, że ta opcja będzie dostępna wkrótce.
 
-### <a name="configuration"></a>Konfiguracja
+### <a name="configuration"></a>Konfigurowanie
 Skonfiguruj ustawienie **enableStaging** w działaniu Copy, aby określić, czy dane mają zostać przygotowane w magazynie obiektów BLOB przed załadowaniem ich do docelowego magazynu danych. Po ustawieniu **enableStaging** na true, określ dodatkowe właściwości wymienione w następnej tabeli. Jeśli go nie masz, musisz również utworzyć usługę Azure Storage lub link dostępu współdzielonego do magazynu na potrzeby przemieszczania.
 
-| Właściwość | Opis | Wartość domyślna | Wymagany |
+| Właściwość | Opis | Wartość domyślna | Wymagane |
 | --- | --- | --- | --- |
 | **enableStaging** |Określ, czy chcesz kopiować dane za pośrednictwem tymczasowego magazynu przemieszczania. |Fałsz |Nie |
 | **linkedServiceName** |Określ nazwę połączonej usługi [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) lub [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) , która odwołuje się do wystąpienia magazynu, którego używasz jako tymczasowego magazynu przemieszczania. <br/><br/> Nie można użyć magazynu z sygnaturą dostępu współdzielonego w celu załadowania danych do SQL Data Warehouse za pośrednictwem bazy. Można go używać we wszystkich innych scenariuszach. |Nie dotyczy |Tak, gdy **enableStaging** jest ustawiona na wartość true |
@@ -366,8 +366,8 @@ Jeśli rozmiar danych, które mają zostać skopiowane, jest duży, można dosto
 
 Należy zachować ostrożność w zakresie liczby zestawów danych i działań kopiowania wymagających Data Factory łączników do tego samego magazynu danych w tym samym czasie. Wiele współbieżnych zadań kopiowania może ograniczać magazyn danych i prowadzić do obniżenia wydajności, kopiowania wewnętrznych ponownych prób zadań, a w niektórych przypadkach błędy wykonywania.
 
-## <a name="sample-scenario-copy-from-an-on-premises-sql-server-to-blob-storage"></a>Przykładowy scenariusz: kopiowanie z SQL Server lokalnego do magazynu obiektów BLOB
-**Scenariusz**: potok został utworzony w celu kopiowania danych z SQL Server lokalnego do magazynu obiektów BLOB w formacie CSV. Aby zadanie kopiowania było szybsze, należy skompresować pliki CSV w formacie BZIP2.
+## <a name="sample-scenario-copy-from-a-sql-server-database-to-blob-storage"></a>Przykładowy scenariusz: kopiowanie z bazy danych SQL Server do magazynu obiektów BLOB
+**Scenariusz**: potok został utworzony w celu skopiowania danych z bazy danych SQL Server do magazynu obiektów BLOB w formacie CSV. Aby zadanie kopiowania było szybsze, należy skompresować pliki CSV w formacie BZIP2.
 
 **Testowanie i analiza**: przepływność działania kopiowania jest mniejsza niż 2 MB/s, co jest znacznie wolniejsze niż wynikowy test wydajności.
 
@@ -385,7 +385,7 @@ Co najmniej jeden z następujących czynników może spowodować wąskie gardła
 
 * **Źródło**: SQL Server samo ma niską przepływność ze względu na duże obciążenia.
 * **Zarządzanie danymi Gateway**:
-  * **LAN**: Brama znajduje się daleko od maszyny SQL Server i ma połączenie o niskiej przepustowości.
+  * **LAN**: Brama znajduje się poza komputerem SQL Server i ma połączenie o niskiej przepustowości.
   * **Brama**: Brama osiągnęła swoje ograniczenia dotyczące obciążenia, aby wykonać następujące operacje:
     * **Serializacja**: Serializowanie strumienia danych do formatu CSV ma niską przepływność.
     * **Kompresowanie**: wybrano wolny koder-dekoder kompresji (na przykład bzip2, czyli 2,8 MB/s z rdzeniem Core i7).

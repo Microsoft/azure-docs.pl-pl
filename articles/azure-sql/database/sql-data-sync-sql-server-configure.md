@@ -1,5 +1,5 @@
 ---
-title: Skonfiguruj SQL Data Sync
+title: Konfiguracja funkcji SQL Data Sync
 description: W tym samouczku przedstawiono sposób konfigurowania SQL Data Sync platformy Azure
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/14/2019
-ms.openlocfilehash: d0380239fde2c58e7c9a2e7dc3638881dbd8fd73
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 405705bee3ada2d2c43e9a243724d823a5e28602
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84043975"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84188699"
 ---
-# <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>Samouczek: Konfigurowanie SQL Data Sync między Azure SQL Database i SQL Server lokalnie
+# <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>Samouczek: Konfigurowanie SQL Data Sync między bazami danych w Azure SQL Database i SQL Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 W tym samouczku dowiesz się, jak skonfigurować SQL Data Sync przez utworzenie grupy synchronizacji zawierającej wystąpienia Azure SQL Database i SQL Server. Grupa synchronizacji jest skonfigurowana jako niestandardowa i synchronizowana zgodnie z ustawionym harmonogramem.
@@ -27,7 +27,7 @@ W samouczku założono, że masz co najmniej kilka wcześniejszych doświadczeń
 
 Aby zapoznać się z omówieniem SQL Data Sync, zobacz [synchronizowanie danych w chmurze i lokalnych bazach danych z SQL Data Sync](sql-data-sync-data-sql-server-sql-database.md).
 
-Przykłady programu PowerShell dotyczące konfigurowania SQL Data Sync można znaleźć w temacie [Jak synchronizować między bazami danych w SQL Database](scripts/sql-data-sync-sync-data-between-sql-databases.md) lub [Azure SQL Database i SQL Server lokalnej bazy danych](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
+Przykłady programu PowerShell dotyczące konfigurowania SQL Data Sync znajdują się w temacie [Jak synchronizować między bazami danych w SQL Database](scripts/sql-data-sync-sync-data-between-sql-databases.md) lub [między bazami danych w Azure SQL Database i SQL Server](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
 
 > [!IMPORTANT]
 > W tej chwili SQL Data Sync **nie obsługuje wystąpienia** zarządzanego usługi Azure SQL.
@@ -96,9 +96,9 @@ W sekcji **baza danych elementu członkowskiego** opcjonalnie Dodaj Azure SQL Da
 
 <a name="add-on-prem"></a>
 
-### <a name="to-add-an-on-premises-sql-server-database"></a>Aby dodać lokalną bazę danych SQL Server
+### <a name="to-add-a-sql-server-database"></a>Aby dodać bazę danych SQL Server
 
-W sekcji **baza danych elementu członkowskiego** opcjonalnie Dodaj SQL Server lokalny do grupy synchronizacji, wybierając pozycję **Dodaj lokalną bazę danych**. Zostanie otwarta strona **Konfiguracja lokalna** , w której można wykonać następujące czynności:
+W sekcji **baza danych elementu członkowskiego** opcjonalnie Dodaj bazę danych SQL Server do grupy synchronizacji, wybierając pozycję **Dodaj lokalną bazę danych**. Zostanie otwarta strona **Konfiguracja lokalna** , w której można wykonać następujące czynności:
 
 1. Wybierz pozycję **Wybierz bramę agenta synchronizacji**. Zostanie otwarta strona **Wybieranie agenta synchronizacji** .
 

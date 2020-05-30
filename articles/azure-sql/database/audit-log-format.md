@@ -1,6 +1,6 @@
 ---
-title: Format dziennika inspekcji
-description: Zapoznaj się ze strukturą dzienników inspekcji usługi Azure SQL i Azure Synapse.
+title: SQL Database format dziennika inspekcji
+description: Zapoznaj się ze strukturą dzienników inspekcji Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,16 +10,16 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.custom: sqldbrb=1
 ms.date: 04/28/2020
-ms.openlocfilehash: 33a82cb5e4daac96d51f19de21e817b07237ec20
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 82e0cec514849eb41272e6b25dcce74eabfa2b8d
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84041661"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84190309"
 ---
 # <a name="sql-database-audit-log-format"></a>SQL Database format dziennika inspekcji
-[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
+[!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 [Inspekcja Azure SQL Database](auditing-overview.md) śledzi zdarzenia bazy danych i zapisuje je w dzienniku inspekcji na koncie usługi Azure Storage lub wysyła do centrum zdarzeń lub log Analytics na potrzeby przetwarzania i analizy podrzędnej.
 
@@ -27,13 +27,13 @@ ms.locfileid: "84041661"
 
 ### <a name="blob-audit"></a>Inspekcja obiektów BLOB
 
-Dzienniki inspekcji przechowywane w magazynie obiektów BLOB są przechowywane w kontenerze o nazwie `sqldbauditlogs` na koncie usługi Azure Storage. Hierarchia katalogów w kontenerze ma postać `<ServerName>/<DatabaseName>/<AuditName>/<Date>/` . Format nazwy pliku obiektu BLOB to `<CreationTime>_<FileNumberInSession>.xel` , gdzie `CreationTime` jest w `hh_mm_ss_ms` formacie UTC, i `FileNumberInSession` jest uruchomionym indeksem w przypadku dzienników sesji przypadków obejmujących wiele plików obiektów BLOB.
+Dzienniki inspekcji przechowywane w usłudze Azure Blob Storage są przechowywane w kontenerze o nazwie `sqldbauditlogs` na koncie usługi Azure Storage. Hierarchia katalogów w kontenerze ma postać `<ServerName>/<DatabaseName>/<AuditName>/<Date>/` . Format nazwy pliku obiektu BLOB to `<CreationTime>_<FileNumberInSession>.xel` , gdzie `CreationTime` jest w `hh_mm_ss_ms` formacie UTC, i `FileNumberInSession` jest uruchomionym indeksem w przypadku dzienników sesji przypadków obejmujących wiele plików obiektów BLOB.
 
 Na przykład w przypadku bazy danych `Database1` o `Server1` następującym poprawnej ścieżce:
 
     Server1/Database1/SqlDbAuditing_ServerAudit_NoRetention/2019-02-03/12_23_30_794_0.xel
 
-[Repliki tylko do odczytu](read-scale-out.md) Dzienniki inspekcji są przechowywane w tym samym kontenerze. Hierarchia katalogów w kontenerze ma postać `<ServerName>/<DatabaseName>/<AuditName>/<Date>/RO/` . Nazwa pliku obiektu BLOB ma ten sam format. Dzienniki inspekcji replik tylko do odczytu są przechowywane w tym samym kontenerze.
+Dzienniki inspekcji [replik tylko do odczytu](read-scale-out.md) są przechowywane w tym samym kontenerze. Hierarchia katalogów w kontenerze ma postać `<ServerName>/<DatabaseName>/<AuditName>/<Date>/RO/` . Nazwa pliku obiektu BLOB ma ten sam format. Dzienniki inspekcji replik tylko do odczytu są przechowywane w tym samym kontenerze.
 
 
 ### <a name="event-hub"></a>Centrum zdarzeń
@@ -46,7 +46,7 @@ Zdarzenia inspekcji są zapisywane w obszarze roboczym Log Analytics zdefiniowan
 
 ## <a name="audit-log-fields"></a><a id="subheading-1"></a>Pola dziennika inspekcji
 
-| Nazwa (BLOB) | Nazwa (Event Hubs/Log Analytics) | Opis | Typ obiektu BLOB | Typ Event Hubs/Log Analytics |
+| Nazwa (BLOB) | Nazwa (Event Hubs/Log Analytics) | Opis | Typ obiektów blob | Typ Event Hubs/Log Analytics |
 |-------------|---------------------------------|-------------|-----------|-------------------------------|
 | action_id | action_id_s | Identyfikator akcji | varchar (4) | ciąg |
 | action_name | action_name_s | Nazwa akcji | Nie dotyczy | ciąg |

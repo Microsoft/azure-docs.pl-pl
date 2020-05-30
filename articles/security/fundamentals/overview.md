@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: b39eb24b5611e36d14b151aaec96941ff52f3dfa
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.openlocfilehash: 401317f6b47c97a76ef2ded603063821a420933a
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82731704"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84192538"
 ---
 # <a name="introduction-to-azure-security"></a>Wprowadzenie do zabezpieczeń platformy Azure
 ## <a name="overview"></a>Omówienie
@@ -218,10 +218,10 @@ Sieć platformy Azure obsługuje różne scenariusze bezpiecznego dostępu zdaln
 ### <a name="vpn-gateway"></a>VPN Gateway
 Aby wysyłać ruch sieciowy między usługą Azure Virtual Network i lokacją lokalną, musisz utworzyć bramę sieci VPN dla Virtual Network platformy Azure. [Brama VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) to typ bramy sieci wirtualnej, który wysyła zaszyfrowany ruch sieciowy przez połączenie publiczne. Za pomocą bram sieci VPN można także wysyłać ruch sieciowy między sieciami wirtualnymi platformy Azure za pośrednictwem sieci szkieletowej platformy Azure.
 
-### <a name="express-route"></a>ExpressRoute
+### <a name="express-route"></a>Express Route
 Microsoft Azure [ExpressRoute](../../expressroute/expressroute-introduction.md) to dedykowany link sieci WAN, który umożliwia poszerzanie sieci lokalnych w chmurze firmy Microsoft przez dedykowane połączenie prywatne obsługiwane przez dostawcę połączenia.
 
-![ExpressRoute](./media/overview/azure-security-fig1.png)
+![Express Route](./media/overview/azure-security-fig1.png)
 
 Dzięki usłudze ExpressRoute można ustanowić połączenia z usługami Microsoft w chmurze, np. Microsoft Azure, Office 365 i CRM Online. Połączenie może być z sieci typu dowolna-dowolna (IP VPN), sieci Ethernet typu punkt-punkt lub przy użyciu łączności obejmującej wiele połączeń wirtualnych przez dostawcę połączenia w ramach infrastruktury współlokacji.
 
@@ -308,7 +308,7 @@ Szyfrowanie [danych przezroczystych (TDE)](../../virtual-machines/windows/sqlcla
 
 Usługa Azure Key Vault (AKV) została zaprojektowana w celu poprawy bezpieczeństwa i zarządzania tymi kluczami w bezpiecznej i wysoce dostępnej lokalizacji. SQL Server Connector umożliwia SQL Server Korzystanie z tych kluczy z Azure Key Vault.
 
-W przypadku uruchamiania SQL Server z maszynami lokalnymi istnieją kroki, które można wykonać, aby uzyskać dostęp do Azure Key Vault z lokalnej maszyny SQL Server. Jednak w przypadku SQL Server na maszynach wirtualnych platformy Azure można zaoszczędzić czas, korzystając z funkcji integracji Azure Key Vault. Aby włączyć tę funkcję za pomocą kilku poleceń cmdlet Azure PowerShell, można zautomatyzować konfigurację niezbędną do uzyskania dostępu do magazynu kluczy w maszynie wirtualnej SQL.
+W przypadku uruchamiania SQL Server z maszynami lokalnymi istnieją kroki, które można wykonać, aby uzyskać dostęp do Azure Key Vault z lokalnego wystąpienia SQL Server. Jednak w przypadku SQL Server na maszynach wirtualnych platformy Azure można zaoszczędzić czas, korzystając z funkcji integracji Azure Key Vault. Aby włączyć tę funkcję za pomocą kilku poleceń cmdlet Azure PowerShell, można zautomatyzować konfigurację niezbędną do uzyskania dostępu do magazynu kluczy w maszynie wirtualnej SQL.
 
 ### <a name="vm-disk-encryption"></a>Szyfrowanie dysku maszyny wirtualnej
 [Azure Disk Encryption](../azure-security-disk-encryption-overview.md) to nowa funkcja, która ułatwia szyfrowanie dysków maszyn wirtualnych z systemem Windows i Linux IaaS. Stosuje on standardową funkcję funkcji BitLocker systemu Windows i funkcję DM-Crypt w systemie Linux, aby zapewnić szyfrowanie woluminów dla systemu operacyjnego i dysków danych. Rozwiązanie jest zintegrowane z Azure Key Vault, które ułatwiają kontrolowanie kluczy szyfrowania dysków i wpisów tajnych w subskrypcji Key Vault oraz zarządzanie nimi. Rozwiązanie gwarantuje również, że wszystkie dane na dyskach maszyn wirtualnych są szyfrowane w usłudze Azure Storage.

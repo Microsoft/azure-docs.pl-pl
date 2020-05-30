@@ -6,13 +6,13 @@ ms.assetid: c1b05ca8-3703-4d87-a9ae-819d741787fb
 ms.topic: article
 ms.date: 09/07/2016
 ms.author: stefsch
-ms.custom: seodec18
-ms.openlocfilehash: 7ab04e23b838f2dfd39b73476db7492947d62e6e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: seodec18, references_regions
+ms.openlocfilehash: 04ba8e7b3ccd18306cb8da0fd15d2cd88f363c70
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74688815"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193319"
 ---
 # <a name="geo-distributed-scale-with-app-service-environments"></a>Rozproszona geograficznie skala przy użyciu środowisk usługi App Service
 ## <a name="overview"></a>Omówienie
@@ -79,7 +79,7 @@ Zwróć uwagę na to, jak jedno wywołanie elementu *Add-AzureTrafficManagerEndp
 Wszystkie trzy punkty końcowe używają tej samej wartości (10) dla parametru *wagi* .  Powoduje to Traffic Manager rozproszenia żądań klientów między wszystkimi trzema wystąpieniami aplikacji. 
 
 ## <a name="pointing-the-apps-custom-domain-at-the-traffic-manager-domain"></a>Wskaż domenę niestandardową aplikacji w domenie Traffic Manager
-Ostatnim krokiem niezbędnym jest wskazanie domeny niestandardowej aplikacji w domenie Traffic Manager.  W przypadku przykładowej aplikacji oznacza to `www.scalableasedemo.com` wskazanie elementu `scalable-ase-demo.trafficmanager.net`.  Ten krok należy wykonać przy użyciu rejestratora domen, który zarządza domeną niestandardową.  
+Ostatnim krokiem niezbędnym jest wskazanie domeny niestandardowej aplikacji w domenie Traffic Manager.  W przypadku przykładowej aplikacji oznacza to wskazanie elementu `www.scalableasedemo.com` `scalable-ase-demo.trafficmanager.net` .  Ten krok należy wykonać przy użyciu rejestratora domen, który zarządza domeną niestandardową.  
 
 Korzystając z narzędzi do zarządzania domeną rejestratora, należy utworzyć rekordy CNAME wskazujące domenę niestandardową w domenie Traffic Manager.  Na poniższej ilustracji przedstawiono przykład tego, jak wygląda ta konfiguracja CNAME:
 
@@ -87,7 +87,7 @@ Korzystając z narzędzi do zarządzania domeną rejestratora, należy utworzyć
 
 Chociaż nie zostały omówione w tym temacie, należy pamiętać, że każde pojedyncze wystąpienie aplikacji musi mieć także zarejestrowaną domenę niestandardową.  W przeciwnym razie, jeśli żądanie spowoduje przekazanie go do wystąpienia aplikacji, a aplikacja nie ma domeny niestandardowej zarejestrowanej w aplikacji, żądanie zakończy się niepowodzeniem.  
 
-W tym przykładzie domena niestandardowa `www.scalableasedemo.com`jest i każde wystąpienie aplikacji ma skojarzoną z nią domenę niestandardową.
+W tym przykładzie domena niestandardowa jest `www.scalableasedemo.com` i każde wystąpienie aplikacji ma skojarzoną z nią domenę niestandardową.
 
 ![Domena niestandardowa][CustomDomain] 
 

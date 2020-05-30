@@ -1,7 +1,7 @@
 ---
 title: Przegląd zabezpieczeń
 titleSuffix: Azure SQL Database & SQL Managed Instance
-description: Dowiedz się więcej na temat zabezpieczeń w Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL, w tym różnice między SQL Server lokalnymi.
+description: Dowiedz się więcej o zabezpieczeniach w Azure SQL Database i wystąpieniu zarządzanym Azure SQL, w tym o tym, jak różni się od SQL Server.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,14 +12,15 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: 0f2f412045ddb86996ec98965a147d80944c642a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 617c06c9f9a86e8377f32a5e80102eb92e9f029c
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84049960"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84191703"
 ---
 # <a name="an-overview-of-azure-sql-database--sql-managed-instance-security-capabilities"></a>Omówienie Azure SQL Database & funkcji zabezpieczeń wystąpienia zarządzanego SQL
+
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 W tym artykule przedstawiono podstawowe informacje dotyczące zabezpieczania warstwy danych aplikacji przy użyciu [Azure SQL Database](sql-database-paas-overview.md) i [wystąpienia zarządzanego Azure SQL](../managed-instance/sql-managed-instance-paas-overview.md). Opisana poniżej strategia zabezpieczeń ma zastosowanie do opartego na warstwach podejścia do kompleksowej ochrony, jak pokazano na ilustracji poniżej, i przemieszcza się z zewnątrz w:
@@ -41,7 +42,7 @@ Reguły zapory adresów IP umożliwiają dostęp do baz danych na podstawie źr�
 [Reguły sieci wirtualnej](vnet-service-endpoint-rule-overview.md) umożliwiają Azure SQL Database tylko akceptowanie komunikacji wysyłanej z wybranych podsieci w sieci wirtualnej.
 
 > [!NOTE]
-> Kontrolowanie dostępu za pomocą reguł *zapory nie ma zastosowania do* **wystąpienia zarządzanego SQL**. Aby uzyskać więcej informacji o wymaganej konfiguracji sieci, zobacz [nawiązywanie połączenia z wystąpieniem zarządzanym SQL](../managed-instance/connect-application-instance.md)
+> Kontrolowanie dostępu za pomocą reguł *zapory nie ma zastosowania do* **wystąpienia zarządzanego SQL**. Aby uzyskać więcej informacji o wymaganej konfiguracji sieci, zobacz [nawiązywanie połączenia z wystąpieniem zarządzanym SQL](../managed-instance/connect-application-instance.md).
 
 ## <a name="access-management"></a>Zarządzanie dostępem
 

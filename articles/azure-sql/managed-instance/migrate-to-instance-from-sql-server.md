@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 27336028fb6b141d8ece4d975b7590b3daf875f2
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: c0b34e17c202cb060773c53aa5775343ade9c2ee
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84050961"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193773"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>SQL Server migracji wystąpień do wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -42,7 +42,7 @@ Na wysokim poziomie proces migracji bazy danych wygląda następująco:
 
 ## <a name="assess-sql-managed-instance-compatibility"></a>Oceń zgodność wystąpienia zarządzanego SQL
 
-Najpierw Ustal, czy wystąpienie zarządzane SQL jest zgodne z wymaganiami dotyczącymi bazy danych aplikacji. Wystąpienie zarządzane SQL zostało zaprojektowane w celu zapewnienia łatwego podnoszenia i przesunięć migracji w przypadku większości istniejących aplikacji, które używają SQL Server lokalnie lub na maszynach wirtualnych. Czasami jednak może być wymagana funkcja lub możliwości, które nie są jeszcze obsługiwane, a koszt wdrożenia obejścia jest zbyt duży.
+Najpierw Ustal, czy wystąpienie zarządzane SQL jest zgodne z wymaganiami dotyczącymi bazy danych aplikacji. Wystąpienie zarządzane SQL zostało zaprojektowane w celu zapewnienia łatwego podnoszenia i migracji w celu uzyskania większości istniejących aplikacji, które używają SQL Server. Czasami jednak może być wymagana funkcja lub możliwości, które nie są jeszcze obsługiwane, a koszt wdrożenia obejścia jest zbyt duży.
 
 Użyj [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) , aby wykryć potencjalne problemy ze zgodnością, które mają wpływ na funkcjonalność bazy danych na Azure SQL Database. Jeśli występują pewne problemy z blokowaniem, może być konieczne rozważenie alternatywnej opcji, takiej jak [SQL Server w usłudze Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). Poniżej przedstawiono kilka przykładów:
 
@@ -121,7 +121,7 @@ Aby dowiedzieć się więcej na temat tego scenariusza i kroków konfiguracji dl
 
 ### <a name="native-restore-from-url"></a>Natywne polecenie RESTORE z adresu URL
 
-Przywracanie natywnych kopii zapasowych (plików. bak) pobranych z SQL Server lokalnych lub [program SQL Server w usłudze Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/), dostępnych w [usłudze Azure Storage](https://azure.microsoft.com/services/storage/), jest jednym z najważniejszych funkcji wystąpienia zarządzanego SQL, które umożliwiają szybką i łatwą migrację bazy danych w trybie offline.
+Przywracanie natywnych kopii zapasowych (pliki. bak) pobierane z wystąpienia SQL Server, dostępne w [usłudze Azure Storage](https://azure.microsoft.com/services/storage/), to jedno z najważniejszych funkcji wystąpienia zarządzanego SQL, które umożliwia szybkie i łatwe Migrowanie bazy danych w trybie offline.
 
 Poniższy diagram przedstawia ogólny przegląd procesu:
 

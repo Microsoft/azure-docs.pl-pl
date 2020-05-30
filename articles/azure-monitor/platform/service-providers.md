@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: ed398e12ee90f2eef2cfa78e2ed02701e6012517
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b23cc2f69e78135998dcaa8a182f3d3ccc0eba82
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77658884"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84190411"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Dzienniki Azure Monitor dla dostawców usług
 
@@ -19,7 +19,7 @@ Log Analytics obszary robocze w Azure Monitor mogą pomóc zarządzanym dostawco
 
 Duże przedsiębiorstwa współużytkują wiele podobieństw z dostawcami usług, szczególnie w przypadku scentralizowanego zespołu IT, który jest odpowiedzialny za zarządzanie nim dla wielu różnych jednostek roboczych. Dla uproszczenia w tym dokumencie jest stosowany *dostawca usług* , ale te same funkcje są również dostępne dla przedsiębiorstw i innych klientów.
 
-W przypadku partnerów i dostawców usług, którzy są częścią programu [Cloud Solution Provider (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) , Log Analytics w Azure monitor to jedna z usług platformy Azure dostępnych w ramach subskrypcji CSP platformy Azure.
+W przypadku partnerów i dostawców usług, którzy są częścią programu [Cloud Solution Provider (CSP)](https://partner.microsoft.com/en-US/membership/cloud-solution-provider) , Log Analytics w Azure monitor to jedna z usług platformy Azure dostępnych w ramach subskrypcji CSP platformy Azure.
 
 Log Analytics w Azure Monitor może być również używany przez dostawcę usług do zarządzania zasobami klienta za pomocą funkcji zarządzania zasobami delegowanymi platformy Azure w [usłudze Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview).
 

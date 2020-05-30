@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 05/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bba37b5d72bd9dca2e10c699f4ba259319a6c71
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: cc75b300704ef7f8218134c9d384b0718fca1e97
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995097"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220696"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Konfigurowanie zarządzania sesjami uwierzytelniania przy użyciu dostępu warunkowego
 

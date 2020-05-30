@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 18a5e11d2341fb020fc442d2f9ce7c1d44de9d0a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4c97c1be81f1aef393f4aa101fc84972e3ae9ac7
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79260438"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193835"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Zestawy danych w usłudze Azure Data Factory
 > [!div class="op_single_selector" title1="Wybierz używaną wersję usługi Data Factory:"]
@@ -32,7 +32,7 @@ W tym artykule opisano zestawy danych, sposób ich definiowania w formacie JSON 
 > Jeśli dopiero zaczynasz Data Factory, zobacz [wprowadzenie do Azure Data Factory](data-factory-introduction.md) przegląd. Jeśli nie masz praktycznego doświadczenia w tworzeniu fabryk danych, możesz uzyskać lepsze zrozumienie, odczytując [Samouczek dotyczący transformacji danych](data-factory-build-your-first-pipeline.md) i [samouczek przenoszenia danych](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="overview"></a>Omówienie
-Fabryka danych może obejmować jeden lub wiele potoków. **Potok** jest logicznym grupą **działań** , które wspólnie wykonują zadanie. Działania w potoku definiują akcje do wykonania na danych. Można na przykład użyć działania kopiowania w celu skopiowania danych z SQL Server lokalnego do usługi Azure Blob Storage. Następnie możesz użyć działania programu Hive, które uruchamia skrypt programu Hive w klastrze usługi Azure HDInsight, aby przetwarzać dane z magazynu obiektów BLOB w celu utworzenia danych wyjściowych. Na koniec możesz użyć drugiego działania kopiowania, aby skopiować dane wyjściowe do Azure SQL Data Warehouse, na podstawie których są tworzone rozwiązania do raportowania analizy biznesowej (BI). Aby uzyskać więcej informacji na temat potoków i działań, zobacz [potoki i działania w Azure Data Factory](data-factory-create-pipelines.md).
+Fabryka danych może obejmować jeden lub wiele potoków. **Potok** jest logicznym grupą **działań** , które wspólnie wykonują zadanie. Działania w potoku definiują akcje do wykonania na danych. Można na przykład użyć działania kopiowania w celu skopiowania danych z bazy danych SQL Server do usługi Azure Blob Storage. Następnie możesz użyć działania programu Hive, które uruchamia skrypt programu Hive w klastrze usługi Azure HDInsight, aby przetwarzać dane z magazynu obiektów BLOB w celu utworzenia danych wyjściowych. Na koniec możesz użyć drugiego działania kopiowania, aby skopiować dane wyjściowe do Azure SQL Data Warehouse, na podstawie których są tworzone rozwiązania do raportowania analizy biznesowej (BI). Aby uzyskać więcej informacji na temat potoków i działań, zobacz [potoki i działania w Azure Data Factory](data-factory-create-pipelines.md).
 
 Działanie może pobrać zero lub więcej wejściowych **zestawów**danych i utworzyć co najmniej jeden wyjściowy zestaw danych. Wejściowy zestaw danych reprezentuje dane wejściowe dla działania w potoku, a wyjściowy zestaw danych reprezentuje dane wyjściowe dla działania. Zestawy danych identyfikują dane w różnych magazynach danych, takich jak tabele, pliki, foldery i dokumenty. Na przykład zestaw danych obiektów blob platformy Azure Określa kontener obiektów blob i folder w usłudze BLOB Storage, z których potok ma odczytywać dane.
 
@@ -77,15 +77,15 @@ Zestaw danych w Data Factory jest zdefiniowany w formacie JSON w następujący s
 
 W poniższej tabeli opisano właściwości w powyższym kodzie JSON:
 
-| Właściwość | Opis | Wymagany | Domyślny |
+| Właściwość | Opis | Wymagane | Domyślne |
 | --- | --- | --- | --- |
-| name |Nazwa zestawu danych. Zobacz [reguły](data-factory-naming-rules.md) nazewnictwa Azure Data Factory zasad nazewnictwa. |Tak |Nie dotyczy |
-| type |Typ zestawu danych. Określ jeden z typów obsługiwanych przez Data Factory (na przykład: AzureBlob, wartość azuresqltable). <br/><br/>Aby uzyskać szczegółowe informacje, zobacz [Typ zestawu danych](#Type). |Tak |Nie dotyczy |
-| — struktura |Schemat zestawu danych.<br/><br/>Aby uzyskać szczegółowe informacje, zobacz [Struktura zestawu danych](#Structure). |Nie |Nie dotyczy |
-| typeProperties | Właściwości typu są różne dla każdego typu (na przykład: Azure Blob, Azure SQL Table). Aby uzyskać szczegółowe informacje na temat obsługiwanych typów i ich właściwości, zobacz [Typ zestawu danych](#Type). |Tak |Nie dotyczy |
+| name |Nazwa zestawu danych. Zobacz [reguły](data-factory-naming-rules.md) nazewnictwa Azure Data Factory zasad nazewnictwa. |Tak |NA |
+| typ |Typ zestawu danych. Określ jeden z typów obsługiwanych przez Data Factory (na przykład: AzureBlob, wartość azuresqltable). <br/><br/>Aby uzyskać szczegółowe informacje, zobacz [Typ zestawu danych](#Type). |Tak |NA |
+| — struktura |Schemat zestawu danych.<br/><br/>Aby uzyskać szczegółowe informacje, zobacz [Struktura zestawu danych](#Structure). |Nie |NA |
+| typeProperties | Właściwości typu są różne dla każdego typu (na przykład: Azure Blob, Azure SQL Table). Aby uzyskać szczegółowe informacje na temat obsługiwanych typów i ich właściwości, zobacz [Typ zestawu danych](#Type). |Tak |NA |
 | external | Flaga logiczna określająca, czy zestaw danych jest jawnie tworzony przez potok fabryki danych, czy nie. Jeśli wejściowy zestaw danych dla działania nie jest tworzony przez bieżący potok, należy ustawić tę flagę na wartość true. Ustaw tę flagę na wartość true dla wejściowego zestawu danych pierwszego działania w potoku.  |Nie |fałsz |
-| availability | Definiuje przedział czasu przetwarzania (na przykład co godzinę lub codziennie) lub model odcięć dla środowiska produkcyjnego zestawu danych. Każda jednostka danych zużywana i generowana przez uruchomienie działania jest nazywana wycinkem danych. Jeśli dostępność wyjściowego zestawu danych jest ustawiona na codziennie (częstotliwość-dzień, interwał-1), wycinek jest tworzony codziennie. <br/><br/>Aby uzyskać szczegółowe informacje, zobacz Dostępność zestawu danych. <br/><br/>Aby uzyskać szczegółowe informacje na temat modelu odcinania zestawu danych, zobacz artykuł dotyczący [planowania i wykonywania](data-factory-scheduling-and-execution.md) . |Tak |Nie dotyczy |
-| policy |Definiuje kryteria lub warunek, który musi spełniać wycinki zestawu danych. <br/><br/>Aby uzyskać szczegółowe informacje, zobacz sekcję [zasady zestawu danych](#Policy) . |Nie |Nie dotyczy |
+| availability | Definiuje przedział czasu przetwarzania (na przykład co godzinę lub codziennie) lub model odcięć dla środowiska produkcyjnego zestawu danych. Każda jednostka danych zużywana i generowana przez uruchomienie działania jest nazywana wycinkem danych. Jeśli dostępność wyjściowego zestawu danych jest ustawiona na codziennie (częstotliwość-dzień, interwał-1), wycinek jest tworzony codziennie. <br/><br/>Aby uzyskać szczegółowe informacje, zobacz Dostępność zestawu danych. <br/><br/>Aby uzyskać szczegółowe informacje na temat modelu odcinania zestawu danych, zobacz artykuł dotyczący [planowania i wykonywania](data-factory-scheduling-and-execution.md) . |Tak |NA |
+| policy |Definiuje kryteria lub warunek, który musi spełniać wycinki zestawu danych. <br/><br/>Aby uzyskać szczegółowe informacje, zobacz sekcję [zasady zestawu danych](#Policy) . |Nie |NA |
 
 ## <a name="dataset-example"></a>Przykład zestawu danych
 W poniższym przykładzie zestaw danych reprezentuje tabelę o nazwie **MyTable** w bazie danych SQL.
@@ -176,7 +176,7 @@ W przykładzie w poprzedniej sekcji Typ zestawu danych jest ustawiony na **warto
 ```
 
 ## <a name="dataset-structure"></a><a name="Structure"></a>Struktura zestawu danych
-Sekcja **struktury** jest opcjonalna. Definiuje schemat zestawu danych, zawierający kolekcję nazw i typów danych kolumn. Sekcja struktury służy do dostarczania informacji o typie, które są używane do konwersji typów i mapowania kolumn ze źródła do miejsca docelowego. W poniższym przykładzie zestaw danych ma trzy kolumny: `slicetimestamp`, `projectname`, i. `pageviews` Są one odpowiednio typu String, String i Decimal.
+Sekcja **struktury** jest opcjonalna. Definiuje schemat zestawu danych, zawierający kolekcję nazw i typów danych kolumn. Sekcja struktury służy do dostarczania informacji o typie, które są używane do konwersji typów i mapowania kolumn ze źródła do miejsca docelowego. W poniższym przykładzie zestaw danych ma trzy kolumny: `slicetimestamp` , `projectname` , i `pageviews` . Są one odpowiednio typu String, String i Decimal.
 
 ```json
 structure:
@@ -189,12 +189,12 @@ structure:
 
 Każda kolumna w strukturze zawiera następujące właściwości:
 
-| Właściwość | Opis | Wymagany |
+| Właściwość | Opis | Wymagane |
 | --- | --- | --- |
 | name |Nazwa kolumny. |Tak |
-| type |Typ danych kolumny.  |Nie |
-| kultura |. Kultura oparta na sieci, która ma być używana, gdy typem jest typ .NET `Datetime` : `Datetimeoffset`lub. Wartość domyślna to `en-us`. |Nie |
-| format |Ciąg formatu, który ma być używany, gdy typ jest typem .NET `Datetime` : `Datetimeoffset`lub. |Nie |
+| typ |Typ danych kolumny.  |Nie |
+| kultura |. Kultura oparta na sieci, która ma być używana, gdy typem jest typ .NET: `Datetime` lub `Datetimeoffset` . Wartość domyślna to `en-us`. |Nie |
+| format |Ciąg formatu, który ma być używany, gdy typ jest typem .NET: `Datetime` lub `Datetimeoffset` . |Nie |
 
 Poniższe wskazówki ułatwiają określenie, kiedy należy uwzględnić informacje o strukturze, i co należy uwzględnić w sekcji **struktury** .
 
@@ -231,16 +231,16 @@ Wyjściowy zestaw danych jest generowany co godzinę w czasie rozpoczęcia i zak
 
 W poniższej tabeli opisano właściwości, których można użyć w sekcji dostępność:
 
-| Właściwość | Opis | Wymagany | Domyślny |
+| Właściwość | Opis | Wymagane | Domyślne |
 | --- | --- | --- | --- |
-| frequency |Określa jednostkę czasu dla produkcji wycinków zestawu danych.<br/><br/><b>Obsługiwana częstotliwość</b>: minuta, godzina, dzień, tydzień, miesiąc |Tak |Nie dotyczy |
-| interval |Określa mnożnik dla częstotliwości.<br/><br/>"Interwał x częstotliwości" określa, jak często wycinek jest generowany. Na przykład jeśli potrzebujesz zestawu danych, który ma być pofragmentowany co godzinę, ustawiasz <b>częstotliwość</b> na <b>godzinę</b>, a <b>Interwał</b> na <b>1</b>.<br/><br/>Należy pamiętać, że jeśli określisz **częstotliwość** jako **minutę**, należy ustawić interwał na nie mniej niż 15. |Tak |Nie dotyczy |
-|  — styl |Określa, czy wycinek ma być tworzony na początku, czy na końcu interwału.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Jeśli **częstotliwość** jest ustawiona na **miesiąc**, a dla opcji **styl** ustawiono wartość **EndOfInterval**, wycinek zostanie utworzony w ostatnim dniu miesiąca. Jeśli **styl** jest ustawiony na **StartOfInterval**, wycinek jest generowany pierwszego dnia miesiąca.<br/><br/>Jeśli **częstotliwość** jest ustawiona na **dzień**, a **styl** jest ustawiony na **EndOfInterval**, wycinek zostanie utworzony w ciągu ostatniej godziny dnia.<br/><br/>Jeśli **częstotliwość** jest ustawiona na **godzinę**, a **styl** jest ustawiony na **EndOfInterval**, wycinek jest generowany na końcu godziny. Na przykład dla wycinka dla okresu 1 PM-2 PM wycinek jest generowany na 2 PM. |Nie |EndOfInterval |
+| frequency |Określa jednostkę czasu dla produkcji wycinków zestawu danych.<br/><br/><b>Obsługiwana częstotliwość</b>: minuta, godzina, dzień, tydzień, miesiąc |Tak |NA |
+| interval |Określa mnożnik dla częstotliwości.<br/><br/>"Interwał x częstotliwości" określa, jak często wycinek jest generowany. Na przykład jeśli potrzebujesz zestawu danych, który ma być pofragmentowany co godzinę, ustawiasz <b>częstotliwość</b> na <b>godzinę</b>, a <b>Interwał</b> na <b>1</b>.<br/><br/>Należy pamiętać, że jeśli określisz **częstotliwość** jako **minutę**, należy ustawić interwał na nie mniej niż 15. |Tak |NA |
+| styl |Określa, czy wycinek ma być tworzony na początku, czy na końcu interwału.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Jeśli **częstotliwość** jest ustawiona na **miesiąc**, a dla opcji **styl** ustawiono wartość **EndOfInterval**, wycinek zostanie utworzony w ostatnim dniu miesiąca. Jeśli **styl** jest ustawiony na **StartOfInterval**, wycinek jest generowany pierwszego dnia miesiąca.<br/><br/>Jeśli **częstotliwość** jest ustawiona na **dzień**, a **styl** jest ustawiony na **EndOfInterval**, wycinek zostanie utworzony w ciągu ostatniej godziny dnia.<br/><br/>Jeśli **częstotliwość** jest ustawiona na **godzinę**, a **styl** jest ustawiony na **EndOfInterval**, wycinek jest generowany na końcu godziny. Na przykład dla wycinka dla okresu 1 PM-2 PM wycinek jest generowany na 2 PM. |Nie |EndOfInterval |
 | anchorDateTime |Definiuje położenie bezwzględne w czasie używanym przez harmonogram do obliczania granic wycinków zestawu danych. <br/><br/>Należy pamiętać, że jeśli ta właściwość ma części daty, które są bardziej szczegółowe niż określona częstotliwość, bardziej szczegółowe części są ignorowane. Jeśli na przykład **Interwał** ma wartość **co godzinę** (częstotliwość: godzina i interwał: 1), a **anchorDateTime** zawiera **minuty i sekundy**, wówczas części minut i sekund wartości **anchorDateTime** są ignorowane. |Nie |01/01/0001 |
-| przesunięcie |Przedział czasu, przez który początek i koniec wszystkich wycinków zestawu danych są przesunięte. <br/><br/>Należy pamiętać, że jeśli określono zarówno **anchorDateTime** , jak i **przesunięcie** , wynik jest połączonym przesunięciem. |Nie |Nie dotyczy |
+| przesunięcie |Przedział czasu, przez który początek i koniec wszystkich wycinków zestawu danych są przesunięte. <br/><br/>Należy pamiętać, że jeśli określono zarówno **anchorDateTime** , jak i **przesunięcie** , wynik jest połączonym przesunięciem. |Nie |NA |
 
 ### <a name="offset-example"></a>przykład przesunięcia
-Domyślnie dzienne (`"frequency": "Day", "interval": 1`) wycinki zaczynają się od 12 am (północ) uniwersalny czas koordynowany (UTC). Jeśli chcesz, aby godzina rozpoczęcia była 6 czasem UTC, Ustaw przesunięcie, tak jak pokazano w poniższym fragmencie kodu:
+Domyślnie dzienne ( `"frequency": "Day", "interval": 1` ) wycinki zaczynają się od 12 am (północ) uniwersalny czas koordynowany (UTC). Jeśli chcesz, aby godzina rozpoczęcia była 6 czasem UTC, Ustaw przesunięcie, tak jak pokazano w poniższym fragmencie kodu:
 
 ```json
 "availability":
@@ -263,7 +263,7 @@ W poniższym przykładzie zestaw danych jest generowany co 23 godziny. Pierwszy 
 ```
 
 ### <a name="offsetstyle-example"></a>przykład przesunięcia/stylu
-Następujący zestaw danych jest co miesiąc i jest tworzony w trzeciej części każdego miesiąca o 8:00 AM (`3.08:00:00`):
+Następujący zestaw danych jest co miesiąc i jest tworzony w trzeciej części każdego miesiąca o 8:00 AM ( `3.08:00:00` ):
 
 ```json
 "availability": {
@@ -278,10 +278,10 @@ Następujący zestaw danych jest co miesiąc i jest tworzony w trzeciej części
 Sekcja **zasady** w definicji zestawu danych definiuje kryteria lub warunek, który musi spełniać wycinki zestawu danych.
 
 ### <a name="validation-policies"></a>Zasady walidacji
-| Nazwa zasady | Opis | Zastosowane do | Wymagany | Domyślny |
+| Nazwa zasady | Opis | Zastosowane do | Wymagane | Domyślne |
 | --- | --- | --- | --- | --- |
-| minimumSizeMB |Sprawdza, czy dane w **usłudze Azure Blob Storage** spełniają minimalne wymagania dotyczące rozmiaru (w megabajtach). |Azure Blob Storage |Nie |Nie dotyczy |
-| minimumRows |Sprawdza, czy dane w **bazie danych SQL Azure** lub w **tabeli platformy Azure** zawierają minimalną liczbę wierszy. |<ul><li>Baza danych Azure SQL Database</li><li>Tabela platformy Azure</li></ul> |Nie |Nie dotyczy |
+| minimumSizeMB |Sprawdza, czy dane w **usłudze Azure Blob Storage** spełniają minimalne wymagania dotyczące rozmiaru (w megabajtach). |Azure Blob Storage |Nie |NA |
+| minimumRows |Sprawdza, czy dane w **bazie danych SQL Azure** lub w **tabeli platformy Azure** zawierają minimalną liczbę wierszy. |<ul><li>Baza danych Azure SQL Database</li><li>Tabela platformy Azure</li></ul> |Nie |NA |
 
 #### <a name="examples"></a>Przykłady
 **minimumSizeMB:**
@@ -314,9 +314,9 @@ Zewnętrzne zestawy danych to te, które nie są tworzone przez uruchomiony poto
 
 Jeśli zestaw danych nie jest tworzony przez Data Factory, powinien być oznaczony jako **zewnętrzny**. To ustawienie ma zazwyczaj zastosowanie do danych wejściowych pierwszego działania w potoku, chyba że jest używany łańcuch aktywności lub potoku.
 
-| Nazwa | Opis | Wymagany | Wartość domyślna |
+| Nazwa | Opis | Wymagane | Wartość domyślna |
 | --- | --- | --- | --- |
-| datadelay |Czas oczekiwania na sprawdzenie dostępności danych zewnętrznych dla danego wycinka. Na przykład można opóźnić sprawdzanie godzinowe za pomocą tego ustawienia.<br/><br/>To ustawienie dotyczy tylko obecnego czasu. Na przykład jeśli jest to 1:00 PM teraz, a ta wartość wynosi 10 minut, sprawdzanie poprawności rozpocznie się o 1:10 PM.<br/><br/>Należy zauważyć, że to ustawienie nie ma wpływu na wycinki w przeszłości. Wycinki z + **dataopóźnieniem** <  **czasu zakończenia wycinka**są**teraz** przetwarzane bez opóźnień.<br/><br/>Czasy większe niż 23:59 godzin należy określić przy użyciu `day.hours:minutes:seconds` formatu. Na przykład, aby określić 24 godziny, nie należy używać 24:00:00. Zamiast tego należy użyć 1,00:00:00. Jeśli używasz 24:00:00, jest on traktowany jako 24 dni (24.00:00:00). Przez 1 dzień i 4 godziny należy określić 1:04:00:00. |Nie |0 |
+| datadelay |Czas oczekiwania na sprawdzenie dostępności danych zewnętrznych dla danego wycinka. Na przykład można opóźnić sprawdzanie godzinowe za pomocą tego ustawienia.<br/><br/>To ustawienie dotyczy tylko obecnego czasu. Na przykład jeśli jest to 1:00 PM teraz, a ta wartość wynosi 10 minut, sprawdzanie poprawności rozpocznie się o 1:10 PM.<br/><br/>Należy zauważyć, że to ustawienie nie ma wpływu na wycinki w przeszłości. Wycinki z dataopóźnieniem **czasu zakończenia wycinka**  +  **dataDelay**  <  są**teraz** przetwarzane bez opóźnień.<br/><br/>Czasy większe niż 23:59 godzin należy określić przy użyciu `day.hours:minutes:seconds` formatu. Na przykład, aby określić 24 godziny, nie należy używać 24:00:00. Zamiast tego należy użyć 1,00:00:00. Jeśli używasz 24:00:00, jest on traktowany jako 24 dni (24.00:00:00). Przez 1 dzień i 4 godziny należy określić 1:04:00:00. |Nie |0 |
 | retryInterval |Czas oczekiwania między awarią a kolejną próbą. To ustawienie dotyczy obecnego czasu. Jeśli poprzednia próba zakończyła się niepowodzeniem, następna próba będzie późniejsza po okresie **retryInterval** . <br/><br/>Jeśli teraz jest 1:00 PM, rozpoczynamy pierwszą próbę. Jeśli czas trwania pierwszego sprawdzania poprawności wynosi 1 minuta, a operacja nie powiodła się, kolejna ponowna próba jest równa 1:00 + 1 min (czas trwania) + 1 min (interwał ponawiania prób) = 1:02 PM. <br/><br/>W przypadku wycinków w przeszłości nie ma opóźnień. Ponowna próba nastąpi natychmiast. |Nie |00:01:00 (1 minuta) |
 | retryTimeout |Limit czasu dla każdej próbnej próby.<br/><br/>Jeśli ta właściwość ma wartość 10 minut, walidacja powinna zostać zakończona w ciągu 10 minut. Jeśli sprawdzanie poprawności będzie możliwe dopiero po upływie 10 minut, ponów próbę.<br/><br/>Jeśli wszystkie próby sprawdzania poprawności przekroczą limit czasu, wycinek zostanie oznaczony jako **TimedOut**. |Nie |00:10:00 (10 minut) |
 | maximumRetry |Liczba przypadków sprawdzania dostępności danych zewnętrznych. Maksymalna dozwolona wartość to 10. |Nie |3 |

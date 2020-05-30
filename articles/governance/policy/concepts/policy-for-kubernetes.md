@@ -3,12 +3,12 @@ title: Wersja zapoznawcza — Dowiedz się Azure Policy Kubernetes
 description: Dowiedz się, w jaki sposób Azure Policy rego i Otwórz agenta zasad, aby zarządzać klastrami z systemem Kubernetes na platformie Azure lub lokalnie. Jest to funkcja w wersji zapoznawczej.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0d663d7bf7ce70c605551422f600258943d1efd7
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 9969bed9cb7c84faf9736bff2fb8337dc05d1bb0
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828631"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84221157"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Opis Azure Policy klastrów Kubernetes (wersja zapoznawcza)
 
@@ -35,6 +35,9 @@ Aby włączyć i użyć Azure Policy z klastrem Kubernetes, wykonaj następując
    - [Azure Kubernetes Service (AKS)](#install-azure-policy-add-on-for-aks)
    - [Platforma Kubernetes z włączoną usługą Azure Arc](#install-azure-policy-add-on-for-azure-arc-enabled-kubernetes)
    - [Aparat AKS](#install-azure-policy-add-on-for-aks-engine)
+
+   > [!NOTE]
+   > Aby zapoznać się z typowymi problemami z instalacją, zobacz [Rozwiązywanie problemów — dodatek Azure Policy](../troubleshoot/general.md#add-on-installation-errors).
 
 1. [Opis języka Azure Policy Kubernetes](#policy-language)
 
@@ -399,7 +402,7 @@ Znajdź wbudowane definicje zasad służące do zarządzania klastrem za pomocą
 
    - **Wyłączone** — nie Wymuszaj zasad w klastrze. Żądania odmowy Kubernetes z naruszeniami nie są odrzucane. Wyniki oceny zgodności są nadal dostępne. Podczas wdrażania nowych definicji zasad do uruchamiania klastrów, opcja _wyłączone_ jest przydatna do testowania definicji zasad, ponieważ żądania dopuszczenia z naruszeniami nie są odrzucane.
 
-1. Wybierz pozycję **Dalej**. 
+1. Wybierz opcję **Dalej**. 
 
 1. Ustaw **wartości parametrów** 
 

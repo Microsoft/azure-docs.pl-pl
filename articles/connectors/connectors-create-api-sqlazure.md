@@ -7,16 +7,16 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/12/2020
 tags: connectors
-ms.openlocfilehash: 5090d772be4f68c696e8dd4882a78ba6954b6058
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: f63553ced8484b3ce328fb9537d5831ae1e27fe8
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020731"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84191484"
 ---
 # <a name="automate-workflows-for-sql-server-or-azure-sql-database-by-using-azure-logic-apps"></a>Automatyzowanie przepływów pracy dla SQL Server lub Azure SQL Database przy użyciu Azure Logic Apps
 
-W tym artykule pokazano, jak uzyskać dostęp do danych w bazie danych SQL z poziomu aplikacji logiki za pomocą łącznika SQL Server. Dzięki temu możesz zautomatyzować zadania, procesy lub przepływy pracy, które zarządzają danymi i zasobami SQL, tworząc Aplikacje logiki. Łącznik SQL Server działa zarówno dla [SQL Server lokalnych](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation) , jak i dla [Azure SQL Database opartych na chmurze](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview).
+W tym artykule pokazano, jak uzyskać dostęp do danych w bazie danych SQL z poziomu aplikacji logiki za pomocą łącznika SQL Server. Dzięki temu możesz zautomatyzować zadania, procesy lub przepływy pracy, które zarządzają danymi i zasobami SQL, tworząc Aplikacje logiki. Łącznik SQL Server działa dla [SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation) , a także [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md) i [wystąpienia zarządzanego Azure SQL](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md).
 
 Możesz tworzyć aplikacje logiki, które są uruchamiane, gdy wyzwalane przez zdarzenia w bazie danych SQL lub w innych systemach, takich jak Dynamics CRM Online. Aplikacje logiki mogą również pobierać, wstawiać i usuwać dane oraz uruchamiać zapytania SQL i procedury składowane. Można na przykład utworzyć aplikację logiki, która automatycznie sprawdza dostępność nowych rekordów w usłudze Dynamics CRM Online, dodaje do bazy danych SQL elementy dla nowych rekordów, a następnie wysyła do nich alerty e-mail dotyczące dodanych elementów.
 

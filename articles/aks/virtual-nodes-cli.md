@@ -5,12 +5,13 @@ description: Dowiedz się, jak za pomocą interfejsu wiersza polecenia platformy
 services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 826c7f98b9540d84ac151e05cd81f2cc6042776c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: references_regions
+ms.openlocfilehash: a5f930df37200531cce709d77130e1e1b7930883
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82128911"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193983"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Tworzenie i Konfigurowanie klastra usługi Azure Kubernetes Services (AKS) w celu używania węzłów wirtualnych przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -73,7 +74,7 @@ Funkcjonalność węzłów wirtualnych jest w dużym stopniu zależna od zestawu
 
 Usługa Azure Cloud Shell to bezpłatna interaktywna powłoka, której możesz używać do wykonywania kroków opisanych w tym artykule. Udostępnia ona wstępnie zainstalowane i najczęściej używane narzędzia platformy Azure, które są skonfigurowane do użycia na koncie.
 
-Aby otworzyć Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Cloud Shell można również uruchomić na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/bash](https://shell.azure.com/bash). Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
+Aby otworzyć Cloud Shell, wybierz pozycję **Wypróbuj** w prawym górnym rogu bloku kodu. Cloud Shell można również uruchomić na osobnej karcie przeglądarki, przechodząc do [https://shell.azure.com/bash](https://shell.azure.com/bash) . Wybierz przycisk **Kopiuj**, aby skopiować bloki kodu, wklej je do usługi Cloud Shell, a następnie naciśnij klawisz Enter, aby je uruchomić.
 
 Jeśli wolisz zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten artykuł będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0.49 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
@@ -156,7 +157,7 @@ Klaster AKS jest wdrażany w podsieci AKS utworzonej w poprzednim kroku. Pobierz
 az network vnet subnet show --resource-group myResourceGroup --vnet-name myVnet --name myAKSSubnet --query id -o tsv
 ```
 
-Utwórz klaster AKS za pomocą polecenia [az aks create][az-aks-create]. W poniższym przykładzie pokazano tworzenie klastra o nazwie *myAKSCluster* z jednym węzłem. Zamień `<subnetId>` na identyfikator uzyskany w poprzednim kroku, a następnie `<appId>` `<password>` wraz z wartościami zebranymi w poprzedniej sekcji.
+Utwórz klaster AKS za pomocą polecenia [az aks create][az-aks-create]. W poniższym przykładzie pokazano tworzenie klastra o nazwie *myAKSCluster* z jednym węzłem. Zamień na `<subnetId>` Identyfikator uzyskany w poprzednim kroku, a następnie `<appId>` `<password>` wraz z wartościami zebranymi w poprzedniej sekcji.
 
 ```azurecli-interactive
 az aks create \
@@ -249,7 +250,7 @@ Uruchom aplikację za pomocą polecenia [polecenia kubectl Apply][kubectl-apply]
 kubectl apply -f virtual-node.yaml
 ```
 
-Użyj [polecenia kubectl Get][kubectl-get] -Binding polecenia z `-o wide` argumentem, aby wyprowadzić listę z listy i zaplanowanego węzła. Zwróć uwagę na `aci-helloworld` to, że zgodnie z harmonogramem zaplanowano w `virtual-node-aci-linux` węźle.
+Użyj [polecenia kubectl Get][kubectl-get] -Binding polecenia z `-o wide` argumentem, aby wyprowadzić listę z listy i zaplanowanego węzła. Zwróć uwagę na to, że zgodnie z `aci-helloworld` harmonogramem zaplanowano w `virtual-node-aci-linux` węźle.
 
 ```console
 kubectl get pods -o wide
@@ -263,7 +264,7 @@ aci-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        10.241.
 Pod przypisywany jest wewnętrzny adres IP z podsieci sieci wirtualnej platformy Azure delegowanej do użycia z węzłami wirtualnymi.
 
 > [!NOTE]
-> Jeśli używasz obrazów przechowywanych w Azure Container Registry, [Skonfiguruj i użyj wpisu tajnego Kubernetes][acr-aks-secrets]. Bieżące ograniczenie węzłów wirtualnych polega na tym, że nie można używać zintegrowanego uwierzytelniania podstawowego usługi Azure AD. Jeśli nie korzystasz z wpisu tajnego, nie można uruchomić i zgłosić błędu `HTTP response status code 400 error code "InaccessibleImage"`.
+> Jeśli używasz obrazów przechowywanych w Azure Container Registry, [Skonfiguruj i użyj wpisu tajnego Kubernetes][acr-aks-secrets]. Bieżące ograniczenie węzłów wirtualnych polega na tym, że nie można używać zintegrowanego uwierzytelniania podstawowego usługi Azure AD. Jeśli nie korzystasz z wpisu tajnego, nie można uruchomić i zgłosić błędu `HTTP response status code 400 error code "InaccessibleImage"` .
 
 ## <a name="test-the-virtual-node-pod"></a>Przetestuj węzeł wirtualny pod
 
@@ -273,13 +274,13 @@ Aby przetestować pod kątem działania w węźle wirtualnym, przejdź do aplika
 kubectl run --generator=run-pod/v1 -it --rm testvk --image=debian
 ```
 
-Zainstaluj `curl` w temacie using `apt-get`:
+Zainstaluj `curl` w temacie using `apt-get` :
 
 ```console
 apt-get update && apt-get install -y curl
 ```
 
-Uzyskaj teraz dostęp do adresu Twojego elementu przy `curl`użyciu, takich *http://10.241.0.4*jak. Podaj własny wewnętrzny adres IP przedstawiony w poprzednim `kubectl get pods` poleceniu:
+Uzyskaj teraz dostęp do adresu Twojego elementu przy użyciu `curl` , takich jak *http://10.241.0.4* . Podaj własny wewnętrzny adres IP przedstawiony w poprzednim `kubectl get pods` poleceniu:
 
 ```console
 curl -L http://10.241.0.4
@@ -295,7 +296,7 @@ Zostanie wyświetlona aplikacja demonstracyjna, jak pokazano w następujących w
 [...]
 ```
 
-Zamknij sesję terminalu z testem pod `exit`. Po zakończeniu sesji, pod, jest usunięty.
+Zamknij sesję terminalu z testem pod `exit` . Po zakończeniu sesji, pod, jest usunięty.
 
 ## <a name="remove-virtual-nodes"></a>Usuń węzły wirtualne
 

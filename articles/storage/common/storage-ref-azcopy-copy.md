@@ -8,12 +8,12 @@ ms.date: 04/10/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 0325a71fb069f3d96f05d106afac1639fc38fe42
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7f55b22938bd6f18bae1576a0c64e673996d38bf
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81253343"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220133"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -41,7 +41,7 @@ Aby uzyskać więcej informacji, zapoznaj się z przykładami.
 - [Transferowanie danych za pomocą AzCopy i magazynu plików](storage-use-azcopy-files.md)
 - [Konfigurowanie, optymalizowanie i rozwiązywanie problemów z AzCopy](storage-use-azcopy-configure.md)
 
-## <a name="advanced"></a>Zaawansowane
+## <a name="advanced"></a>Zaawansowany
 
 AzCopy automatycznie wykrywa typ zawartości plików podczas przekazywania z dysku lokalnego na podstawie rozszerzenia lub zawartości pliku (jeśli nie określono rozszerzenia).
 
@@ -147,25 +147,25 @@ Skopiuj wszystkie kontenery obiektów blob, katalogi i obiekty blob z konta maga
 
 Skopiuj pojedynczy obiekt do Blob Storage z Amazon Web Services (AWS) S3 przy użyciu klucza dostępu i tokenu SAS. Najpierw Ustaw zmienną środowiskową AWS_ACCESS_KEY_ID i AWS_SECRET_ACCESS_KEY dla źródła AWS S3.
   
-- AzCopy CP "https://s3.amazonaws.com/[przedział]/[Object]" "https://[destaccount]. blob. Core. Windows. NET/[Container]/[path/to/BLOB]? [SAS] "
+- AzCopy CP " https://s3.amazonaws.com/ [przedział]/[Object]" "https://[destaccount]. blob. Core. Windows. NET/[Container]/[path/to/BLOB]? [ Sygnatura dostępu współdzielonego] "
 
 Skopiuj cały katalog do Blob Storage z AWS S3 przy użyciu klucza dostępu i tokenu SAS. Najpierw Ustaw zmienną środowiskową AWS_ACCESS_KEY_ID i AWS_SECRET_ACCESS_KEY dla źródła AWS S3.
 
-- AzCopy CP "https://s3.amazonaws.com/[zasobnik]/[folder]" "https://[destaccount]. blob. Core. Windows. NET/[Container]/[path/to/Directory]? [SAS] "--rekursywnie = true
+- AzCopy CP " https://s3.amazonaws.com/ [zasobnik]/[folder]" "https://[destaccount]. blob. Core. Windows. NET/[Container]/[path/to/Directory]? [ Sygnatura dostępu współdzielonego] "--rekursywnie = true
 
-Zapoznaj się https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html z tematem, aby lepiej zrozumieć symbol zastępczy [folder].
+Zapoznaj się z tematem https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html , aby lepiej zrozumieć symbol zastępczy [folder].
 
 Skopiuj wszystkie zasobniki do Blob Storage z Amazon Web Services (AWS) przy użyciu klucza dostępu i tokenu SAS. Najpierw Ustaw zmienną środowiskową AWS_ACCESS_KEY_ID i AWS_SECRET_ACCESS_KEY dla źródła AWS S3.
 
-- AzCopy CP "https://s3.amazonaws.com/" "https://[destaccount]. blob. Core. Windows. NET? [SAS] "--rekursywnie = true
+- AzCopy CP " https://s3.amazonaws.com/ " "https://[destaccount]. blob. Core. Windows. NET? [ Sygnatura dostępu współdzielonego] "--rekursywnie = true
 
 Skopiuj wszystkie zasobniki do Blob Storage z regionu Amazon Web Services (AWS) przy użyciu klucza dostępu i tokenu SAS. Najpierw Ustaw zmienną środowiskową AWS_ACCESS_KEY_ID i AWS_SECRET_ACCESS_KEY dla źródła AWS S3.
 
-- AzCopy CP "https://s3-[region]. amazonaws. com/" "https://[destaccount]. blob. Core. Windows. NET? [SAS] "--rekursywnie = true
+- AzCopy CP " https://s3- [region]. amazonaws. com/" "https://[destaccount]. blob. Core. Windows. NET? [ Sygnatura dostępu współdzielonego] "--rekursywnie = true
 
 Skopiuj podzestaw zasobników przy użyciu symbolu wieloznacznego (*) w nazwie zasobnika. Podobnie jak w poprzednich przykładach, potrzebny będzie klucz dostępu i token SAS. Upewnij się, że ustawienie zmienna środowiskowa AWS_ACCESS_KEY_ID i AWS_SECRET_ACCESS_KEY dla źródła AWS S3.
 
-- AzCopy CP "https://s3.amazonaws.com/[zasobnik * Name]/" "https://[destaccount]. blob. Core. Windows. NET? [SAS] "--rekursywnie = true
+- AzCopy CP " https://s3.amazonaws.com/ [zasobnik * Name]/" "https://[destaccount]. blob. Core. Windows. NET? [ Sygnatura dostępu współdzielonego] "--rekursywnie = true
 
 ## <a name="options"></a>Opcje
 
@@ -225,7 +225,7 @@ Skopiuj podzestaw zasobników przy użyciu symbolu wieloznacznego (*) w nazwie z
 
 **--Preserve-Last-Modified-Time**          Dostępne tylko wtedy, gdy miejscem docelowym jest system plików.
 
-**--Preserve-SMB —** domyślnie wartość false. Zachowuje listy ACL protokołu SMB między zasobami zależnymi (Windows i Azure Files). W przypadku pobierania należy również użyć `--backup` flagi, aby przywrócić uprawnienia, w których nowy właściciel nie będzie użytkownikiem, na którym jest uruchomiony program AzCopy. Ta flaga ma zastosowanie do plików i folderów, chyba że określono filtr tylko dla plików (np. `include-pattern`).
+**--Preserve-SMB —** domyślnie wartość false. Zachowuje listy ACL protokołu SMB między zasobami zależnymi (Windows i Azure Files). W przypadku pobierania należy również użyć `--backup` flagi, aby przywrócić uprawnienia, w których nowy właściciel nie będzie użytkownikiem, na którym jest uruchomiony program AzCopy. Ta flaga ma zastosowanie do plików i folderów, chyba że określono filtr tylko dla plików (np. `include-pattern` ).
 
 **--Preserve-SMB-info** parametry false domyślnie. Zachowuje informacje o właściwościach protokołu SMB (czas ostatniego zapisu, czas utworzenia, bity atrybutów) między zasobami opartymi na protokole SMB (Windows i Azure Files). Tylko bity atrybutu obsługiwane przez Azure Files zostaną przesłane; wszystkie inne zostaną zignorowane. Ta flaga ma zastosowanie do plików i folderów, chyba że określony jest filtr tylko dla plików (np. include-wzorzec). Informacje przesyłane do folderów są takie same jak dla plików, z wyjątkiem czasu ostatniego zapisu, który nigdy nie jest zachowywany dla folderów.
 
@@ -249,6 +249,8 @@ Skopiuj podzestaw zasobników przy użyciu symbolu wieloznacznego (*) w nazwie z
 
 **--** format ciągu typu danych wyjściowych polecenia. Dostępne opcje to: text, JSON. Wartość domyślna to "text". (domyślny "tekst")
 
+**--Zaufane — ciąg sufiksów firmy Microsoft** określa dodatkowe sufiksy domeny, w których mogą być wysyłane Azure Active Directory tokeny logowania.  Wartość domyślna to "*. Core.Windows.NET;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net '. Wszystkie wymienione tutaj są dodawane do ustawień domyślnych. W celu zapewnienia bezpieczeństwa należy tu umieścić tylko domeny Microsoft Azure. Rozdziel wiele wpisów średnikami.
+
 ## <a name="see-also"></a>Zobacz także
 
-- [azcopy](storage-ref-azcopy.md)
+- [AzCopy](storage-ref-azcopy.md)

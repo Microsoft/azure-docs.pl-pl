@@ -11,32 +11,32 @@ ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 02/12/2019
 ms.custom: sqldbrb=2 
-ms.openlocfilehash: d3c064b590e5e3c49f8c42e913467596080a0887
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 8c6ba33ac522272e36b8cd297ca525ec9f97875f
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84054467"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84189321"
 ---
-# <a name="quickstart-use-php-to-query-a-microsoft-azure-sql-database"></a>Szybki Start: używanie języka PHP do wykonywania zapytań w bazie danych SQL Microsoft Azure
+# <a name="quickstart-use-php-to-query-a-database-in-azure-sql-database"></a>Szybki Start: używanie języka PHP do wykonywania zapytań w bazie danych w Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-W tym przewodniku Szybki start przedstawiono sposób nawiązywania połączeń z bazą danych Azure SQL Database za pomocą języka [PHP](https://php.net/manual/en/intro-whatis.php). Następnie można użyć instrukcji języka T-SQL w celu wykonywania zapytań o dane.
+W tym artykule pokazano, jak używać języka [php](https://php.net/manual/en/intro-whatis.php) do łączenia się z bazą danych w Azure SQL Database. Następnie można użyć instrukcji języka T-SQL w celu wykonywania zapytań o dane.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby ukończyć ten przewodnik Szybki Start, musisz spełnić następujące warunki:
 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Baza danych Azure SQL Database. Możesz użyć jednego z tych przewodników Szybki Start, aby utworzyć i skonfigurować bazę danych w usłudze Azure SQL:
+- Baza danych w Azure SQL Database. Aby utworzyć, a następnie skonfigurować bazę danych w usłudze Azure SQL Database, można użyć instrukcji z jednego z tych przewodników Szybki start:
 
-  || SQL Database | Wystąpienie zarządzane SQL | SQL Server na maszynie wirtualnej platformy Azure |
+  || Baza danych SQL | Wystąpienie zarządzane SQL | Program SQL Server na maszynie wirtualnej platformy Azure |
   |:--- |:--- |:---|:---|
   | Utwórz| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   || [Interfejs wiersza polecenia](scripts/create-and-configure-database-cli.md) | [Interfejs wiersza polecenia](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [Program PowerShell](scripts/create-and-configure-database-powershell.md) | [Program PowerShell](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | [Program PowerShell](../virtual-machines/windows/sql-vm-create-powershell-quickstart.md)
   | Konfigurowanie | [Reguła zapory bazująca na adresach IP na poziomie serwera](firewall-create-server-level-portal-quickstart.md)| [Łączność z maszyny wirtualnej](../managed-instance/connect-vm-instance-configure.md)|
-  |||[Łączność ze środowiska lokalnego](../managed-instance/point-to-site-p2s-configure.md) | [Ustanawianie połączenia z programem SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
+  |||[Łączność z lokalnego](../managed-instance/point-to-site-p2s-configure.md) | [Nawiązywanie połączenia z wystąpieniem SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   |Ładowanie danych|Ładowanie bazy danych Adventure Works na potrzeby samouczka Szybki start|[Przywracanie bazy danych Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) | [Przywracanie bazy danych Wide World Importers](../managed-instance/restore-sample-database-quickstart.md) |
   |||Przywróć lub zaimportuj Adventure Works z pliku [BACPAC](database-import.md) z usługi [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)| Przywróć lub zaimportuj Adventure Works z pliku [BACPAC](database-import.md) z usługi [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
   |||
@@ -55,20 +55,20 @@ Aby ukończyć ten przewodnik Szybki Start, musisz spełnić następujące warun
 
   - W systemie **Windows** zainstaluj język PHP dla usług IIS Express i oprogramowanie Chocolatey, a następnie zainstaluj sterownik ODBC i program SQLCMD. Zobacz [kroki 1.2 i 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/).
 
-## <a name="get-sql-server-connection-information"></a>Uzyskiwanie informacji o połączeniu z serwerem SQL
+## <a name="get-server-connection-information"></a>Pobierz informacje o połączeniu z serwerem
 
-Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z bazą danych Azure SQL Database. W następnych procedurach będą potrzebne w pełni kwalifikowana nazwa serwera lub nazwa hosta, nazwa bazy danych i informacje logowania.
+Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z bazą danych w Azure SQL Database. W następnych procedurach będą potrzebne w pełni kwalifikowana nazwa serwera lub nazwa hosta, nazwa bazy danych i informacje logowania.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
 2. Przejdź do strony **bazy danych SQL** lub **wystąpienia zarządzane SQL** .
 
-3. Na stronie **Przegląd** Przejrzyj w pełni kwalifikowaną nazwę serwera obok pozycji **nazwa serwera** dla Azure SQL Database lub w pełni kwalifikowana nazwa serwera (lub adres IP) obok pozycji **host** dla wystąpienia zarządzanego Azure SQL lub SQL Server na maszynie wirtualnej platformy Azure. Aby skopiować nazwę serwera lub hosta, umieść na niej wskaźnik myszy i wybierz ikonę **Kopiuj**.
+3. Na stronie **Przegląd** Przejrzyj w pełni kwalifikowaną nazwę serwera obok pozycji **Nazwa serwera** dla bazy danych w Azure SQL Database lub w pełni kwalifikowana nazwa serwera (lub adres IP) obok **hosta** dla wystąpienia zarządzanego usługi Azure SQL lub SQL Server na maszynie wirtualnej platformy Azure. Aby skopiować nazwę serwera lub hosta, umieść na niej wskaźnik myszy i wybierz ikonę **Kopiuj**.
 
 > [!NOTE]
-> Aby uzyskać informacje o połączeniu dla SQL Server na maszynie wirtualnej platformy Azure, zobacz [Connect to SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server)
+> Aby uzyskać informacje o połączeniu dla SQL Server na maszynie wirtualnej platformy Azure, zobacz [nawiązywanie połączenia z wystąpieniem SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server).
 
-## <a name="add-code-to-query-database"></a>Dodawanie kodu umożliwiającego wykonywanie zapytań w bazie danych
+## <a name="add-code-to-query-the-database"></a>Dodawanie kodu do wykonywania zapytań w bazie danych
 
 1. W swoim ulubionym edytorze tekstów utwórz nowy plik o nazwie *sqltest.php*.  
 
@@ -111,10 +111,7 @@ Uzyskaj parametry połączenia potrzebne do nawiązania połączenia z bazą dan
 
 ## <a name="next-steps"></a>Następne kroki
 
-- [Zaprojektuj swoje pierwsze Azure SQL Database](design-first-database-tutorial.md)
-
+- [Projektuj swoją pierwszą bazę danych w Azure SQL Database](design-first-database-tutorial.md)
 - Sterowniki [PHP firmy Microsoft dla programu SQL Server](https://github.com/Microsoft/msphpsql/)
-
 - [Zgłaszanie problemów/zadawanie pytań](https://github.com/Microsoft/msphpsql/issues)
-
-- [Przykład logiki ponowień: nawiązywanie połączeń odpornych na błędy z bazą danych SQL za pomocą języka PHP](/sql/connect/php/step-4-connect-resiliently-to-sql-with-php)
+- [Przykład logiki ponowienia próby: Połącz się odpornowo z usługą Azure SQL przy użyciu języka PHP](/sql/connect/php/step-4-connect-resiliently-to-sql-with-php)

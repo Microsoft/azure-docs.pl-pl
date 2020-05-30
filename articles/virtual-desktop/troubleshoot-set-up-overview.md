@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 04/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 196c4f692b425d2fc6592888ba89f2fa6dafd3de
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: c5be26509eccdaebf1b504c1b0b8c7edb35e101c
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82612507"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84203865"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>Rozwiązywania problemów — omówienie, opinie i obsługa techniczna
 
@@ -53,6 +53,7 @@ Skorzystaj z poniższej tabeli, aby zidentyfikować i rozwiązać problemy, któ
 | Komunikaty lub błędy licencjonowania                                                          | Jeśli problemy są powiązane z konkretną aplikacją lub produktem, skontaktuj się z zespołem odpowiedzialnym za ten produkt. |
 | Problemy z metodami uwierzytelniania innych firm | Sprawdź, czy dostawca innej firmy obsługuje scenariusze pulpitów wirtualnych systemu Windows i podejścia do nich w odniesieniu do znanych problemów. |
 | Problemy z używaniem Log Analytics dla pulpitu wirtualnego systemu Windows | Aby uzyskać problemy ze schematem diagnostyki, [Otwórz żądanie pomocy technicznej platformy Azure](https://azure.microsoft.com/support/create-ticket/).<br><br>W przypadku zapytań, wizualizacji lub innych problemów w Log Analytics wybierz odpowiedni typ problemu w obszarze Log Analytics. |
+| Problemy z używaniem aplikacji M365 | Skontaktuj się z centrum administracyjnym M365, korzystając z jednej z [opcji pomocy centrum administracyjnego M365](/microsoft-365/admin/contact-support-for-business-products/). |
 
 ## <a name="next-steps"></a>Następne kroki
 

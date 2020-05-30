@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/19/2019
 ms.author: memildin
-ms.openlocfilehash: 1c1b48d3715d838827f88f99fc0849d25677fdcc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bb7ffb06bb0cffeefae87ada665e2c123213186a
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80585738"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84218647"
 ---
 # <a name="azure-container-registry-integration-with-security-center"></a>Azure Container Registry integrację z usługą Security Center
 
@@ -27,7 +27,7 @@ Jeśli jesteś w warstwie Standardowa Azure Security Center, możesz dodać paki
 
 Za każdym razem, gdy obraz jest wypychany do rejestru, Security Center automatycznie skanuje ten obraz. Aby wyzwolić skanowanie obrazu, wypchnij go do repozytorium.
 
-Po zakończeniu skanowania (zwykle po około 10 minutach) wyniki są dostępne w Security Center zalecenia w następujący sposób:
+Po zakończeniu skanowania (zwykle po około 10 minutach, ale może to potrwać do 48h), wyniki są dostępne w Security Center zaleceniach, takich jak:
 
 [![Przykładowe Azure Security Center zalecenia dotyczące luk w zabezpieczeniach odnalezionych w obrazie hostowanym Azure Container Registry (ACR)](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/16/2020
+ms.date: 05/28/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 02f7d7e2735717a7a6e7a56273551197c16b77aa
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4309f1dc63ac7dd96e22f4564a32aae6ed59ad84
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659249"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195803"
 ---
 # <a name="check-the-last-sync-time-property-for-a-storage-account"></a>Sprawdź Właściwość godzina ostatniej synchronizacji dla konta magazynu
 
@@ -37,13 +37,7 @@ Możesz użyć programu PowerShell lub interfejsu wiersza polecenia platformy Az
 
 # <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-Aby uzyskać ostatnią godzinę synchronizacji dla konta magazynu za pomocą programu PowerShell, Zainstaluj wersję modułu AZ. Storage, która obsługuje pobieranie statystyki replikacji geograficznej. Na przykład:
-
-```powershell
-Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.14.0 –AllowClobber –Force
-```
-
-Następnie sprawdź Właściwość **GeoReplicationStats. LastSyncTime** konta magazynu. Pamiętaj, aby zastąpić wartości zastępcze własnymi wartościami:
+Aby uzyskać ostatnią godzinę synchronizacji dla konta magazynu za pomocą programu PowerShell, należy zainstalować w wersji 1.11.0 lub nowszej modułu [AZ. Storage](https://www.powershellgallery.com/packages/Az.Storage) . Następnie sprawdź Właściwość **GeoReplicationStats. LastSyncTime** konta magazynu. Pamiętaj, aby zastąpić wartości zastępcze własnymi wartościami:
 
 ```powershell
 $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `

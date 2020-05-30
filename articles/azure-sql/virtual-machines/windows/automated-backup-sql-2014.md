@@ -1,5 +1,5 @@
 ---
-title: Automatyczna kopia zapasowa dla SQL Server 2014 Azure Virtual Machines
+title: Automatyczne kopie zapasowe dla maszyn wirtualnych platformy Azure SQL Server 2014
 description: Wyjaśnia funkcję automatycznej kopii zapasowej dla maszyn wirtualnych SQL Server 2014 działających na platformie Azure. Ten artykuł dotyczy maszyn wirtualnych korzystających z Menedżer zasobów.
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,21 +14,21 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 553018e23f4cfd23568b4f5e07ef63683366433a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: d75671b6bd95c66ca21e7938463d150aeab30cf8
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84046705"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219697"
 ---
-# <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Zautomatyzowana kopia zapasowa dla SQL Server 2014 Virtual Machines (Menedżer zasobów)
+# <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Zautomatyzowana kopia zapasowa maszyn wirtualnych SQL Server 2014 (Menedżer zasobów)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
 > * [SQL Server 2014](automated-backup-sql-2014.md)
 > * [SQL Server 2016/2017](automated-backup.md)
 
-Automatyczna kopia zapasowa automatycznie konfiguruje [zarządzaną kopię zapasową do Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) dla wszystkich istniejących i nowych baz danych na maszynie wirtualnej platformy Azure z systemem SQL Server 2014 Standard lub Enterprise. Dzięki temu można konfigurować regularne kopie zapasowe bazy danych korzystające z trwałego magazynu obiektów blob platformy Azure. Automatyczne tworzenie kopii zapasowej zależy od [rozszerzenia agenta SQL Server IaaS](sql-server-iaas-agent-extension-automate-management.md).
+Automatyczna kopia zapasowa automatycznie konfiguruje [zarządzaną kopię zapasową do Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) dla wszystkich istniejących i nowych baz danych na maszynie wirtualnej platformy Azure z systemem SQL Server 2014 Standard lub Enterprise. Dzięki temu można konfigurować regularne kopie zapasowe bazy danych korzystające z trwałego magazynu obiektów blob platformy Azure. Automatyczne kopie zapasowe są zależne od [rozszerzenia agenta SQL Server infrastruktury jako usługi (IaaS)](sql-server-iaas-agent-extension-automate-management.md).
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -47,12 +47,12 @@ Aby korzystać z zautomatyzowanej kopii zapasowej, należy wziąć pod uwagę na
 - SQL Server 2014 Enterprise
 
 > [!IMPORTANT]
-> Automatyczne kopie zapasowe działają z SQL Server 2014. Jeśli używasz SQL Server 2016/2017, możesz użyć zautomatyzowanej kopii zapasowej v2, aby utworzyć kopię zapasową baz danych. Aby uzyskać więcej informacji, zobacz [Automatyczne tworzenie kopii zapasowych v2 dla SQL Server 2016 Azure Virtual Machines](automated-backup.md).
+> Automatyczne kopie zapasowe działają z SQL Server 2014. Jeśli używasz SQL Server 2016/2017, możesz użyć zautomatyzowanej kopii zapasowej v2, aby utworzyć kopię zapasową baz danych. Aby uzyskać więcej informacji, zobacz [zautomatyzowane tworzenie kopii zapasowych v2 dla SQL Server 2016 Azure Virtual Machines](automated-backup.md).
 
 **Konfiguracja bazy danych**:
 
 - Docelowe bazy danych muszą używać modelu odzyskiwania pełnego. Aby uzyskać więcej informacji o wpływie modelu odzyskiwania pełnego na kopie zapasowe, zobacz [kopia zapasowa w ramach modelu odzyskiwania pełnego](https://technet.microsoft.com/library/ms190217.aspx).
-- Docelowe bazy danych muszą znajdować się w domyślnym wystąpieniu SQL Server. Rozszerzenie IaaS SQL Server nie obsługuje wystąpień nazwanych.
+- Docelowe bazy danych muszą znajdować się w domyślnym wystąpieniu SQL Server. Rozszerzenie agenta IaaS SQL Server nie obsługuje nazwanych wystąpień.
 
 > [!NOTE]
 > Automatyczna kopia zapasowa opiera się na rozszerzeniu SQL Server IaaS Agent. Bieżące obrazy galerii maszyn wirtualnych SQL Domyślnie Dodaj to rozszerzenie. Aby uzyskać więcej informacji, zobacz [SQL Server rozszerzenia agenta IaaS](sql-server-iaas-agent-extension-automate-management.md).
@@ -82,7 +82,7 @@ Na karcie **ustawienia SQL Server** przewiń w dół do opcji **zautomatyzowane 
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-W przypadku istniejących SQL Server maszyn wirtualnych można włączyć i wyłączyć automatyczne kopie zapasowe, zmienić okres przechowywania, określić konto magazynu i włączyć szyfrowanie z Azure Portal. 
+W przypadku istniejących maszyn wirtualnych SQL Server można włączyć i wyłączyć automatyczne kopie zapasowe, zmienić okres przechowywania, określić konto magazynu i włączyć szyfrowanie z Azure Portal. 
 
 Przejdź do [zasobu maszyny wirtualne SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) dla maszyny wirtualnej SQL Server 2014, a następnie wybierz pozycję **kopie zapasowe**. 
 
@@ -104,7 +104,7 @@ Za pomocą programu PowerShell można skonfigurować automatyczne tworzenie kopi
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
-### <a name="install-the-sql-iaas-extension"></a>Zainstaluj rozszerzenie SQL IaaS
+### <a name="install-the-sql-server-iaas-extension"></a>Zainstaluj rozszerzenie IaaS SQL Server
 Jeśli zainicjowano SQL Server maszynę wirtualną z Azure Portal, rozszerzenie SQL Server IaaS powinno być już zainstalowane. Możesz określić, czy jest zainstalowana dla maszyny wirtualnej, wywołując polecenie **Get-AzVM** i sprawdzając Właściwość **Extensions** .
 
 ```powershell
@@ -114,9 +114,9 @@ $resourcegroupname = "resourcegroupname"
 (Get-AzVM -Name $vmname -ResourceGroupName $resourcegroupname).Extensions
 ```
 
-Jeśli zainstalowano rozszerzenie agenta SQL Server IaaS, powinno ono zostać wyświetlone na liście jako "SqlIaaSAgent" lub "SQLIaaSExtension". **ProvisioningState** dla rozszerzenia powinna również zawierać wartość "powodzenie".
+Jeśli zainstalowano rozszerzenie agenta SQL Server IaaS, powinno ono zostać wyświetlone na liście jako "SqlIaaSAgent" lub "SQLIaaSExtension". **ProvisioningState** dla rozszerzenia powinna również zawierać "powodzenie".
 
-Jeśli nie jest zainstalowana lub nie można zainicjować obsługi administracyjnej, można zainstalować ją za pomocą poniższego polecenia. Oprócz nazwy maszyny wirtualnej i grupy zasobów należy również określić region (**$region**), w którym znajduje się maszyna wirtualna. Określ typ licencji dla maszyny wirtualnej SQL Server, wybierając między opcją płatność zgodnie z rzeczywistym użyciem lub przeniesieniem własnych licencji za pośrednictwem [korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/). Aby uzyskać więcej informacji o licencjonowaniu, zobacz [model licencjonowania](licensing-model-azure-hybrid-benefit-ahb-change.md). 
+Jeśli nie jest zainstalowana lub nie można było zainicjować obsługi administracyjnej, można zainstalować ją za pomocą poniższego polecenia. Oprócz nazwy maszyny wirtualnej i grupy zasobów należy również określić region (**$region**), w którym znajduje się maszyna wirtualna. Określ typ licencji dla maszyny wirtualnej SQL Server, wybierając między opcją płatność zgodnie z rzeczywistym użyciem lub przeniesieniem własnych licencji za pośrednictwem [korzyść użycia hybrydowego platformy Azure](https://azure.microsoft.com/pricing/hybrid-benefit/). Aby uzyskać więcej informacji o licencjonowaniu, zobacz [model licencjonowania](licensing-model-azure-hybrid-benefit-ahb-change.md). 
 
 ```powershell
 New-AzSqlVM  -Name $vmname `
@@ -125,7 +125,7 @@ New-AzSqlVM  -Name $vmname `
 ```
 
 > [!IMPORTANT]
-> Jeśli rozszerzenie nie zostało jeszcze zainstalowane, zainstalowanie rozszerzenia spowoduje ponowne uruchomienie usługi SQL Server.
+> Jeśli rozszerzenie nie jest jeszcze zainstalowane, instalacja rozszerzenia zostanie ponownie uruchomiona SQL Server.
 
 ### <a name="verify-current-settings"></a><a id="verifysettings"></a>Weryfikuj bieżące ustawienia
 
@@ -190,7 +190,7 @@ Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 Zainstalowanie i skonfigurowanie agenta SQL Server IaaS może potrwać kilka minut.
 
 > [!NOTE]
-> Istnieją inne ustawienia dla elementu **New-AzVMSqlServerAutoBackupConfig** , które mają zastosowanie tylko do SQL Server 2016 i zautomatyzowanej kopii zapasowej v2. SQL Server 2014 nie obsługuje następujących ustawień: **BackupSystemDbs**, **BackupScheduleType**, **FullBackupFrequency**, **FullBackupStartHour**, **FullBackupWindowInHours**i **LogBackupFrequencyInMinutes**. Jeśli podjęto próbę skonfigurowania tych ustawień na maszynie wirtualnej SQL Server 2014, nie ma błędów, ale ustawienia nie zostaną zastosowane. Jeśli chcesz użyć tych ustawień na maszynie wirtualnej SQL Server 2016, zobacz [Automatyczne tworzenie kopii zapasowej v2 dla SQL Server 2016 Azure Virtual Machines](automated-backup.md).
+> Istnieją inne ustawienia dla elementu **New-AzVMSqlServerAutoBackupConfig** , które mają zastosowanie tylko do SQL Server 2016 i zautomatyzowanej kopii zapasowej v2. SQL Server 2014 nie obsługuje następujących ustawień: **BackupSystemDbs**, **BackupScheduleType**, **FullBackupFrequency**, **FullBackupStartHour**, **FullBackupWindowInHours**i **LogBackupFrequencyInMinutes**. Jeśli podjęto próbę skonfigurowania tych ustawień na maszynie wirtualnej SQL Server 2014, nie ma błędów, ale ustawienia nie zostaną zastosowane. Jeśli chcesz użyć tych ustawień na maszynie wirtualnej SQL Server 2016, zobacz [Automatyczne tworzenie kopii zapasowej v2 dla SQL Server 2016 Azure Virtual](automated-backup.md)Machines.
 
 Aby włączyć szyfrowanie, zmodyfikuj poprzedni skrypt, aby przekazać parametr **EnableEncryption** wraz z hasłem (bezpieczny ciąg) dla parametru **CertificatePassword** . Poniższy skrypt włącza ustawienia zautomatyzowanej kopii zapasowej w poprzednim przykładzie i dodaje szyfrowanie.
 
@@ -232,7 +232,7 @@ $storage_accountname = "storageaccountname"
 $storage_resourcegroupname = $resourcegroupname
 $retentionperiod = 10
 
-# ResourceGroupName is the resource group which is hosting the VM where you are deploying the SQL IaaS Extension
+# ResourceGroupName is the resource group which is hosting the VM where you are deploying the SQL Server IaaS Extension
 
 Set-AzVMSqlServerExtension -VMName $vmname `
     -ResourceGroupName $resourcegroupname -Name "SQLIaasExtension" `
@@ -279,8 +279,8 @@ Innym rozwiązaniem jest skorzystanie z wbudowanej funkcji Poczta bazy danych na
 
 Automatyczna kopia zapasowa konfiguruje zarządzaną kopię zapasową na maszynach wirtualnych W związku z tym ważne jest [zapoznanie się z dokumentacją zarządzanej kopii zapasowej na SQL Server 2014](https://msdn.microsoft.com/library/dn449497(v=sql.120).aspx).
 
-Dodatkowe wskazówki dotyczące tworzenia kopii zapasowych i przywracania dla SQL Server na maszynach wirtualnych platformy Azure można znaleźć w następującym artykule: [Tworzenie kopii zapasowych i przywracanie SQL Server na platformie azure Virtual Machines](backup-restore.md).
+Dodatkowe wskazówki dotyczące tworzenia kopii zapasowych i przywracania dla SQL Server na maszynach wirtualnych platformy Azure można znaleźć w następującym artykule: [Tworzenie kopii zapasowych i przywracanie SQL Server na maszynach wirtualnych platformy Azure](backup-restore.md).
 
 Aby uzyskać informacje o innych dostępnych zadaniach automatyzacji, zobacz [SQL Server rozszerzenia agenta IaaS](sql-server-iaas-agent-extension-automate-management.md).
 
-Aby uzyskać więcej informacji na temat uruchamiania SQL Server na maszynach wirtualnych platformy Azure, zobacz [SQL Server na platformie Virtual Machines Azure — omówienie](sql-server-on-azure-vm-iaas-what-is-overview.md).
+Aby uzyskać więcej informacji na temat uruchamiania SQL Server na maszynach wirtualnych platformy Azure, zobacz [SQL Server Omówienie usługi Azure Virtual Machines](sql-server-on-azure-vm-iaas-what-is-overview.md).

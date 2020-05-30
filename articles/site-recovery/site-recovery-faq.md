@@ -4,12 +4,12 @@ description: W tym artykule omówiono popularne pytania dotyczące Azure Site Re
 ms.topic: conceptual
 ms.date: 1/24/2020
 ms.author: raynew
-ms.openlocfilehash: 270fa8de3346063d047b38132438f8097d87689d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 2e6cbac9896fc2bc6b3d4d95a28a25d8177bd7a5
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744114"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193559"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Ogólne pytania dotyczące Azure Site Recovery
 
@@ -195,7 +195,37 @@ Tak. Więcej informacji na temat ograniczania przepustowości można znaleźć w
 * [Planowanie pojemności do replikowania maszyn wirtualnych VMware i serwerów fizycznych](site-recovery-plan-capacity-vmware.md)
 * [Planowanie pojemności replikowania maszyn wirtualnych funkcji Hyper-V na platformę Azure](site-recovery-capacity-planning-for-hyper-v-replication.md)
 
+### <a name="can-i-enable-replication-with-app-consistency-in-linux-servers"></a>Czy mogę włączyć replikację z spójnością aplikacji na serwerach z systemem Linux? 
+Tak. Azure Site Recovery dla systemu operacyjnego Linux obsługuje niestandardowe skrypty aplikacji na potrzeby spójności aplikacji. Skrypt niestandardowy z opcjami pre i post będzie używany przez agenta mobilności Azure Site Recovery podczas spójności aplikacji. Poniżej znajdują się kroki umożliwiające włączenie tego programu.
 
+1. Zaloguj się jako katalog główny na komputerze.
+2. Zmień katalog na Azure Site Recovery lokalizację instalacji agenta mobilności. Wartość domyślna to "/usr/local/ASR"<br>
+    `# cd /usr/local/ASR`
+3. Zmień katalog na "VX/Scripts" w lokalizacji instalacji<br>
+    `# cd VX/scripts`
+4. Utwórz skrypt powłoki bash o nazwie "customscript.sh" z uprawnieniami wykonywania dla użytkownika root.<br>
+    a. Skrypt powinien obsługiwać "--pre" i "--post" (należy pamiętać o podwójnych kreskach) opcje wiersza polecenia<br>
+    b. Gdy skrypt jest wywoływany przy użyciu opcji pre-Option, powinien zablokować dane wejściowe/wyjściowe aplikacji oraz, gdy zostanie wywołane za pomocą polecenia post, powinno odblokować dane wejściowe/wyjściowe aplikacji.<br>
+    c. Przykładowy szablon —<br>
+
+    `# cat customscript.sh`<br>
+
+```
+    #!/bin/bash
+
+    if [ $# -ne 1 ]; then
+        echo "Usage: $0 [--pre | --post]"
+        exit 1
+    elif [ "$1" == "--pre" ]; then
+        echo "Freezing app IO"
+        exit 0
+    elif [ "$1" == "--post" ]; then
+        echo "Thawed app IO"
+        exit 0
+    fi
+```
+
+5. Dodawanie poleceń Zablokuj i Odblokuj dane wejściowe/wyjściowe w przypadku aplikacji wymagających spójności aplikacji. Możesz dodać inny skrypt określający te i wywołać go z elementu "customscript.sh" za pomocą opcji pre i post.
 
 ## <a name="failover"></a>Tryb failover
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-vms-after-failover"></a>W jaki sposób można uzyskać dostęp do maszyn wirtualnych platformy Azure po przejściu w tryb failover?

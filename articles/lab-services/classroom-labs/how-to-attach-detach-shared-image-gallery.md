@@ -11,17 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2020
+ms.date: 05/28/2020
 ms.author: spelluru
-ms.openlocfilehash: aef5cd13742c0265851f5ba2918d557b4e1026d0
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 7ae0fa5a8816f353636c9b4d58293e825361b207
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592648"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204299"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Dołączanie lub odłączanie galerii obrazów udostępnionych w Azure Lab Services
 W tym artykule opisano sposób dołączania lub odłączania udostępnionej galerii obrazów do konta laboratorium. 
+
+> [!NOTE]
+> Gdy [zapisujesz obraz szablonu laboratorium](how-to-use-shared-image-gallery.md#save-an-image-to-the-shared-image-gallery) w Azure Lab Services do galerii obrazów udostępnionych, obraz zostanie przekazany do galerii jako obraz wyspecjalizowany. [Wyspecjalizowane obrazy](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#generalized-and-specialized-images) przechowują informacje specyficzne dla maszyn i profile użytkowników. Nadal możesz bezpośrednio przekazać uogólniony obraz do galerii poza Azure Lab Services. 
+>
+> Twórca laboratorium może utworzyć maszynę wirtualną z szablonem w oparciu o uogólnione i wyspecjalizowane obrazy w Azure Lab Services. 
 
 ## <a name="scenarios"></a>Scenariusze
 Oto kilka scenariuszy obsługiwanych przez tę funkcję: 
@@ -29,11 +34,7 @@ Oto kilka scenariuszy obsługiwanych przez tę funkcję:
 - Administrator konta laboratorium dołącza udostępnioną galerię obrazów do konta laboratorium i przekazuje obraz do galerii obrazów udostępnionych poza kontekstem laboratorium. Następnie twórcy laboratorium mogą używać tego obrazu z galerii obrazów udostępnionych do tworzenia laboratoriów. 
 - Administrator konta laboratorium dołącza udostępnioną galerię obrazów do konta laboratorium. Twórca laboratorium (instruktor) zapisuje dostosowany obraz swojego laboratorium do galerii obrazów udostępnionych. Następnie inni Twórcy laboratorium mogą wybrać ten obraz z galerii obrazów udostępnionych, aby utworzyć szablon dla ich laboratoriów. 
 
-    Gdy obraz jest zapisywany w galerii obrazów udostępnionych, Azure Lab Services replikuje zapisany obraz do innych regionów dostępnych w tej samej lokalizacji [geograficznej](https://azure.microsoft.com/global-infrastructure/geographies/). Zapewnia, że obraz jest dostępny dla laboratoriów utworzonych w innych regionach w tej samej lokalizacji geograficznej. Zapisanie obrazów do udostępnionej galerii obrazów wiąże się z dodatkowym kosztem, który obejmuje koszt wszystkich zreplikowanych obrazów. Ten koszt jest oddzielony od kosztu użycia Azure Lab Services. Aby uzyskać więcej informacji na temat cen udostępnionych galerii obrazów, zobacz [Galeria obrazów udostępnionych — rozliczenia]( https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#billing).
-
-    > [!NOTE]
-    > Azure Lab Services obsługuje tworzenie maszyn wirtualnych szablonów opartych na **uogólnionych** i **wyspecjalizowanych** obrazach w galerii obrazów udostępnionych. 
-
+    Gdy obraz jest zapisywany w galerii obrazów udostępnionych, Azure Lab Services replikuje zapisany obraz do innych regionów dostępnych w tej samej lokalizacji [geograficznej](https://azure.microsoft.com/global-infrastructure/geographies/). Zapewnia, że obraz jest dostępny dla laboratoriów utworzonych w innych regionach w tej samej lokalizacji geograficznej. Zapisanie obrazów do udostępnionej galerii obrazów wiąże się z dodatkowym kosztem, który obejmuje koszt wszystkich zreplikowanych obrazów. Ten koszt jest oddzielony od kosztu użycia Azure Lab Services. Aby uzyskać więcej informacji na temat cen udostępnionych galerii obrazów, zobacz [Galeria obrazów udostępnionych — rozliczenia](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#billing).
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>Konfiguruj podczas tworzenia konta laboratorium
 Podczas tworzenia konta laboratorium możesz dołączyć udostępnioną galerię obrazów do konta laboratorium. Możesz wybrać istniejącą galerię obrazów udostępnionych z listy rozwijanej lub utworzyć nową. Aby utworzyć i dołączyć udostępnioną galerię obrazów do konta laboratorium, wybierz pozycję **Utwórz nowy**, wprowadź nazwę galerii, a następnie wprowadź **OK**. 
@@ -95,4 +96,4 @@ Tylko jedna udostępniona Galeria obrazów może być dołączona do laboratoriu
 ## <a name="next-steps"></a>Następne kroki
 Aby dowiedzieć się, jak zapisać obraz laboratorium w galerii obrazów udostępnionych lub użyć obrazu z galerii obrazów udostępnionych, aby utworzyć maszynę wirtualną, zobacz [jak używać galerii obrazów udostępnionych](how-to-use-shared-image-gallery.md).
 
-Aby uzyskać więcej informacji na temat ogólnie udostępnionych galerii obrazów, zobacz [Galeria obrazów udostępnionych](../../virtual-machines/windows/shared-image-galleries.md).
+Aby uzyskać więcej informacji na temat ogólnie udostępnionych galerii obrazów, zobacz [Galeria obrazów udostępnionych](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries).

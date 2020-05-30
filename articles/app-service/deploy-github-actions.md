@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.openlocfilehash: 57ca5b0880d4b027e33bc0d01fc6225eb886029b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: be6b5f0af17aa8343dcb74fd5f0710d44332ce0e
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82084995"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193308"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Wdrażanie do App Service przy użyciu akcji usługi GitHub
 
@@ -27,9 +27,9 @@ W przypadku przepływu pracy Azure App Service plik ma trzy sekcje:
 
 |Sekcja  |Zadania  |
 |---------|---------|
-|**Uwierzytelnianie** | 1. Zdefiniuj nazwę główną usługi <br /> 2. Utwórz wpis tajny usługi GitHub |
+|**Authentication** | 1. Zdefiniuj nazwę główną usługi <br /> 2. Utwórz wpis tajny usługi GitHub |
 |**Kompilacja** | 1. Skonfiguruj środowisko <br /> 2. Tworzenie aplikacji sieci Web |
-|**Wdróż** | 1. Wdróż aplikację sieci Web |
+|**Wdrażanie** | 1. Wdróż aplikację sieci Web |
 
 ## <a name="create-a-service-principal"></a>Tworzenie nazwy głównej usługi
 
@@ -59,12 +59,12 @@ Można również użyć poświadczeń na poziomie aplikacji, takich jak profil p
 
 3. Wklej zawartość pobranego pliku profilu publikowania w polu wartość klucza tajnego.
 
-4. Teraz w pliku przepływu pracy w gałęzi: `.github/workflows/workflow.yml` Zastąp wpis tajny dla danych `publish-profile` wejściowych akcji Wdróż aplikację sieci Web platformy Azure.
+4. Teraz w pliku przepływu pracy w gałęzi: `.github/workflows/workflow.yml` Zastąp wpis tajny dla danych wejściowych `publish-profile` akcji Wdróż aplikację sieci Web platformy Azure.
     
     ```yaml
         - uses: azure/webapps-deploy@v2
           with:
-            creds: ${{ secrets.azureWebAppPublishProfile }}
+            publish-profile: ${{ secrets.azureWebAppPublishProfile }}
     ```
 
 5. Zobaczysz wpis tajny, jak pokazano poniżej.
@@ -184,7 +184,7 @@ W poniższych przykładach przedstawiono część przepływu pracy, który kompi
 
 Aby wdrożyć kod w aplikacji App Service, użyj `azure/webapps-deploy@v2` akcji. Ta akcja ma cztery parametry:
 
-| **Konstruktora**  | **Wyjaśnienie**  |
+| **Parametr**  | **Wyjaśnienie**  |
 |---------|---------|
 | **Nazwa aplikacji** | Potrzeb Nazwa aplikacji App Service | 
 | **Publikuj — profil** | Obowiązkowe Publikuj zawartość pliku profilu za pomocą wpisów tajnych Web Deploy |

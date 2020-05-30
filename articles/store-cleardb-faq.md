@@ -11,12 +11,13 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: ddbf1eb960a24cfaa8d09ab45b6febca07e6d504
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: references_regions
+ms.openlocfilehash: ced4e920936ad94c3d4140d51d5e7d4e867ee848
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75979923"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196072"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Często zadawane pytania dotyczące baz danych ClearDB MySql przy użyciu Azure App Service
 Często zadawane pytania dotyczą często zadawanych pytań dotyczących używania i kupowania baz danych MySQL ClearDB dla platformy Web Apps Azure.

@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
-ms.openlocfilehash: 86fa7da695b185f41d134f67eb7d8155a30e1376
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 36662a0089fef34a539788cfac667b5086a10c78
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118928"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194263"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Konfigurowanie Azure-SSIS Integration Runtime na potrzeby wysokiej wydajności
 
@@ -51,7 +51,7 @@ $AzureSSISNodeNumber = 2
 # Azure-SSIS IR edition/license info: Standard or Enterprise
 $AzureSSISEdition = "Standard" # Standard by default, while Enterprise lets you use advanced/premium features on your Azure-SSIS IR
 # Azure-SSIS IR hybrid usage info: LicenseIncluded or BasePrice
-$AzureSSISLicenseType = "LicenseIncluded" # LicenseIncluded by default, while BasePrice lets you bring your own on-premises SQL Server license with Software Assurance to earn cost savings from Azure Hybrid Benefit (AHB) option
+$AzureSSISLicenseType = "LicenseIncluded" # LicenseIncluded by default, while BasePrice lets you bring your existing SQL Server license with Software Assurance to earn cost savings from Azure Hybrid Benefit (AHB) option
 # For a Standard_D1_v2 node, up to 4 parallel executions per node are supported, but for other nodes, up to max(2 x number of cores, 8) are currently supported
 $AzureSSISMaxParallelExecutionsPerNode = 8
 # Custom setup info
