@@ -9,19 +9,19 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: b269c42258a813f7c08e1c3e9f2065b8b5255ed9
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: f72602143063807043d53bb1779866fe521f9f59
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84018280"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196464"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-sql-database-by-using-sql-data-sync"></a>Samouczek: synchronizacja danych z programu SQL Edge do Azure SQL Database przy użyciu SQL Data Sync
 
 
 W tym samouczku dowiesz się, jak używać *grupy synchronizacji* SQL Data Sync Azure do przyrostowej synchronizacji danych z usługi Azure SQL Edge do Azure SQL Database. SQL Data Sync to usługa oparta na Azure SQL Database, która pozwala synchronizować dane, które są wybierane dwukierunkowo dla wielu baz danych w Azure SQL Database i SQL Server wystąpieniach. Aby uzyskać więcej informacji na temat SQL Data Sync, zobacz [Azure SQL Data Sync](../azure-sql/database/sql-data-sync-data-sql-server-sql-database.md).
 
-Ponieważ usługa SQL Edge jest oparta na najnowszych wersjach [aparatu bazy danych SQL Server](/sql/sql-server/sql-server-technical-documentation/), można także użyć dowolnego mechanizmu synchronizacji danych, który jest stosowany do lokalnego wystąpienia SQL Server, do synchronizowania danych z wystąpieniem programu SQL Edge działającym na urządzeniu brzegowym lub z niego.
+Ponieważ usługa SQL Edge jest oparta na najnowszych wersjach [aparatu bazy danych SQL Server](/sql/sql-server/sql-server-technical-documentation/), można także użyć dowolnego mechanizmu synchronizacji danych, który ma zastosowanie do wystąpienia SQL Server, do synchronizowania danych z wystąpieniem programu SQL Edge działającym na urządzeniu brzegowym lub z niego.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -35,7 +35,7 @@ Ten samouczek wymaga komputera z systemem Windows, który został skonfigurowany
 
 * Utwórz niezbędne tabele i obiekty w wdrożeniu usługi Azure SQL Edge. Aby uzyskać więcej informacji, zobacz [Używanie pakietów DAC SQL Database z programem SQL Edge](deploy-dacpac.md).
 
-* Zarejestruj wystąpienie usługi Azure SQL Edge przy użyciu agenta synchronizacji danych dla platformy Azure SQL Data Sync. Aby uzyskać więcej informacji, zobacz [Dodawanie lokalnej bazy danych SQL Server](../azure-sql/database/sql-data-sync-sql-server-configure.md#add-on-prem).
+* Zarejestruj wystąpienie usługi Azure SQL Edge przy użyciu agenta synchronizacji danych dla platformy Azure SQL Data Sync. Aby uzyskać więcej informacji, zobacz [Dodawanie bazy danych SQL Server](../azure-sql/database/sql-data-sync-sql-server-configure.md#add-on-prem).
 
 ## <a name="sync-data-between-an-azure-sql-database-and-sql-edge"></a>Synchronizowanie danych między bazą danych SQL Azure a programem SQL Edge
 

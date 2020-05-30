@@ -1,6 +1,6 @@
 ---
-title: Przykład programu PowerShell — monitorowanie i skalowanie pojedynczej bazy danych w Azure SQL Database
-description: Azure PowerShell przykładowy skrypt do monitorowania i skalowania pojedynczej bazy danych w Azure SQL Database
+title: Używanie programu PowerShell do monitorowania i skalowania pojedynczej bazy danych w Azure SQL Database
+description: Użyj przykładowego skryptu Azure PowerShell do monitorowania i skalowania pojedynczej bazy danych w Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -11,17 +11,18 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 9fa70e5888ecde8437c7d6ea6bbd52827eb6639d
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: d4f33a2601d9c19896c006af010a394f21fc8219
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84054071"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196853"
 ---
 # <a name="use-powershell-to-monitor-and-scale-a-single-database-in-azure-sql-database"></a>Używanie programu PowerShell do monitorowania i skalowania pojedynczej bazy danych w Azure SQL Database
+
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
-Ten przykładowy skrypt programu PowerShell monitoruje metryki wydajności bazy danych, skaluje ją do wyższego rozmiaru obliczeniowego i tworzy regułę alertu dla jednej z metryk wydajności.
+Ten przykładowy skrypt programu PowerShell monitoruje metryki wydajności pojedynczej bazy danych, skaluje je do większego rozmiaru i tworzy regułę alertu dla jednej z metryk wydajności.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
@@ -55,13 +56,13 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Tworzy grupę zasobów, w której są przechowywane wszystkie zasoby. |
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Tworzy serwer, który hostuje pojedynczą bazę danych lub pulę elastyczną. |
 | [Get-AzMetric](/powershell/module/az.monitor/get-azmetric) | Pokazuje informacje o użyciu rozmiaru dla bazy danych.|
-| [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) | Aktualizuje właściwości bazy danych lub przenosi informacje o bazie danych do pul elastycznych, poza nie lub między nimi. |
+| [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) | Aktualizuje właściwości bazy danych lub przenosi bazę danych do puli elastycznej, poza nią lub między nimi. |
 | [Add-AzMetricAlertRule](/powershell/module/az.monitor/add-azmetricalertrule) | Ustawia regułę alertu w celu automatycznego monitorowania metryk w przyszłości. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Usuwa grupę zasobów wraz ze wszystkimi zagnieżdżonymi zasobami. |
 |||
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat programu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](/powershell/azure/overview).
+Aby uzyskać więcej informacji na temat Azure PowerShell, zobacz [dokumentację dotyczącą Azure PowerShell](/powershell/azure/overview).
 
 Dodatkowe przykłady skryptów programu PowerShell można znaleźć w [skryptach Azure PowerShell](../powershell-script-content-guide.md).

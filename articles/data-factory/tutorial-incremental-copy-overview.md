@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 00d54f9adcab93152881852b6fcac417e9d7c7d9
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: f1fb209f44ae7922de87277100fbf55add184766
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81409901"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194492"
 ---
 # <a name="incrementally-load-data-from-a-source-data-store-to-a-destination-data-store"></a>Przyrostowe ładowanie danych ze źródłowego do docelowego magazynu danych
 
@@ -32,7 +32,7 @@ W takim przypadku należy zdefiniować limit w źródłowej bazie danych. Limit 
 
 Aby uzyskać instrukcje krok po kroku, zobacz następujące samouczki: 
 - [Przyrostowe kopiowanie danych z jednej tabeli w bazie danych Azure SQL Database do magazynu Azure Blob Storage](tutorial-incremental-copy-powershell.md)
-- [Przyrostowe kopiowanie danych z wielu tabel na lokalnym serwerze SQL Server do bazy danych Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)
+- [Przyrostowe kopiowanie danych z wielu tabel w wystąpieniu SQL Server do Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)
 
 Aby zapoznać się z szablonami, zobacz następujące tematy:
 - [Kopiowanie różnicowe za pomocą kontrolki tabeli](solution-template-delta-copy-with-control-table.md)

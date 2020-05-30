@@ -87,8 +87,6 @@
           href: howto-manage-devices.md
         - name: Konfigurowanie reguł
           href: howto-configure-rules.md
-        - name: Używanie przepływów pracy do integracji z innymi usługami
-          href: howto-configure-rules-advanced.md
         - name: Analizowanie danych urządzenia
           href: howto-create-analytics.md
         - name: Dodawanie kafelków do pulpitu nawigacyjnego
@@ -103,6 +101,8 @@
           href: howto-export-data.md
         - name: Tworzenie elementów webhook w regułach
           href: howto-create-webhooks.md
+        - name: Używanie przepływów pracy do integracji z innymi usługami
+          href: howto-configure-rules-advanced.md
         - name: Łączenie grup akcji usługi Azure Monitor w regułach
           href: howto-use-action-groups.md
         - name: Tworzenie reguł niestandardowych

@@ -1,6 +1,6 @@
 ---
 title: 'PowerShell: synchronizacja między wieloma bazami danych w Azure SQL Database'
-description: Azure PowerShell przykładowy skrypt do synchronizacji między wieloma Azure SQL Database
+description: Użyj przykładowego skryptu Azure PowerShell do synchronizowania wielu baz danych w Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,17 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: d2c06fd9735ce67a33ad9ae2ad22ee99f4e05a30
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: af45e3ea33a1997b4a75d047cc5a2ec4edb3bf12
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053525"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196703"
 ---
-# <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>Użycie programu PowerShell do synchronizowania wielu baz danych SQL
+# <a name="use-powershell-to-sync-data-between-multiple-databases-in-azure-sql-database"></a>Synchronizowanie danych między wieloma bazami danych w Azure SQL Database przy użyciu programu PowerShell
+
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
-Ten przykład programu PowerShell służy do konfigurowania SQL Data Sync synchronizacji między wieloma bazami danych w programie Azure SQL Database.
+Ten Azure PowerShell przykład służy do konfigurowania SQL Data Sync do synchronizowania danych między wieloma bazami danych w Azure SQL Database.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
@@ -36,10 +37,9 @@ Aby zapoznać się z omówieniem SQL Data Sync, zobacz [synchronizowanie danych 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Tworzenie Azure SQL Database z przykładowej bazy danych AdventureWorksLT jako bazy danych centrum
-- Utwórz Azure SQL Database w tym samym regionie co baza danych synchronizacji
-- Utwórz lokalną bazę danych SQL Server jako bazę danych elementu członkowskiego
-- Zaktualizuj symbole zastępcze parametru przed uruchomieniem przykładu
+- Utwórz bazę danych w Azure SQL Database z przykładowej bazy danych AdventureWorksLT jako bazę danych centrum.
+- Utwórz bazę danych w Azure SQL Database w tym samym regionie, w którym znajduje się baza danych synchronizacji.
+- Zaktualizuj symbole zastępcze parametru przed uruchomieniem przykładu.
 
 ## <a name="example"></a>Przykład
 
@@ -205,7 +205,7 @@ foreach ($tableSchema in $databaseSchema.Tables) {
 # convert sync schema to JSON format
 $schemaString = $newSchema | ConvertTo-Json -depth 5 -Compress
 
-# workaround a powershell bug
+# work around a PowerShell bug
 $schemaString = $schemaString.Replace('"Tables"', '"tables"').Replace('"Columns"', '"columns"').Replace('"QuotedName"', '"quotedName"').Replace('"MasterSyncMemberName"','"masterSyncMemberName"')
 
 # save the sync schema to a temp file
@@ -278,13 +278,13 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 |---|---|
 | [New-AzSqlSyncAgent](/powershell/module/az.sql/New-azSqlSyncAgent) |  Tworzy nowego agenta synchronizacji. |
 | [New-AzSqlSyncAgentKey](/powershell/module/az.sql/New-azSqlSyncAgentKey) |  Generuje klucz agenta skojarzony z agentem synchronizacji. |
-| [Get-AzSqlSyncAgentLinkedDatabase](/powershell/module/az.sql/Get-azSqlSyncAgentLinkedDatabase) |  Pobiera wszystkie informacje dla agenta synchronizacji. |
-| [New-AzSqlSyncMember](/powershell/module/az.sql/New-azSqlSyncMember) |  Dodaje nowy element do grupy synchronizacji. |
+| [Get-AzSqlSyncAgentLinkedDatabase](/powershell/module/az.sql/Get-azSqlSyncAgentLinkedDatabase) |  Pobierz wszystkie informacje dla agenta synchronizacji. |
+| [New-AzSqlSyncMember](/powershell/module/az.sql/New-azSqlSyncMember) |  Dodawanie nowego elementu członkowskiego do grupy synchronizacji. |
 | [Update-AzSqlSyncSchema](/powershell/module/az.sql/Update-azSqlSyncSchema) |  Odświeża informacje o schemacie bazy danych. |
-| [Get-AzSqlSyncSchema](https://docs.microsoft.com/powershell/module/az.sql/Get-azSqlSyncSchema) |  Pobiera informacje o schemacie bazy danych. |
+| [Get-AzSqlSyncSchema](https://docs.microsoft.com/powershell/module/az.sql/Get-azSqlSyncSchema) |  Pobierz informacje o schemacie bazy danych. |
 | [Update-AzSqlSyncGroup](/powershell/module/az.sql/Update-azSqlSyncGroup) |  Aktualizuje grupę synchronizacji. |
 | [Start-AzSqlSyncGroupSync](/powershell/module/az.sql/Start-azSqlSyncGroupSync) | Wyzwala synchronizację. |
-| [Get-AzSqlSyncGroupLog](/powershell/module/az.sql/Get-azSqlSyncGroupLog) |  Sprawdza dziennik synchronizacji. |
+| [Get-AzSqlSyncGroupLog](/powershell/module/az.sql/Get-azSqlSyncGroupLog) |  Sprawdza Dziennik synchronizacji. |
 |||
 
 ## <a name="next-steps"></a>Następne kroki
@@ -293,22 +293,21 @@ Aby uzyskać więcej informacji na temat programu Azure PowerShell, zobacz [doku
 
 Więcej przykładowych skryptów programu PowerShell dla usługi SQL Database można znaleźć w [skryptach programu PowerShell dla usługi Azure SQL Database](../powershell-script-content-guide.md).
 
-Aby uzyskać więcej informacji na temat usługi SQL Data Sync, zobacz:
+Aby uzyskać więcej informacji na temat SQL Data Sync, zobacz:
 
 - Przegląd — [Synchronizacja danych między wieloma bazami danych w chmurze i lokalnymi przy użyciu SQL Data Sync na platformie Azure](../sql-data-sync-data-sql-server-sql-database.md)
 - Konfigurowanie synchronizacji danych
-    - W portalu — [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](../sql-data-sync-sql-server-configure.md) (Samouczek: konfigurowanie usługi SQL Data Sync w celu synchronizowania danych między usługą Azure SQL Database i lokalnym programem SQL Server)
-    - Z programem PowerShell
-        - [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database (Synchronizacja bazy danych usługi Azure SQL Database i lokalnej bazy danych programu SQL Server przy użyciu programu PowerShell)](sql-data-sync-sync-data-between-azure-onprem.md)
+    - Użyj [samouczka Azure Portal: skonfiguruj SQL Data Sync do synchronizowania danych między Azure SQL Database i SQL Server](../sql-data-sync-sql-server-configure.md)
+    - Korzystanie z programu PowerShell — [Używanie programu PowerShell do synchronizowania danych między bazą danych w Azure SQL Database i SQL Server](sql-data-sync-sync-data-between-azure-onprem.md)
 - Agent synchronizacji danych — [Agent synchronizacji danych dla SQL Data Sync na platformie Azure](../sql-data-sync-agent-overview.md)
 - Najlepsze rozwiązania — [najlepsze rozwiązania dotyczące SQL Data Sync na platformie Azure](../sql-data-sync-best-practices.md)
 - Monitor- [monitor SQL Data Sync z dziennikami Azure monitor](../sql-data-sync-monitor-sync.md)
 - Rozwiązywanie problemów — [Rozwiązywanie problemów z SQL Data Sync na platformie Azure](../sql-data-sync-troubleshoot.md)
 - Aktualizowanie schematu synchronizacji
-    - Przy użyciu języka Transact-SQL — [Automatyzowanie replikacji zmian schematu SQL Data Sync na platformie Azure](../sql-data-sync-update-sync-schema.md)
-    - Używanie programu PowerShell — [Używanie programu PowerShell do zaktualizowania schematu synchronizacji w istniejącej grupie synchronizacji](update-sync-schema-in-sync-group.md)
+    - Korzystanie z języka Transact-SQL — [Automatyzowanie replikacji zmian schematu w SQL Data Sync na platformie Azure](../sql-data-sync-update-sync-schema.md)
+    - Korzystanie z programu PowerShell — [Używanie programu PowerShell do aktualizowania schematu synchronizacji w istniejącej grupie synchronizacji](update-sync-schema-in-sync-group.md)
 
-Aby uzyskać więcej informacji na temat usługi SQL Database, zobacz:
+Aby uzyskać więcej informacji na temat SQL Database, zobacz:
 
-- [Omówienie usługi SQL Database](../sql-database-paas-overview.md)
+- [Przegląd SQL Database](../sql-database-paas-overview.md)
 - [Database Lifecycle Management (Zarządzanie cyklem życia bazy danych)](https://msdn.microsoft.com/library/jj907294.aspx)

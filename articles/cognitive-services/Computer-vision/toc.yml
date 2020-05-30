@@ -137,8 +137,6 @@
       href: 'https://aka.ms/azure-powershell-cognitiveservices'
     - name: Interfejs API przetwarzania obrazów w wersji 3.0
       href: 'https://aka.ms/computer-vision-v3-ref'
-    - name: Interfejs API przetwarzania obrazów 3.0 (wersja zapoznawcza)
-      href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/5d98695995feb7853f67d6a6'
     - name: Interfejs API przetwarzania obrazów v2.1
       href: 'https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641'
     - name: Interfejs API przetwarzania obrazów v2.0

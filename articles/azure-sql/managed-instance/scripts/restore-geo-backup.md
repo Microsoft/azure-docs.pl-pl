@@ -1,6 +1,6 @@
 ---
 title: 'PowerShell: Przywracanie geograficznej kopii zapasowej dla wystąpienia zarządzanego Azure SQL'
-description: Azure PowerShell przykładowy skrypt służący do przywracania wystąpienia zarządzanego Azure SQL z geograficznie nadmiarowej kopii zapasowej.
+description: Azure PowerShell przykładowy skrypt do przywrócenia bazy danych wystąpienia zarządzanego Azure SQL z geograficznie nadmiarowej kopii zapasowej.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -11,14 +11,15 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 07/03/2019
-ms.openlocfilehash: 3ec73fd54ddb482e9d8df6d406b77f57596b95e7
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: eeb20f51b22805775ed491267b69d0ba60c90bc3
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053459"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220851"
 ---
 # <a name="use-powershell-to-restore-an-azure-sql-managed-instance-database-to-another-geo-region"></a>Przywracanie bazy danych wystąpienia zarządzanego usługi Azure SQL przy użyciu programu PowerShell w innym regionie geograficznym
+
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqlmi.md)]
 
 Ten przykładowy skrypt programu PowerShell umożliwia przywrócenie bazy danych wystąpienia zarządzanego Azure SQL z zdalnego regionu geograficznego (Przywracanie geograficzne).  
@@ -27,7 +28,7 @@ Ten przykładowy skrypt programu PowerShell umożliwia przywrócenie bazy danych
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-Jeśli zdecydujesz się zainstalować program PowerShell i używać go lokalnie, ten samouczek wymaga AZ PowerShell 1.4.0 lub nowszego. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Connect-AzAccount`, aby utworzyć połączenie z platformą Azure.
+Jeśli zdecydujesz się zainstalować program PowerShell i używać go lokalnie, ten samouczek wymaga Azure PowerShell 1.4.0 lub nowszego. Jeśli konieczne będzie uaktualnienie, zobacz [Instalowanie modułu Azure PowerShell](/powershell/azure/install-az-ps). Jeśli używasz programu PowerShell lokalnie, musisz też uruchomić polecenie `Connect-AzAccount`, aby utworzyć połączenie z platformą Azure.
 
 ## <a name="sample-script"></a>Przykładowy skrypt
 
@@ -83,4 +84,4 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 
 Aby uzyskać więcej informacji na temat programu PowerShell, zobacz [dokumentację Azure PowerShell](/powershell/azure/overview).
 
-Więcej przykładowych skryptów programu PowerShell dla usługi SQL Database można znaleźć w [skryptach programu PowerShell dla usługi Azure SQL Database](../../database/powershell-script-content-guide.md).
+Dodatkowe przykłady skryptów programu PowerShell dla Azure SQL Database można znaleźć w [Azure SQL Database skryptach programu PowerShell](../../database/powershell-script-content-guide.md).

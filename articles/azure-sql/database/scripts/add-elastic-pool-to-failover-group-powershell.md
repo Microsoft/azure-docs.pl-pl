@@ -11,17 +11,17 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: b756ad44c9702d7b8a2e1fe02c1404e0309f4f10
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: d9c387a095f81978bc57f6ce6365596cafffc39c
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84054113"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196994"
 ---
-# <a name="use-powershell-to-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Dodawanie Azure SQL Database elastycznej puli do grupy trybu failover przy użyciu programu PowerShell
+# <a name="use-powershell-to-add-an-elastic-pool-to-a-failover-group"></a>Dodawanie puli elastycznej do grupy trybu failover przy użyciu programu PowerShell
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
-Ten przykładowy skrypt programu PowerShell tworzy pojedynczą bazę danych, dodaje ją do puli elastycznej, tworzy grupę trybu failover i testuje tryb failover.
+Ten Azure PowerShell przykładowy skrypt tworzy bazę danych w Azure SQL Database, dodaje ją do puli elastycznej, tworzy grupę trybu failover i testuje tryb failover.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]

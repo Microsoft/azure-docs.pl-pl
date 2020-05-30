@@ -1,6 +1,7 @@
 - name: Ogólne
   href: index.yml
 - name: Omówienie
+  expanded: true
   items:
     - name: Informacje o usłudze Azure Key Vault
       href: overview.md

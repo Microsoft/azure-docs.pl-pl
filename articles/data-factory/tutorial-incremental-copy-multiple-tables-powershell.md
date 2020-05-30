@@ -1,6 +1,6 @@
 ---
 title: Przyrostowe kopiowanie wielu tabel przy użyciu programu PowerShell
-description: W tym samouczku utworzysz potok Azure Data Factory, który przyrostowo kopiuje dane różnicowe z wielu tabel w lokalnej bazie danych SQL Server do Azure SQL Database.
+description: W tym samouczku utworzysz potok Azure Data Factory, który stopniowo kopiuje dane różnicowe z wielu tabel w bazie danych SQL Server do Azure SQL Database.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/30/2020
-ms.openlocfilehash: 84df242cdbfedd0cd1442ac4c4da7f4b6139d244
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a3fc4a7fa905e7538199d3b26a0cd8b9791aaac4
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020748"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194525"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Przyrostowe ładowanie danych z wielu tabel w SQL Server do Azure SQL Database
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-W tym samouczku utworzysz fabrykę danych platformy Azure z potokiem, który ładuje dane różnicowe z wielu tabel w SQL Server lokalnym do Azure SQL Database.    
+W tym samouczku utworzysz fabrykę danych Azure z potokiem, który ładuje dane różnicowe z wielu tabel w bazie danych SQL Server do Azure SQL Database.    
 
 Ten samouczek obejmuje następujące procedury:
 
@@ -69,12 +69,12 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* **SQL Server**. Użyj lokalnej bazy danych SQL Server jako źródłowego magazynu danych w tym samouczku. 
+* **SQL Server**. Baza danych SQL Server jest używana jako źródłowy magazyn danych w tym samouczku. 
 * **Azure SQL Database**. Jako magazyn danych ujścia używana jest baza danych SQL. Jeśli nie masz bazy danych SQL, utwórz ją, wykonując czynności przedstawione w artykule [Tworzenie bazy danych Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md). 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Tworzenie tabel źródłowych w bazie danych SQL Server
 
-1. Otwórz [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) lub [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)i nawiąż połączenie z lokalną bazą danych SQL Server.
+1. Otwórz [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) lub [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)i nawiąż połączenie z bazą danych SQL Server.
 
 2. W **Eksplorator serwera (SSMS)** lub w **okienku połączenia (Azure Data Studio)** kliknij prawym przyciskiem myszy bazę danych i wybierz polecenie **nowe zapytanie**.
 
@@ -113,7 +113,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpł
 
 ### <a name="create-destination-tables-in-your-azure-sql-database"></a>Tworzenie tabel docelowych w Azure SQL Database
 
-1. Otwórz [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) lub [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)i nawiąż połączenie z lokalną bazą danych SQL Server.
+1. Otwórz [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) lub [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)i nawiąż połączenie z bazą danych SQL Server.
 
 2. W **Eksplorator serwera (SSMS)** lub w **okienku połączenia (Azure Data Studio)** kliknij prawym przyciskiem myszy bazę danych i wybierz polecenie **nowe zapytanie**.
 
@@ -289,11 +289,11 @@ Pamiętaj o następujących kwestiach:
 
 ## <a name="create-linked-services"></a>Tworzenie połączonych usług
 
-Połączone usługi tworzy się w fabryce danych w celu połączenia magazynów danych i usług obliczeniowych z fabryką danych. W tej sekcji utworzysz połączone usługi z lokalną bazą danych SQL Server i Azure SQL Database. 
+Połączone usługi tworzy się w fabryce danych w celu połączenia magazynów danych i usług obliczeniowych z fabryką danych. W tej sekcji utworzysz połączone usługi do bazy danych SQL Server i Azure SQL Database. 
 
 ### <a name="create-the-sql-server-linked-service"></a>Tworzenie usługi połączonej z serwerem SQL Server
 
-W tym kroku połączysz lokalną bazę danych programu SQL Server z fabryką danych.
+W tym kroku połączysz bazę danych SQL Server z fabryką danych.
 
 1. Utwórz plik JSON o nazwie **SqlServerLinkedService. JSON** w folderze C:\ADFTutorials\IncCopyMultiTableTutorial (Utwórz foldery lokalne, jeśli jeszcze nie istnieją) z następującą zawartością. Wybierz właściwą sekcję na podstawie uwierzytelniania używanego do nawiązywania połączenia z programem SQL Server.  
 

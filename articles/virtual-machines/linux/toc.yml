@@ -422,6 +422,8 @@
                       href: ../image-version-another-gallery-cli.md
                 - name: Tworzenie maszyny wirtualnej
                   items:
+                    - name: Wyspecjalizowany
+                      href: ../vm-specialized-image-version-cli.md
                     - name: Uogólniony
                       href: ../vm-generalized-image-version-cli.md
                 - name: Aktualizowanie zasobów obrazów

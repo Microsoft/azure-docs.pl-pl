@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: b3616a338666dbb10fe7500bad8c1e8239fd2c92
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: ffbfd3214242d8df5fe33faf465bc1da3eb9986d
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82561620"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196638"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>Samouczek: Inicjowanie obsługi Azure Data Box Gateway w funkcji Hyper-V
 
@@ -31,7 +31,7 @@ Ten samouczek zawiera informacje na temat wykonywania następujących czynności
 > * Aprowizowanie urządzenia wirtualnego w funkcji hypervisor
 > * Uruchamianie urządzenia wirtualnego i uzyskiwanie adresu IP
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -64,8 +64,8 @@ Przed wdrożeniem urządzenia upewnij się, że:
 
 Przed rozpoczęciem:
 
-- Zapoznaj się z wymaganiami dotyczącymi przygotowania sieci pod kątem wdrożenia usługi Data Box Gateway i skonfiguruj sieć w centrum danych zgodnie z tymi wymaganiami. Aby uzyskać więcej informacji, zobacz [Data Box Gateway networking requirements (Wymagania dotyczące sieci dla usługi Data Box Gateway)](data-box-gateway-system-requirements.md#networking-port-requirements).
-- Aby umożliwić optymalne działanie urządzenia, przepustowość połączenia internetowego musi wynosić co najmniej 20 Mb/s.
+* Zapoznaj się z wymaganiami dotyczącymi przygotowania sieci pod kątem wdrożenia usługi Data Box Gateway i skonfiguruj sieć w centrum danych zgodnie z tymi wymaganiami. Aby uzyskać więcej informacji, zobacz [Data Box Gateway networking requirements (Wymagania dotyczące sieci dla usługi Data Box Gateway)](data-box-gateway-system-requirements.md#networking-port-requirements).
+* Aby umożliwić optymalne działanie urządzenia, przepustowość połączenia internetowego musi wynosić co najmniej 20 Mb/s.
 
 ## <a name="check-the-host-system"></a>Sprawdzanie systemu hosta
 
@@ -75,11 +75,17 @@ Do utworzenia urządzenia wirtualnego potrzebne są następujące elementy:
 * Menedżer funkcji Microsoft Hyper-V na kliencie z systemem Microsoft Windows połączonym z hostem.
 * Upewnij się, że sprzęt (host), na którym tworzysz urządzenie wirtualne, może przeznaczyć następujące zasoby wyłącznie na potrzeby urządzenia wirtualnego:
 
-    * Co najmniej 4 procesory wirtualne.
-    * Co najmniej 8 GB pamięci RAM.
-    * Jeden interfejs sieciowy połączony z siecią umożliwiającą kierowanie ruchu do Internetu. 
-    * Dysk systemu operacyjnego o rozmiarze 250 GB.
-    * Dysk wirtualny o rozmiarze 2 TB do przechowywania danych systemu.
+  * Co najmniej 4 procesory wirtualne.
+  * Co najmniej 8 GB pamięci RAM.
+  * Jeden interfejs sieciowy połączony z siecią umożliwiającą kierowanie ruchu do Internetu.
+  * Dysk systemu operacyjnego o rozmiarze 250 GB.
+  * Dysk wirtualny o rozmiarze 2 TB do przechowywania danych systemu.
+
+## <a name="bitlocker-considerations"></a>Uwagi dotyczące funkcji BitLocker
+
+* Zalecamy włączenie funkcji BitLocker na Data Box Gateway maszynie wirtualnej. Domyślnie funkcja BitLocker nie jest włączona. Aby uzyskać więcej informacji, zobacz:
+  * [Ustawienia szyfrowania pomocy technicznej w Menedżerze funkcji Hyper-V](hhttps://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
+  * [Obsługa funkcji BitLocker na maszynie wirtualnej](https://kb.vmware.com/s/article/2036142)
 
 ## <a name="provision-a-virtual-device-in-hypervisor"></a>Aprowizowanie urządzenia wirtualnego w funkcji hypervisor
 
@@ -136,7 +142,7 @@ Wykonaj następujące czynności, aby aprowizować urządzenie w funkcji hypervi
 
     ![Określ nazwę i stronę lokalizacji](./media/data-box-gateway-deploy-provision-hyperv/image14.png)
 19. Na stronie **Konfigurowanie dysku** wybierz opcję **Utwórz nowy pusty wirtualny dysk twardy** i wybierz rozmiar **2 TB** lub większy.
-    
+
     2 TB to wymaganie minimalne — zawsze można aprowizować większy dysk. Pamiętaj, że po aprowizowaniu dysku nie można zmniejszyć jego rozmiaru. Próba zmniejszenia dysku spowoduje utratę wszystkich danych lokalnych na urządzeniu. Rozszerzanie dysku danych nie jest obsługiwane. Kliknij przycisk **Dalej**.
 
     ![Strona Konfigurowanie dysku](./media/data-box-gateway-deploy-provision-hyperv/image15.png)
@@ -148,37 +154,38 @@ Wykonaj następujące czynności, aby aprowizować urządzenie w funkcji hypervi
     ![Strona Ustawienia](./media/data-box-gateway-deploy-provision-hyperv/image17.png)
 
 ## <a name="start-the-virtual-device-and-get-the-ip"></a>Uruchamianie urządzenia wirtualnego i uzyskiwanie adresu IP
+
 Wykonaj poniższe kroki, aby uruchomić urządzenie wirtualne i nawiązać z nim połączenie.
 
 #### <a name="to-start-the-virtual-device"></a>Aby uruchomić urządzenie wirtualne
+
 1. Uruchom urządzenie wirtualne.
 
    ![Uruchom urządzenie wirtualne](./media/data-box-gateway-deploy-provision-hyperv/image18.png)
 2. Po uruchomieniu urządzenia wybierz je, kliknij prawym przyciskiem myszy, a następnie wybierz polecenie **Połącz**.
 
-3. Przygotowanie urządzenia może potrwać około 10–15 minut. W konsoli zostanie wyświetlony komunikat o stanie, wskazujący postęp procesu. Gdy urządzenie będzie gotowe, przejdź do pozycji **Akcja**. Naciśnij `Ctrl + Alt + Delete` klawisz, aby zalogować się do urządzenia wirtualnego. Domyślna nazwa użytkownika to *EdgeUser*, a domyślne hasło to *Password1*.
+3. Przygotowanie urządzenia może potrwać około 10–15 minut. W konsoli zostanie wyświetlony komunikat o stanie, wskazujący postęp procesu. Gdy urządzenie będzie gotowe, przejdź do pozycji **Akcja**. Naciśnij klawisz `Ctrl + Alt + Delete` , aby zalogować się do urządzenia wirtualnego. Domyślna nazwa użytkownika to *EdgeUser*, a domyślne hasło to *Password1*.
 
    ![Zaloguj się do urządzenia wirtualnego](./media/data-box-gateway-deploy-provision-hyperv/image21.png)
-   
-6. Kroki od 5 do 7 mają zastosowanie tylko w przypadku uruchamiania w środowisku bez protokołu DHCP. W przypadku środowiska z protokołem DHCP pomiń te kroki. Jeśli urządzenie zostało uruchomione w środowisku bez protokołu DHCP, zostanie wyświetlony komunikat z taką informacją.
-    
-7. Aby skonfigurować sieć, użyj polecenia `Get-HcsIpAddress` do wyświetlenia listy interfejsów sieciowych włączonych na urządzeniu wirtualnym. Jeśli urządzenie ma włączony jeden interfejs sieciowy, jego domyślną nazwą jest `Ethernet`.
 
-8. Skonfiguruj sieć za pomocą polecenia cmdlet `Set-HcsIpAddress`. Zobacz poniższy przykład:
+4. Kroki od 5 do 7 mają zastosowanie tylko w przypadku uruchamiania w środowisku bez protokołu DHCP. W przypadku środowiska z protokołem DHCP pomiń te kroki. Jeśli urządzenie zostało uruchomione w środowisku bez protokołu DHCP, zostanie wyświetlony komunikat z taką informacją.
+
+5. Aby skonfigurować sieć, użyj polecenia `Get-HcsIpAddress` do wyświetlenia listy interfejsów sieciowych włączonych na urządzeniu wirtualnym. Jeśli urządzenie ma włączony jeden interfejs sieciowy, jego domyślną nazwą jest `Ethernet`.
+
+6. Skonfiguruj sieć za pomocą polecenia cmdlet `Set-HcsIpAddress`. Zobacz poniższy przykład:
 
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
-    
-9. Po zakończeniu początkowej konfiguracji i uruchomieniu urządzenia zobaczysz tekst baneru urządzenia. Zanotuj adresy IP i URL wyświetlane w tekście baneru. Posłużą one do zarządzania urządzeniem. Użyj tego adresu IP do nawiązania połączenia z internetowym interfejsem użytkownika urządzenia wirtualnego i dokończ lokalną konfigurację i aktywację urządzenia.
+
+7. Po zakończeniu początkowej konfiguracji i uruchomieniu urządzenia zobaczysz tekst baneru urządzenia. Zanotuj adresy IP i URL wyświetlane w tekście baneru. Posłużą one do zarządzania urządzeniem. Użyj tego adresu IP do nawiązania połączenia z internetowym interfejsem użytkownika urządzenia wirtualnego i dokończ lokalną konfigurację i aktywację urządzenia.
 
    ![Transparent urządzenia wirtualnego z adresem IP i adresem URL połączenia](./media/data-box-gateway-deploy-provision-hyperv/image23.png)
-      
 
 Jeśli urządzenie nie spełnia minimalnych wymagań dotyczących konfiguracji, w tekście transparentu zostanie wyświetlony błąd. Zmodyfikuj konfigurację urządzenia tak, aby zapewnić zasoby zgodne z wymaganiami minimalnymi. Następnie możesz ponownie uruchomić urządzenie i połączyć się z nim. Zapoznaj się z minimalnymi wymaganiami dotyczącymi konfiguracji w obszarze [Sprawdzanie, czy system hosta spełnia minimalne wymagania dotyczące urządzeń wirtualnych](#check-the-host-system).
 
 Jeśli wystąpi jakikolwiek inny błąd podczas początkowej konfiguracji przy użyciu lokalnego interfejsu użytkownika sieci Web, zapoznaj się z następującymi przepływami pracy:
 
-- [Uruchom testy diagnostyczne, aby rozwiązać problemy z konfiguracją interfejsu użytkownika sieci Web](data-box-gateway-troubleshoot.md#run-diagnostics).
-- [Generuj pakiet dzienników i Wyświetl pliki dziennika](data-box-gateway-troubleshoot.md#collect-support-package).
+* [Uruchom testy diagnostyczne, aby rozwiązać problemy z konfiguracją interfejsu użytkownika sieci Web](data-box-gateway-troubleshoot.md#run-diagnostics).
+* [Generuj pakiet dzienników i Wyświetl pliki dziennika](data-box-gateway-troubleshoot.md#collect-support-package).
 
 ## <a name="next-steps"></a>Następne kroki
 

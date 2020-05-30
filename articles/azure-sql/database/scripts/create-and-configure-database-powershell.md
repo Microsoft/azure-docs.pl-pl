@@ -1,6 +1,6 @@
 ---
 title: 'PowerShell: Tworzenie pojedynczej bazy danych'
-description: Azure PowerShell przykładowy skrypt, aby utworzyć pojedynczy Azure SQL Database.
+description: Użyj przykładowego skryptu Azure PowerShell, aby utworzyć pojedynczą bazę danych w programie Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -11,17 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 9468ebd91ac0742c928bfd5cd1e1c449ae62c69b
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: d8cc407e09702472978e645650ebe8df0963ff7b
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053735"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196912"
 ---
-# <a name="use-powershell-to-create-a-single-azure-sql-database-and-configure-a-server-level-firewall-rule"></a>Tworzenie jednego Azure SQL Database i konfigurowanie reguły zapory na poziomie serwera przy użyciu programu PowerShell
+# <a name="use-powershell-to-create-a-single-database-and-configure-a-server-level-firewall-rule"></a>Tworzenie pojedynczej bazy danych i konfigurowanie reguły zapory na poziomie serwera przy użyciu programu PowerShell
+
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
-Ten przykładowy skrypt programu PowerShell tworzy Azure SQL Database i konfiguruje regułę zapory na poziomie serwera. Po pomyślnym wykonaniu tego skryptu można uzyskać dostęp do bazy danych SQL z poziomu wszystkich usług platformy Azure przy użyciu skonfigurowanego adresu IP.
+Ten Azure PowerShell przykładowy skrypt tworzy pojedynczą bazę danych w Azure SQL Database i konfiguruje regułę zapory na poziomie serwera. Po pomyślnym uruchomieniu skryptu można uzyskać dostęp do bazy danych ze wszystkich usług platformy Azure i skonfigurowanego adresu IP.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
@@ -56,6 +57,6 @@ W tym skrypcie użyto następujących poleceń. Każde polecenie w tabeli stanow
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby uzyskać więcej informacji na temat programu Azure PowerShell, zobacz [dokumentację programu Azure PowerShell](/powershell/azure/overview).
+Aby uzyskać więcej informacji na temat Azure PowerShell, zobacz [dokumentację dotyczącą Azure PowerShell](/powershell/azure/overview).
 
 Więcej przykładowych skryptów programu PowerShell dla usługi SQL Database można znaleźć w [skryptach programu PowerShell dla usługi Azure SQL Database](../powershell-script-content-guide.md).

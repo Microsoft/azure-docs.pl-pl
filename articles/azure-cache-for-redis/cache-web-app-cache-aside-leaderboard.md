@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
-ms.openlocfilehash: e8b8feff0b66aa0b48c88b43049594003b20e5c0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ca70262a7980df9d427fbd7e58e08b41c37d7133
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75411941"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195577"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Samouczek: tworzenie rankingu z odkładaniem do pamięci podręcznej na platformie ASP.NET
 
@@ -615,7 +615,7 @@ Kod tworzenia szkieletu, który został wygenerowany w ramach tego przykładu, z
     </table>
     ```
 
-1. Przewiń w dół pliku **index. cshtml** i Dodaj następujący `tr` element, tak aby był ostatnim wierszem w ostatniej tabeli w pliku:
+1. Przewiń w dół pliku **index. cshtml** i Dodaj następujący element, tak aby `tr` był ostatnim wierszem w ostatniej tabeli w pliku:
 
     ```html
     <tr><td colspan="5">@ViewBag.Msg</td></tr>
@@ -642,9 +642,9 @@ Aby uruchomić aplikację lokalnie:
 
 ## <a name="publish-and-run-in-azure"></a>Publikowanie i uruchamianie na platformie Azure
 
-### <a name="provision-a-sql-azure-database-for-the-app"></a>Aprowizacja bazy danych SQL platformy Azure dla aplikacji
+### <a name="provision-a-database-for-the-app"></a>Inicjowanie obsługi administracyjnej bazy danych aplikacji
 
-W tej sekcji aprowizujesz nową bazę danych SQL platformy Azure dla aplikacji, która będzie używana podczas jej hostowania na platformie Azure.
+W tej sekcji zostanie zainicjowana Nowa baza danych w SQL Database, aby aplikacja mogła korzystać z usługi na platformie Azure.
 
 1. W witrynie [Azure Portal](https://portal.azure.com/) kliknij pozycję **Utwórz zasób** w prawym lewym rogu.
 
@@ -727,7 +727,7 @@ Po zakończeniu pracy z przykładową aplikacją z samouczka możesz usunąć u�
 2. Wpisz nazwę grupy zasobów w polu tekstowym **Filtruj elementy...**.
 3. Kliknij pozycję **...** z prawej strony grupy zasobów i kliknij pozycję **Usuń grupę zasobów**.
 
-    ![Usuwanie](./media/cache-web-app-cache-aside-leaderboard/cache-delete-resource-group.png)
+    ![Usuń](./media/cache-web-app-cache-aside-leaderboard/cache-delete-resource-group.png)
 
 4. Zobaczysz prośbę o potwierdzenie usunięcia grupy zasobów. Wpisz nazwę grupy zasobów w celu potwierdzenia, a następnie kliknij pozycję **Usuń**.
 

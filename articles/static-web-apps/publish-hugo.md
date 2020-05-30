@@ -7,18 +7,18 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: 6debf422d0c16a6a2bfe180e6febb4973846e0f0
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: c6f3a912a9b3c9ff65fb9975eaf13b38ee3d9483
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870698"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195289"
 ---
 # <a name="tutorial-publish-a-hugo-site-to-azure-static-web-apps-preview"></a>Samouczek: publikowanie witryny Hugo w wersji zapoznawczej usługi Azure static Web Apps
 
 W tym artykule pokazano, jak utworzyć i wdrożyć aplikację sieci Web [Hugo](https://gohugo.io/) w usłudze [Azure static Web Apps](overview.md). Końcowym wynikiem jest nowe statyczne Web Apps platformy Azure ze skojarzonymi akcjami GitHub, które zapewniają kontrolę nad sposobem kompilowania i publikowania aplikacji.
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -153,7 +153,7 @@ Następnie Dodaj ustawienia konfiguracji, które są używane przez proces kompi
 
 1. Otwórz aplikację Hugo w edytorze tekstów i Otwórz plik _. GitHub/przepływy pracy/Azure-Pages-<WORKFLOW_NAME>. yml_ .
 
-1. Zamień wiersz `- uses: actions/checkout@v2` (wiersz 18) na następujący, aby skompilować aplikację Hugo.
+1. Zamień wiersz `- uses: actions/checkout@v2` (wiersz 18) na następujący, aby skompilować aplikację Hugo. Jeśli potrzebujesz Hugo rozszerzony, Usuń komentarz `extended: true` .
 
    ```yml
    - uses: actions/checkout@v2
@@ -164,6 +164,7 @@ Następnie Dodaj ustawienia konfiguracji, które są używane przez proces kompi
      uses: peaceiris/actions-hugo@v2.4.8
      with:
        hugo-version: "latest"
+       # extended: true
 
    - name: Build
      run: hugo
@@ -183,7 +184,7 @@ Następnie Dodaj ustawienia konfiguracji, które są używane przez proces kompi
 
    :::image type="content" source="./media/publish-hugo/deployed-app.png" alt-text="Wdrożona aplikacja":::
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 [!INCLUDE [cleanup-resource](../../includes/static-web-apps-cleanup-resource.md)]
 

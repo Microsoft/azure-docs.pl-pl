@@ -1,6 +1,6 @@
 ---
 title: Migrowanie SQL Server użytkowników i grup systemu Windows do wystąpienia zarządzanego SQL przy użyciu języka T-SQL
-description: Dowiedz się więcej na temat migrowania SQL Server lokalnych użytkowników i grup systemu Windows do wystąpienia zarządzanego usługi Azure SQL
+description: Informacje na temat migracji użytkowników i grup systemu Windows w wystąpieniu SQL Server do wystąpienia zarządzanego usługi Azure SQL
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,14 +10,14 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 10/30/2019
-ms.openlocfilehash: aba5013bbba95efcb5f27af5aa61f91d880601aa
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 79a9f59b4fb6f7ae71c1e6866e8c50baa4e7974b
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053555"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193767"
 ---
-# <a name="tutorial-migrate-sql-server-on-premises-windows-users-and-groups-to-azure-sql-managed-instance-using-t-sql-ddl-syntax"></a>Samouczek: Migrowanie SQL Server lokalnych użytkowników i grup systemu Windows do wystąpienia zarządzanego usługi Azure SQL przy użyciu składni języka T-SQL
+# <a name="tutorial-migrate-windows-users-and-groups-in-a-sql-server-instance-to-azure-sql-managed-instance-using-t-sql-ddl-syntax"></a>Samouczek: Migrowanie użytkowników i grup systemu Windows w wystąpieniu SQL Server do wystąpienia zarządzanego usługi Azure SQL przy użyciu składni języka T-SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 > [!NOTE]
@@ -53,7 +53,7 @@ Aby ukończyć ten samouczek, obowiązują następujące wymagania wstępne:
 
 ## <a name="t-sql-ddl-syntax"></a>Składnia DDL języka T-SQL
 
-Poniżej przedstawiono składnię DDL języka T-SQL służącą do obsługi SQL Server lokalnej migracji użytkowników i grup systemu Windows do wystąpienia zarządzanego SQL przy użyciu uwierzytelniania usługi Azure AD.
+Poniżej przedstawiono składnię DDL języka T-SQL służącą do obsługi migracji użytkowników i grup systemu Windows z wystąpienia SQL Server do wystąpienia zarządzanego SQL z uwierzytelnianiem za pomocą usługi Azure AD.
 
 ```sql
 -- For individual Windows users with logins
@@ -77,7 +77,7 @@ Ponownie mapuje użytkownika na nazwę logowania usługi Azure AD
 _groupName_</br>
 Określa nazwę grupy identyfikowanej w bazie danych.
 
-## <a name="part-1-create-logins-for-sql-server-on-premises-users-and-groups"></a>Część 1: Tworzenie nazw logowania dla SQL Server lokalnych użytkowników i grup
+## <a name="part-1-create-logins-in-sql-server-for-windows-users-and-groups"></a>Część 1. Tworzenie nazw logowania w SQL Server dla użytkowników i grup systemu Windows
 
 > [!IMPORTANT]
 > Następująca składnia tworzy użytkownika i logowanie do grupy w SQL Server. Przed wykonaniem poniższej składni należy upewnić się, że użytkownik i Grupa znajdują się wewnątrz Active Directory (AD). </br> </br>

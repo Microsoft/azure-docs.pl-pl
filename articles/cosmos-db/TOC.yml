@@ -1237,6 +1237,8 @@
       href: whitepapers.md
     - name: Partnerzy
       href: partners-migration-cosmosdb.md
+    - name: Pytania i odpowiedzi Microsoft — strona pytania
+      href: 'https://docs.microsoft.com/answers/topics/azure-cosmos-db.html'
     - name: Filmy wideo
       href: 'https://azure.microsoft.com/resources/videos/index/?services=cosmos-db'
     - name: Harmonogram działania dla platformy Azure

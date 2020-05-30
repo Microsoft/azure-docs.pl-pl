@@ -1,6 +1,6 @@
 ---
 title: 'Interfejs wiersza polecenia platformy Azure: Przenoszenie bazy danych między elastycznymi pulami'
-description: Przykładowy skrypt interfejsu wiersza polecenia platformy Azure, który tworzy dwie elastyczne pule i przenosi bazę danych w SQL Database z jednej elastycznej puli do innej przy użyciu interfejsu wiersza polecenia platformy Azure.
+description: Użyj przykładowego skryptu interfejsu wiersza polecenia platformy Azure, aby utworzyć dwie elastyczne pule i przenieść bazę danych w SQL Database z jednej elastycznej puli do innej.
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
@@ -11,17 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 2bcf9f4218f535556ff83ccaad130bb1da28ef69
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 85b78ad92997344ff6ea0f30da25205790d90eef
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84054059"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196774"
 ---
-# <a name="use-cli-to-move-a-database-in-sql-database-in-a-sql-elastic-pool"></a>Używanie interfejsu wiersza polecenia do przenoszenia bazy danych w SQL Database w elastycznej puli SQL
+# <a name="use-the-azure-cli-to-move-a-database-in-sql-database-in-a-sql-elastic-pool"></a>Używanie interfejsu wiersza polecenia platformy Azure do przenoszenia bazy danych w SQL Database w elastycznej puli SQL
 
-
-Ten przykładowy skrypt interfejsu wiersza polecenia platformy Azure tworzy dwie elastyczne pule i przenosi bazę danych w SQL Database z jednej elastycznej puli SQL do innej elastycznej puli SQL, a następnie przenosi bazę danych z puli elastycznej do rozmiaru obliczeniowego pojedynczej bazy danych.
+Ten przykładowy skrypt interfejsu wiersza polecenia platformy Azure tworzy dwie pule elastyczne, przenosi bazę danych w puli w SQL Database z jednej elastycznej puli SQL do innej elastycznej puli SQL, a następnie przenosi bazę danych w puli poza pulę elastyczną SQL na jedną bazę danych w SQL Database.
 
 Jeśli zdecydujesz się zainstalować interfejs wiersza polecenia i korzystać z niego lokalnie, ten temat będzie wymagał interfejsu wiersza polecenia platformy Azure w wersji 2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie interfejsu, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure]( /cli/azure/install-azure-cli).
 
