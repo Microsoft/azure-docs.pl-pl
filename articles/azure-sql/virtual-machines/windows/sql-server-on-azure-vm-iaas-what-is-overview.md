@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f9e576599fe1b329807427181d5de3fa37c9adea
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: efe7a68f7102da0b39def676306ce96ad00f5ff8
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84041840"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204960"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Co to jest program SQL Server na maszynach wirtualnych platformy Azure? (Windows)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -112,7 +112,7 @@ Aby uzyskać dostęp do strony **zasoby SQL platformy Azure** , wybierz pozycję
 ![Wyszukiwanie w usłudze Azure SQL](./media/sql-server-on-azure-vm-iaas-what-is-overview/search-for-azure-sql.png)
 
 > [!NOTE]
-> **Usługa Azure SQL** zapewnia szybki i łatwy sposób dostępu do wszystkich baz danych SQL, pul elastycznych, serwerów baz danych, wystąpień zarządzanych SQL i maszyn wirtualnych SQL. Usługa Azure SQL nie jest usługą ani zasobem. 
+> **Usługa Azure SQL** umożliwia szybkie i łatwe uzyskiwanie dostępu do wszystkich baz danych SQL platformy Azure, pul elastycznych, serwerów logicznych, wystąpień zarządzanych i maszyn wirtualnych. Usługa Azure SQL nie jest usługą ani zasobem. 
 
 Aby zarządzać istniejącymi zasobami, wybierz żądany element z listy. Aby utworzyć nowe zasoby Azure SQL, wybierz pozycję **+ Dodaj**. 
 

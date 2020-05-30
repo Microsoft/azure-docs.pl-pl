@@ -1,23 +1,23 @@
 ---
 title: Template deployment co zrobić (wersja zapoznawcza)
 description: Przed wdrożeniem szablonu Azure Resource Manager Ustal, jakie zmiany będą miały miejsce w swoich zasobach.
-author: mumian
+author: tfitzmac
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.author: jgao
-ms.openlocfilehash: 70023f4fa5d44c74c7ce14f3a2c09ff14c9d2f8c
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.date: 05/29/2020
+ms.author: tomfitz
+ms.openlocfilehash: 31ef0f26043c416ff902fe792bae064c63f15b20
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82581200"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84218292"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Wdrażanie szablonu ARM — operacja, którą należy wykonać (wersja zapoznawcza)
 
 Przed wdrożeniem szablonu Azure Resource Manager (ARM) można wyświetlić podgląd zmian, które zostaną wykonane. Azure Resource Manager zapewnia operację działania warunkowego, która pozwala zobaczyć, jak zasoby zmienią się w przypadku wdrożenia szablonu. Operacja działania warunkowego nie wprowadza żadnych zmian w istniejących zasobach. Zamiast tego przewiduje zmiany w przypadku wdrożenia określonego szablonu.
 
 > [!NOTE]
-> Operacja działania warunkowego jest obecnie w wersji zapoznawczej. W wersji zapoznawczej wyniki mogą czasami wskazywać, że zasób ulegnie zmianie, gdy nie zostanie wykonana żadna zmiana. Pracujemy nad zmniejszeniem tych problemów, ale potrzebujemy pomocy. Zgłoś te problemy pod adresem [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
+> Operacja działania warunkowego jest obecnie w wersji zapoznawczej. W wersji zapoznawczej wyniki mogą czasami wskazywać, że zasób ulegnie zmianie, gdy nie zostanie wykonana żadna zmiana. Pracujemy nad zmniejszeniem tych problemów, ale potrzebujemy pomocy. Zgłoś te problemy pod adresem [https://aka.ms/whatifissues](https://aka.ms/whatifissues) .
 
 Operacji działania warunkowego można użyć Azure PowerShell, interfejsu wiersza polecenia platformy Azure lub operacji interfejsu API REST.
 
@@ -106,7 +106,7 @@ Aby wyświetlić podgląd zmian przed wdrożeniem szablonu, Dodaj `-Whatif` para
 * `New-AzResourceGroupDeployment -Whatif`dla wdrożeń grup zasobów
 * `New-AzSubscriptionDeployment -Whatif`i `New-AzDeployment -Whatif` dla wdrożeń na poziomie subskrypcji
 
-Możesz użyć parametru `-Confirm` Switch, aby wyświetlić podgląd zmian i uzyskać monit o kontynuowanie wdrożenia.
+Możesz użyć `-Confirm` parametru Switch, aby wyświetlić podgląd zmian i uzyskać monit o kontynuowanie wdrożenia.
 
 * `New-AzResourceGroupDeployment -Confirm`dla wdrożeń grup zasobów
 * `New-AzSubscriptionDeployment -Confirm`i `New-AzDeployment -Confirm` dla wdrożeń na poziomie subskrypcji
@@ -118,12 +118,12 @@ Powyższe polecenia zwracają podsumowanie tekstu, które można ręcznie sprawd
 
 ### <a name="azure-cli"></a>Interfejs wiersza polecenia platformy Azure
 
-Aby wyświetlić podgląd zmian przed wdrożeniem szablonu, `what-if` Użyj polecenia z poleceniem Deployment.
+Aby wyświetlić podgląd zmian przed wdrożeniem szablonu, użyj `what-if` polecenia z poleceniem Deployment.
 
 * `az deployment group what-if`dla wdrożeń grup zasobów
 * `az deployment sub what-if`w przypadku wdrożeń na poziomie subskrypcji
 
-Możesz użyć `--confirm-with-what-if` przełącznika (lub jego krótkiej formy `-c`), aby wyświetlić podgląd zmian i uzyskać monit o kontynuowanie wdrożenia.
+Możesz użyć `--confirm-with-what-if` przełącznika (lub jego krótkiej formy `-c` ), aby wyświetlić podgląd zmian i uzyskać monit o kontynuowanie wdrożenia.
 
 * `az deployment group create --confirm-with-what-if`lub `-c` dla wdrożeń grup zasobów
 * `az deployment sub create --confirm-with-what-if`lub `-c` w przypadku wdrożeń na poziomie subskrypcji
@@ -150,11 +150,11 @@ Operacja działania warunkowego zawiera listę sześciu różnych typów zmian:
 
 - **Ignoruj**: zasób istnieje, ale nie jest zdefiniowany w szablonie. Zasób nie zostanie wdrożony ani zmodyfikowany.
 
-- **NOCHANGE**: zasób istnieje i jest zdefiniowany w szablonie. Zasób zostanie wdrożony ponownie, ale właściwości zasobu nie ulegną zmianie. Ten typ zmiany jest zwracany, gdy [ResultFormat](#result-format) jest ustawiona `FullResourcePayloads`na wartość, która jest wartością domyślną.
+- **NOCHANGE**: zasób istnieje i jest zdefiniowany w szablonie. Zasób zostanie wdrożony ponownie, ale właściwości zasobu nie ulegną zmianie. Ten typ zmiany jest zwracany, gdy [ResultFormat](#result-format) jest ustawiona na `FullResourcePayloads` wartość, która jest wartością domyślną.
 
-- **Modyfikacja**: zasób istnieje i jest zdefiniowany w szablonie. Zasób zostanie wdrożony ponownie, a właściwości zasobu zmienią się. Ten typ zmiany jest zwracany, gdy [ResultFormat](#result-format) jest ustawiona `FullResourcePayloads`na wartość, która jest wartością domyślną.
+- **Modyfikacja**: zasób istnieje i jest zdefiniowany w szablonie. Zasób zostanie wdrożony ponownie, a właściwości zasobu zmienią się. Ten typ zmiany jest zwracany, gdy [ResultFormat](#result-format) jest ustawiona na `FullResourcePayloads` wartość, która jest wartością domyślną.
 
-- **Wdróż**: zasób istnieje i jest zdefiniowany w szablonie. Zasób zostanie wdrożony ponownie. Właściwości zasobu mogą lub nie mogą się zmieniać. Operacja zwraca ten typ zmiany, jeśli nie ma wystarczających informacji, aby określić, czy zmiany zostaną zmienione. Ten warunek jest wyświetlany tylko wtedy, gdy [ResultFormat](#result-format) jest `ResourceIdOnly`ustawiony na.
+- **Wdróż**: zasób istnieje i jest zdefiniowany w szablonie. Zasób zostanie wdrożony ponownie. Właściwości zasobu mogą lub nie mogą się zmieniać. Operacja zwraca ten typ zmiany, jeśli nie ma wystarczających informacji, aby określić, czy zmiany zostaną zmienione. Ten warunek jest wyświetlany tylko wtedy, gdy [ResultFormat](#result-format) jest ustawiony na `ResourceIdOnly` .
 
 ## <a name="result-format"></a>Format wyniku
 
@@ -165,9 +165,9 @@ Kontrolujesz poziom szczegółowości zwracanych informacji o przewidywanych zmi
 
 Wartość domyślna to **FullResourcePayloads**.
 
-W przypadku poleceń wdrażania programu PowerShell należy `-WhatIfResultFormat` użyć parametru. W poleceniach obiektów programistycznych należy użyć `ResultFormat` parametru.
+W przypadku poleceń wdrażania programu PowerShell należy użyć `-WhatIfResultFormat` parametru. W poleceniach obiektów programistycznych należy użyć `ResultFormat` parametru.
 
-W przypadku interfejsu wiersza polecenia platformy `--result-format` Azure Użyj parametru.
+W przypadku interfejsu wiersza polecenia platformy Azure Użyj `--result-format` parametru.
  
 Poniższe Wyniki pokazują dwa różne formaty danych wyjściowych:
 
@@ -221,7 +221,7 @@ Poniższe Wyniki pokazują dwa różne formaty danych wyjściowych:
 
 Aby zobaczyć, jak działa działanie, Uruchommy kilka testów. Najpierw Wdróż [szablon, który tworzy sieć wirtualną](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-before.json). Ta sieć wirtualna będzie używana do testowania, w jaki sposób zmiany są raportowane przez co to jest.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroup `
@@ -249,7 +249,7 @@ az deployment group create \
 
 Po zakończeniu wdrażania możesz sprawdzić, czy operacja co należy wykonać. Tym razem wdrażasz [szablon, który zmienia sieć wirtualną](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-after.json). Brak jednego z oryginalnych tagów, podsieć została usunięta, a prefiks adresu został zmieniony.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -311,7 +311,7 @@ Niektóre z właściwości, które są wymienione jako usunięte, nie ulegną zm
 
 Teraz można programowo oszacować wyniki działania warunkowego, ustawiając polecenie na zmienną.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $results = Get-AzResourceGroupDeploymentWhatIfResult `
@@ -342,7 +342,7 @@ Operacja działania warunkowego obsługuje używanie [trybu wdrożenia](deployme
 
 Aby wyświetlić podgląd zmian przed wdrożeniem szablonu, użyj polecenia Confirm Switch z poleceniem Deployment. Jeśli zmiany są zgodnie z oczekiwaniami, potwierdź, że wdrożenie ma zostać ukończone.
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -397,9 +397,19 @@ Are you sure you want to execute the deployment?
 
 Zobaczysz oczekiwane zmiany i można potwierdzić, że chcesz, aby wdrożenie zostało uruchomione.
 
+## <a name="sdks"></a>Zestawy SDK
+
+Operacji działania warunkowego można użyć w ramach zestawów SDK platformy Azure.
+
+* W przypadku języka Python Użyj elementu [co](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.deploymentsoperations?view=azure-python#what-if-resource-group-name--deployment-name--properties--location-none--custom-headers-none--raw-false--polling-true----operation-config-).
+
+* W przypadku języka Java należy użyć [klasy DeploymentWhatIf](/java/api/com.microsoft.azure.management.resources.deploymentwhatif?view=azure-java-stable).
+
+* W przypadku platformy .NET Użyj [klasy DeploymentWhatIf](/dotnet/api/microsoft.azure.management.resourcemanager.models.deploymentwhatif?view=azure-dotnet).
+
 ## <a name="next-steps"></a>Następne kroki
 
-- Jeśli zauważysz nieprawidłowe wyniki z wersji zapoznawczej rozwiązania tego problemu, zgłoś problemy pod adresem [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
+- Jeśli zauważysz nieprawidłowe wyniki z wersji zapoznawczej rozwiązania tego problemu, zgłoś problemy pod adresem [https://aka.ms/whatifissues](https://aka.ms/whatifissues) .
 - Aby wdrożyć szablony z Azure PowerShell, zobacz [wdrażanie zasobów przy użyciu szablonów ARM i Azure PowerShell](deploy-powershell.md).
 - Aby wdrożyć szablony przy użyciu interfejsu wiersza polecenia platformy Azure, zobacz [wdrażanie zasobów za pomocą szablonów ARM i interfejsu wiersza polecenia platformy Azure](deploy-cli.md).
 - Aby wdrożyć szablony przy użyciu usługi REST, zobacz [wdrażanie zasobów za pomocą szablonów ARM i interfejs API REST Menedżer zasobów](deploy-rest.md).

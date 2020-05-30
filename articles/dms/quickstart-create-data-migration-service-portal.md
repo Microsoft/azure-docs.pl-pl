@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 01/08/2020
-ms.openlocfilehash: 3b2a6566322f29870d2376007060acedac62692a
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 7d27d67cfa46eb4554f6ca3d66df76e393b18da0
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873540"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84187541"
 ---
 # <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Szybki start: tworzenie wystąpienia usługi Azure Database Migration Service przy użyciu witryny Azure Portal
 
-W tym przewodniku szybki start utworzysz wystąpienie Azure Database Migration Service za pomocą Azure Portal.  Po utworzeniu wystąpienia można użyć go do migrowania danych z SQL Server lokalnych do Azure SQL Database.
+W tym przewodniku szybki start utworzysz wystąpienie Azure Database Migration Service za pomocą Azure Portal.  Po utworzeniu wystąpienia można użyć go do migracji danych z SQL Server do Azure SQL Database.
 
 Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne](https://azure.microsoft.com/free/) konto.
 
@@ -65,17 +65,17 @@ Przed utworzeniem pierwszego wystąpienia usługi Database Migration Service zar
 
         ![Tworzenie usługi migracji](media/quickstart-create-data-migration-service-portal/dms-create-service1.png)
 
-4. Wybierz przycisk **Utwórz**.
+4. Wybierz pozycję **Utwórz**.
 
     Po kilku chwilach wystąpienie usługi Azure Database Migration Service jest tworzone i gotowe do użycia. Azure Database Migration Service wyświetlane jak pokazano na poniższej ilustracji:
 
     ![Utworzono usługę migracji](media/quickstart-create-data-migration-service-portal/dms-service-created.png)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Możesz wyczyścić zasoby utworzone w tym przewodniku Szybki start, usuwając [grupę zasobów platformy Azure](../azure-resource-manager/management/overview.md). Aby usunąć grupę zasobów, przejdź do utworzonego wystąpienia usługi Azure Database Migration Service. Wybierz nazwę w obszarze **Grupa zasobów**, a następnie wybierz pozycję **Usuń grupę zasobów**. Ta akcja spowoduje usunięcie wszystkich zasobów w grupie zasobów, a także usunięcie samej grupy.
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Migrowanie lokalnego programu SQL Server do usługi Azure SQL Database](tutorial-sql-server-to-azure-sql.md)
+> [Migrowanie z programu SQL Server do usługi Azure SQL Database](tutorial-sql-server-to-azure-sql.md)

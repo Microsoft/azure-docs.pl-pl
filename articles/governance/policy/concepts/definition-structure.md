@@ -1,14 +1,14 @@
 ---
 title: Szczegóły struktury definicji zasad
 description: Opisuje, w jaki sposób definicje zasad są używane do ustanawiania Konwencji dla zasobów platformy Azure w organizacji.
-ms.date: 04/03/2020
+ms.date: 05/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: a4f136bc805cd48d05c2378b47966b4e4e4c60fb
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: de9b3c5242f361c9f0cf7128a5ec32c0e7dce428
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/29/2020
-ms.locfileid: "84168509"
+ms.locfileid: "84205028"
 ---
 # <a name="azure-policy-definition-structure"></a>Struktura definicji zasad platformy Azure
 
@@ -17,14 +17,15 @@ Dowiedz się więcej o [warunkach](#conditions).
 
 Dzięki zdefiniowaniu Konwencji można kontrolować koszty i łatwiej zarządzać zasobami. Można na przykład określić, że dozwolone są tylko niektóre typy maszyn wirtualnych. Lub można wymagać, aby wszystkie zasoby miały określony tag. Zasady są dziedziczone przez wszystkie zasoby podrzędne. Jeśli zasady są stosowane do grupy zasobów, mają zastosowanie do wszystkich zasobów w tej grupie zasobów.
 
-Schemat definicji zasad znajduje się tutaj:[https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json)
+Schemat definicji zasad znajduje się tutaj:[https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-09-01/policyDefinition.json)
 
 Aby utworzyć definicję zasad, należy użyć formatu JSON. Definicja zasad zawiera elementy dla:
 
-- tryb
-- parameters
 - Nazwa wyświetlana
 - description
+- tryb
+- metadane
+- parameters
 - Reguła zasad
   - Ocena logiczna
   - skuteczność
@@ -34,7 +35,13 @@ Na przykład poniższy kod JSON przedstawia zasady, które ograniczają miejsce 
 ```json
 {
     "properties": {
+        "displayName": "Allowed locations",
+        "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
         "mode": "all",
+        "metadata": {
+            "version": "1.0.0",
+            "category": "Locations"
+        },
         "parameters": {
             "allowedLocations": {
                 "type": "array",
@@ -46,8 +53,6 @@ Na przykład poniższy kod JSON przedstawia zasady, które ograniczają miejsce 
                 "defaultValue": [ "westus2" ]
             }
         },
-        "displayName": "Allowed locations",
-        "description": "This policy enables you to restrict the locations your organization can specify when deploying resources.",
         "policyRule": {
             "if": {
                 "not": {
@@ -63,7 +68,22 @@ Na przykład poniższy kod JSON przedstawia zasady, które ograniczają miejsce 
 }
 ```
 
-Wszystkie przykłady Azure Policy znajdują się na [Azure Policy próbkach](../samples/index.md).
+Azure Policy wbudowane i wzorce są [Azure Policy próbkami](../samples/index.md).
+
+## <a name="display-name-and-description"></a>Nazwa wyświetlana i opis
+
+Użyj **DisplayName** i **Description** , aby zidentyfikować definicję zasad i podać kontekst, który ma być używany. **Nazwa wyświetlana** ma maksymalną długość _128_ znaków i **Opis** ma maksymalną długość _512_ znaków.
+
+> [!NOTE]
+> Podczas tworzenia lub aktualizowania definicji zasad, **identyfikatora**, **typu**i **nazwy** są zdefiniowane przez właściwości zewnętrzne w formacie JSON i nie są wymagane w pliku JSON. Pobieranie definicji zasad za pomocą zestawu SDK zwraca **Identyfikator**, **Typ**i właściwości **nazwy** w ramach JSON, ale każda z nich jest informacjami tylko do odczytu związanymi z definicją zasad.
+
+## <a name="type"></a>Typ
+
+Podczas gdy nie można ustawić właściwości **Type** , istnieją trzy wartości, które są zwracane przez zestaw SDK i widoczne w portalu:
+
+- `Builtin`: Te definicje zasad są udostępniane i obsługiwane przez firmę Microsoft.
+- `Custom`: Ta wartość jest dostępna dla wszystkich definicji zasad utworzonych przez klientów.
+- `Static`: Wskazuje definicję zasad [zgodności z przepisami](./regulatory-compliance.md) firmy Microsoft **Ownership**. Wyniki zgodności dla tych definicji zasad są wynikami audytów przeprowadzanych przez inne firmy w ramach infrastruktury firmy Microsoft. W Azure Portal ta wartość jest czasami wyświetlana jako **zarządzana przez firmę Microsoft**. Aby uzyskać więcej informacji, zobacz [współdzielona odpowiedzialność w chmurze](../../../security/fundamentals/shared-responsibility.md).
 
 ## <a name="mode"></a>Tryb
 
@@ -93,6 +113,20 @@ Następujące tryby dostawcy zasobów są obecnie obsługiwane w wersji zapoznaw
 > [!NOTE]
 > Tryby dostawcy zasobów obsługują tylko wbudowane definicje zasad i nie obsługują inicjatyw w wersji zapoznawczej.
 
+## <a name="metadata"></a>Metadane
+
+Właściwość opcjonalna `metadata` przechowuje informacje o definicji zasad. Klienci mogą definiować wszelkie właściwości i wartości przydatne w organizacji w programie `metadata` . Istnieją jednak _typowe_ właściwości, które są używane przez Azure Policy i wbudowane.
+
+### <a name="common-metadata-properties"></a>Wspólne właściwości metadanych
+
+- `version`(ciąg): śledzi szczegółowe informacje o wersji zawartości definicji zasad.
+- `category`(ciąg): określa, w której kategorii Azure Portal jest wyświetlana definicja zasad.
+- `preview`(wartość logiczna): prawda lub FAŁSZ flagi dla Jeśli definicja zasad jest w _wersji zapoznawczej_.
+- `deprecated`(wartość logiczna): flaga true lub false, jeśli definicja zasad została oznaczona jako _przestarzała_.
+
+> [!NOTE]
+> Usługa Azure Policy używa `version` , `preview` i `deprecated` właściwości do przekazywania poziomu zmiany do wbudowanej definicji zasad lub inicjatywy i stanu. Format `version` to: `{Major}.{Minor}.{Patch}` . Określone Stany, takie jak _przestarzałe_ lub _Podgląd_, są dołączane do `version` właściwości lub w innej właściwości jako **wartość logiczna**. Aby uzyskać więcej informacji na temat sposobu, w jaki Azure Policy wersje wbudowane, zobacz [wbudowana wersja](https://github.com/Azure/azure-policy/blob/master/built-in-policies/README.md).
+
 ## <a name="parameters"></a>Parametry
 
 Parametry pomagają uprościć zarządzanie zasadami przez zmniejszenie liczby definicji zasad. Pomyśl o parametrach, takich jak pola w formularzu —, `name` `address` , `city` , `state` . Te parametry zawsze pozostają takie same, ale ich wartości zmieniają się w zależności od poszczególnych wypełniania formularza.
@@ -105,17 +139,11 @@ Parametry działają w ten sam sposób podczas kompilowania zasad. Dzięki doł�
 
 Parametr ma następujące właściwości, które są używane w definicji zasad:
 
-- **name**: Nazwa parametru. Używane przez `parameters` funkcję wdrażania w ramach reguły zasad. Aby uzyskać więcej informacji, zobacz [Używanie wartości parametru](#using-a-parameter-value).
+- `name`: Nazwa parametru. Używane przez `parameters` funkcję wdrażania w ramach reguły zasad. Aby uzyskać więcej informacji, zobacz [Używanie wartości parametru](#using-a-parameter-value).
 - `type`: Określa, czy parametr jest **ciągiem**, **tablicą**, **obiektem**, **wartością logiczną**, **liczbą całkowitą**, **zmiennoprzecinkową**lub **DateTime**.
 - `metadata`: Definiuje podwłaściwości używane głównie przez Azure Portal do wyświetlania informacji przyjaznych dla użytkownika:
   - `description`: Wyjaśnienie, do czego służy parametr. Może służyć do podania przykładów akceptowalnych wartości.
   - `displayName`: Przyjazna nazwa wyświetlana w portalu dla parametru.
-  - `version`: (Opcjonalnie) śledzi szczegółowe informacje o wersji zawartości definicji zasad.
-
-    > [!NOTE]
-    > Usługa Azure Policy używa `version` , `preview` i `deprecated` właściwości do przekazywania poziomu zmiany do wbudowanej definicji zasad lub inicjatywy i stanu. Format `version` to: `{Major}.{Minor}.{Patch}` . Określone Stany, takie jak _przestarzałe_ lub _Podgląd_, są dołączane do `version` właściwości lub w innej właściwości jako **wartość logiczna**.
-
-  - `category`: (Opcjonalnie) określa, w której kategorii Azure Portal zostanie wyświetlona definicja zasad.
   - `strongType`: (Opcjonalnie) używany podczas przypisywania definicji zasad za pomocą portalu. Zawiera listę kontekstową. Aby uzyskać więcej informacji, zobacz [strongtype](#strongtype).
   - `assignPermissions`: (Opcjonalnie) ustawiono _wartość true_ , aby Azure Portal utworzyć przypisania roli podczas przypisywania zasad. Ta właściwość jest przydatna w przypadku, gdy chcesz przypisać uprawnienia poza zakresem przypisania. Istnieje jedno przypisanie roli w ramach zasad (lub definicji roli we wszystkich zasadach z inicjatywy). Wartość parametru musi być prawidłowym zasobem lub zakresem.
 - `defaultValue`: (Opcjonalnie) ustawia wartość parametru w przypisaniu, jeśli nie podano wartości.
@@ -180,13 +208,6 @@ Jeśli lokalizacja definicji jest:
 
 - Tylko zasoby z **subskrypcją** w ramach tej subskrypcji mogą być przypisane do zasad.
 - Zasady mogą być przypisywane tylko zasobom należącym do **grupy** zarządzania w ramach podrzędnych grup administracyjnych i subskrypcji podrzędnych. Jeśli planujesz zastosowanie definicji zasad do kilku subskrypcji, lokalizacja musi być grupą zarządzania, która zawiera te subskrypcje.
-
-## <a name="display-name-and-description"></a>Nazwa wyświetlana i opis
-
-Użyj **DisplayName** i **Description** , aby zidentyfikować definicję zasad i podać kontekst, który ma być używany. **Nazwa wyświetlana** ma maksymalną długość _128_ znaków i **Opis** ma maksymalną długość _512_ znaków.
-
-> [!NOTE]
-> Podczas tworzenia lub aktualizowania definicji zasad, **identyfikatora**, **typu**i **nazwy** są zdefiniowane przez właściwości zewnętrzne w formacie JSON i nie są wymagane w pliku JSON. Pobieranie definicji zasad za pomocą zestawu SDK zwraca **Identyfikator**, **Typ**i właściwości **nazwy** w ramach JSON, ale każda z nich jest informacjami tylko do odczytu związanymi z definicją zasad.
 
 ## <a name="policy-rule"></a>Reguła zasad
 
@@ -713,88 +734,9 @@ Ta przykładowa reguła sprawdza, czy dla dowolnych dopasowań **ipRules \[ \* \
 
 Aby uzyskać więcej informacji, zobacz [ocenianie \* aliasu []](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
-## <a name="initiatives"></a>Inicjatyw
-
-Inicjatywy umożliwiają grupowanie kilku powiązanych definicji zasad w celu uproszczenia przypisań i zarządzania, ponieważ pracujesz z grupą jako pojedynczy element. Na przykład można pogrupować powiązane definicje zasad oznakowania do jednej inicjatywy. Zamiast przypisywać poszczególne zasady indywidualnie, należy zastosować inicjatywę.
-
-> [!NOTE]
-> Po przypisaniu inicjatywy nie można zmienić parametrów poziomu inicjatywy. Ze względu na to zalecenie polega na ustawieniu elementu **DefaultValue** podczas definiowania parametru.
-
-Poniższy przykład ilustruje sposób tworzenia inicjatywy do obsługi dwóch tagów: `costCenter` i `productName` . Używa dwóch wbudowanych zasad, aby zastosować domyślną wartość tagu.
-
-```json
-{
-    "properties": {
-        "displayName": "Billing Tags Policy",
-        "policyType": "Custom",
-        "description": "Specify cost Center tag and product name tag",
-        "parameters": {
-            "costCenterValue": {
-                "type": "String",
-                "metadata": {
-                    "description": "required value for Cost Center tag"
-                },
-                "defaultValue": "DefaultCostCenter"
-            },
-            "productNameValue": {
-                "type": "String",
-                "metadata": {
-                    "description": "required value for product Name tag"
-                },
-                "defaultValue": "DefaultProduct"
-            }
-        },
-        "policyDefinitions": [{
-                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
-                "parameters": {
-                    "tagName": {
-                        "value": "costCenter"
-                    },
-                    "tagValue": {
-                        "value": "[parameters('costCenterValue')]"
-                    }
-                }
-            },
-            {
-                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
-                "parameters": {
-                    "tagName": {
-                        "value": "costCenter"
-                    },
-                    "tagValue": {
-                        "value": "[parameters('costCenterValue')]"
-                    }
-                }
-            },
-            {
-                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
-                "parameters": {
-                    "tagName": {
-                        "value": "productName"
-                    },
-                    "tagValue": {
-                        "value": "[parameters('productNameValue')]"
-                    }
-                }
-            },
-            {
-                "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498",
-                "parameters": {
-                    "tagName": {
-                        "value": "productName"
-                    },
-                    "tagValue": {
-                        "value": "[parameters('productNameValue')]"
-                    }
-                }
-            }
-        ]
-    }
-}
-```
-
 ## <a name="next-steps"></a>Następne kroki
 
+- Zobacz [strukturę definicji inicjatywy](./initiative-definition-structure.md)
 - Zapoznaj się z przykładami w [Azure Policy Samples](../samples/index.md).
 - Przejrzyj [wyjaśnienie działania zasad](effects.md).
 - Dowiedz się, jak [programowo utworzyć zasady](../how-to/programmatically-create.md).

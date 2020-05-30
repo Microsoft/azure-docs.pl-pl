@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 08/06/2019
+ms.date: 05/28/2020
 ms.author: sngun
-ms.openlocfilehash: e0d2d2ea99822c95b9fab73642db37430771c583
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 83ba361541949b1be8205361d968ec6614b97cc9
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82083771"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84217942"
 ---
 # <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Szybki start: tworzenie aplikacji interfejsu API tabeli przy użyciu platformy Node.js i usługi Azure Cosmos DB
 
@@ -28,7 +28,7 @@ W tym przewodniku szybki start utworzysz konto Azure Cosmos DB interfejs API tab
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Lub [Wypróbuj bezpłatnie Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) bez subskrypcji platformy Azure. Można również użyć [emulatora Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) z identyfikatorem URI `https://localhost:8081` i kluczem `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`.
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Lub [Wypróbuj bezpłatnie Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) bez subskrypcji platformy Azure. Można również użyć [emulatora Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) z identyfikatorem URI `https://localhost:8081` i kluczem `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==` .
 - [Node. js 0.10.29 +](https://nodejs.org/) .
 - Usługi [git](https://git-scm.com/downloads).
 
@@ -70,8 +70,68 @@ Teraz sklonujemy aplikację Tabela z serwisu GitHub, ustawimy parametry połącz
     git clone https://github.com/Azure-Samples/storage-table-node-getting-started.git
     ```
 
-> ! WYOWIETLON Aby zapoznać się z bardziej szczegółowym omówieniem podobnego kodu, zobacz artykuł [Cosmos DB interfejs API tabel Sample](table-storage-how-to-use-nodejs.md) . 
+> [!TIP]
+> Aby zapoznać się z bardziej szczegółowym omówieniem podobnego kodu, zobacz artykuł [Cosmos DB interfejs API tabel Sample](table-storage-how-to-use-nodejs.md) . 
 
+## <a name="review-the-code"></a>Przeglądanie kodu
+
+Ten krok jest opcjonalny. Jeśli chcesz się dowiedzieć, jak zasoby bazy danych są tworzone w kodzie, możesz przejrzeć poniższe fragmenty kodu. W przeciwnym razie możesz przejść do sekcji [aktualizowanie parametrów połączenia](#update-your-connection-string) tego dokumentu.
+
+* Poniższy kod przedstawia sposób tworzenia tabeli w ramach usługi Azure Storage:
+
+  ```javascript
+  storageClient.createTableIfNotExists(tableName, function (error, createResult) {
+    if (error) return callback(error);
+
+    if (createResult.isSuccessful) {
+      console.log("1. Create Table operation executed successfully for: ", tableName);
+    }
+  }
+
+  ```
+
+* Poniższy kod ilustruje sposób wstawiania danych do tabeli:
+
+  ```javascript
+  var customer = createCustomerEntityDescriptor("Harp", "Walter", "Walter@contoso.com", "425-555-0101");
+
+  storageClient.insertOrMergeEntity(tableName, customer, function (error, result, response) {
+    if (error) return callback(error);
+
+    console.log("   insertOrMergeEntity succeeded.");
+  }
+  ```
+
+* Poniższy kod przedstawia sposób wykonywania zapytań dotyczących danych z tabeli:
+
+  ```javascript
+  console.log("6. Retrieving entities with surname of Smith and first names > 1 and <= 75");
+
+  var storageTableQuery = storage.TableQuery;
+  var segmentSize = 10;
+
+  // Demonstrate a partition range query whereby we are searching within a partition for a set of entities that are within a specific range. 
+  var tableQuery = new storageTableQuery()
+      .top(segmentSize)
+      .where('PartitionKey eq ?', lastName)
+      .and('RowKey gt ?', "0001").and('RowKey le ?', "0075");
+  
+  runPageQuery(tableQuery, null, function (error, result) {
+  
+      if (error) return callback(error);
+  
+  ```
+
+* Poniższy kod przedstawia sposób usuwania danych z tabeli:
+
+  ```javascript
+  storageClient.deleteEntity(tableName, customer, function entitiesQueried(error, result) {
+      if (error) return callback(error);
+  
+      console.log("   deleteEntity succeeded.");
+  }
+  ```
+  
 ## <a name="update-your-connection-string"></a>Aktualizowanie parametrów połączenia
 
 Teraz wróć do witryny Azure Portal, aby uzyskać informacje o parametrach połączenia i skopiować je do aplikacji. Umożliwia to aplikacji komunikację z hostowaną bazą danych. 

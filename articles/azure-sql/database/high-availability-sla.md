@@ -1,6 +1,6 @@
 ---
 title: Wysoka dostępność
-titleSuffix: Azure SQL Database & SQL Managed Instance
+titleSuffix: Azure SQL Database and SQL Managed Instance
 description: Dowiedz się więcej o możliwościach i funkcjach wysokiej dostępności usługi wystąpienia zarządzanego Azure SQL Database przez program SQL
 services: sql-database
 ms.service: sql-database
@@ -12,17 +12,17 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 04/02/2020
-ms.openlocfilehash: ca340ce86dc4e6c028840fd7bfdb909ea097629e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 527fe8fa2ad8916f9e5209e4823457d81e745034
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84043324"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219369"
 ---
-# <a name="high-availability-for-azure-sql-database--sql-managed-instance"></a>Wysoka dostępność dla Azure SQL Database & wystąpienia zarządzane SQL
+# <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Wysoka dostępność dla Azure SQL Database i wystąpienia zarządzanego SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Celem architektury wysokiej dostępności w Azure SQL Database i wystąpieniu zarządzanym SQL jest zagwarantowanie, że baza danych jest uruchomiona co najmniej 99,99% czasu (Aby uzyskać więcej informacji dotyczących określonej umowy SLA dla różnych warstw, zapoznaj się z umową [SLA dla Azure SQL Database & wystąpienia zarządzanego SQL](https://azure.microsoft.com/support/legal/sla/sql-database/)), bez zakłócania wpływu operacji konserwacji i przestojów. Platforma Azure automatycznie obsługuje krytyczne zadania obsługi, takie jak stosowanie poprawek, kopii zapasowych, uaktualnienia systemu Windows i programu SQL, a także niezaplanowanych zdarzeń, takich jak sprzętowe, programowe lub awarie sieci.  Gdy bazowe wystąpienie programu SQL Server jest poprawione lub działa w trybie failover, przestoje nie jest zauważalne, jeśli w aplikacji jest stosowana [logika ponawiania](develop-overview.md#resiliency) . Wystąpienia zarządzane SQL Database i SQL mogą szybko odzyskać nawet w najbardziej krytycznych okolicznościach, dzięki czemu dane są zawsze dostępne.
+Celem architektury wysokiej dostępności w Azure SQL Database i wystąpieniu zarządzanym SQL jest zagwarantowanie, że baza danych jest uruchomiona co najmniej 99,99% czasu (Aby uzyskać więcej informacji dotyczących określonej umowy SLA dla różnych warstw, zapoznaj się z umową [SLA dla Azure SQL Database i wystąpienia zarządzanego SQL](https://azure.microsoft.com/support/legal/sla/sql-database/)), bez zakłócania wpływu operacji konserwacji i przestojów. Platforma Azure automatycznie obsługuje krytyczne zadania obsługi, takie jak stosowanie poprawek, kopii zapasowych, uaktualnienia systemu Windows i platformy Azure SQL, a także niezaplanowanych zdarzeń, takich jak sprzętowe, programowe lub awarie sieci.  Gdy bazowa baza danych w Azure SQL Database jest zastosowana lub przejdzie do trybu failover, przestoje nie będzie zauważalne w przypadku zastosowania [logiki ponawiania prób](develop-overview.md#resiliency) w aplikacji. Wystąpienia zarządzane SQL Database i SQL mogą szybko odzyskać nawet w najbardziej krytycznych okolicznościach, dzięki czemu dane są zawsze dostępne.
 
 Rozwiązanie wysokiej dostępności zostało zaprojektowane z myślą o zapewnieniu, że przekazane dane nigdy nie zostaną utracone z powodu niepowodzeń, że operacje konserwacji nie wpłyną na obciążenie, a baza danych nie będzie single point of failure w architekturze oprogramowania. Nie ma okien obsługi ani przestojów, które powinny wymagać zatrzymania obciążenia, gdy baza danych jest uaktualniana lub utrzymywana.
 
@@ -52,9 +52,9 @@ Warstwy usług premium i Krytyczne dla działania firmy wykorzystują model dost
 
 ![Klaster węzłów aparatu bazy danych](./media/high-availability-sla/business-critical-service-tier.png)
 
-Bazowe pliki bazy danych (. mdf/. ldf) są umieszczane w podłączonym magazynie SSD w celu zapewnienia bardzo małych opóźnień we/wy dla obciążenia. Wysoka dostępność jest implementowana przy użyciu technologii podobnego do SQL Server [zawsze włączonymi grupami dostępności](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Klaster zawiera jedną replikę podstawową, która jest dostępna do obsługi obciążeń klientów odczytu i zapisu, oraz do trzech replik pomocniczych (obliczeniowych i magazynowych) zawierających kopie danych. Węzeł podstawowy ciągle przekazuje zmiany do węzłów pomocniczych w kolejności i gwarantuje, że dane są synchronizowane z co najmniej jedną repliką pomocniczą przed zatwierdzeniem każdej transakcji. Ten proces gwarantuje, że jeśli węzeł podstawowy ulegnie awarii z jakiegokolwiek powodu, zawsze jest w pełni zsynchronizowany węzeł w celu przełączenia w tryb failover. Przełączenie w tryb failover jest inicjowane przez Service Fabric platformy Azure. Gdy replika pomocnicza zostanie nowym węzłem podstawowym, zostanie utworzona inna replika pomocnicza, aby upewnić się, że klaster ma wystarczającą liczbę węzłów (zestaw kworum). Po zakończeniu pracy w trybie failover połączenia SQL są automatycznie przekierowywane do nowego węzła podstawowego.
+Bazowe pliki bazy danych (. mdf/. ldf) są umieszczane w podłączonym magazynie SSD w celu zapewnienia bardzo małych opóźnień we/wy dla obciążenia. Wysoka dostępność jest implementowana przy użyciu technologii podobnego do SQL Server [zawsze włączonymi grupami dostępności](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Klaster zawiera jedną replikę podstawową, która jest dostępna do obsługi obciążeń klientów odczytu i zapisu, oraz do trzech replik pomocniczych (obliczeniowych i magazynowych) zawierających kopie danych. Węzeł podstawowy ciągle przekazuje zmiany do węzłów pomocniczych w kolejności i gwarantuje, że dane są synchronizowane z co najmniej jedną repliką pomocniczą przed zatwierdzeniem każdej transakcji. Ten proces gwarantuje, że jeśli węzeł podstawowy ulegnie awarii z jakiegokolwiek powodu, zawsze jest w pełni zsynchronizowany węzeł w celu przełączenia w tryb failover. Przełączenie w tryb failover jest inicjowane przez Service Fabric platformy Azure. Gdy replika pomocnicza zostanie nowym węzłem podstawowym, zostanie utworzona inna replika pomocnicza, aby upewnić się, że klaster ma wystarczającą liczbę węzłów (zestaw kworum). Po zakończeniu pracy w trybie failover połączenia SQL platformy Azure są automatycznie przekierowywane do nowego węzła podstawowego.
 
-Dodatkowo model dostępności Premium umożliwia przekierowywanie połączeń SQL tylko do odczytu do jednej z replik pomocniczych. Ta funkcja jest nazywana [skalowaniem do odczytu](read-scale-out.md). Zapewnia 100% dodatkowej pojemności obliczeniowej bez dodatkowej opłaty za magazyn operacji tylko do odczytu, na przykład obciążenia analityczne, z repliki podstawowej.
+W ramach dodatkowych korzyści model dostępności Premium obejmuje możliwość przekierowania połączeń usługi Azure SQL tylko do odczytu do jednej z replik pomocniczych. Ta funkcja jest nazywana [skalowaniem do odczytu](read-scale-out.md). Zapewnia 100% dodatkowej pojemności obliczeniowej bez dodatkowej opłaty za magazyn operacji tylko do odczytu, na przykład obciążenia analityczne, z repliki podstawowej.
 
 ## <a name="hyperscale-service-tier-availability"></a>Dostępność warstwy usługi w ramach skalowania
 
@@ -89,7 +89,7 @@ Strefa o wysokiej dostępności nadmiarowa jest zilustrowana na poniższym diagr
 
 ## <a name="accelerated-database-recovery-adr"></a>Szybsze odzyskiwanie bazy danych (ADR)
 
-[Szybsze odzyskiwanie bazy danych (ADR)](../accelerated-database-recovery.md) to nowa funkcja aparatu bazy danych SQL, która znacznie zwiększa dostępność bazy danych, szczególnie w przypadku długotrwałych transakcji. Usługa ADR jest obecnie dostępna dla Azure SQL Database, wystąpienia zarządzanego Azure SQL i Azure SQL Data Warehouse.
+[Szybsze odzyskiwanie bazy danych (ADR)](../accelerated-database-recovery.md) to nowa funkcja aparatu bazy danych SQL, która znacznie zwiększa dostępność bazy danych, szczególnie w przypadku długotrwałych transakcji. ADR jest obecnie dostępna dla Azure SQL Database, wystąpienia zarządzanego Azure SQL i Azure SQL Data Warehouse.
 
 ## <a name="testing-application-fault-resiliency"></a>Testowanie odporności błędów aplikacji
 
@@ -102,7 +102,7 @@ Przejście w tryb failover można zainicjować za pomocą interfejsu API REST lu
 
 ## <a name="conclusion"></a>Podsumowanie
 
-Azure SQL Database i funkcja wystąpienia zarządzanego usługi Azure SQL to wbudowane rozwiązanie wysokiej dostępności, które jest głęboko zintegrowane z platformą Azure. Jest ona zależna od Service Fabric do wykrywania awarii i odzyskiwania, w usłudze Azure Blob Storage na potrzeby ochrony danych, a na Strefy dostępności w celu uzyskania większej odporności na uszkodzenia. Ponadto SQL Database i wystąpienie zarządzane SQL wykorzystują technologię zawsze włączone z poziomu SQL Server na potrzeby replikacji i przełączania do trybu failover. Połączenie tych technologii pozwala aplikacjom w pełni wykorzystać zalety modelu magazynu mieszanego i obsługiwać najbardziej wymaganą umowy SLA.
+Azure SQL Database i funkcja wystąpienia zarządzanego usługi Azure SQL to wbudowane rozwiązanie wysokiej dostępności, które jest głęboko zintegrowane z platformą Azure. Jest ona zależna od Service Fabric do wykrywania awarii i odzyskiwania, w usłudze Azure Blob Storage na potrzeby ochrony danych, a na Strefy dostępności w celu uzyskania większej odporności na uszkodzenia. Ponadto SQL Database i wystąpienie zarządzane SQL wykorzystują technologię zawsze włączone z wystąpienia SQL Server na potrzeby replikacji i przełączania do trybu failover. Połączenie tych technologii pozwala aplikacjom w pełni wykorzystać zalety modelu magazynu mieszanego i obsługiwać najbardziej wymaganą umowy SLA.
 
 ## <a name="next-steps"></a>Następne kroki
 

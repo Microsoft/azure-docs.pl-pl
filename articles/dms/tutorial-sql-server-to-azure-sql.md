@@ -1,7 +1,7 @@
 ---
 title: 'Samouczek: Migrowanie SQL Server w trybie offline do pojedynczej bazy danych SQL'
 titleSuffix: Azure Database Migration Service
-description: Dowiedz się, jak przeprowadzić migrację z SQL Server lokalnie do pojedynczej bazy danych lub bazy danych w puli w Azure SQL Database offline przy użyciu Azure Database Migration Service.
+description: Dowiedz się, jak przeprowadzić migrację z SQL Server do Azure SQL Database w trybie offline przy użyciu Azure Database Migration Service.
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 9eb5e5063a4aec69e1f21445cb5278caaea82ce2
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a3917443e25589cafe1d68522e13ba60ef634341
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020493"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84191495"
 ---
-# <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-offline-using-dms"></a>Samouczek: Migrowanie SQL Server do pojedynczej bazy danych lub bazy danych w puli w Azure SQL Database offline przy użyciu usługi DMS
+# <a name="tutorial-migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>Samouczek: przeprowadzanie migracji z programu SQL Server do usługi Azure SQL Database w trybie offline przy użyciu usługi DMS
 
-Za pomocą Azure Database Migration Service można migrować bazy danych z lokalnego wystąpienia SQL Server do [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). W tym samouczku przeprowadzisz migrację bazy danych **Adventureworks2012** do lokalnego wystąpienia SQL Server 2016 (lub nowszego) do pojedynczej bazy danych lub bazy danych w puli w Azure SQL Database przy użyciu Azure Database Migration Service.
+Za pomocą Azure Database Migration Service można migrować bazy danych z wystąpienia SQL Server do [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). W tym samouczku przeprowadzisz migrację bazy danych **Adventureworks2012** do lokalnego wystąpienia SQL Server 2016 (lub nowszego) do pojedynczej bazy danych lub bazy danych w puli w Azure SQL Database przy użyciu Azure Database Migration Service.
 
 Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 > [!div class="checklist"]
@@ -74,7 +74,7 @@ Do ukończenia tego samouczka niezbędne są następujące elementy:
 
 ## <a name="assess-your-on-premises-database"></a>Ocena lokalnej bazy danych
 
-Przed przeprowadzeniem migracji danych z lokalnego wystąpienia programu SQL Server do bazy danych usługi Azure SQL Database (pojedynczej lub w puli) należy ocenić bazę danych programu SQL Server pod kątem problemów blokujących, które mogą uniemożliwić migrację. Korzystając z programu Data Migration Assistant w wersji 3.3 lub nowszej, wykonaj czynności opisane w artykule [Performing a SQL Server migration assessment (Ocena migracji programu SQL Server)](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem), aby ukończyć ocenę lokalnej bazy danych. W skrócie należy wykonać następujące czynności:
+Aby można było migrować dane z wystąpienia SQL Server do pojedynczej bazy danych lub bazy danych w puli w Azure SQL Database, należy ocenić bazę danych SQL Server dla wszelkich problemów z blokowaniem, które mogą uniemożliwić migrację. Korzystając z programu Data Migration Assistant w wersji 3.3 lub nowszej, wykonaj czynności opisane w artykule [Performing a SQL Server migration assessment (Ocena migracji programu SQL Server)](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem), aby ukończyć ocenę lokalnej bazy danych. W skrócie należy wykonać następujące czynności:
 
 1. W programie Data Migration Assistant wybierz ikonę New + (Nowy), a następnie wybierz typ projektu **Assessment** (Ocena).
 2. Wpisz nazwę projektu, w polu tekstowym **Source server type** (Typ serwera źródłowego) wybierz pozycję **SQL Server**, w polu tekstowym **Target server type** (Typ serwera docelowego) wybierz pozycję **Azure SQL Database**, a następnie wybierz pozycję **Create ** (Utwórz), aby utworzyć projekt.
@@ -100,7 +100,7 @@ Przed przeprowadzeniem migracji danych z lokalnego wystąpienia programu SQL Ser
     W przypadku baz danych usługi Azure SQL Database (pojedynczych lub w puli) oceny identyfikują problemy z równoważnością funkcji i blokowaniem migracji podczas wdrażania do pojedynczej bazy danych lub bazy danych w puli.
 
     - Kategoria **SQL Server feature parity** (Równoważność funkcji programu SQL Server) zapewnia rozbudowany zestaw zaleceń, alternatywne metody postępowania dostępne na platformie Azure i czynności korygujące, które pomogą Ci zaplanować projekty migracji.
-    - Kategoria **Compatibility issues** (Problemy ze zgodnością) identyfikuje częściowo obsługiwane lub nieobsługiwane funkcje, oznaczające problemy ze zgodnością, które mogą spowodować zablokowanie migracji lokalnych baz danych programu SQL Server do usługi Azure SQL Database. Przedstawiane są również zalecenia, które pomogą Ci rozwiązać te problemy.
+    - Kategoria **problemy ze zgodnością** identyfikuje częściowo obsługiwane lub Nieobsługiwane funkcje, które odzwierciedlają problemy ze zgodnością, które mogą blokować migrowanie SQL Server baz danych do Azure SQL Database. Przedstawiane są również zalecenia, które pomogą Ci rozwiązać te problemy.
 
 6. Zapoznaj się z wynikami oceny dotyczącymi problemów blokujących migrację oraz równoważności funkcji, wybierając odpowiednie opcje.
 

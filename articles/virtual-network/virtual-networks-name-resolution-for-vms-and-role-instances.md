@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 3/2/2020
 ms.author: rohink
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9ea63192732184ff7a13ff1465a5b393a282f9d2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 32ef66c0a6d585e785fccb038a2b499c7f7f66db
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81262200"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204773"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Rozpoznawanie nazw dla zasobów w sieciach wirtualnych platformy Azure
 
@@ -70,7 +70,7 @@ Rozpoznawanie nazw udostępniane przez platformę Azure obejmuje następujące f
 * Można użyć rozpoznawania nazw między maszynami wirtualnymi w sieciach wirtualnych, które używają Azure Resource Manager modelu wdrażania, bez konieczności używania nazwy FQDN. Sieci wirtualne w klasycznym modelu wdrażania wymagają nazwy FQDN podczas rozpoznawania nazw w różnych usługach w chmurze. 
 * Można użyć nazw hostów, które najlepiej opisują Twoje wdrożenia, zamiast korzystać z automatycznie generowanych nazw.
 
-### <a name="considerations"></a>Zagadnienia do rozważenia
+### <a name="considerations"></a>Istotne zagadnienia
 
 Kwestie, które należy wziąć pod uwagę podczas korzystania z rozpoznawania nazw udostępnianej przez platformę Azure:
 * Nie można zmodyfikować sufiksu DNS utworzonego przez platformę Azure.
@@ -84,9 +84,9 @@ Kwestie, które należy wziąć pod uwagę podczas korzystania z rozpoznawania n
 
 ### <a name="reverse-dns-considerations"></a>Odwróć uwagi DNS
 Odwrotny serwer DNS jest obsługiwany we wszystkich sieciach wirtualnych opartych na usłudze ARM. Można wydać odwrotne kwerendy DNS (kwerendy PTR), aby mapować adresy IP maszyn wirtualnych na nazwy FQDN maszyn wirtualnych.
-* Wszystkie zapytania PTR dla adresów IP maszyn wirtualnych będą zwracać nazwy FQDN formularza \[vmname\]. Internal.cloudapp.NET
-* Wyszukiwanie do przodu w nazwach FQDN \[formularza\]VMName. Internal.cloudapp.NET zostanie rozpoznane jako adres IP przypisany do maszyny wirtualnej.
-* Jeśli sieć wirtualna jest połączona z [Azure DNS strefami prywatnymi](../dns/private-dns-overview.md) jako sieć wirtualną rejestracji, zapytania ODWROTNe DNS zwrócą dwa rekordy. Jeden rekord będzie miał postać \[VMName.\] [priatednszonename] i inne byłyby w formacie \[vmname\]. Internal.cloudapp.NET
+* Wszystkie zapytania PTR dla adresów IP maszyn wirtualnych będą zwracać nazwy FQDN formularza \[ VMName \] . Internal.cloudapp.NET
+* Wyszukiwanie do przodu w nazwach FQDN formularza \[ VMName \] . Internal.cloudapp.NET zostanie rozpoznane jako adres IP przypisany do maszyny wirtualnej.
+* Jeśli sieć wirtualna jest połączona z [Azure DNS strefami prywatnymi](../dns/private-dns-overview.md) jako sieć wirtualną rejestracji, zapytania ODWROTNe DNS zwrócą dwa rekordy. Jeden rekord będzie miał postać \[ VMName \] . [ privatednszonename] i inne byłyby w formacie \[ VMName \] . Internal.cloudapp.NET
 * Odwrotne wyszukiwanie DNS jest ograniczone do danej sieci wirtualnej, nawet jeśli jest połączona z innymi sieciami wirtualnymi. Odwrotne zapytania DNS (kwerendy PTR) dla adresów IP maszyn wirtualnych znajdujących się w równorzędnych sieciach wirtualnych będą zwracały NXDOMAIN.
 * Jeśli chcesz wyłączyć odwrotną funkcję DNS w sieci wirtualnej, możesz to zrobić, tworząc strefę wyszukiwania wstecznego przy użyciu [stref prywatnych Azure DNS](../dns/private-dns-overview.md) i Połącz tę strefę z siecią wirtualną. Na przykład jeśli przestrzeń adresów IP sieci wirtualnej to 10.20.0.0/16, można utworzyć pustą prywatną strefę DNS 20.10.in-addr. arpa i połączyć ją z siecią wirtualną. Podczas łączenia strefy z siecią wirtualną należy wyłączyć rejestrację autorejestrowania na łączu. Ta strefa zastąpi domyślne strefy wyszukiwania wstecznego dla sieci wirtualnej i ponieważ ta strefa jest pusta, uzyskasz NXDOMAIN dla zapytań wstecz DNS. Zapoznaj się z naszym [przewodnikiem Szybki Start](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal) , aby uzyskać szczegółowe informacje na temat sposobu tworzenia prywatnej strefy DNS i łączenia jej z siecią wirtualną.
 
@@ -108,19 +108,19 @@ Domyślny klient DNS systemu Windows ma wbudowaną pamięć podręczną usługi 
 Dostępnych jest wiele różnych pakietów buforowania DNS (takich jak dnsmasq). Poniżej przedstawiono sposób instalowania dnsmasq na najbardziej typowych dystrybucjach:
 
 * **Ubuntu (używa resolvconf)**:
-  * Zainstaluj pakiet dnsmasq przy użyciu `sudo apt-get install dnsmasq`programu.
+  * Zainstaluj pakiet dnsmasq przy użyciu programu `sudo apt-get install dnsmasq` .
 * **SUSE (używa serviceconf)**:
-  * Zainstaluj pakiet dnsmasq przy użyciu `sudo zypper install dnsmasq`programu.
-  * Włącz usługę dnsmasq przy użyciu `systemctl enable dnsmasq.service`usługi. 
-  * Uruchom usługę dnsmasq za pomocą `systemctl start dnsmasq.service`programu. 
+  * Zainstaluj pakiet dnsmasq przy użyciu programu `sudo zypper install dnsmasq` .
+  * Włącz usługę dnsmasq przy użyciu usługi `systemctl enable dnsmasq.service` . 
+  * Uruchom usługę dnsmasq za pomocą programu `systemctl start dnsmasq.service` . 
   * Edytuj **/etc/sysconfig/Network/config**i zmień wartość *NETCONFIG_DNS_FORWARDER = ""* na *dnsmasq*.
-  * Zaktualizuj plik resolv. conf z `netconfig update`, aby ustawić pamięć podręczną jako lokalny program rozpoznawania nazw DNS.
+  * Zaktualizuj plik resolv. conf z `netconfig update` , aby ustawić pamięć podręczną jako lokalny program rozpoznawania nazw DNS.
 * **CentOS (korzysta z gniazd sieciowych)**:
-  * Zainstaluj pakiet dnsmasq przy użyciu `sudo yum install dnsmasq`programu.
-  * Włącz usługę dnsmasq przy użyciu `systemctl enable dnsmasq.service`usługi.
-  * Uruchom usługę dnsmasq za pomocą `systemctl start dnsmasq.service`programu.
+  * Zainstaluj pakiet dnsmasq przy użyciu programu `sudo yum install dnsmasq` .
+  * Włącz usługę dnsmasq przy użyciu usługi `systemctl enable dnsmasq.service` .
+  * Uruchom usługę dnsmasq za pomocą programu `systemctl start dnsmasq.service` .
   * Dodaj *ciąg Domain-Name-Server 127.0.0.1;* do **/etc/dhclient-eth0.conf**.
-  * Uruchom ponownie usługę sieciową `service network restart`za pomocą programu, aby ustawić pamięć podręczną jako lokalny program rozpoznawania nazw DNS.
+  * Uruchom ponownie usługę sieciową za pomocą programu `service network restart` , aby ustawić pamięć podręczną jako lokalny program rozpoznawania nazw DNS.
 
 > [!NOTE]
 > Pakiet dnsmasq jest tylko jedną z wielu pamięci podręcznych DNS dostępnych dla systemu Linux. Przed użyciem sprawdź jego przydatność do określonych potrzeb i sprawdź, czy nie zainstalowano żadnej innej pamięci podręcznej.
@@ -133,7 +133,7 @@ System DNS jest przede wszystkim protokołem UDP. Ponieważ protokół UDP nie g
 * Systemy operacyjne Windows ponowią próbę po upływie jednej sekundy, a następnie ponownie po upływie dwóch sekund, cztery sekundy i inne cztery sekundy. 
 * Domyślna instalacja systemu Linux ponawia próbę po upływie pięciu sekund. Zalecamy zmianę specyfikacji ponownych prób na pięć razy, w odstępach jednosekundowych.
 
-Sprawdź bieżące ustawienia na maszynie wirtualnej z systemem Linux `cat /etc/resolv.conf`za pomocą programu. Zapoznaj się z wierszem *opcji* , na przykład:
+Sprawdź bieżące ustawienia na maszynie wirtualnej z systemem Linux za pomocą programu `cat /etc/resolv.conf` . Zapoznaj się z wierszem *opcji* , na przykład:
 
 ```bash
 options timeout:1 attempts:5
@@ -149,7 +149,7 @@ Plik plik resolv. conf jest zwykle generowany automatycznie i nie powinien być 
   2. Uruchom `netconfig update` , aby zaktualizować.
 * **CentOS** (korzysta z gniazd sieciowych):
   1. Dodaj *Echo "Opcje limitu czasu: 1 próby: 5"* do **/etc/NetworkManager/Dispatcher.d/11-dhclient**.
-  2. Aktualizuj przy `service network restart`użyciu programu.
+  2. Aktualizuj przy użyciu programu `service network restart` .
 
 ## <a name="name-resolution-that-uses-your-own-dns-server"></a>Rozpoznawanie nazw wykorzystujące własny serwer DNS
 
@@ -218,7 +218,7 @@ W przypadku korzystania z modelu wdrażania Azure Resource Manager można okreś
 W przypadku korzystania z klasycznego modelu wdrażania można określić serwery DNS dla sieci wirtualnej w Azure Portal lub w [pliku konfiguracji sieci](https://msdn.microsoft.com/library/azure/jj157100). W przypadku usług Cloud Services serwery DNS można określić za pomocą [pliku konfiguracji usługi](https://msdn.microsoft.com/library/azure/ee758710) lub programu PowerShell z poleceniem [New-AzureVM](/powershell/module/servicemanagement/azure/new-azurevm).
 
 > [!NOTE]
-> W przypadku zmiany ustawień DNS dla sieci wirtualnej lub maszyny wirtualnej, która została już wdrożona, aby nowe ustawienia DNS zaczęły obowiązywać, należy przeprowadzić odnowienie dzierżawy DHCP na wszystkich maszynach wirtualnych, których dotyczy ta sieć wirtualna. W przypadku maszyn wirtualnych z systemem operacyjnym Windows można to zrobić, wpisując `ipconfig /renew` je bezpośrednio na maszynie wirtualnej. Kroki różnią się w zależności od systemu operacyjnego. Zapoznaj się z odpowiednią dokumentacją dla danego typu systemu operacyjnego.
+> W przypadku zmiany ustawień DNS dla sieci wirtualnej lub maszyny wirtualnej, która została już wdrożona, aby nowe ustawienia DNS zaczęły obowiązywać, należy przeprowadzić odnowienie dzierżawy DHCP na wszystkich maszynach wirtualnych, których dotyczy ta sieć wirtualna. W przypadku maszyn wirtualnych z systemem operacyjnym Windows można to zrobić, wpisując je `ipconfig /renew` bezpośrednio na maszynie wirtualnej. Kroki różnią się w zależności od systemu operacyjnego. Zapoznaj się z odpowiednią dokumentacją dla danego typu systemu operacyjnego.
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -2,13 +2,13 @@
 title: Koszt monitorowania Azure Monitor kontenerów | Microsoft Docs
 description: W tym artykule opisano koszt monitorowania metryk & dane spisu zbierane przez Azure Monitor dla kontenerów, aby pomóc klientom w zarządzaniu ich użyciem i powiązanymi kosztami.
 ms.topic: conceptual
-ms.date: 05/27/2020
-ms.openlocfilehash: 44802f611919fbf88894576eecf581a668e05b5b
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.date: 05/29/2020
+ms.openlocfilehash: a03e94fa7650c56a4d3b3beda3c27283329aebbe
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84122465"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204654"
 ---
 # <a name="understand-monitoring-costs-for-azure-monitor-for-containers"></a>Informacje o monitorowaniu kosztów Azure Monitor dla kontenerów
 
@@ -140,6 +140,8 @@ Rozważmy scenariusz, w którym inna jednostka biznesowa organizacji udostępnia
 - Rozliczane dane dziennika kontenerów pobrane przez wpis logsource
 
 - Rozliczane dane diagnostyczne pobrane przez dzienniki diagnostyki węzłów głównych
+
+Aby dowiedzieć się więcej o zarządzaniu prawami i uprawnieniami do skoroszytu, przejrzyj [kontrolę dostępu](../platform/workbooks-access-control.md).
 
 Po zakończeniu analizy, aby określić, które źródło lub źródła generuje najwięcej danych lub więcej danych, które przekraczają wymagania, można ponownie skonfigurować zbieranie danych. Szczegółowe informacje na temat konfigurowania kolekcji stdout, stderr i zmiennych środowiskowych opisano w artykule [Konfigurowanie ustawień zbierania danych agenta](container-insights-agent-config.md) .
 

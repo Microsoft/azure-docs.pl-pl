@@ -3,12 +3,12 @@ title: Konfigurowanie Azure Monitor na potrzeby zbierania danych przez agentów 
 description: W tym artykule opisano sposób konfigurowania Azure Monitor dla agenta kontenerów w celu sterowania kolekcją strumienia stdout/stderr i zmiennych środowiskowych.
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 28b93190298ae61732ff7d2e297899af4ba0e5f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 000f68d5498324fa0e68bce178688a79f3ce9c5b
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75933023"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220246"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Konfigurowanie zbierania danych agenta dla Azure Monitor kontenerów
 
@@ -31,16 +31,16 @@ Udostępniany jest plik ConfigMap szablonu, który umożliwia łatwe edytowanie 
 
 Poniżej przedstawiono ustawienia, które można skonfigurować w celu kontrolowania zbierania danych.
 
-|Key |Typ danych |Wartość |Opis |
+|Klucz |Typ danych |Wartość |Opis |
 |----|----------|------|------------|
 |`schema-version` |Ciąg (z uwzględnieniem wielkości liter) |wersjach |Jest to wersja schematu używana przez agenta podczas analizowania tego ConfigMap. Obecnie obsługiwana wersja schematu to v1. Modyfikowanie tej wartości nie jest obsługiwane i zostanie odrzucone po obliczeniu ConfigMap.|
-|`config-version` |String | | Program obsługuje możliwość śledzenia wersji tego pliku konfiguracji w systemie/repozytorium kontroli źródła. Maksymalna dozwolona liczba znaków wynosi 10, a wszystkie inne znaki są obcinane. |
-|`[log_collection_settings.stdout] enabled =` |Boolean | true lub false | Ta funkcja kontroluje, czy jest włączone zbieranie dzienników strumienia stdout. Po ustawieniu na `true` i nie są wykluczone przestrzenie nazw dla zbierania`log_collection_settings.stdout.exclude_namespaces` dzienników stdout (ustawienie poniżej), dzienniki stdout będą zbierane ze wszystkich kontenerów we wszystkich węzłach w klastrze. Jeśli nie zostanie określony w ConfigMaps, wartość domyślna to `enabled = true`. |
-|`[log_collection_settings.stdout] exclude_namespaces =`|String | Tablica rozdzielona przecinkami |Tablica przestrzeni nazw Kubernetes, dla których dzienniki stdout nie będą zbierane. To ustawienie ma zastosowanie tylko wtedy `log_collection_settings.stdout.enabled` , gdy jest `true`ustawione na. Jeśli nie zostanie określony w ConfigMap, wartość domyślna to `exclude_namespaces = ["kube-system"]`.|
-|`[log_collection_settings.stderr] enabled =` |Boolean | true lub false |Ta funkcja kontroluje, czy jest włączona kolekcja dzienników kontenera stderr. Po ustawieniu na `true` i nie są wykluczone przestrzenie nazw dla zbierania`log_collection_settings.stderr.exclude_namespaces` dzienników stdout (ustawienie), dzienniki stderr będą zbierane ze wszystkich kontenerów na wszystkich zestawach/węzłach w klastrze. Jeśli nie zostanie określony w ConfigMaps, wartość domyślna to `enabled = true`. |
-|`[log_collection_settings.stderr] exclude_namespaces =` |String |Tablica rozdzielona przecinkami |Tablica przestrzeni nazw Kubernetes, dla których dzienniki stderr nie będą zbierane. To ustawienie ma zastosowanie tylko wtedy `log_collection_settings.stdout.enabled` , gdy jest `true`ustawione na. Jeśli nie zostanie określony w ConfigMap, wartość domyślna to `exclude_namespaces = ["kube-system"]`. |
-| `[log_collection_settings.env_var] enabled =` |Boolean | true lub false | To ustawienie steruje kolekcją zmiennych środowiskowych we wszystkich zestawach/węzłach w `enabled = true` klastrze i domyślnie nie jest określona w ConfigMaps. Jeśli kolekcja zmiennych środowiskowych jest włączona globalnie, można ją wyłączyć dla określonego kontenera `AZMON_COLLECT_ENV` przez ustawienie zmiennej środowiskowej na **false** przy użyciu ustawienia pliku dockerfile lub w [pliku konfiguracji dla elementu pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) w sekcji **env:** . Jeśli zbieranie zmiennych środowiskowych jest wyłączone globalnie, nie można włączyć kolekcji dla określonego kontenera (oznacza to, że jedynym przesłonięciem, który można zastosować na poziomie kontenera, jest wyłączenie kolekcji, gdy jest ona już włączona globalnie). |
-| `[log_collection_settings.enrich_container_logs] enabled =` |Boolean | true lub false | To ustawienie kontroluje wzbogacanie dzienników kontenerów, aby wypełnić wartości nazwy i właściwości obrazu dla każdego rekordu dziennika zapisanego w tabeli ContainerLog dla wszystkich dzienników kontenerów w klastrze. Domyślnie `enabled = false` nie jest określony w ConfigMap. |
+|`config-version` |String (ciąg) | | Program obsługuje możliwość śledzenia wersji tego pliku konfiguracji w systemie/repozytorium kontroli źródła. Maksymalna dozwolona liczba znaków wynosi 10, a wszystkie inne znaki są obcinane. |
+|`[log_collection_settings.stdout] enabled =` |Boolean (wartość logiczna) | true lub false | Ta funkcja kontroluje, czy jest włączone zbieranie dzienników strumienia stdout. Po ustawieniu na `true` i nie są wykluczone przestrzenie nazw dla zbierania dzienników stdout ( `log_collection_settings.stdout.exclude_namespaces` ustawienie poniżej), dzienniki stdout będą zbierane ze wszystkich kontenerów we wszystkich węzłach w klastrze. Jeśli nie zostanie określony w ConfigMaps, wartość domyślna to `enabled = true` . |
+|`[log_collection_settings.stdout] exclude_namespaces =`|String (ciąg) | Tablica rozdzielona przecinkami |Tablica przestrzeni nazw Kubernetes, dla których dzienniki stdout nie będą zbierane. To ustawienie ma zastosowanie tylko wtedy `log_collection_settings.stdout.enabled` , gdy jest ustawione na `true` . Jeśli nie zostanie określony w ConfigMap, wartość domyślna to `exclude_namespaces = ["kube-system"]` .|
+|`[log_collection_settings.stderr] enabled =` |Boolean (wartość logiczna) | true lub false |Ta funkcja kontroluje, czy jest włączona kolekcja dzienników kontenera stderr. Po ustawieniu na `true` i nie są wykluczone przestrzenie nazw dla zbierania dzienników stdout ( `log_collection_settings.stderr.exclude_namespaces` ustawienie), dzienniki stderr będą zbierane ze wszystkich kontenerów na wszystkich zestawach/węzłach w klastrze. Jeśli nie zostanie określony w ConfigMaps, wartość domyślna to `enabled = true` . |
+|`[log_collection_settings.stderr] exclude_namespaces =` |String (ciąg) |Tablica rozdzielona przecinkami |Tablica przestrzeni nazw Kubernetes, dla których dzienniki stderr nie będą zbierane. To ustawienie ma zastosowanie tylko wtedy `log_collection_settings.stdout.enabled` , gdy jest ustawione na `true` . Jeśli nie zostanie określony w ConfigMap, wartość domyślna to `exclude_namespaces = ["kube-system"]` . |
+| `[log_collection_settings.env_var] enabled =` |Boolean (wartość logiczna) | true lub false | To ustawienie steruje kolekcją zmiennych środowiskowych we wszystkich zestawach/węzłach w klastrze i domyślnie `enabled = true` nie jest określona w ConfigMaps. Jeśli kolekcja zmiennych środowiskowych jest włączona globalnie, można ją wyłączyć dla określonego kontenera przez ustawienie zmiennej środowiskowej `AZMON_COLLECT_ENV` na **false** przy użyciu ustawienia pliku dockerfile lub w [pliku konfiguracji dla elementu pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) w sekcji **env:** . Jeśli zbieranie zmiennych środowiskowych jest wyłączone globalnie, nie można włączyć kolekcji dla określonego kontenera (oznacza to, że jedynym przesłonięciem, który można zastosować na poziomie kontenera, jest wyłączenie kolekcji, gdy jest ona już włączona globalnie). |
+| `[log_collection_settings.enrich_container_logs] enabled =` |Boolean (wartość logiczna) | true lub false | To ustawienie kontroluje wzbogacanie dzienników kontenerów, aby wypełnić wartości nazwy i właściwości obrazu dla każdego rekordu dziennika zapisanego w tabeli ContainerLog dla wszystkich dzienników kontenerów w klastrze. Domyślnie nie jest `enabled = false` określony w ConfigMap. |
 
 ConfigMaps jest globalną listą, a do agenta może być zastosowany tylko jeden ConfigMap. Nie można ConfigMaps kolekcji.
 
@@ -53,13 +53,13 @@ Wykonaj następujące kroki, aby skonfigurować i wdrożyć plik konfiguracyjny 
    >[!NOTE]
    >Ten krok nie jest wymagany podczas pracy z usługą Azure Red Hat OpenShift, ponieważ szablon ConfigMap już istnieje w klastrze.
 
-2. Edytuj plik YAML ConfigMap przy użyciu dostosowań, aby zbierać zmienne stdout, stderr i/lub środowiskowe. Jeśli edytujesz plik ConfigMap YAML dla usługi Azure Red Hat OpenShift, najpierw uruchom polecenie `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` , aby otworzyć plik w edytorze tekstu.
+2. Edytuj plik YAML ConfigMap przy użyciu dostosowań, aby zbierać zmienne stdout, stderr i/lub środowiskowe. Jeśli edytujesz plik ConfigMap YAML dla usługi Azure Red Hat OpenShift, najpierw uruchom polecenie, `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` Aby otworzyć plik w edytorze tekstu.
 
-    - Aby wykluczyć określone przestrzenie nazw dla zbierania dzienników stdout, należy skonfigurować klucz/wartość przy użyciu następującego przykładu: `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`.
+    - Aby wykluczyć określone przestrzenie nazw dla zbierania dzienników stdout, należy skonfigurować klucz/wartość przy użyciu następującego przykładu: `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]` .
     
-    - Aby wyłączyć kolekcję zmiennych środowiskowych dla określonego kontenera, należy ustawić klucz/wartość `[log_collection_settings.env_var] enabled = true` , aby włączyć kolekcje zmiennych globalnie, a następnie wykonać kroki opisane [tutaj](container-insights-manage-agent.md#how-to-disable-environment-variable-collection-on-a-container) , aby ukończyć konfigurację dla określonego kontenera.
+    - Aby wyłączyć kolekcję zmiennych środowiskowych dla określonego kontenera, należy ustawić klucz/wartość, `[log_collection_settings.env_var] enabled = true` Aby włączyć kolekcje zmiennych globalnie, a następnie wykonać kroki opisane [tutaj](container-insights-manage-agent.md#how-to-disable-environment-variable-collection-on-a-container) , aby ukończyć konfigurację dla określonego kontenera.
     
-    - Aby wyłączyć zbieranie dzienników stderr dla całego klastra, należy skonfigurować klucz/wartość przy użyciu następującego przykładu: `[log_collection_settings.stderr] enabled = false`.
+    - Aby wyłączyć zbieranie dzienników stderr dla całego klastra, należy skonfigurować klucz/wartość przy użyciu następującego przykładu: `[log_collection_settings.stderr] enabled = false` .
 
 3. W przypadku klastrów innych niż Azure Red Hat OpenShift Utwórz ConfigMap, uruchamiając następujące polecenie polecenia kubectl: `kubectl apply -f <configmap_yaml_file.yaml>` w przypadku klastrów innych niż Azure Red Hat OpenShift. 
     
@@ -67,11 +67,11 @@ Wykonaj następujące kroki, aby skonfigurować i wdrożyć plik konfiguracyjny 
 
     W przypadku usługi Azure Red Hat OpenShift Zapisz zmiany w edytorze.
 
-Zmiana konfiguracji może potrwać kilka minut, zanim zostanie ona uwzględniona, a wszystkie omsagent zostaną uruchomione ponownie. Ponowne uruchomienie jest ponownym uruchomieniem dla wszystkich omsagentch, a nie wszystkich ponownych uruchomień w tym samym czasie. Po zakończeniu ponownych uruchomień zostanie wyświetlony komunikat podobny do poniższego i zawiera wynik: `configmap "container-azm-ms-agentconfig" created`.
+Zmiana konfiguracji może potrwać kilka minut, zanim zostanie ona uwzględniona, a wszystkie omsagent zostaną uruchomione ponownie. Ponowne uruchomienie jest ponownym uruchomieniem dla wszystkich omsagentch, a nie wszystkich ponownych uruchomień w tym samym czasie. Po zakończeniu ponownych uruchomień zostanie wyświetlony komunikat podobny do poniższego i zawiera wynik: `configmap "container-azm-ms-agentconfig" created` .
 
 ## <a name="verify-configuration"></a>Weryfikuj konfigurację
 
-Aby sprawdzić, czy konfiguracja została pomyślnie zastosowana do klastra innego niż Azure Red Hat OpenShift, użyj następującego polecenia, aby przejrzeć dzienniki z agenta pod: `kubectl logs omsagent-fdf58 -n=kube-system`. Jeśli wystąpiły błędy konfiguracji z omsagentch, w danych wyjściowych zostaną wyświetlone błędy podobne do następujących:
+Aby sprawdzić, czy konfiguracja została pomyślnie zastosowana do klastra innego niż Azure Red Hat OpenShift, użyj następującego polecenia, aby przejrzeć dzienniki z agenta pod: `kubectl logs omsagent-fdf58 -n kube-system` . Jeśli wystąpiły błędy konfiguracji z omsagentch, w danych wyjściowych zostaną wyświetlone błędy podobne do następujących:
 
 ``` 
 ***************Start Config Processing******************** 
@@ -96,7 +96,7 @@ Błędy związane z zastosowaniem zmian konfiguracji są również dostępne do 
 
 - Korzystając z rozwiązania Azure Red Hat OpenShift, Sprawdź dzienniki omsagent, przeszukując tabelę **ContainerLog** , aby sprawdzić, czy jest włączone zbieranie dzienników na platformie Azure.
 
-Po naprawieniu błędów w ConfigMap klastrów innych niż Azure Red Hat OpenShift Zapisz plik YAML i Zastosuj zaktualizowany ConfigMaps, uruchamiając polecenie: `kubectl apply -f <configmap_yaml_file.yaml`. W przypadku rozwiązania Azure Red Hat OpenShift należy edytować i zapisać zaktualizowane ConfigMaps, uruchamiając polecenie:
+Po naprawieniu błędów w ConfigMap klastrów innych niż Azure Red Hat OpenShift Zapisz plik YAML i Zastosuj zaktualizowany ConfigMaps, uruchamiając polecenie: `kubectl apply -f <configmap_yaml_file.yaml` . W przypadku rozwiązania Azure Red Hat OpenShift należy edytować i zapisać zaktualizowane ConfigMaps, uruchamiając polecenie:
 
 ``` bash
 oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
@@ -104,13 +104,13 @@ oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
 
 ## <a name="applying-updated-configmap"></a>Stosowanie zaktualizowanych ConfigMap
 
-Jeśli wdrożono już ConfigMap w klastrach innych niż Azure Red Hat OpenShift i chcesz ją zaktualizować przy użyciu nowszej konfiguracji, możesz edytować poprzednio używany plik ConfigMap, a następnie zastosować go przy użyciu tego samego polecenia jak poprzednio `kubectl apply -f <configmap_yaml_file.yaml`. W przypadku rozwiązania Azure Red Hat OpenShift należy edytować i zapisać zaktualizowane ConfigMaps, uruchamiając polecenie:
+Jeśli wdrożono już ConfigMap w klastrach innych niż Azure Red Hat OpenShift i chcesz ją zaktualizować przy użyciu nowszej konfiguracji, możesz edytować poprzednio używany plik ConfigMap, a następnie zastosować go przy użyciu tego samego polecenia jak poprzednio `kubectl apply -f <configmap_yaml_file.yaml` . W przypadku rozwiązania Azure Red Hat OpenShift należy edytować i zapisać zaktualizowane ConfigMaps, uruchamiając polecenie:
 
 ``` bash
 oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
 ```
 
-Zmiana konfiguracji może potrwać kilka minut, zanim zostanie ona uwzględniona, a wszystkie omsagent zostaną uruchomione ponownie. Ponowne uruchomienie jest ponownym uruchomieniem dla wszystkich omsagentch, a nie wszystkich ponownych uruchomień w tym samym czasie. Po zakończeniu ponownych uruchomień zostanie wyświetlony komunikat podobny do poniższego i zawiera wynik: `configmap "container-azm-ms-agentconfig" updated`.
+Zmiana konfiguracji może potrwać kilka minut, zanim zostanie ona uwzględniona, a wszystkie omsagent zostaną uruchomione ponownie. Ponowne uruchomienie jest ponownym uruchomieniem dla wszystkich omsagentch, a nie wszystkich ponownych uruchomień w tym samym czasie. Po zakończeniu ponownych uruchomień zostanie wyświetlony komunikat podobny do poniższego i zawiera wynik: `configmap "container-azm-ms-agentconfig" updated` .
 
 ## <a name="verifying-schema-version"></a>Weryfikowanie wersji schematu
 

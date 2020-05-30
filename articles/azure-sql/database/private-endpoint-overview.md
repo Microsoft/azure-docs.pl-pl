@@ -9,17 +9,17 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 302a755dc32ad36e214ba4982a03da126f6aed04
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: e1093e57757d780bf5393b6cb1bb45a706b18b11
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84054665"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219878"
 ---
 # <a name="private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Prywatne łącze do Azure SQL Database i analizy Synapse Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Link prywatny umożliwia nawiązanie połączenia z różnymi usługami PaaS na platformie Azure za pośrednictwem **prywatnego punktu końcowego**. Aby zapoznać się z listą usług PaaS Services, które obsługują funkcję link prywatny, przejdź do strony z [dokumentacją linku prywatnego](../index.yml) . Prywatny punkt końcowy to prywatny adres IP w obrębie określonej sieci [wirtualnej](../../virtual-network/virtual-networks-overview.md) i podsieci.
+Link prywatny umożliwia nawiązanie połączenia z różnymi usługami PaaS na platformie Azure za pośrednictwem **prywatnego punktu końcowego**. Aby zapoznać się z listą usług PaaS Services, które obsługują funkcję link prywatny, przejdź do strony z [dokumentacją linku prywatnego](../../private-link/index.yml) . Prywatny punkt końcowy to prywatny adres IP w obrębie określonej sieci [wirtualnej](../../virtual-network/virtual-networks-overview.md) i podsieci.
 
 > [!IMPORTANT]
 > Ten artykuł dotyczy zarówno Azure SQL Database, jak i usługi Azure Synapse Analytics (dawniej SQL Data Warehouse). Dla uproszczenia termin "baza danych" odnosi się do obu baz danych w Azure SQL Database i Azure Synapse Analytics. Podobnie wszystkie odwołania do "serwer" odwołują się do [logicznego serwera SQL](logical-servers.md) , który hostuje Azure SQL Database i usługi Azure Synapse Analytics. Ten artykuł *nie* dotyczy **wystąpienia zarządzanego usługi Azure SQL**.

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 80b8adfc26cd87e0788852e98fddb0fd3f2e8cd5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 56132eae03a52af425e00bec93a63a697a2a55e6
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188590"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204739"
 ---
 # <a name="azure-operational-security-best-practices"></a>Najlepsze rozwiązania z zakresu zabezpieczeń operacyjnych platformy Azure
 Ten artykuł zawiera zestaw najlepszych rozwiązań operacyjnych dotyczących ochrony danych, aplikacji i innych zasobów na platformie Azure.
@@ -215,8 +215,8 @@ Aby uzyskać więcej informacji, zobacz [Tworzenie zasad i zarządzanie nimi w c
 **Najlepsze rozwiązanie**: Zidentyfikuj role odpowiedzialne za monitorowanie naruszeń zasad i zapewnia szybkie podejmowanie odpowiednich działań naprawczych.   
 **Szczegóły**: ma przypisaną rolę Monitoruj zgodność za pośrednictwem [Azure Portal](../../governance/policy/how-to/get-compliance-data.md#portal) lub za pomocą [wiersza polecenia](../../governance/policy/how-to/get-compliance-data.md#command-line).
 
-**Najlepsze rozwiązanie**: Azure Policy stanowi reprezentację techniczną dla zapisaną przez organizację zasad. Zamapuj wszystkie zasady platformy Azure na zasady organizacyjne, aby zmniejszyć liczbę pomyłek i zwiększyć spójność.   
-**Szczegóły**: mapowanie dokumentu w dokumentacji organizacji lub w samej definicji Azure Policy przez dodanie odwołania do zasad organizacji w [definicji Azure Policy](../../governance/policy/concepts/definition-structure.md#display-name-and-description) lub w opisie [Azure Policy inicjatywy](../../governance/policy/concepts/definition-structure.md#initiatives) .
+**Najlepsze rozwiązanie**: Azure Policy stanowi reprezentację techniczną dla zapisaną przez organizację zasad. Mapuj wszystkie definicje Azure Policy na zasady organizacyjne, aby zmniejszyć liczbę pomyłek i zwiększyć spójność.   
+**Szczegóły**: mapowanie dokumentu w dokumentacji organizacji lub w samej definicji Azure Policy przez dodanie odwołania do zasad organizacji w [definicji zasad](../../governance/policy/concepts/definition-structure.md#display-name-and-description) lub opis [definicji inicjatywy](../../governance/policy/concepts/initiative-definition-structure.md#metadata) .
 
 ## <a name="monitor-azure-ad-risk-reports"></a>Monitorowanie raportów o ryzyku usługi Azure AD
 Większość naruszeń zabezpieczeń odbywa się, gdy osoby atakujące uzyskują dostęp do środowiska przez kradzież tożsamości użytkownika. Odnajdywanie zagrożonych tożsamości nie jest łatwe. Usługa Azure AD używa adaptacyjnych algorytmów uczenia maszynowego i heurystyki do wykrywania podejrzanych działań, które są związane z kontami użytkowników. Każda wykryte podejrzane działania są przechowywane w rekordzie nazywanym [wykryciem ryzyka](../../active-directory/reports-monitoring/concept-risk-events.md). Wykrywanie ryzyka są rejestrowane w raportach zabezpieczeń usługi Azure AD. Aby uzyskać więcej informacji, zapoznaj się z [raportem o zabezpieczeniach](../../active-directory/reports-monitoring/concept-user-at-risk.md) dotyczący użytkowników, a raport zabezpieczeń dotyczący [ryzykownych](../../active-directory/reports-monitoring/concept-risky-sign-ins.md)logowań.

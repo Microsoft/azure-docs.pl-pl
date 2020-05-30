@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e6c51e80a0a9a68dc6ec11e03c133f3480eb4329
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 66043ae4f569e4151be829ca361232accb2f0ebd
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170481"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219384"
 ---
 # <a name="azure-security-baseline-for-azure-databricks"></a>Podstawa zabezpieczeń platformy Azure dla Azure Databricks
 
@@ -404,7 +404,7 @@ Uwaga: dzienniki diagnostyczne Azure Databricks wymagają planu Azure Databricks
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3,10: regularnie Przeglądaj i Uzgodnij dostęp użytkowników
 
-**Wskazówki**: usługa Azure AD udostępnia dzienniki, które ułatwiają odnajdywanie starych kont. Ponadto za pomocą przeglądów dostępu do tożsamości platformy Azure można efektywnie zarządzać członkostwem w grupach, dostępem do aplikacji dla przedsiębiorstw i przypisaniami ról. Dostęp użytkowników może być regularnie przeglądany, aby upewnić się, że tylko Ci użytkownicy mają ciągły dostęp. Możesz również zaimplementować interfejsy API Standard scim i dzienniki diagnostyczne Azure Databricks, aby przejrzeć dostęp użytkowników. Możesz również użyć interfejsów API Standard scim i dzienników diagnostycznych Azure Databricks, aby przejrzeć dostęp użytkowników.
+**Wskazówki**: usługa Azure AD udostępnia dzienniki, które ułatwiają odnajdywanie starych kont. Ponadto za pomocą przeglądów dostępu do tożsamości platformy Azure można efektywnie zarządzać członkostwem w grupach, dostępem do aplikacji dla przedsiębiorstw i przypisaniami ról. Dostęp użytkowników może być regularnie przeglądany, aby upewnić się, że tylko Ci użytkownicy mają ciągły dostęp. Możesz również zaimplementować interfejsy API Standard scim i dzienniki diagnostyczne Azure Databricks, aby przejrzeć dostęp użytkowników.
 
 Ponadto należy regularnie przeglądać i zarządzać dostępem użytkowników w konsoli administracyjnej Azure Databricks.
 

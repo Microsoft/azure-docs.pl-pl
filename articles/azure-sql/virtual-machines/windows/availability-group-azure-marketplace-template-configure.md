@@ -3,7 +3,7 @@ title: Konfigurowanie wysokiej dostępności dla Azure Resource Manager maszyn w
 description: W tym samouczku pokazano, jak utworzyć grupę dostępności zawsze włączona przy użyciu usługi Azure Virtual Machines w trybie Azure Resource Manager.
 services: virtual-machines-windows
 documentationcenter: na
-author: MikeRayMSFT
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: f824ef4964a1039c5ed866e470d19e1306107afe
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: d00d8245f14b042b5fa779697ed74edacaf397a6
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84049589"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219598"
 ---
 # <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Automatyczne konfigurowanie grup dostępności na platformie Azure Virtual Machines: Menedżer zasobów
 
@@ -67,12 +67,12 @@ Platforma Azure udostępnia obraz galerii dla całego rozwiązania. Aby zlokaliz
 1. Zaloguj się do Azure Portal przy użyciu swojego konta.
 2. W Azure Portal wybierz pozycję **Utwórz zasób** , aby otworzyć **nowe** okienko.
 3. W **nowym** okienku Wyszukaj funkcję **AlwaysOn**.
-   ![Znajdź szablon AlwaysOn](./media/availability-group-azure-marketplace-template-configure/16-findalwayson.png)
-4. W wynikach wyszukiwania odszukaj **SQL Server zawsze włączony klaster**.
-   ![Szablon AlwaysOn](./media/availability-group-azure-marketplace-template-configure/17-alwaysontemplate.png)
-5. W obszarze **Wybierz model wdrażania**wybierz pozycję **Menedżer zasobów**.
+  W witrynie Azure Marketplace są wyświetlane wyniki wyszukiwania obejmujące klaster SQL Server. Ta funkcja jest dostępna w wersji zapoznawczej.
+4. W wynikach wyszukiwania odszukaj i kliknij **SQL Server klastrze AlwaysOn (wersja zapoznawcza)**. Postępuj zgodnie z instrukcjami, aby utworzyć rozwiązanie.
 
-### <a name="basics"></a>Podstawy
+W poniższych sekcjach wyjaśniono dane wejściowe rozwiązania. 
+
+### <a name="basics"></a>Informacje podstawowe
 
 Wybierz pozycję **podstawowe** i skonfiguruj następujące ustawienia:
 
@@ -84,7 +84,7 @@ Wybierz pozycję **podstawowe** i skonfiguruj następujące ustawienia:
 
 Poniższy zrzut ekranu przedstawia kompletny blok **podstawy** :
 
-![Podstawy](./media/availability-group-azure-marketplace-template-configure/1-basics.png)
+![Informacje podstawowe](./media/availability-group-azure-marketplace-template-configure/1-basics.png)
 
 Wybierz przycisk **OK**.
 

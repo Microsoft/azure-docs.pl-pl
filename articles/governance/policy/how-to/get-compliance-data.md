@@ -3,12 +3,12 @@ title: Pobierz dane zgodności zasad
 description: Azure Policy oceny i efekty określają zgodność. Dowiedz się, jak uzyskać szczegóły zgodności zasobów platformy Azure.
 ms.date: 05/20/2020
 ms.topic: how-to
-ms.openlocfilehash: 55f0b471eff15140de0a586fd5d326d9cd913b1a
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: e4d63355b793f69ccc2ed7aaa44bfb60a3a8440e
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747085"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204841"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Pobieranie danych zgodności zasobów platformy Azure
 
@@ -121,9 +121,9 @@ W poniższej tabeli przedstawiono, w jaki sposób różne skutki zasad działaj�
 | Stan zasobu | Efekt | Ocena zasad | Stan zgodności |
 | --- | --- | --- | --- |
 | Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Niezgodne |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Zgodny |
+| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | Fałsz | Zgodny |
 | Nowa | Audit, AuditIfNotExist\* | True | Niezgodne |
-| Nowa | Audit, AuditIfNotExist\* | False | Zgodny |
+| Nowa | Audit, AuditIfNotExist\* | Fałsz | Zgodny |
 
 \* Efekty Append, DeployIfNotExist i AuditIfNotExist wymagają instrukcji IF z wartością TRUE.
 Ponadto efekty wymagają, aby warunek istnienia miał wartość FALSE, aby być niezgodnymi. W przypadku wartości TRUE warunek IF wyzwala ocenę warunku istnienia dla powiązanych zasobów.
@@ -148,6 +148,9 @@ Wartość procentowa zgodności jest określana przez podzielenie **zgodnych** z
 _Łączna liczba zasobów_ jest definiowana jako suma **zgodnych**, **niezgodnych**i **sprzecznych** zasobów. Ogólne numery zgodności są sumą różnych zasobów, które są **zgodne** , podzieloną przez sumę wszystkich różnych zasobów. Na poniższej ilustracji przedstawiono 20 odrębnych zasobów, które mają zastosowanie i tylko jeden z nich jest **niezgodny**. Ogólna zgodność zasobów wynosi 95% (19 z 20).
 
 :::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Przykład zgodności z zasadami ze strony zgodności" border="false":::
+
+> [!NOTE]
+> Zgodność z przepisami w Azure Policy jest funkcją w wersji zapoznawczej. Właściwości zgodności z zestawu SDK i stron w portalu różnią się w zależności od włączonych inicjatyw. Aby uzyskać więcej informacji, zobacz [zgodność z przepisami](../concepts/regulatory-compliance.md)
 
 ## <a name="portal"></a>Portal
 

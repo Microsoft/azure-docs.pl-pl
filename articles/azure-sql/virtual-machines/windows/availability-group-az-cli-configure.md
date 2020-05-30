@@ -1,5 +1,5 @@
 ---
-title: Konfigurowanie grupy dostępności (interfejs wiersza polecenia platformy Azure)
+title: Konfigurowanie grupy dostępności przy użyciu interfejsu wiersza polecenia platformy Azure
 description: Użyj interfejsu wiersza polecenia platformy Azure do utworzenia klastra trybu failover systemu Windows, odbiornika grupy dostępności i wewnętrznego modułu równoważenia obciążenia na SQL Server maszynie wirtualnej na platformie Azure.
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,14 +14,14 @@ ms.date: 02/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 1a48095343fd24071a20d789704b8146be79d02c
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 23667e8a50d2ef3a7a31aeb165c0b5d43bcf3eca
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84041980"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219623"
 ---
-# <a name="use-the-azure-cli-to-configure-an-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Korzystanie z interfejsu wiersza polecenia platformy Azure w celu skonfigurowania zawsze włączonej grupy dostępności dla SQL Server na maszynie wirtualnej platformy Azure
+# <a name="use-the-azure-cli-to-configure-an-always-on-availability-group-for-sql-server-on-azure-vm"></a>Użyj interfejsu wiersza polecenia platformy Azure, aby skonfigurować zawsze włączona Grupa dostępności dla SQL Server na maszynie wirtualnej platformy Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 W tym artykule opisano, jak za pomocą [interfejsu wiersza polecenia platformy Azure](/cli/azure/sql/vm?view=azure-cli-latest/) wdrożyć klaster trybu failover systemu Windows, dodać SQL Server maszyny wirtualne do klastra i utworzyć wewnętrzny moduł równoważenia obciążenia i odbiornik dla zawsze włączonej grupy dostępności. Wdrożenie zawsze włączonych grup dostępności jest nadal wykonywane ręcznie za pomocą narzędzia SQL Server Management Studio (SSMS). 
@@ -38,7 +38,7 @@ Aby zautomatyzować instalację zawsze włączonych grup dostępności przy uży
 Aby skonfigurować zawsze włączone grupy dostępności przy użyciu interfejsu wiersza polecenia platformy Azure, potrzebne są następujące uprawnienia konta: 
 
 - Istniejące konto użytkownika domeny, które ma uprawnienie **Tworzenie obiektu komputera** w domenie. Na przykład konto administratora domeny ma zwykle wystarczające uprawnienia (na przykład: account@domain.com ). _To konto powinno być również częścią lokalnej grupy administratorów na każdej maszynie wirtualnej w celu utworzenia klastra._
-- Konto użytkownika domeny kontrolujące usługę SQL Server. 
+- Konto użytkownika domeny kontrolujące SQL Server. 
  
 ## <a name="step-1-create-a-storage-account-as-a-cloud-witness"></a>Krok 1. Tworzenie konta magazynu jako monitora chmury
 Klaster wymaga konta magazynu do działania jako monitor chmury. Możesz użyć dowolnego istniejącego konta magazynu lub utworzyć nowe konto magazynu. Jeśli chcesz użyć istniejącego konta magazynu, przejdź do następnej sekcji. 

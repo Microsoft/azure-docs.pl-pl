@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 04/10/2018
+ms.date: 05/28/2020
 ms.author: sngun
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: e3517804cb66a9f98351e4c68f4f7c4387cee8fe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 979f93ef19a2c2aec96c51f81f412468070f7b1d
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82083805"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84218009"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-table-api-data"></a>Szybki Start: Tworzenie aplikacji Java do zarządzania danymi interfejs API tabel Azure Cosmos DB
 
@@ -29,8 +29,8 @@ W tym przewodniku szybki start utworzysz konto Azure Cosmos DB interfejs API tab
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Lub [Wypróbuj bezpłatnie Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) bez subskrypcji platformy Azure. Można również użyć [emulatora Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) z identyfikatorem URI `https://localhost:8081` i kluczem `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`.
-- [Zestaw Java Development Kit (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Wskaż zmienną `JAVA_HOME` środowiskową do folderu, w którym zainstalowano JDK.
+- Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). Lub [Wypróbuj bezpłatnie Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) bez subskrypcji platformy Azure. Można również użyć [emulatora Azure Cosmos DB](https://aka.ms/cosmosdb-emulator) z identyfikatorem URI `https://localhost:8081` i kluczem `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==` .
+- [Zestaw Java Development Kit (JDK) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). Wskaż `JAVA_HOME` zmienną środowiskową do folderu, w którym zainstalowano JDK.
 - [Archiwum binarne Maven](https://maven.apache.org/download.cgi). 
 - Usługi [git](https://www.git-scm.com/downloads). 
 
@@ -72,7 +72,86 @@ Teraz sklonujemy aplikację Tabela z serwisu GitHub, ustawimy parametry połącz
     git clone https://github.com/Azure-Samples/storage-table-java-getting-started.git 
     ```
 
-> ! WYOWIETLON Aby zapoznać się z bardziej szczegółowym omówieniem podobnego kodu, zobacz artykuł [Cosmos DB interfejs API tabel Sample](table-storage-how-to-use-java.md) . 
+> [!TIP]
+> Aby zapoznać się z bardziej szczegółowym omówieniem podobnego kodu, zobacz artykuł [Cosmos DB interfejs API tabel Sample](table-storage-how-to-use-java.md) . 
+
+## <a name="review-the-code"></a>Przeglądanie kodu
+
+Ten krok jest opcjonalny. Jeśli chcesz się dowiedzieć, jak zasoby bazy danych są tworzone w kodzie, możesz przejrzeć poniższe fragmenty kodu. W przeciwnym razie możesz przejść do sekcji [aktualizowanie parametrów połączenia](#update-your-connection-string) tego dokumentu.
+
+* Poniższy kod przedstawia sposób tworzenia tabeli w ramach usługi Azure Storage:
+
+  ```java
+  private static CloudTable createTable(CloudTableClient tableClient, String tableName) throws StorageException, RuntimeException, IOException, InvalidKeyException,   IllegalArgumentException, URISyntaxException, IllegalStateException {
+  
+    // Create a new table
+    CloudTable table = tableClient.getTableReference(tableName);
+    try {
+        if (table.createIfNotExists() == false) {
+            throw new IllegalStateException(String.format("Table with name \"%s\" already exists.", tableName));
+        }
+    }
+    catch (StorageException s) {
+        if (s.getCause() instanceof java.net.ConnectException) {
+            System.out.println("Caught connection exception from the client. If running with the default configuration please make sure you have started the storage emulator.");
+        }
+        throw s;
+    }
+
+    return table;
+  }
+  ```
+
+* Poniższy kod ilustruje sposób wstawiania danych do tabeli:
+
+  ```javascript
+  private static void batchInsertOfCustomerEntities(CloudTable table) throws StorageException {
+  
+  // Create the batch operation
+  TableBatchOperation batchOperation1 = new TableBatchOperation();
+  for (int i = 1; i <= 50; i++) {
+      CustomerEntity entity = new CustomerEntity("Smith", String.format("%04d", i));
+      entity.setEmail(String.format("smith%04d@contoso.com", i));
+      entity.setHomePhoneNumber(String.format("425-555-%04d", i));
+      entity.setWorkPhoneNumber(String.format("425-556-%04d", i));
+      batchOperation1.insertOrMerge(entity);
+  }
+  
+  // Execute the batch operation
+  table.execute(batchOperation1);
+  }
+  ```
+
+* Poniższy kod przedstawia sposób wykonywania zapytań dotyczących danych z tabeli:
+
+  ```java
+  private static void partitionScan(CloudTable table, String partitionKey) throws StorageException {
+  
+      // Create the partition scan query
+      TableQuery<CustomerEntity> partitionScanQuery = TableQuery.from(CustomerEntity.class).where(
+          (TableQuery.generateFilterCondition("PartitionKey", QueryComparisons.EQUAL, partitionKey)));
+  
+      // Iterate through the results
+      for (CustomerEntity entity : table.execute(partitionScanQuery)) {
+          System.out.println(String.format("\tCustomer: %s,%s\t%s\t%s\t%s", entity.getPartitionKey(), entity.getRowKey(), entity.getEmail(), entity.getHomePhoneNumber(), entity.  getWorkPhoneNumber()));
+      }
+  }
+  ```
+
+* Poniższy kod przedstawia sposób usuwania danych z tabeli:
+
+  ```java
+  
+  System.out.print("\nDelete any tables that were created.");
+  
+  if (table1 != null && table1.deleteIfExists() == true) {
+      System.out.println(String.format("\tSuccessfully deleted the table: %s", table1.getName()));
+  }
+  
+  if (table2 != null && table2.deleteIfExists() == true) {
+      System.out.println(String.format("\tSuccessfully deleted the table: %s", table2.getName()));
+  }
+  ```
 
 ## <a name="update-your-connection-string"></a>Aktualizowanie parametrów połączenia
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 838e523f74a21c44958ddb6dc88e4dab3526d81a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 405beb5cb8c2e74951aa54ba371be04d290ad3a2
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80064992"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194471"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Informacje o wersji bramy zarządzania danymi
 > [!NOTE]
@@ -49,8 +49,8 @@ Nie utrzymujemy jeszcze informacji o wersji. Pobierz najnowsze informacje o wers
 -   Możesz dodać wpisy DNS do dozwolonych Service Bus, a nie listy dozwolonych wszystkie adresy IP platformy Azure z zapory (jeśli to konieczne). Więcej szczegółów można znaleźć tutaj.
 -   Teraz można kopiować dane do/z pojedynczego bloku obiektów BLOB o rozmiarze do 4,75 TB, czyli maksymalnego obsługiwanego rozmiaru blokowego obiektu BLOB. (wcześniejszy limit to 195 GB).
 -   Rozwiązano: problem z brakiem pamięci podczas rozpakowywania kilku małych plików podczas działania kopiowania.
--   Naprawiono: problem z zakresem podczas kopiowania z bazy danych dokumentów do SQL Server lokalnego przy użyciu funkcji idempotentności.
--   Naprawiono: skrypt czyszczący SQL nie działa z lokalnym SQL Serverm Kreatora kopiowania.
+-   Naprawiono: problem z zakresem podczas kopiowania z bazy danych dokumentów do SQL Server za pomocą funkcji idempotentności.
+-   Naprawiono: skrypt czyszczący SQL nie działa z SQL Server Kreatora kopiowania.
 -   Naprawiono: Nazwa kolumny ze spacją nie działa w działaniu kopiowania.
 
 ## <a name="28662833"></a>2.8.66283.3
@@ -111,7 +111,7 @@ Nie utrzymujemy jeszcze informacji o wersji. Pobierz najnowsze informacje o wers
 *  Sterownik DB2 obsługuje teraz systemy z/OS i DB2 dla i (jako/400) wraz z już obsługiwanymi platformami (Linux, UNIX i Windows).
 *  Obsługuje używanie Azure Cosmos DB jako źródła lub lokalizacji docelowej lokalnych magazynów danych
 *  Obsługuje kopiowanie danych z/do zimnego/gorącego magazynu obiektów BLOB wraz z już obsługiwanym kontem magazynu ogólnego przeznaczenia.
-*  Umożliwia nawiązanie połączenia z lokalnym SQL Server za pośrednictwem bramy z uprawnieniami zdalnego logowania.  
+*  Umożliwia nawiązanie połączenia z SQL Server za pośrednictwem bramy z uprawnieniami zdalnego logowania.  
 
 ## <a name="2060131"></a>2.0.6013.1
 
@@ -126,7 +126,7 @@ Nie utrzymujemy jeszcze informacji o wersji. Pobierz najnowsze informacje o wers
     *  Reorganizowane i uproszczone kontrolki.
 
     *  Dane można kopiować z magazynu za pomocą narzędzia do [kopiowania bez kodu](data-factory-copy-data-wizard-tutorial.md). Więcej informacji o tej funkcji znajduje się w sekcji [przygotowane kopie](data-factory-copy-activity-performance.md#staged-copy) .
-*  Usługi Zarządzanie danymi Gateway można używać do transferowania danych bezpośrednio z lokalnej SQL Server bazy danych do Azure Machine Learning.
+*  Za pomocą bramy Zarządzanie danymi można odbierać dane przychodzące bezpośrednio z SQL Serverj bazy danych w Azure Machine Learning.
 
 *  Ulepszenia wydajności
 

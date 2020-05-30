@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 04/21/2020
-ms.openlocfilehash: 96e37afd8bf7d59eef4a4c0c831f535faa36d34d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: ccdb2b24499c86a54909b2617abd7e9bf294a261
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681443"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220193"
 ---
-# <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Jak uruchamiać notesy Jupyter w obszarze roboczym
+# <a name="how-to-run-jupyter-notebooks-in-your-workspace-preview"></a>Jak uruchamiać notesy Jupyter w obszarze roboczym (wersja zapoznawcza)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Dowiedz się, jak uruchamiać notesy Jupyter bezpośrednio w obszarze roboczym w programie Azure Machine Learning Studio. Chociaż możesz uruchomić [Jupyter](https://jupyter.org/) lub [JupyterLab](https://jupyterlab.readthedocs.io), możesz również edytować i uruchamiać notesy bez opuszczania obszaru roboczego.
@@ -49,7 +49,7 @@ Aby utworzyć nowy Notes:
 1. Nazwij plik. 
 1. Dla plików Jupyter Notebook wybierz pozycję **Notes Python** jako typ pliku.
 1. Wybierz katalog plików.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 > [!TIP]
 > Można również tworzyć pliki tekstowe.  Zaznacz **tekst** jako typ pliku i Dodaj rozszerzenie do nazwy (na przykład MyFile.py lub plik txt)  
@@ -125,7 +125,7 @@ Aby uruchomić eksperyment z notesu, należy najpierw połączyć się z uruchom
 
 1. Wybierz **+** na pasku narzędzi Notes. 
 2. Nazwij obliczenia i wybierz **rozmiar maszyny wirtualnej**. 
-3. Wybierz przycisk **Utwórz**.
+3. Wybierz pozycję **Utwórz**.
 4. Wystąpienie obliczeniowe jest połączone z notesem automatycznie i można teraz uruchamiać komórki.
 
 Można wyświetlać i używać tylko utworzonych wystąpień obliczeniowych.  **Pliki użytkownika** są przechowywane niezależnie od maszyny wirtualnej i są współdzielone między wszystkimi wystąpieniami obliczeniowymi w obszarze roboczym.

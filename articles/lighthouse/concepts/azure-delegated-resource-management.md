@@ -1,14 +1,14 @@
 ---
 title: Zarządzanie zasobami delegowanymi na platformie Azure
 description: Dzięki usługom zarządzanym dostawcy usług mogą sprzedawać oferty zarządzania zasobami klientom w portalu Azure Marketplace.
-ms.date: 04/01/2020
+ms.date: 05/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: db9f562ca4f42d1c1d85eeac44495a8ec7e01beb
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e6f741ccbf0d52e0859722aa304aa6c273fb5acf
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80548420"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219071"
 ---
 # <a name="azure-delegated-resource-management"></a>Zarządzanie zasobami delegowanymi na platformie Azure
 
@@ -40,7 +40,7 @@ Na wysokim poziomie poniżej przedstawiono sposób działania zarządzania zasob
 3. Po dołączeniu klienta autoryzowani użytkownicy mogą zalogować się do dzierżawy dostawcy usługi i wykonywać zadania zarządzania w danym zakresie klienta na podstawie zdefiniowanego dostępu.
 
 > [!NOTE]
-> Delegowanie subskrypcji między dwiema dzierżawcami w osobnych chmurach nie jest obsługiwane.
+> Można zarządzać delegowanymi zasobami, które znajdują się w różnych [regionach](../../availability-zones/az-overview.md#regions). Jednak delegowanie subskrypcji w [chmurze krajowej](../../active-directory/develop/authentication-national-cloud.md) oraz w chmurze publicznej platformy Azure lub w dwóch oddzielnych chmurach narodowych nie jest obsługiwane.
 
 ## <a name="support-for-azure-delegated-resource-management"></a>Obsługa zarządzania zasobami delegowanymi przez platformę Azure
 

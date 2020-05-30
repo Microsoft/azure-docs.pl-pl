@@ -9,12 +9,12 @@ ms.subservice: networking
 ms.date: 07/17/2017
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 46a12006274ca8516c936e37189c9233dde9b410
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 39539f29df48d19b956b8bab6f63da50473453d4
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125200"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84221299"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Obsługa sieci w kontekście zestawów skalowania maszyn wirtualnych platformy Azure
 
@@ -51,6 +51,8 @@ Podczas pracy z zestawami skalowania maszyn wirtualnych i usługą równoważeni
   * Każdy zestaw skalowania maszyn wirtualnych musi mieć regułę NAT dla ruchu przychodzącego.
   * Po utworzeniu zestawu skalowania nie można zmodyfikować portu zaplecza dla reguły równoważenia obciążenia używanej przez sondę kondycji modułu równoważenia obciążenia. Aby zmienić port, można usunąć sondę kondycji, aktualizując zestaw skalowania maszyn wirtualnych platformy Azure, zaktualizować port, a następnie ponownie skonfiguruj sondę kondycji.
   * W przypadku korzystania z zestawu skalowania maszyn wirtualnych w puli zaplecza modułu równoważenia obciążenia domyślne reguły NAT dla ruchu przychodzącego są tworzone automatycznie.
+* **Pula NAT dla ruchu przychodzącego**:
+  * Pula NAT dla ruchu przychodzącego jest kolekcją reguł NAT dla ruchu przychodzącego. 1 przychodząca Pula NAT nie może obsługiwać wielu VM Scale Sets.
 * **Reguły równoważenia obciążenia**:
   * W przypadku korzystania z zestawu skalowania maszyn wirtualnych w puli zaplecza modułu równoważenia obciążenia domyślna reguła równoważenia obciążenia zostanie utworzona automatycznie.
 * **Reguły ruchu wychodzącego**:

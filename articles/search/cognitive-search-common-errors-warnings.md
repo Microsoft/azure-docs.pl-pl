@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 00494a4e071cb3e8b18f04ad7f201935e20c6b3d
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 83c3797cc3d9232f8589527285cc56c5cbff9a8a
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171110"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84221311"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Rozwiązywanie problemów z typowymi błędami indeksatora i ostrzeżeniami w usłudze Azure Wyszukiwanie poznawcze
 
@@ -71,7 +71,7 @@ Indeksator odczytuje dokument ze źródła danych, ale wystąpił problem podcza
 
 | Przyczyna | Szczegóły/przykład | Rozwiązanie |
 | --- | --- | --- |
-| Brak klucza dokumentu | Brak klucza dokumentu lub jest on pusty | Upewnij się, że wszystkie dokumenty mają prawidłowe klucze dokumentu |
+| Brak klucza dokumentu | Brak klucza dokumentu lub jest on pusty | Upewnij się, że wszystkie dokumenty mają prawidłowe klucze dokumentu. Klucz dokumentu jest określany przez ustawienie właściwości "Key" jako części [definicji indeksu](https://docs.microsoft.com/rest/api/searchservice/create-index#request-body). Indeksatory będą emitować ten błąd, jeśli właściwość oflagowana jako "Key" nie zostanie znaleziona w określonym dokumencie. |
 | Klucz dokumentu jest nieprawidłowy | Klucz dokumentu nie może mieć więcej niż 1024 znaków | Zmodyfikuj klucz dokumentu, aby spełniał wymagania dotyczące weryfikacji. |
 | Nie można zastosować mapowania pola do pola | Nie można zastosować funkcji mapowania `'functionName'` do pola `'fieldName'` . Tablica nie może mieć wartości null. Nazwa parametru: bajty | Dokładnie sprawdź [mapowania pól](search-indexer-field-mappings.md) zdefiniowane w indeksatorze i porównaj z danymi określonego pola dokumentu, który się nie powiódł. Może być konieczne zmodyfikowanie mapowań pól lub danych dokumentu. |
 | Nie można odczytać wartości pola | Nie można odczytać wartości kolumny `'fieldName'` w indeksie `'fieldIndex'` . Wystąpił błąd poziomu transportu podczas otrzymywania wyników z serwera. (Dostawca: Dostawca TCP, błąd: 0 — istniejące połączenie zostało wymuszone przez hosta zdalnego). | Te błędy są zwykle spowodowane nieoczekiwanymi problemami z łącznością z usługą źródłową źródła danych. Spróbuj ponownie uruchomić dokument za pomocą indeksatora później. |
@@ -334,7 +334,7 @@ Mapowania pól wyjściowych, które odwołują się do nieistniejących/niepusty
 
 [Tryby analizowania indeksatora](https://docs.microsoft.com/rest/api/searchservice/create-indexer#blob-configuration-parameters) muszą wiedzieć, jak kodowanie tekstu przed jego przeanalizą. Dwa najczęstsze sposoby kodowania tekstu to UTF-16 i UTF-8. UTF-8 to kodowanie o zmiennej długości, gdzie każdy znak ma długość od 1 do 4 bajtów. UTF-16 to kodowanie o stałej długości, gdzie każdy znak ma długość 2 bajtów. UTF-16 ma dwa różne warianty, "big endian" i "little endian". Kodowanie tekstu jest określane na podstawie "znacznika kolejności bajtów", serii bajtów przed tekstem.
 
-| Encoding | Znacznik kolejności bajtów |
+| Kodowanie | Znacznik kolejności bajtów |
 | --- | --- |
 | Big endian UTF-16 | 0xFE 0xFF |
 | Little endian UTF-16 | 0xFF 0xFE |

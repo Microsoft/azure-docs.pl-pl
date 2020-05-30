@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 2476cf360909374f711564fb5fad5c9e0706083d
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 2711160534270f38845ab7b48234f4a441c236b4
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562478"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195870"
 ---
 # <a name="azure-data-box-gateway-security-and-data-protection"></a>Azure Data Box Gateway zabezpieczenia i ochrona danych
 
@@ -27,7 +27,6 @@ Data Box Gateway rozwiązanie składa się z czterech głównych składników, k
 - **Data Box Gateway urządzenia**. Urządzenie wirtualne, które można udostępnić w funkcji hypervisor systemu. To urządzenie wirtualne służy do importowania danych lokalnych na platformę Azure.
 - **Klienci/hosty połączeni z urządzeniem**. Klienci w infrastrukturze, którzy łączą się z urządzeniem Data Box Gateway i zawierają dane, które muszą być chronione.
 - **Magazyn w chmurze**. Lokalizacja na platformie Azure w chmurze, w której są przechowywane dane. Ta lokalizacja jest zazwyczaj kontem magazynu połączonym z tworzonym zasobem Data Box Gateway.
-
 
 ## <a name="data-box-gateway-service-protection"></a>Data Box Gateway ochronę usługi
 
@@ -56,14 +55,13 @@ Aby uzyskać więcej informacji, zobacz [Uzyskiwanie klucza aktywacji](data-box-
 
 Hasła zapewniają, że dostęp do danych mają tylko autoryzowani użytkownicy. Data Box Gateway urządzenia są uruchamiane w stanie zablokowanym.
 
-Można:
+Dostępne możliwości:
 
 - Połącz się z lokalnym interfejsem użytkownika sieci Web urządzenia za pośrednictwem przeglądarki, a następnie podaj hasło, aby zalogować się na urządzeniu.
 - Zdalne łączenie się z interfejsem programu PowerShell urządzenia za pośrednictwem protokołu HTTP. Zdalne zarządzanie jest domyślnie włączone. Następnie można podać hasło urządzenia, aby zalogować się na urządzeniu. Aby uzyskać więcej informacji, zobacz [zdalne łączenie z urządzeniem Data Box Gateway](data-box-gateway-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
 [!INCLUDE [data-box-edge-gateway-password-best-practices](../../includes/data-box-edge-gateway-password-best-practices.md)]
 - [Zmień hasło](data-box-gateway-manage-access-power-connectivity-mode.md#manage-device-access)przy użyciu lokalnego interfejsu użytkownika sieci Web. Jeśli zmienisz hasło, pamiętaj o poinformowaniu wszystkich użytkowników dostępu zdalnego, aby nie mieli problemów z logowaniem.
-
 
 ## <a name="protect-your-data"></a>Ochrona danych
 
@@ -77,10 +75,18 @@ W tej sekcji opisano funkcje zabezpieczeń Data Box Gateway chroniące dane prze
 
 [!INCLUDE [data-box-edge-gateway-data-flight](../../includes/data-box-edge-gateway-data-flight.md)]
 
-### <a name="protect-data-via-storage-accounts"></a>Ochrona danych za pomocą kont magazynu
+### <a name="protect-data-using-storage-accounts"></a>Ochrona danych przy użyciu kont magazynu
 
 [!INCLUDE [data-box-edge-gateway-data-storage-accounts](../../includes/data-box-edge-gateway-protect-data-storage-accounts.md)]
+
 - Regularnie Obróć i [Synchronizuj klucze konta magazynu](data-box-gateway-manage-shares.md#sync-storage-keys) , aby chronić konto magazynu przed nieautoryzowanymi użytkownikami.
+
+### <a name="protect-the-device-data-using-bitlocker"></a>Ochrona danych urządzenia przy użyciu funkcji BitLocker
+
+Aby zabezpieczyć dyski wirtualne na maszynie wirtualnej Data Box Gateway, zalecamy włączenie funkcji BitLocker. Domyślnie funkcja BitLocker nie jest włączona. Aby uzyskać więcej informacji, zobacz:
+
+- [Ustawienia szyfrowania pomocy technicznej w Menedżerze funkcji Hyper-V](hhttps://docs.microsoft.com/windows-server/virtualization/hyper-v/learn-more/generation-2-virtual-machine-security-settings-for-hyper-v#encryption-support-settings-in-hyper-v-manager)
+- [Obsługa funkcji BitLocker na maszynie wirtualnej](https://kb.vmware.com/s/article/2036142)
 
 ## <a name="manage-personal-information"></a>Zarządzanie informacjami osobistymi
 

@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/21/2020
+ms.date: 05/28/2020
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 6e6be4cd0f8053d356183a75c5a012dee0bd8c68
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: cded8fef70e22ffebc412ea37898100cda4bb3df
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83771319"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219020"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Zarządzanie użyciem i kosztami za pomocą dzienników Azure Monitor
 
@@ -50,7 +50,14 @@ Log Analytics dedykowane klastry to kolekcje obszarów roboczych w jednym zarzą
 
 Poziom rezerwacji pojemności klastra jest konfigurowany za pośrednictwem programowo z Azure Resource Manager przy użyciu `Capacity` parametru w obszarze `Sku` . Wartość `Capacity` jest określona w jednostkach GB i może mieć wartości 1000 GB/dzień lub więcej w przyrostach wynoszących 100 GB/dzień. [Tutaj opisano tutaj](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#create-cluster-resource). Jeśli klaster wymaga rezerwacji powyżej 2000 GB/dzień, skontaktuj się z nami pod adresem [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com) .
 
-Ponieważ rozliczanie danych pobieranych odbywa się na poziomie klastra, obszary robocze skojarzone z klastrem nie mają już warstwy cenowej. Pobrane ilości danych z każdego obszaru roboczego skojarzonego z klastrem są agregowane w celu obliczenia dziennego rachunku dla klastra. Należy pamiętać, że alokacje na węzeł [Azure Security Center](https://docs.microsoft.com/azure/security-center/) są stosowane na poziomie obszaru roboczego przed agregacją zagregowanych danych we wszystkich obszarach roboczych w klastrze. Przechowywanie danych jest nadal rozliczane na poziomie obszaru roboczego. Należy pamiętać, że podczas tworzenia klastra rozliczenia są rozliczane, niezależnie od tego, czy obszary robocze zostały skojarzone z klastrem. 
+Istnieją dwa tryby rozliczania użycia w klastrze. Można je określić przy użyciu `billingType` parametru podczas [konfigurowania klastra](https://docs.microsoft.com/azure/azure-monitor/platform/customer-managed-keys#cmk-manage). Dwa tryby są: 
+
+1. **Klaster**: w tym przypadku (co jest ustawieniem domyślnym) rozliczanie danych pozyskiwanych odbywa się na poziomie klastra. Pobrane ilości danych z każdego obszaru roboczego skojarzonego z klastrem są agregowane w celu obliczenia dziennego rachunku dla klastra. Należy pamiętać, że alokacje na węzeł [Azure Security Center](https://docs.microsoft.com/azure/security-center/) są stosowane na poziomie obszaru roboczego przed agregacją zagregowanych danych we wszystkich obszarach roboczych w klastrze. 
+
+2. **Obszary robocze**: koszty rezerwacji pojemności dla klastra są przydzielone proporcjonalnie do obszarów roboczych w klastrze (po rozpoczęciu obsługi alokacji dla każdego węzła z [Azure Security Center](https://docs.microsoft.com/azure/security-center/) dla każdego obszaru roboczego). Jeśli całkowita ilość danych pozyskanych w obszarze roboczym dla danego dnia jest mniejsza niż rezerwacja pojemności, w każdym obszarze roboczym zostanie naliczona opłata za pobrane dane z zastosowaniem stawki za ilość zarezerwowaną za GB, rozliczenie ich na część rezerwacji pojemności, a niewykorzystana część rezerwacji pojemności jest rozliczana z zasobem klastra. Jeśli całkowita ilość danych pozyskanych w obszarze roboczym dla danego dnia jest większa niż rezerwacja pojemności, w każdym obszarze roboczym jest naliczana część rezerwacji zdolności produkcyjnych na podstawie jej ułamka za dane pobranego dnia i każdego obszaru roboczego dla części pozyskanych danych powyżej rezerwacji pojemności. Nie są naliczane opłaty za zasób klastra, jeśli całkowita ilość danych pozyskana do obszaru roboczego na dzień przekracza rezerwację pojemności.
+
+
+W opcjach rozliczeń klastra przechowywanie danych jest rozliczane na poziomie obszaru roboczego. Należy pamiętać, że podczas tworzenia klastra rozliczenia są rozliczane, niezależnie od tego, czy obszary robocze zostały skojarzone z klastrem. Należy również pamiętać, że obszary robocze skojarzone z klastrem nie mają już warstwy cenowej.
 
 ## <a name="estimating-the-costs-to-manage-your-environment"></a>Szacowanie kosztów związanych z zarządzaniem środowiskiem 
 
@@ -398,12 +405,13 @@ Aby Dig bardziej szczegółowo źródło danych dla określonego typu danych, Ot
 + Typ danych **AzureDiagnostics**
   - `AzureDiagnostics | summarize AggregatedValue = count() by ResourceProvider, ResourceId`
 
-### <a name="tips-for-reducing-data-volume"></a>Wskazówki dotyczące zmniejszania ilości danych
+## <a name="tips-for-reducing-data-volume"></a>Wskazówki dotyczące zmniejszania ilości danych
 
 Niektóre sugestie dotyczące zmniejszenia ilości zbieranych dzienników obejmują:
 
 | Źródło dużego woluminu danych | Jak zmniejszyć wolumin danych |
 | -------------------------- | ------------------------- |
+| Szczegółowe informacje o kontenerze         | [Skonfiguruj usługi Container Insights](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-cost#controlling-ingestion-to-reduce-cost) , aby zbierać tylko wymagane dane. |
 | Zdarzenia zabezpieczeń            | Wybierz [pospolite lub minimalne zdarzenia zabezpieczeń](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier). <br> Zmień zasady inspekcji zabezpieczeń w celu zbierania tylko potrzebnych zdarzeń. W szczególności zastanów się nad koniecznością zbierania następujących zdarzeń: <br> - [inspekcja platformy filtrowania](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [inspekcja rejestru](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [inspekcja systemu plików](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [inspekcja obiektu jądra](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [inspekcja manipulowania dojściem](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> Inspekcja magazynu wymiennego |
 | Liczniki wydajności       | Zmień [konfigurację licznika wydajności](data-sources-performance-counters.md) w następujący sposób: <br> — Zmniejsz częstotliwość gromadzenia <br> — Zmniejsz liczbę liczników wydajności |
 | Dzienniki zdarzeń                 | Zmień [konfigurację dziennika zdarzeń](data-sources-windows-events.md) w następujący sposób: <br> — Zmniejsz liczbę gromadzonych danych dzienników zdarzeń <br> — Zbieraj wyłącznie zdarzenia o wymaganym poziomie. Na przykład nie zbieraj zdarzeń na poziomie *Informacje*. |
