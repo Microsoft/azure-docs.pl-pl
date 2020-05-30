@@ -12,22 +12,22 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 2/10/2020
-ms.openlocfilehash: 106487c5483a50756f6eb402ff49f1d39a0e8981
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: bea815dbf9f0da6c0acda000478203f514b2fb2f
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84043800"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220380"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Używanie grup z obsługą trybu failover w celu zapewnienia przezroczystej i skoordynowanej pracy w trybie failover wielu baz danych
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Grupy autotrybu failover umożliwiają zarządzanie replikacją i trybem failover grupy baz danych na serwerze lub wszystkich bazach danych w wystąpieniu zarządzanym w innym regionie. Jest to deklaratywne streszczenie na istniejącej funkcji [aktywnej replikacji geograficznej](active-geo-replication-overview.md) , zaprojektowane w celu uproszczenia wdrażania geograficznie replikowanych baz danych i zarządzania nimi na dużą skalę. Możesz zainicjować tryb failover ręcznie lub można delegować go do usługi platformy Azure na podstawie zasad zdefiniowanych przez użytkownika. Ta ostatnia opcja umożliwia automatyczne odzyskanie wielu pokrewnych baz danych w regionie pomocniczym po katastrofalnym błędzie lub innym nieplanowanym zdarzeniu powodującym całkowite lub częściowe obniżenie dostępności usługi wystąpienia zarządzanego SQL Database przez usługę SQL w regionie podstawowym. Grupa trybu failover może zawierać jedną lub wiele baz danych, zwykle używanych przez tę samą aplikację. Ponadto można użyć dodatkowych baz danych z możliwością odczytu, aby odciążać obciążenia zapytań służących tylko do odczytywania. Ponieważ grupy autotrybu failover obejmują wiele baz danych, te bazy danych muszą być skonfigurowane na serwerze podstawowym. Grupy autotrybu failover obsługują replikację wszystkich baz danych w grupie tylko do jednego serwera pomocniczego lub wystąpienia w innym regionie.
+Grupy autotrybu failover umożliwiają zarządzanie replikacją i trybem failover grupy baz danych na serwerze lub wszystkich bazach danych w wystąpieniu zarządzanym w innym regionie. Jest to deklaratywne streszczenie na istniejącej funkcji [aktywnej replikacji geograficznej](active-geo-replication-overview.md) , zaprojektowane w celu uproszczenia wdrażania geograficznie replikowanych baz danych i zarządzania nimi na dużą skalę. Możesz zainicjować tryb failover ręcznie lub można delegować go do usługi platformy Azure na podstawie zasad zdefiniowanych przez użytkownika. Ta ostatnia opcja umożliwia automatyczne odzyskanie wielu pokrewnych baz danych w regionie pomocniczym po katastrofalnym błędzie lub innym nieplanowanym zdarzeniu powodującym całkowite lub częściowe utratę dostępności wystąpienia zarządzanego SQL Database lub SQL w regionie podstawowym. Grupa trybu failover może zawierać jedną lub wiele baz danych, zwykle używanych przez tę samą aplikację. Ponadto można użyć dodatkowych baz danych z możliwością odczytu, aby odciążać obciążenia zapytań służących tylko do odczytywania. Ponieważ grupy autotrybu failover obejmują wiele baz danych, te bazy danych muszą być skonfigurowane na serwerze podstawowym. Grupy autotrybu failover obsługują replikację wszystkich baz danych w grupie tylko do jednego serwera pomocniczego lub wystąpienia w innym regionie.
 
 > [!NOTE]
 > Jeśli potrzebujesz wielu Azure SQL Database pomocniczych w tym samym lub różnych regionach, użyj [aktywnej replikacji geograficznej](active-geo-replication-overview.md).
 
-W przypadku korzystania z grup automatycznych trybu failover z automatycznymi zasadami trybu failover każda awaria wpływająca na jedną lub kilka baz danych w grupie powoduje automatyczne przejście w tryb failover. Zazwyczaj są to zdarzenia, które nie mogą być nieznacznie ograniczane przez wbudowane operacje automatycznej wysokiej dostępności. Przykładowe wyzwalacze trybu failover obejmują zdarzenie spowodowane przez pierścień dzierżawy lub sterowanie, z powodu wycieku pamięci jądra systemu operacyjnego na kilku węzłach obliczeniowych lub zdarzenia spowodowanego przez co najmniej jeden pierścień dzierżawy, ponieważ niewłaściwy kabel sieciowy został wycięty podczas rutynowego wycofywania sprzętu.  Aby uzyskać więcej informacji, zobacz [SQL Database wysoka dostępność](high-availability-sla.md).
+W przypadku korzystania z grup automatycznych trybu failover z automatycznymi zasadami trybu failover każda awaria wpływająca na jedną lub kilka baz danych w grupie powoduje automatyczne przejście w tryb failover. Zazwyczaj są to zdarzenia, które nie mogą być nieznacznie ograniczane przez wbudowane operacje automatycznej wysokiej dostępności. Przykładowe wyzwalacze trybu failover obejmują zdarzenie spowodowane przez SQL Database pierścień dzierżawy lub pierścienia kontroli, z powodu wycieku pamięci jądra systemu operacyjnego na kilku węzłach obliczeniowych, lub zdarzenia spowodowanego przez co najmniej jeden pierścień dzierżawy, ponieważ niewłaściwy kabel sieciowy został wycięty podczas rutynowego wycofywania sprzętu.  Aby uzyskać więcej informacji, zobacz [SQL Database wysoka dostępność](high-availability-sla.md).
 
 Ponadto grupy autotrybu failover udostępniają punkty końcowe odbiornika do odczytu i zapisu oraz tylko do odczytu, które pozostaną bez zmian podczas pracy w trybie failover. Bez względu na to, czy jest używana ręczna czy automatyczna aktywacja trybu failover, przełączanie do trybu failover wszystkie pomocnicze bazy danych w grupie do podstawowego. Po zakończeniu pracy w trybie failover bazy danych rekord DNS zostanie automatycznie zaktualizowany, aby przekierować punkty końcowe do nowego regionu. Aby uzyskać informacje na temat określonych elementów RPO i RTO, zobacz [Omówienie ciągłości działalności biznesowej](business-continuity-high-availability-disaster-recover-hadr-overview.md).
 
@@ -46,7 +46,7 @@ Aby osiągnąć prawdziwą ciągłość biznesową, Dodawanie nadmiarowości baz
 
 - **Grupa trybu failover (przeciwmgielne)**
 
-  Grupa trybu failover to nazwana grupa baz danych zarządzana przez jeden serwer lub w zarządzanym wystąpieniu, które może być przełączane w tryb pracy awaryjnej jako jednostka do innego regionu w przypadku, gdy wszystkie lub niektóre podstawowe bazy danych staną się niedostępne z powodu awarii w regionie podstawowym. W przypadku tworzenia dla wystąpień zarządzanych przez SQL grupa trybu failover zawiera wszystkie bazy danych użytkownika w tym wystąpieniu, w związku z czym można skonfigurować tylko jedną grupę trybu failover w wystąpieniu.
+  Grupa trybu failover to nazwana grupa baz danych zarządzana przez jeden serwer lub w zarządzanym wystąpieniu, które może być przełączane w tryb pracy awaryjnej jako jednostka do innego regionu w przypadku, gdy wszystkie lub niektóre podstawowe bazy danych staną się niedostępne z powodu awarii w regionie podstawowym. Po utworzeniu dla wystąpienia zarządzanego SQL grupa trybu failover zawiera wszystkie bazy danych użytkownika w tym wystąpieniu, w związku z czym w wystąpieniu można skonfigurować tylko jedną grupę trybu failover.
   
   > [!IMPORTANT]
   > Nazwa grupy trybu failover musi być globalnie unikatowa w obrębie `.database.windows.net` domeny.
@@ -55,7 +55,7 @@ Aby osiągnąć prawdziwą ciągłość biznesową, Dodawanie nadmiarowości baz
 
      W przypadku serwerów, niektóre lub wszystkie bazy danych użytkownika na serwerze można umieścić w grupie trybu failover. Ponadto serwer obsługuje wiele grup trybu failover na jednym serwerze.
 
-- **Podstawowy**
+- **Podstawowe**
 
   Serwer lub wystąpienie zarządzane, które hostuje podstawowe bazy danych w grupie trybu failover.
 
@@ -89,7 +89,7 @@ Aby osiągnąć prawdziwą ciągłość biznesową, Dodawanie nadmiarowości baz
 
 - **Odbiornik odczytu i zapisu grupy trybu failover**
 
-  Rekord CNAME systemu DNS wskazujący na adres URL bieżącego elementu podstawowego. Jest tworzony automatycznie podczas tworzenia grupy trybu failover i umożliwia obciążenia SQL do odczytu i zapisu, aby w sposób przezroczysty ponownie połączyć się z podstawową bazą danych podczas pracy w trybie failover. Po utworzeniu grupy trybu failover na serwerze rekord CNAME DNS dla adresu URL odbiornika zostanie utworzony jako `<fog-name>.database.windows.net` . Po utworzeniu grupy trybu failover w wystąpieniu zarządzanym SQL rekord CNAME DNS dla adresu URL odbiornika jest tworzony jako `<fog-name>.zone_id.database.windows.net` .
+  Rekord CNAME systemu DNS wskazujący na adres URL bieżącego elementu podstawowego. Jest tworzony automatycznie podczas tworzenia grupy trybu failover i umożliwia obciążenia do odczytu i zapisu, aby w sposób przezroczysty ponownie połączyć się z podstawową bazą danych podczas pracy w trybie failover. Po utworzeniu grupy trybu failover na serwerze rekord CNAME DNS dla adresu URL odbiornika zostanie utworzony jako `<fog-name>.database.windows.net` . Po utworzeniu grupy trybu failover w wystąpieniu zarządzanym SQL rekord CNAME DNS dla adresu URL odbiornika jest tworzony jako `<fog-name>.zone_id.database.windows.net` .
 
 - **Odbiornik tylko do odczytu grupy trybu failover**
 
@@ -139,13 +139,13 @@ Uprawnienia dla grupy trybu failover są zarządzane za pośrednictwem [kontroli
 
 ### <a name="create-failover-group"></a>Utwórz grupę trybu failover
 
-Aby utworzyć grupę trybu failover, wymagany jest dostęp do zapisu RBAC zarówno do serwera podstawowego, jak i pomocniczego, oraz do wszystkich baz danych w grupie trybu failover. W przypadku wystąpienia zarządzanego SQL wymagany jest dostęp do zapisu RBAC zarówno do podstawowego, jak i pomocniczego wystąpienia zarządzanego SQL, ale uprawnienia do poszczególnych baz danych nie są istotne, ponieważ nie można dodać ani usunąć z grupy trybu failover pojedynczych baz danych wystąpienia zarządzanego SQL.
+Aby utworzyć grupę trybu failover, wymagany jest dostęp do zapisu RBAC zarówno do serwera podstawowego, jak i pomocniczego, oraz do wszystkich baz danych w grupie trybu failover. W przypadku wystąpienia zarządzanego SQL wymagany jest dostęp do zapisu RBAC zarówno do podstawowego, jak i pomocniczego wystąpienia zarządzanego SQL, ale uprawnienia do poszczególnych baz danych nie są istotne, ponieważ nie można dodać do grupy trybu failover ani usunąć z niej pojedynczych baz danych wystąpienia zarządzanego SQL.
 
 ### <a name="update-a-failover-group"></a>Aktualizowanie grupy trybu failover
 
 Aby zaktualizować grupę trybu failover, wymagany jest dostęp do zapisu RBAC do grupy trybu failover oraz wszystkich baz danych na bieżącym serwerze podstawowym lub zarządzanym wystąpieniu.  
 
-### <a name="failover-a-failover-group"></a>Przełączanie do trybu failover grupy trybu failover
+### <a name="fail-over-a-failover-group"></a>Praca awaryjna grupy trybu failover
 
 Aby można było przełączyć grupę trybu failover, należy uzyskać dostęp do zapisu RBAC do grupy trybu failover na nowym serwerze podstawowym lub zarządzanym wystąpieniu.
 
@@ -156,7 +156,7 @@ Grupa autotrybu failover musi być skonfigurowana na serwerze podstawowym i nawi
 ![Tryb failover](./media/auto-failover-group-overview/auto-failover-group.png)
 
 > [!NOTE]
-> Zobacz [dodawanie SQL Database do grupy trybu failover](failover-group-add-single-database-tutorial.md) w celu uzyskania szczegółowego samouczka krok po kroku dodawania SQL Database do grupy trybu failover.
+> Zobacz [dodawanie SQL Database do grupy trybu failover](failover-group-add-single-database-tutorial.md) w celu uzyskania szczegółowego samouczka krok po kroku Dodawanie bazy danych w SQL Database do grupy trybu failover.
 
 Podczas projektowania usługi z zachowaniem ciągłości działania postępuj zgodnie z następującymi ogólnymi wskazówkami:
 
@@ -181,7 +181,7 @@ Typowa aplikacja platformy Azure używa wielu usług platformy Azure i składa s
 
 ### <a name="preparing-for-data-loss"></a>Przygotowywanie do utraty danych
 
-Jeśli zostanie wykryta awaria, program SQL czeka przez określony czas `GracePeriodWithDataLossHours` . Wartość domyślna to 1 godzina. Jeśli nie możesz zapewnić utraty danych, upewnij się, że ustawiono `GracePeriodWithDataLossHours` wystarczająco dużą liczbę, na przykład 24-godzinny. Użyj ręcznej pracy awaryjnej grupy, aby wrócić z poziomu pomocniczego do podstawowego.
+Jeśli zostanie wykryta awaria, platforma Azure czeka przez określony czas `GracePeriodWithDataLossHours` . Wartość domyślna to 1 godzina. Jeśli nie możesz zapewnić utraty danych, upewnij się, że ustawiono `GracePeriodWithDataLossHours` wystarczająco dużą liczbę, na przykład 24-godzinny. Użyj ręcznej pracy awaryjnej grupy, aby wrócić z poziomu pomocniczego do podstawowego.
 
 > [!IMPORTANT]
 > Pule elastyczne z 800 lub mniej DTU i więcej niż 250 baz danych korzystających z replikacji geograficznej mogą napotkać problemy, w tym dłuższe planowane przełączanie w tryb failover i wydajność o obniżonej wydajności.  Te problemy mogą wystąpić w przypadku obciążeń intensywnie korzystających z zapisu, gdy punkty końcowe replikacji geograficznej są szeroko oddzielane przez geografię lub gdy dla każdej bazy danych są używane wiele pomocniczych punktów końcowych.  Objawy tych problemów są wskazywane, gdy opóźnienie replikacji geograficznej rośnie wraz z upływem czasu.  Te opóźnienia można monitorować przy użyciu wykazu [sys. dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).  Jeśli te problemy wystąpią, środki zaradcze obejmują zwiększenie liczby DTU puli lub zmniejszenie liczby replikowanych geograficznie baz danych w tej samej puli.
@@ -271,7 +271,7 @@ Typowa aplikacja platformy Azure używa wielu usług platformy Azure i składa s
 
 ### <a name="preparing-for-data-loss"></a>Przygotowywanie do utraty danych
 
-Jeśli zostanie wykryta awaria, program SQL automatycznie wyzwala tryb failover do odczytu i zapisu, jeśli nie ma utraty danych w najlepszej wiedzy. W przeciwnym razie czeka na okres określony przez `GracePeriodWithDataLossHours` . Jeśli określono `GracePeriodWithDataLossHours` , przygotuj się na utratę danych. Ogólnie rzecz biorąc, platforma Azure preferuje dostępność. Jeśli nie możesz zapewnić utraty danych, pamiętaj, aby ustawić GracePeriodWithDataLossHours na wystarczająco dużą liczbę, na przykład 24 godziny.
+Jeśli zostanie wykryta awaria, tryb failover do odczytu i zapisu jest wyzwalany, jeśli nie ma utraty danych, a najlepiej z naszej wiedzy. W przeciwnym razie poczekaj na okres określony przez. W przeciwnym razie czeka na okres określony przez `GracePeriodWithDataLossHours` . Jeśli określono `GracePeriodWithDataLossHours` , przygotuj się na utratę danych. Ogólnie rzecz biorąc, platforma Azure preferuje dostępność. Jeśli nie możesz zapewnić utraty danych, pamiętaj, aby ustawić GracePeriodWithDataLossHours na wystarczająco dużą liczbę, na przykład 24 godziny.
 
 Aktualizacja systemu DNS odbiornika do odczytu i zapisu stanie się natychmiast po zainicjowaniu trybu failover. Ta operacja nie powoduje utraty danych. Jednak proces przełączania ról bazy danych może potrwać do 5 minut w normalnych warunkach. Dopóki nie zostanie ukończona, niektóre bazy danych w nowym wystąpieniu podstawowym nadal będą tylko do odczytu. Jeśli tryb failover jest inicjowany przy użyciu programu PowerShell, cała operacja jest synchroniczna. Jeśli zostanie zainicjowany przy użyciu Azure Portal, interfejs użytkownika będzie wskazywać stan ukończenia. Jeśli zostanie zainicjowany przy użyciu interfejsu API REST, należy użyć mechanizmu sondowania standardowej Azure Resource Manager, aby monitorować ukończenie.
 
@@ -306,13 +306,21 @@ Załóżmy, że wystąpienie A jest wystąpieniem podstawowym, wystąpienie B je
 > [!IMPORTANT]
 > Po usunięciu grupy trybu failover rekordy DNS dla punktów końcowych odbiornika również są usuwane. W tym momencie istnieje prawdopodobieństwo, że ktoś inny tworzy grupę trybu failover lub alias serwera o tej samej nazwie, co uniemożliwi jego ponowne użycie. Aby zminimalizować ryzyko, nie używaj ogólnych nazw grup trybu failover.
 
+### <a name="enable-scenarios-dependent-on-objects-from-the-system-databases"></a>Włącz scenariusze zależne od obiektów z systemowych baz danych
+Systemowe bazy danych nie są replikowane do wystąpienia dodatkowego w grupie trybu failover. Aby włączyć scenariusze, które są zależne od obiektów z systemowych baz danych, w wystąpieniu pomocniczym upewnij się, że utworzono te same obiekty na pomocniczym. Na przykład jeśli planujesz używać tych samych nazw logowania w wystąpieniu pomocniczym, upewnij się, że zostały one utworzone przy użyciu identycznego identyfikatora SID. 
+```SQL
+-- Sample code to create login on the secondary instance
+CREATE LOGIN foo WITH PASSWORD = 'password', SID = 0x12345
+``` 
+
+
 ## <a name="failover-groups-and-network-security"></a>Grupy trybu failover i zabezpieczenia sieci
 
 W przypadku niektórych aplikacji reguły zabezpieczeń wymagają, aby dostęp sieciowy do warstwy danych był ograniczony do określonego składnika lub składników, takich jak maszyna wirtualna, usługa sieci Web itd. To wymaganie wiąże się z pewnymi wyzwaniami związanymi z projektowaniem ciągłości biznesowej i użyciem grup trybu failover. Podczas wdrażania takiego ograniczonego dostępu należy wziąć pod uwagę następujące opcje.
 
 ### <a name="using-failover-groups-and-virtual-network-rules"></a>Korzystanie z grup trybu failover i reguł sieci wirtualnej
 
-Jeśli używasz [punktów końcowych usługi Virtual Network i reguł](vnet-service-endpoint-rule-overview.md) , aby ograniczyć dostęp do bazy danych SQL lub wystąpienia zarządzanego SQL, pamiętaj, że każdy punkt końcowy usługi sieci wirtualnej ma zastosowanie tylko do jednego regionu platformy Azure. Punkt końcowy nie umożliwia innym regionom akceptowania komunikacji z podsieci. W związku z tym tylko aplikacje klienckie wdrożone w tym samym regionie mogą łączyć się z podstawową bazą danych. Ponieważ w trybie failover wyniki sesji klienta SQL są przekierowywane do serwera w innym (pomocniczym) regionie, te sesje zakończą się niepowodzeniem, jeśli pochodzą z klienta spoza tego regionu. Z tego powodu nie można włączyć zasad automatycznych trybu failover, jeśli serwery lub wystąpienia uczestniczące zostaną uwzględnione w regułach Virtual Network. Aby zapewnić obsługę ręcznego przełączania do trybu failover, wykonaj następujące kroki:
+Jeśli używasz [punktów końcowych usługi Virtual Network i reguł](vnet-service-endpoint-rule-overview.md) w celu ograniczenia dostępu do bazy danych w SQL Database lub wystąpieniu zarządzanym SQL, pamiętaj, że każdy punkt końcowy usługi sieci wirtualnej ma zastosowanie tylko do jednego regionu platformy Azure. Punkt końcowy nie umożliwia innym regionom akceptowania komunikacji z podsieci. W związku z tym tylko aplikacje klienckie wdrożone w tym samym regionie mogą łączyć się z podstawową bazą danych. Ponieważ w trybie failover wyniki sesji klientów SQL Database są przekierowywane do serwera w innym (pomocniczym) regionie, te sesje zakończą się niepowodzeniem, jeśli pochodzą z klienta spoza tego regionu. Z tego powodu nie można włączyć zasad automatycznych trybu failover, jeśli serwery lub wystąpienia uczestniczące zostaną uwzględnione w regułach Virtual Network. Aby zapewnić obsługę ręcznego przełączania do trybu failover, wykonaj następujące kroki:
 
 1. Udostępnianie nadmiarowych kopii składników frontonu aplikacji (usługi sieci Web, maszyn wirtualnych itp.) w regionie pomocniczym
 2. Skonfiguruj osobno [reguły sieci wirtualnej](vnet-service-endpoint-rule-overview.md) dla serwera głównego i pomocniczego
@@ -322,16 +330,16 @@ Jeśli używasz [punktów końcowych usługi Virtual Network i reguł](vnet-serv
 > [!NOTE]
 > Jeśli używasz **odbiornika z tylko odczytem** , aby zrównoważyć obciążenie tylko do odczytu, upewnij się, że to obciążenie jest wykonywane na maszynie wirtualnej lub innym zasobie w regionie pomocniczym, dzięki czemu można nawiązać połączenie z pomocniczą bazą danych.
 
-### <a name="using-failover-groups-and-sql-database-firewall-rules"></a>Korzystanie z grup trybu failover i reguł zapory usługi SQL Database
+### <a name="use-failover-groups-and-firewall-rules"></a>Korzystanie z grup trybu failover i reguł zapory
 
-Jeśli plan ciągłości działalności biznesowej wymaga przejścia w tryb failover przy użyciu grup z automatycznym trybem failover, możesz ograniczyć dostęp do SQL Database lub wystąpienia zarządzanego SQL przy użyciu tradycyjnych reguł zapory. Aby zapewnić obsługę automatycznego trybu failover, wykonaj następujące kroki:
+Jeśli plan ciągłości działalności biznesowej wymaga przejścia w tryb failover przy użyciu grup z automatyczną obsługą trybu failover, możesz ograniczyć dostęp do bazy danych w SQL Database przy użyciu tradycyjnych reguł zapory. Aby zapewnić obsługę automatycznego trybu failover, wykonaj następujące kroki:
 
 1. [Tworzenie publicznego adresu IP](../../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 2. [Utwórz publiczny moduł równoważenia obciążenia](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) i przypisz do niego publiczny adres IP.
 3. [Tworzenie sieci wirtualnej i maszyn wirtualnych](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) dla składników frontonu
 4. [Utwórz sieciową grupę zabezpieczeń](../../virtual-network/security-overview.md) i skonfiguruj połączenia przychodzące.
 5. Upewnij się, że połączenia wychodzące są otwarte do Azure SQL Database przy użyciu [tagu usługi](../../virtual-network/security-overview.md#service-tags)"SQL".
-6. Utwórz [regułę zapory bazy danych SQL](firewall-configure.md) , aby zezwolić na ruch przychodzący z publicznego adresu IP utworzonego w kroku 1.
+6. Utwórz [regułę zapory SQL Database](firewall-configure.md) , aby zezwalać na ruch przychodzący z publicznego adresu IP utworzonego w kroku 1.
 
 Aby uzyskać więcej informacji na temat konfigurowania dostępu wychodzącego i adresu IP do użycia w regułach zapory, zobacz [połączenia wychodzące modułu równoważenia obciążenia](../../load-balancer/load-balancer-outbound-connections.md).
 
@@ -344,10 +352,10 @@ Powyższa konfiguracja gwarantuje, że automatyczna praca awaryjna nie będzie b
 
 Po skonfigurowaniu grupy trybu failover między podstawowym i pomocniczym wystąpieniem zarządzanym SQL w dwóch różnych regionach każde wystąpienie jest izolowane przy użyciu niezależnej sieci wirtualnej. Aby zezwolić na ruch związany z replikacją między tymi sieci wirtualnychami, upewnij się, że spełniono następujące wymagania wstępne:
 
-- Dwa wystąpienia zarządzane SQL muszą znajdować się w różnych regionach świadczenia usługi Azure.
-- Dwa wystąpienia zarządzane SQL muszą mieć tę samą warstwę usług i mieć ten sam rozmiar magazynu.
-- Dodatkowe wystąpienie zarządzane SQL musi być puste (bez baz danych użytkowników).
-- Sieci wirtualne używane przez wystąpienia zarządzane SQL muszą być połączone za pomocą [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) lub [Express Route](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Gdy dwie sieci wirtualne nawiązują połączenie za poorednictwem sieci lokalnej, upewnij się, że nie ma portów blokowania reguły zapory 5022 i 11000-11999. Globalna komunikacja równorzędna sieci wirtualnych nie jest obsługiwana.
+- Dwa wystąpienia wystąpienia zarządzanego SQL muszą znajdować się w różnych regionach świadczenia usługi Azure.
+- Dwa wystąpienia wystąpienia zarządzanego SQL muszą być tą samą warstwą usług i mieć ten sam rozmiar magazynu.
+- Dodatkowe wystąpienie wystąpienia zarządzanego SQL musi być puste (bez baz danych użytkowników).
+- Sieci wirtualne używane przez wystąpienia wystąpienia zarządzanego SQL muszą być połączone za pomocą [VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md) lub [Express Route](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md). Gdy dwie sieci wirtualne nawiązują połączenie za poorednictwem sieci lokalnej, upewnij się, że nie ma portów blokowania reguły zapory 5022 i 11000-11999. Globalna komunikacja równorzędna sieci wirtualnych nie jest obsługiwana.
 - Dwa sieci wirtualnych wystąpienie zarządzane SQL nie może mieć nakładających się adresów IP.
 - Należy skonfigurować sieciowe grupy zabezpieczeń (sieciowej grupy zabezpieczeń), takie jak porty 5022 i zakres 11000 ~ 12 000 są otwarte i wychodzące dla połączeń z podsieci drugiego wystąpienia zarządzanego. Jest to dozwolone dla ruchu związanego z replikacją między wystąpieniami.
 
@@ -386,6 +394,7 @@ Należy pamiętać o następujących ograniczeniach:
 - Nie można tworzyć grup trybu failover między dwoma serwerami lub wystąpieniami w tym samym regionie świadczenia usługi Azure.
 - Nie można zmienić nazwy grup trybu failover. Musisz usunąć grupę i utworzyć ją ponownie, podając inną nazwę.
 - Zmiana nazwy bazy danych nie jest obsługiwana w przypadku wystąpień w grupie trybu failover. Należy tymczasowo usunąć grupę trybu failover, aby można było zmienić nazwę bazy danych.
+- Systemowe bazy danych nie są replikowane do wystąpienia dodatkowego w grupie trybu failover. W związku z tym scenariusze, które są zależne od obiektów z systemowych baz danych, będą niedostępne w wystąpieniu pomocniczym, chyba że obiekty są tworzone ręcznie na serwerze pomocniczym.
 
 ## <a name="programmatically-managing-failover-groups"></a>Programowe zarządzanie grupami trybu failover
 

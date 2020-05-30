@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: eebf0bb2a5f2a813ff282854b62f10957475e3b1
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ec0aebc10d47b3e9945e63e818240da7bf2451e4
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84046439"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84192965"
 ---
 # <a name="replication-to-azure-sql-database"></a>Replikacja do Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,7 +37,7 @@ Azure SQL Database jako subskrybenta wypychania można skonfigurować w jednokie
 
 Aby można było pomyślnie przeprowadzić replikację do Azure SQL Database, SQL Server wydawców i dystrybutorów muszą korzystać z jednej z następujących wersji: 
 
-Publikowanie w dowolnych Azure SQL Database z SQL Server lokalnych jest obsługiwane przez następujące wersje SQL Server:
+Publikowanie w dowolnych Azure SQL Database z bazy danych SQL Server jest obsługiwane przez następujące wersje SQL Server:
 
 - SQL Server 2016 i nowsze
 - SQL Server 2014 [RTM CU10 (12.0.4427.24)](https://support.microsoft.com/help/3094220/cumulative-update-10-for-sql-server-2014) lub [z dodatkiem SP1 CU3 (12.0.2556.4)](https://support.microsoft.com/help/3094221/cumulative-update-3-for-sql-server-2014-service-pack-1)
@@ -54,11 +54,11 @@ Istnieją różne [typy replikacji](https://docs.microsoft.com/sql/relational-da
 
 | Replikacja | Azure SQL Database | Wystąpienie zarządzane Azure SQL |
 | :----| :------------- | :--------------- |
-| [**Standardowa transakcyjna**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Tak (tylko jako subskrybent) | Yes | 
-| [**Migawka**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Tak (tylko jako subskrybent) | Yes|
+| [**Standardowa transakcyjna**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Tak (tylko jako subskrybent) | Tak | 
+| [**Migawka**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Tak (tylko jako subskrybent) | Tak|
 | [**Replikacja scalająca**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Nie | Nie|
 | [**Peer-to-peer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Nie | Nie|
-| [**Kierunk**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Nie | Yes|
+| [**Kierunk**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Nie | Tak|
 | [**Aktualizowalne subskrypcje**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Nie | Nie|
 | &nbsp; | &nbsp; | &nbsp; |
 
@@ -84,13 +84,13 @@ Istnieją różne [typy replikacji](https://docs.microsoft.com/sql/relational-da
 
 ### <a name="typical-replication-scenario"></a>Typowy scenariusz replikacji  
 
-1. Utwórz publikację z replikacją transakcyjną w lokalnej bazie danych SQL Server.  
-2. Na SQL Server lokalnym Użyj **Kreatora nowej subskrypcji** lub instrukcji języka Transact-SQL, aby utworzyć wypychanie do subskrypcji Azure SQL Database.  
+1. Utwórz publikację z replikacją transakcyjną w bazie danych SQL Server.  
+2. Na SQL Server Użyj **Kreatora nowej subskrypcji** lub instrukcji języka Transact-SQL, aby utworzyć wypychanie do subskrypcji Azure SQL Database.  
 3. W przypadku baz danych o pojedynczej i puli w Azure SQL Database początkowy zestaw danych jest migawką utworzoną przez agenta migawek i dystrybuowaną i stosowaną przez agenta dystrybucji. Za pomocą wydawcy wystąpienia zarządzanego SQL można także użyć kopii zapasowej bazy danych do wypełniania subskrybenta Azure SQL Database.
 
 ### <a name="data-migration-scenario"></a>Scenariusz migracji danych  
 
-1. Replikacja transakcyjna umożliwia replikowanie danych z lokalnej bazy danych SQL Server do Azure SQL Database.  
+1. Replikowanie danych z bazy danych SQL Server do Azure SQL Database za pomocą replikacji transakcyjnej.  
 2. Przekieruj klienta lub aplikacje warstwy środkowej, aby zaktualizować kopię bazy danych.  
 3. Zatrzymaj aktualizację wersji SQL Server tabeli i Usuń publikację.  
 

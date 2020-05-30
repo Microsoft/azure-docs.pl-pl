@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/11/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 10b3a6bb9592c955d16b070ae412374b8a1f4444
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 4468025f6389d31269d9e587fca25390f19bdbbc
+ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196964"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84200441"
 ---
 Usługa Azure Ultra disks oferuje wysoką przepływność, dużą liczbę IOPS i spójny magazyn dyskowy o małym opóźnieniu dla maszyn wirtualnych IaaS platformy Azure. Ta nowa oferta zapewnia najwyższą wydajność linii na tych samych poziomach dostępności co istniejące dyski. Jedną z głównych zalet funkcji Ultra disks jest możliwość dynamicznego zmieniania wydajności dysków SSD wraz z obciążeniami bez konieczności ponownego uruchamiania maszyn wirtualnych. Dyski w warstwie Ultra to rozwiązanie odpowiednie w przypadku obciążeń intensywnie korzystających z danych, takich jak platforma SAP HANA, bazy danych górnej warstwy i obciążenia z dużą liczbą transakcji.
 
@@ -30,11 +30,11 @@ Aby korzystać z Ultra disks, należy określić, w której strefie dostępnośc
 #### <a name="cli"></a>Interfejs wiersza polecenia
 
 ```azurecli
-$subscription = "<yourSubID>"
+subscription = "<yourSubID>"
 # example value is southeastasia
-$region = "<yourLocation>"
+region = "<yourLocation>"
 # example value is Standard_E64s_v3
-$vmSize = "<yourVMSize>"
+vmSize = "<yourVMSize>"
 
 az vm list-skus --resource-type virtualMachines  --location $region --query "[?name=='$vmSize'].locationInfo[0].zoneDetails[0].Name" --subscription $subscription
 ```
@@ -65,10 +65,10 @@ Teraz, gdy znasz strefę do wdrożenia, wykonaj kroki wdrażania opisane w tym a
 Usługi Ultra disks wdrożone w regionie zachodnie stany USA muszą zostać wdrożone bez żadnych opcji nadmiarowości. Jednak nie każdy rozmiar dysku, który obsługuje Ultra disks, może znajdować się w tym regionie. Aby określić, które z nich znajdowały się w regionie zachodnie stany USA, można użyć dowolnego z poniższych fragmentów kodu. Pamiętaj, aby najpierw zastąpić `vmSize` `subscription` wartości i:
 
 ```azurecli
-$subscription = "<yourSubID>"
-$region = "westus"
+subscription = "<yourSubID>"
+region = "westus"
 # example value is Standard_E64s_v3
-$vmSize = "<yourVMSize>"
+vmSize = "<yourVMSize>"
 
 az vm list-skus --resource-type virtualMachines  --location $region --query "[?name=='$vmSize'].capabilities" --subscription $subscription
 ```
@@ -219,12 +219,12 @@ az vm start -n $vmName -g $rgName
 Teraz, gdy masz maszynę wirtualną, która może dołączać Ultra disks, możesz utworzyć i dołączyć do niej dysk.
 
 ```azurecli-interactive
-$location="eastus2"
-$subscription="xxx"
-$rgname="ultraRG"
-$diskname="ssd1"
-$vmname="ultravm1"
-$zone=123
+location="eastus2"
+subscription="xxx"
+rgname="ultraRG"
+diskname="ssd1"
+vmname="ultravm1"
+zone=123
 
 #create an ultra disk
 az disk create `
@@ -244,10 +244,10 @@ az disk create `
 Alternatywnie, jeśli istniejąca maszyna wirtualna znajduje się w strefie regionu/dostępności, która może korzystać z usługi Ultra disks, można użyć funkcji Ultra disks bez konieczności tworzenia nowej maszyny wirtualnej.
 
 ```azurecli
-$rgName = "<yourResourceGroupName>"
-$vmName = "<yourVMName>"
-$diskName = "<yourDiskName>"
-$subscriptionId = "<yourSubscriptionID>"
+rgName = "<yourResourceGroupName>"
+vmName = "<yourVMName>"
+diskName = "<yourDiskName>"
+subscriptionId = "<yourSubscriptionID>"
 
 az vm disk attach -g $rgName --vm-name $vmName --disk $diskName --subscription $subscriptionId
 ```

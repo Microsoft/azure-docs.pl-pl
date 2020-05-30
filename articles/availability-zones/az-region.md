@@ -6,13 +6,13 @@ ms.service: azure
 ms.topic: article
 ms.date: 04/27/2020
 ms.author: cynthn
-ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: b181316ac2c6998676a17589fff246cf88ff50c2
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.custom: fasttrack-edit, mvc, references_regions
+ms.openlocfilehash: 903bfd0be6c82cb5836248a784805b45edcabf36
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83123806"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196373"
 ---
 # <a name="regions-that-support-availability-zones-in-azure"></a>Regiony obsługujące Strefy dostępności na platformie Azure
 
@@ -24,10 +24,10 @@ Ta sekcja zawiera listę usług i regionów platformy Azure, które obsługują 
 
 Usługi dostępne w poszczególnych regionach wraz z nadchodzącym planem dostępności można znaleźć w temacie [produkty dostępne według regionów](https://azure.microsoft.com/global-infrastructure/services/).
 
-|                                 |Ameryki |              |           |           | Europa |              |          |              | Azja i Pacyfik |                 |                |
+|                                 |Ameryka Północna i Południowa |              |           |           | Europa |              |          |              | Azja i Pacyfik |                 |                |
 |----------------------------|----------|----------|---------|---------|--------------|------------|--------|----------|----------|-------------|-------------|
 |          |Środkowe stany USA|Wschodnie stany USA|Wschodnie stany USA 2|Zachodnie stany USA 2|Francja Środkowa|Europa Północna|Południowe Zjednoczone Królestwo|Europa Zachodnia|Japonia Wschodnia|Azja Południowo-Wschodnia|Australia Wschodnia|
-| **Wystąpienia obliczeniowe**                         |            |              |           |           |                |              |          |             |            |                |                |
+| **Obliczanie**                         |            |              |           |           |                |              |          |             |            |                |                |
 | Maszyny wirtualne z systemem Linux          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
 | Maszyny wirtualne z systemem Windows        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
 | Zestawy skali maszyn wirtualnych      | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
@@ -36,7 +36,7 @@ Usługi dostępne w poszczególnych regionach wraz z nadchodzącym planem dostę
 | **Storage**   |            |              |           |           |                |              |          |             |            |                |                |
 | Dyski zarządzane                   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
 | Magazyn strefowo nadmiarowy          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
-| **Networking**                     |            |              |           |           |                |              |          |             |            |                |                |
+| **Sieć**                     |            |              |           |           |                |              |          |             |            |                |                |
 | Standardowy adres IP        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
 | usługa Load Balancer w warstwie Standardowa     | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |                |
 | VPN Gateway            | &#10003;   |  &#10003;    | &#10003;  | &#10003;  | &#10003;       | &#10003;     |  &#10003;  | &#10003;    |  &#10003;   | &#10003;       |                |
@@ -50,7 +50,7 @@ Usługi dostępne w poszczególnych regionach wraz z nadchodzącym planem dostę
 | Azure Cosmos DB      | &#10003;   |  &#10003;  |  &#10003; | &#10003; |  &#10003;  | &#10003;    | &#10003; |  &#10003;   |     &#10003;       | &#10003;    | &#10003;    |
 | **Analiza**                       |            |              |           |           |                |              |          |             |            |                |                |
 | Event Hubs                      | &#10003;   |   &#10003; | &#10003;  | &#10003;  | &#10003; | &#10003; | &#10003; | &#10003; | &#10003; | &#10003;       |                |
-| **Integracja**                     |            |              |           |           |                |              |          |             |            |                |                |
+| **Integration**                     |            |              |           |           |                |              |          |             |            |                |                |
 | Service Bus (tylko warstwa Premium) | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |                |
 | Event Grid | &#10003;   |  &#10003;  | &#10003;  | &#10003;  | &#10003;  | &#10003;     |&#10003;   | &#10003;    |&#10003;      | &#10003;       |                |
 | **Tożsamość**                     |            |              |           |           |                |              |          |             |            |                |                |

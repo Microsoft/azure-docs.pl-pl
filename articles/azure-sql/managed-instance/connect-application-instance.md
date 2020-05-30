@@ -1,5 +1,5 @@
 ---
-title: Połącz aplikację z wystąpieniem zarządzanym
+title: Łączenie aplikacji z wystąpieniem zarządzanym SQL
 titleSuffix: Azure SQL Managed Instance
 description: W tym artykule omówiono sposób łączenia aplikacji z wystąpieniem zarządzanym usługi Azure SQL.
 services: sql-database
@@ -12,21 +12,21 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: 051d589ec13c1fa8642701fe94a361e1dfbe4aab
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: fea16b3e1e5df056c241d07c0e1dd7a5a30819a5
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84044388"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219782"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Łączenie aplikacji z wystąpieniem zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Dzisiaj możesz wybrać wiele opcji podczas decydowania, jak i gdzie hostować aplikację.
 
-Możesz wybrać opcję hostowania aplikacji w chmurze przy użyciu Azure App Service lub niektórych opcji zintegrowanych sieci wirtualnej (sieci wirtualnej platformy Azure), takich jak Azure App Service Environment, maszyna wirtualna, zestaw skalowania maszyn wirtualnych. Możesz również zastosować podejście do chmury hybrydowej i utrzymywać swoje aplikacje lokalnie.
+Możesz wybrać opcję hostowania aplikacji w chmurze, korzystając z Azure App Service lub niektórych opcji zintegrowanych z siecią wirtualną platformy Azure, takich jak Azure App Service Environment, Virtual Machines platformy Azure i zestawy skalowania maszyn wirtualnych. Możesz również zastosować podejście do chmury hybrydowej i utrzymywać swoje aplikacje lokalnie.
 
-Niezależnie od dokonanego wyboru możesz połączyć je z wystąpieniem zarządzanym SQL. 
+Niezależnie od dokonanego wyboru możesz połączyć go z wystąpieniem zarządzanym usługi Azure SQL. 
 
 ![Wysoka dostępność](./media/connect-application-instance/application-deployment-topologies.png)
 
@@ -34,72 +34,72 @@ W tym artykule opisano sposób łączenia aplikacji z wystąpieniem zarządzanym
 
 ## <a name="connect-inside-the-same-vnet"></a>Połącz wewnątrz tej samej sieci wirtualnej
 
-Najprostszym scenariuszem jest łączenie aplikacji w ramach tej samej sieci wirtualnej, w której znajduje się wystąpienie zarządzane SQL. Maszyny wirtualne wewnątrz sieci wirtualnej mogą łączyć się ze sobą bezpośrednio nawet wtedy, gdy znajdują się w różnych podsieciach. Oznacza to, że wszystko, co jest potrzebne do połączenia aplikacji w środowisku aplikacji platformy Azure lub na maszynie wirtualnej, ma odpowiednio ustawiać parametry połączenia.  
+Najprostszym scenariuszem jest łączenie aplikacji w ramach tej samej sieci wirtualnej co wystąpienie zarządzane SQL. Maszyny wirtualne wewnątrz sieci wirtualnej mogą łączyć się ze sobą bezpośrednio nawet wtedy, gdy znajdują się w różnych podsieciach. Oznacza to, że wszystko, co jest potrzebne do połączenia aplikacji wewnątrz App Service Environment lub maszyny wirtualnej, ma odpowiednio ustawiać parametry połączenia.  
 
 ## <a name="connect-inside-a-different-vnet"></a>Łączenie wewnątrz innej sieci wirtualnej
 
-Połączenie aplikacji znajdującej się w innej sieci wirtualnej, ponieważ wystąpienie zarządzane SQL jest nieco bardziej skomplikowane, ponieważ wystąpienie zarządzane SQL ma prywatne adresy IP w własnej sieci wirtualnej. Aby nawiązać połączenie, aplikacja musi mieć dostęp do sieci wirtualnej, w której wdrożono wystąpienie zarządzane SQL. Należy więc nawiązać połączenie między aplikacją a siecią wirtualną wystąpienia zarządzanego SQL. Aby ten scenariusz działał, sieci wirtualne nie muszą znajdować się w tej samej subskrypcji.
+Połączenie aplikacji znajdującej się w innej sieci wirtualnej z wystąpienia zarządzanego SQL jest nieco bardziej skomplikowane, ponieważ wystąpienie zarządzane SQL ma prywatne adresy IP w własnej sieci wirtualnej. Aby nawiązać połączenie, aplikacja musi mieć dostęp do sieci wirtualnej, w której wdrożono wystąpienie zarządzane SQL. Należy więc nawiązać połączenie między aplikacją a siecią wirtualną wystąpienia zarządzanego SQL. Aby ten scenariusz działał, sieci wirtualne nie muszą znajdować się w tej samej subskrypcji.
 
 Istnieją dwie opcje łączenia sieci wirtualnych:
 
 - [Komunikacja równorzędna sieci VPN platformy Azure](../../virtual-network/virtual-network-peering-overview.md)
-- Brama sieci VPN typu sieć wirtualna-sieć wirtualna: ([Azure Portal](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [interfejs wiersza polecenia platformy Azure](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md))
+- Brama sieci VPN typu sieć wirtualna-sieć wirtualna ([Azure Portal](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md), [interfejs wiersza polecenia platformy Azure](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md))
 
-Komunikacja równorzędna jest preferowana, ponieważ Komunikacja równorzędna używa sieci szkieletowej firmy Microsoft, dlatego z perspektywy łączności nie ma zauważalnej różnicy opóźnienia między maszynami wirtualnymi w wirtualnej sieci równorzędnej i w tej samej sieci wirtualnej. Wirtualne sieci równorzędne są ograniczone do sieci w tym samym regionie.  
+Komunikacja równorzędna jest preferowana, ponieważ używa sieci szkieletowej firmy Microsoft, dlatego z punktu widzenia łączności nie ma zauważalnej różnicy opóźnienia między maszynami wirtualnymi w wirtualnej sieci równorzędnej i w tej samej sieci wirtualnej. Wirtualne sieci równorzędne są ograniczone do sieci w tym samym regionie.  
 
 > [!IMPORTANT]
-> Scenariusz komunikacji równorzędnej sieci wirtualnej dla wystąpienia zarządzanego SQL jest ograniczony do sieci w tym samym regionie z powodu [ograniczeń ofGlobal Virtual Network komunikacji równorzędnej](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Więcej informacji można znaleźć w sekcji dotyczącej [często zadawanych pytań dotyczących usługi Azure Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) . 
+> Scenariusz komunikacji równorzędnej sieci wirtualnej dla wystąpienia zarządzanego SQL jest ograniczony do sieci w tym samym regionie ze względu na [ograniczenia globalnej komunikacji równorzędnej sieci wirtualnej](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Więcej informacji można znaleźć w sekcji dotyczącej [często zadawanych pytań dotyczących usługi Azure Virtual Networks](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) . 
 
 ## <a name="connect-from-on-premises"></a>Nawiązywanie połączenia z lokalnego 
 
 Możesz również połączyć aplikację lokalną z wystąpieniem zarządzanym SQL. Dostęp do wystąpienia zarządzanego SQL można uzyskać tylko za pomocą prywatnego adresu IP. Aby można było uzyskać do niego dostęp z lokalnego, należy nawiązać połączenie lokacja-lokacja między aplikacją a siecią wirtualną wystąpienia zarządzanego SQL.
 
-Istnieją dwie opcje łączenia lokalnego z usługą Azure Virtual Network:
+Istnieją dwie opcje łączenia lokalnego z siecią wirtualną platformy Azure:
 
 - Połączenie sieci VPN typu lokacja-lokacja ([Azure Portal](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), [interfejs wiersza polecenia platformy Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md))
-- Połączenie [ExpressRoute](../../expressroute/expressroute-introduction.md)  
+- Połączenie [usługi Azure ExpressRoute](../../expressroute/expressroute-introduction.md)  
 
-Jeśli pomyślnie nawiązano połączenie lokalne z usługą Azure i nie można nawiązać połączenia z wystąpieniem zarządzanym SQL, sprawdź, czy Zapora ma otwarte połączenie wychodzące na porcie SQL 1433 oraz 11000-11999 zakres portów do przekierowania.
+Jeśli nawiązanie połączenia lokalnego z platformą Azure powiodło się i nie można nawiązać połączenia z wystąpieniem zarządzanym SQL, sprawdź, czy Zapora ma otwarte połączenie wychodzące na porcie SQL 1433 oraz 11000-11999 zakres portów do przekierowania.
 
-## <a name="connect-the-developers-box"></a>Połącz pole deweloperów
+## <a name="connect-the-developer-box"></a>Połącz pole dewelopera
 
-Istnieje również możliwość łączenia deweloperów z wystąpieniem zarządzanym SQL. Do wystąpienia zarządzanego SQL można uzyskać dostęp tylko za pośrednictwem prywatnego adresu IP, dlatego w celu uzyskania dostępu do niego z poziomu dewelopera musisz najpierw nawiązać połączenie między polem dewelopera i siecią wirtualną wystąpienia zarządzanego SQL. W tym celu należy skonfigurować połączenie typu punkt-lokacja z siecią wirtualną przy użyciu natywnego uwierzytelniania certyfikatu platformy Azure. Aby uzyskać więcej informacji, zobacz [Konfigurowanie połączenia punkt-lokacja w celu nawiązania połączenia z wystąpieniem zarządzanym usługi Azure SQL z komputera lokalnego](point-to-site-p2s-configure.md).
+Istnieje również możliwość połączenia Twojego dewelopera z wystąpieniem zarządzanym SQL. Do wystąpienia zarządzanego SQL można uzyskać dostęp tylko za pośrednictwem prywatnego adresu IP, dlatego w celu uzyskania dostępu do niego z poziomu dewelopera musisz najpierw nawiązać połączenie między polem dewelopera i siecią wirtualną wystąpienia zarządzanego SQL. W tym celu należy skonfigurować połączenie typu punkt-lokacja z siecią wirtualną przy użyciu natywnego uwierzytelniania certyfikatu platformy Azure. Aby uzyskać więcej informacji, zobacz [Konfigurowanie połączenia punkt-lokacja w celu nawiązania połączenia z wystąpieniem zarządzanym usługi Azure SQL na komputerze lokalnym](point-to-site-p2s-configure.md).
 
 ## <a name="connect-with-vnet-peering"></a>Nawiązywanie połączenia przy użyciu komunikacji równorzędnej sieci wirtualnych
 
 Innym scenariuszem wdrożonym przez klientów jest to, że Brama sieci VPN jest zainstalowana w oddzielnej sieci wirtualnej i subskrypcji z jednego hostingu wystąpienia zarządzanego SQL. Dwie sieci wirtualne są następnie połączone za pomocą komunikacji równorzędnej. Poniższy przykładowy diagram architektury przedstawia, w jaki sposób można go zaimplementować.
 
-![wirtualne sieci równorzędne](./media/connect-application-instance/vnet-peering.png)
+![Wirtualne sieci równorzędne](./media/connect-application-instance/vnet-peering.png)
 
-Po skonfigurowaniu podstawowej infrastruktury należy zmodyfikować niektóre ustawienia, tak aby VPN Gateway mogli zobaczyć adresy IP w sieci wirtualnej, która hostuje wystąpienie zarządzane SQL. W tym celu wprowadź następujące bardzo szczegółowe zmiany w obszarze **ustawienia komunikacji równorzędnej**.
+Po skonfigurowaniu podstawowej infrastruktury należy zmodyfikować niektóre ustawienia, aby Brama sieci VPN widziała adresy IP w sieci wirtualnej, która hostuje wystąpienie zarządzane SQL. W tym celu wprowadź następujące bardzo szczegółowe zmiany w obszarze **ustawienia komunikacji równorzędnej**.
 
-1. W sieci wirtualnej, która hostuje bramę sieci VPN, przejdź do **komunikacji równorzędnej**, a następnie do połączenia sieci wirtualnej wystąpienia zarządzanego SQL, a następnie kliknij przycisk **Zezwalaj na tranzyt bramy**.
-2. W sieci wirtualnej, która hostuje wystąpienie zarządzane SQL, przejdź do obszaru **komunikacji równorzędnej**, a następnie do VPN Gateway połączenie sieci wirtualnej równorzędnej, a następnie kliknij opcję **Użyj bram zdalnych**.
+1. W sieci wirtualnej, która hostuje bramę sieci VPN, przejdź do obszaru **komunikacji równorzędnej**, przejdź do połączenia wirtualnej sieci równorzędnej dla wystąpienia zarządzanego SQL, a następnie kliknij przycisk **Zezwalaj na tranzyt bramy**.
+2. W sieci wirtualnej, która hostuje wystąpienie zarządzane SQL, przejdź do obszaru **komunikacji równorzędnej**, przejdź do połączenia sieci wirtualnej komunikacji równorzędnej dla bramy sieci VPN, a następnie kliknij opcję **Użyj bram zdalnych**.
 
 ## <a name="connect-azure-app-service"></a>Połącz Azure App Service 
 
-Możesz również połączyć aplikację hostowaną przez Azure App Service. Do wystąpienia zarządzanego SQL można uzyskać dostęp tylko za pośrednictwem prywatnego adresu IP, dlatego w celu uzyskania dostępu do niego z Azure App Service należy najpierw nawiązać połączenie między aplikacją a siecią wirtualną wystąpienia zarządzanego SQL. Zobacz [Integrowanie aplikacji z usługą Azure Virtual Network](../../app-service/web-sites-integrate-with-vnet.md).  
+Możesz również połączyć aplikację hostowaną przez Azure App Service. Do wystąpienia zarządzanego SQL można uzyskać dostęp tylko za pośrednictwem prywatnego adresu IP, dlatego w celu uzyskania dostępu do niego z Azure App Service należy najpierw nawiązać połączenie między aplikacją a siecią wirtualną wystąpienia zarządzanego SQL. Zobacz [Integrowanie aplikacji z siecią wirtualną platformy Azure](../../app-service/web-sites-integrate-with-vnet.md).  
 
 Aby uzyskać informacje na temat rozwiązywania problemów, zobacz [Rozwiązywanie problemów dotyczących sieci wirtualnych i aplikacji](../../app-service/web-sites-integrate-with-vnet.md#troubleshooting) Jeśli nie można nawiązać połączenia, spróbuj [zsynchronizować konfigurację sieci](azure-app-sync-network-configuration.md).
 
-Specjalny przypadek łączenia Azure App Service z wystąpieniem zarządzanym SQL polega na tym, że integracja Azure App Service z siecią równorzędną do sieci wirtualnej wystąpienia zarządzanego SQL. W takim przypadku wymagane jest skonfigurowanie następującej konfiguracji:
+Szczególnym przypadkiem łączenia Azure App Service z wystąpieniem zarządzanym SQL jest zintegrowanie Azure App Service z siecią równorzędną do sieci wirtualnej wystąpienia zarządzanego SQL. W takim przypadku wymagane jest skonfigurowanie następującej konfiguracji:
 
 - Sieć wirtualna wystąpienia zarządzanego SQL nie może mieć bramy  
 - Sieć wirtualna wystąpienia zarządzanego SQL musi mieć `Use remote gateways` ustawioną opcję
-- Równorzędna Sieć wirtualna musi mieć ustawioną opcję Zezwalaj na tranzyt bramy
+- Równorzędna Sieć wirtualna musi mieć `Allow gateway transit` ustawioną opcję
 
 Ten scenariusz przedstawiono na poniższym diagramie:
 
 ![Zintegrowana Komunikacja równorzędna aplikacji](./media/connect-application-instance/integrated-app-peering.png)
 
 >[!NOTE]
->Funkcja integracji sieci wirtualnej nie integruje aplikacji z siecią wirtualną, która ma bramę ExpressRoute. Nawet jeśli Brama ExpressRoute jest skonfigurowana w trybie współistnienia, integracja sieci wirtualnej nie działa. Jeśli musisz uzyskać dostęp do zasobów za pomocą połączenia usługi ExpressRoute, możesz użyć App Service Environment, który działa w sieci wirtualnej.
+>Funkcja integracji sieci wirtualnej nie integruje aplikacji z siecią wirtualną, która ma bramę ExpressRoute. Nawet jeśli Brama ExpressRoute jest skonfigurowana w trybie współistnienia, integracja z siecią wirtualną nie działa. Jeśli musisz uzyskać dostęp do zasobów za pomocą połączenia usługi ExpressRoute, możesz użyć App Service Environment, które działa w sieci wirtualnej.
 
 ## <a name="troubleshooting-connectivity-issues"></a>Rozwiązywanie problemów z łącznością
 
 Aby rozwiązać problemy z łącznością, zapoznaj się z następującymi tematami:
 
-- Jeśli nie można nawiązać połączenia z wystąpieniem zarządzanym SQL z maszyny wirtualnej platformy Azure w tej samej sieci wirtualnej, ale z inną podsiecią, sprawdź, czy w podsieci maszyny wirtualnej jest ustawiona sieciowa Grupa zabezpieczeń, która może blokować dostęp. Ponadto Otwórz połączenie wychodzące na porcie SQL 1433, a także porty z zakresu 11000-11999, ponieważ są one zbędne do łączenia się w ramach granicy platformy Azure.
+- Jeśli nie można nawiązać połączenia z wystąpieniem zarządzanym SQL z maszyny wirtualnej platformy Azure w tej samej sieci wirtualnej, ale innej podsieci, sprawdź, czy w podsieci maszyny wirtualnej jest ustawiona sieciowa Grupa zabezpieczeń, która może blokować dostęp. Ponadto Otwórz połączenie wychodzące na porcie SQL 1433, a także porty z zakresu 11000-11999, ponieważ są one zbędne do łączenia się w ramach granicy platformy Azure.
 - Upewnij się, że propagacja protokołu BGP jest **włączona** dla tabeli tras skojarzonej z siecią wirtualną.
 - W przypadku korzystania z sieci VPN P2S Sprawdź konfigurację w Azure Portal, aby zobaczyć, czy są wyświetlane numery ruchu przychodzącego **/** wychodzącego. Liczby niezerowe wskazują, że platforma Azure będzie kierować ruchem do/z lokalnego.
 
@@ -137,7 +137,7 @@ Aby rozwiązać problemy z łącznością, zapoznaj się z następującymi temat
 
 - Jeśli używasz komunikacji równorzędnej sieci wirtualnej, upewnij się, że wykonano instrukcje dotyczące ustawienia [Zezwalaj na tranzyt bramy i używanie bram zdalnych](#connect-from-on-premises).
 
-- W przypadku używania komunikacji równorzędnej sieci wirtualnych w celu połączenia Azure App Service hostowanej aplikacji, a sieć wirtualna wystąpienia zarządzanego SQL ma publiczny zakres adresów IP, upewnij się, że ustawienia aplikacji hostowanej umożliwiają kierowanie ruchu wychodzącego do publicznych sieci IP. Postępuj zgodnie z instrukcjami zawartymi w temacie [integracja z regionalną siecią wirtualną](../../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration).
+- Jeśli używasz komunikacji równorzędnej sieci wirtualnej, aby połączyć aplikację hostowaną Azure App Service, a sieć wirtualna wystąpienia zarządzanego SQL ma publiczny zakres adresów IP, upewnij się, że ustawienia hostowanej aplikacji umożliwiają kierowanie ruchu wychodzącego do publicznych sieci IP. Postępuj zgodnie z instrukcjami zawartymi w temacie [integracja z regionalną siecią wirtualną](../../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration).
 
 ## <a name="required-versions-of-drivers-and-tools"></a>Wymagane wersje sterowników i narzędzi
 
@@ -157,4 +157,4 @@ Jeśli chcesz połączyć się z wystąpieniem zarządzanym SQL, zaleca się zas
 ## <a name="next-steps"></a>Następne kroki
 
 - Aby uzyskać informacje o wystąpieniu zarządzanym SQL, zobacz [co to jest wystąpienie zarządzane SQL?](sql-managed-instance-paas-overview.md)
-- Samouczek przedstawiający sposób tworzenia nowego wystąpienia zarządzanego SQL można znaleźć w temacie [Tworzenie wystąpienia zarządzanego SQL](instance-create-quickstart.md).
+- Samouczek pokazujący, jak utworzyć nowe wystąpienie zarządzane, można znaleźć w temacie [Tworzenie wystąpienia zarządzanego](instance-create-quickstart.md).

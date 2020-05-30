@@ -9,12 +9,13 @@ ms.author: magoedte
 ms.date: 04/23/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 24ff69e76736ffa93cecb795be563f172c422355
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.custom: references_regions
+ms.openlocfilehash: d594d5a9dd263817023d2b5987c03aa50828191c
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744764"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84191862"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Obsługiwane regiony połączonego obszaru roboczego usługi Log Analytics
 

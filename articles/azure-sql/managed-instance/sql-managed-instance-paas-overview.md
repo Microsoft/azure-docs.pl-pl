@@ -1,6 +1,6 @@
 ---
 title: Co to jest wystąpienie zarządzane Azure SQL?
-description: Dowiedz się więcej o wystąpieniu zarządzanym usługi Azure SQL, które zapewnia niemal 100% zgodność z najnowszym SQL Server lokalnym (Enterprise Edition) aparat bazy danych
+description: Dowiedz się więcej o wystąpieniu zarządzanym usługi Azure SQL, które zapewnia niemal 100% zgodność z najnowszym aparatem bazy danych SQL Server (Enterprise Edition)
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,17 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 04/02/2020
-ms.openlocfilehash: 9f8f001c1e20e7685683d6bf3d3564d355db38cb
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 886653bcfa255c7929f7e23082b74f171c97c7a1
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84119373"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195452"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Co to jest wystąpienie zarządzane Azure SQL?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-W ramach rodziny produktów Azure SQL Database wystąpienie zarządzane Azure SQL to inteligentna, skalowalna usługa bazy danych w chmurze, która łączy najszerszą SQL Serverą zgodność aparatu bazy danych ze wszystkimi zaletami w pełni zarządzanej i evergreenej platformy jako usługi. Wystąpienie zarządzane SQL boasts niemal 100% zgodności z najnowszym SQL Server lokalnym (Enterprise Edition) aparat bazy danych, zapewniając natywną implementację [sieci wirtualnej (VNET)](../../virtual-network/virtual-networks-overview.md) , która rozwiązuje typowe problemy związane z bezpieczeństwem, oraz [model biznesowy](https://azure.microsoft.com/pricing/details/sql-database/) preferowany przez klientów SQL Server lokalnych. Wystąpienie zarządzane SQL umożliwia istniejącym klientom SQL Server na podniesienie i przesunięcia aplikacji lokalnych do chmury przy minimalnych zmianach aplikacji i baz danych. W tym samym czasie wystąpienie zarządzane SQL zachowuje wszystkie możliwości PaaS (automatyczne stosowanie poprawek i aktualizacji wersji, [zautomatyzowane kopie zapasowe](../database/automated-backups-overview.md), [wysoka dostępność](../database/high-availability-sla.md) ), które znacząco zmniejszają obciążenie związane z zarządzaniem i całkowity koszt posiadania.
+W ramach rodziny produktów Azure SQL Database wystąpienie zarządzane Azure SQL to inteligentna, skalowalna usługa bazy danych w chmurze, która łączy najszerszą SQL Serverą zgodność aparatu bazy danych ze wszystkimi zaletami w pełni zarządzanej i evergreenej platformy jako usługi. Wystąpienie zarządzane SQL boasts blisko 100% zgodności z najnowszym aparatem bazy danych SQL Server (Enterprise Edition), zapewniając natywną implementację [sieci wirtualnej (VNET)](../../virtual-network/virtual-networks-overview.md) , która rozwiązuje typowe problemy związane z bezpieczeństwem, oraz [model biznesowy](https://azure.microsoft.com/pricing/details/sql-database/) preferowany dla istniejących SQL Server klientów. Wystąpienie zarządzane SQL umożliwia istniejącym klientom SQL Server na podniesienie i przesunięcia aplikacji lokalnych do chmury przy minimalnych zmianach aplikacji i baz danych. W tym samym czasie wystąpienie zarządzane SQL zachowuje wszystkie możliwości PaaS (automatyczne stosowanie poprawek i aktualizacji wersji, [zautomatyzowane kopie zapasowe](../database/automated-backups-overview.md), [wysoka dostępność](../database/high-availability-sla.md) ), które znacząco zmniejszają obciążenie związane z zarządzaniem i całkowity koszt posiadania.
 
 > [!IMPORTANT]
 > Aby zapoznać się z listą regionów, w których jest obecnie dostępne wystąpienie zarządzane SQL, zobacz [Obsługiwane regiony](resource-limits.md#supported-regions).
@@ -30,7 +30,7 @@ Na poniższym diagramie przedstawiono najważniejsze funkcje wystąpień zarząd
 
 ![Najważniejsze funkcje](./media/sql-managed-instance-paas-overview/key-features.png)
 
-Wystąpienie zarządzane Azure SQL jest przeznaczone dla klientów, którzy chcą migrować dużą liczbę aplikacji z środowiska lokalnego lub IaaS, samodzielnego lub niezależnego dostawcy oprogramowania do w pełni zarządzanego środowiska chmury PaaS, z możliwie jak najniższym nakładem migracji. Korzystając z w pełni zautomatyzowanej [usługi migracji danych (DMS)](../../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) na platformie Azure, klienci mogą podnoszenia i przenoszone SQL Server lokalnych do wystąpienia zarządzanego SQL, które oferuje zgodność z SQL Server lokalnie i pełną izolacją wystąpień klientów z natywną obsługą sieci wirtualnej.  Program Software Assurance umożliwia wymianę istniejących licencji dla obniżonych stawek w wystąpieniu zarządzanym SQL przy użyciu [Korzyść użycia hybrydowego platformy Azure SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Wystąpienie zarządzane SQL to Najlepsza lokalizacja docelowa migracji w chmurze dla wystąpień SQL Server, które wymagają wysokiego poziomu zabezpieczeń i rozbudowanej powierzchni programistycznej.
+Wystąpienie zarządzane Azure SQL jest przeznaczone dla klientów, którzy chcą migrować dużą liczbę aplikacji z środowiska lokalnego lub IaaS, samodzielnego lub niezależnego dostawcy oprogramowania do w pełni zarządzanego środowiska chmury PaaS, z możliwie jak najniższym nakładem migracji. Korzystając z w pełni zautomatyzowanej [usługi migracji danych (DMS)](../../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance) na platformie Azure, klienci mogą przebudować i przenieść istniejące wystąpienia SQL Server do wystąpienia zarządzanego SQL, które oferuje zgodność z SQL Server i pełną izolacją wystąpień klientów dzięki natywnej obsłudze sieci wirtualnej.  Program Software Assurance umożliwia wymianę istniejących licencji dla obniżonych stawek w wystąpieniu zarządzanym SQL przy użyciu [Korzyść użycia hybrydowego platformy Azure SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Wystąpienie zarządzane SQL to Najlepsza lokalizacja docelowa migracji w chmurze dla wystąpień SQL Server, które wymagają wysokiego poziomu zabezpieczeń i rozbudowanej powierzchni programistycznej.
 
 ## <a name="key-features-and-capabilities"></a>Najważniejsze funkcje i możliwości
 
@@ -50,18 +50,18 @@ Wystąpienie zarządzane SQL łączy najlepsze funkcje, które są dostępne zar
 
 W poniższej tabeli przedstawiono najważniejsze funkcje wystąpienia zarządzanego SQL:
 
-|Cecha | Opis|
+|Cechy | Opis|
 |---|---|
 | Wersja SQL Server/kompilacja | Aparat bazy danych SQL Server (Najnowsza stabilna) |
-| Zarządzane automatyczne kopie zapasowe | Yes |
-| Wbudowane wystąpienie i monitorowanie bazy danych oraz metryki | Yes |
-| Automatyczne stosowanie poprawek oprogramowania | Yes |
-| Najnowsze funkcje aparatu bazy danych | Yes |
+| Zarządzane automatyczne kopie zapasowe | Tak |
+| Wbudowane wystąpienie i monitorowanie bazy danych oraz metryki | Tak |
+| Automatyczne stosowanie poprawek oprogramowania | Tak |
+| Najnowsze funkcje aparatu bazy danych | Tak |
 | Liczba plików danych (wierszy) na bazę danych | Wiele |
 | Liczba plików dziennika (dzienników) na bazę danych | 1 |
-| Wdrożenie Azure Resource Manager sieci wirtualnej | Yes |
+| Wdrożenie Azure Resource Manager sieci wirtualnej | Tak |
 | Model wdrażania klasycznego sieci wirtualnej | Nie |
-| Obsługa portalu | Yes|
+| Obsługa portalu | Tak|
 | Wbudowana usługa integracji (SSIS) | Nie — SSIS jest częścią [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure) |
 | Wbudowana usługa analizy (SSAS) | Nie — SSAS jest osobnym [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview) |
 | Wbudowana usługa raportowania (SSRS) | Nie używaj raportów z podziałem na strony [Power BI](https://docs.microsoft.com/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) lub HOSTOWANIE usług SSRS na maszynie wirtualnej platformy Azure. Chociaż zarządzane wystąpienie nie może uruchamiać usług SSRS jako usługi, może hostować bazy danych wykazu usług SSRS 2019 dla zewnętrznego serwera raportowania przy użyciu uwierzytelniania SQL Server. |
@@ -193,10 +193,10 @@ Kategoria  |Operacja  |Można anulować  |Szacowany czas trwania anulowania  |
 |---------|---------|---------|---------|
 |Wdrożenie |Tworzenie wystąpienia |Nie |  |
 |Aktualizacja |Skalowanie magazynu wystąpień w górę/w dół (Ogólnego przeznaczenia) |Nie |  |
-|Aktualizacja |Skalowanie magazynu wystąpień w górę/w dół (Krytyczne dla działania firmy) |Yes |90% operacji zakończonych w ciągu 5 minut |
-|Aktualizacja |Skalowanie wystąpienia obliczeniowego (rdzeni wirtualnych) w górę i w dół (Ogólnego przeznaczenia) |Yes |90% operacji zakończonych w ciągu 5 minut |
-|Aktualizacja |Skalowanie wystąpienia obliczeniowego (rdzeni wirtualnych) w górę i w dół (Krytyczne dla działania firmy) |Yes |90% operacji zakończonych w ciągu 5 minut |
-|Aktualizacja |Zmiana warstwy usługi wystąpienia (Ogólnego przeznaczenia do Krytyczne dla działania firmy i na odwrót) |Yes |90% operacji zakończonych w ciągu 5 minut |
+|Aktualizacja |Skalowanie magazynu wystąpień w górę/w dół (Krytyczne dla działania firmy) |Tak |90% operacji zakończonych w ciągu 5 minut |
+|Aktualizacja |Skalowanie wystąpienia obliczeniowego (rdzeni wirtualnych) w górę i w dół (Ogólnego przeznaczenia) |Tak |90% operacji zakończonych w ciągu 5 minut |
+|Aktualizacja |Skalowanie wystąpienia obliczeniowego (rdzeni wirtualnych) w górę i w dół (Krytyczne dla działania firmy) |Tak |90% operacji zakończonych w ciągu 5 minut |
+|Aktualizacja |Zmiana warstwy usługi wystąpienia (Ogólnego przeznaczenia do Krytyczne dla działania firmy i na odwrót) |Tak |90% operacji zakończonych w ciągu 5 minut |
 |Usuń |Usunięcie wystąpienia |Nie |  |
 |Usuń |Usuwanie klastra wirtualnego (jako operacja zainicjowana przez użytkownika) |Nie |  |
 
@@ -247,7 +247,7 @@ Wystąpienie zarządzane usługi Azure SQL udostępnia zestaw zaawansowanych fun
 - [Zabezpieczenia na poziomie wiersza](/sql/relational-databases/security/row-level-security) umożliwiają kontrolowanie dostępu do wierszy w tabeli bazy danych na podstawie właściwości użytkownika wykonującego zapytanie (na przykład według członkostwa w grupie lub kontekstu wykonania). Zabezpieczenia na poziomie wiersza (RLS, Row-Level Security) upraszczają projektowanie i kodowanie zabezpieczeń w aplikacji. Zabezpieczenia na poziomie wiersza umożliwiają zaimplementowanie ograniczeń w dostępie do wiersza danych. Na przykład zapewnienie pracownikom dostępu tylko do wierszy danych, które są istotne dla działu, lub ograniczenia dostępu do danych tylko do odpowiednich danych.
 - [Transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) szyfruje pliki danych wystąpienia zarządzanego SQL, znane jako szyfrowanie przechowywanych danych. TDE wykonuje szyfrowanie we/wy czasu rzeczywistego i odszyfrowywanie plików danych i dzienników. Szyfrowanie używa klucza szyfrowania bazy danych, który jest przechowywany w rekordzie rozruchowym bazy danych w celu zapewnienia dostępności podczas odzyskiwania. Można chronić wszystkie bazy danych w wystąpieniu zarządzanym z przezroczystym szyfrowaniem danych. TDE SQL Server to sprawdzona technologia szyfrowania w technologii REST, która jest wymagana przez wiele standardów zgodności, aby chronić przed kradzieżą nośników magazynu.
 
-Migracja zaszyfrowanej bazy danych do wystąpienia zarządzanego SQL jest obsługiwana za pośrednictwem Azure Database Migration Service (DMS) lub przywracania natywnego. Jeśli planujesz migrację zaszyfrowanej bazy danych przy użyciu funkcji przywracania natywnego, migracja istniejącego certyfikatu TDE z SQL Server lokalnego lub SQL Server na maszynie wirtualnej do wystąpienia zarządzanego SQL jest wymaganym krokiem. Aby uzyskać więcej informacji na temat opcji migracji, zobacz [SQL Server migracja do wystąpienia zarządzanego SQL](migrate-to-instance-from-sql-server.md).
+Migracja zaszyfrowanej bazy danych do wystąpienia zarządzanego SQL jest obsługiwana za pośrednictwem Azure Database Migration Service (DMS) lub przywracania natywnego. Jeśli planujesz migrację zaszyfrowanej bazy danych przy użyciu przywracania natywnego, migracja istniejącego certyfikatu TDE z wystąpienia SQL Server do wystąpienia zarządzanego SQL jest wymaganym krokiem. Aby uzyskać więcej informacji na temat opcji migracji, zobacz [SQL Server migracja do wystąpienia zarządzanego SQL](migrate-to-instance-from-sql-server.md).
 
 ## <a name="azure-active-directory-integration"></a>Integracja Azure Active Directory
 
@@ -286,7 +286,7 @@ Podejście do migracji wykorzystuje kopie zapasowe SQL do usługi Azure Blob Sto
 - Aby uzyskać informacje o przywracaniu z adresu URL, zobacz [natywne przywracanie z adresu URL](migrate-to-instance-from-sql-server.md#native-restore-from-url).
 
 > [!IMPORTANT]
-> Kopie zapasowe z wystąpienia zarządzanego SQL można przywrócić tylko do innego wystąpienia zarządzanego SQL. Nie można ich przywrócić do SQL Server lokalnego lub Azure SQL Database.
+> Kopie zapasowe z wystąpienia zarządzanego SQL można przywrócić tylko do innego wystąpienia zarządzanego SQL. Nie można ich przywrócić do wystąpienia SQL Server lub Azure SQL Database.
 
 ### <a name="data-migration-service"></a>Usługa Data Migration Service
 
@@ -294,7 +294,7 @@ Azure Database Migration Service to w pełni zarządzana usługa, która umożli
 
 ## <a name="sql-features-supported"></a>Obsługiwane funkcje SQL
 
-Wystąpienie zarządzane SQL ma na celu dostarczenie do 100% zgodności obszaru powierzchni z najnowszą lokalną wersją SQL Server przy użyciu planu przygotowanego zlecenia. Aby uzyskać listę funkcji i porównywania, zobacz [porównanie funkcji wystąpienia zarządzanego SQL](../database/features-comparison.md)i listę różnic t-SQL w wystąpieniu zarządzanym sql a SQL Server, zobacz [różnice t-SQL wystąpienia zarządzanego przez sql](transact-sql-tsql-differences-sql-server.md)w programie SQL Server.
+Wystąpienie zarządzane SQL ma na celu dostarczenie do 100% zgodności obszaru powierzchni z najnowszą wersją SQL Server za pomocą planu przygotowanego zlecenia. Aby uzyskać listę funkcji i porównywania, zobacz [porównanie funkcji wystąpienia zarządzanego SQL](../database/features-comparison.md)i listę różnic t-SQL w wystąpieniu zarządzanym sql a SQL Server, zobacz [różnice t-SQL wystąpienia zarządzanego przez sql](transact-sql-tsql-differences-sql-server.md)w programie SQL Server.
 
 Wystąpienie zarządzane SQL obsługuje zgodność z poprzednimi wersjami z bazami danych SQL 2008. Obsługiwana jest bezpośrednia migracja z serwerów baz danych SQL 2005. poziom zgodności dla zmigrowanych baz danych SQL 2005 został zaktualizowany do wersji SQL 2008.
   
@@ -304,7 +304,7 @@ Na poniższym diagramie przedstawiono zgodność obszaru powierzchni w wystąpie
 
 ### <a name="key-differences-on-premises-and-sql-managed-instance"></a>Kluczowe różnice między lokalnymi i wystąpieniami zarządzanymi SQL
 
-Usługi SQL Managed instance są zawsze aktualne w chmurze, co oznacza, że niektóre funkcje w SQL Server lokalnym mogą być przestarzałe, wycofane lub mieć alternatywy. Istnieją określone przypadki, w których narzędzia muszą rozpoznać, że określona funkcja działa w nieco inny sposób lub że usługa działa w środowisku, w którym nie jest w pełni kontrolowany.
+Wystąpienia zarządzane SQL są zawsze aktualne w chmurze, co oznacza, że niektóre funkcje w SQL Server mogą być przestarzałe, wycofane lub mieć alternatywy. Istnieją określone przypadki, w których narzędzia muszą rozpoznać, że określona funkcja działa w nieco inny sposób lub że usługa działa w środowisku, w którym nie jest w pełni kontrolowany.
 
 Niektóre kluczowe różnice:
 

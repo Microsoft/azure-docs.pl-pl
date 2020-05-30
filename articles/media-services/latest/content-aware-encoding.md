@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 3ea6c4226a59ba020a477cc5811033ff3dc3c2e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9cb38037b905e9d7f938b648954bcb9e419be5af
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76772082"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84217426"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Użyj ustawienia wstępnego kodowania obsługującego zawartość, aby znaleźć optymalną szybkość transmisji bitów dla danego rozwiązania
 
@@ -76,8 +76,10 @@ TransformOutput[] output = new TransformOutput[]
 ```
 
 > [!NOTE]
-> Opłaty za zadania kodowania `ContentAwareEncoding` przy użyciu ustawienia wstępnego są rozliczane na podstawie minut danych wyjściowych. 
+> Opłaty za zadania kodowania przy użyciu `ContentAwareEncoding` ustawienia wstępnego są rozliczane na podstawie minut danych wyjściowych. 
 
+Upewnij się, że używasz ustawienia wstępnego **ContentAwareEncoding** , które nie jest ContentAwareEncodingExperimental.
+  
 ## <a name="next-steps"></a>Następne kroki
 
 * [Samouczek: przekazywanie, kodowanie i przesyłanie strumieniowe filmów wideo z Media Services v3](stream-files-tutorial-with-api.md)

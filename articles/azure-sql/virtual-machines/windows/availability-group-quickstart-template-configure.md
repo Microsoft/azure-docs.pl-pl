@@ -15,14 +15,14 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 01e8eae154172cc48decb209e4964dc5ff0d835f
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 8476029fb189db846eca3eba31fe8cc62d3726f8
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84049141"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219457"
 ---
-# <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-an-azure-vm"></a>Korzystanie z szablonów szybkiego startu platformy Azure w celu skonfigurowania grupy dostępności dla SQL Server na maszynie wirtualnej platformy Azure
+# <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Użyj szablonów szybkiego startu platformy Azure, aby skonfigurować grupę dostępności dla SQL Server na maszynie wirtualnej platformy Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 W tym artykule opisano sposób korzystania z szablonów szybkiego startu platformy Azure w celu częściowo automatyzowania wdrożenia konfiguracji zawsze włączonych grup dostępności dla SQL Server maszyn wirtualnych na platformie Azure. W tym procesie są używane dwa szablony szybkiego startu platformy Azure: 
@@ -47,11 +47,11 @@ Aby zautomatyzować instalację zawsze włączonych grup dostępności przy uży
 Następujące uprawnienia są niezbędne do skonfigurowania grupy dostępności zawsze włączone przy użyciu szablonów szybkiego startu platformy Azure: 
 
 - Istniejące konto użytkownika domeny, które ma uprawnienie **Tworzenie obiektu komputera** w domenie.  Na przykład konto administratora domeny ma zwykle wystarczające uprawnienia (na przykład: account@domain.com ). _To konto powinno być również częścią lokalnej grupy administratorów na każdej maszynie wirtualnej w celu utworzenia klastra._
-- Konto użytkownika domeny kontrolujące usługę SQL Server. 
+- Konto użytkownika domeny kontrolujące SQL Server. 
 
 
 ## <a name="step-1-create-the-failover-cluster-and-join-sql-server-vms-to-the-cluster-by-using-a-quickstart-template"></a>Krok 1. Tworzenie klastra trybu failover i dołączanie SQL Server maszyn wirtualnych do klastra przy użyciu szablonu szybkiego startu 
-Po zarejestrowaniu maszyn wirtualnych SQL Server z dostawcą zasobów maszyny wirtualnej SQL można przyłączyć SQL Server do maszyn wirtualnych do *SqlVirtualMachineGroups*. Ten zasób definiuje metadane klastra trybu failover systemu Windows. Metadane obejmują wersję, wydanie, w pełni kwalifikowaną nazwę domeny, Active Directory konta do zarządzania zarówno klastrem, jak i usługą SQL Server oraz kontem magazynu jako monitorem chmury. 
+Po zarejestrowaniu maszyn wirtualnych SQL Server z dostawcą zasobów maszyny wirtualnej SQL można przyłączyć SQL Server do maszyn wirtualnych do *SqlVirtualMachineGroups*. Ten zasób definiuje metadane klastra trybu failover systemu Windows. Metadane obejmują wersję, wydanie, w pełni kwalifikowaną nazwę domeny, Active Directory konta do zarządzania zarówno klastrem, jak i SQL Server i kontem magazynu jako monitorem chmury. 
 
 Dodanie SQL Server maszyn wirtualnych do grupy zasobów *SqlVirtualMachineGroups* powoduje uruchomienie usługi klastra trybu failover systemu Windows w celu utworzenia klastra, a następnie dołączenie tych SQL Server maszyn wirtualnych do tego klastra. Ten krok jest zautomatyzowany z szablonem szybkiego startu **101-SQL-VM-AG-Setup** . Można go zaimplementować, wykonując następujące czynności:
 
@@ -71,10 +71,10 @@ Dodanie SQL Server maszyn wirtualnych do grupy zasobów *SqlVirtualMachineGroups
    | **Istniejące konto domeny** | Istniejące konto użytkownika domeny, które ma uprawnienie **Tworzenie obiektu komputera** w domenie jako [obiekt nazwy klastra](/windows-server/failover-clustering/prestage-cluster-adds) jest tworzona podczas wdrażania szablonu. Na przykład konto administratora domeny ma zwykle wystarczające uprawnienia (na przykład: account@domain.com ). *To konto powinno być również częścią lokalnej grupy administratorów na każdej maszynie wirtualnej w celu utworzenia klastra.*| 
    | **Hasło konta domeny** | Hasło do wyżej wymienionego konta użytkownika domeny. | 
    | **Istniejące konto usługi SQL** | Konto użytkownika domeny, które steruje [usługą SQL Server](/sql/database-engine/configure-windows/configure-windows-service-accounts-and-permissions) podczas wdrażania grupy dostępności (na przykład: account@domain.com ). |
-   | **Hasło usługi SQL** | Hasło używane przez konto użytkownika domeny, które steruje usługą SQL Server. |
+   | **Hasło usługi SQL** | Hasło używane przez konto użytkownika domeny kontrolujące SQL Server. |
    | **Nazwa monitora chmury** | Nowe konto usługi Azure Storage, które zostanie utworzone i użyte na potrzeby monitora w chmurze. Możesz zmodyfikować tę nazwę. |
    | **\_Lokalizacja artefaktów** | To pole jest domyślnie ustawione i nie powinno być modyfikowane. |
-   | **\_Token SAS lokalizacji artefaktów** | To pole jest celowo pozostawione puste. |
+   | **\_Token SaS lokalizacji artefaktów** | To pole jest celowo pozostawione puste. |
    | &nbsp; | &nbsp; |
 
 1. Jeśli akceptujesz warunki i postanowienia, zaznacz pole wyboru **Zgadzam się na warunki i postanowienia podane powyżej** . Następnie wybierz pozycję **Kup** , aby zakończyć wdrażanie szablonu szybkiego startu. 
@@ -117,7 +117,7 @@ Wystarczy utworzyć wewnętrzny moduł równoważenia obciążenia. W kroku 4 sz
    | **Lokalizacja** |Wybierz lokalizację platformy Azure, w której znajdują się wystąpienia SQL Server. |
    | &nbsp; | &nbsp; |
 
-6. Wybierz przycisk **Utwórz**. 
+6. Wybierz pozycję **Utwórz**. 
 
 
 >[!IMPORTANT]
@@ -188,7 +188,7 @@ Aby rozwiązać ten problem, Usuń odbiornik przy użyciu [programu PowerShell](
 Ten błąd może wystąpić podczas wdrażania szablonu **101-SQL-VM-aglistener-Setup** , jeśli odbiornik został usunięty za pośrednictwem SQL Server Management Studio (SSMS), ale nie został usunięty z dostawcy zasobów maszyny wirtualnej SQL. Usunięcie odbiornika za pomocą narzędzia SSMS nie powoduje usunięcia metadanych odbiornika z dostawcy zasobów maszyny wirtualnej SQL. Odbiornik musi zostać usunięty z dostawcy zasobów za pośrednictwem [programu PowerShell](#remove-the-availability-group-listener). 
 
 ### <a name="domain-account-does-not-exist"></a>Konto domeny nie istnieje
-Ten błąd może mieć dwie przyczyny. Podane konto domeny nie istnieje lub nie zawiera danych [głównej nazwy użytkownika (UPN)](/windows/desktop/ad/naming-properties#userprincipalname) . Szablon **101-SQL-VM-AG-Setup** oczekuje konta domeny w postaci nazwy UPN (czyli *user@domain.com* ), ale w niektórych kontach domeny może brakować go. Zwykle dzieje się tak, gdy użytkownik lokalny został zmigrowany do pierwszego konta administratora domeny, gdy serwer został podwyższony do kontrolera domeny lub gdy użytkownik został utworzony za pomocą programu PowerShell. 
+Ten błąd może mieć dwie przyczyny. Podane konto domeny nie istnieje lub nie zawiera danych [głównej nazwy użytkownika (UPN)](/windows/desktop/ad/naming-properties#userprincipalname) . Szablon **101-SQL-VM-AG-Setup** oczekuje konta domeny w postaci nazwy UPN (czyli user@domain.com ), ale w niektórych kontach domeny może brakować go. Zwykle dzieje się tak, gdy użytkownik lokalny został zmigrowany do pierwszego konta administratora domeny, gdy serwer został podwyższony do kontrolera domeny lub gdy użytkownik został utworzony za pomocą programu PowerShell. 
 
 Sprawdź, czy konto istnieje. Jeśli tak, może się zdarzyć, że zadziała w drugiej sytuacji. Aby rozwiązać ten problem, wykonaj następujące czynności:
 

@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 05/18/2020
 ms.author: victorh
-ms.openlocfilehash: cf0af93d95c5af56be6168bc8e4f79d3005e2ec2
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: d9afb93611712109d5e8fcc8a686f4f9196f3396
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649601"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204042"
 ---
 # <a name="azure-firewall-forced-tunneling"></a>Wymuszone tunelowanie zapory platformy Azure
 
@@ -26,9 +26,9 @@ Aby zapewnić obsługę tunelowania wymuszonego, ruch związany z zarządzaniem 
 
 Jeśli trasa domyślna jest anonsowana za pośrednictwem protokołu BGP, aby wymusić ruch w środowisku lokalnym, należy utworzyć *AzureFirewallSubnet* i *AzureFirewallManagementSubnet* przed wdrożeniem zapory i mieć UDR z domyślną trasą do Internetu, a **Propagacja trasy bramy sieci wirtualnej** jest wyłączona.
 
-W ramach tej konfiguracji *AzureFirewallSubnet* może teraz zawierać trasy do wszelkich lokalnych ZAPÓR lub urządzenie WUS, aby przetwarzać ruch przed przekazaniem go do Internetu. Możesz również opublikować te trasy za pośrednictwem protokołu BGP do *AzureFirewallSubnet* , jeśli w tej podsieci jest włączona **Propagacja trasy bramy sieci wirtualnej** .
+W ramach tej konfiguracji *AzureFirewallSubnet* może teraz zawierać trasy do dowolnej zapory lokalnej lub urządzenie WUS, aby przetwarzać ruch przed przekazaniem go do Internetu. Możesz również opublikować te trasy za pośrednictwem protokołu BGP do *AzureFirewallSubnet* , jeśli w tej podsieci jest włączona **Propagacja trasy bramy sieci wirtualnej** .
 
-Na przykład możesz utworzyć trasę domyślną na *AzureFirewallSubnet* z bramą sieci VPN w ramach następnego przeskoku, aby przejść do urządzenia lokalnego. Można też włączyć **propagację tras bramy sieci wirtualnej** w celu uzyskania odpowiednich tras do sieci lokalnej.
+Na przykład możesz utworzyć trasę domyślną na *AzureFirewallSubnet* z bramą sieci VPN w ramach następnego skoku, aby przejść do urządzenia lokalnego. Można też włączyć **propagację tras bramy sieci wirtualnej** w celu uzyskania odpowiednich tras do sieci lokalnej.
 
 ![Propagacja trasy bramy sieci wirtualnej](media/forced-tunneling/route-propagation.png)
 

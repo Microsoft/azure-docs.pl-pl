@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: 635cf32fa27a8bc5be12964852c451190e7f1aae
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 643c94736d6ee519907913bc9ec59f808081f089
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84050758"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84216402"
 ---
 # <a name="what-is-azure-sql-database"></a>Co to jest usługa Azure SQL Database?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -32,7 +32,7 @@ SQL Database umożliwia łatwe definiowanie i skalowanie wydajności w ramach dw
 
 ## <a name="deployment-models"></a>Modele wdrażania
 
-Usługa Azure SQL Database udostępnia następujące opcje wdrażania na potrzeby bazy danych Azure SQL Database:
+Azure SQL Database udostępnia następujące opcje wdrażania dla bazy danych:
 
 - [Pojedyncza baza danych](single-database-overview.md) reprezentuje w pełni zarządzaną, izolowaną bazę danych. Możesz użyć tej opcji, jeśli masz nowoczesne aplikacje i mikrousługi w chmurze, które wymagają pojedynczego wiarygodnego źródła danych. Pojedyncza baza danych jest podobna do [zawartej bazy danych](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases?toc=/azure/sql-database/toc.json) w [aparacie Microsoft SQL Server Database](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json).
 - [Elastyczna Pula](elastic-pool-overview.md) to zbiór [pojedynczych baz danych](single-database-overview.md) z współdzielonym zestawem zasobów, takich jak procesor CPU lub pamięć. Pojedyncze bazy danych można przenieść do i z puli elastycznej.
@@ -190,18 +190,13 @@ Usługa SQL Database umożliwia centralne zarządzanie tożsamościami użytkown
 
 Dzięki usłudze SQL Database tworzenie i konserwowanie aplikacji jest łatwiejsze i bardziej produktywne. Usługa SQL Database pozwala Ci skoncentrować się na tym, co robisz najlepiej: tworzeniu wspaniałych aplikacji. SQL Database można zarządzać i opracowywać przy użyciu narzędzi i umiejętności, które już masz.
 
-- [Azure Portal](https://portal.azure.com/):
-
-  Aplikacja oparta na sieci Web do zarządzania wszystkimi usługami platformy Azure.
-- [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms):
-
-  Bezpłatna, do pobrania aplikacja kliencka do zarządzania dowolną infrastrukturą SQL, od SQL Server do SQL Database.
-- [Narzędzia danych SQL Server w programie Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt):
-
-  Bezpłatna, do pobrania aplikacja kliencka służąca do tworzenia SQL Server relacyjnych baz danych, Microsoft Azure baz danych SQL, pakietów usług Integration Services, Analysis Services modeli danych i raportów usług Reporting Services.
-- [Visual Studio Code](https://code.visualstudio.com/docs):
-
-  Bezpłatny, dostępny do pobrania Edytor kodu typu open source dla systemów Windows, macOS i Linux. Obsługuje ona rozszerzenia, w tym [rozszerzenie MSSQL](https://aka.ms/mssql-marketplace) do wykonywania zapytań dotyczących Microsoft SQL Server, Azure SQL Database i Azure SQL Data Warehouse.
+|Narzędzie|Opis|
+|:---|:---|
+|[Witryna Azure Portal](https://portal.azure.com/)|Aplikacja oparta na sieci Web do zarządzania wszystkimi usługami platformy Azure.|
+|[Azure Data Studio](/sql/azure-data-studio/)|Międzyplatformowe narzędzie bazy danych działające w systemach Windows, MacOS i Linux.|
+|[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)|Bezpłatna, do pobrania aplikacja kliencka do zarządzania dowolną infrastrukturą SQL, od SQL Server do SQL Database.|
+|[Narzędzia danych SQL Server w programie Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)|Bezpłatna, do pobrania aplikacja kliencka służąca do tworzenia SQL Server relacyjnych baz danych, Microsoft Azure baz danych SQL, pakietów usług Integration Services, Analysis Services modeli danych i raportów usług Reporting Services.|
+|[Visual Studio Code](https://code.visualstudio.com/docs)|Bezpłatny, dostępny do pobrania Edytor kodu typu open source dla systemów Windows, macOS i Linux. Obsługuje ona rozszerzenia, w tym [rozszerzenie MSSQL](https://aka.ms/mssql-marketplace) do wykonywania zapytań dotyczących Microsoft SQL Server, Azure SQL Database i Azure SQL Data Warehouse.|
 
 SQL Database obsługuje Kompilowanie aplikacji za pomocą języków Python, Java, Node. js, PHP, Ruby i .NET w systemach macOS, Linux i Windows. Usługa SQL Database obsługuje te same [biblioteki połączeń](connect-query-content-reference-guide.md#libraries) co program SQL Server.
 

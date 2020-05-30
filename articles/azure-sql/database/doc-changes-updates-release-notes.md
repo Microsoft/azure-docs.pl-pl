@@ -11,14 +11,15 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: sstein
-ms.openlocfilehash: 07af9fa20fd6a331313050d3ba2cfbbe9c3fe7e8
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: dfd8051c7fc803d57a14cd740a830b8f6b63d9ac
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84050303"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195101"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Co nowego w Azure SQL Database & wystąpieniu zarządzanym SQL?
+
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 W tym artykule wymieniono Azure SQL Database i funkcje wystąpienia zarządzanego usługi Azure SQL, które są obecnie dostępne w publicznej wersji zapoznawczej. Aby uzyskać SQL Database i ulepszenia i usprawnienia wystąpienia zarządzanego przez usługę SQL, zobacz [SQL Database & aktualizacje usługi wystąpienia zarządzanego SQL](https://azure.microsoft.com/updates/?product=sql-database). Aby uzyskać aktualizacje i ulepszenia dla innych usług platformy Azure, zobacz [aktualizacje usługi](https://azure.microsoft.com/updates).
@@ -29,7 +30,7 @@ Dokumentacja Azure SQL Database i wystąpienia zarządzanego usługi Azure SQL z
 
 Zostało to zrobione, ponieważ niektóre funkcje i funkcje różnią się znacznie między pojedynczymi bazami danych i wystąpieniami zarządzanymi, a coraz większym wyzwaniem jest wyjaśnienie złożonej wszystkie szczegóły między Azure SQL Database i wystąpieniem zarządzanym usługi Azure SQL w poszczególnych artykułach "Shared".
 
-To wyjaśnienie między różnymi produktami SQL platformy Azure powinna uprościć i usprawnić proces pracy z aparatem bazy danych SQL Server na platformie Azure, niezależnie od tego, czy jest to pojedyncza zarządzana baza danych w Azure SQL Database, w pełni dopracowane wystąpienie zarządzane obsługujące wiele baz danych w wystąpieniu zarządzanym Azure SQL lub znanym lokalnie SQL Server produkt, ale hostowanym na maszynie wirtualnej na platformie Azure.
+To wyjaśnienie między różnymi produktami SQL platformy Azure powinna uprościć i usprawnić proces pracy z aparatem bazy danych SQL Server na platformie Azure, niezależnie od tego, czy jest to jedna zarządzana baza danych w Azure SQL Database, w pełni dopracowane wystąpienie zarządzane obsługujące wiele baz danych w wystąpieniu zarządzanym usługi Azure SQL lub znany SQL Server produkt hostowany na maszynie wirtualnej na platformie Azure.
 
 Należy wziąć pod uwagę, że jest to trwające prace, a nie każdy artykuł został jeszcze zaktualizowany. Na przykład dokumentacja dotycząca instrukcji języka Transact-SQL (T-SQL), procedur składowanych i wielu funkcji udostępnionych między Azure SQL Database i wystąpieniem zarządzanym usługi Azure SQL nie została jeszcze ukończona, więc Dziękujemy za cierpliwość w zakresie wyjaśniania zawartości. 
 
@@ -48,7 +49,7 @@ Ta tabela zawiera krótkie porównanie zmian w terminologii:
 
 ### <a name="azure-sql-database"></a>[Azure SQL Database](#tab/single-database)
 
-| Cecha | Szczegóły |
+| Cechy | Szczegóły |
 | ---| --- |
 | Nowe generacja sprzętu serii Fsv2 i serii M| Aby uzyskać więcej informacji, zobacz [generacja sprzętu](service-tiers-vcore.md#hardware-generations).|
 | Szybsze odzyskiwanie bazy danych przy użyciu pojedynczych baz danych i pul elastycznych | Aby uzyskać więcej informacji, zobacz [przyspieszone odzyskiwanie bazy danych](../accelerated-database-recovery.md).|
@@ -67,7 +68,7 @@ Ta tabela zawiera krótkie porównanie zmian w terminologii:
 
 ### <a name="azure-sql-managed-instance"></a>[Wystąpienie zarządzane Azure SQL](#tab/managed-instance)
 
-| Cecha | Szczegóły |
+| Cechy | Szczegóły |
 | ---| --- |
 | <a href="/azure/sql-database/sql-database-instance-pools">Pule wystąpień</a> | Wygodny i ekonomiczny sposób migracji mniejszych wystąpień SQL do chmury. |
 | <a href="https://aka.ms/managed-instance-aadlogins">Nazwy główne serwera usługi Azure AD na poziomie wystąpienia (logowania)</a> | Utwórz identyfikatory logowania na poziomie wystąpienia przy użyciu instrukcji <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN from External Provider</a> . |
@@ -92,7 +93,7 @@ W modelu wdrażania wystąpienia zarządzanego SQL w H1 2019 są włączone nast
   - Obsługa subskrypcji za pomocą <a href="https://aka.ms/sql-mi-visual-studio-subscribers">miesięcznych środków na korzystanie z platformy Azure dla subskrybentów programu Visual Studio</a> i zwiększonych [granic regionalnych](../managed-instance/resource-limits.md#regional-resource-limitations).
   - Obsługa <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019">programów SharePoint 2016 i SharePoint 2019</a> oraz <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance">usługi Dynamics 365 Business Central</a>
   - Twórz wystąpienia zarządzane SQL z użyciem <a href="https://aka.ms/managed-instance-collation">sortowania na poziomie wystąpienia</a> i wybranej <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">strefy czasowej</a> .
-  - Program SQL Managed nstancje jest teraz chroniony za pomocą [wbudowanej zapory](../managed-instance/management-endpoint-verify-built-in-firewall.md).
+  - Wystąpienia zarządzane SQL są teraz chronione za pomocą [wbudowanej zapory](../managed-instance/management-endpoint-verify-built-in-firewall.md).
   - Skonfiguruj wystąpienia zarządzane SQL, aby używać [publicznych punktów końcowych](../managed-instance/public-endpoint-configure.md), połączenia [zastąpień serwera proxy](connectivity-architecture.md#connection-policy) w celu uzyskania lepszej wydajności sieci, <a href="https://aka.ms/four-cores-sql-mi-update">4 rdzeni wirtualnych na generowanie sprzętu 5 rdzeń</a> lub <a href="https://aka.ms/managed-instance-configurable-backup-retention">skonfigurować przechowywanie kopii zapasowych do 35 dni</a> w przypadku przywracania do punktu w czasie. [Długoterminowe przechowywanie kopii zapasowych](long-term-retention-overview.md#managed-instance-support) (do 10 lat) jest obecnie w ograniczonej publicznej wersji zapoznawczej.  
   - Nowe funkcje umożliwiają <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">przeprzywracanie geograficznej bazy danych do innego centrum danych przy użyciu programu PowerShell</a>, [zmiana nazwy bazy danych](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/), [usunięcie klastra wirtualnego](../managed-instance/virtual-cluster-delete.md).
   - Nowa [rola współautor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) wbudowanego wystąpienia umożliwia rozdzielenie cła (SOD) z zasadami zabezpieczeń i zgodności z normami przedsiębiorstwa.

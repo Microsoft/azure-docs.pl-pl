@@ -10,12 +10,13 @@ ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 550c025807b1ec3d0d5b8fb54f4b358c9f1ec6d3
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.custom: references_regions
+ms.openlocfilehash: 62d1f8d0e6fb5b6b6afb28f5db4ae8b818cc4705
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83846039"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194873"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Usługi obsługujące zarządzane tożsamości dla zasobów platformy Azure
 
@@ -38,7 +39,7 @@ Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony
 
 Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla usługi Azure API Management (w regionach, w których są dostępne):
 
-- [Szablon usługi Azure Resource Manager](/azure/api-management/api-management-howto-use-managed-service-identity)
+- [Szablon Azure Resource Manager](/azure/api-management/api-management-howto-use-managed-service-identity)
 
 
 ### <a name="azure-app-service"></a>Azure App Service
@@ -53,7 +54,7 @@ Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną 
 - [Azure Portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)
 - [Interfejs wiersza polecenia platformy Azure](/azure/app-service/overview-managed-identity#using-the-azure-cli)
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
-- [Szablon usługi Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
+- [Szablon Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
 
 ### <a name="azure-blueprints"></a>Azure Blueprints
@@ -79,7 +80,7 @@ Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony
 Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla Azure Container Instances (w regionach, w których są dostępne):
 
 - [Interfejs wiersza polecenia platformy Azure](~/articles/container-instances/container-instances-managed-identity.md)
-- [Szablon usługi Azure Resource Manager](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
+- [Szablon Azure Resource Manager](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-resource-manager-template)
 - [YAML](~/articles/container-instances/container-instances-managed-identity.md#enable-managed-identity-using-yaml-file)
 
 
@@ -107,7 +108,7 @@ Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną 
 - [Azure Portal](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity)
 - [Program PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
-- [ZESTAWIE](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
+- [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
 
 
 ### <a name="azure-functions"></a>Azure Functions
@@ -122,7 +123,7 @@ Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną 
 - [Azure Portal](/azure/app-service/overview-managed-identity#using-the-azure-portal)
 - [Interfejs wiersza polecenia platformy Azure](/azure/app-service/overview-managed-identity#using-the-azure-cli)
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
-- [Szablon usługi Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
+- [Szablon Azure Resource Manager](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
 
 ### <a name="azure-iot-hub"></a>Azure IoT Hub
 
@@ -157,7 +158,7 @@ Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony
 Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla Azure Logic Apps (w regionach, w których są dostępne):
 
 - [Azure Portal](/azure/logic-apps/create-managed-service-identity#enable-system-assigned-identity-in-azure-portal)
-- [Szablon usługi Azure Resource Manager](https://docs.microsoft.com/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview)
+- [Szablon Azure Resource Manager](https://docs.microsoft.com/azure/logic-apps/logic-apps-azure-resource-manager-templates-overview)
 
 
 ### <a name="azure-service-fabric"></a>Azure Service Fabric
@@ -169,7 +170,7 @@ Typ tożsamości zarządzanej | Wszystkie ogólnie dostępne<br>Globalne regiony
 | Przypisane przez użytkownika | ![Dostępne][check] | Niedostępny | Niedostępny |Niedostępny |
 
 Zapoznaj się z poniższą listą, aby skonfigurować tożsamość zarządzaną dla aplikacji Service Fabric platformy Azure we wszystkich regionach:
-- [Szablon usługi Azure Resource Manager](https://github.com/Azure-Samples/service-fabric-managed-identity/tree/anmenard-docs)
+- [Szablon Azure Resource Manager](https://github.com/Azure-Samples/service-fabric-managed-identity/tree/anmenard-docs)
 
 
 
@@ -221,7 +222,7 @@ Zapoznaj się z poniższą listą, aby skonfigurować dostęp do Azure Resource 
 - [Przypisywanie dostępu za pośrednictwem interfejsu wiersza polecenia platformy Azure](howto-assign-access-CLI.md)
 - [Przypisywanie dostępu za pomocą szablonu Azure Resource Manager](../../role-based-access-control/role-assignments-template.md)
 
-| Chmurowa | Identyfikator zasobu | Stan |
+| Chmura | Identyfikator zasobu | Stan |
 |--------|------------|:-:|
 | Globalne platformy Azure | `https://management.azure.com/`| ![Dostępne][check] |
 | Azure Government | `https://management.usgovcloudapi.net/` | ![Dostępne][check] |
@@ -230,7 +231,7 @@ Zapoznaj się z poniższą listą, aby skonfigurować dostęp do Azure Resource 
 
 ### <a name="azure-key-vault"></a>W usłudze Azure Key Vault
 
-| Chmurowa | Identyfikator zasobu | Stan |
+| Chmura | Identyfikator zasobu | Stan |
 |--------|------------|:-:|
 | Globalne platformy Azure | `https://vault.azure.net`| ![Dostępne][check] |
 | Azure Government | `https://vault.usgovcloudapi.net` | ![Dostępne][check] |
@@ -239,7 +240,7 @@ Zapoznaj się z poniższą listą, aby skonfigurować dostęp do Azure Resource 
 
 ### <a name="azure-data-lake"></a>Azure Data Lake 
 
-| Chmurowa | Identyfikator zasobu | Stan |
+| Chmura | Identyfikator zasobu | Stan |
 |--------|------------|:-:|
 | Globalne platformy Azure | `https://datalake.azure.net/` | ![Dostępne][check] |
 | Azure Government |  | Niedostępny |
@@ -248,7 +249,7 @@ Zapoznaj się z poniższą listą, aby skonfigurować dostęp do Azure Resource 
 
 ### <a name="azure-sql"></a>Azure SQL 
 
-| Chmurowa | Identyfikator zasobu | Stan |
+| Chmura | Identyfikator zasobu | Stan |
 |--------|------------|:-:|
 | Globalne platformy Azure | `https://database.windows.net/` | ![Dostępne][check] |
 | Azure Government | `https://database.usgovcloudapi.net/` | ![Dostępne][check] |
@@ -257,7 +258,7 @@ Zapoznaj się z poniższą listą, aby skonfigurować dostęp do Azure Resource 
 
 ### <a name="azure-event-hubs"></a>Azure Event Hubs
 
-| Chmurowa | Identyfikator zasobu | Stan |
+| Chmura | Identyfikator zasobu | Stan |
 |--------|------------|:-:|
 | Globalne platformy Azure | `https://eventhubs.azure.net` | ![Dostępne][check] |
 | Azure Government |  | Niedostępny |
@@ -266,7 +267,7 @@ Zapoznaj się z poniższą listą, aby skonfigurować dostęp do Azure Resource 
 
 ### <a name="azure-service-bus"></a>Azure Service Bus
 
-| Chmurowa | Identyfikator zasobu | Stan |
+| Chmura | Identyfikator zasobu | Stan |
 |--------|------------|:-:|
 | Globalne platformy Azure | `https://servicebus.azure.net`  | ![Dostępne][check] |
 | Azure Government |  | ![Dostępne][check] |
@@ -283,7 +284,7 @@ Zapoznaj się z poniższą listą, aby skonfigurować dostęp do Azure Resource 
 
 ### <a name="azure-storage-blobs-and-queues"></a>Obiekty blob i kolejki usługi Azure Storage
 
-| Chmurowa | Identyfikator zasobu | Stan |
+| Chmura | Identyfikator zasobu | Stan |
 |--------|------------|:-:|
 | Globalne platformy Azure | `https://storage.azure.com/` <br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | ![Dostępne][check] |
 | Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.usgovcloudapi.net` <br /><br />`https://<account>.queue.core.usgovcloudapi.net` | ![Dostępne][check] |
@@ -301,7 +302,7 @@ Zapoznaj się z poniższą listą, aby skonfigurować dostęp do Azure Resource 
 
 ### <a name="azure-analysis-services"></a>Azure Analysis Services
 
-| Chmurowa | Identyfikator zasobu | Stan |
+| Chmura | Identyfikator zasobu | Stan |
 |--------|------------|:-:|
 | Globalne platformy Azure | `https://*.asazure.windows.net` | ![Dostępne][check] |
 | Azure Government | `https://*.asazure.usgovcloudapi.net` | ![Dostępne][check] |

@@ -10,13 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
+ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88ae3c45126403161e35ec46e5ccc2666c3edb55
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4abc2dee6b83820169173d965d53381ead9f4d0b
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80050075"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194015"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logowanie do maszyny wirtualnej z systemem Windows na platformie Azure przy użyciu uwierzytelniania Azure Active Directory (wersja zapoznawcza)
 
@@ -63,10 +64,10 @@ Poniższe regiony platformy Azure są obecnie obsługiwane w ramach wersji zapoz
 
 Aby włączyć uwierzytelnianie usługi Azure AD dla maszyn wirtualnych z systemem Windows na platformie Azure, musisz upewnić się, że konfiguracja sieci maszyn wirtualnych zezwala na dostęp wychodzący do następujących punktów końcowych przez port TCP 443:
 
-- https:\//enterpriseregistration.Windows.NET
+- https: \/ /enterpriseregistration.Windows.NET
 - https:\//login.microsoftonline.com
-- https:\//Device.Login.microsoftonline.com
-- https:\//pas.Windows.NET
+- https: \/ /Device.Login.microsoftonline.com
+- https: \/ /pas.Windows.NET
 
 ## <a name="enabling-azure-ad-login-in-for-windows-vm-in-azure"></a>Włączanie logowania za pomocą usługi Azure AD w programie dla maszyn wirtualnych z systemem Windows na platformie Azure
 
@@ -141,7 +142,7 @@ az vm extension set \
     --vm-name myVM
 ```
 
-`provisioningState` Jest wyświetlany, gdy rozszerzenie zostanie zainstalowane na maszynie `Succeeded` wirtualnej.
+`provisioningState` `Succeeded` Jest wyświetlany, gdy rozszerzenie zostanie zainstalowane na maszynie wirtualnej.
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Konfigurowanie przypisań ról dla maszyny wirtualnej
 
@@ -188,7 +189,7 @@ az role assignment create \
 ```
 
 > [!NOTE]
-> Jeśli domena usługi AAD i nazwa użytkownika logowania nie są zgodne, należy określić identyfikator obiektu konta użytkownika, a `--assignee-object-id`nie tylko nazwę użytkownika dla. `--assignee` Identyfikator obiektu dla konta użytkownika można uzyskać za pomocą elementu [AZ AD User list](/cli/azure/ad/user#az-ad-user-list).
+> Jeśli domena usługi AAD i nazwa użytkownika logowania nie są zgodne, należy określić identyfikator obiektu konta użytkownika `--assignee-object-id` , a nie tylko nazwę użytkownika dla `--assignee` . Identyfikator obiektu dla konta użytkownika można uzyskać za pomocą elementu [AZ AD User list](/cli/azure/ad/user#az-ad-user-list).
 
 Aby uzyskać więcej informacji na temat używania RBAC do zarządzania dostępem do zasobów subskrypcji platformy Azure, zobacz następujące artykuły:
 
@@ -243,21 +244,21 @@ Aby maszyna wirtualna mogła ukończyć proces przyłączania do usługi Azure A
    | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01"` | Prawidłowy token dostępu wystawiony przez Azure Active Directory dla zarządzanej tożsamości przypisanej do tej maszyny wirtualnej |
 
    > [!NOTE]
-   > Token dostępu można zdekodować przy użyciu narzędzia, takiego jak [http://calebb.net/](http://calebb.net/). Sprawdź, czy identyfikator "AppID" w tokenie dostępu jest zgodny z zarządzaną tożsamością przypisaną do maszyny wirtualnej.
+   > Token dostępu można zdekodować przy użyciu narzędzia, takiego jak [http://calebb.net/](http://calebb.net/) . Sprawdź, czy identyfikator "AppID" w tokenie dostępu jest zgodny z zarządzaną tożsamością przypisaną do maszyny wirtualnej.
 
 1. Upewnij się, że wymagane punkty końcowe są dostępne z maszyny wirtualnej przy użyciu wiersza polecenia:
    
-   - zwinięcie https:\//login.microsoftonline.com/-D —
-   - zwinięcie https:\//login.microsoftonline.com/`<TenantID>`/-D —
+   - zwinięcie https: \/ /login.microsoftonline.com/-D —
+   - zwinięcie https: \/ /login.microsoftonline.com/ `<TenantID>` /-D —
 
    > [!NOTE]
    > Zamień `<TenantID>` na identyfikator dzierżawy usługi Azure AD skojarzony z subskrypcją platformy Azure.
 
-   - zwinięcie https:\//enterpriseregistration.Windows.NET/-D-
-   - zwinięcie https:\//Device.Login.microsoftonline.com/-D-
-   - zwinięcie https:\//pas.Windows.NET/-D-
+   - zwinięcie https: \/ /enterpriseregistration.Windows.NET/-D-
+   - zwinięcie https: \/ /Device.Login.microsoftonline.com/-D-
+   - zwinięcie https: \/ /pas.Windows.NET/-D-
 
-1. Stan urządzenia można wyświetlić, uruchamiając `dsregcmd /status`. Celem jest wskazywanie stanu urządzenia `AzureAdJoined : YES`.
+1. Stan urządzenia można wyświetlić, uruchamiając `dsregcmd /status` . Celem jest wskazywanie stanu urządzenia `AzureAdJoined : YES` .
 
    > [!NOTE]
    > Działanie funkcji Azure AD Join jest przechwytywane w Podglądzie zdarzeń w dzienniku Registration\Admin urządzenia użytkownika.
@@ -278,26 +279,26 @@ Ten kod zakończenia tłumaczy na DSREG_E_MSI_TENANTID_UNAVAILABLE, ponieważ ro
 
 #### <a name="issue-2-aadloginforwindows-extension-fails-to-install-with-exit-code--2145648607"></a>Problem 2: nie można zainstalować rozszerzenia AADLoginForWindows z kodem zakończenia:-2145648607
 
-Ten kod zakończenia tłumaczy na DSREG_AUTOJOIN_DISC_FAILED, ponieważ rozszerzenie nie jest w stanie połączyć się `https://enterpriseregistration.windows.net` z punktem końcowym.
+Ten kod zakończenia tłumaczy na DSREG_AUTOJOIN_DISC_FAILED, ponieważ rozszerzenie nie jest w stanie połączyć się z `https://enterpriseregistration.windows.net` punktem końcowym.
 
 1. Sprawdź, czy wymagane punkty końcowe są dostępne z maszyny wirtualnej przy użyciu wiersza polecenia:
 
-   - zwinięcie https:\//login.microsoftonline.com/-D —
-   - zwinięcie https:\//login.microsoftonline.com/`<TenantID>`/-D —
+   - zwinięcie https: \/ /login.microsoftonline.com/-D —
+   - zwinięcie https: \/ /login.microsoftonline.com/ `<TenantID>` /-D —
    
    > [!NOTE]
    > Zamień `<TenantID>` na identyfikator dzierżawy usługi Azure AD skojarzony z subskrypcją platformy Azure. Jeśli musisz znaleźć identyfikator dzierżawy, możesz umieścić wskaźnik myszy nad nazwą konta, aby uzyskać identyfikator katalogu/dzierżawy, lub wybrać Azure Active Directory właściwości > > identyfikator katalogu w Azure Portal.
 
-   - zwinięcie https:\//enterpriseregistration.Windows.NET/-D-
-   - zwinięcie https:\//Device.Login.microsoftonline.com/-D-
-   - zwinięcie https:\//pas.Windows.NET/-D-
+   - zwinięcie https: \/ /enterpriseregistration.Windows.NET/-D-
+   - zwinięcie https: \/ /Device.Login.microsoftonline.com/-D-
+   - zwinięcie https: \/ /pas.Windows.NET/-D-
 
-1. Jeśli którekolwiek z poleceń zakończy się niepowodzeniem z "nie `<URL>`można rozpoznać hosta", spróbuj uruchomić to polecenie, aby określić serwer DNS, który jest używany przez maszynę wirtualną.
+1. Jeśli którekolwiek z poleceń zakończy się niepowodzeniem z "nie można rozpoznać hosta `<URL>` ", spróbuj uruchomić to polecenie, aby określić serwer DNS, który jest używany przez maszynę wirtualną.
    
    `nslookup <URL>`
 
    > [!NOTE] 
-   > Zamień `<URL>` na w pełni kwalifikowane nazwy domen używane przez punkty końcowe, takie jak "login.microsoftonline.com".
+   > Zamień na w `<URL>` pełni kwalifikowane nazwy domen używane przez punkty końcowe, takie jak "login.microsoftonline.com".
 
 1. Następnie sprawdź, czy określono publiczny serwer DNS, aby można było pomyślnie wykonać polecenie:
 
@@ -315,7 +316,7 @@ W publicznej wersji zapoznawczej rozszerzenie AADLoginForWindows jest przeznaczo
 
 Niektóre typowe błędy podczas próby połączenia RDP z poświadczeniami usługi Azure AD nie obejmują żadnych przypisanych ról RBAC, nieautoryzowanego klienta lub metody logowania funkcji 2FA. Skorzystaj z poniższych informacji, aby rozwiązać te problemy.
 
-Stan urządzenia i logowania jednokrotnego można wyświetlić, `dsregcmd /status`uruchamiając. Celem jest stan urządzenia, który ma być wyświetlany `AzureAdJoined : YES` jako `SSO State` i do `AzureAdPrt : YES`wyświetlenia.
+Stan urządzenia i logowania jednokrotnego można wyświetlić, uruchamiając `dsregcmd /status` . Celem jest stan urządzenia, który ma być wyświetlany jako `AzureAdJoined : YES` i `SSO State` do wyświetlenia `AzureAdPrt : YES` .
 
 Ponadto logowanie za pomocą protokołu RDP przy użyciu kont usługi Azure AD jest przechwytywane w Podglądzie zdarzeń w dzienniku zdarzeń AAD\Operational.
 

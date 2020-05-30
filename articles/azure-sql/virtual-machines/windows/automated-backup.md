@@ -1,6 +1,6 @@
 ---
 title: Automatyczne kopie zapasowe v2 dla maszyn wirtualnych platformy Azure w SQL Server 2016/2017 | Microsoft Docs
-description: Wyjaśnia funkcję automatycznej kopii zapasowej dla maszyn wirtualnych SQL Server 2016/2017 działających na platformie Azure. Ten artykuł dotyczy maszyn wirtualnych korzystających z Menedżer zasobów.
+description: W tym artykule wyjaśniono funkcję automatycznego tworzenia kopii zapasowych dla maszyn wirtualnych SQL Server 2016/2017 działających na platformie Azure. Ten artykuł dotyczy maszyn wirtualnych korzystających z Menedżer zasobów.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -14,21 +14,21 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 82fdfe8c25b60eefda951735a91dc4c547a07dbc
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 2e3a08521e503a9f73bdccca3a125c7d2416b534
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84050919"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219652"
 ---
-# <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Automatyczna kopia zapasowa v2 dla Virtual Machines platformy Azure (Menedżer zasobów)
+# <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Automatyczne kopie zapasowe v2 dla maszyn wirtualnych platformy Azure (Menedżer zasobów)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 > [!div class="op_single_selector"]
 > * [SQL Server 2014](automated-backup-sql-2014.md)
 > * [SQL Server 2016/2017](automated-backup.md)
 
-Automatyczna kopia zapasowa v2 automatycznie konfiguruje [zarządzaną kopię zapasową do Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) dla wszystkich istniejących i nowych baz danych na maszynie wirtualnej platformy Azure z systemem SQL Server 2016/2017 Standard, Enterprise lub developer. Dzięki temu można konfigurować regularne kopie zapasowe bazy danych korzystające z trwałego magazynu obiektów blob platformy Azure. Automatyczne kopie zapasowe v2 są zależne od [rozszerzenia agenta SQL Server IaaS](sql-server-iaas-agent-extension-automate-management.md).
+Automatyczna kopia zapasowa v2 automatycznie konfiguruje [zarządzaną kopię zapasową do Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx) dla wszystkich istniejących i nowych baz danych na maszynie wirtualnej platformy Azure z systemem SQL Server 2016/2017 Standard, Enterprise lub developer. Dzięki temu można konfigurować regularne kopie zapasowe bazy danych korzystające z trwałego magazynu obiektów blob platformy Azure. Automatyczne kopie zapasowe v2 są zależne od [rozszerzenia agenta SQL Server infrastruktury jako usługi (IaaS)](sql-server-iaas-agent-extension-automate-management.md).
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
@@ -46,12 +46,12 @@ Aby użyć zautomatyzowanej kopii zapasowej v2, zapoznaj się z następującymi 
 - SQL Server 2017: developer, Standard lub Enterprise
 
 > [!IMPORTANT]
-> Automatyczna kopia zapasowa v2 działa z SQL Server 2016 lub nowszym. Jeśli używasz SQL Server 2014, możesz użyć zautomatyzowanej kopii zapasowej V1, aby utworzyć kopię zapasową baz danych. Aby uzyskać więcej informacji, zobacz [Automatyczne tworzenie kopii zapasowych dla SQL Server 2014 Azure Virtual Machines](automated-backup-sql-2014.md).
+> Automatyczna kopia zapasowa v2 działa z SQL Server 2016 lub nowszym. Jeśli używasz SQL Server 2014, możesz użyć zautomatyzowanej kopii zapasowej V1, aby utworzyć kopię zapasową baz danych. Aby uzyskać więcej informacji, zobacz [zautomatyzowane tworzenie kopii zapasowych dla SQL Server 2014 Azure Virtual Machines (maszyny wirtualne)](automated-backup-sql-2014.md).
 
 **Konfiguracja bazy danych**:
 
 - Docelowe bazy danych muszą używać modelu odzyskiwania pełnego. Aby uzyskać więcej informacji o wpływie modelu odzyskiwania pełnego na kopie zapasowe, zobacz [kopia zapasowa w ramach modelu odzyskiwania pełnego](https://technet.microsoft.com/library/ms190217.aspx).
-- Systemowe bazy danych nie muszą używać modelu odzyskiwania pełnego. Jeśli jednak wymagane jest wykonanie kopii zapasowych dzienników dla modelu lub MSDB, należy użyć modelu odzyskiwania pełnego.
+- Systemowe bazy danych nie muszą korzystać z modelu odzyskiwania pełnego. Jeśli jednak wymagane jest wykonanie kopii zapasowych dzienników dla modelu lub MSDB, należy użyć modelu odzyskiwania pełnego.
 - Docelowe bazy danych muszą znajdować się w domyślnym wystąpieniu SQL Server lub [poprawnie zainstalowane](frequently-asked-questions-faq.md#administration) nazwane wystąpienie. 
 
 > [!NOTE]
@@ -152,7 +152,7 @@ Aby skonfigurować automatyczne tworzenie kopii zapasowych v2, można użyć pro
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
-### <a name="install-the-sql-iaas-extension"></a>Zainstaluj rozszerzenie SQL IaaS
+### <a name="install-the-sql-server-iaas-extension"></a>Zainstaluj rozszerzenie IaaS SQL Server
 Jeśli zainicjowano SQL Server maszynę wirtualną z Azure Portal, rozszerzenie SQL Server IaaS powinno być już zainstalowane. Możesz określić, czy jest zainstalowana dla maszyny wirtualnej, wywołując polecenie **Get-AzVM** i sprawdzając Właściwość **Extensions** .
 
 ```powershell
@@ -162,9 +162,9 @@ $resourcegroupname = "resourcegroupname"
 (Get-AzVM -Name $vmname -ResourceGroupName $resourcegroupname).Extensions 
 ```
 
-Jeśli zainstalowano rozszerzenie agenta SQL Server IaaS, powinno ono zostać wyświetlone na liście jako "SqlIaaSAgent" lub "SQLIaaSExtension". **ProvisioningState** dla rozszerzenia powinna również zawierać wartość "powodzenie". 
+Jeśli zainstalowano rozszerzenie agenta SQL Server IaaS, powinno ono zostać wyświetlone na liście jako "SqlIaaSAgent" lub "SQLIaaSExtension". **ProvisioningState** dla rozszerzenia powinna również zawierać "powodzenie". 
 
-Jeśli nie jest zainstalowana lub nie można zainicjować obsługi administracyjnej, można zainstalować ją za pomocą poniższego polecenia. Oprócz nazwy maszyny wirtualnej i grupy zasobów należy również określić region (**$region**), w którym znajduje się maszyna wirtualna.
+Jeśli nie jest zainstalowana lub nie można było zainicjować obsługi administracyjnej, można zainstalować ją za pomocą poniższego polecenia. Oprócz nazwy maszyny wirtualnej i grupy zasobów należy również określić region (**$region**), w którym znajduje się maszyna wirtualna.
 
 ```powershell
 $region = "EASTUS2"
@@ -283,7 +283,7 @@ $fullbackupstarthour = "20"
 $fullbackupwindow = "2"
 $logbackupfrequency = "30"
 
-# ResourceGroupName is the resource group which is hosting the VM where you are deploying the SQL IaaS Extension 
+# ResourceGroupName is the resource group which is hosting the VM where you are deploying the SQL Server IaaS Extension 
 
 Set-AzVMSqlServerExtension -VMName $vmname `
     -ResourceGroupName $resourcegroupname -Name "SQLIaasExtension" `
@@ -329,9 +329,9 @@ Innym rozwiązaniem jest skorzystanie z wbudowanej funkcji Poczta bazy danych na
 ## <a name="next-steps"></a>Następne kroki
 Zautomatyzowana kopia zapasowa v2 konfiguruje zarządzane kopie zapasowe na maszynach wirtualnych platformy Azure Dlatego ważne jest zapoznanie się [z dokumentacją dotyczącą zarządzanej kopii zapasowej](https://msdn.microsoft.com/library/dn449496.aspx) w celu zrozumienia zachowania i konsekwencji.
 
-Dodatkowe wskazówki dotyczące tworzenia kopii zapasowych i przywracania dla SQL Server na maszynach wirtualnych platformy Azure można znaleźć w następującym artykule: [Tworzenie kopii zapasowych i przywracanie SQL Server na platformie azure Virtual Machines](backup-restore.md).
+Dodatkowe wskazówki dotyczące tworzenia kopii zapasowych i przywracania dla SQL Server na maszynach wirtualnych platformy Azure można znaleźć w następującym artykule: [Tworzenie kopii zapasowych i przywracanie SQL Server na maszynach wirtualnych platformy Azure](backup-restore.md).
 
 Aby uzyskać informacje o innych dostępnych zadaniach automatyzacji, zobacz [SQL Server rozszerzenia agenta IaaS](sql-server-iaas-agent-extension-automate-management.md).
 
-Aby uzyskać więcej informacji na temat uruchamiania SQL Server na maszynach wirtualnych platformy Azure, zobacz [SQL Server na platformie Virtual Machines Azure — omówienie](sql-server-on-azure-vm-iaas-what-is-overview.md).
+Aby uzyskać więcej informacji na temat uruchamiania SQL Server na maszynach wirtualnych platformy Azure, zobacz [SQL Server Omówienie usługi Azure Virtual Machines](sql-server-on-azure-vm-iaas-what-is-overview.md).
 

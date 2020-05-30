@@ -3,12 +3,12 @@ title: Szczegóły struktury przypisania zasad
 description: Zawiera opis definicji przypisania zasad używanej przez Azure Policy do powiązania definicji zasad i parametrów z zasobami do oceny.
 ms.date: 04/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: cdb2fc0c6f057ece44383f68bc79fca54507db9b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c9f400aa72508822f8fff2fe41fb17ce98339737
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81683214"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84205045"
 ---
 # <a name="azure-policy-assignment-structure"></a>Struktura przypisań usługi Azure Policy
 
@@ -63,8 +63,8 @@ Ta właściwość ma następujące wartości:
 
 |Tryb |Wartość JSON |Typ |Koryguj ręcznie |Wpis dziennika aktywności |Opis |
 |-|-|-|-|-|-|
-|Enabled (Włączony) |Domyślny |ciąg |Tak |Tak |Efekt zasad jest wymuszany podczas tworzenia lub aktualizowania zasobu. |
-|Disabled (Wyłączony) |DoNotEnforce |ciąg |Tak |Nie | Efekt zasad nie jest wymuszany podczas tworzenia lub aktualizowania zasobu. |
+|Enabled (Włączony) |Domyślne |ciąg |Tak |Tak |Efekt zasad jest wymuszany podczas tworzenia lub aktualizowania zasobu. |
+|Disabled (Wyłączony) |DoNotEnforce |ciąg |Yes |Nie | Efekt zasad nie jest wymuszany podczas tworzenia lub aktualizowania zasobu. |
 
 Jeśli w definicji zasad lub inicjatywy nie określono **wymuszania** , używana jest wartość _Domyślna_ . [Zadania korygowania](../how-to/remediate-resources.md) można uruchamiać dla zasad [deployIfNotExists](./effects.md#deployifnotexists) , nawet jeśli ustawienie **wymuszania** ma wartość _DoNotEnforce_.
 
@@ -75,7 +75,7 @@ Jeśli w definicji zasad lub inicjatywy nie określono **wymuszania** , używana
 ## <a name="policy-definition-id"></a>Identyfikator definicji zasad
 
 To pole musi zawierać pełną nazwę ścieżki definicji zasad lub definicji inicjatywy.
-`policyDefinitionId`jest ciągiem, a nie tablicą. Zaleca się, aby w zamian była często przypisywanych wielu zasad w celu użycia [inicjatywy](./definition-structure.md#initiatives) .
+`policyDefinitionId`jest ciągiem, a nie tablicą. Zaleca się, aby w zamian była często przypisywanych wielu zasad w celu użycia [inicjatywy](./initiative-definition-structure.md) .
 
 ## <a name="parameters"></a>Parametry
 
@@ -93,7 +93,7 @@ Dzięki temu projektowi można ponownie używać zasad lub definicji inicjatywy 
 }
 ```
 
-W tym przykładzie parametry wcześniej zdefiniowane w definicji zasad są `prefix` i. `suffix` Ten konkretny zestaw `prefix` przypisań zasad należy do `suffix` **działu** i do **-LC**. Ta sama definicja zasad jest wielokrotnego użytku z innym zestawem parametrów dla innego działu, zmniejszając duplikowanie i złożoność definicji zasad przy jednoczesnym zapewnianiu elastyczności.
+W tym przykładzie parametry wcześniej zdefiniowane w definicji zasad są `prefix` i `suffix` . Ten konkretny zestaw przypisań zasad `prefix` należy do **działu** i `suffix` do **-LC**. Ta sama definicja zasad jest wielokrotnego użytku z innym zestawem parametrów dla innego działu, zmniejszając duplikowanie i złożoność definicji zasad przy jednoczesnym zapewnianiu elastyczności.
 
 ## <a name="next-steps"></a>Następne kroki
 

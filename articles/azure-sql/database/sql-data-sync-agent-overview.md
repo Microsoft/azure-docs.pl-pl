@@ -1,6 +1,6 @@
 ---
 title: Agent synchronizacji danych dla SQL Data Sync
-description: Informacje na temat instalowania i uruchamiania agenta synchronizacji danych dla SQL Data Sync na platformie Azure w celu synchronizowania danych z lokalnymi bazami danych SQL Server
+description: Informacje na temat instalowania i uruchamiania agenta synchronizacji danych dla SQL Data Sync na platformie Azure w celu synchronizowania danych z bazami danych SQL Server
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 0026f160c247d2b0bfdd32613676b04d6f350081
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 8033e64924b5faa1cfdc9c04cdd8711850185dca
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84049785"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195462"
 ---
 # <a name="data-sync-agent-for-sql-data-sync"></a>Agent synchronizacji danych dla SQL Data Sync
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Synchronizuj dane z lokalnymi bazami danych SQL Server przez zainstalowanie i skonfigurowanie agenta synchronizacji danych dla SQL Data Sync na platformie Azure. Aby uzyskać więcej informacji na temat SQL Data Sync, zobacz [synchronizowanie danych między wieloma bazami danych w chmurze i lokalnymi przy użyciu SQL Data Sync](sql-data-sync-data-sql-server-sql-database.md).
+Synchronizuj dane z bazami danych SQL Server przez zainstalowanie i skonfigurowanie agenta synchronizacji danych dla SQL Data Sync na platformie Azure. Aby uzyskać więcej informacji na temat SQL Data Sync, zobacz [synchronizowanie danych między wieloma bazami danych w chmurze i lokalnymi przy użyciu SQL Data Sync](sql-data-sync-data-sql-server-sql-database.md).
 
 > [!IMPORTANT]
 > W tej chwili SQL Data Sync **nie obsługuje wystąpienia** zarządzanego usługi Azure SQL.
@@ -36,7 +36,7 @@ Aby zainstalować agenta synchronizacji danych w trybie dyskretnym z wiersza pol
 
 - Jeśli nie podano wartości dla **TARGETDIR**, wartość domyślna to `C:\Program Files (x86)\Microsoft SQL Data Sync 2.0` .
 
-- Jeśli podano `LocalSystem` wartość parametru **ServiceAccount**, Użyj uwierzytelniania SQL Server podczas konfigurowania agenta do nawiązywania połączenia z SQL Server lokalnymi.
+- W przypadku podania `LocalSystem` jako wartości elementu **ServiceAccount**Użyj uwierzytelniania SQL Server podczas konfigurowania agenta programu w celu nawiązania połączenia z SQL Server.
 
 - W przypadku podania konta użytkownika domeny lub konta użytkownika lokalnego jako wartości **ServiceAccount**należy również podać hasło przy użyciu ARGUMENTU **ServicePassword** . Na przykład `SERVICEACCOUNT="<domain>\<user>"  SERVICEPASSWORD="<password>"`.
 
@@ -44,9 +44,9 @@ Aby zainstalować agenta synchronizacji danych w trybie dyskretnym z wiersza pol
 msiexec /i "SQLDataSyncAgent-2.0-x86-ENU.msi" TARGETDIR="C:\Program Files (x86)\Microsoft SQL Data Sync 2.0" SERVICEACCOUNT="LocalSystem" /qn
 ```
 
-## <a name="sync-data-with-sql-server-on-premises"></a>Synchronizuj dane przy użyciu SQL Server lokalnego
+## <a name="sync-data-with-a-sql-server-database"></a>Synchronizowanie danych z bazą danych SQL Server
 
-Aby skonfigurować agenta synchronizacji danych, dzięki czemu można synchronizować dane z co najmniej jedną lokalną SQL Server bazami danych, zobacz [Dodawanie lokalnej SQL Server bazy danych](sql-data-sync-sql-server-configure.md#add-on-prem).
+Aby skonfigurować agenta synchronizacji danych, dzięki czemu można synchronizować dane z co najmniej jedną SQL Server bazami danych, zobacz [dodawanie SQL Server Database](sql-data-sync-sql-server-configure.md#add-on-prem).
 
 ## <a name="data-sync-agent-faq"></a><a name="agent-faq"></a>Agent synchronizacji danych — często zadawane pytania
 
@@ -321,7 +321,7 @@ Aby uzyskać więcej informacji na temat SQL Data Sync, zobacz następujące art
 
 -   Przegląd — [Synchronizacja danych między wieloma bazami danych w chmurze i lokalnymi przy użyciu SQL Data Sync na platformie Azure](sql-data-sync-data-sql-server-sql-database.md)
 -   Konfigurowanie synchronizacji danych
-    - W portalu — [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](sql-data-sync-sql-server-configure.md) (Samouczek: konfigurowanie usługi SQL Data Sync w celu synchronizowania danych między usługą Azure SQL Database i lokalnym programem SQL Server)
+    - W portalu — [Samouczek: skonfiguruj SQL Data Sync, aby synchronizować dane między Azure SQL Database i SQL Server](sql-data-sync-sql-server-configure.md)
     - Z programem PowerShell
         -  [Synchronizowanie wielu baz danych w Azure SQL Database przy użyciu programu PowerShell](scripts/sql-data-sync-sync-data-between-sql-databases.md)
         -  [Używanie programu PowerShell do synchronizowania bazy danych w Azure SQL Database i bazy danych w wystąpieniu SQL Server](scripts/sql-data-sync-sync-data-between-azure-onprem.md)

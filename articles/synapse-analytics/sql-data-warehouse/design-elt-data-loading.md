@@ -11,12 +11,12 @@ ms.date: 05/13/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: faeab07ce7ec057981d23228461c2fa07600cdc1
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: e3464c0fc3946e47400f87063ef6f83ceb942abb
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660008"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84192449"
 ---
 # <a name="data-loading-strategies-for-synapse-sql-pool"></a>Strategie ładowania danych dla puli SQL Synapse
 
@@ -148,7 +148,7 @@ Tabela musi być wstępnie utworzona podczas ładowania do tabeli przemieszczani
 Aby załadować dane za pomocą bazy danych Base, można użyć dowolnej z następujących opcji ładowania:
 
 - Baza danych w języku [T-SQL](load-data-from-azure-blob-storage-using-polybase.md) działa prawidłowo, gdy dane są przechowywane w usłudze Azure Blob storage lub Azure Data Lake Store. Zapewnia ona największą kontrolę nad procesem ładowania, ale wymaga również zdefiniowania zewnętrznych obiektów danych. Inne metody definiują te obiekty w tle podczas mapowania tabel źródłowych do tabel docelowych.  Aby zorganizować obciążenia T-SQL, można użyć Azure Data Factory, SSIS lub Azure Functions.
-- [Baza](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) danych programu SSIS działa dobrze, gdy dane źródłowe są w SQL Server, SQL Server lokalnie lub w chmurze. Program SSIS definiuje mapowania tabeli źródłowej do docelowej, a także organizuje obciążenie. Jeśli masz już pakiety SSIS, możesz zmodyfikować pakiety, aby współpracowały z nowym miejscem docelowym magazynu danych.
+- [Baza](/sql/integration-services/load-data-to-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) danych programu SSIS działa prawidłowo, gdy dane źródłowe są w SQL Server. Program SSIS definiuje mapowania tabeli źródłowej do docelowej, a także organizuje obciążenie. Jeśli masz już pakiety SSIS, możesz zmodyfikować pakiety, aby współpracowały z nowym miejscem docelowym magazynu danych.
 - [Instrukcja "Base" i "Copy" z Azure Data Factory (ADF)](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) to inne narzędzie aranżacji.  Definiuje potok i planuje zadania.
 - [Baza danych z Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) przesyła dane z tabeli do ramki danych datakosteks i/lub zapisuje dane z ramki Databases do tabeli przy użyciu bazy danych.
 

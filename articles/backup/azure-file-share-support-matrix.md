@@ -3,12 +3,13 @@ title: Macierz obsługi dla kopii zapasowej udziału plików platformy Azure
 description: Zawiera podsumowanie ustawień i ograniczeń pomocy technicznej podczas tworzenia kopii zapasowych udziałów plików platformy Azure.
 ms.topic: conceptual
 ms.date: 5/07/2020
-ms.openlocfilehash: 09ca5264280c990db8f57400aef1a876f842a210
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.custom: references_regions
+ms.openlocfilehash: 8198c06c1151dd86d99bc64f825764d0a4988287
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84117682"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193864"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Macierz obsługi dla kopii zapasowej udziału plików platformy Azure
 
@@ -36,7 +37,7 @@ Zachodnio-środkowe stany USA
 
 | Typ udziału plików                                   | Pomoc techniczna   |
 | -------------------------------------------------- | --------- |
-| Standardowa                                           | Obsługiwane |
+| Standardowa (Standard)                                           | Obsługiwane |
 | Duży                                              | Obsługiwane |
 | Premium                                            | Obsługiwane |
 | Udziały plików połączone z usługą Azure File Sync | Obsługiwane |

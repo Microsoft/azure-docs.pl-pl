@@ -3,12 +3,12 @@ title: Poprawianie wydajności aplikacji platformy Azure za pomocą Azure Adviso
 description: Użyj klasyfikatora, aby zoptymalizować wydajność wdrożeń platformy Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: ff9b8fb9494c887397947f009b22cdc89d8f70b5
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 230466c7c0e8de2681737bbf9d74341dea7f7b8f
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82787944"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196413"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Poprawianie wydajności aplikacji platformy Azure za pomocą Azure Advisor
 
@@ -22,7 +22,7 @@ Azure Advisor identyfikuje profile Traffic Manager o dłuższym czasie TTL skonf
 
 ## <a name="improve-database-performance-with-sql-db-advisor"></a>Zwiększanie wydajności bazy danych przy użyciu funkcji SQL DB Advisor
 
-Usługa Advisor zapewnia spójny, skonsolidowany widok zaleceń dotyczących wszystkich zasobów platformy Azure. Integruje się z SQL Database Advisor, aby uzyskać zalecenia dotyczące poprawy wydajności bazy danych SQL Azure.SQL Database Advisor ocenia wydajność baz danych SQL Azure, analizując historię użycia. Następnie oferuje rekomendacje, które najlepiej nadają się do uruchamiania typowego obciążenia bazy danych.
+Usługa Advisor zapewnia spójny, skonsolidowany widok zaleceń dotyczących wszystkich zasobów platformy Azure. Integruje się z SQL Database Advisor, aby uzyskać zalecenia dotyczące poprawy wydajności bazy danych.SQL Database Advisor ocenia wydajność baz danych, analizując historię użycia. Następnie oferuje rekomendacje, które najlepiej nadają się do uruchamiania typowego obciążenia bazy danych.
 
 > [!NOTE]
 > Aby uzyskać zalecenia, baza danych musi mieć co tydzień użytkowania i w tym tygodniu musi mieć pewne spójne działanie. SQL Database Advisor można łatwo zoptymalizować dla spójnych wzorców zapytań niż w przypadku losowych obciążeń aktywności.
@@ -80,19 +80,19 @@ Region świadczenia usługi Azure może obsłużyć maksymalnie 250 kont magazyn
 
 ## <a name="consider-increasing-the-size-of-your-vnet-gateway-sku-to-adress-high-p2s-use"></a>Rozważ zwiększenie rozmiaru jednostki SKU bramy sieci wirtualnej w celu uzyskania P2Sego użycia
 
-Każda jednostka SKU bramy może obsługiwać tylko określoną liczbę współbieżnych połączeń P2S. Jeśli liczba połączeń zbliża się do limitu bramy, to dodatkowe próby połączenia mogą zakończyć się niepowodzeniem. Zwiększenie rozmiaru bramy umożliwi obsługę większej liczby współbieżnych użytkowników P2S. Doradca zawiera rekomendacje i kroki, które należy wykonać, aby to zrobić.
+Każda jednostka SKU bramy może obsługiwać wyłącznie określoną liczbę współbieżnych połączeń typu punkt-lokacja. Jeśli liczba połączeń zbliża się do limitu bramy, to dodatkowe próby połączenia mogą zakończyć się niepowodzeniem. Zwiększenie rozmiaru bramy umożliwi obsługę większej liczby współbieżnych użytkowników P2S. Doradca zawiera rekomendacje i kroki, które należy wykonać, aby to zrobić.
 
-## <a name="consider-increasing-the-size-of-your-vnet-gateway-sku-to-address-high-cpu"></a>Rozważ zwiększenie rozmiaru jednostki SKU bramy sieci wirtualnej w celu rozwiązania wysokiego procesora CPU
+## <a name="consider-increasing-the-size-of-your-vnet-gateway-sku-to-address-high-cpu"></a>Rozważ zwiększenie rozmiaru jednostki SKU bramy sieci wirtualnej, aby rozwiązać problem intensywnego użycia procesora
 
-W przypadku dużego obciążenia ruchem bramy sieci VPN może porzucić pakiety ze względu na wysoki procesor CPU. Należy rozważyć uaktualnienie VPN Gateway jednostki SKU, ponieważ sieć VPN była stale uruchomiona w systemie. Zwiększenie rozmiaru bramy sieci VPN zapewni, że połączenia nie zostaną usunięte ze względu na wysoki procesor CPU. Zalecenie provdes doradcy, aby rozwiązać ten problem. 
+W sytuacji dużego obciążenia ruchem brama sieci VPN może porzucać pakiety z uwagi na intensywne użycie procesora. Należy rozważyć uaktualnienie VPN Gateway jednostki SKU, ponieważ sieć VPN była stale uruchomiona w systemie. Zwiększenie rozmiaru bramy sieci VPN zapewni, że połączenia nie zostaną usunięte ze względu na wysoki procesor CPU. Zalecenie provdes doradcy, aby rozwiązać ten problem. 
 
-## <a name="increase-batch-size-when-loading-to-maximize-load-throughput-data-compression-and-query-performance"></a>Zwiększenie rozmiaru partii podczas ładowania w celu zmaksymalizowania przepływności ładowania, kompresji danych i wydajności zapytań
+## <a name="increase-batch-size-when-loading-to-maximize-load-throughput-data-compression-and-query-performance"></a>Zwiększanie rozmiaru partii podczas ładowania w celu zmaksymalizowania przepływności ładowania, kompresji danych i wydajności wykonywania zapytań
 
-Klasyfikator może wykryć, że można zwiększyć wydajność ładowania i przepływność przez zwiększenie rozmiaru partii podczas ładowania do bazy danych. Można rozważyć użycie instrukcji COPY. Jeśli nie można użyć instrukcji COPY, rozważ zwiększenie rozmiaru partii podczas korzystania z narzędzi do ładowania, takich jak interfejs API SQLBulkCopy lub BCP-Dobra reguła kciuka to rozmiar wsadu między 100 000 do 1M wierszy. Spowoduje to zwiększenie przepływności obciążenia, kompresji danych i wydajności zapytań.
+Klasyfikator może wykryć, że można zwiększyć wydajność ładowania i przepływność przez zwiększenie rozmiaru partii podczas ładowania do bazy danych. Można rozważyć użycie instrukcji COPY. Jeśli nie możesz użyć instrukcji COPY, rozważ zwiększenie rozmiaru partii podczas korzystania z narzędzi ładowania, takich jak interfejs API SQLBulkCopy lub narzędzie BCP — jako ogólną regułę można przyjąć rozmiar partii między 100 000 a 1 mln wierszy. Spowoduje to zwiększenie przepływności obciążenia, kompresji danych i wydajności zapytań.
 
-## <a name="co-locate-the-storage-account-within-the-same-region-to-minimize-latency-when-loading"></a>Lokalizowanie konta magazynu w tym samym regionie w celu zminimalizowania opóźnień podczas ładowania
+## <a name="co-locate-the-storage-account-within-the-same-region-to-minimize-latency-when-loading"></a>Umieszczanie konta magazynu w tym samym regionie w celu zminimalizowania opóźnień podczas ładowania
 
-Klasyfikator może wykryć, że ładujesz z regionu innego niż Pula SQL. Należy rozważyć ładowanie z konta magazynu znajdującego się w tym samym regionie co Pula SQL, aby zminimalizować opóźnienie podczas ładowania danych. Pomoże to zminimalizować opóźnienia i zwiększyć wydajność ładowania.
+Klasyfikator może wykryć, że ładujesz z regionu innego niż Pula SQL. Rozważ ładowanie z konta magazynu znajdującego się w tym samym regionie co pula SQL w celu zminimalizowania opóźnień podczas ładowania danych. Pomoże to zminimalizować opóźnienia i zwiększyć wydajność ładowania.
 
 ## <a name="unsupported-kubernetes-version-is-detected"></a>Wykryto nieobsługiwaną wersję Kubernetes
 
@@ -107,7 +107,7 @@ Bardzo wysokie wykorzystanie procesora CPU w dłuższym okresie może spowodowa�
 Współczynnik trafień w pamięci podręcznej może spowodować wolniejszą wydajność zapytań i większe liczby operacji we/wy na sekundę. Może to być spowodowane nieprawidłowym planem zapytania lub uruchomieniem intensywnego obciążenia pamięci. Rozwiązanie planu zapytania lub [zwiększenie ilości pamięci](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) serwera bazy danych Azure Database for PostgreSQL, serwera bazy danych Azure MySQL lub serwera usługi Azure MariaDB pomoże zoptymalizować wykonywanie obciążenia bazy danych. Azure Advisor identyfikuje serwery, których dotyczy ten wysoki poziom zmian puli buforów i zaleca ustalenie planu zapytania, przechodzenie do wyższej jednostki SKU z większą ilością pamięci lub zwiększenie rozmiaru magazynu w celu uzyskania większej liczby operacji we/wy na sekundę.
 
 ### <a name="use-a-azure-mysql-or-azure-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>Korzystanie z repliki usługi Azure MySQL lub Azure PostgreSQL do odczytu w celu skalowania odczytów dla intensywnie korzystających z odczytu obciążeń
-Azure Advisor wykorzystuje algorytmy heurystyczne oparte na obciążeniu, takie jak stosunek odczytów do zapisu na serwerze w ciągu ostatnich siedmiu dni w celu zidentyfikowania obciążeń intensywnie korzystających z odczytu. Zasób usługi Azure Database for PostgreSQL lub zasób usługi Azure Database for MySQL z bardzo wysokim współczynnikiem odczytu/zapisu może spowodować, że rywalizacja procesora i/lub pamięci prowadzi do spowolnienia wydajności zapytań. Dodanie [repliki](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) ułatwi skalowanie odczytów do serwera repliki, uniemożliwiając procesor i/lub ograniczenia pamięci na serwerze podstawowym. Program Advisor zidentyfikuje serwery z takimi dużymi obciążeniami wymagającymi odczytu i zaleca się dodanie [repliki](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) odczytu w celu odciążenia niektórych obciążeń odczytu.
+Azure Advisor wykorzystuje algorytmy heurystyczne oparte na obciążeniu, takie jak stosunek odczytów do zapisu na serwerze w ciągu ostatnich siedmiu dni w celu zidentyfikowania obciążeń intensywnie korzystających z odczytu. Zasób usługi Azure Database for PostgreSQL lub zasób usługi Azure Database for MySQL z bardzo wysokim współczynnikiem odczytu/zapisu może spowodować, że rywalizacja procesora i/lub pamięci prowadzi do spowolnienia wydajności zapytań. Dodanie [repliki](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) ułatwi skalowanie odczytów do serwera repliki, uniemożliwiając procesor i/lub ograniczenia pamięci na serwerze podstawowym. Program Advisor zidentyfikuje serwery z takimi dużymi obciążeniami wymagającymi odczytu i zaleca się dodanie [repliki odczytu](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas)   w celu odciążenia niektórych obciążeń odczytu.
 
 
 ### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Skaluj platformę Azure MySQL, Azure PostgreSQL lub Azure MariaDB Server do wyższej jednostki SKU, aby zapobiec ograniczeniom połączeń

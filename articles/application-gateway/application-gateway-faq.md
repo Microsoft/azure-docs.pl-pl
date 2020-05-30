@@ -7,12 +7,13 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
-ms.openlocfilehash: e5e60fbcbdd7784cf131b7acb461065251a2dfd7
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.custom: references_regions
+ms.openlocfilehash: e61ce629e723f56524ee22d8b127243f9568a835
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116160"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196506"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Często zadawane pytania dotyczące Application Gateway
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 34f1c96d8336447b6ca2a4f55fefa9a061c38fa2
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 64d987ff01e596eefa98e8086788546c465e2d83
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198503"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195391"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Przenoszenie konta usługi Azure Storage do innego regionu
 
@@ -37,7 +37,7 @@ W tym artykule dowiesz się, jak:
 
 - W przypadku funkcji w wersji zapoznawczej upewnij się, że subskrypcja jest listy dozwolonych dla regionu docelowego.
 
-<a id="prepare" />
+<a id="prepare"></a>
 
 ## <a name="prepare"></a>Przygotowanie
 
@@ -109,7 +109,7 @@ Aby wdrożyć szablon przy użyciu Azure Portal:
 
     ![Biblioteka szablonów usługi Azure Resource Manager](./media/storage-account-move/azure-resource-manager-template-library.png)
 
-4. Wybierz przycisk **Utwórz**.
+4. Wybierz pozycję **Utwórz**.
 
 5. Wybierz pozycję **Utwórz własny szablon w edytorze**.
 
@@ -174,7 +174,7 @@ Aby wdrożyć szablon przy użyciu programu PowerShell:
     ```
 ---
 
-<a id="move" />
+<a id="move"></a>
 
 ## <a name="move"></a>Move
 
@@ -219,7 +219,7 @@ Niektóre funkcje nie będą eksportowane do szablonu, dlatego musisz dodać je 
 
 W poniższej tabeli wymieniono te funkcje wraz ze wskazówkami dotyczącymi dodawania ich do nowego konta magazynu.
 
-| Funkcja    | Wskazówki    |
+| Cechy    | Wskazówki    |
 |--------|-----------|
 | **Zasady zarządzania cyklem życia** | [Zarządzanie cyklem życia magazynu usługi Azure Blob Storage](../blobs/storage-lifecycle-management-concepts.md) |
 | **Statyczne witryny internetowe** | [Hostowanie statycznej witryny sieci Web w usłudze Azure Storage](../blobs/storage-blob-static-website-how-to.md) |

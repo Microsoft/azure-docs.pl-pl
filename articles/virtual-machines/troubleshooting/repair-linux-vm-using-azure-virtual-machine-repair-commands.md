@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: da40deb4df55a63f5fecc380500a507b374ca63d
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 9029082a275905bbdb9efe0cefa05337c9969a2f
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83711146"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84219910"
 ---
 # <a name="repair-a-linux-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Naprawianie maszyny wirtualnej z systemem Linux za pomocą poleceń naprawiania maszyny wirtualnej platformy Azure
 
@@ -66,7 +66,7 @@ Aby uzyskać dodatkową dokumentację i instrukcje, zobacz [AZ VM Repair](https:
    az extension update -n vm-repair
    ```
 
-3. Uruchom polecenie `az vm repair create`. To polecenie spowoduje utworzenie kopii dysku systemu operacyjnego dla niefunkcjonalnej maszyny wirtualnej, utworzenie naprawy maszyny wirtualnej w nowej grupie zasobów i dołączenie kopii dysku systemu operacyjnego.  Maszyna wirtualna naprawy będzie mieć ten sam rozmiar i region, co określona maszyna wirtualna nie funkcjonalna.
+3. Uruchom polecenie `az vm repair create`. To polecenie spowoduje utworzenie kopii dysku systemu operacyjnego dla niefunkcjonalnej maszyny wirtualnej, utworzenie naprawy maszyny wirtualnej w nowej grupie zasobów i dołączenie kopii dysku systemu operacyjnego.  Maszyna wirtualna naprawy będzie mieć ten sam rozmiar i region, co określona maszyna wirtualna nie funkcjonalna. Grupa zasobów i nazwa maszyny wirtualnej używane we wszystkich krokach będą przeznaczone dla niefunkcjonalnej maszyny wirtualnej.
 
    ```azurecli-interactive
    az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose
@@ -74,7 +74,7 @@ Aby uzyskać dodatkową dokumentację i instrukcje, zobacz [AZ VM Repair](https:
 
 4. Wykonaj wszystkie wymagane kroki zaradcze na utworzonej maszynie wirtualnej naprawy, a następnie przejdź do kroku 5.
 
-5. Uruchom polecenie `az vm repair restore`. To polecenie spowoduje zamianę naprawionego dysku systemu operacyjnego na oryginalny dysk systemu operacyjnego maszyny wirtualnej.
+5. Uruchom polecenie `az vm repair restore`. To polecenie spowoduje zamianę naprawionego dysku systemu operacyjnego na oryginalny dysk systemu operacyjnego maszyny wirtualnej. Użyta w tym miejscu Grupa zasobów i nazwa maszyny wirtualnej są przeznaczone dla niefunkcjonalnej maszyny wirtualnej używanej w kroku 3.
 
    ```azurecli-interactive
    az vm repair restore -g MyResourceGroup -n MyVM --verbose

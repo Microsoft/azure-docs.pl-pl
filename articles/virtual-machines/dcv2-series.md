@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: lahugh
-ms.openlocfilehash: 431c1b1211165f43feb7fe1f93c73c2bf141e004
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 955b3d967d2e62e1158f329a58f040121ca8b416
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871801"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84220969"
 ---
 # <a name="dcsv2-series"></a>Seria DCsv2
 
@@ -33,14 +33,14 @@ Aktualizacje z zachowaniem pamięci: nieobsługiwane
 
 
 
-| Rozmiar             | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu buforowanego i tymczasowego: liczba operacji we/wy na sekundę / MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna przepływność niebuforowanych dysków: liczba operacji we/wy na sekundę / MB/s | Maksymalna liczba kart sieciowych/oczekiwana przepustowość sieci (MB/s) | Pamięć EPC (MiB) |
-|------------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|-------------------------------------------|----------------------------------------------|---------------------|
-| Standard_DC1s_v2 | 1    | 4           | 50                     | 1              | 2000/16 (21)                                                            | 1600/24                                   | 2   | 28                                      |
-| Standard_DC2s_v2 | 2    | 8           | 100                    | 2              | 4000/32 (43)                                                            | 3200/48                                   | 2  | 56                                          |
-| Standard_DC4s_v2 | 4    | 16          | 200                    | 4              | 8000/64 (86)                                                            | 6400/96                                   | 2  | 112                                          |
-| Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 16000/128 (172)                                                         | 12800/192                                 | 2   | 168                                         |
+| Rozmiar             | Procesor wirtualny | Pamięć: GiB | Magazyn tymczasowy (SSD): GiB | Maks. liczba dysków danych | Maksymalna przepływność magazynu buforowanego i tymczasowego: liczba operacji we/wy na sekundę / MB/s (rozmiar pamięci podręcznej w GiB) | Maksymalna liczba kart sieciowych/oczekiwana przepustowość sieci (MB/s) | Pamięć EPC (MiB) |
+|------------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|----------------------------------------------|---------------------|
+| Standard_DC1s_v2 | 1    | 4           | 50                     | 1              | 2000/16                                                                                               | 2   | 28                                      |
+| Standard_DC2s_v2 | 2    | 8           | 100                    | 2              | 4000/32                                                                                               | 2  | 56                                          |
+| Standard_DC4s_v2 | 4    | 16          | 200                    | 4              | 8000/64                                                                                               | 2  | 112                                          |
+| Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 16000/128                                                                                         | 2   | 168                                         |
 
-- Maszyny wirtualne z serii DCsv2 to [maszyny wirtualne 2](./linux/generation-2.md#creating-a-generation-2-vm) . generacji `Gen2` i obsługują tylko obrazy.
+- Maszyny wirtualne z serii DCsv2 to [maszyny wirtualne 2. generacji](./linux/generation-2.md#creating-a-generation-2-vm) i obsługują tylko `Gen2` obrazy.
 - Obecnie dostępne tylko w Południowe Zjednoczone Królestwo, Kanada Środkowa i Wschodnie stany USA.
 - Poprzednia generacja poufnych maszyn wirtualnych obliczeń: [Seria DC](sizes-previous-gen.md#preview-dc-series)
 - Tworzenie maszyn wirtualnych DCsv2 za pomocą [Azure Portal](./linux/quick-create-portal.md) lub [witryny Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.acc-virtual-machine-v2?tab=overview)

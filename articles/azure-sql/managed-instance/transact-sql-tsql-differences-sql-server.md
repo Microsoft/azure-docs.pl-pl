@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova, danil
 ms.date: 03/11/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 89b33f22cf5e6f08b42fca0e8966a36001bdb29f
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: d3b337a697151f7f9ae1e3a1fb75795068da9e68
+ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116750"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84204977"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Różnice w języku T-SQL między SQL Server & wystąpieniu zarządzanym usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "84116750"
 Ten artykuł zawiera podsumowanie i wyjaśnienie różnic między wystąpieniem zarządzanym usługi Azure SQL i SQL Server. 
 
 
-Wystąpienie zarządzane SQL zapewnia wysoką zgodność z lokalnym aparatem bazy danych SQL Server i większość funkcji jest obsługiwanych w wystąpieniu zarządzanym SQL.
+Wystąpienie zarządzane SQL zapewnia wysoką zgodność z aparatem bazy danych SQL Server i większość funkcji jest obsługiwanych w wystąpieniu zarządzanym SQL.
 
 ![Migracja](./media/transact-sql-tsql-differences-sql-server/migration.png)
 
@@ -506,6 +506,9 @@ Następujące zmienne, funkcje i widoki zwracają różne wyniki:
 - Sieć wirtualną można wdrożyć przy użyciu modelu zasobów — model klasyczny dla sieci wirtualnej nie jest obsługiwany.
 - Po utworzeniu wystąpienia zarządzanego SQL przeniesienie wystąpienia zarządzanego SQL lub sieci wirtualnej do innej grupy zasobów lub subskrypcji nie jest obsługiwane.
 - Niektóre usługi, takie jak środowiska App Service, Aplikacje logiki i wystąpienia zarządzane SQL (używane na potrzeby replikacji geograficznej, replikacji transakcyjnej lub połączonych serwerów) nie mogą uzyskać dostępu do wystąpień zarządzanych SQL w różnych regionach, jeśli ich sieci wirtualnych są połączone przy użyciu [globalnej komunikacji równorzędnej](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). Możesz połączyć się z tymi zasobami za pośrednictwem ExpressRoute lub sieci VNet-to-VNet za pośrednictwem bram sieci wirtualnej.
+
+### <a name="failover-groups"></a>Grupy trybu failover
+Systemowe bazy danych nie są replikowane do wystąpienia dodatkowego w grupie trybu failover. W związku z tym scenariusze, które są zależne od obiektów z systemowych baz danych, będą niedostępne w wystąpieniu pomocniczym, chyba że obiekty są tworzone ręcznie na serwerze pomocniczym.
 
 ### <a name="tempdb"></a>TEMPDB
 

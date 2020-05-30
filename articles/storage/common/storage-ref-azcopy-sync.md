@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: d855019be7f357a35a26d14e68ba3d427d984e17
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d4b43b590b147335a70877a7c3c0b07f8b818e3c
+ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82086032"
+ms.lasthandoff: 05/30/2020
+ms.locfileid: "84221055"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -42,7 +42,7 @@ Polecenie Sync różni się od polecenia copy na kilka sposobów:
 - [Transferowanie danych za pomocą AzCopy i magazynu plików](storage-use-azcopy-files.md)
 - [Konfigurowanie, optymalizowanie i rozwiązywanie problemów z AzCopy](storage-use-azcopy-configure.md)
 
-### <a name="advanced"></a>Zaawansowane
+### <a name="advanced"></a>Zaawansowany
 
 Jeśli nie określisz rozszerzenia pliku, AzCopy automatycznie wykryje typ zawartości plików podczas przekazywania z dysku lokalnego na podstawie rozszerzenia lub zawartości pliku (jeśli nie określono rozszerzenia).
 
@@ -67,7 +67,7 @@ azcopy sync "/path/to/file.txt" "https://[account].blob.core.windows.net/[contai
 ```
 
 > [!NOTE]
-> Docelowy obiekt BLOB *musi* istnieć. Służy `azcopy copy` do kopiowania pojedynczego pliku, który nie istnieje jeszcze w miejscu docelowym. W przeciwnym razie wystąpi następujący błąd: `Cannot perform sync due to error: sync must happen between source and destination of the same type, e.g. either file <-> file, or directory/container <-> directory/container`.
+> Docelowy obiekt BLOB *musi* istnieć. Służy `azcopy copy` do kopiowania pojedynczego pliku, który nie istnieje jeszcze w miejscu docelowym. W przeciwnym razie wystąpi następujący błąd: `Cannot perform sync due to error: sync must happen between source and destination of the same type, e.g. either file <-> file, or directory/container <-> directory/container` .
 
 Analogicznie jak powyżej, ale ten czas również oblicza skrót MD5 zawartości pliku i zapisuje go jako właściwość Content-MD5 obiektu BLOB:
 
@@ -144,13 +144,13 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--exclude-Path** ciąg Wyklucz te ścieżki podczas kopiowania. Ta opcja nie obsługuje symboli wieloznacznych (*). Sprawdza prefiks ścieżki względnej (na przykład: Moja folder; folder/subDirName/plik. PDF). W przypadku użycia w połączeniu z przechodzeniem konta ścieżki nie uwzględniają nazwy kontenera.
 
-**--exclude-String wykluczanie** plików, w których nazwa jest zgodna z listą wzorców. Na przykład: \*. jpg; \*. PDF; exactname
+**--exclude-String wykluczanie** plików, w których nazwa jest zgodna z listą wzorców. Na przykład: \* . jpg; \* . PDF; exactname
 
 **-h,--** Pomoc dotycząca synchronizacji
 
 **--include — ciąg atrybutów** (tylko system Windows) Uwzględnij tylko pliki, których atrybuty pasują do listy atrybutów. Na przykład: A; Wolumin ®
 
-**--dołączany** ciąg do wzorca zawiera tylko pliki, w których nazwa jest zgodna z listą wzorców. Na przykład: \*. jpg; \*. PDF; exactname
+**--dołączany** ciąg do wzorca zawiera tylko pliki, w których nazwa jest zgodna z listą wzorców. Na przykład: \* . jpg; \* . PDF; exactname
 
 **--ciąg na poziomie dziennika** definiuje szczegółowość dziennika dla pliku dziennika, dostępne poziomy: info (wszystkie żądania i odpowiedzi), ostrzeżenie (wolne odpowiedzi), błąd (tylko Nieudane żądania) i brak (bez dzienników wyjściowych). (informacje domyślne). (wartość domyślna: "INFO")
 
@@ -164,7 +164,8 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 |---|---|
 |--Cap-MB/s UInt32|Szybkość transferu w megabitach na sekundę. Przepływność czasu na chwilę może się nieco różnić od końca. Jeśli ta opcja jest ustawiona na zero lub zostanie pominięta, przepływność nie zostanie ograniczona.|
 |--ciąg typu wyjściowego|Format danych wyjściowych polecenia. Dostępne opcje to: text, JSON. Wartość domyślna to "text".|
+|--Zaufane — ciąg sufiksów firmy Microsoft   |Określa dodatkowe sufiksy domeny, w których mogą być wysyłane Azure Active Directory tokeny logowania.  Wartość domyślna to "*. Core.Windows.NET;*. core.chinacloudapi.cn; *. Core.cloudapi.de;*. core.usgovcloudapi.net '. Wszystkie wymienione tutaj są dodawane do ustawień domyślnych. W celu zapewnienia bezpieczeństwa należy tu umieścić tylko domeny Microsoft Azure. Rozdziel wiele wpisów średnikami.|
 
 ## <a name="see-also"></a>Zobacz także
 
-- [azcopy](storage-ref-azcopy.md)
+- [AzCopy](storage-ref-azcopy.md)

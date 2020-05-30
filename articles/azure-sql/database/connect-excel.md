@@ -1,6 +1,6 @@
 ---
 title: Łączenie z programem Excel
-description: Dowiedz się, jak połączyć program Microsoft Excel z Azure SQL Database. Importowanie danych do programu Excel, raportowanie i eksploracja danych.
+description: Dowiedz się, jak połączyć program Microsoft Excel z bazą danych w Azure SQL Database. Importowanie danych do programu Excel, raportowanie i eksploracja danych.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,27 +11,28 @@ author: joseidz
 ms.author: craigg
 ms.reviewer: ''
 ms.date: 02/12/2019
-ms.openlocfilehash: 08bf78e6cc548ed717d6bc57946067a16ec13e2b
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 332620699e30facb2fbbfee90e3328b8dcf1e179
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84043450"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195502"
 ---
-# <a name="connect-excel-to-azure-sql-database-and-create-a-report"></a>Łączenie programu Excel z Azure SQL Database i Tworzenie raportu
+# <a name="connect-excel-to-a-database-in-azure-sql-database-and-create-a-report"></a>Łączenie programu Excel z bazą danych w Azure SQL Database i Tworzenie raportu
+
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Połącz program Excel, aby Azure SQL Database i zaimportować dane oraz utworzyć tabele i wykresy na podstawie wartości w bazie danych. W tym samouczku skonfigurujesz połączenie między programem Excel i tabelą bazy danych, zapiszesz plik przechowujący dane oraz informacje o połączeniu dla programu Excel, a następnie utworzysz wykres przestawny z wartościami bazy danych.
+Program Excel można połączyć z bazą danych w Azure SQL Database, a następnie zaimportować dane i utworzyć tabele i wykresy na podstawie wartości w bazie danych. W tym samouczku skonfigurujesz połączenie między programem Excel i tabelą bazy danych, zapiszesz plik przechowujący dane oraz informacje o połączeniu dla programu Excel, a następnie utworzysz wykres przestawny z wartościami bazy danych.
 
-Aby rozpocząć, musisz mieć SQL Database. Jeśli go nie masz, zobacz [tworzenie Azure SQL Database](single-database-create-quickstart.md) i [Tworzenie zapory IP na poziomie serwera](firewall-create-server-level-portal-quickstart.md) , aby uzyskać SQL Database z przykładowymi danymi, które można uruchomić w ciągu kilku minut.
+Aby rozpocząć, musisz utworzyć bazę danych w SQL Database. Jeśli go nie masz, zobacz [Tworzenie bazy danych w Azure SQL Database](single-database-create-quickstart.md) i [Tworzenie zapory IP na poziomie serwera](firewall-create-server-level-portal-quickstart.md) , aby uzyskać bazę danych z przykładowymi danymi, które można uruchomić w ciągu kilku minut.
 
 W tym artykule zaimportujesz przykładowe dane do programu Excel z tego artykułu, ale możesz wykonać podobne kroki z własnymi danymi.
 
 Potrzebna będzie również kopia programu Excel. W tym artykule wykorzystano program [Microsoft Excel 2016](https://products.office.com/).
 
-## <a name="connect-excel-to-a-sql-database-and-load-data"></a>Łączenie programu Excel z SQL Database i ładowanie danych
+## <a name="connect-excel-and-load-data"></a>Łączenie programu Excel i ładowanie danych
 
-1. Aby połączyć program Excel z SQL Database, Otwórz program Excel, a następnie utwórz nowy skoroszyt lub Otwórz istniejący skoroszyt programu Excel.
+1. Aby połączyć program Excel z bazą danych w SQL Database, Otwórz program Excel, a następnie utwórz nowy skoroszyt lub Otwórz istniejący skoroszyt programu Excel.
 2. Na pasku menu w górnej części strony wybierz kartę **dane** , wybierz pozycję **Pobierz dane**, wybierz pozycję z platformy Azure, a następnie wybierz pozycję **z Azure SQL Database**.
 
    ![Wybierz źródło danych: Połącz program Excel z SQL Database.](./media/connect-excel/excel_data_source.png)
@@ -53,7 +54,7 @@ Potrzebna będzie również kopia programu Excel. W tym artykule wykorzystano pr
 
 ## <a name="import-the-data-into-excel-and-create-a-pivot-chart"></a>Importowanie danych do programu Excel i tworzenie wykresu przestawnego
 
-Po nawiązaniu połączenia masz kilka różnych opcji dotyczących ładowania danych. Na przykład poniższe kroki tworzą wykres przestawny na podstawie danych znalezionych w SQL Database.
+Po nawiązaniu połączenia masz kilka różnych opcji dotyczących ładowania danych. Na przykład poniższe kroki tworzą wykres przestawny na podstawie danych znalezionych w bazie danych w SQL Database.
 
 1. Wykonaj kroki opisane w poprzedniej sekcji, ale tym razem zamiast wybierania **obciążenia**, wybierz pozycję **Załaduj do na** liście rozwijanej **ładowania** .
 2. Następnie wybierz sposób wyświetlania tych danych w skoroszycie. Wybrano **Wykres przestawny**. Można również utworzyć **Nowy arkusz** lub wybrać opcję **Dodaj te dane do modelu danych**. Więcej informacji o modelach danych można znaleźć w temacie [Tworzenie modelu danych w programie Excel](https://support.office.com/article/Create-a-Data-Model-in-Excel-87E7A54C-87DC-488E-9410-5C75DBCB0F7B).

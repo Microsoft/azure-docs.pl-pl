@@ -3,12 +3,13 @@ title: Odzyskiwanie plików i folderów z kopii zapasowej maszyny wirtualnej pla
 description: W tym artykule dowiesz się, jak odzyskiwać pliki i foldery z punktu odzyskiwania maszyny wirtualnej platformy Azure.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 0cb3b588aadcda232d1a9a07fc6d9336448cb5a5
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.custom: references_regions
+ms.openlocfilehash: 91918bb053c1f26e33d08dde3b68debfcffe350e
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118137"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195748"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Odzyskiwanie plików z kopii zapasowej maszyny wirtualnej platformy Azure
 

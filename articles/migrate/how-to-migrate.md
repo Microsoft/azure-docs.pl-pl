@@ -3,12 +3,12 @@ title: Dodaj narzędzia migracji w Azure Migrate
 description: Dowiedz się, jak dodać narzędzia migracji w Azure Migrate.
 ms.topic: article
 ms.date: 04/26/2020
-ms.openlocfilehash: e7d36a642f41b77e3b4c4125bae64f02def3b306
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: 670341adca7ab2958d43132aab164d7bba0f87d0
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901476"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84195822"
 ---
 # <a name="add-migration-tools"></a>Dodawanie narzędzi migracji
 
@@ -23,7 +23,7 @@ W tym artykule opisano sposób dodawania narzędzi migracji w programie [Azure M
 2. Wybierz scenariusz migracji, którego chcesz użyć:
 
     - Aby przeprowadzić migrację maszyn i obciążeń na platformę Azure, wybierz pozycję **Oceń i Przeprowadź migrację serwerów**.
-    - Aby przeprowadzić migrację lokalnych maszyn SQL, wybierz pozycję **Oceń i Przeprowadź migrację baz danych**.
+    - Aby przeprowadzić migrację lokalnych baz danych SQL Server, wybierz pozycję **Oceń i Przeprowadź migrację baz danych**.
     - Aby przeprowadzić migrację lokalnych aplikacji sieci Web, wybierz pozycję **Oceń i Migruj aplikacje sieci Web**.
     - Aby migrować duże ilości danych lokalnych na platformę Azure w trybie offline, wybierz pozycję **zamów urządzenie Data Box**.
 

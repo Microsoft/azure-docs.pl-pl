@@ -7,13 +7,13 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/24/2020
 ms.author: victorh
-ms.custom: fasttrack-edit
-ms.openlocfilehash: f84098d376f2494805465a8c713a21fceae6438d
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.custom: fasttrack-edit, references_regions
+ms.openlocfilehash: ab2165cb6b48e58a7adca7093f7ff82d10495066
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116850"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84196479"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Skalowanie automatyczne i strefowo nadmiarowa brama aplikacji (wersja 2) 
 

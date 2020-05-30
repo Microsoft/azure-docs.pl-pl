@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/05/2020
-ms.openlocfilehash: 8e40367e07fcda572cca73a3c01d9036e322c85c
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: fe7d6d4e70bc55a6a91d3c1a1b910db4b5469fe6
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020102"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84197071"
 ---
 # <a name="apache-ambari-usage-in-azure-hdinsight"></a>Użycie oprogramowania Apache Ambari w usłudze Azure HDInsight
 
@@ -56,7 +56,7 @@ Jest to sekwencja uruchamiania usługi podczas rozruchu:
 
 ## <a name="ambari-database"></a>Baza danych Ambari
 
-Usługa HDInsight tworzy bazę danych usługi SQL Azure pod okapem, która będzie działać jako baza danych dla serwera Ambari. Domyślną [warstwą usług jest S0](../azure-sql/database/elastic-pool-scale.md).
+Usługa HDInsight tworzy bazę danych w SQL Database na podstawie okapu, która będzie działać jako baza danych dla serwera Ambari. Domyślną [warstwą usług jest S0](../azure-sql/database/elastic-pool-scale.md).
 
 W przypadku każdego klastra z liczbą węzłów procesu roboczego większą niż 16 podczas tworzenia klastra S2 jest warstwą usługi bazy danych.
 

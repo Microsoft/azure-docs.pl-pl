@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 3405a322b8498b0b1a29399811ddf188ea766ca8
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: efb873f8e66c3ab71b5b7345d776629fbe603af3
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
 ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170600"
+ms.locfileid: "84193413"
 ---
 # <a name="object-replication-for-block-blobs-preview"></a>Replikacja obiektów dla blokowych obiektów BLOB (wersja zapoznawcza)
 
@@ -73,7 +73,9 @@ W ramach wersji zapoznawczej nie ma dodatkowych kosztów związanych z replikacj
 
 ### <a name="prerequisites-for-object-replication"></a>Wymagania wstępne dotyczące replikacji obiektów
 
-Replikacja obiektów wymaga włączenia następujących funkcji usługi Azure Storage:
+Replikacja obiektów wymaga włączenia następujących funkcji usługi Azure Storage: 
+- [Źródło zmian](storage-blob-change-feed.md)
+- [Przechowywanie wersji](versioning-overview.md)
 
 Przed skonfigurowaniem replikacji obiektów należy włączyć jej wymagania wstępne. Źródło zmian musi być włączone na koncie źródłowym, a wersja obiektu BLOB musi być włączona zarówno na koncie źródłowym, jak i docelowym. Aby uzyskać więcej informacji na temat włączania tych funkcji, zobacz następujące artykuły:
 
@@ -157,3 +159,5 @@ Aby zadawać pytania dotyczące wersji zapoznawczej replikacji obiektów lub prz
 ## <a name="next-steps"></a>Następne kroki
 
 - [Konfiguruj replikację obiektów (wersja zapoznawcza)](object-replication-configure.md)
+- [Obsługa kanału informacyjnego zmiany w usłudze Azure Blob Storage (wersja zapoznawcza)](storage-blob-change-feed.md)
+- [Włączanie obsługi wersji obiektów blob i zarządzanie nimi](versioning-enable.md)

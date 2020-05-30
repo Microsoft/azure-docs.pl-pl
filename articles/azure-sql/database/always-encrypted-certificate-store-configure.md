@@ -12,17 +12,18 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: 0287e5a965710ea5c3b1ada73fc32dda49c05819
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 8b1b8297f285a5481909e2e2d91118e15d7d5095
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84047706"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84190388"
 ---
-# <a name="configure-always-encrypted-using-windows-certificate-store"></a>Konfigurowanie Always Encrypted przy użyciu magazynu certyfikatów systemu Windows
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb-sqlmi.md)]
+# <a name="configure-always-encrypted-by-using-the-windows-certificate-store"></a>Konfigurowanie Always Encrypted przy użyciu magazynu certyfikatów systemu Windows
 
-W tym samouczku przedstawiono sposób zabezpieczania poufnych danych w bazie danych programu Azure SQL Database lub wystąpienia zarządzanego usługi Azure SQL z szyfrowaniem bazy danych za pomocą [kreatora Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-wizard) w [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). Przedstawiono w nim również sposób przechowywania kluczy szyfrowania w magazynie certyfikatów systemu Windows.
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+
+W tym artykule opisano sposób zabezpieczania poufnych danych w Azure SQL Database lub wystąpieniu zarządzanym usługi Azure SQL z szyfrowaniem bazy danych za pomocą [kreatora Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-wizard) w [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/hh213248.aspx). Przedstawiono w nim również sposób przechowywania kluczy szyfrowania w magazynie certyfikatów systemu Windows.
 
 Always Encrypted to technologia szyfrowania danych, która pomaga chronić poufne dane przechowywane na serwerze podczas przenoszenia między klientem i serwerem, a gdy dane są używane, zapewniając, że poufne dane nigdy nie pojawiają się jako zwykły tekst w systemie bazy danych. Po zaszyfrowaniu danych tylko aplikacje klienckie lub serwery aplikacji, które mają dostęp do kluczy, mogą uzyskiwać dostęp do danych w postaci zwykłego tekstu. Aby uzyskać szczegółowe informacje, zobacz [Always Encrypted (aparat bazy danych)](https://msdn.microsoft.com/library/mt163865.aspx).
 
@@ -56,7 +57,7 @@ Aby uzyskać *Identyfikator aplikacji* i *klucz*, wykonaj kroki opisane w temaci
 
 ## <a name="connect-with-ssms"></a>Nawiązywanie połączenia z programem SSMS
 
-Otwórz SQL Server Managed Studio (SSMS) i Połącz się z serwerem lub z bazą danych.
+Otwórz program SQL Server Management Studio (SSMS) i Połącz się z serwerem lub z bazą danych.
 
 1. Otwórz program SSMS. (Kliknij przycisk **Połącz**  >  **Aparat bazy danych** , aby otworzyć okno **łączenie z serwerem** , jeśli nie jest otwarty.
 2. Wprowadź nazwę serwera i poświadczenia.

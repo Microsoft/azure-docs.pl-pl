@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b0b811a2b7ed432b7fc5015886b28337ca33424e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 281a6b713c5480c6bd25539eeacc304670352667
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76710312"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194363"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Identyfikowanie scenariuszy i planowanie zaawansowanego przetwarzania danych analizy
 
@@ -75,7 +75,7 @@ Należy rozważyć użycie Azure Data Factory (ADF), gdy dane wymagają ciągłe
 * scenariusz hybrydowy, który obejmuje zasoby lokalne i w chmurze
 * scenariusz, w którym dane są transakcyjne, modyfikowane lub zmieniane przez logikę biznesową w trakcie migrowania
 
-Aby uzyskać więcej informacji, zobacz [przenoszenie danych z lokalnego programu SQL Server do platformy SQL Azure za pomocą Azure Data Factory](move-sql-azure-adf.md).
+Aby uzyskać więcej informacji, zobacz [przenoszenie danych z bazy danych SQL Server do platformy SQL Azure z Azure Data Factory](move-sql-azure-adf.md).
 
 ### <a name="how-much-of-the-data-is-to-be-moved-to-azure"></a>Jaka część danych ma zostać przeniesiona na platformę Azure?
 
@@ -90,7 +90,7 @@ Te pytania są kluczowe do planowania środowiska magazynu i przetwarzania. Pomo
 * Porządkow
 * Podzielone na kategorie
 * Ciągi
-* plików binarnych
+* Binarne
 
 ### <a name="how-is-your-data-formatted"></a>Jak są sformatowane dane?
 

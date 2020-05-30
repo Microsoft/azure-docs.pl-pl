@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2020
-ms.openlocfilehash: 6df1903e828c0c4cafa6589d4a85f4016bed893e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 13e41f6346f2ce32ed65aefb7d50680d1302ca26
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414139"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84193708"
 ---
 # <a name="troubleshoot-copy-activity-performance"></a>Rozwiązywanie problemów z wydajnością działania kopiowania
 
@@ -46,7 +46,7 @@ Obecnie wskazówki dotyczące dostrajania wydajności udostępniają sugestie do
 | &nbsp;                | Jeśli używasz **Azure Integration Runtime** , który znajduje się w nieoptymalnym regionie, co powoduje powolne odczyt/zapis, Sugeruj konfigurację, aby używać środowiska IR w innym regionie. |
 | Odporność na uszkodzenia       | W przypadku skonfigurowania odporności na uszkodzenia i pomijania niezgodnych wierszy wyniki są powolne, Sugeruj, że dane źródłowe i ujścia są zgodne. |
 | Kopia przygotowana           | Jeśli kopia przygotowana jest skonfigurowana, ale nie jest pomocna dla pary Source-sink, Sugeruj jej usunięcie. |
-| Resume                | Gdy działanie kopiowania jest wznawiane od ostatniego punktu awarii, ale zmiana ustawienia DIU po zakończeniu oryginalnego przebiegu jest konieczna, należy pamiętać, że nowe ustawienie DIU nie zacznie obowiązywać. |
+| Wznawianie                | Gdy działanie kopiowania jest wznawiane od ostatniego punktu awarii, ale zmiana ustawienia DIU po zakończeniu oryginalnego przebiegu jest konieczna, należy pamiętać, że nowe ustawienie DIU nie zacznie obowiązywać. |
 
 ## <a name="understand-copy-activity-execution-details"></a>Informacje o wykonywaniu działania kopiowania
 
@@ -70,7 +70,7 @@ Gdy wydajność działania kopiowania nie spełnia oczekiwań, aby rozwiązywać
 
 - **"Źródło listy transferu" ma długi czas pracy**: oznacza to, że wyliczane pliki źródłowe lub źródłowe partycje danych bazy danych są wolne.
 
-  - W przypadku kopiowania danych z źródła plików, jeśli używasz **filtru symboli wieloznacznych** dla ścieżki folderu lub nazwy pliku`wildcardFolderPath` ( `wildcardFileName`lub) lub Użyj **filtru czasu ostatniej modyfikacji pliku** (`modifiedDatetimeStart` lub`modifiedDatetimeEnd`), zwróć uwagę na to, że ten filtr spowoduje wyświetlenie wszystkich plików w określonym folderze po stronie klienta, a następnie Zastosuj filtr. Takie Wyliczenie plików może stać się wąskim gardłem, szczególnie w przypadku spełnienia przez regułę filtru tylko małego zestawu plików.
+  - W przypadku kopiowania danych z źródła plików, jeśli używasz **filtru symboli wieloznacznych** dla ścieżki folderu lub nazwy pliku ( `wildcardFolderPath` lub `wildcardFileName` ) lub Użyj **filtru czasu ostatniej modyfikacji pliku** ( `modifiedDatetimeStart` lub `modifiedDatetimeEnd` ), zwróć uwagę na to, że ten filtr spowoduje wyświetlenie wszystkich plików w określonym folderze po stronie klienta, a następnie Zastosuj filtr. Takie Wyliczenie plików może stać się wąskim gardłem, szczególnie w przypadku spełnienia przez regułę filtru tylko małego zestawu plików.
 
     - Sprawdź, czy można [kopiować pliki na podstawie ścieżki lub nazwy pliku podzielonego na partycje DateTime](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). Taki sposób nie powoduje obciążenia po stronie źródłowej.
 
@@ -124,7 +124,7 @@ Gdy wydajność kopiowania nie spełnia oczekiwań, aby rozwiązywać problemy z
 
   - Sprawdź, czy własna maszyna IR ma małe opóźnienia łączące się z magazynem danych źródłowych. Jeśli Twoje źródło znajduje się na platformie Azure, możesz użyć [tego narzędzia](http://www.azurespeed.com/Azure/Latency) , aby sprawdzić opóźnienia z samodzielnej maszyny podczerwieni z regionem świadczenia usługi Azure, im mniej lepiej.
 
-  - W przypadku kopiowania danych z źródła plików, jeśli używasz **filtru symboli wieloznacznych** dla ścieżki folderu lub nazwy pliku`wildcardFolderPath` ( `wildcardFileName`lub) lub Użyj **filtru czasu ostatniej modyfikacji pliku** (`modifiedDatetimeStart` lub`modifiedDatetimeEnd`), zwróć uwagę na to, że ten filtr spowoduje wyświetlenie wszystkich plików w określonym folderze po stronie klienta, a następnie Zastosuj filtr. Takie Wyliczenie plików może stać się wąskim gardłem, szczególnie w przypadku spełnienia przez regułę filtru tylko małego zestawu plików.
+  - W przypadku kopiowania danych z źródła plików, jeśli używasz **filtru symboli wieloznacznych** dla ścieżki folderu lub nazwy pliku ( `wildcardFolderPath` lub `wildcardFileName` ) lub Użyj **filtru czasu ostatniej modyfikacji pliku** ( `modifiedDatetimeStart` lub `modifiedDatetimeEnd` ), zwróć uwagę na to, że ten filtr spowoduje wyświetlenie wszystkich plików w określonym folderze po stronie klienta, a następnie Zastosuj filtr. Takie Wyliczenie plików może stać się wąskim gardłem, szczególnie w przypadku spełnienia przez regułę filtru tylko małego zestawu plików.
 
     - Sprawdź, czy można [kopiować pliki na podstawie ścieżki lub nazwy pliku podzielonego na partycje DateTime](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md). Taki sposób nie powoduje obciążenia po stronie źródłowej.
 
@@ -181,13 +181,13 @@ Poniżej przedstawiono informacje dotyczące monitorowania wydajności i dostraj
 * Azure SQL Database: można [monitorować wydajność](../sql-database/sql-database-single-database-monitor.md) i sprawdzać wartość procentową jednostki transakcji bazy danych (DTU).
 * Azure SQL Data Warehouse: jej możliwości są mierzone w jednostkach magazynu danych (jednostek dwu). Zobacz [zarządzanie mocą obliczeniową w Azure SQL Data Warehouse (omówienie)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 * Azure Cosmos DB: [poziomy wydajności w Azure Cosmos DB](../cosmos-db/performance-levels.md).
-* SQL Server lokalnego: [monitorowanie i dostrajanie wydajności](https://msdn.microsoft.com/library/ms189081.aspx).
+* SQL Server: [monitorowanie i dostrajanie wydajności](https://msdn.microsoft.com/library/ms189081.aspx).
 * Lokalny serwer plików: [dostrajanie wydajności dla serwerów plików](https://msdn.microsoft.com/library/dn567661.aspx).
 
 ## <a name="next-steps"></a>Następne kroki
 Zapoznaj się z innymi artykułami dotyczącymi działania kopiowania:
 
-- [Przegląd działania kopiowania](copy-activity-overview.md)
+- [Omówienie działania kopiowania](copy-activity-overview.md)
 - [Przewodnik dotyczący wydajności i skalowalności działania kopiowania](copy-activity-performance.md)
 - [Funkcje optymalizacji wydajności działania kopiowania](copy-activity-performance-features.md)
 - [Używanie Azure Data Factory do migrowania danych z usługi Data Lake lub magazynu danych na platformę Azure](data-migration-guidance-overview.md)

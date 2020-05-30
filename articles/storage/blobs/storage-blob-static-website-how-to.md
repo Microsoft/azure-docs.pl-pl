@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.openlocfilehash: 020c25dfb17f733359e596100cfd24cfa3f68036
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a7dfc58258c8c7c6e8bbf7567d743abf90d3a7e5
+ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648564"
+ms.lasthandoff: 05/29/2020
+ms.locfileid: "84194894"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hostowanie statycznej witryny sieci Web w usłudze Azure Storage
 
@@ -42,13 +42,13 @@ Hostowanie statycznej witryny sieci Web to funkcja, którą należy włączyć n
 
    Gdy użytkownik spróbuje przejść do strony, która nie istnieje w statycznej witrynie internetowej, wyświetlona zostanie domyślna strona błędu.
 
-7. Kliknij przycisk **Zapisz**. W witrynie Azure Portal jest teraz wyświetlany punkt końcowy statycznej witryny internetowej. 
+7. Kliknij pozycję **Zapisz**. W witrynie Azure Portal jest teraz wyświetlany punkt końcowy statycznej witryny internetowej. 
 
     ![Włączanie hostowania statycznej witryny internetowej na koncie magazynu](media/storage-blob-static-website-host/enable-static-website-hosting.png)
 
 ### <a name="azure-cli"></a>[Interfejs wiersza polecenia platformy Azure](#tab/azure-cli)
 
-<a id="cli" />
+<a id="cli"></a>
 
 Można włączyć obsługę statycznej witryny sieci Web przy użyciu [interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
@@ -76,7 +76,7 @@ Można włączyć obsługę statycznej witryny sieci Web przy użyciu [interfejs
 
 ### <a name="powershell"></a>[Program PowerShell](#tab/azure-powershell)
 
-<a id="powershell" />
+<a id="powershell"></a>
 
 Można włączyć hosting statycznej witryny sieci Web przy użyciu modułu Azure PowerShell.
 
@@ -195,7 +195,7 @@ set-AzStorageblobcontent -File "<path-to-file>" `
 
 ---
 
-<a id="portal-find-url" />
+<a id="portal-find-url"></a>
 
 ## <a name="find-the-website-url"></a>Znajdź adres URL witryny sieci Web
 
@@ -234,7 +234,7 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 
 ---
 
-<a id="metrics" />
+<a id="metrics"></a>
 
 ## <a name="enable-metrics-on-static-website-pages"></a>Włącz metryki na stronach statycznej witryny internetowej
 
