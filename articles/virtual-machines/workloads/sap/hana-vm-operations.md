@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7c4f3ec2727d06528eab788a2a24a6190fe26533
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0ede0f5d74ceb5ce79cdfc095b3ffeccd96a1b3b
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81606140"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84230136"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Konfiguracje infrastruktury SAP HANA i operacje na platformie Azure
 Ten dokument zawiera wskazówki dotyczące konfigurowania infrastruktury platformy Azure i systemów SAP HANA operacyjnych wdrożonych na natywnych maszynach wirtualnych platformy Azure. Dokument zawiera również informacje o konfiguracji SAP HANA skalowania w poziomie dla jednostki SKU maszyny wirtualnej M128s. Ten dokument nie jest przeznaczony do zastępowania standardowej dokumentacji SAP, która obejmuje następującą zawartość:
@@ -34,7 +34,7 @@ Aby skorzystać z tego przewodnika, potrzebna jest podstawowa znajomość nastę
 
 - [Maszyny wirtualne platformy Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 - [Sieć wirtualna i sieci wirtualne platformy Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
-- [Usługa Azure Storage](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
+- [Azure Storage](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
 
 Aby dowiedzieć się więcej na temat oprogramowania SAP NetWeaver i innych składników SAP na platformie Azure, zapoznaj się z sekcją [SAP w systemie Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) w [dokumentacji platformy Azure](https://docs.microsoft.com/azure/).
 
@@ -104,7 +104,7 @@ Artykuły [wirtualnego centrum danych platformy Azure: perspektywa sieci](https:
 >Ruch przesyłany między centralną siecią wirtualną a siecią wirtualną szprych przy użyciu [sieci równorzędnej Azure VNET](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) jest przedmiotem dodatkowych [kosztów](https://azure.microsoft.com/pricing/details/virtual-network/). Na podstawie tych kosztów warto rozważyć nadanie kompromisów między działaniem ścisłego projektu sieci Hub i szprych i uruchomienie wielu [bram usługi Azure ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways) , które są połączone z usługą "szprychs" w celu obejścia wirtualnych sieci równorzędnych. Jednak bramy usługi Azure ExpressRoute wymagają również dodatkowych [kosztów](https://azure.microsoft.com/pricing/details/vpn-gateway/) . Mogą również wystąpić dodatkowe koszty dotyczące oprogramowania innej firmy używanego do rejestrowania, inspekcji i monitorowania ruchu sieciowego. Zależnie od kosztów wymiany danych za pośrednictwem komunikacji równorzędnej sieci wirtualnych po jednej stronie i kosztów utworzonych przez dodatkowe bramy usługi Azure ExpressRoute i dodatkowe licencje na oprogramowanie, możesz zdecydować o mikrosegmentacji w jednej sieci wirtualnej przy użyciu podsieci jako jednostki izolacji zamiast sieci wirtualnych.
 
 
-Aby zapoznać się z omówieniem różnych metod przypisywania adresów IP, zobacz [typy adresów IP i metody alokacji na platformie Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm). 
+Aby zapoznać się z omówieniem różnych metod przypisywania adresów IP, zobacz [typy adresów IP i metody alokacji na platformie Azure](../../../virtual-network/public-ip-addresses.md). 
 
 W przypadku maszyn wirtualnych z systemem SAP HANA należy pracować z przypisanymi statycznymi adresami IP. Przyczyną jest to, że niektóre atrybuty konfiguracji adresów IP odwołań HANA.
 

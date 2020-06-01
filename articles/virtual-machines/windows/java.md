@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: a99924983bf0e78bd8c8901e25819a363583169a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e6218906760baad0673b6599a278d50c6c73e1a0
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81870026"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84232969"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Tworzenie maszyn wirtualnych z systemem Windows i zarządzanie nimi na platformie Azure przy użyciu języka Java
 
@@ -45,7 +45,7 @@ Wykonanie tych kroków trwa około 20 minut.
 
 ## <a name="add-dependencies"></a>Dodaj zależności
 
-1. W `testAzureApp` folderze Otwórz `pom.xml` plik i Dodaj konfigurację kompilacji do &lt;projektu&gt; , aby umożliwić Kompilowanie aplikacji:
+1. W `testAzureApp` folderze Otwórz `pom.xml` plik i Dodaj konfigurację kompilacji do &lt; projektu, &gt; Aby umożliwić Kompilowanie aplikacji:
 
     ```xml
     <build>
@@ -127,7 +127,7 @@ Przed rozpoczęciem tego kroku upewnij się, że masz dostęp do jednostki [usł
     graphURL=https://graph.microsoft.com/
     ```
 
-    Zastąp ** &lt;identyfikator Subscription&gt; -ID** identyfikatorem subskrypcji, ** &lt;identyfikatorem&gt; aplikacji** z identyfikatorem aplikacji Active Directory, ** &lt;&gt; kluczem uwierzytelniania** i kluczem aplikacji oraz ** &lt;identyfikatorem&gt; dzierżawy** .
+    Zastąp ** &lt; Identyfikator Subscription &gt; -ID** identyfikatorem subskrypcji, ** &lt; identyfikatorem &gt; aplikacji** z identyfikatorem aplikacji Active Directory, ** &lt; &gt; kluczem uwierzytelniania** i kluczem aplikacji oraz ** &lt; identyfikatorem &gt; dzierżawy** .
 
 2. Zapisz plik.
 3. Ustaw zmienną środowiskową o nazwie AZURE_AUTH_LOCATION w powłoce z pełną ścieżką do pliku uwierzytelniania.
@@ -211,7 +211,7 @@ AvailabilitySet availabilitySet = azure.availabilitySets()
 ```
 ### <a name="create-the-public-ip-address"></a>Tworzenie publicznego adresu IP
 
-[Publiczny adres IP](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) jest wymagany do komunikowania się z maszyną wirtualną.
+[Publiczny adres IP](../../virtual-network/public-ip-addresses.md) jest wymagany do komunikowania się z maszyną wirtualną.
 
 Aby utworzyć publiczny adres IP dla maszyny wirtualnej, Dodaj ten kod do bloku try w metodzie Main:
 

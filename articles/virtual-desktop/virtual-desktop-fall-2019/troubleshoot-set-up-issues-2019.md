@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5825466c099a8c57477f2d9d0420da74ccb2e96d
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 195668886a0c1ba9f96939a7e5e3960a6932dee5
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82615398"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235889"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Tworzenie dzierżawy i puli hosta
 
@@ -28,13 +28,29 @@ Odwiedź [społeczność Tech. pulpitu wirtualnego systemu Windows](https://tech
 
 ## <a name="acquiring-the-windows-10-enterprise-multi-session-image"></a>Uzyskiwanie obrazu wielosesyjnego dla systemu Windows 10 Enterprise
 
-Aby użyć obrazu wielosesyjnego dla systemu Windows 10 Enterprise, przejdź do witryny Azure Marketplace, wybierz pozycję **wprowadzenie** > **Microsoft Windows 10** > i [Windows 10 Enterprise dla pulpitów wirtualnych w wersji 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
+Aby użyć obrazu wielosesyjnego dla systemu Windows 10 Enterprise, przejdź do witryny Azure Marketplace, wybierz pozycję **wprowadzenie**  >  **Microsoft Windows 10** > i [Windows 10 Enterprise dla pulpitów wirtualnych w wersji 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
 
 ![Zrzut ekranu przedstawiający wybór systemu Windows 10 Enterprise dla pulpitów wirtualnych, wersja 1809.](../media/AzureMarketPlace.png)
 
 ## <a name="creating-windows-virtual-desktop-tenant"></a>Tworzenie dzierżawy pulpitu wirtualnego systemu Windows
 
 W tej sekcji omówiono potencjalne problemy podczas tworzenia dzierżawy pulpitu wirtualnego systemu Windows.
+
+### <a name="error-aadsts650052-the-app-needs-access-to-a-service"></a>Błąd: AADSTS650052 aplikacja musi mieć dostęp do usługi.
+
+Przykład nieprzetworzonego błędu:
+
+```Error
+AADSTS650052 Message The app needs access to a service(\"{name}\") that your organization
+\"{organization}\" has not subscribed to or enabled. Contact your IT Admin to review the 
+configuration of your service subscriptions.650052 Message The app needs access to a service
+(\"{name}\") that your organization \"{organization}\" has not subscribed to or enabled. 
+Contact your IT Admin to review the configuration of your service subscriptions.
+```
+
+**Przyczyna:** Nie udzielono zgody na pulpit wirtualny systemu Windows w wystąpieniu usługi Azure Active Directory.
+
+**Poprawka:** [postępuj zgodnie z tym przewodnikiem](https://docs.microsoft.com/azure/virtual-desktop/virtual-desktop-fall-2019/tenant-setup-azure-active-directory#grant-permissions-to-windows-virtual-desktop) , aby udzielić zgody.
 
 ### <a name="error-the-user-isnt-authorized-to-query-the-management-service"></a>Błąd: użytkownik nie ma uprawnień do wysyłania zapytań do usługi zarządzania
 
@@ -122,7 +138,7 @@ Postępuj zgodnie z poniższymi instrukcjami, aby rozwiązywać problemy z niepo
 3. Po zidentyfikowaniu tego błędu Użyj komunikatu o błędzie i zasobów w [rozwiązywaniu typowych błędów wdrażania platformy Azure z Azure Resource Manager](../../azure-resource-manager/resource-manager-common-deployment-errors.md) , aby rozwiązać problem.
 4. Usuń wszystkie zasoby utworzone w poprzednim wdrożeniu i ponów próbę wdrożenia szablonu.
 
-### <a name="error-your-deployment-failedhostnamejoindomain"></a>Błąd: wdrożenie nie powiodło się..\<.. nazwa hosta>/JoinDomain
+### <a name="error-your-deployment-failedhostnamejoindomain"></a>Błąd: wdrożenie nie powiodło się.... \<hostname> /JoinDomain
 
 ![Zrzut ekranu wdrożenia nie powiódł się.](../media/e72df4d5c05d390620e07f0d7328d50f.png)
 

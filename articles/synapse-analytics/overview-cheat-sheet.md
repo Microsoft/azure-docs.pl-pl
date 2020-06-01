@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: c49e5f421f88b4d2676204ff0a32a0aa2b808be1
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 660e77e130d5546d29730680c5863e25c052e5d2
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652661"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234847"
 ---
 # <a name="azure-synapse-analytics-cheat-sheet"></a>Arkusz Ściągawka usługi Azure Synapse Analytics
 
@@ -27,14 +27,14 @@ Arkusz usługi Azure Synapse Analytics Ściągawka przeprowadzi Cię przez podst
 > [!div class="mx-imgBorder"]
 >![Architektura Synapse](media/overview-cheat-sheet/azure-synapse-architecture-cheat-sheet.png)
 
-## <a name="concepts"></a>Pojęcia
-| Rzeczowniki i czasowniki                         | Wyniki działania       |
+## <a name="terminology"></a>Terminologia
+| Termin                         | Definicja      |
 |:---                                 |:---                 |
 | **Obszar roboczy Synapse (wersja zapoznawcza)** | Jest to zabezpieczana granica współpracy na potrzeby przeprowadzania analiz przedsiębiorstw opartych na chmurze na platformie Azure. Obszar roboczy jest wdrażany w określonym regionie i ma skojarzone konto ADLS Gen2 i system plików (do przechowywania danych tymczasowych). Obszar roboczy znajduje się w grupie zasobów. |
 | **Synapse SQL**   | Uruchom analizę z pulami lub z możliwościami na żądanie.  |
 | **Pula SQL**   | w obszarze roboczym można wdrożyć zasoby od 0 do N z przydziałem SQL z odpowiednimi bazami danych. Każda pula SQL ma skojarzoną bazę danych. Pulę SQL można skalować, wstrzymywać i wznawiać ręcznie lub automatycznie. Pula SQL może być skalowana z 100 jednostek dwu do 30 000 jednostek dwu.       |
 | **SQL na żądanie (wersja zapoznawcza)**   | System rozproszonego przetwarzania danych zbudowany na potrzeby danych na dużą skalę, który umożliwia uruchamianie zapytań T-SQL za pośrednictwem danych w usłudze Data Lake. Nie trzeba zarządzać infrastrukturą.       |
-|**Apache Spark** | Czas wykonywania platformy Spark używany w puli platformy Spark. Bieżącą obsługiwaną wersją jest platforma Spark 2,4 z 3.6.1 języka Python, Scala 2.11.12, obsługą platformy .NET dla Apache Spark 0,5 i delty Lake 0,3.  | 
+|**Apache Spark Synapse** | Czas wykonywania platformy Spark używany w puli platformy Spark. Bieżącą obsługiwaną wersją jest platforma Spark 2,4 z 3.6.1 języka Python, Scala 2.11.12, obsługą platformy .NET dla Apache Spark 0,5 i delty Lake 0,3.  | 
 | **Pula Apache Spark (wersja zapoznawcza)**  | w obszarze roboczym można wdrożyć zasoby z obsługą od 0 do N platformy Spark z odpowiednimi bazami danych. Pulę platformy Spark można automatycznie wstrzymać, wznowić i skalować.  |
 | **Aplikacja platformy Spark**  |   Składa się z procesu sterownika i zestawu procesów wykonujących. Aplikacja platformy Spark działa w puli platformy Spark.            |
 | **Sesja platformy Spark**  |   Zunifikowany punkt wejścia aplikacji Spark. Zapewnia sposób współpracy z różnymi funkcjami platformy Spark i z mniejszą liczbą konstrukcji. Aby uruchomić Notes, należy utworzyć sesję. Sesję można skonfigurować do uruchamiania na określonej liczbie wykonawców o określonym rozmiarze. Domyślną konfiguracją sesji notesu jest uruchamianie na 2 wykonawczych o średnim rozmiarze. |

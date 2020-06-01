@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de89b7f5a4b14bd4142ea3e9b9c8c0dceabd63dd
-ms.sourcegitcommit: 31236e3de7f1933be246d1bfeb9a517644eacd61
+ms.openlocfilehash: 7fc447b97b35cefbe2ab8d44db6f9f6279c8533e
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82779964"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84236215"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Role administratorów według zadania administratora w Azure Active Directory
 
@@ -153,7 +153,7 @@ Dodawanie witryn usługi SharePoint Online do wykazu | Administrator globalny
 Zadanie | Najmniejsza rola uprzywilejowana | Dodatkowe role
 ---- | --------------------- | ----------------
 Przypisywanie licencji | Administrator użytkowników | 
-Tworzenie grupy: | Administrator użytkowników | 
+Tworzenie grupy: | Administrator grup | Administrator użytkowników
 Tworzenie, aktualizowanie i usuwanie przeglądu dostępu do grupy lub aplikacji | Administrator użytkowników | 
 Zarządzanie wygaśnięciem grupy | Administrator użytkowników | 
 Zarządzenie ustawieniami grup | Administrator grup | Administrator użytkowników | 
@@ -164,6 +164,7 @@ Odwołaj licencję | Administrator licencji | Administrator użytkowników
 Aktualizowanie członkostwa w grupie | Właściciel grupy ([Zobacz dokumentację](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrator użytkowników
 Aktualizowanie właścicieli grup | Właściciel grupy ([Zobacz dokumentację](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrator użytkowników
 Aktualizuj właściwości grupy | Właściciel grupy ([Zobacz dokumentację](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Administrator użytkowników
+Usuwanie grupy | Administrator grup | Administrator użytkowników
 
 ## <a name="identity-protection"></a>Identity Protection
 

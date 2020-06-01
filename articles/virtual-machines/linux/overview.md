@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9921db093cc111917d50acfccc10165c0eab6b0f
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 98a118ef662abd323854911e9fc1ffc6b7374db2
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930747"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84232995"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Maszyny wirtualne z systemem Linux na platformie Azure
 
@@ -108,7 +108,7 @@ Platforma Azure obsługuje funkcję [Cloud-init](https://cloud-init.io/) w więk
 
 ## <a name="networking"></a>Networking
 * [Omówienie usługi Virtual Network](../../virtual-network/virtual-networks-overview.md)
-* [Adresy IP na platformie Azure](../../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+* [Adresy IP na platformie Azure](../../virtual-network/public-ip-addresses.md)
 * [Otwieranie portów dla maszyny wirtualnej systemu Linux na platformie Azure](nsg-quickstart.md)
 * [Tworzenie w pełni kwalifikowanej nazwy domeny w witrynie Azure Portal](portal-create-fqdn.md)
 
@@ -119,5 +119,5 @@ Utwórz pierwszą maszynę wirtualną.
 
 - [Portal](quick-create-portal.md)
 - [Interfejs wiersza polecenia platformy Azure](quick-create-cli.md)
-- [PowerShell](quick-create-powershell.md)
+- [Program PowerShell](quick-create-powershell.md)
 

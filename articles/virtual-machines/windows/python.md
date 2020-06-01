@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: cynthn
-ms.openlocfilehash: b2172d44b4136b51c0ea459868ebd5b0572bb004
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 81b8f83115a8bcb953fc4445899f7ea9afc1007c
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82098072"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233354"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Tworzenie maszyn wirtualnych z systemem Windows i zarządzanie nimi na platformie Azure przy użyciu języka Python
 
@@ -32,8 +32,8 @@ Wykonanie tych kroków trwa około 20 minut.
 ## <a name="create-a-visual-studio-project"></a>Tworzenie projektu programu Visual Studio
 
 1. Jeśli jeszcze tego nie zrobiono, zainstaluj [program Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Wybierz pozycję Programowanie w języku **Python** na stronie obciążenia, a następnie kliknij przycisk **Zainstaluj**. Podsumowanie zawiera automatycznie wybrane dla Ciebie środowisko **Python 3 64-bit (3.6.0)** . Jeśli masz już zainstalowany program Visual Studio, możesz dodać obciążenie języka Python za pomocą programu Visual Studio.
-2. Po zainstalowaniu i uruchomieniu programu Visual Studio kliknij pozycję **plik** > **Nowy** > **projekt**.
-3. Kliknij kolejno pozycje **Szablony** > **Python** > **aplikacja**Python, wprowadź *myPythonProject* jako nazwę projektu, wybierz lokalizację projektu, a następnie kliknij przycisk **OK**.
+2. Po zainstalowaniu i uruchomieniu programu Visual Studio kliknij pozycję **plik**  >  **Nowy**  >  **projekt**.
+3. Kliknij kolejno pozycje **Szablony**  >  **Python**  >  **aplikacja**Python, wprowadź *myPythonProject* jako nazwę projektu, wybierz lokalizację projektu, a następnie kliknij przycisk **OK**.
 
 ## <a name="install-packages"></a>Zainstaluj pakiety
 
@@ -164,7 +164,7 @@ Wszystkie zasoby muszą być zawarte w [grupie zasobów](../../azure-resource-ma
     input('Availability set created. Press enter to continue...')
     ```
 
-[Publiczny adres IP](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) jest wymagany do komunikowania się z maszyną wirtualną.
+[Publiczny adres IP](../../virtual-network/public-ip-addresses.md) jest wymagany do komunikowania się z maszyną wirtualną.
 
 1. Aby utworzyć publiczny adres IP dla maszyny wirtualnej, Dodaj tę funkcję po zmiennych w pliku. PR:
 

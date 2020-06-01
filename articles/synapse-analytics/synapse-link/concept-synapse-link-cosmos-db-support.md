@@ -9,16 +9,16 @@ ms.subservice: ''
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2e0b1ee5584420ab38fda8897ef610794b09c29a
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 9c90bc9527bffff55d7478150cc1f31827bacc46
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83658843"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235282"
 ---
 # <a name="azure-synapse-link-preview-for-azure-cosmos-db-supported-features"></a>Link usługi Azure Synapse (wersja zapoznawcza) dla Azure Cosmos DB obsługiwanych funkcji
 
-W tym artykule opisano funkcje, które są obecnie obsługiwane w usłudze Azure Synapse link do Azure Cosmos DB. 
+W tym artykule opisano funkcje, które są obecnie obsługiwane w usłudze Azure Synapse link do Azure Cosmos DB.
 
 ## <a name="azure-synapse-support"></a>Pomoc techniczna platformy Azure Synapse
 
@@ -26,9 +26,12 @@ Istnieją dwa typy kontenerów w Azure Cosmos DB:
 * Kontener HTAP — kontener z włączonym linkiem Synapse. Ten kontener ma magazyn transakcyjny i magazyn analityczny. 
 * Kontener OLTP — kontener z tylko magazynem transakcji; Łącze Synapse nie jest włączone. 
 
+> [!IMPORTANT]
+> Link Synapse platformy Azure dla Azure Cosmos DB jest obecnie obsługiwany w przypadku obszarów roboczych, dla których nie włączono zarządzanej sieci wirtualnej. 
+
 Można nawiązać połączenie z kontenerem Azure Cosmos DB bez włączania linku Synapse, w takim przypadku można tylko odczyt/zapis w magazynie transakcyjnym. Poniżej znajduje się lista obecnie obsługiwanych funkcji w ramach linku Synapse dla Azure Cosmos DB. 
 
-| Kategoria              | Opis |[platforma Spark](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) | [Bezserwerowy SQL](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) |
+| Kategoria              | Opis |[Spark](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) | [Bezserwerowy SQL](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------- |
 | **Obsługa czasu wykonywania** |Obsługa odczytu lub zapisu przez usługę Azure Synapse w czasie wykonywania| ✓ | [Skontaktuj się z nami](mailto:AskSynapse@microsoft.com?subject=[Enable%20Preview%20Feature]%20SQL%20serverless%20for%20Cosmos%20DB)|
 | **Obsługa interfejsu API Azure Cosmos DB** |Obsługa interfejsu API jako linku Synapse| SQL/MongoDB | SQL/MongoDB |

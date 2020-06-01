@@ -4,21 +4,20 @@ titlesuffix: Azure Virtual Network
 description: Poznaj zalety wdrażania zasobów w sieci wirtualnej. Zasoby w sieciach wirtualnych mogą komunikować się ze sobą i zasobami lokalnymi bez ruchu przechodzącego przez Internet.
 services: virtual-network
 documentationcenter: na
-author: malopMSFT
+author: mohnader
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
-ms.author: malop
-ms.reviewer: kumud
-ms.openlocfilehash: 34207f39a71500ef8d3a08fa960cad23fa953eba
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 04/06/2020
+ms.author: kumud
+ms.openlocfilehash: b215e938bb4de7d6831e45997148a84b655611be
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195599"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84230991"
 ---
 # <a name="deploy-dedicated-azure-services-into-virtual-networks"></a>Wdrażanie dedykowanych usług platformy Azure w sieciach wirtualnych
 

@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 03/09/2020
-ms.openlocfilehash: a437cd1b3cb8018229cf6445e23314cf17bf10a2
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.date: 05/28/2020
+ms.openlocfilehash: 88d5c36829e2920e18a1be44ba43d7defe883d3e
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219857"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84231241"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database--sql-managed-instance"></a>Wybór między modelami zakupów rdzeń wirtualny i DTU — Azure SQL Database & wystąpienie zarządzane SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -82,15 +82,7 @@ Model zakupu oparty na rdzeń wirtualny umożliwia niezależne wybieranie zasob�
 
 Jeśli Azure SQL Database zużywa ponad 300 DTU, przekonwertowanie na model zakupu oparty na rdzeń wirtualny może obniżyć koszty. Możesz dokonać konwersji przy użyciu dowolnie wybranego interfejsu API lub korzystając z Azure Portal bez przestojów. Jednak konwersja nie jest wymagana i nie jest wykonywana automatycznie. Jeśli model zakupu oparty na jednostkach DTU spełnia Twoje wymagania dotyczące wydajności i działalności biznesowej, należy go nadal używać.
 
-Aby przekonwertować model zakupu oparty na jednostkach DTU na model zakupu oparty na rdzeń wirtualny, wybierz rozmiar obliczeń przy użyciu następujących reguł przycisku przewijania:
-
-- Co 100 DTU w warstwie Standardowa wymaga co najmniej 1 rdzeń wirtualny w warstwie usług Ogólnego przeznaczenia.
-- Co 125 DTU w warstwie Premium wymaga co najmniej 1 rdzeń wirtualny w warstwie usług Krytyczne dla działania firmy.
-
-> [!NOTE]
-> Wskazówki dotyczące ustalania wielkości jednostek DTU do rdzeń wirtualny są przybliżone i są udostępniane w celu uzyskania pomocy w początkowej ocenie docelowego celu usługi bazy danych. Optymalna konfiguracja docelowej bazy danych jest zależna od obciążenia.
->
-> Osiągnięcie optymalnego współczynnika cen/wydajności może wymagać wykorzystania elastyczności modelu rdzeń wirtualny w celu dostosowania liczby rdzeni wirtualnych, [generowania sprzętu](service-tiers-vcore.md#hardware-generations), [usługi](service-tiers-vcore.md#service-tiers) i warstw [obliczeniowych](service-tiers-vcore.md#compute-tiers) , a także dostrajania innych parametrów konfiguracji bazy danych, takich jak [Maksymalny stopień równoległości](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide#parallel-query-processing).
+Aby przeprowadzić konwersję z modelu zakupu opartego na jednostkach DTU do modelu zakupu opartego na rdzeń wirtualny, zobacz [Migrowanie z jednostek DTU do rdzeń wirtualny](migrate-dtu-to-vcore.md).
 
 ## <a name="dtu-based-purchasing-model"></a>Model zakupu oparty na jednostkach DTU
 

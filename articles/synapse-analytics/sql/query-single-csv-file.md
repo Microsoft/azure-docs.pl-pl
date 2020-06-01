@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 41c4a8940cc49a3859a2511f0de65d0019817078
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: f264a62428f919fe23797171926ddf63c585c42b
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836553"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234129"
 ---
 # <a name="query-csv-files"></a>Pliki CSV zapytania
 
@@ -44,7 +44,7 @@ SELECT *
 FROM OPENROWSET(
         BULK 'csv/population/population.csv',
         DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT = 'CSV',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '\n'
     )
@@ -72,7 +72,7 @@ SELECT *
 FROM OPENROWSET(
         BULK 'csv/population-unix/population.csv',
         DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT = 'CSV',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '0x0a'
     )
@@ -100,7 +100,7 @@ SELECT *
 FROM OPENROWSET(
         BULK 'csv/population-unix-hdr/population.csv',
         DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT = 'CSV',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         FIRSTROW = 2
     )
@@ -128,7 +128,7 @@ SELECT *
 FROM OPENROWSET(
         BULK 'csv/population-unix-hdr-quoted/population.csv',
         DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT = 'CSV',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '0x0a',
         FIRSTROW = 2,
@@ -161,7 +161,7 @@ SELECT *
 FROM OPENROWSET(
         BULK 'csv/population-unix-hdr-escape/population.csv',
         DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT = 'CSV',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '0x0a',
         FIRSTROW = 2,
@@ -174,7 +174,7 @@ FROM OPENROWSET(
         [population] bigint
     ) AS [r]
 WHERE
-    country_name = 'Slov,enia';
+    country_name = 'Slovenia';
 ```
 
 > [!NOTE]
@@ -193,7 +193,7 @@ SELECT *
 FROM OPENROWSET(
         BULK 'csv/population-unix-hdr-tsv/population.csv',
         DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT = 'CSV',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR ='\t',
         ROWTERMINATOR = '0x0a',
         FIRSTROW = 2
@@ -224,7 +224,7 @@ SELECT
 FROM OPENROWSET(
         BULK 'csv/population/population.csv',
         DATA_SOURCE = 'SqlOnDemandDemo',
-        FORMAT = 'CSV',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
         FIELDTERMINATOR =',',
         ROWTERMINATOR = '\n'
     )

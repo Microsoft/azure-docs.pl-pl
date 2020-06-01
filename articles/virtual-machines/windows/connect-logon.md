@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 92f7ba30e2a3c66218974ab65502c35139ab1f8c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 562b1f80397c730b5ea72fe2cd4f3dfdaea1e3f3
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82086219"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235540"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Jak nawiązać połączenie i zalogować się do maszyny wirtualnej platformy Azure z systemem Windows
 Korzystając z przycisku **Połącz** w witrynie Azure Portal, uruchomisz sesję pulpitu zdalnego z poziomu pulpitu systemu Windows. Najpierw Nawiąż połączenie z maszyną wirtualną, a następnie zaloguj się.
@@ -40,7 +40,7 @@ Aby nawiązać połączenie z maszyną wirtualną z systemem Windows z komputera
 
 
    > [!TIP]
-   > Jeśli przycisk **Połącz** w portalu jest wyszarzony i nie nawiązano połączenia z platformą Azure za pośrednictwem usługi [Express Route](../../expressroute/expressroute-introduction.md) lub [sieci VPN typu lokacja-lokacja](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) , przed użyciem protokołu RDP należy utworzyć i przypisać maszynę wirtualną jako publiczny adres IP. Aby uzyskać więcej informacji, zobacz [publiczne adresy IP na platformie Azure](../../virtual-network/virtual-network-ip-addresses-overview-arm.md).
+   > Jeśli przycisk **Połącz** w portalu jest wyszarzony i nie nawiązano połączenia z platformą Azure za pośrednictwem usługi [Express Route](../../expressroute/expressroute-introduction.md) lub [sieci VPN typu lokacja-lokacja](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) , przed użyciem protokołu RDP należy utworzyć i przypisać maszynę wirtualną jako publiczny adres IP. Aby uzyskać więcej informacji, zobacz [publiczne adresy IP na platformie Azure](../../virtual-network/public-ip-addresses.md).
    > 
    > 
 

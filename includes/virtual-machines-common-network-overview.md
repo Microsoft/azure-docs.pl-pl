@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/01/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 4559a49a64688545e519f6172798997c2d695672
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a665c3c27cca03a084896895ae51c56732ceb7b6
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81461885"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84237726"
 ---
 Utworzenie maszyny wirtualnej (VM) platformy Azure wymaga utworzenia [sieci wirtualnej](../articles/virtual-network/virtual-networks-overview.md) (VNet) lub użycia istniejącej sieci wirtualnej. Należy także określić sposób dostępu do maszyn wirtualnych w sieci wirtualnej. Ważne jest [zaplanowanie tworzenia zasobów](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) i dokładne zapoznanie się z [limitami zasobów sieciowych](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
@@ -51,7 +51,7 @@ Poniższa tabela zawiera listę metod, których można użyć do utworzenia inte
 
 ## <a name="ip-addresses"></a>Adresy IP 
 
-Platforma Azure umożliwia przypisanie do karty sieciowej następujących typów [adresów IP](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md):
+Platforma Azure umożliwia przypisanie do karty sieciowej następujących typów [adresów IP](../articles/virtual-network/public-ip-addresses.md):
 
 - **Publiczne adresy IP** — używane do komunikacji przychodzącej i wychodzącej (bez użycia translatora adresów sieciowych [NAT]) z Internetem i innymi zasobami platformy Azure niepołączonymi z siecią wirtualną. Przypisanie publicznego adresu IP do karty sieciowej jest opcjonalne. Publiczne adresy IP mają opłata nominalną, a maksymalna liczba, która może być używana dla każdej subskrypcji.
 - **Prywatne adresy IP** — używane do komunikacji w sieci wirtualnej i lokalnej oraz z Internetem (z użyciem translatora adresów sieciowych). Do maszyny wirtualnej należy przypisać co najmniej jeden prywatny adres IP. Aby dowiedzieć się więcej o użyciu translatora adresów sieciowych na platformie Azure, zapoznaj się z tematem [Informacje o połączeniach wychodzących na platformie Azure](../articles/load-balancer/load-balancer-outbound-connections.md).

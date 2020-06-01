@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 91435c2c5ca825793988e002c1ab9f6caacf2b17
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 81d02b32bc1eb6edf22845a4d02ba2ba02536855
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652547"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84236317"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>Używanie Azure Active Directory do uwierzytelniania za pomocą PostgreSQL
 
@@ -54,21 +54,19 @@ Obecnie przetestowano następujących klientów:
 
 Poniżej przedstawiono kroki, które należy wykonać, aby użytkownik/aplikacja wymagały uwierzytelniania za pomocą usługi Azure AD opisanej poniżej:
 
+### <a name="prerequisites"></a>Wymagania wstępne
+
+Możesz wykonać czynności opisane w Azure Cloud Shell, na maszynie wirtualnej platformy Azure lub na komputerze lokalnym. Upewnij się, że masz [zainstalowany interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+
 ### <a name="step-1-authenticate-with-azure-ad"></a>Krok 1. uwierzytelnianie przy użyciu usługi Azure AD
 
-Upewnij się, że masz [zainstalowany interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+Zacznij od uwierzytelnienia w usłudze Azure AD przy użyciu narzędzia interfejsu wiersza polecenia platformy Azure. Ten krok nie jest wymagany w Azure Cloud Shell.
 
-Wywołaj narzędzie interfejsu wiersza polecenia platformy Azure w celu uwierzytelnienia w usłudze Azure AD. Wymaga to podania identyfikatora użytkownika i hasła usługi Azure AD.
-
-```azurecli-interactive
+```
 az login
 ```
 
-To polecenie spowoduje uruchomienie okna przeglądarki na stronie uwierzytelniania usługi Azure AD.
-
-> [!NOTE]
-> Aby wykonać te kroki, można również użyć Azure Cloud Shell.
-> Należy pamiętać, że podczas pobierania tokenu dostępu usługi Azure AD w Azure Cloud Shell należy jawnie wywołać `az login` i zalogować się ponownie (w osobnym oknie z kodem). Po tym zalogowaniu `get-access-token` polecenie będzie działało zgodnie z oczekiwaniami.
+Polecenie spowoduje uruchomienie okna przeglądarki na stronie uwierzytelniania usługi Azure AD. Wymaga to podania identyfikatora użytkownika i hasła usługi Azure AD.
 
 ### <a name="step-2-retrieve-azure-ad-access-token"></a>Krok 2. Pobieranie tokenu dostępu usługi Azure AD
 

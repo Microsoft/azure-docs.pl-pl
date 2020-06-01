@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/22/2019
-ms.openlocfilehash: 8ef16f581a4b945d3a5e6ef58166eeed900f3bb3
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 9d607f0ad1ab9d9924cd05ce1a66bee34e4ff18d
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84140892"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84229864"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-mysql"></a>Używanie Azure Active Directory do uwierzytelniania za pomocą programu MySQL
 
@@ -57,21 +57,19 @@ Przetestowano również najpopularniejsze sterowniki aplikacji, na końcu tej st
 
 Poniżej przedstawiono kroki, które należy wykonać, aby użytkownik/aplikacja wymagały uwierzytelniania za pomocą usługi Azure AD opisanej poniżej:
 
+### <a name="prerequisites"></a>Wymagania wstępne
+
+Możesz wykonać czynności opisane w Azure Cloud Shell, na maszynie wirtualnej platformy Azure lub na komputerze lokalnym. Upewnij się, że masz [zainstalowany interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
+
 ### <a name="step-1-authenticate-with-azure-ad"></a>Krok 1. uwierzytelnianie przy użyciu usługi Azure AD
 
-Upewnij się, że masz [zainstalowany interfejs wiersza polecenia platformy Azure](/cli/azure/install-azure-cli).
-
-Wywołaj narzędzie interfejsu wiersza polecenia platformy Azure w celu uwierzytelnienia w usłudze Azure AD. Wymaga to podania identyfikatora użytkownika i hasła usługi Azure AD.
+Zacznij od uwierzytelnienia w usłudze Azure AD przy użyciu narzędzia interfejsu wiersza polecenia platformy Azure. Ten krok nie jest wymagany w Azure Cloud Shell.
 
 ```
 az login
 ```
 
-To polecenie spowoduje uruchomienie okna przeglądarki na stronie uwierzytelniania usługi Azure AD.
-
-> [!NOTE]
-> Aby wykonać te kroki, można również użyć Azure Cloud Shell.
-> Należy pamiętać, że podczas pobierania tokenu dostępu usługi Azure AD w Azure Cloud Shell należy jawnie wywołać `az login` i zalogować się ponownie (w osobnym oknie z kodem). Po tym zalogowaniu `get-access-token` polecenie będzie działało zgodnie z oczekiwaniami.
+Polecenie spowoduje uruchomienie okna przeglądarki na stronie uwierzytelniania usługi Azure AD. Wymaga to podania identyfikatora użytkownika i hasła usługi Azure AD.
 
 ### <a name="step-2-retrieve-azure-ad-access-token"></a>Krok 2. Pobieranie tokenu dostępu usługi Azure AD
 
@@ -79,19 +77,19 @@ Wywołaj narzędzie interfejsu wiersza polecenia platformy Azure, aby uzyskać t
 
 Przykład (dla chmury publicznej):
 
-```shell
+```azurecli-interactive
 az account get-access-token --resource https://ossrdbms-aad.database.windows.net
 ```
 
 Powyższa wartość zasobu musi być określona dokładnie tak, jak pokazano. W przypadku innych chmur wartość zasobu może być wyszukiwana przy użyciu:
 
-```shell
+```azurecli-interactive
 az cloud show
 ```
 
 W przypadku interfejsu wiersza polecenia platformy Azure w wersji 2.0.71 lub nowszej polecenie można określić w następującej bardziej wygodnej wersji dla wszystkich chmur:
 
-```shell
+```azurecli-interactive
 az account get-access-token --resource-type oss-rdbms
 ```
 

@@ -7,12 +7,12 @@ ms.workload: infrastructure
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 07c66b2955f3df1ffae1a0cb0c2b0888bdc790e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4fd7ccc7b6df85397fd547f8e1e48b776f12c0df
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82082887"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234515"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Tworzenie maszyn wirtualnych z systemem Windows i zarządzanie nimi na platformie Azure przy użyciu języka C # #
 
@@ -32,14 +32,14 @@ Wykonanie tych kroków trwa około 20 minut.
 ## <a name="create-a-visual-studio-project"></a>Tworzenie projektu programu Visual Studio
 
 1. Jeśli jeszcze tego nie zrobiono, zainstaluj [program Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Wybierz pozycję **Programowanie aplikacji klasycznych platformy .NET** na stronie obciążenia, a następnie kliknij przycisk **Zainstaluj**. W podsumowaniu można zobaczyć, że **.NET Framework narzędzia deweloperskie 4-4,6** są automatycznie wybierane. Jeśli masz już zainstalowany program Visual Studio, możesz dodać obciążenie .NET przy użyciu programu uruchamiania programu Visual Studio.
-2. W programie Visual Studio kliknij pozycję **plik** > **Nowy** > **projekt**.
-3. W obszarze **Szablony** > **Visual C#** wybierz pozycję **aplikacja konsoli (.NET Framework)**, wprowadź *myDotnetProject* jako nazwę projektu, wybierz lokalizację projektu, a następnie kliknij przycisk **OK**.
+2. W programie Visual Studio kliknij pozycję **plik**  >  **Nowy**  >  **projekt**.
+3. W obszarze **Szablony**  >  **Visual C#** wybierz pozycję **aplikacja konsoli (.NET Framework)**, wprowadź *myDotnetProject* jako nazwę projektu, wybierz lokalizację projektu, a następnie kliknij przycisk **OK**.
 
 ## <a name="install-the-package"></a>Zainstaluj pakiet
 
 Pakiety NuGet to najprostszy sposób instalacji bibliotek, które należy wykonać, aby zakończyć te kroki. Aby uzyskać biblioteki, które są potrzebne w programie Visual Studio, wykonaj następujące czynności:
 
-1. Kliknij kolejno pozycje **Narzędzia** > **Menedżer pakietów NuGet**, a następnie kliknij pozycję **konsola Menedżera pakietów**.
+1. Kliknij kolejno pozycje **Narzędzia**  >  **Menedżer pakietów NuGet**, a następnie kliknij pozycję **konsola Menedżera pakietów**.
 2. Wpisz następujące polecenie w konsoli programu:
 
     ```
@@ -52,7 +52,7 @@ Przed rozpoczęciem tego kroku upewnij się, że masz dostęp do jednostki [usł
 
 ### <a name="create-the-authorization-file"></a>Utwórz plik autoryzacji
 
-1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy pozycję *myDotnetProject* > **Dodaj** > **nowy element**, a następnie wybierz polecenie **plik tekstowy** w *elementach języka Visual C#*. Nazwij plik *azureauth. Properties*, a następnie kliknij przycisk **Dodaj**.
+1. W Eksplorator rozwiązań kliknij prawym przyciskiem myszy pozycję *myDotnetProject*  >  **Dodaj**  >  **nowy element**, a następnie wybierz polecenie **plik tekstowy** w *elementach języka Visual C#*. Nazwij plik *azureauth. Properties*, a następnie kliknij przycisk **Dodaj**.
 2. Dodaj następujące właściwości autoryzacji:
 
     ```
@@ -66,7 +66,7 @@ Przed rozpoczęciem tego kroku upewnij się, że masz dostęp do jednostki [usł
     graphURL=https://graph.microsoft.com/
     ```
 
-    Zastąp ** &lt;identyfikator Subscription&gt; -ID** identyfikatorem subskrypcji, ** &lt;identyfikatorem&gt; aplikacji** z identyfikatorem aplikacji Active Directory, ** &lt;&gt; kluczem uwierzytelniania** i kluczem aplikacji oraz ** &lt;identyfikatorem&gt; dzierżawy** .
+    Zastąp ** &lt; Identyfikator Subscription &gt; -ID** identyfikatorem subskrypcji, ** &lt; identyfikatorem &gt; aplikacji** z identyfikatorem aplikacji Active Directory, ** &lt; &gt; kluczem uwierzytelniania** i kluczem aplikacji oraz ** &lt; identyfikatorem &gt; dzierżawy** .
 
 3. Zapisz plik azureauth. Properties. 
 4. Ustaw zmienną środowiskową w systemie Windows o nazwie AZURE_AUTH_LOCATION z pełną ścieżką do pliku autoryzacji, który został utworzony. Na przykład można użyć następującego polecenia programu PowerShell:
@@ -136,7 +136,7 @@ var availabilitySet = azure.AvailabilitySets.Define("myAVSet")
 
 ### <a name="create-the-public-ip-address"></a>Tworzenie publicznego adresu IP
 
-[Publiczny adres IP](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) jest wymagany do komunikowania się z maszyną wirtualną.
+[Publiczny adres IP](../../virtual-network/public-ip-addresses.md) jest wymagany do komunikowania się z maszyną wirtualną.
 
 Aby utworzyć publiczny adres IP dla maszyny wirtualnej, Dodaj ten kod do metody Main:
    

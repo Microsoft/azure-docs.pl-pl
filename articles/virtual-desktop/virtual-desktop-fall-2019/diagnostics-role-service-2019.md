@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5d4fb87ae5edd4919923e66336760aadf23d1888
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: b1822f6a5bf0d3ac4217a43978dfcc739044e812
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657248"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235565"
 ---
 # <a name="identify-and-diagnose-issues"></a>Identyfikowanie i diagnozowanie problemów
 
@@ -161,7 +161,7 @@ W poniższej tabeli wymieniono typowe błędy, w których administratorzy mogą 
 
 |Kod liczbowy|Kod błędu|Sugerowane rozwiązanie|
 |---|---|---|
-|-2147467259|ConnectionFailedAdErrorNoSuchMember|Użytkownik nie jest członkiem Azure Active Directory. Postępuj zgodnie z instrukcjami w [Centrum administracyjne usługi Active Directory](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) , aby je dodać.|
+|-2147467259|ConnectionFailedAdErrorNoSuchMember|Użytkownik nie jest członkiem Active Directory. Postępuj zgodnie z instrukcjami w [Centrum administracyjne usługi Active Directory](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) , aby je dodać.|
 |-2147467259|ConnectionFailedAdTrustedRelationshipFailure|Host sesji nie został poprawnie przyłączony do Active Directory.|
 |-2146233088|ConnectionFailedUserHasValidSessionButRdshIsUnhealthy|Połączenia nie powiodły się, ponieważ Host sesji jest niedostępny. Sprawdź kondycję hosta sesji.|
 |-2146233088|ConnectionFailedClientDisconnect|Jeśli ten błąd występuje często, upewnij się, że komputer użytkownika jest połączony z siecią.|
@@ -172,6 +172,7 @@ W poniższej tabeli wymieniono typowe błędy, w których administratorzy mogą 
 |8|ConnectionBroken|Połączenie między klientem a bramą lub serwerem zostało usunięte. Nie trzeba wykonywać żadnych czynności, chyba że wystąpi nieoczekiwany.|
 |14|UnexpectedNetworkDisconnect|Połączenie z siecią zostało usunięte. Poproszenie użytkownika o ponowne nawiązanie połączenia.|
 |24|ReverseConnectFailed|Maszyna wirtualna hosta nie ma bezpośredniego wglądu w szczegółowe informacje z bramą usług pulpitu zdalnego. Upewnij się, że można rozpoznać adres IP bramy.|
+|1322|ConnectionFailedNoMappingOfSIDinAD|Użytkownik nie jest członkiem Active Directory. Postępuj zgodnie z instrukcjami w [Centrum administracyjne usługi Active Directory](/windows-server/identity/ad-ds/get-started/adac/active-directory-administrative-center) , aby je dodać.|
 
 ## <a name="next-steps"></a>Następne kroki
 

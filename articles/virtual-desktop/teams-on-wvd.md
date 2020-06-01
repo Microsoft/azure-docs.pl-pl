@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 65f0cf66dc6cef33e98258106e5f1573efdf39e5
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: 90432d3aa0ce9ebdecc7d0314b1352e46db0ac47
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84203868"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234566"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Korzystanie z programu Microsoft Teams na pulpicie wirtualnym systemu Windows
 
@@ -94,7 +94,7 @@ Po zainstalowaniu usługi WebSocket i aplikacji Team Desktop wykonaj następują
 
 3. Wybierz obraz profilu użytkownika, a następnie wybierz pozycję **Ustawienia**.
 
-      W przypadku załadowania optymalizacji multimediów urządzenia audio i aparaty dostępne lokalnie zostaną wyliczone w menu urządzenie. Jeśli menu pokazuje **zdalny dźwięk**, zamknij aplikację Teams i spróbuj ponownie. Jeśli urządzenia nadal nie są wyświetlane w menu, sprawdź, czy zostały wykonane wszystkie powyższe kroki instalacji.
+      W przypadku załadowania optymalizacji multimediów urządzenia audio i aparaty dostępne lokalnie zostaną wyliczone w menu urządzenie. Jeśli menu pokazuje **zdalny dźwięk**, zamknij aplikację Teams i spróbuj ponownie. Jeśli urządzenia nadal nie są wyświetlane w menu, Wróć do pozycji [Zainstaluj program Microsoft Teams](#install-microsoft-teams) i upewnij się, że ukończono proces instalacji.
 
 ## <a name="known-issues-and-limitations"></a>Znane problemy i ograniczenia
 
@@ -140,10 +140,8 @@ Dostosowanie właściwości Remote Desktop Protocol puli hostów (RDP), takich j
 
 Ustaw następujące właściwości protokołu RDP, aby włączyć przekierowywanie mikrofonu i aparatu:
 
-|Właściwości RDP   | Opis |
-|-----------------|-------------|
-|audiocapturemode: i: 1  | Włącz przechwytywanie audio z urządzenia lokalnego i przekierowania do aplikacji audio w sesji zdalnej |
-|audiomode: i: 0         | Odtwórz dźwięk na komputerze lokalnym |
-|camerastoredirect: s: * | Przekieruj wszystkie kamery |
+- `audiocapturemode:i:1`Włącza przechwytywanie audio z urządzenia lokalnego i redirets aplikacje audio w sesji zdalnej.
+- `audiomode:i:0`odtwarza dźwięk na komputerze lokalnym.
+- `camerastoredirect:s:*`przekierowuje wszystkie kamery.
 
 Aby dowiedzieć się więcej, zapoznaj się z tematem [dostosowywanie Remote Desktop Protocol właściwości dla puli hostów](customize-rdp-properties.md).

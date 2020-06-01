@@ -8,12 +8,12 @@ ms.reviewer: jrasnick, carlrab
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: c2e1dbba61399ee3a4435f4f287b47f4bfd6f872
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: f00df1bc204e4d271f1c903ec50759cba3c56774
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774443"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235887"
 ---
 # <a name="build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Tworzenie aplikacji Machine Learning za pomocą Apache Spark MLlib i analizy Synapse Azure
 
@@ -70,48 +70,32 @@ W poniższych krokach opracowujesz model do przewidywania, czy konkretny rejs za
 
 Ponieważ dane pierwotne są w formacie Parquet, można użyć kontekstu Spark, aby ściągnąć plik do pamięci jako element danych bezpośrednio. Chociaż Poniższy kod używa opcji domyślnych, możliwe jest wymuszenie mapowania typów danych i innych atrybutów schematu, jeśli jest to konieczne.
 
-1. Uruchom następujące wiersze, aby utworzyć ramkę danych Spark, wklejając kod w nowej komórce. Pierwsza sekcja przypisuje informacje o dostępie do usługi Azure Storage do zmiennych. Druga sekcja umożliwia platformie Spark odczytywanie danych z magazynu obiektów BLOB zdalnie. Ostatni wiersz kodu odczytuje Parquet, ale w tym momencie nie są ładowane żadne dane.
+1. Uruchom następujące wiersze, aby utworzyć ramkę danych Spark, wklejając kod w nowej komórce. Spowoduje to pobranie danych za pośrednictwem interfejsu API Open DataSets. Ściąganie wszystkich tych danych spowoduje wygenerowanie około 1 500 000 000 wierszy. W zależności od rozmiaru puli Spark (wersja zapoznawcza) dane pierwotne mogą być zbyt duże lub zbyt dużo czasu na wykonanie operacji. Dane można filtrować do mniejszej liczby. Użycie start_date i end_date stosuje filtr, który zwraca miesiąc danych.
 
     ```python
-    # Azure storage access info
-    blob_account_name = "azureopendatastorage"
-    blob_container_name = "nyctlc"
-    blob_relative_path = "yellow"
-    blob_sas_token = r""
+    from azureml.opendatasets import NycTlcYellow
 
-    # Allow SPARK to read from Blob remotely
-    wasbs_path = 'wasbs://%s@%s.blob.core.windows.net/%s' % (blob_container_name, blob_account_name, blob_relative_path)
-    spark.conf.set('fs.azure.sas.%s.%s.blob.core.windows.net' % (blob_container_name, blob_account_name),blob_sas_token)
-
-    # SPARK read parquet, note that it won't load any data yet by now
-    df = spark.read.parquet(wasbs_path)
+    end_date = parser.parse('2018-06-06')
+    start_date = parser.parse('2018-05-01')
+    nyc_tlc = NycTlcYellow(start_date=start_date, end_date=end_date)
+    filtered_df = nyc_tlc.to_spark_dataframe()
     ```
 
-2. Ściąganie wszystkich tych danych spowoduje wygenerowanie około 1 500 000 000 wierszy. W zależności od rozmiaru puli Spark (wersja zapoznawcza) dane pierwotne mogą być zbyt duże lub zbyt dużo czasu na wykonanie operacji. Dane można filtrować do mniejszej liczby. W razie potrzeby dodaj następujące wiersze, aby odfiltrować dane do około 2 000 000 wierszy w celu uzyskania większej liczby odpowiedzi. Użyj tych parametrów do ściągania jednego tygodnia danych.
-
-    ```python
-    # Create an ingestion filter
-    start_date = '2018-05-01 00:00:00'
-    end_date = '2018-05-08 00:00:00'
-
-    filtered_df = df.filter('tpepPickupDateTime > "' + start_date + '" and tpepPickupDateTime < "' + end_date + '"')
-    ```
-
-3. Minusem do prostego filtrowania polega na tym, że z perspektywy statystycznej, może wprowadzić bias do danych. Innym podejściem jest użycie próbkowania wbudowanego w platformę Spark. Poniższy kod zmniejsza zestaw danych w dół do około 2000 wierszy, jeśli są stosowane po powyższym kodzie. Ten krok próbkowania może być używany zamiast prostego filtru lub w połączeniu z prostym filtrem.
+2. Minusem do prostego filtrowania polega na tym, że z perspektywy statystycznej, może wprowadzić bias do danych. Innym podejściem jest użycie próbkowania wbudowanego w platformę Spark. Poniższy kod zmniejsza zestaw danych w dół do około 2000 wierszy, jeśli są stosowane po powyższym kodzie. Ten krok próbkowania może być używany zamiast prostego filtru lub w połączeniu z prostym filtrem.
 
     ```python
     # To make development easier, faster and less expensive down sample for now
     sampled_taxi_df = filtered_df.sample(True, 0.001, seed=1234)
     ```
 
-4. Teraz można przeglądać dane, aby zobaczyć, co zostało odczytane. Zwykle lepszym rozwiązaniem jest przejrzenie danych z podzestawem, a nie z pełnym zestawem, w zależności od rozmiaru zestawu danych. Poniższy kod oferuje dwa sposoby wyświetlania danych: była to podstawowa, a druga, zapewniająca znacznie bogatsze środowisko siatki, a także możliwość wizualizacji danych graficznie.
+3. Teraz można przeglądać dane, aby zobaczyć, co zostało odczytane. Zwykle lepszym rozwiązaniem jest przejrzenie danych z podzestawem, a nie z pełnym zestawem, w zależności od rozmiaru zestawu danych. Poniższy kod oferuje dwa sposoby wyświetlania danych: była to podstawowa, a druga, zapewniająca znacznie bogatsze środowisko siatki, a także możliwość wizualizacji danych graficznie.
 
     ```python
-    sampled_taxi_df.show(5)
-    display(sampled_taxi_df.show(5))
+    #sampled_taxi_df.show(5)
+    display(sampled_taxi_df)
     ```
 
-5. W zależności od rozmiaru wygenerowanego zestawu danych i konieczności eksperymentowania lub uruchamiania notesu wiele razy może być zalecane buforowanie zestawu danych lokalnie w obszarze roboczym. Istnieją trzy sposoby wykonywania jawnego buforowania:
+4. W zależności od rozmiaru wygenerowanego zestawu danych i konieczności eksperymentowania lub uruchamiania notesu wiele razy może być zalecane buforowanie zestawu danych lokalnie w obszarze roboczym. Istnieją trzy sposoby wykonywania jawnego buforowania:
 
    - Zapisz lokalnie ramkę danych jako plik
    - Zapisz ramkę danych jako tabelę tymczasową lub widok
@@ -293,7 +277,7 @@ plt.show()
 
 Po zakończeniu uruchamiania aplikacji Zamknij Notes, aby zwolnić zasoby, zamykając kartę lub wybierz pozycję **Zakończ sesję** w panelu stanu w dolnej części notesu.
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 
 - [Przegląd: Apache Spark w usłudze Azure Synapse Analytics](apache-spark-overview.md)
 

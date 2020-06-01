@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 9cb38037b905e9d7f938b648954bcb9e419be5af
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 57a8d308955719be0d84b87fb3a23c6f510c2836
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84217426"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234896"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Użyj ustawienia wstępnego kodowania obsługującego zawartość, aby znaleźć optymalną szybkość transmisji bitów dla danego rozwiązania
 
@@ -55,9 +55,10 @@ Poniżej znajdują się wyniki dla innej kategorii zawartości źródłowej, w k
 
 Można tworzyć przekształcenia, które używają tego ustawienia wstępnego w następujący sposób. 
 
-> [!TIP]
-> Zobacz sekcję [następne kroki](#next-steps) , aby zapoznać się z samouczkami, które korzystają z danych wyjściowych przekształcenia. Element zawartości wyjściowej można dostarczyć z Media Services punktów końcowych przesyłania strumieniowego w protokołach, takich jak MPEG-myślnik i HLS (jak pokazano w samouczkach).
+Zobacz sekcję [następne kroki](#next-steps) , aby zapoznać się z samouczkami, które korzystają z danych wyjściowych przekształcenia. Element zawartości wyjściowej można dostarczyć z Media Services punktów końcowych przesyłania strumieniowego w protokołach, takich jak MPEG-myślnik i HLS (jak pokazano w samouczkach).
 
+> [!NOTE]
+> Upewnij się, że używasz ustawienia wstępnego **ContentAwareEncoding** , które nie jest ContentAwareEncodingExperimental.
 
 ```csharp
 TransformOutput[] output = new TransformOutput[]
@@ -77,8 +78,6 @@ TransformOutput[] output = new TransformOutput[]
 
 > [!NOTE]
 > Opłaty za zadania kodowania przy użyciu `ContentAwareEncoding` ustawienia wstępnego są rozliczane na podstawie minut danych wyjściowych. 
-
-Upewnij się, że używasz ustawienia wstępnego **ContentAwareEncoding** , które nie jest ContentAwareEncodingExperimental.
   
 ## <a name="next-steps"></a>Następne kroki
 

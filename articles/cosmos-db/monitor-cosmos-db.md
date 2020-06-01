@@ -8,27 +8,44 @@ ms.topic: conceptual
 ms.date: 05/20/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: 5056762dab18ae23980c7d3b3ebfbb3c3014fa56
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: a31636e4e56ddeb9f48cd8c955dc4415dacdc178
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83798711"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234927"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Azure Cosmos DB monitorowania
 
 Jeśli masz krytyczne aplikacje i procesy biznesowe polegające na zasobach platformy Azure, chcesz monitorować te zasoby pod kątem ich dostępności, wydajności i operacji. W tym artykule opisano dane monitorowania wygenerowane przez bazy danych usługi Azure Cosmos oraz sposób używania funkcji Azure Monitor do analizowania i generowania alertów dotyczących tych danych.
 
+Dane można monitorować za pomocą metryk po stronie klienta i serwera. Korzystając z metryk po stronie serwera, można monitorować dane przechowywane w Azure Cosmos DB przy użyciu następujących opcji:
+
+* **Monitoruj z portalu Azure Cosmos DB:** Możesz monitorować za pomocą metryk dostępnych na karcie **metryki** konta usługi Azure Cosmos. Metryki na tej karcie obejmują przepływność, magazyn, dostępność, opóźnienie, spójność i metryki na poziomie systemu. Domyślnie te metryki mają okres przechowywania wynoszący 7 dni. Aby dowiedzieć się więcej, zobacz sekcję [monitorowanie danych zebranych z Azure Cosmos DB](#monitoring-from-azure-cosmos-db) w tym artykule.
+
+* **Monitoruj przy użyciu metryk w usłudze Azure Monitor:** Można monitorować metryki konta usługi Azure Cosmos i tworzyć pulpity nawigacyjne na podstawie Azure Monitor. Azure Monitor domyślnie zbiera metryki Azure Cosmos DB, nie skonfigurowano niczego jawnie. Te metryki są zbierane z dokładnością do jednej minuty, stopień szczegółowości może się różnić w zależności od wybranej metryki. Domyślnie te metryki mają okres przechowywania wynoszący 30 dni. Większość metryk dostępnych w poprzednich opcjach jest również dostępna w tych metrykach. Aby dowiedzieć się więcej, zobacz sekcję [Analizowanie danych metryk](#analyze-metric-data) w tym artykule.
+
+* **Monitoruj z dziennikami diagnostycznymi w Azure Monitor:** Możesz monitorować dzienniki konta usługi Azure Cosmos i tworzyć pulpity nawigacyjne na podstawie Azure Monitor. Dane telemetryczne, takie jak zdarzenia i ślady występujące na drugim poziomie szczegółowości, są przechowywane jako dzienniki. Na przykład, jeśli przepływność kontenera jest zmieniana, właściwości konta Cosmos są zmieniane te zdarzenia są przechwytywane w dziennikach. Te dzienniki można analizować, uruchamiając zapytania dotyczące zebranych danych. Aby dowiedzieć się więcej, zobacz sekcję [Analizowanie danych dziennika](#analyze-log-data) w tym artykule.
+
+* **Monitoruj programowo przy użyciu zestawów SDK:** Konto usługi Azure Cosmos można monitorować programowo przy użyciu zestawów SDK platformy .NET, Java, Python, Node. js i nagłówków w interfejsie API REST. Aby dowiedzieć się więcej, zobacz sekcję [monitorowanie Azure Cosmos DB programowo](#monitor-cosmosdb-programmatically) w tym artykule.
+
+Na poniższej ilustracji przedstawiono różne opcje dostępne do monitorowania konta Azure Cosmos DB przez Azure Portal:
+
+![Opcje monitorowania dostępne w Azure Portal](media/monitor-cosmos-db/monitoring-options-portal.png)
+
+Korzystając z Azure Cosmos DB, na stronie klienta można zebrać szczegóły dotyczące opłaty za żądania, identyfikator działania, informacje o śledzeniu wyjątku/stosu, stan HTTP/kod stanu podrzędnego, ciąg diagnostyczny w celu debugowania wszelkich problemów, które mogą wystąpić. Te informacje są również wymagane, jeśli musisz skontaktować się z zespołem pomocy technicznej Azure Cosmos DB.  
+
 ## <a name="what-is-azure-monitor"></a>Co to jest Azure Monitor?
+
 Azure Cosmos DB tworzy dane monitorowania przy użyciu [Azure monitor](../azure-monitor/overview.md) , który jest pełną usługą monitorowania stosu na platformie Azure, która oferuje pełny zestaw funkcji do monitorowania zasobów platformy Azure, a także zasobów w innych chmurach i lokalnych.
 
 Jeśli nie znasz jeszcze monitorowania usług platformy Azure, Zacznij od artykułu [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../azure-monitor/insights/monitor-azure-resource.md) , w którym opisano następujące kwestie:
 
-- Co to jest Azure Monitor?
-- Koszty związane z monitorowaniem
-- Monitorowanie danych zebranych na platformie Azure
-- Konfigurowanie zbierania danych
-- Standardowe narzędzia na platformie Azure na potrzeby analizowania danych monitorowania i powiadamiania o nich
+* Co to jest Azure Monitor?
+* Koszty związane z monitorowaniem
+* Monitorowanie danych zebranych na platformie Azure
+* Konfigurowanie zbierania danych
+* Standardowe narzędzia na platformie Azure na potrzeby analizowania danych monitorowania i powiadamiania o nich
 
 Poniższe sekcje dotyczą tego artykułu, opisując określone dane zebrane z Azure Cosmos DB i dostarczając przykłady dotyczące konfigurowania zbierania danych i analizowania tych danych za pomocą narzędzi platformy Azure.
 
@@ -39,7 +56,27 @@ Azure Monitor dla Azure Cosmos DB jest oparta na [funkcjach skoroszytów Azure m
 > [!NOTE]
 > Podczas tworzenia kontenerów upewnij się, że nie utworzysz dwóch kontenerów o takiej samej nazwie, ale o innej wielkości liter. Wynika to z faktu, że niektóre części platformy Azure nie uwzględniają wielkości liter. może to spowodować pomylenie/kolizję danych telemetrycznych i akcji w kontenerach z takimi nazwami.
 
-## <a name="view-operation-level-metrics-for-azure-cosmos-db"></a>Wyświetl metryki poziomu operacji dla Azure Cosmos DB
+## <a name="monitor-data-collected-from-azure-cosmos-db-portal"></a><a id="monitoring-from-azure-cosmos-db"></a>Monitorowanie danych zebranych z portalu Azure Cosmos DB
+
+Azure Cosmos DB gromadzi te same rodzaje danych monitorowania jak inne zasoby platformy Azure, które są opisane w temacie [monitorowanie danych z zasobów platformy Azure](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). Aby uzyskać szczegółowe informacje o dziennikach i metrykach utworzonych przez Azure Cosmos DB, zobacz [Informacje o danych monitorowania Azure Cosmos DB](monitor-cosmos-db-reference.md) .
+
+Strona **Przegląd** w Azure Portal dla każdej bazy danych usługi Azure Cosmos zawiera krótki widok użycia bazy danych, w tym jego żądanie i co godzinę użycie rozliczeń. Jest to przydatne informacje, ale tylko niewielka ilość dostępnych danych monitorowania. Niektóre z tych danych są zbierane automatycznie i dostępne do analizy zaraz po utworzeniu bazy danych i włączeniu dodatkowej kolekcji danych z konfiguracją.
+
+![Strona przeglądu](media/monitor-cosmos-db/overview-page.png)
+
+## <a name="analyzing-metric-data"></a><a id="analyze-metric-data"></a>Analizowanie danych metryki
+
+Azure Cosmos DB udostępnia niestandardowe środowisko pracy z metrykami. Aby uzyskać szczegółowe informacje na temat korzystania z tego środowiska Azure Cosmos DB, zobacz temat [monitorowanie i debugowanie Azure Cosmos DB metryki z Azure monitor](cosmos-db-azure-monitor-metrics.md) .
+
+Metryki dla Azure Cosmos DB z metrykami z innych usług platformy Azure za pomocą Eksploratora metryk można analizować, otwierając **metryki** z menu **Azure monitor** . Aby uzyskać szczegółowe informacje na temat korzystania z tego narzędzia, zobacz [Rozpoczynanie pracy z usługą Azure Eksplorator metryk](../azure-monitor/platform/metrics-getting-started.md) . Wszystkie metryki dla Azure Cosmos DB znajdują się w przestrzeni nazw **Cosmos DB metrykach standardowych**. Podczas dodawania filtru do wykresu można użyć następujących wymiarów z tymi metrykami:
+
+* CollectionName
+* DatabaseName
+* OperationType
+* Region
+* Stanu
+
+### <a name="view-operation-level-metrics-for-azure-cosmos-db"></a>Wyświetl metryki poziomu operacji dla Azure Cosmos DB
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 
@@ -67,34 +104,14 @@ Metryki można grupować przy użyciu opcji **Zastosuj dzielenie** . Na przykła
 
 ![Dodaj filtr podziału zastosowania](./media/monitor-cosmos-db/apply-metrics-splitting.png)
 
-## <a name="monitoring-data-collected-from-azure-cosmos-db"></a>Monitorowanie danych zebranych z Azure Cosmos DB
+## <a name="analyzing-log-data"></a><a id="analyze-log-data"></a>Analizowanie danych dziennika
 
-Azure Cosmos DB gromadzi te same rodzaje danych monitorowania jak inne zasoby platformy Azure, które są opisane w temacie [monitorowanie danych z zasobów platformy Azure](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). Aby uzyskać szczegółowe informacje o dziennikach i metrykach utworzonych przez Azure Cosmos DB, zobacz [Informacje o danych monitorowania Azure Cosmos DB](monitor-cosmos-db-reference.md) .
-
-Strona **Przegląd** w Azure Portal dla każdej bazy danych usługi Azure Cosmos zawiera krótki widok użycia bazy danych, w tym jego żądanie i co godzinę użycie rozliczeń. Jest to przydatne informacje, ale tylko niewielka ilość dostępnych danych monitorowania. Niektóre z tych danych są zbierane automatycznie i dostępne do analizy zaraz po utworzeniu bazy danych i włączeniu dodatkowej kolekcji danych z konfiguracją.
-
-![Strona przeglądu](media/monitor-cosmos-db/overview-page.png)
-
-## <a name="analyzing-metric-data"></a>Analizowanie danych metryki
-
-Azure Cosmos DB udostępnia niestandardowe środowisko pracy z metrykami. Aby uzyskać szczegółowe informacje na temat korzystania z tego środowiska Azure Cosmos DB, zobacz temat [monitorowanie i debugowanie Azure Cosmos DB metryki z Azure monitor](cosmos-db-azure-monitor-metrics.md) .
-
-Metryki dla Azure Cosmos DB z metrykami z innych usług platformy Azure za pomocą Eksploratora metryk można analizować, otwierając **metryki** z menu **Azure monitor** . Aby uzyskać szczegółowe informacje na temat korzystania z tego narzędzia, zobacz [Rozpoczynanie pracy z usługą Azure Eksplorator metryk](../azure-monitor/platform/metrics-getting-started.md) . Wszystkie metryki dla Azure Cosmos DB znajdują się w przestrzeni nazw **Cosmos DB metrykach standardowych**. Podczas dodawania filtru do wykresu można użyć następujących wymiarów z tymi metrykami:
-
-- CollectionName
-- DatabaseName
-- OperationType
-- Region
-- Stanu
-
-## <a name="analyzing-log-data"></a>Analizowanie danych dziennika
 Dane w dziennikach Azure Monitor są przechowywane w tabelach, dla których każda tabela ma swój własny zestaw unikatowych właściwości. Azure Cosmos DB przechowuje dane w poniższych tabelach.
 
 | Tabela | Opis |
 |:---|:---|
 | AzureDiagnostics | Wspólna tabela używana przez wiele usług do przechowywania dzienników zasobów. Dzienniki zasobów z Azure Cosmos DB mogą być identyfikowane za pomocą `MICROSOFT.DOCUMENTDB` .   |
-| AzureActivity    | Wspólna tabela przechowująca wszystkie rekordy z dziennika aktywności. 
-
+| AzureActivity    | Wspólna tabela przechowująca wszystkie rekordy z dziennika aktywności.
 
 > [!IMPORTANT]
 > Po wybraniu opcji **dzienniki** z menu Azure Cosmos DB, log Analytics zostanie otwarty z zakresem zapytania ustawionym na bieżącą bazę danych usługi Azure Cosmos. Oznacza to, że zapytania dziennika będą zawierać tylko dane z tego zasobu. Jeśli chcesz uruchomić zapytanie, które zawiera dane z innych baz danych lub danych z innych usług platformy Azure, wybierz pozycję **dzienniki** z menu **Azure monitor** . Aby uzyskać szczegółowe informacje [, zobacz zakres zapytań dzienników i zakres czasu w Azure Monitor Log Analytics](../azure-monitor/log-query/scope.md) .
@@ -130,7 +147,7 @@ Poniżej przedstawiono zapytania, których można użyć do monitorowania baz da
     | summarize count() by Resource
     ```
 
-## <a name="monitor-azure-cosmos-db-programmatically"></a>Monitoruj Azure Cosmos DB programowo
+## <a name="monitor-azure-cosmos-db-programmatically"></a><a id="monitor-cosmosdb-programmatically"></a>Monitoruj Azure Cosmos DB programowo
 
 Metryki na poziomie konta dostępne w portalu, takie jak użycie magazynu kont i łączna liczba żądań, nie są dostępne za pośrednictwem interfejsów API SQL. Można jednak pobrać dane użycia na poziomie kolekcji przy użyciu interfejsów API SQL. Aby pobrać dane na poziomie kolekcji, wykonaj następujące czynności:
 
@@ -146,9 +163,7 @@ Zapytania do pobierania pojedynczych metryk używają następującego formatu:
 
     https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metrics?api-version=2015-04-08&$filter=%28name.value%20eq%20%27Total%20Requests%27%29%20and%20timeGrain%20eq%20duration%27PT5M%27%20and%20startTime%20eq%202016-06-03T03%3A26%3A00.0000000Z%20and%20endTime%20eq%202016-06-10T03%3A26%3A00.0000000Z
 
-
-
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać informacje o dziennikach i metrykach utworzonych przez Azure Cosmos DB, zobacz temat [Informacje o danych monitorowania Azure Cosmos DB](monitor-cosmos-db-reference.md) .
-- Aby uzyskać szczegółowe informacje na temat monitorowania zasobów platformy Azure, zobacz [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../azure-monitor/insights/monitor-azure-resource.md) .
+* Aby uzyskać informacje o dziennikach i metrykach utworzonych przez Azure Cosmos DB, zobacz temat [Informacje o danych monitorowania Azure Cosmos DB](monitor-cosmos-db-reference.md) .
+* Aby uzyskać szczegółowe informacje na temat monitorowania zasobów platformy Azure, zobacz [monitorowanie zasobów platformy Azure za pomocą Azure monitor](../azure-monitor/insights/monitor-azure-resource.md) .

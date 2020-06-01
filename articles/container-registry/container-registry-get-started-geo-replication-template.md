@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: danlep
 ms.date: 05/26/2020
-ms.openlocfilehash: 1345cc67137a4fb3b6d54443e71f1a8813b5b06c
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 6e76e2966cd2bcba2606f6b87c99cb34208f8f24
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84122814"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234448"
 ---
 # <a name="quickstart-create-a-geo-replicated-container-registry-by-using-a-resource-manager-template"></a>Szybki Start: tworzenie rejestru kontenerów z replikacją geograficzną przy użyciu szablonu Menedżer zasobów
 
@@ -29,9 +29,9 @@ Brak.
 
 ## <a name="create-a-geo-replicated-registry"></a>Tworzenie rejestru z replikacją geograficzną
 
-### <a name="review-the-template"></a>Zapoznaj się z szablonem
+### <a name="review-the-template"></a>Przegląd szablonu
 
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-container-registry-geo-replication/). Szablon konfiguruje rejestr i dodatkową replikę regionalną.
+Szablon używany w tym przewodniku Szybki start jest jednym z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-container-registry-geo-replication/). Szablon konfiguruje rejestr i dodatkową replikę regionalną.
 
 :::code language="json" source="~/quickstart-templates/101-container-registry-geo-replication/azuredeploy.json" range="1-81" highlight="45-74" :::
 
@@ -46,7 +46,7 @@ Więcej przykładów szablonów Azure Container Registry można znaleźć w [gal
 
  1. Wybierz poniższy obraz, aby zalogować się na platformie Azure i otworzyć szablon.
 
-    [![Wdróż na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-container-registry-geo-replication%2Fazuredeploy.json)
+    [![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-container-registry-geo-replication%2Fazuredeploy.json)
 
  2. Wybierz lub wprowadź następujące wartości.
 
@@ -64,7 +64,7 @@ Więcej przykładów szablonów Azure Container Registry można znaleźć w [gal
 
      :::image type="content" source="media/container-registry-get-started-geo-replication-template/deployment-notification.png" alt-text="Powiadomienie portalu":::
 
- Azure Portal jest używany do wdrożenia szablonu. Oprócz Azure Portal można użyć Azure PowerShell, interfejsu wiersza polecenia platformy Azure i usługi API REST. Aby poznać inne metody wdrażania, zobacz [wdrażanie szablonów](../azure-resource-manager/templates/deploy-cli.md).
+ Szablon jest wdrażany za pomocą witryny Azure Portal. Oprócz Azure Portal można użyć Azure PowerShell, interfejsu wiersza polecenia platformy Azure i usługi API REST. Aby poznać inne metody wdrażania, zobacz [wdrażanie szablonów](../azure-resource-manager/templates/deploy-cli.md).
 
 ## <a name="review-deployed-resources"></a>Przejrzyj wdrożone zasoby
 
@@ -80,7 +80,7 @@ Użyj Azure Portal lub narzędzia, takiego jak interfejs wiersza polecenia platf
 
     :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-replications.png" alt-text="Replikacje rejestru":::
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy nie są już potrzebne, Usuń grupę zasobów, rejestr i replikę rejestru. W tym celu przejdź do Azure Portal, wybierz grupę zasobów zawierającą rejestr, a następnie wybierz pozycję **Usuń grupę zasobów**.
 
@@ -94,4 +94,4 @@ W tym przewodniku szybki start utworzono Azure Container Registry z szablonem Me
 Aby zapoznać się z samouczkiem krok po kroku, który przeprowadzi Cię przez proces tworzenia szablonu, zobacz:
 
 > [!div class="nextstepaction"]
-> [Samouczek: Tworzenie i wdrażanie pierwszego szablonu Azure Resource Manager](/azure/azure-resource-manager/templates/template-tutorial-create-first-template.md)
+> [Samouczek: Tworzenie i wdrażanie pierwszego szablonu Azure Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

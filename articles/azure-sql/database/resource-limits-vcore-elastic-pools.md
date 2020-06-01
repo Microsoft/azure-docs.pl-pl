@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab, sstein
-ms.date: 03/03/2020
-ms.openlocfilehash: 48f37a29b227c714552596337d3ff3c692830488
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 05/29/2020
+ms.openlocfilehash: 03884a7d1b834ef8c176434ad4127e1638aabcb1
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84041409"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235743"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Limity zasobów dla pul elastycznych przy użyciu modelu zakupu rdzeń wirtualny
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -46,7 +46,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Rdzeni wirtualnych|1|2|3|4|5|6|
 |Pamięć (GB)|7|14|21|28|35|42|
 |Maksymalna liczba baz danych na pulę <sup>1</sup>|100|200|500|500|500|500|
-|Obsługa magazynu kolumn|Yes|Yes|Yes|Yes|Yes|Yes|
+|Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|Tak|
 |Magazyn OLTP w pamięci (GB)|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
 |Maksymalny rozmiar danych (GB)|512|756|1536|1536|1536|2048|
 |Maksymalny rozmiar dziennika|154|227|461|461|461|614|
@@ -78,7 +78,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Rdzeni wirtualnych|7|8|9|10|16|24|
 |Pamięć (GB)|49|56|63|70|112|159,5|
 |Maksymalna liczba baz danych na pulę <sup>1</sup>|500|500|500|500|500|500|
-|Obsługa magazynu kolumn|Yes|Yes|Yes|Yes|Yes|Yes|
+|Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|Tak|
 |Magazyn OLTP w pamięci (GB)|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
 |Maksymalny rozmiar danych (GB)|2048|2048|2048|2048|3584|4096|
 |Maksymalny rozmiar dziennika (GB)|614|614|614|614|1075|1229|
@@ -112,7 +112,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Rdzeni wirtualnych|2|4|6|8|10|12|14|
 |Pamięć (GB)|10,4|20,8|31,1|41,5|51,9|62,3|72,7|
 |Maksymalna liczba baz danych na pulę <sup>1</sup>|100|200|500|500|500|500|500|
-|Obsługa magazynu kolumn|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|Tak|Tak|
 |Magazyn OLTP w pamięci (GB)|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
 |Maksymalny rozmiar danych (GB)|512|756|1536|1536|1536|2048|2048|
 |Maksymalny rozmiar dziennika (GB)|154|227|461|461|461|614|614|
@@ -144,14 +144,14 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Rdzeni wirtualnych|16|18|20|24|32|40|80|
 |Pamięć (GB)|83|93,4|103,8|124,6|166,1|207,6|415,2|
 |Maksymalna liczba baz danych na pulę <sup>1</sup>|500|500|500|500|500|500|500|
-|Obsługa magazynu kolumn|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|Tak|Tak|
 |Magazyn OLTP w pamięci (GB)|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
 |Maksymalny rozmiar danych (GB)|2048|3072|3072|3072|4096|4096|4096|
 |Maksymalny rozmiar dziennika (GB)|614|922|922|922|1229|1229|1229|
 |Maksymalny rozmiar danych TempDB (GB)|512|576|640|768|1024|1280|2560|
 |Typ magazynu|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|Magazyn Premium (zdalny)|
 |Opóźnienie we/wy (przybliżone)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|
-|Maksymalna liczba operacji we/wy danych na pulę <sup>2</sup> |6 400|7 200|8000|9600|12 800|16 000|32 000|
+|Maksymalna liczba operacji we/wy danych na pulę <sup>2</sup> |6 400|7 200|8000|9600|12 800|16 000|16 000|
 |Maksymalna szybkość rejestrowania na pulę (MB/s)|37,5|37,5|37,5|37,5|37,5|37,5|37,5|
 |Maksymalna liczba współbieżnych procesów roboczych na pulę (żądania) <sup>3</sup>|1680|1890|2100|2520|3360|4200|8400|
 |Maksymalna liczba współbieżnych logowań na pulę (żądania) <sup>3</sup>|1680|1890|2100|2520|3360|4200|8400|
@@ -178,7 +178,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Rdzeni wirtualnych|72|
 |Pamięć (GB)|136,2|
 |Maksymalna liczba baz danych na pulę <sup>1</sup>|500|
-|Obsługa magazynu kolumn|Yes|
+|Obsługa magazynu kolumn|Tak|
 |Magazyn OLTP w pamięci (GB)|Nie dotyczy|
 |Maksymalny rozmiar danych (GB)|4096|
 |Maksymalny rozmiar dziennika (GB)|1024|
@@ -215,7 +215,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Rdzeni wirtualnych|2|3|4|5|6|
 |Pamięć (GB)|14|21|28|35|42|
 |Maksymalna liczba baz danych na pulę <sup>1</sup>|50|100|100|100|100|
-|Obsługa magazynu kolumn|Yes|Yes|Yes|Yes|Yes|
+|Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|
 |Magazyn OLTP w pamięci (GB)|2|3|4|5|6|
 |Typ magazynu|Lokalny dysk SSD|Lokalny dysk SSD|Lokalny dysk SSD|Lokalny dysk SSD|Lokalny dysk SSD|
 |Maksymalny rozmiar danych (GB)|1024|1024|1024|1024|1024|
@@ -229,8 +229,8 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|
 |Minimalna/Maksymalna liczba opcji rdzeń wirtualny puli elastycznej na bazę danych|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1... 3|0, 0,25, 0,5, 1... 4|0, 0,25, 0,5, 1... 5|0, 0,25, 0,5, 1... 6|
 |Liczba replik|4|4|4|4|4|
-|Wiele-AZ|Yes|Yes|Yes|Yes|Yes|
-|Skalowanie w górę odczytu|Yes|Yes|Yes|Yes|Yes|
+|Wiele-AZ|Tak|Tak|Tak|Tak|Tak|
+|Skalowanie w górę odczytu|Tak|Tak|Tak|Tak|Tak|
 |Uwzględniony magazyn kopii zapasowych|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|
 
 <sup>1</sup> zobacz [Zarządzanie zasobami w gęstych pulach elastycznych](elastic-pool-resource-management.md) , aby uzyskać dodatkowe uwagi.
@@ -261,8 +261,8 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|30 000|
 |Minimalna/Maksymalna liczba opcji rdzeń wirtualny puli elastycznej na bazę danych|0, 0,25, 0,5, 1... 7|0, 0,25, 0,5, 1... 8|0, 0,25, 0,5, 1... 9|0, 0,25, 0,5, 1... 10|0, 0,25, 0,5, 1... 10, 16|0, 0,25, 0,5, 1... 10, 16, 24|
 |Liczba replik|4|4|4|4|4|4|
-|Wiele-AZ|Yes|Yes|Yes|Yes|Yes|Yes|
-|Skalowanie w górę odczytu|Yes|Yes|Yes|Yes|Yes|Yes|
+|Wiele-AZ|Tak|Tak|Tak|Tak|Tak|Tak|
+|Skalowanie w górę odczytu|Tak|Tak|Tak|Tak|Tak|Tak|
 |Uwzględniony magazyn kopii zapasowych|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|
 
 <sup>1</sup> zobacz [Zarządzanie zasobami w gęstych pulach elastycznych](elastic-pool-resource-management.md) , aby uzyskać dodatkowe uwagi.
@@ -281,7 +281,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Rdzeni wirtualnych|4|6|8|10|12|14|
 |Pamięć (GB)|20,8|31,1|41,5|51,9|62,3|72,7|
 |Maksymalna liczba baz danych na pulę <sup>1</sup>|50|100|100|100|100|100|
-|Obsługa magazynu kolumn|Yes|Yes|Yes|Yes|Yes|Yes|
+|Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|Tak|
 |Magazyn OLTP w pamięci (GB)|3,14|4,71|6,28|8,65|11,02|13,39|
 |Maksymalny rozmiar danych (GB)|1024|1536|1536|1536|3072|3072|
 |Maksymalny rozmiar dziennika (GB)|307|307|461|461|922|922|
@@ -295,8 +295,8 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|30 000|
 |Minimalna/Maksymalna liczba opcji rdzeń wirtualny puli elastycznej na bazę danych|0, 0,25, 0,5, 1... 4|0, 0,25, 0,5, 1... 6|0, 0,25, 0,5, 1... 8|0, 0,25, 0,5, 1... 10|0, 0,25, 0,5, 1... 12|0, 0,25, 0,5, 1... 14|
 |Liczba replik|4|4|4|4|4|4|
-|Wiele-AZ|Yes|Yes|Yes|Yes|Yes|Yes|
-|Skalowanie w górę odczytu|Yes|Yes|Yes|Yes|Yes|Yes|
+|Wiele-AZ|Tak|Tak|Tak|Tak|Tak|Tak|
+|Skalowanie w górę odczytu|Tak|Tak|Tak|Tak|Tak|Tak|
 |Uwzględniony magazyn kopii zapasowych|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|
 
 <sup>1</sup> zobacz [Zarządzanie zasobami w gęstych pulach elastycznych](elastic-pool-resource-management.md) , aby uzyskać dodatkowe uwagi.
@@ -313,7 +313,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Rdzeni wirtualnych|16|18|20|24|32|40|80|
 |Pamięć (GB)|83|93,4|103,8|124,6|166,1|207,6|415,2|
 |Maksymalna liczba baz danych na pulę <sup>1</sup>|100|100|100|100|100|100|100|
-|Obsługa magazynu kolumn|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|Tak|Tak|
 |Magazyn OLTP w pamięci (GB)|15,77|18,14|20,51|25,25|37,94|52,23|131,68|
 |Maksymalny rozmiar danych (GB)|3072|3072|3072|4096|4096|4096|4096|
 |Maksymalny rozmiar dziennika (GB)|922|922|922|1229|1229|1229|1229|
@@ -327,8 +327,8 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|30 000|30 000|
 |Minimalna/Maksymalna liczba opcji rdzeń wirtualny puli elastycznej na bazę danych|0, 0,25, 0,5, 1... 16|0, 0,25, 0,5, 1... 18|0, 0,25, 0,5, 1... 20|0, 0,25, 0,5, 1... 20, 24|0, 0,25, 0,5, 1... 20, 24, 32|0, 0,25, 0,5, 1... 20, 24, 32, 40|0, 0,25, 0,5, 1... 20, 24, 32, 40, 80|
 |Liczba replik|4|4|4|4|4|4|4|
-|Wiele-AZ|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
-|Skalowanie w górę odczytu|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Wiele-AZ|Tak|Tak|Tak|Tak|Tak|Tak|Tak|
+|Skalowanie w górę odczytu|Tak|Tak|Tak|Tak|Tak|Tak|Tak|
 |Uwzględniony magazyn kopii zapasowych|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|
 
 <sup>1</sup> zobacz [Zarządzanie zasobami w gęstych pulach elastycznych](elastic-pool-resource-management.md) , aby uzyskać dodatkowe uwagi.
@@ -347,7 +347,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Rdzeni wirtualnych|128|
 |Pamięć (GB)|3767,1|
 |Maksymalna liczba baz danych na pulę <sup>1</sup>|100|
-|Obsługa magazynu kolumn|Yes|
+|Obsługa magazynu kolumn|Tak|
 |Magazyn OLTP w pamięci (GB)|1768|
 |Maksymalny rozmiar danych (GB)|4096|
 |Maksymalny rozmiar dziennika (GB)|2048|
@@ -361,8 +361,8 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Maksymalna liczba współbieżnych sesji|30 000|
 |Minimalna/Maksymalna liczba opcji rdzeń wirtualny puli elastycznej na bazę danych|0-128|
 |Liczba replik|4|
-|Wiele-AZ|Yes|
-|Skalowanie w górę odczytu|Yes|
+|Wiele-AZ|Tak|
+|Skalowanie w górę odczytu|Tak|
 |Uwzględniony magazyn kopii zapasowych|rozmiar bazy danych 1X|
 
 <sup>1</sup> zobacz [Zarządzanie zasobami w gęstych pulach elastycznych](elastic-pool-resource-management.md) , aby uzyskać dodatkowe uwagi.

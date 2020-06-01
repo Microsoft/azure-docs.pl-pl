@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 8896aba104a99d323b3c39cfaeab6043d1c12f9d
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 620628b244bf107ad0dc2e2242d174ef798450da
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83832014"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235623"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Często zadawane pytania dotyczące usługi Azure Files
 [Azure Files](storage-files-introduction.md) oferuje w pełni zarządzane udziały plików w chmurze, które są dostępne za pośrednictwem standardowego [protokołu bloku komunikatów serwera (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Udziały plików platformy Azure można instalować jednocześnie w chmurze lub lokalnych wdrożeniach systemów Windows, Linux i macOS. Możesz również buforować udziały plików platformy Azure na maszynach z systemem Windows Server, używając Azure File Sync, aby szybko uzyskać dostęp do miejsca, w którym są używane dane.
@@ -98,10 +98,16 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
   **Plik został utworzony bezpośrednio w udziale plików platformy Azure przy użyciu protokołu SMB lub w portalu. Jak długo trwa synchronizacja pliku z serwerami w grupie synchronizacji?**  
     [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
+
+* <a id="afs-sync-time"></a>
+  **Jak długo trwa Azure File Sync przekazywania 1TiB danych?**
+  
+    Wydajność będzie się różnić w zależności od ustawień środowiska, konfiguracji i tego, czy jest to synchronizacja początkowa czy ciągła synchronizacja. Aby uzyskać więcej informacji, zobacz [Azure File Sync metryki wydajności](storage-files-scale-targets.md#azure-file-sync-performance-metrics)
+
 * <a id="afs-conflict-resolution"></a>**Jeśli ten sam plik zostanie zmieniony na dwóch serwerach w tym samym czasie, co się dzieje?**  
     Azure File Sync korzysta z prostej strategii rozwiązywania konfliktów: zachowujemy zmiany w plikach, które są zmieniane na dwóch serwerach w tym samym czasie. Ostatnio zapisywana zmiana zachowuje oryginalną nazwę pliku. Starszy plik zawiera maszynę "Źródło" i numer konfliktu dołączony do nazwy. Jest on zgodny z tą taksonomią: 
    
-    \<FileNameWithoutExtension \> - \< MachineName \> \[ -# \] . \< EXT\>  
+    \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\<ext\>  
 
     Na przykład pierwszy konflikt CompanyReport. docx stanie się CompanyReport-CentralServer. docx, jeśli CentralServer jest miejsce, w którym wystąpił starszy zapis. Drugi konflikt zostałby nazwany CompanyReport-CentralServer-1. docx. Azure File Sync obsługuje pliki konfliktów 100 na plik. Po osiągnięciu maksymalnej liczby plików konfliktów plik nie zostanie zsynchronizowany, dopóki liczba plików konfliktów nie będzie mniejsza niż 100.
 
@@ -414,7 +420,7 @@ W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące 
 **Jak mogę użyć Azure Files z IBM MQ?**  
     Firma IBM wydała dokument, który pomaga klientom firmy IBM MQ skonfigurować Azure Files z usługą firmy IBM. Aby uzyskać więcej informacji, zobacz [jak skonfigurować usługę zarządzania wieloma wystąpieniami programu IBM MQ z usługą Microsoft Azure Files](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service).
 
-## <a name="see-also"></a>Zobacz też
+## <a name="see-also"></a>Zobacz także
 * [Rozwiązywanie problemów Azure Files w systemie Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Rozwiązywanie problemów Azure Files w systemie Linux](storage-troubleshoot-linux-file-connection-problems.md)
 * [Rozwiązywanie problemów z usługą Azure File Sync](storage-sync-files-troubleshoot.md)

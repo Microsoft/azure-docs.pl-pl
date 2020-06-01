@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: bd28117350913bc25f5bf7cec08d28683ad9daca
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 04c02cb493941d101cf230b1ca3dab32aaa7a2fc
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84020068"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234553"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Użyj Log Analytics dla funkcji diagnostyki
 
@@ -117,6 +117,9 @@ Możesz uzyskać dostęp do Log Analytics obszarów roboczych na Azure Portal lu
 4. Postępuj zgodnie z instrukcjami na stronie Rejestrowanie, aby ustawić zakres zapytania.  
 
 5. Możesz przystąpić do wykonywania zapytań diagnostycznych. Wszystkie tabele diagnostyki mają prefiks "WVD".
+
+>[!NOTE]
+>Aby uzyskać szczegółowe informacje na temat tabel przechowywanych w dziennikach Azure Monitor, zobacz [Azure monitor danych](https://docs.microsoft.com/azure/azure-monitor/reference/). Wszystkie tabele powiązane z pulpitem wirtualnym systemu Windows mają etykietę "WVD".
 
 ## <a name="cadence-for-sending-diagnostic-events"></a>Erze do wysyłania zdarzeń diagnostycznych
 
@@ -239,10 +242,32 @@ WVDErrors
 | render barchart 
 ```
 
+Aby znaleźć wystąpienie błędu dla wszystkich użytkowników:
+
+```kusto
+WVDErrors 
+| where ServiceError =="false" 
+| summarize usercount = count(UserName) by CodeSymbolic 
+| sort by usercount desc
+| render barchart 
+```
+
+Aby wykonać zapytania dotyczące otwartych przez użytkowników aplikacji, uruchom następujące zapytanie:
+
+```kusto
+WVDCheckpoints 
+| where TimeGenerated > ago(7d)
+| where Name == "LaunchExecutable"
+| extend App = parse_json(Parameters).filename
+| summarize Usage=count(UserName) by tostring(App)
+| sort by Usage desc
+| render columnchart
+```
 >[!NOTE]
->Najważniejszym tabelą dotyczącą rozwiązywania problemów jest WVDErrors. Użyj tego zapytania, aby zrozumieć, które problemy występują dla działań użytkownika, takich jak połączenia lub źródła danych, gdy użytkownik subskrybuje listę aplikacji lub pulpitów. W tabeli będą widoczne błędy zarządzania, a także problemy z rejestracją hosta.
->
->W publicznej wersji zapoznawczej, jeśli potrzebujesz pomocy przy rozwiązywaniu problemu, upewnij się, że przekazujesz identyfikator korelacji dla błędu w żądaniu pomocy. Upewnij się również, że wartość błędu usługi zawsze mówi serviceerror = "false". Wartość "false" oznacza, że problem może zostać rozwiązany przez zadanie administracyjne na końcu. Jeśli serviceerror = "true", musisz eskalować problem do firmy Microsoft.
+>- Gdy użytkownik otworzy pełny pulpit, jego użycie aplikacji w sesji nie będzie śledzone jako punkty kontrolne w tabeli WVDCheckpoints.
+>- Kolumna ResourcesAlias w tabeli WVDConnections wskazuje, czy użytkownik nawiązał połączenie z pełnym pulpitem lub opublikowaną aplikacją. W kolumnie jest wyświetlana tylko pierwsza aplikacja otwarta podczas połączenia. Wszystkie opublikowane aplikacje otwierane przez użytkownika są śledzone w WVDCheckpoints.
+>- W tabeli WVDErrors przedstawiono błędy zarządzania, problemy z rejestracją hosta oraz inne problemy, które są wykonywane, gdy użytkownik subskrybuje listę aplikacji lub pulpitów.
+>- WVDErrors pomaga identyfikować problemy, które mogą być rozwiązywane przez zadania administracyjne. Wartość właściwości serviceerror zawsze mówi "false" dla tego rodzaju problemów. Jeśli serviceerror = "true", musisz eskalować problem do firmy Microsoft. Upewnij się, że podajesz identyfikator korelacji dla błędów, które są eskalacjne.
 
 ## <a name="next-steps"></a>Następne kroki 
 

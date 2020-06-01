@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 03/11/2020
-ms.openlocfilehash: 4a49d4ba4d0e82273c06afa178630be32ca1c463
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 05/29/2020
+ms.openlocfilehash: 47879ab55a91904cdc41d9a486d77d55ed27f706
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84043072"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235689"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limity zasobów dla pojedynczych baz danych przy użyciu modelu zakupu rdzeń wirtualny
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -42,7 +42,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Min — maks. rdzeni wirtualnych|0.5-1|0.5-2|0,5 – 4|0,75-6|1.0-8|
 |Min — maks. pamięć (GB)|2.02-3|2.05-6|2.10-12|2.25 – 18|3,00-24|
 |Minimalne opóźnienie autopauzy (minuty)|60|60|60|60|60|
-|Obsługa magazynu kolumn|Yes|Yes|Yes|Yes|Yes|
+|Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|
 |Magazyn OLTP w pamięci (GB)|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
 |Maksymalny rozmiar danych (GB)|512|1024|1024|1024|1536|
 |Maksymalny rozmiar dziennika (GB)|154|307|307|307|461|
@@ -68,7 +68,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Min — maks. rdzeni wirtualnych|1,25-10|1.50 — 12|1,75-14|2,00-16|
 |Min — maks. pamięć (GB)|3,75-30|4.50 – 36|5,25-42|6.00-48|
 |Minimalne opóźnienie autopauzy (minuty)|60|60|60|60|
-|Obsługa magazynu kolumn|Yes|Yes|Yes|Yes|
+|Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|
 |Magazyn OLTP w pamięci (GB)|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
 |Maksymalny rozmiar danych (GB)|1536|3072|3072|3072|
 |Maksymalny rozmiar dziennika (GB)|461|461|461|922|
@@ -96,7 +96,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Rdzeni wirtualnych|1|2|3|4|5|6|
 |Pamięć (GB)|7|14|21|28|35|42|
 |[RBPEX](service-tier-hyperscale.md#compute) Zmienia|3. pamięć|3. pamięć|3. pamięć|3. pamięć|3. pamięć|3. pamięć|
-|Obsługa magazynu kolumn|Yes|Yes|Yes|Yes|Yes|Yes|
+|Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|Tak|
 |Magazyn OLTP w pamięci (GB)|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
 |Maksymalny rozmiar danych (TB)|100 |100 |100 |100 |100 |100|
 |Maksymalny rozmiar dziennika (TB)|1 |1 |1 |1 |1 |1 |
@@ -109,7 +109,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|30 000|
 |Repliki pomocnicze|0-4|0-4|0-4|0-4|0-4|0-4|
 |Wiele-AZ|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
-|Skalowanie w górę odczytu|Yes|Yes|Yes|Yes|Yes|Yes|
+|Skalowanie w górę odczytu|Tak|Tak|Tak|Tak|Tak|Tak|
 |Przechowywanie kopii zapasowej magazynu|7 dni|7 dni|7 dni|7 dni|7 dni|7 dni|
 |||
 
@@ -121,7 +121,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Rdzeni wirtualnych|7|8|9|10|16|24|
 |Pamięć (GB)|49|56|63|70|112|159,5|
 |[RBPEX](service-tier-hyperscale.md#compute) Zmienia|3. pamięć|3. pamięć|3. pamięć|3. pamięć|3. pamięć|3. pamięć|
-|Obsługa magazynu kolumn|Yes|Yes|Yes|Yes|Yes|Yes|
+|Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|Tak|
 |Magazyn OLTP w pamięci (GB)|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
 |Maksymalny rozmiar danych (TB)|100 |100 |100 |100 |100 |100 |
 |Maksymalny rozmiar dziennika (TB)|1 |1 |1 |1 |1 |1 |
@@ -134,7 +134,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|30 000|
 |Repliki pomocnicze|0-4|0-4|0-4|0-4|0-4|0-4|
 |Wiele-AZ|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
-|Skalowanie w górę odczytu|Yes|Yes|Yes|Yes|Yes|Yes|
+|Skalowanie w górę odczytu|Tak|Tak|Tak|Tak|Tak|Tak|
 |Przechowywanie kopii zapasowej magazynu|7 dni|7 dni|7 dni|7 dni|7 dni|7 dni|
 |||
 
@@ -150,7 +150,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Rdzeni wirtualnych|2|4|6|8|10|12|14|
 |Pamięć (GB)|10,4|20,8|31,1|41,5|51,9|62,3|72,7|
 |[RBPEX](service-tier-hyperscale.md#compute) Zmienia|3. pamięć|3. pamięć|3. pamięć|3. pamięć|3. pamięć|3. pamięć|3. pamięć|
-|Obsługa magazynu kolumn|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|Tak|Tak|
 |Magazyn OLTP w pamięci (GB)|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
 |Maksymalny rozmiar danych (TB)|100 |100 |100 |100 |100 |100 |100|
 |Maksymalny rozmiar dziennika (TB)|1 |1 |1 |1 |1 |1 |1 |
@@ -163,7 +163,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|30 000|30 000|
 |Repliki pomocnicze|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
 |Wiele-AZ|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
-|Skalowanie w górę odczytu|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Skalowanie w górę odczytu|Tak|Tak|Tak|Tak|Tak|Tak|Tak|
 |Przechowywanie kopii zapasowej magazynu|7 dni|7 dni|7 dni|7 dni|7 dni|7 dni|7 dni|
 |||
 
@@ -177,7 +177,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Rdzeni wirtualnych|16|18|20|24|32|40|80|
 |Pamięć (GB)|83|93,4|103,8|124,6|166,1|207,6|415,2|
 |[RBPEX](service-tier-hyperscale.md#compute) Zmienia|3. pamięć|3. pamięć|3. pamięć|3. pamięć|3. pamięć|3. pamięć|3. pamięć|
-|Obsługa magazynu kolumn|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|Tak|Tak|
 |Magazyn OLTP w pamięci (GB)|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
 |Maksymalny rozmiar danych (TB)|100 |100 |100 |100 |100 |100 |100 |
 |Maksymalny rozmiar dziennika (TB)|1 |1 |1 |1 |1 |1 |1 |
@@ -190,7 +190,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|30 000|30 000|
 |Repliki pomocnicze|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
 |Wiele-AZ|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
-|Skalowanie w górę odczytu|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Skalowanie w górę odczytu|Tak|Tak|Tak|Tak|Tak|Tak|Tak|
 |Przechowywanie kopii zapasowej magazynu|7 dni|7 dni|7 dni|7 dni|7 dni|7 dni|7 dni|
 |||
 
@@ -216,7 +216,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Generowanie obliczeń|Obliczenia|Obliczenia|Obliczenia|Obliczenia|Obliczenia|Obliczenia|
 |Rdzeni wirtualnych|1|2|3|4|5|6|
 |Pamięć (GB)|7|14|21|28|35|42|
-|Obsługa magazynu kolumn|Yes|Yes|Yes|Yes|Yes|Yes|
+|Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|Tak|
 |Magazyn OLTP w pamięci (GB)|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
 |Maksymalny rozmiar danych (GB)|1024|1024|1536|1536|1536|3072|
 |Maksymalny rozmiar dziennika (GB)|307|307|461|461|461|922|
@@ -241,7 +241,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Generowanie obliczeń|Obliczenia|Obliczenia|Obliczenia|Obliczenia|Obliczenia|Obliczenia|
 |Rdzeni wirtualnych|7|8|9|10|16|24|
 |Pamięć (GB)|49|56|63|70|112|159,5|
-|Obsługa magazynu kolumn|Yes|Yes|Yes|Yes|Yes|Yes|
+|Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|Tak|
 |Magazyn OLTP w pamięci (GB)|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
 |Maksymalny rozmiar danych (GB)|3072|3072|3072|3072|4096|4096|
 |Maksymalny rozmiar dziennika (GB)|922|922|922|922|1229|1229|
@@ -268,7 +268,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Generowanie obliczeń|5 rdzeń|5 rdzeń|5 rdzeń|5 rdzeń|5 rdzeń|5 rdzeń|5 rdzeń|
 |Rdzeni wirtualnych|2|4|6|8|10|12|14|
 |Pamięć (GB)|10,4|20,8|31,1|41,5|51,9|62,3|72,7|
-|Obsługa magazynu kolumn|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|Tak|Tak|
 |Magazyn OLTP w pamięci (GB)|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
 |Maksymalny rozmiar danych (GB)|1024|1024|1536|1536|1536|3072|3072|
 |Maksymalny rozmiar dziennika (GB)|307|307|461|461|461|922|922|
@@ -293,14 +293,14 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Generowanie obliczeń|5 rdzeń|5 rdzeń|5 rdzeń|5 rdzeń|5 rdzeń|5 rdzeń|5 rdzeń|
 |Rdzeni wirtualnych|16|18|20|24|32|40|80|
 |Pamięć (GB)|83|93,4|103,8|124,6|166,1|207,6|415,2|
-|Obsługa magazynu kolumn|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|Tak|Tak|
 |Magazyn OLTP w pamięci (GB)|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|Nie dotyczy|
 |Maksymalny rozmiar danych (GB)|3072|3072|3072|4096|4096|4096|4096|
 |Maksymalny rozmiar dziennika (GB)|922|922|922|1229|1229|1229|1229|
 |Maksymalny rozmiar danych TempDB (GB)|512|576|640|768|1024|1280|2560|
 |Typ magazynu|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|Zdalny dysk SSD|
 |Opóźnienie we/wy (przybliżone)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|5-7 ms (zapis)<br>5-10 ms (odczyt)|
-|Maksymalna liczba operacji we/wy danych *|5120|5760|6400|7680|10240|12800|25600|
+|Maksymalna liczba operacji we/wy danych *|5120|5760|6400|7680|10240|12800|12800|
 |Maksymalny współczynnik rejestrowania (MB/s)|30|30|30|30|30|30|30|
 |Maksymalna liczba współbieżnych procesów roboczych (żądań)|1600|1800|2000|2400|3200|4000|8000|
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|30 000|30 000|
@@ -320,7 +320,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Generowanie obliczeń|Seria Fsv2|
 |Rdzeni wirtualnych|72|
 |Pamięć (GB)|136,2|
-|Obsługa magazynu kolumn|Yes|
+|Obsługa magazynu kolumn|Tak|
 |Magazyn OLTP w pamięci (GB)|Nie dotyczy|
 |Maksymalny rozmiar danych (GB)|4096|
 |Maksymalny rozmiar dziennika (GB)|1024|
@@ -351,7 +351,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Generowanie obliczeń|Obliczenia|Obliczenia|Obliczenia|Obliczenia|Obliczenia|Obliczenia|
 |Rdzeni wirtualnych|1|2|3|4|5|6|
 |Pamięć (GB)|7|14|21|28|35|42|
-|Obsługa magazynu kolumn|Yes|Yes|Yes|Yes|Yes|Yes|
+|Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|Tak|
 |Magazyn OLTP w pamięci (GB)|1|2|3|4|5|6|
 |Typ magazynu|Lokalny dysk SSD|Lokalny dysk SSD|Lokalny dysk SSD|Lokalny dysk SSD|Lokalny dysk SSD|Lokalny dysk SSD|
 |Maksymalny rozmiar danych (GB)|1024|1024|1024|1024|1024|1024|
@@ -364,8 +364,8 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Maksymalna liczba współbieżnych logowań|200|400|600|800|1000|1200|
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|30 000|
 |Liczba replik|4|4|4|4|4|4|
-|Wiele-AZ|Yes|Yes|Yes|Yes|Yes|Yes|
-|Skalowanie w górę odczytu|Yes|Yes|Yes|Yes|Yes|Yes|
+|Wiele-AZ|Tak|Tak|Tak|Tak|Tak|Tak|
+|Skalowanie w górę odczytu|Tak|Tak|Tak|Tak|Tak|Tak|
 |Uwzględniony magazyn kopii zapasowych|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|
 
 \*Maksymalna wartość dla wielkości we/wy z zakresu od 8 KB do 64 KB. Rzeczywiste operacje we/wy są zależne od obciążenia. Aby uzyskać szczegółowe informacje, zobacz [Zarządzanie we/wy danych](resource-limits-logical-server.md#resource-governance).
@@ -377,7 +377,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Generowanie obliczeń|Obliczenia|Obliczenia|Obliczenia|Obliczenia|Obliczenia|Obliczenia|
 |Rdzeni wirtualnych|7|8|9|10|16|24|
 |Pamięć (GB)|49|56|63|70|112|159,5|
-|Obsługa magazynu kolumn|Yes|Yes|Yes|Yes|Yes|Yes|
+|Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|Tak|
 |Magazyn OLTP w pamięci (GB)|7|8|9,5|11|20|36|
 |Typ magazynu|Lokalny dysk SSD|Lokalny dysk SSD|Lokalny dysk SSD|Lokalny dysk SSD|Lokalny dysk SSD|Lokalny dysk SSD|
 |Maksymalny rozmiar danych (GB)|1024|1024|1024|1024|1024|1024|
@@ -390,8 +390,8 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Maksymalna liczba współbieżnych logowań (żądania)|1400|1600|1800|2000|3200|4800|
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|30 000|
 |Liczba replik|4|4|4|4|4|4|
-|Wiele-AZ|Yes|Yes|Yes|Yes|Yes|Yes|
-|Skalowanie w górę odczytu|Yes|Yes|Yes|Yes|Yes|Yes|
+|Wiele-AZ|Tak|Tak|Tak|Tak|Tak|Tak|
+|Skalowanie w górę odczytu|Tak|Tak|Tak|Tak|Tak|Tak|
 |Uwzględniony magazyn kopii zapasowych|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|
 
 \*Maksymalna wartość dla wielkości we/wy z zakresu od 8 KB do 64 KB. Rzeczywiste operacje we/wy są zależne od obciążenia. Aby uzyskać szczegółowe informacje, zobacz [Zarządzanie we/wy danych](resource-limits-logical-server.md#resource-governance).
@@ -405,7 +405,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Generowanie obliczeń|5 rdzeń|5 rdzeń|5 rdzeń|5 rdzeń|5 rdzeń|5 rdzeń|5 rdzeń|
 |Rdzeni wirtualnych|2|4|6|8|10|12|14|
 |Pamięć (GB)|10,4|20,8|31,1|41,5|51,9|62,3|72,7|
-|Obsługa magazynu kolumn|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|Tak|Tak|
 |Magazyn OLTP w pamięci (GB)|1,57|3,14|4,71|6,28|8,65|11,02|13,39|
 |Maksymalny rozmiar danych (GB)|1024|1024|1536|1536|1536|3072|3072|
 |Maksymalny rozmiar dziennika (GB)|307|307|461|461|461|922|922|
@@ -418,8 +418,8 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Maksymalna liczba współbieżnych logowań|200|400|600|800|1000|1200|1400|
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|30 000|30 000|
 |Liczba replik|4|4|4|4|4|4|4|
-|Wiele-AZ|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
-|Skalowanie w górę odczytu|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Wiele-AZ|Tak|Tak|Tak|Tak|Tak|Tak|Tak|
+|Skalowanie w górę odczytu|Tak|Tak|Tak|Tak|Tak|Tak|Tak|
 |Uwzględniony magazyn kopii zapasowych|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|
 
 \*Maksymalna wartość dla wielkości we/wy z zakresu od 8 KB do 64 KB. Rzeczywiste operacje we/wy są zależne od obciążenia. Aby uzyskać szczegółowe informacje, zobacz [Zarządzanie we/wy danych](resource-limits-logical-server.md#resource-governance).
@@ -431,7 +431,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Generowanie obliczeń|5 rdzeń|5 rdzeń|5 rdzeń|5 rdzeń|5 rdzeń|5 rdzeń|5 rdzeń|
 |Rdzeni wirtualnych|16|18|20|24|32|40|80|
 |Pamięć (GB)|83|93,4|103,8|124,6|166,1|207,6|415,2|
-|Obsługa magazynu kolumn|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Obsługa magazynu kolumn|Tak|Tak|Tak|Tak|Tak|Tak|Tak|
 |Magazyn OLTP w pamięci (GB)|15,77|18,14|20,51|25,25|37,94|52,23|131,64|
 |Maksymalny rozmiar danych (GB)|3072|3072|3072|4096|4096|4096|4096|
 |Maksymalny rozmiar dziennika (GB)|922|922|922|1229|1229|1229|1229|
@@ -444,8 +444,8 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Maksymalna liczba współbieżnych logowań|1600|1800|2000|2400|3200|4000|8000|
 |Maksymalna liczba współbieżnych sesji|30 000|30 000|30 000|30 000|30 000|30 000|30 000|
 |Liczba replik|4|4|4|4|4|4|4|
-|Wiele-AZ|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
-|Skalowanie w górę odczytu|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Wiele-AZ|Tak|Tak|Tak|Tak|Tak|Tak|Tak|
+|Skalowanie w górę odczytu|Tak|Tak|Tak|Tak|Tak|Tak|Tak|
 |Uwzględniony magazyn kopii zapasowych|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|rozmiar bazy danych 1X|
 
 \*Maksymalna wartość dla wielkości we/wy z zakresu od 8 KB do 64 KB. Rzeczywiste operacje we/wy są zależne od obciążenia. Aby uzyskać szczegółowe informacje, zobacz [Zarządzanie we/wy danych](resource-limits-logical-server.md#resource-governance).
@@ -459,7 +459,7 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Generowanie obliczeń|Seria M|
 |Rdzeni wirtualnych|128|
 |Pamięć (GB)|3767,1|
-|Obsługa magazynu kolumn|Yes|
+|Obsługa magazynu kolumn|Tak|
 |Magazyn OLTP w pamięci (GB)|1768|
 |Maksymalny rozmiar danych (GB)|4096|
 |Maksymalny rozmiar dziennika (GB)|2048|
@@ -472,8 +472,8 @@ Możesz ustawić warstwę usług, rozmiar obliczeń i ilość miejsca do magazyn
 |Maksymalna liczba współbieżnych logowań|12 800|
 |Maksymalna liczba współbieżnych sesji|30000|
 |Liczba replik|4|
-|Wiele-AZ|Yes|
-|Skalowanie w górę odczytu|Yes|
+|Wiele-AZ|Tak|
+|Skalowanie w górę odczytu|Tak|
 |Uwzględniony magazyn kopii zapasowych|rozmiar bazy danych 1X|
 
 \*Maksymalna wartość dla wielkości we/wy z zakresu od 8 KB do 64 KB. Rzeczywiste operacje we/wy są zależne od obciążenia. Aby uzyskać szczegółowe informacje, zobacz [Zarządzanie we/wy danych](resource-limits-logical-server.md#resource-governance).

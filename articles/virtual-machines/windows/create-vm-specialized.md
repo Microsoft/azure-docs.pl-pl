@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 10/10/2019
 ms.author: cynthn
-ms.openlocfilehash: 2939726898abc2abc0e62d0e36feedbfe7ba3645
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7d378f111104feb678d3d89f4a4c51998c67f2e1
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82086406"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234532"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Tworzenie maszyny wirtualnej z systemem Windows na podstawie wyspecjalizowanego dysku za pomocą programu PowerShell
 
@@ -193,7 +193,7 @@ $nsg = New-AzNetworkSecurityGroup `
 Aby uzyskać więcej informacji na temat punktów końcowych i reguł sieciowej grupy zabezpieczeń, zobacz [otwieranie portów do maszyny wirtualnej na platformie Azure przy użyciu programu PowerShell](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### <a name="create-a-public-ip-address-and-nic"></a>Tworzenie publicznego adresu IP i karty sieciowej
-Aby umożliwić komunikację z maszyną wirtualną w sieci wirtualnej, potrzebny jest [publiczny adres IP](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) i interfejs sieciowy.
+Aby umożliwić komunikację z maszyną wirtualną w sieci wirtualnej, potrzebny jest [publiczny adres IP](../../virtual-network/public-ip-addresses.md) i interfejs sieciowy.
 
 1. Utwórz publiczny adres IP. W tym przykładzie nazwa publicznego adresu IP jest ustawiona na *myIP*.
    
@@ -261,7 +261,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ### <a name="verify-that-the-vm-was-created"></a>Sprawdź, czy maszyna wirtualna została utworzona
-Nowo utworzona maszyna wirtualna powinna zostać wyświetlona w [Azure Portal](https://portal.azure.com) w obszarze **przeglądanie** > **maszyn wirtualnych**lub przy użyciu następujących poleceń programu PowerShell.
+Nowo utworzona maszyna wirtualna powinna zostać wyświetlona w [Azure Portal](https://portal.azure.com) w obszarze **przeglądanie**  >  **maszyn wirtualnych**lub przy użyciu następujących poleceń programu PowerShell.
 
 ```powershell
 $vmList = Get-AzVM -ResourceGroupName $destinationResourceGroup

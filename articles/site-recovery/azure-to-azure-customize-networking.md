@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: rajanaki
-ms.openlocfilehash: 96ffa34166797945afc04c66b03fe151d26c65bc
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ce3bfd85656972cb93b74a85a1bd6d469837ce22
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76292862"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84236299"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>Dostosowywanie konfiguracji sieci dla docelowej maszyny wirtualnej platformy Azure
 
@@ -28,7 +28,7 @@ Dowiedz się, jak Site Recovery zapewnia odzyskiwanie po awarii w [tym scenarius
 Podczas replikowania maszyn wirtualnych platformy Azure można dostarczyć następujące konfiguracje zasobów kluczy dla maszyny wirtualnej trybu failover:
 
 - [Wewnętrzny moduł równoważenia obciążenia](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
-- [Publiczny adres IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses)
+- [Publiczny adres IP](../virtual-network/public-ip-addresses.md)
 - [Grupa zabezpieczeń sieci](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) dla podsieci i karty sieciowej
 
 ## <a name="prerequisites"></a>Wymagania wstępne

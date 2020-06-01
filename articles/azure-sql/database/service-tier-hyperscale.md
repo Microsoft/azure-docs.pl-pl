@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 10/01/2019
-ms.openlocfilehash: 3a3bbe384b91307471786fe904e880fb7e1a9af8
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 05/29/2020
+ms.openlocfilehash: 65d7cb60d0d3df43323833f254278c20abacc9d1
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84049890"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84231214"
 ---
 # <a name="hyperscale-service-tier"></a>Warstwa usługi Hiperskala
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -209,20 +209,20 @@ Są to bieżące ograniczenia dotyczące warstwy usług w ramach skalowania na p
 
 | Problem | Opis |
 | :---- | :--------- |
-| Okienko zarządzanie kopiami zapasowymi dla serwera nie pokazuje baz danych ze skalowaniem, zostaną one przefiltrowane z widoku  | Funkcja Moja Skala ma oddzielną metodę zarządzania kopiami zapasowymi, a w związku z tym ustawienia przechowywania kopii zapasowych długoterminowego przechowywania i punktu w czasie nie mają zastosowania/są unieważnione. W związku z tym bazy danych nie są wyświetlane w okienku zarządzanie kopią zapasową. |
-| Przywracanie do określonego momentu | Bazę danych w ramach skalowania można przywrócić do bazy danych bez skalowania w ramach okresu przechowywania bazy danych bez przedziału. Nie można przywrócić bazy danych bez skalowania do bazy danych w skali.|
+| Okienko zarządzanie kopiami zapasowymi dla serwera nie pokazuje baz danych ze skalowaniem, zostaną one przefiltrowane z widoku  | Funkcja wieloskalowania ma oddzielną metodę zarządzania kopiami zapasowymi, a w związku z tym ustawienia przechowywania kopii zapasowych długoterminowego przechowywania i punktu w czasie nie są stosowane. W związku z tym bazy danych nie są wyświetlane w okienku zarządzanie kopią zapasową.|
+| Przywracanie do określonego momentu | Baza danych bez skalowania nie może zostać przywrócona jako baza danych ze skalą i nie może zostać przywrócona jako baza danych bez skalowania. W przypadku bazy danych bez skalowania, która została zmigrowana do skalowania przez zmianę jej warstwy usług, Przywróć do punktu w czasie przed migracją i w ramach okresu przechowywania kopii zapasowej bazy danych można [programowo](recovery-using-backups.md#programmatically-performing-recovery-by-using-automated-backups). Przywrócona baza danych nie będzie skalowana. |
 | Jeśli baza danych ma co najmniej jeden plik danych o rozmiarze większym niż 1 TB, migracja nie powiedzie się | W niektórych przypadkach może być możliwe obejście tego problemu, zmniejszając duże ilości plików poniżej 1 TB. W przypadku migrowania bazy danych używanej podczas procesu migracji upewnij się, że żaden plik nie będzie większy niż 1 TB. Użyj następującego zapytania, aby określić rozmiar plików bazy danych. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | Wystąpienie zarządzane SQL | Wystąpienie zarządzane Azure SQL nie jest obecnie obsługiwane w bazach danych. |
-| Pule elastyczne |  Pule elastyczne nie są obecnie obsługiwane z użyciem funkcji wieloskalowania SQL Database.|
+| Pule elastyczne |  Pule elastyczne nie są obecnie obsługiwane ze skalą.|
 | Migracja do funkcji Moje skalowanie jest obecnie operacją jednokierunkową | Po przeprowadzeniu migracji bazy danych do warstwy usługi nie można migrować jej bezpośrednio na warstwę usług, która nie jest w skali. W obecnym czasie jedynym sposobem migrowania bazy danych z Azure Databricks Azure Data Factory funkcji ze skalowaniem do poziomu non------------------------------------------- BACPAC Export/Import z Azure Portal, z programu PowerShell przy użyciu polecenia [New-AzSqlDatabaseExport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseexport) lub [New-AzSqlDatabaseImport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseimport), z interfejsu wiersza polecenia platformy Azure przy użyciu polecenia [AZ SQL DB Export](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-export) i [AZ SQL DB import](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-import)i from [API REST](https://docs.microsoft.com/rest/api/sql/databases%20-%20import%20export) nie jest obsługiwana. BACPAC Import/Export w przypadku mniejszych baz danych w postaci większej skali (do 200 GB) jest obsługiwana przy użyciu programu SSMS i [sqlpackage](https://docs.microsoft.com/sql/tools/sqlpackage) w wersji 18,4 lub nowszej. W przypadku większych baz danych eksport/import BACPAC może zająć dużo czasu i może się nie powieść z różnych powodów.|
-| Migracja baz danych z trwałymi obiektami w pamięci | Funkcja przeskalowania obsługuje tylko nietrwałe obiekty w pamięci (typy tabel, natywne SPs i funkcje).  Trwałe tabele w pamięci i inne obiekty muszą zostać porzucone i odtworzone jako obiekty nieznajdujące się w pamięci przed migracją bazy danych do warstwy usługi.|
+| Migracja baz danych z trwałymi obiektami OLTP w pamięci | Funkcja przeskalowania obsługuje tylko nietrwałe obiekty OLTP w pamięci (typy tabel, natywne SPs i funkcje).  Trwałe tabele OLTP w pamięci i inne obiekty muszą zostać porzucone i ponownie utworzone jako obiekty oparte na dyskach przed migracją bazy danych do warstwy usługi w ramach skalowania.|
 | Replikacja geograficzna  | Nie można jeszcze skonfigurować replikacji geograficznej na potrzeby Azure SQL Database skalowania. |
 | Kopia bazy danych | Nie można jeszcze użyć kopii bazy danych w celu utworzenia nowej bazy danych w funkcji wieloskalowania SQL platformy Azure. |
-| Integracja TDE/AKV | Szyfrowanie przezroczystej bazy danych przy użyciu Azure Key Vault (nazywanego też kluczem "Przenieś jako własne-Key" lub BYOK) nie jest jeszcze obsługiwane dla Azure SQL Database funkcji TDE, ale z kluczami zarządzanymi przez usługę jest w pełni obsługiwane. |
-|Funkcje inteligentnej bazy danych | Z wyjątkiem opcji "Wymuś plan" wszystkie inne opcje dostrajania automatycznego nie są jeszcze obsługiwane w obszarze skalowanie: opcje mogą być dostępne, ale nie zostaną wykonane żadne zalecenia ani działania. |
-|Analiza wydajności zapytań | Szczegółowe informacje o wydajności zapytań nie są obecnie obsługiwane w przypadku baz danych w skali. |
+| Integracja TDE/AKV | Nieprzezroczyste szyfrowanie bazy danych przy użyciu Azure Key Vault (nazywanego również przenoszeniem własnym kluczem lub BYOK) jest obecnie dostępne w wersji zapoznawczej. |
+| Funkcje inteligentnej bazy danych | Z wyjątkiem opcji "Wymuś plan" wszystkie inne opcje dostrajania automatycznego nie są jeszcze obsługiwane w obszarze skalowanie: opcje mogą być dostępne, ale nie zostaną wykonane żadne zalecenia ani działania. |
+| Analiza wydajności zapytań | Szczegółowe informacje o wydajności zapytań nie są obecnie obsługiwane w przypadku baz danych w skali. |
 | Zmniejsz bazę danych | Polecenia DBCC SHRINKDATABASE lub DBCC SHRINKFILE nie są obecnie obsługiwane w przypadku baz danych w ramach skalowania. |
-| Sprawdzanie integralności bazy danych | Polecenie DBCC CHECKDB nie jest obecnie obsługiwane w przypadku baz danych w skali. Aby uzyskać szczegółowe informacje na temat zarządzania integralnością danych w programie Azure SQL Database, zobacz temat [integralność danych w Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) . |
+| Sprawdzanie integralności bazy danych | Polecenie DBCC CHECKDB nie jest obecnie obsługiwane w przypadku baz danych w skali. Polecenia DBCC CHECKFILEGROUP i DBCC CHECKTABLE mogą służyć jako obejście problemu. Aby uzyskać szczegółowe informacje na temat zarządzania integralnością danych w programie Azure SQL Database, zobacz temat [integralność danych w Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) . |
 
 ## <a name="next-steps"></a>Następne kroki
 
