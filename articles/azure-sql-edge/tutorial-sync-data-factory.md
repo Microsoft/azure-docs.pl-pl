@@ -2,19 +2,19 @@
 title: Synchronizuj dane z usługi Azure SQL Edge (wersja zapoznawcza) za pomocą Azure Data Factory
 description: Informacje o synchronizowaniu danych między usługą Azure SQL Edge (wersja zapoznawcza) i magazynem obiektów blob platformy Azure
 keywords: SQL Edge, synchronizacja danych z programu SQL Edge, Fabryka danych programu SQL Edge
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: tutorial
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 1238505a10214c315bd5f2ceb428cf097b3ef5c6
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: cc81784d4ad3613cf46176912625cf980c44f064
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599661"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235044"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>Samouczek: Synchronizowanie danych z programu SQL Edge z usługą Azure Blob Storage za pomocą Azure Data Factory
 
@@ -103,7 +103,7 @@ Utwórz fabrykę danych, wykonując instrukcje podane w [tym samouczku](../data-
 
     5. Aby przetestować połączenie z wystąpieniem programu SQL Edge, wybierz pozycję **Test connection**.
 
-    6. Wybierz przycisk **Utwórz**.
+    6. Wybierz pozycję **Utwórz**.
 
     ![Tworzenie usługi połączonej](media/tutorial-sync-data-factory/create-linked-service.png)
 
@@ -198,7 +198,7 @@ Utwórz fabrykę danych, wykonując instrukcje podane w [tym samouczku](../data-
     |Nazwa|Typ|Wartość|
     |-----|----|-----|
     |LastModifiedtime|DateTime|@ {Activity ("NewWaterMark"). Output. firstRow. NewWatermarkvalue}|
-    |TableName|String|@ {Activity ("OldWaterMark"). Output. firstRow. TableName}|
+    |TableName|String (ciąg)|@ {Activity ("OldWaterMark"). Output. firstRow. TableName}|
 
 33. Aby sprawdzić poprawność ustawień potoku, wybierz pozycję **Weryfikuj** na pasku narzędzi. Potwierdź, że weryfikacja nie zwróciła błędów. Aby zamknąć okno **raport weryfikacji potoku** , wybierz opcję **>>** .
 

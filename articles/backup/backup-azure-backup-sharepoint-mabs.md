@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowej farmy programu SharePoint na platformie Azure z
 description: Użyj Azure Backup Server, aby utworzyć kopię zapasową i przywrócić dane programu SharePoint. Ten artykuł zawiera informacje dotyczące konfigurowania farmy programu SharePoint w taki sposób, aby wymagane dane mogły być przechowywane na platformie Azure. Chronione dane programu SharePoint można przywrócić z dysku lub z platformy Azure.
 ms.topic: conceptual
 ms.date: 04/26/2020
-ms.openlocfilehash: 7e429eeb5319a12c3483510072fd82c69c8d8ab3
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 62fcb434ef00df43ce2950a5df569e346a06903a
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657271"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234787"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Tworzenie kopii zapasowej farmy programu SharePoint na platformie Azure za pomocą usługi serwera usługi MAB
 
@@ -68,10 +68,9 @@ Aby utworzyć kopię zapasową farmy programu SharePoint, skonfiguruj ochronę p
 
     * Wprowadź poświadczenia administratora farmy. To konto musi należeć do lokalnej grupy administratorów na serwerze WFE. Jeśli administrator farmy nie jest administratorem lokalnym, przyznaj następujące uprawnienia na serwerze WFE:
 
-        * Przyznaj grupie administratorów programu WSS uprawnienia \_ \_ pełna kontrola do folderu serwera usługi MAB \( % program files% \\ Data Protection Manager \\ DPM \) .
-            -A
+        * Przyznaj grupie **WSS_Admin_WPG** pełną kontrolę do folderu serwera usługi MAB ( `%Program Files%\Data Protection Manager\DPM\` ).
 
-        * Przyznaj grupie zasobów administracyjnych programu WSS \_ \_ dostęp do odczytu do klucza rejestru serwera usługi MAB \( HKEY \_ Local \_ Machine \\ Software \\ Microsoft \\ Microsoft Data Protection Manager \) .
+        * Przyznaj grupie **WSS_Admin_WPG** dostęp do odczytu do klucza rejestru serwera usługi MAB ( `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager` ).
 
         Po uruchomieniu programu ConfigureSharePoint. exe należy uruchomić go ponownie w przypadku zmiany poświadczeń administratora farmy SharePoint.
 

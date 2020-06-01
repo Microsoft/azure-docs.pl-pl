@@ -2,19 +2,19 @@
 title: Wdrażanie i wykonywanie prognoz przy użyciu ONNX w usłudze Azure SQL Edge (wersja zapoznawcza)
 description: Dowiedz się, jak szkolić model, przekonwertować go na ONNX, wdrożyć go w usłudze Azure SQL Edge (wersja zapoznawcza), a następnie uruchomić natywne przewidywania danych przy użyciu przekazanego modelu ONNX.
 keywords: Wdróż program SQL Edge
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.subservice: ''
 ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 05/19/2020
-ms.openlocfilehash: 2dd5af1a23618b063f094e4974f705a51a1b2bcf
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 66e2fb663d14ed2590af9c0cc62e6dad119d086f
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171025"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233262"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model-in-azure-sql-edge-preview"></a>Wdrażanie i Tworzenie prognoz przy użyciu modelu ONNX w usłudze Azure SQL Edge (wersja zapoznawcza)
 

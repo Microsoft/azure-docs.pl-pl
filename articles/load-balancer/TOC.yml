@@ -60,8 +60,6 @@
       href: load-balancer-multivip-overview.md
     - name: Połączenia wychodzące
       href: load-balancer-outbound-connections.md
-    - name: Reguły ruchu wychodzącego
-      href: load-balancer-outbound-rules-overview.md
     - name: Resetowanie protokołu TCP w wyniku upływu limitu czasu bezczynności
       href: load-balancer-tcp-reset.md
     - name: Usługa Load Balancer w warstwie Standardowa i strefy dostępności

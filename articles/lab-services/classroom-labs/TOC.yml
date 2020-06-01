@@ -24,6 +24,8 @@
       href: classroom-labs-concepts.md
     - name: Podstawowe założenia dotyczące architektury laboratoriów na potrzeby zajęć
       href: classroom-labs-fundamentals.md
+    - name: Limity pojemności
+      href: capacity-limits.md
     - name: Scenariusze
       items:
         - name: Korzystanie z laboratoriów przy prowadzeniu zajęć

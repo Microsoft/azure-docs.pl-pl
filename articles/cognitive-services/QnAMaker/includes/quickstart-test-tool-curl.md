@@ -10,12 +10,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/27/2020
 ms.author: diberry
-ms.openlocfilehash: d890fcb6a43b43e0be0df8e6f6ff0817bdd03115
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 161dde34a4f459640d262197fd5ccbb16ac51d04
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83998088"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84237704"
 ---
 Ten przewodnik Szybki Start przeprowadzi Cię przez proces uzyskiwania odpowiedzi z bazy wiedzy.
 
@@ -80,6 +80,8 @@ Skorzystaj z bazy wiedzy z poprzedniej szybkiej kwerendy, aby uzyskać odpowiedz
     Jeśli istnieje para pytań i odpowiedzi, która nie spełnia warunków wyszukiwania, ale spełniała filtr, nie zostanie zwrócona. Zamiast tego `No good match found in KB.` jest zwracana ogólna odpowiedź.
 
 ## <a name="use-debug-query-property"></a>Użyj właściwości zapytania debugowania
+> [!NOTE]
+>Nie zaleca się używania właściwości Debug dla żadnej zależności. Ta właściwość została dodana, aby ułatwić zespołowi produktu Rozwiązywanie problemów.
 
 Informacje debugowania pomagają zrozumieć, w jaki sposób została określona zwrócona odpowiedź. Chociaż jest to przydatne, nie jest to konieczne. Aby wygenerować odpowiedź z informacjami o debugowaniu, Dodaj `debug` Właściwość:
 

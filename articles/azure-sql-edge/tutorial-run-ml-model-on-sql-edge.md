@@ -2,19 +2,19 @@
 title: Wdrażanie modelu ML w usłudze Azure SQL Edge przy użyciu ONNX
 description: W trzeciej części tego przykładowego samouczka usługi Azure SQL Edge na potrzeby przewidywania zanieczyszczeń żelaza można uruchamiać modele uczenia maszynowego ONNX w usłudze SQL Edge.
 keywords: ''
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: tutorial
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 64594267dc51fa42dabcc3083d18d631904a9cab
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 02850b8780e70d402cff2b8fd301c2f79cd6c55e
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599709"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235068"
 ---
 # <a name="deploy-ml-model-on-azure-sql-edge-using-onnx"></a>Wdrażanie modelu ML w usłudze Azure SQL Edge przy użyciu ONNX 
 
@@ -35,7 +35,7 @@ W trzeciej części tego samouczka z trzema częściami w celu przewidywania zan
    |Służ|Publiczny adres IP wymieniony na maszynie wirtualnej, który został utworzony dla tej wersji demonstracyjnej|
    |Nazwa użytkownika|sa|
    |Hasło|Silne hasło użyte podczas tworzenia wystąpienia usługi Azure SQL Edge|
-   |baza danych|Domyślne|
+   |Baza danych|Domyślne|
    |Grupa serwerów|Domyślne|
    |Nazwa (opcjonalnie)|Podaj nazwę opcjonalną|
 

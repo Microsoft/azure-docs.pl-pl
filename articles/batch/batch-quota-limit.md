@@ -4,12 +4,12 @@ description: Informacje o domyślnych przydziałach Azure Batch, limitach i ogra
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: b172800e6ed2a28315da3b45eb39f2207f8f1c16
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 3168c6fc60b2552129e9a11fbf6e8e24d9b37b14
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83780000"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84229849"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Limity przydziału i limity usługi Batch
 
@@ -126,7 +126,7 @@ Po przesłaniu żądania pomocy technicznej systemu Azure skontaktuje się z Tob
 Pule usługi Batch w konfiguracji maszyny wirtualnej wdrożonej w sieci wirtualnej platformy Azure automatycznie przydzielą dodatkowe zasoby sieci platformy Azure. W przypadku każdego węzła puli 50 w sieci wirtualnej są niezbędne następujące zasoby:
 
 * Jedna [sieciowa Grupa zabezpieczeń](../virtual-network/security-overview.md#network-security-groups)
-* Jeden [publiczny adres IP](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+* Jeden [publiczny adres IP](../virtual-network/public-ip-addresses.md)
 * Jeden [moduł równoważenia obciążenia](../load-balancer/load-balancer-overview.md)
 
 Te zasoby są przydzieleni do subskrypcji zawierającej sieć wirtualną podaną podczas tworzenia puli usługi Batch. Te zasoby są ograniczone przez [limity zasobów](../azure-resource-manager/management/azure-subscription-service-limits.md) subskrypcji. Jeśli planujesz wdrożenia dużych pul w sieci wirtualnej, sprawdź przydziały dla tych zasobów. W razie konieczności Poproś o zwiększenie Azure Portal, wybierając pozycję **Pomoc i obsługa techniczna**.

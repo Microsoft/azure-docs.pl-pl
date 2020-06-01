@@ -2,19 +2,19 @@
 title: Korzystanie z SQL Database pakietów DAC — Azure SQL Edge (wersja zapoznawcza)
 description: Dowiedz się więcej na temat używania dacpacs w usłudze Azure SQL Edge (wersja zapoznawcza)
 keywords: SQL Edge, sqlpackage
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 17d0ba4d7298e60255477c4801e0bcb9b9a4ecac
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 0ddd1544c6a51ff1e2f98a28e40d9eb2ee0b47c7
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83598269"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233279"
 ---
 # <a name="sql-database-dac-packages-in-sql-edge"></a>SQL Database pakietów DAC w programie SQL Edge
 

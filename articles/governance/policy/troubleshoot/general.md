@@ -3,12 +3,12 @@ title: Rozwiązywanie typowych problemów
 description: Dowiedz się, jak rozwiązywać problemy z tworzeniem definicji zasad, różnymi zestawami SDK i dodatkiem dla Kubernetes.
 ms.date: 05/22/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 8935176badabf559d494c3d60fb1dec236efbdc2
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: b1cb8ab51ecc00610f1e04532ba3063be5415607
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84221377"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234188"
 ---
 # <a name="troubleshoot-errors-using-azure-policy"></a>Rozwiązywanie problemów z błędami przy użyciu Azure Policy
 
@@ -130,7 +130,7 @@ Wygenerowane hasło zawiera przecinek ( `,` ), na którym jest podzielenie wykre
 
 #### <a name="resolution"></a>Rozwiązanie
 
-`,`W przypadku korzystania z Backspace () w polu wartość hasła należy wprowadzić znak ucieczki () `helm install azure-policy-addon` `\` .
+`,`W przypadku korzystania `helm install azure-policy-addon` z ukośnika odwrotnego () w polu wartość hasła należy wprowadzić znak ucieczki () `\` .
 
 ### <a name="scenario-install-using-helm-chart-fails-as-name-already-exists"></a>Scenariusz: Instalacja za pomocą wykresu Helm kończy się niepowodzeniem, ponieważ nazwa już istnieje
 

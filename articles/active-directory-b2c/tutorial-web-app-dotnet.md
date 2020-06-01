@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: e4b56f18bf8a2ed1c22b00b8a57efdbf06eb7fa2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 9bf7339e500a006c168311145a9a5d992b07f145
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "78183330"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84231819"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Samouczek: Włączanie uwierzytelniania w aplikacji sieci Web przy użyciu Azure Active Directory B2C
 
@@ -61,8 +61,8 @@ Aby zaktualizować aplikację, możesz użyć środowiska bieżące **aplikacje*
 1. W menu po lewej stronie wybierz pozycję **Azure AD B2C**. Lub wybierz pozycję **wszystkie usługi** i Wyszukaj i wybierz pozycję **Azure AD B2C**.
 1. Wybierz pozycję **rejestracje aplikacji (wersja zapoznawcza)**, wybierz kartę **posiadane aplikacje** , a następnie wybierz aplikację *webapp1* .
 1. Wybierz pozycję **uwierzytelnianie**, a następnie wybierz pozycję **Wypróbuj nowe środowisko** (jeśli jest wyświetlana).
-1. W obszarze **Sieć Web**wybierz łącze **Dodaj identyfikator URI** , `https://localhost:44316`wprowadź, a następnie wybierz pozycję **Zapisz**.
-1. Wybierz pozycję **Przegląd**.
+1. W obszarze **Sieć Web**wybierz łącze **Dodaj identyfikator URI** , wprowadź `https://localhost:44316` , a następnie wybierz pozycję **Zapisz**.
+1. Wybierz pozycję **Omówienie**.
 1. Rejestrowanie **identyfikatora aplikacji (klienta)** do użycia w późniejszym kroku podczas konfigurowania aplikacji sieci Web.
 
 * * *
@@ -92,12 +92,13 @@ Zaktualizuj ustawienia w pliku Web. config, aby współdziałać z przepływem u
 
 1. Otwórz rozwiązanie **B2C-WebAPI-DotNet** w programie Visual Studio.
 1. W projekcie **TaskWebApp** otwórz plik **Web.config**.
-    1. Zaktualizuj wartość `ida:Tenant` i `ida:AadInstance` o nazwę utworzonej dzierżawy Azure AD B2C. Na przykład Zastąp `fabrikamb2c` ciąg `contoso`opcją.
+    1. Zaktualizuj wartość `ida:Tenant` i `ida:AadInstance` o nazwę utworzonej dzierżawy Azure AD B2C. Na przykład Zastąp ciąg `fabrikamb2c` opcją `contoso` .
+    1. Zastąp wartość `ida:TenantId` identyfikatorem katalogu, który można znaleźć we właściwościach dzierżawy usługi Azure B2C (w obszarze Azure Portal w obszarze właściwości **Azure Active Directory**  >  **Properties**  >  **Identyfikator katalogu**).
     1. Zastąp wartość `ida:ClientId` identyfikatorem aplikacji, która została zarejestrowana.
-    1. Zastąp wartość elementu `ida:ClientSecret` zanotowanym kluczem. Jeśli wpis tajny klienta zawiera wszystkie wstępnie zdefiniowane jednostki XML, na przykład mniejsze`<`niż (), większe`>`niż (),`&`handlowe "i" ()`"`, lub podwójne cudzysłowy (), należy wypróbować te znaki przez Kodowanie XML przed dodaniem do pliku Web. config.
-    1. Zastąp wartość wartością `ida:SignUpSignInPolicyId` `b2c_1_signupsignin1`.
-    1. Zastąp wartość wartością `ida:EditProfilePolicyId` `b2c_1_profileediting1`.
-    1. Zastąp wartość wartością `ida:ResetPasswordPolicyId` `b2c_1_passwordreset1`.
+    1. Zastąp wartość elementu `ida:ClientSecret` zanotowanym kluczem. Jeśli wpis tajny klienta zawiera wszystkie wstępnie zdefiniowane jednostki XML, na przykład mniejsze niż ( `<` ), większe niż () `>` , handlowe "i" (), `&` lub podwójne cudzysłowy ( `"` ), należy wypróbować te znaki przez Kodowanie XML przed dodaniem do pliku Web. config.
+    1. Zastąp wartość wartością `ida:SignUpSignInPolicyId` `b2c_1_signupsignin1` .
+    1. Zastąp wartość wartością `ida:EditProfilePolicyId` `b2c_1_profileediting1` .
+    1. Zastąp wartość wartością `ida:ResetPasswordPolicyId` `b2c_1_passwordreset1` .
 
 ## <a name="run-the-sample"></a>Uruchamianie aplikacji przykładowej
 

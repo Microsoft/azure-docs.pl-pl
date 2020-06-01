@@ -2,19 +2,19 @@
 title: sys. external_streaming_jobs (Transact-SQL) — Azure SQL Edge (wersja zapoznawcza)
 description: Dowiedz się więcej o używaniu wykazu sys. external_streaming_jobs w usłudze Azure SQL Edge (wersja zapoznawcza)
 keywords: sys. external_streaming_jobs, SQL Edge
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: reference
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2019
-ms.openlocfilehash: 7d4f66375c5490906e773c6f105a029c3a88465c
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: c4da73e3197df894a0726556b4e92141818a520e
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597275"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233070"
 ---
 # <a name="sysexternal_streaming_jobs-transact-sql"></a>sys. external_streaming_jobs (Transact-SQL)
 
@@ -29,8 +29,8 @@ Zwraca wiersz dla każdego zadania przesyłania strumieniowego zewnętrznego utw
 |**parent_object_id**|**#c1**| Numer identyfikacyjny obiektu dla obiektu nadrzędnego dla tego strumienia. W bieżącej implementacji ta wartość jest zawsze równa null.|
 |**Wprowadź**|**char (2)**|Typ obiektu. Dla obiektów strumienia typem jest zawsze "EJ"|
 |**type_desc**|**nvarchar (60)**| Opis typu obiektu. W przypadku obiektów strumienia typ jest zawsze "EXTERNAL_STREAMING_JOB"|
-|**create_date**|**datetime**| Data utworzenia obiektu.|
-|**modify_date**|**datetime**| W bieżącej implementacji ta wartość jest taka sama jak create_date obiektu Stream |
+|**create_date**|**datę**| Data utworzenia obiektu.|
+|**modify_date**|**datę**| W bieżącej implementacji ta wartość jest taka sama jak create_date obiektu Stream |
 |**is_ms_shipped**|**bit**| Obiekt utworzony przez składnik wewnętrzny.|  
 |**is_published**|**bit**| Obiekt został opublikowany.|  
 |**is_schema_published**|**bit**|Tylko schemat obiektu jest publikowany.|

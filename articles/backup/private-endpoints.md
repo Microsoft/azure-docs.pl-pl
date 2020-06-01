@@ -3,12 +3,12 @@ title: Prywatne punkty końcowe
 description: Zapoznaj się z procesem tworzenia prywatnych punktów końcowych dla Azure Backup i scenariuszy, w których używanie prywatnych punktów końcowych pomaga zachować bezpieczeństwo zasobów.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: bc778506819c44291bb2d8f69cdd9ac0aed51399
-ms.sourcegitcommit: 801a551e047e933e5e844ea4e735d044d170d99a
+ms.openlocfilehash: 2696f3fdbc4e9061afee266ae36ae8d3507026fc
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/11/2020
-ms.locfileid: "83007858"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84231430"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Prywatne punkty końcowe dla Azure Backup
 
@@ -110,9 +110,9 @@ Jeśli chcesz utworzyć oddzielną prywatną strefę DNS na platformie Azure, mo
 
 Zapoznaj się z [tą listą](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) dla kodów regionów.
 
-W przypadku konwencji nazewnictwa adresów URL w Georegiony narodowym:
+W przypadku konwencji nazewnictwa adresów URL w regionach narodowych:
 
-- [Chiny](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
+- [Chinach](https://docs.microsoft.com/azure/china/resources-developer-guide#check-endpoints-in-azure)
 - [Niemcy](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping)
 - [US Gov](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide)
 

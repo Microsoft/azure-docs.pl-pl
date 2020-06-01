@@ -2,19 +2,19 @@
 title: Tworzenie zadania przesyłania strumieniowego T-SQL w usłudze Azure SQL Edge (wersja zapoznawcza)
 description: Dowiedz się więcej o tworzeniu Stream Analytics zadań w usłudze Azure SQL Edge (wersja zapoznawcza)
 keywords: ''
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 7db7f9548a3daa86a53dd37fbe088661e8b7b17e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 323ec00667350917e6b16827f908ac1abeee77d6
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83685174"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233307"
 ---
 # <a name="create-stream-analytics-job-in-azure-sql-edge-preview"></a>Tworzenie zadania Stream Analytics w usłudze Azure SQL Edge (wersja zapoznawcza) 
 
@@ -44,10 +44,10 @@ Usługa Azure SQL Edge obecnie obsługuje tylko następujące źródła danych j
 
 | Typ źródła danych | Dane wejściowe | Dane wyjściowe | Opis |
 |------------------|-------|--------|------------------|
-| Azure IoT Edge Hub | Tak | Tak | Źródło danych do odczytu/zapisu danych przesyłanych strumieniowo do centrum Azure IoT Edge. Aby uzyskać więcej informacji na Azure IoT Edge centrum, zapoznaj się z [centrum IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)|
-| SQL Database | Nie | Tak | Połączenie ze źródłem danych do zapisywania danych przesyłanych strumieniowo do SQL Database. SQL Database może być lokalną bazą danych SQL Edge lub SQL Server zdalnego lub Azure SQL Database|
-| Azure Blob Storage | Nie | Tak | Źródło danych służące do zapisywania danych w obiekcie BLOB na koncie usługi Azure Storage. |
-| Kafka | Tak | Nie | Źródło danych do odczytu danych przesyłanych strumieniowo z tematu Kafka. Ta karta jest obecnie dostępna tylko w wersji Intel/AMD usługi Azure SQL Edge i nie jest dostępna dla ARM64 wersji programu SQL Edge.|
+| Azure IoT Edge Hub | Y | Y | Źródło danych do odczytu/zapisu danych przesyłanych strumieniowo do centrum Azure IoT Edge. Aby uzyskać więcej informacji na Azure IoT Edge centrum, zapoznaj się z [centrum IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)|
+| Baza danych SQL | N | Y | Połączenie ze źródłem danych do zapisywania danych przesyłanych strumieniowo do SQL Database. SQL Database może być lokalną bazą danych SQL Edge lub SQL Server zdalnego lub Azure SQL Database|
+| Azure Blob Storage | N | Y | Źródło danych służące do zapisywania danych w obiekcie BLOB na koncie usługi Azure Storage. |
+| Kafka | Y | N | Źródło danych do odczytu danych przesyłanych strumieniowo z tematu Kafka. Ta karta jest obecnie dostępna tylko w wersji Intel/AMD usługi Azure SQL Edge i nie jest dostępna dla ARM64 wersji programu SQL Edge.|
 
 ### <a name="example-create-an-external-stream-inputoutput-object-for-azure-iot-edge-hub"></a>Przykład: Tworzenie zewnętrznego obiektu strumienia danych wejściowych/wyjściowych dla centrum Azure IoT Edge
 

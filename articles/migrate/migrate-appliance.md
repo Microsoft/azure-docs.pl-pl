@@ -3,12 +3,12 @@ title: Urządzenie usługi Azure Migrate
 description: Zawiera omówienie urządzenia Azure Migrate używanego w ocenie i migracji serwera.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 98398510acb1eec29ea603d869f1e9ec383cb210
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: 5995242f84738eca1b2be680e3f744e36831d78f
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758949"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235337"
 ---
 # <a name="azure-migrate-appliance"></a>Urządzenie usługi Azure Migrate
 
@@ -157,9 +157,9 @@ Typ systemu operacyjnego | maszyn. SummaryConfig.GuestFullName
 Typ rozruchu | maszyn. Config. oprogramowanie układowe
 Liczba rdzeni | maszyn. Config. Hardware. NumCPU
 Pamięć (MB) | maszyn. Config. Hardware. MemoryMB
-Liczba dysków | maszyn. Config. Hardware. Device. ToList — (). FindAll (x => to VirtualDisk). Count
-Lista rozmiarów dysku | maszyn. Config. Hardware. Device. ToList — (). FindAll (x => jest VirtualDisk)
-Lista kart sieciowych | maszyn. Config. Hardware. Device. ToList — (). FindAll (x => to VirtualEthernet). Count
+Liczba dysków | maszyn. Config. Hardware. Device. ToList — (). FindAll (x = > to VirtualDisk). Count
+Lista rozmiarów dysku | maszyn. Config. Hardware. Device. ToList — (). FindAll (x = > jest VirtualDisk)
+Lista kart sieciowych | maszyn. Config. Hardware. Device. ToList — (). FindAll (x = > to VirtualEthernet). Count
 Wykorzystanie procesora | CPU. Usage. Average
 Użycie pamięci |MEM. Usage. Average
 **Szczegóły dysku** | 
@@ -206,11 +206,77 @@ Operacje zapisu na dysku na sekundę | virtualDisk. numberWriteAveraged. Average
 Przepływność odczytu karty sieciowej (MB na sekundę) | NET. Receive. Average | Obliczanie rozmiaru maszyny wirtualnej
 Przepływność zapisu kart sieciowych (MB na sekundę) | NET. reprzesłane. średnia  |Obliczanie rozmiaru maszyny wirtualnej
 
+
+### <a name="installed-apps-metadata"></a>Metadane zainstalowanych aplikacji
+
+Funkcja odnajdywania aplikacji zbiera zainstalowane aplikacje i dane systemu operacyjnego.
+
+#### <a name="windows-vm-apps-data"></a>Dane aplikacji maszyny wirtualnej z systemem Windows
+
+Oto dane aplikacji, które są zbierane przez urządzenie z każdej maszyny wirtualnej z włączoną funkcją odnajdowania aplikacji. Te dane są wysyłane do platformy Azure.
+
+**Dane** | **Lokalizacja rejestru** | **Głównych**
+--- | --- | ---
+Nazwa aplikacji  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Nazwa wyświetlana
+Wersja  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion 
+Dostawca  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Publisher
+
+#### <a name="windows-vm-features-data"></a>Dane funkcji maszyny wirtualnej z systemem Windows
+
+Poniżej przedstawiono informacje o funkcjach zbieranych przez urządzenie z każdej maszyny wirtualnej z włączoną funkcją odnajdowania aplikacji. Te dane są wysyłane do platformy Azure.
+
+**Dane**  | **Polecenie cmdlet programu PowerShell** | **Wartość**
+--- | --- | ---
+Nazwa  | Get-WindowsFeature  | Nazwa
+Typ funkcji | Get-WindowsFeature  | Element featuretype
+Nadrzędny  | Get-WindowsFeature  | Nadrzędny
+
+#### <a name="windows-vm-sql-server-metadata"></a>Metadane SQL Server maszyny wirtualnej z systemem Windows
+
+Oto metadane programu SQL Server zbierane przez urządzenie z maszyn wirtualnych, na których działa program Microsoft SQL Server z włączoną funkcją odnajdywania aplikacji. Te dane są wysyłane do platformy Azure.
+
+**Dane**  | **Lokalizacja rejestru**  | **Głównych**
+--- | --- | ---
+Nazwa  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server\Instance Names\SQL  | installedInstance
+Wersja  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Wersja 
+Dodatek Service Pack  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | REQUIREMENT
+Wersja  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Wersja 
+
+#### <a name="windows-vm-operating-system-data"></a>Dane systemu operacyjnego maszyny wirtualnej z systemem Windows
+
+Oto dane systemu operacyjnego, które urządzenie zbiera dla każdej maszyny wirtualnej z włączoną funkcją odnajdywania aplikacji. Te dane są wysyłane do platformy Azure.
+
+Dane  | Klasa WMI  | Właściwość klasy usługi WMI
+--- | --- | ---
+Nazwa  | Win32_operatingsystem  | Caption
+Wersja  | Win32_operatingsystem  | Wersja
+Architektura  | Win32_operatingsystem  | OSArchitecture
+
+#### <a name="linux-vm-apps-data"></a>Dane aplikacji maszyny wirtualnej z systemem Linux
+
+Oto dane aplikacji, które są zbierane przez urządzenie z każdej maszyny wirtualnej z włączoną funkcją odnajdowania aplikacji. W oparciu o system operacyjny maszyny wirtualnej uruchamiane jest jedno lub więcej poleceń. Te dane są wysyłane do platformy Azure.
+
+Dane  | Polecenie
+--- | --- 
+Nazwa | rpm, serwerach dpkg-Query, Snap
+Wersja | rpm, serwerach dpkg-Query, Snap
+Dostawca | rpm, serwerach dpkg-Query, Snap
+
+#### <a name="linux-vm-operating-system-data"></a>Dane systemu operacyjnego maszyny wirtualnej z systemem Linux
+
+Oto dane systemu operacyjnego, które urządzenie zbiera dla każdej maszyny wirtualnej z włączoną funkcją odnajdywania aplikacji. Te dane są wysyłane do platformy Azure.
+
+**Dane**  | **Polecenie** 
+--- | --- | ---
+Nazwa <br/> version | Zebrane z co najmniej jednego z następujących plików:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
+Architektura | uname
+
+
 ### <a name="app-dependencies-metadata"></a>Metadane zależności aplikacji
 
 Analiza zależności bez agenta zbiera dane połączeń i procesów.
 
-#### <a name="connection-data"></a>Dane połączenia
+#### <a name="windows-vm-app-dependencies-data"></a>Dane zależności aplikacji maszyny wirtualnej systemu Windows
 
 Oto dane połączenia, które urządzenie zbiera z każdej maszyny wirtualnej z włączoną obsługą analizy zależności bez agenta. Te dane są wysyłane do platformy Azure.
 
@@ -224,7 +290,7 @@ Stan połączenia TCP | netstat
 Identyfikator procesu | netstat
 Liczba aktywnych połączeń | netstat
 
-#### <a name="process-data"></a>Przetwarzanie danych
+
 Poniżej przedstawiono dane procesu zbierane przez urządzenie z każdej maszyny wirtualnej z włączoną analizą zależności bez agenta. Te dane są wysyłane do platformy Azure.
 
 **Dane** | **Klasa WMI** | **Właściwość klasy usługi WMI**
@@ -233,7 +299,7 @@ Nazwa procesu | Win32_Process | Ścieżka pliku wykonywalnego
 Argumenty procesu | Win32_Process | CommandLine
 Nazwa aplikacji | Win32_Process | VersionInfo. ProductName — parametr właściwości ścieżka pliku wykonywalnego
 
-#### <a name="linux-vm-data"></a>Dane maszyn wirtualnych z systemem Linux
+#### <a name="linux-vm-app-dependencies-data"></a>Dane zależności aplikacji maszyny wirtualnej z systemem Linux
 
 Poniżej przedstawiono dane dotyczące połączenia i przetwarzania, które urządzenie zbiera z każdej maszyny wirtualnej z systemem Linux z włączoną obsługą analizy zależności bez agenta. Te dane są wysyłane do platformy Azure.
 

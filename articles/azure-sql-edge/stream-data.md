@@ -2,19 +2,19 @@
 title: Przesyłanie strumieniowe danych w usłudze Azure SQL Edge (wersja zapoznawcza)
 description: Informacje na temat przesyłania strumieniowego danych w usłudze Azure SQL Edge (wersja zapoznawcza)
 keywords: ''
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 15b6b80f9924b050b388d74adc1d67db6a386134
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: ea1bb05e111432a45fffa3b770e01c6da9a076b6
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597310"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233124"
 ---
 # <a name="data-streaming-in-azure-sql-edge-preview"></a>Przesyłanie strumieniowe danych w usłudze Azure SQL Edge (wersja zapoznawcza)
 

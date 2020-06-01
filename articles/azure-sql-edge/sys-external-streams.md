@@ -2,21 +2,21 @@
 title: sys. external_streams (Transact-SQL) — Azure SQL Edge (wersja zapoznawcza)
 description: Dowiedz się więcej o używaniu wykazu sys. external_streams w usłudze Azure SQL Edge (wersja zapoznawcza)
 keywords: sys. external_streams, SQL Edge
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: reference
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2019
-ms.openlocfilehash: d47139b0b2a20ecfcf92bfc55a8b47c8e3cf7dab
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8200d1814537a76db357704d6baf3bf482c587e7
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597282"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235121"
 ---
-# <a name="sysexternal_streams-transact-sql"></a>sys. external_streams (Transact-SQL)
+# <a name="sysexternal_streams-transact-sql"></a>sys.external_streams (Transact-SQL)
 
 Zwraca wiersz dla każdego zewnętrznego obiektu strumienia utworzonego w zakresie bazy danych.
 
@@ -29,8 +29,8 @@ Zwraca wiersz dla każdego zewnętrznego obiektu strumienia utworzonego w zakres
 |**parent_object_id**|**#c1**| Numer identyfikacyjny obiektu dla obiektu nadrzędnego dla tego strumienia. W bieżącej implementacji ta wartość jest zawsze równa null.|
 |**Wprowadź**|**char (2)**|Typ obiektu. W przypadku obiektów strumienia typ ma zawsze wartość "ES"|
 |**type_desc**|**nvarchar (60)**| Opis typu obiektu. W przypadku obiektów strumienia typ jest zawsze "EXTERNAL_STREAM"|
-|**create_date**|**datetime**| Data utworzenia obiektu.|
-|**modify_date**|**datetime**| Data ostatniej modyfikacji obiektu przy użyciu instrukcji ALTER.|
+|**create_date**|**datę**| Data utworzenia obiektu.|
+|**modify_date**|**datę**| Data ostatniej modyfikacji obiektu przy użyciu instrukcji ALTER.|
 |**is_ms_shipped**|**bit**| Obiekt utworzony przez składnik wewnętrzny.|  
 |**is_published**|**bit**|Obiekt został opublikowany.|  
 |**is_schema_published**|**bit**|Tylko schemat obiektu jest publikowany.|

@@ -1,18 +1,18 @@
 ---
 title: Wbudowane definicje zasad dla Azure SQL Database
 description: Wyświetla listę wbudowanych definicji zasad Azure Policy dla wystąpienia zarządzanego Azure SQL Database i SQL. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 04/30/2020
+ms.date: 05/29/2020
 ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.service: sql-database
 ms.custom: subject-policy-samples
-ms.openlocfilehash: bc778f60fa4cb0c794be1cd0cf901c4cac6692a2
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ff131f93df07325aec99e6e3e7aa3a9ddd284e28
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053363"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84231320"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-sql-database--sql-managed-instance"></a>Azure Policy wbudowane definicje zasad dla Azure SQL Database & wystąpienie zarządzane SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]

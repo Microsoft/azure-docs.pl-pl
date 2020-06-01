@@ -2,19 +2,19 @@
 title: Używanie zadań w Azure Stream Analytics Edge z usługą Azure SQL Edge (wersja zapoznawcza)
 description: Dowiedz się więcej o korzystaniu z Stream Analytics zadań w usłudze Azure SQL Edge (wersja zapoznawcza)
 keywords: SQL Edge, Stream Analytics,
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 3b57cb8cae80381a6c2cd88358dd9284ba56c919
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 7c15312b48e7118517894d8ffd4807e4892e03a3
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597317"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233145"
 ---
 # <a name="using-azure-stream-analytics-jobs-with-sql-edge"></a>Korzystanie z Azure Stream Analytics zadań przy użyciu programu SQL Edge
 
@@ -52,7 +52,7 @@ Usługa Azure SQL Edge zawiera natywną implementację środowiska uruchomieniow
     |Pole      | Opis |
     |---------------|-------------|
     |Alias danych wyjściowych | Nazwa aliasu danych wyjściowych.|
-    |baza danych | Nazwa bazy danych SQL. Musi być prawidłową nazwą bazy danych, która istnieje w wystąpieniu programu SQL Edge.|
+    |Baza danych | Nazwa bazy danych SQL. Musi być prawidłową nazwą bazy danych, która istnieje w wystąpieniu programu SQL Edge.|
     |Nazwa serwera | Nazwa (lub adres IP) i numer portu dla wystąpienia programu SQL Server. W przypadku wdrożenia programu SQL Edge można użyć **protokołu TCP:., 1433** jako nazwy serwera.|
     |Nazwa użytkownika | Konto logowania SQL, które ma dostęp do czytnika danych i składnika zapisywania danych do bazy danych określonej wcześniej.|
     |Hasło | Hasło do konta logowania SQL, które zostało określone wcześniej.|

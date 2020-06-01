@@ -2,19 +2,19 @@
 title: Obsługiwane funkcje usługi Azure SQL Edge (wersja zapoznawcza)
 description: Więcej informacji o funkcjach obsługiwanych przez usługę Azure SQL Edge (wersja zapoznawcza)
 keywords: Wprowadzenie do usługi SQL Edge, co to jest SQL Edge, Omówienie programu SQL Edge
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: f0994ac1d28118869f0d5c2844a034623d101ee8
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: e3bac1cbb0e57f9be4a489207f2fe8b30b5d457e
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684374"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233209"
 ---
 # <a name="supported-features-of-azure-sql-edge-preview"></a>Obsługiwane funkcje usługi Azure SQL Edge (wersja zapoznawcza) 
 
@@ -68,7 +68,7 @@ Poniższa lista zawiera SQL Server 2019 funkcji systemu Linux, które nie są ob
 | &nbsp; | Rozciąganie DB i powiązane polecenia języka DDL oraz funkcje języka Transact-SQL, widoki wykazu i dynamiczne widoki zarządzania |
 | &nbsp; | Pełnotekstowe indeksy i wyszukiwanie i powiązane polecenia języka DDL oraz funkcje języka Transact-SQL, widoki wykazu i dynamiczne widoki zarządzania|
 | &nbsp; | FileTable, FILESTREAM i powiązane polecenia języka DDL oraz funkcje języka Transact-SQL, widoki wykazu i dynamiczne widoki zarządzania|
-| **Aparat bazy danych** | Replikacja. Jednak usługę Azure SQL Edge można skonfigurować jako subskrybenta wypychania topologii replikacji. |
+| **Aparat bazy danych** | Replikacji. Jednak usługę Azure SQL Edge można skonfigurować jako subskrybenta wypychania topologii replikacji. |
 | &nbsp; | PolyBase. Można jednak skonfigurować usługę Azure SQL Edge jako element docelowy dla tabel zewnętrznych w bazie kodu. |
 | &nbsp; | Rozszerzalność języka za poorednictwem języka Java i platformy Spark |
 | &nbsp; | Integracja z usługą Active Directory |
@@ -86,14 +86,14 @@ Poniższa lista zawiera SQL Server 2019 funkcji systemu Linux, które nie są ob
 | &nbsp; | Rozszerzenie puli buforów |
 | &nbsp; | Poczta bazy danych |
 | **Program SQL Server Agent** |  Podsystemy: CmdExec, PowerShell, Reader do kolejki, SSIS, SSAS, SSRS |
-| &nbsp; | Alerts (Alerty) |
+| &nbsp; | Alerty |
 | &nbsp; | Tworzenie zarządzanej kopii zapasowej |
 | **Wysoka dostępność** | Zawsze włączone grupy dostępności  |
 | &nbsp; | Podstawowe grupy dostępności |
 | &nbsp; | Zawsze włączone wystąpienie klastra trybu failover |
 | &nbsp; | Dublowanie bazy danych |
 | &nbsp; | Gorące Dodawanie pamięci i procesora CPU |
-| **Zabezpieczenia** | Rozszerzalne zarządzanie kluczami |
+| **Bezpieczeństwo** | Rozszerzalne zarządzanie kluczami |
 | &nbsp; | Integracja z usługą Active Directory|
 | &nbsp; | Obsługa bezpiecznych Enclaves|
 | **Usługi** | SQL Server Browser |

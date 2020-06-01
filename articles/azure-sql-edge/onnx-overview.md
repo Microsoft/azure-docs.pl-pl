@@ -2,19 +2,19 @@
 title: Uczenie maszynowe i AI z ONNX w usłudze Azure SQL Edge (wersja zapoznawcza)
 description: Uczenie maszynowe w usłudze Azure SQL Edge (wersja zapoznawcza) obsługuje modele w formacie Open neuronowych Network Exchange (ONNX). ONNX to otwarty format, którego można użyć do wymiany modeli między różnymi strukturami i narzędziami uczenia maszynowego.
 keywords: Wdróż program SQL Edge
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.subservice: ''
 ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 05/19/2020
-ms.openlocfilehash: 12c1294a804c2063d405c5ec08440865283d51d3
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 3b36052fa3ee0d7d449be1719e67554b539d0207
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597366"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233177"
 ---
 # <a name="machine-learning-and-ai-with-onnx-in-sql-edge-preview"></a>Uczenie maszynowe i AI z ONNX w usłudze SQL Edge (wersja zapoznawcza)
 

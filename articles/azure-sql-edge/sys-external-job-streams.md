@@ -2,21 +2,21 @@
 title: sys. external_job_streams (Transact-SQL) — Azure SQL Edge (wersja zapoznawcza)
 description: Dowiedz się więcej o używaniu wykazu sys. external_job_streams w usłudze Azure SQL Edge (wersja zapoznawcza)
 keywords: sys. external_job_streams, SQL Edge
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: reference
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2019
-ms.openlocfilehash: 7f26c87c0de09618b2d24413f7ff692fd764b4cf
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 2634128f4d431e4283f59032c6474a71f2af364d
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83597289"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233097"
 ---
-# <a name="sysexternal_job_streams-transact-sql"></a>sys. external_job_streams (Transact-SQL)
+# <a name="sysexternal_job_streams-transact-sql"></a>sys.external_job_streams (Transact-SQL)
 
 Zwraca wiersz każdy dla obiektu strumienia zewnętrznego danych wejściowych lub wyjściowych mapowanych na zewnętrzne zadanie przesyłania strumieniowego.
 

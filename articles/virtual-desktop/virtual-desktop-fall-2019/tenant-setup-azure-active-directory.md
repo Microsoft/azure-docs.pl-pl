@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8b08e8e4d6623277d1935fc85e302e8ce3c88eea
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: da5211206c12f2fe3259fcbbf196a7728c026b26
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124401"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84234116"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Samouczek: Tworzenie dzierżawy w programie Virtual Desktop systemu Windows
 
@@ -152,9 +152,6 @@ New-RdsRoleAssignment -TenantName <TenantName> -SignInName <Upn> -RoleDefinition
 ```
 
 ## <a name="next-steps"></a>Następne kroki
-
-Aby zapoznać się z bardziej szczegółowym przewodnikiem, zapoznaj się z naszą [ścieżką uczenia pulpitu wirtualnego systemu Windows](https://docs.microsoft.com/learn/paths/m365-wvd/).
-
 Po utworzeniu dzierżawy należy utworzyć nazwę główną usługi w Azure Active Directory i przypisać ją do roli w ramach pulpitu wirtualnego systemu Windows. Jednostka usługi umożliwi pomyślne wdrożenie oferty Azure Marketplace pulpitu wirtualnego systemu Windows w celu utworzenia puli hostów. Aby dowiedzieć się więcej na temat pul hostów, przejdź do samouczka dotyczącego tworzenia puli hostów w programie Virtual Desktop systemu Windows.
 
 > [!div class="nextstepaction"]

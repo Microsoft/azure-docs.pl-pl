@@ -1,18 +1,18 @@
 ---
 title: Wbudowane definicje zasad dla chmury wiosennej platformy Azure
 description: Wyświetla Azure Policy listę wbudowanych definicji zasad dla chmury Azure wiosennej. Te wbudowane definicje zasad zapewniają typowe podejścia do zarządzania zasobami platformy Azure.
-ms.date: 05/13/2020
+ms.date: 05/29/2020
 ms.topic: sample
 author: bmitchell287
 ms.author: brendm
 ms.service: spring-cloud
 ms.custom: subject-policy-samples
-ms.openlocfilehash: 8c68f6f802b12e93e0968c3193527e0a1815efff
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: f1eef5c3ea4b0d6f3fe097cc5296c710062e85d3
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83657157"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84233021"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-spring-cloud"></a>Azure Policy wbudowane definicje zasad dla chmury wiosennej platformy Azure
 

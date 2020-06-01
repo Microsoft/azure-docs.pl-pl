@@ -2,19 +2,19 @@
 title: Konfigurowanie replikacji do usługi Azure SQL Edge (wersja zapoznawcza)
 description: Informacje o konfigurowaniu replikacji do usługi Azure SQL Edge (wersja zapoznawcza)
 keywords: ''
-services: sql-database-edge
-ms.service: sql-database-edge
+services: sql-edge
+ms.service: sql-edge
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: f9e0a137dff6fc2376d156f9c72066055b1f59af
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 6249d72ba43bf59a2862595f40adf2d1ac5a6346
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196960"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235162"
 ---
 # <a name="configure-replication-to-azure-sql-edge-preview"></a>Konfigurowanie replikacji do usługi Azure SQL Edge (wersja zapoznawcza) 
 

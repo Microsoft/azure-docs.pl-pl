@@ -3,12 +3,12 @@ title: Konfigurowanie usługi QnA Maker — QnA Maker
 description: Przed utworzeniem jakichkolwiek QnA Maker baz wiedzy należy najpierw skonfigurować usługę QnA Maker na platformie Azure. Każda osoba z autoryzacją do tworzenia nowych zasobów w ramach subskrypcji może skonfigurować usługę QnA Maker.
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 521d0388e4ee739b1ac840e482174ac466781f5f
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 106796533f42250a2656735d97878ea04d6fa57f
+ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171178"
+ms.lasthandoff: 05/31/2020
+ms.locfileid: "84235517"
 ---
 # <a name="manage-qna-maker-resources"></a>Zarządzanie zasobami QnA Maker
 
@@ -210,6 +210,11 @@ Aby zapewnić, że aplikacja punktu końcowego przewidywania została załadowan
 1. Zostanie wyświetlony monit, czy chcesz ponownie uruchomić aplikację, aby użyć nowego ustawienia. Wybierz pozycję **Continue** (Kontynuuj).
 
 Dowiedz się więcej na temat konfigurowania [ustawień ogólnych](../../../app-service/configure-common.md#configure-general-settings)App Service.
+## <a name="configure-app-service-environment-to-host-qna-maker-app-service"></a>Konfigurowanie App Service Environment do hostowania programu QNA Maker App Service
+App Service Environment może służyć do hostowania QnA Maker App Service. Jeśli App Service Environment jest wewnętrzny, należy wykonać następujące czynności:
+1. Utwórz usługę App Service i usługę Azure Search.
+2. Uwidocznij usługę App Service w publicznym systemie DNS i dozwolonych QnA Maker tag usługi: CognitiveServicesManagement lub Zachowaj dostęp do Internetu.
+3. Utwórz QnA Maker wystąpienie usługi poznawczej (Microsoft. CognitiveServices/accounts) przy użyciu Azure Resource Manager, gdzie punkt końcowy QnA Maker powinien być ustawiony na App Service Environment. 
 
 ## <a name="business-continuity-with-traffic-manager"></a>Ciągłość działania dzięki usłudze Traffic Manager
 
