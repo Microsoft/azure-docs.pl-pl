@@ -60,20 +60,34 @@
           href: ./samples/pattern-group-with-initiative.md
         - name: Wdrażanie zasobów
           href: ./samples/pattern-deploy-resources.md
+    - name: Wbudowane mechanizmy zgodności z przepisami
+      items:
+        - name: Test porównawczy zabezpieczeń platformy Azure
+          href: ./samples/azure-security-benchmark.md
+        - name: CIS Microsoft Azure Foundations Benchmark 1.1.0
+          href: ./samples/cis-azure-1-1-0.md
+        - name: NIST SP 800-53 R4
+          href: ./samples/nist-sp-800-53-r4.md
 - name: Pojęcia
   items:
-    - name: Struktura definicji zasad platformy Azure
+    - name: Struktura definicji
       displayName: 'parameters, location, rule, alias, initiatives'
       href: ./concepts/definition-structure.md
-    - name: Interpretacja efektów działania zasad
+    - name: Zrozumienie efektów
       displayName: 'order, evaluation'
       href: ./concepts/effects.md
-    - name: Struktura przypisań usługi Azure Policy
+    - name: Struktura inicjatywy
+      displayName: 'parameters, groups, domains, policies'
+      href: ./concepts/initiative-definition-structure.md
+    - name: Struktura przypisania
       displayName: 'parameters, enforcementmode, policyDefinitionId'
       href: ./concepts/assignment-structure.md
     - name: Ocena wpływu nowych zasad
       displayName: 'audit, enforcementmode, compliance'
       href: ./concepts/evaluate-impact.md
+    - name: Zgodność z przepisami
+      displayName: 'standards, domains, controls'
+      href: ./concepts/regulatory-compliance.md
     - name: Projektowanie przepływów pracy typu zasady jako kod
       displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
       href: ./concepts/policy-as-code.md
@@ -127,6 +141,8 @@
         - name: Włączanie usługi Azure Monitor dla maszyn wirtualnych (wersja zapoznawcza)
           displayName: 'monitor, insights, log analytics, builtin'
           href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+- name: Rozwiązywanie problemów
+  href: ./troubleshoot/general.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure
@@ -198,7 +214,7 @@
     - name: GitHub — repozytorium Community-Policy
       href: 'https://github.com/Azure/Community-Policy'
     - name: Serwis Pytania i odpowiedzi Microsoft dla usługi Azure Policy
-      href: /answers/topics/azure-policy.html.html
+      href: /answers/topics/azure-policy.html
     - name: Kanał dotyczący nadzoru w usłudze YouTube
       href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
     - name: Konfiguracja gościa — filmy

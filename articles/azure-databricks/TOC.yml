@@ -12,7 +12,6 @@
         - name: Portal
           href: quickstart-create-databricks-workspace-portal.md
         - name: Szablon ARM
-          displayName: Resource Manager
           href: quickstart-create-databricks-workspace-resource-manager-template.md
         - name: Sieć wirtualna
           href: quickstart-create-databricks-workspace-vnet-injection.md
@@ -368,6 +367,9 @@
           maintainContext: true
         - name: Używanie notesów
           href: /azure/databricks/notebooks/notebooks-use
+          maintainContext: true
+        - name: Biblioteki języka Python o zakresie notesu
+          href: /azure/databricks/notebooks/notebooks-python-libraries
           maintainContext: true
         - name: Kontrola wersji
           items:
@@ -1029,7 +1031,7 @@
               href: /azure/databricks/security/access-control/pool-acl
               maintainContext: true
             - name: Kontrola dostępu do zadań
-              href: /azure/databricks/security/access-control/jobs-acl
+              href: /azure/databricks/security/access-control/job-acl
               maintainContext: true
             - name: Kontrola dostępu do tabel
               items:
@@ -1665,7 +1667,7 @@
                 - name: Interfejs API standardu SCIM (użytkownicy)
                   href: /azure/databricks/dev-tools/api/latest/scim/scim-users
                 - name: Interfejs API standardu SCIM (grupy)
-                  href: /azure/databricks/dev-tools/api/latest/scim/scim-groups
+                  href: /azure/databricks/dev-tools/api/latest/scim/scim-group
               maintainContext: true
             - name: Wpisy tajne
               href: /azure/databricks/dev-tools/api/latest/secrets
@@ -1721,6 +1723,8 @@
       href: /rest/api/databricks
     - name: Szablon usługi Resource Manager
       href: /azure/templates/microsoft.databricks/workspaces
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: 'https://docs.microsoft.com/cli/azure/ext/databricks/databricks?view=azure-cli-latest'
 - name: Zasoby
   items:
     - name: Apache Spark
@@ -1862,13 +1866,13 @@
                 - name: Databricks Runtime 7.0 Genomics (wersja beta)
                   href: /azure/databricks/release-notes/runtime/7.0genomics
                   maintainContext: true
-                - name: Databricks Runtime 6.6 (wersja beta)
+                - name: Databricks Runtime 6.6
                   href: /azure/databricks/release-notes/runtime/6.6
                   maintainContext: true
-                - name: Databricks Runtime 6.6 ML (wersja beta)
+                - name: Databricks Runtime 6.6 ML
                   href: /azure/databricks/release-notes/runtime/6.6ml
                   maintainContext: true
-                - name: Databricks Runtime 6.6 Genomics (wersja beta)
+                - name: Databricks Runtime 6.6 Genomics
                   href: /azure/databricks/release-notes/runtime/6.6genomics
                   maintainContext: true
                 - name: Databricks Runtime 6.5

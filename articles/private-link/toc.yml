@@ -20,6 +20,8 @@
       href: create-private-link-service-powershell.md
     - name: Tworzenie usługi Private Link — interfejs wiersza polecenia platformy Azure
       href: create-private-link-service-cli.md
+    - name: Tworzenie usługi Private Link — szablon usługi Resource Manager
+      href: create-private-link-service-template.md
 - name: Pojęcia
   items:
     - name: Prywatny punkt końcowy

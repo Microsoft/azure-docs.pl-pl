@@ -14,6 +14,7 @@
     - name: Tworzenie centrum powiadomień — interfejs wiersza polecenia platformy Azure
       href: create-notification-hub-azure-cli.md
     - name: Tworzenie centrum powiadomień — szablon ARM
+      displayName: Resource Manager
       href: create-notification-hub-template.md
     - name: Konfigurowanie centrum powiadomień
       href: configure-notification-hub-portal-pns-settings.md
@@ -23,21 +24,23 @@
       items:
         - name: Firebase Cloud Messaging
           items:
-            - name: Wypychanie powiadomień do wszystkich rejestracji
+            - name: 'Wysyłanie powiadomień push do wszystkich rejestracji (zestaw SDK w wersji 1.0.0, wersja zapoznawcza 1)'
+              href: android-sdk.md
+            - name: Wysyłanie powiadomień push do wszystkich rejestracji (zestaw SDK w wersji 0.6)
               href: notification-hubs-android-push-notification-google-fcm-get-started.md
-            - name: Wypychanie powiadomień do konkretnych urządzeń
+            - name: Wysyłanie powiadomień push do konkretnych urządzeń
               href: push-notifications-android-specific-devices-firebase-cloud-messaging.md
-            - name: Wypychanie powiadomień do konkretnych użytkowników
+            - name: Wysyłanie powiadomień push do konkretnych użytkowników
               href: push-notifications-android-specific-users-firebase-cloud-messaging.md
-            - name: Wypychanie powiadomień do aplikacji Xamarin systemu Android
+            - name: Wysyłanie powiadomień push do aplikacji Xamarin systemu Android
               href: xamarin-notification-hubs-push-notifications-android-gcm.md
         - name: Google Cloud Message (przestarzałe)
           items:
-            - name: Wypychanie powiadomień do wszystkich rejestracji
+            - name: Wysyłanie powiadomień push do wszystkich rejestracji
               href: notification-hubs-android-push-notification-google-gcm-get-started.md
-            - name: Wypychanie powiadomień do konkretnych urządzeń
+            - name: Wysyłanie powiadomień push do konkretnych urządzeń
               href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-            - name: Wypychanie powiadomień do konkretnych użytkowników
+            - name: Wysyłanie powiadomień push do konkretnych użytkowników
               href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
     - name: iOS
       items:
@@ -139,7 +142,7 @@
     - name: Rejestrowanie za pomocą zaplecza aplikacji
       href: notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md
     - name: Korzystanie z uwierzytelniania opartego na tokenach na urządzeniach firmy Apple
-      href: notification-hubs-push-notification-http2-token-authentification.md
+      href: notification-hubs-push-notification-http2-token-authentication.md
     - name: Rozwiązywanie problemów z porzuconymi powiadomieniami
       href: notification-hubs-push-notification-fixer.md
     - name: Wypychanie powiadomień przy użyciu powiadomień push w chmurze Baidu

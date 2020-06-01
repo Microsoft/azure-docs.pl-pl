@@ -17,12 +17,12 @@
       href: quick-create-python.md
 - name: Samouczki
   items:
-    - name: Importowanie kluczy chronionych przez moduł HSM
+    - name: Importowanie kluczy chronionych przez moduł HSM (omówienie)
       href: hsm-protected-keys.md
-    - name: Importowanie kluczy chronionych przez moduł HSM (wersja zapoznawcza)
-      href: hsm-protected-keys-vendor-agnostic-byok.md
-    - name: Importowanie kluczy chronionych przez moduł HSM (starsza wersja)
-      href: hsm-protected-keys-legacy.md
+    - name: Importowanie kluczy chronionych przez moduł HSM (BYOK)
+      href: hsm-protected-keys-byok.md
+    - name: Importowanie kluczy chronionych przez moduł HSM (nCipher)
+      href: hsm-protected-keys-ncipher.md
 - name: Samples
   items:
     - name: Elementy wbudowane usługi Azure Policy
@@ -47,6 +47,8 @@
     - name: Szablon usługi Resource Manager
       href: /azure/templates/microsoft.keyvault/allversions
       displayName: ARM
+    - name: Specyfikacja używania własnego klucza
+      href: byok-specification.md
 - name: Zasoby
   items:
     - name: Rozwijanie umiejętności dzięki środowisku Microsoft Learn

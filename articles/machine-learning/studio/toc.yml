@@ -58,7 +58,7 @@
       items:
         - name: Importowanie danych
           href: import-data.md
-        - name: Korzystanie z danych z lokalnej bazy danych SQL
+        - name: Używanie danych z programu SQL Server
           displayName: on-premises
           href: use-data-from-an-on-premises-sql-server.md
     - name: Szkolenie modeli

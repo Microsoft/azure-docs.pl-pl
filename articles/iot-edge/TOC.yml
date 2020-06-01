@@ -177,6 +177,8 @@
       items:
         - name: Monitorowanie wdrożeń IoT Edge
           href: how-to-monitor-iot-edge-deployments.md
+        - name: Monitorowanie bliźniaczych reprezentacji modułu
+          href: how-to-monitor-module-twins.md
         - name: Metody bezpośrednie agenta usługi Edge
           href: how-to-edgeagent-direct-method.md
     - name: Używanie urządzeń IoT Edge jako bram

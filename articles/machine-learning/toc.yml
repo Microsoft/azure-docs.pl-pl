@@ -67,15 +67,17 @@
         - name: Tworzenie pierwszego eksperymentu uczenia maszynowego (R)
           href: tutorial-1st-r-experiment.md
     - name: Interfejs wiersza polecenia uczenia maszynowego
-      href: tutorial-train-deploy-model-cli.md
+      items:
+        - name: Uczenie i wdrażanie przy użyciu interfejsu wiersza polecenia
+          href: tutorial-train-deploy-model-cli.md
+        - name: Tworzenie obszarów roboczych za pomocą szablonów usługi Resource Manager
+          href: tutorial-resource-manager-workspace.md
     - name: Visual Studio Code
       items:
         - name: Konfigurowanie rozszerzenia usługi Azure Machine Learning
           href: tutorial-setup-vscode-extension.md
         - name: Trenowanie i wdrażanie modelu klasyfikacji obrazów biblioteki TensorFlow
           href: tutorial-train-deploy-image-classification-model-vscode.md
-    - name: Tworzenie obszaru roboczego przy użyciu szablonu usługi Resource Manager
-      href: tutorial-resource-manager-workspace.md
 - name: Samples
   items:
     - name: Notesy programu Jupyter

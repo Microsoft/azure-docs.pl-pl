@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 8dd70bbe8b3e495473523a662e0501613703354f
-  ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+  ms.openlocfilehash: 3bae82ca96497d91dab9d158fe26bed9cd8d0467
+  ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 05/27/2020
-  ms.locfileid: "84021776"
+  ms.lasthandoff: 05/29/2020
+  ms.locfileid: "84171195"
 highlightedContent:
   items:
   - title: Wprowadzenie — przewodnik dla deweloperów platformy Azure
@@ -636,6 +636,12 @@ productDirectory:
     azureCategories:
     - developer-tools
     url: azure-app-configuration/index.yml
+  - title: Azure Data Studio
+    summary: Lekki edytor, który może uruchamiać zapytania SQL na żądanie oraz wyświetlać i zapisywać wyniki w formacie tekstowym, JSON lub programu Excel.
+    imageSrc: https://docs.microsoft.com/sql/tools/media/overview-sql-tools/azure-data-studio.svg
+    azureCategories:
+    - developer-tools
+    url: https://docs.microsoft.com/sql/azure-data-studio/
   - title: Azure DevOps
     summary: Usługi udostępniania kodu, śledzenia pracy i dostarczania oprogramowania dla zespołów
     imageSrc: https://static.docs.com/ui/media/product/azure/devops.svg

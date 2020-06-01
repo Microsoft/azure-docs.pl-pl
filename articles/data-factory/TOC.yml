@@ -25,6 +25,8 @@
       href: quickstart-create-data-factory-rest-api.md
     - name: Tworzenie fabryki danych — szablon usługi Resource Manager
       href: quickstart-create-data-factory-resource-manager-template.md
+    - name: Zabezpieczenia — włączanie szyfrowania kluczy zarządzanego przez klienta
+      href: quickstart-enable-customer-managed-key.md
     - name: Tworzenie przepływu danych
       href: data-flow-create.md
 - name: Samouczki
@@ -39,7 +41,7 @@
               href: tutorial-copy-data-portal.md
             - name: .NET
               href: tutorial-copy-data-dot-net.md
-        - name: Z lokalnej bazy danych programu SQL Server do usługi Azure Blob Storage
+        - name: Z bazy danych programu SQL Server do usługi Azure Blob Storage
           items:
             - name: Narzędzie do kopiowania danych
               href: tutorial-hybrid-copy-data-tool.md
@@ -76,7 +78,7 @@
                   href: tutorial-incremental-copy-portal.md
                 - name: Azure PowerShell
                   href: tutorial-incremental-copy-powershell.md
-            - name: Z wielu lokalnych tabel programu SQL Server
+            - name: Z wielu tabel bazy danych programu SQL Server
               items:
                 - name: Interfejs użytkownika
                   href: tutorial-incremental-copy-multiple-tables-portal.md
@@ -605,6 +607,10 @@
           href: self-hosted-integration-runtime-proxy-ssis.md
         - name: Włączanie uwierzytelniania usługi Azure AD dla środowiska Azure-SSIS IR
           href: enable-aad-authentication-azure-ssis-ir.md
+        - name: Nawiązywanie połączenia z danymi przy użyciu uwierzytelniania systemu Windows
+          href: ssis-azure-connect-with-windows-auth.md
+        - name: Zapisywanie plików i nawiązywanie połączenia z udziałami plików
+          href: ssis-azure-files-file-shares.md
         - name: Aprowizowanie wersji Enterprise Edition dla środowiska Azure SSIS IR
           href: how-to-configure-azure-ssis-ir-enterprise-edition.md
         - name: Wbudowane i wstępnie zainstalowane składniki w środowisku Azure-SSIS IR
@@ -623,6 +629,8 @@
           href: how-to-use-sql-managed-instance-with-ir.md
         - name: Migrowanie zadań SSIS za pomocą programu SSMS
           href: how-to-migrate-ssis-job-ssms.md
+        - name: Zarządzanie pakietami za pomocą magazynu pakietów Azure-SSIS IR
+          href: azure-ssis-integration-runtime-package-store.md
     - name: Tworzenie wyzwalaczy
       items:
         - name: Tworzenie wyzwalacza opartego na zdarzeniach
