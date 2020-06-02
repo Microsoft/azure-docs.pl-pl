@@ -52,7 +52,7 @@ W tej sekcji opisano, jak utworzyć centrum IoT przy użyciu witryny [Azure Port
 
     - **Azure Security Center**: Włącz tę opcję, aby dodać dodatkową warstwę ochrony przed zagrożeniami do IoT i urządzeń. Ta opcja jest niedostępna dla centrów w warstwie Bezpłatna. Aby uzyskać więcej informacji na temat tej funkcji, zobacz [Azure Security Center for IoT](https://docs.microsoft.com/azure/asc-for-iot/).
 
-    - **Ustawienia** > zaawansowane**partycje urządzenia-chmura**: Ta właściwość wiąże komunikaty z urządzenia z chmurą z liczbą jednoczesnych czytników komunikatów. Większość centrów potrzebuje tylko czterech partycji.
+    - **Ustawienia zaawansowane**  >  **Partycje między urządzeniami a chmurą**: Ta właściwość wiąże komunikaty z urządzenia z chmurą z liczbą jednoczesnych czytników komunikatów. Większość centrów potrzebuje tylko czterech partycji.
 
 1.  Wybierz pozycję **Dalej: Tagi** , aby przejść do następnego ekranu.
 

@@ -11,6 +11,8 @@
       href: virtual-machines-availability-set-supportability.md
 - name: Wskazówki dotyczące wdrażania maszyn wirtualnych
   items:
+    - name: Uaktualnianie do wersji SLES 15 SP1
+      href: linux-upgrade-suse-15sp1.md
     - name: Nowe wdrożenia maszyn wirtualnych
       items:
         - name: Linux

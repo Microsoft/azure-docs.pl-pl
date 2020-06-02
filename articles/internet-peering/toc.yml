@@ -56,6 +56,10 @@
           href: howto-legacy-exchange-portal.md
         - name: Azure PowerShell
           href: howto-legacy-exchange-powershell.md
+    - name: Tworzenie lub modyfikowanie komunikacji równorzędnej z serwerem trasy
+      items:
+        - name: Portal
+          href: how-to-exchange-route-server-portal.md
 - name: Dokumentacja
   items:
     - name: Interfejs wiersza polecenia platformy Azure

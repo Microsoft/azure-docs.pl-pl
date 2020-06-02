@@ -454,6 +454,18 @@
           href: speech-devices-sdk-kws-guidelines.md
         - name: Rozpoznawanie niestandardowych słów kluczowych
           href: speech-devices-sdk-create-kws.md
+- name: Rozpoznawanie osoby mówiącej
+  items:
+    - name: Omówienie
+      items:
+        - name: Co to jest rozpoznawanie osoby mówiącej?
+          href: speaker-recognition-overview.md
+    - name: Dokumentacja
+      items:
+        - name: Interfejsy API REST
+          items:
+            - name: Interfejs API funkcji rozpoznawania mowy
+              href: 'https://docs.microsoft.com/rest/api/speakerrecognition/'
 - name: Hosting
   items:
     - name: Dokumentacja hostingu

@@ -31,6 +31,6 @@ Aby usunąć grupę zasobów na podstawie nazwy:
 
 3. Z prawej strony grupy zasobów na liście wynik wybierz pozycję **...** , a następnie **Usuń grupę zasobów**.
 
-    ![Usuwanie](./media/iot-hub-quickstarts-clean-up-resources/iot-hub-delete-resource-group.png)
+    ![Usuń](./media/iot-hub-quickstarts-clean-up-resources/iot-hub-delete-resource-group.png)
 
 4. Zobaczysz prośbę o potwierdzenie usunięcia grupy zasobów. Wpisz ponownie nazwę grupy zasobów, aby potwierdzić, a następnie wybierz pozycję **Usuń**. Po krótkim czasie grupa zasobów i wszystkie zawarte w niej zasoby zostaną usunięte.

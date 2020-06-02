@@ -17,7 +17,7 @@ ms.locfileid: "73846652"
 ---
 > [!div class="op_single_selector"]
 > * [Interfejs wiersza polecenia](../articles/iot-hub/quickstart-send-telemetry-cli.md)
-> * [S](../articles/iot-hub/quickstart-send-telemetry-c.md)
+> * [C](../articles/iot-hub/quickstart-send-telemetry-c.md)
 > * [.NET](../articles/iot-hub/quickstart-send-telemetry-dotnet.md)
 > * [Java](../articles/iot-hub/quickstart-send-telemetry-java.md)
 > * [Node.js](../articles/iot-hub/quickstart-send-telemetry-node.md)

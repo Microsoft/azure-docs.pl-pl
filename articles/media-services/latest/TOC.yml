@@ -1,5 +1,7 @@
 - name: Dokumentacja usługi Media Services
   href: ./index.yml
+- name: Dokumentacja przełączania do platformy Live Video Analytics w dokumentacji usługi IoT Edge
+  href: ../live-video-analytics-edge/overview.md
 - name: Omówienie
   items:
     - name: Informacje o usłudze Media Services
@@ -369,7 +371,7 @@
         - name: Python
           href: 'https://aka.ms/ams-v3-python-ref'
         - name: Node.js
-          href: 'https://aka.ms/ams-v3-nodejs-ref'
+          href: 'https://docs.microsoft.com/javascript/api/overview/azure/mediaservices/management'
         - name: Przejdź
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Szablon usługi Resource Manager

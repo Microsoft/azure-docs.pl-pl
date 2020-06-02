@@ -12,12 +12,12 @@ metadata:
   author: IEvangelist
   ms.author: dapine
   ms.date: 01/23/2020
-  ms.openlocfilehash: 2ba262c7adf778099e47e636a9106f74314c2254
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: 1cb7674dce24d696fd54f3d48074398dc484c01c
+  ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "77108687"
+  ms.lasthandoff: 06/01/2020
+  ms.locfileid: "84267056"
 landingContent:
 - title: Czytnik immersyjny — informacje
   linkLists:
@@ -29,16 +29,16 @@ landingContent:
     links:
     - text: Wprowadzenie — krótkie wideo inżynieryjne
       url: https://aka.ms/ImmersiveReaderSDKVideos
-- title: Wprowadzenie
+- title: Rozpoczęcie pracy
   linkLists:
   - linkListType: quickstart
     links:
-    - text: ASP.NET Core
-      url: quickstart.md
-    - text: Node.js
-      url: quickstart-nodejs.md
-    - text: Swift (iOS)
-      url: ios-quickstart.md
+    - text: Korzystanie z języka C# (ASP.NET Core)
+      url: ./quickstarts/client-libraries.md?pivots=programming-language-csharp
+    - text: Korzystanie ze środowiska Node.js
+      url: ./quickstarts/client-libraries.md?pivots=programming-language-nodejs
+    - text: Korzystanie z języka Swift (iOS)
+      url: ./quickstarts/client-libraries.md?pivots=programming-language-swift
   - linkListType: tutorial
     links:
     - text: Python

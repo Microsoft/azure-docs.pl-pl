@@ -1,0 +1,89 @@
+### YamlMime:Landing
+title: Platforma Live Video Analytics w dokumentacji usługi IoT Edge
+summary: Dowiedz się, jak używać platformy Live Video Analytics w usłudze IoT Edge
+metadata:
+  title: Dokumentacja platformy Live Video Analytics w usłudze IoT Edge
+  description: Dowiedz się, jak korzystać z platformy Live Video Analytics w usłudze IoT Edge
+  services: media-services
+  ms.service: media-services
+  ms.subservice: 
+  ms.topic: landing-page
+  ms.collection: collection
+  author: 
+  ms.author: 
+  ms.date: 10/12/2019
+  ms.openlocfilehash: ef82f7ccfabce330c5604a26d74f0491876a1634
+  ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+  ms.translationtype: HT
+  ms.contentlocale: pl-PL
+  ms.lasthandoff: 06/01/2020
+  ms.locfileid: "84259893"
+landingContent:
+- title: Informacje o platformie Live Video Analytics w usłudze IoT Edge (wersja zapoznawcza)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Informacje o platformie Live Video Analytics w usłudze IoT Edge
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Graf multimedialny
+      url: media-graph-concept.md
+    - text: Nagrywanie wideo
+      url: video-recording-concept.md
+    - text: Odtwarzanie wideo
+      url: video-playback-concept.md
+  - linkListType: learn
+    links:
+    - text: Ciągłe nagrywanie wideo
+      url: continuous-video-recording-concept.md
+    - text: Nagrywanie wideo oparte na zdarzeniach
+      url: event-based-video-recording-concept.md
+    - text: Analizowanie wideo na żywo
+      url: analyze-live-video-concept.md
+- title: Scenariusze
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Wprowadzenie — platforma Live Video Analytics w usłudze IoT Edge
+      url: get-started-detect-motion-emit-events-quickstart.md
+    - text: Wykrywanie ruchu, nagrywanie klipów wideo na platformie Azure Media Services
+      url: detect-motion-record-video-clips-media-services-quickstart.md
+    - text: Wykrywanie ruchu i emitowanie zdarzeń
+      url: detect-motion-emit-events-quickstart.md
+    - text: Wykrywanie ruchu, nagrywanie wideo na urządzeniach brzegowych
+      url: detect-motion-record-video-clips-edge-devices-quickstart.md
+    - text: Uruchamianie platformy Live Video Analytics z własnym modelem
+      url: use-your-model-quickstart.md
+  - linkListType: tutorial
+    links:
+    - text: Ciągłe nagrywanie wideo
+      url: continuous-video-recording-tutorial.md
+    - text: Nagrywanie wideo oparte na zdarzeniach
+      url: event-based-video-recording-tutorial.md
+    - text: Odtwarzanie zapisów wielodniowych
+      url: playback-multi-day-recordings-tutorial.md
+- title: Programowanie
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Tworzenie niestandardowej roli usługi Azure Resource Manager
+      url: create-custom-azure-resource-manager-role-how-to.md
+    - text: Wdrażanie na urządzeniu usługi IoT Edge
+      url: deploy-iot-edge-device.md
+    - text: Monitorowanie i rejestrowanie
+      url: monitoring-logging.md
+    - text: Odtwarzanie nagrania
+      url: playback-recordings-how-to.md
+    - text: Zarządzanie zasadami nagrywania
+      url: manage-recording-policy-how-to.md
+    - text: Rozwiązywanie problemów
+      url: troubleshoot-how-to.md
+  - linkListType: reference
+    links:
+    - text: Metody bezpośrednie
+      url: direct-methods.md
+    - text: Schemat konfiguracji bliźniaczej reprezentacji modułu
+      url: module-twin-configuration-schema.md
+    - text: Limity przydziału i ograniczenia
+      url: quotas-limitations.md

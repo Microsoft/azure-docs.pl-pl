@@ -60,6 +60,8 @@
           displayName: 'docker, container, run, billing, apikey, logging'
         - name: Korzystanie z wystąpień kontenerów
           href: deploy-form-recognizer-on-container-instances.md
+    - name: Kopiowanie modeli na potrzeby odzyskiwania po awarii
+      href: disaster-recovery.md
 - name: Dokumentacja
   items:
     - name: Interfejs API rozpoznawania formularzy w wersji 2.0

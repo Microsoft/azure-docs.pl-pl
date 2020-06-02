@@ -124,6 +124,10 @@
           href: storage-files-enable-soft-delete.md
         - name: Zarządzanie magazynem w chmurach niezależnych od platformy Azure
           href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Zmienianie sposobu replikowania danych
+          href: ../common/redundancy-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Inicjowanie trybu failover konta
+          href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Zarządzanie nadmiarowością danych
           items:
             - name: Zmienianie sposobu replikowania danych
@@ -136,6 +140,24 @@
               href: ../common/last-sync-time-get.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
             - name: Inicjowanie trybu failover konta
               href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Uwierzytelnianie
+      items:
+        - name: Włączanie lokalnego uwierzytelniania i autoryzacji
+          items:
+            - name: Omówienie usługi AD DS
+              href: storage-files-identity-auth-active-directory-enable.md
+            - name: Włączanie uwierzytelniania w usłudze AD DS
+              href: storage-files-identity-ad-ds-enable.md
+            - name: Przypisywanie uprawnień
+              href: storage-files-identity-ad-ds-assign-permissions.md
+            - name: Konfigurowanie uprawnień
+              href: storage-files-identity-ad-ds-configure-permissions.md
+            - name: Instalowanie udziału plików
+              href: storage-files-identity-ad-ds-mount-file-share.md
+            - name: Aktualizowanie hasła
+              href: storage-files-identity-ad-ds-update-password.md
+        - name: Włączanie uwierzytelniania i autoryzacji usługi Azure AD DS
+          href: storage-files-identity-auth-active-directory-domain-service-enable.md
     - name: Monitorowanie
       items:
         - name: Monitorowanie usługi Azure File Sync
@@ -188,10 +210,6 @@
           href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Wymaganie bezpiecznego transferu
           href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Włączanie uwierzytelniania i autoryzacji usługi AD
-          href: storage-files-identity-auth-active-directory-enable.md
-        - name: Włączanie uwierzytelniania i autoryzacji usługi Azure AD DS
-          href: storage-files-identity-auth-active-directory-domain-service-enable.md
         - name: Włączanie bezpiecznego protokołu TLS dla klienta usługi Azure Storage
           href: ../common/storage-security-tls.md
     - name: Transfer
