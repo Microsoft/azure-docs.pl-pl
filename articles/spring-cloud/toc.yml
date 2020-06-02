@@ -90,7 +90,7 @@
 - name: Dokumentacja
   items:
     - name: Wtyczka interfejsu wiersza polecenia platformy Azure
-      href: spring-cloud-cli-reference.md
+      href: 'https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud'
     - name: Zasoby
       href: spring-cloud-resources.md
     - name: Często zadawane pytania

@@ -200,6 +200,6 @@
         - name: Produkt Data Box
           href: 'https://azure.microsoft.com/services/storage/databox/data/'
         - name: Cennik urządzenia Data Box
-          href: 'https://azure.microsoft.com/pricing/details/storage/databox/'
+          href: 'https://azure.microsoft.com/pricing/details/databox/'
         - name: Cennik urządzenia Data Box Disk
-          href: 'https://azure.microsoft.com/pricing/details/storage/databox/disk/'
+          href: 'https://azure.microsoft.com/pricing/details/databox/disk/'

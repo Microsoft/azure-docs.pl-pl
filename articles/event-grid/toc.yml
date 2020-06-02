@@ -92,6 +92,8 @@
       href: template-samples.md
     - name: Przykłady kodu
       href: 'https://docs.microsoft.com/samples/browse/?term=Event%20Grid'
+    - name: Elementy wbudowane usługi Azure Policy
+      href: ./policy-samples.md
 - name: Pojęcia
   items:
     - name: Terminologia dotycząca usługi Event Grid

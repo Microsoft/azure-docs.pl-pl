@@ -7,12 +7,8 @@
 - name: Przewodniki Szybki start
   expanded: true
   items:
-    - name: 'Przy użyciu języka C#'
-      href: Quickstart.md
-    - name: Używanie środowiska Node.js
-      href: quickstart-nodejs.md
-    - name: Korzystanie z języka Swift (iOS)
-      href: ios-quickstart.md
+    - name: Używanie biblioteki klienta
+      href: ./quickstarts/client-libraries.md
 - name: Samouczki
   items:
     - name: Uruchamianie czytnika immersyjnego (Python)

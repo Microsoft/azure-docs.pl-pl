@@ -199,8 +199,6 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Analizy przypadków
       href: data-factory-customer-case-studies.md
-    - name: Ścieżka szkoleniowa
-      href: 'https://azure.microsoft.com/documentation/learning-paths/data-factory'
     - name: Pytania i odpowiedzi Microsoft — strona pytania
       href: 'https://docs.microsoft.com/answers/topics/azure-data-factory.html'
     - name: Cennik
