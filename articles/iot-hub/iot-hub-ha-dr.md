@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
-ms.openlocfilehash: 615dc1b7bd1a31069a542ebb7ea44693c404cb40
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 87932887edd0aac536a2c7fbd25a02d2442f9db9
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79499100"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267634"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Wysoka dostępność i odzyskiwanie po awarii usługi IoT Hub
 
@@ -60,7 +60,7 @@ Obie te opcje trybu failover oferują następujące cele punktu odzyskiwania (RP
 Po zakończeniu operacji przejścia w tryb failover dla usługi IoT Hub należy oczekiwać, że wszystkie operacje z urządzenia i aplikacji zaplecza będą działać bez konieczności ręcznej interwencji. Oznacza to, że komunikaty z urządzenia do chmury powinny być nadal wykonywane, a cały rejestr urządzenia jest nienaruszony. Zdarzenia emitowane za pośrednictwem Event Grid mogą być używane za pośrednictwem tych samych subskrypcji skonfigurowanych wcześniej, o ile te subskrypcje Event Grid nadal są dostępne.
 
 > [!CAUTION]
-> - Nazwa zgodna z centrum zdarzeń i punkt końcowy IoT Hub wbudowanego punktu końcowego zdarzeń, po przejściu w tryb failover, i skonfigurowane grupy odbiorców zostaną usunięte (jest to usterka, która zostanie naprawiona przed 2020 maja). Podczas otrzymywania komunikatów telemetrycznych z wbudowanego punktu końcowego przy użyciu klienta centrum zdarzeń lub hosta procesora zdarzeń należy [użyć parametrów połączenia usługi IoT Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) w celu nawiązania połączenia. Dzięki temu aplikacje zaplecza będą nadal działały bez konieczności ręcznego wprowadzania interwencji w trybie failover. Jeśli używasz bezpośrednio nazwy i punktu końcowego zgodnego z centrum zdarzeń w aplikacji, musisz [ponownie skonfigurować grupę odbiorców, z której korzystają, i pobrać nowy punkt końcowy zgodny z centrum zdarzeń](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) po przejściu w tryb failover, aby kontynuować operacje. Jeśli używasz Azure Functions lub Azure Stream Analytics do łączenia wbudowanego punktu końcowego, może być konieczne **ponowne uruchomienie komputera**.
+> - Nazwa zgodna z centrum zdarzeń i punkt końcowy IoT Hub wbudowanego punktu końcowego zdarzeń po przejściu w tryb failover. Podczas otrzymywania komunikatów telemetrycznych z wbudowanego punktu końcowego przy użyciu klienta centrum zdarzeń lub hosta procesora zdarzeń należy [użyć parametrów połączenia usługi IoT Hub](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) w celu nawiązania połączenia. Dzięki temu aplikacje zaplecza będą nadal działały bez konieczności ręcznego wprowadzania interwencji w trybie failover. Jeśli używasz bezpośrednio nazwy i punktu końcowego zgodnego z centrum zdarzeń w aplikacji, musisz [pobrać nowy punkt końcowy zgodny z centrum zdarzeń](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) po przejściu w tryb failover, aby kontynuować operacje. Jeśli używasz Azure Functions lub Azure Stream Analytics do łączenia wbudowanego punktu końcowego, może być konieczne **ponowne uruchomienie komputera**.
 >
 > - W przypadku kierowania do magazynu zalecamy wyświetlenie listy obiektów blob lub plików, a następnie przeprowadzenie iteracji dla nich, aby upewnić się, że wszystkie obiekty blob lub pliki są odczytywane bez tworzenia założeń partycji. Zakres partycji może ulec zmianie podczas pracy w trybie failover zainicjowanej przez firmę Microsoft lub ręcznego przejścia w tryb failover. Korzystając z [interfejsu API listy obiektów BLOB](https://docs.microsoft.com/rest/api/storageservices/list-blobs) , można wyliczyć listę obiektów blob lub [listę interfejsów API ADLS Gen2](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list) dla listy plików. 
 
@@ -131,8 +131,8 @@ Poniżej znajduje się podsumowanie opcji HA/DR przedstawionych w tym artykule, 
 | HA/DR — opcja | RTO | CEL PUNKTU ODZYSKIWANIA | Czy wymaga ręcznej interwencji? | Złożoność implementacji | Dodatkowy wpływ na koszty|
 | --- | --- | --- | --- | --- | --- |
 | Tryb failover zainicjowany przez firmę Microsoft |2-26 godzin|Odwołaj się do tabeli celu punktu odzyskiwania|Nie|Brak|Brak|
-| Ręczne przełączenie w tryb failover |10 min-2 godz.|Odwołaj się do tabeli celu punktu odzyskiwania|Tak|Bardzo niska. Musisz tylko wyzwolić tę operację z portalu.|Brak|
-| HA w różnych regionach |< 1 min|Zależy od częstotliwości replikacji niestandardowego rozwiązania o wysokiej dostępności|Nie|Wysoka|> 1x koszt 1 IoT Hub|
+| Ręczne przełączenie w tryb failover |10 min-2 godz.|Odwołaj się do tabeli celu punktu odzyskiwania|Yes|Bardzo niska. Musisz tylko wyzwolić tę operację z portalu.|Brak|
+| HA w różnych regionach |< 1 min|Zależy od częstotliwości replikacji niestandardowego rozwiązania o wysokiej dostępności|Nie|Wysoki|> 1x koszt 1 IoT Hub|
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 7142e3f9aaa25e7ba327194c04ad6a9b5f4e3ad1
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a9699eae17657e96b38b3bccc95e8f84326efbb3
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79258774"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259477"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Opisywanie klastra Service Fabric przy użyciu Menedżer zasobów klastra
 Funkcja Menedżer zasobów klastra platformy Azure Service Fabric oferuje kilka mechanizmów opisywania klastra:
@@ -83,9 +83,9 @@ Na poniższym diagramie przedstawiono trzy domeny uaktualnienia rozłożone na t
 
 Istnieją pewne wady i zalety posiadania dużej liczby domen uaktualnienia. Więcej domen uaktualnienia oznacza, że każdy krok uaktualnienia jest bardziej szczegółowy i ma wpływ na mniejszą liczbę węzłów lub usług. Mniejsza liczba usług musi być jednocześnie przenoszona do systemu. Pozwala to zwiększyć niezawodność, ponieważ w ramach uaktualnienia występuje problem z mniejszą częścią usługi. Więcej domen uaktualnienia oznacza również, że potrzebujesz mniej dostępnego buforu w innych węzłach, aby obsługiwać wpływ uaktualnienia. 
 
-Na przykład jeśli masz pięć domen uaktualnienia, węzły w każdej z nich obsługują około 20 procent ruchu. Jeśli konieczne jest podjęcie tej domeny uaktualnienia do uaktualnienia, to obciążenie zwykle musi znajdować się w dowolnym miejscu. Ponieważ istnieją cztery pozostałe domeny uaktualnienia, każdy z nich musi mieć miejsce na około 5% całkowitego ruchu sieciowego. Więcej domen uaktualnienia oznacza, że potrzebujesz mniej buforów w węzłach klastra. 
+Na przykład jeśli masz pięć domen uaktualnienia, węzły w każdej z nich obsługują około 20 procent ruchu. Jeśli konieczne jest podjęcie tej domeny uaktualnienia do uaktualnienia, to obciążenie zwykle musi znajdować się w dowolnym miejscu. Ponieważ istnieją cztery pozostałe domeny uaktualnienia, każdy z nich musi mieć miejsce na około 25% całkowitego ruchu sieciowego. Więcej domen uaktualnienia oznacza, że potrzebujesz mniej buforów w węzłach klastra.
 
-Należy rozważyć, czy w zamian była 10 domen uaktualnienia. W takim przypadku Każda domena uaktualnienia będzie obsługiwała tylko 10% całkowitego ruchu sieciowego. Po wykonaniu kroków uaktualniania w klastrze Każda domena musiałaby mieć miejsce tylko w przypadku 1,1% całkowitego ruchu sieciowego. Więcej domen uaktualnienia zwykle umożliwia uruchamianie węzłów przy wyższym wykorzystaniu, ponieważ wymaga mniej zarezerwowanej pojemności. Ta sama wartość dotyczy domen błędów.  
+Należy rozważyć, czy w zamian była 10 domen uaktualnienia. W takim przypadku Każda domena uaktualnienia będzie obsługiwała tylko 10% całkowitego ruchu sieciowego. Po wykonaniu kroków uaktualniania w klastrze Każda domena musiałaby mieć miejsce tylko na około 11% całkowitego ruchu sieciowego. Więcej domen uaktualnienia zwykle umożliwia uruchamianie węzłów przy wyższym wykorzystaniu, ponieważ wymaga mniej zarezerwowanej pojemności. Ta sama wartość dotyczy domen błędów.  
 
 Minusem z wieloma domenami uaktualnienia polega na tym, że uaktualnienia mogą trwać dłużej. Service Fabric czeka na krótki czas po zakończeniu uaktualniania domeny i przeprowadza sprawdzenia przed rozpoczęciem uaktualniania kolejnego. Te opóźnienia umożliwiają wykrywanie problemów wprowadzonych podczas uaktualniania przed kontynuowaniem uaktualniania. Kompromis jest akceptowalny, ponieważ zapobiega nieprawidłowym zmianom wpływającym na zbyt znaczną część usługi w danym momencie.
 
@@ -363,7 +363,7 @@ Aby zapewnić obsługę tych rodzajów konfiguracji, Service Fabric zawiera Tagi
 ### <a name="built-in-node-properties"></a>Właściwości wbudowanego węzła
 Service Fabric definiuje niektóre domyślne właściwości węzła, które mogą być używane automatycznie, aby nie trzeba było ich definiować. Domyślne właściwości zdefiniowane w każdym węźle to **NodeType** i **nodename**. 
 
-Na przykład można napisać ograniczenie położenia jako `"(NodeType == NodeType03)"`. **NodeType** jest często używaną właściwością. Jest to przydatne, ponieważ odpowiada 1:1 z typem maszyny. Każdy typ maszyny odpowiada typowi obciążenia w tradycyjnej aplikacji n-warstwowej.
+Na przykład można napisać ograniczenie położenia jako `"(NodeType == NodeType03)"` . **NodeType** jest często używaną właściwością. Jest to przydatne, ponieważ odpowiada 1:1 z typem maszyny. Każdy typ maszyny odpowiada typowi obciążenia w tradycyjnej aplikacji n-warstwowej.
 
 <center>
 
@@ -416,7 +416,7 @@ Załóżmy, że następujące właściwości węzła zostały zdefiniowane dla t
 W poniższym przykładzie przedstawiono właściwości węzła zdefiniowane za pośrednictwem ClusterConfig. JSON dla wdrożeń autonomicznych lub Template. JSON dla klastrów hostowanych na platformie Azure. 
 
 > [!NOTE]
-> W szablonie Azure Resource Manager typ węzła jest zwykle sparametryzowane. `"[parameters('vmNodeType1Name')]"` Zamiast NodeType01.
+> W szablonie Azure Resource Manager typ węzła jest zwykle sparametryzowane. `"[parameters('vmNodeType1Name')]"`Zamiast NodeType01.
 >
 
 ```json
@@ -447,7 +447,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceType -Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -PlacementConstraint "HasSSD == true && SomeProperty >= 4"
 ```
 
-Jeśli wszystkie węzły NodeType01 są prawidłowe, można również wybrać ten typ węzła z ograniczeniem `"(NodeType == NodeType01)"`.
+Jeśli wszystkie węzły NodeType01 są prawidłowe, można również wybrać ten typ węzła z ograniczeniem `"(NodeType == NodeType01)"` .
 
 Ograniczenia dotyczące umieszczania usługi mogą być aktualizowane dynamicznie w czasie wykonywania. Jeśli zachodzi taka potrzeba, można przenieść usługę w klastrze, dodać i usunąć wymagania i tak dalej. Service Fabric zapewnia, że usługa zostanie udostępniona i jest dostępna nawet po wprowadzeniu tych zmian.
 

@@ -7,15 +7,17 @@ author: nabhishek
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.openlocfilehash: 40da43b88e5f95335e8c1766128ac60502630c7b
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.date: 05/28/2020
+ms.openlocfilehash: 0b966b10c5bbc7bb90a4226d94dda8b75e25c3af
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83853785"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247482"
 ---
 # <a name="data-access-strategies"></a>Strategie dostępu do danych
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Istotnym celem zabezpieczeń organizacji jest ochrona swoich magazynów danych przed przypadkowym dostępem przez Internet. może to być magazyn danych lokalnych lub w chmurze/SaaS. 
 

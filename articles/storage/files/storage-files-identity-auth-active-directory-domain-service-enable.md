@@ -4,15 +4,15 @@ description: Dowiedz się, jak włączyć uwierzytelnianie oparte na tożsamośc
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/21/2020
+ms.date: 04/21/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: cb173bcbf7cd163dca16c211d45018e0fe056edd
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0aa90aa054f99e8f65233887703965eedcd6bd90
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80666850"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84264506"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Włącz uwierzytelnianie Azure Active Directory Domain Services na Azure Files
 
@@ -119,7 +119,7 @@ Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
 
 Aby włączyć uwierzytelnianie usługi Azure AD za pośrednictwem protokołu SMB przy użyciu interfejsu wiersza polecenia platformy Azure, zainstaluj najnowszą wersję interfejsu wiersza polecenia (w wersji 2.0.70 lub nowszej). Aby uzyskać więcej informacji na temat instalowania interfejsu wiersza polecenia platformy Azure, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-Aby utworzyć nowe konto magazynu, wywołaj polecenie[AZ Storage account Create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)i ustaw `--enable-files-aadds` właściwość na **wartość true**. W poniższym przykładzie Pamiętaj, aby zastąpić wartości zastępcze własnymi wartościami. (Jeśli korzystasz z poprzedniego modułu w wersji zapoznawczej, parametr do włączenia funkcji to **File-AAD**).
+Aby utworzyć nowe konto magazynu, wywołaj polecenie [AZ Storage account Create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create)i ustaw `--enable-files-aadds` Właściwość na **wartość true**. W poniższym przykładzie Pamiętaj, aby zastąpić wartości zastępcze własnymi wartościami. (Jeśli korzystasz z poprzedniego modułu w wersji zapoznawczej, parametr do włączenia funkcji to **File-AAD**).
 
 ```azurecli-interactive
 # Create a new storage account

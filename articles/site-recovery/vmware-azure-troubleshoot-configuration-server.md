@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 0383a512dfb7c2bb1ae2422b9ade1e3c7387a70c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 85021af94c3cc88f45b391690d7481d5498c40a9
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80478311"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84246887"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Rozwiązywanie problemów z serwerem konfiguracji
 
@@ -43,15 +43,17 @@ Maszyna źródłowa rejestruje się na serwerze konfiguracji podczas instalacji 
     4. Po rozwiązaniu problemów z siecią ponów próbę rejestracji, postępując zgodnie ze wskazówkami w temacie [Rejestrowanie maszyny źródłowej na serwerze konfiguracji](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 
 6. Jeśli **żądanie post ciągu: (7) — nie można nawiązać połączenia z serwerem** , w tym samym pliku dziennika poszukaj **żądania ciągu: (60) — certyfikatu równorzędnego nie można uwierzytelnić przy użyciu określonych certyfikatów urzędu certyfikacji**. Ten błąd może wystąpić, ponieważ certyfikat serwera konfiguracji wygasł lub maszyna źródłowa nie obsługuje protokołów TLS 1,0 i nowszych. Może również wystąpić, Jeśli zapora blokuje komunikację TLS między maszyną źródłową a serwerem konfiguracji. Jeśli ciąg zostanie znaleziony: 
-    1. Aby rozwiązać ten problem, Połącz się z adresem IP serwera konfiguracji przy użyciu przeglądarki sieci Web na maszynie źródłowej. Użyj identyfikatora URI https:\/ \/ adres\>IP serwera konfiguracji<:443/. Upewnij się, że maszyna źródłowa może nawiązać połączenie z serwerem konfiguracji za pomocą portu 443.
+    1. Aby rozwiązać ten problem, Połącz się z adresem IP serwera konfiguracji przy użyciu przeglądarki sieci Web na maszynie źródłowej. Użyj identyfikatora URI https: \/ \/ adres IP serwera konfiguracji<\> : 443/. Upewnij się, że maszyna źródłowa może nawiązać połączenie z serwerem konfiguracji za pomocą portu 443.
     2. Sprawdź, czy wszystkie reguły zapory na maszynie źródłowej muszą być dodane lub usunięte, aby maszyna źródłowa mogła komunikować się z serwerem konfiguracji. Ze względu na rozmaite oprogramowanie zapory, które może być używane, nie można wyświetlić wszystkich wymaganych konfiguracji zapory. Skontaktuj się z administratorami sieci, aby odblokować problemy z połączeniem.
     3. Upewnij się, że foldery wymienione w [Site Recovery wykluczenia folderów z programów antywirusowych](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) są wykluczone z oprogramowania antywirusowego.  
     4. Po rozwiązaniu problemów ponów próbę rejestracji, postępując zgodnie z instrukcjami w temacie [Rejestrowanie maszyny źródłowej na serwerze konfiguracji](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 
-7. W systemie Linux jeśli wartość platformy w <INSTALLATION_DIR\>/etc/drscout.conf jest uszkodzona, rejestracja kończy się niepowodzeniem. Aby zidentyfikować ten problem, Otwórz plik/var/log/ua_install. log. Wyszukaj ciąg **przerwania konfiguracji, ponieważ VM_PLATFORM wartość jest równa null lub nie jest VMware/Azure**. Platforma powinna być ustawiona na platformę **VMware** lub **platformę Azure**. Jeśli plik drscout. conf jest uszkodzony, zalecamy [odinstalowanie agenta mobilności](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) , a następnie ponowne zainstalowanie agenta mobilności. Jeśli Dezinstalacja nie powiedzie się, wykonaj następujące czynności: a. Otwórz plik Installation_Directory/Uninstall.sh i Dodaj komentarz do wywołania funkcji **StopServices** .
+7. W systemie Linux jeśli wartość platformy w <INSTALLATION_DIR \> /etc/drscout.conf jest uszkodzona, rejestracja kończy się niepowodzeniem. Aby zidentyfikować ten problem, Otwórz plik/var/log/ua_install. log. Wyszukaj ciąg **przerwania konfiguracji, ponieważ VM_PLATFORM wartość jest równa null lub nie jest VMware/Azure**. Platforma powinna być ustawiona na platformę **VMware** lub **platformę Azure**. Jeśli plik drscout. conf jest uszkodzony, zalecamy [odinstalowanie agenta mobilności](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) , a następnie ponowne zainstalowanie agenta mobilności. Jeśli Dezinstalacja nie powiedzie się, wykonaj następujące czynności: a. Otwórz plik Installation_Directory/Uninstall.sh i Dodaj komentarz do wywołania funkcji **StopServices** .
     b. Otwórz plik Installation_Directory/VX/bin/Uninstall.sh i Dodaj komentarz do wywołania funkcji **stop_services** .
-    c. Otwórz plik Installation_Directory/FX/Uninstall.sh i Dodaj komentarz do całej sekcji, która próbuje zatrzymać usługę FX.
+    d. Otwórz plik Installation_Directory/FX/Uninstall.sh i Dodaj komentarz do całej sekcji, która próbuje zatrzymać usługę FX.
     d. [Odinstaluj](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) agenta mobilności. Po pomyślnym odinstalowaniu systemu ponownie uruchom system, a następnie spróbuj ponownie zainstalować agenta mobilności.
+
+8. Upewnij się, że uwierzytelnianie wieloskładnikowe nie jest włączone dla konta użytkownika. Azure Site Recovery nie obsługuje uwierzytelniania wieloskładnikowego dla konta użytkownika. Zarejestruj serwer konfiguracji bez konta użytkownika z włączonym uwierzytelnianiem wieloskładnikowym.  
 
 ## <a name="installation-failure-failed-to-load-accounts"></a>Niepowodzenie instalacji: nie można załadować kont
 
@@ -97,7 +99,7 @@ Uruchom następujące polecenie na maszynie źródłowej:
 
 Ustawienie | Szczegóły
 --- | ---
-Sposób użycia | UnifiedAgentConfigurator. exe/CSEndPoint <adres\> IP serwera konfiguracji/PassphraseFilePath <hasło ścieżka pliku\>
+Użycie | UnifiedAgentConfigurator. exe/CSEndPoint < adres IP serwera konfiguracji \> /PassphraseFilePath < hasło ścieżka pliku\>
 Dzienniki konfiguracji agenta | Znajduje się w obszarze%ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
 /CSEndPoint | Obowiązkowy parametr. Określa adres IP serwera konfiguracji. Użyj dowolnych prawidłowych adresów IP.
 /PassphraseFilePath |  Obowiązkowy. Lokalizacja hasła. Użyj dowolnej prawidłowej ścieżki UNC lub pliku lokalnego.
@@ -112,7 +114,7 @@ Uruchom następujące polecenie na maszynie źródłowej:
 
 Ustawienie | Szczegóły
 --- | ---
-Sposób użycia | /usr/local/ASR/Vx/bin CD<br /><br /> UnifiedAgentConfigurator.sh-i <adres\> IP serwera konfiguracji — P <ścieżka pliku hasła\>
+Użycie | /usr/local/ASR/Vx/bin CD<br /><br /> UnifiedAgentConfigurator.sh-i <adres IP serwera konfiguracji \> — P <ścieżka pliku hasła\>
 -i | Obowiązkowy parametr. Określa adres IP serwera konfiguracji. Użyj dowolnych prawidłowych adresów IP.
 -P |  Obowiązkowy. Pełna ścieżka pliku, w którym zapisano hasło. Użyj dowolnego prawidłowego folderu.
 
@@ -203,7 +205,7 @@ Zwykle jest to spowodowane błędem z portem 443. Wykonaj następujące kroki, a
 
 Aby sprawdzić, czy główny agent docelowy może utworzyć sesję TCP dla adresu IP serwera konfiguracji, należy poszukać śledzenia podobnego do poniższego w głównych dziennikach agenta docelowego:
 
-Protokół \<TCP ZAstąp adres IP adresem IP cs tutaj \<>:52739 Zastąp adres IP adresem IP cs tutaj>:443 SYN_SENT 
+TCP \<Replace IP with CS IP here> : 52739 \<Replace IP with CS IP here> : 443 SYN_SENT 
 
 TCP 192.168.1.40:52739 192.168.1.40:443 SYN_SENT//Zastąp adres IP adresem IP CS tutaj
 

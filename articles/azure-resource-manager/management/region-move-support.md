@@ -4,14 +4,14 @@ description: Wyświetla listę typów zasobów platformy Azure, które mogą by�
 author: rayne-wiselman
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 01/20/2020
+ms.date: 05/31/2020
 ms.author: raynew
-ms.openlocfilehash: 9bc7dc66ccf3049ac878f7871c816e5ade1afde5
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 2f59bbb4711d79fdcb59e39378c25c031ac68af8
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76760712"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84249063"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>Obsługa przemieszczania zasobów platformy Azure między regionami
 
@@ -186,7 +186,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | usługa |  Tak | 
+> | usługa |  Tak (przy użyciu szablonu) <br/><br/> [Przenieś API Management między regionami](../../api-management/api-management-howto-migrate.md). | 
 
 ## <a name="microsoftappconfiguration"></a>Microsoft. AppConfiguration
 
@@ -200,7 +200,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | apiapps | Nie | 
+> | apiapps | Tak (przy użyciu szablonu)<br/><br/> [Przenoszenie aplikacji App Service do innego regionu](../../app-service/manage-move-across-regions.md) | 
 > | appidentities | Nie | 
 > | bram | Nie | 
 
@@ -217,7 +217,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | automationaccounts | Nie | 
+> | automationaccounts | Tak (przy użyciu szablonu) <br/><br/> [Korzystanie z replikacji geograficznej](../../automation/automation-managing-data.md#geo-replication-in-azure-automation) |  
 > | automationaccounts/konfiguracje | Nie | 
 > | automationaccounts/elementy Runbook | Nie | 
 
@@ -249,7 +249,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | batchaccounts | Nie |
+> | batchaccounts |  Tak (przy użyciu szablonu)<br/><br/> [Przenoszenie konta wsadowego w różnych regionach](../../batch/best-practices.md#moving-batch-accounts-across-regions) |
 
 ## <a name="microsoftbatchai"></a>Microsoft. Batchai Job
 
@@ -346,7 +346,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | storageaccounts | Tak |  
+> | storageaccounts | Yes |  
 
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft. CognitiveServices
@@ -355,6 +355,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | Konta | Nie | 
+> | Cognitive Search | Tak (przy użyciu szablonu)<br/><br/> [Przenoszenie usługi Wyszukiwanie poznawcze do innego regionu](../../search/search-howto-move-across-regions.md)
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
@@ -375,7 +376,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | sharedvmimages | Nie | 
 > | sharedvmimages/wersje | Nie | 
 > | Migawki | Nie | 
-> | virtualmachines | Tak | 
+> | virtualmachines | Yes | 
 > | virtualmachines/rozszerzenia | Nie | 
 > | virtualmachinescalesets | Nie | 
 
@@ -579,7 +580,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | ------------- | ----------- |
 > | elasticpools | Nie | 
 > | elasticpools / iothubtenants | Nie | 
-> | iothubs | Tak | 
+> | iothubs | Yes | 
 > | provisioningservices | Nie | 
 
 ## <a name="microsoftdevspaces"></a>Microsoft. DevSpaces
@@ -588,6 +589,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | kontrolery | Nie | 
+> | Klaster AKS | Nie<br/><br/> [Dowiedz się więcej](../../dev-spaces/faq.md#can-i-migrate-my-aks-cluster-with-azure-dev-spaces-to-another-region) o przenoszeniu do innego regionu.
 
 ## <a name="microsoftdevtestlab"></a>Microsoft. wspólny
 
@@ -636,7 +638,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | oparty | Nie |  
-> | przestrzeni | Nie | 
+> | przestrzeni | Tak (z szablonem)<br/><br/> [Przenoszenie przestrzeni nazw centrum zdarzeń do innego regionu](../../event-hubs/move-across-regions.md) | 
 
 ## <a name="microsoftgenomics"></a>Microsoft. genomika
 
@@ -713,7 +715,15 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | iotapps |  Nie |  
+> | checknameavailability |  Nie
+> | ziół | Nie
+
+## <a name="microsoftiothub"></a>Microsoft. IoTHub
+
+> [!div class="mx-tableFixed"]
+> | Typ zasobu | Przeniesienie regionu | 
+> | ------------- | ----------- |
+> |  iothub |  Tak (Klonuj Hub) <br/><br/> [Klonowanie Centrum IoT Hub do innego regionu](../../iot-hub/iot-hub-how-to-clone.md)
 
 ## <a name="microsoftiotspaces"></a>Microsoft. IoTSpaces
 
@@ -897,13 +907,13 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | expressrouteports | Nie | 
 > | usługi frontdoor | Nie | 
 > | frontdoorwebapplicationfirewallpolicies | Nie | 
-> | loadbalancers | Tak — podstawowa jednostka SKU<br>Niestandardowa jednostka SKU | Tak — podstawowa jednostka SKU<br> -Tak — standardowa jednostka SKU |
+> | loadbalancers | Yes <br/><br/> Istnieje możliwość wyeksportowania istniejącej konfiguracji jako szablonu i wdrożenia szablonu w nowym regionie. Dowiedz się, jak przenieść [zewnętrzny](../..//load-balancer/move-across-regions-external-load-balancer-portal.md) lub [wewnętrzny](../../load-balancer/move-across-regions-internal-load-balancer-portal.md) moduł równoważenia obciążenia. |
 > | localnetworkgateways |  Nie | 
 > | natgateways |  Nie | 
 > | networkintentpolicies |  Nie | 
-> | networkinterfaces | Tak | 
+> | networkinterfaces | Yes | 
 > | networkprofiles | Nie | 
-> | networksecuritygroups | Tak | 
+> | networksecuritygroups | Yes | 
 > | networkwatchers |  Nie |  
 > | networkwatchers / connectionmonitors |  Nie | 
 > | networkwatchers/soczewki |  Nie | 
@@ -913,7 +923,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | privatednszones / virtualnetworklinks |  Nie |  
 > | privateendpoints | Nie | 
 > | privatelinkservices | Nie | 
-> | adresów publicipaddress | Tak — podstawowa jednostka SKU<br>Niestandardowa jednostka SKU | Tak — podstawowa jednostka SKU<br>Niestandardowa jednostka SKU |
+> | adresów publicipaddress | Yes<br/><br/> Istnieje możliwość wyeksportowania istniejącej konfiguracji publicznego adresu IP jako szablonu i wdrożenia szablonu w nowym regionie. [Dowiedz się więcej](../../virtual-network/move-across-regions-publicip-portal.md) o przenoszeniu publicznego adresu IP. |
 > | publicipprefixes | Nie | 
 > | routefilters | Nie | 
 > | routetables |  Nie | 
@@ -1115,12 +1125,12 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
 > | instancepools | Nie | 
-> | managedinstances | Tak | 
-> | ManagedInstances/bazy danych | Tak | 
-> | serwerem | Tak | 
-> | Serwery/bazy danych | Tak | 
-> | serwery/elasticpools | Tak | 
-> | virtualclusters | Tak | 
+> | managedinstances | Yes | 
+> | ManagedInstances/bazy danych | Yes | 
+> | serwerem | Yes | 
+> | Serwery/bazy danych | Yes | 
+> | serwery/elasticpools | Yes | 
+> | virtualclusters | Yes | 
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft. SqlVirtualMachine
 
@@ -1142,7 +1152,7 @@ Przejdź do przestrzeni nazw dostawcy zasobów:
 > [!div class="mx-tableFixed"]
 > | Typ zasobu | Przeniesienie regionu | 
 > | ------------- | ----------- |
-> | storageaccounts | Tak | 
+> | storageaccounts | Yes<br/><br/> [Przenoszenie konta usługi Azure Storage do innego regionu](../../storage/common/storage-account-move.md) | 
 
 ## <a name="microsoftstoragecache"></a>Microsoft. StorageCache
 

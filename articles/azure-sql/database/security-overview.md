@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: 617c06c9f9a86e8377f32a5e80102eb92e9f029c
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 7beaae92d8f08aaaa3625240bc2c70256ed0e1d4
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84191703"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266053"
 ---
 # <a name="an-overview-of-azure-sql-database--sql-managed-instance-security-capabilities"></a>Omówienie Azure SQL Database & funkcji zabezpieczeń wystąpienia zarządzanego SQL
 
@@ -109,7 +109,7 @@ Na przykład podczas korzystania z sterownika ADO.NET jest to realizowane za po�
 > [!IMPORTANT]
 > Należy pamiętać, że niektóre sterowniki inne niż firmy Microsoft mogą nie używać protokołu TLS domyślnie lub korzystają ze starszej wersji protokołu TLS (<1,2), aby móc działać. W takim przypadku serwer nadal umożliwia nawiązanie połączenia z bazą danych. Zaleca się jednak, aby oszacować zagrożenia bezpieczeństwa, które umożliwiają łączenie takich sterowników i aplikacji z SQL Database, szczególnie w przypadku przechowywania poufnych danych.
 >
-> Aby uzyskać więcej informacji na temat protokołu TLS i łączności, zobacz [zagadnienia dotyczące protokołu TLS](connect-query-content-reference-guide.md#tls-considerations-for-sql-database-connectivity) .
+> Aby uzyskać więcej informacji na temat protokołu TLS i łączności, zobacz [zagadnienia dotyczące protokołu TLS](connect-query-content-reference-guide.md#tls-considerations-for-database-connectivity) .
 
 ### <a name="transparent-data-encryption-encryption-at-rest"></a>Transparent Data Encryption (szyfrowanie w spoczynku)
 

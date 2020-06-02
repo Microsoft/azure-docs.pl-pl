@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: 4d4b2f0305e1069ac7873df24d834ab55512aff7
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: ccd729510341a9232764b1c211aa18c197ad5a37
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219728"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248638"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Automatyczne skalowanie klastrów usługi Azure HDInsight
 
@@ -74,10 +74,10 @@ W poniższej tabeli opisano typy i wersje klastra, które są zgodne z funkcją 
 
 | Wersja | platforma Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3,6 bez ESP | Tak | Tak | Tak | Tak* | Nie | Nie | Nie |
-| HDInsight 4,0 bez ESP | Tak | Tak | Tak | Tak* | Nie | Nie | Nie |
-| HDInsight 3,6 z ESP | Tak | Tak | Tak | Tak* | Nie | Nie | Nie |
-| HDInsight 4,0 z ESP | Tak | Tak | Tak | Tak* | Nie | Nie | Nie |
+| HDInsight 3,6 bez ESP | Tak | Tak | Yes | Tak* | Nie | Nie | Nie |
+| HDInsight 4,0 bez ESP | Tak | Tak | Yes | Tak* | Nie | Nie | Nie |
+| HDInsight 3,6 z ESP | Tak | Tak | Yes | Tak* | Nie | Nie | Nie |
+| HDInsight 4,0 z ESP | Tak | Tak | Yes | Tak* | Nie | Nie | Nie |
 
 \*Klastry HBase można konfigurować tylko dla skalowania opartego na harmonogramie, a nie na podstawie obciążenia.
 
@@ -210,7 +210,7 @@ https://management.azure.com/subscriptions/{subscription Id}/resourceGroups/{res
 Użyj odpowiednich parametrów w ładunku żądania. Poniżej można włączyć automatyczne skalowanie przy użyciu poniższego ładunku JSON. Użyj ładunku, `{autoscale: null}` Aby wyłączyć automatyczne skalowanie.
 
 ```json
-{ "autoscale": { "capacity": { "minInstanceCount": 3, "maxInstanceCount": 2 } } }
+{ "autoscale": { "capacity": { "minInstanceCount": 3, "maxInstanceCount": 5 } } }
 ```
 
 Zobacz poprzednią sekcję na temat [włączania automatycznego skalowania na podstawie obciążenia](#load-based-autoscaling) , aby uzyskać pełny opis wszystkich parametrów ładunku.

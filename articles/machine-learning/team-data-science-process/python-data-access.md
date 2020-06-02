@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 93ec5e740ac6acf9420a9d980092ed772ac1618e
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 4c5269488b1c449580d56a0c1506c59b89c76ca6
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76720983"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267985"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Dostęp do zestawów danych z językiem Python za pomocą biblioteki klienta Python usługi Azure Machine Learning
 Wersja zapoznawcza Microsoft Azure Machine Learning Biblioteka kliencka języka Python umożliwia bezpieczny dostęp do Azure Machine Learning zestawów danych ze środowiska lokalnego języka Python oraz umożliwia tworzenie zestawów danych i zarządzanie nimi w obszarze roboczym.
@@ -40,7 +40,7 @@ Ma zależność od następujących pakietów:
 * Python — dateutil
 * Pandas
 
-Zalecamy używanie dystrybucji języka Python, takiej jak [Anaconda](http://continuum.io/downloads#all) lub [koroner](https://store.enthought.com/downloads/), która jest dostarczana z zainstalowanymi w języku Python, IPython i trzema wymienionymi powyżej pakietami. Chociaż IPython nie jest ściśle wymagane, jest to doskonałe środowisko do interaktywnego manipulowania danymi i wizualizacji danych.
+Zalecamy używanie dystrybucji języka Python, takiej jak [Anaconda](https://www.anaconda.com/) lub [koroner](https://store.enthought.com/downloads/), która jest dostarczana z zainstalowanymi w języku Python, IPython i trzema wymienionymi powyżej pakietami. Chociaż IPython nie jest ściśle wymagane, jest to doskonałe środowisko do interaktywnego manipulowania danymi i wizualizacji danych.
 
 ### <a name="how-to-install-the-azure-machine-learning-python-client-library"></a><a name="installation"></a>Jak zainstalować bibliotekę kliencką Azure Machine Learning Python
 Zainstaluj bibliotekę kliencką Azure Machine Learning Python, aby wykonać zadania opisane w tym temacie. Ta biblioteka jest dostępna w [indeksie pakietu języka Python](https://pypi.python.org/pypi/azureml). Aby zainstalować ją w środowisku języka Python, uruchom następujące polecenie w lokalnym środowisku języka Python:
@@ -110,7 +110,7 @@ Obsługiwane są następujące formaty (stałe dla tych formatów są w `azureml
 
 Możesz określić format, ustawiając kursor nad węzłem wyjściowym modułu. Jest wyświetlana wraz z nazwą węzła w etykietce narzędzia.
 
-Niektóre moduły, takie jak moduł [Split][split] , są wyprowadzane do formatu o nazwie `Dataset`, który nie jest obsługiwany przez bibliotekę kliencką języka Python.
+Niektóre moduły, takie jak moduł [Split][split] , są wyprowadzane do formatu o nazwie `Dataset` , który nie jest obsługiwany przez bibliotekę kliencką języka Python.
 
 ![Format zestawu danych][dataset-format]
 
@@ -188,7 +188,7 @@ Inne są wartościami przypisanymi przez usługę Azure ML:
     print(ds.created_date)
     print(ds.size)
 
-Zapoznaj `SourceDataset` się z klasą, aby uzyskać więcej informacji na temat dostępnych metadanych.
+Zapoznaj się z `SourceDataset` klasą, aby uzyskać więcej informacji na temat dostępnych metadanych.
 
 ### <a name="read-contents"></a>Odczytaj zawartość
 Fragmenty kodu udostępniane przez Machine Learning Studio (klasyczne) automatycznie pobierają i deserializacjiją zestaw danych do obiektu Pandas Dataframe. Jest to realizowane za pomocą `to_dataframe` metody:
@@ -236,7 +236,7 @@ Jeśli dane są już serializowane, można użyć:
         description='my description'
     )
 
-Biblioteka klienta języka Python jest w stanie serializować pandasą ramkę danych do następujących formatów (stałe dla nich znajdują się `azureml.DataTypeIds` w klasie):
+Biblioteka klienta języka Python jest w stanie serializować pandasą ramkę danych do następujących formatów (stałe dla nich znajdują się w `azureml.DataTypeIds` klasie):
 
 * PlainText
 * GenericCSV
@@ -255,7 +255,7 @@ Aby zaktualizować istniejący zestaw danych, należy najpierw pobrać odwołani
     print(dataset.name)         # 'existing dataset'
     print(dataset.description)  # 'data up to jan 2015'
 
-Następnie użyj `update_from_dataframe` , aby serializować i zastąpić zawartość zestawu danych na platformie Azure:
+Następnie użyj, `update_from_dataframe` Aby serializować i zastąpić zawartość zestawu danych na platformie Azure:
 
     dataset = ws.datasets['existing dataset']
 
@@ -310,9 +310,9 @@ Opcjonalnie można ustawić nową nazwę, określając wartość `name` parametr
     print(ws.datasets['existing dataset v2'].name) # 'existing dataset v2'
     print(ws.datasets['existing dataset'].name)    # IndexError
 
-`data_type_id`Parametry `name` i `description` są opcjonalne i domyślne dla ich poprzedniej wartości. `dataframe` Parametr jest zawsze wymagany.
+`data_type_id` `name` `description` Parametry i są opcjonalne i domyślne dla ich poprzedniej wartości. `dataframe`Parametr jest zawsze wymagany.
 
-Jeśli dane są już serializowane, użyj `update_from_raw_data` zamiast `update_from_dataframe`. Jeśli przeszedł po prostu `raw_data` `dataframe`, zamiast, działa w podobny sposób.
+Jeśli dane są już serializowane, użyj `update_from_raw_data` zamiast `update_from_dataframe` . Jeśli przeszedł po prostu `raw_data` , zamiast `dataframe` , działa w podobny sposób.
 
 <!-- Images -->
 [security]:./media/python-data-access/security.png

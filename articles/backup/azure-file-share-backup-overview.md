@@ -3,12 +3,12 @@ title: Informacje o kopii zapasowej udziału plików platformy Azure
 description: Dowiedz się, jak utworzyć kopię zapasową udziałów plików platformy Azure w magazynie Recovery Services
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: c79100724b882c0682c86070ee74a8726d6b049f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5d4129b3618810d80df7d5289a7a7417d74fd077
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82105747"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259029"
 ---
 # <a name="about-azure-file-share-backup"></a>Informacje o kopii zapasowej udziału plików platformy Azure
 
@@ -21,6 +21,7 @@ Kopia zapasowa udziału plików platformy Azure to natywne, oparte na chmurze ro
 * Wbudowane funkcje zarządzania: można zaplanować kopie zapasowe i określić żądany okres przechowywania bez dodatkowych nakładów związanych z oczyszczaniem danych.
 * Natychmiastowe przywracanie: kopia zapasowa udziału plików platformy Azure używa migawek udziałów plików, dzięki czemu możesz wybrać tylko te pliki, które chcesz przywrócić natychmiast.
 * Generowanie alertów i raportowanie: można skonfigurować alerty dotyczące błędów tworzenia kopii zapasowej i przywracania oraz korzystać z rozwiązania raportowania dostępnego w Azure Backup, aby uzyskiwać wgląd w kopie zapasowe w udziałach plików.
+* Ochrona przed przypadkowym usunięciem udziałów plików: Azure Backup włącza [funkcję usuwania nietrwałego](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion) na poziomie konta magazynu z okresem przechowywania wynoszącym 14 dni. Nawet jeśli złośliwy aktor usuwa udział plików, jego zawartość i punkty odzyskiwania (migawki) są zachowywane przez konfigurowalny okres przechowywania, co umożliwia pomyślne i pełne odzyskiwanie zawartości źródłowej i migawek bez utraty danych.
 
 ## <a name="architecture"></a>Architektura
 

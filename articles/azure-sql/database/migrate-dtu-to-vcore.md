@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 05/28/2020
-ms.openlocfilehash: e9ba6f2e2f6b6e6c4c4738576816e4473b4951a5
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 4802e9e6fa2fdd918266d3ddc58b783bdb6bb83e
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235831"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84258471"
 ---
 # <a name="migrate-azure-sql-database-from-the-dtu-based-model-to-the-vcore-based-model"></a>Migrowanie Azure SQL Database z modelu opartego na jednostkach DTU do modelu opartego na rdzeń wirtualny
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -187,7 +187,7 @@ Pomocniczą bazę danych replikacji geograficznej (geograficzną) można utworzy
 
 Jeśli tworzysz geograficzną lokację w puli elastycznej dla pojedynczej podstawowej bazy danych, upewnij się, że `maxVCore` ustawienie dla puli odpowiada rozmiarowi obliczeniowemu podstawowej bazy danych. Jeśli tworzysz geograficzną lokację główną w innej puli elastycznej, zalecamy, aby pule miały te same `maxVCore` Ustawienia.
 
-## <a name="use-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Użycie kopii bazy danych w celu przekonwertowania bazy danych opartej na jednostkach DTU na bazę danych opartą na rdzeń wirtualny
+## <a name="use-database-copy-to-migrate-from-dtu-to-vcore"></a>Użyj kopii bazy danych do migrowania z jednostek DTU do rdzeń wirtualny
 
 Możesz skopiować dowolną bazę danych z rozmiarem obliczeń opartym na jednostkach DTU do bazy danych o rozmiarze obliczeń opartym na rdzeń wirtualny bez ograniczeń lub specjalnej sekwencjonowania, o ile docelowy rozmiar obliczeń obsługuje maksymalny rozmiar bazy danych źródłowej bazy danych. Kopia bazy danych tworzy migawkę danych w czasie rozpoczęcia operacji kopiowania i nie synchronizuje danych między źródłem a obiektem docelowym.
 

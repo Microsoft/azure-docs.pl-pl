@@ -4,12 +4,12 @@ description: Zapoznaj się z informacjami o tym, co możesz zrobić z alertami m
 ms.date: 03/17/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 310d484fa1c88b2c54918fff84020a3438db9ae0
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 603df6f9b00c9261885937a3d85052b3806ff4f8
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82855041"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248825"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Omówienie działania alertów metryk w usłudze Azure Monitor
 
@@ -34,7 +34,7 @@ Załóżmy, że utworzono prostą regułę alertu metryki statycznej progu:
 
 Od momentu utworzenia reguły alertu monitor jest uruchamiany co 1 min i sprawdza wartości metryk dla ostatnich 5 minut i sprawdza, czy średnia z tych wartości przekracza 70. Jeśli spełniony jest warunek, średni procent czasu procesora dla ostatnich 5 minut przekracza 70, reguła alertu wyzwala aktywowane powiadomienie. W przypadku skonfigurowania w grupie akcji skojarzonej z regułą alertu wiadomości e-mail lub elementu webhook zostanie wyświetlone aktywne powiadomienie.
 
-W przypadku korzystania z wielu warunków w jednej regule reguła "ands".  Oznacza to, że alert jest uruchamiany, gdy wszystkie warunki w alercie będą oceniane jako prawdziwe i rozwiązywane, gdy jeden z warunków nie ma już wartości true. Przykładem tego typu alertu będzie alert, gdy "procesor CPU większy niż 90%" i "Długość kolejki przekracza 300 elementów". 
+W przypadku korzystania z wielu warunków w jednej regule reguła "ands". Oznacza to, że alert jest uruchamiany, gdy wszystkie warunki w regule alertu będą oceniane jako prawdziwe i rozwiązywane, gdy jeden z warunków nie ma już wartości true. Przykładem tego typu reguły alertu będzie monitorowanie maszyny wirtualnej platformy Azure i alertu, gdy oba "procentowe użycie procesora CPU jest wyższe niż 90%" i "Długość kolejki jest ponad 300 elementów".
 
 ### <a name="alert-rule-with-dynamic-condition-type"></a>Reguła alertu z typem warunku dynamicznego
 

@@ -3,12 +3,12 @@ title: Tworzenie kopii zapasowej bazy danych SAP HANA na platformie Azure przy u
 description: W tym artykule dowiesz się, jak utworzyć kopię zapasową bazy danych SAP HANA na maszynach wirtualnych platformy Azure przy użyciu usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 4183c1eca6b1149c5c61ed77c0ca1101c86f8f4f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 20086516dc37538474a31c7735e9b2d3b1a3d5b2
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745427"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248570"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Tworzenie kopii zapasowych baz danych platformy SAP HANA na maszynach wirtualnych platformy Azure
 
@@ -25,8 +25,11 @@ W tym artykule dowiesz się, jak:
 > * Uruchamianie zadania tworzenia kopii zapasowej na żądanie
 
 >[!NOTE]
+>[Wprowadzenie](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db) do usługi SAP HANA Backup Preview for RHEL (7,4, 7,6, 7,7 lub 8,1). Aby dalsze zapytania były zapisywane w firmie Microsoft [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
+
+>[!NOTE]
 >**Nietrwałe usuwanie programu SQL Server na maszynie wirtualnej platformy Azure oraz usuwanie nietrwałe dla SAP HANA w obciążeniach maszyn wirtualnych platformy Azure** jest teraz dostępne w wersji zapoznawczej.<br>
->Aby utworzyć konto w wersji zapoznawczej, Zapisz się do nas naAskAzureBackupTeam@microsoft.com
+>Aby utworzyć konto w wersji zapoznawczej, Zapisz się do nas pod adresem [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -38,7 +41,7 @@ W przypadku wszystkich operacji baza danych SAP HANA uruchomiona na maszynie wir
 
 W poniższej tabeli wymieniono różne alternatywy, których można użyć do ustanowienia łączności:
 
-| **Zaznaczyć**                        | **Zalety**                                               | **Wady**                                            |
+| **Opcja**                        | **Zalety**                                               | **Wady**                                            |
 | --------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Prywatne punkty końcowe                 | Zezwalaj na wykonywanie kopii zapasowych za pośrednictwem prywatnych adresów IP w sieci wirtualnej  <br><br>   Zapewnianie szczegółowej kontroli po stronie sieci i magazynu | Odnosi się do standardowych [kosztów](https://azure.microsoft.com/pricing/details/private-link/) prywatnych punktów końcowych |
 | Tagi usługi sieciowej grupy zabezpieczeń                  | Łatwiejsze zarządzanie, ponieważ zmiany zakresu są automatycznie scalane   <br><br>   Brak dodatkowych kosztów | Może być używany tylko z sieciowych grup zabezpieczeń  <br><br>    Zapewnia dostęp do całej usługi |

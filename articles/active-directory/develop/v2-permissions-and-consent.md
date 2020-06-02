@@ -12,12 +12,12 @@ ms.date: 1/3/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: 5495aa6fda189897985ed2f198f6e92c996f6fef
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d513dbd8449dad1d34117e06970f0c0881462aa3
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81868380"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84263231"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Uprawnienia i zgoda w punkcie końcowym platformy tożsamości firmy Microsoft
 
@@ -68,23 +68,25 @@ _Czynne uprawnienia_ to uprawnienia, które aplikacja będzie miała podczas wyk
 
 ## <a name="openid-connect-scopes"></a>Zakresy połączeń OpenID Connect
 
-Implementacja platformy tożsamości firmy Microsoft w programie OpenID Connect Connect zawiera kilka dobrze zdefiniowanych zakresów, które nie dotyczą określonego zasobu `openid`:, `email`, `profile`i. `offline_access` Zakresy `address` połączeń `phone` i OpenID Connect nie są obsługiwane.
+Implementacja platformy tożsamości firmy Microsoft w programie OpenID Connect Connect ma kilka dobrze zdefiniowanych zakresów, które są również hostowane w Microsoft Graph: `openid` , `email` , `profile` i `offline_access` . `address` `phone` Zakresy połączeń i OpenID Connect nie są obsługiwane.
+
+Żądanie zakresów OIDC i tokenu spowoduje nadanie tokenowi wywołania [punktu końcowego UserInfo](userinfo.md).
 
 ### <a name="openid"></a>OpenID Connect
 
-Jeśli aplikacja wykonuje Logowanie przy użyciu programu [OpenID Connect Connect](active-directory-v2-protocols.md), musi zażądać `openid` zakresu. `openid` Zakres jest wyświetlany na stronie wyrażanie zgody na konto służbowe jako uprawnienie "Logowanie do Ciebie" oraz na stronie osobistej zgody konto Microsoft jako "Wyświetlanie profilu i łączenie się z aplikacjami i usługami przy użyciu konto Microsoft". Dzięki temu uprawnieniu aplikacja może otrzymać unikatowy identyfikator użytkownika w postaci `sub` zgłoszenia. Zapewnia również dostęp aplikacji do punktu końcowego UserInfo. `openid` Zakresu można użyć w punkcie końcowym tokenów platformy tożsamości firmy Microsoft w celu uzyskania tokenów identyfikatorów, które mogą być używane przez aplikację do uwierzytelniania.
+Jeśli aplikacja wykonuje Logowanie przy użyciu programu [OpenID Connect Connect](active-directory-v2-protocols.md), musi zażądać `openid` zakresu. `openid`Zakres jest wyświetlany na stronie wyrażanie zgody na konto służbowe jako uprawnienie "Logowanie do Ciebie" oraz na stronie osobistej zgody konto Microsoft jako "Wyświetlanie profilu i łączenie się z aplikacjami i usługami przy użyciu konto Microsoft". Dzięki temu uprawnieniu aplikacja może otrzymać unikatowy identyfikator użytkownika w postaci `sub` zgłoszenia. Zapewnia również dostęp aplikacji do punktu końcowego UserInfo. `openid`Zakresu można użyć w punkcie końcowym tokenów platformy tożsamości firmy Microsoft w celu uzyskania tokenów identyfikatorów, które mogą być używane przez aplikację do uwierzytelniania.
 
-### <a name="email"></a>email
+### <a name="email"></a>poczta e-mail
 
-`email` Zakres może być używany z `openid` zakresem i wszelkimi innymi. Daje ona aplikacji dostęp do podstawowego adresu e-mail użytkownika w postaci `email` zgłoszenia. `email` Oświadczenia jest uwzględniany w tokenie tylko wtedy, gdy adres e-mail jest skojarzony z kontem użytkownika, co nie zawsze jest przypadkiem. Jeśli używa tego `email` zakresu, aplikacja powinna zostać przygotowana do obsługi przypadku, w którym `email` nie istnieje w tokenie.
+`email`Zakres może być używany z `openid` zakresem i wszelkimi innymi. Daje ona aplikacji dostęp do podstawowego adresu e-mail użytkownika w postaci `email` zgłoszenia. `email`Oświadczenia jest uwzględniany w tokenie tylko wtedy, gdy adres e-mail jest skojarzony z kontem użytkownika, co nie zawsze jest przypadkiem. Jeśli używa tego `email` zakresu, aplikacja powinna zostać przygotowana do obsługi przypadku, w którym `email` nie istnieje w tokenie.
 
 ### <a name="profile"></a>profil
 
-`profile` Zakres może być używany z `openid` zakresem i wszelkimi innymi. Zapewnia ona aplikacji dostęp do znacznej ilości informacji o użytkowniku. Informacje, do których może uzyskać dostęp, obejmują, ale nie są ograniczone do, podanej nazwy, imienia, preferowanej nazwy użytkownika i identyfikatora obiektu. Aby uzyskać pełną listę oświadczeń profilu dostępnych w parametrze id_tokens określonego użytkownika, zobacz [ `id_tokens` odwołanie](id-tokens.md).
+`profile`Zakres może być używany z `openid` zakresem i wszelkimi innymi. Zapewnia ona aplikacji dostęp do znacznej ilości informacji o użytkowniku. Informacje, do których może uzyskać dostęp, obejmują, ale nie są ograniczone do, podanej nazwy, imienia, preferowanej nazwy użytkownika i identyfikatora obiektu. Aby uzyskać pełną listę oświadczeń profilu dostępnych w parametrze id_tokens określonego użytkownika, zobacz [ `id_tokens` odwołanie](id-tokens.md).
 
 ### <a name="offline_access"></a>offline_access
 
-Zakres umożliwia aplikacji dostęp do zasobów w imieniu użytkownika przez dłuższy czas. [ `offline_access` ](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) Na stronie zgoda ten zakres jest wyświetlany jako uprawnienie "Obsługuj dostęp do danych, do których masz dostęp. Gdy użytkownik zatwierdza `offline_access` zakres, aplikacja może odbierać tokeny odświeżania z punktu końcowego tokenu Microsoft Identity platform. Tokeny odświeżania są długotrwałe. Twoja aplikacja może uzyskać nowe tokeny dostępu, ponieważ wygasły.
+[ `offline_access` Zakres](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess) umożliwia aplikacji dostęp do zasobów w imieniu użytkownika przez dłuższy czas. Na stronie zgoda ten zakres jest wyświetlany jako uprawnienie "Obsługuj dostęp do danych, do których masz dostęp. Gdy użytkownik zatwierdza `offline_access` zakres, aplikacja może odbierać tokeny odświeżania z punktu końcowego tokenu Microsoft Identity platform. Tokeny odświeżania są długotrwałe. Twoja aplikacja może uzyskać nowe tokeny dostępu, ponieważ wygasły.
 
 > [!NOTE]
 > To uprawnienie pojawia się na wszystkich ekranach wyrażania zgody dzisiaj, nawet w przypadku przepływów, które nie zapewniają tokenu odświeżania ( [przepływ niejawny](v2-oauth2-implicit-grant-flow.md)).  Dotyczy to scenariuszy, w których klient może rozpocząć pracę w niejawnym przepływie, a następnie przechodzić do przepływu kodu, w którym oczekiwany jest token odświeżania.
@@ -95,7 +97,7 @@ Aby uzyskać więcej informacji na temat uzyskiwania i używania tokenów odświ
 
 ## <a name="requesting-individual-user-consent"></a>Żądanie zgody poszczególnych użytkowników
 
-W żądaniu autoryzacji [OpenID Connect Connect lub OAuth 2,0](active-directory-v2-protocols.md) aplikacja może zażądać wymaganych uprawnień przy użyciu parametru `scope` zapytania. Na przykład gdy użytkownik loguje się do aplikacji, aplikacja wysyła żądanie podobne do następującego przykładu (z podziałami wierszy dodanymi do czytelności):
+W żądaniu autoryzacji [OpenID Connect Connect lub OAuth 2,0](active-directory-v2-protocols.md) aplikacja może zażądać wymaganych uprawnień przy użyciu `scope` parametru zapytania. Na przykład gdy użytkownik loguje się do aplikacji, aplikacja wysyła żądanie podobne do następującego przykładu (z podziałami wierszy dodanymi do czytelności):
 
 ```HTTP
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
@@ -109,12 +111,12 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 &state=12345
 ```
 
-`scope` Parametr jest rozdzielaną spacją listą uprawnień delegowanych, które żąda aplikacja. Każde uprawnienie jest wskazywane przez dołączenie wartości uprawnienia do identyfikatora zasobu (identyfikator URI aplikacji). W przykładzie żądania aplikacja musi mieć uprawnienia do odczytu kalendarza użytkownika i wysyłania poczty jako użytkownik.
+`scope`Parametr jest rozdzielaną spacją listą uprawnień delegowanych, które żąda aplikacja. Każde uprawnienie jest wskazywane przez dołączenie wartości uprawnienia do identyfikatora zasobu (identyfikator URI aplikacji). W przykładzie żądania aplikacja musi mieć uprawnienia do odczytu kalendarza użytkownika i wysyłania poczty jako użytkownik.
 
 Po wprowadzeniu poświadczeń przez użytkownika punkt końcowy platformy tożsamości firmy Microsoft wyszukuje pasujący rekord *zgody użytkownika*. Jeśli użytkownik nie wyraził zgody na jakiekolwiek z żądanych uprawnień w przeszłości, ani nie ma dostępu administratora do tych uprawnień w imieniu całej organizacji, punkt końcowy platformy tożsamości firmy Microsoft prosi użytkownika o przyznanie żądanych uprawnień.
 
 > [!NOTE]
->W tej chwili uprawnienia `offline_access` ("zapewnianie dostępu do danych, do których masz dostęp, do") `user.read` i ("Logowanie przy użyciu profilu") są automatycznie dołączane do początkowej zgody na aplikację.  Te uprawnienia są zwykle wymagane w celu uzyskania odpowiedniej funkcjonalności `offline_access` aplikacji — umożliwia aplikacjom dostęp do tokenów odświeżania, krytycznych dla aplikacji natywnych `user.read` i sieci Web, `sub` a jednocześnie zapewnia dostęp do tego żądania, dzięki czemu klient lub aplikacja może prawidłowo identyfikować użytkownika w czasie i uzyskać dostęp do informacji o użytkowniku podstawowe.
+>W tej chwili `offline_access` uprawnienia ("zapewnianie dostępu do danych, do których masz dostęp, do") i `user.read` ("Logowanie przy użyciu profilu") są automatycznie dołączane do początkowej zgody na aplikację.  Te uprawnienia są zwykle wymagane w celu uzyskania odpowiedniej funkcjonalności aplikacji — umożliwia aplikacjom `offline_access` dostęp do tokenów odświeżania, krytycznych dla aplikacji natywnych i sieci Web, a jednocześnie `user.read` zapewnia dostęp do tego `sub` żądania, dzięki czemu klient lub aplikacja może prawidłowo identyfikować użytkownika w czasie i uzyskać dostęp do informacji o użytkowniku podstawowe.
 
 ![Przykładowy zrzut ekranu pokazujący zgodę na konto służbowe](./media/v2-permissions-and-consent/work_account_consent.png)
 
@@ -193,14 +195,14 @@ https://graph.microsoft.com/mail.send
 
 | Parametr        | Warunek        | Opis                                                                                |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
-| `tenant` | Wymagany | Dzierżawa katalogu, z której chcesz zażądać uprawnień. Można podać w formacie identyfikatora GUID lub przyjaznej nazwy lub ogólnie przywoływane z organizacjami, jak pokazano w przykładzie. Nie używaj elementu "Common", ponieważ konta osobiste nie mogą zapewnić zgody administratora, z wyjątkiem sytuacji, w której znajduje się dzierżawa. Aby zapewnić najlepszą zgodność z kontami osobistymi, które zarządzają dzierżawcami, użyj identyfikatora dzierżawy, o ile jest to możliwe. |
-| `client_id` | Wymagany | **Identyfikator aplikacji (klienta)** , który [Azure Portal — rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) środowisko przypisane do aplikacji. |
-| `redirect_uri` | Wymagany |Identyfikator URI przekierowania, w którym odpowiedź ma być wysyłana przez aplikację do obsługi. Musi dokładnie pasować do jednego z identyfikatorów URI przekierowania zarejestrowanych w portalu rejestracji aplikacji. |
+| `tenant` | Wymagane | Dzierżawa katalogu, z której chcesz zażądać uprawnień. Można podać w formacie identyfikatora GUID lub przyjaznej nazwy lub ogólnie przywoływane z organizacjami, jak pokazano w przykładzie. Nie używaj elementu "Common", ponieważ konta osobiste nie mogą zapewnić zgody administratora, z wyjątkiem sytuacji, w której znajduje się dzierżawa. Aby zapewnić najlepszą zgodność z kontami osobistymi, które zarządzają dzierżawcami, użyj identyfikatora dzierżawy, o ile jest to możliwe. |
+| `client_id` | Wymagane | **Identyfikator aplikacji (klienta)** , który [Azure Portal — rejestracje aplikacji](https://go.microsoft.com/fwlink/?linkid=2083908) środowisko przypisane do aplikacji. |
+| `redirect_uri` | Wymagane |Identyfikator URI przekierowania, w którym odpowiedź ma być wysyłana przez aplikację do obsługi. Musi dokładnie pasować do jednego z identyfikatorów URI przekierowania zarejestrowanych w portalu rejestracji aplikacji. |
 | `state` | Zalecane | Wartość uwzględniona w żądaniu, która również zostanie zwrócona w odpowiedzi tokenu. Może to być ciąg dowolnej zawartości. Użyj stanu, aby kodować informacje o stanie użytkownika w aplikacji przed wystąpieniem żądania uwierzytelniania, takie jak strona lub widok. |
-|`scope`        | Wymagany        | Definiuje zestaw uprawnień wymaganych przez aplikację. Może to być statyczne (za pomocą [`/.default`](#the-default-scope)) lub zakresy dynamiczne.  Może to obejmować zakresy OIDC (`openid`, `profile`, `email`). Jeśli potrzebujesz uprawnień aplikacji, musisz użyć `/.default` programu, aby zażądać statycznie skonfigurowanej listy uprawnień.  |
+|`scope`        | Wymagane        | Definiuje zestaw uprawnień wymaganych przez aplikację. Może to być statyczne (za pomocą [`/.default`](#the-default-scope) ) lub zakresy dynamiczne.  Może to obejmować zakresy OIDC ( `openid` , `profile` , `email` ). Jeśli potrzebujesz uprawnień aplikacji, musisz użyć programu, `/.default` Aby zażądać statycznie skonfigurowanej listy uprawnień.  |
 
 
-W tym momencie usługa Azure AD wymaga od administratora dzierżawy zalogowania się w celu ukończenia żądania. Administrator jest proszony o zatwierdzenie wszystkich uprawnień żądanych w `scope` parametrze.  Jeśli użyto wartości statycznej (`/.default`), będzie ona działać podobnie jak punkt końcowy zgody administratora w wersji 1.0 i poprosić o zgodę na wszystkie zakresy, które znajdują się w wymaganych uprawnieniach do aplikacji.
+W tym momencie usługa Azure AD wymaga od administratora dzierżawy zalogowania się w celu ukończenia żądania. Administrator jest proszony o zatwierdzenie wszystkich uprawnień żądanych w `scope` parametrze.  Jeśli użyto wartości statycznej ( `/.default` ), będzie ona działać podobnie jak punkt końcowy zgody administratora w wersji 1.0 i poprosić o zgodę na wszystkie zakresy, które znajdują się w wymaganych uprawnieniach do aplikacji.
 
 #### <a name="successful-response"></a>Pomyślna odpowiedź
 
@@ -214,7 +216,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 | --- | --- |
 | `tenant` | Dzierżawa katalogu, która udzieliła aplikacji żądane uprawnienia w formacie identyfikatora GUID. |
 | `state` | Wartość zawarta w żądaniu, która również zostanie zwrócona w odpowiedzi tokenu. Może to być ciąg dowolnej zawartości. Ten stan jest używany do kodowania informacji o stanie użytkownika w aplikacji przed wystąpieniem żądania uwierzytelnienia, takiego jak strona lub widok. |
-| `admin_consent` | Zostanie ustawiony na `True`. |
+| `admin_consent` | Zostanie ustawiony na `True` . |
 
 #### <a name="error-response"></a>Odpowiedź na błąd
 
@@ -256,32 +258,32 @@ Aby uzyskać więcej informacji na temat protokołu OAuth 2,0 i sposobu uzyskiwa
 
 ## <a name="the-default-scope"></a>Zakres/.default
 
-Można użyć zakresu, `/.default` aby ułatwić migrację aplikacji z punktu końcowego v 1.0 do punktu końcowego platformy tożsamości firmy Microsoft. Jest to wbudowany zakres dla każdej aplikacji, która odwołuje się do statycznej listy uprawnień skonfigurowanych na potrzeby rejestracji aplikacji. Wartość jest funkcjonalnie taka sama jak punkty końcowe `resource=https://graph.microsoft.com` v 1.0 — mianowicie, żąda tokenu z zakresami na Microsoft Graph, że aplikacja została zarejestrowana w Azure Portal. `https://graph.microsoft.com/.default` `scope`  Jest konstruowany przy użyciu identyfikatora URI zasobu + `/.default` (np. Jeśli identyfikator URI zasobu to `https://contosoApp.com`, żądany zakres będzie `https://contosoApp.com/.default`).  Zapoznaj się z [sekcją na końcu ukośników](#trailing-slash-and-default) dla przypadków, w których należy uwzględnić drugi ukośnik, aby prawidłowo zażądać tokenu.
+Można użyć zakresu, `/.default` Aby ułatwić migrację aplikacji z punktu końcowego v 1.0 do punktu końcowego platformy tożsamości firmy Microsoft. Jest to wbudowany zakres dla każdej aplikacji, która odwołuje się do statycznej listy uprawnień skonfigurowanych na potrzeby rejestracji aplikacji. `scope`Wartość `https://graph.microsoft.com/.default` jest funkcjonalnie taka sama jak punkty końcowe v 1.0 `resource=https://graph.microsoft.com` — mianowicie, żąda tokenu z zakresami na Microsoft Graph, że aplikacja została zarejestrowana w Azure Portal.  Jest konstruowany przy użyciu identyfikatora URI zasobu + `/.default` (np. Jeśli identyfikator URI zasobu to `https://contosoApp.com` , żądany zakres będzie `https://contosoApp.com/.default` ).  Zapoznaj się z [sekcją na końcu ukośników](#trailing-slash-and-default) dla przypadków, w których należy uwzględnić drugi ukośnik, aby prawidłowo zażądać tokenu.
 
 Zakres/.default może być używany w dowolnym przepływie protokołu OAuth 2,0, ale jest niezbędny w przebiegu przepływu i [poświadczeń klienta](v2-oauth2-client-creds-grant-flow.md), a także do żądania uprawnień aplikacji przy użyciu punktu końcowego zgody [administratora w wersji](v2-oauth2-on-behalf-of-flow.md) 2.
 
 > [!NOTE]
-> Klienci nie mogą łączyć statycznych`/.default`() i dynamicznej zgody w pojedynczym żądaniu. W związku `scope=https://graph.microsoft.com/.default+mail.read` z tym, spowoduje to błąd ze względu na kombinację typów zakresów.
+> Klienci nie mogą łączyć statycznych ( `/.default` ) i dynamicznej zgody w pojedynczym żądaniu. W związku z tym, `scope=https://graph.microsoft.com/.default+mail.read` spowoduje to błąd ze względu na kombinację typów zakresów.
 
 ### <a name="default-and-consent"></a>/.default i wyrażanie zgody
 
-`/.default` Zakres wyzwala również zachowanie `prompt=consent` punktu końcowego v 1.0. Żądanie jest wyrażane zgodą na wszystkie uprawnienia zarejestrowane przez aplikację, niezależnie od zasobu. W przypadku uwzględnienia w ramach żądania `/.default` zakres zwraca token zawierający zakresy dla żądanego zasobu.
+`/.default`Zakres wyzwala również zachowanie punktu końcowego v 1.0 `prompt=consent` . Żądanie jest wyrażane zgodą na wszystkie uprawnienia zarejestrowane przez aplikację, niezależnie od zasobu. W przypadku uwzględnienia w ramach żądania `/.default` zakres zwraca token zawierający zakresy dla żądanego zasobu.
 
 ### <a name="default-when-the-user-has-already-given-consent"></a>/.default, gdy użytkownik już wyraził zgodę
 
-Ponieważ `/.default` program jest funkcjonalnie identyczny `resource`z zachowaniem punktu końcowego skoncentrowanego na systemie v 1.0, zapewnia również zgodność z tym zachowaniem punktu końcowego v 1.0. Oznacza to `/.default` , że program wyzwala monit o zgodę, jeśli nie udzielono uprawnień między klientem i zasobem przez użytkownika. Jeśli istnieje taka zgoda, zostanie zwrócony token zawierający wszystkie zakresy przyznane przez użytkownika dla tego zasobu. Jednakże jeśli nie udzielono uprawnień lub `prompt=consent` parametr został podany, dla wszystkich zakresów zarejestrowanych przez aplikację kliencką zostanie wyświetlony monit o zgodę.
+Ponieważ `/.default` program jest funkcjonalnie identyczny z `resource` zachowaniem punktu końcowego skoncentrowanego na systemie v 1.0, zapewnia również zgodność z tym zachowaniem punktu końcowego v 1.0. Oznacza `/.default` to, że program wyzwala monit o zgodę, jeśli nie udzielono uprawnień między klientem i zasobem przez użytkownika. Jeśli istnieje taka zgoda, zostanie zwrócony token zawierający wszystkie zakresy przyznane przez użytkownika dla tego zasobu. Jednakże jeśli nie udzielono uprawnień lub `prompt=consent` parametr został podany, dla wszystkich zakresów zarejestrowanych przez aplikację kliencką zostanie wyświetlony monit o zgodę.
 
 #### <a name="example-1-the-user-or-tenant-admin-has-granted-permissions"></a>Przykład 1: użytkownik lub Administrator dzierżawy przyznał uprawnienia
 
-W tym przykładzie użytkownik (lub Administrator dzierżawy) przyznał klientowi uprawnienia `mail.read` Microsoft Graph i. `user.read` Jeśli klient wysyła żądanie do `scope=https://graph.microsoft.com/.default`programu, nie będzie wyświetlany monit o zgodę, niezależnie od zawartości aplikacji klienckich zarejestrowanych uprawnień dla Microsoft Graph. Token zostałby zwrócony, zawierający zakresy `mail.read` i. `user.read`
+W tym przykładzie użytkownik (lub Administrator dzierżawy) przyznał klientowi uprawnienia Microsoft Graph `mail.read` i `user.read` . Jeśli klient wysyła żądanie do programu `scope=https://graph.microsoft.com/.default` , nie będzie wyświetlany monit o zgodę, niezależnie od zawartości aplikacji klienckich zarejestrowanych uprawnień dla Microsoft Graph. Token zostałby zwrócony, zawierający zakresy `mail.read` i `user.read` .
 
 #### <a name="example-2-the-user-hasnt-granted-permissions-between-the-client-and-the-resource"></a>Przykład 2: użytkownik nie udzielił uprawnień między klientem i zasobem
 
-W tym przykładzie nie istnieje zgoda dla użytkownika między klientem a Microsoft Graph. Klient został zarejestrowany na potrzeby uprawnień `user.read` i `contacts.read` , a także zakresu `https://vault.azure.net/user_impersonation`Azure Key Vault. Gdy klient `scope=https://graph.microsoft.com/.default`żąda tokenu dla programu, użytkownik zobaczy ekran wyrażania zgody dla zakresów `user.read`, `contacts.read`i Key Vault. `user_impersonation` Zwrócony token będzie zawierał tylko zakresy `user.read` i `contacts.read` i będzie można go używać tylko do Microsoft Graph.
+W tym przykładzie nie istnieje zgoda dla użytkownika między klientem a Microsoft Graph. Klient został zarejestrowany na potrzeby `user.read` uprawnień i `contacts.read` , a także zakresu Azure Key Vault `https://vault.azure.net/user_impersonation` . Gdy klient żąda tokenu dla programu `scope=https://graph.microsoft.com/.default` , użytkownik zobaczy ekran wyrażania zgody dla `user.read` `contacts.read` zakresów, i Key Vault `user_impersonation` . Zwrócony token będzie zawierał tylko `user.read` zakresy i i `contacts.read` będzie można go używać tylko do Microsoft Graph.
 
 #### <a name="example-3-the-user-has-consented-and-the-client-requests-additional-scopes"></a>Przykład 3: użytkownik wyraził zgodę, a klient żąda dodatkowych zakresów
 
-W tym przykładzie użytkownik wyraził już zgodę `mail.read` na klienta. Klient został zarejestrowany dla `contacts.read` zakresu w jego rejestracji. Gdy klient wysyła żądanie dotyczące tokenu przy użyciu `scope=https://graph.microsoft.com/.default` i żąda zgody za pośrednictwem `prompt=consent`, zobaczy ekran zgody dla wszystkich (i tylko) uprawnień zarejestrowanych przez aplikację. `contacts.read`będzie obecny na ekranie wyrażania zgody, ale `mail.read` nie będzie. Zwrócony token będzie dla Microsoft Graph i będzie zawierać `mail.read` i. `contacts.read`
+W tym przykładzie użytkownik wyraził już zgodę na `mail.read` klienta. Klient został zarejestrowany dla `contacts.read` zakresu w jego rejestracji. Gdy klient wysyła żądanie dotyczące tokenu przy użyciu `scope=https://graph.microsoft.com/.default` i żąda zgody za pośrednictwem `prompt=consent` , zobaczy ekran zgody dla wszystkich (i tylko) uprawnień zarejestrowanych przez aplikację. `contacts.read`będzie obecny na ekranie wyrażania zgody, ale `mail.read` nie będzie. Zwrócony token będzie dla Microsoft Graph i będzie zawierać `mail.read` i `contacts.read` .
 
 ### <a name="using-the-default-scope-with-the-client"></a>Używanie zakresu/.default z klientem
 
@@ -298,13 +300,13 @@ response_type=token            //code or a hybrid flow is also possible here
 &state=1234
 ```
 
-Spowoduje to wyświetlenie ekranu zgody na wszystkie zarejestrowane uprawnienia (jeśli dotyczy to na podstawie powyższych opisów wyrazów zgody i `/.default`), a następnie zwraca id_token, a nie token dostępu.  Takie zachowanie istnieje w przypadku niektórych starszych klientów przechodzących z biblioteki ADAL do MSAL i **nie powinny** być używane przez nowych klientów przeznaczonych dla punktu końcowego platformy tożsamości firmy Microsoft.
+Spowoduje to wyświetlenie ekranu zgody na wszystkie zarejestrowane uprawnienia (jeśli dotyczy to na podstawie powyższych opisów wyrazów zgody i `/.default` ), a następnie zwraca id_token, a nie token dostępu.  Takie zachowanie istnieje w przypadku niektórych starszych klientów przechodzących z biblioteki ADAL do MSAL i **nie powinny** być używane przez nowych klientów przeznaczonych dla punktu końcowego platformy tożsamości firmy Microsoft.
 
 ### <a name="trailing-slash-and-default"></a>Końcowe ukośniki i/.default
 
-Niektóre identyfikatory URI zasobów mają końcowy ukośnik (`https://contoso.com/` w przeciwieństwie do `https://contoso.com`), co może spowodować problemy z walidacją tokenu.  Może to wystąpić przede wszystkim podczas żądania tokenu dla usługi Azure Resource Management`https://management.azure.com/`(), który ma końcowy UKOŚNIK w identyfikatorze URI zasobu i wymaga, aby był obecny w momencie żądania tokenu.  W takim przypadku podczas żądania tokenu dla `https://management.azure.com/` i używania `/.default`należy zażądać `https://management.azure.com//.default` — należy zwrócić uwagę na podwójny ukośnik!
+Niektóre identyfikatory URI zasobów mają końcowy ukośnik ( `https://contoso.com/` w przeciwieństwie do `https://contoso.com` ), co może spowodować problemy z walidacją tokenu.  Może to wystąpić przede wszystkim podczas żądania tokenu dla usługi Azure Resource Management ( `https://management.azure.com/` ), który ma końcowy ukośnik w identyfikatorze URI zasobu i wymaga, aby był obecny w momencie żądania tokenu.  W takim przypadku podczas żądania tokenu dla `https://management.azure.com/` i używania należy `/.default` zażądać `https://management.azure.com//.default` — należy zwrócić uwagę na podwójny ukośnik!
 
-Ogólnie — Jeśli sprawdzono, czy token jest wystawiony, a token jest odrzucany przez interfejs API, który powinien go zaakceptować, rozważ dodanie drugiego ukośnika i ponowienie próby. Dzieje się tak, ponieważ serwer logowania emituje token z odbiorcami pasującymi do identyfikatorów URI `scope` w parametrze `/.default` z usuniętym z końca.  Jeśli spowoduje to usunięcie końcowego ukośnika, serwer logowania nadal przetwarza żądanie i weryfikuje go względem identyfikatora URI zasobu, nawet jeśli nie są już zgodne — jest to niestandardowa i nie powinna być używana przez aplikację.
+Ogólnie — Jeśli sprawdzono, czy token jest wystawiony, a token jest odrzucany przez interfejs API, który powinien go zaakceptować, rozważ dodanie drugiego ukośnika i ponowienie próby. Dzieje się tak, ponieważ serwer logowania emituje token z odbiorcami pasującymi do identyfikatorów URI w `scope` parametrze z `/.default` usuniętym z końca.  Jeśli spowoduje to usunięcie końcowego ukośnika, serwer logowania nadal przetwarza żądanie i weryfikuje go względem identyfikatora URI zasobu, nawet jeśli nie są już zgodne — jest to niestandardowa i nie powinna być używana przez aplikację.
 
 ## <a name="troubleshooting-permissions-and-consent"></a>Rozwiązywanie problemów z uprawnieniami i zgodą
 

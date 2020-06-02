@@ -13,12 +13,12 @@ ms.date: 05/18/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: ce81af90baeeda519f1b56d1e10a46923ebd22c2
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 47978317b1ae914e952b764def854d8a011293e0
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83772135"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266614"
 ---
 # <a name="authentication-flows"></a>Przepływy uwierzytelniania
 
@@ -43,7 +43,7 @@ W zależności od sposobu skompilowania klienta można użyć jednego (lub kilku
 |-----|----------|----------|--------------|---------------|--------------------|
 |[Przepływ kodu autoryzacji](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
 |[Niejawny przepływ](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
-|[Hybrydowy przepływ OIDC](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
+|[Hybrydowy przepływ OIDC](v2-protocols-oidc.md#protocol-diagram-access-token-acquisition)| | x  | |          |            x   |
 |[Odświeżanie umorzenia tokenu](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | Odśwież token | x | x | x| |
 |[Przepływ „w imieniu”](v2-oauth2-on-behalf-of-flow.md) | token dostępu| x| x| x| |
 |[Przepływ kodu urządzenia](v2-oauth2-device-code.md) | | x| x| x| |
@@ -87,7 +87,7 @@ Na powyższym diagramie aplikacja:
 1. Żąda kodu autoryzacji, który jest zrealizowany dla tokenu dostępu.
 2. Używa tokenu dostępu do wywoływania internetowego interfejsu API.
 
-### <a name="considerations"></a>Zagadnienia do rozważenia
+### <a name="considerations"></a>Istotne zagadnienia
 
 - Aby zrealizować token, można użyć kodu autoryzacji tylko raz. Nie próbuj uzyskać tokenu wiele razy przy użyciu tego samego kodu autoryzacji (jest to jawnie zabronione przez standardową specyfikację protokołu). W przypadku zrealizowania kodu kilkakrotnie lub z tego powodu nie masz świadomego, że struktura również go wykonuje, zostanie wyświetlony następujący błąd:`AADSTS70002: Error validating credentials. AADSTS54005: OAuth2 Authorization code was already redeemed, please retry with a new valid code or use an existing refresh token.`
 

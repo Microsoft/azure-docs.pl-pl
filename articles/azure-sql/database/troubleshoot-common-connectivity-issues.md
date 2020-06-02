@@ -13,12 +13,12 @@ manager: dcscontentpm
 ms.author: ninarn
 ms.reviewer: carlrab, vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: 53bfe029038e9bf2a85cc8c571417be462fd4502
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 4aa8d35e48c28cadecb6acc1f56ca6c44a145719
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84188049"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266971"
 ---
 # <a name="troubleshoot-transient-connection-errors-in-sql-database-and-sql-managed-instance"></a>Rozwiązywanie problemów z błędami połączeń przejściowych w SQL Database i wystąpieniu zarządzanym SQL
 
@@ -357,7 +357,7 @@ W przestrzeni nazw **Microsoft. Practices. EnterpriseLibrary. TransientFaultHand
 Poniżej znajdują się linki do informacji na temat EntLib60:
 
 - Pobieranie bezpłatnej książki: [przewodnik dewelopera do biblioteki Enterprise firmy Microsoft, wersja 2](https://www.microsoft.com/download/details.aspx?id=41145).
-- Najlepsze rozwiązania: [wskazówki dotyczące ponawiania prób ogólnych](/architecture/best-practices/transient-faults) zawierają doskonałe Omówienie logiki ponawiania.
+- Najlepsze rozwiązania: [wskazówki dotyczące ponawiania prób ogólnych](/azure/architecture/best-practices/transient-faults) zawierają doskonałe Omówienie logiki ponawiania.
 - Pobieranie plików NuGet: [Biblioteka przedsiębiorstwa — przejściowa obsługa błędów — blok aplikacji 6,0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
 
 <a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>

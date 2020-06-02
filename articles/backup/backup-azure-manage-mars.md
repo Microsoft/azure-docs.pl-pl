@@ -4,12 +4,12 @@ description: Informacje o sposobach zarządzania kopiami zapasowymi agenta Micro
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: a88ec4dc9283114e06eed424172dbb958850c2e9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0afe83edc638cba4cd14cc27b84a98937175fc86
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82025105"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248604"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Zarządzanie kopiami zapasowymi agentów Microsoft Azure Recovery Services (MARS) za pomocą usługi Azure Backup
 
@@ -125,7 +125,7 @@ Istnieją dwa sposoby na zatrzymanie ochrony kopii zapasowych plików i folderó
 
     ![Zatrzymaj zaplanowaną kopię zapasową.](./media/backup-azure-delete-vault/stop-schedule-backup.png)
 4. Zostanie wyświetlony monit o wprowadzenie numeru PIN zabezpieczeń (osobistego numeru identyfikacyjnego), który należy wygenerować ręcznie. Aby to zrobić, najpierw Zaloguj się do Azure Portal.
-5. Przejdź do obszaru **Recovery Services** > **Settings** > **Właściwości**ustawień magazynu.
+5. Przejdź do obszaru **Recovery Services**  >  **Settings**  >  **Właściwości**ustawień magazynu.
 6. W obszarze **zabezpieczający numer PIN**wybierz pozycję **Generuj**. Skopiuj ten kod PIN. Numer PIN jest prawidłowy tylko przez pięć minut.
 7. W konsoli zarządzania Wklej kod PIN, a następnie wybierz przycisk **OK**.
 
@@ -156,7 +156,7 @@ Jeśli ochrona zostanie zatrzymana podczas zachowywania danych i podjęta zostan
 
 Hasło jest używane do szyfrowania i odszyfrowywania danych podczas tworzenia kopii zapasowej lub przywracania lokalnego lub maszyny lokalnej przy użyciu agenta MARS na platformie lub z platformy Azure. Jeśli utracisz lub nie pamiętasz hasła, możesz ponownie wygenerować hasło (pod warunkiem, że maszyna jest nadal zarejestrowana w magazynie Recovery Services i jest konfigurowana kopia zapasowa), wykonując następujące czynności:
 
-- W konsoli agenta Mars przejdź do **okienka** > akcje**Zmień właściwości** >. Następnie przejdź do **karty szyfrowanie**.<br>
+- W konsoli agenta Mars przejdź do **okienka Akcje**  >  **Zmień właściwości** >. Następnie przejdź do **karty szyfrowanie**.<br>
 - Zaznacz pole wyboru **Zmień hasło** .<br>
 - Wprowadź nowe hasło lub kliknij pozycję **Generuj hasło**.
 - Kliknij przycisk **Przeglądaj** , aby zapisać nowe hasło.

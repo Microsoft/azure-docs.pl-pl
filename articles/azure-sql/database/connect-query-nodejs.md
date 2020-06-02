@@ -1,6 +1,7 @@
 ---
 title: Używanie środowiska Node. js do wykonywania zapytań w bazie danych
-description: Jak użyć środowiska Node. js do utworzenia programu, który nawiązuje połączenie z bazą danych w Azure SQL Database i wykonuje zapytania przy użyciu instrukcji języka T-SQL.
+description: Jak użyć środowiska Node. js do utworzenia programu, który nawiązuje połączenie z bazą danych w Azure SQL Database lub wystąpieniu zarządzanym Azure SQL, i wykonuje zapytania przy użyciu instrukcji języka T-SQL.
+titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -9,19 +10,19 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
-ms.date: 03/25/2019
+ms.date: 05/29/2020
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, sqldbrb=2 
-ms.openlocfilehash: b666e053c16e4dcac50505e3d36012f2a8677eb2
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 6860aa07d7547df6eeebf5d35fa9a921f0f9dada
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84189356"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267379"
 ---
-# <a name="quickstart-use-nodejs-to-query-a-database-in-azure-sql-database"></a>Szybki Start: Używanie środowiska Node. js do wykonywania zapytań w bazie danych w Azure SQL Database
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+# <a name="quickstart-use-nodejs-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Szybki Start: Używanie środowiska Node. js do wykonywania zapytań w bazie danych w Azure SQL Database lub wystąpieniu zarządzanym Azure SQL
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-W tym przewodniku szybki start użyjesz środowiska Node. js do łączenia się z bazą danych w Azure SQL Database i używania instrukcji T-SQL do wykonywania zapytań dotyczących danych.
+W tym przewodniku szybki start użyjesz środowiska Node. js do łączenia się z bazą danych i danymi zapytań.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

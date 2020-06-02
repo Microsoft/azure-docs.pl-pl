@@ -1,30 +1,30 @@
 ---
 title: Łączenie z programem Excel
-description: Dowiedz się, jak połączyć program Microsoft Excel z bazą danych w Azure SQL Database. Importowanie danych do programu Excel, raportowanie i eksploracja danych.
+description: Dowiedz się, jak połączyć program Microsoft Excel z bazą danych w Azure SQL Database lub wystąpieniu zarządzanym usługi Azure SQL. Importowanie danych do programu Excel, raportowanie i eksploracja danych.
+titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
 ms.custom: sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
-author: joseidz
-ms.author: craigg
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
-ms.date: 02/12/2019
-ms.openlocfilehash: 332620699e30facb2fbbfee90e3328b8dcf1e179
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 05/29/2020
+ms.openlocfilehash: e0a413847142ee516a06f924dd058578047fb3a8
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195502"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267515"
 ---
-# <a name="connect-excel-to-a-database-in-azure-sql-database-and-create-a-report"></a>Łączenie programu Excel z bazą danych w Azure SQL Database i Tworzenie raportu
+# <a name="connect-excel-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance-and-create-a-report"></a>Łączenie programu Excel z bazą danych w Azure SQL Database lub wystąpieniu zarządzanym usługi Azure SQL i Tworzenie raportu
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+Program Excel można połączyć z bazą danych, a następnie zaimportować dane oraz utworzyć tabele i wykresy na podstawie wartości w bazie danych. W tym samouczku skonfigurujesz połączenie między programem Excel i tabelą bazy danych, zapiszesz plik przechowujący dane oraz informacje o połączeniu dla programu Excel, a następnie utworzysz wykres przestawny z wartościami bazy danych.
 
-Program Excel można połączyć z bazą danych w Azure SQL Database, a następnie zaimportować dane i utworzyć tabele i wykresy na podstawie wartości w bazie danych. W tym samouczku skonfigurujesz połączenie między programem Excel i tabelą bazy danych, zapiszesz plik przechowujący dane oraz informacje o połączeniu dla programu Excel, a następnie utworzysz wykres przestawny z wartościami bazy danych.
-
-Aby rozpocząć, musisz utworzyć bazę danych w SQL Database. Jeśli go nie masz, zobacz [Tworzenie bazy danych w Azure SQL Database](single-database-create-quickstart.md) i [Tworzenie zapory IP na poziomie serwera](firewall-create-server-level-portal-quickstart.md) , aby uzyskać bazę danych z przykładowymi danymi, które można uruchomić w ciągu kilku minut.
+Przed rozpoczęciem należy utworzyć bazę danych. Jeśli go nie masz, zobacz [Tworzenie bazy danych w Azure SQL Database](single-database-create-quickstart.md) i [Tworzenie zapory IP na poziomie serwera](firewall-create-server-level-portal-quickstart.md) , aby uzyskać bazę danych z przykładowymi danymi, które można uruchomić w ciągu kilku minut.
 
 W tym artykule zaimportujesz przykładowe dane do programu Excel z tego artykułu, ale możesz wykonać podobne kroki z własnymi danymi.
 
@@ -101,6 +101,6 @@ Aby trwale zapisać szczegóły połączenia, można utworzyć plik odc i wybra�
 
 ## <a name="next-steps"></a>Następne kroki
 
-* Aby wykonywać zaawansowane zapytania i analizy, zobacz temat [Connect to SQL Database with SQL Server Management Studio](connect-query-ssms.md) (Nawiązywanie połączenia z usługą SQL Database za pomocą programu SQL Server Management Studio).
+* Dowiedz się [, jak nawiązywać połączenia i wykonywać zapytania przy użyciu SQL Server Management Studio](connect-query-ssms.md) na potrzeby zaawansowanego wykonywania zapytań i analizy.
 * Dowiedz się, jakie zalety mają [pule elastyczne](elastic-pool-overview.md).
-* Dowiedz się, jak [utworzyć aplikację internetową, która łączy się z bazą danych SQL Database zaplecza](../../app-service/app-service-web-tutorial-dotnet-sqldatabase.md).
+* Dowiedz się [, jak utworzyć aplikację sieci Web, która łączy się z Azure SQL Database na zapleczu](../../app-service/app-service-web-tutorial-dotnet-sqldatabase.md).

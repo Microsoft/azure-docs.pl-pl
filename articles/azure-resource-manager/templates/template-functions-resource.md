@@ -2,13 +2,13 @@
 title: Funkcje szablonu — zasoby
 description: Opisuje funkcje, które mają być używane w szablonie Azure Resource Manager do pobierania wartości dotyczących zasobów.
 ms.topic: conceptual
-ms.date: 05/21/2020
-ms.openlocfilehash: 89e8907e4e134b621cd1c55bfcefeebde772df10
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.date: 06/01/2020
+ms.openlocfilehash: a31aadb02ed3fff83ee6dc62a71aa32d0b716629
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84167727"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259443"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funkcje zasobów dla szablonów ARM
 
@@ -36,9 +36,9 @@ Zwraca identyfikator zasobu dla [zasobu rozszerzenia](../management/extension-re
 
 | Parametr | Wymagany | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| resourceId |Tak |ciąg |Identyfikator zasobu dla zasobu, do którego zastosowano zasób rozszerzenia. |
-| resourceType |Tak |ciąg |Typ zasobu, w tym przestrzeń nazw dostawcy zasobów. |
-| resourceName1 |Tak |ciąg |Nazwa zasobu. |
+| resourceId |Yes |ciąg |Identyfikator zasobu dla zasobu, do którego zastosowano zasób rozszerzenia. |
+| resourceType |Yes |ciąg |Typ zasobu, w tym przestrzeń nazw dostawcy zasobów. |
+| resourceName1 |Yes |ciąg |Nazwa zasobu. |
 | resourceName2 |Nie |ciąg |Następny segment nazwy zasobu, w razie konieczności. |
 
 Kontynuuj dodawanie nazw zasobów jako parametrów, gdy typ zasobu zawiera więcej segmentów.
@@ -114,8 +114,8 @@ Składnia tej funkcji różni się od nazwy operacji na liście. Każda implemen
 
 | Parametr | Wymagany | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| resourceName lub resourceIdentifier |Tak |ciąg |Unikatowy identyfikator zasobu. |
-| apiVersion |Tak |ciąg |Wersja interfejsu API stanu środowiska uruchomieniowego zasobu. Zwykle w formacie **rrrr-mm-dd**. |
+| resourceName lub resourceIdentifier |Yes |ciąg |Unikatowy identyfikator zasobu. |
+| apiVersion |Yes |ciąg |Wersja interfejsu API stanu środowiska uruchomieniowego zasobu. Zwykle w formacie **rrrr-mm-dd**. |
 | functionValues |Nie |object | Obiekt, który zawiera wartości dla funkcji. Podaj tylko ten obiekt dla funkcji, które obsługują otrzymywanie obiektów z wartościami parametrów, takimi jak **listAccountSas** na koncie magazynu. Przykład przekazywania wartości funkcji przedstawiono w tym artykule. |
 
 ### <a name="valid-uses"></a>Prawidłowe zastosowania
@@ -363,7 +363,7 @@ Zwraca informacje o dostawcy zasobów i jego obsługiwanych typach zasobów. Je�
 
 | Parametr | Wymagany | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |Tak |ciąg |Przestrzeń nazw dostawcy |
+| providerNamespace |Yes |ciąg |Przestrzeń nazw dostawcy |
 | resourceType |Nie |ciąg |Typ zasobu w określonym obszarze nazw. |
 
 ### <a name="return-value"></a>Wartość zwracana
@@ -438,7 +438,7 @@ Zwraca obiekt reprezentujący stan środowiska uruchomieniowego zasobu.
 
 | Parametr | Wymagany | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| resourceName lub resourceIdentifier |Tak |ciąg |Nazwa lub unikatowy identyfikator zasobu. W przypadku odwoływania się do zasobu w bieżącym szablonie podaj tylko nazwę zasobu jako parametr. W przypadku odwoływania się do wcześniej wdrożonego zasobu lub gdy nazwa zasobu jest niejednoznaczna, podaj identyfikator zasobu. |
+| resourceName lub resourceIdentifier |Yes |ciąg |Nazwa lub unikatowy identyfikator zasobu. W przypadku odwoływania się do zasobu w bieżącym szablonie podaj tylko nazwę zasobu jako parametr. W przypadku odwoływania się do wcześniej wdrożonego zasobu lub gdy nazwa zasobu jest niejednoznaczna, podaj identyfikator zasobu. |
 | apiVersion |Nie |ciąg |Wersja interfejsu API określonego zasobu. **Ten parametr jest wymagany, jeśli zasób nie jest obsługiwany w ramach tego samego szablonu.** Zwykle w formacie **rrrr-mm-dd**. Aby uzyskać prawidłowe wersje interfejsu API dla zasobu, zobacz [Dokumentacja szablonu](/azure/templates/). |
 | Szczegółowe |Nie |ciąg |Wartość określająca, czy ma zostać zwrócony pełny obiekt zasobów. Jeśli nie zostanie określony `'Full'` , zwracany jest tylko obiekt właściwości zasobu. Pełny obiekt zawiera wartości, takie jak identyfikator zasobu i lokalizacja. |
 
@@ -537,10 +537,20 @@ Aby uprościć tworzenie dowolnego identyfikatora zasobu, użyj `resourceId()` f
 
 [Zarządzane tożsamości dla zasobów platformy Azure](../../active-directory/managed-identities-azure-resources/overview.md) to [typy zasobów rozszerzeń](../management/extension-resource-types.md) , które są tworzone niejawnie dla niektórych zasobów. Ponieważ zarządzana tożsamość nie jest jawnie zdefiniowana w szablonie, należy odwołać się do zasobu, do którego jest stosowana tożsamość. Użyj `Full` , aby pobrać wszystkie właściwości, w tym niejawnie utworzoną tożsamość.
 
-Na przykład aby uzyskać identyfikator dzierżawy dla tożsamości zarządzanej, która została zastosowana do zestawu skalowania maszyn wirtualnych, użyj:
+Wzorzec to:
+
+`"[reference(resourceId(<resource-provider-namespace>, <resource-name>, <API-version>, 'Full').Identity.propertyName]"`
+
+Aby na przykład uzyskać identyfikator podmiotu zabezpieczeń dla tożsamości zarządzanej, która jest zastosowana do maszyny wirtualnej, należy użyć:
 
 ```json
-"tenantId": "[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), '2019-03-01', 'Full').Identity.tenantId]"
+"[reference(resourceId('Microsoft.Compute/virtualMachines', variables('vmName')),'2019-12-01', 'Full').identity.principalId]",
+```
+
+Lub, aby uzyskać identyfikator dzierżawy dla tożsamości zarządzanej, która została zastosowana do zestawu skalowania maszyn wirtualnych, użyj:
+
+```json
+"[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), 2019-12-01, 'Full').Identity.tenantId]"
 ```
 
 ### <a name="reference-example"></a>Przykład odwołania
@@ -753,8 +763,8 @@ Zwraca unikatowy identyfikator zasobu. Ta funkcja jest używana, gdy nazwa zasob
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Nie |ciąg (w formacie identyfikatora GUID) |Wartość domyślna to bieżąca subskrypcja. Określ tę wartość, jeśli chcesz pobrać zasób w innej subskrypcji. Podaj tę wartość tylko podczas wdrażania w zakresie grupy zasobów lub subskrypcji. |
 | resourceGroupName |Nie |ciąg |Wartość domyślna to bieżąca Grupa zasobów. Określ tę wartość, jeśli chcesz pobrać zasób z innej grupy zasobów. Podaj tę wartość tylko w przypadku wdrażania w zakresie grupy zasobów. |
-| resourceType |Tak |ciąg |Typ zasobu, w tym przestrzeń nazw dostawcy zasobów. |
-| resourceName1 |Tak |ciąg |Nazwa zasobu. |
+| resourceType |Yes |ciąg |Typ zasobu, w tym przestrzeń nazw dostawcy zasobów. |
+| resourceName1 |Yes |ciąg |Nazwa zasobu. |
 | resourceName2 |Nie |ciąg |Następny segment nazwy zasobu, w razie konieczności. |
 
 Kontynuuj dodawanie nazw zasobów jako parametrów, gdy typ zasobu zawiera więcej segmentów.
@@ -948,8 +958,8 @@ Zwraca unikatowy identyfikator zasobu wdrożonego na poziomie subskrypcji.
 | Parametr | Wymagany | Typ | Opis |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |Nie |ciąg (w formacie identyfikatora GUID) |Wartość domyślna to bieżąca subskrypcja. Określ tę wartość, jeśli chcesz pobrać zasób w innej subskrypcji. |
-| resourceType |Tak |ciąg |Typ zasobu, w tym przestrzeń nazw dostawcy zasobów. |
-| resourceName1 |Tak |ciąg |Nazwa zasobu. |
+| resourceType |Yes |ciąg |Typ zasobu, w tym przestrzeń nazw dostawcy zasobów. |
+| resourceName1 |Yes |ciąg |Nazwa zasobu. |
 | resourceName2 |Nie |ciąg |Następny segment nazwy zasobu, w razie konieczności. |
 
 Kontynuuj dodawanie nazw zasobów jako parametrów, gdy typ zasobu zawiera więcej segmentów.
@@ -1029,8 +1039,8 @@ Zwraca unikatowy identyfikator zasobu wdrożonego na poziomie dzierżawy.
 
 | Parametr | Wymagany | Typ | Opis |
 |:--- |:--- |:--- |:--- |
-| resourceType |Tak |ciąg |Typ zasobu, w tym przestrzeń nazw dostawcy zasobów. |
-| resourceName1 |Tak |ciąg |Nazwa zasobu. |
+| resourceType |Yes |ciąg |Typ zasobu, w tym przestrzeń nazw dostawcy zasobów. |
+| resourceName1 |Yes |ciąg |Nazwa zasobu. |
 | resourceName2 |Nie |ciąg |Następny segment nazwy zasobu, w razie konieczności. |
 
 Kontynuuj dodawanie nazw zasobów jako parametrów, gdy typ zasobu zawiera więcej segmentów.

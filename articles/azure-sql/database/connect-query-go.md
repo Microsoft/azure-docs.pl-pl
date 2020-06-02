@@ -1,6 +1,7 @@
 ---
 title: Użyj przejdź do zapytania
-description: Użyj języka go do utworzenia programu, który nawiązuje połączenie z bazą danych w Azure SQL Database, i użyj instrukcji Transact-SQL do wykonywania zapytań i modyfikowania danych.
+description: Użyj języka go do utworzenia programu, który nawiązuje połączenie z bazą danych w Azure SQL Database lub wystąpieniu zarządzanym usługi Azure SQL, i uruchamia zapytania.
+titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -8,27 +9,27 @@ ms.custom: sqldbrb=2 
 ms.devlang: go
 ms.topic: quickstart
 author: David-Engel
-ms.author: craigg
+ms.author: sstein
 ms.reviewer: MightyPen
 ms.date: 02/12/2019
-ms.openlocfilehash: d9cb49fdc425028e718216e0127821933fcc3b9f
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 1dd92a8178b7da475e44298f09d696ab1907bc0f
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84189548"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267413"
 ---
-# <a name="quickstart-use-golang-to-query-a-database-in-azure-sql-database"></a>Szybki Start: używanie golang do wykonywania zapytań dotyczących bazy danych w Azure SQL Database
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+# <a name="quickstart-use-golang-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Szybki Start: używanie golang do wykonywania zapytań dotyczących bazy danych w Azure SQL Database lub wystąpieniu zarządzanym Azure SQL
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-W tym przewodniku szybki start użyjesz języka programowania [golang](https://godoc.org/github.com/denisenkom/go-mssqldb) , aby nawiązać połączenie z bazą danych w Azure SQL Database. Następnie uruchomisz instrukcje języka Transact-SQL (T-SQL), aby wykonać zapytanie i zmodyfikować dane. [Golang](https://golang.org/) jest językiem programowania typu „open source”, który umożliwia łatwe tworzenie prostego, niezawodnego i wydajnego oprogramowania.  
+W tym przewodniku szybki start użyjesz języka programowania [golang](https://godoc.org/github.com/denisenkom/go-mssqldb) w celu nawiązania połączenia z bazą danych w Azure SQL Database lub wystąpienia zarządzanego Azure SQL. Następnie uruchomisz instrukcje języka Transact-SQL (T-SQL), aby wykonać zapytanie i zmodyfikować dane. [Golang](https://golang.org/) jest językiem programowania typu „open source”, który umożliwia łatwe tworzenie prostego, niezawodnego i wydajnego oprogramowania.  
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Aby ukończyć ten przewodnik Szybki Start, musisz spełnić następujące warunki:
 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Baza danych w Azure SQL Database. Aby utworzyć, a następnie skonfigurować bazę danych w usłudze Azure SQL Database, można użyć instrukcji z jednego z tych przewodników Szybki start:
+- Baza danych programu Azure SQL Database lub wystąpienia zarządzanego Azure SQL. Aby utworzyć bazę danych, można użyć jednego z tych przewodników szybki start:
 
   || Baza danych SQL | Wystąpienie zarządzane SQL | Program SQL Server na maszynie wirtualnej platformy Azure |
   |:--- |:--- |:---|:---|
@@ -52,7 +53,7 @@ Aby ukończyć ten przewodnik Szybki Start, musisz spełnić następujące warun
 
 ## <a name="get-server-connection-information"></a>Pobierz informacje o połączeniu z serwerem
 
-Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z bazą danych w Azure SQL Database. W następnych procedurach będą potrzebne w pełni kwalifikowana nazwa serwera lub nazwa hosta, nazwa bazy danych i informacje logowania.
+Pobierz informacje o połączeniu potrzebne do nawiązania połączenia z bazą danych. W następnych procedurach będą potrzebne w pełni kwalifikowana nazwa serwera lub nazwa hosta, nazwa bazy danych i informacje logowania.
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com/).
 

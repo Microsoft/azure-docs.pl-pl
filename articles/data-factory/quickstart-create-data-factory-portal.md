@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-ms.date: 02/25/2020
+ms.date: 05/28/2020
 ms.author: jingwang
-ms.openlocfilehash: c54d3187af1faee3a47a794dcf5b9b91733e5592
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: d6191a5f4dcfc3d25072e0cfa00418fb64311773
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683358"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248536"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Szybki Start: Tworzenie fabryki danych przy użyciu interfejsu użytkownika Azure Data Factory
 
@@ -64,7 +64,7 @@ Obejrzenie tego filmu wideo ułatwi zapoznanie się z interfejsem użytkownika u
 
    Ta lista zawiera tylko lokalizacje, które są obsługiwane przez usługę Data Factory i w których będą przechowywane metadane usługi Azure Data Factory. Skojarzone magazyny danych (np. usługi Azure Storage i Azure SQL Database) i usługi obliczeniowe (np. usługa Azure HDInsight) używane przez Data Factory mogą działać w innych regionach.
 
-1. Wybierz przycisk **Utwórz**. Po zakończeniu tworzenia wybierz pozycję **Przejdź do zasobu** , aby przejść do strony **Data Factory** . 
+1. Wybierz pozycję **Utwórz**. Po zakończeniu tworzenia wybierz pozycję **Przejdź do zasobu** , aby przejść do strony **Data Factory** . 
 
 1. Wybierz kafelek **Tworzenie i monitorowanie**, aby na osobnej karcie uruchomić aplikację interfejsu użytkownika usługi Azure Data Factory.
    
@@ -90,7 +90,7 @@ W tej procedurze utworzysz połączoną usługę, aby połączyć konto usługi 
 
    b. W polu **nazwa konta magazynu**wybierz nazwę konta usługi Azure Storage.
 
-   c. Wybierz pozycję **Testuj połączenie**, aby sprawdzić, czy usługa Data Factory może nawiązać połączenie z kontem magazynu. 
+   d. Wybierz pozycję **Testuj połączenie**, aby sprawdzić, czy usługa Data Factory może nawiązać połączenie z kontem magazynu. 
 
    d. Wybierz pozycję **Utwórz** , aby zapisać połączoną usługę. 
 
@@ -121,7 +121,7 @@ W ustawieniach połączonej usługi określono konto usługi Azure Storage, któ
 
     b. Wybierz pozycję **AzureStorageLinkedService** w polu **Połączona usługa**.
 
-    c. Kliknij przycisk **Przeglądaj** w polu **Ścieżka pliku**.
+    d. Kliknij przycisk **Przeglądaj** w polu **Ścieżka pliku**.
 
     d. W oknie **Wybieranie pliku lub folderu** przejdź do folderu **Input** w kontenerze **adftutorial** , wybierz plik **EMP. txt** , a następnie wybierz **przycisk OK**.
     
@@ -134,7 +134,7 @@ W ustawieniach połączonej usługi określono konto usługi Azure Storage, któ
 
     b. Na stronie **Nowy zestaw danych** wybierz pozycję **Azure Blob Storage**, a następnie wybierz pozycję **Kontynuuj**.
 
-    c. Na stronie **Wybierz format** wybierz typ formatu danych, a następnie wybierz pozycję **Kontynuuj**.
+    d. Na stronie **Wybierz format** wybierz typ formatu danych, a następnie wybierz pozycję **Kontynuuj**.
 
     d. Na stronie **Ustawianie właściwości** Określ **OutputDataset** dla nazwy. Wybierz pozycję **AzureStorageLinkedService** jako połączoną usługę.
 
@@ -143,12 +143,13 @@ W ustawieniach połączonej usługi określono konto usługi Azure Storage, któ
     f. Wybierz przycisk **OK**.   
 
     ![Ustawianie właściwości dla OutputDataset](./media/quickstart-create-data-factory-portal/set-properties-for-outputdataset.png)
+
 ## <a name="create-a-pipeline"></a>Tworzenie potoku 
 Podczas tej procedury utworzysz potok i zweryfikujesz go za pomocą działania kopiowania, które korzysta z wejściowego i wyjściowego zestawu danych. Działanie kopiowania służy do kopiowania danych z pliku określonego w ustawieniach wejściowego zestawu danych do pliku określonego w ustawieniach wyjściowego zestawu danych. Jeśli wejściowy zestaw danych określa tylko folder (a nie nazwę pliku), działanie kopiowania kopiuje wszystkie pliki w folderze źródłowym do lokalizacji docelowej. 
 
 1. Wybierz **+** przycisk (znak plus), a następnie wybierz pozycję **potok**. 
 
-1. Na karcie **Ogólne** określ wartość **CopyPipeline** w polu **Nazwa**. 
+1. W panelu Ogólne w obszarze **Właściwości**Określ **CopyPipeline** dla **nazwy**. Następnie Zwiń panel, klikając ikonę właściwości w prawym górnym rogu.
 
 1. W przyborniku **Działania** rozwiń pozycję **Przenoszenie i przekształcanie**. Przeciągnij działanie **Kopiowanie danych** z przybornika **działania** na powierzchnię projektanta potoku. Możesz również wyszukać działania w przyborniku **Działania**. Wprowadź wartość **CopyFromBlobToBlob** w polu **Nazwa**.
    ![Tworzenie działania kopiowania danych](./media/quickstart-create-data-factory-portal/copy-activity.png)

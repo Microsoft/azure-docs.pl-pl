@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: 77cba087ec578a478f4de9c8eebec3eb1e8d41b2
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 51f583b946d6f5a18325e77cfe12404daab83d22
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022405"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84268039"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Ciągła integracja i dostarczanie w Azure Data Factory
 
@@ -100,7 +100,7 @@ Poniżej przedstawiono Przewodnik konfigurowania wersji Azure Pipelines, która 
 
     b.  Utwórz nowe zadanie. Wyszukaj **wdrożenie grupy zasobów platformy Azure**, a następnie wybierz pozycję **Dodaj**.
 
-    c.  W zadaniu wdrażania wybierz subskrypcję, grupę zasobów i lokalizację docelowej fabryki danych. W razie potrzeby podaj poświadczenia.
+    d.  W zadaniu wdrażania wybierz subskrypcję, grupę zasobów i lokalizację docelowej fabryki danych. W razie potrzeby podaj poświadczenia.
 
     d.  Na liście **Akcja** wybierz pozycję **Utwórz lub Zaktualizuj grupę zasobów**.
 
@@ -570,7 +570,7 @@ Pamiętaj, aby dodać skrypty Data Factory w potoku ciągłej integracji/ciągł
 
 Jeśli nie masz skonfigurowanego narzędzia Git, możesz uzyskać dostęp do połączonych szablonów za pośrednictwem **szablonu** usługi ARM na liście **szablonów ARM** .
 
-## <a name="hotfix-production-branch"></a>Gałąź produkcyjna poprawek
+## <a name="hotfix-production-environment"></a>Środowisko produkcyjne poprawek
 
 W przypadku wdrożenia fabryki w środowisku produkcyjnym i zapoznania się z usterką, która musi zostać naprawiona natychmiast, ale nie można wdrożyć bieżącej gałęzi współpracy, może być konieczne wdrożenie poprawki. To podejście jest znane jako Szybka naprawa inżynierów lub QFE.
 
@@ -611,7 +611,7 @@ Jeśli korzystasz z integracji narzędzia Git z fabryką danych i masz potok ci�
 - Zgodnie z projektem Data Factory nie zezwala na wybór zatwierdzeń lub selektywne Publikowanie zasobów. Opublikowanie obejmie wszystkie zmiany wprowadzone w fabryce danych.
 
     - Jednostki usługi Data Factory są od siebie zależne. Na przykład wyzwalacze są zależne od potoków, a potoki zależą od zestawów danych i innych potoków. Selektywne publikowanie podzestawu zasobów może prowadzić do nieoczekiwanych zachowań i błędów.
-    - W rzadkich przypadkach, gdy potrzebna jest publikacja selektywna, rozważ użycie poprawki. Aby uzyskać więcej informacji, zobacz [gałąź produkcyjna poprawki](#hotfix-production-branch).
+    - W rzadkich przypadkach, gdy potrzebna jest publikacja selektywna, rozważ użycie poprawki. Aby uzyskać więcej informacji, zobacz [środowisko produkcyjne poprawki](#hotfix-production-environment).
 
 -   Nie można publikować z gałęzi prywatnych.
 

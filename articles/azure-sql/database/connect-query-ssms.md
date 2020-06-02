@@ -12,16 +12,16 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/10/2020
-ms.openlocfilehash: bc1e767227f0bdd4ac6b90124c9ccca8f4a0669b
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 05/29/2020
+ms.openlocfilehash: 5ecf180b71c43d5df25d7c3c948a59482dd06a1c
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84054377"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267311"
 ---
-# <a name="quickstart-use-ssms-to-connect-to-and-query-azure-sql-database"></a>Szybki Start: korzystanie z programu SSMS do nawiązywania połączeń z usługą i zapytań Azure SQL Database
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+# <a name="quickstart-use-ssms-to-connect-to-and-query-azure-sql-database-or-azure-sql-managed-instance"></a>Szybki Start: korzystanie z programu SSMS do nawiązywania połączenia z usługą i zapytań Azure SQL Database lub wystąpienia zarządzanego Azure SQL
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 W tym przewodniku szybki start dowiesz się, jak używać programu SQL Server Management Studio (SSMS) do nawiązywania połączenia z programem Azure SQL Database lub wystąpieniem zarządzanym usługi Azure SQL i uruchamiać niektóre zapytania.
 
@@ -33,7 +33,7 @@ Ukończenie tego przewodnika Szybki Start wymaga następujących elementów:
 
 - Baza danych w Azure SQL Database. Aby utworzyć, a następnie skonfigurować bazę danych w usłudze Azure SQL Database, można użyć instrukcji z jednego z tych przewodników Szybki start:
 
-  || SQL Database | Wystąpienie zarządzane SQL | Program SQL Server na maszynie wirtualnej platformy Azure |
+  || Baza danych SQL | Wystąpienie zarządzane SQL | Program SQL Server na maszynie wirtualnej platformy Azure |
   |:--- |:--- |:---|:---|
   | Utwórz| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) | [Portal](../virtual-machines/windows/sql-vm-create-portal-quickstart.md)
   || [Interfejs wiersza polecenia](scripts/create-and-configure-database-cli.md) | [Interfejs wiersza polecenia](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
@@ -96,7 +96,7 @@ W programie SSMS Połącz się z serwerem.
 
 ## <a name="query-data"></a>Zapytania o dane
 
-Uruchom następujący kod z instrukcją [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) języka Transact-SQL, aby wykonać zapytanie o 20 najpopularniejszych produktów według kategorii.
+Uruchom następujący kod z instrukcją [SELECT](/sql/t-sql/queries/select-transact-sql/) języka Transact-SQL, aby wykonać zapytanie o 20 najpopularniejszych produktów według kategorii.
 
 1. W Eksploratorze obiektów kliknij prawym przyciskiem myszy pozycję **mojaPrzykladowaBazaDanych** i wybierz opcję **Nowe zapytanie**. Zostanie otwarte nowe okno zapytania połączone z Twoją bazą danych.
 
@@ -115,7 +115,7 @@ Uruchom następujący kod z instrukcją [SELECT](https://msdn.microsoft.com/libr
 
 ### <a name="insert-data"></a>Wstawianie danych
 
-Uruchom następujący kod z instrukcją [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) języka Transact-SQL, aby utworzyć nowy produkt w tabeli `SalesLT.Product`.
+Uruchom następujący kod z instrukcją [INSERT](/sql/t-sql/statements/insert-transact-sql/) języka Transact-SQL, aby utworzyć nowy produkt w tabeli `SalesLT.Product`.
 
 1. Wpisz to zapytanie w miejsce poprzedniego.
 
@@ -155,7 +155,7 @@ Uruchom następujący kod z instrukcją [INSERT](https://msdn.microsoft.com/libr
 
 ### <a name="update-data"></a>Aktualizowanie danych
 
-Uruchom ten kod [aktualizacji](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL, aby zmodyfikować nowy produkt.
+Uruchom ten kod [aktualizacji](/sql/t-sql/statements/update-transact-sql) Transact-SQL, aby zmodyfikować nowy produkt.
 
 1. Zastąp poprzednie zapytanie tym, które zwraca nowy utworzony wcześniej rekord:
 
@@ -169,7 +169,7 @@ Uruchom ten kod [aktualizacji](https://msdn.microsoft.com/library/ms177523.aspx)
 
 ### <a name="delete-data"></a>Usuwanie danych
 
-Uruchom następujący kod z instrukcją [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) języka Transact-SQL, aby usunąć nowy produkt.
+Uruchom następujący kod z instrukcją [DELETE](/sql/t-sql/statements/delete-transact-sql/) języka Transact-SQL, aby usunąć nowy produkt.
 
 1. Wpisz to zapytanie w miejsce poprzedniego.
 
@@ -182,7 +182,7 @@ Uruchom następujący kod z instrukcją [DELETE](https://msdn.microsoft.com/libr
 
 ## <a name="next-steps"></a>Następne kroki
 
-- Aby uzyskać więcej informacji o programie SSMS, zobacz [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (Program SQL Server Management Studio).
+- Aby uzyskać więcej informacji o programie SSMS, zobacz [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms/) (Program SQL Server Management Studio).
 - Aby połączyć się i wykonać zapytanie za pomocą witryny Azure Portal, zobacz [Connect and query with the Azure portal SQL Query editor (Nawiązywanie połączeń i wykonywanie zapytań za pomocą edytora zapytań SQL w witrynie Azure Portal)](connect-query-portal.md).
 - Aby nawiązywać połączenia i wykonywać zapytania za pomocą programu Visual Studio Code, zobacz [Connect and query with Visual Studio Code](connect-query-vscode.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą programu Visual Studio Code).
 - Aby nawiązywać połączenia i wykonywać zapytania za pomocą platformy .NET, zobacz [Connect and query with .NET](connect-query-dotnet-visual-studio.md) (Nawiązywanie połączeń i wykonywanie zapytań za pomocą platformy .NET).

@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: ba8f60ea10a8b0b85bc030b23dfa71cf3cb264ff
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 4d3d522de84ebd019fd432f5c4e5d89ac5ef8bcf
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195649"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84263741"
 ---
 # <a name="azure-media-player-plugin-gallery"></a>Galeria wtyczek Azure Media Player #
 
@@ -25,8 +25,8 @@ ms.locfileid: "84195649"
 | Nakładka diagnostyki                 | [Wersja demonstracyjna](https://openidconnectweb.azurewebsites.net/Diagnoverlay.html)                        | [GitHub](https://github.com/willzhan/diagnoverlay)                     | Ta wtyczka jest wyświetlana: wszystkie parametry klucza, statystyki wideo, wszystkie zdarzenia w cyklu życia odtwarzania wideo i informacje o ochronie DRM, takie jak identyfikator klucza, adresy URL pozyskiwania licencji, jeśli są chronione.                                                                                                                                                                      |
 | Szybkość klatek i Kalkulator Timecode | Pokaz nie jest dostępny | [GitHub](https://github.com/mconverti/media-services-javascript-azure-media-player-framerate-timecode-calculator-plugin)                     | Ta wtyczka służy do obliczania współczynnika klatek wideo na podstawie `tfhd` / `trun` pól MP4 pierwszego fragmentu wideo MPEG-pauzowego, analizy wartości skali czasu z manifestu klienta MPEG-myślnik, a także umożliwia wygenerowanie Timecode dla danego czasu bezwzględnego z odtwarzacza (a także zapewnia bezwzględny czas odtwarzacza w przypadku Timecode). |
 | <strike>Szybkość odtwarzania</strike>                      | [Wersja demonstracyjna](https://azure-samples.github.io/media-services-javascript-Azure-Media-Player-playback-rate-plugin/)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-time-tip-plugin)                     | Ta wtyczka umożliwia użytkownikom kontrolowanie szybkości wideo. *Uwaga Ta funkcja jest automatycznie dostępna w wersji AMP v 2.0.0 +, ale domyślnie wyłączona.* Aby dowiedzieć się, jak ją włączyć, zapoznaj się z [naszymi przykładami](https://github.com/Azure-Samples/azure-media-player-samples) . |
-| Porada dotycząca czasu aktywowania                      | [Wersja demonstracyjna](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/timetip/example.html)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-time-tip-plugin)                     | Wyświetla poradę czasową na pasku postępu przy umieszczeniu wskaźnika myszy w celu dokładnego wyszukiwania. *Uwaga: Ta wtyczka jest już zintegrowana* z firmą amp, ale jeśli interesuje Cię sposób, w jaki jest ona zaprogramowana, aby zapoznać się z jej doświadczeniem.                                                                                                                       |
-| Nakładka tytułu                       | [Wersja demonstracyjna](https://azure-samples.github.io/media-services-javascript-azure-media-player-title-overlay-plugin/)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-title-overlay-plugin)                     | Nakładający się konfigurowalny tytuł wideo na ekran |
+| Porada dotycząca czasu aktywowania                      | [Wersja demonstracyjna](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/timetip/example.html)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-time-tip-plugin)                     | Wyświetla poradę czasową na pasku postępu przy umieszczeniu wskaźnika myszy w celu dokładnego wyszukiwania. *Uwaga: Ta wtyczka jest już zintegrowana* z firmą amp, ale jeśli interesuje Cię sposób, w jaki jest ona zaprogramowana, aby zapoznać się z jej doświadczeniem.                                                                                                                 |
+| Nakładka tytułu                       | [Wersja demonstracyjna](https://azure-samples.github.io/media-services-javascript-azure-media-player-title-overlay-plugin)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-title-overlay-plugin)                     | Nakładający się konfigurowalny tytuł wideo na ekran |
 | Znaczniki osi czasu                    | [Wersja demonstracyjna](http://sr-test.azurewebsites.net/Tests/Plugin%20Gallery/plugins/timelinemarkers/example.html)                        | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-timeline-markers-plugin)                     | Ta wtyczka zabiera tablicę razy i nakłada małe znaczniki na pasek postępu w tych godzinach. |
 | Analiza                           | | | |
 | Application Insights                | [Wpis w blogu](https://azure.microsoft.com/blog/player-analytics-azure-media-player-plugin/)                   | [GitHub](https://github.com/Azure-Samples/media-services-javascript-azure-media-player-application-insights-plugin)                     | Wtyczka, która śledzi metryki odtwarzacza i porty, aby Power BI intuicyjną graficzną reprezentację środowiska odtwarzacza przeglądający. |

@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 07/30/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 167d50e5c7f3049f46fd8540630e47044240809f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d470160a9b54af8751371aa4ca58202646c8fab8
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81536589"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84263366"
 ---
-[Azure Files](../articles/storage/files/storage-files-introduction.md) obsługuje uwierzytelnianie oparte na tożsamościach za pośrednictwem protokołu SMB (Server Message Block) za pośrednictwem [lokalnego Active Directory Domain Services (AD DS)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) (wersja zapoznawcza) i [Azure Active Directory Domain Services (AD DS platformy Azure)](../articles/active-directory-domain-services/overview.md). Ten artykuł koncentruje się na tym, jak udziały plików platformy Azure mogą używać usług domenowych lokalnie lub na platformie Azure, aby obsługiwać dostęp oparty na tożsamościach do udziałów plików platformy Azure za pośrednictwem protokołu SMB. Włączenie dostępu opartego na tożsamościach dla udziałów plików platformy Azure umożliwia zastępowanie istniejących serwerów plików z udziałami plików platformy Azure bez zastępowania istniejącej usługi katalogowej, co zapewnia bezproblemowe dostęp użytkowników do udziałów. 
+[Azure Files](../articles/storage/files/storage-files-introduction.md) obsługuje uwierzytelnianie oparte na tożsamościach za pośrednictwem protokołu SMB (Server Message Block) za pośrednictwem [lokalnych Active Directory Domain Services (AD DS)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) i [Azure Active Directory Domain Services (AD DS platformy Azure)](../articles/active-directory-domain-services/overview.md). Ten artykuł koncentruje się na tym, jak udziały plików platformy Azure mogą używać usług domenowych lokalnie lub na platformie Azure, aby obsługiwać dostęp oparty na tożsamościach do udziałów plików platformy Azure za pośrednictwem protokołu SMB. Włączenie dostępu opartego na tożsamościach dla udziałów plików platformy Azure umożliwia zastępowanie istniejących serwerów plików z udziałami plików platformy Azure bez zastępowania istniejącej usługi katalogowej, co zapewnia bezproblemowe dostęp użytkowników do udziałów. 
 
 Azure Files wymusza autoryzację dostępu użytkowników zarówno do udziału, jak i do poziomów plików i katalogów. Przypisanie uprawnień na poziomie udziału można wykonać w odniesieniu do użytkowników lub grup Azure Active Directory (Azure AD) zarządzanych za pośrednictwem modelu [kontroli dostępu opartej na rolach (RBAC)](../articles/role-based-access-control/overview.md) . W przypadku kontroli RBAC poświadczenia używane do uzyskiwania dostępu do plików powinny być dostępne lub synchronizowane z usługą Azure AD. Można przypisywać wbudowane role RBAC, takie jak dane plików magazynu SMB, do użytkowników lub grup w usłudze Azure AD w celu przyznania dostępu do odczytu do udziału plików platformy Azure.
 

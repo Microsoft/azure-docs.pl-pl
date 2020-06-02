@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 8de6e9cff8149423f4b00b07e3113be6606181b5
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 72a76fb513dc6eb008fcf1d1e19ffc33e713cfdc
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714240"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259256"
 ---
 # <a name="quickstart-building-your-first-static-web-app"></a>Szybki Start: Tworzenie pierwszej statycznej aplikacji sieci Web
 
@@ -31,25 +31,25 @@ W tym artykule są wykorzystywane repozytoria szablonów usługi GitHub w celu u
 
 # <a name="angular"></a>[Angular](#tab/angular)
 
-- Przejdź do następującej lokalizacji, aby utworzyć nowe repozytorium
+- Upewnij się, że zalogowano się do usługi GitHub, a następnie przejdź do następującej lokalizacji, aby utworzyć nowe repozytorium
   - https://github.com/staticwebdev/angular-basic/generate
 - Nadaj nazwę repozytorium **My-static-Web-App**
 
 # <a name="react"></a>[React](#tab/react)
 
-- Przejdź do następującej lokalizacji, aby utworzyć nowe repozytorium
+- Upewnij się, że zalogowano się do usługi GitHub, a następnie przejdź do następującej lokalizacji, aby utworzyć nowe repozytorium
   - https://github.com/staticwebdev/react-basic/generate
 - Nadaj nazwę repozytorium **My-static-Web-App**
 
 # <a name="vue"></a>[VUE](#tab/vue)
 
-- Przejdź do następującej lokalizacji, aby utworzyć nowe repozytorium
+- Upewnij się, że zalogowano się do usługi GitHub, a następnie przejdź do następującej lokalizacji, aby utworzyć nowe repozytorium
   - https://github.com/staticwebdev/vue-basic/generate
 - Nadaj nazwę repozytorium **My-static-Web-App**
 
 # <a name="no-framework"></a>[Brak struktury](#tab/vanilla-javascript)
 
-- Przejdź do następującej lokalizacji, aby utworzyć nowe repozytorium
+- Upewnij się, że zalogowano się do usługi GitHub, a następnie przejdź do następującej lokalizacji, aby utworzyć nowe repozytorium
   - https://github.com/staticwebdev/vanilla-basic/generate
 - Nadaj nazwę repozytorium **My-static-Web-App**
 
@@ -72,7 +72,7 @@ Po utworzeniu repozytorium można utworzyć statyczną aplikację sieci Web na p
 - Kliknij pozycję **statyczne Web Apps (wersja zapoznawcza)**
 - Kliknij przycisk **Utwórz**
 
-### <a name="basics"></a>Podstawy
+### <a name="basics"></a>Informacje podstawowe
 
 Zacznij od skonfigurowania nowej aplikacji i powiązania jej z repozytorium GitHub.
 
@@ -159,7 +159,7 @@ W oknie przeglądu Web Apps statycznego zostanie wyświetlona seria linków, kt�
 
 2. Po zakończeniu przepływu pracy akcji usługi GitHub można kliknąć link _adresu URL_ , aby otworzyć witrynę sieci Web na nowej karcie.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli nie chcesz nadal korzystać z tej aplikacji, możesz usunąć wystąpienie usługi Azure static Web Apps, wykonując następujące czynności:
 

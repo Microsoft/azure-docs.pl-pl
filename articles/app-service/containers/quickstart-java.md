@@ -8,12 +8,12 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 4c65160cb648954ef97bd2a3d3e9ac0d38440ce7
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: ac4290963891a029f153bd26f94d5c671329f632
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193848"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248961"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>Szybki Start: Tworzenie aplikacji Java na Azure App Service w systemie Linux
 
@@ -44,13 +44,9 @@ cd helloworld
 
 ## <a name="configure-the-maven-plugin"></a>Konfigurowanie wtyczki Maven
 
-Proces wdrażania do Azure App Service używa poświadczeń konta z interfejsu wiersza polecenia platformy Azure. Przed kontynuowaniem [Zaloguj się przy użyciu interfejsu wiersza polecenia platformy Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) .
+Proces wdrażania w celu Azure App Service może uzyskać poświadczenia platformy Azure automatycznie z poziomu interfejsu wiersza polecenia platformy Azure. Jeśli nie masz zainstalowanego interfejsu wiersza polecenia platformy Azure, wtyczka Maven zarejestruje Cię przy użyciu logowania OAuth lub urządzenia. W razie potrzeby Sprawdź szczegółowe informacje dotyczące [uwierzytelniania przy użyciu wtyczek Maven](https://github.com/microsoft/azure-maven-plugins/wiki/Authenticatio) .
 
-```azurecli
-az login
-```
-
-Następnie możesz skonfigurować wdrożenie, uruchomić polecenie Maven w wierszu polecenia i użyć konfiguracji domyślnych, naciskając klawisz **Enter** do momentu uzyskania monitu o **potwierdzenie (t/N)** , a następnie naciśnij klawisz **"Y"** , a konfiguracja zostanie ukończona. 
+Aby skonfigurować wdrożenie, uruchom polecenie Maven w wierszu polecenia i użyj konfiguracji domyślnej przez naciśnięcie klawisza **Enter** do momentu uzyskania monitu o **potwierdzenie (t/N)** , a następnie naciśnij klawisz **"Y"** , a konfiguracja zostanie ukończona. 
 ```cmd
 mvn com.microsoft.azure:azure-webapp-maven-plugin:1.9.1:config
 ```

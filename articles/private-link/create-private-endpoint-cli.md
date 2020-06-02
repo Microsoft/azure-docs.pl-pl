@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 8f2e21bddf0701ee6ce45af8012c853064e23168
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: df01108a1cb103fc7392b1a599961a99a453a160
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021759"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84265492"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-cli"></a>Szybki Start: Tworzenie prywatnego punktu końcowego przy użyciu interfejsu wiersza polecenia platformy Azure
 
@@ -109,7 +109,7 @@ az network private-endpoint create \
 
 ## <a name="configure-the-private-dns-zone"></a>Konfigurowanie strefy Prywatna strefa DNS
 
-Utwórz strefę Prywatna strefa DNS dla SQL Database domeny i Utwórz link do skojarzenia z Virtual Network.
+Utwórz strefę Prywatna strefa DNS dla SQL Database domeny, Utwórz link skojarzenia z Virtual Network i Utwórz grupę stref DNS w celu skojarzenia prywatnego punktu końcowego ze strefą Prywatna strefa DNS. 
 
 ```azurecli-interactive
 az network private-dns zone create --resource-group myResourceGroup \
@@ -119,16 +119,12 @@ az network private-dns link vnet create --resource-group myResourceGroup \
    --name MyDNSLink \
    --virtual-network myVirtualNetwork \
    --registration-enabled false
-
-#Query for the network interface ID  
-networkInterfaceId=$(az network private-endpoint show --name myPrivateEndpoint --resource-group myResourceGroup --query 'networkInterfaces[0].id' -o tsv)
-
-az resource show --ids $networkInterfaceId --api-version 2019-04-01 -o json
-# Copy the content for privateIPAddress and FQDN matching the SQL server name
-
-#Create DNS records
-az network private-dns record-set a create --name myserver --zone-name privatelink.database.windows.net --resource-group myResourceGroup  
-az network private-dns record-set a add-record --record-set-name myserver --zone-name privatelink.database.windows.net --resource-group myResourceGroup -a <Private IP Address>
+az network private-endpoint dns-zone-group create \
+   --resource-group myResourceGroup \
+   --endpoint-name myPrivateEndpoint \
+   --name MyZoneGroup \
+   --private-dns-zone "privatelink.database.windows.net" \
+   --zone-name sql
 ```
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Nawiązywanie połączenia z maszyną wirtualną z Internetu
@@ -188,7 +184,7 @@ W tej sekcji połączysz się z SQL Databaseą z maszyny wirtualnej przy użyciu
 7. Zdefiniować Utwórz lub zapytaj informacje z *bazy danych*
 8. Zamknij połączenie pulpitu zdalnego z *myVm*.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy nie jest już potrzebne, można użyć polecenie AZ Group Delete, aby usunąć grupę zasobów i wszystkie jej zasoby:
 

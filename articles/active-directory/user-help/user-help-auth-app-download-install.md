@@ -9,38 +9,34 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/24/2019
+ms.date: 05/31/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 18c34e270f1849ef8d8d692b68567eab7d103b13
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: d4053d4979861146705489dc02e628f03f3c4d85
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83741368"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266223"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Pobieranie i instalowanie aplikacji Microsoft Authenticator
 
 >[!Important]
->Ta zawartość jest przeznaczona dla użytkowników. Jeśli jesteś administratorem, więcej informacji na temat konfigurowania i zarządzania środowiskiem usługi Azure Active Directory (Azure AD) możesz znaleźć w [dokumentacji usługi Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+>Ta zawartość jest przeznaczona dla użytkowników. Jeśli jesteś administratorem, możesz znaleźć więcej informacji na temat sposobu konfigurowania środowiska Azure Active Directory (Azure AD) i zarządzania nim w [dokumentacji administracyjnej programu Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+>
+> Jeśli masz problemy z zalogowaniem się do swojego konta, zobacz temat [Kiedy nie możesz zalogować się na swoje konto Microsoft](https://support.microsoft.com/help/12429).  Ponadto możesz uzyskać więcej informacji na temat działania, które należy wykonać, gdy zostanie wyświetlony komunikat ["ten konto Microsoft nie istnieje"](https://support.microsoft.com/help/13811) podczas próby zalogowania się do konto Microsoft.
 
-Aplikacja Microsoft Authenticator pomaga w logowaniu się do kont, jeśli używana jest weryfikacja dwuskładnikowa. Weryfikacja dwuskładnikowa zapewnia bezpieczniejszy dostęp do kont, szczególnie podczas wyświetlania informacji poufnych. Ponieważ hasła mogą zostać zapomniane, skradzione lub ujawnione, weryfikacja dwuskładnikowa zapewnia dodatkowy poziom zabezpieczeń, który pomaga chronić konto, utrudniając włamanie się na nie innym osobom.
-
-Aplikacji Microsoft Authenticator można używać na wiele sposobów, na przykład:
+Aplikacja Microsoft Authenticator ułatwia zalogowanie się do kont w przypadku korzystania z weryfikacji dwuskładnikowej. Weryfikacja dwuskładnikowa ułatwia bezpieczniejsze korzystanie z kont, ponieważ hasła mogą być zapomniane, skradzione lub naruszone. Weryfikacja dwuetapowa używa drugiego czynnika, takiego jak telefon, aby utrudnić innym osobom podzielenie się na konto. Aplikacji Microsoft Authenticator można używać na wiele sposobów, na przykład:
 
 - **Weryfikacja dwuskładnikowa.** Standardowa metoda weryfikacji, w której jeden z czynników jest hasłem. Po zalogowaniu się przy użyciu nazwy użytkownika i hasła możesz zatwierdzić powiadomienie lub wprowadzić podany kod weryfikacyjny.
 
-- **Logowanie przy użyciu telefonu.** Wersja weryfikacji dwuskładnikowej, która umożliwia zalogowanie się bez konieczności używania hasła, przy użyciu nazwy użytkownika i urządzenia przenośnego z odciskiem palca, Twojej obudowy lub numeru PIN.
+- **Logowanie przy użyciu telefonu.** Wersja weryfikacji dwuskładnikowej, która umożliwia zalogowanie się bez konieczności podawania hasła przy użyciu nazwy użytkownika i urządzenia przenośnego z odciskiem palca, kroju lub numeru PIN.
 
 - **Generowanie kodu.** Jako generator kodu dla innych kont, które obsługują aplikacje uwierzytelniające.
 
-> [!Important]
-> Aplikacja Microsoft Authenticator współpracuje z dowolnym kontem korzystającym z weryfikacji dwuskładnikowej i obsługuje standardy hasła jednorazowego (TOTP) oparte na czasie.
->
-> Twoja organizacja może wymagać korzystania z aplikacji uwierzytelnienia do logowania się i uzyskiwania dostępu do danych organizacji i dokumentów. Mimo iż Twoja nazwa użytkownika może być wyświetlana w aplikacji, konto nie będzie skonfigurowane jako metoda weryfikacji, dopóki nie ukończysz procesu rejestracji. Aby uzyskać więcej informacji, zobacz [Dodawanie konta służbowego](user-help-auth-app-add-work-school-account.md).
-> 
-> [!NOTE]
-> Jeśli masz problemy z zalogowaniem się do swojego konta, zobacz temat [Kiedy nie możesz zalogować się na swoje konto Microsoft](https://support.microsoft.com/help/12429).  Uzyskaj więcej informacji o tym, co zrobić, gdy podczas próby zalogowania się do konta Microsoft pojawia się komunikat [„To konto Microsoft nie istnieje”](https://support.microsoft.com/help/13811).
+Wystawca uwierzytelnienia współpracuje z dowolnym kontem korzystającym z weryfikacji dwuskładnikowej i obsługuje standardy hasła jednorazowego (TOTP) oparte na czasie.
+
+Organizacja może wymagać korzystania z aplikacji Authenticator do logowania się i uzyskiwania dostępu do danych i dokumentów organizacji. Nawet jeśli nazwa użytkownika jest wyświetlana w aplikacji, konto nie jest skonfigurowane jako metoda weryfikacji do momentu ukończenia rejestracji. Aby uzyskać więcej informacji, zobacz [Dodawanie konta służbowego](user-help-auth-app-add-work-school-account.md).
 
 ## <a name="download-and-install-the-app"></a>Pobieranie i instalowanie aplikacji
 
@@ -55,7 +51,7 @@ Zainstaluj najnowszą wersję aplikacji Microsoft Authenticator w oparciu o syst
 
 ## <a name="next-steps"></a>Następne kroki
 
-Po pobraniu i zainstalowaniu aplikacji należy dodać różne konta. Aby uzyskać więcej informacji, zobacz:
+Po pobraniu i zainstalowaniu aplikacji zapoznaj się z [omówieniem aplikacji Authenticator](user-help-auth-app-overview.md) , aby dowiedzieć się więcej. Aby uzyskać więcej opcji instalacji, zobacz:
 
 - **Aplikacja uwierzytelniania.** Pobierz aplikację Authenticator i użyj jej do uzyskania powiadomienia o zatwierdzeniu lub losowo wygenerowanego kodu zatwierdzenia na potrzeby weryfikacji dwuetapowej lub resetowania hasła. Instrukcje krok po kroku dotyczące konfigurowania i używania aplikacji Microsoft Authenticator można znaleźć w temacie [set up Security Info to use the Authenticator App](security-info-setup-auth-app.md).
 

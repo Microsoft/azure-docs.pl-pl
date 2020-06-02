@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: 74975c050ef77c02e8912ce6cdd9404ac5bba019
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: c750912e942d5dadeb97e6675427f1730912704a
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84054731"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267583"
 ---
 # <a name="quickstart-restore-a-database-to-an-azure-sql-managed-instance-with-ssms"></a>Szybki Start: Przywracanie bazy danych do wystąpienia zarządzanego usługi Azure SQL przy użyciu programu SSMS
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -96,6 +96,7 @@ W SQL Server Management Studio (SSMS) wykonaj następujące kroki, aby przywróc
 
 ## <a name="next-steps"></a>Następne kroki
 
+- Jeśli w kroku 5 przywracanie bazy danych zostało zakończone z IDENTYFIKATORem komunikatu 22003, Utwórz nowy plik kopii zapasowej zawierający sumy kontrolne kopii zapasowej i ponownie wykonaj operację przywracania. Zobacz [Włączanie lub wyłączanie sum kontrolnych kopii zapasowych podczas wykonywania kopii zapasowej lub przywracania](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server).
 - W celu rozwiązywania problemów dotyczących tworzenia kopii zapasowej do adresu URL, zobacz artykuł [SQL Server Backup to URL Best Practices and Troubleshooting](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url-best-practices-and-troubleshooting) (Kopia zapasowa programu SQL Server do adresu URL — najlepsze rozwiązania i rozwiązywanie problemów).
 - Aby zapoznać się z omówieniem opcji połączenia aplikacji, zobacz [łączenie aplikacji z wystąpieniem zarządzanym SQL](connect-application-instance.md).
 - Aby wykonywać zapytania przy użyciu ulubionych narzędzi lub języków, zobacz [Przewodniki Szybki Start: Azure SQL Database Connect and Query](../database/connect-query-content-reference-guide.md).

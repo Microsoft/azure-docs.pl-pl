@@ -7,12 +7,12 @@ ms.date: 03/08/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
-ms.openlocfilehash: aef8c026fad631396e58716e65640f5792ad07c8
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: a8c153094d38d137ce50c6ff4f922b7708bfcb24
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84116780"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266835"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integracja Key Vault z prywatnym łączem platformy Azure
 
@@ -104,7 +104,7 @@ az keyvault create --name {KEY VAULT NAME} --resource-group {RG} --location {AZU
 ```
 ### <a name="turn-on-key-vault-firewall"></a>Włączanie zapory Key Vault
 ```console
-az keyvault update --name {KEY VAULT NAME} --resource-group {RG} --location {AZURE REGION} --default-action deny
+az keyvault update --name {KEY VAULT NAME} --resource-group {RG} --default-action deny
 ```
 ### <a name="create-a-virtual-network"></a>Tworzenie sieci wirtualnej
 ```console

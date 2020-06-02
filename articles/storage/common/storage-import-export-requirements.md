@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 58997b20c01f33037a5e5e149caa59e1630373ff
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ded8aa0587ecb6bb756f3faa07cc816b7d46b561
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79255316"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259579"
 ---
 # <a name="azure-importexport-system-requirements"></a>Wymagania systemowe usługi Azure Import/Export
 
@@ -34,7 +34,7 @@ Aby przygotować dyski twarde przy użyciu narzędzia WAImportExport, obsługiwa
 |Platforma |Wersja |
 |---------|---------|
 |.NET Framework    | 4.5.1       |
-| Funkcja BitLocker        |  _          |
+| BitLocker        |  _          |
 
 
 ## <a name="supported-storage-accounts"></a>Obsługiwane konta magazynu
@@ -50,7 +50,7 @@ Aby uzyskać więcej informacji na temat kont magazynu, zobacz [Omówienie kont 
 Każde zadanie może służyć do transferowania danych do lub z tylko jednego konta magazynu. Innymi słowy, pojedyncze zadanie importu/eksportu nie może obejmować wielu kont magazynu. Aby uzyskać informacje dotyczące tworzenia nowego konta magazynu, zobacz [jak utworzyć konto magazynu](storage-account-create.md).
 
 > [!IMPORTANT]
-> Usługa eksport platformy Azure nie obsługuje kont magazynu, w których włączono funkcję  [punktów końcowych usługi Virtual Network](../../virtual-network/virtual-network-service-endpoints-overview.md). 
+> Usługa eksport platformy Azure nie obsługuje kont magazynu, w których włączono funkcję [punktów końcowych usługi Virtual Network](../../virtual-network/virtual-network-service-endpoints-overview.md)   . 
 
 ## <a name="supported-storage-types"></a>Obsługiwane typy magazynu
 
@@ -59,7 +59,7 @@ Poniższa lista typów magazynu jest obsługiwana przez usługę Azure Import/Ex
 
 |Zadanie  |Usługa magazynu |Obsługiwane  |Nieobsługiwane  |
 |---------|---------|---------|---------|
-|Import     |  Azure Blob Storage <br><br> Azure File Storage       | Obsługiwane obiekty blob i stronicowe obiekty blob <br><br> Obsługiwane pliki          |
+|Importuj     |  Azure Blob Storage <br><br> Azure File Storage       | Obsługiwane obiekty blob i stronicowe obiekty blob <br><br> Obsługiwane pliki          |
 |Eksportowanie     |   Azure Blob Storage       | Obsługiwane są blokowe obiekty blob, stronicowe obiekty blob i dołączane obiekty blob         | Nieobsługiwane Azure Files
 
 
@@ -78,11 +78,13 @@ Następująca lista dysków umożliwia korzystanie z usługi Import/Export.
 |HDD     |  2,5 "<br>3,5 "       |SATA II, SATA III         |
 
 Następujące typy dysków nie są obsługiwane:
+
 - USBs.
 - Zewnętrzny dysk twardy z wbudowaną adapterem USB.
 - Dyski, które znajdują się w obudowie zewnętrznego dysku twardego.
 
 Pojedyncze zadanie importu/eksportu może mieć następujące wartości:
+
 - Maksymalnie 10 dysków twardych/dysków SSD.
 - Mieszany dysk twardy/SSD dowolnego rozmiaru.
 
@@ -90,9 +92,6 @@ Duża liczba dysków można rozłożyć na wiele zadań, a liczba zadań, które
 
 Podczas przygotowywania dysków twardych i kopiowania danych przy użyciu narzędzia WAImportExport można użyć zewnętrznych adapterów USB. Większość z przedziałów USB 3,0 lub nowszych powinna być w pełni zastosowana.
 
-
 ## <a name="next-steps"></a>Następne kroki
 
-* [Konfigurowanie narzędzia WAImportExport](storage-import-export-tool-how-to.md)
 * [Transferowanie danych za pomocą narzędzia wiersza polecenia AzCopy](storage-use-azcopy.md)
-* [Przykład interfejsu API REST usługi Azure Import Export](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/)

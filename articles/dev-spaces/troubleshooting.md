@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Dowiedz się, jak rozwiązywać typowe problemy podczas włączania i używania Azure Dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, Helm, Service siatk, Service siatk Routing, polecenia kubectl, k8s '
-ms.openlocfilehash: 1242aa0e6c8255d778da55b0e574f3d12f61c381
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: a6ce0f2a4d45f0a703676c76f429dbe07a4517f4
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872025"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84263503"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Rozwiązywanie problemów Azure Dev Spaces
 
@@ -97,7 +97,7 @@ Aby rozwiązać ten problem, zaktualizuj instalację [interfejsu wiersza polecen
 
 Ten błąd może pojawić się, gdy Azure Dev Spaces nie może nawiązać połączenia z serwerem interfejsu API klastra AKS.
 
-Jeśli dostęp do serwera interfejsu API klastra AKS jest zablokowany lub jeśli masz włączone [zakresy dozwolonych adresów IP serwera interfejsu API](../aks/api-server-authorized-ip-ranges.md) dla klastra AKS, należy również [utworzyć](../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled) lub [zaktualizować](../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges) klaster, aby zezwolić na [dodatkowe zakresy w oparciu o region](https://github.com/Azure/dev-spaces/tree/master/public-ips).
+Jeśli dostęp do serwera interfejsu API klastra AKS jest zablokowany lub jeśli masz włączone [zakresy dozwolonych adresów IP serwera interfejsu API](../aks/api-server-authorized-ip-ranges.md) dla klastra AKS, musisz również [utworzyć](../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled) lub [zaktualizować](../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges) klaster, aby zezwolić na [dodatkowe zakresy w oparciu o region](configure-networking.md#aks-cluster-network-requirements)
 
 Upewnij się, że serwer interfejsu API jest dostępny, uruchamiając polecenia polecenia kubectl. Jeśli serwer interfejsu API jest niedostępny, skontaktuj się z pomocą techniczną usługi AKS i spróbuj ponownie, gdy działa serwer interfejsu API.
 
@@ -150,7 +150,7 @@ Ten błąd występuje, gdy klient Helm nie może komunikować się z usługą do
 
 Aby rozwiązać ten problem, uruchom ponownie węzły agenta w klastrze.
 
-### <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>Błąd "Release azds- \< Identyfikator \> - \< spacename \> - \< ServiceName \> nie powiodło się: usługi" \< ServiceName \> "już istnieje" lub "odmowa dostępu do ściągania dla elementu \< ServiceName \> , repozytorium nie istnieje lub może wymagać elementu" Docker login' "
+### <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>Błąd "Release azds — \<identifier\> - \<spacename\> - \<servicename\> Niepowodzenie: usługi" \<servicename\> "już istnieją" lub "odmowa dostępu do ściągania dla elementu \<servicename\> , repozytorium nie istnieje lub może wymagać elementu" Docker login' "
 
 Te błędy mogą wystąpić, jeśli Mieszasz uruchomione bezpośrednie polecenia Helm (takie jak `helm install` , `helm upgrade` lub `helm delete` ) z poleceniami dev Spaces (takimi jak `azds up` i) w `azds down` tym samym obszarze dev. Są one wykonywane, ponieważ spacje do deweloperów mają własne wystąpienie do przyciągania, które powoduje konflikt z własnym wystąpieniem programu do wykonywania w tym samym obszarze dev.
 
@@ -272,7 +272,7 @@ Na przykład aby zatrzymać i wyłączyć usługę *Windows BranchCache* :
 * Opcjonalnie możesz ją wyłączyć, ustawiając *Typ uruchamiania* na *wyłączone*.
 * Kliknij przycisk *OK*.
 
-### <a name="error-no-azureassignedidentity-found-for-podazdsazds-webhook-deployment-id-in-assigned-state"></a>Wystąpił błąd "nie znaleziono AzureAssignedIdentity dla elementu pod: azds/azds-webhook- \< ID wdrożenia \> w stanie przypisanym"
+### <a name="error-no-azureassignedidentity-found-for-podazdsazds-webhook-deployment-id-in-assigned-state"></a>Błąd "nie znaleziono AzureAssignedIdentity dla elementu pod: azds/azds-webhook- \<id\> w stanie przypisanym do wdrożenia"
 
 Podczas uruchamiania usługi z Azure Dev Spaces w klastrze AKS z [zarządzaną tożsamością](../aks/use-managed-identity.md) i [tożsamościami zarządzanymi](../aks/developer-best-practices-pod-security.md#use-pod-managed-identities) , proces może ulec zawieszeniu po kroku *instalacji wykresu* . Po sprawdzeniu *azds-wtryskiwacza elementu webhook* w przestrzeni nazw *azds* może zostać wyświetlony ten błąd.
 
@@ -504,7 +504,7 @@ Aby zaktualizować rolę RBAC użytkownika dla kontrolera:
     * W obszarze *rola*wybierz opcję *współautor* lub *właściciel*.
     * W obszarze *Przypisywanie dostępu do*wybierz pozycję *użytkownik, Grupa lub nazwa główna usługi Azure AD*.
     * Dla *opcji wybierz*Wyszukaj użytkownika, którym chcesz nadać uprawnienia.
-1. Kliknij przycisk *Zapisz*.
+1. Kliknij pozycję *Zapisz*.
 
 ### <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Rozpoznawanie nazw DNS nie powiodło się dla publicznego adresu URL skojarzonego z usługą Spaces
 
@@ -591,7 +591,7 @@ Aby włączyć Azure Dev Spaces w klastrze AKS, dla którego ruch wychodzący z 
 | storage.googleapis.com | HTTP: 443 | Aby ściągnąć obrazy Helm/er|
 | azds- <guid> . <location> .. azds.io | HTTPS: 443 | Aby komunikować się z usługami Azure Dev Spaces zaplecza dla Twojego kontrolera. Dokładną nazwę FQDN można znaleźć w "dataplaneFqdn" w% USERPROFILE% \. azds\settings.JSON|
 
-### <a name="error-could-not-find-the-cluster-cluster-in-subscription-subscriptionid"></a>Błąd "nie można odnaleźć klastra klastra \< \> w subskrypcji subskrybowania \< \> "
+### <a name="error-could-not-find-the-cluster-cluster-in-subscription-subscriptionid"></a>Błąd "nie można odnaleźć klastra \<cluster\> w subskrypcji \<subscriptionId\> "
 
 Ten błąd może pojawić się, jeśli plik kubeconfig jest przeznaczony dla innego klastra lub subskrypcji niż próbujesz użyć go przy użyciu narzędzi po stronie klienta Azure Dev Spaces. Narzędzia po stronie klienta Azure Dev Spaces replikuje zachowanie *polecenia kubectl*, które używa [co najmniej jednego pliku kubeconfig](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) do wybierania i komunikowania się z klastrem.
 

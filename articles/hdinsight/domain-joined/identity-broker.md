@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 1e7eaf49fb8b62259b8c619c89edffd629dfde7f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: aa778aa395d013bd644f69886ea5ebc2399e6f54
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81685508"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84265254"
 ---
 # <a name="use-id-broker-preview-for-credential-management"></a>Użyj usługi ID brokera (wersja zapoznawcza) do zarządzania poświadczeniami
 
@@ -92,7 +92,7 @@ Jeśli dodasz nową rolę o nazwie `idbrokernode` z poniższymi atrybutami do pr
 
 ## <a name="ssh-access-without-a-password-hash-in-azure-ad-ds"></a>Dostęp SSH bez skrótu hasła na platformie Azure AD DS
 
-Po włączeniu brokera identyfikatora nadal będzie potrzebny skrót hasła przechowywany w usłudze Azure AD DS dla scenariuszy SSH z kontami domeny. Aby zapewnić połączenie SSH z przyłączoną do domeny maszyną wirtualną lub `kinit` uruchomić polecenie, należy podać hasło. 
+Po włączeniu brokera identyfikatora nadal będzie potrzebny skrót hasła przechowywany w usłudze Azure AD DS dla scenariuszy SSH z kontami domeny. Aby zapewnić połączenie SSH z przyłączoną do domeny maszyną wirtualną lub uruchomić `kinit` polecenie, należy podać hasło. 
 
 Uwierzytelnianie SSH wymaga, aby skrót był dostępny na platformie Azure AD DS. Jeśli chcesz używać protokołu SSH tylko w przypadku scenariuszy administracyjnych, możesz utworzyć jedno konto tylko w chmurze i używać go do protokołu SSH do klastra. Inni użytkownicy nadal mogą używać narzędzi Ambari lub HDInsight (takich jak wtyczka IntelliJ) bez potrzeby używania skrótu hasła na platformie Azure AD DS.
 
@@ -100,7 +100,7 @@ Uwierzytelnianie SSH wymaga, aby skrót był dostępny na platformie Azure AD DS
 
 W konfiguracji brokera identyfikatorów można zaktualizować niestandardowe aplikacje i klientów łączących się z bramą w celu uzyskania najpierw wymaganego tokenu OAuth. Możesz wykonać kroki opisane w tym [dokumencie](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) , aby uzyskać token z następującymi informacjami:
 
-*   Identyfikator URI zasobu OAuth:https://hib.azurehdinsight.net 
+*   Identyfikator URI zasobu OAuth:`https://hib.azurehdinsight.net` 
 * Identyfikator aplikacji: 7865c1d2-F040-46cc-875f-831a1ef6a28a
 *   Uprawnienie: (nazwa: cluster. ReadWrite, ID: 8f89faa0-ffef-4007-974d-4989b39ad77d)
 
