@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: mjbrown
-ms.openlocfilehash: 0e7a2e9e5feb848971c4858415510f98a7bdaf78
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 6ade9baaf7dc125bac6738b44134ee496b8a2be4
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83655334"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84265934"
 ---
 # <a name="provision-standard-manual-throughput-on-an-azure-cosmos-container"></a>Inicjowanie obsługi przepływności standardowej (ręcznej) w kontenerze usługi Azure Cosmos
 
@@ -46,9 +46,9 @@ Aby utworzyć kontener z dedykowaną przepływność, zobacz
 ## <a name="net-sdk"></a>Zestaw SDK .NET
 
 > [!Note]
-> Użyj Cosmos SDK dla interfejsu API SQL, aby zainicjować przepływność dla wszystkich Cosmos DB interfejsów API, z wyjątkiem interfejs API Cassandra.
+> Użyj Cosmos SDK dla interfejsu API SQL, aby zainicjować przepływność dla wszystkich Cosmos DB interfejsów API, z wyjątkiem Cassandra i MongoDB API.
 
-### <a name="sql-mongodb-gremlin-and-table-apis"></a><a id="dotnet-most"></a>Język SQL, usługa MongoDB, język Gremlin oraz interfejsy API tabel
+### <a name="sql-gremlin-and-table-apis"></a><a id="dotnet-most"></a>Interfejsy API SQL, Gremlin i tabel
 
 # <a name="net-sdk-v2"></a>[ZESTAW .NET SDK V2](#tab/dotnetv2)
 
@@ -97,6 +97,27 @@ offer.content.offerThroughput = 2000;
 
 // Replace the offer.
 await client.offer(offer.id).replace(offer);
+```
+
+### <a name="mongodb-api"></a><a id="dotnet-cassandra"></a>Interfejs API usługi MongoDB
+
+```csharp
+// refer to MongoDB .NET Driver
+// https://docs.mongodb.com/drivers/csharp
+
+// Create a new Client
+String mongoConnectionString = "mongodb://DBAccountName:Password@DBAccountName.documents.azure.com:10255/?ssl=true&replicaSet=globaldb";
+mongoUrl = new MongoUrl(mongoConnectionString);
+mongoClientSettings = MongoClientSettings.FromUrl(mongoUrl);
+mongoClient = new MongoClient(mongoClientSettings);
+
+// Change the database name
+mongoDatabase = mongoClient.GetDatabase("testdb");
+
+// Change the collection name, throughput value then update via MongoDB extension commands
+// https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb-custom-commands#update-collection
+
+var result = mongoDatabase.RunCommand<BsonDocument>(@"{customAction: ""UpdateCollection"", collection: ""testcollection"", offerThroughput: 400}");
 ```
 
 ### <a name="cassandra-api"></a><a id="dotnet-cassandra"></a>Interfejs API rozwiązania Cassandra

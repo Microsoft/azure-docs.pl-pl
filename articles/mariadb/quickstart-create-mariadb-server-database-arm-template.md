@@ -7,14 +7,14 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/14/2020
-ms.openlocfilehash: ff7a22c0006d124f8d89b2f933dd213499dc1771
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 547b268a43cdd4b362d56b34cf9129a8b5efe16e
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83997575"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266427"
 ---
-# <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mariadb-server"></a>Szybki Start: Tworzenie serwera Azure Database for MariaDB przy użyciu szablonu ARM
+# <a name="quickstart-use-a-resource-manager-template-to-create-an-azure-database-for-mariadb-server"></a>Szybki Start: Tworzenie serwera Azure Database for MariaDB przy użyciu szablonu Menedżer zasobów
 
 Azure Database for MariaDB to zarządzana usługa, która umożliwia uruchamianie i skalowanie baz danych MariaDB o wysokiej dostępności w chmurze oraz zarządzanie nimi. W tym przewodniku szybki start użyjesz szablonu ARM, aby utworzyć serwer Azure Database for MariaDB w Azure Portal, programie PowerShell lub interfejsie wiersza polecenia platformy Azure.
 
@@ -42,9 +42,9 @@ Konto platformy Azure z aktywną subskrypcją. [Utwórz je bezpłatnie](https://
 
 Serwer usługi Azure Database for MariaDB jest tworzony za pomocą zdefiniowanego zestawu zasobów obliczeniowych i przestrzeni dyskowej. Aby dowiedzieć się więcej, zobacz [Azure Database for MariaDB warstwy cenowe](concepts-pricing-tiers.md). Serwer jest tworzony w ramach [grupy zasobów Azure](../azure-resource-manager/management/overview.md).
 
-### <a name="review-the-template"></a>Zapoznaj się z szablonem
+### <a name="review-the-template"></a>Przegląd szablonu
 
-Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-managed-mariadb-with-vnet/).
+Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-managed-mariadb-with-vnet/).
 
 :::code language="json" source="~/quickstart-templates/101-managed-mariadb-with-vnet/azuredeploy.json" range="001-231" highlight="149,162,176,199,213":::
 
@@ -58,13 +58,13 @@ Szablon definiuje pięć zasobów platformy Azure:
 
 Więcej przykładów szablonów Azure Database for MariaDB można znaleźć w [szablonach szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbformariadb&pageNumber=1&sort=Popular).
 
-## <a name="deploy-the-template"></a>Wdrożenie szablonu
+### <a name="deploy-the-template"></a>Wdrożenie szablonu
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 Wybierz następujący link, aby wdrożyć szablon Azure Database for MariaDB Server w Azure Portal:
 
-[![Wdróż na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mariadb-with-vnet%2fazuredeploy.json)
+[![Wdrażanie na platformie Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mariadb-with-vnet%2fazuredeploy.json)
 
 Na stronie **wdrażanie Azure Database for MariaDB przy użyciu sieci wirtualnej** :
 
@@ -173,7 +173,7 @@ read -p "Press [ENTER] to continue: "
 
 ---
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Gdy nie jest już potrzebne, Usuń grupę zasobów, która spowoduje usunięcie zasobów z grupy zasobów.
 

@@ -4,19 +4,19 @@ description: Rozwiązywanie problemów z Azure Files w systemie Windows
 author: jeffpatt24
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 05/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: b4e1ef4fbc3ade38b55fc06f8e4e9a119938581b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 40b8616f40f2ce33332fc42ec68532e4ae0ecdb0
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81383903"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267821"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Rozwiązywanie problemów z usługą Azure Files w systemie Windows
 
-W tym artykule wymieniono typowe problemy związane z Microsoft Azure plikami w przypadku łączenia się z klientami systemu Windows. Zapewnia również możliwe przyczyny i rozwiązania tych problemów. Oprócz kroków opisanych w tym artykule można także użyć programu [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) , aby upewnić się, że środowisko klienta systemu Windows ma odpowiednie wymagania wstępne. AzFileDiagnostics automatyzuje wykrywanie większości objawów wymienionych w tym artykule i ułatwia skonfigurowanie środowiska w celu uzyskania optymalnej wydajności. Te informacje można również znaleźć w obszarze [Rozwiązywanie problemów z udziałami Azure Files](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) , które udostępniają kroki ułatwiające rozwiązywanie problemów z połączeniem/mapowaniem/instalowaniem udziałów Azure Files.
+W tym artykule wymieniono typowe problemy związane z Microsoft Azure plikami w przypadku łączenia się z klientami systemu Windows. Zapewnia również możliwe przyczyny i rozwiązania tych problemów. Oprócz kroków opisanych w tym artykule można także użyć programu [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5),   Aby upewnić się, że środowisko klienta systemu Windows ma odpowiednie wymagania wstępne. AzFileDiagnostics automatyzuje wykrywanie większości objawów wymienionych w tym artykule i ułatwia skonfigurowanie środowiska w celu uzyskania optymalnej wydajności. Te informacje można również znaleźć w obszarze [Rozwiązywanie problemów z udziałami Azure Files](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) , które udostępniają kroki ułatwiające rozwiązywanie problemów z połączeniem/mapowaniem/instalowaniem udziałów Azure Files.
 
 <a id="error5"></a>
 ## <a name="error-5-when-you-mount-an-azure-file-share"></a>Błąd 5 podczas instalowania udziału plików platformy Azure
@@ -255,7 +255,7 @@ Użyj jednego z następujących rozwiązań:
 
 -   Zainstaluj dysk z tego samego konta użytkownika, które zawiera aplikację. Możesz użyć narzędzia, takiego jak PsExec.
 - Przekaż nazwę i klucz konta magazynu w parametrach nazwa użytkownika i hasło polecenia net use.
-- Użyj polecenia cmdkey, aby dodać poświadczenia do Menedżera poświadczeń. Wykonaj to z wiersza polecenia w kontekście konta usługi za pośrednictwem interakcyjnego logowania lub przy użyciu `runas`.
+- Użyj polecenia cmdkey, aby dodać poświadczenia do Menedżera poświadczeń. Wykonaj to z wiersza polecenia w kontekście konta usługi za pośrednictwem interakcyjnego logowania lub przy użyciu `runas` .
   
   `cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>`
 - Mapuj udział bezpośrednio bez użycia zmapowanej litery dysku. Niektóre aplikacje mogą nie ponownie połączyć się z literą dysku, więc użycie pełnej ścieżki UNC może być bardziej niezawodne. 
@@ -332,7 +332,7 @@ Najpierw upewnij się, że wykonano wszystkie cztery kroki, aby [włączyć Azur
 
 Następnie spróbuj zainstalować [udział plików platformy Azure z kluczem konta magazynu](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows). Jeśli instalacja nie powiodła się, Pobierz [AzFileDiagnostics. ps1](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) , aby pomóc w sprawdzeniu, czy środowisko klienta działa, Wykryj niezgodną konfigurację klienta, która spowodowałaby wystąpienie błędu dostępu dla Azure Files, zapewni wskazówki dotyczące samoobsługowego rozwiązywania problemów oraz zbiera dane śledzenia diagnostyki.
 
-Po trzecie można uruchomić polecenie cmdlet Debug-AzStorageAccountAuth w celu przeprowadzenia zestawu podstawowych sprawdzeń konfiguracji usługi AD przy użyciu zalogowanego użytkownika usługi AD. To polecenie cmdlet jest obsługiwane w [wersji AzFilesHybrid v 0.1.2 +](https://github.com/Azure-Samples/azure-files-samples/releases). Należy uruchomić to polecenie cmdlet z użytkownikiem usługi AD, który ma uprawnienia właściciela na docelowym koncie magazynu.  
+Po trzecie można uruchomić polecenie cmdlet Debug-AzStorageAccountAuth w celu przeprowadzenia zestawu podstawowych sprawdzeń konfiguracji usługi AD przy użyciu zalogowanego użytkownika usługi AD. To polecenie cmdlet jest obsługiwane w [wersji AzFilesHybrid 0.1.2+](https://github.com/Azure-Samples/azure-files-samples/releases). Należy uruchomić to polecenie cmdlet z użytkownikiem usługi AD, który ma uprawnienia właściciela do docelowego konta magazynu.  
 ```PowerShell
 $ResourceGroupName = "<resource-group-name-here>"
 $StorageAccountName = "<storage-account-name-here>"
@@ -348,6 +348,18 @@ Polecenie cmdlet wykonuje poniższe testy w sekwencji i zawiera wskazówki dotyc
 6. CheckSidHasAadUser: Sprawdź, czy zalogowany użytkownik usługi AD jest synchronizowany z usługą Azure AD
 
 Aktywnie pracujemy nad rozszerzaniem tego polecenia cmdlet, aby zapewnić lepsze wskazówki dotyczące rozwiązywania problemów.
+
+## <a name="unable-to-configure-directoryfile-level-permissions-windows-acls-with-windows-file-explorer"></a>Nie można skonfigurować uprawnień na poziomie katalogu/pliku (listy ACL systemu Windows) przy użyciu Eksploratora plików systemu Windows
+
+### <a name="symptom"></a>Objaw
+
+Podczas próby skonfigurowania list ACL systemu Windows za pomocą Eksploratora plików w zainstalowanym udziale plików mogą wystąpić poniższe objawy:
+- Po kliknięciu przycisku Edytuj uprawnienia na karcie Zabezpieczenia Kreator uprawnień nie zostanie załadowany. 
+- Gdy próbujesz wybrać nowego użytkownika lub grupę, w lokalizacji domeny nie jest wyświetlana odpowiednia domena AD DS. 
+
+### <a name="solution"></a>Rozwiązanie
+
+Zalecamy użycie [Narzędzia icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) w celu skonfigurowania uprawnień na poziomie katalogu/pliku jako obejścia. 
 
 ## <a name="need-help-contact-support"></a>Potrzebujesz pomocy? Skontaktuj się z pomocą techniczną.
 Jeśli nadal potrzebujesz pomocy, [skontaktuj się z pomocą techniczną](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) , aby szybko rozwiązać problem.

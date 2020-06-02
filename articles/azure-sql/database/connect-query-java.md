@@ -1,27 +1,28 @@
 ---
 title: Używanie języka Java do wykonywania zapytań w bazie danych
-description: Pokazuje, jak użyć języka Java do utworzenia programu, który nawiązuje połączenie z bazą danych w Azure SQL Database i wykonuje zapytania przy użyciu instrukcji języka T-SQL.
+description: Pokazuje, w jaki sposób używać języka Java do utworzenia programu, który nawiązuje połączenie z bazą danych w Azure SQL Database lub wystąpieniu zarządzanym usługi Azure SQL, i wykonuje zapytania przy użyciu instrukcji języka T-SQL.
+titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
 ms.devlang: java
 ms.topic: quickstart
-author: ajlam
-ms.author: andrela
+author: stevestein
+ms.author: sstein
 ms.reviewer: v-masebo
-ms.date: 03/25/2019
+ms.date: 05/29/2020
 ms.custom: seo-java-july2019. seo-java-august2019, sqldbrb=2 
-ms.openlocfilehash: 4e5ee26b1cfa686eb501e0c6b6ba7905ea687094
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 6be52d2d3472888607bbd6276b4794184bb11273
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84189471"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267396"
 ---
-# <a name="quickstart-use-java-to-query-a-database-in-azure-sql-database"></a>Szybki Start: używanie języka Java do wykonywania zapytań w bazie danych w Azure SQL Database
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+# <a name="quickstart-use-java-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Szybki Start: używanie języka Java do wykonywania zapytań w bazie danych w Azure SQL Database lub wystąpieniu zarządzanym Azure SQL
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-W tym przewodniku szybki start użyjesz języka Java do łączenia się z bazą danych w Azure SQL Database i używania instrukcji T-SQL do wykonywania zapytań dotyczących danych.
+W tym przewodniku szybki start używasz języka Java do łączenia się z bazą danych w Azure SQL Database lub wystąpieniu zarządzanym Azure SQL, a także Użyj instrukcji języka T-SQL do wykonywania zapytań dotyczących danych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 03/17/2020
-ms.openlocfilehash: 518c4b83721e80aeaadfbdf5b03cddc62ae5479f
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: b72952618b2d024bd2c4b445c3ea673ed523866b
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84216343"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247941"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Często zadawane pytania dotyczące wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -273,11 +273,8 @@ FROM sys.sql_logins
 Następnie można zmodyfikować określone ustawienia logowania, wykonując następujące polecenie:
 
 ```sql
-ALTER LOGIN test WITH CHECK_POLICY = ON;
-ALTER LOGIN test WITH CHECK_EXPIRATION = ON;
+ALTER LOGIN <login_name> WITH CHECK_POLICY = OFF;
+ALTER LOGIN <login_name> WITH CHECK_EXPIRATION = OFF;
 ```
 
-(Zastąp element "test" pożądaną nazwą logowania)
-
- > [!Note]
- > Wartości domyślne dla CHECK_POLICY i CHECK_EXPIRATION są ustawione na wartość OFF.
+(Zastąp element "test" pożądaną nazwą logowania i Dostosuj zasady i wartości wygaśnięcia)

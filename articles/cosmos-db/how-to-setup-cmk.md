@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: thweiss
-ms.openlocfilehash: fd69e8b50fdd66267b5751e9c706d5181f7795a0
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: d551f05dd0700a93a94c6b836b896a99d7f5d96c
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84148195"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267090"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Skonfiguruj klucze zarządzane przez klienta na potrzeby konta usługi Azure Cosmos przy użyciu usługi Azure Key Vault
 
@@ -222,7 +222,7 @@ az cosmosdb show \
 
 ## <a name="error-handling"></a>Obsługa błędów
 
-W przypadku korzystania z kluczy zarządzanych przez klienta (CMK) w Azure Cosmos DB, jeśli wystąpią jakieś błędy, Azure Cosmos DB zwróci szczegóły błędu wraz z kodem stanu podrzędnego HTTP w odpowiedzi. Tego kodu stanu podrzędnego można użyć do debugowania głównej przyczyny problemu. Zobacz [kody stanu HTTP dla Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb.md) artykułu, aby uzyskać listę obsługiwanych kodów stanu podrzędnego http.
+W przypadku korzystania z kluczy zarządzanych przez klienta (CMK) w Azure Cosmos DB, jeśli wystąpią jakieś błędy, Azure Cosmos DB zwróci szczegóły błędu wraz z kodem stanu podrzędnego HTTP w odpowiedzi. Tego kodu stanu podrzędnego można użyć do debugowania głównej przyczyny problemu. Zobacz [kody stanu HTTP dla Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) artykułu, aby uzyskać listę obsługiwanych kodów stanu podrzędnego http.
 
 ## <a name="frequently-asked-questions"></a>Często zadawane pytania
 

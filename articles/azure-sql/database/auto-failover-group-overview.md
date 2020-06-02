@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 2/10/2020
-ms.openlocfilehash: bea815dbf9f0da6c0acda000478203f514b2fb2f
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: d32670ba79bd526c8f53438bf348323084f99928
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220380"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84258576"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Używanie grup z obsługą trybu failover w celu zapewnienia przezroczystej i skoordynowanej pracy w trybie failover wielu baz danych
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -309,8 +309,8 @@ Załóżmy, że wystąpienie A jest wystąpieniem podstawowym, wystąpienie B je
 ### <a name="enable-scenarios-dependent-on-objects-from-the-system-databases"></a>Włącz scenariusze zależne od obiektów z systemowych baz danych
 Systemowe bazy danych nie są replikowane do wystąpienia dodatkowego w grupie trybu failover. Aby włączyć scenariusze, które są zależne od obiektów z systemowych baz danych, w wystąpieniu pomocniczym upewnij się, że utworzono te same obiekty na pomocniczym. Na przykład jeśli planujesz używać tych samych nazw logowania w wystąpieniu pomocniczym, upewnij się, że zostały one utworzone przy użyciu identycznego identyfikatora SID. 
 ```SQL
--- Sample code to create login on the secondary instance
-CREATE LOGIN foo WITH PASSWORD = 'password', SID = 0x12345
+-- Code to create login on the secondary instance
+CREATE LOGIN foo WITH PASSWORD = '<enterStrongPasswordHere>', SID = <login_sid>;
 ``` 
 
 

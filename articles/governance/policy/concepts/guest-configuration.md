@@ -3,16 +3,16 @@ title: Dowiedz się, jak przeprowadzić inspekcję zawartości maszyn wirtualnyc
 description: Dowiedz się, w jaki sposób Azure Policy używa agenta konfiguracji gościa do inspekcji ustawień wewnątrz maszyn wirtualnych.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6ff24f14281712497798f2c5231a8d98d7d89055
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: f37364f62550a76360ea0dbb35b92f8aac67f22f
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684280"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259154"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Opis konfiguracji gościa Azure Policy
 
-Poza inspekcją i [korygowaniem](../how-to/remediate-resources.md) zasobów platformy Azure, Azure Policy może przeprowadzać inspekcję ustawień wewnątrz maszyny. Taka weryfikacja jest wykonywana przez klienta i rozszerzenie konfiguracji gościa. Rozszerzenie to, obsługiwane za pośrednictwem klienta, umożliwia weryfikację następujących ustawień:
+Azure Policy może przeprowadzać inspekcję ustawień wewnątrz maszyny. Taka weryfikacja jest wykonywana przez klienta i rozszerzenie konfiguracji gościa. Rozszerzenie to, obsługiwane za pośrednictwem klienta, umożliwia weryfikację następujących ustawień:
 
 - Konfiguracja systemu operacyjnego
 - Konfiguracja lub obecność aplikacji
@@ -46,8 +46,8 @@ W poniższej tabeli przedstawiono listę narzędzi lokalnych używanych w poszcz
 
 |System operacyjny|Narzędzie walidacji|Uwagi|
 |-|-|-|
-|Windows|[Konfiguracja żądanego stanu programu Windows PowerShell](/powershell/scripting/dsc/overview/overview) w wersji 2| |
-|Linux|[Chef — Specyfikacja](https://www.chef.io/inspec/)| Jeśli na komputerze nie ma języka Ruby i Python, są one instalowane przez rozszerzenie konfiguracji gościa. |
+|Windows|[Konfiguracja żądanego stanu programu PowerShell](/powershell/scripting/dsc/overview/overview) w wersji 2| Załadowany bezpośrednio do folderu, który jest używany przez Azure Policy. Nie powoduje konfliktu z konfiguracją DSC programu Windows PowerShell. Program PowerShell Core nie został dodany do ścieżki systemowej.|
+|Linux|[Chef — Specyfikacja](https://www.chef.io/inspec/)| Instaluje Chef IN2.2.61 w domyślnej lokalizacji i dodaje ją do ścieżki systemowej. Dependenices dla pakietu inspecy, w tym Ruby i Python, również są zainstalowane. |
 
 ### <a name="validation-frequency"></a>Częstotliwość walidacji
 
@@ -87,7 +87,7 @@ Zasady **DeployIfNotExists** , które dodają rozszerzenie do maszyn wirtualnych
 
 ## <a name="guest-configuration-definition-requirements"></a>Wymagania definicji konfiguracji gościa
 
-Każde uruchomienie inspekcji według konfiguracji gościa wymaga dwóch definicji zasad, definicji **DeployIfNotExists** i definicji **AuditIfNotExists** .
+Każde uruchomienie inspekcji według konfiguracji gościa wymaga dwóch definicji zasad, definicji **DeployIfNotExists** i definicji **AuditIfNotExists** . Definicje zasad **DeployIfNotExists** zarządzają zależnościami dla przeprowadzania inspekcji na poszczególnych komputerach.
 
 Definicja zasad **DeployIfNotExists** weryfikuje i koryguje następujące elementy:
 

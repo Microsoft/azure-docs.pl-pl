@@ -7,22 +7,23 @@ author: zr-msft
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: 14e80f6348772af77c5a53b1d5e9111c4ae8ba9b
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: d550425cc5ab1bdf539464ad120f1ac4f14d4c6e
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402070"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267192"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Korzystanie ze standardowego modułu równoważenia obciążenia jednostki SKU w usłudze Azure Kubernetes Service (AKS)
 
 Aby zapewnić dostęp do aplikacji za pośrednictwem usług Kubernetes Services typu `LoadBalancer` w usłudze Azure Kubernetes Service (AKS), możesz użyć Azure Load Balancer. Moduł równoważenia obciążenia uruchomiony w systemie AKS może być używany jako wewnętrzny lub zewnętrzny moduł równoważenia obciążenia. Wewnętrzny moduł równoważenia obciążenia sprawia, że usługa Kubernetes jest dostępna tylko dla aplikacji działających w tej samej sieci wirtualnej co klaster AKS. Zewnętrzny moduł równoważenia obciążenia otrzymuje co najmniej jeden publiczny adres IP dla ruchu przychodzącego, a usługa Kubernetes jest dostępna zewnętrznie przy użyciu publicznych adresów IP.
 
 Azure Load Balancer jest dostępny w dwóch jednostkach SKU — *podstawowa* i *standardowa*. Domyślnie *standardowa* jednostka SKU jest używana podczas tworzenia klastra AKS. Użycie usługi równoważenia obciążenia ze *standardową* jednostką SKU zapewnia dodatkowe funkcje i funkcje, takie jak większy rozmiar puli zaplecza i strefy dostępności. Ważne jest, aby zrozumieć różnice między *standardowymi* i *podstawowymi* usługami równoważenia obciążenia przed wybraniem, który ma być używany. Po utworzeniu klastra AKS nie można zmienić jednostki SKU modułu równoważenia obciążenia dla tego klastra. Aby uzyskać więcej informacji na temat *podstawowych* i *standardowych* jednostek SKU, zobacz [porównanie jednostki SKU modułu równoważenia obciążenia platformy Azure][azure-lb-comparison].
+Klaster AKS musi używać usługi równoważenia obciążenia ze standardową jednostką SKU do korzystania z wielu pul węzłów, ale ta funkcja nie jest obsługiwana w przypadku podstawowych modułów równoważenia obciążenia SKU, zobacz [Tworzenie i zarządzanie wieloma pulami węzłów klastra w AKS][use-multiple-node-pools].
 
 W tym artykule założono podstawową wiedzę na temat koncepcji Kubernetes i Azure Load Balancer. Aby uzyskać więcej informacji, zobacz [Kubernetes podstawowe pojęcia dotyczące usługi Azure Kubernetes Service (AKS)][kubernetes-concepts] i [co to jest Azure Load Balancer?][azure-lb].
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -297,3 +298,4 @@ Dowiedz się więcej o usługach Kubernetes Services w [dokumentacji usług Kube
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [calculate-required-quota]: #required-quota-for-customizing-allocatedoutboundports
+[use-multiple-node-pools]: use-multiple-node-pools.md

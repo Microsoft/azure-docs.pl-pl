@@ -10,12 +10,12 @@ ms.custom: subject-armqs
 ms.workload: identity
 ms.date: 05/21/2020
 ms.author: rolyon
-ms.openlocfilehash: 56d2647c3da84e9534220e7b237ea24b2b45e8b3
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 4cb25b0398dca05f32f944962e2fc8630ea10870
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83854576"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267651"
 ---
 # <a name="quickstart-add-an-azure-role-assignment-using-an-azure-resource-manager-template"></a>Szybki Start: Dodawanie przypisania roli platformy Azure przy użyciu szablonu Azure Resource Manager
 
@@ -35,7 +35,7 @@ Aby dodać przypisania ról, musisz mieć:
 
 Aby dodać przypisanie roli, należy określić trzy elementy: podmiot zabezpieczeń, definicja roli i zakres. W tym przewodniku szybki start podmiot zabezpieczeń jest używany przez Ciebie lub innego użytkownika w katalogu, definicja roli to [współautor maszyny wirtualnej](built-in-roles.md#virtual-machine-contributor), a zakres to grupa zasobów, którą określisz.
 
-### <a name="review-the-template"></a>Zapoznaj się z szablonem
+### <a name="review-the-template"></a>Przegląd szablonu
 
 Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-rbac-builtinrole-resourcegroup/). Szablon zawiera trzy parametry i sekcję Resources. W sekcji Resources należy zauważyć, że ma ona trzy elementy przypisania roli: podmiot zabezpieczeń, definicja roli i zakres. 
 
@@ -112,7 +112,7 @@ Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego
 
    ![Przypisanie nowej roli](./media/quickstart-role-assignments-template/role-assignment-portal.png)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Aby usunąć przypisanie roli i utworzoną grupę zasobów, wykonaj następujące kroki.
 

@@ -3,12 +3,12 @@ title: Często zadawane pytania — tworzenie kopii zapasowych baz danych platfo
 description: W tym artykule znajdują się odpowiedzi na często zadawane pytania dotyczące tworzenia kopii zapasowych SAP HANA baz danych przy użyciu usługi Azure Backup.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 56f98dddb00eb3ffc87eb27da73066de807a1ee1
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 08e0eaf5f744ebb0ada07a944f627cc1ff1ac496
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83701014"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248808"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Często zadawane pytania — tworzenie kopii zapasowych baz danych SAP HANA na maszynach wirtualnych platformy Azure
 
@@ -86,6 +86,10 @@ Upewnij się, że opcja **Wymuszaj zastępowanie** jest zaznaczona podczas przyw
 ### <a name="why-do-i-see-the-source-and-target-systems-for-restore-are-incompatible-error"></a>Dlaczego widzę błąd "systemy źródłowe i docelowe na potrzeby przywracania są niezgodne"?
 
 Zapoznaj się z SAP HANA Uwaga [1642148](https://launchpad.support.sap.com/#/notes/1642148) , aby zobaczyć, jakie typy przywracania są obecnie obsługiwane.
+
+### <a name="can-i-use-a-backup-of-a-database-running-on-sles-to-restore-to-a-rhel-hana-system-or-vice-versa"></a>Czy można użyć kopii zapasowej bazy danych działającej w usłudze SLES, aby przywrócić systemowi RHEL HANA lub odwrotnie?
+
+Tak, można użyć kopii zapasowych przesyłania strumieniowego wyzwalanych w bazie danych HANA działającej w systemie SLES, aby przywrócić ją do systemu RHEL HANA i na odwrót. Oznacza to, że przywracanie między systemami operacyjnymi jest możliwe przy użyciu kopii zapasowych przesyłania strumieniowego. Należy jednak upewnić się, że system HANA, do którego ma zostać przywrócona, i system HANA używany do przywracania, są zgodne do przywracania w zależności od SAP. Zapoznaj się z SAP HANA Uwaga [1642148](https://launchpad.support.sap.com/#/notes/1642148) , aby zobaczyć, które typy przywracania są zgodne.
 
 ## <a name="next-steps"></a>Następne kroki
 

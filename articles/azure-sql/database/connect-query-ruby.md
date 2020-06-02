@@ -1,6 +1,7 @@
 ---
 title: Używanie języka Ruby do wykonywania zapytań
-description: W tym temacie przedstawiono sposób użycia języka Ruby do utworzenia programu, który nawiązuje połączenie z bazą danych w Azure SQL Database i wykonuje zapytania przy użyciu instrukcji Transact-SQL.
+description: W tym temacie pokazano, jak utworzyć program, który nawiązuje połączenie z bazą danych i wykonać zapytania przy użyciu instrukcji języka Transact-SQL.
+titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -10,24 +11,24 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/25/2019
-ms.openlocfilehash: d8d5ca8c6d583ec50788ef42632a07310d043f41
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 05/29/2020
+ms.openlocfilehash: c297a40a5452938d8e706bf2e0791e4a7d03210c
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84189075"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267294"
 ---
-# <a name="quickstart-use-ruby-to-query-a-database-in-azure-sql-database"></a>Szybki Start: używanie języka Ruby do wykonywania zapytań w bazie danych w Azure SQL Database
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+# <a name="quickstart-use-ruby-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Szybki Start: używanie języka Ruby do wykonywania zapytań w bazie danych w Azure SQL Database lub wystąpieniu zarządzanym Azure SQL
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Ten przewodnik Szybki Start przedstawia sposób nawiązywania połączeń z bazą danych w Azure SQL Database i wykonywanie zapytań dotyczących danych [za pomocą instrukcji](https://www.ruby-lang.org) języka Transact-SQL.
+Ten przewodnik Szybki Start przedstawia sposób nawiązywania połączeń z bazą danych i zapytań [przy użyciu instrukcji](https://www.ruby-lang.org) języka Transact-SQL.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Do wykonania kroków tego przewodnika Szybki start niezbędne jest spełnienie następujących wymagań wstępnych:
 
-- Baza danych w Azure SQL Database. Możesz użyć jednego z tych przewodników Szybki Start, aby utworzyć i skonfigurować bazę danych:
+- Baza danych programu. Możesz użyć jednego z tych przewodników Szybki Start, aby utworzyć i skonfigurować bazę danych:
 
   || Baza danych SQL | Wystąpienie zarządzane SQL | Program SQL Server na maszynie wirtualnej platformy Azure |
   |:--- |:--- |:---|:---|

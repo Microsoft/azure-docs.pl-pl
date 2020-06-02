@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 204fd1b1a0a2984886684bbabf33dc7e73c1b45c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c2e18919b287713f59ba8785006c952134994be0
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83653544"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84258372"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Wykonywanie zapytań dotyczących plików magazynu za pomocą zasobów SQL na żądanie (wersja zapoznawcza) w programie Synapse SQL
 
@@ -66,7 +66,7 @@ Aby wykonać zapytanie dotyczące danych źródłowych Parquet, użyj formatu = 
 OPENROWSET
 (
     { BULK 'data_file' ,
-    { FORMATFILE = 'format_file_path' [ <bulk_options>] | SINGLE_BLOB | SINGLE_CLOB | SINGLE_NCLOB } }
+    { FORMATFILE = 'format_file_path' [ <bulk_options>] } }
 )
 AS table_alias(column_alias,...n)
 <bulk_options> ::=
@@ -105,7 +105,7 @@ Aby określić kolumny, które mają zostać odczytane, możesz podać opcjonaln
 OPENROWSET
 ...
 | BULK 'data_file',
-{ FORMATFILE = 'format_file_path' [ <bulk_options>] | SINGLE_BLOB | SINGLE_CLOB | SINGLE_NCLOB } }
+{ FORMATFILE = 'format_file_path' [ <bulk_options>] } }
 ) AS table_alias(column_alias,...n) | WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
 ```
 

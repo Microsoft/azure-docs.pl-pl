@@ -1,6 +1,7 @@
 ---
 title: Używanie języka Python do wykonywania zapytań w bazie danych
 description: W tym temacie przedstawiono sposób użycia języka Python do utworzenia programu, który nawiązuje połączenie z bazą danych w Azure SQL Database i wykonuje zapytania przy użyciu instrukcji Transact-SQL.
+titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -10,18 +11,18 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/25/2019
-ms.openlocfilehash: 4a6bcee7e2868c80491471640f33bb7709f740a5
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 05/29/2020
+ms.openlocfilehash: 1d1d4ca6d3ccd20d851f0a88d1879f9e9a8175c4
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84189172"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267328"
 ---
-# <a name="quickstart-use-python-to-query-a-database-in-azure-sql-database"></a>Szybki Start: używanie języka Python do wykonywania zapytań w bazie danych w Azure SQL Database
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+# <a name="quickstart-use-python-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Szybki Start: używanie języka Python do wykonywania zapytań w bazie danych w Azure SQL Database lub wystąpieniu zarządzanym Azure SQL
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-W tym przewodniku szybki start nawiążesz połączenie z bazą danych Azure SQL Database przy użyciu języka Python i używasz instrukcji języka T-SQL do wykonywania zapytań dotyczących danych.
+W tym przewodniku szybki start używasz języka Python do nawiązywania połączenia z usługą Azure SQL Database lub wystąpieniem zarządzanym usługi Azure SQL i używasz instrukcji T-SQL do wykonywania zapytań dotyczących danych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 

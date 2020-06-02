@@ -9,48 +9,51 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.date: 05/19/2020
-ms.openlocfilehash: 75c8d52a750567d3b34ad2aea236477ca8c97245
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 24a34ae6f00eca7154021162184f5e71503da06b
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171416"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248332"
 ---
 # <a name="getting-started-with-azure-synapse-analytics"></a>Wprowadzenie z usługą Azure Synapse Analytics
 
-Ten samouczek przeprowadzi Cię przez wszystkie podstawowe kroki niezbędne do skonfigurowania usługi Azure Synapse Analytics i korzystania z niej.
+Ten dokument przeprowadzi Cię przez wszystkie podstawowe kroki niezbędne do skonfigurowania usługi Azure Synapse Analytics i korzystania z niej.
 
 ## <a name="prepare-a-storage-account-for-use-with-a-synapse-workspace"></a>Przygotowywanie konta magazynu do użycia z obszarem roboczym Synapse
 
 * Otwórz [Azure Portal](https://portal.azure.com)
 * Utwórz nowe konto magazynu z następującymi ustawieniami:
+
     |Tab|Ustawienie | Sugerowana wartość | Opis |
     |---|---|---|---|
-    |Podstawy|**Nazwa konta magazynu**| Możesz nadać mu dowolną nazwę.|W tym dokumencie odwołujemy się do niego jako `contosolake` .|
-    |Podstawy|**Rodzaj konta**|Musi być ustawiona na`StorageV2`||
-    |Podstawy|**Lokalizacja**|Możesz wybrać dowolną lokalizację| Zalecamy, aby obszar roboczy Synapse i konto Azure Data Lake Storage (ADLS) Gen2 są w tym samym regionie.|
-    |Zaawansowany|**Data Lake Storage Gen2**|`Enabled`| Usługa Azure Synapse działa tylko z kontami magazynu, na których to ustawienie jest włączone.|
+    |Informacje podstawowe|**Nazwa konta magazynu**| Możesz nadać mu dowolną nazwę.|W tym dokumencie odwołujemy się do niego jako `contosolake` .|
+    |Informacje podstawowe|**Rodzaj konta**|Musi być ustawiona na`StorageV2`||
+    |Informacje podstawowe|**Lokalizacja**|Możesz wybrać dowolną lokalizację| Zalecamy, aby obszar roboczy Synapse i konto Azure Data Lake Storage (ADLS) Gen2 są w tym samym regionie.|
+    |Zaawansowane|**Data Lake Storage Gen2**|`Enabled`| Usługa Azure Synapse działa tylko z kontami magazynu, na których to ustawienie jest włączone.|
 
 1. Po utworzeniu konta magazynu wybierz pozycję **Kontrola dostępu (IAM)** na lewym pasku nawigacyjnym. Następnie przypisz poniższe role lub upewnij się, że zostały już przypisane. 
+
     a. * Przypisz siebie do roli **właściciela** na koncie magazynu b. * Przypisz siebie do roli **właściciela danych obiektów blob magazynu** na koncie magazynu
-1. W okienku nawigacji po lewej stronie wybierz pozycję **kontenery** i Utwórz kontener. Możesz nadać mu dowolną nazwę. Zaakceptuj domyślny **poziom dostępu publicznego**. W tym dokumencie wywołamy kontener `users` . Wybierz przycisk **Utwórz**. 
+
+1. W okienku nawigacji po lewej stronie wybierz pozycję **kontenery** i Utwórz kontener. Możesz nadać mu dowolną nazwę. Zaakceptuj domyślny **poziom dostępu publicznego**. W tym dokumencie wywołamy kontener `users` . Wybierz pozycję **Utwórz**. 
+
+W poniższym kroku zostanie skonfigurowany obszar roboczy Synapse do używania tego konta magazynu jako konta magazynu "podstawowe" i kontenera do przechowywania danych obszaru roboczego. Obszar roboczy będzie przechowywać dane w tabelach Apache Spark i dziennikach aplikacji platformy Spark na tym koncie w folderze o nazwie `/synapse/workspacename` .
 
 ## <a name="create-a-synapse-workspace"></a>Tworzenie obszaru roboczego Synapse
 
 * Otwórz [Azure Portal](https://portal.azure.com) i Znajdź na początku `Synapse` .
 * W wynikach wyszukiwania w obszarze **usługi**wybierz pozycję **Azure Synapse Analytics (obszary robocze — wersja zapoznawcza)**
-* Wybierz pozycję **+ Dodaj** , aby utworzyć nowy obszar roboczy z tymi ustawieniami
+* Wybierz pozycję **+ Dodaj** , aby utworzyć obszar roboczy przy użyciu tych ustawień
 
     |Tab|Ustawienie | Sugerowana wartość | Opis |
     |---|---|---|---|
-    |Podstawy|**Nazwa obszaru roboczego**|Możesz wywoływać wszystko.| W tym dokumencie będziemy używać`myworkspace`|
-    |Podstawy|**Region**|Dopasuj region konta magazynu|
+    |Informacje podstawowe|**Nazwa obszaru roboczego**|Możesz wywoływać wszystko.| W tym dokumencie będziemy używać`myworkspace`|
+    |Informacje podstawowe|**Region**|Dopasuj region konta magazynu|
 
 1. W obszarze **wybierz Data Lake Storage Gen 2**wybierz wcześniej utworzone konto i kontener.
-    > [!NOTE]
-    > Odwołujemy się do konta magazynu wybranego w tym miejscu jako podstawowego konta magazynu obszaru roboczego Synapse. To konto jest używane do przechowywania danych w tabelach platformy Apache Spark oraz dla dzienników utworzonych podczas tworzenia pul platformy Spark lub uruchamiania aplikacji Spark.
 
-1. Wybierz pozycję **Przegląd + utwórz**. Wybierz przycisk **Utwórz**. Obszar roboczy będzie gotowy w ciągu kilku minut.
+1. Wybierz pozycję **Przegląd + utwórz**. Wybierz pozycję **Utwórz**. Obszar roboczy będzie gotowy w ciągu kilku minut.
 
 ## <a name="verify-the-synapse-workspace-msi-has-access-to-the-storage-account"></a>Sprawdź, czy plik MSI obszaru roboczego Synapse ma dostęp do konta magazynu
 
@@ -61,7 +64,7 @@ Mogło to być już zrobione. W każdym przypadku należy zweryfikować.
     a. Przypisz tożsamość obszaru roboczego do roli **współautor danych obiektów blob magazynu** na koncie magazynu. Tożsamość obszaru roboczego ma taką samą nazwę jak obszar roboczy. W tym dokumencie nazwa obszaru roboczego to, że `myworkspace` tożsamość obszaru roboczego to`myworkspaced`
 1. Wybierz pozycję **Zapisz**.
     
-## <a name="launch-synapse-studio"></a>Uruchom Synapse Studio
+## <a name="launch-synapse-studio"></a>Uruchamianie programu Synapse Studio
 
 Po utworzeniu obszaru roboczego Synapse masz dwa sposoby otwierania Synapse Studio:
 * Otwórz obszar roboczy Synapse w [Azure Portal](https://portal.azure.com) i w górnej części sekcji **Przegląd** wybierz pozycję **Uruchom Synapse Studio** .
@@ -70,10 +73,6 @@ Po utworzeniu obszaru roboczego Synapse masz dwa sposoby otwierania Synapse Stud
 ## <a name="create-a-sql-pool"></a>Tworzenie puli SQL
 
 1. W programie Synapse Studio w obszarze nawigacji po lewej stronie wybierz pozycję **zarządzaj > pule SQL**
-
-    > [!NOTE] 
-    > Wszystkie obszary robocze Synapse są dostarczane ze wstępnie utworzoną pulą o nazwie **SQL na żądanie**.
-
 1. Wybierz pozycję **+ Nowy** i wprowadź następujące ustawienia:
 
     |Ustawienie | Sugerowana wartość | 
@@ -82,14 +81,9 @@ Po utworzeniu obszaru roboczego Synapse masz dwa sposoby otwierania Synapse Stud
     |**Poziom wydajności**|`DW100C`|
 
 1. Wybierz pozycję **Recenzja + Utwórz** , a następnie wybierz pozycję **Utwórz**.
-1. Pula SQL będzie gotowa w ciągu kilku minut.
+1. Pula SQL będzie gotowa w ciągu kilku minut. Po utworzeniu puli SQL zostanie ona skojarzona z bazą danych puli SQL o nazwie **SQLDB1**.
 
-    > [!NOTE]
-    > Synapse Pula programu SQL odpowiada na to, co jest używane jako "Azure SQL Data Warehouse"
-
-Pula SQL zużywa zasoby do rozliczenia, o ile jest uruchomiona. W związku z tym można wstrzymać pulę, gdy jest to konieczne, aby obniżyć koszty.
-
-Po utworzeniu puli SQL zostanie ona skojarzona z bazą danych puli SQL o nazwie **SQLDB1**.
+Pula SQL zużywa zasoby do rozliczenia, o ile jest ona aktywna. Pulę można wstrzymać później, aby zmniejszyć koszty.
 
 ## <a name="create-an-apache-spark-pool"></a>Tworzenie puli Apache Spark
 
@@ -113,7 +107,7 @@ Ponieważ są to metadane, nie można uruchamiać ani zatrzymywać pul platformy
 W przypadku działania platformy Spark w Synapse należy określić pulę platformy Spark do użycia. Pula informuje Synapse, ile zasobów platformy Spark ma używać. Płacisz tylko za Thar zasobów. Gdy aktywnie zatrzymasz korzystanie z puli, zasoby przekroczą limit czasu i zostaną przetworzone ponownie.
 
 > [!NOTE]
-> Bazy danych Spark są tworzone niezależnie od pul platformy Spark. Obszar roboczy zawsze ma bazę danych Spark o nazwie **default** i można utworzyć dodatkowe bazy danych platformy Spark.
+> Bazy danych Spark są tworzone niezależnie od pul platformy Spark. Obszar roboczy zawsze ma bazę danych Spark o nazwie **default** i można utworzyć dodatkowe bazy danych Spark.
 
 ## <a name="the-sql-on-demand-pool"></a>Pula na żądanie SQL
 
@@ -136,7 +130,7 @@ Każdy obszar roboczy jest dostarczany z wbudowaną i nieusuwającą pulą o naz
 1. Przejdź do **SQLDB1 > tabel**. Zobaczysz kilka tabel, które zostały załadowane.
 1. Kliknij prawym przyciskiem myszy obiekt **dbo. Tabela podróży** i wybierz **Nowy skrypt SQL > zaznacz pierwsze 100 wierszy**
 1. Zostanie utworzony nowy skrypt SQL i zostanie on automatycznie uruchomiony.
-1. Zwróć uwagę, że u góry skryptu SQL **połączenie z programem** jest automatycznie ustawiana na pulę SQL o nazwie SQLDB1.
+1. Zwróć uwagę, że w górnej części skryptu SQL **połączenie z programem** jest automatycznie ustawiana na pulę SQL o nazwie `SQLDB1` .
 1. Zastąp tekst skryptu SQL tym kodem i uruchom go.
 
     ```sql
@@ -154,7 +148,7 @@ Każdy obszar roboczy jest dostarczany z wbudowaną i nieusuwającą pulą o naz
 
 ## <a name="load-the-nyc-taxi-sample-data-into-the-spark-nyctaxi-database"></a>Ładowanie przykładowych danych z NYC taksówki do bazy danych Spark nyctaxi
 
-W tabeli w programie są dostępne dane `SQLDB1` . Teraz ładujemy go do bazy danych Spark o nazwie "nyctaxi".
+W tabeli w programie są dostępne dane `SQLDB1` . Teraz ładujemy go do bazy danych Spark o nazwie `nyctaxi` .
 
 1. W programie Synapse Studio przejdź do centrum **opracowywania**
 1. Wybierz **+** i wybierz **Notes**
@@ -286,8 +280,8 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
 1. Wybierz pozycję **połączone**
 1. Przejdź do **konta magazynu > contosolake (podstawowa-niestandardowa)**
 1. Wybierz **użytkowników (podstawowy) "**
-1. Powinien pojawić się folder o nazwie "NYCTaxi". Wewnątrz powinny być widoczne dwa foldery "PassengerCountStats. csv" i "PassengerCountStats. Parquet".
-1. Przejdź do folderu "PassengerCountStats. Parquet".
+1. Powinien pojawić się folder o nazwie `NYCTaxi` . Wewnątrz powinny być widoczne dwa foldery `PassengerCountStats.csv` i `PassengerCountStats.parquet` .
+1. Przejdź do `PassengerCountStats.parquet` folderu.
 1. Kliknij prawym przyciskiem myszy plik Parquet wewnątrz, a następnie wybierz pozycję **Nowy Notes**, spowoduje utworzenie notesu z komórką w następujący sposób:
 
     ```py
@@ -333,7 +327,7 @@ Obszar roboczy Power BI można połączyć z obszarem roboczym Synapse. Dzięki 
     |**Nazwa**|`NYCTaxiWorkspace1`|
     |**Nazwa obszaru roboczego**|`NYCTaxiWorkspace1`|
         
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ### <a name="create-a-power-bi-dataset-that-uses-data-in-your-synapse-workspace"></a>Tworzenie Power BI zestawu danych, który używa danych w obszarze roboczym Synapse
 
@@ -344,7 +338,7 @@ Obszar roboczy Power BI można połączyć z obszarem roboczym Synapse. Dzięki 
 1. Spowoduje to uruchomienie Power BI pulpicie i automatyczne połączenie go z usługą `SQLDB1` w obszarze roboczym Synapse.
 1. Jeśli zostanie wyświetlone okno dialogowe o nazwie **baza danych programu SQL Server**: a. Wybierz **konto Microsoft**. 
     b. Wybierz pozycję **Zaloguj** się i zaloguj się.
-    c. Wybierz pozycję **Połącz**.
+    d. Wybierz pozycję **Połącz**.
 1. Zostanie otwarte okno dialogowe **Nawigator** . Gdy tak jest, sprawdź tabelę **PassengerCountStats** i wybierz pozycję **Load (ładowanie**).
 1. Zostanie wyświetlone okno dialogowe **Ustawienia połączenia** . Wybierz **zapytanie** bezpośrednie i wybierz **przycisk OK**
 1. Wybierz przycisk **raportu** po lewej stronie.

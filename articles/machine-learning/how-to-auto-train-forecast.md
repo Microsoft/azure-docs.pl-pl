@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: 4bb32418a9f6f556c3bcdfbdf8a70a10c4588218
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: bfb53893031300926944ca97a760aec199f699c0
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83646145"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266444"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Autouczenie modelu prognozowania szeregów czasowych
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -55,7 +55,7 @@ Automatyczna ML zapewnia użytkownikom zarówno natywne, jak i bogate modele ucz
 
 Modele| Opis | Korzyści
 ----|----|---
-Prophet (wersja zapoznawcza)|Prophet działa najlepiej z seriami czasowymi, które mają silne skutki sezonowe i kilka sezonów danych historycznych. | Dokładne & szybka, niezawodna do wartości odstających, brakujących danych i znaczących zmian w szeregach czasowych.
+Prophet (wersja zapoznawcza)|Prophet działa najlepiej z seriami czasowymi, które mają silne skutki sezonowe i kilka sezonów danych historycznych. Aby skorzystać z tego modelu, zainstaluj go lokalnie przy użyciu `pip install fbprophet` . | Dokładne & szybka, niezawodna do wartości odstających, brakujących danych i znaczących zmian w szeregach czasowych.
 AutoARIMA (wersja zapoznawcza)|AutoRegressive zintegrowanej średniej ruchomej (ARIMA) najlepiej sprawdza się, gdy dane są nieruchome. Oznacza to, że właściwości statystyczne, takie jak średnia i Wariancja, są stałe dla całego zestawu. Na przykład, jeśli przerzucasz monety, prawdopodobieństwo uzyskania głów wynosi 50%, bez względu na to, że przewracasz dzisiaj, jutro lub w następnym roku.| Świetnie dla serii univariate, ponieważ przeszłe wartości są używane do przewidywania przyszłych wartości.
 ForecastTCN (wersja zapoznawcza)| ForecastTCN to model sieci neuronowych zaprojektowany z myślą o najbardziej wymagających zadaniach prognozowania, przechwytującym nieliniowe i globalne trendy w danych, a także relacje między seriami czasowymi.|Można wykorzystać złożone trendy w danych i łatwo skalować je do największych z nich.
 

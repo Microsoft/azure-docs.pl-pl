@@ -3,12 +3,12 @@ title: Zaawansowane tematy dotyczące uaktualniania aplikacji
 description: W tym artykule omówiono niektóre zaawansowane tematy dotyczące uaktualniania aplikacji Service Fabric.
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: a12d2ec55bda95c1c61d4a73c76f4a777f4237f2
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 98d8213cc50f73ef2c053e1fe5574fe33a2f3cb6
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81414502"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84263095"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Uaktualnianie aplikacji Service Fabric: Tematy zaawansowane
 
@@ -20,18 +20,18 @@ Podobnie typy usług można usunąć z aplikacji w ramach uaktualnienia. Jednak 
 
 ## <a name="avoid-connection-drops-during-stateless-service-planned-downtime"></a>Unikaj przerw w działaniu podczas planowanego przestoju usługi bezstanowej
 
-W przypadku planowanych przestojów wystąpienia bezstanowego, takich jak Uaktualnianie aplikacji/klastra lub dezaktywacja węzła, połączenia mogą zostać porzucone, ponieważ narażony punkt końcowy jest usuwany po przekroczeniu wystąpienia, które powoduje wymuszone zamknięcie połączenia.
+W przypadku planowanych przestojów wystąpień bezstanowych, takich jak Uaktualnianie aplikacji/klastra lub dezaktywacja węzła, połączenia mogą zostać porzucone, ponieważ narażony punkt końcowy zostaje usunięty po przejściu wystąpienia w dół, co spowoduje wymuszenie zamknięcia połączenia.
 
-Aby tego uniknąć, należy skonfigurować funkcję *RequestDrain* (wersja zapoznawcza), dodając *czas trwania opóźnienia zamknięcia wystąpienia* w konfiguracji usługi, aby zezwolić na opróżnianie podczas otrzymywania żądań z innych usług w klastrze i korzystania z zwrotnego serwera proxy lub przy użyciu rozwiązania rozpoznawania API z modelem powiadomień w celu aktualizowania punktów końcowych. Dzięki temu punkt końcowy anonsowany przez wystąpienie bezstanowe zostanie usunięty *przed* rozpoczęciem opóźnienia przed zamknięciem wystąpienia. To opóźnienie umożliwia bezpieczne opróżnianie istniejących żądań przed faktycznym przekroczeniem wystąpienia. Klienci są powiadamiani o zmianie punktu końcowego przez funkcję wywołania zwrotnego w chwili rozpoczęcia opóźnienia, dzięki czemu mogą oni rozwiązać ten punkt końcowy i uniknąć wysyłania nowych żądań do wystąpienia, które się nie zmieniło.
+Aby tego uniknąć, należy skonfigurować funkcję *RequestDrain* , dodając *czas opóźnienia zamknięcia wystąpienia* w konfiguracji usługi, aby zezwolić na opróżnianie istniejących żądań z klastra na wyznaczonych punktach końcowych. Jest to osiągane, ponieważ punkt końcowy anonsowany przez wystąpienie bezstanowe jest usuwany *przed* rozpoczęciem oczekiwania przed zamknięciem wystąpienia. To opóźnienie umożliwia bezpieczne opróżnianie istniejących żądań przed faktycznym przekroczeniem wystąpienia. Klienci są powiadamiani o zmianie punktu końcowego przez funkcję wywołania zwrotnego w chwili rozpoczęcia opóźnienia, dzięki czemu mogą oni rozwiązać ten punkt końcowy i uniknąć wysyłania nowych żądań do wystąpienia, które się nie zmieniło. Te żądania mogą pochodzić z klientów przy użyciu [zwrotnego serwera proxy](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) lub interfejsu API rozpoznawania punktów końcowych usługi z modelem powiadomień ([ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription)) w celu zaktualizowania punktów końcowych.
 
 ### <a name="service-configuration"></a>Konfiguracja usługi
 
 Istnieje kilka sposobów konfigurowania opóźnienia po stronie usługi.
 
- * **Podczas tworzenia nowej usługi**należy określić `-InstanceCloseDelayDuration`:
+ * **Podczas tworzenia nowej usługi**należy określić `-InstanceCloseDelayDuration` :
 
     ```powershell
-    New-ServiceFabricService -Stateless [-ServiceName] <Uri> -InstanceCloseDelayDuration <TimeSpan>`
+    New-ServiceFabricService -Stateless [-ServiceName] <Uri> -InstanceCloseDelayDuration <TimeSpan>
     ```
 
  * **Podczas definiowania usługi w sekcji wartości domyślne w manifeście aplikacji**Przypisz `InstanceCloseDelayDurationSeconds` Właściwość:
@@ -42,10 +42,37 @@ Istnieje kilka sposobów konfigurowania opóźnienia po stronie usługi.
           </StatelessService>
     ```
 
- * **Podczas aktualizowania istniejącej usługi**należy określić `-InstanceCloseDelayDuration`:
+ * **Podczas aktualizowania istniejącej usługi**należy określić `-InstanceCloseDelayDuration` :
 
     ```powershell
     Update-ServiceFabricService [-Stateless] [-ServiceName] <Uri> [-InstanceCloseDelayDuration <TimeSpan>]`
+    ```
+
+ * **Podczas tworzenia lub aktualizowania istniejącej usługi za pomocą szablonu ARM**Określ `InstanceCloseDelayDuration` wartość (Minimalna obsługiwana wersja interfejsu API: 2019-11-01-Preview):
+
+    ```ARM template to define InstanceCloseDelayDuration of 30seconds
+    {
+      "apiVersion": "2019-11-01-preview",
+      "type": "Microsoft.ServiceFabric/clusters/applications/services",
+      "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'), '/', parameters('serviceName'))]",
+      "location": "[variables('clusterLocation')]",
+      "dependsOn": [
+        "[concat('Microsoft.ServiceFabric/clusters/', parameters('clusterName'), '/applications/', parameters('applicationName'))]"
+      ],
+      "properties": {
+        "provisioningState": "Default",
+        "serviceKind": "Stateless",
+        "serviceTypeName": "[parameters('serviceTypeName')]",
+        "instanceCount": "-1",
+        "partitionDescription": {
+          "partitionScheme": "Singleton"
+        },
+        "serviceLoadMetrics": [],
+        "servicePlacementPolicies": [],
+        "defaultMoveCost": "",
+        "instanceCloseDelayDuration": "00:00:30.0"
+      }
+    }
     ```
 
 ### <a name="client-configuration"></a>Konfiguracja klientów
@@ -55,7 +82,7 @@ Powiadomienie o zmianie to wskazanie, że punkty końcowe uległy zmianie, klien
 
 ### <a name="optional-upgrade-overrides"></a>Opcjonalne zastąpienia uaktualnienia
 
-Oprócz ustawiania domyślnych czasów opóźnienia dla każdej usługi można również zastąpić opóźnienie podczas uaktualniania aplikacji/klastra, korzystając z tej samej opcji (`InstanceCloseDelayDurationSec`):
+Oprócz ustawiania domyślnych czasów opóźnienia dla każdej usługi można również zastąpić opóźnienie podczas uaktualniania aplikacji/klastra, korzystając z tej samej `InstanceCloseDelayDurationSec` opcji ():
 
 ```powershell
 Start-ServiceFabricApplicationUpgrade [-ApplicationName] <Uri> [-ApplicationTypeVersion] <String> [-InstanceCloseDelayDurationSec <UInt32>]
@@ -63,15 +90,17 @@ Start-ServiceFabricApplicationUpgrade [-ApplicationName] <Uri> [-ApplicationType
 Start-ServiceFabricClusterUpgrade [-CodePackageVersion] <String> [-ClusterManifestVersion] <String> [-InstanceCloseDelayDurationSec <UInt32>]
 ```
 
-Czas trwania opóźnienia dotyczy tylko wywołanego wystąpienia uaktualnienia i nie zmienia w inny sposób indywidualnych konfiguracji opóźnienia usługi. Na przykład można użyć tego do określenia opóźnienia `0` , aby pominąć wszystkie wstępnie skonfigurowane opóźnienia uaktualniania.
+Zastąpiony czas opóźnienia dotyczy tylko wywołanego wystąpienia uaktualnienia i nie zmienia w inny sposób indywidualnych konfiguracji opóźnienia usługi. Na przykład można użyć tego do określenia opóźnienia, `0` Aby pominąć wszystkie wstępnie skonfigurowane opóźnienia uaktualniania.
 
 > [!NOTE]
-> Ustawienie opróżniania żądań nie jest honorowane w przypadku żądań z modułu równoważenia obciążenia platformy Azure. Ustawienie nie jest honorowane, jeśli usługa wywołująca korzysta z rozwiązania do rozwiązywania problemów.
+> * Ustawienia do opróżniania żądań nie będą mogły uniemożliwiać wysyłania nowych żądań do punktów końcowych, które są opróżniane przez moduł równoważenia obciążenia platformy Azure.
+> * Mechanizm rozpoznawania na podstawie skargi nie spowoduje bezpiecznego opróżniania żądań, ponieważ wyzwala rozwiązanie usługi po awarii. Zgodnie z wcześniejszym opisem należy je rozszerzyć, aby subskrybować powiadomienia o zmianach w punktach końcowych za pomocą [ServiceNotificationFilterDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
+> * Ustawienia nie są honorowane, gdy uaktualnienie jest bez wpływu na to gdy repliki nie zostaną przesunięte podczas uaktualniania.
 >
 >
 
 > [!NOTE]
-> Tę funkcję można skonfigurować w istniejących usługach za pomocą polecenia cmdlet Update-ServiceFabricService, jak wspomniano powyżej, gdy wersja kodu klastra to 7.1.XXX lub nowszy.
+> Tę funkcję można skonfigurować w istniejących usługach za pomocą polecenia cmdlet Update-ServiceFabricService lub szablonu ARM, jak wspomniano powyżej, gdy wersja kodu klastra to 7.1.XXX lub nowszy.
 >
 >
 

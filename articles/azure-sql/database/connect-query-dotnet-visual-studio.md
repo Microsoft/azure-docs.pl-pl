@@ -1,6 +1,7 @@
 ---
 title: Używanie programu Visual Studio z platformą .NET i C# do wykonywania zapytań
-description: Użyj programu Visual Studio, aby utworzyć aplikację w języku C#, która łączy się z bazą danych w Azure SQL Database i wykonuje zapytania za pomocą instrukcji języka Transact-SQL.
+description: Użyj programu Visual Studio, aby utworzyć aplikację w języku C#, która łączy się z bazą danych w Azure SQL Database lub wystąpieniu zarządzanym usługi Azure SQL i uruchamia zapytania.
+titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -10,16 +11,16 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 12/31/2019
-ms.openlocfilehash: 37567e09fc87a8677934ede4f110d029902c1373
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 05/29/2020
+ms.openlocfilehash: 94f005ee4b2542e4cc0908880d589a2ee6a4d798
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84189560"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267430"
 ---
-# <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-a-database-in-azure-sql-database"></a>Szybki Start: używanie platformy .NET i języka C# w programie Visual Studio do nawiązywania połączeń z bazą danych i wykonywania w niej zapytań w Azure SQL Database
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+# <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Szybki Start: używanie platformy .NET i języka C# w programie Visual Studio do łączenia się z bazą danych i wykonywania w niej zapytań w Azure SQL Database lub wystąpienia zarządzanego Azure SQL
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 W tym przewodniku szybki start pokazano, jak używać kodu [.NET Framework](https://www.microsoft.com/net/) i C# w programie Visual Studio do wykonywania zapytań w bazie danych w Azure SQL Database za pomocą instrukcji języka Transact-SQL.
 

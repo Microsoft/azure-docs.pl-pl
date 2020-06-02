@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.custom: seodec18
-ms.openlocfilehash: 69d4b1d6c67dc63347ec4fb8043427ddf0a42ae1
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 7fccd60ef0312748287d4103d8754bce944d4df6
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83702116"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266461"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Skonfiguruj cele obliczeń i używaj ich do szkolenia modelu 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -138,7 +138,9 @@ W tym scenariuszu Użyj usługi Azure Data Science Virtual Machine (DSVM) jako m
 1. **Utwórz**: Utwórz DSVM przed użyciem go do uczenia modelu. Aby utworzyć ten zasób, zapoznaj [się z tematem obsługa Data Science Virtual Machine dla systemu Linux (Ubuntu)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro).
 
     > [!WARNING]
-    > Azure Machine Learning obsługuje tylko maszyny wirtualne z systemem Ubuntu. Podczas tworzenia maszyny wirtualnej lub wybrania istniejącej maszyny wirtualnej należy wybrać maszynę wirtualną, która używa Ubuntu.
+    > Azure Machine Learning obsługuje tylko maszyny wirtualne z systemem **Ubuntu**. Podczas tworzenia maszyny wirtualnej lub wybrania istniejącej maszyny wirtualnej należy wybrać maszynę wirtualną, która używa Ubuntu.
+    > 
+    > Azure Machine Learning wymaga również, aby maszyna wirtualna miała __publiczny adres IP__.
 
 1. **Dołącz**: Aby dołączyć istniejącą maszynę wirtualną jako element docelowy obliczeń, należy podać identyfikator zasobu, nazwę użytkownika i hasło dla maszyny wirtualnej. Identyfikator zasobu maszyny wirtualnej można utworzyć przy użyciu identyfikatora subskrypcji, nazwy grupy zasobów i nazwy maszyny wirtualnej przy użyciu następującego formatu ciągu:`/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Compute/virtualMachines/<vm_name>`
 
@@ -182,9 +184,12 @@ Usługa Azure HDInsight to popularna platforma do analizy danych Big Data. Platf
 
 1. **Utwórz**: Utwórz klaster usługi HDInsight przed użyciem go do uczenia modelu. Aby utworzyć klaster platformy Spark w usłudze HDInsight, zobacz [Tworzenie klastra Spark w usłudze HDInsight](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-jupyter-spark-sql). 
 
+    > [!WARNING]
+    > Azure Machine Learning wymaga, aby klaster usługi HDInsight miał __publiczny adres IP__.
+
     Podczas tworzenia klastra należy określić nazwę użytkownika i hasło SSH. Zwróć uwagę na te wartości, ponieważ są one potrzebne do korzystania z usługi HDInsight jako elementu docelowego obliczeń.
     
-    Po utworzeniu klastra Połącz się z nim za pomocą nazwy hosta \< clustername>-SSH.azurehdinsight.NET, gdzie \< clustername> jest nazwą dostarczoną dla klastra. 
+    Po utworzeniu klastra Połącz się z nim za pomocą nazwy hosta \<clustername> -SSH.azurehdinsight.NET, gdzie \<clustername> jest nazwą dostarczoną dla klastra. 
 
 1. **Dołącz**: Aby dołączyć klaster usługi HDInsight jako element docelowy obliczeń, należy podać identyfikator zasobu, nazwę użytkownika i hasło dla klastra usługi HDInsight. Identyfikator zasobu klastra usługi HDInsight można utworzyć przy użyciu identyfikatora subskrypcji, nazwy grupy zasobów i nazwy klastra usługi HDInsight przy użyciu następującego formatu ciągu:`/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.HDInsight/clusters/<cluster_name>`
 
@@ -303,7 +308,7 @@ Wykonaj poprzednie kroki, aby wyświetlić listę elementów docelowych oblicze�
 
 1. Wypełnij formularz. Podaj wartości dla wymaganych właściwości, szczególnie **rodziny maszyn wirtualnych**i **maksymalną liczbę węzłów** do użycia w celu uruchomienia obliczeń.  
 
-1. Wybierz przycisk __Utwórz__.
+1. Wybierz pozycję __Utwórz__.
 
 
 1. Wyświetl stan operacji tworzenia, wybierając obiekt docelowy obliczeń z listy:

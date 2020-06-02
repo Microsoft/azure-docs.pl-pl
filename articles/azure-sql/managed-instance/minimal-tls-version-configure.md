@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: ''
 ms.date: 05/25/2020
-ms.openlocfilehash: bf09994e8ebae09771ce110f9284aa3e99fc1816
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 309649fe099d5226ba6a4972e22a4e3d7ff0e526
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84122479"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267124"
 ---
 # <a name="configure-minimal-tls-version-in-azure-sql-managed-instance"></a>Skonfiguruj minimalną wersję protokołu TLS w wystąpieniu zarządzanym usługi Azure SQL
 Ustawienie wersji minimalnej [Transport Layer Security (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) umożliwia klientom kontrolowanie wersji protokołu TLS używanej przez swoje wystąpienie zarządzane usługi Azure SQL.
@@ -24,7 +24,7 @@ Obecnie obsługujemy protokoły TLS 1,0, 1,1 i 1,2. Ustawienie minimalnej wersji
 
 W przypadku klientów mających aplikacje korzystające ze starszych wersji protokołu TLS zalecamy ustawienie minimalnej wersji protokołu TLS zgodnie z wymaganiami aplikacji. W przypadku klientów korzystających z aplikacji do łączenia się z nieszyfrowanym połączeniem nie zaleca się stosowania żadnej minimalnej wersji protokołu TLS. 
 
-Aby uzyskać więcej informacji, zobacz [zagadnienia dotyczące protokołu TLS dotyczące SQL Database łączności](../database/connect-query-content-reference-guide.md#tls-considerations-for-sql-database-connectivity).
+Aby uzyskać więcej informacji, zobacz [zagadnienia dotyczące protokołu TLS dotyczące SQL Database łączności](../database/connect-query-content-reference-guide.md#tls-considerations-for-database-connectivity).
 
 Po ustawieniu minimalnej wersji protokołu TLS próby logowania z klientów korzystających ze starszej wersji protokołu TLS niż minimalna wersja protokołu TLS serwera zakończą się niepowodzeniem z powodu następującego błędu:
 

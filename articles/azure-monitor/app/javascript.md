@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: Dawgfan
 ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: 50ce0d57ec7395c69bf65e41b67f0cb005a43cb8
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: d46b9f9386e8b16d4806e054820cbd82d83ef56b
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82854981"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266992"
 ---
 # <a name="application-insights-for-web-pages"></a>Usługa Application Insights dla stron sieci Web
 
@@ -61,7 +61,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Wysyłanie danych telemetrycznych do Azure Portal
 
-Domyślnie Application Insights zestaw SDK języka JavaScript zbiera wiele elementów telemetrycznych, które są przydatne podczas określania kondycji aplikacji i środowiska użytkownika. Należą do nich następujące elementy:
+Domyślnie Application Insights zestaw SDK języka JavaScript zbiera wiele elementów telemetrycznych, które są przydatne podczas określania kondycji aplikacji i środowiska użytkownika. Należą do nich:
 
 - **Nieprzechwycone wyjątki** w aplikacji, w tym informacje o
     - Ślad stosu
@@ -80,9 +80,9 @@ Domyślnie Application Insights zestaw SDK języka JavaScript zbiera wiele eleme
 - **Informacje o sesji**
 
 ### <a name="telemetry-initializers"></a>Inicjatory telemetrii
-Inicjatory telemetrii są używane do modyfikowania zawartości zebranej telemetrii przed wysłaniem z przeglądarki użytkownika. Można ich również użyć, aby zapobiec wysyłaniu pewnych danych telemetrycznych przez `false`zwrócenie. Do wystąpienia Application Insights można dodać wiele inicjatorów telemetrii i są one wykonywane w celu ich dodania.
+Inicjatory telemetrii są używane do modyfikowania zawartości zebranej telemetrii przed wysłaniem z przeglądarki użytkownika. Można ich również użyć, aby zapobiec wysyłaniu pewnych danych telemetrycznych przez zwrócenie `false` . Do wystąpienia Application Insights można dodać wiele inicjatorów telemetrii i są one wykonywane w celu ich dodania.
 
-Argument wejściowy `addTelemetryInitializer` jest wywołaniem zwrotnym, które przyjmuje [`ITelemetryItem`](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API-reference.md#addTelemetryInitializer) jako argument i zwraca `boolean` lub. `void` W przypadku `false`powrotu element telemetrii nie jest wysyłany, w przeciwnym razie przechodzi do następnego inicjatora telemetrii, jeśli istnieje lub jest wysyłany do punktu końcowego zbierania danych telemetrycznych.
+Argument wejściowy `addTelemetryInitializer` jest wywołaniem zwrotnym, które przyjmuje [`ITelemetryItem`](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API-reference.md#addTelemetryInitializer) jako argument i zwraca `boolean` lub `void` . W przypadku powrotu `false` element telemetrii nie jest wysyłany, w przeciwnym razie przechodzi do następnego inicjatora telemetrii, jeśli istnieje lub jest wysyłany do punktu końcowego zbierania danych telemetrycznych.
 
 Przykład użycia inicjatorów telemetrii:
 ```ts
@@ -97,9 +97,9 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ```
 
 ## <a name="configuration"></a>Konfigurowanie
-Większość pól konfiguracji ma takie nazwy, że można je domyślnie określić jako FAŁSZ. Wszystkie pola są opcjonalne z wyjątkiem `instrumentationKey`.
+Większość pól konfiguracji ma takie nazwy, że można je domyślnie określić jako FAŁSZ. Wszystkie pola są opcjonalne z wyjątkiem `instrumentationKey` .
 
-| Nazwa | Domyślny | Opis |
+| Nazwa | Domyślne | Opis |
 |------|---------|-------------|
 | instrumentationKey | wartość null | **Wymagane**<br>Klucz Instrumentacji uzyskany w Azure Portal. |
 | accountId | wartość null | Opcjonalny identyfikator konta, jeśli aplikacja grupuje użytkowników na kontach. Bez spacji, przecinków, średników, równości lub pionowych słupków |
@@ -109,7 +109,7 @@ Większość pól konfiguracji ma takie nazwy, że można je domyślnie określi
 | maxBatchInterval | 15000 | Jak długo należy wykonać partię danych telemetrycznych przed wysłaniem (w milisekundach) |
 | disableExceptionTracking | fałsz | W przypadku wartości true wyjątki nie są zbierane. Wartość domyślna to false. |
 | disableTelemetry | fałsz | Jeśli wartość jest równa true, dane telemetryczne nie są zbierane ani wysyłane. Wartość domyślna to false. |
-| enableDebug | fałsz | W przypadku wartości true dane debugowania **wewnętrznego** są generowane jako wyjątek **zamiast** rejestrowania, niezależnie od ustawień rejestrowania zestawu SDK. Wartość domyślna to false. <br>***Uwaga:*** Włączenie tego ustawienia spowoduje porzucenie danych telemetrycznych w przypadku wystąpienia błędu wewnętrznego. Może to być przydatne do szybkiego identyfikowania problemów z konfiguracją lub użyciem zestawu SDK. Jeśli nie chcesz utracić danych telemetrycznych podczas debugowania, rozważ użycie `consoleLoggingLevel` lub `telemetryLoggingLevel` zamiast `enableDebug`. |
+| enableDebug | fałsz | W przypadku wartości true dane debugowania **wewnętrznego** są generowane jako wyjątek **zamiast** rejestrowania, niezależnie od ustawień rejestrowania zestawu SDK. Wartość domyślna to false. <br>***Uwaga:*** Włączenie tego ustawienia spowoduje porzucenie danych telemetrycznych w przypadku wystąpienia błędu wewnętrznego. Może to być przydatne do szybkiego identyfikowania problemów z konfiguracją lub użyciem zestawu SDK. Jeśli nie chcesz utracić danych telemetrycznych podczas debugowania, rozważ użycie `consoleLoggingLevel` lub `telemetryLoggingLevel` zamiast `enableDebug` . |
 | loggingLevelConsole | 0 | Rejestruje **wewnętrzne** błędy Application Insights w konsoli programu. <br>0: off, <br>1: tylko błędy krytyczne, <br>2: wszystkiego (błędy & ostrzeżenia) |
 | loggingLevelTelemetry | 1 | Wysyła **wewnętrzne** błędy Application Insights jako dane telemetryczne. <br>0: off, <br>1: tylko błędy krytyczne, <br>2: wszystkiego (błędy & ostrzeżenia) |
 | diagnosticLogInterval | 10 000 | wewnętrz Interwał sondowania (w MS) dla wewnętrznej kolejki rejestrowania |
@@ -136,10 +136,10 @@ Większość pól konfiguracji ma takie nazwy, że można je domyślnie określi
 | appId | wartość null | Identyfikator AppId jest używany dla korelacji między zależnościami AJAX, które są wykonywane po stronie klienta z żądaniami po stronie serwera. Gdy interfejs API sygnałów jest włączony, nie można go użyć automatycznie, ale można ustawić go ręcznie w konfiguracji. Wartość domyślna to null |
 | enableCorsCorrelation | fałsz | Jeśli wartość jest równa true, zestaw SDK doda dwa nagłówki ("Request-ID" i "Request-context") do wszystkich żądań CORS do skorelowania wychodzących zależności AJAX z odpowiednimi żądaniami po stronie serwera. Wartość domyślna to false |
 | namePrefix | definicji | Opcjonalna wartość, która będzie używana jako przyrostkowa nazwa dla localStorage i nazwy pliku cookie.
-| enableAutoRouteTracking | fałsz | Automatyczne śledzenie zmian trasy w aplikacjach jednostronicowych (SPA). Jeśli wartość jest równa true, każda zmiana trasy wyśle nowy pageview do Application Insights. Zmiany trasy mieszania (`example.com/foo#bar`) są również rejestrowane jako nowe widoki stron.
+| enableAutoRouteTracking | fałsz | Automatyczne śledzenie zmian trasy w aplikacjach jednostronicowych (SPA). Jeśli wartość jest równa true, każda zmiana trasy wyśle nowy pageview do Application Insights. Zmiany trasy mieszania ( `example.com/foo#bar` ) są również rejestrowane jako nowe widoki stron.
 | enableRequestHeaderTracking | fałsz | W przypadku wartości true są śledzone nagłówki żądań dla programu AJAX &. wartość domyślna to false.
 | enableResponseHeaderTracking | fałsz | W przypadku wartości true są śledzone nagłówki odpowiedzi żądania pobrania & AJAX, wartość domyślna to false.
-| distributedTracingMode | `DistributedTracingModes.AI` | Ustawia tryb śledzenia rozproszonego. Jeśli ustawiono tryb AI_AND_W3C lub tryb W3C, nagłówki kontekstowe śledzenia W3C (traceparent/tracestate) zostaną wygenerowane i uwzględnione we wszystkich żądaniach wychodzących. AI_AND_W3C jest zapewniana pod kątem zgodności z poprzednimi wersjami Application Insights usługi Instrumentacji.
+| distributedTracingMode | `DistributedTracingModes.AI` | Ustawia tryb śledzenia rozproszonego. Jeśli ustawiono tryb AI_AND_W3C lub tryb W3C, nagłówki kontekstowe śledzenia W3C (traceparent/tracestate) zostaną wygenerowane i uwzględnione we wszystkich żądaniach wychodzących. AI_AND_W3C jest zapewniana pod kątem zgodności z poprzednimi wersjami Application Insights usługi Instrumentacji. Zobacz przykład [tutaj](https://docs.microsoft.com/azure/azure-monitor/app/correlation#enable-w3c-distributed-tracing-support-for-web-apps).
 
 ## <a name="single-page-applications"></a>Aplikacje jednostronicowe
 
@@ -152,7 +152,7 @@ Obecnie oferujemy oddzielną [wtyczkę reakcji](#react-extensions), którą moż
 
 ## <a name="configuration-autotrackpagevisittime"></a>Konfiguracja: autoTrackPageVisitTime
 
-Przez ustawienie `autoTrackPageVisitTime: true`czas, przez jaki użytkownik spędza na każdej stronie, jest śledzony. Na każdym nowym PageView czas trwania, przez który użytkownik spędził na *poprzedniej* stronie, jest wysyłany jako [Metryka niestandardowa](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview) o nazwie `PageVisitTime`. Ta Metryka niestandardowa jest wyświetlana w [Eksplorator metryk](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) jako "Metryka oparta na dzienniku".
+Przez ustawienie `autoTrackPageVisitTime: true` czas, przez jaki użytkownik spędza na każdej stronie, jest śledzony. Na każdym nowym PageView czas trwania, przez który użytkownik spędził na *poprzedniej* stronie, jest wysyłany jako [Metryka niestandardowa](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview) o nazwie `PageVisitTime` . Ta Metryka niestandardowa jest wyświetlana w [Eksplorator metryk](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) jako "Metryka oparta na dzienniku".
 
 ## <a name="react-extensions"></a>Przereaguj rozszerzenia
 
@@ -183,7 +183,7 @@ Wybierz pozycję **przeglądarka** , a następnie wybierz pozycję **Błędy** l
 
 ### <a name="analytics"></a>Analiza
 
-Aby wysłać zapytanie do telemetrii zebranej przez zestaw JavaScript SDK, wybierz przycisk **Wyświetl w dziennikach (analiza)** . Po dodaniu `where` instrukcji programu `client_Type == "Browser"`widoczne będą tylko dane z zestawu SDK języka JavaScript, a wszystkie Telemetria po stronie serwera zebrane przez inne zestawy SDK zostaną wykluczone.
+Aby wysłać zapytanie do telemetrii zebranej przez zestaw JavaScript SDK, wybierz przycisk **Wyświetl w dziennikach (analiza)** . Po dodaniu `where` instrukcji programu `client_Type == "Browser"` widoczne będą tylko dane z zestawu SDK języka JavaScript, a wszystkie Telemetria po stronie serwera zebrane przez inne zestawy SDK zostaną wykluczone.
  
 ```kusto
 // average pageView duration by name
@@ -220,7 +220,7 @@ Aby zapoznać się z lekkim doświadczeniem, możesz zamiast tego zainstalować 
 ```
 npm i --save @microsoft/applicationinsights-web-basic
 ```
-Ta wersja zawiera minimalną liczbę funkcji i funkcjonalności systemu operacyjnego i polega na tym, że można ją skompilować w taki sam sposób, jak to możliwe. Na przykład nie wykonuje autokolekcjonowania (nieprzechwycone wyjątki, AJAX itp.). Interfejsy API służące do wysyłania określonych typów telemetrii, takich jak `trackTrace`, `trackException`itp., nie są uwzględnione w tej wersji, więc konieczne będzie udostępnienie własnego otoki. Jedynym dostępnym interfejsem API jest `track`. [Przykład](https://github.com/Azure-Samples/applicationinsights-web-sample1/blob/master/testlightsku.html) znajduje się tutaj.
+Ta wersja zawiera minimalną liczbę funkcji i funkcjonalności systemu operacyjnego i polega na tym, że można ją skompilować w taki sam sposób, jak to możliwe. Na przykład nie wykonuje autokolekcjonowania (nieprzechwycone wyjątki, AJAX itp.). Interfejsy API służące do wysyłania określonych typów telemetrii, takich jak `trackTrace` , `trackException` itp., nie są uwzględnione w tej wersji, więc konieczne będzie udostępnienie własnego otoki. Jedynym dostępnym interfejsem API jest `track` . [Przykład](https://github.com/Azure-Samples/applicationinsights-web-sample1/blob/master/testlightsku.html) znajduje się tutaj.
 
 ## <a name="examples"></a>Przykłady
 
@@ -231,10 +231,10 @@ Przykłady możliwy do uruchomienia można znaleźć w temacie [Application Insi
 Istotne zmiany w wersji zestawu SDK V2:
 - Aby umożliwić lepsze sygnatury interfejsu API, niektóre wywołania interfejsu API, takie jak trackPageView i trackexception, zostały zaktualizowane. Uruchamianie w programie Internet Explorer 8 i wcześniejszych wersjach przeglądarki nie jest obsługiwane.
 - Koperta telemetrii ma zmiany nazwy pola i struktury ze względu na aktualizacje schematu danych.
-- `context.operation` Przeniesiono `context.telemetryTrace`do. Niektóre pola zostały również zmienione (`operation.id` --> `telemetryTrace.traceID`).
-  - Aby ręcznie odświeżyć bieżący identyfikator pageview (na przykład w aplikacjach SPA), użyj `appInsights.properties.context.telemetryTrace.traceID = Util.generateW3CId()`.
+- Przeniesiono `context.operation` do `context.telemetryTrace` . Niektóre pola zostały również zmienione ( `operation.id`  -->  `telemetryTrace.traceID` ).
+  - Aby ręcznie odświeżyć bieżący identyfikator pageview (na przykład w aplikacjach SPA), użyj `appInsights.properties.context.telemetryTrace.traceID = Util.generateW3CId()` .
     > [!NOTE]
-    > Aby zachować unikatowy identyfikator śledzenia, z którego wcześniej korzystano `Util.newId()`, teraz Użyj `Util.generateW3CId()`. Oba ostatecznie kończą się IDENTYFIKATORem operacji.
+    > Aby zachować unikatowy identyfikator śledzenia, z którego wcześniej korzystano `Util.newId()` , teraz Użyj `Util.generateW3CId()` . Oba ostatecznie kończą się IDENTYFIKATORem operacji.
 
 Jeśli używasz bieżącego zestawu SDK PRODUKCYJNEgo usługi Application Insights (1.0.20) i chcesz sprawdzić, czy nowy zestaw SDK działa w środowisku uruchomieniowym, zaktualizuj adres URL w zależności od bieżącego scenariusza ładowania zestawu SDK.
 

@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 01/15/2020
+ms.date: 05/28/2020
 ms.author: curtand
-ms.openlocfilehash: 9606bf0108186cd73adbdb38aef3ac428da229d6
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 58ec2c00e75b12d6010b106ca7daed0da234bf1d
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83828410"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266121"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Zresetuj hasło służbowe przy użyciu informacji zabezpieczających
 
 Jeśli nie pamiętasz hasła służbowego, nigdy nie otrzymasz hasła z Twojej organizacji lub nie masz zablokowanego konta, możesz użyć informacji zabezpieczających i urządzenia przenośnego, aby zresetować hasło służbowe. Administrator musi włączyć tę funkcję, aby móc skonfigurować informacje i [zresetować własne hasło](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-reset-register).
 
-Jeśli znasz hasło, ale chcesz je zmienić, zapoznaj się z sekcjami [zmiana hasła](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) w tym artykule.
+Jeśli znasz hasło i chcesz je zmienić, zapoznaj się z sekcjami [zmiana hasła](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) w tym artykule.
 
 >[!Important]
 >Ten artykuł jest przeznaczony dla użytkowników próbujących zresetować zapomniane lub nieznane hasło konta służbowego. Jeśli jesteś administratorem, aby uzyskać informacje na temat włączania samoobsługowego resetowania haseł dla pracowników lub innych użytkowników, zobacz Wdrażanie funkcji samoobsługowego [resetowania haseł w usłudze Azure AD i innych artykułów](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
@@ -103,7 +103,7 @@ Jeśli nie możesz uzyskać dostępu do konta usługi Azure Active Directory (Az
 
      Jeśli nadal nie możesz uzyskać dostępu do konta, skontaktuj się z administratorem organizacji, aby uzyskać pomoc.
 
-Po zresetowaniu hasła może zostać wykorzystana wiadomość e-mail z potwierdzeniem, która pochodzi z konta takiego jak "Microsoft w imieniu \< *your_organization*>". Jeśli otrzymasz podobną wiadomość e-mail, ale ostatnio nie zresetujesz hasła, musisz natychmiast skontaktować się z administratorem w organizacji.
+Po zresetowaniu hasła może zostać wykorzystana wiadomość e-mail z potwierdzeniem, która pochodzi z konta takiego jak "Microsoft w imieniu" \<*your_organization*> . Jeśli otrzymasz podobną wiadomość e-mail, ale ostatnio nie zresetujesz hasła, musisz natychmiast skontaktować się z administratorem w organizacji.
 
 ## <a name="how-to-change-your-password"></a>How to change your password (Jak zmienić hasło)
 

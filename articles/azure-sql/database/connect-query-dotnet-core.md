@@ -1,6 +1,7 @@
 ---
-title: Użyj platformy .NET Core do wykonywania zapytań
-description: W tym temacie przedstawiono sposób użycia platformy .NET Core do utworzenia programu, który nawiązuje połączenie z bazą danych w Azure SQL Database i wykonuje zapytania przy użyciu instrukcji języka Transact-SQL.
+title: Korzystanie z platformy .NET Core do łączenia się z bazą danych i wykonywania w niej zapytań
+description: W tym temacie pokazano, jak używać platformy .NET Core do utworzenia programu, który nawiązuje połączenie z bazą danych w Azure SQL Database lub wystąpieniu zarządzanym usługi Azure SQL, i wykonuje zapytania przy użyciu instrukcji języka Transact-SQL.
+titleSuffix: Azure SQL Database & SQL Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -10,18 +11,18 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 07/29/2019
-ms.openlocfilehash: ff90cf7de3bb83a235f866d8035ccb036e021b83
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 05/29/2020
+ms.openlocfilehash: 87acf1ab1591dadd5b3ac9c96fa36654bcbb4368
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84189577"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267447"
 ---
-# <a name="quickstart-use-net-core-c-to-query-a-database-in-azure-sql-database"></a>Szybki Start: używanie platformy .NET Core (C#) do wykonywania zapytań w bazie danych w Azure SQL Database
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+# <a name="quickstart-use-net-core-c-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Szybki Start: używanie platformy .NET Core (C#) do wykonywania zapytań w bazie danych w Azure SQL Database lub wystąpieniu zarządzanym Azure SQL
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-W tym przewodniku szybki start będziesz używać kodu [.NET Core](https://www.microsoft.com/net/) i C# do łączenia się z bazą danych w Azure SQL Database. Następnie uruchomisz instrukcję języka Transact-SQL w celu wykonania zapytania na danych.
+W tym przewodniku szybki start będziesz używać kodu [.NET Core](https://www.microsoft.com/net/) i C# do łączenia się z bazą danych. Następnie uruchomisz instrukcję języka Transact-SQL w celu wykonania zapytania na danych.
 
 > [!TIP]
 > Poniższy moduł Microsoft Learn umożliwia zapoznanie się z bezpłatnymi sposobami [tworzenia i konfigurowania aplikacji ASP.NET, która wysyła zapytanie do bazy danych w Azure SQL Database](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
@@ -31,7 +32,7 @@ W tym przewodniku szybki start będziesz używać kodu [.NET Core](https://www.m
 Aby ukończyć ten przewodnik Szybki Start, musisz spełnić następujące warunki:
 
 - Konto platformy Azure z aktywną subskrypcją. [Utwórz konto bezpłatnie](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Baza danych w Azure SQL Database. Aby utworzyć, a następnie skonfigurować bazę danych w usłudze Azure SQL Database, można użyć instrukcji z jednego z tych przewodników Szybki start:
+- Baza danych programu. Możesz użyć jednego z tych przewodników Szybki Start, aby utworzyć i skonfigurować bazę danych:
 
   || Baza danych SQL | Wystąpienie zarządzane SQL | Program SQL Server na maszynie wirtualnej platformy Azure |
   |:--- |:--- |:---|:---|
@@ -204,6 +205,6 @@ namespace sqltest
 ## <a name="next-steps"></a>Następne kroki
 
 - [Rozpoczynanie pracy z platformą .NET Core w systemie Windows/Linux/macOS przy użyciu wiersza polecenia](/dotnet/core/tutorials/using-with-xplat-cli).
-- Dowiedz się, jak [nawiązać połączenie z bazą danych i zbadać ją w Azure SQL Database przy użyciu .NET Framework i programu Visual Studio](connect-query-dotnet-visual-studio.md).  
-- Dowiedz się, jak [zaprojektować pierwszą bazę danych w Azure SQL Database przy użyciu programu SSMS](design-first-database-tutorial.md) lub [zaprojektować bazę danych w Azure SQL Database i połączyć się z językiem C# i ADO.NET](design-first-database-csharp-tutorial.md).
+- Dowiedz się [, jak nawiązać połączenie z wystąpieniem zarządzanym Azure SQL Database lub z usługą Azure SQL i uzyskać do niego zapytanie, używając .NET Framework i programu Visual Studio](connect-query-dotnet-visual-studio.md).  
+- Dowiedz się, jak [zaprojektować pierwszą bazę danych za pomocą programu SSMS](design-first-database-tutorial.md) lub [zaprojektować bazę danych i połączyć się z programem C# i ADO.NET](design-first-database-csharp-tutorial.md).
 - Aby uzyskać więcej informacji na temat platformy .NET, zobacz [.NET documentation](https://docs.microsoft.com/dotnet/) (Dokumentacja platformy .NET).

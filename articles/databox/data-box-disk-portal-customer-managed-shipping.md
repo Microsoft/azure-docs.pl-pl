@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.author: v-grpr
-ms.openlocfilehash: 74828bfd3a110739afc211a530c11c74387b70ed
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 70c37b60d3b01c939b9b06d6b053b526e036904a
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83749312"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266512"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-disk-in-the-azure-portal"></a>Użyj samozarządzanej wysyłki dla Azure Data Box Disk w Azure Portal
 
@@ -43,7 +43,7 @@ Po umieszczeniu zamówienia Data Box Disk można wybrać opcję samodzielna wysy
 
    ![Wysyłka samoobsługowa](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
-4. Po przywróceniu urządzenia możesz zaplanować odbiór. W kolejności Azure Data Box Disk przejdź do pozycji **Przegląd** , a następnie wybierz pozycję **Zaplanuj pobranie**.
+4. Gdy urządzenie zostanie przygotowane i otrzymasz powiadomienie e-mail, możesz zaplanować odbiór. W kolejności Azure Data Box Disk przejdź do pozycji **Przegląd** , a następnie wybierz pozycję **Zaplanuj pobranie**.
 
    ![Porządkowanie urządzenia urządzenie Data Box do pobrania](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-user-pickup-01b.png)
 
@@ -57,11 +57,11 @@ Po umieszczeniu zamówienia Data Box Disk można wybrać opcję samodzielna wysy
 
    Zanotuj ten **kod autoryzacji**.
 
-   Zgodnie z wymaganiami dotyczącymi zabezpieczeń, podczas planowania pobierania i wyrzucania, konieczne jest zaprezentowanie nazwiska osoby, która mogłaby dotrzeć do pobrania i wycofać.
+   Zgodnie z wymaganiami dotyczącymi zabezpieczeń, w chwili pobrania harmonogramu, konieczne jest zaprezentowanie nazwiska osoby, która będzie docierać do pobrania.
 
    Należy również podać szczegółowe informacje o tym, kto zostanie przejściu do centrum danych w celu pobrania. Użytkownik lub punkt kontaktu musi posiadać zweryfikowany identyfikator fotograficzny dla instytucji rządowych, który zostanie sprawdzony w centrum danych.
 
-   Ponadto osoba, która wybiera urządzenie, musi mieć **kod autoryzacji**. Kod autoryzacji jest weryfikowany w czasie odbioru centrum danych.
+   Ponadto osoba, która wybiera urządzenie, musi mieć **kod autoryzacji**. Kod autoryzacji jest unikatowy dla odbioru lub odrzucania i jest sprawdzany w centrum danych.
 
 7. Zamówienie jest automatycznie przenoszone do stanu **pobrania** , gdy urządzenie zostało pobrane z centrum danych.
 

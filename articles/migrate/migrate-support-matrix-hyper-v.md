@@ -3,12 +3,12 @@ title: Obsługa oceny funkcji Hyper-V w Azure Migrate
 description: Dowiedz się więcej o obsłudze oceny funkcji Hyper-V dzięki ocenie serwera Azure Migrate
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 67fabebf805e38a6bca5dda6e691c263ee235219
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.openlocfilehash: 5ba7e74624f719feb6efbb3fb58dd3375250d649
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744597"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266784"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Macierz obsługi dla oceny funkcji Hyper-V
 
@@ -19,12 +19,12 @@ Aby skonfigurować ocenę maszyn wirtualnych funkcji Hyper-V, należy utworzyć 
 
 ## <a name="limitations"></a>Ograniczenia
 
-**Pomoc techniczna** | **Szczegóły**
+**Pomoc techniczna** | **Uzyskać**
 --- | ---
 **Limity oceny** | Do 35 000 maszyn wirtualnych funkcji Hyper-V można odkrywać i oceniać w jednym [Azure Migrate projekcie](migrate-support-matrix.md#azure-migrate-projects).
 **Limity projektu** | Możesz utworzyć wiele projektów w ramach subskrypcji platformy Azure. Oprócz maszyn wirtualnych funkcji Hyper-V projekt może obejmować maszyny wirtualne VMware i serwery fizyczne, a także limity oceny dla każdego z nich.
 **Odnajdowa** | Urządzenie Azure Migrate może odnajdywać maksymalnie 5000 maszyn wirtualnych funkcji Hyper-V.<br/><br/> Urządzenie może połączyć się z maksymalnie 300 hostami funkcji Hyper-V.
-**Ocena** | Można dodać do 35 000 maszyn w jednej grupie.<br/><br/> Można ocenić do 35 000 maszyn wirtualnych w ramach pojedynczej oceny dla grupy.
+**Stopnia** | Można dodać do 35 000 maszyn w jednej grupie.<br/><br/> Można ocenić do 35 000 maszyn wirtualnych w ramach pojedynczej oceny dla grupy.
 
 [Dowiedz się więcej](concepts-assessment-calculation.md) na temat ocen.
 
@@ -32,7 +32,7 @@ Aby skonfigurować ocenę maszyn wirtualnych funkcji Hyper-V, należy utworzyć 
 
 ## <a name="hyper-v-host-requirements"></a>Wymagania dotyczące hosta funkcji Hyper-V
 
-| **Pomoc techniczna**                | **Szczegóły**               
+| **Pomoc techniczna**                | **Uzyskać**               
 | :-------------------       | :------------------- |
 | **Host funkcji Hyper-V**       | Host funkcji Hyper-V może być autonomiczny lub wdrożony w klastrze.<br/><br/> Na hoście funkcji Hyper-V można uruchomić system Windows Server 2019, Windows Server 2016 lub Windows Server 2012 R2.<br/> Nie można ocenić maszyn wirtualnych znajdujących się na hostach funkcji Hyper-V z systemem Windows Server 2012.
 | **Uprawnienia**           | Wymagane są uprawnienia administratora na hoście funkcji Hyper-V. <br/> Jeśli nie chcesz przypisywać uprawnień administratora, Utwórz konto użytkownika lokalnego lub domeny, a następnie Dodaj konto użytkownika do tych grup — Użytkownicy zarządzania zdalnego, Administratorzy funkcji Hyper-V i użytkownicy monitora wydajności. |
@@ -42,9 +42,9 @@ Aby skonfigurować ocenę maszyn wirtualnych funkcji Hyper-V, należy utworzyć 
 
 ## <a name="hyper-v-vm-requirements"></a>Wymagania dotyczące maszyn wirtualnych funkcji Hyper-V
 
-| **Pomoc techniczna**                  | **Szczegóły**               
+| **Pomoc techniczna**                  | **Uzyskać**               
 | :----------------------------- | :------------------- |
-| **System operacyjny** | Wszystkie systemy operacyjne [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) i [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) . |
+| **System operacyjny** | Wszystkie systemy operacyjne można ocenić pod kątem migracji.  |
 | **Integration Services**       | [Usługi integracji funkcji Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services) muszą być uruchomione na maszynach wirtualnych, które oceniasz, aby przechwycić informacje o systemie operacyjnym. |
 
 
@@ -60,7 +60,7 @@ Azure Migrate używa [urządzenia Azure Migrate](migrate-appliance.md) do odnajd
 
 Poniższa tabela zawiera podsumowanie wymagań dotyczących portów dla oceny.
 
-**Urządzenie** | **Połączenia**
+**Urządzenie** | **Połączenie**
 --- | ---
 **Wprowadzony** | Połączenia przychodzące na porcie TCP 3389, aby zezwolić na połączenia pulpitu zdalnego z urządzeniem.<br/><br/> Połączenia przychodzące na porcie 44368 do zdalnego dostępu do aplikacji do zarządzania urządzeniami przy użyciu adresu URL:``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Połączenia wychodzące na portach 443 (HTTPS), w celu wysyłania metadanych odnajdywania i wydajności do Azure Migrate.
 **Host/klaster funkcji Hyper-V** | Połączenia przychodzące na portach usługi WinRM 5985 (HTTP) i 5986 (HTTPS) do ściągania metadanych i danych wydajności dla maszyn wirtualnych funkcji Hyper-V przy użyciu sesji model wspólnych informacji (CIM).
@@ -69,7 +69,7 @@ Poniższa tabela zawiera podsumowanie wymagań dotyczących portów dla oceny.
 
 [Analiza zależności](concepts-dependency-visualization.md) pomaga identyfikować zależności między maszynami lokalnymi, które mają zostać poddane ocenie i zmigrować na platformę Azure. W tabeli zestawiono wymagania dotyczące konfigurowania analizy zależności opartej na agentach. Funkcja Hyper-V obecnie obsługuje tylko wizualizację zależności opartą na agentach. 
 
-**Wymaganie** | **Szczegóły** 
+**Wymaganie** | **Uzyskać** 
 --- | --- 
 **Przed wdrożeniem** | Należy mieć projekt Azure Migrate przy użyciu narzędzia do oceny serwera dodanego do projektu.<br/><br/>  Wizualizacja zależności jest wdrażana po skonfigurowaniu urządzenia Azure Migrate w celu odnalezienia maszyn lokalnych<br/><br/> [Dowiedz się, jak](create-manage-projects.md) utworzyć projekt po raz pierwszy.<br/> [Dowiedz się, jak](how-to-assess.md) dodać narzędzie do oceny do istniejącego projektu.<br/> Dowiedz się, jak skonfigurować urządzenie Azure Migrate do oceny [maszyn wirtualnych funkcji Hyper-V](how-to-set-up-appliance-hyper-v.md).
 **Azure Government** | Wizualizacja zależności nie jest dostępna w Azure Government.

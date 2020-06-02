@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/25/2019
-ms.openlocfilehash: 9870b239ca0501e63df3d800b8e4847cb0f390ac
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: 81a83c629a1cdcde77ec43751f32ebfe1dfb3425
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860940"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266852"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Wyrażenia i funkcje w usłudze Azure Data Factory
 
@@ -195,7 +195,7 @@ Te funkcje są przydatne w warunkach, ale mogą służyć do szacowania dowolneg
   
 | Logiczna funkcja porównywania | Zadanie |
 | --------------------------- | ---- |
-| [lub](control-flow-expression-language-functions.md#and) | Sprawdź, czy wszystkie wyrażenia mają wartość PRAWDA. |
+| [and](control-flow-expression-language-functions.md#and) | Sprawdź, czy wszystkie wyrażenia mają wartość PRAWDA. |
 | [equals](control-flow-expression-language-functions.md#equals) | Sprawdź, czy obie wartości są równoważne. |
 | [greater](control-flow-expression-language-functions.md#greater) | Sprawdź, czy pierwsza wartość jest większa od drugiej wartości. |
 | [greaterOrEquals](control-flow-expression-language-functions.md#greaterOrEquals) | Sprawdź, czy pierwsza wartość jest większa lub równa drugiej wartości. |
@@ -235,7 +235,7 @@ Te funkcje są przydatne w warunkach, ale mogą służyć do szacowania dowolneg
 | [float](control-flow-expression-language-functions.md#float) | Zwróć liczbę zmiennoprzecinkową dla wartości wejściowej. |
 | [int](control-flow-expression-language-functions.md#int) | Zwróć wersję całkowitą dla ciągu. |
 | [kodu](control-flow-expression-language-functions.md#json) | Zwróć wartość typu JavaScript Object Notation (JSON) lub obiekt dla ciągu lub XML. |
-| [parametry](control-flow-expression-language-functions.md#string) | Zwraca wersję ciągu dla wartości wejściowej. |
+| [ciąg](control-flow-expression-language-functions.md#string) | Zwraca wersję ciągu dla wartości wejściowej. |
 | [uriComponent](control-flow-expression-language-functions.md#uriComponent) | Zwróć wersję z kodowaniem URI dla wartości wejściowej przez zastępowanie znaków w adresie URL bez znaku ucieczki. |
 | [uriComponentToBinary](control-flow-expression-language-functions.md#uriComponentToBinary) | Zwróć wersję binarną dla ciągu zakodowanego za pomocą identyfikatora URI. |
 | [uriComponentToString](control-flow-expression-language-functions.md#uriComponentToString) | Zwraca wersję ciągu dla ciągu zakodowanego przy użyciu identyfikatora URI. |
@@ -530,23 +530,23 @@ I zwraca wynik przy użyciu opcjonalnego formatu "D":`"Tuesday, January 2, 2018"
 
 <a name="and"></a>
 
-### <a name="and"></a>oraz
+### <a name="and"></a>and
 
-Sprawdź, czy wszystkie wyrażenia mają wartość PRAWDA.
-Zwraca wartość true, jeśli wszystkie wyrażenia są prawdziwe, lub zwraca wartość false, jeśli co najmniej jedno wyrażenie ma wartość false.
+Sprawdź, czy oba wyrażenia mają wartość true.
+Zwraca wartość true, jeśli oba wyrażenia są prawdziwe, lub zwraca wartość false, jeśli co najmniej jedno wyrażenie ma wartość false.
 
 ```
-and(<expression1>, <expression2>, ...)
+and(<expression1>, <expression2>)
 ```
 
 | Parametr | Wymagany | Typ | Opis |
 | --------- | -------- | ---- | ----------- |
-| <*wyrażenie1*>, <*wyrażenie2*>,... | Yes | Boolean (wartość logiczna) | Wyrażenia do sprawdzenia |
+| <*wyrażenie1*>, <*wyrażenie2*> | Yes | Boolean (wartość logiczna) | Wyrażenia do sprawdzenia |
 |||||
 
 | Wartość zwracana | Typ | Opis |
 | ------------ | -----| ----------- |
-| true lub false | Boolean (wartość logiczna) | Zwraca wartość true, jeśli wszystkie wyrażenia mają wartość true. Zwraca wartość false, jeśli co najmniej jedno wyrażenie ma wartość false. |
+| true lub false | Boolean (wartość logiczna) | Zwraca wartość true, jeśli oba wyrażenia mają wartość true. Zwraca wartość false, jeśli co najmniej jedno wyrażenie ma wartość false. |
 ||||
 
 *Przykład 1*
@@ -567,7 +567,7 @@ I zwraca te wyniki:
 
 *Przykład 2*
 
-Te przykłady sprawdzają, czy określone wyrażenia są prawdziwe:
+Te przykłady sprawdzają, czy określone wyrażenia są spełnione:
 
 ```
 and(equals(1, 1), equals(2, 2))
@@ -2389,20 +2389,20 @@ I zwróć następujące wyniki:
 ### <a name="or"></a>lub
 
 Sprawdź, czy co najmniej jedno wyrażenie ma wartość true.
-Zwraca wartość true, jeśli co najmniej jedno wyrażenie ma wartość true lub zwraca wartość false, jeśli wszystkie mają wartość false.
+Zwraca wartość true, jeśli co najmniej jedno wyrażenie ma wartość true lub zwraca wartość false, jeśli oba mają wartość false.
 
 ```
-or(<expression1>, <expression2>, ...)
+or(<expression1>, <expression2>)
 ```
 
 | Parametr | Wymagany | Typ | Opis |
 | --------- | -------- | ---- | ----------- |
-| <*wyrażenie1*>, <*wyrażenie2*>,... | Yes | Boolean (wartość logiczna) | Wyrażenia do sprawdzenia |
+| <*wyrażenie1*>, <*wyrażenie2*> | Yes | Boolean (wartość logiczna) | Wyrażenia do sprawdzenia |
 |||||
 
 | Wartość zwracana | Typ | Opis |
 | ------------ | ---- | ----------- |
-| true lub false | Boolean (wartość logiczna) | Zwraca wartość true, jeśli co najmniej jedno wyrażenie ma wartość true. Zwraca wartość false, jeśli wszystkie wyrażenia mają wartość false. |
+| true lub false | Boolean (wartość logiczna) | Zwraca wartość true, jeśli co najmniej jedno wyrażenie ma wartość true. Zwraca wartość false, jeśli oba wyrażenia mają wartość false. |
 ||||
 
 *Przykład 1*

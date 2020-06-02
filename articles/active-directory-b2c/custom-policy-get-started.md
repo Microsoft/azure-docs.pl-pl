@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 32ec55a2ed6e0158a05f81067dc834fdc1e6e765
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: cd1bd85e76bdda52e2f3b3b60c705792ca82a6eb
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83738255"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247992"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Wprowadzenie do zasad niestandardowych w Azure Active Directory B2C
 
@@ -44,7 +44,7 @@ ms.locfileid: "83738255"
 1. W polu **Nazwa**wprowadź `TokenSigningKeyContainer` . Prefiks `B2C_1A_` może zostać dodany automatycznie.
 1. W obszarze **Typ klucza**wybierz pozycję **RSA**.
 1. W obszarze **użycie klucza**wybierz pozycję **podpis**.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ### <a name="create-the-encryption-key"></a>Utwórz klucz szyfrowania
 
@@ -53,7 +53,7 @@ ms.locfileid: "83738255"
 1. W polu **Nazwa**wprowadź `TokenEncryptionKeyContainer` . Prefiks `B2C_1A` _ może zostać dodany automatycznie.
 1. W obszarze **Typ klucza**wybierz pozycję **RSA**.
 1. W obszarze **użycie klucza**wybierz pozycję **szyfrowanie**.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ### <a name="create-the-facebook-key"></a>Tworzenie klucza Facebook
 
@@ -64,7 +64,7 @@ Dodaj [wpis tajny](identity-provider-facebook.md) aplikacji usługi Facebook jak
 1. W obszarze **Nazwa**wprowadź `FacebookSecret` . Prefiks `B2C_1A_` może zostać dodany automatycznie.
 1. W **kluczu tajnym**wprowadź *klucz tajny* aplikacji w serwisie Facebook z Developers.Facebook.com. Ta wartość jest kluczem tajnym, a nie IDENTYFIKATORem aplikacji.
 1. W obszarze **użycie klucza**wybierz pozycję **podpis**.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 
 ## <a name="register-identity-experience-framework-applications"></a>Rejestrowanie aplikacji platformy obsługi tożsamości
 
@@ -85,7 +85,7 @@ Aby zarejestrować aplikację w dzierżawie Azure AD B2C, możesz użyć środow
 1. W obszarze **Nazwa**wprowadź `IdentityExperienceFramework` .
 1. W obszarze **Typ aplikacji**wybierz pozycję **aplikacja sieci Web/interfejs API**.
 1. W obszarze **adres URL logowania**wpisz `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com` , gdzie `your-tenant-name` to Azure AD B2C nazwa domeny dzierżawy. Wszystkie adresy URL powinny teraz używać [b2clogin.com](b2clogin.md).
-1. Wybierz przycisk **Utwórz**. Po jego utworzeniu Skopiuj identyfikator aplikacji i Zapisz go do późniejszego użycia.
+1. Wybierz pozycję **Utwórz**. Po jego utworzeniu Skopiuj identyfikator aplikacji i Zapisz go do późniejszego użycia.
 
 #### <a name="app-registrations-preview"></a>[Rejestracje aplikacji (wersja zapoznawcza)](#tab/app-reg-preview/)
 
@@ -117,7 +117,7 @@ Następnie udostępnienie interfejsu API przez dodanie zakresu:
 1. W obszarze **Nazwa**wprowadź `ProxyIdentityExperienceFramework` .
 1. W obszarze **Typ aplikacji**wybierz opcję **natywny**.
 1. Dla **identyfikatora URI przekierowania**wprowadź `myapp://auth` .
-1. Wybierz przycisk **Utwórz**. Po jego utworzeniu Skopiuj identyfikator aplikacji i Zapisz go do późniejszego użycia.
+1. Wybierz pozycję **Utwórz**. Po jego utworzeniu Skopiuj identyfikator aplikacji i Zapisz go do późniejszego użycia.
 1. Wybierz pozycję **Ustawienia**, a następnie wybierz pozycję **wymagane uprawnienia**, a następnie wybierz pozycję **Dodaj**.
 1. Wybierz **pozycję Wybierz interfejs API**, Wyszukaj i wybierz pozycję **IdentityExperienceFramework**, a następnie kliknij pozycję **Wybierz**.
 1. Zaznacz pole wyboru obok pozycji **dostęp do IdentityExperienceFramework**, kliknij pozycję **Wybierz**, a następnie kliknij pozycję **gotowe**.
@@ -151,7 +151,7 @@ Teraz Udziel uprawnień do zakresu interfejsu API, który został uwidoczniony w
 1. Wybierz pozycję **Udziel zgody administratora (nazwa dzierżawy)**.
 1. Wybierz obecnie zalogowane konto administratora lub Zaloguj się przy użyciu konta w dzierżawie Azure AD B2C, do którego przypisano co najmniej rolę *administratora aplikacji w chmurze* .
 1. Wybierz pozycję **Zaakceptuj**.
-1. Wybierz pozycję **Odśwież**, a następnie sprawdź, czy "udzielono dla..." pojawia się w obszarze **stan** dla obu zakresów. Propagowanie uprawnień może potrwać kilka minut.
+1. Wybierz pozycję **Odśwież**, a następnie sprawdź, czy "udzielono dla..." jest wyświetlany w obszarze **stan** dla zakresów-offline_access, openid connect i user_impersonation. Propagowanie uprawnień może potrwać kilka minut.
 
 * * *
 

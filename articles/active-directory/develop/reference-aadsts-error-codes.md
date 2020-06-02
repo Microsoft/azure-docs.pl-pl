@@ -12,12 +12,12 @@ ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 51567ff07930599b0c13d8a9546ebeca396c4b45
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: dabaecfd31ac9ec6250e7b482fde7699a13df044
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83993545"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266597"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Kody błędów autoryzacji i uwierzytelniania usługi Azure AD
 
@@ -63,7 +63,7 @@ Oto przykładowa odpowiedź na błąd:
 | Kod błędu         | Opis        | Akcja klienta    |
 |--------------------|--------------------|------------------|
 | `invalid_request`  | Błąd protokołu, taki jak brak wymaganego parametru. | Napraw i ponownie prześlij żądanie.|
-| `invalid_grant`    | Niektóre materiały uwierzytelniania (kod uwierzytelniania, token odświeżania, token dostępu, wyzwanie PKCE) były nieprawidłowe, nie można ich przeanalizować, brakować lub w inny sposób nieużyteczny | Wypróbuj nowe żądanie do `/authorize` punktu końcowego, aby uzyskać nowy kod autoryzacji.  Należy rozważyć przejrzenie i sprawdzenie poprawności użycia protokołów przez aplikację. |
+| `invalid_grant`    | Niektóre materiały uwierzytelniania (kod uwierzytelniania, token odświeżania, token dostępu, wyzwanie PKCE) były nieprawidłowe, nie można ich przeanalizować lub nie mogą być używane w inny sposób | Wypróbuj nowe żądanie do `/authorize` punktu końcowego, aby uzyskać nowy kod autoryzacji.  Należy rozważyć przejrzenie i sprawdzenie poprawności użycia protokołów przez aplikację. |
 | `unauthorized_client` | Uwierzytelniony klient nie ma autoryzacji do korzystania z tego typu udzielania autoryzacji. | Zwykle dzieje się tak, gdy aplikacja kliencka nie jest zarejestrowana w usłudze Azure AD lub nie została dodana do dzierżawy usługi Azure AD użytkownika. Aplikacja może monitować użytkownika z instrukcją dotyczącą instalowania aplikacji i dodawania jej do usługi Azure AD. |
 | `invalid_client` | Uwierzytelnianie klienta nie powiodło się.  | Poświadczenia klienta są nieprawidłowe. Aby rozwiązać ten problem, administrator aplikacji aktualizuje poświadczenia.   |
 | `unsupported_grant_type` | Serwer autoryzacji nie obsługuje typu przydzielenia autoryzacji. | Zmień typ dotacji w żądaniu. Ten typ błędu powinien wystąpić tylko podczas opracowywania i być wykrywany podczas wstępnego testowania. |
@@ -126,8 +126,8 @@ Wyszukaj w liczbowej części zwróconego kodu błędu.  Na przykład jeśli wys
 | AADSTS50059 | Nie znaleziono informacji identyfikacyjnych MissingTenantRealmAndNoUserInformationProvided-dzierżawców w żądaniu ani IMPLIKOWANYCH przez żadne podane poświadczenia. Użytkownik może skontaktować się z administratorem dzierżawy, aby pomóc w rozwiązaniu problemu. |
 | AADSTS50061 | SignoutInvalidRequest — żądanie wylogowania jest nieprawidłowe. |
 | AADSTS50064 | CredentialAuthenticationError — weryfikacja poświadczeń dla nazwy użytkownika lub hasła zakończyła się niepowodzeniem. |
-| AADSTS50068 | SignoutInitiatorNotParticipant-wylogowaniu nie powiodło się. Aplikacja, która zainicjowała wylogowaniu, nie jest uczestnikiem bieżącej sesji. |
-| AADSTS50070 | SignoutUnknownSessionIdentifier-wylogowaniu nie powiodło się. Żądanie wylogowaniu określiło identyfikator nazwy, który nie jest zgodny z istniejącymi sesjami. |
+| AADSTS50068 | SignoutInitiatorNotParticipant — wylogowywanie nie powiodło się. Aplikacja, która zainicjowała wylogowywanie, nie jest uczestnikiem bieżącej sesji. |
+| AADSTS50070 | SignoutUnknownSessionIdentifier — wylogowywanie nie powiodło się. Żądanie wylogowania określiło identyfikator nazwy, który nie jest zgodny z istniejącymi sesjami. |
 | AADSTS50071 | SignoutMessageExpired — żądanie wylogowania wygasło. |
 | AADSTS50072 | UserStrongAuthEnrollmentRequiredInterrupt — użytkownik musi zarejestrować się na potrzeby uwierzytelniania dwuskładnikowego (Interactive). |
 | AADSTS50074 | UserStrongAuthClientAuthNRequiredInterrupt — jest wymagane silne uwierzytelnianie, a użytkownik nie przeszedł z wyzwania usługi MFA. |
@@ -173,14 +173,14 @@ Wyszukaj w liczbowej części zwróconego kodu błędu.  Na przykład jeśli wys
 | AADSTS50187 | DeviceInformationNotProvided — usługa nie może wykonać uwierzytelniania urządzenia. |
 | AADSTS50196 | LoopDetected — wykryto pętlę klienta. Sprawdź logikę aplikacji, aby upewnić się, że buforowanie tokenów jest zaimplementowane i że warunki błędów są obsługiwane poprawnie.  Aplikacja spowodowała zbyt wiele tego samego żądania w zbyt krótkim czasie, co oznacza, że jest w stanie wadliwym lub jest abusively żądającym tokenów. |
 | AADSTS50197 | ConflictingIdentities — nie można odnaleźć użytkownika. Spróbuj zalogować się ponownie. |
-| AADSTS50199 | CmsiInterrupt — ze względów bezpieczeństwa wymagane jest potwierdzenie użytkownika dla tego żądania.  Ponieważ jest to błąd "interaction_required", klient powinien wykonać uwierzytelnianie interaktywne.  Dzieje się tak, ponieważ System WebView został użyty do zażądania tokenu dla aplikacji natywnej — użytkownik musi zostać poproszony o podanie monitu o zalogowanie się w aplikacji, w której zarejestrowano.|
+| AADSTS50199 | CmsiInterrupt — ze względów bezpieczeństwa wymagane jest potwierdzenie użytkownika dla tego żądania.  Ponieważ jest to błąd "interaction_required", klient powinien wykonać uwierzytelnianie interaktywne.  Dzieje się tak, ponieważ System WebView został użyty do zażądania tokenu dla aplikacji natywnej — użytkownik musi zostać poproszony o podanie monitu o zalogowanie się w aplikacji, w której zarejestrowano. Aby uniknąć tego monitu, identyfikator URI przekierowania powinien być częścią następującej bezpiecznej listy: <br />http://<br />https://<br />msauth://(tylko system iOS)<br />msauthv2://(tylko system iOS)<br />Chrome-Extension://(tylko przeglądarka dla programu Desktop Chrome) |
 | AADSTS51000 | RequiredFeatureNotEnabled — funkcja jest wyłączona. |
 | AADSTS51001 | DomainHintMustbePresent — Wskazówka domeny musi być obecna przy użyciu lokalnego identyfikatora zabezpieczeń lub lokalnej nazwy UPN. |
 | AADSTS51004 | UserAccountNotInDirectory — konto użytkownika nie istnieje w katalogu. |
 | AADSTS51005 | TemporaryRedirect — odpowiednik stanu HTTP 307, który wskazuje, że żądane informacje znajdują się w identyfikatorze URI określonym w nagłówku lokalizacji. Po otrzymaniu tego stanu postępuj zgodnie z nagłówkiem lokalizacji skojarzonym z odpowiedzią. Gdy oryginalna Metoda żądania została OPUBLIKOWANa, przekierowane żądanie będzie również używać metody POST. |
 | AADSTS51006 | Wymagana jest ForceReauthDueToInsufficientAuth zintegrowane uwierzytelnianie systemu Windows. Użytkownik zalogował się przy użyciu tokenu sesji, w którym brakuje zintegrowanego uwierzytelniania systemu Windows. Poproś użytkownika o ponowne zalogowanie. |
 | AADSTS52004 | DelegationDoesNotExistForLinkedIn — użytkownik nie podał zgody na dostęp do zasobów serwisu LinkedIn. |
-| AADSTS53000 | Zasady dostępu warunkowego DeviceNotCompliant wymagają zgodnego urządzenia, a urządzenie nie jest zgodne. Użytkownik musi zarejestrować urządzenie przy użyciu zatwierdzonego dostawcy MDM, takiego jak usługa Intune. |
+| AADSTS53000 | Zasady dostępu warunkowego DeviceNotCompliant wymagają zgodnego urządzenia, a urządzenie nie jest zgodne. Użytkownik musi zarejestrować swoje urządzenie przy użyciu zatwierdzonego dostawcy rozwiązania do zarządzania urządzeniami przenośnymi, na przykład usługi Intune. |
 | AADSTS53001 | DeviceNotDomainJoined — zasady dostępu warunkowego wymagają urządzenia przyłączonego do domeny, a urządzenie nie jest przyłączone do domeny. Użytkownik musi korzystać z urządzenia przyłączonego do domeny. |
 | AADSTS53002 | ApplicationUsedIsNotAnApprovedApp — używana aplikacja nie jest zatwierdzoną aplikacją dla dostępu warunkowego. Użytkownik musi użyć jednej z aplikacji z listy zatwierdzonych aplikacji do użycia w celu uzyskania dostępu. |
 | AADSTS53003 | BlockedByConditionalAccess — dostęp został zablokowany przez zasady dostępu warunkowego. Zasady dostępu nie zezwalają na wystawianie tokenów. |
@@ -314,7 +314,7 @@ Wyszukaj w liczbowej części zwróconego kodu błędu.  Na przykład jeśli wys
 | AADSTS700022 | InvalidMultipleResourcesScope — podana wartość zakresu parametru wejściowego jest nieprawidłowa, ponieważ zawiera więcej niż jeden zasób. |
 | AADSTS700023 | InvalidResourcelessScope — podana wartość dla zakresu parametru wejściowego jest nieprawidłowa podczas żądania tokenu dostępu. |
 | AADSTS7000215 | Podano nieprawidłowy klucz tajny klienta. Błąd dewelopera — aplikacja próbuje zalogować się bez wymaganych lub poprawnych parametrów uwierzytelniania.|
-| AADSTS7000222| InvalidClientSecretExpiredKeysProvided — wygasłe klucze tajne klienta. Odwiedź witrynę Azure Portal, aby utworzyć nowe klucze dla aplikacji, lub Rozważ użycie poświadczeń certyfikatu w celu zwiększenia bezpieczeństwa:https://aka.ms/certCreds |
+| AADSTS7000222 | InvalidClientSecretExpiredKeysProvided — wygasłe klucze tajne klienta. Odwiedź Azure Portal, aby utworzyć nowe klucze dla aplikacji, lub Rozważ użycie poświadczeń certyfikatu w celu zwiększenia bezpieczeństwa:[https://aka.ms/certCreds](https://aka.ms/certCreds) |
 | AADSTS700005 | Kod autoryzacji podany przez InvalidGrantRedeemAgainstWrongTenant jest przeznaczony do użycia w odniesieniu do innych dzierżawców, w rezultacie odrzucony. Kod autoryzacji OAuth2 musi zostać zrealizowany w odniesieniu do tej samej dzierżawy, dla którego uzyskano (odpowiednio/typowe lub/{tenant-ID}) |
 | AADSTS1000000 | UserNotBoundError — interfejs API bind wymaga, aby użytkownik usługi Azure AD mógł także uwierzytelniać się przy użyciu zewnętrznego dostawcy tożsamości, który jeszcze nie wystąpił. |
 | AADSTS1000002 | BindCompleteInterruptError — powiązanie zostało wykonane pomyślnie, ale użytkownik musi zostać poinformowany. |

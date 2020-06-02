@@ -12,24 +12,24 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/25/2019
-ms.openlocfilehash: ed7cd7db24e26ea8705628916e31ce95b5c17a6e
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 05/29/2020
+ms.openlocfilehash: e0554711aa6db436bc0c3076ec468555c47fff39
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84189016"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267260"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query"></a>Szybki Start: używanie Visual Studio Code do nawiązywania połączeń i zapytań 
-[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 [Visual Studio Code](https://code.visualstudio.com/docs) jest graficznym edytorem kodu dla systemów Linux, macOS i Windows. Obsługuje ona rozszerzenia, w tym [rozszerzenie MSSQL](https://aka.ms/mssql-marketplace) służące do wysyłania zapytań do wystąpienia SQL Server, Azure SQL Database, wystąpienia zarządzanego usługi Azure SQL i bazy danych w usłudze Azure Synapse Analytics. W tym przewodniku szybki start będziesz używać Visual Studio Code do nawiązywania połączenia z Azure SQL Database lub wystąpienia zarządzanego Azure SQL, a następnie uruchamiamy instrukcje języka Transact-SQL w celu wykonywania zapytań, wstawiania, aktualizowania i usuwania danych.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-- Baza danych w Azure SQL Database lub wystąpienie zarządzane SQL. Aby utworzyć, a następnie skonfigurować bazę danych w usłudze Azure SQL Database, można użyć instrukcji z jednego z tych przewodników Szybki start:
+- Baza danych programu Azure SQL Database lub wystąpienia zarządzanego Azure SQL. Aby utworzyć, a następnie skonfigurować bazę danych w usłudze Azure SQL Database, można użyć instrukcji z jednego z tych przewodników Szybki start:
 
-  || Baza danych SQL | Wystąpienie zarządzane SQL |
+  || Azure SQL Database | Wystąpienie zarządzane Azure SQL |
   |:--- |:--- |:---|
   | Utwórz| [Portal](single-database-create-quickstart.md) | [Portal](../managed-instance/instance-create-quickstart.md) |
   || [Interfejs wiersza polecenia](scripts/create-and-configure-database-cli.md) | [Interfejs wiersza polecenia](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
