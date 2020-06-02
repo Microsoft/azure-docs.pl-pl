@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: cb88fb24ceed943d4104da6914959e4b79c35571
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 879834567b6905a070aada3dae2a41a672635c6c
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82231921"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267243"
 ---
 # <a name="immersive-reader-sdk-reference-guide"></a>Przewodnik referencyjny zestawu SDK czytnika immersyjny
 
@@ -33,7 +33,7 @@ Zestaw SDK udostępnia funkcje:
 
 ## <a name="launchasync"></a>launchAsync
 
-Uruchamia czytnik `iframe` immersyjny w aplikacji sieci Web.
+Uruchamia czytnik immersyjny w `iframe` aplikacji sieci Web.
 
 ```typescript
 launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<LaunchResponse>;
@@ -50,11 +50,11 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 ### <a name="returns"></a>Zwraca
 
-Zwraca obiekt `Promise<LaunchResponse>`, który jest rozpoznawany, gdy czytnik immersyjny jest ładowany. Jest `Promise` to rozwiązanie rozpoznawane jako [`LaunchResponse`](#launchresponse) obiekt.
+Zwraca obiekt `Promise<LaunchResponse>` , który jest rozpoznawany, gdy czytnik immersyjny jest ładowany. Jest to `Promise` rozwiązanie rozpoznawane jako [`LaunchResponse`](#launchresponse) obiekt.
 
 ### <a name="exceptions"></a>Wyjątki
 
-Zwracana `Promise` wartość zostanie odrzucona z [`Error`](#error) obiektem, jeśli czytnik immersyjny nie zostanie załadowany. Aby uzyskać więcej informacji, zobacz [kody błędów](#error-codes).
+Zwracana wartość `Promise` zostanie odrzucona z [`Error`](#error) obiektem, jeśli czytnik immersyjny nie zostanie załadowany. Aby uzyskać więcej informacji, zobacz [kody błędów](#error-codes).
 
 ## <a name="close"></a>close
 
@@ -68,7 +68,7 @@ close(): void;
 
 ## <a name="renderbuttons"></a>renderButtons
 
-Ta funkcja stylów i aktualizuje elementy przycisku czytnika immersyjny dokumentu. Jeśli ```options.elements``` jest podany, ta funkcja będzie renderować przyciski w ```options.elements```. W przeciwnym razie przyciski będą renderowane w obrębie elementów dokumentu, które mają klasę ```immersive-reader-button```.
+Ta funkcja stylów i aktualizuje elementy przycisku czytnika immersyjny dokumentu. Jeśli ```options.elements``` jest podany, ta funkcja będzie renderować przyciski w ```options.elements``` . W przeciwnym razie przyciski będą renderowane w obrębie elementów dokumentu, które mają klasę ```immersive-reader-button``` .
 
 Ta funkcja jest automatycznie wywoływana przez zestaw SDK podczas ładowania okna.
 
@@ -84,7 +84,7 @@ renderButtons(options?: RenderButtonsOptions): void;
 | ---- | ---- |------------ |
 | `options` | [RenderButtonsOptions](#renderbuttonsoptions) | Opcje konfigurowania niektórych zachowań funkcji renderButtons. Opcjonalny. |
 
-## <a name="types"></a>Types
+## <a name="types"></a>Typy
 
 ### <a name="content"></a>Zawartość
 
@@ -111,7 +111,7 @@ Pojedynczy fragment danych, który zostanie przesłany do zawartości czytnika i
 
 ### <a name="launchresponse"></a>LaunchResponse
 
-Zawiera odpowiedź z wywołania do `ImmersiveReader.launchAsync`.
+Zawiera odpowiedź z wywołania do `ImmersiveReader.launchAsync` .
 
 ```typescript
 {
@@ -175,7 +175,7 @@ Opcje renderowania przycisków czytnika szczegółowego.
 }
 ```
 
-### <a name="error"></a>Error
+### <a name="error"></a>Błąd
 
 Zawiera informacje o błędzie.
 
@@ -188,16 +188,16 @@ Zawiera informacje o błędzie.
 
 #### <a name="error-codes"></a>Kody błędów
 
-| Code | Opis |
+| Kod | Opis |
 | ---- | ----------- |
-| BadArgument | Podany argument jest nieprawidłowy. Aby `message` uzyskać szczegółowe informacje, zobacz. |
+| BadArgument | Podany argument jest nieprawidłowy `message` . Aby uzyskać szczegółowe informacje, zobacz. |
 | Limit czasu | Nie można załadować czytnika immersyjny w określonym limicie czasu. |
 | TokenExpired | Podany token wygasł. |
 | Ograniczone | Przekroczono limit liczby wywołań. |
 
 ## <a name="launching-the-immersive-reader"></a>Uruchamianie czytnika immersyjny
 
-Zestaw SDK zawiera domyślne style dla przycisku umożliwiającego uruchomienie czytnika immersyjny. Użyj atrybutu `immersive-reader-button` Class, aby włączyć ten styl. Aby uzyskać więcej informacji, zobacz [ten artykuł](./how-to-customize-launch-button.md) .
+Zestaw SDK zawiera domyślne style dla przycisku umożliwiającego uruchomienie czytnika immersyjny. Użyj `immersive-reader-button` atrybutu Class, aby włączyć ten styl. Aby uzyskać więcej informacji, zobacz [ten artykuł](./how-to-customize-launch-button.md) .
 
 ```html
 <div class='immersive-reader-button'></div>
@@ -209,8 +209,8 @@ Użyj następujących atrybutów, aby skonfigurować wygląd i działanie przyci
 
 | Atrybut | Opis |
 | --------- | ----------- |
-| `data-button-style` | Ustawia styl przycisku. Może być `icon`, `text`lub `iconAndText`. Wartość domyślna `icon`to. |
-| `data-locale` | Ustawia ustawienia regionalne. Na przykład: `en-US` lub `fr-FR`. Domyślnie jest używany `en`język angielski. |
+| `data-button-style` | Ustawia styl przycisku. Może być `icon` , `text` lub `iconAndText` . Wartość domyślna to `icon` . |
+| `data-locale` | Ustawia ustawienia regionalne. Na przykład: `en-US` lub `fr-FR`. Domyślnie jest używany język angielski `en` . |
 | `data-icon-px-size` | Ustawia rozmiar ikony w pikselach. Wartość domyślna to 20px. |
 
 ## <a name="browser-support"></a>Obsługa przeglądarki
@@ -226,4 +226,4 @@ Najnowsze wersje następujących przeglądarek są używane w celu uzyskania naj
 ## <a name="next-steps"></a>Następne kroki
 
 * Eksplorowanie [zestawu SDK czytnika immersyjny w witrynie GitHub](https://github.com/microsoft/immersive-reader-sdk)
-* [Szybki Start: Tworzenie aplikacji sieci Web, która uruchamia czytnik immersyjny (C#)](./quickstart.md)
+* [Szybki Start: Tworzenie aplikacji sieci Web, która uruchamia czytnik immersyjny (C#)](./quickstarts/client-libraries.md?pivots=programming-language-csharp)

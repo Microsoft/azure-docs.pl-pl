@@ -1,5 +1,5 @@
 ---
-title: 'Quckstart: Tworzenie maszyny wirtualnej z systemem Linux SQL Server na platformie Azure'
+title: 'Szybki Start: Tworzenie maszyny wirtualnej z systemem Linux SQL Server na platformie Azure'
 description: W tym samouczku pokazano sposób tworzenia maszyny wirtualnej z programem SQL Server 2017 i systemem Linux na platformie Azure.
 services: virtual-machines-linux
 author: MashaMSFT
@@ -11,12 +11,12 @@ ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 34f2189a75db06ceca467dfc4e9b35692def6926
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ac7a836f339e86ce3705d64d04cad143f1043a81
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84049680"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259528"
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Aprowizowanie maszyny wirtualnej z programem SQL Server w witrynie Azure Portal
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -60,7 +60,7 @@ Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpł
    > [!TIP]
    > Wersja Developer umożliwia testowanie lub programowanie przy użyciu funkcji wersji Enterprise, ale bez kosztów licencjonowania programu SQL Server. Ponosisz tylko koszty obsługi maszyny wirtualnej z systemem Linux.
 
-1. Wybierz przycisk **Utwórz**. 
+1. Wybierz pozycję **Utwórz**. 
 
 
 ### <a name="set-up-your-linux-vm"></a>Konfigurowanie maszyny wirtualnej z systemem Linux

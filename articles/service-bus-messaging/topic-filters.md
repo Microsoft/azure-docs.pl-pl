@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 6e780268d4b8c1a512ce82b1ca10a2f6b7b894b7
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: bbf569e95c59e888b830876f0458b063bd3920da
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125761"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84258814"
 ---
 # <a name="topic-filters-and-actions"></a>Filtry tematów i akcje
 
@@ -64,13 +64,13 @@ Funkcja routingu używa filtrów do dystrybuowania komunikatów między subskryp
 
 
 > [!NOTE]
-> Obecnie Azure Portal nie pozwala na Określanie reguł filtru dla subskrypcji. Do definiowania reguł subskrypcji można użyć dowolnego z obsługiwanych zestawów SDK lub szablonów Azure Resource Manager. 
+> Ponieważ Azure Portal teraz obsługuje funkcje Eksploratora Service Bus, można utworzyć lub edytować filtry subskrypcji z portalu. 
 
 ## <a name="next-steps"></a>Następne kroki
 Zobacz następujące przykłady: 
 
 - [.NET — samouczek dotyczący wysyłania i odbierania podstawowych z użyciem filtrów](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveTutorialwithFilters/BasicSendReceiveTutorialWithFilters)
 - [.NET — filtry tematów](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters)
-- [Szablon Azure Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.servicebus/2017-04-01/namespaces/topics/subscriptions/rules)
+- [Szablon usługi Azure Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.servicebus/2017-04-01/namespaces/topics/subscriptions/rules)
 
 

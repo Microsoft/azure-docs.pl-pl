@@ -2,13 +2,13 @@
 title: Błędy nieznalezienia zasobu
 description: Opisuje sposób rozwiązywania błędów, gdy nie można znaleźć zasobu podczas wdrażania przy użyciu szablonu Azure Resource Manager.
 ms.topic: troubleshooting
-ms.date: 01/21/2020
-ms.openlocfilehash: b6f433118092e46f734d4b65040dd97c2fcb58d9
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 06/01/2020
+ms.openlocfilehash: 5d827f68ec97cfa77fb69a34284bd572286641a4
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76773258"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259358"
 ---
 # <a name="resolve-not-found-errors-for-azure-resources"></a>Nie znaleziono błędów dla zasobów platformy Azure
 
@@ -93,10 +93,27 @@ Wyszukaj wyrażenie zawierające funkcję [Reference](template-functions-resourc
 
 W przypadku wdrażania zasobu, który niejawnie tworzy [tożsamość zarządzaną](../../active-directory/managed-identities-azure-resources/overview.md), przed pobraniem wartości w zarządzanej tożsamości należy poczekać, aż ten zasób zostanie wdrożony. Jeśli nazwa tożsamości zarządzanej zostanie przekazana do funkcji [referencyjnej](template-functions-resource.md#reference) , Menedżer zasobów próbuje rozpoznać odwołanie przed wdrożeniem zasobu i tożsamości. Zamiast tego należy przekazać nazwę zasobu, do którego jest stosowana tożsamość. Takie podejście gwarantuje, że zasób i zarządzana tożsamość zostaną wdrożone przed Menedżer zasobów rozpozna funkcję Reference.
 
-W funkcji Reference Użyj `Full` , aby uzyskać wszystkie właściwości, w tym zarządzaną tożsamość.
+W funkcji Reference Użyj, `Full` Aby uzyskać wszystkie właściwości, w tym zarządzaną tożsamość.
 
-Na przykład aby uzyskać identyfikator dzierżawy dla tożsamości zarządzanej, która została zastosowana do zestawu skalowania maszyn wirtualnych, użyj:
+Wzorzec to:
+
+`"[reference(resourceId(<resource-provider-namespace>, <resource-name>, <API-version>, 'Full').Identity.propertyName]"`
+
+> [!IMPORTANT]
+> Nie używaj wzorca:
+>
+> `"[reference(concat(resourceId(<resource-provider-namespace>, <resource-name>),'/providers/Microsoft.ManagedIdentity/Identities/default'),<API-version>).principalId]"`
+>
+> Szablon zakończy się niepowodzeniem.
+
+Aby na przykład uzyskać identyfikator podmiotu zabezpieczeń dla tożsamości zarządzanej, która jest zastosowana do maszyny wirtualnej, należy użyć:
 
 ```json
-"tenantId": "[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), variables('vmssApiVersion'), 'Full').Identity.tenantId]"
+"[reference(resourceId('Microsoft.Compute/virtualMachines', variables('vmName')),'2019-12-01', 'Full').identity.principalId]",
+```
+
+Lub, aby uzyskać identyfikator dzierżawy dla tożsamości zarządzanej, która została zastosowana do zestawu skalowania maszyn wirtualnych, użyj:
+
+```json
+"[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), 2019-12-01, 'Full').Identity.tenantId]"
 ```

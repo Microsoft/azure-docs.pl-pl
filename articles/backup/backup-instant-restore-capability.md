@@ -4,12 +4,12 @@ description: Funkcja błyskawicznego przywracania platformy Azure i często zada
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: fc29d1ac4c2e4c22ce6e6f8356927e768dc274e3
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: 6225a7eb8198ffcca0d1e3e15f64e2b3c977dc16
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597658"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248281"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Uzyskiwanie ulepszonej wydajności tworzenia kopii zapasowych i przywracania dzięki funkcji Azure Backup natychmiastowego przywracania
 
@@ -48,7 +48,7 @@ Domyślnie migawki są przechowywane przez dwa dni. Ta funkcja umożliwia przywr
 * Po przeprowadzeniu uaktualnienia do natychmiastowego przywrócenia nie można wrócić.
 
 >[!NOTE]
->Po tym uaktualnieniu natychmiastowego przywracania, czas przechowywania migawki dla wszystkich klientów (**w przypadku nowych i istniejących**) zostanie ustawiony na wartość domyślną dwa dni. Można jednak ustawić czas trwania zgodnie z wymaganiami do dowolnej wartości z zakresu od 1 do 5 dni.
+>Po tym uaktualnieniu natychmiastowego przywracania, czas przechowywania migawki dla wszystkich klientów (**w przypadku nowych i istniejących**) zostanie ustawiony na wartość domyślną dwa dni. Można jednak ustawić czas trwania zgodnie z wymaganiami dotyczącymi dowolnej wartości z zakresu od 1 do 5 dni.
 
 ## <a name="cost-impact"></a>Wpływ na koszty
 

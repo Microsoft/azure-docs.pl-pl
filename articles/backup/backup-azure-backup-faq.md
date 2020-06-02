@@ -3,12 +3,12 @@ title: Odpowiedzi na często zadawane pytania
 description: 'Odpowiedzi na typowe pytania dotyczące funkcji usługi Azure Backup, w tym magazynów usług Recovery Services, elementów, których kopie zapasowe można tworzyć, sposobu działania, szyfrowania i ograniczeń. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 4ec2f9101f724d0c5c6c5e52bb69fea82513efe5
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 04921cd617a688ebcf31bcec29cf26681914f44b
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118032"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247669"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup — często zadawane pytania
 
@@ -75,7 +75,7 @@ Tak.
 
 Usługa Azure Backup obsługuje następujące systemy operacyjne w przypadku tworzenia kopii zapasowych plików i folderów oraz aplikacji chronionych przy użyciu serwera usługi Azure Backup i programu DPM.
 
-**Macintosh** | **Magazyn** | **Szczegóły**
+**Macintosh** | **SKU** | **Uzyskać**
 --- | --- | ---
 Stacja robocza | |
 Windows 10 (wersja 64-bitowa) | Enterprise, Pro, Home | Na maszynach powinny być uruchomione najnowsze dodatki Service Pack i aktualizacje.
@@ -113,11 +113,11 @@ Maszyna wirtualna platformy Azure | Zobacz [Macierz obsługi kopii zapasowej mas
 
 W poniższej tabeli opisano sposób ustalania rozmiaru dla każdego źródła danych.
 
-**Źródło danych** | **Szczegóły**
+**Źródło danych** | **Uzyskać**
 --- | ---
 Wolumin |Ilość danych kopii zapasowej z jednego woluminu maszyny wirtualnej, którego kopia zapasowa jest wykonywana.
 Baza danych programu SQL Server |Rozmiar pojedynczej bazy danych SQL, której kopia zapasowa jest wykonywana.
-Sharepoint | Suma baz danych z zawartością i danymi konfiguracyjnymi w farmie programu SharePoint, której kopia zapasowa jest wykonywana.
+SharePoint | Suma baz danych z zawartością i danymi konfiguracyjnymi w farmie programu SharePoint, której kopia zapasowa jest wykonywana.
 Exchange |Suma wszystkich baz danych programu Exchange w serwerze Exchange, którego kopia zapasowa jest wykonywana.
 Stan systemu/BMR |Każda pojedyncza kopia BMR lub stanu systemu komputera, którego kopia zapasowa jest wykonywana.
 
@@ -190,7 +190,7 @@ Nie. Odzyskiwanie jest bezpłatne i nie są naliczane opłaty za ruch wyjściowy
 
 Po zastosowaniu nowych zasad będzie obowiązywał harmonogram i okres przechowywania określony przez te nowe zasady.
 
-- Jeśli okres przechowywania zostanie przedłużony, istniejące punkty odzyskiwania zostaną oznaczone, aby przechowywać je zgodnie z nowymi zasadami.
+- Jeśli przechowywanie zostanie rozszerzone, istniejące punkty odzyskiwania zostaną oznaczone, aby zachować je zgodnie z nowymi zasadami.
 - W przypadku skrócenia okresu przechowywania zostaną one oznaczone do oczyszczenia w ramach następnego zadania oczyszczania, a następnie usunięte.
 
 ## <a name="encryption"></a>Szyfrowanie

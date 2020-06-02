@@ -3,12 +3,12 @@ title: 'Szybki Start: dodawanie pytań i odpowiedzi w portalu QnA Maker'
 description: W tym przewodniku szybki start pokazano, jak dodać pary pytań i odpowiedzi za pomocą metadanych, aby użytkownicy mogli znaleźć odpowiednią odpowiedź na pytanie.
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: fc40c6a6e0543d4d558da2c8a17c155fbb7cbf1f
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: e35f7437f0028fedffea7cbcb6216fb7e1fad1f8
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83994667"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266580"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Szybki Start: dodawanie pytań i odpowiedzi za pomocą portalu QnA Maker
 
@@ -85,7 +85,7 @@ Dodanie metadanych do pary pytań i odpowiedzi umożliwia aplikacji klienckiej �
 1. Dodaj pary metadanych dla tych samych dwóch tagów metadanych:
 
     `link_in_answer` : `true`<br>
-    `server`: `qna_maker`
+    `service`: `qna_maker`
 
     Masz teraz dwa pytania z tymi samymi tagami metadanych o różnych wartościach.
 
@@ -99,7 +99,7 @@ Dodanie metadanych do pary pytań i odpowiedzi umożliwia aplikacji klienckiej �
 
 Twoja baza wiedzy została poddana edycji w celu obsługi większej liczby pytań i dostarczonych par nazwa/wartość do obsługi filtrowania podczas wyszukiwania dla najważniejszych odpowiedzi lub dostosujesz, gdy zostanie zwrócona odpowiedź lub odpowiedzi.
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Jeśli nie chcesz kontynuować korzystania z następnego przewodnika Szybki Start, Usuń QnA Maker i zasoby struktury bot w Azure Portal.
 

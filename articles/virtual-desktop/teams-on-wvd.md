@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 90432d3aa0ce9ebdecc7d0314b1352e46db0ac47
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 3a14ffc9f103e58681418eacbb35b72b704f2d61
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234566"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267141"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Korzystanie z programu Microsoft Teams na pulpicie wirtualnym systemu Windows
 
@@ -32,8 +32,9 @@ Dzięki optymalizacji multimediów dla zespołów Microsoft Teams klient klasycz
 Aby można było korzystać z programu Microsoft Teams na pulpicie wirtualnym systemu Windows, należy wykonać następujące czynności:
 
 - [Przygotuj sieć](/microsoftteams/prepare-network/) dla programu Microsoft Teams.
-- Zainstaluj [klienta klasycznego systemu Windows](connect-windows-7-and-10.md) na urządzeniu z systemem Windows 10, które spełnia [wymagania sprzętowe](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/)zespołów Microsoft Teams.
+- Zainstaluj [klienta klasycznego systemu Windows](connect-windows-7-and-10.md) na urządzeniu z systemem Windows 10, które spełnia wymagania sprzętowe zespołów Microsoft Teams [dla zespołów na komputerze z systemem Windows](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 - Nawiązywanie połączenia z maszyną wirtualną z systemem Windows 10 lub systemem Windows 10 Enterprise.
+- Zainstaluj aplikację Team Desktop na hoście przy użyciu instalacji na komputerze. Optymalizacja multimediów dla zespołów Microsoft Teams wymaga aplikacji Team Desktop w wersji 1.3.00.4461 lub nowszej.
 
 ## <a name="install-the-teams-desktop-app"></a>Zainstaluj aplikację Teams Desktop
 
@@ -59,6 +60,10 @@ Zainstaluj [usługę WebSocket](https://query.prod.cms.rt.microsoft.com/cms/api/
 Aplikację Team Desktop można wdrożyć przy użyciu instalacji na komputerze. Aby zainstalować program Microsoft Teams w środowisku pulpitu wirtualnego systemu Windows:
 
 1. Pobierz [pakiet MSI Teams](/microsoftteams/teams-for-vdi#deploy-the-teams-desktop-app-to-the-vm/) , który jest zgodny z Twoim środowiskiem. Zalecamy używanie Instalatora 64-bitowego w 64-bitowym systemie operacyjnym.
+
+      > [!NOTE]
+      > Optymalizacja multimediów dla zespołów Microsoft Teams wymaga aplikacji Team Desktop w wersji 1.3.00.4461 lub nowszej.
+
 2. Uruchom to polecenie, aby zainstalować plik MSI na maszynie wirtualnej hosta.
 
       ```console
@@ -138,7 +143,7 @@ Aby skontaktować się z pomocą techniczną Microsoft Teams, przejdź do [Centr
 
 Dostosowanie właściwości Remote Desktop Protocol puli hostów (RDP), takich jak środowisko monitorowania wieloskładnikowego lub włączenie funkcji przekierowywania mikrofonu i audio, pozwala zapewnić użytkownikom optymalne środowisko na podstawie ich potrzeb.
 
-Ustaw następujące właściwości protokołu RDP, aby włączyć przekierowywanie mikrofonu i aparatu:
+Włączanie przekierowań urządzeń nie jest wymagane w przypadku korzystania z zespołów z optymalizacją multimediów. Jeśli używasz zespołów bez optymalizacji multimediów, ustaw następujące właściwości protokołu RDP, aby włączyć przekierowywanie mikrofonu i aparatu:
 
 - `audiocapturemode:i:1`Włącza przechwytywanie audio z urządzenia lokalnego i redirets aplikacje audio w sesji zdalnej.
 - `audiomode:i:0`odtwarza dźwięk na komputerze lokalnym.

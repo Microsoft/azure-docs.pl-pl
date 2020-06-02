@@ -1,6 +1,6 @@
 ---
 title: Najlepsze rozwiązania dotyczące Azure Maps Route Service | Mapy Microsoft Azure
-description: Dowiedz się, jak wydajnie kierować przy użyciu Route Service z Microsoft Azure Maps.
+description: Dowiedz się, jak kierować pojazdy przy użyciu Route Service z Microsoft Azure Maps.
 author: philmea
 ms.author: philmea
 ms.date: 03/11/2020
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 85ce29d088b8fbd110988db67776d89346215e5a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 24fa4c48f6ca03e4049483a9acfff067d5a6a736
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80335418"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266699"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Najlepsze rozwiązania dotyczące usługi Azure Maps Route Service
 
@@ -67,7 +67,7 @@ Aby dowiedzieć się więcej o możliwościach routingu pojazdów elektrycznych,
 
 ## <a name="request-historic-and-real-time-data"></a>Żądaj danych historycznych i w czasie rzeczywistym
 
-Domyślnie usługa trasy zakłada, że tryb podróży jest samochodem i czas wyruszenia jest teraz. Zwraca trasę na podstawie warunków ruchu w czasie rzeczywistym, chyba że żądanie obliczenia trasy jest określone w przeciwnym razie. Stałe ograniczenia ruchu zależnego od czasu, takie jak "lewe przelewy" nie są dozwolone między 4:00 PM do 6:00 PM ", są przechwytywane i uwzględniane przez aparat routingu. Zamknięcia dróg, takie jak roadworks, będą brane pod uwagę, chyba że zażądasz trasy, która ignoruje bieżący ruch na żywo. Aby zignorować bieżący ruch, ustaw na `traffic` `false` wartość w żądaniu interfejsu API.
+Domyślnie usługa trasy zakłada, że tryb podróży jest samochodem i czas wyruszenia jest teraz. Zwraca trasę na podstawie warunków ruchu w czasie rzeczywistym, chyba że żądanie obliczenia trasy jest określone w przeciwnym razie. Stałe ograniczenia ruchu zależnego od czasu, takie jak "lewe przelewy" nie są dozwolone między 4:00 PM do 6:00 PM ", są przechwytywane i uwzględniane przez aparat routingu. Zamknięcia dróg, takie jak roadworks, będą brane pod uwagę, chyba że zażądasz trasy, która ignoruje bieżący ruch na żywo. Aby zignorować bieżący ruch, ustaw `traffic` na wartość `false` w żądaniu interfejsu API.
 
 Wartość **travelTimeInSeconds** obliczeń trasy obejmuje opóźnienie spowodowane ruchem. Jest on generowany przy użyciu bieżących i historycznych danych czasu podróży, gdy czas wyruszenia jest ustawiony na teraz. Jeśli czas wyruszenia zostanie ustawiony w przyszłości, interfejsy API zwracają przewidywany czas podróży na podstawie danych historycznych.
 
@@ -129,7 +129,7 @@ Odpowiedź zawiera podsumowanie, jak pokazano poniżej. Ze względu na przecią�
 
 ## <a name="request-route-and-leg-details"></a>Żądaj szczegółów trasy i etapu
 
-Domyślnie usługa Route zwróci tablicę współrzędnych. Odpowiedź będzie zawierać współrzędne, które tworzą ścieżkę na liście o nazwie `points`. Odpowiedź trasy obejmuje również odległość od początku trasy i szacowany czas, który upłynął. Te wartości mogą służyć do obliczania średniej szybkości dla całej trasy.
+Domyślnie usługa Route zwróci tablicę współrzędnych. Odpowiedź będzie zawierać współrzędne, które tworzą ścieżkę na liście o nazwie `points` . Odpowiedź trasy obejmuje również odległość od początku trasy i szacowany czas, który upłynął. Te wartości mogą służyć do obliczania średniej szybkości dla całej trasy.
 
 Na poniższej ilustracji przedstawiono `points` element.
 
@@ -149,7 +149,7 @@ Rozwiń `point` element, aby wyświetlić listę współrzędnych ścieżki:
 
 Interfejsy API wskazówek dotyczących trasy obsługują różne formaty instrukcji, które mogą być używane przez określenie parametru **instructiontype** . Aby sformatować instrukcje dotyczące łatwego przetwarzania komputera, użyj **instrukcji instructiontype = kodowane**. Użyj **instrukcji instructiontype = Tagged** , aby wyświetlić instrukcje jako tekst dla użytkownika. Ponadto instrukcje można sformatować jako tekst, w którym są oznaczone niektóre elementy instrukcji, a instrukcja jest prezentowana z formatowaniem specjalnym. Aby uzyskać więcej informacji, zobacz [listę obsługiwanych typów instrukcji](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#routeinstructionstype).
 
-Gdy wymagane są instrukcje, odpowiedź zwraca nowy element o nazwie `guidance`. `guidance` Element zawiera dwie części informacji: instrukcje włączania i podsumowywania instrukcji.
+Gdy wymagane są instrukcje, odpowiedź zwraca nowy element o nazwie `guidance` . `guidance`Element zawiera dwie części informacji: instrukcje włączania i podsumowywania instrukcji.
 
 <center>
 
@@ -157,7 +157,7 @@ Gdy wymagane są instrukcje, odpowiedź zwraca nowy element o nazwie `guidance`.
 
 </center>
 
-`instructions` Element zawiera wskazówki dotyczące włączania i wyłączania dla podróży oraz `instructionGroups` zawiera podsumowanie instrukcji. Każde podsumowanie instrukcji obejmuje segment rejsu, który może obejmować wiele dróg. Interfejsy API mogą zwrócić szczegóły dotyczące sekcji trasy. taki jak, zakres współrzędnych zakleszczenia ruchu lub bieżącą szybkość ruchu.
+`instructions`Element zawiera wskazówki dotyczące włączania i wyłączania dla podróży oraz `instructionGroups` zawiera podsumowanie instrukcji. Każde podsumowanie instrukcji obejmuje segment rejsu, który może obejmować wiele dróg. Interfejsy API mogą zwrócić szczegóły dotyczące sekcji trasy. taki jak, zakres współrzędnych zakleszczenia ruchu lub bieżącą szybkość ruchu.
 
 <center>
 
@@ -213,7 +213,7 @@ Dzięki interfejsom API kierunku trasy Azure Maps deweloperzy mogą żądać szc
 
 ### <a name="sample-query"></a>Przykładowe zapytanie
 
-Poniższe zapytanie ustawia wartość `sectionType` na. `traffic` Żąda sekcji zawierających informacje o ruchu z Seattle do San Diego.
+Poniższe zapytanie ustawia wartość `sectionType` na `traffic` . Żąda sekcji zawierających informacje o ruchu z Seattle do San Diego.
 
 ```http
 https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&sectionType=traffic&query=47.6062,-122.3321:32.7157,-117.1611
@@ -249,7 +249,7 @@ Aby zoptymalizować najlepszą kolejność do odwiedzania danego waypoints, nale
 
 ### <a name="sample-query"></a>Przykładowe zapytanie
 
-Następujące zapytanie żąda ścieżki dla sześciu waypoints z `computeBestOrder` parametrem ustawionym na. `false` Jest to również wartość domyślna `computeBestOrder` parametru.
+Następujące zapytanie żąda ścieżki dla sześciu waypoints z `computeBestOrder` parametrem ustawionym na `false` . Jest to również wartość domyślna `computeBestOrder` parametru.
 
 ```http
 https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&computeBestOrder=false&query=47.606544,-122.336502:47.759892,-122.204821:47.670682,-122.120415:47.480133,-122.213369:47.615556,-122.193689:47.676508,-122.206054:47.495472,-122.360861

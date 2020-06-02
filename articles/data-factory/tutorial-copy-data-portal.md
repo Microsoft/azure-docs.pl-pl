@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 04/13/2020
+ms.date: 05/28/2020
 ms.author: jingwang
-ms.openlocfilehash: f5b95e4bc6ee035de0a3e39c0fc27e8387a6e239
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 8372683c1463fe3443730bd004c013666deb4100
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022048"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248621"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Kopiowanie danych z usługi Azure Blob Storage do bazy danych SQL za pomocą usługi Azure Data Factory
 
@@ -97,7 +97,7 @@ W tym kroku utworzysz fabrykę danych i uruchomisz interfejs użytkownika usług
     Informacje na temat grup zasobów znajdują się w artykule [Using resource groups to manage your Azure resources (Używanie grup zasobów do zarządzania zasobami platformy Azure)](../azure-resource-manager/management/overview.md). 
 6. W obszarze **Wersja** wybierz pozycję **V2**.
 7. W obszarze **Lokalizacja** wybierz lokalizację fabryki danych. Na liście rozwijanej są wyświetlane tylko obsługiwane lokalizacje. Magazyny danych (np. usługi Azure Storage i SQL Database) oraz jednostki obliczeniowe (np. usługa Azure HDInsight) używane przez fabrykę danych mogą znajdować się w innych regionach.
-8. Wybierz przycisk **Utwórz**.
+8. Wybierz pozycję **Utwórz**.
 9. Po zakończeniu tworzenia zobaczysz powiadomienie w centrum powiadomień. Wybierz pozycję **Przejdź do zasobu** , aby przejść do strony Fabryka danych.
 10. Wybierz pozycję **Tworzenie i monitorowanie**, aby uruchomić interfejs użytkownika usługi Data Factory na osobnej karcie.
 
@@ -114,7 +114,8 @@ W tym samouczku zaczniesz od utworzenia potoku. Następnie utworzysz usługi po�
 1. Na stronie **Zaczynajmy** wybierz pozycję **Utwórz potok**.
 
    ![Tworzenie potoku](./media/doc-common-process/get-started-page.png)
-1. Na karcie **Ogólne** dla potoku w polu **Nazwa** wprowadź wartość **CopyPipeline**.
+
+1. 1. W panelu Ogólne w obszarze **Właściwości**Określ **CopyPipeline** dla **nazwy**. Następnie Zwiń panel, klikając ikonę właściwości w prawym górnym rogu.
 
 1. W oknie Narzędzie **działania** rozwiń kategorię **przenoszenie i przekształcanie** , a następnie przeciągnij i upuść działanie **Kopiowanie danych** z okna narzędzia do powierzchni projektanta potoku. Wprowadź wartość **CopyFromBlobToSql** w polu **Nazwa**.
 
@@ -161,7 +162,7 @@ W tym samouczku zaczniesz od utworzenia potoku. Następnie utworzysz usługi po�
 
     b. W polu **Nazwa serwera** wybierz swoje wystąpienie programu SQL Server.
 
-    c. W polu **Nazwa bazy danych** wybierz swoją usługę SQL Database.
+    d. W polu **Nazwa bazy danych** wybierz swoją usługę SQL Database.
 
     d. W polu **Nazwa użytkownika** wprowadź nazwę użytkownika.
 
@@ -225,7 +226,7 @@ W tym kroku utworzysz wyzwalacz harmonogramu potoku. Wyzwalacz uruchamia potok z
 
     b. W obszarze **Koniec** wybierz pozycję **W dniu**.
 
-    c. W obszarze **Dzień zakończenia** wybierz listę rozwijaną.
+    d. W obszarze **Dzień zakończenia** wybierz listę rozwijaną.
 
     d. Wybierz opcję **Bieżący dzień**. Domyślnie dzień zakończenia jest ustawiony na następny dzień.
 

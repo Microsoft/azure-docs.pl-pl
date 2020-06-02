@@ -3,12 +3,12 @@ title: Obsługa oceny VMware w Azure Migrate
 description: Dowiedz się więcej o obsłudze oceny maszyn wirtualnych VMware za pomocą oceny serwera Azure Migrate.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 0ec7006ce240df8c6e07afffa886e78ca9bc2a4d
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 8e0b6f3babcc862e1a78effcdb1a61f430c01646
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83849369"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267889"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Macierz obsługi dla oceny oprogramowania VMware 
 
@@ -18,7 +18,7 @@ Aby ocenić maszyny wirtualne VMware, należy utworzyć projekt Azure Migrate, a
 
 ## <a name="limitations"></a>Ograniczenia
 
-**Pomoc techniczna** | **Szczegóły**
+**Pomoc techniczna** | **Uzyskać**
 --- | ---
 **Limity projektu** | Możesz utworzyć wiele projektów w ramach subskrypcji platformy Azure.<br/><br/> Można odkrywać i oceniać do 35 000 maszyn wirtualnych VMware w jednym [projekcie](migrate-support-matrix.md#azure-migrate-projects). Projekt może również obejmować serwery fizyczne i maszyny wirtualne funkcji Hyper-V, a także limity oceny dla każdego z nich.
 **Odnajdowa** | Urządzenie Azure Migrate może wykryć do 10 000 maszyn wirtualnych VMware na vCenter Server.
@@ -31,7 +31,7 @@ Aby ocenić maszyny wirtualne VMware, należy utworzyć projekt Azure Migrate, a
 
 Oprócz odnajdywania maszyn oceny serwera mogą wykrywać aplikacje, role i funkcje uruchomione na maszynach. Odnajdywanie spisu aplikacji umożliwia zidentyfikowanie i zaplanowanie ścieżki migracji dopasowanej do obciążeń lokalnych. 
 
-**Pomoc techniczna** | **Szczegóły**
+**Pomoc techniczna** | **Uzyskać**
 --- | ---
 **Obsługiwane maszyny** | Funkcja odnajdywania aplikacji jest obecnie obsługiwana tylko w przypadku maszyn wirtualnych VMware.
 **Odnajdowa** | Odnajdowanie aplikacji jest bezagentem. Używa poświadczeń gościa komputera i zdalnie uzyskuje dostęp do maszyn przy użyciu usług WMI i wywołań SSH.
@@ -47,9 +47,9 @@ Oprócz odnajdywania maszyn oceny serwera mogą wykrywać aplikacje, role i funk
 
 ## <a name="vmware-requirements"></a>Wymagania dotyczące oprogramowania VMware
 
-**VMware** | **Szczegóły**
+**VMware** | **Uzyskać**
 --- | ---
-**Maszyny wirtualne VMware** | Ocena jest obsługiwana w przypadku wszystkich systemów operacyjnych Windows i Linux.
+**Maszyny wirtualne VMware** | Wszystkie systemy operacyjne można ocenić pod kątem migracji. 
 **Program vCenter Server** | Komputery, które mają być odnajdywane i oceniane, muszą być zarządzane przez vCenter Server w wersji 5,5, 6,0, 6,5 lub 6,7.
 **Uprawnienia (ocena)** | vCenter Server konto tylko do odczytu.
 **Uprawnienia (Odnajdywanie aplikacji)** | konto vCenter Server z dostępem tylko do odczytu i przywileje włączone dla **maszyn wirtualnych > operacji gościa**.
@@ -77,7 +77,7 @@ Hosty ESXi (Odnajdywanie aplikacji/analiza zależności bez wykorzystania agent�
 
 Oprócz odnajdywania maszyn oceny serwera mogą wykrywać aplikacje, role i funkcje uruchomione na maszynach. Odnajdywanie spisu aplikacji umożliwia zidentyfikowanie i zaplanowanie ścieżki migracji dopasowanej do obciążeń lokalnych. 
 
-**Pomoc techniczna** | **Szczegóły**
+**Pomoc techniczna** | **Uzyskać**
 --- | ---
 **Obsługiwane maszyny** | Funkcja odnajdywania aplikacji jest obecnie obsługiwana tylko w przypadku maszyn wirtualnych VMware.
 **Odnajdowa** | Odnajdowanie aplikacji jest bezagentem. Używa poświadczeń gościa komputera i zdalnie uzyskuje dostęp do maszyn przy użyciu usług WMI i wywołań SSH.
@@ -94,7 +94,7 @@ Oprócz odnajdywania maszyn oceny serwera mogą wykrywać aplikacje, role i funk
 
 [Analiza zależności](concepts-dependency-visualization.md) pomaga identyfikować zależności między maszynami lokalnymi, które mają zostać poddane ocenie i zmigrować na platformę Azure. W tabeli zestawiono wymagania dotyczące konfigurowania analizy zależności bez agenta. 
 
-**Wymaganie** | **Szczegóły**
+**Wymaganie** | **Uzyskać**
 --- | --- 
 **Przed wdrożeniem** | Należy mieć projekt Azure Migrate przy użyciu narzędzia do oceny serwera dodanego do projektu.<br/><br/>  Wizualizacja zależności jest wdrażana po skonfigurowaniu urządzenia Azure Migrate w celu odnalezienia lokalnych maszyn VMWare.<br/><br/> [Dowiedz się, jak](create-manage-projects.md) utworzyć projekt po raz pierwszy.<br/> [Dowiedz się, jak](how-to-assess.md) dodać narzędzie do oceny do istniejącego projektu.<br/> [Dowiedz się, jak](how-to-set-up-appliance-vmware.md) skonfigurować urządzenie Azure Migrate do oceny maszyn wirtualnych VMware.
 **Obsługa maszyn wirtualnych** | Obecnie obsługiwane tylko w przypadku maszyn wirtualnych VMware.
@@ -113,7 +113,7 @@ Oprócz odnajdywania maszyn oceny serwera mogą wykrywać aplikacje, role i funk
 
 [Analiza zależności](concepts-dependency-visualization.md) pomaga identyfikować zależności między maszynami lokalnymi, które mają zostać poddane ocenie i zmigrować na platformę Azure. W tabeli zestawiono wymagania dotyczące konfigurowania analizy zależności opartej na agentach. 
 
-**Wymaganie** | **Szczegóły** 
+**Wymaganie** | **Uzyskać** 
 --- | --- 
 **Przed wdrożeniem** | Należy mieć projekt Azure Migrate na miejscu z Azure Migrate: Narzędzie do oceny serwera dodane do projektu.<br/><br/>  Wizualizacja zależności jest wdrażana po skonfigurowaniu urządzenia Azure Migrate w celu odnalezienia maszyn lokalnych<br/><br/> [Dowiedz się, jak](create-manage-projects.md) utworzyć projekt po raz pierwszy.<br/> [Dowiedz się, jak](how-to-assess.md) dodać narzędzie do oceny do istniejącego projektu.<br/> Dowiedz się, jak skonfigurować urządzenie Azure Migrate na potrzeby oceny serwerów fizycznych ( [Hyper-V](how-to-set-up-appliance-hyper-v.md)) lub [VMware](how-to-set-up-appliance-vmware.md).
 **Azure Government** | Wizualizacja zależności nie jest dostępna w Azure Government.

@@ -3,12 +3,12 @@ title: Używanie programu PowerShell do tworzenia kopii zapasowych systemu Windo
 description: W tym artykule dowiesz się, jak używać programu PowerShell do konfigurowania Azure Backup w systemie Windows Server lub kliencie systemu Windows oraz zarządzania kopiami zapasowymi i odzyskiwaniem.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: bd7a48fa44d33274fe2378d0efdce13eae86aff4
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 696da2c94a439e5efaebbd148f6e05a9e0e15f37
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234649"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247754"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Wdrażanie kopii zapasowych systemu Windows Server/Windows Client na platformie Azure i zarządzanie nimi przy użyciu programu PowerShell
 
@@ -694,7 +694,7 @@ Odinstalowanie plików binarnych agenta z komputera ma pewne konsekwencje:
 * Wszystkie informacje o zasadach są usuwane z komputera, ale informacje o zasadach nadal są przechowywane w usłudze.
 * Wszystkie harmonogramy tworzenia kopii zapasowych są usuwane i nie są podejmowane żadne dalsze kopie zapasowe.
 
-Jednak dane przechowywane na platformie Azure pozostają i są zachowywane zgodnie z konfiguracją zasad przechowywania przez użytkownika. Starsze punkty są automatycznie przestarzałe.
+Jednak dane przechowywane na platformie Azure pozostają i są zachowywane zgodnie z konfiguracją zasad przechowywania. Starsze punkty są automatycznie przestarzałe.
 
 ## <a name="remote-management"></a>Zdalne zarządzanie
 

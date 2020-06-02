@@ -7,12 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/28/2020
 tags: connectors
-ms.openlocfilehash: 1eb017740fb13dbc4f67b11ad8768e48e5b29010
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: a44e0e9f2427fc5fcb44a78fb0a1798b219f9200
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171535"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84249165"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Odbieranie przychodzących żądań HTTPS i odpowiadanie na nie w Azure Logic Apps
 
@@ -63,7 +63,7 @@ Ten wbudowany wyzwalacz tworzy ręcznie możliwy do przełączenia punkt końcow
 
    | Nazwa właściwości | Nazwa właściwości JSON | Wymagane | Opis |
    |---------------|--------------------|----------|-------------|
-   | **ADRES URL POST PROTOKOŁU HTTP** | dawaj | Tak | Adres URL punktu końcowego, który jest generowany po zapisaniu aplikacji logiki i jest używany do wywoływania aplikacji logiki |
+   | **ADRES URL POST PROTOKOŁU HTTP** | dawaj | Yes | Adres URL punktu końcowego, który jest generowany po zapisaniu aplikacji logiki i jest używany do wywoływania aplikacji logiki |
    | **Schemat JSON treści żądania** | `schema` | Nie | Schemat JSON, który opisuje właściwości i wartości w treści żądania przychodzącego |
    |||||
 
@@ -157,6 +157,14 @@ Ten wbudowany wyzwalacz tworzy ręcznie możliwy do przełączenia punkt końcow
          }
       }
       ```
+
+1. Aby sprawdzić, czy wywołanie przychodzące ma treść żądania zgodną z określonym schematem, wykonaj następujące kroki:
+
+   1. Na pasku tytułu wyzwalacza żądania wybierz przycisk wielokropka (**...**).
+   
+   1. W ustawieniach wyzwalacza Włącz **Sprawdzanie poprawności schematu**i wybierz pozycję **gotowe**.
+   
+      Jeśli treść żądania wywołania przychodzącego nie jest zgodna ze schematem, wyzwalacz zwróci `HTTP 400 Bad Request` błąd.
 
 1. Aby określić dodatkowe właściwości, Otwórz listę **Dodaj nowy parametr** i wybierz parametry, które chcesz dodać.
 
@@ -256,7 +264,7 @@ Aplikacja logiki utrzymuje otwarte żądanie przychodzące tylko przez [ogranicz
 
    | Nazwa właściwości | Nazwa właściwości JSON | Wymagane | Opis |
    |---------------|--------------------|----------|-------------|
-   | **Kod stanu** | `statusCode` | Tak | Kod stanu do zwrócenia w odpowiedzi |
+   | **Kod stanu** | `statusCode` | Yes | Kod stanu do zwrócenia w odpowiedzi |
    | **Nagłówki** | `headers` | Nie | Obiekt JSON, który opisuje jeden lub więcej nagłówków do uwzględnienia w odpowiedzi |
    | **Treść** | `body` | Nie | Treść odpowiedzi |
    |||||

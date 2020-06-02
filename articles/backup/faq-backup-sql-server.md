@@ -4,12 +4,12 @@ description: Znajdź odpowiedzi na często zadawane pytania dotyczące tworzenia
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: a973761bf16e2d271d718e4a8b29e08624276987
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 11657a5dda79fc550f4c07d4020d75c671335da4
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79247711"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248264"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Często zadawane pytania dotyczące SQL Server baz danych uruchomionych w ramach kopii zapasowej maszyny wirtualnej platformy Azure
 
@@ -52,7 +52,7 @@ Wartość domyślna DefaultBackupTasksThreshold wynosi **20**.
  Chociaż ta metoda pomaga, jeśli aplikacja do tworzenia kopii zapasowych zużywa znaczną ilość zasobów, SQL Server [Gubernatorów zasobów](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017) jest bardziej ogólnym sposobem określania limitów ilości CPU, fizycznego wejścia/wyjścia i pamięci, które mogą być używane przez przychodzące żądania aplikacji.
 
 > [!NOTE]
-> W środowisku użytkownika można nadal kontynuować pracę i zaplanować dowolną liczbę kopii zapasowych w danym momencie, jednak zostaną one przetworzone w ruchomym oknie powiedz, 5, zgodnie z powyższym przykładem.
+> W środowisku użytkownika można nadal przejść i zaplanować dowolną liczbę kopii zapasowych w danym momencie, jednak będą one przetwarzane w ruchomym oknie powiedzie się, 5, zgodnie z powyższym przykładem.
 
 ## <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>Czy można uruchamiać pełną kopię zapasową z repliki pomocniczej?
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 15bfb1e4d21e4f91cb37fed6e43b4e03f5643b13
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: a6a4712f88a6f5351845233f4179e82e4b473ded
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82692232"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266733"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integracja z partnerem pulpitu wirtualnego systemu Windows
 
@@ -245,7 +245,7 @@ sepago został utworzony w 2002 przez cztery znajomych w Kolonii. Dzisiaj, sepag
 sepago innowacje i rozwój laboratoryjne kompilują inteligentne rozwiązania przy użyciu technologii danych Big Data i AI. Rozwiązania te koncentrują się na ulepszaniu działalności biznesowej, środowisku użytkownika i administrowaniu produktami partnerskimi, takimi jak pulpit wirtualny systemu Windows.
 
 - [Zobacz Krótki opis wspólnego rozwiązania](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qMsm).
-- [Przejdź do witryny sieci Web partnera](https://www.sepago.de/wvd-value-add-tools/).
+- [Przejdź do witryny sieci Web partnera](https://www.sepago.de/en/).
 
 ## <a name="thinprint"></a>ThinPrint
 

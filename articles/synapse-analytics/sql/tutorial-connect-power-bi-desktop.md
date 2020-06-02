@@ -9,16 +9,16 @@ ms.subservice: ''
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 649c9a2e0dd9df21a9a59140d9f2999768aab555
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 1b71e8108ecab0f6d420e404bd602a900ebfcfb2
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83745405"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84258287"
 ---
 # <a name="tutorial-use-sql-on-demand-preview-with-power-bi-desktop--create-a-report"></a>Samouczek: używanie SQL na żądanie (wersja zapoznawcza) z Power BI Desktop & Tworzenie raportu
 
-Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
+Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 >
@@ -29,10 +29,14 @@ Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Do ukończenia tego samouczka potrzebne jest następujące oprogramowanie:
+Do wykonania kroków tego samouczka niezbędne jest spełnienie następujących wymagań wstępnych:
+
+- [Power BI Desktop](https://powerbi.microsoft.com/downloads/) — jest to konieczne do wizualizacji danych i tworzenia raportu.
+- [Obszar roboczy usługi Azure Synapse](https://docs.microsoft.com/azure/synapse-analytics/quickstart-synapse-studio) — wymagany do tworzenia bazy danych, zewnętrznego źródła danych i widoku.
+
+Opcjonalnie:
 
 - Narzędzie zapytania SQL, takie jak [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)lub [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
-- [Power BI Desktop](https://powerbi.microsoft.com/downloads/).
 
 Wartości dla następujących parametrów:
 
@@ -147,7 +151,7 @@ Utwórz raport dla Power BI Desktop, wykonując następujące czynności:
 
    ![Wybierz kolumny zainteresowania, aby wygenerować raport mapy.](./media/tutorial-connect-power-bi-desktop/step-6-select-columns-of-interest.png)
 
-## <a name="clean-up-resources"></a>Czyszczenie zasobów
+## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 Po zakończeniu korzystania z tego raportu Usuń zasoby z następującymi krokami:
 

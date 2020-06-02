@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 09/03/2019
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 12c1a8c5231e0a6d6674ca55be78a491074a3d3a
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 7181dd74963a1af05438b16e00e2442478daac03
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84053639"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267905"
 ---
 # <a name="tutorial-secure-an-azure-sql-database"></a>Samouczek: Zabezpieczanie Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -219,7 +219,7 @@ Aby zapewnić bezpieczne, szyfrowane połączenie między aplikacją kliencką a
 - żądać połączenia szyfrowanego oraz
 - nie ufać certyfikatowi serwera.
 
-Dzięki temu połączenie jest nawiązywane przy użyciu zabezpieczeń Transport Layer Security (TLS) i zmniejsza się ryzyko ataków typu „man-in-the-middle” (człowiek pośrodku). Parametry połączenia są dostępne na poziomie bazy danych i są wstępnie skonfigurowane w celu obsługi sterowników klienta takich jak ADO.NET, JDBC, ODBC czy PHP. Aby uzyskać informacje dotyczące zabezpieczeń TLS i łączności, zobacz [Zagadnienia dotyczące protokołu TLS](connect-query-content-reference-guide.md#tls-considerations-for-sql-database-connectivity).
+Dzięki temu połączenie jest nawiązywane przy użyciu zabezpieczeń Transport Layer Security (TLS) i zmniejsza się ryzyko ataków typu „man-in-the-middle” (człowiek pośrodku). Parametry połączenia są dostępne na poziomie bazy danych i są wstępnie skonfigurowane w celu obsługi sterowników klienta takich jak ADO.NET, JDBC, ODBC czy PHP. Aby uzyskać informacje dotyczące zabezpieczeń TLS i łączności, zobacz [Zagadnienia dotyczące protokołu TLS](connect-query-content-reference-guide.md#tls-considerations-for-database-connectivity).
 
 Aby skopiować bezpieczne parametry połączenia:
 

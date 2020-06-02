@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: 2e1b6ee0bd6c392804915fac6ff23278a00b6d33
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 3c02e823202aa848a4de94885276835899562e4b
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79367843"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84266019"
 ---
-# <a name="what-are-custom-commands-preview"></a>Co to są polecenia niestandardowe (wersja zapoznawcza)?
+# <a name="what-is-custom-commands-preview"></a>Co to są polecenia niestandardowe (wersja zapoznawcza)?
 
-Aplikacje głosowe, takie jak [Asystenci głosu](voice-assistants.md) , nasłuchują użytkowników i podejmują działania w odpowiedzi, często mówiąc z powrotem. Używają [zamiany mowy na tekst](speech-to-text.md) , aby transkrypcja mowę użytkownika, a następnie podejmować działania dotyczące interpretacji języka naturalnego tekstu. Ta akcja często obejmuje głosowanie danych wyjściowych wygenerowanego przez asystenta z funkcją [zamiany tekstu na mowę](text-to-speech.md). Urządzenia nawiązują połączenie z asystentami z `DialogServiceConnector` obiektem zestawu Speech SDK.
+Aplikacje głosowe, takie jak [Asystenci głosu](voice-assistants.md) , nasłuchują użytkowników i podejmują działania w odpowiedzi, często mówiąc z powrotem. Używają [zamiany mowy na tekst](speech-to-text.md) , aby transkrypcja mowę użytkownika, a następnie podejmować działania dotyczące interpretacji języka naturalnego tekstu. Ta akcja często obejmuje głosowanie danych wyjściowych wygenerowanego przez asystenta z funkcją [zamiany tekstu na mowę](text-to-speech.md). Urządzenia nawiązują połączenie z asystentami z obiektem zestawu Speech SDK `DialogServiceConnector` .
 
 **Polecenia niestandardowe (wersja zapoznawcza)** to usprawnione rozwiązanie do tworzenia aplikacji głosowych. Zapewnia ujednolicone środowisko tworzenia, automatyczny model hostingu i stosunkowo niższą złożoność, a także inne opcje, takie jak [bezpośrednie rozpoznawanie linii](direct-line-speech.md). Upraszcza to jednak zmniejszenie elastyczności. W związku z tym polecenia niestandardowe (wersja zapoznawcza) najlepiej nadają się do wykonywania zadań lub scenariuszy kontroli poleceń. Jest to szczególnie dobrze dopasowane do Internet rzeczy (IoT) i urządzeń bezobsługowych.
 

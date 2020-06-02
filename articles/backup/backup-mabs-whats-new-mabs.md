@@ -3,12 +3,12 @@ title: Co nowego w usłudze Microsoft Azure Backup Server
 description: Serwer Microsoft Azure Backup zapewnia ulepszone możliwości tworzenia kopii zapasowych w celu ochrony maszyn wirtualnych, plików i folderów, obciążeń i nie tylko. Dowiedz się, jak zainstalować program lub uaktualnić go do wersji Azure Backup Server v3.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 61430ce06d3e441fcfe0443eaaf5de3755b04624
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 358de6f2986036621accde90550e2afcc47f9135
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "77582810"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84247550"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>Co nowego w usłudze Microsoft Azure Backup Server
 
@@ -26,7 +26,7 @@ W przedsiębiorstwach serwera usługi MAB jest zarządzany przez zespół admini
 
 ## <a name="custom-size-allocation"></a>Alokacja rozmiaru niestandardowego
 
-Nowoczesny magazyn kopii zapasowych (MB) zużywa cienki magazyn, jak i w razie konieczności. W tym celu serwera usługi MAB oblicza rozmiar kopii zapasowej danych, gdy jest ona skonfigurowana do ochrony. Jeśli jednak kopia zapasowa wielu plików i folderów jest tworzona razem, tak jak w przypadku serwera plików, Obliczanie rozmiaru może trwać długo. Za pomocą serwera usługi MAB v3 można skonfigurować serwera usługi MAB do akceptowania rozmiaru woluminu jako domyślnego, zamiast obliczać rozmiar każdego pliku, w związku z tym oszczędność czasu.
+Nowoczesny magazyn kopii zapasowych (MB) zużywa cienki magazyn, jak i w razie konieczności. W tym celu serwera usługi MAB oblicza rozmiar kopii zapasowej danych, gdy jest ona skonfigurowana do ochrony. Jeśli jednak kopia zapasowa wielu plików i folderów jest tworzona razem, tak jak w przypadku serwera plików, Obliczanie rozmiaru może trwać długo. Za pomocą serwera usługi MAB v3 można skonfigurować serwera usługi MAB do akceptowania rozmiaru woluminu jako domyślnego, zamiast obliczania rozmiaru każdego pliku, co oszczędza czas.
 
 ## <a name="optimized-cc-for-rct-vms"></a>Zoptymalizowane maszyny wirtualne CC for RCT
 

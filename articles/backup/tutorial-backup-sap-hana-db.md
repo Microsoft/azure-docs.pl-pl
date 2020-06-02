@@ -3,12 +3,12 @@ title: Samouczek — Tworzenie kopii zapasowych baz danych SAP HANA na maszynach
 description: W tym samouczku dowiesz się, jak utworzyć kopię zapasową SAP HANA baz danych działających na maszynie wirtualnej platformy Azure do magazynu Azure Backup Recovery Services.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: cb1fc4c1b9bfa2025850f16d175ba83bd5ee1470
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 31958a4d4e3af4f747ab2f9de7b1bc67560e87d7
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747231"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248247"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Samouczek: Tworzenie kopii zapasowych baz danych SAP HANA na maszynie wirtualnej platformy Azure
 
@@ -22,6 +22,9 @@ W tym samouczku pokazano, jak utworzyć kopię zapasową SAP HANA baz danych dzi
 
 [Oto](sap-hana-backup-support-matrix.md#scenario-support) wszystkie scenariusze, które obecnie są obsługiwane.
 
+>[!NOTE]
+>[Wprowadzenie](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db) do usługi SAP HANA Backup Preview for RHEL (7,4, 7,6, 7,7 lub 8,1). Aby dalsze zapytania były zapisywane w firmie Microsoft [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) .
+
 ## <a name="prerequisites"></a>Wymagania wstępne
 
 Przed skonfigurowaniem kopii zapasowych upewnij się, że wykonano następujące czynności:
@@ -34,9 +37,7 @@ Przed skonfigurowaniem kopii zapasowych upewnij się, że wykonano następujące
 * Uruchom skrypt konfiguracji kopii zapasowej SAP HANA (skrypt przed rejestracją) na maszynie wirtualnej, na której jest zainstalowany program HANA, jako użytkownik główny. [Ten skrypt](https://aka.ms/scriptforpermsonhana) Pobiera System Hana do utworzenia kopii zapasowej. Zapoznaj się z sekcją co to jest [skrypt przed rejestracją](#what-the-pre-registration-script-does) , aby dowiedzieć się więcej na temat skryptu przed rejestracją.
 
 >[!NOTE]
->Azure Backup nie dostosowuje się automatycznie podczas tworzenia kopii zapasowej bazy danych SAP HANA uruchomionej na maszynie wirtualnej platformy Azure.
->
->Zmodyfikuj zasady ręcznie w razie konieczności.
+>Skrypt przed rejestracją instaluje **unixODBC234** SAP HANA dla obciążeń, które działają w RHEL (7,4, 7,6 i 7,7) i **unixODBC** dla RHEL 8,1. [Ten pakiet znajduje się w repozytorium RHEL for SAP HANA (w przypadku serwera RHEL 7) usługi Update Services for SAP Solutions (pakiety RPM)](https://access.redhat.com/solutions/5094721).  W przypadku obrazu RHEL w portalu Azure Marketplace repozytorium będzie **rhui-RHEL-SAP-HANA-for-RHEL-7-Server-rhui-e4s-pakiety RPM**.
 
 ## <a name="set-up-network-connectivity"></a>Konfigurowanie łączności sieciowej
 
@@ -88,7 +89,7 @@ Aby utworzyć regułę przy użyciu programu PowerShell:
 
 Opcje łączności obejmują następujące zalety i wady:
 
-**Zaznaczyć** | **Zalety** | **Wady**
+**Opcja** | **Zalety** | **Wady**
 --- | --- | ---
 Zezwolenie na zakresy adresów IP | Brak dodatkowych kosztów | Skomplikowane do zarządzania, ponieważ zakresy adresów IP zmieniają się w czasie <br/><br/> Zapewnia dostęp do całości platformy Azure, a nie tylko usługi Azure Storage
 Użyj tagów usługi sieciowej grupy zabezpieczeń | Łatwiejsze zarządzanie, ponieważ zmiany zakresu są automatycznie scalane <br/><br/> Brak dodatkowych kosztów <br/><br/> | Może być używany tylko z sieciowych grup zabezpieczeń <br/><br/> Zapewnia dostęp do całej usługi

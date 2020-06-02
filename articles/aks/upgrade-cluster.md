@@ -3,19 +3,19 @@ title: Uaktualnianie klastra usługi Azure Kubernetes Service (AKS)
 description: Dowiedz się, jak uaktualnić klaster usługi Azure Kubernetes Service (AKS), aby uzyskać najnowsze funkcje i aktualizacje zabezpieczeń.
 services: container-service
 ms.topic: article
-ms.date: 05/31/2019
-ms.openlocfilehash: 7e9a47b7bda4cdb0ff6f1983bc884f7441a26d9b
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.date: 05/28/2020
+ms.openlocfilehash: 761df8abc60671341fcdd74e7c66111cfeb105ad
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82207976"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259239"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Uaktualnianie klastra usługi Azure Kubernetes Service (AKS)
 
 W ramach cyklu życia klastra AKS często konieczne jest uaktualnienie do najnowszej wersji programu Kubernetes. Ważne jest, aby zastosować najnowsze wersje zabezpieczeń Kubernetes lub uaktualnić je w celu uzyskania najnowszych funkcji. W tym artykule opisano sposób uaktualniania składników głównych lub pojedynczej, domyślnej puli węzłów w klastrze AKS.
 
-W przypadku klastrów AKS, które korzystają z wielu pul węzłów, zobacz [uaktualnianie puli węzłów w AKS][nodepool-upgrade].
+W przypadku klastrów AKS, które korzystają z wielu pul węzłów lub węzłów systemu Windows Server (obecnie w wersji zapoznawczej w AKS), zobacz [uaktualnianie puli węzłów w AKS][nodepool-upgrade].
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
@@ -23,7 +23,6 @@ Ten artykuł wymaga uruchomienia interfejsu wiersza polecenia platformy Azure w 
 
 > [!WARNING]
 > Uaktualnienie klastra AKS wyzwala Cordon i opróżnia węzły. W przypadku braku dostępnego limitu przydziału obliczeń uaktualnienie może zakończyć się niepowodzeniem. Aby uzyskać więcej informacji, zobacz [zwiększenie limitów przydziału](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) .
-> Jeśli używasz własnego wdrożenia automatycznego skalowania klastra, wyłącz je (można je skalować do replik zerowych) podczas uaktualniania, ponieważ będzie to miało wpływ na problem z procesem uaktualniania. Zarządzane automatyczne skalowanie jest automatycznie obsługiwane. 
 
 ## <a name="check-for-available-aks-cluster-upgrades"></a>Sprawdź dostępność dostępnych uaktualnień klastrów AKS
 
@@ -34,9 +33,9 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --outpu
 ```
 
 > [!NOTE]
-> W przypadku uaktualniania klastra AKS wersje pomocnicze Kubernetes nie mogą być pomijane. Na przykład uaktualnienia między *1.12. x* -> *1.13. x* lub *1.13. x* -> *1.14. x* są dozwolone, jednak *1.12. x* -> *1.14. x* nie jest.
+> W przypadku uaktualniania klastra AKS wersje pomocnicze Kubernetes nie mogą być pomijane. Na przykład uaktualnienia między *1.12. x*  ->  *1.13. x* lub *1.13. x*  ->  *1.14. x* są dozwolone, jednak *1.12. x*  ->  *1.14. x* nie jest.
 >
-> Aby przeprowadzić uaktualnienie, z wersji *1.12. x* -> *1.14. x*, najpierw Uaktualnij z wersji *1.12. x* -> *1.13. x*, a następnie Uaktualnij z *1.13. x* -> *1.14. x*.
+> Aby przeprowadzić uaktualnienie, z wersji *1.12. x*  ->  *1.14. x*, najpierw Uaktualnij z wersji *1.12. x*  ->  *1.13. x*, a następnie Uaktualnij z *1.13. x*  ->  *1.14. x*.
 
 Następujące przykładowe dane wyjściowe pokazują, że klaster można uaktualnić do wersji *1.13.9* i *1.13.10*:
 
@@ -48,6 +47,58 @@ default  myResourceGroup   1.12.8           1.12.8             1.13.9, 1.13.10
 Jeśli uaktualnienie nie jest dostępne, uzyskasz następujące korzyści:
 ```console
 ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
+```
+
+## <a name="customize-node-surge-upgrade-preview"></a>Dostosowywanie przepięcia węzła (wersja zapoznawcza)
+
+> [!Important]
+> Przepięcia węzłów wymagają przydziału subskrypcji dla wymaganej maksymalnej liczby przeskoków dla każdej operacji uaktualniania. Na przykład klaster, który ma 5 pul węzłów, każdy z liczbą 4 węzłów, ma łącznie 20 węzłów. Jeśli każda pula węzłów ma maksymalną wartość przepięcia wynoszącą 50%, do ukończenia uaktualnienia jest wymagane dodatkowe zasoby obliczeniowe i IP z 10 węzłów (2 węzły * 5 pul).
+
+Domyślnie AKS konfiguruje uaktualnienia, aby przepięcia z jednym dodatkowym węzłem. Wartość domyślna dla ustawienia Maksymalna przeskoku umożliwia AKS zminimalizowanie przerwy w obciążeniu przez utworzenie dodatkowego węzła przed Cordon/opróżnieniem istniejących aplikacji w celu zastąpienia starszego węzła. Maksymalna wartość przepięcia może być dostosowana dla puli węzłów w celu zapewnienia wymiany między szybkością uaktualniania a przerwaniem uaktualniania. Zwiększając maksymalną wartość przepięcia, proces uaktualniania kończy się szybciej, ale ustawienie dużej wartości maksymalnego przepięcia może spowodować zakłócenia w trakcie procesu uaktualniania. 
+
+Na przykład maksymalna wartość przepięcia 100% zapewnia najszybszy możliwy proces uaktualniania (podwaja liczbę węzłów), ale również powoduje, że wszystkie węzły w puli węzłów są opróżniane jednocześnie. Możesz użyć wyższej wartości, na przykład w środowiskach testowych. W przypadku pul węzłów produkcyjnych zalecamy ustawienie max_surge 33%.
+
+AKS akceptuje zarówno wartości całkowite, jak i wartość procentową maksymalnego przepięcia. Liczba całkowita, taka jak "5", wskazuje pięć dodatkowych węzłów do przepięcia. Wartość "50%" wskazuje wartość przepięcia połowy bieżącej liczby węzłów w puli. Maksymalne wartości procentowe przepięcia mogą być minimalne z 1% i maksymalnie 100%. Wartość procentowa jest zaokrąglana do najbliższej liczby węzłów. Jeśli maksymalna wartość przepięcia jest mniejsza niż bieżąca liczba węzłów w czasie uaktualniania, bieżąca liczba węzłów jest używana dla maksymalnej wartości przepięcia.
+
+Podczas uaktualniania maksymalna wartość przepięcia może wynosić co najmniej 1, a maksymalna wartość równa liczbie węzłów w puli węzłów. Można ustawić większe wartości, ale Maksymalna liczba węzłów używanych do maksymalnego przepięcia nie będzie większa niż liczba węzłów w puli w czasie uaktualniania.
+
+### <a name="set-up-the-preview-feature-for-customizing-node-surge-upgrade"></a>Skonfiguruj funkcję w wersji zapoznawczej dostosowywania przepięcia węzła
+
+```azurecli-interactive
+# register the preview feature
+az feature register --namespace "Microsoft.ContainerService" --name "MaxSurgePreview"
+```
+
+Rejestracja może potrwać kilka minut. Użyj poniższego polecenia, aby sprawdzić, czy funkcja jest zarejestrowana:
+
+```azurecli-interactive
+# Verify the feature is registered:
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MaxSurgePreview')].{Name:name,State:properties.state}"
+```
+
+W trakcie korzystania z wersji zapoznawczej potrzebne jest rozszerzenie interfejsu wiersza polecenia *AKS-Preview* , aby używać maksymalnego przepięcia. Użyj polecenia [AZ Extension Add][az-extension-add] , a następnie sprawdź, czy są dostępne aktualizacje za pomocą polecenia [AZ Extension Update][az-extension-update] :
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+> [!Important]
+> Ustawienia maksymalnego przepięcia w puli węzłów są trwałe.  Kolejne uaktualnienia Kubernetes lub uaktualnienia wersji węzła będą używać tego ustawienia. W każdej chwili można zmienić maksymalną wartość skokową pul węzłów. W przypadku pul węzłów produkcyjnych zalecamy ustawienie maksymalnego przepięcia o 33%.
+
+Użyj następujących poleceń, aby ustawić maksymalne wartości przepięcia dla nowych lub istniejących pul węzłów.
+
+```azurecli-interactive
+# Set max surge for a new node pool
+az aks nodepool add -n mynodepool -g MyResourceGroup --cluster-name MyManagedCluster --max-surge 33%
+```
+
+```azurecli-interactive
+# Update max surge for an existing node pool 
+az aks nodepool update -n mynodepool -g MyResourceGroup --cluster-name MyManagedCluster --max-surge 5
 ```
 
 ## <a name="upgrade-an-aks-cluster"></a>Uaktualnianie klastra AKS
@@ -63,7 +114,7 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
 Uaktualnienie klastra trwa kilka minut, w zależności od liczby posiadanych węzłów. 
 
 > [!NOTE]
-> Istnieje łączny czas trwania uaktualniania klastra. Ten czas jest obliczany przez pobranie produktu z `10 minutes * total number of nodes in the cluster`. Na przykład w klastrze 20 węzłów operacje uaktualniania muszą się powieść w ciągu 200 minut, a operacja nie powiedzie się, aby uniknąć nieodwracalnego stanu klastra. Aby odzyskać sprawność po błędzie uaktualnienia, ponów próbę wykonania operacji uaktualniania po osiągnięciu limitu czasu.
+> Istnieje łączny czas trwania uaktualniania klastra. Ten czas jest obliczany przez pobranie produktu z `10 minutes * total number of nodes in the cluster` . Na przykład w klastrze 20 węzłów operacje uaktualniania muszą się powieść w ciągu 200 minut, a operacja nie powiedzie się, aby uniknąć nieodwracalnego stanu klastra. Aby odzyskać sprawność po błędzie uaktualnienia, ponów próbę wykonania operacji uaktualniania po osiągnięciu limitu czasu.
 
 Aby upewnić się, że uaktualnienie zakończyło się pomyślnie, użyj polecenia [AZ AKS show][az-aks-show] :
 
@@ -96,3 +147,5 @@ W tym artykule pokazano, jak uaktualnić istniejący klaster AKS. Aby dowiedzie�
 [az-aks-upgrade]: /cli/azure/aks#az-aks-upgrade
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update

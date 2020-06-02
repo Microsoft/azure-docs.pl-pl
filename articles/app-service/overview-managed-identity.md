@@ -3,15 +3,15 @@ title: Zarządzane tożsamości
 description: Dowiedz się, jak zarządzane tożsamości działają w Azure App Service i Azure Functions, jak skonfigurować tożsamość zarządzaną i wygenerować token dla zasobu zaplecza.
 author: mattchenderson
 ms.topic: article
-ms.date: 04/14/2020
+ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 0bb17ab98dc17bbe7623467451acc65a126bcaf1
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: d206ff114cd08f2ab3f2068076bf7cadb047a689
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779968"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84258466"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Jak używać tożsamości zarządzanych do App Service i Azure Functions
 
@@ -36,7 +36,7 @@ Aby skonfigurować tożsamość zarządzaną w portalu, musisz najpierw utworzy�
 
 3. Wybierz pozycję **tożsamość**.
 
-4. W ramach karty **przypisanej do systemu** Przełącz pozycję **stan** na wartość **włączone**. Kliknij przycisk **Zapisz**.
+4. W ramach karty **przypisanej do systemu** Przełącz pozycję **stan** na wartość **włączone**. Kliknij pozycję **Zapisz**.
 
     ![Tożsamość zarządzana w App Service](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
@@ -79,7 +79,9 @@ Poniższe kroki przeprowadzą Cię przez proces tworzenia aplikacji sieci Web i 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Poniższe kroki przeprowadzą Cię przez proces tworzenia aplikacji sieci Web i przypisywania jej tożsamości przy użyciu Azure PowerShell:
+Poniższe kroki przeprowadzą Cię przez proces tworzenia aplikacji i przypisywania jej tożsamości przy użyciu Azure PowerShell. Instrukcje dotyczące tworzenia aplikacji sieci Web i aplikacji funkcji są różne.
+
+#### <a name="using-azure-powershell-for-a-web-app"></a>Korzystanie z Azure PowerShell aplikacji sieci Web
 
 1. W razie potrzeby zainstaluj Azure PowerShell przy użyciu instrukcji znajdujących się w [przewodniku Azure PowerShell](/powershell/azure/overview), a następnie uruchom polecenie, `Login-AzAccount` Aby utworzyć połączenie z platformą Azure.
 
@@ -87,20 +89,39 @@ Poniższe kroki przeprowadzą Cię przez proces tworzenia aplikacji sieci Web i 
 
     ```azurepowershell-interactive
     # Create a resource group.
-    New-AzResourceGroup -Name myResourceGroup -Location $location
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
 
     # Create an App Service plan in Free tier.
-    New-AzAppServicePlan -Name $webappname -Location $location -ResourceGroupName myResourceGroup -Tier Free
+    New-AzAppServicePlan -Name $webappname -Location $location -ResourceGroupName $resourceGroupName -Tier Free
 
     # Create a web app.
-    New-AzWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName myResourceGroup
+    New-AzWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName $resourceGroupName
     ```
 
 3. Uruchom `Set-AzWebApp -AssignIdentity` polecenie, aby utworzyć tożsamość dla tej aplikacji:
 
     ```azurepowershell-interactive
-    Set-AzWebApp -AssignIdentity $true -Name $webappname -ResourceGroupName myResourceGroup 
+    Set-AzWebApp -AssignIdentity $true -Name $webappname -ResourceGroupName $resourceGroupName 
     ```
+
+#### <a name="using-azure-powershell-for-a-function-app"></a>Używanie Azure PowerShell dla aplikacji funkcji
+
+1. W razie potrzeby zainstaluj Azure PowerShell przy użyciu instrukcji znajdujących się w [przewodniku Azure PowerShell](/powershell/azure/overview), a następnie uruchom polecenie, `Login-AzAccount` Aby utworzyć połączenie z platformą Azure.
+
+2. Utwórz aplikację funkcji przy użyciu Azure PowerShell. Aby uzyskać więcej przykładów użycia Azure PowerShell z Azure Functions, zobacz [AZ. Functions Reference](https://docs.microsoft.com/powershell/module/az.functions/?view=azps-4.1.0#functions):
+
+    ```azurepowershell-interactive
+    # Create a resource group.
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+
+    # Create a storage account.
+    New-AzStorageAccount -Name $storageAccountName -ResourceGroupName $resourceGroupName -SkuName $sku
+
+    # Create a function app with a system-assigned identity.
+    New-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupName -Location $location -StorageAccountName $storageAccountName -Runtime $runtime -IdentityType SystemAssigned
+    ```
+
+Możesz również zaktualizować istniejącą aplikację funkcji przy użyciu polecenia `Update-AzFunctionApp` .
 
 ### <a name="using-an-azure-resource-manager-template"></a>Korzystanie z szablonu Azure Resource Manager
 
@@ -176,6 +197,35 @@ Najpierw należy utworzyć zasób tożsamości przypisany przez użytkownika.
 6. Wyszukaj utworzoną wcześniej tożsamość i wybierz ją. Kliknij pozycję **Dodaj**.
 
     ![Tożsamość zarządzana w App Service](media/app-service-managed-service-identity/user-assigned-managed-identity-in-azure-portal.png)
+
+### <a name="using-azure-powershell"></a>Korzystanie z programu Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Poniższe kroki przeprowadzą Cię przez proces tworzenia aplikacji i przypisywania jej tożsamości przy użyciu Azure PowerShell.
+
+> [!NOTE]
+> Bieżąca wersja Azure PowerShell polecenia cmdlet dla Azure App Service nie obsługuje tożsamości przypisanych do użytkownika. Poniższe instrukcje dotyczą Azure Functions.
+
+1. W razie potrzeby zainstaluj Azure PowerShell przy użyciu instrukcji znajdujących się w [przewodniku Azure PowerShell](/powershell/azure/overview), a następnie uruchom polecenie, `Login-AzAccount` Aby utworzyć połączenie z platformą Azure.
+
+2. Utwórz aplikację funkcji przy użyciu Azure PowerShell. Aby uzyskać więcej przykładów użycia Azure PowerShell z Azure Functions, zobacz [AZ. Functions Reference](https://docs.microsoft.com/powershell/module/az.functions/?view=azps-4.1.0#functions). Poniższy skrypt korzysta również z programu `New-AzUserAssignedIdentity` , który należy zainstalować oddzielnie zgodnie z definicją [lub usunięciem tożsamości zarządzanej przypisanej przez użytkownika przy użyciu Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
+
+    ```azurepowershell-interactive
+    # Create a resource group.
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+
+    # Create a storage account.
+    New-AzStorageAccount -Name $storageAccountName -ResourceGroupName $resourceGroupName -SkuName $sku
+
+    # Create a user-assigned identity. This requires installation of the "Az.ManagedServiceIdentity" module.
+    $userAssignedIdentity = New-AzUserAssignedIdentity -Name $userAssignedIdentityName -ResourceGroupName $resourceGroupName
+
+    # Create a function app with a user-assigned identity.
+    New-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupName -Location $location -StorageAccountName $storageAccountName -Runtime $runtime -IdentityType UserAssigned -IdentityId $userAssignedIdentity.Id
+    ```
+
+Możesz również zaktualizować istniejącą aplikację funkcji przy użyciu polecenia `Update-AzFunctionApp` .
 
 ### <a name="using-an-azure-resource-manager-template"></a>Korzystanie z szablonu Azure Resource Manager
 
@@ -428,7 +478,11 @@ W przypadku aplikacji i funkcji języka Java Najprostszym sposobem pracy z zarz�
 
 ## <a name="remove-an-identity"></a><a name="remove"></a>Usuwanie tożsamości
 
-Tożsamość przypisana przez system można usunąć, wyłączając funkcję przy użyciu portalu, programu PowerShell lub interfejsu wiersza polecenia w taki sam sposób, jak został utworzony. Tożsamości przypisane do użytkownika można usuwać pojedynczo. Aby usunąć wszystkie tożsamości, dla opcji Typ Ustaw wartość "Brak" w [szablonie ARM](#using-an-azure-resource-manager-template):
+Tożsamość przypisana przez system można usunąć, wyłączając funkcję przy użyciu portalu, programu PowerShell lub interfejsu wiersza polecenia w taki sam sposób, jak został utworzony. Tożsamości przypisane do użytkownika można usuwać pojedynczo. Aby usunąć wszystkie tożsamości, ustaw dla opcji Typ tożsamości wartość "Brak".
+
+Usunięcie tożsamości przypisanej do systemu w ten sposób spowoduje również usunięcie jej z usługi Azure AD. Tożsamości przypisane do systemu są również automatycznie usuwane z usługi Azure AD po usunięciu zasobu aplikacji.
+
+Aby usunąć wszystkie tożsamości w [szablonie ARM](#using-an-azure-resource-manager-template):
 
 ```json
 "identity": {
@@ -436,7 +490,12 @@ Tożsamość przypisana przez system można usunąć, wyłączając funkcję prz
 }
 ```
 
-Usunięcie tożsamości przypisanej do systemu w ten sposób spowoduje również usunięcie jej z usługi Azure AD. Tożsamości przypisane do systemu są również automatycznie usuwane z usługi Azure AD po usunięciu zasobu aplikacji.
+Aby usunąć wszystkie tożsamości w Azure PowerShell (tylko Azure Functions):
+
+```azurepowershell-interactive
+# Update an existing function app to have IdentityType "None".
+Update-AzFunctionApp -Name $functionAppName -ResourceGroupName $resourceGroupName -IdentityType None
+```
 
 > [!NOTE]
 > Istnieje również ustawienie aplikacji, które można ustawić, WEBSITE_DISABLE_MSI, co spowoduje jedynie wyłączenie usługi tokenów lokalnych. Jednak opuszcza tożsamość, a funkcja narzędzi nadal będzie wyświetlać tożsamość zarządzaną jako "on" lub "Enabled". W związku z tym nie zaleca się używania tego ustawienia.

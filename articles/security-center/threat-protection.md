@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: 850b06153a25020f36a4c7df1863e5a576495f3b
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 2e563cd0f9a8a25e57312494f1313f895c3b4628
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83744157"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267158"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Ochrona przed zagrożeniami w usłudze Azure Security Center
 
@@ -162,11 +162,15 @@ Aby uzyskać więcej informacji, zobacz:
 
 ## <a name="threat-protection-for-azure-storage"></a>Ochrona przed zagrożeniami dla usługi Azure Storage<a name="azure-storage"></a>
 
-Zaawansowana ochrona przed zagrożeniami dla magazynu wykrywa nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do kont magazynu lub korzystania z nich. Ta warstwa ochrony pozwala na rozwiązywanie zagrożeń bez konieczności posiadania eksperta zabezpieczeń oraz zarządzania systemami monitorowania zabezpieczeń.
+Zaawansowana ochrona przed zagrożeniami dla usługi Azure Storage wykrywa nietypowe i potencjalnie szkodliwe próby uzyskania dostępu do kont magazynu lub korzystania z nich. Ta warstwa ochrony pozwala na rozwiązywanie zagrożeń bez konieczności posiadania eksperta zabezpieczeń oraz zarządzania systemami monitorowania zabezpieczeń. 
 
-Zaawansowana ochrona przed zagrożeniami dla usługi Azure Storage jest obecnie dostępna tylko dla [BLOB Storage](https://azure.microsoft.com/services/storage/blobs/). 
+Alerty zabezpieczeń są wyzwalane w przypadku wystąpienia podejrzanych działań na koncie magazynu lub wykryciu nietypowego zachowania. Podejrzane działania mogą obejmować przekazywanie obiektów BLOB podejrzanych o złośliwe oprogramowanie. Alerty nietypowego zachowania obejmują zmiany w wzorcu dostępu do konta magazynu.
 
-Ta usługa jest dostępna we wszystkich chmurach publicznych i chmurach dla instytucji rządowych USA, ale nie ma innych regionów w chmurze lub Azure Government.
+Alerty obejmują szczegółowe informacje o zdarzeniu, które je wywołały, a także zalecenia dotyczące sposobu badania i korygowania zagrożeń.
+
+Ochrona przed zagrożeniami dla usługi Azure Storage jest obecnie dostępna tylko dla [BLOB Storage](https://azure.microsoft.com/services/storage/blobs/). 
+
+Ta usługa jest dostępna we wszystkich chmurach publicznych i chmurach dla instytucji rządowych USA, ale nie ma innych regionów w chmurze lub Azure Government. 
 
 Aby uzyskać szczegółowe informacje o cenach, w tym bezpłatną 30-dniową wersję próbną, zobacz [stronę z cennikiem Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 

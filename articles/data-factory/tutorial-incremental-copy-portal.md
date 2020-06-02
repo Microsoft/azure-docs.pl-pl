@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
-ms.date: 01/11/2018
-ms.openlocfilehash: f5a7bc3cd22d49a65ba3b83d2a9ff41112d07c1a
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.date: 05/29/2020
+ms.openlocfilehash: 5b7c7219c15f6c9b687aecd2e9d9f46ea4a71efa
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194548"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84249097"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Przyrostowe ładowanie danych z bazy danych Azure SQL Database do usługi Azure Blob Storage za pomocą Azure Portal
 
@@ -182,7 +182,7 @@ W tym samouczku utworzysz potok z dwoma działaniami Lookup, jednym działaniem 
 1. Na stronie **Wprowadzenie** interfejsu użytkownika usługi Data Factory kliknij kafelek **Utwórz potok**.
 
    ![Strona Wprowadzenie interfejsu użytkownika usługi Data Factory](./media/doc-common-process/get-started-page.png)    
-3. Na stronie **Ogólne** w oknie **Właściwości** dla potoku wpisz nazwę **IncrementalCopyPipeline**.
+3. W panelu Ogólne w obszarze **Właściwości**Określ **IncrementalCopyPipeline** dla **nazwy**. Następnie Zwiń panel, klikając ikonę właściwości w prawym górnym rogu.
 
 4. Dodajmy pierwsze działanie wyszukiwania w celu pobrania starej wartości limitu. W przyborniku **Działania** rozwiń pozycję **Ogólne**, a następnie przeciągnij działanie **Lookup** (Wyszukiwanie) i upuść je na powierzchni projektanta potoku. Zmień nazwę działania na **LookupOldWaterMarkActivity**.
 

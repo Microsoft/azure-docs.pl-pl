@@ -10,18 +10,18 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: 59c121f09858114cecfaeb45e257315d1ab92935
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 241aad3e9bf78d587c7f31d8046de171bd2638b3
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81403423"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84263996"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Szybki start: wykrywanie twarzy na obrazie przy użyciu interfejsu API REST i języka Java
 
 W tym przewodniku szybki start użyjesz interfejsu API REST platformy Azure dla języka Java w celu wykrywania twarzy na obrazie.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) . 
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -248,7 +248,7 @@ Skompiluj kod i uruchom go. Odpowiedź oznaczająca powodzenie będzie zawierać
 
 ## <a name="next-steps"></a>Następne kroki
 
-W tym przewodniku szybki start utworzono prostą aplikację konsolową języka Java, która używa wywołań REST do interfejs API rozpoznawania twarzy platformy Azure, aby wykrywać twarze w obrazie i zwracać ich atrybuty. Następnie dowiesz się, jak wykonać inne operacje za pomocą tych funkcji w aplikacji systemu Android.
+W tym przewodniku szybki start utworzono prostą aplikację konsolową języka Java, która używa wywołań REST do interfejs API rozpoznawania twarzy platformy Azure, aby wykrywać twarze w obrazie i zwracać ich atrybuty. Następnie zapoznaj się z dokumentacją referencyjną interfejsu API rozpoznawania twarzy, aby dowiedzieć się więcej na temat obsługiwanych scenariuszy.
 
 > [!div class="nextstepaction"]
-> [Samouczek: tworzenie aplikacji systemu Android wykrywającej i oznaczającej ramką twarze](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
+> [Interfejs API rozpoznawania twarzy](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

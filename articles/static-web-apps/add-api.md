@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
-ms.openlocfilehash: 31d326b19c560981531ebf0716b614046b2337b6
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: 1b2db92106e0dad79c90188c904b07d7bb1d7212
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84217234"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84258644"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Dodawanie interfejsu API do usługi Azure static Web Apps Preview przy użyciu Azure Functions
 
@@ -31,7 +31,7 @@ Bezserwerowe interfejsy API można dodać do Web Apps statycznej platformy Azure
 
 Poniższe kroki przedstawiają sposób tworzenia nowego repozytorium i klonowania plików na komputerze.
 
-1. Przejdź do, aby https://github.com/staticwebdev/vanilla-basic/generate utworzyć nowe repozytorium.
+1. Upewnij się, że zalogowano się do usługi GitHub, a następnie przejdź do witryny, https://github.com/staticwebdev/vanilla-basic/generate Aby utworzyć nowe repozytorium.
 1. W polu _Nazwa repozytorium_ wprowadź **My-Wanili-API**.
 1. Kliknij pozycję **Utwórz repozytorium na podstawie szablonu**.
 

@@ -8,16 +8,14 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: f50c7e8dcb33fd2ed95829286aaf815926d9fb3f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e05256d26da2c061559bcc8e50e9ecce6d8425a0
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80157637"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84248213"
 ---
 # <a name="export-your-application"></a>Eksportowanie aplikacji
-
-
 
 W tym artykule opisano, jak Menedżer rozwiązań w celu wyeksportowania aplikacji IoT Central, aby można było użyć jej ponownie.
 
@@ -93,4 +91,4 @@ Aby zaktualizować szablon aplikacji, Zmień nazwę lub opis szablonu na stronie
 
 ## <a name="next-steps"></a>Następne kroki
 
-Teraz, gdy wiesz już, jak korzystać z szablonów aplikacji, sugerowanym następnym krokiem jest zapoznanie się z tematem jak [zarządzać IoT Central z Azure Portal](howto-manage-iot-central-from-portal.md)
+Teraz, gdy wiesz już, jak korzystać z szablonów aplikacji, sugerowanym następnym krokiem jest zapoznanie się z tematem [monitorowanie ogólnej kondycji urządzeń podłączonych do aplikacji IoT Central](howto-monitor-application-health.md)

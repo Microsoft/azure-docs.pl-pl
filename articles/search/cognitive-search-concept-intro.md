@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/24/2020
-ms.openlocfilehash: a41dcc9c7ec86f41c64a69ea1aba762b960b2633
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: cdff42c6ff0cadb5ce4b3d7fc469d648349d1e88
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80283025"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84265203"
 ---
 # <a name="getting-started-with-ai-enrichment"></a>Wprowadzenie do wzbogacania AI
 
@@ -102,7 +102,7 @@ Indeksy są generowane na podstawie schematu indeksu, który definiuje pola, atr
 
 1. Zdefiniuj [schemat indeksu](https://docs.microsoft.com/rest/api/searchservice/create-index). Kolekcja *Fields* zawiera pola z danych źródłowych. Należy również utworzyć zastępcze dodatkowe pola, aby przechowywać wygenerowane wartości dla zawartości utworzonej podczas wzbogacania.
 
-1. Zdefiniuj [indeksator](https://docs.microsoft.com/rest/api/searchservice/create-skillset) odwołujący się do źródła danych, zestawu umiejętności i indeksu.
+1. Zdefiniuj [indeksator](https://docs.microsoft.com/rest/api/searchservice/create-indexer) odwołujący się do źródła danych, zestawu umiejętności i indeksu.
 
 1. W obszarze indeksatora Dodaj *outputFieldMappings*. Ta sekcja mapuje dane wyjściowe z zestawu umiejętności (w kroku 3) do pól danych wejściowych w schemacie indeksu (w kroku 4).
 
@@ -120,4 +120,4 @@ Indeksy są generowane na podstawie schematu indeksu, który definiuje pola, atr
 + [Samouczek: informacje na temat interfejsów API wzbogacania AI](cognitive-search-tutorial-blob.md)
 + [Magazyn wiedzy (wersja zapoznawcza)](knowledge-store-concept-intro.md)
 + [Tworzenie sklepu merytorycznego w usłudze REST](knowledge-store-create-rest.md)
-+ [Wskazówki dotyczące rozwiązywania problemów](cognitive-search-concept-troubleshooting.md)
++ [Porady dotyczące rozwiązywania problemów](cognitive-search-concept-troubleshooting.md)

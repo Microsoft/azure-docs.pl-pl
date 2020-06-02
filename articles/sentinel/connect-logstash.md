@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/27/2020
 ms.author: yelevin
-ms.openlocfilehash: 79d29ef228fc27655da30edbeb64abcb01e45d5e
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 5edba7f5a7576cac189aa44936f9d8f24f3ffcaf
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84237178"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84249007"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Korzystanie z logstash do łączenia źródeł danych z platformą Azure — wskaźnikiem
 
@@ -51,7 +51,7 @@ Wtyczka Azure wskaźnikowego danych wyjściowych dla logstash wysyła dane sform
 - [Dowiedz się więcej o interfejsie API REST log Analytics](https://docs.microsoft.com/rest/api/loganalytics/create-request).
 - [Dowiedz się więcej o dziennikach niestandardowych](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-custom-logs).
 
-## <a name="installing-and-configuring-the-azure-sentinel-output-plugin-in-logstash"></a>Instalowanie i Konfigurowanie wtyczki danych wyjściowych platformy Azure na platformie logstash
+## <a name="deploying-the-azure-sentinel-output-plugin-in-logstash"></a>Wdrażanie wtyczki danych wyjściowych na platformie Azure w logstash
 
 1. **Instalacja**
 
@@ -112,11 +112,11 @@ Wtyczka Azure wskaźnikowego danych wyjściowych dla logstash wysyła dane sform
 
     1. W menu nawigacji do usługi Azure wskaźnikowego kliknij pozycję **dzienniki**. W obszarze nagłówek **tabeli** rozwiń kategorię **dzienniki niestandardowe** . Znajdź i kliknij nazwę określonej tabeli (z `_CL` sufiksem) w konfiguracji.
 
-        ![Logstash dzienniki niestandardowe](./media/connect-logstash/logstash-custom-logs-menu.png)
+        :::image type="content" source="./media/connect-logstash/logstash-custom-logs-menu.png" alt-text="Logstash dzienniki niestandardowe":::
 
     1. Aby wyświetlić rekordy w tabeli, należy zbadać tabelę przy użyciu nazwy tabeli jako schematu.
 
-        ![Zapytanie dotyczące dzienników niestandardowych logstash](./media/connect-logstash/logstash-custom-logs-query.png)
+        :::image type="content" source="./media/connect-logstash/logstash-custom-logs-query.png" alt-text="Zapytanie dotyczące dzienników niestandardowych logstash":::
 
 ## <a name="monitor-output-plugin-audit-logs"></a>Monitoruj dzienniki inspekcji wtyczki wyjściowej
 

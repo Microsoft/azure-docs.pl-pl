@@ -3,12 +3,12 @@ title: Obsługa oceny serwera fizycznego w Azure Migrate
 description: Dowiedz się więcej o obsłudze oceny serwera fizycznego za pomocą oceny serwera Azure Migrate
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 31fd676a339a6c82cec84e0f355ac875f68a653c
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 2a6149da95501b106a57466ad923c0480f52e065
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82983673"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267916"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Macierz obsługi dla oceny serwera fizycznego 
 
@@ -20,22 +20,22 @@ Aby ocenić serwery fizyczne, należy utworzyć projekt Azure Migrate i dodać n
 
 ## <a name="limitations"></a>Ograniczenia
 
-**Pomoc techniczna** | **Szczegóły**
+**Pomoc techniczna** | **Uzyskać**
 --- | ---
 **Limity oceny** | W jednym [Azure Migrate projekcie](migrate-support-matrix.md#azure-migrate-projects)można odnajdywać i oceniać maksymalnie 35 000 serwerów fizycznych.
 **Limity projektu** | Możesz utworzyć wiele projektów w ramach subskrypcji platformy Azure. Oprócz serwerów fizycznych projekt może obejmować maszyny wirtualne VMware i maszyny wirtualne funkcji Hyper-V, a także limity oceny dla każdego z nich.
 **Odnajdowa** | Urządzenie Azure Migrate może odnajdywać maksymalnie 250 serwerów fizycznych.
-**Ocena** | Można dodać do 35 000 maszyn w jednej grupie.<br/><br/> W ramach jednej oceny można ocenić do 35 000 maszyn.
+**Stopnia** | Można dodać do 35 000 maszyn w jednej grupie.<br/><br/> W ramach jednej oceny można ocenić do 35 000 maszyn.
 
 [Dowiedz się więcej](concepts-assessment-calculation.md) na temat ocen.
 
 ## <a name="physical-server-requirements"></a>Wymagania dotyczące serwera fizycznego
 
-| **Pomoc techniczna**                | **Szczegóły**               
+| **Pomoc techniczna**                | **Uzyskać**               
 | :-------------------       | :------------------- |
 | **Wdrożenie serwera fizycznego**       | Serwer fizyczny może być autonomiczny lub wdrożony w klastrze. |
 | **Uprawnienia**           | **System Windows:** Musisz być administratorem domeny lub administratorem lokalnym na wszystkich serwerach z systemem Windows, które mają zostać odnajdywane. Konto użytkownika należy dodać do tych grup: Użytkownicy zarządzania zdalnego, użytkownicy monitora wydajności i Użytkownicy dzienników wydajności. <br/><br/> System **Linux:** Na serwerach z systemem Linux, które mają zostać odnajdywane, jest potrzebne konto główne. |
-| **System operacyjny** | Wszystkie systemy operacyjne [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) i [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) , które są obsługiwane przez platformę Azure, z wyjątkiem systemu Windows Server 2003 i SUSE Linux.<br/><br/> Klienckie systemy operacyjne Windows 10 i Windows 8. |
+| **System operacyjny** | Wszystkie systemy operacyjne można ocenić pod kątem migracji. |
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Wymagania urządzenia usługi Azure Migrate
@@ -51,7 +51,7 @@ W Azure Government Wdróż urządzenie [przy użyciu tego skryptu](deploy-applia
 
 Poniższa tabela zawiera podsumowanie wymagań dotyczących portów dla oceny.
 
-**Urządzenie** | **Połączenia**
+**Urządzenie** | **Połączenie**
 --- | ---
 **Wprowadzony** | Połączenia przychodzące na porcie TCP 3389, aby zezwolić na połączenia pulpitu zdalnego z urządzeniem.<br/><br/> Połączenia przychodzące na porcie 44368, aby zdalnie uzyskiwać dostęp do aplikacji do zarządzania urządzeniami przy użyciu adresu URL:``` https://<appliance-ip-or-name>:44368 ```<br/><br/> Połączenia wychodzące na portach 443 (HTTPS), w celu wysyłania metadanych odnajdywania i wydajności do Azure Migrate.
 **Serwery fizyczne** | **System Windows:** Połączenia przychodzące na portach usługi WinRM 5985 (HTTP) i 5986 (HTTPS), aby ściągnąć konfigurację i metadane wydajności z serwerów z systemem Windows. <br/><br/> System **Linux:**  Połączenia przychodzące na porcie 22 (UDP) do ściągania metadanych konfiguracji i wydajności z serwerów z systemem Linux. |
@@ -60,7 +60,7 @@ Poniższa tabela zawiera podsumowanie wymagań dotyczących portów dla oceny.
 
 [Analiza zależności](concepts-dependency-visualization.md) pomaga identyfikować zależności między maszynami lokalnymi, które mają zostać poddane ocenie i zmigrować na platformę Azure. W tabeli zestawiono wymagania dotyczące konfigurowania analizy zależności opartej na agentach. W przypadku serwerów fizycznych obsługiwana jest obecnie tylko analiza zależności oparta na agentach.
 
-**Wymaganie** | **Szczegóły** 
+**Wymaganie** | **Uzyskać** 
 --- | --- 
 **Przed wdrożeniem** | Należy mieć projekt Azure Migrate przy użyciu narzędzia do oceny serwera dodanego do projektu.<br/><br/>  Wizualizacja zależności jest wdrażana po skonfigurowaniu urządzenia Azure Migrate w celu odnalezienia maszyn lokalnych<br/><br/> [Dowiedz się, jak](create-manage-projects.md) utworzyć projekt po raz pierwszy.<br/> [Dowiedz się, jak](how-to-assess.md) dodać narzędzie do oceny do istniejącego projektu.<br/> Dowiedz się, jak skonfigurować urządzenie Azure Migrate na potrzeby oceny serwerów fizycznych ( [Hyper-V](how-to-set-up-appliance-hyper-v.md)) lub [VMware](how-to-set-up-appliance-vmware.md).
 **Azure Government** | Wizualizacja zależności nie jest dostępna w Azure Government.

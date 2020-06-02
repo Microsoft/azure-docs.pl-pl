@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 02/27/2020
-ms.openlocfilehash: fd14945069b2786fa4acb994c37c17d3b434893e
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.date: 05/28/2020
+ms.openlocfilehash: f8b72037046d05b39587c2fd57794b4109a85ae3
+ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118286"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84249182"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Zbiorcze kopiowanie wielu tabel przy użyciu usługi Azure Data Factory
 
@@ -117,7 +117,7 @@ W tym kroku utworzysz połączoną usługę służącą do łączenia bazy danyc
     
     b. Wybierz serwer dla **nazwy serwera**
     
-    c. W polu **Nazwa bazy danych** wybierz swoją bazę danych Azure SQL Database. 
+    d. W polu **Nazwa bazy danych** wybierz swoją bazę danych Azure SQL Database. 
     
     d. Wprowadź **nazwę użytkownika**, aby nawiązać połączenie z bazą danych Azure SQL Database. 
     
@@ -138,7 +138,7 @@ W tym kroku utworzysz połączoną usługę służącą do łączenia bazy danyc
      
     b. Wybierz serwer dla **nazwy serwera**
      
-    c. W polu **Nazwa bazy danych** wybierz swoją bazę danych Azure SQL Database. 
+    d. W polu **Nazwa bazy danych** wybierz swoją bazę danych Azure SQL Database. 
      
     d. Wprowadź **nazwę użytkownika** , aby nawiązać połączenie z usługą Azure SQL Database. 
      
@@ -158,7 +158,7 @@ W tym samouczku magazyn obiektów blob platformy Azure służy jako obszar przej
     a. Wprowadź wartość **AzureStorageLinkedService** w polu **Nazwa**.                                                 
     b. Wybierz swoje **konto usługi Azure Storage** w polu **Nazwa konta magazynu**.
     
-    c. Kliknij przycisk **Utwórz**.
+    d. Kliknij przycisk **Utwórz**.
 
 
 ## <a name="create-datasets"></a>Tworzenie zestawów danych
@@ -213,7 +213,8 @@ Potok **IterateAndCopySQLTables** pobiera listę tabel jako parametr. Dla każde
 1. W lewym okienku kliknij pozycję **+ (plus)**, a następnie kliknij pozycję **Potok**.
 
     ![Menu Nowy potok](./media/tutorial-bulk-copy-portal/new-pipeline-menu.png)
-1. Na karcie **Ogólne** określ jako nazwę wartość **IterateAndCopySQLTables**. 
+ 
+1. W panelu Ogólne w obszarze **Właściwości**Określ **IterateAndCopySQLTables** dla **nazwy**. Następnie Zwiń panel, klikając ikonę właściwości w prawym górnym rogu.
 
 1. Przejdź do karty **Parametry** i wykonaj następujące czynności: 
 
@@ -221,7 +222,7 @@ Potok **IterateAndCopySQLTables** pobiera listę tabel jako parametr. Dla każde
     
     b. Wprowadź **ciąg tablelist jako** dla **nazwy**parametru.
     
-    c. Wybierz wartość **Array** w polu **Typ**.
+    d. Wybierz wartość **Array** w polu **Typ**.
 
 1. W przyborniku **Działania** rozwiń pozycję **Iteracja i warunki**, a następnie przeciągnij i upuść działanie **ForEach** do powierzchni projektu potoku. Możesz również wyszukać działania w przyborniku **Działania**. 
 
@@ -229,7 +230,7 @@ Potok **IterateAndCopySQLTables** pobiera listę tabel jako parametr. Dla każde
 
     b. Przejdź do karty **Ustawienia** , kliknij pole wejściowe dla **pozycji elementy**, a następnie kliknij link **Dodaj zawartość dynamiczną** poniżej. 
 
-    c. Na stronie **Dodaj zawartość dynamiczną** Zwiń sekcje **systemowe** i **funkcje** , kliknij **ciąg tablelist jako** w obszarze **Parametry**, co spowoduje automatyczne wypełnienie pola tekstowego pierwsze wyrażenie jako `@pipeline().parameter.tableList` . Następnie kliknij przycisk **Zakończ**. 
+    d. Na stronie **Dodaj zawartość dynamiczną** Zwiń sekcje **systemowe** i **funkcje** , kliknij **ciąg tablelist jako** w obszarze **Parametry**, co spowoduje automatyczne wypełnienie pola tekstowego pierwsze wyrażenie jako `@pipeline().parameter.tableList` . Następnie kliknij przycisk **Zakończ**. 
 
     ![Konstruktor parametru ForEach](./media/tutorial-bulk-copy-portal/for-each-parameter-builder.png)
     

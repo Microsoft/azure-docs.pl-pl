@@ -9,32 +9,32 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: skamal
-ms.openlocfilehash: f68112095bc8a8fd9bcc1bd67ff77827d6d00fd7
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: d4fa61f8290f3bf9e2f065ec841fa94d8ecaaac1
+ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82195625"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84267209"
 ---
 # <a name="tutorial-integrate-multiple-immersive-reader-resources"></a>Samouczek: Integrowanie wielu zasobów czytnika immersyjny
 
-W [przeglądzie](./overview.md)zawarto informacje na temat tego, co to jest czytnik immersyjny i w jaki sposób implementuje sprawdzone techniki w celu zwiększenia czytelności dla osób uczące się, nowych czytelników i studentów z różnicami w nauce. W [przewodniku szybki start środowiska Node. js](./quickstart-nodejs.md)pokazano, jak używać czytnika immersyjny z pojedynczym zasobem. W tym samouczku opisano sposób integrowania wielu zasobów czytnika immersyjny w tej samej aplikacji. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+W [przeglądzie](./overview.md)zawarto informacje na temat tego, co to jest czytnik immersyjny i w jaki sposób implementuje sprawdzone techniki w celu zwiększenia czytelności dla osób uczące się, nowych czytelników i studentów z różnicami w nauce. W [przewodniku szybki start środowiska Node. js](./quickstarts/client-libraries.md?pivots=programming-language-nodejs)pokazano, jak używać czytnika immersyjny z pojedynczym zasobem. W tym samouczku opisano sposób integrowania wielu zasobów czytnika immersyjny w tej samej aplikacji. Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
 
 > [!div class="checklist"]
 > * Tworzenie wielu zasobów czytnika immersyjny w istniejącej grupie zasobów
 > * Uruchamianie czytnika immersyjny przy użyciu wielu zasobów
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-* Postępuj zgodnie z [przewodnikiem Szybki Start](./quickstart-nodejs.md) , aby utworzyć aplikację sieci Web, która uruchamia czytnik immersyjny z NodeJS. Ten przewodnik Szybki Start umożliwia skonfigurowanie pojedynczego zasobu czytnika immersyjny. Na tym samouczku utworzymy wszystko.
+* Postępuj zgodnie z [przewodnikiem Szybki Start](./quickstarts/client-libraries.md?pivots=programming-language-nodejs) , aby utworzyć aplikację sieci Web, która uruchamia czytnik immersyjny z NodeJS. Ten przewodnik Szybki Start umożliwia skonfigurowanie pojedynczego zasobu czytnika immersyjny. Na tym samouczku utworzymy wszystko.
 
 ## <a name="create-the-immersive-reader-resources"></a>Tworzenie zasobów czytnika immersyjny
 
-Postępuj zgodnie z [tymi instrukcjami](./how-to-create-immersive-reader.md) , aby utworzyć każdy zasób czytnika immersyjny. Skrypt **Create-ImmersiveReaderResource** ma `ResourceName`parametry, `ResourceSubdomain`i `ResourceLocation` . Te powinny być unikatowe dla każdego tworzonego zasobu. Pozostałe parametry powinny być takie same jak użyte podczas konfigurowania pierwszego zasobu czytnika immersyjny. W ten sposób każdy zasób może być połączony z tą samą grupą zasobów platformy Azure i aplikacją usługi Azure AD.
+Postępuj zgodnie z [tymi instrukcjami](./how-to-create-immersive-reader.md) , aby utworzyć każdy zasób czytnika immersyjny. Skrypt **Create-ImmersiveReaderResource** ma `ResourceName` Parametry, `ResourceSubdomain` i `ResourceLocation` . Te powinny być unikatowe dla każdego tworzonego zasobu. Pozostałe parametry powinny być takie same jak użyte podczas konfigurowania pierwszego zasobu czytnika immersyjny. W ten sposób każdy zasób może być połączony z tą samą grupą zasobów platformy Azure i aplikacją usługi Azure AD.
 
-W poniższym przykładzie pokazano, jak utworzyć dwa zasoby, jeden w zachodnich i drugi na wschodnim Wschodzie. Zwróć uwagę na unikatowe wartości `ResourceName`parametrów `ResourceSubdomain`, i `ResourceLocation`.
+W poniższym przykładzie pokazano, jak utworzyć dwa zasoby, jeden w zachodnich i drugi na wschodnim Wschodzie. Zwróć uwagę na unikatowe wartości parametrów `ResourceName` , `ResourceSubdomain` i `ResourceLocation` .
 
 ```azurepowershell-interactive
 Create-ImmersiveReaderResource
@@ -64,7 +64,7 @@ Create-ImmersiveReaderResource
 
 ## <a name="add-resources-to-environment-configuration"></a>Dodaj zasoby do konfiguracji środowiska
 
-W samouczku szybki start utworzono plik konfiguracji środowiska zawierający `TenantId`parametry, `ClientId`, `ClientSecret`i. `Subdomain` Ponieważ wszystkie zasoby korzystają z tej samej aplikacji usługi Azure AD, można użyć tych samych wartości dla `TenantId`, `ClientId`i. `ClientSecret` Jedyną zmianą, którą należy wykonać, jest wyświetlenie listy każdej poddomeny dla każdego zasobu.
+W samouczku szybki start utworzono plik konfiguracji środowiska zawierający `TenantId` `ClientId` Parametry,, `ClientSecret` i `Subdomain` . Ponieważ wszystkie zasoby korzystają z tej samej aplikacji usługi Azure AD, można użyć tych samych wartości dla `TenantId` , `ClientId` i `ClientSecret` . Jedyną zmianą, którą należy wykonać, jest wyświetlenie listy każdej poddomeny dla każdego zasobu.
 
 Nowy plik __ENV__ powinien teraz wyglądać podobnie do poniższego:
 
@@ -258,7 +258,7 @@ Punkt końcowy interfejsu API **getimmersivereaderlaunchparams** powinien być z
     npm start
     ```
 
-4. Otwórz przeglądarkę i przejdź do `http://localhost:3000`. Na stronie powinna zostać wyświetlona powyższa zawartość. Kliknij przycisk czytnika w trybie **immersyjny** **lub, aby uruchomić czytnik immersyjny** przy użyciu odpowiednich zasobów.
+4. Otwórz przeglądarkę i przejdź do `http://localhost:3000` . Na stronie powinna zostać wyświetlona powyższa zawartość. Kliknij przycisk czytnika w trybie **immersyjny** **lub, aby uruchomić czytnik immersyjny** przy użyciu odpowiednich zasobów.
 
 ## <a name="next-steps"></a>Następne kroki
 

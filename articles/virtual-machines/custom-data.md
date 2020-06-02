@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 03/06/2020
 ms.author: mimckitt
-ms.openlocfilehash: 9497e665d024b583c261ade3e6fb5393a9322ce0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c0dd5c8cd61d1c7abf11d97e858fdc30d774e456
+ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81759138"
+ms.lasthandoff: 06/01/2020
+ms.locfileid: "84259120"
 ---
 # <a name="custom-data-and-cloud-init-on-azure-virtual-machines"></a>Dane niestandardowe i Usługa Cloud-init w usłudze Azure Virtual Machines
 
@@ -84,7 +84,7 @@ Aby rozwiązać problem z wykonywaniem danych niestandardowych, zapoznaj się z 
 
 ## <a name="faq"></a>Często zadawane pytania
 ### <a name="can-i-update-custom-data-after-the-vm-has-been-created"></a>Czy mogę zaktualizować dane niestandardowe po utworzeniu maszyny wirtualnej?
-W przypadku pojedynczych maszyn wirtualnych nie można zaktualizować danych niestandardowych w modelu maszyny wirtualnej, ale dla VMSS można zaktualizować dane niestandardowe VMSS za pośrednictwem interfejsu API REST (nie dotyczy to klientów PS i AZ CLI). Gdy aktualizujesz dane niestandardowe w modelu VMSS:
+W przypadku pojedynczych maszyn wirtualnych nie można zaktualizować danych niestandardowych w modelu maszyny wirtualnej, ale dla VMSS można zaktualizować dane niestandardowe VMSS za pośrednictwem [interfejsu API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/update) (nie dotyczy to klientów PS i AZ CLI). Gdy aktualizujesz dane niestandardowe w modelu VMSS:
 * Istniejące wystąpienia w VMSS nie otrzymają zaktualizowanych danych niestandardowych tylko do momentu ich odłączenia.
 * Istniejące wystąpienia w uaktualnianym VMSS nie będą otrzymywać zaktualizowanych danych niestandardowych.
 * Nowe wystąpienia otrzymają nowe dane niestandardowe.
