@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
-ms.openlocfilehash: 1b2db92106e0dad79c90188c904b07d7bb1d7212
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 1720ea31c8f0b15485df194e62e463671d092b26
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84258644"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310856"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Dodawanie interfejsu API do usługi Azure static Web Apps Preview przy użyciu Azure Functions
 
@@ -127,7 +127,7 @@ Następnie zmienisz `GetMessage` funkcję, aby zwracała komunikat do frontonu.
 
 W przypadku powyższych ustawień punkt końcowy interfejsu API to:
 
-- Wyzwolono żądanie HTTP do funkcji
+- Wyzwalane, gdy do funkcji zostanie wysłane żądanie HTTP
 - Dostępne dla wszystkich żądań bez względu na stan uwierzytelniania
 - Uwidocznione za pośrednictwem trasy _/API/Message_
 

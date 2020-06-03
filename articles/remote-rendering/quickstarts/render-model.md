@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/23/2020
 ms.topic: quickstart
-ms.openlocfilehash: be5bc8ec4e8f363d9b6079d22f3bba1af2d4d5fb
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: ed533f571ada4cacf053157b397cca07cd65e6f8
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682571"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300576"
 ---
 # <a name="quickstart-render-a-model-with-unity"></a>Szybki Start: renderowanie modelu przy użyciu aparatu Unity
 
@@ -33,6 +33,9 @@ Należy zainstalować następujące oprogramowanie:
 
 * Windows SDK 10.0.18362.0 [(pobieranie)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * Najnowsza wersja programu Visual Studio 2019 [(pobieranie)](https://visualstudio.microsoft.com/vs/older-downloads/)
+* [Visual Studio Tools dla rzeczywistości mieszanej](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). W szczególnych przypadkach następujące instalacje *obciążenia* są obowiązkowe:
+  * **Programowanie aplikacji klasycznych w języku C++**
+  * **Programowanie platforma uniwersalna systemu Windows (platformy UWP)**
 * GIT [(pobieranie)](https://git-scm.com/downloads)
 * 2019.3.1 Unity [(pobieranie)](https://unity3d.com/get-unity/download)
   * Zainstaluj te moduły w aparacie Unity:

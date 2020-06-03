@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 89d2105ab080309639c4341072c3f5f36608dfce
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 555e4bf9dfa2318796cde124d07867d09adc229d
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81424769"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310261"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Zarządzanie dostępem do obszarów roboczych, danych i potoków
 
@@ -34,42 +34,60 @@ W przypadku wdrożenia produkcyjnego w obszarze roboczym usługi Azure Synapse s
 
 1. Utwórz grupę zabezpieczeń o nazwie`Synapse_WORKSPACENAME_Users`
 2. Utwórz grupę zabezpieczeń o nazwie`Synapse_WORKSPACENAME_Admins`
-3. Dodanie argumentu `Synapse_WORKSPACENAME_Admins` do polecenia `ProjectSynapse_WORKSPACENAME_Users`
+3. Dodanie argumentu `Synapse_WORKSPACENAME_Admins` do polecenia `Synapse_WORKSPACENAME_Users`
+
+> [!NOTE]
+> Dowiedz się, jak utworzyć grupę zabezpieczeń w [tym artykule](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal).
+>
+> Dowiedz się, jak dodać grupę zabezpieczeń z innej grupy zabezpieczeń w [tym artykule](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal).
+>
+> WORKSPACEname — należy zamienić tę część na rzeczywistą nazwę obszaru roboczego.
 
 ### <a name="step-2-prepare-the-default-adls-gen2-account"></a>Krok 2: przygotowanie domyślnego konta ADLS Gen2
 
-Po aprowizacji obszaru roboczego musisz wybrać konto ADLSGEN2 i kontener dla systemu plików, który będzie używany przez obszar roboczy.
+Po aprowizacji obszaru roboczego należy wybrać konto [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) i kontener dla systemu plików, który będzie używany przez obszar roboczy.
 
 1. Otwórz [Azure Portal](https://portal.azure.com)
-2. Przejdź do konta ADLSGEN2
+2. Przejdź do konta Azure Data Lake Storage Gen2
 3. Przejdź do kontenera (systemu plików) wybranego dla obszaru roboczego usługi Azure Synapse
 4. Kliknij **Access Control (IAM)**
 5. Przypisz następujące role:
-   1. Rola **czytnika** :`Synapse_WORKSPACENAME_Users`
-   2. Rola **właściciela danych obiektu blob magazynu** :`Synapse_WORKSPACENAME_Admins`
-   3. Rola **współautora danych obiektu blob magazynu** :`Synapse_WORKSPACENAME_Users`
-   4. Rola **właściciela danych obiektu blob magazynu** :`WORKSPACENAME`
-  
+   1. Rola **czytelnika** :`Synapse_WORKSPACENAME_Users`
+   2. Rola **właściciela danych obiektów blob magazynu** :`Synapse_WORKSPACENAME_Admins`
+   3. Rola **współautor danych obiektów blob magazynu** :`Synapse_WORKSPACENAME_Users`
+   4. Rola **właściciela danych obiektów blob magazynu** :`WORKSPACENAME`
+
+> [!NOTE]
+> WORKSPACEname — należy zamienić tę część na rzeczywistą nazwę obszaru roboczego.
+
 ### <a name="step-3-configure-the-workspace-admin-list"></a>Krok 3. Konfigurowanie listy administratorów obszaru roboczego
 
 1. Przejdź do [ **interfejsu użytkownika sieci Web usługi Azure Synapse**](https://web.azuresynapse.net)
-2. Przejdź do **zarządzania**  > **Security** > **kontrolą dostępu** zabezpieczeń
+2. Przejdź do **zarządzania**   >  **Security**  >  **kontrolą dostępu** zabezpieczeń
 3. Kliknij pozycję **Dodaj administratora**, a następnie wybierz pozycję`Synapse_WORKSPACENAME_Admins`
 
 ### <a name="step-4-configure-sql-admin-access-for-the-workspace"></a>Krok 4. Konfigurowanie dostępu administratora SQL dla obszaru roboczego
 
-1. Przejdź do witryny [Azure Portal](https://portal.azure.com).
+1. Przejdź do [Azure Portal](https://portal.azure.com)
 2. Przejdź do obszaru roboczego
-3. Przejdź do pozycji **Ustawienia** > **Active Directory administrator**
+3. Przejdź do pozycji **Ustawienia**  >  **Active Directory administrator**
 4. Kliknij pozycję **Ustaw administratora** .
 5. Wybierz pozycję `Synapse_WORKSPACENAME_Admins`
 6. Kliknij pozycję **Wybierz** .
 7. Kliknij przycisk **Zapisz**
 
+> [!NOTE]
+> WORKSPACEname — należy zamienić tę część na rzeczywistą nazwę obszaru roboczego.
+
 ### <a name="step-5-add-and-remove-users-and-admins-to-security-groups"></a>Krok 5. Dodawanie i usuwanie użytkowników i administratorów do grup zabezpieczeń
 
 1. Dodaj użytkowników, którzy potrzebują dostępu administracyjnego do`Synapse_WORKSPACENAME_Admins`
 2. Dodaj wszystkich innych użytkowników do`Synapse_WORKSPACENAME_Users`
+
+> [!NOTE]
+> Dowiedz się, jak dodać użytkownika jako członka do grupy zabezpieczeń w [tym artykule](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-members-azure-portal)
+> 
+> WORKSPACEname — należy zamienić tę część na rzeczywistą nazwę obszaru roboczego.
 
 ## <a name="access-control-to-data"></a>Access Control do danych
 
@@ -82,9 +100,13 @@ Kontrola dostępu do danych bazowych jest dzielona na trzy części:
 ## <a name="access-control-to-sql-databases"></a>Kontrola dostępu do baz danych SQL
 
 > [!TIP]
-> Poniższe kroki muszą zostać uruchomione dla **każdej** bazy danych SQL, aby umożliwić użytkownikom dostęp do wszystkich baz danych SQL.
+> Poniższe kroki muszą zostać uruchomione dla **każdej** bazy danych SQL, aby umożliwić użytkownikom dostęp do wszystkich baz danych SQL, z wyjątkiem [uprawnień na poziomie serwera](#server-level-permission) , gdzie można przypisywać użytkownikowi rolę administratora systemu.
 
 ### <a name="sql-on-demand"></a>SQL na żądanie
+
+W tej sekcji znajdziesz przykłady umożliwiające użytkownikowi uprawnienie do konkretnej bazy danych lub pełnych uprawnień serwera.
+
+#### <a name="database-level-permission"></a>Uprawnienie na poziomie bazy danych
 
 Aby udzielić dostępu użytkownikowi do **pojedynczej** bazy danych SQL na żądanie, wykonaj czynności opisane w tym przykładzie:
 
@@ -93,7 +115,7 @@ Aby udzielić dostępu użytkownikowi do **pojedynczej** bazy danych SQL na żą
     ```sql
     use master
     go
-    CREATE LOGIN [John.Thomas@microsoft.com] FROM EXTERNAL PROVIDER;
+    CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
     go
     ```
 
@@ -102,7 +124,7 @@ Aby udzielić dostępu użytkownikowi do **pojedynczej** bazy danych SQL na żą
     ```sql
     use yourdb -- Use your DB name
     go
-    CREATE USER john FROM LOGIN [John.Thomas@microsoft.com];
+    CREATE USER alias FROM LOGIN [alias@domain.com];
     ```
 
 3. Dodaj użytkownika do członków określonej roli
@@ -110,8 +132,20 @@ Aby udzielić dostępu użytkownikowi do **pojedynczej** bazy danych SQL na żą
     ```sql
     use yourdb -- Use your DB name
     go
-    alter role db_owner Add member john -- Type USER name from step 2
+    alter role db_owner Add member alias -- Type USER name from step 2
     ```
+
+> [!NOTE]
+> Zastąp alias aliasem użytkownika, któremu chcesz nadać dostęp i domenę do używanej domeny firmowej.
+
+#### <a name="server-level-permission"></a>Uprawnienie na poziomie serwera
+
+Aby udzielić użytkownikowi pełnego dostępu do **wszystkich** baz danych SQL na żądanie, wykonaj czynności opisane w tym przykładzie:
+
+```sql
+CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
+ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
+```
 
 ### <a name="sql-pools"></a>Pule SQL
 
@@ -151,7 +185,7 @@ Po utworzeniu użytkowników Sprawdź, czy SQL na żądanie może wysyłać zapy
 > [!IMPORTANT]
 > Aby pomyślnie uruchomić potoki, które zawierają zestawy danych lub działania odwołujące się do puli SQL, tożsamość obszaru roboczego musi mieć bezpośredni dostęp do puli SQL.
 
-Uruchom następujące polecenia w każdej puli SQL, aby zezwolić zarządzanej tożsamości obszaru roboczego na uruchamianie potoków w bazie danych puli SQL:
+Uruchom następujące polecenia w każdej puli SQL, aby umożliwić tożsamości zarządzanej przez obszar roboczy uruchamianie potoków w bazie danych puli SQL:
 
 ```sql
 --Create user in DB
@@ -173,4 +207,4 @@ DROP USER [<workspacename>];
 
 ## <a name="next-steps"></a>Następne kroki
 
-Aby zapoznać się z omówieniem dostępu i kontroli w programie Synapse SQL, zobacz [Synapse SQL Access Control](../sql/access-control.md). Aby dowiedzieć się więcej o podmiotach zabezpieczeń bazy danych, zobacz [podmioty zabezpieczeń](https://msdn.microsoft.com/library/ms181127.aspx). Dodatkowe informacje o rolach bazy danych znajdują się w artykule [role bazy danych](https://msdn.microsoft.com/library/ms189121.aspx) .
+Omówienie tożsamości zarządzanej przez obszar roboczy Synapse można znaleźć w temacie [tożsamość zarządzana obszaru roboczego usługi Azure Synapse](../security/synapse-workspace-managed-identity.md). Aby dowiedzieć się więcej o podmiotach zabezpieczeń bazy danych, zobacz [podmioty zabezpieczeń](https://msdn.microsoft.com/library/ms181127.aspx). Dodatkowe informacje o rolach bazy danych znajdują się w artykule [role bazy danych](https://msdn.microsoft.com/library/ms189121.aspx) .

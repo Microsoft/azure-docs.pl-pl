@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 7ee186684b702a42335c6e1a7832cc5c761a69d0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3c6385ff804b047cca11587ce5da5a0a682fdce8
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81686936"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84307932"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Kompilowanie i wdrażanie usługi zarządzania certyfikatami magazynu OPC
 
@@ -51,11 +51,11 @@ Alternatywnie można sklonować repozytorium bezpośrednio w programie Visual St
 Skrypt programu PowerShell zapewnia łatwy sposób wdrażania mikrousług magazynu OPC i aplikacji.
 
 1. Otwórz okno programu PowerShell w katalogu głównym repozytorium. 
-3. Przejdź do folderu `cd deploy`Wdróż.
+3. Przejdź do folderu Wdróż `cd deploy` .
 3. Wybierz nazwę `myResourceGroup` , która prawdopodobnie nie spowoduje konfliktu z innymi wdrożonymi stronami sieci Web. Zobacz sekcję "Nazwa witryny sieci Web, która jest już używana" w dalszej części tego artykułu.
 5. Rozpocznij wdrażanie za pomocą `.\deploy.ps1` programu dla instalacji interaktywnej lub wprowadź pełny wiersz polecenia:  
 `.\deploy.ps1  -subscriptionName "MySubscriptionName" -resourceGroupLocation "East US" -tenantId "myTenantId" -resourceGroupName "myResourceGroup"`
-7. Jeśli planujesz Programowanie przy użyciu tego wdrożenia, Dodaj `-development 1` , aby włączyć interfejs użytkownika programu Swagger, i wdrożyć kompilacje debugowania.
+7. Jeśli planujesz Programowanie przy użyciu tego wdrożenia, Dodaj, `-development 1` Aby włączyć interfejs użytkownika programu Swagger, i wdrożyć kompilacje debugowania.
 6. Postępuj zgodnie z instrukcjami w skrypcie, aby zalogować się do subskrypcji i podać dodatkowe informacje.
 9. Po pomyślnym zakończeniu kompilacji i wdrożenia powinien zostać wyświetlony następujący komunikat:
    ```
@@ -76,13 +76,13 @@ Skrypt programu PowerShell zapewnia łatwy sposób wdrażania mikrousług magazy
    > W razie problemów zapoznaj się z sekcją "Rozwiązywanie problemów z błędami wdrażania" w dalszej części artykułu.
 
 8. Otwórz ulubioną przeglądarkę i Otwórz stronę aplikacji:`https://myResourceGroup.azurewebsites.net`
-8. Nadajesz aplikacji sieci Web i mikrousługom magazynu OPC kilka minut, aby rozgrzać po wdrożeniu. Strona główna sieci Web może zawiesić się przy pierwszym użyciu, przez maksymalnie minutę, aż do momentu otrzymania pierwszych odpowiedzi.
+8. Nadajesz aplikacji sieci Web i mikrousługom magazynu OPC kilka minut, aby rozgrzać po wdrożeniu. Strona główna sieci Web może przestać odpowiadać przy pierwszym użyciu, przez maksymalnie minutę, aż do momentu otrzymania pierwszych odpowiedzi.
 11. Aby zapoznać się z interfejsem API struktury Swagger, Otwórz:`https://myResourceGroup-service.azurewebsites.net`
-13. Aby uruchomić lokalny serwer GDS z programem dotnet, uruchom `.\myResourceGroup-gds.cmd`polecenie. Przy użyciu platformy Docker `.\myResourceGroup-dockergds.cmd`Uruchom polecenie.
+13. Aby uruchomić lokalny serwer GDS z programem dotnet, uruchom polecenie `.\myResourceGroup-gds.cmd` . Przy użyciu platformy Docker Uruchom polecenie `.\myResourceGroup-dockergds.cmd` .
 
 Można ponownie wdrożyć kompilację z dokładnie tymi samymi ustawieniami. Należy pamiętać, że taka operacja odnawia wszystkie wpisy tajne aplikacji i może zresetować niektóre ustawienia w rejestracjach aplikacji Azure Active Directory (Azure AD).
 
-Możliwe jest również ponowne wdrożenie tylko plików binarnych aplikacji sieci Web. Przy użyciu parametru `-onlyBuild 1`nowe pakiety zip usługi i aplikacji są wdrażane w aplikacjach sieci Web.
+Możliwe jest również ponowne wdrożenie tylko plików binarnych aplikacji sieci Web. Przy użyciu parametru `-onlyBuild 1` nowe pakiety zip usługi i aplikacji są wdrażane w aplikacjach sieci Web.
 
 Po pomyślnym wdrożeniu można rozpocząć korzystanie z usług. Zobacz [Zarządzanie usługą zarządzania certyfikatami magazynu OPC](howto-opc-vault-manage.md).
 
@@ -94,8 +94,8 @@ Oto kroki tej procedury:
 2. Przejdź do grupy zasobów, w której została wdrożona usługa.
 3. Wybierz pozycję **Usuń grupę zasobów** i potwierdź.
 4. Po krótkim czasie wszystkie wdrożone składniki usługi zostaną usunięte.
-5. Przejdź do **Azure Active Directory** > **rejestracje aplikacji**Azure Active Directory.
-6. Dla każdej wdrożonej grupy zasobów powinny być wymienione trzy rejestracje. Rejestracje mają następujące nazwy: `resourcegroup-client`, `resourcegroup-module`,. `resourcegroup-service` Usuń każdą rejestrację osobno.
+5. Przejdź do **Azure Active Directory**  >  **rejestracje aplikacji**Azure Active Directory.
+6. Dla każdej wdrożonej grupy zasobów powinny być wymienione trzy rejestracje. Rejestracje mają następujące nazwy: `resourcegroup-client` , `resourcegroup-module` , `resourcegroup-service` . Usuń każdą rejestrację osobno.
 
 Teraz wszystkie wdrożone składniki są usuwane.
 
@@ -107,7 +107,7 @@ Użyj krótkiej i prostej nazwy grupy zasobów. Nazwa jest również używana do
 
 ### <a name="website-name-already-in-use"></a>Nazwa witryny sieci Web jest już używana
 
-Istnieje możliwość, że nazwa witryny sieci Web jest już używana. Należy użyć innej nazwy grupy zasobów. Nazwy hostów używane przez skrypt wdrażania są następujące: https:\//ResourceGroupName.azurewebsites.NET i https:\//resourgroupname-Service.azurewebsites.NET.
+Istnieje możliwość, że nazwa witryny sieci Web jest już używana. Należy użyć innej nazwy grupy zasobów. Nazwy hostów używane przez skrypt wdrażania są następujące: https: \/ /ResourceGroupName.azurewebsites.NET i https: \/ /resourgroupname-Service.azurewebsites.NET.
 Inne nazwy usług są tworzone przez kombinację skrótów krótkich nazw i prawdopodobnie nie powodują konfliktu z innymi usługami.
 
 ### <a name="azure-ad-registration"></a>Rejestracja w usłudze Azure AD 
