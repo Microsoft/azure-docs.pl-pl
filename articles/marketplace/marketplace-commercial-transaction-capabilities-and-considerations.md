@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 6cac7218c8f1fc48734b426c9e041831bf0b1f71
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 8818b06e84f6ffe05398087c4aaeba282adc8b2e
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800047"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298214"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Komercyjne funkcje Transact Marketplace
 
@@ -53,7 +53,7 @@ W zależności od używanej opcji transakcji opłaty za licencje na oprogramowan
 - **Bezpłatna** — brak opłat za licencje na oprogramowanie.
 - **Bring Your Own License** (BYOL) — wszelkie stosowne opłaty za licencje na oprogramowanie są zarządzane bezpośrednio przez wydawcę i klienta. Firma Microsoft przechodzi wyłącznie przez opłaty za użycie infrastruktury platformy Azure. Dotyczy to tylko aplikacji Virtual Machines i platformy Azure.
 - **Płatność zgodnie z rzeczywistym** użyciem — opłaty za licencje na oprogramowanie są prezentowane jako stawka cenowa za godzinę (vCPU) na podstawie używanej infrastruktury platformy Azure. Dotyczy to tylko aplikacji Virtual Machines i platformy Azure.
-- **Cennik subskrypcji** — opłaty za licencje na oprogramowanie są prezentowane jako opłata miesięczna lub roczna, za stawkę cykliczną rozliczaną jako stawka ryczałtowa lub dla każdego stanowiska. Dotyczy to tylko aplikacji SaaS i aplikacji platformy Azure.
+- **Cennik subskrypcji** — opłaty za licencje na oprogramowanie są prezentowane jako opłata miesięczna lub roczna, za stawkę cykliczną rozliczaną jako stawka ryczałtowa lub dla każdego stanowiska. Dotyczy to aplikacji SaaS (comiesięcznych lub rocznych) oraz aplikacji zarządzanych przez aplikacje platformy Azure (miesięcznie).
 - **Bezpłatna wersja próbna oprogramowania** — brak opłat za licencje na oprogramowanie przez 30 lub 90 dni.
 
 ### <a name="free-and-bring-your-own-license-byol-pricing"></a>Bezpłatna i dowolna cena licencji (BYOL)

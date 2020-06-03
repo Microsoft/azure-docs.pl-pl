@@ -11,18 +11,18 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 9bf7339e500a006c168311145a9a5d992b07f145
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: dabceb3cc3b7fa2b48ad1b21dfcafb3278c2461d
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84231819"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298770"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Samouczek: Włączanie uwierzytelniania w aplikacji sieci Web przy użyciu Azure Active Directory B2C
 
 W tym samouczku pokazano, jak używać programu Azure Active Directory B2C (Azure AD B2C) do logowania się i rejestrowania użytkowników w aplikacji sieci Web ASP.NET. Usługa Azure AD B2C umożliwia aplikacjom uwierzytelnianie się na kontach społecznościowych, kontach przedsiębiorstw i kontach usługi Azure Active Directory za pomocą otwartych standardowych protokołów.
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Aktualizowanie aplikacji w usłudze Azure AD B2C
@@ -42,28 +42,27 @@ W samouczku, który został ukończony w ramach wymagań wstępnych, zarejestrow
 
 ### <a name="add-a-redirect-uri-reply-url"></a>Dodawanie identyfikatora URI przekierowania (adres URL odpowiedzi)
 
-Aby zaktualizować aplikację, możesz użyć środowiska bieżące **aplikacje** lub naszego nowego systemu ujednoliconej **rejestracje aplikacji (wersja zapoznawcza)** . [Dowiedz się więcej na temat nowego środowiska](https://aka.ms/b2cappregintro).
+Aby zaktualizować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego nowego środowiska **rejestracje aplikacji** lub naszych starszych **aplikacji (starsza wersja)** . [Dowiedz się więcej na temat nowego środowiska](https://aka.ms/b2cappregtraining).
 
-#### <a name="applications"></a>[Aplikacje](#tab/applications/)
-
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1. Upewnij się, że używasz katalogu, który zawiera dzierżawę Azure AD B2C, wybierając pozycję **katalog i subskrypcja** w górnym menu i wybierając katalog zawierający dzierżawcę.
-1. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
-1. Wybierz pozycję **Aplikacje**, a następnie wybierz aplikację *webapp1*.
-1. W obszarze **Adres URL odpowiedzi** dodaj `https://localhost:44316`.
-1. Wybierz pozycję **Zapisz**.
-1. Na stronie właściwości Zapisz identyfikator aplikacji do użycia w późniejszym kroku podczas konfigurowania aplikacji sieci Web.
-
-#### <a name="app-registrations-preview"></a>[Rejestracje aplikacji (wersja zapoznawcza)](#tab/app-reg-preview/)
+#### <a name="app-registrations"></a>[Rejestracje aplikacji](#tab/app-reg-ga/)
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wybierz filtr **katalogów i subskrypcji** w górnym menu, a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
 1. W menu po lewej stronie wybierz pozycję **Azure AD B2C**. Lub wybierz pozycję **wszystkie usługi** i Wyszukaj i wybierz pozycję **Azure AD B2C**.
-1. Wybierz pozycję **rejestracje aplikacji (wersja zapoznawcza)**, wybierz kartę **posiadane aplikacje** , a następnie wybierz aplikację *webapp1* .
-1. Wybierz pozycję **uwierzytelnianie**, a następnie wybierz pozycję **Wypróbuj nowe środowisko** (jeśli jest wyświetlana).
+1. Wybierz pozycję **rejestracje aplikacji**, wybierz kartę **posiadane aplikacje** , a następnie wybierz aplikację *webapp1* .
 1. W obszarze **Sieć Web**wybierz łącze **Dodaj identyfikator URI** , wprowadź `https://localhost:44316` , a następnie wybierz pozycję **Zapisz**.
 1. Wybierz pozycję **Omówienie**.
 1. Rejestrowanie **identyfikatora aplikacji (klienta)** do użycia w późniejszym kroku podczas konfigurowania aplikacji sieci Web.
+
+#### <a name="applications-legacy"></a>[Aplikacje (starsze)](#tab/applications-legacy/)
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Upewnij się, że używasz katalogu, który zawiera dzierżawę Azure AD B2C, wybierając pozycję **katalog i subskrypcja** w górnym menu i wybierając katalog zawierający dzierżawcę.
+1. Wybierz pozycję **Wszystkie usługi** w lewym górnym rogu witryny Azure Portal, a następnie wyszukaj i wybierz usługę **Azure AD B2C**.
+1. Wybierz pozycję **aplikacje (starsza wersja)**, a następnie wybierz aplikację *webapp1* .
+1. W obszarze **Adres URL odpowiedzi** dodaj `https://localhost:44316`.
+1. Wybierz pozycję **Zapisz**.
+1. Na stronie właściwości Zapisz identyfikator aplikacji do użycia w późniejszym kroku podczas konfigurowania aplikacji sieci Web.
 
 * * *
 

@@ -3,16 +3,16 @@ title: Administracja przy użyciu witryny Azure EA Portal
 description: W tym artykule opisano typowe zadania wykonywane przez administratora w witrynie Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/07/2020
+ms.date: 06/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: a3551b4f09202b33cee768a69f31a6c5d5d36777
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: a2430e29acb83945e9893ca4c6e2e0110ef6e007
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648193"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298163"
 ---
 # <a name="azure-ea-portal-administration"></a>Administracja przy użyciu witryny Azure EA Portal
 

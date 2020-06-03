@@ -4,16 +4,16 @@ description: Połącz się prywatnie z aplikacją internetową przy użyciu pryw
 author: ericgre
 ms.assetid: b8c5c7f8-5e90-440e-bc50-38c990ca9f14
 ms.topic: article
-ms.date: 03/12/2020
+ms.date: 06/02/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 2f10c7378ae7681b14df6e96b6a6f1adac832d1b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 34ea9961c257f398ebed3baaf4ed2ee5b6f3547e
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80287819"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298707"
 ---
 # <a name="connect-privately-to-a-web-app-using-azure-private-endpoint-preview"></a>Połącz się prywatnie z aplikacją internetową przy użyciu prywatnego punktu końcowego platformy Azure (wersja zapoznawcza)
 
@@ -23,7 +23,7 @@ W tym przewodniku szybki start dowiesz się, jak wdrożyć aplikację internetow
 Aby uzyskać więcej informacji, zobacz [Używanie prywatnych punktów końcowych dla aplikacji internetowej platformy Azure][privatenedpointwebapp].
 
 > [!Note]
->Wersja zapoznawcza jest dostępna w regionach Wschodnie stany USA i zachodnie stany USA 2 dla wszystkich PremiumV2 systemów Windows i Web Apps Linux. 
+>Wersja zapoznawcza jest dostępna w regionach publicznych dla PremiumV2 Windows i Linux Web Apps i elastycznych funkcji Premium. 
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
@@ -37,7 +37,7 @@ W tej sekcji utworzysz sieć wirtualną i podsieć służącą do hostowania mas
 
 W tej sekcji utworzysz sieć wirtualną i podsieć.
 
-1. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób** > **Networking** > Sieć**sieci wirtualnej** lub Wyszukaj **sieć wirtualną** w polu wyszukiwania.
+1. W lewym górnym rogu ekranu wybierz pozycję **Utwórz zasób**  >  **Sieć**  >  **sieci wirtualnej** lub Wyszukaj **sieć wirtualną** w polu wyszukiwania.
 
 1. W obszarze **Utwórz sieć wirtualną**wprowadź lub wybierz te informacje na karcie podstawowe:
 
@@ -60,7 +60,7 @@ W tej sekcji utworzysz sieć wirtualną i podsieć.
 
 ### <a name="create-virtual-machine"></a>Tworzenie maszyny wirtualnej
 
-1. W lewym górnym rogu ekranu w Azure Portal wybierz pozycję **Utwórz zasób** > **obliczeniowy** > **maszyny wirtualnej**
+1. W lewym górnym rogu ekranu w Azure Portal wybierz pozycję **Utwórz zasób**  >  **obliczeniowy**  >  **maszyny wirtualnej**
 
 1. W obszarze Tworzenie maszyny wirtualnej — ustawienia podstawowe wprowadź lub wybierz następujące informacje:
 
@@ -89,7 +89,7 @@ W tej sekcji utworzysz prywatną aplikację sieci Web przy użyciu prywatnego pu
 
 ### <a name="web-app"></a>Aplikacja internetowa
 
-1. W lewym górnym rogu ekranu w Azure Portal wybierz pozycję **Utwórz zasób** > **Sieć** > Web Web**App**
+1. W lewym górnym rogu ekranu w Azure Portal wybierz pozycję **Utwórz zasób**  >  **Sieć**Web Web  >  **App**
 
 1. W obszarze Tworzenie aplikacji sieci Web — podstawowe wprowadź lub wybierz następujące informacje:
 
@@ -102,7 +102,7 @@ W tej sekcji utworzysz prywatną aplikację sieci Web przy użyciu prywatnego pu
 
 ### <a name="create-the-private-endpoint"></a>Tworzenie prywatnego punktu końcowego
 
-1. We właściwościach aplikacji sieci Web wybierz pozycję **Ustawienia** > **Sieć** , a następnie kliknij pozycję **"Konfiguruj połączenia prywatnego punktu końcowego"** .
+1. We właściwościach aplikacji sieci Web wybierz pozycję **Ustawienia**  >  **Sieć** , a następnie kliknij pozycję **"Konfiguruj połączenia prywatnego punktu końcowego"** .
 
    > [!div class="mx-imgBorder"]
    >![Sieć aplikacji sieci Web][7]
@@ -120,8 +120,8 @@ W tej sekcji utworzysz prywatną aplikację sieci Web przy użyciu prywatnego pu
 1. Przegląd tworzenia prywatnego punktu końcowego
 
    > [!div class="mx-imgBorder"]
-   >![Przejrzyj][10]
-   >![końcowy widok prywatnego punktu końcowego][11]
+   >![Przejrzyj ][10]
+   > ![ końcowy widok prywatnego punktu końcowego][11]
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Nawiązywanie połączenia z maszyną wirtualną z Internetu
 

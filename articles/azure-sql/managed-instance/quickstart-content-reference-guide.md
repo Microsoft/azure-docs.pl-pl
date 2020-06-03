@@ -12,12 +12,12 @@ author: davidtrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 07/11/2019
-ms.openlocfilehash: 105c7ae2b0e7f39c29500634391b4388fa2a4723
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 5ed88514650b9931a52e5f155abc34fbf734a3b7
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194948"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310771"
 ---
 # <a name="getting-started-with-azure-sql-managed-instance"></a>Wprowadzenie do wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -48,18 +48,18 @@ Alternatywą dla ręcznego tworzenia wystąpienia zarządzanego SQL jest używan
 
 ### <a name="migrate-your-databases"></a>Migrowanie baz danych
 
-Po utworzeniu wystąpienia zarządzanego SQL i skonfigurowaniu dostępu można rozpocząć migrację baz danych SQL Server. Migracja może zakończyć się niepowodzeniem f w źródłowej bazie danych, którą chcesz zmigrować, znajdują się Nieobsługiwane funkcje. Aby uniknąć błędów i sprawdzania zgodności, można użyć [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) do analizowania baz danych na SQL Server i znaleźć wszelkie problemy, które mogą blokować migrację do wystąpienia zarządzanego SQL, takie jak obecność [FILESTREAM](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) lub wiele plików dziennika. W przypadku rozwiązania tych problemów bazy danych są gotowe do migracji do wystąpienia zarządzanego SQL. [Asystent eksperymentowania z bazą danych](/sql/dea/database-experimentation-assistant-overview) to kolejne przydatne narzędzie, które może rejestrować obciążenie na SQL Server i powtarzać je w wystąpieniu zarządzanym SQL, dzięki czemu można określić, czy podczas migracji do wystąpienia zarządzanego SQL zostaną nawiązane jakiekolwiek problemy z wydajnością.
+Po utworzeniu wystąpienia zarządzanego SQL i skonfigurowaniu dostępu można rozpocząć migrację baz danych SQL Server. Migracja może zakończyć się niepowodzeniem, jeśli w źródłowej bazie danych znajdują się pewne Nieobsługiwane funkcje, które mają zostać zmigrowane. Aby uniknąć błędów i sprawdzania zgodności, można użyć [Data Migration Assistant (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) do analizowania baz danych na SQL Server i znaleźć wszelkie problemy, które mogą blokować migrację do wystąpienia zarządzanego SQL, takie jak obecność [FILESTREAM](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) lub wiele plików dziennika. W przypadku rozwiązania tych problemów bazy danych są gotowe do migracji do wystąpienia zarządzanego SQL. [Asystent eksperymentowania z bazą danych](/sql/dea/database-experimentation-assistant-overview) to kolejne przydatne narzędzie, które może rejestrować obciążenie na SQL Server i powtarzać je w wystąpieniu zarządzanym SQL, dzięki czemu można określić, czy podczas migracji do wystąpienia zarządzanego SQL zostaną nawiązane jakiekolwiek problemy z wydajnością.
 
-Po upewnieniu się, że można przeprowadzić migrację bazy danych do wystąpienia zarządzanego SQL, można użyć funkcji przywracania natywnego SQL Server, aby przywrócić bazę danych do wystąpienia zarządzanego SQL z `.bak` pliku. Tej metody możesz użyć do migracji baz danych z aparatu bazy danych programu SQL Server zainstalowanego lokalnie lub na maszynie wirtualnej platformy Azure. Aby zapoznać się z przewodnikiem Szybki Start, zobacz [przywracanie z kopii zapasowej do wystąpienia zarządzanego SQL](restore-sample-database-quickstart.md). W tym przewodniku Szybki start wykonasz przywracanie z pliku `.bak` przechowywanego w usłudze Azure Blob Storage przy użyciu polecenia języka Transact-SQL `RESTORE`.
+Po upewnieniu się, że można przeprowadzić migrację bazy danych do wystąpienia zarządzanego SQL, można użyć funkcji przywracania natywnego SQL Server, aby przywrócić bazę danych do wystąpienia zarządzanego SQL z `.bak` pliku. Za pomocą tej metody można migrować bazy danych z aparatu bazy danych SQL Server zainstalowane lokalnie lub Virtual Machines platformy Azure. Aby zapoznać się z przewodnikiem Szybki Start, zobacz [przywracanie z kopii zapasowej do wystąpienia zarządzanego SQL](restore-sample-database-quickstart.md). W tym przewodniku Szybki start wykonasz przywracanie z pliku `.bak` przechowywanego w usłudze Azure Blob Storage przy użyciu polecenia języka Transact-SQL `RESTORE`.
 
 > [!TIP]
 > Aby utworzyć kopię zapasową bazy danych w usłudze Azure Blob Storage za pomocą polecenia języka Transact-SQL `BACKUP`, zobacz [SQL Server backup to URL (Tworzenie kopii zapasowej programu SQL Server pod określonym adresem URL)](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url).
 
-Te Przewodniki Szybki Start pozwalają szybko tworzyć, konfigurować i przywracać kopie zapasowe bazy danych do wystąpienia zarządzanego SQL. W niektórych scenariuszach trzeba będzie dostosować lub zautomatyzować wdrażanie wystąpień zarządzanych SQL i wymaganego środowiska sieciowego. Te scenariusze są opisane poniżej.
+Te Przewodniki Szybki Start pozwalają szybko tworzyć, konfigurować i przywracać kopie zapasowe bazy danych do wystąpienia zarządzanego SQL. W niektórych scenariuszach należy dostosować lub zautomatyzować wdrażanie wystąpienia zarządzanego SQL i wymaganego środowiska sieciowego. Te scenariusze są opisane poniżej.
 
 ## <a name="customize-network-environment"></a>Dostosowywanie środowiska sieciowego
 
-Mimo że sieci wirtualnej/podsieci można automatycznie skonfigurować podczas [tworzenia wystąpienia przy użyciu Azure Portal](instance-create-quickstart.md), warto je utworzyć przed rozpoczęciem tworzenia wystąpień zarządzanych SQL, ponieważ można skonfigurować parametry sieci wirtualnej i podsieci. Najprostszym sposobem tworzenia i konfigurowania środowiska sieciowego jest użycie szablonu [wdrażania zasobów platformy Azure](virtual-network-subnet-create-arm-template.md) , który tworzy i konfiguruje sieć oraz podsieć, w której zostanie umieszczone wystąpienie. Wystarczy nacisnąć przycisk wdrażania usługi Azure Resource Manager i podać parametry w formularzu.
+Mimo że sieci wirtualnej/podsieci można automatycznie skonfigurować podczas [tworzenia wystąpienia przy użyciu Azure Portal](instance-create-quickstart.md), warto je utworzyć przed rozpoczęciem tworzenia wystąpień w wystąpieniu zarządzanym SQL, ponieważ można skonfigurować parametry sieci wirtualnej i podsieci. Najprostszym sposobem tworzenia i konfigurowania środowiska sieciowego jest użycie szablonu [wdrażania zasobów platformy Azure](virtual-network-subnet-create-arm-template.md) , który tworzy i konfiguruje sieć oraz podsieć, w której zostanie umieszczone wystąpienie. Wystarczy nacisnąć przycisk wdrażania usługi Azure Resource Manager i podać parametry w formularzu.
 
 Jako alternatywy możesz użyć [skryptu programu PowerShell](https://www.powershellmagazine.com/2018/07/23/configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/) do zautomatyzowania tworzenia sieci.
 

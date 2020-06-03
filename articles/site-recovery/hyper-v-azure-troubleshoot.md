@@ -135,7 +135,7 @@ Migawka spójna na poziomie aplikacji to migawka danych aplikacji znajdujących 
 
 ### <a name="common-errors"></a>Typowe błędy
 
-**Kod błędu** | **Komunikat** | **Szczegóły**
+**Kod błędu** | **Komunikat** | **Uzyskać**
 --- | --- | ---
 **0x800700EA** | "Funkcja Hyper-V nie może wygenerować zestawu migawek VSS dla maszyny wirtualnej: dostępne są więcej danych. (0x800700EA). Generowanie zestawu migawek VSS może zakończyć się niepowodzeniem, jeśli operacja tworzenia kopii zapasowej jest w toku.<br/><br/> Operacja replikacji maszyny wirtualnej nie powiodła się: dostępne są więcej danych ". | Sprawdź, czy na maszynie wirtualnej jest włączony dysk dynamiczny. Ta funkcja nie jest obsługiwana.
 **0x80070032** | "Obiekt żądający kopiowania woluminów w tle funkcji Hyper-V nie może nawiązać połączenia z maszyną wirtualną <./VMname>, ponieważ wersja nie jest zgodna z wersją oczekiwaną przez funkcję Hyper-V | Sprawdź, czy są zainstalowane najnowsze aktualizacje systemu Windows.<br/><br/> [Uaktualnij](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) do najnowszej wersji usług Integration Services.
@@ -157,7 +157,7 @@ Wszystkie zdarzenia replikacji funkcji Hyper-V są rejestrowane w dzienniku Hype
 
 ### <a name="event-log-locations"></a>Lokalizacje dzienników zdarzeń
 
-**Dziennik zdarzeń** | **Szczegóły** |
+**Dziennik zdarzeń** | **Uzyskać** |
 --- | ---
 **Dzienniki aplikacji i usług/Microsoft/VirtualMachineManager/serwer/administrator** (serwer VMM) | Dzienniki służące do rozwiązywania problemów z programem VMM.
 **Dzienniki aplikacji i usług/MicrosoftAzureRecoveryServices/replikacja** (host funkcji Hyper-V) | Dzienniki umożliwiające rozwiązywanie problemów z agentem Microsoft Azure Recovery Services. 

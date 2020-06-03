@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 0b3f5963572368cb9c884984418140b4bbc0dea3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0cf0ed943dd2135a3e8d545b76eda35285dae24d
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82131187"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300794"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Monitorowanie usługi Site Recovery przy użyciu dzienników usługi Azure Monitor
 
@@ -42,7 +42,7 @@ Zalecamy zapoznanie się z [typowymi pytaniami monitorowania](monitoring-common-
 
 ## <a name="configure-site-recovery-to-send-logs"></a>Konfigurowanie Site Recovery do wysyłania dzienników
 
-1. W magazynie kliknij pozycję **Ustawienia** > diagnostyczne**Dodaj ustawienie diagnostyczne**.
+1. W magazynie kliknij pozycję **Ustawienia diagnostyczne**  >  **Dodaj ustawienie diagnostyczne**.
 
     ![Wybierz rejestrowanie zasobów](./media/monitoring-log-analytics/add-diagnostic.png)
 
@@ -252,7 +252,7 @@ AzureDiagnostics 
 
 ## <a name="set-up-alerts---examples"></a>Konfigurowanie alertów — przykłady
 
-Można skonfigurować alerty Site Recovery w oparciu o dane Azure Monitor. [Dowiedz się więcej](../azure-monitor/platform/alerts-log.md#managing-log-alerts-from-the-azure-portal) o konfigurowaniu alertów dziennika. 
+Można skonfigurować alerty Site Recovery w oparciu o dane Azure Monitor. [Dowiedz się więcej](../azure-monitor/platform/alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) o konfigurowaniu alertów dziennika. 
 
 > [!NOTE]
 > Niektóre przykłady używają **replicationProviderName_s** ustawione na **— A2A**. Powoduje to ustawienie alertów dla maszyn wirtualnych platformy Azure, które są replikowane do pomocniczego regionu platformy Azure. W tych przykładach można zastąpić **— A2A** z **InMageAzureV2** , jeśli chcesz ustawić alerty dla lokalnych maszyn wirtualnych VMware lub serwerów fizycznych replikowanych do platformy Azure.

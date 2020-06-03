@@ -5,15 +5,15 @@ author: ramonarguelles
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
-ms.date: 02/24/2019
+ms.date: 05/18/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 046e438304991c4af7ea4a208e51b7a695a5bf23
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 4bf55daa64319cfd47efd2e38a368d76f3814b4e
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83004472"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84296673"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Często zadawane pytania dotyczące usługi Azure Spatial Anchors
 
@@ -61,8 +61,8 @@ Aby zapewnić przejrzystość, poniżej znajduje się obraz środowiska i pochod
 
 Usługa Azure Spatial Anchors jest zgodna z [postanowieniami umowy serwisowej platformy Azure](https://go.microsoft.com/fwLink/?LinkID=522330&amp;amp;clcid=0x9) i [oświadczeniem firmy Microsoft o ochronie prywatności](https://go.microsoft.com/fwlink/?LinkId=521839&amp;clcid=0x409).
 
-![Środowisko i jej pochodny chmurowy](./media/sparse-point-cloud.png)
-punkt na*rysunku 1: środowisko i jego pochodna Chmura punktów rozrzedzonych*
+![Środowisko i jej pochodny chmurowy punkt na ](./media/sparse-point-cloud.png)
+ *rysunku 1: środowisko i jego pochodna Chmura punktów rozrzedzonych*
 
 **P: Czy można wysyłać informacje diagnostyczne do firmy Microsoft?**
 
@@ -72,21 +72,21 @@ Odp **.: tak**. W usłudze Azure Spatial Anchors istnieje tryb diagnostyczny, z 
 
 **P: czy jest udostępniana umowa SLA?**
 
-Odp **.:** Zgodnie z normą dla usług platformy Azure celem jest dostępność większa niż 99,9%. Należy zauważyć, że usługa Azure Spatial Anchors jest obecnie w wersji zapoznawczej i w związku z tym mają względem niej zastosowanie [Uzupełniające warunki korzystania z Wersji Zapoznawczych](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Odp **.:** Zgodnie z normą dla usług platformy Azure celem jest dostępność większa niż 99,9%. 
 
 **P: Czy mogę opublikować moje aplikacje przy użyciu kotwic Azure przestrzenny w sklepach z aplikacjami? Czy mogę używać kotwic przestrzennych platformy Azure do kluczowych scenariuszy produkcyjnych?**
 
-Odp **.:** Kotwice przestrzenne platformy Azure są obecnie dostępne w wersji zapoznawczej i w tym czasie Zapraszamy Cię do tworzenia aplikacji, [przekazywania informacji zwrotnych](https://feedback.azure.com/forums/919252-azure-spatial-anchors) o produkcie i planowania wdrożeń produkcyjnych.
-
-Daty wprowadzania wersji ogólnie dostępnej zostaną ogłoszone wkrótce.
+Odp **.:** Tak, kotwice przestrzenne platformy Azure są ogólnie dostępne i mają standardową umowę SLA usług platformy Azure. Zapraszamy do tworzenia aplikacji dla wdrożeń produkcyjnych i [udostępniania nam opinii](https://feedback.azure.com/forums/919252-azure-spatial-anchors) o produkcie.
 
 **P: czy masz jakieś limity ograniczania przepustowości?**
 
-Odp **.: tak**, mamy limity ograniczania.  Nie oczekujemy, że zostaną osiągnięte podczas zwykłego tworzenia aplikacji i ich testowania. W przypadku wdrożeń produkcyjnych jesteśmy gotowi do obsługi wymagań naszych klientów związanych z wysoką skalowalnością. [Skontaktuj się z nami](mailto:azuremrs@microsoft.com) w celu omówienia tych zagadnień. W tej fazie wersji zapoznawczej nie została jeszcze opublikowana struktura warstw i cen, ale nastąpi to wkrótce.
+Odp **.: tak**, mamy limity ograniczania.  Nie oczekujemy, że zostaną osiągnięte podczas zwykłego tworzenia aplikacji i ich testowania. W przypadku wdrożeń produkcyjnych jesteśmy gotowi do obsługi wymagań naszych klientów związanych z wysoką skalowalnością. [Skontaktuj się z nami](mailto:azuremrs@microsoft.com) w celu omówienia tych zagadnień. 
 
 **P: w jakich regionach są dostępne kotwice przestrzenne platformy Azure?**
 
-Odp **.:** Konto zakotwiczenia przestrzenne platformy Azure można utworzyć dzisiaj w regionie Wschodnie stany USA 2. Oznacza to, że w tym regionie dostępne są zarówno zasoby obliczeniowe, jak i zasoby magazynowe wymagane przez tę usługę. Nie ma jednak żadnych ograniczeń związanych z tym, gdzie znajdują się klienci. W przyszłości zamierzamy rozszerzyć dostępność regionalną usługi do wszystkich podstawowych regionów platformy Azure.
+Odp **.:** Kotwice przestrzenne platformy Azure są obecnie dostępne w regionie zachodnie stany USA 2, Wschodnie stany USA, Wschodnie stany USA 2, Południowo-środkowe stany USA, Europa Zachodnia, Europa Północna, Południowe Zjednoczone Królestwo i Australia Wschodnia. Dodatkowe regiony będą dostępne w przyszłości.
+
+Oznacza to, że w tych regionach usługa obliczeniowa i magazyn są przeznaczone dla tej usługi. Nie ma jednak żadnych ograniczeń związanych z tym, gdzie znajdują się klienci. 
 
 **P: czy są naliczane opłaty za kotwice przestrzenne platformy Azure? Czy dojdziesz do opłat?**
 

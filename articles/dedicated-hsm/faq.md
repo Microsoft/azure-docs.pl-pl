@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8f9e759372f01d2a1b48562aef2bace1e8435a67
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 16c3676a881dc5dc979891dfd870274581be255b
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81683326"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310389"
 ---
 # <a name="frequently-asked-questions-faq"></a>Często zadawane pytania
 
@@ -115,7 +115,7 @@ Tak, jeśli korzystasz z lokalnego firmy Gemalto SafeNet sprzętowych modułów 
 ### <a name="q-what-operating-systems-are-supported-by-dedicated-hsm-client-software"></a>P: jakie systemy operacyjne są obsługiwane przez dedykowane oprogramowanie klienckie modułu HSM?
 
 * Windows, Linux, Solaris, AIX, HP-UX, FreeBSD
-* Wirtualne: VMware, HyperV, Xen, KVM
+* Wirtualne: VMware, Hyper-V, Xen, KVM
 
 ### <a name="q-how-do-i-configure-my-client-application-to-create-a-high-availability-configuration-with-multiple-partitions-from-multiple-hsms"></a>P: Jak mogę skonfigurować moją aplikację kliencką w celu utworzenia konfiguracji o wysokiej dostępności z wieloma partycjami z wielu sprzętowych modułów zabezpieczeń?
 
@@ -242,7 +242,7 @@ Firma Microsoft nie ma możliwości łączenia się z usługą sprzętowych modu
 
 ### <a name="q-what-if-i-need-to-reboot-my-hsm"></a>P: co zrobić, jeśli chcę uruchomić ponownie moduł HSM?
 
-Moduł HSM ma zainstalowaną opcję ponownego uruchamiania wiersza polecenia, jednak często występują problemy z ponownym uruchomieniem systemu. z tego powodu zaleca się ponowne uruchomienie, które powoduje zgłoszenie żądania pomocy technicznej z firmą Microsoft w celu fizycznego ponownego uruchomienia urządzenia. 
+Moduł HSM ma zainstalowaną opcję ponownego uruchamiania wiersza polecenia, jednak występują problemy z tym, że ponowne uruchomienie komputera nie odpowiada sporadycznie i z tego powodu zaleca się ponowne uruchomienie, aby zgłosić żądanie pomocy technicznej z firmą Microsoft w celu fizycznego ponownego uruchomienia urządzenia. 
 
 ## <a name="cryptography-and-standards"></a>Kryptografia i standardy
 

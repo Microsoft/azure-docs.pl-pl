@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2020
 ms.author: allensu
-ms.openlocfilehash: 385814677a868c0e631bd13bad3308609b174ed3
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: d8bca97cfaa3aff3cb3ca5a5eb9019f96576626e
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800099"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309020"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Azure CDN pokrycia według Metro 
 > [!div class="op_single_selector"]
@@ -44,10 +44,9 @@ W tym artykule wymieniono bieżące Metro zawierające lokalizacje punktów obec
 | Afryka | Miasto, Republika Południowej Afryki<br />Johannesburg, Republika Południowej Afryki<br />Lagos, Nigeria<br />Nairobi, Kenia | Johannesburg, Republika Południowej Afryki | Republika Południowej Afryki |
 | Bliski Wschód | Dubaj, Zjednoczone Emiraty Arabskie<br />Tel Awiw, Izrael<br />Stambuł, Turcja | Maskat, Oman<br />Fujirah, Zjednoczone Emiraty Arabskie | Katar<br />Zjednoczone Emiraty Arabskie |
 | Indie | Chennai, Indie<br />Hyderabad, Indie<br />Mumbaj, Indie<br />Nowe Delhi, Indie | Bengaluru (Bangalore), Indie<br />Chennai, Indie<br />Mumbaj, Indie<br />Nowe Delhi, Indie<br /> | Indie |
-| Azja | Hongkong<br />Osaka, Japonia<br />Tokio, Japonia<br />Kuala Lumpur, Malezja<br />Dżakarta, Indonezja<br />Manila, Filipiny<br />Singapur<br />Pusan, Korea Południowa<br />Seul, Korea Południowa<br />Tajpej, Tajwan<br />Bangkok, Tajlandia<br />Saigon, Wietnam | Hongkong<br />Batam, Indonezja<br />Dżakarta, Indonezja<br />Osaka, Japonia<br />Tokio, Japonia<br />Singapur<br />Seul, Korea Południowa<br />Kaohsiung, Tajwan<br />Tajpej, Tajwan | Hongkong<br />Indonezja<br />Izrael<br />Japonia<br />SRA Makau<br />Malezja<br />Filipiny<br />Singapur<br />Korea Południowa<br />Tajwan<br />Tajlandia<br />Turcja<br />Wietnam |
+| Azja | Hongkong<br />Osaka, Japonia<br />Tokio, Japonia<br />Kuala Lumpur, Malezja<br />Dżakarta, Indonezja<br />Manila, Filipiny<br />Singapur<br />Pusan, Korea Południowa<br />Seul, Korea Południowa<br />Tajpej, Tajwan<br />Bangkok, Tajlandia<br />Miasto Minh Chi, Wietnam | Hongkong<br />Batam, Indonezja<br />Dżakarta, Indonezja<br />Osaka, Japonia<br />Tokio, Japonia<br />Singapur<br />Seul, Korea Południowa<br />Kaohsiung, Tajwan<br />Tajpej, Tajwan | Hongkong<br />Indonezja<br />Izrael<br />Japonia<br />SRA Makau<br />Malezja<br />Filipiny<br />Singapur<br />Korea Południowa<br />Tajwan<br />Tajlandia<br />Turcja<br />Wietnam |
 | Australia i Nowa Zelandia | Brisbane, Australia<br />Melbourne, Australia<br />Perth, Australia<br />Sydney, Australia<br />Auckland, Nowa Zelandia | Melbourne, Australia<br />Sydney, Australia<br />Auckland, Nowa Zelandia | Australia<br />Nowa Zelandia |
 
 
 ## <a name="next-steps"></a>Następne kroki
 * Aby uzyskać najnowsze adresy IP dla listy dozwolonych, zapoznaj się z [interfejsem API Azure CDN węzłów krawędzi](https://docs.microsoft.com/rest/api/cdn/edgenodes).
-

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.reviewer: sngun
-ms.openlocfilehash: d7028018501c5e6580d7345938a739ccc983ff48
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: b1ad7b44b34b678eac3348ba3b3ec54fcc508fcf
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873257"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310669"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-java-sdk-v4"></a>Migrowanie aplikacji do korzystania z Azure Cosmos DB Java SDK v4
 
@@ -30,11 +30,11 @@ W tym artykule wyjaśniono, jak uaktualnić istniejącą aplikację Java, która
 
 W poniższej tabeli wymieniono różne Azure Cosmos DB zestawy SDK Java, nazwę pakietu i informacje o wersji:
 
-| Zestaw SDK Java| Data wydania | Powiązane interfejsy API   | Maven jar  | Nazwa pakietu Java  |Dokumentacja interfejsu API   | Informacje o wersji  |
+| Zestaw SDK Java| Data wydania | Powiązane interfejsy API   | Maven jar  | Nazwa pakietu Java  |Dokumentacja interfejsu API   | Uwagi do wersji  |
 |-------|------|-----------|-----------|--------------|-------------|---------------------------|
-| Async 2. x. x  | Czerwiec 2018 r.    | Async (RxJava)  | `com.microsoft.azure::azure-cosmosdb` | `com.microsoft.azure.cosmosdb.rx` | [Interfejs API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Uwagi do wersji](sql-api-sdk-async-java.md) |
+| Async 2. x. x  | Czerwiec 2018    | Async (RxJava)  | `com.microsoft.azure::azure-cosmosdb` | `com.microsoft.azure.cosmosdb.rx` | [Interfejs API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Uwagi do wersji](sql-api-sdk-async-java.md) |
 | Synchronizuj 2. x. x     | Września 2018    | Synchronizuj   | `com.microsoft.azure::azure-documentdb` | `com.microsoft.azure.cosmosdb` | [Interfejs API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Uwagi do wersji](sql-api-sdk-java.md)  |
-| 3. x. x    | Lipiec 2019 r.    | Async (reaktor)/Sync  | `com.microsoft.azure::azure-cosmos`  | `com.azure.data.cosmos` | [Interfejs API](https://azure.github.io/azure-cosmosdb-java/3.0.0/) | - |
+| 3. x. x    | Lipiec 2019    | Async (reaktor)/Sync  | `com.microsoft.azure::azure-cosmos`  | `com.azure.data.cosmos` | [Interfejs API](https://azure.github.io/azure-cosmosdb-java/3.0.0/) | - |
 | 4.0   | Kwiecień 2020 r.   | Async (reaktor)/Sync  | `com.azure::azure-cosmos` | `com.azure.cosmos`   | -  | -  |
 
 ## <a name="sdk-level-implementation-changes"></a>Zmiany implementacji poziomu zestawu SDK
@@ -148,7 +148,7 @@ client.createDatabaseIfNotExists("YourDatabaseName")
 # <a name="java-sdk-3xx-async-api"></a>[Java SDK 3. x. x Async API](#tab/java-v3-async)
 
 ```java
-ConnectionPolicy defaultPolicy = ConnectionPolicy.defaultPo"ic"();
+ConnectionPolicy defaultPolicy = ConnectionPolicy.defaultPolicy();
 //  Setting the preferred location to Cosmos DB Account region
 defaultPolicy.preferredLocations(Lists.newArrayList("Your Account Location"));
 

@@ -101,7 +101,7 @@ Gdy aplikacja sieci Web wymaga uwierzytelnienia użytkownika, może kierować u�
 > [!IMPORTANT]
 > Aby pomyślnie zażądać tokenu identyfikatora z punktu końcowego/Authorization, Rejestracja aplikacji w [portalu rejestracji](https://portal.azure.com) musi mieć niejawne przyznanie id_tokens włączony na karcie uwierzytelnianie (która ustawia `oauth2AllowIdTokenImplicitFlow` flagę w [manifeście aplikacji](reference-app-manifest.md) na `true` ). Jeśli nie jest włączona, `unsupported_response` zostanie zwrócony błąd: "podana wartość parametru wejściowego" response_type "nie jest dozwolona dla tego klienta. Oczekiwana wartość to "Code" "
 
-Przykład:
+Na przykład:
 
 ```HTTP
 // Line breaks are for legibility only.
