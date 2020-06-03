@@ -4,12 +4,12 @@ description: Ten samouczek zawiera szczegółowe instrukcje tworzenia kopii zapa
 ms.topic: tutorial
 ms.date: 08/22/2018
 ms.custom: mvc
-ms.openlocfilehash: d29983bec7dbe379bfb2898e0f068a02b01ae726
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 560a4907fc812aae027ad9e1a1c262fc994c0da9
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79238748"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84295545"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Tworzenie kopii zapasowej serwerów z systemem Windows na platformie Azure
 
@@ -23,7 +23,7 @@ Przy użyciu usługi Azure Backup można chronić serwer z systemem Windows prze
 
 ## <a name="sign-in-to-azure"></a>Logowanie do platformy Azure
 
-Zaloguj się do witryny Azure Portal pod adresem <https://portal.azure.com.>
+Zaloguj się do witryny Azure Portal pod adresem <https://portal.azure.com>.
 
 ## <a name="create-a-recovery-services-vault"></a>Tworzenie magazynu usługi Recovery Services
 

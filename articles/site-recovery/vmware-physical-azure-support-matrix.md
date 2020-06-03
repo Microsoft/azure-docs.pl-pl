@@ -19,14 +19,14 @@ W tym artykule opisano obsługiwane składniki i ustawienia odzyskiwania po awar
 
 ## <a name="deployment-scenarios"></a>Scenariusze wdrażania
 
-**Scenariusz** | **Szczegóły**
+**Scenariusz** | **Uzyskać**
 --- | ---
 Odzyskiwanie po awarii maszyn wirtualnych VMware | Replikacja lokalnych maszyn wirtualnych programu VMware na platformę Azure. Ten scenariusz można wdrożyć w Azure Portal lub przy użyciu [programu PowerShell](vmware-azure-disaster-recovery-powershell.md).
 Odzyskiwanie po awarii serwerów fizycznych | Replikacja lokalnych serwerów z systemem Windows/Linux do platformy Azure. Ten scenariusz można wdrożyć w Azure Portal.
 
 ## <a name="on-premises-virtualization-servers"></a>Lokalne serwery wirtualizacji
 
-**Serwer** | **Wymagania** | **Szczegóły**
+**Serwer** | **Wymagania** | **Uzyskać**
 --- | --- | ---
 Program vCenter Server | Wersja 6,7, 6,5, 6,0 lub 5,5 | Zalecamy używanie serwera vCenter w ramach wdrożenia odzyskiwania po awarii.
 hosty vSphere | Wersja 6,7, 6,5, 6,0 lub 5,5 | Zalecamy, aby hosty vSphere i serwery vCenter znajdowały się w tej samej sieci co serwer przetwarzania. Domyślnie serwer przetwarzania jest uruchamiany na serwerze konfiguracji. [Dowiedz się więcej](vmware-physical-azure-config-process-server-overview.md).
@@ -63,7 +63,7 @@ Site Recovery obsługuje replikację wszystkich obciążeń uruchomionych na obs
 > [!Note]
 > W poniższej tabeli przedstawiono obsługę maszyn z rozruchem systemu BIOS. Zapoznaj się z sekcją [Magazyn](#storage) , aby uzyskać pomoc techniczną dotyczącą komputerów z interfejsem UEFI.
 
-**Składnik** | **Szczegóły**
+**Składnik** | **Uzyskać**
 --- | ---
 Ustawienia maszyny | Maszyny, które są replikowane na platformę Azure, muszą spełniać [wymagania dotyczące platformy Azure](#azure-vm-requirements).
 Obciążenie maszyny | Site Recovery obsługuje replikację wszystkich obciążeń uruchomionych na obsługiwanej maszynie. [Dowiedz się więcej](https://aka.ms/asr_workload).
@@ -151,7 +151,7 @@ BTRFS | BTRFS jest obsługiwana z [pakietu zbiorczego aktualizacji 34](https://s
 
 ## <a name="vmdisk-management"></a>Zarządzanie MASZYNami wirtualnymi/dyskami
 
-**Akcja** | **Szczegóły**
+**Akcja** | **Uzyskać**
 --- | ---
 Zmień rozmiar dysku na zreplikowanej maszynie wirtualnej | Obsługiwane przez źródłową maszynę wirtualną przed przełączeniem w tryb failover bezpośrednio we właściwościach maszyny wirtualnej. Nie trzeba wyłączać/ponownie włączać replikacji.<br/><br/> Zmiana źródłowej maszyny wirtualnej po przejściu do trybu failover powoduje, że zmiany nie będą przechwytywane.<br/><br/> W przypadku zmiany rozmiaru dysku maszyny wirtualnej platformy Azure po przejściu w tryb failover program Site Recovery tworzy nową maszynę wirtualną z aktualizacjami.
 Dodawanie dysku do zreplikowanej maszyny wirtualnej | Nieobsługiwane.<br/> Wyłącz replikację dla maszyny wirtualnej, Dodaj dysk, a następnie ponownie Włącz replikację.
@@ -255,7 +255,7 @@ Dyski zarządzane | Tak
 
 Lokalne maszyny wirtualne replikowane na platformę Azure muszą spełniać wymagania dotyczące maszyny wirtualnej platformy Azure podsumowane w tej tabeli. Gdy Site Recovery uruchamia sprawdzanie wymagań wstępnych dotyczących replikacji, sprawdzenie zakończy się niepowodzeniem, jeśli niektóre wymagania nie zostaną spełnione.
 
-**Składnik** | **Wymagania** | **Szczegóły**
+**Składnik** | **Wymagania** | **Uzyskać**
 --- | --- | ---
 System operacyjny gościa | Sprawdź [obsługiwane systemy operacyjne](#replicated-machines) dla replikowanych maszyn. | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
 Architektura systemu operacyjnego gościa | 64-bitowa. | Sprawdzanie kończy się niepowodzeniem, jeśli nie jest obsługiwane.
@@ -311,7 +311,7 @@ Przenoszenie magazynu, sieci, maszyn wirtualnych platformy Azure w ramach i mię
 
 ## <a name="obtain-latest-components"></a>Uzyskaj najnowsze składniki
 
-**Nazwa** | **Opis** | **Szczegóły**
+**Nazwa** | **Opis** | **Uzyskać**
 --- | --- | ---
 Serwer konfiguracji | Zainstalowany lokalnie.<br/> Koordynuje komunikację między lokalnymi serwerami VMware lub maszynami fizycznymi i platformą Azure. | - [Dowiedz się więcej o](vmware-physical-azure-config-process-server-overview.md) serwerze konfiguracji.<br/> - [Dowiedz się więcej o](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) uaktualnianiu do najnowszej wersji.<br/> - [Dowiedz się więcej na temat](vmware-azure-deploy-configuration-server.md) konfigurowania serwera konfiguracji.
 Serwer przetwarzania | Domyślnie instalowany na serwerze konfiguracji.<br/> Odbiera dane replikacji, optymalizuje je przy użyciu pamięci podręcznej, kompresji i szyfrowania, a następnie wysyła je do platformy Azure.<br/> Wraz z rozwojem wdrożenia można dodać kolejne serwery przetwarzania do obsługi większych woluminów ruchu związanego z replikacją. | - [Dowiedz się więcej o](vmware-physical-azure-config-process-server-overview.md) serwerze przetwarzania.<br/> - [Dowiedz się więcej o](vmware-azure-manage-process-server.md#upgrade-a-process-server) uaktualnianiu do najnowszej wersji.<br/> - [Dowiedz się więcej o](vmware-physical-large-deployment.md#set-up-a-process-server) konfigurowaniu serwerów przetwarzania skalowalnego w poziomie.

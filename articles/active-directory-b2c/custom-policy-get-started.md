@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cd1bd85e76bdda52e2f3b3b60c705792ca82a6eb
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: bcc1affb953a737c12ca5bdb70ba7eadee20cd97
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84247992"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84295528"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Wprowadzenie do zasad niestandardowych w Azure Active Directory B2C
 
@@ -74,22 +74,9 @@ Musisz zarejestrować te dwie aplikacje w dzierżawie Azure AD B2C tylko raz.
 
 ### <a name="register-the-identityexperienceframework-application"></a>Rejestrowanie aplikacji IdentityExperienceFramework
 
-Aby zarejestrować aplikację w dzierżawie Azure AD B2C, możesz użyć środowiska **rejestracje aplikacji (starszej)** lub naszego nowego systemu ujednoliconego **rejestracje aplikacji (wersja zapoznawcza)** . [Dowiedz się więcej na temat nowego środowiska](https://aka.ms/b2cappregintro).
+Aby zarejestrować aplikację w dzierżawie Azure AD B2C, możesz użyć **rejestracje aplikacji** środowiska.
 
-#### <a name="applications"></a>[Aplikacje](#tab/applications/)
-
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1. W Azure Portal Wyszukaj i wybierz pozycję **Azure Active Directory**.
-1. W menu przegląd **Azure Active Directory** w obszarze **zarządzaj**wybierz pozycję **rejestracje aplikacji (starsza wersja)**.
-1. Wybierz pozycję **Rejestrowanie nowej aplikacji**.
-1. W obszarze **Nazwa**wprowadź `IdentityExperienceFramework` .
-1. W obszarze **Typ aplikacji**wybierz pozycję **aplikacja sieci Web/interfejs API**.
-1. W obszarze **adres URL logowania**wpisz `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com` , gdzie `your-tenant-name` to Azure AD B2C nazwa domeny dzierżawy. Wszystkie adresy URL powinny teraz używać [b2clogin.com](b2clogin.md).
-1. Wybierz pozycję **Utwórz**. Po jego utworzeniu Skopiuj identyfikator aplikacji i Zapisz go do późniejszego użycia.
-
-#### <a name="app-registrations-preview"></a>[Rejestracje aplikacji (wersja zapoznawcza)](#tab/app-reg-preview/)
-
-1. Wybierz pozycję **rejestracje aplikacji (wersja zapoznawcza)**, a następnie wybierz pozycję **Nowa rejestracja**.
+1. Wybierz pozycję **rejestracje aplikacji**, a następnie wybierz pozycję **Nowa rejestracja**.
 1. W obszarze **Nazwa**wprowadź `IdentityExperienceFramework` .
 1. W obszarze **obsługiwane typy kont**wybierz opcję **konta tylko w tym katalogu organizacji**.
 1. W obszarze **Identyfikator URI przekierowania**wybierz pozycję **Sieć Web**, a następnie wprowadź `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com` `your-tenant-name` nazwę domeny dzierżawy Azure AD B2C.
@@ -111,21 +98,7 @@ Następnie udostępnienie interfejsu API przez dodanie zakresu:
 
 ### <a name="register-the-proxyidentityexperienceframework-application"></a>Rejestrowanie aplikacji ProxyIdentityExperienceFramework
 
-#### <a name="applications"></a>[Aplikacje](#tab/applications/)
-
-1. W **rejestracje aplikacji (starsza wersja)** wybierz pozycję **rejestracja nowej aplikacji**.
-1. W obszarze **Nazwa**wprowadź `ProxyIdentityExperienceFramework` .
-1. W obszarze **Typ aplikacji**wybierz opcję **natywny**.
-1. Dla **identyfikatora URI przekierowania**wprowadź `myapp://auth` .
-1. Wybierz pozycję **Utwórz**. Po jego utworzeniu Skopiuj identyfikator aplikacji i Zapisz go do późniejszego użycia.
-1. Wybierz pozycję **Ustawienia**, a następnie wybierz pozycję **wymagane uprawnienia**, a następnie wybierz pozycję **Dodaj**.
-1. Wybierz **pozycję Wybierz interfejs API**, Wyszukaj i wybierz pozycję **IdentityExperienceFramework**, a następnie kliknij pozycję **Wybierz**.
-1. Zaznacz pole wyboru obok pozycji **dostęp do IdentityExperienceFramework**, kliknij pozycję **Wybierz**, a następnie kliknij pozycję **gotowe**.
-1. Wybierz pozycję **Udziel uprawnień**, a następnie potwierdź, wybierając pozycję **tak**.
-
-#### <a name="app-registrations-preview"></a>[Rejestracje aplikacji (wersja zapoznawcza)](#tab/app-reg-preview/)
-
-1. Wybierz pozycję **rejestracje aplikacji (wersja zapoznawcza)**, a następnie wybierz pozycję **Nowa rejestracja**.
+1. Wybierz pozycję **rejestracje aplikacji**, a następnie wybierz pozycję **Nowa rejestracja**.
 1. W obszarze **Nazwa**wprowadź `ProxyIdentityExperienceFramework` .
 1. W obszarze **obsługiwane typy kont**wybierz opcję **konta tylko w tym katalogu organizacji**.
 1. W obszarze **Identyfikator URI przekierowania**Użyj listy rozwijanej, aby wybrać opcję **Klient publiczny/natywny (Mobile & Desktop)**.
@@ -137,7 +110,6 @@ Następnie udostępnienie interfejsu API przez dodanie zakresu:
 Następnie określ, że aplikacja powinna być traktowana jako klient publiczny:
 
 1. W obszarze **Zarządzaj**wybierz pozycję **uwierzytelnianie**.
-1. Wybierz opcję **Wypróbuj nowe środowisko** (jeśli zostało wyświetlone).
 1. W obszarze **Ustawienia zaawansowane**Włącz **Traktuj aplikację jako klienta publicznego** (wybierz opcję **tak**). Upewnij się, że **wartość "allowPublicClient": true** jest ustawiona w manifeście aplikacji. 
 1. Wybierz pozycję **Zapisz**.
 

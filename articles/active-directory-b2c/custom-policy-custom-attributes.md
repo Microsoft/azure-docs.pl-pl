@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b5990f79891a9cbc0d18c3499691a3d7ef309a73
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 15623d622a40fa80889a8704e0b7f19d358a052c
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81678270"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84295409"
 ---
 # <a name="azure-active-directory-b2c-enable-custom-attributes-in-a-custom-profile-policy"></a>Azure Active Directory B2C: Włączanie atrybutów niestandardowych w niestandardowych zasadach profilu
 
@@ -49,7 +49,7 @@ Atrybuty rozszerzenia mogą być rejestrowane tylko w obiekcie aplikacji, nawet 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wybierz filtr **katalogów i subskrypcji** w górnym menu, a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
 1. W menu po lewej stronie wybierz pozycję **Azure AD B2C**. Lub wybierz pozycję **wszystkie usługi** i Wyszukaj i wybierz pozycję **Azure AD B2C**.
-1. Wybierz pozycję **rejestracje aplikacji (wersja zapoznawcza)**, a następnie wybierz pozycję **wszystkie aplikacje**.
+1. Wybierz pozycję **rejestracje aplikacji**, a następnie wybierz pozycję **wszystkie aplikacje**.
 1. Wybierz `b2c-extensions-app. Do not modify. Used by AADB2C for storing user data.` aplikację.
 1. Skopiuj następujące identyfikatory do schowka i Zapisz je:
     * **Identyfikator aplikacji**. Przykład: `11111111-1111-1111-1111-111111111111`.
@@ -59,9 +59,9 @@ Atrybuty rozszerzenia mogą być rejestrowane tylko w obiekcie aplikacji, nawet 
 
 Aby włączyć atrybuty niestandardowe w zasadach, podaj **Identyfikator aplikacji** i **Identyfikator obiektu** aplikacji w metadanych profilu technicznym usługi AAD. Profil techniczny usługi *AAD — wspólny* jest dostępny w podstawowym [Azure Active Directory](active-directory-technical-profile.md) profilu technicznym i zapewnia obsługę zarządzania użytkownikami w usłudze Azure AD. Inne profile techniczne usługi Azure AD obejmują usługę AAD — wspólną, aby wykorzystać jej konfigurację. Przesłoń profil techniczny usługi AAD — wspólny w pliku rozszerzenia.
 
-1. Otwórz plik rozszerzeń zasad. Na przykład <em> `SocialAndLocalAccounts/` </em>.
+1. Otwórz plik rozszerzeń zasad. Na przykład <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em> .
 1. Znajdź element ClaimsProviders. Dodaj nowy ClaimsProvider do elementu ClaimsProviders.
-1. Zamień `ApplicationObjectId` na identyfikator obiektu, który został wcześniej zarejestrowany. Następnie zastąp `ClientId` ciąg identyfikatorem aplikacji, który został wcześniej zarejestrowany w poniższym fragmencie kodu.
+1. Zamień `ApplicationObjectId` na identyfikator obiektu, który został wcześniej zarejestrowany. Następnie zastąp ciąg `ClientId` identyfikatorem aplikacji, który został wcześniej zarejestrowany w poniższym fragmencie kodu.
 
     ```xml
     <ClaimsProvider>
@@ -99,7 +99,7 @@ Te atrybuty można utworzyć przy użyciu interfejsu użytkownika portalu przed 
 |Nazwa     |Używany w |
 |---------|---------|
 |`extension_loyaltyId`  | Zasady niestandardowe|
-|`extension_<b2c-extensions-app-guid>_loyaltyId`  | [Interfejs API programu Microsoft Graph](manage-user-accounts-graph-api.md)|
+|`extension_<b2c-extensions-app-guid>_loyaltyId`  | [Microsoft Graph API](manage-user-accounts-graph-api.md)|
 
 Poniższy przykład demonstruje użycie atrybutów niestandardowych w Azure AD B2C definicji niestandardowego żądania zasad.
 
@@ -137,7 +137,7 @@ Postępuj zgodnie ze wskazówkami dotyczącymi [dodawania oświadczeń i dostoso
 
 ## <a name="next-steps"></a>Następne kroki
 
-Dowiedz się więcej o usługach:
+Dowiedz się więcej:
 
 - [Azure AD B2C atrybuty profilu użytkownika](user-profile-attributes.md)
 - [Definicja atrybutów rozszerzenia](user-profile-attributes.md#extension-attributes)

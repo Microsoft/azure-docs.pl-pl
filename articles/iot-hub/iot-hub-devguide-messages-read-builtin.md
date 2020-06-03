@@ -7,14 +7,14 @@ ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 06/01/2020
 ms.custom: amqp
-ms.openlocfilehash: fba22324a3c35b861d28ed9b84207ab3a6f9816b
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 791d41aae7dde3e1ef2ae511de4ffd84141f0232
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872705"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310788"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Odczytywanie komunikatów przesyłanych z urządzeń do chmury z wbudowanego punktu końcowego
 
@@ -63,8 +63,8 @@ Zestawy SDK, których można użyć do nawiązania połączenia z wbudowanym pun
 
 | Język | SDK | Przykład |
 | -------- | --- | ------ |
-| .NET | https://github.com/Azure/azure-event-hubs-dotnet | [Szybki start](quickstart-send-telemetry-dotnet.md) |
- Java | https://mvnrepository.com/artifact/com.azure/azure-messaging-eventhubs | [Szybki start](quickstart-send-telemetry-java.md) |
+| .NET | https://www.nuget.org/packages/Azure.Messaging.EventHubs | [Szybki start](quickstart-send-telemetry-dotnet.md) |
+| Java | https://mvnrepository.com/artifact/com.azure/azure-messaging-eventhubs | [Szybki start](quickstart-send-telemetry-java.md) |
 | Node.js | https://www.npmjs.com/package/@azure/event-hubs | [Szybki start](quickstart-send-telemetry-node.md) |
 | Python | https://pypi.org/project/azure-eventhub/ | https://github.com/Azure-Samples/azure-iot-samples-python/tree/master/iot-hub/Quickstarts/read-d2c-messages |
 

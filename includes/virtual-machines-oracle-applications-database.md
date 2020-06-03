@@ -2,14 +2,14 @@
 author: dlepow
 ms.service: virtual-machines-linux
 ms.topic: include
-ms.date: 07/10/2019
+ms.date: 06/01/2020
 ms.author: danlep
-ms.openlocfilehash: 8106b1a77f11874b1b13f41bfc9e62ea800afc98
-ms.sourcegitcommit: fad3aaac5af8c1b3f2ec26f75a8f06e8692c94ed
+ms.openlocfilehash: b9e275cbdaf264df3d0a40f032693fd93553e520
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/27/2020
-ms.locfileid: "68361533"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84317650"
 ---
 ### <a name="database-tier"></a>Warstwa bazy danych
 
@@ -17,7 +17,7 @@ Warstwa bazy danych zawiera wystąpienia bazy danych dla aplikacji. Baza danych 
 
 Jeśli chcesz użyć Oracle DB, wystąpienie bazy danych może zostać wdrożone na platformie Azure za pośrednictwem Oracle DB obrazów dostępnych w witrynie Azure Marketplace. Alternatywnie, możesz użyć połączenia między platformą Azure i OCI, aby wdrożyć Oracle DB w modelu PaaS na OCI.
 
-W przypadku certyfikatu Oracle RAC można wdrożyć certyfikat certyfikatu Oracle w systemie Azure CloudSimple w modelu IaaS lub w modelu OCI w PaaS model. Zalecane jest użycie systemu dwuwęzłowego certyfikatu RAC. 
+W przypadku certyfikatu Oracle RAC można użyć OCI w modelu PaaS. Zalecane jest użycie systemu dwuwęzłowego certyfikatu RAC. Chociaż istnieje możliwość wdrożenia programu Oracle RAC na platformie Azure CloudSimple w modelu IaaS, nie jest to obsługiwana konfiguracja przez firmę Oracle. Zapoznaj się z [programami Oracle uprawnionymi do autoryzowanych środowisk chmury](http://www.oracle.com/us/corporate/pricing/authorized-cloud-environments-3493562.pdf).
 
 Na koniec w przypadku systemów Exadata Użyj połączenia OCI i Wdróż system Exadata w systemie OCI. Powyższy diagram architektury powyżej przedstawia system Exadata wdrożony w OCI w dwóch podsieciach.
 
