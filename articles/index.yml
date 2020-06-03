@@ -13,12 +13,12 @@ metadata:
   ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 5d8dfc5c51ab6a56823a4984a7788b3cce98e7e1
-  ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+  ms.openlocfilehash: 4ab8f0e5a7356772f15ab6727f1712f5ff7f8cf9
+  ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 05/31/2020
-  ms.locfileid: "84230061"
+  ms.lasthandoff: 06/03/2020
+  ms.locfileid: "84308935"
 highlightedContent:
   items:
   - title: Wprowadzenie — przewodnik dla deweloperów platformy Azure
@@ -481,7 +481,7 @@ productDirectory:
     - compute
     - containers
     url: service-fabric/index.yml
-  - title: Program SQL Server w usłudze Virtual Machines
+  - title: Program SQL Server na maszynach wirtualnych platformy Azure
     summary: Hostowanie firmowych aplikacji programu SQL Server w chmurze
     imageSrc: https://static.docs.com/ui/media/product/azure/sql-server-vm.svg
     azureCategories:
@@ -593,7 +593,7 @@ productDirectory:
     url: dms/index.yml
   - title: Azure SQL
     summary: Nowoczesna rodzina rozwiązań SQL do migracji i modernizacji aplikacji
-    imageSrc: https://static.docs.com/ui/media/product/azure/sql-database.svg
+    imageSrc: https://static.docs.com/ui/media/product/azure/sql.svg
     azureCategories:
     - featured
     - hybrid
