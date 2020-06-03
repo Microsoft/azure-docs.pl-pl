@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 91e7b1c0be9a38c3d79440f07d944d182980dc10
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 038d9ff39f388d1ef7b09b951c09dbe3420858b7
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80159238"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298231"
 ---
 # <a name="use-visual-studio-and-visual-studio-code-to-build-iot-plug-and-play-devices"></a>Tworzenie urządzeń Plug and Play IoT za pomocą programu Visual Studio i Visual Studio Code
 
@@ -25,7 +25,7 @@ W tym artykule wyjaśniono, jak:
 - Użyj wygenerowanego kodu w projekcie urządzenia.
 - Wykonaj iterację, ponownie generując kod szkieletowy.
 
-Aby dowiedzieć się więcej o używaniu VS Code do tworzenia urządzeń IoT [https://github.com/microsoft/vscode-iot-workbench](https://github.com/microsoft/vscode-iot-workbench), zobacz.
+Aby dowiedzieć się więcej o używaniu VS Code do tworzenia urządzeń IoT, zobacz [https://github.com/microsoft/vscode-iot-workbench](https://github.com/microsoft/vscode-iot-workbench) .
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -57,7 +57,7 @@ W VS Code **naciśnij kombinację klawiszy Ctrl + Shift + P** , aby otworzyć pa
     - **Projekt CMAKE w systemie Linux**: dla projektu urządzenia, który używa [CMAKE](https://cmake.org/) jako systemu kompilacji w systemie Linux. Ta opcja generuje `CMakeLists.txt` z konfiguracjami zestawu SDK urządzeń w tym samym folderze, w którym znajduje się kod C.
     - **Zestawu deweloperskiego IoT DevKit Project**: dla projektu urządzenia uruchomionego na urządzeniu [zestawu deweloperskiego IoT DevKit](https://aka.ms/iot-devkit) . Ta opcja generuje projekt Arduino, którego można [użyć w vs Code](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) lub w środowisku IDE Arduino do kompilowania i uruchamiania na urządzeniu IoT DevKit.
 
-- **Typ zestawu SDK urządzeń**. Jeśli wybierzesz pozycję CMake jako typ projektu, jest to krok w celu skonfigurowania sposobu, w jaki wygenerowany kod będzie uwzględniać zestaw `CMakeLists.txt`SDK urządzeń usługi Azure IoT C w:
+- **Typ zestawu SDK urządzeń**. Jeśli wybierzesz pozycję CMake jako typ projektu, jest to krok w celu skonfigurowania sposobu, w jaki wygenerowany kod będzie uwzględniać zestaw SDK urządzeń usługi Azure IoT C w `CMakeLists.txt` :
 
     - **Za pośrednictwem kodu źródłowego**: wygenerowany kod opiera się na [kodzie źródłowym zestawu SDK urządzenia](https://github.com/Azure/azure-iot-sdk-c) do uwzględnienia w i kompilacji razem z nim. Jest to zalecane w przypadku dostosowania kodu źródłowego zestawu SDK urządzeń.
     - **Za pośrednictwem Vcpkg**: wygenerowany kod opiera się na [zestawie SDK urządzeń Vcpkg](https://github.com/microsoft/vcpkg/tree/master/ports/azure-iot-sdk-c) , aby uwzględnić go i skompilować razem z nim. Jest to zalecany sposób dla urządzeń z systemem Windows, Linux lub macOS.
@@ -92,14 +92,14 @@ Aby skompilować kod urządzenia wraz z zestawem SDK urządzenia Vcpkg przy uży
 
 1. Otwórz aplikację terminala.
 
-1. Zainstaluj usługi w **zatoce**, `cmake` **git**i wszystkie zależności przy użyciu `apt-get` polecenia:
+1. Zainstaluj usługi w **zatoce**, **git** `cmake` i wszystkie zależności przy użyciu `apt-get` polecenia:
 
     ```bash
     sudo apt-get update
     sudo apt-get install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
     ```
 
-    Sprawdź, czy wersja `cmake` programu jest powyżej **2.8.12** , a wersja **tej wersji jest większa** niż **4.4.7**.
+    Sprawdź, czy wersja programu `cmake` jest powyżej **2.8.12** , a wersja **tej** wersji jest większa niż **4.4.7**.
 
     ```bash
     cmake --version
@@ -127,7 +127,7 @@ Aby skompilować kod urządzenia wraz z zestawem SDK urządzenia Vcpkg przy uży
     ./vcpkg install azure-iot-sdk-c[public-preview,use_prov_client]
     ```
 
-1. `cmake` Utwórz podkatalog w folderze zawierającym wytworzoną procedurę tworzenia kodu i przejdź do tego folderu:
+1. Utwórz `cmake` podkatalog w folderze zawierającym wytworzoną procedurę tworzenia kodu i przejdź do tego folderu:
 
     ```bash
     mkdir cmake
@@ -156,7 +156,7 @@ Aby skompilować kod urządzenia wraz z zestawem SDK urządzenia w systemie Wind
 
 1. Zainstaluj [program Visual Studio 2019 (Community, Professional lub Enterprise)](https://visualstudio.microsoft.com/downloads/) — upewnij się, że dołączysz składnik **Menedżera pakietów NuGet** i **Programowanie aplikacji klasycznych w języku C++** .
 
-1. Otwórz program Visual Studio, wybierz pozycję **plik > otwórz > CMAKE...** , `CMakeLists.txt` aby otworzyć folder w folderze zawierającym wygenerowany kod.
+1. Otwórz program Visual Studio, wybierz pozycję **plik > otwórz > CMAKE...** , aby otworzyć `CMakeLists.txt` folder w folderze zawierającym wygenerowany kod.
 
 1. Na pasku narzędzi **Ogólne** Znajdź listę rozwijaną **konfiguracje** . Wybierz pozycję **Zarządzaj konfiguracją** , aby dodać ustawienie CMAKE dla projektu.
 
@@ -193,7 +193,7 @@ Poniższe kroki pokazują, jak skompilować kod urządzenia wraz z kodem źród�
 
 1. Otwórz aplikację terminala.
 
-1. Użyj [oprogramowania Homebrew](https://homebrew.sh) , aby zainstalować wszystkie zależności:
+1. Użyj [oprogramowania Homebrew](https://brew.sh) , aby zainstalować wszystkie zależności:
 
     ```bash
     brew update
@@ -216,7 +216,7 @@ Poniższe kroki pokazują, jak skompilować kod urządzenia wraz z kodem źród�
 
     Należy się spodziewać, że ukończenie operacji potrwa kilka minut.
 
-1. Utwórz folder o nazwie `cmake` znajdujący się pod folderem zawierającym wygenerowany kod i przejdź do tego folderu.
+1. Utwórz folder o nazwie znajdujący się `cmake` pod folderem zawierającym wygenerowany kod i przejdź do tego folderu.
 
     ```bash
     mkdir cmake
@@ -247,7 +247,7 @@ Generator kodu może ponownie wygenerować kod, jeśli zaktualizujesz pliki DCM 
 
 1. Wybierz pozycję **ponownie Generuj kod dla {Nazwa projektu}**.
 
-1. Generator kodu używa poprzedniego skonfigurowanego ustawienia i ponownie generuje kod. Nie zastępuje jednak plików, które mogą zawierać kod użytkownika, taki jak `main.c` i. `{project_name}_impl.c`
+1. Generator kodu używa poprzedniego skonfigurowanego ustawienia i ponownie generuje kod. Nie zastępuje jednak plików, które mogą zawierać kod użytkownika, taki jak `main.c` i `{project_name}_impl.c` .
 
 > [!NOTE]
 > Jeśli zaktualizujesz identyfikator URN w pliku interfejsu, jest on traktowany jako nowy interfejs. Po ponownym wygenerowaniu kodu generator kodu generuje kod dla interfejsu, ale nie zastępuje oryginalnego `{project_name}_impl.c` pliku.

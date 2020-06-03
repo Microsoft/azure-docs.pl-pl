@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 12/13/2018
-ms.openlocfilehash: 6e4f6789be2faa8d1af0fd75830541f8a9e27a7e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 8aca5a4f76504f1e9c33f55101f697ea6b3b6856
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84044570"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309904"
 ---
 # <a name="sync-networking-configuration-for-azure-app-service-hosting-plan-with-azure-sql-managed-instance"></a>Synchronizuj konfigurację sieci dla Azure App Service planu hostingu przy użyciu wystąpienia zarządzanego Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -30,19 +30,19 @@ W tym celu wykonaj następujące kroki:
 
 1. Przejdź do planu App Service aplikacji sieci Web.
 
-   ![plan usługi App Service](./media/azure-app-sync-network-configuration/app-service-plan.png)
+   ![Zrzut ekranu przedstawiający plan App Service](./media/azure-app-sync-network-configuration/app-service-plan.png)
 
 2. Wybierz pozycję **Sieć** , a następnie wybierz **pozycję kliknij tutaj, aby zarządzać**.
 
-   ![Zarządzaj planem usługi](./media/azure-app-sync-network-configuration/manage-plan.png)
+   ![Zrzut ekranu przedstawiający zarządzanie planem usługi](./media/azure-app-sync-network-configuration/manage-plan.png)
 
 3. Wybierz sieć **wirtualną** , a następnie kliknij pozycję **Sync Network**.
 
-   ![Synchronizuj sieć](./media/azure-app-sync-network-configuration/sync.png)
+   ![Zrzut ekranu przedstawiający sieć synchronizacji](./media/azure-app-sync-network-configuration/sync.png)
 
 4. Poczekaj, aż synchronizacja zostanie ukończona.
   
-   ![Synchronizacja ukończona](./media/azure-app-sync-network-configuration/sync-done.png)
+   ![Zrzut ekranu przedstawiający synchronizację](./media/azure-app-sync-network-configuration/sync-done.png)
 
 Teraz możesz spróbować ponownie nawiązać połączenie z wystąpieniem zarządzanym SQL.
 

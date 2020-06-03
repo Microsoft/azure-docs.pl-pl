@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: 33dcebf14f4d534962783a30ec94f7ff6529ae0d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: ced5dc58edb5ee44a39b5afde268a290f33aedac
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "74195923"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84297721"
 ---
 # <a name="deploy-an-azure-firewall-with-availability-zones-using-azure-powershell"></a>Wdrażanie usługi Azure Firewall ze strefami dostępności przy użyciu programu Azure PowerShell
 
@@ -54,7 +54,7 @@ New-AzFirewall `
   -ResourceGroupName $rgName `
   -Location centralus `
   -VirtualNetwork $vnet `
-  -PublicIpAddress @($pip1)
+  -PublicIpAddress @($pip1) `
   -Zone 1,2,3
 ```
 

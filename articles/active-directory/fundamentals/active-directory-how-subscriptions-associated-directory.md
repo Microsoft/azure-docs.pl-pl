@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 06/01/2020
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 104bf51fb03d88ab0e5efd25ebebb0e3060bc264
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e2737da028d8fea1c31b728c8e9864ad421d08ec
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81457930"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309616"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Kojarzenie subskrypcji platformy Azure z dzierżawą usługi Azure Active Directory lub dodawanie subskrypcji
 
@@ -42,7 +42,7 @@ Wszyscy użytkownicy mają jeden katalog *macierzysty* na potrzeby uwierzytelnia
 
 Aby można było skojarzyć lub dodać subskrypcję, wykonaj następujące zadania:
 
-- Przejrzyj poniższą listę zmian i dowiesz się, jak to miało wpływ:
+- Przejrzyj następującą listę zmian, które nastąpią po skojarzeniu lub dodaniu subskrypcji oraz o tym, jak może to mieć wpływ:
 
   - Użytkownicy, którym przypisano role przy użyciu RBAC, utracą dostęp
   - Administrator usługi i współadministratorzy utracą dostęp
@@ -71,13 +71,13 @@ Aby skojarzyć istniejącą subskrypcję z katalogiem usługi Azure AD, wykonaj 
 
     ![Zmień stronę katalogu, pokazując katalog do zmiany](media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png)
 
-    Katalog zostanie zmieniony dla subskrypcji i zostanie wyświetlony komunikat o powodzeniu.
+    Po zmianie katalogu dla subskrypcji zostanie wyświetlony komunikat o powodzeniu.
 
-    ![Komunikat o powodzeniu zmiany katalogu](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)
+  1. Wybierz pozycję **Przełącz katalogi** na stronie subskrypcja, aby przejść do nowego katalogu. 
 
-Użyj **katalogu przełącznika** , aby przejść do nowego katalogu. Poprawne wyświetlanie wszystkiego może potrwać kilka godzin. Jeśli wydaje się, że trwa zbyt długo, sprawdź **globalny filtr subskrypcji**. Upewnij się, że przeniesiona subskrypcja nie jest ukryta. Może być konieczne wylogowanie się z Azure Portal i ponowne zalogowanie się w celu wyświetlenia nowego katalogu.
+      ![Strona przełączników katalogów z przykładowymi informacjami](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
-![Strona przełączników katalogów z przykładowymi informacjami](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
+      Poprawne wyświetlanie wszystkiego może potrwać kilka godzin. Jeśli wydaje się, że trwa zbyt długo, sprawdź **globalny filtr subskrypcji**. Upewnij się, że przeniesiona subskrypcja nie jest ukryta. Może być konieczne wylogowanie się z Azure Portal i ponowne zalogowanie się w celu wyświetlenia nowego katalogu.
 
 Zmiana katalogu subskrypcji jest operacją na poziomie usługi, więc nie ma ona wpływu na własność rozliczeń subskrypcji. Administrator konta nadal może zmienić administratora usługi z [centrum konta](https://account.azure.com/subscriptions). Aby usunąć oryginalny katalog, należy przenieść własność rozliczeń subskrypcji do nowego administratora konta. Aby dowiedzieć się więcej na temat przenoszenia własności rozliczeń, zobacz [przenoszenie własności subskrypcji platformy Azure na inne konto](../../cost-management-billing/manage/billing-subscription-transfer.md).
 

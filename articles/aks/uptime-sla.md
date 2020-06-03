@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.custom: references_regions
-ms.openlocfilehash: 986bb835f319cebf3006d7e1bd31bd7f04a1ae82
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 2df0ad675f03b25363ab0f5b13dceb762a657ed7
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194005"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299557"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>Umowa SLA dla usługi Azure Kubernetes Service (AKS)
 
@@ -26,18 +26,6 @@ Klienci mogą nadal tworzyć nieograniczoną liczbę bezpłatnych klastrów z ce
 ## <a name="sla-terms-and-conditions"></a>Warunki i postanowienia umowy SLA
 
 Umowa SLA na czas pracy to płatna funkcja i włączona na klaster. Cennik umowy SLA na czas pracy jest określany przez liczbę klastrów dyskretnych, a nie przez rozmiar poszczególnych klastrów. Aby uzyskać więcej informacji, możesz wyświetlić [szczegóły cennika umowy SLA](https://azure.microsoft.com/pricing/details/kubernetes-service/) .
-
-## <a name="region-availability"></a>Dostępność regionów
-
-Umowa SLA na czas działania jest dostępna w następujących regionach:
-
-* Australia Wschodnia
-* Kanada Środkowa
-* Wschodnie stany USA
-* Wschodnie stany USA 2
-* Południowo-środkowe stany USA
-* Azja Południowo-Wschodnia
-* Zachodnie stany USA 2
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 

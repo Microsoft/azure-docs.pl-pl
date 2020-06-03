@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: 19fdcc7b590c6ad6873c7808ae26d218bbda7f5b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c30fef5c82f831365a11bcb14559b0914a9eda4c
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80158977"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299948"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Eksportowanie alertów zabezpieczeń i zaleceń
 
@@ -28,6 +28,21 @@ Za pomocą tych narzędzi możesz:
 * Eksportuj do pliku CSV (jednorazowo)
 
 
+
+
+## <a name="availability"></a>Dostępność
+
+- Stan wydania: **ogólnie dostępny**
+- Wymagane role i uprawnienia:
+    - **Czytelnik** w subskrypcji zawierającej konfigurację eksportu
+    - **Rola administratora zabezpieczeń** w grupie zasobów (lub **właściciela**)
+    - Musi mieć również uprawnienia do zapisu dla zasobu docelowego
+- Połączeń 
+    - ✔ Chmury komercyjne
+    - ✔ US Gov
+    - ✘ Chiny gov, inne gov
+
+
 ## <a name="setting-up-a-continuous-export"></a>Konfigurowanie eksportu ciągłego
 
 Poniższe kroki są niezbędne, niezależnie od tego, czy konfigurujesz ciągły eksport do Log Analytics obszaru roboczego czy Event Hubs platformy Azure.
@@ -38,13 +53,13 @@ Poniższe kroki są niezbędne, niezależnie od tego, czy konfigurujesz ciągły
     
 1. Na pasku bocznym strony Ustawienia dla tej subskrypcji wybierz pozycję **eksport ciągły**.
 
-    Opcje eksportu w Azure Security Center [ ![](media/continuous-export/continuous-export-options-page.png)](media/continuous-export/continuous-export-options-page.png#lightbox) W tym miejscu są wyświetlane opcje eksportowania. Dla każdego dostępnego elementu docelowego eksportu istnieje karta. 
+    [ ![ Opcje eksportowania w Azure Security Center](media/continuous-export/continuous-export-options-page.png)](media/continuous-export/continuous-export-options-page.png#lightbox) tym miejscu są wyświetlane opcje eksportowania. Dla każdego dostępnego elementu docelowego eksportu istnieje karta. 
 
 1. Wybierz typ danych, który chcesz wyeksportować, i wybierz spośród filtrów dla każdego typu (na przykład wyeksportuj tylko alerty o wysokiej ważności).
 
 1. W obszarze "Eksportuj element docelowy" Wybierz miejsce, w którym chcesz zapisać dane. Dane można zapisywać w miejscu docelowym w innej subskrypcji (na przykład w centralnym wystąpieniu centrum zdarzeń lub w centralnym obszarze roboczym Log Analytics).
 
-1. Kliknij przycisk **Zapisz**.
+1. Kliknij pozycję **Zapisz**.
 
 
 
@@ -128,5 +143,5 @@ W przypadku pokrewnego materiału zapoznaj się z następującą dokumentacją:
 
 - [Dokumentacja usługi Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/)
 - [Dokumentacja usługi Azure wskaźnikowego](https://docs.microsoft.com/azure/sentinel/)
-- [Dokumentacja Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/)
+- [Dokumentacja usługi Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/)
 - [Schematy automatyzacji przepływu pracy i typy danych eksportu ciągłego](https://aka.ms/ASCAutomationSchemas)

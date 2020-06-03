@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 68089a86b8b832638abd30aa7c36aa1c5bd84225
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: c555b058e6d0b8c110a3273525b5a8c58baaff61
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80410114"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309785"
 ---
 # <a name="azure-serial-console-for-windows"></a>Konsola szeregowa platformy Azure dla systemu Windows
 
@@ -102,7 +102,7 @@ Jeśli konieczne jest włączenie wyświetlanych w konsoli szeregowej wierszy mo
 
     ![Nawiązywanie połączenia z konsolą SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
 
-1.    Wprowadź `cmd` , aby utworzyć kanał, który ma wystąpienie cmd.
+1.    Wprowadź, `cmd` Aby utworzyć kanał, który ma wystąpienie cmd.
 
 1.    Wprowadź `ch -si 1` lub naciśnij `<esc>+<tab>` klawisze skrótów, aby przełączyć się na kanał, na którym działa wystąpienie cmd.
 
@@ -124,7 +124,7 @@ Konsola szeregowa może służyć do wysyłania NMI do maszyny wirtualnej platfo
 Aby uzyskać informacje na temat konfigurowania systemu Windows w celu utworzenia pliku zrzutu awaryjnego po odebraniu NMI, zobacz [jak wygenerować plik zrzutu awaryjnego przy użyciu NMI](https://support.microsoft.com/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file).
 
 ### <a name="use-function-keys-in-serial-console"></a>Używanie klawiszy funkcyjnych w konsoli szeregowej
-Klucze funkcji są włączone do użycia w konsoli szeregowej na maszynach wirtualnych z systemem Windows. F8 na liście rozwijanej konsoli szeregowej zapewnia wygodę do łatwego wprowadzenia menu Zaawansowane ustawienia rozruchu, ale konsola szeregowa jest zgodna ze wszystkimi innymi kluczami funkcji. W zależności od komputera, z którego korzystasz z konsoli szeregowej, może być konieczne naciśnięcie klawisza **Fn** + **F1** (lub F2, F3 itp.).
+Klucze funkcji są włączone do użycia w konsoli szeregowej na maszynach wirtualnych z systemem Windows. F8 na liście rozwijanej konsoli szeregowej zapewnia wygodę do łatwego wprowadzenia menu Zaawansowane ustawienia rozruchu, ale konsola szeregowa jest zgodna ze wszystkimi innymi kluczami funkcji. **Fn**  +  W zależności od komputera, z którego korzystasz z konsoli szeregowej, może być konieczne naciśnięcie klawisza Fn**F1** (lub F2, F3 itp.).
 
 ### <a name="use-wsl-in-serial-console"></a>Używanie WSL w konsoli szeregowej
 Podsystem Windows dla systemu Linux (WSL) został włączony dla systemu Windows Server 2019 lub nowszego, dlatego można włączyć WSL do użycia w konsoli szeregowej, jeśli jest uruchomiony system Windows Server 2019 lub nowszy. Może to być korzystne w przypadku użytkowników, którzy mają również znajomość poleceń systemu Linux. Instrukcje dotyczące włączania WSL dla systemu Windows Server znajdują się w [przewodniku instalacji](https://docs.microsoft.com/windows/wsl/install-on-server).
@@ -160,10 +160,10 @@ Jeśli użytkownik jest połączony z konsolą szeregową, a inny użytkownik po
 > Oznacza to, że użytkownik, który został odłączony, nie zostanie wylogowany. Możliwość wymuszenia wylogowania po rozłączeniu (przy użyciu mechanizmu SIGHUP lub podobnego) nadal jest w planie. W przypadku systemu Windows w konsoli SAC jest włączony automatyczny limit czasu. w przypadku systemu Linux można skonfigurować ustawienie limitu czasu terminalu.
 
 ## <a name="accessibility"></a>Ułatwienia dostępu
-Ułatwienia dostępu to kluczowy fokus dla konsoli szeregowej platformy Azure. W tym celu upewnimy się, że konsola szeregowa jest dostępna dla wizualizacji i słuchu, a także osób, które mogą nie być w stanie korzystać z myszy.
+Ułatwienia dostępu to kluczowy fokus dla konsoli szeregowej platformy Azure. W tym celu upewnimy się, że konsola szeregowa jest dostępna dla osób z upośledzeniem programu Vision lub którzy mają słabą słuch, a także osoby, które mogą nie być w stanie korzystać z myszy.
 
 ### <a name="keyboard-navigation"></a>Nawigacja przy użyciu klawiatury
-Użyj klawisza **Tab** na klawiaturze, aby przejść do interfejsu konsoli szeregowej z Azure Portal. Twoja lokalizacja zostanie wyróżniona na ekranie. Aby opuścić fokus okna konsoli szeregowej, naciśnij klawisz **Ctrl**+**F6** na klawiaturze.
+Użyj klawisza **Tab** na klawiaturze, aby przejść do interfejsu konsoli szeregowej z Azure Portal. Twoja lokalizacja zostanie wyróżniona na ekranie. Aby opuścić fokus okna konsoli szeregowej, naciśnij klawisz **Ctrl** + **F6** na klawiaturze.
 
 ### <a name="use-the-serial-console-with-a-screen-reader"></a>Korzystanie z konsoli szeregowej z czytnikiem ekranu
 Konsola szeregowa ma wbudowaną obsługę czytnika ekranu. Nawigowanie po włączeniu czytnika ekranu umożliwi odczytanie tekstu alternatywnego dla aktualnie wybranego przycisku na głos przez czytnik ekranu.
@@ -186,8 +186,8 @@ Problem                             |   Środki zaradcze
 Naciśnięcie klawisza **Enter** po banerze połączenia nie spowoduje wyświetlenia monitu logowania. | Aby uzyskać więcej informacji, zobacz [naciśnięcie klawisza ENTER nic nie robi](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Ten błąd może wystąpić, jeśli uruchamiasz niestandardową maszynę wirtualną, urządzenie z ograniczeniami lub konfigurację rozruchową, która powoduje, że system Windows nie może prawidłowo nawiązać połączenia z portem szeregowym. Ten błąd występuje również w przypadku korzystania z maszyny wirtualnej z systemem Windows 10, ponieważ na maszynach wirtualnych z systemem Windows Server skonfigurowano obsługę usług EMS.
 Podczas nawiązywania połączenia z maszyną wirtualną z systemem Windows wyświetlane są tylko informacje o kondycji| Ten błąd występuje, jeśli Specjalna konsola administracyjna nie została włączona dla obrazu systemu Windows. Zobacz [Włączanie konsoli szeregowej w obrazach niestandardowych lub starszych,](#enable-the-serial-console-in-custom-or-older-images) Aby uzyskać instrukcje dotyczące ręcznego włączania konsoli SAC na maszynie wirtualnej z systemem Windows. Aby uzyskać więcej informacji, zobacz [sygnały kondycji systemu Windows](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
 Konsola SAC nie przyjmuje całego obszaru konsoli szeregowej w przeglądarce | Jest to znany problem dotyczący systemu Windows i emulatora terminalu. Śledzimy ten problem zarówno z zespołami, ale nie ma żadnych środków zaradczych.
-Nie można wpisać w wierszu polecenia SAC, jeśli debugowanie jądra jest włączone. | Protokół RDP z maszyną `bcdedit /debug {current} off` wirtualną i uruchamiany z wiersza polecenia z podwyższonym poziomem uprawnień. Jeśli nie możesz użyć protokołu RDP, możesz zamiast tego dołączyć dysk systemu operacyjnego do innej maszyny wirtualnej platformy Azure i zmodyfikować go wraz z dyskiem `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`danych przez uruchomienie, a następnie ponownie Zastąp dysk.
-Wklejanie do programu PowerShell w konsoli SAC skutkuje trzecią literą, jeśli oryginalna zawartość zawierała powtarzający się znak. | Aby obejść obejście `Remove-Module PSReadLine` , uruchom polecenie w celu zwolnienia modułu PSReadLine z bieżącej sesji. Ta akcja nie spowoduje usunięcia ani odinstalowania modułu.
+Nie można wpisać w wierszu polecenia SAC, jeśli debugowanie jądra jest włączone. | Protokół RDP z maszyną wirtualną i uruchamiany `bcdedit /debug {current} off` z wiersza polecenia z podwyższonym poziomem uprawnień. Jeśli nie możesz użyć protokołu RDP, możesz zamiast tego dołączyć dysk systemu operacyjnego do innej maszyny wirtualnej platformy Azure i zmodyfikować go wraz z dyskiem danych przez uruchomienie `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off` , a następnie ponownie Zastąp dysk.
+Wklejanie do programu PowerShell w konsoli SAC skutkuje trzecią literą, jeśli oryginalna zawartość zawierała powtarzający się znak. | Aby obejść obejście, uruchom polecenie `Remove-Module PSReadLine` w celu zwolnienia modułu PSReadLine z bieżącej sesji. Ta akcja nie spowoduje usunięcia ani odinstalowania modułu.
 Niektóre dane wejściowe z klawiatury generują dziwne dane wyjściowe SAC (na przykład **[A**, **[3 ~**). | Sekwencje unikowe [VT100](https://aka.ms/vtsequences) nie są obsługiwane przez monit konsoli SAC.
 Wklejanie długich ciągów nie działa. | Konsola szeregowa ogranicza długość ciągów wklejonych do terminalu do 2048 znaków, aby zapobiec przeciążeniu przepustowości portu szeregowego.
 
@@ -195,11 +195,11 @@ Wklejanie długich ciągów nie działa. | Konsola szeregowa ogranicza długoś�
 
 **P. Jak mogę wysłać opinię?**
 
-A. Prześlij opinię, tworząc problem w usłudze GitHub https://aka.ms/serialconsolefeedbackw witrynie. Alternatywnie (mniej preferowany) można wysłać opinię za pośrednictwem azserialhelp@microsoft.com lub w kategorii maszyna wirtualna. https://feedback.azure.com
+A. Prześlij opinię, tworząc problem w usłudze GitHub w witrynie https://aka.ms/serialconsolefeedback . Alternatywnie (mniej preferowany) można wysłać opinię za pośrednictwem azserialhelp@microsoft.com lub w kategorii maszyna wirtualna https://feedback.azure.com .
 
 **P. czy konsola szeregowa obsługuje kopiowanie/wklejanie?**
 
-A. Tak. Użyj **klawiszy CTRL**+**SHIFT**+**C** i **Ctrl**+**SHIFT**+**V** , aby skopiować i wkleić do terminalu.
+A. Tak. Użyj **klawiszy CTRL** + **SHIFT** + **C** i **Ctrl** + **SHIFT** + **V** , aby skopiować i wkleić do terminalu.
 
 **P. kto może włączyć lub wyłączyć konsolę szeregową dla mojej subskrypcji?**
 

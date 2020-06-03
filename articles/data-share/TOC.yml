@@ -51,6 +51,8 @@
       href: 'https://docs.microsoft.com/powershell/module/az.datashare/?view=azps-2.6.0'
     - name: Interfejs API REST
       href: /rest/api/datashare
+    - name: Interfejs wiersza polecenia platformy Azure
+      href: azure-cli-references-for-data-share.md
 - name: Zasoby
   items:
     - name: Pytania i odpowiedzi Microsoft — strona pytania

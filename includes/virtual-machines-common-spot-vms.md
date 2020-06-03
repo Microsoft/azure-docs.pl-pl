@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 10/23/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 2f8d55669798765cf24e13e95b261cbe4f0e9e3a
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: e7dbac1f4fad940b817befa3a45447cf7367c28c
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83868077"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84317693"
 ---
 Korzystanie z maszyn wirtualnych na miejscu pozwala korzystać z nieużywanej pojemności przy znaczącym obciążeniu kosztów. W dowolnym momencie, gdy platforma Azure wymaga przywrócenia pojemności, infrastruktura platformy Azure wyłączy maszyny wirtualne. W związku z tym maszyny wirtualne są doskonałe dla obciążeń, które mogą obsłużyć przerwy, takie jak zadania przetwarzania wsadowego, środowiska deweloperskie/testowe, duże obciążenia obliczeniowe i inne.
 
@@ -85,12 +85,12 @@ Odp **.:** Zapoznaj się z tabelą poniżej, aby uzyskać dostęp do dodatkowych
 
 | Kanały platformy Azure               | Dostępność maszyn wirtualnych na platformie Azure       |
 |------------------------------|-----------------------------------|
-| Enterprise Agreement         | Yes                               |
-| Płatność zgodnie z rzeczywistym użyciem                | Yes                               |
+| Enterprise Agreement         | Tak                               |
+| Płatność zgodnie z rzeczywistym użyciem                | Tak                               |
 | Dostawca usług w chmurze (CSP) | [Skontaktuj się z partnerem](https://docs.microsoft.com/partner-center/azure-plan-get-started) |
-| Umowa klienta firmy Microsoft | Yes                               |
+| Umowa klienta firmy Microsoft | Tak                               |
 | Korzyści                     | Niedostępne                     |
-| Sponsorowan                    | Niedostępne                     |
+| Sponsorowan                    | Tak                               |
 | Bezpłatna wersja próbna                   | Niedostępne                     |
 
 

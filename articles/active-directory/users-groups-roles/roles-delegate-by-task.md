@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fc447b97b35cefbe2ab8d44db6f9f6279c8533e
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 4837b654e5b538dda6f55eae9b15ddf0c5604693
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84236215"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299472"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Role administratorów według zadania administratora w Azure Active Directory
 
@@ -274,6 +274,8 @@ Odczytaj całą konfigurację | Domyślna rola użytkownika ([Zobacz dokumentacj
 Zadanie | Najmniejsza rola uprzywilejowana | Dodatkowe role
 ---- | --------------------- | ----------------
 Konfigurowanie metod uwierzytelniania | Administrator globalny | 
+Konfigurowanie ochrony hasłem | Administrator zabezpieczeń
+Konfigurowanie blokady inteligentnej | Administrator zabezpieczeń
 Odczytaj całą konfigurację | Czytnik globalny | 
 
 ## <a name="security---conditional-access"></a>Zabezpieczenia — dostęp warunkowy

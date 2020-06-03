@@ -12,12 +12,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 0e2247e94b20846f19c2ed26c96a5dc53972e770
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a45160db09b3f6bf68bda3f25e40a29a1154099d
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80883817"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84308493"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Szybki Start: Konfigurowanie dzierżawy
 
@@ -73,4 +73,4 @@ Aby rozpocząć tworzenie aplikacji, które umożliwiają logowanie za pomocą k
 
 * [Zarejestruj aplikację](quickstart-register-app.md) i Zintegruj ją z platformą tożsamości firmy Microsoft. 
 * Zapoznaj się z [podstawowymi informacjami na temat uwierzytelniania](authentication-scenarios.md).
-* Zobacz, [jak subskrypcje platformy Azure są skojarzone z Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md) , aby uzyskać szczegółowe informacje na temat relacji między subskrypcjami a dzierżawą usługi Azure AD.
+* Aby uzyskać szczegółowe informacje na temat relacji między subskrypcjami a dzierżawą usługi Azure AD, zobacz temat [kojarzenie lub Dodawanie subskrypcji platformy Azure do dzierżawy Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md) .

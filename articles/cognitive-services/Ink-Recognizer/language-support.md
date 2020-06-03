@@ -10,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: 36f2fa65f47f824ccc3544f5c13b5f5ee9afd21a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7e5c1c74a3659be855b3f846c16672d0d73b9de4
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67721740"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309700"
 ---
 # <a name="language-and-region-support-for-the-ink-recognizer-api"></a>Obsługa języka i regionu dla interfejsu API rozpoznawania atramentu
 
@@ -34,7 +34,7 @@ W tym artykule wyjaśniono, które języki są obsługiwane przez interfejs API 
 | Chiński (tradycyjny, Tajwan)              |     `zh-TW`     |
 | Chorwacki (Chorwacja)                         |     `hr-HR`     |
 | Czeski                                      |     `cs-CZ`     |
-| duński                                     |     `da-DK`     |
+| Duński                                     |     `da-DK`     |
 | Holenderski (Belgia)                            |     `nl-BE`     |
 | Niderlandzki (Holandia)                        |     `nl-NL`     |
 | Angielski (Australia)                        |     `en-AU`     |
@@ -42,20 +42,20 @@ W tym artykule wyjaśniono, które języki są obsługiwane przez interfejs API 
 | Angielski (Zjednoczone Królestwo)                   |     `en-GB`     |
 | Angielski (Indie)                            |     `en-IN`     |
 | Angielski (Stany Zjednoczone)                    |     `en-US`     |
-| fiński                                    |     `fi-FI`     |
+| Fiński                                    |     `fi-FI`     |
 | Francuski (Francja)                            |     `fr-FR`     |
 | Galicyjski                                   |     `gl-ES`     |
 | Niemiecki (Szwajcaria)                      |     `de-CH`     |
 | Niemiecki (Niemcy)                           |     `de-DE`     |
-| grecki                                      |     `el-GR`     |
+| Grecki                                      |     `el-GR`     |
 | Hindi                                      |     `hi-IN`     |
 | Indonezyjski                                 |     `id-ID`     |
 | Irlandzki                                      |     `ga-IE`     |
 | Włoski (Włochy)                            |     `it-IT`     |
-| japoński                                   |     `ja-JP`     |
+| Japoński                                   |     `ja-JP`     |
 | Kinjarwanda                                |     `rw-RW`     |
 | Kiswahili (Kenia)                          |     `sw-KE`     |
-| koreański                                     |     `ko-KR`     |
+| Koreański                                     |     `ko-KR`     |
 | Luksemburski                              |     `lb-LU`     |
 | Malajski (Brunei Darussalam)                  |     `ms-BN`     |
 | Malajski (Malezja)                           |     `ms-MY`     |
@@ -63,7 +63,7 @@ W tym artykule wyjaśniono, które języki są obsługiwane przez interfejs API 
 | Norweski (Bokmal)                         |     `nb-NO`     |
 | Norweski (Nynorsk)                        |     `nn-NO`     |
 | Polski                                     |     `pl-PL`     |
-| portugalski (Brazylia)                        |     `pt-BR`     |
+| Portugalski (Brazylia)                        |     `pt-BR`     |
 | Portugalski (Portugalia)                      |     `pt-PT`     |
 | Romansz                                    |     `rm-CH`     |
 | Rumuński                                   |     `ro-RO`     |

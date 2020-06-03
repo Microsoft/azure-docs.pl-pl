@@ -1,7 +1,7 @@
 ---
 title: Znane problemy & Rozwiązywanie problemów
 titleSuffix: Azure Machine Learning
-description: Zapoznaj się z listą znanych problemów, obejść i rozwiązywania problemów dotyczących Azure Machine Learning.
+description: Uzyskaj pomoc dotyczącą znajdowania i poprawiania błędów lub błędów w Azure Machine Learning. Poznaj znane problemy, rozwiązywanie problemów i ich obejścia.
 services: machine-learning
 author: j-martens
 ms.author: jmartens
@@ -9,19 +9,25 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
+ms.custom: contperfq4
 ms.date: 03/31/2020
-ms.openlocfilehash: 93015da810f163a48529704e69e1747ac1aec401
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 169dd7f71b86c77717226872fecb493a6eb5bf0d
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82889392"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309853"
 ---
-# <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Znane problemy i rozwiązywanie problemów Azure Machine Learning
+# <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Znane problemy i rozwiązywanie problemów w Azure Machine Learning
 
-Ten artykuł pomaga znaleźć i poprawić błędy lub błędy, które można napotkać podczas korzystania z Azure Machine Learning.
+Ten artykuł pomaga w rozwiązywaniu znanych problemów, które mogą wystąpić podczas korzystania z Azure Machine Learning. 
 
-## <a name="diagnostic-logs"></a>Dzienniki diagnostyczne
+Aby uzyskać więcej informacji na temat rozwiązywania problemów, zobacz [następne kroki](#next-steps) na końcu tego artykułu.
+
+> [!TIP]
+> Błędy lub inne problemy mogą wynikać z [przydziałów zasobów](how-to-manage-quotas.md) , które można napotkać podczas pracy z Azure Machine Learning. 
+
+## <a name="access-diagnostic-logs"></a>Uzyskiwanie dostępu do dzienników diagnostycznych
 
 Czasami pomocne może być podanie informacji diagnostycznych podczas pytania o pomoc. Aby wyświetlić niektóre dzienniki: 
 1. Odwiedź [Azure Machine Learning Studio](https://ml.azure.com). 
@@ -34,21 +40,17 @@ Czasami pomocne może być podanie informacji diagnostycznych podczas pytania o 
 > Azure Machine Learning rejestruje informacje z różnych źródeł podczas szkolenia, takie jak AutoML lub kontener platformy Docker, który uruchamia zadanie szkoleniowe. Wiele z tych dzienników nie jest udokumentowane. Jeśli wystąpią problemy i skontaktuje się z działem pomocy technicznej firmy Microsoft, mogą oni korzystać z tych dzienników podczas rozwiązywania problemów.
 
 
-## <a name="resource-quotas"></a>Limity przydziałów zasobów
-
-Dowiedz się więcej na temat [przydziałów zasobów](how-to-manage-quotas.md) , które można napotkać podczas pracy z Azure Machine Learning.
-
 ## <a name="installation-and-import"></a>Instalacja i importowanie
                            
-* **Instalacja PIP: zależności nie są gwarantowane, aby były spójne z instalacją jednowierszową**: 
+* **Instalacja PIP: zależności nie są gwarantowane, aby były spójne z instalacją jednowierszową:** 
 
    Jest to znane ograniczenie typu PIP, ponieważ nie ma działającego programu rozpoznawania zależności podczas instalacji jako pojedynczej linii. Pierwsza unikatowa zależność jest tylko jednym z nich. 
 
-   W poniższym kodzie `azure-ml-datadrift` i `azureml-train-automl` są one instalowane przy użyciu jednej linii instalacji PIP. 
+   W poniższym kodzie `azure-ml-datadrift` i `azureml-train-automl` są instalowane przy użyciu jednowierszowej instalacji PIP. 
      ```
        pip install azure-ml-datadrift, azureml-train-automl
      ```
-   Na potrzeby tego przykładu Załóżmy `azure-ml-datadrift` , że jest wymagana wersja > `azureml-train-automl` 1,0 i wymaga wersji < 1,2. Jeśli Najnowsza wersja programu `azure-ml-datadrift` to 1,3, oba pakiety zostaną uaktualnione do 1,3, niezależnie od wymagań `azureml-train-automl` pakietu dla starszej wersji. 
+   Na potrzeby tego przykładu Załóżmy, że jest `azure-ml-datadrift` wymagana wersja > 1,0 i `azureml-train-automl` wymaga wersji < 1,2. Jeśli Najnowsza wersja programu `azure-ml-datadrift` to 1,3, oba pakiety zostaną uaktualnione do 1,3, niezależnie od `azureml-train-automl` wymagań pakietu dla starszej wersji. 
 
    Aby upewnić się, że odpowiednie wersje są zainstalowane dla pakietów, zainstaluj przy użyciu wielu wierszy, takich jak w poniższym kodzie. W tym miejscu nie jest to problem, ponieważ program PIP został jawnie obniżony jako część wywołania następnego wiersza. W związku z tym stosowane są odpowiednie zależności wersji.
     
@@ -57,15 +59,15 @@ Dowiedz się więcej na temat [przydziałów zasobów](how-to-manage-quotas.md) 
         pip install azureml-train-automl 
      ```
      
-* **Nie guarateed pakietu do zainstalowania podczas instalacji programu Azure-pociąg-automl-Client:** 
+* **Nie ma gwarancji, że pakiet jest instalowany podczas instalowania programu Azure-pociąg-automl-Client:** 
    
-   Podczas uruchamiania zdalnego automl z wyjaśnieniem modelu zostanie wyświetlony komunikat o błędzie z informacją o tym "" Zainstaluj pakiet Azure-Wyjaśnij model dla wyjaśnień modelu ". Jest to znany problem, a jako obejście wykonaj jedną z poniższych czynności:
+   W przypadku uruchamiania zdalnego AutoML z włączonym wyjaśnieniem modelu zostanie wyświetlony komunikat o błędzie "Zainstaluj pakiet Azure-Wyjaśnij model dla wyjaśnień modelu". Jest to znany problem. Jako obejście wykonaj jedną z poniższych czynności:
   
   1. Zainstaluj usługę Azure — Wyjaśnij model lokalnie.
    ```
       pip install azureml-explain-model
    ```
-  2. Całkowicie wyłącz funkcję Wyjaśnij, przekazując model_explainability = false w konfiguracji automl.
+  2. Całkowicie wyłącz funkcję Wyjaśnij, przekazując model_explainability = false w konfiguracji AutoML.
    ```
       automl_config = AutoMLConfig(task = 'classification',
                              path = '.',
@@ -81,7 +83,7 @@ Dowiedz się więcej na temat [przydziałów zasobów](how-to-manage-quotas.md) 
     
 * **Błędy Panda: zwykle widoczne podczas eksperymentu AutoML:**
    
-   Po ręcznym skonfigurowaniu usługi Environmnet przy użyciu narzędzia PIP błędy atrybutów (zwłaszcza z Pandas) będą widoczne z powodu instalacji nieobsługiwanych wersji pakietu. Aby uniknąć takich błędów, [Zainstaluj zestaw AutoML SDK przy użyciu automl_setup. cmd](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md):
+   W przypadku ręcznego konfigurowania środowiska przy użyciu narzędzia PIP można zauważyć błędy atrybutów (zwłaszcza z Pandas) z powodu instalacji nieobsługiwanych wersji pakietu. Aby uniknąć takich błędów, [Zainstaluj zestaw AutoML SDK przy użyciu automl_setup. cmd](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md):
    
     1. Otwórz monit Anaconda i Sklonuj repozytorium GitHub dla zestawu przykładowych notesów.
 
@@ -105,7 +107,7 @@ Dowiedz się więcej na temat [przydziałów zasobów](how-to-manage-quotas.md) 
 
 * **Wystąpił błąd podczas instalowania pakietów**
 
-    Azure Machine Learning Instalacja zestawu SDK kończy się niepowodzeniem na Azure Databricks po zainstalowaniu większej liczby pakietów. Niektóre pakiety, takie jak `psutil`, mogą spowodować konflikty. Aby uniknąć błędów instalacji, należy zainstalować pakiety przez zamarzanie wersji biblioteki. Ten problem jest związany z kostkami, a nie z zestawem SDK Azure Machine Learning. Ten problem może również wystąpić z innymi bibliotekami. Przykład:
+    Azure Machine Learning Instalacja zestawu SDK kończy się niepowodzeniem na Azure Databricks po zainstalowaniu większej liczby pakietów. Niektóre pakiety, takie jak `psutil` , mogą spowodować konflikty. Aby uniknąć błędów instalacji, należy zainstalować pakiety przez zamarzanie wersji biblioteki. Ten problem jest związany z kostkami, a nie z zestawem SDK Azure Machine Learning. Ten problem może również wystąpić z innymi bibliotekami. Przykład:
     
     ```python
     psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
@@ -132,7 +134,7 @@ Dowiedz się więcej na temat [przydziałów zasobów](how-to-manage-quotas.md) 
     
     Jeśli te kroki nie rozwiążą problemu, spróbuj ponownie uruchomić klaster.
 
-* **DataFailToSendFeathers**: Jeśli podczas odczytywania danych `FailToSendFeather` w klastrze Azure Databricks wystąpi błąd, zapoznaj się z następującymi rozwiązaniami:
+* **DataFailToSendFeathers**: Jeśli podczas `FailToSendFeather` odczytywania danych w klastrze Azure Databricks wystąpi błąd, zapoznaj się z następującymi rozwiązaniami:
     
     * Uaktualnij `azureml-sdk[automl]` pakiet do najnowszej wersji.
     * Dodaj `azureml-dataprep` wersję 1.1.8 lub nowszą.
@@ -153,13 +155,13 @@ Dowiedz się więcej na temat [przydziałów zasobów](how-to-manage-quotas.md) 
 
 ### <a name="overloaded-azurefile-storage"></a>Przeciążony magazyn AzureFile
 
-Jeśli wystąpi błąd `Unable to upload project files to working directory in AzureFile because the storage is overloaded`, zastosuj następujące obejścia.
+Jeśli wystąpi błąd `Unable to upload project files to working directory in AzureFile because the storage is overloaded` , zastosuj następujące obejścia.
 
 Jeśli używasz udziału plików dla innych obciążeń, takich jak transfer danych, zalecenie polega na użyciu obiektów blob, dzięki czemu udział plików jest bezpłatny do użycia na potrzeby przesyłania przebiegów. Obciążenie można także podzielić między dwa różne obszary robocze.
 
 ### <a name="passing-data-as-input"></a>Przekazywanie danych jako danych wejściowych
 
-*  **TypeError: FileNotFound: Brak pliku lub katalogu**: ten błąd występuje, gdy podano ścieżkę do pliku, w którym znajduje się plik. Należy upewnić się, że sposób odwoływania się do pliku jest zgodny z miejscem, w którym został zainstalowany zestaw danych na obiekcie docelowym obliczeń. Aby zapewnić jednoznaczny stan, zalecamy użycie ścieżki abstrakcyjnej podczas instalowania zestawu danych do obiektu docelowego obliczeń. Na przykład, w poniższym kodzie instalujemy zestaw danych w katalogu głównym systemu plików obiektu docelowego obliczeń `/tmp`. 
+*  **TypeError: FileNotFound: Brak pliku lub katalogu**: ten błąd występuje, gdy podano ścieżkę do pliku, w którym znajduje się plik. Należy upewnić się, że sposób odwoływania się do pliku jest zgodny z miejscem, w którym został zainstalowany zestaw danych na obiekcie docelowym obliczeń. Aby zapewnić jednoznaczny stan, zalecamy użycie ścieżki abstrakcyjnej podczas instalowania zestawu danych do obiektu docelowego obliczeń. Na przykład, w poniższym kodzie instalujemy zestaw danych w katalogu głównym systemu plików obiektu docelowego obliczeń `/tmp` . 
     
     ```python
     # Note the leading / in '/tmp/dataset'
@@ -174,9 +176,9 @@ Jeśli używasz udziału plików dla innych obciążeń, takich jak transfer dan
 
 |Problem  |Rozwiązanie  |
 |---------|---------|
-|Można używać tylko zestawów danych utworzonych w magazynach danych obiektów BLOB     |  jest to znane ograniczenie bieżącej wersji.       |
-|Po utworzeniu projekt pokazuje "Inicjowanie" przez długi czas     | Ręcznie Odśwież stronę. Inicjalizacja powinna być w przybliżeniu 20 punktów, na sekundę. Brak autoodświeżania to znany problem.         |
-|Podczas przeglądania obrazów nie są wyświetlane nowe obrazy z etykietami     |   Aby załadować wszystkie obrazy z etykietami, wybierz **pierwszy** przycisk. **Pierwszy** przycisk przeprowadzi Cię z powrotem do początku listy, ale ładuje wszystkie dane z etykietami.      |
+|Można używać tylko zestawów danych utworzonych w magazynach danych obiektów BLOB.     |  Jest to znane ograniczenie bieżącej wersji.       |
+|Po utworzeniu projekt pokazuje "Inicjowanie" przez długi czas.     | Ręcznie Odśwież stronę. Inicjalizacja powinna być w przybliżeniu 20 punktów, na sekundę. Brak autoodświeżania to znany problem.         |
+|Podczas recenzowania obrazów nie są wyświetlane nowe obrazy z etykietami.     |   Aby załadować wszystkie obrazy z etykietami, wybierz **pierwszy** przycisk. **Pierwszy** przycisk przeprowadzi Cię z powrotem do początku listy, ale ładuje wszystkie dane z etykietami.      |
 |Naciśnięcie klawisza Esc podczas etykietowania dla wykrywania obiektów tworzy etykietę o zerowej wielkości w lewym górnym rogu. Przesyłanie etykiet w tym stanie nie powiodło się.     |   Usuń etykietę, klikając znak krzyżyka obok niego.  |
 
 ## <a name="azure-machine-learning-designer"></a>Projektant Azure Machine Learning
@@ -187,11 +189,11 @@ Znane problemy:
 
 ## <a name="train-models"></a>Szkolenie modeli
 
-* **ModuleErrors (Brak modułu o nazwie)**: Jeśli korzystasz z programu ModuleErrors podczas przesyłania eksperymentów na platformie Azure ml, oznacza to, że skrypt szkoleniowy oczekuje na zainstalowanie pakietu, ale nie został dodany. Po podaniu nazwy pakietu, usługa Azure ML zainstaluje pakiet w środowisku używanym na potrzeby danego przebiegu szkoleniowego. 
+* **ModuleErrors (Brak modułu o nazwie)**: Jeśli korzystasz z programu ModuleErrors podczas przesyłania eksperymentów na platformie Azure ml, oznacza to, że skrypt szkoleniowy oczekuje na zainstalowanie pakietu, ale nie został dodany. Po podaniu nazwy pakietu usługa Azure ML instaluje pakiet w środowisku używanym do pracy z szkoleniiem. 
 
-    Jeśli używasz [szacowania](concept-azure-machine-learning-architecture.md#estimators) do przesyłania eksperymentów, możesz określić nazwę pakietu za pośrednictwem `pip_packages` lub `conda_packages` parametru w szacowania, na podstawie którego źródła chcesz zainstalować pakiet. Można również określić plik yml ze wszystkimi zależnościami przy użyciu `conda_dependencies_file`lub wyświetlić wszystkie wymagania dotyczące PIP w pliku txt przy użyciu `pip_requirements_file` parametru. Jeśli masz własny obiekt środowiska usługi Azure ML, który chcesz przesłonić domyślny obraz używany przez szacowania, możesz określić to środowisko za pośrednictwem `environment` parametru konstruktora szacowania.
+    Jeśli używasz [szacowania](concept-azure-machine-learning-architecture.md#estimators) do przesyłania eksperymentów, możesz określić nazwę pakietu za pośrednictwem `pip_packages` lub `conda_packages` parametru w szacowania, na podstawie którego źródła chcesz zainstalować pakiet. Można również określić plik yml ze wszystkimi zależnościami przy użyciu `conda_dependencies_file` lub wyświetlić wszystkie wymagania dotyczące PIP w pliku txt przy użyciu `pip_requirements_file` parametru. Jeśli masz własny obiekt środowiska usługi Azure ML, który chcesz przesłonić domyślny obraz używany przez szacowania, możesz określić to środowisko za pośrednictwem `environment` parametru konstruktora szacowania.
 
-    Platforma Azure ML udostępnia również specyficzne dla platformy szacowania dla Tensorflow, PyTorch, łańcucha i skryptu sklearn. Przy użyciu tych szacowania upewnij się, że podstawowe zależności programu są zainstalowane w Twoim imieniu w środowisku używanym do uczenia się. Istnieje możliwość określenia dodatkowych zależności, jak opisano powyżej. 
+    Platforma Azure ML udostępnia również specyficzne dla platformy szacowania dla TensorFlow, PyTorch, łańcucha i skryptu sklearn. Przy użyciu tych szacowania upewnij się, że podstawowe zależności programu są zainstalowane w Twoim imieniu w środowisku używanym do uczenia się. Istnieje możliwość określenia dodatkowych zależności, jak opisano powyżej. 
  
     Platforma Azure ML obsługuje obrazy platformy Docker i ich zawartość można zobaczyć w [kontenerach usługi Azure](https://github.com/Azure/AzureML-Containers).
     Zależności specyficzne dla platformy są wymienione w odpowiedniej strukturze dokumentacji programu — [łańcucha](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [skryptu sklearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
@@ -201,7 +203,7 @@ Znane problemy:
  
 * **NameError (nazwa niezdefiniowana), AttributeError (obiekt nie ma atrybutu)**: ten wyjątek powinien pochodzić ze skryptów szkoleniowych. Można przyjrzeć się plikom dziennika z Azure Portal, aby uzyskać więcej informacji na temat konkretnej nazwy niezdefiniowanej lub błędu atrybutu. Korzystając z zestawu SDK, można `run.get_details()` sprawdzić komunikat o błędzie. Spowoduje to wyświetlenie listy wszystkich plików dziennika wygenerowanych dla danego przebiegu. Upewnij się, że zapoznaj się z skryptem szkoleniowym i usuń błąd przed ponownym przesłaniem uruchomienia. 
 
-* **Horovod został zamknięty**: w większości przypadków, jeśli wystąpi "AbortedError: Horovod zostało zamknięte" ten wyjątek oznacza, że wystąpił podstawowy wyjątek w jednym z procesów, które spowodowały zamknięcie Horovod. Każda ranga w zadaniu MPI pobiera własny dedykowany plik dziennika w usłudze Azure ML. Te dzienniki mają nazwę `70_driver_logs`. W przypadku szkolenia rozproszonego nazwy dzienników są sufiksem, `_rank` aby ułatwić odróżnienie dzienników. Aby znaleźć dokładny błąd, który spowodował zamknięcie Horovod, przejdź przez wszystkie pliki dziennika i Znajdź `Traceback` na końcu plików driver_log. Jeden z tych plików daje rzeczywisty wyjątek podstawowy. 
+* **Horovod został zamknięty**: w większości przypadków, jeśli wystąpi "AbortedError: Horovod zostało zamknięte" ten wyjątek oznacza, że wystąpił podstawowy wyjątek w jednym z procesów, które spowodowały zamknięcie Horovod. Każda ranga w zadaniu MPI pobiera własny dedykowany plik dziennika w usłudze Azure ML. Te dzienniki mają nazwę `70_driver_logs` . W przypadku szkolenia rozproszonego nazwy dzienników są sufiksem, `_rank` Aby ułatwić odróżnienie dzienników. Aby znaleźć dokładny błąd, który spowodował zamknięcie Horovod, przejdź przez wszystkie pliki dziennika i Znajdź na `Traceback` końcu plików driver_log. Jeden z tych plików daje rzeczywisty wyjątek podstawowy. 
 
 * **Usuwanie przebiegu lub eksperymentu**: eksperymenty można archiwizować przy użyciu metody [eksperyment. Archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#archive--) lub w widoku karty eksperymenty w programie Azure Machine Learning Studio Client za pośrednictwem przycisku "Archiwizuj eksperyment". Ta akcja ukrywa eksperyment z zapytań i widoków list, ale nie usuwa go.
 
@@ -218,13 +220,13 @@ Znane problemy:
 
 ## <a name="automated-machine-learning"></a>Zautomatyzowane uczenie maszynowe
 
-* **Przepływ dwuosiowy**: automatyczne Uczenie maszynowe aktualnie nie obsługuje przepływu dwuosiowego w wersji 1,13. Zainstalowanie tej wersji spowoduje, że zależności pakietu przestaną działać. Pracujemy nad rozwiązaniem tego problemu w przyszłej wersji.
+* **TensorFlow**: automatyczne Uczenie maszynowe nie obsługuje obecnie TensorFlow w wersji 1,13. Zainstalowanie tej wersji spowoduje, że zależności pakietu przestaną działać. Pracujemy nad rozwiązaniem tego problemu w przyszłej wersji.
 
 * **Wykresy eksperymentowe**: binarne wykresy klasyfikacji (precyzja-odwoływanie, Roc, krzywa zysku itp.) pokazana w zautomatyzowanych iteracjach eksperymentów z badaniami nie jest prawidłowo renderowana w interfejsie użytkownika od 4/12. Wykresy wykresów są obecnie wyświetlane z wynikami odwrotnymi, gdzie lepsze są modele z niższymi wynikami. Zbadano rozwiązanie.
 
 * W obszarze **datakostki można anulować automatyczne uruchamianie uczenia maszynowego**: w przypadku korzystania z funkcji automatycznego uczenia maszynowego na Azure Databricks, aby anulować uruchomienie i rozpocząć nowe uruchomienie eksperymentu, uruchom ponownie klaster Azure Databricks.
 
-* **Datakosteks >10 iteracji dla automatycznej uczenia maszynowego**: w oknie ustawienia automatycznej uczenia maszynowego, jeśli masz więcej niż 10 iteracji `show_output` , `False` ustaw wartość podczas przesyłania przebiegu.
+* **Datakosteks >10 iteracji dla automatycznej uczenia maszynowego**: w oknie ustawienia automatycznej uczenia maszynowego, jeśli masz więcej niż 10 iteracji, ustaw wartość `show_output` `False` podczas przesyłania przebiegu.
 
 * **Widżet datakosteks dla zestawu sdk Azure Machine Learning i automatycznej uczenia maszynowego**: widżet zestawu Azure Machine Learning SDK nie jest obsługiwany w notesie datacegły, ponieważ notesy nie mogą analizować widżetów html. Widżet można wyświetlić w portalu przy użyciu tego kodu w języku Python w komórce notesu Azure Databricks:
 
@@ -236,7 +238,7 @@ Znane problemy:
 
 Wykonaj następujące akcje dla następujących błędów:
 
-|Error  | Rozwiązanie  |
+|Błąd  | Rozwiązanie  |
 |---------|---------|
 |Niepowodzenie kompilowania obrazu podczas wdrażania usługi sieci Web     |  Dodaj "pynacl = = 1.2.1" jako zależność PIP do pliku Conda na potrzeby konfiguracji obrazu       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Zmień jednostkę SKU dla maszyn wirtualnych używanych we wdrożeniu na taką, która ma więcej pamięci. |
@@ -267,18 +269,18 @@ compute_target = ComputeTarget.attach(workspace=ws, name=args.clusterWorkspaceNa
 compute_target.wait_for_completion(show_output=True)
 ```
 
-Jeśli nie masz już certyfikatu TLS/SSL i klucza prywatnego lub używasz certyfikatu wygenerowanego przez Azure Machine Learning, możesz pobrać pliki przed odłączeniem klastra, łącząc się z klastrem przy użyciu `kubectl` i pobierając klucz tajny. `azuremlfessl`
+Jeśli nie masz już certyfikatu TLS/SSL i klucza prywatnego lub używasz certyfikatu wygenerowanego przez Azure Machine Learning, możesz pobrać pliki przed odłączeniem klastra, łącząc się z klastrem przy użyciu `kubectl` i pobierając klucz tajny `azuremlfessl` .
 
 ```bash
 kubectl get secret/azuremlfessl -o yaml
 ```
 
 >[!Note]
->Kubernetes przechowuje wpisy tajne w zakodowanym formacie Base-64. Przed udostępnieniem tych `cert.pem` `key.pem` elementów tajnych należy oprzeć na Base-64 `attach_config.enable_ssl`. 
+>Kubernetes przechowuje wpisy tajne w zakodowanym formacie Base-64. `cert.pem` `key.pem` Przed udostępnieniem tych elementów tajnych należy oprzeć na base-64 `attach_config.enable_ssl` . 
 
 ### <a name="webservices-in-azure-kubernetes-service-failures"></a>Awarie usług WebServices w usłudze Azure Kubernetes
 
-Wiele błędów sieci Web w usłudze Azure Kubernetes można debugować, łącząc się z klastrem przy użyciu `kubectl`programu. Możesz uzyskać dostęp `kubeconfig.json` do klastra usługi Azure Kubernetes Service, uruchamiając
+Wiele błędów sieci Web w usłudze Azure Kubernetes można debugować, łącząc się z klastrem przy użyciu programu `kubectl` . Możesz uzyskać dostęp `kubeconfig.json` do klastra usługi Azure Kubernetes Service, uruchamiając
 
 ```azurecli-interactive
 az aks get-credentials -g <rg> -n <aks cluster name>
@@ -286,7 +288,7 @@ az aks get-credentials -g <rg> -n <aks cluster name>
 
 ## <a name="authentication-errors"></a>Błędy uwierzytelniania
 
-W przypadku wykonywania operacji zarządzania na obiekcie docelowym obliczeń z zadania zdalnego zostanie wyświetlony jeden z następujących błędów:
+W przypadku wykonywania operacji zarządzania na obiekcie docelowym obliczeń z zadania zdalnego zostanie wyświetlony jeden z następujących błędów: 
 
 ```json
 {"code":"Unauthorized","statusCode":401,"message":"Unauthorized","details":[{"code":"InvalidOrExpiredToken","message":"The request token was either invalid or expired. Please try again with a valid token."}]}
@@ -297,3 +299,13 @@ W przypadku wykonywania operacji zarządzania na obiekcie docelowym obliczeń z 
 ```
 
 Na przykład, jeśli spróbujesz utworzyć lub dołączyć obiekt docelowy obliczeń z potoku, który został przesłany do wykonania zdalnego, zostanie wyświetlony komunikat o błędzie.
+
+## <a name="next-steps"></a>Następne kroki
+
+Zobacz więcej artykułów do rozwiązywania problemów dotyczących Azure Machine Learning:
+
+* [Rozwiązywanie problemów z wdrażaniem platformy Docker przy użyciu Azure Machine Learning](how-to-troubleshoot-deployment.md)
+* [Debuguj potoki uczenia maszynowego](how-to-debug-pipelines.md)
+* [Debugowanie klasy ParallelRunStep z zestawu SDK Azure Machine Learning](how-to-debug-parallel-run-step.md)
+* [Interaktywne debugowanie wystąpienia obliczeniowego uczenia maszynowego przy użyciu VS Code](how-to-set-up-vs-code-remote.md)
+* [Używanie Application Insights do debugowania potoków uczenia maszynowego](how-to-debug-pipelines-application-insights.md)

@@ -4,19 +4,19 @@ description: W tym omówieniu wprowadzono SQL Data Sync platformy Azure, która 
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: data sync, sqldbrb=1
+ms.custom: data sync, sqldbrb=1, fasttrack-edit
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 08/20/2019
-ms.openlocfilehash: 73f0a733d4f32042e5ea3439282f88db0c065433
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: c2c0e6d1d3ffd9ec3091e92530ec5c191f3f7ca6
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84188712"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84297959"
 ---
 # <a name="what-is-sql-data-sync-for-azure"></a>Co to jest SQL Data Sync dla platformy Azure?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -149,7 +149,7 @@ Inicjowanie obsługi administracyjnej i cofanie aprowizacji podczas tworzenia gr
 
 #### <a name="unsupported-column-types"></a>Nieobsługiwane typy kolumn
 
-Synchronizacja danych nie może synchronizować kolumn tylko do odczytu lub generowanych przez system. Przykład:
+Synchronizacja danych nie może synchronizować kolumn tylko do odczytu lub generowanych przez system. Na przykład:
 
 - Kolumny obliczane.
 - Kolumny danych czasowych generowane przez system.
@@ -169,6 +169,18 @@ Synchronizacja danych nie może synchronizować kolumn tylko do odczytu lub gene
 
 > [!NOTE]
 > W jednej grupie synchronizacji może istnieć maksymalnie 30 punktów końcowych, jeśli istnieje tylko jedna grupa synchronizacji. Jeśli istnieje więcej niż jedna grupa synchronizacji, Łączna liczba punktów końcowych we wszystkich grupach synchronizacji nie może przekroczyć 30. Jeśli baza danych należy do wielu grup synchronizacji, jest traktowana jako wiele punktów końcowych, a nie jeden.
+
+### <a name="network-requirements"></a>Wymagania dotyczące sieci
+
+Po ustanowieniu grupy synchronizacji usługa synchronizacji danych musi nawiązać połączenie z bazą danych centrum. Podczas ustanawiania grupy synchronizacji w ustawieniach programu Azure SQL Server musi znajdować się następująca konfiguracja `Firewalls and virtual networks` :
+
+ * *Odmowa dostępu do sieci publicznej* musi być ustawiona na *off*.
+ * *Zezwól usługom i zasobom platformy Azure na dostęp do tego serwera* musi być ustawiona wartość *Yes (tak*) lub należy utworzyć reguły adresów IP dla [adresów IP używanych przez usługę synchronizacji danych](network-access-controls-overview.md#data-sync).
+
+Po utworzeniu i udostępnieniu grupy synchronizacji można wyłączyć te ustawienia. Agent synchronizacji będzie łączył się bezpośrednio z centralną bazą danych i można użyć [reguł IP zapory](firewall-configure.md) serwera lub [prywatnych punktów końcowych](private-endpoint-overview.md) , aby umożliwić agentowi dostęp do serwera centrum.
+
+> [!NOTE]
+> W przypadku zmiany ustawień schematu grupy synchronizacji należy zezwolić usłudze synchronizacji danych na dostęp do serwera ponownie, aby można było ponownie zainicjować obsługę administracyjną bazy danych.
 
 ## <a name="faq-about-sql-data-sync"></a>Często zadawane pytania dotyczące SQL Data Sync
 

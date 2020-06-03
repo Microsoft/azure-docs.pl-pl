@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.custom:
 - mvc
 - mqtt
-ms.date: 06/21/2019
-ms.openlocfilehash: b1ee14afcf46dfbedfb9d696b6a0add22ccd39cc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 06/01/2020
+ms.openlocfilehash: 2efd2c982fcd4c799a6c9daa1d89fde25e7f2c64
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81769132"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84307665"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-net"></a>Szybki Start: wysyłanie danych telemetrycznych z urządzenia do centrum IoT Hub i odczytywanie ich z użyciem aplikacji zaplecza (.NET)
 
@@ -29,11 +29,11 @@ Przewodnik Szybki start używa dwóch wstępnie napisanych aplikacji języka C#,
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Dwie przykładowe aplikacje uruchamiane w tym przewodniku Szybki start zostały napisane w języku C#. Potrzebujesz zestawu SDK .NET Core w wersji 2.1.0 lub nowszej na komputerze deweloperskim.
+Dwie przykładowe aplikacje uruchamiane w tym przewodniku Szybki start zostały napisane w języku C#. Na komputerze deweloperskim jest wymagany zestaw .NET Core SDK 3,0 lub nowszy.
 
 Możesz pobrać zestaw SDK .NET Core dla wielu platform z repozytorium [.NET](https://www.microsoft.com/net/download/all).
 
@@ -43,6 +43,9 @@ Możesz sprawdzić bieżącą wersję języka C# na komputerze deweloperskim prz
 dotnet --version
 ```
 
+> [!NOTE]
+> Aby skompilować kod usługi Event Hubs używany do odczytywania danych telemetrycznych w tym przewodniku Szybki Start, zaleca się użycie zestaw .NET Core SDK 3,0 lub nowszej. Możesz użyć zestaw .NET Core SDK 2,1, jeśli ustawisz wersję językową dla kodu usługi na podgląd, jak to zanotowano w sekcji [odczytywanie danych telemetrycznych z centrum](#read-the-telemetry-from-your-hub) .
+
 Uruchom następujące polecenie, aby dodać rozszerzenie IoT Microsoft Azure dla interfejsu wiersza polecenia platformy Azure do wystąpienia Cloud Shell. Rozszerzenie IOT dodaje do interfejsu wiersza polecenia platformy Azure IoT Hub, IoT Edge i usługi IoT Device Provisioning Service (DPS).
 
 ```azurecli-interactive
@@ -51,7 +54,7 @@ az extension add --name azure-iot
 
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-Pobierz przykłady w języku C# usługi Azure [https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) IoT z programu i Wyodrębnij archiwum zip.
+Pobierz przykłady w języku C# usługi Azure IoT z programu [https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) i Wyodrębnij archiwum zip.
 
 Upewnij się, że port 8883 jest otwarty w zaporze. Przykład urządzenia w tym przewodniku szybki start używa protokołu MQTT, który komunikuje się przez port 8883. Ten port może być blokowany w niektórych firmowych i edukacyjnych środowiskach sieciowych. Aby uzyskać więcej informacji i sposobów obejścia tego problemu, zobacz [nawiązywanie połączenia z IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
@@ -125,7 +128,7 @@ Aplikacja urządzenia symulowanego łączy się z punktem końcowym specyficznym
 
     Poniższy zrzut ekranu przedstawia dane wyjściowe w momencie wysyłania przez aplikację urządzenia symulowanego danych telemetrycznych do centrum IoT:
 
-    ![Uruchamianie urządzenia symulowanego](media/quickstart-send-telemetry-dotnet/SimulatedDevice.png)
+    ![Uruchamianie urządzenia symulowanego](media/quickstart-send-telemetry-dotnet/simulated-device.png)
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Odczytywanie danych telemetrycznych z centrum
 
@@ -137,9 +140,12 @@ Aplikacja zaplecza łączy się z punktem końcowym **Zdarzenia** po stronie us�
 
     | Zmienna | Wartość |
     | -------- | ----------- |
-    | `s_eventHubsCompatibleEndpoint` | Zastąp wartość zmiennej tym punktem końcowym zgodnym z Event Hubs, który został wcześniej zanotowany. |
-    | `s_eventHubsCompatiblePath`     | Zastąp wartość zmiennej ścieżką zgodną Event Hubs zanotowaną wcześniej. |
-    | `s_iotHubSasKey`                | Zastąp wartość zmiennej kluczem podstawowym usługi sporządzonym wcześniej w notatce. |
+    | `EventHubsCompatibleEndpoint` | Zastąp wartość zmiennej tym punktem końcowym zgodnym z Event Hubs, który został wcześniej zanotowany. |
+    | `EventHubName`                | Zastąp wartość zmiennej ścieżką zgodną Event Hubs zanotowaną wcześniej. |
+    | `IotHubSasKey`                | Zastąp wartość zmiennej kluczem podstawowym usługi sporządzonym wcześniej w notatce. |
+
+    > [!NOTE]
+    > W przypadku korzystania z zestaw .NET Core SDK 2,1 należy ustawić wersję językową do podglądu, aby skompilować kod. Aby to zrobić, Otwórz plik **Read-D2C-messages. csproj** i ustaw wartość `<LangVersion>` elementu na `preview` .
 
 3. W lokalnym oknie terminalu uruchom następujące polecenia, aby zainstalować wymagane biblioteki dla aplikacji zaplecza:
 
@@ -155,7 +161,7 @@ Aplikacja zaplecza łączy się z punktem końcowym **Zdarzenia** po stronie us�
 
     Poniższy zrzut ekranu przedstawia dane wyjściowe w momencie odbierania przez aplikację zaplecza danych telemetrycznych wysyłanych przez urządzenie symulowane do centrum:
 
-    ![Uruchamianie aplikacji zaplecza](media/quickstart-send-telemetry-dotnet/ReadDeviceToCloud.png)
+    ![Uruchamianie aplikacji zaplecza](media/quickstart-send-telemetry-dotnet/read-device-to-cloud.png)
 
 ## <a name="clean-up-resources"></a>Oczyszczanie zasobów
 

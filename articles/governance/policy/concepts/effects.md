@@ -3,12 +3,12 @@ title: Informacje o działaniu efektów
 description: Definicje Azure Policy mają różne skutki, które określają sposób zarządzania i zgłaszania zgodności.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 6c2dc8303b630eb01de5c3ad9e3504dfec5256bc
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 223acb523b8a7e4bc14d894c0eb6781d147b8923
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83746896"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84308884"
 ---
 # <a name="understand-azure-policy-effects"></a>Zrozumienie efektów Azure Policy
 
@@ -316,7 +316,7 @@ Przykład: oblicza SQL Server baz danych, aby określić, czy transparentDataEnc
 
 Ten efekt jest przydatny do testowania sytuacji lub w przypadku, gdy definicja zasad ma sparametryzowane skutki. Ta elastyczność umożliwia wyłączenie pojedynczego przypisania zamiast wyłączania wszystkich przypisań zasad.
 
-Alternatywą dla wyłączonego efektu jest * * wymuszanie, który jest ustawiony w przypisaniu zasad.
+Alternatywą dla wyłączonego efektu jest **wymuszmode**, który jest ustawiany w przypisaniu zasad.
 Gdy **wymuszanie** jest _wyłączone_, nadal są oceniane zasoby. Rejestrowanie, takie jak dzienniki aktywności, i efekt zasad nie wystąpi. Aby uzyskać więcej informacji, zobacz [Tryb wymuszania przypisywania zasad](./assignment-structure.md#enforcement-mode).
 
 
@@ -547,7 +547,7 @@ Przykład 2: Usuń `env` tag i Dodaj `environment` tag lub Zastąp istniejące `
 
 ## <a name="layering-policy-definitions"></a>Definicje zasad dotyczących warstw
 
-Na zasób może mieć wpływ kilka przypisań. Te przydziały mogą znajdować się w tym samym zakresie lub w różnych zakresach. Każdy z tych przypisań jest również prawdopodobnie zdefiniowanym innym efektem. Warunek i wpływ dla każdej zasady są oceniane niezależnie. Przykład:
+Na zasób może mieć wpływ kilka przypisań. Te przydziały mogą znajdować się w tym samym zakresie lub w różnych zakresach. Każdy z tych przypisań jest również prawdopodobnie zdefiniowanym innym efektem. Warunek i wpływ dla każdej zasady są oceniane niezależnie. Na przykład:
 
 - Zasady 1
   - Ogranicza lokalizację zasobu do "zachodnie"

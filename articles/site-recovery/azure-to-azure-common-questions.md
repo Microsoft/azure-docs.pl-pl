@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: 98a2765b7adf31465fa0317cc626157137933af7
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: b4b92b907d9cd6d469163bc7bf457da42e9b673c
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248349"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299786"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Często zadawane pytania: odzyskiwanie po awarii z platformy Azure do platformy Azure
 
@@ -52,6 +52,14 @@ Tak. Site Recovery obsługuje odzyskiwanie po awarii maszyn wirtualnych z włąc
 - Site Recovery obsługuje Azure Disk Encryption wersji 0,1, która zawiera schemat, który wymaga Azure Active Directory (Azure AD). Site Recovery obsługuje również wersję 1,1, która nie wymaga usługi Azure AD. [Dowiedz się więcej o schemacie rozszerzeń dla usługi Azure Disk Encryption](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schema).
   - W przypadku Azure Disk Encryption w wersji 1,1 musisz użyć maszyn wirtualnych z systemem Windows z dyskami zarządzanymi.
   - [Dowiedz się więcej](azure-to-azure-how-to-enable-replication-ade-vms.md) na temat włączania replikacji szyfrowanych maszyn wirtualnych.
+
+### <a name="can-i-select-an-automation-account-from-a-different-resource-group"></a>Czy mogę wybrać konto usługi Automation z innej grupy zasobów?
+
+Ta funkcja nie jest obecnie obsługiwana przez portal, ale można wybrać konto usługi Automation z innej grupy zasobów za pośrednictwem programu PowerShell.
+
+### <a name="after-specifying-an-automation-account-that-is-in-a-different-resource-group-than-the-vault-am-i-permitted-to-delete-the-runbook-if-there-is-no-other-vault-to-specify"></a>Czy po określeniu konta usługi Automation, które znajduje się w innej grupie zasobów niż magazyn, czy mogę usunąć element Runbook, jeśli nie istnieje żaden inny magazyn?
+
+Utworzony niestandardowy element Runbook jest narzędziem i można go bezpiecznie usunąć, jeśli taka sama nie jest wymagana.
 
 ### <a name="can-i-replicate-vms-to-another-subscription"></a>Czy można replikować maszyny wirtualne do innej subskrypcji?
 

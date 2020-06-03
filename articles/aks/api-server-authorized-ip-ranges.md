@@ -4,12 +4,12 @@ description: Dowiedz się, jak zabezpieczyć klaster przy użyciu zakresu adres�
 services: container-service
 ms.topic: article
 ms.date: 11/05/2019
-ms.openlocfilehash: 357c8ea4da2a07864215225f7d618f9eb58b7e49
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 45f82d5a6531b2a9584140d6ff309a799656926a
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266189"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299574"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Bezpieczny dostęp do serwera interfejsu API za pomocą zakresów autoryzowanych adresów IP w usłudze Azure Kubernetes Service (AKS)
 
@@ -36,7 +36,7 @@ Aby uzyskać więcej informacji na temat serwera interfejsu API i innych składn
 
 ## <a name="create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled"></a>Tworzenie klastra AKS z włączonymi zakresami adresów IP autoryzowanych przez serwer interfejsu API
 
-Zakres adresów IP autoryzowanych przez serwer interfejsu API działa tylko w przypadku nowych klastrów AKS. Utwórz klaster, używając polecenia [AZ AKS Create][az-aks-create] i określ parametr *--API-Server-autoryzowane-IP-Ranges* , aby podać listę autoryzowanych zakresów adresów IP. Te zakresy adresów IP są zwykle zakresami adresów używanymi przez sieci lokalne lub publiczne adresy IP. Po określeniu zakresu CIDR, należy zacząć od pierwszego adresu IP z zakresu. Na przykład *137.117.106.90/29* jest prawidłowym zakresem, ale należy określić pierwszy adres IP z zakresu, na przykład *137.117.106.88/29*.
+Dozwolone zakresy adresów IP serwera interfejsu API działają tylko w przypadku nowych klastrów AKS i nie są obsługiwane w przypadku prywatnych klastrów AKS. Utwórz klaster, używając polecenia [AZ AKS Create][az-aks-create] i określ parametr *--API-Server-autoryzowane-IP-Ranges* , aby podać listę autoryzowanych zakresów adresów IP. Te zakresy adresów IP są zwykle zakresami adresów używanymi przez sieci lokalne lub publiczne adresy IP. Po określeniu zakresu CIDR, należy zacząć od pierwszego adresu IP z zakresu. Na przykład *137.117.106.90/29* jest prawidłowym zakresem, ale należy określić pierwszy adres IP z zakresu, na przykład *137.117.106.88/29*.
 
 > [!IMPORTANT]
 > Domyślnie klaster używa usługi [równoważenia obciążenia standardowej jednostki SKU][standard-sku-lb] , której można użyć do skonfigurowania bramy wychodzącej. W przypadku włączenia zakresów adresów IP autoryzowanych przez serwer interfejsu API podczas tworzenia klastra publiczny adres IP dla klastra jest również Domyślnie dozwolony jako dodatek do określonych zakresów. Jeśli określisz wartość *""* lub nie określono wartości parametru *--API-Server-autoryzowane-IP-Ranges*, dozwolone zakresy adresów IP serwera interfejsu API zostaną wyłączone. Należy pamiętać, że jeśli używasz programu PowerShell, użyj polecenia *--API-Server-autoryzowane-IP-Ranges = ""* (ze znakiem równości), aby uniknąć problemów z analizowaniem.
@@ -64,7 +64,7 @@ az aks create \
 
 ### <a name="specify-the-outbound-ips-for-the-standard-sku-load-balancer"></a>Określ wychodzące adresy IP dla usługi równoważenia obciążenia standardowej jednostki SKU
 
-W przypadku tworzenia klastra AKS, jeśli określono wychodzące adresy IP lub prefiksy dla klastra, dozwolone są również te adresy lub prefiksy. Przykład:
+W przypadku tworzenia klastra AKS, jeśli określono wychodzące adresy IP lub prefiksy dla klastra, dozwolone są również te adresy lub prefiksy. Na przykład:
 
 ```azurecli-interactive
 az aks create \
@@ -116,7 +116,7 @@ Można również użyć wartości *0.0.0.0/32* podczas określania parametru *--
 
 ## <a name="disable-authorized-ip-ranges"></a>Wyłącz autoryzowane zakresy adresów IP
 
-Aby wyłączyć autoryzowane zakresy adresów IP, użyj [AZ AKS Update][az-aks-update] i określ pusty zakres, aby wyłączyć autoryzowane zakresy adresów IP serwera interfejsu API. Przykład:
+Aby wyłączyć autoryzowane zakresy adresów IP, użyj [AZ AKS Update][az-aks-update] i określ pusty zakres, aby wyłączyć autoryzowane zakresy adresów IP serwera interfejsu API. Na przykład:
 
 ```azurecli-interactive
 az aks update \

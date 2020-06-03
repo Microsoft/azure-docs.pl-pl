@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.subservice: ''
-ms.openlocfilehash: 4ef7e4058c4f9cb458f4036ad4b315f5e85036b1
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 95345ba864d498190186e1a366c8551be97c33f5
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170719"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299697"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Użyj prywatnego linku platformy Azure, aby bezpiecznie połączyć sieci z Azure Monitor
 
@@ -74,11 +74,17 @@ Na przykład jeśli wewnętrzne sieci wirtualne VNet1 i VNet2 powinny łączyć 
 
 Zacznij od utworzenia zasobu zakresu prywatnego linku Azure Monitor.
 
-1. Przejdź do pozycji **Utwórz zasób** w Azure Portal i Wyszukaj **Azure monitor prywatny zakres linków**. 
-2. Kliknij przycisk **Utwórz**. 
-3. Wybierz subskrypcję i grupę zasobów. 
-4. Nadaj nazwę AMPLS. Najlepiej użyć nazwy, która jest jednoznaczne i granicą zabezpieczeń, której zakres będzie używany, aby ktoś nie pomógł przypadkowo przerwać granic zabezpieczeń sieci. Na przykład "AppServerProdTelem". 
+1. Przejdź do pozycji **Utwórz zasób** w Azure Portal i Wyszukaj **Azure monitor prywatny zakres linków**.
+
+   ![Znajdź Azure Monitor zakres linków prywatnych](./media/private-link-security/ampls-find-1c.png)
+
+2. Kliknij przycisk **Utwórz**.
+3. Wybierz subskrypcję i grupę zasobów.
+4. Nadaj nazwę AMPLS. Najlepiej użyć nazwy, która jest jednoznaczne i granicą zabezpieczeń, której zakres będzie używany, aby ktoś nie pomógł przypadkowo przerwać granic zabezpieczeń sieci. Na przykład "AppServerProdTelem".
 5. Kliknij przycisk **Przegląd + Utwórz**. 
+
+   ![Utwórz Azure Monitor zakres linków prywatnych](./media/private-link-security/ampls-create-1d.png)
+
 6. Pozwól na przekazanie walidacji, a następnie kliknij przycisk **Utwórz**.
 
 ## <a name="connect-azure-monitor-resources"></a>Łączenie Azure Monitor zasobów
@@ -224,3 +230,6 @@ Aby zezwolić agentowi Log Analytics na pobieranie pakietów rozwiązań, Dodaj 
 |Azure Government | usbn1oicore.blob.core.usgovcloudapi.net | 443 |  Wychodzący
 |Azure w Chinach — 21Vianet      | mceast2oicore.blob.core.chinacloudapi.cn| 443 | Wychodzący
 
+## <a name="next-steps"></a>Następne kroki
+
+- Informacje o [magazynie prywatnym](private-storage.md)

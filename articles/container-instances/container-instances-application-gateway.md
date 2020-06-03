@@ -3,12 +3,12 @@ title: Statyczny adres IP dla grupy kontenerów
 description: Utwórz grupę kontenerów w sieci wirtualnej i Użyj usługi Azure Application Gateway, aby udostępnić statyczny adres IP frontonu dla zwirtualizowanej aplikacji sieci Web.
 ms.topic: article
 ms.date: 03/16/2020
-ms.openlocfilehash: 5c3a14f93af3ecc614dc296f0a4d2815d7a64a66
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: a27cf20b7d04fedb0b9e0ab408de24d37f2935c7
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79481793"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299166"
 ---
 # <a name="expose-a-static-ip-address-for-a-container-group"></a>Uwidacznianie statycznego adresu IP dla grupy kontenerów
 
@@ -17,7 +17,7 @@ W tym artykule pokazano, jak udostępnić statyczny publiczny adres IP dla [grup
 W tym artykule opisano tworzenie zasobów dla tego scenariusza przy użyciu interfejsu wiersza polecenia platformy Azure:
 
 * Sieć wirtualna platformy Azure
-* Grupa kontenerów wdrożona [w sieci wirtualnej (wersja zapoznawcza)](container-instances-vnet.md) , która obsługuje małą aplikację sieci Web
+* Grupa kontenerów wdrożona [w sieci wirtualnej](container-instances-vnet.md) , która hostuje małą aplikację sieci Web
 * Brama aplikacji z publicznym adresem IP frontonu, odbiornikiem do hostowania witryny sieci Web w bramie i trasą do grupy kontenerów zaplecza
 
 Tak długo, jak działa Brama aplikacji, a grupa kontenerów uwidacznia stabilny prywatny adres IP w podsieci delegowanej sieci, Grupa kontenerów jest dostępna na tym publicznym adresie IP.
@@ -29,7 +29,7 @@ Tak długo, jak działa Brama aplikacji, a grupa kontenerów uwidacznia stabilny
 
 W typowym przypadku może już istnieć Sieć wirtualna platformy Azure. Jeśli go nie masz, utwórz taki, jak pokazano w następujących przykładowych poleceniach. Sieć wirtualna wymaga oddzielnych podsieci dla bramy aplikacji i grupy kontenerów.
 
-Jeśli potrzebujesz, Utwórz grupę zasobów platformy Azure. Przykład:
+Jeśli potrzebujesz, Utwórz grupę zasobów platformy Azure. Na przykład:
 
 ```azureci
 az group create --name myResourceGroup --location eastus
@@ -136,7 +136,7 @@ az network public-ip show \
 --output tsv
 ```
 
-Wyjście jest publicznym adresem IP, podobnym do: `52.142.18.133`.
+Wyjście jest publicznym adresem IP, podobnym do: `52.142.18.133` .
 
 Aby wyświetlić uruchomioną aplikację sieci Web po pomyślnym skonfigurowaniu, przejdź do publicznego adresu IP bramy w przeglądarce. Udany dostęp jest podobny do:
 

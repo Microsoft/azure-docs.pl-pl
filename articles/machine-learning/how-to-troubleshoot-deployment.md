@@ -1,5 +1,5 @@
 ---
-title: Przewodnik rozwiązywania problemów z wdrażaniem
+title: Rozwiązywanie problemów z wdrażaniem platformy Docker
 titleSuffix: Azure Machine Learning
 description: Dowiedz się, jak obejść, rozwiązać i rozwiązać typowe błędy wdrażania platformy Docker za pomocą usługi Azure Kubernetes i Azure Container Instances przy użyciu Azure Machine Learning.
 services: machine-learning
@@ -10,31 +10,17 @@ author: clauren42
 ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 03/05/2020
-ms.custom: seodec18
-ms.openlocfilehash: d51fd5af5ce553bbe9325154e3f854cdf5410d4d
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.custom: contperfq4
+ms.openlocfilehash: f65b263bb90356a4d739ebc963458cc7e992863c
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873382"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84307949"
 ---
-# <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Rozwiązywanie problemów Azure Machine Learning usługi Azure Kubernetes i wdrożenia Azure Container Instances
+# <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Rozwiązywanie problemów z wdrażaniem modeli przez platformę Docker za pomocą usługi Azure Kubernetes Service i Azure Container Instances 
 
-Dowiedz się, jak obejść typowe błędy wdrażania platformy Docker i rozwiązać je za pomocą usług Azure Container Instances (ACI) i Azure Kubernetes Service (AKS) przy użyciu Azure Machine Learning.
-
-W przypadku wdrażania modelu w Azure Machine Learning system wykonuje wiele zadań.
-
-Zalecane i najbardziej aktualne podejście do wdrażania modelu polega za pośrednictwem interfejsu API [model. deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) przy użyciu obiektu [środowiska](how-to-use-environments.md) jako parametru wejściowego. W takim przypadku Nasza usługa utworzy podstawowy obraz platformy Docker na etapie wdrażania i zainstaluje wymagane modele wszystkie w jednym wywołaniu. Podstawowe zadania wdrażania są następujące:
-
-1. Zarejestruj model w rejestrze modelu obszaru roboczego.
-
-2. Zdefiniuj konfigurację wnioskowania:
-    1. Utwórz obiekt [środowiska](how-to-use-environments.md) na podstawie zależności określonych w pliku YAML środowiska lub użyj jednego z naszych środowisk.
-    2. Utwórz konfigurację wnioskowania (obiekt InferenceConfig) w oparciu o środowisko i skrypt oceniania.
-
-3. Wdróż model w usłudze Azure Container Instance (ACI) lub w usłudze Azure Kubernetes Service (AKS).
-
-Dowiedz się więcej o tym procesie w [Zarządzanie modelami](concept-model-management-and-deployment.md) wprowadzenie.
+Dowiedz się, jak rozwiązywać problemy i rozwiązywać typowe błędy wdrażania platformy Docker za pomocą usług Azure Container Instances (ACI) i Azure Kubernetes Service (AKS) przy użyciu Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -45,6 +31,22 @@ Dowiedz się więcej o tym procesie w [Zarządzanie modelami](concept-model-mana
 * Aby debugować lokalnie, musisz mieć działającą instalację platformy Docker w systemie lokalnym.
 
     Aby zweryfikować instalację platformy Docker, użyj polecenia `docker run hello-world` z terminalu lub wiersza polecenia. Informacje dotyczące instalowania platformy Docker lub rozwiązywania problemów z błędami platformy Docker znajdują się w [dokumentacji platformy Docker](https://docs.docker.com/).
+
+## <a name="steps-for-docker-deployment-of-machine-learning-models"></a>Kroki wdrażania modeli uczenia maszynowego w programie Docker
+
+W przypadku wdrażania modelu w Azure Machine Learning system wykonuje wiele zadań.
+
+Zalecanym podejściem do wdrażania modelu jest za pośrednictwem interfejsu API [model. deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) przy użyciu obiektu [środowiska](how-to-use-environments.md) jako parametru wejściowego. W takim przypadku usługa tworzy obraz podstawowy platformy Docker na etapie wdrażania i instaluje wymagane modele wszystkie w jednym wywołaniu. Podstawowe zadania wdrażania są następujące:
+
+1. Zarejestruj model w rejestrze modelu obszaru roboczego.
+
+2. Zdefiniuj konfigurację wnioskowania:
+    1. Utwórz obiekt [środowiska](how-to-use-environments.md) na podstawie zależności określonych w pliku YAML środowiska lub użyj jednego z naszych środowisk.
+    2. Utwórz konfigurację wnioskowania (obiekt InferenceConfig) w oparciu o środowisko i skrypt oceniania.
+
+3. Wdróż model w usłudze Azure Container Instance (ACI) lub w usłudze Azure Kubernetes Service (AKS).
+
+Dowiedz się więcej o tym procesie w [Zarządzanie modelami](concept-model-management-and-deployment.md) wprowadzenie.
 
 ## <a name="before-you-begin"></a>Przed rozpoczęciem
 
@@ -124,7 +126,7 @@ service.wait_for_deployment(True)
 print(service.port)
 ```
 
-Należy pamiętać, że jeśli definiujesz własną Conda specyfikację YAML, musisz wyświetlić listę opcji "Azure-Defaults" z wersją >= 1.0.45 jako zależność PIP. Ten pakiet zawiera funkcje, które są konieczne do hostowania modelu jako usługi sieci Web.
+Jeśli definiujesz własną specyfikację Conda YAML, musisz wyświetlić listę "Azure-Defaults" z wersją >= 1.0.45 jako zależność PIP. Ten pakiet zawiera funkcje, które są konieczne do hostowania modelu jako usługi sieci Web.
 
 W tym momencie można korzystać z usługi w zwykły sposób. Na przykład poniższy kod ilustruje wysyłanie danych do usługi:
 
@@ -184,7 +186,7 @@ print(ws.webservices['mysvc'].get_logs())
 
 W przypadku wdrażania usługi do elementu docelowego obliczeń usługi Azure Kubernetes Azure Machine Learning próbuje zaplanować usługę z żądaną ilością zasobów. Jeśli po 5 minutach nie ma dostępnych węzłów w klastrze z odpowiednią ilością dostępnych zasobów, wdrożenie zakończy się niepowodzeniem z komunikatem `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00` . Ten błąd można rozwiązać, dodając więcej węzłów, zmieniając jednostkę SKU węzłów lub zmieniając wymagania dotyczące zasobów usługi. 
 
-Komunikat o błędzie zazwyczaj wskazuje zasób, którego potrzebujesz więcej — na przykład jeśli zostanie wyświetlony komunikat o błędzie informujący o tym, `0/3 nodes are available: 3 Insufficient nvidia.com/gpu` że usługa wymaga procesorów GPU, a w klastrze istnieją 3 węzły, które nie mają dostępnych procesorów GPU. Można to rozwiązać, dodając więcej węzłów, jeśli używasz jednostki SKU procesora GPU, przełączając się do jednostki SKU z włączoną obsługą procesora GPU, jeśli nie zmienisz środowiska, aby nie wymagały procesora GPU.  
+Komunikat o błędzie będzie zazwyczaj wskazywał zasób, którego potrzebujesz więcej — na przykład jeśli zostanie wyświetlony komunikat o błędzie informujący, że `0/3 nodes are available: 3 Insufficient nvidia.com/gpu` usługa wymaga procesora GPU, a w klastrze istnieją trzy węzły, które nie mają dostępnych procesorów GPU. Można to rozwiązać, dodając więcej węzłów, jeśli używasz jednostki SKU procesora GPU, przełączając się do jednostki SKU z włączoną obsługą procesora GPU, jeśli nie zmienisz środowiska, aby nie wymagały procesora GPU.  
 
 ## <a name="service-launch-fails"></a>Uruchamianie usługi nie powiodło się
 
@@ -209,7 +211,7 @@ Ustawienie poziomu rejestrowania na debugowanie może spowodować zarejestrowani
 
 ## <a name="function-fails-runinput_data"></a>Niepowodzenie funkcji: Uruchom (input_data)
 
-Jeśli usługa została pomyślnie wdrożona, ale ulega awarii, gdy dane są ogłaszane w punkcie końcowym oceniania, można dodać instrukcję zwracającą błąd w `run(input_data)` funkcji tak, aby zamiast tego zwracała szczegółowy komunikat o błędzie. Przykład:
+Jeśli usługa została pomyślnie wdrożona, ale ulega awarii, gdy dane są ogłaszane w punkcie końcowym oceniania, można dodać instrukcję zwracającą błąd w `run(input_data)` funkcji tak, aby zamiast tego zwracała szczegółowy komunikat o błędzie. Na przykład:
 
 ```python
 def run(input_data):

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: altambaw
-ms.openlocfilehash: ba4acf32e13304c62ec5091670fe0b45ec3cb32c
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 452cef0a65dd9c994b5d010676e402013b195ed3
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84235246"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300651"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Tworzenie, zmienianie lub usuwanie komunikacji równorzędnej sieci wirtualnej
 
@@ -121,7 +121,7 @@ Jeśli chcesz, aby sieci wirtualne komunikują się czasami, ale nie zawsze, zam
 - Sieci wirtualne mogą znajdować się w tych samych lub różnych subskrypcjach. W przypadku równorzędnych sieci wirtualnych w różnych subskrypcjach obie subskrypcje mogą być skojarzone z tą samą lub inną dzierżawą Azure Active Directory. Jeśli nie masz jeszcze dzierżawy usługi AD, możesz ją [utworzyć](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). Obsługa komunikacji równorzędnej między sieciami wirtualnymi z subskrypcji skojarzonych z różnymi dzierżawcami Azure Active Directory nie jest dostępna w portalu. Możesz użyć interfejsu wiersza polecenia, programu PowerShell lub szablonów.
 - Równorzędne sieci wirtualne muszą mieć nienakładające się przestrzenie adresów IP.
 - Nie można dodać zakresów adresów do lub usunąć zakresów adresów z przestrzeni adresowej sieci wirtualnej, gdy sieć wirtualna jest połączona z inną siecią wirtualną. Aby dodać lub usunąć zakresy adresów, Usuń komunikację równorzędną, Dodaj lub Usuń zakresy adresów, a następnie ponownie utwórz komunikację równorzędną. Aby dodać zakresy adresów do lub usunąć zakresy adresów z sieci wirtualnych, zobacz [Zarządzanie sieciami wirtualnymi](manage-virtual-network.md).
-- Dwie sieci wirtualne wdrożone za pomocą Menedżer zasobów lub sieci wirtualnej wdrożone za pomocą Menedżer zasobów z siecią wirtualną wdrożoną za pomocą klasycznego modelu wdrażania. Nie można połączyć komunikacji równorzędnej dwóch sieci wirtualnych utworzonych za pomocą klasycznego modelu wdrażania. Jeśli nie znasz modeli wdrażania platformy Azure, zapoznaj się z artykułem [Omówienie modeli wdrażania platformy Azure](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json) . Do połączenia dwóch sieci wirtualnych utworzonych za pomocą klasycznego modelu wdrażania można użyć usługi [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V).
+- Dwie sieci wirtualne wdrożone za pomocą Menedżer zasobów lub sieci wirtualnej wdrożone za pomocą Menedżer zasobów z siecią wirtualną wdrożoną za pomocą klasycznego modelu wdrażania. Nie można połączyć komunikacji równorzędnej dwóch sieci wirtualnych utworzonych za pomocą klasycznego modelu wdrażania. Jeśli nie znasz modeli wdrażania platformy Azure, zapoznaj się z artykułem [Omówienie modeli wdrażania platformy Azure](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json) . Do połączenia dwóch sieci wirtualnych utworzonych za pomocą klasycznego modelu wdrażania można użyć usługi [VPN Gateway](../vpn-gateway/design.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V).
 - W przypadku łączenia dwóch sieci wirtualnych utworzonych w usłudze Resource Manager za pomocą komunikacji równorzędnej należy skonfigurować komunikację równorzędną dla każdej objętej nią sieci wirtualnej. Zostanie wyświetlony jeden z następujących typów stanu komunikacji równorzędnej: 
   - *Zainicjowane:* Podczas tworzenia komunikacji równorzędnej z drugą siecią wirtualną z pierwszej sieci wirtualnej stan komunikacji równorzędnej zostanie *zainicjowany*. 
   - *Połączono:* Po utworzeniu komunikacji równorzędnej z drugiej sieci wirtualnej do pierwszej sieci wirtualnej jej stan komunikacji równorzędnej jest *połączony*. Jeśli zobaczysz stan komunikacji równorzędnej dla pierwszej sieci wirtualnej, zobaczysz, że jego stan został zmieniony z *zainicjowane* na *połączone*. Komunikacja równorzędna nie zostanie pomyślnie nawiązana, dopóki nie zostanie *podłączony*stan komunikacji równorzędnej dla obu wirtualnych sieci równorzędnych.

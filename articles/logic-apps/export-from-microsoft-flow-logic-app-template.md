@@ -3,24 +3,26 @@ title: Eksportuj przepływy z automatyzacji, aby Azure Logic Apps
 description: Migrowanie przepływów z poziomu automatyzacji do Azure Logic Apps przez eksportowanie jako Azure Resource Manager szablonów
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 616f10b32d0a9c1a05d759a0e27550cd2808808b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b30a2ae8d90a193e23229dc6743c7e92ebf83b52
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75428881"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298724"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Eksportowanie przepływów z usługi Power Automate i wdrażanie w usłudze Azure Logic Apps
 
 Aby rozszerzać i rozszerzać możliwości przepływu, można migrować ten przepływ z [automatyzacji](https://flow.microsoft.com) , aby [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Możesz wyeksportować przepływ jako szablon Azure Resource Manager dla aplikacji logiki, wdrożyć ten szablon aplikacji logiki w grupie zasobów platformy Azure, a następnie otworzyć tę aplikację logiki w Projektancie aplikacji logiki.
 
 > [!NOTE]
-> Nie wszystkie łączniki automatyzacji oszczędzają energię są dostępne w Azure Logic Apps. Można importować przepływy, które mają [równoważne łączniki](../connectors/apis-list.md) w Azure Logic Apps. Na przykład wyzwalacz przycisku, łącznik zatwierdzania i łącznik powiadomień są specyficzne dla automatyzacji.
+> Nie wszystkie łączniki automatyzacji oszczędzają energię są dostępne w Azure Logic Apps. Można migrować tylko przepływy automatyzacji, które mają równoważne łączniki w Azure Logic Apps. Na przykład wyzwalacz przycisku, łącznik zatwierdzania i łącznik powiadomień są specyficzne dla automatyzacji. Obecnie przepływy oparte na OpenAPI w programie do automatyzacji nie są obsługiwane w przypadku eksportowania i wdrażania jako szablonów aplikacji logiki.
 >
-> Przepływy oparte na OpenAPIach wyeksportowane z poziomu automatyzacji nie są obecnie obsługiwane w przypadku wdrożeń jako szablonów aplikacji logiki. 
+> * Aby dowiedzieć się, które łączniki automatyzuje nie mają odpowiedników Logic Apps, zobacz [Łączniki automatyzacji](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors).
+>
+> * Aby dowiedzieć się, które łączniki Logic Apps nie mają odpowiedników, zobacz [Logic Apps łączników](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors).
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
@@ -30,7 +32,7 @@ Aby rozszerzać i rozszerzać możliwości przepływu, można migrować ten prze
 
 ## <a name="export-a-flow"></a>Eksportowanie przepływu
 
-1. Zaloguj się w usłudze [Automatyzacja](https://flow.microsoft.com)i wybierz pozycję **Moje przepływy**. Znajdź i wybierz swój przepływ. Na pasku narzędzi wybierz przycisk wielokropka (**...**). Wybierz pozycję **Eksportuj** > **szablon Logic Apps (JSON)**.
+1. Zaloguj się w usłudze [Automatyzacja](https://flow.microsoft.com)i wybierz pozycję **Moje przepływy**. Znajdź i wybierz swój przepływ. Na pasku narzędzi wybierz przycisk wielokropka (**...**). Wybierz pozycję **Eksportuj**  >  **szablon Logic Apps (JSON)**.
 
    ![Eksportowanie przepływu](./media/export-from-microsoft-flow-logic-app-template/export-flow.png)
 
@@ -131,7 +133,7 @@ Jeśli skonfigurowano program Visual Studio z [wymaganiami wstępnymi](../logic-
 
    1. Zapisz rozwiązanie przed wdrożeniem aplikacji logiki.
 
-1. W Eksplorator rozwiązań otwórz menu skrótów projektu i wybierz polecenie **Wdróż** > **nowe**. Po wyświetleniu monitu zaloguj się przy użyciu konta platformy Azure.
+1. W Eksplorator rozwiązań otwórz menu skrótów projektu i wybierz polecenie **Wdróż**  >  **nowe**. Po wyświetleniu monitu zaloguj się przy użyciu konta platformy Azure.
 
 1. Po wyświetleniu monitu potwierdź subskrypcję platformy Azure, grupę zasobów platformy Azure oraz inne ustawienia, które mają być używane do wdrażania, takie jak [plik parametrów](../azure-resource-manager/templates/parameter-files.md) , który ma być używany do przekazywania wartości parametrów szablonu, a następnie wybierz pozycję **Wdróż**.
 
@@ -141,7 +143,7 @@ Jeśli skonfigurowano program Visual Studio z [wymaganiami wstępnymi](../logic-
 
    ![Edytuj parametry wdrożenia](./media/export-from-microsoft-flow-logic-app-template/edit-parameters-deployment.png)
 
-   Po rozpoczęciu wdrażania stan wdrożenia aplikacji zostanie wyświetlony w oknie **Dane wyjściowe** programu Visual Studio. Jeśli stan się nie pojawi, otwórz listę **Pokaż dane wyjściowe z** i wybierz grupę zasobów platformy Azure. Przykład:
+   Po rozpoczęciu wdrażania stan wdrożenia aplikacji zostanie wyświetlony w oknie **Dane wyjściowe** programu Visual Studio. Jeśli stan się nie pojawi, otwórz listę **Pokaż dane wyjściowe z** i wybierz grupę zasobów platformy Azure. Na przykład:
 
    ![Okno wyniku](./media/export-from-microsoft-flow-logic-app-template/output-window.png)
 

@@ -5,14 +5,14 @@ author: mimckitt
 ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.workload: infrastructure-services
-ms.date: 02/22/2018
+ms.date: 06/01/2020
 ms.author: mimckitt
-ms.openlocfilehash: c8b0d83be0ae464563a06c9307303ee7a5af527f
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: 0d1aa15c572f8ddec38cef913b170ed795ba1505
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779779"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84297925"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure Metadata Service: Scheduled Events maszyn wirtualnych z systemem Windows
 
@@ -49,15 +49,17 @@ Usługa Azure Metadata umożliwia ujawnianie informacji na temat uruchamiania Vi
 ### <a name="endpoint-discovery"></a>Odnajdywanie punktów końcowych
 W przypadku maszyn wirtualnych z obsługą sieci wirtualnej usługa metadanych jest dostępna ze statycznego adresu IP bez obsługi routingu `169.254.169.254` . Pełny punkt końcowy dla najnowszej wersji Scheduled Events to: 
 
- > `http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01`
+ > `http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01`
 
 Jeśli maszyna wirtualna nie zostanie utworzona w ramach Virtual Network, domyślne przypadki usług Cloud Services i klasycznych maszyn wirtualnych są wymagane do odnajdywania adresu IP do użycia. Zapoznaj się z tym przykładem, aby dowiedzieć się [, jak odnaleźć punkt końcowy hosta](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
 ### <a name="version-and-region-availability"></a>Dostępność wersji i regionu
 Usługa Scheduled Events jest w wersji. Wersje są obowiązkowe, a bieżąca wersja to `2019-01-01` .
 
-| Wersja | Typ wydania | Regiony | Informacje o wersji | 
+| Wersja | Typ wydania | Regiony | Uwagi do wersji | 
 | - | - | - | - |
+| 2019-08-01 | Ogólna dostępność | Wszystko | <li> Dodano obsługę elementu EventSource |
+| 2019-04-01 | Ogólna dostępność | Wszystko | <li> Dodano obsługę opisu zdarzenia |
 | 2019-01-01 | Ogólna dostępność | Wszystko | <li> Dodano obsługę funkcji EventType dla zestawów skalowania maszyn wirtualnych |
 | 2017-11-01 | Ogólna dostępność | Wszystko | <li> Dodano obsługę elementu EventType punktu wykluczania maszyny wirtualnej<br> | 
 | 2017-08-01 | Ogólna dostępność | Wszystko | <li> Usunięto poprzedzony znak podkreślenia z nazw zasobów dla maszyn wirtualnych IaaS<br><li>Wymagania nagłówka metadanych wymuszone dla wszystkich żądań | 
@@ -86,7 +88,7 @@ Możesz wykonać zapytanie o Scheduled Events po prostu, wykonując następując
 
 #### <a name="powershell"></a>PowerShell
 ```
-curl http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01 -H @{"Metadata"="true"}
+curl http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01 -H @{"Metadata"="true"}
 ```
 
 Odpowiedź zawiera tablicę zaplanowanych zdarzeń. Pusta tablica oznacza, że aktualnie nie ma żadnych zaplanowanych zdarzeń.
@@ -102,6 +104,8 @@ W przypadku zaplanowanych zdarzeń odpowiedź zawiera tablicę zdarzeń:
             "Resources": [{resourceName}],
             "EventStatus": "Scheduled" | "Started",
             "NotBefore": {timeInUTC},
+            "Description": {eventDescription},
+            "EventSource" : "Platform" | "User",
         }
     ]
 }
@@ -114,9 +118,11 @@ DocumentIncarnation jest elementem ETag i zapewnia łatwy sposób sprawdzenia, c
 | EventId | Unikatowy identyfikator globalny dla tego zdarzenia. <br><br> Przykład: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
 | Typ zdarzenia | Ma to wpływ na przyczyny tego zdarzenia. <br><br> Wartości: <br><ul><li> `Freeze`: Zaplanowano wstrzymanie maszyny wirtualnej przez kilka sekund. Połączenie procesora i sieci może być zawieszone, ale nie ma wpływu na pamięć lub otwieranie plików. <li>`Reboot`: Zaplanowano ponowne uruchomienie maszyny wirtualnej (pamięć nietrwała zostanie utracona). <li>`Redeploy`: Zaplanowano przeniesienie maszyny wirtualnej do innego węzła (dyski tymczasowe są tracone). <li>`Preempt`: Trwa usuwanie miejsca na maszynie wirtualnej (dyski tymczasowe są tracone). <li> `Terminate`: Zaplanowano usunięcie maszyny wirtualnej. |
 | ResourceType | Typ zasobu, którego dotyczy to zdarzenie. <br><br> Wartości: <ul><li>`VirtualMachine`|
-| Resources| Lista zasobów, na które ma wpływ zdarzenie. Ma to na celu zapewnienie maszyn z co najwyżej jednej [domeny aktualizacji](manage-availability.md), ale może nie zawierać wszystkich maszyn w ud. <br><br> Przykład: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
+| Zasoby| Lista zasobów, na które ma wpływ zdarzenie. Ma to na celu zapewnienie maszyn z co najwyżej jednej [domeny aktualizacji](manage-availability.md), ale może nie zawierać wszystkich maszyn w ud. <br><br> Przykład: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | Stan zdarzenia | Stan tego zdarzenia. <br><br> Wartości: <ul><li>`Scheduled`: To zdarzenie jest zaplanowane do uruchomienia po upływie czasu określonego we `NotBefore` właściwości.<li>`Started`: To zdarzenie zostało uruchomione.</ul> Nie `Completed` jest dostępny żaden ani podobny stan; zdarzenie nie będzie już zwracane po zakończeniu zdarzenia.
 | Nie wcześniej niż| Czas, po którym to zdarzenie może się zacząć. <br><br> Przykład: <br><ul><li> PN, 19 wrz 2016 18:29:47 GMT  |
+| Opis | Opis tego zdarzenia. <br><br> Przykład: <br><ul><li> Serwer hosta jest w trakcie konserwacji. |
+| EventSource | Inicjator zdarzenia. <br><br> Przykład: <br><ul><li> `Platform`: To zdarzenie jest inicjowane przez użyciu funkcji platfrom. <li>`User`: To zdarzenie jest inicjowane przez użytkownika. |
 
 ### <a name="event-scheduling"></a>Planowanie zdarzeń
 Każde zdarzenie ma zaplanowaną minimalną ilość czasu w przyszłości w oparciu o typ zdarzenia. Ten czas jest uwzględniany we właściwości zdarzenia `NotBefore` . 

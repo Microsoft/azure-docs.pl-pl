@@ -1,7 +1,7 @@
 ---
-title: 'Instrukcje: Dodawanie walidacji do parametrów polecenia niestandardowego'
+title: Dodawanie walidacji w poleceniach niestandardowych wersja zapoznawcza — usługa mowy
 titleSuffix: Azure Cognitive Services
-description: W tym artykule wyjaśniono, jak dodać walidacje do parametru w poleceniach niestandardowych.
+description: Dowiedz się, jak dodać walidacje do parametru polecenia w aplikacji poleceń niestandardowych w wersji zapoznawczej.
 services: cognitive-services
 author: don-d-kim
 manager: yetian
@@ -10,56 +10,59 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: 2b7fd608156ab269cfc0c85c6c508fa9d5eebc83
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 6686016f109fad4ee8b7f4e494b1374a6003658c
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82857193"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310414"
 ---
-# <a name="how-to-add-validations-to-custom-command-parameters-preview"></a>Instrukcje: Dodawanie walidacji do parametrów polecenia niestandardowego (wersja zapoznawcza)
+# <a name="add-validations-to-a-command-parameter-in-a-custom-commands-preview-application"></a>Dodawanie walidacji do parametru polecenia w aplikacji poleceń niestandardowych w wersji zapoznawczej
 
-W tym artykule opisano Dodawanie walidacji do parametrów i wyświetlanie wierszy poprawek.
+W tym artykule dowiesz się, jak dodać walidacje do parametrów i wyświetlać instrukcje dla korekty.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Należy wykonać czynności opisane w następujących artykułach:
+Wykonaj kroki opisane w następujących artykułach:
 
 > [!div class="checklist"]
-> * [Szybki Start: Tworzenie polecenia niestandardowego](./quickstart-custom-speech-commands-create-new.md)
-> * [Szybki Start: Tworzenie polecenia niestandardowego z parametrami](./quickstart-custom-speech-commands-create-parameters.md)
+ 
+> * [Szybki Start: Tworzenie aplikacji niestandardowych poleceń w wersji zapoznawczej](./quickstart-custom-speech-commands-create-new.md)
+> * [Szybki Start: Tworzenie poleceń niestandardowych dla aplikacji w wersji zapoznawczej przy użyciu parametrów](./quickstart-custom-speech-commands-create-parameters.md)
 
 ## <a name="create-a-settemperature-command"></a>Utwórz polecenie settemperaturę
 
-Aby zademonstrować walidacje, Utwórzmy nowe polecenie umożliwiające użytkownikom ustawianie temperatury.
+Aby zademonstrować walidacje, Utwórz nowe polecenie, które umożliwia użytkownikom ustawianie temperatury.
 
-1. Otwieranie wcześniej utworzonych aplikacji poleceń niestandardowych w programie [Speech Studio](https://speech.microsoft.com/)
-1. Utwórz nowe polecenie`SetTemperature`
-1. Dodaj parametr dla temperatury docelowej.
+1. W programie [Speech Studio](https://speech.microsoft.com/)Otwórz utworzoną przez siebie aplikację z poleceniami Custom Preview.
+1. Utwórz nowe polecenie **Settemperaturę** .
+1. Dodaj parametr temperatury, który ma następującą konfigurację:
 
    | Konfiguracja parametrów           | Sugerowana wartość    |Opis                 |                                    
    | ----------------- | ----------------------------------| -------------|
-   | Nazwa              | Temperatura                       | Nazwa opisowa parametru                                |
-   | Wymagany          | checked                           | Pole wyboru wskazujące, czy przed ukończeniem polecenia jest wymagana wartość tego parametru |
-   | Odpowiedź dotycząca wymaganego parametru     | Prosty edytor — > jakiej temperatury chcesz?  | Monit o podanie wartości tego parametru, gdy nie jest on znany |
-   | Typ              | Liczba                            | Typ parametru, taki jak Number, String, Data Time lub geography   |
+   | **Nazwa**              | **Temperatura**                       | Nazwa opisowa parametru                                |
+   | **Wymagane**          | Zaznaczono                           | Pole wyboru wskazujące, czy przed ukończeniem polecenia jest wymagana wartość tego parametru |
+   | **Odpowiedź dotycząca wymaganego parametru**     | **Prosty edytor — > jakiej temperatury chcesz?**  | Monit o podanie wartości tego parametru, gdy nie jest on znany |
+   | **Typ**              | **Liczba**                            | Typ parametru, taki jak Number, String, DateTime lub geography   |
 
 1. Dodaj weryfikację parametru temperatury.
 
-    - Na stronie Konfiguracja **parametrów** dla `Temperature` parametru wybierz pozycję `Add a validation` z sekcji walidacji.
-    - Wypełnij wartości w oknie podręcznym **nowej walidacji** , a następnie wybierz pozycję **Utwórz**.
+    1. Na stronie Konfiguracja **parametrów** dla parametru temperatura wybierz pozycję **Dodaj weryfikację** w sekcji **walidacji** .
 
+    1. W oknie podręcznym **nowe sprawdzanie poprawności** Skonfiguruj weryfikację w następujący sposób:
   
        | Konfiguracja parametrów         | Sugerowana wartość                                          | Opis                                                                        |
        | ----------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-       | Wartość minimalna        | 60               | Dla parametrów liczbowych minimalna wartość, którą może przyjąć ten parametr |
-       | Wartość maksymalna        | 80               | Dla parametrów liczbowych wartość maksymalna, którą może przyjąć ten parametr |
-       | Niepowodzenie — prosty edytor| Pierwsza odmiana — Niestety, można ustawić tylko między 60 i 80 stopni      | Monituj o podanie nowej wartości, Jeśli weryfikacja nie powiedzie się                                       |
+       | **Wartość minimalna**        | **60**               | Dla parametrów liczbowych minimalna wartość, którą może przyjąć ten parametr |
+       | **Wartość maksymalna**        | **80**               | Dla parametrów liczbowych wartość maksymalna, którą może przyjąć ten parametr |
+       | **Niepowodzenie — prosty edytor**| **Pierwsza odmiana — Niestety, można ustawić tylko między 60 i 80 stopni**      | Monituj o podanie nowej wartości, Jeśli weryfikacja nie powiedzie się                                       |
 
        > [!div class="mx-imgBorder"]
        > ![Dodawanie walidacji zakresu](media/custom-speech-commands/validations-add-temperature.png)
 
-1. Dodaj przykładowe zdania
+1. Wybierz pozycję **Utwórz**.
+
+1. Dodaj przykładowe zdania.
 
    ```
    set the temperature to {Temperature} degrees
@@ -68,22 +71,22 @@ Aby zademonstrować walidacje, Utwórzmy nowe polecenie umożliwiające użytkow
    change the temperature
    ```
 
-1. Dodawanie reguły uzupełniania w celu potwierdzenia wyniku
+1. Dodaj regułę uzupełniania, która ma następującą konfigurację. Ta reguła potwierdza wynik.
 
    | Ustawienie    | Sugerowana wartość                                           |Opis                                     |
    | ---------- | --------------------------------------------------------- |-----|
    | Nazwa       | Komunikat z potwierdzeniem                                      |Nazwa opisująca przeznaczenie reguły |
-   | Warunki | Wymagane parametry —`Temperature`                       |Warunki określające, kiedy można uruchomić regułę    |   
-   | Akcje    | Wyślij odpowiedź na mowę —`Ok, setting temperature to {Temperature} degrees` | Akcja, która ma zostać podjęta po spełnieniu warunku reguły |
+   | **Warunki** | **Parametry wymagane — temperatura**                       |Warunki określające, kiedy można uruchomić regułę    |   
+   | **Akcje**    | **Wyślij odpowiedź na mowę — OK, ustawianie temperatury na {temperatura} stopni** | Akcja, która ma zostać podjęta po spełnieniu warunku reguły |
 
 > [!TIP]
-> Ten przykład używa odpowiedzi mowy, aby potwierdzić wynik. Aby zapoznać się z przykładami dotyczącymi kończenia polecenia z akcją klienta, zobacz: [jak: zrealizować polecenia na kliencie przy użyciu zestawu Speech SDK](./how-to-custom-speech-commands-fulfill-sdk.md)
-
+> Ten przykład używa odpowiedzi mowy, aby potwierdzić wynik. Przykłady wykonywania polecenia z akcją klienta znajdują się w temacie [How to: zrealizować polecenia na kliencie przy użyciu zestawu Speech SDK](./how-to-custom-speech-commands-fulfill-sdk.md).
 
 ## <a name="try-it-out"></a>Wypróbowywanie działania
-1. Wybierz `Train` ikonę znajdującą się w prawym okienku.
 
-1. Po zakończeniu szkolenia wybierz `Test` i wypróbuj kilka interakcji.
+1. Wybierz pozycję **uczenie**.
+
+1. Po zakończeniu szkolenia wybierz pozycję **test**, a następnie spróbuj wykonać następujące interakcje:
 
     - Dane wejściowe: Ustaw temperaturę na 72 stopni
     - Wynik: OK, ustawianie temperatury na 72 stopni
@@ -95,4 +98,4 @@ Aby zademonstrować walidacje, Utwórzmy nowe polecenie umożliwiające użytkow
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Instrukcje: Dodawanie potwierdzenia do polecenia niestandardowego (wersja zapoznawcza)](./how-to-custom-speech-commands-confirmations.md)
+> [Dodawanie potwierdzeń do polecenia w aplikacji polecenia niestandardowe w wersji zapoznawczej](./how-to-custom-speech-commands-confirmations.md)

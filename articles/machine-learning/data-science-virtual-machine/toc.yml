@@ -6,8 +6,6 @@
   items:
     - name: Co to jest środowisko Data Science Virtual Machine (DSVM)?
       href: overview.md
-    - name: Co to jest Geo AI Data Science Virtual Machine?
-      href: geo-ai-dsvm-overview.md
     - name: Narzędzia dołączone do maszyny Data Science Virtual Machine
       href: tools-included.md
 - name: Przewodniki Szybki start
@@ -17,8 +15,6 @@
       href: provision-vm.md
     - name: Tworzenie maszyny Data Science Virtual Machine z systemem Ubuntu
       href: dsvm-ubuntu-intro.md
-    - name: Tworzenie maszyny Geo AI Data Science Virtual Machine
-      href: provision-geo-ai-dsvm.md
 - name: Pojęcia
   items:
     - name: Platformy sztucznej inteligencji i uczenia głębokiego
@@ -45,8 +41,6 @@
       href: vm-do-ten-things.md
     - name: Korzystanie z maszyny Data Science Virtual Machine z systemem Linux
       href: linux-dsvm-walkthrough.md
-    - name: Korzystanie z maszyny Geo AI Data Science Virtual Machine
-      href: use-geo-ai-dsvm.md
     - name: Tworzenie skalowanej automatycznie puli maszyn Data Science Virtual Machine
       href: dsvm-pools.md
     - name: Integrację z usługą Active Directory
