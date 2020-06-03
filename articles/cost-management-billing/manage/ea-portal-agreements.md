@@ -3,16 +3,16 @@ title: Umowy EA platformy Azure i poprawki
 description: W tym artykule wyjaśniono, w jaki sposób umowy EA platformy Azure i ich poprawki wpływają na Twoje korzystanie z witryny Azure EA Portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/07/2020
+ms.date: 06/01/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 356b08526d96b6aa51a537a3dd1f7266cbf47141
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 4904390ce0642d0331e82610e8aef4b735b56f1f
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: HT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83648182"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298146"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Umowy EA platformy Azure i poprawki
 
@@ -43,7 +43,7 @@ Rejestracja może mieć jedną z następujących wartości stanu. Każda wartoś
 
 **Wygasły** — rejestracja EA wygasa w dniu zakończenia umowy Enterprise Agreement. Klient z umową EA zrezygnował z przedłużenia umowy i wszystkie usługi zostały wyłączone.
 
-Od 1 sierpnia 2019 r. nowe formularze rezygnacji nie są akceptowane w przypadku komercyjnych klientów platformy Azure. Zamiast tego wszystkie rejestracje są przedłużane na czas nieokreślony. Jeśli chcesz zakończyć korzystanie z usług platformy Azure, zamknij subskrypcję w [witrynie Azure EA Portal](https://portal.azure.com). Innym sposobem jest przesłanie żądania zakończenia przez Twojego partnera pod adresem https://www.explore.ms. Klienci z umowami dla instytucji rządowych nie zostaną obciążeni żadną opłatą.
+Od 1 sierpnia 2019 r. nowe formularze rezygnacji nie są akceptowane w przypadku komercyjnych klientów platformy Azure. Zamiast tego wszystkie rejestracje są przedłużane na czas nieokreślony. Jeśli chcesz zakończyć korzystanie z usług platformy Azure, zamknij subskrypcję w witrynie [Azure Portal](https://portal.azure.com). Innym sposobem jest przesłanie żądania zakończenia przez Twojego partnera pod adresem https://www.explore.ms. Klienci z umowami dla instytucji rządowych nie zostaną obciążeni żadną opłatą.
 
 **Przeniesiona** — ten stan jest stosowany do rejestracji, z których konta i usługi zostały przeniesione do nowej rejestracji. Rejestracje nie są przenoszone automatycznie w przypadku wygenerowania nowego numeru rejestracji podczas odnawiania. Aby nastąpiło automatyczne przeniesienie, należy uwzględnić poprzedni numer rejestracji w żądaniu odnowienia klienta.
 
