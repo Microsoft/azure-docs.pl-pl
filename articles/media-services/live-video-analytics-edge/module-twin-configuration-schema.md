@@ -29,8 +29,8 @@ Usługa Analiza filmów wideo na żywo na IoT Edge uwidacznia następujące wła
 |azureMediaServicesArmId |Yes |Nie |Unikatowy identyfikator zarządzania zasobami platformy Azure dla konta Media Services.|
 |aadTenantId |Yes |Nie |Identyfikator dzierżawy usługi Azure AD klienta.|
 |aadServicePrincipalAppId |Tak |Tak |Klient utworzył usługę Azure AD AppId.|
-|aadServicePrincipalCertificate |Opcję<sup>*</sup>  |Yes |Klient utworzył certyfikat AppId usługi Azure AD.|
-|aadServicePrincipalPassword |Opcję<sup>*</sup>  |Yes |Klient utworzył hasło AppId usługi Azure AD.|
+|aadServicePrincipalCertificate |Opcję<sup>*</sup>  |Tak |Klient utworzył certyfikat AppId usługi Azure AD.|
+|aadServicePrincipalPassword |Opcję<sup>*</sup>  |Tak |Klient utworzył hasło AppId usługi Azure AD.|
 |aadEndpoint |Nie |Nie |Punkt końcowy usługi Azure AD związany z chmurą. <br/>Wartooć`https://login.microsoftonline.com` |
 |aadResourceId |Nie |Nie |Specyficzne dla chmury grupy odbiorców/zasobów usługi Azure AD <br/>Wartooć`https://management.core.windows.net/` |
 |armEndpoint |Nie |Nie |Punkt końcowy zarządzania zasobami platformy Azure związany z chmurą. <br/>Wartooć`https://management.azure.com/` |
