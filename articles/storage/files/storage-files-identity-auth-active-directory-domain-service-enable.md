@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/21/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0aa90aa054f99e8f65233887703965eedcd6bd90
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: ccaa1945101c252f7dd32be6f9340b51541ed48d
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84264506"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84296638"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Włącz uwierzytelnianie Azure Active Directory Domain Services na Azure Files
 
@@ -22,6 +22,7 @@ Aby zapoznać się z omówieniem uwierzytelniania usługi Azure AD za pośrednic
 
 > [!NOTE]
 > Azure Files obsługuje uwierzytelnianie Kerberos za pomocą usługi Azure AD DS z szyfrowaniem RC4-HMAC. Szyfrowanie AES Kerberos nie jest jeszcze obsługiwane.
+> Azure Files obsługuje uwierzytelnianie dla AD DS platformy Azure z pełną synchronizacją z usługą Azuer AD. Jeśli włączono synchronizację z zakresem w usłudze Azure AD DS, która synchronizuje tylko ograniczony zestaw tożsamości z usługi Azure AD, uwierzytelnianie i autoryzacja nie są obsługiwane.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
