@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: 4fe1ee3ccf2849943959889838ba0f22fb64bb9a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 73762c431c84de01ce3561d586c5a12bfd26ac81
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79273061"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310129"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Typowe zadania uruchamiania usługi w chmurze
 W tym artykule przedstawiono kilka przykładów typowych zadań uruchamiania, które można wykonać w usłudze w chmurze. Zadania uruchamiania umożliwiają wykonywanie operacji przed rozpoczęciem roli. Operacje, które można wykonać, obejmują zainstalowanie składnika, zarejestrowanie składników modelu COM, ustawienie kluczy rejestru lub uruchomienie długotrwałego procesu. 
@@ -67,7 +67,7 @@ Zmienna ERRORLEVEL zwrócona przez *Appcmd. exe* jest wymieniona w pliku Winerro
 ### <a name="example-of-managing-the-error-level"></a>Przykład zarządzania poziomem błędu
 Ten przykład dodaje sekcję kompresji i wpis kompresji dla formatu JSON do pliku *Web. config* , z obsługą błędów i rejestrowaniem.
 
-W tym miejscu są wyświetlane odpowiednie sekcje pliku [ServiceDefinition. csdef] , które obejmują ustawienie `elevated` atrybutu [kontekście wykonywania](/previous-versions/azure/reference/gg557552(v=azure.100)#task) , aby nadać programowi *Appcmd. exe* wystarczające uprawnienia do zmiany ustawień w pliku *Web. config* :
+W tym miejscu są wyświetlane odpowiednie sekcje pliku [ServiceDefinition. csdef] , które obejmują ustawienie atrybutu [kontekście wykonywania](/previous-versions/azure/reference/gg557552(v=azure.100)#task) , aby nadać programowi `elevated` *Appcmd. exe* wystarczające uprawnienia do zmiany ustawień w pliku *Web. config* :
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -300,7 +300,7 @@ Zadanie uruchamiania może wykonywać różne kroki, gdy działa w chmurze w por
 
 Możliwość wykonywania różnych akcji na emulatorze obliczeniowym i w chmurze można osiągnąć przez utworzenie zmiennej środowiskowej w pliku [ServiceDefinition. csdef] . Następnie należy przetestować tę zmienną środowiskową dla wartości w zadaniu startowym.
 
-Aby utworzyć zmienną środowiskową, Dodaj element [Variable]/[RoleInstanceValue] i utwórz wartość XPath `/RoleEnvironment/Deployment/@emulated`. Wartość zmiennej środowiskowej **% ComputeEmulatorRunning%** jest `true` uruchamiana w emulatorze obliczeniowym i `false` w przypadku uruchamiania w chmurze.
+Aby utworzyć zmienną środowiskową, Dodaj element [Variable] / [RoleInstanceValue] i utwórz wartość XPath `/RoleEnvironment/Deployment/@emulated` . Wartość zmiennej środowiskowej **% ComputeEmulatorRunning%** jest `true` uruchamiana w emulatorze obliczeniowym i `false` w przypadku uruchamiania w chmurze.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -385,7 +385,7 @@ Aby uprościć kod XML, można utworzyć plik *cmd* otoki, który wywołuje wszy
 
 Może się okazać, że jest to irytujące użycie `>> "%TEMP%\StartupLog.txt" 2>&1` na końcu każdego zadania uruchamiania. Rejestrowanie zadań można wymusić, tworząc otokę, która obsługuje logowanie. Ta otoka wywołuje rzeczywisty plik wsadowy, który ma zostać uruchomiony. Wszystkie dane wyjściowe z docelowego pliku wsadowego zostaną przekierowane do pliku *Startuplog. txt* .
 
-Poniższy przykład pokazuje, jak przekierować wszystkie dane wyjściowe z pliku wsadowego uruchamiania. W tym przykładzie plik ServerDefinition. csdef tworzy zadanie uruchamiania wywołujące *logwrap. cmd*. *logwrap. cmd* wywołuje *Startup2. cmd*, przekierowując wszystkie dane wyjściowe do **% temp%\\StartupLog. txt**.
+Poniższy przykład pokazuje, jak przekierować wszystkie dane wyjściowe z pliku wsadowego uruchamiania. W tym przykładzie plik ServerDefinition. csdef tworzy zadanie uruchamiania wywołujące *logwrap. cmd*. *logwrap. cmd* wywołuje *Startup2. cmd*, przekierowując wszystkie dane wyjściowe do **% temp% \\ StartupLog. txt**.
 
 ServiceDefinition. cmd:
 
@@ -459,7 +459,7 @@ Przykładowe dane wyjściowe w pliku **StartupLog. txt** :
 ```
 
 > [!TIP]
-> Plik **StartupLog. txt** znajduje się w folderze *C:\Resources\temp\\{rolename} \RoleTemp* .
+> Plik **StartupLog. txt** znajduje się w folderze *C:\Resources\temp \\ {rolename} \RoleTemp* .
 > 
 > 
 
@@ -468,7 +468,7 @@ Ustaw uprawnienia odpowiednio dla zadania uruchamiania. Czasami zadania uruchami
 
 Atrybut [executionContext][zadania] kontekście wykonywania ustawia poziom uprawnień zadania uruchamiania. Użycie `executionContext="limited"` oznacza, że zadanie uruchamiania ma ten sam poziom uprawnień co rola. Użycie `executionContext="elevated"` oznacza, że zadanie uruchamiania ma uprawnienia administratora, co umożliwia zadanie uruchamiania wykonywanie zadań administratora bez nadawania uprawnień administratora do roli.
 
-Przykładem zadania uruchamiania, które wymaga podniesionych uprawnień, jest zadanie uruchamiania, które używa narzędzia **Appcmd. exe** w celu skonfigurowania usług IIS. **Plik Appcmd. exe** wymaga `executionContext="elevated"`.
+Przykładem zadania uruchamiania, które wymaga podniesionych uprawnień, jest zadanie uruchamiania, które używa narzędzia **Appcmd. exe** w celu skonfigurowania usług IIS. **Plik Appcmd. exe** wymaga `executionContext="elevated"` .
 
 ### <a name="use-the-appropriate-tasktype"></a>Użyj odpowiedniego zadania
 Atrybut [taskType][zadania] TaskType określa sposób wykonywania zadania uruchamiania. Istnieją trzy wartości: **proste**, **tła**i **pierwszego planu**. Zadania tła i pierwszego planu są uruchamiane asynchronicznie, a następnie proste zadania są wykonywane synchronicznie po jednym naraz.
@@ -483,7 +483,7 @@ Rola zostanie uruchomiona tylko wtedy, gdy **zmienna ERRORLEVEL** z każdego pro
 Brak `EXIT /B 0` na końcu pliku wsadowego uruchamiania jest powszechną przyczyną ról, które nie są uruchamiane.
 
 > [!NOTE]
-> Zauważyliśmy, że zagnieżdżone pliki wsadowe czasami zawieszają się podczas `/B` korzystania z parametru. Warto upewnić się, że ten problem zawieszający nie występuje, jeśli inny plik wsadowy wywoła bieżący plik wsadowy, na przykład w przypadku użycia [otoki dzienników](#always-log-startup-activities). W tym przypadku można `/B` pominąć parametr.
+> Zauważyliśmy, że zagnieżdżone pliki wsadowe czasami przestają odpowiadać przy użyciu `/B` parametru. Warto upewnić się, że ten problem nie występuje, jeśli inny plik wsadowy wywołuje bieżący plik wsadowy, na przykład jeśli używasz [otoki dziennika](#always-log-startup-activities). `/B`W tym przypadku można pominąć parametr.
 > 
 > 
 
@@ -512,6 +512,3 @@ Dowiedz się więcej na temat działania [zadań](cloud-services-startup-tasks.m
 [LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
-
-
-

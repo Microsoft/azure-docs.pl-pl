@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 85988d74d21c411586a368e12972450116259a45
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: db53e09957b5907e9b742c264b6a41f51041df1c
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80334398"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310244"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Azure Maps zasięg mobilności
 
@@ -28,7 +28,7 @@ Poniższa tabela zawiera informacje o zapotrzebowaniu dotyczące usługi mobilno
 |--------|---------|
 | *      |Prawie pełne pokrycie kraju/regionu.|
 
-## <a name="americas"></a>Ameryki
+## <a name="americas"></a>Ameryka Północna i Południowa
 
 | Kraj/region |  Miasto (obszar Metro) |
 |----------------|---------|
@@ -85,7 +85,7 @@ Poniższa tabela zawiera informacje o zapotrzebowaniu dotyczące usługi mobilno
 | Bułgaria       | <p>Balchik, Blagoevgrad, Burgas, Dobrich, Gabrovo, Haskovo, Kardzhali, Lovech, Nessebar, Pazardzhik, Pleven, Plovdiv, Ruse, Shumen, Sliven, Stara Zagora, Vratsa, Yambol, Varna, Weliko, Sofia</P> |
 | Chorwacja | Crikvenica, Dubrovnik, Rijeka, Slovanski Brod, Zagrzeb | 
 | Cypr | Larnaca, Limassol, Nikozja | 
-| Czechy | Brno, Jablonec, Karlovy Zróżnicuj, Liberec, Ostrava, Praga | 
+| Republika Czeska | Brno, Jablonec, Karlovy Zróżnicuj, Liberec, Ostrava, Praga | 
 | Dania   | Danii |
 | Estonia   | Estońskiej |   
 | Finlandia   | Hämeenlinna, Helsinki, Joensuu, Jyväskylä, Kajaani, Kouvola-kotka, Kuopio, Lappeenranta, Mikkeli, Oulu, Seinäjoki, Tampere, Turku, Vaasa|
@@ -118,7 +118,7 @@ Poniższa tabela zawiera informacje o zapotrzebowaniu dotyczące usługi mobilno
 | Szwecja | Goteborg/Gothenburg/Jonkoping, Malmö kommun-Malmö, Norrköping Och Linköping, Sztokholm, Sundsvall |
 | Szwajcaria | Basel, Genewa, Yverdon-les-Bains, Zurych | 
 | Turcja | Adana-Mersin, Ankara, Antalya, Balıkesir, bilecik, Bolu, Bursa, Denizli, duzce, Elazig, Eskisehir, Stambuł, Izmir-Aydin, Kahramanmaras, Kayseri, Konya, Malatya, Muğla, Samsun, Şanlıurfa |    
-| Wielka Brytania | Wschodnie Anglia, wschód Midlands, Londyn i Południowo-Wschodnia, północno-wschodnia, północne Zachodnie, Irlandia Północna, Szkocja, południowe zachodnie, Walia, zachodnie Midlands, Yorkshire |
+| Zjednoczone Królestwo | Wschodnie Anglia, wschód Midlands, Londyn i Południowo-Wschodnia, północno-wschodnia, północne Zachodnie, Irlandia Północna, Szkocja, południowe zachodnie, Walia, zachodnie Midlands, Yorkshire |
 | Ukraina | Kharkiv, Zhytomyr, Kijów, Lviv, Chernivtsi |
 
 

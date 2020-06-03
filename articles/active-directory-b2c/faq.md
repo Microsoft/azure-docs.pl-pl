@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 40285c811cd6f407c20c40bf3a90ec5b779a9c18
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 08a1d655d19b5e7deb81e42ca5bebdfe4f18aeef
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79264403"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84297908"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: często zadawane pytania
 
@@ -35,9 +35,9 @@ Nie można użyć Azure AD B2C do uwierzytelniania użytkowników dla Microsoft 
 
 ### <a name="what-are-local-accounts-in-azure-ad-b2c-how-are-they-different-from-work-or-school-accounts-in-azure-ad"></a>Co to są konta lokalne w Azure AD B2C? Czym różnią się one od kont służbowych w usłudze Azure AD?
 
-W dzierżawie usługi Azure AD użytkownicy, którzy należą do logowania do dzierżawy przy użyciu adresu e-mail formularza `<xyz>@<tenant domain>`. `<tenant domain>` Jest to jedna z zweryfikowanych domen w dzierżawie lub w domenie `<...>.onmicrosoft.com` początkowej. Ten typ konta jest kontem służbowym.
+W dzierżawie usługi Azure AD użytkownicy, którzy należą do logowania do dzierżawy przy użyciu adresu e-mail formularza `<xyz>@<tenant domain>` . `<tenant domain>`Jest to jedna z zweryfikowanych domen w dzierżawie lub w `<...>.onmicrosoft.com` domenie początkowej. Ten typ konta jest kontem służbowym.
 
-W dzierżawie Azure AD B2C większość aplikacji chce, aby użytkownik mógł się zalogować przy użyciu dowolnego adresu e-mail joe@comcast.net(na przykład bob@gmail.com sarah@contoso.com,, lub jim@live.com). Ten typ konta jest kontem lokalnym. Obsługiwane są również dowolne nazwy użytkowników jako konta lokalne (na przykład Jan, Robert, Sarah lub Jim). Podczas konfigurowania dostawców tożsamości dla Azure AD B2C w Azure Portal można wybrać jeden z tych dwóch typów kont lokalnych. W dzierżawie Azure AD B2C wybierz pozycję **dostawcy tożsamości**, wybierz pozycję **konto lokalne**, a następnie wybierz pozycję **Nazwa użytkownika**.
+W dzierżawie Azure AD B2C większość aplikacji chce, aby użytkownik mógł się zalogować przy użyciu dowolnego adresu e-mail (na przykład, joe@comcast.net , bob@gmail.com sarah@contoso.com lub jim@live.com ). Ten typ konta jest kontem lokalnym. Obsługiwane są również dowolne nazwy użytkowników jako konta lokalne (na przykład Jan, Robert, Sarah lub Jim). Podczas konfigurowania dostawców tożsamości dla Azure AD B2C w Azure Portal można wybrać jeden z tych dwóch typów kont lokalnych. W dzierżawie Azure AD B2C wybierz pozycję **dostawcy tożsamości**, wybierz pozycję **konto lokalne**, a następnie wybierz pozycję **Nazwa użytkownika**.
 
 Konta użytkowników dla aplikacji można tworzyć za pomocą przepływu użytkownika tworzenia konta, usługi rejestrowania lub logowania, interfejsu API Microsoft Graph lub Azure Portal.
 
@@ -134,21 +134,20 @@ Obecnie nie. Ta funkcja jest dostępna w naszym przewodniku. Weryfikowanie domen
 
 Wykonaj następujące kroki, aby usunąć dzierżawę Azure AD B2C.
 
-Możesz użyć bieżącego środowiska **aplikacji** lub naszego nowego systemu ujednoliconego **rejestracje aplikacji (wersja zapoznawcza)** . [Dowiedz się więcej na temat nowego środowiska](https://aka.ms/b2cappregintro).
+Możesz użyć naszego nowego, ujednoliconego środowiska **rejestracje aplikacji** lub naszych starszych **aplikacji (starsza wersja)** . [Dowiedz się więcej na temat nowego środowiska](https://aka.ms/b2cappregtraining).
 
-#### <a name="applications"></a>[Aplikacje](#tab/applications/)
+#### <a name="app-registrations"></a>[Rejestracje aplikacji](#tab/app-reg-ga/)
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/) jako *administrator subskrypcji*. Użyj tego samego konta służbowego lub tego samego konto Microsoft, które zostało użyte do zarejestrowania się na platformie Azure.
 1. Wybierz filtr **katalogów i subskrypcji** w górnym menu, a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
 1. W menu po lewej stronie wybierz pozycję **Azure AD B2C**. Lub wybierz pozycję **wszystkie usługi** i Wyszukaj i wybierz pozycję **Azure AD B2C**.
-1. Usuń wszystkie **przepływy użytkownika (zasady)** w dzierżawie Azure AD B2C.
-1. Usuń wszystkie **aplikacje** zarejestrowane w dzierżawie Azure AD B2C.
-1. Wybierz pozycję **Azure Active Directory** w menu po lewej stronie.
-1. W obszarze **Zarządzaj** wybierz pozycję **Użytkownicy**.
+1. Usuń wszystkie **przepływy użytkowników (zasady)** w dzierżawie Azure AD B2C.
+1. Wybierz pozycję **rejestracje aplikacji**, a następnie wybierz kartę **wszystkie aplikacje** .
+1. Usuń wszystkie zarejestrowane aplikacje.
+1. Usuń **B2C-Extensions-App**.
+1. W obszarze **Zarządzanie** wybierz pozycję **Użytkownicy**.
 1. Wybierz każdego użytkownika z kolei (wykluczanie użytkownika *administratora subskrypcji* , który jest obecnie zalogowany). Wybierz pozycję **Usuń** w dolnej części strony i wybierz opcję **tak** po wyświetleniu monitu.
-1. W obszarze **Zarządzaj**wybierz pozycję **Rejestracje aplikacji** (lub **rejestracje aplikacji (starsza wersja)**.
-1. Wybierz pozycję **Wyświetl wszystkie aplikacje**
-1. Wybierz aplikację o nazwie **B2C-Extensions-App**, wybierz pozycję **Usuń**, a następnie wybierz pozycję **tak** po wyświetleniu monitu.
+1. Wybierz pozycję **Azure Active Directory** w menu po lewej stronie.
 1. W obszarze **Zarządzaj**wybierz pozycję **Ustawienia użytkownika**.
 1. Jeśli jest obecny, w obszarze **połączenia konta serwisu LinkedIn**wybierz pozycję **nie**, a następnie wybierz pozycję **Zapisz**.
 1. W obszarze **Zarządzaj**wybierz pozycję **Właściwości** .
@@ -157,18 +156,19 @@ Możesz użyć bieżącego środowiska **aplikacji** lub naszego nowego systemu 
 1. Wybierz pozycję **Azure Active Directory** w menu po lewej stronie.
 1. Na stronie **Przegląd** wybierz pozycję **Usuń katalog**. Postępuj zgodnie z instrukcjami wyświetlanymi na ekranie, aby ukończyć proces.
 
-#### <a name="app-registrations-preview"></a>[Rejestracje aplikacji (wersja zapoznawcza)](#tab/app-reg-preview/)
+#### <a name="applications-legacy"></a>[Aplikacje (starsze)](#tab/applications-legacy/)
 
 1. Zaloguj się do [Azure Portal](https://portal.azure.com/) jako *administrator subskrypcji*. Użyj tego samego konta służbowego lub tego samego konto Microsoft, które zostało użyte do zarejestrowania się na platformie Azure.
 1. Wybierz filtr **katalogów i subskrypcji** w górnym menu, a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
 1. W menu po lewej stronie wybierz pozycję **Azure AD B2C**. Lub wybierz pozycję **wszystkie usługi** i Wyszukaj i wybierz pozycję **Azure AD B2C**.
-1. Usuń wszystkie **przepływy użytkowników (zasady)** w dzierżawie Azure AD B2C.
-1. Wybierz pozycję **rejestracje aplikacji (wersja zapoznawcza)**, a następnie wybierz kartę **wszystkie aplikacje** .
-1. Usuń wszystkie zarejestrowane aplikacje.
-1. Usuń **B2C-Extensions-App**.
-1. W obszarze **Zarządzaj** wybierz pozycję **Użytkownicy**.
-1. Wybierz każdego użytkownika z kolei (wykluczanie użytkownika *administratora subskrypcji* , który jest obecnie zalogowany). Wybierz pozycję **Usuń** w dolnej części strony i wybierz opcję **tak** po wyświetleniu monitu.
+1. Usuń wszystkie **przepływy użytkownika (zasady)** w dzierżawie Azure AD B2C.
+1. Usuń wszystkie **aplikacje (starsze)** zarejestrowane w dzierżawie Azure AD B2C.
 1. Wybierz pozycję **Azure Active Directory** w menu po lewej stronie.
+1. W obszarze **Zarządzanie** wybierz pozycję **Użytkownicy**.
+1. Wybierz każdego użytkownika z kolei (wykluczanie użytkownika *administratora subskrypcji* , który jest obecnie zalogowany). Wybierz pozycję **Usuń** w dolnej części strony i wybierz opcję **tak** po wyświetleniu monitu.
+1. W obszarze **Zarządzaj**wybierz pozycję **rejestracje aplikacji**.
+1. Wybierz pozycję **Wyświetl wszystkie aplikacje**
+1. Wybierz aplikację o nazwie **B2C-Extensions-App**, wybierz pozycję **Usuń**, a następnie wybierz pozycję **tak** po wyświetleniu monitu.
 1. W obszarze **Zarządzaj**wybierz pozycję **Ustawienia użytkownika**.
 1. Jeśli jest obecny, w obszarze **połączenia konta serwisu LinkedIn**wybierz pozycję **nie**, a następnie wybierz pozycję **Zapisz**.
 1. W obszarze **Zarządzaj**wybierz pozycję **Właściwości** .

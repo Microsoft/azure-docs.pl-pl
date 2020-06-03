@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 04/16/2020
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 5cb3e6d53f6840b8f4e535976739c188daed18b2
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 5af9deef7b6c3e2ea688f9e8ad5cc498f79c784e
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82789044"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84317419"
 ---
 Udostępniona Galeria obrazów to usługa, która ułatwia tworzenie struktury i organizacji na całym zarządzanym obrazie. Udostępnione Galerie obrazów zapewniają następujące:
 
@@ -48,11 +48,11 @@ Definicje obrazów są logiczną grupą dla wersji obrazu. Definicja obrazu zawi
 
 Istnieją trzy parametry dla każdej definicji obrazu, które są używane w połączeniu **wydawcy**, **oferty** i **jednostki SKU**. Są one używane do znajdowania konkretnej definicji obrazu. Możesz mieć wersje obrazów, które współdzielą jeden lub dwa, ale nie wszystkie trzy wartości.  Na przykład poniżej przedstawiono trzy definicje obrazów i ich wartości:
 
-|Definicja obrazu|Wydawca|Oferta|SKU|
+|Definicja obrazu|Publisher|Oferta|SKU|
 |---|---|---|---|
-|myImage1|Contoso|Finanse|Zaplecze|
-|myImage2|Contoso|Finanse|Fronton|
-|myImage3|Testowanie|Finanse|Fronton|
+|myImage1|Contoso|Finance|Zaplecze|
+|myImage2|Contoso|Finance|Fronton|
+|myImage3|Testowanie|Finance|Fronton|
 
 Wszystkie trzy z nich mają unikatowe zestawy wartości. Ten format jest podobny do tego, jak obecnie można określić wydawcy, oferty i jednostki SKU dla [obrazów portalu Azure Marketplace](../articles/virtual-machines/windows/cli-ps-findimage.md) w Azure PowerShell, aby uzyskać najnowszą wersję obrazu portalu Marketplace. Każda definicja obrazu musi mieć unikatowy zestaw tych wartości.
 
@@ -71,14 +71,14 @@ Poniżej znajdują się inne parametry, które można ustawić w definicji obraz
 
 ## <a name="generalized-and-specialized-images"></a>Uogólnione i wyspecjalizowane obrazy
 
-Udostępnione galerii obrazów są obsługiwane przez dwa stany systemu operacyjnego. Zazwyczaj obrazy wymagają, aby maszyna wirtualna użyta do utworzenia obrazu była uogólniona przed pobraniem obrazu. Uogólnianie to proces, który usuwa informacje specyficzne dla komputera i użytkownika z maszyny wirtualnej. W przypadku systemu Windows jest używany program Sysprep. W przypadku systemu Linux można użyć [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` lub `-deprovision+user` parametrów.
+Udostępnione galerii obrazów są obsługiwane przez dwa stany systemu operacyjnego. Zazwyczaj obrazy wymagają, aby maszyna wirtualna użyta do utworzenia obrazu była uogólniona przed pobraniem obrazu. Uogólnianie to proces, który usuwa informacje specyficzne dla komputera i użytkownika z maszyny wirtualnej. W przypadku systemu Windows jest używane narzędzie Sysprep. W przypadku systemu Linux można użyć [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` lub `-deprovision+user` parametrów.
 
 Wyspecjalizowane maszyny wirtualne nie przechodzący przez proces usuwania konkretnych informacji i kont komputera. Ponadto maszyny wirtualne utworzone z wyspecjalizowanych obrazów nie są `osProfile` skojarzone z nimi. Oznacza to, że specjalne obrazy będą mieć pewne ograniczenia oprócz niektórych korzyści.
 
 - Maszyny wirtualne i zestawy skalowania utworzone na podstawie wyspecjalizowanych obrazów mogą działać szybciej. Ponieważ są one tworzone na podstawie źródła, które zostało już w trakcie pierwszego uruchomienia, maszyny wirtualne utworzone na podstawie tych obrazów są szybsze.
 - Konta, których można użyć do logowania się do maszyny wirtualnej, można również używać na dowolnej maszynie wirtualnej utworzonej przy użyciu obrazu wyspecjalizowanego tworzonego na podstawie tej maszyny wirtualnej.
 - Maszyny wirtualne będą miały **nazwę komputera** maszyny wirtualnej, z której zrobiono obraz. Należy zmienić nazwę komputera, aby uniknąć kolizji.
-- `osProfile` Jest to sposób przekazywania informacji poufnych do maszyny wirtualnej przy użyciu programu `secrets`. Może to powodować problemy przy użyciu magazynu kluczy, usługi WinRM i innych funkcji `secrets` używanych w `osProfile`programie. W niektórych przypadkach można użyć tożsamości usługi zarządzanej (MSI) do obejścia tych ograniczeń.
+- `osProfile`Jest to sposób przekazywania informacji poufnych do maszyny wirtualnej przy użyciu programu `secrets` . Może to powodować problemy przy użyciu magazynu kluczy, usługi WinRM i innych funkcji używanych `secrets` w programie `osProfile` . W niektórych przypadkach można użyć tożsamości usługi zarządzanej (MSI) do obejścia tych ograniczeń.
 
 ## <a name="regional-support"></a>Obsługa regionalna
 
@@ -139,7 +139,7 @@ Regiony, w których jest replikowana wersja udostępnionego obrazu, mogą zosta�
 
 ![Ilustracja przedstawiająca sposób replikowania obrazów](./media/shared-image-galleries/replication.png)
 
-## <a name="access"></a>Dostęp
+## <a name="access"></a>Access
 
 Jako Galeria obrazów udostępnionych, definicja obrazu i wersja obrazu są wszystkie zasoby, które można udostępniać przy użyciu wbudowanych kontrolek kontroli RBAC platformy Azure. Za pomocą RBAC można udostępniać te zasoby innym użytkownikom, podmiotom usługi i grupom. Możesz nawet udostępnić dostęp osobom spoza dzierżawy, w ramach której zostały utworzone. Gdy użytkownik ma dostęp do udostępnionej wersji obrazu, może wdrożyć maszynę wirtualną lub zestaw skalowania maszyn wirtualnych.  Oto macierz udostępniania, która pomaga zrozumieć, do czego użytkownik uzyskuje dostęp:
 
@@ -293,7 +293,7 @@ Aby określić liczbę replik regionalnych, Przekaż lokalizację wraz z liczbą
 
 Jeśli liczba replik regionalnych nie jest określona dla każdej lokalizacji, domyślną liczbą replik będzie określona liczba znanych replik. 
 
-Aby określić wspólną liczbę replik w interfejsie wiersza `az sig image-version create` polecenia, użyj argumentu **--Replica-Count** w poleceniu.
+Aby określić wspólną liczbę replik w interfejsie wiersza polecenia, użyj argumentu **--Replica-Count** w `az sig image-version create` poleceniu.
 
 ### <a name="can-i-create-the-shared-image-gallery-in-a-different-location-than-the-one-for-the-image-definition-and-image-version"></a>Czy można utworzyć galerię obrazów udostępnionych w innej lokalizacji niż ta dla definicji obrazu i wersji obrazu?
 
