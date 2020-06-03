@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 05/20/2020
-ms.openlocfilehash: 037edb8af6e04a2ff65977a92a66482c9f4f880f
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: 8bff8cf1111675446c1c9fb2e5dde8b19e2ef5c1
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83845102"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310890"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Azure Monitor klucz zarządzany przez klienta 
 
@@ -80,7 +80,7 @@ Procedura nie jest obecnie obsługiwana w interfejsie użytkownika, a proces apr
 > [!IMPORTANT]
 > Wszystkie żądania interfejsu API muszą zawierać Token autoryzacji okaziciela w nagłówku żądania.
 
-Przykład:
+Na przykład:
 
 ```rst
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
@@ -196,8 +196,8 @@ Ten zasób jest używany jako połączenie tożsamości pośredniej między Key 
 Podczas tworzenia zasobu *klastra* należy określić poziom *rezerwacji pojemności* (SKU). Poziom *rezerwacji pojemności* może należeć do zakresu od 1 000 do 2 000 GB dziennie i można go zaktualizować w krokach 100 w późniejszym czasie. Jeśli potrzebujesz poziomu rezerwacji pojemności większej niż 2 000 GB dziennie, skontaktuj się z nami pod adresem LAIngestionRate@microsoft.com . [Dowiedz się więcej](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-clusters)
 
 Właściwość *rozliczenia* określa przypisanie rozliczeń dla zasobu *klastra* i jego danych:
-- *klaster* (domyślnie) — rozliczenia są przypisywane do subskrypcji hostingowej zasobu *klastra*
-- *obszary robocze* — rozliczenia są przypisane do subskrypcji obsługujących obszary robocze proporcjonalnie
+- *Klaster* (wartość domyślna) — koszty rezerwacji pojemności dla klastra są przypisywane do zasobu *klastra* .
+- *Obszary robocze* — koszty rezerwacji pojemności dla klastra są przypisywane proporcjonalnie do obszarów roboczych w klastrze, a zasób *klastra* jest rozliczany jako część użycia, jeśli łączna ilość danych pobieranych przez dzień jest objęta rezerwacją pojemności. Zobacz [log Analytics dedykowanych klastrów](manage-cost-storage.md#log-analytics-dedicated-clusters) , aby dowiedzieć się więcej na temat modelu cen klastra. 
 
 > [!NOTE]
 > Po utworzeniu zasobu *klastra* można go zaktualizować przy użyciu *jednostki SKU*, *keyVaultProperties* lub *rozliczeń* za pomocą żądania poprawek Rest.
