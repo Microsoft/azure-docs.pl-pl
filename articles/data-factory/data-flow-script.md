@@ -6,13 +6,13 @@ ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/06/2020
-ms.openlocfilehash: 0ac33a0912d52405cf3d2ae18d5102930a94f3ff
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.date: 06/02/2020
+ms.openlocfilehash: 27de2d3926a1f03cbd9169216e8f68c8ca81f2a5
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890869"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298605"
 ---
 # <a name="data-flow-script-dfs"></a>Skrypt przepływu danych (DFS)
 
@@ -52,7 +52,7 @@ source1 sink(allowSchemaDrift: true,
     validateSchema: false) ~> sink1
 ```
 
-Jeśli zdecydujesz się dodać transformację pochodną, najpierw musimy utworzyć podstawowy tekst transformacji, który ma proste wyrażenie umożliwiające dodanie nowej jednopisanej kolumny o nazwie `upperCaseTitle`:
+Jeśli zdecydujesz się dodać transformację pochodną, najpierw musimy utworzyć podstawowy tekst transformacji, który ma proste wyrażenie umożliwiające dodanie nowej jednopisanej kolumny o nazwie `upperCaseTitle` :
 ```
 derive(upperCaseTitle = upper(title)) ~> deriveTransformationName
 ```
@@ -71,7 +71,7 @@ source1 sink(allowSchemaDrift: true,
     validateSchema: false) ~> sink1
 ```
 
-A teraz ponownie kierujemy strumień przychodzący, identyfikując, który przekształcenie ma mieć nowe przekształcenie po (w tym przypadku `source1`) i kopiując nazwę strumienia do nowej transformacji:
+A teraz ponownie kierujemy strumień przychodzący, identyfikując, który przekształcenie ma mieć nowe przekształcenie po (w tym przypadku `source1` ) i kopiując nazwę strumienia do nowej transformacji:
 ```
 source(output(
         movieId as string,
@@ -85,7 +85,7 @@ source1 sink(allowSchemaDrift: true,
     validateSchema: false) ~> sink1
 ```
 
-Wreszcie zidentyfikujemy transformację, którą chcemy po tej nowej transformacji, i Zastąp swój strumień wejściowy (w tym `sink1`przypadku) nazwą strumienia wyjściowego dla nowej transformacji:
+Wreszcie zidentyfikujemy transformację, którą chcemy po tej nowej transformacji, i Zastąp swój strumień wejściowy (w tym przypadku `sink1` ) nazwą strumienia wyjściowego dla nowej transformacji:
 ```
 source(output(
         movieId as string,
@@ -173,7 +173,7 @@ aggregate(groupBy(movie),
 ```
 
 ### <a name="create-row-hash-fingerprint"></a>Utwórz odcisk palca skrótu wiersza 
-Użyj tego kodu w skrypcie przepływu danych, aby utworzyć nową kolumnę pochodną o ```DWhash``` nazwie, która ```sha1``` generuje skrót trzech kolumn.
+Użyj tego kodu w skrypcie przepływu danych, aby utworzyć nową kolumnę pochodną o nazwie ```DWhash``` , która generuje ```sha1``` skrót trzech kolumn.
 
 ```
 derive(DWhash = sha1(Name,ProductNumber,Color))
@@ -192,6 +192,16 @@ Ten kod będzie pełnić funkcję T-SQL ```string_agg()``` i agreguje wartości 
 source1 aggregate(groupBy(year),
     string_agg = collect(title)) ~> Aggregate1
 Aggregate1 derive(string_agg = toString(string_agg)) ~> DerivedColumn2
+```
+
+### <a name="count-number-of-updates-upserts-inserts-deletes"></a>Liczba aktualizacji, upserts, wstawienia, usunięcia
+W przypadku korzystania z przekształcenia ALTER Row można obliczyć liczbę aktualizacji, upserts, wstawienia, usunąć wynik z zasad zmiany wiersza. Dodaj transformację zagregowaną po zmianie wiersza i wklej ten skrypt przepływu danych do definicji agregacji dla tych liczników:
+
+```
+aggregate(updates = countIf(isUpdate(), 1),
+        inserts = countIf(isInsert(), 1),
+        upserts = countIf(isUpsert(), 1),
+        deletes = countIf(isDelete(),1)) ~> RowCount
 ```
 
 ## <a name="next-steps"></a>Następne kroki

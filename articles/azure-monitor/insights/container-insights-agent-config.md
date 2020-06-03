@@ -2,13 +2,13 @@
 title: Konfigurowanie Azure Monitor na potrzeby zbierania danych przez agentów kontenerów | Microsoft Docs
 description: W tym artykule opisano sposób konfigurowania Azure Monitor dla agenta kontenerów w celu sterowania kolekcją strumienia stdout/stderr i zmiennych środowiskowych.
 ms.topic: conceptual
-ms.date: 01/13/2020
-ms.openlocfilehash: 000f68d5498324fa0e68bce178688a79f3ce9c5b
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.date: 06/01/2020
+ms.openlocfilehash: 039c6355bef638aae0b2ef074f006aabc04185c4
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220246"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299285"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Konfigurowanie zbierania danych agenta dla Azure Monitor kontenerów
 
@@ -31,16 +31,17 @@ Udostępniany jest plik ConfigMap szablonu, który umożliwia łatwe edytowanie 
 
 Poniżej przedstawiono ustawienia, które można skonfigurować w celu kontrolowania zbierania danych.
 
-|Klucz |Typ danych |Wartość |Opis |
-|----|----------|------|------------|
-|`schema-version` |Ciąg (z uwzględnieniem wielkości liter) |wersjach |Jest to wersja schematu używana przez agenta podczas analizowania tego ConfigMap. Obecnie obsługiwana wersja schematu to v1. Modyfikowanie tej wartości nie jest obsługiwane i zostanie odrzucone po obliczeniu ConfigMap.|
-|`config-version` |String (ciąg) | | Program obsługuje możliwość śledzenia wersji tego pliku konfiguracji w systemie/repozytorium kontroli źródła. Maksymalna dozwolona liczba znaków wynosi 10, a wszystkie inne znaki są obcinane. |
-|`[log_collection_settings.stdout] enabled =` |Boolean (wartość logiczna) | true lub false | Ta funkcja kontroluje, czy jest włączone zbieranie dzienników strumienia stdout. Po ustawieniu na `true` i nie są wykluczone przestrzenie nazw dla zbierania dzienników stdout ( `log_collection_settings.stdout.exclude_namespaces` ustawienie poniżej), dzienniki stdout będą zbierane ze wszystkich kontenerów we wszystkich węzłach w klastrze. Jeśli nie zostanie określony w ConfigMaps, wartość domyślna to `enabled = true` . |
-|`[log_collection_settings.stdout] exclude_namespaces =`|String (ciąg) | Tablica rozdzielona przecinkami |Tablica przestrzeni nazw Kubernetes, dla których dzienniki stdout nie będą zbierane. To ustawienie ma zastosowanie tylko wtedy `log_collection_settings.stdout.enabled` , gdy jest ustawione na `true` . Jeśli nie zostanie określony w ConfigMap, wartość domyślna to `exclude_namespaces = ["kube-system"]` .|
-|`[log_collection_settings.stderr] enabled =` |Boolean (wartość logiczna) | true lub false |Ta funkcja kontroluje, czy jest włączona kolekcja dzienników kontenera stderr. Po ustawieniu na `true` i nie są wykluczone przestrzenie nazw dla zbierania dzienników stdout ( `log_collection_settings.stderr.exclude_namespaces` ustawienie), dzienniki stderr będą zbierane ze wszystkich kontenerów na wszystkich zestawach/węzłach w klastrze. Jeśli nie zostanie określony w ConfigMaps, wartość domyślna to `enabled = true` . |
-|`[log_collection_settings.stderr] exclude_namespaces =` |String (ciąg) |Tablica rozdzielona przecinkami |Tablica przestrzeni nazw Kubernetes, dla których dzienniki stderr nie będą zbierane. To ustawienie ma zastosowanie tylko wtedy `log_collection_settings.stdout.enabled` , gdy jest ustawione na `true` . Jeśli nie zostanie określony w ConfigMap, wartość domyślna to `exclude_namespaces = ["kube-system"]` . |
-| `[log_collection_settings.env_var] enabled =` |Boolean (wartość logiczna) | true lub false | To ustawienie steruje kolekcją zmiennych środowiskowych we wszystkich zestawach/węzłach w klastrze i domyślnie `enabled = true` nie jest określona w ConfigMaps. Jeśli kolekcja zmiennych środowiskowych jest włączona globalnie, można ją wyłączyć dla określonego kontenera przez ustawienie zmiennej środowiskowej `AZMON_COLLECT_ENV` na **false** przy użyciu ustawienia pliku dockerfile lub w [pliku konfiguracji dla elementu pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) w sekcji **env:** . Jeśli zbieranie zmiennych środowiskowych jest wyłączone globalnie, nie można włączyć kolekcji dla określonego kontenera (oznacza to, że jedynym przesłonięciem, który można zastosować na poziomie kontenera, jest wyłączenie kolekcji, gdy jest ona już włączona globalnie). |
-| `[log_collection_settings.enrich_container_logs] enabled =` |Boolean (wartość logiczna) | true lub false | To ustawienie kontroluje wzbogacanie dzienników kontenerów, aby wypełnić wartości nazwy i właściwości obrazu dla każdego rekordu dziennika zapisanego w tabeli ContainerLog dla wszystkich dzienników kontenerów w klastrze. Domyślnie nie jest `enabled = false` określony w ConfigMap. |
+| Klucz | Typ danych | Wartość | Opis |
+|--|--|--|--|
+| `schema-version` | Ciąg (z uwzględnieniem wielkości liter) | wersjach | Jest to wersja schematu używana przez agenta<br> podczas analizowania tego ConfigMap.<br> Obecnie obsługiwana wersja schematu to v1.<br> Modyfikowanie tej wartości nie jest obsługiwane i będzie<br> odrzucono, gdy ConfigMap jest oceniane. |
+| `config-version` | String (ciąg) |  | Program obsługuje możliwość śledzenia wersji tego pliku konfiguracji w systemie/repozytorium kontroli źródła.<br> Maksymalna dozwolona liczba znaków wynosi 10, a wszystkie inne znaki są obcinane. |
+| `[log_collection_settings.stdout] enabled =` | Boolean (wartość logiczna) | true lub false | Ta funkcja kontroluje, czy jest włączone zbieranie dzienników strumienia stdout. Gdy jest ustawiona na `true` i żadne obszary nazw nie są wykluczone dla zbierania dzienników stdout<br> ( `log_collection_settings.stdout.exclude_namespaces` ustawienie poniżej) dzienniki stdout będą zbierane ze wszystkich kontenerów we wszystkich węzłach w klastrze. Jeśli nie zostanie określony w ConfigMaps,<br> wartość domyślna to `enabled = true` . |
+| `[log_collection_settings.stdout] exclude_namespaces =` | String (ciąg) | Tablica rozdzielona przecinkami | Tablica przestrzeni nazw Kubernetes, dla których dzienniki stdout nie będą zbierane. To ustawienie ma zastosowanie tylko wtedy, gdy<br> `log_collection_settings.stdout.enabled`<br> jest ustawiony na `true` .<br> Jeśli nie zostanie określony w ConfigMap, wartość domyślna to<br> `exclude_namespaces = ["kube-system"]`. |
+| `[log_collection_settings.stderr] enabled =` | Boolean (wartość logiczna) | true lub false | Ta funkcja kontroluje, czy jest włączona kolekcja dzienników kontenera stderr.<br> Gdy jest ustawiona na `true` i żadne obszary nazw nie są wykluczone dla zbierania dzienników stdout<br> ( `log_collection_settings.stderr.exclude_namespaces` ustawienie) dzienniki stderr będą zbierane ze wszystkich kontenerów w ramach wszystkich zasobników/węzłów w klastrze.<br> Jeśli nie zostanie określony w ConfigMaps, wartość domyślna to<br> `enabled = true`. |
+| `[log_collection_settings.stderr] exclude_namespaces =` | String (ciąg) | Tablica rozdzielona przecinkami | Tablica przestrzeni nazw Kubernetes, dla których dzienniki stderr nie będą zbierane.<br> To ustawienie ma zastosowanie tylko wtedy, gdy<br> `log_collection_settings.stdout.enabled`jest ustawiony na `true` .<br> Jeśli nie zostanie określony w ConfigMap, wartość domyślna to<br> `exclude_namespaces = ["kube-system"]`. |
+| `[log_collection_settings.env_var] enabled =` | Boolean (wartość logiczna) | true lub false | To ustawienie steruje kolekcją zmiennych środowiskowych<br> między wszystkimi zasobnikami/węzłami w klastrze<br> i wartości domyślne do, `enabled = true` gdy nie zostanie określony<br> w ConfigMaps.<br> Jeśli kolekcja zmiennych środowiskowych jest włączona globalnie, można ją wyłączyć dla określonego kontenera<br> przez ustawienie zmiennej środowiskowej<br> `AZMON_COLLECT_ENV`na **wartość false** przy użyciu ustawienia pliku dockerfile lub w [pliku konfiguracji dla elementu pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) w sekcji **env:** .<br> Jeśli zbieranie zmiennych środowiskowych jest wyłączone globalnie, nie można włączyć kolekcji dla określonego kontenera (oznacza to, że jedynym przesłonięciem, który można zastosować na poziomie kontenera, jest wyłączenie kolekcji, gdy jest ona już włączona globalnie). |
+| `[log_collection_settings.enrich_container_logs] enabled =` | Boolean (wartość logiczna) | true lub false | To ustawienie kontroluje wzbogacanie dziennika kontenera w celu wypełnienia wartości nazwy i właściwości obrazu<br> dla każdego rekordu dziennika zapisanego w tabeli ContainerLog dla wszystkich dzienników kontenerów w klastrze.<br> Domyślnie nie jest `enabled = false` określony w ConfigMap. |
+| `[log_collection_settings.collect_all_kube_events]` | Boolean (wartość logiczna) | true lub false | To ustawienie umożliwia zbieranie zdarzeń polecenia dla wszystkich typów.<br> Domyślnie zdarzenia polecenia z typem *Normal* nie są zbierane. Gdy to ustawienie jest ustawione na `true` , *normalne* zdarzenia nie są już filtrowane i są zbierane wszystkie zdarzenia.<br> Domyślnie jest to ustawienie `false` . |
 
 ConfigMaps jest globalną listą, a do agenta może być zastosowany tylko jeden ConfigMap. Nie można ConfigMaps kolekcji.
 

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 38b6f797541ef07fa3fb5e1dc71029a4cbcf5d22
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b4333513d2ba210f6a472638732cc2781b8d5c0b
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80546286"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300839"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Architektura łączności w Azure Database for MariaDB
 W tym artykule opisano architekturę Azure Database for MariaDB łączności oraz sposób kierowania ruchu do wystąpienia Azure Database for MariaDB z klientów zarówno w ramach platformy Azure, jak i poza nią.
@@ -46,6 +46,7 @@ W poniższej tabeli wymieniono podstawowe i pomocnicze adresy IP bramy Azure Dat
 | Wschodnie stany USA | 40.121.158.30, 191.238.6.43  |
 | Wschodnie stany USA 2 |40.79.84.180, 191.239.224.107, 52.177.185.181, 40.70.144.38, 52.167.105.38  |
 | Francja Środkowa | 40.79.137.0, 40.79.129.1  |
+| Francja Południowa | 40.79.177.0     |
 | Niemcy Środkowe | 51.4.144.100     |
 | Niemcy Północne wschód | 51.5.144.179  |
 | Indie Środkowe | 104.211.96.159     |

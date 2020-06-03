@@ -10,12 +10,12 @@ ms.custom: subject-armqs
 ms.workload: identity
 ms.date: 05/21/2020
 ms.author: rolyon
-ms.openlocfilehash: 4cb25b0398dca05f32f944962e2fc8630ea10870
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: da25f4bc585da26b9765fd36d65a8b5e0689f725
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267651"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300668"
 ---
 # <a name="quickstart-add-an-azure-role-assignment-using-an-azure-resource-manager-template"></a>Szybki Start: Dodawanie przypisania roli platformy Azure przy użyciu szablonu Azure Resource Manager
 
@@ -40,6 +40,10 @@ Aby dodać przypisanie roli, należy określić trzy elementy: podmiot zabezpiec
 Szablon używany w tym przewodniku szybki start pochodzi z [szablonów szybkiego startu platformy Azure](https://azure.microsoft.com/resources/templates/101-rbac-builtinrole-resourcegroup/). Szablon zawiera trzy parametry i sekcję Resources. W sekcji Resources należy zauważyć, że ma ona trzy elementy przypisania roli: podmiot zabezpieczeń, definicja roli i zakres. 
 
 :::code language="json" source="~/quickstart-templates/101-rbac-builtinrole-resourcegroup/azuredeploy.json" highlight="30-32":::
+
+Zasób zdefiniowany w szablonie to:
+
+- [Microsoft. Authorization/roleAssignments](/azure/templates/Microsoft.Authorization/roleAssignments)
 
 ### <a name="deploy-the-template"></a>Wdrożenie szablonu
 

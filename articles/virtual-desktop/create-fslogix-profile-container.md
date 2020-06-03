@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/13/2020
+ms.date: 06/02/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 294a59ed94344ecf590eb9b34f991deaaa10db69
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: c2ffd22c8b3e3ca1786e0a1f905cd07d0568fcf2
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82607388"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84296361"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Tworzenie kontenera profilu FSLogix dla puli hostów przy użyciu Azure NetApp Files
 
@@ -132,7 +132,7 @@ Następnie musisz utworzyć nowy wolumin.
     - W obszarze **Sieć wirtualna**wybierz istniejącą sieć wirtualną z połączeniem z kontrolerem domeny z menu rozwijanego.
     - W obszarze **podsieć**wybierz pozycję **Utwórz nową**. Należy pamiętać, że ta podsieć zostanie delegowana do Azure NetApp Files.
 
-3.  Wybierz pozycję **Dalej: \> protokół** , aby otworzyć kartę Protokół i skonfigurować parametry dostępu do woluminu.
+3.  Wybierz pozycję **Dalej: \> \> Protokół** , aby otworzyć kartę Protokół i skonfigurować parametry dostępu do woluminu.
 
 ## <a name="configure-volume-access-parameters"></a>Konfigurowanie parametrów dostępu do woluminów
 
@@ -158,7 +158,7 @@ Ta sekcja opiera się na [tworzeniu kontenera profilu dla puli hostów przy uży
 
 2. Rozpakuj pobrany plik.
 
-3. W pliku przejdź do wersji **x64** > **i uruchom** program **FSLogixAppsSetup. exe**. Zostanie otwarte menu instalacja.
+3. W pliku przejdź do wersji **x64**  >  **Releases** i uruchom program **FSLogixAppsSetup. exe**. Zostanie otwarte menu instalacja.
 
 4.  Jeśli masz klucz produktu, wprowadź go w polu tekstowym klucz produktu.
 
@@ -166,11 +166,11 @@ Ta sekcja opiera się na [tworzeniu kontenera profilu dla puli hostów przy uży
 
 6. Wybierz pozycję **Zainstaluj**.
 
-7. Przejdź do **C:\\Program Files\\FSLogix\\Apps** , aby potwierdzić, że Agent jest zainstalowany.
+7. Przejdź do **C: \\ Program Files \\ FSLogix \\ Apps** , aby potwierdzić, że Agent jest zainstalowany.
 
 8. Z menu Start Uruchom polecenie **regedit** jako administrator.
 
-9. Przejdź do **komputera\\HKEY_LOCAL_MACHINE\\oprogramowania\\FSLogix**.
+9. Przejdź do **komputera \\ HKEY_LOCAL_MACHINE \\ oprogramowania \\ FSLogix**.
 
 10. Utwórz klucz o nazwie **Profile**.
 
@@ -210,7 +210,7 @@ Ta sekcja opiera się na [tworzeniu kontenera profilu dla puli hostów przy uży
 
 ## <a name="make-sure-users-can-access-the-azure-netapp-file-share"></a>Upewnij się, że użytkownicy mogą uzyskiwać dostęp do udziału plików usługi Azure NetApp
 
-1. Otwórz przeglądarkę internetową i przejdź do <https://rdweb.wvd.microsoft.com/arm/webclient>.
+1. Otwórz przeglądarkę internetową i przejdź do <https://rdweb.wvd.microsoft.com/arm/webclient> .
 
 2. Zaloguj się przy użyciu poświadczeń użytkownika przypisanych do grupy Pulpit zdalny.
 
@@ -222,7 +222,7 @@ Ta sekcja opiera się na [tworzeniu kontenera profilu dla puli hostów przy uży
 
 5. Przejdź do karty **Przegląd** i upewnij się, że kontener profilu FSLogix używa przestrzeni.
 
-6. Połącz się bezpośrednio z dowolną częścią maszyny wirtualnej puli hostów przy użyciu Pulpit zdalny i Otwórz **Eksploratora plików.** Następnie przejdź do **ścieżki instalacji** (w poniższym przykładzie ścieżka instalacji to \\ \\ANF-SMB-3863.gt1107.onmicrosoft.com\\ANF-vol).
+6. Połącz się bezpośrednio z dowolną częścią maszyny wirtualnej puli hostów przy użyciu Pulpit zdalny i Otwórz **Eksploratora plików.** Następnie przejdź do **ścieżki instalacji** (w poniższym przykładzie ścieżka instalacji to \\ \\ ANF-SMB-3863.gt1107.onmicrosoft.com \\ ANF-vol).
 
    W tym folderze powinien istnieć dysk VHD (lub VHDX) profilu, taki jak ten, w poniższym przykładzie.
 
@@ -231,3 +231,5 @@ Ta sekcja opiera się na [tworzeniu kontenera profilu dla puli hostów przy uży
 ## <a name="next-steps"></a>Następne kroki
 
 Kontenery profilu FSLogix można użyć do skonfigurowania udziału profilu użytkownika. Aby dowiedzieć się, jak utworzyć udziały profilu użytkownika przy użyciu nowych kontenerów, zobacz [Tworzenie kontenera profilu dla puli hostów przy użyciu udziału plików](create-host-pools-user-profile.md).
+
+Możesz również utworzyć Azure Files udział plików do przechowywania profilu FSLogix w programie. Aby dowiedzieć się więcej, zobacz [Tworzenie udziału plików Azure Files z kontrolerem domeny](create-file-share.md).

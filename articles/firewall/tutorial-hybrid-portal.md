@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 208a7a677bdf0b76ffed83e679c6f1ff3041d50d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7da5e6fa3c977d309ad028cb446cd411a9d4fbaf
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80239683"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298962"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Samouczek: wdrażanie i Konfigurowanie zapory platformy Azure w sieci hybrydowej przy użyciu Azure Portal
 
@@ -29,7 +29,7 @@ W tym samouczku zostaną utworzone trzy sieci wirtualne:
 
 ![Zapora w sieci hybrydowej](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
-Ten samouczek zawiera informacje na temat wykonywania następujących czynności:
+Z tego samouczka dowiesz się, jak wykonywać następujące czynności:
 
 > [!div class="checklist"]
 > * Deklarowanie zmiennych
@@ -67,19 +67,19 @@ Zapoznaj się z sekcją [Tworzenie tras](#create-the-routes) w tym samouczku, ab
 >[!NOTE]
 >Ruch między wirtualnymi sieciami równorzędnymi połączonymi bezpośrednio jest kierowany bezpośrednio nawet wtedy, gdy trasa zdefiniowana przez użytkownika wskazuje usługę Azure Firewall jako bramę domyślną. Aby w tym scenariuszu wysyłać ruch między podsieciami do zapory, trasa zdefiniowana przez użytkownika musi jawnie zawierać prefiks podsieci docelowej w obu podsieciach.
 
-Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem Utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) .
+Jeśli nie masz subskrypcji platformy Azure, przed rozpoczęciem utwórz [bezpłatne konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="create-the-firewall-hub-virtual-network"></a>Tworzenie sieci wirtualnej koncentratora zapory
 
 Najpierw utwórz grupę zasobów zawierającą zasoby do celów tego samouczka:
 
 1. Zaloguj się do witryny Azure Portal pod adresem [https://portal.azure.com](https://portal.azure.com).
-2. Na stronie głównej Azure Portal wybierz pozycję **grupy** > zasobów**Dodaj**.
+2. Na stronie głównej Azure Portal wybierz pozycję **grupy zasobów**  >  **Dodaj**.
 3. W obszarze **Nazwa grupy zasobów**wpisz polecenie **PD-hybrydowy-test**.
 4. W polu **Subskrypcja** wybierz subskrypcję.
 5. W **obszarze region**wybierz pozycję **Wschodnie stany USA**. Wszystkie zasoby, które tworzysz później, muszą znajdować się w tej samej lokalizacji.
 6. Wybierz pozycję **Recenzja + Utwórz**.
-7. Wybierz przycisk **Utwórz**.
+7. Wybierz pozycję **Utwórz**.
 
 Teraz Utwórz sieć wirtualną:
 
@@ -131,18 +131,6 @@ Teraz Utwórz drugą podsieć dla bramy.
 4. W obszarze **zakres adresów (blok CIDR)** wpisz **192.168.2.0/24**.
 5. Wybierz przycisk **OK**.
 
-### <a name="create-a-public-ip-address"></a>Tworzenie publicznego adresu IP
-
-Jest to publiczny adres IP używany przez bramę lokalną.
-
-1. Na stronie głównej Azure Portal wybierz pozycję **Utwórz zasób**.
-2. W polu tekstowym Wyszukaj wpisz **publiczny adres IP** , a następnie naciśnij klawisz **Enter**.
-3. Wybierz pozycję **publiczny adres IP** , a następnie wybierz pozycję **Utwórz**.
-4. W polu Nazwa wpisz **VNET-lokalnego-GW-PIP**.
-5. W polu Grupa zasobów wpisz polecenie **PD-hybrydowy-test**.
-6. W polu **Lokalizacja** wybierz tę samą lokalizację, która była używana poprzednio.
-7. Zaakceptuj inne ustawienia domyślne, a następnie wybierz pozycję **Utwórz**.
-
 ## <a name="configure-and-deploy-the-firewall"></a>Konfigurowanie i wdrażanie zapory
 
 Teraz Wdróż zaporę w sieci wirtualnej centrum zapory.
@@ -153,12 +141,12 @@ Teraz Wdróż zaporę w sieci wirtualnej centrum zapory.
 
    |Ustawienie  |Wartość  |
    |---------|---------|
-   |Subskrypcja     |\<Twoja subskrypcja\>|
+   |Subskrypcja     |\<your subscription\>|
    |Grupa zasobów     |**PD-test hybrydowy** |
    |Nazwa     |**AzFW01**|
    |Lokalizacja     |Wybierz tę samą lokalizację, której użyto poprzednio|
    |Wybieranie sieci wirtualnej     |**Use Existing** (Użyj istniejącej):<br> **Sieć wirtualna — koncentrator**|
-   |Publiczny adres IP     |Utwórz nowy: <br>**Nazwa** - **PD-PIP**. |
+   |Publiczny adres IP     |Utwórz nowy: <br>**Nazwa**  -  **PD-PIP**. |
 
 5. Wybierz pozycję **Przegląd + utwórz**.
 6. Przejrzyj podsumowanie, a następnie wybierz pozycję **Utwórz** , aby utworzyć zaporę.
@@ -300,11 +288,11 @@ Następnie należy utworzyć kilka tras:
 1. Na stronie głównej Azure Portal wybierz pozycję **Utwórz zasób**.
 2. W polu tekstowym Wyszukaj wpisz ciąg **Route Table** i naciśnij klawisz **Enter**.
 3. Wybierz pozycję **tabela tras**.
-4. Wybierz przycisk **Utwórz**.
+4. Wybierz pozycję **Utwórz**.
 5. W polu Nazwa wpisz **UDR-Hub-szprych**.
 6. Wybierz z grupy zasobów opcję **PD-hybrydowy-test** .
 8. W polu **Lokalizacja** wybierz tę samą lokalizację, która była używana poprzednio.
-9. Wybierz przycisk **Utwórz**.
+9. Wybierz pozycję **Utwórz**.
 10. Po utworzeniu tabeli tras wybierz ją, aby otworzyć stronę tabela tras.
 11. W lewej kolumnie Wybierz pozycję **trasy** .
 12. Wybierz pozycję **Dodaj**.
@@ -328,12 +316,12 @@ Teraz Utwórz trasę domyślną z podsieci szprych.
 1. Na stronie głównej Azure Portal wybierz pozycję **Utwórz zasób**.
 2. W polu tekstowym Wyszukaj wpisz ciąg **Route Table** i naciśnij klawisz **Enter**.
 3. Wybierz pozycję **tabela tras**.
-5. Wybierz przycisk **Utwórz**.
+5. Wybierz pozycję **Utwórz**.
 6. W polu Nazwa wpisz **UDR-DG**.
 7. Wybierz z grupy zasobów opcję **PD-hybrydowy-test** .
 8. W polu **Lokalizacja** wybierz tę samą lokalizację, która była używana poprzednio.
 4. W przypadku **propagacji trasy bramy sieci wirtualnej**wybierz pozycję **wyłączone**.
-1. Wybierz przycisk **Utwórz**.
+1. Wybierz pozycję **Utwórz**.
 2. Po utworzeniu tabeli tras wybierz ją, aby otworzyć stronę tabela tras.
 3. W lewej kolumnie Wybierz pozycję **trasy** .
 4. Wybierz pozycję **Dodaj**.
@@ -402,7 +390,7 @@ Jest to maszyna wirtualna, która jest używana do nawiązywania połączenia pr
 2. W obszarze **popularne**wybierz pozycję **Windows Server 2016 Datacenter**.
 3. Wprowadź poniższe wartości dla maszyny wirtualnej:
     - **Grupa zasobów** — wybierz pozycję istniejące, a następnie wybierz pozycję **PD-hybrydowy-test**.
-    - **Nazwa maszyny wirtualnej** - *VM-lokalnego*.
+    - **Nazwa**  -  maszyny wirtualnej *Maszyna wirtualna — lokalnego*.
     - **Region — w** tym samym regionie, który jest używany wcześniej.
     - **Nazwa użytkownika**: *azureuser*.
     - **Hasło**: *Azure123456!*.
@@ -422,9 +410,9 @@ Jest to maszyna wirtualna, która jest używana do nawiązywania połączenia pr
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
    You should get a reply.--->
-3. Otwórz przeglądarkę internetową na maszynie wirtualnej **VM-Onprem**, a następnie przejdź do lokalizacji http://\<VM-spoke-01 private IP\>.
+3. Otwórz przeglądarkę internetową w obszarze **VM-lokalnego**, a następnie przejdź do http:// \<VM-spoke-01 private IP\> .
 
-   Powinna zostać wyświetlona strona sieci Web **VM-szprych-01** : ![Strona sieci Web VM-szprych-01](media/tutorial-hybrid-portal/VM-Spoke-01-web.png)
+   Powinna zostać wyświetlona strona sieci Web **VM-szprych-01** : ![ Strona sieci Web VM-szprych-01](media/tutorial-hybrid-portal/VM-Spoke-01-web.png)
 
 4. Z maszyny wirtualnej **VM-lokalnego** Otwórz pulpit zdalny do **maszyny wirtualnej-szprych-01** z prywatnym adresem IP.
 

@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: aapowell
-ms.openlocfilehash: bd9eaad0c141eda815da159e3c13d6c51f5e6200
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: cc1bf52190cb47bc4ffd6efe159ed88cac560e02
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83599739"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298004"
 ---
 # <a name="tutorial-publish-a-vuepress-site-to-azure-static-web-apps-preview"></a>Samouczek: publikowanie witryny VuePress w wersji zapoznawczej usługi Azure static Web Apps
 
@@ -120,7 +120,7 @@ Poniższe kroki pokazują, jak utworzyć nową aplikację statyczną Web Apps i 
 
 1. W obszarze _Grupa zasobów_wybierz pozycję **Nowy**. W polu _Nazwa nowej grupy zasobów_wprowadź **vuepress-static-App** , a następnie wybierz **przycisk OK**.
 
-1. Następnie podaj globalnie unikatową nazwę aplikacji w polu **Nazwa** . Prawidłowe znaki to `a-z` , `A-Z` `0-9` i `-` . Ta wartość jest używana jako prefiks adresu URL dla aplikacji statycznej w formacie `https://<APP_NAME>.azurestaticapps.net` .
+1. Następnie wpisz nazwę aplikacji w polu **Nazwa** . Prawidłowe znaki to `a-z` , `A-Z` `0-9` i `-` .
 
 1. W _obszarze region_wybierz dostępny region blisko siebie.
 
@@ -164,7 +164,7 @@ Wartość _lokalizacji interfejsu API_ nie jest konieczna, ponieważ w tej chwil
 
    :::image type="content" source="./media/publish-vuepress/deployed-app.png" alt-text="Wdrożona aplikacja":::
 
-### <a name="clean-up-resources"></a>Czyszczenie zasobów
+### <a name="clean-up-resources"></a>Oczyszczanie zasobów
 
 [!INCLUDE [cleanup-resource](../../includes/static-web-apps-cleanup-resource.md)]
 

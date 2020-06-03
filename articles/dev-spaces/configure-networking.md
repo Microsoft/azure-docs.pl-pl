@@ -5,12 +5,12 @@ ms.date: 03/17/2020
 ms.topic: conceptual
 description: Opisuje wymagania sieciowe dotyczące uruchamiania Azure Dev Spaces w usłudze Azure Kubernetes Services
 keywords: Azure Dev Spaces, Spaces dev, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, Containers, CNI, korzystającą wtyczki kubenet, SDN, Network
-ms.openlocfilehash: a5cac4eaf1f87e6e704bb643279637902c792c7c
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: c3ee84819172fe28aef779493d01e2433ccca336
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267532"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300695"
 ---
 # <a name="configure-networking-for-azure-dev-spaces-in-different-network-topologies"></a>Konfigurowanie sieci dla Azure Dev Spaces w różnych topologiach sieci
 
@@ -72,7 +72,7 @@ Azure Dev Spaces może uwidaczniać punkty końcowe dla usług uruchomionych w u
 * *Prywatny* punkt końcowy wdraża kontroler transferu danych przychodzących z prywatnym adresem IP. Przy użyciu prywatnego adresu IP moduł równoważenia obciążenia dla klastra jest dostępny tylko w sieci wirtualnej klastra. Prywatny adres IP modułu równoważenia obciążenia jest zarejestrowany w systemie DNS klastra, aby można było uzyskać dostęp do usług w sieci wirtualnej klastra przy użyciu adresu URL. Ten adres URL można wyświetlić za pomocą polecenia `azds list-uris` .
 * Ustawienie *Brak* dla opcji punktu końcowego powoduje, że nie zostanie wdrożony kontroler transferu danych przychodzących. Gdy nie wdrożono kontrolera transferu danych przychodzących, [możliwości routingu Azure dev Spaces][dev-spaces-routing] nie będą działały. Opcjonalnie można zaimplementować własne rozwiązanie kontrolera transferu danych przychodzących za pomocą [traefik][traefik-ingress] lub [Nginx][nginx-ingress], co umożliwi ponowne działanie funkcji routingu.
 
-Aby skonfigurować opcję punktu końcowego, użyj *-e* lub *--Endpoint* przy włączaniu Azure dev Spaces w klastrze. Przykład:
+Aby skonfigurować opcję punktu końcowego, użyj *-e* lub *--Endpoint* przy włączaniu Azure dev Spaces w klastrze. Na przykład:
 
 > [!NOTE]
 > Opcja punktu końcowego wymaga, aby uruchomiono interfejs wiersza polecenia platformy Azure w wersji 2.2.0 lub nowszej. Uruchom polecenie `az --version`, aby dowiedzieć się, jaka wersja jest używana. Jeśli konieczna będzie instalacja lub uaktualnienie, zobacz [Instalowanie interfejsu wiersza polecenia platformy Azure][azure-cli-install].
@@ -83,7 +83,7 @@ az aks use-dev-spaces -g MyResourceGroup -n MyAKS -e private
 
 ## <a name="client-requirements"></a>Wymagania dotyczące klientów
 
-Azure Dev Spaces używa narzędzi po stronie klienta, takich jak rozszerzenie interfejsu wiersza polecenia Azure Dev Spaces, rozszerzenia Visual Studio Code i rozszerzenia programu Visual Studio, aby komunikować się z klastrem AKS na potrzeby debugowania. Aby użyć Azure Dev Spaces narzędzia po stronie klienta, Zezwól na ruch z maszyn deweloperskich do domeny *azds- \* . azds.IO* . Zobacz *dataplaneFqdn* w programie `USERPROFILE\.azds\settings.json` , aby poznać dokładną nazwę FQDN. W przypadku korzystania z [dozwolonych zakresów adresów IP serwera interfejsu API][auth-range-section]należy również zezwolić na adres IP wszystkich maszyn deweloperskich, które łączą się z klastrem AKS w celu debugowania w celu nawiązania połączenia z serwerem interfejsu API.
+Azure Dev Spaces używa narzędzi po stronie klienta, takich jak rozszerzenie interfejsu wiersza polecenia Azure Dev Spaces, rozszerzenia Visual Studio Code i rozszerzenia programu Visual Studio, aby komunikować się z klastrem AKS na potrzeby debugowania. Aby użyć Azure Dev Spaces narzędzia po stronie klienta, Zezwól na ruch z maszyn deweloperskich do [infrastruktury Azure dev Spaces][dev-spaces-allow-infrastructure]. W przypadku korzystania z [dozwolonych zakresów adresów IP serwera interfejsu API][auth-range-section]należy również zezwolić na adres IP wszystkich maszyn deweloperskich, które łączą się z klastrem AKS w celu debugowania w celu nawiązania połączenia z serwerem interfejsu API.
 
 ## <a name="next-steps"></a>Następne kroki
 
@@ -103,6 +103,7 @@ Dowiedz się, jak Azure Dev Spaces ułatwiają tworzenie bardziej złożonych ap
 [aks-private-clusters]: ../aks/private-clusters.md
 [auth-range-section]: #using-api-server-authorized-ip-ranges
 [azure-cli-install]: /cli/azure/install-azure-cli
+[dev-spaces-allow-infrastructure]: #virtual-network-or-subnet-configurations
 [dev-spaces-routing]: how-dev-spaces-works-routing.md
 [endpoint-options]: #using-different-endpoint-options
 [firewall-service-tags]: ../firewall/service-tags.md

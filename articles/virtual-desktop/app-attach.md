@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a222e5a0602a676872eb8119e565f243f2ecc1b4
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: c23528fbb60b471a7613f372fe5316a4883ae733
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83742938"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310618"
 ---
 # <a name="set-up-msix-app-attach"></a>Konfigurowanie dołączania aplikacji MSIX
 
 > [!IMPORTANT]
-> Dołączenie do aplikacji MSIX jest obecnie w prywatnej wersji zapoznawczej.
+> Dołączenie do aplikacji MSIX jest obecnie w publicznej wersji zapoznawczej.
 > Ta wersja zapoznawcza jest świadczona bez umowy dotyczącej poziomu usług i nie zalecamy jej używania w przypadku obciążeń produkcyjnych. Niektóre funkcje mogą być nieobsługiwane lub ograniczone. Aby uzyskać więcej informacji, zobacz [Uzupełniające warunki korzystania z wersji zapoznawczych platformy Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 W tym temacie opisano sposób konfigurowania dołączania aplikacji MSIX w środowisku pulpitu wirtualnego systemu Windows.
@@ -28,13 +28,14 @@ W tym temacie opisano sposób konfigurowania dołączania aplikacji MSIX w środ
 Przed rozpoczęciem należy wykonać następujące czynności w celu skonfigurowania dołączania aplikacji MSIX:
 
 - Dostęp do portalu niejawnego testera systemu Windows w celu uzyskania wersji systemu Windows 10 z obsługą interfejsów API dołączania aplikacji MSIX.
-- Działające wdrożenie pulpitu wirtualnego systemu Windows. Aby uzyskać więcej informacji, zobacz [Tworzenie dzierżawy w systemie Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
+- Działające wdrożenie pulpitu wirtualnego systemu Windows. Aby dowiedzieć się, jak wdrożyć pulpit wirtualny systemu Windows, Skorzystaj z wersji 2019, zobacz [Tworzenie dzierżawy w systemie Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Aby dowiedzieć się, jak wdrożyć wydanie systemu Windows Virtual Desktop wiosnę 2020, zobacz [Tworzenie puli hostów za pomocą Azure Portal](./create-host-pools-azure-marketplace.md).
+
 - Narzędzie MSIX pakowanie
 - Udział sieciowy w wdrożeniu pulpitu wirtualnego systemu Windows, w którym będzie przechowywany pakiet MSIX
 
-## <a name="get-the-os-image"></a>Pobierz obraz systemu operacyjnego
+## <a name="get-the-os-image-from-the-technology-adoption-program-tap-portal"></a>Pobieranie obrazu systemu operacyjnego z portalu programu wdrażania technologii (TAP)
 
-Najpierw należy uzyskać obraz systemu operacyjnego, który będzie używany dla aplikacji MSIX. Aby uzyskać obraz systemu operacyjnego:
+Aby pobrać obraz systemu operacyjnego z portalu niejawnego testera systemu Windows:
 
 1. Otwórz [Portal niejawnego testera systemu Windows](https://www.microsoft.com/software-download/windowsinsiderpreviewadvanced?wa=wsignin1.0) i zaloguj się.
 
@@ -49,6 +50,21 @@ Najpierw należy uzyskać obraz systemu operacyjnego, który będzie używany dl
      >W tej chwili w języku angielskim jest jedynym językiem, który został przetestowany przy użyciu funkcji. Można wybrać inne języki, ale mogą one nie być wyświetlane zgodnie z oczekiwaniami.
     
 4. Po wygenerowaniu linku pobierania wybierz pozycję **64-bitowe pobieranie** i Zapisz ją na lokalnym dysku twardym.
+
+## <a name="get-the-os-image-from-the-azure-portal"></a>Pobierz obraz systemu operacyjnego z Azure Portal
+
+Aby uzyskać obraz systemu operacyjnego z Azure Portal:
+
+1. Otwórz [Azure Portal](https://portal.azure.com) i zaloguj się.
+
+2. Przejdź do pozycji **Utwórz maszynę wirtualną**.
+
+3. Na karcie **podstawowa** wybierz pozycję **Windows 10 Enterprise wiele sesji, wersja 2004**.
+      
+4. Postępuj zgodnie z pozostałymi instrukcjami, aby zakończyć tworzenie maszyny wirtualnej.
+
+     >[!NOTE]
+     >Możesz użyć tej maszyny wirtualnej do bezpośredniego testowania dołączania aplikacji MSIX. Aby dowiedzieć się więcej, zapoznaj się z tematem [Generowanie pakietu dysku VHD lub VHDX dla MSIX](#generate-a-vhd-or-vhdx-package-for-msix). W przeciwnym razie zapoznaj się z tą sekcją.
 
 ## <a name="prepare-the-vhd-image-for-azure"></a>Przygotowanie obrazu wirtualnego dysku twardego dla platformy Azure 
 
@@ -77,7 +93,7 @@ sc config wuauserv start=disabled
 Po wyłączeniu funkcji Aktualizacje automatyczne należy włączyć funkcję Hyper-V, ponieważ w celu przełączenia i odinstalowania dysku VHD na nośniku należy użyć polecenia miotacza-VHD. 
 
 ```powershell
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-All
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 ```
 >[!NOTE]
 >Ta zmiana będzie wymagała ponownego uruchomienia maszyny wirtualnej.

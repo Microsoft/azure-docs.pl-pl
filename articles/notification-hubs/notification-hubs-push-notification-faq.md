@@ -17,12 +17,12 @@ ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: 3212520f37d33a2d8fb1b071506f688b9f75f15c
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 29ef1ec551169bb84680f343e38949f73724f5ae
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76263833"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84307388"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Powiadomienia wypychane za pomocą usługi Azure Notification Hubs: często zadawane pytania
 
@@ -56,7 +56,7 @@ W przypadku warstw Podstawowa i Standardowa Notification Hubs prawidłowo skonfi
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>Jak mogę uaktualnić lub obniżyć poziom mojego centrum lub przestrzeni nazw do innej warstwy?
 
-Przejdź do obszaru **[Azure portal]** > **nazw Notification Hubs** Azure Portal lub **Notification Hubs**. Wybierz zasób, który chcesz zaktualizować, i przejdź do **warstwy cenowej**. Należy pamiętać o następujących wymaganiach:
+Przejdź do obszaru **[Azure portal]**  >  **nazw Notification Hubs** Azure Portal lub **Notification Hubs**. Wybierz zasób, który chcesz zaktualizować, i przejdź do **warstwy cenowej**. Należy pamiętać o następujących wymaganiach:
 
 * Zaktualizowana warstwa cenowa ma zastosowanie do *wszystkich* centrów w przestrzeni nazw, z którymi pracujesz.
 * Jeśli liczba urządzeń przekracza limit warstwy, do której należysz, należy usunąć urządzenia przed obniżeniem poziomu.
@@ -79,7 +79,7 @@ Notification Hubs wysyła powiadomienia do urządzeń, na których działają ap
 
 Zapoznaj się ze stroną [cennika Notification Hubs] , aby uzyskać szczegółowe informacje o liczbie obsługiwanych urządzeń.
 
-Jeśli potrzebujesz pomocy technicznej dotyczącej ponad 10 000 000 zarejestrowanych urządzeń, musisz podzielić urządzenia na wiele centrów.
+Jeśli wymagana jest obsługa ponad 10 000 000 zarejestrowanych urządzeń, należy podzielić urządzenia na partycje w wielu obszarach nazw.
 
 ### <a name="how-many-push-notifications-can-i-send-out"></a>Ile powiadomień wypychanych mogę wysyłać?
 
@@ -121,7 +121,7 @@ Ze względu na charakter powiadomień wypychanych (są one dostarczane przez zew
 
 Gdy aplikacja mobilna jest zarejestrowana w portalu dla deweloperów platformy (na przykład Apple lub Google), wysyłany jest identyfikator aplikacji i tokeny zabezpieczające. Zaplecze aplikacji udostępnia te tokeny PNS platformy, aby można było wysyłać powiadomienia wypychane do urządzeń. Tokeny zabezpieczające mogą mieć postać certyfikatów (na przykład Apple iOS lub Windows Phone) lub kluczy zabezpieczeń (np. Google Android lub Windows). Muszą być skonfigurowane w centrach powiadomień. Konfiguracja zazwyczaj odbywa się na poziomie centrum powiadomień, ale można ją również wykonać na poziomie przestrzeni nazw w scenariuszu obejmującym wiele dzierżawców.
 
-#### <a name="namespaces"></a>Namespaces
+#### <a name="namespaces"></a>Przestrzenie nazw
 
 Przestrzenie nazw mogą być używane do grupowania wdrożenia. Mogą one również służyć do reprezentowania wszystkich centrów powiadomień dla wszystkich dzierżawców tej samej aplikacji w scenariuszu obejmującym wiele dzierżawców.
 
@@ -193,7 +193,7 @@ Usługa Azure Notification Hubs udostępnia kilka funkcji rozwiązywania problem
 
 Usługa Azure Notification Hubs umożliwia wyświetlanie danych telemetrycznych w [Azure Portal]. Szczegóły metryk są dostępne na stronie [metryki Notification Hubs] .
 
-Możesz również programowo uzyskać dostęp do metryk. Aby uzyskać więcej informacji zobacz następujące artykuły:
+Możesz również programowo uzyskać dostęp do metryk. Aby uzyskać więcej informacji, zobacz następujące artykuły:
 
 - [Pobierz metryki Azure monitor przy użyciu platformy .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/). Ten przykład używa nazwy użytkownika i hasła. Aby użyć certyfikatu, przeciąż metodę FromServicePrincipal, aby dostarczyć certyfikat, jak pokazano w [tym przykładzie](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs). 
 - [Pobieranie metryk i dzienników aktywności dla zasobu](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)

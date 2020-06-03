@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 383ad5e5063a0a207320a517c34f3b41cc57804a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7d95cc08595296d697618cbb3ff0025c7c212a1f
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80067152"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84296531"
 ---
 # <a name="azure-files-networking-considerations"></a>Zagadnienia dotyczące sieci Azure Files 
 Możesz połączyć się z udziałem plików platformy Azure na dwa sposoby:
@@ -51,7 +51,7 @@ Azure Files obsługuje następujące mechanizmy do tunelowania ruchu między lok
 
 - [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md): Brama sieci VPN jest określonym typem bramy usługi Virtual Network, która jest używana do wysyłania zaszyfrowanego ruchu między siecią wirtualną platformy Azure a alternatywną lokalizacją (na przykład lokalnie) przez Internet. VPN Gateway platformy Azure to zasób platformy Azure, który można wdrożyć w grupie zasobów obok konta magazynu lub innych zasobów platformy Azure. Bramy sieci VPN uwidaczniają dwa różne typy połączeń:
     - Połączenia bramy [sieci VPN typu punkt-lokacja (P2S)](../../vpn-gateway/point-to-site-about.md) , które są połączeniami sieci VPN między platformą Azure i pojedynczym klientem. To rozwiązanie jest szczególnie przydatne w przypadku urządzeń, które nie są częścią sieci lokalnej w organizacji, takiej jak Telepracownicy, którzy chcą móc instalować udział plików platformy Azure z domu, kawiarnia lub hotelu w podróży. Aby można było użyć połączenia sieci VPN P2S z Azure Files, należy skonfigurować połączenie sieci VPN P2S dla każdego klienta, który chce nawiązać połączenie. Aby uprościć wdrażanie połączenia sieci VPN P2S, zobacz [Konfigurowanie sieci VPN typu punkt-lokacja (P2S) w systemie Windows do użycia z programem Azure Files](storage-files-configure-p2s-vpn-windows.md) i [Konfigurowanie sieci VPN typu punkt-lokacja (P2S) w systemie Linux do użycia z Azure Files](storage-files-configure-p2s-vpn-linux.md).
-    - [Sieci VPN typu lokacja-lokacja (S2S)](../../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti), które są połączeniami sieci VPN między platformą Azure i siecią organizacji. Połączenie sieci VPN S2S umożliwia skonfigurowanie połączenia sieci VPN raz dla serwera sieci VPN lub urządzenia hostowanego w sieci organizacji, a nie dla każdego urządzenia klienckiego, które wymaga dostępu do udziału plików platformy Azure. Aby uprościć wdrażanie połączenia sieci VPN S2S, zobacz [Konfigurowanie sieci VPN typu lokacja-lokacja (S2S) do użycia z Azure Files](storage-files-configure-s2s-vpn.md).
+    - [Sieci VPN typu lokacja-lokacja (S2S)](../../vpn-gateway/design.md#s2smulti), które są połączeniami sieci VPN między platformą Azure i siecią organizacji. Połączenie sieci VPN S2S umożliwia skonfigurowanie połączenia sieci VPN raz dla serwera sieci VPN lub urządzenia hostowanego w sieci organizacji, a nie dla każdego urządzenia klienckiego, które wymaga dostępu do udziału plików platformy Azure. Aby uprościć wdrażanie połączenia sieci VPN S2S, zobacz [Konfigurowanie sieci VPN typu lokacja-lokacja (S2S) do użycia z Azure Files](storage-files-configure-s2s-vpn.md).
 - [ExpressRoute](../../expressroute/expressroute-introduction.md), który umożliwia utworzenie zdefiniowanej trasy między platformą Azure i siecią lokalną, która nie przechodzi przez Internet. Ponieważ ExpressRoute zapewnia dedykowaną ścieżkę między lokalnym centrum danych a platformą Azure, ExpressRoute może być przydatne, gdy wydajność sieci jest uwzględniana. ExpressRoute jest również dobrym rozwiązaniem, gdy zasady lub wymagania prawne organizacji wymagają deterministycznej ścieżki do zasobów w chmurze.
 
 Niezależnie od tego, która metoda tunelowania służy do uzyskiwania dostępu do udziałów plików platformy Azure, musisz mieć mechanizm, aby upewnić się, że ruch do konta magazynu przeszedł przez tunel, a nie zwykłe połączenie internetowe. Jest to technicznie możliwe kierowanie do publicznego punktu końcowego konta magazynu, ale wymaga to, aby wszystkie adresy IP dla klastrów usługi Azure Storage zostały nakodowane w danym regionie, ponieważ konta magazynu mogą być przenoszone między klastrami magazynu w dowolnym momencie. Wymaga to również stale aktualizowane mapowania adresów IP, ponieważ nowe klastry są dodawane przez cały czas.
@@ -74,15 +74,15 @@ Aby utworzyć prywatny punkt końcowy, zobacz [Konfigurowanie prywatnych punktó
 Gdy tworzysz prywatny punkt końcowy, domyślnie utworzymy również (lub zaktualizuj istniejącą) prywatną strefę DNS odpowiadającą `privatelink` poddomenie. Ściśle mówiąc, tworzenie prywatnej strefy DNS nie jest wymagane do korzystania z prywatnego punktu końcowego dla konta magazynu, ale jest to zdecydowanie zalecane i wymagane w przypadku instalowania udziału plików platformy Azure za pomocą nazwy głównej użytkownika Active Directory lub uzyskiwania dostępu z interfejsu API FileREST.
 
 > [!Note]  
-> W tym artykule jest stosowany sufiks DNS konta magazynu dla publicznych regionów platformy Azure `core.windows.net`. Ten komentarz dotyczy również suwerennych chmur platformy Azure, takich jak chmura dla instytucji rządowych w Stanach Zjednoczonych i Azure (Chiny) — po prostu zastępuje odpowiednie sufiksy dla danego środowiska. 
+> W tym artykule jest stosowany sufiks DNS konta magazynu dla publicznych regionów platformy Azure `core.windows.net` . Ten komentarz dotyczy również suwerennych chmur platformy Azure, takich jak chmura dla instytucji rządowych w Stanach Zjednoczonych i Azure (Chiny) — po prostu zastępuje odpowiednie sufiksy dla danego środowiska. 
 
-W prywatnej strefie DNS tworzymy rekord A `storageaccount.privatelink.file.core.windows.net` i rekord CNAME dla zwykłej nazwy konta magazynu, która następuje po wzorcu. `storageaccount.file.core.windows.net` Ze względu na to, że prywatna strefa DNS platformy Azure jest połączona z siecią wirtualną zawierającą prywatny punkt końcowy, można obserwować `Resolve-DnsName` konfigurację DNS, wywołując polecenie cmdlet z programu PowerShell na `nslookup` maszynie wirtualnej platformy Azure (Alternatywnie w systemach Windows i Linux):
+W prywatnej strefie DNS tworzymy rekord A `storageaccount.privatelink.file.core.windows.net` i rekord CNAME dla zwykłej nazwy konta magazynu, która następuje po wzorcu `storageaccount.file.core.windows.net` . Ze względu na to, że prywatna strefa DNS platformy Azure jest połączona z siecią wirtualną zawierającą prywatny punkt końcowy, można obserwować konfigurację DNS, wywołując `Resolve-DnsName` polecenie cmdlet z programu PowerShell na maszynie wirtualnej platformy Azure (Alternatywnie `nslookup` w systemach Windows i Linux):
 
 ```powershell
 Resolve-DnsName -Name "storageaccount.file.core.windows.net"
 ```
 
-W tym przykładzie konto `storageaccount.file.core.windows.net` magazynu jest rozpoznawane jako prywatny adres IP prywatnego punktu końcowego. `192.168.0.4`
+W tym przykładzie konto magazynu jest `storageaccount.file.core.windows.net` rozpoznawane jako prywatny adres IP prywatnego punktu końcowego `192.168.0.4` .
 
 ```Output
 Name                              Type   TTL   Section    NameHost
@@ -109,7 +109,7 @@ TimeToExpiration       : 2419200
 DefaultTTL             : 300
 ```
 
-Jeśli uruchomisz to samo polecenie z lokalnego, zobaczysz, że ta sama nazwa konta magazynu jest rozpoznawana jako publiczny adres IP konta magazynu; `storageaccount.file.core.windows.net` jest rekordem CNAME dla `storageaccount.privatelink.file.core.windows.net`, który z kolei jest rekordem CNAME dla klastra usługi Azure Storage obsługującego konto magazynu:
+Jeśli uruchomisz to samo polecenie z lokalnego, zobaczysz, że ta sama nazwa konta magazynu jest rozpoznawana jako publiczny adres IP konta magazynu; `storageaccount.file.core.windows.net`jest rekordem CNAME dla `storageaccount.privatelink.file.core.windows.net` , który z kolei jest rekordem CNAME dla klastra usługi Azure Storage obsługującego konto magazynu:
 
 ```Output
 Name                              Type   TTL   Section    NameHost
@@ -130,7 +130,7 @@ Odzwierciedla to fakt, że konto magazynu może uwidaczniać zarówno publiczny 
 
 - Modyfikowanie pliku Hosts na klientach w celu `storageaccount.file.core.windows.net` rozwiązania problemu do prywatnego adresu IP wybranego prywatnego punktu końcowego. Jest to zdecydowanie odradzane w środowiskach produkcyjnych, ponieważ konieczne będzie wprowadzenie tych zmian do każdego klienta, który chce zainstalować udziały plików platformy Azure, a zmiany na koncie magazynu lub prywatnym punkcie końcowym nie będą automatycznie obsługiwane.
 - Tworzenie rekordu A dla `storageaccount.file.core.windows.net` lokalnych serwerów DNS. Dzięki temu klienci w środowisku lokalnym będą mogli automatycznie rozwiązywać konto magazynu bez konieczności konfigurowania poszczególnych klientów, jednak to rozwiązanie będzie podobne kruchy do modyfikowania pliku hosts, ponieważ zmiany nie są uwzględniane. Chociaż to rozwiązanie jest kruchy, najlepszym rozwiązaniem może być w niektórych środowiskach.
-- Prześlij dalej `core.windows.net` strefę od lokalnych serwerów DNS do prywatnej strefy DNS platformy Azure. Prywatny Host DNS platformy Azure można uzyskać za pomocą specjalnego adresu IP (`168.63.129.16`), który jest dostępny tylko w sieciach wirtualnych połączonych z prywatną strefą DNS platformy Azure. Aby obejść to ograniczenie, można uruchomić dodatkowe serwery DNS w sieci wirtualnej, które będą przekazywać `core.windows.net` do prywatnej strefy DNS platformy Azure. Aby uprościć tę konfigurację, udostępniono polecenia cmdlet programu PowerShell, które będą automatycznie wdrażać serwery DNS w sieci wirtualnej platformy Azure i konfigurować je zgodnie z potrzebami. Aby dowiedzieć się, jak skonfigurować przekazywanie DNS, zobacz [Konfigurowanie systemu DNS przy użyciu Azure Files](storage-files-networking-dns.md).
+- Prześlij dalej `core.windows.net` strefę od lokalnych serwerów DNS do prywatnej strefy DNS platformy Azure. Prywatny Host DNS platformy Azure można uzyskać za pomocą specjalnego adresu IP ( `168.63.129.16` ), który jest dostępny tylko w sieciach wirtualnych połączonych z prywatną strefą DNS platformy Azure. Aby obejść to ograniczenie, można uruchomić dodatkowe serwery DNS w sieci wirtualnej, które będą przekazywać `core.windows.net` do prywatnej strefy DNS platformy Azure. Aby uprościć tę konfigurację, udostępniono polecenia cmdlet programu PowerShell, które będą automatycznie wdrażać serwery DNS w sieci wirtualnej platformy Azure i konfigurować je zgodnie z potrzebami. Aby dowiedzieć się, jak skonfigurować przekazywanie DNS, zobacz [Konfigurowanie systemu DNS przy użyciu Azure Files](storage-files-networking-dns.md).
 
 ## <a name="storage-account-firewall-settings"></a>Ustawienia zapory konta magazynu
 Zapora to zasada sieciowa, która kontroluje, które żądania mogą uzyskać dostęp do publicznego punktu końcowego dla konta magazynu. Za pomocą zapory konta magazynu można ograniczyć dostęp do publicznego punktu końcowego konta magazynu do określonych adresów IP lub zakresów lub do sieci wirtualnej. Ogólnie rzecz biorąc, większość zasad zapory dla konta magazynu ogranicza dostęp sieciowy do co najmniej jednej sieci wirtualnej. 

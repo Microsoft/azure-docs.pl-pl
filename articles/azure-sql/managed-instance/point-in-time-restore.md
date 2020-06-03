@@ -1,7 +1,7 @@
 ---
 title: Przywracanie do punktu w czasie (kopie)
 titleSuffix: Azure SQL Managed Instance
-description: Przywracanie bazy danych w wystąpieniu zarządzanym Azure SQL do wcześniejszego punktu w czasie.
+description: Przywracanie bazy danych w wystąpieniu zarządzanym Azure SQL Server do wcześniejszego punktu w czasie.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -12,14 +12,14 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 238d9ec814b19499e73533d067202641193aa574
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 379d5e59024174c8f6cfbc185b3514287b7d5031
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84046901"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310176"
 ---
-# <a name="restore-an-azure-sql-managed-instance-database-to-a-previous-point-in-time"></a>Przywracanie bazy danych wystąpienia zarządzanego Azure SQL do wcześniejszego punktu w czasie
+# <a name="restore-a-database-in-azure-sql-managed-instance-to-a-previous-point-in-time"></a>Przywracanie bazy danych w wystąpieniu zarządzanym Azure SQL do wcześniejszego punktu w czasie
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Użyj funkcji przywracania do określonego momentu (kopie), aby utworzyć bazę danych jako kopię innej bazy danych od pewnego czasu w przeszłości. W tym artykule opisano, jak wykonać przywracanie do punktu w czasie dla bazy danych w wystąpieniu zarządzanym usługi Azure SQL.
@@ -34,20 +34,20 @@ Przywracanie do punktu w czasie umożliwia przywrócenie bazy danych:
 
 ## <a name="limitations"></a>Ograniczenia
 
-Przywracanie do punktu w czasie w wystąpieniu zarządzanym SQL ma następujące ograniczenia:
+Przywracanie do punktu w czasie do wystąpienia zarządzanego SQL ma następujące ograniczenia:
 
-- Gdy przywracasz z jednego wystąpienia zarządzanego SQL do innego, oba wystąpienia muszą znajdować się w tej samej subskrypcji i regionie. Przywracanie między regionami i subskrypcjami nie jest obecnie obsługiwane.
+- Gdy przywracasz z jednego wystąpienia wystąpienia zarządzanego SQL na inny, oba wystąpienia muszą znajdować się w tej samej subskrypcji i regionie. Przywracanie między regionami i subskrypcjami nie jest obecnie obsługiwane.
 - Przywracanie do punktu w czasie całego wystąpienia zarządzanego SQL nie jest możliwe. W tym artykule wyjaśniono, co jest możliwe: Przywracanie do punktu w czasie dla bazy danych hostowanej w wystąpieniu zarządzanym SQL.
 
 > [!WARNING]
 > Zapoznaj się z rozmiarem magazynu zarządzanego wystąpienia SQL. W zależności od rozmiaru danych do przywrócenia można wypróbować magazyn z wystąpieniami. Jeśli nie ma wystarczającej ilości miejsca na przywrócone dane, użyj innego podejścia.
 
-W poniższej tabeli przedstawiono scenariusze przywracania do punktu w czasie dla wystąpień zarządzanych SQL:
+W poniższej tabeli przedstawiono scenariusze przywracania do punktu w czasie dla wystąpienia zarządzanego SQL:
 
-|           |Przywróć istniejącą bazę danych do tego samego wystąpienia zarządzanego SQL| Przywracanie istniejącej bazy danych do innego wystąpienia zarządzanego SQL|Przywracanie usuniętej bazy danych do tego samego wystąpienia zarządzanego SQL|Przywracanie usuniętej bazy danych do innego wystąpienia zarządzanego SQL|
+|           |Przywróć istniejącą bazę danych do tego samego wystąpienia wystąpienia zarządzanego SQL| Przywracanie istniejącej bazy danych do innego wystąpienia zarządzanego SQL|Przywracanie usuniętej bazy danych do tego samego wystąpienia zarządzanego SQL|Przywracanie usuniętej bazy danych do innego wystąpienia zarządzanego SQL|
 |:----------|:----------|:----------|:----------|:----------|
 |**Azure Portal**| Yes|Nie |Yes|Nie|
-|**Interfejs wiersza polecenia platformy Azure**|Tak |Yes |Nie|Nie|
+|**Interfejs wiersza polecenia platformy Azure**|Tak |Tak |Nie|Nie|
 |**Program PowerShell**| Tak|Tak |Tak|Tak|
 
 ## <a name="restore-an-existing-database"></a>Przywracanie istniejącej bazy danych

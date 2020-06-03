@@ -11,12 +11,12 @@ ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: d7cd437f597fc34fe83904715fc2e459dfe4550f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4a36019f9023490c3aac68dbe7004b053f08e5ec
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80875575"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84298826"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Samouczek: Włączanie uwierzytelniania w aplikacji jednostronicowej przy użyciu Azure AD B2C
 
@@ -51,28 +51,27 @@ Ponadto w lokalnym środowisku programistycznym są potrzebne następujące elem
 
 W drugim samouczku, który został ukończony w ramach wymagań wstępnych, zarejestrowano aplikację sieci Web w Azure AD B2C. Aby włączyć komunikację z przykładem kodu w tym samouczku, Dodaj adres URL odpowiedzi (nazywany także identyfikatorem URI przekierowania) do rejestracji aplikacji.
 
-Aby zaktualizować aplikację, możesz użyć środowiska bieżące **aplikacje** lub naszego nowego systemu ujednoliconej **rejestracje aplikacji (wersja zapoznawcza)** . [Dowiedz się więcej na temat nowego środowiska](https://aka.ms/b2cappregintro).
+Aby zaktualizować aplikację w dzierżawie Azure AD B2C, możesz użyć naszego nowego środowiska **rejestracje aplikacji** lub naszych starszych **aplikacji (starsza wersja)** . [Dowiedz się więcej na temat nowego środowiska](https://aka.ms/b2cappregtraining).
 
-#### <a name="applications"></a>[Aplikacje](#tab/applications/)
-
-1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
-1. Upewnij się, że używasz katalogu, który zawiera dzierżawę Azure AD B2C, wybierając pozycję **katalog i subskrypcja** w górnym menu i wybierając katalog zawierający dzierżawcę.
-1. Wybierz pozycję **wszystkie usługi** w lewym górnym rogu Azure Portal, a następnie wyszukaj i wybierz pozycję **Azure AD B2C**.
-1. Wybierz pozycję **Aplikacje**, a następnie wybierz aplikację *webapp1*.
-1. W obszarze **Adres URL odpowiedzi** dodaj `http://localhost:6420`.
-1. Wybierz pozycję **Zapisz**.
-1. Na stronie właściwości Zapisz **Identyfikator aplikacji**. IDENTYFIKATORA aplikacji można użyć w późniejszym kroku podczas aktualizowania kodu w jednostronicowej aplikacji sieci Web.
-
-#### <a name="app-registrations-preview"></a>[Rejestracje aplikacji (wersja zapoznawcza)](#tab/app-reg-preview/)
+#### <a name="app-registrations"></a>[Rejestracje aplikacji](#tab/app-reg-ga/)
 
 1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
 1. Wybierz filtr **katalogów i subskrypcji** w górnym menu, a następnie wybierz katalog zawierający dzierżawę Azure AD B2C.
 1. W menu po lewej stronie wybierz pozycję **Azure AD B2C**. Lub wybierz pozycję **wszystkie usługi** i Wyszukaj i wybierz pozycję **Azure AD B2C**.
-1. Wybierz pozycję **rejestracje aplikacji (wersja zapoznawcza)**, wybierz kartę **posiadane aplikacje** , a następnie wybierz aplikację *webapp1* .
-1. Wybierz pozycję **uwierzytelnianie**, a następnie wybierz pozycję **Wypróbuj nowe środowisko** (jeśli jest wyświetlana).
-1. W obszarze **Sieć Web**wybierz łącze **Dodaj identyfikator URI** , `http://localhost:6420`wprowadź, a następnie wybierz pozycję **Zapisz**.
-1. Wybierz pozycję **Przegląd**.
+1. Wybierz pozycję **rejestracje aplikacji**, wybierz kartę **posiadane aplikacje** , a następnie wybierz aplikację *webapp1* .
+1. W obszarze **Sieć Web**wybierz łącze **Dodaj identyfikator URI** , wprowadź `http://localhost:6420` , a następnie wybierz pozycję **Zapisz**.
+1. Wybierz pozycję **Omówienie**.
 1. Rejestrowanie **identyfikatora aplikacji (klienta)** do użycia w późniejszym kroku podczas aktualizowania kodu w jednostronicowej aplikacji sieci Web.
+
+#### <a name="applications-legacy"></a>[Aplikacje (starsze)](#tab/applications-legacy/)
+
+1. Zaloguj się w witrynie [Azure Portal](https://portal.azure.com).
+1. Upewnij się, że używasz katalogu, który zawiera dzierżawę Azure AD B2C, wybierając pozycję **katalog i subskrypcja** w górnym menu i wybierając katalog zawierający dzierżawcę.
+1. Wybierz pozycję **wszystkie usługi** w lewym górnym rogu Azure Portal, a następnie wyszukaj i wybierz pozycję **Azure AD B2C**.
+1. Wybierz pozycję **aplikacje (starsza wersja)**, a następnie wybierz aplikację *webapp1* .
+1. W obszarze **Adres URL odpowiedzi** dodaj `http://localhost:6420`.
+1. Wybierz pozycję **Zapisz**.
+1. Na stronie właściwości Zapisz **Identyfikator aplikacji**. IDENTYFIKATORA aplikacji można użyć w późniejszym kroku podczas aktualizowania kodu w jednostronicowej aplikacji sieci Web.
 
 * * *
 
@@ -111,7 +110,7 @@ Teraz, gdy uzyskano przykład, zaktualizuj kod przy użyciu nazwy dzierżawy Azu
 
 ## <a name="run-the-sample"></a>Uruchamianie aplikacji przykładowej
 
-1. Otwórz okno konsoli i przejdź do katalogu zawierającego przykład. Przykład:
+1. Otwórz okno konsoli i przejdź do katalogu zawierającego przykład. Na przykład:
 
     ```console
     cd active-directory-b2c-javascript-msal-singlepageapp
@@ -128,7 +127,7 @@ Teraz, gdy uzyskano przykład, zaktualizuj kod przy użyciu nazwy dzierżawy Azu
     ```console
     Listening on port 6420...
     ```
-1. Przejdź do `http://localhost:6420` strony, aby wyświetlić aplikację sieci Web działającą na komputerze lokalnym.
+1. Przejdź do strony, aby `http://localhost:6420` wyświetlić aplikację sieci Web działającą na komputerze lokalnym.
 
     :::image type="content" source="media/tutorial-single-page-app/web-app-spa-01-not-logged-in.png" alt-text="Przeglądarka sieci Web przedstawiająca aplikację jednostronicową działającą lokalnie":::
 

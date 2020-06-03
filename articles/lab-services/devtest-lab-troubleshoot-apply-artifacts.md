@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/03/2019
 ms.author: spelluru
-ms.openlocfilehash: fc5051667100a2ebaa01b7815f825fadd766b08f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8da33f5a553b4a671d9d7b9b223f77b301b8440b
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75456976"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310278"
 ---
 # <a name="troubleshoot-issues-when-applying-artifacts-in-an-azure-devtest-labs-virtual-machine"></a>Rozwiązywanie problemów występujących podczas stosowania artefaktów w Azure DevTest Labs maszynie wirtualnej
 Stosowanie artefaktów na maszynie wirtualnej może zakończyć się niepowodzeniem z różnych powodów. Ten artykuł przeprowadzi Cię przez niektóre metody, aby ułatwić identyfikację możliwych przyczyn.
@@ -57,8 +57,9 @@ Możesz rozwiązywać problemy z maszynami wirtualnymi utworzonymi za pomocą De
 
 ## <a name="symptoms-causes-and-potential-resolutions"></a>Objawy, przyczyny i potencjalne rozwiązania 
 
-### <a name="artifact-appears-to-hang"></a>Artefakt zostanie rozsunięty   
-Artefakt zostanie rozsunięty do momentu wygaśnięcia wstępnie zdefiniowanego okresu, a artefakt zostanie oznaczony jako **Niepowodzenie**.
+### <a name="artifact-appears-to-stop-responding"></a>Artefakt wydaje się przestać odpowiadać
+
+Artefakt wydaje się przestać odpowiadać do momentu wygaśnięcia wstępnie zdefiniowanego okresu limitu czasu i artefakt zostanie oznaczony jako **Niepowodzenie**.
 
 Gdy artefakt zostanie rozsunięty, należy najpierw określić, gdzie jest zablokowany. Artefakt można zablokować podczas wykonywania w dowolnym z następujących kroków:
 
@@ -66,15 +67,15 @@ Gdy artefakt zostanie rozsunięty, należy najpierw określić, gdzie jest zablo
     - Możesz uzyskać dostęp do dziennika aktywności z poziomu paska nawigacyjnego na stronie maszyny wirtualnej laboratorium. Po wybraniu tej opcji zobaczysz wpis dotyczący **zastosowania artefaktów do maszyny wirtualnej** (jeśli operacja Zastosuj artefakty została wyzwolona bezpośrednio) lub **Dodaj lub zmodyfikuj maszyny wirtualne** (jeśli operacja zastosowania artefaktów była częścią procesu tworzenia maszyny wirtualnej).
     - Wyszukaj błędy w ramach tych wpisów. Czasami błąd nie zostanie odpowiednio oznakowany i konieczne będzie zbadanie każdego wpisu.
     - Badając szczegóły dotyczące poszczególnych wpisów, należy sprawdzić zawartość ładunku JSON. W dolnej części tego dokumentu może zostać wyświetlony komunikat o błędzie.
-- **Podczas próby wykonania artefaktu**. Może to być spowodowane problemami z siecią lub magazynem. Aby uzyskać szczegółowe informacje, zobacz odpowiednią sekcję w dalszej części tego artykułu. Przyczyną może być również sposób tworzenia skryptu. Przykład:
-    - Skrypt programu PowerShell ma **obowiązkowe parametry**, ale jeden z nich nie przeszedł do niego wartości, ponieważ zezwalasz użytkownikowi na pozostawienie pustego elementu lub nie masz wartości domyślnej dla właściwości w pliku definicji artifactfile. JSON. Skrypt zostanie zasunięty, ponieważ oczekuje na dane wejściowe użytkownika.
+- **Podczas próby wykonania artefaktu**. Może to być spowodowane problemami z siecią lub magazynem. Aby uzyskać szczegółowe informacje, zobacz odpowiednią sekcję w dalszej części tego artykułu. Przyczyną może być również sposób tworzenia skryptu. Na przykład:
+    - Skrypt programu PowerShell ma **obowiązkowe parametry**, ale jeden z nich nie przeszedł do niego wartości, ponieważ zezwalasz użytkownikowi na pozostawienie pustego elementu lub nie masz wartości domyślnej dla właściwości w pliku definicji artifactfile. JSON. Skrypt przestanie odpowiadać, ponieważ oczekuje na dane wejściowe użytkownika.
     - Skrypt programu PowerShell **wymaga wprowadzenia danych przez użytkownika** w ramach wykonywania. Skrypty muszą być zapisane w taki sposób, aby działały w sposób cichy bez konieczności interwencji użytkownika.
 - **Agent maszyny wirtualnej trwa zbyt długo**. Gdy maszyna wirtualna jest uruchomiona po raz pierwszy lub gdy rozszerzenie niestandardowego skryptu zostanie zainstalowane w celu obsłużynia żądania zastosowania artefaktów, maszyna wirtualna może wymagać uaktualnienia agenta maszyny wirtualnej lub zaczekać na zainicjowanie agenta maszyny wirtualnej. Mogą istnieć usługi, od których zależy Agent maszyny wirtualnej, który zajmuje dużo czasu na zainicjowanie. W takich przypadkach zobacz [Omówienie agenta maszyny wirtualnej platformy Azure](../virtual-machines/extensions/agent-windows.md) , aby uzyskać dalsze Rozwiązywanie problemów.
 
-### <a name="to-verify-if-the-artifact-appears-to-hang-because-of-the-script"></a>Aby sprawdzić, czy artefakt nie został rozsunięty ze względu na skrypt
+### <a name="to-verify-if-the-artifact-appears-to-stop-responding-because-of-the-script"></a>Aby sprawdzić, czy artefakt przestał odpowiadać z powodu skryptu
 
 1. Zaloguj się do maszyny wirtualnej.
-2. Skopiuj skrypt lokalnie na maszynie wirtualnej lub Znajdź go na maszynie wirtualnej w obszarze `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\<version>`. Jest to lokalizacja, w której pobierane są skrypty artefaktów.
+2. Skopiuj skrypt lokalnie na maszynie wirtualnej lub Znajdź go na maszynie wirtualnej w obszarze `C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\<version>` . Jest to lokalizacja, w której pobierane są skrypty artefaktów.
 3. Za pomocą wiersza polecenia z podwyższonym poziomem uprawnień wykonaj skrypt lokalnie, dostarczając te same wartości parametrów, które są używane do tego problemu.
 4. Ustal, czy skrypt cierpi z dowolnego niepożądanego zachowania. W takim przypadku należy zażądać aktualizacji artefaktu (jeśli pochodzi z repozytorium publicznego); lub wprowadź poprawki (jeśli pochodzą z repozytorium prywatnego).
 
@@ -83,7 +84,7 @@ Gdy artefakt zostanie rozsunięty, należy najpierw określić, gdzie jest zablo
 > 
 > Aby uzyskać informacje na temat pisania własnych artefaktów, zobacz dokument [AUTHORING.MD](https://github.com/Azure/azure-devtestlab/blob/master/Artifacts/AUTHORING.md) .
 
-### <a name="to-verify-if-the-artifact-appears-to-hang-because-of-the-vm-agent"></a>Aby sprawdzić, czy artefakt przestaje być spowodowany przez agenta maszyny wirtualnej:
+### <a name="to-verify-if-the-artifact-appears-to-stop-responding-because-of-the-vm-agent"></a>Aby sprawdzić, czy artefakt przestał odpowiadać z powodu agenta maszyny wirtualnej:
 1. Zaloguj się do maszyny wirtualnej.
 2. Za pomocą Eksploratora plików przejdź do **C:\WindowsAzure\logs**.
 3. Znajdź i Otwórz plik **WaAppAgent. log**.
@@ -119,7 +120,7 @@ Powyższy błąd pojawi się w sekcji **komunikat wdrożenia** na stronie **wyni
 ### <a name="to-ensure-communication-to-the-azure-storage-service-isnt-being-blocked"></a>Aby zapewnić, że komunikacja z usługą Azure Storage nie jest blokowana:
 
 - **Sprawdź, czy dodano grupy zabezpieczeń sieci (sieciowej grupy zabezpieczeń)**. Może się okazać, że dodano zasady subskrypcji, gdzie sieciowych grup zabezpieczeń są konfigurowane automatycznie we wszystkich sieciach wirtualnych. Ma także wpływ na domyślną sieć wirtualną laboratorium, jeśli jest używana, lub inną sieć wirtualną skonfigurowaną w laboratorium, służącą do tworzenia maszyn wirtualnych.
-- **Sprawdź domyślne konto magazynu laboratorium** (czyli pierwsze konto magazynu utworzone podczas tworzenia laboratorium), którego nazwa zazwyczaj rozpoczyna się od litery "a" i kończąca się cyfrą wielocyfrową, czyli\<labname\>#).
+- **Sprawdź domyślne konto magazynu laboratorium** (czyli pierwsze konto magazynu utworzone podczas tworzenia laboratorium), którego nazwa zazwyczaj rozpoczyna się od litery "a" i kończąca się cyfrą wielocyfrową, a \<labname\> #).
     1. Przejdź do grupy zasobów laboratorium.
     2. Znajdź zasób typu **konto magazynu**, którego nazwa pasuje do Konwencji.
     3. Przejdź do strony konto magazynu o nazwie **zapory i sieci wirtualne**.
@@ -137,4 +138,3 @@ Istnieją inne mniej częste źródła błędów. Oceń każdy z nich, aby zobac
 
 ## <a name="next-steps"></a>Następne kroki
 Jeśli żaden z tych błędów nie wystąpi i nadal nie możesz zastosować artefaktów, możesz zgłosić zdarzenie pomocy technicznej platformy Azure. Przejdź do [witryny pomocy technicznej systemu Azure](https://azure.microsoft.com/support/options/) i wybierz pozycję **Uzyskaj pomoc techniczną**.
-

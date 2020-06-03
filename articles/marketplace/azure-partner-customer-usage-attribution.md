@@ -7,12 +7,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: dsindona
-ms.openlocfilehash: 20f8e0bea460c20ed3af0c2844ebc3510bd2d6b6
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 9c70f8d728786e8aff8da33f9a39b8c2cfaafdc4
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800790"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84295630"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Komercyjny partner Marketplace i przypisanie użytkowania przez klienta
 
@@ -58,6 +58,9 @@ Możesz również śledzić użycie na bardziej szczegółowym poziomie, rejestr
 Identyfikatory GUID muszą być zarejestrowane w centrum partnerskim, aby umożliwić przypisanie użycia klienta.
 
 Po dodaniu identyfikatora GUID do szablonu lub w agencie użytkownika i zarejestrowaniu identyfikatora GUID w centrum partnerskim są śledzone przyszłe wdrożenia.
+
+> [!NOTE]
+> W przypadku publikowania oferty [aplikacji platformy Azure](./partner-center-portal/create-new-azure-apps-offer.md) w portalu Azure Marketplace za pomocą Centrum partnerskiego każdy nowy identyfikator GUID używany wewnątrz szablonu zostanie automatycznie zarejestrowany w profilu Centrum partnerskiego podczas przekazywania szablonu.  
 
 1. Zaloguj się do [Centrum partnerskiego](https://partner.microsoft.com/dashboard).
 
@@ -238,15 +241,15 @@ Wybierz pozycję śledzony szablon na liście rozwijanej Typ powiązania partner
 
 ## <a name="notify-your-customers"></a>Powiadamiaj klientów
 
-Partnerzy powinni poinformować klientów o wdrożeniach korzystających z przypisywania użycia przez klienta. Firma Microsoft zgłasza do partnera użycie platformy Azure skojarzone z tymi wdrożeniami. Poniższe przykłady obejmują zawartość, której można użyć do powiadamiania klientów o tych wdrożeniach. W przykładach Zastąp \<> partnera nazwą swojej firmy. Partnerzy powinni upewnić się, że powiadomienia są wyrównane do zasad zachowania poufności danych i ich zbierania, w tym opcji dla klientów, które mają być wykluczone ze śledzenia.
+Partnerzy powinni poinformować klientów o wdrożeniach korzystających z przypisywania użycia przez klienta. Firma Microsoft zgłasza do partnera użycie platformy Azure skojarzone z tymi wdrożeniami. Poniższe przykłady obejmują zawartość, której można użyć do powiadamiania klientów o tych wdrożeniach. W przykładach Zastąp ciąg \<PARTNER> nazwą swojej firmy. Partnerzy powinni upewnić się, że powiadomienia są wyrównane do zasad zachowania poufności danych i ich zbierania, w tym opcji dla klientów, które mają być wykluczone ze śledzenia.
 
 ### <a name="notification-for-resource-manager-template-deployments"></a>Powiadomienie dotyczące wdrożeń szablonów Menedżer zasobów
 
-Po wdrożeniu tego szablonu firma Microsoft może zidentyfikować instalację \< partnera> oprogramowania przy użyciu wdrożonych zasobów platformy Azure. Firma Microsoft może skorelować zasoby platformy Azure, które są używane do obsługi oprogramowania. Firma Microsoft zbiera te informacje, aby zapewnić najlepsze środowisko dla swoich produktów i prowadzić działalność biznesową. Dane są zbierane i podlegają zasadom zachowania poufności informacji firmy Microsoft, które można znaleźć w witrynie https://www.microsoft.com/trustcenter .
+Po wdrożeniu tego szablonu firma Microsoft może zidentyfikować instalację \<PARTNER> oprogramowania przy użyciu wdrożonych zasobów platformy Azure. Firma Microsoft może skorelować zasoby platformy Azure, które są używane do obsługi oprogramowania. Firma Microsoft zbiera te informacje, aby zapewnić najlepsze środowisko dla swoich produktów i prowadzić działalność biznesową. Dane są zbierane i podlegają zasadom zachowania poufności informacji firmy Microsoft, które można znaleźć w witrynie https://www.microsoft.com/trustcenter .
 
 ### <a name="notification-for-sdk-or-api-deployments"></a>Powiadomienie o wdrożeniach zestawu SDK lub interfejsu API
 
-Po wdrożeniu \< oprogramowania partnerskiego> firma Microsoft może zidentyfikować instalację \< oprogramowania partnerskiego> przy użyciu wdrożonych zasobów platformy Azure. Firma Microsoft może skorelować zasoby platformy Azure, które są używane do obsługi oprogramowania. Firma Microsoft zbiera te informacje, aby zapewnić najlepsze środowisko dla swoich produktów i prowadzić działalność biznesową. Dane są zbierane i podlegają zasadom zachowania poufności informacji firmy Microsoft, które można znaleźć w witrynie https://www.microsoft.com/trustcenter .
+Podczas wdrażania \<PARTNER> oprogramowania firma Microsoft może zidentyfikować instalację \<PARTNER> oprogramowania przy użyciu wdrożonych zasobów platformy Azure. Firma Microsoft może skorelować zasoby platformy Azure, które są używane do obsługi oprogramowania. Firma Microsoft zbiera te informacje, aby zapewnić najlepsze środowisko dla swoich produktów i prowadzić działalność biznesową. Dane są zbierane i podlegają zasadom zachowania poufności informacji firmy Microsoft, które można znaleźć w witrynie https://www.microsoft.com/trustcenter .
 
 ## <a name="get-support"></a>Uzyskiwanie pomocy technicznej
 
