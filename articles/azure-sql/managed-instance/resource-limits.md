@@ -1,7 +1,7 @@
 ---
 title: Limity zasobów
 titleSuffix: Azure SQL Managed Instance
-description: Ten artykuł zawiera omówienie limitów zasobów dla wystąpień zarządzanych usługi Azure SQL.
+description: Ten artykuł zawiera omówienie limitów zasobów dla wystąpienia zarządzanego usługi Azure SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -12,20 +12,20 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 02/25/2020
-ms.openlocfilehash: 27b46a5511313e8ebc31618fe382e7108cdaa160
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: b72195c818e418cfca9c88fe666b27b277aa7bda
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118665"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84309105"
 ---
-# <a name="overview-azure-sql-managed-instance-resource-limits"></a>Omówienie limitów zasobów wystąpienia zarządzanego usługi Azure SQL
+# <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Omówienie limitów zasobów wystąpienia zarządzanego usługi Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Ten artykuł zawiera omówienie parametrów technicznych i limitów zasobów dla wystąpienia zarządzanego usługi Azure SQL i zawiera informacje o sposobach żądania wzrostu do tych limitów.
 
 > [!NOTE]
-> Aby uzyskać różnice w obsługiwanych funkcjach i instrukcjach języka T-SQL, zobacz temat [różnice w funkcjach](../database/features-comparison.md) i [Obsługa instrukcji języka t-SQL](transact-sql-tsql-differences-sql-server.md). Aby uzyskać ogólne różnice między warstwami usługi dla SQL Database i wystąpienia zarządzanego SQL, zobacz [porównanie warstwy usług](../database/service-tiers-general-purpose-business-critical.md#service-tier-comparison).
+> Aby uzyskać różnice w obsługiwanych funkcjach i instrukcjach języka T-SQL, zobacz temat [różnice w funkcjach](../database/features-comparison.md) i [Obsługa instrukcji języka t-SQL](transact-sql-tsql-differences-sql-server.md). Aby uzyskać ogólne różnice między warstwami usługi dla Azure SQL Database i wystąpienia zarządzanego SQL, zobacz [porównanie warstwy usług](../database/service-tiers-general-purpose-business-critical.md#service-tier-comparison).
 
 ## <a name="hardware-generation-characteristics"></a>Charakterystyki generowania sprzętu
 
@@ -40,8 +40,8 @@ Wystąpienie zarządzane SQL ma cechy i limity zasobów, które są zależne od 
 | Maksymalna ilość zarezerwowanego wystąpienia |  Ogólnego przeznaczenia: 8 TB<br/>Krytyczne dla działania firmy: 1 TB | Ogólnego przeznaczenia: 8 TB<br/> Krytyczne dla działania firmy 1 TB, 2 TB lub 4 TB w zależności od liczby rdzeni |
 
 > [!IMPORTANT]
-> - Sprzęt obliczenia jest wycofywany i nie jest już dostępny w przypadku nowych wdrożeń. Wszystkie nowe wystąpienia zarządzane SQL muszą zostać wdrożone na sprzęcie 5 rdzeń.
-> - Rozważ [przeniesienie wystąpień programu SQL Server do ogólnego 5](../database/service-tiers-vcore.md) sprzętu w celu uzyskania szerszego zakresu skalowalności rdzeń wirtualny i pamięci masowej, przyspieszonej sieci, najlepszej wydajności operacji we/wy i minimalnych opóźnień.
+> - Sprzęt obliczenia jest wycofywany i nie jest już dostępny w przypadku nowych wdrożeń. Wszystkie nowe wystąpienia wystąpienia zarządzanego SQL należy wdrożyć na sprzęcie 5 rdzeń.
+> - Rozważ [przeniesienie wystąpienia wystąpienia zarządzanego SQL do ogólnego 5](../database/service-tiers-vcore.md) sprzętu w celu uzyskania szerszego zakresu skalowalności rdzeń wirtualny i pamięci masowej, przyspieszonej sieci, najlepszej wydajności operacji we/wy i minimalnego opóźnienia.
 
 ### <a name="in-memory-oltp-available-space"></a>Dostępne miejsce w pamięci OLTP 
 
@@ -65,7 +65,7 @@ Wystąpienie zarządzane SQL ma dwie warstwy usług: [ogólnego przeznaczenia](.
 > [!Important]
 > Krytyczne dla działania firmy warstwa usługi oferuje dodatkową wbudowaną kopię wystąpienia zarządzanego SQL (replikę pomocniczą), która może być używana do obsługi obciążeń tylko do odczytu. Jeśli możesz oddzielić zapytania odczytu i zapisu oraz zapytania tylko do odczytu/analizy/raportowania, otrzymujesz dwa razy rdzeni wirtualnych i pamięć za tę samą cenę. Replika pomocnicza może potrwać kilka sekund za wystąpieniem podstawowym, więc jest przeznaczona do odciążania obciążeń raportowania/analiz, które nie wymagają dokładnego bieżącego stanu danych. W poniższej tabeli **zapytania tylko do odczytu** są zapytania, które są wykonywane w replice pomocniczej.
 
-| **Cecha** | **Ogólnego przeznaczenia** | **Krytyczne dla działania firmy** |
+| **Cechy** | **Ogólnego przeznaczenia** | **Krytyczne dla działania firmy** |
 | --- | --- | --- |
 | Liczba rdzeni wirtualnych\* | Obliczenia: 8, 16, 24<br/>5 rdzeń: 4, 8, 16, 24, 32, 40, 64, 80 | Obliczenia: 8, 16, 24 <br/> 5 rdzeń: 4, 8, 16, 24, 32, 40, 64, 80 <br/>\*Ta sama liczba rdzeni wirtualnych jest przeznaczona dla zapytań tylko do odczytu. |
 | Maksymalna pamięć | Obliczenia: 56 GB – 168 GB (7GB/rdzeń wirtualny)<br/>5 rdzeń: 20,4 GB – 408 GB (5.1 GB/rdzeń wirtualny)<br/>Aby uzyskać więcej pamięci, Dodaj więcej rdzeni wirtualnych. | Obliczenia: 56 GB – 168 GB (7GB/rdzeń wirtualny)<br/>5 rdzeń: 20,4 GB-408 GB (5.1 GB/rdzeń wirtualny) dla zapytań do odczytu i zapisu<br/>+ dodatkowe 20,4 GB – 408 GB (5.1 GB/rdzeń wirtualny) dla zapytań tylko do odczytu.<br/>Aby uzyskać więcej pamięci, Dodaj więcej rdzeni wirtualnych. |
@@ -111,7 +111,7 @@ Istnieje również limit na poziomie wystąpienia dla maksymalnej przepływnośc
 
 ## <a name="supported-regions"></a>Obsługiwane regiony
 
-Wystąpienia zarządzane SQL można tworzyć tylko w [obsługiwanych regionach](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Aby utworzyć wystąpienie zarządzane SQL w regionie, który nie jest obecnie obsługiwany, można [wysłać żądanie pomocy technicznej za pośrednictwem Azure Portal](../database/quota-increase-request.md).
+Wystąpienie zarządzane SQL można utworzyć tylko w [obsługiwanych regionach](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Aby utworzyć wystąpienie zarządzane SQL w regionie, który nie jest obecnie obsługiwany, można [wysłać żądanie pomocy technicznej za pośrednictwem Azure Portal](../database/quota-increase-request.md).
 
 ## <a name="supported-subscription-types"></a>Obsługiwane typy subskrypcji
 
@@ -128,11 +128,11 @@ Wystąpienie zarządzane SQL obecnie obsługuje wdrażanie tylko w następujący
 
 Obsługiwane typy subskrypcji mogą zawierać ograniczoną liczbę zasobów na region. Wystąpienie zarządzane SQL ma dwa domyślne limity dla regionu platformy Azure (które można zwiększyć na żądanie, tworząc specjalne [żądanie pomocy technicznej w Azure Portal w](../database/quota-increase-request.md) zależności od typu subskrypcji:
 
-- **Limit podsieci**: Maksymalna liczba podsieci, w których są wdrażane wystąpienia zarządzane SQL w jednym regionie.
+- **Limit podsieci**: Maksymalna liczba podsieci, w których wystąpienia wystąpienia zarządzanego SQL są wdrażane w jednym regionie.
 - **limit jednostek rdzeń wirtualny**: Maksymalna liczba jednostek rdzeń wirtualny, które mogą zostać wdrożone we wszystkich wystąpieniach w jednym regionie. Jedna z zasad GP rdzeń wirtualny korzysta z jednej jednostki rdzeń wirtualny, a jedna z nich ma rdzeń wirtualny rdzeń wirtualny jednostek. Łączna liczba wystąpień nie jest ograniczona, o ile mieści się w limicie jednostek rdzeń wirtualny.
 
 > [!Note]
-> Te limity to ustawienia domyślne, a nie ograniczenia techniczne. Limity można zwiększyć na żądanie, tworząc specjalne [żądanie pomocy technicznej w Azure Portal,](../database/quota-increase-request.md) Jeśli potrzebujesz więcej wystąpień zarządzanych SQL w bieżącym regionie. Alternatywnie można utworzyć nowe wystąpienia zarządzane SQL w innym regionie świadczenia usługi Azure bez wysyłania żądań obsługi.
+> Te limity to ustawienia domyślne, a nie ograniczenia techniczne. Limity można zwiększyć na żądanie, tworząc specjalne [żądanie pomocy technicznej w Azure Portal,](../database/quota-increase-request.md) Jeśli potrzebujesz więcej wystąpień w bieżącym regionie. Alternatywnie można utworzyć nowe wystąpienia wystąpienia zarządzanego SQL w innym regionie świadczenia usługi Azure bez wysyłania żądań obsługi.
 
 W poniższej tabeli przedstawiono **domyślne limity** dla obsługiwanych typów subskrypcji (domyślne limity można rozszerzyć przy użyciu żądania pomocy technicznej opisanego poniżej):
 
@@ -146,13 +146,13 @@ W poniższej tabeli przedstawiono **domyślne limity** dla obsługiwanych typów
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional i Platformy MSDN|2|32|
 
-\*W obszarze Planowanie wdrożeń należy wziąć pod uwagę, że warstwa usług Krytyczne dla działania firmy (BC) wymaga czterech (4) razy więcej rdzeń wirtualny pojemności niż Ogólnego przeznaczenia (GP). Na przykład: 1 GP rdzeń wirtualny = 1 rdzeń wirtualny Unit i 1 BC rdzeń wirtualny = 4 jednostki rdzeń wirtualny. Aby uprościć analizę zużycia pod kątem domyślnych limitów, należy podsumować jednostki rdzeń wirtualny we wszystkich podsieciach w regionie, w którym wdrożono wystąpienia zarządzane SQL, i porównać wyniki z limitami jednostek wystąpienia dla danego typu subskrypcji. **Maksymalna liczba jednostek rdzeń wirtualny** dotyczy każdej subskrypcji w regionie. Nie ma żadnego limitu dla poszczególnych podsieci, z tą różnicą, że suma wszystkich rdzeni wirtualnych wdrożonych w wielu podsieciach musi być mniejsza lub równa **maksymalnej liczbie jednostek rdzeń wirtualny**.
+\*W obszarze Planowanie wdrożeń należy wziąć pod uwagę, że warstwa usług Krytyczne dla działania firmy (BC) wymaga czterech (4) razy więcej rdzeń wirtualny pojemności niż Ogólnego przeznaczenia (GP). Na przykład: 1 GP rdzeń wirtualny = 1 rdzeń wirtualny Unit i 1 BC rdzeń wirtualny = 4 jednostki rdzeń wirtualny. Aby uprościć analizę zużycia pod kątem domyślnych limitów, należy podsumować jednostki rdzeń wirtualny we wszystkich podsieciach w regionie, w którym wdrożono wystąpienie zarządzane SQL, i porównać wyniki z limitami jednostek wystąpienia dla danego typu subskrypcji. **Maksymalna liczba jednostek rdzeń wirtualny** dotyczy każdej subskrypcji w regionie. Nie ma żadnego limitu dla poszczególnych podsieci, z tą różnicą, że suma wszystkich rdzeni wirtualnych wdrożonych w wielu podsieciach musi być mniejsza lub równa **maksymalnej liczbie jednostek rdzeń wirtualny**.
 
 \*\*Większe limity podsieci i rdzeń wirtualny są dostępne w następujących regionach: Australia Wschodnia, Wschodnie stany USA, Wschodnie stany USA 2, Europa Północna, Południowo-środkowe stany USA, Azja Południowo-Wschodnia Południowe Zjednoczone Królestwo, Europa Zachodnia, zachodnie stany USA 2.
 
 ## <a name="request-a-quota-increase"></a>Poproś o zwiększenie limitu przydziału
 
-Jeśli potrzebujesz więcej wystąpień zarządzanych przez program SQL w Twoich regionach, Wyślij żądanie obsługi, aby zwiększyć przydział przy użyciu Azure Portal. Aby uzyskać więcej informacji, zobacz [zwiększenie przydziału żądań dla Azure SQL Database](../database/quota-increase-request.md).
+Jeśli potrzebujesz więcej wystąpień w bieżących regionach, Wyślij żądanie obsługi, aby zwiększyć przydział przy użyciu Azure Portal. Aby uzyskać więcej informacji, zobacz [zwiększenie przydziału żądań dla Azure SQL Database](../database/quota-increase-request.md).
 
 ## <a name="next-steps"></a>Następne kroki
 

@@ -1,5 +1,5 @@
 ---
-title: Zarządzanie aplikacją i monitorowanie jej przy użyciu programu uruchamiającego rozruch z użyciem sprężyny Azure
+title: Zarządzanie aplikacją i monitorowanie jej przy użyciu programu Azure Spring Boot Actuator
 description: Dowiedz się, jak zarządzać aplikacją i monitorować ją za pomocą urządzenia uruchamiającego rozruch sprężynowy.
 author: MikeDodaro
 ms.author: brendm
@@ -13,7 +13,7 @@ ms.contentlocale: pl-PL
 ms.lasthandoff: 05/29/2020
 ms.locfileid: "84206009"
 ---
-# <a name="manage-and-monitor-app-with-azure-spring-boot-actuator"></a>Zarządzanie aplikacją i monitorowanie jej przy użyciu programu uruchamiającego rozruch z użyciem sprężyny Azure
+# <a name="manage-and-monitor-app-with-azure-spring-boot-actuator"></a>Zarządzanie aplikacją i monitorowanie jej przy użyciu programu Azure Spring Boot Actuator
 
 Po wdrożeniu nowego pliku binarnego w aplikacji możesz chcieć sprawdzić funkcjonalność i wyświetlić informacje o działającej aplikacji. W tym artykule wyjaśniono, jak uzyskać dostęp do interfejsu API z punktu końcowego testu dostarczonego przez chmurę usługi Azure wiosną i uwidocznić funkcje gotowe do użycia w środowisku produkcyjnym.
 
