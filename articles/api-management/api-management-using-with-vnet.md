@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 05/21/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: 016a907e3e660ca6da9dc637b2c9c844b7077b84
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: f7a036a382ac3b16093529a67abe9ef78b897274
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84193962"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300096"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Używanie usługi Azure API Management z sieciami wirtualnymi
 Sieci wirtualne platformy Azure umożliwiają umieszczanie dowolnych zasobów platformy Azure w sieci nieobsługującej routingu internetowego, do której kontrolujesz dostęp. Te sieci mogą następnie być połączone z sieciami lokalnymi przy użyciu różnych technologii sieci VPN. Aby dowiedzieć się więcej na temat sieci wirtualnych platformy Azure, Zacznij od informacji tutaj: [Omówienie usługi azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -266,7 +266,7 @@ Adresy IP są podzielone przez **środowisko platformy Azure**. W przypadku zezw
 | Azure Government| USDoD wschód| 52.181.32.192|
 
 ## <a name="related-content"></a><a name="related-content"> </a>Powiązana zawartość
-* [Łączenie Virtual Network z zapleczem przy użyciu usługi VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
+* [Łączenie Virtual Network z zapleczem przy użyciu usługi VPN Gateway](../vpn-gateway/design.md#s2smulti)
 * [Łączenie Virtual Network z różnych modeli wdrażania](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Jak śledzić wywołania na platformie API Management Azure za pomocą Inspektora interfejsu API](api-management-howto-api-inspector.md)
 * [Virtual Network często zadawane pytania](../virtual-network/virtual-networks-faq.md)

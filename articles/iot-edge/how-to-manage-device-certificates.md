@@ -4,16 +4,16 @@ description: Utwórz certyfikaty testowe, zainstaluj je i zarządzaj nimi na urz
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/02/2020
+ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c18c3d560adb3c3cae54bda808ee5842c260fd6b
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: b13944e30c339357997fbc5f0919e5eb8485a0a9
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79539210"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84308782"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>Zarządzanie certyfikatami na urządzeniu IoT Edge
 
@@ -23,10 +23,10 @@ Wszystkie urządzenia IoT Edge używają certyfikatów do tworzenia bezpiecznych
 
 Podczas pierwszej instalacji IoT Edge i aprowizacji urządzenia urządzenie zostanie skonfigurowane z certyfikatami tymczasowymi, aby umożliwić przetestowanie usługi.
 Te certyfikaty tymczasowe wygasną przez 90 dni lub można je zresetować przez ponowne uruchomienie komputera.
-Gdy wszystko będzie gotowe do przeniesienia urządzeń do scenariusza produkcyjnego lub chcesz utworzyć scenariusz bramy, musisz podać własne certyfikaty.
+Gdy przejdziesz do scenariusza produkcyjnego lub chcesz utworzyć urządzenie bramy, musisz podać własne certyfikaty.
 W tym artykule przedstawiono procedurę instalowania certyfikatów na IoT Edge urządzeniach.
 
-Aby dowiedzieć się więcej o różnych typach certyfikatów i ich rolach w IoT Edge scenariuszu, zobacz [Opis sposobu, w jaki Azure IoT Edge używa certyfikatów](iot-edge-certs.md).
+Aby dowiedzieć się więcej o różnych typach certyfikatów i ich rolach, zobacz [Opis sposobu używania certyfikatów przez Azure IoT Edge](iot-edge-certs.md).
 
 >[!NOTE]
 >Termin "główny urząd certyfikacji" używany w tym artykule odnosi się do certyfikatu publicznego urzędu łańcucha certyfikatów dla rozwiązania IoT. Nie trzeba używać certyfikatu głównego urzędu certyfikacji z certyfikatem lub administratorem urzędu certyfikacji w organizacji. W wielu przypadkach jest to pośredni certyfikat publiczny urzędu certyfikacji.
@@ -69,24 +69,24 @@ Jeśli na przykład do [tworzenia certyfikatów demonstracyjnych](how-to-create-
    * Systemy`C:\ProgramData\iotedge\config.yaml`
    * System`/etc/iotedge/config.yaml`
 
-1. Ustaw właściwości **certyfikatu** w pliku config. YAML na pełną ścieżkę do certyfikatu i plików kluczy na urządzeniu IoT Edge. Usuń `#` znak przed właściwościami certyfikatu, aby usunąć komentarz z czterech wierszy. Upewnij się, że w wierszu **Certyfikaty:** nie ma powyższego odstępu, a elementy zagnieżdżone są wcięte o dwie spacje. Przykład:
+1. Ustaw właściwości **certyfikatu** w pliku config. YAML na ścieżkę identyfikatora URI, aby uzyskać certyfikat i pliki kluczy na urządzeniu IoT Edge. Usuń `#` znak przed właściwościami certyfikatu, aby usunąć komentarz z czterech wierszy. Upewnij się, że w wierszu **Certyfikaty:** nie ma powyższego odstępu, a elementy zagnieżdżone są wcięte o dwie spacje. Na przykład:
 
    * W systemie Windows:
 
       ```yaml
       certificates:
-        device_ca_cert: "c:\\<path>\\device-ca.cert.pem"
-        device_ca_pk: "c:\\<path>\\device-ca.key.pem"
-        trusted_ca_certs: "c:\\<path>\\root-ca.root.ca.cert.pem"
+        device_ca_cert: "file:///C:/<path>/<device CA cert>"
+        device_ca_pk: "file:///C:/<path>/<device CA key>"
+        trusted_ca_certs: "file:///C:/<path>/<root CA cert>"
       ```
 
    * W systemie Linux:
 
       ```yaml
       certificates:
-        device_ca_cert: "<path>/device-ca.cert.pem"
-        device_ca_pk: "<path>/device-ca.key.pem"
-        trusted_ca_certs: "<path>/root-ca.root.ca.cert.pem"
+        device_ca_cert: "file:///<path>/<device CA cert>"
+        device_ca_pk: "file:///<path>/<device CA key>"
+        trusted_ca_certs: "file:///<path>/<root CA cert>"
       ```
 
 1. Na urządzeniach z systemem Linux upewnij się, że użytkownik **iotedge** ma uprawnienia do odczytu w katalogu zawierającym certyfikaty.
@@ -127,7 +127,7 @@ Po określeniu flagi w pliku config. YAML wykonaj następujące czynności:
 
 1. Usuń zawartość `hsm` folderu.
 
-   System Windows `C:\ProgramData\iotedge\hsm\certs and C:\ProgramData\iotedge\hsm\cert_keys` : Linux:`/var/lib/iotedge/hsm/certs and /var/lib/iotedge/hsm/cert_keys`
+   System Windows: `C:\ProgramData\iotedge\hsm\certs and C:\ProgramData\iotedge\hsm\cert_keys` Linux:`/var/lib/iotedge/hsm/certs and /var/lib/iotedge/hsm/cert_keys`
 
 1. Uruchom ponownie usługę IoT Edge.
 

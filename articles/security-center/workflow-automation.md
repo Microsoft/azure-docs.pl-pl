@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 5d947cf41e13abdea9a2fd29f8a740d0c101dc6f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 9e905e78a835c833abe415d8b76c09ce672f849c
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80397910"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300118"
 ---
 # <a name="workflow-automation"></a>Automatyzacja przepływu pracy
 
@@ -25,15 +25,25 @@ W tym artykule opisano funkcję automatyzacji przepływu pracy Azure Security Ce
 > Jeśli wcześniej był używany widok elementy PlayBook (wersja zapoznawcza) na pasku bocznym, znajdziesz te same funkcje wraz z rozwiniętymi funkcjami na nowej stronie automatyzacji przepływu pracy.
 
 
-## <a name="requirements"></a>Wymagania
 
-* Aby można było korzystać z przepływów pracy Azure Logic Apps, musisz mieć następujące role/uprawnienia Logic Apps:
+## <a name="availability"></a>Dostępność
 
-    * Wymagane są uprawnienia [operatora aplikacji logiki](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) lub dostęp do odczytu/wyzwalacza aplikacji logiki (Ta rola nie może tworzyć ani edytować aplikacji logiki; można *uruchamiać* tylko istniejące)
+- Stan wydania: **ogólnie dostępny**
+- Wymagane role i uprawnienia:
+    - **Czytelnik** w subskrypcji zawierającej konfigurację eksportu
+    - **Rola administratora zabezpieczeń** w grupie zasobów (lub **właściciela**)
+    - Musi mieć również uprawnienia do zapisu dla zasobu docelowego
+    - Ponadto w celu pracy z przepływami pracy Azure Logic Apps należy mieć następujące role/uprawnienia Logic Apps:
 
-    * Uprawnienia [współautora aplikacji logiki](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) są wymagane do utworzenia i modyfikacji aplikacji logiki
+        * Wymagane są uprawnienia [operatora aplikacji logiki](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) lub dostęp do odczytu/wyzwalacza aplikacji logiki (Ta rola nie może tworzyć ani edytować aplikacji logiki; można *uruchamiać* tylko istniejące)
 
-* Jeśli chcesz używać łączników aplikacji logiki, możesz potrzebować dodatkowych poświadczeń, aby zalogować się do odpowiednich usług (na przykład wystąpień programu Outlook/zespołów/zapasowych).
+        * Uprawnienia [współautora aplikacji logiki](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) są wymagane do utworzenia i modyfikacji aplikacji logiki
+
+        * Jeśli chcesz używać łączników aplikacji logiki, możesz potrzebować dodatkowych poświadczeń, aby zalogować się do odpowiednich usług (na przykład wystąpień programu Outlook/zespołów/zapasowych).
+- Połączeń 
+    - ✔ Chmury komercyjne
+    - ✔ US Gov
+    - ✘ Chiński gov, inne gov
 
 
 ## <a name="create-a-logic-app-and-define-when-it-should-automatically-run"></a>Tworzenie aplikacji logiki i Definiowanie jej automatycznego uruchamiania 
@@ -77,7 +87,7 @@ W tym artykule opisano funkcję automatyzacji przepływu pracy Azure Security Ce
 
 1. Po zdefiniowaniu aplikacji logiki Wróć do okienka definicji automatyzacji przepływu pracy ("Dodaj automatyzację przepływu pracy"). Kliknij przycisk **Odśwież** , aby upewnić się, że nowa aplikacja logiki jest dostępna do wybrania.
 
-    ![Odświeżanie](media/workflow-automation/refresh-the-list-of-logic-apps.png)
+    ![Odśwież](media/workflow-automation/refresh-the-list-of-logic-apps.png)
 
 1. Wybierz aplikację logiki i Zapisz automatyzację. Należy pamiętać, że lista rozwijana aplikacji logiki zawiera tylko Logic Apps z obsługą łączników Security Center wymienionych powyżej.
 

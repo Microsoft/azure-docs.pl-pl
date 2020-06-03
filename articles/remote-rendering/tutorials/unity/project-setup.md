@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 01/30/2020
 ms.topic: tutorial
-ms.openlocfilehash: d68a3b1291d2e001c535a0c5a6b0c754c9d2b2e1
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 7901f12763cb97fa76c0908e76755247ae934a20
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84021351"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84300593"
 ---
 # <a name="tutorial-setting-up-a-unity-project-from-scratch"></a>Samouczek: Konfigurowanie projektu Unity od podstaw
 
@@ -31,7 +31,10 @@ W tym samouczku są potrzebne:
 
 * Informacje o koncie (Identyfikator konta, klucz konta, Identyfikator subskrypcji). Jeśli nie masz konta, [Utwórz konto](../../how-tos/create-an-account.md).
 * Windows SDK 10.0.18362.0 [(pobieranie)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
-* Najnowsza wersja programu Visual Studio 2019 [(pobieranie)](https://visualstudio.microsoft.com/vs/older-downloads/)
+* Najnowsza wersja programu Visual Studio 2019 [(Pobierz)](https://visualstudio.microsoft.com/vs/older-downloads/). 
+* [Visual Studio Tools dla rzeczywistości mieszanej](https://docs.microsoft.com/windows/mixed-reality/install-the-tools). W szczególnych przypadkach następujące instalacje *obciążenia* są obowiązkowe:
+  * **Programowanie aplikacji klasycznych w języku C++**
+  * **Programowanie platforma uniwersalna systemu Windows (platformy UWP)**
 * GIT [(pobieranie)](https://git-scm.com/downloads)
 * 2019.3.1 Unity [(pobieranie)](https://unity3d.com/get-unity/download)
   * Zainstaluj te moduły w aparacie Unity:
