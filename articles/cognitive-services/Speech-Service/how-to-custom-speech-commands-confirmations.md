@@ -1,7 +1,7 @@
 ---
-title: 'Instrukcje: Dodawanie potwierdzenia do polecenia niestandardowego (wersja zapoznawcza)'
+title: Dodawanie potwierdzeń w poleceniach niestandardowych podgląd aplikacji App-Speech Service
 titleSuffix: Azure Cognitive Services
-description: W tym artykule opisano sposób implementowania potwierdzeń dla polecenia w poleceniach niestandardowych.
+description: Dowiedz się, jak dodawać potwierdzenia do poleceń w aplikacji poleceń niestandardowych w wersji zapoznawczej.
 services: cognitive-services
 author: encorona-ms
 manager: yetian
@@ -10,40 +10,40 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/05/2019
 ms.author: encorona
-ms.openlocfilehash: bf1b79c1b5d7b9dfd93b354c6b6ff5a512bb74a5
-ms.sourcegitcommit: c535228f0b77eb7592697556b23c4e436ec29f96
+ms.openlocfilehash: 1cb0624012b22b6cae2c98bfa6ddc9495e09615d
+ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82858246"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84310472"
 ---
-# <a name="how-to-add-a-confirmation-to-a-custom-command-preview"></a>Instrukcje: Dodawanie potwierdzenia do polecenia niestandardowego (wersja zapoznawcza)
+# <a name="add-confirmations-to-a-command-in-a-custom-commands-preview-application"></a>Dodawanie potwierdzeń do polecenia w aplikacji polecenia niestandardowe w wersji zapoznawczej
 
-W tym artykule dowiesz się, jak dodać potwierdzenie do polecenia.
+Ten artykuł zawiera informacje na temat tworzenia potwierdzeń dla poleceń w aplikacji poleceń niestandardowych w wersji zapoznawczej.
 
 ## <a name="prerequisites"></a>Wymagania wstępne
 
-Należy wykonać czynności opisane w następujących artykułach:
+Wykonaj kroki opisane w następujących artykułach:
 > [!div class="checklist"]
-> *  [Szybki Start: Tworzenie polecenia niestandardowego (wersja zapoznawcza)](./quickstart-custom-speech-commands-create-new.md)
-> * [Szybki Start: Tworzenie polecenia niestandardowego z parametrami (wersja zapoznawcza)](./quickstart-custom-speech-commands-create-parameters.md)
+> * [Szybki Start: Tworzenie aplikacji niestandardowych poleceń w wersji zapoznawczej](./quickstart-custom-speech-commands-create-new.md)
+> * [Szybki Start: Tworzenie poleceń niestandardowych dla aplikacji w wersji zapoznawczej przy użyciu parametrów](./quickstart-custom-speech-commands-create-parameters.md)
 
 ## <a name="create-a-setalarm-command"></a>Utwórz polecenie setAlarm
 
-Aby przedstawić potwierdzenia, Utwórzmy nowe polecenie umożliwiające użytkownikowi ustawienie alarmu.
+Aby przedstawić potwierdzenia, Utwórz nowe polecenie, które ustawia alarm.
 
-1. Otwórz wcześniej utworzoną aplikację poleceń niestandardowych w programie [Speech Studio](https://speech.microsoft.com/).
-1. Utwórz nowe polecenie `SetAlarm`.
-1. Dodaj parametr o nazwie `DateTime` z następującą konfiguracją.
+1. W programie [Speech Studio](https://speech.microsoft.com/)Otwórz utworzoną przez siebie aplikację z poleceniami Custom Preview.
+1. Utwórz nowe polecenie **setAlarm** .
+1. Dodaj parametr **DateTime** o następującej konfiguracji:
 
    | Ustawienie                           | Sugerowana wartość                     |  Opis                 |
    | --------------------------------- | -----------------------------------------------------| ------------|
-   | Nazwa                              | DateTime                                | Nazwa opisowa parametru                                |
-   | Wymagany                          | checked                                 | Pole wyboru wskazujące, czy przed ukończeniem polecenia jest wymagana wartość tego parametru |
-   | Odpowiedź dotycząca wymaganego parametru   | Prosty edytor — > jaki czas?                              | Monit o podanie wartości tego parametru, gdy nie jest on znany |
-   | Typ                              | DateTime                                | Typ parametru, taki jak Number, String, Data Time lub geography   |
-   | Wartości domyślne daty                     | Jeśli brakuje daty, użyj dzisiaj            | Wartość domyślna zmiennej, która ma zostać użyta, jeśli nie została dostarczona przez użytkownika.  |  
-   | Ustawienia domyślne czasu                     | W przypadku braku czasu Użyj początku dnia     |  Wartość domyślna zmiennej, która ma zostać użyta, jeśli nie została dostarczona przez użytkownika.|
+   | **Nazwa**                              | **Data/godzina**                                | Nazwa opisowa parametru                                |
+   | **Wymagane**                          | Zaznaczono                                 | Pole wyboru wskazujące, czy wartość tego parametru jest wymagana przed ukończeniem polecenia |
+   | **Odpowiedź na wymagany parametr**   | **Prosty edytor — > jaki czas?**                              | Monit o podanie wartości tego parametru, gdy nie jest on znany |
+   | **Typ**                              | **Data/godzina**                                | Typ parametru, taki jak Number, String, DateTime lub geography   |
+   | **Wartości domyślne daty**                     | Jeśli brakuje daty, użyj dzisiejszej daty            | Wartość domyślna zmiennej, która ma zostać użyta, jeśli nie została dostarczona przez użytkownika  |  
+   | **Ustawienia domyślne czasu**                     | Jeśli brakuje czasu, użyj początku dnia     |  Wartość domyślna zmiennej, która ma zostać użyta, jeśli nie została podana przez użytkownika|
 
 1. Dodaj przykładowe zdania.
    
@@ -53,18 +53,18 @@ Aby przedstawić potwierdzenia, Utwórzmy nowe polecenie umożliwiające użytko
     alarm for {DateTime}
    ```
 
-1. Dodaj regułę uzupełniania, aby potwierdzić wynik.
+1. Dodaj regułę uzupełniania, aby potwierdzić wynik. Użyj następującej konfiguracji:
 
    | Ustawienie    | Sugerowana wartość                               |Opis                                     |
    | ---------- | ------------------------------------------------------- |-----|
-   | Nazwa reguły  | Ustaw alarm                                               |    Nazwa opisująca przeznaczenie reguły |
-   | Akcje    | Wyślij odpowiedź na mowę — OK, ustaw alarm dla {DateTime}    |Akcja, która ma zostać podjęta po spełnieniu warunku reguły
+   | **Nazwa reguły**  | **Ustaw alarm**                                               |    Nazwa opisująca przeznaczenie reguły |
+   | **Akcje**    | **Wyślij odpowiedź na mowę — > OK, ustawiono alarm dla {DateTime}**    |Akcja, która ma zostać podjęta po spełnieniu warunku reguły
 
 ## <a name="try-it-out"></a>Wypróbowywanie działania
 
-1. Wybierz `Train` ikonę znajdującą się w prawym okienku.
+1. Wybierz pozycję **uczenie** w górnej części okienka po prawej stronie.
 
-1. Po zakończeniu szkolenia wybierz pozycję `Test`.
+1. Po zakończeniu szkolenia wybierz pozycję **test**, a następnie spróbuj wykonać następujące interakcje:
     - Wejście: ustaw alarm dla jutro o południe
     - Wynik: OK, ustawiony alarm dla 2020-05-02 12:00:00
     - Dane wejściowe: ustaw alarm
@@ -72,57 +72,59 @@ Aby przedstawić potwierdzenia, Utwórzmy nowe polecenie umożliwiające użytko
     - Dane wejściowe: 17:00
     - Wynik: OK, ustawiony alarm dla 2020-05-01 17:00:00
 
-## <a name="add-the-advanced-rules-for-confirmation"></a>Dodaj zaawansowane reguły dla potwierdzenia
+## <a name="add-interaction-rules-for-the-confirmation"></a>Dodaj reguły interakcji dla potwierdzenia
 
-Potwierdzenia są osiągane przez dodanie reguły interakcji.
+Utwórz potwierdzenia, dodając reguły interakcji.
 
-1. W istniejącym `SetAlarm` poleceniu Dodaj **regułę interakcji** według ikony wyboru `+Add` w środkowym okienku, a następnie wybierając **pozycję Zasady** -> interakcji**Potwierdź polecenie**.
+1. W poleceniu **setAlarm** wybierz pozycję **Dodaj** w środkowym okienku, a następnie wybierz pozycję Potwierdź **reguły interakcji**  >  **polecenie**.
 
-    Ta reguła poprosiła użytkownika o potwierdzenie daty i godziny alarmu i oczekuje potwierdzenia (tak/nie) przy następnym włączeniu.
+    Ta reguła prosi użytkownika o potwierdzenie daty i godziny alarmu. Użyj następujących ustawień:
 
    | Ustawienie               | Sugerowana wartość                                                                  | Opis                                        |
    | --------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------- |
-   | Nazwa reguły             | Potwierdź datę i godzinę                                                                | Nazwa opisująca przeznaczenie reguły          |
-   | Warunki            | Wymagany parametr — > DateTime                                                    | Warunki określające, kiedy można uruchomić regułę    |   
-   | Akcje               | Wyślij odpowiedź na mowę — > czy na pewno chcesz ustawić alarm dla elementu {DateTime}?     | Akcja, która ma zostać podjęta po spełnieniu warunku reguły |
-   | Oczekiwania          | Oczekiwanie na potwierdzenie od użytkownika                                                 | Oczekiwanie na następne włączenie                      |
-   | Stan po wykonaniu  | Zaczekaj na dane wejściowe użytkownika                                                            | Stan dla użytkownika po włączeniu                  |
+   | **Nazwa reguły**             | **Potwierdź datę i godzinę**                                                                | Nazwa opisująca przeznaczenie reguły          |
+   | **Warunki**            | **Wymagany parametr — > DateTime**                                                    | Warunki określające, kiedy można uruchomić regułę    |   
+   | **Akcje**               | **Wyślij odpowiedź na mowę — > czy na pewno chcesz ustawić alarm dla elementu {DateTime}?**     | Akcja, która ma zostać podjęta po spełnieniu warunku reguły |
+   | **Oczekiwania**          | **Oczekiwanie na potwierdzenie od użytkownika**                                                 | Oczekiwanie na następne włączenie                      |
+   | **Stan po wykonaniu**  | **Zaczekaj na dane wejściowe użytkownika**                                                            | Stan dla użytkownika po włączeniu                  |
   
       > [!div class="mx-imgBorder"]
       > ![Utwórz wymaganą odpowiedź parametru](media/custom-speech-commands/add-validation-set-temperature.png)
 
-1. Dodaj kolejną regułę interakcji, aby obsłużyć pomyślne potwierdzenie (użytkownik ten ma wartość tak)
+1. Dodaj regułę interakcji dla zaakceptowanego potwierdzenia (użytkownik powiedział "yes"). Użyj następującej konfiguracji:
 
    | Ustawienie               | Sugerowana wartość                                                                  | Opis                                        |
    | --------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------- |
-   | Nazwa reguły             | Zaakceptowano potwierdzenie                                                            | Nazwa opisująca przeznaczenie reguły          |
-   | Warunki            | Potwierdzenie zakończyło się pomyślnie & wymaganego parametru — > DateTime                      | Warunki określające, kiedy można uruchomić regułę    |   
-   | Stan po wykonaniu | Wykonaj reguły uzupełniania                                                          | Stan użytkownika po włączeniu                   |
+   | **Nazwa reguły**             | **Zaakceptowano potwierdzenie**                                                            | Nazwa opisująca przeznaczenie reguły          |
+   | **Warunki**            | **Potwierdzenie zakończyło się pomyślnie & wymaganego parametru — > DateTime**                      | Warunki określające, kiedy można uruchomić regułę    |   
+   | **Stan po wykonaniu** | **Wykonaj reguły uzupełniania**                                                          | Stan użytkownika po włączeniu                   |
 
-1. Dodaj zaawansowaną regułę, aby obsłużyć potwierdzenie (nie dotyczy użytkownika)
+1. Dodaj regułę interakcji dla potwierdzenia odmowy (użytkownik powiedział "No"). Użyj następującej konfiguracji:
 
    | Ustawienie               | Sugerowana wartość                                                                  | Opis                                        |
    | --------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------- |
-   | Nazwa reguły             | Potwierdzenie odrzucenia                                                                   | Nazwa opisująca przeznaczenie reguły          |
-   | Warunki            | Odmowa potwierdzenia & wymaganego parametru — > DateTime                               | Warunki określające, kiedy można uruchomić regułę    |   
-   | Akcje               | Wyczyść wartość parametru-> DateTime & wysyłanie odpowiedzi na mowę — > nie masz problemu, co oznacza, że czas?  | Akcja, która ma zostać podjęta po spełnieniu warunku reguły |
-   | Stan po wykonaniu | Czekaj na dane wejściowe                                                                   | Stan użytkownika po włączeniu                   |
-   | Oczekiwania          | Oczekiwano parametrów wejściowych od użytkownika > DateTime                           | Oczekiwanie na następne włączenie                      |
+   | **Nazwa reguły**             | **Potwierdzenie odrzucenia**                                                                   | Nazwa opisująca przeznaczenie reguły          |
+   | **Warunki**            | **Odmowa potwierdzenia & wymaganego parametru — > DateTime**                               | Warunki określające, kiedy można uruchomić regułę    |   
+   | **Akcje**               | **Wyczyść wartość parametru-> DateTime & wysyłanie odpowiedzi na mowę — > nie masz problemu, co oznacza, że czas?**  | Akcja, która ma zostać podjęta po spełnieniu warunku reguły |
+   | **Stan po wykonaniu** | **Czekaj na dane wejściowe**                                                                   | Stan użytkownika po włączeniu                   |
+   | **Oczekiwania**          | **Oczekiwane dane wejściowe parametrów od użytkownika > DateTime**                           | Oczekiwanie na następne włączenie                      |
 
 ## <a name="try-out-the-changes"></a>Wypróbuj zmiany
 
-Wybierz `Train`pozycję Zaczekaj na zakończenie szkolenia `Test`i wybierz opcję.
+1. Wybierz pozycję **uczenie**.
 
-- Wejście: ustaw alarm dla jutro o południe
-- Wynik: czy na pewno chcesz ustawić alarm dla 2020-05-02 12:00:00?
-- Dane wejściowe: nie
-- Dane wyjściowe: nie ma problemu, co oznacza czas?
-- Dane wejściowe: 17:00
-- Wynik: "czy na pewno chcesz ustawić alarm dla 2020-05-01 17:00:00?"
-- Dane wejściowe: tak
-- Wynik: OK, ustawiony alarm dla 2020-05-01 17:00:00
+1. Po zakończeniu szkolenia wybierz pozycję **test**, a następnie spróbuj wykonać następujące interakcje:
+
+    - Wejście: ustaw alarm dla jutro o południe
+    - Wynik: czy na pewno chcesz ustawić alarm dla 2020-05-02 12:00:00?
+    - Dane wejściowe: nie
+    - Dane wyjściowe: nie ma problemu, co oznacza czas?
+    - Dane wejściowe: 17:00
+    - Wynik: "czy na pewno chcesz ustawić alarm dla 2020-05-01 17:00:00?"
+    - Dane wejściowe: tak
+    - Wynik: OK, ustawiony alarm dla 2020-05-01 17:00:00
 
 ## <a name="next-steps"></a>Następne kroki
 
 > [!div class="nextstepaction"]
-> [Instrukcje: Dodawanie korekty jednoetapowej do polecenia niestandardowego (wersja zapoznawcza)](./how-to-custom-speech-commands-one-step-correction.md)
+> [Dodawanie jednoetapowej korekty do polecenia w aplikacji polecenia niestandardowe w wersji zapoznawczej](./how-to-custom-speech-commands-one-step-correction.md)

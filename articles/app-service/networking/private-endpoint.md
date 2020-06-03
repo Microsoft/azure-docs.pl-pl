@@ -4,23 +4,24 @@ description: Połącz się prywatnie z aplikacją internetową przy użyciu pryw
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 05/25/2020
+ms.date: 06/02/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 2151b72e647726a075e11bbaea968ccf30cdc78a
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 15b3f2e48b78036c02ef86446f2ab920f22f7c76
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196394"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84295443"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Używanie prywatnych punktów końcowych dla usługi Azure Web App (wersja zapoznawcza)
 
 > [!Note]
 > Po odświeżeniu wersji zapoznawczej wydano funkcję ochrony danych eksfiltracji.
-> Wersja zapoznawcza jest dostępna w regionach Wschodnie stany USA i zachodnie stany USA 2 dla wszystkich PremiumV2 systemów Windows i Web Apps Linux oraz funkcji elastycznych w warstwie Premium. 
+>
+> Wersja zapoznawcza jest dostępna we wszystkich regionach publicznych dla PremiumV2 Windows i Linux Web Apps i elastycznych funkcji Premium. 
 
 Możesz użyć prywatnego punktu końcowego dla aplikacji sieci Web platformy Azure, aby umożliwić klientom znajdującym się w sieci prywatnej bezpieczny dostęp do aplikacji za pośrednictwem prywatnego linku. Prywatny punkt końcowy używa adresu IP z przestrzeni adresowej sieci wirtualnej platformy Azure. Ruch sieciowy między klientem w sieci prywatnej a aplikacją sieci Web przechodzi przez sieć wirtualną oraz prywatny link w sieci szkieletowej firmy Microsoft, eliminując ekspozycję z publicznego Internetu.
 

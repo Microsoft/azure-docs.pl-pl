@@ -181,7 +181,7 @@ Próba usunięcia grupy synchronizacji nie powiedzie się. Niektóre z następuj
     d. Kliknij prawym przyciskiem myszy usługę **SQL Data Sync** .  
     e. Jeśli usługa jest uruchomiona, Zatrzymaj ją.  
     f. Kliknij prawym przyciskiem myszy usługę, a następnie wybierz polecenie **Uruchom**.  
-    g. Sprawdź, czy baza danych jest nadal zarejestrowana. Jeśli nie jest już zarejestrowany, oznacza to, że wszystko jest gotowe. W przeciwnym razie przejdź do następnego kroku.
+    przykład Sprawdź, czy baza danych jest nadal zarejestrowana. Jeśli nie jest już zarejestrowany, oznacza to, że wszystko jest gotowe. W przeciwnym razie przejdź do następnego kroku.
   1. Otwórz aplikację agent klienta (SqlAzureDataSyncAgent).
   1. Wybierz pozycję **Edytuj poświadczenia**, a następnie wprowadź poświadczenia dla bazy danych.
   1. Kontynuuj wyrejestrowywanie.

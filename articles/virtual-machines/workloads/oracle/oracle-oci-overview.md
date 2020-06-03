@@ -11,15 +11,15 @@ ms.service: virtual-machines
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/12/2020
+ms.date: 06/01/2020
 ms.author: borisb
 ms.custom: ''
-ms.openlocfilehash: 077fd70f0908dcef3af0c1e037fe137d636a4ac4
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 9fc14a6a8211308ef9f1cd98cd4b831070a99e22
+ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83660565"
+ms.lasthandoff: 06/02/2020
+ms.locfileid: "84299880"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure"></a>Rozwiązania aplikacji Oracle integrujące Microsoft Azure i infrastrukturę chmurową Oracle
 
@@ -35,10 +35,7 @@ Jeśli interesuje się wdrażanie rozwiązań Oracle w całości w infrastruktur
 
 Łączność między chmurami zapewnia rozwiązanie umożliwiające uruchamianie aplikacji wiodących w branży firmy Oracle oraz własnych aplikacji niestandardowych na maszynach wirtualnych platformy Azure, a jednocześnie korzysta z zalet hostowanych usług bazy danych w systemie OCI. 
 
-> [!IMPORTANT]
-> Firma Oracle poświadczy te aplikacje do uruchamiania na platformie Azure w przypadku korzystania z rozwiązania Azure Cloud Interconnect w chmurze na 2020.
-
-Aplikacje, które można uruchomić w konfiguracji obejmującej wiele chmur, obejmują:
+Od maja 2020 następujące aplikacje są certyfikowane w konfiguracji obejmującej wiele chmur:
 
 * Pakiet E-Business
 * JD Edwards EnterpriseOne
