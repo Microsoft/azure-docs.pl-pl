@@ -69,6 +69,8 @@
       items:
         - name: Diagnostyka rozruchu
           href: boot-diagnostics.md
+        - name: Błąd rozruchu — wystąpił błąd odczytu z dysku
+          href: boot-error-disk-read-error-occurred.md
         - name: Błędy funkcji BitLocker
           href: troubleshoot-bitlocker-boot-error.md
         - name: Błędy z błękitnym ekranem

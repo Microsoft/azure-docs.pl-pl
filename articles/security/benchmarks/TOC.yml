@@ -41,6 +41,8 @@
       href: ../../backup/security-baseline.md
     - name: Punkt odniesienia zabezpieczeń usługi Batch
       href: ../../batch/security-baseline.md
+    - name: Linia bazowa zabezpieczeń usługi Container Instances
+      href: ../../container-instances/security-baseline.md
     - name: Linia bazowa zabezpieczeń usługi Container Registry
       href: ../../container-registry/security-baseline.md
     - name: Linia bazowa zabezpieczeń usługi Cosmos DB

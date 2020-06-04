@@ -952,8 +952,10 @@
               href: configure-raid.md
             - name: Konfigurowanie maszyny wirtualnej z systemem Linux
               href: configure-lvm.md
-        - name: Znajdowanie niedołączonych dysków
+        - name: Znajdowanie niedołączonych dysków — interfejs wiersza polecenia
           href: find-unattached-disks.md
+        - name: Znajdowanie niedołączonych dysków — portal
+          href: ../disks-find-unattached-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Korzystanie z usługi File Storage
           href: mount-azure-file-storage-on-linux-using-smb.md
         - name: Często zadawane pytania dotyczące dysków

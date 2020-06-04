@@ -73,8 +73,8 @@
               href: how-dev-spaces-works-routing.md
             - name: Debugowanie zdalne
               href: how-dev-spaces-works-remote-debugging.md
-            - name: Łączenie komputera programistycznego z usługą AKS
-              href: how-dev-spaces-works-connect.md
+            - name: Proces lokalny z usługą Kubernetes
+              href: how-dev-spaces-works-local-process-kubernetes.md
         - name: Jak program VS Code współdziała z usługą Dev Spaces
           href: how-vs-code-works-with-dev-spaces.md
         - name: Konfiguracja sieci w różnych topologiach sieci
@@ -111,8 +111,10 @@
           href: how-to/ingress-https-traefik.md
         - name: Używanie serwera NGINX na potrzeby niestandardowego ruchu przychodzącego i ruchu HTTPS
           href: how-to/ingress-https-nginx.md
-        - name: Łączenie komputera programistycznego z klastrem AKS (wersja zapoznawcza)
-          href: how-to/connect.md
+        - name: Używanie procesu lokalnego w usłudze Kubernetes z programem Visual Studio Code (wersja zapoznawcza)
+          href: how-to/local-process-kubernetes-vs-code.md
+        - name: Używanie procesu lokalnego w usłudze Kubernetes z programem Visual Studio (wersja zapoznawcza)
+          href: how-to/local-process-kubernetes-visual-studio.md
     - name: Rozwiązywanie problemów
       href: troubleshooting.md
     - name: Często zadawane pytania

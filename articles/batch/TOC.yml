@@ -129,6 +129,8 @@
           href: batch-custom-images.md
         - name: Tworzenie puli w sieci wirtualnej
           href: batch-virtual-network.md
+        - name: Tworzenie puli z publicznymi adresami IP
+          href: create-pool-public-ip.md
         - name: Instalowanie wirtualnego systemu plików
           href: virtual-file-mount.md
         - name: Instalowanie udziału plików platformy Azure

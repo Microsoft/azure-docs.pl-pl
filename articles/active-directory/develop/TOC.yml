@@ -548,6 +548,9 @@
               href: msal-js-pass-custom-state-authentication-request.md
             - name: Zachowanie monitu
               href: msal-js-prompt-behavior.md
+            - name: Migrowanie aplikacji SPA z przepływu niejawnego do kodu uwierzytelniania
+              href: migrate-spa-implicit-to-auth-code.md
+              displayName: 'authorization, single-page app, 2.0'
         - name: Biblioteka MSAL dla systemów iOS i macOS
           items:
             - name: Różnice w bibliotece MSAL dla systemów iOS i macOS

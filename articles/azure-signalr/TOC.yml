@@ -29,7 +29,7 @@
       items:
         - name: Monitorowanie usługi SignalR Service przy użyciu dzienników diagnostycznych
           href: signalr-tutorial-diagnostic-logs.md
-- name: Przykłady
+- name: Samples
   items:
     - name: Przykłady kodu
       href: 'https://github.com/aspnet/AzureSignalR-samples'
@@ -57,7 +57,7 @@
       href: signalr-concept-messages-and-connections.md
     - name: Zagadnienia dotyczące wydajności
       href: signalr-concept-performance.md
-    - name: Uwierzytelnianie
+    - name: Authentication
       href: signalr-concept-authenticate-oauth.md
     - name: Obsługa zdarzeń
       href: signalr-concept-event-grid-integration.md
@@ -73,6 +73,12 @@
       items:
         - name: Wymiana kluczy dostępu
           href: signalr-howto-key-rotation.md
+        - name: Używanie tagów usługi platformy Azure
+          href: howto-service-tags.md
+        - name: Używanie prywatnych punktów końcowych platformy Azure
+          href: howto-private-endpoints.md
+        - name: Zarządzanie kontrolą dostępu do sieci
+          href: howto-network-access-control.md
     - name: Integracja
       items:
         - name: Powiązania usługi Azure Functions
@@ -105,7 +111,7 @@
       href: signalr-resource-faq.md
     - name: Limity poziomów subskrypcji usługi SignalR Service
       href: 'https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#signalr-service-limits'
-    - name: Ceny
+    - name: Cennik
       href: 'https://azure.microsoft.com/pricing/details/signalr-service/'
     - name: Filmy wideo
       href: 'https://www.youtube.com/results?search_query=Azure+SignalR+Core'

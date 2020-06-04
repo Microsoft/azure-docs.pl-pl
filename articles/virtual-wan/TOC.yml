@@ -48,8 +48,6 @@
       href: upgrade-virtual-wan.md
     - name: Konfigurowanie niestandardowych zasad protokołu IPsec
       href: virtual-wan-custom-ipsec-portal.md
-    - name: Instalowanie usługi Azure Firewall w centrum
-      href: howto-firewall.md
     - name: ExpressRoute
       items:
         - name: Tworzenie połączenia usługi ExpressRoute
@@ -60,6 +58,8 @@
       items:
         - name: Tworzenie połączenia typu lokacja-lokacja
           href: virtual-wan-site-to-site-portal.md
+        - name: Wiele linków usługodawców internetowych — wybór ścieżki platformy Azure
+          href: path-selection-multiple-links.md
     - name: Sieć VPN użytkownika (punkt-lokacja)
       items:
         - name: Tworzenie połączenia sieci VPN użytkownika
@@ -86,8 +86,6 @@
           href: openvpn-azure-ad-client.md
         - name: Konfigurowanie uwierzytelniania w usłudze Azure AD dla wielu aplikacji
           href: openvpn-azure-ad-tenant-multi-app.md
-        - name: Instalowanie usługi Azure Firewall w centrum
-          href: howto-firewall.md
     - name: Routing
       items:
         - name: Kierowanie ruchem z koncentratora wirtualnego do wirtualnego urządzenia sieciowego
@@ -98,12 +96,14 @@
               href: virtual-wan-route-table.md
         - name: Wyświetlanie obowiązujących tras koncentratora wirtualnego
           href: effective-routes-virtual-hub.md
-        - name: Wiele linków usługodawców internetowych — wybór ścieżki platformy Azure
-          href: path-selection-multiple-links.md
     - name: Zabezpieczenia
       items:
         - name: Instalowanie usługi Azure Firewall w centrum
           href: howto-firewall.md
+    - name: Monitorowanie
+      items:
+        - name: Dzienniki i metryki
+          href: logs-metrics.md
 - name: Dokumentacja
   items:
     - name: Azure PowerShell

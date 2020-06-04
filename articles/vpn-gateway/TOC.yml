@@ -24,6 +24,8 @@
           href: work-remotely-support.md
         - name: Konfiguracje wniosku NVA i pracy zdalnej
           href: nva-work-remotely-support.md
+    - name: Projekt usługi VPN Gateway — informacje
+      href: design.md
     - name: Informacje na temat ustawień usługi VPN Gateway
       href: vpn-gateway-about-vpn-gateway-settings.md
     - name: Urządzeniach sieci VPN — informacje

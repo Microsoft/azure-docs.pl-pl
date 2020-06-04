@@ -860,8 +860,10 @@
               href: disks-enable-ultra-ssd.md
             - name: Test porównawczy dysku
               href: disks-benchmarks.md
-        - name: Znajdowanie niedołączonych dysków
+        - name: Znajdowanie niedołączonych dysków — PowerShell
           href: find-unattached-disks.md
+        - name: Znajdowanie niedołączonych dysków — portal
+          href: ../disks-find-unattached-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Często zadawane pytania dotyczące dysków
           href: faq-for-disks.md
     - name: Zarządzanie siecią

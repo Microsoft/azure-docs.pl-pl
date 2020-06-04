@@ -11,7 +11,8 @@
       href: create-member.md
     - name: Tworzenie elementu członkowskiego przy użyciu interfejsu wiersza polecenia
       href: create-member-cli.md
-    - name: Tworzenie elementu członkowskiego przy użyciu szablonu
+    - name: Tworzenie elementu członkowskiego przy użyciu szablonu usługi Resource Manager
+      displayName: Resource Manager
       href: create-member-template.md
     - name: Łączenie z węzłem transakcji
       items:
