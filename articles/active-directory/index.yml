@@ -12,12 +12,12 @@ metadata:
   ms.author: mtillman
   manager: daveba
   ms.date: 05/29/2020
-  ms.openlocfilehash: e5567804ec64fd4c1399bc3c978287ddec9817ce
-  ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+  ms.openlocfilehash: b60e20bdb5dcb35cdeadb6f8d1b6862192a0916a
+  ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
   ms.translationtype: HT
   ms.contentlocale: pl-PL
-  ms.lasthandoff: 05/31/2020
-  ms.locfileid: "84233948"
+  ms.lasthandoff: 06/03/2020
+  ms.locfileid: "84345210"
 highlightedContent:
   items:
   - title: Co to jest Azure AD?
@@ -45,9 +45,9 @@ conceptualContent:
     - url: ./manage-apps/what-is-single-sign-on.md
       itemType: concept
       text: Co to jest logowanie jednokrotne?
-    - url: ./manage-apps/user-provisioning.md
-      itemType: tutorial
-      text: Automatyczna aprowizacja użytkowników
+    - url: ./manage-apps/configure-single-sign-on-non-gallery-applications.md
+      itemType: concept
+      text: Konfigurowanie logowania jednokrotnego opartego na protokole SAML
     - url: ./manage-apps/application-proxy.md
       itemType: concept
       text: Serwer proxy aplikacji dla aplikacji lokalnych

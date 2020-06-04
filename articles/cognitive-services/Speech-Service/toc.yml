@@ -24,7 +24,7 @@
           href: batch-transcription.md
         - name: Podstawy rozpoznawania mowy
           href: speech-to-text-basics.md
-    - name: Szybki start
+    - name: Przewodniki Szybki start
       items:
         - name: Rozpoznawanie mowy z danych wejściowych mikrofonu
           href: quickstarts/speech-to-text-from-microphone.md
@@ -32,6 +32,8 @@
           href: quickstarts/speech-to-text-from-file.md
         - name: Rozpoznawanie mowy przechowywanej w usłudze Blob Storage
           href: quickstarts/from-blob.md
+        - name: Testowanie modelu przy użyciu plików audio w programie Speech Studio
+          href: quickstarts/speech-studio-test-model.md
     - name: Przewodniki z instrukcjami
       items:
         - name: Wybór trybu rozpoznawania mowy

@@ -123,6 +123,8 @@
               href: backup-azure-linux-app-consistent.md
         - name: Przywracanie
           items:
+            - name: Informacje o przywracaniu maszyny wirtualnej platformy Azure
+              href: about-azure-vm-restore.md
             - name: Przywracanie maszyn wirtualnych platformy Azure w portalu
               href: backup-azure-arm-restore-vms.md
             - name: Odzyskiwanie plików z kopii zapasowych maszyn wirtualnych platformy Azure

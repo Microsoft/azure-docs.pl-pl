@@ -1081,20 +1081,6 @@
               href: platform/view-designer-parts.md
             - name: Filtry
               href: platform/view-designer-filters.md
-        - name: Niestandardowe rozwiązania
-          items:
-            - name: Projektowanie i tworzenie
-              href: insights/solutions-creating.md
-            - name: Plik rozwiązania
-              href: insights/solutions-solution-file.md
-            - name: Zasoby automatyzacji
-              href: insights/solutions-resources-automation.md
-            - name: Wyszukiwania w dzienniku i alerty
-              href: insights/solutions-resources-searches-alerts.md
-            - name: Widoki
-              href: insights/solutions-resources-views.md
-            - name: Najlepsze rozwiązania
-              href: insights/solutions-best-practices.md
     - name: Skoroszyty
       items:
         - name: Omówienie

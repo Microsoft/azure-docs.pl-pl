@@ -1188,6 +1188,8 @@
             - name: Ustawienia trasy zdefiniowane przez użytkownika
               href: /azure/databricks/administration-guide/cloud-configurations/azure/udr
               maintainContext: true
+            - name: Adresy IP bazy danych MySQL
+              href: mysql-ip-address.md
     - name: Rozwiązywanie problemów
       items:
         - name: Często zadawane pytania
