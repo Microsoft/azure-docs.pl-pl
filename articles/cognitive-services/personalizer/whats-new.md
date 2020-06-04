@@ -7,21 +7,21 @@ manager: nitinme
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 04/23/2020
 ms.author: diberry
-ms.openlocfilehash: 0c52771573c1df6a7a0efefbf950e88e1f1728f7
-ms.sourcegitcommit: cf7caaf1e42f1420e1491e3616cc989d504f0902
+ms.openlocfilehash: 55153cc7fc125c97a5b73084f83dd320240ca256
+ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83800626"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84342117"
 ---
 # <a name="whats-new-in-personalizer"></a>Co nowego w programie Personalizacja
 
 Dowiedz się, co nowego w usłudze. Te elementy mogą zawierać informacje o wersji, klipy wideo, wpisy w blogu i inne typy informacji. Oznacz Tę stronę zakładką, aby zapewnić aktualność usługi.
 
-## <a name="release-notes"></a>Informacje o wersji
+## <a name="release-notes"></a>Uwagi do wersji
 
 ### <a name="may-2020---build-conference"></a>2020 — Konferencja Build
 

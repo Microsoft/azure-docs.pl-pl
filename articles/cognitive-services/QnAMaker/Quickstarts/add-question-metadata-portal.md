@@ -3,16 +3,16 @@ title: 'Szybki Start: dodawanie pytań i odpowiedzi w portalu QnA Maker'
 description: W tym przewodniku szybki start pokazano, jak dodać pary pytań i odpowiedzi za pomocą metadanych, aby użytkownicy mogli znaleźć odpowiednią odpowiedź na pytanie.
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: e35f7437f0028fedffea7cbcb6216fb7e1fad1f8
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: a832d9f421d3a1851401c286f129e29d0196ec99
+ms.sourcegitcommit: 79508e58c1f5c58554378497150ffd757d183f30
 ms.translationtype: MT
 ms.contentlocale: pl-PL
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266580"
+ms.lasthandoff: 06/03/2020
+ms.locfileid: "84331393"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Szybki Start: dodawanie pytań i odpowiedzi za pomocą portalu QnA Maker
 
-Po utworzeniu bazy wiedzy Dodaj pary pytań i odpowiedzi (QnA) z metadanymi, aby odfiltrować odpowiedź. Pytania zawarte w poniższej tabeli dotyczą limitów usługi platformy Azure, ale każdy z nich musi wykonać inną usługę platformy Azure.
+Po utworzeniu bazy wiedzy Dodaj pary pytań i odpowiedzi (QnA) z metadanymi, aby odfiltrować odpowiedź. Pytania zawarte w poniższej tabeli dotyczą limitów usługi platformy Azure, ale każdy z nich musi wykonać inną usługę Azure Search.
 
 <a name="qna-table"></a>
 
